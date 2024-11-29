@@ -1,7 +1,9 @@
 import clsx from 'clsx';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FaCheck } from 'react-icons/fa6';
 import type Stripe from 'stripe';
+
+import { trpc } from '~/hooks/trpc';
 
 import FeedbackDialog from '~/components/global/feedback/FeedbackDialog';
 import { useUserPreferences } from '~/components/global/UserPreferencesProvider';
@@ -25,28 +27,59 @@ type Props = Readonly<{
     declineCode_DO_NOT_DISPLAY_TO_USER: string | undefined;
     message: string | undefined;
   }> | null;
-  onClose?: (failureReason: string | null) => void;
+  onClose?: (errorCode: string | null) => void;
 }>;
 
 export default function InterviewsPaymentFailureDialog({
+  isShown,
   lastPaymentError,
   onClose,
-  isShown,
 }: Props) {
   const intl = useIntl();
   const { setShowFeedbackWidget } = useUserPreferences();
   const [isOpenFeedback, setIsOpenFeedback] = useState(false);
-
-  const error = getPaymentErrorAndSteps(
-    lastPaymentError?.declineCode_DO_NOT_DISPLAY_TO_USER ||
-      lastPaymentError?.code ||
-      '',
+  const billingPortalMutation = trpc.purchases.billingPortal.useMutation();
+  const [billingPortalHref, setBillingPortalHref] = useState<string | null>(
+    null,
   );
+  const [clickedOnBillingPortalLink, setClickedOnBillingPortalLink] =
+    useState(false);
+
+  async function generateBillingPortalLink() {
+    const billingPortalUrl = await billingPortalMutation.mutateAsync({
+      returnUrl: window.location.href,
+    });
+
+    setBillingPortalHref(billingPortalUrl);
+    if (clickedOnBillingPortalLink) {
+      window.open(billingPortalUrl, '_blank');
+    }
+  }
+
+  useEffect(() => {
+    generateBillingPortalLink();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const normalizedErrorCode =
+    lastPaymentError?.declineCode_DO_NOT_DISPLAY_TO_USER ??
+    lastPaymentError?.code ??
+    null;
+
+  const errorForDisplay = getPaymentErrorAndSteps(
+    normalizedErrorCode,
+    billingPortalHref,
+    () => setClickedOnBillingPortalLink(true),
+  );
+
+  function onCloseImpl() {
+    onClose?.(normalizedErrorCode);
+  }
 
   return (
     <Dialog
       bottomContents={
-        <Text color="subtle" size="body3">
+        <Text className="block" color="subtle" size="body3">
           <FormattedMessage
             defaultMessage="If these steps do not resolve the issue, please contact our support team at <link>support@greatfrontend.com</link> or through the <feedback>feedback widget</feedback>."
             description="Bottom content for payment failure dialog"
@@ -72,13 +105,7 @@ export default function InterviewsPaymentFailureDialog({
           })}
           size="md"
           variant="primary"
-          onClick={() =>
-            onClose?.(
-              lastPaymentError?.declineCode_DO_NOT_DISPLAY_TO_USER ||
-                lastPaymentError?.code ||
-                null,
-            )
-          }
+          onClick={onCloseImpl}
         />
       }
       title={intl.formatMessage({
@@ -87,16 +114,10 @@ export default function InterviewsPaymentFailureDialog({
         id: 'pg9g+C',
       })}
       width="screen-lg"
-      onClose={() =>
-        onClose?.(
-          lastPaymentError?.declineCode_DO_NOT_DISPLAY_TO_USER ||
-            lastPaymentError?.code ||
-            null,
-        )
-      }>
+      onClose={onCloseImpl}>
       <div className="mt-3.5 flex w-full flex-col gap-10">
         <Text color="subtitle" size="body2">
-          {error.message && lastPaymentError?.code ? (
+          {errorForDisplay.message && errorForDisplay.code ? (
             <FormattedMessage
               defaultMessage="Your recent attempt to pay on GreatFrontEnd has failed with the following reason:"
               description="Description for payment failure dialog"
@@ -104,13 +125,13 @@ export default function InterviewsPaymentFailureDialog({
             />
           ) : (
             <FormattedMessage
-              defaultMessage="We noticed that your attempt to pay on GreatFrontEnd has failed. Here are some actions that may help:"
+              defaultMessage="We noticed that your recent attempt to pay on GreatFrontEnd has failed. Here are some actions that may help:"
               description="Description for payment failure dialog"
-              id="cf4ZZE"
+              id="okTd78"
             />
           )}
         </Text>
-        {error.message && lastPaymentError?.code && (
+        {errorForDisplay.message && errorForDisplay.code && (
           <div
             className={clsx(
               'flex flex-col items-start gap-2',
@@ -124,17 +145,17 @@ export default function InterviewsPaymentFailureDialog({
             )}>
             <Badge
               className="font-mono"
-              label={lastPaymentError.code}
+              label={errorForDisplay.code}
               size="sm"
               variant="neutral"
             />
             <Text size="body2" weight="bold">
-              {error.message}
+              {errorForDisplay.message}
             </Text>
           </div>
         )}
         <ul className="flex max-w-2xl flex-col gap-4">
-          {error.steps.map(({ key, label }) => (
+          {errorForDisplay.steps.map(({ key, label }) => (
             <li key={key} className="flex items-center gap-3">
               <FaCheck
                 className={clsx('size-4 shrink-0', themeTextSuccessColor)}
@@ -157,7 +178,10 @@ export default function InterviewsPaymentFailureDialog({
   );
 }
 
-function getPaymentFailureReasonsMessage() {
+function paymentFailureReasonsMessages(
+  billingPortalHref: string | null,
+  onClickBillingPortalLink: () => void,
+) {
   return {
     'contact-bank': {
       key: 'contact-bank',
@@ -193,11 +217,20 @@ function getPaymentFailureReasonsMessage() {
       key: 'other-reason',
       label: (
         <FormattedMessage
-          defaultMessage="If the payment still doesn't succeed, go to the <link>Customer Portal from the Billing page</link> and delete any cards that have been added. Then try paying again."
+          defaultMessage="If the payment still doesn't succeed, go to the <link>Stripe Customer Portal</link>, delete any cards that have been added, then try paying again."
           description="Reason label for other reason"
-          id="ObnlA+"
+          id="PJcH+M"
           values={{
-            link: (chunk) => <Anchor href="/profile/billing">{chunk}</Anchor>,
+            link: (chunk) => (
+              <Anchor
+                href={billingPortalHref ?? undefined}
+                target="_blank"
+                onClick={() => {
+                  onClickBillingPortalLink();
+                }}>
+                {chunk}
+              </Anchor>
+            ),
           }}
         />
       ),
@@ -215,15 +248,24 @@ function getPaymentFailureReasonsMessage() {
   };
 }
 
-function getPaymentErrorAndSteps(errorCode: string): Readonly<{
+function getPaymentErrorAndSteps(
+  errorCode: string | null,
+  billingPortalHref: string | null,
+  onClickBillingPortalLink: () => void,
+): Readonly<{
+  code: string;
   message: JSX.Element | string;
   steps: ReadonlyArray<{ key: string; label: JSX.Element }>;
 }> {
-  const reasons = getPaymentFailureReasonsMessage();
+  const reasons = paymentFailureReasonsMessages(
+    billingPortalHref,
+    onClickBillingPortalLink,
+  );
 
   switch (errorCode) {
     case 'card_velocity_exceeded':
       return {
+        code: errorCode,
         message: (
           <FormattedMessage
             defaultMessage="The card has reached its limit for the number of allowed transactions in a given timeframe, as defined by the issuer."
@@ -267,6 +309,7 @@ function getPaymentErrorAndSteps(errorCode: string): Readonly<{
       };
     case 'currency_not_supported':
       return {
+        code: errorCode,
         message: (
           <FormattedMessage
             defaultMessage="The card does not support transactions in the currency used."
@@ -308,9 +351,9 @@ function getPaymentErrorAndSteps(errorCode: string): Readonly<{
           reasons['other-reason'],
         ],
       };
-
     case 'expired_card':
       return {
+        code: errorCode,
         message: (
           <FormattedMessage
             defaultMessage="The card has expired, and the transaction cannot be processed."
@@ -342,27 +385,9 @@ function getPaymentErrorAndSteps(errorCode: string): Readonly<{
           reasons['other-reason'],
         ],
       };
-
-    case 'generic_decline':
-      return {
-        message: (
-          <FormattedMessage
-            defaultMessage="The card was declined, but no specific reason was given by the card issuer."
-            description="Decline message for generic decline"
-            id="PDOWFg"
-          />
-        ),
-        steps: [
-          reasons['insufficient-balance'],
-          reasons['international-online-payment'],
-          reasons['contact-bank'],
-          reasons['retry-payment'],
-          reasons['other-reason'],
-        ],
-      };
-
     case 'incorrect_cvc':
       return {
+        code: errorCode,
         message: (
           <FormattedMessage
             defaultMessage="The CVC (Card Verification Code) provided is incorrect."
@@ -396,6 +421,7 @@ function getPaymentErrorAndSteps(errorCode: string): Readonly<{
       };
     case 'insufficient_funds':
       return {
+        code: errorCode,
         message: (
           <FormattedMessage
             defaultMessage="The card does not have enough funds available to complete the transaction."
@@ -429,6 +455,7 @@ function getPaymentErrorAndSteps(errorCode: string): Readonly<{
       };
     case 'invalid_account':
       return {
+        code: errorCode,
         message: (
           <FormattedMessage
             defaultMessage="The account linked to the card is invalid, possibly closed or inactivated."
@@ -460,41 +487,9 @@ function getPaymentErrorAndSteps(errorCode: string): Readonly<{
           reasons['other-reason'],
         ],
       };
-    case 'invalid_amount':
-      return {
-        message: (
-          <FormattedMessage
-            defaultMessage="The transaction amount is invalid, which might be due to the amount being too low or incorrect formatting."
-            description="Decline message for invalid amount"
-            id="o26OYL"
-          />
-        ),
-        steps: [
-          {
-            key: 'verify-amount',
-            label: (
-              <FormattedMessage
-                defaultMessage="Verify that the amount entered is correct and meets the minimum transaction requirement."
-                description="Reason label for verify amount"
-                id="aVN/XP"
-              />
-            ),
-          },
-          {
-            key: 'adjust-amount',
-            label: (
-              <FormattedMessage
-                defaultMessage="Adjust the transaction amount if needed and try again."
-                description="Reason label for adjust amount"
-                id="97cePL"
-              />
-            ),
-          },
-          reasons['other-reason'],
-        ],
-      };
     case 'invalid_cvc':
       return {
+        code: errorCode,
         message: (
           <FormattedMessage
             defaultMessage="The provided CVC code is invalid, which could indicate a typo or an incorrect code for the card used."
@@ -526,41 +521,9 @@ function getPaymentErrorAndSteps(errorCode: string): Readonly<{
           reasons['other-reason'],
         ],
       };
-    case 'lost_card':
-      return {
-        message: (
-          <FormattedMessage
-            defaultMessage="The card has been reported as lost, and the issuer has blocked all transactions."
-            description="Decline message for lost card"
-            id="wUDPNG"
-          />
-        ),
-        steps: [
-          {
-            key: 'different-card-lost-card',
-            label: (
-              <FormattedMessage
-                defaultMessage="Use a different card, as this one has been reported as lost."
-                description="Reason label for different card"
-                id="zRnkGf"
-              />
-            ),
-          },
-          {
-            key: 'contact-bank-lost-card',
-            label: (
-              <FormattedMessage
-                defaultMessage="Contact your bank to get a new card issued."
-                description="Reason label for contact bank"
-                id="hURbkG"
-              />
-            ),
-          },
-          reasons['other-reason'],
-        ],
-      };
     case 'processing_error':
       return {
+        code: errorCode,
         message: (
           <FormattedMessage
             defaultMessage="There was a problem processing the transaction, possibly a temporary issue."
@@ -602,42 +565,17 @@ function getPaymentErrorAndSteps(errorCode: string): Readonly<{
           reasons['other-reason'],
         ],
       };
-    case 'stolen_card':
-      return {
-        message: (
-          <FormattedMessage
-            defaultMessage="The card has been reported as stolen, and the issuer has blocked all transactions."
-            description="Decline message for lost card"
-            id="042orS"
-          />
-        ),
-        steps: [
-          {
-            key: 'different-card-stolen-card',
-            label: (
-              <FormattedMessage
-                defaultMessage="Use a different card, as this one has been reported as stolen."
-                description="Reason label for different card"
-                id="bpZ6V4"
-              />
-            ),
-          },
-          {
-            key: 'contact-bank-stolen-card',
-            label: (
-              <FormattedMessage
-                defaultMessage="Contact your bank to get a replacement card issued."
-                description="Reason label for contact bank"
-                id="nZdU0v"
-              />
-            ),
-          },
-          reasons['other-reason'],
-        ],
-      };
+    case 'generic_decline':
     default:
       return {
-        message: '',
+        code: 'card_declined',
+        message: (
+          <FormattedMessage
+            defaultMessage="The card was declined, but no specific reason was given by the card issuer."
+            description="Decline message for generic decline"
+            id="PDOWFg"
+          />
+        ),
         steps: [
           reasons['insufficient-balance'],
           reasons['international-online-payment'],

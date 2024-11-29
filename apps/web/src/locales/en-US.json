@@ -335,10 +335,6 @@
     "defaultMessage": "Filter by component track",
     "description": "Tooltip for Component track filter for projects list"
   },
-  "042orS": {
-    "defaultMessage": "The card has been reported as stolen, and the issuer has blocked all transactions.",
-    "description": "Decline message for lost card"
-  },
   "04Q6JH": {
     "defaultMessage": "TypeScript supported",
     "description": "JavaScript questions can be done in TypeScript"
@@ -1646,10 +1642,6 @@
   "95Is5V": {
     "defaultMessage": "Quickly convert challenge designs into HTML, CSS, and Tailwind code by using our <link>Figma to Code plugin</link>.",
     "description": "Use the Figma to code plugin"
-  },
-  "97cePL": {
-    "defaultMessage": "Adjust the transaction amount if needed and try again.",
-    "description": "Reason label for adjust amount"
   },
   "99Ewym": {
     "defaultMessage": "Introduction",
@@ -3903,10 +3895,6 @@
     "defaultMessage": "New here? <link>How it works</link>",
     "description": "Link to 'How it works' page on Projects project page"
   },
-  "ObnlA+": {
-    "defaultMessage": "If the payment still doesn't succeed, go to the <link>Customer Portal from the Billing page</link> and delete any cards that have been added. Then try paying again.",
-    "description": "Reason label for other reason"
-  },
   "OchGBW": {
     "defaultMessage": "Join Discord channel (public)",
     "description": "Link to the Discord server"
@@ -4054,6 +4042,10 @@
   "PI4FQX": {
     "defaultMessage": "Join our vibrant community of builders",
     "description": "Title for Projects newsletter sign up section"
+  },
+  "PJcH+M": {
+    "defaultMessage": "If the payment still doesn't succeed, go to the <link>Stripe Customer Portal</link>, delete any cards that have been added, then try paying again.",
+    "description": "Reason label for other reason"
   },
   "PLPXbS": {
     "defaultMessage": "Multi-page & fully-functional apps",
@@ -5759,10 +5751,6 @@
     "defaultMessage": "Every project challenge was designed by senior UI/UX designers with perfect spacing units and design rules, so that your portfolio projects will always look professional.",
     "description": "Description of 'Beautiful designs made by high-end designers' feature in Projects marketing page"
   },
-  "aVN/XP": {
-    "defaultMessage": "Verify that the amount entered is correct and meets the minimum transaction requirement.",
-    "description": "Reason label for verify amount"
-  },
   "aVhVoX": {
     "defaultMessage": "RADIO framework",
     "description": "RADIO (acroynm) framework name for front end system design interviews. Don't translate RADIO"
@@ -6027,10 +6015,6 @@
     "defaultMessage": "Browse all user submissions",
     "description": "Learn from other user submissions"
   },
-  "bpZ6V4": {
-    "defaultMessage": "Use a different card, as this one has been reported as stolen.",
-    "description": "Reason label for different card"
-  },
   "bq/h99": {
     "defaultMessage": "14-day money back guarantee",
     "description": "Pricing plan policy"
@@ -6150,10 +6134,6 @@
   "cblnDH": {
     "defaultMessage": "Quiz Interview Guides",
     "description": "Title for guide card"
-  },
-  "cf4ZZE": {
-    "defaultMessage": "We noticed that your attempt to pay on GreatFrontEnd has failed. Here are some actions that may help:",
-    "description": "Description for payment failure dialog"
   },
   "cgIBe4": {
     "defaultMessage": "Review must be at least {wordCount} words long or a video of at least {videoDurationInSeconds}s.",
@@ -6930,10 +6910,6 @@
   "hUENEC": {
     "defaultMessage": "Languages",
     "description": "Label for question languages list"
-  },
-  "hURbkG": {
-    "defaultMessage": "Contact your bank to get a new card issued.",
-    "description": "Reason label for contact bank"
   },
   "hW1w8e": {
     "defaultMessage": "Angular Interview Questions",
@@ -7811,10 +7787,6 @@
     "defaultMessage": "Front end system design",
     "description": "Front end topic"
   },
-  "nZdU0v": {
-    "defaultMessage": "Contact your bank to get a replacement card issued.",
-    "description": "Reason label for contact bank"
-  },
   "nai6YT": {
     "defaultMessage": "Amazon logo",
     "description": "Amazon company logo"
@@ -7890,10 +7862,6 @@
   "o+1cag": {
     "defaultMessage": "Clear Console",
     "description": "Button label to clear the console in the coding workspace"
-  },
-  "o26OYL": {
-    "defaultMessage": "The transaction amount is invalid, which might be due to the amount being too low or incorrect formatting.",
-    "description": "Decline message for invalid amount"
   },
   "o3nhZ8": {
     "defaultMessage": "Session status",
@@ -7974,6 +7942,10 @@
   "ojo22x": {
     "defaultMessage": "No challenges started yet",
     "description": "Title of empty state on projects activity page"
+  },
+  "okTd78": {
+    "defaultMessage": "We noticed that your recent attempt to pay on GreatFrontEnd has failed. Here are some actions that may help:",
+    "description": "Description for payment failure dialog"
   },
   "okguyM": {
     "defaultMessage": "{questionCount} question deep-dives",
@@ -9155,10 +9127,6 @@
     "defaultMessage": "Motivations for joining",
     "description": "Projects profile motivation for joining section title"
   },
-  "wUDPNG": {
-    "defaultMessage": "The card has been reported as lost, and the issuer has blocked all transactions.",
-    "description": "Decline message for lost card"
-  },
   "wW8IAK": {
     "defaultMessage": "No file selected from the repository. Select a file to view.",
     "description": "Empty state message when the default file from the repository could not be loaded"
@@ -9554,10 +9522,6 @@
   "zQFib0": {
     "defaultMessage": "Progress",
     "description": "Label for progress bar for learning progress"
-  },
-  "zRnkGf": {
-    "defaultMessage": "Use a different card, as this one has been reported as lost.",
-    "description": "Reason label for different card"
   },
   "zTKtX7": {
     "defaultMessage": "Double-check the CVC code (3-digit number on the back of your card) and re-enter it.",
