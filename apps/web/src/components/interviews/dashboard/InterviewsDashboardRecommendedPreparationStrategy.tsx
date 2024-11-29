@@ -71,7 +71,7 @@ function PreparationStrategyCard({ data }: { data: PreparationStrategyItem }) {
   return (
     <div
       className={clsx(
-        'group relative w-full',
+        'group relative isolate w-full',
         'flex items-center gap-2 md:gap-6',
         'px-6 py-4',
         'rounded-lg',
@@ -105,7 +105,12 @@ function PreparationStrategyCard({ data }: { data: PreparationStrategyItem }) {
               {tagLabel &&
                 (tagTooltip ? (
                   <Tooltip label={tagTooltip}>
-                    <Badge label={tagLabel} size="sm" variant={variant} />
+                    <Badge
+                      className="relative z-[1]"
+                      label={tagLabel}
+                      size="sm"
+                      variant={variant}
+                    />
                   </Tooltip>
                 ) : (
                   <Badge label={tagLabel} size="sm" variant={variant} />
