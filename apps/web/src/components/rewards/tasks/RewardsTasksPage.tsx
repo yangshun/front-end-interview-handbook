@@ -136,7 +136,7 @@ export default function RewardsTasksPage() {
   const checkTwitterFollowMutation =
     trpc.promotions.checkTwitterFollowing.useMutation();
   const generateSocialTasksPromoCodeMutation =
-    trpc.promotions.generateSocialTasksPromoCode.useMutation({
+    trpc.promotions.generateOrGetSocialTasksPromoCode.useMutation({
       onSuccess: () => {
         trpcUtils.promotions.userPromoCodes.invalidate();
       },

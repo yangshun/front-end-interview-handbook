@@ -325,7 +325,7 @@ export const promotionsRouter = router({
 
       return promotionCode;
     }),
-  generateSocialTasksPromoCode: userProcedure.mutation(
+  generateOrGetSocialTasksPromoCode: userProcedure.mutation(
     async ({ ctx: { viewer } }) => {
       const userId = viewer.id;
 
@@ -357,7 +357,7 @@ export const promotionsRouter = router({
       let stripeCustomer = profile?.stripeCustomer;
 
       if (stripeCustomer == null) {
-        // Create Stripe customer on the fly rather than error-ing.
+        // Create Stripe customer on the fly rather than error-ing
         const supabaseAdmin = createSupabaseAdminClientGFE_SERVER_ONLY();
         const {
           data: { user },
@@ -398,32 +398,44 @@ export const promotionsRouter = router({
           ? socialTasksDiscountCouponId_PROD
           : socialTasksDiscountCouponId_TEST;
 
-      const promotionCodes = await stripe.promotionCodes.list({
-        coupon,
-        customer: stripeCustomer,
-      });
+      const [activePromoCodes, inactivePromoCodes] = await Promise.all([
+        stripe.promotionCodes.list({
+          active: true,
+          coupon,
+          customer: stripeCustomer,
+        }),
+        stripe.promotionCodes.list({
+          active: false,
+          coupon,
+          customer: stripeCustomer,
+        }),
+      ]);
 
-      // Allow 3 promo generations since some users
-      // might waste the promo code on failed payments (e.g. India).
-      if (promotionCodes.data.length > 3) {
+      // Return active promo code
+      if (activePromoCodes.data.length > 0) {
+        return activePromoCodes.data[0];
+      }
+
+      // Allow 3 promo generations since some users might waste
+      // the promo code on failed payments (e.g. India)
+      if (inactivePromoCodes.data.length > 3) {
         throw 'You have claimed this reward before.';
       }
 
+      // Generate a new promo code
       const today = new Date();
-      const nextThreeDays = new Date(today.setDate(today.getDate() + 3));
-      const nextThreeDaysUnix = Math.round(nextThreeDays.getTime() / 1000);
+      const threeDaysLater = new Date(today.setDate(today.getDate() + 3));
+      const threeDaysLaterUnix = Math.round(threeDaysLater.getTime() / 1000);
 
-      const promotionCode = await stripe.promotionCodes.create({
+      return await stripe.promotionCodes.create({
         coupon,
         customer: stripeCustomer,
-        expires_at: nextThreeDaysUnix,
-        max_redemptions: 1,
+        expires_at: threeDaysLaterUnix,
+        max_redemptions: 2,
         metadata: {
           campaign: SOCIAL_TASKS_DISCOUNT_CAMPAIGN,
         },
       });
-
-      return promotionCode;
     },
   ),
   generateStudentDiscountPromoCode: userProcedure.mutation(
