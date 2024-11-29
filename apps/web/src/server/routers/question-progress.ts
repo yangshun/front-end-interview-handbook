@@ -62,6 +62,16 @@ export const questionProgressRouter = router({
             });
 
             if (session_ != null) {
+              // Update the learning session updatedAt to sort by updatedAt in questionSessions.getActive query
+              await prisma.learningSession.update({
+                data: {
+                  updatedAt: new Date(),
+                },
+                where: {
+                  id: session_.id,
+                },
+              });
+
               return { newSessionCreated: false, session: session_ };
             }
 
@@ -425,9 +435,20 @@ export const questionProgressRouter = router({
             }) as const,
         );
 
-        await prisma.learningSessionProgress.createMany({
-          data,
-        });
+        await Promise.all([
+          // Update the learning session updatedAt to sort by updatedAt in questionSessions.getActive query
+          prisma.learningSession.update({
+            data: {
+              updatedAt: new Date(),
+            },
+            where: {
+              id: session.id,
+            },
+          }),
+          prisma.learningSessionProgress.createMany({
+            data,
+          }),
+        ]);
       },
     ),
   resetSessionProgress: userProcedure

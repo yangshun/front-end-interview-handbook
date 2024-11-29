@@ -35,7 +35,7 @@ export const questionSessionRouter = router({
         },
       },
       orderBy: {
-        createdAt: 'desc',
+        updatedAt: 'desc',
       },
       where: {
         status: 'IN_PROGRESS',
