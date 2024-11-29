@@ -31,7 +31,7 @@ export default function PromotionsInterviewsPremiumPerksProjectDiscountSection()
     expires_at: number | null;
   }> | null>(null);
   const generateOrGetPromoCodeMutation =
-    trpc.rewards.generateOrGetInterviewsPremiumPerksProjectsDiscountPromoCode.useMutation();
+    trpc.promotions.generateOrGetInterviewsPremiumPerksProjectsDiscountPromoCode.useMutation();
   const [isCopied, onCopy] = useCopyToClipboardWithRevert(1000);
 
   function handleCopy() {

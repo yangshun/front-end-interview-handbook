@@ -54,7 +54,7 @@ function CopyCodeButton({ code }: { code: string }) {
 
 export default function ProfileCoupons() {
   const intl = useIntl();
-  const profilePromoCodes = trpc.marketing.userPromoCodes.useQuery();
+  const profilePromoCodes = trpc.promotions.userPromoCodes.useQuery();
 
   if (profilePromoCodes.isLoading) {
     return (

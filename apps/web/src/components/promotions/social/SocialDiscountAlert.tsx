@@ -50,7 +50,7 @@ function SocialDiscountAlertImpl() {
   const socialDiscountLabels = useSocialDiscountLabels();
   const user = useUser();
   const { isLoading, data: promoCodes } =
-    trpc.marketing.userPromoCodes.useQuery(undefined, {
+    trpc.promotions.userPromoCodes.useQuery(undefined, {
       enabled: !!user,
     });
 

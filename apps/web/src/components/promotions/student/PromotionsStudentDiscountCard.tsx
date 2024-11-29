@@ -32,14 +32,14 @@ export function PromotionsStudentDiscountCard() {
   const [promoCode, setPromoCode] = useState<Stripe.PromotionCode | null>(null);
   const [isCopied, onCopy] = useCopyToClipboardWithRevert(1000);
   const { data: existingPromoCode } =
-    trpc.marketing.getStudentDiscountPromoCode.useQuery();
+    trpc.promotions.getStudentDiscountPromoCode.useQuery();
   const {
     isLoading: isGeneratingStudentDiscount,
     mutate: generateStudentDiscountPromoCode,
-  } = trpc.marketing.generateStudentDiscountPromoCode.useMutation({
+  } = trpc.promotions.generateStudentDiscountPromoCode.useMutation({
     onSuccess: (data) => {
       setPromoCode(data);
-      trpcUtils.marketing.userPromoCodes.invalidate();
+      trpcUtils.promotions.userPromoCodes.invalidate();
     },
   });
   const { signInUpHref } = useAuthSignInUp();

@@ -126,18 +126,19 @@ export default function RewardsTasksPage() {
   const router = useI18nRouter();
   const { showToast } = useToast();
 
-  const { data: completedTasks } = trpc.rewards.getTasksCompleted.useQuery();
-  const checkGitHubStarMutation = trpc.rewards.checkGitHubStarred.useMutation();
+  const { data: completedTasks } = trpc.promotions.getTasksCompleted.useQuery();
+  const checkGitHubStarMutation =
+    trpc.promotions.checkGitHubStarred.useMutation();
   const checkGitHubFollowMutation =
-    trpc.rewards.checkGitHubFollowing.useMutation();
+    trpc.promotions.checkGitHubFollowing.useMutation();
   const checkLinkedInFollowMutation =
-    trpc.rewards.checkLinkedInFollowing.useMutation();
+    trpc.promotions.checkLinkedInFollowing.useMutation();
   const checkTwitterFollowMutation =
-    trpc.rewards.checkTwitterFollowing.useMutation();
+    trpc.promotions.checkTwitterFollowing.useMutation();
   const generateSocialTasksPromoCodeMutation =
-    trpc.rewards.generateSocialTasksPromoCode.useMutation({
+    trpc.promotions.generateSocialTasksPromoCode.useMutation({
       onSuccess: () => {
-        trpcUtils.marketing.userPromoCodes.invalidate();
+        trpcUtils.promotions.userPromoCodes.invalidate();
       },
     });
 
@@ -201,7 +202,7 @@ export default function RewardsTasksPage() {
         setCurrentVerifyingTask(null);
       },
       onSuccess: () => {
-        trpcUtils.rewards.getTasksCompleted.invalidate();
+        trpcUtils.promotions.getTasksCompleted.invalidate();
         findNextTaskToVerify();
       },
     });

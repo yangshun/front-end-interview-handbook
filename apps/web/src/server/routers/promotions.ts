@@ -11,7 +11,7 @@ import {
 import prisma from '~/server/prisma';
 import { createSupabaseAdminClientGFE_SERVER_ONLY } from '~/supabase/SupabaseServerGFE';
 
-import { router, userProcedure } from '../trpc';
+import { publicProcedure, router, userProcedure } from '../trpc';
 
 const GITHUB_USERNAME_REGEX = /^[a-zA-Z0-9-]+$/;
 const LINKEDIN_USERNAME_REGEX = /^[a-zA-Z0-9-_]+$/;
@@ -32,8 +32,6 @@ const GitHubStarActionToRepoId: Record<
   [GITHUB_STAR_SYSTEM_DESIGN]: GITHUB_REPO_ID_SYSTEM_DESIGN,
 };
 const GITHUB_ORG_NAME = 'greatfrontend';
-const SOCIAL_TASKS_DISCOUNT_CAMPAIGN = 'SOCIAL_TASKS_DISCOUNT';
-
 const gitHubUsernameSchema = z
   .string()
   .trim()
@@ -59,6 +57,12 @@ const twitterUsernameSchema = z
       'Contains invalid characters. Only alphanumeric characters, hyphens, and underscore allowed.',
   });
 
+const SOCIAL_TASKS_DISCOUNT_CAMPAIGN = 'SOCIAL_TASKS_DISCOUNT';
+const STUDENT_DISCOUNT_CAMPAIGN = 'STUDENT_DISCOUNT';
+
+const studentDiscountCouponId_TEST = 'r1nhvjSn';
+const studentDiscountCouponId_PROD = 'tgklHrfQ';
+
 const socialTasksDiscountCouponId_TEST = 'HvFQPL5W';
 const socialTasksDiscountCouponId_PROD = 'IAx9mkqM';
 
@@ -69,7 +73,7 @@ function delay(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-export const rewardsRouter = router({
+export const promotionsRouter = router({
   checkGitHubFollowing: userProcedure
     .input(
       z.object({
@@ -130,7 +134,7 @@ export const rewardsRouter = router({
         throw `No matching repo for ${action}`;
       }
 
-      // TODO: Migrate to octokit SDK methods.
+      // TODO: Migrate to octokit SDK methods
       const initialResponse = await octokit.request(`GET ${normalUrl}`, {
         headers: {
           Accept: 'application/vnd.github+json',
@@ -182,7 +186,7 @@ export const rewardsRouter = router({
 
       const responses = await Promise.all(
         urls.map((url) =>
-          // TODO: Remove manual typing after migrating to octokit SDK methods.
+          // TODO: Remove manual typing after migrating to octokit SDK methods
           octokit.request(`GET ${url}`, {
             headers: {
               Accept: 'application/vnd.github+json',
@@ -194,7 +198,7 @@ export const rewardsRouter = router({
       );
 
       const ids = responses.flatMap((response) =>
-        // TODO: Remove after using typesafe Octokit APIs.
+        // TODO: Remove after using typesafe Octokit APIs
         response.data.map((repo: Readonly<{ id: number }>) => repo.id),
       );
 
@@ -215,6 +219,7 @@ export const rewardsRouter = router({
 
       return true;
     }),
+
   checkLinkedInFollowing: userProcedure
     .input(
       z.object({
@@ -238,8 +243,10 @@ export const rewardsRouter = router({
         },
       });
 
+      // No way to actually check, just assume its real
       return true;
     }),
+
   checkTwitterFollowing: userProcedure
     .input(
       z.object({
@@ -263,6 +270,7 @@ export const rewardsRouter = router({
         },
       });
 
+      // No way to actually check, just assume its real
       return true;
     }),
   generateOrGetInterviewsPremiumPerksProjectsDiscountPromoCode:
@@ -296,21 +304,20 @@ export const rewardsRouter = router({
         customer: stripeCustomer,
       });
 
-      // Allow 3 promo generations since some users
-      // might waste the promo code on failed payments (e.g. India).
+      // Return an active promo code.
       if (promotionCodes.data.length > 0) {
         return promotionCodes.data[0];
       }
 
       const today = new Date();
-      const nextThreeDays = new Date(today.setDate(today.getDate() + 3));
-      const nextThreeDaysUnix = Math.round(nextThreeDays.getTime() / 1000);
+      const threeDaysLater = new Date(today.setDate(today.getDate() + 3));
+      const threeDaysLaterUnix = Math.round(threeDaysLater.getTime() / 1000);
 
       const promotionCode = await stripe.promotionCodes.create({
         coupon,
         customer: stripeCustomer,
-        expires_at: nextThreeDaysUnix,
-        max_redemptions: 1,
+        expires_at: threeDaysLaterUnix,
+        max_redemptions: 2,
         metadata: {
           campaign: 'INTERVIEWS_PREMIUM_PERK_PROJECTS_DISCOUNT',
         },
@@ -419,6 +426,57 @@ export const rewardsRouter = router({
       return promotionCode;
     },
   ),
+  generateStudentDiscountPromoCode: userProcedure.mutation(
+    async ({ ctx: { viewer } }) => {
+      const profile = await prisma.profile.findFirst({
+        where: {
+          id: viewer.id,
+        },
+      });
+
+      // TODO(projects): handle interviews vs projects premium.
+      if (profile == null || profile?.premium || !profile?.stripeCustomer) {
+        return null;
+      }
+
+      const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
+        apiVersion: '2023-10-16',
+      });
+
+      const coupon =
+        process.env.NEXT_PUBLIC_VERCEL_ENV === 'production'
+          ? studentDiscountCouponId_PROD
+          : studentDiscountCouponId_TEST;
+      const customer = profile.stripeCustomer;
+
+      const promotionCodes = await stripe.promotionCodes.list({
+        coupon,
+        customer,
+      });
+
+      // Allow 3 promo generations since some users
+      // might waste the promo code on failed payments (e.g. India).
+      if (promotionCodes.data.length > 3) {
+        throw 'You have claimed this reward before.';
+      }
+
+      const today = new Date();
+      const threeDaysLater = new Date(today.setDate(today.getDate() + 3));
+      const threeDaysLaterUnix = Math.round(threeDaysLater.getTime() / 1000);
+
+      const promotionCode = await stripe.promotionCodes.create({
+        coupon,
+        customer,
+        expires_at: threeDaysLaterUnix,
+        max_redemptions: 1,
+        metadata: {
+          campaign: STUDENT_DISCOUNT_CAMPAIGN,
+        },
+      });
+
+      return promotionCode;
+    },
+  ),
   getSocialTasksPromoCode: userProcedure.query(async ({ ctx: { viewer } }) => {
     const userId = viewer.id;
     const profile = await prisma.profile.findFirst({
@@ -453,6 +511,49 @@ export const rewardsRouter = router({
 
     return promotionCodes.data[0];
   }),
+  // Intentionally make it publicProcedure since this can be called by
+  // non-logged in users and showing an error is ugly.
+  // We just return `null` if not logged in.
+  getStudentDiscountPromoCode: publicProcedure.query(
+    async ({ ctx: { viewer } }) => {
+      if (viewer == null) {
+        return null;
+      }
+
+      const viewerId = viewer.id;
+      const profile = await prisma.profile.findFirst({
+        where: {
+          id: viewerId,
+        },
+      });
+
+      if (profile == null || profile?.stripeCustomer == null) {
+        throw 'No profile or Stripe customer found';
+      }
+
+      const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
+        apiVersion: '2023-10-16',
+      });
+
+      const customer = profile.stripeCustomer;
+      const coupon =
+        process.env.NEXT_PUBLIC_VERCEL_ENV === 'production'
+          ? studentDiscountCouponId_PROD
+          : studentDiscountCouponId_TEST;
+
+      const promotionCodes = await stripe.promotionCodes.list({
+        active: true,
+        coupon,
+        customer,
+      });
+
+      if (promotionCodes.data.length === 0) {
+        return null;
+      }
+
+      return promotionCodes.data[0];
+    },
+  ),
   getTasksCompleted: userProcedure.query(async ({ ctx: { viewer } }) => {
     return await prisma.rewardsTaskCompletion.findMany({
       where: {
@@ -461,6 +562,38 @@ export const rewardsRouter = router({
       },
     });
   }),
+  // Intentionally make it publicProcedure since this can be called by
+  // non-logged in users and showing an error is ugly.
+  // We just return `null` if not logged in.
+  userPromoCodes: publicProcedure.query(async ({ ctx: { viewer } }) => {
+    if (viewer == null) {
+      return null;
+    }
+
+    const profile = await prisma.profile.findFirst({
+      where: {
+        id: viewer.id,
+      },
+    });
+
+    const customer = profile?.stripeCustomer;
+
+    if (profile == null || !customer) {
+      return null;
+    }
+
+    const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
+      apiVersion: '2023-10-16',
+    });
+
+    const promotionCodes = await stripe.promotionCodes.list({
+      active: true,
+      customer,
+    });
+
+    return promotionCodes;
+  }),
+
   verifySocialHandles: userProcedure
     .input(
       z.object({

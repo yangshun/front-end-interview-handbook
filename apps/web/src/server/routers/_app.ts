@@ -5,6 +5,7 @@ import { guideProgressRouter } from './guide-progress';
 import { marketingRouter } from './marketing';
 import { profileRouter } from './profile';
 import { projectsRouter } from './projects';
+import { promotionsRouter } from './promotions';
 import { purchasesRouter } from './purchases';
 import { questionCommunitySolutionRouter } from './question-community-solution';
 import { questionListsRouter } from './question-lists';
@@ -12,7 +13,6 @@ import { questionProgressRouter } from './question-progress';
 import { questionSaveRouter } from './question-save';
 import { questionSessionRouter } from './question-sessions';
 import { questionSubmissionRouter } from './question-submission';
-import { rewardsRouter } from './rewards';
 import { roadmapRouter } from './roadmap';
 import { router } from '../trpc';
 
@@ -24,6 +24,7 @@ export const appRouter = router({
   marketing: marketingRouter,
   profile: profileRouter,
   projects: projectsRouter,
+  promotions: promotionsRouter,
   purchases: purchasesRouter,
   questionCommunitySolution: questionCommunitySolutionRouter,
   questionLists: questionListsRouter,
@@ -31,7 +32,6 @@ export const appRouter = router({
   questionSave: questionSaveRouter,
   questionSessions: questionSessionRouter,
   questionSubmission: questionSubmissionRouter,
-  rewards: rewardsRouter,
   roadmap: roadmapRouter,
 });
 

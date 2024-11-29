@@ -24,7 +24,8 @@ const dateFormatter = new Intl.DateTimeFormat(undefined, {
 
 export default function RewardsCompletePage() {
   const intl = useIntl();
-  const { data: promoCode } = trpc.rewards.getSocialTasksPromoCode.useQuery();
+  const { data: promoCode } =
+    trpc.promotions.getSocialTasksPromoCode.useQuery();
   const [isCopied, onCopy] = useCopyToClipboardWithRevert(1000);
 
   function handleCopy() {

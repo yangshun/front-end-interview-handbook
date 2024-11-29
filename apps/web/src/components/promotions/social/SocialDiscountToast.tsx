@@ -59,7 +59,7 @@ function SocialDiscountToastImpl() {
   const socialDiscountLabels = useSocialDiscountLabels();
   const { showToast } = useToast();
   const { isLoading, data: promoCodes } =
-    trpc.marketing.userPromoCodes.useQuery();
+    trpc.promotions.userPromoCodes.useQuery();
   const isMobileAndBelow = useMediaQuery('(max-width: 768px)');
 
   useEffect(() => {

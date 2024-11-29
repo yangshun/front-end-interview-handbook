@@ -16,15 +16,15 @@ export async function POST() {
     });
 
     const today = new Date();
-    const nextWeek = new Date(today.setDate(today.getDate() + 7));
-    const nextWeekUnix = Math.round(nextWeek.getTime() / 1000);
+    const oneWeekLater = new Date(today.setDate(today.getDate() + 7));
+    const oneWeekLaterUnix = Math.round(oneWeekLater.getTime() / 1000);
 
     const codes = [];
 
     for (let i = 0; i < count; i++) {
       const promotionCode = await stripe.promotionCodes.create({
         coupon,
-        expires_at: nextWeekUnix,
+        expires_at: oneWeekLaterUnix,
         max_redemptions: 2,
       });
 
