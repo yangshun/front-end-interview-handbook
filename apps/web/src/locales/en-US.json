@@ -5635,6 +5635,10 @@
     "defaultMessage": "Internationalization",
     "description": "Front end topic"
   },
+  "ZZ6uDZ": {
+    "defaultMessage": "Quiz questions",
+    "description": "Label for quiz question"
+  },
   "ZZIJ0i": {
     "defaultMessage": "Since {date}",
     "description": "Since date for current project session card"
@@ -6322,6 +6326,10 @@
   "dqSf6I": {
     "defaultMessage": "You've conquered {challengeNumber, plural, one {# challenge} other {# challenges}}! 🌟",
     "description": "Title for the project submission success page"
+  },
+  "duxigl": {
+    "defaultMessage": "System design questions",
+    "description": "Label for system design question"
   },
   "dxQHSA": {
     "defaultMessage": "Start building any project you can dream of to train your front end / full stack skills or to build a useful toolkit.",
@@ -7542,10 +7550,6 @@
   "lhtwHD": {
     "defaultMessage": "Get full access",
     "description": "Link label to the pricing page"
-  },
-  "lmBDjV": {
-    "defaultMessage": "Quiz Questions",
-    "description": "Header for quiz questions"
   },
   "lt1xn6": {
     "defaultMessage": "Student Discount Terms and Conditions",

@@ -1,11 +1,12 @@
 import clsx from 'clsx';
 
 import QuestionReportIssueButton from '~/components/interviews/questions/common/QuestionReportIssueButton';
-import { useIntl } from '~/components/intl';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Badge from '~/components/ui/Badge';
 import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
+import Text from '~/components/ui/Text';
 
 import { useQueryQuestionProgress } from '~/db/QuestionsProgressClient';
 
@@ -47,27 +48,36 @@ export default function QuestionContentsSystemDesign({
   const { description, metadata, solution } = question;
 
   return (
-    <article ref={copyRef} className="space-y-8">
-      <div className="grid gap-y-8">
-        <header className="flex flex-wrap items-center gap-4">
-          <Heading className="inline-flex" level="heading4">
-            {metadata.title}
-          </Heading>
-          <div className="flex gap-2">
-            {metadata.access === 'premium' && <InterviewsPremiumBadge />}
-            {questionProgress?.status === 'complete' && (
-              <Badge
-                label={intl.formatMessage({
-                  defaultMessage: 'Completed',
-                  description:
-                    'Label to indicate that a question has been completed',
-                  id: 'LPfKTO',
-                })}
-                variant="success"
-              />
-            )}
-          </div>
-        </header>
+    <article ref={copyRef} className="flex flex-col gap-y-8">
+      <div className="flex flex-col gap-y-8">
+        <div>
+          <Text className="mb-1 block" color="secondary" size="body2">
+            <FormattedMessage
+              defaultMessage="System design questions"
+              description="Label for system design question"
+              id="duxigl"
+            />
+          </Text>
+          <header className="flex flex-wrap items-center gap-4">
+            <Heading className="inline-flex" level="heading4">
+              {metadata.title}
+            </Heading>
+            <div className="flex gap-2">
+              {metadata.access === 'premium' && <InterviewsPremiumBadge />}
+              {questionProgress?.status === 'complete' && (
+                <Badge
+                  label={intl.formatMessage({
+                    defaultMessage: 'Completed',
+                    description:
+                      'Label to indicate that a question has been completed',
+                    id: 'LPfKTO',
+                  })}
+                  variant="success"
+                />
+              )}
+            </div>
+          </header>
+        </div>
         <div className="flex justify-between">
           <Section>
             <QuestionMetadataSection metadata={metadata} />

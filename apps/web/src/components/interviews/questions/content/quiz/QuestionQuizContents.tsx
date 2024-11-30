@@ -10,17 +10,20 @@ import { FormattedMessage, useIntl } from '~/components/intl';
 import MDXCodeBlock from '~/components/mdx/MDXCodeBlock';
 import MDXComponentsForQuiz from '~/components/mdx/MDXComponentsForQuiz';
 import Button from '~/components/ui/Button';
+import Container from '~/components/ui/Container';
 import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Prose from '~/components/ui/Prose';
 import Text from '~/components/ui/Text';
-import { themeBorderColor } from '~/components/ui/theme';
 
 import { hashQuestion } from '~/db/QuestionsUtils';
 
 import QuestionReportIssueButton from '../../common/QuestionReportIssueButton';
-import type { QuestionMetadata,QuestionQuiz } from '../../common/QuestionsTypes';
+import type {
+  QuestionMetadata,
+  QuestionQuiz,
+} from '../../common/QuestionsTypes';
 import useQuestionLogEventCopyContents from '../../common/useQuestionLogEventCopyContents';
 import useQuestionsAutoMarkAsComplete from '../../common/useQuestionsAutoMarkAsComplete';
 import InterviewsStudyListBottomNav from '../../listings/study-list/InterviewsStudyListBottomNav';
@@ -85,20 +88,14 @@ export default function QuestionQuizContents({
 
   return (
     <div>
-      <div
-        className={clsx(
-          'mx-auto',
-          'w-full max-w-xl sm:max-w-3xl md:max-w-4xl 2xl:max-w-5xl',
-          'px-4 md:px-6 lg:px-8',
-          'py-6 lg:py-8 xl:py-16',
-        )}>
+      <Container className="py-6 lg:py-8 xl:py-12" width="3xl">
         <div className="grid gap-y-6">
           <div className="overflow-auto">
             <Text className="mb-1 block" color="secondary" size="body2">
               <FormattedMessage
-                defaultMessage="Quiz Questions"
-                description="Header for quiz questions"
-                id="lmBDjV"
+                defaultMessage="Quiz questions"
+                description="Label for quiz question"
+                id="ZZ6uDZ"
               />
             </Text>
             {/* Question solution */}
@@ -107,11 +104,7 @@ export default function QuestionQuizContents({
               className="relative mx-auto flex min-w-0 flex-1 flex-col">
               <article aria-labelledby="question-title" className="grow">
                 <div className="min-h-0 flex-1">
-                  <header
-                    className={clsx(
-                      'grid gap-y-4 border-b pb-10',
-                      themeBorderColor,
-                    )}>
+                  <header className={clsx('flex flex-col gap-y-4')}>
                     <Heading
                       className="pb-4"
                       id="question-title"
@@ -123,8 +116,8 @@ export default function QuestionQuizContents({
                         {question.metadata.subtitle}
                       </Text>
                     )}
-                    <div className="mt-3 flex items-center justify-between">
-                      <div className="flex space-x-8">
+                    <div className="flex items-center justify-between">
+                      <div className="flex flex-wrap gap-x-8">
                         <QuestionImportanceLabel
                           showIcon={true}
                           value={question.metadata.importance}
@@ -138,9 +131,10 @@ export default function QuestionQuizContents({
                       <GitHubEditButton question={question} />
                     </div>
                   </header>
+                  <Divider className="my-8" />
                   <Section>
                     {/* Contents section*/}
-                    <div ref={copyRef} className="space-y-2 py-8">
+                    <div ref={copyRef}>
                       {Solution == null ? (
                         <div>
                           <FormattedMessage
@@ -182,7 +176,7 @@ export default function QuestionQuizContents({
             </>
           )}
         </div>
-      </div>
+      </Container>
       <InterviewsStudyListBottomNav
         paginationEl={paginationEl}
         question={question}
