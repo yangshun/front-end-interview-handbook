@@ -1043,10 +1043,6 @@
     "defaultMessage": "Front End Interview",
     "description": "Short title for Front End Interview Playbook"
   },
-  "5DwYlA": {
-    "defaultMessage": "Type",
-    "description": "Label for question format column of questions list table"
-  },
   "5Gjt4J": {
     "defaultMessage": "Something went wrong. Try again later or contact <link>support@greatfrontend.com</link>!",
     "description": "Error toast for project"
@@ -2011,6 +2007,10 @@
     "defaultMessage": "Profile",
     "description": "Link label to the profile page"
   },
+  "By417i": {
+    "defaultMessage": "Quiz",
+    "description": "Label for quiz question"
+  },
   "ByLCoo": {
     "defaultMessage": "Verify that the CVC code you entered matches the one on the card.",
     "description": "Reason label for verify cvc"
@@ -2406,10 +2406,6 @@
   "EfwT/A": {
     "defaultMessage": "{startedCount, plural, one {A user} other {# users}} started working on this challenge",
     "description": "Number of users who have started the challenge"
-  },
-  "EjXbPp": {
-    "defaultMessage": "Difficulty",
-    "description": "Label for question difficulty column of questions list table"
   },
   "EjbpUe": {
     "defaultMessage": "Open navigation profile menu",
@@ -3906,6 +3902,10 @@
   "OelRg0": {
     "defaultMessage": "Project challenges",
     "description": "Sidebar navigation label"
+  },
+  "OigD3P": {
+    "defaultMessage": "Complete simple social tasks.",
+    "description": "Social discount toast message"
   },
   "OijcrF": {
     "defaultMessage": "Question formats",
@@ -5635,10 +5635,6 @@
     "defaultMessage": "Internationalization",
     "description": "Front end topic"
   },
-  "ZZ6uDZ": {
-    "defaultMessage": "Quiz questions",
-    "description": "Label for quiz question"
-  },
   "ZZIJ0i": {
     "defaultMessage": "Since {date}",
     "description": "Since date for current project session card"
@@ -6326,10 +6322,6 @@
   "dqSf6I": {
     "defaultMessage": "You've conquered {challengeNumber, plural, one {# challenge} other {# challenges}}! 🌟",
     "description": "Title for the project submission success page"
-  },
-  "duxigl": {
-    "defaultMessage": "System design questions",
-    "description": "Label for system design question"
   },
   "dxQHSA": {
     "defaultMessage": "Start building any project you can dream of to train your front end / full stack skills or to build a useful toolkit.",
@@ -7923,6 +7915,10 @@
     "defaultMessage": "The smallest list of practice questions that gets you the most mileage in your preparation. Covers the most commonly asked front end interview topics.",
     "description": "Description for study list"
   },
+  "of3jrc": {
+    "defaultMessage": "System design",
+    "description": "Label for system design question"
+  },
   "ofFMGr": {
     "defaultMessage": "Check out other available <link>promotions</link>.",
     "description": "Promotional message"
@@ -8491,10 +8487,6 @@
     "defaultMessage": "{discountPercentage}% off all plans",
     "description": "Subtext for rewards complete page"
   },
-  "sO8Hr+": {
-    "defaultMessage": "Name",
-    "description": "Label for name column of questions list table"
-  },
   "sP54y8": {
     "defaultMessage": "Easy",
     "description": "Easy difficulty label for solved problems"
@@ -8618,10 +8610,6 @@
   "t6SUbS": {
     "defaultMessage": "Angular Interview Questions with Solutions | GreatFrontEnd",
     "description": "Title of React Interview Questions page"
-  },
-  "t8xZ1p": {
-    "defaultMessage": "Get a discount by following us on social media.",
-    "description": "Social discount toast message"
   },
   "tBeimS": {
     "defaultMessage": "Challenges activity",

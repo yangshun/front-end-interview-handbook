@@ -3,7 +3,9 @@ import type { TextSize } from '~/components/ui/Text';
 import QuestionAuthor from './QuestionAuthor';
 import QuestionDifficultyLabel from './QuestionDifficultyLabel';
 import QuestionDurationLabel from './QuestionDurationLabel';
+import QuestionImportanceLabel from './QuestionImportanceLabel';
 import QuestionLanguages from './QuestionLanguages';
+import QuestionTopics from './QuestionTopics';
 import QuestionUsersCompletedLabelWithFetching from './QuestionUsersCompletedLabelWithFetching';
 import type { QuestionMetadata } from '../common/QuestionsTypes';
 
@@ -11,7 +13,9 @@ type MetadataElement =
   | 'author'
   | 'difficulty'
   | 'duration'
+  | 'importance'
   | 'languages'
+  | 'topics'
   | 'users_completed';
 
 type Props = Readonly<{
@@ -43,6 +47,9 @@ export default function QuestionMetadataSection({
         metadata.languages.length > 0 && (
           <QuestionLanguages languages={metadata.languages} showIcon={true} />
         )}
+      {elements.includes('importance') && metadata.importance && (
+        <QuestionImportanceLabel showIcon={true} value={metadata.importance} />
+      )}
       {elements.includes('difficulty') && metadata.difficulty && (
         <QuestionDifficultyLabel
           showIcon={true}
@@ -50,6 +57,11 @@ export default function QuestionMetadataSection({
           value={metadata.difficulty}
         />
       )}
+      {elements.includes('topics') &&
+        metadata.topics &&
+        metadata.topics.length > 0 && (
+          <QuestionTopics topics={metadata.topics} />
+        )}
       {elements.includes('duration') && metadata.duration && (
         <QuestionDurationLabel
           mins={metadata.duration}

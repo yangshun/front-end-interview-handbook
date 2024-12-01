@@ -6,6 +6,7 @@ import { useMemo } from 'react';
 import { RiEditBoxLine } from 'react-icons/ri';
 
 import ArticlePagination from '~/components/common/ArticlePagination';
+import QuestionMetadataSection from '~/components/interviews/questions/metadata/QuestionMetadataSection';
 import { FormattedMessage, useIntl } from '~/components/intl';
 import MDXCodeBlock from '~/components/mdx/MDXCodeBlock';
 import MDXComponentsForQuiz from '~/components/mdx/MDXComponentsForQuiz';
@@ -27,9 +28,6 @@ import type {
 import useQuestionLogEventCopyContents from '../../common/useQuestionLogEventCopyContents';
 import useQuestionsAutoMarkAsComplete from '../../common/useQuestionsAutoMarkAsComplete';
 import InterviewsStudyListBottomNav from '../../listings/study-list/InterviewsStudyListBottomNav';
-import QuestionDifficultyLabel from '../../metadata/QuestionDifficultyLabel';
-import QuestionImportanceLabel from '../../metadata/QuestionImportanceLabel';
-import QuestionTopics from '../../metadata/QuestionTopics';
 
 type Props = Readonly<{
   paginationEl: React.ReactNode;
@@ -93,9 +91,9 @@ export default function QuestionQuizContents({
           <div className="overflow-auto">
             <Text className="mb-1 block" color="secondary" size="body2">
               <FormattedMessage
-                defaultMessage="Quiz questions"
+                defaultMessage="Quiz"
                 description="Label for quiz question"
-                id="ZZ6uDZ"
+                id="By417i"
               />
             </Text>
             {/* Question solution */}
@@ -116,18 +114,11 @@ export default function QuestionQuizContents({
                         {question.metadata.subtitle}
                       </Text>
                     )}
-                    <div className="flex items-center justify-between">
-                      <div className="flex flex-wrap gap-x-8">
-                        <QuestionImportanceLabel
-                          showIcon={true}
-                          value={question.metadata.importance}
-                        />
-                        <QuestionDifficultyLabel
-                          showIcon={true}
-                          value={question.metadata.difficulty}
-                        />
-                        <QuestionTopics topics={question.metadata.topics} />
-                      </div>
+                    <div className="flex items-start justify-between">
+                      <QuestionMetadataSection
+                        elements={['importance', 'difficulty', 'topics']}
+                        metadata={question.metadata}
+                      />
                       <GitHubEditButton question={question} />
                     </div>
                   </header>

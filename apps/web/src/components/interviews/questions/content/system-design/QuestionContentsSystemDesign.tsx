@@ -53,9 +53,9 @@ export default function QuestionContentsSystemDesign({
         <div>
           <Text className="mb-1 block" color="secondary" size="body2">
             <FormattedMessage
-              defaultMessage="System design questions"
+              defaultMessage="System design"
               description="Label for system design question"
-              id="duxigl"
+              id="of3jrc"
             />
           </Text>
           <header className="flex flex-wrap items-center gap-4">
@@ -78,16 +78,16 @@ export default function QuestionContentsSystemDesign({
             </div>
           </header>
         </div>
-        <div className="flex justify-between">
-          <Section>
+        <Section>
+          <div className="flex items-start justify-between">
             <QuestionMetadataSection metadata={metadata} />
             <QuestionReportIssueButton
               format={question.format}
               isLabelHidden={false}
               title={question.metadata.title}
             />
-          </Section>
-        </div>
+          </div>
+        </Section>
       </div>
       <Section>
         <div className="flex flex-col gap-y-8">
