@@ -32,7 +32,10 @@ export default function JavaScriptCodingWorkspaceBottomBar({
 
   const rightPreElements = (
     <span className="inline md:hidden">
-      <QuestionReportIssueButton format="javascript" title={metadata.title} />
+      <QuestionReportIssueButton
+        format={metadata.format}
+        title={metadata.title}
+      />
     </span>
   );
   const rightPostElements = (
@@ -126,7 +129,7 @@ export default function JavaScriptCodingWorkspaceBottomBar({
               ))}
             </DropdownMenu>
             <QuestionReportIssueButton
-              format="javascript"
+              format={metadata.format}
               title={metadata.title}
             />
             <JavaScriptCodingWorkspaceLayoutDialog

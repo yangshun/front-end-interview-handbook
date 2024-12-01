@@ -75,7 +75,7 @@ export default function UserInterfaceCodingWorkspaceBottomBar({
             ))}
           </DropdownMenu>
           <QuestionReportIssueButton
-            format="user-interface"
+            format={metadata.format}
             title={metadata.title}
           />
           <UserInterfaceCodingWorkspaceLayoutDialog
@@ -98,7 +98,7 @@ export default function UserInterfaceCodingWorkspaceBottomBar({
       rightPreElements={
         <span className="inline md:hidden">
           <QuestionReportIssueButton
-            format="user-interface"
+            format={metadata.format}
             title={metadata.title}
           />
         </span>

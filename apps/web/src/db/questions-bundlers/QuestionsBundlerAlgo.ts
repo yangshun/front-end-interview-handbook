@@ -194,7 +194,6 @@ export async function readQuestionAlgo(
   return {
     description,
     files,
-    format: 'algo',
     metadata,
     skeleton: {
       js: skeletonJS,

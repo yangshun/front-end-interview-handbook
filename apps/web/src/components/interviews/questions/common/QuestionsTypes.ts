@@ -117,12 +117,11 @@ export type QuestionMetadata = {
   readonly topics: ReadonlyArray<QuestionTopic>;
 };
 
-export type QuestionBase = {
-  readonly description: string | null;
-  readonly format: QuestionFormat;
-  readonly metadata: QuestionMetadata;
-  readonly solution: string | null;
-};
+export type QuestionBase = Readonly<{
+  description: string | null;
+  metadata: QuestionMetadata;
+  solution: string | null;
+}>;
 
 export type QuestionSystemDesign = QuestionBase;
 

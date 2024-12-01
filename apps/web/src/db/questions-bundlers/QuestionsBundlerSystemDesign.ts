@@ -73,7 +73,6 @@ export async function readQuestionSystemDesign(
 
   return {
     description,
-    format: 'system-design',
     metadata,
     solution,
   };

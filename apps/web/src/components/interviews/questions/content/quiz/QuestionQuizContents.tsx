@@ -147,7 +147,7 @@ export default function QuestionQuizContents({
           </div>
           <div className="flex justify-between">
             <QuestionReportIssueButton
-              format={question.format}
+              format={question.metadata.format}
               isLabelHidden={false}
               showTooltip={false}
               title={question.metadata.title}

@@ -83,7 +83,6 @@ export async function readQuestionQuiz(
 
   return {
     description: null,
-    format: 'quiz',
     metadata,
     solution: description,
   };

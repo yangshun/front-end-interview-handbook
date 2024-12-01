@@ -82,7 +82,7 @@ export default function QuestionContentsSystemDesign({
           <div className="flex items-start justify-between">
             <QuestionMetadataSection metadata={metadata} />
             <QuestionReportIssueButton
-              format={question.format}
+              format={question.metadata.format}
               isLabelHidden={false}
               title={question.metadata.title}
             />
@@ -112,7 +112,7 @@ export default function QuestionContentsSystemDesign({
         </div>
         <div className="flex justify-between">
           <QuestionReportIssueButton
-            format={question.format}
+            format={question.metadata.format}
             isLabelHidden={false}
             showTooltip={false}
             title={question.metadata.title}

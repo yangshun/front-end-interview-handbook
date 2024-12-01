@@ -111,7 +111,6 @@ export default async function Page({ params }: Props) {
         isQuestionLocked={isQuestionLocked}
         question={{
           description: question.description,
-          format: question.format,
           metadata: question.metadata,
           solution: isQuestionLocked ? null : question.solution,
         }}

@@ -50,7 +50,7 @@ export default function InterviewsStudyListBottomNav({
           </div>
           <div className="justify-center max-xl:hidden xl:flex-1">
             <QuestionReportIssueButton
-              format="quiz"
+              format={question.metadata.format}
               title={question.metadata.title}
             />
           </div>
@@ -62,7 +62,7 @@ export default function InterviewsStudyListBottomNav({
             )}>
             <QuestionReportIssueButton
               className="mr-3 xl:hidden"
-              format="quiz"
+              format={question.metadata.format}
               title={question.metadata.title}
             />
             <QuestionProgressAction

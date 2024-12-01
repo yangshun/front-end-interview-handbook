@@ -224,7 +224,6 @@ export async function readQuestionUserInterface(
 
   return {
     description: skeletonBundle?.writeup ?? null,
-    format: 'user-interface',
     framework,
     metadata,
     skeletonBundle,

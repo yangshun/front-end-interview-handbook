@@ -194,7 +194,6 @@ export async function readQuestionJavaScript(
   return {
     description,
     files,
-    format: 'javascript',
     metadata,
     skeleton: {
       js: skeletonJS,

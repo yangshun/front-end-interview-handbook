@@ -69,6 +69,7 @@ export type GuideCardMetadata = GuideMetadata &
     title: string;
   }>;
 
-export type GuideCardMetadataWithCompletedStatus = GuideCardMetadata & {
-  readonly isCompleted: boolean;
-};
+export type GuideCardMetadataWithCompletedStatus = GuideCardMetadata &
+  Readonly<{
+    isCompleted: boolean;
+  }>;
