@@ -25,7 +25,6 @@ import {
   themeBackgroundColor,
   themeBackgroundElementEmphasizedStateColor,
   themeBackgroundElementEmphasizedStateColor_Hover,
-  themeBackgroundLayerColor,
   themeBorderColor,
   themeDivideColor,
 } from '~/components/ui/theme';
@@ -88,49 +87,7 @@ export default function InterviewsQuestionsListSlideOutContents<
 
   return (
     <div>
-      <table className="relative hidden h-full w-full table-fixed border-collapse md:block">
-        <colgroup>
-          <col className="w-3/5" />
-          <col className="w-[20%]" />
-          <col className="w-[20%]" />
-        </colgroup>
-        <thead
-          className={clsx('z-sticky sticky top-0', themeBackgroundLayerColor, [
-            'border-b',
-            themeBorderColor,
-          ])}>
-          <tr>
-            <th className="py-3 pl-6 pr-1.5 text-left" scope="col">
-              <Text color="subtle" size="body3">
-                {intl.formatMessage({
-                  defaultMessage: 'Name',
-                  description: 'Label for name column of questions list table',
-                  id: 'sO8Hr+',
-                })}
-              </Text>
-            </th>
-            <th className="px-1.5 py-3 text-left" scope="col">
-              <Text color="subtle" size="body3">
-                {intl.formatMessage({
-                  defaultMessage: 'Type',
-                  description:
-                    'Label for question format column of questions list table',
-                  id: '5DwYlA',
-                })}
-              </Text>
-            </th>
-            <th className="py-3 pl-1.5 pr-6 text-left" scope="col">
-              <Text color="subtle" size="body3">
-                {intl.formatMessage({
-                  defaultMessage: 'Difficulty',
-                  description:
-                    'Label for question difficulty column of questions list table',
-                  id: 'EjXbPp',
-                })}
-              </Text>
-            </th>
-          </tr>
-        </thead>
+      <div className="relative hidden h-full w-full md:block">
         <VignetteOverlay
           className={clsx(
             'min-h-[600px]',
@@ -140,7 +97,7 @@ export default function InterviewsQuestionsListSlideOutContents<
             <QuestionPaywall background="vignette" feature="company-tags" />
           }
           showOverlay={showCompanyPaywall}>
-          <tbody
+          <div
             className={clsx(['divide-y', themeDivideColor])}
             {...(showCompanyPaywall && { inert: '' })}>
             {questions.map((questionMetadata, index) => {
@@ -166,16 +123,19 @@ export default function InterviewsQuestionsListSlideOutContents<
                   openDelay={0}>
                   <HovercardTrigger asChild={true}>
                     {
-                      <tr
+                      <div
                         className={clsx(
                           'group relative',
+                          'flex',
+                          'px-6',
+                          'gap-6',
                           'transition-colors',
                           'focus-within:ring-brand focus-within:ring-2 focus-within:ring-inset',
                           themeBackgroundElementEmphasizedStateColor_Hover,
                           isActiveQuestion &&
                             themeBackgroundElementEmphasizedStateColor,
                         )}>
-                        <td className="w-full py-4 pl-6 pr-1.5">
+                        <div className="grow py-4">
                           <div className="flex items-center gap-x-4">
                             {checkIfCompletedQuestion != null && (
                               <QuestionsListItemProgressChip
@@ -217,20 +177,20 @@ export default function InterviewsQuestionsListSlideOutContents<
                               )}
                             </div>
                           </div>
-                        </td>
-                        <td className="px-1.5 py-4">
+                        </div>
+                        <div className="w-[100px] flex-none py-4">
                           <QuestionFormatLabel
                             showIcon={true}
                             value={questionMetadata.format}
                           />
-                        </td>
-                        <td className="py-4 pl-1.5 pr-6">
+                        </div>
+                        <div className="w-[70px] flex-none py-4">
                           <QuestionDifficultyLabel
                             showIcon={true}
                             value={questionMetadata.difficulty}
                           />
-                        </td>
-                      </tr>
+                        </div>
+                      </div>
                     }
                   </HovercardTrigger>
                   <HovercardPortal>
@@ -252,9 +212,9 @@ export default function InterviewsQuestionsListSlideOutContents<
                 </Hovercard>
               );
             })}
-          </tbody>
+          </div>
         </VignetteOverlay>
-      </table>
+      </div>
       <div className="block md:hidden">
         <VignetteOverlay
           className={clsx(
