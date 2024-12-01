@@ -17,25 +17,26 @@ export type BlogSortField = 'createdAt';
 export type BlogViewField = 'article' | 'list';
 
 export type BlogMetadata = Readonly<{
-  readonly articlesCount?: number;
-  readonly author?: BlogAuthor;
-  readonly category?: BlogCategory;
-  readonly hasSubseries?: boolean;
-  readonly imageUrl?: string;
-  readonly isSeries?: boolean;
-  readonly isSeriesArticle?: boolean;
-  readonly level: BlogLevel;
-  readonly tags: ReadonlyArray<string>;
+  articlesCount?: number;
+  author?: BlogAuthor;
+  category?: BlogCategory;
+  hasSubseries?: boolean;
+  imageUrl?: string;
+  isSeries?: boolean;
+  isSeriesArticle?: boolean;
+  level: BlogLevel;
+  tags: ReadonlyArray<string>;
 }> &
   (BlogPost | BlogSeries);
 
-export type BlogSubseries = BlogSubseriesOrig & {
-  readonly items: ReadonlyArray<BlogMetadata>;
-  readonly readingTime: number;
-};
+export type BlogSubseries = BlogSubseriesOrig &
+  Readonly<{
+    items: ReadonlyArray<BlogMetadata>;
+    readingTime: number;
+  }>;
 
-export type BlogArticleNavigationType = {
+export type BlogArticleNavigationType = Readonly<{
   items: ReadonlyArray<BlogSeriesNavigationLink>;
   seriesTitle?: string;
   subseriesTitle?: string;
-};
+}>;

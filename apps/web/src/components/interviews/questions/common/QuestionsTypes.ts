@@ -74,10 +74,12 @@ export const QuestionFrameworkLabels: Record<QuestionFramework, string> = {
 
 export type QuestionUserInterfaceSetupType = 'skeleton' | 'solution';
 
-export type QuestionUserInterfaceSandpackSetup = SandboxTemplate & {
-  readonly activeFile?: string;
-  readonly visibleFiles?: Array<string>;
-};
+export type QuestionUserInterfaceSandpackSetup = Readonly<{
+  activeFile?: string;
+  visibleFiles?: Array<string>;
+}> &
+  SandboxTemplate;
+
 export type QuestionUserInterfaceBundle = Readonly<{
   author: string | null;
   files: SandpackFiles;
@@ -85,37 +87,37 @@ export type QuestionUserInterfaceBundle = Readonly<{
   writeup: string | null;
 }>;
 
-export type QuestionMetadata = {
-  readonly access: QuestionAccess;
-  readonly author: string | null;
-  readonly companies: ReadonlyArray<QuestionCompany>;
-  readonly created: number; // Unix timestamp in seconds.
-  readonly difficulty: QuestionDifficulty;
-  readonly duration: number;
-  readonly excerpt: string | null;
-  readonly featured: boolean;
-  readonly format: QuestionFormat;
-  readonly frameworkDefault: QuestionFramework | null;
-  readonly frameworks: ReadonlyArray<
+export type QuestionMetadata = Readonly<{
+  access: QuestionAccess;
+  author: string | null;
+  companies: ReadonlyArray<QuestionCompany>;
+  created: number; // Unix timestamp in seconds.
+  difficulty: QuestionDifficulty;
+  duration: number;
+  excerpt: string | null;
+  featured: boolean;
+  format: QuestionFormat;
+  frameworkDefault: QuestionFramework | null;
+  frameworks: ReadonlyArray<
     Readonly<{
       framework: QuestionFramework;
       href: string;
     }>
   >;
-  readonly gitHubEditUrl?: string | null;
-  readonly href: string;
-  readonly importance: QuestionImportance;
-  readonly languages: ReadonlyArray<QuestionLanguage>;
-  readonly nextQuestions: ReadonlyArray<QuestionSlug>;
-  readonly published: boolean;
+  gitHubEditUrl?: string | null;
+  href: string;
+  importance: QuestionImportance;
+  languages: ReadonlyArray<QuestionLanguage>;
+  nextQuestions: ReadonlyArray<QuestionSlug>;
+  published: boolean;
   // Value from 1-100 where 1 is the highest ranking.
-  readonly ranking: number;
-  readonly similarQuestions: ReadonlyArray<QuestionSlug>;
-  readonly slug: QuestionSlug;
-  readonly subtitle: string | null;
-  readonly title: string;
-  readonly topics: ReadonlyArray<QuestionTopic>;
-};
+  ranking: number;
+  similarQuestions: ReadonlyArray<QuestionSlug>;
+  slug: QuestionSlug;
+  subtitle: string | null;
+  title: string;
+  topics: ReadonlyArray<QuestionTopic>;
+}>;
 
 export type QuestionBase = Readonly<{
   description: string | null;
@@ -136,11 +138,12 @@ export type QuestionJavaScriptWorkspace = Readonly<{
   run: string;
   submit: string;
 }>;
-export type QuestionJavaScript = QuestionBase & {
-  files: Record<string, string>;
-  skeleton: QuestionJavaScriptSkeleton;
-  workspace: QuestionJavaScriptWorkspace;
-};
+export type QuestionJavaScript = QuestionBase &
+  Readonly<{
+    files: Record<string, string>;
+    skeleton: QuestionJavaScriptSkeleton;
+    workspace: QuestionJavaScriptWorkspace;
+  }>;
 
 export type QuestionUserInterfaceWorkspace = Readonly<{
   activeFile?: string;
@@ -148,15 +151,17 @@ export type QuestionUserInterfaceWorkspace = Readonly<{
   visibleFiles?: Array<string>;
 }>;
 
-export type QuestionUserInterface = QuestionBase & {
-  readonly framework: QuestionFramework;
-  readonly skeletonBundle: QuestionUserInterfaceBundle;
-  readonly solutionBundle: QuestionUserInterfaceBundle;
-};
+export type QuestionUserInterface = QuestionBase &
+  Readonly<{
+    framework: QuestionFramework;
+    skeletonBundle: QuestionUserInterfaceBundle;
+    solutionBundle: QuestionUserInterfaceBundle;
+  }>;
 
-export type QuestionMetadataWithCompletedStatus = QuestionMetadata & {
-  readonly isCompleted: boolean;
-};
+export type QuestionMetadataWithCompletedStatus = QuestionMetadata &
+  Readonly<{
+    isCompleted: boolean;
+  }>;
 
 export type QuestionTopic =
   | 'a11y'
