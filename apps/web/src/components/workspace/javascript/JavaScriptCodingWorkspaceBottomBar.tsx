@@ -30,7 +30,12 @@ export default function JavaScriptCodingWorkspaceBottomBar({
     useCodingWorkspaceContext();
   const [isLayoutDialogOpen, setIsLayoutDialogOpen] = useState(false);
 
-  const runSubmitButtons = (
+  const rightPreElements = (
+    <span className="inline md:hidden">
+      <QuestionReportIssueButton format="javascript" title={metadata.title} />
+    </span>
+  );
+  const rightPostElements = (
     <>
       <span className="hidden lg:inline">
         <Button
@@ -75,7 +80,7 @@ export default function JavaScriptCodingWorkspaceBottomBar({
   if (layout === 'minimal') {
     return (
       <div className="flex flex-wrap items-center justify-end gap-2 px-3 py-3">
-        {runSubmitButtons}
+        {rightPostElements}
       </div>
     );
   }
@@ -135,7 +140,8 @@ export default function JavaScriptCodingWorkspaceBottomBar({
       }
       metadata={metadata}
       nextQuestions={nextQuestions}
-      rightElements={runSubmitButtons}
+      rightPostElements={rightPostElements}
+      rightPreElements={rightPreElements}
       showQuestionsListButton={layout === 'full'}
       studyListKey={studyListKey}
     />

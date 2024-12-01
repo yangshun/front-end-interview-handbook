@@ -20,7 +20,8 @@ type Props = Readonly<{
   leftElements?: ReactNode;
   metadata: QuestionMetadata;
   nextQuestions: ReadonlyArray<QuestionMetadata>;
-  rightElements?: ReactNode;
+  rightPostElements?: ReactNode;
+  rightPreElements?: ReactNode;
   showQuestionsListButton?: boolean;
   studyListKey?: string;
 }>;
@@ -29,7 +30,8 @@ export default function CodingWorkspaceBottomBar({
   leftElements,
   metadata,
   nextQuestions,
-  rightElements,
+  rightPostElements,
+  rightPreElements,
   showQuestionsListButton = true,
   studyListKey,
 }: Props) {
@@ -63,6 +65,7 @@ export default function CodingWorkspaceBottomBar({
         </div>
       )}
       <div className="flex items-center gap-x-2">
+        {rightPreElements}
         <div className="hidden lg:inline">
           <CodingWorkspaceTimer />
         </div>
@@ -79,7 +82,7 @@ export default function CodingWorkspaceBottomBar({
           }
           studyListKey={studyListKey}
         />
-        {rightElements}
+        {rightPostElements}
       </div>
     </div>
   );

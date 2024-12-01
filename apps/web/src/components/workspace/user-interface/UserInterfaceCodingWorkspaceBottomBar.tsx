@@ -90,10 +90,18 @@ export default function UserInterfaceCodingWorkspaceBottomBar({
       }
       metadata={metadata}
       nextQuestions={nextQuestions}
-      rightElements={
+      rightPostElements={
         mode === 'practice' ? (
           <UserInterfaceCodingWorkspaceSaveButton question={question} />
         ) : undefined
+      }
+      rightPreElements={
+        <span className="inline md:hidden">
+          <QuestionReportIssueButton
+            format="user-interface"
+            title={metadata.title}
+          />
+        </span>
       }
       studyListKey={studyListKey}
     />
