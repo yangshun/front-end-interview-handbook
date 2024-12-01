@@ -14,9 +14,9 @@ export type BaseGuideNavigationLink<T = Record<string, unknown>> = Readonly<
     description?: string;
     href: string;
     icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
+    id: string;
     items?: GuideNavigationLinks<BaseGuideNavigationLink<T>>;
     label: string;
-    slug: string;
     type: 'link';
   }
 >;
@@ -34,9 +34,9 @@ export type GuideNavigationItems<
 > = ReadonlyArray<
   | Link
   | Readonly<{
+      id: string;
       items: GuideNavigationLinks<Link>;
       label: string;
-      slug: string;
       type: 'list';
     }>
 >;
@@ -53,24 +53,13 @@ export type GuideNavigation<
 
 export type GuideMetadata = Readonly<{
   book: GuidebookItem;
-  slug: string;
+  id: string;
 }>;
 
 export type FrontEndInterviewSlugType = (typeof frontendInterviewSlugs)[number];
-
-// For the introduction article, the slug is introduction, but the route is ''
-export type FrontEndInterviewRouteType = FrontEndInterviewSlugType;
-
 export type FrontEndSystemDesignSlugType =
   (typeof frontendSystemDesignSlugs)[number];
-
-// For the introduction article, the slug is introduction, but the route is ''
-export type FrontEndSystemDesignRouteType = FrontEndSystemDesignSlugType;
-
 export type BehavioralSlugType = (typeof behavioralSlugs)[number];
-
-// For the introduction article, the slug is introduction, but the route is ''
-export type BehavioralRouteType = BehavioralSlugType;
 
 export type GuideCardMetadata = GuideMetadata &
   Readonly<{

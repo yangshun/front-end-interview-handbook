@@ -16,10 +16,10 @@ export const guideProgressRouter = router({
     .input(
       z.object({
         book: guidebookZodEnum,
-        guideName: z.string(), 
         slug: z.string(),
+        studyListKey: z.string().optional(),
         // Only used by the client for showing within the response toast.
-studyListKey: z.string().optional(),
+        title: z.string(),
       }),
     )
     .mutation(

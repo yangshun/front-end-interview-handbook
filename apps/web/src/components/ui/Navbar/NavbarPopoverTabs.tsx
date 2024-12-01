@@ -23,7 +23,7 @@ export default function NavbarPopoverTabs({
   items: ReadonlyArray<NavPopoverListItem>;
   onClose: (event?: React.MouseEvent<HTMLElement>) => void;
 }>) {
-  const [value, setValue] = useState(items[0].itemKey);
+  const [value, setValue] = useState(items[0].id);
   const laptopAndAbove = useMediaQuery('(min-width: 1024px)');
 
   useEffect(() => {
@@ -49,9 +49,9 @@ export default function NavbarPopoverTabs({
             themeBackgroundCardColor,
             ['border-r', themeBorderColor],
           )}>
-          {items.map(({ itemKey, label }) => (
+          {items.map(({ id, label }) => (
             <TabsPrimitive.Trigger
-              key={itemKey}
+              key={id}
               className={clsx(
                 'block w-full',
                 'rounded-md',
@@ -62,14 +62,14 @@ export default function NavbarPopoverTabs({
                 themeTextColor_Hover,
                 'text-pretty',
                 textVariants({
-                  color: value === itemKey ? 'default' : 'secondary',
+                  color: value === id ? 'default' : 'secondary',
                   size: 'body2',
                   weight: 'medium',
                 }),
               )}
-              value={itemKey}
+              value={id}
               onMouseEnter={() => {
-                setValue(itemKey);
+                setValue(id);
               }}>
               {label}
             </TabsPrimitive.Trigger>
@@ -78,15 +78,15 @@ export default function NavbarPopoverTabs({
         <div className="flex w-full grow items-center py-4 pe-4">
           {items.map((item) => (
             <TabsPrimitive.Content
-              key={item.itemKey}
+              key={item.id}
               className={clsx(
                 'outline-none',
-                value === item.itemKey && 'size-full flex flex-col gap-y-2',
+                value === item.id && 'size-full flex flex-col gap-y-2',
               )}
-              value={item.itemKey}>
+              value={item.id}>
               {item.items.map((childItem, index) => (
                 <NavbarPopoverLink
-                  key={childItem.itemKey}
+                  key={childItem.id}
                   number={index + 1}
                   {...childItem}
                   onClick={(event) => {

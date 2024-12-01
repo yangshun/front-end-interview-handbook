@@ -58,7 +58,7 @@ export function SidebarCollapsed({
       {topAddonElements}
       <ul className="flex grow flex-col gap-1">
         {startItems.map((item) => (
-          <li key={item.itemKey}>
+          <li key={item.id}>
             <SidebarLinkItem_DEPRECATED isLabelHidden={true} {...item} />
           </li>
         ))}
@@ -68,7 +68,7 @@ export function SidebarCollapsed({
           <Divider className="w-full" />
           <ul className="flex flex-col gap-1">
             {endItems.map((item) => (
-              <li key={item.itemKey}>
+              <li key={item.id}>
                 <SidebarLinkItem_DEPRECATED isLabelHidden={true} {...item} />
               </li>
             ))}
@@ -173,7 +173,7 @@ export function SidebarExpanded({
       {renderTopAddonElements?.(fadeInClass)}
       <ul className={clsx('flex grow flex-col gap-2', fadeInClass)}>
         {startItems.map((item) => (
-          <li key={item.itemKey}>
+          <li key={item.id}>
             <SidebarLinkItem_DEPRECATED {...item} />
           </li>
         ))}
@@ -184,7 +184,7 @@ export function SidebarExpanded({
             <Divider />
             <ul className="flex flex-col gap-2">
               {endItems.map((item) => (
-                <li key={item.itemKey}>
+                <li key={item.id}>
                   <SidebarLinkItem_DEPRECATED {...item} />
                 </li>
               ))}

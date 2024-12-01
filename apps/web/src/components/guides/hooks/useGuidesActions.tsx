@@ -11,8 +11,7 @@ import {
   useMutationGuideProgressDelete,
 } from '~/db/guides/GuidesProgressClient';
 
-import type { GuideCardMetadata } from '../types';
-
+import type { GuidebookItem } from '@prisma/client';
 import { useUser } from '@supabase/auth-helpers-react';
 
 const MARK_GUIDE_COMPLETE_ACTION = 'mark-guide-complete';
@@ -25,25 +24,31 @@ export default function useGuidesActions() {
   const addGuideProgressMutation = useMutationGuideProgressAdd();
   const deleteGuideProgressMutation = useMutationGuideProgressDelete();
   const [automaticallyMarkCompleteGuide, setAutomaticallyMarkCompleteGuide] =
-    useState<{ book: string; slug: string; title: string } | null>(null);
+    useState<{ book: GuidebookItem; id: string; title: string } | null>(null);
 
-  const addQueryParamToPath = useQueryParamAction<'book' | 'slug' | 'title'>(
+  const addQueryParamToPath = useQueryParamAction<'book' | 'id' | 'title'>(
     MARK_GUIDE_COMPLETE_ACTION,
     (params) => {
       if (params) {
-        setAutomaticallyMarkCompleteGuide(params);
+        setAutomaticallyMarkCompleteGuide(
+          params as Readonly<{
+            book: GuidebookItem;
+            id: string;
+            title: string;
+          }>,
+        );
       }
     },
-    ['title', 'slug', 'book'],
+    ['title', 'id', 'book'],
   );
 
   const markGuideAsCompleted = useCallback(
-    (guide: GuideCardMetadata) => {
+    (guide: Readonly<{ book: GuidebookItem; id: string; title: string }>) => {
       addGuideProgressMutation.mutate(
         {
           book: guide.book,
-          guideName: guide.title,
-          slug: guide.slug,
+          slug: guide.id,
+          title: guide.title,
         },
         {
           onSuccess: () => {
@@ -64,11 +69,19 @@ export default function useGuidesActions() {
       return;
     }
 
-    markGuideAsCompleted(automaticallyMarkCompleteGuide as GuideCardMetadata);
+    markGuideAsCompleted(
+      automaticallyMarkCompleteGuide as Readonly<{
+        book: GuidebookItem;
+        id: string;
+        title: string;
+      }>,
+    );
     setAutomaticallyMarkCompleteGuide(null);
   }, [automaticallyMarkCompleteGuide, markGuideAsCompleted, user]);
 
-  function markGuideAsNotCompleted(guide: GuideCardMetadata) {
+  function markGuideAsNotCompleted(
+    guide: Readonly<{ book: GuidebookItem; id: string; title: string }>,
+  ) {
     if (user == null) {
       return;
     }
@@ -76,7 +89,7 @@ export default function useGuidesActions() {
     deleteGuideProgressMutation.mutate(
       {
         book: guide.book,
-        slug: guide.slug,
+        slug: guide.id,
       },
       {
         onError: () => {

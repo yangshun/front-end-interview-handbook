@@ -90,7 +90,7 @@ function NavbarAccordionSubsection({
       </Text>
       <ul className="flex flex-col" role="list">
         {props.items.map(({ onClick: onItemClick, ...item }) => (
-          <li key={item.itemKey}>
+          <li key={item.id}>
             <NavbarAccordionSubsection
               className={className}
               isCurrent={isCurrent}
@@ -144,7 +144,7 @@ function NavbarSidebarAccordion({
         )}
         role="list">
         {props.items.map(({ onClick: onItemClick, ...item }) => (
-          <li key={item.itemKey}>
+          <li key={item.id}>
             <NavbarAccordionSubsection
               className={className}
               isCurrent={isCurrent}
@@ -175,7 +175,7 @@ export default function NavbarSidebarItem({
   if (props.type === 'link') {
     return (
       <Anchor
-        key={props.itemKey}
+        key={props.id}
         aria-current={isCurrent ? 'page' : undefined}
         className={clsx(
           'p-4',
@@ -193,7 +193,7 @@ export default function NavbarSidebarItem({
 
   return (
     <NavbarSidebarAccordion
-      key={props.itemKey}
+      key={props.id}
       isCurrent={isCurrent}
       label={label}
       linkClass={linkClass}

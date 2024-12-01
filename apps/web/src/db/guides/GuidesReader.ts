@@ -4,9 +4,9 @@ import path from 'path';
 import readingTime from 'reading-time';
 
 import type {
-  BehavioralRouteType,
-  FrontEndInterviewRouteType,
-  FrontEndSystemDesignRouteType,
+  BehavioralSlugType,
+  FrontEndInterviewSlugType,
+  FrontEndSystemDesignSlugType,
   GuideCardMetadata,
 } from '~/components/guides/types';
 import { basePath as behavioralInterviewGuidebookBasePath } from '~/components/guides/useBehavioralInterviewGuidebookNavigation';
@@ -39,9 +39,9 @@ export function readGuidesContents(
 }
 
 type GuidesRouteTypeMap = {
-  'behavioral-interview-guidebook': BehavioralRouteType;
-  'front-end-interview-guidebook': FrontEndInterviewRouteType;
-  'system-design': FrontEndSystemDesignRouteType;
+  'behavioral-interview-guidebook': BehavioralSlugType;
+  'front-end-interview-guidebook': FrontEndInterviewSlugType;
+  'system-design': FrontEndSystemDesignSlugType;
 };
 
 function requestToGuidePaths<T extends keyof GuidesRouteTypeMap>(
@@ -93,8 +93,8 @@ export async function readAllFrontEndInterviewGuides(locale: string) {
       book: 'FRONT_END_INTERVIEW_PLAYBOOK',
       description,
       href: `${frontEndInterviewGuidebookBasePath}/${slug}`,
+      id: slug,
       readingTime: time,
-      slug,
       title,
     });
   });
@@ -118,8 +118,8 @@ export async function readAllFrontendSystemDesignGuides(locale: string) {
       book: 'FRONT_END_SYSTEM_DESIGN_PLAYBOOK',
       description,
       href: `${frontEndSystemDesignGuidebookBasePath}/${slug}`,
+      id: slug,
       readingTime: time,
-      slug,
       title,
     });
   });
@@ -146,8 +146,8 @@ export async function readAllBehavioralGuides(locale: string) {
       book: 'BEHAVIORAL_INTERVIEW_PLAYBOOK',
       description,
       href: `${behavioralInterviewGuidebookBasePath}/${slug}`,
+      id: slug,
       readingTime: time,
-      slug,
       title,
     });
   });

@@ -38,7 +38,7 @@ export default function SystemDesignGuidebookLayout({
 
   const guideMetadata: GuideMetadata = {
     book: 'FRONT_END_SYSTEM_DESIGN_PLAYBOOK',
-    slug: currentItem.slug,
+    id: currentItem.id,
   };
 
   const { data: guideProgress, isSuccess } =

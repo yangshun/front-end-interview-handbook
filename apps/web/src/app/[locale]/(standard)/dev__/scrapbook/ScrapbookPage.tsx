@@ -153,9 +153,9 @@ export default function ScrapbookPage() {
                       description:
                         'Answering fundamental of JavaScript and related.',
                       href: '#',
+                      id: 'intro',
                       isCompleted: false,
                       readingTime: 3,
-                      slug: 'intro',
                       title: 'Foundation of JS',
                     },
                     {
@@ -163,9 +163,9 @@ export default function ScrapbookPage() {
                       description:
                         'Answering fundamental of JavaScript and related.',
                       href: '#',
+                      id: 'foundation',
                       isCompleted: false,
                       readingTime: 4,
-                      slug: 'foundation',
                       title: 'Object Oriented Programming',
                     },
                   ],

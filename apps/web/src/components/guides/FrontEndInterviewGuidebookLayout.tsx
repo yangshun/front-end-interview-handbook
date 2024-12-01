@@ -35,7 +35,7 @@ export default function FrontEndInterviewGuidebookLayout({
 
   const guideMetadata: GuideMetadata = {
     book: 'FRONT_END_INTERVIEW_PLAYBOOK',
-    slug: currentItem.slug,
+    id: currentItem.id,
   };
 
   const { data: guideProgress, isSuccess } =

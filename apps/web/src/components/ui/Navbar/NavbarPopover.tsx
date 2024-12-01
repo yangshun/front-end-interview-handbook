@@ -92,7 +92,7 @@ function NavbarPopoverGroup({ label, items, onClick }: NavPopoverListItem) {
         )}
         role="list">
         {items.map(({ onClick: onItemClick, ...item }, index) => (
-          <li key={item.itemKey}>
+          <li key={item.id}>
             <NavbarPopoverLink
               number={index + 1}
               {...item}
@@ -143,7 +143,7 @@ export default function NavbarPopover({
         )}>
         {items.map((item, index) => (
           <li
-            key={item.itemKey}
+            key={item.id}
             className={clsx(
               index !== 0 && 'pl-6',
               index !== items.length - 1 && 'pr-6',

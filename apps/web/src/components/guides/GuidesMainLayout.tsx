@@ -90,7 +90,7 @@ export default function GuidesMainLayout({
   for (let i = 0; i < flatNavigationItems.length; i++) {
     if (
       flatNavigationItems[i]?.href !== pathname &&
-      flatNavigationItems[i].slug !== pathname
+      flatNavigationItems[i].id !== pathname
     ) {
       continue;
     }
@@ -174,9 +174,9 @@ export default function GuidesMainLayout({
                   addGuideProgressMutation.mutate(
                     {
                       book: metadata.book,
-                      guideName: currentItem.label,
-                      slug: metadata.slug,
+                      slug: metadata.id,
                       studyListKey,
+                      title: currentItem.label,
                     },
                     {
                       onError: () => {

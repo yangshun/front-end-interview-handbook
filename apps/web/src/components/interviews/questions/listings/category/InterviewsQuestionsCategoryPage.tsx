@@ -122,7 +122,7 @@ export default function InterviewsQuestionsCategoryPage({
 
   const filteredGuides = guides.filter((guide) =>
     guidesSlugs[props.categoryValue].includes(
-      guide.slug as FrontEndInterviewSlugType,
+      guide.id as FrontEndInterviewSlugType,
     ),
   );
 

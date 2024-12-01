@@ -79,7 +79,7 @@ export default function GuidesProgressAction({
         variant="success"
         onClick={() => {
           deleteGuideProgressMutation.mutate(
-            { book: metadata.book, slug: metadata.slug },
+            { book: metadata.book, slug: metadata.id },
             {
               onError: () => {
                 showToast({
@@ -132,15 +132,15 @@ export default function GuidesProgressAction({
       onClick={() => {
         addGuideProgressMutation.mutate({
           book: metadata.book,
-          guideName,
-          slug: metadata.slug,
+          slug: metadata.id,
           studyListKey,
+          title: guideName,
         });
 
         logEvent('guide.mark_complete', {
           book: metadata.book,
           namespace: 'interviews',
-          slug: metadata.slug,
+          slug: metadata.id,
         });
       }}
     />

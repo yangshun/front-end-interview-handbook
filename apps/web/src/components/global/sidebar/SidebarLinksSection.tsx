@@ -26,9 +26,9 @@ type SidebarBaseItem = Readonly<{
   addOnElement?: ReactNode;
   currentMatchRegex?: RegExp;
   icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
+  id: string;
   label: string;
   showIcon?: boolean;
-  slug: string;
 }>;
 
 type SidebarLink = Readonly<{
@@ -145,7 +145,7 @@ function SidebarLinks({
   );
 
   return (
-    <AccordionPrimitive.Item value={item.slug}>
+    <AccordionPrimitive.Item value={item.id}>
       <AccordionPrimitive.Header>
         <AccordionPrimitive.Trigger
           className={clsx(
@@ -238,7 +238,7 @@ export default function SidebarLinksSection({
         }
 
         if (item.items.find((linkItem) => isItemActive(linkItem, pathname))) {
-          return item.slug;
+          return item.id;
         }
       }
     })();
@@ -257,27 +257,27 @@ export default function SidebarLinksSection({
     <ul>
       {items.map((item) => (
         <SidebarLinks
-          key={item.slug}
+          key={item.id}
           item={item}
           size={size}
           onToggle={() => {
             if (type === 'single') {
-              setOpenSection(openSection === item.slug ? null : item.slug);
+              setOpenSection(openSection === item.id ? null : item.id);
             } else {
-              const inAutomaticOpen = automaticOpenSections.includes(item.slug);
+              const inAutomaticOpen = automaticOpenSections.includes(item.id);
 
               if (inAutomaticOpen) {
                 setAutomaticOpenSections(
-                  automaticOpenSections.filter((slug) => slug !== item.slug),
+                  automaticOpenSections.filter((id) => id !== item.id),
                 );
               }
 
-              if (manuallyOpenSections.includes(item.slug)) {
+              if (manuallyOpenSections.includes(item.id)) {
                 setManuallyOpenSections(
-                  manuallyOpenSections.filter((slug) => slug !== item.slug),
+                  manuallyOpenSections.filter((id) => id !== item.id),
                 );
               } else if (!inAutomaticOpen) {
-                setManuallyOpenSections([...manuallyOpenSections, item.slug]);
+                setManuallyOpenSections([...manuallyOpenSections, item.id]);
               }
             }
           }}

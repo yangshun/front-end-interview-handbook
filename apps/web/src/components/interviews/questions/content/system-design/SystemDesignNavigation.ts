@@ -87,6 +87,7 @@ export function useSystemDesignGuides() {
       }),
       href: `${basePath}/introduction`,
       icon: RiPlayFill,
+      id: 'introduction',
       kind: 'guide',
       label: intl.formatMessage({
         defaultMessage: 'Introduction',
@@ -94,7 +95,6 @@ export function useSystemDesignGuides() {
         id: '83GIBc',
       }),
       premium: false,
-      slug: 'introduction',
       type: 'link',
     },
     {
@@ -106,6 +106,7 @@ export function useSystemDesignGuides() {
       }),
       href: `${basePath}/types-of-questions`,
       icon: RiShapesFill,
+      id: 'types-of-questions',
       kind: 'guide',
       label: intl.formatMessage({
         defaultMessage: 'Types of questions',
@@ -113,7 +114,6 @@ export function useSystemDesignGuides() {
         id: '6r6UcH',
       }),
       premium: false,
-      slug: 'types-of-questions',
       type: 'link',
     },
     {
@@ -124,6 +124,7 @@ export function useSystemDesignGuides() {
       }),
       href: `${basePath}/framework`,
       icon: RiSettingsFill,
+      id: 'framework',
       kind: 'guide',
       label: intl.formatMessage({
         defaultMessage: 'RADIO framework',
@@ -132,7 +133,6 @@ export function useSystemDesignGuides() {
         id: 'aVhVoX',
       }),
       premium: false,
-      slug: 'framework',
       type: 'link',
     },
     {
@@ -143,6 +143,7 @@ export function useSystemDesignGuides() {
       }),
       href: `${basePath}/evaluation-axes`,
       icon: RiPieChart2Fill,
+      id: 'evaluation-axes',
       kind: 'guide',
       label: intl.formatMessage({
         defaultMessage: 'Evaluation axes',
@@ -150,7 +151,6 @@ export function useSystemDesignGuides() {
         id: '7UE9o1',
       }),
       premium: false,
-      slug: 'evaluation-axes',
       type: 'link',
     },
     {
@@ -161,6 +161,7 @@ export function useSystemDesignGuides() {
       }),
       href: `${basePath}/common-mistakes`,
       icon: RiErrorWarningFill,
+      id: 'common-mistakes',
       kind: 'guide',
       label: intl.formatMessage({
         defaultMessage: 'Common mistakes',
@@ -169,7 +170,6 @@ export function useSystemDesignGuides() {
         id: '61X1bs',
       }),
       premium: false,
-      slug: 'common-mistakes',
       type: 'link',
     },
     {
@@ -181,6 +181,7 @@ export function useSystemDesignGuides() {
       }),
       href: `${basePath}/cheatsheet`,
       icon: RiFileList3Fill,
+      id: 'cheatsheet',
       kind: 'guide',
       label: intl.formatMessage({
         defaultMessage: 'Cheatsheet',
@@ -189,7 +190,6 @@ export function useSystemDesignGuides() {
         id: '3WHiQS',
       }),
       premium: false,
-      slug: 'cheatsheet',
       type: 'link',
     },
   ];
@@ -205,6 +205,7 @@ export function useSystemDesignNavigation() {
     navigation: {
       items: [
         {
+          id: 'guidebook',
           items: systemDesignGuides,
           label: intl.formatMessage({
             defaultMessage: 'Guidebook',
@@ -212,17 +213,17 @@ export function useSystemDesignNavigation() {
               'How to prepare for front end system design interviews',
             id: 'pgK6Eb',
           }),
-          slug: 'guidebook',
           type: 'list',
         },
         {
+          id: 'questions',
           items: readySystemDesignQuestions.map((questionMetadata) => ({
             href: questionMetadata.href,
             icon: SystemDesignIcons[questionMetadata.slug],
+            id: questionMetadata.slug,
             kind: 'question',
             label: questionMetadata.title,
             premium: questionMetadata.access === 'premium',
-            slug: questionMetadata.slug,
             type: 'link',
           })),
           label: intl.formatMessage({
@@ -230,10 +231,10 @@ export function useSystemDesignNavigation() {
             description: 'Front end system design interviews questions',
             id: 'WDJgWl',
           }),
-          slug: 'questions',
           type: 'list',
         },
         {
+          id: 'coming-soon',
           items: allSystemDesignQuestions
             .slice()
             .sort((a, b) => a.ranking - b.ranking)
@@ -244,10 +245,10 @@ export function useSystemDesignNavigation() {
             .map((questionMetadata) => ({
               href: questionMetadata.href,
               icon: SystemDesignIcons[questionMetadata.slug],
+              id: questionMetadata.slug,
               kind: 'question',
               label: questionMetadata.title,
               premium: questionMetadata.access === 'premium',
-              slug: questionMetadata.slug,
               type: 'link',
             })),
           label: intl.formatMessage({
@@ -256,7 +257,6 @@ export function useSystemDesignNavigation() {
               'Front end system design questions that are coming soon',
             id: '0krNBp',
           }),
-          slug: 'coming-soon',
           type: 'list',
         },
       ],

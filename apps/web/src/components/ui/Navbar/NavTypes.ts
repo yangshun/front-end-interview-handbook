@@ -3,7 +3,7 @@ import type { PopoverContentAlignment } from '../Popover';
 
 export type NavBaseItem = Readonly<{
   currentMatchRegex?: RegExp;
-  itemKey: string;
+  id: string;
   label: string;
   onClick?: React.MouseEventHandler<HTMLElement>;
 }>;

@@ -42,7 +42,7 @@ function useUserNavigationLinks() {
     {
       href: '/projects/profile',
       icon: RiUserLine,
-      itemKey: 'profile',
+      id: 'profile',
       label: intl.formatMessage({
         defaultMessage: 'Profile',
         description: 'Link label to the profile page',
@@ -60,7 +60,7 @@ function useUserNavigationLinks() {
     {
       href: '/projects/settings',
       icon: RiSettings3Line,
-      itemKey: 'settings',
+      id: 'settings',
       label: intl.formatMessage({
         defaultMessage: 'Settings',
         description: 'Link label to the settings page',
@@ -78,7 +78,7 @@ function useUserNavigationLinks() {
     {
       href: '/projects/settings/billing',
       icon: RiWallet3Line,
-      itemKey: 'billing',
+      id: 'billing',
       label: intl.formatMessage({
         defaultMessage: 'Billing',
         description: 'Link label to the billing page',
@@ -209,7 +209,7 @@ export default function ProjectsNavbar({ hideOnDesktop = false }: Props) {
             )}
             {userNavigationLinks.slice(1).map((props) => (
               <UserNavigationLinkItem
-                key={props.itemKey}
+                key={props.id}
                 closeMobileNav={closeMobileNav}
                 data={props}
               />

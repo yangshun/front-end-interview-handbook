@@ -4,7 +4,7 @@ import type { Metadata } from 'next/types';
 import path from 'path';
 
 import BehavioralInterviewGuidebookLayout from '~/components/guides/BehavioralInterviewGuidebookLayout';
-import type { BehavioralRouteType } from '~/components/guides/types';
+import type { BehavioralSlugType } from '~/components/guides/types';
 import { basePath } from '~/components/guides/useBehavioralInterviewGuidebookNavigation';
 import MDXCodeBlock from '~/components/mdx/MDXCodeBlock';
 import MDXComponents from '~/components/mdx/MDXComponents';
@@ -36,7 +36,7 @@ function requestToPaths({ params }: Props): Readonly<{
 }> {
   const mdxPath = (params.slug ?? [])
     .join('/')
-    .replace(/\/$/g, '') as BehavioralRouteType;
+    .replace(/\/$/g, '') as BehavioralSlugType;
 
   const directoryPath = path.join(
     process.cwd(),

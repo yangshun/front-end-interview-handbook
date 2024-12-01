@@ -1,9 +1,9 @@
 import { keyBy, mapValues, sumBy } from 'lodash-es';
 
 import type {
-  BehavioralRouteType,
-  FrontEndInterviewRouteType,
-  FrontEndSystemDesignRouteType,
+  BehavioralSlugType,
+  FrontEndInterviewSlugType,
+  FrontEndSystemDesignSlugType,
   GuideCardMetadata,
   GuideMetadata,
 } from '~/components/guides/types';
@@ -24,7 +24,7 @@ export function hasCompletedGuide(
   completedGuides: Set<string>,
   guide: GuideMetadata,
 ): boolean {
-  return completedGuides.has(hashGuide(guide.book, guide.slug));
+  return completedGuides.has(hashGuide(guide.book, guide.id));
 }
 
 export const frontendInterviewSlugs = [
@@ -41,7 +41,7 @@ export const frontendInterviewSlugs = [
 ] as const;
 
 export const frontEndInterviewsRouteToFile: Record<
-  FrontEndInterviewRouteType,
+  FrontEndInterviewSlugType,
   string
 > = {
   algorithms: 'algorithms',
@@ -67,7 +67,7 @@ export const frontendSystemDesignSlugs = [
 ] as const;
 
 export const frontendSystemDesignRouteToFile: Record<
-  FrontEndSystemDesignRouteType,
+  FrontEndSystemDesignSlugType,
   string
 > = {
   cheatsheet: 'cheatsheet',
@@ -89,7 +89,7 @@ export const behavioralSlugs = [
   'growth-mindset',
 ] as const;
 
-export const behavioralRouteToFile: Record<BehavioralRouteType, string> = {
+export const behavioralRouteToFile: Record<BehavioralSlugType, string> = {
   collaboration: 'collaboration',
   'growth-mindset': 'growth-mindset',
   introduction: 'overview',

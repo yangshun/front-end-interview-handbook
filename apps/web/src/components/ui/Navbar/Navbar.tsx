@@ -85,7 +85,7 @@ function Navbar(
             {logo}
             <nav className="hidden items-center gap-x-2 lg:ml-[68px] lg:flex lg:w-0 lg:flex-1">
               {leftLinks.map((navItem) => (
-                <NavbarItem key={navItem.itemKey} {...navItem} />
+                <NavbarItem key={navItem.id} {...navItem} />
               ))}
             </nav>
           </div>
@@ -140,7 +140,7 @@ function Navbar(
                       {leftLinks.length > 0 &&
                         leftLinks.map((navItem) => (
                           <NavbarSidebarItem
-                            key={navItem.itemKey}
+                            key={navItem.id}
                             {...navItem}
                             onClick={(event) => {
                               closeMobileNav();
@@ -151,7 +151,7 @@ function Navbar(
                       {rightLinks.length > 0 &&
                         rightLinks.map((navItem) => (
                           <NavbarSidebarItem
-                            key={navItem.itemKey}
+                            key={navItem.id}
                             {...navItem}
                             onClick={(event) => {
                               closeMobileNav();

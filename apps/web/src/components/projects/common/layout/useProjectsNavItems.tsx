@@ -25,7 +25,7 @@ export default function useProjectsNavItems(placement: 'nav' | 'sidebar') {
       pathname: '/projects/dashboard',
     }),
     icon: RiHome3Line,
-    itemKey: 'dashboard',
+    id: 'dashboard',
     label: intl.formatMessage({
       defaultMessage: 'Dashboard',
       description: 'Sidebar navigation label',
@@ -44,7 +44,7 @@ export default function useProjectsNavItems(placement: 'nav' | 'sidebar') {
   const challenges: NavbarTopLevelItem = {
     href: '/projects/challenges',
     icon: RiRocketLine,
-    itemKey: 'challenges',
+    id: 'challenges',
     label: intl.formatMessage({
       defaultMessage: 'Project challenges',
       description: 'Sidebar navigation label',
@@ -63,7 +63,7 @@ export default function useProjectsNavItems(placement: 'nav' | 'sidebar') {
   const submissions: NavbarTopLevelItem = {
     href: '/projects/submissions',
     icon: RiCodeSSlashLine,
-    itemKey: 'all-submissions',
+    id: 'all-submissions',
     label: intl.formatMessage({
       defaultMessage: 'User submissions',
       description: 'Sidebar navigation label',
@@ -85,7 +85,7 @@ export default function useProjectsNavItems(placement: 'nav' | 'sidebar') {
       pathname: '/projects',
     }),
     icon: RiShiningLine,
-    itemKey: 'features',
+    id: 'features',
     label: intl.formatMessage({
       defaultMessage: 'Features',
       description: 'Sidebar navigation label',
@@ -105,7 +105,7 @@ export default function useProjectsNavItems(placement: 'nav' | 'sidebar') {
   const pricing: NavbarTopLevelItem = {
     href: '/projects/pricing',
     icon: RiPriceTag3Line,
-    itemKey: 'pricing',
+    id: 'pricing',
     label: intl.formatMessage({
       defaultMessage: 'Pricing',
       description: 'Sidebar navigation label',

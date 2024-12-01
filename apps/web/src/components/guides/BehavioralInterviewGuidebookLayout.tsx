@@ -35,7 +35,7 @@ export default function BehavioralInterviewGuidebookLayout({
 
   const guideMetadata: GuideMetadata = {
     book: 'BEHAVIORAL_INTERVIEW_PLAYBOOK',
-    slug: currentItem.slug,
+    id: currentItem.id,
   };
 
   const { data: guideProgress, isSuccess } =

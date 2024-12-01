@@ -97,7 +97,7 @@ export default function InterviewsQuestionFormatPage({
   };
 
   const filteredGuides = guides.filter((guide) =>
-    guidesSlugs[format].includes(guide.slug as FrontEndInterviewSlugType),
+    guidesSlugs[format].includes(guide.id as FrontEndInterviewSlugType),
   );
 
   const guidesWithCompletionStatus =

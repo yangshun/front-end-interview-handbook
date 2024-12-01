@@ -142,11 +142,7 @@ export default function InterviewsGuideCard({ data }: Props) {
     if (user === null) {
       router.push(
         signInUpHref({
-          next: addQueryParamToPath(pathname || '', {
-            book: guide.book,
-            slug: guide.slug,
-            title: guide.title,
-          }),
+          next: addQueryParamToPath(pathname || '', guide),
         }),
       );
     } else {

@@ -137,7 +137,7 @@ export default function SidebarCollapsedLinkItem({
           <div className="flex flex-col gap-2">
             {props.items.map((childItem, index) => (
               <NavbarPopoverLink
-                key={childItem.itemKey}
+                key={childItem.id}
                 number={index + 1}
                 {...childItem}
                 onClick={(event) => {

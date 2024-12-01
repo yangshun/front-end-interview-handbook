@@ -15,7 +15,7 @@ export function useQueryGuideProgress(metadata: GuideMetadata) {
     {
       guide: {
         book: metadata.book,
-        slug: metadata.slug,
+        slug: metadata.id,
       },
     },
     {
@@ -52,7 +52,7 @@ export function useMutationGuideProgressAdd() {
             id: 'GoDdwh',
           },
           {
-            articleTitle: variables.guideName,
+            articleTitle: variables.title,
           },
         ),
         variant: 'success',

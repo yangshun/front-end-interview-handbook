@@ -82,7 +82,7 @@ export default function InterviewsNavbar({
           <div className="grid gap-y-1 px-2">
             {loggedInLinks.map((props) => (
               <Anchor
-                key={props.itemKey}
+                key={props.id}
                 className={clsx(
                   'group flex items-center rounded px-2 py-2 text-xs font-medium',
                   themeTextSecondaryColor,

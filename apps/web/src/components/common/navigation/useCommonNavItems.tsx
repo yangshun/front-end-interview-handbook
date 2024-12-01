@@ -22,7 +22,7 @@ export default function useCommonNavItems() {
 
   const login: NavbarTopLevelItem = {
     href: signInUpHref(),
-    itemKey: 'login',
+    id: 'login',
     label: signInUpLabel,
     onClick: () => {
       gtag.event({
@@ -37,7 +37,7 @@ export default function useCommonNavItems() {
   const logout: NavbarTopLevelItem = {
     href: logoutHref(),
     icon: RiLogoutBoxLine,
-    itemKey: 'logout',
+    id: 'logout',
     label: logoutLabel,
     onClick: () => {
       gtag.event({
@@ -52,7 +52,7 @@ export default function useCommonNavItems() {
   const blog: NavbarTopLevelItem = {
     href: '/blog',
     icon: RiPagesLine,
-    itemKey: 'blog',
+    id: 'blog',
     label: intl.formatMessage({
       defaultMessage: 'Blog',
       description: 'Link to blog',
@@ -71,7 +71,7 @@ export default function useCommonNavItems() {
   const interviewsSettings: NavLinkItem = {
     href: '/profile',
     icon: RiSettings3Line,
-    itemKey: 'profile',
+    id: 'profile',
     label: intl.formatMessage({
       defaultMessage: 'Settings',
       description: 'Link label to the profile page',
@@ -89,7 +89,7 @@ export default function useCommonNavItems() {
   const interviewsBilling: NavLinkItem = {
     href: '/profile/billing',
     icon: RiWallet3Line,
-    itemKey: 'billing',
+    id: 'billing',
     label: intl.formatMessage({
       defaultMessage: 'Billing',
       description: 'Link label to the billing page',

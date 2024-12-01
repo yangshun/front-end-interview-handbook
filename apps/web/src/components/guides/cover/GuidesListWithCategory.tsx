@@ -71,7 +71,7 @@ export default function GuidesListWithCategory({ guides }: Props) {
                         signInUpHref({
                           next: addQueryParamToPath(pathname || '', {
                             book: guide.book,
-                            slug: guide.slug,
+                            id: guide.id,
                             title: guide.title,
                           }),
                         }),

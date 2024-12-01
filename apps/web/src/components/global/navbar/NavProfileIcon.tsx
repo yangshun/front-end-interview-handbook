@@ -86,7 +86,7 @@ export default function NavProfileIcon({
           <div>
             {navItems.map((navItem) => (
               <DropdownMenu.Item
-                key={navItem.itemKey}
+                key={navItem.id}
                 {...navItem}
                 icon={undefined}
               />

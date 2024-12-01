@@ -4,7 +4,7 @@ import type { Metadata } from 'next/types';
 import path from 'path';
 
 import FrontEndInterviewGuidebookLayout from '~/components/guides/FrontEndInterviewGuidebookLayout';
-import type { FrontEndInterviewRouteType } from '~/components/guides/types';
+import type { FrontEndInterviewSlugType } from '~/components/guides/types';
 import { basePath } from '~/components/guides/useFrontEndInterviewGuidebookNavigation';
 import MDXCodeBlock from '~/components/mdx/MDXCodeBlock';
 import MDXComponents from '~/components/mdx/MDXComponents';
@@ -37,7 +37,7 @@ function requestToPaths({ params }: Props): Readonly<{
   const { slug } = params;
   const mdxPath = (slug ?? [''])
     .join('/')
-    .replace(/\/$/g, '') as FrontEndInterviewRouteType;
+    .replace(/\/$/g, '') as FrontEndInterviewSlugType;
 
   const directoryPath = path.join(
     process.cwd(),

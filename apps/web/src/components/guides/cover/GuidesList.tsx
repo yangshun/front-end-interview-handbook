@@ -37,7 +37,7 @@ export default function GuidesList<Q extends GuideCardMetadata>({
 
         return (
           <li
-            key={hashGuide(guide.book, guide.slug)}
+            key={hashGuide(guide.book, guide.id)}
             className={clsx(
               'group',
               'relative isolate',

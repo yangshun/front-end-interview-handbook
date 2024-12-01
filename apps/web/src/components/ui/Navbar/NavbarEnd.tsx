@@ -25,7 +25,7 @@ export default function NavbarEnd({
       )}>
       <div className="flex items-center gap-x-3">
         {links.map((navItem) => (
-          <NavbarItem key={navItem.itemKey} {...navItem} />
+          <NavbarItem key={navItem.id} {...navItem} />
         ))}
       </div>
       {addOnItems}

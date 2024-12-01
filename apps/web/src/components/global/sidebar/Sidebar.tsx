@@ -66,7 +66,7 @@ export function SidebarCollapsed({
       {topAddonElements}
       <ul className="flex grow flex-col gap-1">
         {startItems.map((item) => (
-          <li key={item.itemKey}>
+          <li key={item.id}>
             <SidebarCollapsedLinkItem {...item} />
           </li>
         ))}
@@ -76,7 +76,7 @@ export function SidebarCollapsed({
           <Divider className="w-full" />
           <ul className="flex flex-col gap-1">
             {endItems.map((item) => (
-              <li key={item.itemKey}>
+              <li key={item.id}>
                 <SidebarCollapsedLinkItem {...item} />
               </li>
             ))}

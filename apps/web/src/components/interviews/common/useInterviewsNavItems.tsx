@@ -43,7 +43,7 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
     currentMatchRegex: /\/interviews\/dashboard$/,
     href: '/interviews/dashboard',
     icon: RiHome3Line,
-    itemKey: 'dashboard',
+    id: 'dashboard',
     label: intl.formatMessage({
       defaultMessage: 'Dashboard',
       description: 'Link to dashboard page',
@@ -63,7 +63,7 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
     currentMatchRegex: /\/interviews\/get-started$/,
     href: '/interviews/get-started',
     icon: RiHome3Line,
-    itemKey: 'get-started',
+    id: 'get-started',
     label: intl.formatMessage({
       defaultMessage: 'Get started',
       description: 'Link to get started page',
@@ -85,7 +85,7 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
       pathname: '/',
     }),
     icon: RiShiningLine,
-    itemKey: 'features',
+    id: 'features',
     label: intl.formatMessage({
       defaultMessage: 'Features',
       description: 'Sidebar navigation label',
@@ -109,13 +109,13 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
       'i',
     ),
     icon: RiThumbUpLine,
-    itemKey: 'questions-types',
+    id: 'questions-types',
     // TODO(interviews): consolidate with "recommended prep strategy" dropdown menu.
     items: [
       {
         href: guidesData.FRONT_END_INTERVIEW_PLAYBOOK.href,
         icon: guidesData.FRONT_END_INTERVIEW_PLAYBOOK.icon,
-        itemKey: guidesData.FRONT_END_INTERVIEW_PLAYBOOK.key,
+        id: guidesData.FRONT_END_INTERVIEW_PLAYBOOK.key,
         label: guidesData.FRONT_END_INTERVIEW_PLAYBOOK.name,
         onClick: () => {
           gtag.event({
@@ -135,7 +135,7 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
       {
         href: '/interviews/gfe75',
         icon: StudyPlanIcons.gfe75,
-        itemKey: 'gfe75',
+        id: 'gfe75',
         label: 'GFE 75',
         onClick: () => {
           gtag.event({
@@ -156,7 +156,7 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
       {
         href: '/interviews/blind75',
         icon: StudyPlanIcons.blind75,
-        itemKey: 'blind75',
+        id: 'blind75',
         label: 'Blind 75',
         onClick: () => {
           gtag.event({
@@ -177,7 +177,7 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
       {
         href: guidesData.FRONT_END_SYSTEM_DESIGN_PLAYBOOK.href,
         icon: guidesData.FRONT_END_SYSTEM_DESIGN_PLAYBOOK.icon,
-        itemKey: guidesData.FRONT_END_SYSTEM_DESIGN_PLAYBOOK.key,
+        id: guidesData.FRONT_END_SYSTEM_DESIGN_PLAYBOOK.key,
         label: guidesData.FRONT_END_SYSTEM_DESIGN_PLAYBOOK.name,
         onClick: () => {
           gtag.event({
@@ -207,14 +207,14 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
     align: 'center',
     currentMatchRegex: /^\/interviews\/(study-plans|company|focus-areas)/,
     icon: RiTimeLine,
-    itemKey: 'time-savers',
+    id: 'time-savers',
     items: [
       {
         addOnElement: <SidebarPremiumChip />,
         currentMatchRegex: /^\/interviews\/study-plans/,
         href: '/interviews/study-plans',
         icon: RiCalendar2Line,
-        itemKey: 'study-plans',
+        id: 'study-plans',
         label: intl.formatMessage({
           defaultMessage: 'Study plans',
           description: 'Interviews study plans',
@@ -270,7 +270,7 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
         currentMatchRegex: /^\/interviews\/company/,
         href: '/interviews/company',
         icon: RiBuilding2Line,
-        itemKey: 'company-guide',
+        id: 'company-guide',
         label: intl.formatMessage({
           defaultMessage: 'Company guides',
           description: 'Company interview guides',
@@ -309,7 +309,7 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
         currentMatchRegex: /^\/interviews\/focus-areas/,
         href: '/interviews/focus-areas',
         icon: RiFocus2Line,
-        itemKey: 'focus-areas',
+        id: 'focus-areas',
         label: intl.formatMessage({
           defaultMessage: 'Focus areas',
           description: 'Interview preparation focus areas',
@@ -343,7 +343,7 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
     align: 'center',
     currentMatchRegex: /\/questions/,
     icon: RiQuestionnaireLine,
-    itemKey: 'practice-questions',
+    id: 'practice-questions',
     items: [
       {
         bottomEl: (
@@ -363,7 +363,7 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
         ),
         href: '/questions',
         icon: RiQuestionAnswerLine,
-        itemKey: 'question-format',
+        id: 'question-format',
         label: intl.formatMessage({
           defaultMessage: 'Question formats',
           description: 'Practice for interviews question format',
@@ -407,7 +407,7 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
         ),
         href: '/questions/frameworks',
         icon: RiReactjsFill,
-        itemKey: 'question-framework',
+        id: 'question-framework',
         label: intl.formatMessage({
           defaultMessage: 'Framework / Languages',
           description:
@@ -441,12 +441,12 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
   const guides = {
     align: 'center',
     icon: RiBookOpenLine,
-    itemKey: 'guides',
+    id: 'guides',
     items: [
       {
         href: guidesData.FRONT_END_INTERVIEW_PLAYBOOK.href,
         icon: guidesData.FRONT_END_INTERVIEW_PLAYBOOK.icon,
-        itemKey: guidesData.FRONT_END_INTERVIEW_PLAYBOOK.key,
+        id: guidesData.FRONT_END_INTERVIEW_PLAYBOOK.key,
         label: guidesData.FRONT_END_INTERVIEW_PLAYBOOK.name,
         labelAddon: (
           <Badge
@@ -476,7 +476,7 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
       {
         href: guidesData.FRONT_END_SYSTEM_DESIGN_PLAYBOOK.href,
         icon: guidesData.FRONT_END_SYSTEM_DESIGN_PLAYBOOK.icon,
-        itemKey: guidesData.FRONT_END_SYSTEM_DESIGN_PLAYBOOK.key,
+        id: guidesData.FRONT_END_SYSTEM_DESIGN_PLAYBOOK.key,
         label: guidesData.FRONT_END_SYSTEM_DESIGN_PLAYBOOK.name,
         onClick: () => {
           gtag.event({
@@ -491,7 +491,7 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
       {
         href: guidesData.BEHAVIORAL_INTERVIEW_PLAYBOOK.href,
         icon: guidesData.BEHAVIORAL_INTERVIEW_PLAYBOOK.icon,
-        itemKey: guidesData.BEHAVIORAL_INTERVIEW_PLAYBOOK.key,
+        id: guidesData.BEHAVIORAL_INTERVIEW_PLAYBOOK.key,
         label: guidesData.BEHAVIORAL_INTERVIEW_PLAYBOOK.name,
         labelAddon: (
           <Badge
@@ -525,7 +525,7 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
   const practice: NavbarTopLevelItem = {
     align: 'center',
     icon: RiTerminalWindowLine,
-    itemKey: 'practice-questions',
+    id: 'practice-questions',
     items: [recommendedPreparation, timeSavers, practiceQuestions, guides],
     label: intl.formatMessage({
       defaultMessage: 'Prepare',
@@ -538,7 +538,7 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
   const pricing = {
     href: '/interviews/pricing',
     icon: RiPriceTag3Line,
-    itemKey: 'pricing',
+    id: 'pricing',
     label: intl.formatMessage({
       defaultMessage: 'Pricing',
       description: 'Link label to the pricing page',
