@@ -14,7 +14,11 @@ import Ticket from '../tickets/Ticket';
 
 import { useUser } from '@supabase/auth-helpers-react';
 
-function SocialDiscountSidebarMentionImpl() {
+function SocialDiscountSidebarMentionImpl({
+  className,
+}: Readonly<{
+  className?: string;
+}>) {
   const socialDiscountLabels = useSocialDiscountLabels();
   const user = useUser();
   const { isLoading, data: promoCodes } =
@@ -30,7 +34,7 @@ function SocialDiscountSidebarMentionImpl() {
     const promoCode = promoCodes?.data[0];
 
     return (
-      <div className="flex flex-col items-start gap-2">
+      <div className={clsx('flex flex-col items-start gap-2', className)}>
         <Text className="text-pretty block" size="body3" weight="medium">
           {socialDiscountLabels.existingPromoTitle}
         </Text>
@@ -78,7 +82,7 @@ function SocialDiscountSidebarMentionImpl() {
 
   return (
     <Anchor
-      className="flex flex-1 items-center gap-3"
+      className={clsx('flex flex-1 items-center gap-3', className)}
       href="/rewards/social"
       variant="flat"
       weight="normal">
@@ -111,12 +115,16 @@ function SocialDiscountSidebarMentionImpl() {
   );
 }
 
-export function SocialDiscountSidebarMention() {
+export function SocialDiscountSidebarMention({
+  className,
+}: Readonly<{
+  className?: string;
+}>) {
   const { isLoading, userProfile } = useUserProfile();
 
   if (isLoading || userProfile?.premium) {
     return null;
   }
 
-  return <SocialDiscountSidebarMentionImpl />;
+  return <SocialDiscountSidebarMentionImpl className={className} />;
 }

@@ -1,32 +1,51 @@
 'use client';
 
 import clsx from 'clsx';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
+import {
+  RiMenuFill,
+  RiMoreLine,
+  RiPhoneLine,
+  RiScales3Line,
+  RiStarSmileFill,
+} from 'react-icons/ri';
 
 import gtag from '~/lib/gtag';
 import useIsSticky from '~/hooks/useIsSticky';
 import useUserProfile from '~/hooks/user/useUserProfile';
 
-import { useColorSchemePreferences } from '~/components/global/color-scheme/ColorSchemePreferencesProvider';
-import ColorSchemeSelect from '~/components/global/color-scheme/ColorSchemeSelect';
-import I18nSelect from '~/components/global/i18n/I18nSelect';
+import { SocialLinks } from '~/data/SocialLinks';
+
+import NavColorSchemeDropdown from '~/components/global/navbar/NavColorSchemeDropdown';
+import NavI18nDropdown from '~/components/global/navbar/NavI18nDropdown';
 import NavProductPopover from '~/components/global/navbar/NavProductPopover';
+import SidebarAuthDropdownItem from '~/components/global/sidebar/SidebarAuthDropdownItem';
+import SidebarColorSchemeSubMenu from '~/components/global/sidebar/SidebarColorSchemeSubMenu';
+import SidebarI18nSubMenu from '~/components/global/sidebar/SidebarI18nSubMenu';
+import SidebarLinksSection from '~/components/global/sidebar/SidebarLinksSection';
 import { useIntl } from '~/components/intl';
+import { SocialDiscountSidebarMention } from '~/components/promotions/social/SocialDiscountSidebarMention';
 import Anchor from '~/components/ui/Anchor';
 import Avatar from '~/components/ui/Avatar';
 import Button from '~/components/ui/Button';
-import Navbar from '~/components/ui/Navbar/Navbar';
-import Text from '~/components/ui/Text';
+import Chip from '~/components/ui/Chip';
+import Divider from '~/components/ui/Divider';
+import DropdownMenu from '~/components/ui/DropdownMenu';
+import NavbarEnd from '~/components/ui/Navbar/NavbarEnd';
+import NavbarHeightStyles from '~/components/ui/Navbar/NavbarHeightStyles';
+import NavbarItem from '~/components/ui/Navbar/NavbarItem';
+import ScrollArea from '~/components/ui/ScrollArea';
+import SlideOut from '~/components/ui/SlideOut';
+import Text, { textVariants } from '~/components/ui/Text';
 import {
   themeBackgroundLayerEmphasized_Hover,
-  themeTextSecondaryColor,
+  themeBorderColor,
 } from '~/components/ui/theme';
-
-import { useI18nPathname, useI18nRouter } from '~/next-i18nostic/src';
 
 import InterviewsNavbarEndAddOnItems from './InterviewsNavbarEndAddOnItems';
 import useInterviewsLoggedInLinks from './useInterviewsLoggedInLinks';
 import useInterviewsNavLinks from './useInterviewsNavLinks';
+import useInterviewsSidebarLinks from './useInterviewsSidebarLinks';
 
 import { useUser } from '@supabase/auth-helpers-react';
 
@@ -39,8 +58,6 @@ export default function InterviewsNavbar({
   bottomBorder = true,
   hideOnDesktop = false,
 }: Props) {
-  const { colorSchemePreference, setColorSchemePreference } =
-    useColorSchemePreferences();
   const user = useUser();
   const isLoggedIn = user != null;
   const { isLoading: isUserProfileLoading, userProfile } = useUserProfile();
@@ -48,112 +65,267 @@ export default function InterviewsNavbar({
   const isPremium = userProfile?.premium ?? false;
   const navLinksFull = useInterviewsNavLinks(isLoggedIn, isPremium);
   const loggedInLinks = useInterviewsLoggedInLinks();
-  const { locale, pathname } = useI18nPathname();
-  const router = useI18nRouter();
   const navbarRef = useRef(null);
   const { isSticky } = useIsSticky(navbarRef);
+  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
 
-  function renderMobileSidebarAddOnItems({
-    closeMobileNav,
-  }: Readonly<{
-    closeMobileNav: () => void;
-  }>) {
-    return (
-      <div className={clsx('grid gap-y-2')}>
-        <div className="grid grid-cols-2 gap-2 px-4 pt-4">
-          <I18nSelect
-            display="block"
-            locale={locale ?? 'en-US'}
-            onChange={(newLocale: string) => {
-              if (pathname == null) {
-                return;
-              }
+  const navSlideOutItems = useInterviewsSidebarLinks(isLoggedIn);
 
-              router.push(pathname, { locale: newLocale });
-            }}
-          />
-          <ColorSchemeSelect
-            colorScheme={colorSchemePreference}
-            display="block"
-            onChange={setColorSchemePreference}
-          />
-        </div>
-        {isLoggedIn && (
-          <div className="grid gap-y-1 px-2">
-            {loggedInLinks.map((props) => (
-              <Anchor
-                key={props.id}
-                className={clsx(
-                  'group flex items-center rounded px-2 py-2 text-xs font-medium',
-                  themeTextSecondaryColor,
-                  themeBackgroundLayerEmphasized_Hover,
-                )}
-                href={props.href}
-                variant="unstyled"
-                onClick={(event) => {
-                  props.onClick?.(event);
-                  closeMobileNav();
-                }}>
-                {props.label}
-              </Anchor>
-            ))}
-          </div>
-        )}
-        {!isPremium && (
-          <div className="px-4">
-            <Button
-              display="block"
-              href="/interviews/pricing"
-              label={intl.formatMessage({
-                defaultMessage: 'Get full access',
-                description: 'Link label to the pricing page',
-                id: 'lhtwHD',
-              })}
-              variant="primary"
-              onClick={() => {
-                closeMobileNav();
-                gtag.event({
-                  action: `nav.get_full_access.click`,
-                  category: 'ecommerce',
-                  label: 'Get full access',
-                });
-              }}
-            />
-          </div>
-        )}
-      </div>
-    );
+  function closeMobileNav() {
+    setIsMobileNavOpen(false);
   }
 
   const displayName = userProfile?.name ?? user?.email;
 
-  const mobileSidebarBottomItems = isLoggedIn && (
-    <div className="flex shrink-0 items-center gap-x-3">
-      <Avatar alt={displayName ?? ''} src={userProfile?.avatarUrl ?? ''} />
-      <Text className="block" color="subtitle" size="body2" weight="medium">
-        {displayName}
-      </Text>
-    </div>
-  );
+  const endAddOnItems = <InterviewsNavbarEndAddOnItems />;
+  const translucent = !isSticky;
+
+  const leftLinks = navLinksFull.filter(({ position }) => position === 'start');
+  const rightLinks = navLinksFull.filter(({ position }) => position === 'end');
 
   return (
-    <Navbar
+    <div
       ref={navbarRef}
-      bottomBorder={bottomBorder}
-      endAddOnItems={<InterviewsNavbarEndAddOnItems />}
-      hideOnDesktop={hideOnDesktop}
-      isLoading={isUserProfileLoading}
-      links={navLinksFull}
-      logo={
-        <NavProductPopover
-          product="interviews"
-          triggerClassname="-ml-2"
-          variant="full"
-        />
-      }
-      mobileSidebarBottomItems={mobileSidebarBottomItems}
-      renderMobileSidebarAddOnItems={renderMobileSidebarAddOnItems}
-      translucent={!isSticky}
-    />
+      className={clsx(
+        'z-fixed sticky top-[var(--banner-height)]',
+        bottomBorder && ['border-b', themeBorderColor],
+        translucent ? 'backdrop-blur' : 'bg-white dark:bg-neutral-900/60',
+        'transition-[background-color]',
+        hideOnDesktop && 'lg:hidden',
+      )}>
+      <NavbarHeightStyles
+        borderHeight={bottomBorder ? 1 : 0}
+        hideOnDesktop={hideOnDesktop}
+      />
+      <div className="max-w-8xl mx-auto px-6">
+        <div
+          className={clsx(
+            'flex items-center justify-between md:justify-start md:gap-4',
+            'h-[var(--navbar-height)]',
+          )}>
+          <div className="flex items-center justify-start lg:w-0 lg:grow">
+            <NavProductPopover
+              product="interviews"
+              triggerClassname="-ml-2"
+              variant="full"
+            />
+            <nav className="hidden items-center gap-x-2 lg:ml-[68px] lg:flex lg:w-0 lg:flex-1">
+              {leftLinks.map((navItem) => (
+                <NavbarItem key={navItem.id} {...navItem} />
+              ))}
+            </nav>
+          </div>
+          <NavbarEnd
+            addOnItems={endAddOnItems}
+            className={clsx(
+              'hidden items-center justify-end gap-x-3',
+              'md:flex md:grow lg:w-0 lg:grow-0',
+            )}
+            isLoading={isUserProfileLoading}
+            links={rightLinks}
+          />
+          <div className="-my-2 sm:-mr-2 lg:hidden">
+            <SlideOut
+              enterFrom="start"
+              isShown={isMobileNavOpen}
+              padding={false}
+              size="xs"
+              title={
+                <div className="flex shrink-0 items-center">
+                  <NavProductPopover
+                    product="interviews"
+                    triggerClassname="-ml-2"
+                    variant="compact"
+                  />
+                </div>
+              }
+              trigger={
+                <div className="relative">
+                  <Button
+                    icon={RiMenuFill}
+                    isLabelHidden={true}
+                    label="Open menu"
+                    size="xs"
+                    variant="secondary"
+                    onClick={() => {
+                      setIsMobileNavOpen(true);
+                    }}
+                  />
+                </div>
+              }
+              onClose={() => {
+                setIsMobileNavOpen(false);
+              }}>
+              <div className="flex h-full flex-col">
+                <div className="flex h-0 flex-1 flex-col">
+                  <nav
+                    aria-label="Sidebar"
+                    className="flex flex-1 flex-col justify-between overflow-hidden">
+                    <ScrollArea className="px-4">
+                      <SidebarLinksSection
+                        items={navSlideOutItems}
+                        size="md"
+                        type="single"
+                      />
+                    </ScrollArea>
+                    <Divider />
+                    <div className={clsx('flex flex-col gap-y-2', 'px-4 py-4')}>
+                      {(isLoggedIn
+                        ? loggedInLinks
+                        : rightLinks.filter((link) => link.type === 'link')
+                      ).map((linkItem) => (
+                        <Anchor
+                          key={linkItem.id}
+                          className={clsx(
+                            'group flex items-center',
+                            'rounded',
+                            'px-2 py-2',
+                            textVariants({
+                              color: 'secondary',
+                              size: 'body2',
+                              weight: 'medium',
+                            }),
+                            themeBackgroundLayerEmphasized_Hover,
+                          )}
+                          href={linkItem.href}
+                          variant="unstyled"
+                          onClick={(event) => {
+                            linkItem.onClick?.(event);
+                            closeMobileNav();
+                          }}>
+                          {linkItem.label}
+                        </Anchor>
+                      ))}
+                    </div>
+                    <Divider />
+                    <div className={clsx('flex flex-col gap-y-4', 'px-4 py-4')}>
+                      <SocialDiscountSidebarMention className="max-w-[220px]" />
+                      <div className="flex justify-between">
+                        {[
+                          isPremium
+                            ? SocialLinks.discordPremium
+                            : SocialLinks.discord,
+                          SocialLinks.linkedin,
+                        ].map(({ href, icon, name, key }) => (
+                          <Button
+                            key={key}
+                            href={href}
+                            icon={icon}
+                            isLabelHidden={true}
+                            label={name}
+                            variant="secondary"
+                          />
+                        ))}
+                        <NavI18nDropdown size="sm" />
+                        <NavColorSchemeDropdown size="sm" />
+                        <DropdownMenu
+                          icon={RiMoreLine}
+                          isLabelHidden={true}
+                          label="More"
+                          showChevron={false}
+                          size="sm">
+                          <SidebarColorSchemeSubMenu />
+                          <SidebarI18nSubMenu type="submenu" />
+                          <Divider />
+                          <DropdownMenu.Item
+                            href="/contact"
+                            icon={RiPhoneLine}
+                            label={intl.formatMessage({
+                              defaultMessage: 'Contact us',
+                              description: 'Link to contact page',
+                              id: 'dRUyU9',
+                            })}
+                          />
+                          <DropdownMenu.Sub
+                            icon={RiScales3Line}
+                            label={intl.formatMessage({
+                              defaultMessage: 'Legal',
+                              description: 'Link to legal page',
+                              id: 'J7b0BM',
+                            })}>
+                            <DropdownMenu.Item
+                              href="/legal/privacy-policy"
+                              label={intl.formatMessage({
+                                defaultMessage: 'Privacy policy',
+                                description: 'Link to privacy policy page',
+                                id: 'RxU5TE',
+                              })}
+                            />
+                            <DropdownMenu.Item
+                              href="/legal/terms"
+                              label={intl.formatMessage({
+                                defaultMessage: 'Terms of service',
+                                description: 'Link to terms of service page',
+                                id: 'WYR3gj',
+                              })}
+                            />
+                          </DropdownMenu.Sub>
+                          <Divider />
+                          <SidebarAuthDropdownItem />
+                        </DropdownMenu>
+                      </div>
+                      {!isPremium && (
+                        <div className="px-2">
+                          <Button
+                            display="block"
+                            href="/interviews/pricing"
+                            label={intl.formatMessage({
+                              defaultMessage: 'Get full access',
+                              description: 'Link label to the pricing page',
+                              id: 'lhtwHD',
+                            })}
+                            variant="primary"
+                            onClick={() => {
+                              closeMobileNav();
+                              gtag.event({
+                                action: `nav.get_full_access.click`,
+                                category: 'ecommerce',
+                                label: 'Get full access',
+                              });
+                            }}
+                          />
+                        </div>
+                      )}
+                    </div>
+                    {isLoggedIn && (
+                      <>
+                        <Divider />
+                        <div
+                          className={clsx(
+                            'flex shrink-0 items-center gap-x-3',
+                            'px-4 py-4',
+                          )}>
+                          <Avatar
+                            alt={displayName ?? ''}
+                            src={userProfile?.avatarUrl ?? ''}
+                          />
+                          <Text
+                            className="block"
+                            color="subtitle"
+                            size="body2"
+                            weight="medium">
+                            {displayName}
+                          </Text>
+                          {isPremium && (
+                            <Chip
+                              className="size-[18px]"
+                              icon={RiStarSmileFill}
+                              iconClassName="size-[14px]"
+                              isLabelHidden={true}
+                              label="Premium user badge"
+                              variant="primary"
+                            />
+                          )}
+                        </div>
+                      </>
+                    )}
+                  </nav>
+                </div>
+              </div>
+            </SlideOut>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }

@@ -23,8 +23,8 @@ export default function InterviewsNavbarEndAddOnItems() {
     <>
       {/* This custom breakpoint is set to avoid overlapping of elements on near tab breakpoint */}
       <div className="hidden gap-x-3 min-[1150px]:flex">
-        <NavI18nDropdown />
-        <NavColorSchemeDropdown />
+        <NavI18nDropdown size="xs" />
+        <NavColorSchemeDropdown size="xs" />
       </div>
       {!isPremium && (
         <Button

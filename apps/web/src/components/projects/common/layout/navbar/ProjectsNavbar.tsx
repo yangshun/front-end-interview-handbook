@@ -152,7 +152,7 @@ export default function ProjectsNavbar({ hideOnDesktop = false }: Props) {
 
   const endAddOnItems = (
     <>
-      <NavColorSchemeDropdown />
+      <NavColorSchemeDropdown size="xs" />
       {!isPremium && (
         <Button
           href="/projects/pricing"

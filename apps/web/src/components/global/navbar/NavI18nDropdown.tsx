@@ -8,10 +8,10 @@ import { useI18nPathname } from '~/next-i18nostic/src';
 
 type Props = Readonly<{
   showSelected?: boolean;
-  size?: 'md' | 'xs';
+  size?: 'md' | 'sm' | 'xs';
 }>;
 
-export default function NavI18nDropdown({ size = 'xs', showSelected }: Props) {
+export default function NavI18nDropdown({ size, showSelected }: Props) {
   const intl = useIntl();
   const { pathname, locale } = useI18nPathname();
 

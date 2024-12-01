@@ -6,7 +6,11 @@ import DropdownMenu from '~/components/ui/DropdownMenu';
 
 import { useColorSchemePreferences } from '../color-scheme/ColorSchemePreferencesProvider';
 
-export default function NavColorSchemeDropdown() {
+type Props = Readonly<{
+  size?: 'md' | 'sm' | 'xs';
+}>;
+
+export default function NavColorSchemeDropdown({ size }: Props) {
   const intl = useIntl();
   const { colorSchemePreference, colorScheme, setColorSchemePreference } =
     useColorSchemePreferences();
@@ -27,7 +31,7 @@ export default function NavColorSchemeDropdown() {
         id: 'n4aKYo',
       })}
       showChevron={false}
-      size="xs"
+      size={size}
       tooltip={intl.formatMessage({
         defaultMessage: 'Theme',
         description: 'Tooltip for theme selector',
