@@ -319,7 +319,6 @@ export default function Footer({ navigation }: Props) {
                 <NavI18nDropdown showSelected={true} size="md" />
               </div>
             </div>
-
             <div
               className={clsx(
                 'col-span-8',

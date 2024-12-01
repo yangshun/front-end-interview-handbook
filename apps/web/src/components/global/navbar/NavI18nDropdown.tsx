@@ -28,7 +28,7 @@ export default function NavI18nDropdown({ size = 'xs', showSelected }: Props) {
       isLabelHidden={!showLabel}
       label={
         showLabel
-          ? selectedLocale?.locale ?? ''
+          ? selectedLocale?.label ?? ''
           : intl.formatMessage({
               defaultMessage: 'Language',
               description: 'Change site language button label',
