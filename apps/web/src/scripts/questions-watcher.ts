@@ -1,6 +1,6 @@
 import chalk from 'chalk';
 import chokidar from 'chokidar';
-import _ from 'lodash-es';
+import { debounce } from 'lodash-es';
 import path, { dirname } from 'path';
 import { fileURLToPath } from 'url';
 
@@ -29,7 +29,7 @@ async function regenerateArtifactsImpl() {
   );
 }
 
-const regenerateArtifacts = _.debounce(regenerateArtifactsImpl, 50);
+const regenerateArtifacts = debounce(regenerateArtifactsImpl, 50);
 
 const quizPath = path.resolve(
   path.join(

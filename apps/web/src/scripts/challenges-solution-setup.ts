@@ -1,7 +1,7 @@
 import assert from 'assert';
 import fs from 'fs';
 import { globby } from 'globby';
-import lodash from 'lodash-es';
+import { groupBy } from 'lodash-es';
 import nullthrows from 'nullthrows';
 import path from 'path';
 
@@ -43,7 +43,7 @@ async function generateSetupForChallengesSolutions(slug: string) {
   );
 
   // Group folders for a challenges by (solution type, setupType).
-  const groupedFiles = lodash.groupBy(allFilesForChallenges, (filePath) => {
+  const groupedFiles = groupBy(allFilesForChallenges, (filePath) => {
     const parts = filePath.split('/');
 
     return parts[0] + '/' + parts[1];

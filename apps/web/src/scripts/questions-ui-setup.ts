@@ -1,7 +1,7 @@
 import assert from 'assert';
 import fs from 'fs';
 import { globby } from 'globby';
-import lodash from 'lodash-es';
+import { groupBy } from 'lodash-es';
 import nullthrows from 'nullthrows';
 import path from 'path';
 
@@ -47,7 +47,7 @@ async function generateSetupForQuestion(slug: string) {
   );
 
   // Group folders for a question by (framework, setup).
-  const groupedFiles = lodash.groupBy(allFilesForQuestion, (filePath) => {
+  const groupedFiles = groupBy(allFilesForQuestion, (filePath) => {
     const parts = filePath.split('/');
 
     return parts[0] + '/' + parts[1];

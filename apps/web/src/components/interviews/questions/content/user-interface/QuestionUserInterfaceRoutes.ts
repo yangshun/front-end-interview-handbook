@@ -9,7 +9,7 @@ export function questionUserInterfaceDescriptionPath(
 ): string {
   return (
     `/questions/user-interface/${metadata.slug}/` +
-    (framework === metadata.frameworkDefault ?? 'vanilla' ? '' : framework)
+    (framework === (metadata.frameworkDefault ?? 'vanilla') ? '' : framework)
   );
 }
 
