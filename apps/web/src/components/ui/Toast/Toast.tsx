@@ -108,9 +108,9 @@ const ToastViewport = React.forwardRef<
     ref={ref}
     className={clsx(
       'fixed top-0 sm:bottom-0 sm:left-0 sm:top-auto',
+      'pointer-events-none',
       'z-toast',
       'flex max-h-screen w-full flex-col-reverse gap-4 sm:flex-col',
-      'md:max-w-[420px]',
       'px-4 py-6 sm:p-6',
       className,
     )}
@@ -185,8 +185,8 @@ export const ToastImpl = React.forwardRef<
   ToastProps
 >((props, ref) => {
   const commonClass = clsx(
+    'md:max-w-[420px] w-full',
     'group pointer-events-auto relative list-none',
-    'w-full',
     'transition-all',
     'data-[swipe=cancel]:translate-x-0',
     'data-[swipe=end]:translate-x-[var(--radix-toast-swipe-end-x)]',
@@ -198,6 +198,9 @@ export const ToastImpl = React.forwardRef<
     'data-[state=closed]:animate-out',
     'data-[state=closed]:fade-out-80',
     'data-[state=closed]:slide-out-to-left-full',
+    'flex',
+    props.side === 'start' && 'self-start',
+    props.side === 'end' && 'self-end justify-end',
   );
 
   if (props.variant === 'custom') {
@@ -308,7 +311,8 @@ type CustomProps = Readonly<{
 type BaseToastProps = Omit<
   React.ComponentPropsWithoutRef<typeof ToastPrimitive.Root>,
   'children' | 'title'
->;
+> &
+  Readonly<{ side?: 'end' | 'start' }>;
 
 export type DefaultToastProps = BaseToastProps & DefaultProps;
 
@@ -340,6 +344,7 @@ const Toast = React.forwardRef<
     addOnLabel,
     variant,
     onClose,
+    side = 'start',
     ...remainingProps
   } = props;
 
@@ -352,6 +357,7 @@ const Toast = React.forwardRef<
         description={description}
         icon={icon}
         maxWidth={maxWidth}
+        side={side}
         title={title}
         variant={variant}
         onClose={onClose}

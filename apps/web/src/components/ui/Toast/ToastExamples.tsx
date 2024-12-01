@@ -39,9 +39,21 @@ export default function ToastExamples() {
             }}
           />
         ))}
+        <Button
+          label="Show on the right"
+          variant="secondary"
+          onClick={() => {
+            showToast({
+              description: new Date().toUTCString(),
+              side: 'end',
+              title: 'Scheduled: Catch up',
+              variant: 'info',
+            });
+          }}
+        />
       </div>
       {variants.map((variant) => (
-        <div key={variant} className="flex flex-col items-center gap-4">
+        <div key={variant} className="flex flex-col gap-4">
           <ToastImpl
             addOnIcon={RiFireFill}
             addOnLabel="+50"
@@ -59,7 +71,7 @@ export default function ToastExamples() {
       ))}
       <ToastImpl
         customComponent={() => (
-          <div className="rounded-xl border border-neutral-200 bg-white p-3 dark:border-neutral-700 dark:bg-neutral-950">
+          <div className="rounded-xl border border-neutral-200 bg-white p-3 text-sm dark:border-neutral-700 dark:bg-neutral-950">
             This is a custom toast component
           </div>
         )}
