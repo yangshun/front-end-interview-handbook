@@ -36,7 +36,7 @@ function RecentPurchaseToastComponent({
         'rounded-full',
         'p-3',
         'drop-shadow-sm',
-        'max-w-sm',
+        'max-w-[312px]',
         themeBackgroundColor,
         [
           themeWhiteGlowCardBackground,
@@ -127,6 +127,7 @@ function MarketingRecentPurchasesImpl({
         />
       ),
       duration: 8000,
+      side: 'end',
       variant: 'custom',
     });
 
@@ -149,7 +150,7 @@ export default function InterviewsMarketingRecentPurchasesToasts() {
   const isMobileAndBelow = useMediaQuery('(max-width: 768px)');
 
   const [lastShown, setLastShown] = useLocalStorage<number | null>(
-    'gfe:marketing.purchases.toast.last_shown',
+    'gfe:marketing:purchases:toast:last_shown',
     null,
   );
 

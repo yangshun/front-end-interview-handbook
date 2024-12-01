@@ -33,7 +33,7 @@ function CustomToastComponent({ children }: Readonly<{ children: ReactNode }>) {
         'relative isolate overflow-hidden',
         'rounded-lg',
         'p-3',
-        'max-w-sm',
+        'max-w-[300px]',
         'drop-shadow-sm',
         themeBackgroundColor,
         [
@@ -132,9 +132,9 @@ function SocialDiscountToastImpl() {
             <div className="flex flex-col">
               <Text color="secondary" size="body3" weight="medium">
                 <FormattedMessage
-                  defaultMessage="Get a discount by following us on social media."
+                  defaultMessage="Complete simple social tasks."
                   description="Social discount toast message"
-                  id="t8xZ1p"
+                  id="OigD3P"
                 />{' '}
                 <Anchor
                   className="inline-flex items-center gap-1"
@@ -153,6 +153,7 @@ function SocialDiscountToastImpl() {
         </CustomToastComponent>
       ),
       duration: 1200000,
+      side: 'end',
       variant: 'custom',
     });
 
