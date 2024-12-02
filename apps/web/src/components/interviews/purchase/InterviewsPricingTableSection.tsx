@@ -751,38 +751,37 @@ export default function InterviewsPricingTableSection({
           leftSectionContents={
             <>
               <div className="flex flex-col">
-                {showPPPMessage && (
-                  <Text
-                    className={clsx(
-                      'inline-flex flex-wrap items-end text-lg line-through',
-                      featuredPlan.paymentConfig.unitCostCurrency.withPPP
-                        .after < 1000 && 'sm:text-lg',
+                <Text
+                  className={clsx(
+                    'inline-flex flex-wrap items-end',
+                    'text-lg line-through',
+                  )}
+                  color="subtle"
+                  size="inherit">
+                  <PurchasePriceLabel
+                    amount={priceRoundToNearestNiceNumber(
+                      showPPPMessage
+                        ? featuredPlan.paymentConfig.unitCostCurrency.base.after
+                        : featuredPlan.paymentConfig.unitCostCurrency.withPPP
+                            .before,
                     )}
-                    color="subtle"
-                    size="inherit">
-                    <PurchasePriceLabel
-                      amount={priceRoundToNearestNiceNumber(
-                        featuredPlan.paymentConfig.unitCostCurrency.base.after /
-                          (featuredPlan.numberOfMonths ?? 1),
-                      )}
-                      currency={featuredPlan.paymentConfig.currency.toUpperCase()}
-                      symbol={featuredPlan.paymentConfig.symbol}
-                    />{' '}
-                    {featuredPlan.numberOfMonths != null ? (
-                      <FormattedMessage
-                        defaultMessage="/month"
-                        description="Per month"
-                        id="aE1FCD"
-                      />
-                    ) : (
-                      <FormattedMessage
-                        defaultMessage="paid once"
-                        description="Pay the price once"
-                        id="BMBc9O"
-                      />
-                    )}
-                  </Text>
-                )}
+                    currency={featuredPlan.paymentConfig.currency.toUpperCase()}
+                    symbol={featuredPlan.paymentConfig.symbol}
+                  />{' '}
+                  {featuredPlan.numberOfMonths != null ? (
+                    <FormattedMessage
+                      defaultMessage="/month"
+                      description="Per month"
+                      id="aE1FCD"
+                    />
+                  ) : (
+                    <FormattedMessage
+                      defaultMessage="paid once"
+                      description="Pay the price once"
+                      id="BMBc9O"
+                    />
+                  )}
+                </Text>
                 <Text
                   className={clsx('inline-flex items-end gap-x-2')}
                   color="secondary"
