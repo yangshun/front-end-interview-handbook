@@ -40,6 +40,7 @@ export default function InterviewsStudyListPageTitleSection({
             questionCount={questions.length}
             questions={questions}
             studyListKey={studyListKey}
+            studyListTitle={props.title}
           />
         ) : undefined
       }

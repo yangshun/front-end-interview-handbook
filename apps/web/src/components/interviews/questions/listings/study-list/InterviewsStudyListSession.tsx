@@ -42,6 +42,7 @@ type Props = Readonly<{
   questionCount: number;
   questions: ReadonlyArray<QuestionMetadata>;
   studyListKey: string;
+  studyListTitle: string;
 }>;
 
 export default function InterviewsStudyListSession({
@@ -51,6 +52,7 @@ export default function InterviewsStudyListSession({
   overallProgress,
   feature,
   studyListKey,
+  studyListTitle,
 }: Props) {
   const intl = useIntl();
   const pathname = usePathname();
@@ -76,7 +78,7 @@ export default function InterviewsStudyListSession({
     studyListSession?.progress ?? [],
   );
 
-  const startSessionMutation = useStartLearningSessionMutation();
+  const startSessionMutation = useStartLearningSessionMutation(studyListTitle);
   const stopSessionMutation = trpc.questionSessions.stop.useMutation({
     onSuccess() {
       trpcUtils.questionProgress.invalidate();
