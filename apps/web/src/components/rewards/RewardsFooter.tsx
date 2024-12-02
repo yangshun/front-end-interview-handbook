@@ -11,7 +11,11 @@ import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
 import Text from '~/components/ui/Text';
 
-export default function RewardsHeader() {
+type Props = Readonly<{
+  isDisabled?: boolean;
+}>;
+
+export default function RewardsFooter({ isDisabled }: Props) {
   const intl = useIntl();
   const { userProfile } = useUserProfile();
   const { signInUpHref } = useAuthSignInUp();
@@ -36,6 +40,7 @@ export default function RewardsHeader() {
                 })
           }
           icon={RiArrowRightLine}
+          isDisabled={isDisabled}
           label={intl.formatMessage({
             defaultMessage: 'Start tasks',
             description: 'Start tasks button',
