@@ -29,10 +29,11 @@ const actions = [
     title: 'Start practicing',
   },
   {
-    description: 'Get started with study plans and focus areas',
+    description:
+      'Leverage time-savers like study plans and focus areas to turbocharge your prep',
     href: '/interviews/study-plans',
     icon: RiCodeSSlashLine,
-    title: 'Study plans',
+    title: 'Premium time-savers',
   },
 ];
 
@@ -44,7 +45,7 @@ export default function InterviewsPaymentSuccessPage({
   plansPaymentConfig,
 }: Props): JSX.Element {
   return (
-    <Container className="py-8" width="2xl">
+    <Container className="py-16" width="2xl">
       <InterviewsPurchaseSuccessLogging
         plansPaymentConfig={plansPaymentConfig}
       />

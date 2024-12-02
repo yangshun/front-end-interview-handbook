@@ -563,6 +563,10 @@
     "defaultMessage": "YOE / Job status",
     "description": "Label for experience filter for submissions list"
   },
+  "1mbKJP": {
+    "defaultMessage": "You can find your promo codes on the <link>profile page</link>.",
+    "description": "Help text for promo code"
+  },
   "1obIS0": {
     "defaultMessage": "Practice in an environment that simulates real interviews",
     "description": "Title for the simulate real interviews section"
@@ -1026,10 +1030,6 @@
   "5A3y/o": {
     "defaultMessage": "Leave more feedback",
     "description": "Feedback widget button label to leave more feedback before the session closes"
-  },
-  "5BEps7": {
-    "defaultMessage": "You can find your promos codes on the <link>profile page</link>.",
-    "description": "Subtext for rewards complete page"
   },
   "5CaZLv": {
     "defaultMessage": "Techniques and guides",
@@ -1506,10 +1506,6 @@
   "83GIBc": {
     "defaultMessage": "Introduction",
     "description": "Introduction to front end system design"
-  },
-  "83xBqd": {
-    "defaultMessage": "Expires on <strong>{expiryDate}</strong>. You can find your promos codes on the <link>profile page</link>.",
-    "description": "Subtext for rewards complete page"
   },
   "869F+x": {
     "defaultMessage": "{numberOfHours} hours daily",
@@ -8618,6 +8614,10 @@
   "t6SUbS": {
     "defaultMessage": "Angular Interview Questions with Solutions | GreatFrontEnd",
     "description": "Title of React Interview Questions page"
+  },
+  "t9VyCG": {
+    "defaultMessage": "Expires on <strong>{expiryDate}</strong>. You can find your promo codes on the <link>profile page</link>.",
+    "description": "Help text for promo code"
   },
   "tBeimS": {
     "defaultMessage": "Challenges activity",

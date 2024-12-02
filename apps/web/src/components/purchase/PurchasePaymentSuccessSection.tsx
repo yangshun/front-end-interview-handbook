@@ -10,11 +10,12 @@ import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 import {
-  themeBackgroundChipColor,
+  themeBorderBrandColor_GroupHover,
   themeBorderColor,
   themeDivideColor,
   themeTextBrandColor_GroupHover,
   themeTextSecondaryColor,
+  themeTextSubtleColor,
 } from '~/components/ui/theme';
 
 type Props = Readonly<{
@@ -79,18 +80,23 @@ export default function PurchasePaymentSuccessSection({
                       <span
                         className={clsx(
                           'size-10 inline-flex items-center justify-center rounded-md',
-                          themeBackgroundChipColor,
+                          themeTextSubtleColor,
                           [
-                            themeTextSecondaryColor,
-                            themeTextBrandColor_GroupHover,
+                            'border',
+                            themeBorderColor,
+                            themeBorderBrandColor_GroupHover,
                           ],
-                          [
-                            'border border-transparent',
-                            'group-hover:border-brand-dark dark:group-hover:border-brand',
-                          ],
-                          'transition',
+                          'transition-colors',
                         )}>
-                        <action.icon aria-hidden={true} className="size-6" />
+                        <action.icon
+                          aria-hidden={true}
+                          className={clsx(
+                            'transition-colors',
+                            'dark:group-hover:text-brand group-hover:text-neutral-900',
+                            'shrink-0',
+                            'size-6',
+                          )}
+                        />
                       </span>
                     </div>
                     <div className="min-w-0 flex-1">

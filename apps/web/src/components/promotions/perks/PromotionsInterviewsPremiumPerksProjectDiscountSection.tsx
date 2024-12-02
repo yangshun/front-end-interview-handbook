@@ -92,9 +92,9 @@ export default function PromotionsInterviewsPremiumPerksProjectDiscountSection()
           />
           <Text className="block text-center" color="secondary" size="body1">
             <FormattedMessage
-              defaultMessage="Expires on <strong>{expiryDate}</strong>. You can find your promos codes on the <link>profile page</link>."
-              description="Subtext for rewards complete page"
-              id="83xBqd"
+              defaultMessage="Expires on <strong>{expiryDate}</strong>. You can find your promo codes on the <link>profile page</link>."
+              description="Help text for promo code"
+              id="t9VyCG"
               values={{
                 expiryDate: dateFormatter.format(promoCode.expires_at! * 1000),
                 link: (chunks) => (
