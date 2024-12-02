@@ -201,21 +201,30 @@ export default function InterviewsNavbar({
                     <div className={clsx('flex flex-col gap-y-4', 'px-4 py-4')}>
                       <SocialDiscountSidebarMention className="max-w-[220px]" />
                       <div className="flex justify-between">
-                        {[
-                          isPremium
-                            ? SocialLinks.discordPremium
-                            : SocialLinks.discord,
-                          SocialLinks.linkedin,
-                        ].map(({ href, icon, name, key }) => (
+                        {isPremium ? (
                           <Button
-                            key={key}
-                            href={href}
-                            icon={icon}
+                            href={SocialLinks.discordPremium.href}
+                            icon={SocialLinks.discordPremium.icon}
                             isLabelHidden={true}
-                            label={name}
+                            label={SocialLinks.discordPremium.name}
+                            variant="primary"
+                          />
+                        ) : (
+                          <Button
+                            href={SocialLinks.discord.href}
+                            icon={SocialLinks.discord.icon}
+                            isLabelHidden={true}
+                            label={SocialLinks.discord.name}
                             variant="secondary"
                           />
-                        ))}
+                        )}
+                        <Button
+                          href={SocialLinks.linkedin.href}
+                          icon={SocialLinks.linkedin.icon}
+                          isLabelHidden={true}
+                          label={SocialLinks.linkedin.name}
+                          variant="secondary"
+                        />
                         <NavI18nDropdown size="sm" />
                         <NavColorSchemeDropdown size="sm" />
                         <DropdownMenu

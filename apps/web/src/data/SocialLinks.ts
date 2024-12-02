@@ -35,7 +35,7 @@ export const SocialLinks: Record<
     href: 'https://discord.gg/8suTg77xXz',
     icon: RiDiscordFill,
     key: 'discord-premium',
-    name: 'Discord',
+    name: 'Discord (Premium)',
     userCount: 4_997,
   },
   github: {

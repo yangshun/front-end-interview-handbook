@@ -2,7 +2,6 @@ import clsx from 'clsx';
 import {
   RiContractLeftLine,
   RiContractRightLine,
-  RiDiscordLine,
   RiLinkedinFill,
   RiMoreLine,
   RiPhoneLine,
@@ -99,7 +98,7 @@ export function SidebarCollapsed({
               <DropdownMenu.Item
                 color="active"
                 href={SocialLinks.discordPremium.href}
-                icon={RiDiscordLine}
+                icon={SocialLinks.discordPremium.icon}
                 label={intl.formatMessage({
                   defaultMessage: 'Premium Discord',
                   description: 'Link to the premium Discord server',
@@ -109,7 +108,7 @@ export function SidebarCollapsed({
             ) : (
               <DropdownMenu.Item
                 href={SocialLinks.discord.href}
-                icon={RiDiscordLine}
+                icon={SocialLinks.discord.icon}
                 label="Discord"
               />
             )}
@@ -200,7 +199,7 @@ export function SidebarExpanded({
           {isViewerPremium ? (
             <Button
               href={SocialLinks.discordPremium.href}
-              icon={RiDiscordLine}
+              icon={SocialLinks.discordPremium.icon}
               isLabelHidden={true}
               label={intl.formatMessage({
                 defaultMessage: 'Premium Discord',
@@ -218,7 +217,7 @@ export function SidebarExpanded({
           ) : (
             <Button
               href={SocialLinks.discord.href}
-              icon={RiDiscordLine}
+              icon={SocialLinks.discord.icon}
               isLabelHidden={true}
               label="Discord"
               size="sm"

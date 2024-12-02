@@ -2,7 +2,6 @@ import clsx from 'clsx';
 import {
   RiContractLeftLine,
   RiContractRightLine,
-  RiDiscordLine,
   RiLinkedinFill,
   RiMoreLine,
   RiPhoneLine,
@@ -167,17 +166,17 @@ export function SidebarCollapsed({
                   <DropdownMenu.Item
                     color="active"
                     href={SocialLinks.discordPremium.href}
-                    icon={RiDiscordLine}
+                    icon={SocialLinks.discordPremium.icon}
                     label={intl.formatMessage({
-                      defaultMessage: 'Premium Discord',
+                      defaultMessage: 'Discord (Premium)',
                       description: 'Link to the premium Discord server',
-                      id: 'gvLQbK',
+                      id: 'VthnJ1',
                     })}
                   />
                 ) : (
                   <DropdownMenu.Item
                     href={SocialLinks.discord.href}
-                    icon={RiDiscordLine}
+                    icon={SocialLinks.discord.icon}
                     label={SocialLinks.discord.name}
                   />
                 )}
@@ -266,31 +265,35 @@ export function SidebarExpanded({
       <div className={clsx('flex justify-between gap-4', 'p-4')}>
         <div className="flex gap-4">
           {notificationItem}
-          <Button
-            href={
-              isViewerPremium
-                ? SocialLinks.discordPremium.href
-                : SocialLinks.discord.href
-            }
-            icon={RiDiscordLine}
-            isLabelHidden={true}
-            label="Discord"
-            size="sm"
-            tooltip={
-              isViewerPremium
-                ? intl.formatMessage({
-                    defaultMessage: 'Join Discord (premium)',
-                    description: 'Tooltip for join premium discord',
-                    id: 'XG1Wfg',
-                  })
-                : intl.formatMessage({
-                    defaultMessage: 'Join Discord channel (public)',
-                    description: 'Link to the Discord server',
-                    id: 'OchGBW',
-                  })
-            }
-            variant={isViewerPremium ? 'primary' : 'secondary'}
-          />
+          {isViewerPremium ? (
+            <Button
+              href={SocialLinks.discordPremium.href}
+              icon={SocialLinks.discordPremium.icon}
+              isLabelHidden={true}
+              label={SocialLinks.discordPremium.name}
+              size="sm"
+              tooltip={intl.formatMessage({
+                defaultMessage: 'Join Discord (premium)',
+                description: 'Tooltip for join premium discord',
+                id: 'XG1Wfg',
+              })}
+              variant="primary"
+            />
+          ) : (
+            <Button
+              href={SocialLinks.discord.href}
+              icon={SocialLinks.discord.icon}
+              isLabelHidden={true}
+              label={SocialLinks.discord.name}
+              size="sm"
+              tooltip={intl.formatMessage({
+                defaultMessage: 'Join Discord channel (public)',
+                description: 'Link to the Discord server',
+                id: 'OchGBW',
+              })}
+              variant="secondary"
+            />
+          )}
           {bottomBarItems}
           <SidebarDropdownMenu moreMenuItems={moreMenuItems} />
         </div>

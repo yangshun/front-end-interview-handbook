@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { useId } from 'react';
-import { RiArrowRightLine, RiDiscordLine } from 'react-icons/ri';
+import { RiArrowRightLine } from 'react-icons/ri';
 
 import { fbqGFE } from '~/lib/fbq';
 import { trpc } from '~/hooks/trpc';
@@ -149,7 +149,7 @@ building projects - no spam!"
       <div className="flex flex-col items-center gap-y-8">
         <Button
           href={SocialLinks.discord.href}
-          icon={RiDiscordLine}
+          icon={SocialLinks.discord.icon}
           label={intl.formatMessage({
             defaultMessage: 'Join Discord',
             description: 'Link to the Discord server',
