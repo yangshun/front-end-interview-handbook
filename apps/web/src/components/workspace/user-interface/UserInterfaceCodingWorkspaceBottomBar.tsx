@@ -92,7 +92,10 @@ export default function UserInterfaceCodingWorkspaceBottomBar({
       nextQuestions={nextQuestions}
       rightPostElements={
         mode === 'practice' ? (
-          <UserInterfaceCodingWorkspaceSaveButton question={question} />
+          <UserInterfaceCodingWorkspaceSaveButton
+            question={question}
+            studyListKey={studyListKey}
+          />
         ) : undefined
       }
       rightPreElements={

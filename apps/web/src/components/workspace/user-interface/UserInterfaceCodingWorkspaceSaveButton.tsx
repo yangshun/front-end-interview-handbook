@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 
 import { trpc } from '~/hooks/trpc';
+import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
 
 import { useToast } from '~/components/global/toasts/useToast';
 import type { QuestionUserInterface } from '~/components/interviews/questions/common/QuestionsTypes';
@@ -62,10 +63,13 @@ function NewSaveButton({
   question,
 }: Readonly<{
   question: QuestionUserInterface;
+  studyListKey?: string; // TODO(interviews): make save URLs study list-specific
 }>) {
+  const user = useUser();
   const trpcUtils = trpc.useUtils();
   const router = useI18nRouter();
   const { showToast } = useToast();
+  const { signInUpHref } = useAuthSignInUp();
   const { data: saves } = trpc.questionSave.userInterfaceGetAll.useQuery({
     slug: question.metadata.slug,
   });
@@ -111,17 +115,22 @@ function NewSaveButton({
   return (
     <>
       <Button
+        href={user == null ? signInUpHref() : undefined}
         isDisabled={userInterfaceAddSubmissionMutation.isLoading}
         isLoading={userInterfaceAddSubmissionMutation.isLoading}
         label="Save to cloud"
         size="xs"
         variant="primary"
-        onClick={() => {
-          setIsDialogOpen(true);
-          setTimeout(() => {
-            inputRef.current?.select();
-          }, 17);
-        }}
+        onClick={
+          user == null
+            ? undefined
+            : () => {
+                setIsDialogOpen(true);
+                setTimeout(() => {
+                  inputRef.current?.select();
+                }, 17);
+              }
+        }
       />
       <Dialog
         isShown={isDialogOpen}
@@ -182,8 +191,10 @@ function NewSaveButton({
 
 export default function UserInterfaceCodingWorkspaceSaveButton({
   question,
+  studyListKey,
 }: Readonly<{
   question: QuestionUserInterface;
+  studyListKey?: string;
 }>) {
   const { save } = useUserInterfaceCodingWorkspaceSavesContext();
   const hasExistingSave = save != null;
@@ -191,7 +202,7 @@ export default function UserInterfaceCodingWorkspaceSaveButton({
 
   // Don't allow updating of save file if the current user
   // doesn't own the save.
-  if (user == null || (hasExistingSave && user?.id !== save.userId)) {
+  if (hasExistingSave && user?.id !== save.userId) {
     return null;
   }
 
@@ -200,7 +211,7 @@ export default function UserInterfaceCodingWorkspaceSaveButton({
       {hasExistingSave ? (
         <UpdateSaveButton save={save} />
       ) : (
-        <NewSaveButton question={question} />
+        <NewSaveButton question={question} studyListKey={studyListKey} />
       )}
     </div>
   );
