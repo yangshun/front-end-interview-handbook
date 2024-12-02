@@ -51,10 +51,12 @@ export default function CodingWorkspaceBottomBar({
         'px-3 py-3',
       )}>
       {leftElements && (
-        <div className="flex items-center gap-x-2">{leftElements}</div>
+        <div className="flex items-center gap-x-2 md:flex-1">
+          {leftElements}
+        </div>
       )}
       {showQuestionsListButton && (
-        <div className="absolute left-4 md:left-1/2 md:-translate-x-1/2">
+        <div className="flex flex-1 sm:justify-center">
           {/* Because useQuestionsListTypeCurrent() uses useSearchParams() */}
           <Suspense>
             <InterviewsQuestionsListSlideOutButton
@@ -64,7 +66,7 @@ export default function CodingWorkspaceBottomBar({
           </Suspense>
         </div>
       )}
-      <div className="flex items-center gap-x-2">
+      <div className="flex items-center justify-end gap-x-2 md:flex-1">
         {rightPreElements}
         <div className="hidden lg:inline">
           <CodingWorkspaceTimer />

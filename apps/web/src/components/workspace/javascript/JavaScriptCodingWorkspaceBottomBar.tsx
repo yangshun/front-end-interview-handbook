@@ -31,7 +31,7 @@ export default function JavaScriptCodingWorkspaceBottomBar({
   const [isLayoutDialogOpen, setIsLayoutDialogOpen] = useState(false);
 
   const rightPreElements = (
-    <span className="inline md:hidden">
+    <span className="inline sm:hidden">
       <QuestionReportIssueButton
         format={metadata.format}
         title={metadata.title}
@@ -92,7 +92,7 @@ export default function JavaScriptCodingWorkspaceBottomBar({
     <CodingWorkspaceBottomBar
       leftElements={
         layout === 'full' && (
-          <div className="hidden items-center gap-x-2 md:inline-flex">
+          <div className="hidden items-center gap-x-2 sm:inline-flex">
             <DropdownMenu
               icon={RiSettings2Line}
               isLabelHidden={true}

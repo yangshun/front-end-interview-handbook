@@ -38,7 +38,7 @@ export default function UserInterfaceCodingWorkspaceBottomBar({
   return (
     <CodingWorkspaceBottomBar
       leftElements={
-        <div className="hidden items-center gap-x-2 md:inline-flex">
+        <div className="hidden flex-1 items-center gap-x-2 sm:inline-flex">
           <DropdownMenu
             icon={RiSettings2Line}
             isLabelHidden={true}
@@ -99,7 +99,7 @@ export default function UserInterfaceCodingWorkspaceBottomBar({
         ) : undefined
       }
       rightPreElements={
-        <span className="inline md:hidden">
+        <span className="inline sm:hidden">
           <QuestionReportIssueButton
             format={metadata.format}
             title={metadata.title}
