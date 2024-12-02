@@ -80,12 +80,25 @@ export default function useQuestionUnifiedFilters({
     [importanceFilters.size, importanceFilterOptions.matches],
     // Company.
     [companyFilters.size, companyFilterOptions.matches],
-    // Language.
-    [languageFilters.size, languageFilterOptions.matches],
+    // Language or Framework.
+    [
+      languageFilters.size + frameworkFilters.size,
+      (question) => {
+        if (languageFilters.size > 0 && frameworkFilters.size > 0) {
+          return (
+            languageFilterOptions.matches(question) ||
+            frameworkFilterOptions.matches(question)
+          );
+        }
+        if (languageFilters.size > 0) {
+          return languageFilterOptions.matches(question);
+        }
+
+        return frameworkFilterOptions.matches(question);
+      },
+    ],
     // Format.
     [formatFilters.size, formatFilterOptions.matches],
-    // Framework.
-    [frameworkFilters.size, frameworkFilterOptions.matches],
     // Topics.
     [topicFilters.size, topicFilterOptions.matches],
     // Completion Status.
