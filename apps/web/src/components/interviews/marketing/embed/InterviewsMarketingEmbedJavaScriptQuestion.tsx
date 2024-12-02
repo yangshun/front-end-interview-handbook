@@ -44,7 +44,7 @@ export default function InterviewsMarketingEmbedJavaScriptQuestion({
         'size-full flex flex-col',
         'bg-neutral-50 dark:bg-neutral-950',
       )}>
-      <div className="relative flex grow flex-col lg:h-0 lg:pt-3">
+      <div className="relative flex h-0 grow flex-col lg:pt-3">
         {laptopAndAbove ? (
           <JavaScriptCodingWorkspaceSection
             canViewPremiumContent={false}
@@ -65,31 +65,31 @@ export default function InterviewsMarketingEmbedJavaScriptQuestion({
             similarQuestions={[]}
           />
         )}
-        <Anchor
-          href={javaScriptEmbedExample.metadata.href}
-          target="_blank"
-          variant="unstyled"
-          onClick={() => {
-            gtag.event({
-              action: `homepage.hero.embed.javascript.try_out.click`,
-              category: 'engagement',
-              label: 'Click here to try out the actual workspace',
-            });
-            logEvent('click', {
-              element: 'Homepage JavaScript embed',
-              label: 'Click here to try out the actual workspace',
-              namespace: 'interviews',
-            });
-          }}>
-          <Banner size="xs">
-            {intl.formatMessage({
-              defaultMessage: 'Click here to try out the actual workspace',
-              description: 'Button label within embed',
-              id: 'yQr+jJ',
-            })}
-          </Banner>
-        </Anchor>
       </div>
+      <Anchor
+        href={javaScriptEmbedExample.metadata.href}
+        target="_blank"
+        variant="unstyled"
+        onClick={() => {
+          gtag.event({
+            action: `homepage.hero.embed.javascript.try_out.click`,
+            category: 'engagement',
+            label: 'Click here to try out the actual workspace',
+          });
+          logEvent('click', {
+            element: 'Homepage JavaScript embed',
+            label: 'Click here to try out the actual workspace',
+            namespace: 'interviews',
+          });
+        }}>
+        <Banner size="xs">
+          {intl.formatMessage({
+            defaultMessage: 'Click here to try out the actual workspace',
+            description: 'Button label within embed',
+            id: 'yQr+jJ',
+          })}
+        </Banner>
+      </Anchor>
     </div>
   );
 }

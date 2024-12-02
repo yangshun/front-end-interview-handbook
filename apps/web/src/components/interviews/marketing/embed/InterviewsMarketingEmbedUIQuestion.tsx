@@ -61,7 +61,7 @@ export default function InterviewsMarketingEmbedUIQuestion({
         'size-full flex flex-col',
         'bg-neutral-50 dark:bg-neutral-950',
       )}>
-      <div className="relative flex grow flex-col lg:h-0 lg:py-3">
+      <div className="relative flex h-0 grow flex-col lg:py-3">
         {laptopAndAbove ? (
           <UserInterfaceCodingWorkspaceSection
             key={framework}
