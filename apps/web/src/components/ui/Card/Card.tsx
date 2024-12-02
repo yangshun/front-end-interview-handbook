@@ -38,8 +38,8 @@ const cardOuterContainerSpotlightClassNames = clsx(
   'before:z-10',
 
   'after:absolute after:rounded-full after:pointer-events-none after:transition-opacity after:duration-500',
-  'after:w-32 after:h-32 after:-left-16 after:-top-16 after:blur-[72px]',
-  'after:opacity-0 after:hover:opacity-70 dark:after:hover:opacity-80',
+  'after:w-20 after:h-20 after:-left-10 after:-top-10 after:blur-[40px]',
+  'after:opacity-0 after:hover:opacity-70 dark:after:hover:opacity-40',
   'after:translate-x-[var(--mouse-x)] after:translate-y-[var(--mouse-y)]',
   'after:z-30',
 );
@@ -109,7 +109,7 @@ export default function Card({
             cardOuterContainerSpotlightClassNames,
             brandColorSpotlight
               ? 'after:bg-brand-dark'
-              : 'after:bg-neutral-500',
+              : 'after:bg-brand after:dark:bg-neutral-500',
           ],
       )}>
       <div
