@@ -28,6 +28,67 @@ import NavProductDropdownMenu, {
   NavProductPopoverLogoOnly,
 } from '../navbar/NavProductPopover';
 
+function SidebarDropdownMenu({
+  moreMenuItems,
+  moreEndMenuItems,
+}: Readonly<{
+  moreEndMenuItems?: React.ReactElement | false | null | undefined;
+  moreMenuItems: React.ReactElement | false | null | undefined;
+}>) {
+  const intl = useIntl();
+
+  return (
+    <DropdownMenu
+      align="end"
+      icon={RiMoreLine}
+      isLabelHidden={true}
+      label="More"
+      showChevron={false}
+      side="right"
+      size="sm">
+      <SidebarColorSchemeSubMenu />
+      <SidebarI18nSubMenu type="submenu" />
+      {moreMenuItems}
+      <DropdownMenu.Item
+        href="/contact"
+        icon={RiPhoneLine}
+        label={intl.formatMessage({
+          defaultMessage: 'Contact us',
+          description: 'Link to contact page',
+          id: 'dRUyU9',
+        })}
+      />
+      <DropdownMenu.Sub
+        icon={RiScales3Line}
+        label={intl.formatMessage({
+          defaultMessage: 'Legal',
+          description: 'Link to legal page',
+          id: 'J7b0BM',
+        })}>
+        <DropdownMenu.Item
+          href="/legal/privacy-policy"
+          label={intl.formatMessage({
+            defaultMessage: 'Privacy policy',
+            description: 'Link to privacy policy page',
+            id: 'RxU5TE',
+          })}
+        />
+        <DropdownMenu.Item
+          href="/legal/terms"
+          label={intl.formatMessage({
+            defaultMessage: 'Terms of service',
+            description: 'Link to terms of service page',
+            id: 'WYR3gj',
+          })}
+        />
+      </DropdownMenu.Sub>
+      {moreEndMenuItems}
+      <Divider />
+      <SidebarAuthDropdownItem />
+    </DropdownMenu>
+  );
+}
+
 export function SidebarCollapsed({
   moreMenuItems,
   bottomAddonElements,
@@ -88,49 +149,42 @@ export function SidebarCollapsed({
       <div className="flex flex-col items-center gap-4">
         {notificationItem}
         <div className="flex flex-col items-center gap-4">
-          <DropdownMenu
-            align="end"
-            icon={RiMoreLine}
-            isLabelHidden={true}
-            label="More"
-            showChevron={false}
-            side="right"
-            size="sm">
-            <SidebarColorSchemeSubMenu />
-            <SidebarI18nSubMenu type="submenu" />
-            {moreMenuItems}
-            <Divider />
-            <DropdownMenu.Item
-              href={SocialLinks.github.href}
-              icon={SocialLinks.github.icon}
-              label={SocialLinks.github.name}
-            />
-            <DropdownMenu.Item
-              href={SocialLinks.linkedin.href}
-              icon={RiLinkedinFill}
-              label={SocialLinks.linkedin.name}
-            />
-            {showPremiumDiscord ? (
-              <DropdownMenu.Item
-                color="active"
-                href={SocialLinks.discordPremium.href}
-                icon={RiDiscordLine}
-                label={intl.formatMessage({
-                  defaultMessage: 'Premium Discord',
-                  description: 'Link to the premium Discord server',
-                  id: 'gvLQbK',
-                })}
-              />
-            ) : (
-              <DropdownMenu.Item
-                href={SocialLinks.discord.href}
-                icon={RiDiscordLine}
-                label={SocialLinks.discord.name}
-              />
-            )}
-            <Divider />
-            <SidebarAuthDropdownItem />
-          </DropdownMenu>
+          <SidebarDropdownMenu
+            moreEndMenuItems={
+              <>
+                <Divider />
+                <DropdownMenu.Item
+                  href={SocialLinks.github.href}
+                  icon={SocialLinks.github.icon}
+                  label={SocialLinks.github.name}
+                />
+                <DropdownMenu.Item
+                  href={SocialLinks.linkedin.href}
+                  icon={RiLinkedinFill}
+                  label={SocialLinks.linkedin.name}
+                />
+                {showPremiumDiscord ? (
+                  <DropdownMenu.Item
+                    color="active"
+                    href={SocialLinks.discordPremium.href}
+                    icon={RiDiscordLine}
+                    label={intl.formatMessage({
+                      defaultMessage: 'Premium Discord',
+                      description: 'Link to the premium Discord server',
+                      id: 'gvLQbK',
+                    })}
+                  />
+                ) : (
+                  <DropdownMenu.Item
+                    href={SocialLinks.discord.href}
+                    icon={RiDiscordLine}
+                    label={SocialLinks.discord.name}
+                  />
+                )}
+              </>
+            }
+            moreMenuItems={moreMenuItems}
+          />
         </div>
         <Button
           icon={RiContractRightLine}
@@ -238,52 +292,7 @@ export function SidebarExpanded({
             variant={isViewerPremium ? 'primary' : 'secondary'}
           />
           {bottomBarItems}
-          <DropdownMenu
-            icon={RiMoreLine}
-            isLabelHidden={true}
-            label="More"
-            showChevron={false}
-            size="sm">
-            <SidebarColorSchemeSubMenu />
-            <SidebarI18nSubMenu type="submenu" />
-            <Divider />
-            {moreMenuItems}
-            <DropdownMenu.Item
-              href="/contact"
-              icon={RiPhoneLine}
-              label={intl.formatMessage({
-                defaultMessage: 'Contact us',
-                description: 'Link to contact page',
-                id: 'dRUyU9',
-              })}
-            />
-            <DropdownMenu.Sub
-              icon={RiScales3Line}
-              label={intl.formatMessage({
-                defaultMessage: 'Legal',
-                description: 'Link to legal page',
-                id: 'J7b0BM',
-              })}>
-              <DropdownMenu.Item
-                href="/legal/privacy-policy"
-                label={intl.formatMessage({
-                  defaultMessage: 'Privacy policy',
-                  description: 'Link to privacy policy page',
-                  id: 'RxU5TE',
-                })}
-              />
-              <DropdownMenu.Item
-                href="/legal/terms"
-                label={intl.formatMessage({
-                  defaultMessage: 'Terms of service',
-                  description: 'Link to terms of service page',
-                  id: 'WYR3gj',
-                })}
-              />
-            </DropdownMenu.Sub>
-            <Divider />
-            <SidebarAuthDropdownItem />
-          </DropdownMenu>
+          <SidebarDropdownMenu moreMenuItems={moreMenuItems} />
         </div>
         {onCollapseClick && (
           <Button

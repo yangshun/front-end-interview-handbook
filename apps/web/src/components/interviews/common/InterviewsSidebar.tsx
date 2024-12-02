@@ -63,11 +63,19 @@ export function InterviewsSidebarExpanded({
       isViewerPremium={isPremium}
       moreMenuItems={
         userProfile ? (
-          <DropdownMenu.Item
-            href={commonNavItems.interviewsSettings.href}
-            icon={commonNavItems.interviewsSettings.icon}
-            label={commonNavItems.interviewsSettings.label}
-          />
+          <>
+            <Divider />
+            <DropdownMenu.Item
+              href={commonNavItems.interviewsBilling.href}
+              icon={commonNavItems.interviewsBilling.icon}
+              label={commonNavItems.interviewsBilling.label}
+            />
+            <DropdownMenu.Item
+              href={commonNavItems.interviewsSettings.href}
+              icon={commonNavItems.interviewsSettings.icon}
+              label={commonNavItems.interviewsSettings.label}
+            />
+          </>
         ) : undefined
       }
       product="interviews"
