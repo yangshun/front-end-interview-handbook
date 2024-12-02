@@ -3,6 +3,7 @@ import type { InterviewsStudyList } from 'contentlayer/generated';
 
 import getProgressBarGradient from '~/components/interviews/common/utils';
 import { FormattedMessage, useIntl } from '~/components/intl';
+import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import GradientProgressBar from '~/components/ui/GradientProgressBar/GradientProgressBar';
 import Heading from '~/components/ui/Heading';
@@ -109,6 +110,7 @@ export default function InterviewsDashboardContinueLearningSection({
               <div
                 key={href}
                 className={clsx(
+                  'group relative',
                   'flex items-center justify-between gap-6 p-6',
                   'rounded-lg',
                   themeBackgroundCardWhiteOnLightColor,
@@ -189,6 +191,7 @@ export default function InterviewsDashboardContinueLearningSection({
                   </div>
                 </div>
                 <Button
+                  className="group-hover:bg-neutral-100 dark:group-hover:bg-neutral-800/70"
                   href={href}
                   label={intl.formatMessage({
                     defaultMessage: 'Resume',
@@ -196,6 +199,11 @@ export default function InterviewsDashboardContinueLearningSection({
                     id: 'jIpLwU',
                   })}
                   variant="secondary"
+                />
+                <Anchor
+                  aria-label={title}
+                  className="absolute inset-0"
+                  href={href}
                 />
               </div>
             );
