@@ -46,7 +46,7 @@ export default function FrontEndSystemDesignPlaybookPage({
   const intl = useIntl();
 
   const guidesWithCompletionStatus = useGuidesWithCompletionStatus(allGuides);
-  const questionsCount = countQuestionsByAccess(questions);
+  const questionsAccessCount = countQuestionsByAccess(questions);
 
   const guidesData = [
     {
@@ -145,7 +145,7 @@ export default function FrontEndSystemDesignPlaybookPage({
                 questions={questions}
                 sideColumnAddOn={
                   <div className="hidden lg:block">
-                    <QuestionListingAccessSummary {...questionsCount} />
+                    <QuestionListingAccessSummary {...questionsAccessCount} />
                   </div>
                 }
               />

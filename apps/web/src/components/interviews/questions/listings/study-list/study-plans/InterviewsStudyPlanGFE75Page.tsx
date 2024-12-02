@@ -71,7 +71,7 @@ export default function InterviewsStudyPlanGFE75Page({
     questionsProgressAll,
     questionsSlugs,
   );
-  const questionsCount = countQuestionsByAccess(questions);
+  const questionsAccessCount = countQuestionsByAccess(questions);
 
   const features = [
     questionFeatures.codeInBrowser,
@@ -132,7 +132,7 @@ export default function InterviewsStudyPlanGFE75Page({
           title={studyList.name}
         />
         <div className="block lg:hidden">
-          <QuestionListingAccessSummary {...questionsCount} />
+          <QuestionListingAccessSummary {...questionsAccessCount} />
         </div>
       </div>
       <Section>
@@ -142,7 +142,7 @@ export default function InterviewsStudyPlanGFE75Page({
             questions={questions}
             sideColumnAddOn={
               <div className="hidden lg:block">
-                <QuestionListingAccessSummary {...questionsCount} />
+                <QuestionListingAccessSummary {...questionsAccessCount} />
               </div>
             }
             studyListKey={studyList.slug}
