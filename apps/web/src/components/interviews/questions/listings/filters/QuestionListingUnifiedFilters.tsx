@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 
+import { useUserProfile } from '~/components/global/UserProfileProvider';
 import QuestionListingFilterItem from '~/components/interviews/questions/listings/filters/QuestionListingFilterItem';
 import {
   Accordion,
@@ -76,6 +77,8 @@ export default function QuestionListingUnifiedFilters({
   topicFilters,
   mode,
 }: Props) {
+  const { userProfile } = useUserProfile();
+
   return (
     <form>
       <Accordion
@@ -123,10 +126,12 @@ export default function QuestionListingUnifiedFilters({
           section={importanceFilterOptions}
           values={importanceFilters}
         />
-        <QuestionListingFilterItem
-          section={completionStatusFilterOptions}
-          values={completionStatusFilters}
-        />
+        {userProfile != null && (
+          <QuestionListingFilterItem
+            section={completionStatusFilterOptions}
+            values={completionStatusFilters}
+          />
+        )}
         {(attributesUnion.frameworks.size > 1 ||
           attributesUnion.languages.size > 1) && (
           <AccordionItem value="framework-language">

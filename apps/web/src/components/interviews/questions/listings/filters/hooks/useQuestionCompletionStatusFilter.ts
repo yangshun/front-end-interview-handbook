@@ -10,6 +10,8 @@ import { useIntl } from '~/components/intl';
 
 import type { QuestionFilter } from '../QuestionFilterType';
 
+import { useUser } from '@supabase/auth-helpers-react';
+
 type Props = Readonly<{
   namespace?: string;
 }>;
@@ -21,6 +23,7 @@ export default function useQuestionCompletionStatusFilter({
   QuestionFilter<QuestionCompletionStatus, QuestionMetadataWithCompletedStatus>,
 ] {
   const intl = useIntl();
+  const user = useUser();
   const COMPLETION_STATUS_OPTIONS: ReadonlyArray<{
     label: string;
     value: QuestionCompletionStatus;
@@ -54,9 +57,13 @@ export default function useQuestionCompletionStatusFilter({
     );
 
   // Conditionally select which hook's state to use
-  const completionStatusFilters = namespace
-    ? completionStatusSessionStorage
-    : completionStatusState;
+  // If the user is not logged in, remove the completion status filters value
+  const completionStatusFilters =
+    user != null
+      ? namespace
+        ? completionStatusSessionStorage
+        : completionStatusState
+      : new Set<QuestionCompletionStatus>();
   const setCompletionStatusFilters = namespace
     ? setCompletionStatusSessionStorage
     : setCompletionStatusState;
