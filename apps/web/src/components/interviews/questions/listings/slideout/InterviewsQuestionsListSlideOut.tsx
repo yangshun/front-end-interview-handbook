@@ -102,6 +102,7 @@ function FrameworkAndLanguageFilterSection<Q extends QuestionMetadata>({
   frameworkFilterOptions,
   languageFilters,
   languageFilterOptions,
+  listType,
 }: Readonly<{
   frameworkCoveredValues?: Set<QuestionFramework>;
   frameworkFilterOptions: QuestionFilter<QuestionFramework, Q>;
@@ -109,6 +110,7 @@ function FrameworkAndLanguageFilterSection<Q extends QuestionMetadata>({
   languageCoveredValues?: Set<QuestionLanguage>;
   languageFilterOptions: QuestionFilter<QuestionLanguage, Q>;
   languageFilters: Set<QuestionLanguage>;
+  listType?: QuestionListTypeData;
 }>) {
   const intl = useIntl();
 
@@ -156,21 +158,24 @@ function FrameworkAndLanguageFilterSection<Q extends QuestionMetadata>({
             />
           </div>
         )}
-        {frameworkCoveredValues && frameworkCoveredValues.size > 1 && (
-          <>
-            <Divider className="my-4" />
-            <div className="flex flex-col gap-2">
-              <Text className="block" size="body3" weight="medium">
-                {frameworkFilterOptions.name}
-              </Text>
-              <QuestionListingFilterItemCheckboxes
-                coveredValues={frameworkCoveredValues}
-                section={frameworkFilterOptions}
-                values={frameworkFilters}
-              />
-            </div>
-          </>
-        )}
+        {frameworkCoveredValues &&
+          frameworkCoveredValues.size > 1 &&
+          listType?.type !== 'framework' &&
+          listType?.type !== 'language' && (
+            <>
+              <Divider className="my-4" />
+              <div className="flex flex-col gap-2">
+                <Text className="block" size="body3" weight="medium">
+                  {frameworkFilterOptions.name}
+                </Text>
+                <QuestionListingFilterItemCheckboxes
+                  coveredValues={frameworkCoveredValues}
+                  section={frameworkFilterOptions}
+                  values={frameworkFilters}
+                />
+              </div>
+            </>
+          )}
       </div>
     </Popover>
   );
@@ -296,6 +301,7 @@ function Contents({
           languageCoveredValues={attributesUnion.languages}
           languageFilterOptions={languageFilterOptions}
           languageFilters={languageFilters}
+          listType={listType}
         />
         <FilterSection
           coveredValues={attributesUnion.formats}
