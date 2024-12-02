@@ -112,12 +112,15 @@ export default function ColorSchemePreferencesProvider({ children }: Props) {
 
   // Sync color scheme with the DOM
   useEffect(() => {
-    disableAnimation();
+    const enableAnimation = disableAnimation();
+
     if (colorScheme === 'dark') {
       document.documentElement.dataset.colorScheme = 'dark';
     } else {
       delete document.documentElement.dataset.colorScheme;
     }
+
+    enableAnimation();
   }, [colorScheme]);
 
   return (
