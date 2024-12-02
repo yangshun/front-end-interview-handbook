@@ -3,7 +3,6 @@ import { type ReactNode, useEffect, useState } from 'react';
 import { RiArrowRightSLine } from 'react-icons/ri';
 
 import Anchor from '~/components/ui/Anchor';
-import { textVariants } from '~/components/ui/Text';
 import {
   themeBackgroundElementEmphasizedStateColor_Hover,
   themeOutlineElement_FocusVisible,
@@ -19,8 +18,6 @@ import Tooltip from '~/components/ui/Tooltip';
 import { useI18nPathname } from '~/next-i18nostic/src';
 
 import * as AccordionPrimitive from '@radix-ui/react-accordion';
-
-type SidebarSize = 'md' | 'sm';
 
 type SidebarBaseItem = Readonly<{
   addOnElement?: ReactNode;
@@ -62,8 +59,7 @@ function SidebarLinkItem({
   label,
   showIcon = false,
   currentMatchRegex,
-  size,
-}: Readonly<{ size: SidebarSize }> & SidebarLink) {
+}: SidebarLink) {
   const { pathname } = useI18nPathname();
   const isActive = isItemActive({ currentMatchRegex, href }, pathname);
 
@@ -85,9 +81,7 @@ function SidebarLinkItem({
           'flex items-center gap-x-2.5',
           'w-full p-2',
           'rounded-md',
-          size === 'sm'
-            ? 'text-[0.8125rem] leading-4'
-            : textVariants({ size: 'body2' }),
+          'text-[0.8125rem] leading-4',
           'select-none outline-none',
           'transition-colors',
           'hover:bg-neutral-200/40 dark:hover:bg-neutral-800/40',
@@ -121,22 +115,15 @@ function SidebarLinkItem({
 function SidebarLinks({
   item,
   onToggle,
-  size,
 }: Readonly<{
   item: SidebarLinkEntity;
   onToggle: () => void;
-  size: SidebarSize;
 }>) {
   const { pathname } = useI18nPathname();
 
   if (!('items' in item)) {
     return (
-      <SidebarLinkItem
-        key={item.href}
-        showIcon={item.showIcon}
-        {...item}
-        size={size}
-      />
+      <SidebarLinkItem key={item.href} showIcon={item.showIcon} {...item} />
     );
   }
 
@@ -167,9 +154,7 @@ function SidebarLinks({
           <span
             className={clsx(
               'text-left',
-              size === 'sm'
-                ? 'text-[0.8125rem] leading-4'
-                : textVariants({ size: 'body2' }),
+              'text-[0.8125rem] leading-4',
               'font-medium',
               isActiveSection ? themeTextColor : themeTextSecondaryColor,
               'group-hover:text-neutral-700 dark:group-hover:text-neutral-300',
@@ -197,7 +182,6 @@ function SidebarLinks({
             <SidebarLinkItem
               key={linkItem.href}
               showIcon={true}
-              size={size}
               {...linkItem}
             />
           ))}
@@ -210,12 +194,10 @@ function SidebarLinks({
 export default function SidebarLinksSection({
   defaultOpenSections = [],
   items,
-  size,
   type,
 }: Readonly<{
   defaultOpenSections?: ReadonlyArray<string>;
   items: ReadonlyArray<SidebarLinkEntity>;
-  size: SidebarSize;
   type: React.ComponentProps<typeof AccordionPrimitive.Root>['type'];
 }>) {
   const { pathname } = useI18nPathname();
@@ -259,7 +241,6 @@ export default function SidebarLinksSection({
         <SidebarLinks
           key={item.id}
           item={item}
-          size={size}
           onToggle={() => {
             if (type === 'single') {
               setOpenSection(openSection === item.id ? null : item.id);

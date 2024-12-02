@@ -84,7 +84,6 @@ export function GuidesSidebar({
                 <SidebarLinksSection
                   defaultOpenSections={navigation.initialOpenSections}
                   items={navigation.navigation.items}
-                  size="sm"
                   type="multiple"
                 />
               </ScrollArea>

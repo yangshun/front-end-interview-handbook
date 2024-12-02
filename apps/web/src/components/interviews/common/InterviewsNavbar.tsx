@@ -164,7 +164,6 @@ export default function InterviewsNavbar({
                     <ScrollArea className="px-4">
                       <SidebarLinksSection
                         items={navSlideOutItems}
-                        size="md"
                         type="single"
                       />
                     </ScrollArea>

@@ -86,7 +86,6 @@ export default function BlogSidebar() {
   return (
     <SidebarLinksSection
       items={navigation.map((navItem) => ({ ...navItem, slug: navItem.id }))}
-      size="md"
       type="single"
     />
   );
