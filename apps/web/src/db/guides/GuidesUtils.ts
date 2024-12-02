@@ -230,7 +230,10 @@ export function getGuideCompletionCount(
 }
 
 // Helper function to get the latest date
-function getLatestDate(currentDate: Date | null, newDate: Date | undefined) {
+export function getLatestDate(
+  currentDate: Date | null,
+  newDate: Date | undefined,
+) {
   if (!newDate) {
     return currentDate;
   }

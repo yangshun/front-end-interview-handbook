@@ -14,6 +14,7 @@ type Props = Readonly<{
   completed: number;
   entity: 'article' | 'question';
   showProgress?: boolean;
+  showProgressBar?: boolean;
   title: string;
   total: number;
 }>;
@@ -24,6 +25,7 @@ export default function InterviewsEntityProgress({
   entity,
   title,
   showProgress = true,
+  showProgressBar = true,
 }: Props) {
   const Icon = entity === 'question' ? RiQuestionnaireLine : RiBookOpenLine;
 
@@ -76,7 +78,7 @@ export default function InterviewsEntityProgress({
           )}
         </Text>
       </div>
-      {showProgress && (
+      {showProgress && showProgressBar && (
         <div className="w-[114px]">
           <ProgressBar
             backgroundClass={clsx(
