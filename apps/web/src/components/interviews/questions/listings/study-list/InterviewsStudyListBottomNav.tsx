@@ -45,10 +45,10 @@ export default function InterviewsStudyListBottomNav({
         <Container
           className="flex h-12 items-center justify-between gap-2 px-6"
           width="screen-2xl">
-          <div className="flex shrink-0 justify-center xl:order-2 xl:flex-1">
+          <div className="flex shrink-0 justify-center md:order-2 md:flex-1">
             <Suspense>{paginationEl}</Suspense>
           </div>
-          <div className="justify-center max-xl:hidden xl:flex-1">
+          <div className="hidden md:flex md:flex-1">
             <QuestionReportIssueButton
               format={question.metadata.format}
               title={question.metadata.title}
@@ -56,12 +56,12 @@ export default function InterviewsStudyListBottomNav({
           </div>
           <div
             className={clsx(
-              'flex justify-end xl:order-3 xl:flex-1',
+              'flex justify-end md:order-3 md:flex-1',
               'transition-colors',
               isLoading && user != null ? 'opacity-0' : 'opacity-100',
             )}>
             <QuestionReportIssueButton
-              className="mr-3 xl:hidden"
+              className="mr-3 md:hidden"
               format={question.metadata.format}
               title={question.metadata.title}
             />
