@@ -88,9 +88,9 @@ function DropdownContent({
       items: questionLists.formats,
       key: 'formats',
       label: intl.formatMessage({
-        defaultMessage: 'Formats',
+        defaultMessage: 'Question formats',
         description: 'Label for question format list',
-        id: 'nFkt4o',
+        id: 'nAM572',
       }),
     },
     {

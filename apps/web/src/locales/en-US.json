@@ -7731,13 +7731,13 @@
     "defaultMessage": "{questionCount}+ most important Vue interview questions covering stores, bindings, reactivity, lifecycle, and building interactive components.",
     "description": "Subtitle for questions list page"
   },
+  "nAM572": {
+    "defaultMessage": "Question formats",
+    "description": "Label for question format list"
+  },
   "nAvA8M": {
     "defaultMessage": "Progress | {name}",
     "description": "Title of user profile progress page"
-  },
-  "nFkt4o": {
-    "defaultMessage": "Formats",
-    "description": "Label for question format list"
   },
   "nI4Alg": {
     "defaultMessage": "Test cases",
