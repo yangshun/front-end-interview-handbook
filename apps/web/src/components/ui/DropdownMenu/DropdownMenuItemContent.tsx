@@ -27,7 +27,7 @@ export default function DropdownMenuItemContent({
       className="flex grow items-center gap-x-2"
       color={isSelected ? 'active' : color ?? 'secondary'}
       size="body2"
-      weight={isSelected ? 'medium' : undefined}>
+      weight={isSelected ? 'bold' : undefined}>
       {Icon && (
         <Icon
           className={clsx(

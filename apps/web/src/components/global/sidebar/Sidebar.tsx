@@ -164,14 +164,9 @@ export function SidebarCollapsed({
                 />
                 {showPremiumDiscord ? (
                   <DropdownMenu.Item
-                    color="active"
                     href={SocialLinks.discordPremium.href}
                     icon={SocialLinks.discordPremium.icon}
-                    label={intl.formatMessage({
-                      defaultMessage: 'Discord (Premium)',
-                      description: 'Link to the premium Discord server',
-                      id: 'VthnJ1',
-                    })}
+                    label={SocialLinks.discordPremium.name}
                   />
                 ) : (
                   <DropdownMenu.Item
