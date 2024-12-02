@@ -105,6 +105,7 @@ export default function GuidesMainLayout({
         <GuidesNavbar
           guide={guide}
           navigation={navigation}
+          showMenu={!studyListKey}
           tableOfContents={tableOfContents}
         />
         <div

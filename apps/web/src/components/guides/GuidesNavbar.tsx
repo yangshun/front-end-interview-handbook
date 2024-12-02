@@ -25,9 +25,11 @@ export default function GuidesNavbar({
   guide,
   navigation,
   tableOfContents,
+  showMenu = true,
 }: Readonly<{
   guide: GuidebookItem;
   navigation: GuideNavigation;
+  showMenu?: boolean;
   tableOfContents: TableOfContents | undefined;
 }>) {
   const intl = useIntl();
@@ -66,32 +68,42 @@ export default function GuidesNavbar({
         [themeBorderColor, 'border-b'],
       )}
       style={{ top: 'var(--global-sticky-height)' }}>
-      <Container className="flex h-10 items-center justify-between">
-        <SlideOut
-          enterFrom="start"
-          isShown={isLeftSidebarOpen}
-          padding={false}
-          size="sm"
-          title={navigation.navigation.title}
-          trigger={
-            <Button
-              addonPosition="start"
-              icon={RiMenu2Line}
-              label={intl.formatMessage({
-                defaultMessage: 'Menu',
-                description: 'Guides navbar menu button label',
-                id: 'oo7GzR',
-              })}
-              size="xs"
-              variant="secondary"
-              onClick={() => {
-                setIsLeftSidebarOpen(true);
-              }}
+      <Container
+        className={clsx(
+          'flex h-10 items-center',
+          showMenu ? 'justify-between' : 'justify-end',
+        )}>
+        {showMenu && (
+          <SlideOut
+            enterFrom="start"
+            isShown={isLeftSidebarOpen}
+            padding={false}
+            size="sm"
+            title={navigation.navigation.title}
+            trigger={
+              <Button
+                addonPosition="start"
+                icon={RiMenu2Line}
+                label={intl.formatMessage({
+                  defaultMessage: 'Menu',
+                  description: 'Guides navbar menu button label',
+                  id: 'oo7GzR',
+                })}
+                size="xs"
+                variant="secondary"
+                onClick={() => {
+                  setIsLeftSidebarOpen(true);
+                }}
+              />
+            }
+            onClose={() => setIsLeftSidebarOpen(false)}>
+            <GuidesSidebar
+              guide={guide}
+              mode="navbar"
+              navigation={navigation}
             />
-          }
-          onClose={() => setIsLeftSidebarOpen(false)}>
-          <GuidesSidebar guide={guide} mode="navbar" navigation={navigation} />
-        </SlideOut>
+          </SlideOut>
+        )}
         {tableOfContents && (
           <SlideOut
             enterFrom="end"
