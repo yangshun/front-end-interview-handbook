@@ -16,11 +16,8 @@ import {
 import * as RadioGroupPrimitive from '@radix-ui/react-radio-group';
 
 export default function ProjectsSettingsExperienceThemeSelector() {
-  const {
-    colorSchemePreference,
-    setColorSchemePreference,
-    resolvedSystemColorScheme,
-  } = useColorSchemePreferences();
+  const { colorSchemePreference, setColorSchemePreference, systemColorScheme } =
+    useColorSchemePreferences();
 
   const colorSchemeOptions = useColorSchemeOptions();
 
@@ -54,9 +51,7 @@ export default function ProjectsSettingsExperienceThemeSelector() {
               <div className="mt-4 flex flex-col gap-2">
                 <ProjectsSettingsExperienceThemeItemSkeleton
                   theme={
-                    option.value === 'system'
-                      ? resolvedSystemColorScheme
-                      : option.value
+                    option.value === 'system' ? systemColorScheme : option.value
                   }
                 />
                 <RadioGroupItem {...option} />

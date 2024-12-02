@@ -7,7 +7,7 @@ import MetaPixel from '~/components/global/analytics/MetaPixel';
 import MicrosoftClarity from '~/components/global/analytics/MicrosoftClarity';
 import GlobalBannerDisplayScript from '~/components/global/banners/GlobalBannerDisplayScript';
 import I18nBetaBanner from '~/components/global/banners/I18nBetaBanner';
-import ColorSchemeScript from '~/components/global/color-scheme/ColorSchemeScript';
+import ColorSchemeInitScript from '~/components/global/color-scheme/ColorSchemeInitScript';
 import FirstPromoter from '~/components/global/FirstPromoter';
 import GlobalProviders from '~/components/global/GlobalProviders';
 import { Toaster } from '~/components/global/toasts/Toaster';
@@ -27,14 +27,13 @@ type Props = Readonly<{
 export default function RootLayout({ children, intlMessages, locale }: Props) {
   return (
     <html
-      data-color-scheme="dark"
       lang={locale.split('-')[0]}
       suppressHydrationWarning={true}
       // So that browsers don't offer translations for a supported locale.
       translate={nextI18nConfig.locales.includes(locale) ? 'no' : undefined}>
       <head>
         {/* Important to inject in head to get it to run as early as possible. */}
-        <ColorSchemeScript />
+        <ColorSchemeInitScript />
         <GlobalBannerDisplayScript />
         <SandpackCSS />
       </head>
