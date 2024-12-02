@@ -24,7 +24,10 @@ export default function InterviewsPricingSection({
 }: Props) {
   return (
     <Container
-      className="isolate flex flex-col gap-y-8 md:gap-y-16"
+      className={clsx(
+        'isolate flex flex-col gap-y-8 md:gap-y-16',
+        'py-16 sm:py-20',
+      )}
       width="marketing">
       <InterviewsPricingTableSection
         countryCode={countryCode}

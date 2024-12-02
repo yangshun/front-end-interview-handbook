@@ -18,8 +18,11 @@ import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 import {
-  themeGlassyBorder,
-  themeTextSubtitleColor,
+  themeBorderBrandColor_GroupHover,
+  themeBorderColor,
+  themeGradientHeading,
+  themeMarketingHeadingSize,
+  themeTextSubtleColor,
 } from '~/components/ui/theme';
 
 function useFeatures() {
@@ -135,9 +138,9 @@ function useFeatures() {
     {
       description: (
         <FormattedMessage
-          defaultMessage="Coding questions supported in Vanilla JavaScript and React, with support for more libraries coming soon!"
+          defaultMessage="Coding questions supported in Vanilla JavaScript, React, Vue, Angular, and Svelte."
           description="Subtitle for bringing your own framework feature"
-          id="G9r7uh"
+          id="k9Xy20"
         />
       ),
       icon: RiReactjsLine,
@@ -182,40 +185,65 @@ function useFeatures() {
   return features;
 }
 
-export default function InterviewsMarketingFeatures() {
+export default function InterviewsMarketingFeaturesSection() {
   const features = useFeatures();
 
   return (
-    <Container width="marketing">
-      <Heading className="sr-only" level="custom">
-        {/* TODO: i18n */}
-        Features
+    <Container className={clsx('py-16 sm:py-20')} width="marketing">
+      <Heading
+        className={clsx(
+          themeMarketingHeadingSize,
+          themeGradientHeading,
+          'max-w-2xl pb-1',
+        )}
+        level="custom"
+        weight="medium">
+        <FormattedMessage
+          defaultMessage="Jam-packed with features"
+          description="Marketing page features section title"
+          id="Au6Aup"
+        />
       </Heading>
       <Section>
-        <dl className="grid gap-12 sm:grid-cols-2 sm:gap-y-16">
+        <dl
+          className={clsx(
+            'grid md:grid-cols-2 lg:grid-cols-3',
+            'gap-x-8 gap-y-12 md:gap-x-4 xl:gap-x-8',
+            'mt-12 lg:mt-16',
+          )}>
           {features.map((feature) => (
             <div key={feature.name} className="group relative">
               <dt className="flex flex-col items-start gap-y-4">
                 <div
                   className={clsx(
                     'rounded-full p-3 dark:bg-neutral-800/70',
-                    themeGlassyBorder,
-                    themeTextSubtitleColor,
+                    themeTextSubtleColor,
+                    [
+                      'border',
+                      themeBorderColor,
+                      themeBorderBrandColor_GroupHover,
+                    ],
+                    'transition-colors',
                   )}>
                   <feature.icon
                     aria-hidden="true"
-                    className="group-hover:text-brand-dark dark:group-hover:text-brand size-6"
+                    className={clsx(
+                      'transition-colors',
+                      'dark:group-hover:text-brand group-hover:text-neutral-900',
+                      'shrink-0',
+                      'size-6',
+                    )}
                   />
                 </div>
                 <Heading
-                  className="text-lg font-medium leading-6"
+                  className="text-base font-medium leading-6"
                   level="custom">
                   {feature.name}
                 </Heading>
               </dt>
               <Section>
                 <dd className="mt-2">
-                  <Text className="block" color="secondary" size="body1">
+                  <Text className="block" color="secondary" size="body2">
                     {feature.description}
                   </Text>
                 </dd>

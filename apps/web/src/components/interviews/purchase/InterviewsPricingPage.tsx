@@ -2,7 +2,7 @@
 
 import clsx from 'clsx';
 
-import InterviewsMarketingFeatures from '~/components/interviews/marketing/InterviewsMarketingFeatures';
+import InterviewsMarketingFeaturesSection from '~/components/interviews/marketing/InterviewsMarketingFeaturesSection';
 import InterviewsMarketingTestimonialsSection from '~/components/interviews/marketing/testimonials/InterviewsMarketingTestimonialsSection';
 import InterviewsPricingFAQSection from '~/components/interviews/purchase/InterviewsPricingFAQSection';
 import type { InterviewsPricingPlanPaymentConfigLocalizedRecord } from '~/components/interviews/purchase/InterviewsPricingPlans';
@@ -26,21 +26,20 @@ export default function InterviewsPricingPage({
   const testimonials = useInterviewsMarketingTestimonials();
 
   return (
-    <div className={clsx('flex flex-col gap-y-16 sm:gap-y-20')}>
+    <div className={clsx('flex flex-col')}>
       <InterviewsPurchaseCancelLogging plansPaymentConfig={plans} />
-      <div className="py-12 lg:mx-8 lg:py-24">
-        <InterviewsPricingSection
-          countryCode={countryCode}
-          countryName={countryName}
-          plans={plans}
-        />
-      </div>
+      <InterviewsPricingSection
+        countryCode={countryCode}
+        countryName={countryName}
+        plans={plans}
+      />
       <Section>
-        <InterviewsMarketingFeatures />
-        <div>
-          <InterviewsPricingFAQSection />
-          <InterviewsMarketingTestimonialsSection testimonials={testimonials} />
-        </div>
+        <InterviewsMarketingFeaturesSection />
+        <InterviewsPricingFAQSection />
+        <InterviewsMarketingTestimonialsSection
+          testimonials={testimonials}
+          width="marketing"
+        />
       </Section>
     </div>
   );

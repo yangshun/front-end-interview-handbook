@@ -21,7 +21,7 @@ type Props = Readonly<{
   columns?: number;
   showSeeAllLink?: boolean;
   testimonials: ReadonlyArray<InterviewsMarketingTestimonial>;
-  width?: ComponentProps<typeof Container>['width'];
+  width: ComponentProps<typeof Container>['width'];
 }>;
 
 export default function InterviewsMarketingTestimonialsSection({
@@ -36,8 +36,8 @@ export default function InterviewsMarketingTestimonialsSection({
     <Container
       className={clsx(
         'flex flex-col gap-12 lg:gap-16',
-        'py-16 sm:py-20',
         'isolate',
+        'py-16 sm:py-20',
       )}
       width={width}>
       <div className="max-w-xl">

@@ -1871,6 +1871,10 @@
     "defaultMessage": "Coding questions focused on testing your understanding of JavaScript, including concepts like closures, event handling, asynchronous programming, and manipulating the DOM",
     "description": "Description of JavaScript function questions"
   },
+  "Au6Aup": {
+    "defaultMessage": "Jam-packed with features",
+    "description": "Marketing page features section title"
+  },
   "AzJz7v": {
     "defaultMessage": "Menu",
     "description": "Project guide navigation menu button label"
@@ -2598,10 +2602,6 @@
   "G7d68r": {
     "defaultMessage": "Changes saved successfully!",
     "description": "Update challenge success message"
-  },
-  "G9r7uh": {
-    "defaultMessage": "Coding questions supported in Vanilla JavaScript and React, with support for more libraries coming soon!",
-    "description": "Subtitle for bringing your own framework feature"
   },
   "GAqip7": {
     "defaultMessage": "Quiz Interviews",
@@ -7306,6 +7306,10 @@
   "k9LkIB": {
     "defaultMessage": "We've condensed everything info a simple strategy you can use to conquer essential interview patterns.",
     "description": "Subtitle for marketing page study plans section"
+  },
+  "k9Xy20": {
+    "defaultMessage": "Coding questions supported in Vanilla JavaScript, React, Vue, Angular, and Svelte.",
+    "description": "Subtitle for bringing your own framework feature"
   },
   "k9iwXD": {
     "defaultMessage": "Code from submissions are pulled directly on the platform for convenient reference and feedback",
