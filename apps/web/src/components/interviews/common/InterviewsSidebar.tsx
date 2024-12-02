@@ -94,40 +94,42 @@ function InterviewsSidebarCollapsed({
   sidebarItems: React.ComponentProps<typeof SidebarCollapsed>['sidebarItems'];
 }>) {
   const socialDiscountLabels = useSocialDiscountLabels();
-  const { userProfile } = useUserProfile();
+  const { userProfile, isLoading } = useUserProfile();
   const commonNavItems = useCommonNavItems();
 
   return (
     <SidebarCollapsed
       bottomAddonElements={
-        <Tooltip
-          asChild={true}
-          label={socialDiscountLabels.subtitle}
-          side="right">
-          <Anchor
-            className={clsx(
-              themeBackgroundEmphasized,
-              themeBackgroundLayerEmphasized_Hover,
-              themeGlassyBorder,
-              'rounded-md',
-              'p-2',
-              textVariants({
-                size: 'body3',
-                weight: 'bold',
-              }),
-              'overflow-hidden',
-            )}
-            href="/rewards/social"
-            variant="unstyled">
-            <div
-              className={clsx([
-                themeWhiteGlowTicketBackground,
-                'before:-top-5 before:left-1',
-              ])}
-            />
-            {socialDiscountLabels.ticketTitle}
-          </Anchor>
-        </Tooltip>
+        isLoading || userProfile?.premium ? null : (
+          <Tooltip
+            asChild={true}
+            label={socialDiscountLabels.subtitle}
+            side="right">
+            <Anchor
+              className={clsx(
+                themeBackgroundEmphasized,
+                themeBackgroundLayerEmphasized_Hover,
+                themeGlassyBorder,
+                'rounded-md',
+                'p-2',
+                textVariants({
+                  size: 'body3',
+                  weight: 'bold',
+                }),
+                'overflow-hidden',
+              )}
+              href="/rewards/social"
+              variant="unstyled">
+              <div
+                className={clsx([
+                  themeWhiteGlowTicketBackground,
+                  'before:-top-5 before:left-1',
+                ])}
+              />
+              {socialDiscountLabels.ticketTitle}
+            </Anchor>
+          </Tooltip>
+        )
       }
       moreMenuItems={
         userProfile ? (
