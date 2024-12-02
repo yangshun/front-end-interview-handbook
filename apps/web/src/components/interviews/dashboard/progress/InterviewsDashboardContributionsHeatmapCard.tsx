@@ -156,9 +156,9 @@ export default function InterviewsDashboardContributionsHeatmapCard({
             )}
             label={
               <FormattedMessage
-                defaultMessage="In the past year, you remained active for {days, plural, =0 {0 days} =1 {1 day} other {# consecutive days}}, completing at least one question per day"
+                defaultMessage="In the past year, your longest active streak was {days, plural, =0 {0 days} =1 {1 day} other {# days}}. A day is considered 'active' when you complete at least one question."
                 description="Tooltip for contributions max streak"
-                id="zkccTX"
+                id="zJeOmB"
                 values={{
                   days: maxConsecutiveDays,
                 }}
