@@ -235,7 +235,7 @@ export function SidebarExpanded({
                     id: 'OchGBW',
                   })
             }
-            variant="secondary"
+            variant={isViewerPremium ? 'primary' : 'secondary'}
           />
           {bottomBarItems}
           <DropdownMenu
