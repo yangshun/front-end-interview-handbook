@@ -112,7 +112,7 @@ export function categorizeGuides<
   guides: ReadonlyArray<Q>;
 }): Record<T, { articles: Array<Q>; totalReadingTime: number }> {
   // Create a map of guides based on their slug for quick lookup
-  const guideMap = keyBy(guides, 'slug');
+  const guideMap = keyBy(guides, 'id');
 
   // Iterate through each category in categorizedSlugs
   return mapValues(categorizedSlugs, (slugs) => {
