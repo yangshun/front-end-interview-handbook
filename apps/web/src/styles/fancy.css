@@ -69,3 +69,45 @@
   /* -webkit-mask: linear-gradient(black, black) content-box content-box, linear-gradient(black, black); */
   /* -webkit-mask-composite: xor; */
 }
+
+.glossy {
+  position: relative;
+}
+.glossy::before {
+  background: conic-gradient(
+    from 90deg at 50% 50%,
+    rgba(212, 212, 216, 0.13) 0deg,
+    rgba(212, 212, 216, 0.13) 169.87deg,
+    rgba(161, 161, 170, 0.2) 236.25deg,
+    rgba(212, 212, 216, 0.13) 360deg
+  );
+}
+[data-color-scheme='dark'] .glossy::before {
+  background: conic-gradient(
+    from 90deg at 50% 50%,
+    rgba(63, 63, 70, 0.13) 0deg,
+    rgba(63, 63, 70, 0.13) 169.87deg,
+    rgba(216, 216, 225, 0.2) 236.25deg,
+    rgba(63, 63, 70, 0.13) 360deg
+  );
+}
+.glossy::before {
+  border-radius: inherit;
+  content: '';
+  inset: 0px;
+  padding: 1px;
+  pointer-events: none;
+  position: absolute;
+  user-select: none;
+  /* Firefox */
+  mask-mode: match-source, match-source;
+  mask-repeat: repeat, repeat;
+  mask-clip: content-box, border-box;
+  mask-origin: content-box, border-box;
+  mask-position:
+    0% 0%,
+    0% 0%;
+  mask-size: auto, auto;
+  mask-image: linear-gradient(black, black), linear-gradient(black, black);
+  mask-composite: exclude;
+}
