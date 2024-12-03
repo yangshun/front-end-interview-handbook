@@ -31,6 +31,8 @@ import { useIntl } from '~/components/intl';
 import Badge from '~/components/ui/Badge';
 import type { NavbarTopLevelItem } from '~/components/ui/Navbar/NavTypes';
 
+import InterviewsPremiumBadge from './InterviewsPremiumBadge';
+
 export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
   const intl = useIntl();
 
@@ -220,6 +222,7 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
           description: 'Interviews study plans',
           id: 'htx1cR',
         }),
+        labelAddon: <InterviewsPremiumBadge size="xs" />,
         onClick: () => {
           gtag.event({
             action: `${placement}.prepare.time_savers.study_plans.click`,
@@ -276,6 +279,7 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
           description: 'Company interview guides',
           id: 'Kj5nRS',
         }),
+        labelAddon: <InterviewsPremiumBadge size="xs" />,
         onClick: () => {
           gtag.event({
             action: `${placement}.prepare.time_savers.company_guides.click`,
@@ -315,6 +319,7 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
           description: 'Interview preparation focus areas',
           id: 'Y0QGFG',
         }),
+        labelAddon: <InterviewsPremiumBadge size="xs" />,
         onClick: () => {
           gtag.event({
             action: `${placement}.prepare.time_savers.focus_areas.click`,
