@@ -4,7 +4,7 @@ import { RiArrowRightLine } from 'react-icons/ri';
 import { trpc } from '~/hooks/trpc';
 import useUserProfile from '~/hooks/user/useUserProfile';
 
-import { FormattedMessage } from '~/components/intl';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Text from '~/components/ui/Text';
 import { themeWhiteGlowTicketBackground } from '~/components/ui/theme';
@@ -21,6 +21,7 @@ function SocialDiscountSidebarMentionImpl({
 }>) {
   const socialDiscountLabels = useSocialDiscountLabels();
   const user = useUser();
+  const intl = useIntl();
   const { isLoading, data: promoCodes } =
     trpc.promotions.userPromoCodes.useQuery(undefined, {
       enabled: !!user,
@@ -46,24 +47,37 @@ function SocialDiscountSidebarMentionImpl({
                 'overflow-hidden',
                 [themeWhiteGlowTicketBackground, 'before:-top-3 before:left-4'],
               )}>
-              <Text size="body1" weight="bold">
+              <Text size="body3" weight="bold">
                 {promoCode?.code}
               </Text>
+              {promoCode.coupon.percent_off && (
+                <Text color="secondary" size="body3" weight="medium">
+                  {intl.formatMessage(
+                    {
+                      defaultMessage: '{discountPercentage}% off',
+                      description: 'Rewards discount message',
+                      id: 'T4ajXP',
+                    },
+                    {
+                      discountPercentage: promoCode.coupon.percent_off,
+                    },
+                  )}
+                </Text>
+              )}
             </div>
           </Ticket>
           <div>
-            <Text
-              className="text-2xs text-pretty block"
-              color="secondary"
-              size="inherit"
-              weight="bold">
-              {socialDiscountLabels.existingPromoSubtitle(
-                promoCode.expires_at,
-                promoCode.coupon.percent_off,
-              )}
-            </Text>
+            {promoCode.expires_at && (
+              <Text
+                className="text-pretty block"
+                color="secondary"
+                size="body3"
+                weight="medium">
+                {socialDiscountLabels.existingPromoExpiry(promoCode.expires_at)}
+              </Text>
+            )}
             <Anchor
-              className="inline-flex items-center gap-1"
+              className="flex items-center gap-1"
               href="/interviews/pricing"
               variant="flat">
               <Text size="body3" weight="bold">

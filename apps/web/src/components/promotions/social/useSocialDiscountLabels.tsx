@@ -21,6 +21,17 @@ export function useSocialDiscountLabels() {
       description: 'Button label',
       id: 'TDZuZW',
     }),
+    existingPromoExpiry: (expiryDate: number) =>
+      intl.formatMessage(
+        {
+          defaultMessage: 'Expires {expiryDate}',
+          description: 'Rewards discount message',
+          id: 'P4knVE',
+        },
+        {
+          expiryDate: dateFormatter.format(expiryDate * 1000),
+        },
+      ),
     existingPromoSubtitle: (
       expiryDate: number | null,
       discountPercentage: number | null = SOCIAL_DISCOUNT_PERCENTAGE,
@@ -38,10 +49,9 @@ export function useSocialDiscountLabels() {
           )
         : intl.formatMessage(
             {
-              defaultMessage:
-                '{discountPercentage}% off, expires on {expiryDate}',
+              defaultMessage: '{discountPercentage}% off, expires {expiryDate}',
               description: 'Rewards discount message',
-              id: '8tpjrI',
+              id: 'Hc2Ee0',
             },
             {
               discountPercentage,

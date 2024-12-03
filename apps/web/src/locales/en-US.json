@@ -1587,10 +1587,6 @@
     "defaultMessage": "Loading submissions",
     "description": "Loading historical project submissions"
   },
-  "8tpjrI": {
-    "defaultMessage": "{discountPercentage}% off, expires on {expiryDate}",
-    "description": "Rewards discount message"
-  },
   "8ujLk4": {
     "defaultMessage": "If you are logged in with OAuth (e.g. GitHub), you can change your email here to use email and password to log in instead.",
     "description": "Email field description"
@@ -2839,6 +2835,10 @@
     "defaultMessage": "Marked \"{questionTitle}\" as not completed",
     "description": "Success message for marking a question as not completed"
   },
+  "Hc2Ee0": {
+    "defaultMessage": "{discountPercentage}% off, expires {expiryDate}",
+    "description": "Rewards discount message"
+  },
   "HcBvYZ": {
     "defaultMessage": "Learn to answer \"Tell me about a time..\" collaboration questions",
     "description": "How to answer collaboration situation questions in behavioral interviews"
@@ -3994,6 +3994,10 @@
   "P3mHDw": {
     "defaultMessage": "Hoping to grow in skills / tools / frameworks",
     "description": "Projects profile tech stack I am hoping to grow section title"
+  },
+  "P4knVE": {
+    "defaultMessage": "Expires {expiryDate}",
+    "description": "Rewards discount message"
   },
   "P4vm6j": {
     "defaultMessage": "Support us by starring our GitHub repo and consider contributing!",
