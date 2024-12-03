@@ -53,6 +53,7 @@ function MarketingMessage({ rotateMessages }: Props) {
           discountPercentage: SOCIAL_DISCOUNT_PERCENTAGE,
         }}
       />
+      {arrowEl}
     </Anchor>
   );
 
