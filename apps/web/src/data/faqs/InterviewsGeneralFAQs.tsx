@@ -93,25 +93,27 @@ export const generalFreeUpdates: FAQItem = {
 export const generalWorthIt: FAQItem = {
   answer: (
     <>
-      <FormattedMessage
-        defaultMessage="Our lifetime access plan costs less than 1 hour of an average Front End Engineer's salary. Meanwhile, the reward for acing your interviews could be an increase in hundreds of thousands of total compensation."
-        description="Paragraph 1 answer to 'Is it really worth it to buy GreatFrontEnd?' on Homepage's FAQ sections"
-        id="YMfxks"
-      />
-      <br />
-      <br />
-      <FormattedMessage
-        defaultMessage="Moreover, out of the resources in the market for front end interview preparation, our platform boasts the largest number of questions with solutions written by experienced Senior Front End Engineers previously from FAANG, who were also ex-interviewers."
-        description="Paragraph 2 answer to 'Is it really worth it to buy GreatFrontEnd?' on Homepage's FAQ sections"
-        id="IuWsYS"
-      />
-      <br />
-      <br />
-      <FormattedMessage
-        defaultMessage="We are also the only platform offering decent front end system design content."
-        description="FAQ answer"
-        id="7xuDzw"
-      />
+      <p>
+        <FormattedMessage
+          defaultMessage="Our lifetime access plan costs less than 1 hour of an average Front End Engineer's salary. Meanwhile, the reward for acing your interviews could be an increase in hundreds of thousands of total compensation."
+          description="Paragraph 1 answer to 'Is it really worth it to buy GreatFrontEnd?' on Homepage's FAQ sections"
+          id="YMfxks"
+        />
+      </p>
+      <p>
+        <FormattedMessage
+          defaultMessage="Moreover, out of the resources in the market for front end interview preparation, our platform boasts the largest number of questions with solutions written by experienced Senior Front End Engineers previously from FAANG, who were also ex-interviewers."
+          description="Paragraph 2 answer to 'Is it really worth it to buy GreatFrontEnd?' on Homepage's FAQ sections"
+          id="IuWsYS"
+        />
+      </p>
+      <p>
+        <FormattedMessage
+          defaultMessage="We are also the only platform offering decent front end system design content."
+          description="FAQ answer"
+          id="7xuDzw"
+        />
+      </p>
     </>
   ),
   key: 'general-worth-it',
