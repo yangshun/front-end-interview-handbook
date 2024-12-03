@@ -1146,14 +1146,16 @@ export default function InterviewsPricingTableSection({
           )}
         </div>
       </div>
-      <InterviewsPaymentFailureDialog
-        isShown={showPaymentFailureDialog}
-        lastPaymentError={lastPaymentError}
-        onClose={(failureReason) => {
-          setShowPaymentFailureDialog(false);
-          setStoredPaymentFailure(failureReason);
-        }}
-      />
+      {showPaymentFailureDialog && (
+        <InterviewsPaymentFailureDialog
+          isShown={showPaymentFailureDialog}
+          lastPaymentError={lastPaymentError}
+          onClose={(failureReason) => {
+            setShowPaymentFailureDialog(false);
+            setStoredPaymentFailure(failureReason);
+          }}
+        />
+      )}
     </div>
   );
 }
