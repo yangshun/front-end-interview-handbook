@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import type { InterviewsStudyList } from 'contentlayer/generated';
 import {
   RiFlashlightFill,
   RiQuestionnaireLine,
@@ -20,12 +21,14 @@ type Props = Readonly<{
   contributions?: Record<string, number>;
   isContributionsLoading: boolean;
   isLoggedIn: boolean;
+  studyListsMap: Record<string, InterviewsStudyList>;
 }>;
 
 export default function InterviewsDashboardPageHeader({
   contributions,
   isLoggedIn,
   isContributionsLoading,
+  studyListsMap,
 }: Props) {
   const intl = useIntl();
   const currentMaxConsecutiveDays =
@@ -141,7 +144,7 @@ export default function InterviewsDashboardPageHeader({
       features={features}
       sideElement={
         <div className="w-full lg:w-auto lg:max-w-[363px]">
-          <InterviewsDashboardCreateAccountCard />
+          <InterviewsDashboardCreateAccountCard studyListsMap={studyListsMap}/>
         </div>
       }
       title={intl.formatMessage({

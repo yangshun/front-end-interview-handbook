@@ -207,10 +207,6 @@
     "defaultMessage": "All filters",
     "description": "Label for All Filters button for roadmap page on mobile"
   },
-  "/FjDQ0": {
-    "defaultMessage": "Design system components",
-    "description": "Title of study plan"
-  },
   "/FyqAR": {
     "defaultMessage": "Translations for {locale} are in beta and may not be accurate. Do give feedback or <link>contact us</link> if you are interested in helping to translate!",
     "description": "Banner about beta locale version"
@@ -4771,10 +4767,6 @@
     "defaultMessage": "Starting is as easy as clicking a Start project button, and we will take you through every step of the way.",
     "description": "Ready to start section subtitle"
   },
-  "TebaLD": {
-    "defaultMessage": "Continue learning",
-    "description": "Title of Continue Learning section in preparation dashboard"
-  },
   "TfBpeT": {
     "defaultMessage": "Here are some highly-rated submissions you can reference while doing your project. We prioritize submissions by their ratings, the similarity of their tech stack to yours, and the seniority level of the commenter.",
     "description": "Description for Reference Submissions section on Projects project tips & resources page"
@@ -8310,10 +8302,6 @@
   "qwP4CA": {
     "defaultMessage": "Huge question bank",
     "description": "Title for huge question bank feature"
-  },
-  "qzlnBr": {
-    "defaultMessage": "Accessibility",
-    "description": "Title of study plan"
   },
   "r/YoFx": {
     "defaultMessage": "Premium accounts are not eligible",

@@ -188,6 +188,7 @@ export default function InterviewsDashboardPage({
         contributions={contributions}
         isContributionsLoading={isContributionsLoading}
         isLoggedIn={isLoggedIn}
+        studyListsMap={studyListsMap}
       />
       <Section>
         {isLoggedIn && showProgressAtGlance && (

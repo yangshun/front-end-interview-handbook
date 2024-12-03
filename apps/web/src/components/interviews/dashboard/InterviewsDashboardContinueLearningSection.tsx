@@ -9,8 +9,11 @@ import GradientProgressBar from '~/components/ui/GradientProgressBar/GradientPro
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 import {
+  themeBackgroundCardColor,
   themeBackgroundCardWhiteOnLightColor,
   themeBorderElementColor,
+  themeBorderEmphasizeColor,
+  themeDivideEmphasizeColor,
   themeTextColor,
 } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
@@ -34,11 +37,13 @@ type SessionProgress = ReadonlyArray<{
 }>;
 
 type Props = Readonly<{
+  hideHeading?: boolean;
   playbookProgress: SessionProgress;
   questionListSessions: Array<
     LearningSession & { _count: { progress: number } }
   >;
   studyListsMap: Record<string, InterviewsStudyList>;
+  variant?: 'combined' | 'normal';
 }>;
 
 const SHOW_MAX_PROGRESS = 8;
@@ -47,6 +52,8 @@ export default function InterviewsDashboardContinueLearningSection({
   questionListSessions,
   studyListsMap,
   playbookProgress,
+  variant = 'normal',
+  hideHeading = false,
 }: Props) {
   const intl = useIntl();
 
@@ -88,14 +95,26 @@ export default function InterviewsDashboardContinueLearningSection({
 
   return (
     <div className="flex flex-col gap-6">
-      <Heading className={themeTextColor} color="custom" level="heading6">
-        <FormattedMessage
-          defaultMessage="Continue learning"
-          description="Title for continue learning section"
-          id="wvGU2J"
-        />
-      </Heading>
-      <div className={clsx('grid gap-4 md:grid-cols-2 xl:gap-6')}>
+      {!hideHeading && (
+        <Heading className={themeTextColor} color="custom" level="heading6">
+          <FormattedMessage
+            defaultMessage="Continue learning"
+            description="Title for continue learning section"
+            id="wvGU2J"
+          />
+        </Heading>
+      )}
+      <div
+        className={clsx(
+          variant === 'normal'
+            ? 'grid gap-4 md:grid-cols-2 xl:gap-6'
+            : [
+                'flex flex-col divide-y overflow-hidden rounded-2xl',
+                themeDivideEmphasizeColor,
+                themeBackgroundCardColor,
+                themeBorderEmphasizeColor,
+              ],
+        )}>
         {sessionsProgress.map(
           ({ href, title, questionProgress, articleProgress }) => {
             const totalCount =
@@ -111,10 +130,16 @@ export default function InterviewsDashboardContinueLearningSection({
                 key={href}
                 className={clsx(
                   'group relative',
-                  'flex items-center justify-between gap-6 p-6',
-                  'rounded-lg',
-                  themeBackgroundCardWhiteOnLightColor,
-                  ['border', themeBorderElementColor],
+                  'flex items-center justify-between',
+                  variant === 'normal'
+                    ? [
+                        'gap-6',
+                        'p-6',
+                        'rounded-lg',
+                        themeBackgroundCardWhiteOnLightColor,
+                        ['border', themeBorderElementColor],
+                      ]
+                    : ['gap-4', 'px-5 py-4'],
                 )}>
                 <div className="flex items-center gap-4">
                   <GradientProgressBar
