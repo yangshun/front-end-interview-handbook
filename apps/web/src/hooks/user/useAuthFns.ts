@@ -12,6 +12,27 @@ type HrefProps = Readonly<{
   query?: ParsedUrlQueryInput;
 }>;
 
+function forwardCurrentSearchParams(href: string) {
+  if (typeof window === 'undefined') {
+    return href;
+  }
+
+  const urlObj = new URL(
+    href,
+    'https://greatfrontend.com', // The domain is not used.
+  );
+
+  const searchParams = new URLSearchParams(window.location.search);
+  searchParams.forEach((value, key) => {
+    urlObj.searchParams.set(key, value);
+  });
+
+  return url.format({
+    pathname: urlObj.pathname,
+    search: urlObj.search,
+  });
+}
+
 export function useAuthSignInUp() {
   const [signedInBefore] = useAuthSignedInBefore();
   const intl = useIntl();
@@ -23,7 +44,9 @@ export function useAuthSignInUp() {
     return url.format({
       pathname: signedInBefore ? '/login' : '/sign-up',
       query: {
-        next: next || pathname || window.location.pathname,
+        next: forwardCurrentSearchParams(
+          next || pathname || window.location.pathname,
+        ),
         ...query,
       },
     });
@@ -51,7 +74,9 @@ export function useAuthLogout() {
     return url.format({
       pathname: '/logout',
       query: {
-        next: next || pathname || window.location.pathname,
+        next: forwardCurrentSearchParams(
+          next || pathname || window.location.pathname,
+        ),
         ...query,
       },
     });
