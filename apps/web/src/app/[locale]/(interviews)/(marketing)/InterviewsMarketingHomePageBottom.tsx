@@ -1,4 +1,5 @@
 import type { InterviewsStudyList } from 'contentlayer/generated';
+import { useMediaQuery } from 'usehooks-ts';
 
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import InterviewsMarketingCompaniesSection from '~/components/interviews/marketing/InterviewsMarketingCompaniesSection';
@@ -25,6 +26,7 @@ export default function InterviewsMarketingHomePageBottom({
 }: Props) {
   const { userProfile } = useUserProfile();
   const testimonials = useInterviewsMarketingTestimonials();
+  const isMobileAndBelow = useMediaQuery('(max-width: 640px)');
 
   return (
     <>
@@ -36,7 +38,9 @@ export default function InterviewsMarketingHomePageBottom({
         userProfile?.isInterviewsPremium && userProfile?.plan === 'lifetime'
       ) && <InterviewsPricingSectionLocalizedContainer />}
       <InterviewsMarketingTestimonialsSection
-        testimonials={testimonials}
+        testimonials={
+          isMobileAndBelow ? testimonials.slice(0, 8) : testimonials
+        }
         width="marketing"
       />
       <InterviewsMarketingFAQSection />

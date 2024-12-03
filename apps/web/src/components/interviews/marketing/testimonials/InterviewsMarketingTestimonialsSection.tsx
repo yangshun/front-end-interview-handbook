@@ -8,7 +8,6 @@ import CardContainer from '~/components/ui/Card/CardContainer';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
-import Marquee from '~/components/ui/Marquee';
 import {
   themeGradientHeading,
   themeMarketingHeadingSize,
@@ -60,7 +59,7 @@ export default function InterviewsMarketingTestimonialsSection({
         </Heading>
       </div>
       <Section>
-        <div className={clsx('mx-auto md:mx-0', 'hidden sm:flow-root')}>
+        <div className={clsx('mx-auto md:mx-0', 'flow-root')}>
           <CardContainer
             className={clsx(
               '-mt-6 sm:-mx-3 sm:columns-2 sm:text-[0]',
@@ -74,21 +73,6 @@ export default function InterviewsMarketingTestimonialsSection({
                 <TestimonialCard {...testimonial} />
               </div>
             ))}
-          </CardContainer>
-        </div>
-        <div className="sm:hidden">
-          <CardContainer className="relative h-[500px]">
-            <Marquee periodSeconds={300} startEndGap={24}>
-              <div className="grid w-max grid-flow-col grid-rows-1 gap-6">
-                {testimonials.map((testimonial) => (
-                  <div key={testimonial.id} className="w-auto max-w-[75vw]">
-                    <div className="flex flex-col whitespace-normal">
-                      <TestimonialCard {...testimonial} />
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </Marquee>
           </CardContainer>
         </div>
         {showSeeAllLink && (
