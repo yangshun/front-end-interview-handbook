@@ -22,7 +22,7 @@ export default function VignetteOverlay({
   }
 
   return (
-    <div className={clsx('relative overflow-hidden', className)}>
+    <div className={clsx('relative isolate overflow-hidden', className)}>
       {children}
       <div className={clsx('absolute bottom-0 top-0 w-full')}>
         <div
@@ -33,7 +33,9 @@ export default function VignetteOverlay({
             'dark:from-neutral-900 dark:via-neutral-900',
           )}
         />
-        <div className={clsx('absolute w-full', overlayClass)}>{overlay}</div>
+        <div className={clsx('absolute z-[1] w-full', overlayClass)}>
+          {overlay}
+        </div>
       </div>
     </div>
   );
