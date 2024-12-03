@@ -70,7 +70,9 @@ export default function UserInterfaceCodingWorkspaceWriteup({
 
   return (
     <div className="w-full">
-      <ScrollArea>
+      {/* Override the display:table because the content like MDXCodeBlock
+      where there is long code make this overflow and the horizontal scrollbar doesn't appear */}
+      <ScrollArea viewportClass="[&>div]:!block">
         <div className="mx-auto flex max-w-3xl flex-col gap-y-6 p-4">
           {contentType === 'description' && mode === 'solution' && (
             <Alert variant="info">
