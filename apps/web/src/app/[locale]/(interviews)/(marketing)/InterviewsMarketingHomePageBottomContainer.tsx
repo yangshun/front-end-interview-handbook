@@ -3,9 +3,7 @@
 import type { InterviewsStudyList } from 'contentlayer/generated';
 import { useInView } from 'framer-motion';
 import dynamic from 'next/dynamic';
-import { useRef } from 'react';
-
-import useScrollToTop from '~/hooks/useScrollToTop';
+import { useEffect, useRef } from 'react';
 
 import type { QuestionBankDataType } from '~/components/interviews/marketing/InterviewsMarketingPracticeQuestionBankSection';
 import InterviewsMarketingSimulateRealInterviews from '~/components/interviews/marketing/InterviewsMarketingSimulateRealInterviews';
@@ -25,7 +23,12 @@ export default function InterviewsMarketingHomePageBottomContainer({
   companyGuides,
   questions,
 }: Props) {
-  useScrollToTop([]);
+  // UseScrollToTop doesn't scroll to top when user come back to this page via browser back button due browser scroll restoration
+  // Disable browser scroll restoration so that when user come back to this page
+  // via browser back button, the page is scroll to the top again
+  useEffect(() => {
+    window.history.scrollRestoration = 'manual';
+  }, []);
 
   const loadBottomHalfMarkerRef = useRef(null);
   const showBottomHalf = useInView(loadBottomHalfMarkerRef, {
