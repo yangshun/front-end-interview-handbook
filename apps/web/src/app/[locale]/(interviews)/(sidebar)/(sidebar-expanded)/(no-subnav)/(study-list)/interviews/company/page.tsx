@@ -38,9 +38,9 @@ async function getPageSEOMetadata({ params }: Props) {
       id: 'SyOeb2',
     }),
     title: intl.formatMessage({
-      defaultMessage: 'Front End Interview Guides for Target Companies',
+      defaultMessage: 'Front End Interview Guides for Specific Companies',
       description: 'Page title for company guides listing',
-      id: '7PRS9T',
+      id: 'YLaxlX',
     }),
   };
 }
