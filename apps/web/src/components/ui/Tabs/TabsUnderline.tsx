@@ -8,6 +8,7 @@ import {
   themeTextColor_Hover,
 } from '~/components/ui/theme';
 
+import ScrollArea from '../ScrollArea';
 import type { TextSize } from '../Text';
 import Text from '../Text';
 import { themeTextSecondaryColor } from '../theme';
@@ -88,82 +89,87 @@ function TabsUnderline<T>(
     sizeClasses[size];
 
   return (
-    <div
-      ref={ref}
-      className={clsx(
-        'overflow-x-auto overflow-y-hidden',
-        displayClasses[display],
-        ['border-b', themeBorderElementColor],
-      )}>
-      <nav aria-label={label} className={clsx('-mb-px flex', tabGapSize)}>
-        {tabs.map((tabItem) => {
-          const {
-            addOn,
-            icon: Icon,
-            label: tabItemLabel,
-            value: tabItemValue,
-            href,
-          } = tabItem;
-          const isSelected = tabItemValue === value;
-          const commonProps = {
-            children: (
-              <Text
-                className={clsx(
-                  'group flex items-center',
-                  alignment === 'stretch' && 'justify-center',
-                  tabInternalGapSize,
-                )}
-                color={isSelected ? 'default' : 'inherit'}
-                size={textSize}
-                weight="medium">
-                {Icon && (
-                  <Icon
-                    className={clsx(
-                      'shrink-0',
-                      !isSelected && [
-                        'text-neutral-400 dark:text-neutral-500',
-                        'group-hover:text-inherit dark:group-hover:text-inherit',
-                      ],
-                      iconSize,
-                    )}
-                  />
-                )}
-                {tabItemLabel}
-                {addOn}
-              </Text>
-            ),
-            className: clsx(
-              'group whitespace-nowrap border-b-2',
-              isSelected
-                ? 'border-neutral-900 dark:border-neutral-100'
-                : clsx(
-                    'border-transparent',
-                    themeTextSecondaryColor,
-                    themeTextColor_Hover,
-                  ),
-              tabItemSize,
-              alignment === 'stretch' && 'flex-1',
-            ),
-            onClick: () => onSelect?.(tabItemValue),
-          };
+    <ScrollArea className="-mb-2" scrollbars="horizontal" viewportClass="pb-2">
+      <div
+        ref={ref}
+        className={clsx('overflow-y-hidden', displayClasses[display], [
+          'border-b',
+          themeBorderElementColor,
+        ])}>
+        <nav aria-label={label} className={clsx('-mb-px flex', tabGapSize)}>
+          {tabs.map((tabItem) => {
+            const {
+              addOn,
+              icon: Icon,
+              label: tabItemLabel,
+              value: tabItemValue,
+              href,
+            } = tabItem;
+            const isSelected = tabItemValue === value;
+            const commonProps = {
+              children: (
+                <Text
+                  className={clsx(
+                    'group flex items-center',
+                    alignment === 'stretch' && 'justify-center',
+                    tabInternalGapSize,
+                  )}
+                  color={isSelected ? 'default' : 'inherit'}
+                  size={textSize}
+                  weight="medium">
+                  {Icon && (
+                    <Icon
+                      className={clsx(
+                        'shrink-0',
+                        !isSelected && [
+                          'text-neutral-400 dark:text-neutral-500',
+                          'group-hover:text-inherit dark:group-hover:text-inherit',
+                        ],
+                        iconSize,
+                      )}
+                    />
+                  )}
+                  {tabItemLabel}
+                  {addOn}
+                </Text>
+              ),
+              className: clsx(
+                'group whitespace-nowrap border-b-2',
+                isSelected
+                  ? 'border-neutral-900 dark:border-neutral-100'
+                  : clsx(
+                      'border-transparent',
+                      themeTextSecondaryColor,
+                      themeTextColor_Hover,
+                    ),
+                tabItemSize,
+                alignment === 'stretch' && 'flex-1',
+              ),
+              onClick: () => onSelect?.(tabItemValue),
+            };
 
-          if (href != null) {
+            if (href != null) {
+              return (
+                <Anchor
+                  key={String(tabItemValue)}
+                  href={href}
+                  variant="unstyled"
+                  {...commonProps}
+                />
+              );
+            }
+
             return (
-              <Anchor
+              <button
                 key={String(tabItemValue)}
-                href={href}
-                variant="unstyled"
+                type="button"
                 {...commonProps}
               />
             );
-          }
-
-          return (
-            <button key={String(tabItemValue)} type="button" {...commonProps} />
-          );
-        })}
-      </nav>
-    </div>
+          })}
+        </nav>
+      </div>
+    </ScrollArea>
   );
 }
 
