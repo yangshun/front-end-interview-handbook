@@ -17,6 +17,7 @@ import NavbarPopover from './NavbarPopover';
 import NavbarPopoverTabs from './NavbarPopoverTabs';
 import type { NavbarTopLevelItem } from './NavTypes';
 import Anchor from '../Anchor';
+import { anchorVariants } from '../Anchor/AnchorStyles';
 
 import * as PopoverPrimitive from '@radix-ui/react-popover';
 
@@ -58,6 +59,7 @@ export default function NavbarItem({
           commonStyles,
           themeTextColor,
           themeTextBrandColor_Hover,
+          'hover:underline dark:hover:no-underline',
         )}
         href={props.href}
         prefetch={null}
@@ -74,8 +76,9 @@ export default function NavbarItem({
       <PopoverPrimitive.Trigger
         className={clsx(
           commonStyles,
+          anchorVariants({ variant: 'unstyled' }),
           open
-            ? themeTextBrandColor
+            ? clsx(themeTextBrandColor, 'underline dark:no-underline')
             : clsx(themeTextColor, themeTextBrandColor_Hover),
         )}
         onClick={() => setIsClicked(true)}
