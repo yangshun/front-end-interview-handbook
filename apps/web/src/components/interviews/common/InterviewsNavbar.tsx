@@ -3,6 +3,7 @@
 import clsx from 'clsx';
 import { useRef, useState } from 'react';
 import {
+  RiArrowRightSLine,
   RiMenuFill,
   RiMoreLine,
   RiPhoneLine,
@@ -16,8 +17,6 @@ import useUserProfile from '~/hooks/user/useUserProfile';
 
 import { SocialLinks } from '~/data/SocialLinks';
 
-import NavColorSchemeDropdown from '~/components/global/navbar/NavColorSchemeDropdown';
-import NavI18nDropdown from '~/components/global/navbar/NavI18nDropdown';
 import NavProductPopover from '~/components/global/navbar/NavProductPopover';
 import SidebarAuthDropdownItem from '~/components/global/sidebar/SidebarAuthDropdownItem';
 import SidebarColorSchemeSubMenu from '~/components/global/sidebar/SidebarColorSchemeSubMenu';
@@ -48,6 +47,8 @@ import useInterviewsNavLinks from './useInterviewsNavLinks';
 import useInterviewsSidebarLinks from './useInterviewsSidebarLinks';
 
 import { useUser } from '@supabase/auth-helpers-react';
+import NavI18nDropdown from '~/components/global/navbar/NavI18nDropdown';
+import NavColorSchemeDropdown from '~/components/global/navbar/NavColorSchemeDropdown';
 
 type Props = Readonly<{
   bottomBorder?: boolean;
@@ -165,67 +166,86 @@ export default function InterviewsNavbar({
                       <SidebarLinksSection
                         items={navSlideOutItems}
                         type="single"
+                        size="md"
                       />
                     </ScrollArea>
                     <Divider />
-                    <div className={clsx('flex flex-col gap-y-2', 'px-4 py-4')}>
-                      {(isLoggedIn
-                        ? loggedInLinks
-                        : rightLinks.filter((link) => link.type === 'link')
-                      ).map((linkItem) => (
-                        <Anchor
-                          key={linkItem.id}
-                          className={clsx(
-                            'group flex items-center',
-                            'rounded',
-                            'px-2 py-2',
-                            textVariants({
-                              color: 'secondary',
-                              size: 'body2',
-                              weight: 'medium',
-                            }),
-                            themeBackgroundLayerEmphasized_Hover,
-                          )}
-                          href={linkItem.href}
-                          variant="unstyled"
-                          onClick={(event) => {
-                            linkItem.onClick?.(event);
-                            closeMobileNav();
-                          }}>
-                          {linkItem.label}
-                        </Anchor>
-                      ))}
-                    </div>
-                    <Divider />
-                    <div className={clsx('flex flex-col gap-y-4', 'px-4 py-4')}>
-                      <SocialDiscountSidebarMention className="max-w-[220px]" />
-                      <div className="flex justify-between">
+                    <div className={clsx('flex flex-col gap-y-4', 'py-4')}>
+                      {rightLinks
+                        .filter((link) => link.type === 'link')
+                        .map((linkItem) => (
+                          <div className="px-4" key={linkItem.id}>
+                            <Anchor
+                              className={clsx(
+                                'group flex items-center',
+                                'rounded',
+                                'px-2 py-2',
+                                textVariants({
+                                  color: 'secondary',
+                                  size: 'body2',
+                                  weight: 'medium',
+                                }),
+                                themeBackgroundLayerEmphasized_Hover,
+                              )}
+                              href={linkItem.href}
+                              variant="unstyled"
+                              onClick={(event) => {
+                                linkItem.onClick?.(event);
+                                closeMobileNav();
+                              }}>
+                              {linkItem.label}
+                            </Anchor>
+                          </div>
+                        ))}
+                      <SocialDiscountSidebarMention className="px-6" />
+                      <div
+                        className={clsx('flex justify-between gap-4', 'px-4')}>
                         {isPremium ? (
-                          <Button
-                            href={SocialLinks.discordPremium.href}
-                            icon={SocialLinks.discordPremium.icon}
-                            isLabelHidden={true}
-                            label={SocialLinks.discordPremium.name}
-                            variant="primary"
-                          />
+                          <>
+                            <Button
+                              href={SocialLinks.discordPremium.href}
+                              icon={SocialLinks.discordPremium.icon}
+                              isLabelHidden={true}
+                              label={SocialLinks.discordPremium.name}
+                              variant="primary"
+                            />
+                            <Button
+                              href={SocialLinks.linkedin.href}
+                              icon={SocialLinks.linkedin.icon}
+                              isLabelHidden={true}
+                              label={SocialLinks.linkedin.name}
+                              variant="secondary"
+                            />
+                            <Button
+                              href={SocialLinks.github.href}
+                              icon={SocialLinks.github.icon}
+                              isLabelHidden={true}
+                              label={SocialLinks.github.name}
+                              variant="secondary"
+                            />
+                            <NavI18nDropdown size="sm" />
+                            <NavColorSchemeDropdown size="sm" />
+                          </>
                         ) : (
                           <Button
-                            href={SocialLinks.discord.href}
-                            icon={SocialLinks.discord.icon}
-                            isLabelHidden={true}
-                            label={SocialLinks.discord.name}
-                            variant="secondary"
+                            display="block"
+                            href="/interviews/pricing"
+                            label={intl.formatMessage({
+                              defaultMessage: 'Get full access',
+                              description: 'Link label to the pricing page',
+                              id: 'lhtwHD',
+                            })}
+                            variant="primary"
+                            onClick={() => {
+                              closeMobileNav();
+                              gtag.event({
+                                action: `nav.get_full_access.click`,
+                                category: 'ecommerce',
+                                label: 'Get full access',
+                              });
+                            }}
                           />
                         )}
-                        <Button
-                          href={SocialLinks.linkedin.href}
-                          icon={SocialLinks.linkedin.icon}
-                          isLabelHidden={true}
-                          label={SocialLinks.linkedin.name}
-                          variant="secondary"
-                        />
-                        <NavI18nDropdown size="sm" />
-                        <NavColorSchemeDropdown size="sm" />
                         <DropdownMenu
                           icon={RiMoreLine}
                           isLabelHidden={true}
@@ -269,64 +289,82 @@ export default function InterviewsNavbar({
                             />
                           </DropdownMenu.Sub>
                           <Divider />
+                          <DropdownMenu.Item
+                            href={SocialLinks.github.href}
+                            icon={SocialLinks.github.icon}
+                            label={SocialLinks.github.name}
+                          />
+                          <DropdownMenu.Item
+                            href={SocialLinks.linkedin.href}
+                            icon={SocialLinks.linkedin.icon}
+                            label={SocialLinks.linkedin.name}
+                          />
+                          {isPremium ? (
+                            <DropdownMenu.Item
+                              href={SocialLinks.discordPremium.href}
+                              icon={SocialLinks.discordPremium.icon}
+                              label={SocialLinks.discordPremium.name}
+                            />
+                          ) : (
+                            <DropdownMenu.Item
+                              href={SocialLinks.discord.href}
+                              icon={SocialLinks.discord.icon}
+                              label={SocialLinks.discord.name}
+                            />
+                          )}
+                          <Divider />
                           <SidebarAuthDropdownItem />
                         </DropdownMenu>
                       </div>
-                      {!isPremium && (
-                        <div className="px-2">
-                          <Button
-                            display="block"
-                            href="/interviews/pricing"
-                            label={intl.formatMessage({
-                              defaultMessage: 'Get full access',
-                              description: 'Link label to the pricing page',
-                              id: 'lhtwHD',
-                            })}
-                            variant="primary"
-                            onClick={() => {
-                              closeMobileNav();
-                              gtag.event({
-                                action: `nav.get_full_access.click`,
-                                category: 'ecommerce',
-                                label: 'Get full access',
-                              });
-                            }}
-                          />
-                        </div>
+                      {isLoggedIn && (
+                        <>
+                          <Divider />
+                          <div
+                            className={clsx(
+                              'flex shrink-0 items-center gap-x-3',
+                              'px-4',
+                            )}>
+                            <Avatar
+                              alt={displayName ?? ''}
+                              src={userProfile?.avatarUrl ?? ''}
+                            />
+                            <div className="flex grow items-center gap-x-3">
+                              <Text
+                                className="block truncate"
+                                size="body2"
+                                weight="medium">
+                                {displayName}
+                              </Text>
+                              {isPremium && (
+                                <Chip
+                                  className="size-[18px]"
+                                  icon={RiStarSmileFill}
+                                  iconClassName="size-[14px]"
+                                  isLabelHidden={true}
+                                  label="Premium user badge"
+                                  variant="primary"
+                                />
+                              )}
+                            </div>
+                            <DropdownMenu
+                              icon={RiArrowRightSLine}
+                              isLabelHidden={true}
+                              label="More"
+                              showChevron={false}
+                              size="sm"
+                              variant="tertiary">
+                              {loggedInLinks.map((navItem) => (
+                                <DropdownMenu.Item
+                                  key={navItem.id}
+                                  {...navItem}
+                                  icon={undefined}
+                                />
+                              ))}
+                            </DropdownMenu>
+                          </div>
+                        </>
                       )}
                     </div>
-                    {isLoggedIn && (
-                      <>
-                        <Divider />
-                        <div
-                          className={clsx(
-                            'flex shrink-0 items-center gap-x-3',
-                            'px-4 py-4',
-                          )}>
-                          <Avatar
-                            alt={displayName ?? ''}
-                            src={userProfile?.avatarUrl ?? ''}
-                          />
-                          <Text
-                            className="block"
-                            color="subtitle"
-                            size="body2"
-                            weight="medium">
-                            {displayName}
-                          </Text>
-                          {isPremium && (
-                            <Chip
-                              className="size-[18px]"
-                              icon={RiStarSmileFill}
-                              iconClassName="size-[14px]"
-                              isLabelHidden={true}
-                              label="Premium user badge"
-                              variant="primary"
-                            />
-                          )}
-                        </div>
-                      </>
-                    )}
                   </nav>
                 </div>
               </div>
