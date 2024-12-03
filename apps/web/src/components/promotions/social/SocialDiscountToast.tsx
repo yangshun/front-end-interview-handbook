@@ -74,7 +74,7 @@ function SocialDiscountToastImpl() {
         customComponent: () => (
           <CustomToastComponent>
             <div className="flex flex-1 items-center justify-between gap-4">
-              <Ticket padding="none" ratio="wide" variant="normal" width={180}>
+              <Ticket padding="none" ratio="wide" variant="normal" width={140}>
                 <div className="flex h-full flex-col items-center justify-center">
                   <Text size="body1" weight="bold">
                     {promoCode.code}
@@ -103,6 +103,7 @@ function SocialDiscountToastImpl() {
           </CustomToastComponent>
         ),
         duration: 1200000,
+        side: 'end',
         variant: 'custom',
       });
 
