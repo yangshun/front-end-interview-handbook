@@ -39,7 +39,9 @@ export default function JavaScriptCodingWorkspaceDescription({
 
   return (
     <div className="w-full">
-      <ScrollArea>
+      {/* Override the display:table because the content like MDXCodeBlock
+      where there is long code make this overflow and the horizontal scrollbar doesn't appear */}
+      <ScrollArea viewportClass="[&>div]:!block">
         <div className="mx-auto flex max-w-3xl flex-col gap-y-6 p-4">
           <div className="flex flex-col gap-y-6">
             <div className="flex flex-wrap items-center gap-x-4 gap-y-2">

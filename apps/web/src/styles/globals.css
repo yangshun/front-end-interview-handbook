@@ -13,6 +13,10 @@
   margin-bottom: 2.1333333333333333em;
 }
 
+.prose code {
+  overflow-wrap: anywhere;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
