@@ -8,10 +8,10 @@ import {
 } from '~/components/ui/theme';
 
 export type AnchorVariant =
-  | 'default' // Light mode: underline. Dark mode: Brand color, underline on hover.
-  | 'flat' // Light mode: same color as text. Dark mode: underline on hover.
-  | 'flatUnderline' // Light mode: same color as text + underline. Dark mode: underline on hover.
-  | 'secondary' // Secondary color, brand color on hover.
+  | 'default' // Light mode: underline; Dark mode: Brand color.
+  | 'flat' // Same color as text, underline on hover.
+  | 'flatUnderline' // Light mode: same color as text + underline; Dark mode: underline on hover.
+  | 'secondary' // Secondary color; emphasized color + underline on hover.
   | 'unstyled';
 export type AnchorWeight = 'bold' | 'medium' | 'normal';
 
@@ -24,7 +24,10 @@ const anchorVariantClasses: Record<AnchorVariant, string> = {
   ),
   flat: 'hover:underline',
   flatUnderline: 'underline dark:no-underline hover:dark:underline',
-  secondary: clsx(themeTextSecondaryColor, themeTextBrandColor_Hover),
+  secondary: clsx(
+    [themeTextSecondaryColor, themeTextBrandColor_Hover],
+    'hover:underline dark:hover:no-underline',
+  ),
   unstyled: '',
 };
 
