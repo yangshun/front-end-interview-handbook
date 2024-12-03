@@ -12,6 +12,7 @@ import Anchor from '~/components/ui/Anchor';
 import Banner from '~/components/ui/Banner';
 import Divider from '~/components/ui/Divider';
 import Prose from '~/components/ui/Prose';
+import ScrollArea from '~/components/ui/ScrollArea';
 import TabsUnderline from '~/components/ui/Tabs/TabsUnderline';
 import Text from '~/components/ui/Text';
 import { themeBackgroundChipColor } from '~/components/ui/theme';
@@ -522,65 +523,71 @@ export default function InterviewsMarketingEmbedSystemDesignQuestion() {
       className="size-full relative isolate flex flex-col">
       <PanelGroup className="h-0 w-full grow lg:flex" direction="horizontal">
         <Panel defaultSize={40} maxSize={60}>
-          <div className="mx-auto h-full max-w-3xl overflow-y-auto lg:max-w-none">
-            <div className="flex flex-col gap-y-4 p-4">
-              <Text
-                className="text-base font-semibold sm:text-lg"
-                size="inherit">
-                {intl.formatMessage({
-                  defaultMessage: 'Design a News Feed (e.g. Facebook)',
-                  description: 'System design question title',
-                  id: 'cgTXiW',
-                })}
-              </Text>
-              <QuestionMetadataSection
-                elements={['author', 'difficulty', 'duration']}
-                metadata={questionMetadata}
-              />
-              <Divider />
-              <div className="flex flex-col gap-y-2">
-                <Text className="block" size="body1" weight="medium">
+          <ScrollArea>
+            <div className="mx-auto h-full max-w-3xl lg:max-w-none">
+              <div className="flex flex-col gap-y-4 p-4">
+                <Text
+                  className="text-base font-semibold sm:text-lg"
+                  size="inherit">
                   {intl.formatMessage({
-                    defaultMessage: 'Companies',
-                    description: 'Companies section label',
-                    id: '5rd3TN',
+                    defaultMessage: 'Design a News Feed (e.g. Facebook)',
+                    description: 'System design question title',
+                    id: 'cgTXiW',
                   })}
                 </Text>
-                <QuestionPaywallSmall
-                  subtitle={intl.formatMessage({
-                    defaultMessage:
-                      'Purchase premium to see companies which ask this question.',
-                    description:
-                      'Subtitle for paywall over information about companies that asked the question',
-                    id: 'vp4zbB',
-                  })}
-                  title={intl.formatMessage({
-                    defaultMessage: 'Premium Feature',
-                    description:
-                      'Title for paywall over information about companies that asked the question',
-                    id: 'BPE/qv',
-                  })}
+                <QuestionMetadataSection
+                  elements={['author', 'difficulty', 'duration']}
+                  metadata={questionMetadata}
                 />
-              </div>
-              <Divider />
-              <Prose textSize="sm">
-                <p>
-                  Design a news feed application that contains a list of feed
-                  posts users can interact with.
-                </p>
-                <img
-                  alt="News Feed Example"
-                  className="mx-auto w-full max-w-md"
-                  decoding="async"
-                  loading="lazy"
-                  src="/img/questions/news-feed-facebook/news-feed-example.png"
-                />
-                <div className="contents lg:hidden">
-                  <Requirements />
+                <Divider />
+                <div className="flex flex-col gap-y-2">
+                  <Text className="block" size="body1" weight="medium">
+                    {intl.formatMessage({
+                      defaultMessage: 'Companies',
+                      description: 'Companies section label',
+                      id: '5rd3TN',
+                    })}
+                  </Text>
+                  <QuestionPaywallSmall
+                    subtitle={intl.formatMessage({
+                      defaultMessage:
+                        'Purchase premium to see companies which ask this question.',
+                      description:
+                        'Subtitle for paywall over information about companies that asked the question',
+                      id: 'vp4zbB',
+                    })}
+                    title={intl.formatMessage({
+                      defaultMessage: 'Premium Feature',
+                      description:
+                        'Title for paywall over information about companies that asked the question',
+                      id: 'BPE/qv',
+                    })}
+                  />
                 </div>
-              </Prose>
+                <Divider />
+                <Prose textSize="sm">
+                  <p>
+                    Design a news feed application that contains a list of feed
+                    posts users can interact with.
+                  </p>
+                  <img
+                    alt="News Feed Example"
+                    className="mx-auto w-full max-w-md"
+                    decoding="async"
+                    loading="lazy"
+                    src="/img/questions/news-feed-facebook/news-feed-example.png"
+                  />
+                  <div className="contents lg:hidden">
+                    <Requirements />
+                  </div>
+                  <div className="flex flex-col gap-4 lg:hidden">
+                    <Divider />
+                    <ReadFullQuestionAlert />
+                  </div>
+                </Prose>
+              </div>
             </div>
-          </div>
+          </ScrollArea>
         </Panel>
         <PanelResizeHandle
           className={clsx(
@@ -592,32 +599,34 @@ export default function InterviewsMarketingEmbedSystemDesignQuestion() {
           )}
         />
         <Panel className="hidden lg:flex">
-          <div className="flex h-full grow flex-col gap-4 overflow-y-auto p-4">
-            <div>
-              <TabsUnderline
-                label="Select solution section"
-                size="sm"
-                tabs={[
-                  { label: 'Requirements', value: 'requirements' },
-                  { label: 'Architecture', value: 'architecture' },
-                  { label: 'Data Model', value: 'data-color-schemel' },
-                  { label: 'API', value: 'interface' },
-                  { label: 'Optimizations', value: 'optimizations' },
-                ]}
-                value={selectedTab}
-                onSelect={setSelectedTab}
-              />
+          <ScrollArea>
+            <div className="flex h-full grow flex-col gap-4 p-4">
+              <div>
+                <TabsUnderline
+                  label="Select solution section"
+                  size="sm"
+                  tabs={[
+                    { label: 'Requirements', value: 'requirements' },
+                    { label: 'Architecture', value: 'architecture' },
+                    { label: 'Data Model', value: 'data-color-schemel' },
+                    { label: 'API', value: 'interface' },
+                    { label: 'Optimizations', value: 'optimizations' },
+                  ]}
+                  value={selectedTab}
+                  onSelect={setSelectedTab}
+                />
+              </div>
+              <Prose textSize="sm">
+                {selectedTab === 'requirements' && <Requirements />}
+                {selectedTab === 'architecture' && <Architecture />}
+                {selectedTab === 'data-color-schemel' && <DataModel />}
+                {selectedTab === 'interface' && <Interface />}
+                {selectedTab === 'optimizations' && <Optimizations />}
+                <Divider />
+                <ReadFullQuestionAlert />
+              </Prose>
             </div>
-            <Prose textSize="sm">
-              {selectedTab === 'requirements' && <Requirements />}
-              {selectedTab === 'architecture' && <Architecture />}
-              {selectedTab === 'data-color-schemel' && <DataModel />}
-              {selectedTab === 'interface' && <Interface />}
-              {selectedTab === 'optimizations' && <Optimizations />}
-              <Divider />
-              <ReadFullQuestionAlert />
-            </Prose>
-          </div>
+          </ScrollArea>
         </Panel>
       </PanelGroup>
       <Anchor

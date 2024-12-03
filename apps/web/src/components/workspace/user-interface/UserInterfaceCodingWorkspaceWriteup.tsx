@@ -69,7 +69,7 @@ export default function UserInterfaceCodingWorkspaceWriteup({
   const { dispatch } = useUserInterfaceCodingWorkspaceTilesContext();
 
   return (
-    <div className="w-full">
+    <>
       {/* Override the display:table because the content like MDXCodeBlock
       where there is long code make this overflow and the horizontal scrollbar doesn't appear */}
       <ScrollArea viewportClass="[&>div]:!block">
@@ -199,7 +199,7 @@ export default function UserInterfaceCodingWorkspaceWriteup({
           </div>
         </div>
       </ScrollArea>
-    </div>
+    </>
   );
 }
 
