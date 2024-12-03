@@ -45,9 +45,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description,
     locale,
     ogImagePageType: intl.formatMessage({
-      defaultMessage: 'Special list',
-      description: 'OG category for special list',
-      id: 'gyhMDJ',
+      defaultMessage: 'Recommended preparation',
+      description: 'OG category for Recommended preparation',
+      id: 'kpV4fu',
     }),
     ogImageTitle: title,
     pathname: href,
