@@ -8,8 +8,8 @@ import {
   themeOutlineElement_FocusVisible,
   themeOutlineElementBrandColor_FocusVisible,
   themeTextColor,
-  themeTextFaintColor,
   themeTextSecondaryColor,
+  themeTextSubtitleColor,
   themeTextSubtitleColor_Hover,
   themeTextSubtleColor,
 } from '~/components/ui/theme';
@@ -97,7 +97,7 @@ function SidebarLinkItem({
           <Icon
             className={clsx(
               'size-4 group-hover:animate-wiggle shrink-0 origin-bottom',
-              !isActive && themeTextFaintColor,
+              isActive && themeTextSubtitleColor,
             )}
           />
         )}
@@ -119,17 +119,11 @@ function SidebarLinks({
   item: SidebarLinkEntity;
   onToggle: () => void;
 }>) {
-  const { pathname } = useI18nPathname();
-
   if (!('items' in item)) {
     return (
       <SidebarLinkItem key={item.href} showIcon={item.showIcon} {...item} />
     );
   }
-
-  const isActiveSection = item.items.find((linkItem) =>
-    isItemActive(linkItem, pathname),
-  );
 
   return (
     <AccordionPrimitive.Item value={item.id}>
@@ -156,7 +150,7 @@ function SidebarLinks({
               'text-left',
               'text-[0.8125rem] leading-4',
               'font-medium',
-              isActiveSection ? themeTextColor : themeTextSecondaryColor,
+              themeTextSecondaryColor,
               'group-hover:text-neutral-700 dark:group-hover:text-neutral-300',
               'transition-colors',
             )}>
@@ -165,8 +159,10 @@ function SidebarLinks({
           <RiArrowRightSLine
             aria-hidden={true}
             className={clsx(
-              'size-4 shrink-0 transition-transform group-data-[state=open]:rotate-90',
-              isActiveSection ? themeTextColor : themeTextSubtleColor,
+              'size-4 shrink-0 group-data-[state=open]:rotate-90',
+              themeTextSubtleColor,
+              'transition-colors',
+              'transition-transform',
             )}
           />
         </AccordionPrimitive.Trigger>
