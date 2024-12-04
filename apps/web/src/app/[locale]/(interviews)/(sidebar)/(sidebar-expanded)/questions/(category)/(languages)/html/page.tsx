@@ -57,9 +57,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     ),
     locale,
     ogImagePageType: intl.formatMessage({
-      defaultMessage: 'Framework / Language',
+      defaultMessage: 'Framework or languages',
       description: 'OG image page title of framework and language page',
-      id: 'JHqEBN',
+      id: 'bUmduv',
     }),
     ogImageTitle: intl.formatMessage(
       {

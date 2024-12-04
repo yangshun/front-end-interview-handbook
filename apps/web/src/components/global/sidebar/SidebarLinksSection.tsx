@@ -87,7 +87,7 @@ function SidebarLinkItem({
           'rounded-md',
           size === 'sm'
             ? 'text-[0.8125rem] leading-4'
-            : textVariants({ size: 'body2', color: 'inherit' }),
+            : textVariants({ color: 'inherit', size: 'body2' }),
           'select-none outline-none',
           'transition-colors',
           'hover:bg-neutral-200/40 dark:hover:bg-neutral-800/40',

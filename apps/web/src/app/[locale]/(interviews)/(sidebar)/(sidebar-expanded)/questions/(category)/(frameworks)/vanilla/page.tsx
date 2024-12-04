@@ -29,9 +29,9 @@ async function processParams(params: Props['params']) {
 
   return {
     ogImagePageType: intl.formatMessage({
-      defaultMessage: 'Framework / Language',
+      defaultMessage: 'Framework or languages',
       description: 'OG image page title of framework and language page',
-      id: 'JHqEBN',
+      id: 'bUmduv',
     }),
     ogImageTitle: intl.formatMessage(
       {

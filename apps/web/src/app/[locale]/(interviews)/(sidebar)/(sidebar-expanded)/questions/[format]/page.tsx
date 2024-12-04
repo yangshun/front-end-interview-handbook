@@ -56,9 +56,9 @@ async function processParams(params: Props['params']) {
     id: 'CmlQsV',
   });
   const userInterfaceSocialTitle = intl.formatMessage({
-    defaultMessage: 'User Interfaces Coding Interview Questions',
+    defaultMessage: 'User Interface Coding Interview Questions',
     description: 'Social title for UI question format page',
-    id: 'r0OL1W',
+    id: 'VaPcOr',
   });
   const QuestionFormatStrings: Record<
     QuestionFormat,
@@ -289,9 +289,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: seoDescription,
       locale,
       ogImagePageType: intl.formatMessage({
-        defaultMessage: 'Question Format',
+        defaultMessage: 'Question formats',
         description: 'OG image page type for question format page',
-        id: 'BYjsNb',
+        id: 'Pp+bFM',
       }),
       ogImageTitle,
       pathname: `/interviews/${format}`,

@@ -17,6 +17,8 @@ import useUserProfile from '~/hooks/user/useUserProfile';
 
 import { SocialLinks } from '~/data/SocialLinks';
 
+import NavColorSchemeDropdown from '~/components/global/navbar/NavColorSchemeDropdown';
+import NavI18nDropdown from '~/components/global/navbar/NavI18nDropdown';
 import NavProductPopover from '~/components/global/navbar/NavProductPopover';
 import SidebarAuthDropdownItem from '~/components/global/sidebar/SidebarAuthDropdownItem';
 import SidebarColorSchemeSubMenu from '~/components/global/sidebar/SidebarColorSchemeSubMenu';
@@ -47,8 +49,6 @@ import useInterviewsNavLinks from './useInterviewsNavLinks';
 import useInterviewsSidebarLinks from './useInterviewsSidebarLinks';
 
 import { useUser } from '@supabase/auth-helpers-react';
-import NavI18nDropdown from '~/components/global/navbar/NavI18nDropdown';
-import NavColorSchemeDropdown from '~/components/global/navbar/NavColorSchemeDropdown';
 
 type Props = Readonly<{
   bottomBorder?: boolean;
@@ -165,8 +165,8 @@ export default function InterviewsNavbar({
                     <ScrollArea className="px-4">
                       <SidebarLinksSection
                         items={navSlideOutItems}
-                        type="single"
                         size="md"
+                        type="single"
                       />
                     </ScrollArea>
                     <Divider />
@@ -174,7 +174,7 @@ export default function InterviewsNavbar({
                       {rightLinks
                         .filter((link) => link.type === 'link')
                         .map((linkItem) => (
-                          <div className="px-4" key={linkItem.id}>
+                          <div key={linkItem.id} className="px-4">
                             <Anchor
                               className={clsx(
                                 'group flex items-center',

@@ -23,6 +23,7 @@ function forwardCurrentSearchParams(href: string) {
   );
 
   const searchParams = new URLSearchParams(window.location.search);
+
   searchParams.forEach((value, key) => {
     urlObj.searchParams.set(key, value);
   });
