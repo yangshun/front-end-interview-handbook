@@ -66,9 +66,9 @@ export default function InterviewsMarketingHeroNew({ testimonials }: Props) {
           <FadeInSentence
             isVisible={isTitleVisible}
             sentence={intl.formatMessage({
-              defaultMessage: "Don't let front end interviews hold you back",
+              defaultMessage: 'Navigate front end interviews with ease',
               description: 'Homepage title',
-              id: 'kKZhDV',
+              id: 'pt2zl3',
             })}
           />
         </Heading>
