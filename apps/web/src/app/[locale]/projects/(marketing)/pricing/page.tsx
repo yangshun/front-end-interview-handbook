@@ -30,9 +30,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     locale,
     pathname: '/projects/pricing',
     title: intl.formatMessage({
-      defaultMessage: 'Pricing | GreatFrontEnd Interviews',
+      defaultMessage: 'Pricing',
       description: 'Title of Pricing page',
-      id: 'JwOeCo',
+      id: 'PeXK7/',
     }),
   });
 }
