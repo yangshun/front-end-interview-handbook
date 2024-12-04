@@ -50,13 +50,13 @@ function MarketingMessage({ rotateMessages }: Props) {
         values={{
           discountPercentage: SOCIAL_DISCOUNT_PERCENTAGE,
           strong: (chunks) => (
-            <Text color="inherit" weight="bold">
+            <Text className="hidden md:inline" color="inherit" weight="bold">
               {chunks}
-              {arrowEl}
             </Text>
           ),
         }}
       />
+      {arrowEl}
     </Anchor>
   );
 

@@ -2495,10 +2495,6 @@
     "defaultMessage": "Error generating screenshots.",
     "description": "Error message for error while taking screenshot"
   },
-  "FQQRsa": {
-    "defaultMessage": "U.P. {price} <span>({discountPercentage}% off)</span>",
-    "description": "Usual price of the item and the discount off"
-  },
   "FRg+qa": {
     "defaultMessage": "General",
     "description": "Title for FAQ section"
@@ -2590,6 +2586,10 @@
   "GAqip7": {
     "defaultMessage": "Quiz Interviews",
     "description": "Title for Quiz Interviews category of frontend interview playbook cover page"
+  },
+  "GCr4nr": {
+    "defaultMessage": "({discountPercentage}% off)",
+    "description": "Usual price of the item and the discount off"
   },
   "GDAahk": {
     "defaultMessage": "Select from skill roadmap",
