@@ -1,3 +1,5 @@
+import clsx from 'clsx';
+
 import type { TextSize } from '~/components/ui/Text';
 
 import QuestionAuthor from './QuestionAuthor';
@@ -38,7 +40,11 @@ export default function QuestionMetadataSection({
   size = 'body3',
 }: Props) {
   return (
-    <section className="flex flex-wrap items-center gap-x-6 gap-y-4">
+    <section
+      className={clsx(
+        'flex flex-wrap items-center justify-center md:justify-start',
+        'gap-x-6 gap-y-4 ',
+      )}>
       {elements.includes('author') && metadata.author && (
         <QuestionAuthor author={metadata.author} size={size} />
       )}

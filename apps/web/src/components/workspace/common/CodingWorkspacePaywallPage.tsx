@@ -1,45 +1,54 @@
 'use client';
 
-import { RiArrowLeftLine } from 'react-icons/ri';
+import clsx from 'clsx';
 
 import QuestionPaywall from '~/components/interviews/questions/common/QuestionPaywall';
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import QuestionMetadataSection from '~/components/interviews/questions/metadata/QuestionMetadataSection';
-import Button from '~/components/ui/Button';
-import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
+
+import CodingWorkspaceBottomBar from './CodingWorkspaceBottomBar';
 
 type Props = Readonly<{
   metadata: QuestionMetadata;
   mode: 'practice' | 'solution';
+  studyListKey?: string;
 }>;
 
-export default function CodingWorkspacePaywallPage({ metadata, mode }: Props) {
+export default function CodingWorkspacePaywallPage({
+  metadata,
+  mode,
+  studyListKey,
+}: Props) {
   return (
-    <Container>
-      <div className="flex h-[calc(100vh_-_var(--global-sticky-height))] flex-col items-center gap-y-8 py-16 sm:justify-center">
+    <div
+      className={clsx(
+        'flex flex-col',
+        'h-[calc(100vh_-_var(--global-sticky-height))]',
+      )}>
+      <div
+        className={clsx(
+          'flex grow flex-col items-center sm:justify-center',
+          'gap-y-8',
+          'px-6 py-8',
+        )}>
         <div className="flex flex-col gap-y-4 text-center">
-          <Heading level="heading3">{metadata.title}</Heading>
+          <Heading level="heading4">{metadata.title}</Heading>
           <QuestionMetadataSection metadata={metadata} />
         </div>
         <Section>
-          <div className="flex flex-col items-center gap-y-4">
-            <QuestionPaywall
-              feature={
-                mode === 'solution' ? 'official-solutions' : 'premium-questions'
-              }
-            />
-            <Button
-              addonPosition="start"
-              href="/interviews/dashboard"
-              icon={RiArrowLeftLine}
-              label="Back to dashboard"
-              variant="secondary"
-            />
-          </div>
+          <QuestionPaywall
+            feature={
+              mode === 'solution' ? 'official-solutions' : 'premium-questions'
+            }
+          />
         </Section>
       </div>
-    </Container>
+      <CodingWorkspaceBottomBar
+        studyListKey={studyListKey}
+        metadata={metadata}
+      />
+    </div>
   );
 }

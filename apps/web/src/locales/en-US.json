@@ -67,6 +67,10 @@
     "defaultMessage": "Submit project",
     "description": "Label for \"Submit project\" button on Projects project page"
   },
+  "+XLpUw": {
+    "defaultMessage": "Frameworks or languages",
+    "description": "OG image page title of framework and language page"
+  },
   "+Xw4ly": {
     "defaultMessage": "Privacy Policy | GreatFrontEnd",
     "description": "Title of Privacy Policy page"
@@ -5950,10 +5954,6 @@
   "bT5MuR": {
     "defaultMessage": "Insufficient credits",
     "description": "Title for unlocking a premium challenge"
-  },
-  "bUmduv": {
-    "defaultMessage": "Frameworks or languages",
-    "description": "OG image page title of framework and language page"
   },
   "bVOC6y": {
     "defaultMessage": "Now in BETA.",

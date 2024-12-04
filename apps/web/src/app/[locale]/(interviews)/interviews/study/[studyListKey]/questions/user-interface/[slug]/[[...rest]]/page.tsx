@@ -278,6 +278,7 @@ export default async function Page({ params }: Props) {
           <CodingWorkspacePaywallPage
             metadata={question.metadata}
             mode="practice"
+            studyListKey={studyListKey}
           />
           <InterviewsStudyListBottomNav
             paginationEl={

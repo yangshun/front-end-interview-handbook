@@ -1,7 +1,11 @@
 'use client';
 
 import clsx from 'clsx';
-import { RiArrowLeftSLine, RiArrowRightSLine } from 'react-icons/ri';
+import {
+  RiArrowLeftLine,
+  RiArrowLeftSLine,
+  RiArrowRightSLine,
+} from 'react-icons/ri';
 
 import type {
   QuestionMetadata,
@@ -113,6 +117,18 @@ function InterviewsQuestionsListSlideOutButtonImpl({
   // will be 0 index which is the first question in the processed list.
   const prevQuestion = processedQuestions[currentQuestionIndex - 1];
   const nextQuestion = processedQuestions[currentQuestionIndex + 1];
+
+  if (listType.type === 'coding') {
+    return (
+      <Button
+        addonPosition="start"
+        href="/interviews/dashboard"
+        icon={RiArrowLeftLine}
+        label="Back to dashboard"
+        variant="secondary"
+      />
+    );
+  }
 
   return (
     <div className="flex gap-x-2">

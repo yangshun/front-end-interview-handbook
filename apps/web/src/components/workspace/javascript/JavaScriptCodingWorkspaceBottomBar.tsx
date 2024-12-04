@@ -2,9 +2,12 @@ import { useState } from 'react';
 import { RiArrowGoBackLine, RiPlayLine, RiSettings2Line } from 'react-icons/ri';
 import { VscLayout } from 'react-icons/vsc';
 
+import QuestionProgressAction from '~/components/interviews/questions/common/QuestionProgressAction';
 import QuestionReportIssueButton from '~/components/interviews/questions/common/QuestionReportIssueButton';
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
+import QuestionNextQuestions from '~/components/interviews/questions/content/QuestionNextQuestions';
 import Button from '~/components/ui/Button';
+import Divider from '~/components/ui/Divider';
 import DropdownMenu from '~/components/ui/DropdownMenu';
 
 import logEvent from '~/logging/logEvent';
@@ -12,6 +15,7 @@ import logEvent from '~/logging/logEvent';
 import JavaScriptCodingWorkspaceLayoutDialog from './JavaScriptCodingWorkspaceLayoutDialog';
 import CodingWorkspaceBottomBar from '../common/CodingWorkspaceBottomBar';
 import { useCodingWorkspaceContext } from '../common/CodingWorkspaceContext';
+import CodingWorkspaceTimer from '../common/CodingWorkspaceTimer';
 
 type Props = Readonly<{
   layout: 'full' | 'minimal';
@@ -30,14 +34,6 @@ export default function JavaScriptCodingWorkspaceBottomBar({
     useCodingWorkspaceContext();
   const [isLayoutDialogOpen, setIsLayoutDialogOpen] = useState(false);
 
-  const rightPreElements = (
-    <span className="inline sm:hidden">
-      <QuestionReportIssueButton
-        format={metadata.format}
-        title={metadata.title}
-      />
-    </span>
-  );
   const rightPostElements = (
     <>
       <span className="hidden lg:inline">
@@ -87,6 +83,33 @@ export default function JavaScriptCodingWorkspaceBottomBar({
       </div>
     );
   }
+
+  const rightElements = (
+    <>
+      <span className="inline sm:hidden">
+        <QuestionReportIssueButton
+          format={metadata.format}
+          title={metadata.title}
+        />
+      </span>
+      <div className="hidden lg:inline">
+        <CodingWorkspaceTimer />
+      </div>
+      <QuestionProgressAction
+        metadata={metadata}
+        signInModalContents={
+          nextQuestions &&
+          nextQuestions.length > 0 && (
+            <div className="mt-4 space-y-4">
+              <Divider />
+              <QuestionNextQuestions questions={nextQuestions} />
+            </div>
+          )
+        }
+        studyListKey={studyListKey}
+      />
+    </>
+  );
 
   return (
     <CodingWorkspaceBottomBar
@@ -142,9 +165,7 @@ export default function JavaScriptCodingWorkspaceBottomBar({
         )
       }
       metadata={metadata}
-      nextQuestions={nextQuestions}
-      rightPostElements={rightPostElements}
-      rightPreElements={rightPreElements}
+      rightElements={rightElements}
       showQuestionsListButton={layout === 'full'}
       studyListKey={studyListKey}
     />

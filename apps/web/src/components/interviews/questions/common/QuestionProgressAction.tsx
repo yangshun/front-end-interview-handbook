@@ -17,6 +17,7 @@ import Text from '~/components/ui/Text';
 import {
   useMutationQuestionProgressAdd,
   useMutationQuestionProgressDelete,
+  useQueryQuestionProgress,
 } from '~/db/QuestionsProgressClient';
 import type { QuestionProgress } from '~/db/QuestionsProgressTypes';
 import logEvent from '~/logging/logEvent';
@@ -36,7 +37,6 @@ type Props = Readonly<{
 
 export default function QuestionProgressAction({
   signInModalContents,
-  questionProgress,
   metadata,
   studyListKey,
 }: Props) {
@@ -49,6 +49,11 @@ export default function QuestionProgressAction({
   const deleteProgressMutation = useMutationQuestionProgressDelete();
   const { showToast } = useToast();
   const { signInUpHref, signInUpLabel } = useAuthSignInUp();
+
+  const { data: questionProgress } = useQueryQuestionProgress(
+    metadata,
+    studyListKey ?? null,
+  );
 
   if (user == null) {
     return (
