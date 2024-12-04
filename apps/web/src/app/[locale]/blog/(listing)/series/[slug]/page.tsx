@@ -37,6 +37,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = params;
   const series = readBlogSeries(slug || '');
   const intl = await getIntlServerOnly(locale);
+  const title = intl.formatMessage(
+    {
+      defaultMessage: '{seriesName} | GreatFrontEnd Series',
+      description: 'Social title for series page',
+      id: 'ex2Jkb',
+    },
+    {
+      seriesName: series?.title,
+    },
+  );
 
   return defaultMetadata({
     description: series?.description,
@@ -48,26 +58,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     }),
     ogImageTitle: series?.title,
     pathname: series?.href || '',
-    socialTitle: intl.formatMessage(
-      {
-        defaultMessage: '{seriesName} | Series | GreatFrontEnd',
-        description: 'Social title for series page',
-        id: 'lKLdG4',
-      },
-      {
-        seriesName: series?.title,
-      },
-    ),
-    title: intl.formatMessage(
-      {
-        defaultMessage: '{seriesName} | Blog',
-        description: 'Title for series page',
-        id: 'Yo+xvM',
-      },
-      {
-        seriesName: series?.title,
-      },
-    ),
+    socialTitle: title,
+    title,
   });
 }
 
