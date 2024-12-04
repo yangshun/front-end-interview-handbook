@@ -9,11 +9,14 @@ type Props = Readonly<{
   listType?: QuestionListTypeData;
 }>;
 
+type QuestionSortFieldItem = Readonly<{
+  field: QuestionSortField;
+  isAscendingOrder: boolean;
+}>;
+
 export default function useQuestionCodingSorting({ listType }: Props) {
   const { userProfile } = useUserProfile();
   const filterNamespace = questionListFilterNamespace(listType);
-  const defaultSortField: QuestionSortField =
-    listType?.type === 'study-list' ? 'default' : 'difficulty';
 
   const [isAscendingOrder, setIsAscendingOrder] = useSessionStorage<boolean>(
     `gfe:${filterNamespace}:sort-order-ascending`,
@@ -21,28 +24,32 @@ export default function useQuestionCodingSorting({ listType }: Props) {
   );
   const [sortField, setSortField] = useSessionStorage<QuestionSortField>(
     `gfe:${filterNamespace}:sort-field`,
-    defaultSortField,
+    'default',
   );
 
-  const baseSortFields: ReadonlyArray<{
-    field: QuestionSortField;
-    isAscendingOrder: boolean;
-  }> = [
+  const baseSortFields: ReadonlyArray<QuestionSortFieldItem> = [
     { field: 'ranking', isAscendingOrder: true },
-    { field: sortField, isAscendingOrder },
+    {
+      // If not study list, sort by difficulty
+      field:
+        sortField === 'default'
+          ? listType?.value === 'study-list'
+            ? 'default'
+            : 'difficulty'
+          : sortField,
+      isAscendingOrder,
+    },
   ];
-  const premiumLastSortFields: ReadonlyArray<{
-    field: QuestionSortField;
-    isAscendingOrder: boolean;
-  }> = [{ field: 'premium', isAscendingOrder: true }];
 
-  const sortFields = userProfile?.isInterviewsPremium
-    ? baseSortFields
-    : // Show free questions first if user is not a premium user.
-      baseSortFields.concat(premiumLastSortFields);
+  // Show free questions first if user is not a premium user
+  const sortFields: ReadonlyArray<QuestionSortFieldItem> =
+    baseSortFields.concat(
+      userProfile?.isInterviewsPremium
+        ? { field: 'premium', isAscendingOrder: true }
+        : [],
+    );
 
   return {
-    defaultSortField,
     filterNamespace,
     isAscendingOrder,
     setIsAscendingOrder,

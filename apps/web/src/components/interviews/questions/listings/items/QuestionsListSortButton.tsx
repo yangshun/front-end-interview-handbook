@@ -18,13 +18,8 @@ export default function QuestionsListSortButton({
   isLabelHidden,
 }: Props) {
   const intl = useIntl();
-  const {
-    defaultSortField,
-    isAscendingOrder,
-    setIsAscendingOrder,
-    sortField,
-    setSortField,
-  } = useQuestionCodingSorting({ listType });
+  const { isAscendingOrder, setIsAscendingOrder, sortField, setSortField } =
+    useQuestionCodingSorting({ listType });
 
   function makeDropdownItemProps(
     label: string,
@@ -41,10 +36,7 @@ export default function QuestionsListSortButton({
     };
   }
 
-  const isActive =
-    defaultSortField !== 'default'
-      ? defaultSortField !== sortField || !isAscendingOrder
-      : defaultSortField !== sortField;
+  const isActive = sortField !== 'default';
 
   return (
     <DropdownMenu
@@ -75,16 +67,15 @@ export default function QuestionsListSortButton({
         />
       }>
       {[
-        defaultSortField === 'default' &&
-          makeDropdownItemProps(
-            intl.formatMessage({
-              defaultMessage: 'Default',
-              description: 'Default sorting',
-              id: 'vcnpme',
-            }),
-            'default',
-            true,
-          ),
+        makeDropdownItemProps(
+          intl.formatMessage({
+            defaultMessage: 'Default',
+            description: 'Default sorting',
+            id: 'vcnpme',
+          }),
+          'default',
+          true,
+        ),
         makeDropdownItemProps(
           intl.formatMessage({
             defaultMessage: 'Title: A to Z',
