@@ -87,11 +87,18 @@ export default function InterviewsPricingTableDialog({
         id: '7wfbGH',
       }),
     },
+    'study-lists': {
+      title: intl.formatMessage({
+        defaultMessage: 'Premium is required to access study lists',
+        description: 'Title for study plans feature',
+        id: 'JpjIuG',
+      }),
+    },
     'study-plans': {
       title: intl.formatMessage({
         defaultMessage: 'Premium is required to access study plans',
-        description: 'Title for study plans feature',
-        id: '0XJ7cT',
+        description: 'Title for study lists feature',
+        id: 'gEH3Dp',
       }),
     },
   };

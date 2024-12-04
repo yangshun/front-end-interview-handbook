@@ -75,7 +75,7 @@ export default function InterviewsStudyPlanPage({
       <div className="relative flex flex-col gap-y-8">
         <InterviewsStudyListPageTitleSection
           description={studyList.description}
-          feature="study-plans"
+          feature="study-lists"
           features={features}
           icon={StudyPlanIcons[studyList.slug]}
           overallProgress={questionProgressParam ?? []}

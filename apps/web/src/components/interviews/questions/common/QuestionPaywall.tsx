@@ -123,6 +123,19 @@ export default function QuestionPaywall({
         id: 'DV+l42',
       }),
     },
+    'study-lists': {
+      subtitle: intl.formatMessage({
+        defaultMessage:
+          'Purchase premium to unlock study lists and all the best materials we have to offer.',
+        description: 'Paywall subtitle for study lists feature',
+        id: 'ClnQFj',
+      }),
+      title: intl.formatMessage({
+        defaultMessage: 'Premium study lists',
+        description: 'Paywall title for study lists feature',
+        id: 'I7UwcA',
+      }),
+    },
     'study-plans': {
       subtitle: intl.formatMessage({
         defaultMessage:
@@ -131,9 +144,9 @@ export default function QuestionPaywall({
         id: 'NgyZKR',
       }),
       title: intl.formatMessage({
-        defaultMessage: 'Premium study plan',
+        defaultMessage: 'Premium study plans',
         description: 'Paywall title for study plans feature',
-        id: 'yCznFA',
+        id: 'kjB9VN',
       }),
     },
   };

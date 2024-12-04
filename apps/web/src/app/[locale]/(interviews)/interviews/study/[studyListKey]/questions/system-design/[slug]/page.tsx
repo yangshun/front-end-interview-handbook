@@ -2,10 +2,13 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next/types';
 
 import GuidesArticleJsonLd from '~/components/guides/GuidesArticleJsonLd';
+import InterviewsPurchaseQuestionPaywallPage from '~/components/interviews/purchase/InterviewsPurchaseQuestionPaywallPage';
+import InterviewsPurchaseStudyListPaywallPage from '~/components/interviews/purchase/InterviewsPurchaseStudyListPaywallPage';
 import InterviewsQuestionsSystemDesignPage from '~/components/interviews/questions/content/system-design/InterviewsQuestionsSystemDesignPage';
 import InterviewsQuestionsListSlideOutButton from '~/components/interviews/questions/listings/slideout/InterviewsQuestionsListSlideOutButton';
 import InterviewsStudyListBottomNav from '~/components/interviews/questions/listings/study-list/InterviewsStudyListBottomNav';
 
+import { fetchInterviewsStudyList } from '~/db/contentlayer/InterviewsStudyListReader';
 import { readQuestionSystemDesignContents } from '~/db/QuestionsContentsReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
@@ -100,7 +103,16 @@ export default async function Page({ params }: Props) {
     return profile?.premium ?? false;
   })();
 
-  const isQuestionLocked =
+  const studyList = await fetchInterviewsStudyList(studyListKey);
+
+  if (studyList == null) {
+    return notFound();
+  }
+
+  const isStudyListLockedForViewer = !isViewerPremium;
+
+  const { question } = readQuestionSystemDesignContents(slug, locale);
+  const isQuestionLockedForViewer =
     question.metadata.access === 'premium' && !isViewerPremium;
 
   return (
@@ -111,28 +123,39 @@ export default async function Page({ params }: Props) {
         pathname={question.metadata.href}
         title={`Front End System Design: ${question.metadata.title}`}
       />
-      <InterviewsQuestionsSystemDesignPage
-        bottomNav={
-          <InterviewsStudyListBottomNav
-            paginationEl={
-              <InterviewsQuestionsListSlideOutButton
-                metadata={question.metadata}
-                studyListKey={studyListKey}
-              />
-            }
-            question={question}
-            studyListKey={studyListKey}
-          />
-        }
-        canViewPremiumContent={isViewerPremium}
-        isQuestionLocked={isQuestionLocked}
-        question={{
-          description: question.description,
-          metadata: question.metadata,
-          solution: isQuestionLocked ? null : question.solution,
-        }}
-        studyListKey={studyListKey}
-      />
+      {isStudyListLockedForViewer ? (
+        <InterviewsPurchaseStudyListPaywallPage
+          studyListHref={studyList.href}
+        />
+      ) : isQuestionLockedForViewer ? (
+        <InterviewsPurchaseQuestionPaywallPage
+          metadata={question.metadata}
+          mode="practice"
+        />
+      ) : (
+        <InterviewsQuestionsSystemDesignPage
+          bottomNav={
+            <InterviewsStudyListBottomNav
+              paginationEl={
+                <InterviewsQuestionsListSlideOutButton
+                  metadata={question.metadata}
+                  studyListKey={studyListKey}
+                />
+              }
+              question={question}
+              studyListKey={studyListKey}
+            />
+          }
+          canViewPremiumContent={isViewerPremium}
+          isQuestionLocked={isQuestionLockedForViewer}
+          question={{
+            description: question.description,
+            metadata: question.metadata,
+            solution: isQuestionLockedForViewer ? null : question.solution,
+          }}
+          studyListKey={studyListKey}
+        />
+      )}
     </>
   );
 }

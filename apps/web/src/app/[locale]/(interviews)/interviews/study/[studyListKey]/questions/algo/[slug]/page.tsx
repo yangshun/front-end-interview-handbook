@@ -3,9 +3,11 @@ import type { Metadata } from 'next/types';
 import { ArticleJsonLd } from 'next-seo';
 
 import InterviewsPurchaseQuestionPaywallPage from '~/components/interviews/purchase/InterviewsPurchaseQuestionPaywallPage';
+import InterviewsPurchaseStudyListPaywallPage from '~/components/interviews/purchase/InterviewsPurchaseStudyListPaywallPage';
 import { sortQuestionsMultiple } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 import JavaScriptCodingWorkspacePage from '~/components/workspace/javascript/JavaScriptCodingWorkspacePage';
 
+import { fetchInterviewsStudyList } from '~/db/contentlayer/InterviewsStudyListReader';
 import { readQuestionAlgoContents } from '~/db/QuestionsContentsReader';
 import { fetchQuestionsListCoding } from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';
@@ -75,11 +77,18 @@ export default async function Page({ params }: Props) {
 
     return profile?.premium ?? false;
   })();
+
+  const studyList = await fetchInterviewsStudyList(studyListKey);
+
+  if (studyList == null) {
+    return notFound();
   }
+
+  const isStudyListLockedForViewer = !isViewerPremium;
 
   const { question } = readQuestionAlgoContents(slug, isViewerPremium, locale);
 
-  const isQuestionLockedForUser =
+  const isQuestionLockedForViewer =
     question.metadata.access === 'premium' && !isViewerPremium;
 
   const [{ questions: codingQuestions }] = await Promise.all([
@@ -133,11 +142,14 @@ export default async function Page({ params }: Props) {
         url={new URL(question.metadata.href, getSiteOrigin()).toString()}
         useAppDir={true}
       />
-      {isQuestionLockedForUser ? (
+      {isStudyListLockedForViewer ? (
+        <InterviewsPurchaseStudyListPaywallPage
+          studyListHref={studyList.href}
+        />
+      ) : isQuestionLockedForViewer ? (
         <InterviewsPurchaseQuestionPaywallPage
           metadata={question.metadata}
           mode="practice"
-          studyListKey={studyListKey}
         />
       ) : (
         <JavaScriptCodingWorkspacePage

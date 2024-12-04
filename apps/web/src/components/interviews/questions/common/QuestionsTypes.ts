@@ -193,4 +193,5 @@ export type QuestionFeatureType =
   | 'focus-areas'
   | 'official-solutions'
   | 'premium-questions'
+  | 'study-lists'
   | 'study-plans';

@@ -3,6 +3,7 @@ import type { Metadata } from 'next/types';
 import { ArticleJsonLd } from 'next-seo';
 
 import InterviewsPurchaseQuestionPaywallPage from '~/components/interviews/purchase/InterviewsPurchaseQuestionPaywallPage';
+import InterviewsPurchaseStudyListPaywallPage from '~/components/interviews/purchase/InterviewsPurchaseStudyListPaywallPage';
 import type { QuestionUserInterface } from '~/components/interviews/questions/common/QuestionsTypes';
 import { QuestionFrameworkLabels } from '~/components/interviews/questions/common/QuestionsTypes';
 import type { QuestionUserInterfaceMode } from '~/components/interviews/questions/common/QuestionUserInterfacePath';
@@ -10,6 +11,7 @@ import { determineFrameworkAndMode } from '~/components/interviews/questions/com
 import { sortQuestionsMultiple } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 import UserInterfaceCodingWorkspacePage from '~/components/workspace/user-interface/UserInterfaceCodingWorkspacePage';
 
+import { fetchInterviewsStudyList } from '~/db/contentlayer/InterviewsStudyListReader';
 import { readQuestionUserInterface } from '~/db/QuestionsContentsReader';
 import { fetchQuestionsListCoding } from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';
@@ -193,7 +195,13 @@ export default async function Page({ params }: Props) {
     return profile?.premium ?? false;
   })();
 
+  const studyList = await fetchInterviewsStudyList(studyListKey);
+
+  if (studyList == null) {
+    return notFound();
   }
+
+  const isStudyListLockedForViewer = !isViewerPremium;
 
   const question = await readQuestionUserInterface(
     slug,
@@ -272,11 +280,14 @@ export default async function Page({ params }: Props) {
         url={url}
         useAppDir={true}
       />
-      {isQuestionLockedForViewer ? (
+      {isStudyListLockedForViewer ? (
+        <InterviewsPurchaseStudyListPaywallPage
+          studyListHref={studyList.href}
+        />
+      ) : isQuestionLockedForViewer ? (
         <InterviewsPurchaseQuestionPaywallPage
           metadata={question.metadata}
-          mode="practice"
-          studyListKey={studyListKey}
+          mode={mode}
         />
       ) : (
         <UserInterfaceCodingWorkspacePage

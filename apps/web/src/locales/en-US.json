@@ -391,10 +391,6 @@
     "defaultMessage": "Intermediate",
     "description": "Intermediate level blog"
   },
-  "0XJ7cT": {
-    "defaultMessage": "Premium is required to access study plans",
-    "description": "Title for study plans feature"
-  },
   "0Z+Itx": {
     "defaultMessage": "Search over {questionCount} CSS interview questions",
     "description": "Search placeholder for CSS questions list page"
@@ -2115,6 +2111,10 @@
     "defaultMessage": "Sign in to track your progress",
     "description": "Subtitle of Sign In page"
   },
+  "ClnQFj": {
+    "defaultMessage": "Purchase premium to unlock study lists and all the best materials we have to offer.",
+    "description": "Paywall subtitle for study lists feature"
+  },
   "CmlQsV": {
     "defaultMessage": "Front End System Design Interview Questions",
     "description": "Social title for System design question format page"
@@ -2903,6 +2903,10 @@
     "defaultMessage": "John Doe",
     "description": "Placeholder for name field"
   },
+  "I7UwcA": {
+    "defaultMessage": "Premium study lists",
+    "description": "Paywall title for study lists feature"
+  },
   "I872jM": {
     "defaultMessage": "Not completed",
     "description": "Incomplete status for a question"
@@ -3175,6 +3179,10 @@
     "defaultMessage": "Study Plans for Front End Interviews",
     "description": "OG page type for study plans"
   },
+  "JpjIuG": {
+    "defaultMessage": "Premium is required to access study lists",
+    "description": "Title for study plans feature"
+  },
   "JrYZqa": {
     "defaultMessage": "All the resources to help you build a {challengeName}, including how-to-guides, official solutions, references and user discussions",
     "description": "Description of Projects challenge resources page"
@@ -3190,10 +3198,6 @@
   "Ju61WC": {
     "defaultMessage": "To download",
     "description": "Title for To Download section on Projects project assets page"
-  },
-  "JwOeCo": {
-    "defaultMessage": "Pricing | GreatFrontEnd Interviews",
-    "description": "Title of Pricing page"
   },
   "JyoY2G": {
     "defaultMessage": "See all",
@@ -6699,6 +6703,10 @@
     "defaultMessage": "Report an issue",
     "description": "Tooltip for button to report an issue"
   },
+  "gEH3Dp": {
+    "defaultMessage": "Premium is required to access study plans",
+    "description": "Title for study lists feature"
+  },
   "gFyu0d": {
     "defaultMessage": "Email",
     "description": "Label for email field for subscribe newsletter"
@@ -7362,6 +7370,10 @@
   "kj9QHG": {
     "defaultMessage": "Build a whole component library or design system for your portfolio",
     "description": "Description for recommended action for new projects platform user"
+  },
+  "kjB9VN": {
+    "defaultMessage": "Premium study plans",
+    "description": "Paywall title for study plans feature"
   },
   "kmemRr": {
     "defaultMessage": "Submission title",
@@ -9302,10 +9314,6 @@
   "yCyxT4": {
     "defaultMessage": "All tracks",
     "description": "Label for component tracks feature for pricing plan"
-  },
-  "yCznFA": {
-    "defaultMessage": "Premium study plan",
-    "description": "Paywall title for study plans feature"
   },
   "yDVs1E": {
     "defaultMessage": "We will only use them to verify task completion. This information will not be stored on our servers.",
