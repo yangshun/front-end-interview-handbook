@@ -342,12 +342,10 @@ function PricingButtonSection({
   );
 }
 
-function PricingPlanComparisonDiscount({
+function PricingPlanFrequency({
   paymentConfig,
-  showPPPMessage,
 }: Readonly<{
   paymentConfig: InterviewsPricingPlanPaymentConfigLocalized;
-  showPPPMessage: boolean;
 }>) {
   switch (paymentConfig.planType) {
     case 'monthly':
@@ -357,31 +355,7 @@ function PricingPlanComparisonDiscount({
     case 'annual':
       return <PurchasePriceAnnualComparison price={paymentConfig} />;
     case 'lifetime': {
-      if (showPPPMessage) {
-        // Showing PPP strikethrough is enough, will be confusing to show both strikethrough and U.P.
-        return null;
-      }
-
-      return (
-        <FormattedMessage
-          defaultMessage="U.P. {price} <span>({discountPercentage}% off)</span>"
-          description="Usual price of the item and the discount off"
-          id="FQQRsa"
-          values={{
-            discountPercentage: paymentConfig.discount,
-            price: (
-              <PurchasePriceLabel
-                amount={paymentConfig.unitCostCurrency.withPPP.before}
-                currency={paymentConfig.currency.toUpperCase()}
-                symbol={paymentConfig.symbol}
-              />
-            ),
-            span: (chunks) => (
-              <span className={themeTextBrandColor}>{chunks}</span>
-            ),
-          }}
-        />
-      );
+      return null;
     }
   }
 }
@@ -670,6 +644,10 @@ export default function InterviewsPricingTableSection({
     featuredPlan.paymentConfig.conversionFactor <=
     MAX_PPP_ELIGIBLE_FOR_FAANG_TECH_LEADS_PROMO;
 
+  const pppDiscountRounded = Math.ceil(
+    100 - featuredPlan.paymentConfig.conversionFactor * 100,
+  );
+
   return (
     <div
       className={clsx(
@@ -691,9 +669,7 @@ export default function InterviewsPricingTableSection({
                     id="RNRY70"
                     values={{
                       countryName,
-                      discountPercentage: Math.ceil(
-                        100 - featuredPlan.paymentConfig.conversionFactor * 100,
-                      ),
+                      discountPercentage: pppDiscountRounded,
                     }}
                   />
                 }>
@@ -752,35 +728,47 @@ export default function InterviewsPricingTableSection({
             <>
               <div className="flex flex-col">
                 <Text
-                  className={clsx(
-                    'inline-flex flex-wrap items-end',
-                    'text-lg line-through',
-                  )}
-                  color="subtle"
-                  size="inherit">
-                  <PurchasePriceLabel
-                    amount={priceRoundToNearestNiceNumber(
-                      showPPPMessage
-                        ? featuredPlan.paymentConfig.unitCostCurrency.base.after
-                        : featuredPlan.paymentConfig.unitCostCurrency.withPPP
-                            .before,
+                  className={clsx('inline-flex flex-wrap items-end')}
+                  color="secondary"
+                  size="body2">
+                  <span className="line-through">
+                    <PurchasePriceLabel
+                      amount={priceRoundToNearestNiceNumber(
+                        showPPPMessage
+                          ? featuredPlan.paymentConfig.unitCostCurrency.base
+                              .after
+                          : featuredPlan.paymentConfig.unitCostCurrency.withPPP
+                              .before,
+                      )}
+                      currency={featuredPlan.paymentConfig.currency.toUpperCase()}
+                      symbol={featuredPlan.paymentConfig.symbol}
+                    />{' '}
+                    {featuredPlan.numberOfMonths != null ? (
+                      <FormattedMessage
+                        defaultMessage="/month"
+                        description="Per month"
+                        id="aE1FCD"
+                      />
+                    ) : (
+                      <FormattedMessage
+                        defaultMessage="paid once"
+                        description="Pay the price once"
+                        id="BMBc9O"
+                      />
                     )}
-                    currency={featuredPlan.paymentConfig.currency.toUpperCase()}
-                    symbol={featuredPlan.paymentConfig.symbol}
-                  />{' '}
-                  {featuredPlan.numberOfMonths != null ? (
+                  </span>
+                  <span className="ml-1 inline-block">
                     <FormattedMessage
-                      defaultMessage="/month"
-                      description="Per month"
-                      id="aE1FCD"
+                      defaultMessage="({discountPercentage}% off)"
+                      description="Usual price of the item and the discount off"
+                      id="FQQRsa"
+                      values={{
+                        discountPercentage: showPPPMessage
+                          ? pppDiscountRounded
+                          : featuredPlan.paymentConfig.discount,
+                      }}
                     />
-                  ) : (
-                    <FormattedMessage
-                      defaultMessage="paid once"
-                      description="Pay the price once"
-                      id="BMBc9O"
-                    />
-                  )}
+                  </span>
                 </Text>
                 <Text
                   className={clsx('inline-flex items-end gap-x-2')}
@@ -941,32 +929,44 @@ export default function InterviewsPricingTableSection({
                           <div className="mt-6">
                             {showPPPMessage && (
                               <Text
-                                className={clsx(
-                                  'flex items-baseline line-through',
-                                )}
-                                color="subtle"
-                                size="body1">
-                                <PurchasePriceLabel
-                                  amount={priceRoundToNearestNiceNumber(
-                                    paymentConfig.unitCostCurrency.base.after /
-                                      (numberOfMonths ?? 1),
+                                className={clsx('flex items-baseline')}
+                                color="secondary"
+                                size="body2">
+                                <span className="line-through">
+                                  <PurchasePriceLabel
+                                    amount={priceRoundToNearestNiceNumber(
+                                      paymentConfig.unitCostCurrency.base
+                                        .after / (numberOfMonths ?? 1),
+                                    )}
+                                    currency={paymentConfig.currency.toUpperCase()}
+                                    symbol={paymentConfig.symbol}
+                                  />{' '}
+                                  {numberOfMonths != null ? (
+                                    <FormattedMessage
+                                      defaultMessage="/month"
+                                      description="Per month"
+                                      id="aE1FCD"
+                                    />
+                                  ) : (
+                                    <FormattedMessage
+                                      defaultMessage="paid once"
+                                      description="Pay the price once"
+                                      id="BMBc9O"
+                                    />
                                   )}
-                                  currency={paymentConfig.currency.toUpperCase()}
-                                  symbol={paymentConfig.symbol}
-                                />{' '}
-                                {numberOfMonths != null ? (
+                                </span>
+                                <span className="ml-1 inline-block">
                                   <FormattedMessage
-                                    defaultMessage="/month"
-                                    description="Per month"
-                                    id="aE1FCD"
+                                    defaultMessage="({discountPercentage}% off)"
+                                    description="Usual price of the item and the discount off"
+                                    id="FQQRsa"
+                                    values={{
+                                      discountPercentage: showPPPMessage
+                                        ? pppDiscountRounded
+                                        : featuredPlan.paymentConfig.discount,
+                                    }}
                                   />
-                                ) : (
-                                  <FormattedMessage
-                                    defaultMessage="paid once"
-                                    description="Pay the price once"
-                                    id="BMBc9O"
-                                  />
-                                )}
+                                </span>
                               </Text>
                             )}
                             <Text
@@ -1026,9 +1026,8 @@ export default function InterviewsPricingTableSection({
                             )}
                             color="secondary"
                             size="body3">
-                            <PricingPlanComparisonDiscount
+                            <PricingPlanFrequency
                               paymentConfig={paymentConfig}
-                              showPPPMessage={showPPPMessage}
                             />
                           </Text>
                           <div className="mt-6">
