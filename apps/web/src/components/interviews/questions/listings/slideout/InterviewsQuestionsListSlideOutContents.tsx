@@ -89,14 +89,11 @@ export default function InterviewsQuestionsListSlideOutContents<
     <div>
       <div className="relative hidden h-full w-full md:block">
         <VignetteOverlay
-          className={clsx(
-            'min-h-[500px]',
-            'pointer-events-none touch-none select-none',
-          )}
+          className={clsx('min-h-[500px]')}
           overlay={
             <QuestionPaywall background="vignette" feature="company-tags" />
           }
-          overlayClass="top-16 md:top-24"
+          overlayClass="top-10 lg:top-4"
           showOverlay={showCompanyPaywall}>
           <div
             className={clsx(['divide-y', themeDivideColor])}
@@ -218,14 +215,11 @@ export default function InterviewsQuestionsListSlideOutContents<
       </div>
       <div className="block md:hidden">
         <VignetteOverlay
-          className={clsx(
-            'min-h-[700px]',
-            'pointer-events-none touch-none select-none',
-          )}
+          className={clsx('min-h-[500px]')}
           overlay={
             <QuestionPaywall background="vignette" feature="company-tags" />
           }
-          overlayClass="top-28"
+          overlayClass="top-14 sm:top-16"
           showOverlay={showCompanyPaywall}>
           <ul
             className={clsx(['divide-y', themeDivideColor])}
