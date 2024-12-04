@@ -69,6 +69,32 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     );
 
     const { pathname } = frameworkAgnosticLinks(question, mode);
+    const socialTitle =
+      mode === 'solution'
+        ? intl.formatMessage(
+            {
+              defaultMessage: '{questionTitle} Solution in {questionFramework}',
+              description:
+                'Title of Front End Interview UI Coding Questions solution page',
+              id: 'rdN/ZV',
+            },
+            {
+              questionFramework: QuestionFrameworkLabels[question.framework],
+              questionTitle: question.metadata.title,
+            },
+          )
+        : intl.formatMessage(
+            {
+              defaultMessage: '{questionTitle} in {questionFramework}',
+              description:
+                'Title of Front End Interview UI Coding Questions practice page',
+              id: '5tLsdY',
+            },
+            {
+              questionFramework: QuestionFrameworkLabels[question.framework],
+              questionTitle: question.metadata.title,
+            },
+          );
 
     return defaultMetadata({
       description:
@@ -99,35 +125,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
               },
             ),
       locale,
-      ogImageTitle: question.metadata.title,
+      ogImageTitle: socialTitle,
       pathname,
-      socialTitle:
-        mode === 'solution'
-          ? intl.formatMessage(
-              {
-                defaultMessage:
-                  '{questionTitle} Solution in {questionFramework}',
-                description:
-                  'Title of Front End Interview UI Coding Questions solution page',
-                id: 'rdN/ZV',
-              },
-              {
-                questionFramework: QuestionFrameworkLabels[question.framework],
-                questionTitle: question.metadata.title,
-              },
-            )
-          : intl.formatMessage(
-              {
-                defaultMessage: '{questionTitle} in {questionFramework}',
-                description:
-                  'Title of Front End Interview UI Coding Questions practice page',
-                id: '5tLsdY',
-              },
-              {
-                questionFramework: QuestionFrameworkLabels[question.framework],
-                questionTitle: question.metadata.title,
-              },
-            ),
+      socialTitle,
       title:
         mode === 'solution'
           ? intl.formatMessage(
