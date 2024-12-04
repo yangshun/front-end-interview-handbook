@@ -47,7 +47,6 @@ import {
   themeBackgroundSuccessColor,
   themeBorderColor,
   themeGlassyBorder,
-  themeTextBrandColor,
   themeTextSubtleColor,
   themeTextSuccessColor,
   themeWhiteGlowCardBackground,
@@ -761,7 +760,7 @@ export default function InterviewsPricingTableSection({
                     <FormattedMessage
                       defaultMessage="({discountPercentage}% off)"
                       description="Usual price of the item and the discount off"
-                      id="FQQRsa"
+                      id="GCr4nr"
                       values={{
                         discountPercentage: showPPPMessage
                           ? pppDiscountRounded
@@ -959,7 +958,7 @@ export default function InterviewsPricingTableSection({
                                   <FormattedMessage
                                     defaultMessage="({discountPercentage}% off)"
                                     description="Usual price of the item and the discount off"
-                                    id="FQQRsa"
+                                    id="GCr4nr"
                                     values={{
                                       discountPercentage: showPPPMessage
                                         ? pppDiscountRounded
