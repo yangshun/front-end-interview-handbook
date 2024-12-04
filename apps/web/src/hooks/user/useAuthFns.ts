@@ -1,6 +1,7 @@
 import { usePathname } from 'next/navigation';
 import type { ParsedUrlQueryInput } from 'querystring';
 import url from 'url';
+import { useIsClient } from 'usehooks-ts';
 
 import { useAuthSignedInBefore } from '~/components/auth/useAuthSignedInBefore';
 import { useIntl } from '~/components/intl';
@@ -40,14 +41,19 @@ export function useAuthSignInUp() {
   const router = useI18nRouter();
   // To redirect post-login, so we can use the full pathname.
   const pathname = usePathname();
+  const isClient = useIsClient();
 
   function signInUpHref({ next, query }: HrefProps | undefined = {}): string {
+    const resolvedNext = next || pathname || window.location.pathname;
+
     return url.format({
       pathname: signedInBefore ? '/login' : '/sign-up',
       query: {
-        next: forwardCurrentSearchParams(
-          next || pathname || window.location.pathname,
-        ),
+        // To prevent hydration errors and add query params
+        // when on the client
+        next: isClient
+          ? forwardCurrentSearchParams(resolvedNext)
+          : resolvedNext,
         ...query,
       },
     });
@@ -70,14 +76,19 @@ export function useAuthLogout() {
   const router = useI18nRouter();
   // To redirect post-login, so we can use the full pathname.
   const pathname = usePathname();
+  const isClient = useIsClient();
 
   function logoutHref({ next, query }: HrefProps | undefined = {}): string {
+    const resolvedNext = next || pathname || window.location.pathname;
+
     return url.format({
       pathname: '/logout',
       query: {
-        next: forwardCurrentSearchParams(
-          next || pathname || window.location.pathname,
-        ),
+        // To prevent hydration errors and add query params
+        // when on the client
+        next: isClient
+          ? forwardCurrentSearchParams(resolvedNext)
+          : resolvedNext,
         ...query,
       },
     });

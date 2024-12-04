@@ -74,7 +74,6 @@ export default function NavbarPopoverLink({
       className={className}
       href={href}
       prefetch={null}
-      suppressHydrationWarning={true}
       variant="unstyled"
       onClick={onClick}>
       {el}

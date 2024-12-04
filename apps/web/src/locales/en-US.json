@@ -1403,10 +1403,6 @@
     "defaultMessage": "Start coding!",
     "description": "Label for \"Start coding!\" step in dialog on Projects project page"
   },
-  "7PRS9T": {
-    "defaultMessage": "Front End Interview Guides for Target Companies",
-    "description": "Page title for company guides listing"
-  },
   "7Rr7Yf": {
     "defaultMessage": "{minutes} min read",
     "description": "Blog read duration label"
@@ -1974,10 +1970,6 @@
   "BWcVlu": {
     "defaultMessage": "{totalCount, plural, =0 {No challenges} one {1 challenge} other {# challenges}}",
     "description": "Total number of challenges"
-  },
-  "BYjsNb": {
-    "defaultMessage": "Question Format",
-    "description": "OG image page type for question format page"
   },
   "BfCWYl": {
     "defaultMessage": "Select at least 1 skill that was used",
@@ -3099,10 +3091,6 @@
     "defaultMessage": "Answering \"Tell me about yourself\"",
     "description": "How to answer the self introduction question in behavioral interviews"
   },
-  "JHqEBN": {
-    "defaultMessage": "Framework / Language",
-    "description": "OG image page title of framework and language page"
-  },
   "JIWdeN": {
     "defaultMessage": "Continue tracks and skills",
     "description": "Title for Continue tracks and skills section on Projects dashboard page"
@@ -4115,6 +4103,10 @@
     "defaultMessage": "Follow <link>this guide</link> on how to create a GitHub repository.",
     "description": "Description for GitHub repo step in project submission checklist"
   },
+  "Pp+bFM": {
+    "defaultMessage": "Question formats",
+    "description": "OG image page type for question format page"
+  },
   "PqBXo4": {
     "defaultMessage": "Front End Interview Playbook",
     "description": "Front End Interview guide title"
@@ -4418,6 +4410,10 @@
   "RW0xSE": {
     "defaultMessage": "Official solutions in JS/TS",
     "description": "Features for blind75"
+  },
+  "RWGj7t": {
+    "defaultMessage": "Pricing | GreatFrontEnd Interviews",
+    "description": "Social title for pricing page"
   },
   "RWWOGp": {
     "defaultMessage": "We provide a roadmap of all the core skills needed to be a great front end engineer, from beginner to advanced. For each skill, we suggest good resources for you to study and projects you can build on our platform to learn the skill. This roadmap is curated by senior engineers with extensive experience in the industry, ensuring the quality and trustworthiness of the content.",
@@ -5011,6 +5007,10 @@
     "defaultMessage": "Get the right practical foundation from the get-go",
     "description": "Title of 'Practical foundation' feature in Projects marketing page"
   },
+  "VaPcOr": {
+    "defaultMessage": "User Interface Coding Interview Questions",
+    "description": "Social title for UI question format page"
+  },
   "VeRWF3": {
     "defaultMessage": "Challenge guide",
     "description": "Project guides category title"
@@ -5467,6 +5467,10 @@
     "defaultMessage": "Or reach us via these channels",
     "description": "Text to introduce users to alternative feedback channels"
   },
+  "YLaxlX": {
+    "defaultMessage": "Front End Interview Guides for Specific Companies",
+    "description": "Page title for company guides listing"
+  },
   "YM1bnf": {
     "defaultMessage": "An error has occurred",
     "description": "Title of alert indicating an error on Email Sign In/Up Page"
@@ -5526,10 +5530,6 @@
   "Yhn5fM": {
     "defaultMessage": "User Interface Coding",
     "description": "Title for ui coding questions"
-  },
-  "Yo+xvM": {
-    "defaultMessage": "{seriesName} | Blog",
-    "description": "Title for series page"
   },
   "YpJ3q8": {
     "defaultMessage": "Reply to comment",
@@ -5950,6 +5950,10 @@
   "bT5MuR": {
     "defaultMessage": "Insufficient credits",
     "description": "Title for unlocking a premium challenge"
+  },
+  "bUmduv": {
+    "defaultMessage": "Framework or languages",
+    "description": "OG image page title of framework and language page"
   },
   "bVOC6y": {
     "defaultMessage": "Now in BETA.",
@@ -6467,6 +6471,10 @@
     "defaultMessage": "What kind of guidance will this platform provide me?",
     "description": "FAQ question for projects platform"
   },
+  "ex2Jkb": {
+    "defaultMessage": "{seriesName} | GreatFrontEnd Series",
+    "description": "Social title for series page"
+  },
   "ex2n84": {
     "defaultMessage": "Work start date is required",
     "description": "Required Error message for work start date"
@@ -6810,10 +6818,6 @@
   "gvncuz": {
     "defaultMessage": "Prioritized lists",
     "description": "Features for study plans"
-  },
-  "gyhMDJ": {
-    "defaultMessage": "Special list",
-    "description": "OG category for special list"
   },
   "h2eWtB": {
     "defaultMessage": "Build dynamic user interfaces using HTML, CSS, JavaScript, or popular UI frameworks like React, Angular, or Vue.",
@@ -7323,10 +7327,6 @@
     "defaultMessage": "Invalid inputs. Please check that you have filled in the username or profile URL correctly.",
     "description": "Form error text"
   },
-  "kKZhDV": {
-    "defaultMessage": "Don't let front end interviews hold you back",
-    "description": "Homepage title"
-  },
   "kPBwBR": {
     "defaultMessage": "Resume preparation",
     "description": "Preparing a resume for front end interviews"
@@ -7390,6 +7390,10 @@
   "kpP56G": {
     "defaultMessage": "Last month",
     "description": "Title for last month list of comments"
+  },
+  "kpV4fu": {
+    "defaultMessage": "Recommended preparation",
+    "description": "OG category for Recommended preparation"
   },
   "kpdNBu": {
     "defaultMessage": "No starter files and design files required because it is an integration of other challenges.",
@@ -7498,10 +7502,6 @@
   "lKKC9U": {
     "defaultMessage": "Core System Design techniques and in-depth solutions to common questions like building a social media feed, autocomplete component, e-commerce website.",
     "description": "Description for frontend system design guide"
-  },
-  "lKLdG4": {
-    "defaultMessage": "{seriesName} | Series | GreatFrontEnd",
-    "description": "Social title for series page"
   },
   "lMWmct": {
     "defaultMessage": "An 'active day' is a day you completed at least 1 question",
@@ -8135,6 +8135,10 @@
     "defaultMessage": "Search over {questionCount} Svelte interview questions",
     "description": "Search placeholder for Svelte questions list page"
   },
+  "pt2zl3": {
+    "defaultMessage": "Navigate front end interviews with ease",
+    "description": "Homepage title"
+  },
   "puP8B5": {
     "defaultMessage": "Collapse {replyCount, plural, =0 {none} one {# reply} other {# replies}}",
     "description": "Label for collapse replies button"
@@ -8310,10 +8314,6 @@
   "r00qIX": {
     "defaultMessage": "Requirement specs by product managers",
     "description": "Title of 'Specs by product managers' sub-feature in Projects marketing page"
-  },
-  "r0OL1W": {
-    "defaultMessage": "User Interfaces Coding Interview Questions",
-    "description": "Social title for UI question format page"
   },
   "r0smyz": {
     "defaultMessage": "Search system design questions",
