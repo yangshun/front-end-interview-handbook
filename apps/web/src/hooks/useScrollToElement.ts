@@ -1,13 +1,12 @@
+import { usePathname } from 'next/navigation';
 import { useEffect, useRef } from 'react';
-
-import { useI18nPathname } from '~/next-i18nostic/src';
 
 export default function useScrollToElement<T extends HTMLElement>(
   hash: string,
   delay: number,
 ) {
   const elementRef = useRef<T | null>(null);
-  const pathname = useI18nPathname();
+  const pathname = usePathname();
 
   useEffect(() => {
     let timer: ReturnType<typeof setTimeout> | undefined = undefined;

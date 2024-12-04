@@ -1,16 +1,15 @@
+import { usePathname } from 'next/navigation';
 import { useMemo } from 'react';
 
 import { useIntl } from '~/components/intl';
 import type { TabItem } from '~/components/ui/Tabs';
 import Tabs from '~/components/ui/Tabs';
 
-import { useI18nPathname } from '~/next-i18nostic/src';
-
 import type { ProjectsMainLayoutTabCategory } from './useProjectsMainLayoutTabs';
 import useProjectsMainLayoutTabs from './useProjectsMainLayoutTabs';
 
 export default function ProjectsMainLayoutTabs() {
-  const { pathname } = useI18nPathname();
+  const pathname = usePathname();
   const intl = useIntl();
   const mainLayoutTabs = useProjectsMainLayoutTabs();
   const tabs: ReadonlyArray<TabItem<ProjectsMainLayoutTabCategory>> =

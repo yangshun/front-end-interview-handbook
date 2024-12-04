@@ -1,13 +1,14 @@
-import { usePathname } from 'next/navigation';
 import { useRouter } from 'next/navigation';
 import { useSearchParams } from 'next/navigation';
 import { useCallback, useRef } from 'react';
+
+import { useI18nPathname } from '~/next-i18nostic/src';
 
 type UpdateQueueItem = Record<string, ReadonlyArray<string> | string>;
 
 export default function useFilterSearchParams() {
   const searchParams = useSearchParams();
-  const pathname = usePathname();
+  const { pathname } = useI18nPathname();
   const { replace } = useRouter();
   const updateQueue = useRef<Array<UpdateQueueItem>>([]);
   const shouldWaitUpdate = useRef<boolean>(false);

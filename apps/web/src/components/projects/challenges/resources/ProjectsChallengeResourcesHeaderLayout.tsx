@@ -1,6 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
+import { usePathname } from 'next/navigation';
 import { useMemo } from 'react';
 import {
   RiClipboardFill,
@@ -21,8 +22,6 @@ import Spinner from '~/components/ui/Spinner';
 import type { TabItem } from '~/components/ui/Tabs';
 import Tabs from '~/components/ui/Tabs';
 import { themeBorderColor } from '~/components/ui/theme';
-
-import { useI18nPathname } from '~/next-i18nostic/src';
 
 import ProjectsChallengeContentPaywall from '../premium/ProjectsChallengeContentPaywall';
 import ProjectsStartButton from '../../common/ProjectsStartButton';
@@ -101,7 +100,7 @@ export default function ProjectsChallengeResourcesHeaderLayout({
   viewerProjectsProfile,
 }: Props) {
   const intl = useIntl();
-  const { pathname } = useI18nPathname();
+  const pathname = usePathname();
   const tipsResourcesDiscussionsTabs =
     useTipsResourcesDiscussionsTabs(challenge);
 

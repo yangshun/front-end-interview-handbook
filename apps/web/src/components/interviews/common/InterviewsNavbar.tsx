@@ -1,7 +1,8 @@
 'use client';
 
 import clsx from 'clsx';
-import { useRef, useState } from 'react';
+import { usePathname } from 'next/navigation';
+import { useEffect, useRef, useState } from 'react';
 import {
   RiArrowRightSLine,
   RiMenuFill,
@@ -67,14 +68,16 @@ export default function InterviewsNavbar({
   const navLinksFull = useInterviewsNavLinks(isLoggedIn, isPremium);
   const loggedInLinks = useInterviewsLoggedInLinks();
   const navbarRef = useRef(null);
+  const pathname = usePathname();
   const { isSticky } = useIsSticky(navbarRef);
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
 
   const navSlideOutItems = useInterviewsSidebarLinks(isLoggedIn);
 
-  function closeMobileNav() {
+  useEffect(() => {
+    // Hide mobile nav when page changes.
     setIsMobileNavOpen(false);
-  }
+  }, [pathname]);
 
   const displayName = userProfile?.name ?? user?.email;
 
@@ -191,7 +194,6 @@ export default function InterviewsNavbar({
                               variant="unstyled"
                               onClick={(event) => {
                                 linkItem.onClick?.(event);
-                                closeMobileNav();
                               }}>
                               {linkItem.label}
                             </Anchor>
@@ -237,7 +239,6 @@ export default function InterviewsNavbar({
                             })}
                             variant="primary"
                             onClick={() => {
-                              closeMobileNav();
                               gtag.event({
                                 action: `nav.get_full_access.click`,
                                 category: 'ecommerce',

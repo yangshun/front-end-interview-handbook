@@ -1,7 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 import { RiListUnordered, RiMenu2Line } from 'react-icons/ri';
 
@@ -17,8 +17,6 @@ import SlideOut from '~/components/ui/SlideOut';
 import Text from '~/components/ui/Text';
 import { themeBorderColor } from '~/components/ui/theme';
 
-import { useI18nPathname } from '~/next-i18nostic/src';
-
 type Props = Readonly<{
   seriesContents?: BlogArticleNavigationType | null;
 }>;
@@ -27,7 +25,7 @@ export default function BlogNavbar({ seriesContents }: Props) {
   const intl = useIntl();
   const [isLeftSidebarOpen, setIsLeftSidebarOpen] = useState(false);
   const [isRightSidebarOpen, setIsRightSidebarOpen] = useState(false);
-  const { pathname } = useI18nPathname();
+  const pathname = usePathname();
   const navbarRef = useRef(null);
   const { isSticky } = useIsSticky(navbarRef);
   const router = useRouter();

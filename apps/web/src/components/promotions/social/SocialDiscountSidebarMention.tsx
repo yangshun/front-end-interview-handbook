@@ -98,7 +98,7 @@ function SocialDiscountSidebarMentionImpl({
     <Anchor
       className={clsx(
         'flex flex-1 items-center gap-3',
-        'max-w-[220px]',
+        'max-w-[260px]',
         className,
       )}
       href="/rewards/social"

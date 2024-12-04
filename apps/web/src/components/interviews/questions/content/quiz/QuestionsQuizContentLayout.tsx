@@ -1,6 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
+import { usePathname } from 'next/navigation';
 
 import useScrollToTop from '~/hooks/useScrollToTop';
 
@@ -20,8 +21,6 @@ import {
   themeTextBrandColor_Hover,
 } from '~/components/ui/theme';
 
-import { useI18nPathname } from '~/next-i18nostic/src';
-
 type Props = Readonly<{
   children: React.ReactNode;
   questionList: ReadonlyArray<QuestionMetadata>;
@@ -32,7 +31,7 @@ export default function QuestionsQuizContentLayout({
   questionList,
 }: Props) {
   const { showSidebar } = useUserPreferences();
-  const { pathname } = useI18nPathname();
+  const pathname = usePathname();
 
   useScrollToTop([pathname]);
 

@@ -1,6 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
+import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 import { RiListUnordered, RiMenu2Line } from 'react-icons/ri';
 
@@ -11,8 +12,6 @@ import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
 import SlideOut from '~/components/ui/SlideOut';
 import { themeBorderColor } from '~/components/ui/theme';
-
-import { useI18nPathname } from '~/next-i18nostic/src';
 
 import { GuidesSidebar } from './GuidesSidebar';
 import type { TableOfContents } from './GuidesTableOfContents';
@@ -35,7 +34,7 @@ export default function GuidesNavbar({
   const intl = useIntl();
   const [isLeftSidebarOpen, setIsLeftSidebarOpen] = useState(false);
   const [isRightSidebarOpen, setIsRightSidebarOpen] = useState(false);
-  const { pathname } = useI18nPathname();
+  const pathname = usePathname();
   const navbarRef = useRef(null);
   const { isSticky } = useIsSticky(navbarRef);
 
