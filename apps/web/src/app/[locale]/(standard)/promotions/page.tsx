@@ -25,6 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     locale,
     ogImageTitle: title,
     pathname: '/promotions',
+    socialTitle: `${title} | GreatFrontEnd`,
     title,
   });
 }
