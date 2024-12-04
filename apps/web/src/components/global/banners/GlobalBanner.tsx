@@ -5,12 +5,11 @@ import type { ReactNode } from 'react';
 import { useEffect, useState } from 'react';
 import { RiArrowRightLine } from 'react-icons/ri';
 
-import { FormattedMessage, useIntl } from '~/components/intl';
+import { FormattedMessage } from '~/components/intl';
 import { SOCIAL_DISCOUNT_PERCENTAGE } from '~/components/promotions/social/SocialDiscountConfig';
 import Anchor from '~/components/ui/Anchor';
 import Banner from '~/components/ui/Banner';
-import Button from '~/components/ui/Button';
-import { textVariants } from '~/components/ui/Text';
+import Text, { textVariants } from '~/components/ui/Text';
 
 import { useI18nPathname } from '~/next-i18nostic/src';
 
@@ -18,7 +17,6 @@ import { useUserPreferences } from '../UserPreferencesProvider';
 import { useUserProfile } from '../UserProfileProvider';
 
 function MarketingMessage({ rotateMessages }: Props) {
-  const intl = useIntl();
   const { userProfile } = useUserProfile();
   const { pathname } = useI18nPathname();
   const [isShowingSocialMediaMessage, setIsShowingSocialMediaMessage] =
@@ -39,21 +37,26 @@ function MarketingMessage({ rotateMessages }: Props) {
   const arrowEl = (
     <RiArrowRightLine
       aria-hidden={true}
-      className="size-3.5 -mt-0.5 ml-1 inline-flex shrink-0 md:hidden"
+      className="size-3.5 -mt-0.5 ml-1 inline-flex shrink-0"
     />
   );
 
   const socialMediaSaleMessage = (
     <Anchor href="/rewards/social" target="_blank" variant="flat">
       <FormattedMessage
-        defaultMessage="Enjoy {discountPercentage}% off all plans by following our social accounts"
+        defaultMessage="Enjoy {discountPercentage}% off all plans by following our social accounts! <strong>Check it out</strong>"
         description="Text on Promo Banner appearing almost on all application pages to inform user of a discount"
-        id="f7fKvu"
+        id="AEkIua"
         values={{
           discountPercentage: SOCIAL_DISCOUNT_PERCENTAGE,
+          strong: (chunks) => (
+            <Text color="inherit" weight="bold">
+              {chunks}
+              {arrowEl}
+            </Text>
+          ),
         }}
       />
-      {arrowEl}
     </Anchor>
   );
 
@@ -77,66 +80,14 @@ function MarketingMessage({ rotateMessages }: Props) {
     </Anchor>
   );
 
-  const projectsCheckItOut = (
-    <Button
-      className="!h-[22px] max-md:hidden sm:ml-2"
-      href="/projects"
-      icon={RiArrowRightLine}
-      label={intl.formatMessage({
-        defaultMessage: 'Check it out',
-        description: 'Marketing promotions',
-        id: 'H1kMHf',
-      })}
-      locale="en-US"
-      size="xs"
-      target="_blank"
-      variant="secondary"
-    />
-  );
-
   if (pathname?.startsWith('/projects') || isInterviewsPremium) {
-    return (
-      <BannerShell theme="projects">
-        {projectsLaunchMessage} {projectsCheckItOut}
-      </BannerShell>
-    );
+    return <BannerShell theme="projects">{projectsLaunchMessage}</BannerShell>;
   }
 
-  const otherPromotionsButton = (
-    <Anchor
-      className="max-md:hidden sm:ml-2"
-      href="/promotions"
-      target="_blank"
-      variant="flat">
-      {intl.formatMessage({
-        defaultMessage: 'Other promotions',
-        description: 'Marketing promotions',
-        id: 'coAsEN',
-      })}
-    </Anchor>
-  );
-
   return isShowingSocialMediaMessage ? (
-    <BannerShell theme="interviews">
-      {socialMediaSaleMessage}
-      <Button
-        className="!h-[22px] max-md:hidden sm:ml-2"
-        href="/rewards/social"
-        icon={RiArrowRightLine}
-        label={intl.formatMessage({
-          defaultMessage: 'Check it out',
-          description: 'Marketing promotions',
-          id: 'H1kMHf',
-        })}
-        size="xs"
-        variant="secondary"
-      />
-      {otherPromotionsButton}
-    </BannerShell>
+    <BannerShell theme="interviews">{socialMediaSaleMessage}</BannerShell>
   ) : (
-    <BannerShell theme="projects">
-      {projectsLaunchMessage} {projectsCheckItOut}
-    </BannerShell>
+    <BannerShell theme="projects">{projectsLaunchMessage}</BannerShell>
   );
 }
 
@@ -157,11 +108,11 @@ function BannerShell({
   return (
     <Banner
       className={clsx(
-        'h-7 sm:h-[30px]', // Sync with sticky.css.
+        'h-6', // Sync with sticky.css.
         textVariants({ color: 'light' }),
       )}
       data-theme={theme}
-      size="sm"
+      size="xs"
       variant="primary"
       onHide={() => {
         setShowGlobalBanner(false);

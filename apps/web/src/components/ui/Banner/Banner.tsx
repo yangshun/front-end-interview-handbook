@@ -58,8 +58,8 @@ export default function Banner({
         textColorClass,
         className,
         size === 'md' && 'min-h-11',
-        size === 'sm' && 'min-h-7',
-        size === 'xs' && 'min-h-7',
+        size === 'sm' && 'min-h-6',
+        size === 'xs' && 'min-h-6',
       )}
       {...props}>
       <div className={clsx('mx-auto w-full', 'px-4 sm:px-6')}>

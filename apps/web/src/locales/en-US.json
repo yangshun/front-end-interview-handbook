@@ -1767,6 +1767,10 @@
     "defaultMessage": "The company you currently work at. This information can be made private on more sensitive products like interviews.",
     "description": "Description for \"Company\" input on Projects profile onboarding page"
   },
+  "AEkIua": {
+    "defaultMessage": "Enjoy {discountPercentage}% off all plans by following our social accounts! <strong>Check it out</strong>",
+    "description": "Text on Promo Banner appearing almost on all application pages to inform user of a discount"
+  },
   "AIKOQQ": {
     "defaultMessage": "Answers by ex-interviewers",
     "description": "Features for question format page"
@@ -2722,10 +2726,6 @@
   "H1aK4/": {
     "defaultMessage": "Style guide",
     "description": "Project assets category label"
-  },
-  "H1kMHf": {
-    "defaultMessage": "Check it out",
-    "description": "Marketing promotions"
   },
   "H2F0aE": {
     "defaultMessage": "Rep will be awarded for using skills in a project. Realistically, we expect up to 8 skills being used in a large project.",
@@ -6155,10 +6155,6 @@
     "defaultMessage": "Read how to solve {questionTitle} using {questionFramework}",
     "description": "Description of Front End Interview UI Coding Questions solution page"
   },
-  "coAsEN": {
-    "defaultMessage": "Other promotions",
-    "description": "Marketing promotions"
-  },
   "cotxax": {
     "defaultMessage": "Component track",
     "description": "Label for Component Track filter for submissions list"
@@ -6514,10 +6510,6 @@
   "f5Z9tM": {
     "defaultMessage": "Purchase premium to get access to premium challenges, production-ready Figma design files, official guides, solutions, and exclusive component tracks and skill plans.",
     "description": "Subtitle for a premium project paywall"
-  },
-  "f7fKvu": {
-    "defaultMessage": "Enjoy {discountPercentage}% off all plans by following our social accounts",
-    "description": "Text on Promo Banner appearing almost on all application pages to inform user of a discount"
   },
   "f8ishg": {
     "defaultMessage": "Showing {startCount} to {endCount} out of {totalCount} submissions",
