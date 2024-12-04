@@ -76,9 +76,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Page({ params }: Props) {
-  const { locale, slug, studyListKey } = params;
-
-  const { question } = readQuestionSystemDesignContents(slug, locale);
+  const { locale, slug: rawSlug, studyListKey } = params;
+  // So that we handle typos like extra characters.
+  const slug = decodeURIComponent(rawSlug)
+    .replaceAll(/[^\da-zA-Z-]/g, '')
+    .toLowerCase();
 
   const isViewerPremium: boolean = await (async () => {
     const viewer = await readViewerFromToken();

@@ -70,22 +70,21 @@ export default async function Page({ params }: Props) {
     return <div className="p-4 text-center">No such save.</div>;
   }
 
-  const supabaseAdmin = createSupabaseAdminClientGFE_SERVER_ONLY();
-  let isViewerPremium = false;
+  const isViewerPremium: boolean = await (async () => {
+    if (viewer == null) {
+      return false;
+    }
 
-  if (viewer != null) {
-    isViewerPremium = await Promise.resolve(
-      (async () => {
-        const { data: profile } = await supabaseAdmin
-          .from('Profile')
-          .select('*')
-          .eq('id', viewer.id)
-          .single();
+    const supabaseClient = createSupabaseAdminClientGFE_SERVER_ONLY();
 
-        return profile?.premium ?? false;
-      })(),
-    );
-  }
+    const { data: profile } = await supabaseClient
+      .from('Profile')
+      .select('*')
+      .eq('id', viewer.id)
+      .single();
+
+    return profile?.premium ?? false;
+  })();
 
   const question = await readQuestionUserInterface(
     slug,

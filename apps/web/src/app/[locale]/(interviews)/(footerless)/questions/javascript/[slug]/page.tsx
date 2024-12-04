@@ -57,25 +57,24 @@ export default async function Page({ params }: Props) {
   const slug = decodeURIComponent(rawSlug)
     .replaceAll(/[^\da-zA-Z-]/g, '')
     .toLowerCase();
-  const supabaseAdmin = createSupabaseAdminClientGFE_SERVER_ONLY();
 
-  const viewer = await readViewerFromToken();
+  const isViewerPremium: boolean = await (async () => {
+    const viewer = await readViewerFromToken();
 
-  let isViewerPremium = false;
+    if (viewer == null) {
+      return false;
+    }
 
-  if (viewer != null) {
-    isViewerPremium = await Promise.resolve(
-      (async () => {
-        const { data: profile } = await supabaseAdmin
-          .from('Profile')
-          .select('*')
-          .eq('id', viewer.id)
-          .single();
+    const supabaseClient = createSupabaseAdminClientGFE_SERVER_ONLY();
 
-        return profile?.premium ?? false;
-      })(),
-    );
-  }
+    const { data: profile } = await supabaseClient
+      .from('Profile')
+      .select('*')
+      .eq('id', viewer.id)
+      .single();
+
+    return profile?.premium ?? false;
+  })();
 
   const { question } = readQuestionJavaScriptContents(
     slug,
@@ -83,7 +82,7 @@ export default async function Page({ params }: Props) {
     locale,
   );
 
-  const isQuestionLockedForUser =
+  const isQuestionLockedForViewer =
     question.metadata.access === 'premium' && !isViewerPremium;
 
   const { questions: codingQuestions } = await fetchQuestionsListCoding(locale);
@@ -135,7 +134,7 @@ export default async function Page({ params }: Props) {
         url={new URL(question.metadata.href, getSiteOrigin()).toString()}
         useAppDir={true}
       />
-      {isQuestionLockedForUser ? (
+      {isQuestionLockedForViewer ? (
         <InterviewsPurchaseQuestionPaywallPage
           metadata={question.metadata}
           mode="practice"

@@ -57,23 +57,24 @@ export default async function Page({ params }: Props) {
   const slug = decodeURIComponent(rawSlug)
     .replaceAll(/[^\da-zA-Z-]/g, '')
     .toLowerCase();
-  const supabaseAdmin = createSupabaseAdminClientGFE_SERVER_ONLY();
 
-  const viewer = await readViewerFromToken();
-  let isViewerPremium = false;
+  const isViewerPremium: boolean = await (async () => {
+    const viewer = await readViewerFromToken();
 
-  if (viewer != null) {
-    isViewerPremium = await Promise.resolve(
-      (async () => {
-        const { data: profile } = await supabaseAdmin
-          .from('Profile')
-          .select('*')
-          .eq('id', viewer.id)
-          .single();
+    if (viewer == null) {
+      return false;
+    }
 
-        return profile?.premium ?? false;
-      })(),
-    );
+    const supabaseClient = createSupabaseAdminClientGFE_SERVER_ONLY();
+
+    const { data: profile } = await supabaseClient
+      .from('Profile')
+      .select('*')
+      .eq('id', viewer.id)
+      .single();
+
+    return profile?.premium ?? false;
+  })();
   }
 
   const { question } = readQuestionAlgoContents(slug, isViewerPremium, locale);
