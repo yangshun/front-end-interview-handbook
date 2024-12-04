@@ -2495,10 +2495,6 @@
     "defaultMessage": "Error generating screenshots.",
     "description": "Error message for error while taking screenshot"
   },
-  "FQQRsa": {
-    "defaultMessage": "({discountPercentage}% off)",
-    "description": "Usual price of the item and the discount off"
-  },
   "FRg+qa": {
     "defaultMessage": "General",
     "description": "Title for FAQ section"

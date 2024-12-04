@@ -94,7 +94,7 @@ export default function PurchaseBlockCard({
               weight="bold">
               {subtitle}
             </Text>
-            <ul className="flex flex-col gap-y-2 lg:gap-y-4" role="list">
+            <ul className="flex flex-col gap-y-4" role="list">
               {features.map((feature, idx) => (
                 <li
                   // eslint-disable-next-line react/no-array-index-key

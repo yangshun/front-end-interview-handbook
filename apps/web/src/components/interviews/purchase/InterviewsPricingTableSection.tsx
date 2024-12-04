@@ -857,7 +857,7 @@ export default function InterviewsPricingTableSection({
         <Section>
           <div
             className={clsx(
-              'grid grid-cols-1 gap-8 md:gap-4 xl:gap-8',
+              'grid grid-cols-1 gap-8 md:gap-4 lg:gap-6 xl:gap-8',
               'md:grid-cols-3',
               !isDialogView && 'mx-auto w-full max-w-lg md:max-w-none',
             )}>
@@ -1044,40 +1044,42 @@ export default function InterviewsPricingTableSection({
                       </div>
                       <Divider />
                       <Section>
-                        <Heading className="sr-only" level="custom">
-                          <FormattedMessage
-                            defaultMessage="What's Included"
-                            description="Section label for features included in a pricing plan"
-                            id="IhJAk8"
-                          />
-                        </Heading>
-                        <Section>
-                          <ul className="flex flex-col gap-4" role="list">
-                            {includedFeatures.map((feature, idx) => (
-                              <li
-                                // eslint-disable-next-line react/no-array-index-key
-                                key={idx}
-                                className="flex gap-x-2">
-                                <FaCheck
-                                  aria-hidden="true"
-                                  className={clsx(
-                                    'size-4 shrink-0',
-                                    themeTextSuccessColor,
-                                  )}
-                                />
-                                <Text color="secondary" size="body3">
-                                  {feature}
-                                </Text>
-                              </li>
-                            ))}
-                          </ul>
-                        </Section>
-                        {ftlPromo && showFTLBundle && (
-                          <>
-                            <Divider />
-                            <FTLPromoSection variant="compact" />
-                          </>
-                        )}
+                        <div className="flex flex-col gap-4">
+                          <Heading className="sr-only" level="custom">
+                            <FormattedMessage
+                              defaultMessage="What's Included"
+                              description="Section label for features included in a pricing plan"
+                              id="IhJAk8"
+                            />
+                          </Heading>
+                          <Section>
+                            <ul className="flex flex-col gap-4" role="list">
+                              {includedFeatures.map((feature, idx) => (
+                                <li
+                                  // eslint-disable-next-line react/no-array-index-key
+                                  key={idx}
+                                  className="flex gap-x-2">
+                                  <FaCheck
+                                    aria-hidden="true"
+                                    className={clsx(
+                                      'size-4 shrink-0',
+                                      themeTextSuccessColor,
+                                    )}
+                                  />
+                                  <Text color="secondary" size="body3">
+                                    {feature}
+                                  </Text>
+                                </li>
+                              ))}
+                            </ul>
+                          </Section>
+                          {ftlPromo && showFTLBundle && (
+                            <>
+                              <Divider />
+                              <FTLPromoSection variant="compact" />
+                            </>
+                          )}
+                        </div>
                       </Section>
                     </div>
                     {recommendedPlan && (
