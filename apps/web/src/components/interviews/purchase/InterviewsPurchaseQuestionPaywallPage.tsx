@@ -8,7 +8,7 @@ import QuestionMetadataSection from '~/components/interviews/questions/metadata/
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 
-import CodingWorkspaceBottomBar from './CodingWorkspaceBottomBar';
+import CodingWorkspaceBottomBar from '../../workspace/common/CodingWorkspaceBottomBar';
 
 type Props = Readonly<{
   metadata: QuestionMetadata;
@@ -16,7 +16,7 @@ type Props = Readonly<{
   studyListKey?: string;
 }>;
 
-export default function CodingWorkspacePaywallPage({
+export default function InterviewsPurchaseQuestionPaywallPage({
   metadata,
   mode,
   studyListKey,
@@ -46,8 +46,8 @@ export default function CodingWorkspacePaywallPage({
         </Section>
       </div>
       <CodingWorkspaceBottomBar
-        studyListKey={studyListKey}
         metadata={metadata}
+        studyListKey={studyListKey}
       />
     </div>
   );

@@ -2,8 +2,8 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next/types';
 import { ArticleJsonLd } from 'next-seo';
 
+import InterviewsPurchaseQuestionPaywallPage from '~/components/interviews/purchase/InterviewsPurchaseQuestionPaywallPage';
 import { sortQuestionsMultiple } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
-import CodingWorkspacePaywallPage from '~/components/workspace/common/CodingWorkspacePaywallPage';
 import JavaScriptCodingWorkspacePage from '~/components/workspace/javascript/JavaScriptCodingWorkspacePage';
 
 import { readQuestionAlgoContents } from '~/db/QuestionsContentsReader';
@@ -132,7 +132,7 @@ export default async function Page({ params }: Props) {
         useAppDir={true}
       />
       {isQuestionLockedForUser ? (
-        <CodingWorkspacePaywallPage
+        <InterviewsPurchaseQuestionPaywallPage
           metadata={question.metadata}
           mode="practice"
         />

@@ -2,14 +2,12 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next/types';
 import { ArticleJsonLd } from 'next-seo';
 
+import InterviewsPurchaseQuestionPaywallPage from '~/components/interviews/purchase/InterviewsPurchaseQuestionPaywallPage';
 import type { QuestionUserInterface } from '~/components/interviews/questions/common/QuestionsTypes';
 import { QuestionFrameworkLabels } from '~/components/interviews/questions/common/QuestionsTypes';
 import type { QuestionUserInterfaceMode } from '~/components/interviews/questions/common/QuestionUserInterfacePath';
 import { determineFrameworkAndMode } from '~/components/interviews/questions/common/QuestionUserInterfacePath';
 import { sortQuestionsMultiple } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
-import InterviewsQuestionsListSlideOutButton from '~/components/interviews/questions/listings/slideout/InterviewsQuestionsListSlideOutButton';
-import InterviewsStudyListBottomNav from '~/components/interviews/questions/listings/study-list/InterviewsStudyListBottomNav';
-import CodingWorkspacePaywallPage from '~/components/workspace/common/CodingWorkspacePaywallPage';
 import UserInterfaceCodingWorkspacePage from '~/components/workspace/user-interface/UserInterfaceCodingWorkspacePage';
 
 import { readQuestionUserInterface } from '~/db/QuestionsContentsReader';
@@ -274,23 +272,11 @@ export default async function Page({ params }: Props) {
         useAppDir={true}
       />
       {isQuestionLockedForViewer ? (
-        <>
-          <CodingWorkspacePaywallPage
-            metadata={question.metadata}
-            mode="practice"
-            studyListKey={studyListKey}
-          />
-          <InterviewsStudyListBottomNav
-            paginationEl={
-              <InterviewsQuestionsListSlideOutButton
-                metadata={question.metadata}
-                studyListKey={studyListKey}
-              />
-            }
-            question={question}
-            studyListKey={studyListKey}
-          />
-        </>
+        <InterviewsPurchaseQuestionPaywallPage
+          metadata={question.metadata}
+          mode="practice"
+          studyListKey={studyListKey}
+        />
       ) : (
         <UserInterfaceCodingWorkspacePage
           canViewPremiumContent={isViewerPremium}

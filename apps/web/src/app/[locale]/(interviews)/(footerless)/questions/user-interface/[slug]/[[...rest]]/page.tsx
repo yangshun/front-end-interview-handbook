@@ -2,12 +2,12 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next/types';
 import { ArticleJsonLd } from 'next-seo';
 
+import InterviewsPurchaseQuestionPaywallPage from '~/components/interviews/purchase/InterviewsPurchaseQuestionPaywallPage';
 import type { QuestionUserInterface } from '~/components/interviews/questions/common/QuestionsTypes';
 import { QuestionFrameworkLabels } from '~/components/interviews/questions/common/QuestionsTypes';
 import type { QuestionUserInterfaceMode } from '~/components/interviews/questions/common/QuestionUserInterfacePath';
 import { determineFrameworkAndMode } from '~/components/interviews/questions/common/QuestionUserInterfacePath';
 import { sortQuestionsMultiple } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
-import CodingWorkspacePaywallPage from '~/components/workspace/common/CodingWorkspacePaywallPage';
 import UserInterfaceCodingWorkspacePage from '~/components/workspace/user-interface/UserInterfaceCodingWorkspacePage';
 
 import { readQuestionUserInterface } from '~/db/QuestionsContentsReader';
@@ -269,7 +269,10 @@ export default async function Page({ params }: Props) {
         useAppDir={true}
       />
       {isQuestionLockedForViewer ? (
-        <CodingWorkspacePaywallPage metadata={question.metadata} mode={mode} />
+        <InterviewsPurchaseQuestionPaywallPage
+          metadata={question.metadata}
+          mode={mode}
+        />
       ) : (
         <UserInterfaceCodingWorkspacePage
           canViewPremiumContent={isViewerPremium}

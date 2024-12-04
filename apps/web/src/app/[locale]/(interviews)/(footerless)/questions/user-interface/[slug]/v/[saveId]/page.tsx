@@ -1,8 +1,8 @@
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next/types';
 
+import InterviewsPurchaseQuestionPaywallPage from '~/components/interviews/purchase/InterviewsPurchaseQuestionPaywallPage';
 import { sortQuestionsMultiple } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
-import CodingWorkspacePaywallPage from '~/components/workspace/common/CodingWorkspacePaywallPage';
 import UserInterfaceCodingWorkspaceSavesPage from '~/components/workspace/user-interface/UserInterfaceCodingWorkspaceSavesPage';
 
 import { readQuestionUserInterface } from '~/db/QuestionsContentsReader';
@@ -98,7 +98,7 @@ export default async function Page({ params }: Props) {
 
   if (isQuestionLockedForViewer) {
     return (
-      <CodingWorkspacePaywallPage
+      <InterviewsPurchaseQuestionPaywallPage
         metadata={question.metadata}
         mode="practice"
       />
