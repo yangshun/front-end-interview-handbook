@@ -2,6 +2,11 @@ import { ImageResponse } from 'next/og';
 
 export const runtime = 'edge';
 
+const PRODUCTS = {
+  interviews: 'INTERVIEWS',
+  projects: 'PROJECTS',
+};
+
 export async function GET(request: Request) {
   try {
     const { searchParams, origin } = new URL(request.url);
@@ -9,6 +14,10 @@ export async function GET(request: Request) {
     const title = hasTitle
       ? searchParams.get('title')
       : 'Navigate front end  interviews with ease';
+    const hasProduct =
+      searchParams.get('product') === PRODUCTS.interviews ||
+      searchParams.get('product') === PRODUCTS.projects;
+    const product = searchParams.get('product');
     const category = searchParams.get('category');
     const backgroundImageUrl = new URL('/img/seo/og-background.jpg', origin)
       .href;
@@ -76,27 +85,31 @@ export async function GET(request: Request) {
                 fill="currentColor"
               />
             </svg>
-            <div
-              style={{
-                backgroundColor: '#3F3F46',
-                height: '28px',
-                width: '2px',
-              }}
-            />
+            {(hasProduct || category) && (
+              <div
+                style={{
+                  backgroundColor: '#3F3F46',
+                  height: '28px',
+                  width: '2px',
+                }}
+              />
+            )}
             <div
               style={{
                 alignItems: 'center',
                 display: 'flex',
                 gap: '10px',
               }}>
-              <span
-                style={{
-                  color: '#F4F4F5',
-                  fontSize: '26px',
-                  fontWeight: 600,
-                }}>
-                Interviews
-              </span>
+              {hasProduct && (
+                <span
+                  style={{
+                    color: '#F4F4F5',
+                    fontSize: '26px',
+                    fontWeight: 600,
+                  }}>
+                  {product === PRODUCTS.interviews ? 'Interviews' : 'Projects'}
+                </span>
+              )}
               {category && (
                 <span
                   style={{
@@ -104,7 +117,8 @@ export async function GET(request: Request) {
                     fontSize: '26px',
                     fontWeight: 500,
                   }}>
-                  / {category}
+                  {hasProduct && '/ '}
+                  {category}
                 </span>
               )}
             </div>
