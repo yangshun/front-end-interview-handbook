@@ -44,7 +44,7 @@ export default function useQuestionCodingSorting({ listType }: Props) {
   // Show free questions first if user is not a premium user
   const sortFields: ReadonlyArray<QuestionSortFieldItem> =
     baseSortFields.concat(
-      userProfile?.isInterviewsPremium
+      !userProfile?.isInterviewsPremium
         ? { field: 'premium', isAscendingOrder: true }
         : [],
     );
