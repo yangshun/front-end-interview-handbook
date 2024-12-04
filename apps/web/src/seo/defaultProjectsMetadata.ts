@@ -3,6 +3,7 @@ import { getSiteOrigin } from './siteUrl';
 import type { IntlShape } from '@formatjs/intl';
 
 type PageMetadata = Readonly<{
+  absoluteTitle?: string;
   description?: string;
   imageUrl?: string;
   locale: string;
@@ -16,7 +17,7 @@ export default function defaultProjectsMetadata(
   intl: IntlShape<string>,
   params: PageMetadata,
 ) {
-  const { description, pathname, locale, title } = params;
+  const { description, pathname, locale, title, absoluteTitle } = params;
 
   return {
     alternates: {
@@ -46,6 +47,7 @@ export default function defaultProjectsMetadata(
             index: false,
           },
     title: {
+      absolute: absoluteTitle,
       default: title,
       template: intl.formatMessage({
         defaultMessage:

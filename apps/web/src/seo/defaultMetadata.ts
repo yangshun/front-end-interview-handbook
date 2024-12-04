@@ -8,6 +8,7 @@ import { i18nMetadata } from '~/next-i18nostic/src';
 import { getSiteOrigin } from './siteUrl';
 
 type PageMetadata = Readonly<{
+  absoluteTitle?: string;
   description?: string;
   imageUrl?: string;
   locale: string;
@@ -27,6 +28,7 @@ export default function defaultMetadata({
   siteName,
   template,
   title,
+  absoluteTitle,
   socialTitle,
   imageUrl,
   ogImageTitle,
@@ -67,6 +69,7 @@ export default function defaultMetadata({
               index: false,
             },
       title: {
+        absolute: absoluteTitle,
         default: title,
         template: template || '%s | GreatFrontEnd',
       },

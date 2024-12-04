@@ -4,6 +4,12 @@ import type { PropsWithChildren } from 'react';
 import Container from '~/components/ui/Container';
 import { themeRadialWhiteGlowBackground } from '~/components/ui/theme';
 
+export const metadata = {
+  title: {
+    template: '%s',
+  },
+};
+
 export default function RewardsLayout({ children }: PropsWithChildren) {
   return (
     <div
