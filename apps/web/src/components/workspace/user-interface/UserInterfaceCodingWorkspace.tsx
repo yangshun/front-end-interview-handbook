@@ -394,6 +394,7 @@ function UserInterfaceCodingWorkspaceImpl({
             nextQuestions={nextQuestions}
             question={question}
             resetToDefaultCode={resetToDefaultCode}
+            slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE="qns_slideout_mobile"
             studyListKey={studyListKey}
           />
         </div>
@@ -484,6 +485,7 @@ function UserInterfaceCodingWorkspaceImpl({
             nextQuestions={nextQuestions}
             question={question}
             resetToDefaultCode={resetToDefaultCode}
+            slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE="qns_slideout"
             studyListKey={studyListKey}
           />
         )}

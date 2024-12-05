@@ -10,6 +10,8 @@ import {
 } from 'react-icons/ri';
 import { useMediaQuery } from 'usehooks-ts';
 
+import useSearchParamState from '~/hooks/useSearchParamsState';
+
 import ConfirmationDialog from '~/components/common/ConfirmationDialog';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import type {
@@ -440,6 +442,7 @@ type Props = Readonly<{
   isLoading: boolean;
   metadata: QuestionMetadata;
   processedQuestions: ReadonlyArray<QuestionMetadataWithCompletedStatus>;
+  slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE: string;
   title?: string;
 }>;
 
@@ -449,11 +452,14 @@ export default function InterviewsQuestionsListSlideOut({
   currentQuestionPosition,
   processedQuestions,
   metadata,
+  slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE,
 }: Props) {
   const intl = useIntl();
   // Have to be controlled because we don't want to
-  // fetch the question lists for nothing.
-  const [isSlideOutShown, setIsSlideOutShown] = useState(false);
+  // fetch the question lists for nothing
+  const [isSlideOutShown, setIsSlideOutShown] = useSearchParamState<
+    '' | 'true'
+  >(slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE, '');
   const isMobile = useMediaQuery('(max-width: 500px)');
   const router = useRouter();
   const [currentListType, setCurrentListType] =
@@ -507,7 +513,7 @@ export default function InterviewsQuestionsListSlideOut({
       router.push(firstQuestionInListHref);
     }
 
-    setIsSlideOutShown(false);
+    setIsSlideOutShown('');
   }
 
   function onCloseSwitchQuestionListDialog() {
@@ -537,7 +543,7 @@ export default function InterviewsQuestionsListSlideOut({
   return (
     <SlideOut
       enterFrom="start"
-      isShown={isSlideOutShown}
+      isShown={Boolean(isSlideOutShown)}
       padding={false}
       size="xl"
       title={
@@ -557,7 +563,7 @@ export default function InterviewsQuestionsListSlideOut({
             label={listName}
             size="xs"
             variant="secondary"
-            onClick={() => setIsSlideOutShown(true)}>
+            onClick={() => setIsSlideOutShown('true')}>
             <div className="flex items-center gap-3">
               {isLoading ? (
                 <div
@@ -640,7 +646,7 @@ export default function InterviewsQuestionsListSlideOut({
         })}
         onCancel={() => {
           onCloseSwitchQuestionListDialog();
-          setIsSlideOutShown(false);
+          setIsSlideOutShown('');
         }}
         onClose={() => {
           onCloseSwitchQuestionListDialog();
@@ -651,7 +657,7 @@ export default function InterviewsQuestionsListSlideOut({
           }
 
           onCloseSwitchQuestionListDialog();
-          setIsSlideOutShown(false);
+          setIsSlideOutShown('');
           router.push(showSwitchQuestionListDialog.href);
         }}>
         {showSwitchQuestionListDialog.type === 'question-click' ? (

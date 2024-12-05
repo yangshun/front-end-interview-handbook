@@ -306,15 +306,6 @@ function JavaScriptCodingWorkspaceImpl({
     workspace.main,
   ]);
 
-  const bottomBar = (
-    <JavaScriptCodingWorkspaceBottomBar
-      layout={embed ? 'minimal' : 'full'}
-      metadata={metadata}
-      nextQuestions={nextQuestions}
-      studyListKey={studyListKey}
-    />
-  );
-
   return (
     <CodingWorkspaceProvider
       loadedFilesFromLocalStorage={loadedFilesFromLocalStorage}
@@ -345,7 +336,13 @@ function JavaScriptCodingWorkspaceImpl({
               canViewPremiumContent={canViewPremiumContent}
               solution={solution}
             />
-            {bottomBar}
+            <JavaScriptCodingWorkspaceBottomBar
+              layout={embed ? 'minimal' : 'full'}
+              metadata={metadata}
+              nextQuestions={nextQuestions}
+              slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE="qns_slideout_mobile"
+              studyListKey={studyListKey}
+            />
           </div>
         )}
         <div
@@ -392,7 +389,13 @@ function JavaScriptCodingWorkspaceImpl({
               />
             </div>
           </div>
-          {bottomBar}
+          <JavaScriptCodingWorkspaceBottomBar
+            layout={embed ? 'minimal' : 'full'}
+            metadata={metadata}
+            nextQuestions={nextQuestions}
+            slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE="qns_slideout"
+            studyListKey={studyListKey}
+          />
         </div>
       </JavaScriptCodingWorkspaceContextProvider>
     </CodingWorkspaceProvider>

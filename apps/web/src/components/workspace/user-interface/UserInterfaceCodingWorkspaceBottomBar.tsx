@@ -25,6 +25,7 @@ type Props = Readonly<{
   nextQuestions: ReadonlyArray<QuestionMetadata>;
   question: QuestionUserInterface;
   resetToDefaultCode: () => void;
+  slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE: string;
   studyListKey?: string;
 }>;
 
@@ -36,6 +37,7 @@ export default function UserInterfaceCodingWorkspaceBottomBar({
   nextQuestions,
   resetToDefaultCode,
   studyListKey,
+  slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE,
 }: Props) {
   const [isLayoutDialogOpen, setIsLayoutDialogOpen] = useState(false);
 
@@ -128,6 +130,9 @@ export default function UserInterfaceCodingWorkspaceBottomBar({
       leftElements={leftElements}
       metadata={metadata}
       rightElements={rightElements}
+      slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE={
+        slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE
+      }
       studyListKey={studyListKey}
     />
   );

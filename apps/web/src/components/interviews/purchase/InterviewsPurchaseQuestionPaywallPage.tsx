@@ -47,6 +47,7 @@ export default function InterviewsPurchaseQuestionPaywallPage({
       </div>
       <CodingWorkspaceBottomBar
         metadata={metadata}
+        slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE="qns_slideout"
         studyListKey={studyListKey}
       />
     </div>

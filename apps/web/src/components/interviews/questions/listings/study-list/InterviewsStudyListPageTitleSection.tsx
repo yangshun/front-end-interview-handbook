@@ -34,6 +34,7 @@ export default function InterviewsStudyListPageTitleSection({
           <InterviewsStudyListSession
             feature={feature}
             overallProgress={overallProgress}
+            pricingDialogSearchParam_MUST_BE_UNIQUE_ON_PAGE="pricing_dialog"
             progressTrackingAvailableToNonPremiumUsers={
               progressTrackingAvailableToNonPremiumUsers
             }

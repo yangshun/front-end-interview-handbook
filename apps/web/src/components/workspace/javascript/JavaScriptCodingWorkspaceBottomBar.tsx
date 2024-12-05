@@ -21,14 +21,16 @@ type Props = Readonly<{
   layout: 'full' | 'minimal';
   metadata: QuestionMetadata;
   nextQuestions: ReadonlyArray<QuestionMetadata>;
+  slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE: string;
   studyListKey?: string;
 }>;
 
 export default function JavaScriptCodingWorkspaceBottomBar({
   metadata,
+  nextQuestions,
   layout,
   studyListKey,
-  nextQuestions,
+  slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE,
 }: Props) {
   const { status, runTests, submit, resetToDefaultCode } =
     useCodingWorkspaceContext();
@@ -167,6 +169,9 @@ export default function JavaScriptCodingWorkspaceBottomBar({
       metadata={metadata}
       rightElements={rightElements}
       showQuestionsListButton={layout === 'full'}
+      slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE={
+        slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE
+      }
       studyListKey={studyListKey}
     />
   );

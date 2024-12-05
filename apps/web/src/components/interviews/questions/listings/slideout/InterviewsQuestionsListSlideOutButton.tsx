@@ -36,11 +36,13 @@ import {
 
 type Props = Readonly<{
   metadata: QuestionMetadata;
+  slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE: string;
   studyListKey?: string;
 }>;
 
 export default function InterviewsQuestionsListSlideOutButton({
   metadata,
+  slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE,
   studyListKey,
 }: Props) {
   const listData = useQuestionsListTypeCurrent(studyListKey);
@@ -69,6 +71,9 @@ export default function InterviewsQuestionsListSlideOutButton({
             listType={data.listType}
             metadata={metadata}
             questions={questionsWithCompletionStatus}
+            slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE={
+              slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE
+            }
             title={data.title}
           />
         );
@@ -82,10 +87,12 @@ function InterviewsQuestionsListSlideOutButtonImpl({
   listType,
   metadata,
   questions,
+  slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE,
 }: Readonly<{
   listType: QuestionListTypeData;
   metadata: QuestionMetadata;
   questions: ReadonlyArray<QuestionMetadataWithCompletedStatus>;
+  slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE: string;
   title: string;
 }>) {
   const intl = useIntl();
@@ -157,6 +164,9 @@ function InterviewsQuestionsListSlideOutButtonImpl({
         isLoading={false}
         metadata={metadata}
         processedQuestions={processedQuestions}
+        slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE={
+          slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE
+        }
       />
       <Button
         addonPosition="start"

@@ -10,6 +10,7 @@ import {
 import { trpc } from '~/hooks/trpc';
 import useQueryParamAction from '~/hooks/useQueryParamAction';
 import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
+import useSearchParamState from '~/hooks/useSearchParamsState';
 
 import ConfirmationDialog from '~/components/common/ConfirmationDialog';
 import { useToast } from '~/components/global/toasts/useToast';
@@ -38,6 +39,7 @@ import { useUser } from '@supabase/auth-helpers-react';
 type Props = Readonly<{
   feature?: QuestionFeatureType;
   overallProgress: ReadonlyArray<QuestionProgress>;
+  pricingDialogSearchParam_MUST_BE_UNIQUE_ON_PAGE: string;
   progressTrackingAvailableToNonPremiumUsers?: boolean;
   questionCount: number;
   questions: ReadonlyArray<QuestionMetadata>;
@@ -51,6 +53,7 @@ export default function InterviewsStudyListSession({
   questions,
   overallProgress,
   feature,
+  pricingDialogSearchParam_MUST_BE_UNIQUE_ON_PAGE,
   studyListKey,
   studyListTitle,
 }: Props) {
@@ -98,7 +101,9 @@ export default function InterviewsStudyListSession({
     useState(false);
   const [showResetProgressConfirmation, setShowResetProgressConfirmation] =
     useState(false);
-  const [showPricingDialog, setShowPricingDialog] = useState(false);
+  const [showPricingDialog, setShowPricingDialog] = useSearchParamState<
+    '' | 'true'
+  >(pricingDialogSearchParam_MUST_BE_UNIQUE_ON_PAGE, '');
   const [showImportProgressModal, setShowImportProgressModal] = useState(false);
   const { showToast } = useToast();
   const [automaticallyStartLearning, setAutomaticallyStartLearning] =
@@ -112,7 +117,7 @@ export default function InterviewsStudyListSession({
       !progressTrackingAvailableToNonPremiumUsers &&
       !userProfile?.isInterviewsPremium
     ) {
-      setShowPricingDialog(true);
+      setShowPricingDialog('true');
 
       return;
     }
@@ -130,11 +135,12 @@ export default function InterviewsStudyListSession({
       },
     );
   }, [
-    previousSessionQuestionProgress.length,
     progressTrackingAvailableToNonPremiumUsers,
-    studyListKey,
-    startSessionMutation,
     userProfile?.isInterviewsPremium,
+    startSessionMutation,
+    studyListKey,
+    setShowPricingDialog,
+    previousSessionQuestionProgress.length,
   ]);
 
   useEffect(() => {
@@ -448,8 +454,10 @@ export default function InterviewsStudyListSession({
       )}
       <InterviewsPricingTableDialog
         feature={feature}
-        isShown={showPricingDialog}
-        onClose={() => setShowPricingDialog(false)}
+        isShown={Boolean(showPricingDialog)}
+        onClose={() => {
+          setShowPricingDialog('');
+        }}
       />
     </div>
   );

@@ -14,6 +14,7 @@ type Props = Readonly<{
   metadata: QuestionMetadata;
   rightElements?: ReactNode;
   showQuestionsListButton?: boolean;
+  slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE: string;
   studyListKey?: string;
 }>;
 
@@ -23,6 +24,7 @@ export default function CodingWorkspaceBottomBar({
   rightElements,
   showQuestionsListButton = true,
   studyListKey,
+  slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE,
 }: Props) {
   return (
     <div
@@ -42,6 +44,9 @@ export default function CodingWorkspaceBottomBar({
             <Suspense>
               <InterviewsQuestionsListSlideOutButton
                 metadata={metadata}
+                slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE={
+                  slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE
+                }
                 studyListKey={studyListKey}
               />
             </Suspense>

@@ -125,6 +125,7 @@ export default async function Page({ params }: Props) {
           paginationEl={
             <InterviewsQuestionsListSlideOutButton
               metadata={question.metadata}
+              slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE="qns_slideout"
               studyListKey={studyListKey}
             />
           }

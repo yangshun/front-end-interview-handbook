@@ -8,6 +8,8 @@ import {
   RiToolsLine,
 } from 'react-icons/ri';
 
+import useSearchParamState from '~/hooks/useSearchParamsState';
+
 import InterviewsPricingTableDialog from '~/components/interviews/purchase/InterviewsPricingTableDialog';
 import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
@@ -53,106 +55,13 @@ export default function QuestionPaywall({
   feature = 'premium-questions',
 }: Props) {
   const intl = useIntl();
-
-  const featuresHeading: Record<
-    QuestionFeatureType,
-    Readonly<{ subtitle: string; title: string }>
-  > = {
-    'company-guides': {
-      subtitle: intl.formatMessage({
-        defaultMessage:
-          'Purchase premium to unlock company guides and all the best materials we have to offer.',
-        description: 'Paywall subtitle for company guides feature',
-        id: 'Dpfbeq',
-      }),
-      title: intl.formatMessage({
-        defaultMessage: 'Premium company guide',
-        description: 'Paywall title for company guides feature',
-        id: 'Q0yp+r',
-      }),
-    },
-    'company-tags': {
-      subtitle: intl.formatMessage({
-        defaultMessage:
-          'Purchase premium to unlock company tags and all the best materials we have to offer.',
-        description: 'Paywall subtitle for company tags feature',
-        id: 'J2nKZE',
-      }),
-      title: intl.formatMessage({
-        defaultMessage: 'Premium company tags',
-        description: 'Paywall title for company tags feature',
-        id: 'YwNyTA',
-      }),
-    },
-    'focus-areas': {
-      subtitle: intl.formatMessage({
-        defaultMessage:
-          'Purchase premium to unlock focus areas and all the best materials we have to offer.',
-        description: 'Paywall subtitle for focus areas feature',
-        id: 'fteidk',
-      }),
-      title: intl.formatMessage({
-        defaultMessage: 'Premium focus area',
-        description: 'Paywall title for focus areas feature',
-        id: 'XkWy18',
-      }),
-    },
-    'official-solutions': {
-      subtitle: intl.formatMessage({
-        defaultMessage:
-          'Purchase premium to unlock official solutions and all the best materials we have to offer.',
-        description: 'Paywall subtitle for official solutions feature',
-        id: 't44/MF',
-      }),
-      title: intl.formatMessage({
-        defaultMessage: 'Premium solution',
-        description: 'Paywall title for official solutions feature',
-        id: 'pfFpYc',
-      }),
-    },
-    'premium-questions': {
-      subtitle: intl.formatMessage({
-        defaultMessage:
-          'Purchase premium to unlock premium questions and all the best materials we have to offer.',
-        description: 'Paywall subtitle for premium questions feature',
-        id: 'bdt+FN',
-      }),
-      title: intl.formatMessage({
-        defaultMessage: 'Premium question',
-        description: 'Paywall title for premium questions feature',
-        id: 'DV+l42',
-      }),
-    },
-    'study-lists': {
-      subtitle: intl.formatMessage({
-        defaultMessage:
-          'Purchase premium to unlock study lists and all the best materials we have to offer.',
-        description: 'Paywall subtitle for study lists feature',
-        id: 'ClnQFj',
-      }),
-      title: intl.formatMessage({
-        defaultMessage: 'Premium study lists',
-        description: 'Paywall title for study lists feature',
-        id: 'I7UwcA',
-      }),
-    },
-    'study-plans': {
-      subtitle: intl.formatMessage({
-        defaultMessage:
-          'Purchase premium to unlock study plans and all the best materials we have to offer.',
-        description: 'Paywall subtitle for study plans feature',
-        id: 'NgyZKR',
-      }),
-      title: intl.formatMessage({
-        defaultMessage: 'Premium study plans',
-        description: 'Paywall title for study plans feature',
-        id: 'kjB9VN',
-      }),
-    },
-  };
+  const featuresData = useFeaturesData();
+  const [showPricingDialog, setShowPricingDialog] = useSearchParamState<
+    '' | 'true'
+  >('pricing_dialog', '');
 
   const { title: featureTitle, subtitle: featuresSubtitle } =
-    featuresHeading[feature];
+    featuresData[feature];
   const title = titleProp ?? featureTitle;
   const subtitle = subtitleProp ?? featuresSubtitle;
   const Icon = icons[variant];
@@ -249,6 +158,7 @@ export default function QuestionPaywall({
           <div>
             <InterviewsPricingTableDialog
               feature={feature}
+              isShown={Boolean(showPricingDialog)}
               trigger={
                 <Button
                   icon={RiArrowRightLine}
@@ -259,12 +169,120 @@ export default function QuestionPaywall({
                     id: 'ENNKyg',
                   })}
                   variant="primary"
+                  onClick={() => {
+                    setShowPricingDialog('true');
+                  }}
                 />
               }
+              onClose={() => {
+                setShowPricingDialog('');
+              }}
             />
           </div>
         </Section>
       </div>
     </div>
   );
+}
+
+function useFeaturesData() {
+  const intl = useIntl();
+  const featuresData: Record<
+    QuestionFeatureType,
+    Readonly<{ subtitle: string; title: string }>
+  > = {
+    'company-guides': {
+      subtitle: intl.formatMessage({
+        defaultMessage:
+          'Purchase premium to unlock company guides and all the best materials we have to offer.',
+        description: 'Paywall subtitle for company guides feature',
+        id: 'Dpfbeq',
+      }),
+      title: intl.formatMessage({
+        defaultMessage: 'Premium company guide',
+        description: 'Paywall title for company guides feature',
+        id: 'Q0yp+r',
+      }),
+    },
+    'company-tags': {
+      subtitle: intl.formatMessage({
+        defaultMessage:
+          'Purchase premium to unlock company tags and all the best materials we have to offer.',
+        description: 'Paywall subtitle for company tags feature',
+        id: 'J2nKZE',
+      }),
+      title: intl.formatMessage({
+        defaultMessage: 'Premium company tags',
+        description: 'Paywall title for company tags feature',
+        id: 'YwNyTA',
+      }),
+    },
+    'focus-areas': {
+      subtitle: intl.formatMessage({
+        defaultMessage:
+          'Purchase premium to unlock focus areas and all the best materials we have to offer.',
+        description: 'Paywall subtitle for focus areas feature',
+        id: 'fteidk',
+      }),
+      title: intl.formatMessage({
+        defaultMessage: 'Premium focus area',
+        description: 'Paywall title for focus areas feature',
+        id: 'XkWy18',
+      }),
+    },
+    'official-solutions': {
+      subtitle: intl.formatMessage({
+        defaultMessage:
+          'Purchase premium to unlock official solutions and all the best materials we have to offer.',
+        description: 'Paywall subtitle for official solutions feature',
+        id: 't44/MF',
+      }),
+      title: intl.formatMessage({
+        defaultMessage: 'Premium solution',
+        description: 'Paywall title for official solutions feature',
+        id: 'pfFpYc',
+      }),
+    },
+    'premium-questions': {
+      subtitle: intl.formatMessage({
+        defaultMessage:
+          'Purchase premium to unlock premium questions and all the best materials we have to offer.',
+        description: 'Paywall subtitle for premium questions feature',
+        id: 'bdt+FN',
+      }),
+      title: intl.formatMessage({
+        defaultMessage: 'Premium question',
+        description: 'Paywall title for premium questions feature',
+        id: 'DV+l42',
+      }),
+    },
+    'study-lists': {
+      subtitle: intl.formatMessage({
+        defaultMessage:
+          'Purchase premium to unlock study lists and all the best materials we have to offer.',
+        description: 'Paywall subtitle for study lists feature',
+        id: 'ClnQFj',
+      }),
+      title: intl.formatMessage({
+        defaultMessage: 'Premium study lists',
+        description: 'Paywall title for study lists feature',
+        id: 'I7UwcA',
+      }),
+    },
+    'study-plans': {
+      subtitle: intl.formatMessage({
+        defaultMessage:
+          'Purchase premium to unlock study plans and all the best materials we have to offer.',
+        description: 'Paywall subtitle for study plans feature',
+        id: 'NgyZKR',
+      }),
+      title: intl.formatMessage({
+        defaultMessage: 'Premium study plans',
+        description: 'Paywall title for study plans feature',
+        id: 'kjB9VN',
+      }),
+    },
+  };
+
+  return featuresData;
 }

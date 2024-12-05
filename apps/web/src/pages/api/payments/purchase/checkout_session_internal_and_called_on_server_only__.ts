@@ -164,10 +164,23 @@ async function processSubscriptionPlan(
 
   const { origin } = absoluteUrl(req);
 
-  const cancelUrl = `${
-    queryParams.cancel_url || origin + urls.cancel
-  }?checkout_cancel=1&plan=${planType}`;
-  const successUrl = `${origin + urls.success}?plan=${planType}`;
+  const cancelUrl = (() => {
+    const baseCancelUrl = new URL(
+      queryParams.cancel_url || origin + urls.cancel,
+    );
+
+    baseCancelUrl.searchParams.set('checkout_cancel', '1');
+    baseCancelUrl.searchParams.set('plan', planType);
+
+    return baseCancelUrl.toString();
+  })();
+  const successUrl = (() => {
+    const baseSuccessUrl = new URL(origin + urls.success);
+
+    baseSuccessUrl.searchParams.set('plan', planType);
+
+    return baseSuccessUrl.toString();
+  })();
 
   const session = await stripe.checkout.sessions.create({
     allow_promotion_codes: planPaymentConfig.allowPromoCode,
@@ -217,10 +230,23 @@ async function processOneTimePlan(
   const queryParams = req.query as CheckoutQueryParams;
   const { urls, productId } = planPaymentConfig;
 
-  const cancelUrl = `${
-    queryParams.cancel_url || origin + urls.cancel
-  }?checkout_cancel=1&plan=${planType}`;
-  const successUrl = `${origin + urls.success}?plan=${planType}`;
+  const cancelUrl = (() => {
+    const baseCancelUrl = new URL(
+      queryParams.cancel_url || origin + urls.cancel,
+    );
+
+    baseCancelUrl.searchParams.set('checkout_cancel', '1');
+    baseCancelUrl.searchParams.set('plan', planType);
+
+    return baseCancelUrl.toString();
+  })();
+  const successUrl = (() => {
+    const baseSuccessUrl = new URL(origin + urls.success);
+
+    baseSuccessUrl.searchParams.set('plan', planType);
+
+    return baseSuccessUrl.toString();
+  })();
 
   const session = await stripe.checkout.sessions.create({
     allow_promotion_codes: planPaymentConfig.allowPromoCode,
