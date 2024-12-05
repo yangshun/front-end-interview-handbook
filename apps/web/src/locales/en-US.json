@@ -1187,10 +1187,6 @@
     "defaultMessage": "Switching on focus mode collapses all sidebars to provide a better reading experience.",
     "description": "Label for turning focus mode on"
   },
-  "65orXt": {
-    "defaultMessage": "Roadmap - Upcoming features and updates",
-    "description": "OG title of Roadmap page"
-  },
   "68EuCT": {
     "defaultMessage": "Project challenges",
     "description": "Title of Projects challenges page"
@@ -6139,6 +6135,10 @@
     "defaultMessage": "Quiz Interview Guides",
     "description": "Title for guide card"
   },
+  "ccjMhH": {
+    "defaultMessage": "Roadmap - Upcoming features and updates on Projects",
+    "description": "OG title of Roadmap page"
+  },
   "cgIBe4": {
     "defaultMessage": "Review must be at least {wordCount} words long or a video of at least {videoDurationInSeconds}s.",
     "description": "Condition for promotion"
@@ -6930,6 +6930,10 @@
   "hhuG8E": {
     "defaultMessage": "Your account email contains \".edu\", \".ac\", or other institutional second-level domains. Reach out to us if you believe your school should qualify.",
     "description": "Condition for promotion"
+  },
+  "hjBNcc": {
+    "defaultMessage": "Roadmap - Upcoming features and updates on Interviews",
+    "description": "OG title of Roadmap page"
   },
   "hkKaPn": {
     "defaultMessage": "Numbered list",

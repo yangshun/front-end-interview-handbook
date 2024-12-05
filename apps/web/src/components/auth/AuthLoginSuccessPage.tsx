@@ -11,6 +11,8 @@ import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 
 import logEvent from '~/logging/logEvent';
+import { themeRadialWhiteGlowBackground } from '~/components/ui/theme';
+import LogoComboMark from '~/components/global/logos/LogoComboMark';
 
 type Props = Readonly<{
   next: string | null;
@@ -28,27 +30,36 @@ export default function AuthLoginSuccessPage({ next }: Props) {
   }, []);
 
   return (
-    <Container
-      className={clsx('flex flex-col', 'py-8 md:py-12 lg:py-16')}
-      width="xl">
-      <Heading className="text-center" level="heading5">
-        {intl.formatMessage({
-          defaultMessage: 'Login successful',
-          description: 'Title of login successful page',
-          id: 'OKKVCO',
-        })}
-      </Heading>
-      <Text
-        className="mt-4 block text-center md:mt-6"
-        color="secondary"
-        size="body2">
-        Redirecting you...
-      </Text>
-      <img
-        alt="Email envelope illustration"
-        className="max-w-80 mx-auto mt-16 block"
-        src="/img/marketing/envelope.svg"
-      />
-    </Container>
+    <div
+      className={clsx(
+        'isolate before:!-top-[180px]',
+        themeRadialWhiteGlowBackground,
+      )}>
+      <Container
+        className={clsx(
+          'size-full h-screen',
+          'flex flex-col items-center justify-center gap-6',
+          'py-8 md:py-12 lg:py-16',
+        )}
+        width="xl">
+        <LogoComboMark className="shrink-0" height={20} />
+        <div>
+          <Heading className="text-center" level="heading5">
+            {intl.formatMessage({
+              defaultMessage: 'Login successful',
+              description: 'Title of login successful page',
+              id: 'OKKVCO',
+            })}
+          </Heading>
+          <Text
+            className="mt-2 block text-center"
+            color="secondary"
+            weight="medium"
+            size="body1">
+            Redirecting you...
+          </Text>
+        </div>
+      </Container>
+    </div>
   );
 }
