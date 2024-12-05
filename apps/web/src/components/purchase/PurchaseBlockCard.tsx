@@ -64,14 +64,15 @@ export default function PurchaseBlockCard({
           )}>
           <div className="flex flex-col gap-y-2">
             <Heading
-              className={textVariants({
-                color: 'default',
-                size: 'body2',
-              })}
+              className={clsx(
+                'text-sm font-semibold lg:text-base',
+                textVariants({
+                  color: 'default',
+                }),
+              )}
               color="custom"
               id={id}
-              level="custom"
-              weight="medium">
+              level="custom">
               {title}
             </Heading>
           </div>
