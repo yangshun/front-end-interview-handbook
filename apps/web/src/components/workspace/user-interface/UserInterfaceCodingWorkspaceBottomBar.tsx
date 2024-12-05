@@ -43,6 +43,10 @@ export default function UserInterfaceCodingWorkspaceBottomBar({
 
   const leftElements = (
     <div className="hidden flex-1 items-center gap-x-2 sm:inline-flex">
+      <QuestionReportIssueButton
+        format={metadata.format}
+        title={metadata.title}
+      />
       <DropdownMenu
         icon={RiSettings2Line}
         isLabelHidden={true}
@@ -78,10 +82,6 @@ export default function UserInterfaceCodingWorkspaceBottomBar({
           />
         ))}
       </DropdownMenu>
-      <QuestionReportIssueButton
-        format={metadata.format}
-        title={metadata.title}
-      />
       <UserInterfaceCodingWorkspaceLayoutDialog
         frameworkSolutionPath={frameworkSolutionPath}
         isOpen={isLayoutDialogOpen}

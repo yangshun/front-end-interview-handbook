@@ -50,7 +50,7 @@ export default function QuestionQuizPagination({
         description: 'Screenreader text for the pagination component',
         id: 'C8/0hU',
       })}
-      className="flex items-center justify-center py-1">
+      className="flex items-center justify-center">
       <div className="flex">
         <Button
           addonPosition="start"

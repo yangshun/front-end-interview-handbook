@@ -33,10 +33,12 @@ export default function CodingWorkspaceBottomBar({
         themeBackgroundDarkColor,
         ['max-lg:border-t', themeBorderColor],
         'lg:relative',
-        'flex flex-wrap items-center justify-between gap-2',
+        'flex flex-wrap items-center justify-between',
         'px-3 py-3',
       )}>
-      <div className="flex items-center gap-x-2 md:flex-1">{leftElements}</div>
+      <div className={clsx('flex items-center gap-x-2 md:flex-1')}>
+        {leftElements}
+      </div>
       <div className={clsx('flex flex-1 sm:justify-center', 'h-7')}>
         {showQuestionsListButton && (
           <>

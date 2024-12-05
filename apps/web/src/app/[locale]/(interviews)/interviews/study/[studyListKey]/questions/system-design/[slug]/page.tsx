@@ -6,7 +6,7 @@ import InterviewsPurchaseQuestionPaywallPage from '~/components/interviews/purch
 import InterviewsPurchaseStudyListPaywallPage from '~/components/interviews/purchase/InterviewsPurchaseStudyListPaywallPage';
 import InterviewsQuestionsSystemDesignPage from '~/components/interviews/questions/content/system-design/InterviewsQuestionsSystemDesignPage';
 import InterviewsQuestionsListSlideOutButton from '~/components/interviews/questions/listings/slideout/InterviewsQuestionsListSlideOutButton';
-import InterviewsStudyListBottomNav from '~/components/interviews/questions/listings/study-list/InterviewsStudyListBottomNav';
+import InterviewsStudyListBottomBar from '~/components/interviews/questions/listings/study-list/InterviewsStudyListBottomBar';
 
 import { fetchInterviewsStudyList } from '~/db/contentlayer/InterviewsStudyListReader';
 import { readQuestionSystemDesignContents } from '~/db/QuestionsContentsReader';
@@ -137,7 +137,7 @@ export default async function Page({ params }: Props) {
       ) : (
         <InterviewsQuestionsSystemDesignPage
           bottomNav={
-            <InterviewsStudyListBottomNav
+            <InterviewsStudyListBottomBar
               paginationEl={
                 <InterviewsQuestionsListSlideOutButton
                   metadata={question.metadata}

@@ -110,6 +110,7 @@ export default function JavaScriptCodingWorkspaceBottomBar({
         }
         studyListKey={studyListKey}
       />
+      {rightPostElements}
     </>
   );
 
@@ -118,6 +119,10 @@ export default function JavaScriptCodingWorkspaceBottomBar({
       leftElements={
         layout === 'full' && (
           <div className="hidden items-center gap-x-2 sm:inline-flex">
+            <QuestionReportIssueButton
+              format={metadata.format}
+              title={metadata.title}
+            />
             <DropdownMenu
               icon={RiSettings2Line}
               isLabelHidden={true}
@@ -153,10 +158,6 @@ export default function JavaScriptCodingWorkspaceBottomBar({
                 />
               ))}
             </DropdownMenu>
-            <QuestionReportIssueButton
-              format={metadata.format}
-              title={metadata.title}
-            />
             <JavaScriptCodingWorkspaceLayoutDialog
               isOpen={isLayoutDialogOpen}
               onClose={() => {

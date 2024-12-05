@@ -138,7 +138,7 @@ function InterviewsQuestionsListSlideOutButtonImpl({
   }
 
   return (
-    <div className="flex gap-x-2">
+    <div className="flex h-7 gap-x-2">
       <Button
         addonPosition="start"
         href={

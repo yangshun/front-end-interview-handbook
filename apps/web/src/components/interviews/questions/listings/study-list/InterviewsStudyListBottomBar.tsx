@@ -5,7 +5,6 @@ import { type ReactNode, Suspense } from 'react';
 
 import QuestionProgressAction from '~/components/interviews/questions/common/QuestionProgressAction';
 import QuestionReportIssueButton from '~/components/interviews/questions/common/QuestionReportIssueButton';
-import Container from '~/components/ui/Container';
 import {
   themeBackgroundDarkColor,
   themeBorderColor,
@@ -23,7 +22,7 @@ type Props = Readonly<{
   studyListKey?: string;
 }>;
 
-export default function InterviewsStudyListBottomNav({
+export default function InterviewsStudyListBottomBar({
   paginationEl,
   question,
   studyListKey,
@@ -42,9 +41,7 @@ export default function InterviewsStudyListBottomNav({
           themeBorderColor,
           themeBackgroundDarkColor,
         )}>
-        <Container
-          className="flex h-12 items-center justify-between gap-2 px-6"
-          width="screen-2xl">
+        <div className="flex items-center justify-between gap-2 px-3 py-3">
           <div className="flex shrink-0 justify-center sm:order-2 sm:flex-1">
             <Suspense>{paginationEl}</Suspense>
           </div>
@@ -61,7 +58,7 @@ export default function InterviewsStudyListBottomNav({
               isLoading && user != null ? 'opacity-0' : 'opacity-100',
             )}>
             <QuestionReportIssueButton
-              className="mr-3 sm:hidden"
+              className="mr-2 sm:hidden"
               format={question.metadata.format}
               title={question.metadata.title}
             />
@@ -71,7 +68,7 @@ export default function InterviewsStudyListBottomNav({
               studyListKey={studyListKey}
             />
           </div>
-        </Container>
+        </div>
       </div>
     </div>
   );

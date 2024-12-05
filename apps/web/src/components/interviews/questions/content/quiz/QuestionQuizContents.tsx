@@ -27,7 +27,7 @@ import type {
 } from '../../common/QuestionsTypes';
 import useQuestionLogEventCopyContents from '../../common/useQuestionLogEventCopyContents';
 import useQuestionsAutoMarkAsComplete from '../../common/useQuestionsAutoMarkAsComplete';
-import InterviewsStudyListBottomNav from '../../listings/study-list/InterviewsStudyListBottomNav';
+import InterviewsStudyListBottomBar from '../../listings/study-list/InterviewsStudyListBottomBar';
 
 type Props = Readonly<{
   paginationEl: React.ReactNode;
@@ -85,8 +85,12 @@ export default function QuestionQuizContents({
   useQuestionsAutoMarkAsComplete(question.metadata, studyListKey);
 
   return (
-    <div>
-      <Container className="py-6 lg:py-8 xl:py-12" width="3xl">
+    <div
+      className={clsx(
+        'flex flex-col',
+        'min-h-[calc(100vh_-_var(--global-sticky-height))]',
+      )}>
+      <Container className="grow py-6 lg:py-8 xl:py-12" width="3xl">
         <div className="grid gap-y-6">
           <div className="overflow-auto">
             <Text className="mb-1 block" color="secondary" size="body2">
@@ -168,7 +172,7 @@ export default function QuestionQuizContents({
           )}
         </div>
       </Container>
-      <InterviewsStudyListBottomNav
+      <InterviewsStudyListBottomBar
         paginationEl={paginationEl}
         question={question}
         studyListKey={studyListKey}
