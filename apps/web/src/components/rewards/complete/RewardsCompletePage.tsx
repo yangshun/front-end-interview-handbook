@@ -19,20 +19,33 @@ export default function RewardsCompletePage() {
       <div className="flex flex-col items-center gap-y-4">
         <RiCheckboxCircleLine className="text-success size-16" />
         <div className="flex flex-col items-center">
-          <Heading level="heading4">
-            <FormattedMessage
-              defaultMessage="All tasks completed!"
-              description="Title for rewards complete page"
-              id="4s0hMm"
-            />
-          </Heading>
-          <Heading level="heading4">
-            <FormattedMessage
-              defaultMessage="Enjoy your exclusive promo code"
-              description="Title for rewards complete page"
-              id="tMvSIc"
-            />
-          </Heading>
+          <div className="hidden flex-col items-center md:flex">
+            <Heading level="heading4">
+              <FormattedMessage
+                defaultMessage="All tasks completed!"
+                description="Title for rewards complete page"
+                id="4s0hMm"
+              />
+            </Heading>
+            <Heading level="heading4">
+              <FormattedMessage
+                defaultMessage="Enjoy your exclusive promo code"
+                description="Title for rewards complete page"
+                id="tMvSIc"
+              />
+            </Heading>
+          </div>
+
+          {/* For small screens */}
+          <div className="flex flex-col items-center md:hidden">
+            <Heading className="text-center" level="heading4">
+              <FormattedMessage
+                defaultMessage="All tasks completed! Enjoy your exclusive promo code"
+                description="Title for rewards complete page"
+                id="h+CFG8"
+              />
+            </Heading>
+          </div>
         </div>
         <Text className="block text-center" color="secondary" size="body1">
           <FormattedMessage

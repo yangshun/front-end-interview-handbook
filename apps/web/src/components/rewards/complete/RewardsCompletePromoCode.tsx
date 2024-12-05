@@ -34,7 +34,7 @@ export default function RewardsCompletePromoCode({
   }
 
   return (
-    <div className="flex w-[400px] flex-col gap-8">
+    <div className="flex w-[350px] flex-col items-center gap-8 md:w-[400px]">
       <RewardsTicket
         ratio="wide"
         subtitle={
@@ -71,9 +71,12 @@ export default function RewardsCompletePromoCode({
           </div>
         }
         title={promoCode.code}
-        width={400}
+        width={350}
       />
-      <Text className="block text-center" color="secondary" size="body1">
+      <Text
+        className="block w-60 text-center md:w-full"
+        color="secondary"
+        size="body1">
         <FormattedMessage
           defaultMessage="You can find your promo codes on the <link>profile page</link>."
           description="Help text for promo code"

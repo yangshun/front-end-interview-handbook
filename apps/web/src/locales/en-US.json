@@ -6819,6 +6819,10 @@
     "defaultMessage": "Prioritized lists",
     "description": "Features for study plans"
   },
+  "h+CFG8": {
+    "defaultMessage": "All tasks completed! Enjoy your exclusive promo code",
+    "description": "Title for rewards complete page"
+  },
   "h2eWtB": {
     "defaultMessage": "Build dynamic user interfaces using HTML, CSS, JavaScript, or popular UI frameworks like React, Angular, or Vue.",
     "description": "Description for UI question format page"
