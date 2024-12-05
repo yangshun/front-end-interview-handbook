@@ -289,6 +289,7 @@ export default async function Page({ params }: Props) {
         <InterviewsPurchaseQuestionPaywallPage
           metadata={question.metadata}
           mode={mode}
+          studyListKey={studyListKey}
         />
       ) : (
         <UserInterfaceCodingWorkspacePage
