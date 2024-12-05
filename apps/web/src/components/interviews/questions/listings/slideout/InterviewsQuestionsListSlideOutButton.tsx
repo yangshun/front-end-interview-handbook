@@ -159,6 +159,7 @@ function InterviewsQuestionsListSlideOutButtonImpl({
         variant="tertiary"
       />
       <InterviewsQuestionsListSlideOut
+        key={metadata.slug}
         currentQuestionPosition={currentQuestionIndex + 1}
         initialListType={{ ...listType, label: title }}
         isLoading={false}

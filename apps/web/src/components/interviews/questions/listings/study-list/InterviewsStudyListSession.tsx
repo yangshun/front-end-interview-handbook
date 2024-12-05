@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import { usePathname } from 'next/navigation';
-import { useCallback, useEffect, useState } from 'react';
+import { parseAsBoolean, useQueryState } from 'nuqs';
+import { Suspense, useCallback, useEffect, useState } from 'react';
 import {
   RiDownloadLine,
   RiLoopLeftLine,
@@ -10,7 +11,6 @@ import {
 import { trpc } from '~/hooks/trpc';
 import useQueryParamAction from '~/hooks/useQueryParamAction';
 import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
-import useSearchParamState from '~/hooks/useSearchParamsState';
 
 import ConfirmationDialog from '~/components/common/ConfirmationDialog';
 import { useToast } from '~/components/global/toasts/useToast';
@@ -47,7 +47,16 @@ type Props = Readonly<{
   studyListTitle: string;
 }>;
 
-export default function InterviewsStudyListSession({
+export default function InterviewsStudyListSession(props: Props) {
+  // Because of nuqs
+  return (
+    <Suspense>
+      <InterviewsStudyListSessionImpl {...props} />
+    </Suspense>
+  );
+}
+
+function InterviewsStudyListSessionImpl({
   progressTrackingAvailableToNonPremiumUsers,
   questionCount,
   questions,
@@ -101,9 +110,10 @@ export default function InterviewsStudyListSession({
     useState(false);
   const [showResetProgressConfirmation, setShowResetProgressConfirmation] =
     useState(false);
-  const [showPricingDialog, setShowPricingDialog] = useSearchParamState<
-    '' | 'true'
-  >(pricingDialogSearchParam_MUST_BE_UNIQUE_ON_PAGE, '');
+  const [showPricingDialog, setShowPricingDialog] = useQueryState(
+    pricingDialogSearchParam_MUST_BE_UNIQUE_ON_PAGE,
+    parseAsBoolean.withDefault(false),
+  );
   const [showImportProgressModal, setShowImportProgressModal] = useState(false);
   const { showToast } = useToast();
   const [automaticallyStartLearning, setAutomaticallyStartLearning] =
@@ -117,7 +127,7 @@ export default function InterviewsStudyListSession({
       !progressTrackingAvailableToNonPremiumUsers &&
       !userProfile?.isInterviewsPremium
     ) {
-      setShowPricingDialog('true');
+      setShowPricingDialog(true);
 
       return;
     }
@@ -456,7 +466,7 @@ export default function InterviewsStudyListSession({
         feature={feature}
         isShown={Boolean(showPricingDialog)}
         onClose={() => {
-          setShowPricingDialog('');
+          setShowPricingDialog(false);
         }}
       />
     </div>

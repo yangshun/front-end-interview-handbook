@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import { eq } from 'lodash-es';
 import { useRouter } from 'next/navigation';
+import { parseAsBoolean, useQueryState } from 'nuqs';
 import { Suspense, useEffect, useState } from 'react';
 import {
   RiArrowDownSLine,
@@ -9,8 +10,6 @@ import {
   RiSearchLine,
 } from 'react-icons/ri';
 import { useMediaQuery } from 'usehooks-ts';
-
-import useSearchParamState from '~/hooks/useSearchParamsState';
 
 import ConfirmationDialog from '~/components/common/ConfirmationDialog';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
@@ -446,7 +445,17 @@ type Props = Readonly<{
   title?: string;
 }>;
 
-export default function InterviewsQuestionsListSlideOut({
+export default function InterviewsQuestionsListSlideOut(props: Props) {
+  // Because useQuestionsListTypeCurrent() uses useSearchParams()
+  // Because of nuqs
+  return (
+    <Suspense>
+      <InterviewsQuestionsListSlideOutImpl {...props} />
+    </Suspense>
+  );
+}
+
+function InterviewsQuestionsListSlideOutImpl({
   isLoading,
   initialListType,
   currentQuestionPosition,
@@ -457,9 +466,10 @@ export default function InterviewsQuestionsListSlideOut({
   const intl = useIntl();
   // Have to be controlled because we don't want to
   // fetch the question lists for nothing
-  const [isSlideOutShown, setIsSlideOutShown] = useSearchParamState<
-    '' | 'true'
-  >(slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE, '');
+  const [isSlideOutShown, setIsSlideOutShown] = useQueryState(
+    slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE,
+    parseAsBoolean.withDefault(false),
+  );
   const isMobile = useMediaQuery('(max-width: 500px)');
   const router = useRouter();
   const [currentListType, setCurrentListType] =
@@ -511,9 +521,9 @@ export default function InterviewsQuestionsListSlideOut({
     // to the first question in the list upon closing
     if (currentQuestionPosition === 0 && firstQuestionInListHref) {
       router.push(firstQuestionInListHref);
+    } else {
+      setIsSlideOutShown(false);
     }
-
-    setIsSlideOutShown('');
   }
 
   function onCloseSwitchQuestionListDialog() {
@@ -563,7 +573,7 @@ export default function InterviewsQuestionsListSlideOut({
             label={listName}
             size="xs"
             variant="secondary"
-            onClick={() => setIsSlideOutShown('true')}>
+            onClick={() => setIsSlideOutShown(true)}>
             <div className="flex items-center gap-3">
               {isLoading ? (
                 <div
@@ -607,24 +617,21 @@ export default function InterviewsQuestionsListSlideOut({
       onClose={onClose}>
       {isSlideOutShown && (
         <ScrollArea>
-          {/* Because useQuestionsListTypeCurrent() uses useSearchParams() */}
-          <Suspense>
-            <Contents
-              key={filterNamespace}
-              filterNamespace={filterNamespace}
-              initialListType={initialListType}
-              listType={activeListType}
-              metadata={metadata}
-              setFirstQuestionHref={setFirstQuestionInListHref}
-              onClickDifferentStudyListQuestion={(href: string) =>
-                setShowSwitchQuestionListDialog({
-                  href,
-                  show: true,
-                  type: 'question-click',
-                })
-              }
-            />
-          </Suspense>
+          <Contents
+            key={filterNamespace}
+            filterNamespace={filterNamespace}
+            initialListType={initialListType}
+            listType={activeListType}
+            metadata={metadata}
+            setFirstQuestionHref={setFirstQuestionInListHref}
+            onClickDifferentStudyListQuestion={(href: string) =>
+              setShowSwitchQuestionListDialog({
+                href,
+                show: true,
+                type: 'question-click',
+              })
+            }
+          />
         </ScrollArea>
       )}
       <ConfirmationDialog
@@ -646,7 +653,7 @@ export default function InterviewsQuestionsListSlideOut({
         })}
         onCancel={() => {
           onCloseSwitchQuestionListDialog();
-          setIsSlideOutShown('');
+          setIsSlideOutShown(false);
         }}
         onClose={() => {
           onCloseSwitchQuestionListDialog();
@@ -657,7 +664,6 @@ export default function InterviewsQuestionsListSlideOut({
           }
 
           onCloseSwitchQuestionListDialog();
-          setIsSlideOutShown('');
           router.push(showSwitchQuestionListDialog.href);
         }}>
         {showSwitchQuestionListDialog.type === 'question-click' ? (

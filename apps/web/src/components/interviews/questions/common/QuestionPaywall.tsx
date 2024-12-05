@@ -1,14 +1,14 @@
 'use client';
 
 import clsx from 'clsx';
+import { parseAsBoolean, useQueryState } from 'nuqs';
+import { Suspense } from 'react';
 import {
   RiArrowRightLine,
   RiLockLine,
   RiShiningFill,
   RiToolsLine,
 } from 'react-icons/ri';
-
-import useSearchParamState from '~/hooks/useSearchParamsState';
 
 import InterviewsPricingTableDialog from '~/components/interviews/purchase/InterviewsPricingTableDialog';
 import { useIntl } from '~/components/intl';
@@ -47,7 +47,16 @@ type Props = Readonly<{
   variant?: PremiumWallVariant;
 }>;
 
-export default function QuestionPaywall({
+export default function QuestionPaywall(props: Props) {
+  // Because of nuqs
+  return (
+    <Suspense>
+      <QuestionPaywallImpl {...props} />
+    </Suspense>
+  );
+}
+
+function QuestionPaywallImpl({
   title: titleProp,
   subtitle: subtitleProp,
   variant = 'not_subscribed',
@@ -56,9 +65,10 @@ export default function QuestionPaywall({
 }: Props) {
   const intl = useIntl();
   const featuresData = useFeaturesData();
-  const [showPricingDialog, setShowPricingDialog] = useSearchParamState<
-    '' | 'true'
-  >('pricing_dialog', '');
+  const [showPricingDialog, setShowPricingDialog] = useQueryState(
+    'pricing_dialog',
+    parseAsBoolean.withDefault(false),
+  );
 
   const { title: featureTitle, subtitle: featuresSubtitle } =
     featuresData[feature];
@@ -170,12 +180,12 @@ export default function QuestionPaywall({
                   })}
                   variant="primary"
                   onClick={() => {
-                    setShowPricingDialog('true');
+                    setShowPricingDialog(true);
                   }}
                 />
               }
               onClose={() => {
-                setShowPricingDialog('');
+                setShowPricingDialog(false);
               }}
             />
           </div>

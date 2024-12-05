@@ -1,6 +1,7 @@
 'use client';
 
 import nextI18nosticConfig from 'next-i18nostic/config';
+import { NuqsAdapter } from 'nuqs/adapters/next/app';
 import { useState } from 'react';
 import { IntlProvider } from 'react-intl';
 
@@ -49,19 +50,21 @@ export default function GlobalProviders({
           defaultLocale={nextI18nosticConfig.defaultLocale}
           locale={locale}
           messages={intlMessages}>
-          <ColorSchemePreferencesProvider>
-            <SessionContextProvider supabaseClient={supabaseClient}>
-              <AppContextProvider>
-                <UserProfileProvider>
-                  <UserPreferencesProvider>
-                    <MDXProvider components={MDXComponents}>
-                      {children}
-                    </MDXProvider>
-                  </UserPreferencesProvider>
-                </UserProfileProvider>
-              </AppContextProvider>
-            </SessionContextProvider>
-          </ColorSchemePreferencesProvider>
+          <NuqsAdapter>
+            <ColorSchemePreferencesProvider>
+              <SessionContextProvider supabaseClient={supabaseClient}>
+                <AppContextProvider>
+                  <UserProfileProvider>
+                    <UserPreferencesProvider>
+                      <MDXProvider components={MDXComponents}>
+                        {children}
+                      </MDXProvider>
+                    </UserPreferencesProvider>
+                  </UserProfileProvider>
+                </AppContextProvider>
+              </SessionContextProvider>
+            </ColorSchemePreferencesProvider>
+          </NuqsAdapter>
         </IntlProvider>
       </I18nProvider>
     </TrpcClientProvider>

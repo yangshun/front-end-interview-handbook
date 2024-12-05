@@ -98,6 +98,7 @@ export default function InterviewsDashboardPage({
     );
 
   const sessions = questionListSessions ?? [];
+  // TODO(interviews): SSR this part to prevent layout shifts since the progress section is at the top
   const showProgressAtGlance =
     (questionsProgress ?? []).length > 0 ||
     Object.keys(contributions || {}).length > 0;

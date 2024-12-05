@@ -103,6 +103,7 @@
     "next-seo": "^5.15.0",
     "node-mailjet": "^6.0.5",
     "nullthrows": "^1.1.1",
+    "nuqs": "^2.2.3",
     "octokit": "^3.1.2",
     "prettier": "^3.3.2",
     "prettier-plugin-svelte": "^3.2.5",
