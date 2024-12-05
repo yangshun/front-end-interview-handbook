@@ -11,6 +11,10 @@ export default function useSearchParamState<T extends string>(
   defaultValue: T,
 ) {
   function getSearchParam() {
+    if (typeof window === 'undefined') {
+      return defaultValue;
+    }
+
     const params = new URLSearchParams(window.location.search);
 
     return (params.get(key) || defaultValue) as T;
