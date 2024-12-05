@@ -23,6 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       id: 'lyxOq4',
     }),
     locale,
+    ogImageProduct: null,
     ogImageTitle: title,
     pathname: '/promotions',
     socialTitle: `${title} | GreatFrontEnd`,

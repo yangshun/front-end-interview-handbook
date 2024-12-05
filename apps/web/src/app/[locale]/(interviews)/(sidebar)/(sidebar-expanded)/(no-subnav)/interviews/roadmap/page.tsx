@@ -25,9 +25,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     }),
     locale,
     ogImageTitle: intl.formatMessage({
-      defaultMessage: 'Roadmap - Upcoming features and updates',
+      defaultMessage: 'Roadmap - Upcoming features and updates on Interviews',
       description: 'OG title of Roadmap page',
-      id: '65orXt',
+      id: 'hjBNcc',
     }),
     pathname: '/interviews/roadmap',
     socialTitle: intl.formatMessage({

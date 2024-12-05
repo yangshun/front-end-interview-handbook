@@ -39,6 +39,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       { discount: SOCIAL_DISCOUNT_PERCENTAGE },
     ),
     locale,
+    ogImageProduct: null,
     ogImageTitle: title,
     pathname: '/rewards/social/tasks',
     socialTitle: intl.formatMessage({

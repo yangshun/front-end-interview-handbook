@@ -38,6 +38,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: post?.description,
     imageUrl: post?.imageUrl,
     locale,
+    ogImageProduct: null,
     pathname: post?.href || '',
     title: `${post?.title} | Blog`,
   });

@@ -30,6 +30,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: 'OG blog category',
       id: 'QZDp3f',
     }),
+    ogImageProduct: null,
     ogImageTitle: intl.formatMessage({
       defaultMessage: 'Blog - News and insights for Front End Engineers',
       description: 'OG title of GreatFrontEnd blog homepage',

@@ -26,6 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return defaultMetadata({
     locale,
+    ogImageProduct: null,
     ogImageTitle: title,
     pathname: '/rewards/social/complete',
     title,

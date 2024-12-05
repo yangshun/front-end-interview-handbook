@@ -56,6 +56,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: 'OG blog category',
       id: 'QZDp3f',
     }),
+    ogImageProduct: null,
     ogImageTitle: series?.title,
     pathname: series?.href || '',
     socialTitle: title,

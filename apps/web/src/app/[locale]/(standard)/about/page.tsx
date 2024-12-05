@@ -32,6 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       id: 'mt2ON4',
     }),
     locale,
+    ogImageProduct: null,
     ogImageTitle: title,
     pathname: '/about',
     title,

@@ -29,6 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       id: 'cxU8W8',
     }),
     locale,
+    ogImageProduct: null,
     ogImageTitle: title,
     pathname: '/affiliates',
     title,

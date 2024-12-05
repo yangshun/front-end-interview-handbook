@@ -29,6 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       id: 'CUTtb7',
     }),
     locale,
+    ogImageProduct: null,
     ogImageTitle: intl.formatMessage({
       defaultMessage: 'Join the community',
       description: 'Title of community page',

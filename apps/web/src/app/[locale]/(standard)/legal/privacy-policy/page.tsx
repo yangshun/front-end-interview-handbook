@@ -32,6 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       id: '5kFTG0',
     }),
     locale,
+    ogImageProduct: null,
     ogImageTitle: title,
     pathname: '/legal/privacy-policy',
     socialTitle: intl.formatMessage({

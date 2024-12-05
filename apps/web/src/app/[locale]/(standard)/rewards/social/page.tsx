@@ -28,6 +28,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       { discount: SOCIAL_DISCOUNT_PERCENTAGE },
     ),
     locale,
+    ogImageProduct: null,
     ogImageTitle: intl.formatMessage(
       {
         defaultMessage: '{discount}% Off - Social Rewards Campaign',

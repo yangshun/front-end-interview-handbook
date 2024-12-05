@@ -50,6 +50,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: 'OG blog category',
       id: 'QZDp3f',
     }),
+    ogImageProduct: null,
     ogImageTitle: description,
     pathname: `/blog/tags/${tag}`,
     title: intl.formatMessage(
