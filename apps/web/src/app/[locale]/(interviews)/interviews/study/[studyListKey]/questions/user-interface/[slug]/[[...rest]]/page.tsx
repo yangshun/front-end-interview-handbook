@@ -201,7 +201,8 @@ export default async function Page({ params }: Props) {
     return notFound();
   }
 
-  const isStudyListLockedForViewer = !isViewerPremium;
+  const isStudyListLockedForViewer =
+    studyList.access === 'premium' && !isViewerPremium;
 
   const question = await readQuestionUserInterface(
     slug,

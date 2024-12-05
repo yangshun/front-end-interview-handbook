@@ -59,6 +59,13 @@ export const InterviewsStudyListDocument = defineDocumentType(() => ({
   },
   contentType: 'mdx',
   fields: {
+    access: {
+      description:
+        'User access configuration, whether they need to be subscriber to access',
+      options: ['free', 'premium'],
+      required: true,
+      type: 'enum',
+    },
     customHref: {
       description: 'Link to study list page',
       required: false,
