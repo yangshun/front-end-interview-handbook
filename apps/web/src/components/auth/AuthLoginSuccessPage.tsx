@@ -5,14 +5,14 @@ import { useEffect } from 'react';
 
 import useAuthFullPageRedirectAfterLogin from '~/hooks/user/useAuthFullPageRedirectAfterLogIn';
 
+import LogoComboMark from '~/components/global/logos/LogoComboMark';
 import { useIntl } from '~/components/intl';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
+import { themeRadialWhiteGlowBackground } from '~/components/ui/theme';
 
 import logEvent from '~/logging/logEvent';
-import { themeRadialWhiteGlowBackground } from '~/components/ui/theme';
-import LogoComboMark from '~/components/global/logos/LogoComboMark';
 
 type Props = Readonly<{
   next: string | null;
@@ -54,8 +54,8 @@ export default function AuthLoginSuccessPage({ next }: Props) {
           <Text
             className="mt-2 block text-center"
             color="secondary"
-            weight="medium"
-            size="body1">
+            size="body1"
+            weight="medium">
             Redirecting you...
           </Text>
         </div>

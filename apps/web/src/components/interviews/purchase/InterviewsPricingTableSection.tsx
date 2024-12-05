@@ -723,7 +723,7 @@ export default function InterviewsPricingTableSection({
           }
           leftSectionContents={
             <>
-              <div className="flex flex-col">
+              <div className="flex flex-col gap-2">
                 <Text
                   className={clsx('inline-flex flex-wrap items-end')}
                   color="secondary"
@@ -967,7 +967,7 @@ export default function InterviewsPricingTableSection({
                               </Text>
                             )}
                             <Text
-                              className="flex flex-wrap items-baseline gap-x-0.5"
+                              className="mt-2 flex flex-wrap items-baseline gap-x-0.5"
                               color="secondary"
                               size="body2">
                               <span>
