@@ -155,7 +155,6 @@ function convertToMap(studyLists: ReadonlyArray<QuestionListTypeWithLabel>) {
 type Props = Readonly<{
   listType: QuestionListTypeWithLabel;
   onChangeListType: (value: QuestionListTypeWithLabel) => void;
-  pricingDialogSearchParam_MUST_BE_UNIQUE_ON_PAGE: string;
 }>;
 
 export default function InterviewsQuestionsListSlideOutSwitcher({
