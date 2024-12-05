@@ -21,7 +21,7 @@ function DropdownContent({
   openPricingDialog,
 }: Readonly<{
   onChangeListType: (value: QuestionListTypeWithLabel) => void;
-  openPricingDialog: (feature: QuestionFeatureType | undefined) => void;
+  openPricingDialog: (feature: QuestionFeatureType) => void;
 }>) {
   const intl = useIntl();
   const { data: questionLists, isLoading } = trpc.questionLists.get.useQuery();
@@ -47,7 +47,6 @@ function DropdownContent({
       }),
     },
     {
-      isPremium: true,
       items: [
         studyPlansMap['one-week'],
         studyPlansMap['one-month'],
@@ -59,10 +58,9 @@ function DropdownContent({
         description: 'Label for study plans study list',
         id: 'mKOi1B',
       }),
-      pricingTableFeature: 'study-plans',
+      premiumFeature: 'study-plans',
     },
     {
-      isPremium: true,
       items: questionLists.focusAreas,
       key: 'focus-area',
       label: intl.formatMessage({
@@ -70,10 +68,9 @@ function DropdownContent({
         description: 'Label for focus areas study list',
         id: 'l714HN',
       }),
-      pricingTableFeature: 'focus-areas',
+      premiumFeature: 'focus-areas',
     },
     {
-      isPremium: true,
       items: questionLists.companies,
       key: 'company',
       label: intl.formatMessage({
@@ -81,10 +78,9 @@ function DropdownContent({
         description: 'Label for company study list',
         id: 'Ekf7hb',
       }),
-      pricingTableFeature: 'company-guides',
+      premiumFeature: 'company-guides',
     },
     {
-      isPremium: false,
       items: questionLists.formats,
       key: 'formats',
       label: intl.formatMessage({
@@ -94,7 +90,6 @@ function DropdownContent({
       }),
     },
     {
-      isPremium: false,
       items: questionLists.frameworks,
       key: 'frameworks',
       label: intl.formatMessage({
@@ -104,7 +99,6 @@ function DropdownContent({
       }),
     },
     {
-      isPremium: false,
       items: questionLists.languages,
       key: 'languages',
       label: intl.formatMessage({
@@ -120,15 +114,17 @@ function DropdownContent({
       {categories.map((category) => (
         <DropdownMenu.Sub
           key={category.key}
-          endAddOn={category.isPremium ? <SidebarPremiumChip /> : undefined}
+          endAddOn={
+            category.premiumFeature ? <SidebarPremiumChip /> : undefined
+          }
           label={category.label}>
           {category.items.map((item) => (
             <DropdownMenu.Item
               key={item.value}
               label={item.label}
               onClick={() => {
-                category.isPremium && !userProfile?.premium
-                  ? openPricingDialog(category.pricingTableFeature)
+                category.premiumFeature && !userProfile?.premium
+                  ? openPricingDialog(category.premiumFeature)
                   : onChangeListType(item);
               }}
             />
@@ -140,11 +136,10 @@ function DropdownContent({
 }
 
 type QuestionListCategories = Readonly<{
-  isPremium?: boolean;
   items: ReadonlyArray<QuestionListTypeData & Readonly<{ label: string }>>;
   key: string;
   label: string;
-  pricingTableFeature?: QuestionFeatureType;
+  premiumFeature?: QuestionFeatureType;
 }>;
 
 function convertToMap(studyLists: ReadonlyArray<QuestionListTypeWithLabel>) {
@@ -160,19 +155,15 @@ function convertToMap(studyLists: ReadonlyArray<QuestionListTypeWithLabel>) {
 type Props = Readonly<{
   listType: QuestionListTypeWithLabel;
   onChangeListType: (value: QuestionListTypeWithLabel) => void;
+  pricingDialogSearchParam_MUST_BE_UNIQUE_ON_PAGE: string;
 }>;
 
 export default function InterviewsQuestionsListSlideOutSwitcher({
   listType,
   onChangeListType,
 }: Props) {
-  const [showPricingDialog, setShowPricingDialog] = useState<{
-    feature: QuestionFeatureType | undefined;
-    show: boolean;
-  }>({
-    feature: undefined,
-    show: false,
-  });
+  const [pricingDialogFeature, setPricingDialogFeature] =
+    useState<QuestionFeatureType | null>(null);
 
   return (
     <>
@@ -185,24 +176,14 @@ export default function InterviewsQuestionsListSlideOutSwitcher({
         size="md"
         variant="tertiary">
         <DropdownContent
-          openPricingDialog={(feature) =>
-            setShowPricingDialog({
-              feature,
-              show: true,
-            })
-          }
+          openPricingDialog={(feature) => setPricingDialogFeature(feature)}
           onChangeListType={onChangeListType}
         />
       </DropdownMenu>
       <InterviewsPricingTableDialog
-        feature={showPricingDialog.feature}
-        isShown={showPricingDialog.show}
-        onClose={() =>
-          setShowPricingDialog({
-            feature: undefined,
-            show: false,
-          })
-        }
+        feature={pricingDialogFeature || undefined}
+        isShown={Boolean(pricingDialogFeature)}
+        onClose={() => setPricingDialogFeature(null)}
       />
     </>
   );
