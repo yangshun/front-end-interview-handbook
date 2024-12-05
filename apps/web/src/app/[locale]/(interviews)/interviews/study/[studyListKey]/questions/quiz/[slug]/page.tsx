@@ -8,9 +8,7 @@ import InterviewsQuestionsListSlideOutButton from '~/components/interviews/quest
 
 import { fetchInterviewsStudyList } from '~/db/contentlayer/InterviewsStudyListReader';
 import { readQuestionQuizContents } from '~/db/QuestionsContentsReader';
-import { fetchQuestionsListQuiz } from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';
-import { generateStaticParamsWithLocale } from '~/next-i18nostic/src';
 import defaultMetadata from '~/seo/defaultMetadata';
 import { getSiteOrigin } from '~/seo/siteUrl';
 import {
@@ -50,17 +48,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       },
     ),
   });
-}
-
-export async function generateStaticParams({ params }: Props) {
-  const { locale } = params;
-  const { questions: quizQuestions } = await fetchQuestionsListQuiz(locale);
-
-  return generateStaticParamsWithLocale(
-    quizQuestions.map((question) => ({
-      slug: question.slug,
-    })),
-  );
 }
 
 export default async function Page({ params }: Props) {
