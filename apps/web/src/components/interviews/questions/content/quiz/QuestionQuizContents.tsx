@@ -91,7 +91,7 @@ export default function QuestionQuizContents({
         'min-h-[calc(100vh_-_var(--global-sticky-height))]',
       )}>
       <Container className="grow py-6 lg:py-8 xl:py-12" width="3xl">
-        <div className="grid gap-y-6">
+        <div className="flex flex-col gap-y-6">
           <div className="overflow-auto">
             <Text className="mb-1 block" color="secondary" size="body2">
               <FormattedMessage
@@ -173,8 +173,8 @@ export default function QuestionQuizContents({
         </div>
       </Container>
       <InterviewsStudyListBottomBar
+        metadata={question.metadata}
         paginationEl={paginationEl}
-        question={question}
         studyListKey={studyListKey}
       />
     </div>

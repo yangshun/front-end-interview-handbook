@@ -30,11 +30,10 @@ export default function CodingWorkspaceBottomBar({
     <div
       className={clsx(
         'sticky bottom-0',
-        themeBackgroundDarkColor,
-        ['max-lg:border-t', themeBorderColor],
-        'lg:relative',
         'flex flex-wrap items-center justify-between',
         'px-3 py-3',
+        ['max-lg:border-t', themeBorderColor],
+        themeBackgroundDarkColor,
       )}>
       <div className={clsx('flex items-center gap-x-2 md:flex-1')}>
         {leftElements}

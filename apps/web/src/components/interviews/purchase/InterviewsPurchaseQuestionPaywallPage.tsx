@@ -4,11 +4,12 @@ import clsx from 'clsx';
 
 import InterviewsPurchasePaywall from '~/components/interviews/purchase/InterviewsPurchasePaywall';
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
+import InterviewsQuestionsListSlideOutButton from '~/components/interviews/questions/listings/slideout/InterviewsQuestionsListSlideOutButton';
+import InterviewsStudyListBottomBar from '~/components/interviews/questions/listings/study-list/InterviewsStudyListBottomBar';
 import QuestionMetadataSection from '~/components/interviews/questions/metadata/QuestionMetadataSection';
+import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
-
-import CodingWorkspaceBottomBar from '../../workspace/common/CodingWorkspaceBottomBar';
 
 type Props = Readonly<{
   metadata: QuestionMetadata;
@@ -25,29 +26,37 @@ export default function InterviewsPurchaseQuestionPaywallPage({
     <div
       className={clsx(
         'flex flex-col',
-        'h-[calc(100vh_-_var(--global-sticky-height))]',
+        'min-h-[calc(100vh_-_var(--global-sticky-height))]',
       )}>
-      <div
-        className={clsx(
-          'flex grow flex-col items-center justify-center',
-          'gap-y-8',
-          'px-6 py-8',
-        )}>
-        <div className="flex flex-col gap-y-4 text-center">
+      <Container
+        // Cannot vertically center via flex otherwise on
+        // short viewports it will get cut off
+        className={clsx('grow flex-col gap-y-6', 'py-[10vh]')}
+        width="2xl">
+        <div className="flex flex-col items-center gap-y-4">
           <Heading level="heading4">{metadata.title}</Heading>
           <QuestionMetadataSection metadata={metadata} />
         </div>
         <Section>
-          <InterviewsPurchasePaywall
-            premiumFeature={
-              mode === 'solution' ? 'official-solutions' : 'premium-questions'
-            }
-          />
+          <div className="mt-6">
+            <InterviewsPurchasePaywall
+              premiumFeature={
+                mode === 'solution' ? 'official-solutions' : 'premium-questions'
+              }
+            />
+          </div>
         </Section>
-      </div>
-      <CodingWorkspaceBottomBar
+      </Container>
+      <InterviewsStudyListBottomBar
+        allowMarkComplete={false}
         metadata={metadata}
-        slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE="qns_slideout"
+        paginationEl={
+          <InterviewsQuestionsListSlideOutButton
+            metadata={metadata}
+            slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE="qns_slideout"
+            studyListKey={studyListKey}
+          />
+        }
         studyListKey={studyListKey}
       />
     </div>

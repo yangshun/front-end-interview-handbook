@@ -138,6 +138,7 @@ export default async function Page({ params }: Props) {
         <InterviewsQuestionsSystemDesignPage
           bottomNav={
             <InterviewsStudyListBottomBar
+              metadata={question.metadata}
               paginationEl={
                 <InterviewsQuestionsListSlideOutButton
                   metadata={question.metadata}
@@ -145,7 +146,6 @@ export default async function Page({ params }: Props) {
                   studyListKey={studyListKey}
                 />
               }
-              question={question}
               studyListKey={studyListKey}
             />
           }
