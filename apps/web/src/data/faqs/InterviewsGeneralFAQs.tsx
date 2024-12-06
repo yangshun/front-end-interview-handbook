@@ -8,7 +8,6 @@ import {
 } from '~/components/interviews/questions/listings/stats/QuestionCount';
 import { FormattedMessage } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
-import Text from '~/components/ui/Text';
 
 import type { FAQItem } from './FAQs';
 
@@ -256,9 +255,7 @@ export const generalBuying: FAQItem = {
                   id="ladXww"
                   values={{
                     bold: (chunks) => (
-                      <Text size="inherit" weight="bold">
-                        {chunks}
-                      </Text>
+                      <strong className="font-medium">{chunks}</strong>
                     ),
                   }}
                 />
@@ -420,11 +417,7 @@ export const generalWhatsIncluded: FAQItem = {
           description="Paragraph 1 answer to 'What is included in the premium plan?' on Homepage's FAQ sections"
           id="U9yPZC"
           values={{
-            bold: (chunks) => (
-              <Text size="inherit" weight="bold">
-                {chunks}
-              </Text>
-            ),
+            bold: (chunks) => <strong className="font-medium">{chunks}</strong>,
             freeQuestionCount: QuestionCountFree,
           }}
         />
@@ -435,11 +428,7 @@ export const generalWhatsIncluded: FAQItem = {
           description="Paragraph 2 answer to 'What is included in the premium plan?' on Homepage's FAQ sections"
           id="UPf7Yu"
           values={{
-            bold: (chunks) => (
-              <Text size="inherit" weight="bold">
-                {chunks}
-              </Text>
-            ),
+            bold: (chunks) => <strong className="font-medium">{chunks}</strong>,
           }}
         />
       </p>
@@ -449,11 +438,7 @@ export const generalWhatsIncluded: FAQItem = {
           description="Paragraph 3 answer to 'What is included in the premium plan?' on Homepage's FAQ sections"
           id="2eN4S3"
           values={{
-            bold: (chunks) => (
-              <Text size="inherit" weight="bold">
-                {chunks}
-              </Text>
-            ),
+            bold: (chunks) => <strong className="font-medium">{chunks}</strong>,
           }}
         />
       </p>
@@ -485,11 +470,7 @@ export const generalWorthIt: FAQItem = {
           description="Paragraph 1 answer to 'Is it really worth it to buy GreatFrontEnd?' on Homepage's FAQ sections"
           id="mKaP8w"
           values={{
-            bold: (chunks) => (
-              <Text size="inherit" weight="bold">
-                {chunks}
-              </Text>
-            ),
+            bold: (chunks) => <strong className="font-medium">{chunks}</strong>,
           }}
         />
       </p>
@@ -499,11 +480,7 @@ export const generalWorthIt: FAQItem = {
           description="Paragraph 2 answer to 'Is it really worth it to buy GreatFrontEnd?' on Homepage's FAQ sections"
           id="WjGVYh"
           values={{
-            bold: (chunks) => (
-              <Text size="inherit" weight="bold">
-                {chunks}
-              </Text>
-            ),
+            bold: (chunks) => <strong className="font-medium">{chunks}</strong>,
           }}
         />
       </p>
