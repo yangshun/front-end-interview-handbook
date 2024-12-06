@@ -8,6 +8,7 @@ import {
 } from '~/components/interviews/questions/listings/stats/QuestionCount';
 import { FormattedMessage } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
+import Text from '~/components/ui/Text';
 
 import type { FAQItem } from './FAQs';
 
@@ -254,7 +255,11 @@ export const generalBuying: FAQItem = {
                   description='Paragraph 3 for "What does GreatFrontEnd Interviews offer exactly?" on Homepage FAQ sections'
                   id="ladXww"
                   values={{
-                    bold: (chunks) => <b>{chunks}</b>,
+                    bold: (chunks) => (
+                      <Text size="inherit" weight="bold">
+                        {chunks}
+                      </Text>
+                    ),
                   }}
                 />
               </li>
@@ -332,66 +337,75 @@ export const generalBuying: FAQItem = {
 
 export const generalUnique: FAQItem = {
   answer: (
-    <ol>
-      <li>
-        <FormattedMessage
-          defaultMessage="<strong>Created by Ex-interviewers:</strong> Every question, solution,
+    <>
+      <ol>
+        <li>
+          <FormattedMessage
+            defaultMessage="<strong>Created by Ex-interviewers:</strong> Every question, solution,
         test case, and curated question list or prep strategy on our platform
         has been carefully created by senior / staff engineers who have
         extensive experience conducting interviews at top tech companies. We
         guarantee trustworthy, high-quality content aligned with current market
         demands."
-          description="Point 1 answer to 'What is unique about GreatFrontEnd Interviews?' on Homepage's FAQ sections"
-          id="7O4ntB"
-          values={{ strong: (chunks) => <strong>{chunks}</strong> }}
-        />
-      </li>
-      <li>
-        <FormattedMessage
-          defaultMessage="<strong>Comprehensive solutions and tests:</strong> We provide official
+            description="Point 1 answer to 'What is unique about GreatFrontEnd Interviews?' on Homepage's FAQ sections"
+            id="7O4ntB"
+            values={{ strong: (chunks) => <strong>{chunks}</strong> }}
+          />
+        </li>
+        <li>
+          <FormattedMessage
+            defaultMessage="<strong>Comprehensive solutions and tests:</strong> We provide official
         solutions and test cases for every question, crafted by ex-FAANG
         engineers. Our solutions are in-depth and provide explanations of the
         approach, not just the code."
-          description="Point 2 answer to 'What is unique about GreatFrontEnd Interviews?' on Homepage's FAQ sections"
-          id="8MF8Uf"
-          values={{ strong: (chunks) => <strong>{chunks}</strong> }}
-        />
-      </li>
-      <li>
-        <FormattedMessage
-          defaultMessage="<strong>A simple roadmap to follow:</strong> If you don't know where to
+            description="Point 2 answer to 'What is unique about GreatFrontEnd Interviews?' on Homepage's FAQ sections"
+            id="8MF8Uf"
+            values={{ strong: (chunks) => <strong>{chunks}</strong> }}
+          />
+        </li>
+        <li>
+          <FormattedMessage
+            defaultMessage="<strong>A simple roadmap to follow:</strong> If you don't know where to
         start, we provide a <anchor>carefully vetted roadmap</anchor> that guides you
         through preparing efficiently for the majority of the most common
         challenges you might encounter."
-          description="Point 3 answer to 'What is unique about GreatFrontEnd Interviews?' on Homepage's FAQ sections"
-          id="fcFBen"
-          values={{
-            anchor: (chunks) => (
-              <Anchor
-                href={url.format({
-                  hash: SCROLL_HASH_INTERVIEWS_DASHBOARD_RECOMMENDED_PREPARATION,
-                  pathname: '/interviews/dashboard',
-                })}>
-                {chunks}
-              </Anchor>
-            ),
-            strong: (chunks) => <strong>{chunks}</strong>,
-          }}
-        />
-      </li>
-      <li>
-        <FormattedMessage
-          defaultMessage="<strong>Demonstrated success:</strong> We've over 500,000 active users
+            description="Point 3 answer to 'What is unique about GreatFrontEnd Interviews?' on Homepage's FAQ sections"
+            id="fcFBen"
+            values={{
+              anchor: (chunks) => (
+                <Anchor
+                  href={url.format({
+                    hash: SCROLL_HASH_INTERVIEWS_DASHBOARD_RECOMMENDED_PREPARATION,
+                    pathname: '/interviews/dashboard',
+                  })}>
+                  {chunks}
+                </Anchor>
+              ),
+              strong: (chunks) => <strong>{chunks}</strong>,
+            }}
+          />
+        </li>
+        <li>
+          <FormattedMessage
+            defaultMessage="<strong>Demonstrated success:</strong> We've over 500,000 active users
         over our lifetime, and have accumulated a strong track record of helping
         users land offers at FAANG and other FAANG adjacent companies. Many
         users have reported encountering questions directly sourced from our
         question base."
-          description="Point 4 answer to 'What is unique about GreatFrontEnd Interviews?' on Homepage's FAQ sections"
-          id="vy8Wbl"
-          values={{ strong: (chunks) => <strong>{chunks}</strong> }}
+            description="Point 4 answer to 'What is unique about GreatFrontEnd Interviews?' on Homepage's FAQ sections"
+            id="vy8Wbl"
+            values={{ strong: (chunks) => <strong>{chunks}</strong> }}
+          />
+        </li>
+      </ol>
+      <p>
+        <FormattedMessage
+          defaultMessage="We are also the only platform offering decent front end system design content."
+          description="FAQ answer"
+          id="7xuDzw"
         />
-      </li>
-    </ol>
+      </p>
+    </>
   ),
   key: 'general-unique',
   question: <>What is unique about GreatFrontEnd Interviews?</>,
@@ -406,7 +420,11 @@ export const generalWhatsIncluded: FAQItem = {
           description="Paragraph 1 answer to 'What is included in the premium plan?' on Homepage's FAQ sections"
           id="U9yPZC"
           values={{
-            bold: (chunks) => <b>{chunks}</b>,
+            bold: (chunks) => (
+              <Text size="inherit" weight="bold">
+                {chunks}
+              </Text>
+            ),
             freeQuestionCount: QuestionCountFree,
           }}
         />
@@ -416,7 +434,13 @@ export const generalWhatsIncluded: FAQItem = {
           defaultMessage="Premium users also gain access to <bold>company tags</bold>, enabling them to filter questions by specific companies known to ask them, making it easier to tailor their preparation."
           description="Paragraph 2 answer to 'What is included in the premium plan?' on Homepage's FAQ sections"
           id="UPf7Yu"
-          values={{ bold: (chunks) => <b>{chunks}</b> }}
+          values={{
+            bold: (chunks) => (
+              <Text size="inherit" weight="bold">
+                {chunks}
+              </Text>
+            ),
+          }}
         />
       </p>
       <p>
@@ -424,7 +448,13 @@ export const generalWhatsIncluded: FAQItem = {
           defaultMessage="Finally, premium features include access to time-saving resources such as <bold>curated question lists</bold>, including study plans, focus areas, and company guides, designed to streamline your preparation process and maximize efficiency."
           description="Paragraph 3 answer to 'What is included in the premium plan?' on Homepage's FAQ sections"
           id="2eN4S3"
-          values={{ bold: (chunks) => <b>{chunks}</b> }}
+          values={{
+            bold: (chunks) => (
+              <Text size="inherit" weight="bold">
+                {chunks}
+              </Text>
+            ),
+          }}
         />
       </p>
     </>
@@ -454,7 +484,13 @@ export const generalWorthIt: FAQItem = {
           defaultMessage="Our plans cost <bold>less than the equivalent of one hour</bold> of an average Front End Engineer's salary. In contrast, a strong interview performance can lead to securing a competitive offer with a total compensation <bold>increase of hundreds of thousands of dollars</bold>. It's widely known that many companies structure their offers based on interview performance, and excelling in interviews can even result in being <bold>upleveled into a higher role</bold>, further increasing your earning potential."
           description="Paragraph 1 answer to 'Is it really worth it to buy GreatFrontEnd?' on Homepage's FAQ sections"
           id="mKaP8w"
-          values={{ bold: (chunks) => <b>{chunks}</b> }}
+          values={{
+            bold: (chunks) => (
+              <Text size="inherit" weight="bold">
+                {chunks}
+              </Text>
+            ),
+          }}
         />
       </p>
       <p>
@@ -462,14 +498,13 @@ export const generalWorthIt: FAQItem = {
           defaultMessage="With over 500,000 engineers using our platform, there is a high likelihood that candidates <bold>competing for the same roles</bold> are already leveraging our resources. Additionally, countless users have reported encountering <bold>questions from our platform in their actual interviews</bold>, making the practice you gain on the platform directly relevant to the challenges you'll face in actual interviews."
           description="Paragraph 2 answer to 'Is it really worth it to buy GreatFrontEnd?' on Homepage's FAQ sections"
           id="WjGVYh"
-          values={{ bold: (chunks) => <b>{chunks}</b> }}
-        />
-      </p>
-      <p>
-        <FormattedMessage
-          defaultMessage="We are also the only platform offering decent front end system design content."
-          description="FAQ answer"
-          id="7xuDzw"
+          values={{
+            bold: (chunks) => (
+              <Text size="inherit" weight="bold">
+                {chunks}
+              </Text>
+            ),
+          }}
         />
       </p>
     </>
@@ -505,9 +540,9 @@ export const generalSeniority: FAQItem = {
   key: 'general-seniority',
   question: (
     <FormattedMessage
-      defaultMessage="Is this GreatFrontEnd Interviews targeted at engineers of specific seniorities?"
+      defaultMessage="Is GreatFrontEnd Interviews targeted at engineers of specific seniorities?"
       description="Question on Homepage's FAQ section - on the seniority level of engineers that GreatFrontEnd targets"
-      id="it3lFE"
+      id="9CZ7bS"
     />
   ),
 };

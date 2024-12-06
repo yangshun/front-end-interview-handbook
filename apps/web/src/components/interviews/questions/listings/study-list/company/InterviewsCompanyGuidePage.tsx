@@ -124,10 +124,10 @@ export default function InterviewsCompanyGuidePage({
       <div className="relative flex flex-col gap-y-8">
         <InterviewsStudyListPageTitleSection
           description={studyList.shortDescription}
-          purchaseFeature="company-guides"
           features={features}
           logoImgSrc={studyList.logoUrl}
           overallProgress={questionProgressParam ?? []}
+          purchaseFeature="company-guides"
           questions={questions}
           studyListKey={studyList.slug}
           title={intl.formatMessage(
