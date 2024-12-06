@@ -162,8 +162,8 @@ export default function InterviewsMarketingEmbedSection({
             transformOrigin: 'center top',
             transformStyle: 'preserve-3d',
           }}>
-          <InterviewsMarketingHeroBrowserWindowFrame>
-            <div className="h-[600px]">
+          <InterviewsMarketingHeroBrowserWindowFrame className="mx-auto lg:max-w-[1080px] xl:max-w-none">
+            <div className="h-[75vh] max-h-[600px]">
               {showContents && (
                 <>
                   {selectedTab === 'user-interface' && (
