@@ -16,7 +16,10 @@ import InterviewsMarketingTestCodeSection from '~/components/interviews/marketin
 import InterviewsPricingSectionLocalizedContainer from '~/components/interviews/purchase/InterviewsPricingSectionLocalizedContainer';
 
 const InterviewsMarketingHomePageBottom = dynamic(
-  () => import('./InterviewsMarketingHomePageBottom'),
+  () => {
+    loadedBottom = true;
+    return import('./InterviewsMarketingHomePageBottom');
+  },
   { ssr: false },
 );
 
@@ -25,18 +28,14 @@ type Props = Readonly<{
   questions: QuestionBankDataType;
 }>;
 
+// So that loaded state is persisted across navigations.
+let loadedBottom = false;
+
 export default function InterviewsMarketingHomePageBottomContainer({
   companyGuides,
   questions,
 }: Props) {
   const { userProfile } = useUserProfile();
-
-  // // UseScrollToTop doesn't scroll to top when user come back to this page via browser back button due browser scroll restoration
-  // // Disable browser scroll restoration so that when user come back to this page
-  // // via browser back button, the page is scroll to the top again
-  // useEffect(() => {
-  //   window.history.scrollRestoration = 'manual';
-  // }, []);
 
   const loadBottomHalfMarkerEarlyRef = useRef(null);
   const showBottomHalfEarly = useInView(loadBottomHalfMarkerEarlyRef, {
@@ -62,7 +61,7 @@ export default function InterviewsMarketingHomePageBottomContainer({
         userProfile?.isInterviewsPremium && userProfile?.plan === 'lifetime'
       ) && <InterviewsPricingSectionLocalizedContainer />}
       <div ref={loadBottomHalfMarkerRef} />
-      {showBottomHalfEarly || showBottomHalf ? (
+      {loadedBottom || showBottomHalfEarly || showBottomHalf ? (
         <InterviewsMarketingHomePageBottom />
       ) : (
         <div aria-hidden={true} className="h-screen" />
