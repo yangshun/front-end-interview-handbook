@@ -9699,13 +9699,13 @@
     "defaultMessage": "Learn from others",
     "description": "Title for \"Learn from others\" feature on Projects home page"
   },
-  "zmCysL": {
-    "defaultMessage": "Student",
-    "description": "Badge label for student promotion"
-  },
   "zl/anP": {
     "defaultMessage": "{Title}: A list of the top 75 data structures and algorithms questions, adapted and solved in JavaScript and TypeScript to make them more accessible for front-end engineers. This ensures you're prepared for DSA questions, which are often a requirement at FAANG and similar companies.",
     "description": "Paragraph 2 for \"What does GreatFrontEnd Interviews offer exactly?\" on Homepage FAQ sections"
+  },
+  "zmCysL": {
+    "defaultMessage": "Student",
+    "description": "Badge label for student promotion"
   },
   "zn3iWx": {
     "defaultMessage": "Repeat Password",

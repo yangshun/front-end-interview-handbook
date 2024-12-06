@@ -21,7 +21,7 @@ export default function InterviewsPurchaseStudyListPaywallPage({
       )}>
       <div
         className={clsx(
-          'flex grow flex-col items-center sm:justify-center',
+          'flex grow flex-col items-center justify-center',
           'gap-y-8',
           'px-6 py-8',
         )}>
