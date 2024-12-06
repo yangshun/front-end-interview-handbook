@@ -1,5 +1,4 @@
 import clsx from 'clsx';
-import { isEqual } from 'lodash-es';
 
 import VignetteOverlay from '~/components/common/VignetteOverlay';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
@@ -35,8 +34,8 @@ import InterviewsPurchasePaywall from '../../../purchase/InterviewsPurchasePaywa
 
 type Props<Q extends QuestionMetadata> = Readonly<{
   checkIfCompletedQuestion?: (question: Q) => boolean;
-  currentListType?: QuestionListTypeData | null;
-  listType?: QuestionListTypeData;
+  isDifferentListFromInitial: boolean;
+  listType: QuestionListTypeData;
   metadata: QuestionMetadata;
   onClickDifferentStudyListQuestion: (href: string) => void;
   questions: ReadonlyArray<Q>;
@@ -47,8 +46,8 @@ export default function InterviewsQuestionsListSlideOutContents<
   Q extends QuestionMetadata,
 >({
   checkIfCompletedQuestion,
+  isDifferentListFromInitial,
   listType,
-  currentListType,
   questions,
   metadata,
   onClickDifferentStudyListQuestion,
@@ -82,8 +81,6 @@ export default function InterviewsQuestionsListSlideOutContents<
   const isCurrentQuestionInTheList = !!questions.find(
     (question) => hashQuestion(question) === hashQuestion(metadata),
   );
-  const isDifferentList =
-    listType != null && !isEqual(listType, currentListType);
 
   return (
     <div>
@@ -105,14 +102,15 @@ export default function InterviewsQuestionsListSlideOutContents<
               const hasCompletedQuestion =
                 checkIfCompletedQuestion?.(questionMetadata);
 
-              // If the current question is not in the list or different study list, the first question is going to be the active question
+              // If the current question is not in the list or different
+              // question list, the first question is going to be the active question
               const isActiveQuestion =
-                isCurrentQuestionInTheList && !isDifferentList
+                isCurrentQuestionInTheList && !isDifferentListFromInitial
                   ? hashQuestion(questionMetadata) === hashQuestion(metadata)
                   : index === 0;
               const href = questionHrefWithListType(
                 questionMetadata.href,
-                currentListType,
+                listType,
               );
 
               return (
@@ -155,10 +153,10 @@ export default function InterviewsQuestionsListSlideOutContents<
                                 weight="medium">
                                 <Anchor
                                   className="focus:outline-none"
-                                  href={isDifferentList ? '#' : href}
+                                  href={isDifferentListFromInitial ? '#' : href}
                                   variant="unstyled"
                                   onClick={
-                                    isDifferentList
+                                    isDifferentListFromInitial
                                       ? () =>
                                           onClickDifferentStudyListQuestion(
                                             href,
@@ -205,7 +203,7 @@ export default function InterviewsQuestionsListSlideOutContents<
                       // fast enough before the card disappears.
                       sideOffset={0}>
                       <InterviewsQuestionsListSlideOutHovercardContents
-                        listType={currentListType}
+                        listType={listType}
                         question={questionMetadata}
                       />
                     </HovercardContent>
@@ -239,7 +237,7 @@ export default function InterviewsQuestionsListSlideOutContents<
 
               const href = questionHrefWithListType(
                 questionMetadata.href,
-                currentListType,
+                listType,
               );
 
               return (
@@ -273,10 +271,10 @@ export default function InterviewsQuestionsListSlideOutContents<
                           weight="medium">
                           <Anchor
                             className="focus:outline-none"
-                            href={isDifferentList ? '#' : href}
+                            href={isDifferentListFromInitial ? '#' : href}
                             variant="unstyled"
                             onClick={
-                              isDifferentList
+                              isDifferentListFromInitial
                                 ? () => onClickDifferentStudyListQuestion(href)
                                 : undefined
                             }>

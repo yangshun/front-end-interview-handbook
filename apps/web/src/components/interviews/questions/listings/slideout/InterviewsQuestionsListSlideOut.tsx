@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { eq } from 'lodash-es';
+import { isEqual } from 'lodash-es';
 import { useRouter } from 'next/navigation';
 import { parseAsBoolean, useQueryState } from 'nuqs';
 import { Suspense, useEffect, useState } from 'react';
@@ -183,16 +183,16 @@ function FrameworkAndLanguageFilterSection<Q extends QuestionMetadata>({
 }
 
 function Contents({
-  initialListType,
   listType,
+  isDifferentListFromInitial,
   metadata,
   filterNamespace,
   setFirstQuestionHref,
   onClickDifferentStudyListQuestion,
 }: Readonly<{
   filterNamespace: string;
-  initialListType?: QuestionListTypeData;
-  listType?: QuestionListTypeData;
+  isDifferentListFromInitial: boolean;
+  listType: QuestionListTypeData;
   metadata: QuestionMetadata;
   onClickDifferentStudyListQuestion: (href: string) => void;
   setFirstQuestionHref: (href: string) => void;
@@ -419,8 +419,8 @@ function Contents({
       ) : (
         <InterviewsQuestionsListSlideOutContents
           checkIfCompletedQuestion={(question) => question.isCompleted}
-          currentListType={listType}
-          listType={initialListType}
+          isDifferentListFromInitial={isDifferentListFromInitial}
+          listType={listType}
           metadata={metadata}
           questions={
             showCompanyPaywall
@@ -437,7 +437,7 @@ function Contents({
 
 type Props = Readonly<{
   currentQuestionPosition: number;
-  initialListType?: QuestionListTypeWithLabel;
+  initialListType: QuestionListTypeWithLabel;
   isLoading: boolean;
   metadata: QuestionMetadata;
   processedQuestions: ReadonlyArray<QuestionMetadataWithCompletedStatus>;
@@ -473,11 +473,8 @@ function InterviewsQuestionsListSlideOutImpl({
   const isMobile = useMediaQuery('(max-width: 640px)');
   const router = useRouter();
   const [currentListType, setCurrentListType] =
-    useState<QuestionListTypeWithLabel | null>(null);
-  const filterNamespace = questionListFilterNamespace(
-    currentListType ?? initialListType,
-  );
-  const activeListType = currentListType ?? initialListType;
+    useState<QuestionListTypeWithLabel>(initialListType);
+  const filterNamespace = questionListFilterNamespace(currentListType);
   const [showSwitchQuestionListDialog, setShowSwitchQuestionListDialog] =
     useState<{
       href: string | null;
@@ -492,14 +489,11 @@ function InterviewsQuestionsListSlideOutImpl({
     string | null
   >(null);
 
-  useEffect(() => {
-    if (isSlideOutShown) {
-      return;
-    }
-
-    // Clear current list when slide out is dismissed.
-    setCurrentListType(null);
-  }, [isSlideOutShown, setCurrentListType]);
+  function closeSlideOut() {
+    setIsSlideOutShown(false);
+    // Reset to initial list when slide out is dismissed
+    setCurrentListType(initialListType);
+  }
 
   function onClose() {
     // If there are no questions after the filter, prevent closing
@@ -507,7 +501,7 @@ function InterviewsQuestionsListSlideOutImpl({
       return;
     }
 
-    if (currentListType != null && !eq(initialListType, currentListType)) {
+    if (!isEqual(initialListType, currentListType)) {
       setShowSwitchQuestionListDialog({
         href: firstQuestionInListHref,
         show: true,
@@ -522,7 +516,7 @@ function InterviewsQuestionsListSlideOutImpl({
     if (currentQuestionPosition === 0 && firstQuestionInListHref) {
       router.push(firstQuestionInListHref);
     } else {
-      setIsSlideOutShown(false);
+      closeSlideOut();
     }
   }
 
@@ -558,7 +552,7 @@ function InterviewsQuestionsListSlideOutImpl({
       size="xl"
       title={
         <InterviewsQuestionsListSlideOutSwitcher
-          listType={activeListType!}
+          listType={currentListType}
           onChangeListType={setCurrentListType}
         />
       }
@@ -620,8 +614,10 @@ function InterviewsQuestionsListSlideOutImpl({
           <Contents
             key={filterNamespace}
             filterNamespace={filterNamespace}
-            initialListType={initialListType}
-            listType={activeListType}
+            isDifferentListFromInitial={
+              !isEqual(initialListType, currentListType)
+            }
+            listType={currentListType}
             metadata={metadata}
             setFirstQuestionHref={setFirstQuestionInListHref}
             onClickDifferentStudyListQuestion={(href: string) =>
@@ -653,7 +649,7 @@ function InterviewsQuestionsListSlideOutImpl({
         })}
         onCancel={() => {
           onCloseSwitchQuestionListDialog();
-          setIsSlideOutShown(false);
+          closeSlideOut();
         }}
         onClose={() => {
           onCloseSwitchQuestionListDialog();
