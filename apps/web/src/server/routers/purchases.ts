@@ -154,6 +154,35 @@ export const purchasesRouter = router({
 
     return null;
   }),
+  latestCheckoutSessionMetadata: userProcedure.query(async ({ ctx }) => {
+    const userProfile = await prisma.profile.findFirst({
+      select: {
+        stripeCustomer: true,
+      },
+      where: {
+        id: ctx.viewer.id,
+      },
+    });
+
+    // A Stripe customer hasn't been created yet.
+    if (userProfile?.stripeCustomer == null) {
+      return null;
+    }
+
+    const { stripeCustomer: stripeCustomerId } = userProfile;
+
+    const sessions = await stripe.checkout.sessions.list({
+      // Get the most recent session
+      customer: stripeCustomerId,
+      limit: 1,
+    });
+
+    if (!sessions.data || sessions.data.length === 0) {
+      return null;
+    }
+
+    return sessions.data[0].metadata;
+  }),
   projectsPlans: publicProcedure
     .input(z.string().optional())
     .query(async ({ input: country, ctx: { req } }) => {

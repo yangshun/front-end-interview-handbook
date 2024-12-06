@@ -431,6 +431,10 @@
     "defaultMessage": "JavaScript Interview Guides",
     "description": "Title for guide card"
   },
+  "0qQNkH": {
+    "defaultMessage": "You've also earned:",
+    "description": "Marketing rewards message"
+  },
   "0rR1Bo": {
     "defaultMessage": "Impress recruiters with component libraries and designs systems",
     "description": "Title of 'Build entire design systems or component libraries with our Component Tracks' feature in Projects marketing page"
@@ -4227,6 +4231,10 @@
     "defaultMessage": "Can't find the answer you are looking for?",
     "description": "Marketing page section subtitle"
   },
+  "QLv259": {
+    "defaultMessage": "Expires on <strong>{expiryDate}</strong>.",
+    "description": "Help text for promo code"
+  },
   "QNqh1P": {
     "defaultMessage": "Experience",
     "description": "Profile settings tab title"
@@ -4607,6 +4615,10 @@
     "defaultMessage": "<bold>{points}</bold> rep gained for this skill",
     "description": "Reputation points to be gained"
   },
+  "SRdJCV": {
+    "defaultMessage": "You've earned:",
+    "description": "Marketing rewards message"
+  },
   "SSiHbz": {
     "defaultMessage": "Add LinkedIn",
     "description": "Title for Add LinkedIn task on Projects dashboard page"
@@ -4754,6 +4766,10 @@
   "TBD8mM": {
     "defaultMessage": "Disconnect your Google Auth account",
     "description": "Label to disconnect social"
+  },
+  "TBzNtc": {
+    "defaultMessage": "Check your email for the activation steps",
+    "description": "Label for activation steps"
   },
   "TDZuZW": {
     "defaultMessage": "Use now",
@@ -8718,10 +8734,6 @@
   "t6SUbS": {
     "defaultMessage": "Angular Interview Questions with Solutions | GreatFrontEnd",
     "description": "Title of React Interview Questions page"
-  },
-  "t9VyCG": {
-    "defaultMessage": "Expires on <strong>{expiryDate}</strong>. You can find your promo codes on the <link>profile page</link>.",
-    "description": "Help text for promo code"
   },
   "tBeimS": {
     "defaultMessage": "Challenges activity",

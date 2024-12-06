@@ -278,6 +278,13 @@ export const promotionsRouter = router({
       const userId = viewer.id;
 
       const profile = await prisma.profile.findFirst({
+        include: {
+          projectsProfile: {
+            select: {
+              premium: true,
+            },
+          },
+        },
         where: {
           id: userId,
         },
@@ -291,6 +298,9 @@ export const promotionsRouter = router({
 
       if (profile == null || stripeCustomer == null) {
         throw 'No profile found';
+      }
+      if (profile.projectsProfile?.premium) {
+        return null;
       }
 
       const coupon =
