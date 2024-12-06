@@ -167,7 +167,7 @@ export default function ProjectsChallengeSubmissionHero({
             'absolute -z-10',
             'pointer-events-none overflow-hidden rounded-b-2xl',
           )}>
-          <MarketingHeroBackground className="h-full min-w-[1200px]" />
+          <MarketingHeroBackground className="h-full min-w-[1300px]" />
         </div>
         <div
           className={clsx(

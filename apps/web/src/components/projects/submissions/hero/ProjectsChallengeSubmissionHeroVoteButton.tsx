@@ -1,4 +1,3 @@
-import clsx from 'clsx';
 import { RiThumbUpFill } from 'react-icons/ri';
 
 import { trpc } from '~/hooks/trpc';

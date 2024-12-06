@@ -68,7 +68,9 @@ export default function NavProductPopover({
         'flex items-center',
         variant === 'full' ? 'gap-2 md:gap-4' : 'gap-2',
       )}>
-      <Anchor href="/" variant="unstyled">
+      <Anchor
+        href={product === 'interviews' ? '/' : '/projects'}
+        variant="unstyled">
         <LogoComboMark
           className="shrink-0"
           height={variant === 'full' ? 20 : 17}
@@ -179,7 +181,7 @@ export function NavProductPopoverLogoOnly({
             themeBackgroundElementPressedStateColor_Active,
             triggerClassname,
           )}
-          href="/"
+          href={product === 'interviews' ? '/' : '/projects'}
           variant="unstyled">
           <LogoMark height={19} width={26} />
           {showUnseenIndicator && (
