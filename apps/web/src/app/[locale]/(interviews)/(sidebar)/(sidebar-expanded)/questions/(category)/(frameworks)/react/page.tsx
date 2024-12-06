@@ -3,6 +3,7 @@ import type { Metadata } from 'next/types';
 import type { QuestionFramework } from '~/components/interviews/questions/common/QuestionsTypes';
 import InterviewsQuestionsCategoryFrameworkPage from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryFrameworkPage';
 
+import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
 import { readAllFrontEndInterviewGuides } from '~/db/guides/GuidesReader';
 import { fetchQuestionsCompletionCount } from '~/db/QuestionsCount';
 import {
@@ -100,16 +101,23 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Page({ params }: Props) {
   const { locale } = params;
 
-  const [questionsCoding, quizQuestions, questionCompletionCount, guides] =
-    await Promise.all([
-      fetchQuestionsListCodingForFramework(framework, locale),
-      fetchQuestionsListQuizForFramework(framework, locale),
-      fetchQuestionsCompletionCount(['user-interface', 'quiz']),
-      readAllFrontEndInterviewGuides(locale),
-    ]);
+  const [
+    questionsCoding,
+    quizQuestions,
+    questionCompletionCount,
+    guides,
+    bottomContent,
+  ] = await Promise.all([
+    fetchQuestionsListCodingForFramework(framework, locale),
+    fetchQuestionsListQuizForFramework(framework, locale),
+    fetchQuestionsCompletionCount(['user-interface', 'quiz']),
+    readAllFrontEndInterviewGuides(locale),
+    fetchInterviewListingBottomContent('framework-react'),
+  ]);
 
   return (
     <InterviewsQuestionsCategoryFrameworkPage
+      bottomContent={bottomContent}
       framework={framework}
       guides={guides}
       questionCompletionCount={questionCompletionCount}

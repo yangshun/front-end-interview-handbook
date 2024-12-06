@@ -1,11 +1,14 @@
 'use client';
 
+import type { InterviewsListingBottomContent } from 'contentlayer/generated';
 import { useState } from 'react';
 
 import { useQuestionFrameworksData } from '~/data/QuestionCategories';
 
 import type { GuideCardMetadata } from '~/components/guides/types';
 import { useIntl } from '~/components/intl';
+import MDXContent from '~/components/mdx/MDXContent';
+import Divider from '~/components/ui/Divider';
 import TabsUnderline from '~/components/ui/Tabs/TabsUnderline';
 
 import InterviewsQuestionsCategoryPage from './InterviewsQuestionsCategoryPage';
@@ -26,6 +29,7 @@ type Props = Omit<
   | 'title'
 > &
   Readonly<{
+    bottomContent?: InterviewsListingBottomContent;
     framework: QuestionFramework;
     guides: ReadonlyArray<GuideCardMetadata>;
     questionsCoding: ReadonlyArray<QuestionMetadata>;
@@ -36,6 +40,7 @@ export default function InterviewsQuestionsCategoryFrameworkPage({
   framework,
   questionsCoding,
   questionsQuiz,
+  bottomContent,
   ...props
 }: Props) {
   const intl = useIntl();
@@ -75,18 +80,32 @@ export default function InterviewsQuestionsCategoryFrameworkPage({
   const totalQuestionsCount = questionsCoding.length + questionsQuiz.length;
 
   return (
-    <InterviewsQuestionsCategoryPage
-      category="framework"
-      categoryTabs={questionsQuiz.length > 0 ? categoryTabs : undefined}
-      categoryValue={framework}
-      description={frameworks[framework].getDescription(totalQuestionsCount)}
-      questionList={filteredQuestions}
-      searchPlaceholder={frameworks[framework].getSearchPlaceholder(
-        totalQuestionsCount,
+    <div className="flex flex-col gap-20">
+      <InterviewsQuestionsCategoryPage
+        category="framework"
+        categoryTabs={questionsQuiz.length > 0 ? categoryTabs : undefined}
+        categoryValue={framework}
+        description={frameworks[framework].getDescription(totalQuestionsCount)}
+        questionList={filteredQuestions}
+        searchPlaceholder={frameworks[framework].getSearchPlaceholder(
+          totalQuestionsCount,
+        )}
+        selectedCategoryTab={selectedTab}
+        title={frameworks[framework].longName}
+        {...props}
+      />
+      {bottomContent && (
+        <>
+          <Divider />
+          <MDXContent
+            components={{
+              QuestionsCount: () => <span>{totalQuestionsCount}</span>,
+              QuizQuestionsCount: () => <span>{questionsQuiz.length}</span>,
+            }}
+            mdxCode={bottomContent.body.code}
+          />
+        </>
       )}
-      selectedCategoryTab={selectedTab}
-      title={frameworks[framework].longName}
-      {...props}
-    />
+    </div>
   );
 }

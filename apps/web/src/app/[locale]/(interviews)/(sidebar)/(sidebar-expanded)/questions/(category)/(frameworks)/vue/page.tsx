@@ -2,6 +2,7 @@ import type { Metadata } from 'next/types';
 
 import InterviewsQuestionsCategoryFrameworkPage from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryFrameworkPage';
 
+import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
 import { readAllFrontEndInterviewGuides } from '~/db/guides/GuidesReader';
 import { fetchQuestionsCompletionCount } from '~/db/QuestionsCount';
 import { fetchQuestionsListCodingForFramework } from '~/db/QuestionsListReader';
@@ -91,14 +92,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function Page({ params }: Props) {
   const { locale } = params;
-  const [questionsCoding, questionCompletionCount, guides] = await Promise.all([
-    fetchQuestionsListCodingForFramework(framework, locale),
-    fetchQuestionsCompletionCount(['user-interface']),
-    readAllFrontEndInterviewGuides(locale),
-  ]);
+  const [questionsCoding, questionCompletionCount, guides, bottomContent] =
+    await Promise.all([
+      fetchQuestionsListCodingForFramework(framework, locale),
+      fetchQuestionsCompletionCount(['user-interface']),
+      readAllFrontEndInterviewGuides(locale),
+      fetchInterviewListingBottomContent('framework-vue'),
+    ]);
 
   return (
     <InterviewsQuestionsCategoryFrameworkPage
+      bottomContent={bottomContent}
       framework={framework}
       guides={guides}
       questionCompletionCount={questionCompletionCount}
