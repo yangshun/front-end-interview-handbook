@@ -10,10 +10,22 @@ import { getSandpackCssText } from '@codesandbox/sandpack-react';
 export default function SandpackCSS() {
   useServerInsertedHTML(() => {
     return (
-      <style
-        dangerouslySetInnerHTML={{ __html: getSandpackCssText() }}
-        id="sandpack"
-      />
+      <>
+        <style
+          dangerouslySetInnerHTML={{ __html: getSandpackCssText() }}
+          id="sandpack"
+        />
+        {/* Override unwanted Sandpack typography variables */}
+        <style id="sandpack-overrides">
+          {`@media {
+  .light, .dark {
+    --sp-font-body: inherit !important;
+    --sp-font-size: inherit !important;
+    --sp-font-lineHeight: inherit !important;
+  }
+}`}
+        </style>
+      </>
     );
   });
 
