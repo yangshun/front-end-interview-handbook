@@ -134,9 +134,11 @@ export default function PromotionsInterviewsPremiumPerksProjectDiscountSection()
             </Text>
           </div>
         )}
-        <Text className="block md:hidden" size="body0" weight="bold">
-          +
-        </Text>
+        {hasBothFTLAndProjectsPromoCode && (
+          <Text className="block md:hidden" size="body0" weight="bold">
+            +
+          </Text>
+        )}
         {promoCode != null && (
           <div className="flex w-full flex-1 grow flex-col items-center gap-4 md:gap-6">
             <Ticket padding="md" ratio="wide" variant="normal" width={280}>
