@@ -201,7 +201,7 @@ export default function InterviewsNavbar({
                         ))}
                       <SocialDiscountSidebarMention className="px-6" />
                       <div
-                        className={clsx('flex justify-between gap-4', 'px-4')}>
+                        className={clsx('flex justify-between gap-4', 'px-6')}>
                         {isPremium ? (
                           <>
                             <Button
@@ -323,13 +323,17 @@ export default function InterviewsNavbar({
                           <div
                             className={clsx(
                               'flex shrink-0 items-center gap-x-3',
-                              'px-4',
+                              'px-6',
                             )}>
                             <Avatar
                               alt={displayName ?? ''}
                               src={userProfile?.avatarUrl ?? ''}
                             />
-                            <div className="flex grow items-center gap-x-3">
+                            <div
+                              className={clsx(
+                                'flex grow items-center gap-x-3',
+                                'truncate',
+                              )}>
                               <Text
                                 className="block truncate"
                                 size="body2"

@@ -36,7 +36,11 @@ function SocialDiscountSidebarMentionImpl({
 
     return (
       <div className={clsx('flex flex-col items-start gap-2', className)}>
-        <Text className="text-pretty block" size="body3" weight="medium">
+        <Text
+          className="text-pretty block"
+          color="subtitle"
+          size="body3"
+          weight="medium">
           {socialDiscountLabels.existingPromoTitle}
         </Text>
         <div className="flex flex-1 items-center gap-3">
@@ -80,7 +84,7 @@ function SocialDiscountSidebarMentionImpl({
               className="flex items-center gap-1"
               href="/interviews/pricing"
               variant="flat">
-              <Text size="body3" weight="bold">
+              <Text size="body3" weight="medium">
                 {socialDiscountLabels.existingPromoCtaLabel}
                 <RiArrowRightLine
                   aria-hidden={true}
