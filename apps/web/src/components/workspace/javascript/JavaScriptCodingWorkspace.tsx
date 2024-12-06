@@ -323,19 +323,21 @@ function JavaScriptCodingWorkspaceImpl({
         workspace={workspace}
         onLanguageChange={onLanguageChange}>
         {!embed && (
-          <div className="flex flex-col gap-y-4 lg:hidden">
-            <JavaScriptCodingWorkspaceDescription
-              canViewPremiumContent={canViewPremiumContent}
-              description={description}
-              metadata={metadata}
-              nextQuestions={[]}
-              similarQuestions={[]}
-              studyListKey={studyListKey}
-            />
-            <JavaScriptCodingWorkspaceSolutionMobile
-              canViewPremiumContent={canViewPremiumContent}
-              solution={solution}
-            />
+          <div className={clsx('size-full flex flex-col lg:hidden')}>
+            <div className="flex grow flex-col gap-y-4 overflow-y-auto">
+              <JavaScriptCodingWorkspaceDescription
+                canViewPremiumContent={canViewPremiumContent}
+                description={description}
+                metadata={metadata}
+                nextQuestions={[]}
+                similarQuestions={[]}
+                studyListKey={studyListKey}
+              />
+              <JavaScriptCodingWorkspaceSolutionMobile
+                canViewPremiumContent={canViewPremiumContent}
+                solution={solution}
+              />
+            </div>
             <JavaScriptCodingWorkspaceBottomBar
               layout={embed ? 'minimal' : 'full'}
               metadata={metadata}
@@ -351,7 +353,7 @@ function JavaScriptCodingWorkspaceImpl({
             'size-full flex-col text-sm',
             !embed ? 'hidden lg:flex' : 'flex',
           )}>
-          <div className={clsx('flex grow overflow-x-auto')}>
+          <div className={clsx('flex grow overflow-x-auto', !embed && 'pb-3')}>
             <div
               className={clsx(
                 'flex w-full grow px-3',

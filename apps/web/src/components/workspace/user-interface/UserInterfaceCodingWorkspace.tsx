@@ -346,47 +346,49 @@ function UserInterfaceCodingWorkspaceImpl({
       }}>
       {/* Mobile version */}
       {!embed && (
-        <div className="flex flex-col gap-y-4 lg:hidden">
-          {mode === 'practice' && (
-            <UserInterfaceCodingWorkspaceWriteup
-              canViewPremiumContent={canViewPremiumContent}
-              contentType="description"
-              framework={framework}
-              metadata={metadata}
-              mode={mode}
-              nextQuestions={[]}
-              similarQuestions={[]}
-              studyListKey={studyListKey}
-              writeup={description}
-              onFrameworkChange={onFrameworkChange}
+        <div className="size-full flex flex-col lg:hidden">
+          <div className="flex grow flex-col gap-y-4 overflow-y-auto">
+            {mode === 'practice' && (
+              <UserInterfaceCodingWorkspaceWriteup
+                canViewPremiumContent={canViewPremiumContent}
+                contentType="description"
+                framework={framework}
+                metadata={metadata}
+                mode={mode}
+                nextQuestions={[]}
+                similarQuestions={[]}
+                studyListKey={studyListKey}
+                writeup={description}
+                onFrameworkChange={onFrameworkChange}
+              />
+            )}
+            {mode === 'solution' && (
+              <UserInterfaceCodingWorkspaceWriteup
+                canViewPremiumContent={canViewPremiumContent}
+                contentType="solution"
+                framework={framework}
+                metadata={metadata}
+                mode={mode}
+                nextQuestions={[]}
+                similarQuestions={[]}
+                studyListKey={studyListKey}
+                writeup={solution}
+                onFrameworkChange={onFrameworkChange}
+              />
+            )}
+            <UserInterfaceCodingWorkspaceMobile
+              topAddOn={
+                mode === 'practice' && (
+                  <Button
+                    display="block"
+                    href={frameworkSolutionPath}
+                    label="View solution"
+                    variant="secondary"
+                  />
+                )
+              }
             />
-          )}
-          {mode === 'solution' && (
-            <UserInterfaceCodingWorkspaceWriteup
-              canViewPremiumContent={canViewPremiumContent}
-              contentType="solution"
-              framework={framework}
-              metadata={metadata}
-              mode={mode}
-              nextQuestions={[]}
-              similarQuestions={[]}
-              studyListKey={studyListKey}
-              writeup={solution}
-              onFrameworkChange={onFrameworkChange}
-            />
-          )}
-          <UserInterfaceCodingWorkspaceMobile
-            topAddOn={
-              mode === 'practice' && (
-                <Button
-                  display="block"
-                  href={frameworkSolutionPath}
-                  label="View solution"
-                  variant="secondary"
-                />
-              )
-            }
-          />
+          </div>
           <UserInterfaceCodingWorkspaceBottomBar
             frameworkSolutionPath={frameworkSolutionPath}
             metadata={metadata}
@@ -405,7 +407,7 @@ function UserInterfaceCodingWorkspaceImpl({
           'size-full flex-col text-sm',
           !embed ? 'hidden lg:flex' : 'flex',
         )}>
-        <div className="flex grow overflow-x-auto">
+        <div className={clsx('flex grow overflow-x-auto', !embed && 'pb-3')}>
           <div
             className={clsx(
               'flex w-full grow px-3',

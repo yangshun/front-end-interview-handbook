@@ -76,7 +76,7 @@ export default function JavaScriptCodingWorkspaceSection({
               '!w-full !text-sm',
               embed
                 ? '!h-full'
-                : '!bg-neutral-50 dark:!bg-[#070708] !pt-3 lg:!h-[calc(100vh_-_var(--global-sticky-height))]',
+                : '!bg-neutral-50 dark:!bg-[#070708] !pt-3 !h-[calc(100vh_-_var(--global-sticky-height))]',
             ),
           },
           visibleFiles: [workspace.main, workspace.run],
