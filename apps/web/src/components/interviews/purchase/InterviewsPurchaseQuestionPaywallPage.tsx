@@ -35,7 +35,7 @@ export default function InterviewsPurchaseQuestionPaywallPage({
         width="2xl">
         <div className="flex flex-col items-center gap-y-4">
           <Heading level="heading4">{metadata.title}</Heading>
-          <QuestionMetadataSection metadata={metadata} />
+          <QuestionMetadataSection justify="start" metadata={metadata} />
         </div>
         <Section>
           <div className="mt-6">
