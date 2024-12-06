@@ -21,11 +21,11 @@ import MarketingSectionHeader from '../../marketing/MarketingSectionHeader';
 
 const generalFaqs: FAQItems = [
   generalTarget,
-  generalBuying,
   generalUnique,
+  generalWorthIt,
+  generalBuying,
   generalWhatsIncluded,
   generalFreeUpdates,
-  generalWorthIt,
   generalSeniority,
 ];
 

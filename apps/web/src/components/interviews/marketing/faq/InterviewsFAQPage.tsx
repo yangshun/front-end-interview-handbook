@@ -34,11 +34,11 @@ import Text from '~/components/ui/Text';
 
 const generalFaqs: FAQItems = [
   generalTarget,
-  generalBuying,
   generalUnique,
+  generalWorthIt,
+  generalBuying,
   generalWhatsIncluded,
   generalFreeUpdates,
-  generalWorthIt,
   generalSeniority,
 ];
 

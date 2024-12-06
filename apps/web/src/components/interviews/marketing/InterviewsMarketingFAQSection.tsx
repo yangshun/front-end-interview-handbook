@@ -26,11 +26,11 @@ import {
 
 const generalFaqs: FAQItems = [
   generalTarget,
-  generalBuying,
   generalUnique,
+  generalWorthIt,
+  generalBuying,
   generalWhatsIncluded,
   generalFreeUpdates,
-  generalWorthIt,
   generalSeniority,
 ];
 

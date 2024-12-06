@@ -691,6 +691,10 @@
     "defaultMessage": "Basic general development guides, such as how to download and use an IDE, how to use tools like GitHub and Figma.",
     "description": "FAQ answer for projects platform"
   },
+  "2eN4S3": {
+    "defaultMessage": "Finally, premium features include access to time-saving resources such as <bold>curated question lists</bold>, including study plans, focus areas, and company guides, designed to streamline your preparation process and maximize efficiency.",
+    "description": "Paragraph 3 answer to 'What is included in the premium plan?' on Homepage's FAQ sections"
+  },
   "2fVNQZ": {
     "defaultMessage": "{count} topical deep-dives",
     "description": "Features for focus areas"
@@ -742,6 +746,10 @@
   "3GRLIt": {
     "defaultMessage": "User Interface Interviews",
     "description": "Title for User Interface Interviews category of frontend interview playbook cover page"
+  },
+  "3I6rHR": {
+    "defaultMessage": "These resources help you prepare effectively while saving time by focusing on high-impact areas:",
+    "description": "Paragraph 3 for \"What does GreatFrontEnd Interviews offer exactly?\" on Homepage FAQ sections"
   },
   "3IiqOd": {
     "defaultMessage": "Copy promo code",
@@ -1327,6 +1335,10 @@
     "defaultMessage": "Available in {frameworkLabel}",
     "description": "Label indicating what JavaScript frameworks this question is available in"
   },
+  "72crs8": {
+    "defaultMessage": "{Title}: A curated list of the 75 most important front-end interview questions. This list focuses on key topics, patterns, and formats commonly tested in interviews, giving you the foundational knowledge required to excel.",
+    "description": "Paragraph 2 for \"What does GreatFrontEnd Interviews offer exactly?\" on Homepage FAQ sections"
+  },
   "72r1UC": {
     "defaultMessage": "For a profile URL like <bold>https://linkedin.com/in/john-doe</bold>, your handle would be <bold>john-doe</bold>.",
     "description": "Rewards campaign help text"
@@ -1386,6 +1398,10 @@
   "7J8+8B": {
     "defaultMessage": "Share",
     "description": "Share button label"
+  },
+  "7O4ntB": {
+    "defaultMessage": "<strong>Created by Ex-interviewers:</strong> Every question, solution, test case, and curated question list or prep strategy on our platform has been carefully created by senior / staff engineers who have extensive experience conducting interviews at top tech companies. We guarantee trustworthy, high-quality content aligned with current market demands.",
+    "description": "Point 1 answer to 'What is unique about GreatFrontEnd Interviews?' on Homepage's FAQ sections"
   },
   "7OMhXJ": {
     "defaultMessage": "Level",
@@ -1519,6 +1535,10 @@
     "defaultMessage": "Coming soon",
     "description": "Tooltip for Coming Soon questions label"
   },
+  "8MF8Uf": {
+    "defaultMessage": "<strong>Comprehensive solutions and tests:</strong> We provide official solutions and test cases for every question, crafted by ex-FAANG engineers. Our solutions are in-depth and provide explanations of the approach, not just the code.",
+    "description": "Point 2 answer to 'What is unique about GreatFrontEnd Interviews?' on Homepage's FAQ sections"
+  },
   "8Nm9WZ": {
     "defaultMessage": "Walmart",
     "description": "Company name for Walmart"
@@ -1526,6 +1546,10 @@
   "8RXTKM": {
     "defaultMessage": "Submit",
     "description": "Label for \"Submit project\" button on current project session card"
+  },
+  "8SsXE6": {
+    "defaultMessage": "{Title}: Optimized for those with limited time, focusing on the most important concepts through coding and quiz-style questions.",
+    "description": "Paragraph 3 for \"What does GreatFrontEnd Interviews offer exactly?\" on Homepage FAQ sections"
   },
   "8TZX1E": {
     "defaultMessage": "You have completed this skill",
@@ -1874,6 +1898,10 @@
   "B4AISh": {
     "defaultMessage": "Submit your solution for {challengeName}. Get feedback and code reviews from the community.",
     "description": "Description of Projects challenge submission page"
+  },
+  "B6CHW7": {
+    "defaultMessage": "Each question is paired with detailed solutions and comprehensive test cases.",
+    "description": "Paragraph 1 for \"What does GreatFrontEnd Interviews offer exactly?\" on Homepage FAQ sections"
   },
   "B6YW6R": {
     "defaultMessage": "Are you sure you want to disconnect your Google Auth account? This action can be reversed at any time.",
@@ -2343,6 +2371,10 @@
     "defaultMessage": "Copied!",
     "description": "Indication that text has been copied"
   },
+  "EI/M2R": {
+    "defaultMessage": "Focus Areas:",
+    "description": "Paragraph 3 for \"What does GreatFrontEnd Interviews offer exactly?\" on Homepage FAQ sections"
+  },
   "EITf7R": {
     "defaultMessage": "Pricing",
     "description": "Link to pricing page"
@@ -2382,6 +2414,10 @@
   "Eah4gl": {
     "defaultMessage": "No completions on {date}",
     "description": "Tooltip label for completion count"
+  },
+  "EbMRMy": {
+    "defaultMessage": "Specialized questions covering critical front-end topics such as:",
+    "description": "Paragraph 3 for \"What does GreatFrontEnd Interviews offer exactly?\" on Homepage FAQ sections"
   },
   "Eel+ez": {
     "defaultMessage": "Meet the <strong>front end interview prep platform</strong> built to make your interviews much easier. By Big Tech ex-interviewers at",
@@ -3039,10 +3075,6 @@
     "defaultMessage": "Community | Dashboard",
     "description": "Title of community section on dashboard page"
   },
-  "IuWsYS": {
-    "defaultMessage": "Moreover, out of the resources in the market for front end interview preparation, our platform boasts the largest number of questions with solutions written by experienced Senior Front End Engineers previously from FAANG, who were also ex-interviewers.",
-    "description": "Paragraph 2 answer to 'Is it really worth it to buy GreatFrontEnd?' on Homepage's FAQ sections"
-  },
   "IveIL+": {
     "defaultMessage": "Features",
     "description": "Sidebar navigation label"
@@ -3054,6 +3086,10 @@
   "J/UPQZ": {
     "defaultMessage": "For learning",
     "description": "Title of the 'We help you learn through building - without tutorial hell' marketing section on Projects home page"
+  },
+  "J0I9im": {
+    "defaultMessage": "Covers every essential language and framework: {JavaScript}, {React}, {TypeScript}, {Angular}, {Vue}, {Svelte}, {HTML}, and {CSS}.",
+    "description": "Paragraph 1 for \"What does GreatFrontEnd Interviews offer exactly?\" on Homepage FAQ sections"
   },
   "J1pqvo": {
     "defaultMessage": "From beginner to advanced",
@@ -3418,10 +3454,6 @@
   "L7w0Ka": {
     "defaultMessage": "Computer Science Foundations",
     "description": "Title for focus area type"
-  },
-  "LBnblQ": {
-    "defaultMessage": "Is GreatFrontEnd Interviews targeted at engineers of specific seniority?",
-    "description": "Question on Homepage's FAQ section - on the seniority level of engineers that GreatFrontEnd targets"
   },
   "LC6VcF": {
     "defaultMessage": "{discount}% Off - GreatFrontEnd Social Rewards Campaign",
@@ -3830,6 +3862,10 @@
   "O2hH3T": {
     "defaultMessage": "While most projects on our platform are free, we offer premium features on each project like Figma files and official guides / solutions. Upon purchasing premium, you will be given a number of premium credits. A premium credit gives you access to all premium features in a project.",
     "description": "Description of premium feature"
+  },
+  "O2mFmn": {
+    "defaultMessage": "The <anchor>recommended prep plan</anchor> is a straightforward strategy designed to help most users efficiently prepare for front-end interviews. It covers critical areas to ensure you are ready for the majority of challenges you'll face:",
+    "description": "Paragraph 2 for \"What does GreatFrontEnd Interviews offer exactly?\" on Homepage FAQ sections"
   },
   "O6pifk": {
     "defaultMessage": "Coding interviews",
@@ -4274,6 +4310,10 @@
   "QqooKN": {
     "defaultMessage": "Get Started | Prepare for Your Front End Interviews",
     "description": "Social title of Get Started page"
+  },
+  "QrCyaP": {
+    "defaultMessage": "Company Guides:",
+    "description": "Paragraph 3 for \"What does GreatFrontEnd Interviews offer exactly?\" on Homepage FAQ sections"
   },
   "QrikGf": {
     "defaultMessage": "Copy to clipboard",
@@ -4831,6 +4871,10 @@
     "defaultMessage": "Learn to ask insightful questions at the end of the interview",
     "description": "How to ask insightful questions during behavioral interviews"
   },
+  "U9yPZC": {
+    "defaultMessage": "While over {freeQuestionCount} practice questions are available for free, the premium plan unlocks access to <bold>approximately half of our curated question bank</bold>, including exclusive questions not available in the free version. Additionally, the <bold>majority of our official solutions</bold>, written by ex-FAANG interviewers, are only accessible through a premium subscription.",
+    "description": "Paragraph 1 answer to 'What is included in the premium plan?' on Homepage's FAQ sections"
+  },
   "UAKmWa": {
     "defaultMessage": "Resubscribe to premium to learn from user submissions for premium challenges. You have {amountLeft, plural, =0 {no premium credits} one {<bold>1</bold> premium credit} other {<bold>#</bold> premium credits}} left.",
     "description": "Subtitle for project paywall"
@@ -4854,6 +4898,10 @@
   "ULuy8I": {
     "defaultMessage": "Difficulty",
     "description": "Question difficulty"
+  },
+  "UPf7Yu": {
+    "defaultMessage": "Premium users also gain access to <bold>company tags</bold>, enabling them to filter questions by specific companies known to ask them, making it easier to tailor their preparation.",
+    "description": "Paragraph 2 answer to 'What is included in the premium plan?' on Homepage's FAQ sections"
   },
   "UQMNWX": {
     "defaultMessage": "Practice User Interface Interview Questions with Solutions",
@@ -5227,6 +5275,10 @@
     "defaultMessage": "I want to use React for this challenge, but it's not listed as one of the skills. Can I still use it?",
     "description": "FAQ question for projects platform"
   },
+  "WjGVYh": {
+    "defaultMessage": "With over 500,000 engineers using our platform, there is a high likelihood that candidates <bold>competing for the same roles</bold> are already leveraging our resources. Additionally, countless users have reported encountering <bold>questions from our platform in their actual interviews</bold>, making the practice you gain on the platform directly relevant to the challenges you'll face in actual interviews.",
+    "description": "Paragraph 2 answer to 'Is it really worth it to buy GreatFrontEnd?' on Homepage's FAQ sections"
+  },
   "WjyQOy": {
     "defaultMessage": "DOM manipulation",
     "description": "Front end topic"
@@ -5483,10 +5535,6 @@
     "defaultMessage": "Explore articles related to \"{tagName}\"",
     "description": "Description of GreatFrontEnd blog tag page"
   },
-  "YMfxks": {
-    "defaultMessage": "Our lifetime access plan costs less than 1 hour of an average Front End Engineer's salary. Meanwhile, the reward for acing your interviews could be an increase in hundreds of thousands of total compensation.",
-    "description": "Paragraph 1 answer to 'Is it really worth it to buy GreatFrontEnd?' on Homepage's FAQ sections"
-  },
   "YOv8Qc": {
     "defaultMessage": "Do unspent GreatFrontEnd Projects credits roll over?",
     "description": "Question on projects pricing's FAQ section - unused credits"
@@ -5590,6 +5638,10 @@
   "ZFDU0d": {
     "defaultMessage": "Woohoo!",
     "description": "Toast title for project session started"
+  },
+  "ZG5bD2": {
+    "defaultMessage": "{Title}: A comprehensive resource that covers front-end system design interviews. It includes strategies, evaluation criteria, and solutions to common system design questions, such as designing a social media feed or autocomplete component. This guide is invaluable, as high-quality front-end system design materials are hard to find.",
+    "description": "Paragraph 2 for \"What does GreatFrontEnd Interviews offer exactly?\" on Homepage FAQ sections"
   },
   "ZHuDIg": {
     "defaultMessage": "Joined on {date}",
@@ -6347,6 +6399,10 @@
     "defaultMessage": "Retake screenshot",
     "description": "Retake screenshot button label"
   },
+  "e0jJyT": {
+    "defaultMessage": "Study Plans:",
+    "description": "Paragraph 3 for \"What does GreatFrontEnd Interviews offer exactly?\" on Homepage FAQ sections"
+  },
   "e1ohyq": {
     "defaultMessage": "Learn from others",
     "description": "Label for Learn from others sidebar item in Projects sidebar"
@@ -6602,6 +6658,10 @@
   "fc1KZ/": {
     "defaultMessage": "Follow our LinkedIn page",
     "description": "Label for join LinkedIn"
+  },
+  "fcFBen": {
+    "defaultMessage": "<strong>A simple roadmap to follow:</strong> If you don't know where to start, we provide a <anchor>carefully vetted roadmap</anchor> that guides you through preparing efficiently for the majority of the most common challenges you might encounter.",
+    "description": "Point 3 answer to 'What is unique about GreatFrontEnd Interviews?' on Homepage's FAQ sections"
   },
   "fcKx8Z": {
     "defaultMessage": "Advanced",
@@ -7075,6 +7135,10 @@
     "defaultMessage": "Types of JS questions, concepts to cover and rubrics",
     "description": "JavaScript questions, concepts and rubrics during front end interviews"
   },
+  "it3lFE": {
+    "defaultMessage": "Is this GreatFrontEnd Interviews targeted at engineers of specific seniorities?",
+    "description": "Question on Homepage's FAQ section - on the seniority level of engineers that GreatFrontEnd targets"
+  },
   "ivmSx0": {
     "defaultMessage": "We're Hiring",
     "description": "Link to careers page"
@@ -7535,6 +7599,10 @@
     "defaultMessage": "Challenges completed",
     "description": "Number of project challenges completed"
   },
+  "ladXww": {
+    "defaultMessage": "Company-specific preparation for interviews at top companies like <bold>Google</bold>, <bold>Amazon</bold>, <bold>Microsoft</bold>, <bold>TikTok</bold>, <bold>Apple</bold>, and <bold>more</bold>. These guides include insider tips and practice questions tailored to the company's interview style.",
+    "description": "Paragraph 3 for \"What does GreatFrontEnd Interviews offer exactly?\" on Homepage FAQ sections"
+  },
   "ldOgfx": {
     "defaultMessage": "Easy",
     "description": "Easy question difficulty"
@@ -7558,6 +7626,10 @@
   "ltBiLe": {
     "defaultMessage": "Do you offer refunds for GreatFrontEnd Projects?",
     "description": "Question on projects pricing's FAQ section - offer refunds"
+  },
+  "ltgSBa": {
+    "defaultMessage": "Time-Saving Lists",
+    "description": "Paragraph 3 for \"What does GreatFrontEnd Interviews offer exactly?\" on Homepage FAQ sections"
   },
   "lu/XVn": {
     "defaultMessage": "No community contributions",
@@ -7602,6 +7674,10 @@
   "mKOi1B": {
     "defaultMessage": "Study plans",
     "description": "Label for study plans study list"
+  },
+  "mKaP8w": {
+    "defaultMessage": "Our plans cost <bold>less than the equivalent of one hour</bold> of an average Front End Engineer's salary. In contrast, a strong interview performance can lead to securing a competitive offer with a total compensation <bold>increase of hundreds of thousands of dollars</bold>. It's widely known that many companies structure their offers based on interview performance, and excelling in interviews can even result in being <bold>upleveled into a higher role</bold>, further increasing your earning potential.",
+    "description": "Paragraph 1 answer to 'Is it really worth it to buy GreatFrontEnd?' on Homepage's FAQ sections"
   },
   "mNb3b2": {
     "defaultMessage": "Hard",
@@ -8423,6 +8499,10 @@
     "defaultMessage": "Lifetime plan",
     "description": "Title of LifeTime Access Pricing Plan found on Homepage or Pricing page"
   },
+  "rj0mJw": {
+    "defaultMessage": "Recommended prep plan",
+    "description": "Paragraph 2 for \"What does GreatFrontEnd Interviews offer exactly?\" on Homepage FAQ sections"
+  },
   "rk4UGh": {
     "defaultMessage": "Your Google Auth account has been successfully disconnected.",
     "description": "Success toast message for connected successfully"
@@ -9059,6 +9139,10 @@
     "defaultMessage": "Billed monthly",
     "description": "Description of billing frequency for monthly plan"
   },
+  "vy8Wbl": {
+    "defaultMessage": "<strong>Demonstrated success:</strong> We've over 500,000 active users over our lifetime, and have accumulated a strong track record of helping users land offers at FAANG and other FAANG adjacent companies. Many users have reported encountering questions directly sourced from our question base.",
+    "description": "Point 4 answer to 'What is unique about GreatFrontEnd Interviews?' on Homepage's FAQ sections"
+  },
   "vyB72k": {
     "defaultMessage": "More",
     "description": "Label for more contribution"
@@ -9122,6 +9206,10 @@
   "wO0zga": {
     "defaultMessage": "Skills roadmap",
     "description": "Title for \"Skills roadmap\" feature on Projects home page"
+  },
+  "wPCPuk": {
+    "defaultMessage": "{Title}: A balanced plan to enhance both coding and system design skills, preparing you thoroughly in a month.",
+    "description": "Paragraph 3 for \"What does GreatFrontEnd Interviews offer exactly?\" on Homepage FAQ sections"
   },
   "wRV8PN": {
     "defaultMessage": "Settings",
@@ -9211,6 +9299,10 @@
     "defaultMessage": "Don't waste time on mindless grinding",
     "description": "Title for front end interview roadmap"
   },
+  "xJ0BqY": {
+    "defaultMessage": "{Title}: The complete all-in-one preparation roadmap, covering over 140 questions for deep and comprehensive preparation.",
+    "description": "Paragraph 3 for \"What does GreatFrontEnd Interviews offer exactly?\" on Homepage FAQ sections"
+  },
   "xJJGlf": {
     "defaultMessage": "Your submission is successful and now available for community code reviews",
     "description": "Description for the project submission success page"
@@ -9294,6 +9386,10 @@
   "y/r8Q+": {
     "defaultMessage": "Roadmap | GreatFrontEnd Projects",
     "description": "Social title of interview roadmap page"
+  },
+  "y0DBMD": {
+    "defaultMessage": "Large base of {questionCount}+ practice questions",
+    "description": "Paragraph 1 for \"What does GreatFrontEnd Interviews offer exactly?\" on Homepage FAQ sections"
   },
   "y16Lzt": {
     "defaultMessage": "Find out what questions companies are asking their candidates.",
@@ -9527,6 +9623,10 @@
     "defaultMessage": "Popularity: Least to most completed",
     "description": "Sorting option for projects list - popularity"
   },
+  "zOaxDi": {
+    "defaultMessage": "Includes every possible question format you'll encounter: <jsCodingAnchor>JavaScript coding questions</jsCodingAnchor>, <uiAnchor>UI coding questions</uiAnchor>, <algoCodingAnchor>Algo coding questions</algoCodingAnchor>, <systemDesignAnchor>System design</systemDesignAnchor>, and <quizAnchor>Quiz-style questions</quizAnchor>.",
+    "description": "Paragraph 1 for \"What does GreatFrontEnd Interviews offer exactly?\" on Homepage FAQ sections"
+  },
   "zQFib0": {
     "defaultMessage": "Progress",
     "description": "Label for progress bar for learning progress"
@@ -9566,6 +9666,10 @@
   "zgj9Pd": {
     "defaultMessage": "Learn from others",
     "description": "Title for \"Learn from others\" feature on Projects home page"
+  },
+  "zl/anP": {
+    "defaultMessage": "{Title}: A list of the top 75 data structures and algorithms questions, adapted and solved in JavaScript and TypeScript to make them more accessible for front-end engineers. This ensures you're prepared for DSA questions, which are often a requirement at FAANG and similar companies.",
+    "description": "Paragraph 2 for \"What does GreatFrontEnd Interviews offer exactly?\" on Homepage FAQ sections"
   },
   "zn3iWx": {
     "defaultMessage": "Repeat Password",
