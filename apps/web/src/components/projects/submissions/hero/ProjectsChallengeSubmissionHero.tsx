@@ -102,10 +102,7 @@ export default function ProjectsChallengeSubmissionHero({
 
   const commentButton = (
     <FilterButton
-      className={clsx(
-        'flex-1 md:flex-none',
-        'dark:!bg-neutral-800 dark:md:!bg-neutral-900',
-      )}
+      className={clsx('flex-1 md:flex-none')}
       icon={RiMessage2Fill}
       isDisabled={!isLoggedIn}
       label={String(submission.comments ?? 0)}

@@ -23,6 +23,7 @@ export default function ProjectsChallengeSubmissionHeroVoteButton({
   const { showToast } = useToast();
   const intl = useIntl();
   const router = useI18nRouter();
+  const trpcUtils = trpc.useUtils();
 
   const { data: viewerVote, isLoading } =
     trpc.projects.submission.hasVoted.useQuery({
@@ -41,12 +42,16 @@ export default function ProjectsChallengeSubmissionHeroVoteButton({
         }),
         variant: 'success',
       });
+
+      trpcUtils.projects.submission.hasVoted.invalidate();
     },
   });
   const unvote = trpc.projects.submission.unvote.useMutation({
     onSuccess: () => {
       // Refresh number of votes by refetching from the server.
       router.refresh();
+
+      trpcUtils.projects.submission.hasVoted.invalidate();
     },
   });
 
@@ -54,10 +59,7 @@ export default function ProjectsChallengeSubmissionHeroVoteButton({
 
   return (
     <FilterButton
-      className={clsx(
-        ' flex-1 md:flex-none',
-        'dark:!bg-neutral-800 dark:md:!bg-neutral-900',
-      )}
+      className="flex-1 md:flex-none"
       icon={RiThumbUpFill}
       isDisabled={isLoading || vote.isLoading || unvote.isLoading || disabled}
       label={String(votes)}
