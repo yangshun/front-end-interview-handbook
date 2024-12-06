@@ -11,10 +11,10 @@ import { daysInMonth, getAllDatesInRange, groupByDateFormatter } from './utils';
 
 const contributionColorMap: Record<number, string> = {
   0: themeBackgroundLineEmphasizedColor,
-  1: 'bg-success-lighter dark:bg-success-dark',
-  2: 'bg-success-light dark:bg-success',
-  3: 'bg-success dark:bg-success-light',
-  4: 'bg-success-dark dark:bg-success-lighter',
+  1: 'bg-green-400 dark:bg-green-900',
+  2: 'bg-green-500 dark:bg-green-800',
+  3: 'bg-green-600 dark:bg-green-600',
+  4: 'bg-green-800 dark:bg-green-500',
 };
 
 type Props = Readonly<{
