@@ -470,7 +470,7 @@ function InterviewsQuestionsListSlideOutImpl({
     slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE,
     parseAsBoolean.withDefault(false),
   );
-  const isMobile = useMediaQuery('(max-width: 500px)');
+  const isMobile = useMediaQuery('(max-width: 640px)');
   const router = useRouter();
   const [currentListType, setCurrentListType] =
     useState<QuestionListTypeWithLabel | null>(null);

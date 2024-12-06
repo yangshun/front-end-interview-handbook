@@ -117,10 +117,12 @@ export default function UserInterfaceCodingWorkspaceBottomBar({
         studyListKey={studyListKey}
       />
       {mode === 'practice' ? (
-        <UserInterfaceCodingWorkspaceSaveButton
-          question={question}
-          studyListKey={studyListKey}
-        />
+        <div className="hidden min-[400px]:block">
+          <UserInterfaceCodingWorkspaceSaveButton
+            question={question}
+            studyListKey={studyListKey}
+          />
+        </div>
       ) : null}
     </>
   );
