@@ -48,7 +48,9 @@ export default function ProjectsPricingSection({
         'lg:rounded-t-3xl xl:rounded-t-[48px]',
         themeRadialGlowBackground,
       )}>
-      <Container className="flex flex-col gap-y-8 md:gap-y-16">
+      <Container
+        className="flex flex-col gap-y-8 md:gap-y-16"
+        width="marketing">
         <div className="mx-auto max-w-5xl text-center">
           <MarketingSectionHeader
             description={description}

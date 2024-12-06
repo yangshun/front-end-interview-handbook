@@ -167,7 +167,7 @@ export default function Footer({ navigation }: Props) {
         />
       </Heading>
       <Section>
-        <Container className="py-12 lg:py-16">
+        <Container className="py-12 lg:py-16" width="marketing">
           <div className="lg:grid lg:grid-cols-3 xl:gap-8">
             <div className="flex flex-col justify-between gap-y-4 xl:col-span-1">
               <div className="flex flex-col gap-y-6">

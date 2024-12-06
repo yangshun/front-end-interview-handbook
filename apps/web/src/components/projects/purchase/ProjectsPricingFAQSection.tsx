@@ -30,7 +30,9 @@ export default function ProjectsPricingFAQSection() {
   const intl = useIntl();
 
   return (
-    <Container className="relative isolate flex flex-col gap-y-12" width="6xl">
+    <Container
+      className="relative isolate flex flex-col gap-y-12"
+      width="marketing">
       <MarketingSectionHeader
         description={
           <FormattedMessage
