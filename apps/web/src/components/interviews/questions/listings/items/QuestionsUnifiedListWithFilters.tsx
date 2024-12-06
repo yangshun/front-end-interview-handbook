@@ -6,7 +6,7 @@ import VignetteOverlay from '~/components/common/VignetteOverlay';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import type { GuideCardMetadataWithCompletedStatus } from '~/components/guides/types';
 import InterviewsGuideCard from '~/components/interviews/guides/InterviewsGuideCard';
-import QuestionPaywall from '~/components/interviews/questions/common/QuestionPaywall';
+import InterviewsPurchasePaywall from '~/components/interviews/purchase/InterviewsPurchasePaywall';
 import type {
   QuestionFormat,
   QuestionFrameworkOrLanguage,
@@ -198,7 +198,10 @@ export default function QuestionsUnifiedListWithFilters({
             <VignetteOverlay
               className="max-h-[500px] md:max-h-none"
               overlay={
-                <QuestionPaywall background="vignette" feature="company-tags" />
+                <InterviewsPurchasePaywall
+                  background="vignette"
+                  premiumFeature="company-tags"
+                />
               }
               overlayClass="top-8 sm:top-16 md:top-24">
               <div

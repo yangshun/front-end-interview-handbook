@@ -4,7 +4,7 @@ import { Fragment } from 'react';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import { useIntl } from '~/components/intl';
 
-import QuestionPaywall from '../../common/QuestionPaywall';
+import InterviewsPurchasePaywall from '../../../purchase/InterviewsPurchasePaywall';
 
 type Props = PropsWithChildren<
   Readonly<{
@@ -32,7 +32,7 @@ export default function SystemDesignPaywall({
 
   // From this point on the content is premium.
   return isComingSoon ? (
-    <QuestionPaywall
+    <InterviewsPurchasePaywall
       subtitle={intl.formatMessage({
         defaultMessage:
           'System Design content will be released on a rolling basis. Purchase premium to unlock full access to exclusive System Design content including an interview guide, high quality solutions and companies which ask this question.',
@@ -47,7 +47,7 @@ export default function SystemDesignPaywall({
       variant="under_construction"
     />
   ) : (
-    <QuestionPaywall
+    <InterviewsPurchasePaywall
       subtitle={intl.formatMessage({
         defaultMessage:
           'Purchase premium to unlock full access to exclusive System Design content including high quality solutions and companies which ask this question.',

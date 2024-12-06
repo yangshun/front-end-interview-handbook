@@ -5,7 +5,7 @@ import type { ReactNode } from 'react';
 
 import GuidesMainLayout from '~/components/guides/GuidesMainLayout';
 import type { TableOfContents } from '~/components/guides/GuidesTableOfContents';
-import QuestionPaywall from '~/components/interviews/questions/common/QuestionPaywall';
+import InterviewsPurchasePaywall from '~/components/interviews/purchase/InterviewsPurchasePaywall';
 import type { QuestionSystemDesign } from '~/components/interviews/questions/common/QuestionsTypes';
 import QuestionContentsSystemDesign from '~/components/interviews/questions/content/system-design/QuestionContentsSystemDesign';
 import { ReadyQuestions } from '~/components/interviews/questions/content/system-design/SystemDesignConfig';
@@ -49,7 +49,7 @@ export default function InterviewsQuestionsSystemDesignPage({
       studyListKey={studyListKey}
       tableOfContents={tableOfContents}>
       {!isAvailable ? (
-        <QuestionPaywall
+        <InterviewsPurchasePaywall
           subtitle="System Design content will be released on a rolling basis. Prices will be increased after System Design content is complete. Subscribe to lifetime today and secure the better deal!"
           title="Coming Soon"
           variant="under_construction"

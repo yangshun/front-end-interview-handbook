@@ -11,7 +11,7 @@ import { trpc } from '~/hooks/trpc';
 import VignetteOverlay from '~/components/common/VignetteOverlay';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import useInterviewsQuestionsFeatures from '~/components/interviews/common/useInterviewsQuestionsFeatures';
-import QuestionPaywall from '~/components/interviews/questions/common/QuestionPaywall';
+import InterviewsPurchasePaywall from '~/components/interviews/purchase/InterviewsPurchasePaywall';
 import type {
   QuestionFormat,
   QuestionMetadata,
@@ -75,10 +75,10 @@ export default function InterviewsStudyPlanPage({
       <div className="relative flex flex-col gap-y-8">
         <InterviewsStudyListPageTitleSection
           description={studyList.description}
-          feature="study-lists"
           features={features}
           icon={StudyPlanIcons[studyList.slug]}
           overallProgress={questionProgressParam ?? []}
+          purchaseFeature="study-plans"
           questions={questions}
           studyListKey={studyList.slug}
           title={studyList.longName}
@@ -96,7 +96,10 @@ export default function InterviewsStudyPlanPage({
             <VignetteOverlay
               className="max-h-[500px] md:max-h-none"
               overlay={
-                <QuestionPaywall background="vignette" feature="study-plans" />
+                <InterviewsPurchasePaywall
+                  background="vignette"
+                  premiumFeature="study-plans"
+                />
               }
               overlayClass="top-8 sm:top-16 md:top-24">
               <div

@@ -16,7 +16,7 @@ import { trpc } from '~/hooks/trpc';
 
 import VignetteOverlay from '~/components/common/VignetteOverlay';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
-import QuestionPaywall from '~/components/interviews/questions/common/QuestionPaywall';
+import InterviewsPurchasePaywall from '~/components/interviews/purchase/InterviewsPurchasePaywall';
 import type {
   QuestionFormat,
   QuestionMetadata,
@@ -124,7 +124,7 @@ export default function InterviewsCompanyGuidePage({
       <div className="relative flex flex-col gap-y-8">
         <InterviewsStudyListPageTitleSection
           description={studyList.shortDescription}
-          feature="company-guides"
+          purchaseFeature="company-guides"
           features={features}
           logoImgSrc={studyList.logoUrl}
           overallProgress={questionProgressParam ?? []}
@@ -204,9 +204,9 @@ export default function InterviewsCompanyGuidePage({
               <VignetteOverlay
                 className="max-h-[500px] md:max-h-none"
                 overlay={
-                  <QuestionPaywall
+                  <InterviewsPurchasePaywall
                     background="vignette"
-                    feature="company-guides"
+                    premiumFeature="company-guides"
                   />
                 }
                 overlayClass="top-8 sm:top-16 md:top-24">

@@ -106,7 +106,7 @@ export default async function Page({ params }: Props) {
       />
       {isStudyListLockedForViewer ? (
         <InterviewsPurchaseStudyListPaywallPage
-          studyListHref={studyList.href}
+          studyListCategory={studyList.category}
         />
       ) : (
         <QuestionQuizContents

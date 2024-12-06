@@ -11,6 +11,7 @@ import {
 } from 'react-icons/ri';
 
 import InterviewsPricingTableDialog from '~/components/interviews/purchase/InterviewsPricingTableDialog';
+import type { InterviewsPurchasePremiumFeature } from '~/components/interviews/purchase/InterviewsPurchaseTypes';
 import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
@@ -22,8 +23,6 @@ import {
   themeTextBrandColor,
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
-
-import type { QuestionFeatureType } from './QuestionsTypes';
 
 type PremiumWallVariant = 'not_subscribed' | 'under_construction';
 
@@ -41,37 +40,37 @@ const colors: Record<PremiumWallVariant, string> = {
 
 type Props = Readonly<{
   background?: 'none' | 'solid' | 'vignette';
-  feature?: QuestionFeatureType;
+  premiumFeature?: InterviewsPurchasePremiumFeature;
   subtitle?: string;
   title?: string;
   variant?: PremiumWallVariant;
 }>;
 
-export default function QuestionPaywall(props: Props) {
+export default function InterviewsPurchasePaywall(props: Props) {
   // Because of nuqs
   return (
     <Suspense>
-      <QuestionPaywallImpl {...props} />
+      <InterviewsPurchasePaywallImpl {...props} />
     </Suspense>
   );
 }
 
-function QuestionPaywallImpl({
+function InterviewsPurchasePaywallImpl({
   title: titleProp,
   subtitle: subtitleProp,
   variant = 'not_subscribed',
   background = 'solid',
-  feature = 'premium-questions',
+  premiumFeature = 'premium-questions',
 }: Props) {
   const intl = useIntl();
-  const featuresData = useFeaturesData();
+  const featuresData = usePremiumFeaturesData();
   const [showPricingDialog, setShowPricingDialog] = useQueryState(
     'pricing_dialog',
     parseAsBoolean.withDefault(false),
   );
 
   const { title: featureTitle, subtitle: featuresSubtitle } =
-    featuresData[feature];
+    featuresData[premiumFeature];
   const title = titleProp ?? featureTitle;
   const subtitle = subtitleProp ?? featuresSubtitle;
   const Icon = icons[variant];
@@ -167,8 +166,8 @@ function QuestionPaywallImpl({
           </div>
           <div>
             <InterviewsPricingTableDialog
-              feature={feature}
               isShown={Boolean(showPricingDialog)}
+              premiumFeature={premiumFeature}
               trigger={
                 <Button
                   icon={RiArrowRightLine}
@@ -195,10 +194,10 @@ function QuestionPaywallImpl({
   );
 }
 
-function useFeaturesData() {
+function usePremiumFeaturesData() {
   const intl = useIntl();
   const featuresData: Record<
-    QuestionFeatureType,
+    InterviewsPurchasePremiumFeature,
     Readonly<{ subtitle: string; title: string }>
   > = {
     'company-guides': {
@@ -264,19 +263,6 @@ function useFeaturesData() {
         defaultMessage: 'Premium question',
         description: 'Paywall title for premium questions feature',
         id: 'DV+l42',
-      }),
-    },
-    'study-lists': {
-      subtitle: intl.formatMessage({
-        defaultMessage:
-          'Purchase premium to unlock study lists and all the best materials we have to offer.',
-        description: 'Paywall subtitle for study lists feature',
-        id: 'ClnQFj',
-      }),
-      title: intl.formatMessage({
-        defaultMessage: 'Premium study lists',
-        description: 'Paywall title for study lists feature',
-        id: 'I7UwcA',
       }),
     },
     'study-plans': {

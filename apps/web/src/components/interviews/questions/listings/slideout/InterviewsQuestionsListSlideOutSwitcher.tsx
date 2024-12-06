@@ -6,7 +6,7 @@ import useUserProfile from '~/hooks/user/useUserProfile';
 
 import SidebarPremiumChip from '~/components/global/sidebar/SidebarPremiumChip';
 import InterviewsPricingTableDialog from '~/components/interviews/purchase/InterviewsPricingTableDialog';
-import type { QuestionFeatureType } from '~/components/interviews/questions/common/QuestionsTypes';
+import type { InterviewsPurchasePremiumFeature } from '~/components/interviews/purchase/InterviewsPurchaseTypes';
 import { useIntl } from '~/components/intl';
 import DropdownMenu from '~/components/ui/DropdownMenu';
 import Spinner from '~/components/ui/Spinner';
@@ -21,7 +21,7 @@ function DropdownContent({
   openPricingDialog,
 }: Readonly<{
   onChangeListType: (value: QuestionListTypeWithLabel) => void;
-  openPricingDialog: (feature: QuestionFeatureType) => void;
+  openPricingDialog: (feature: InterviewsPurchasePremiumFeature) => void;
 }>) {
   const intl = useIntl();
   const { data: questionLists, isLoading } = trpc.questionLists.get.useQuery();
@@ -139,7 +139,7 @@ type QuestionListCategories = Readonly<{
   items: ReadonlyArray<QuestionListTypeData & Readonly<{ label: string }>>;
   key: string;
   label: string;
-  premiumFeature?: QuestionFeatureType;
+  premiumFeature?: InterviewsPurchasePremiumFeature;
 }>;
 
 function convertToMap(studyLists: ReadonlyArray<QuestionListTypeWithLabel>) {
@@ -162,7 +162,7 @@ export default function InterviewsQuestionsListSlideOutSwitcher({
   onChangeListType,
 }: Props) {
   const [pricingDialogFeature, setPricingDialogFeature] =
-    useState<QuestionFeatureType | null>(null);
+    useState<InterviewsPurchasePremiumFeature | null>(null);
 
   return (
     <>
@@ -180,8 +180,8 @@ export default function InterviewsQuestionsListSlideOutSwitcher({
         />
       </DropdownMenu>
       <InterviewsPricingTableDialog
-        feature={pricingDialogFeature || undefined}
         isShown={Boolean(pricingDialogFeature)}
+        premiumFeature={pricingDialogFeature || undefined}
         onClose={() => setPricingDialogFeature(null)}
       />
     </>

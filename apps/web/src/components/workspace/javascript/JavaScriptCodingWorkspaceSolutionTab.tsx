@@ -1,7 +1,7 @@
 import { getMDXComponent } from 'mdx-bundler/client';
 import { useMemo } from 'react';
 
-import QuestionPaywall from '~/components/interviews/questions/common/QuestionPaywall';
+import InterviewsPurchasePaywall from '~/components/interviews/purchase/InterviewsPurchasePaywall';
 import type { Props as MDXCodeBlockProps } from '~/components/mdx/MDXCodeBlock';
 import MDXCodeBlock from '~/components/mdx/MDXCodeBlock';
 import MDXComponents from '~/components/mdx/MDXComponents';
@@ -48,7 +48,10 @@ export default function JavaScriptCodingWorkspaceSolutionTab({
 
     return (
       <div className="flex w-full items-center justify-center">
-        <QuestionPaywall background="vignette" feature="official-solutions" />
+        <InterviewsPurchasePaywall
+          background="vignette"
+          premiumFeature="official-solutions"
+        />
       </div>
     );
   }

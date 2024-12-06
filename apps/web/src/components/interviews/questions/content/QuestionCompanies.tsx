@@ -3,7 +3,7 @@ import { Fragment } from 'react';
 
 import useCompanyNames from '~/hooks/useCompanyNames';
 
-import QuestionPaywallSmall from '~/components/interviews/questions/common/QuestionPaywallSmall';
+import InterviewsPurchasePaywallSmall from '~/components/interviews/purchase/InterviewsPurchasePaywallSmall';
 import type { QuestionCompany } from '~/components/interviews/questions/common/QuestionsTypes';
 import { FormattedMessage, useIntl } from '~/components/intl';
 import Heading from '~/components/ui/Heading';
@@ -41,7 +41,7 @@ export default function QuestionCompanies({
       </Heading>
       <Section>
         {!canViewPremiumContent ? (
-          <QuestionPaywallSmall
+          <InterviewsPurchasePaywallSmall
             subtitle={intl.formatMessage({
               defaultMessage:
                 'Purchase premium to see companies which ask this question.',

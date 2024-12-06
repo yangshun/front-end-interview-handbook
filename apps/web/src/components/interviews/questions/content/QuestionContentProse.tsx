@@ -8,7 +8,7 @@ import EmptyState from '~/components/ui/EmptyState';
 import type { ProseTextSize } from '~/components/ui/Prose';
 import Prose from '~/components/ui/Prose';
 
-import QuestionPaywall from '../common/QuestionPaywall';
+import InterviewsPurchasePaywall from '../../purchase/InterviewsPurchasePaywall';
 
 export default function QuestionContentProse({
   contents,
@@ -32,7 +32,7 @@ export default function QuestionContentProse({
   }, [contents]);
 
   if (isContentsHidden) {
-    return <QuestionPaywall />;
+    return <InterviewsPurchasePaywall />;
   }
 
   if (Contents == null) {

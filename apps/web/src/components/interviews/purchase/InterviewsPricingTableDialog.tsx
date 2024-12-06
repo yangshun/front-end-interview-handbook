@@ -1,12 +1,12 @@
 import { trpc } from '~/hooks/trpc';
 
+import type { InterviewsPurchasePremiumFeature } from '~/components/interviews/purchase/InterviewsPurchaseTypes';
 import { useIntl } from '~/components/intl';
 import Dialog from '~/components/ui/Dialog';
 import Spinner from '~/components/ui/Spinner';
 import Text from '~/components/ui/Text';
 
 import InterviewsPricingTableSection from './InterviewsPricingTableSection';
-import type { QuestionFeatureType } from '../questions/common/QuestionsTypes';
 
 function InterviewsPricingTableDialogTableSectionContainer() {
   const { data: pricingPlans, isLoading } =
@@ -34,9 +34,9 @@ function InterviewsPricingTableDialogTableSectionContainer() {
 }
 
 type Props = Readonly<{
-  feature?: QuestionFeatureType;
   isShown?: boolean;
   onClose?: () => void;
+  premiumFeature?: InterviewsPurchasePremiumFeature;
   trigger?: React.ReactNode;
 }>;
 
@@ -44,12 +44,12 @@ export default function InterviewsPricingTableDialog({
   isShown,
   onClose,
   trigger,
-  feature = 'premium-questions',
+  premiumFeature = 'premium-questions',
 }: Props) {
   const intl = useIntl();
 
   const featuresHeading: Record<
-    QuestionFeatureType,
+    InterviewsPurchasePremiumFeature,
     Readonly<{ title: string }>
   > = {
     'company-guides': {
@@ -87,13 +87,6 @@ export default function InterviewsPricingTableDialog({
         id: '7wfbGH',
       }),
     },
-    'study-lists': {
-      title: intl.formatMessage({
-        defaultMessage: 'Premium is required to access study lists',
-        description: 'Title for study plans feature',
-        id: 'JpjIuG',
-      }),
-    },
     'study-plans': {
       title: intl.formatMessage({
         defaultMessage: 'Premium is required to access study plans',
@@ -103,7 +96,7 @@ export default function InterviewsPricingTableDialog({
     },
   };
 
-  const { title } = featuresHeading[feature];
+  const { title } = featuresHeading[premiumFeature];
 
   const subtitle = intl.formatMessage({
     defaultMessage:

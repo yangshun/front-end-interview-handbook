@@ -2,7 +2,7 @@
 
 import clsx from 'clsx';
 
-import QuestionPaywall from '~/components/interviews/questions/common/QuestionPaywall';
+import InterviewsPurchasePaywall from '~/components/interviews/purchase/InterviewsPurchasePaywall';
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import QuestionMetadataSection from '~/components/interviews/questions/metadata/QuestionMetadataSection';
 import Heading from '~/components/ui/Heading';
@@ -38,8 +38,8 @@ export default function InterviewsPurchaseQuestionPaywallPage({
           <QuestionMetadataSection metadata={metadata} />
         </div>
         <Section>
-          <QuestionPaywall
-            feature={
+          <InterviewsPurchasePaywall
+            premiumFeature={
               mode === 'solution' ? 'official-solutions' : 'premium-questions'
             }
           />

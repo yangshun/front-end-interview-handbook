@@ -186,12 +186,3 @@ export type QuestionTopic =
   | 'web-api';
 
 export type QuestionQuiz = QuestionBase;
-
-export type QuestionFeatureType =
-  | 'company-guides'
-  | 'company-tags'
-  | 'focus-areas'
-  | 'official-solutions'
-  | 'premium-questions'
-  | 'study-lists'
-  | 'study-plans';

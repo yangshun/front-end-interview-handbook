@@ -17,10 +17,8 @@ import { useToast } from '~/components/global/toasts/useToast';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import getProgressBarGradient from '~/components/interviews/common/utils';
 import InterviewsPricingTableDialog from '~/components/interviews/purchase/InterviewsPricingTableDialog';
-import type {
-  QuestionFeatureType,
-  QuestionMetadata,
-} from '~/components/interviews/questions/common/QuestionsTypes';
+import type { InterviewsPurchasePremiumFeature } from '~/components/interviews/purchase/InterviewsPurchaseTypes';
+import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import { FormattedMessage, useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import Card from '~/components/ui/Card';
@@ -37,8 +35,8 @@ import QuestionsProgressFraction from '../../common/QuestionsProgressFraction';
 import { useUser } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
-  feature?: QuestionFeatureType;
   overallProgress: ReadonlyArray<QuestionProgress>;
+  premiumFeature?: InterviewsPurchasePremiumFeature;
   pricingDialogSearchParam_MUST_BE_UNIQUE_ON_PAGE: string;
   progressTrackingAvailableToNonPremiumUsers?: boolean;
   questionCount: number;
@@ -61,7 +59,7 @@ function InterviewsStudyListSessionImpl({
   questionCount,
   questions,
   overallProgress,
-  feature,
+  premiumFeature,
   pricingDialogSearchParam_MUST_BE_UNIQUE_ON_PAGE,
   studyListKey,
   studyListTitle,
@@ -463,8 +461,8 @@ function InterviewsStudyListSessionImpl({
         />
       )}
       <InterviewsPricingTableDialog
-        feature={feature}
         isShown={Boolean(showPricingDialog)}
+        premiumFeature={premiumFeature}
         onClose={() => {
           setShowPricingDialog(false);
         }}

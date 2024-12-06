@@ -23,6 +23,7 @@ export const InterviewsStudyListDocument = defineDocumentType(() => ({
   computedFields: {
     category: {
       description: 'Type of list: study plan / focus area / company',
+      // Keep in sync with StudyListCategory type
       options: ['study-plan', 'focus-area', 'company'],
       resolve: (doc) => parseCategory(doc._raw.sourceFilePath),
       type: 'enum',

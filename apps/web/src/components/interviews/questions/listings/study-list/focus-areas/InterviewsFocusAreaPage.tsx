@@ -11,7 +11,7 @@ import { trpc } from '~/hooks/trpc';
 import VignetteOverlay from '~/components/common/VignetteOverlay';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import useInterviewsQuestionsFeatures from '~/components/interviews/common/useInterviewsQuestionsFeatures';
-import QuestionPaywall from '~/components/interviews/questions/common/QuestionPaywall';
+import InterviewsPurchasePaywall from '~/components/interviews/purchase/InterviewsPurchasePaywall';
 import type {
   QuestionFormat,
   QuestionMetadata,
@@ -76,7 +76,7 @@ export default function InterviewsFocusAreaPage({
       <div className="relative flex flex-col gap-y-8">
         <InterviewsStudyListPageTitleSection
           description={studyList.description}
-          feature="focus-areas"
+          purchaseFeature="focus-areas"
           features={features}
           icon={FocusAreaIcons[studyList.slug]}
           overallProgress={questionProgressParam ?? []}
@@ -107,7 +107,10 @@ export default function InterviewsFocusAreaPage({
           <VignetteOverlay
             className="max-h-[500px] md:max-h-none"
             overlay={
-              <QuestionPaywall background="vignette" feature="focus-areas" />
+              <InterviewsPurchasePaywall
+                background="vignette"
+                premiumFeature="focus-areas"
+              />
             }
             overlayClass="top-8 sm:top-16 md:top-24">
             <div

@@ -6,7 +6,7 @@ import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 import { themeBorderColor } from '~/components/ui/theme';
 
-export default function QuestionPaywallSmall({
+export default function InterviewsPurchasePaywallSmall({
   title: titleProp,
   subtitle: subtitleProp,
 }: Readonly<{
@@ -35,12 +35,15 @@ export default function QuestionPaywallSmall({
 
   return (
     <div
-      className={clsx(
-        'flex items-center space-x-2 rounded border p-3',
+      className={clsx('flex items-center gap-x-2 rounded p-3', [
+        'border',
         themeBorderColor,
-      )}>
-      <RiLockLine className="size-8 text-neutral-500" />
-      <div className="grow space-y-1">
+      ])}>
+      <RiLockLine
+        aria-hidden={true}
+        className="size-8 shrink-0 text-neutral-500"
+      />
+      <div className="flex grow gap-y-1">
         <Text className="block" size="body3" weight="bold">
           {title}
         </Text>

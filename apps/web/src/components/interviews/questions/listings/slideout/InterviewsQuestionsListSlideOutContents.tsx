@@ -31,7 +31,7 @@ import {
 
 import { hashQuestion } from '~/db/QuestionsUtils';
 
-import QuestionPaywall from '../../common/QuestionPaywall';
+import InterviewsPurchasePaywall from '../../../purchase/InterviewsPurchasePaywall';
 
 type Props<Q extends QuestionMetadata> = Readonly<{
   checkIfCompletedQuestion?: (question: Q) => boolean;
@@ -91,7 +91,10 @@ export default function InterviewsQuestionsListSlideOutContents<
         <VignetteOverlay
           className={clsx('min-h-[500px]')}
           overlay={
-            <QuestionPaywall background="vignette" feature="company-tags" />
+            <InterviewsPurchasePaywall
+              background="vignette"
+              premiumFeature="company-tags"
+            />
           }
           overlayClass="top-10 lg:top-4"
           showOverlay={showCompanyPaywall}>
@@ -217,7 +220,10 @@ export default function InterviewsQuestionsListSlideOutContents<
         <VignetteOverlay
           className={clsx('min-h-[500px]')}
           overlay={
-            <QuestionPaywall background="vignette" feature="company-tags" />
+            <InterviewsPurchasePaywall
+              background="vignette"
+              premiumFeature="company-tags"
+            />
           }
           overlayClass="top-14 sm:top-16"
           showOverlay={showCompanyPaywall}>

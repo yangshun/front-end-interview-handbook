@@ -107,7 +107,7 @@ export const ProjectsChallengeMetadataDocument = defineDocumentType(() => ({
   fields: {
     access: {
       description:
-        'User access configuration, whether they need to be paid to subscribe',
+        'User access configuration, whether they need to be subscriber to access',
       options: projectAccessOptions,
       required: true,
       type: 'enum',

@@ -3,15 +3,29 @@
 import clsx from 'clsx';
 import { RiArrowLeftLine } from 'react-icons/ri';
 
-import QuestionPaywall from '~/components/interviews/questions/common/QuestionPaywall';
+import InterviewsPurchasePaywall from '~/components/interviews/purchase/InterviewsPurchasePaywall';
 import Button from '~/components/ui/Button';
 
+import type { InterviewsPurchasePremiumFeature } from './InterviewsPurchaseTypes';
+
+// Keep in sync with InterviewsStudyListDocument.category.
+type StudyListCategory = 'company' | 'focus-area' | 'study-plan';
+
 type Props = Readonly<{
-  studyListHref: string;
+  studyListCategory: StudyListCategory;
 }>;
 
+const studyListCategoryToFeature: Record<
+  StudyListCategory,
+  InterviewsPurchasePremiumFeature
+> = {
+  company: 'company-guides',
+  'focus-area': 'focus-areas',
+  'study-plan': 'study-plans',
+};
+
 export default function InterviewsPurchaseStudyListPaywallPage({
-  studyListHref,
+  studyListCategory,
 }: Props) {
   return (
     <div
@@ -25,12 +39,15 @@ export default function InterviewsPurchaseStudyListPaywallPage({
           'gap-y-8',
           'px-6 py-8',
         )}>
-        <QuestionPaywall background="none" feature="study-lists" />
+        <InterviewsPurchasePaywall
+          background="none"
+          premiumFeature={studyListCategoryToFeature[studyListCategory]}
+        />
         <Button
           addonPosition="start"
-          href={studyListHref}
+          href="/interviews/dashboard"
           icon={RiArrowLeftLine}
-          label="Back to study list"
+          label="Back to dashboard"
           variant="secondary"
         />
       </div>

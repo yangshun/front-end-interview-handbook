@@ -4,7 +4,7 @@ import { Panel, PanelGroup, PanelResizeHandle } from 'react-resizable-panels';
 
 import gtag from '~/lib/gtag';
 
-import QuestionPaywallSmall from '~/components/interviews/questions/common/QuestionPaywallSmall';
+import InterviewsPurchasePaywallSmall from '~/components/interviews/purchase/InterviewsPurchasePaywallSmall';
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import QuestionMetadataSection from '~/components/interviews/questions/metadata/QuestionMetadataSection';
 import { useIntl } from '~/components/intl';
@@ -548,7 +548,7 @@ export default function InterviewsMarketingEmbedSystemDesignQuestion() {
                       id: '5rd3TN',
                     })}
                   </Text>
-                  <QuestionPaywallSmall
+                  <InterviewsPurchasePaywallSmall
                     subtitle={intl.formatMessage({
                       defaultMessage:
                         'Purchase premium to see companies which ask this question.',
