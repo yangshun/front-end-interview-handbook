@@ -14,11 +14,64 @@ import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 
+import PromotionCard from '../PromotionCard';
 import { PromotionsEmailUsLink } from '../PromotionsEmailUsLink';
 
-export function PromotionsSeasonalDiscountCard() {
+type Props = Readonly<{
+  variant?: 'compact' | 'full';
+}>;
+
+export function PromotionsSeasonalDiscountCard({ variant = 'full' }: Props) {
   const intl = useIntl();
   const [isCopied, onCopy] = useCopyToClipboardWithRevert(1000);
+
+  if (variant === 'compact') {
+    return (
+      <PromotionCard
+        addOnLabel={
+          <Text className="text-sm lg:text-xs" color="secondary" size="inherit">
+            <FormattedMessage
+              defaultMessage="OFF"
+              description="Amount cashback/discount"
+              id="piqimi"
+            />
+          </Text>
+        }
+        discountLabel={`${PERPETUAL_PROMO_CODE_DISCOUNT_PERCENTAGE}%`}
+        footer={
+          <Button
+            className="-mb-1.5 -mr-3 sm:-ml-3 sm:mb-0 sm:mr-0"
+            icon={RiFileCopyLine}
+            label={
+              isCopied
+                ? intl.formatMessage({
+                    defaultMessage: 'Copied!',
+                    description: 'Indication that text has been copied',
+                    id: 'EHngws',
+                  })
+                : PERPETUAL_PROMO_CODE
+            }
+            size="md"
+            variant="tertiary"
+            onClick={() => {
+              onCopy(PERPETUAL_PROMO_CODE);
+            }}
+          />
+        }
+        header={
+          <Badge
+            label={intl.formatMessage({
+              defaultMessage: 'Seasonal',
+              description: 'Badge label for seasonal promotion',
+              id: 'asFaPd',
+            })}
+            size="sm"
+            variant="success"
+          />
+        }
+      />
+    );
+  }
 
   return (
     <PurchaseBlockCard

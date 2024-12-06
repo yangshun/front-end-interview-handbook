@@ -4,6 +4,10 @@ import { useEffect } from 'react';
 export const SCROLL_HASH_INTERVIEWS_FEATURES = 'interviews-features';
 export const SCROLL_HASH_INTERVIEWS_DASHBOARD_RECOMMENDED_PREPARATION =
   'recommended-preparation';
+export const SCROLL_HASH_PROMOTIONS_REVIEW_CASHBACK =
+  'promotions-review-cashback';
+export const SCROLL_HASH_PROMOTIONS_STUDENT_DISCOUNT =
+  'promotions-student-discount';
 export const SCROLL_HASH_PROJECTS_DASHBOARD = 'projects-dashboard';
 export const SCROLL_HASH_PROJECTS_FEATURES = 'projects-features';
 export const SCROLL_HASH_PROJECTS_IMAGE_COMPARISON =

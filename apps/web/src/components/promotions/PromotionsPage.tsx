@@ -1,5 +1,10 @@
 'use client';
 
+import {
+  SCROLL_HASH_PROMOTIONS_REVIEW_CASHBACK,
+  SCROLL_HASH_PROMOTIONS_STUDENT_DISCOUNT,
+} from '~/hooks/useScrollToHash';
+
 import { FormattedMessage } from '~/components/intl';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
@@ -26,8 +31,12 @@ export default function PromotionsPage() {
         <div className="grid gap-4 md:gap-6 lg:gap-12">
           <PromotionsSeasonalDiscountCard />
           <PromotionsSocialDiscountCard />
-          <PromotionsStudentDiscountCard />
-          <PromotionsReviewCashbackCard />
+          <div id={SCROLL_HASH_PROMOTIONS_STUDENT_DISCOUNT}>
+            <PromotionsStudentDiscountCard />
+          </div>
+          <div id={SCROLL_HASH_PROMOTIONS_REVIEW_CASHBACK}>
+            <PromotionsReviewCashbackCard />
+          </div>
         </div>
       </Section>
     </Container>

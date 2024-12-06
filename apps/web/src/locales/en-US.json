@@ -2707,6 +2707,10 @@
     "defaultMessage": "Tips for making a strong first impression in your self introduction",
     "description": "How to make strong first impressions during self introductions"
   },
+  "GcKgjB": {
+    "defaultMessage": "Submit review",
+    "description": "Badge label for review promotion"
+  },
   "GcmSpX": {
     "defaultMessage": "Select project category",
     "description": "Tab label to select another project category"
@@ -4278,6 +4282,10 @@
   "Qhyafe": {
     "defaultMessage": "Active users in the last 2 hours",
     "description": "Label for online user count"
+  },
+  "QizhYt": {
+    "defaultMessage": "Write a review",
+    "description": "Button label to write a review"
   },
   "QjQj5L": {
     "defaultMessage": "Build projects to train every front end skill from beginner to advanced",
@@ -5879,6 +5887,10 @@
     "defaultMessage": "Submit your code",
     "description": "Title of test panel for coding workspace"
   },
+  "asFaPd": {
+    "defaultMessage": "Seasonal",
+    "description": "Badge label for seasonal promotion"
+  },
   "asLCAB": {
     "defaultMessage": "GreatFrontEnd Projects",
     "description": "GreatFrontEnd product vertical"
@@ -6319,6 +6331,10 @@
     "defaultMessage": "Success!",
     "description": "Success toast message title for disconnect social"
   },
+  "dYbcKz": {
+    "defaultMessage": "Social",
+    "description": "Badge label for social promotion"
+  },
   "dYeq98": {
     "defaultMessage": "Monitor your front end interview preparation progress and milestones.",
     "description": "Description of dashboard page"
@@ -6622,6 +6638,10 @@
   "fHu6Te": {
     "defaultMessage": "Blog - News and insights for Front End Engineers",
     "description": "OG title of GreatFrontEnd blog homepage"
+  },
+  "fKjzxf": {
+    "defaultMessage": "Code expires on {expiryDate}.",
+    "description": "Instruction to apply discount"
   },
   "fMAedf": {
     "defaultMessage": "You replied to <bold>yourself</bold> on the challenge forum for <link>{challengeTitle}</link>: <comment>\"{description}\"</comment>",
@@ -6986,6 +7006,10 @@
   "hclu+0": {
     "defaultMessage": "Front End Interview Playbook",
     "description": "Title of frontend interview playbook page"
+  },
+  "heJjBk": {
+    "defaultMessage": "See all promotions",
+    "description": "Button label for see all promotions"
   },
   "hfba4L": {
     "defaultMessage": "{completedCount}/{totalCount} completed",
@@ -7618,6 +7642,10 @@
   "lhtwHD": {
     "defaultMessage": "Get full access",
     "description": "Link label to the pricing page"
+  },
+  "lpgN/0": {
+    "defaultMessage": "Complete simple tasks",
+    "description": "Button label for social discount promotion card"
   },
   "lt1xn6": {
     "defaultMessage": "Student Discount Terms and Conditions",
@@ -8923,6 +8951,10 @@
     "defaultMessage": "All Practice Questions",
     "description": "Page title for all practice questions page"
   },
+  "uaC2ny": {
+    "defaultMessage": "For existing students",
+    "description": "Button label for student discount"
+  },
   "ub/oYs": {
     "defaultMessage": "Mark complete (previously completed)",
     "description": "Label for questions solved in the past"
@@ -9666,6 +9698,10 @@
   "zgj9Pd": {
     "defaultMessage": "Learn from others",
     "description": "Title for \"Learn from others\" feature on Projects home page"
+  },
+  "zmCysL": {
+    "defaultMessage": "Student",
+    "description": "Badge label for student promotion"
   },
   "zl/anP": {
     "defaultMessage": "{Title}: A list of the top 75 data structures and algorithms questions, adapted and solved in JavaScript and TypeScript to make them more accessible for front-end engineers. This ensures you're prepared for DSA questions, which are often a requirement at FAANG and similar companies.",

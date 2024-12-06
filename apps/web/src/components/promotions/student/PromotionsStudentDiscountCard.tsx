@@ -1,11 +1,17 @@
 import clsx from 'clsx';
 import { useState } from 'react';
-import { RiFileCopyLine } from 'react-icons/ri';
+import {
+  RiArrowRightLine,
+  RiFileCopyLine,
+  RiInformationLine,
+} from 'react-icons/ri';
 import type Stripe from 'stripe';
+import url from 'url';
 
 import { trpc } from '~/hooks/trpc';
 import useCopyToClipboardWithRevert from '~/hooks/useCopyToClipboardWithRevert';
 import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
+import { SCROLL_HASH_PROMOTIONS_STUDENT_DISCOUNT } from '~/hooks/useScrollToHash';
 
 import { STUDENT_DISCOUNT_PERCENTAGE } from '~/data/PromotionConfig';
 
@@ -13,16 +19,24 @@ import { useUserProfile } from '~/components/global/UserProfileProvider';
 import { FormattedMessage, useIntl } from '~/components/intl';
 import PurchaseBlockCard from '~/components/purchase/PurchaseBlockCard';
 import Anchor from '~/components/ui/Anchor';
+import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
+import { themeTextSubtleColor } from '~/components/ui/theme';
+import Tooltip from '~/components/ui/Tooltip';
 
 import { isValidStudentEmail } from './studentEmail';
 import usePromotionsStudentDiscountLabels from './usePromotionsStudentDiscountLabels';
+import PromotionCard from '../PromotionCard';
 import { PromotionsEmailUsLink } from '../PromotionsEmailUsLink';
 
 import { useUser } from '@supabase/auth-helpers-react';
 
-export function PromotionsStudentDiscountCard() {
+type Props = Readonly<{
+  variant?: 'compact' | 'full';
+}>;
+
+export function PromotionsStudentDiscountCard({ variant = 'full' }: Props) {
   const intl = useIntl();
   const trpcUtils = trpc.useUtils();
   const labels = usePromotionsStudentDiscountLabels();
@@ -43,6 +57,103 @@ export function PromotionsStudentDiscountCard() {
     },
   });
   const { signInUpHref } = useAuthSignInUp();
+
+  if (variant === 'compact') {
+    return (
+      <PromotionCard
+        addOnLabel={
+          <Text className="text-sm lg:text-xs" color="secondary" size="inherit">
+            <FormattedMessage
+              defaultMessage="OFF"
+              description="Amount cashback/discount"
+              id="piqimi"
+            />
+          </Text>
+        }
+        discountLabel={`${discountPercentage}%`}
+        footer={
+          <div className="ms:mr-0 -mb-1.5 -mr-3 sm:-ml-3 sm:mb-0 sm:w-full">
+            {(() => {
+              const promoCodeToDisplay = promoCode ?? existingPromoCode ?? null;
+
+              if (promoCodeToDisplay) {
+                return (
+                  <div className="flex items-center justify-between gap-2">
+                    <Button
+                      icon={RiFileCopyLine}
+                      label={
+                        isCopied
+                          ? intl.formatMessage({
+                              defaultMessage: 'Copied!',
+                              description:
+                                'Indication that text has been copied',
+                              id: 'EHngws',
+                            })
+                          : promoCodeToDisplay.code
+                      }
+                      size="md"
+                      variant="tertiary"
+                      onClick={() => {
+                        onCopy(promoCodeToDisplay.code);
+                      }}
+                    />
+                    <Tooltip
+                      label={
+                        <FormattedMessage
+                          defaultMessage="Code expires on {expiryDate}."
+                          description="Instruction to apply discount"
+                          id="fKjzxf"
+                          values={{
+                            expiryDate: new Intl.DateTimeFormat(undefined, {
+                              dateStyle: 'medium',
+                            }).format(promoCodeToDisplay.expires_at! * 1000),
+                          }}
+                        />
+                      }>
+                      <RiInformationLine
+                        className={clsx(
+                          'size-4 relative z-[1] shrink-0',
+                          themeTextSubtleColor,
+                        )}
+                      />
+                    </Tooltip>
+                  </div>
+                );
+              }
+
+              return (
+                <Button
+                  href={url.format({
+                    hash: SCROLL_HASH_PROMOTIONS_STUDENT_DISCOUNT,
+                    pathname: '/promotions',
+                  })}
+                  icon={RiArrowRightLine}
+                  label={intl.formatMessage({
+                    defaultMessage: 'For existing students',
+                    description: 'Button label for student discount',
+                    id: 'uaC2ny',
+                  })}
+                  size="md"
+                  variant="tertiary"
+                />
+              );
+            })()}
+          </div>
+        }
+        header={
+          <Badge
+            label={intl.formatMessage({
+              defaultMessage: 'Student',
+              description: 'Badge label for student promotion',
+              id: 'zmCysL',
+            })}
+            size="sm"
+            variant="neutral-active"
+          />
+        }
+      />
+    );
+  }
 
   return (
     <PurchaseBlockCard

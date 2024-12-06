@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 
 import { FormattedMessage } from '~/components/intl';
+import PromotionsSection from '~/components/promotions/PromotionsSection';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import {
@@ -24,10 +25,7 @@ export default function InterviewsPricingSection({
 }: Props) {
   return (
     <Container
-      className={clsx(
-        'isolate flex flex-col gap-y-8 md:gap-y-16',
-        'py-16 sm:py-20',
-      )}
+      className={clsx('isolate flex flex-col gap-y-12', 'py-16 sm:py-20')}
       width="marketing">
       <InterviewsPricingTableSection
         countryCode={countryCode}
@@ -50,6 +48,7 @@ export default function InterviewsPricingSection({
           </Heading>
         }
       />
+      <PromotionsSection />
     </Container>
   );
 }

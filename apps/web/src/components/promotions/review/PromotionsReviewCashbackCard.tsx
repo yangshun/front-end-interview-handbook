@@ -1,19 +1,75 @@
 import clsx from 'clsx';
+import { RiArrowRightLine } from 'react-icons/ri';
+import url from 'url';
+
+import { SCROLL_HASH_PROMOTIONS_REVIEW_CASHBACK } from '~/hooks/useScrollToHash';
 
 import { REVIEW_CASHBACK_DISCOUNT_PERCENTAGE } from '~/data/PromotionConfig';
 
 import { FormattedMessage, useIntl } from '~/components/intl';
 import PurchaseBlockCard from '~/components/purchase/PurchaseBlockCard';
 import Anchor from '~/components/ui/Anchor';
+import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 
 import usePromotionsReviewCashbackLabels from './usePromotionsReviewCashbackLabels';
+import PromotionCard from '../PromotionCard';
 import { PromotionsEmailUsLink } from '../PromotionsEmailUsLink';
 
-export function PromotionsReviewCashbackCard() {
+type Props = Readonly<{
+  variant?: 'compact' | 'full';
+}>;
+
+export function PromotionsReviewCashbackCard({ variant = 'full' }: Props) {
   const intl = useIntl();
   const labels = usePromotionsReviewCashbackLabels();
+
+  if (variant === 'compact') {
+    return (
+      <PromotionCard
+        addOnLabel={
+          <Text className="text-sm lg:text-xs" color="secondary" size="inherit">
+            <FormattedMessage
+              defaultMessage="CASHBACK"
+              description="Amount cashback/discount"
+              id="VfNkH+"
+            />
+          </Text>
+        }
+        discountLabel={`${REVIEW_CASHBACK_DISCOUNT_PERCENTAGE}%`}
+        footer={
+          <Button
+            className="-mb-1.5 -mr-3 sm:-ml-3 sm:mb-0 sm:mr-0"
+            href={url.format({
+              hash: SCROLL_HASH_PROMOTIONS_REVIEW_CASHBACK,
+              pathname: '/promotions',
+            })}
+            icon={RiArrowRightLine}
+            label={intl.formatMessage({
+              defaultMessage: 'Write a review',
+              description: 'Button label to write a review',
+              id: 'QizhYt',
+            })}
+            size="md"
+            variant="tertiary"
+          />
+        }
+        header={
+          <Badge
+            label={intl.formatMessage({
+              defaultMessage: 'Submit review',
+              description: 'Badge label for review promotion',
+              id: 'GcKgjB',
+            })}
+            size="sm"
+            variant="info"
+          />
+        }
+        showGlow={true}
+      />
+    );
+  }
 
   return (
     <PurchaseBlockCard
