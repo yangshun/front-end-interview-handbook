@@ -38,8 +38,9 @@ export default function AuthLoginSuccessPage({ next }: Props) {
       <Container
         className={clsx(
           'size-full h-screen',
-          'flex flex-col items-center justify-center gap-6',
+          'flex flex-col items-center gap-6 md:justify-center',
           'py-8 md:py-12 lg:py-16',
+          'mt-32 md:mt-0',
         )}
         width="xl">
         <LogoComboMark className="shrink-0" height={20} />
