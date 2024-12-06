@@ -419,7 +419,6 @@ function FTLPromoSection({
 
 type InterviewsPricingPlanItem = Readonly<{
   description?: React.ReactNode;
-  ftlPromo?: boolean;
   includedFeatures: ReadonlyArray<React.ReactNode>;
   name: string;
   numberOfMonths?: number;
@@ -593,7 +592,6 @@ export default function InterviewsPricingTableSection({
   };
 
   const annualPlanDetails: InterviewsPricingPlanItem = {
-    ftlPromo: true,
     includedFeatures: [
       featureAllAccess,
       featureContinuousUpdates,
@@ -616,7 +614,6 @@ export default function InterviewsPricingTableSection({
         'Subtitle of LifeTime Access Pricing Plan found on Homepage or Pricing page',
       id: '4P9bN0',
     }),
-    ftlPromo: true,
     includedFeatures: [featureAllAccess, featureDiscordAccess],
     name: intl.formatMessage({
       defaultMessage: 'Lifetime plan',
@@ -637,7 +634,7 @@ export default function InterviewsPricingTableSection({
   const showPPPMessage =
     featuredPlan.paymentConfig.conversionFactor <=
     MAXIMUM_PPP_CONVERSION_FACTOR_TO_DISPLAY_BEFORE_PRICE;
-  const showFTLBundle =
+  const pppEligibleForFTLBundle =
     featuredPlan.paymentConfig.conversionFactor <=
     MAX_PPP_ELIGIBLE_FOR_FAANG_TECH_LEADS_PROMO;
 
@@ -714,7 +711,7 @@ export default function InterviewsPricingTableSection({
         <PurchaseBlockCard
           features={featuredPlan.includedFeatures}
           footer={
-            showFTLBundle ? (
+            featuredPlan.paymentConfig.giveFTL && pppEligibleForFTLBundle ? (
               <>
                 <Divider className="mb-4" />
                 <FTLPromoSection variant="full" />
@@ -860,13 +857,7 @@ export default function InterviewsPricingTableSection({
               !isDialogView && 'mx-auto w-full max-w-lg md:max-w-none',
             )}>
             {planList.map(
-              ({
-                numberOfMonths,
-                paymentConfig,
-                includedFeatures,
-                name,
-                ftlPromo,
-              }) => {
+              ({ numberOfMonths, paymentConfig, includedFeatures, name }) => {
                 const id = `tier-${paymentConfig.planType}`;
                 const recommendedPlan = paymentConfig.planType === 'annual';
 
@@ -1071,7 +1062,7 @@ export default function InterviewsPricingTableSection({
                               ))}
                             </ul>
                           </Section>
-                          {ftlPromo && showFTLBundle && (
+                          {paymentConfig.giveFTL && pppEligibleForFTLBundle && (
                             <>
                               <Divider />
                               <FTLPromoSection variant="compact" />

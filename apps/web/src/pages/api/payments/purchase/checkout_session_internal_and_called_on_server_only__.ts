@@ -182,6 +182,10 @@ async function processSubscriptionPlan(
     return baseSuccessUrl.toString();
   })();
 
+  const pppEligibleForFTLBundle =
+    planPaymentConfig.conversionFactor <=
+    MAX_PPP_ELIGIBLE_FOR_FAANG_TECH_LEADS_PROMO;
+
   const session = await stripe.checkout.sessions.create({
     allow_promotion_codes: planPaymentConfig.allowPromoCode,
     cancel_url: cancelUrl,
@@ -194,9 +198,7 @@ async function processSubscriptionPlan(
       },
     ],
     metadata:
-      productId === process.env.STRIPE_PRODUCT_ID_INTERVIEWS &&
-      planPaymentConfig.conversionFactor <=
-        MAX_PPP_ELIGIBLE_FOR_FAANG_TECH_LEADS_PROMO
+      planPaymentConfig.giveFTL && pppEligibleForFTLBundle
         ? {
             ftl: 'true',
           }
@@ -248,6 +250,10 @@ async function processOneTimePlan(
     return baseSuccessUrl.toString();
   })();
 
+  const pppEligibleForFTLBundle =
+    planPaymentConfig.conversionFactor <=
+    MAX_PPP_ELIGIBLE_FOR_FAANG_TECH_LEADS_PROMO;
+
   const session = await stripe.checkout.sessions.create({
     allow_promotion_codes: planPaymentConfig.allowPromoCode,
     cancel_url: cancelUrl,
@@ -268,9 +274,7 @@ async function processOneTimePlan(
       },
     ],
     metadata:
-      productId === process.env.STRIPE_PRODUCT_ID_INTERVIEWS &&
-      planPaymentConfig.conversionFactor <=
-        MAX_PPP_ELIGIBLE_FOR_FAANG_TECH_LEADS_PROMO
+      planPaymentConfig.giveFTL && pppEligibleForFTLBundle
         ? {
             ftl: 'true',
           }

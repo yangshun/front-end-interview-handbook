@@ -25,6 +25,7 @@ export type PurchasePricingPlanPaymentConfigBase = Readonly<{
   checkoutMode: Stripe.Checkout.Session.Mode;
   // Vs monthly for recurring. Vs before for one-time.
   discount: number;
+  giveFTL: boolean;
   priceType: Stripe.Price.Type;
   // Stripe product ID.
   productId: string;
