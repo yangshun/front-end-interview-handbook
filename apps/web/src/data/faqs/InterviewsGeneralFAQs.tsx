@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import url from 'url';
 
 import { SCROLL_HASH_INTERVIEWS_DASHBOARD_RECOMMENDED_PREPARATION } from '~/hooks/useScrollToHash';
@@ -10,6 +11,10 @@ import { FormattedMessage } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 
 import type { FAQItem } from './FAQs';
+
+const bold = (chunks: Array<ReactNode>) => (
+  <strong className="font-medium">{chunks}</strong>
+);
 
 export const generalTarget: FAQItem = {
   answer: (
@@ -253,11 +258,7 @@ export const generalBuying: FAQItem = {
                   defaultMessage="Company-specific preparation for interviews at top companies like <bold>Google</bold>, <bold>Amazon</bold>, <bold>Microsoft</bold>, <bold>TikTok</bold>, <bold>Apple</bold>, and <bold>more</bold>. These guides include insider tips and practice questions tailored to the company's interview style."
                   description='Paragraph 3 for "What does GreatFrontEnd Interviews offer exactly?" on Homepage FAQ sections'
                   id="ladXww"
-                  values={{
-                    bold: (chunks) => (
-                      <strong className="font-medium">{chunks}</strong>
-                    ),
-                  }}
+                  values={{ bold }}
                 />
               </li>
             </ul>
@@ -417,7 +418,7 @@ export const generalWhatsIncluded: FAQItem = {
           description="Paragraph 1 answer to 'What is included in the premium plan?' on Homepage's FAQ sections"
           id="U9yPZC"
           values={{
-            bold: (chunks) => <strong className="font-medium">{chunks}</strong>,
+            bold,
             freeQuestionCount: QuestionCountFree,
           }}
         />
@@ -427,9 +428,7 @@ export const generalWhatsIncluded: FAQItem = {
           defaultMessage="Premium users also gain access to <bold>company tags</bold>, enabling them to filter questions by specific companies known to ask them, making it easier to tailor their preparation."
           description="Paragraph 2 answer to 'What is included in the premium plan?' on Homepage's FAQ sections"
           id="UPf7Yu"
-          values={{
-            bold: (chunks) => <strong className="font-medium">{chunks}</strong>,
-          }}
+          values={{ bold }}
         />
       </p>
       <p>
@@ -437,9 +436,7 @@ export const generalWhatsIncluded: FAQItem = {
           defaultMessage="Finally, premium features include access to time-saving resources such as <bold>curated question lists</bold>, including study plans, focus areas, and company guides, designed to streamline your preparation process and maximize efficiency."
           description="Paragraph 3 answer to 'What is included in the premium plan?' on Homepage's FAQ sections"
           id="2eN4S3"
-          values={{
-            bold: (chunks) => <strong className="font-medium">{chunks}</strong>,
-          }}
+          values={{ bold }}
         />
       </p>
     </>
@@ -470,7 +467,7 @@ export const generalWorthIt: FAQItem = {
           description="Paragraph 1 answer to 'Is it really worth it to buy GreatFrontEnd?' on Homepage's FAQ sections"
           id="mKaP8w"
           values={{
-            bold: (chunks) => <strong className="font-medium">{chunks}</strong>,
+            bold,
           }}
         />
       </p>
@@ -479,9 +476,7 @@ export const generalWorthIt: FAQItem = {
           defaultMessage="With over 500,000 engineers using our platform, there is a high likelihood that candidates <bold>competing for the same roles</bold> are already leveraging our resources. Additionally, countless users have reported encountering <bold>questions from our platform in their actual interviews</bold>, making the practice you gain on the platform directly relevant to the challenges you'll face in actual interviews."
           description="Paragraph 2 answer to 'Is it really worth it to buy GreatFrontEnd?' on Homepage's FAQ sections"
           id="WjGVYh"
-          values={{
-            bold: (chunks) => <strong className="font-medium">{chunks}</strong>,
-          }}
+          values={{ bold }}
         />
       </p>
     </>
