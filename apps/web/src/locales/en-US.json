@@ -1655,6 +1655,10 @@
     "defaultMessage": "Prepare the best you can within any timeline.",
     "description": "Description for study plans section"
   },
+  "9CZ7bS": {
+    "defaultMessage": "Is GreatFrontEnd Interviews targeted at engineers of specific seniorities?",
+    "description": "Question on Homepage's FAQ section - on the seniority level of engineers that GreatFrontEnd targets"
+  },
   "9CjNZn": {
     "defaultMessage": "You have ended this project session. Returning you to the project detail page.",
     "description": "Toast subtitle for project session ended"
@@ -1666,6 +1670,10 @@
   "9DlLF1": {
     "defaultMessage": "GreatFrontEnd",
     "description": "Title of GreatFrontEnd page"
+  },
+  "9E2iPt": {
+    "defaultMessage": "Next steps",
+    "description": "Next steps label for payment success page"
   },
   "9EIdsB": {
     "defaultMessage": "Behavioral",
@@ -2134,10 +2142,6 @@
   "ClNAgn": {
     "defaultMessage": "Sign in to track your progress",
     "description": "Subtitle of Sign In page"
-  },
-  "ClnQFj": {
-    "defaultMessage": "Purchase premium to unlock study lists and all the best materials we have to offer.",
-    "description": "Paywall subtitle for study lists feature"
   },
   "CmlQsV": {
     "defaultMessage": "Front End System Design Interview Questions",
@@ -2939,10 +2943,6 @@
     "defaultMessage": "John Doe",
     "description": "Placeholder for name field"
   },
-  "I7UwcA": {
-    "defaultMessage": "Premium study lists",
-    "description": "Paywall title for study lists feature"
-  },
   "I872jM": {
     "defaultMessage": "Not completed",
     "description": "Incomplete status for a question"
@@ -3214,10 +3214,6 @@
   "Jnlfx1": {
     "defaultMessage": "Study Plans for Front End Interviews",
     "description": "OG page type for study plans"
-  },
-  "JpjIuG": {
-    "defaultMessage": "Premium is required to access study lists",
-    "description": "Title for study plans feature"
   },
   "JrYZqa": {
     "defaultMessage": "All the resources to help you build a {challengeName}, including how-to-guides, official solutions, references and user discussions",
@@ -4830,6 +4826,10 @@
   "Tgcop6": {
     "defaultMessage": "{itemCount, plural, one {# article} other {# articles}}",
     "description": "Number of articles in a list"
+  },
+  "Tgl+yQ": {
+    "defaultMessage": "Copy",
+    "description": "Button label for copy button"
   },
   "Ti1Gle": {
     "defaultMessage": "Premium is required to access company tags",
@@ -7158,10 +7158,6 @@
   "iqz/fo": {
     "defaultMessage": "Types of JS questions, concepts to cover and rubrics",
     "description": "JavaScript questions, concepts and rubrics during front end interviews"
-  },
-  "it3lFE": {
-    "defaultMessage": "Is this GreatFrontEnd Interviews targeted at engineers of specific seniorities?",
-    "description": "Question on Homepage's FAQ section - on the seniority level of engineers that GreatFrontEnd targets"
   },
   "ivmSx0": {
     "defaultMessage": "We're Hiring",

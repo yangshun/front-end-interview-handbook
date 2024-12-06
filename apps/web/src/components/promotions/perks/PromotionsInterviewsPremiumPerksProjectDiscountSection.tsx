@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { FaCheck } from 'react-icons/fa6';
 import { RiArrowRightLine, RiFileCopyLine } from 'react-icons/ri';
+import { useMediaQuery } from 'usehooks-ts';
 
 import { trpc } from '~/hooks/trpc';
 import useCopyToClipboardWithRevert from '~/hooks/useCopyToClipboardWithRevert';
@@ -23,6 +24,7 @@ const dateFormatter = new Intl.DateTimeFormat(undefined, {
 export default function PromotionsInterviewsPremiumPerksProjectDiscountSection() {
   const intl = useIntl();
   const user = useUser();
+  const isMobileAndBelow = useMediaQuery('(max-width: 640px)');
   const [promoCode, setPromoCode] = useState<Readonly<{
     code: string;
     coupon: {
@@ -69,8 +71,9 @@ export default function PromotionsInterviewsPremiumPerksProjectDiscountSection()
         />
       </Text>
       {promoCode != null && (
-        <div className="flex w-[400px] flex-col items-center gap-8">
+        <div className="flex w-full flex-col items-center gap-6 sm:w-[400px]">
           <RewardsTicket
+            padding="md"
             ratio="wide"
             subtitle={
               <Text color="subtitle" size="body2" weight="medium">
@@ -88,9 +91,10 @@ export default function PromotionsInterviewsPremiumPerksProjectDiscountSection()
               </Text>
             }
             title={promoCode.code}
-            width={300}
+            variant="normal"
+            width={280}
           />
-          <Text className="block text-center" color="secondary" size="body1">
+          <Text className="block text-center" color="secondary" size="body2">
             <FormattedMessage
               defaultMessage="Expires on <strong>{expiryDate}</strong>. You can find your promo codes on the <link>profile page</link>."
               description="Help text for promo code"
@@ -108,11 +112,16 @@ export default function PromotionsInterviewsPremiumPerksProjectDiscountSection()
               }}
             />
           </Text>
-          <div className="flex w-full flex-col gap-x-6 gap-y-4 sm:flex-row">
+          <div className="flex w-full flex-row gap-3 sm:gap-6">
             <Button
-              className="self-stretch sm:self-auto"
               display="block"
-              icon={isCopied ? FaCheck : RiFileCopyLine}
+              icon={
+                isMobileAndBelow
+                  ? isCopied
+                    ? FaCheck
+                    : RiFileCopyLine
+                  : undefined
+              }
               label={
                 isCopied
                   ? intl.formatMessage({
@@ -120,18 +129,23 @@ export default function PromotionsInterviewsPremiumPerksProjectDiscountSection()
                       description: 'Button label for copy button',
                       id: 'qRa0sV',
                     })
-                  : intl.formatMessage({
-                      defaultMessage: 'Copy to clipboard',
-                      description: 'Button label for copy button',
-                      id: 'QrikGf',
-                    })
+                  : isMobileAndBelow
+                    ? intl.formatMessage({
+                        defaultMessage: 'Copy',
+                        description: 'Button label for copy button',
+                        id: 'Tgl+yQ',
+                      })
+                    : intl.formatMessage({
+                        defaultMessage: 'Copy to clipboard',
+                        description: 'Button label for copy button',
+                        id: 'QrikGf',
+                      })
               }
               size="md"
               variant="secondary"
               onClick={() => handleCopy()}
             />
             <Button
-              className="self-stretch sm:self-auto"
               display="block"
               href="/projects/pricing"
               icon={RiArrowRightLine}
