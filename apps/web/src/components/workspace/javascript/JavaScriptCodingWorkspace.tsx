@@ -323,8 +323,11 @@ function JavaScriptCodingWorkspaceImpl({
         workspace={workspace}
         onLanguageChange={onLanguageChange}>
         {!embed && (
-          <div className={clsx('size-full flex flex-col lg:hidden')}>
-            <div className="flex grow flex-col gap-y-4 overflow-y-auto">
+          <div
+            className={clsx(
+              'size-full flex min-h-[calc(100vh_-_var(--global-sticky-height))] flex-col lg:hidden',
+            )}>
+            <div className="flex grow flex-col gap-y-4">
               <JavaScriptCodingWorkspaceDescription
                 canViewPremiumContent={canViewPremiumContent}
                 description={description}

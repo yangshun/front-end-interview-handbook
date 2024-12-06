@@ -346,8 +346,8 @@ function UserInterfaceCodingWorkspaceImpl({
       }}>
       {/* Mobile version */}
       {!embed && (
-        <div className="size-full flex flex-col lg:hidden">
-          <div className="flex grow flex-col gap-y-4 overflow-y-auto">
+        <div className="size-full flex min-h-[calc(100vh_-_var(--global-sticky-height))] flex-col lg:hidden">
+          <div className="flex grow flex-col gap-y-4">
             {mode === 'practice' && (
               <UserInterfaceCodingWorkspaceWriteup
                 canViewPremiumContent={canViewPremiumContent}
