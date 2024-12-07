@@ -7,7 +7,6 @@
     "/src/from-pairs.submit.test.ts": "import fromPairs from './from-pairs';\n\ndescribe('fromPairs', () => {\n  test('empty array', () => {\n    expect(fromPairs([])).toEqual({});\n  });\n\n  test('single-element array', () => {\n    expect(fromPairs([['a', 1]])).toEqual({ a: 1 });\n  });\n\n  test('two-element array', () => {\n    expect(\n      fromPairs([\n        ['a', 1],\n        ['b', 2],\n      ]),\n    ).toEqual({ a: 1, b: 2 });\n  });\n\n  test('multiple-element array', () => {\n    expect(\n      fromPairs([\n        ['a', 1],\n        ['b', 2],\n        ['c', 3],\n      ]),\n    ).toEqual({ a: 1, b: 2, c: 3 });\n  });\n});\n",
     "/src/from-pairs.ts": "export default function fromPairs<T>(\n  pairs: Array<[string | number, T]>,\n): Record<string | number, T> {\n  const result: Record<string, T> = {};\n\n  for (const [key, value] of pairs) {\n    result[key] = value;\n  }\n\n  return result;\n}\n"
   },
-  "format": "javascript",
   "metadata": {
     "access": "premium",
     "author": null,
