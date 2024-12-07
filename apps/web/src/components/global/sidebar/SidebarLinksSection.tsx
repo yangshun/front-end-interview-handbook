@@ -63,7 +63,8 @@ function SidebarLinkItem({
   showIcon = false,
   currentMatchRegex,
   size,
-}: Readonly<{ size: SidebarSize }> & SidebarLink) {
+  onItemClick,
+}: Readonly<{ onItemClick?: () => void, size: SidebarSize; }> & SidebarLink) {
   const { pathname } = useI18nPathname();
   const isActive = isItemActive({ currentMatchRegex, href }, pathname);
 
@@ -98,7 +99,8 @@ function SidebarLinkItem({
           isActive ? activeClassName : defaultClassName,
         )}
         href={href}
-        variant="unstyled">
+        variant="unstyled"
+        onClick={onItemClick}>
         {Icon && showIcon && (
           <Icon
             className={clsx(
@@ -122,8 +124,10 @@ function SidebarLinks({
   item,
   onToggle,
   size,
+  onItemClick,
 }: Readonly<{
   item: SidebarLinkEntity;
+  onItemClick?: () => void;
   onToggle: () => void;
   size: SidebarSize;
 }>) {
@@ -134,6 +138,7 @@ function SidebarLinks({
         showIcon={item.showIcon}
         {...item}
         size={size}
+        onItemClick={onItemClick}
       />
     );
   }
@@ -195,6 +200,7 @@ function SidebarLinks({
               showIcon={true}
               size={size}
               {...linkItem}
+              onItemClick={onItemClick}
             />
           ))}
         </ul>
@@ -208,9 +214,11 @@ export default function SidebarLinksSection({
   items,
   size = 'sm',
   type,
+  onItemClick,
 }: Readonly<{
   defaultOpenSections?: ReadonlyArray<string>;
   items: ReadonlyArray<SidebarLinkEntity>;
+  onItemClick?: () => void;
   size?: SidebarSize;
   type: React.ComponentProps<typeof AccordionPrimitive.Root>['type'];
 }>) {
@@ -256,6 +264,7 @@ export default function SidebarLinksSection({
           key={item.id}
           item={item}
           size={size}
+          onItemClick={onItemClick}
           onToggle={() => {
             if (type === 'single') {
               setOpenSection(openSection === item.id ? null : item.id);

@@ -74,9 +74,13 @@ export default function InterviewsNavbar({
 
   const navSlideOutItems = useInterviewsSidebarLinks(isLoggedIn);
 
+  function closeMobileNav() {
+    setIsMobileNavOpen(false);
+  }
+
   useEffect(() => {
     // Hide mobile nav when page changes.
-    setIsMobileNavOpen(false);
+    closeMobileNav();
   }, [pathname]);
 
   const displayName = userProfile?.name ?? user?.email;
@@ -157,9 +161,7 @@ export default function InterviewsNavbar({
                   />
                 </div>
               }
-              onClose={() => {
-                setIsMobileNavOpen(false);
-              }}>
+              onClose={closeMobileNav}>
               <div className="flex h-full flex-col">
                 <div className="flex h-0 flex-1 flex-col">
                   <nav
@@ -170,6 +172,7 @@ export default function InterviewsNavbar({
                         items={navSlideOutItems}
                         size="md"
                         type="single"
+                        onItemClick={closeMobileNav}
                       />
                     </ScrollArea>
                     <Divider />
@@ -194,6 +197,7 @@ export default function InterviewsNavbar({
                               variant="unstyled"
                               onClick={(event) => {
                                 linkItem.onClick?.(event);
+                                closeMobileNav();
                               }}>
                               {linkItem.label}
                             </Anchor>
@@ -320,53 +324,58 @@ export default function InterviewsNavbar({
                       {isLoggedIn && (
                         <>
                           <Divider />
-                          <div
-                            className={clsx(
-                              'flex shrink-0 items-center gap-x-3',
-                              'px-6',
-                            )}>
-                            <Avatar
-                              alt={displayName ?? ''}
-                              src={userProfile?.avatarUrl ?? ''}
-                            />
-                            <div
-                              className={clsx(
-                                'flex grow items-center gap-x-3',
-                                'truncate',
-                              )}>
-                              <Text
-                                className="block truncate"
-                                size="body2"
-                                weight="medium">
-                                {displayName}
-                              </Text>
-                              {isPremium && (
-                                <Chip
-                                  className="size-[18px]"
-                                  icon={RiStarSmileFill}
-                                  iconClassName="size-[14px]"
-                                  isLabelHidden={true}
-                                  label="Premium user badge"
-                                  variant="primary"
+                          <DropdownMenu
+                            align="end"
+                            size="sm"
+                            asChild={true}
+                            trigger={
+                              <div
+                                className={clsx(
+                                  'flex shrink-0 items-center gap-x-3',
+                                  'px-6',
+                                  'cursor-pointer',
+                                )}>
+                                <Avatar
+                                  alt={displayName ?? ''}
+                                  src={userProfile?.avatarUrl ?? ''}
                                 />
-                              )}
-                            </div>
-                            <DropdownMenu
-                              icon={RiArrowRightSLine}
-                              isLabelHidden={true}
-                              label="More"
-                              showChevron={false}
-                              size="sm"
-                              variant="tertiary">
-                              {loggedInLinks.map((navItem) => (
-                                <DropdownMenu.Item
-                                  key={navItem.id}
-                                  {...navItem}
-                                  icon={undefined}
+                                <div
+                                  className={clsx(
+                                    'flex grow items-center gap-x-3',
+                                    'truncate',
+                                  )}>
+                                  <Text
+                                    className="block truncate"
+                                    size="body2"
+                                    weight="medium">
+                                    {displayName}
+                                  </Text>
+                                  {isPremium && (
+                                    <Chip
+                                      className="size-[18px]"
+                                      icon={RiStarSmileFill}
+                                      iconClassName="size-[14px]"
+                                      isLabelHidden={true}
+                                      label="Premium user badge"
+                                      variant="primary"
+                                    />
+                                  )}
+                                </div>
+                                <RiArrowRightSLine
+                                  aria-hidden="true"
+                                  className={clsx('size-4 shrink-0')}
                                 />
-                              ))}
-                            </DropdownMenu>
-                          </div>
+                              </div>
+                            }
+                            variant="tertiary">
+                            {loggedInLinks.map((navItem) => (
+                              <DropdownMenu.Item
+                                key={navItem.id}
+                                {...navItem}
+                                icon={undefined}
+                              />
+                            ))}
+                          </DropdownMenu>
                         </>
                       )}
                     </div>
