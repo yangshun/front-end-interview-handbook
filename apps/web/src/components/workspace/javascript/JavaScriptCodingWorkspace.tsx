@@ -356,7 +356,11 @@ function JavaScriptCodingWorkspaceImpl({
             'size-full flex-col text-sm',
             !embed ? 'hidden lg:flex' : 'flex',
           )}>
-          <div className={clsx('flex grow overflow-x-auto', !embed && 'pb-3')}>
+          <div
+            className={clsx(
+              'flex grow overflow-x-auto',
+              !embed && 'max-lg:pb-3',
+            )}>
             <div
               className={clsx(
                 'flex w-full grow px-3',
