@@ -5,32 +5,25 @@ import type { ReactNode } from 'react';
 import { useEffect, useState } from 'react';
 import { RiArrowRightLine } from 'react-icons/ri';
 
-import { FormattedMessage } from '~/components/intl';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import { SOCIAL_DISCOUNT_PERCENTAGE } from '~/components/promotions/social/SocialDiscountConfig';
 import Anchor from '~/components/ui/Anchor';
 import Banner from '~/components/ui/Banner';
+import Button from '~/components/ui/Button';
 import Text, { textVariants } from '~/components/ui/Text';
+import { themeBackgroundInvertColor } from '~/components/ui/theme';
 
 import { useI18nPathname } from '~/next-i18nostic/src';
 
+import SwagOverflowLogo from '../logos/SwagOverflowLogo';
 import { useUserPreferences } from '../UserPreferencesProvider';
 import { useUserProfile } from '../UserProfileProvider';
 
-function MarketingMessage({ rotateMessages }: Props) {
+function MarketingMessage() {
+  const intl = useIntl();
   const { userProfile } = useUserProfile();
   const { pathname } = useI18nPathname();
-  const [isShowingSocialMediaMessage, setIsShowingSocialMediaMessage] =
-    useState(rotateMessages);
-
-  useEffect(() => {
-    if (!rotateMessages) {
-      return;
-    }
-
-    setTimeout(() => {
-      setIsShowingSocialMediaMessage((value) => !value);
-    }, 8000);
-  }, [isShowingSocialMediaMessage, rotateMessages]);
+  const [bannerIndex, setBannerIndex] = useState(0);
 
   const isInterviewsPremium = userProfile?.isInterviewsPremium ?? false;
 
@@ -80,27 +73,66 @@ function MarketingMessage({ rotateMessages }: Props) {
     </Anchor>
   );
 
-  if (pathname?.startsWith('/projects') || isInterviewsPremium) {
-    return <BannerShell theme="projects">{projectsLaunchMessage}</BannerShell>;
-  }
+  const swagOverflowBannerEl = (
+    <BannerShell className={themeBackgroundInvertColor}>
+      <Anchor
+        className={clsx(
+          'flex items-center justify-center gap-3',
+          'font-medium text-neutral-100  dark:text-neutral-900',
+        )}
+        href="https://swagoverflow.store"
+        target="_blank"
+        variant="unstyled">
+        <SwagOverflowLogo />
+        <FormattedMessage
+          defaultMessage="Visit the ultimate swag store for Front End Engineers"
+          description="Text on SwagStore Banner"
+          id="0lfoS/"
+        />
+        <Button
+          className="hidden !h-5 sm:flex"
+          icon={RiArrowRightLine}
+          label={intl.formatMessage({
+            defaultMessage: 'Check it out',
+            description: 'Button label for check it out',
+            id: 's0MeXj',
+          })}
+          size="xs"
+          variant="secondary"
+        />
+      </Anchor>
+    </BannerShell>
+  );
 
-  return isShowingSocialMediaMessage ? (
+  const socialMediaBannerEl = (
     <BannerShell theme="interviews">{socialMediaSaleMessage}</BannerShell>
-  ) : (
+  );
+  const projectBannerEl = (
     <BannerShell theme="projects">{projectsLaunchMessage}</BannerShell>
   );
-}
 
-type Props = Readonly<{
-  rotateMessages: boolean;
-}>;
+  const banners =
+    pathname?.startsWith('/projects') || isInterviewsPremium
+      ? [projectBannerEl, swagOverflowBannerEl]
+      : [socialMediaBannerEl, projectBannerEl, swagOverflowBannerEl];
+
+  useEffect(() => {
+    setTimeout(() => {
+      setBannerIndex((value) => (value + 1) % banners.length);
+    }, 10000);
+  }, [bannerIndex, banners.length]);
+
+  return banners[bannerIndex];
+}
 
 function BannerShell({
   children,
+  className,
   theme,
 }: Readonly<{
   children: ReactNode;
-  theme: 'interviews' | 'projects';
+  className?: string;
+  theme?: 'interviews' | 'projects';
 }>) {
   const { isUserProfileLoading } = useUserProfile();
   const { setShowGlobalBanner } = useUserPreferences();
@@ -110,6 +142,7 @@ function BannerShell({
       className={clsx(
         'h-6', // Sync with sticky.css.
         textVariants({ color: 'light' }),
+        className,
       )}
       data-theme={theme}
       size="xs"
@@ -129,14 +162,14 @@ function BannerShell({
   );
 }
 
-export default function GlobalBanner({ rotateMessages }: Props) {
+export default function GlobalBanner() {
   return (
     <div
       className={clsx(
         'global-banner', // Non-Tailwind class. Sync with sticky.css.
         'z-sticky sticky top-0 w-full',
       )}>
-      <MarketingMessage rotateMessages={rotateMessages} />
+      <MarketingMessage />
     </div>
   );
 }

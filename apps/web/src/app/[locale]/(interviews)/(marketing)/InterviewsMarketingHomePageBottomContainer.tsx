@@ -18,6 +18,7 @@ import InterviewsPricingSectionLocalizedContainer from '~/components/interviews/
 const InterviewsMarketingHomePageBottom = dynamic(
   () => {
     loadedBottom = true;
+
     return import('./InterviewsMarketingHomePageBottom');
   },
   { ssr: false },

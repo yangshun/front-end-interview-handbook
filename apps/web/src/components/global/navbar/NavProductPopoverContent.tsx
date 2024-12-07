@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import type { ReactNode } from 'react';
 import { PiPathBold } from 'react-icons/pi';
 import { RiAwardLine, RiBriefcaseLine } from 'react-icons/ri';
 
@@ -17,6 +18,7 @@ import {
 } from '~/components/ui/theme';
 
 import LogoComboMark from '../logos/LogoComboMark';
+import SwagOverflowLogo from '../logos/SwagOverflowLogo';
 import { useProductMenuUnseenIndicator } from '../product-theme/useProductMenuUnseenIndicator';
 
 import * as PopoverPrimitive from '@radix-ui/react-popover';
@@ -29,10 +31,14 @@ function NavProductMenuItem({
   label,
   product,
   showNewIndicator,
+  logo,
+  isLabelHidden,
 }: Readonly<{
   beta?: boolean;
   href: string;
+  isLabelHidden?: boolean;
   label: string;
+  logo?: ReactNode;
   product: string;
   showNewIndicator: boolean;
 }>) {
@@ -53,11 +59,19 @@ function NavProductMenuItem({
       variant="unstyled">
       <div className="flex h-5 items-center justify-between">
         <div className="relative flex items-center gap-2.5">
-          <LogoComboMark height={17} />
-          <Divider className="h-3.5" color="emphasized" direction="vertical" />
-          <Text className="text-[13px]" size="inherit" weight="bold">
-            {label}
-          </Text>
+          {logo ? logo : <LogoComboMark height={17} />}
+          {!isLabelHidden && (
+            <>
+              <Divider
+                className="h-3.5"
+                color="emphasized"
+                direction="vertical"
+              />
+              <Text className="text-[13px]" size="inherit" weight="bold">
+                {label}
+              </Text>
+            </>
+          )}
           {showNewIndicator && (
             <span
               aria-hidden={true}
@@ -123,6 +137,14 @@ export default function NavProductPopoverContent({ product, ...props }: Props) {
             label="Projects"
             product="GreatFrontEnd Projects"
             showNewIndicator={showUnseenIndicator}
+          />
+          <NavProductMenuItem
+            href="https://swagoverflow.store"
+            isLabelHidden={true}
+            label="SwagOverflow store"
+            logo={<SwagOverflowLogo height={20} width={103} />}
+            product="SwagOverflow store"
+            showNewIndicator={false}
           />
         </div>
       </div>
