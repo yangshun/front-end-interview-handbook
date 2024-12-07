@@ -326,8 +326,8 @@ export default function InterviewsNavbar({
                           <Divider />
                           <DropdownMenu
                             align="end"
-                            size="sm"
                             asChild={true}
+                            size="sm"
                             trigger={
                               <div
                                 className={clsx(

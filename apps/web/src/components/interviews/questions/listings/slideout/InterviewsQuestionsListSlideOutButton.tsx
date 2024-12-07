@@ -8,6 +8,7 @@ import {
 } from 'react-icons/ri';
 
 import type {
+  QuestionFramework,
   QuestionMetadata,
   QuestionMetadataWithCompletedStatus,
 } from '~/components/interviews/questions/common/QuestionsTypes';
@@ -35,17 +36,19 @@ import {
 } from '../../common/useQuestionsListDataForType';
 
 type Props = Readonly<{
+  framework?: QuestionFramework;
   metadata: QuestionMetadata;
   slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE: string;
   studyListKey?: string;
 }>;
 
 export default function InterviewsQuestionsListSlideOutButton({
+  framework,
   metadata,
   slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE,
   studyListKey,
 }: Props) {
-  const listData = useQuestionsListTypeCurrent(studyListKey);
+  const listData = useQuestionsListTypeCurrent(studyListKey, framework);
   const { isLoading, data } = useQuestionsListDataForType(listData);
 
   const questionsWithCompletionStatus = useQuestionsWithCompletionStatus(
@@ -124,18 +127,6 @@ function InterviewsQuestionsListSlideOutButtonImpl({
   // will be 0 index which is the first question in the processed list.
   const prevQuestion = processedQuestions[currentQuestionIndex - 1];
   const nextQuestion = processedQuestions[currentQuestionIndex + 1];
-
-  if (listType.type === 'coding') {
-    return (
-      <Button
-        addonPosition="start"
-        href="/interviews/dashboard"
-        icon={RiArrowLeftLine}
-        label="Back to dashboard"
-        variant="secondary"
-      />
-    );
-  }
 
   return (
     <div className="flex h-7 gap-x-2">

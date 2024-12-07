@@ -5,6 +5,7 @@ import { VscLayout } from 'react-icons/vsc';
 import QuestionProgressAction from '~/components/interviews/questions/common/QuestionProgressAction';
 import QuestionReportIssueButton from '~/components/interviews/questions/common/QuestionReportIssueButton';
 import type {
+  QuestionFramework,
   QuestionMetadata,
   QuestionUserInterface,
 } from '~/components/interviews/questions/common/QuestionsTypes';
@@ -19,6 +20,7 @@ import CodingWorkspaceBottomBar from '../common/CodingWorkspaceBottomBar';
 import CodingWorkspaceTimer from '../common/CodingWorkspaceTimer';
 
 type Props = Readonly<{
+  framework: QuestionFramework;
   frameworkSolutionPath: string;
   metadata: QuestionMetadata;
   mode: QuestionUserInterfaceMode;
@@ -30,6 +32,7 @@ type Props = Readonly<{
 }>;
 
 export default function UserInterfaceCodingWorkspaceBottomBar({
+  framework,
   frameworkSolutionPath,
   metadata,
   question,
@@ -129,6 +132,7 @@ export default function UserInterfaceCodingWorkspaceBottomBar({
 
   return (
     <CodingWorkspaceBottomBar
+      framework={framework}
       leftElements={leftElements}
       metadata={metadata}
       rightElements={rightElements}

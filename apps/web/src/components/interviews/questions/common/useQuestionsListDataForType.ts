@@ -14,6 +14,7 @@ import type {
  */
 export function useQuestionsListTypeCurrent(
   studyListKey?: string,
+  framework?: QuestionFramework,
 ): QuestionListTypeData | null {
   const searchParams = useSearchParams();
 
@@ -42,7 +43,19 @@ export function useQuestionsListTypeCurrent(
     };
   }
 
-  return null;
+  // Used by framework-specific UI qns (e.g. /questions/user-interface/counter/vue)
+  // But lower priority than the searchParams
+  if (framework) {
+    return {
+      type: 'framework',
+      value: framework,
+    };
+  }
+
+  return {
+    type: 'coding',
+    value: 'all',
+  };
 }
 
 export function useQuestionsListDataForType(

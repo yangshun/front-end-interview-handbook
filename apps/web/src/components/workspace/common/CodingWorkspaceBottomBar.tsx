@@ -2,7 +2,10 @@ import clsx from 'clsx';
 import type { ReactNode } from 'react';
 import { Suspense } from 'react';
 
-import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
+import type {
+  QuestionFramework,
+  QuestionMetadata,
+} from '~/components/interviews/questions/common/QuestionsTypes';
 import InterviewsQuestionsListSlideOutButton from '~/components/interviews/questions/listings/slideout/InterviewsQuestionsListSlideOutButton';
 import {
   themeBackgroundDarkColor,
@@ -10,6 +13,7 @@ import {
 } from '~/components/ui/theme';
 
 type Props = Readonly<{
+  framework?: QuestionFramework;
   leftElements?: ReactNode;
   metadata: QuestionMetadata;
   rightElements?: ReactNode;
@@ -19,6 +23,7 @@ type Props = Readonly<{
 }>;
 
 export default function CodingWorkspaceBottomBar({
+  framework,
   leftElements,
   metadata,
   rightElements,
@@ -44,6 +49,7 @@ export default function CodingWorkspaceBottomBar({
             {/* Because useQuestionsListTypeCurrent() uses useSearchParams() */}
             <Suspense>
               <InterviewsQuestionsListSlideOutButton
+                framework={framework}
                 metadata={metadata}
                 slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE={
                   slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE
