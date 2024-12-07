@@ -139,6 +139,9 @@ export default function InterviewsQuestionsCategoryPage({
       <Section>
         <QuestionsUnifiedListWithFiltersAndProgress
           categoryTabs={categoryTabs}
+          framework={
+            props.category === 'framework' ? props.categoryValue : undefined
+          }
           guides={
             guidesWithCompletionStatus.length > 0
               ? {

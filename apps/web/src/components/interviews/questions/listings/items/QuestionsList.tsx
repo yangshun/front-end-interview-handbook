@@ -106,7 +106,7 @@ export default function QuestionsList<Q extends QuestionMetadata>({
           ? checkIfCompletedQuestionBefore(questionMetadata)
           : false;
 
-        // Redirect to framework-specific page if framework prop is provided.
+        // Redirect to framework-specific page if framework prop is provided
         const maybeFrameworkHref =
           questionMetadata.frameworks.find(
             ({ framework: frameworkType }) => frameworkType === framework,

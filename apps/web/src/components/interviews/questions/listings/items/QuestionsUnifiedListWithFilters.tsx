@@ -9,7 +9,7 @@ import InterviewsGuideCard from '~/components/interviews/guides/InterviewsGuideC
 import InterviewsPurchasePaywall from '~/components/interviews/purchase/InterviewsPurchasePaywall';
 import type {
   QuestionFormat,
-  QuestionFrameworkOrLanguage,
+  QuestionFramework,
   QuestionMetadata,
   QuestionMetadataWithCompletedStatus,
 } from '~/components/interviews/questions/common/QuestionsTypes';
@@ -45,7 +45,7 @@ type Props = Readonly<{
     a: QuestionFormat,
     b: QuestionFormat,
   ) => number;
-  frameworkOrLanguage?: QuestionFrameworkOrLanguage;
+  framework?: QuestionFramework;
   guides?: {
     description: string;
     items: ReadonlyArray<GuideCardMetadataWithCompletedStatus>;
@@ -67,7 +67,7 @@ export default function QuestionsUnifiedListWithFilters({
   checkIfCompletedQuestionBefore,
   categoryTabs,
   initialFormat = null,
-  frameworkOrLanguage,
+  framework,
   listType,
   listMode,
   mode = 'default',
@@ -238,15 +238,7 @@ export default function QuestionsUnifiedListWithFilters({
                     checkIfCompletedQuestionBefore={
                       checkIfCompletedQuestionBefore
                     }
-                    framework={
-                      // TODO(interviews): improve this
-                      frameworkOrLanguage !== 'html' &&
-                      frameworkOrLanguage !== 'js' &&
-                      frameworkOrLanguage !== 'ts' &&
-                      frameworkOrLanguage !== 'css'
-                        ? frameworkOrLanguage
-                        : undefined
-                    }
+                    framework={framework}
                     listType={listType}
                     mode={listMode}
                     questionCompletionCount={questionCompletionCount}
