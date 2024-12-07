@@ -5,11 +5,10 @@ import type { ReactNode } from 'react';
 import { useEffect, useState } from 'react';
 import { RiArrowRightLine } from 'react-icons/ri';
 
-import { FormattedMessage, useIntl } from '~/components/intl';
+import { FormattedMessage } from '~/components/intl';
 import { SOCIAL_DISCOUNT_PERCENTAGE } from '~/components/promotions/social/SocialDiscountConfig';
 import Anchor from '~/components/ui/Anchor';
 import Banner from '~/components/ui/Banner';
-import Button from '~/components/ui/Button';
 import Text, { textVariants } from '~/components/ui/Text';
 import { themeBackgroundInvertColor } from '~/components/ui/theme';
 
@@ -20,7 +19,6 @@ import { useUserPreferences } from '../UserPreferencesProvider';
 import { useUserProfile } from '../UserProfileProvider';
 
 function MarketingMessage() {
-  const intl = useIntl();
   const { userProfile } = useUserProfile();
   const { pathname } = useI18nPathname();
   const [bannerIndex, setBannerIndex] = useState(0);
@@ -76,30 +74,27 @@ function MarketingMessage() {
   const swagOverflowBannerEl = (
     <BannerShell className={themeBackgroundInvertColor}>
       <Anchor
-        className={clsx(
-          'flex items-center justify-center gap-3',
-          'font-medium text-neutral-100  dark:text-neutral-900',
-        )}
+        className={textVariants({
+          color: 'invert',
+          weight: 'medium',
+        })}
         href="https://swagoverflow.store"
         target="_blank"
-        variant="unstyled">
-        <SwagOverflowLogo />
+        variant="flat">
+        <SwagOverflowLogo className="mr-2 inline" />
         <FormattedMessage
-          defaultMessage="Visit the ultimate swag store for Front End Engineers"
+          defaultMessage="Visit the ultimate swag store for Front End Engineers! <strong>Check it out</strong>"
           description="Text on SwagStore Banner"
-          id="0lfoS/"
+          id="epwmlp"
+          values={{
+            strong: (chunks) => (
+              <Text className="hidden md:inline" color="inherit" weight="bold">
+                {chunks}
+              </Text>
+            ),
+          }}
         />
-        <Button
-          className="hidden !h-5 sm:flex"
-          icon={RiArrowRightLine}
-          label={intl.formatMessage({
-            defaultMessage: 'Check it out',
-            description: 'Button label for check it out',
-            id: 's0MeXj',
-          })}
-          size="xs"
-          variant="secondary"
-        />
+        {arrowEl}
       </Anchor>
     </BannerShell>
   );

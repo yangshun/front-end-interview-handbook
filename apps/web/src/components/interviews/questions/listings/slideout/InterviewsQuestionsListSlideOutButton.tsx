@@ -1,11 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
-import {
-  RiArrowLeftLine,
-  RiArrowLeftSLine,
-  RiArrowRightSLine,
-} from 'react-icons/ri';
+import { RiArrowLeftSLine, RiArrowRightSLine } from 'react-icons/ri';
 
 import type {
   QuestionFramework,
