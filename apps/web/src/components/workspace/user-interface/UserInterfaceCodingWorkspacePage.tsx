@@ -7,6 +7,7 @@ import type {
   QuestionUserInterface,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import type { QuestionUserInterfaceMode } from '~/components/interviews/questions/common/QuestionUserInterfacePath';
+import { useQuestionsListTypeCurrent } from '~/components/interviews/questions/common/useQuestionsListDataForType';
 import {
   questionUserInterfaceDescriptionPath,
   questionUserInterfaceSolutionPath,
@@ -35,6 +36,8 @@ export default function UserInterfaceCodingWorkspacePage({
     question: { metadata },
   } = props;
 
+  const listType = useQuestionsListTypeCurrent(studyListKey);
+
   return (
     <UserInterfaceCodingWorkspaceSection
       {...props}
@@ -57,14 +60,7 @@ export default function UserInterfaceCodingWorkspacePage({
             ? questionUserInterfaceDescriptionPath(metadata, frameworkValue)
             : questionUserInterfaceSolutionPath(metadata, frameworkValue);
 
-        router.push(
-          questionHrefWithListType(
-            href,
-            studyListKey
-              ? { type: 'study-list', value: studyListKey }
-              : undefined,
-          ),
-        );
+        router.push(questionHrefWithListType(href, listType));
       }}
     />
   );

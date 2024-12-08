@@ -53,8 +53,8 @@ function InterviewsQuestionsListSlideOutButtonWithLoader({
   slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE,
   studyListKey,
 }: Props) {
-  const listData = useQuestionsListTypeCurrent(studyListKey, framework);
-  const { isLoading, data } = useQuestionsListDataForType(listData);
+  const listType = useQuestionsListTypeCurrent(studyListKey, framework);
+  const { isLoading, data } = useQuestionsListDataForType(listType);
 
   const questionsWithCompletionStatus = useQuestionsWithCompletionStatus(
     data?.questions ?? [],

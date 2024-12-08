@@ -11,6 +11,7 @@ import type {
 import type { QuestionUserInterfaceMode } from '~/components/interviews/questions/common/QuestionUserInterfacePath';
 import useQuestionLogEventCopyContents from '~/components/interviews/questions/common/useQuestionLogEventCopyContents';
 import useQuestionsAutoMarkAsComplete from '~/components/interviews/questions/common/useQuestionsAutoMarkAsComplete';
+import { useQuestionsListTypeCurrent } from '~/components/interviews/questions/common/useQuestionsListDataForType';
 import { questionUserInterfaceSolutionPath } from '~/components/interviews/questions/content/user-interface/QuestionUserInterfaceRoutes';
 import Button from '~/components/ui/Button';
 import EmptyState from '~/components/ui/EmptyState';
@@ -534,9 +535,10 @@ export default function UserInterfaceCodingWorkspace({
   const { activeFile, visibleFiles } = sandpack;
   const { metadata, framework } = question;
 
+  const listType = useQuestionsListTypeCurrent(studyListKey, framework);
   const frameworkSolutionPath = questionHrefWithListType(
     questionUserInterfaceSolutionPath(metadata, framework),
-    studyListKey ? { type: 'study-list', value: studyListKey } : undefined,
+    listType,
   );
 
   return (

@@ -3,16 +3,17 @@ import { RiArrowRightUpLine } from 'react-icons/ri';
 
 import { useQuestionFrameworksData } from '~/data/QuestionCategories';
 
+import { questionHrefFrameworkSpecificAndListType } from '~/components/interviews/questions/common/questionHref';
 import type {
   QuestionFramework,
   QuestionMetadata,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import type { QuestionUserInterfaceMode } from '~/components/interviews/questions/common/QuestionUserInterfacePath';
+import { useQuestionsListTypeCurrent } from '~/components/interviews/questions/common/useQuestionsListDataForType';
 import QuestionCompanies from '~/components/interviews/questions/content/QuestionCompanies';
 import QuestionContentProse from '~/components/interviews/questions/content/QuestionContentProse';
 import QuestionNextQuestions from '~/components/interviews/questions/content/QuestionNextQuestions';
 import QuestionSimilarQuestions from '~/components/interviews/questions/content/QuestionSimilarQuestions';
-import { questionUserInterfaceDescriptionPath } from '~/components/interviews/questions/content/user-interface/QuestionUserInterfaceRoutes';
 import QuestionMetadataSection from '~/components/interviews/questions/metadata/QuestionMetadataSection';
 import { useIntl } from '~/components/intl';
 import Alert from '~/components/ui/Alert';
@@ -59,6 +60,7 @@ export default function UserInterfaceCodingWorkspaceWriteup({
   studyListKey,
   writeup,
 }: Props) {
+  const listType = useQuestionsListTypeCurrent(studyListKey, framework);
   const { data: questionProgress } = useQueryQuestionProgress(
     metadata,
     studyListKey ?? null,
@@ -67,6 +69,11 @@ export default function UserInterfaceCodingWorkspaceWriteup({
   const intl = useIntl();
   const frameworks = useQuestionFrameworksData();
   const { dispatch } = useUserInterfaceCodingWorkspaceTilesContext();
+  const questionDescriptionHref = questionHrefFrameworkSpecificAndListType(
+    metadata,
+    listType,
+    framework,
+  );
 
   return (
     <>
@@ -80,14 +87,8 @@ export default function UserInterfaceCodingWorkspaceWriteup({
                 <Text className="block" size="body2">
                   You are viewing the description from the solution page. To
                   practice this question,{' '}
-                  <Anchor
-                    href={questionUserInterfaceDescriptionPath(
-                      metadata,
-                      framework,
-                    )}>
-                    go back
-                  </Anchor>{' '}
-                  to the workspace page or{' '}
+                  <Anchor href={questionDescriptionHref}>go back</Anchor> to the
+                  workspace page or{' '}
                   <Anchor
                     onClick={() => {
                       dispatch({
@@ -112,10 +113,7 @@ export default function UserInterfaceCodingWorkspaceWriteup({
                   <strong>"{save.name}"</strong>.
                 </Text>
                 <Button
-                  href={questionUserInterfaceDescriptionPath(
-                    metadata,
-                    framework,
-                  )}
+                  href={questionDescriptionHref}
                   label="Start a new version"
                   size="sm"
                   variant="secondary"

@@ -54,7 +54,6 @@ import QuestionsListSortButton from '../items/QuestionsListSortButton';
 import type { QuestionListTypeData } from '../../common/questionHref';
 import {
   questionHrefFrameworkSpecificAndListType,
-  questionHrefWithListType,
   questionListFilterNamespace,
 } from '../../common/questionHref';
 import { useQuestionsListDataForType } from '../../common/useQuestionsListDataForType';
