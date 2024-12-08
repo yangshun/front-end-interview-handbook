@@ -1,5 +1,6 @@
 'use client';
 
+import { questionHrefWithListType } from '~/components/interviews/questions/common/questionHref';
 import type {
   QuestionFramework,
   QuestionMetadata,
@@ -25,7 +26,10 @@ type Props = Readonly<{
   studyListKey?: string;
 }>;
 
-export default function UserInterfaceCodingWorkspacePage(props: Props) {
+export default function UserInterfaceCodingWorkspacePage({
+  studyListKey,
+  ...props
+}: Props) {
   const router = useI18nRouter();
   const {
     question: { metadata },
@@ -35,6 +39,7 @@ export default function UserInterfaceCodingWorkspacePage(props: Props) {
     <UserInterfaceCodingWorkspaceSection
       {...props}
       embed={false}
+      studyListKey={studyListKey}
       timeoutLoggerInstance="workspace.ui"
       onFrameworkChange={(value, contentType) => {
         const frameworkValue = value as QuestionFramework;
@@ -47,10 +52,18 @@ export default function UserInterfaceCodingWorkspacePage(props: Props) {
           return;
         }
 
-        router.push(
+        const href =
           contentType === 'description'
             ? questionUserInterfaceDescriptionPath(metadata, frameworkValue)
-            : questionUserInterfaceSolutionPath(metadata, frameworkValue),
+            : questionUserInterfaceSolutionPath(metadata, frameworkValue);
+
+        router.push(
+          questionHrefWithListType(
+            href,
+            studyListKey
+              ? { type: 'study-list', value: studyListKey }
+              : undefined,
+          ),
         );
       }}
     />

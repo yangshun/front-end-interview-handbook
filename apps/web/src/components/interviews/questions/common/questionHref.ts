@@ -4,6 +4,7 @@ import type {
   QuestionFormat,
   QuestionFramework,
   QuestionLanguage,
+  QuestionMetadata,
 } from './QuestionsTypes';
 
 const origin = getSiteOrigin();
@@ -23,6 +24,18 @@ export function questionListFilterNamespace(
   }
 
   return `${listType.type}:${listType.value}`;
+}
+
+export function questionHrefFrameworkSpecific(
+  questionMetadata: QuestionMetadata,
+  framework?: QuestionFramework,
+): string {
+  // Redirect to framework-specific page if framework prop is provided
+  return (
+    questionMetadata.frameworks.find(
+      ({ framework: frameworkType }) => frameworkType === framework,
+    )?.href ?? questionMetadata.href
+  );
 }
 
 export function questionHrefWithListType(
@@ -49,4 +62,17 @@ export function questionHrefWithListType(
   }
 
   return urlObject.pathname + urlObject.search + urlObject.hash;
+}
+
+export function questionHrefFrameworkSpecificAndListType(
+  questionMetadata: QuestionMetadata,
+  listType?: QuestionListTypeData | null,
+  framework?: QuestionFramework,
+): string {
+  const maybeFrameworkHref = questionHrefFrameworkSpecific(
+    questionMetadata,
+    framework,
+  );
+
+  return questionHrefWithListType(maybeFrameworkHref, listType);
 }

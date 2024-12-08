@@ -53,6 +53,7 @@ import useQuestionsWithCompletionStatus from '../filters/hooks/useQuestionsWithC
 import QuestionsListSortButton from '../items/QuestionsListSortButton';
 import type { QuestionListTypeData } from '../../common/questionHref';
 import {
+  questionHrefFrameworkSpecificAndListType,
   questionHrefWithListType,
   questionListFilterNamespace,
 } from '../../common/questionHref';
@@ -183,6 +184,7 @@ function FrameworkAndLanguageFilterSection<Q extends QuestionMetadata>({
 }
 
 function Contents({
+  framework,
   listType,
   isDifferentListFromInitial,
   metadata,
@@ -191,6 +193,7 @@ function Contents({
   onClickDifferentStudyListQuestion,
 }: Readonly<{
   filterNamespace: string;
+  framework?: QuestionFramework;
   isDifferentListFromInitial: boolean;
   listType: QuestionListTypeData;
   metadata: QuestionMetadata;
@@ -347,10 +350,20 @@ function Contents({
   useEffect(() => {
     if (processedQuestions.length > 0 && !showCompanyPaywall) {
       setFirstQuestionHref(
-        questionHrefWithListType(processedQuestions[0].href, listType),
+        questionHrefFrameworkSpecificAndListType(
+          processedQuestions[0],
+          listType,
+          framework,
+        ),
       );
     }
-  }, [listType, processedQuestions, setFirstQuestionHref, showCompanyPaywall]);
+  }, [
+    framework,
+    listType,
+    processedQuestions,
+    setFirstQuestionHref,
+    showCompanyPaywall,
+  ]);
 
   const label = intl.formatMessage({
     defaultMessage: 'Search within this list',
@@ -419,6 +432,7 @@ function Contents({
       ) : (
         <InterviewsQuestionsListSlideOutContents
           checkIfCompletedQuestion={(question) => question.isCompleted}
+          framework={framework}
           isDifferentListFromInitial={isDifferentListFromInitial}
           listType={listType}
           metadata={metadata}
@@ -437,6 +451,7 @@ function Contents({
 
 type Props = Readonly<{
   currentQuestionPosition: number;
+  framework?: QuestionFramework;
   initialListType: QuestionListTypeWithLabel;
   isLoading: boolean;
   metadata: QuestionMetadata;
@@ -456,6 +471,7 @@ export default function InterviewsQuestionsListSlideOut(props: Props) {
 }
 
 function InterviewsQuestionsListSlideOutImpl({
+  framework,
   isLoading,
   initialListType,
   currentQuestionPosition,
@@ -614,6 +630,7 @@ function InterviewsQuestionsListSlideOutImpl({
           <Contents
             key={filterNamespace}
             filterNamespace={filterNamespace}
+            framework={framework}
             isDifferentListFromInitial={
               !isEqual(initialListType, currentListType)
             }

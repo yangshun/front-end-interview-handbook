@@ -1,6 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
+import { Suspense } from 'react';
 import { RiArrowLeftSLine, RiArrowRightSLine } from 'react-icons/ri';
 
 import type {
@@ -23,7 +24,7 @@ import { hashQuestion } from '~/db/QuestionsUtils';
 
 import type { QuestionListTypeData } from '../../common/questionHref';
 import {
-  questionHrefWithListType,
+  questionHrefFrameworkSpecificAndListType,
   questionListFilterNamespace,
 } from '../../common/questionHref';
 import {
@@ -38,7 +39,15 @@ type Props = Readonly<{
   studyListKey?: string;
 }>;
 
-export default function InterviewsQuestionsListSlideOutButton({
+export default function InterviewsQuestionsListSlideOutButton(props: Props) {
+  return (
+    <Suspense>
+      <InterviewsQuestionsListSlideOutButtonWithLoader {...props} />
+    </Suspense>
+  );
+}
+
+function InterviewsQuestionsListSlideOutButtonWithLoader({
   framework,
   metadata,
   slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE,
@@ -67,6 +76,7 @@ export default function InterviewsQuestionsListSlideOutButton({
 
         return (
           <InterviewsQuestionsListSlideOutButtonImpl
+            framework={framework}
             listType={data.listType}
             metadata={metadata}
             questions={questionsWithCompletionStatus}
@@ -82,12 +92,14 @@ export default function InterviewsQuestionsListSlideOutButton({
 }
 
 function InterviewsQuestionsListSlideOutButtonImpl({
+  framework,
   title,
   listType,
   metadata,
   questions,
   slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE,
 }: Readonly<{
+  framework?: QuestionFramework;
   listType: QuestionListTypeData;
   metadata: QuestionMetadata;
   questions: ReadonlyArray<QuestionMetadataWithCompletedStatus>;
@@ -130,7 +142,11 @@ function InterviewsQuestionsListSlideOutButtonImpl({
         addonPosition="start"
         href={
           prevQuestion
-            ? questionHrefWithListType(prevQuestion?.href, listType)
+            ? questionHrefFrameworkSpecificAndListType(
+                prevQuestion,
+                listType,
+                framework,
+              )
             : undefined
         }
         icon={RiArrowLeftSLine}
@@ -148,6 +164,7 @@ function InterviewsQuestionsListSlideOutButtonImpl({
       <InterviewsQuestionsListSlideOut
         key={metadata.slug}
         currentQuestionPosition={currentQuestionIndex + 1}
+        framework={framework}
         initialListType={{ ...listType, label: title }}
         isLoading={false}
         metadata={metadata}
@@ -160,7 +177,11 @@ function InterviewsQuestionsListSlideOutButtonImpl({
         addonPosition="start"
         href={
           nextQuestion
-            ? questionHrefWithListType(nextQuestion?.href, listType)
+            ? questionHrefFrameworkSpecificAndListType(
+                nextQuestion,
+                listType,
+                framework,
+              )
             : undefined
         }
         icon={RiArrowRightSLine}

@@ -4,8 +4,11 @@ import VignetteOverlay from '~/components/common/VignetteOverlay';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import InterviewsPremiumBadge from '~/components/interviews/common/InterviewsPremiumBadge';
 import type { QuestionListTypeData } from '~/components/interviews/questions/common/questionHref';
-import { questionHrefWithListType } from '~/components/interviews/questions/common/questionHref';
-import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
+import { questionHrefFrameworkSpecificAndListType } from '~/components/interviews/questions/common/questionHref';
+import type {
+  QuestionFramework,
+  QuestionMetadata,
+} from '~/components/interviews/questions/common/QuestionsTypes';
 import QuestionsListItemProgressChip from '~/components/interviews/questions/listings/items/QuestionsListItemProgressChip';
 import InterviewsQuestionsListSlideOutHovercardContents from '~/components/interviews/questions/listings/slideout/InterviewsQuestionsListSlideOutHovercardContents';
 import QuestionDifficultyLabel from '~/components/interviews/questions/metadata/QuestionDifficultyLabel';
@@ -34,6 +37,7 @@ import InterviewsPurchasePaywall from '../../../purchase/InterviewsPurchasePaywa
 
 type Props<Q extends QuestionMetadata> = Readonly<{
   checkIfCompletedQuestion?: (question: Q) => boolean;
+  framework?: QuestionFramework;
   isDifferentListFromInitial: boolean;
   listType: QuestionListTypeData;
   metadata: QuestionMetadata;
@@ -46,6 +50,7 @@ export default function InterviewsQuestionsListSlideOutContents<
   Q extends QuestionMetadata,
 >({
   checkIfCompletedQuestion,
+  framework,
   isDifferentListFromInitial,
   listType,
   questions,
@@ -108,9 +113,10 @@ export default function InterviewsQuestionsListSlideOutContents<
                 isCurrentQuestionInTheList && !isDifferentListFromInitial
                   ? hashQuestion(questionMetadata) === hashQuestion(metadata)
                   : index === 0;
-              const href = questionHrefWithListType(
-                questionMetadata.href,
+              const href = questionHrefFrameworkSpecificAndListType(
+                questionMetadata,
                 listType,
+                framework,
               );
 
               return (
@@ -235,9 +241,10 @@ export default function InterviewsQuestionsListSlideOutContents<
               const isActiveQuestion =
                 hashQuestion(questionMetadata) === hashQuestion(metadata);
 
-              const href = questionHrefWithListType(
-                questionMetadata.href,
+              const href = questionHrefFrameworkSpecificAndListType(
+                questionMetadata,
                 listType,
+                framework,
               );
 
               return (

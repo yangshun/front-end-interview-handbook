@@ -1,6 +1,5 @@
 import clsx from 'clsx';
 import type { ReactNode } from 'react';
-import { Suspense } from 'react';
 
 import type {
   QuestionFramework,
@@ -45,19 +44,14 @@ export default function CodingWorkspaceBottomBar({
       </div>
       <div className={clsx('flex flex-1 sm:justify-center', 'h-7')}>
         {showQuestionsListButton && (
-          <>
-            {/* Because useQuestionsListTypeCurrent() uses useSearchParams() */}
-            <Suspense>
-              <InterviewsQuestionsListSlideOutButton
-                framework={framework}
-                metadata={metadata}
-                slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE={
-                  slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE
-                }
-                studyListKey={studyListKey}
-              />
-            </Suspense>
-          </>
+          <InterviewsQuestionsListSlideOutButton
+            framework={framework}
+            metadata={metadata}
+            slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE={
+              slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE
+            }
+            studyListKey={studyListKey}
+          />
         )}
       </div>
       <div className="flex items-center justify-end gap-x-2 md:flex-1">

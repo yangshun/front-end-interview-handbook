@@ -21,7 +21,7 @@ import { hashQuestion } from '~/db/QuestionsUtils';
 
 import QuestionsListItemProgressChip from './QuestionsListItemProgressChip';
 import type { QuestionListTypeData } from '../../common/questionHref';
-import { questionHrefWithListType } from '../../common/questionHref';
+import { questionHrefFrameworkSpecificAndListType } from '../../common/questionHref';
 import type {
   QuestionFramework,
   QuestionMetadata,
@@ -106,14 +106,10 @@ export default function QuestionsList<Q extends QuestionMetadata>({
           ? checkIfCompletedQuestionBefore(questionMetadata)
           : false;
 
-        // Redirect to framework-specific page if framework prop is provided
-        const maybeFrameworkHref =
-          questionMetadata.frameworks.find(
-            ({ framework: frameworkType }) => frameworkType === framework,
-          )?.href ?? questionMetadata.href;
-        const questionHref = questionHrefWithListType(
-          maybeFrameworkHref,
+        const questionHref = questionHrefFrameworkSpecificAndListType(
+          questionMetadata,
           listType,
+          framework,
         );
 
         return (

@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 
 import type { QuestionListTypeData } from '~/components/interviews/questions/common/questionHref';
-import { questionHrefWithListType } from '~/components/interviews/questions/common/questionHref';
+import { questionHrefFrameworkSpecificAndListType } from '~/components/interviews/questions/common/questionHref';
 import QuestionAuthor from '~/components/interviews/questions/metadata/QuestionAuthor';
 import QuestionDifficultyLabel from '~/components/interviews/questions/metadata/QuestionDifficultyLabel';
 import QuestionDurationLabel from '~/components/interviews/questions/metadata/QuestionDurationLabel';
@@ -9,15 +9,20 @@ import Anchor from '~/components/ui/Anchor';
 import type { TextSize } from '~/components/ui/Text';
 import Text, { textVariants } from '~/components/ui/Text';
 
-import type { QuestionMetadata } from '../../common/QuestionsTypes';
+import type {
+  QuestionFramework,
+  QuestionMetadata,
+} from '../../common/QuestionsTypes';
 
 type Props = Readonly<{
+  framework?: QuestionFramework;
   listType?: QuestionListTypeData | null;
   question: QuestionMetadata;
   size?: TextSize;
 }>;
 
 export default function InterviewsQuestionsListSlideOutHovercardContents({
+  framework,
   listType,
   question,
   size = 'body3',
@@ -36,7 +41,11 @@ export default function InterviewsQuestionsListSlideOutHovercardContents({
             size: 'body1',
             weight: 'bold',
           })}
-          href={questionHrefWithListType(question.href, listType)}
+          href={questionHrefFrameworkSpecificAndListType(
+            question,
+            listType,
+            framework,
+          )}
           variant="flat">
           {question.title}
         </Anchor>
