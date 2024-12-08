@@ -62,12 +62,15 @@ export async function readMDXFile(
 
       return options;
     },
-    globals: { MDXCodeBlock: 'MDXCodeBlock' },
+    globals: {
+      MDXCodeBlock: 'MDXCodeBlock',
+      MDXTestExamples: 'MDXTestExamples',
+    },
     mdxOptions(options) {
       const remarkPlugins = options.remarkPlugins ?? [];
 
       remarkPlugins.push(remarkGfm);
-      remarkPlugins.push(remarkMdxCodeMeta)
+      remarkPlugins.push(remarkMdxCodeMeta);
 
       if (extractFrontmatter) {
         remarkPlugins.push(remarkFrontmatter, remarkMdxFrontmatter);

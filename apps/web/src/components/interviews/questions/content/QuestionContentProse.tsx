@@ -4,6 +4,7 @@ import { useMemo } from 'react';
 import { FormattedMessage } from '~/components/intl';
 import MDXCodeBlock from '~/components/mdx/MDXCodeBlock';
 import MDXComponents from '~/components/mdx/MDXComponents';
+import MDXTestExamples from '~/components/mdx/MDXTestExamples';
 import EmptyState from '~/components/ui/EmptyState';
 import type { ProseTextSize } from '~/components/ui/Prose';
 import Prose from '~/components/ui/Prose';
@@ -28,6 +29,7 @@ export default function QuestionContentProse({
 
     return getMDXComponent(contents, {
       MDXCodeBlock,
+      MDXTestExamples,
     });
   }, [contents]);
 

@@ -110,7 +110,9 @@ async function readQuestionAlgoFiles(
 
   const filteredFiles = files.filter(
     (filePath) =>
-      !filePath.includes('/src') || compulsoryFiles.includes(filePath),
+      !filePath.includes('/src') ||
+      compulsoryFiles.includes(filePath) ||
+      filePath.endsWith('.tests.json'),
   );
 
   return filteredFiles
