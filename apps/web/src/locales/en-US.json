@@ -2247,6 +2247,10 @@
     "defaultMessage": "The email address you want to use to log in.",
     "description": "Email field description"
   },
+  "DSAK89": {
+    "defaultMessage": "Premium feature",
+    "description": "Title on question paywall appearing on the question pages of premium questions"
+  },
   "DTIb2e": {
     "defaultMessage": "Pagination",
     "description": "Pagination label"
@@ -2694,10 +2698,6 @@
   "GUGImr": {
     "defaultMessage": "{offerCount, plural,=1 {1 offer} other {# offers}}",
     "description": "Testimonials overview"
-  },
-  "GVHds/": {
-    "defaultMessage": "Premium Feature",
-    "description": "Title on question paywall appearing on the question pages of premium questions"
   },
   "GWzQrD": {
     "defaultMessage": "<authorLink>{author}</authorLink> replied to your question on <submissionLink>{entityTitle}</submissionLink> {timestamp}",

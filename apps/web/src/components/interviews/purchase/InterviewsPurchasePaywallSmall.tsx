@@ -18,10 +18,10 @@ export default function InterviewsPurchasePaywallSmall({
   const title =
     titleProp ??
     intl.formatMessage({
-      defaultMessage: 'Premium Feature',
+      defaultMessage: 'Premium feature',
       description:
         'Title on question paywall appearing on the question pages of premium questions',
-      id: 'GVHds/',
+      id: 'DSAK89',
     });
 
   const subtitle =
@@ -43,7 +43,7 @@ export default function InterviewsPurchasePaywallSmall({
         aria-hidden={true}
         className="size-8 shrink-0 text-neutral-500"
       />
-      <div className="flex grow gap-y-1">
+      <div className="flex grow flex-col gap-y-1">
         <Text className="block" size="body3" weight="bold">
           {title}
         </Text>
