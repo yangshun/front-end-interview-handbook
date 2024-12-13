@@ -18,7 +18,7 @@ import { hashQuestion } from '~/db/QuestionsUtils';
 import {
   questionHrefFrameworkSpecificAndListType,
   type QuestionListTypeData,
-} from '../../common/questionHref';
+} from '../../common/QuestionHrefUtils';
 import type {
   QuestionFramework,
   QuestionMetadata,

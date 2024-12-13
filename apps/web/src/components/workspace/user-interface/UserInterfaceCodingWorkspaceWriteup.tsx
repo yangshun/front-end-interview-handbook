@@ -3,7 +3,7 @@ import { RiArrowRightUpLine } from 'react-icons/ri';
 
 import { useQuestionFrameworksData } from '~/data/QuestionCategories';
 
-import { questionHrefFrameworkSpecificAndListType } from '~/components/interviews/questions/common/questionHref';
+import { questionHrefFrameworkSpecificAndListType } from '~/components/interviews/questions/common/QuestionHrefUtils';
 import type {
   QuestionFramework,
   QuestionMetadata,

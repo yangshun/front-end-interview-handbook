@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 
-import type { QuestionListTypeData } from '~/components/interviews/questions/common/questionHref';
-import { questionHrefFrameworkSpecificAndListType } from '~/components/interviews/questions/common/questionHref';
+import type { QuestionListTypeData } from '~/components/interviews/questions/common/QuestionHrefUtils';
+import { questionHrefFrameworkSpecificAndListType } from '~/components/interviews/questions/common/QuestionHrefUtils';
 import QuestionAuthor from '~/components/interviews/questions/metadata/QuestionAuthor';
 import QuestionDifficultyLabel from '~/components/interviews/questions/metadata/QuestionDifficultyLabel';
 import QuestionDurationLabel from '~/components/interviews/questions/metadata/QuestionDurationLabel';

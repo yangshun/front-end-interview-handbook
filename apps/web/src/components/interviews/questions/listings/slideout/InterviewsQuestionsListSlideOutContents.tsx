@@ -3,8 +3,8 @@ import clsx from 'clsx';
 import VignetteOverlay from '~/components/common/VignetteOverlay';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import InterviewsPremiumBadge from '~/components/interviews/common/InterviewsPremiumBadge';
-import type { QuestionListTypeData } from '~/components/interviews/questions/common/questionHref';
-import { questionHrefFrameworkSpecificAndListType } from '~/components/interviews/questions/common/questionHref';
+import type { QuestionListTypeData } from '~/components/interviews/questions/common/QuestionHrefUtils';
+import { questionHrefFrameworkSpecificAndListType } from '~/components/interviews/questions/common/QuestionHrefUtils';
 import type {
   QuestionFramework,
   QuestionMetadata,

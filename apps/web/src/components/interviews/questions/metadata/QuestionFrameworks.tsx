@@ -2,13 +2,13 @@ import { useId } from 'react';
 
 import { useQuestionFrameworksData } from '~/data/QuestionCategories';
 
-import { questionHrefWithListType } from '~/components/interviews/questions/common/questionHref';
+import { questionHrefWithListType } from '~/components/interviews/questions/common/QuestionHrefUtils';
 import { FormattedMessage, useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Tooltip from '~/components/ui/Tooltip';
 
 import QuestionFrameworkIcon from './QuestionFrameworkIcon';
-import type { QuestionListTypeData } from '../common/questionHref';
+import type { QuestionListTypeData } from '../common/QuestionHrefUtils';
 import type { QuestionFramework } from '../common/QuestionsTypes';
 
 type Props = Readonly<{

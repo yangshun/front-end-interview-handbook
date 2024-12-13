@@ -2,7 +2,7 @@ import { useLocation } from 'react-use';
 
 import { trpc } from '~/hooks/trpc';
 
-import type { QuestionListTypeData } from './questionHref';
+import type { QuestionListTypeData } from './QuestionHrefUtils';
 import type {
   QuestionFormat,
   QuestionFramework,

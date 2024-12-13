@@ -20,8 +20,8 @@ import type { QuestionCompletionCount } from '~/db/QuestionsCount';
 import { hashQuestion } from '~/db/QuestionsUtils';
 
 import QuestionsListItemProgressChip from './QuestionsListItemProgressChip';
-import type { QuestionListTypeData } from '../../common/questionHref';
-import { questionHrefFrameworkSpecificAndListType } from '../../common/questionHref';
+import type { QuestionListTypeData } from '../../common/QuestionHrefUtils';
+import { questionHrefFrameworkSpecificAndListType } from '../../common/QuestionHrefUtils';
 import type {
   QuestionFramework,
   QuestionMetadata,

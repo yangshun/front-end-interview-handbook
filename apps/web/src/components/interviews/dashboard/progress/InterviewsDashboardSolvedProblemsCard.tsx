@@ -84,19 +84,6 @@ export default function InterviewsDashboardSolvedProblemsCard({
               }}
             />
           </div>
-
-          {/* TODO(interviews): add tooltip for beats when the beats progress work is done */}
-          {/* <div>
-            <FormattedMessage
-              defaultMessage="Your progress surpasses 98.4% of our user base."
-              description="Tooltip for solved problems progress"
-              id="9IGv9K"
-              values={{
-                completed: easy.completed.toLocaleString(),
-                total: easy.total.toLocaleString(),
-              }}
-            />
-          </div> */}
         </div>
       ),
       total: easy.total,
@@ -121,18 +108,6 @@ export default function InterviewsDashboardSolvedProblemsCard({
               }}
             />
           </div>
-          {/* TODO(interviews): add tooltip for beats when the beats progress work is done */}
-          {/* <div>
-            <FormattedMessage
-              defaultMessage="Your progress surpasses 98.4% of our user base."
-              description="Tooltip for solved problems progress"
-              id="9IGv9K"
-              values={{
-                completed: easy.completed.toLocaleString(),
-                total: easy.total.toLocaleString(),
-              }}
-            />
-          </div> */}
         </div>
       ),
       total: hard.total,
@@ -157,18 +132,6 @@ export default function InterviewsDashboardSolvedProblemsCard({
               }}
             />
           </div>
-          {/* TODO(interviews): add tooltip for beats when the beats progress work is done */}
-          {/* <div>
-            <FormattedMessage
-              defaultMessage="Your progress surpasses 98.4% of our user base."
-              description="Tooltip for solved problems progress"
-              id="9IGv9K"
-              values={{
-                completed: easy.completed.toLocaleString(),
-                total: easy.total.toLocaleString(),
-              }}
-            />
-          </div> */}
         </div>
       ),
       total: medium.total,

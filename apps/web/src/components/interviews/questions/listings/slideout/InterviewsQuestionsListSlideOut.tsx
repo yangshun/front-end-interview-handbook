@@ -51,11 +51,11 @@ import {
 import InterviewsQuestionsListSlideOutContents from './InterviewsQuestionsListSlideOutContents';
 import useQuestionsWithCompletionStatus from '../filters/hooks/useQuestionsWithCompletionStatus';
 import QuestionsListSortButton from '../items/QuestionsListSortButton';
-import type { QuestionListTypeData } from '../../common/questionHref';
+import type { QuestionListTypeData } from '../../common/QuestionHrefUtils';
 import {
   questionHrefFrameworkSpecificAndListType,
   questionListFilterNamespace,
-} from '../../common/questionHref';
+} from '../../common/QuestionHrefUtils';
 import { useQuestionsListDataForType } from '../../common/useQuestionsListDataForType';
 
 function FilterSection<T extends string, Q extends QuestionMetadata>({

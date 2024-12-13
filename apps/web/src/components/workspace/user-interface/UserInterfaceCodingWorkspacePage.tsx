@@ -1,6 +1,6 @@
 'use client';
 
-import { questionHrefWithListType } from '~/components/interviews/questions/common/questionHref';
+import { questionHrefWithListType } from '~/components/interviews/questions/common/QuestionHrefUtils';
 import type {
   QuestionFramework,
   QuestionMetadata,

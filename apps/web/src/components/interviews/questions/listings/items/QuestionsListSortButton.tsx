@@ -5,7 +5,7 @@ import DropdownMenu from '~/components/ui/DropdownMenu';
 import FilterButton from '~/components/ui/FilterButton/FilterButton';
 
 import useQuestionCodingSorting from '../filters/hooks/useQuestionCodingSorting';
-import type { QuestionListTypeData } from '../../common/questionHref';
+import type { QuestionListTypeData } from '../../common/QuestionHrefUtils';
 import type { QuestionSortField } from '../../common/QuestionsTypes';
 
 type Props = Readonly<{

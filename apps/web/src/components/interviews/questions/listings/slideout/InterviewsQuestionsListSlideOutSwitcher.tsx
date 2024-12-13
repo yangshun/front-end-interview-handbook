@@ -11,7 +11,7 @@ import { useIntl } from '~/components/intl';
 import DropdownMenu from '~/components/ui/DropdownMenu';
 import Spinner from '~/components/ui/Spinner';
 
-import type { QuestionListTypeData } from '../../common/questionHref';
+import type { QuestionListTypeData } from '../../common/QuestionHrefUtils';
 
 export type QuestionListTypeWithLabel = QuestionListTypeData &
   Readonly<{ label: string }>;
