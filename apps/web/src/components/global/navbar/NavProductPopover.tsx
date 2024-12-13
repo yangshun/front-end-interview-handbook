@@ -38,6 +38,7 @@ const labels: Record<
 };
 
 type Props = Readonly<{
+  onClick?: () => void;
   product: ProductValue;
   triggerClassname?: string;
   variant: 'compact' | 'full';
@@ -47,6 +48,7 @@ export default function NavProductPopover({
   variant,
   product,
   triggerClassname,
+  onClick,
 }: Props) {
   const { label } = labels[product];
   const [showUnseenIndicator] = useProductMenuUnseenIndicator();
@@ -70,7 +72,8 @@ export default function NavProductPopover({
       )}>
       <Anchor
         href={product === 'interviews' ? '/' : '/projects'}
-        variant="unstyled">
+        variant="unstyled"
+        onClick={onClick}>
         <LogoComboMark
           className="shrink-0"
           height={variant === 'full' ? 20 : 17}

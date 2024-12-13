@@ -144,6 +144,7 @@ export default function InterviewsNavbar({
                     product="interviews"
                     triggerClassname="-ml-2"
                     variant="compact"
+                    onClick={closeMobileNav}
                   />
                 </div>
               }
