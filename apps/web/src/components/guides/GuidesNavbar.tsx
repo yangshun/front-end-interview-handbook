@@ -100,6 +100,7 @@ export default function GuidesNavbar({
               guide={guide}
               mode="navbar"
               navigation={navigation}
+              onClose={() => setIsLeftSidebarOpen(false)}
             />
           </SlideOut>
         )}

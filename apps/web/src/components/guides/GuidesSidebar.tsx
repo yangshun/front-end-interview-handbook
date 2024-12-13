@@ -20,6 +20,7 @@ type Props = Readonly<{
   isFocusMode?: boolean;
   mode?: 'navbar' | 'sidebar';
   navigation: GuideNavigation;
+  onClose?: () => void;
   sticky?: boolean;
   toggleFocusMode?: () => void;
 }>;
@@ -31,6 +32,7 @@ export function GuidesSidebar({
   mode = 'sidebar',
   isFocusMode = false,
   toggleFocusMode,
+  onClose,
 }: Props) {
   const isSidebar = mode === 'sidebar';
 
@@ -85,6 +87,7 @@ export function GuidesSidebar({
                   defaultOpenSections={navigation.initialOpenSections}
                   items={navigation.navigation.items}
                   type="multiple"
+                  onItemClick={onClose}
                 />
               </ScrollArea>
             </div>
