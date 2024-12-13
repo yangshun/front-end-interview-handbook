@@ -19,8 +19,6 @@ import type {
   QuestionSlug,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import PreparationGFE75Logo from '~/components/interviews/questions/content/study-list/logo/PreparationGFE75Logo';
-import { countQuestionsByAccess } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
-import QuestionListingAccessSummary from '~/components/interviews/questions/listings/stats/QuestionListingAccessSummary';
 import InterviewsStudyListQuestions from '~/components/interviews/questions/listings/study-list/InterviewsStudyListQuestions';
 import InterviewsRecommendedPrepStrategyPageTitleSection from '~/components/interviews/recommended/InterviewsRecommendedPrepStrategyPageTitleSection';
 import { FormattedMessage } from '~/components/intl';
@@ -71,7 +69,6 @@ export default function InterviewsStudyPlanGFE75Page({
     questionsProgressAll,
     questionsSlugs,
   );
-  const questionsAccessCount = countQuestionsByAccess(questions);
 
   const features = [
     questionFeatures.codeInBrowser,
@@ -131,20 +128,13 @@ export default function InterviewsStudyPlanGFE75Page({
           studyListKey="gfe75"
           title={studyList.name}
         />
-        <div className="block lg:hidden">
-          <QuestionListingAccessSummary {...questionsAccessCount} />
-        </div>
       </div>
       <Section>
         <div className="flex flex-col gap-20">
           <InterviewsStudyListQuestions
             overallProgress={questionsOverallProgress}
             questions={questions}
-            sideColumnAddOn={
-              <div className="hidden lg:block">
-                <QuestionListingAccessSummary {...questionsAccessCount} />
-              </div>
-            }
+            showCount_TEMPORARY={false}
             studyListKey={studyList.slug}
           />
           {bottomContent && (

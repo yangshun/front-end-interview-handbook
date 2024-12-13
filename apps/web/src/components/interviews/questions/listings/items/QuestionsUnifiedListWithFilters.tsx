@@ -60,6 +60,7 @@ type Props = Readonly<{
   questionCompletionCount?: QuestionCompletionCount;
   questions: ReadonlyArray<QuestionMetadataWithCompletedStatus>;
   searchPlaceholder?: string;
+  showCount_TEMPORARY?: boolean;
   sideColumnAddOn?: ReactNode;
 }>;
 
@@ -78,6 +79,7 @@ export default function QuestionsUnifiedListWithFilters({
   onMarkAsCompleted,
   onMarkAsNotCompleted,
   searchPlaceholder,
+  showCount_TEMPORARY,
   sideColumnAddOn,
   guides,
 }: Props) {
@@ -177,7 +179,9 @@ export default function QuestionsUnifiedListWithFilters({
   );
   const listMetadata = (
     <div className="flex gap-x-10">
-      <QuestionCountLabel count={processedQuestions.length} showIcon={true} />
+      {showCount_TEMPORARY && (
+        <QuestionCountLabel count={processedQuestions.length} showIcon={true} />
+      )}
       {totalDurationMins > 0 && (
         <QuestionTotalTimeLabel mins={totalDurationMins} showIcon={true} />
       )}

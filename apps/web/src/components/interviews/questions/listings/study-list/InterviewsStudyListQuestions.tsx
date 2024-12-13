@@ -12,10 +12,12 @@ export default function InterviewsStudyListQuestions({
   studyListKey,
   overallProgress,
   questions,
+  showCount_TEMPORARY,
   sideColumnAddOn,
 }: Readonly<{
   overallProgress: QuestionsCategorizedProgress;
   questions: ReadonlyArray<QuestionMetadata>;
+  showCount_TEMPORARY?: boolean;
   sideColumnAddOn?: ReactNode;
   studyListKey: string;
 }>) {
@@ -36,6 +38,7 @@ export default function InterviewsStudyListQuestions({
           listMode="study-list"
           listType={{ type: 'study-list', value: studyListKey }}
           questions={questions}
+          showCount_TEMPORARY={showCount_TEMPORARY}
           sideColumnAddOn={sideColumnAddOn}
         />
       </Section>
