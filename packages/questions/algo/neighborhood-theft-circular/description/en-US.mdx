@@ -1,0 +1,26 @@
+---
+title: Neighborhood Theft (Circular)
+excerpt: Implement a function to find maximum money to rob in circular houses without alerting police
+---
+
+import MDXTestExamples from 'MDXTestExamples';
+import runTestCases from '../setup/src/run.tests.json';
+
+An experienced robber is planning a heist on a circular street. Every house contains a certain amount of money, and all houses are arranged in a circle, meaning the first house is next to the last one. Additionally, adjacent houses have connected security systems that alert the police if two neighboring houses are robbed on the same night.
+
+Given an array of integers `numbers`, where each element represents the amount of money in a house, return the maximum amount of money the robber can steal without triggering the alarm.
+
+### Input
+
+- `numbers: number[]`: An array of integers
+
+### Notes
+
+- The robber cannot steal from two adjacent houses
+
+<MDXTestExamples testCases={runTestCases} />
+
+### Constraints
+
+- 1 &lt;= `numbers.length` &lt;= 100
+- 0 &lt;= `numbers[i]` &lt;= 400

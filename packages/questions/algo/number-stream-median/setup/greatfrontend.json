@@ -1,0 +1,8 @@
+{
+  "run": "/src/number-stream-median.run.test.ts",
+  "submit": "/src/number-stream-median.submit.test.ts",
+  "skeleton": {
+    "js": "/src/number-stream-median.skeleton.js",
+    "ts": "/src/number-stream-median.skeleton.ts"
+  }
+}

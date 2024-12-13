@@ -1,0 +1,38 @@
+---
+title: Binary Tree Subtree
+excerpt: Implement a function to check if a binary tree is a subtree of another binary tree
+---
+
+import MDXTestExamples from 'MDXTestExamples';
+import runTestCases from '../setup/src/run.tests.json';
+
+Given the roots of two binary trees, `root` and `subRoot`, determine whether `subRoot` is a subtree of `root`. The function should return `true` if there exists a subtree within `root` that has the same structure and node values as `subRoot`. If no such subtree exists, return `false`.
+
+### Notes
+
+- A subtree is defined as a portion of a binary tree that includes a node and all of its descendants
+- A tree can be considered a subtree of itself
+
+The binary tree is represented by a collection of `TreeNode`s, where each node has optional `left` and `right` child nodes, which are also `TreeNode`s.
+
+A `TreeNode` has the following interface:
+
+```ts
+interface TreeNode {
+  val: number;
+  left: TreeNode | null;
+  right: TreeNode | null;
+}
+```
+
+### Input
+
+- `root: TreeNode`: Root node of the tree. Examples display a [level-order traversal](https://en.wikipedia.org/wiki/Breadth-first_search) of the tree
+- `subRoot: TreeNode`: Root node of the subtree. Examples display a [level-order traversal](https://en.wikipedia.org/wiki/Breadth-first_search) of the tree
+
+<MDXTestExamples testCases={runTestCases} />
+
+### Constraints
+
+- 1 &lt;= Number of nodes &lt;= 100
+- -10,000 &lt;= `TreeNode.val` &lt;= 10,000

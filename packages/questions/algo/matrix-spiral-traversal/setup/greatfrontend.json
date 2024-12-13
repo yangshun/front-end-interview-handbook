@@ -1,0 +1,8 @@
+{
+  "run": "/src/matrix-spiral-traversal.run.test.ts",
+  "submit": "/src/matrix-spiral-traversal.submit.test.ts",
+  "skeleton": {
+    "js": "/src/matrix-spiral-traversal.skeleton.js",
+    "ts": "/src/matrix-spiral-traversal.skeleton.ts"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "run": "/src/array-smallest-in-rotated.run.test.ts",
+  "submit": "/src/array-smallest-in-rotated.submit.test.ts",
+  "skeleton": {
+    "js": "/src/array-smallest-in-rotated.skeleton.js",
+    "ts": "/src/array-smallest-in-rotated.skeleton.ts"
+  }
+}

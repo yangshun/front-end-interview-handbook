@@ -1,0 +1,31 @@
+---
+title: Linked List Reversal
+excerpt: Implement a function to reverse a linked list
+---
+
+import MDXTestExamples from 'MDXTestExamples';
+import runTestCases from '../setup/src/run.tests.json';
+
+Given the head of a [linked list](https://en.wikipedia.org/wiki/Linked_list), reverse the list and return the new head of the reversed list.
+
+The linked list is represented by a sequence of `ListNode`s, where each node points to the next node in the sequence, or `null` if it is the last node.
+
+A `ListNode` has the following interface:
+
+```ts
+interface ListNode {
+  val: number;
+  next: ListNode | null;
+}
+```
+
+### Input
+
+- `head: ListNode`: Head of the linked list. Examples display each linked list as an array of values within the list
+
+<MDXTestExamples testCases={runTestCases} />
+
+### Constraints
+
+- 1 &lt;= Number of nodes &lt;= 1000
+- -1000 &lt;= `ListNode.val` &lt;= 1000

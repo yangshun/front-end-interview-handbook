@@ -1,0 +1,8 @@
+{
+  "run": "/src/linked-list-reversal.run.test.ts",
+  "submit": "/src/linked-list-reversal.submit.test.ts",
+  "skeleton": {
+    "js": "/src/linked-list-reversal.skeleton.js",
+    "ts": "/src/linked-list-reversal.skeleton.ts"
+  }
+}

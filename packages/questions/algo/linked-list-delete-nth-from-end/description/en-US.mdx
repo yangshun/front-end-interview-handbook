@@ -1,0 +1,32 @@
+---
+title: Delete Nth Node from End of Linked List
+excerpt: Implement a function to delete the nth node from the end of a linked list
+---
+
+import MDXTestExamples from 'MDXTestExamples';
+import runTestCases from '../setup/src/run.tests.json';
+
+Given the head of a [linked list](https://en.wikipedia.org/wiki/Linked_list), delete the `n-th` node from the end of the list and return the updated head.
+
+The linked list is represented by a sequence of `ListNode`s, where each node points to the next node in the sequence, or `null` if it is the last node.
+
+A `ListNode` has the following interface:
+
+```ts
+interface ListNode {
+  val: number;
+  next: ListNode | null;
+}
+```
+
+### Input
+
+- `head: ListNode`: Head of the linked list. Examples display each linked list as an array of values within the list
+- `n: number`: An integer indicating the position (from the end) of the node to delete
+
+<MDXTestExamples testCases={runTestCases} />
+
+### Constraints
+
+- 1 &lt;= Number of nodes &lt;= 1000
+- 1 &lt;= `ListNode.val` &lt;= 1000

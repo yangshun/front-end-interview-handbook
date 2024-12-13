@@ -1,0 +1,8 @@
+{
+  "run": "/src/bit-counting.run.test.ts",
+  "submit": "/src/bit-counting.submit.test.ts",
+  "skeleton": {
+    "js": "/src/bit-counting.skeleton.js",
+    "ts": "/src/bit-counting.skeleton.ts"
+  }
+}

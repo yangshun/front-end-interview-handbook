@@ -1,0 +1,16 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import linkedListCombineKSorted from '../setup/src/linked-list-combine-k-sorted.ts';
+import linkedListCombineKSortedBruteForce from '../setup/src/linked-list-combine-k-sorted-bruteforce.ts';
+
+## 1. Brute force approach
+
+Time complexity: O(N.Log(N)) where N is the total number of nodes across all lists
+
+<MDXCodeBlock>{linkedListCombineKSortedBruteForce}</MDXCodeBlock>
+
+## 2. Divide and conquer approach
+
+Time complexity: O(N.Log(K)) where N is the total number of nodes across all lists and K is the number of lists
+
+<MDXCodeBlock>{linkedListCombineKSorted}</MDXCodeBlock>

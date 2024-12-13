@@ -1,0 +1,17 @@
+[
+  {
+    "input": [["numbers", [-1, 5, -3, 9, -11]]],
+    "output": 11,
+    "explanation": "The subarray [5, -3, 9] has the largest sum i.e 11."
+  },
+  {
+    "input": [["numbers", [9]]],
+    "output": 9,
+    "explanation": "The single-element subarray [9] has the largest sum i.e 9."
+  },
+  {
+    "input": [["numbers", [1, 2, 3, 4]]],
+    "output": 10,
+    "explanation": "The subarray [1,2,3,4] has the largest sum i.e 10."
+  }
+]

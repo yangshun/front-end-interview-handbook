@@ -1,0 +1,23 @@
+---
+title: Longest Repeating Substring After Replacements
+excerpt: Implement a function to find the longest uniform substring after up to k replacements
+---
+
+import MDXTestExamples from 'MDXTestExamples';
+import runTestCases from '../setup/src/run.tests.json';
+
+Given a string `str` consisting of uppercase English letters and an integer `k`, determine the length of the longest substring that can be formed where all characters are the same. A maximum of `k` character replacements can be made to achieve this.
+
+A **substring** is any contiguous sequence of characters within a string. For example, the substrings of string `abc` are `a`, `b`, `c`, `ab`, `bc`, and `abc`. A substring is formed by selecting a starting and ending point without skipping characters in between.
+
+### Input
+
+- `str: string`: A string
+- `k`: An integer
+
+<MDXTestExamples testCases={runTestCases} />
+
+### Constraints
+
+- 1 &lt;= `str.length` &lt;= 10,000
+- `str` contains only uppercase English letters

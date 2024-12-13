@@ -1,0 +1,8 @@
+{
+  "run": "/src/linked-list-delete-nth-from-end.run.test.ts",
+  "submit": "/src/linked-list-delete-nth-from-end.submit.test.ts",
+  "skeleton": {
+    "js": "/src/linked-list-delete-nth-from-end.skeleton.js",
+    "ts": "/src/linked-list-delete-nth-from-end.skeleton.ts"
+  }
+}

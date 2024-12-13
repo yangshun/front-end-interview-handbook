@@ -1,0 +1,8 @@
+{
+  "run": "/src/linked-list-combine-k-sorted.run.test.ts",
+  "submit": "/src/linked-list-combine-k-sorted.submit.test.ts",
+  "skeleton": {
+    "js": "/src/linked-list-combine-k-sorted.skeleton.js",
+    "ts": "/src/linked-list-combine-k-sorted.skeleton.ts"
+  }
+}

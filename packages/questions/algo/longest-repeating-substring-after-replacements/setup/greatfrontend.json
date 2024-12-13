@@ -1,0 +1,8 @@
+{
+  "run": "/src/longest-repeating-substring-after-replacements.run.test.ts",
+  "submit": "/src/longest-repeating-substring-after-replacements.submit.test.ts",
+  "skeleton": {
+    "js": "/src/longest-repeating-substring-after-replacements.skeleton.js",
+    "ts": "/src/longest-repeating-substring-after-replacements.skeleton.ts"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "run": "/src/bit-reversal.run.test.ts",
+  "submit": "/src/bit-reversal.submit.test.ts",
+  "skeleton": {
+    "js": "/src/bit-reversal.skeleton.js",
+    "ts": "/src/bit-reversal.skeleton.ts"
+  }
+}

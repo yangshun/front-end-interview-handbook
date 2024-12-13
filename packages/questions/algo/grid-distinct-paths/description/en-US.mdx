@@ -1,0 +1,23 @@
+---
+title: Distinct Paths in Grid
+excerpt: Implement a function to calculate distinct paths for a robot moving on an m x n grid
+---
+
+import MDXTestExamples from 'MDXTestExamples';
+import runTestCases from '../setup/src/run.tests.json';
+
+A robot is situated on an `m` x `n` grid, starting at the top-left corner (`grid[0][0]`) with the goal of reaching the bottom-right corner (`grid[m - 1][n - 1]`). In one step, the robot can only either move down or right by a single cell.
+
+Given the integers `m` and `n`, determine the number of distinct paths the robot can take to reach the bottom-right corner.
+
+### Input
+
+- `m: number`: An integer
+- `n: number`: An integer
+
+<MDXTestExamples testCases={runTestCases} />
+
+### Constraints
+
+- The result will not exceed 2^31
+- 1 &lt;= `m`, `n` &lt;= 100

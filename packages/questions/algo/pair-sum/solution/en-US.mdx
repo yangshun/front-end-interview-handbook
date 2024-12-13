@@ -1,0 +1,16 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import pairSum from '../setup/src/pair-sum.ts';
+import pairSumBruteForce from '../setup/src/pair-sum-brute-force.ts';
+
+## 1. Brute Force
+
+Time complexity: O(n<sup>2</sup>), where `n` is the length of the array
+
+<MDXCodeBlock>{pairSumBruteForce}</MDXCodeBlock>
+
+## 2. Using Hash Maps
+
+Time complexity: O(n), where `n` is the length of the array
+
+<MDXCodeBlock>{pairSum}</MDXCodeBlock>

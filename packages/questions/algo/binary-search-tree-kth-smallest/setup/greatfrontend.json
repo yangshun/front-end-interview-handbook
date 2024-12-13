@@ -1,0 +1,8 @@
+{
+  "run": "/src/binary-search-tree-kth-smallest.run.test.ts",
+  "submit": "/src/binary-search-tree-kth-smallest.submit.test.ts",
+  "skeleton": {
+    "js": "/src/binary-search-tree-kth-smallest.skeleton.js",
+    "ts": "/src/binary-search-tree-kth-smallest.skeleton.ts"
+  }
+}

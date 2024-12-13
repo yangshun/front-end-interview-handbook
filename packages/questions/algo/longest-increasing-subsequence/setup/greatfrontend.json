@@ -1,0 +1,8 @@
+{
+  "run": "/src/longest-increasing-subsequence.run.test.ts",
+  "submit": "/src/longest-increasing-subsequence.submit.test.ts",
+  "skeleton": {
+    "js": "/src/longest-increasing-subsequence.skeleton.js",
+    "ts": "/src/longest-increasing-subsequence.skeleton.ts"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "run": "/src/string-shortest-substring-containing-characters.run.test.ts",
+  "submit": "/src/string-shortest-substring-containing-characters.submit.test.ts",
+  "skeleton": {
+    "js": "/src/string-shortest-substring-containing-characters.skeleton.js",
+    "ts": "/src/string-shortest-substring-containing-characters.skeleton.ts"
+  }
+}

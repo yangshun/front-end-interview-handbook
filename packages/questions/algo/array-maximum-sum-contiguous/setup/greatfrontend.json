@@ -1,0 +1,8 @@
+{
+  "run": "/src/array-maximum-sum-contiguous.run.test.ts",
+  "submit": "/src/array-maximum-sum-contiguous.submit.test.ts",
+  "skeleton": {
+    "js": "/src/array-maximum-sum-contiguous.skeleton.js",
+    "ts": "/src/array-maximum-sum-contiguous.skeleton.ts"
+  }
+}

@@ -1,0 +1,20 @@
+[
+  {
+    "input": [["numbers", [-1, 0, 1, 2, -1, -4]]],
+    "output": [
+      [-1, -1, 2],
+      [-1, 0, 1]
+    ],
+    "explanation": "numbers[0] + numbers[1] + numbers[2] = (-1) + 0 + 1 = 0. numbers[1] + numbers[2] + numbers[4] = 0 + 1 + (-1) = 0. numbers[0] + numbers[3] + numbers[4] = (-1) + 2 + (-1) = 0. The distinct triplets are [-1,0,1] and [-1,-1,2]"
+  },
+  {
+    "input": [["numbers", [0, 0, 0]]],
+    "output": [[0, 0, 0]],
+    "explanation": "The only possible triplet adds up to 0"
+  },
+  {
+    "input": [["numbers", [1, 0, 0]]],
+    "output": [],
+    "explanation": "The only possible triplet does not add up to 0"
+  }
+]

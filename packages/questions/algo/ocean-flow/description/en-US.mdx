@@ -1,0 +1,26 @@
+---
+title: Ocean Flow
+excerpt: Implement a function returning cells with water flow to both oceans
+---
+
+import MDXTestExamples from 'MDXTestExamples';
+import runTestCases from '../setup/src/run.tests.json';
+
+Given an `m` x `n` 2D `matrix` representing an island bordered by the two different oceans, one on the left and top edges and another on the right and bottom edges, determine which cells can allow rainwater to flow to both oceans. Each cell contains an integer representing its height above sea level.
+
+Water can flow from one cell to another if the adjacent cell’s height is less than or equal to the current cell's height. Adjacent cells refers to cells directly north, south, west, and east of the a cell.
+
+Return a list of all cells from which water can flow to both oceans in sorted order, based on their position when traversing the matrix from the top-left to the bottom-right
+
+### Input
+
+- `matrix: number[][]`: A 2D array of integers
+
+### Notes
+
+<MDXTestExamples testCases={runTestCases} />
+
+### Constraints
+
+- 1 &lt;= `m`, `n` &lt;= 100
+- 0 &lt;= `matrix[row][col]` &lt;= 100,000

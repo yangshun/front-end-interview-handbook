@@ -1,0 +1,17 @@
+[
+  {
+    "input": [["root", [1, 2, 3, 4, 5, 6, 7]]],
+    "output": 3,
+    "explanation": "The tree has a maximum depth of 3. The longest path from root (1) to leaves (4, 5, 6, or 7) is of length 3."
+  },
+  {
+    "input": [["root", [1, null, 2]]],
+    "output": 2,
+    "explanation": "The tree has a maximum depth of 2. The longest path from root (1) to leaf (2) is of length 2."
+  },
+  {
+    "input": [["root", [10, 5, 15, null, null, 12, 20]]],
+    "output": 3,
+    "explanation": "The tree has a maximum depth of 3. The longest path from root (10) to leaves (12 or 20) is of length 3."
+  }
+]

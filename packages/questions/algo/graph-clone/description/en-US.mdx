@@ -1,0 +1,40 @@
+---
+title: Graph Clone
+excerpt: Implement a function to deeply clone a connected and undirected graph
+---
+
+import MDXTestExamples from 'MDXTestExamples';
+import runTestCases from '../setup/src/run.tests.json';
+
+Given a reference to a node in a [connected, undirected graph](<https://en.wikipedia.org/wiki/Connectivity_(graph_theory)>), create and return a deep copy of that cloned graph node.
+
+The deep copy must replicate the entire structure of the original graph, ensuring all nodes and their connections are duplicated accurately without referencing the original graph.
+
+The graph is represented by a collection of `GraphNode`s, where each node has a list of `neighbors`, which are also `GraphNode`s.
+
+A `GraphNode` has the following interface:
+
+```ts
+interface GraphNode {
+  val: number;
+  neighbors: GraphNode[];
+}
+```
+
+### Input
+
+- `node: GraphNode`: Node in a connected, undirected graph. Examples display an [adjacency list](https://en.wikipedia.org/wiki/Adjacency_list) representation of the graph
+
+<MDXTestExamples testCases={runTestCases} />
+
+### Notes
+
+- Do not return any nodes of the original graph
+
+### Constraints
+
+- 0 &lt;= Number of nodes &lt;= 100
+- 0 &lt;= `GraphNode.val` &lt;= 100
+- `GraphNode.val` is unique for each node
+- The graph has no repeated edges or self-loops
+- The graph is connected, meaning all nodes are reachable starting from the given node

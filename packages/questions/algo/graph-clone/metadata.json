@@ -1,0 +1,15 @@
+{
+  "slug": "graph-clone",
+  "created": "2024-07-18T00:00:00.000Z",
+  "languages": ["js", "ts"],
+  "author": "hiten",
+  "companies": [],
+  "access": "standard",
+  "duration": 50,
+  "published": true,
+  "importance": "low",
+  "difficulty": "medium",
+  "featured": false,
+  "similar_questions": [],
+  "next_questions": []
+}

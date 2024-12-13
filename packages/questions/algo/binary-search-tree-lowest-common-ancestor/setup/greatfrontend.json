@@ -1,0 +1,8 @@
+{
+  "run": "/src/binary-search-tree-lowest-common-ancestor.run.test.ts",
+  "submit": "/src/binary-search-tree-lowest-common-ancestor.submit.test.ts",
+  "skeleton": {
+    "js": "/src/binary-search-tree-lowest-common-ancestor.skeleton.js",
+    "ts": "/src/binary-search-tree-lowest-common-ancestor.skeleton.ts"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "run": "/src/grid-count-islands.run.test.ts",
+  "submit": "/src/grid-count-islands.submit.test.ts",
+  "skeleton": {
+    "js": "/src/grid-count-islands.skeleton.js",
+    "ts": "/src/grid-count-islands.skeleton.ts"
+  }
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "input": [
+      ["a", [1, 2]],
+      ["b", [1, null, 2]]
+    ],
+    "output": false,
+    "explanation": "The trees differ in the structure."
+  },
+  {
+    "input": [
+      ["a", [3, null, 7]],
+      ["b", [3, 5, 7]]
+    ],
+    "output": false,
+    "explanation": "The first tree has a null left child, while the second tree has a left child with value 5."
+  },
+  {
+    "input": [
+      ["a", [65, null, 17]],
+      ["b", [65, null, 17]]
+    ],
+    "output": true,
+    "explanation": "Both trees have the same structure and node values."
+  }
+]

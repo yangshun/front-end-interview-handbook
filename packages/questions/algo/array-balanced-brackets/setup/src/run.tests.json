@@ -1,0 +1,17 @@
+[
+  {
+    "input": [["str", "[]"]],
+    "output": true,
+    "explanation": "The string contains correctly paired and ordered parentheses."
+  },
+  {
+    "input": [["str", "([)]"]],
+    "output": false,
+    "explanation": "The string contains correctly paired but incorrectly ordered parentheses."
+  },
+  {
+    "input": [["str", "([]){}"]],
+    "output": true,
+    "explanation": "The string contains correctly paired and ordered parentheses."
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "input": [
+      ["str1", "abcd"],
+      ["str2", "dcba"]
+    ],
+    "output": true,
+    "explanation": "Both strings contain the same characters with the same frequency in different orders."
+  },
+  {
+    "input": [
+      ["str1", "hello"],
+      ["str2", "bello"]
+    ],
+    "output": false,
+    "explanation": "The strings do not contain the same characters."
+  },
+  {
+    "input": [
+      ["str1", "listen"],
+      ["str2", "silent"]
+    ],
+    "output": true,
+    "explanation": "Both strings contain the same characters with the same frequency in different orders."
+  }
+]

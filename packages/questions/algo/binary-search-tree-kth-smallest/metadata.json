@@ -1,0 +1,15 @@
+{
+  "slug": "binary-search-tree-kth-smallest",
+  "created": "2024-08-22T00:00:00.000Z",
+  "languages": ["js", "ts"],
+  "author": "hiten",
+  "companies": [],
+  "access": "standard",
+  "duration": 35,
+  "published": true,
+  "importance": "low",
+  "difficulty": "medium",
+  "featured": false,
+  "similar_questions": [],
+  "next_questions": []
+}

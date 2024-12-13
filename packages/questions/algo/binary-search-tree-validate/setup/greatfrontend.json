@@ -1,0 +1,8 @@
+{
+  "run": "/src/binary-search-tree-validate.run.test.ts",
+  "submit": "/src/binary-search-tree-validate.submit.test.ts",
+  "skeleton": {
+    "js": "/src/binary-search-tree-validate.skeleton.js",
+    "ts": "/src/binary-search-tree-validate.skeleton.ts"
+  }
+}

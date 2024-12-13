@@ -1,0 +1,8 @@
+{
+  "run": "/src/grid-distinct-paths.run.test.ts",
+  "submit": "/src/grid-distinct-paths.submit.test.ts",
+  "skeleton": {
+    "js": "/src/grid-distinct-paths.skeleton.js",
+    "ts": "/src/grid-distinct-paths.skeleton.ts"
+  }
+}

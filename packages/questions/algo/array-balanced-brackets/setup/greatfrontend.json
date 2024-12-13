@@ -1,0 +1,8 @@
+{
+  "run": "/src/array-balanced-brackets.run.test.ts",
+  "submit": "/src/array-balanced-brackets.submit.test.ts",
+  "skeleton": {
+    "js": "/src/array-balanced-brackets.skeleton.js",
+    "ts": "/src/array-balanced-brackets.skeleton.ts"
+  }
+}

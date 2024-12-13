@@ -1,0 +1,17 @@
+[
+  {
+    "input": [["numbers", [1, 2, 3, 4]]],
+    "output": 1,
+    "explanation": "The original array [1,2,3,4] was rotated 0 times"
+  },
+  {
+    "input": [["numbers", [3, 4, 1, 2]]],
+    "output": 1,
+    "explanation": "The original array [1,2,3,4] was rotated 2 times"
+  },
+  {
+    "input": [["numbers", [6, 7, 8, -5, -4, 2]]],
+    "output": -5,
+    "explanation": "The original array [-5,-4,2,6,7,8] was rotated 3 times."
+  }
+]

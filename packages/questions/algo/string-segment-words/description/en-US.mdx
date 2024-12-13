@@ -1,0 +1,29 @@
+---
+title: Segment Words
+excerpt: Implement a function to check whether a string be formed from dictionary words
+---
+
+import MDXTestExamples from 'MDXTestExamples';
+import runTestCases from '../setup/src/run.tests.json';
+
+Given a string `str` and a list of words `dict`, determine if `str` can be segmented into a sequence of one or more words from `dict`. Words from `dict` can be reused multiple times in the segmentation.
+
+Return `true` if it is possible to segment `str`, and `false` otherwise.
+
+### Input
+
+- `str: string`: A string representing the string to be segmented
+- `dict: string[]`: An array of strings representing the dictionary of available words
+
+### Notes
+
+- Words from `dict` can be used multiple times in the segmentation
+
+<MDXTestExamples testCases={runTestCases} />
+
+### Constraints
+
+- 1 &lt;= `str.length` &lt;= 300
+- 0 &lt;= `dict.length` &lt;= 300
+- 0 &lt;= `dict[i].length` &lt;= 300
+- `str` and `dict[i]` consist of only lowercase English letters

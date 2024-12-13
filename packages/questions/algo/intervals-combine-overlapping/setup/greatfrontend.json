@@ -1,0 +1,8 @@
+{
+  "run": "/src/intervals-combine-overlapping.run.test.ts",
+  "submit": "/src/intervals-combine-overlapping.submit.test.ts",
+  "skeleton": {
+    "js": "/src/intervals-combine-overlapping.skeleton.js",
+    "ts": "/src/intervals-combine-overlapping.skeleton.ts"
+  }
+}

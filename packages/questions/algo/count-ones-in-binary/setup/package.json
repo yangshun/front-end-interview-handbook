@@ -1,0 +1,9 @@
+{
+  "name": "@gfe-questions/count-ones-in-binary",
+  "version": "0.0.1",
+  "main": "/src/count-ones-in-binary.ts",
+  "devDependencies": {
+    "@types/jest": "29.5.0",
+    "typescript": "5.0.2"
+  }
+}

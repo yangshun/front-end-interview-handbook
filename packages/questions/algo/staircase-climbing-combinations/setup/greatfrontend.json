@@ -1,0 +1,8 @@
+{
+  "run": "/src/staircase-climbing-combinations.run.test.ts",
+  "submit": "/src/staircase-climbing-combinations.submit.test.ts",
+  "skeleton": {
+    "js": "/src/staircase-climbing-combinations.skeleton.js",
+    "ts": "/src/staircase-climbing-combinations.skeleton.ts"
+  }
+}

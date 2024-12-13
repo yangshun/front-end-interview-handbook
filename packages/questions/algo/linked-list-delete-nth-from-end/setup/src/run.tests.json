@@ -1,0 +1,26 @@
+[
+  {
+    "input": [
+      ["list", [1, 2, 3, 4, 5, 6]],
+      ["n", 3]
+    ],
+    "output": [1, 2, 3, 5, 6],
+    "explanation": "The 3rd node from the end is 4. Deleting it results in the list [1, 2, 3, 5, 6]."
+  },
+  {
+    "input": [
+      ["list", [8]],
+      ["n", 1]
+    ],
+    "output": [],
+    "explanation": "The list contains only one node, which is the 1st from the end. Deleting it results in an empty list."
+  },
+  {
+    "input": [
+      ["list", [9, 7]],
+      ["n", 1]
+    ],
+    "output": [9],
+    "explanation": "The 1st node from the end is 7. Deleting it results in the list [9]."
+  }
+]

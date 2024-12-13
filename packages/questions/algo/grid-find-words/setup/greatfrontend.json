@@ -1,0 +1,8 @@
+{
+  "run": "/src/grid-find-words.run.test.ts",
+  "submit": "/src/grid-find-words.submit.test.ts",
+  "skeleton": {
+    "js": "/src/grid-find-words.skeleton.js",
+    "ts": "/src/grid-find-words.skeleton.ts"
+  }
+}

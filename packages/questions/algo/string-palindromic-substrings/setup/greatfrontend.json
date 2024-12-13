@@ -1,0 +1,8 @@
+{
+  "run": "/src/string-palindromic-substrings.run.test.ts",
+  "submit": "/src/string-palindromic-substrings.submit.test.ts",
+  "skeleton": {
+    "js": "/src/string-palindromic-substrings.skeleton.js",
+    "ts": "/src/string-palindromic-substrings.skeleton.ts"
+  }
+}

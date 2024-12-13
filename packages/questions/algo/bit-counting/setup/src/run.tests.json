@@ -1,0 +1,17 @@
+[
+  {
+    "input": [["n", 1]],
+    "output": [0, 1],
+    "explanation": "The number of set bits in 0 (binary: 0) is 0, and in 1 (binary: 1) is 1."
+  },
+  {
+    "input": [["n", 2]],
+    "output": [0, 1, 1],
+    "explanation": "The number of set bits in 0 (binary: 0) is 0, in 1 (binary: 1) is 1, and in 2 (binary: 10) is 1."
+  },
+  {
+    "input": [["n", 3]],
+    "output": [0, 1, 1, 2],
+    "explanation": "The number of set bits in 0 (binary: 0) is 0, in 1 (binary: 1) is 1, in 2 (binary: 10) is 1, and in 3 (binary: 11) is 2."
+  }
+]

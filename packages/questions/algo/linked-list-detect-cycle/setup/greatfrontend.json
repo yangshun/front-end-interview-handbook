@@ -1,0 +1,8 @@
+{
+  "run": "/src/linked-list-detect-cycle.run.test.ts",
+  "submit": "/src/linked-list-detect-cycle.submit.test.ts",
+  "skeleton": {
+    "js": "/src/linked-list-detect-cycle.skeleton.js",
+    "ts": "/src/linked-list-detect-cycle.skeleton.ts"
+  }
+}

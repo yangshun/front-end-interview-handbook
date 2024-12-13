@@ -1,0 +1,23 @@
+[
+  {
+    "input": [["strs", ["abc", "bca", "cab", "xyz", "zyx"]]],
+    "output": [
+      ["abc", "bca", "cab"],
+      ["xyz", "zyx"]
+    ],
+    "explanation": "Two anagram groups: 'abc'-'bca'-'cab' and 'xyz'-'zyx'."
+  },
+  {
+    "input": [["strs", ["rat", "tar", "art", "car", "arc"]]],
+    "output": [
+      ["arc", "car"],
+      ["art", "rat", "tar"]
+    ],
+    "explanation": "Two anagram groups: 'car'-'arc' and 'rat'-'tar'-'art'."
+  },
+  {
+    "input": [["strs", ["kxac", "swavb", "lmq", "lvhc", "sjey"]]],
+    "output": [["kxac"], ["lmq"], ["lvhc"], ["sjey"], ["swavb"]],
+    "explanation": "Each word has no anagram in the list."
+  }
+]

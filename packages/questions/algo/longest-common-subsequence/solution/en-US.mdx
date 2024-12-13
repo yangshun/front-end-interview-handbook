@@ -1,0 +1,16 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import longestCommonSubsequence from '../setup/src/longest-common-subsequence.ts';
+import longestCommonSubsequenceDP from '../setup/src/longest-common-subsequence-dp.ts';
+
+## 1. Using Dynamic Programming
+
+Time complexity: O(n.m) where `n` is the length of `str1` and `m` is the length of `str2`
+
+<MDXCodeBlock>{longestCommonSubsequenceDP}</MDXCodeBlock>
+
+## 2. Using Memoization
+
+Time complexity: O(n.m) where `n` is the length of `str1` and `m` is the length of `str2`
+
+<MDXCodeBlock>{longestCommonSubsequence}</MDXCodeBlock>

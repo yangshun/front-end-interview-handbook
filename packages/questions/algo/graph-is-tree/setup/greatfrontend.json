@@ -1,0 +1,8 @@
+{
+  "run": "/src/graph-is-tree.run.test.ts",
+  "submit": "/src/graph-is-tree.submit.test.ts",
+  "skeleton": {
+    "js": "/src/graph-is-tree.skeleton.js",
+    "ts": "/src/graph-is-tree.skeleton.ts"
+  }
+}

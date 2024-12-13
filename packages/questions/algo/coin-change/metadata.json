@@ -1,0 +1,15 @@
+{
+  "slug": "coin-change",
+  "created": "2024-12-08T00:00:00.000Z",
+  "languages": ["js", "ts"],
+  "author": "hiten",
+  "companies": [],
+  "access": "standard",
+  "duration": 40,
+  "published": true,
+  "importance": "low",
+  "difficulty": "medium",
+  "featured": false,
+  "similar_questions": [],
+  "next_questions": []
+}

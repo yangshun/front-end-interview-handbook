@@ -1,0 +1,30 @@
+---
+title: Find Words in Grid
+excerpt: Implement a function to find all the words present in the grid
+---
+
+import MDXTestExamples from 'MDXTestExamples';
+import runTestCases from '../setup/src/run.tests.json';
+
+Given a grid of characters `grid` with dimensions `m x n` and a list of strings, `words`, find all the words present on the grid.
+
+The word can be formed by traveling through adjacent cells, where adjacent cells are those directly next to each other either horizontally or vertically. Each cell in the grid can only be used once for forming the word.
+
+The result can be returned in any order
+
+### Input
+
+- `grid: string[][]`: A 2D array of size `m x n`, where each element is a lowercase English letter
+- `words: string[]`: A list of strings to be searched for in the grid
+
+<MDXTestExamples testCases={runTestCases} />
+
+### Constraints
+
+- `m == grid.length`
+- `n = grid[i].length`
+- 1 &lt;= `m`, `n` &lt;= 12
+- 1 &lt;= `words.length` &lt;= 1000
+- 1 &lt;= `words[i].length` &lt;= 10
+- Both `grid` and `words[i]` consist only of lowercase English letters
+- Each word in the `words` list is unique

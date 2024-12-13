@@ -1,0 +1,8 @@
+{
+  "run": "/src/maximum-water-between-walls.run.test.ts",
+  "submit": "/src/maximum-water-between-walls.submit.test.ts",
+  "skeleton": {
+    "js": "/src/maximum-water-between-walls.skeleton.js",
+    "ts": "/src/maximum-water-between-walls.skeleton.ts"
+  }
+}

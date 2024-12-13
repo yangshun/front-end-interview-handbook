@@ -1,0 +1,23 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import longestPalindromicSubstring from '../setup/src/longest-palindromic-substring.ts';
+import longestPalindromicSubstringBruteForce from '../setup/src/longest-palindromic-substring-bruteforce.ts';
+import longestPalindromicSubstringExpandCenters from '../setup/src/longest-palindromic-substring-centers.ts';
+
+## 1. BruteForce
+
+Time complexity: O(N^3)
+
+<MDXCodeBlock>{longestPalindromicSubstringBruteForce}</MDXCodeBlock>
+
+## 2. Using Dynamic Programming
+
+Time complexity: O(n<sup>2</sup>)
+
+<MDXCodeBlock>{longestPalindromicSubstring}</MDXCodeBlock>
+
+## 3. Expanding from Centers
+
+Time complexity: O(n<sup>2</sup>)
+
+<MDXCodeBlock>{longestPalindromicSubstringExpandCenters}</MDXCodeBlock>

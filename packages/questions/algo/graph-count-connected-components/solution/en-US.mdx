@@ -1,0 +1,18 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import numberOfConnectedComponentsInAnUndirectedGraph from '../setup/src/graph-count-connected-components.ts';
+import numberOfConnectedComponentsInAnUndirectedGraphSolutionUsingDSU from './graph-count-connected-components-solution-using-DSU.ts';
+
+## 1. Using DFS
+
+Time complexity: O(N + E)
+
+<MDXCodeBlock>{numberOfConnectedComponentsInAnUndirectedGraph}</MDXCodeBlock>
+
+## 2. Disjoint Set Union
+
+Time complexity: O(V+E.α(n))
+
+<MDXCodeBlock>
+  {numberOfConnectedComponentsInAnUndirectedGraphSolutionUsingDSU}
+</MDXCodeBlock>

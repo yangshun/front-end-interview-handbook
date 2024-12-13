@@ -1,0 +1,1498 @@
+[
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["a", "f", "e", "d", "a", "c"],
+          ["c", "c", "d", "b", "f", "e"],
+          ["c", "c", "a", "d", "f", "a"],
+          ["c", "b", "f", "e", "d", "b"],
+          ["b", "a", "c", "a", "d", "a"],
+          ["f", "c", "b", "a", "a", "d"]
+        ]
+      ],
+      ["word", "b"]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["d", "c", "f", "e", "f", "c"],
+          ["d", "c", "e", "c", "d", "b"],
+          ["d", "b", "c", "c", "d", "d"],
+          ["c", "b", "e", "a", "f", "d"],
+          ["a", "c", "e", "e", "e", "a"],
+          ["e", "f", "a", "e", "b", "d"]
+        ]
+      ],
+      ["word", "fd"]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["e", "c", "c", "c", "e", "e"],
+          ["f", "a", "e", "e", "f", "b"],
+          ["f", "e", "b", "e", "d", "a"],
+          ["e", "e", "e", "d", "a", "e"],
+          ["f", "a", "c", "a", "e", "d"],
+          ["a", "d", "b", "a", "d", "a"]
+        ]
+      ],
+      ["word", "f"]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["c", "f", "c", "a", "c", "e"],
+          ["c", "f", "f", "e", "c", "c"],
+          ["c", "f", "f", "c", "c", "a"],
+          ["d", "f", "e", "d", "e", "c"],
+          ["f", "f", "b", "f", "f", "d"],
+          ["c", "d", "a", "e", "f", "a"]
+        ]
+      ],
+      ["word", "fcb"]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["e", "e", "f", "d", "a", "a"],
+          ["b", "e", "d", "e", "e", "f"],
+          ["e", "f", "c", "d", "e", "c"],
+          ["a", "e", "f", "c", "c", "c"],
+          ["c", "d", "b", "a", "b", "e"],
+          ["a", "c", "d", "b", "f", "f"]
+        ]
+      ],
+      ["word", "adfb"]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["c", "e", "c", "c", "d", "b"],
+          ["d", "c", "a", "a", "d", "e"],
+          ["f", "b", "d", "e", "a", "b"],
+          ["a", "a", "d", "a", "a", "d"],
+          ["d", "b", "f", "b", "b", "c"],
+          ["c", "d", "e", "a", "a", "d"]
+        ]
+      ],
+      ["word", "c"]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["d", "c", "a", "d", "c", "d"],
+          ["c", "d", "b", "c", "a", "e"],
+          ["d", "b", "b", "d", "b", "b"],
+          ["a", "a", "c", "a", "f", "f"],
+          ["b", "b", "a", "c", "c", "e"],
+          ["d", "d", "b", "a", "f", "e"]
+        ]
+      ],
+      ["word", "edcf"]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["b", "f", "d", "e", "e", "e"],
+          ["e", "c", "a", "c", "f", "c"],
+          ["d", "e", "f", "c", "d", "c"],
+          ["e", "b", "c", "b", "d", "f"],
+          ["a", "e", "e", "d", "d", "b"],
+          ["d", "a", "c", "b", "a", "e"]
+        ]
+      ],
+      ["word", "caf"]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["c", "c", "b", "a", "f", "a"],
+          ["a", "f", "b", "a", "d", "a"],
+          ["b", "c", "c", "b", "b", "c"],
+          ["e", "b", "b", "b", "e", "d"],
+          ["b", "b", "c", "c", "b", "f"],
+          ["f", "f", "c", "b", "d", "a"]
+        ]
+      ],
+      ["word", "bfb"]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["e", "a", "f", "b", "c", "e"],
+          ["c", "f", "f", "c", "b", "a"],
+          ["a", "b", "a", "d", "d", "e"],
+          ["e", "b", "b", "c", "f", "b"],
+          ["a", "a", "d", "c", "f", "e"],
+          ["b", "a", "a", "c", "e", "d"]
+        ]
+      ],
+      ["word", "d"]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["a", "a", "a", "b", "f", "f"],
+          ["c", "d", "b", "d", "e", "a"],
+          ["e", "a", "f", "a", "d", "b"],
+          ["d", "a", "a", "b", "b", "f"],
+          ["e", "b", "e", "d", "c", "f"],
+          ["f", "e", "e", "a", "f", "b"]
+        ]
+      ],
+      ["word", "bdf"]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["b", "e", "b", "f", "d", "c"],
+          ["c", "a", "a", "f", "b", "d"],
+          ["f", "f", "d", "a", "c", "b"],
+          ["d", "a", "b", "f", "a", "a"],
+          ["f", "b", "b", "d", "f", "d"],
+          ["f", "e", "e", "d", "e", "c"]
+        ]
+      ],
+      ["word", "e"]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["b", "f", "f", "c", "b", "a"],
+          ["e", "b", "e", "b", "f", "c"],
+          ["d", "b", "c", "d", "f", "d"],
+          ["b", "b", "d", "b", "d", "e"],
+          ["b", "e", "d", "d", "e", "a"],
+          ["f", "b", "f", "c", "e", "d"]
+        ]
+      ],
+      ["word", "a"]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["b", "f", "d", "e", "f", "e"],
+          ["e", "c", "d", "f", "b", "a"],
+          ["e", "c", "b", "f", "a", "b"],
+          ["b", "b", "e", "a", "e", "e"],
+          ["e", "a", "d", "c", "e", "a"],
+          ["a", "b", "d", "d", "d", "d"]
+        ]
+      ],
+      ["word", "ffff"]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["b", "d", "b", "b", "a", "f"],
+          ["b", "c", "f", "b", "b", "f"],
+          ["e", "d", "e", "a", "f", "d"],
+          ["c", "f", "a", "b", "e", "e"],
+          ["f", "e", "c", "e", "f", "a"],
+          ["a", "c", "c", "d", "d", "a"]
+        ]
+      ],
+      ["word", "ebeb"]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["d", "d", "a", "f", "d", "d"],
+          ["f", "c", "a", "c", "f", "a"],
+          ["b", "d", "e", "a", "c", "b"],
+          ["a", "f", "b", "e", "c", "a"],
+          ["b", "f", "c", "c", "c", "a"],
+          ["a", "a", "b", "f", "e", "c"]
+        ]
+      ],
+      ["word", "fd"]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["e", "a", "c", "b", "b", "c"],
+          ["a", "f", "f", "b", "b", "d"],
+          ["b", "f", "f", "b", "a", "e"],
+          ["a", "e", "b", "b", "b", "d"],
+          ["b", "a", "f", "b", "c", "b"],
+          ["b", "e", "b", "f", "a", "d"]
+        ]
+      ],
+      ["word", "fad"]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["d", "e", "e", "b", "a", "d"],
+          ["d", "b", "e", "b", "d", "a"],
+          ["e", "f", "a", "f", "f", "f"],
+          ["a", "d", "e", "e", "a", "c"],
+          ["b", "d", "f", "f", "b", "d"],
+          ["d", "c", "e", "e", "f", "f"]
+        ]
+      ],
+      ["word", "bb"]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["b", "e", "a", "d", "d", "e"],
+          ["f", "f", "b", "b", "c", "b"],
+          ["e", "a", "b", "e", "b", "d"],
+          ["b", "a", "c", "c", "b", "c"],
+          ["c", "f", "c", "a", "f", "c"],
+          ["b", "c", "b", "e", "f", "f"]
+        ]
+      ],
+      ["word", "e"]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["f", "d", "a", "b", "a", "e"],
+          ["d", "b", "a", "c", "c", "d"],
+          ["e", "e", "d", "f", "c", "d"],
+          ["e", "e", "b", "b", "f", "d"],
+          ["d", "f", "e", "c", "b", "f"],
+          ["b", "b", "e", "c", "b", "d"]
+        ]
+      ],
+      ["word", "dc"]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["e", "f", "f", "d", "a", "d"],
+          ["d", "e", "d", "f", "c", "f"],
+          ["a", "d", "f", "b", "c", "a"],
+          ["d", "a", "a", "a", "d", "b"],
+          ["e", "e", "b", "e", "e", "d"],
+          ["a", "d", "b", "b", "f", "b"]
+        ]
+      ],
+      ["word", "db"]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["f", "e", "e", "c", "a", "f"],
+          ["d", "d", "d", "d", "c", "f"],
+          ["d", "b", "f", "f", "b", "f"],
+          ["b", "c", "b", "f", "e", "c"],
+          ["a", "f", "d", "e", "b", "e"],
+          ["b", "b", "a", "a", "e", "e"]
+        ]
+      ],
+      ["word", "a"]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["d", "f", "d", "f", "f", "b"],
+          ["c", "a", "d", "d", "f", "b"],
+          ["e", "b", "e", "b", "e", "e"],
+          ["b", "a", "b", "d", "e", "b"],
+          ["c", "d", "a", "a", "c", "a"],
+          ["e", "b", "f", "b", "c", "f"]
+        ]
+      ],
+      ["word", "cecc"]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["d", "b", "d", "f", "a", "d"],
+          ["d", "f", "e", "d", "c", "b"],
+          ["b", "f", "e", "c", "c", "a"],
+          ["e", "a", "b", "c", "f", "a"],
+          ["a", "c", "b", "d", "a", "a"],
+          ["e", "e", "d", "a", "f", "f"]
+        ]
+      ],
+      ["word", "afdf"]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["d", "a", "e", "b", "c", "a"],
+          ["e", "a", "d", "a", "b", "c"],
+          ["f", "f", "c", "b", "d", "a"],
+          ["e", "f", "d", "e", "f", "f"],
+          ["a", "b", "a", "d", "b", "a"],
+          ["c", "c", "f", "b", "e", "c"]
+        ]
+      ],
+      ["word", "cdc"]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["f", "f", "a", "c", "e", "c"],
+          ["b", "b", "f", "f", "d", "b"],
+          ["a", "c", "d", "f", "d", "b"],
+          ["e", "b", "a", "e", "c", "f"],
+          ["c", "e", "d", "a", "c", "c"],
+          ["f", "c", "c", "c", "f", "b"]
+        ]
+      ],
+      ["word", "dca"]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["e", "b", "a", "f", "f", "d"],
+          ["a", "c", "e", "a", "b", "e"],
+          ["d", "f", "e", "a", "b", "d"],
+          ["e", "a", "f", "a", "c", "c"],
+          ["f", "c", "c", "c", "e", "f"],
+          ["d", "a", "e", "f", "b", "c"]
+        ]
+      ],
+      ["word", "afa"]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["b", "b", "a", "c", "f", "f"],
+          ["b", "e", "c", "f", "f", "e"],
+          ["f", "e", "e", "d", "a", "d"],
+          ["d", "e", "f", "e", "e", "e"],
+          ["c", "e", "f", "b", "d", "a"],
+          ["e", "b", "b", "d", "e", "a"]
+        ]
+      ],
+      ["word", "fbeb"]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["e", "e", "e", "f", "d", "f"],
+          ["a", "c", "d", "f", "d", "b"],
+          ["a", "a", "d", "b", "d", "e"],
+          ["f", "b", "c", "a", "d", "e"],
+          ["a", "e", "a", "a", "d", "e"],
+          ["b", "e", "a", "b", "e", "f"]
+        ]
+      ],
+      ["word", "ebd"]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["f", "d", "e", "b", "e", "e"],
+          ["c", "b", "c", "c", "c", "f"],
+          ["a", "f", "f", "c", "f", "a"],
+          ["d", "d", "f", "f", "b", "f"],
+          ["f", "c", "f", "a", "d", "c"],
+          ["b", "b", "d", "e", "f", "b"]
+        ]
+      ],
+      ["word", "ee"]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["a", "c", "e", "a", "a", "f"],
+          ["e", "d", "c", "c", "b", "f"],
+          ["d", "e", "e", "a", "c", "b"],
+          ["c", "c", "c", "b", "d", "e"],
+          ["d", "d", "c", "c", "a", "b"],
+          ["c", "d", "e", "c", "c", "a"]
+        ]
+      ],
+      ["word", "adc"]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["b", "d", "a", "f", "d", "a"],
+          ["b", "c", "c", "a", "c", "e"],
+          ["f", "e", "c", "d", "f", "c"],
+          ["c", "c", "a", "e", "a", "f"],
+          ["e", "d", "c", "f", "e", "e"],
+          ["e", "f", "d", "e", "c", "d"]
+        ]
+      ],
+      ["word", "ccbe"]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["b", "d", "d", "a", "e", "e"],
+          ["f", "a", "f", "a", "c", "e"],
+          ["d", "b", "b", "c", "a", "c"],
+          ["b", "d", "d", "b", "d", "e"],
+          ["c", "c", "d", "b", "a", "c"],
+          ["f", "c", "b", "c", "a", "b"]
+        ]
+      ],
+      ["word", "d"]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["f", "f", "a", "a", "d", "f"],
+          ["b", "c", "c", "f", "d", "f"],
+          ["a", "c", "e", "a", "a", "f"],
+          ["f", "f", "b", "c", "c", "f"],
+          ["a", "b", "b", "e", "e", "c"],
+          ["a", "c", "e", "b", "b", "f"]
+        ]
+      ],
+      ["word", "ee"]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["a", "c", "a", "e", "b", "d"],
+          ["d", "f", "c", "b", "d", "e"],
+          ["f", "d", "a", "d", "c", "e"],
+          ["c", "b", "f", "b", "f", "c"],
+          ["a", "f", "a", "a", "c", "e"],
+          ["c", "d", "f", "f", "e", "c"]
+        ]
+      ],
+      ["word", "c"]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["b", "b", "a", "d", "f", "e"],
+          ["c", "b", "a", "c", "d", "e"],
+          ["b", "b", "e", "c", "f", "a"],
+          ["c", "e", "c", "a", "f", "a"],
+          ["d", "e", "b", "f", "c", "b"],
+          ["c", "f", "f", "f", "f", "c"]
+        ]
+      ],
+      ["word", "a"]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["e", "c", "b", "c", "f", "e"],
+          ["a", "e", "e", "f", "d", "f"],
+          ["d", "f", "e", "a", "d", "b"],
+          ["f", "b", "c", "d", "d", "c"],
+          ["a", "b", "b", "a", "d", "b"],
+          ["d", "f", "d", "d", "a", "a"]
+        ]
+      ],
+      ["word", "ca"]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["c", "c", "c", "c", "a", "c"],
+          ["d", "e", "b", "d", "e", "b"],
+          ["f", "b", "d", "f", "b", "b"],
+          ["b", "d", "c", "c", "b", "d"],
+          ["b", "c", "f", "c", "e", "d"],
+          ["b", "d", "a", "c", "c", "f"]
+        ]
+      ],
+      ["word", "cab"]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["b", "c", "c", "a", "e", "a"],
+          ["b", "c", "b", "e", "b", "f"],
+          ["c", "a", "e", "b", "e", "c"],
+          ["b", "b", "b", "b", "f", "f"],
+          ["f", "e", "b", "d", "e", "b"],
+          ["c", "b", "c", "e", "b", "c"]
+        ]
+      ],
+      ["word", "ec"]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["c", "a", "d", "a", "d", "a"],
+          ["d", "a", "f", "e", "a", "b"],
+          ["f", "a", "a", "f", "b", "d"],
+          ["d", "e", "b", "c", "a", "a"],
+          ["b", "c", "e", "b", "e", "e"],
+          ["c", "d", "a", "c", "c", "f"]
+        ]
+      ],
+      ["word", "ddcd"]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["e", "e", "c", "d", "a", "f"],
+          ["f", "f", "e", "f", "a", "a"],
+          ["a", "c", "e", "e", "f", "a"],
+          ["d", "e", "a", "b", "e", "b"],
+          ["b", "d", "a", "c", "d", "c"],
+          ["b", "f", "a", "f", "a", "d"]
+        ]
+      ],
+      ["word", "bc"]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["a", "a", "e", "e", "b", "f"],
+          ["e", "f", "e", "a", "e", "c"],
+          ["e", "c", "f", "f", "d", "b"],
+          ["f", "b", "a", "d", "d", "a"],
+          ["a", "e", "b", "f", "f", "e"],
+          ["a", "d", "e", "f", "e", "f"]
+        ]
+      ],
+      ["word", "a"]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["f", "f", "a", "b", "c", "f"],
+          ["e", "a", "a", "e", "f", "f"],
+          ["e", "e", "e", "d", "b", "e"],
+          ["f", "f", "a", "c", "e", "a"],
+          ["d", "c", "d", "a", "c", "e"],
+          ["b", "b", "b", "e", "b", "b"]
+        ]
+      ],
+      ["word", "cb"]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["e", "e", "b", "e", "a", "e"],
+          ["f", "b", "a", "b", "f", "d"],
+          ["d", "f", "a", "d", "e", "f"],
+          ["a", "d", "b", "f", "b", "b"],
+          ["c", "d", "e", "b", "f", "b"],
+          ["a", "f", "d", "f", "a", "c"]
+        ]
+      ],
+      ["word", "cfbd"]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["a", "d", "f", "d", "d", "a"],
+          ["f", "f", "d", "b", "e", "e"],
+          ["d", "a", "f", "f", "b", "b"],
+          ["d", "c", "c", "a", "f", "d"],
+          ["d", "b", "a", "d", "f", "f"],
+          ["e", "a", "a", "d", "f", "f"]
+        ]
+      ],
+      ["word", "d"]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["c", "d", "e", "b", "b", "c"],
+          ["c", "d", "a", "c", "f", "f"],
+          ["e", "c", "e", "d", "d", "b"],
+          ["e", "a", "f", "a", "f", "f"],
+          ["f", "a", "e", "c", "f", "a"],
+          ["c", "e", "a", "a", "f", "c"]
+        ]
+      ],
+      ["word", "b"]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["d", "f", "b", "c", "b", "e"],
+          ["f", "f", "e", "a", "a", "c"],
+          ["f", "b", "f", "a", "d", "f"],
+          ["d", "f", "e", "d", "c", "f"],
+          ["c", "d", "f", "b", "d", "d"],
+          ["b", "b", "f", "b", "f", "a"]
+        ]
+      ],
+      ["word", "def"]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["e", "e", "a", "d", "b", "f"],
+          ["b", "c", "c", "e", "f", "c"],
+          ["c", "c", "e", "c", "c", "d"],
+          ["c", "e", "e", "b", "a", "d"],
+          ["a", "b", "e", "b", "f", "b"],
+          ["c", "e", "a", "d", "d", "f"]
+        ]
+      ],
+      ["word", "ebfacf"]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["f", "c", "c", "f", "f", "b"],
+          ["a", "b", "e", "e", "a", "f"],
+          ["b", "e", "a", "e", "d", "d"],
+          ["d", "d", "a", "a", "a", "c"],
+          ["e", "b", "e", "f", "d", "f"],
+          ["d", "b", "d", "f", "c", "d"]
+        ]
+      ],
+      ["word", "ec"]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["a", "d", "e", "c", "f", "e"],
+          ["b", "d", "e", "a", "a", "c"],
+          ["c", "d", "b", "b", "f", "c"],
+          ["c", "b", "b", "c", "e", "b"],
+          ["c", "f", "b", "f", "c", "d"],
+          ["b", "e", "e", "e", "d", "a"]
+        ]
+      ],
+      ["word", "acaf"]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      ["board", [["b", "a"]]],
+      ["word", "ushahp"]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["e", "c", "k", "a", "o", "j"],
+          ["q", "o", "f", "u", "p", "f"],
+          ["e", "f", "a", "x", "k", "c"]
+        ]
+      ],
+      ["word", "zkxjnhwjq"]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["b", "r"],
+          ["k", "i"],
+          ["y", "a"],
+          ["t", "t"]
+        ]
+      ],
+      ["word", "sfo"]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["y", "r"],
+          ["h", "s"],
+          ["z", "m"],
+          ["h", "d"]
+        ]
+      ],
+      ["word", "elrcuaoeleynh"]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["w", "o", "t", "c", "t", "v"],
+          ["x", "f", "t", "j", "o", "l"],
+          ["p", "r", "x", "k", "a", "s"]
+        ]
+      ],
+      ["word", "tcqmmtcuy"]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["w", "q"],
+          ["z", "d"],
+          ["y", "g"],
+          ["f", "x"],
+          ["k", "v"],
+          ["b", "l"]
+        ]
+      ],
+      ["word", "kbd"]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["y", "r", "o"],
+          ["d", "p", "p"],
+          ["p", "q", "q"],
+          ["e", "o", "a"],
+          ["j", "y", "c"]
+        ]
+      ],
+      ["word", "d"]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      ["board", [["m"]]],
+      ["word", "cuvmxbjohdoxgft"]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["j", "j", "k", "m", "p"],
+          ["q", "s", "q", "f", "f"]
+        ]
+      ],
+      ["word", "eymvfpywusa"]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      ["board", [["g"], ["g"], ["h"]]],
+      ["word", "nefyc"]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["n", "r", "u", "d"],
+          ["f", "d", "d", "w"],
+          ["n", "b", "f", "p"]
+        ]
+      ],
+      ["word", "kocjfowado"]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["z", "k", "a", "v", "w"],
+          ["s", "h", "g", "n", "n"],
+          ["l", "t", "a", "o", "v"],
+          ["t", "z", "r", "g", "h"],
+          ["d", "a", "t", "j", "k"],
+          ["k", "m", "g", "k", "h"]
+        ]
+      ],
+      ["word", "hrlkyn"]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["u", "s", "p"],
+          ["j", "b", "x"],
+          ["a", "b", "i"],
+          ["z", "u", "s"]
+        ]
+      ],
+      ["word", "ashftyjg"]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["i", "k", "c", "c"],
+          ["g", "v", "n", "h"],
+          ["q", "h", "l", "q"],
+          ["i", "k", "l", "e"]
+        ]
+      ],
+      ["word", "reqz"]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["u", "k", "i"],
+          ["j", "r", "j"],
+          ["u", "o", "a"],
+          ["u", "p", "t"]
+        ]
+      ],
+      ["word", "nkzytmypotk"]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      ["board", [["h"]]],
+      ["word", "jyc"]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["o", "e", "x", "t", "n", "q"],
+          ["g", "d", "e", "c", "c", "h"],
+          ["z", "p", "m", "a", "f", "r"],
+          ["j", "w", "j", "m", "g", "o"]
+        ]
+      ],
+      ["word", "md"]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      ["board", [["p"]]],
+      ["word", "pbqcwdf"]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["q", "g", "k", "f"],
+          ["o", "u", "a", "w"],
+          ["y", "x", "t", "y"]
+        ]
+      ],
+      ["word", "cls"]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["s", "a", "z", "s"],
+          ["v", "b", "m", "h"],
+          ["u", "f", "t", "r"],
+          ["i", "o", "b", "i"],
+          ["v", "j", "x", "z"]
+        ]
+      ],
+      ["word", "xyvdpxervcabyjk"]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["d", "f", "a", "t", "a", "l"],
+          ["v", "c", "u", "d", "w", "n"],
+          ["c", "q", "d", "j", "d", "b"],
+          ["v", "t", "c", "d", "o", "a"],
+          ["j", "k", "f", "g", "s", "q"]
+        ]
+      ],
+      ["word", "ogq"]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["h", "w", "j"],
+          ["j", "i", "t"],
+          ["o", "a", "d"],
+          ["d", "b", "m"],
+          ["p", "s", "e"],
+          ["r", "r", "j"]
+        ]
+      ],
+      ["word", "lljpwdzqkgdpl"]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["o", "b", "j"],
+          ["k", "b", "x"],
+          ["n", "t", "s"],
+          ["d", "l", "f"],
+          ["d", "w", "i"]
+        ]
+      ],
+      ["word", "loqekmwxn"]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["q", "h", "k", "f", "i"],
+          ["u", "i", "i", "d", "p"],
+          ["m", "g", "g", "p", "s"],
+          ["c", "v", "g", "j", "b"]
+        ]
+      ],
+      ["word", "iiousnylhjhtpn"]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["w", "h", "l", "j", "z"],
+          ["r", "k", "w", "h", "l"],
+          ["x", "l", "z", "e", "s"],
+          ["e", "a", "s", "s", "h"],
+          ["r", "y", "w", "z", "g"],
+          ["x", "m", "v", "r", "t"]
+        ]
+      ],
+      ["word", "bpgq"]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["u", "g", "x", "r", "q", "g"],
+          ["y", "z", "j", "e", "y", "d"],
+          ["r", "d", "n", "k", "s", "w"],
+          ["w", "a", "t", "c", "d", "z"]
+        ]
+      ],
+      ["word", "qyeknt"]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["b", "s", "i", "j", "p"],
+          ["b", "n", "u", "s", "t"],
+          ["s", "u", "h", "k", "d"]
+        ]
+      ],
+      ["word", "ilb"]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      ["board", [["t"], ["t"], ["k"], ["u"]]],
+      ["word", "wiyzukytcsq"]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["c", "o", "h", "z"],
+          ["d", "h", "p", "k"],
+          ["s", "t", "e", "j"],
+          ["d", "a", "x", "v"],
+          ["m", "o", "s", "i"]
+        ]
+      ],
+      ["word", "reuucuk"]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["u", "w", "j"],
+          ["i", "w", "p"]
+        ]
+      ],
+      ["word", "dsqsco"]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["x", "p", "x", "f"],
+          ["m", "l", "m", "u"],
+          ["r", "y", "c", "b"],
+          ["h", "b", "e", "g"],
+          ["c", "t", "s", "w"]
+        ]
+      ],
+      ["word", "ccpxxdffzrtvxg"]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["u", "j", "g", "x", "h", "r"],
+          ["b", "z", "f", "v", "h", "i"],
+          ["w", "f", "h", "o", "g", "z"],
+          ["r", "p", "n", "w", "l", "m"],
+          ["b", "z", "q", "s", "h", "w"]
+        ]
+      ],
+      ["word", "aatyux"]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["g", "p", "m"],
+          ["r", "a", "n"],
+          ["k", "k", "s"],
+          ["t", "x", "k"],
+          ["o", "v", "t"],
+          ["i", "y", "m"]
+        ]
+      ],
+      ["word", "wcicbtjajndr"]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["q", "l"],
+          ["k", "l"],
+          ["n", "d"],
+          ["c", "u"]
+        ]
+      ],
+      ["word", "seakiz"]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      ["board", [["l", "i", "f", "e"]]],
+      ["word", "wlwwbjiy"]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      ["board", [["y", "s", "y"]]],
+      ["word", "pgnemfhjxjkg"]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      ["board", [["a"], ["o"]]],
+      ["word", "mqgcwkbns"]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["j", "r", "w", "v"],
+          ["o", "i", "l", "q"],
+          ["b", "j", "f", "p"]
+        ]
+      ],
+      ["word", "mv"]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      ["board", [["l"]]],
+      ["word", "wif"]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      ["board", [["e"], ["k"], ["l"], ["l"], ["i"], ["o"]]],
+      ["word", "fedjso"]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      ["board", [["t"], ["j"], ["i"], ["f"], ["x"], ["g"]]],
+      ["word", "qjdhyodicjwtmb"]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["d", "k", "m", "t", "y"],
+          ["k", "m", "n", "z", "k"]
+        ]
+      ],
+      ["word", "pfbqfkt"]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["u", "u", "n", "m", "h", "t"],
+          ["t", "g", "q", "l", "b", "u"],
+          ["e", "o", "p", "r", "s", "u"],
+          ["o", "h", "c", "v", "n", "h"],
+          ["h", "n", "q", "d", "n", "a"]
+        ]
+      ],
+      ["word", "sguwfjbqwhxuaz"]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      ["board", [["i", "n", "n", "u", "w"]]],
+      ["word", "ftzw"]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["p", "e", "z", "s", "a"],
+          ["q", "o", "p", "f", "f"],
+          ["w", "t", "y", "b", "n"],
+          ["d", "k", "u", "f", "y"],
+          ["q", "c", "j", "j", "y"],
+          ["k", "i", "c", "p", "z"]
+        ]
+      ],
+      ["word", "bfyyz"]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["g", "e", "a", "i", "i"],
+          ["y", "e", "h", "z", "i"],
+          ["n", "j", "y", "r", "e"],
+          ["t", "u", "p", "o", "w"],
+          ["c", "m", "m", "y", "m"]
+        ]
+      ],
+      ["word", "xdbafi"]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["v", "b", "z", "j", "n"],
+          ["d", "f", "i", "q", "r"],
+          ["l", "h", "t", "r", "r"]
+        ]
+      ],
+      ["word", "tll"]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["j", "j"],
+          ["o", "b"],
+          ["i", "e"],
+          ["m", "v"],
+          ["p", "n"],
+          ["l", "w"]
+        ]
+      ],
+      ["word", "onacnr"]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      [
+        "board",
+        [
+          ["n", "w", "o", "n", "x"],
+          ["p", "m", "e", "j", "t"]
+        ]
+      ],
+      ["word", "bmwoqztfmeysuf"]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      ["board", [["x"], ["u"], ["c"]]],
+      ["word", "vwnpouuogslxjuc"]
+    ],
+    "output": false
+  }
+]

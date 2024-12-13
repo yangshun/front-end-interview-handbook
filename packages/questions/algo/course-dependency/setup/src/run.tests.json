@@ -1,0 +1,26 @@
+[
+  {
+    "input": [
+      ["courses", 4],
+      [
+        "prerequisites",
+        [
+          [1, 0],
+          [2, 1],
+          [3, 2],
+          [1, 3]
+        ]
+      ]
+    ],
+    "output": false,
+    "explanation": "There are 4 courses labeled from 0 to 3. The prerequisite relationships are as follows: course 1 requires course 0 to be completed first, course 2 requires course 1, course 3 requires course 2, and course 1 requires course 3. This creates a circular dependency: course 1 depends on course 3, which in turn depends on course 2, which then depends on course 1 again. Since it is impossible to break this cycle and complete all courses, the output is false."
+  },
+  {
+    "input": [
+      ["courses", 2],
+      ["prerequisites", [[1, 0]]]
+    ],
+    "output": true,
+    "explanation": "The prerequisite [1, 0] indicates that course 0 must be completed before course 1. Since there are no other dependencies or cycles, it is straightforward to complete the courses in the order: course 0, then course 1. Therefore, the output is true."
+  }
+]

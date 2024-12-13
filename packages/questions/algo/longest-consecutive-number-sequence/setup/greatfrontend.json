@@ -1,0 +1,8 @@
+{
+  "run": "/src/longest-consecutive-number-sequence.run.test.ts",
+  "submit": "/src/longest-consecutive-number-sequence.submit.test.ts",
+  "skeleton": {
+    "js": "/src/longest-consecutive-number-sequence.skeleton.js",
+    "ts": "/src/longest-consecutive-number-sequence.skeleton.ts"
+  }
+}

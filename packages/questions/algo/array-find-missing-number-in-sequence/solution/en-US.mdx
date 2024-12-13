@@ -1,0 +1,16 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import findMissingNumberInSequence from '../setup/src/array-find-missing-number-in-sequence.ts';
+import findMissingNumberInSequenceSorting from '../setup/src/array-find-missing-number-in-sequence-sorting.ts';
+
+## 1. Using Sorting
+
+Time complexity: O(NLogN), where N is the length of the array
+
+<MDXCodeBlock>{findMissingNumberInSequenceSorting}</MDXCodeBlock>
+
+## 2. Using mathematical property to calculate sum of numbers from 0 to n
+
+Time complexity: O(n), where N is the length of the array
+
+<MDXCodeBlock>{findMissingNumberInSequence}</MDXCodeBlock>

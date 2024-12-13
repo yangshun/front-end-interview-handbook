@@ -1,0 +1,17 @@
+[
+  {
+    "input": [["root", [10, 5, 15, 1, 8, 12, 20]]],
+    "output": true,
+    "explanation": "The tree is a valid BST because all nodes follow the BST properties."
+  },
+  {
+    "input": [["root", [5, 1, 4, null, null, null, 3]]],
+    "output": false,
+    "explanation": "The tree is not a valid BST because the node with value 3 is in the right subtree of the node with value 4, which violates the BST property."
+  },
+  {
+    "input": [["root", [3, 2, 4, 1, null, null, 5]]],
+    "output": true,
+    "explanation": "The tree is a valid BST because all nodes follow the BST properties."
+  }
+]

@@ -1,0 +1,21 @@
+---
+title: Matrix Zeroing
+excerpt: Implement a function to set matrix rows and columns to zero
+---
+
+import MDXTestExamples from 'MDXTestExamples';
+import runTestCases from '../setup/src/run.tests.json';
+
+Given a `matrix` of size `m` x `n`, modify the matrix such that if an element is `0`, its entire row and column are set to `0`. The changes should be made in-place, i.e. directly to the original matrix.
+
+### Input
+
+- `matrix: number[][]`: A 2D array `matrix` of size `m` x `n`
+
+<MDXTestExamples testCases={runTestCases} />
+
+### Constraints
+
+- 1 &lt;= `m`, `n` &lt;= 100
+- -1000 &lt;= `matrix[row][col]` &lt;= 1000
+- Challenge: Use only O(1) extra space

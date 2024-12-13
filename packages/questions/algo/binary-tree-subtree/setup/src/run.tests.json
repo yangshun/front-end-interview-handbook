@@ -1,0 +1,26 @@
+[
+  {
+    "input": [
+      ["root", [1, 2, 3]],
+      ["subRoot", [1, 2]]
+    ],
+    "output": false,
+    "explanation": "SubRoot cannot be a subtree since the root node structure differs."
+  },
+  {
+    "input": [
+      ["root", [12, 8, 6, 3, 5]],
+      ["subRoot", [8, 3, 5]]
+    ],
+    "output": true,
+    "explanation": "The subtree rooted at node 8 matches subRoot."
+  },
+  {
+    "input": [
+      ["root", [5, 4, 8, 11, null, 13, 4, 7, 2, null, null, null, null, 5, 1]],
+      ["subRoot", [11, 7, 2, 5, 1]]
+    ],
+    "output": true,
+    "explanation": "The subtree rooted at node 11 matches subRoot."
+  }
+]

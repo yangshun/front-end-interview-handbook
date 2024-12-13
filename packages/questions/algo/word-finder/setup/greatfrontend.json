@@ -1,0 +1,8 @@
+{
+  "run": "/src/word-finder.run.test.ts",
+  "submit": "/src/word-finder.submit.test.ts",
+  "skeleton": {
+    "js": "/src/word-finder.skeleton.js",
+    "ts": "/src/word-finder.skeleton.ts"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "run": "/src/coin-change.run.test.ts",
+  "submit": "/src/coin-change.submit.test.ts",
+  "skeleton": {
+    "js": "/src/coin-change.skeleton.js",
+    "ts": "/src/coin-change.skeleton.ts"
+  }
+}

@@ -1,0 +1,16 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import getMedianFromDataStream from '../setup/src/number-stream-median.ts';
+import getMedianFromDataStreamBruteForce from '../setup/src/number-stream-median-brute-force.ts';
+
+## 1. Using Two Heaps
+
+Time complexity: O(N.Log(N))
+
+<MDXCodeBlock>{getMedianFromDataStream}</MDXCodeBlock>
+
+## 2. Brute Force Approach Using Sort
+
+Time complexity: O(N^2.Log(N))
+
+<MDXCodeBlock>{getMedianFromDataStreamBruteForce}</MDXCodeBlock>

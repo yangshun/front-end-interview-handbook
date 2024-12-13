@@ -1,0 +1,27 @@
+---
+title: Shortest Substring Containing Characters
+excerpt: Implement a function to return the smallest substring of a string containing all characters from another string
+---
+
+import MDXTestExamples from 'MDXTestExamples';
+import runTestCases from '../setup/src/run.tests.json';
+
+Given two strings, `str1` and `str2`, return the smallest substring of `str1` that contains every character from `str2` (including duplicates). If no such substring exists, return an empty string.
+
+A **substring** is any contiguous sequence of characters within a string. For example, the substrings of string `abc` are `a`, `b`, `c`, `ab`, `bc`, and `abc`. A substring is formed by selecting a starting and ending point without skipping characters in between.
+
+### Input
+
+- `str1`: A string
+- `str2`: A string
+
+### Notes
+
+- If multiple solutions exist, you may return any of them
+
+<MDXTestExamples testCases={runTestCases} />
+
+### Constraints
+
+- 1 &lt;= `str1.length`, `str2.length` &lt;= 10,000
+- `str1` and `str2` contains only uppercase English letters

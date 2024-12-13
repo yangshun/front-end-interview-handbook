@@ -1,0 +1,59 @@
+[
+  {
+    "input": [
+      [
+        "methods",
+        [
+          "insert",
+          "insert",
+          "search",
+          "startsWith",
+          "insert",
+          "search",
+          "startsWith"
+        ]
+      ],
+      ["params", ["car", "care", "car", "cap", "card", "cast", "car"]]
+    ],
+    "output": [null, null, 1, 0, null, 0, 1],
+    "explanation": "The words 'car' and 'care' are inserted. 'search' for 'car' finds it, and 'startsWith' for 'cap' returns 0. 'card' is then inserted. 'search' for 'cast' does not find it. 'startsWith' finds 'car'"
+  },
+  {
+    "input": [
+      [
+        "methods",
+        [
+          "insert",
+          "insert",
+          "search",
+          "startsWith",
+          "insert",
+          "search",
+          "startsWith"
+        ]
+      ],
+      ["params", ["dog", "doge", "dog", "do", "door", "doge", "doc"]]
+    ],
+    "output": [null, null, 1, 1, null, 1, 0],
+    "explanation": "Words 'dog' and 'doge' are inserted. 'search' finds 'dog' and 'startsWith' finds 'do'. After 'door' is inserted, 'search' finds 'doge'.'startsWith' do not finds 'doc'"
+  },
+  {
+    "input": [
+      [
+        "methods",
+        [
+          "insert",
+          "insert",
+          "startsWith",
+          "insert",
+          "search",
+          "search",
+          "startsWith"
+        ]
+      ],
+      ["params", ["banana", "band", "ban", "bandit", "band", "banana", "ban"]]
+    ],
+    "output": [null, null, 1, null, 1, 1, 1],
+    "explanation": "'banana' and 'band' are inserted. 'startsWith' finds 'ban'. After 'bandit' is inserted, both 'band' and 'banana' can be found. 'startsWith' finds 'ban'."
+  }
+]

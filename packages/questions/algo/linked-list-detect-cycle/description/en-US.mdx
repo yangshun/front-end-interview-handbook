@@ -1,0 +1,33 @@
+---
+title: Linked List Detect Cycle
+excerpt: Implement a function to detect if there are cycles in a linked list
+---
+
+import MDXTestExamples from 'MDXTestExamples';
+import runTestCases from '../setup/src/run.tests.json';
+
+Given the head node of a [linked list](https://en.wikipedia.org/wiki/Linked_list), determine whether the list contains a cycle. Return `true` if the list contains a cycle; otherwise, return `false`.
+
+A linked list has a cycle if there exists a node that can be revisited by continuously following the next pointers.
+
+The linked list is represented by a sequence of `ListNode`s, where each node points to the next node in the sequence, or `null` if it is the last node.
+
+A `ListNode` has the following interface:
+
+```ts
+interface ListNode {
+  val: number;
+  next: ListNode | null;
+}
+```
+
+### Input
+
+- `head: ListNode`: Head of the linked list. Examples display each linked list as an array of values within the list
+
+<MDXTestExamples testCases={runTestCases} />
+
+### Constraints
+
+- 0 &lt;= Number of nodes &lt;= 1000
+- -1000 &lt;= `ListNode.val` &lt;= 1000

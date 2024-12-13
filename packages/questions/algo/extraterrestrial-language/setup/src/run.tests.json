@@ -1,0 +1,17 @@
+[
+  {
+    "input": [["words", ["cab", "abc", "bca"]]],
+    "output": "cab",
+    "explanation": "Comparing 'cab' and 'abc', the first differing characters are c and a, suggesting c comes before a. Comparing 'abc' and 'bca', the first differing characters are a and b, so a comes before b. Thus, the order of letters in the new alphabet is 'cab'."
+  },
+  {
+    "input": [["words", ["abc", "ab"]]],
+    "output": "",
+    "explanation": "The list is invalid because 'ab' should not come before 'abc'. A shorter word with the same prefix cannot appear after a longer word, so the sequence is impossible, and the result is an empty string."
+  },
+  {
+    "input": [["words", ["z", "x", "z"]]],
+    "output": "",
+    "explanation": "The sequence is invalid because 'z' appears both before and after 'x', which creates a contradiction in the order. This inconsistency makes it impossible to deduce a valid letter order, so the result is an empty string."
+  }
+]

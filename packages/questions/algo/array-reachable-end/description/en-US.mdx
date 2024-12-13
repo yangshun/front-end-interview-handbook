@@ -1,0 +1,22 @@
+---
+title: End of Array Reachable
+excerpt: Implement a function to determine if the end of the array is reachable
+---
+
+import MDXTestExamples from 'MDXTestExamples';
+import runTestCases from '../setup/src/run.tests.json';
+
+Given an array of integers `numbers`, starting at the first index of the array, each element in the array represents the maximum number of steps that can be jumped forward from that position.
+
+Determine whether it is possible to arrive at the final index of the array, returning `true` if it can be achieved and `false` otherwise.
+
+### Input
+
+- `numbers: number[]`: An array of integers
+
+<MDXTestExamples testCases={runTestCases} />
+
+### Constraints
+
+- 1 &lt;= `numbers.length` &lt;= 10,000
+- 0 &lt;= `numbers[i]` &lt;= 100,000

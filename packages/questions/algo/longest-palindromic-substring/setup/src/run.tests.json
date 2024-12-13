@@ -1,0 +1,17 @@
+[
+  {
+    "input": [["str", "cauumzssz"]],
+    "output": "zssz",
+    "explanation": "'zssz' is the longest palindromic substring within 'cauumzssz'."
+  },
+  {
+    "input": [["str", "racecar"]],
+    "output": "racecar",
+    "explanation": "The entire string 'racecar' is a palindrome and is the longest."
+  },
+  {
+    "input": [["str", "cacae"]],
+    "output": "cac",
+    "explanation": "Both 'cac' and 'aca' are valid palindromic substrings of the same length, and either can be returned."
+  }
+]

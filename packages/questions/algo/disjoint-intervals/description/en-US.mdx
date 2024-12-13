@@ -1,0 +1,28 @@
+---
+title: Disjoint Intervals
+excerpt: Implement a function to determine the minimum amount of removals to get non-overlapping intervals
+---
+
+import MDXTestExamples from 'MDXTestExamples';
+import runTestCases from '../setup/src/run.tests.json';
+
+Given an array of `intervals` where each interval is represented as `[start, end]`. Each pair denotes the start and end of an interval on a number line. For example, `[1, 3]` represents an interval that starts at 1 and ends at 3.
+
+Find the minimum number of intervals that need to be removed so that the remaining intervals are disjoint.
+
+Intervals are considered disjoint if no two intervals overlap on the number line. For example:
+
+- `[1, 3]` and `[4, 6]` are disjoint because they do not share any common points
+- `[1, 5]` and `[4, 6]` are not disjoint because they overlap at points between 4 and 5
+
+### Input
+
+- `intervals: Array<[number, number]>`: An array of integer pairs
+
+<MDXTestExamples testCases={runTestCases} />
+
+### Constraints
+
+- 0 &lt;= `intervals.length` &lt;= 100
+- `intervals[i].length == 2`
+- 0 &lt;= `start` &lt;= `end` &lt;= 10,000

@@ -1,0 +1,24 @@
+---
+title: Smallest element in rotated sorted array
+excerpt: Implement a function to find the smallest element in rotated sorted array
+---
+
+import MDXTestExamples from 'MDXTestExamples';
+import runTestCases from '../setup/src/run.tests.json';
+
+Given a sorted and rotated array `numbers` containing unique elements, find and return the minimum element in this array.
+
+Rotating an array `[a[0], a[1], a[2], ..., a[n-1]]` once results in `[a[n-1], a[0], a[1], a[2], ..., a[n-2]]`. Rotating it a second time results in `[a[n-2], a[n-1], a[0], a[1], ..., a[n-3]]`.
+
+Develop an algorithm that runs in O(log n) time complexity.
+
+### Input
+
+- `numbers: number[]`: An array of integers
+
+<MDXTestExamples testCases={runTestCases} />
+
+### Constraints
+
+- 1 &lt;= `numbers.length` &lt;= 1000
+- -10,000 &lt;= `numbers[i]` &lt;= 10,000

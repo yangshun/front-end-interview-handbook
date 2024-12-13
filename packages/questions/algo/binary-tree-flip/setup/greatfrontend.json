@@ -1,0 +1,8 @@
+{
+  "run": "/src/binary-tree-flip.run.test.ts",
+  "submit": "/src/binary-tree-flip.submit.test.ts",
+  "skeleton": {
+    "js": "/src/binary-tree-flip.skeleton.js",
+    "ts": "/src/binary-tree-flip.skeleton.ts"
+  }
+}

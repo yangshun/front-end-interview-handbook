@@ -1,0 +1,1816 @@
+[
+  {
+    "input": [
+      ["root", [90, null, 22]],
+      ["subRoot", [22]]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      ["root", [76]],
+      ["subRoot", [76]]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      ["root", [51, null, -20, null, -81]],
+      ["subRoot", [51, null, -20, null, -81]]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      ["root", [13, 98, 65, -96, null, -17, -22, null, -54, 84]],
+      ["subRoot", [-96, null, -54]]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      ["root", [-77, null, -62, null, 54]],
+      ["subRoot", [-62, null, 54]]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      ["root", [-41, 73, 100, 7, null, null, 80]],
+      ["subRoot", [-41, 73, 100, 7, null, null, 80]]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      ["root", [40, null, 56, null, 8]],
+      ["subRoot", [8]]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      ["root", [-80, -98, 42, -84, null, -30, -31, null, 26, -29]],
+      ["subRoot", [-84, null, 26]]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      ["root", [-70, null, -69, null, -29, -19, -94]],
+      ["subRoot", [-70, null, -69, null, -29, -19, null, -94]]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      ["root", [73, null, 80, null, 95, 70, -55]],
+      ["subRoot", [73, null, 80, null, 95, 70, -55]]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "root",
+        [
+          1217,
+          null,
+          -1104,
+          null,
+          181,
+          7962,
+          null,
+          -724,
+          1206,
+          null,
+          -8743,
+          93,
+          null,
+          null,
+          5951,
+          null,
+          9868
+        ]
+      ],
+      ["subRoot", [1206, null, -8743, 93, 5951, null, null, null, 9868]]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      ["root", [2874, null, -9159]],
+      ["subRoot", [2874, null, -9159]]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "root",
+        [
+          -8710,
+          null,
+          4587,
+          null,
+          5749,
+          5447,
+          5069,
+          -7327,
+          null,
+          7633,
+          -7763,
+          null,
+          -5718,
+          -1865
+        ]
+      ],
+      [
+        "subRoot",
+        [
+          5447,
+          5069,
+          null,
+          -7327,
+          null,
+          null,
+          7633,
+          -7763,
+          null,
+          null,
+          -5718,
+          -1865
+        ]
+      ]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      ["root", [1214, null, -448]],
+      ["subRoot", [1214, null, -448]]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      ["root", [-5684, null, 2643]],
+      ["subRoot", [-5684, null, 2643]]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "root",
+        [
+          -2521,
+          null,
+          9801,
+          3120,
+          null,
+          -4106,
+          8415,
+          null,
+          3921,
+          9541,
+          null,
+          null,
+          1841,
+          null,
+          -3180
+        ]
+      ],
+      ["subRoot", [8415, 9541, null, null, -3180]]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "root",
+        [
+          -6396,
+          null,
+          -6824,
+          null,
+          -4658,
+          -7885,
+          null,
+          2023,
+          -3923,
+          null,
+          8334,
+          -6908,
+          null,
+          null,
+          4202,
+          null,
+          -8394
+        ]
+      ],
+      [
+        "subRoot",
+        [2023, -3923, null, null, 8334, -6908, 4202, null, null, null, -8394]
+      ]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      ["root", [-6685, null, 7931]],
+      ["subRoot", [-6685, null, 7931]]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      ["root", [4400, null, 174, null, 45]],
+      ["subRoot", [174, null, 45]]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "root",
+        [
+          -1033,
+          -5836,
+          -104,
+          -7689,
+          null,
+          null,
+          null,
+          null,
+          -3042,
+          null,
+          -485,
+          -9924,
+          -343
+        ]
+      ],
+      ["subRoot", [-7689, null, -3042, null, -485, -9924, -343]]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "root",
+        [
+          5345,
+          null,
+          -1574,
+          null,
+          -5227,
+          -9600,
+          5670,
+          6081,
+          null,
+          -6346,
+          1747,
+          null,
+          7721,
+          669
+        ]
+      ],
+      [
+        "subRoot",
+        [
+          -1574,
+          null,
+          -5227,
+          -9600,
+          null,
+          5670,
+          null,
+          6081,
+          null,
+          null,
+          -6346,
+          1747,
+          null,
+          null,
+          7721,
+          669
+        ]
+      ]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      ["root", [-4379, null, 2026]],
+      ["subRoot", [-4379, null, 2026]]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "root",
+        [7735, null, -8947, null, 1803, -4848, -1026, 723, null, null, 5443]
+      ],
+      [
+        "subRoot",
+        [7735, null, -8947, null, 1803, -4848, null, -1026, null, 723, 5443]
+      ]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      ["root", [-267, -7230, 7951, 6714, null, null, null, null, -9250]],
+      ["subRoot", [-267, -7230, 7951, 6714, null, null, null, null, -9250]]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "root",
+        [
+          -9190,
+          null,
+          7196,
+          null,
+          -4661,
+          -4270,
+          null,
+          2780,
+          3748,
+          null,
+          -3344,
+          -5820,
+          null,
+          null,
+          -5083,
+          null,
+          -8782
+        ]
+      ],
+      [
+        "subRoot",
+        [
+          -4661,
+          -4270,
+          null,
+          null,
+          2780,
+          3748,
+          null,
+          null,
+          -3344,
+          -5820,
+          -5083,
+          null,
+          null,
+          null,
+          -8782
+        ]
+      ]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      ["root", [8101, null, 5895]],
+      ["subRoot", [8101, null, 5895]]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "root",
+        [
+          9387,
+          null,
+          -7851,
+          null,
+          -722,
+          -4129,
+          null,
+          2798,
+          -3839,
+          null,
+          7653,
+          -3280,
+          null,
+          null,
+          9711,
+          null,
+          4993
+        ]
+      ],
+      ["subRoot", [-3839, null, 7653, -3280, 9711, null, null, null, 4993]]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      ["root", [1018, null, 6055]],
+      ["subRoot", [1018, null, 6055]]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "root",
+        [
+          6894,
+          null,
+          -4523,
+          null,
+          4672,
+          -3588,
+          null,
+          -2094,
+          8138,
+          null,
+          5074,
+          5211,
+          null,
+          null,
+          7361,
+          null,
+          -8935
+        ]
+      ],
+      [
+        "subRoot",
+        [
+          -4523,
+          null,
+          4672,
+          -3588,
+          null,
+          null,
+          -2094,
+          8138,
+          null,
+          null,
+          5074,
+          5211,
+          7361,
+          null,
+          null,
+          null,
+          -8935
+        ]
+      ]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      ["root", [897, null, -9484]],
+      ["subRoot", [897, null, -9484]]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      ["root", [8281]],
+      ["subRoot", [8281]]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "root",
+        [
+          -5115,
+          null,
+          -2354,
+          null,
+          -2417,
+          -2525,
+          null,
+          7595,
+          9186,
+          null,
+          2657,
+          -7055,
+          null,
+          null,
+          6593,
+          null,
+          5845
+        ]
+      ],
+      [
+        "subRoot",
+        [
+          -5115,
+          null,
+          -2354,
+          null,
+          -2417,
+          -2525,
+          null,
+          7595,
+          9186,
+          null,
+          2657,
+          -7055,
+          null,
+          null,
+          6593,
+          null,
+          5845
+        ]
+      ]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "root",
+        [7873, null, -8695, null, 6552, 4355, -5730, 7370, null, null, 575]
+      ],
+      ["subRoot", [-8695, null, 6552, 4355, null, -5730, null, 7370, 575]]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      ["root", [-5927, -5319, -2442, -3096, null, null, null, null, -5083]],
+      ["subRoot", [-5927, -5319, -2442, -3096, null, null, null, null, -5083]]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "root",
+        [
+          -4939,
+          null,
+          -3585,
+          null,
+          -7926,
+          1518,
+          6770,
+          -9449,
+          null,
+          6730,
+          -4358,
+          null,
+          -9384,
+          -2848
+        ]
+      ],
+      ["subRoot", [-9384, -2848]]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      ["root", [-3182, null, 2839]],
+      ["subRoot", [-3182, null, 2839]]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "root",
+        [
+          6463,
+          null,
+          8238,
+          null,
+          -8011,
+          8868,
+          9730,
+          -3068,
+          null,
+          8374,
+          -2507,
+          null,
+          5367,
+          9405
+        ]
+      ],
+      [
+        "subRoot",
+        [
+          8238,
+          null,
+          -8011,
+          8868,
+          null,
+          9730,
+          null,
+          -3068,
+          null,
+          null,
+          8374,
+          -2507,
+          null,
+          null,
+          5367,
+          9405
+        ]
+      ]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      ["root", [8424, null, -3641]],
+      ["subRoot", [8424, null, -3641]]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "root",
+        [
+          -6350,
+          null,
+          4922,
+          null,
+          -976,
+          -5088,
+          null,
+          5111,
+          -6285,
+          null,
+          -5591,
+          -9139,
+          null,
+          null,
+          -679,
+          null,
+          -1010
+        ]
+      ],
+      ["subRoot", [-1010]]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      ["root", [-5484, null, -3893]],
+      ["subRoot", [-5484, null, -3893]]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "root",
+        [
+          -7976,
+          null,
+          4221,
+          null,
+          -3696,
+          7415,
+          null,
+          7423,
+          3887,
+          null,
+          -6991,
+          3051,
+          null,
+          null,
+          4455,
+          null,
+          -5929
+        ]
+      ],
+      ["subRoot", [-6991, 3051, 4455, null, null, null, -5929]]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      ["root", [5769, null, 3468]],
+      ["subRoot", [5769, null, 3468]]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "root",
+        [
+          -2884,
+          null,
+          -557,
+          null,
+          -9912,
+          3803,
+          null,
+          904,
+          -4922,
+          null,
+          -1526,
+          -5317,
+          null,
+          null,
+          -9321,
+          null,
+          -2230
+        ]
+      ],
+      [
+        "subRoot",
+        [
+          -9912,
+          3803,
+          null,
+          null,
+          904,
+          -4922,
+          null,
+          null,
+          -1526,
+          -5317,
+          -9321,
+          null,
+          null,
+          null,
+          -2230
+        ]
+      ]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      ["root", [-6178, null, 4115]],
+      ["subRoot", [-6178, null, 4115]]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "root",
+        [
+          -1160,
+          null,
+          8523,
+          null,
+          -2122,
+          7567,
+          -1318,
+          4681,
+          null,
+          4680,
+          8922,
+          null,
+          -4252,
+          -3676
+        ]
+      ],
+      [
+        "subRoot",
+        [
+          -1160,
+          null,
+          8523,
+          null,
+          -2122,
+          7567,
+          null,
+          -1318,
+          null,
+          4681,
+          null,
+          null,
+          4680,
+          8922,
+          null,
+          null,
+          -4252,
+          -3676
+        ]
+      ]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      ["root", [9535, null, 938]],
+      ["subRoot", [9535, null, 938]]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "root",
+        [
+          -3220,
+          null,
+          7245,
+          null,
+          4686,
+          -6995,
+          null,
+          -6224,
+          -2662,
+          null,
+          -9537,
+          3897,
+          null,
+          null,
+          508,
+          null,
+          -9885
+        ]
+      ],
+      [
+        "subRoot",
+        [
+          -3220,
+          null,
+          7245,
+          null,
+          4686,
+          -6995,
+          null,
+          null,
+          -6224,
+          -2662,
+          null,
+          null,
+          -9537,
+          3897,
+          508,
+          null,
+          null,
+          null,
+          -9885
+        ]
+      ]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      ["root", [4605, null, -5905]],
+      ["subRoot", [4605, null, -5905]]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "root",
+        [
+          8887,
+          null,
+          -4690,
+          null,
+          1605,
+          2398,
+          3018,
+          3680,
+          null,
+          3861,
+          -4816,
+          null,
+          8683,
+          8551
+        ]
+      ],
+      ["subRoot", [3018, 3680, null, null, 3861, -4816, null, null, 8683, 8551]]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      ["root", [485, null, 9781]],
+      ["subRoot", [485, null, 9781]]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "root",
+        [
+          7893,
+          null,
+          -8570,
+          null,
+          -9897,
+          7694,
+          null,
+          -1768,
+          -8063,
+          null,
+          -3313,
+          -1634,
+          null,
+          null,
+          -6959,
+          null,
+          6590
+        ]
+      ],
+      [
+        "subRoot",
+        [
+          -9897,
+          7694,
+          null,
+          null,
+          -1768,
+          -8063,
+          null,
+          null,
+          -3313,
+          -1634,
+          -6959,
+          null,
+          null,
+          null,
+          6590
+        ]
+      ]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      ["root", [8994, null, -9511]],
+      ["subRoot", [8994, null, -9511]]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "root",
+        [
+          -9101,
+          null,
+          4717,
+          null,
+          7602,
+          -6092,
+          -4851,
+          6944,
+          null,
+          3656,
+          5632,
+          null,
+          -6951,
+          -3008
+        ]
+      ],
+      [
+        "subRoot",
+        [
+          7602,
+          -6092,
+          null,
+          -4851,
+          null,
+          6944,
+          null,
+          null,
+          3656,
+          5632,
+          null,
+          null,
+          -6951,
+          -3008
+        ]
+      ]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      ["root", [3404, null, 7418]],
+      ["subRoot", [3404, null, 7418]]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "root",
+        [
+          -4949,
+          null,
+          5093,
+          null,
+          -5779,
+          -3594,
+          null,
+          6284,
+          9852,
+          null,
+          -8888,
+          -4160,
+          null,
+          null,
+          905,
+          null,
+          2490
+        ]
+      ],
+      ["subRoot", [9852, null, -8888, -4160, 905, null, null, null, 2490]]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      ["root", [2913, null, -5787]],
+      ["subRoot", [2913, null, -5787]]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "root",
+        [
+          -4683,
+          null,
+          -9736,
+          null,
+          7703,
+          -7776,
+          null,
+          5482,
+          -2097,
+          null,
+          3005,
+          -6213,
+          null,
+          null,
+          -9100,
+          null,
+          9151
+        ]
+      ],
+      ["subRoot", [3005, -6213, -9100, null, null, null, 9151]]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      ["root", [-5303, null, -732]],
+      ["subRoot", [-5303, null, -732]]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "root",
+        [
+          7169,
+          null,
+          5946,
+          null,
+          -5168,
+          2961,
+          -6901,
+          -3412,
+          null,
+          -5418,
+          -1616,
+          null,
+          -3185,
+          -5007
+        ]
+      ],
+      ["subRoot", [-5007]]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      ["root", [-4878, null, 9136]],
+      ["subRoot", [-4878, null, 9136]]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      ["root", [-3913, null, -2113, null, -8439]],
+      ["subRoot", [-3913, null, -2113, null, -8439]]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      ["root", [2098, -2557, -6351, 8064, null, null, 4329]],
+      ["subRoot", [2098, -2557, -6351, 8064, null, null, 4329]]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "root",
+        [
+          -9708,
+          null,
+          8300,
+          null,
+          -6304,
+          1615,
+          null,
+          4683,
+          8402,
+          null,
+          7742,
+          -3328,
+          null,
+          null,
+          -3810,
+          null,
+          -4059
+        ]
+      ],
+      ["subRoot", [7742, -3328, -3810, null, null, null, -4059]]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      ["root", [1410, null, 5679]],
+      ["subRoot", [1410, null, 5679]]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "root",
+        [-9409, null, -9420, null, 6243, -1749, 1317, -8179, null, null, -1975]
+      ],
+      ["subRoot", [-1975]]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      ["root", [6880, -4625, -5702, -8744, null, null, null, null, 9425]],
+      ["subRoot", [6880, -4625, -5702, -8744, null, null, null, null, 9425]]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "root",
+        [
+          -9885,
+          null,
+          9212,
+          null,
+          6963,
+          8749,
+          8452,
+          -2584,
+          null,
+          -2228,
+          5073,
+          null,
+          -5644,
+          3708
+        ]
+      ],
+      [
+        "subRoot",
+        [
+          8749,
+          8452,
+          null,
+          -2584,
+          null,
+          null,
+          -2228,
+          5073,
+          null,
+          null,
+          -5644,
+          3708
+        ]
+      ]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      ["root", [8364, null, -6067]],
+      ["subRoot", [8364, null, -6067]]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      ["root", [-9208, null, -6012, null, 9020, -7817, -9980]],
+      ["subRoot", [-7817, -9980]]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      ["root", [7766, null, -709, null, -3064, -5764, 8573, 9069]],
+      ["subRoot", [7766, null, -709, null, -3064, -5764, 8573, 9069]]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "root",
+        [
+          -6665,
+          null,
+          8761,
+          null,
+          -2791,
+          4469,
+          -6738,
+          -6551,
+          null,
+          1154,
+          3825,
+          null,
+          -9780,
+          230
+        ]
+      ],
+      ["subRoot", [-6551, null, 1154, 3825, null, null, -9780, 230]]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      ["root", [6000, null, 2075]],
+      ["subRoot", [6000, null, 2075]]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "root",
+        [-2865, null, 7921, null, -4153, 1212, 8179, -7171, null, null, -4450]
+      ],
+      [
+        "subRoot",
+        [-2865, null, 7921, null, -4153, 1212, null, 8179, null, -7171, -4450]
+      ]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      ["root", [9109, -9804, 3899, -5450, null, null, null, null, 6407]],
+      ["subRoot", [9109, -9804, 3899, -5450, null, null, null, null, 6407]]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      ["root", [9252, null, -7759, null, 8535, 9925, -7625]],
+      ["subRoot", [9925, -7625]]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      [
+        "root",
+        [
+          -7310,
+          null,
+          7917,
+          null,
+          93,
+          4719,
+          1649,
+          6751,
+          null,
+          null,
+          null,
+          null,
+          -6730
+        ]
+      ],
+      [
+        "subRoot",
+        [
+          -7310,
+          null,
+          7917,
+          null,
+          93,
+          4719,
+          1649,
+          6751,
+          null,
+          null,
+          null,
+          null,
+          -6730
+        ]
+      ]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "root",
+        [
+          -3637,
+          null,
+          7589,
+          null,
+          5038,
+          -3624,
+          1561,
+          2491,
+          null,
+          -1132,
+          -4642,
+          null,
+          -4575,
+          -9091
+        ]
+      ],
+      [
+        "subRoot",
+        [
+          -3637,
+          null,
+          7589,
+          null,
+          5038,
+          -3624,
+          null,
+          1561,
+          null,
+          2491,
+          null,
+          null,
+          -1132,
+          -4642,
+          null,
+          null,
+          -4575,
+          -9091
+        ]
+      ]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      ["root", [-6457, null, -3106]],
+      ["subRoot", [-6457, null, -3106]]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "root",
+        [
+          -1929,
+          null,
+          9517,
+          null,
+          430,
+          4742,
+          -9512,
+          -7077,
+          null,
+          -4407,
+          6566,
+          null,
+          -9911,
+          6288
+        ]
+      ],
+      ["subRoot", [6566, null, -9911, 6288]]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      ["root", [-7199, null, -8310]],
+      ["subRoot", [-7199, null, -8310]]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "root",
+        [
+          1883,
+          null,
+          -381,
+          null,
+          -9034,
+          4301,
+          7297,
+          853,
+          null,
+          9970,
+          5221,
+          null,
+          9024,
+          1638
+        ]
+      ],
+      ["subRoot", [7297, 853, null, null, 9970, 5221, null, null, 9024, 1638]]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      ["root", [4543, null, 9879]],
+      ["subRoot", [4543, null, 9879]]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "root",
+        [
+          -1725,
+          null,
+          1515,
+          null,
+          -6754,
+          -7391,
+          5533,
+          2225,
+          null,
+          4991,
+          5306,
+          null,
+          8136,
+          -394
+        ]
+      ],
+      [
+        "subRoot",
+        [
+          1515,
+          null,
+          -6754,
+          -7391,
+          null,
+          5533,
+          null,
+          2225,
+          null,
+          null,
+          4991,
+          5306,
+          null,
+          null,
+          8136,
+          -394
+        ]
+      ]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      ["root", [-9281, null, -1523]],
+      ["subRoot", [-9281, null, -1523]]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "root",
+        [
+          4767,
+          null,
+          -8613,
+          null,
+          4200,
+          -2277,
+          null,
+          -569,
+          -6270,
+          null,
+          -6725,
+          8141,
+          null,
+          null,
+          -3497,
+          null,
+          -9422
+        ]
+      ],
+      ["subRoot", [-9422]]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      ["root", [6185, null, 3635]],
+      ["subRoot", [6185, null, 3635]]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "root",
+        [
+          9599,
+          null,
+          49,
+          null,
+          9958,
+          7930,
+          null,
+          -5411,
+          -7832,
+          null,
+          2656,
+          3023,
+          null,
+          null,
+          5461,
+          null,
+          6449
+        ]
+      ],
+      [
+        "subRoot",
+        [
+          9958,
+          7930,
+          null,
+          null,
+          -5411,
+          -7832,
+          null,
+          null,
+          2656,
+          3023,
+          5461,
+          null,
+          null,
+          null,
+          6449
+        ]
+      ]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      ["root", [3331, null, 9543]],
+      ["subRoot", [3331, null, 9543]]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "root",
+        [
+          7754,
+          null,
+          -5837,
+          null,
+          9601,
+          -8534,
+          8080,
+          6967,
+          null,
+          7017,
+          4950,
+          null,
+          -9352,
+          -8180
+        ]
+      ],
+      ["subRoot", [-9352, -8180]]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      ["root", [8764, null, 8752]],
+      ["subRoot", [8764, null, 8752]]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "root",
+        [
+          5592,
+          null,
+          125,
+          null,
+          -9935,
+          -5905,
+          null,
+          -3710,
+          -4791,
+          null,
+          -9838,
+          3030,
+          null,
+          null,
+          -969,
+          null,
+          -7103
+        ]
+      ],
+      ["subRoot", [-9838, 3030, -969, null, null, null, -7103]]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      ["root", [302, null, -1144]],
+      ["subRoot", [302, null, -1144]]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "root",
+        [
+          6931,
+          null,
+          -9475,
+          null,
+          2362,
+          7196,
+          null,
+          452,
+          9358,
+          null,
+          -9306,
+          4805,
+          null,
+          null,
+          -4916,
+          null,
+          7272
+        ]
+      ],
+      ["subRoot", [4805]]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      ["root", [-4020, null, -5266]],
+      ["subRoot", [-4020, null, -5266]]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "root",
+        [
+          -4453,
+          null,
+          -1446,
+          null,
+          -4723,
+          1306,
+          -6267,
+          6008,
+          null,
+          -2660,
+          2808,
+          null,
+          7998,
+          5598
+        ]
+      ],
+      ["subRoot", [6008, null, -2660, 2808, null, null, 7998, 5598]]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      ["root", [-8433, null, -3898]],
+      ["subRoot", [-8433, null, -3898]]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "root",
+        [
+          -4107,
+          null,
+          9358,
+          null,
+          -7034,
+          8306,
+          null,
+          2003,
+          -9355,
+          null,
+          4005,
+          2071,
+          null,
+          null,
+          9875,
+          null,
+          1217
+        ]
+      ],
+      [
+        "subRoot",
+        [
+          -4107,
+          null,
+          9358,
+          null,
+          -7034,
+          8306,
+          null,
+          null,
+          2003,
+          -9355,
+          null,
+          null,
+          4005,
+          2071,
+          9875,
+          null,
+          null,
+          null,
+          1217
+        ]
+      ]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      ["root", [1166, null, -5265]],
+      ["subRoot", [1166, null, -5265]]
+    ],
+    "output": true
+  },
+  {
+    "input": [
+      [
+        "root",
+        [
+          -8217,
+          null,
+          -3355,
+          null,
+          1236,
+          3509,
+          -1299,
+          -4738,
+          null,
+          989,
+          791,
+          null,
+          -6907,
+          893
+        ]
+      ],
+      ["subRoot", [989, 791, null, null, -6907, 893]]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      ["root", [3886, null, -5454]],
+      ["subRoot", [3886, null, -5454]]
+    ],
+    "output": true
+  }
+]

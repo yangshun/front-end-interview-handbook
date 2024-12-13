@@ -1,0 +1,8 @@
+{
+  "run": "/src/optimal-stock-trading.run.test.ts",
+  "submit": "/src/optimal-stock-trading.submit.test.ts",
+  "skeleton": {
+    "js": "/src/optimal-stock-trading.skeleton.js",
+    "ts": "/src/optimal-stock-trading.skeleton.ts"
+  }
+}

@@ -1,0 +1,20 @@
+---
+title: Optimal Stock Trading
+excerpt: Implement a function to find the maximum profit achievable by buying and selling a stock once
+---
+
+import MDXTestExamples from 'MDXTestExamples';
+import runTestCases from '../setup/src/run.tests.json';
+
+Given a list of `prices`, where each element `prices[i]` represents the price of a particular stock on day `i`, determine the maximum profit to be made by purchasing the stock and selling it on a future date. If it is not possible to generate a profit, return `0`.
+
+### Input
+
+- `prices: number[]`: An array of integers representing the stock price on each day
+
+<MDXTestExamples testCases={runTestCases} />
+
+### Constraints
+
+- 1 &lt;= `prices.length` &lt;= 10,000
+- 0 &lt;= `prices[i]` &lt;= 10,000

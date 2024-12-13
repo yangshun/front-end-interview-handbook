@@ -1,0 +1,45 @@
+[
+  {
+    "input": [
+      [
+        "grid",
+        [
+          ["a", "b", "c", "e"],
+          ["s", "f", "c", "t"],
+          ["a", "d", "e", "e"]
+        ]
+      ],
+      ["target", "tee"]
+    ],
+    "output": true,
+    "explanation": "The word 'tee' can be formed starting from the cell (1, 3)."
+  },
+  {
+    "input": [
+      [
+        "grid",
+        [
+          ["a", "b"],
+          ["c", "d"]
+        ]
+      ],
+      ["target", "abcd"]
+    ],
+    "output": false,
+    "explanation": "The word 'abcd' cannot be formed. There's no way to move from 'b' to 'c' as required by the word."
+  },
+  {
+    "input": [
+      [
+        "grid",
+        [
+          ["h", "e", "l", "l", "o"],
+          ["w", "o", "r", "l", "d"]
+        ]
+      ],
+      ["target", "hello"]
+    ],
+    "output": true,
+    "explanation": "The word 'hello' is found in the first row of the grid."
+  }
+]

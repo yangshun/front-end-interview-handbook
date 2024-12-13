@@ -1,0 +1,8 @@
+{
+  "run": "/src/binary-tree-maximum-total-path.run.test.ts",
+  "submit": "/src/binary-tree-maximum-total-path.submit.test.ts",
+  "skeleton": {
+    "js": "/src/binary-tree-maximum-total-path.skeleton.js",
+    "ts": "/src/binary-tree-maximum-total-path.skeleton.ts"
+  }
+}

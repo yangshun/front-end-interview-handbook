@@ -1,0 +1,24 @@
+---
+title: Find Word in Grid
+excerpt: Implement a function to check the existence of a word in a grid
+---
+
+import MDXTestExamples from 'MDXTestExamples';
+import runTestCases from '../setup/src/run.tests.json';
+
+Given a grid of characters with dimensions `m x n`, determine if a specified word can be formed by connecting adjacent characters in the grid.
+
+The word can be formed by traveling through adjacent cells, where adjacent cells are those directly next to each other either horizontally or vertically. Each cell in the grid can only be used once for forming the word.
+
+### Input
+
+- `grid: string[][]`: A 2D array of size `m x n`, where each element is a lowercase English letter
+- `target: string`: A string to be searched for in the grid
+
+<MDXTestExamples testCases={runTestCases} />
+
+### Constraints
+
+- 1 &lt;= `grid.length`, `grid[i].length` &lt;= 6
+- 1 &lt;= `target.length` &lt;= 15
+- Both `grid` and `target` consist only of lowercase English letters

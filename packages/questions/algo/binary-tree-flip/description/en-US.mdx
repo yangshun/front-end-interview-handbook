@@ -1,0 +1,32 @@
+---
+title: Flip Binary Tree
+excerpt: Implement a function to flip the nodes in a binary tree
+---
+
+import MDXTestExamples from 'MDXTestExamples';
+import runTestCases from '../setup/src/run.tests.json';
+
+Given the `root` node of a binary tree, flip the tree by swapping each node's left and right children, then return the root of the flipped tree.
+
+The binary tree is represented by a collection of `TreeNode`s, where each node has optional `left` and `right` child nodes, which are also `TreeNode`s.
+
+A `TreeNode` has the following interface:
+
+```ts
+interface TreeNode {
+  val: number;
+  left: TreeNode | null;
+  right: TreeNode | null;
+}
+```
+
+### Input
+
+- `root: TreeNode`: Root node of the tree. Examples display a [level-order traversal](https://en.wikipedia.org/wiki/Breadth-first_search) of the tree
+
+<MDXTestExamples testCases={runTestCases} />
+
+### Constraints
+
+- 1 &lt;= Number of nodes &lt;= 100
+- -100 &lt;= `TreeNode.val` &lt;= 100

@@ -1,0 +1,26 @@
+[
+  {
+    "input": [
+      ["listA", [-3, -1, 9, 10]],
+      ["listB", [-10, 3, 4, 6, 9]]
+    ],
+    "output": [-10, -3, -1, 3, 4, 6, 9, 9, 10],
+    "explanation": "Combining the sorted lists [-3, -1, 9, 10] and [-10, 3, 4, 6, 9] results in a single sorted list [-10, -3, -1, 3, 4, 6, 9, 9, 10]."
+  },
+  {
+    "input": [
+      ["listA", [1, 2, 4]],
+      ["listB", [1, 3, 4]]
+    ],
+    "output": [1, 1, 2, 3, 4, 4],
+    "explanation": "Combining the sorted lists [1, 2, 4] and [1, 3, 4] results in a single sorted list [1, 1, 2, 3, 4, 4]."
+  },
+  {
+    "input": [
+      ["listA", []],
+      ["listB", [0]]
+    ],
+    "output": [0],
+    "explanation": "Combining the empty list [] with the sorted list [0] results in the list [0]."
+  }
+]

@@ -1,0 +1,8 @@
+{
+  "run": "/src/disjoint-intervals.run.test.ts",
+  "submit": "/src/disjoint-intervals.submit.test.ts",
+  "skeleton": {
+    "js": "/src/disjoint-intervals.skeleton.js",
+    "ts": "/src/disjoint-intervals.skeleton.ts"
+  }
+}

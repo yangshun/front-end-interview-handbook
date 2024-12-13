@@ -1,0 +1,8 @@
+{
+  "run": "/src/triplet-sum.run.test.ts",
+  "submit": "/src/triplet-sum.submit.test.ts",
+  "skeleton": {
+    "js": "/src/triplet-sum.skeleton.js",
+    "ts": "/src/triplet-sum.skeleton.ts"
+  }
+}

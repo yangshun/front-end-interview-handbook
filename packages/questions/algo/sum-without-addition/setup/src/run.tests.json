@@ -1,0 +1,26 @@
+[
+  {
+    "input": [
+      ["a", 1],
+      ["b", 2]
+    ],
+    "output": 3,
+    "explanation": "a:=1 plus b:=2 equals 3 which is the expected output."
+  },
+  {
+    "input": [
+      ["a", -1],
+      ["b", -2]
+    ],
+    "output": -3,
+    "explanation": "a:=-1 plus b:=-2 equals -3 which is the expected output."
+  },
+  {
+    "input": [
+      ["a", 0],
+      ["b", 0]
+    ],
+    "output": 0,
+    "explanation": "a:=0 plus b:=0 equals 0 which is the expected output."
+  }
+]

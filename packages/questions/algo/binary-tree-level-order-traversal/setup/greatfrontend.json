@@ -1,0 +1,8 @@
+{
+  "run": "/src/binary-tree-level-order-traversal.run.test.ts",
+  "submit": "/src/binary-tree-level-order-traversal.submit.test.ts",
+  "skeleton": {
+    "js": "/src/binary-tree-level-order-traversal.skeleton.js",
+    "ts": "/src/binary-tree-level-order-traversal.skeleton.ts"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "run": "/src/array-maximum-product-contiguous.run.test.ts",
+  "submit": "/src/array-maximum-product-contiguous.submit.test.ts",
+  "skeleton": {
+    "js": "/src/array-maximum-product-contiguous.skeleton.js",
+    "ts": "/src/array-maximum-product-contiguous.skeleton.ts"
+  }
+}

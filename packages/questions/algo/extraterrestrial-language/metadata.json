@@ -1,0 +1,15 @@
+{
+  "slug": "extraterrestrial-language",
+  "created": "2024-07-31T00:00:00.000Z",
+  "languages": ["js", "ts"],
+  "author": "hiten",
+  "companies": [],
+  "access": "standard",
+  "duration": 55,
+  "published": true,
+  "importance": "low",
+  "difficulty": "hard",
+  "featured": false,
+  "similar_questions": [],
+  "next_questions": []
+}

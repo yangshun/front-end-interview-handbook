@@ -1,0 +1,25 @@
+[
+  {
+    "input": [
+      ["numbers", [0, 7, 1, 9]],
+      ["target", 7]
+    ],
+    "output": [0, 1],
+    "explanation": "numbers[0] plus numbers[1] = 7 which is target"
+  },
+  {
+    "input": [
+      ["numbers", [4, 9, 2, 1, 7]],
+      ["target", 5]
+    ],
+    "output": [0, 3],
+    "explanation": "numbers[3] plus numbers[0] = 5 which is target"
+  },
+  {
+    "input": [
+      ["numbers", [4, 4]],
+      ["target", 8]
+    ],
+    "output": [0, 1]
+  }
+]

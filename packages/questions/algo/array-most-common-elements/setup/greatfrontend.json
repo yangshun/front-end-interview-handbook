@@ -1,0 +1,8 @@
+{
+  "run": "/src/array-most-common-elements.run.test.ts",
+  "submit": "/src/array-most-common-elements.submit.test.ts",
+  "skeleton": {
+    "js": "/src/array-most-common-elements.skeleton.js",
+    "ts": "/src/array-most-common-elements.skeleton.ts"
+  }
+}

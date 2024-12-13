@@ -1,0 +1,26 @@
+[
+  {
+    "input": [
+      ["str1", "xyz"],
+      ["str2", "axabz"]
+    ],
+    "output": 2,
+    "explanation": "The longest common subsequence is 'xz'."
+  },
+  {
+    "input": [
+      ["str1", "xyz"],
+      ["str2", "xyz"]
+    ],
+    "output": 3,
+    "explanation": "The longest common subsequence is 'xyz'."
+  },
+  {
+    "input": [
+      ["str1", "xyz"],
+      ["str2", "pqr"]
+    ],
+    "output": 0,
+    "explanation": "There is no common subsequence."
+  }
+]

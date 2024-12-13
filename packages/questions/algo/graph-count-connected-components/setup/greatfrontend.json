@@ -1,0 +1,8 @@
+{
+  "run": "/src/graph-count-connected-components.run.test.ts",
+  "submit": "/src/graph-count-connected-components.submit.test.ts",
+  "skeleton": {
+    "js": "/src/graph-count-connected-components.skeleton.js",
+    "ts": "/src/graph-count-connected-components.skeleton.ts"
+  }
+}

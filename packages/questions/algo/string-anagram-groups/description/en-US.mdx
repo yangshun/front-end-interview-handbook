@@ -1,0 +1,23 @@
+---
+title: String Anagram Groups
+excerpt: Implement a function to group an array of strings into anagrams
+---
+
+import MDXTestExamples from 'MDXTestExamples';
+import runTestCases from '../setup/src/run.tests.json';
+
+Given an array of strings `strs`, group the strings that are anagrams of each other. The result can be returned in any order.
+
+An anagram is a word or phrase formed by rearranging the letters of another word or phrase, using all the original letters exactly once.
+
+### Input
+
+- `strs: string[]`: An array of strings
+
+<MDXTestExamples testCases={runTestCases} />
+
+### Constraints
+
+- 1 &lt;= `strs.length` &lt;= 1000
+- 1 &lt;= `strs[i].length` &lt;= 100
+- Each string `strs[i]` contains only lowercase English letters

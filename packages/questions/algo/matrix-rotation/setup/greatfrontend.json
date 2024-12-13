@@ -1,0 +1,8 @@
+{
+  "run": "/src/matrix-rotation.run.test.ts",
+  "submit": "/src/matrix-rotation.submit.test.ts",
+  "skeleton": {
+    "js": "/src/matrix-rotation.skeleton.js",
+    "ts": "/src/matrix-rotation.skeleton.ts"
+  }
+}

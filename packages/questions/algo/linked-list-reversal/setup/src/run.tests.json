@@ -1,0 +1,12 @@
+[
+  {
+    "input": [["list", [1, 2, 3, 4, 5]]],
+    "output": [5, 4, 3, 2, 1],
+    "explanation": "The input list [1, 2, 3, 4, 5] creates a linked list that, when reversed, produces [5, 4, 3, 2, 1]."
+  },
+  {
+    "input": [["list", []]],
+    "output": [],
+    "explanation": "The input list is empty, so the reversed linked list is also empty."
+  }
+]

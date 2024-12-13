@@ -1,0 +1,17 @@
+[
+  {
+    "input": [["num", 8]],
+    "output": 1,
+    "explanation": "The given number in binary (1000) has a total of one set bit"
+  },
+  {
+    "input": [["num", 9]],
+    "output": 2,
+    "explanation": "The given number in binary (1001) has a total of two set bit"
+  },
+  {
+    "input": [["num", 123]],
+    "output": 6,
+    "explanation": "The given number in binary (1111011) has a total of six set bit"
+  }
+]

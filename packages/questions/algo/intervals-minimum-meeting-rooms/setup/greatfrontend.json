@@ -1,0 +1,8 @@
+{
+  "run": "/src/intervals-minimum-meeting-rooms.run.test.ts",
+  "submit": "/src/intervals-minimum-meeting-rooms.submit.test.ts",
+  "skeleton": {
+    "js": "/src/intervals-minimum-meeting-rooms.skeleton.js",
+    "ts": "/src/intervals-minimum-meeting-rooms.skeleton.ts"
+  }
+}

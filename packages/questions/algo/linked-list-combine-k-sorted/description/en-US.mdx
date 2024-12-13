@@ -1,0 +1,32 @@
+---
+title: Linked Lists Combine K Sorted
+excerpt: Implement a function to combine k sorted linked lists
+---
+
+import MDXTestExamples from 'MDXTestExamples';
+import runTestCases from '../setup/src/run.tests.json';
+
+Given an array of [linked lists](https://en.wikipedia.org/wiki/Linked_list), `lists`, where each linked list's node values are in **ascending order**, combine all these linked lists into a single sorted linked list and return the head node of the combined linked list.
+
+The linked list is represented by a sequence of `ListNode`s, where each node points to the next node in the sequence, or `null` if it is the last node.
+
+A `ListNode` has the following interface:
+
+```ts
+interface ListNode {
+  val: number;
+  next: ListNode | null;
+}
+```
+
+### Input
+
+- `lists: ListNode[]`: Array of head nodes of linked lists. Examples display each linked list as an array of values within the list
+
+<MDXTestExamples testCases={runTestCases} />
+
+### Constraints
+
+- 1 &lt;= `lists.length` &lt;= 100
+- 0 &lt;= Number of nodes per list &lt;= 100
+- -10,000 &lt;= `ListNode.val` &lt;= 10,000

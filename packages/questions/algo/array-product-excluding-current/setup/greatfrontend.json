@@ -1,0 +1,8 @@
+{
+  "run": "/src/array-product-excluding-current.run.test.ts",
+  "submit": "/src/array-product-excluding-current.submit.test.ts",
+  "skeleton": {
+    "js": "/src/array-product-excluding-current.skeleton.js",
+    "ts": "/src/array-product-excluding-current.skeleton.ts"
+  }
+}

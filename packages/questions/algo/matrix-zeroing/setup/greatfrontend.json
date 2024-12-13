@@ -1,0 +1,8 @@
+{
+  "run": "/src/matrix-zeroing.run.test.ts",
+  "submit": "/src/matrix-zeroing.submit.test.ts",
+  "skeleton": {
+    "js": "/src/matrix-zeroing.skeleton.js",
+    "ts": "/src/matrix-zeroing.skeleton.ts"
+  }
+}

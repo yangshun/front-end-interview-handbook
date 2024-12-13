@@ -1,0 +1,33 @@
+---
+title: Binary Search Tree Kth Smallest Element
+excerpt: Implement a function to find the kth smallest node in a BST
+---
+
+import MDXTestExamples from 'MDXTestExamples';
+import runTestCases from '../setup/src/run.tests.json';
+
+Given the `root` node of a binary search tree (BST) and an integer `k`, write a function to find and return the `k`-th smallest value in the BST. The smallest value in the tree is 1.
+
+The binary tree is represented by a collection of `TreeNode`s, where each node has optional `left` and `right` child nodes, which are also `TreeNode`s.
+
+A `TreeNode` has the following interface:
+
+```ts
+interface TreeNode {
+  val: number;
+  left: TreeNode | null;
+  right: TreeNode | null;
+}
+```
+
+### Input
+
+- `root: TreeNode`: Root node of the tree. Examples display a [level-order traversal](https://en.wikipedia.org/wiki/Breadth-first_search) of the tree
+- `k: number`: A positive integer
+
+<MDXTestExamples testCases={runTestCases} />
+
+### Constraints
+
+- 1 &lt;= `k` &lt;= Number of nodes &lt;= 1000
+- 1 &lt;= `TreeNode.val` &lt;= 1,000,000

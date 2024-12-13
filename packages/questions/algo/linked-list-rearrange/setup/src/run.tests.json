@@ -1,0 +1,12 @@
+[
+  {
+    "input": [["list", [9, 9, 10, 7, 10, 6, 4, 2, 3, 1]]],
+    "output": [9, 1, 9, 3, 10, 2, 7, 4, 10, 6],
+    "explanation": "The list is reordered to alternate between the start and end of the list."
+  },
+  {
+    "input": [["list", [1, 2, 3, 4, 5, 6]]],
+    "output": [1, 6, 2, 5, 3, 4],
+    "explanation": "The list is reordered to alternate between the start and end of the list."
+  }
+]

@@ -1,0 +1,8 @@
+{
+  "run": "/src/binary-tree-rebuilding-from-traversals.run.test.ts",
+  "submit": "/src/binary-tree-rebuilding-from-traversals.submit.test.ts",
+  "skeleton": {
+    "js": "/src/binary-tree-rebuilding-from-traversals.skeleton.js",
+    "ts": "/src/binary-tree-rebuilding-from-traversals.skeleton.ts"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "name": "@gfe-questions/triplet-sum",
+  "version": "0.0.1",
+  "main": "/src/triplet-sum.ts",
+  "devDependencies": {
+    "@types/jest": "29.5.0",
+    "typescript": "5.0.2"
+  }
+}

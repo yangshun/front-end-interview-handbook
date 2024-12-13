@@ -1,0 +1,8 @@
+{
+  "run": "/src/course-dependency.run.test.ts",
+  "submit": "/src/course-dependency.submit.test.ts",
+  "skeleton": {
+    "js": "/src/course-dependency.skeleton.js",
+    "ts": "/src/course-dependency.skeleton.ts"
+  }
+}

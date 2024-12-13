@@ -1,0 +1,8 @@
+{
+  "run": "/src/array-reachable-end.run.test.ts",
+  "submit": "/src/array-reachable-end.submit.test.ts",
+  "skeleton": {
+    "js": "/src/array-reachable-end.skeleton.js",
+    "ts": "/src/array-reachable-end.skeleton.ts"
+  }
+}

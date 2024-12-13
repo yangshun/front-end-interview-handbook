@@ -1,0 +1,16 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import minimumCoinsForChange from '../setup/src/coin-change.ts';
+import minimumCoinsForChangeBruteForce from '../setup/src/coin-change-bruteforce-recursive.ts';
+
+## 1. Brute Force Approach Using Recursion
+
+Time complexity: O(n<sup>t</sup>), where `n` is the number of different coin denominations, and `t` is the target amount
+
+<MDXCodeBlock>{minimumCoinsForChangeBruteForce}</MDXCodeBlock>
+
+## 2. Using Dynamic Programming
+
+Time complexity: O(n.t), where `n` is the number of different coin denominations, and `t` is the target amount
+
+<MDXCodeBlock>{minimumCoinsForChange}</MDXCodeBlock>

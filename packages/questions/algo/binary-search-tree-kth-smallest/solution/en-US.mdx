@@ -1,0 +1,16 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import kthSmallestElementInABst from '../setup/src/binary-search-tree-kth-smallest.ts';
+import kthSmallestElementInABstIteration from '../setup/src/binary-search-tree-kth-smallest-iteration.ts';
+
+## 1. Using Recursion
+
+Time complexity: O(n)
+
+<MDXCodeBlock>{kthSmallestElementInABst}</MDXCodeBlock>
+
+## 2. Using Iteration
+
+Time complexity: O(h + k), where `h` is the height of the tree
+
+<MDXCodeBlock>{kthSmallestElementInABstIteration}</MDXCodeBlock>

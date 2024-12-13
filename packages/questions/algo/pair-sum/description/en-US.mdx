@@ -1,0 +1,27 @@
+---
+title: Pair sum
+excerpt: Implement a function to find two numbers within an array of integers that add up to a target integer
+---
+
+import MDXTestExamples from 'MDXTestExamples';
+import runTestCases from '../setup/src/run.tests.json';
+
+Given an array of integers `numbers`, write a function that returns the indices of two integers within the `numbers` array that sum up to a `target` integer. The smaller index should appear first.
+
+### Input
+
+- `numbers: number[]`: An array of integers
+- `target: number`: An integer
+
+### Notes
+
+- There will always be exactly one solution for the given input
+- The same element should not be used more than once
+
+<MDXTestExamples testCases={runTestCases} />
+
+### Constraints
+
+- 2 &lt;= `numbers.length` &lt;= 100
+- -1000 &lt;= `numbers[i]` &lt;= 1000
+- -1000 &lt;= `target` &lt;= 1000

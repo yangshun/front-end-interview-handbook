@@ -1,0 +1,26 @@
+[
+  {
+    "input": [
+      ["root", [7, 3, 10, 1, 5, 8, 12]],
+      ["k", 2]
+    ],
+    "output": 3,
+    "explanation": "In this BST, the second smallest value is 3."
+  },
+  {
+    "input": [
+      ["root", [1, null, 2, null, 3, null, 4, null, 5]],
+      ["k", 4]
+    ],
+    "output": 4,
+    "explanation": "In this right-skewed BST, the fourth smallest value is 4."
+  },
+  {
+    "input": [
+      ["root", [8, 6, 10, 5, 7, 9, 12]],
+      ["k", 5]
+    ],
+    "output": 9,
+    "explanation": "In this BST, the fifth smallest value is 9."
+  }
+]

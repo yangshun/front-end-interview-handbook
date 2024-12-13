@@ -1,0 +1,16 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import longestConsecutiveNumberSequence from '../setup/src/longest-consecutive-number-sequence.ts';
+import longestConsecutiveNumberSequenceUsingSorting from '../setup/src/longest-consecutive-number-sequence-sorting.ts';
+
+## 1. Using Sorting
+
+Time complexity: O(NLogN)
+
+<MDXCodeBlock>{longestConsecutiveNumberSequenceUsingSorting}</MDXCodeBlock>
+
+## 2. Using HashSet
+
+Time complexity: O(n)
+
+<MDXCodeBlock>{longestConsecutiveNumberSequence}</MDXCodeBlock>

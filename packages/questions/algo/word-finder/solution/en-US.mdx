@@ -1,0 +1,11 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import designAddAndSearchWordsDataStructure from '../setup/src/word-finder.ts';
+
+## 1. Using Trie Data-structure
+
+Time complexity: O(M)
+
+- The time complexity is O(M) for words that are clearly defined without dots, where M represents the length of the word. For words with dots, the time complexity is O(N \* 26^M), where N is the number of words and M is the word length
+
+<MDXCodeBlock>{designAddAndSearchWordsDataStructure}</MDXCodeBlock>

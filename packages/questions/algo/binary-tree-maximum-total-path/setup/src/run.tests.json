@@ -1,0 +1,17 @@
+[
+  {
+    "input": [["root", [4, 3, 5]]],
+    "output": 12,
+    "explanation": "The optimal path is 3 -> 4 -> 5 with a sum of 12."
+  },
+  {
+    "input": [["root", [-2, 1]]],
+    "output": 1,
+    "explanation": "The optimal path is the single node with value 1."
+  },
+  {
+    "input": [["root", [-30, 8, 22, null, null, 17, 8]]],
+    "output": 47,
+    "explanation": "The optimal path is 17 -> 22 -> 8 with a sum of 47."
+  }
+]

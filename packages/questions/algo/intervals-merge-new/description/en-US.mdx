@@ -1,0 +1,22 @@
+---
+title: Merge New Interval
+excerpt: Implement a function to insert a new interval in the given intervals
+---
+
+import MDXTestExamples from 'MDXTestExamples';
+import runTestCases from '../setup/src/run.tests.json';
+
+Given a sorted array of non-overlapping intervals `intervals`, where each interval is represented as `[start, end]` and sorted in ascending order by `start` times, insert a new interval `[start, end]` into the array. Ensure the resulting array remains sorted and free of overlapping intervals by merging any overlapping intervals as necessary.
+
+### Input
+
+- `intervals: Array<[number, number]>`: An array of integer pairs
+- `newInterval: [number, number]`: An integer pair representing `[start, end]`
+
+<MDXTestExamples testCases={runTestCases} />
+
+### Constraints
+
+- 1 &lt;= `intervals.length` &lt;= 100
+- `intervals[i].length == 2`
+- 0 &lt;= `start` &lt;= `end` &lt;= 10,000

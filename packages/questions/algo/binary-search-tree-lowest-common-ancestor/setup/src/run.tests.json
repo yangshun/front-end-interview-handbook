@@ -1,0 +1,29 @@
+[
+  {
+    "input": [
+      ["root", [3, 1, 7, null, 2, 6, 10]],
+      ["a", 7],
+      ["b", 6]
+    ],
+    "output": 7,
+    "explanation": "The LCA of nodes 7 and 6 is 7 because 7 is the ancestor of 6."
+  },
+  {
+    "input": [
+      ["root", [5, 3, 8, 2, 4, 7, 9]],
+      ["a", 3],
+      ["b", 9]
+    ],
+    "output": 5,
+    "explanation": "The LCA of nodes 3 and 9 is 5, which is the root of the tree."
+  },
+  {
+    "input": [
+      ["root", [7, 3, 10, 2, 5, 8, 12]],
+      ["a", 8],
+      ["b", 12]
+    ],
+    "output": 10,
+    "explanation": "The LCA of nodes 8 and 12 is 10, which is the parent of both nodes."
+  }
+]

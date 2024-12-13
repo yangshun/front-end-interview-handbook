@@ -1,0 +1,38 @@
+---
+title: Binary Tree Serialization and Deserialization
+excerpt: Implement a function to serialize and deserialize a binary tree
+---
+
+import MDXTestExamples from 'MDXTestExamples';
+import runTestCases from '../setup/src/run.tests.json';
+
+Design a method to serialize and deserialize a binary tree. There are no specific constraints on how the serialization and deserialization should be implemented; the key requirement is that the serialized binary tree must be convertible back into the original tree structure.
+
+The binary tree is represented by a collection of `TreeNode`s, where each node has optional `left` and `right` child nodes, which are also `TreeNode`s.
+
+A `TreeNode` has the following interface:
+
+```ts
+interface TreeNode {
+  val: number;
+  left: TreeNode | null;
+  right: TreeNode | null;
+}
+```
+
+### Input
+
+#### `serializeBinaryTree`
+
+- `root: TreeNode`: Root node of the tree. Examples display a [level-order traversal](https://en.wikipedia.org/wiki/Breadth-first_search) of the tree
+
+#### `deserializeBinaryTree`
+
+- `data: string`: String representation of the tree. The format is up to you to design
+
+<MDXTestExamples testCases={runTestCases} />
+
+### Constraints
+
+- 1 &lt;= Number of nodes &lt;= 10,000
+- 1 &lt;= `TreeNode.val` &lt;= 1,000,000

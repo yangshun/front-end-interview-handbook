@@ -1,0 +1,35 @@
+[
+  {
+    "input": [
+      [
+        "lists",
+        [
+          [10, 20, 30],
+          [5, 15, 25],
+          [2, 12, 22]
+        ]
+      ]
+    ],
+    "output": [2, 5, 10, 12, 15, 20, 22, 25, 30],
+    "explanation": "The lists are combined into a single sorted list with elements in increasing order."
+  },
+  {
+    "input": [["lists", [[1], [3], [2]]]],
+    "output": [1, 2, 3],
+    "explanation": "Each list contains a single element, so they are combined into a sorted list."
+  },
+  {
+    "input": [
+      [
+        "lists",
+        [
+          [1, 2, 3],
+          [4, 5, 6],
+          [7, 8, 9]
+        ]
+      ]
+    ],
+    "output": [1, 2, 3, 4, 5, 6, 7, 8, 9],
+    "explanation": "All lists are already in ascending order and combined directly."
+  }
+]

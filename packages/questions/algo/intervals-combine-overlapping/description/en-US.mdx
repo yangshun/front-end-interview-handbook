@@ -1,0 +1,23 @@
+---
+title: Merge Overlapping Intervals
+excerpt: Implement a function to merge overlapping intervals
+---
+
+import MDXTestExamples from 'MDXTestExamples';
+import runTestCases from '../setup/src/run.tests.json';
+
+Given an array of `intervals` where each interval is represented as `[start, end]`. Each pair denotes the start and end of an interval on a number line. For example, `[1, 3]` represents an interval that starts at 1 and ends at 3.
+
+**Merge all overlapping intervals** in the array and return an array of **non-overlapping intervals** that fully cover the ranges specified by the input intervals.
+
+### Input
+
+- `intervals: Array<[number, number]>`: An array of integer pairs
+
+<MDXTestExamples testCases={runTestCases} />
+
+### Constraints
+
+- 1 &lt;= `intervals.length` &lt;= 100
+- `intervals[i].length` == 2
+- 0 &lt;= `start` &lt;= `end` &lt;= 10,000

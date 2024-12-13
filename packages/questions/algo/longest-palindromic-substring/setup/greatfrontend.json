@@ -1,0 +1,8 @@
+{
+  "run": "/src/longest-palindromic-substring.run.test.ts",
+  "submit": "/src/longest-palindromic-substring.submit.test.ts",
+  "skeleton": {
+    "js": "/src/longest-palindromic-substring.skeleton.js",
+    "ts": "/src/longest-palindromic-substring.skeleton.ts"
+  }
+}

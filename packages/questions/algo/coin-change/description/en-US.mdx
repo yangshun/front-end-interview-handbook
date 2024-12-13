@@ -1,0 +1,24 @@
+---
+title: Minimum Coins for Change
+excerpt: Implement a function to return minimum coins needed to make the given amount
+---
+
+import MDXTestExamples from 'MDXTestExamples';
+import runTestCases from '../setup/src/run.tests.json';
+
+Given an integer array `coins` indicating different coin denominations and an integer `target` denoting a total sum of money, return the minimum number of coins needed to make up the `target`. If it's not possible to make up the `target` with any combination of the coins, return `-1`.
+
+Assume there's an infinite supply of each coin.
+
+### Input
+
+- `coins: number[]`: An array of integers
+- `target: number`: An integer
+
+<MDXTestExamples testCases={runTestCases} />
+
+### Constraints
+
+- 1 &lt;= `coins.length` &lt;= 12
+- 1 &lt;= `coins[i]` &lt;= 1,000,000
+- 0 &lt;= `target` &lt;= 10,000

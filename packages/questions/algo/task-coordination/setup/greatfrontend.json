@@ -1,0 +1,8 @@
+{
+  "run": "/src/task-coordination.run.test.ts",
+  "submit": "/src/task-coordination.submit.test.ts",
+  "skeleton": {
+    "js": "/src/task-coordination.skeleton.js",
+    "ts": "/src/task-coordination.skeleton.ts"
+  }
+}

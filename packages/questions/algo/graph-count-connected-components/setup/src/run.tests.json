@@ -1,0 +1,47 @@
+[
+  {
+    "input": [
+      ["num", 6],
+      [
+        "edges",
+        [
+          [0, 1],
+          [4, 5],
+          [2, 4],
+          [1, 3],
+          [0, 2]
+        ]
+      ]
+    ],
+    "output": 1,
+    "explanation": "All nodes are connected."
+  },
+  {
+    "input": [
+      ["num", 3],
+      [
+        "edges",
+        [
+          [0, 1],
+          [1, 2]
+        ]
+      ]
+    ],
+    "output": 1,
+    "explanation": "All nodes are connected."
+  },
+  {
+    "input": [
+      ["num", 4],
+      [
+        "edges",
+        [
+          [0, 1],
+          [2, 3]
+        ]
+      ]
+    ],
+    "output": 2,
+    "explanation": "There are two connected components: {0, 1} and {2, 3}."
+  }
+]

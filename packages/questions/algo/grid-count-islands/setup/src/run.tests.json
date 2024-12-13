@@ -1,0 +1,46 @@
+[
+  {
+    "input": [
+      [
+        "grid",
+        [
+          [1, 0],
+          [0, 0],
+          [0, 1],
+          [0, 1],
+          [1, 1]
+        ]
+      ]
+    ],
+    "output": 2,
+    "explanation": "There are 2 islands formed by connecting adjacent lands"
+  },
+  {
+    "input": [
+      [
+        "grid",
+        [
+          [1, 0, 0],
+          [1, 1, 1],
+          [0, 0, 1]
+        ]
+      ]
+    ],
+    "output": 1,
+    "explanation": "There is one island formed by connecting adjacent lands"
+  },
+  {
+    "input": [
+      [
+        "grid",
+        [
+          [1, 1, 1],
+          [0, 0, 0],
+          [0, 0, 0]
+        ]
+      ]
+    ],
+    "output": 1,
+    "explanation": "There is one island formed by connecting adjacent lands"
+  }
+]

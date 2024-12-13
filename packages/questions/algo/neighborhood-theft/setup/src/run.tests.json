@@ -1,0 +1,17 @@
+[
+  {
+    "input": [["numbers", [1, 2, 3, 1]]],
+    "output": 4,
+    "explanation": "The robber can steal a maximum of 4 by robbing house at index 0 (value 1) and house at index 2 (value 3)."
+  },
+  {
+    "input": [["numbers", [2, 7, 9, 3, 1]]],
+    "output": 12,
+    "explanation": "The robber can steal a maximum of 12 by robbing house at index 0 (value 2), house at index 2 (value 9), and house at index 4 (value 1)."
+  },
+  {
+    "input": [["numbers", [3, 6, 1, 0, 6, 0, 0, 9]]],
+    "output": 21,
+    "explanation": "The robber can steal a maximum of 21 by robbing house at index 1 (value 6), house at index 4 (value 6), house at index 7 (value 9)."
+  }
+]

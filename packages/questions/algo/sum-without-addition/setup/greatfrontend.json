@@ -1,0 +1,8 @@
+{
+  "run": "/src/sum-without-addition.run.test.ts",
+  "submit": "/src/sum-without-addition.submit.test.ts",
+  "skeleton": {
+    "js": "/src/sum-without-addition.skeleton.js",
+    "ts": "/src/sum-without-addition.skeleton.ts"
+  }
+}

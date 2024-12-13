@@ -1,0 +1,1508 @@
+[
+  {
+    "input": [["root", [43, null, -55]]],
+    "output": [43, -55]
+  },
+  {
+    "input": [["root", [20]]],
+    "output": [20]
+  },
+  {
+    "input": [["root", [53, -32, null, -60, -83, null, null, null, 32]]],
+    "output": [53, null, -32, -83, -60, 32]
+  },
+  {
+    "input": [["root", [-5, null, 23, -48, -26]]],
+    "output": [-5, 23, null, -26, -48]
+  },
+  {
+    "input": [["root", [41, -96, -65, 55]]],
+    "output": [41, -65, -96, null, null, null, 55]
+  },
+  {
+    "input": [["root", [70, 34, null, -1, null, 91]]],
+    "output": [70, null, 34, null, -1, null, 91]
+  },
+  {
+    "input": [["root", [-81, null, 55, 35, null, -52]]],
+    "output": [-81, 55, null, null, 35, null, -52]
+  },
+  {
+    "input": [["root", [-48, null, 10, null, -30]]],
+    "output": [-48, 10, null, -30]
+  },
+  {
+    "input": [["root", [76]]],
+    "output": [76]
+  },
+  {
+    "input": [["root", [-23]]],
+    "output": [-23]
+  },
+  {
+    "input": [["root", [13, 11, 53, null, 69, null, 99]]],
+    "output": [13, 53, 11, 99, null, 69]
+  },
+  {
+    "input": [
+      ["root", [-19, null, -32, null, -52, 83, null, null, 6, -27, -91]]
+    ],
+    "output": [-19, -32, null, -52, null, null, 83, 6, null, -91, -27]
+  },
+  {
+    "input": [["root", [81]]],
+    "output": [81]
+  },
+  {
+    "input": [["root", [76, -93, null, null, 25, null, -52]]],
+    "output": [76, null, -93, 25, null, -52]
+  },
+  {
+    "input": [["root", [50, 33, null, null, 87, null, 56]]],
+    "output": [50, null, 33, 87, null, 56]
+  },
+  {
+    "input": [
+      [
+        "root",
+        [
+          -78,
+          59,
+          22,
+          -5,
+          -86,
+          -9,
+          -69,
+          null,
+          23,
+          null,
+          -63,
+          79,
+          null,
+          null,
+          53,
+          null,
+          78,
+          -12,
+          38,
+          null,
+          null,
+          9,
+          null,
+          8,
+          -64,
+          63,
+          10,
+          null,
+          null,
+          -82,
+          -48,
+          -76,
+          45,
+          null,
+          null,
+          -66,
+          null,
+          -3,
+          -4,
+          null,
+          -73
+        ]
+      ]
+    ],
+    "output": [
+      -78,
+      22,
+      59,
+      -69,
+      -9,
+      -86,
+      -5,
+      53,
+      null,
+      null,
+      79,
+      -63,
+      null,
+      23,
+      null,
+      null,
+      9,
+      null,
+      null,
+      38,
+      -12,
+      78,
+      null,
+      -48,
+      -82,
+      null,
+      null,
+      10,
+      63,
+      -64,
+      8,
+      null,
+      null,
+      -73,
+      null,
+      -4,
+      -3,
+      null,
+      -66,
+      null,
+      null,
+      45,
+      -76
+    ]
+  },
+  {
+    "input": [["root", [46, 74, null, null, 81]]],
+    "output": [46, null, 74, 81]
+  },
+  {
+    "input": [["root", [-99]]],
+    "output": [-99]
+  },
+  {
+    "input": [["root", [87]]],
+    "output": [87]
+  },
+  {
+    "input": [["root", [52]]],
+    "output": [52]
+  },
+  {
+    "input": [["root", [-80, null, -2]]],
+    "output": [-80, -2]
+  },
+  {
+    "input": [
+      ["root", [77, -45, -46, null, 14, 82, null, null, null, null, -42]]
+    ],
+    "output": [77, -46, -45, null, 82, 14, null, -42]
+  },
+  {
+    "input": [
+      [
+        "root",
+        [-15, -3, null, -47, 54, 53, null, null, -38, null, 100, null, -27]
+      ]
+    ],
+    "output": [-15, null, -3, 54, -47, -38, null, null, 53, -27, null, 100]
+  },
+  {
+    "input": [["root", [4]]],
+    "output": [4]
+  },
+  {
+    "input": [
+      [
+        "root",
+        [-25, null, 60, -43, 5, -8, null, 8, 36, null, 60, 22, -53, null, 8]
+      ]
+    ],
+    "output": [-25, 60, null, 5, -43, 36, 8, null, -8, 8, null, -53, 22, 60]
+  },
+  {
+    "input": [["root", [-79]]],
+    "output": [-79]
+  },
+  {
+    "input": [["root", [-42]]],
+    "output": [-42]
+  },
+  {
+    "input": [["root", [-92, null, 2, -11, -39]]],
+    "output": [-92, 2, null, -39, -11]
+  },
+  {
+    "input": [["root", [-11, -22, null, null, 55]]],
+    "output": [-11, null, -22, 55]
+  },
+  {
+    "input": [["root", [100]]],
+    "output": [100]
+  },
+  {
+    "input": [
+      [
+        "root",
+        [
+          -98,
+          1,
+          -16,
+          83,
+          -42,
+          83,
+          -51,
+          null,
+          null,
+          null,
+          -68,
+          70,
+          null,
+          91,
+          null,
+          -35,
+          null,
+          51,
+          null,
+          null,
+          -82,
+          null,
+          null,
+          91,
+          null,
+          null,
+          68,
+          2,
+          70,
+          null,
+          -34
+        ]
+      ]
+    ],
+    "output": [
+      -98,
+      -16,
+      1,
+      -51,
+      83,
+      -42,
+      83,
+      null,
+      91,
+      null,
+      70,
+      -68,
+      null,
+      null,
+      null,
+      -82,
+      null,
+      null,
+      51,
+      null,
+      -35,
+      68,
+      null,
+      null,
+      91,
+      null,
+      null,
+      -34,
+      null,
+      70,
+      2
+    ]
+  },
+  {
+    "input": [
+      ["root", [62, -94, null, 88, -96, null, null, 33, 2, null, -3, 18]]
+    ],
+    "output": [62, null, -94, -96, 88, 2, 33, null, null, null, 18, -3]
+  },
+  {
+    "input": [
+      [
+        "root",
+        [
+          91,
+          null,
+          23,
+          -20,
+          54,
+          null,
+          -33,
+          null,
+          76,
+          -11,
+          -70,
+          null,
+          null,
+          null,
+          null,
+          60,
+          -96
+        ]
+      ]
+    ],
+    "output": [
+      91,
+      23,
+      null,
+      54,
+      -20,
+      76,
+      null,
+      -33,
+      null,
+      null,
+      null,
+      -70,
+      -11,
+      -96,
+      60
+    ]
+  },
+  {
+    "input": [
+      [
+        "root",
+        [
+          40,
+          null,
+          42,
+          38,
+          89,
+          null,
+          88,
+          -65,
+          -50,
+          -53,
+          95,
+          5,
+          75,
+          67,
+          45,
+          -71,
+          100,
+          null,
+          -78,
+          24,
+          null,
+          -55,
+          -7,
+          null,
+          null,
+          -18
+        ]
+      ]
+    ],
+    "output": [
+      40,
+      42,
+      null,
+      89,
+      38,
+      -50,
+      -65,
+      88,
+      null,
+      45,
+      67,
+      75,
+      5,
+      95,
+      -53,
+      null,
+      -18,
+      null,
+      null,
+      -7,
+      -55,
+      null,
+      24,
+      -78,
+      null,
+      100,
+      -71
+    ]
+  },
+  {
+    "input": [["root", [-9]]],
+    "output": [-9]
+  },
+  {
+    "input": [["root", [-28, null, -8]]],
+    "output": [-28, -8]
+  },
+  {
+    "input": [["root", [2, null, -27, -92]]],
+    "output": [2, -27, null, null, -92]
+  },
+  {
+    "input": [["root", [28, null, -9]]],
+    "output": [28, -9]
+  },
+  {
+    "input": [
+      [
+        "root",
+        [
+          80,
+          null,
+          -31,
+          59,
+          -68,
+          null,
+          17,
+          -85,
+          -47,
+          17,
+          -85,
+          null,
+          null,
+          null,
+          -91,
+          20,
+          -12,
+          -40,
+          -83,
+          null,
+          -46
+        ]
+      ]
+    ],
+    "output": [
+      80,
+      -31,
+      null,
+      -68,
+      59,
+      -47,
+      -85,
+      17,
+      null,
+      -91,
+      null,
+      null,
+      null,
+      -85,
+      17,
+      -46,
+      null,
+      -83,
+      -40,
+      -12,
+      20
+    ]
+  },
+  {
+    "input": [
+      [
+        "root",
+        [-84, 3, null, -62, 34, null, null, -33, null, -64, -78, null, 97]
+      ]
+    ],
+    "output": [
+      -84,
+      null,
+      3,
+      34,
+      -62,
+      null,
+      -33,
+      null,
+      null,
+      -78,
+      -64,
+      null,
+      null,
+      97
+    ]
+  },
+  {
+    "input": [["root", [30, null, -36]]],
+    "output": [30, -36]
+  },
+  {
+    "input": [
+      [
+        "root",
+        [
+          60,
+          55,
+          66,
+          null,
+          null,
+          null,
+          28,
+          87,
+          null,
+          23,
+          -61,
+          -49,
+          -10,
+          null,
+          -41
+        ]
+      ]
+    ],
+    "output": [
+      60,
+      66,
+      55,
+      28,
+      null,
+      null,
+      null,
+      null,
+      87,
+      -61,
+      23,
+      -41,
+      null,
+      -10,
+      -49
+    ]
+  },
+  {
+    "input": [
+      [
+        "root",
+        [
+          13,
+          -82,
+          71,
+          88,
+          -95,
+          null,
+          null,
+          81,
+          null,
+          null,
+          -67,
+          25,
+          null,
+          25,
+          -80,
+          -39,
+          93,
+          -77,
+          null,
+          60,
+          -19
+        ]
+      ]
+    ],
+    "output": [
+      13,
+      71,
+      -82,
+      null,
+      null,
+      -95,
+      88,
+      -67,
+      null,
+      null,
+      81,
+      -80,
+      25,
+      null,
+      25,
+      -19,
+      60,
+      null,
+      -77,
+      93,
+      -39
+    ]
+  },
+  {
+    "input": [
+      [
+        "root",
+        [
+          3,
+          null,
+          -25,
+          -20,
+          88,
+          null,
+          85,
+          0,
+          60,
+          75,
+          null,
+          null,
+          -55,
+          null,
+          null,
+          null,
+          null,
+          -30
+        ]
+      ]
+    ],
+    "output": [
+      3,
+      -25,
+      null,
+      88,
+      -20,
+      60,
+      0,
+      85,
+      null,
+      null,
+      null,
+      -55,
+      null,
+      null,
+      75,
+      null,
+      -30
+    ]
+  },
+  {
+    "input": [["root", [2]]],
+    "output": [2]
+  },
+  {
+    "input": [
+      [
+        "root",
+        [
+          38,
+          -47,
+          43,
+          null,
+          null,
+          -53,
+          21,
+          null,
+          41,
+          -11,
+          -3,
+          -75,
+          -51,
+          null,
+          87,
+          -3,
+          56,
+          60,
+          31,
+          null,
+          -62,
+          -88,
+          -83,
+          18
+        ]
+      ]
+    ],
+    "output": [
+      38,
+      43,
+      -47,
+      21,
+      -53,
+      null,
+      null,
+      -3,
+      -11,
+      41,
+      null,
+      56,
+      -3,
+      87,
+      null,
+      -51,
+      -75,
+      null,
+      null,
+      null,
+      18,
+      -83,
+      -88,
+      -62,
+      null,
+      31,
+      60
+    ]
+  },
+  {
+    "input": [
+      [
+        "root",
+        [
+          46,
+          null,
+          96,
+          -72,
+          61,
+          73,
+          null,
+          null,
+          null,
+          null,
+          40,
+          29,
+          25,
+          null,
+          66,
+          16
+        ]
+      ]
+    ],
+    "output": [
+      46,
+      96,
+      null,
+      61,
+      -72,
+      null,
+      null,
+      null,
+      73,
+      40,
+      null,
+      25,
+      29,
+      null,
+      16,
+      66
+    ]
+  },
+  {
+    "input": [["root", [-22]]],
+    "output": [-22]
+  },
+  {
+    "input": [
+      ["root", [-73, null, 32, -88, null, null, -26, 73, null, null, -36]]
+    ],
+    "output": [-73, 32, null, null, -88, -26, null, null, 73, -36]
+  },
+  {
+    "input": [["root", [-36, 23, null, 20, -5]]],
+    "output": [-36, null, 23, -5, 20]
+  },
+  {
+    "input": [
+      [
+        "root",
+        [-86, 76, null, -34, -24, -11, -88, null, null, null, -29, -43, -43]
+      ]
+    ],
+    "output": [-86, null, 76, -24, -34, null, null, -88, -11, -43, -43, -29]
+  },
+  {
+    "input": [["root", [-66, null, -62, -58, -7, null, -88]]],
+    "output": [-66, -62, null, -7, -58, null, null, -88]
+  },
+  {
+    "input": [["root", [44, null, 64, null, -51]]],
+    "output": [44, 64, null, -51]
+  },
+  {
+    "input": [["root", [64, 100, 34]]],
+    "output": [64, 34, 100]
+  },
+  {
+    "input": [["root", [-77]]],
+    "output": [-77]
+  },
+  {
+    "input": [["root", [-25, null, 12, 23]]],
+    "output": [-25, 12, null, null, 23]
+  },
+  {
+    "input": [
+      [
+        "root",
+        [
+          -7,
+          null,
+          -73,
+          -1,
+          -86,
+          null,
+          null,
+          null,
+          73,
+          -34,
+          -47,
+          94,
+          -5,
+          43,
+          null,
+          null,
+          null,
+          21
+        ]
+      ]
+    ],
+    "output": [
+      -7,
+      -73,
+      null,
+      -86,
+      -1,
+      73,
+      null,
+      null,
+      null,
+      -47,
+      -34,
+      null,
+      43,
+      -5,
+      94,
+      null,
+      null,
+      null,
+      21
+    ]
+  },
+  {
+    "input": [["root", [-34]]],
+    "output": [-34]
+  },
+  {
+    "input": [
+      [
+        "root",
+        [
+          -54,
+          -36,
+          -68,
+          null,
+          42,
+          -90,
+          92,
+          null,
+          null,
+          38,
+          9,
+          null,
+          null,
+          -13,
+          -78,
+          12,
+          null,
+          null,
+          -16,
+          -85,
+          96,
+          66,
+          -4,
+          46,
+          null,
+          36,
+          -24,
+          62,
+          -74,
+          null,
+          64,
+          null,
+          63
+        ]
+      ]
+    ],
+    "output": [
+      -54,
+      -68,
+      -36,
+      92,
+      -90,
+      42,
+      null,
+      null,
+      null,
+      9,
+      38,
+      null,
+      null,
+      null,
+      12,
+      -78,
+      -13,
+      -4,
+      66,
+      96,
+      -85,
+      -16,
+      null,
+      63,
+      null,
+      64,
+      null,
+      -74,
+      62,
+      -24,
+      36,
+      null,
+      46
+    ]
+  },
+  {
+    "input": [["root", [95]]],
+    "output": [95]
+  },
+  {
+    "input": [["root", [-32, -72, null, 11, 16, -92, null, 86, -68]]],
+    "output": [-32, null, -72, 16, 11, -68, 86, null, -92]
+  },
+  {
+    "input": [["root", [42, 37, 86]]],
+    "output": [42, 86, 37]
+  },
+  {
+    "input": [
+      [
+        "root",
+        [
+          -74,
+          72,
+          -48,
+          null,
+          null,
+          -34,
+          null,
+          -60,
+          null,
+          -52,
+          null,
+          -30,
+          77,
+          -45,
+          null,
+          51
+        ]
+      ]
+    ],
+    "output": [
+      -74,
+      -48,
+      72,
+      null,
+      -34,
+      null,
+      null,
+      null,
+      -60,
+      null,
+      -52,
+      77,
+      -30,
+      null,
+      51,
+      null,
+      -45
+    ]
+  },
+  {
+    "input": [["root", [-2, null, 54]]],
+    "output": [-2, 54]
+  },
+  {
+    "input": [["root", [-91, null, -35]]],
+    "output": [-91, -35]
+  },
+  {
+    "input": [["root", [81]]],
+    "output": [81]
+  },
+  {
+    "input": [["root", [-72, null, -58, null, -61]]],
+    "output": [-72, -58, null, -61]
+  },
+  {
+    "input": [["root", [48, -37, null, null, -54, 2, null, null, 54, -20]]],
+    "output": [48, null, -37, -54, null, null, 2, 54, null, null, -20]
+  },
+  {
+    "input": [["root", [-48, null, 94, -52]]],
+    "output": [-48, 94, null, null, -52]
+  },
+  {
+    "input": [["root", [35]]],
+    "output": [35]
+  },
+  {
+    "input": [["root", [24]]],
+    "output": [24]
+  },
+  {
+    "input": [
+      ["root", [8, -91, -6, 88, null, -79, null, null, null, 65, null, -52]]
+    ],
+    "output": [8, -6, -91, null, -79, null, 88, null, 65, null, null, null, -52]
+  },
+  {
+    "input": [["root", [60, -78]]],
+    "output": [60, null, -78]
+  },
+  {
+    "input": [["root", [-13]]],
+    "output": [-13]
+  },
+  {
+    "input": [
+      [
+        "root",
+        [
+          88,
+          null,
+          42,
+          47,
+          null,
+          73,
+          -70,
+          -8,
+          15,
+          -17,
+          58,
+          null,
+          null,
+          -84,
+          null,
+          -55,
+          null,
+          9,
+          null,
+          -35,
+          null,
+          -93,
+          47,
+          -47
+        ]
+      ]
+    ],
+    "output": [
+      88,
+      42,
+      null,
+      null,
+      47,
+      -70,
+      73,
+      58,
+      -17,
+      15,
+      -8,
+      null,
+      9,
+      null,
+      -55,
+      null,
+      -84,
+      null,
+      null,
+      null,
+      -47,
+      47,
+      -93,
+      null,
+      -35
+    ]
+  },
+  {
+    "input": [["root", [-53, 64, 84, -65, null, null, null, -8]]],
+    "output": [-53, 84, 64, null, null, null, -65, null, -8]
+  },
+  {
+    "input": [["root", [38, null, 89, -86, -64, 17, -64, null, null, -31]]],
+    "output": [
+      38,
+      89,
+      null,
+      -64,
+      -86,
+      null,
+      null,
+      -64,
+      17,
+      null,
+      null,
+      null,
+      -31
+    ]
+  },
+  {
+    "input": [
+      [
+        "root",
+        [
+          11,
+          null,
+          -42,
+          null,
+          -8,
+          null,
+          -28,
+          null,
+          15,
+          -42,
+          -76,
+          32,
+          null,
+          null,
+          -13
+        ]
+      ]
+    ],
+    "output": [
+      11,
+      -42,
+      null,
+      -8,
+      null,
+      -28,
+      null,
+      15,
+      null,
+      -76,
+      -42,
+      -13,
+      null,
+      null,
+      32
+    ]
+  },
+  {
+    "input": [["root", [-76, -59, -93, null, -18, -86]]],
+    "output": [-76, -93, -59, null, -86, -18]
+  },
+  {
+    "input": [["root", [8, 28, null, null, 76, null, -79, 76, -53, -56]]],
+    "output": [8, null, 28, 76, null, -79, null, -53, 76, null, null, null, -56]
+  },
+  {
+    "input": [["root", [-52]]],
+    "output": [-52]
+  },
+  {
+    "input": [["root", [9, null, -11]]],
+    "output": [9, -11]
+  },
+  {
+    "input": [
+      [
+        "root",
+        [10, 68, null, -46, -24, null, 93, 88, null, null, null, 59, null, 42]
+      ]
+    ],
+    "output": [
+      10,
+      null,
+      68,
+      -24,
+      -46,
+      null,
+      88,
+      93,
+      null,
+      null,
+      59,
+      null,
+      null,
+      null,
+      42
+    ]
+  },
+  {
+    "input": [["root", [-43]]],
+    "output": [-43]
+  },
+  {
+    "input": [["root", [-18, 62, -51, null, null, 75, -66]]],
+    "output": [-18, -51, 62, -66, 75]
+  },
+  {
+    "input": [["root", [-23, null, 91, null, -54]]],
+    "output": [-23, 91, null, -54]
+  },
+  {
+    "input": [
+      [
+        "root",
+        [-97, -65, -88, null, null, 44, null, null, 10, 74, 33, null, -1, 65]
+      ]
+    ],
+    "output": [
+      -97,
+      -88,
+      -65,
+      null,
+      44,
+      null,
+      null,
+      10,
+      null,
+      33,
+      74,
+      null,
+      65,
+      -1
+    ]
+  },
+  {
+    "input": [
+      [
+        "root",
+        [
+          -96,
+          36,
+          2,
+          -91,
+          -43,
+          null,
+          40,
+          -85,
+          -19,
+          -71,
+          -14,
+          null,
+          -49,
+          null,
+          74,
+          null,
+          -49,
+          null,
+          null,
+          77,
+          null,
+          35
+        ]
+      ]
+    ],
+    "output": [
+      -96,
+      2,
+      36,
+      40,
+      null,
+      -43,
+      -91,
+      -49,
+      null,
+      -14,
+      -71,
+      -19,
+      -85,
+      null,
+      35,
+      null,
+      77,
+      null,
+      null,
+      -49,
+      null,
+      74
+    ]
+  },
+  {
+    "input": [
+      [
+        "root",
+        [
+          -64,
+          48,
+          -100,
+          61,
+          null,
+          null,
+          99,
+          63,
+          -70,
+          44,
+          null,
+          null,
+          -41,
+          null,
+          98,
+          92,
+          null,
+          -28,
+          95,
+          -21,
+          null,
+          24
+        ]
+      ]
+    ],
+    "output": [
+      -64,
+      -100,
+      48,
+      99,
+      null,
+      null,
+      61,
+      null,
+      44,
+      -70,
+      63,
+      null,
+      92,
+      98,
+      null,
+      -41,
+      null,
+      null,
+      24,
+      null,
+      -21,
+      95,
+      -28
+    ]
+  },
+  {
+    "input": [["root", [-73]]],
+    "output": [-73]
+  },
+  {
+    "input": [["root", [-76, null, -34, null, -81]]],
+    "output": [-76, -34, null, -81]
+  },
+  {
+    "input": [["root", [-3]]],
+    "output": [-3]
+  },
+  {
+    "input": [["root", [81]]],
+    "output": [81]
+  },
+  {
+    "input": [
+      [
+        "root",
+        [
+          76,
+          91,
+          null,
+          -86,
+          -82,
+          null,
+          97,
+          -22,
+          4,
+          -91,
+          -68,
+          null,
+          73,
+          null,
+          -85
+        ]
+      ]
+    ],
+    "output": [
+      76,
+      null,
+      91,
+      -82,
+      -86,
+      4,
+      -22,
+      97,
+      null,
+      -85,
+      null,
+      73,
+      null,
+      -68,
+      -91
+    ]
+  },
+  {
+    "input": [["root", [-65]]],
+    "output": [-65]
+  },
+  {
+    "input": [
+      [
+        "root",
+        [42, -80, 71, 2, 1, 30, null, -10, null, 50, null, null, 56, -83]
+      ]
+    ],
+    "output": [
+      42,
+      71,
+      -80,
+      null,
+      30,
+      1,
+      2,
+      56,
+      null,
+      null,
+      50,
+      null,
+      -10,
+      null,
+      null,
+      null,
+      null,
+      null,
+      -83
+    ]
+  },
+  {
+    "input": [["root", [38]]],
+    "output": [38]
+  },
+  {
+    "input": [
+      ["root", [65, -7, null, 28, -34, null, null, null, -47, 55, 24, -44]]
+    ],
+    "output": [
+      65,
+      null,
+      -7,
+      -34,
+      28,
+      -47,
+      null,
+      null,
+      null,
+      24,
+      55,
+      null,
+      null,
+      null,
+      -44
+    ]
+  },
+  {
+    "input": [["root", [-11, 89, null, null, -82]]],
+    "output": [-11, null, 89, -82]
+  },
+  {
+    "input": [
+      [
+        "root",
+        [
+          -95,
+          57,
+          52,
+          null,
+          -35,
+          null,
+          null,
+          32,
+          null,
+          1,
+          -30,
+          null,
+          null,
+          -82,
+          null,
+          null,
+          -34
+        ]
+      ]
+    ],
+    "output": [
+      -95,
+      52,
+      57,
+      null,
+      null,
+      -35,
+      null,
+      null,
+      32,
+      -30,
+      1,
+      null,
+      -82,
+      null,
+      null,
+      -34
+    ]
+  }
+]

@@ -1,0 +1,8 @@
+{
+  "run": "/src/longest-common-subsequence.run.test.ts",
+  "submit": "/src/longest-common-subsequence.submit.test.ts",
+  "skeleton": {
+    "js": "/src/longest-common-subsequence.skeleton.js",
+    "ts": "/src/longest-common-subsequence.skeleton.ts"
+  }
+}

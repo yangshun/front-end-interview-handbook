@@ -1,0 +1,8 @@
+{
+  "run": "/src/string-palindrome.run.test.ts",
+  "submit": "/src/string-palindrome.submit.test.ts",
+  "skeleton": {
+    "js": "/src/string-palindrome.skeleton.js",
+    "ts": "/src/string-palindrome.skeleton.ts"
+  }
+}

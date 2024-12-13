@@ -1,0 +1,8 @@
+{
+  "run": "/src/combinations-target-sum.run.test.ts",
+  "submit": "/src/combinations-target-sum.submit.test.ts",
+  "skeleton": {
+    "js": "/src/combinations-target-sum.skeleton.js",
+    "ts": "/src/combinations-target-sum.skeleton.ts"
+  }
+}

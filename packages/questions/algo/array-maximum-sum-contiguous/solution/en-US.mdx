@@ -1,0 +1,16 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import maxSumSubArray from '../setup/src/array-maximum-sum-contiguous.ts';
+import maxSumSubArrayBruteForce from '../setup/src/array-maximum-sum-contiguous-bruteforce.ts';
+
+## 1. Efficient Brute Force Approach
+
+Time complexity: O(n<sup>2</sup>)
+
+<MDXCodeBlock>{maxSumSubArrayBruteForce}</MDXCodeBlock>
+
+## 2. Using Kadane's Algorithm
+
+Time complexity: O(n)
+
+<MDXCodeBlock>{maxSumSubArray}</MDXCodeBlock>

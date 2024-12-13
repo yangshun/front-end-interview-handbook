@@ -1,0 +1,8 @@
+{
+  "run": "/src/array-find-missing-number-in-sequence.run.test.ts",
+  "submit": "/src/array-find-missing-number-in-sequence.submit.test.ts",
+  "skeleton": {
+    "js": "/src/array-find-missing-number-in-sequence.skeleton.js",
+    "ts": "/src/array-find-missing-number-in-sequence.skeleton.ts"
+  }
+}

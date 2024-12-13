@@ -1,0 +1,23 @@
+---
+title: Most Common Elements
+excerpt: Implement a function to determine the most common elements in an integer array
+---
+
+import MDXTestExamples from 'MDXTestExamples';
+import runTestCases from '../setup/src/run.tests.json';
+
+Given an array of integers `numbers` and a number `k`, find the `k` most frequent numbers in the array. Here, `k` represents the number of elements that should be returned, which are the ones that appear the most frequently. The order of the result does not matter.
+
+### Input
+
+- `numbers: number[]`: An array of integers
+- `k`: An integer
+
+<MDXTestExamples testCases={runTestCases} />
+
+### Constraints
+
+- 1 &lt;= `numbers.length` &lt;= 1000
+- -10,000 &lt;= `numbers[i]` &lt;= 10,000
+- 1 &lt;= `k` &lt;= Number of unique elements in `numbers`
+- The solution is guaranteed to have a unique result

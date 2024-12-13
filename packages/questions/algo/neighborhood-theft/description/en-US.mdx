@@ -1,0 +1,26 @@
+---
+title: Neighborhood Theft
+excerpt: Implement a function to find maximum money to rob without alerting police
+---
+
+import MDXTestExamples from 'MDXTestExamples';
+import runTestCases from '../setup/src/run.tests.json';
+
+An experienced robber aims to steal the money in the houses on a street. Each house has a certain amount of money hidden, but there is a catch: the security systems in adjacent houses are interconnected. If the robber breaks into two neighboring houses, the police will be alerted.
+
+Given an array of integers `numbers` where each element represents the amount of money in a house, determine the maximum amount of money the robber can steal without triggering the alarm.
+
+### Input
+
+- `numbers: number[]`: An array of integers
+
+### Notes
+
+- The robber cannot steal from two adjacent houses
+
+<MDXTestExamples testCases={runTestCases} />
+
+### Constraints
+
+- 1 &lt;= `numbers.length` &lt;= 100
+- 0 &lt;= `numbers[i]` &lt;= 400

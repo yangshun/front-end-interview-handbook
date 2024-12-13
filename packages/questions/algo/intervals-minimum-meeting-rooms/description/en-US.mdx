@@ -1,0 +1,21 @@
+---
+title: Minimum Meeting Rooms Needed
+excerpt: Implement a function to find the minimum number of required conference rooms
+---
+
+import MDXTestExamples from 'MDXTestExamples';
+import runTestCases from '../setup/src/run.tests.json';
+
+Given an array of meeting time `intervals`, where each interval is represented as `[start, end]` which represents a meeting starting at time `start` and ending at time `end`, determine the minimum number of meeting rooms required to accommodate all the meetings without any overlap.
+
+### Input
+
+- `intervals: Array<[number, number]>`: An array of integers pairs
+
+<MDXTestExamples testCases={runTestCases} />
+
+### Constraints
+
+- 0 &lt;= `intervals.length` &lt;= 1000
+- `intervals[i].length` == 2
+- 0 &lt;= `start` &lt; `end` &lt;= 1,000,000

@@ -1,0 +1,20 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import staircaseClimbingCombinations from '../setup/src/staircase-climbing-combinations.ts';
+import staircaseClimbingCombinationsBruteForce from '../setup/src/staircase-climbing-combinations-bruteforce.ts';
+
+## 1. Brute Force Approach
+
+Time complexity: O(2^N)
+
+- N is the length of the array
+
+<MDXCodeBlock>{staircaseClimbingCombinationsBruteForce}</MDXCodeBlock>
+
+## 2. Using Dynamic Programming
+
+Time complexity: O(n)
+
+- N is the length of the array
+
+<MDXCodeBlock>{staircaseClimbingCombinations}</MDXCodeBlock>

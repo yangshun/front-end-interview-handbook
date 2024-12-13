@@ -1,0 +1,33 @@
+---
+title: Trie (Prefix Tree)
+excerpt: Implement a trie-prefix-tree with insert, search, and starts with functionality
+---
+
+import MDXTestExamples from 'MDXTestExamples';
+import runTestCases from '../setup/src/run.tests.json';
+
+A [trie](https://en.wikipedia.org/wiki/Trie) (pronounced "try"), also known as a prefix tree, is a tree-like data structure designed to efficiently manage and query strings. It's particularly useful for tasks such as autocomplete and spell checking.
+
+Implement a `Trie` class with the following methods:
+
+- `insert(word: string): void`: Adds the given word to the `Trie`
+- `search(word: string): boolean`: Checks if the specified word exists in the trie and returns `true` if it does, otherwise `false`
+- `startsWith(prefix: string): boolean`: Checks if there is any word in the Trie that starts with the given prefix and returns `true` if such a word exists, otherwise `false`
+
+### Input
+
+The `Trie` instance will have its methods called with various parameters based on these:
+
+- `methods: string[]`: An array of `Trie` method names
+- `params: string[]`: An array of strings
+
+`methods[i]` will be called with `params[i]`.
+
+<MDXTestExamples testCases={runTestCases} />
+
+### Constraints
+
+- 1 &lt;= `word.length` &lt;= 100
+- 1 &lt;= `prefix.length` &lt;= 100
+- `word` and `prefix` contain only lowercase English letters
+- 1 &lt;= `methods.length` &lt;= 1000

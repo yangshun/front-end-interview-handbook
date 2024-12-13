@@ -1,0 +1,9 @@
+{
+  "name": "@gfe-questions/grid-find-words",
+  "version": "0.0.1",
+  "main": "/src/grid-find-words.ts",
+  "devDependencies": {
+    "@types/jest": "29.5.0",
+    "typescript": "5.0.2"
+  }
+}

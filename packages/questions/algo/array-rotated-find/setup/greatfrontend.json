@@ -1,0 +1,8 @@
+{
+  "run": "/src/array-rotated-find.run.test.ts",
+  "submit": "/src/array-rotated-find.submit.test.ts",
+  "skeleton": {
+    "js": "/src/array-rotated-find.skeleton.js",
+    "ts": "/src/array-rotated-find.skeleton.ts"
+  }
+}

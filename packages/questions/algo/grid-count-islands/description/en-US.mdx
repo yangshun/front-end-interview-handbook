@@ -1,0 +1,22 @@
+---
+title: Count Islands in a Grid
+excerpt: Implement a function to count distinct islands in a 2D binary grid
+---
+
+import MDXTestExamples from 'MDXTestExamples';
+import runTestCases from '../setup/src/run.tests.json';
+
+Given a two-dimensional binary grid `grid` displaying a map where `1`s signify land and `0`s signify water, determine the number of distinct islands.
+
+An island is defined as a group of `1`s connected horizontally or vertically, and is surrounded by `0`s or the edge of the grid. It is assumed that the grid is completely surrounded by water.
+
+### Input
+
+- `grid: number[][]`: A 2D array of where each element is `1` or `0`
+
+<MDXTestExamples testCases={runTestCases} />
+
+### Constraints
+
+- 1 &lt;= `grid.length`, `grid[i].length` &lt;= 100
+- `grid[i][j]` is `0` or `1`

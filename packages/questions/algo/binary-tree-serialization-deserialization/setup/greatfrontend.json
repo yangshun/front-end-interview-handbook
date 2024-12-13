@@ -1,0 +1,8 @@
+{
+  "run": "/src/binary-tree-serialization-deserialization.run.test.ts",
+  "submit": "/src/binary-tree-serialization-deserialization.submit.test.ts",
+  "skeleton": {
+    "js": "/src/binary-tree-serialization-deserialization.skeleton.js",
+    "ts": "/src/binary-tree-serialization-deserialization.skeleton.ts"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "run": "/src/string-segment-words.run.test.ts",
+  "submit": "/src/string-segment-words.submit.test.ts",
+  "skeleton": {
+    "js": "/src/string-segment-words.skeleton.js",
+    "ts": "/src/string-segment-words.skeleton.ts"
+  }
+}

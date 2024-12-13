@@ -1,0 +1,22 @@
+---
+title: Binary Tree Rebuilding from Preorder and Inorder Traversals
+excerpt: Implement a function to construct a binary tree from preorder and inorder traversals
+---
+
+import MDXTestExamples from 'MDXTestExamples';
+import runTestCases from '../setup/src/run.tests.json';
+
+Given two arrays of integers, `preorder` and `inorder`, where `preorder` represents the values of a preorder traversal of a binary tree, and `inorder` represents the values of an inorder traversal of the same tree, construct and return the binary tree from these traversals.
+
+### Input
+
+- `preorder: number[]`: An array of positive integers
+- `inorder: number[]`: An array of positive integers
+
+<MDXTestExamples testCases={runTestCases} />
+
+### Constraints
+
+- 1 &lt;= Number of nodes &lt;= 1000
+- 1 &lt;= `TreeNode.val` &lt;= 1,000,000
+- `preorder` and `inorder` contain unique values

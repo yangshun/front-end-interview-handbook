@@ -1,0 +1,23 @@
+---
+title: String Anagram
+excerpt: Implement a function to determine if two strings are anagram of each other
+---
+
+import MDXTestExamples from 'MDXTestExamples';
+import runTestCases from '../setup/src/run.tests.json';
+
+Given two strings `str1` and `str2`, determine if `str2` is an anagram of `str1` and return `true` if it is, and `false` otherwise.
+
+An anagram is a word or phrase formed by rearranging the letters of another word or phrase, using all the original letters exactly once. For example, the words `listen` and `silent` are anagrams because they use the same letters with the same frequency, but in a different order.
+
+### Input
+
+- `str1`: A string
+- `str2`: A string
+
+<MDXTestExamples testCases={runTestCases} />
+
+### Constraints
+
+- 1 &lt;= `str1.length`, `str2.length` &lt;= 1000
+- `str1` and `str2` consist of lowercase English letters only

@@ -1,0 +1,8 @@
+{
+  "run": "/src/ocean-flow.run.test.ts",
+  "submit": "/src/ocean-flow.submit.test.ts",
+  "skeleton": {
+    "js": "/src/ocean-flow.skeleton.js",
+    "ts": "/src/ocean-flow.skeleton.ts"
+  }
+}

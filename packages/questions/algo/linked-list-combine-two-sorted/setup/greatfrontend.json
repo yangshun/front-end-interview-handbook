@@ -1,0 +1,8 @@
+{
+  "run": "/src/linked-list-combine-two-sorted.run.test.ts",
+  "submit": "/src/linked-list-combine-two-sorted.submit.test.ts",
+  "skeleton": {
+    "js": "/src/linked-list-combine-two-sorted.skeleton.js",
+    "ts": "/src/linked-list-combine-two-sorted.skeleton.ts"
+  }
+}

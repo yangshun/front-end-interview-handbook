@@ -1,0 +1,8 @@
+{
+  "run": "/src/string-anagram-groups.run.test.ts",
+  "submit": "/src/string-anagram-groups.submit.test.ts",
+  "skeleton": {
+    "js": "/src/string-anagram-groups.skeleton.js",
+    "ts": "/src/string-anagram-groups.skeleton.ts"
+  }
+}

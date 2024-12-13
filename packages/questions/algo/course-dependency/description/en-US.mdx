@@ -1,0 +1,26 @@
+---
+title: Course Dependency
+excerpt: Implement a function to check if all courses can be completed given prerequisites
+---
+
+import MDXTestExamples from 'MDXTestExamples';
+import runTestCases from '../setup/src/run.tests.json';
+
+There are a set of courses numbered from `0` to `courses - 1`. Each course may have prerequisites that dictate the order in which the courses must be taken. These prerequisites are given as a list of pairs, where each pair `[a, b]` indicates that course `b` must be completed before course `a`.
+
+Determine if it is possible to complete all courses without violating any prerequisite constraints. Return `true` if it is possible to complete all the courses; otherwise, return `false`.
+
+### Input
+
+- `courses: number`: An integer representing the total number of courses
+- `prerequisites: Array<[number, number]>`: A 2D array where each element `[a, b]` indicates that course `b` is a prerequisite for course `a`
+
+<MDXTestExamples testCases={runTestCases} />
+
+### Constraints
+
+- 1 &lt;= `courses` &lt;= 1000
+- 0 &lt;= `prerequisites.length` &lt;= 1000
+- `prerequisites[i].length` == 2
+- 0 &lt;= `a`, `b` &lt; courses
+- All pairs `[a, b]` in `prerequisites` are unique

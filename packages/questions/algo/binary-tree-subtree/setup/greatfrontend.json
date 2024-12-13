@@ -1,0 +1,8 @@
+{
+  "run": "/src/binary-tree-subtree.run.test.ts",
+  "submit": "/src/binary-tree-subtree.submit.test.ts",
+  "skeleton": {
+    "js": "/src/binary-tree-subtree.skeleton.js",
+    "ts": "/src/binary-tree-subtree.skeleton.ts"
+  }
+}

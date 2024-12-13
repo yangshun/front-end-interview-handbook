@@ -1,0 +1,33 @@
+---
+title: Is the Graph a Tree
+excerpt: Implement a function to determine if a graph is a valid tree
+---
+
+import MDXTestExamples from 'MDXTestExamples';
+import runTestCases from '../setup/src/run.tests.json';
+
+Consider a graph with `num` nodes, labeled from `0` to `num - 1`. Given `num` and a list of edges where each `edges[i] = [a, b]` represents an undirected connection between nodes `a` and `b`, determine whether the provided edges form a valid tree.
+
+A **[valid tree](<https://en.wikipedia.org/wiki/Tree_(abstract_data_type)>)** is a connected, acyclic graph that spans all `num` nodes. This means:
+
+1. All nodes must be reachable from any other node
+1. The graph must not contain any cycles
+1. The graph must have exactly `num - 1` edges, where `num` is the number of nodes
+
+Return `true` if the edges form a valid tree; otherwise, return `false`.
+
+### Input
+
+- `num: number`: Number of nodes in the graph
+- `edges: Array<[number, number]>`: A 2D array where `edges[i] = [a, b]` represents an undirected edge between nodes `a` and `b`
+
+<MDXTestExamples testCases={runTestCases} />
+
+### Constraints
+
+- 1 &lt;= `num` &lt;= 1000
+- 1 &lt;= `edges.length` &lt;= 1000
+- `edges[i].length` == 2
+- 0 &lt;= `a`, `b` &lt; `num`
+- `a != b`
+- There are no self-loops or repeated edges

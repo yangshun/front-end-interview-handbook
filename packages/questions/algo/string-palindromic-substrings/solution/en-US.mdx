@@ -1,0 +1,23 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import palindromicSubstrings from '../setup/src/string-palindromic-substrings.ts';
+import palindromicSubstringsUsingDP from '../setup/src/string-palindromic-substrings-dp.ts';
+import palindromicSubstringsUsingBruteForce from '../setup/src/string-palindromic-substrings-bruteforce.ts';
+
+## 1. Using BruteForce
+
+Time complexity: O(N^3)
+
+<MDXCodeBlock>{palindromicSubstringsUsingBruteForce}</MDXCodeBlock>
+
+## 2. Using Dynamic Programming
+
+Time complexity: O(n<sup>2</sup>)
+
+<MDXCodeBlock>{palindromicSubstringsUsingDP}</MDXCodeBlock>
+
+## 3. Using Centers of Palindromes
+
+Time complexity: O(n<sup>2</sup>)
+
+<MDXCodeBlock>{palindromicSubstrings}</MDXCodeBlock>

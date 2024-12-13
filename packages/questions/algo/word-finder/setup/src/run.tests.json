@@ -1,0 +1,59 @@
+[
+  {
+    "input": [
+      [
+        "methods",
+        [
+          "addWord",
+          "addWord",
+          "search",
+          "addWord",
+          "search",
+          "search",
+          "search"
+        ]
+      ],
+      ["params", ["car", "cat", "c.r", "dog", "d.g", "cat", "c.."]]
+    ],
+    "output": [null, null, true, null, true, true, true],
+    "explanation": "Words 'car' and 'cat' are added, 'c.r' matches 'car', 'dog' and 'd.g' match, 'c..' matches both 'car' and 'cat'."
+  },
+  {
+    "input": [
+      [
+        "methods",
+        [
+          "addWord",
+          "addWord",
+          "addWord",
+          "search",
+          "search",
+          "addWord",
+          "search"
+        ]
+      ],
+      ["params", ["hello", "hollow", "hollow", "hell", "hel.o", "hero", "h.o."]]
+    ],
+    "output": [null, null, null, false, true, null, false],
+    "explanation": "The words 'hello', 'hollow' are added, 'hell' doesn't exist, 'hel.o' matches 'hello', 'hero' is added, 'h.o.' does not match with any other word."
+  },
+  {
+    "input": [
+      [
+        "methods",
+        [
+          "addWord",
+          "search",
+          "addWord",
+          "search",
+          "addWord",
+          "search",
+          "search"
+        ]
+      ],
+      ["params", ["bat", "b.t", "ball", "ba.l", "bat", "b.ll", "ball"]]
+    ],
+    "output": [null, true, null, true, null, true, true],
+    "explanation": "Words 'bat' and 'ball' are added, 'b.t' matches 'bat', 'ba.l', 'b.ll' and 'ball' match 'ball'."
+  }
+]

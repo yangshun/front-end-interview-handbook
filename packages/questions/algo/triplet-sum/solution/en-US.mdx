@@ -1,0 +1,16 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import tripletSum from '../setup/src/triplet-sum.ts';
+import tripletSumBruteForce from '../setup/src/triplet-sum-brute-force.ts';
+
+## 1. Brute force
+
+Time complexity: O(N^3 \* log(no. of unique triplets))
+
+<MDXCodeBlock>{tripletSumBruteForce}</MDXCodeBlock>
+
+## 2. Two pointers
+
+Time complexity: O(n<sup>2</sup>)
+
+<MDXCodeBlock>{tripletSum}</MDXCodeBlock>

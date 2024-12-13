@@ -1,0 +1,24 @@
+---
+title: Task Coordination
+excerpt: Implement a function to find minimum intervals for tasks with cooldown
+---
+
+import MDXTestExamples from 'MDXTestExamples';
+import runTestCases from '../setup/src/run.tests.json';
+
+Given a list of tasks, each represented by a letter (from A to Z), and a cooldown period `k`. The cooldown period specifies that the same task must be separated by at least `k` intervals between executions.
+
+Determine the minimum number of intervals required to complete all tasks, while ensuring that the same task is not executed again before the cooldown period has passed.
+
+### Input
+
+- `tasks: string[]`: An array of characters, where each task is represented as a letter (A-Z)
+- `k: number`: An integer representing the cooldown period, the minimum number of intervals between two executions of the same task
+
+<MDXTestExamples testCases={runTestCases} />
+
+### Constraints
+
+- 1 &lt;= `tasks.length` &lt;= 1000
+- `tasks[i]` is an uppercase English letter
+- 0 &lt;= `k` &lt;= 100

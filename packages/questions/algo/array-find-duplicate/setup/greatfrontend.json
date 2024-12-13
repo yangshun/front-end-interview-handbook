@@ -1,0 +1,8 @@
+{
+  "run": "/src/array-find-duplicate.run.test.ts",
+  "submit": "/src/array-find-duplicate.submit.test.ts",
+  "skeleton": {
+    "js": "/src/array-find-duplicate.skeleton.js",
+    "ts": "/src/array-find-duplicate.skeleton.ts"
+  }
+}

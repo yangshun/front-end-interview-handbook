@@ -1,0 +1,9 @@
+{
+  "name": "@gfe-questions/string-palindromic-substrings",
+  "version": "0.0.1",
+  "main": "/src/string-palindromic-substrings.ts",
+  "devDependencies": {
+    "@types/jest": "29.5.0",
+    "typescript": "5.0.2"
+  }
+}

@@ -1,0 +1,17 @@
+[
+  {
+    "input": [["str", "No 'x' in Nixon"]],
+    "output": true,
+    "explanation": "After removing non-alphanumeric characters and converting to lowercase, the string becomes 'noxinnixon', which is a palindrome."
+  },
+  {
+    "input": [["str", "Was it a car or a cat I saw?"]],
+    "output": true,
+    "explanation": "After removing non-alphanumeric characters and converting to lowercase, the string becomes 'wasitacaroracatisaw', which is a palindrome."
+  },
+  {
+    "input": [["str", "tab a cat"]],
+    "output": false,
+    "explanation": "After removing non-alphanumeric characters and converting to lowercase, the string becomes 'tabacat', which is not a palindrome."
+  }
+]

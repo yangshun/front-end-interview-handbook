@@ -1,0 +1,25 @@
+---
+title: Array Product Excluding Current
+excerpt: Implement a function to find the product of elements in an array excluding the current element
+---
+
+import MDXTestExamples from 'MDXTestExamples';
+import runTestCases from '../setup/src/run.tests.json';
+
+Given an array of integers `numbers`, return a new array `result` where each element `result[i]` represents the product of all the elements in `numbers` except for `numbers[i]`.
+
+### Input
+
+- `numbers: number[]`: An array of integers
+
+### Notes
+
+- The product of any prefix or suffix of the `numbers` array is ensured to fit within a 32-bit integer
+- Use of the division operator is prohibited
+
+<MDXTestExamples testCases={runTestCases} />
+
+### Constraints
+
+- 2 &lt;= `numbers.length` &lt;= 1000
+- -10 &lt;= `numbers[i]` &lt;= 10

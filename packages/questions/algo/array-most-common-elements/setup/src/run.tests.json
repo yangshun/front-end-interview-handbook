@@ -1,0 +1,26 @@
+[
+  {
+    "input": [
+      ["numbers", [4, 4, 4, 6, 6, 5, 5, 5]],
+      ["k", 2]
+    ],
+    "output": [4, 5],
+    "explanation": "The two most frequent numbers are 4 and 5, as they appear the most often in the array."
+  },
+  {
+    "input": [
+      ["numbers", [7, 7, 7, 8, 8, 9, 9, 9]],
+      ["k", 3]
+    ],
+    "output": [7, 9, 8],
+    "explanation": "The three most frequent numbers are 7, 9, and 8."
+  },
+  {
+    "input": [
+      ["numbers", [10, 10, 10, 10, 10]],
+      ["k", 1]
+    ],
+    "output": [10],
+    "explanation": "Since there is only one unique number, 10, it is the most frequent."
+  }
+]

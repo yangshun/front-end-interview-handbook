@@ -1,0 +1,22 @@
+---
+title: Matrix Rotation
+excerpt: Implement a function to rotate the given matrix by 90 degrees
+---
+
+import MDXTestExamples from 'MDXTestExamples';
+import runTestCases from '../setup/src/run.tests.json';
+
+Given an `n` x `n` two-dimensional array `matrix`, rotate the matrix 90 degrees clockwise in-place. This means the input two-dimensional matrix should be modified directly without using any additional 2D matrices.
+
+### Input
+
+- `matrix: number[][]`: A 2D array `matrix` of size `n` x `n`
+
+<MDXTestExamples testCases={runTestCases} />
+
+### Constraints
+
+- `n = matrix.length = matrix[i].length`
+- 1 &lt;= `n` &lt;= 20
+- -1000 &lt;= `matrix[row][col]` &lt;= 1000
+- Use O(1) extra space

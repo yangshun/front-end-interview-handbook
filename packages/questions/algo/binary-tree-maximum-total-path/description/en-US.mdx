@@ -1,0 +1,34 @@
+---
+title: Binary Tree Maximum Total Path
+excerpt: Implement a function to find the maximum total of nodes in a binary tree path
+---
+
+import MDXTestExamples from 'MDXTestExamples';
+import runTestCases from '../setup/src/run.tests.json';
+
+Given the `root` of a binary tree, determine the maximum possible sum of any non-empty path within the tree.
+
+In a binary tree, a path is defined as a sequence of nodes where each consecutive pair of nodes in the sequence is directly connected by an edge. A node can appear in the path sequence only once, and the path does not necessarily need to include the root. The sum of a path is calculated by adding up the values of all nodes present in that path.
+
+The binary tree is represented by a collection of `TreeNode`s, where each node has optional `left` and `right` child nodes, which are also `TreeNode`s.
+
+A `TreeNode` has the following interface:
+
+```ts
+interface TreeNode {
+  val: number;
+  left: TreeNode | null;
+  right: TreeNode | null;
+}
+```
+
+### Input
+
+- `root: TreeNode`: Root node of the tree. Examples display a [level-order traversal](https://en.wikipedia.org/wiki/Breadth-first_search) of the tree
+
+<MDXTestExamples testCases={runTestCases} />
+
+### Constraints
+
+- 1 &lt;= Number of nodes &lt;= 10,000
+- -100 &lt;= `TreeNode.val` &lt;= 100

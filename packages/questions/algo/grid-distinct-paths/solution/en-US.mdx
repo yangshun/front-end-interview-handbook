@@ -1,0 +1,16 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import gridDistinctPaths from '../setup/src/grid-distinct-paths.ts';
+import gridDistinctPathsTopDown from '../setup/src/grid-distinct-paths-top-down.ts';
+
+## 1. Bottom-Up Dynamic Programming
+
+Time complexity: O(n.m), where `m` is the number of rows, and `n` is the number of columns in the grid
+
+<MDXCodeBlock>{gridDistinctPaths}</MDXCodeBlock>
+
+## 2. Top-Down Dynamic Programming
+
+Time complexity: O(n.m), where `m` is the number of rows, and `n` is the number of columns in the grid
+
+<MDXCodeBlock>{gridDistinctPathsTopDown}</MDXCodeBlock>

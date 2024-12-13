@@ -1,0 +1,8 @@
+{
+  "run": "/src/extraterrestrial-language.run.test.ts",
+  "submit": "/src/extraterrestrial-language.submit.test.ts",
+  "skeleton": {
+    "js": "/src/extraterrestrial-language.skeleton.js",
+    "ts": "/src/extraterrestrial-language.skeleton.ts"
+  }
+}

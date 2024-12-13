@@ -1,0 +1,21 @@
+---
+title: Meeting Calendar
+excerpt: Implement a function to check if all meetings can be attended
+---
+
+import MDXTestExamples from 'MDXTestExamples';
+import runTestCases from '../setup/src/run.tests.json';
+
+Given an array of meeting time `intervals` where each element represents a meeting time as `[start, end]`, determine whether a person can attend all the meetings without any overlap between meeting times.
+
+### Input
+
+- A 2D array of integers `intervals` of size `n x 2`, where `n` is the number of meetings and each interval `[start, end]` represents a meeting starting at time start and ending at time end
+
+<MDXTestExamples testCases={runTestCases} />
+
+### Constraints
+
+- 0 &lt;= `intervals.length` &lt;= 1000
+- `intervals[i].length` == 2
+- 0 &lt;= `start` &lt; `end` &lt;= 1,000,000

@@ -1,0 +1,16 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import segmentWords from '../setup/src/string-segment-words.ts';
+import segmentWordsBFS from '../setup/src/string-segment-words-bfs.js';
+
+## 1. Using Dynamic Programming
+
+Time complexity: O(N^2.M), where `N` is the length of the string and `M` is the maximum length of the words in the word dictionary
+
+<MDXCodeBlock>{segmentWords}</MDXCodeBlock>
+
+## 2. Using BFS
+
+Time complexity:Time complexity: O(N^3 + M.K), where `N` is the length of the string, `M` is the length of the word dictionary and `K` is the average length of the words in wordDict
+
+<MDXCodeBlock>{segmentWordsBFS}</MDXCodeBlock>

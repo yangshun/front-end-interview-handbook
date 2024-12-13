@@ -1,0 +1,8 @@
+{
+  "run": "/src/graph-clone.run.test.ts",
+  "submit": "/src/graph-clone.submit.test.ts",
+  "skeleton": {
+    "js": "/src/graph-clone.skeleton.js",
+    "ts": "/src/graph-clone.skeleton.ts"
+  }
+}

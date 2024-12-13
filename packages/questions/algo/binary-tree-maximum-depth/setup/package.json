@@ -1,0 +1,9 @@
+{
+  "name": "@gfe-questions/binary-tree-maximum-depth",
+  "version": "0.0.1",
+  "main": "/src/binary-tree-maximum-depth.ts",
+  "devDependencies": {
+    "@types/jest": "29.5.0",
+    "typescript": "5.0.2"
+  }
+}

@@ -1,0 +1,27 @@
+---
+title: Graph Count Connected Components
+excerpt: Implement a function to count connected components in a graph
+---
+
+import MDXTestExamples from 'MDXTestExamples';
+import runTestCases from '../setup/src/run.tests.json';
+
+Consider a graph with `num` nodes, labeled from `0` to `num - 1`. Given `num` and a list of edges where each `edges[i] = [a, b]` represents an undirected connection between nodes `a` and `b`, determine the number of connected components in the graph.
+
+In the context of a graph, a [component](<https://en.wikipedia.org/wiki/Component_(graph_theory)>) of an undirected graph is a connected subgraph that is not part of any larger connected subgraph.
+
+### Input
+
+- `num: number`: An integer, the number of nodes in the graph
+- `edges: Array<[number, number]>`: A 2D array where `edges[i] = [a, b]` represents an undirected edge between nodes `a` and `b`
+
+<MDXTestExamples testCases={runTestCases} />
+
+### Constraints
+
+- 1 &lt;= `num` &lt;= 1000
+- 1 &lt;= `edges.length` &lt;= 2000
+- `edges[i].length` == 2
+- 0 &lt;= `a` &lt; `b` &lt; `num`
+- `a != b`
+- There are no self-loops or duplicate edges

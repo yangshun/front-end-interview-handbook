@@ -1,0 +1,9 @@
+{
+  "name": "@gfe-questions/matrix-spiral-traversal",
+  "version": "0.0.1",
+  "main": "/src/matrix-spiral-traversal.ts",
+  "devDependencies": {
+    "@types/jest": "29.5.0",
+    "typescript": "5.0.2"
+  }
+}

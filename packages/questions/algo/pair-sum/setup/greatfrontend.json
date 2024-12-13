@@ -1,0 +1,8 @@
+{
+  "run": "/src/pair-sum.run.test.ts",
+  "submit": "/src/pair-sum.submit.test.ts",
+  "skeleton": {
+    "js": "/src/pair-sum.skeleton.js",
+    "ts": "/src/pair-sum.skeleton.ts"
+  }
+}

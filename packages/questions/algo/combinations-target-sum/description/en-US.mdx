@@ -1,0 +1,28 @@
+---
+title: Combinations for Target Sum
+excerpt: Implement a function to count combinations that sum to the target
+---
+
+import MDXTestExamples from 'MDXTestExamples';
+import runTestCases from '../setup/src/run.tests.json';
+
+Given a list of unique integers `numbers` and an integer `target`, find the number of different combinations of elements from `numbers` that sum up to target.
+
+### Input
+
+- `numbers: number[]`: An array of integers
+- `target: number`: An integer
+
+### Notes
+
+- Test cases are chosen to guarantee the output falls within the limits of a 32-bit integer
+- Combinations that consist of the same elements but differ in order are considered distinct
+
+<MDXTestExamples testCases={runTestCases} />
+
+### Constraints
+
+- 1 &lt;= `numbers.length` &lt;= 200
+- 1 &lt;= `numbers[i]` &lt;= 1000
+- 1 &lt;= `target` &lt;= 1000
+- All the elements of numbers are unique

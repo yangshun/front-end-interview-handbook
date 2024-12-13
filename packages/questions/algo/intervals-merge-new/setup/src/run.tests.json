@@ -1,0 +1,62 @@
+[
+  {
+    "input": [
+      [
+        "intervals",
+        [
+          [1, 2],
+          [3, 5],
+          [6, 10],
+          [11, 12],
+          [13, 16]
+        ]
+      ],
+      ["newInterval", [8, 15]]
+    ],
+    "output": [
+      [1, 2],
+      [3, 5],
+      [6, 16]
+    ],
+    "explanation": "The new interval [8, 15] overlaps with [6, 10], [11, 12], and [13, 16]. These intervals merge to form [6, 16], and the result is [[1, 2], [3, 5], [6, 16]]."
+  },
+  {
+    "input": [
+      [
+        "intervals",
+        [
+          [1, 2],
+          [3, 4],
+          [5, 6],
+          [7, 8]
+        ]
+      ],
+      ["newInterval", [2, 5]]
+    ],
+    "output": [
+      [1, 6],
+      [7, 8]
+    ],
+    "explanation": "The new interval [2, 5] overlaps with [1, 2], [3, 4], and [5, 6]. Merging them results in [1, 6]."
+  },
+  {
+    "input": [
+      [
+        "intervals",
+        [
+          [2, 4],
+          [6, 8],
+          [10, 12]
+        ]
+      ],
+      ["newInterval", [15, 17]]
+    ],
+    "output": [
+      [2, 4],
+      [6, 8],
+      [10, 12],
+      [15, 17]
+    ],
+    "explanation": "The new interval [15, 17] does not overlap with any existing intervals and is simply added at the end."
+  }
+]

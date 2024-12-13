@@ -1,0 +1,36 @@
+---
+title: Number Stream Median
+excerpt: Implement a function to find the median of a dynamic stream of integers
+---
+
+import MDXTestExamples from 'MDXTestExamples';
+import runTestCases from '../setup/src/run.tests.json';
+
+The median of a list of numbers is defined as the middle value in a sorted list. When the list has an even number of elements, the median is the average of the two middle values.
+
+For example:
+
+- For the list `[1, 2, 3]`, the median is 2
+- For the list `[1, 2]`, the median is (1 + 2) / 2 = 1.5
+
+Implement a `NumberStream` class with the following methods:
+
+- `add(num: number): void`: Adds an integer num to the data structure
+- `getMedian(): number`: Returns the median of all numbers added so far
+
+### Input
+
+The `NumberStream` instance will have its methods called with various parameters based on these:
+
+- `methods: string[]`: An array of `NumberStream` method names
+- `params: (number | null)[]`: An array of integers
+
+`methods[i]` will be called with `params[i]`.
+
+<MDXTestExamples testCases={runTestCases} />
+
+### Constraints
+
+- 1 &lt;= `num` &lt;= 100,000
+- 1 &lt;= `methods.length` &lt;= 1000
+- There will be at least one element in the data structure before calling `getMedian()`

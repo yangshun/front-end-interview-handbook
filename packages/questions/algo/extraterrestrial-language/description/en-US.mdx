@@ -1,0 +1,23 @@
+---
+title: Extraterrestrial Language
+excerpt: Implement a function to verify and return an extraterrestrial language's alphabet order
+---
+
+import MDXTestExamples from 'MDXTestExamples';
+import runTestCases from '../setup/src/run.tests.json';
+
+An extraterrestrial language uses the English alphabet, but the letter order is unknown. A list of strings `words` is provided, which represents words from the extraterrestrial language's dictionary, and it is claimed that these words are sorted according to the new language's [lexicographical order](https://en.wikipedia.org/wiki/Lexicographic_order).
+
+If this claim is false, and the arrangement of strings in `words` cannot match any possible letter order, return an empty string. Otherwise, return a string containing the unique letters of the extraterrestrial language sorted according to the language's rules. If multiple valid solutions exist, any of them are acceptable.
+
+### Input
+
+- `words: string[]`: An array of strings where each string is a word in the extraterrestrial language
+
+<MDXTestExamples testCases={runTestCases} />
+
+### Constraints
+
+- 1 &lt;= `words.length` &lt;= 100
+- 1 &lt;= `words[i].length` &lt;= 10
+- `words[i]` consists of only lowercase English letters

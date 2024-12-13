@@ -1,0 +1,17 @@
+[
+  {
+    "input": [["numbers", [4, 1, 0, 0, 2, 3]]],
+    "output": true,
+    "explanation": "Jump from index 0 to 4 directly, then jump 1 step to the last index."
+  },
+  {
+    "input": [["numbers", [1, 0, 0, 0]]],
+    "output": false,
+    "explanation": "Can only jump to index 1 from index 0. Maximum jump length of index 1 is 0, making it impossible to reach the last index."
+  },
+  {
+    "input": [["numbers", [2, 3, 1, 1, 4]]],
+    "output": true,
+    "explanation": "Jump 1 step from index 0 to 1 and then 3 steps to the last index."
+  }
+]

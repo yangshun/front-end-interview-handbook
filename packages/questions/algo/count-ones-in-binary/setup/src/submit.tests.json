@@ -1,0 +1,402 @@
+[
+  {
+    "input": [["num", 10]],
+    "output": 2
+  },
+  {
+    "input": [["num", 2]],
+    "output": 1
+  },
+  {
+    "input": [["num", 7]],
+    "output": 3
+  },
+  {
+    "input": [["num", 4]],
+    "output": 1
+  },
+  {
+    "input": [["num", 10]],
+    "output": 2
+  },
+  {
+    "input": [["num", 5]],
+    "output": 2
+  },
+  {
+    "input": [["num", 10]],
+    "output": 2
+  },
+  {
+    "input": [["num", 10]],
+    "output": 2
+  },
+  {
+    "input": [["num", 7]],
+    "output": 3
+  },
+  {
+    "input": [["num", 9]],
+    "output": 2
+  },
+  {
+    "input": [["num", 89807355]],
+    "output": 17
+  },
+  {
+    "input": [["num", 63916579]],
+    "output": 14
+  },
+  {
+    "input": [["num", 1003275]],
+    "output": 12
+  },
+  {
+    "input": [["num", 81460777]],
+    "output": 16
+  },
+  {
+    "input": [["num", 23592207]],
+    "output": 17
+  },
+  {
+    "input": [["num", 40394595]],
+    "output": 14
+  },
+  {
+    "input": [["num", 96208418]],
+    "output": 11
+  },
+  {
+    "input": [["num", 44285010]],
+    "output": 13
+  },
+  {
+    "input": [["num", 81108551]],
+    "output": 15
+  },
+  {
+    "input": [["num", 48150108]],
+    "output": 16
+  },
+  {
+    "input": [["num", 88985995]],
+    "output": 14
+  },
+  {
+    "input": [["num", 12561831]],
+    "output": 17
+  },
+  {
+    "input": [["num", 20278425]],
+    "output": 13
+  },
+  {
+    "input": [["num", 2988186]],
+    "output": 11
+  },
+  {
+    "input": [["num", 15087590]],
+    "output": 15
+  },
+  {
+    "input": [["num", 63759468]],
+    "output": 14
+  },
+  {
+    "input": [["num", 24369565]],
+    "output": 16
+  },
+  {
+    "input": [["num", 53592925]],
+    "output": 14
+  },
+  {
+    "input": [["num", 50415923]],
+    "output": 10
+  },
+  {
+    "input": [["num", 85728049]],
+    "output": 12
+  },
+  {
+    "input": [["num", 32637579]],
+    "output": 11
+  },
+  {
+    "input": [["num", 18542961]],
+    "output": 13
+  },
+  {
+    "input": [["num", 3114117]],
+    "output": 10
+  },
+  {
+    "input": [["num", 77048027]],
+    "output": 15
+  },
+  {
+    "input": [["num", 69631894]],
+    "output": 15
+  },
+  {
+    "input": [["num", 29387774]],
+    "output": 15
+  },
+  {
+    "input": [["num", 76554062]],
+    "output": 12
+  },
+  {
+    "input": [["num", 72374529]],
+    "output": 8
+  },
+  {
+    "input": [["num", 97034426]],
+    "output": 12
+  },
+  {
+    "input": [["num", 97814978]],
+    "output": 12
+  },
+  {
+    "input": [["num", 16433758]],
+    "output": 14
+  },
+  {
+    "input": [["num", 44762753]],
+    "output": 10
+  },
+  {
+    "input": [["num", 54599412]],
+    "output": 13
+  },
+  {
+    "input": [["num", 11025482]],
+    "output": 10
+  },
+  {
+    "input": [["num", 24596374]],
+    "output": 16
+  },
+  {
+    "input": [["num", 41544472]],
+    "output": 14
+  },
+  {
+    "input": [["num", 8109631]],
+    "output": 18
+  },
+  {
+    "input": [["num", 41385647]],
+    "output": 19
+  },
+  {
+    "input": [["num", 69431057]],
+    "output": 12
+  },
+  {
+    "input": [["num", 80679277]],
+    "output": 14
+  },
+  {
+    "input": [["num", 23857058]],
+    "output": 11
+  },
+  {
+    "input": [["num", 16318603]],
+    "output": 10
+  },
+  {
+    "input": [["num", 15524713]],
+    "output": 14
+  },
+  {
+    "input": [["num", 34992701]],
+    "output": 14
+  },
+  {
+    "input": [["num", 93449065]],
+    "output": 15
+  },
+  {
+    "input": [["num", 98629095]],
+    "output": 17
+  },
+  {
+    "input": [["num", 95312957]],
+    "output": 16
+  },
+  {
+    "input": [["num", 72280995]],
+    "output": 15
+  },
+  {
+    "input": [["num", 46710957]],
+    "output": 11
+  },
+  {
+    "input": [["num", 57210904]],
+    "output": 12
+  },
+  {
+    "input": [["num", 55988491]],
+    "output": 12
+  },
+  {
+    "input": [["num", 97611493]],
+    "output": 16
+  },
+  {
+    "input": [["num", 43000900]],
+    "output": 7
+  },
+  {
+    "input": [["num", 75173784]],
+    "output": 14
+  },
+  {
+    "input": [["num", 4400602]],
+    "output": 11
+  },
+  {
+    "input": [["num", 63500695]],
+    "output": 15
+  },
+  {
+    "input": [["num", 30123424]],
+    "output": 12
+  },
+  {
+    "input": [["num", 88918315]],
+    "output": 13
+  },
+  {
+    "input": [["num", 11244017]],
+    "output": 13
+  },
+  {
+    "input": [["num", 54124014]],
+    "output": 18
+  },
+  {
+    "input": [["num", 58640526]],
+    "output": 15
+  },
+  {
+    "input": [["num", 26001927]],
+    "output": 10
+  },
+  {
+    "input": [["num", 82538737]],
+    "output": 15
+  },
+  {
+    "input": [["num", 28640466]],
+    "output": 11
+  },
+  {
+    "input": [["num", 54535008]],
+    "output": 8
+  },
+  {
+    "input": [["num", 10878068]],
+    "output": 14
+  },
+  {
+    "input": [["num", 66641430]],
+    "output": 16
+  },
+  {
+    "input": [["num", 95008383]],
+    "output": 18
+  },
+  {
+    "input": [["num", 44528311]],
+    "output": 16
+  },
+  {
+    "input": [["num", 36538162]],
+    "output": 12
+  },
+  {
+    "input": [["num", 28336553]],
+    "output": 11
+  },
+  {
+    "input": [["num", 33847637]],
+    "output": 11
+  },
+  {
+    "input": [["num", 742384]],
+    "output": 11
+  },
+  {
+    "input": [["num", 20750834]],
+    "output": 13
+  },
+  {
+    "input": [["num", 58086172]],
+    "output": 14
+  },
+  {
+    "input": [["num", 95838385]],
+    "output": 13
+  },
+  {
+    "input": [["num", 36011237]],
+    "output": 14
+  },
+  {
+    "input": [["num", 97584705]],
+    "output": 10
+  },
+  {
+    "input": [["num", 38282853]],
+    "output": 10
+  },
+  {
+    "input": [["num", 52122773]],
+    "output": 13
+  },
+  {
+    "input": [["num", 71344782]],
+    "output": 9
+  },
+  {
+    "input": [["num", 72183162]],
+    "output": 15
+  },
+  {
+    "input": [["num", 81524199]],
+    "output": 19
+  },
+  {
+    "input": [["num", 31301903]],
+    "output": 14
+  },
+  {
+    "input": [["num", 78314288]],
+    "output": 14
+  },
+  {
+    "input": [["num", 78668946]],
+    "output": 10
+  },
+  {
+    "input": [["num", 82366582]],
+    "output": 13
+  },
+  {
+    "input": [["num", 48696832]],
+    "output": 10
+  },
+  {
+    "input": [["num", 44257440]],
+    "output": 9
+  },
+  {
+    "input": [["num", 71697424]],
+    "output": 6
+  }
+]

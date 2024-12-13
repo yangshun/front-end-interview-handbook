@@ -1,0 +1,9 @@
+{
+  "name": "@gfe-questions/string-shortest-substring-containing-characters",
+  "version": "0.0.1",
+  "main": "/src/string-shortest-substring-containing-characters.ts",
+  "devDependencies": {
+    "@types/jest": "29.5.0",
+    "typescript": "5.0.2"
+  }
+}

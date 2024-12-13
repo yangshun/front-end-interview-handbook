@@ -1,0 +1,30 @@
+---
+title: Word Finder
+excerpt: Implement a data structure where words can be added and support wildcard searching
+---
+
+import MDXTestExamples from 'MDXTestExamples';
+import runTestCases from '../setup/src/run.tests.json';
+
+Implement `WordFinder` class that allows for adding words and searching for them. It has the following methods:
+
+- `addWord(word: string)`: Adds a word to the data structure
+- `search(query: string)`: Checks if any added word matches the given word. The `query` can include dots `.`, which can match any letter
+
+### Input
+
+The `WordFinder` instance will have its methods called with various parameters based on these:
+
+- `methods: string[]`: An array of method names
+- `params: string[]`: An array of strings
+
+`methods[i]` will be called with `params[i]`.
+
+<MDXTestExamples testCases={runTestCases} />
+
+### Constraints
+
+- 1 &lt;= `word.length` &lt;= 25
+- 1 &lt;= `methods.length` &lt;= 1000
+- Search queries may include `.` and lowercase English letters, with at most 2 dots per query
+- Each word contains only lowercase English letters

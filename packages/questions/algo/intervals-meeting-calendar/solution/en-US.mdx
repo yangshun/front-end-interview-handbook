@@ -1,0 +1,16 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import meetingCalendar from '../setup/src/intervals-meeting-calendar.ts';
+import meetingCalendarBruteForce from '../setup/src/intervals-meeting-calendar-bruteforce.ts';
+
+## 1. Brute Force Approach
+
+Time complexity: O(n<sup>2</sup>)
+
+<MDXCodeBlock>{meetingCalendarBruteForce}</MDXCodeBlock>
+
+## 2. Using Sorting
+
+Time complexity: O(N.LogN)
+
+<MDXCodeBlock>{meetingCalendar}</MDXCodeBlock>

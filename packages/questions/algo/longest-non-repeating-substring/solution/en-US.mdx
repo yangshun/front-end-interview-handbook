@@ -1,0 +1,18 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import longestSubstringWithoutRepeatingCharacters from '../setup/src/longest-non-repeating-substring.ts';
+import longestSubstringWithoutRepeatingCharactersBruteForce from '../setup/src/longest-non-repeating-substring-bruteforce.ts';
+
+## 1. Brute Force
+
+Time complexity: O(n<sup>2</sup>)
+
+<MDXCodeBlock>
+  {longestSubstringWithoutRepeatingCharactersBruteForce}
+</MDXCodeBlock>
+
+## 2. Using Sliding Window
+
+Time complexity: O(n)
+
+<MDXCodeBlock>{longestSubstringWithoutRepeatingCharacters}</MDXCodeBlock>

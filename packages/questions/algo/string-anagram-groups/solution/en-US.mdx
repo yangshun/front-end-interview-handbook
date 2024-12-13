@@ -1,0 +1,16 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import anagramGroups from '../setup/src/string-anagram-groups.ts';
+import groupAnagramsUsingFreqCount from '../setup/src/string-anagram-groups-freq-count.ts';
+
+## 1. Using Sorting
+
+Time complexity: O(N.Klog(K)), where N is the length of `strs`, and K is the maximum length of a string in `strs`
+
+<MDXCodeBlock>{anagramGroups}</MDXCodeBlock>
+
+## 2. Using Frequency Count
+
+Time complexity: O(N.K), where N is the length of `strs`, and K is the maximum length of a string in `strs`
+
+<MDXCodeBlock>{groupAnagramsUsingFreqCount}</MDXCodeBlock>

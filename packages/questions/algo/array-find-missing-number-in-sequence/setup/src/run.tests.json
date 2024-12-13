@@ -1,0 +1,17 @@
+[
+  {
+    "input": [["numbers", [1, 3, 0]]],
+    "output": 2,
+    "explanation": "The array has a size of 3, and within the range from 0 to 3, the number 2 is missing from the array"
+  },
+  {
+    "input": [["numbers", [1]]],
+    "output": 0,
+    "explanation": "The array has a size of 1, and within the range from 0 to 1, the number 0 is missing from the array"
+  },
+  {
+    "input": [["numbers", [3, 0, 4, 2, 1]]],
+    "output": 5,
+    "explanation": "The array has a size of 5, and within the range from 0 to 5, the number 5 is missing from the array"
+  }
+]

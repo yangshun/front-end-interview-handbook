@@ -1,0 +1,8 @@
+{
+  "run": "/src/neighborhood-theft.run.test.ts",
+  "submit": "/src/neighborhood-theft.submit.test.ts",
+  "skeleton": {
+    "js": "/src/neighborhood-theft.skeleton.js",
+    "ts": "/src/neighborhood-theft.skeleton.ts"
+  }
+}

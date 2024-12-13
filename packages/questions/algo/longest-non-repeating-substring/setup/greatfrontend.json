@@ -1,0 +1,8 @@
+{
+  "run": "/src/longest-non-repeating-substring.run.test.ts",
+  "submit": "/src/longest-non-repeating-substring.submit.test.ts",
+  "skeleton": {
+    "js": "/src/longest-non-repeating-substring.skeleton.js",
+    "ts": "/src/longest-non-repeating-substring.skeleton.ts"
+  }
+}

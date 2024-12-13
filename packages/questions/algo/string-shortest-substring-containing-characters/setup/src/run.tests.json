@@ -1,0 +1,26 @@
+[
+  {
+    "input": [
+      ["str1", "ABCD"],
+      ["str2", "AC"]
+    ],
+    "output": "ABC",
+    "explanation": "The substring 'ABC' contains both 'A' and 'C'"
+  },
+  {
+    "input": [
+      ["str1", "AAABBBCCC"],
+      ["str2", "ABC"]
+    ],
+    "output": "ABBBC",
+    "explanation": "The substring 'ABBBC' contains 'A', 'B', and 'C', making it the smallest valid substring."
+  },
+  {
+    "input": [
+      ["str1", "A"],
+      ["str2", "AA"]
+    ],
+    "output": "",
+    "explanation": "str1 does not have enough 'A's to match the two required in str2, so the result is an empty string."
+  }
+]

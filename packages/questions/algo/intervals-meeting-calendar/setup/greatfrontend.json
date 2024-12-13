@@ -1,0 +1,8 @@
+{
+  "run": "/src/intervals-meeting-calendar.run.test.ts",
+  "submit": "/src/intervals-meeting-calendar.submit.test.ts",
+  "skeleton": {
+    "js": "/src/intervals-meeting-calendar.skeleton.js",
+    "ts": "/src/intervals-meeting-calendar.skeleton.ts"
+  }
+}

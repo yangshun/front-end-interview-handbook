@@ -1,0 +1,44 @@
+[
+  {
+    "input": [
+      [
+        "matrix",
+        [
+          [1, 2, 3],
+          [4, 5, 6],
+          [7, 8, 9]
+        ]
+      ]
+    ],
+    "output": [1, 2, 3, 6, 9, 8, 7, 4, 5],
+    "explanation": "Starting from the top-left corner, move right across the first row, then go down across the last column, then move left along the bottom row, and travel up in the first column. Continue this pattern, spiraling inward, until all the elements have been traversed."
+  },
+  {
+    "input": [
+      [
+        "matrix",
+        [
+          [7, 7, 0, 7],
+          [4, 3, 7, 2],
+          [9, 8, 6, 0],
+          [6, 1, 3, 6]
+        ]
+      ]
+    ],
+    "output": [7, 7, 0, 7, 2, 0, 6, 3, 1, 6, 9, 4, 3, 7, 6, 8],
+    "explanation": "Starting from the top-left corner, move right across the first row, then go down in the last column, move left along the bottom row, and travel up in the first column. Continue this pattern, spiraling inward, until all the elements have been traversed."
+  },
+  {
+    "input": [
+      [
+        "matrix",
+        [
+          [1, 2],
+          [3, 4]
+        ]
+      ]
+    ],
+    "output": [1, 2, 4, 3],
+    "explanation": "Starting from the top-left corner, move right across the first row, then go down in the last column, and finally move left across the bottom row."
+  }
+]

@@ -1,0 +1,8 @@
+{
+  "run": "/src/intervals-merge-new.run.test.ts",
+  "submit": "/src/intervals-merge-new.submit.test.ts",
+  "skeleton": {
+    "js": "/src/intervals-merge-new.skeleton.js",
+    "ts": "/src/intervals-merge-new.skeleton.ts"
+  }
+}

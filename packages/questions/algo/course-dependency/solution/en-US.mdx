@@ -1,0 +1,16 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import courseDependency from '../setup/src/course-dependency.ts';
+import courseDependencyUsingDFS from '../setup/src/course-dependency-dfs.ts';
+
+## 1. Kahn's Topological Sort
+
+Time complexity: O(m+n), where `n` is the number of courses and `m` is the size of prerequisites
+
+<MDXCodeBlock>{courseDependency}</MDXCodeBlock>
+
+## 2. Using DFS
+
+Time complexity: O(m+n), where `n` is the number of courses and `m` is the size of prerequisites
+
+<MDXCodeBlock>{courseDependencyUsingDFS}</MDXCodeBlock>

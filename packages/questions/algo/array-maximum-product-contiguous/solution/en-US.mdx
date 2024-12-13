@@ -1,0 +1,23 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import maxProductSubArray from '../setup/src/array-maximum-product-contiguous.ts';
+import maxProductSubArrayDP from '../setup/src/array-maximum-product-contiguous-dp.ts';
+import maxProductSubArrayBruteForce from '../setup/src/array-maximum-product-contiguous-bruteforce.ts';
+
+## 1. Brute Froce Approach
+
+Time complexity: O(n<sup>2</sup>)
+
+<MDXCodeBlock>{maxProductSubArrayBruteForce}</MDXCodeBlock>
+
+## 2. Using Dynamic Programming
+
+Time complexity: O(n)
+
+<MDXCodeBlock>{maxProductSubArrayDP}</MDXCodeBlock>
+
+## 3. Using Prefix and Suffix Product
+
+Time complexity: O(n)
+
+<MDXCodeBlock>{maxProductSubArray}</MDXCodeBlock>

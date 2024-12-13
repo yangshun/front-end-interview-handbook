@@ -1,0 +1,8 @@
+{
+  "run": "/src/trie-prefix-tree.run.test.ts",
+  "submit": "/src/trie-prefix-tree.submit.test.ts",
+  "skeleton": {
+    "js": "/src/trie-prefix-tree.skeleton.js",
+    "ts": "/src/trie-prefix-tree.skeleton.ts"
+  }
+}

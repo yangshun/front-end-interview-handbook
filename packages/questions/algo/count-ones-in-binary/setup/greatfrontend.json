@@ -1,0 +1,8 @@
+{
+  "run": "/src/count-ones-in-binary.run.test.ts",
+  "submit": "/src/count-ones-in-binary.submit.test.ts",
+  "skeleton": {
+    "js": "/src/count-ones-in-binary.skeleton.js",
+    "ts": "/src/count-ones-in-binary.skeleton.ts"
+  }
+}

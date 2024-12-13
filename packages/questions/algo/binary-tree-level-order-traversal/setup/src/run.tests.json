@@ -1,0 +1,17 @@
+[
+  {
+    "input": [["root", [13, null, -55]]],
+    "output": [[13], [-55]],
+    "explanation": "The root has two levels: the first level with the value 13, and the second level with the value -55."
+  },
+  {
+    "input": [["root", [1, 2, 3, 4, 5, 6, 7]]],
+    "output": [[1], [2, 3], [4, 5, 6, 7]],
+    "explanation": "The tree has three levels: [1] at the first level, [2, 3] at the second level, and [4, 5, 6, 7] at the third level."
+  },
+  {
+    "input": [["root", [5, 3, 8, null, 4, 7, 9]]],
+    "output": [[5], [3, 8], [4, 7, 9]],
+    "explanation": "The tree has three levels: [5] at the first level, [3, 8] at the second level, and [4, 7, 9] at the third level."
+  }
+]

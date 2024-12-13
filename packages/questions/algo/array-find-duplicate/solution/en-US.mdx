@@ -1,0 +1,16 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import findDuplicates from '../setup/src/array-find-duplicate.ts';
+import containsDuplicateSorting from '../setup/src/array-find-duplicate-sorting.ts';
+
+## 1. Using Sorting
+
+Time complexity: O(NLogN)
+
+<MDXCodeBlock>{containsDuplicateSorting}</MDXCodeBlock>
+
+## 2. Using Set
+
+Time complexity: O(n)
+
+<MDXCodeBlock>{findDuplicates}</MDXCodeBlock>

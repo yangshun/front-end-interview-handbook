@@ -1,0 +1,8 @@
+{
+  "run": "/src/string-decode-message.run.test.ts",
+  "submit": "/src/string-decode-message.submit.test.ts",
+  "skeleton": {
+    "js": "/src/string-decode-message.skeleton.js",
+    "ts": "/src/string-decode-message.skeleton.ts"
+  }
+}

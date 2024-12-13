@@ -1,0 +1,15 @@
+{
+  "slug": "string-palindrome",
+  "created": "2024-08-04T00:00:00.000Z",
+  "languages": ["js", "ts"],
+  "author": "hiten",
+  "companies": [],
+  "access": "standard",
+  "duration": 25,
+  "published": true,
+  "importance": "low",
+  "difficulty": "easy",
+  "featured": false,
+  "similar_questions": [],
+  "next_questions": []
+}

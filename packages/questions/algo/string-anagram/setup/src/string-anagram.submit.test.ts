@@ -1,0 +1,12 @@
+import isStringAnagram from './string-anagram';
+import submitTestCases from './submit.tests.json';
+
+describe('isStringAnagram', () => {
+  (submitTestCases as any[]).forEach((example: any) => {
+    test(`str1 = ${example.input[0][1]} str2 = ${example.input[1][1]}`, () => {
+      expect(isStringAnagram(example.input[0][1], example.input[1][1])).toStrictEqual(
+        example.output,
+      );
+    });
+  });
+});

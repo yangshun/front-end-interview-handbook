@@ -1,0 +1,16 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import mergeIntervals from '../setup/src/intervals-combine-overlapping.ts';
+import mergeIntervalsUsingConnectedComponents from '../setup/src/intervals-combine-overlapping-connected-components.js';
+
+## 1. Using Sorting
+
+Time complexity: O(n log n)
+
+<MDXCodeBlock>{mergeIntervals}</MDXCodeBlock>
+
+## 2. Using Connected Components
+
+Time complexity: O(n<sup>2</sup>)
+
+<MDXCodeBlock>{mergeIntervalsUsingConnectedComponents}</MDXCodeBlock>
