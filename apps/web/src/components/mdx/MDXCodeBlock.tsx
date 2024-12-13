@@ -136,26 +136,23 @@ export default function MDXCodeBlock({
 
   // Direct usage of MDXCodeBlock in MDX.
   return (
-    <ScrollArea scrollbars="horizontal">
-      <div>
-        {Object.keys(allLanguages).length > 1 && (
-          <TabsUnderline
-            label="Selected language"
-            size="xs"
-            tabs={(Object.keys(allLanguages) as Array<Language>).map((lng) => ({
-              label: languagesLabel[lng] ?? lng,
-              value: lng,
-            }))}
-            value={selectedLanguage}
-            onSelect={setSelectedLanguage}
-          />
-        )}
-        <div
-          className="relative"
-          onMouseEnter={onMouseEnter}
-          onMouseLeave={onMouseLeave}>
+    <div>
+      {Object.keys(allLanguages).length > 1 && (
+        <TabsUnderline
+          label="Selected language"
+          size="xs"
+          tabs={(Object.keys(allLanguages) as Array<Language>).map((lng) => ({
+            label: languagesLabel[lng] ?? lng,
+            value: lng,
+          }))}
+          value={selectedLanguage}
+          onSelect={setSelectedLanguage}
+        />
+      )}
+      <ScrollArea scrollbars="horizontal">
+        <div onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
           {isHovered && (
-            <div className="absolute right-1 top-1 flex gap-x-1 p-1">
+            <div className="absolute right-1 top-6 flex gap-x-1 p-1">
               {renderExtraButtons?.(selectedCode)}
               {showCopyButton && <CopyButton contents={selectedCode} />}
             </div>
@@ -221,7 +218,7 @@ export default function MDXCodeBlock({
             }}
           </Highlight>
         </div>
-      </div>
-    </ScrollArea>
+      </ScrollArea>
+    </div>
   );
 }
