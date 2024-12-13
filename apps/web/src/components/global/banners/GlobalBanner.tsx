@@ -81,7 +81,7 @@ function MarketingMessage() {
         href="https://swagoverflow.store"
         target="_blank"
         variant="flat">
-        <SwagOverflowLogo className="mr-2 inline" />
+        <SwagOverflowLogo className="mr-2 hidden sm:inline" />
         <FormattedMessage
           defaultMessage="Visit the ultimate swag store for Front End Engineers! <strong>Check it out</strong>"
           description="Text on SwagStore Banner"
@@ -112,10 +112,12 @@ function MarketingMessage() {
       : [socialMediaBannerEl, projectBannerEl, swagOverflowBannerEl];
 
   useEffect(() => {
-    setTimeout(() => {
+    const interval = setInterval(() => {
       setBannerIndex((value) => (value + 1) % banners.length);
     }, 10000);
-  }, [bannerIndex, banners.length]);
+
+    return () => clearInterval(interval);
+  }, [banners.length]);
 
   return banners[bannerIndex];
 }
