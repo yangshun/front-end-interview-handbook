@@ -26,16 +26,25 @@ export function questionListFilterNamespace(
   return `${listType.type}:${listType.value}`;
 }
 
-export function questionHrefFrameworkSpecific(
+function questionHrefFrameworkSpecific(
   questionMetadata: QuestionMetadata,
+  listType?: QuestionListTypeData | null,
   framework?: QuestionFramework,
 ): string {
-  // Redirect to framework-specific page if framework prop is provided
-  return (
-    questionMetadata.frameworks.find(
-      ({ framework: frameworkType }) => frameworkType === framework,
-    )?.href ?? questionMetadata.href
-  );
+  const frameworkListHref =
+    listType?.type === 'framework'
+      ? questionMetadata.frameworks.find(
+          ({ framework: frameworkValue }) => frameworkValue === listType?.value,
+        )?.href
+      : null;
+
+  const frameworkParamHref = questionMetadata.frameworks.find(
+    ({ framework: frameworkValue }) => frameworkValue === framework,
+  )?.href;
+
+  // Redirect to framework-specific page if a framework list or framework prop
+  // is provided, with framework list having higher priority
+  return frameworkListHref ?? frameworkParamHref ?? questionMetadata.href;
 }
 
 export function questionHrefWithListType(
@@ -71,6 +80,7 @@ export function questionHrefFrameworkSpecificAndListType(
 ): string {
   const maybeFrameworkHref = questionHrefFrameworkSpecific(
     questionMetadata,
+    listType,
     framework,
   );
 
