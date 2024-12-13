@@ -27,19 +27,29 @@ export default function useQuestionCodingSorting({ listType }: Props) {
     'default',
   );
 
-  const baseSortFields: ReadonlyArray<QuestionSortFieldItem> = [
-    { field: 'ranking', isAscendingOrder: true },
-    {
-      // If not study list, sort by difficulty
-      field:
-        sortField === 'default'
-          ? listType?.value === 'study-list'
-            ? 'default'
-            : 'difficulty'
-          : sortField,
-      isAscendingOrder,
-    },
-  ];
+  const baseSortFields: ReadonlyArray<QuestionSortFieldItem> =
+    sortField === 'default'
+      ? listType?.type === 'study-list'
+        ? [
+            {
+              field: 'default',
+              isAscendingOrder,
+            },
+          ]
+        : [
+            { field: 'ranking', isAscendingOrder: true },
+            {
+              field: 'difficulty',
+              isAscendingOrder,
+            },
+          ]
+      : [
+          { field: 'ranking', isAscendingOrder: true },
+          {
+            field: sortField,
+            isAscendingOrder,
+          },
+        ];
 
   // Show free questions first if user is not a premium user
   const sortFields: ReadonlyArray<QuestionSortFieldItem> =
