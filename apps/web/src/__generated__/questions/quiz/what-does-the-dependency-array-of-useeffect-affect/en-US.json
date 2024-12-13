@@ -14,7 +14,7 @@
     "frameworks": [
       {
         "framework": "react",
-        "href": "/questions/quiz/what-does-the-dependency-array-of-useeffect-affect/react"
+        "href": "/questions/quiz/what-does-the-dependency-array-of-useeffect-affect"
       }
     ],
     "href": "/questions/quiz/what-does-the-dependency-array-of-useeffect-affect",

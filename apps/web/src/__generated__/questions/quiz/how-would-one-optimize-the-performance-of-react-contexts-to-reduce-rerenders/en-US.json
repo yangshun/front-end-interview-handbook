@@ -14,7 +14,7 @@
     "frameworks": [
       {
         "framework": "react",
-        "href": "/questions/quiz/how-would-one-optimize-the-performance-of-react-contexts-to-reduce-rerenders/react"
+        "href": "/questions/quiz/how-would-one-optimize-the-performance-of-react-contexts-to-reduce-rerenders"
       }
     ],
     "href": "/questions/quiz/how-would-one-optimize-the-performance-of-react-contexts-to-reduce-rerenders",

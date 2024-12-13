@@ -34,6 +34,8 @@ export function normalizeQuestionFrontMatter(
   const frameworks: ReadonlyArray<QuestionFramework> =
     frontmatter.frameworks ?? [];
 
+  const href = createQuestionHref(format, slug);
+
   return {
     access: frontmatter.access ?? 'free',
     author: frontmatter.author ?? null,
@@ -50,9 +52,12 @@ export function normalizeQuestionFrontMatter(
       (frameworks.length > 0 ? frameworks[0] : null),
     frameworks: frameworks.map((frameworkType) => ({
       framework: frameworkType,
-      href: createQuestionHref(format, slug, frameworkType),
+      href:
+        format === 'user-interface'
+          ? createQuestionHref(format, slug, frameworkType)
+          : href,
     })),
-    href: createQuestionHref(format, slug),
+    href,
     // Have to be null to be serialize-able.
     importance: frontmatter.importance ?? null,
     languages: frontmatter.languages ?? [],

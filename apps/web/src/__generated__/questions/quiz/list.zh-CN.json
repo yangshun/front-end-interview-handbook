@@ -6464,7 +6464,7 @@
     "frameworks": [
       {
         "framework": "react",
-        "href": "/questions/quiz/explain-one-way-data-flow-of-react-and-its-benefits/react"
+        "href": "/questions/quiz/explain-one-way-data-flow-of-react-and-its-benefits"
       }
     ],
     "href": "/questions/quiz/explain-one-way-data-flow-of-react-and-its-benefits",
@@ -6496,7 +6496,7 @@
     "frameworks": [
       {
         "framework": "react",
-        "href": "/questions/quiz/explain-server-side-rendering-of-react-applications-and-its-benefits/react"
+        "href": "/questions/quiz/explain-server-side-rendering-of-react-applications-and-its-benefits"
       }
     ],
     "href": "/questions/quiz/explain-server-side-rendering-of-react-applications-and-its-benefits",
@@ -6528,7 +6528,7 @@
     "frameworks": [
       {
         "framework": "react",
-        "href": "/questions/quiz/explain-static-generation-of-react-applications-and-its-benefits/react"
+        "href": "/questions/quiz/explain-static-generation-of-react-applications-and-its-benefits"
       }
     ],
     "href": "/questions/quiz/explain-static-generation-of-react-applications-and-its-benefits",
@@ -6560,7 +6560,7 @@
     "frameworks": [
       {
         "framework": "react",
-        "href": "/questions/quiz/explain-the-composition-pattern-in-react/react"
+        "href": "/questions/quiz/explain-the-composition-pattern-in-react"
       }
     ],
     "href": "/questions/quiz/explain-the-composition-pattern-in-react",
@@ -6592,7 +6592,7 @@
     "frameworks": [
       {
         "framework": "react",
-        "href": "/questions/quiz/explain-the-presentational-vs-container-component-pattern-in-react/react"
+        "href": "/questions/quiz/explain-the-presentational-vs-container-component-pattern-in-react"
       }
     ],
     "href": "/questions/quiz/explain-the-presentational-vs-container-component-pattern-in-react",
@@ -6624,7 +6624,7 @@
     "frameworks": [
       {
         "framework": "react",
-        "href": "/questions/quiz/explain-what-happens-when-setstate-is-called-in-react/react"
+        "href": "/questions/quiz/explain-what-happens-when-setstate-is-called-in-react"
       }
     ],
     "href": "/questions/quiz/explain-what-happens-when-setstate-is-called-in-react",
@@ -6656,7 +6656,7 @@
     "frameworks": [
       {
         "framework": "react",
-        "href": "/questions/quiz/explain-what-react-hydration-is/react"
+        "href": "/questions/quiz/explain-what-react-hydration-is"
       }
     ],
     "href": "/questions/quiz/explain-what-react-hydration-is",
@@ -6688,7 +6688,7 @@
     "frameworks": [
       {
         "framework": "react",
-        "href": "/questions/quiz/how-do-you-debug-react-applications/react"
+        "href": "/questions/quiz/how-do-you-debug-react-applications"
       }
     ],
     "href": "/questions/quiz/how-do-you-debug-react-applications",
@@ -6720,7 +6720,7 @@
     "frameworks": [
       {
         "framework": "react",
-        "href": "/questions/quiz/how-do-you-decide-between-using-react-state-context-and-external-state-managers/react"
+        "href": "/questions/quiz/how-do-you-decide-between-using-react-state-context-and-external-state-managers"
       }
     ],
     "href": "/questions/quiz/how-do-you-decide-between-using-react-state-context-and-external-state-managers",
@@ -6752,7 +6752,7 @@
     "frameworks": [
       {
         "framework": "react",
-        "href": "/questions/quiz/how-do-you-handle-asynchronous-data-loading-in-react-applications/react"
+        "href": "/questions/quiz/how-do-you-handle-asynchronous-data-loading-in-react-applications"
       }
     ],
     "href": "/questions/quiz/how-do-you-handle-asynchronous-data-loading-in-react-applications",
@@ -6785,7 +6785,7 @@
     "frameworks": [
       {
         "framework": "react",
-        "href": "/questions/quiz/how-do-you-localize-react-applications/react"
+        "href": "/questions/quiz/how-do-you-localize-react-applications"
       }
     ],
     "href": "/questions/quiz/how-do-you-localize-react-applications",
@@ -6818,7 +6818,7 @@
     "frameworks": [
       {
         "framework": "react",
-        "href": "/questions/quiz/how-do-you-reset-a-components-state-in-react/react"
+        "href": "/questions/quiz/how-do-you-reset-a-components-state-in-react"
       }
     ],
     "href": "/questions/quiz/how-do-you-reset-a-components-state-in-react",
@@ -6850,7 +6850,7 @@
     "frameworks": [
       {
         "framework": "react",
-        "href": "/questions/quiz/how-do-you-test-react-applications/react"
+        "href": "/questions/quiz/how-do-you-test-react-applications"
       }
     ],
     "href": "/questions/quiz/how-do-you-test-react-applications",
@@ -6882,7 +6882,7 @@
     "frameworks": [
       {
         "framework": "react",
-        "href": "/questions/quiz/how-does-virtual-dom-in-react-work-what-are-its-benefits-and-downsides/react"
+        "href": "/questions/quiz/how-does-virtual-dom-in-react-work-what-are-its-benefits-and-downsides"
       }
     ],
     "href": "/questions/quiz/how-does-virtual-dom-in-react-work-what-are-its-benefits-and-downsides",
@@ -6914,7 +6914,7 @@
     "frameworks": [
       {
         "framework": "react",
-        "href": "/questions/quiz/how-would-one-optimize-the-performance-of-react-contexts-to-reduce-rerenders/react"
+        "href": "/questions/quiz/how-would-one-optimize-the-performance-of-react-contexts-to-reduce-rerenders"
       }
     ],
     "href": "/questions/quiz/how-would-one-optimize-the-performance-of-react-contexts-to-reduce-rerenders",
@@ -6947,7 +6947,7 @@
     "frameworks": [
       {
         "framework": "react",
-        "href": "/questions/quiz/what-are-error-boundaries-in-react-for/react"
+        "href": "/questions/quiz/what-are-error-boundaries-in-react-for"
       }
     ],
     "href": "/questions/quiz/what-are-error-boundaries-in-react-for",
@@ -6979,7 +6979,7 @@
     "frameworks": [
       {
         "framework": "react",
-        "href": "/questions/quiz/what-are-higher-order-components-in-react/react"
+        "href": "/questions/quiz/what-are-higher-order-components-in-react"
       }
     ],
     "href": "/questions/quiz/what-are-higher-order-components-in-react",
@@ -7011,7 +7011,7 @@
     "frameworks": [
       {
         "framework": "react",
-        "href": "/questions/quiz/what-are-react-fragments-used-for/react"
+        "href": "/questions/quiz/what-are-react-fragments-used-for"
       }
     ],
     "href": "/questions/quiz/what-are-react-fragments-used-for",
@@ -7043,7 +7043,7 @@
     "frameworks": [
       {
         "framework": "react",
-        "href": "/questions/quiz/what-are-react-portals-used-for/react"
+        "href": "/questions/quiz/what-are-react-portals-used-for"
       }
     ],
     "href": "/questions/quiz/what-are-react-portals-used-for",
@@ -7075,7 +7075,7 @@
     "frameworks": [
       {
         "framework": "react",
-        "href": "/questions/quiz/what-are-render-props-in-react-and-what-are-they-for/react"
+        "href": "/questions/quiz/what-are-render-props-in-react-and-what-are-they-for"
       }
     ],
     "href": "/questions/quiz/what-are-render-props-in-react-and-what-are-they-for",
@@ -7107,7 +7107,7 @@
     "frameworks": [
       {
         "framework": "react",
-        "href": "/questions/quiz/what-are-some-common-pitfalls-when-doing-data-fetching-in-react/react"
+        "href": "/questions/quiz/what-are-some-common-pitfalls-when-doing-data-fetching-in-react"
       }
     ],
     "href": "/questions/quiz/what-are-some-common-pitfalls-when-doing-data-fetching-in-react",
@@ -7139,7 +7139,7 @@
     "frameworks": [
       {
         "framework": "react",
-        "href": "/questions/quiz/what-are-some-pitfalls-about-using-context-in-react/react"
+        "href": "/questions/quiz/what-are-some-pitfalls-about-using-context-in-react"
       }
     ],
     "href": "/questions/quiz/what-are-some-pitfalls-about-using-context-in-react",
@@ -7171,7 +7171,7 @@
     "frameworks": [
       {
         "framework": "react",
-        "href": "/questions/quiz/what-are-some-react-anti-patterns/react"
+        "href": "/questions/quiz/what-are-some-react-anti-patterns"
       }
     ],
     "href": "/questions/quiz/what-are-some-react-anti-patterns",
@@ -7203,7 +7203,7 @@
     "frameworks": [
       {
         "framework": "react",
-        "href": "/questions/quiz/what-are-the-benefits-of-using-hooks-in-react/react"
+        "href": "/questions/quiz/what-are-the-benefits-of-using-hooks-in-react"
       }
     ],
     "href": "/questions/quiz/what-are-the-benefits-of-using-hooks-in-react",
@@ -7235,7 +7235,7 @@
     "frameworks": [
       {
         "framework": "react",
-        "href": "/questions/quiz/what-are-the-rules-of-react-hooks/react"
+        "href": "/questions/quiz/what-are-the-rules-of-react-hooks"
       }
     ],
     "href": "/questions/quiz/what-are-the-rules-of-react-hooks",
@@ -7267,7 +7267,7 @@
     "frameworks": [
       {
         "framework": "react",
-        "href": "/questions/quiz/what-does-re-rendering-mean-in-react/react"
+        "href": "/questions/quiz/what-does-re-rendering-mean-in-react"
       }
     ],
     "href": "/questions/quiz/what-does-re-rendering-mean-in-react",
@@ -7299,7 +7299,7 @@
     "frameworks": [
       {
         "framework": "react",
-        "href": "/questions/quiz/what-does-the-dependency-array-of-useeffect-affect/react"
+        "href": "/questions/quiz/what-does-the-dependency-array-of-useeffect-affect"
       }
     ],
     "href": "/questions/quiz/what-does-the-dependency-array-of-useeffect-affect",
@@ -7331,7 +7331,7 @@
     "frameworks": [
       {
         "framework": "react",
-        "href": "/questions/quiz/what-is-code-splitting-in-a-react-application/react"
+        "href": "/questions/quiz/what-is-code-splitting-in-a-react-application"
       }
     ],
     "href": "/questions/quiz/what-is-code-splitting-in-a-react-application",
@@ -7363,7 +7363,7 @@
     "frameworks": [
       {
         "framework": "react",
-        "href": "/questions/quiz/what-is-forwardref-in-react-used-for/react"
+        "href": "/questions/quiz/what-is-forwardref-in-react-used-for"
       }
     ],
     "href": "/questions/quiz/what-is-forwardref-in-react-used-for",
@@ -7395,7 +7395,7 @@
     "frameworks": [
       {
         "framework": "react",
-        "href": "/questions/quiz/what-is-jsx-and-how-does-it-work/react"
+        "href": "/questions/quiz/what-is-jsx-and-how-does-it-work"
       }
     ],
     "href": "/questions/quiz/what-is-jsx-and-how-does-it-work",
@@ -7427,7 +7427,7 @@
     "frameworks": [
       {
         "framework": "react",
-        "href": "/questions/quiz/what-is-react-describe-the-benefits-of-react/react"
+        "href": "/questions/quiz/what-is-react-describe-the-benefits-of-react"
       }
     ],
     "href": "/questions/quiz/what-is-react-describe-the-benefits-of-react",
@@ -7459,7 +7459,7 @@
     "frameworks": [
       {
         "framework": "react",
-        "href": "/questions/quiz/what-is-react-fiber-and-how-is-it-an-improvement-over-the-previous-approach/react"
+        "href": "/questions/quiz/what-is-react-fiber-and-how-is-it-an-improvement-over-the-previous-approach"
       }
     ],
     "href": "/questions/quiz/what-is-react-fiber-and-how-is-it-an-improvement-over-the-previous-approach",
@@ -7491,7 +7491,7 @@
     "frameworks": [
       {
         "framework": "react",
-        "href": "/questions/quiz/what-is-react-strict-mode-and-what-are-its-benefits/react"
+        "href": "/questions/quiz/what-is-react-strict-mode-and-what-are-its-benefits"
       }
     ],
     "href": "/questions/quiz/what-is-react-strict-mode-and-what-are-its-benefits",
@@ -7523,7 +7523,7 @@
     "frameworks": [
       {
         "framework": "react",
-        "href": "/questions/quiz/what-is-react-suspense-and-what-does-it-enable/react"
+        "href": "/questions/quiz/what-is-react-suspense-and-what-does-it-enable"
       }
     ],
     "href": "/questions/quiz/what-is-react-suspense-and-what-does-it-enable",
@@ -7555,7 +7555,7 @@
     "frameworks": [
       {
         "framework": "react",
-        "href": "/questions/quiz/what-is-reconciliation-in-react/react"
+        "href": "/questions/quiz/what-is-reconciliation-in-react"
       }
     ],
     "href": "/questions/quiz/what-is-reconciliation-in-react",
@@ -7587,7 +7587,7 @@
     "frameworks": [
       {
         "framework": "react",
-        "href": "/questions/quiz/what-is-the-consequence-of-using-array-indices-as-the-value-for-key-s-in-react/react"
+        "href": "/questions/quiz/what-is-the-consequence-of-using-array-indices-as-the-value-for-key-s-in-react"
       }
     ],
     "href": "/questions/quiz/what-is-the-consequence-of-using-array-indices-as-the-value-for-key-s-in-react",
@@ -7619,7 +7619,7 @@
     "frameworks": [
       {
         "framework": "react",
-        "href": "/questions/quiz/what-is-the-difference-between-controlled-and-uncontrolled-react-components/react"
+        "href": "/questions/quiz/what-is-the-difference-between-controlled-and-uncontrolled-react-components"
       }
     ],
     "href": "/questions/quiz/what-is-the-difference-between-controlled-and-uncontrolled-react-components",
@@ -7651,7 +7651,7 @@
     "frameworks": [
       {
         "framework": "react",
-        "href": "/questions/quiz/what-is-the-difference-between-react-node-react-element-and-a-react-component/react"
+        "href": "/questions/quiz/what-is-the-difference-between-react-node-react-element-and-a-react-component"
       }
     ],
     "href": "/questions/quiz/what-is-the-difference-between-react-node-react-element-and-a-react-component",
@@ -7683,7 +7683,7 @@
     "frameworks": [
       {
         "framework": "react",
-        "href": "/questions/quiz/what-is-the-difference-between-state-and-props-in-react/react"
+        "href": "/questions/quiz/what-is-the-difference-between-state-and-props-in-react"
       }
     ],
     "href": "/questions/quiz/what-is-the-difference-between-state-and-props-in-react",
@@ -7715,7 +7715,7 @@
     "frameworks": [
       {
         "framework": "react",
-        "href": "/questions/quiz/what-is-the-difference-between-useeffect-and-uselayouteffect-in-react/react"
+        "href": "/questions/quiz/what-is-the-difference-between-useeffect-and-uselayouteffect-in-react"
       }
     ],
     "href": "/questions/quiz/what-is-the-difference-between-useeffect-and-uselayouteffect-in-react",
@@ -7747,7 +7747,7 @@
     "frameworks": [
       {
         "framework": "react",
-        "href": "/questions/quiz/what-is-the-flux-pattern-and-what-are-its-benefits/react"
+        "href": "/questions/quiz/what-is-the-flux-pattern-and-what-are-its-benefits"
       }
     ],
     "href": "/questions/quiz/what-is-the-flux-pattern-and-what-are-its-benefits",
@@ -7779,7 +7779,7 @@
     "frameworks": [
       {
         "framework": "react",
-        "href": "/questions/quiz/what-is-the-purpose-of-callback-function-argument-format-of-setstate-in-react-and-when-should-it-be-used/react"
+        "href": "/questions/quiz/what-is-the-purpose-of-callback-function-argument-format-of-setstate-in-react-and-when-should-it-be-used"
       }
     ],
     "href": "/questions/quiz/what-is-the-purpose-of-callback-function-argument-format-of-setstate-in-react-and-when-should-it-be-used",
@@ -7811,7 +7811,7 @@
     "frameworks": [
       {
         "framework": "react",
-        "href": "/questions/quiz/what-is-the-purpose-of-the-key-prop-in-react/react"
+        "href": "/questions/quiz/what-is-the-purpose-of-the-key-prop-in-react"
       }
     ],
     "href": "/questions/quiz/what-is-the-purpose-of-the-key-prop-in-react",
@@ -7843,7 +7843,7 @@
     "frameworks": [
       {
         "framework": "react",
-        "href": "/questions/quiz/what-is-the-usecallback-hook-in-react-and-when-should-it-be-used/react"
+        "href": "/questions/quiz/what-is-the-usecallback-hook-in-react-and-when-should-it-be-used"
       }
     ],
     "href": "/questions/quiz/what-is-the-usecallback-hook-in-react-and-when-should-it-be-used",
@@ -7875,7 +7875,7 @@
     "frameworks": [
       {
         "framework": "react",
-        "href": "/questions/quiz/what-is-the-useid-hook-in-react-and-when-should-it-be-used/react"
+        "href": "/questions/quiz/what-is-the-useid-hook-in-react-and-when-should-it-be-used"
       }
     ],
     "href": "/questions/quiz/what-is-the-useid-hook-in-react-and-when-should-it-be-used",
@@ -7907,7 +7907,7 @@
     "frameworks": [
       {
         "framework": "react",
-        "href": "/questions/quiz/what-is-the-usememo-hook-in-react-and-when-should-it-be-used/react"
+        "href": "/questions/quiz/what-is-the-usememo-hook-in-react-and-when-should-it-be-used"
       }
     ],
     "href": "/questions/quiz/what-is-the-usememo-hook-in-react-and-when-should-it-be-used",
@@ -7939,7 +7939,7 @@
     "frameworks": [
       {
         "framework": "react",
-        "href": "/questions/quiz/what-is-the-usereducer-hook-in-react-and-when-should-it-be-used/react"
+        "href": "/questions/quiz/what-is-the-usereducer-hook-in-react-and-when-should-it-be-used"
       }
     ],
     "href": "/questions/quiz/what-is-the-usereducer-hook-in-react-and-when-should-it-be-used",
@@ -7971,7 +7971,7 @@
     "frameworks": [
       {
         "framework": "react",
-        "href": "/questions/quiz/what-is-the-useref-hook-in-react-and-when-should-it-be-used/react"
+        "href": "/questions/quiz/what-is-the-useref-hook-in-react-and-when-should-it-be-used"
       }
     ],
     "href": "/questions/quiz/what-is-the-useref-hook-in-react-and-when-should-it-be-used",
@@ -8003,7 +8003,7 @@
     "frameworks": [
       {
         "framework": "react",
-        "href": "/questions/quiz/what-is-virtual-dom-in-react/react"
+        "href": "/questions/quiz/what-is-virtual-dom-in-react"
       }
     ],
     "href": "/questions/quiz/what-is-virtual-dom-in-react",
@@ -8035,7 +8035,7 @@
     "frameworks": [
       {
         "framework": "react",
-        "href": "/questions/quiz/why-does-react-recommend-against-mutating-state/react"
+        "href": "/questions/quiz/why-does-react-recommend-against-mutating-state"
       }
     ],
     "href": "/questions/quiz/why-does-react-recommend-against-mutating-state",

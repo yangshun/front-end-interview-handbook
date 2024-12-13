@@ -14,7 +14,7 @@
     "frameworks": [
       {
         "framework": "react",
-        "href": "/questions/quiz/why-does-react-recommend-against-mutating-state/react"
+        "href": "/questions/quiz/why-does-react-recommend-against-mutating-state"
       }
     ],
     "href": "/questions/quiz/why-does-react-recommend-against-mutating-state",

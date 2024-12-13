@@ -8,7 +8,7 @@
     "/src/selection-sort.ts": "export default function selectionSort(arr: Array<number>): Array<number> {\n  // Iterate through the unsorted portion of the array.\n  for (let i = 0; i < arr.length; i++) {\n    // Initialize index of min element to the start\n    // of the unsorted section.\n    let minIndex = i;\n    // Find the min element.\n    for (let j = i + 1; j < arr.length; j++) {\n      if (arr[j] < arr[minIndex]) {\n        minIndex = j;\n      }\n    }\n\n    // Swap the found min element with the first element of the\n    // unsorted section.\n    [arr[i], arr[minIndex]] = [arr[minIndex], arr[i]];\n\n    // By the end of each outer loop iteration,\n    // [0, i] are sorted.\n  }\n\n  return arr;\n}\n"
   },
   "metadata": {
-    "access": "premium",
+    "access": "standard",
     "author": null,
     "companies": [],
     "created": 1671667200,
