@@ -1,4 +1,4 @@
-import { useLocation } from 'react-use';
+import { useSearchParams } from 'next/navigation';
 
 import { trpc } from '~/hooks/trpc';
 
@@ -16,29 +16,27 @@ export function useQuestionsListTypeCurrent(
   studyListKey?: string,
   framework?: QuestionFramework,
 ): QuestionListTypeData | null {
-  const location = useLocation();
+  const searchParams = useSearchParams();
 
   if (studyListKey) {
     return { type: 'study-list', value: studyListKey };
   }
 
-  const searchParams = new URLSearchParams(location.search);
-
-  if (searchParams.get('format')) {
+  if (searchParams?.get('format')) {
     return {
       type: 'format',
       value: searchParams.get('format') as QuestionFormat,
     };
   }
 
-  if (searchParams.get('framework')) {
+  if (searchParams?.get('framework')) {
     return {
       type: 'framework',
       value: searchParams?.get('framework') as QuestionFramework,
     };
   }
 
-  if (searchParams.get('language')) {
+  if (searchParams?.get('language')) {
     return {
       type: 'language',
       value: searchParams?.get('language') as QuestionLanguage,
