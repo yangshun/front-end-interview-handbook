@@ -18,8 +18,8 @@ import MonacoEditor, { loader, useMonaco } from '@monaco-editor/react';
 function monacoUrl() {
   return process.env.NODE_ENV === 'development'
     ? // Keep version synced with `monaco-editor` in package.json.
-      'https://gfecdn.net/npm/monaco-editor@0.40.0/dev/vs'
-    : 'https://gfecdn.net/npm/monaco-editor@0.40.0/min/vs';
+      '/monaco-editor/dev/vs'
+    : '/monaco-editor/min/vs';
 }
 
 loader.config({
