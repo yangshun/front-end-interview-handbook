@@ -267,7 +267,7 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
                 src={imgSrc}
               />
             ))}
-            <Badge label="+6 more" size="xs" variant="neutral" />
+            <Badge label="+6 more" size="xs" variant="neutral-active" />
           </div>
         ),
         currentMatchRegex: /^\/interviews\/company/,
@@ -306,7 +306,12 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
               'Accessibility',
               '+8 more',
             ].map((label) => (
-              <Badge key={label} label={label} size="xs" variant="neutral" />
+              <Badge
+                key={label}
+                label={label}
+                size="xs"
+                variant="neutral-active"
+              />
             ))}
           </div>
         ),
@@ -355,7 +360,12 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
           <div className="flex flex-wrap gap-2">
             {['JavaScript coding', 'UI coding', 'Algo coding', '+2 more'].map(
               (label) => (
-                <Badge key={label} label={label} size="xs" variant="neutral" />
+                <Badge
+                  key={label}
+                  label={label}
+                  size="xs"
+                  variant="neutral-active"
+                />
               ),
             )}
           </div>
@@ -394,7 +404,12 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
           <div className="flex flex-wrap gap-2">
             {['React', 'TypeScript', 'Vue', 'Angular', 'Svelte', '+3 more'].map(
               (label) => (
-                <Badge key={label} label={label} size="xs" variant="neutral" />
+                <Badge
+                  key={label}
+                  label={label}
+                  size="xs"
+                  variant="neutral-active"
+                />
               ),
             )}
           </div>
