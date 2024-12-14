@@ -8,7 +8,7 @@
     "/src/make-counter.ts": "export default function makeCounter(initialValue: number = 0): () => number {\n  let count = initialValue - 1;\n\n  return () => {\n    count += 1;\n    return count;\n  };\n}\n"
   },
   "metadata": {
-    "access": "free",
+    "access": "standard",
     "author": null,
     "companies": [
       "amazon"

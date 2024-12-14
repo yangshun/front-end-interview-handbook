@@ -8,7 +8,7 @@
     "/src/type-utilities-ii.ts": "export function isArray(value: unknown): boolean {\n  return Array.isArray(value);\n}\n\n// Alternative to isArray.\nexport function isArrayAlt(value: unknown): boolean {\n  // For null and undefined.\n  if (value == null) {\n    return false;\n  }\n\n  return value.constructor === Array;\n}\n\nexport function isFunction(value: unknown): boolean {\n  return typeof value === 'function';\n}\n\nexport function isObject(value: unknown): boolean {\n  // For null and undefined.\n  if (value == null) {\n    return false;\n  }\n\n  const type = typeof value;\n  return type === 'object' || type === 'function';\n}\n\nexport function isPlainObject(value: unknown): boolean {\n  // For null and undefined.\n  if (value == null) {\n    return false;\n  }\n\n  const prototype = Object.getPrototypeOf(value);\n  return prototype === null || prototype === Object.prototype;\n}\n\n// Alternative to isPlainObject, Lodash's implementation.\nexport function isPlainObjectAlternative(value: unknown): boolean {\n  if (!isObject(value)) {\n    return false;\n  }\n\n  // For objects created via Object.create(null);\n  if (Object.getPrototypeOf(value) === null) {\n    return true;\n  }\n\n  let proto = value;\n  while (Object.getPrototypeOf(proto) !== null) {\n    proto = Object.getPrototypeOf(proto);\n  }\n\n  return Object.getPrototypeOf(value) === proto;\n}\n"
   },
   "metadata": {
-    "access": "free",
+    "access": "standard",
     "author": "yangshun",
     "companies": [],
     "created": 1649894400,

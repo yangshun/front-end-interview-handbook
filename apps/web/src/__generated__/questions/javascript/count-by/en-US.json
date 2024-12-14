@@ -8,7 +8,7 @@
     "/src/count-by.ts": "export default function countBy<T>(\n  array: Array<T>,\n  iteratee: (value: T) => number | string | undefined,\n): Record<string, number> {\n  const result: Record<string, number> = {};\n\n  for (const element of array) {\n    const key = String(iteratee(element));\n    if (!Object.prototype.hasOwnProperty.call(result, key)) {\n      result[key] = 0;\n    }\n\n    result[key]++;\n  }\n\n  return result;\n}\n"
   },
   "metadata": {
-    "access": "free",
+    "access": "standard",
     "author": null,
     "companies": [],
     "created": 1690416000,

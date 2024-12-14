@@ -8,7 +8,7 @@
     "/src/min-by.ts": "export default function minBy<T>(\n  array: Array<T>,\n  iteratee: (value: T) => any,\n): any {\n  let result, computed;\n\n  // Iterate through array to find the minimum `result`.\n  for (const value of array) {\n    const current = iteratee(value);\n    // Check whether `computed` is assigned any value yet then compare with `current`, else assign an initial value to `computed` where `current` is not `null`.\n    if (current != null && (computed === undefined || current < computed)) {\n      result = value;\n      computed = current; // Store the computed value of the current `result`.\n    }\n  }\n\n  return result;\n}\n"
   },
   "metadata": {
-    "access": "free",
+    "access": "standard",
     "author": null,
     "companies": [],
     "created": 1710720000,

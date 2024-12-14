@@ -574,7 +574,7 @@
     "topics": []
   },
   {
-    "access": "free",
+    "access": "standard",
     "author": null,
     "companies": [],
     "created": 1690416000,
@@ -700,7 +700,7 @@
     "topics": []
   },
   {
-    "access": "free",
+    "access": "standard",
     "author": null,
     "companies": [],
     "created": 1699488000,
@@ -2132,7 +2132,7 @@
     "topics": []
   },
   {
-    "access": "free",
+    "access": "standard",
     "author": null,
     "companies": [
       "amazon"
@@ -2391,7 +2391,7 @@
     "topics": []
   },
   {
-    "access": "free",
+    "access": "standard",
     "author": null,
     "companies": [],
     "created": 1710720000,
@@ -3325,7 +3325,7 @@
     "topics": []
   },
   {
-    "access": "free",
+    "access": "standard",
     "author": "yangshun",
     "companies": [],
     "created": 1649894400,

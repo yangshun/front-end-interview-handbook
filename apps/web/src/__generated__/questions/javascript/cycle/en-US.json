@@ -8,7 +8,7 @@
     "/src/cycle.ts": "export default function cycle<T>(...values: Array<T>): () => T {\n  let index = 0;\n\n  return () => {\n    const currentValue = values[index];\n    index = (index + 1) % values.length;\n    return currentValue;\n  };\n}\n"
   },
   "metadata": {
-    "access": "free",
+    "access": "standard",
     "author": null,
     "companies": [],
     "created": 1699488000,
