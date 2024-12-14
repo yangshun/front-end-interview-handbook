@@ -547,7 +547,7 @@
     "topics": []
   },
   {
-    "access": "free",
+    "access": "standard",
     "author": null,
     "companies": [],
     "created": 1719964800,
@@ -594,7 +594,7 @@
     ]
   },
   {
-    "access": "free",
+    "access": "standard",
     "author": "yangshun",
     "companies": [
       "lyft"
@@ -648,7 +648,7 @@
     ]
   },
   {
-    "access": "free",
+    "access": "standard",
     "author": "yangshun",
     "companies": [
       "amazon",
@@ -974,7 +974,7 @@
     "topics": []
   },
   {
-    "access": "free",
+    "access": "standard",
     "author": "yangshun",
     "companies": [
       "amazon",
@@ -1106,7 +1106,7 @@
     "topics": []
   },
   {
-    "access": "free",
+    "access": "standard",
     "author": "dhillon",
     "companies": [
       "microsoft",
@@ -1255,7 +1255,7 @@
     "topics": []
   },
   {
-    "access": "free",
+    "access": "standard",
     "author": "yangshun",
     "companies": [
       "amazon"
@@ -1407,7 +1407,7 @@
     ]
   },
   {
-    "access": "free",
+    "access": "standard",
     "author": "dhillon",
     "companies": [],
     "created": 1681430400,
