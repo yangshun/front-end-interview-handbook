@@ -20,6 +20,7 @@ import Text from '~/components/ui/Text';
 import {
   themeBackgroundCardColor,
   themeBackgroundCardWhiteOnLightColor,
+  themeBackgroundGlimmerColor,
   themeBorderElementColor,
   themeGlassyBorder,
   themeTextBrandColor_GroupHover,
@@ -53,7 +54,15 @@ type PreparationStrategyItem = Readonly<{
   variant: 'info' | 'neutral' | 'warning';
 }>;
 
-function PreparationStrategyCard({ data }: { data: PreparationStrategyItem }) {
+function PreparationStrategyCard({
+  data,
+  isLoading,
+}: {
+  data: PreparationStrategyItem;
+  isLoading: boolean;
+}) {
+  const intl = useIntl();
+
   const {
     title,
     description,
@@ -94,7 +103,6 @@ function PreparationStrategyCard({ data }: { data: PreparationStrategyItem }) {
                 />
               </div>
             )}
-
         <div className="flex flex-1 flex-col gap-4">
           <div className="flex flex-col gap-2">
             <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5">
@@ -119,26 +127,46 @@ function PreparationStrategyCard({ data }: { data: PreparationStrategyItem }) {
               {description}
             </Text>
           </div>
-
           {/* Progress */}
-          <div className="flex flex-col gap-x-8 gap-y-2 md:flex-row">
-            {article && (
-              <InterviewsEntityProgress
-                completed={article.completed}
-                entity="article"
-                title={title}
-                total={article.total}
+          {isLoading ? (
+            <div className="flex h-5 items-center">
+              <div
+                aria-label={intl.formatMessage({
+                  defaultMessage: 'Loading',
+                  description: 'Loading label',
+                  id: 'TV3jir',
+                })}
+                className={clsx(
+                  'h-1.5 w-[100px] animate-pulse rounded',
+                  themeBackgroundGlimmerColor,
+                )}
               />
-            )}
-            {question && (
-              <InterviewsEntityProgress
-                completed={question.completed}
-                entity="question"
-                title={title}
-                total={question.total}
-              />
-            )}
-          </div>
+            </div>
+          ) : (
+            <div
+              className={clsx(
+                'flex flex-col gap-x-8 gap-y-2 md:flex-row',
+                'transition-colors',
+                isLoading && 'opacity-0',
+              )}>
+              {article && (
+                <InterviewsEntityProgress
+                  completed={article.completed}
+                  entity="article"
+                  title={title}
+                  total={article.total}
+                />
+              )}
+              {question && (
+                <InterviewsEntityProgress
+                  completed={question.completed}
+                  entity="question"
+                  title={title}
+                  total={question.total}
+                />
+              )}
+            </div>
+          )}
         </div>
       </div>
       <RiArrowRightLine
@@ -168,7 +196,7 @@ export default function InterviewsDashboardRecommendedPreparationStrategy({
 }: Props) {
   const intl = useIntl();
   const guidesData = useGuidesData();
-  const { data: recommendedPrepData } =
+  const { data: recommendedPrepData, isLoading } =
     trpc.questionLists.getRecommendedStudyList.useQuery(undefined);
   const gfe75session = questionListSessions.find(
     (session) =>
@@ -292,9 +320,11 @@ export default function InterviewsDashboardRecommendedPreparationStrategy({
       <div className={clsx('relative flex flex-col gap-6', 'overflow-hidden')}>
         {preparationStrategies.map((strategy, index) => {
           const { article, question } = strategy;
-          const isCompleted =
-            (question?.total || 0) + (article?.total || 0) ===
+          const totalItems = (question?.total || 0) + (article?.total || 0);
+          const totalCompleted =
             (article?.completed || 0) + (question?.completed || 0);
+          const isCompleted =
+            totalCompleted > 0 && totalItems === totalCompleted;
 
           return (
             <div key={strategy.title} className="flex w-full gap-4 md:gap-6">
@@ -316,7 +346,10 @@ export default function InterviewsDashboardRecommendedPreparationStrategy({
               </div>
               <div
                 className={clsx('w-full', 'flex flex-col items-start gap-3')}>
-                <PreparationStrategyCard data={strategy} />
+                <PreparationStrategyCard
+                  data={strategy}
+                  isLoading={isLoading}
+                />
               </div>
             </div>
           );
