@@ -5,6 +5,7 @@ import type { ForwardedRef, ReactNode } from 'react';
 import { forwardRef, useRef } from 'react';
 
 import { FormattedMessage } from '~/components/intl';
+import Anchor from '~/components/ui/Anchor';
 import AnimatedBeam from '~/components/ui/AnimatedBeam/AnimatedBeam';
 import BorderBeam from '~/components/ui/BorderBeam/BorderBeam';
 import Container from '~/components/ui/Container';
@@ -14,6 +15,7 @@ import Text from '~/components/ui/Text';
 import {
   themeBackgroundCardColor,
   themeBackgroundColor,
+  themeBorderBrandColor_Hover,
   themeBorderColor,
   themeBorderEmphasizeColor_Hover,
   themeGradientHeading,
@@ -51,9 +53,9 @@ export default function InterviewsMarketingStudyPlansSection() {
           size="inherit"
           weight="inherit">
           <FormattedMessage
-            defaultMessage="Front end interviews are even broader in scope than traditional software engineering interviews. On top of the wide range of front-end topics that could be asked, some companies still include standard DSA questions for front-end roles."
+            defaultMessage="Front end interviews are even broader in scope than traditional software engineering interviews. On top of the wide range of front end topics that could be asked, some companies still include standard DSA questions for front end roles."
             description="Subtitle for marketing page study plans section"
-            id="B1eds8"
+            id="94O2yv"
           />
         </Text>
         <Text
@@ -61,9 +63,9 @@ export default function InterviewsMarketingStudyPlansSection() {
           size="inherit"
           weight="medium">
           <FormattedMessage
-            defaultMessage="We've condensed everything info a simple strategy you can use to conquer essential interview patterns."
+            defaultMessage="We've condensed everything into a simple strategy you can use to conquer essential interview patterns."
             description="Subtitle for marketing page study plans section"
-            id="k9LkIB"
+            id="IjqNaT"
           />
         </Text>
         <div
@@ -114,21 +116,25 @@ function TopicNodeImpl(
 const TopicNode = forwardRef(TopicNodeImpl);
 
 function CenterNode({
-  number,
   children,
+  href,
+  number,
 }: Readonly<{
   children: ReactNode;
+  href: string;
   number: number;
 }>) {
   return (
-    <div
+    <Anchor
       className={clsx(
         'flex items-center gap-3',
         'px-3 py-2',
         'rounded-lg',
         'transition-colors',
-        ['border', themeBorderColor, themeBorderEmphasizeColor_Hover],
-      )}>
+        ['border', themeBorderColor, themeBorderBrandColor_Hover],
+      )}
+      href={href}
+      variant="unstyled">
       <div
         className={clsx(
           'flex items-center justify-center',
@@ -140,7 +146,7 @@ function CenterNode({
         {number}
       </div>
       <div className={clsx('text-xs font-medium lg:text-base')}>{children}</div>
-    </div>
+    </Anchor>
   );
 }
 
@@ -212,9 +218,13 @@ function NodesNetwork() {
             themeBackgroundColor,
             ['border', themeBorderColor],
           )}>
-          <CenterNode number={1}>GFE 75</CenterNode>
-          <CenterNode number={2}>Blind 75</CenterNode>
-          <CenterNode number={3}>
+          <CenterNode href="/interviews/gfe75" number={1}>
+            GFE 75
+          </CenterNode>
+          <CenterNode href="/interviews/blind75" number={2}>
+            Blind 75
+          </CenterNode>
+          <CenterNode href="/front-end-system-design-playbook" number={3}>
             <FormattedMessage
               defaultMessage="Front end system design"
               description="Front end topic"

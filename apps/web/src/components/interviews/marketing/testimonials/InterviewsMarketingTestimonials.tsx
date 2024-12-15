@@ -91,7 +91,7 @@ export function InterviewsMarketingTestimonialsDict() {
     location: 'New York, US',
     name: 'Jacky Liang',
     testimonial:
-      "If you are a developer or engineer looking to excel in the front-end world, GreatFrontEnd is an excellent resource to have. It's very common to practice LeetCode style questions in the world of engineering, but rarely does anyone talk about system designs and behavioral questions. This is one of the biggest reasons why I joined! It's challenging, fun, and there's also a community that looks out for you!",
+      "If you are a developer or engineer looking to excel in the front end world, GreatFrontEnd is an excellent resource to have. It's very common to practice LeetCode style questions in the world of engineering, but rarely does anyone talk about system designs and behavioral questions. This is one of the biggest reasons why I joined! It's challenging, fun, and there's also a community that looks out for you!",
     title: 'Software Engineer',
   };
   const anand: InterviewsMarketingTestimonial = {
@@ -129,7 +129,7 @@ export function InterviewsMarketingTestimonialsDict() {
     location: 'Seattle, US',
     name: 'Ryan Van Valkenburg',
     testimonial:
-      'GreatFrontEnd has been a great resource for preparing and continuing in the ever-shifting front-end world. Allowing me to brush up on fundamentals, hone new concepts and practices to put my best foot forward in technical ability and confidence to be able to get interviews AND offers.',
+      'GreatFrontEnd has been a great resource for preparing and continuing in the ever-shifting front end world. Allowing me to brush up on fundamentals, hone new concepts and practices to put my best foot forward in technical ability and confidence to be able to get interviews AND offers.',
     title: 'Senior Software Engineer',
   };
   const prashanth: InterviewsMarketingTestimonial = {
@@ -398,7 +398,7 @@ export function InterviewsMarketingTestimonialsDict() {
     location: 'Canada',
     name: 'Zizib',
     testimonial:
-      "Finally some good news on my side. I got a frontend engineer role at GitLab. It's been a pretty wild ride. I initially got to the final stage with one team and didn't get the job. But the recruiter matched me to another team and it worked 😱. I'm so glad to be focusing on front-end again, not fullstack. 34% rise in base salary. Total comp is about a 52% increase, mainly because I'm leaving a Canadian startup. GFE was so helpful in building my confidence in solving frontend problems. And the community has been amazing. You all are doing the lord's work.",
+      "Finally some good news on my side. I got a frontend engineer role at GitLab. It's been a pretty wild ride. I initially got to the final stage with one team and didn't get the job. But the recruiter matched me to another team and it worked 😱. I'm so glad to be focusing on front end again, not fullstack. 34% rise in base salary. Total comp is about a 52% increase, mainly because I'm leaving a Canadian startup. GFE was so helpful in building my confidence in solving frontend problems. And the community has been amazing. You all are doing the lord's work.",
     title: 'Frontend Engineer',
   };
 
@@ -517,7 +517,7 @@ export function InterviewsMarketingTestimonialsDict() {
     location: 'Los Angeles, US',
     name: 'Dustin Lakin',
     testimonial:
-      'GreatFrontEnd has been my main resource for front-end interviews and has helped re-sharpen algorithms, quiz, common components and best of all the system design. It has proven to be a great all-in-one place that is specifically in TypeScript. It has given me confidence and guidance to multiple offers. Thanks to the team for all the hard work.',
+      'GreatFrontEnd has been my main resource for front end interviews and has helped re-sharpen algorithms, quiz, common components and best of all the system design. It has proven to be a great all-in-one place that is specifically in TypeScript. It has given me confidence and guidance to multiple offers. Thanks to the team for all the hard work.',
     title: 'Software Engineer',
   };
 

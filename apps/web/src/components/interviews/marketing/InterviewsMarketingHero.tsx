@@ -130,7 +130,7 @@ export default function InterviewsMarketingHeroNew({ testimonials }: Props) {
             isTitleVisible ? 'opacity-100' : 'opacity-0',
           )}>
           <Button
-            href="/interviews/dashboard"
+            href="/interviews/get-started"
             icon={RiArrowRightLine}
             label={intl.formatMessage({
               defaultMessage: 'Get started now',

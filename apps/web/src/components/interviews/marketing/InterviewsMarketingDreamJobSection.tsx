@@ -43,7 +43,7 @@ export default function InterviewsMarketingDreamJobSection() {
       <Section>
         <div className="flex flex-col items-start justify-center gap-2 md:items-end">
           <Button
-            href="/interviews/dashboard"
+            href="/interviews/get-started"
             label={intl.formatMessage({
               defaultMessage: 'Get started now',
               description: 'Label for Get Started button in dream job section.',

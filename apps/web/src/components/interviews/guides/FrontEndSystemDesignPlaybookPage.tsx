@@ -108,10 +108,10 @@ export default function FrontEndSystemDesignPlaybookPage({
           <Text color="secondary" size="inherit">
             {intl.formatMessage({
               defaultMessage:
-                "System design interviews are often reserved for mid-to-senior roles, focusing on your ability to design complex, scalable, and maintainable systems. With few resources out there specifically for front-end system design, we've crafted the Front-End System Design Guide—the most comprehensive resource available.",
+                "System design interviews are often reserved for mid-to-senior roles, focusing on your ability to design complex, scalable, and maintainable systems. With few resources out there specifically for front end system design, we've crafted the Front End System Design Guide—the most comprehensive resource available.",
               description:
                 'Long description of frontend interview playbook page',
-              id: '1ygaKJ',
+              id: 'BFqUim',
             })}
           </Text>
         </div>

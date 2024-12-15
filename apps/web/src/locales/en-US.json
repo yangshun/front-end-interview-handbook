@@ -595,10 +595,6 @@
     "defaultMessage": "Edit on GitHub",
     "description": "Edit on GitHub button"
   },
-  "1ygaKJ": {
-    "defaultMessage": "System design interviews are often reserved for mid-to-senior roles, focusing on your ability to design complex, scalable, and maintainable systems. With few resources out there specifically for front-end system design, we've crafted the Front-End System Design Guide—the most comprehensive resource available.",
-    "description": "Long description of frontend interview playbook page"
-  },
   "1zLRKA": {
     "defaultMessage": "Introduction",
     "description": "Title for introduction category of frontend interview playbook cover page"
@@ -1643,6 +1639,10 @@
     "defaultMessage": "URL is required",
     "description": "Error message"
   },
+  "94O2yv": {
+    "defaultMessage": "Front end interviews are even broader in scope than traditional software engineering interviews. On top of the wide range of front end topics that could be asked, some companies still include standard DSA questions for front end roles.",
+    "description": "Subtitle for marketing page study plans section"
+  },
   "95Is5V": {
     "defaultMessage": "Quickly convert challenge designs into HTML, CSS, and Tailwind code by using our <link>Figma to Code plugin</link>.",
     "description": "Use the Figma to code plugin"
@@ -1899,10 +1899,6 @@
     "defaultMessage": "Menu",
     "description": "Project guide navigation menu button label"
   },
-  "B1eds8": {
-    "defaultMessage": "Front end interviews are even broader in scope than traditional software engineering interviews. On top of the wide range of front-end topics that could be asked, some companies still include standard DSA questions for front-end roles.",
-    "description": "Subtitle for marketing page study plans section"
-  },
   "B2171J": {
     "defaultMessage": "Download design assets",
     "description": "Label for \"Download design assets\" step in dialog on Projects project page"
@@ -1950,6 +1946,10 @@
   "BFqThO": {
     "defaultMessage": "Vue Interview Questions",
     "description": "Vue questions category long title"
+  },
+  "BFqUim": {
+    "defaultMessage": "System design interviews are often reserved for mid-to-senior roles, focusing on your ability to design complex, scalable, and maintainable systems. With few resources out there specifically for front end system design, we've crafted the Front End System Design Guide—the most comprehensive resource available.",
+    "description": "Long description of frontend interview playbook page"
   },
   "BHjWCo": {
     "defaultMessage": "API specifications and sample data",
@@ -3066,6 +3066,10 @@
   "IiZazG": {
     "defaultMessage": "Company",
     "description": "Header for company filters"
+  },
+  "IjqNaT": {
+    "defaultMessage": "We've condensed everything into a simple strategy you can use to conquer essential interview patterns.",
+    "description": "Subtitle for marketing page study plans section"
   },
   "ImDbLo": {
     "defaultMessage": "Total time",
@@ -7406,10 +7410,6 @@
   "k8wyWA": {
     "defaultMessage": "Submit your project - host your project on any service and submit your Github repo and site url",
     "description": "Step 4 of the \"How it works\" section on the Projects home page"
-  },
-  "k9LkIB": {
-    "defaultMessage": "We've condensed everything info a simple strategy you can use to conquer essential interview patterns.",
-    "description": "Subtitle for marketing page study plans section"
   },
   "k9Xy20": {
     "defaultMessage": "Coding questions supported in Vanilla JavaScript, React, Vue, Angular, and Svelte.",
