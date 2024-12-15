@@ -1,5 +1,6 @@
 // @ts-check
 
+import allInterviewsStudyListMetadata from './.contentlayer/generated/InterviewsStudyList/_index.json' assert { type: 'json' };
 import allProjectsChallengeMetadata from './.contentlayer/generated/ProjectsChallengeMetadata/_index.json' assert { type: 'json' };
 import allProjectsSkillMetadata from './.contentlayer/generated/ProjectsSkillMetadata/_index.json' assert { type: 'json' };
 import allProjectsTrackMetadata from './.contentlayer/generated/ProjectsTrackMetadata/_index.json' assert { type: 'json' };
@@ -62,25 +63,40 @@ export default {
   },
   additionalPaths: async (config) => {
     const paths = [
-      ...codingQuestionsList.map(({ href }) => href),
-      // Interviews.
-      '/get-started',
-      '/prepare',
-      '/prepare/behavioral',
-      '/prepare/coding',
-      '/prepare/quiz',
-      '/prepare/system-design',
+      // Interviews / Marketing
+      '/',
+      '/interviews/pricing',
+      '/interviews/testimonials',
+      '/interviews/faq',
+      // Interviews / Dashboard
+      '/interviews/get-started',
+      '/interviews/questions',
+      // Interviews / Formats
+      '/questions/algo',
+      '/questions/javascript',
+      '/questions/user-interface',
+      '/questions/system-design',
       '/questions/quiz',
+      // Interviews / Languages
+      '/questions/html',
+      '/questions/css',
+      '/questions/js',
+      '/questions/ts',
+      // Interviews / Frameworks
       '/questions/react',
+      '/questions/vue',
       '/questions/angular',
       '/questions/svelte',
-      '/questions/system-design',
       '/questions/vanilla',
+      // Interviews / Study Lists
+      ...allInterviewsStudyListMetadata.map(({ href }) => href),
       '/interviews/focus-areas',
       '/interviews/study-plans',
       '/interviews/company',
       '/interviews/roadmap',
-      // Projects.
+      // Interviews / Questions
+      ...codingQuestionsList.map(({ href }) => href),
+      // Projects
       '/projects',
       '/projects/pricing',
       '/projects/challenges',
@@ -93,23 +109,19 @@ export default {
       '/projects/submissions/learn',
       '/projects/submissions/mentor',
       '/projects/roadmap',
-      // Marketing pages.
-      '/',
-      '/interviews/pricing',
-      '/interviews/testimonials',
-      '/interviews/faq',
+      // General pages
       '/affiliates',
-      '/contact',
       '/promotions',
-      '/jobs',
       '/rewards/social',
-      // About the company.
+      '/contact',
+      // About the company
+      '/jobs',
       '/about',
       '/team',
-      // Legal.
+      // Legal
       '/legal/privacy-policy',
       '/legal/terms',
-      // Misc.
+      // Misc
       '/login',
       '/sign-up',
       // Blog
