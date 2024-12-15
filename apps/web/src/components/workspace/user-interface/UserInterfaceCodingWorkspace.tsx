@@ -9,7 +9,6 @@ import type {
   QuestionUserInterface,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import type { QuestionUserInterfaceMode } from '~/components/interviews/questions/common/QuestionUserInterfacePath';
-import useQuestionLogEventCopyContents from '~/components/interviews/questions/common/useQuestionLogEventCopyContents';
 import useQuestionsAutoMarkAsComplete from '~/components/interviews/questions/common/useQuestionsAutoMarkAsComplete';
 import { useQuestionsListTypeCurrent } from '~/components/interviews/questions/common/useQuestionsListDataForType';
 import { questionUserInterfaceSolutionPath } from '~/components/interviews/questions/content/user-interface/QuestionUserInterfaceRoutes';
@@ -109,7 +108,6 @@ function UserInterfaceCodingWorkspaceImpl({
         : question.solutionBundle?.author) ?? rawMetadata.author,
   };
 
-  const copyRef = useQuestionLogEventCopyContents<HTMLDivElement>();
   const { dispatch } = useUserInterfaceCodingWorkspaceTilesContext();
   const { sandpack } = useSandpack();
   const { activeFile, visibleFiles, files } = sandpack;
@@ -404,7 +402,6 @@ function UserInterfaceCodingWorkspaceImpl({
         </div>
       )}
       <div
-        ref={copyRef}
         className={clsx(
           'size-full flex-col text-sm',
           !embed ? 'hidden lg:flex' : 'flex',

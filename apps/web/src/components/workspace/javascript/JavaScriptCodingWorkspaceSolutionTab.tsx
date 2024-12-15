@@ -2,6 +2,7 @@ import { getMDXComponent } from 'mdx-bundler/client';
 import { useMemo } from 'react';
 
 import InterviewsPurchasePaywall from '~/components/interviews/purchase/InterviewsPurchasePaywall';
+import useQuestionLogEventCopyContents from '~/components/interviews/questions/common/useQuestionLogEventCopyContents';
 import type { Props as MDXCodeBlockProps } from '~/components/mdx/MDXCodeBlock';
 import MDXCodeBlock from '~/components/mdx/MDXCodeBlock';
 import MDXComponents from '~/components/mdx/MDXComponents';
@@ -29,6 +30,7 @@ export default function JavaScriptCodingWorkspaceSolutionTab({
   canViewPremiumContent,
   solution,
 }: Props) {
+  const copyRef = useQuestionLogEventCopyContents<HTMLDivElement>();
   // It's generally a good idea to memoize this function call to
   // avoid re-creating the component every render.
   const Contents = useMemo(() => {
@@ -57,7 +59,7 @@ export default function JavaScriptCodingWorkspaceSolutionTab({
   }
 
   return (
-    <div className="w-full">
+    <div ref={copyRef} className="w-full">
       <div className="mx-auto max-w-3xl p-4">
         <Prose textSize="sm">
           <Contents components={MDXComponents} />

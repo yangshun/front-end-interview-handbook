@@ -96,8 +96,6 @@ function JavaScriptCodingWorkspaceImpl({
   const { description, metadata, solution } = question;
   const { dispatch } = useJavaScriptCodingWorkspaceTilesContext();
 
-  const copyRef = useQuestionLogEventCopyContents<HTMLDivElement>();
-
   const { sandpack } = useSandpack();
   const { files, updateFile } = sandpack;
 
@@ -351,7 +349,6 @@ function JavaScriptCodingWorkspaceImpl({
           </div>
         )}
         <div
-          ref={copyRef}
           className={clsx(
             'size-full flex-col text-sm',
             !embed ? 'hidden lg:flex' : 'flex',

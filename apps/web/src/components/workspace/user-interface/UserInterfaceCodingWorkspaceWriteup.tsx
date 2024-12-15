@@ -9,6 +9,7 @@ import type {
   QuestionMetadata,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import type { QuestionUserInterfaceMode } from '~/components/interviews/questions/common/QuestionUserInterfacePath';
+import useQuestionLogEventCopyContents from '~/components/interviews/questions/common/useQuestionLogEventCopyContents';
 import { useQuestionsListTypeCurrent } from '~/components/interviews/questions/common/useQuestionsListDataForType';
 import QuestionCompanies from '~/components/interviews/questions/content/QuestionCompanies';
 import QuestionContentProse from '~/components/interviews/questions/content/QuestionContentProse';
@@ -60,6 +61,7 @@ export default function UserInterfaceCodingWorkspaceWriteup({
   studyListKey,
   writeup,
 }: Props) {
+  const copyRef = useQuestionLogEventCopyContents<HTMLDivElement>();
   const listType = useQuestionsListTypeCurrent(studyListKey, framework);
   const { data: questionProgress } = useQueryQuestionProgress(
     metadata,
@@ -80,7 +82,9 @@ export default function UserInterfaceCodingWorkspaceWriteup({
       {/* Override the display:table because the content like MDXCodeBlock
       where there is long code make this overflow and the horizontal scrollbar doesn't appear */}
       <ScrollArea viewportClass="[&>div]:!block">
-        <div className="mx-auto flex max-w-3xl flex-col gap-y-6 p-4">
+        <div
+          ref={copyRef}
+          className="mx-auto flex max-w-3xl flex-col gap-y-6 p-4">
           {contentType === 'description' && mode === 'solution' && (
             <Alert variant="info">
               <div className="flex flex-col items-start gap-2">
