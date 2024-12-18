@@ -6,6 +6,7 @@ import type { QuestionFormat } from '~/components/interviews/questions/common/Qu
 import { fetchInterviewsStudyList } from '~/db/contentlayer/InterviewsStudyListReader';
 import type { QuestionProgressStatus } from '~/db/QuestionsProgressTypes';
 import { hashQuestion, unhashQuestion } from '~/db/QuestionsUtils';
+import { triggerCompletedSomeQuestionsEmail } from '~/emails/completedSomeQuestionsEmail';
 import prisma from '~/server/prisma';
 
 import { publicProcedure, router, userProcedure } from '../trpc';
@@ -44,6 +45,15 @@ export const questionProgressRouter = router({
             },
           },
         });
+
+        if (questionProgress) {
+          // Trigger completed some questions transactional email
+          triggerCompletedSomeQuestionsEmail({
+            email: viewer.email,
+            format,
+            userId: viewer.id,
+          });
+        }
 
         if (studyListKey == null) {
           return { newSessionCreated: false, questionProgress };

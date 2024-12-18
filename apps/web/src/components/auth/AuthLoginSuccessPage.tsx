@@ -12,14 +12,25 @@ import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 import { themeRadialWhiteGlowBackground } from '~/components/ui/theme';
 
+import useOauthSignupTriggerWelcomeSeriesEmail from '~/emails/useOauthSignupTriggerWelcomeSeriesEmail';
 import logEvent from '~/logging/logEvent';
 
 type Props = Readonly<{
   next: string | null;
+  welcomeSeriesEmailSent: boolean;
 }>;
 
-export default function AuthLoginSuccessPage({ next }: Props) {
+export default function AuthLoginSuccessPage({
+  next,
+  welcomeSeriesEmailSent,
+}: Props) {
   const intl = useIntl();
+
+  // Trigger welcome email
+  useOauthSignupTriggerWelcomeSeriesEmail({
+    isProjects: !!next?.includes('/projects'), // To determine if the signup was triggers from projects or interviews
+    welcomeSeriesEmailSent,
+  });
 
   useAuthFullPageRedirectAfterLogin(next);
 

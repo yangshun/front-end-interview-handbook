@@ -8,7 +8,7 @@ import {
   purchaseCustomerRemovePlan,
 } from '~/components/purchase/PurchaseStripeWebhookHandlers';
 
-import { sendEmailPaymentFailed } from '~/emails/EmailSender';
+import sendPaymentFailedEmail from '~/emails/sendPaymentFailedEmail';
 import { getErrorMessage } from '~/utils/getErrorMessage';
 
 export const config = { api: { bodyParser: false } };
@@ -89,9 +89,13 @@ export default async function handler(
         return res.send(`No email found for error for ${customerId}`);
       }
 
-      const result = await sendEmailPaymentFailed(email, name);
+      await sendPaymentFailedEmail({
+        email,
+        name: name || 'there',
+        userId: customerId as string,
+      });
 
-      return res.send(`Error email ${result.data?.id} sent for ${customerId}`);
+      return res.send(`Error email sent for ${customerId}`);
     }
 
     case 'checkout.session.completed': {

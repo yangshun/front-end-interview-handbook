@@ -1,6 +1,7 @@
 import { z } from 'zod';
 
 import { hashGuide } from '~/db/guides/GuidesUtils';
+import { triggerCompletedSomeQuestionsEmail } from '~/emails/completedSomeQuestionsEmail';
 import prisma from '~/server/prisma';
 
 import { router, userProcedure } from '../trpc';
@@ -36,6 +37,13 @@ export const guideProgressRouter = router({
               status: 'COMPLETED',
               userId: viewer.id,
             },
+          });
+
+          // Trigger completed some questions transactional email
+          triggerCompletedSomeQuestionsEmail({
+            email: viewer.email,
+            format: 'article',
+            userId: viewer.id,
           });
 
           if (studyListKey == null) {

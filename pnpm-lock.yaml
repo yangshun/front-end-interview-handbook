@@ -379,6 +379,12 @@ importers:
       '@types/ua-parser-js':
         specifier: ^0.7.39
         version: 0.7.39
+      '@upstash/qstash':
+        specifier: ^2.7.19
+        version: 2.7.19
+      '@upstash/redis':
+        specifier: ^1.34.3
+        version: 1.34.3
       '@use-gesture/react':
         specifier: ^10.3.1
         version: 10.3.1(react@18.2.0)
@@ -7309,6 +7315,20 @@ packages:
       eslint-visitor-keys: 3.4.3
     dev: false
 
+  /@upstash/qstash@2.7.19:
+    resolution: {integrity: sha512-OIcuvzsz8oLO0J3b/yj4UoBwvfunLTtIgub8yTjhCgTKUcn4boRBjDUHIDteSsWBS+ZRvvORBp2mJ5SkuASuXQ==}
+    dependencies:
+      crypto-js: 4.2.0
+      jose: 5.9.6
+      neverthrow: 7.2.0
+    dev: false
+
+  /@upstash/redis@1.34.3:
+    resolution: {integrity: sha512-VT25TyODGy/8ljl7GADnJoMmtmJ1F8d84UXfGonRRF8fWYJz7+2J6GzW+a6ETGtk4OyuRTt7FRSvFG5GvrfSdQ==}
+    dependencies:
+      crypto-js: 4.2.0
+    dev: false
+
   /@use-gesture/core@10.3.1:
     resolution: {integrity: sha512-WcINiDt8WjqBdUXye25anHiNxPc0VOrlT8F6LLkU6cycrOGUDyY/yyFmsg3k8i5OLvv25llc0QC45GhR/C8llw==}
     dev: false
@@ -8727,6 +8747,10 @@ packages:
       path-key: 3.1.1
       shebang-command: 2.0.0
       which: 2.0.2
+
+  /crypto-js@4.2.0:
+    resolution: {integrity: sha512-KALDyEYgpY+Rlob/iriUtjV6d5Eq+Y191A5g4UqLAi8CyGP9N1+FdVbkc1SxKc2r4YAYqG8JzO2KGL+AizD70Q==}
+    dev: false
 
   /crypto-random-string@4.0.0:
     resolution: {integrity: sha512-x8dy3RnvYdlUcPOjkEHqozhiwzKNSq7GcPuXFbnyMOCHxX8V3OgIg/pYuabl2sbUPfIJaeAQB7PMOK8DFIdoRA==}
@@ -11680,6 +11704,10 @@ packages:
     resolution: {integrity: sha512-oW3PCnvyrcm1HMvGTzqjxxfnEs9EoFOFWi2HsEGhlFVOXxTE3K9GKWVMFoFw06yPUqwpvEWic1BmtUZBI/tIjw==}
     dev: false
 
+  /jose@5.9.6:
+    resolution: {integrity: sha512-AMlnetc9+CV9asI19zHmrgS/WYsWUwCn2R7RzlbJWD7F9eWYUTGyBmU9o6PxngtLGOiDGPRu+Uc4fhKzbpteZQ==}
+    dev: false
+
   /jquery@3.7.1:
     resolution: {integrity: sha512-m4avr8yL8kmFN8psrbFFFmB/If14iN5o9nw/NgnnM+kybDJpRsAynV2BsfpTYrTRysYUdADVD7CkUUizgkpLfg==}
     dev: false
@@ -12913,6 +12941,11 @@ packages:
   /netmask@2.0.2:
     resolution: {integrity: sha512-dBpDMdxv9Irdq66304OLfEmQ9tbNRFnFTuZiLo+bD+r332bBmMJ8GBLXklIXXgxd3+v9+KUnZaUR5PJMa75Gsg==}
     engines: {node: '>= 0.4.0'}
+    dev: false
+
+  /neverthrow@7.2.0:
+    resolution: {integrity: sha512-iGBUfFB7yPczHHtA8dksKTJ9E8TESNTAx1UQWW6TzMF280vo9jdPYpLUXrMN1BCkPdHFdNG3fxOt2CUad8KhAw==}
+    engines: {node: '>=18'}
     dev: false
 
   /next-auth@4.24.7(next@14.2.15)(react-dom@18.2.0)(react@18.2.0):

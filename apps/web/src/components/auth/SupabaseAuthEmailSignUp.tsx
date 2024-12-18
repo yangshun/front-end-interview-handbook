@@ -11,6 +11,7 @@ import Button from '~/components/ui/Button';
 import CheckboxInput from '~/components/ui/CheckboxInput';
 import TextInput from '~/components/ui/TextInput';
 
+import triggerWelcomeSeriesEmail from '~/emails/triggerWelcomeSeriesEmail';
 import logEvent from '~/logging/logEvent';
 import { useI18nRouter } from '~/next-i18nostic/src';
 import type { SupabaseClientGFE } from '~/supabase/SupabaseServerGFE';
@@ -121,6 +122,15 @@ export default function SupabaseAuthEmailSignUp({
         namespace: 'auth',
         type: 'email',
       });
+
+      // Trigger welcome email
+      triggerWelcomeSeriesEmail({
+        email,
+        name: '',
+        signupViaInterviews: !next?.includes('/projects'), // To determine if the signup was triggers from projects or interviews
+        userId: signUpUser.id,
+      });
+
       // Redirect to email verify page.
       router.push({
         pathname: '/auth/verification-sent',

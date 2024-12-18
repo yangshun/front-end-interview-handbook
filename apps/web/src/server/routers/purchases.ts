@@ -8,6 +8,7 @@ import countryNames from '~/data/countryCodesToNames.json';
 import fetchInterviewsPricingPlanPaymentConfigLocalizedRecord from '~/components/interviews/purchase/fetchInterviewsPricingPlanPaymentConfigLocalizedRecord';
 import fetchProjectsPricingPlanPaymentConfigLocalizedRecord from '~/components/projects/purchase/fetchProjectsPricingPlanPaymentConfigLocalizedRecord';
 
+import triggerInitiateCheckoutEmail from '~/emails/checkoutEmail/triggerInitiateCheckoutEmail';
 import prisma from '~/server/prisma';
 
 import { publicProcedure, router, userProcedure } from '../trpc';
@@ -88,6 +89,22 @@ export const purchasesRouter = router({
 
       return session.url;
     }),
+  initiateCheckoutEmail: userProcedure.mutation(async ({ ctx: { viewer } }) => {
+    const profile = await prisma.profile.findUnique({
+      select: {
+        name: true,
+      },
+      where: {
+        id: viewer.id,
+      },
+    });
+
+    return await triggerInitiateCheckoutEmail({
+      email: viewer.email,
+      name: profile?.name ?? '',
+      userId: viewer.id,
+    });
+  }),
   interviewsPlans: publicProcedure
     .input(z.string().optional())
     .query(async ({ input: country, ctx: { req } }) => {

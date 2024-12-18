@@ -4,8 +4,10 @@ import type { Metadata } from 'next/types';
 import fetchInterviewsPricingPlanPaymentConfigLocalizedRecord from '~/components/interviews/purchase/fetchInterviewsPricingPlanPaymentConfigLocalizedRecord';
 import InterviewsPaymentSuccessPage from '~/components/interviews/purchase/InterviewsPaymentSuccessPage';
 
+import clearCheckoutEmailData from '~/emails/checkoutEmail/clearCheckoutEmailData';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
+import { readViewerFromToken } from '~/supabase/SupabaseServerGFE';
 
 type Props = Readonly<{
   params: Readonly<{
@@ -32,8 +34,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Page() {
   const cookieStore = cookies();
   const countryCode: string = cookieStore.get('country')?.value ?? 'US';
-  const plansPaymentConfig =
-    await fetchInterviewsPricingPlanPaymentConfigLocalizedRecord(countryCode);
+  const [plansPaymentConfig, viewer] = await Promise.all([
+    fetchInterviewsPricingPlanPaymentConfigLocalizedRecord(countryCode),
+    readViewerFromToken(),
+  ]);
+
+  if (viewer) {
+    // Clear checkout email redis data on payment success
+    clearCheckoutEmailData({ userId: viewer.id });
+  }
 
   return (
     <InterviewsPaymentSuccessPage plansPaymentConfig={plansPaymentConfig} />

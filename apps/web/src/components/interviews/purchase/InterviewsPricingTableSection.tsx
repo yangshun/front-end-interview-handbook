@@ -155,7 +155,10 @@ function PricingButtonNonPremium({
   variant: ComponentProps<typeof Button>['variant'];
 }>) {
   const intl = useIntl();
+  const user = useUser();
   const { userProfile, isUserProfileLoading } = useUserProfile();
+  const initialCheckoutEmailMutation =
+    trpc.purchases.initiateCheckoutEmail.useMutation();
   const [checkoutSessionHref, setCheckoutSessionHref] = useState<string | null>(
     null,
   );
@@ -191,6 +194,10 @@ function PricingButtonNonPremium({
       const { payload } = await res.json();
 
       if (hasClickedRef.current) {
+        // Trigger checkout email
+        if (user?.email) {
+          await initialCheckoutEmailMutation.mutateAsync();
+        }
         window.location.href = payload.url;
 
         return;
@@ -235,13 +242,14 @@ function PricingButtonNonPremium({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userProfile, checkoutSessionHref, paymentConfig.planType]);
 
-  const showUserThereIsAsyncRequest = hasClicked && isCheckoutSessionLoading;
+  const showUserThereIsAsyncRequest =
+    (hasClicked && isCheckoutSessionLoading) ||
+    initialCheckoutEmailMutation.isLoading;
 
   return (
     <div className="flex flex-col gap-4">
       <PricingButton
         aria-describedby={ariaDescribedBy}
-        href={checkoutSessionHref ?? undefined}
         isDisabled={showUserThereIsAsyncRequest || isUserProfileLoading}
         isLoading={showUserThereIsAsyncRequest}
         label={intl.formatMessage({
@@ -250,7 +258,7 @@ function PricingButtonNonPremium({
           id: '9gs1LO',
         })}
         variant={variant}
-        onClick={() => {
+        onClick={async () => {
           setHasClicked(true);
           hasClickedRef.current = true;
 
@@ -261,6 +269,14 @@ function PricingButtonNonPremium({
           });
 
           if (checkoutSessionHref != null) {
+            if (user?.email) {
+              await initialCheckoutEmailMutation.mutateAsync();
+            }
+            // Had to move this checkout redirection here
+            // Otherwise with href passed to the PricingButton, the initialCheckoutEmailMutation is unable to execute it
+            // before the window is changed to stripe
+            window.location.href = checkoutSessionHref;
+
             return;
           }
 
