@@ -8,7 +8,7 @@ import countryNames from '~/data/countryCodesToNames.json';
 import fetchInterviewsPricingPlanPaymentConfigLocalizedRecord from '~/components/interviews/purchase/fetchInterviewsPricingPlanPaymentConfigLocalizedRecord';
 import fetchProjectsPricingPlanPaymentConfigLocalizedRecord from '~/components/projects/purchase/fetchProjectsPricingPlanPaymentConfigLocalizedRecord';
 
-import triggerInitiateCheckoutEmail from '~/emails/checkoutEmail/triggerInitiateCheckoutEmail';
+import triggerInitiateCheckoutEmail from '~/emails/items/checkout/triggerInitiateCheckoutEmail';
 import prisma from '~/server/prisma';
 
 import { publicProcedure, router, userProcedure } from '../trpc';

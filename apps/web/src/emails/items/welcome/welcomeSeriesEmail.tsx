@@ -1,11 +1,10 @@
-import EmailWelcomeSeriesAfter24Hours from '~/emails/templates/EmailWelcomeSeriesAfter24Hours';
-import EmailWelcomeSeriesImmediate from '~/emails/templates/EmailWelcomeSeriesImmediate';
-import scheduleEmail from '~/mailjet/scheduleEmail';
-import { sendEmail } from '~/mailjet/sendMail';
+import { sendReactEmail } from '~/emails/mailjet/EmailsMailjetSender';
+import scheduleEmail from '~/emails/qstash/EmailsQstashScheduler';
 
-import { emailTrackRedisKey } from './emailUtils';
+import EmailWelcomeSeriesAfter24Hours from './EmailWelcomeSeriesAfter24Hours';
+import EmailWelcomeSeriesImmediate from './EmailWelcomeSeriesImmediate';
+import { emailTrackRedisKey } from '../../emailUtils';
 
-import { render } from '@react-email/components';
 import { Redis } from '@upstash/redis';
 
 export async function sendWelcomeEmailImmediate({
@@ -35,16 +34,8 @@ export async function sendWelcomeEmailImmediate({
 
   if (welcomeEmailImmediateRedisValue !== 'SENT') {
     try {
-      const [html, text] = await Promise.all([
-        render(<EmailWelcomeSeriesImmediate />),
-        render(<EmailWelcomeSeriesImmediate />, { plainText: true }),
-      ]);
-
-      await sendEmail({
-        body: {
-          html,
-          text,
-        },
+      await sendReactEmail({
+        component: <EmailWelcomeSeriesImmediate />,
         from: {
           email: 'hello@greatfrontend.com',
           name: 'GreatFrontEnd',
@@ -116,16 +107,8 @@ export async function sendWelcomeEmailAfter24Hours({
 
   if (welcomeEmailAfter24HoursRedisValue !== 'SENT') {
     try {
-      const [html, text] = await Promise.all([
-        render(<EmailWelcomeSeriesAfter24Hours />),
-        render(<EmailWelcomeSeriesAfter24Hours />, { plainText: true }),
-      ]);
-
-      await sendEmail({
-        body: {
-          html,
-          text,
-        },
+      await sendReactEmail({
+        component: <EmailWelcomeSeriesAfter24Hours />,
         from: {
           email: 'hello@greatfrontend.com',
           name: 'GreatFrontEnd',

@@ -2,18 +2,9 @@
 
 import { Client, type LibraryResponse, type SendEmailV3_1 } from 'node-mailjet';
 
-export async function sendEmail({
-  to,
-  from,
-  subject,
-  replyTo,
-  variables,
-  body,
-}: Readonly<{
-  body: {
-    html: string;
-    text: string;
-  };
+import { render } from '@react-email/components';
+
+type EmailAttributes = Readonly<{
   from: {
     email: string;
     name: string;
@@ -27,12 +18,41 @@ export async function sendEmail({
     email: string;
     name: string | null;
   };
-  variables?: Record<string, string>;
-}>) {
+}>;
+
+export async function sendReactEmail({
+  component,
+  ...attrs
+}: EmailAttributes &
+  Readonly<{
+    component: JSX.Element;
+  }>) {
+  const [html, text] = await Promise.all([
+    render(component),
+    render(component, { plainText: true }),
+  ]);
+
+  return sendEmail({ ...attrs, body: { html, text } });
+}
+
+async function sendEmail({
+  to,
+  from,
+  subject,
+  replyTo,
+  body,
+}: EmailAttributes &
+  Readonly<{
+    body: {
+      html: string;
+      text: string;
+    };
+  }>) {
   const mailjetClient = new Client({
     apiKey: process.env.MAILJET_API_KEY,
     apiSecret: process.env.MAILJET_SECRET_KEY,
   });
+
   const emailData: SendEmailV3_1.Body = {
     Messages: [
       {
@@ -55,7 +75,6 @@ export async function sendEmail({
             Name: to.name || to.email,
           },
         ],
-        Variables: variables,
       },
     ],
   };

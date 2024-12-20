@@ -1,6 +1,5 @@
+import EmailFooter from '~/emails/components/EmailFooter';
 import { getSiteOrigin } from '~/seo/siteUrl';
-
-import EmailFooter from './components/EmailFooter';
 
 import {
   Body,

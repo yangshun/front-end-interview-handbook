@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 
-import triggerWelcomeSeriesEmail from '~/emails/triggerWelcomeSeriesEmail';
+import triggerWelcomeSeriesEmail from '~/emails/items/welcome/triggerWelcomeSeriesEmail';
 
 import { useUser } from '@supabase/auth-helpers-react';
 

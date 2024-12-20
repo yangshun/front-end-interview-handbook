@@ -2,14 +2,13 @@ import 'server-only';
 
 import Stripe from 'stripe';
 
-import { sendEmail } from '~/mailjet/sendMail';
+import { sendReactEmail } from '~/emails/mailjet/EmailsMailjetSender';
 import prisma from '~/server/prisma';
 
-import { emailTrackRedisKey } from '../emailUtils';
-import EmailCheckoutFirstTime from '../templates/EmailCheckoutFirstTime';
-import EmailCheckoutMultipleTimes from '../templates/EmailCheckoutMultipleTimes';
+import EmailCheckoutFirstTime from './EmailCheckoutFirstTime';
+import EmailCheckoutMultipleTimes from './EmailCheckoutMultipleTimes';
+import { emailTrackRedisKey } from '../../emailUtils';
 
-import { render } from '@react-email/components';
 import { Redis } from '@upstash/redis';
 
 const EXPIRES_MONTH = 6;
@@ -56,19 +55,9 @@ export async function sendInitiateCheckoutFirstTimeEmail({
   }
 
   try {
-    // TODO(emails): Not sure which country to pass here for the most used country
-    const [html, text] = await Promise.all([
-      render(<EmailCheckoutFirstTime mostUsedCountry="India" name={name} />),
-      render(<EmailCheckoutFirstTime mostUsedCountry="India" name={name} />, {
-        plainText: true,
-      }),
-    ]);
-
-    await sendEmail({
-      body: {
-        html,
-        text,
-      },
+    await sendReactEmail({
+      // TODO(emails): Not sure which country to pass here for the most used country
+      component: <EmailCheckoutFirstTime mostUsedCountry="India" name={name} />,
       from: {
         email: 'yangshun@greatfrontend.com',
         name: 'Yangshun from GreatFrontEnd',
@@ -163,35 +152,16 @@ export async function sendInitiateCheckoutMultipleTimesEmail({
       throw "Couldn't generate coupon";
     }
 
-    const [html, text] = await Promise.all([
-      render(
+    await sendReactEmail({
+      component: (
         <EmailCheckoutMultipleTimes
           coupon={{
             code: promoCode.code,
             percentOff: promoCode.coupon.percent_off ?? 0,
           }}
           name={name}
-        />,
+        />
       ),
-      render(
-        <EmailCheckoutMultipleTimes
-          coupon={{
-            code: promoCode.code,
-            percentOff: promoCode.coupon.percent_off ?? 0,
-          }}
-          name={name}
-        />,
-        {
-          plainText: true,
-        },
-      ),
-    ]);
-
-    await sendEmail({
-      body: {
-        html,
-        text,
-      },
       from: {
         email: 'hello@greatfrontend.com',
         name: 'GreatFrontEnd',

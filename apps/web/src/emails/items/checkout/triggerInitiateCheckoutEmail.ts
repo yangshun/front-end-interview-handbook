@@ -1,7 +1,7 @@
-import scheduleEmail from '~/mailjet/scheduleEmail';
+import scheduleEmail from '~/emails/qstash/EmailsQstashScheduler';
 import { constructRedisKey } from '~/redis/RedisUtils';
 
-import { emailTrackRedisKey } from '../emailUtils';
+import { emailTrackRedisKey } from '../../emailUtils';
 
 import { Redis } from '@upstash/redis';
 

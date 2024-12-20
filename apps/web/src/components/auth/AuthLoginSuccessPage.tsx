@@ -12,7 +12,7 @@ import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 import { themeRadialWhiteGlowBackground } from '~/components/ui/theme';
 
-import useOauthSignupTriggerWelcomeSeriesEmail from '~/emails/useOauthSignupTriggerWelcomeSeriesEmail';
+import useOauthSignupTriggerWelcomeSeriesEmail from '~/emails/items/welcome/useOauthSignupTriggerWelcomeSeriesEmail';
 import logEvent from '~/logging/logEvent';
 
 type Props = Readonly<{

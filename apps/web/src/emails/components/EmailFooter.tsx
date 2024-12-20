@@ -22,7 +22,6 @@ export default function EmailFooter() {
           This email is sent in accordance to our Terms of Service, which allows
           us to contact you regarding our services.
         </Text>
-
         <Text
           style={{
             color: '#3F3F46',
@@ -32,9 +31,8 @@ export default function EmailFooter() {
             margin: '32px 0 8px 0',
             textAlign: 'center',
           }}>
-          Our Mailing Address Is:
+          Our mailing address:
         </Text>
-
         <Text
           style={{
             color: '#3F3F46',

@@ -1,15 +1,14 @@
-import scheduleEmail from '~/mailjet/scheduleEmail';
-import { sendEmail } from '~/mailjet/sendMail';
+import { sendReactEmail } from '~/emails/mailjet/EmailsMailjetSender';
+import scheduleEmail from '~/emails/qstash/EmailsQstashScheduler';
 import {
   constructRedisKey,
   QUESTIONS_INTEREST_POINT_KEY,
 } from '~/redis/RedisUtils';
 import prisma from '~/server/prisma';
 
-import { emailTrackRedisKey } from './emailUtils';
-import EmailCompletedSomeQuestions from './templates/EmailCompletedSomeQuestions';
+import EmailCompletedSomeQuestions from './EmailCompletedSomeQuestions';
+import { emailTrackRedisKey } from '../../emailUtils';
 
-import { render } from '@react-email/components';
 import { Redis } from '@upstash/redis';
 
 export async function sendCompletedSomeQuestionsEmail({
@@ -33,16 +32,8 @@ export async function sendCompletedSomeQuestionsEmail({
 
   if (completedSomeQuestionsEmailRedisValue !== 'SENT') {
     try {
-      const [html, text] = await Promise.all([
-        render(<EmailCompletedSomeQuestions />),
-        render(<EmailCompletedSomeQuestions />, { plainText: true }),
-      ]);
-
-      await sendEmail({
-        body: {
-          html,
-          text,
-        },
+      await sendReactEmail({
+        component: <EmailCompletedSomeQuestions />,
         from: {
           email: 'hello@greatfrontend.com',
           name: 'GreatFrontEnd',

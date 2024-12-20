@@ -1,9 +1,8 @@
 import React from 'react';
 
+import EmailFooter from '~/emails/components/EmailFooter';
+import EmailNumberedPairText from '~/emails/components/EmailNumberedPairText';
 import { getSiteOrigin } from '~/seo/siteUrl';
-
-import EmailFooter from './components/EmailFooter';
-import EmailNumberedPairText from './components/EmailNumberedPairText';
 
 import {
   Body,

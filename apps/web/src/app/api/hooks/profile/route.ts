@@ -3,7 +3,7 @@ import { type NextRequest, NextResponse } from 'next/server';
 import {
   createMailjetContact,
   updateMailjetContactsLists,
-} from '~/mailjet/createContact';
+} from '~/emails/mailjet/EmailsMailjetCreateContact';
 import { createSupabaseAdminClientGFE_SERVER_ONLY } from '~/supabase/SupabaseServerGFE';
 
 // This API is called by Supabase database hooks whenever a new

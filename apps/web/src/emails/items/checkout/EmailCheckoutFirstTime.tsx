@@ -1,4 +1,4 @@
-import EmailFooter from './components/EmailFooter';
+import EmailFooter from '~/emails/components/EmailFooter';
 
 import {
   Body,

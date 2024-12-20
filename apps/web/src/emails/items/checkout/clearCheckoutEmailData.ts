@@ -1,6 +1,6 @@
 import { constructRedisKey } from '~/redis/RedisUtils';
 
-import { emailTrackRedisKey } from '../emailUtils';
+import { emailTrackRedisKey } from '../../emailUtils';
 
 import { Redis } from '@upstash/redis';
 

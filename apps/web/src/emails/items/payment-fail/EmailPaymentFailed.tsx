@@ -1,12 +1,15 @@
 import React from 'react';
 
+import EmailFooter from '~/emails/components/EmailFooter';
+import { getSiteOrigin } from '~/seo/siteUrl';
+
 import {
   Body,
   Container,
   Head,
   Heading,
-  Hr,
   Html,
+  Img,
   Link,
   Preview,
   Section,
@@ -17,13 +20,27 @@ type Props = Readonly<{
   name?: string | null;
 }>;
 
-export function EmailPaymentFailed({ name }: Props) {
+export default function EmailPaymentFailed({ name }: Props) {
   return (
     <Html lang="en">
-      <Head />
+      <Head>
+        {/* eslint-disable-next-line */}
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,800;1,14..32,800&display=swap"
+          rel="stylesheet"
+        />
+      </Head>
       <Preview>Your payment has failed, here's how you can fix it</Preview>
       <Body style={main}>
         <Container style={container}>
+          <Img
+            height="auto"
+            src="https://bmygeefzuragewmbhlby.supabase.co/storage/v1/object/public/emails/logo.png"
+            style={{
+              marginBottom: '40px',
+            }}
+            width="53"
+          />
           <Heading style={heading}>
             Your payment has failed, here's how you can fix it
           </Heading>
@@ -51,7 +68,12 @@ export function EmailPaymentFailed({ name }: Props) {
               <li>
                 <Text style={paragraph}>
                   If the payment still doesn't succeed, go to the{' '}
-                  <Link href="https://www.greatfrontend.com/profile/billing">
+                  <Link
+                    href={new URL(
+                      '/profile/billing',
+                      getSiteOrigin(),
+                    ).toString()}
+                    style={link}>
                     Customer Portal from the Billing page
                   </Link>{' '}
                   and delete any cards that have been added. Then try paying
@@ -62,14 +84,17 @@ export function EmailPaymentFailed({ name }: Props) {
             <Text style={paragraph}>
               {/* TODO: generalize for projects */}
               <Link
-                href="https://www.greatfrontend.com/interviews/pricing"
+                href={new URL(
+                  '/interviews/pricing',
+                  getSiteOrigin(),
+                ).toString()}
                 style={link}>
                 Click here to try again
               </Link>
             </Text>
             <Text style={paragraph}>
               Send an email to{' '}
-              <Link href="mailto:contact@greatfrontend.com">
+              <Link href="mailto:contact@greatfrontend.com" style={link}>
                 contact@greatfrontend.com
               </Link>{' '}
               if you're still facing issues!
@@ -80,8 +105,7 @@ export function EmailPaymentFailed({ name }: Props) {
             <br />
             GreatFrontEnd Team
           </Text>
-          <Hr style={hr} />
-          <Text style={footer}>Codeney Pte. Ltd.</Text>
+          <EmailFooter />
         </Container>
       </Body>
     </Html>
@@ -89,42 +113,36 @@ export function EmailPaymentFailed({ name }: Props) {
 }
 
 const main = {
-  backgroundColor: '#ffffff',
+  backgroundColor: '#fff',
+  color: '#18181B',
   fontFamily:
-    '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif',
+    'Inter, -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif',
 };
 
 const container = {
   margin: '0 auto',
-  padding: '20px 25px 48px',
+  marginTop: '30px',
+  maxWidth: '600px',
 };
 
 const heading = {
+  color: '#18181B',
   fontSize: '28px',
   fontWeight: 'bold',
   marginTop: '48px',
 };
 
 const body = {
-  margin: '24px 0',
+  margin: '40px 0 0 0',
 };
 
 const paragraph = {
+  color: '#18181B',
   fontSize: '16px',
   lineHeight: '26px',
 };
 
 const link = {
-  color: '#948cf9',
-};
-
-const hr = {
-  borderColor: '#dddddd',
-  marginTop: '48px',
-};
-
-const footer = {
-  color: '#8898aa',
-  fontSize: '12px',
-  marginLeft: '4px',
+  color: '#18181B',
+  textDecoration: 'underline',
 };
