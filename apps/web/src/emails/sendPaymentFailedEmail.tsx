@@ -2,7 +2,9 @@ import { MAILJET_TEMPLATE } from '~/mailjet/mailjet';
 import { sendEmail } from '~/mailjet/sendMail';
 
 import { emailTrackRedisKey } from './emailUtils';
+import EmailPaymentFailed from './templates/EmailPaymentFailed';
 
+import { render } from '@react-email/components';
 import { Redis } from '@upstash/redis';
 
 export default async function sendPaymentFailedEmail({
@@ -28,13 +30,19 @@ export default async function sendPaymentFailedEmail({
     return;
   }
   try {
+    const [htmlPart, textPart] = await Promise.all([
+      render(<EmailPaymentFailed name={name} />),
+      render(<EmailPaymentFailed name={name} />, { plainText: true }),
+    ]);
+
     await sendEmail({
       from: {
         email: 'contact@greatfrontend.com',
         name: 'GreatFrontEnd',
       },
+      htmlPart,
       subject: "Your payment has failed, here's how you can fix it",
-      templateId: MAILJET_TEMPLATE.paymentFailed.id,
+      textPart,
       to: {
         email,
         name,
