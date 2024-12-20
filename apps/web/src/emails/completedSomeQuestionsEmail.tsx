@@ -8,7 +8,9 @@ import {
 import prisma from '~/server/prisma';
 
 import { emailTrackRedisKey } from './emailUtils';
+import EmailCompletedSomeQuestions from './templates/EmailCompletedSomeQuestions';
 
+import { render } from '@react-email/components';
 import { Redis } from '@upstash/redis';
 
 export async function sendCompletedSomeQuestionsEmail({
@@ -32,13 +34,19 @@ export async function sendCompletedSomeQuestionsEmail({
 
   if (completedSomeQuestionsEmailRedisValue !== 'SENT') {
     try {
+      const [htmlPart, textPart] = await Promise.all([
+        render(<EmailCompletedSomeQuestions />),
+        render(<EmailCompletedSomeQuestions />, { plainText: true }),
+      ]);
+
       await sendEmail({
         from: {
           email: 'hello@greatfrontend.com',
           name: 'GreatFrontEnd',
         },
+        htmlPart,
         subject: "Don't Miss Out: Up to 100% off premium",
-        templateId: MAILJET_TEMPLATE.completedSomeQuestionsEmail.id,
+        textPart,
         to: {
           email,
           name,
