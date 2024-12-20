@@ -13,25 +13,24 @@ import {
 
 export async function POST(
   req: NextRequest,
-  { params }: { params: { purpose: EmailKey } },
+  { params }: { params: { key: EmailKey } },
 ) {
   try {
-    const result = await req.json();
-    const { email, name, userId } = result;
-    const { purpose } = params;
+    const { key } = params;
+    const request = await req.json();
+    const { email, name, userId } = request;
 
     const finalName = name || 'there';
 
-    switch (purpose) {
+    switch (key) {
       case 'welcome_email_immediate':
         await sendWelcomeEmailImmediate({
           email,
           name: finalName,
-          signupViaInterviews: result.signupViaInterviews,
+          signupViaInterviews: request.signupViaInterviews,
           userId,
         });
         break;
-
       case 'welcome_email_after_24_hours':
         await sendWelcomeEmailAfter24Hours({
           email,
@@ -61,7 +60,10 @@ export async function POST(
         });
         break;
       default:
-        return NextResponse.json({ error: 'Invalid purpose' }, { status: 400 });
+        return NextResponse.json(
+          { error: `Invalid email key '${key}'` },
+          { status: 400 },
+        );
     }
 
     return NextResponse.json({ success: true });

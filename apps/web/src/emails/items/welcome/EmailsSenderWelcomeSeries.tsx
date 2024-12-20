@@ -73,9 +73,9 @@ export async function sendWelcomeEmailImmediate({
     welcomeEmailAfter24HoursRedisValue !== 'SENT'
   ) {
     const result = await scheduleEmail({
-      delay: 24,
+      delayInHours: 24,
       email,
-      emailTemplate: 'welcome_email_after_24_hours',
+      emailKey: 'welcome_email_after_24_hours',
       name,
       userId,
     });

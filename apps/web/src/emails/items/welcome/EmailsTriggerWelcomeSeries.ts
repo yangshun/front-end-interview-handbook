@@ -1,4 +1,6 @@
-const welcomeEmailImmediate = 'welcome_email_immediate';
+import type { EmailKey } from '~/emails/EmailsTypes';
+
+const WELCOME_EMAIL_KEY: EmailKey = 'welcome_email_immediate';
 
 export default async function triggerWelcomeSeriesEmail({
   name,
@@ -12,7 +14,7 @@ export default async function triggerWelcomeSeriesEmail({
   userId: string;
 }>) {
   try {
-    await fetch(`/api/emails/${welcomeEmailImmediate}`, {
+    await fetch(`/api/emails/${WELCOME_EMAIL_KEY}`, {
       body: JSON.stringify({
         email,
         name,

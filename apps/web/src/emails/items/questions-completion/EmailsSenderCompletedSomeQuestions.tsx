@@ -108,9 +108,9 @@ export async function triggerCompletedSomeQuestionsEmail({
       },
     });
     const result = await scheduleEmail({
-      delay: 2,
+      delayInHours: 2,
       email,
-      emailTemplate: 'completed_some_questions',
+      emailKey: 'completed_some_questions',
       name: profile?.name ?? '',
       userId,
     });
