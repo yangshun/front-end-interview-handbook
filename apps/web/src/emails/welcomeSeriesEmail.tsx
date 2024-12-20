@@ -1,11 +1,12 @@
-import 'server-only';
-
+import EmailWelcomeSeriesAfter24Hours from '~/emails/templates/EmailWelcomeSeriesAfter24Hours';
+import EmailWelcomeSeriesImmediate from '~/emails/templates/EmailWelcomeSeriesImmediate';
 import { MAILJET_TEMPLATE } from '~/mailjet/mailjet';
 import scheduleEmail from '~/mailjet/scheduleEmail';
 import { sendEmail } from '~/mailjet/sendMail';
 
 import { emailTrackRedisKey } from './emailUtils';
 
+import { render } from '@react-email/components';
 import { Redis } from '@upstash/redis';
 
 export async function sendWelcomeEmailImmediate({
@@ -35,14 +36,20 @@ export async function sendWelcomeEmailImmediate({
 
   if (welcomeEmailImmediateRedisValue !== 'SENT') {
     try {
+      const [htmlPart, textPart] = await Promise.all([
+        render(<EmailWelcomeSeriesImmediate />),
+        render(<EmailWelcomeSeriesImmediate />, { plainText: true }),
+      ]);
+
       await sendEmail({
         from: {
           email: 'hello@greatfrontend.com',
           name: 'GreatFrontEnd',
         },
+        htmlPart,
         subject:
           '🚀 Start Here: Your Simple, Proven Roadmap to Front End Interview Success',
-        templateId: MAILJET_TEMPLATE.welcomeEmailImmediate.id,
+        textPart,
         to: {
           email,
           name,
@@ -108,14 +115,18 @@ export async function sendWelcomeEmailAfter24Hours({
 
   if (welcomeEmailAfter24HoursRedisValue !== 'SENT') {
     try {
+      const [htmlPart, textPart] = await Promise.all([
+        render(<EmailWelcomeSeriesAfter24Hours />),
+        render(<EmailWelcomeSeriesAfter24Hours />, { plainText: true }),
+      ]);
+
       await sendEmail({
         from: {
           email: 'hello@greatfrontend.com',
           name: 'GreatFrontEnd',
         },
-        subject:
-          '✨ Actual prep strategies by real users to clinch multiple front end offers',
-        templateId: MAILJET_TEMPLATE.welcomeEmailAfter24Hours.id,
+        subject: htmlPart,
+        textPart,
         to: {
           email,
           name,
