@@ -547,9 +547,6 @@ importers:
       remark-slug:
         specifier: ^7.0.1
         version: 7.0.1
-      resend:
-        specifier: ^2.0.0
-        version: 2.0.0
       server-only:
         specifier: ^0.0.1
         version: 0.0.1
@@ -15040,13 +15037,6 @@ packages:
 
   /requires-port@1.0.0:
     resolution: {integrity: sha512-KigOCHcocU3XODJxsu8i/j8T9tzT4adHiecwORRQ0ZZFcp7ahwXuRU1m+yuO90C5ZUyGeGfocHDI14M3L3yDAQ==}
-
-  /resend@2.0.0:
-    resolution: {integrity: sha512-jAh0DN84ZjjmzGM2vMjJ1hphPBg1mG98dzopF7kJzmin62v8ESg4og2iCKWdkAboGOT2SeO5exbr/8Xh8gLddw==}
-    engines: {node: '>=18'}
-    dependencies:
-      '@react-email/render': 0.0.9
-    dev: false
 
   /resize-observer-polyfill@1.5.1:
     resolution: {integrity: sha512-LwZrotdHOo12nQuZlHEmtuXdqGoOD0OhaxopaNFxWzInpEgaLWoVuAMbTzixuosCx2nEG58ngzW3vxdWoxIgdg==}

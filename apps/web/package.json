@@ -132,7 +132,6 @@
     "remark-mdx-code-meta": "^2.0.0",
     "remark-mdx-frontmatter": "^2.1.1",
     "remark-slug": "^7.0.1",
-    "resend": "^2.0.0",
     "server-only": "^0.0.1",
     "stripe": "14.19.0",
     "superjson": "^2.2.1",
