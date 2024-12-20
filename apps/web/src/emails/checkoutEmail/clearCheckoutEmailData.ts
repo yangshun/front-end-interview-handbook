@@ -1,5 +1,4 @@
-import { MAILJET_TEMPLATE } from '~/mailjet/mailjet';
-import { constructRedisKey } from '~/redis/redisUtils';
+import { constructRedisKey } from '~/redis/RedisUtils';
 
 import { emailTrackRedisKey } from '../emailUtils';
 
@@ -13,11 +12,11 @@ export default async function clearCheckoutEmailData({ userId }: Props) {
   const redis = Redis.fromEnv();
   const initiateCheckoutFirstTimeRedisKey = emailTrackRedisKey(
     userId,
-    MAILJET_TEMPLATE.initiateCheckoutFirstTime.name,
+    'checkout_first_time',
   );
   const initiateCheckoutMultipleTimesRedisKey = emailTrackRedisKey(
     userId,
-    MAILJET_TEMPLATE.initiateCheckoutMultipleTimes.name,
+    'checkout_multiples_times',
   );
   const checkoutCountRedisKey = constructRedisKey(userId, 'CHECKOUT_COUNT');
 

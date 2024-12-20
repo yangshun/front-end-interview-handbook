@@ -2,7 +2,6 @@ import 'server-only';
 
 import Stripe from 'stripe';
 
-import { MAILJET_TEMPLATE } from '~/mailjet/mailjet';
 import { sendEmail } from '~/mailjet/sendMail';
 import prisma from '~/server/prisma';
 
@@ -41,7 +40,7 @@ export async function sendInitiateCheckoutFirstTimeEmail({
   const redis = Redis.fromEnv();
   const initiateCheckoutFirstTimeRedisKey = emailTrackRedisKey(
     userId,
-    MAILJET_TEMPLATE.initiateCheckoutFirstTime.name,
+    'checkout_first_time',
   );
   const initiateCheckoutFirstTimeRedisValue = await redis.get(
     initiateCheckoutFirstTimeRedisKey,
@@ -58,7 +57,7 @@ export async function sendInitiateCheckoutFirstTimeEmail({
 
   try {
     // TODO(emails): Not sure which country to pass here for the most used country
-    const [htmlPart, textPart] = await Promise.all([
+    const [html, text] = await Promise.all([
       render(<EmailCheckoutFirstTime mostUsedCountry="India" name={name} />),
       render(<EmailCheckoutFirstTime mostUsedCountry="India" name={name} />, {
         plainText: true,
@@ -66,17 +65,19 @@ export async function sendInitiateCheckoutFirstTimeEmail({
     ]);
 
     await sendEmail({
+      body: {
+        html,
+        text,
+      },
       from: {
         email: 'yangshun@greatfrontend.com',
         name: 'Yangshun from GreatFrontEnd',
       },
-      htmlPart,
       replyTo: {
         email: 'team@greatfrontend.com',
         name: 'GreatFrontEnd',
       },
       subject: `Hi ${name}, this is Yangshun from GreatFrontEnd`,
-      textPart,
       to: {
         email,
         name,
@@ -102,7 +103,7 @@ export async function sendInitiateCheckoutMultipleTimesEmail({
   const redis = Redis.fromEnv();
   const initiateCheckoutMultipleTimesRedisKey = emailTrackRedisKey(
     userId,
-    MAILJET_TEMPLATE.initiateCheckoutMultipleTimes.name,
+    'checkout_multiples_times',
   );
 
   const initiateCheckoutMultipleTimesRedisValue = await redis.get(
@@ -136,7 +137,10 @@ export async function sendInitiateCheckoutMultipleTimesEmail({
       apiVersion: '2023-10-16',
     });
     const today = new Date();
-    const twoDaysLater = new Date(today.setDate(today.getDate() + 2));
+    const daysInFuture = 2;
+    const twoDaysLater = new Date(
+      today.setDate(today.getDate() + daysInFuture),
+    );
     const twoDaysLaterUnix = Math.round(twoDaysLater.getTime() / 1000);
 
     // TODO(emails): Need to update with appropriate coupon
@@ -159,7 +163,7 @@ export async function sendInitiateCheckoutMultipleTimesEmail({
       throw "Couldn't generate coupon";
     }
 
-    const [htmlPart, textPart] = await Promise.all([
+    const [html, text] = await Promise.all([
       render(
         <EmailCheckoutMultipleTimes
           coupon={{
@@ -184,19 +188,21 @@ export async function sendInitiateCheckoutMultipleTimesEmail({
     ]);
 
     await sendEmail({
+      body: {
+        html,
+        text,
+      },
       from: {
         email: 'hello@greatfrontend.com',
         name: 'GreatFrontEnd',
       },
-      htmlPart,
-      subject: `Act fast: ${promoCode.coupon.percent_off} off reserved just for you, ends in 48 hours!`,
-      templateId: MAILJET_TEMPLATE.initiateCheckoutMultipleTimes.id,
-      textPart,
+      subject: `Act fast: ${promoCode.coupon.percent_off} off reserved just for you, ends in ${daysInFuture * 24} hours!`,
       to: {
         email,
         name,
       },
     });
+
     // Expire this after 6 months so that we can retrigger this email again
     redis.set(initiateCheckoutMultipleTimesRedisKey, 'SENT', {
       ex: sixMonthsInSec,

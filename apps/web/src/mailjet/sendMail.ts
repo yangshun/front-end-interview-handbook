@@ -6,24 +6,23 @@ export async function sendEmail({
   to,
   from,
   subject,
-  templateId,
   replyTo,
   variables,
-  htmlPart,
-  textPart,
+  body,
 }: Readonly<{
+  body: {
+    html: string;
+    text: string;
+  };
   from: {
     email: string;
     name: string;
   };
-  htmlPart?: string;
   replyTo?: {
     email: string;
     name?: string;
   };
   subject: string;
-  templateId?: number;
-  textPart?: string;
   to: {
     email: string;
     name: string | null;
@@ -41,7 +40,7 @@ export async function sendEmail({
           Email: from.email,
           Name: from.name,
         },
-        HTMLPart: htmlPart,
+        HTMLPart: body.html,
         ReplyTo: replyTo
           ? {
               Email: replyTo.email,
@@ -49,13 +48,11 @@ export async function sendEmail({
             }
           : undefined,
         Subject: subject,
-        TemplateID: templateId,
-        TemplateLanguage: true,
-        TextPart: textPart,
+        TextPart: body.text,
         To: [
           {
             Email: to.email,
-            Name: to.name || 'Recipient name',
+            Name: to.name || to.email,
           },
         ],
         Variables: variables,

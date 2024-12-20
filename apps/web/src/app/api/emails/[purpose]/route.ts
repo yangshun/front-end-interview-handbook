@@ -5,15 +5,15 @@ import {
   sendInitiateCheckoutMultipleTimesEmail,
 } from '~/emails/checkoutEmail/initiateCheckoutEmail';
 import { sendCompletedSomeQuestionsEmail } from '~/emails/completedSomeQuestionsEmail';
+import type { EmailKey } from '~/emails/EmailTypes';
 import {
   sendWelcomeEmailAfter24Hours,
   sendWelcomeEmailImmediate,
 } from '~/emails/welcomeSeriesEmail';
-import { MAILJET_TEMPLATE } from '~/mailjet/mailjet';
 
 export async function POST(
   req: NextRequest,
-  { params }: { params: { purpose: string } },
+  { params }: { params: { purpose: EmailKey } },
 ) {
   try {
     const result = await req.json();
@@ -23,7 +23,7 @@ export async function POST(
     const finalName = name || 'there';
 
     switch (purpose) {
-      case MAILJET_TEMPLATE.welcomeEmailImmediate.name:
+      case 'welcome_email_immediate':
         await sendWelcomeEmailImmediate({
           email,
           name: finalName,
@@ -32,28 +32,28 @@ export async function POST(
         });
         break;
 
-      case MAILJET_TEMPLATE.welcomeEmailAfter24Hours.name:
+      case 'welcome_email_after_24_hours':
         await sendWelcomeEmailAfter24Hours({
           email,
           name: finalName,
           userId,
         });
         break;
-      case MAILJET_TEMPLATE.initiateCheckoutFirstTime.name:
+      case 'checkout_first_time':
         await sendInitiateCheckoutFirstTimeEmail({
           email,
           name: finalName,
           userId,
         });
         break;
-      case MAILJET_TEMPLATE.initiateCheckoutMultipleTimes.name:
+      case 'checkout_multiples_times':
         await sendInitiateCheckoutMultipleTimesEmail({
           email,
           name: finalName,
           userId,
         });
         break;
-      case MAILJET_TEMPLATE.completedSomeQuestionsEmail.name:
+      case 'completed_some_questions':
         await sendCompletedSomeQuestionsEmail({
           email,
           name: finalName,

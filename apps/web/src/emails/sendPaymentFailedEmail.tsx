@@ -1,4 +1,3 @@
-import { MAILJET_TEMPLATE } from '~/mailjet/mailjet';
 import { sendEmail } from '~/mailjet/sendMail';
 
 import { emailTrackRedisKey } from './emailUtils';
@@ -19,7 +18,7 @@ export default async function sendPaymentFailedEmail({
   const redis = Redis.fromEnv();
   const paymentFailedEmailRedisKey = emailTrackRedisKey(
     userId,
-    MAILJET_TEMPLATE.paymentFailed.name,
+    'payment_failed',
   );
 
   const paymentFailedEmailRedisValue = await redis.get(
@@ -29,20 +28,23 @@ export default async function sendPaymentFailedEmail({
   if (paymentFailedEmailRedisValue === 'SENT') {
     return;
   }
+
   try {
-    const [htmlPart, textPart] = await Promise.all([
+    const [html, text] = await Promise.all([
       render(<EmailPaymentFailed name={name} />),
       render(<EmailPaymentFailed name={name} />, { plainText: true }),
     ]);
 
     await sendEmail({
+      body: {
+        html,
+        text,
+      },
       from: {
         email: 'contact@greatfrontend.com',
         name: 'GreatFrontEnd',
       },
-      htmlPart,
       subject: "Your payment has failed, here's how you can fix it",
-      textPart,
       to: {
         email,
         name,

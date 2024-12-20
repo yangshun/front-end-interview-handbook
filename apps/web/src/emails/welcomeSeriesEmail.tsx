@@ -1,6 +1,5 @@
 import EmailWelcomeSeriesAfter24Hours from '~/emails/templates/EmailWelcomeSeriesAfter24Hours';
 import EmailWelcomeSeriesImmediate from '~/emails/templates/EmailWelcomeSeriesImmediate';
-import { MAILJET_TEMPLATE } from '~/mailjet/mailjet';
 import scheduleEmail from '~/mailjet/scheduleEmail';
 import { sendEmail } from '~/mailjet/sendMail';
 
@@ -23,11 +22,11 @@ export async function sendWelcomeEmailImmediate({
   const redis = Redis.fromEnv();
   const welcomeEmailImmediateRedisKey = emailTrackRedisKey(
     userId,
-    MAILJET_TEMPLATE.welcomeEmailImmediate.name,
+    'welcome_email_immediate',
   );
   const welcomeEmailAfter24HoursRedisKey = emailTrackRedisKey(
     userId,
-    MAILJET_TEMPLATE.welcomeEmailAfter24Hours.name,
+    'welcome_email_after_24_hours',
   );
 
   const welcomeEmailImmediateRedisValue = await redis.get(
@@ -36,20 +35,22 @@ export async function sendWelcomeEmailImmediate({
 
   if (welcomeEmailImmediateRedisValue !== 'SENT') {
     try {
-      const [htmlPart, textPart] = await Promise.all([
+      const [html, text] = await Promise.all([
         render(<EmailWelcomeSeriesImmediate />),
         render(<EmailWelcomeSeriesImmediate />, { plainText: true }),
       ]);
 
       await sendEmail({
+        body: {
+          html,
+          text,
+        },
         from: {
           email: 'hello@greatfrontend.com',
           name: 'GreatFrontEnd',
         },
-        htmlPart,
         subject:
           '🚀 Start Here: Your Simple, Proven Roadmap to Front End Interview Success',
-        textPart,
         to: {
           email,
           name,
@@ -65,7 +66,7 @@ export async function sendWelcomeEmailImmediate({
   if (!signupViaInterviews) {
     // This email is only sent out for interviews signup
     // But if the user signup via projects, store as SENT for that case as well without sending the email
-    // because we rely on this redis value to sent out the email and we don't want to retrigger this email again
+    // because we rely on this Redis value to sent out the email and we don't want to retrigger this email again
     await redis.set(welcomeEmailAfter24HoursRedisKey, 'SENT');
 
     return;
@@ -83,7 +84,7 @@ export async function sendWelcomeEmailImmediate({
     const result = await scheduleEmail({
       delay: 24,
       email,
-      emailTemplate: MAILJET_TEMPLATE.welcomeEmailAfter24Hours.name,
+      emailTemplate: 'welcome_email_after_24_hours',
       name,
       userId,
     });
@@ -106,7 +107,7 @@ export async function sendWelcomeEmailAfter24Hours({
   const redis = Redis.fromEnv();
   const welcomeEmailAfter24HoursRedisKey = emailTrackRedisKey(
     userId,
-    MAILJET_TEMPLATE.welcomeEmailAfter24Hours.name,
+    'welcome_email_after_24_hours',
   );
 
   const welcomeEmailAfter24HoursRedisValue = await redis.get(
@@ -115,18 +116,22 @@ export async function sendWelcomeEmailAfter24Hours({
 
   if (welcomeEmailAfter24HoursRedisValue !== 'SENT') {
     try {
-      const [htmlPart, textPart] = await Promise.all([
+      const [html, text] = await Promise.all([
         render(<EmailWelcomeSeriesAfter24Hours />),
         render(<EmailWelcomeSeriesAfter24Hours />, { plainText: true }),
       ]);
 
       await sendEmail({
+        body: {
+          html,
+          text,
+        },
         from: {
           email: 'hello@greatfrontend.com',
           name: 'GreatFrontEnd',
         },
-        subject: htmlPart,
-        textPart,
+        subject:
+          '✨ Actual prep strategies by real users to clinch multiple Front End offers',
         to: {
           email,
           name,

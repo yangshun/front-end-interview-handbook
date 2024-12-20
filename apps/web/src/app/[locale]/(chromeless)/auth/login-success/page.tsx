@@ -4,7 +4,6 @@ import AuthLoginSuccessPage from '~/components/auth/AuthLoginSuccessPage';
 
 import { emailTrackRedisKey } from '~/emails/emailUtils';
 import { getIntlServerOnly } from '~/i18n';
-import { MAILJET_TEMPLATE } from '~/mailjet/mailjet';
 import defaultMetadata from '~/seo/defaultMetadata';
 import { readViewerFromToken } from '~/supabase/SupabaseServerGFE';
 
@@ -32,6 +31,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     }),
   });
 }
+
 export default async function Page({ searchParams }: Props) {
   const viewer = await readViewerFromToken();
 
@@ -41,7 +41,7 @@ export default async function Page({ searchParams }: Props) {
     const redis = Redis.fromEnv();
     const welcomeEmailImmediateRedisKey = emailTrackRedisKey(
       viewer.id,
-      MAILJET_TEMPLATE.welcomeEmailImmediate.name,
+      'welcome_email_immediate',
     );
 
     const welcomeEmailImmediateRedisValue = await redis.get(

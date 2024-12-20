@@ -1,10 +1,9 @@
-import { MAILJET_TEMPLATE } from '~/mailjet/mailjet';
 import scheduleEmail from '~/mailjet/scheduleEmail';
 import { sendEmail } from '~/mailjet/sendMail';
 import {
   constructRedisKey,
   QUESTIONS_INTEREST_POINT_KEY,
-} from '~/redis/redisUtils';
+} from '~/redis/RedisUtils';
 import prisma from '~/server/prisma';
 
 import { emailTrackRedisKey } from './emailUtils';
@@ -25,7 +24,7 @@ export async function sendCompletedSomeQuestionsEmail({
   const redis = Redis.fromEnv();
   const completedSomeQuestionsEmailRedisKey = emailTrackRedisKey(
     userId,
-    MAILJET_TEMPLATE.completedSomeQuestionsEmail.name,
+    'completed_some_questions',
   );
 
   const completedSomeQuestionsEmailRedisValue = await redis.get(
@@ -34,19 +33,21 @@ export async function sendCompletedSomeQuestionsEmail({
 
   if (completedSomeQuestionsEmailRedisValue !== 'SENT') {
     try {
-      const [htmlPart, textPart] = await Promise.all([
+      const [html, text] = await Promise.all([
         render(<EmailCompletedSomeQuestions />),
         render(<EmailCompletedSomeQuestions />, { plainText: true }),
       ]);
 
       await sendEmail({
+        body: {
+          html,
+          text,
+        },
         from: {
           email: 'hello@greatfrontend.com',
           name: 'GreatFrontEnd',
         },
-        htmlPart,
         subject: "Don't Miss Out: Up to 100% off premium",
-        textPart,
         to: {
           email,
           name,
@@ -72,7 +73,7 @@ export async function triggerCompletedSomeQuestionsEmail({
   const redis = Redis.fromEnv();
   const completedSomeQuestionsEmailRedisKey = emailTrackRedisKey(
     userId,
-    MAILJET_TEMPLATE.completedSomeQuestionsEmail.name,
+    'completed_some_questions',
   );
   const completedSomeQuestionsEmailRedisValue = await redis.get(
     completedSomeQuestionsEmailRedisKey,
@@ -118,7 +119,7 @@ export async function triggerCompletedSomeQuestionsEmail({
     const result = await scheduleEmail({
       delay: 2,
       email,
-      emailTemplate: MAILJET_TEMPLATE.completedSomeQuestionsEmail.name,
+      emailTemplate: 'completed_some_questions',
       name: profile?.name ?? '',
       userId,
     });

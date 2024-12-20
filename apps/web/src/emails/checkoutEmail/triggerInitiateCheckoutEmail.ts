@@ -1,6 +1,5 @@
-import { MAILJET_TEMPLATE } from '~/mailjet/mailjet';
 import scheduleEmail from '~/mailjet/scheduleEmail';
-import { constructRedisKey } from '~/redis/redisUtils';
+import { constructRedisKey } from '~/redis/RedisUtils';
 
 import { emailTrackRedisKey } from '../emailUtils';
 
@@ -41,12 +40,10 @@ export default async function triggerInitiateCheckoutEmail({
   }
 
   const isMultipleCheckout = checkoutCountRedisValue >= MULTIPLE_CHECKOUT_COUNT;
-  const initiateCheckoutRedisKey = emailTrackRedisKey(
-    userId,
-    isMultipleCheckout
-      ? MAILJET_TEMPLATE.initiateCheckoutMultipleTimes.name
-      : MAILJET_TEMPLATE.initiateCheckoutFirstTime.name,
-  );
+  const emailKey = isMultipleCheckout
+    ? 'checkout_multiples_times'
+    : 'checkout_first_time';
+  const initiateCheckoutRedisKey = emailTrackRedisKey(userId, emailKey);
   const initiateCheckoutRedisValue = await redis.get(initiateCheckoutRedisKey);
 
   if (
@@ -66,9 +63,7 @@ export default async function triggerInitiateCheckoutEmail({
   const result = await scheduleEmail({
     delay: 24,
     email,
-    emailTemplate: isMultipleCheckout
-      ? MAILJET_TEMPLATE.initiateCheckoutMultipleTimes.name
-      : MAILJET_TEMPLATE.initiateCheckoutFirstTime.name,
+    emailTemplate: emailKey,
     name,
     userId,
   });

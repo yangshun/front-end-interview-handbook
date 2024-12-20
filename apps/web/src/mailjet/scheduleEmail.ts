@@ -1,3 +1,5 @@
+import type { EmailKey } from '~/emails/EmailTypes';
+
 import { Client } from '@upstash/qstash';
 
 const qstash = new Client({ token: process.env.QSTASH_TOKEN ?? '' });
@@ -5,7 +7,7 @@ const qstash = new Client({ token: process.env.QSTASH_TOKEN ?? '' });
 type Props = Readonly<{
   delay: number; // In hour;
   email: string;
-  emailTemplate: string;
+  emailTemplate: EmailKey;
   name: string | null;
   userId: string;
 }>;

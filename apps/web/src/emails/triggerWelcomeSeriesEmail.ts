@@ -1,4 +1,4 @@
-import { MAILJET_TEMPLATE } from '~/mailjet/mailjet';
+const welcomeEmailImmediate = 'welcome_email_immediate';
 
 export default async function triggerWelcomeSeriesEmail({
   name,
@@ -12,7 +12,7 @@ export default async function triggerWelcomeSeriesEmail({
   userId: string;
 }>) {
   try {
-    await fetch(`/api/emails/${MAILJET_TEMPLATE.welcomeEmailImmediate.name}`, {
+    await fetch(`/api/emails/${welcomeEmailImmediate}`, {
       body: JSON.stringify({
         email,
         name,

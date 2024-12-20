@@ -1,7 +1,6 @@
 import { type NextRequest, NextResponse } from 'next/server';
 
 import { sendCompletedSomeQuestionsEmail } from '~/emails/completedSomeQuestionsEmail';
-import { MAILJET_TEMPLATE } from '~/mailjet/mailjet';
 
 export async function POST(req: NextRequest) {
   try {
@@ -10,7 +9,7 @@ export async function POST(req: NextRequest) {
 
     const finalName = name || 'User';
 
-    if (emailTemplate === MAILJET_TEMPLATE.completedSomeQuestionsEmail.name) {
+    if (emailTemplate === 'completed_some_questions') {
       await sendCompletedSomeQuestionsEmail({
         email,
         name: finalName,
