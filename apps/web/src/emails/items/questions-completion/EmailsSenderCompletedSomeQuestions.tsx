@@ -6,8 +6,8 @@ import {
 } from '~/redis/RedisUtils';
 import prisma from '~/server/prisma';
 
-import EmailCompletedSomeQuestions from './EmailCompletedSomeQuestions';
-import { emailTrackRedisKey } from '../../emailUtils';
+import EmailsTemplateCompletedSomeQuestions from './EmailsTemplateCompletedSomeQuestions';
+import { emailTrackRedisKey } from '../../EmailsUtils';
 
 import { Redis } from '@upstash/redis';
 
@@ -33,7 +33,7 @@ export async function sendCompletedSomeQuestionsEmail({
   if (completedSomeQuestionsEmailRedisValue !== 'SENT') {
     try {
       await sendReactEmail({
-        component: <EmailCompletedSomeQuestions />,
+        component: <EmailsTemplateCompletedSomeQuestions />,
         from: {
           email: 'hello@greatfrontend.com',
           name: 'GreatFrontEnd',

@@ -16,7 +16,7 @@ import {
   Text,
 } from '@react-email/components';
 
-export default function EmailWelcomeSeriesAfter24Hours() {
+export default function EmailsTemplateWelcomeSeriesAfter24Hours() {
   return (
     <Html lang="en">
       <Head>

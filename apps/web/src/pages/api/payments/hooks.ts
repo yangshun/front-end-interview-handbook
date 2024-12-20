@@ -8,7 +8,7 @@ import {
   purchaseCustomerRemovePlan,
 } from '~/components/purchase/PurchaseStripeWebhookHandlers';
 
-import sendPaymentFailedEmail from '~/emails/items/payment-fail/sendPaymentFailedEmail';
+import sendPaymentFailedEmail from '~/emails/items/payment-fail/EmailsSenderPaymentFailed';
 import { getErrorMessage } from '~/utils/getErrorMessage';
 
 export const config = { api: { bodyParser: false } };

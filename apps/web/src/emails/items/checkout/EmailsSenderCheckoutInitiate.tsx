@@ -5,9 +5,9 @@ import Stripe from 'stripe';
 import { sendReactEmail } from '~/emails/mailjet/EmailsMailjetSender';
 import prisma from '~/server/prisma';
 
-import EmailCheckoutFirstTime from './EmailCheckoutFirstTime';
-import EmailCheckoutMultipleTimes from './EmailCheckoutMultipleTimes';
-import { emailTrackRedisKey } from '../../emailUtils';
+import EmailsTemplateCheckoutFirstTime from './EmailsTemplateCheckoutFirstTime';
+import EmailsTemplateCheckoutMultipleTimes from './EmailsTemplateCheckoutMultipleTimes';
+import { emailTrackRedisKey } from '../../EmailsUtils';
 
 import { Redis } from '@upstash/redis';
 
@@ -57,7 +57,9 @@ export async function sendInitiateCheckoutFirstTimeEmail({
   try {
     await sendReactEmail({
       // TODO(emails): Not sure which country to pass here for the most used country
-      component: <EmailCheckoutFirstTime mostUsedCountry="India" name={name} />,
+      component: (
+        <EmailsTemplateCheckoutFirstTime mostUsedCountry="India" name={name} />
+      ),
       from: {
         email: 'yangshun@greatfrontend.com',
         name: 'Yangshun from GreatFrontEnd',
@@ -154,7 +156,7 @@ export async function sendInitiateCheckoutMultipleTimesEmail({
 
     await sendReactEmail({
       component: (
-        <EmailCheckoutMultipleTimes
+        <EmailsTemplateCheckoutMultipleTimes
           coupon={{
             code: promoCode.code,
             percentOff: promoCode.coupon.percent_off ?? 0,

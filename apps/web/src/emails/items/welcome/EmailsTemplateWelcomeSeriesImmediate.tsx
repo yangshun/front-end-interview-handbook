@@ -20,7 +20,7 @@ import {
   Text,
 } from '@react-email/components';
 
-export default function EmailWelcomeSeriesImmediate() {
+export default function EmailsTemplateWelcomeSeriesImmediate() {
   return (
     <Html lang="en">
       <Head>

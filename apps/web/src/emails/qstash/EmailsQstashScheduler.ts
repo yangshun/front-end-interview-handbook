@@ -1,4 +1,4 @@
-import type { EmailKey } from '~/emails/EmailTypes';
+import type { EmailKey } from '~/emails/EmailsTypes';
 
 import { Client } from '@upstash/qstash';
 

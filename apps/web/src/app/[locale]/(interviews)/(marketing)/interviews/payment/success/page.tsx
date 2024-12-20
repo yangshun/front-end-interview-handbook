@@ -4,7 +4,7 @@ import type { Metadata } from 'next/types';
 import fetchInterviewsPricingPlanPaymentConfigLocalizedRecord from '~/components/interviews/purchase/fetchInterviewsPricingPlanPaymentConfigLocalizedRecord';
 import InterviewsPaymentSuccessPage from '~/components/interviews/purchase/InterviewsPaymentSuccessPage';
 
-import clearCheckoutEmailData from '~/emails/items/checkout/clearCheckoutEmailData';
+import clearCheckoutEmailData from '~/emails/items/checkout/EmailsCheckoutEmailData';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 import { readViewerFromToken } from '~/supabase/SupabaseServerGFE';

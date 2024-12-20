@@ -23,7 +23,10 @@ type Props = Readonly<{
   name: string;
 }>;
 
-export default function EmailCheckoutMultipleTimes({ name, coupon }: Props) {
+export default function EmailsTemplateCheckoutMultipleTimes({
+  name,
+  coupon,
+}: Props) {
   return (
     <Html lang="en">
       <Head>

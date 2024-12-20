@@ -17,7 +17,7 @@ type Props = Readonly<{
   name: string;
 }>;
 
-export default function EmailCheckoutFirstTime({
+export default function EmailsTemplateCheckoutFirstTime({
   name,
   mostUsedCountry,
 }: Props) {

@@ -12,7 +12,7 @@ import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 import { themeRadialWhiteGlowBackground } from '~/components/ui/theme';
 
-import useOauthSignupTriggerWelcomeSeriesEmail from '~/emails/items/welcome/useOauthSignupTriggerWelcomeSeriesEmail';
+import useEmailsOauthSignupTriggerWelcomeSeries from '~/emails/items/welcome/useEmailsOauthSignupTriggerWelcomeSeries';
 import logEvent from '~/logging/logEvent';
 
 type Props = Readonly<{
@@ -27,7 +27,7 @@ export default function AuthLoginSuccessPage({
   const intl = useIntl();
 
   // Trigger welcome email
-  useOauthSignupTriggerWelcomeSeriesEmail({
+  useEmailsOauthSignupTriggerWelcomeSeries({
     isProjects: !!next?.includes('/projects'), // To determine if the signup was triggers from projects or interviews
     welcomeSeriesEmailSent,
   });

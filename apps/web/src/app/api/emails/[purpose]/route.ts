@@ -1,15 +1,15 @@
 import { type NextRequest, NextResponse } from 'next/server';
 
-import type { EmailKey } from '~/emails/EmailTypes';
+import type { EmailKey } from '~/emails/EmailsTypes';
 import {
   sendInitiateCheckoutFirstTimeEmail,
   sendInitiateCheckoutMultipleTimesEmail,
-} from '~/emails/items/checkout/initiateCheckoutEmail';
-import { sendCompletedSomeQuestionsEmail } from '~/emails/items/questions-completion/completedSomeQuestionsEmail';
+} from '~/emails/items/checkout/EmailsSenderCheckoutInitiate';
+import { sendCompletedSomeQuestionsEmail } from '~/emails/items/questions-completion/EmailsSenderCompletedSomeQuestions';
 import {
   sendWelcomeEmailAfter24Hours,
   sendWelcomeEmailImmediate,
-} from '~/emails/items/welcome/welcomeSeriesEmail';
+} from '~/emails/items/welcome/EmailsSenderWelcomeSeries';
 
 export async function POST(
   req: NextRequest,

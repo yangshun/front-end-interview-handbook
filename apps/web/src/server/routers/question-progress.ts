@@ -6,7 +6,7 @@ import type { QuestionFormat } from '~/components/interviews/questions/common/Qu
 import { fetchInterviewsStudyList } from '~/db/contentlayer/InterviewsStudyListReader';
 import type { QuestionProgressStatus } from '~/db/QuestionsProgressTypes';
 import { hashQuestion, unhashQuestion } from '~/db/QuestionsUtils';
-import { triggerCompletedSomeQuestionsEmail } from '~/emails/items/questions-completion/completedSomeQuestionsEmail';
+import { triggerCompletedSomeQuestionsEmail } from '~/emails/items/questions-completion/EmailsSenderCompletedSomeQuestions';
 import prisma from '~/server/prisma';
 
 import { publicProcedure, router, userProcedure } from '../trpc';

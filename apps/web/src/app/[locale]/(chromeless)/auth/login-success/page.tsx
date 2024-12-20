@@ -2,7 +2,7 @@ import type { Metadata } from 'next/types';
 
 import AuthLoginSuccessPage from '~/components/auth/AuthLoginSuccessPage';
 
-import { emailTrackRedisKey } from '~/emails/emailUtils';
+import { emailTrackRedisKey } from '~/emails/EmailsUtils';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 import { readViewerFromToken } from '~/supabase/SupabaseServerGFE';

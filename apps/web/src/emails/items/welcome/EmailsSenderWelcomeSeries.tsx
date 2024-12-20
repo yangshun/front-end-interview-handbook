@@ -1,9 +1,9 @@
 import { sendReactEmail } from '~/emails/mailjet/EmailsMailjetSender';
 import scheduleEmail from '~/emails/qstash/EmailsQstashScheduler';
 
-import EmailWelcomeSeriesAfter24Hours from './EmailWelcomeSeriesAfter24Hours';
-import EmailWelcomeSeriesImmediate from './EmailWelcomeSeriesImmediate';
-import { emailTrackRedisKey } from '../../emailUtils';
+import EmailsTemplateWelcomeSeriesAfter24Hours from './EmailsTemplateWelcomeSeriesAfter24Hours';
+import EmailsTemplateWelcomeSeriesImmediate from './EmailsTemplateWelcomeSeriesImmediate';
+import { emailTrackRedisKey } from '../../EmailsUtils';
 
 import { Redis } from '@upstash/redis';
 
@@ -35,7 +35,7 @@ export async function sendWelcomeEmailImmediate({
   if (welcomeEmailImmediateRedisValue !== 'SENT') {
     try {
       await sendReactEmail({
-        component: <EmailWelcomeSeriesImmediate />,
+        component: <EmailsTemplateWelcomeSeriesImmediate />,
         from: {
           email: 'hello@greatfrontend.com',
           name: 'GreatFrontEnd',
@@ -108,7 +108,7 @@ export async function sendWelcomeEmailAfter24Hours({
   if (welcomeEmailAfter24HoursRedisValue !== 'SENT') {
     try {
       await sendReactEmail({
-        component: <EmailWelcomeSeriesAfter24Hours />,
+        component: <EmailsTemplateWelcomeSeriesAfter24Hours />,
         from: {
           email: 'hello@greatfrontend.com',
           name: 'GreatFrontEnd',

@@ -20,7 +20,7 @@ type Props = Readonly<{
   name?: string | null;
 }>;
 
-export default function EmailPaymentFailed({ name }: Props) {
+export default function EmailsTemplatePaymentFailed({ name }: Props) {
   return (
     <Html lang="en">
       <Head>

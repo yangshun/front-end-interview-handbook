@@ -11,7 +11,7 @@ import Button from '~/components/ui/Button';
 import CheckboxInput from '~/components/ui/CheckboxInput';
 import TextInput from '~/components/ui/TextInput';
 
-import triggerWelcomeSeriesEmail from '~/emails/items/welcome/triggerWelcomeSeriesEmail';
+import triggerWelcomeSeriesEmail from '~/emails/items/welcome/EmailsTriggerWelcomeSeries';
 import logEvent from '~/logging/logEvent';
 import { useI18nRouter } from '~/next-i18nostic/src';
 import type { SupabaseClientGFE } from '~/supabase/SupabaseServerGFE';

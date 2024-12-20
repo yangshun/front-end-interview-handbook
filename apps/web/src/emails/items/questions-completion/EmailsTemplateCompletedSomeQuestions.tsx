@@ -16,7 +16,7 @@ import {
   Text,
 } from '@react-email/components';
 
-export default function EmailCompletedSomeQuestions() {
+export default function EmailsTemplateCompletedSomeQuestions() {
   return (
     <Html lang="en">
       <Head>

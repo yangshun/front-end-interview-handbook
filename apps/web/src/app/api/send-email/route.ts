@@ -1,6 +1,6 @@
 import { type NextRequest, NextResponse } from 'next/server';
 
-import { sendCompletedSomeQuestionsEmail } from '~/emails/items/questions-completion/completedSomeQuestionsEmail';
+import { sendCompletedSomeQuestionsEmail } from '~/emails/items/questions-completion/EmailsSenderCompletedSomeQuestions';
 
 export async function POST(req: NextRequest) {
   try {

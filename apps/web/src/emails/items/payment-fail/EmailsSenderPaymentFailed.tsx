@@ -1,7 +1,7 @@
-import { emailTrackRedisKey } from '~/emails/emailUtils';
+import { emailTrackRedisKey } from '~/emails/EmailsUtils';
 import { sendReactEmail } from '~/emails/mailjet/EmailsMailjetSender';
 
-import EmailPaymentFailed from './EmailPaymentFailed';
+import EmailsTemplatePaymentFailed from './EmailsTemplatePaymentFailed';
 
 import { Redis } from '@upstash/redis';
 
@@ -30,7 +30,7 @@ export default async function sendPaymentFailedEmail({
 
   try {
     await sendReactEmail({
-      component: <EmailPaymentFailed name={name} />,
+      component: <EmailsTemplatePaymentFailed name={name} />,
       from: {
         email: 'contact@greatfrontend.com',
         name: 'GreatFrontEnd',
@@ -41,6 +41,7 @@ export default async function sendPaymentFailedEmail({
         name,
       },
     });
+
     await redis.set(paymentFailedEmailRedisKey, 'SENT', {
       ex: 30 * 24 * 3600, // Expire it 30 days
     });
