@@ -7,7 +7,10 @@ import { sendEmail } from '~/mailjet/sendMail';
 import prisma from '~/server/prisma';
 
 import { emailTrackRedisKey } from '../emailUtils';
+import EmailCheckoutFirstTime from '../templates/EmailCheckoutFirstTime';
+import EmailCheckoutMultipleTimes from '../templates/EmailCheckoutMultipleTimes';
 
+import { render } from '@react-email/components';
 import { Redis } from '@upstash/redis';
 
 const EXPIRES_MONTH = 6;
@@ -54,23 +57,28 @@ export async function sendInitiateCheckoutFirstTimeEmail({
   }
 
   try {
+    // TODO(emails): Not sure which country to pass here for the most used country
+    const [htmlPart, textPart] = await Promise.all([
+      render(<EmailCheckoutFirstTime mostUsedCountry="India" name={name} />),
+      render(<EmailCheckoutFirstTime mostUsedCountry="India" name={name} />, {
+        plainText: true,
+      }),
+    ]);
+
     await sendEmail({
       from: {
         email: 'yangshun@greatfrontend.com',
-        name: 'Yangshun Tay',
+        name: 'Yangshun from GreatFrontEnd',
       },
+      htmlPart,
       replyTo: {
         email: 'team@greatfrontend.com',
         name: 'GreatFrontEnd',
       },
       subject: `Hi ${name}, this is Yangshun from GreatFrontEnd`,
-      templateId: MAILJET_TEMPLATE.initiateCheckoutFirstTime.id,
+      textPart,
       to: {
         email,
-        name,
-      },
-      variables: {
-        country: 'India', // TODO(emails): Not sure which country to pass here for the most used country
         name,
       },
     });
@@ -150,22 +158,43 @@ export async function sendInitiateCheckoutMultipleTimesEmail({
     if (!promoCode) {
       throw "Couldn't generate coupon";
     }
+
+    const [htmlPart, textPart] = await Promise.all([
+      render(
+        <EmailCheckoutMultipleTimes
+          coupon={{
+            code: promoCode.code,
+            percentOff: promoCode.coupon.percent_off ?? 0,
+          }}
+          name={name}
+        />,
+      ),
+      render(
+        <EmailCheckoutMultipleTimes
+          coupon={{
+            code: promoCode.code,
+            percentOff: promoCode.coupon.percent_off ?? 0,
+          }}
+          name={name}
+        />,
+        {
+          plainText: true,
+        },
+      ),
+    ]);
+
     await sendEmail({
       from: {
         email: 'hello@greatfrontend.com',
         name: 'GreatFrontEnd',
       },
+      htmlPart,
       subject: `Act fast: ${promoCode.coupon.percent_off} off reserved just for you, ends in 48 hours!`,
       templateId: MAILJET_TEMPLATE.initiateCheckoutMultipleTimes.id,
+      textPart,
       to: {
         email,
         name,
-      },
-      // // TODO(emails): Use this promocode and percentage off variables value in the template
-      variables: {
-        couponCode: promoCode.code,
-        name,
-        percentOff: `${promoCode.coupon.percent_off}`,
       },
     });
     // Expire this after 6 months so that we can retrigger this email again
