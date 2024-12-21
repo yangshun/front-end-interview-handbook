@@ -452,6 +452,7 @@ export default function InterviewsPricingTableSection({
   const intl = useIntl();
   const featuredPlanId = useId();
   const user = useUser();
+  const { userProfile, isUserProfileLoading } = useUserProfile();
   const { data: lastPaymentError } = trpc.purchases.lastPaymentError.useQuery(
     undefined,
     {
@@ -727,7 +728,10 @@ export default function InterviewsPricingTableSection({
         <PurchaseBlockCard
           features={featuredPlan.includedFeatures}
           footer={
-            featuredPlan.paymentConfig.giveFTL && pppEligibleForFTLBundle ? (
+            !isUserProfileLoading &&
+            !userProfile?.isInterviewsPremium &&
+            featuredPlan.paymentConfig.giveFTL &&
+            pppEligibleForFTLBundle ? (
               <>
                 <Divider className="mb-4" />
                 <FTLPromoSection variant="full" />
@@ -1078,12 +1082,15 @@ export default function InterviewsPricingTableSection({
                               ))}
                             </ul>
                           </Section>
-                          {paymentConfig.giveFTL && pppEligibleForFTLBundle && (
-                            <>
-                              <Divider />
-                              <FTLPromoSection variant="compact" />
-                            </>
-                          )}
+                          {!isUserProfileLoading &&
+                            !userProfile?.isInterviewsPremium &&
+                            paymentConfig.giveFTL &&
+                            pppEligibleForFTLBundle && (
+                              <>
+                                <Divider />
+                                <FTLPromoSection variant="compact" />
+                              </>
+                            )}
                         </div>
                       </Section>
                     </div>
