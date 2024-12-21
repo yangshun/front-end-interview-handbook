@@ -1,9 +1,7 @@
+import EmailsSendStatus from '~/emails/EmailsSendStatus';
 import { sendReactEmail } from '~/emails/mailjet/EmailsMailjetSender';
 
 import EmailsTemplateCompletedSomeQuestions from './EmailsTemplateCompletedSomeQuestions';
-import { emailTrackRedisKey } from '../../EmailsUtils';
-
-import { Redis } from '@upstash/redis';
 
 export default async function sendCompletedSomeQuestionsEmail({
   name,
@@ -14,34 +12,31 @@ export default async function sendCompletedSomeQuestionsEmail({
   name: string;
   userId: string;
 }>) {
-  const redis = Redis.fromEnv();
-  const completedSomeQuestionsEmailRedisKey = emailTrackRedisKey(
+  const sendStatus = new EmailsSendStatus(
+    'INTERVIEWS_COMPLETED_SOME_QUESTIONS',
     userId,
-    'completed_some_questions',
   );
 
-  const completedSomeQuestionsEmailRedisValue = await redis.get(
-    completedSomeQuestionsEmailRedisKey,
-  );
+  if (!(await sendStatus.shouldSend())) {
+    return;
+  }
 
-  if (completedSomeQuestionsEmailRedisValue !== 'SENT') {
-    try {
-      await sendReactEmail({
-        component: <EmailsTemplateCompletedSomeQuestions />,
-        from: {
-          email: 'hello@greatfrontend.com',
-          name: 'GreatFrontEnd',
-        },
-        subject: "Don't Miss Out: Up to 100% off premium",
-        to: {
-          email,
-          name,
-        },
-      });
-      redis.set(completedSomeQuestionsEmailRedisKey, 'SENT');
-    } catch (error) {
-      console.error('Error sending email:', error);
-      throw error;
-    }
+  try {
+    await sendReactEmail({
+      component: <EmailsTemplateCompletedSomeQuestions />,
+      from: {
+        email: 'hello@greatfrontend.com',
+        name: 'GreatFrontEnd',
+      },
+      subject: "Don't Miss Out: Up to 100% off premium",
+      to: {
+        email,
+        name,
+      },
+    });
+    await sendStatus.markAsSent();
+  } catch (error) {
+    console.error('Error sending email:', error);
+    throw error;
   }
 }

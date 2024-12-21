@@ -1,9 +1,7 @@
-import { emailTrackRedisKey } from '~/emails/EmailsUtils';
+import EmailsSendStatus from '~/emails/EmailsSendStatus';
 import { sendReactEmail } from '~/emails/mailjet/EmailsMailjetSender';
 
 import EmailsTemplatePaymentFailed from './EmailsTemplatePaymentFailed';
-
-import { Redis } from '@upstash/redis';
 
 export default async function sendPaymentFailedEmail({
   name,
@@ -14,17 +12,9 @@ export default async function sendPaymentFailedEmail({
   name: string;
   userId: string;
 }>) {
-  const redis = Redis.fromEnv();
-  const paymentFailedEmailRedisKey = emailTrackRedisKey(
-    userId,
-    'payment_failed',
-  );
+  const sendStatus = new EmailsSendStatus('PAYMENT_FAILED', userId);
 
-  const paymentFailedEmailRedisValue = await redis.get(
-    paymentFailedEmailRedisKey,
-  );
-
-  if (paymentFailedEmailRedisValue === 'SENT') {
+  if (!(await sendStatus.shouldSend())) {
     return;
   }
 
@@ -42,8 +32,10 @@ export default async function sendPaymentFailedEmail({
       },
     });
 
-    await redis.set(paymentFailedEmailRedisKey, 'SENT', {
-      ex: 30 * 24 * 3600, // Expire it 30 days
+    const THIRTY_DAYS_IN_SECS = 30 * 24 * 3600;
+
+    await sendStatus.markAsSent({
+      ex: THIRTY_DAYS_IN_SECS,
     });
   } catch (error) {
     console.error('Error sending email:', error);

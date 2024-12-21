@@ -2,14 +2,12 @@ import 'server-only';
 
 import Stripe from 'stripe';
 
+import EmailsSendStatus from '~/emails/EmailsSendStatus';
 import { sendReactEmail } from '~/emails/mailjet/EmailsMailjetSender';
 import prisma from '~/server/prisma';
 
 import EmailsTemplateCheckoutFirstTime from './EmailsTemplateCheckoutFirstTime';
 import EmailsTemplateCheckoutMultipleTimes from './EmailsTemplateCheckoutMultipleTimes';
-import { emailTrackRedisKey } from '../../EmailsUtils';
-
-import { Redis } from '@upstash/redis';
 
 const EXPIRES_MONTH = 6;
 const interviewsPremiumPerkProjectsDiscountCouponId_TEST = 'hV8qtZIX';
@@ -36,21 +34,12 @@ export async function sendInitiateCheckoutFirstTimeEmail({
   name: string;
   userId: string;
 }>) {
-  const redis = Redis.fromEnv();
-  const initiateCheckoutFirstTimeRedisKey = emailTrackRedisKey(
-    userId,
-    'checkout_first_time',
-  );
-  const initiateCheckoutFirstTimeRedisValue = await redis.get(
-    initiateCheckoutFirstTimeRedisKey,
-  );
+  const sendStatus = new EmailsSendStatus('CHECKOUT_FIRST_TIME', userId);
 
+  // TODO(emails): check logic because the original returned for null
   // If there is no value or no SENT value, then don't send the email
-  // For the email to be send, it will have SCHEDULED value
-  if (
-    !initiateCheckoutFirstTimeRedisValue ||
-    initiateCheckoutFirstTimeRedisValue === 'SENT'
-  ) {
+  // For the email to be sent, it will have SCHEDULED value
+  if (!(await sendStatus.shouldSend())) {
     return;
   }
 
@@ -74,7 +63,8 @@ export async function sendInitiateCheckoutFirstTimeEmail({
         name,
       },
     });
-    await redis.set(initiateCheckoutFirstTimeRedisKey, 'SENT');
+
+    await sendStatus.markAsSent();
   } catch (error) {
     console.error('Error sending email:', error);
     throw error;
@@ -91,22 +81,12 @@ export async function sendInitiateCheckoutMultipleTimesEmail({
   userId: string;
 }>) {
   const sixMonthsInSec = secondsFromTodayToSixMonths();
-  const redis = Redis.fromEnv();
-  const initiateCheckoutMultipleTimesRedisKey = emailTrackRedisKey(
-    userId,
-    'checkout_multiples_times',
-  );
+  const sendStatus = new EmailsSendStatus('CHECKOUT_MULTIPLE_TIMES', userId);
 
-  const initiateCheckoutMultipleTimesRedisValue = await redis.get(
-    initiateCheckoutMultipleTimesRedisKey,
-  );
-
+  // TODO(emails): check logic because the original returned for null
   // If there is no value or no SENT value, then don't send the email
   // For the email to be send, it will have SCHEDULED value
-  if (
-    !initiateCheckoutMultipleTimesRedisValue ||
-    initiateCheckoutMultipleTimesRedisValue === 'SENT'
-  ) {
+  if (!(await sendStatus.shouldSend())) {
     return;
   }
 
@@ -176,7 +156,7 @@ export async function sendInitiateCheckoutMultipleTimesEmail({
     });
 
     // Expire this after 6 months so that we can retrigger this email again
-    redis.set(initiateCheckoutMultipleTimesRedisKey, 'SENT', {
+    await sendStatus.markAsSent({
       ex: sixMonthsInSec,
     });
   } catch (error) {

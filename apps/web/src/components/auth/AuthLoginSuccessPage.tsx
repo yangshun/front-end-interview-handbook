@@ -17,19 +17,19 @@ import logEvent from '~/logging/logEvent';
 
 type Props = Readonly<{
   next: string | null;
-  welcomeSeriesEmailSent: boolean;
+  shouldSendWelcomeSeriesEmail: boolean;
 }>;
 
 export default function AuthLoginSuccessPage({
   next,
-  welcomeSeriesEmailSent,
+  shouldSendWelcomeSeriesEmail,
 }: Props) {
   const intl = useIntl();
 
   // Trigger welcome email
   useEmailsOauthSignupTriggerWelcomeSeries({
     isProjects: !!next?.includes('/projects'), // To determine if the signup was triggers from projects or interviews
-    welcomeSeriesEmailSent,
+    shouldSendWelcomeSeriesEmail,
   });
 
   useAuthFullPageRedirectAfterLogin(next);

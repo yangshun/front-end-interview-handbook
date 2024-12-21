@@ -1,11 +1,9 @@
+import EmailsSendStatus from '~/emails/EmailsSendStatus';
 import { sendReactEmail } from '~/emails/mailjet/EmailsMailjetSender';
 import scheduleEmail from '~/emails/qstash/EmailsQstashScheduler';
 
 import EmailsTemplateWelcomeSeriesAfter24Hours from './EmailsTemplateWelcomeSeriesAfter24Hours';
 import EmailsTemplateWelcomeSeriesImmediate from './EmailsTemplateWelcomeSeriesImmediate';
-import { emailTrackRedisKey } from '../../EmailsUtils';
-
-import { Redis } from '@upstash/redis';
 
 export async function sendWelcomeEmailImmediate({
   name,
@@ -18,21 +16,12 @@ export async function sendWelcomeEmailImmediate({
   signupViaInterviews: boolean;
   userId: string;
 }>) {
-  const redis = Redis.fromEnv();
-  const welcomeEmailImmediateRedisKey = emailTrackRedisKey(
+  const sendStatusImmediate = new EmailsSendStatus(
+    'INTERVIEWS_WELCOME_EMAIL_IMMEDIATE',
     userId,
-    'welcome_email_immediate',
-  );
-  const welcomeEmailAfter24HoursRedisKey = emailTrackRedisKey(
-    userId,
-    'welcome_email_after_24_hours',
   );
 
-  const welcomeEmailImmediateRedisValue = await redis.get(
-    welcomeEmailImmediateRedisKey,
-  );
-
-  if (welcomeEmailImmediateRedisValue !== 'SENT') {
+  if (await sendStatusImmediate.shouldSend()) {
     try {
       await sendReactEmail({
         component: <EmailsTemplateWelcomeSeriesImmediate />,
@@ -47,42 +36,48 @@ export async function sendWelcomeEmailImmediate({
           name,
         },
       });
-      await redis.set(welcomeEmailImmediateRedisKey, 'SENT');
+
+      await sendStatusImmediate.markAsSent();
     } catch (error) {
       console.error('Error sending email:', error);
       throw error;
     }
   }
 
+  const sendStatus24Hours = new EmailsSendStatus(
+    'INTERVIEWS_WELCOME_EMAIL_24_HOURS',
+    userId,
+  );
+
   if (!signupViaInterviews) {
     // This email is only sent out for interviews signup
     // But if the user signup via projects, store as SENT for that case as well without sending the email
-    // because we rely on this Redis value to sent out the email and we don't want to retrigger this email again
-    await redis.set(welcomeEmailAfter24HoursRedisKey, 'SENT');
+    // because we rely on this Redis value to send out the email and we don't want to retrigger this email again
+    await sendStatus24Hours.markAsSent();
 
     return;
   }
 
   // Schedule welcome email to be sent out after 24 hours
-  const welcomeEmailAfter24HoursRedisValue = await redis.get(
-    welcomeEmailAfter24HoursRedisKey,
-  );
+  if (!(await sendStatus24Hours.shouldSend())) {
+    return;
+  }
 
-  if (
-    welcomeEmailAfter24HoursRedisValue !== 'SCHEDULED' &&
-    welcomeEmailAfter24HoursRedisValue !== 'SENT'
-  ) {
+  try {
     const result = await scheduleEmail({
       delayInHours: 24,
       email,
-      emailKey: 'welcome_email_after_24_hours',
+      emailKey: 'INTERVIEWS_WELCOME_EMAIL_24_HOURS',
       name,
       userId,
     });
 
     if (result.messageId) {
-      await redis.set(welcomeEmailAfter24HoursRedisKey, 'SCHEDULED');
+      await sendStatus24Hours.markAsScheduled();
     }
+  } catch (error) {
+    console.error('Error scheduling email:', error);
+    throw error;
   }
 }
 
@@ -95,35 +90,33 @@ export async function sendWelcomeEmailAfter24Hours({
   name: string;
   userId: string;
 }>) {
-  const redis = Redis.fromEnv();
-  const welcomeEmailAfter24HoursRedisKey = emailTrackRedisKey(
+  const sendStatus = new EmailsSendStatus(
+    'INTERVIEWS_WELCOME_EMAIL_24_HOURS',
     userId,
-    'welcome_email_after_24_hours',
   );
 
-  const welcomeEmailAfter24HoursRedisValue = await redis.get(
-    welcomeEmailAfter24HoursRedisKey,
-  );
+  if (!(await sendStatus.shouldSend())) {
+    return;
+  }
 
-  if (welcomeEmailAfter24HoursRedisValue !== 'SENT') {
-    try {
-      await sendReactEmail({
-        component: <EmailsTemplateWelcomeSeriesAfter24Hours />,
-        from: {
-          email: 'hello@greatfrontend.com',
-          name: 'GreatFrontEnd',
-        },
-        subject:
-          '✨ Actual prep strategies by real users to clinch multiple Front End offers',
-        to: {
-          email,
-          name,
-        },
-      });
-      redis.set(welcomeEmailAfter24HoursRedisKey, 'SENT');
-    } catch (error) {
-      console.error('Error sending email:', error);
-      throw error;
-    }
+  try {
+    await sendReactEmail({
+      component: <EmailsTemplateWelcomeSeriesAfter24Hours />,
+      from: {
+        email: 'hello@greatfrontend.com',
+        name: 'GreatFrontEnd',
+      },
+      subject:
+        '✨ Actual prep strategies by real users to clinch multiple Front End offers',
+      to: {
+        email,
+        name,
+      },
+    });
+
+    await sendStatus.markAsSent();
+  } catch (error) {
+    console.error('Error sending email:', error);
+    throw error;
   }
 }

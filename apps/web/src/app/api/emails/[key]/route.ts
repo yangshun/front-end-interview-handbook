@@ -23,7 +23,7 @@ export async function POST(
     const finalName = name || 'there';
 
     switch (key) {
-      case 'welcome_email_immediate':
+      case 'INTERVIEWS_WELCOME_EMAIL_IMMEDIATE':
         await sendWelcomeEmailImmediate({
           email,
           name: finalName,
@@ -31,28 +31,28 @@ export async function POST(
           userId,
         });
         break;
-      case 'welcome_email_after_24_hours':
+      case 'INTERVIEWS_WELCOME_EMAIL_24_HOURS':
         await sendWelcomeEmailAfter24Hours({
           email,
           name: finalName,
           userId,
         });
         break;
-      case 'checkout_first_time':
+      case 'CHECKOUT_FIRST_TIME':
         await sendInitiateCheckoutFirstTimeEmail({
           email,
           name: finalName,
           userId,
         });
         break;
-      case 'checkout_multiples_times':
+      case 'CHECKOUT_MULTIPLE_TIMES':
         await sendInitiateCheckoutMultipleTimesEmail({
           email,
           name: finalName,
           userId,
         });
         break;
-      case 'completed_some_questions':
+      case 'INTERVIEWS_COMPLETED_SOME_QUESTIONS':
         await sendCompletedSomeQuestionsEmail({
           email,
           name: finalName,

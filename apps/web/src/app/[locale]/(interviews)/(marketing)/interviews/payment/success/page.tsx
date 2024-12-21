@@ -4,7 +4,7 @@ import type { Metadata } from 'next/types';
 import fetchInterviewsPricingPlanPaymentConfigLocalizedRecord from '~/components/interviews/purchase/fetchInterviewsPricingPlanPaymentConfigLocalizedRecord';
 import InterviewsPaymentSuccessPage from '~/components/interviews/purchase/InterviewsPaymentSuccessPage';
 
-import clearCheckoutEmailData from '~/emails/items/checkout/EmailsCheckoutEmailData';
+import emailsClearCheckoutRedis from '~/emails/items/checkout/EmailsCheckoutUtils';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 import { readViewerFromToken } from '~/supabase/SupabaseServerGFE';
@@ -41,7 +41,7 @@ export default async function Page() {
 
   if (viewer) {
     // Clear checkout email redis data on payment success
-    clearCheckoutEmailData({ userId: viewer.id });
+    emailsClearCheckoutRedis({ userId: viewer.id });
   }
 
   return (

@@ -1,6 +1,6 @@
 import type { EmailKey } from '~/emails/EmailsTypes';
 
-const WELCOME_EMAIL_KEY: EmailKey = 'welcome_email_immediate';
+const WELCOME_EMAIL_KEY: EmailKey = 'INTERVIEWS_WELCOME_EMAIL_IMMEDIATE';
 
 export default async function triggerWelcomeSeriesEmail({
   name,

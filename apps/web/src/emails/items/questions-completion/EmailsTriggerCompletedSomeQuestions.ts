@@ -1,12 +1,9 @@
-import { emailTrackRedisKey } from '~/emails/EmailsUtils';
+import EmailsSendStatus from '~/emails/EmailsSendStatus';
 import scheduleEmail from '~/emails/qstash/EmailsQstashScheduler';
-import {
-  constructRedisKey,
-  QUESTIONS_INTEREST_POINT_KEY,
-} from '~/redis/RedisUtils';
+import RedisCounter from '~/redis/RedisCounter';
 import prisma from '~/server/prisma';
 
-import { Redis } from '@upstash/redis';
+const TRIGGER_INTEREST_POINT = 15;
 
 export default async function triggerCompletedSomeQuestionsEmail({
   email,
@@ -17,19 +14,12 @@ export default async function triggerCompletedSomeQuestionsEmail({
   format: string;
   userId: string;
 }>) {
-  const redis = Redis.fromEnv();
-  const completedSomeQuestionsEmailRedisKey = emailTrackRedisKey(
+  const sendStatus = new EmailsSendStatus(
+    'INTERVIEWS_COMPLETED_SOME_QUESTIONS',
     userId,
-    'completed_some_questions',
-  );
-  const completedSomeQuestionsEmailRedisValue = await redis.get(
-    completedSomeQuestionsEmailRedisKey,
   );
 
-  if (
-    completedSomeQuestionsEmailRedisValue === 'SCHEDULED' ||
-    completedSomeQuestionsEmailRedisValue === 'SENT'
-  ) {
+  if (!(await sendStatus.shouldSend())) {
     return;
   }
 
@@ -42,17 +32,14 @@ export default async function triggerCompletedSomeQuestionsEmail({
     'system-design': 3,
     'user-interface': 3,
   };
-  const interestPoint = interestPointMap[format] || 0;
+  const points = interestPointMap[format] || 0;
 
-  const questionsInterestPointRedisKey = constructRedisKey(
+  const questionsInterestPointsRedisCounter = new RedisCounter(
+    'QUESTIONS_INTEREST_POINT',
     userId,
-    QUESTIONS_INTEREST_POINT_KEY,
   );
-  const questionsInterestPointRedisValue: number = await redis.incrby(
-    questionsInterestPointRedisKey,
-    interestPoint,
-  );
-  const TRIGGER_INTEREST_POINT = 15;
+  const questionsInterestPointRedisValue =
+    await questionsInterestPointsRedisCounter.incrby(points);
 
   if (questionsInterestPointRedisValue >= TRIGGER_INTEREST_POINT) {
     const profile = await prisma.profile.findUnique({
@@ -63,16 +50,17 @@ export default async function triggerCompletedSomeQuestionsEmail({
         id: userId,
       },
     });
+
     const result = await scheduleEmail({
       delayInHours: 2,
       email,
-      emailKey: 'completed_some_questions',
+      emailKey: 'INTERVIEWS_COMPLETED_SOME_QUESTIONS',
       name: profile?.name ?? '',
       userId,
     });
 
     if (result.messageId) {
-      await redis.set(completedSomeQuestionsEmailRedisKey, 'SCHEDULED');
+      await sendStatus.markAsScheduled();
     }
   }
 }

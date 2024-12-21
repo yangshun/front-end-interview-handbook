@@ -2,12 +2,10 @@ import type { Metadata } from 'next/types';
 
 import AuthLoginSuccessPage from '~/components/auth/AuthLoginSuccessPage';
 
-import { emailTrackRedisKey } from '~/emails/EmailsUtils';
+import EmailsSendStatus from '~/emails/EmailsSendStatus';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 import { readViewerFromToken } from '~/supabase/SupabaseServerGFE';
-
-import { Redis } from '@upstash/redis';
 
 type Props = Readonly<{
   params: Readonly<{
@@ -35,26 +33,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Page({ searchParams }: Props) {
   const viewer = await readViewerFromToken();
 
-  let welcomeSeriesEmailSent = false;
+  let shouldSendWelcomeSeriesEmail = true;
 
   if (viewer) {
-    const redis = Redis.fromEnv();
-    const welcomeEmailImmediateRedisKey = emailTrackRedisKey(
+    const sendStatusImmediate = new EmailsSendStatus(
+      'INTERVIEWS_WELCOME_EMAIL_IMMEDIATE',
       viewer.id,
-      'welcome_email_immediate',
     );
 
-    const welcomeEmailImmediateRedisValue = await redis.get(
-      welcomeEmailImmediateRedisKey,
-    );
-
-    welcomeSeriesEmailSent = welcomeEmailImmediateRedisValue === 'SENT';
+    shouldSendWelcomeSeriesEmail = await sendStatusImmediate.shouldSend();
   }
 
   return (
     <AuthLoginSuccessPage
       next={searchParams.next}
-      welcomeSeriesEmailSent={welcomeSeriesEmailSent}
+      shouldSendWelcomeSeriesEmail={shouldSendWelcomeSeriesEmail}
     />
   );
 }

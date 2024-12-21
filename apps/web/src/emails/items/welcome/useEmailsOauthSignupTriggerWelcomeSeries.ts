@@ -8,19 +8,19 @@ import { useUser } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
   isProjects: boolean;
-  welcomeSeriesEmailSent: boolean;
+  shouldSendWelcomeSeriesEmail: boolean;
 }>;
 
 export default function useEmailsOauthSignupTriggerWelcomeSeries({
   isProjects,
-  welcomeSeriesEmailSent,
+  shouldSendWelcomeSeriesEmail,
 }: Props) {
   const { userProfile } = useUserProfile();
   const user = useUser();
 
   useEffect(() => {
     // If welcome series email already sent, don't send again
-    if (welcomeSeriesEmailSent) {
+    if (!shouldSendWelcomeSeriesEmail) {
       return;
     }
     // Hacky way to check for OAuth signup because there is no way to find out in oauth if the flow is signup or login flow
@@ -53,5 +53,5 @@ export default function useEmailsOauthSignupTriggerWelcomeSeries({
         });
       }
     }
-  }, [userProfile, user, welcomeSeriesEmailSent, isProjects]);
+  }, [userProfile, user, shouldSendWelcomeSeriesEmail, isProjects]);
 }
