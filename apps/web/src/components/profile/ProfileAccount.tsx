@@ -1,6 +1,6 @@
 'use client';
 
-import { INTERVIEWS_AUTH_CHANGES_AVAILABLE } from '~/data/FeatureFlags';
+import { GOOGLE_AUTH_AVAILABLE } from '~/data/FeatureFlags';
 
 import { FormattedMessage } from '~/components/intl';
 import Heading from '~/components/ui/Heading';
@@ -31,7 +31,7 @@ export default function ProfileAccount({ user }: Props) {
         <ProfileAccountDisplayName />
         <ProfileAccountUsername />
         <ProfileAccountEmail user={user} />
-        {INTERVIEWS_AUTH_CHANGES_AVAILABLE && (
+        {GOOGLE_AUTH_AVAILABLE && (
           <ProfileAccountIdentities userIdentities={user.identities ?? []} />
         )}
       </Section>

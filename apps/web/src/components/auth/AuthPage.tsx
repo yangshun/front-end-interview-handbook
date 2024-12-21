@@ -5,7 +5,7 @@ import { useSearchParams } from 'next/navigation';
 
 import useAuthFullPageRedirectAfterLogin from '~/hooks/user/useAuthFullPageRedirectAfterLogIn';
 
-import { INTERVIEWS_AUTH_CHANGES_AVAILABLE } from '~/data/FeatureFlags';
+import { GOOGLE_AUTH_AVAILABLE } from '~/data/FeatureFlags';
 
 import SupabaseAuth from '~/components/auth/SupabaseAuth';
 import { FormattedMessage, useIntl } from '~/components/intl';
@@ -87,9 +87,7 @@ export default function AuthPage({ view }: Props) {
               ) : undefined
             }
             providers={
-              INTERVIEWS_AUTH_CHANGES_AVAILABLE
-                ? ['github', 'google']
-                : ['github']
+              GOOGLE_AUTH_AVAILABLE ? ['github', 'google'] : ['github']
             }
             socialLayout="horizontal"
             supabaseClient={supabaseClient}
