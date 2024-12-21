@@ -1,7 +1,7 @@
 import { z } from 'zod';
 
 import { hashGuide } from '~/db/guides/GuidesUtils';
-import { triggerCompletedSomeQuestionsEmail } from '~/emails/items/questions-completion/EmailsSenderCompletedSomeQuestions';
+import triggerCompletedSomeQuestionsEmail from '~/emails/items/questions-completion/EmailsTriggerCompletedSomeQuestions';
 import prisma from '~/server/prisma';
 
 import { router, userProcedure } from '../trpc';

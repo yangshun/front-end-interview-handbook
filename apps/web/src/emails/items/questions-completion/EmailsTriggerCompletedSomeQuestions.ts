@@ -1,0 +1,78 @@
+import { emailTrackRedisKey } from '~/emails/EmailsUtils';
+import scheduleEmail from '~/emails/qstash/EmailsQstashScheduler';
+import {
+  constructRedisKey,
+  QUESTIONS_INTEREST_POINT_KEY,
+} from '~/redis/RedisUtils';
+import prisma from '~/server/prisma';
+
+import { Redis } from '@upstash/redis';
+
+export default async function triggerCompletedSomeQuestionsEmail({
+  email,
+  userId,
+  format,
+}: Readonly<{
+  email: string;
+  format: string;
+  userId: string;
+}>) {
+  const redis = Redis.fromEnv();
+  const completedSomeQuestionsEmailRedisKey = emailTrackRedisKey(
+    userId,
+    'completed_some_questions',
+  );
+  const completedSomeQuestionsEmailRedisValue = await redis.get(
+    completedSomeQuestionsEmailRedisKey,
+  );
+
+  if (
+    completedSomeQuestionsEmailRedisValue === 'SCHEDULED' ||
+    completedSomeQuestionsEmailRedisValue === 'SENT'
+  ) {
+    return;
+  }
+
+  // Interest point for each question format
+  const interestPointMap: Record<string, number> = {
+    algo: 3,
+    article: 1,
+    javascript: 3,
+    quiz: 1,
+    'system-design': 3,
+    'user-interface': 3,
+  };
+  const interestPoint = interestPointMap[format] || 0;
+
+  const questionsInterestPointRedisKey = constructRedisKey(
+    userId,
+    QUESTIONS_INTEREST_POINT_KEY,
+  );
+  const questionsInterestPointRedisValue: number = await redis.incrby(
+    questionsInterestPointRedisKey,
+    interestPoint,
+  );
+  const TRIGGER_INTEREST_POINT = 15;
+
+  if (questionsInterestPointRedisValue >= TRIGGER_INTEREST_POINT) {
+    const profile = await prisma.profile.findUnique({
+      select: {
+        name: true,
+      },
+      where: {
+        id: userId,
+      },
+    });
+    const result = await scheduleEmail({
+      delayInHours: 2,
+      email,
+      emailKey: 'completed_some_questions',
+      name: profile?.name ?? '',
+      userId,
+    });
+
+    if (result.messageId) {
+      await redis.set(completedSomeQuestionsEmailRedisKey, 'SCHEDULED');
+    }
+  }
+}

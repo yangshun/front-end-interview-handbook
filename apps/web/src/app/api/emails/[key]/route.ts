@@ -5,7 +5,7 @@ import {
   sendInitiateCheckoutFirstTimeEmail,
   sendInitiateCheckoutMultipleTimesEmail,
 } from '~/emails/items/checkout/EmailsSenderCheckoutInitiate';
-import { sendCompletedSomeQuestionsEmail } from '~/emails/items/questions-completion/EmailsSenderCompletedSomeQuestions';
+import sendCompletedSomeQuestionsEmail from '~/emails/items/questions-completion/EmailsSenderCompletedSomeQuestions';
 import {
   sendWelcomeEmailAfter24Hours,
   sendWelcomeEmailImmediate,

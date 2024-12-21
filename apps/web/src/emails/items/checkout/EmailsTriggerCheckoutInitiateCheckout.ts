@@ -63,7 +63,7 @@ export default async function triggerInitiateCheckoutEmail({
   const result = await scheduleEmail({
     delayInHours: 24,
     email,
-    emailKey: emailKey,
+    emailKey,
     name,
     userId,
   });
