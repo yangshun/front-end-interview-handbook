@@ -13,55 +13,53 @@ import {
 
 export async function POST(
   req: NextRequest,
-  { params }: { params: { key: EmailKey } },
+  { params }: { params: { emailKey: EmailKey } },
 ) {
   try {
-    const { key } = params;
+    const { emailKey } = params;
     const request = await req.json();
-    const { email, name, userId } = request;
+    const { email, name, signedUpViaInterviews, userId } = request;
 
-    const finalName = name || 'there';
-
-    switch (key) {
+    switch (emailKey) {
       case 'INTERVIEWS_WELCOME_EMAIL_IMMEDIATE':
         await sendWelcomeEmailImmediate({
           email,
-          name: finalName,
-          signupViaInterviews: request.signupViaInterviews,
+          name,
+          signedUpViaInterviews,
           userId,
         });
         break;
       case 'INTERVIEWS_WELCOME_EMAIL_24_HOURS':
         await sendWelcomeEmailAfter24Hours({
           email,
-          name: finalName,
+          name,
           userId,
         });
         break;
       case 'CHECKOUT_FIRST_TIME':
         await sendInitiateCheckoutFirstTimeEmail({
           email,
-          name: finalName,
+          name,
           userId,
         });
         break;
       case 'CHECKOUT_MULTIPLE_TIMES':
         await sendInitiateCheckoutMultipleTimesEmail({
           email,
-          name: finalName,
+          name,
           userId,
         });
         break;
       case 'INTERVIEWS_COMPLETED_SOME_QUESTIONS':
         await sendCompletedSomeQuestionsEmail({
           email,
-          name: finalName,
+          name,
           userId,
         });
         break;
       default:
         return NextResponse.json(
-          { error: `Invalid email key '${key}'` },
+          { error: `Invalid email key '${emailKey}'` },
           { status: 400 },
         );
     }

@@ -48,7 +48,7 @@ export default function useEmailsOauthSignupTriggerWelcomeSeries({
         triggerWelcomeSeriesEmail({
           email: user.email,
           name: '',
-          signupViaInterviews: !isProjects,
+          signedUpViaInterviews: !isProjects,
           userId: user.id,
         });
       }

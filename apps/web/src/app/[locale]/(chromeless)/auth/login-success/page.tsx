@@ -41,7 +41,8 @@ export default async function Page({ searchParams }: Props) {
       viewer.id,
     );
 
-    shouldSendWelcomeSeriesEmail = await sendStatusImmediate.shouldSend();
+    shouldSendWelcomeSeriesEmail =
+      !(await sendStatusImmediate.isSentOrScheduled());
   }
 
   return (

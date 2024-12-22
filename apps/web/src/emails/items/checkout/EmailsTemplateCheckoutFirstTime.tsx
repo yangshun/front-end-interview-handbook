@@ -13,8 +13,9 @@ import {
 } from '@react-email/components';
 
 type Props = Readonly<{
+  // TODO(emails): update logic
   mostUsedCountry: string;
-  name: string;
+  name: string | null;
 }>;
 
 export default function EmailsTemplateCheckoutFirstTime({
@@ -45,7 +46,7 @@ export default function EmailsTemplateCheckoutFirstTime({
           </Heading>
           <Section style={body}>
             <Section>
-              <Text style={paragraph}>Hi {name},</Text>
+              <Text style={paragraph}>Hi {name ?? 'there'},</Text>
               <Text style={{ ...paragraph, margin: '16px 0 0 0' }}>
                 How's it going? Thank you for your interest in GreatFrontEnd!
               </Text>
@@ -55,7 +56,7 @@ export default function EmailsTemplateCheckoutFirstTime({
                 I spent over 5 years at Meta leading teams and building
                 front-end products like{' '}
                 <Link
-                  href="https://meta.com"
+                  href="https://www.meta.com"
                   style={{
                     ...paragraph,
                     textDecoration: 'underline',
@@ -64,14 +65,14 @@ export default function EmailsTemplateCheckoutFirstTime({
                 </Link>{' '}
                 and{' '}
                 <Link
-                  href="https://docusaurus.io/"
+                  href="https://docusaurus.io"
                   style={{
                     ...paragraph,
                     textDecoration: 'underline',
                   }}>
                   Docusaurus
                 </Link>
-                , and I'm very passionate about front-end engineering.
+                , and I'm very passionate about front end engineering.
               </Text>
               <Text style={paragraph}>
                 I always felt that the resources available for the front-end

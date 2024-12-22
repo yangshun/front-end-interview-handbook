@@ -31,7 +31,7 @@ export async function sendInitiateCheckoutFirstTimeEmail({
   userId,
 }: Readonly<{
   email: string;
-  name: string;
+  name: string | null;
   userId: string;
 }>) {
   const sendStatus = new EmailsSendStatus('CHECKOUT_FIRST_TIME', userId);
@@ -39,14 +39,14 @@ export async function sendInitiateCheckoutFirstTimeEmail({
   // TODO(emails): check logic because the original returned for null
   // If there is no value or no SENT value, then don't send the email
   // For the email to be sent, it will have SCHEDULED value
-  if (!(await sendStatus.shouldSend())) {
+  if (await sendStatus.isSentOrScheduled()) {
     return;
   }
 
   try {
     await sendReactEmail({
-      // TODO(emails): Not sure which country to pass here for the most used country
       component: (
+        // TODO(emails): Not sure which country to pass here for the most used country
         <EmailsTemplateCheckoutFirstTime mostUsedCountry="India" name={name} />
       ),
       from: {
@@ -57,7 +57,7 @@ export async function sendInitiateCheckoutFirstTimeEmail({
         email: 'team@greatfrontend.com',
         name: 'GreatFrontEnd',
       },
-      subject: `Hi ${name}, this is Yangshun from GreatFrontEnd`,
+      subject: `Hi ${name ?? 'there'}, this is Yangshun from GreatFrontEnd`,
       to: {
         email,
         name,
@@ -77,7 +77,7 @@ export async function sendInitiateCheckoutMultipleTimesEmail({
   userId,
 }: Readonly<{
   email: string;
-  name: string;
+  name: string | null;
   userId: string;
 }>) {
   const sixMonthsInSec = secondsFromTodayToSixMonths();
@@ -86,7 +86,7 @@ export async function sendInitiateCheckoutMultipleTimesEmail({
   // TODO(emails): check logic because the original returned for null
   // If there is no value or no SENT value, then don't send the email
   // For the email to be send, it will have SCHEDULED value
-  if (!(await sendStatus.shouldSend())) {
+  if (await sendStatus.isSentOrScheduled()) {
     return;
   }
 

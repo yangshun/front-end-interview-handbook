@@ -9,11 +9,11 @@ export async function sendWelcomeEmailImmediate({
   name,
   email,
   userId,
-  signupViaInterviews,
+  signedUpViaInterviews,
 }: Readonly<{
   email: string;
-  name: string;
-  signupViaInterviews: boolean;
+  name: string | null;
+  signedUpViaInterviews: boolean;
   userId: string;
 }>) {
   const sendStatusImmediate = new EmailsSendStatus(
@@ -21,7 +21,7 @@ export async function sendWelcomeEmailImmediate({
     userId,
   );
 
-  if (await sendStatusImmediate.shouldSend()) {
+  if (!(await sendStatusImmediate.isSentOrScheduled())) {
     try {
       await sendReactEmail({
         component: <EmailsTemplateWelcomeSeriesImmediate />,
@@ -49,21 +49,22 @@ export async function sendWelcomeEmailImmediate({
     userId,
   );
 
-  if (!signupViaInterviews) {
-    // This email is only sent out for interviews signup
-    // But if the user signup via projects, store as SENT for that case as well without sending the email
-    // because we rely on this Redis value to send out the email and we don't want to retrigger this email again
+  if (!signedUpViaInterviews) {
+    // This email is only sent out for interviews signups but
+    // if the user signed up via projects, mark as sent because
+    // we rely on this Redis value to send out the email and
+    // we don't want to retrigger this email again
     await sendStatus24Hours.markAsSent();
 
     return;
   }
 
-  // Schedule welcome email to be sent out after 24 hours
-  if (!(await sendStatus24Hours.shouldSend())) {
+  if (await sendStatus24Hours.isSentOrScheduled()) {
     return;
   }
 
   try {
+    // Schedule welcome email to be sent out after 24 hours
     const result = await scheduleEmail({
       delayInHours: 24,
       email,
@@ -87,7 +88,7 @@ export async function sendWelcomeEmailAfter24Hours({
   userId,
 }: Readonly<{
   email: string;
-  name: string;
+  name: string | null;
   userId: string;
 }>) {
   const sendStatus = new EmailsSendStatus(
@@ -95,7 +96,7 @@ export async function sendWelcomeEmailAfter24Hours({
     userId,
   );
 
-  if (!(await sendStatus.shouldSend())) {
+  if (await sendStatus.isSentOrScheduled()) {
     return;
   }
 

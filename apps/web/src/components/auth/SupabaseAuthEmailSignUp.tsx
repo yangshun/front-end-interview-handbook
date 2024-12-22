@@ -127,7 +127,7 @@ export default function SupabaseAuthEmailSignUp({
       triggerWelcomeSeriesEmail({
         email,
         name: '',
-        signupViaInterviews: !next?.includes('/projects'), // To determine if the signup was triggers from projects or interviews
+        signedUpViaInterviews: !next?.includes('/projects'), // To determine if the signup was triggered from projects or interviews
         userId: signUpUser.id,
       });
 

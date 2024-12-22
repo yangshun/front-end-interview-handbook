@@ -9,12 +9,12 @@ export default async function sendPaymentFailedEmail({
   userId,
 }: Readonly<{
   email: string;
-  name: string;
+  name: string | null;
   userId: string;
 }>) {
   const sendStatus = new EmailsSendStatus('PAYMENT_FAILED', userId);
 
-  if (!(await sendStatus.shouldSend())) {
+  if (await sendStatus.isSentOrScheduled()) {
     return;
   }
 

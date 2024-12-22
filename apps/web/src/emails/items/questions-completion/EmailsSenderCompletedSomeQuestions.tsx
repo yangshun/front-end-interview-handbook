@@ -9,7 +9,7 @@ export default async function sendCompletedSomeQuestionsEmail({
   userId,
 }: Readonly<{
   email: string;
-  name: string;
+  name: string | null;
   userId: string;
 }>) {
   const sendStatus = new EmailsSendStatus(
@@ -17,7 +17,7 @@ export default async function sendCompletedSomeQuestionsEmail({
     userId,
   );
 
-  if (!(await sendStatus.shouldSend())) {
+  if (await sendStatus.isSentOrScheduled()) {
     return;
   }
 

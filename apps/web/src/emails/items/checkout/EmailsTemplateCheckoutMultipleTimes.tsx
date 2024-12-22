@@ -20,7 +20,7 @@ type Props = Readonly<{
     code: string;
     percentOff: number;
   }>;
-  name: string;
+  name: string | null;
 }>;
 
 export default function EmailsTemplateCheckoutMultipleTimes({
@@ -99,7 +99,7 @@ export default function EmailsTemplateCheckoutMultipleTimes({
           </Row>
           <Section style={body}>
             <Section>
-              <Text style={paragraph}>Hi {name},</Text>
+              <Text style={paragraph}>Hi {name ?? 'there'},</Text>
               <Text style={paragraph}>
                 We noticed you were so close to completing your purchase. To
                 thank you for your interest, we're offering you a special{' '}
@@ -111,7 +111,7 @@ export default function EmailsTemplateCheckoutMultipleTimes({
                 we currently offer.
               </Text>
               <Text style={paragraph}>
-                But don't wait too long—this offer expires in{' '}
+                But don't wait too long–this offer expires in{' '}
                 <span style={bold}>48 hours</span>!
               </Text>
             </Section>

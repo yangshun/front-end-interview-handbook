@@ -1,4 +1,5 @@
 import type { EmailKey } from '~/emails/EmailsTypes';
+import { getSiteOrigin } from '~/seo/siteUrl';
 
 import { Client } from '@upstash/qstash';
 
@@ -20,15 +21,10 @@ export default async function scheduleEmail({
   emailKey,
 }: Props) {
   const delayInSeconds = delayInHours * 3600;
-  // TODO(email): use getSiteOrigin()
-  const endpointOriginURL =
-    process.env.NEXT_PUBLIC_VERCEL_ENV === 'preview'
-      ? `https://dev.greatfrontend.com`
-      : 'https://www.greatfrontend.com';
 
   return await qstash.publishJSON({
     body: { email, emailKey, name, userId },
     delay: delayInSeconds,
-    url: `${endpointOriginURL}/api/emails/${emailKey}`,
+    url: `${getSiteOrigin()}/api/emails/${emailKey}`,
   });
 }

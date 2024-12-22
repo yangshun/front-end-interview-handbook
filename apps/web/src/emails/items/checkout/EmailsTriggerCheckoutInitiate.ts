@@ -45,7 +45,7 @@ export default async function triggerInitiateCheckoutEmail({
 
   const sendStatus = new EmailsSendStatus(checkoutEmailKey, userId);
 
-  if (!(await sendStatus.shouldSend())) {
+  if (await sendStatus.isSentOrScheduled()) {
     return;
   }
 

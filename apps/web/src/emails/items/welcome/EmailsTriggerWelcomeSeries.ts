@@ -5,12 +5,12 @@ const WELCOME_EMAIL_KEY: EmailKey = 'INTERVIEWS_WELCOME_EMAIL_IMMEDIATE';
 export default async function triggerWelcomeSeriesEmail({
   name,
   email,
-  signupViaInterviews,
+  signedUpViaInterviews,
   userId,
 }: Readonly<{
   email: string;
   name: string;
-  signupViaInterviews: boolean;
+  signedUpViaInterviews: boolean;
   userId: string;
 }>) {
   try {
@@ -18,7 +18,7 @@ export default async function triggerWelcomeSeriesEmail({
       body: JSON.stringify({
         email,
         name,
-        signupViaInterviews,
+        signedUpViaInterviews,
         userId,
       }),
       headers: {

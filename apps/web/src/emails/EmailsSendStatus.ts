@@ -15,10 +15,10 @@ export default class EmailsSendStatus {
     this.redis = Redis.fromEnv();
   }
 
-  async shouldSend() {
+  async isSentOrScheduled() {
     const sendStatus = await this.redis.get(this.redisKey);
 
-    return sendStatus !== SENT && sendStatus !== SCHEDULED;
+    return sendStatus === SENT || sendStatus === SCHEDULED;
   }
 
   async markAsSent(opts?: SetCommandOptions) {

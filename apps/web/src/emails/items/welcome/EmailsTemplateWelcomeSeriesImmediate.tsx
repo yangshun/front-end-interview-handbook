@@ -79,11 +79,9 @@ export default function EmailsTemplateWelcomeSeriesImmediate() {
               <Heading as="h2" style={{ ...heading2, margin: '0 0 48px 0' }}>
                 Using any excess time
               </Heading>
-
               <Text style={{ ...textBody1, margin: '0 0 32px 0' }}>
                 Hone in specific topics you need the most practice
               </Text>
-
               {FOCUS_AREAS.map(({ name, logo, href }) => (
                 <Section
                   key={name}
@@ -118,11 +116,9 @@ export default function EmailsTemplateWelcomeSeriesImmediate() {
                   </Link>
                 </Section>
               ))}
-
               <Text style={{ ...textBody1, margin: '40px 0 32px 0' }}>
                 Revise your fundamentals with knowledge quizzes
               </Text>
-
               {QUIZ_TOPICS.map(({ name, logo, href }) => (
                 <Section
                   key={name}
@@ -163,7 +159,6 @@ export default function EmailsTemplateWelcomeSeriesImmediate() {
               <Heading as="h2" style={{ ...heading2, margin: '0 0 48px 0' }}>
                 More time-savers
               </Heading>
-
               <Text style={{ ...textBody1, margin: '0 0 32px 0' }}>
                 Our curated study plans optimize your preparation for any
                 timeline
@@ -173,12 +168,10 @@ export default function EmailsTemplateWelcomeSeriesImmediate() {
                 src="https://bmygeefzuragewmbhlby.supabase.co/storage/v1/object/public/emails/study-plans.png"
                 width="100%"
               />
-
               <Text style={{ ...textBody1, margin: '56px 0 32px 0' }}>
                 Preparing for specific companies? Tackle their interview
                 questions
               </Text>
-
               {Array.from({ length: Math.ceil(COMPANIES.length / 2) }, (_, i) =>
                 COMPANIES.slice(i * 2, i * 2 + 2),
               ).map((items, index) => (
