@@ -14,9 +14,10 @@ export default async function triggerWelcomeSeriesEmail({
   userId: string;
 }>) {
   try {
-    await fetch(`/api/emails/${WELCOME_EMAIL_KEY}`, {
+    await fetch(`/api/emails`, {
       body: JSON.stringify({
         email,
+        emailKey: WELCOME_EMAIL_KEY,
         name,
         signedUpViaInterviews,
         userId,

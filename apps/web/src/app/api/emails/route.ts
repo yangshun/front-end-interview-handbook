@@ -1,6 +1,5 @@
 import { type NextRequest, NextResponse } from 'next/server';
 
-import type { EmailKey } from '~/emails/EmailsTypes';
 import {
   sendInitiateCheckoutFirstTimeEmail,
   sendInitiateCheckoutMultipleTimesEmail,
@@ -11,14 +10,10 @@ import {
   sendWelcomeEmailImmediate,
 } from '~/emails/items/welcome/EmailsSenderWelcomeSeries';
 
-export async function POST(
-  req: NextRequest,
-  { params }: { params: { emailKey: EmailKey } },
-) {
+export async function POST(req: NextRequest) {
   try {
-    const { emailKey } = params;
     const request = await req.json();
-    const { email, name, signedUpViaInterviews, userId } = request;
+    const { email, emailKey, name, signedUpViaInterviews, userId } = request;
 
     switch (emailKey) {
       case 'INTERVIEWS_WELCOME_EMAIL_IMMEDIATE':

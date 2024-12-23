@@ -3,7 +3,7 @@ import { getSiteOrigin } from '~/seo/siteUrl';
 
 import { Client } from '@upstash/qstash';
 
-const qstash = new Client({ token: process.env.QSTASH_TOKEN ?? '' });
+const QStash = new Client({ token: process.env.QSTASH_TOKEN ?? '' });
 
 type Props = Readonly<{
   delayInHours: number; // In hour;
@@ -22,7 +22,7 @@ export default async function scheduleEmail({
 }: Props) {
   const delayInSeconds = delayInHours * 3600;
 
-  return await qstash.publishJSON({
+  return await QStash.publishJSON({
     body: { email, emailKey, name, userId },
     delay: delayInSeconds,
     url: `${getSiteOrigin({ usePreviewForDev: true })}/api/emails`,
