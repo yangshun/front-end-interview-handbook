@@ -145,11 +145,13 @@ function PricingButtonNonLoggedIn({
 
 function PricingButtonNonPremium({
   'aria-describedby': ariaDescribedBy,
+  countryCode,
   paymentConfig,
   useCurrentPageAsCancelUrl,
   variant,
 }: Readonly<{
   'aria-describedby': string;
+  countryCode: string | null;
   paymentConfig: InterviewsPricingPlanPaymentConfigLocalized;
   useCurrentPageAsCancelUrl: boolean;
   variant: ComponentProps<typeof Button>['variant'];
@@ -179,6 +181,9 @@ function PricingButtonNonPremium({
     setIsCheckoutSessionLoading(true);
     setErrorMessage(null);
     try {
+      // Trigger checkout email, non-blocking fashion
+      initialCheckoutEmailMutation.mutateAsync({ countryCode });
+
       const res = await fetch(
         url.format({
           pathname: '/api/payments/purchase/checkout',
@@ -191,13 +196,10 @@ function PricingButtonNonPremium({
           },
         }),
       );
+
       const { payload } = await res.json();
 
       if (hasClickedRef.current) {
-        // Trigger checkout email
-        if (user?.email) {
-          await initialCheckoutEmailMutation.mutateAsync();
-        }
         window.location.href = payload.url;
 
         return;
@@ -270,7 +272,9 @@ function PricingButtonNonPremium({
 
           if (checkoutSessionHref != null) {
             if (user?.email) {
-              await initialCheckoutEmailMutation.mutateAsync();
+              await initialCheckoutEmailMutation.mutateAsync({
+                countryCode,
+              });
             }
             // Had to move this checkout redirection here
             // Otherwise with href passed to the PricingButton, the initialCheckoutEmailMutation is unable to execute it
@@ -321,6 +325,7 @@ function PricingButtonSection({
       return (
         <PricingButtonNonPremium
           aria-describedby={ariaDescribedBy}
+          countryCode={countryCode}
           paymentConfig={paymentConfig}
           useCurrentPageAsCancelUrl={useCurrentPageAsCancelUrl}
           variant={variant}

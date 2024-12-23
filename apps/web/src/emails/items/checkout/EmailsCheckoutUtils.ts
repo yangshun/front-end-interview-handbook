@@ -7,11 +7,11 @@ type Props = Readonly<{
 
 export default async function emailsClearCheckoutRedis({ userId }: Props) {
   const sendStatusInitiateCheckoutFirstTime = new EmailsSendStatus(
-    'CHECKOUT_FIRST_TIME',
+    'INTERVIEWS_CHECKOUT_FIRST_TIME',
     userId,
   );
   const sendStatusInitiateCheckoutMultipleTimes = new EmailsSendStatus(
-    'CHECKOUT_MULTIPLE_TIMES',
+    'INTERVIEWS_CHECKOUT_MULTIPLE_TIMES',
     userId,
   );
   const checkoutRedisCounter = new RedisCounter(

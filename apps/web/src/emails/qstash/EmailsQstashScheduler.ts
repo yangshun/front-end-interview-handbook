@@ -5,8 +5,10 @@ import { Client } from '@upstash/qstash';
 
 const QStash = new Client({ token: process.env.QSTASH_TOKEN ?? '' });
 
+// TODO(emails): refactor to be discriminated union
 type Props = Readonly<{
-  delayInHours: number; // In hour;
+  countryCode?: string | null;
+  delayInHours: number;
   email: string;
   emailKey: EmailKey;
   name: string | null;
@@ -14,6 +16,7 @@ type Props = Readonly<{
 }>;
 
 export default async function scheduleEmail({
+  countryCode,
   name,
   email,
   delayInHours,
@@ -23,7 +26,7 @@ export default async function scheduleEmail({
   const delayInSeconds = delayInHours * 3600;
 
   return await QStash.publishJSON({
-    body: { email, emailKey, name, userId },
+    body: { countryCode, email, emailKey, name, userId },
     delay: delayInSeconds,
     url: `${getSiteOrigin({ usePreviewForDev: true })}/api/emails`,
   });

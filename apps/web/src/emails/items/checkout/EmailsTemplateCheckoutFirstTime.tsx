@@ -1,3 +1,5 @@
+import countryNames from '~/data/countryCodesToNames.json';
+
 import EmailFooter from '~/emails/components/EmailFooter';
 
 import {
@@ -13,14 +15,15 @@ import {
 } from '@react-email/components';
 
 type Props = Readonly<{
-  // TODO(emails): update logic
-  mostUsedCountry: string;
+  countryCode: string | null;
   name: string | null;
 }>;
 
+const popularCountries = ['US', 'IN', 'CA', 'SG', 'GB', 'DE', 'TW'];
+
 export default function EmailsTemplateCheckoutFirstTime({
   name,
-  mostUsedCountry,
+  countryCode,
 }: Props) {
   return (
     <Html lang="en">
@@ -42,7 +45,7 @@ export default function EmailsTemplateCheckoutFirstTime({
             width="53"
           />
           <Heading as="h1" style={heading}>
-            Thank You For Joining GreatFrontEnd!
+            Thank you for joining GreatFrontEnd!
           </Heading>
           <Section style={body}>
             <Section>
@@ -53,8 +56,8 @@ export default function EmailsTemplateCheckoutFirstTime({
               <Text style={{ ...paragraph, margin: '16px 0 0 0' }}>
                 I'm{' '}
                 <span style={bold}>Yangshun, co-founder at GreatFrontEnd</span>.
-                I spent over 5 years at Meta leading teams and building
-                front-end products like{' '}
+                I spent over 5 years at Meta leading teams and building front
+                end products such as{' '}
                 <Link
                   href="https://www.meta.com"
                   style={{
@@ -75,17 +78,18 @@ export default function EmailsTemplateCheckoutFirstTime({
                 , and I'm very passionate about front end engineering.
               </Text>
               <Text style={paragraph}>
-                I always felt that the resources available for the front-end
-                interview space were very lacking. Hence, last year, I left Meta
-                to work on GreatFrontEnd. At GreatFrontEnd, we are on a mission
-                to build great products for front-end engineers, and we're just
+                I always felt that preparation resources available in the front
+                end interviews space were very lacking. Hence I left Meta to
+                work on GreatFrontEnd. At GreatFrontEnd, we are on a mission to
+                build great products for Front End Engineers, and we're just
                 getting started.
               </Text>
               <Text style={paragraph}>
                 I'm thrilled that you're considering purchasing GreatFrontEnd.
                 Do let me know if there are any questions you might have, I'd be
                 happy to answer them. I'd also love to hear what you're looking
-                for in your interview preparation and how we can help you.
+                for in your interview preparation journey and how we can help
+                you better.
               </Text>
               <Text style={paragraph}>
                 <Link
@@ -99,14 +103,17 @@ export default function EmailsTemplateCheckoutFirstTime({
                 for front end nuggets and software engineering content.
               </Text>
               <Text style={paragraph}>
-                This is not an automated email, I manually sent this and your
-                reply goes directly into my inbox.
+                Your reply goes directly into my inbox, looking forward to
+                hearing from you!
               </Text>
-              <Text style={paragraph}>
-                P.S. Many of our users are from{' '}
-                <span style={bold}>{mostUsedCountry}</span> and they have
-                benefited greatly from our products.
-              </Text>
+              {countryCode != null &&
+                popularCountries.includes(countryCode) && (
+                  <Text style={paragraph}>
+                    P.S. Many of our users are also from{' '}
+                    {countryNames[countryCode as keyof typeof countryNames]} and
+                    have benefitted greatly from our products.
+                  </Text>
+                )}
               <br />
               <Text style={paragraph}>
                 Regards,

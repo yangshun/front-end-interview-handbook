@@ -89,22 +89,29 @@ export const purchasesRouter = router({
 
       return session.url;
     }),
-  initiateCheckoutEmail: userProcedure.mutation(async ({ ctx: { viewer } }) => {
-    const profile = await prisma.profile.findUnique({
-      select: {
-        name: true,
-      },
-      where: {
-        id: viewer.id,
-      },
-    });
+  initiateCheckoutEmail: userProcedure
+    .input(
+      z.object({
+        countryCode: z.string().nullable(),
+      }),
+    )
+    .mutation(async ({ input: { countryCode }, ctx: { viewer } }) => {
+      const profile = await prisma.profile.findUnique({
+        select: {
+          name: true,
+        },
+        where: {
+          id: viewer.id,
+        },
+      });
 
-    return await triggerInitiateCheckoutEmail({
-      email: viewer.email,
-      name: profile?.name ?? '',
-      userId: viewer.id,
-    });
-  }),
+      return await triggerInitiateCheckoutEmail({
+        countryCode: countryCode ?? null,
+        email: viewer.email,
+        name: profile?.name ?? null,
+        userId: viewer.id,
+      });
+    }),
   interviewsPlans: publicProcedure
     .input(z.string().optional())
     .query(async ({ input: country, ctx: { req } }) => {

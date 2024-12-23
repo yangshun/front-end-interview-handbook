@@ -13,7 +13,14 @@ import {
 export async function POST(req: NextRequest) {
   try {
     const request = await req.json();
-    const { email, emailKey, name, signedUpViaInterviews, userId } = request;
+    const {
+      email,
+      emailKey,
+      name,
+      signedUpViaInterviews,
+      userId,
+      countryCode,
+    } = request;
 
     switch (emailKey) {
       case 'INTERVIEWS_WELCOME_EMAIL_IMMEDIATE':
@@ -31,14 +38,15 @@ export async function POST(req: NextRequest) {
           userId,
         });
         break;
-      case 'CHECKOUT_FIRST_TIME':
+      case 'INTERVIEWS_CHECKOUT_FIRST_TIME':
         await sendInitiateCheckoutFirstTimeEmail({
+          countryCode,
           email,
           name,
           userId,
         });
         break;
-      case 'CHECKOUT_MULTIPLE_TIMES':
+      case 'INTERVIEWS_CHECKOUT_MULTIPLE_TIMES':
         await sendInitiateCheckoutMultipleTimesEmail({
           email,
           name,

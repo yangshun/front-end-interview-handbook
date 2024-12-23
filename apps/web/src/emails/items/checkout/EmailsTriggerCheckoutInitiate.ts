@@ -2,14 +2,15 @@ import EmailsSendStatus from '~/emails/EmailsSendStatus';
 import scheduleEmail from '~/emails/qstash/EmailsQstashScheduler';
 import RedisCounter from '~/redis/RedisCounter';
 
-const MULTIPLE_CHECKOUT_COUNT = 3;
-const EXPIRES_MONTH = 6;
+const CHECKOUT_ATTEMPTS_TO_TRIGGER_DISCOUNT = 3;
+const EXPIRY_IN_MONTHS = 6;
+const SCHEDULE_DELAY_HOURS = 24;
 
 function sixMonthsFromToday() {
   const today = new Date();
   const sixMonthsLater = new Date();
 
-  sixMonthsLater.setMonth(today.getMonth() + EXPIRES_MONTH);
+  sixMonthsLater.setMonth(today.getMonth() + EXPIRY_IN_MONTHS);
 
   const timeDifference = sixMonthsLater.getTime() - today.getTime();
   const secondsDifference = timeDifference / 1000;
@@ -18,12 +19,14 @@ function sixMonthsFromToday() {
 }
 
 export default async function triggerInitiateCheckoutEmail({
+  countryCode,
   name,
   email,
   userId,
 }: Readonly<{
+  countryCode: string | null;
   email: string;
-  name: string;
+  name: string | null;
   userId: string;
 }>) {
   const sixMonthsInSec = sixMonthsFromToday();
@@ -36,32 +39,49 @@ export default async function triggerInitiateCheckoutEmail({
 
   if (checkoutCount === 1) {
     await checkoutRedisCounter.expire(sixMonthsInSec);
-  }
 
-  const isMultipleCheckout = checkoutCount >= MULTIPLE_CHECKOUT_COUNT;
-  const checkoutEmailKey = isMultipleCheckout
-    ? 'CHECKOUT_MULTIPLE_TIMES'
-    : 'CHECKOUT_FIRST_TIME';
+    const sendCheckoutFirstTimeStatus = new EmailsSendStatus(
+      'INTERVIEWS_CHECKOUT_FIRST_TIME',
+      userId,
+    );
 
-  const sendStatus = new EmailsSendStatus(checkoutEmailKey, userId);
+    if (await sendCheckoutFirstTimeStatus.isSentOrScheduled()) {
+      return;
+    }
 
-  if (await sendStatus.isSentOrScheduled()) {
-    return;
-  }
+    const result = await scheduleEmail({
+      countryCode,
+      delayInHours: SCHEDULE_DELAY_HOURS,
+      email,
+      emailKey: 'INTERVIEWS_CHECKOUT_FIRST_TIME',
+      name,
+      userId,
+    });
 
-  if (checkoutCount !== 1 && checkoutCount !== MULTIPLE_CHECKOUT_COUNT) {
-    return;
-  }
+    if (result.messageId) {
+      await sendCheckoutFirstTimeStatus.markAsScheduled();
+    }
+  } else if (checkoutCount === CHECKOUT_ATTEMPTS_TO_TRIGGER_DISCOUNT) {
+    const sendCheckoutMultipleTimesStatus = new EmailsSendStatus(
+      'INTERVIEWS_CHECKOUT_MULTIPLE_TIMES',
+      userId,
+    );
 
-  const result = await scheduleEmail({
-    delayInHours: 24,
-    email,
-    emailKey: checkoutEmailKey,
-    name,
-    userId,
-  });
+    if (await sendCheckoutMultipleTimesStatus.isSentOrScheduled()) {
+      return;
+    }
 
-  if (result.messageId) {
-    await sendStatus.markAsScheduled();
+    const result = await scheduleEmail({
+      countryCode: null,
+      delayInHours: SCHEDULE_DELAY_HOURS,
+      email,
+      emailKey: 'INTERVIEWS_CHECKOUT_MULTIPLE_TIMES',
+      name,
+      userId,
+    });
+
+    if (result.messageId) {
+      await sendCheckoutMultipleTimesStatus.markAsScheduled();
+    }
   }
 }

@@ -26,36 +26,41 @@ function secondsFromTodayToSixMonths() {
 }
 
 export async function sendInitiateCheckoutFirstTimeEmail({
+  countryCode,
   name,
   email,
   userId,
 }: Readonly<{
+  countryCode: string | null;
   email: string;
   name: string | null;
   userId: string;
 }>) {
-  const sendStatus = new EmailsSendStatus('CHECKOUT_FIRST_TIME', userId);
+  const sendStatus = new EmailsSendStatus(
+    'INTERVIEWS_CHECKOUT_FIRST_TIME',
+    userId,
+  );
 
-  // TODO(emails): check logic because the original returned for null
-  // If there is no value or no SENT value, then don't send the email
-  // For the email to be sent, it will have SCHEDULED value
-  if (await sendStatus.isSentOrScheduled()) {
+  // For the email to be sent, the status should be SCHEDULED
+  if (!(await sendStatus.isScheduled())) {
     return;
   }
 
   try {
     await sendReactEmail({
       component: (
-        // TODO(emails): Not sure which country to pass here for the most used country
-        <EmailsTemplateCheckoutFirstTime mostUsedCountry="India" name={name} />
+        <EmailsTemplateCheckoutFirstTime
+          countryCode={countryCode}
+          name={name}
+        />
       ),
       from: {
         email: 'yangshun@greatfrontend.com',
         name: 'Yangshun from GreatFrontEnd',
       },
       replyTo: {
-        email: 'team@greatfrontend.com',
-        name: 'GreatFrontEnd',
+        email: 'yangshun@greatfrontend.com',
+        name: 'Yangshun Tay',
       },
       subject: `Hi ${name ?? 'there'}, this is Yangshun from GreatFrontEnd`,
       to: {
@@ -81,12 +86,13 @@ export async function sendInitiateCheckoutMultipleTimesEmail({
   userId: string;
 }>) {
   const sixMonthsInSec = secondsFromTodayToSixMonths();
-  const sendStatus = new EmailsSendStatus('CHECKOUT_MULTIPLE_TIMES', userId);
+  const sendStatus = new EmailsSendStatus(
+    'INTERVIEWS_CHECKOUT_MULTIPLE_TIMES',
+    userId,
+  );
 
-  // TODO(emails): check logic because the original returned for null
-  // If there is no value or no SENT value, then don't send the email
-  // For the email to be send, it will have SCHEDULED value
-  if (await sendStatus.isSentOrScheduled()) {
+  // For the email to be sent, the status should be SCHEDULED
+  if (!(await sendStatus.isScheduled())) {
     return;
   }
 
