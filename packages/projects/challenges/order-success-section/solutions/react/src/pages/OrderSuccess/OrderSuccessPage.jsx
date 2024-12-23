@@ -17,7 +17,7 @@ const OrderSuccessPage = () => {
     setIsFetching(true);
 
     const data = await fetch(
-      `https://dev.greatfrontend.com/api/projects/challenges/e-commerce/order-sample`,
+      `https://www.greatfrontend.com/api/projects/challenges/e-commerce/order-sample`,
     );
     const result = await data.json();
     if (!result.error) {
