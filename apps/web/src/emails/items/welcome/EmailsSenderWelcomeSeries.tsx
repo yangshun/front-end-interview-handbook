@@ -21,7 +21,7 @@ export async function sendWelcomeEmailImmediate({
     userId,
   );
 
-  if (!(await sendStatusImmediate.isSentOrScheduled())) {
+  if (!(await sendStatusImmediate.isSent())) {
     try {
       await sendReactEmail({
         component: <EmailsTemplateWelcomeSeriesImmediate />,
@@ -59,7 +59,7 @@ export async function sendWelcomeEmailImmediate({
     return;
   }
 
-  if (await sendStatus24Hours.isSentOrScheduled()) {
+  if (await sendStatus24Hours.isScheduledOrSent()) {
     return;
   }
 
@@ -96,7 +96,7 @@ export async function sendWelcomeEmailAfter24Hours({
     userId,
   );
 
-  if (await sendStatus.isSentOrScheduled()) {
+  if (await sendStatus.isSent()) {
     return;
   }
 

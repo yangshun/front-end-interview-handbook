@@ -19,7 +19,7 @@ export default async function triggerCompletedSomeQuestionsEmail({
     userId,
   );
 
-  if (await sendStatus.isSentOrScheduled()) {
+  if (await sendStatus.isScheduledOrSent()) {
     return;
   }
 

@@ -41,8 +41,7 @@ export async function sendInitiateCheckoutFirstTimeEmail({
     userId,
   );
 
-  // For the email to be sent, the status should be SCHEDULED
-  if (!(await sendStatus.isScheduled())) {
+  if (await sendStatus.isSent()) {
     return;
   }
 
@@ -91,8 +90,7 @@ export async function sendInitiateCheckoutMultipleTimesEmail({
     userId,
   );
 
-  // For the email to be sent, the status should be SCHEDULED
-  if (!(await sendStatus.isScheduled())) {
+  if (await sendStatus.isSent()) {
     return;
   }
 

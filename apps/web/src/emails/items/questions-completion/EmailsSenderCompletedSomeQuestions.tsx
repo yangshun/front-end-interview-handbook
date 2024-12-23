@@ -17,7 +17,7 @@ export default async function sendCompletedSomeQuestionsEmail({
     userId,
   );
 
-  if (await sendStatus.isSentOrScheduled()) {
+  if (await sendStatus.isSent()) {
     return;
   }
 

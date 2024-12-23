@@ -14,7 +14,7 @@ export default async function sendPaymentFailedEmail({
 }>) {
   const sendStatus = new EmailsSendStatus('PAYMENT_FAILED', userId);
 
-  if (await sendStatus.isSentOrScheduled()) {
+  if (await sendStatus.isSent()) {
     return;
   }
 

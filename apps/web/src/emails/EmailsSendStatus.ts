@@ -15,24 +15,24 @@ export default class EmailsSendStatus {
     this.redis = Redis.fromEnv();
   }
 
-  async isSentOrScheduled() {
+  async isSent() {
+    const sendStatus = await this.redis.get(this.redisKey);
+
+    return sendStatus === SENT;
+  }
+
+  async isScheduledOrSent() {
     const sendStatus = await this.redis.get(this.redisKey);
 
     return sendStatus === SENT || sendStatus === SCHEDULED;
-  }
-
-  async isScheduled() {
-    const sendStatus = await this.redis.get(this.redisKey);
-
-    return sendStatus === SCHEDULED;
   }
 
   async markAsSent(opts?: SetCommandOptions) {
     return this.redis.set(this.redisKey, SENT, opts);
   }
 
-  async markAsScheduled() {
-    return this.redis.set(this.redisKey, SCHEDULED);
+  async markAsScheduled(opts?: SetCommandOptions) {
+    return this.redis.set(this.redisKey, SCHEDULED, opts);
   }
 
   async del() {

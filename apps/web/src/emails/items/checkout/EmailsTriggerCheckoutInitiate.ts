@@ -45,7 +45,7 @@ export default async function triggerInitiateCheckoutEmail({
       userId,
     );
 
-    if (await sendCheckoutFirstTimeStatus.isSentOrScheduled()) {
+    if (await sendCheckoutFirstTimeStatus.isScheduledOrSent()) {
       return;
     }
 
@@ -67,7 +67,7 @@ export default async function triggerInitiateCheckoutEmail({
       userId,
     );
 
-    if (await sendCheckoutMultipleTimesStatus.isSentOrScheduled()) {
+    if (await sendCheckoutMultipleTimesStatus.isScheduledOrSent()) {
       return;
     }
 
