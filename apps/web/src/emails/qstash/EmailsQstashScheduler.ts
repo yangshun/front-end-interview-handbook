@@ -25,6 +25,6 @@ export default async function scheduleEmail({
   return await qstash.publishJSON({
     body: { email, emailKey, name, userId },
     delay: delayInSeconds,
-    url: `${getSiteOrigin()}/api/emails/${emailKey}`,
+    url: `${getSiteOrigin({ usePreviewForDev: true })}/api/emails`,
   });
 }
