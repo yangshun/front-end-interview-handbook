@@ -1,3 +1,5 @@
+import 'server-only';
+
 import { scheduleEmailWithChecks } from '~/emails/qstash/EmailsQstashScheduler';
 import RedisCounter from '~/redis/RedisCounter';
 

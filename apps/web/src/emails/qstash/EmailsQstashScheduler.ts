@@ -1,3 +1,5 @@
+import 'server-only';
+
 import url from 'node:url';
 
 import EmailsSendStatus from '~/emails/EmailsSendStatus';

@@ -1,3 +1,5 @@
+import 'server-only';
+
 import { sendReactEmailWithChecks } from '~/emails/mailjet/EmailsMailjetSender';
 
 import EmailsTemplatePaymentFailed from './EmailsTemplatePaymentFailed';
