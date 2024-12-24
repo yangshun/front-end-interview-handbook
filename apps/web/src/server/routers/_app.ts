@@ -1,5 +1,6 @@
 import { authRouter } from './auth';
 import { devRouter } from './dev';
+import { emailsRouter } from './emails';
 import { feedbackRouter } from './feedback';
 import { guideProgressRouter } from './guide-progress';
 import { marketingRouter } from './marketing';
@@ -19,6 +20,7 @@ import { router } from '../trpc';
 export const appRouter = router({
   auth: authRouter,
   dev: devRouter,
+  emails: emailsRouter,
   feedback: feedbackRouter,
   guideProgress: guideProgressRouter,
   marketing: marketingRouter,

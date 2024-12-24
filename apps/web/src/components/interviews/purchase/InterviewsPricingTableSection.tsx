@@ -159,8 +159,8 @@ function PricingButtonNonPremium({
   const intl = useIntl();
   const user = useUser();
   const { userProfile, isUserProfileLoading } = useUserProfile();
-  const checkoutInitialEmailMutation =
-    trpc.purchases.checkoutInitialEmail.useMutation();
+  const checkoutInitiateEmailMutation =
+    trpc.emails.checkoutInitiate.useMutation();
   const [checkoutSessionHref, setCheckoutSessionHref] = useState<string | null>(
     null,
   );
@@ -182,7 +182,7 @@ function PricingButtonNonPremium({
     setErrorMessage(null);
     try {
       // Trigger checkout email, non-blocking fashion
-      checkoutInitialEmailMutation.mutateAsync({ countryCode });
+      checkoutInitiateEmailMutation.mutateAsync({ countryCode });
 
       const res = await fetch(
         url.format({
@@ -246,7 +246,7 @@ function PricingButtonNonPremium({
 
   const showUserThereIsAsyncRequest =
     (hasClicked && isCheckoutSessionLoading) ||
-    checkoutInitialEmailMutation.isLoading;
+    checkoutInitiateEmailMutation.isLoading;
 
   return (
     <div className="flex flex-col gap-4">
@@ -272,7 +272,7 @@ function PricingButtonNonPremium({
 
           if (checkoutSessionHref != null) {
             if (user?.email) {
-              await checkoutInitialEmailMutation.mutateAsync({
+              await checkoutInitiateEmailMutation.mutateAsync({
                 countryCode,
               });
             }
