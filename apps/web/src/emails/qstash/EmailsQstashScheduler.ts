@@ -1,3 +1,5 @@
+import url from 'node:url';
+
 import EmailsSendStatus from '~/emails/EmailsSendStatus';
 import type { EmailKey } from '~/emails/EmailsTypes';
 import { getSiteOrigin } from '~/seo/siteUrl';
@@ -57,6 +59,15 @@ export async function scheduleEmail({
   return await QStash.publishJSON({
     body: { countryCode, email, emailKey, name, userId },
     delay: delayInSeconds,
-    url: `${getSiteOrigin({ usePreviewForDev: true })}/api/emails`,
+    method: 'POST',
+    url: url.format({
+      host: getSiteOrigin({ usePreviewForDev: true }),
+      pathname: '/api/emails__',
+      query: {
+        api_route_secret: process.env.API_ROUTE_SECRET,
+        'x-vercel-protection-bypass':
+          process.env.VERCEL_AUTOMATION_BYPASS_SECRET,
+      },
+    }),
   });
 }

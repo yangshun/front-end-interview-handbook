@@ -11,6 +11,15 @@ import {
 } from '~/emails/items/welcome/EmailsSenderWelcomeSeries';
 
 export async function POST(req: NextRequest) {
+  const { searchParams } = req.nextUrl;
+
+  if (searchParams.get('api_route_secret') !== process.env.API_ROUTE_SECRET) {
+    return NextResponse.json(
+      { error: 'You are not authorized to call this API' },
+      { status: 401 },
+    );
+  }
+
   try {
     const request = await req.json();
     const {
@@ -22,6 +31,7 @@ export async function POST(req: NextRequest) {
       countryCode,
     } = request;
 
+    // TODO(emails): remove non-scheduled emails from function
     switch (emailKey) {
       case 'INTERVIEWS_WELCOME_EMAIL_IMMEDIATE':
         await sendWelcomeEmailImmediate({
