@@ -79,10 +79,10 @@ export default function InterviewsMarketingPrepResourcesByBigTechEngineers() {
               className="text-base sm:text-xs md:text-sm lg:text-base"
               size="inherit"
               weight="bold">
-              Blind75
+              Blind 75
             </Text>
           ),
-          name: 'Blind75',
+          name: 'Blind 75',
         },
       ],
     },

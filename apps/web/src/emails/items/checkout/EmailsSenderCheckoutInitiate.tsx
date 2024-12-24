@@ -141,7 +141,7 @@ export async function sendInitiateCheckoutMultipleTimesEmail({
           email: 'hello@greatfrontend.com',
           name: 'GreatFrontEnd',
         },
-        subject: `Act fast: ${promoCode.coupon.percent_off} off reserved just for you, ends in ${expiryDays * 24} hours!`,
+        subject: `Act fast: ${promoCode.coupon.percent_off}% off reserved just for you, ends in ${expiryDays * 24} hours!`,
         to: {
           email,
           name,

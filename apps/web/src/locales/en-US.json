@@ -4615,6 +4615,10 @@
     "defaultMessage": "You are currently working on this challenge",
     "description": "Description for projects in progress status"
   },
+  "SQ/rUQ": {
+    "defaultMessage": "If you expect DSA questions",
+    "description": "Label for Blind 75 tag"
+  },
   "SR8949": {
     "defaultMessage": "<bold>{points}</bold> rep gained for this skill",
     "description": "Reputation points to be gained"
@@ -5347,6 +5351,10 @@
     "defaultMessage": "E.g. React, Next.js, Tailwind CSS, etc.",
     "description": "Placeholder for tech stack input on project submit page"
   },
+  "Wyg5gk": {
+    "defaultMessage": "Many candidates use this list as a guide, focusing on each problem to grasp core concepts and techniques. We've solved these questions in JavaScript/TypeScript to make them accessible to front end engineers.",
+    "description": "Description for Blind 75 page"
+  },
   "X/O+1P": {
     "defaultMessage": "Code in browser",
     "description": "Features for question format page"
@@ -5731,10 +5739,6 @@
     "defaultMessage": "The URL must not be localhost or an IP address. Provide a valid, publicly accessible URL.",
     "description": "Error message"
   },
-  "Zk/GBk": {
-    "defaultMessage": "The famed list of questions commonly used to prepare for standard data structures and algorithms style software engineering interviews. Solved in JavaScript / TypeScript for front end engineers.",
-    "description": "Description for Blind75"
-  },
   "Zm3csd": {
     "defaultMessage": "Dark",
     "description": "Dark color scheme option label"
@@ -5814,6 +5818,10 @@
   "aK5rZ5": {
     "defaultMessage": "Short answer questions aimed at quickly assessing a candidate's knowledge of specific front-end topics. These can cover a wide range of areas, including HTML/CSS best practices, JavaScript nuances, browser APIs, web performance, and security. Frequently asked in recruiter screens or companies without technical coding rounds",
     "description": "Description of data structures and algorithm questions"
+  },
+  "aMTbjk": {
+    "defaultMessage": "The famed list of questions commonly used to prepare for standard data structures and algorithms style software engineering interviews. Solved in JavaScript / TypeScript for front end engineers.",
+    "description": "Description for Blind 75"
   },
   "aPfuzs": {
     "defaultMessage": "Reset password",
@@ -7119,6 +7127,10 @@
     "defaultMessage": "Pricing Plans",
     "description": "Screen reader text referring to the Pricing Plan cards"
   },
+  "iF6Qjg": {
+    "defaultMessage": "For data structures and algorithms (DSA) questions, we recommend working through the Blind 75, a concise list that effectively prepares you for these topics.",
+    "description": "Description for Blind 75 page"
+  },
   "iFFbCA": {
     "defaultMessage": "What's new",
     "description": "Sidebar label for What's New"
@@ -7166,10 +7178,6 @@
   "icPBtm": {
     "defaultMessage": "Practice {questionCount}+ curated TypeScript Interview Questions in-browser, with solutions and test cases from big tech ex-interviewers",
     "description": "Description of Interview Questions page"
-  },
-  "ifwPMU": {
-    "defaultMessage": "If you expect DSA questions",
-    "description": "Label for Blind75 tag"
   },
   "ih/GUI": {
     "defaultMessage": "Practice {questionCount}+ curated Vue Interview Questions in-browser, with solutions and test cases from big tech ex-interviewers",
@@ -7563,10 +7571,6 @@
     "defaultMessage": "Back to all challenges",
     "description": "Back button label"
   },
-  "l2urik": {
-    "defaultMessage": "For data structures and algorithms (DSA) questions, we recommend working through the Blind 75, a concise list that effectively prepares you for these topics.",
-    "description": "Description for Blind75 page"
-  },
   "l5U3bQ": {
     "defaultMessage": "Unlock premium challenges and premium features on free challenges",
     "description": "Label for unlocks feature"
@@ -7818,10 +7822,6 @@
   "myWGmV": {
     "defaultMessage": "Coupons | Profile",
     "description": "Title of Profile coupons page"
-  },
-  "myzwQ8": {
-    "defaultMessage": "Many candidates use this list as a guide, focusing on each problem to grasp core concepts and techniques. We've solved these questions in JavaScript/TypeScript to make them accessible to front end engineers.",
-    "description": "Description for Blind75 page"
   },
   "n0mDHU": {
     "defaultMessage": "Author",

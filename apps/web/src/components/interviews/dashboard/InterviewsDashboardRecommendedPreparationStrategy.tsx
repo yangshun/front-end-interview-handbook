@@ -247,8 +247,8 @@ export default function InterviewsDashboardRecommendedPreparationStrategy({
       description: intl.formatMessage({
         defaultMessage:
           'The famed list of questions commonly used to prepare for standard data structures and algorithms style software engineering interviews. Solved in JavaScript / TypeScript for front end engineers.',
-        description: 'Description for Blind75',
-        id: 'Zk/GBk',
+        description: 'Description for Blind 75',
+        id: 'aMTbjk',
       }),
       href: '/interviews/blind75',
       icon: StudyPlanIcons.blind75,
@@ -258,8 +258,8 @@ export default function InterviewsDashboardRecommendedPreparationStrategy({
       },
       tagLabel: intl.formatMessage({
         defaultMessage: 'If you expect DSA questions',
-        description: 'Label for Blind75 tag',
-        id: 'ifwPMU',
+        description: 'Label for Blind 75 tag',
+        id: 'SQ/rUQ',
       }),
       tagTooltip: intl.formatMessage({
         defaultMessage:

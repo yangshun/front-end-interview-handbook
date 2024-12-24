@@ -435,8 +435,8 @@ const ITEM1 = [
   {
     href: new URL('/interviews/blind75', getSiteOrigin()).toString(),
     subtitle:
-      'Explore our new list of Blind75 questions, written conveniently for frontenders in JavaScript / TypeScript.',
-    title: 'Blind75 questions →',
+      'Explore our new list of Blind 75 questions, written conveniently for frontenders in JavaScript / TypeScript.',
+    title: 'Blind 75 questions →',
   },
   {
     href: new URL(
@@ -462,8 +462,8 @@ const ITEM2 = [
   {
     href: new URL('/interviews/blind75', getSiteOrigin()).toString(),
     subtitle:
-      'Earlier in your interview preparation, practice the Blind75—a list of 75 of the most important data structure and algorithm questions. We have conveniently solved them in JavaScript/TypeScript for front end engineers.',
-    title: 'Blind75 →',
+      'Earlier in your interview preparation, practice the Blind 75—a list of 75 of the most important data structure and algorithm questions. We have conveniently solved them in JavaScript/TypeScript for front end engineers.',
+    title: 'Blind 75 →',
   },
   {
     href: new URL('/questions', getSiteOrigin()).toString(),
@@ -471,10 +471,10 @@ const ITEM2 = [
       <div>
         <Text style={paragraph}>
           As your interview date approaches, focus on solving questions across
-          the question formats— Coding, Quiz, and System Design questions.
+          the question formats—Coding, Quiz, and System Design questions.
         </Text>
         <Text style={{ ...paragraph, margin: '24px 0 0 0' }}>
-          If you need a prioritized list, we recommend starting with GFE75 or
+          If you need a prioritized list, we recommend starting with GFE 75 or
           one of our Study plans.
         </Text>
       </div>

@@ -92,15 +92,15 @@ export default function InterviewsStudyPlanBlind75Page({
               <Text color="secondary" size="inherit">
                 <FormattedMessage
                   defaultMessage="For data structures and algorithms (DSA) questions, we recommend working through the Blind 75, a concise list that effectively prepares you for these topics."
-                  description="Description for Blind75 page"
-                  id="l2urik"
+                  description="Description for Blind 75 page"
+                  id="iF6Qjg"
                 />
               </Text>
               <Text color="secondary" size="inherit">
                 <FormattedMessage
                   defaultMessage="Many candidates use this list as a guide, focusing on each problem to grasp core concepts and techniques. We've solved these questions in JavaScript/TypeScript to make them accessible to front end engineers."
-                  description="Description for Blind75 page"
-                  id="myzwQ8"
+                  description="Description for Blind 75 page"
+                  id="Wyg5gk"
                 />
               </Text>
             </div>
