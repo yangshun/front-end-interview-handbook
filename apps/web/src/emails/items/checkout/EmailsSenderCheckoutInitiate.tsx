@@ -2,28 +2,15 @@ import 'server-only';
 
 import Stripe from 'stripe';
 
-import EmailsSendStatus from '~/emails/EmailsSendStatus';
-import { sendReactEmail } from '~/emails/mailjet/EmailsMailjetSender';
+import { sendReactEmailWithChecks } from '~/emails/mailjet/EmailsMailjetSender';
 import prisma from '~/server/prisma';
 
 import EmailsTemplateCheckoutFirstTime from './EmailsTemplateCheckoutFirstTime';
 import EmailsTemplateCheckoutMultipleTimes from './EmailsTemplateCheckoutMultipleTimes';
 
-const EXPIRES_MONTH = 6;
+const SIX_MONTHS_IN_SECS = 6 * 30 * 24 * 3600;
 const interviewsPremiumPerkProjectsDiscountCouponId_TEST = 'hV8qtZIX';
 const interviewsPremiumPerkProjectsDiscountCouponId_PROD = 'SKcIcPgB';
-
-function secondsFromTodayToSixMonths() {
-  const today = new Date();
-  const sixMonthsLater = new Date();
-
-  sixMonthsLater.setMonth(today.getMonth() + EXPIRES_MONTH);
-
-  const timeDifference = sixMonthsLater.getTime() - today.getTime();
-  const secondsDifference = timeDifference / 1000;
-
-  return Math.round(secondsDifference);
-}
 
 export async function sendInitiateCheckoutFirstTimeEmail({
   countryCode,
@@ -36,39 +23,31 @@ export async function sendInitiateCheckoutFirstTimeEmail({
   name: string | null;
   userId: string;
 }>) {
-  const sendStatus = new EmailsSendStatus(
-    'INTERVIEWS_CHECKOUT_FIRST_TIME',
-    userId,
-  );
-
-  if (await sendStatus.isSent()) {
-    return;
-  }
-
   try {
-    await sendReactEmail({
-      component: (
-        <EmailsTemplateCheckoutFirstTime
-          countryCode={countryCode}
-          name={name}
-        />
-      ),
-      from: {
-        email: 'yangshun@greatfrontend.com',
-        name: 'Yangshun from GreatFrontEnd',
+    await sendReactEmailWithChecks(
+      { emailKey: 'INTERVIEWS_CHECKOUT_FIRST_TIME', userId },
+      {
+        component: (
+          <EmailsTemplateCheckoutFirstTime
+            countryCode={countryCode}
+            name={name}
+          />
+        ),
+        from: {
+          email: 'yangshun@greatfrontend.com',
+          name: 'Yangshun from GreatFrontEnd',
+        },
+        replyTo: {
+          email: 'yangshun@greatfrontend.com',
+          name: 'Yangshun Tay',
+        },
+        subject: `Hi ${name ?? 'there'}, this is Yangshun from GreatFrontEnd`,
+        to: {
+          email,
+          name,
+        },
       },
-      replyTo: {
-        email: 'yangshun@greatfrontend.com',
-        name: 'Yangshun Tay',
-      },
-      subject: `Hi ${name ?? 'there'}, this is Yangshun from GreatFrontEnd`,
-      to: {
-        email,
-        name,
-      },
-    });
-
-    await sendStatus.markAsSent();
+    );
   } catch (error) {
     console.error('Error sending email:', error);
     throw error;
@@ -84,16 +63,6 @@ export async function sendInitiateCheckoutMultipleTimesEmail({
   name: string | null;
   userId: string;
 }>) {
-  const sixMonthsInSec = secondsFromTodayToSixMonths();
-  const sendStatus = new EmailsSendStatus(
-    'INTERVIEWS_CHECKOUT_MULTIPLE_TIMES',
-    userId,
-  );
-
-  if (await sendStatus.isSent()) {
-    return;
-  }
-
   try {
     const profile = await prisma.profile.findUnique({
       select: {
@@ -124,6 +93,10 @@ export async function sendInitiateCheckoutMultipleTimesEmail({
         ? interviewsPremiumPerkProjectsDiscountCouponId_PROD
         : interviewsPremiumPerkProjectsDiscountCouponId_TEST;
 
+    // Eagerly generate even if user has been sent before
+    // because checks should have been done even before this
+    // function was called, and even if users get an extra coupon
+    // it's not a big deal
     const promoCode = await stripe.promotionCodes.create({
       coupon,
       customer: profile.stripeCustomer,
@@ -138,31 +111,36 @@ export async function sendInitiateCheckoutMultipleTimesEmail({
       throw "Couldn't generate coupon";
     }
 
-    await sendReactEmail({
-      component: (
-        <EmailsTemplateCheckoutMultipleTimes
-          coupon={{
-            code: promoCode.code,
-            percentOff: promoCode.coupon.percent_off ?? 0,
-          }}
-          name={name}
-        />
-      ),
-      from: {
-        email: 'hello@greatfrontend.com',
-        name: 'GreatFrontEnd',
+    await sendReactEmailWithChecks(
+      {
+        emailKey: 'INTERVIEWS_CHECKOUT_MULTIPLE_TIMES',
+        opts: {
+          // Expire this after 6 months so that we can retrigger this email again
+          ex: SIX_MONTHS_IN_SECS,
+        },
+        userId,
       },
-      subject: `Act fast: ${promoCode.coupon.percent_off} off reserved just for you, ends in ${daysInFuture * 24} hours!`,
-      to: {
-        email,
-        name,
+      {
+        component: (
+          <EmailsTemplateCheckoutMultipleTimes
+            coupon={{
+              code: promoCode.code,
+              percentOff: promoCode.coupon.percent_off ?? 0,
+            }}
+            name={name}
+          />
+        ),
+        from: {
+          email: 'hello@greatfrontend.com',
+          name: 'GreatFrontEnd',
+        },
+        subject: `Act fast: ${promoCode.coupon.percent_off} off reserved just for you, ends in ${daysInFuture * 24} hours!`,
+        to: {
+          email,
+          name,
+        },
       },
-    });
-
-    // Expire this after 6 months so that we can retrigger this email again
-    await sendStatus.markAsSent({
-      ex: sixMonthsInSec,
-    });
+    );
   } catch (error) {
     console.error('Error sending email:', error);
     throw error;

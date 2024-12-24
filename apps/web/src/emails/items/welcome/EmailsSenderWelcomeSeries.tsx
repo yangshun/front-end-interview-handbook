@@ -1,6 +1,6 @@
 import EmailsSendStatus from '~/emails/EmailsSendStatus';
-import { sendReactEmail } from '~/emails/mailjet/EmailsMailjetSender';
-import scheduleEmail from '~/emails/qstash/EmailsQstashScheduler';
+import { sendReactEmailWithChecks } from '~/emails/mailjet/EmailsMailjetSender';
+import { scheduleEmailWithChecks } from '~/emails/qstash/EmailsQstashScheduler';
 
 import EmailsTemplateWelcomeSeriesAfter24Hours from './EmailsTemplateWelcomeSeriesAfter24Hours';
 import EmailsTemplateWelcomeSeriesImmediate from './EmailsTemplateWelcomeSeriesImmediate';
@@ -16,40 +16,29 @@ export async function sendWelcomeEmailImmediate({
   signedUpViaInterviews: boolean;
   userId: string;
 }>) {
-  const sendStatusImmediate = new EmailsSendStatus(
-    'INTERVIEWS_WELCOME_EMAIL_IMMEDIATE',
-    userId,
-  );
-
-  if (!(await sendStatusImmediate.isSent())) {
-    try {
-      await sendReactEmail({
-        component: <EmailsTemplateWelcomeSeriesImmediate />,
-        from: {
-          email: 'hello@greatfrontend.com',
-          name: 'GreatFrontEnd',
-        },
-        subject:
-          '🚀 Start Here: Your Simple, Proven Roadmap to Front End Interview Success',
-        to: {
-          email,
-          name,
-        },
-      });
-
-      await sendStatusImmediate.markAsSent();
-    } catch (error) {
-      console.error('Error sending email:', error);
-      throw error;
-    }
-  }
-
-  const sendStatus24Hours = new EmailsSendStatus(
-    'INTERVIEWS_WELCOME_EMAIL_24_HOURS',
-    userId,
+  await sendReactEmailWithChecks(
+    { emailKey: 'INTERVIEWS_WELCOME_EMAIL_IMMEDIATE', userId },
+    {
+      component: <EmailsTemplateWelcomeSeriesImmediate />,
+      from: {
+        email: 'hello@greatfrontend.com',
+        name: 'GreatFrontEnd',
+      },
+      subject:
+        '🚀 Start Here: Your Simple, Proven Roadmap to Front End Interview Success',
+      to: {
+        email,
+        name,
+      },
+    },
   );
 
   if (!signedUpViaInterviews) {
+    const sendStatus24Hours = new EmailsSendStatus(
+      'INTERVIEWS_WELCOME_EMAIL_24_HOURS',
+      userId,
+    );
+
     // This email is only sent out for interviews signups but
     // if the user signed up via projects, mark as sent because
     // we rely on this Redis value to send out the email and
@@ -59,23 +48,15 @@ export async function sendWelcomeEmailImmediate({
     return;
   }
 
-  if (await sendStatus24Hours.isScheduledOrSent()) {
-    return;
-  }
-
   try {
     // Schedule welcome email to be sent out after 24 hours
-    const result = await scheduleEmail({
+    await scheduleEmailWithChecks({
       delayInHours: 24,
       email,
       emailKey: 'INTERVIEWS_WELCOME_EMAIL_24_HOURS',
       name,
       userId,
     });
-
-    if (result.messageId) {
-      await sendStatus24Hours.markAsScheduled();
-    }
   } catch (error) {
     console.error('Error scheduling email:', error);
     throw error;
@@ -91,31 +72,23 @@ export async function sendWelcomeEmailAfter24Hours({
   name: string | null;
   userId: string;
 }>) {
-  const sendStatus = new EmailsSendStatus(
-    'INTERVIEWS_WELCOME_EMAIL_24_HOURS',
-    userId,
-  );
-
-  if (await sendStatus.isSent()) {
-    return;
-  }
-
   try {
-    await sendReactEmail({
-      component: <EmailsTemplateWelcomeSeriesAfter24Hours />,
-      from: {
-        email: 'hello@greatfrontend.com',
-        name: 'GreatFrontEnd',
+    await sendReactEmailWithChecks(
+      { emailKey: 'INTERVIEWS_WELCOME_EMAIL_24_HOURS', userId },
+      {
+        component: <EmailsTemplateWelcomeSeriesAfter24Hours />,
+        from: {
+          email: 'hello@greatfrontend.com',
+          name: 'GreatFrontEnd',
+        },
+        subject:
+          '✨ Actual prep strategies by real users to clinch multiple Front End offers',
+        to: {
+          email,
+          name,
+        },
       },
-      subject:
-        '✨ Actual prep strategies by real users to clinch multiple Front End offers',
-      to: {
-        email,
-        name,
-      },
-    });
-
-    await sendStatus.markAsSent();
+    );
   } catch (error) {
     console.error('Error sending email:', error);
     throw error;

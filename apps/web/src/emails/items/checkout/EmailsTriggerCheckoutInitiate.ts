@@ -1,5 +1,4 @@
-import EmailsSendStatus from '~/emails/EmailsSendStatus';
-import scheduleEmail from '~/emails/qstash/EmailsQstashScheduler';
+import { scheduleEmailWithChecks } from '~/emails/qstash/EmailsQstashScheduler';
 import RedisCounter from '~/redis/RedisCounter';
 
 const CHECKOUT_ATTEMPTS_TO_TRIGGER_DISCOUNT = 3;
@@ -39,17 +38,7 @@ export default async function triggerInitiateCheckoutEmail({
 
   if (checkoutCount === 1) {
     await checkoutRedisCounter.expire(sixMonthsInSec);
-
-    const sendCheckoutFirstTimeStatus = new EmailsSendStatus(
-      'INTERVIEWS_CHECKOUT_FIRST_TIME',
-      userId,
-    );
-
-    if (await sendCheckoutFirstTimeStatus.isScheduledOrSent()) {
-      return;
-    }
-
-    const result = await scheduleEmail({
+    await scheduleEmailWithChecks({
       countryCode,
       delayInHours: SCHEDULE_DELAY_HOURS,
       email,
@@ -57,31 +46,14 @@ export default async function triggerInitiateCheckoutEmail({
       name,
       userId,
     });
-
-    if (result.messageId) {
-      await sendCheckoutFirstTimeStatus.markAsScheduled();
-    }
   } else if (checkoutCount === CHECKOUT_ATTEMPTS_TO_TRIGGER_DISCOUNT) {
-    const sendCheckoutMultipleTimesStatus = new EmailsSendStatus(
-      'INTERVIEWS_CHECKOUT_MULTIPLE_TIMES',
-      userId,
-    );
-
-    if (await sendCheckoutMultipleTimesStatus.isScheduledOrSent()) {
-      return;
-    }
-
-    const result = await scheduleEmail({
-      countryCode: null,
+    await scheduleEmailWithChecks({
+      countryCode,
       delayInHours: SCHEDULE_DELAY_HOURS,
       email,
       emailKey: 'INTERVIEWS_CHECKOUT_MULTIPLE_TIMES',
       name,
       userId,
     });
-
-    if (result.messageId) {
-      await sendCheckoutMultipleTimesStatus.markAsScheduled();
-    }
   }
 }

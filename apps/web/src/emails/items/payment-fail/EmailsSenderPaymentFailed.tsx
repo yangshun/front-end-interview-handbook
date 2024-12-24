@@ -1,7 +1,8 @@
-import EmailsSendStatus from '~/emails/EmailsSendStatus';
-import { sendReactEmail } from '~/emails/mailjet/EmailsMailjetSender';
+import { sendReactEmailWithChecks } from '~/emails/mailjet/EmailsMailjetSender';
 
 import EmailsTemplatePaymentFailed from './EmailsTemplatePaymentFailed';
+
+const THIRTY_DAYS_IN_SECS = 30 * 24 * 3600;
 
 export default async function sendPaymentFailedEmail({
   name,
@@ -12,31 +13,28 @@ export default async function sendPaymentFailedEmail({
   name: string | null;
   userId: string;
 }>) {
-  const sendStatus = new EmailsSendStatus('PAYMENT_FAILED', userId);
-
-  if (await sendStatus.isSent()) {
-    return;
-  }
-
   try {
-    await sendReactEmail({
-      component: <EmailsTemplatePaymentFailed name={name} />,
-      from: {
-        email: 'contact@greatfrontend.com',
-        name: 'GreatFrontEnd',
+    await sendReactEmailWithChecks(
+      {
+        emailKey: 'PAYMENT_FAILED',
+        opts: {
+          ex: THIRTY_DAYS_IN_SECS,
+        },
+        userId,
       },
-      subject: "Your payment has failed, here's how you can fix it",
-      to: {
-        email,
-        name,
+      {
+        component: <EmailsTemplatePaymentFailed name={name} />,
+        from: {
+          email: 'contact@greatfrontend.com',
+          name: 'GreatFrontEnd',
+        },
+        subject: "Your payment has failed, here's how you can fix it",
+        to: {
+          email,
+          name,
+        },
       },
-    });
-
-    const THIRTY_DAYS_IN_SECS = 30 * 24 * 3600;
-
-    await sendStatus.markAsSent({
-      ex: THIRTY_DAYS_IN_SECS,
-    });
+    );
   } catch (error) {
     console.error('Error sending email:', error);
     throw error;

@@ -1,5 +1,4 @@
-import EmailsSendStatus from '~/emails/EmailsSendStatus';
-import scheduleEmail from '~/emails/qstash/EmailsQstashScheduler';
+import { scheduleEmailWithChecks } from '~/emails/qstash/EmailsQstashScheduler';
 import RedisCounter from '~/redis/RedisCounter';
 import prisma from '~/server/prisma';
 
@@ -14,15 +13,6 @@ export default async function triggerCompletedSomeQuestionsEmail({
   format: string;
   userId: string;
 }>) {
-  const sendStatus = new EmailsSendStatus(
-    'INTERVIEWS_COMPLETED_SOME_QUESTIONS',
-    userId,
-  );
-
-  if (await sendStatus.isScheduledOrSent()) {
-    return;
-  }
-
   // Interest point for each question format
   const interestPointMap: Record<string, number> = {
     algo: 3,
@@ -41,26 +31,24 @@ export default async function triggerCompletedSomeQuestionsEmail({
   const questionsInterestPointRedisValue =
     await questionsInterestPointsRedisCounter.incrby(points);
 
-  if (questionsInterestPointRedisValue >= TRIGGER_INTEREST_POINT) {
-    const profile = await prisma.profile.findUnique({
-      select: {
-        name: true,
-      },
-      where: {
-        id: userId,
-      },
-    });
-
-    const result = await scheduleEmail({
-      delayInHours: 2,
-      email,
-      emailKey: 'INTERVIEWS_COMPLETED_SOME_QUESTIONS',
-      name: profile?.name ?? '',
-      userId,
-    });
-
-    if (result.messageId) {
-      await sendStatus.markAsScheduled();
-    }
+  if (questionsInterestPointRedisValue < TRIGGER_INTEREST_POINT) {
+    return;
   }
+
+  const profile = await prisma.profile.findUnique({
+    select: {
+      name: true,
+    },
+    where: {
+      id: userId,
+    },
+  });
+
+  await scheduleEmailWithChecks({
+    delayInHours: 2,
+    email,
+    emailKey: 'INTERVIEWS_COMPLETED_SOME_QUESTIONS',
+    name: profile?.name ?? null,
+    userId,
+  });
 }

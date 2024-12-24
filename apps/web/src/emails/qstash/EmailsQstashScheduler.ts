@@ -1,3 +1,4 @@
+import EmailsSendStatus from '~/emails/EmailsSendStatus';
 import type { EmailKey } from '~/emails/EmailsTypes';
 import { getSiteOrigin } from '~/seo/siteUrl';
 
@@ -15,7 +16,35 @@ type Props = Readonly<{
   userId: string;
 }>;
 
-export default async function scheduleEmail({
+export async function scheduleEmailWithChecks({
+  countryCode,
+  name,
+  email,
+  delayInHours,
+  userId,
+  emailKey,
+}: Props) {
+  const sendStatus = new EmailsSendStatus(emailKey, userId);
+
+  if (await sendStatus.isScheduledOrSent()) {
+    return;
+  }
+
+  const result = await scheduleEmail({
+    countryCode,
+    delayInHours,
+    email,
+    emailKey,
+    name,
+    userId,
+  });
+
+  if (result.messageId) {
+    await sendStatus.markAsScheduled();
+  }
+}
+
+export async function scheduleEmail({
   countryCode,
   name,
   email,

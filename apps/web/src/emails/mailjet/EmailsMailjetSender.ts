@@ -2,7 +2,12 @@
 
 import { Client, type LibraryResponse, type SendEmailV3_1 } from 'node-mailjet';
 
+import EmailsSendStatus from '~/emails/EmailsSendStatus';
+
+import type { EmailKey } from '../EmailsTypes';
+
 import { render } from '@react-email/components';
+import type { SetCommandOptions } from '@upstash/redis';
 
 type EmailAttributes = Readonly<{
   from: {
@@ -19,6 +24,29 @@ type EmailAttributes = Readonly<{
     name: string | null;
   };
 }>;
+
+export async function sendReactEmailWithChecks(
+  {
+    emailKey,
+    userId,
+    opts,
+  }: { emailKey: EmailKey; opts?: SetCommandOptions; userId: string },
+  emailProps: Parameters<typeof sendReactEmail>[0],
+) {
+  try {
+    const sendStatus = new EmailsSendStatus(emailKey, userId);
+
+    if (await sendStatus.isSent()) {
+      return;
+    }
+
+    await sendReactEmail(emailProps);
+    await sendStatus.markAsSent(opts);
+  } catch (error) {
+    console.error('Error sending email:', error);
+    throw error;
+  }
+}
 
 export async function sendReactEmail({
   component,
