@@ -10,7 +10,12 @@ import {
   sendWelcomeEmailImmediate,
 } from '~/emails/items/welcome/EmailsSenderWelcomeSeries';
 import { createSupabaseAdminClientGFE_SERVER_ONLY } from '~/supabase/SupabaseServerGFE';
+import { getErrorMessage } from '~/utils/getErrorMessage';
 
+/**
+ * This route is only meant to be called by QStash and is meant for
+ * scheduled emails. It should not be exposed to public.
+ */
 export async function POST(req: NextRequest) {
   const { searchParams } = req.nextUrl;
 
@@ -104,6 +109,9 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ success: true });
   } catch (error) {
-    return NextResponse.json({ error }, { status: 500 });
+    return NextResponse.json(
+      { error: getErrorMessage(error) },
+      { status: 500 },
+    );
   }
 }
