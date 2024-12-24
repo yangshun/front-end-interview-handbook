@@ -11,7 +11,6 @@ import Button from '~/components/ui/Button';
 import CheckboxInput from '~/components/ui/CheckboxInput';
 import TextInput from '~/components/ui/TextInput';
 
-import scheduleWelcomeSeriesEmail from '~/emails/items/welcome/EmailsSchedulerWelcomeSeries';
 import logEvent from '~/logging/logEvent';
 import { useI18nRouter } from '~/next-i18nostic/src';
 import type { SupabaseClientGFE } from '~/supabase/SupabaseServerGFE';
@@ -39,6 +38,8 @@ export default function SupabaseAuthEmailSignUp({
     trpc.marketing.signUpWithEmail.useMutation();
   const intl = useIntl();
   const router = useI18nRouter();
+  const scheduleWelcomeSeriesEmailMutation =
+    trpc.emails.scheduleWelcomeSeries.useMutation();
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -123,13 +124,12 @@ export default function SupabaseAuthEmailSignUp({
         type: 'email',
       });
 
-      // Schedule welcome series email
-      scheduleWelcomeSeriesEmail({
-        email,
-        name: '',
-        signedUpViaInterviews: !next?.includes('/projects'), // To determine if the signup was triggered from projects or interviews
-        userId: signUpUser.id,
-      });
+      const signedUpViaInterviews = !next?.includes('/projects');
+
+      if (signedUpViaInterviews) {
+        // Schedule welcome series email
+        scheduleWelcomeSeriesEmailMutation.mutateAsync();
+      }
 
       // Redirect to email verify page.
       router.push({
@@ -141,10 +141,7 @@ export default function SupabaseAuthEmailSignUp({
       });
     }
 
-    /**
-     * It is possible the auth component may have been unmounted at this point
-     * check if component is mounted before setting a useState
-     */
+    // It is possible the auth component may have been unmounted at this point check if component is mounted before setting a useState
     if (isMounted()) {
       setLoading(false);
     }

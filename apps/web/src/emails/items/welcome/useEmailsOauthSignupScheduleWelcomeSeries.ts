@@ -1,13 +1,12 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
-import { useUserProfile } from '~/components/global/UserProfileProvider';
-
-import scheduleWelcomeSeriesEmail from '~/emails/items/welcome/EmailsSchedulerWelcomeSeries';
+import { trpc } from '~/hooks/trpc';
 
 import { useUser } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
   isFromProjects: boolean;
+  // TODO(emails): move check into tRPC mutation
   shouldSendWelcomeSeriesEmail: boolean;
 }>;
 
@@ -15,42 +14,40 @@ export default function useEmailsOauthSignUpScheduleWelcomeSeries({
   isFromProjects,
   shouldSendWelcomeSeriesEmail,
 }: Props) {
-  const { userProfile } = useUserProfile();
   const user = useUser();
+
+  const scheduleWelcomeSeriesEmailMutation =
+    trpc.emails.scheduleWelcomeSeries.useMutation();
+  const scheduleWelcomeSeriesEmailMutationRef = useRef(
+    scheduleWelcomeSeriesEmailMutation,
+  );
 
   useEffect(() => {
     // If welcome series email already sent, don't send again
-    if (!shouldSendWelcomeSeriesEmail) {
+    if (!shouldSendWelcomeSeriesEmail || isFromProjects) {
       return;
     }
+
     // Hacky way to check for OAuth signup because there is no way to find out in oauth if the flow is signup or login flow and if signup if is from interviews or projects
-    if (userProfile && user) {
-      // Get today's date and year
+    if (user?.created_at) {
       const today = new Date();
       const currentYear = today.getFullYear();
       const currentDate = today.getDate();
       const currentMonth = today.getMonth();
 
-      const createdAt = new Date(userProfile.createdAt);
-      // Get the date, month, and year of the timestamp
+      const createdAt = new Date(user?.created_at);
       const createdAtYear = createdAt.getFullYear();
       const createdAtDate = createdAt.getDate();
       const createdAtMonth = createdAt.getMonth();
 
-      // If the profile is today, we will consider it is as Oauth signup
+      // If the user was created today, send welcome email
       if (
         createdAtYear === currentYear &&
         createdAtMonth === currentMonth &&
-        createdAtDate === currentDate &&
-        user?.email
+        createdAtDate === currentDate
       ) {
-        scheduleWelcomeSeriesEmail({
-          email: user.email,
-          name: '',
-          signedUpViaInterviews: !isFromProjects,
-          userId: user.id,
-        });
+        scheduleWelcomeSeriesEmailMutationRef.current.mutateAsync();
       }
     }
-  }, [userProfile, user, shouldSendWelcomeSeriesEmail, isFromProjects]);
+  }, [user?.created_at, shouldSendWelcomeSeriesEmail, isFromProjects]);
 }
