@@ -4,7 +4,7 @@ import {
   sendInitiateCheckoutFirstTimeEmail,
   sendInitiateCheckoutMultipleTimesEmail,
 } from '~/emails/items/checkout/EmailsSenderCheckoutInitiate';
-import sendCompletedSomeQuestionsEmail from '~/emails/items/questions-completion/EmailsSenderCompletedSomeQuestions';
+import sendInterviewsProgressEmail from '~/emails/items/interviews-progress/EmailsSenderInterviewsProgress';
 import {
   sendWelcomeEmailAfter24Hours,
   sendWelcomeEmailImmediate,
@@ -53,8 +53,8 @@ export async function POST(req: NextRequest) {
           userId,
         });
         break;
-      case 'INTERVIEWS_COMPLETED_SOME_QUESTIONS':
-        await sendCompletedSomeQuestionsEmail({
+      case 'INTERVIEWS_PROGRESS':
+        await sendInterviewsProgressEmail({
           email,
           name,
           userId,

@@ -54,10 +54,8 @@ export default function EmailsTemplateCheckoutFirstTime({
                 How's it going? Thank you for your interest in GreatFrontEnd!
               </Text>
               <Text style={{ ...paragraph, margin: '16px 0 0 0' }}>
-                I'm{' '}
-                <span style={bold}>Yangshun, co-founder at GreatFrontEnd</span>.
-                I spent over 5 years at Meta leading teams and building front
-                end products such as{' '}
+                I'm Yangshun, co-founder at GreatFrontEnd. I spent over 5 years
+                at Meta leading teams and building front end products such as{' '}
                 <Link
                   href="https://www.meta.com"
                   style={{

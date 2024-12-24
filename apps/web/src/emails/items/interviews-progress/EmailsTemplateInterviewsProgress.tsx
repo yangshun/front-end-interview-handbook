@@ -16,7 +16,7 @@ import {
   Text,
 } from '@react-email/components';
 
-export default function EmailsTemplateCompletedSomeQuestions() {
+export default function EmailsTemplateInterviewsProgress() {
   return (
     <Html lang="en">
       <Head>
@@ -198,7 +198,6 @@ export default function EmailsTemplateCompletedSomeQuestions() {
                   Join the ranks of tens of thousands using Premium to stay
                   ahead of the competition.
                 </Text>
-
                 <Link
                   href={new URL(
                     '/interviews/pricing',

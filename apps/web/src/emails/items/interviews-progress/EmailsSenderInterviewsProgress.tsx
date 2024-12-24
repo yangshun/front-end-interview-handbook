@@ -1,8 +1,8 @@
 import { sendReactEmailWithChecks } from '~/emails/mailjet/EmailsMailjetSender';
 
-import EmailsTemplateCompletedSomeQuestions from './EmailsTemplateCompletedSomeQuestions';
+import EmailsTemplateInterviewsProgress from './EmailsTemplateInterviewsProgress';
 
-export default async function sendCompletedSomeQuestionsEmail({
+export default async function sendInterviewsProgressEmail({
   name,
   email,
   userId,
@@ -13,9 +13,9 @@ export default async function sendCompletedSomeQuestionsEmail({
 }>) {
   try {
     await sendReactEmailWithChecks(
-      { emailKey: 'INTERVIEWS_COMPLETED_SOME_QUESTIONS', userId },
+      { emailKey: 'INTERVIEWS_PROGRESS', userId },
       {
-        component: <EmailsTemplateCompletedSomeQuestions />,
+        component: <EmailsTemplateInterviewsProgress />,
         from: {
           email: 'hello@greatfrontend.com',
           name: 'GreatFrontEnd',

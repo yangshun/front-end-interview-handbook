@@ -12,7 +12,7 @@ type InterviewsInterestEntity =
   | 'system-design'
   | 'user-interface';
 
-export default async function triggerCompletedSomeQuestionsEmail({
+export default async function triggerInterviewsProgressEmail({
   email,
   userId,
   entity,
@@ -60,7 +60,7 @@ export default async function triggerCompletedSomeQuestionsEmail({
   await scheduleEmailWithChecks({
     delayInHours: 2,
     email,
-    emailKey: 'INTERVIEWS_COMPLETED_SOME_QUESTIONS',
+    emailKey: 'INTERVIEWS_PROGRESS',
     name: profile?.name ?? null,
     userId,
   });
