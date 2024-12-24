@@ -10,7 +10,6 @@ export async function sendWelcomeEmailImmediate({
 }: Readonly<{
   email: string;
   name: string | null;
-  signedUpViaInterviews: boolean;
   userId: string;
 }>) {
   await sendReactEmailWithChecks(

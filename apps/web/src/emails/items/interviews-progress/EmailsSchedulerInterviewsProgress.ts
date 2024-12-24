@@ -14,11 +14,9 @@ type InterviewsInterestEntity =
   | 'user-interface';
 
 export default async function scheduleInterviewsProgressEmail({
-  email,
   userId,
   entity,
 }: Readonly<{
-  email: string;
   entity: InterviewsInterestEntity;
   userId: string;
 }>) {
@@ -46,7 +44,6 @@ export default async function scheduleInterviewsProgressEmail({
 
   const profile = await prisma.profile.findUnique({
     select: {
-      name: true,
       premium: true,
     },
     where: {
@@ -60,9 +57,7 @@ export default async function scheduleInterviewsProgressEmail({
 
   await scheduleEmailWithChecks({
     delayInSeconds: TWO_HOURS_LATER_SECS,
-    email,
     emailKey: 'INTERVIEWS_PROGRESS',
-    name: profile?.name ?? null,
     userId,
   });
 }

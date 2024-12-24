@@ -65,7 +65,6 @@ export const questionProgressRouter = router({
         if (questionProgress) {
           // Trigger completed some questions transactional email
           scheduleInterviewsProgressEmail({
-            email: viewer.email,
             entity: format,
             userId: viewer.id,
           });

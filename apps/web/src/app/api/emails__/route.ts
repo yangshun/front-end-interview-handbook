@@ -9,6 +9,7 @@ import {
   sendWelcomeEmailAfter24Hours,
   sendWelcomeEmailImmediate,
 } from '~/emails/items/welcome/EmailsSenderWelcomeSeries';
+import { createSupabaseAdminClientGFE_SERVER_ONLY } from '~/supabase/SupabaseServerGFE';
 
 export async function POST(req: NextRequest) {
   const { searchParams } = req.nextUrl;
@@ -22,14 +23,39 @@ export async function POST(req: NextRequest) {
 
   try {
     const request = await req.json();
-    const {
-      email,
-      emailKey,
-      name,
-      signedUpViaInterviews,
-      userId,
-      countryCode,
-    } = request;
+    const { emailKey, userId, countryCode } = request;
+
+    const supabaseAdmin = createSupabaseAdminClientGFE_SERVER_ONLY();
+    const [
+      {
+        data: { user },
+        error: getUserError,
+      },
+      { data: profile, error: getProfileError },
+    ] = await Promise.all([
+      supabaseAdmin.auth.admin.getUserById(userId),
+      // Can't use Prisma here because it's not supported in edge functions
+      supabaseAdmin.from('Profile').select('name').eq('id', userId).single(),
+    ]);
+
+    const error = getUserError ?? getProfileError ?? null;
+
+    if (error != null) {
+      return NextResponse.json(
+        { error: error.message },
+        { status: 'status' in error ? error.status : 500 },
+      );
+    }
+
+    if (user == null || user.email == null) {
+      return NextResponse.json(
+        { error: `No user found for ${userId}` },
+        { status: 500 },
+      );
+    }
+
+    const { email } = user;
+    const name = profile?.name ?? null;
 
     // TODO(emails): remove non-scheduled emails from function
     switch (emailKey) {
@@ -37,7 +63,6 @@ export async function POST(req: NextRequest) {
         await sendWelcomeEmailImmediate({
           email,
           name,
-          signedUpViaInterviews,
           userId,
         });
         break;

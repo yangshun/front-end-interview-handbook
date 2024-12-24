@@ -41,7 +41,6 @@ export const guideProgressRouter = router({
 
           // Trigger completed some questions transactional email
           scheduleInterviewsProgressEmail({
-            email: viewer.email,
             entity: 'article',
             userId: viewer.id,
           });

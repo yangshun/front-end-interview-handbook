@@ -7,13 +7,9 @@ const SIX_MONTHS_IN_SECS = 6 * 30 * ONE_DAY_SECS;
 
 export default async function scheduleCheckoutInitiateEmail({
   countryCode,
-  name,
-  email,
   userId,
 }: Readonly<{
   countryCode: string | null;
-  email: string;
-  name: string | null;
   userId: string;
 }>) {
   const checkoutRedisCounter = new RedisCounter(
@@ -28,18 +24,14 @@ export default async function scheduleCheckoutInitiateEmail({
     await scheduleEmailWithChecks({
       countryCode,
       delayInSeconds: ONE_DAY_SECS,
-      email,
       emailKey: 'INTERVIEWS_CHECKOUT_FIRST_TIME',
-      name,
       userId,
     });
   } else if (checkoutCount === CHECKOUT_ATTEMPTS_TO_QUALIFY_FOR_DISCOUNT) {
     await scheduleEmailWithChecks({
       countryCode,
       delayInSeconds: ONE_DAY_SECS,
-      email,
       emailKey: 'INTERVIEWS_CHECKOUT_MULTIPLE_TIMES',
-      name,
       userId,
     });
   }

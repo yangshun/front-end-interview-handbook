@@ -12,16 +12,12 @@ const QStash = new Client({ token: process.env.QSTASH_TOKEN ?? '' });
 type Props = Readonly<{
   countryCode?: string | null;
   delayInSeconds: number;
-  email: string;
   emailKey: EmailKey;
-  name: string | null;
   userId: string;
 }>;
 
 export async function scheduleEmailWithChecks({
   countryCode,
-  name,
-  email,
   delayInSeconds,
   userId,
   emailKey,
@@ -35,9 +31,7 @@ export async function scheduleEmailWithChecks({
   const result = await scheduleEmail({
     countryCode,
     delayInSeconds,
-    email,
     emailKey,
-    name,
     userId,
   });
 
@@ -48,14 +42,12 @@ export async function scheduleEmailWithChecks({
 
 export async function scheduleEmail({
   countryCode,
-  name,
-  email,
   delayInSeconds,
   userId,
   emailKey,
 }: Props) {
   return await QStash.publishJSON({
-    body: { countryCode, email, emailKey, name, userId },
+    body: { countryCode, emailKey, userId },
     delay: delayInSeconds,
     method: 'POST',
     url: url.format({
