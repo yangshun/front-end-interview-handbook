@@ -13,17 +13,33 @@ import { publicProcedure, router, userProcedure } from '../trpc';
 
 import { TRPCClientError } from '@trpc/client';
 
+const zodInterviewsQuestionFormats = z.enum([
+  'javascript',
+  'user-interface',
+  'algo',
+  'system-design',
+  'quiz',
+]);
+
 export const questionProgressRouter = router({
   add: userProcedure
     .input(
       z.object({
-        format: z.string(),
-        slug: z.string(),
+        question: z.object({
+          format: zodInterviewsQuestionFormats,
+          slug: z.string(),
+        }),
         studyListKey: z.string().optional(),
       }),
     )
     .mutation(
-      async ({ input: { format, slug, studyListKey }, ctx: { viewer } }) => {
+      async ({
+        input: {
+          question: { format, slug },
+          studyListKey,
+        },
+        ctx: { viewer },
+      }) => {
         if (!viewer) {
           return null;
         }
@@ -50,7 +66,7 @@ export const questionProgressRouter = router({
           // Trigger completed some questions transactional email
           triggerCompletedSomeQuestionsEmail({
             email: viewer.email,
-            format,
+            entity: format,
             userId: viewer.id,
           });
         }
@@ -98,7 +114,7 @@ export const questionProgressRouter = router({
           fetchInterviewsStudyList(studyListKey),
         ]);
 
-        const key = hashQuestion({ format: format as QuestionFormat, slug });
+        const key = hashQuestion({ format, slug });
         const sessionId = session.id;
 
         const sessionProgress = await prisma.learningSessionProgress.upsert({
@@ -127,13 +143,21 @@ export const questionProgressRouter = router({
   delete: userProcedure
     .input(
       z.object({
-        format: z.string(),
-        slug: z.string(),
+        question: z.object({
+          format: zodInterviewsQuestionFormats,
+          slug: z.string(),
+        }),
         studyListKey: z.string().optional(),
       }),
     )
     .mutation(
-      async ({ input: { slug, format, studyListKey }, ctx: { viewer } }) => {
+      async ({
+        input: {
+          question: { slug, format },
+          studyListKey,
+        },
+        ctx: { viewer },
+      }) => {
         // Remove EITHER overall progress or learning session progress but not both.
         if (studyListKey) {
           const session = await prisma.learningSession.findFirst({
@@ -150,7 +174,7 @@ export const questionProgressRouter = router({
 
           return await prisma.learningSessionProgress.deleteMany({
             where: {
-              key: hashQuestion({ format: format as QuestionFormat, slug }),
+              key: hashQuestion({ format, slug }),
               sessionId: session.id,
             },
           });
@@ -176,7 +200,7 @@ export const questionProgressRouter = router({
     .input(
       z.object({
         question: z.object({
-          format: z.string(),
+          format: zodInterviewsQuestionFormats,
           slug: z.string(),
         }),
         studyListKey: z.string().optional(),
@@ -199,10 +223,7 @@ export const questionProgressRouter = router({
         const [sessionProgress, questionProgress] = await Promise.all([
           prisma.learningSessionProgress.findFirst({
             where: {
-              key: hashQuestion({
-                format: question.format as QuestionFormat,
-                slug: question.slug,
-              }),
+              key: hashQuestion(question),
               sessionId: session.id,
             },
           }),
@@ -392,7 +413,7 @@ export const questionProgressRouter = router({
   globalCompleted: publicProcedure
     .input(
       z.object({
-        format: z.string(),
+        format: zodInterviewsQuestionFormats,
         slug: z.string(),
       }),
     )
@@ -411,7 +432,7 @@ export const questionProgressRouter = router({
       z.object({
         questions: z.array(
           z.object({
-            format: z.string(),
+            format: zodInterviewsQuestionFormats,
             slug: z.string(),
           }),
         ),
@@ -437,9 +458,9 @@ export const questionProgressRouter = router({
         }
 
         const data = questions.map(
-          ({ format, slug }) =>
+          (question) =>
             ({
-              key: hashQuestion({ format: format as QuestionFormat, slug }),
+              key: hashQuestion(question),
               sessionId: session.id,
               status: 'COMPLETED',
             }) as const,

@@ -16,7 +16,10 @@ import {
 
 import QuestionsUnifiedListWithFilters from './QuestionsUnifiedListWithFilters';
 import useQuestionsWithCompletionStatus from '../filters/hooks/useQuestionsWithCompletionStatus';
-import type { QuestionMetadata } from '../../common/QuestionsTypes';
+import type {
+  QuestionFormat,
+  QuestionMetadata,
+} from '../../common/QuestionsTypes';
 
 import { useUser } from '@supabase/auth-helpers-react';
 
@@ -50,13 +53,18 @@ export default function QuestionsUnifiedListWithFiltersAndProgress({
   const [
     automaticallyMarkCompleteQuestion,
     setAutomaticallyMarkCompleteQuestion,
-  ] = useState<{ format: string; slug: string; title: string } | null>(null);
+  ] = useState<{ format: QuestionFormat; slug: string; title: string } | null>(
+    null,
+  );
 
   const addQueryParamToPath = useQueryParamAction<'format' | 'slug' | 'title'>(
     MARK_QN_COMPLETE_ACTION,
     (params) => {
       if (params) {
-        setAutomaticallyMarkCompleteQuestion(params);
+        setAutomaticallyMarkCompleteQuestion({
+          ...params,
+          format: params.format as QuestionFormat,
+        });
       }
     },
     ['format', 'slug', 'title'],
@@ -76,15 +84,17 @@ export default function QuestionsUnifiedListWithFiltersAndProgress({
       slug,
       title,
       format,
-    }: Readonly<{ format: string; slug: string; title: string }>) => {
+    }: Readonly<{ format: QuestionFormat; slug: string; title: string }>) => {
       if (user == null || markCompleteMutation.isLoading) {
         return;
       }
 
       markCompleteMutation.mutate(
         {
-          format,
-          slug,
+          question: {
+            format,
+            slug,
+          },
           studyListKey,
         },
         {
@@ -141,8 +151,10 @@ export default function QuestionsUnifiedListWithFiltersAndProgress({
 
     markNotCompleteMutation.mutate(
       {
-        format: question.format,
-        slug: question.slug,
+        question: {
+          format: question.format,
+          slug: question.slug,
+        },
         studyListKey,
       },
       {

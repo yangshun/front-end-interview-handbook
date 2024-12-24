@@ -101,8 +101,10 @@ export default function JavaScriptCodingWorkspaceTestsSubmitTab({
           }
 
           markCompleteMutation.mutate({
-            format: metadata.format,
-            slug: metadata.slug,
+            question: {
+              format: metadata.format,
+              slug: metadata.slug,
+            },
             studyListKey,
           });
         }

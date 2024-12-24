@@ -24,8 +24,10 @@ export default function useQuestionsAutoMarkAsComplete(
   useQueryParamAction(MARK_AS_COMPLETE_ACTION_NAME, () => {
     markCompleteMutation.mutate(
       {
-        format: metadata.format,
-        slug: metadata.slug,
+        question: {
+          format: metadata.format,
+          slug: metadata.slug,
+        },
         studyListKey,
       },
       {

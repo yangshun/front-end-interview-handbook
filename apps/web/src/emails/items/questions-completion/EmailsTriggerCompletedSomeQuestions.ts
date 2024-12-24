@@ -4,17 +4,25 @@ import prisma from '~/server/prisma';
 
 const TRIGGER_INTEREST_POINT = 15;
 
+type InterviewsInterestEntity =
+  | 'algo'
+  | 'article'
+  | 'javascript'
+  | 'quiz'
+  | 'system-design'
+  | 'user-interface';
+
 export default async function triggerCompletedSomeQuestionsEmail({
   email,
   userId,
-  format,
+  entity,
 }: Readonly<{
   email: string;
-  format: string;
+  entity: InterviewsInterestEntity;
   userId: string;
 }>) {
   // Interest point for each question format
-  const interestPointMap: Record<string, number> = {
+  const interestPointMap: Record<InterviewsInterestEntity, number> = {
     algo: 3,
     article: 1,
     javascript: 3,
@@ -22,7 +30,7 @@ export default async function triggerCompletedSomeQuestionsEmail({
     'system-design': 3,
     'user-interface': 3,
   };
-  const points = interestPointMap[format] || 0;
+  const points = interestPointMap[entity] || 0;
 
   const questionsInterestPointsRedisCounter = new RedisCounter(
     'QUESTIONS_INTEREST_POINT',
@@ -38,11 +46,16 @@ export default async function triggerCompletedSomeQuestionsEmail({
   const profile = await prisma.profile.findUnique({
     select: {
       name: true,
+      premium: true,
     },
     where: {
       id: userId,
     },
   });
+
+  if (profile == null || profile.premium) {
+    return;
+  }
 
   await scheduleEmailWithChecks({
     delayInHours: 2,

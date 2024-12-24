@@ -42,7 +42,7 @@ export const guideProgressRouter = router({
           // Trigger completed some questions transactional email
           triggerCompletedSomeQuestionsEmail({
             email: viewer.email,
-            format: 'article',
+            entity: 'article',
             userId: viewer.id,
           });
 

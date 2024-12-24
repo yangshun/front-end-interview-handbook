@@ -140,8 +140,10 @@ export default function QuestionProgressAction({
         onClick={() => {
           deleteProgressMutation.mutate(
             {
-              format: metadata.format,
-              slug: metadata.slug,
+              question: {
+                format: metadata.format,
+                slug: metadata.slug,
+              },
               studyListKey,
             },
             {
@@ -192,8 +194,10 @@ export default function QuestionProgressAction({
       onClick={() => {
         markCompleteMutation.mutate(
           {
-            format: metadata.format,
-            slug: metadata.slug,
+            question: {
+              format: metadata.format,
+              slug: metadata.slug,
+            },
             studyListKey,
           },
           {
