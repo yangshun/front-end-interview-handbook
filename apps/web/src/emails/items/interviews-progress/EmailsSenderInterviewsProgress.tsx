@@ -1,4 +1,5 @@
 import { sendReactEmailWithChecks } from '~/emails/mailjet/EmailsMailjetSender';
+import prisma from '~/server/prisma';
 
 import EmailsTemplateInterviewsProgress from './EmailsTemplateInterviewsProgress';
 
@@ -12,6 +13,19 @@ export default async function sendInterviewsProgressEmail({
   userId: string;
 }>) {
   try {
+    const profile = await prisma.profile.findUnique({
+      select: {
+        premium: true,
+      },
+      where: {
+        id: userId,
+      },
+    });
+
+    if (profile?.premium) {
+      return;
+    }
+
     await sendReactEmailWithChecks(
       { emailKey: 'INTERVIEWS_PROGRESS', userId },
       {
@@ -20,7 +34,7 @@ export default async function sendInterviewsProgressEmail({
           email: 'hello@greatfrontend.com',
           name: 'GreatFrontEnd',
         },
-        subject: "Don't Miss Out: Up to 100% off premium",
+        subject: "Don't miss out: Up to 100% off premium",
         to: {
           email,
           name,
