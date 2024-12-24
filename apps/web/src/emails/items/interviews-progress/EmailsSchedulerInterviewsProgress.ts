@@ -3,6 +3,7 @@ import RedisCounter from '~/redis/RedisCounter';
 import prisma from '~/server/prisma';
 
 const TRIGGER_INTEREST_POINT = 15;
+const TWO_HOURS_LATER_SECS = 2 * 60 * 60;
 
 type InterviewsInterestEntity =
   | 'algo'
@@ -58,7 +59,7 @@ export default async function scheduleInterviewsProgressEmail({
   }
 
   await scheduleEmailWithChecks({
-    delayInHours: 2,
+    delayInSeconds: TWO_HOURS_LATER_SECS,
     email,
     emailKey: 'INTERVIEWS_PROGRESS',
     name: profile?.name ?? null,

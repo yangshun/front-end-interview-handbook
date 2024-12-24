@@ -6,6 +6,9 @@ import prisma from '~/server/prisma';
 
 import { router, userProcedure } from '../trpc';
 
+const ONE_DAY_SECS = 24 * 60 * 60;
+const ONE_MIN_SECS = 60;
+
 export const emailsRouter = router({
   checkoutInitiate: userProcedure
     .input(
@@ -45,14 +48,14 @@ export const emailsRouter = router({
 
     await Promise.all([
       scheduleEmailWithChecks({
-        delayInHours: 0.1, // TODO(emails): change to 5 minutes
+        delayInSeconds: ONE_MIN_SECS,
         email,
         emailKey: 'INTERVIEWS_WELCOME_EMAIL_IMMEDIATE',
         name,
         userId,
       }),
       scheduleEmailWithChecks({
-        delayInHours: 24,
+        delayInSeconds: ONE_DAY_SECS,
         email,
         emailKey: 'INTERVIEWS_WELCOME_EMAIL_24_HOURS',
         name,

@@ -11,7 +11,7 @@ const QStash = new Client({ token: process.env.QSTASH_TOKEN ?? '' });
 // TODO(emails): refactor to be discriminated union
 type Props = Readonly<{
   countryCode?: string | null;
-  delayInHours: number;
+  delayInSeconds: number;
   email: string;
   emailKey: EmailKey;
   name: string | null;
@@ -22,7 +22,7 @@ export async function scheduleEmailWithChecks({
   countryCode,
   name,
   email,
-  delayInHours,
+  delayInSeconds,
   userId,
   emailKey,
 }: Props) {
@@ -34,7 +34,7 @@ export async function scheduleEmailWithChecks({
 
   const result = await scheduleEmail({
     countryCode,
-    delayInHours,
+    delayInSeconds,
     email,
     emailKey,
     name,
@@ -50,12 +50,10 @@ export async function scheduleEmail({
   countryCode,
   name,
   email,
-  delayInHours,
+  delayInSeconds,
   userId,
   emailKey,
 }: Props) {
-  const delayInSeconds = delayInHours * 3600;
-
   return await QStash.publishJSON({
     body: { countryCode, email, emailKey, name, userId },
     delay: delayInSeconds,
