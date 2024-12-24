@@ -9,8 +9,8 @@ import EmailsTemplateCheckoutFirstTime from './EmailsTemplateCheckoutFirstTime';
 import EmailsTemplateCheckoutMultipleTimes from './EmailsTemplateCheckoutMultipleTimes';
 
 const SIX_MONTHS_IN_SECS = 6 * 30 * 24 * 3600;
-const interviewsPremiumPerkProjectsDiscountCouponId_TEST = 'hV8qtZIX';
-const interviewsPremiumPerkProjectsDiscountCouponId_PROD = 'SKcIcPgB';
+const interviewsEmailIncentiveDiscountCouponId_TEST = '7Yy6rf7h';
+const interviewsEmailIncentiveDiscountCouponId_PROD = 'rAbxYcFA';
 
 export async function sendInitiateCheckoutFirstTimeEmail({
   countryCode,
@@ -66,6 +66,7 @@ export async function sendInitiateCheckoutMultipleTimesEmail({
   try {
     const profile = await prisma.profile.findUnique({
       select: {
+        premium: true,
         stripeCustomer: true,
       },
       where: {
@@ -77,37 +78,42 @@ export async function sendInitiateCheckoutMultipleTimesEmail({
       throw 'No profile found';
     }
 
+    if (profile.premium) {
+      return;
+    }
+
     const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
       apiVersion: '2023-10-16',
     });
     const today = new Date();
-    const daysInFuture = 2;
-    const twoDaysLater = new Date(
-      today.setDate(today.getDate() + daysInFuture),
+    const expiryDays = 2;
+    const expiresAtTimestamp = new Date(
+      today.setDate(today.getDate() + expiryDays),
     );
-    const twoDaysLaterUnix = Math.round(twoDaysLater.getTime() / 1000);
+    const expiresAtTimestampUnix = Math.round(
+      expiresAtTimestamp.getTime() / 1000,
+    );
 
-    // TODO(emails): Need to update with appropriate coupon
     const coupon =
       process.env.NEXT_PUBLIC_VERCEL_ENV === 'production'
-        ? interviewsPremiumPerkProjectsDiscountCouponId_PROD
-        : interviewsPremiumPerkProjectsDiscountCouponId_TEST;
+        ? interviewsEmailIncentiveDiscountCouponId_PROD
+        : interviewsEmailIncentiveDiscountCouponId_TEST;
 
     // Eagerly generate even if user has been sent before
     // because checks should have been done even before this
-    // function was called, and even if users get an extra coupon
+    // function was called. Even if users get an extra coupon
     // it's not a big deal
     const promoCode = await stripe.promotionCodes.create({
       coupon,
       customer: profile.stripeCustomer,
-      expires_at: twoDaysLaterUnix,
-      max_redemptions: 1,
+      expires_at: expiresAtTimestampUnix,
+      max_redemptions: 2,
       metadata: {
-        campaign: 'CHECKOUT_EMAIL',
+        campaign: 'INTERVIEWS_EMAIL_INCENTIVE',
       },
     });
 
-    if (!promoCode) {
+    if (promoCode == null) {
       throw "Couldn't generate coupon";
     }
 
@@ -125,6 +131,7 @@ export async function sendInitiateCheckoutMultipleTimesEmail({
           <EmailsTemplateCheckoutMultipleTimes
             coupon={{
               code: promoCode.code,
+              expiryDays,
               percentOff: promoCode.coupon.percent_off ?? 0,
             }}
             name={name}
@@ -134,7 +141,7 @@ export async function sendInitiateCheckoutMultipleTimesEmail({
           email: 'hello@greatfrontend.com',
           name: 'GreatFrontEnd',
         },
-        subject: `Act fast: ${promoCode.coupon.percent_off} off reserved just for you, ends in ${daysInFuture * 24} hours!`,
+        subject: `Act fast: ${promoCode.coupon.percent_off} off reserved just for you, ends in ${expiryDays * 24} hours!`,
         to: {
           email,
           name,

@@ -18,6 +18,7 @@ import {
 type Props = Readonly<{
   coupon: Readonly<{
     code: string;
+    expiryDays: number;
     percentOff: number;
   }>;
   name: string | null;
@@ -93,7 +94,7 @@ export default function EmailsTemplateCheckoutMultipleTimes({
                   lineHeight: '24px',
                   margin: '8px 0 0 0',
                 }}>
-                Expires in: 48 hours from email time
+                Expires in: {coupon.expiryDays * 24} hours from email time
               </Text>
             </Column>
           </Row>
@@ -112,7 +113,7 @@ export default function EmailsTemplateCheckoutMultipleTimes({
               </Text>
               <Text style={paragraph}>
                 But don't wait too long–this offer expires in{' '}
-                <span style={bold}>48 hours</span>!
+                <span style={bold}>{coupon.expiryDays * 24} hours</span>!
               </Text>
             </Section>
             <Section style={{ margin: '40px 0 0 0' }}>
@@ -150,7 +151,7 @@ export default function EmailsTemplateCheckoutMultipleTimes({
                       lineHeight: '20px',
                       textAlign: 'center',
                     }}>
-                    We'll apply the code to any plan you pick
+                    Apply the code to any plan you want, even lifetime!
                   </Text>
                 </Column>
               </Row>
