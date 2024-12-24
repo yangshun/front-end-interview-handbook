@@ -115,7 +115,7 @@ export async function sendInitiateCheckoutMultipleTimesEmail({
       {
         emailKey: 'INTERVIEWS_CHECKOUT_MULTIPLE_TIMES',
         opts: {
-          // Expire this after 6 months so that we can retrigger this email again
+          // Expire this after 6 months so that we can resend this email again
           ex: SIX_MONTHS_IN_SECS,
         },
         userId,

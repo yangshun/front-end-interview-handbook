@@ -1,7 +1,7 @@
 import { z } from 'zod';
 
 import { hashGuide } from '~/db/guides/GuidesUtils';
-import triggerInterviewsProgressEmail from '~/emails/items/interviews-progress/EmailsTriggerInterviewsProgress';
+import scheduleInterviewsProgressEmail from '~/emails/items/interviews-progress/EmailsSchedulerInterviewsProgress';
 import prisma from '~/server/prisma';
 
 import { router, userProcedure } from '../trpc';
@@ -40,7 +40,7 @@ export const guideProgressRouter = router({
           });
 
           // Trigger completed some questions transactional email
-          triggerInterviewsProgressEmail({
+          scheduleInterviewsProgressEmail({
             email: viewer.email,
             entity: 'article',
             userId: viewer.id,

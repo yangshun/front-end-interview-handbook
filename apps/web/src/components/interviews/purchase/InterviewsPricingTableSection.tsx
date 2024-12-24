@@ -159,8 +159,8 @@ function PricingButtonNonPremium({
   const intl = useIntl();
   const user = useUser();
   const { userProfile, isUserProfileLoading } = useUserProfile();
-  const initialCheckoutEmailMutation =
-    trpc.purchases.initiateCheckoutEmail.useMutation();
+  const checkoutInitialEmailMutation =
+    trpc.purchases.checkoutInitialEmail.useMutation();
   const [checkoutSessionHref, setCheckoutSessionHref] = useState<string | null>(
     null,
   );
@@ -182,7 +182,7 @@ function PricingButtonNonPremium({
     setErrorMessage(null);
     try {
       // Trigger checkout email, non-blocking fashion
-      initialCheckoutEmailMutation.mutateAsync({ countryCode });
+      checkoutInitialEmailMutation.mutateAsync({ countryCode });
 
       const res = await fetch(
         url.format({
@@ -246,7 +246,7 @@ function PricingButtonNonPremium({
 
   const showUserThereIsAsyncRequest =
     (hasClicked && isCheckoutSessionLoading) ||
-    initialCheckoutEmailMutation.isLoading;
+    checkoutInitialEmailMutation.isLoading;
 
   return (
     <div className="flex flex-col gap-4">
@@ -272,12 +272,12 @@ function PricingButtonNonPremium({
 
           if (checkoutSessionHref != null) {
             if (user?.email) {
-              await initialCheckoutEmailMutation.mutateAsync({
+              await checkoutInitialEmailMutation.mutateAsync({
                 countryCode,
               });
             }
             // Had to move this checkout redirection here
-            // Otherwise with href passed to the PricingButton, the initialCheckoutEmailMutation is unable to execute it
+            // Otherwise with href passed to the PricingButton, the checkoutInitialEmailMutation is unable to execute it
             // before the window is changed to stripe
             window.location.href = checkoutSessionHref;
 

@@ -12,7 +12,7 @@ type InterviewsInterestEntity =
   | 'system-design'
   | 'user-interface';
 
-export default async function triggerInterviewsProgressEmail({
+export default async function scheduleInterviewsProgressEmail({
   email,
   userId,
   entity,

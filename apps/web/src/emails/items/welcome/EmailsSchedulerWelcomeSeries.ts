@@ -4,7 +4,7 @@ import type { EmailKey } from '~/emails/EmailsTypes';
 
 const WELCOME_EMAIL_KEY: EmailKey = 'INTERVIEWS_WELCOME_EMAIL_IMMEDIATE';
 
-export default async function triggerWelcomeSeriesEmail({
+export default async function scheduleWelcomeSeriesEmail({
   name,
   email,
   signedUpViaInterviews,
@@ -16,7 +16,7 @@ export default async function triggerWelcomeSeriesEmail({
   userId: string;
 }>) {
   try {
-    // TODO(emails): Move to tRPC and call underlying schedule function from tRPC // if it does not exceed any serverless function size limit
+    // TODO(emails): Move to tRPC and call underlying schedule function from tRPC if it does not exceed the serverless function size limit
     await fetch(
       url.format({
         pathname: `/api/emails__`,

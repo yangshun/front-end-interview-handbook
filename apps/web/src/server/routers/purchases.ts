@@ -8,7 +8,7 @@ import countryNames from '~/data/countryCodesToNames.json';
 import fetchInterviewsPricingPlanPaymentConfigLocalizedRecord from '~/components/interviews/purchase/fetchInterviewsPricingPlanPaymentConfigLocalizedRecord';
 import fetchProjectsPricingPlanPaymentConfigLocalizedRecord from '~/components/projects/purchase/fetchProjectsPricingPlanPaymentConfigLocalizedRecord';
 
-import triggerInitiateCheckoutEmail from '~/emails/items/checkout/EmailsTriggerCheckoutInitiate';
+import scheduleCheckoutInitiateEmail from '~/emails/items/checkout/EmailsSchedulerCheckoutInitiate';
 import prisma from '~/server/prisma';
 
 import { publicProcedure, router, userProcedure } from '../trpc';
@@ -89,7 +89,7 @@ export const purchasesRouter = router({
 
       return session.url;
     }),
-  initiateCheckoutEmail: userProcedure
+  checkoutInitialEmail: userProcedure
     .input(
       z.object({
         countryCode: z.string().nullable(),
@@ -105,7 +105,7 @@ export const purchasesRouter = router({
         },
       });
 
-      return await triggerInitiateCheckoutEmail({
+      return await scheduleCheckoutInitiateEmail({
         countryCode: countryCode ?? null,
         email: viewer.email,
         name: profile?.name ?? null,

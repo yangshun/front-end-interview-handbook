@@ -157,8 +157,3 @@ const paragraph = {
   fontSize: '1rem',
   lineHeight: '1.5rem',
 };
-
-const bold = {
-  color: '#18181B',
-  fontWeight: 600,
-};

@@ -2,17 +2,17 @@ import { useEffect } from 'react';
 
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 
-import triggerWelcomeSeriesEmail from '~/emails/items/welcome/EmailsTriggerWelcomeSeries';
+import scheduleWelcomeSeriesEmail from '~/emails/items/welcome/EmailsSchedulerWelcomeSeries';
 
 import { useUser } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
-  isProjects: boolean;
+  isFromProjects: boolean;
   shouldSendWelcomeSeriesEmail: boolean;
 }>;
 
-export default function useEmailsOauthSignupTriggerWelcomeSeries({
-  isProjects,
+export default function useEmailsOauthSignUpScheduleWelcomeSeries({
+  isFromProjects,
   shouldSendWelcomeSeriesEmail,
 }: Props) {
   const { userProfile } = useUserProfile();
@@ -23,8 +23,7 @@ export default function useEmailsOauthSignupTriggerWelcomeSeries({
     if (!shouldSendWelcomeSeriesEmail) {
       return;
     }
-    // Hacky way to check for OAuth signup because there is no way to find out in oauth if the flow is signup or login flow
-    // and if signup if is from interviews or projects
+    // Hacky way to check for OAuth signup because there is no way to find out in oauth if the flow is signup or login flow and if signup if is from interviews or projects
     if (userProfile && user) {
       // Get today's date and year
       const today = new Date();
@@ -45,13 +44,13 @@ export default function useEmailsOauthSignupTriggerWelcomeSeries({
         createdAtDate === currentDate &&
         user?.email
       ) {
-        triggerWelcomeSeriesEmail({
+        scheduleWelcomeSeriesEmail({
           email: user.email,
           name: '',
-          signedUpViaInterviews: !isProjects,
+          signedUpViaInterviews: !isFromProjects,
           userId: user.id,
         });
       }
     }
-  }, [userProfile, user, shouldSendWelcomeSeriesEmail, isProjects]);
+  }, [userProfile, user, shouldSendWelcomeSeriesEmail, isFromProjects]);
 }

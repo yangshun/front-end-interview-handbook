@@ -42,7 +42,7 @@ export async function sendWelcomeEmailImmediate({
     // This email is only sent out for interviews signups but
     // if the user signed up via projects, mark as sent because
     // we rely on this Redis value to send out the email and
-    // we don't want to retrigger this email again
+    // we don't want to resend this email again
     await sendStatus24Hours.markAsSent();
 
     return;
