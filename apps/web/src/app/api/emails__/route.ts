@@ -13,8 +13,11 @@ import { createSupabaseAdminClientGFE_SERVER_ONLY } from '~/supabase/SupabaseSer
 import { getErrorMessage } from '~/utils/getErrorMessage';
 
 /**
- * This route is only meant to be called by QStash and is meant for
- * scheduled emails. It should not be exposed to public.
+ * This route is only meant to be called by QStash for
+ * sending out scheduled emails.
+ *
+ * It should not be called directly by browsers and
+ * exposed to public.
  */
 export async function POST(req: NextRequest) {
   const { searchParams } = req.nextUrl;
@@ -62,7 +65,6 @@ export async function POST(req: NextRequest) {
     const { email } = user;
     const name = profile?.name ?? null;
 
-    // TODO(emails): remove non-scheduled emails from function
     switch (emailKey) {
       case 'INTERVIEWS_WELCOME_EMAIL_IMMEDIATE':
         await sendWelcomeEmailImmediate({

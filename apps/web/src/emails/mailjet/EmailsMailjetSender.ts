@@ -1,12 +1,12 @@
-'server only';
+import 'server-only';
 
 import { Client, type LibraryResponse, type SendEmailV3_1 } from 'node-mailjet';
 
 import EmailsSendStatus from '~/emails/EmailsSendStatus';
 
 import type { EmailKey } from '../EmailsTypes';
+import { renderEmail } from '../render/EmailsRender';
 
-import { render } from '@react-email/components';
 import type { SetCommandOptions } from '@upstash/redis';
 
 type EmailAttributes = Readonly<{
@@ -55,10 +55,7 @@ export async function sendReactEmail({
   Readonly<{
     component: JSX.Element;
   }>) {
-  const [html, text] = await Promise.all([
-    render(component),
-    render(component, { plainText: true }),
-  ]);
+  const { html, text } = await renderEmail(component);
 
   return sendEmail({ ...attrs, body: { html, text } });
 }
@@ -118,3 +115,5 @@ async function sendEmail({
     throw error;
   }
 }
+
+export { renderEmail };
