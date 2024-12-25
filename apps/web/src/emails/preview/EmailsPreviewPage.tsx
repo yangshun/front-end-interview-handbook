@@ -1,12 +1,18 @@
 'use client';
 
 import clsx from 'clsx';
+import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 import { Panel, PanelGroup, PanelResizeHandle } from 'react-resizable-panels';
 
 import Heading from '~/components/ui/Heading';
+import Select from '~/components/ui/Select';
 import Text from '~/components/ui/Text';
-import { themeBorderColor } from '~/components/ui/theme';
+import {
+  themeBorderColor,
+  themeDivideColor,
+  themeTextSecondaryColor,
+} from '~/components/ui/theme';
 import CodingWorkspaceDivider, {
   CodingWorkspaceDividerWrapperClassname,
 } from '~/components/workspace/common/CodingWorkspaceDivider';
@@ -34,6 +40,8 @@ const emailConfigs = [
 ];
 
 export default function EmailsPreviewPage({ emailKey }: Props) {
+  const router = useRouter();
+
   const [emailContents, setEmailContents] = useState<{
     html: string;
     text: string;
@@ -61,22 +69,44 @@ export default function EmailsPreviewPage({ emailKey }: Props) {
   }, [emailConfig]);
 
   return (
-    <div className="flex h-screen w-full flex-col gap-4 p-3">
-      <div className="">{emailKey}</div>
+    <div
+      className={clsx('flex h-screen w-full flex-col', [
+        'divide-y',
+        themeDivideColor,
+      ])}>
+      <div className="flex flex-wrap items-center gap-x-4 gap-y-2 p-3">
+        <Heading level="heading6">Emails Preview</Heading>
+        <Select
+          isLabelHidden={true}
+          label="Emails"
+          options={emailConfigs.map((item) => ({
+            label: item.id,
+            value: item.id,
+          }))}
+          value={emailKey}
+          onChange={(value: EmailKey) => {
+            router.push(`/dev__/emails/${value}`);
+          }}
+        />
+      </div>
       <PanelGroup
-        className="flex h-full"
+        className="flex h-full py-3"
         direction="horizontal"
         disablePointerEventsDuringResize={true}>
         <Panel className="flex flex-col">
-          <div className={clsx('flex flex-col gap-4', 'overflow-y-auto')}>
+          <div
+            className={clsx('flex flex-col gap-4', 'overflow-y-auto', 'pl-3')}>
             {emailContents?.text && (
               <div className="flex flex-col gap-2">
-                <Heading level="heading6">Text content</Heading>
+                <Text className="block" size="body1" weight="medium">
+                  Text content
+                </Text>
                 <pre
                   className={clsx(
                     'rounded-lg p-2 text-xs',
                     ['border', themeBorderColor],
                     'overflow-x-auto',
+                    themeTextSecondaryColor,
                   )}>
                   {emailContents?.text}
                 </pre>
@@ -88,7 +118,7 @@ export default function EmailsPreviewPage({ emailKey }: Props) {
           className={CodingWorkspaceDividerWrapperClassname('vertical')}>
           <CodingWorkspaceDivider direction="vertical" />
         </PanelResizeHandle>
-        <Panel className="flex flex-col gap-4" minSize={20}>
+        <Panel className="flex flex-col gap-4 pe-3" minSize={20}>
           <div className="flex flex-col gap-1">
             <Text className="block" size="body0" weight="bold">
               {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
