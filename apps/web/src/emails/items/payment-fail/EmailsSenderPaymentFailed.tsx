@@ -2,7 +2,7 @@ import 'server-only';
 
 import { sendReactEmailWithChecks } from '~/emails/mailjet/EmailsMailjetSender';
 
-import EmailsTemplatePaymentFailed from './EmailsTemplatePaymentFailed';
+import { EmailsItemConfigPaymentFailed } from './EmailsItemConfigPaymentFailed';
 
 const THIRTY_DAYS_IN_SECS = 30 * 24 * 3600;
 
@@ -18,19 +18,16 @@ export default async function sendPaymentFailedEmail({
   try {
     await sendReactEmailWithChecks(
       {
-        emailKey: 'PAYMENT_FAILED',
+        emailKey: EmailsItemConfigPaymentFailed.id,
         opts: {
           ex: THIRTY_DAYS_IN_SECS,
         },
         userId,
       },
       {
-        component: <EmailsTemplatePaymentFailed name={name} />,
-        from: {
-          email: 'contact@greatfrontend.com',
-          name: 'GreatFrontEnd',
-        },
-        subject: "Your payment has failed, here's how you can fix it",
+        component: <EmailsItemConfigPaymentFailed.component name={name} />,
+        from: EmailsItemConfigPaymentFailed.from,
+        subject: EmailsItemConfigPaymentFailed.subject({ name }),
         to: {
           email,
           name,

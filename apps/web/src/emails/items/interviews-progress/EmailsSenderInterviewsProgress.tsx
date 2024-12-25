@@ -3,7 +3,7 @@ import 'server-only';
 import { sendReactEmailWithChecks } from '~/emails/mailjet/EmailsMailjetSender';
 import prisma from '~/server/prisma';
 
-import EmailsTemplateInterviewsProgress from './EmailsTemplateInterviewsProgress';
+import { EmailsItemConfigInterviewsProgress } from './EmailsItemConfigInterviewsProgress';
 
 export default async function sendInterviewsProgressEmail({
   name,
@@ -29,14 +29,11 @@ export default async function sendInterviewsProgressEmail({
     }
 
     await sendReactEmailWithChecks(
-      { emailKey: 'INTERVIEWS_PROGRESS', userId },
+      { emailKey: EmailsItemConfigInterviewsProgress.id, userId },
       {
-        component: <EmailsTemplateInterviewsProgress />,
-        from: {
-          email: 'hello@greatfrontend.com',
-          name: 'GreatFrontEnd',
-        },
-        subject: "Don't miss out: Up to 100% off premium",
+        component: <EmailsItemConfigInterviewsProgress.component />,
+        from: EmailsItemConfigInterviewsProgress.from,
+        subject: EmailsItemConfigInterviewsProgress.subject({}),
         to: {
           email,
           name,

@@ -5,8 +5,8 @@ import Stripe from 'stripe';
 import { sendReactEmailWithChecks } from '~/emails/mailjet/EmailsMailjetSender';
 import prisma from '~/server/prisma';
 
-import EmailsTemplateCheckoutFirstTime from './EmailsTemplateCheckoutFirstTime';
-import EmailsTemplateCheckoutMultipleTimes from './EmailsTemplateCheckoutMultipleTimes';
+import { EmailsItemConfigCheckoutFirstTime } from './EmailsItemConfigCheckoutFirstTime';
+import { EmailsItemConfigCheckoutMultipleTimes } from './EmailsItemConfigCheckoutMultipleTimes';
 
 const SIX_MONTHS_IN_SECS = 6 * 30 * 24 * 3600;
 const interviewsEmailIncentiveDiscountCouponId_TEST = '7Yy6rf7h';
@@ -23,25 +23,19 @@ export async function sendInitiateCheckoutFirstTimeEmail({
   name: string | null;
   userId: string;
 }>) {
+  const props = { countryCode, name };
+
   try {
     await sendReactEmailWithChecks(
-      { emailKey: 'INTERVIEWS_CHECKOUT_FIRST_TIME', userId },
+      { emailKey: EmailsItemConfigCheckoutFirstTime.id, userId },
       {
-        component: (
-          <EmailsTemplateCheckoutFirstTime
-            countryCode={countryCode}
-            name={name}
-          />
-        ),
-        from: {
-          email: 'yangshun@greatfrontend.com',
-          name: 'Yangshun from GreatFrontEnd',
-        },
+        component: <EmailsItemConfigCheckoutFirstTime.component {...props} />,
+        from: EmailsItemConfigCheckoutFirstTime.from,
         replyTo: {
           email: 'yangshun@greatfrontend.com',
           name: 'Yangshun Tay',
         },
-        subject: `Hi ${name ?? 'there'}, this is Yangshun from GreatFrontEnd`,
+        subject: EmailsItemConfigCheckoutFirstTime.subject(props),
         to: {
           email,
           name,
@@ -117,6 +111,15 @@ export async function sendInitiateCheckoutMultipleTimesEmail({
       throw "Couldn't generate coupon";
     }
 
+    const props = {
+      coupon: {
+        code: promoCode.code,
+        expiryDays,
+        percentOff: promoCode.coupon.percent_off ?? 0,
+      },
+      name,
+    };
+
     await sendReactEmailWithChecks(
       {
         emailKey: 'INTERVIEWS_CHECKOUT_MULTIPLE_TIMES',
@@ -128,20 +131,10 @@ export async function sendInitiateCheckoutMultipleTimesEmail({
       },
       {
         component: (
-          <EmailsTemplateCheckoutMultipleTimes
-            coupon={{
-              code: promoCode.code,
-              expiryDays,
-              percentOff: promoCode.coupon.percent_off ?? 0,
-            }}
-            name={name}
-          />
+          <EmailsItemConfigCheckoutMultipleTimes.component {...props} />
         ),
-        from: {
-          email: 'hello@greatfrontend.com',
-          name: 'GreatFrontEnd',
-        },
-        subject: `Act fast: ${promoCode.coupon.percent_off}% off reserved just for you, ends in ${expiryDays * 24} hours!`,
+        from: EmailsItemConfigCheckoutMultipleTimes.from,
+        subject: EmailsItemConfigCheckoutMultipleTimes.subject(props),
         to: {
           email,
           name,

@@ -2,8 +2,8 @@ import 'server-only';
 
 import { sendReactEmailWithChecks } from '~/emails/mailjet/EmailsMailjetSender';
 
-import EmailsTemplateWelcomeSeriesAfter24Hours from './EmailsTemplateWelcomeSeriesAfter24Hours';
-import EmailsTemplateWelcomeSeriesImmediate from './EmailsTemplateWelcomeSeriesImmediate';
+import { EmailsItemConfigWelcomeSeriesAfter24Hours } from './EmailsItemConfigWelcomeSeriesAfter24Hours';
+import { EmailsItemConfigWelcomeSeriesImmediate } from './EmailsItemConfigWelcomeSeriesImmediate';
 
 export async function sendWelcomeEmailImmediate({
   name,
@@ -15,15 +15,11 @@ export async function sendWelcomeEmailImmediate({
   userId: string;
 }>) {
   await sendReactEmailWithChecks(
-    { emailKey: 'INTERVIEWS_WELCOME_EMAIL_IMMEDIATE', userId },
+    { emailKey: EmailsItemConfigWelcomeSeriesImmediate.id, userId },
     {
-      component: <EmailsTemplateWelcomeSeriesImmediate />,
-      from: {
-        email: 'hello@greatfrontend.com',
-        name: 'GreatFrontEnd',
-      },
-      subject:
-        '🚀 Start Here: Your Simple, Proven Roadmap to Front End Interview Success',
+      component: <EmailsItemConfigWelcomeSeriesImmediate.component />,
+      from: EmailsItemConfigWelcomeSeriesImmediate.from,
+      subject: EmailsItemConfigWelcomeSeriesImmediate.subject({}),
       to: {
         email,
         name,
@@ -43,15 +39,11 @@ export async function sendWelcomeEmailAfter24Hours({
 }>) {
   try {
     await sendReactEmailWithChecks(
-      { emailKey: 'INTERVIEWS_WELCOME_EMAIL_24_HOURS', userId },
+      { emailKey: EmailsItemConfigWelcomeSeriesAfter24Hours.id, userId },
       {
-        component: <EmailsTemplateWelcomeSeriesAfter24Hours />,
-        from: {
-          email: 'hello@greatfrontend.com',
-          name: 'GreatFrontEnd',
-        },
-        subject:
-          '✨ Actual prep strategies by real users to clinch multiple Front End offers',
+        component: <EmailsItemConfigWelcomeSeriesAfter24Hours.component />,
+        from: EmailsItemConfigWelcomeSeriesAfter24Hours.from,
+        subject: EmailsItemConfigWelcomeSeriesAfter24Hours.subject({}),
         to: {
           email,
           name,
