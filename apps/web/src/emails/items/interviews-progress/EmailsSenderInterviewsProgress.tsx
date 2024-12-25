@@ -1,11 +1,16 @@
 import 'server-only';
 
-import { sendReactEmailWithChecks } from '~/emails/mailjet/EmailsMailjetSender';
+import type { ComponentProps } from 'react';
+
+import {
+  sendReactEmail,
+  sendReactEmailWithChecks,
+} from '~/emails/mailjet/EmailsMailjetSender';
 import prisma from '~/server/prisma';
 
 import { EmailsItemConfigInterviewsProgress } from './EmailsItemConfigInterviewsProgress';
 
-export default async function sendInterviewsProgressEmail({
+export async function sendInterviewsProgressEmail({
   name,
   email,
   userId,

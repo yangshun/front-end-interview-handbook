@@ -5,7 +5,7 @@ import { EmailsItemConfigPaymentFailed } from './payment-fail/EmailsItemConfigPa
 import { EmailsItemConfigWelcomeSeriesAfter24Hours } from './welcome/EmailsItemConfigWelcomeSeriesAfter24Hours';
 import { EmailsItemConfigWelcomeSeriesImmediate } from './welcome/EmailsItemConfigWelcomeSeriesImmediate';
 
-export const EmailItemConfigs = [
+export const EmailsItemConfigs = [
   EmailsItemConfigWelcomeSeriesImmediate,
   EmailsItemConfigWelcomeSeriesAfter24Hours,
   EmailsItemConfigInterviewsProgress,

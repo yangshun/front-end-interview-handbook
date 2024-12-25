@@ -4,7 +4,7 @@ import {
   sendInitiateCheckoutFirstTimeEmail,
   sendInitiateCheckoutMultipleTimesEmail,
 } from '~/emails/items/checkout/EmailsSenderCheckoutInitiate';
-import sendInterviewsProgressEmail from '~/emails/items/interviews-progress/EmailsSenderInterviewsProgress';
+import { sendInterviewsProgressEmail } from '~/emails/items/interviews-progress/EmailsSenderInterviewsProgress';
 import {
   sendWelcomeEmailAfter24Hours,
   sendWelcomeEmailImmediate,

@@ -16,15 +16,12 @@ import {
   Text,
 } from '@react-email/components';
 
-export default function EmailsTemplateWelcomeSeriesAfter24Hours() {
+export default function EmailsTemplateWelcomeSeriesAfter24Hours(
+  _props: Record<string, never>,
+) {
   return (
     <Html lang="en">
       <Head>
-        {/* eslint-disable-next-line */}
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,800;1,14..32,800&display=swap"
-          rel="stylesheet"
-        />
         <style>
           {`
             @media only screen and (max-width: 600px) {
@@ -371,7 +368,6 @@ function Card({ title, subtitle, logos }: CardProps) {
 }
 
 const main = {
-  backgroundColor: '#fff',
   color: '#18181B',
   fontFamily:
     'Inter, -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif',
@@ -385,16 +381,16 @@ const container = {
 
 const heading1 = {
   color: '#18181B',
-  fontSize: '1.875rem',
+  fontSize: 30,
   fontWeight: 600,
-  lineHeight: '2.5rem',
+  lineHeight: '40px',
   margin: '40px 0 0 0',
 };
 
 const textBody0 = {
   color: '#18181B',
-  fontSize: '1.125rem',
-  lineHeight: '1.75rem',
+  fontSize: 18,
+  lineHeight: '28px',
   margin: 0,
 };
 
@@ -404,8 +400,8 @@ const body = {
 
 const paragraph = {
   color: '#18181B',
-  fontSize: '1rem',
-  lineHeight: '1.5rem',
+  fontSize: 16,
+  lineHeight: '24px',
   margin: 0,
 };
 
@@ -419,15 +415,15 @@ const greyCard = {
   border: '1px solid #E4E4E7',
   borderRadius: '8px',
   display: 'block',
-  padding: '16px',
+  padding: 16,
   width: '100%',
 };
 const yellowCard = {
   background: 'rgba(255, 231, 20, 0.06)',
   border: '1px solid #FFE714',
-  borderRadius: '8px',
+  borderRadius: 8,
   display: 'block',
-  padding: '24px',
+  padding: 24,
   width: '100%',
 };
 

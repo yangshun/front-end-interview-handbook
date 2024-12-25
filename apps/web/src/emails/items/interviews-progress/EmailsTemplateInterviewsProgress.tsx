@@ -5,7 +5,6 @@ import {
   Body,
   Column,
   Container,
-  Head,
   Heading,
   Html,
   Img,
@@ -16,17 +15,12 @@ import {
   Text,
 } from '@react-email/components';
 
-export default function EmailsTemplateInterviewsProgress() {
+export default function EmailsTemplateInterviewsProgress(
+  _props: Record<string, never>,
+) {
   return (
     <Html lang="en">
-      <Head>
-        {/* eslint-disable-next-line */}
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,800;1,14..32,800&display=swap"
-          rel="stylesheet"
-        />
-      </Head>
-      <Preview>Get the full experience of Premium with special deals</Preview>
+      <Preview>Incredible deals you'll want to check out today</Preview>
       <Body style={main}>
         <Container style={container}>
           <Img
@@ -40,7 +34,7 @@ export default function EmailsTemplateInterviewsProgress() {
           <Heading as="h1" style={heading1}>
             Special premium offers
           </Heading>
-          <Text style={{ ...textBody0, margin: '8px 0 0 0' }}>
+          <Text style={{ ...textBody1, margin: '8px 0 0 0' }}>
             Unbeatable savings you can't miss
           </Text>
           <Section style={body}>
@@ -158,7 +152,7 @@ export default function EmailsTemplateInterviewsProgress() {
               style={{
                 margin: '64px 0 0 0',
               }}>
-              <Section style={greyCard}>
+              <Section style={grayCard}>
                 <Text style={{ ...paragraph, fontWeight: 500 }}>
                   🔊 Did you know?
                 </Text>
@@ -168,24 +162,22 @@ export default function EmailsTemplateInterviewsProgress() {
                     color: '#3F3F46',
                     margin: '16px 0 0 0',
                   }}>
-                  Ever wondered how interviewers craft their questions? They
-                  often get inspiration from or modify existing ones, including
-                  GreatFrontEnd questions.
-                </Text>
-                <Link
-                  href={new URL(
-                    `/interviews/pricing`,
-                    getSiteOrigin(),
-                  ).toString()}>
-                  <Text
+                  Many interviewers create their questions based on resources
+                  like ours. Get a head start by practicing with the same source
+                  that inspires countless front end interviewers.{' '}
+                  <Link
+                    href={new URL(
+                      `/interviews/pricing`,
+                      getSiteOrigin(),
+                    ).toString()}
                     style={{
                       ...paragraph,
                       fontWeight: 600,
                       textDecoration: 'underline',
                     }}>
-                    Go Premium and excel!
-                  </Text>
-                </Link>
+                    Go premium →
+                  </Link>
+                </Text>
               </Section>
               <Section
                 style={{
@@ -208,16 +200,13 @@ export default function EmailsTemplateInterviewsProgress() {
                     borderRadius: '40px',
                     color: '#18181B',
                     display: 'inline-block',
-                    fontSize: '16px',
+                    fontSize: 16,
                     fontWeight: 500,
-                    height: '40px',
                     lineHeight: '24px',
                     margin: '40px 0 24px 0',
+                    padding: '8px 20px',
                   }}>
-                  <span
-                    style={{ display: 'inline-block', padding: '8px 20px' }}>
-                    Get Premium now
-                  </span>
+                  Get Premium now
                 </Link>
               </Section>
             </Section>
@@ -230,7 +219,6 @@ export default function EmailsTemplateInterviewsProgress() {
 }
 
 const main = {
-  backgroundColor: '#fff',
   color: '#18181B',
   fontFamily:
     'Inter, -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif',
@@ -238,28 +226,28 @@ const main = {
 
 const container = {
   margin: '0 auto',
-  marginTop: '30px',
-  maxWidth: '600px',
+  marginTop: 30,
+  maxWidth: 600,
 };
 
 const heading1 = {
   color: '#18181B',
-  fontSize: '1.875rem',
+  fontSize: 30,
   fontWeight: 600,
-  lineHeight: '2.5rem',
+  lineHeight: '40px',
   margin: '40px 0 0 0',
 };
 
 const heading2 = {
-  fontSize: '1.5rem',
+  fontSize: 24,
   fontWeight: 600,
-  lineHeight: '2rem',
+  lineHeight: '32px',
 };
 
-const textBody0 = {
+const textBody1 = {
   color: '#18181B',
-  fontSize: '1.125rem',
-  lineHeight: '1.75rem',
+  fontSize: 16,
+  lineHeight: '28px',
   margin: 0,
 };
 
@@ -269,8 +257,8 @@ const body = {
 
 const paragraph = {
   color: '#18181B',
-  fontSize: '1rem',
-  lineHeight: '1.5rem',
+  fontSize: 16,
+  lineHeight: '24px',
   margin: 0,
 };
 
@@ -279,7 +267,7 @@ const bold = {
   fontWeight: 600,
 };
 
-const greyCard = {
+const grayCard = {
   background: '#FAFAFA',
   border: '1px solid #E4E4E7',
   borderRadius: '8px',

@@ -20,15 +20,12 @@ import {
   Text,
 } from '@react-email/components';
 
-export default function EmailsTemplateWelcomeSeriesImmediate() {
+export default function EmailsTemplateWelcomeSeriesImmediate(
+  _props: Record<string, never>,
+) {
   return (
     <Html lang="en">
       <Head>
-        {/* eslint-disable-next-line */}
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,800;1,14..32,800&display=swap"
-          rel="stylesheet"
-        />
         <style>
           {`
             @media only screen and (max-width: 600px) {
@@ -88,7 +85,7 @@ export default function EmailsTemplateWelcomeSeriesImmediate() {
                   className="responsive-card--width"
                   style={{
                     display: 'inline-block',
-                    margin: '0 0 16px 0',
+                    marginBottom: 24,
                     width: '100%',
                   }}>
                   <Link href={href}>
@@ -107,7 +104,7 @@ export default function EmailsTemplateWelcomeSeriesImmediate() {
                           style={{
                             ...textBody1,
                             fontWeight: 500,
-                            margin: '0 0 0 16px',
+                            marginLeft: 28,
                           }}>
                           {name}
                         </Text>
@@ -225,9 +222,9 @@ export default function EmailsTemplateWelcomeSeriesImmediate() {
                   borderRadius: '40px',
                   color: '#000',
                   display: 'inline-block',
-                  fontSize: '16px',
+                  fontSize: 16,
                   fontWeight: 500,
-                  height: '36px',
+                  height: 36,
                   lineHeight: '24px',
                 }}>
                 <span style={{ display: 'inline-block', padding: '6px 20px' }}>
@@ -251,7 +248,6 @@ export default function EmailsTemplateWelcomeSeriesImmediate() {
 }
 
 const main = {
-  backgroundColor: '#fff',
   color: '#18181B',
   fontFamily:
     'Inter, -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif',
@@ -265,23 +261,23 @@ const container = {
 
 const heading1 = {
   color: '#18181B',
-  fontSize: '1.875rem',
+  fontSize: 30,
   fontWeight: 600,
-  lineHeight: '2.5rem',
+  lineHeight: '40px',
   margin: '40px 0 0 0',
 };
 const heading2 = {
   color: '#18181B',
-  fontSize: '1.5rem',
+  fontSize: 24,
   fontWeight: 600,
-  lineHeight: '2rem',
+  lineHeight: '32px',
   margin: 0,
 };
 
 const textBody1 = {
   color: '#18181B',
-  fontSize: '1.125rem',
-  lineHeight: '1.75rem',
+  fontSize: 18,
+  lineHeight: '28px',
   margin: 0,
 };
 

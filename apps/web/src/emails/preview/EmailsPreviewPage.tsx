@@ -7,7 +7,6 @@ import { Panel, PanelGroup, PanelResizeHandle } from 'react-resizable-panels';
 
 import Heading from '~/components/ui/Heading';
 import Select from '~/components/ui/Select';
-import Spinner from '~/components/ui/Spinner';
 import Text from '~/components/ui/Text';
 import TextArea from '~/components/ui/TextArea';
 import {
@@ -20,7 +19,7 @@ import CodingWorkspaceDivider, {
 } from '~/components/workspace/common/CodingWorkspaceDivider';
 
 import type { EmailItemConfig, EmailKey } from '../EmailsTypes';
-import { EmailItemConfigs } from '../items/EmailItemConfigs';
+import { EmailsItemConfigs } from '../items/EmailItemConfigs';
 import { renderEmail } from '../render/EmailsRender';
 
 type Props = Readonly<{
@@ -32,7 +31,7 @@ type Props = Readonly<{
 export default function EmailsPreviewPage({ emailKey, html, text }: Props) {
   const router = useRouter();
 
-  const emailConfig = EmailItemConfigs.find(
+  const emailConfig = EmailsItemConfigs.find(
     (itemConfig) => itemConfig.id === emailKey,
   )!;
 
@@ -84,7 +83,7 @@ export default function EmailsPreviewPage({ emailKey, html, text }: Props) {
         <Select
           isLabelHidden={true}
           label="Emails"
-          options={EmailItemConfigs.map((item) => ({
+          options={EmailsItemConfigs.map((item) => ({
             label: item.id,
             value: item.id,
           }))}
@@ -144,13 +143,13 @@ export default function EmailsPreviewPage({ emailKey, html, text }: Props) {
               {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
               {emailConfig?.subject(emailProps as any)}
             </Text>
-            <div className="flex flex-wrap items-center gap-2">
-              <Text size="body2">From:</Text>
+            <div>
+              <Text size="body2">From:</Text>{' '}
               <Text size="body2" weight="bold">
                 {emailConfig?.from.name}
-              </Text>
+              </Text>{' '}
               <Text color="subtitle" size="body3">
-                {emailConfig?.from.email}
+                &lt;{emailConfig?.from.email}&gt;
               </Text>
             </div>
           </div>

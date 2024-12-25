@@ -6,7 +6,6 @@ import { getSiteOrigin } from '~/seo/siteUrl';
 import {
   Body,
   Container,
-  Head,
   Heading,
   Html,
   Img,
@@ -23,13 +22,6 @@ type Props = Readonly<{
 export default function EmailsTemplatePaymentFailed({ name }: Props) {
   return (
     <Html lang="en">
-      <Head>
-        {/* eslint-disable-next-line */}
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,800;1,14..32,800&display=swap"
-          rel="stylesheet"
-        />
-      </Head>
       <Preview>Your payment has failed, here's how you can fix it</Preview>
       <Body style={main}>
         <Container style={container}>
@@ -113,7 +105,6 @@ export default function EmailsTemplatePaymentFailed({ name }: Props) {
 }
 
 const main = {
-  backgroundColor: '#fff',
   color: '#18181B',
   fontFamily:
     'Inter, -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif',
@@ -127,9 +118,9 @@ const container = {
 
 const heading = {
   color: '#18181B',
-  fontSize: '28px',
+  fontSize: 28,
   fontWeight: 'bold',
-  marginTop: '48px',
+  marginTop: 48,
 };
 
 const body = {
@@ -138,7 +129,7 @@ const body = {
 
 const paragraph = {
   color: '#18181B',
-  fontSize: '16px',
+  fontSize: 16,
   lineHeight: '26px',
 };
 

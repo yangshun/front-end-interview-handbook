@@ -5,10 +5,7 @@ import EmailFooter from '~/emails/components/EmailFooter';
 import {
   Body,
   Container,
-  Head,
-  Heading,
   Html,
-  Img,
   Link,
   Section,
   Text,
@@ -27,31 +24,13 @@ export default function EmailsTemplateCheckoutFirstTime({
 }: Props) {
   return (
     <Html lang="en">
-      <Head>
-        {/* eslint-disable-next-line */}
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,800;1,14..32,800&display=swap"
-          rel="stylesheet"
-        />
-      </Head>
       <Body style={main}>
         <Container style={container}>
-          <Img
-            height="auto"
-            src="https://bmygeefzuragewmbhlby.supabase.co/storage/v1/object/public/emails/logo.png"
-            style={{
-              marginBottom: '64px',
-            }}
-            width="53"
-          />
-          <Heading as="h1" style={heading}>
-            Thank you for joining GreatFrontEnd!
-          </Heading>
           <Section style={body}>
             <Section>
               <Text style={paragraph}>Hi {name ?? 'there'},</Text>
               <Text style={{ ...paragraph, margin: '16px 0 0 0' }}>
-                How's it going? Thank you for your interest in GreatFrontEnd!
+                How is it going? Thank you for your interest in GreatFrontEnd!
               </Text>
               <Text style={{ ...paragraph, margin: '16px 0 0 0' }}>
                 I'm Yangshun, co-founder at GreatFrontEnd. I spent over 5 years
@@ -128,10 +107,9 @@ export default function EmailsTemplateCheckoutFirstTime({
 }
 
 const main = {
-  backgroundColor: '#fff',
   color: '#18181B',
   fontFamily:
-    'Inter, -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif',
+    'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif',
 };
 
 const container = {
@@ -140,20 +118,12 @@ const container = {
   maxWidth: '600px',
 };
 
-const heading = {
-  color: '#18181B',
-  fontSize: '1.875rem',
-  fontWeight: 600,
-  lineHeight: '2.5rem',
-  margin: '40px 0 0 0',
-};
-
 const body = {
   margin: '40px 0 0 0',
 };
 
 const paragraph = {
   color: '#3F3F46',
-  fontSize: '1rem',
-  lineHeight: '1.5rem',
+  fontSize: 16,
+  lineHeight: '24px',
 };

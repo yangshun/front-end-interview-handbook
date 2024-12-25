@@ -5,7 +5,6 @@ import {
   Body,
   Column,
   Container,
-  Head,
   Html,
   Img,
   Link,
@@ -30,13 +29,6 @@ export default function EmailsTemplateCheckoutMultipleTimes({
 }: Props) {
   return (
     <Html lang="en">
-      <Head>
-        {/* eslint-disable-next-line */}
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,800;1,14..32,800&display=swap"
-          rel="stylesheet"
-        />
-      </Head>
       <Preview>
         Final call to save big on Premium. Complete your purchase today!
       </Preview>
@@ -57,11 +49,10 @@ export default function EmailsTemplateCheckoutMultipleTimes({
                 <Text
                   style={{
                     color: '#18181B',
-                    fontSize: '36px',
+                    fontSize: 36,
                     fontWeight: 600,
                     letterSpacing: '-1.125px',
                     lineHeight: '40px',
-                    margin: '24px 8px',
                   }}>
                   {coupon.percentOff}% OFF
                 </Text>
@@ -74,7 +65,7 @@ export default function EmailsTemplateCheckoutMultipleTimes({
                 <Text
                   style={{
                     color: '#18181B',
-                    fontSize: '12px',
+                    fontSize: 12,
                     fontWeight: 600,
                     lineHeight: '16px',
                     margin: '4px 12px',
@@ -89,7 +80,7 @@ export default function EmailsTemplateCheckoutMultipleTimes({
               <Text
                 style={{
                   color: '#18181B',
-                  fontSize: '14px',
+                  fontSize: 14,
                   fontWeight: 500,
                   lineHeight: '24px',
                   margin: '8px 0 0 0',
@@ -103,16 +94,15 @@ export default function EmailsTemplateCheckoutMultipleTimes({
               <Text style={paragraph}>Hi {name ?? 'there'},</Text>
               <Text style={paragraph}>
                 We noticed you were so close to completing your purchase. To
-                thank you for your interest, we're offering you a special{' '}
-                <span style={bold}>{coupon.percentOff}% discount</span>, no
-                frills.
+                thank you for your interest, we're offering you a limited time{' '}
+                <span style={bold}>{coupon.percentOff}% discount</span>! This is
+                the <span style={bold}>highest no-frills discount</span> we
+                currently offer.
               </Text>
               <Text style={paragraph}>
-                This is the <span style={bold}>highest no-frills discount</span>{' '}
-                we currently offer.
-              </Text>
-              <Text style={paragraph}>
-                But don't wait too long–this offer expires in{' '}
+                Use this promo code at checkout:{' '}
+                <span style={bold}>{coupon.code}</span>, but don't wait too
+                long–this offer expires in{' '}
                 <span style={bold}>{coupon.expiryDays * 24} hours</span>!
               </Text>
             </Section>
@@ -129,15 +119,12 @@ export default function EmailsTemplateCheckoutMultipleTimes({
                       borderRadius: '40px',
                       color: '#18181B',
                       display: 'inline-block',
-                      fontSize: '16px',
+                      fontSize: 16,
                       fontWeight: 500,
-                      height: '40px',
                       lineHeight: '24px',
+                      padding: '8px 20px',
                     }}>
-                    <span
-                      style={{ display: 'inline-block', padding: '8px 20px' }}>
-                      Checkout now
-                    </span>
+                    Checkout now
                   </Link>
                 </Column>
               </Row>
@@ -146,7 +133,7 @@ export default function EmailsTemplateCheckoutMultipleTimes({
                   <Text
                     style={{
                       color: '#52525B',
-                      fontSize: '14px',
+                      fontSize: 14,
                       fontWeight: 500,
                       lineHeight: '20px',
                       textAlign: 'center',
@@ -165,10 +152,9 @@ export default function EmailsTemplateCheckoutMultipleTimes({
 }
 
 const main = {
-  backgroundColor: '#fff',
   color: '#18181B',
   fontFamily:
-    'Inter, -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif',
+    'Inter, -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu","Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif',
 };
 
 const container = {
@@ -183,8 +169,8 @@ const body = {
 
 const paragraph = {
   color: '#3F3F46',
-  fontSize: '1rem',
-  lineHeight: '1.5rem',
+  fontSize: 16,
+  lineHeight: '24px',
 };
 
 const bold = {

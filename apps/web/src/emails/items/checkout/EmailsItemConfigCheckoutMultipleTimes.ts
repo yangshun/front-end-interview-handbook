@@ -8,7 +8,7 @@ export const EmailsItemConfigCheckoutMultipleTimes: EmailItemConfig<
   component: EmailsTemplateCheckoutMultipleTimes,
   defaultProps: {
     coupon: {
-      code: 'ABCDEFGH',
+      code: '8FGTYIAV',
       expiryDays: 2,
       percentOff: 25,
     },

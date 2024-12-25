@@ -17,10 +17,10 @@ export default function EmailNumberedPairText({
 }: Props) {
   return (
     <Link href={href}>
-      <Row key={title} style={{ marginTop: index > 0 ? '20px' : '0' }}>
+      <Row key={title} style={{ marginTop: index > 0 ? 20 : 0 }}>
         <Column style={{ height: 50, width: 50 }}>
           <Text style={numberCircle}>
-            <span style={{ display: 'inline-block', padding: '5px' }}>
+            <span style={{ display: 'inline-block', padding: 5 }}>
               {index + 1}
             </span>
           </Text>
@@ -30,7 +30,7 @@ export default function EmailNumberedPairText({
             padding: '8px 0',
           }}>
           <Text style={{ ...textBody0, fontWeight: 600 }}>{title}</Text>
-          <Text style={{ ...paragraph, margin: '4px 0 0 0' }}>{subtitle}</Text>
+          <Text style={{ ...paragraph, marginTop: 4 }}>{subtitle}</Text>
         </Column>
       </Row>
     </Link>
@@ -39,15 +39,15 @@ export default function EmailNumberedPairText({
 
 const textBody0 = {
   color: '#18181B',
-  fontSize: '1.125rem',
-  lineHeight: '1.75rem',
+  fontSize: 18,
+  lineHeight: '28px',
   margin: 0,
 };
 
 const paragraph = {
   color: '#18181B',
-  fontSize: '1rem',
-  lineHeight: '1.5rem',
+  fontSize: 16,
+  lineHeight: '24px',
   margin: 0,
 };
 
@@ -56,12 +56,11 @@ const numberCircle = {
   borderRadius: '50%',
   color: '#BEBEBE',
   display: 'block',
-  fontSize: '1.563rem',
+  fontSize: 16,
   fontWeight: 600,
-  height: '46px',
-  lineHeight: '2.083rem',
+  height: 32,
   margin: 0,
-  marginRight: '24px',
+  marginRight: 24,
   textAlign: 'center' as const,
-  width: '46px',
+  width: 32,
 };

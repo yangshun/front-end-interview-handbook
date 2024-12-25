@@ -1,31 +1,35 @@
-import { Section, Text } from '@react-email/components';
+import { Link, Section, Text } from '@react-email/components';
 
 export default function EmailFooter() {
   return (
     <Section
       style={{
         background: '#FAFAFA',
-        borderTop: '1px solid #E6E6E6',
         marginTop: '40px',
       }}>
       <div style={{ padding: '32px' }}>
         <Text
           style={{
             color: '#3F3F46',
-            fontSize: '14px',
+            fontSize: 14,
             fontWeight: 500,
             lineHeight: '18px',
             margin: '0 auto',
             maxWidth: '400px',
             textAlign: 'center',
           }}>
-          This email is sent in accordance to our Terms of Service, which allows
-          us to contact you regarding our services.
+          This email is sent in accordance to our{' '}
+          <Link
+            href="https://www.greatfrontend.com/legal/terms"
+            style={{ color: '#3F3F46', textDecoration: 'underline' }}>
+            Terms of Service
+          </Link>
+          , which allows us to contact you regarding our services.
         </Text>
         <Text
           style={{
             color: '#3F3F46',
-            fontSize: '14px',
+            fontSize: 14,
             fontWeight: 600,
             lineHeight: '18px',
             margin: '32px 0 8px 0',
@@ -36,8 +40,9 @@ export default function EmailFooter() {
         <Text
           style={{
             color: '#3F3F46',
-            fontSize: '14px',
-            lineHeight: '18px',
+            fontSize: 14,
+            fontWeight: 400,
+            lineHeight: '20px',
             margin: '0 auto',
             textAlign: 'center',
           }}>
