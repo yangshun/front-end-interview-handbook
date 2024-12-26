@@ -1,7 +1,11 @@
-import EmailFooter from '~/emails/components/EmailFooter';
-import EmailHeader from '~/emails/components/EmailHeader';
-import EmailNumberedPairText from '~/emails/components/EmailNumberedPairText';
-import { containerStyle, mainStyle } from '~/emails/components/EmailStyles';
+import {
+  EmailsFooter,
+  EmailsHeader,
+  EmailsHeading,
+  EmailsNumberedPairText,
+  EmailsStrong,
+} from '~/emails/components/EmailsComponents';
+import { containerStyle, mainStyle } from '~/emails/components/EmailsStyles';
 import { getSiteOrigin } from '~/seo/siteUrl';
 
 import {
@@ -9,7 +13,6 @@ import {
   Column,
   Container,
   Head,
-  Heading,
   Html,
   Img,
   Preview,
@@ -50,11 +53,11 @@ export default function EmailsTemplateWelcomeSeriesAfter24Hours(
       </Preview>
       <Body style={mainStyle}>
         <Container style={containerStyle}>
-          <EmailHeader />
+          <EmailsHeader />
           <Section style={{ marginTop: 40 }}>
-            <Heading as="h1" style={heading1}>
+            <EmailsHeading as="h1" level="heading1">
               Proven prep strategies
-            </Heading>
+            </EmailsHeading>
             <Text style={{ ...textBody0, marginTop: 8 }}>
               Actual strategies used by users to clinch multiple high paying
               offers.
@@ -76,9 +79,9 @@ export default function EmailsTemplateWelcomeSeriesAfter24Hours(
                   style={{
                     ...paragraph,
                     color: '#52525B',
-                    margin: '16px 0 0 0',
+                    marginTop: 16,
                   }}>
-                  <span style={bold}>Chenwei Zhang</span> Front End Engineer,
+                  <EmailsStrong>Chenwei Zhang</EmailsStrong> Front End Engineer,
                   San Francisco, US
                 </Text>
               </Column>
@@ -100,7 +103,7 @@ export default function EmailsTemplateWelcomeSeriesAfter24Hours(
                 />
               </Column>
             </Row>
-            <Row style={{ margin: '16px 0 0 0' }}>
+            <Row style={{ marginTop: 16 }}>
               <Column>
                 <Card subtitle="Increase in total compensation" title="+30%" />
               </Column>
@@ -133,20 +136,20 @@ export default function EmailsTemplateWelcomeSeriesAfter24Hours(
                 ...paragraph,
                 color: '#3F3F46',
               }}>
-              "I did a lot of <span style={bold}>DSA coding</span> before I
+              "I did a lot of <EmailsStrong>DSA coding</EmailsStrong> before I
               joined GFE so I did not spend too much time on it.
             </Text>
             <Text
               style={{
                 ...paragraph,
                 color: '#3F3F46',
-                margin: '24px 0 0 0',
+                marginTop: 24,
               }}>
               Instead I put my focus on practicing system design and behavioral
               questions with help of guidebooks. I went over{' '}
-              <span style={bold}>
+              <EmailsStrong>
                 all system design questions at least once
-              </span>{' '}
+              </EmailsStrong>{' '}
               and then practice the most frequently asked ones on Excalidraw to
               strengthen my understanding.
             </Text>
@@ -154,24 +157,23 @@ export default function EmailsTemplateWelcomeSeriesAfter24Hours(
               style={{
                 ...paragraph,
                 color: '#3F3F46',
-                margin: '24px 0 0 0',
+                marginTop: 24,
               }}>
               For behavioral questions, I{' '}
-              <span style={bold}>
+              <EmailsStrong>
                 prepare at least one story for each evaluation category
-              </span>{' '}
+              </EmailsStrong>{' '}
               and mock answering it in front of a couple friends to collect
               feedback and improve the answers.”
             </Text>
           </Section>
           <Section style={{ marginTop: 40 }}>
-            <Text
-              style={{ ...textBody0, fontWeight: 500, margin: '0 0 32px 0' }}>
+            <Text style={{ ...textBody0, fontWeight: 500, marginBottom: 32 }}>
               What you can do
             </Text>
             <Section>
               {ITEM1.map((item, index) => (
-                <EmailNumberedPairText
+                <EmailsNumberedPairText
                   key={item.title}
                   {...item}
                   index={index}
@@ -195,9 +197,9 @@ export default function EmailsTemplateWelcomeSeriesAfter24Hours(
                   style={{
                     ...paragraph,
                     color: '#52525B',
-                    margin: '16px 0 0 0',
+                    marginTop: 16,
                   }}>
-                  <span style={bold}>Lokhand Manus</span> Staff Engineer, San
+                  <EmailsStrong>Lokhand Manus</EmailsStrong> Staff Engineer, San
                   Francisco, US
                 </Text>
               </Column>
@@ -229,9 +231,9 @@ export default function EmailsTemplateWelcomeSeriesAfter24Hours(
               }}>
               "My initial strategy was to focus on Leetcode for a month or so
               and solve as many questions I could and{' '}
-              <span style={bold}>
+              <EmailsStrong>
                 get familiar with all the different DSA concepts
-              </span>
+              </EmailsStrong>
               . I wanted to get that out of the way and prepare Frontend
               Specific questions closer to the interviews.
             </Text>
@@ -239,29 +241,28 @@ export default function EmailsTemplateWelcomeSeriesAfter24Hours(
               style={{
                 ...paragraph,
                 color: '#3F3F46',
-                margin: '24px 0 0 0',
+                marginTop: 24,
               }}>
               For Frontend I luckily came across GFE at the start of the prep so
               that helped a lot. I initially focused on{' '}
-              <span style={bold}>
+              <EmailsStrong>
                 solving all the questions listed without any help
-              </span>
+              </EmailsStrong>
               , I was able to get most of them done with an exception of a few
               Hard ones. Once I was done with it, I made sure to{' '}
-              <span style={bold}>
+              <EmailsStrong>
                 revise the questions every day for a couple of hours
-              </span>{' '}
+              </EmailsStrong>{' '}
               to keep myself fresh.”
             </Text>
           </Section>
           <Section style={{ marginTop: 40 }}>
-            <Text
-              style={{ ...textBody0, fontWeight: 500, margin: '0 0 32px 0' }}>
+            <Text style={{ ...textBody0, fontWeight: 500, marginBottom: 32 }}>
               What you can do
             </Text>
             <Section>
               {ITEM2.map((item, index) => (
-                <EmailNumberedPairText
+                <EmailsNumberedPairText
                   key={item.title}
                   {...item}
                   index={index}
@@ -275,7 +276,7 @@ export default function EmailsTemplateWelcomeSeriesAfter24Hours(
               style={{
                 ...paragraph,
                 color: '#3F3F46',
-                margin: '16px 0 0 0',
+                marginTop: 16,
               }}>
               1. Revise questions everyday for a couple of hours to keep
               yourself fresh.
@@ -285,7 +286,7 @@ export default function EmailsTemplateWelcomeSeriesAfter24Hours(
               help.
             </Text>
           </Section>
-          <EmailFooter />
+          <EmailsFooter />
         </Container>
       </Body>
     </Html>
@@ -344,21 +345,13 @@ function Card({ title, subtitle, logos }: CardProps) {
         style={{
           ...paragraph,
           color: '#3F3F46',
-          margin: '8px 0 0 0',
+          marginTop: 8,
         }}>
         {subtitle}
       </Text>
     </Section>
   );
 }
-
-const heading1 = {
-  color: '#18181B',
-  fontSize: 30,
-  fontWeight: 600,
-  lineHeight: '40px',
-  margin: 0,
-};
 
 const textBody0 = {
   color: '#18181B',
@@ -372,11 +365,6 @@ const paragraph = {
   fontSize: 16,
   lineHeight: '24px',
   margin: 0,
-};
-
-const bold = {
-  color: '#18181B',
-  fontWeight: 600,
 };
 
 const grayCard = {
@@ -439,7 +427,7 @@ const ITEM2 = [
           As your interview date approaches, focus on solving questions across
           the question formats—Coding, Quiz, and System Design questions.
         </Text>
-        <Text style={{ ...paragraph, margin: '24px 0 0 0' }}>
+        <Text style={{ ...paragraph, marginTop: 24 }}>
           If you need a prioritized list, we recommend starting with GFE 75 or
           one of our Study plans.
         </Text>

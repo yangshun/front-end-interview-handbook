@@ -1,7 +1,10 @@
-import EmailButton from '~/emails/components/EmailButton';
-import EmailFooter from '~/emails/components/EmailFooter';
-import EmailHeader from '~/emails/components/EmailHeader';
-import { containerStyle, mainStyle } from '~/emails/components/EmailStyles';
+import {
+  EmailsButton,
+  EmailsFooter,
+  EmailsHeader,
+  EmailsStrong,
+} from '~/emails/components/EmailsComponents';
+import { containerStyle, mainStyle } from '~/emails/components/EmailsStyles';
 import { getSiteOrigin } from '~/seo/siteUrl';
 
 import {
@@ -35,7 +38,7 @@ export default function EmailsTemplateCheckoutMultipleTimes({
       </Preview>
       <Body style={mainStyle}>
         <Container style={containerStyle}>
-          <EmailHeader align="center" />
+          <EmailsHeader align="center" />
           <Section style={{ marginTop: 40 }}>
             <Row>
               <Column align="center">
@@ -54,7 +57,7 @@ export default function EmailsTemplateCheckoutMultipleTimes({
             </Row>
             <Row>
               <Column align="center">
-                <Container style={{ ...couponCode, margin: '16px 0 0 0' }}>
+                <Container style={{ ...couponCode, marginTop: 16 }}>
                   <Text
                     style={{
                       color: '#18181B',
@@ -76,7 +79,7 @@ export default function EmailsTemplateCheckoutMultipleTimes({
                     fontSize: 14,
                     fontWeight: 500,
                     lineHeight: '24px',
-                    margin: '8px 0 0 0',
+                    marginTop: 8,
                   }}>
                   Expires in: {coupon.expiryDays * 24} hours from email time
                 </Text>
@@ -88,28 +91,28 @@ export default function EmailsTemplateCheckoutMultipleTimes({
             <Text style={paragraph}>
               We noticed you were so close to completing your purchase. To thank
               you for your interest, we're offering you a{' '}
-              <span style={bold}>{coupon.percentOff}% discount</span>. This is
-              the <span style={bold}>highest no-frills discount</span> we
+              <EmailsStrong>{coupon.percentOff}% discount</EmailsStrong>. This
+              is the <EmailsStrong>highest no-frills discount</EmailsStrong> we
               currently offer.
             </Text>
             <Text style={paragraph}>
               Use this promo code at checkout:{' '}
-              <span style={bold}>{coupon.code}</span>, but don't wait too
+              <EmailsStrong>{coupon.code}</EmailsStrong>, but don't wait too
               long–this offer expires in{' '}
-              <span style={bold}>{coupon.expiryDays * 24} hours</span>!
+              <EmailsStrong>{coupon.expiryDays * 24} hours</EmailsStrong>!
             </Text>
           </Section>
           <Section style={{ marginTop: 40 }}>
             <Row>
               <Column align="center">
-                <EmailButton
+                <EmailsButton
                   href={new URL(
                     '/interviews/pricing',
                     getSiteOrigin(),
                   ).toString()}
                   variant="primary">
                   Checkout now →
-                </EmailButton>
+                </EmailsButton>
               </Column>
             </Row>
             <Row>
@@ -127,7 +130,7 @@ export default function EmailsTemplateCheckoutMultipleTimes({
               </Column>
             </Row>
           </Section>
-          <EmailFooter />
+          <EmailsFooter />
         </Container>
       </Body>
     </Html>
@@ -138,11 +141,6 @@ const paragraph = {
   color: '#3F3F46',
   fontSize: 16,
   lineHeight: '24px',
-};
-
-const bold = {
-  color: '#18181B',
-  fontWeight: 600,
 };
 
 const couponCard = {

@@ -1,16 +1,9 @@
 import countryNames from '~/data/countryCodesToNames.json';
 
-import EmailFooter from '~/emails/components/EmailFooter';
-import { containerStyle, mainStyle } from '~/emails/components/EmailStyles';
+import { EmailsFooter, EmailsLink } from '~/emails/components/EmailsComponents';
+import { containerStyle, mainStyle } from '~/emails/components/EmailsStyles';
 
-import {
-  Body,
-  Container,
-  Html,
-  Link,
-  Section,
-  Text,
-} from '@react-email/components';
+import { Body, Container, Html, Section, Text } from '@react-email/components';
 
 type Props = Readonly<{
   countryCode: string | null;
@@ -29,31 +22,15 @@ export default function EmailsTemplateCheckoutFirstTime({
         <Container style={containerStyle}>
           <Section>
             <Text style={paragraph}>Hi {name ?? 'there'},</Text>
-            <Text style={{ ...paragraph, margin: '16px 0 0 0' }}>
+            <Text style={{ ...paragraph, marginTop: 16 }}>
               How is it going? Thank you for your interest in GreatFrontEnd!
             </Text>
-            <Text style={{ ...paragraph, margin: '16px 0 0 0' }}>
+            <Text style={{ ...paragraph, marginTop: 16 }}>
               I'm Yangshun, co-founder at GreatFrontEnd. I love front end
               engineering and have spent over 5 years at Meta leading teams to
               build products such as{' '}
-              <Link
-                href="https://www.meta.com"
-                style={{
-                  ...paragraph,
-                  textDecoration: 'underline',
-                }}>
-                meta.com
-              </Link>{' '}
-              and{' '}
-              <Link
-                href="https://docusaurus.io"
-                style={{
-                  ...paragraph,
-                  textDecoration: 'underline',
-                }}>
-                Docusaurus
-              </Link>
-              .
+              <EmailsLink href="https://www.meta.com">meta.com</EmailsLink> and{' '}
+              <EmailsLink href="https://docusaurus.io">Docusaurus</EmailsLink>.
             </Text>
             <Text style={paragraph}>
               In 2017, I cracked front end interview roles at Facebook, Google,
@@ -80,14 +57,9 @@ export default function EmailsTemplateCheckoutFirstTime({
               from you!
             </Text>
             <Text style={paragraph}>
-              <Link
-                href="https://www.linkedin.com/in/yangshun"
-                style={{
-                  ...paragraph,
-                  textDecoration: 'underline',
-                }}>
+              <EmailsLink href="https://www.linkedin.com/in/yangshun">
                 Connect with me on LinkedIn
-              </Link>{' '}
+              </EmailsLink>{' '}
               for front end nuggets and software engineering content.
             </Text>
             {countryCode != null && popularCountries.includes(countryCode) && (
@@ -104,7 +76,7 @@ export default function EmailsTemplateCheckoutFirstTime({
               Yangshun from GreatFrontEnd
             </Text>
           </Section>
-          <EmailFooter />
+          <EmailsFooter />
         </Container>
       </Body>
     </Html>

@@ -1,18 +1,20 @@
 import React from 'react';
 
-import EmailButton from '~/emails/components/EmailButton';
-import EmailFooter from '~/emails/components/EmailFooter';
-import EmailHeader from '~/emails/components/EmailHeader';
-import { containerStyle, mainStyle } from '~/emails/components/EmailStyles';
+import {
+  EmailsButton,
+  EmailsFooter,
+  EmailsHeader,
+  EmailsHeading,
+  EmailsLink,
+} from '~/emails/components/EmailsComponents';
+import { containerStyle, mainStyle } from '~/emails/components/EmailsStyles';
 import { getSiteOrigin } from '~/seo/siteUrl';
 
 import {
   Body,
   Column,
   Container,
-  Heading,
   Html,
-  Link,
   Preview,
   Row,
   Section,
@@ -29,11 +31,11 @@ export default function EmailsTemplatePaymentFailed({ name }: Props) {
       <Preview>Your payment has failed, here's how you can fix it</Preview>
       <Body style={mainStyle}>
         <Container style={containerStyle}>
-          <EmailHeader />
+          <EmailsHeader />
           <Section style={{ marginTop: 40 }}>
-            <Heading style={heading}>
+            <EmailsHeading as="h1" level="heading1">
               Your payment has failed, here's how you can fix it
-            </Heading>
+            </EmailsHeading>
             <Text style={paragraph}>Hi {name ?? 'there'},</Text>
             <Text style={paragraph}>
               We noticed that your attempt to pay on GreatFrontEnd has failed.{' '}
@@ -58,14 +60,13 @@ export default function EmailsTemplatePaymentFailed({ name }: Props) {
               <li>
                 <Text style={paragraph}>
                   If the payment still doesn't succeed, go to the{' '}
-                  <Link
+                  <EmailsLink
                     href={new URL(
                       '/profile/billing',
                       getSiteOrigin(),
-                    ).toString()}
-                    style={link}>
+                    ).toString()}>
                     Customer Portal from the Billing page
-                  </Link>{' '}
+                  </EmailsLink>{' '}
                   and delete any cards that have been added. Then try paying
                   again.
                 </Text>
@@ -74,45 +75,33 @@ export default function EmailsTemplatePaymentFailed({ name }: Props) {
             <Row style={{ marginBottom: 40, marginTop: 40 }}>
               <Column align="center">
                 {/* TODO: generalize for projects */}
-                <EmailButton
+                <EmailsButton
                   href={new URL(
                     '/interviews/pricing',
                     getSiteOrigin(),
                   ).toString()}
                   variant="primary">
                   Click here to try again →
-                </EmailButton>
+                </EmailsButton>
               </Column>
             </Row>
             <Text style={paragraph}>
               Send an email to{' '}
-              <Link href="mailto:contact@greatfrontend.com" style={link}>
+              <EmailsLink href="mailto:contact@greatfrontend.com">
                 contact@greatfrontend.com
-              </Link>{' '}
+              </EmailsLink>{' '}
               if you're still facing issues!
             </Text>
           </Section>
-          <EmailFooter />
+          <EmailsFooter />
         </Container>
       </Body>
     </Html>
   );
 }
 
-const heading = {
-  color: '#18181B',
-  fontSize: 28,
-  fontWeight: 'bold',
-  margin: 0,
-};
-
 const paragraph = {
   color: '#18181B',
   fontSize: 16,
   lineHeight: '26px',
-};
-
-const link = {
-  color: '#18181B',
-  textDecoration: 'underline',
 };

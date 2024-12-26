@@ -1,17 +1,17 @@
 import { Button } from '@react-email/components';
 
-type EmailButtonVariant = 'primary' | 'projects';
+type EmailsButtonVariant = 'primary' | 'projects';
 type Props = React.ComponentProps<typeof Button> &
   Readonly<{
-    variant: EmailButtonVariant;
+    variant: EmailsButtonVariant;
   }>;
 
-const backgroundColors: Record<EmailButtonVariant, string> = {
+const backgroundColors: Record<EmailsButtonVariant, string> = {
   primary: '#016ffa',
   projects: '#6bd08d',
 };
 
-export default function EmailButton({ variant, style, ...props }: Props) {
+export default function EmailsButton({ variant, style, ...props }: Props) {
   return (
     <Button
       style={{

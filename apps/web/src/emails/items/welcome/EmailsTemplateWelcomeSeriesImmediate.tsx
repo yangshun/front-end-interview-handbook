@@ -1,10 +1,14 @@
 import React from 'react';
 
-import EmailButton from '~/emails/components/EmailButton';
-import EmailFooter from '~/emails/components/EmailFooter';
-import EmailHeader from '~/emails/components/EmailHeader';
-import EmailNumberedPairText from '~/emails/components/EmailNumberedPairText';
-import { containerStyle, mainStyle } from '~/emails/components/EmailStyles';
+import {
+  EmailsButton,
+  EmailsFooter,
+  EmailsHeader,
+  EmailsHeading,
+  EmailsNumberedPairText,
+} from '~/emails/components/EmailsComponents';
+import EmailsHr from '~/emails/components/EmailsHr';
+import { containerStyle, mainStyle } from '~/emails/components/EmailsStyles';
 import { getSiteOrigin } from '~/seo/siteUrl';
 
 import {
@@ -12,8 +16,6 @@ import {
   Column,
   Container,
   Head,
-  Heading,
-  Hr,
   Html,
   Img,
   Link,
@@ -49,25 +51,29 @@ export default function EmailsTemplateWelcomeSeriesImmediate(
       </Preview>
       <Body style={mainStyle}>
         <Container style={containerStyle}>
-          <EmailHeader />
+          <EmailsHeader />
           <Section style={{ marginTop: 40 }}>
-            <Heading as="h1" style={{ ...heading1 }}>
+            <EmailsHeading as="h1" level="heading1">
               A simple, proven roadmap
-            </Heading>
+            </EmailsHeading>
             <Text style={{ ...textBody1, marginTop: 8 }}>
               To ace your front end interviews in the least amount of time
             </Text>
           </Section>
           <Section style={{ marginTop: 40 }}>
             {ROADMAP.map((item, index) => (
-              <EmailNumberedPairText key={item.title} {...item} index={index} />
+              <EmailsNumberedPairText
+                key={item.title}
+                {...item}
+                index={index}
+              />
             ))}
           </Section>
-          <Hr style={hr} />
+          <EmailsHr />
           <Section>
-            <Heading as="h2" style={heading2}>
+            <EmailsHeading as="h2" level="heading2">
               Using any excess time
-            </Heading>
+            </EmailsHeading>
             <Text style={{ ...textBody1, marginBottom: 32, marginTop: 48 }}>
               Hone in specific topics you need the most practice
             </Text>
@@ -114,7 +120,7 @@ export default function EmailsTemplateWelcomeSeriesImmediate(
                 className="responsive-card--width"
                 style={{
                   display: 'inline-block',
-                  margin: '0 0 16px 0',
+                  marginBottom: 16,
                   width: '100%',
                 }}>
                 <Link href={href}>
@@ -142,11 +148,11 @@ export default function EmailsTemplateWelcomeSeriesImmediate(
               </Section>
             ))}
           </Section>
-          <Hr style={hr} />
+          <EmailsHr />
           <Section>
-            <Heading as="h2" style={heading2}>
+            <EmailsHeading as="h2" level="heading2">
               More time-savers
-            </Heading>
+            </EmailsHeading>
             <Text style={{ ...textBody1, marginTop: 48 }}>
               Our curated study plans optimize your preparation for any timeline
             </Text>
@@ -165,7 +171,7 @@ export default function EmailsTemplateWelcomeSeriesImmediate(
               <Row
                 key={`row-${index + 1}`}
                 style={{
-                  margin: '0 0 16px 0',
+                  marginBottom: 16,
                 }}>
                 {items.map(({ name, logo, href }) => (
                   <Column key={name} style={{ width: '50%' }}>
@@ -196,20 +202,20 @@ export default function EmailsTemplateWelcomeSeriesImmediate(
               </Row>
             ))}
           </Section>
-          <Hr style={hr} />
+          <EmailsHr />
           <Section>
-            <Heading as="h2" style={heading2}>
+            <EmailsHeading as="h2" level="heading2">
               Need a portfolio project?
-            </Heading>
+            </EmailsHeading>
             <Text style={{ ...textBody1, marginTop: 8 }}>
               Check out our new platform for real-world front end projects.
             </Text>
-            <EmailButton
+            <EmailsButton
               href={new URL('/projects', getSiteOrigin()).toString()}
               style={{ marginTop: 40 }}
               variant="projects">
               Check it out →
-            </EmailButton>
+            </EmailsButton>
             <Img
               alt="GreatFrontEnd Projects banner"
               height="auto"
@@ -218,29 +224,12 @@ export default function EmailsTemplateWelcomeSeriesImmediate(
               width="100%"
             />
           </Section>
-          <EmailFooter />
+          <EmailsFooter />
         </Container>
       </Body>
     </Html>
   );
 }
-
-const heading1 = {
-  color: '#18181B',
-  fontSize: 28,
-  fontWeight: 600,
-  letterSpacing: '-1.125px',
-  lineHeight: '32px',
-  margin: 0,
-};
-
-const heading2 = {
-  color: '#18181B',
-  fontSize: 24,
-  fontWeight: 600,
-  lineHeight: '32px',
-  margin: 0,
-};
 
 const textBody1 = {
   color: '#18181B',
@@ -248,12 +237,6 @@ const textBody1 = {
   fontWeight: 500,
   lineHeight: '24px',
   margin: 0,
-};
-
-const hr = {
-  borderColor: '#E6E6E6',
-  marginBottom: 40,
-  marginTop: 40,
 };
 
 const ROADMAP = [

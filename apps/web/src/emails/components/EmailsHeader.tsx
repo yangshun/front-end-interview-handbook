@@ -5,7 +5,7 @@ type Props = Omit<React.ComponentProps<typeof Section>, 'align'> &
     align?: 'center' | 'start';
   }>;
 
-export default function EmailHeader({
+export default function EmailsHeader({
   align = 'start',
   style,
   ...props

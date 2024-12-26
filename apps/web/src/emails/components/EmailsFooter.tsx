@@ -1,6 +1,6 @@
 import { Link, Section, Text } from '@react-email/components';
 
-export default function EmailFooter() {
+export default function EmailsFooter() {
   return (
     <Section
       style={{

@@ -1,14 +1,18 @@
-import EmailButton from '~/emails/components/EmailButton';
-import EmailFooter from '~/emails/components/EmailFooter';
-import EmailHeader from '~/emails/components/EmailHeader';
-import { containerStyle, mainStyle } from '~/emails/components/EmailStyles';
+import {
+  EmailsButton,
+  EmailsFooter,
+  EmailsHeader,
+  EmailsHeading,
+  EmailsLink,
+  EmailsStrong,
+} from '~/emails/components/EmailsComponents';
+import { containerStyle, mainStyle } from '~/emails/components/EmailsStyles';
 import { getSiteOrigin } from '~/seo/siteUrl';
 
 import {
   Body,
   Column,
   Container,
-  Heading,
   Html,
   Img,
   Link,
@@ -26,11 +30,11 @@ export default function EmailsTemplateInterviewsProgress(
       <Preview>Incredible deals you'll want to check out today</Preview>
       <Body style={mainStyle}>
         <Container style={containerStyle}>
-          <EmailHeader />
+          <EmailsHeader />
           <Section style={{ marginTop: 40 }}>
-            <Heading as="h1" style={heading1}>
+            <EmailsHeading as="h1" level="heading1">
               Premium offers you'll love
-            </Heading>
+            </EmailsHeading>
             <Text style={{ ...textBody1, marginTop: 8 }}>
               Get amazing discounts with simple steps – choose your offer and
               save today!
@@ -62,8 +66,8 @@ export default function EmailsTemplateInterviewsProgress(
                       color: '#52525B',
                       marginLeft: 20,
                     }}>
-                    Share a <span style={bold}>success story or review</span> of
-                    GreatFrontEnd →
+                    Share a <EmailsStrong>success story or review</EmailsStrong>{' '}
+                    of GreatFrontEnd →
                   </Text>
                 </Column>
               </Row>
@@ -93,13 +97,13 @@ export default function EmailsTemplateInterviewsProgress(
                       color: '#52525B',
                       marginLeft: 20,
                     }}>
-                    Sign up with <span style={bold}>student email →</span>
+                    Sign up with <EmailsStrong>student email →</EmailsStrong>
                   </Text>
                 </Column>
               </Row>
             </Link>
             <Link href={new URL(`/rewards/social`, getSiteOrigin()).toString()}>
-              <Row style={{ margin: '24px 0 0 0' }}>
+              <Row style={{ marginTop: 24 }}>
                 <Column
                   align="center"
                   style={{
@@ -120,7 +124,7 @@ export default function EmailsTemplateInterviewsProgress(
                       marginLeft: 20,
                     }}>
                     Do simple tasks like{' '}
-                    <span style={bold}>following us on social media →</span>
+                    <EmailsStrong>following us on social media →</EmailsStrong>
                   </Text>
                 </Column>
               </Row>
@@ -130,9 +134,9 @@ export default function EmailsTemplateInterviewsProgress(
             style={{
               marginTop: 64,
             }}>
-            <Heading as="h2" style={heading2}>
+            <EmailsHeading as="h2" level="heading2">
               Fast-track to your dream job
-            </Heading>
+            </EmailsHeading>
             <Text style={{ ...paragraph, marginTop: 8 }}>
               You could land a job without Premium, but why not get there
               faster?
@@ -142,7 +146,7 @@ export default function EmailsTemplateInterviewsProgress(
               height="auto"
               src="https://bmygeefzuragewmbhlby.supabase.co/storage/v1/object/public/emails/PremiumNonPremiumComparison.png"
               style={{
-                margin: '32px 0 0 0',
+                marginTop: 32,
               }}
               width="100%"
             />
@@ -155,37 +159,35 @@ export default function EmailsTemplateInterviewsProgress(
               style={{
                 ...paragraph,
                 color: '#3F3F46',
-                margin: '16px 0 0 0',
+                marginTop: 16,
               }}>
               Many interviewers create their questions based on resources like
               ours. Get a head start by practicing with the same source that
               inspires countless front end interviewers.{' '}
-              <Link
+              <EmailsLink
                 href={new URL(
                   `/interviews/pricing`,
                   getSiteOrigin(),
                 ).toString()}
                 style={{
-                  ...paragraph,
                   fontWeight: 600,
-                  textDecoration: 'underline',
                 }}>
                 Go premium →
-              </Link>
+              </EmailsLink>
             </Text>
           </Section>
           <Section
             style={{
               marginTop: 64,
             }}>
-            <Heading style={heading2}>
+            <EmailsHeading as="h2" level="heading2">
               It's worth it when it's your dream job
-            </Heading>
+            </EmailsHeading>
             <Text style={{ ...paragraph, marginTop: 8 }}>
               Join the ranks of tens of thousands using GreatFrontEnd Premium to
               stay ahead of the competition.
             </Text>
-            <EmailButton
+            <EmailsButton
               href={new URL('/interviews/pricing', getSiteOrigin()).toString()}
               style={{
                 marginBottom: 24,
@@ -193,29 +195,14 @@ export default function EmailsTemplateInterviewsProgress(
               }}
               variant="primary">
               Get Premium now →
-            </EmailButton>
+            </EmailsButton>
           </Section>
-          <EmailFooter />
+          <EmailsFooter />
         </Container>
       </Body>
     </Html>
   );
 }
-
-const heading1 = {
-  color: '#18181B',
-  fontSize: 30,
-  fontWeight: 600,
-  lineHeight: '40px',
-  margin: 0,
-};
-
-const heading2 = {
-  fontSize: 24,
-  fontWeight: 600,
-  lineHeight: '32px',
-  margin: 0,
-};
 
 const textBody1 = {
   color: '#18181B',
@@ -229,11 +216,6 @@ const paragraph = {
   fontSize: 16,
   lineHeight: '24px',
   margin: 0,
-};
-
-const bold = {
-  color: '#18181B',
-  fontWeight: 600,
 };
 
 const grayCard = {

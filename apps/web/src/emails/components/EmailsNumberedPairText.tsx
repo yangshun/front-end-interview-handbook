@@ -9,7 +9,7 @@ type Props = Readonly<{
   title: string;
 }>;
 
-export default function EmailNumberedPairText({
+export default function EmailsNumberedPairText({
   href,
   title,
   subtitle,
