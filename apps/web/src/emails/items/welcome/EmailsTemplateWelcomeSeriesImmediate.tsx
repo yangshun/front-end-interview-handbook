@@ -1,5 +1,6 @@
 import React from 'react';
 
+import EmailButton from '~/emails/components/EmailButton';
 import EmailFooter from '~/emails/components/EmailFooter';
 import EmailNumberedPairText from '~/emails/components/EmailNumberedPairText';
 import { getSiteOrigin } from '~/seo/siteUrl';
@@ -215,22 +216,11 @@ export default function EmailsTemplateWelcomeSeriesImmediate(
               <Text style={{ ...textBody1, margin: '8px 0 40px 0' }}>
                 Check out our new platform for real-world front end projects.
               </Text>
-              <Link
+              <EmailButton
                 href={new URL('/projects', getSiteOrigin()).toString()}
-                style={{
-                  background: '#6BD08D',
-                  borderRadius: '40px',
-                  color: '#000',
-                  display: 'inline-block',
-                  fontSize: 16,
-                  fontWeight: 500,
-                  height: 36,
-                  lineHeight: '24px',
-                }}>
-                <span style={{ display: 'inline-block', padding: '6px 20px' }}>
-                  Check it out
-                </span>
-              </Link>
+                variant="projects">
+                Check it out →
+              </EmailButton>
               <Img
                 alt="GreatFrontEnd Projects banner"
                 height="auto"

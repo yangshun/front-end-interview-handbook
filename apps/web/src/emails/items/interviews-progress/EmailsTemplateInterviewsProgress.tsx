@@ -1,3 +1,4 @@
+import EmailButton from '~/emails/components/EmailButton';
 import EmailFooter from '~/emails/components/EmailFooter';
 import { getSiteOrigin } from '~/seo/siteUrl';
 
@@ -190,24 +191,18 @@ export default function EmailsTemplateInterviewsProgress(
                   Join the ranks of tens of thousands using Premium to stay
                   ahead of the competition.
                 </Text>
-                <Link
+                <EmailButton
                   href={new URL(
                     '/interviews/pricing',
                     getSiteOrigin(),
                   ).toString()}
                   style={{
-                    background: '#E3FE6F',
-                    borderRadius: '40px',
-                    color: '#18181B',
-                    display: 'inline-block',
-                    fontSize: 16,
-                    fontWeight: 500,
-                    lineHeight: '24px',
-                    margin: '40px 0 24px 0',
-                    padding: '8px 20px',
-                  }}>
-                  Get Premium now
-                </Link>
+                    marginBottom: 24,
+                    marginTop: 40,
+                  }}
+                  variant="primary">
+                  Get Premium now →
+                </EmailButton>
               </Section>
             </Section>
             <EmailFooter />

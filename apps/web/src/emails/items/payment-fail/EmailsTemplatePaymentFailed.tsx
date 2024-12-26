@@ -1,16 +1,19 @@
 import React from 'react';
 
+import EmailButton from '~/emails/components/EmailButton';
 import EmailFooter from '~/emails/components/EmailFooter';
 import { getSiteOrigin } from '~/seo/siteUrl';
 
 import {
   Body,
+  Column,
   Container,
   Heading,
   Html,
   Img,
   Link,
   Preview,
+  Row,
   Section,
   Text,
 } from '@react-email/components';
@@ -73,17 +76,19 @@ export default function EmailsTemplatePaymentFailed({ name }: Props) {
                 </Text>
               </li>
             </ol>
-            <Text style={paragraph}>
-              {/* TODO: generalize for projects */}
-              <Link
-                href={new URL(
-                  '/interviews/pricing',
-                  getSiteOrigin(),
-                ).toString()}
-                style={link}>
-                Click here to try again
-              </Link>
-            </Text>
+            <Row style={{ marginBottom: 40, marginTop: 40 }}>
+              <Column align="center">
+                {/* TODO: generalize for projects */}
+                <EmailButton
+                  href={new URL(
+                    '/interviews/pricing',
+                    getSiteOrigin(),
+                  ).toString()}
+                  variant="primary">
+                  Click here to try again →
+                </EmailButton>
+              </Column>
+            </Row>
             <Text style={paragraph}>
               Send an email to{' '}
               <Link href="mailto:contact@greatfrontend.com" style={link}>
