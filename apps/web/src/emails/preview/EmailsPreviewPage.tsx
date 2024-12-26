@@ -6,12 +6,16 @@ import React, { useEffect, useState } from 'react';
 import { Panel, PanelGroup, PanelResizeHandle } from 'react-resizable-panels';
 
 import { useToast } from '~/components/global/toasts/useToast';
+import InterviewsNavbarEnd from '~/components/interviews/common/InterviewsNavbarEnd';
 import Heading from '~/components/ui/Heading';
 import Select from '~/components/ui/Select';
 import Text from '~/components/ui/Text';
 import TextArea from '~/components/ui/TextArea';
 import {
+  themeBackgroundColor,
+  themeBackgroundInputColor,
   themeBorderColor,
+  themeBorderEmphasizeColor,
   themeDivideColor,
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
@@ -88,12 +92,22 @@ export default function EmailsPreviewPage({ emailKey, html, text }: Props) {
 
   return (
     <div
-      className={clsx('flex h-screen w-full flex-col', [
-        'divide-y',
-        themeDivideColor,
-      ])}>
-      <div className="flex justify-between p-3">
-        <div className={clsx('flex flex-wrap items-center gap-x-4 gap-y-2')}>
+      className={clsx(
+        'flex h-screen w-full flex-col',
+        'bg-neutral-50 dark:bg-neutral-950',
+        ['divide-y', themeDivideColor],
+      )}>
+      <div
+        className={clsx(
+          'flex items-center justify-between',
+          themeBackgroundColor,
+        )}>
+        <div
+          className={clsx(
+            'flex flex-wrap items-center',
+            'gap-x-4 gap-y-2',
+            'py-2 pl-6',
+          )}>
           <Heading level="heading6">Emails Preview</Heading>
           <Select
             isLabelHidden={true}
@@ -102,20 +116,30 @@ export default function EmailsPreviewPage({ emailKey, html, text }: Props) {
               label: item.id,
               value: item.id,
             }))}
+            size="sm"
             value={emailConfig.id}
             onChange={(value: EmailKey) => {
               router.push(`/dev__/emails/${value}`);
             }}
           />
         </div>
+        <InterviewsNavbarEnd />
       </div>
       <PanelGroup
-        className="flex h-full w-full py-3"
+        className="flex h-full w-full p-3"
         direction="horizontal"
         disablePointerEventsDuringResize={true}>
-        <Panel className="flex flex-col" defaultSize={50}>
+        <Panel
+          className={clsx(
+            'flex flex-col',
+            'rounded-lg',
+
+            ['border', themeBorderColor],
+            themeBackgroundColor,
+          )}
+          defaultSize={50}>
           <div
-            className={clsx('flex flex-col gap-4', 'overflow-y-auto', 'pl-3')}>
+            className={clsx('flex flex-col gap-4', 'p-3', 'overflow-y-auto')}>
             <EmailsPreviewSendSection
               onSubmit={async ({ email, name }) => {
                 const response = await fetch('/api/dev__/emails', {
@@ -147,6 +171,7 @@ export default function EmailsPreviewPage({ emailKey, html, text }: Props) {
             {Object.keys(emailProps).length > 0 && (
               <div>
                 <TextArea
+                  className="font-mono"
                   errorMessage={emailPropsError}
                   label="Props"
                   rows={emailPropsTextarea.split('\n').length}
@@ -174,10 +199,13 @@ export default function EmailsPreviewPage({ emailKey, html, text }: Props) {
                 </Text>
                 <pre
                   className={clsx(
-                    'rounded-lg p-2 text-xs',
-                    ['border', themeBorderColor],
-                    'overflow-x-auto',
+                    'rounded',
+                    'p-3',
+                    'text-xs',
                     themeTextSecondaryColor,
+                    ['border', themeBorderEmphasizeColor],
+                    'overflow-x-auto',
+                    themeBackgroundInputColor,
                   )}>
                   {emailContents?.text}
                 </pre>
@@ -190,7 +218,12 @@ export default function EmailsPreviewPage({ emailKey, html, text }: Props) {
           <CodingWorkspaceDivider direction="vertical" />
         </PanelResizeHandle>
         <Panel
-          className="flex flex-col gap-4 pe-3"
+          className={clsx(
+            'flex flex-col gap-4 p-3',
+            'rounded-lg',
+            ['border', themeBorderColor],
+            themeBackgroundColor,
+          )}
           defaultSize={50}
           minSize={20}>
           <div className="flex flex-col gap-1">
