@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 import { Panel, PanelGroup, PanelResizeHandle } from 'react-resizable-panels';
 
+import { useToast } from '~/components/global/toasts/useToast';
 import Heading from '~/components/ui/Heading';
 import Select from '~/components/ui/Select';
 import Text from '~/components/ui/Text';
@@ -20,6 +21,7 @@ import CodingWorkspaceDivider, {
 
 import { getErrorMessage } from '~/utils/getErrorMessage';
 
+import EmailsPreviewSendSection from './EmailsPreviewSendSection';
 import type { EmailItemConfig, EmailKey } from '../EmailsTypes';
 import { EmailsItemConfigs } from '../items/EmailItemConfigs';
 import { renderEmail } from '../render/EmailsRender';
@@ -32,6 +34,7 @@ type Props = Readonly<{
 
 export default function EmailsPreviewPage({ emailKey, html, text }: Props) {
   const router = useRouter();
+  const { showToast } = useToast();
 
   const emailConfig = EmailsItemConfigs.find(
     (itemConfig) => itemConfig.id === emailKey,
@@ -89,20 +92,22 @@ export default function EmailsPreviewPage({ emailKey, html, text }: Props) {
         'divide-y',
         themeDivideColor,
       ])}>
-      <div className="flex flex-wrap items-center gap-x-4 gap-y-2 p-3">
-        <Heading level="heading6">Emails Preview</Heading>
-        <Select
-          isLabelHidden={true}
-          label="Emails"
-          options={EmailsItemConfigs.map((item) => ({
-            label: item.id,
-            value: item.id,
-          }))}
-          value={emailConfig.id}
-          onChange={(value: EmailKey) => {
-            router.push(`/dev__/emails/${value}`);
-          }}
-        />
+      <div className="flex justify-between p-3">
+        <div className={clsx('flex flex-wrap items-center gap-x-4 gap-y-2')}>
+          <Heading level="heading6">Emails Preview</Heading>
+          <Select
+            isLabelHidden={true}
+            label="Emails"
+            options={EmailsItemConfigs.map((item) => ({
+              label: item.id,
+              value: item.id,
+            }))}
+            value={emailConfig.id}
+            onChange={(value: EmailKey) => {
+              router.push(`/dev__/emails/${value}`);
+            }}
+          />
+        </div>
       </div>
       <PanelGroup
         className="flex h-full w-full py-3"
@@ -111,6 +116,34 @@ export default function EmailsPreviewPage({ emailKey, html, text }: Props) {
         <Panel className="flex flex-col" defaultSize={50}>
           <div
             className={clsx('flex flex-col gap-4', 'overflow-y-auto', 'pl-3')}>
+            <EmailsPreviewSendSection
+              onSubmit={async ({ email, name }) => {
+                const response = await fetch('/api/dev__/emails', {
+                  body: JSON.stringify({
+                    email,
+                    emailKey,
+                    name,
+                    props: emailProps,
+                  }),
+                  method: 'POST',
+                });
+
+                if (response.ok) {
+                  showToast({
+                    title: `Email sent to ${email}`,
+                    variant: 'success',
+                  });
+                } else {
+                  const results = await response.json();
+
+                  showToast({
+                    description: results.message,
+                    title: `Email error`,
+                    variant: 'danger',
+                  });
+                }
+              }}
+            />
             {Object.keys(emailProps).length > 0 && (
               <div>
                 <TextArea
