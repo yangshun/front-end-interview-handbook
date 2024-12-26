@@ -18,6 +18,8 @@ import CodingWorkspaceDivider, {
   CodingWorkspaceDividerWrapperClassname,
 } from '~/components/workspace/common/CodingWorkspaceDivider';
 
+import { getErrorMessage } from '~/utils/getErrorMessage';
+
 import type { EmailItemConfig, EmailKey } from '../EmailsTypes';
 import { EmailsItemConfigs } from '../items/EmailItemConfigs';
 import { renderEmail } from '../render/EmailsRender';
@@ -37,10 +39,19 @@ export default function EmailsPreviewPage({ emailKey, html, text }: Props) {
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [emailProps, setEmailProps] = useState<any>(emailConfig.defaultProps);
+  const [emailPropsTextarea, setEmailPropsTextarea] = useState<string>(
+    JSON.stringify(emailConfig.defaultProps, null, 2),
+  );
+  const [emailPropsError, setEmailPropsError] = useState<string | null>(null);
+
   const [emailContents, setEmailContents] = useState<{
     html: string;
     text: string;
   }>({ html, text });
+
+  useEffect(() => {
+    setEmailPropsTextarea(JSON.stringify(emailProps, null, 2));
+  }, [emailProps]);
 
   async function renderPreviewEmail(
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -103,11 +114,22 @@ export default function EmailsPreviewPage({ emailKey, html, text }: Props) {
             {Object.keys(emailProps).length > 0 && (
               <div>
                 <TextArea
+                  errorMessage={emailPropsError}
                   label="Props"
-                  rows={JSON.stringify(emailProps, null, 2).split('\n').length}
-                  value={JSON.stringify(emailProps, null, 2)}
+                  rows={emailPropsTextarea.split('\n').length}
+                  value={emailPropsTextarea}
+                  onBlur={() => {
+                    try {
+                      if (JSON.parse(emailPropsTextarea)) {
+                        setEmailProps(JSON.parse(emailPropsTextarea));
+                        setEmailPropsError(null);
+                      }
+                    } catch (err) {
+                      setEmailPropsError(getErrorMessage(err));
+                    }
+                  }}
                   onChange={(value) => {
-                    setEmailProps(JSON.parse(value));
+                    setEmailPropsTextarea(value);
                   }}
                 />
               </div>
