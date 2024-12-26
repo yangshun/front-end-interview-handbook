@@ -1,0 +1,56 @@
+import { type NextRequest, NextResponse } from 'next/server';
+
+import { EmailsItemConfigs } from '~/emails/items/EmailItemConfigs';
+import { sendReactEmail } from '~/emails/mailjet/EmailsMailjetSender';
+import { getErrorMessage } from '~/utils/getErrorMessage';
+
+/**
+ * This route is only meant to be called by QStash for
+ * sending out scheduled emails.
+ *
+ * It should not be called directly by browsers and
+ * exposed to public.
+ */
+export async function POST(req: NextRequest) {
+  if (process.env.NEXT_PUBLIC_VERCEL_ENV === 'production') {
+    return NextResponse.json(
+      { error: 'Not allowed to be called in production' },
+      { status: 401 },
+    );
+  }
+
+  try {
+    const request = await req.json();
+    const { emailKey, email, name, props } = request;
+
+    const emailConfig = EmailsItemConfigs.find(
+      (itemConfig) => itemConfig.id === emailKey,
+    );
+
+    if (emailConfig == null) {
+      return NextResponse.json(
+        { error: `No email config found for emailKey '${emailKey}'` },
+        { status: 500 },
+      );
+    }
+
+    const Component = emailConfig.component;
+
+    const result = await sendReactEmail({
+      component: <Component {...props} />,
+      from: emailConfig.from,
+      subject: emailConfig.subject(props),
+      to: {
+        email,
+        name,
+      },
+    });
+
+    return NextResponse.json({ result, success: true });
+  } catch (error) {
+    return NextResponse.json(
+      { error: getErrorMessage(error) },
+      { status: 500 },
+    );
+  }
+}
