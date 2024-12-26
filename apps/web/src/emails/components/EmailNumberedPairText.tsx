@@ -27,7 +27,8 @@ export default function EmailNumberedPairText({
         </Column>
         <Column
           style={{
-            padding: '8px 0',
+            paddingBottom: 8,
+            paddingTop: 8,
           }}>
           <Text style={{ ...textBody0, fontWeight: 600 }}>{title}</Text>
           <Text style={{ ...paragraph, marginTop: 4 }}>{subtitle}</Text>

@@ -2,6 +2,8 @@ import React from 'react';
 
 import EmailButton from '~/emails/components/EmailButton';
 import EmailFooter from '~/emails/components/EmailFooter';
+import EmailHeader from '~/emails/components/EmailHeader';
+import { containerStyle, mainStyle } from '~/emails/components/EmailStyles';
 import { getSiteOrigin } from '~/seo/siteUrl';
 
 import {
@@ -10,7 +12,6 @@ import {
   Container,
   Heading,
   Html,
-  Img,
   Link,
   Preview,
   Row,
@@ -26,26 +27,20 @@ export default function EmailsTemplatePaymentFailed({ name }: Props) {
   return (
     <Html lang="en">
       <Preview>Your payment has failed, here's how you can fix it</Preview>
-      <Body style={main}>
-        <Container style={container}>
-          <Img
-            height="auto"
-            src="https://bmygeefzuragewmbhlby.supabase.co/storage/v1/object/public/emails/logo.png"
-            style={{
-              marginBottom: '40px',
-            }}
-            width="53"
-          />
-          <Heading style={heading}>
-            Your payment has failed, here's how you can fix it
-          </Heading>
-          <Section style={body}>
+      <Body style={mainStyle}>
+        <Container style={containerStyle}>
+          <EmailHeader />
+          <Section style={{ marginTop: 40 }}>
+            <Heading style={heading}>
+              Your payment has failed, here's how you can fix it
+            </Heading>
             <Text style={paragraph}>Hi {name ?? 'there'},</Text>
             <Text style={paragraph}>
               We noticed that your attempt to pay on GreatFrontEnd has failed.{' '}
               This is a common problem faced by customers from countries like
-              India and Vietnam. Please check and try the following:
+              India and Vietnam.
             </Text>
+            <Text style={paragraph}>Please check and try the following:</Text>
             <ol>
               <li>
                 <Text style={paragraph}>
@@ -97,11 +92,6 @@ export default function EmailsTemplatePaymentFailed({ name }: Props) {
               if you're still facing issues!
             </Text>
           </Section>
-          <Text style={paragraph}>
-            Best,
-            <br />
-            GreatFrontEnd Team
-          </Text>
           <EmailFooter />
         </Container>
       </Body>
@@ -109,27 +99,11 @@ export default function EmailsTemplatePaymentFailed({ name }: Props) {
   );
 }
 
-const main = {
-  color: '#18181B',
-  fontFamily:
-    'Inter, -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif',
-};
-
-const container = {
-  margin: '0 auto',
-  marginTop: '30px',
-  maxWidth: '600px',
-};
-
 const heading = {
   color: '#18181B',
   fontSize: 28,
   fontWeight: 'bold',
-  marginTop: 48,
-};
-
-const body = {
-  margin: '40px 0 0 0',
+  margin: 0,
 };
 
 const paragraph = {

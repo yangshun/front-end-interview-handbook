@@ -1,5 +1,7 @@
 import EmailButton from '~/emails/components/EmailButton';
 import EmailFooter from '~/emails/components/EmailFooter';
+import EmailHeader from '~/emails/components/EmailHeader';
+import { containerStyle, mainStyle } from '~/emails/components/EmailStyles';
 import { getSiteOrigin } from '~/seo/siteUrl';
 
 import {
@@ -22,221 +24,197 @@ export default function EmailsTemplateInterviewsProgress(
   return (
     <Html lang="en">
       <Preview>Incredible deals you'll want to check out today</Preview>
-      <Body style={main}>
-        <Container style={container}>
-          <Img
-            height="auto"
-            src="https://bmygeefzuragewmbhlby.supabase.co/storage/v1/object/public/emails/logo.png"
-            style={{
-              marginBottom: '40px',
-            }}
-            width="53"
-          />
-          <Heading as="h1" style={heading1}>
-            Special premium offers
-          </Heading>
-          <Text style={{ ...textBody1, margin: '8px 0 0 0' }}>
-            Unbeatable savings you can't miss
-          </Text>
-          <Section style={body}>
-            <Section>
-              <Link
-                href={new URL(
-                  `/promotions#promotions-review-cashback`,
-                  getSiteOrigin(),
-                ).toString()}>
-                <Row>
-                  <Column
-                    align="center"
-                    style={{
-                      width: '96px',
-                    }}>
-                    <Img
-                      alt="$10 off ticket image"
-                      height="auto"
-                      src="https://bmygeefzuragewmbhlby.supabase.co/storage/v1/object/public/emails/discount1.png"
-                      width="96"
-                    />
-                  </Column>
-                  <Column>
-                    <Text
-                      style={{
-                        ...paragraph,
-                        color: '#52525B',
-                        margin: '0 0 0 20px',
-                      }}>
-                      Share a <span style={bold}>success story or review</span>{' '}
-                      of GreatFrontEnd
-                    </Text>
-                  </Column>
-                </Row>
-              </Link>
-              <Link
-                href={new URL(
-                  `/promotions#promotions-student-discount`,
-                  getSiteOrigin(),
-                ).toString()}>
-                <Row style={{ margin: '24px 0 0 0' }}>
-                  <Column
-                    align="center"
-                    style={{
-                      width: '96px',
-                    }}>
-                    <Img
-                      alt="40% off ticket image"
-                      height="auto"
-                      src="https://bmygeefzuragewmbhlby.supabase.co/storage/v1/object/public/emails/discount2.png"
-                      width="96"
-                    />
-                  </Column>
-                  <Column>
-                    <Text
-                      style={{
-                        ...paragraph,
-                        color: '#52525B',
-                        margin: '0 0 0 20px',
-                      }}>
-                      Sign up with <span style={bold}>student email →</span>
-                    </Text>
-                  </Column>
-                </Row>
-              </Link>
-              <Link
-                href={new URL(`/rewards/social`, getSiteOrigin()).toString()}>
-                <Row style={{ margin: '24px 0 0 0' }}>
-                  <Column
-                    align="center"
-                    style={{
-                      width: '96px',
-                    }}>
-                    <Img
-                      alt="20% off ticket image"
-                      height="auto"
-                      src="https://bmygeefzuragewmbhlby.supabase.co/storage/v1/object/public/emails/discount3.png"
-                      width="96"
-                    />
-                  </Column>
-                  <Column>
-                    <Text
-                      style={{
-                        ...paragraph,
-                        color: '#52525B',
-                        margin: '0 0 0 20px',
-                      }}>
-                      Do simple tasks like{' '}
-                      <span style={bold}>following us on social media →</span>
-                    </Text>
-                  </Column>
-                </Row>
-              </Link>
-            </Section>
-            <Section
-              style={{
-                margin: '64px 0 0 0',
-              }}>
-              <Heading style={heading2}>Fast-track to your dream job</Heading>
-              <Text style={{ ...paragraph, margin: '8px 0 0 0' }}>
-                You could land a job without Premium, but why not get there
-                faster?
-              </Text>
-              <Img
-                alt="Premium vs Non-premium comparison"
-                height="auto"
-                src="https://bmygeefzuragewmbhlby.supabase.co/storage/v1/object/public/emails/PremiumNonPremiumComparison.png"
-                style={{
-                  margin: '32px 0 0 0',
-                }}
-                width="100%"
-              />
-            </Section>
-            <Section
-              style={{
-                margin: '64px 0 0 0',
-              }}>
-              <Section style={grayCard}>
-                <Text style={{ ...paragraph, fontWeight: 500 }}>
-                  🔊 Did you know?
-                </Text>
-                <Text
+      <Body style={mainStyle}>
+        <Container style={containerStyle}>
+          <EmailHeader />
+          <Section style={{ marginTop: 40 }}>
+            <Heading as="h1" style={heading1}>
+              Premium offers you'll love
+            </Heading>
+            <Text style={{ ...textBody1, marginTop: 8 }}>
+              Get amazing discounts with simple steps – choose your offer and
+              save today!
+            </Text>
+          </Section>
+          <Section style={{ marginTop: 40 }}>
+            <Link
+              href={new URL(
+                `/promotions#promotions-review-cashback`,
+                getSiteOrigin(),
+              ).toString()}>
+              <Row>
+                <Column
+                  align="center"
                   style={{
-                    ...paragraph,
-                    color: '#3F3F46',
-                    margin: '16px 0 0 0',
+                    width: 80,
                   }}>
-                  Many interviewers create their questions based on resources
-                  like ours. Get a head start by practicing with the same source
-                  that inspires countless front end interviewers.{' '}
-                  <Link
-                    href={new URL(
-                      `/interviews/pricing`,
-                      getSiteOrigin(),
-                    ).toString()}
+                  <Img
+                    alt="100% off ticket"
+                    height="auto"
+                    src="https://bmygeefzuragewmbhlby.supabase.co/storage/v1/object/public/emails/discounts/discount1.png"
+                    width="80"
+                  />
+                </Column>
+                <Column>
+                  <Text
                     style={{
                       ...paragraph,
-                      fontWeight: 600,
-                      textDecoration: 'underline',
+                      color: '#52525B',
+                      marginLeft: 20,
                     }}>
-                    Go premium →
-                  </Link>
-                </Text>
-              </Section>
-              <Section
-                style={{
-                  margin: '64px 0 0 0',
-                }}>
-                <Heading style={heading2}>
-                  It's worth it when it's your dream job
-                </Heading>
-                <Text style={{ ...paragraph, margin: '8px 0 0 0' }}>
-                  Join the ranks of tens of thousands using Premium to stay
-                  ahead of the competition.
-                </Text>
-                <EmailButton
-                  href={new URL(
-                    '/interviews/pricing',
-                    getSiteOrigin(),
-                  ).toString()}
+                    Share a <span style={bold}>success story or review</span> of
+                    GreatFrontEnd →
+                  </Text>
+                </Column>
+              </Row>
+            </Link>
+            <Link
+              href={new URL(
+                `/promotions#promotions-student-discount`,
+                getSiteOrigin(),
+              ).toString()}>
+              <Row style={{ marginTop: 24 }}>
+                <Column
+                  align="center"
                   style={{
-                    marginBottom: 24,
-                    marginTop: 40,
-                  }}
-                  variant="primary">
-                  Get Premium now →
-                </EmailButton>
-              </Section>
-            </Section>
-            <EmailFooter />
+                    width: 80,
+                  }}>
+                  <Img
+                    alt="40% off ticket"
+                    height="auto"
+                    src="https://bmygeefzuragewmbhlby.supabase.co/storage/v1/object/public/emails/discounts/discount2.png"
+                    width="80"
+                  />
+                </Column>
+                <Column>
+                  <Text
+                    style={{
+                      ...paragraph,
+                      color: '#52525B',
+                      marginLeft: 20,
+                    }}>
+                    Sign up with <span style={bold}>student email →</span>
+                  </Text>
+                </Column>
+              </Row>
+            </Link>
+            <Link href={new URL(`/rewards/social`, getSiteOrigin()).toString()}>
+              <Row style={{ margin: '24px 0 0 0' }}>
+                <Column
+                  align="center"
+                  style={{
+                    width: 80,
+                  }}>
+                  <Img
+                    alt="20% off ticket"
+                    height="auto"
+                    src="https://bmygeefzuragewmbhlby.supabase.co/storage/v1/object/public/emails/discounts/discount3.png"
+                    width="80"
+                  />
+                </Column>
+                <Column>
+                  <Text
+                    style={{
+                      ...paragraph,
+                      color: '#52525B',
+                      marginLeft: 20,
+                    }}>
+                    Do simple tasks like{' '}
+                    <span style={bold}>following us on social media →</span>
+                  </Text>
+                </Column>
+              </Row>
+            </Link>
           </Section>
+          <Section
+            style={{
+              marginTop: 64,
+            }}>
+            <Heading as="h2" style={heading2}>
+              Fast-track to your dream job
+            </Heading>
+            <Text style={{ ...paragraph, marginTop: 8 }}>
+              You could land a job without Premium, but why not get there
+              faster?
+            </Text>
+            <Img
+              alt="Premium vs Non-premium comparison"
+              height="auto"
+              src="https://bmygeefzuragewmbhlby.supabase.co/storage/v1/object/public/emails/PremiumNonPremiumComparison.png"
+              style={{
+                margin: '32px 0 0 0',
+              }}
+              width="100%"
+            />
+          </Section>
+          <Section style={{ ...grayCard, marginTop: 64 }}>
+            <Text style={{ ...paragraph, fontWeight: 500 }}>
+              🔊 Did you know?
+            </Text>
+            <Text
+              style={{
+                ...paragraph,
+                color: '#3F3F46',
+                margin: '16px 0 0 0',
+              }}>
+              Many interviewers create their questions based on resources like
+              ours. Get a head start by practicing with the same source that
+              inspires countless front end interviewers.{' '}
+              <Link
+                href={new URL(
+                  `/interviews/pricing`,
+                  getSiteOrigin(),
+                ).toString()}
+                style={{
+                  ...paragraph,
+                  fontWeight: 600,
+                  textDecoration: 'underline',
+                }}>
+                Go premium →
+              </Link>
+            </Text>
+          </Section>
+          <Section
+            style={{
+              marginTop: 64,
+            }}>
+            <Heading style={heading2}>
+              It's worth it when it's your dream job
+            </Heading>
+            <Text style={{ ...paragraph, marginTop: 8 }}>
+              Join the ranks of tens of thousands using GreatFrontEnd Premium to
+              stay ahead of the competition.
+            </Text>
+            <EmailButton
+              href={new URL('/interviews/pricing', getSiteOrigin()).toString()}
+              style={{
+                marginBottom: 24,
+                marginTop: 40,
+              }}
+              variant="primary">
+              Get Premium now →
+            </EmailButton>
+          </Section>
+          <EmailFooter />
         </Container>
       </Body>
     </Html>
   );
 }
 
-const main = {
-  color: '#18181B',
-  fontFamily:
-    'Inter, -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif',
-};
-
-const container = {
-  margin: '0 auto',
-  marginTop: 30,
-  maxWidth: 600,
-};
-
 const heading1 = {
   color: '#18181B',
   fontSize: 30,
   fontWeight: 600,
   lineHeight: '40px',
-  margin: '40px 0 0 0',
+  margin: 0,
 };
 
 const heading2 = {
   fontSize: 24,
   fontWeight: 600,
   lineHeight: '32px',
+  margin: 0,
 };
 
 const textBody1 = {
@@ -244,10 +222,6 @@ const textBody1 = {
   fontSize: 16,
   lineHeight: '28px',
   margin: 0,
-};
-
-const body = {
-  margin: '64px 0 0 0',
 };
 
 const paragraph = {
@@ -265,8 +239,8 @@ const bold = {
 const grayCard = {
   background: '#FAFAFA',
   border: '1px solid #E4E4E7',
-  borderRadius: '8px',
+  borderRadius: 8,
   display: 'block',
-  padding: '24px',
+  padding: 24,
   width: '100%',
 };

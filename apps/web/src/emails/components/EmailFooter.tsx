@@ -5,9 +5,9 @@ export default function EmailFooter() {
     <Section
       style={{
         background: '#FAFAFA',
-        marginTop: '40px',
+        marginTop: 40,
       }}>
-      <div style={{ padding: '32px' }}>
+      <div style={{ padding: 32 }}>
         <Text
           style={{
             color: '#3F3F46',
@@ -15,7 +15,7 @@ export default function EmailFooter() {
             fontWeight: 500,
             lineHeight: '18px',
             margin: '0 auto',
-            maxWidth: '400px',
+            maxWidth: 400,
             textAlign: 'center',
           }}>
           This email is sent in accordance to our{' '}

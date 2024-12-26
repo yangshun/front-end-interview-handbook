@@ -1,11 +1,6 @@
 import 'server-only';
 
-import type { ComponentProps } from 'react';
-
-import {
-  sendReactEmail,
-  sendReactEmailWithChecks,
-} from '~/emails/mailjet/EmailsMailjetSender';
+import { sendReactEmailWithChecks } from '~/emails/mailjet/EmailsMailjetSender';
 import prisma from '~/server/prisma';
 
 import { EmailsItemConfigInterviewsProgress } from './EmailsItemConfigInterviewsProgress';
