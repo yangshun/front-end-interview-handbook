@@ -8,6 +8,7 @@ import {
   EmailsNumberedPairText,
 } from '~/emails/components/EmailsComponents';
 import EmailsHr from '~/emails/components/EmailsHr';
+import EmailsParagraph from '~/emails/components/EmailsParagraph';
 import { containerStyle, mainStyle } from '~/emails/components/EmailsStyles';
 import { getSiteOrigin } from '~/seo/siteUrl';
 
@@ -22,7 +23,6 @@ import {
   Preview,
   Row,
   Section,
-  Text,
 } from '@react-email/components';
 
 export default function EmailsTemplateWelcomeSeriesImmediate(
@@ -56,9 +56,9 @@ export default function EmailsTemplateWelcomeSeriesImmediate(
             <EmailsHeading as="h1" level="heading1">
               A simple, proven roadmap
             </EmailsHeading>
-            <Text style={{ ...textBody1, marginTop: 8 }}>
+            <EmailsParagraph size="body1" style={{ marginTop: 8 }}>
               To ace your front end interviews in the least amount of time
-            </Text>
+            </EmailsParagraph>
           </Section>
           <Section style={{ marginTop: 40 }}>
             {ROADMAP.map((item, index) => (
@@ -74,9 +74,9 @@ export default function EmailsTemplateWelcomeSeriesImmediate(
             <EmailsHeading as="h2" level="heading2">
               Using any excess time
             </EmailsHeading>
-            <Text style={{ ...textBody1, marginBottom: 32, marginTop: 48 }}>
+            <EmailsParagraph style={{ marginBottom: 32, marginTop: 48 }}>
               Hone in specific topics you need the most practice
-            </Text>
+            </EmailsParagraph>
             {FOCUS_AREAS.map(({ name, logo, href }) => (
               <Section
                 key={name}
@@ -98,22 +98,21 @@ export default function EmailsTemplateWelcomeSeriesImmediate(
                       />
                     </Column>
                     <Column>
-                      <Text
+                      <EmailsParagraph
                         style={{
-                          ...textBody1,
-                          fontWeight: 500,
                           marginLeft: 28,
-                        }}>
+                        }}
+                        weight="medium">
                         {name} →
-                      </Text>
+                      </EmailsParagraph>
                     </Column>
                   </Row>
                 </Link>
               </Section>
             ))}
-            <Text style={{ ...textBody1, marginBottom: 32, marginTop: 56 }}>
+            <EmailsParagraph style={{ marginBottom: 32, marginTop: 56 }}>
               Revise your fundamentals with knowledge quizzes
-            </Text>
+            </EmailsParagraph>
             {QUIZ_TOPICS.map(({ name, logo, href }) => (
               <Section
                 key={name}
@@ -135,13 +134,12 @@ export default function EmailsTemplateWelcomeSeriesImmediate(
                       />
                     </Column>
                     <Column>
-                      <Text
+                      <EmailsParagraph
                         style={{
-                          ...textBody1,
                           marginLeft: 16,
                         }}>
                         {name} →
-                      </Text>
+                      </EmailsParagraph>
                     </Column>
                   </Row>
                 </Link>
@@ -153,18 +151,18 @@ export default function EmailsTemplateWelcomeSeriesImmediate(
             <EmailsHeading as="h2" level="heading2">
               More time-savers
             </EmailsHeading>
-            <Text style={{ ...textBody1, marginTop: 48 }}>
+            <EmailsParagraph style={{ marginTop: 48 }}>
               Our curated study plans optimize your preparation for any timeline
-            </Text>
+            </EmailsParagraph>
             <Img
               height="auto"
               src="https://bmygeefzuragewmbhlby.supabase.co/storage/v1/object/public/emails/study-plans.png"
               style={{ marginTop: 32 }}
               width="100%"
             />
-            <Text style={{ ...textBody1, marginBottom: 32, marginTop: 56 }}>
+            <EmailsParagraph style={{ marginBottom: 32, marginTop: 56 }}>
               Preparing for specific companies? Tackle their interview questions
-            </Text>
+            </EmailsParagraph>
             {Array.from({ length: Math.ceil(COMPANIES.length / 2) }, (_, i) =>
               COMPANIES.slice(i * 2, i * 2 + 2),
             ).map((items, index) => (
@@ -187,13 +185,13 @@ export default function EmailsTemplateWelcomeSeriesImmediate(
                           />
                         </Column>
                         <Column>
-                          <Text
+                          <EmailsParagraph
                             style={{
                               fontWeight: 500,
                               marginLeft: 16,
                             }}>
                             {name} →
-                          </Text>
+                          </EmailsParagraph>
                         </Column>
                       </Row>
                     </Link>
@@ -207,9 +205,9 @@ export default function EmailsTemplateWelcomeSeriesImmediate(
             <EmailsHeading as="h2" level="heading2">
               Need a portfolio project?
             </EmailsHeading>
-            <Text style={{ ...textBody1, marginTop: 8 }}>
+            <EmailsParagraph style={{ marginTop: 8 }}>
               Check out our new platform for real-world front end projects.
-            </Text>
+            </EmailsParagraph>
             <EmailsButton
               href={new URL('/projects', getSiteOrigin()).toString()}
               style={{ marginTop: 40 }}
@@ -230,14 +228,6 @@ export default function EmailsTemplateWelcomeSeriesImmediate(
     </Html>
   );
 }
-
-const textBody1 = {
-  color: '#18181B',
-  fontSize: 16,
-  fontWeight: 500,
-  lineHeight: '24px',
-  margin: 0,
-};
 
 const ROADMAP = [
   {

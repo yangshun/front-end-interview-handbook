@@ -4,6 +4,7 @@ import {
   EmailsHeader,
   EmailsHeading,
   EmailsLink,
+  EmailsParagraph,
   EmailsStrong,
 } from '~/emails/components/EmailsComponents';
 import { containerStyle, mainStyle } from '~/emails/components/EmailsStyles';
@@ -19,7 +20,6 @@ import {
   Preview,
   Row,
   Section,
-  Text,
 } from '@react-email/components';
 
 export default function EmailsTemplateInterviewsProgress(
@@ -35,10 +35,10 @@ export default function EmailsTemplateInterviewsProgress(
             <EmailsHeading as="h1" level="heading1">
               Premium offers you'll love
             </EmailsHeading>
-            <Text style={{ ...textBody1, marginTop: 8 }}>
+            <EmailsParagraph size="body1" style={{ marginTop: 8 }}>
               Get amazing discounts with simple steps – choose your offer and
               save today!
-            </Text>
+            </EmailsParagraph>
           </Section>
           <Section style={{ marginTop: 40 }}>
             <Link
@@ -60,15 +60,14 @@ export default function EmailsTemplateInterviewsProgress(
                   />
                 </Column>
                 <Column>
-                  <Text
+                  <EmailsParagraph
+                    color="secondary"
                     style={{
-                      ...paragraph,
-                      color: '#52525B',
                       marginLeft: 20,
                     }}>
                     Share a <EmailsStrong>success story or review</EmailsStrong>{' '}
                     of GreatFrontEnd →
-                  </Text>
+                  </EmailsParagraph>
                 </Column>
               </Row>
             </Link>
@@ -91,14 +90,13 @@ export default function EmailsTemplateInterviewsProgress(
                   />
                 </Column>
                 <Column>
-                  <Text
+                  <EmailsParagraph
+                    color="secondary"
                     style={{
-                      ...paragraph,
-                      color: '#52525B',
                       marginLeft: 20,
                     }}>
                     Sign up with <EmailsStrong>student email →</EmailsStrong>
-                  </Text>
+                  </EmailsParagraph>
                 </Column>
               </Row>
             </Link>
@@ -117,15 +115,14 @@ export default function EmailsTemplateInterviewsProgress(
                   />
                 </Column>
                 <Column>
-                  <Text
+                  <EmailsParagraph
+                    color="secondary"
                     style={{
-                      ...paragraph,
-                      color: '#52525B',
                       marginLeft: 20,
                     }}>
                     Do simple tasks like{' '}
                     <EmailsStrong>following us on social media →</EmailsStrong>
-                  </Text>
+                  </EmailsParagraph>
                 </Column>
               </Row>
             </Link>
@@ -137,10 +134,10 @@ export default function EmailsTemplateInterviewsProgress(
             <EmailsHeading as="h2" level="heading2">
               Fast-track to your dream job
             </EmailsHeading>
-            <Text style={{ ...paragraph, marginTop: 8 }}>
+            <EmailsParagraph color="secondary" style={{ marginTop: 8 }}>
               You could land a job without Premium, but why not get there
               faster?
-            </Text>
+            </EmailsParagraph>
             <Img
               alt="Premium vs Non-premium comparison"
               height="auto"
@@ -152,13 +149,12 @@ export default function EmailsTemplateInterviewsProgress(
             />
           </Section>
           <Section style={{ ...grayCard, marginTop: 64 }}>
-            <Text style={{ ...paragraph, fontWeight: 500 }}>
+            <EmailsParagraph color="secondary" style={{ fontWeight: 500 }}>
               🔊 Did you know?
-            </Text>
-            <Text
+            </EmailsParagraph>
+            <EmailsParagraph
+              color="subtitle"
               style={{
-                ...paragraph,
-                color: '#3F3F46',
                 marginTop: 16,
               }}>
               Many interviewers create their questions based on resources like
@@ -174,7 +170,7 @@ export default function EmailsTemplateInterviewsProgress(
                 }}>
                 Go premium →
               </EmailsLink>
-            </Text>
+            </EmailsParagraph>
           </Section>
           <Section
             style={{
@@ -183,10 +179,10 @@ export default function EmailsTemplateInterviewsProgress(
             <EmailsHeading as="h2" level="heading2">
               It's worth it when it's your dream job
             </EmailsHeading>
-            <Text style={{ ...paragraph, marginTop: 8 }}>
+            <EmailsParagraph style={{ marginTop: 8 }}>
               Join the ranks of tens of thousands using GreatFrontEnd Premium to
               stay ahead of the competition.
-            </Text>
+            </EmailsParagraph>
             <EmailsButton
               href={new URL('/interviews/pricing', getSiteOrigin()).toString()}
               style={{
@@ -204,23 +200,9 @@ export default function EmailsTemplateInterviewsProgress(
   );
 }
 
-const textBody1 = {
-  color: '#18181B',
-  fontSize: 16,
-  lineHeight: '28px',
-  margin: 0,
-};
-
-const paragraph = {
-  color: '#18181B',
-  fontSize: 16,
-  lineHeight: '24px',
-  margin: 0,
-};
-
 const grayCard = {
-  background: '#FAFAFA',
-  border: '1px solid #E4E4E7',
+  background: '#fafafa',
+  border: '1px solid #e4e4e7',
   borderRadius: 8,
   display: 'block',
   padding: 24,

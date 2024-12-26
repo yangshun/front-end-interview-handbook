@@ -1,4 +1,6 @@
-import { Link, Section, Text } from '@react-email/components';
+import { EmailsLink,EmailsParagraph } from './EmailsComponents';
+
+import { Section } from '@react-email/components';
 
 export default function EmailsFooter() {
   return (
@@ -8,47 +10,42 @@ export default function EmailsFooter() {
         marginTop: 40,
       }}>
       <div style={{ padding: 32 }}>
-        <Text
+        <EmailsParagraph
+          color="subtitle"
+          size="body2"
           style={{
-            color: '#3F3F46',
-            fontSize: 14,
-            fontWeight: 500,
-            lineHeight: '18px',
             margin: '0 auto',
             maxWidth: 400,
             textAlign: 'center',
           }}>
           This email is sent in accordance to our{' '}
-          <Link
+          <EmailsLink
             href="https://www.greatfrontend.com/legal/terms"
-            style={{ color: '#3F3F46', textDecoration: 'underline' }}>
+            style={{ fontWeight: 500 }}>
             Terms of Service
-          </Link>
+          </EmailsLink>
           , which allows us to contact you regarding our services.
-        </Text>
-        <Text
+        </EmailsParagraph>
+        <EmailsParagraph
+          color="subtitle"
+          size="body2"
           style={{
-            color: '#3F3F46',
-            fontSize: 14,
-            fontWeight: 600,
-            lineHeight: '18px',
-            margin: '32px 0 8px 0',
+            marginBottom: 8,
+            marginTop: 32,
             textAlign: 'center',
-          }}>
+          }}
+          weight="bold">
           Our mailing address:
-        </Text>
-        <Text
+        </EmailsParagraph>
+        <EmailsParagraph
+          color="subtitle"
+          size="body2"
           style={{
-            color: '#3F3F46',
-            fontSize: 14,
-            fontWeight: 400,
-            lineHeight: '20px',
-            margin: '0 auto',
             textAlign: 'center',
           }}>
           Codeney Pte. Ltd., 30 Cecil Street, #19-08 Prudential Tower, Singapore
           049712
-        </Text>
+        </EmailsParagraph>
       </div>
     </Section>
   );

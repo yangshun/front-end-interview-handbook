@@ -1,5 +1,7 @@
 import type { ReactNode } from 'react';
 
+import { EmailsParagraph } from './EmailsComponents';
+
 import { Column, Link, Row, Text } from '@react-email/components';
 
 type Props = Readonly<{
@@ -30,32 +32,20 @@ export default function EmailsNumberedPairText({
             paddingBottom: 8,
             paddingTop: 8,
           }}>
-          <Text style={{ ...textBody0, fontWeight: 600 }}>{title}</Text>
-          <Text style={{ ...paragraph, marginTop: 4 }}>{subtitle}</Text>
+          <EmailsParagraph size="body0" weight="bold">
+            {title}
+          </EmailsParagraph>
+          <EmailsParagraph style={{ marginTop: 4 }}>{subtitle}</EmailsParagraph>
         </Column>
       </Row>
     </Link>
   );
 }
 
-const textBody0 = {
-  color: '#18181B',
-  fontSize: 18,
-  lineHeight: '28px',
-  margin: 0,
-};
-
-const paragraph = {
-  color: '#18181B',
-  fontSize: 16,
-  lineHeight: '24px',
-  margin: 0,
-};
-
 const numberCircle = {
   border: '2px solid #7C7C7C',
   borderRadius: '50%',
-  color: '#BEBEBE',
+  color: '#bebebe',
   display: 'block',
   fontSize: 16,
   fontWeight: 600,

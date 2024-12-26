@@ -5,6 +5,7 @@ import EmailsHeading from './EmailsHeading';
 import EmailsHr from './EmailsHr';
 import EmailsLink from './EmailsLink';
 import EmailsNumberedPairText from './EmailsNumberedPairText';
+import EmailsParagraph from './EmailsParagraph';
 import EmailsStrong from './EmailsStrong';
 
 export {
@@ -15,5 +16,6 @@ export {
   EmailsHr,
   EmailsLink,
   EmailsNumberedPairText,
+  EmailsParagraph,
   EmailsStrong,
 };

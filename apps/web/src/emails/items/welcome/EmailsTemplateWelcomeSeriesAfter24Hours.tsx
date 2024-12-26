@@ -3,6 +3,7 @@ import {
   EmailsHeader,
   EmailsHeading,
   EmailsNumberedPairText,
+  EmailsParagraph,
   EmailsStrong,
 } from '~/emails/components/EmailsComponents';
 import { containerStyle, mainStyle } from '~/emails/components/EmailsStyles';
@@ -18,7 +19,6 @@ import {
   Preview,
   Row,
   Section,
-  Text,
 } from '@react-email/components';
 
 export default function EmailsTemplateWelcomeSeriesAfter24Hours(
@@ -58,10 +58,10 @@ export default function EmailsTemplateWelcomeSeriesAfter24Hours(
             <EmailsHeading as="h1" level="heading1">
               Proven prep strategies
             </EmailsHeading>
-            <Text style={{ ...textBody0, marginTop: 8 }}>
+            <EmailsParagraph size="body1" style={{ marginTop: 8 }}>
               Actual strategies used by users to clinch multiple high paying
               offers.
-            </Text>
+            </EmailsParagraph>
           </Section>
           <Section style={{ marginTop: 40 }}>
             <Row>
@@ -75,15 +75,14 @@ export default function EmailsTemplateWelcomeSeriesAfter24Hours(
                   }}
                   width="48"
                 />
-                <Text
+                <EmailsParagraph
+                  color="secondary"
                   style={{
-                    ...paragraph,
-                    color: '#52525B',
                     marginTop: 16,
                   }}>
                   <EmailsStrong>Chenwei Zhang</EmailsStrong> Front End Engineer,
                   San Francisco, US
-                </Text>
+                </EmailsParagraph>
               </Column>
             </Row>
           </Section>
@@ -131,18 +130,13 @@ export default function EmailsTemplateWelcomeSeriesAfter24Hours(
             </Row>
           </Section>
           <Section style={{ marginTop: 24 }}>
-            <Text
-              style={{
-                ...paragraph,
-                color: '#3F3F46',
-              }}>
+            <EmailsParagraph color="subtitle">
               "I did a lot of <EmailsStrong>DSA coding</EmailsStrong> before I
               joined GFE so I did not spend too much time on it.
-            </Text>
-            <Text
+            </EmailsParagraph>
+            <EmailsParagraph
+              color="subtitle"
               style={{
-                ...paragraph,
-                color: '#3F3F46',
                 marginTop: 24,
               }}>
               Instead I put my focus on practicing system design and behavioral
@@ -152,11 +146,10 @@ export default function EmailsTemplateWelcomeSeriesAfter24Hours(
               </EmailsStrong>{' '}
               and then practice the most frequently asked ones on Excalidraw to
               strengthen my understanding.
-            </Text>
-            <Text
+            </EmailsParagraph>
+            <EmailsParagraph
+              color="subtitle"
               style={{
-                ...paragraph,
-                color: '#3F3F46',
                 marginTop: 24,
               }}>
               For behavioral questions, I{' '}
@@ -165,12 +158,15 @@ export default function EmailsTemplateWelcomeSeriesAfter24Hours(
               </EmailsStrong>{' '}
               and mock answering it in front of a couple friends to collect
               feedback and improve the answers.”
-            </Text>
+            </EmailsParagraph>
           </Section>
           <Section style={{ marginTop: 40 }}>
-            <Text style={{ ...textBody0, fontWeight: 500, marginBottom: 32 }}>
+            <EmailsParagraph
+              size="body0"
+              style={{ marginBottom: 32 }}
+              weight="medium">
               What you can do
-            </Text>
+            </EmailsParagraph>
             <Section>
               {ITEM1.map((item, index) => (
                 <EmailsNumberedPairText
@@ -193,15 +189,14 @@ export default function EmailsTemplateWelcomeSeriesAfter24Hours(
                   }}
                   width="48"
                 />
-                <Text
+                <EmailsParagraph
+                  color="secondary"
                   style={{
-                    ...paragraph,
-                    color: '#52525B',
                     marginTop: 16,
                   }}>
                   <EmailsStrong>Lokhand Manus</EmailsStrong> Staff Engineer, San
                   Francisco, US
-                </Text>
+                </EmailsParagraph>
               </Column>
             </Row>
           </Section>
@@ -224,11 +219,7 @@ export default function EmailsTemplateWelcomeSeriesAfter24Hours(
             />
           </Section>
           <Section style={{ marginTop: 24 }}>
-            <Text
-              style={{
-                ...paragraph,
-                color: '#3F3F46',
-              }}>
+            <EmailsParagraph color="subtitle">
               "My initial strategy was to focus on Leetcode for a month or so
               and solve as many questions I could and{' '}
               <EmailsStrong>
@@ -236,11 +227,10 @@ export default function EmailsTemplateWelcomeSeriesAfter24Hours(
               </EmailsStrong>
               . I wanted to get that out of the way and prepare Frontend
               Specific questions closer to the interviews.
-            </Text>
-            <Text
+            </EmailsParagraph>
+            <EmailsParagraph
+              color="subtitle"
               style={{
-                ...paragraph,
-                color: '#3F3F46',
                 marginTop: 24,
               }}>
               For Frontend I luckily came across GFE at the start of the prep so
@@ -254,12 +244,15 @@ export default function EmailsTemplateWelcomeSeriesAfter24Hours(
                 revise the questions every day for a couple of hours
               </EmailsStrong>{' '}
               to keep myself fresh.”
-            </Text>
+            </EmailsParagraph>
           </Section>
           <Section style={{ marginTop: 40 }}>
-            <Text style={{ ...textBody0, fontWeight: 500, marginBottom: 32 }}>
+            <EmailsParagraph
+              size="body0"
+              style={{ marginBottom: 32 }}
+              weight="medium">
               What you can do
-            </Text>
+            </EmailsParagraph>
             <Section>
               {ITEM2.map((item, index) => (
                 <EmailsNumberedPairText
@@ -271,20 +264,19 @@ export default function EmailsTemplateWelcomeSeriesAfter24Hours(
             </Section>
           </Section>
           <Section style={{ ...yellowCard, marginTop: 40 }}>
-            <Text style={{ ...paragraph, fontWeight: 500 }}>💡 Pro tip!</Text>
-            <Text
+            <EmailsParagraph weight="medium">💡 Pro tip!</EmailsParagraph>
+            <EmailsParagraph
+              color="subtitle"
               style={{
-                ...paragraph,
-                color: '#3F3F46',
                 marginTop: 16,
               }}>
               1. Revise questions everyday for a couple of hours to keep
               yourself fresh.
-            </Text>
-            <Text style={{ ...paragraph, color: '#3F3F46' }}>
+            </EmailsParagraph>
+            <EmailsParagraph color="subtitle">
               2. Be sure to repeatedly review those you couldn't solve without
               help.
-            </Text>
+            </EmailsParagraph>
           </Section>
           <EmailsFooter />
         </Container>
@@ -306,16 +298,16 @@ function Card({ title, subtitle, logos }: CardProps) {
   return (
     <Section style={grayCard}>
       <div>
-        <Text
+        <EmailsParagraph
+          size="body0"
           style={{
-            ...textBody0,
             display: 'inline-block',
-            fontWeight: 500,
             margin: 0,
             verticalAlign: 'middle',
-          }}>
+          }}
+          weight="medium">
           {title}
-        </Text>
+        </EmailsParagraph>
         {logos && logos.length > 0 && (
           <div
             style={{
@@ -341,35 +333,20 @@ function Card({ title, subtitle, logos }: CardProps) {
           </div>
         )}
       </div>
-      <Text
+      <EmailsParagraph
+        color="subtitle"
         style={{
-          ...paragraph,
-          color: '#3F3F46',
           marginTop: 8,
         }}>
         {subtitle}
-      </Text>
+      </EmailsParagraph>
     </Section>
   );
 }
 
-const textBody0 = {
-  color: '#18181B',
-  fontSize: 18,
-  lineHeight: '28px',
-  margin: 0,
-};
-
-const paragraph = {
-  color: '#18181B',
-  fontSize: 16,
-  lineHeight: '24px',
-  margin: 0,
-};
-
 const grayCard = {
-  background: '#FAFAFA',
-  border: '1px solid #E4E4E7',
+  background: '#fafafa',
+  border: '1px solid #e4e4e7',
   borderRadius: 8,
   display: 'block',
   padding: 16,
@@ -378,7 +355,7 @@ const grayCard = {
 
 const yellowCard = {
   background: 'rgba(255, 231, 20, 0.06)',
-  border: '1px solid #FFE714',
+  border: '1px solid #ffe714',
   borderRadius: 8,
   display: 'block',
   padding: 24,
@@ -423,14 +400,14 @@ const ITEM2 = [
     href: new URL('/questions', getSiteOrigin()).toString(),
     subtitle: (
       <div>
-        <Text style={paragraph}>
+        <EmailsParagraph>
           As your interview date approaches, focus on solving questions across
           the question formats—Coding, Quiz, and System Design questions.
-        </Text>
-        <Text style={{ ...paragraph, marginTop: 24 }}>
+        </EmailsParagraph>
+        <EmailsParagraph style={{ marginTop: 24 }}>
           If you need a prioritized list, we recommend starting with GFE 75 or
           one of our Study plans.
-        </Text>
+        </EmailsParagraph>
       </div>
     ),
     title: 'Coding, Quiz, System Design, GFE 75 and Study plans →',

@@ -6,6 +6,7 @@ export default function EmailsLink({ style, ...props }: Props) {
   return (
     <Link
       style={{
+        color: 'inherit',
         textDecoration: 'underline',
         ...style,
       }}

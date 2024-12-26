@@ -2,6 +2,7 @@ import {
   EmailsButton,
   EmailsFooter,
   EmailsHeader,
+  EmailsParagraph,
   EmailsStrong,
 } from '~/emails/components/EmailsComponents';
 import { containerStyle, mainStyle } from '~/emails/components/EmailsStyles';
@@ -15,7 +16,6 @@ import {
   Preview,
   Row,
   Section,
-  Text,
 } from '@react-email/components';
 
 type Props = Readonly<{
@@ -43,64 +43,61 @@ export default function EmailsTemplateCheckoutMultipleTimes({
             <Row>
               <Column align="center">
                 <Container style={couponCard}>
-                  <Text
+                  <EmailsParagraph
                     style={{
-                      color: '#18181B',
                       fontSize: 24,
-                      fontWeight: 600,
                       lineHeight: '32px',
-                    }}>
+                    }}
+                    weight="bold">
                     {coupon.percentOff}% OFF
-                  </Text>
+                  </EmailsParagraph>
                 </Container>
               </Column>
             </Row>
             <Row>
               <Column align="center">
                 <Container style={{ ...couponCode, marginTop: 16 }}>
-                  <Text
+                  <EmailsParagraph
+                    size="body3"
                     style={{
-                      color: '#18181B',
-                      fontSize: 12,
-                      fontWeight: 600,
-                      lineHeight: '16px',
                       margin: '4px 12px',
-                    }}>
+                    }}
+                    weight="bold">
                     Coupon code: {coupon.code}
-                  </Text>
+                  </EmailsParagraph>
                 </Container>
               </Column>
             </Row>
             <Row>
               <Column align="center">
-                <Text
+                <EmailsParagraph
+                  size="body2"
                   style={{
-                    color: '#18181B',
-                    fontSize: 14,
-                    fontWeight: 500,
-                    lineHeight: '24px',
                     marginTop: 8,
-                  }}>
+                  }}
+                  weight="medium">
                   Expires in: {coupon.expiryDays * 24} hours from email time
-                </Text>
+                </EmailsParagraph>
               </Column>
             </Row>
           </Section>
           <Section style={{ marginTop: 40 }}>
-            <Text style={paragraph}>Hi {name ?? 'there'},</Text>
-            <Text style={paragraph}>
+            <EmailsParagraph color="subtitle" defaultMargins={true}>
+              Hi {name ?? 'there'},
+            </EmailsParagraph>
+            <EmailsParagraph color="subtitle" defaultMargins={true}>
               We noticed you were so close to completing your purchase. To thank
               you for your interest, we're offering you a{' '}
               <EmailsStrong>{coupon.percentOff}% discount</EmailsStrong>. This
               is the <EmailsStrong>highest no-frills discount</EmailsStrong> we
               currently offer.
-            </Text>
-            <Text style={paragraph}>
+            </EmailsParagraph>
+            <EmailsParagraph color="subtitle" defaultMargins={true}>
               Use this promo code at checkout:{' '}
               <EmailsStrong>{coupon.code}</EmailsStrong>, but don't wait too
               long–this offer expires in{' '}
               <EmailsStrong>{coupon.expiryDays * 24} hours</EmailsStrong>!
-            </Text>
+            </EmailsParagraph>
           </Section>
           <Section style={{ marginTop: 40 }}>
             <Row>
@@ -117,16 +114,14 @@ export default function EmailsTemplateCheckoutMultipleTimes({
             </Row>
             <Row>
               <Column align="center">
-                <Text
+                <EmailsParagraph
+                  defaultMargins={true}
+                  size="body2"
                   style={{
-                    color: '#52525B',
-                    fontSize: 14,
-                    fontWeight: 500,
-                    lineHeight: '20px',
                     textAlign: 'center',
                   }}>
                   Apply the code to any plan you want, even lifetime!
-                </Text>
+                </EmailsParagraph>
               </Column>
             </Row>
           </Section>
@@ -136,12 +131,6 @@ export default function EmailsTemplateCheckoutMultipleTimes({
     </Html>
   );
 }
-
-const paragraph = {
-  color: '#3F3F46',
-  fontSize: 16,
-  lineHeight: '24px',
-};
 
 const couponCard = {
   backgroundImage:
