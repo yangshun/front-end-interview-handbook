@@ -74,7 +74,10 @@ export default function EmailsTemplateWelcomeSeriesImmediate(
             <EmailsHeading as="h2" level="heading2">
               Using any excess time
             </EmailsHeading>
-            <EmailsParagraph style={{ marginBottom: 32, marginTop: 48 }}>
+            <EmailsParagraph
+              size="body0"
+              style={{ marginBottom: 32, marginTop: 48 }}
+              weight="medium">
               Hone in specific topics you need the most practice
             </EmailsParagraph>
             {FOCUS_AREAS.map(({ name, logo, href }) => (
@@ -99,6 +102,7 @@ export default function EmailsTemplateWelcomeSeriesImmediate(
                     </Column>
                     <Column>
                       <EmailsParagraph
+                        size="body0"
                         style={{
                           marginLeft: 28,
                         }}
@@ -110,7 +114,10 @@ export default function EmailsTemplateWelcomeSeriesImmediate(
                 </Link>
               </Section>
             ))}
-            <EmailsParagraph style={{ marginBottom: 32, marginTop: 56 }}>
+            <EmailsParagraph
+              size="body0"
+              style={{ marginBottom: 32, marginTop: 56 }}
+              weight="medium">
               Revise your fundamentals with knowledge quizzes
             </EmailsParagraph>
             {QUIZ_TOPICS.map(({ name, logo, href }) => (
@@ -135,9 +142,11 @@ export default function EmailsTemplateWelcomeSeriesImmediate(
                     </Column>
                     <Column>
                       <EmailsParagraph
+                        size="body0"
                         style={{
                           marginLeft: 16,
-                        }}>
+                        }}
+                        weight="medium">
                         {name} →
                       </EmailsParagraph>
                     </Column>
@@ -151,7 +160,10 @@ export default function EmailsTemplateWelcomeSeriesImmediate(
             <EmailsHeading as="h2" level="heading2">
               More time-savers
             </EmailsHeading>
-            <EmailsParagraph style={{ marginTop: 48 }}>
+            <EmailsParagraph
+              size="body0"
+              style={{ marginTop: 48 }}
+              weight="medium">
               Our curated study plans optimize your preparation for any timeline
             </EmailsParagraph>
             <Img
@@ -160,7 +172,10 @@ export default function EmailsTemplateWelcomeSeriesImmediate(
               style={{ marginTop: 32 }}
               width="100%"
             />
-            <EmailsParagraph style={{ marginBottom: 32, marginTop: 56 }}>
+            <EmailsParagraph
+              size="body0"
+              style={{ marginBottom: 32, marginTop: 56 }}
+              weight="medium">
               Preparing for specific companies? Tackle their interview questions
             </EmailsParagraph>
             {Array.from({ length: Math.ceil(COMPANIES.length / 2) }, (_, i) =>
@@ -186,10 +201,11 @@ export default function EmailsTemplateWelcomeSeriesImmediate(
                         </Column>
                         <Column>
                           <EmailsParagraph
+                            size="body0"
                             style={{
-                              fontWeight: 500,
                               marginLeft: 16,
-                            }}>
+                            }}
+                            weight="medium">
                             {name} →
                           </EmailsParagraph>
                         </Column>

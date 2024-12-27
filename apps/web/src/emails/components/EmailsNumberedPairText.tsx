@@ -33,7 +33,7 @@ export default function EmailsNumberedPairText({
             paddingTop: 8,
           }}>
           <EmailsParagraph size="body0" weight="bold">
-            {title}
+            {title} →
           </EmailsParagraph>
           <EmailsParagraph style={{ marginTop: 4 }}>{subtitle}</EmailsParagraph>
         </Column>

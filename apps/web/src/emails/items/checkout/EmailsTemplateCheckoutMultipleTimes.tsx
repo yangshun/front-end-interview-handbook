@@ -13,6 +13,7 @@ import {
   Column,
   Container,
   Html,
+  Img,
   Preview,
   Row,
   Section,
@@ -42,16 +43,11 @@ export default function EmailsTemplateCheckoutMultipleTimes({
           <Section style={{ marginTop: 40 }}>
             <Row>
               <Column align="center">
-                <Container style={couponCard}>
-                  <EmailsParagraph
-                    style={{
-                      fontSize: 24,
-                      lineHeight: '32px',
-                    }}
-                    weight="bold">
-                    {coupon.percentOff}% OFF
-                  </EmailsParagraph>
-                </Container>
+                <Img
+                  height="80"
+                  src="https://bmygeefzuragewmbhlby.supabase.co/storage/v1/object/public/emails/discounts/ticket.png"
+                  width="170"
+                />
               </Column>
             </Row>
             <Row>
@@ -60,6 +56,7 @@ export default function EmailsTemplateCheckoutMultipleTimes({
                   <EmailsParagraph
                     size="body3"
                     style={{
+                      color: '#fff',
                       margin: '4px 12px',
                     }}
                     weight="bold">
@@ -132,16 +129,8 @@ export default function EmailsTemplateCheckoutMultipleTimes({
   );
 }
 
-const couponCard = {
-  backgroundImage:
-    'url(https://bmygeefzuragewmbhlby.supabase.co/storage/v1/object/public/emails/discounts/ticket.png)',
-  height: 80,
-  textAlign: 'center' as const,
-  width: 170,
-};
-
 const couponCode = {
-  backgroundColor: '#E3FE6F',
+  backgroundColor: '#016ffa',
   borderRadius: 4,
   display: 'block',
   width: 'fit-content',
