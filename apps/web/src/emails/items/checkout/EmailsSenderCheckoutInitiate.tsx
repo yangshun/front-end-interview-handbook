@@ -2,7 +2,7 @@ import 'server-only';
 
 import Stripe from 'stripe';
 
-import { sendReactEmailWithChecks } from '~/emails/mailjet/EmailsMailjetSender';
+import { sendReactEmailWithChecks } from '~/emails/mailjet/EmailsMailjetClient';
 import prisma from '~/server/prisma';
 
 import { EmailsItemConfigCheckoutFirstTime } from './EmailsItemConfigCheckoutFirstTime';

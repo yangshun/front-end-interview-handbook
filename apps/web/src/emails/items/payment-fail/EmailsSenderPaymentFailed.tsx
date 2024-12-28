@@ -1,6 +1,6 @@
 import 'server-only';
 
-import { sendReactEmailWithChecks } from '~/emails/mailjet/EmailsMailjetSender';
+import { sendReactEmailWithChecks } from '~/emails/mailjet/EmailsMailjetClient';
 
 import { EmailsItemConfigPaymentFailed } from './EmailsItemConfigPaymentFailed';
 

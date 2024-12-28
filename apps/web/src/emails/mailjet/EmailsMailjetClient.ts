@@ -115,5 +115,3 @@ async function sendEmail({
     throw error;
   }
 }
-
-export { renderEmail };

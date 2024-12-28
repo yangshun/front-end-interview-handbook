@@ -1,6 +1,6 @@
 import 'server-only';
 
-import { sendReactEmailWithChecks } from '~/emails/mailjet/EmailsMailjetSender';
+import { sendReactEmailWithChecks } from '~/emails/mailjet/EmailsMailjetClient';
 
 import { EmailsItemConfigWelcomeSeriesAfter24Hours } from './EmailsItemConfigWelcomeSeriesAfter24Hours';
 import { EmailsItemConfigWelcomeSeriesImmediate } from './EmailsItemConfigWelcomeSeriesImmediate';

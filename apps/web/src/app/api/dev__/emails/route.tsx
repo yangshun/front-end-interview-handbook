@@ -1,7 +1,7 @@
 import { type NextRequest, NextResponse } from 'next/server';
 
 import { EmailsItemConfigs } from '~/emails/items/EmailItemConfigs';
-import { sendReactEmail } from '~/emails/mailjet/EmailsMailjetSender';
+import { sendReactEmail } from '~/emails/mailjet/EmailsMailjetClient';
 import { getErrorMessage } from '~/utils/getErrorMessage';
 
 /**
