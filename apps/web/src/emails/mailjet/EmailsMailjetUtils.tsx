@@ -49,9 +49,11 @@ export async function sendEmailItemWithChecks<Component extends React.FC<any>>(
 
     const { props, config } = emailItemConfig;
 
+    const canBeUnsubscribed = config.contactListKey != null;
+
     // User has unsubscribed from the contact list this email belongs to
     if (
-      config.contactListKey != null &&
+      canBeUnsubscribed &&
       (await emailIsUnsubscribedFromContactList({
         email: recipient.email,
         emailContactListKey: config.contactListKey,
@@ -63,7 +65,22 @@ export async function sendEmailItemWithChecks<Component extends React.FC<any>>(
     const EmailComponent = config.component;
 
     const result = await sendReactEmail({
-      emailElement: <EmailComponent {...props} />,
+      emailElement: (
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        <EmailComponent
+          {...props}
+          unsub={
+            canBeUnsubscribed
+              ? {
+                  email: recipient.email,
+                  hash: '123456', // TODO(emails): compute hash
+                  list: config.contactListKey,
+                }
+              : undefined
+          }
+        />
+      ),
       from: config.from,
       replyTo: config.replyTo,
       subject: config.subject(props),

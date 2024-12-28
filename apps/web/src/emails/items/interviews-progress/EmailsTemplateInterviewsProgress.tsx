@@ -8,6 +8,7 @@ import {
   EmailsStrong,
 } from '~/emails/components/EmailsComponents';
 import { containerStyle, mainStyle } from '~/emails/components/EmailsStyles';
+import type { EmailsUnsubscribeFields } from '~/emails/EmailsTypes';
 import { getSiteOrigin } from '~/seo/siteUrl';
 
 import {
@@ -22,9 +23,11 @@ import {
   Section,
 } from '@react-email/components';
 
-export default function EmailsTemplateInterviewsProgress(
-  _props: Record<string, never>,
-) {
+type Props = Readonly<{
+  unsub: EmailsUnsubscribeFields;
+}>;
+
+export default function EmailsTemplateInterviewsProgress({ unsub }: Props) {
   return (
     <Html lang="en">
       <Preview>Incredible deals you'll want to check out today</Preview>
@@ -193,7 +196,7 @@ export default function EmailsTemplateInterviewsProgress(
               Get Premium now →
             </EmailsButton>
           </Section>
-          <EmailsFooter />
+          <EmailsFooter unsub={unsub} />
         </Container>
       </Body>
     </Html>

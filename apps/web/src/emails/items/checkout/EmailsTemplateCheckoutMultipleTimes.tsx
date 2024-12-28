@@ -6,6 +6,7 @@ import {
   EmailsStrong,
 } from '~/emails/components/EmailsComponents';
 import { containerStyle, mainStyle } from '~/emails/components/EmailsStyles';
+import type { EmailsUnsubscribeFields } from '~/emails/EmailsTypes';
 import { getSiteOrigin } from '~/seo/siteUrl';
 
 import {
@@ -26,11 +27,13 @@ type Props = Readonly<{
     percentOff: number;
   }>;
   name: string | null;
+  unsub: EmailsUnsubscribeFields;
 }>;
 
 export default function EmailsTemplateCheckoutMultipleTimes({
   name,
   coupon,
+  unsub,
 }: Props) {
   return (
     <Html lang="en">
@@ -122,7 +125,7 @@ export default function EmailsTemplateCheckoutMultipleTimes({
               </Column>
             </Row>
           </Section>
-          <EmailsFooter />
+          <EmailsFooter unsub={unsub} />
         </Container>
       </Body>
     </Html>

@@ -9,6 +9,7 @@ import {
   EmailsStrong,
 } from '~/emails/components/EmailsComponents';
 import { containerStyle, mainStyle } from '~/emails/components/EmailsStyles';
+import type { EmailsUnsubscribeFields } from '~/emails/EmailsTypes';
 import { getSiteOrigin } from '~/seo/siteUrl';
 
 import {
@@ -598,9 +599,13 @@ function ShoaibAhmed() {
   );
 }
 
-export default function EmailsTemplateWelcomeSeriesAfter24Hours(
-  _props: Record<string, never>,
-) {
+type Props = Readonly<{
+  unsub: EmailsUnsubscribeFields;
+}>;
+
+export default function EmailsTemplateWelcomeSeriesAfter24Hours({
+  unsub,
+}: Props) {
   return (
     <Html lang="en">
       <Head>
@@ -656,7 +661,7 @@ export default function EmailsTemplateWelcomeSeriesAfter24Hours(
           <Section style={{ marginTop: 64 }}>
             <ShoaibAhmed />
           </Section>
-          <EmailsFooter />
+          <EmailsFooter unsub={unsub} />
         </Container>
       </Body>
     </Html>

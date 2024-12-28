@@ -10,6 +10,7 @@ import {
 import EmailsHr from '~/emails/components/EmailsHr';
 import EmailsParagraph from '~/emails/components/EmailsParagraph';
 import { containerStyle, mainStyle } from '~/emails/components/EmailsStyles';
+import type { EmailsUnsubscribeFields } from '~/emails/EmailsTypes';
 import { getSiteOrigin } from '~/seo/siteUrl';
 
 import {
@@ -25,9 +26,11 @@ import {
   Section,
 } from '@react-email/components';
 
-export default function EmailsTemplateWelcomeSeriesImmediate(
-  _props: Record<string, never>,
-) {
+type Props = Readonly<{
+  unsub: EmailsUnsubscribeFields;
+}>;
+
+export default function EmailsTemplateWelcomeSeriesImmediate({ unsub }: Props) {
   return (
     <Html lang="en">
       <Head>
@@ -238,7 +241,7 @@ export default function EmailsTemplateWelcomeSeriesImmediate(
               width="100%"
             />
           </Section>
-          <EmailsFooter />
+          <EmailsFooter unsub={unsub} />
         </Container>
       </Body>
     </Html>

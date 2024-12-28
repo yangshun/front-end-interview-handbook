@@ -6,19 +6,22 @@ import {
   EmailsParagraph,
 } from '~/emails/components/EmailsComponents';
 import { containerStyle, mainStyle } from '~/emails/components/EmailsStyles';
+import type { EmailsUnsubscribeFields } from '~/emails/EmailsTypes';
 
 import { Body, Container, Html, Section } from '@react-email/components';
 
 type Props = Readonly<{
   countryCode: string | null;
   name: string | null;
+  unsub: EmailsUnsubscribeFields;
 }>;
 
 const popularCountries = ['US', 'IN', 'CA', 'SG', 'GB', 'DE', 'TW'];
 
 export default function EmailsTemplateCheckoutFirstTime({
-  name,
   countryCode,
+  name,
+  unsub,
 }: Props) {
   return (
     <Html lang="en">
@@ -82,7 +85,7 @@ export default function EmailsTemplateCheckoutFirstTime({
               Yangshun from GreatFrontEnd
             </EmailsParagraph>
           </Section>
-          <EmailsFooter />
+          <EmailsFooter unsub={unsub} />
         </Container>
       </Body>
     </Html>

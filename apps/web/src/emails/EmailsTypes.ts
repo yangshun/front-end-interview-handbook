@@ -9,13 +9,18 @@ export type EmailKey =
   | 'PAYMENT_FAILED';
 
 export type EmailContactListKey =
-  'ANNOUNCEMENTS' | 'FEEDBACK' | 'INTERVIEWS_TIPS' | 'MARKETING' | 'NEWSLETTER' | 'PROMOTIONS';
+  | 'ANNOUNCEMENTS'
+  | 'FEEDBACK'
+  | 'INTERVIEWS_TIPS'
+  | 'MARKETING'
+  | 'NEWSLETTER'
+  | 'PROMOTIONS';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type EmailItemConfig<Component extends React.FC<any>> = Readonly<{
   component: Component;
   contactListKey?: EmailContactListKey;
-  defaultProps: React.ComponentProps<Component>;
+  defaultProps: Omit<React.ComponentProps<Component>, 'unsub'>;
   from: {
     email: string;
     name: string;
@@ -25,5 +30,11 @@ export type EmailItemConfig<Component extends React.FC<any>> = Readonly<{
     email: string;
     name?: string;
   };
-  subject: (props: React.ComponentProps<Component>) => string;
+  subject: (props: Omit<React.ComponentProps<Component>, 'unsub'>) => string;
+}>;
+
+export type EmailsUnsubscribeFields = Readonly<{
+  email: string;
+  hash: string;
+  list: EmailContactListKey;
 }>;
