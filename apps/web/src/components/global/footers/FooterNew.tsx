@@ -140,8 +140,8 @@ export default function Footer({ navigation }: Props) {
     data: submitMessage,
     isLoading,
     failureReason,
-    mutate: signUpWithEmail,
-  } = trpc.marketing.signUpWithEmail.useMutation();
+    mutate: signUpForNewsletter,
+  } = trpc.emails.signUpForNewsletter.useMutation();
 
   const copyrightStatement = (
     <Text className="block" color="secondary" size="body2">
@@ -207,7 +207,9 @@ export default function Footer({ navigation }: Props) {
                         event.target as HTMLFormElement,
                       );
 
-                      signUpWithEmail({ email: data.get('email') as string });
+                      signUpForNewsletter({
+                        email: data.get('email') as string,
+                      });
                     }}>
                     <TextInput
                       autoComplete="email"

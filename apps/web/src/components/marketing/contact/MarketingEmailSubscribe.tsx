@@ -111,8 +111,8 @@ export default function MarketingEmailSubscribe() {
     data: submitMessage,
     isLoading,
     failureReason,
-    mutate: signUpWithEmail,
-  } = trpc.marketing.signUpWithEmail.useMutation();
+    mutate: signUpForNewsletter,
+  } = trpc.emails.signUpForNewsletter.useMutation();
 
   const content = (
     <div className="relative isolate flex flex-col justify-center gap-y-8 overflow-hidden px-4 py-6 md:gap-y-12 lg:min-h-[400px] lg:rounded-[48px] lg:p-20">
@@ -151,7 +151,7 @@ export default function MarketingEmailSubscribe() {
 
             const data = new FormData(event.target as HTMLFormElement);
 
-            signUpWithEmail({ email: data.get('email') as string });
+            signUpForNewsletter({ email: data.get('email') as string });
           }}>
           <div className="min-w-0 grow">
             <TextInput

@@ -12,7 +12,7 @@ import { renderEmail } from '../render/EmailsRender';
 
 import type { SetCommandOptions } from '@upstash/redis';
 
-function MailjetClient() {
+export function MailjetClient() {
   return new Client({
     apiKey: process.env.MAILJET_API_KEY,
     apiSecret: process.env.MAILJET_SECRET_KEY,

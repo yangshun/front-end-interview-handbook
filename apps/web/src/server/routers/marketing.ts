@@ -1,12 +1,8 @@
 import { subHours } from 'date-fns';
-import { z } from 'zod';
-
-import prisma from '~/server/prisma';
 
 import { publicProcedure, router } from '../trpc';
 
 import { Axiom } from '@axiomhq/js';
-import { Prisma } from '@prisma/client';
 
 const TIME_DIFF_IN_HOURS = 2;
 
@@ -28,33 +24,4 @@ export const marketingRouter = router({
 
     return onlineUsers ?? 0;
   }),
-  signUpWithEmail: publicProcedure
-    .input(
-      z.object({
-        email: z.string().email('Email is invalid'),
-      }),
-    )
-    .mutation(async ({ input: { email } }) => {
-      try {
-        await prisma.emailSubscriber.create({
-          data: {
-            email,
-          },
-        });
-      } catch (error) {
-        if (error instanceof Prisma.PrismaClientKnownRequestError) {
-          // Unique constraint error, which is fine for us as
-          // it'll be a no-op.
-          if (error.code === 'P2002') {
-            return 'Subscribed successfully!';
-          }
-
-          return error.message;
-        }
-
-        throw error;
-      }
-
-      return 'Subscribed successfully!';
-    }),
 });

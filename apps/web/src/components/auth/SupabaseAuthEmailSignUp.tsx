@@ -34,8 +34,8 @@ export default function SupabaseAuthEmailSignUp({
   const [message, setMessage] = useState<string | null>(null);
   const [signUpForMarketingEmails, setSignUpForMarketingEmails] =
     useState(true);
-  const { mutate: signUpWithEmail } =
-    trpc.marketing.signUpWithEmail.useMutation();
+  const { mutate: signUpForNewsletter } =
+    trpc.emails.signUpForNewsletter.useMutation();
   const intl = useIntl();
   const router = useI18nRouter();
   const scheduleWelcomeSeriesEmailMutation =
@@ -94,7 +94,7 @@ export default function SupabaseAuthEmailSignUp({
     }
 
     if (signUpForMarketingEmails) {
-      signUpWithEmail({
+      signUpForNewsletter({
         email,
       });
     }
