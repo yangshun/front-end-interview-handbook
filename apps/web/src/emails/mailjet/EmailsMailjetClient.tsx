@@ -41,24 +41,26 @@ export async function sendEmailItemWithChecks<Component extends React.FC<any>>(
     const sendStatus = new EmailsSendStatus(emailItemConfig.config.id, userId);
 
     if (await sendStatus.isSent()) {
-      return;
+      return { reason: 'SENT_BEFORE', sent: false };
     }
 
     const { props, config } = emailItemConfig;
 
     const EmailComponent = config.component;
 
-    await sendReactEmail({
+    const result = await sendReactEmail({
       emailElement: <EmailComponent {...props} />,
       from: config.from,
       replyTo: config.replyTo,
       subject: config.subject(props),
       to: recipient,
     });
+
     await sendStatus.markAsSent(redis?.opts);
+
+    return { result, sent: true };
   } catch (error) {
-    console.error('Error sending email:', error);
-    throw error;
+    return { error: getErrorMessage(error), reason: 'ERROR', sent: false };
   }
 }
 

@@ -5,11 +5,7 @@ import { sendReactEmail } from '~/emails/mailjet/EmailsMailjetClient';
 import { getErrorMessage } from '~/utils/getErrorMessage';
 
 /**
- * This route is only meant to be called by QStash for
- * sending out scheduled emails.
- *
- * It should not be called directly by browsers and
- * exposed to public.
+ * This route is only meant for development purposes
  */
 export async function POST(req: NextRequest) {
   if (process.env.NEXT_PUBLIC_VERCEL_ENV === 'production') {
@@ -47,7 +43,7 @@ export async function POST(req: NextRequest) {
       },
     });
 
-    return NextResponse.json({ result, success: true });
+    return NextResponse.json(result);
   } catch (error) {
     return NextResponse.json(
       { error: getErrorMessage(error) },

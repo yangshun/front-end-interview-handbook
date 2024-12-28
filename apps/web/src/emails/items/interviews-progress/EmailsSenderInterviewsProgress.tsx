@@ -2,6 +2,7 @@ import 'server-only';
 
 import { sendEmailItemWithChecks } from '~/emails/mailjet/EmailsMailjetClient';
 import prisma from '~/server/prisma';
+import { getErrorMessage } from '~/utils/getErrorMessage';
 
 import { EmailsItemConfigInterviewsProgress } from './EmailsItemConfigInterviewsProgress';
 
@@ -25,10 +26,10 @@ export async function sendInterviewsProgressEmail({
     });
 
     if (profile?.premium) {
-      return;
+      return { reason: 'PREMIUM_USER', sent: false };
     }
 
-    await sendEmailItemWithChecks(
+    return await sendEmailItemWithChecks(
       {
         email,
         name,
@@ -42,7 +43,6 @@ export async function sendInterviewsProgressEmail({
       },
     );
   } catch (error) {
-    console.error('Error sending email:', error);
-    throw error;
+    return { error: getErrorMessage(error), reason: 'ERROR', sent: false };
   }
 }

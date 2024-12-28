@@ -15,27 +15,22 @@ export default async function sendPaymentFailedEmail({
   name: string | null;
   userId: string;
 }>) {
-  try {
-    await sendEmailItemWithChecks(
-      {
-        email,
-        name,
+  return await sendEmailItemWithChecks(
+    {
+      email,
+      name,
+    },
+    {
+      emailItemConfig: {
+        config: EmailsItemConfigPaymentFailed,
+        props: { name },
       },
-      {
-        emailItemConfig: {
-          config: EmailsItemConfigPaymentFailed,
-          props: { name },
+      redis: {
+        opts: {
+          ex: THIRTY_DAYS_IN_SECS,
         },
-        redis: {
-          opts: {
-            ex: THIRTY_DAYS_IN_SECS,
-          },
-        },
-        userId,
       },
-    );
-  } catch (error) {
-    console.error('Error sending email:', error);
-    throw error;
-  }
+      userId,
+    },
+  );
 }

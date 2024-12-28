@@ -66,50 +66,55 @@ export async function POST(req: NextRequest) {
     const name = profile?.name ?? null;
 
     switch (emailKey) {
-      case 'INTERVIEWS_WELCOME_EMAIL_IMMEDIATE':
-        await sendWelcomeEmailImmediate({
+      case 'INTERVIEWS_WELCOME_EMAIL_IMMEDIATE': {
+        const result = await sendWelcomeEmailImmediate({
           email,
           name,
           userId,
         });
-        break;
-      case 'INTERVIEWS_WELCOME_EMAIL_24_HOURS':
-        await sendWelcomeEmailAfter24Hours({
+
+        return NextResponse.json(result);
+      }
+      case 'INTERVIEWS_WELCOME_EMAIL_24_HOURS': {
+        const result = await sendWelcomeEmailAfter24Hours({
           email,
           name,
           userId,
         });
-        break;
-      case 'INTERVIEWS_CHECKOUT_FIRST_TIME':
-        await sendInitiateCheckoutFirstTimeEmail({
+
+        return NextResponse.json(result);
+      }
+      case 'INTERVIEWS_CHECKOUT_FIRST_TIME': {
+        const result = await sendInitiateCheckoutFirstTimeEmail({
           countryCode,
           email,
           name,
           userId,
         });
-        break;
-      case 'INTERVIEWS_CHECKOUT_MULTIPLE_TIMES':
-        await sendInitiateCheckoutMultipleTimesEmail({
-          email,
-          name,
-          userId,
-        });
-        break;
-      case 'INTERVIEWS_PROGRESS':
-        await sendInterviewsProgressEmail({
-          email,
-          name,
-          userId,
-        });
-        break;
-      default:
-        return NextResponse.json(
-          { error: `Invalid email key '${emailKey}'` },
-          { status: 400 },
-        );
-    }
 
-    return NextResponse.json({ success: true });
+        return NextResponse.json(result);
+      }
+      case 'INTERVIEWS_CHECKOUT_MULTIPLE_TIMES': {
+        const result = await sendInitiateCheckoutMultipleTimesEmail({
+          email,
+          name,
+          userId,
+        });
+
+        return NextResponse.json(result);
+      }
+      case 'INTERVIEWS_PROGRESS': {
+        const result = await sendInterviewsProgressEmail({
+          email,
+          name,
+          userId,
+        });
+
+        return NextResponse.json(result);
+      }
+      default:
+        return NextResponse.json({ error: `Invalid email key '${emailKey}'` });
+    }
   } catch (error) {
     return NextResponse.json(
       { error: getErrorMessage(error) },

@@ -14,7 +14,7 @@ export async function sendWelcomeEmailImmediate({
   name: string | null;
   userId: string;
 }>) {
-  await sendEmailItemWithChecks(
+  return await sendEmailItemWithChecks(
     {
       email,
       name,
@@ -38,22 +38,17 @@ export async function sendWelcomeEmailAfter24Hours({
   name: string | null;
   userId: string;
 }>) {
-  try {
-    await sendEmailItemWithChecks(
-      {
-        email,
-        name,
+  return await sendEmailItemWithChecks(
+    {
+      email,
+      name,
+    },
+    {
+      emailItemConfig: {
+        config: EmailsItemConfigWelcomeSeriesAfter24Hours,
+        props: {},
       },
-      {
-        emailItemConfig: {
-          config: EmailsItemConfigWelcomeSeriesAfter24Hours,
-          props: {},
-        },
-        userId,
-      },
-    );
-  } catch (error) {
-    console.error('Error sending email:', error);
-    throw error;
-  }
+      userId,
+    },
+  );
 }

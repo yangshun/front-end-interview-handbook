@@ -4,6 +4,7 @@ import Stripe from 'stripe';
 
 import { sendEmailItemWithChecks } from '~/emails/mailjet/EmailsMailjetClient';
 import prisma from '~/server/prisma';
+import { getErrorMessage } from '~/utils/getErrorMessage';
 
 import { EmailsItemConfigCheckoutFirstTime } from './EmailsItemConfigCheckoutFirstTime';
 import { EmailsItemConfigCheckoutMultipleTimes } from './EmailsItemConfigCheckoutMultipleTimes';
@@ -25,24 +26,19 @@ export async function sendInitiateCheckoutFirstTimeEmail({
 }>) {
   const props = { countryCode, name };
 
-  try {
-    await sendEmailItemWithChecks(
-      {
-        email,
-        name,
+  return await sendEmailItemWithChecks(
+    {
+      email,
+      name,
+    },
+    {
+      emailItemConfig: {
+        config: EmailsItemConfigCheckoutFirstTime,
+        props,
       },
-      {
-        emailItemConfig: {
-          config: EmailsItemConfigCheckoutFirstTime,
-          props,
-        },
-        userId,
-      },
-    );
-  } catch (error) {
-    console.error('Error sending email:', error);
-    throw error;
-  }
+      userId,
+    },
+  );
 }
 
 export async function sendInitiateCheckoutMultipleTimesEmail({
@@ -70,7 +66,7 @@ export async function sendInitiateCheckoutMultipleTimesEmail({
     }
 
     if (profile.premium) {
-      return;
+      return { reason: 'PREMIUM_USER', sent: false };
     }
 
     const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
@@ -117,7 +113,7 @@ export async function sendInitiateCheckoutMultipleTimesEmail({
       name,
     };
 
-    await sendEmailItemWithChecks(
+    return await sendEmailItemWithChecks(
       {
         email,
         name,
@@ -137,7 +133,6 @@ export async function sendInitiateCheckoutMultipleTimesEmail({
       },
     );
   } catch (error) {
-    console.error('Error sending email:', error);
-    throw error;
+    return { error: getErrorMessage(error), reason: 'ERROR', sent: false };
   }
 }
