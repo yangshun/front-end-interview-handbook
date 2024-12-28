@@ -62,10 +62,10 @@ export default function EmailsPreviewPage({ emailKey, html, text }: Props) {
 
   async function renderPreviewEmail(
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    emailConfig_: EmailItemConfig<React.FC<any>>,
+    emailItemConfig_: EmailItemConfig<React.FC<any>>,
   ) {
-    const Component = emailConfig_?.component;
-    const props = emailConfig_.defaultProps;
+    const Component = emailItemConfig_?.component;
+    const props = emailItemConfig_.defaultProps;
 
     setEmailContents(await renderEmail(<Component {...props} />));
     setEmailProps(props);
@@ -73,11 +73,11 @@ export default function EmailsPreviewPage({ emailKey, html, text }: Props) {
 
   async function updatePreviewEmail(
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    emailConfig_: EmailItemConfig<React.FC<any>>,
+    emailItemConfig_: EmailItemConfig<React.FC<any>>,
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     emailProps_: any,
   ) {
-    const Component = emailConfig_.component;
+    const Component = emailItemConfig_.component;
 
     setEmailContents(await renderEmail(<Component {...emailProps_} />));
   }

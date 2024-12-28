@@ -23,23 +23,24 @@ export async function POST(req: NextRequest) {
     const request = await req.json();
     const { emailKey, email, name, props } = request;
 
-    const emailConfig = EmailsItemConfigs.find(
+    const emailItemConfig = EmailsItemConfigs.find(
       (itemConfig) => itemConfig.id === emailKey,
     );
 
-    if (emailConfig == null) {
+    if (emailItemConfig == null) {
       return NextResponse.json(
         { error: `No email config found for emailKey '${emailKey}'` },
         { status: 500 },
       );
     }
 
-    const Component = emailConfig.component;
+    const Component = emailItemConfig.component;
+    const emailElement = <Component {...props} />;
 
     const result = await sendReactEmail({
-      component: <Component {...props} />,
-      from: emailConfig.from,
-      subject: emailConfig.subject(props),
+      emailElement,
+      from: emailItemConfig.from,
+      subject: emailItemConfig.subject(props),
       to: {
         email,
         name,

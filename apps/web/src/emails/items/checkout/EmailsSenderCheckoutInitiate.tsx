@@ -27,15 +27,16 @@ export async function sendInitiateCheckoutFirstTimeEmail({
 
   try {
     await sendReactEmailWithChecks(
-      { emailKey: EmailsItemConfigCheckoutFirstTime.id, userId },
       {
-        component: <EmailsItemConfigCheckoutFirstTime.component {...props} />,
-        from: EmailsItemConfigCheckoutFirstTime.from,
+        emailItemConfig: EmailsItemConfigCheckoutFirstTime,
+        emailItemConfigProps: props,
+        userId,
+      },
+      {
         replyTo: {
           email: 'yangshun@greatfrontend.com',
           name: 'Yangshun Tay',
         },
-        subject: EmailsItemConfigCheckoutFirstTime.subject(props),
         to: {
           email,
           name,
@@ -122,7 +123,8 @@ export async function sendInitiateCheckoutMultipleTimesEmail({
 
     await sendReactEmailWithChecks(
       {
-        emailKey: 'INTERVIEWS_CHECKOUT_MULTIPLE_TIMES',
+        emailItemConfig: EmailsItemConfigCheckoutMultipleTimes,
+        emailItemConfigProps: props,
         opts: {
           // Expire this after 6 months so that we can resend this email again
           ex: SIX_MONTHS_IN_SECS,
@@ -130,11 +132,6 @@ export async function sendInitiateCheckoutMultipleTimesEmail({
         userId,
       },
       {
-        component: (
-          <EmailsItemConfigCheckoutMultipleTimes.component {...props} />
-        ),
-        from: EmailsItemConfigCheckoutMultipleTimes.from,
-        subject: EmailsItemConfigCheckoutMultipleTimes.subject(props),
         to: {
           email,
           name,

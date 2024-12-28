@@ -1,10 +1,11 @@
 import 'server-only';
 
 import { Client, type LibraryResponse, type SendEmailV3_1 } from 'node-mailjet';
+import React from 'react';
 
 import EmailsSendStatus from '~/emails/EmailsSendStatus';
 
-import type { EmailKey } from '../EmailsTypes';
+import type { EmailItemConfig } from '../EmailsTypes';
 import { renderEmail } from '../render/EmailsRender';
 
 import type { SetCommandOptions } from '@upstash/redis';
@@ -25,22 +26,39 @@ type EmailAttributes = Readonly<{
   };
 }>;
 
-export async function sendReactEmailWithChecks(
+export async function sendReactEmailWithChecks<Component extends React.FC<any>>(
   {
-    emailKey,
+    emailItemConfig,
     userId,
+    emailItemConfigProps,
     opts,
-  }: { emailKey: EmailKey; opts?: SetCommandOptions; userId: string },
-  emailProps: Parameters<typeof sendReactEmail>[0],
+  }: {
+    emailItemConfig: EmailItemConfig<Component>;
+    emailItemConfigProps: EmailItemConfig<Component>['defaultProps'];
+    opts?: SetCommandOptions;
+    userId: string;
+  },
+  emailProps: Omit<
+    Parameters<typeof sendReactEmail>[0],
+    'emailElement' | 'from' | 'subject'
+  >,
 ) {
   try {
-    const sendStatus = new EmailsSendStatus(emailKey, userId);
+    const sendStatus = new EmailsSendStatus(emailItemConfig.id, userId);
 
     if (await sendStatus.isSent()) {
       return;
     }
 
-    await sendReactEmail(emailProps);
+    const EmailComponent = emailItemConfig.component;
+    const emailElement = <EmailComponent {...emailItemConfigProps} />;
+
+    await sendReactEmail({
+      emailElement,
+      from: emailItemConfig.from,
+      subject: emailItemConfig.subject(emailItemConfigProps),
+      ...emailProps,
+    });
     await sendStatus.markAsSent(opts);
   } catch (error) {
     console.error('Error sending email:', error);
@@ -49,13 +67,13 @@ export async function sendReactEmailWithChecks(
 }
 
 export async function sendReactEmail({
-  component,
+  emailElement,
   ...attrs
 }: EmailAttributes &
   Readonly<{
-    component: JSX.Element;
+    emailElement: JSX.Element;
   }>) {
-  const { html, text } = await renderEmail(component);
+  const { html, text } = await renderEmail(emailElement);
 
   return sendEmail({ ...attrs, body: { html, text } });
 }

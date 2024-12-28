@@ -18,16 +18,14 @@ export default async function sendPaymentFailedEmail({
   try {
     await sendReactEmailWithChecks(
       {
-        emailKey: EmailsItemConfigPaymentFailed.id,
+        emailItemConfig: EmailsItemConfigPaymentFailed,
+        emailItemConfigProps: { name },
         opts: {
           ex: THIRTY_DAYS_IN_SECS,
         },
         userId,
       },
       {
-        component: <EmailsItemConfigPaymentFailed.component name={name} />,
-        from: EmailsItemConfigPaymentFailed.from,
-        subject: EmailsItemConfigPaymentFailed.subject({ name }),
         to: {
           email,
           name,

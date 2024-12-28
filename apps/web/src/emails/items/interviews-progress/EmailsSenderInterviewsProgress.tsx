@@ -29,11 +29,12 @@ export async function sendInterviewsProgressEmail({
     }
 
     await sendReactEmailWithChecks(
-      { emailKey: EmailsItemConfigInterviewsProgress.id, userId },
       {
-        component: <EmailsItemConfigInterviewsProgress.component />,
-        from: EmailsItemConfigInterviewsProgress.from,
-        subject: EmailsItemConfigInterviewsProgress.subject({}),
+        emailItemConfig: EmailsItemConfigInterviewsProgress,
+        emailItemConfigProps: {},
+        userId,
+      },
+      {
         to: {
           email,
           name,

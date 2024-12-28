@@ -15,11 +15,12 @@ export async function sendWelcomeEmailImmediate({
   userId: string;
 }>) {
   await sendReactEmailWithChecks(
-    { emailKey: EmailsItemConfigWelcomeSeriesImmediate.id, userId },
     {
-      component: <EmailsItemConfigWelcomeSeriesImmediate.component />,
-      from: EmailsItemConfigWelcomeSeriesImmediate.from,
-      subject: EmailsItemConfigWelcomeSeriesImmediate.subject({}),
+      emailItemConfig: EmailsItemConfigWelcomeSeriesImmediate,
+      emailItemConfigProps: {},
+      userId,
+    },
+    {
       to: {
         email,
         name,
@@ -39,11 +40,12 @@ export async function sendWelcomeEmailAfter24Hours({
 }>) {
   try {
     await sendReactEmailWithChecks(
-      { emailKey: EmailsItemConfigWelcomeSeriesAfter24Hours.id, userId },
       {
-        component: <EmailsItemConfigWelcomeSeriesAfter24Hours.component />,
-        from: EmailsItemConfigWelcomeSeriesAfter24Hours.from,
-        subject: EmailsItemConfigWelcomeSeriesAfter24Hours.subject({}),
+        emailItemConfig: EmailsItemConfigWelcomeSeriesAfter24Hours,
+        emailItemConfigProps: {},
+        userId,
+      },
+      {
         to: {
           email,
           name,
