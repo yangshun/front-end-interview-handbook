@@ -1,4 +1,4 @@
-import type { ContactSubscription } from 'node-mailjet';
+import type { Contact, ContactSubscription } from 'node-mailjet';
 import { type LibraryResponse, type SendEmailV3_1 } from 'node-mailjet';
 import React from 'react';
 
@@ -18,7 +18,10 @@ import type { SetCommandOptions } from '@upstash/redis';
  *
  * Performs the following checks first:
  * - User has received the same email before
- * - User has unsubscribed from the associated contact list
+ * - User was added to the exclusion list or has unsubscribed from the associated contact list
+ *
+ * Do not use this function for emails that MUST be delivered,
+ * such as password reset and privacy policy changes
  */
 export async function sendEmailItemWithChecks<Component extends React.FC<any>>(
   recipient: Readonly<{
@@ -52,14 +55,22 @@ export async function sendEmailItemWithChecks<Component extends React.FC<any>>(
     const canBeUnsubscribed = config.contactListKey != null;
 
     // User has unsubscribed from the contact list this email belongs to
-    if (
-      canBeUnsubscribed &&
-      (await emailIsUnsubscribedFromContactList({
-        email: recipient.email,
-        emailContactListKey: config.contactListKey,
-      }))
-    ) {
-      return { reason: 'UNSUBSCRIBED', sent: false };
+    if (canBeUnsubscribed) {
+      const [excludedFromCampaigns, unsubscribed] = await Promise.all([
+        emailIsExcludedFromCampaigns(recipient.email),
+        emailIsUnsubscribedFromContactList({
+          email: recipient.email,
+          emailContactListKey: config.contactListKey,
+        }),
+      ]);
+
+      if (excludedFromCampaigns) {
+        return { reason: 'EXCLUSION_LIST', sent: false };
+      }
+
+      if (unsubscribed) {
+        return { reason: 'UNSUBSCRIBED', sent: false };
+      }
     }
 
     const EmailComponent = config.component;
@@ -177,6 +188,21 @@ async function sendEmail_NO_CHECKS({
   } catch (error) {
     console.error('Error sending email:', error);
     throw error;
+  }
+}
+
+export async function emailIsExcludedFromCampaigns(
+  email: string,
+): Promise<boolean> {
+  const mailjetClient = MailjetClient();
+
+  try {
+    const result: LibraryResponse<Contact.GetContactResponse> =
+      await mailjetClient.get('contact', { version: 'v3' }).id(email).request();
+
+    return result.body.Data[0].IsExcludedFromCampaigns;
+  } catch (error) {
+    return false;
   }
 }
 
