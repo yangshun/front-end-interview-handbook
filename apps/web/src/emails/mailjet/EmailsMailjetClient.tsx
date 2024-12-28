@@ -56,6 +56,7 @@ export async function sendReactEmailWithChecks<Component extends React.FC<any>>(
     await sendReactEmail({
       emailElement,
       from: emailItemConfig.from,
+      replyTo: emailItemConfig.replyTo,
       subject: emailItemConfig.subject(emailItemConfigProps),
       ...emailProps,
     });

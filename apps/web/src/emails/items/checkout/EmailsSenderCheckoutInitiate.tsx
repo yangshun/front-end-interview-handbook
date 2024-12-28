@@ -33,10 +33,6 @@ export async function sendInitiateCheckoutFirstTimeEmail({
         userId,
       },
       {
-        replyTo: {
-          email: 'yangshun@greatfrontend.com',
-          name: 'Yangshun Tay',
-        },
         to: {
           email,
           name,

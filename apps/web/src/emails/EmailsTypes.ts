@@ -17,5 +17,9 @@ export type EmailItemConfig<Component extends React.FC<any>> = Readonly<{
     name: string;
   };
   id: EmailKey;
+  replyTo?: {
+    email: string;
+    name?: string;
+  };
   subject: (props: React.ComponentProps<Component>) => string;
 }>;
