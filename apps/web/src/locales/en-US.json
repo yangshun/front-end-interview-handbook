@@ -6707,6 +6707,10 @@
     "defaultMessage": "We aim to get back to you in 3-5 days",
     "description": "Success toast description for message sent"
   },
+  "fbNW2f": {
+    "defaultMessage": "Email unsubscription",
+    "description": "Title of email unsubcription page"
+  },
   "fc1KZ/": {
     "defaultMessage": "Follow our LinkedIn page",
     "description": "Label for join LinkedIn"

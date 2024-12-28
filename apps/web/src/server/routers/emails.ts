@@ -1,5 +1,7 @@
 import { z } from 'zod';
 
+import { emailsVerifyHash } from '~/emails/EmailsHash';
+import { EmailContactListKeyZodEnum } from '~/emails/EmailsTypes';
 import scheduleCheckoutInitiateEmail from '~/emails/items/checkout/EmailsSchedulerCheckoutInitiate';
 import scheduleWelcomeSeriesEmail from '~/emails/items/welcome/EmailsSchedulerWelcomeSeries';
 import { emailsContactListKeyToId } from '~/emails/mailjet/EmailsMailjetContactLists';
@@ -50,10 +52,48 @@ export const emailsRouter = router({
           });
 
         return 'Subscribed successfully!';
-      } catch (err: any) {
+      } catch {
         throw new TRPCError({
           code: 'BAD_REQUEST',
-          message: err.response.data.ErrorInfo.Email,
+          message: 'Unable to sign up for newsletter',
+        });
+      }
+    }),
+  unsubscribe: publicProcedure
+    .input(
+      z.object({
+        contactListKey: EmailContactListKeyZodEnum,
+        email: z.string().email('Email is invalid'),
+        hash: z.string(),
+      }),
+    )
+    .mutation(async ({ input: { email, hash, contactListKey } }) => {
+      const contactListId = emailsContactListKeyToId(contactListKey);
+
+      if (!emailsVerifyHash(email, hash)) {
+        throw new TRPCError({
+          code: 'BAD_REQUEST',
+          message: `Error unsubscribing ${email}`,
+        });
+      }
+
+      try {
+        const mailjetClient = MailjetClient();
+
+        await mailjetClient
+          .post('contactslist', { version: 'v3' })
+          .id(contactListId)
+          .action('managecontact')
+          .request({
+            Action: 'unsub',
+            Email: email,
+          });
+
+        return `Successfully unsubscribed ${email}`;
+      } catch {
+        throw new TRPCError({
+          code: 'BAD_REQUEST',
+          message: 'Something went wrong',
         });
       }
     }),

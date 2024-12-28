@@ -1,4 +1,5 @@
 import type React from 'react';
+import { z } from 'zod';
 
 export type EmailKey =
   | 'INTERVIEWS_CHECKOUT_FIRST_TIME'
@@ -8,13 +9,16 @@ export type EmailKey =
   | 'INTERVIEWS_WELCOME_EMAIL_IMMEDIATE'
   | 'PAYMENT_FAILED';
 
-export type EmailContactListKey =
-  | 'ANNOUNCEMENTS'
-  | 'FEEDBACK'
-  | 'INTERVIEWS_TIPS'
-  | 'MARKETING'
-  | 'NEWSLETTER'
-  | 'PROMOTIONS';
+export const EmailContactListKeyZodEnum = z.enum([
+  'ANNOUNCEMENTS',
+  'FEEDBACK',
+  'INTERVIEWS_TIPS',
+  'MARKETING',
+  'NEWSLETTER',
+  'PROMOTIONS',
+]);
+
+export type EmailContactListKey = z.infer<typeof EmailContactListKeyZodEnum>;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type EmailItemConfig<Component extends React.FC<any>> = Readonly<{
