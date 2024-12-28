@@ -2,8 +2,8 @@ import { z } from 'zod';
 
 import scheduleCheckoutInitiateEmail from '~/emails/items/checkout/EmailsSchedulerCheckoutInitiate';
 import scheduleWelcomeSeriesEmail from '~/emails/items/welcome/EmailsSchedulerWelcomeSeries';
-import { MailjetClient } from '~/emails/mailjet/EmailsMailjetClient';
 import { emailsContactListKeyToId } from '~/emails/mailjet/EmailsMailjetContactLists';
+import MailjetClient from '~/emails/mailjet/MailjetClient';
 import { publicProcedure } from '~/server/trpc';
 
 import { router, userProcedure } from '../trpc';

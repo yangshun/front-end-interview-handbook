@@ -1,23 +1,17 @@
 import type { ContactSubscription } from 'node-mailjet';
-import { Client, type LibraryResponse, type SendEmailV3_1 } from 'node-mailjet';
+import { type LibraryResponse, type SendEmailV3_1 } from 'node-mailjet';
 import React from 'react';
 
 import EmailsSendStatus from '~/emails/EmailsSendStatus';
 import { getErrorMessage } from '~/utils/getErrorMessage';
 
 import { emailsContactListKeyToId } from './EmailsMailjetContactLists';
+import MailjetClient from './MailjetClient';
 import type { EmailContactListKey } from '../EmailsTypes';
 import type { EmailItemConfig } from '../EmailsTypes';
 import { renderEmail } from '../render/EmailsRender';
 
 import type { SetCommandOptions } from '@upstash/redis';
-
-export function MailjetClient() {
-  return new Client({
-    apiKey: process.env.MAILJET_API_KEY,
-    apiSecret: process.env.MAILJET_SECRET_KEY,
-  });
-}
 
 /**
  * Sends an email based on an email item config

@@ -1,6 +1,6 @@
 import Stripe from 'stripe';
 
-import { sendEmailItemWithChecks } from '~/emails/mailjet/EmailsMailjetClient';
+import { sendEmailItemWithChecks } from '~/emails/mailjet/EmailsMailjetUtils';
 import prisma from '~/server/prisma';
 import { getErrorMessage } from '~/utils/getErrorMessage';
 

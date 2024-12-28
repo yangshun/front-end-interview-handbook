@@ -1,4 +1,4 @@
-import { sendEmailItemWithChecks } from '~/emails/mailjet/EmailsMailjetClient';
+import { sendEmailItemWithChecks } from '~/emails/mailjet/EmailsMailjetUtils';
 
 import { EmailsItemConfigPaymentFailed } from './EmailsItemConfigPaymentFailed';
 

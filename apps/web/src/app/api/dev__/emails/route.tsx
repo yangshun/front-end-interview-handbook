@@ -4,7 +4,7 @@ import { EmailsItemConfigs } from '~/emails/items/EmailItemConfigs';
 import {
   sendEmailItemWithChecks,
   sendReactEmail,
-} from '~/emails/mailjet/EmailsMailjetClient';
+} from '~/emails/mailjet/EmailsMailjetUtils';
 import { getErrorMessage } from '~/utils/getErrorMessage';
 
 /**
