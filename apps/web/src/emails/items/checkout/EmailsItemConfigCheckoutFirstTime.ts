@@ -6,6 +6,7 @@ export const EmailsItemConfigCheckoutFirstTime: EmailItemConfig<
   typeof EmailsTemplateCheckoutFirstTime
 > = {
   component: EmailsTemplateCheckoutFirstTime,
+  contactListKey: 'MARKETING',
   defaultProps: {
     countryCode: 'US',
     name: 'John',

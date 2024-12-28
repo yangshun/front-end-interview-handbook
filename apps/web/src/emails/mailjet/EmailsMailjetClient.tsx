@@ -1,10 +1,14 @@
 import 'server-only';
 
+import type { ContactSubscription } from 'node-mailjet';
 import { Client, type LibraryResponse, type SendEmailV3_1 } from 'node-mailjet';
 import React from 'react';
 
 import EmailsSendStatus from '~/emails/EmailsSendStatus';
+import { getErrorMessage } from '~/utils/getErrorMessage';
 
+import { emailsContactListKeyToId } from './EmailsMailjetContactLists';
+import type { EmailContactListKey } from '../EmailsTypes';
 import type { EmailItemConfig } from '../EmailsTypes';
 import { renderEmail } from '../render/EmailsRender';
 
@@ -17,6 +21,13 @@ function MailjetClient() {
   });
 }
 
+/**
+ * Sends an email based on an email item config
+ *
+ * Performs the following checks first:
+ * - User has received the same email before
+ * - User has unsubscribed from the associated contact list
+ */
 export async function sendEmailItemWithChecks<Component extends React.FC<any>>(
   recipient: Readonly<{
     email: string;
@@ -46,6 +57,17 @@ export async function sendEmailItemWithChecks<Component extends React.FC<any>>(
 
     const { props, config } = emailItemConfig;
 
+    // User has unsubscribed from the contact list this email belongs to
+    if (
+      config.contactListKey != null &&
+      (await emailIsUnsubscribedFromContactList({
+        email: recipient.email,
+        emailContactListKey: config.contactListKey,
+      }))
+    ) {
+      return { reason: 'UNSUBSCRIBED', sent: false };
+    }
+
     const EmailComponent = config.component;
 
     const result = await sendReactEmail({
@@ -64,19 +86,27 @@ export async function sendEmailItemWithChecks<Component extends React.FC<any>>(
   }
 }
 
+/**
+ * Sends an email made using react-email using Mailjet without any checks.
+ * At the moment there's no use case for exposing this outside of the module.
+ */
 export async function sendReactEmail({
   emailElement,
   ...attrs
-}: Omit<Parameters<typeof sendEmail>[0], 'body'> &
+}: Omit<Parameters<typeof sendEmail_NO_CHECKS>[0], 'body'> &
   Readonly<{
     emailElement: JSX.Element;
   }>) {
   const { html, text } = await renderEmail(emailElement);
 
-  return sendEmail({ ...attrs, body: { html, text } });
+  return sendEmail_NO_CHECKS({ ...attrs, body: { html, text } });
 }
 
-async function sendEmail({
+/**
+ * Sends an email using Mailjet without any checks.
+ * At the moment there's no use case for exposing this outside of the module.
+ */
+async function sendEmail_NO_CHECKS({
   to,
   from,
   subject,
@@ -138,5 +168,39 @@ async function sendEmail({
   } catch (error) {
     console.error('Error sending email:', error);
     throw error;
+  }
+}
+
+export async function emailIsUnsubscribedFromContactList({
+  email,
+  emailContactListKey,
+}: Readonly<{
+  email: string;
+  emailContactListKey: EmailContactListKey;
+}>): Promise<boolean> {
+  const mailjetClient = MailjetClient();
+  const contactListId = emailsContactListKeyToId(emailContactListKey);
+
+  try {
+    const result: LibraryResponse<ContactSubscription.GetContactGetContactsListsResponse> =
+      await mailjetClient
+        .get('contact', { version: 'v3' })
+        .id(email)
+        .action('getcontactslists')
+        .request();
+
+    const contactLists = result.body.Data;
+    const contactList = contactLists.find(
+      (contactList_) => contactList_.ListID === contactListId,
+    );
+
+    // If user is not part of the contact list, assume subscribed
+    // TODO(emails): This default behavior to assume subscribed can
+    // be removed after we correctly sync user emails with Mailjet
+    return contactList?.IsUnsub ?? false;
+  } catch (error) {
+    console.error('Error checking subscription status:', error);
+
+    return false;
   }
 }

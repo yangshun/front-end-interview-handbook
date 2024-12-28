@@ -1,7 +1,10 @@
 import { type NextRequest, NextResponse } from 'next/server';
 
 import { EmailsItemConfigs } from '~/emails/items/EmailItemConfigs';
-import { sendReactEmail } from '~/emails/mailjet/EmailsMailjetClient';
+import {
+  sendEmailItemWithChecks,
+  sendReactEmail,
+} from '~/emails/mailjet/EmailsMailjetClient';
 import { getErrorMessage } from '~/utils/getErrorMessage';
 
 /**
@@ -17,7 +20,7 @@ export async function POST(req: NextRequest) {
 
   try {
     const request = await req.json();
-    const { emailKey, email, name, props } = request;
+    const { checks, emailKey, email, name, props, userId } = request;
 
     const emailItemConfig = EmailsItemConfigs.find(
       (itemConfig) => itemConfig.id === emailKey,
@@ -30,6 +33,23 @@ export async function POST(req: NextRequest) {
       );
     }
 
+    const recipient = {
+      email,
+      name,
+    };
+
+    if (checks) {
+      const result = await sendEmailItemWithChecks(recipient, {
+        emailItemConfig: {
+          config: emailItemConfig as any,
+          props,
+        },
+        userId,
+      });
+
+      return NextResponse.json(result);
+    }
+
     const Component = emailItemConfig.component;
     const emailElement = <Component {...props} />;
 
@@ -37,10 +57,7 @@ export async function POST(req: NextRequest) {
       emailElement,
       from: emailItemConfig.from,
       subject: emailItemConfig.subject(props),
-      to: {
-        email,
-        name,
-      },
+      to: recipient,
     });
 
     return NextResponse.json(result);

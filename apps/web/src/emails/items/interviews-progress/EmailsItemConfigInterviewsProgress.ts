@@ -6,6 +6,7 @@ export const EmailsItemConfigInterviewsProgress: EmailItemConfig<
   typeof EmailsTemplateInterviewsProgress
 > = {
   component: EmailsTemplateInterviewsProgress,
+  contactListKey: 'PROMOTIONS',
   defaultProps: {},
   from: {
     email: 'hello@greatfrontend.com',

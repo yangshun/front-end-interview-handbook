@@ -6,6 +6,7 @@ export const EmailsItemConfigWelcomeSeriesImmediate: EmailItemConfig<
   typeof EmailsTemplateWelcomeSeriesImmediate
 > = {
   component: EmailsTemplateWelcomeSeriesImmediate,
+  contactListKey: 'INTERVIEWS_TIPS',
   defaultProps: {},
   from: {
     email: 'hello@greatfrontend.com',

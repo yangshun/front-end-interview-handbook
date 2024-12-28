@@ -6,6 +6,7 @@ export const EmailsItemConfigWelcomeSeriesAfter24Hours: EmailItemConfig<
   typeof EmailsTemplateWelcomeSeriesAfter24Hours
 > = {
   component: EmailsTemplateWelcomeSeriesAfter24Hours,
+  contactListKey: 'INTERVIEWS_TIPS',
   defaultProps: {},
   from: {
     email: 'hello@greatfrontend.com',

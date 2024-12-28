@@ -6,6 +6,7 @@ export const EmailsItemConfigCheckoutMultipleTimes: EmailItemConfig<
   typeof EmailsTemplateCheckoutMultipleTimes
 > = {
   component: EmailsTemplateCheckoutMultipleTimes,
+  contactListKey: 'PROMOTIONS',
   defaultProps: {
     coupon: {
       code: '8FGTYIAV',
