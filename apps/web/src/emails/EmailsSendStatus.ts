@@ -1,5 +1,3 @@
-import 'server-only';
-
 import type { EmailKey } from './EmailsTypes';
 
 import type { SetCommandOptions } from '@upstash/redis';

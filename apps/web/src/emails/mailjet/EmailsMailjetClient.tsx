@@ -1,5 +1,3 @@
-import 'server-only';
-
 import type { ContactSubscription } from 'node-mailjet';
 import { Client, type LibraryResponse, type SendEmailV3_1 } from 'node-mailjet';
 import React from 'react';

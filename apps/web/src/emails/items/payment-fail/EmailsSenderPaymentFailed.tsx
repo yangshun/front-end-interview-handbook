@@ -1,5 +1,3 @@
-import 'server-only';
-
 import { sendEmailItemWithChecks } from '~/emails/mailjet/EmailsMailjetClient';
 
 import { EmailsItemConfigPaymentFailed } from './EmailsItemConfigPaymentFailed';

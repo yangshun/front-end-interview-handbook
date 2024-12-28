@@ -1,5 +1,3 @@
-import 'server-only';
-
 import { sendEmailItemWithChecks } from '~/emails/mailjet/EmailsMailjetClient';
 
 import { EmailsItemConfigWelcomeSeriesAfter24Hours } from './EmailsItemConfigWelcomeSeriesAfter24Hours';

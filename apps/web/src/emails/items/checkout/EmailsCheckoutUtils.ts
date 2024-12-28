@@ -1,5 +1,3 @@
-import 'server-only';
-
 import EmailsSendStatus from '~/emails/EmailsSendStatus';
 import RedisCounter from '~/redis/RedisCounter';
 

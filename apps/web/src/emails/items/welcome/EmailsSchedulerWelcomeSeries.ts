@@ -1,5 +1,3 @@
-import 'server-only';
-
 import { scheduleEmailWithChecks } from '~/emails/qstash/EmailsQstashScheduler';
 
 const ONE_MIN_SECS = 60;

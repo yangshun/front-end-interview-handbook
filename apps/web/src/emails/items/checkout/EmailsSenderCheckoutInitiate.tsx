@@ -1,5 +1,3 @@
-import 'server-only';
-
 import Stripe from 'stripe';
 
 import { sendEmailItemWithChecks } from '~/emails/mailjet/EmailsMailjetClient';
