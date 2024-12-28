@@ -3,16 +3,12 @@ import url from 'url';
 import { getSiteOrigin } from '~/seo/siteUrl';
 
 import { EmailsLink, EmailsParagraph } from './EmailsComponents';
-import type { EmailContactListKey } from '../EmailsTypes';
+import type { EmailsUnsubscribeFields } from '../EmailsTypes';
 
 import { Section } from '@react-email/components';
 
 type Props = Readonly<{
-  unsub?: Readonly<{
-    email: string;
-    hash: string;
-    list: EmailContactListKey;
-  }>;
+  unsub?: EmailsUnsubscribeFields;
 }>;
 
 export default function EmailsFooter({ unsub }: Props) {
@@ -85,7 +81,7 @@ export default function EmailsFooter({ unsub }: Props) {
                     query: {
                       email: encodeURIComponent(unsub.email),
                       hash: encodeURIComponent(unsub.hash),
-                      list: encodeURIComponent(unsub.list),
+                      list: unsub.list,
                     },
                   }),
                   getSiteOrigin(),

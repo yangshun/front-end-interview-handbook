@@ -7,6 +7,7 @@ import { getErrorMessage } from '~/utils/getErrorMessage';
 
 import { emailsContactListKeyToId } from './EmailsMailjetContactLists';
 import MailjetClient from './MailjetClient';
+import { emailsGenerateHash } from '../EmailsHash';
 import type { EmailContactListKey } from '../EmailsTypes';
 import type { EmailItemConfig } from '../EmailsTypes';
 import { renderEmail } from '../render/EmailsRender';
@@ -85,7 +86,7 @@ export async function sendEmailItemWithChecks<Component extends React.FC<any>>(
             canBeUnsubscribed
               ? {
                   email: recipient.email,
-                  hash: '123456', // TODO(emails): compute hash
+                  hash: emailsGenerateHash(recipient.email),
                   list: config.contactListKey,
                 }
               : undefined
