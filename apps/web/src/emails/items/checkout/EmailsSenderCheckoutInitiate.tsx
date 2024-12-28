@@ -2,7 +2,7 @@ import 'server-only';
 
 import Stripe from 'stripe';
 
-import { sendReactEmailWithChecks } from '~/emails/mailjet/EmailsMailjetClient';
+import { sendEmailItemWithChecks } from '~/emails/mailjet/EmailsMailjetClient';
 import prisma from '~/server/prisma';
 
 import { EmailsItemConfigCheckoutFirstTime } from './EmailsItemConfigCheckoutFirstTime';
@@ -26,17 +26,17 @@ export async function sendInitiateCheckoutFirstTimeEmail({
   const props = { countryCode, name };
 
   try {
-    await sendReactEmailWithChecks(
+    await sendEmailItemWithChecks(
       {
-        emailItemConfig: EmailsItemConfigCheckoutFirstTime,
-        emailItemConfigProps: props,
-        userId,
+        email,
+        name,
       },
       {
-        to: {
-          email,
-          name,
+        emailItemConfig: {
+          config: EmailsItemConfigCheckoutFirstTime,
+          props,
         },
+        userId,
       },
     );
   } catch (error) {
@@ -117,21 +117,23 @@ export async function sendInitiateCheckoutMultipleTimesEmail({
       name,
     };
 
-    await sendReactEmailWithChecks(
+    await sendEmailItemWithChecks(
       {
-        emailItemConfig: EmailsItemConfigCheckoutMultipleTimes,
-        emailItemConfigProps: props,
-        opts: {
-          // Expire this after 6 months so that we can resend this email again
-          ex: SIX_MONTHS_IN_SECS,
-        },
-        userId,
+        email,
+        name,
       },
       {
-        to: {
-          email,
-          name,
+        emailItemConfig: {
+          config: EmailsItemConfigCheckoutMultipleTimes,
+          props,
         },
+        redis: {
+          opts: {
+            // Expire this after 6 months so that we can resend this email again
+            ex: SIX_MONTHS_IN_SECS,
+          },
+        },
+        userId,
       },
     );
   } catch (error) {

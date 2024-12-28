@@ -10,57 +10,52 @@ import { renderEmail } from '../render/EmailsRender';
 
 import type { SetCommandOptions } from '@upstash/redis';
 
-type EmailAttributes = Readonly<{
-  from: {
-    email: string;
-    name: string;
-  };
-  replyTo?: {
-    email: string;
-    name?: string;
-  };
-  subject: string;
-  to: {
+function MailjetClient() {
+  return new Client({
+    apiKey: process.env.MAILJET_API_KEY,
+    apiSecret: process.env.MAILJET_SECRET_KEY,
+  });
+}
+
+export async function sendEmailItemWithChecks<Component extends React.FC<any>>(
+  recipient: Readonly<{
     email: string;
     name: string | null;
-  };
-}>;
-
-export async function sendReactEmailWithChecks<Component extends React.FC<any>>(
+  }>,
   {
     emailItemConfig,
+    redis,
     userId,
-    emailItemConfigProps,
-    opts,
   }: {
-    emailItemConfig: EmailItemConfig<Component>;
-    emailItemConfigProps: EmailItemConfig<Component>['defaultProps'];
-    opts?: SetCommandOptions;
+    emailItemConfig: Readonly<{
+      config: EmailItemConfig<Component>;
+      props: EmailItemConfig<Component>['defaultProps'];
+    }>;
+    redis?: {
+      opts: SetCommandOptions;
+    };
     userId: string;
   },
-  emailProps: Omit<
-    Parameters<typeof sendReactEmail>[0],
-    'emailElement' | 'from' | 'subject'
-  >,
 ) {
   try {
-    const sendStatus = new EmailsSendStatus(emailItemConfig.id, userId);
+    const sendStatus = new EmailsSendStatus(emailItemConfig.config.id, userId);
 
     if (await sendStatus.isSent()) {
       return;
     }
 
-    const EmailComponent = emailItemConfig.component;
-    const emailElement = <EmailComponent {...emailItemConfigProps} />;
+    const { props, config } = emailItemConfig;
+
+    const EmailComponent = config.component;
 
     await sendReactEmail({
-      emailElement,
-      from: emailItemConfig.from,
-      replyTo: emailItemConfig.replyTo,
-      subject: emailItemConfig.subject(emailItemConfigProps),
-      ...emailProps,
+      emailElement: <EmailComponent {...props} />,
+      from: config.from,
+      replyTo: config.replyTo,
+      subject: config.subject(props),
+      to: recipient,
     });
-    await sendStatus.markAsSent(opts);
+    await sendStatus.markAsSent(redis?.opts);
   } catch (error) {
     console.error('Error sending email:', error);
     throw error;
@@ -70,7 +65,7 @@ export async function sendReactEmailWithChecks<Component extends React.FC<any>>(
 export async function sendReactEmail({
   emailElement,
   ...attrs
-}: EmailAttributes &
+}: Omit<Parameters<typeof sendEmail>[0], 'body'> &
   Readonly<{
     emailElement: JSX.Element;
   }>) {
@@ -85,17 +80,26 @@ async function sendEmail({
   subject,
   replyTo,
   body,
-}: EmailAttributes &
-  Readonly<{
-    body: {
-      html: string;
-      text: string;
-    };
-  }>) {
-  const mailjetClient = new Client({
-    apiKey: process.env.MAILJET_API_KEY,
-    apiSecret: process.env.MAILJET_SECRET_KEY,
-  });
+}: Readonly<{
+  body: {
+    html: string;
+    text: string;
+  };
+  from: {
+    email: string;
+    name: string;
+  };
+  replyTo?: {
+    email: string;
+    name?: string;
+  };
+  subject: string;
+  to: {
+    email: string;
+    name: string | null;
+  };
+}>) {
+  const mailjetClient = MailjetClient();
 
   const emailData: SendEmailV3_1.Body = {
     Messages: [

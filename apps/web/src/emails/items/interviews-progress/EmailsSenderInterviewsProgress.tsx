@@ -1,6 +1,6 @@
 import 'server-only';
 
-import { sendReactEmailWithChecks } from '~/emails/mailjet/EmailsMailjetClient';
+import { sendEmailItemWithChecks } from '~/emails/mailjet/EmailsMailjetClient';
 import prisma from '~/server/prisma';
 
 import { EmailsItemConfigInterviewsProgress } from './EmailsItemConfigInterviewsProgress';
@@ -28,17 +28,17 @@ export async function sendInterviewsProgressEmail({
       return;
     }
 
-    await sendReactEmailWithChecks(
+    await sendEmailItemWithChecks(
       {
-        emailItemConfig: EmailsItemConfigInterviewsProgress,
-        emailItemConfigProps: {},
-        userId,
+        email,
+        name,
       },
       {
-        to: {
-          email,
-          name,
+        emailItemConfig: {
+          config: EmailsItemConfigInterviewsProgress,
+          props: {},
         },
+        userId,
       },
     );
   } catch (error) {

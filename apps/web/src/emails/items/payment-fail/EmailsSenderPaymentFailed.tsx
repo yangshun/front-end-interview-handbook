@@ -1,6 +1,6 @@
 import 'server-only';
 
-import { sendReactEmailWithChecks } from '~/emails/mailjet/EmailsMailjetClient';
+import { sendEmailItemWithChecks } from '~/emails/mailjet/EmailsMailjetClient';
 
 import { EmailsItemConfigPaymentFailed } from './EmailsItemConfigPaymentFailed';
 
@@ -16,20 +16,22 @@ export default async function sendPaymentFailedEmail({
   userId: string;
 }>) {
   try {
-    await sendReactEmailWithChecks(
+    await sendEmailItemWithChecks(
       {
-        emailItemConfig: EmailsItemConfigPaymentFailed,
-        emailItemConfigProps: { name },
-        opts: {
-          ex: THIRTY_DAYS_IN_SECS,
-        },
-        userId,
+        email,
+        name,
       },
       {
-        to: {
-          email,
-          name,
+        emailItemConfig: {
+          config: EmailsItemConfigPaymentFailed,
+          props: { name },
         },
+        redis: {
+          opts: {
+            ex: THIRTY_DAYS_IN_SECS,
+          },
+        },
+        userId,
       },
     );
   } catch (error) {

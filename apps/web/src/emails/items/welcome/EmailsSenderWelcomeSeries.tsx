@@ -1,6 +1,6 @@
 import 'server-only';
 
-import { sendReactEmailWithChecks } from '~/emails/mailjet/EmailsMailjetClient';
+import { sendEmailItemWithChecks } from '~/emails/mailjet/EmailsMailjetClient';
 
 import { EmailsItemConfigWelcomeSeriesAfter24Hours } from './EmailsItemConfigWelcomeSeriesAfter24Hours';
 import { EmailsItemConfigWelcomeSeriesImmediate } from './EmailsItemConfigWelcomeSeriesImmediate';
@@ -14,17 +14,17 @@ export async function sendWelcomeEmailImmediate({
   name: string | null;
   userId: string;
 }>) {
-  await sendReactEmailWithChecks(
+  await sendEmailItemWithChecks(
     {
-      emailItemConfig: EmailsItemConfigWelcomeSeriesImmediate,
-      emailItemConfigProps: {},
-      userId,
+      email,
+      name,
     },
     {
-      to: {
-        email,
-        name,
+      emailItemConfig: {
+        config: EmailsItemConfigWelcomeSeriesImmediate,
+        props: {},
       },
+      userId,
     },
   );
 }
@@ -39,17 +39,17 @@ export async function sendWelcomeEmailAfter24Hours({
   userId: string;
 }>) {
   try {
-    await sendReactEmailWithChecks(
+    await sendEmailItemWithChecks(
       {
-        emailItemConfig: EmailsItemConfigWelcomeSeriesAfter24Hours,
-        emailItemConfigProps: {},
-        userId,
+        email,
+        name,
       },
       {
-        to: {
-          email,
-          name,
+        emailItemConfig: {
+          config: EmailsItemConfigWelcomeSeriesAfter24Hours,
+          props: {},
         },
+        userId,
       },
     );
   } catch (error) {
