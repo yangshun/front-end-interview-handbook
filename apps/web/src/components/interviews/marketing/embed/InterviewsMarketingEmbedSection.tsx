@@ -141,7 +141,7 @@ export default function InterviewsMarketingEmbedSection({
   );
 
   return (
-    <div
+    <section
       ref={containerRef}
       className={clsx(
         'relative overflow-hidden pb-10 lg:pb-12',
@@ -221,6 +221,6 @@ export default function InterviewsMarketingEmbedSection({
           </nav>
         </Section>
       </Container>
-    </div>
+    </section>
   );
 }

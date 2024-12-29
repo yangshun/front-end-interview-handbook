@@ -189,7 +189,17 @@ export default function InterviewsMarketingFeaturesSection() {
   const features = useFeatures();
 
   return (
-    <Container className={clsx('py-16 sm:py-20')} width="marketing">
+    <Container
+      className={clsx('py-16 sm:py-20')}
+      tag="section"
+      width="marketing">
+      <Heading className="sr-only" level="custom">
+        <FormattedMessage
+          defaultMessage="Features"
+          description="Marketing section title"
+          id="NsGG2l"
+        />
+      </Heading>
       <Heading
         className={clsx(
           themeMarketingHeadingSize,
@@ -197,6 +207,7 @@ export default function InterviewsMarketingFeaturesSection() {
           'max-w-2xl pb-1',
         )}
         level="custom"
+        tag="p"
         weight="medium">
         <FormattedMessage
           defaultMessage="Jam-packed with features"

@@ -26,6 +26,7 @@ export default function InterviewsPricingSection({
   return (
     <Container
       className={clsx('isolate flex flex-col gap-y-12', 'py-16 sm:py-20')}
+      tag="section"
       width="marketing">
       <InterviewsPricingTableSection
         countryCode={countryCode}

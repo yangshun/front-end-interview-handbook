@@ -38,6 +38,7 @@ export default function InterviewsMarketingTestimonialsSection({
         'isolate',
         'py-16 sm:py-20',
       )}
+      tag="section"
       width={width}>
       <div className="max-w-xl">
         <Heading className="sr-only" level="custom">

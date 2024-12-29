@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import type { CSSProperties } from 'react';
+import type { CSSProperties, HTMLAttributes } from 'react';
 import React from 'react';
 
 type ContainerWidth =
@@ -17,12 +17,14 @@ type ContainerWidth =
   | 'screen-xl'
   | 'xl';
 
-type Props = Readonly<{
-  children: React.ReactNode;
-  className?: string;
-  style?: CSSProperties;
-  width?: ContainerWidth;
-}>;
+type Props = HTMLAttributes<HTMLElement> &
+  Readonly<{
+    children: React.ReactNode;
+    className?: string;
+    style?: CSSProperties;
+    tag?: 'div' | 'section';
+    width?: ContainerWidth;
+  }>;
 
 const widthStyles: Record<ContainerWidth, string> = {
   '2xl': clsx('max-w-2xl', 'max-lg:px-6'),
@@ -50,13 +52,14 @@ export default function Container({
   children,
   className,
   width = '6xl',
-  style,
+  tag: ContainerTag = 'div',
+  ...props
 }: Props) {
   return (
-    <div
+    <ContainerTag
       className={clsx('mx-auto w-full', widthStyles[width], className)}
-      style={style}>
+      {...props}>
       {children}
-    </div>
+    </ContainerTag>
   );
 }

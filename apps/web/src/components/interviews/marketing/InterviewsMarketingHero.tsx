@@ -50,6 +50,7 @@ export default function InterviewsMarketingHeroNew({ testimonials }: Props) {
         'pb-10 pt-20 md:pt-[88px] xl:pt-[108px]',
         'flex flex-col gap-12',
       )}
+      tag="section"
       width="marketing">
       <div
         ref={titleRef}

@@ -38,7 +38,10 @@ export default function InterviewsMarketingFAQSection() {
   const intl = useIntl();
 
   return (
-    <Container className={clsx('py-16 sm:py-20')} width="marketing">
+    <Container
+      className={clsx('py-16 sm:py-20')}
+      tag="section"
+      width="marketing">
       <div className="flex flex-col gap-x-2 gap-y-6 lg:flex-row lg:items-end lg:justify-between">
         <Heading className="sr-only" level="custom">
           <FormattedMessage

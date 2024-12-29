@@ -248,7 +248,10 @@ export default function InterviewsMarketingPracticeQuestionBankSection({
   );
 
   return (
-    <Container className={clsx('py-16 sm:py-20')} width="marketing">
+    <Container
+      className={clsx('py-16 sm:py-20')}
+      tag="section"
+      width="marketing">
       <Heading className="sr-only" level="custom">
         <FormattedMessage
           defaultMessage="Huge question bank"

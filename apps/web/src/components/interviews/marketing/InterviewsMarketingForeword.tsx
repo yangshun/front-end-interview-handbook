@@ -139,6 +139,7 @@ export default function InterviewsMarketingForeword() {
         'flex flex-col items-center justify-center gap-12 lg:gap-16',
         'overflow-hidden',
       )}
+      tag="section"
       width="marketing">
       <Heading className="sr-only" level="custom">
         <FormattedMessage
