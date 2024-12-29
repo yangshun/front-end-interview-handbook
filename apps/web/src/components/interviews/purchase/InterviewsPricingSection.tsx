@@ -40,6 +40,7 @@ export default function InterviewsPricingSection({
               'max-w-2xl pb-1',
             )}
             level="custom"
+            tag="p"
             weight="medium">
             <FormattedMessage
               defaultMessage="Save time, ace interviews, and secure high-paying roles"

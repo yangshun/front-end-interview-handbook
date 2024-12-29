@@ -7,6 +7,8 @@ import InterviewsMarketingTestimonialsSection from '~/components/interviews/mark
 import InterviewsPricingFAQSection from '~/components/interviews/purchase/InterviewsPricingFAQSection';
 import type { InterviewsPricingPlanPaymentConfigLocalizedRecord } from '~/components/interviews/purchase/InterviewsPricingPlans';
 import InterviewsPricingSection from '~/components/interviews/purchase/InterviewsPricingSection';
+import { FormattedMessage } from '~/components/intl';
+import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 
 import InterviewsPurchaseCancelLogging from './InterviewsPurchaseCancelLogging';
@@ -28,12 +30,19 @@ export default function InterviewsPricingPage({
   return (
     <div className={clsx('flex flex-col')}>
       <InterviewsPurchaseCancelLogging plansPaymentConfig={plans} />
-      <InterviewsPricingSection
-        countryCode={countryCode}
-        countryName={countryName}
-        plans={plans}
-      />
+      <Heading className="sr-only" level="custom">
+        <FormattedMessage
+          defaultMessage="Pricing"
+          description="Pricing page title"
+          id="hoMrsO"
+        />
+      </Heading>
       <Section>
+        <InterviewsPricingSection
+          countryCode={countryCode}
+          countryName={countryName}
+          plans={plans}
+        />
         <InterviewsMarketingFeaturesSection />
         <InterviewsPricingFAQSection />
         <InterviewsMarketingTestimonialsSection

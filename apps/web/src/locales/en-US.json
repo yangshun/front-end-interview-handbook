@@ -3863,6 +3863,10 @@
     "defaultMessage": "GreatFrontEnd is the culmination of my experience and knowledge in the front end domain to help fellow engineers efficiently and adequately prepare for front end interviews. The best part of GreatFrontEnd is that all users emerge being better front end engineers after using the platform.\"",
     "description": "Co-founder foreword"
   },
+  "NsGG2l": {
+    "defaultMessage": "Features",
+    "description": "Marketing section title"
+  },
   "Nt+P5A": {
     "defaultMessage": "Simulate real interview conditions, no need for any setup!",
     "description": "Subtitle for in-browser coding workspace feature"
@@ -7111,6 +7115,10 @@
     "defaultMessage": "Delete comment?",
     "description": "Delete comment confirmation dialog title"
   },
+  "hoMrsO": {
+    "defaultMessage": "Pricing",
+    "description": "Pricing page title"
+  },
   "hqeSrQ": {
     "defaultMessage": "Everything else apart from the actual technical execution has been prepared for you. Just click \"Start project\", and we will take care of everything else.",
     "description": "Description of 'Start building' feature in Projects marketing page"
@@ -8891,10 +8899,6 @@
     "defaultMessage": "Click here to view the full solution and other System Design guides.",
     "description": "Button label within embed"
   },
-  "tj9cFk": {
-    "defaultMessage": "Pricing Plans",
-    "description": "Pricing plans title"
-  },
   "tnHfa2": {
     "defaultMessage": "Move line down",
     "description": "Text describing command to move lines down in the coding workspace shortcuts menu"
@@ -9118,6 +9122,10 @@
   "v9//lW": {
     "defaultMessage": "Targeted practice in specific front end frameworks and languages.",
     "description": "Description for framework and language section"
+  },
+  "vC3/M4": {
+    "defaultMessage": "Pricing plans",
+    "description": "Pricing plans section title"
   },
   "vCMNqP": {
     "defaultMessage": "Contact your bank or card issuer to inquire about the decline.",

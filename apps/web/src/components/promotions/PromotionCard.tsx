@@ -46,7 +46,9 @@ export default function PromotionCard({
           'w-full',
         )}>
         <div className="flex items-baseline gap-1">
-          <Heading level="heading2">{discountLabel}</Heading>
+          <Heading level="heading2" tag="p">
+            {discountLabel}
+          </Heading>
           {addOnLabel}
         </div>
         {footer}
