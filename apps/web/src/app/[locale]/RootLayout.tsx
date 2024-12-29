@@ -4,7 +4,6 @@ import nextI18nConfig from 'next-i18nostic/config';
 import GoogleAnalytics from '~/components/global/analytics/GoogleAnalytics';
 import HydrationFailureLogging from '~/components/global/analytics/HydrationFailureLogging';
 import MetaPixel from '~/components/global/analytics/MetaPixel';
-import MicrosoftClarity from '~/components/global/analytics/MicrosoftClarity';
 import GlobalBannerDisplayScript from '~/components/global/banners/GlobalBannerDisplayScript';
 import I18nBetaBanner from '~/components/global/banners/I18nBetaBanner';
 import ColorSchemeInitScript from '~/components/global/color-scheme/ColorSchemeInitScript';
@@ -44,7 +43,6 @@ export default function RootLayout({ children, intlMessages, locale }: Props) {
           <MetaPixel />
           {children}
           <FirstPromoter />
-          <MicrosoftClarity />
           <I18nBetaBanner />
           <Toaster />
         </GlobalProviders>
