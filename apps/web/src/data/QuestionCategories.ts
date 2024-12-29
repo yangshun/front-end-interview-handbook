@@ -113,16 +113,16 @@ export function getQuestionFormatsData(intl: IntlShape): QuestionFormatData {
     },
     javascript: {
       briefName: intl.formatMessage({
-        defaultMessage: 'JavaScript coding',
+        defaultMessage: 'JavaScript functions',
         description: 'Question format',
-        id: 'HCcf9D',
+        id: '01DH9a',
       }),
       href: '/questions/javascript',
       icon: RiJavascriptFill,
       label: intl.formatMessage({
-        defaultMessage: 'JavaScript coding',
+        defaultMessage: 'JavaScript functions',
         description: 'Front end JavaScript utility functions',
-        id: 'EQXg+W',
+        id: 'iZ7WT0',
       }),
       listingDescription: intl.formatMessage({
         defaultMessage:
@@ -131,19 +131,19 @@ export function getQuestionFormatsData(intl: IntlShape): QuestionFormatData {
         id: 'S/DgGm',
       }),
       listingName: intl.formatMessage({
-        defaultMessage: 'JavaScript Coding',
+        defaultMessage: 'JavaScript Functions',
         description: 'Title for js coding questions',
-        id: 'ZeUMGU',
+        id: 'm0Uu4y',
       }),
       searchPlaceholder: intl.formatMessage({
-        defaultMessage: 'Search JavaScript coding questions',
+        defaultMessage: 'Search JavaScript functions questions',
         description: 'Search placeholder',
-        id: 'cpvb0H',
+        id: 'W9weyy',
       }),
       shortLabel: intl.formatMessage({
-        defaultMessage: 'JS coding',
+        defaultMessage: 'JS functions',
         description: 'Front end JavaScript utility functions',
-        id: '5W8dPJ',
+        id: 'Myky94',
       }),
       tooltip: intl.formatMessage({
         defaultMessage:

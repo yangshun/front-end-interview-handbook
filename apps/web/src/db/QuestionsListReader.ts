@@ -279,6 +279,20 @@ export async function fetchQuestionsListQuizForFramework(
   ]);
 }
 
+export async function fetchQuestionsListQuizForLanguage(
+  language: QuestionLanguage,
+  locale = 'en-US',
+): Promise<ReadonlyArray<QuestionMetadata>> {
+  const { questions } = await fetchQuestionsListQuiz(locale);
+
+  return filterQuestions(questions, [
+    (question) =>
+      language === 'js' || language === 'ts'
+        ? question.topics.includes('javascript')
+        : question.topics.includes(language),
+  ]);
+}
+
 export async function fetchQuestionsByHash(
   questionHashes: ReadonlyArray<QuestionHash>,
   locale = 'en-US',

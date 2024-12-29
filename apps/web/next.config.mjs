@@ -100,28 +100,23 @@ const nextConfig = {
         permanent: false,
       },
       {
-        source: '/questions/js/quiz',
-        destination: '/questions/quiz',
-        permanent: false,
-      },
-      {
         source: '/questions/js/coding',
-        destination: '/questions/javascript',
+        destination: '/questions/js',
         permanent: false,
       },
       {
         source: '/questions/js/coding/data-structures-algorithms',
-        destination: '/questions/algo',
-        permanent: false,
-      },
-      {
-        source: '/questions/js/coding/utilities',
-        destination: '/questions/javascript',
+        destination: '/questions/js/algo',
         permanent: false,
       },
       {
         source: '/questions/js/coding/user-interface',
-        destination: '/questions/user-interface',
+        destination: '/questions/js/user-interface',
+        permanent: false,
+      },
+      {
+        source: '/questions/js/coding/utilities',
+        destination: '/questions/js/javascript',
         permanent: false,
       },
       {
@@ -130,17 +125,7 @@ const nextConfig = {
         permanent: false,
       },
       {
-        source: '/questions/html/quiz',
-        destination: '/questions/html',
-        permanent: false,
-      },
-      {
         source: '/questions/css/coding',
-        destination: '/questions/css',
-        permanent: false,
-      },
-      {
-        source: '/questions/css/quiz',
         destination: '/questions/css',
         permanent: false,
       },

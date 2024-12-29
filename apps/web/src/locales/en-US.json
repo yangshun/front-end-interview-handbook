@@ -323,6 +323,10 @@
     "defaultMessage": "Curated by ex-interviewers",
     "description": "Features for focus areas question listing"
   },
+  "01DH9a": {
+    "defaultMessage": "JavaScript functions",
+    "description": "Question format"
+  },
   "01jNoZ": {
     "defaultMessage": "Get started",
     "description": "Hint for \"Project Brief\" and \"Assets\" tab on Projects project page"
@@ -1078,10 +1082,6 @@
   "5VyWIQ": {
     "defaultMessage": "Payment success",
     "description": "Title of Payment Success page"
-  },
-  "5W8dPJ": {
-    "defaultMessage": "JS coding",
-    "description": "Front end JavaScript utility functions"
   },
   "5XwjUN": {
     "defaultMessage": "Facing trouble? <link>Email us</link>",
@@ -2423,10 +2423,6 @@
     "defaultMessage": "Describe your project approach and take the opportunity to document challenges and how they were overcome. To help others in the community, also describe your general tech stack and how they were used together, as well as any guides or resources you used.",
     "description": "Project submission tooltip"
   },
-  "EQXg+W": {
-    "defaultMessage": "JavaScript coding",
-    "description": "Front end JavaScript utility functions"
-  },
   "ES78kz": {
     "defaultMessage": "Every project is part of <link>reusable component libraries</link> for your future projects",
     "description": "Caption for Projects marketing hero section component libraries feature"
@@ -2830,10 +2826,6 @@
   "HCADe/": {
     "defaultMessage": "Roadmap - Upcoming features and updates on GreatFrontEnd Projects",
     "description": "Title of interview roadmap page"
-  },
-  "HCcf9D": {
-    "defaultMessage": "JavaScript coding",
-    "description": "Question format"
   },
   "HCrCHg": {
     "defaultMessage": "Challenge status",
@@ -3762,6 +3754,10 @@
   "MwvhTF": {
     "defaultMessage": "See whole component track",
     "description": "Label for \"See whole component track\" button in Component track accordion"
+  },
+  "Myky94": {
+    "defaultMessage": "JS functions",
+    "description": "Front end JavaScript utility functions"
   },
   "N+FW6k": {
     "defaultMessage": "Resize and customize the workspace as you like",
@@ -5243,6 +5239,10 @@
     "defaultMessage": "<authorProfileLink>{author}</authorProfileLink> asked <recipientProfileLink>{recipient}</recipientProfileLink> a question on their submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for someone asking question on others submission"
   },
+  "W9weyy": {
+    "defaultMessage": "Search JavaScript functions questions",
+    "description": "Search placeholder"
+  },
   "WB/L0V": {
     "defaultMessage": "{numberOfHours} hours weekly",
     "description": "Number of hours needed on a weekly basis. E.g. 4 hours weekly"
@@ -5571,10 +5571,6 @@
     "defaultMessage": "Unpin",
     "description": "Unpin button label"
   },
-  "Y3gxjL": {
-    "defaultMessage": "JavaScript coding",
-    "description": "Front End JavaScript questions"
-  },
   "Y4hby8": {
     "defaultMessage": "Easy: {numberOfEasy}, Medium: {numberOfMedium}, Hard: {numberOfHard}",
     "description": "Difficulty breakdown tooltip displayed on question cards found on question lists"
@@ -5770,10 +5766,6 @@
   "Zdojj9": {
     "defaultMessage": "Other",
     "description": "Label for \"Other\" onboarding option in Projects"
-  },
-  "ZeUMGU": {
-    "defaultMessage": "JavaScript Coding",
-    "description": "Title for js coding questions"
   },
   "ZfPNnW": {
     "defaultMessage": "Yes. Every challenge you start creates a \"session\" of the challenge, which you can end. You can start a new session anytime.",
@@ -6298,10 +6290,6 @@
   "cotxax": {
     "defaultMessage": "Component track",
     "description": "Label for Component Track filter for submissions list"
-  },
-  "cpvb0H": {
-    "defaultMessage": "Search JavaScript coding questions",
-    "description": "Search placeholder"
   },
   "ctKiBc": {
     "defaultMessage": "User submissions",
@@ -7227,6 +7215,10 @@
     "defaultMessage": "It looks like you don’t have any notifications at the moment. Check back here for updates on your activities, messages, and more.",
     "description": "Description for no notification"
   },
+  "iZ7WT0": {
+    "defaultMessage": "JavaScript functions",
+    "description": "Front end JavaScript utility functions"
+  },
   "icPBtm": {
     "defaultMessage": "Practice {questionCount}+ curated TypeScript Interview Questions in-browser, with solutions and test cases from big tech ex-interviewers",
     "description": "Description of Interview Questions page"
@@ -7482,6 +7474,10 @@
   "k9iwXD": {
     "defaultMessage": "Code from submissions are pulled directly on the platform for convenient reference and feedback",
     "description": "Description for \"Easy code reviews\" feature on Projects home page"
+  },
+  "kA4yZ1": {
+    "defaultMessage": "JavaScript functions",
+    "description": "Front End JavaScript coding questions"
   },
   "kCkca8": {
     "defaultMessage": "Errors",
@@ -7750,6 +7746,10 @@
   "lyxOq4": {
     "defaultMessage": "Check out the latest promotions and discounts that GreatFrontEnd offers.",
     "description": "Description of Promotions page"
+  },
+  "m0Uu4y": {
+    "defaultMessage": "JavaScript Functions",
+    "description": "Title for js coding questions"
   },
   "m2WYh/": {
     "defaultMessage": "Insert code block",

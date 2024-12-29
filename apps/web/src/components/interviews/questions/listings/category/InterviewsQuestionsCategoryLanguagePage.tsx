@@ -1,17 +1,22 @@
 'use client';
 
+import clsx from 'clsx';
 import type { InterviewsListingBottomContent } from 'contentlayer/generated';
-import { useState } from 'react';
 
-import { useQuestionLanguagesData } from '~/data/QuestionCategories';
+import {
+  useQuestionFormatsData,
+  useQuestionLanguagesData,
+} from '~/data/QuestionCategories';
 
 import { useIntl } from '~/components/intl';
 import MDXContent from '~/components/mdx/MDXContent';
 import Divider from '~/components/ui/Divider';
+import FilterButton from '~/components/ui/FilterButton/FilterButton';
 import TabsUnderline from '~/components/ui/Tabs/TabsUnderline';
 
 import InterviewsQuestionsCategoryPage from './InterviewsQuestionsCategoryPage';
 import type {
+  QuestionCodingFormat,
   QuestionLanguage,
   QuestionMetadata,
   QuestionUserFacingFormat,
@@ -22,37 +27,42 @@ type Props = Omit<
   | 'category'
   | 'categoryValue'
   | 'description'
+  | 'formatTabs'
   | 'questionList'
   | 'searchPlaceholder'
   | 'title'
 > &
   Readonly<{
     bottomContent?: InterviewsListingBottomContent;
+    codingFormat?: Readonly<{
+      options: ReadonlyArray<QuestionCodingFormat>;
+      value?: QuestionCodingFormat;
+    }>;
     language: QuestionLanguage;
-    questionsCoding: ReadonlyArray<QuestionMetadata>;
-    questionsQuiz: ReadonlyArray<QuestionMetadata>;
+    questions: ReadonlyArray<QuestionMetadata>;
+    totalQuestionsCount: number;
+    userFacingFormat?: QuestionUserFacingFormat;
   }>;
 
 export default function InterviewsQuestionsCategoryLanguagePage({
+  codingFormat,
   language,
-  questionsCoding,
-  questionsQuiz,
+  questions,
   bottomContent,
+  userFacingFormat = 'coding',
+  totalQuestionsCount,
   ...props
 }: Props) {
   const intl = useIntl();
   const languages = useQuestionLanguagesData();
-  const [selectedTab, setSelectedTab] =
-    useState<QuestionUserFacingFormat>('coding');
-
-  const filteredQuestions =
-    selectedTab === 'coding' ? questionsCoding : questionsQuiz;
+  const questionFormats = useQuestionFormatsData();
 
   const categoryTabs = (
     <TabsUnderline
       size="sm"
       tabs={[
         {
+          href: `/questions/${language}`,
           label: intl.formatMessage({
             defaultMessage: 'Coding',
             description: 'Question format',
@@ -61,6 +71,7 @@ export default function InterviewsQuestionsCategoryLanguagePage({
           value: 'coding',
         },
         {
+          href: `/questions/${language}/quiz`,
           label: intl.formatMessage({
             defaultMessage: 'Quiz',
             description: 'Question format',
@@ -69,12 +80,38 @@ export default function InterviewsQuestionsCategoryLanguagePage({
           value: 'quiz',
         },
       ]}
-      value={selectedTab}
-      onSelect={setSelectedTab}
+      value={userFacingFormat ?? 'coding'}
     />
   );
 
-  const totalQuestionsCount = questionsCoding.length + questionsQuiz.length;
+  const codingFormatTabs = (() => {
+    if (codingFormat == null) {
+      return null;
+    }
+
+    return (
+      <div className={clsx('flex flex-wrap items-center gap-2')}>
+        {[
+          questionFormats.javascript,
+          questionFormats['user-interface'],
+          questionFormats.algo,
+        ]
+          .filter(({ value }) =>
+            codingFormat.options.find((fmt) => fmt === value),
+          )
+          .map(({ value, label, icon: Icon, tooltip }) => (
+            <FilterButton
+              key={value}
+              href={`/questions/${language}/${value}`}
+              icon={Icon}
+              label={label}
+              selected={value === codingFormat.value}
+              tooltip={tooltip}
+            />
+          ))}
+      </div>
+    );
+  })();
 
   return (
     <div className="flex flex-col gap-20">
@@ -83,11 +120,12 @@ export default function InterviewsQuestionsCategoryLanguagePage({
         categoryTabs={categoryTabs}
         categoryValue={language}
         description={languages[language].getDescription(totalQuestionsCount)}
-        questionList={filteredQuestions}
+        formatTabs={codingFormatTabs}
+        questionList={questions}
         searchPlaceholder={languages[language].getSearchPlaceholder(
           totalQuestionsCount,
         )}
-        selectedCategoryTab={selectedTab}
+        selectedCategoryTab={userFacingFormat}
         title={languages[language].longName}
         {...props}
       />
@@ -97,7 +135,6 @@ export default function InterviewsQuestionsCategoryLanguagePage({
           <MDXContent
             components={{
               QuestionsCount: () => <span>{totalQuestionsCount}</span>,
-              QuizQuestionsCount: () => <span>{questionsQuiz.length}</span>,
             }}
             mdxCode={bottomContent.body.code}
           />

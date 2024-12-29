@@ -45,6 +45,7 @@ type Props = Readonly<{
     a: QuestionFormat,
     b: QuestionFormat,
   ) => number;
+  formatTabs?: ReactNode;
   framework?: QuestionFramework;
   guides?: {
     description: string;
@@ -68,6 +69,7 @@ export default function QuestionsUnifiedListWithFilters({
   checkIfCompletedQuestionBefore,
   categoryTabs,
   initialFormat = null,
+  formatTabs,
   framework,
   listType,
   listMode,
@@ -175,6 +177,7 @@ export default function QuestionsUnifiedListWithFilters({
         {sortAndFilters}
       </div>
       {categoryTabs}
+      {formatTabs}
     </div>
   );
   const listMetadata = (

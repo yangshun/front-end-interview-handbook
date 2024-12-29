@@ -1,6 +1,5 @@
 import type { Metadata } from 'next/types';
 
-import { InterviewsQuestionsCategoryLanguageCodingFormatTabs } from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryCodingFormatTabs';
 import InterviewsQuestionsCategoryLanguagePage from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryLanguagePage';
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
@@ -19,9 +18,8 @@ import {
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
-const language = 'ts';
-const codingFormats =
-  InterviewsQuestionsCategoryLanguageCodingFormatTabs[language];
+const language = 'html';
+const questionFormat = 'quiz';
 
 export const dynamic = 'force-static';
 
@@ -33,7 +31,6 @@ type Props = Readonly<{
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
-
   const [intl, { questions: questionsCoding }, { questions: questionsQuiz }] =
     await Promise.all([
       getIntlServerOnly(locale),
@@ -51,9 +48,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: intl.formatMessage(
       {
         defaultMessage:
-          'Practice {questionCount}+ curated TypeScript Interview Questions in-browser, with solutions and test cases from big tech ex-interviewers',
+          'Practice {questionCount}+ curated HTML Interview Questions in-browser, with solutions and test cases from big tech ex-interviewers',
         description: 'Description of Interview Questions page',
-        id: 'icPBtm',
+        id: 'vKD8vq',
       },
       {
         questionCount: roundQuestionCountToNearestTen(
@@ -74,21 +71,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         id: 'uEiI+F',
       },
       {
-        category: 'TypeScript',
+        category: 'HTML',
       },
     ),
     pathname: `/questions/${language}`,
     socialTitle: intl.formatMessage({
-      defaultMessage:
-        'TypeScript Interview Questions with Solutions | GreatFrontEnd',
-      description: 'Title of TypeScript Interview Questions page',
-      id: '/+I2B/',
+      defaultMessage: 'HTML Interview Questions with Solutions | GreatFrontEnd',
+      description: 'Social title of HTML Interview Questions page',
+      id: 'fq5xTR',
     }),
     title: intl.formatMessage({
       defaultMessage:
-        'TypeScript Interview Questions | Solutions by Ex-FAANG interviewers',
-      description: 'Title of TypeScript Interview Questions page',
-      id: 'anKB4B',
+        'HTML Interview Questions | Solutions by Ex-FAANG interviewers',
+      description: 'Title of HTML Interview Questions page',
+      id: 'jS+FMq',
     }),
   });
 }
@@ -104,23 +100,24 @@ export default async function Page({ params }: Props) {
   ] = await Promise.all([
     fetchQuestionsListCodingForLanguage(language, locale),
     fetchQuestionsListQuizForLanguage(language, locale),
-    fetchQuestionsCompletionCount(codingFormats),
+    fetchQuestionsCompletionCount([questionFormat]),
     readAllFrontEndInterviewGuides(params.locale),
-    fetchInterviewListingBottomContent('language-ts'),
+    fetchInterviewListingBottomContent('language-html'),
   ]);
+
+  const questionsQuizHTML = questionsQuiz.filter((metadata) =>
+    metadata.topics.includes(language),
+  );
 
   return (
     <InterviewsQuestionsCategoryLanguagePage
       bottomContent={bottomContent}
-      codingFormat={{
-        options: codingFormats,
-      }}
       guides={guides}
       language={language}
       questionCompletionCount={questionCompletionCount}
-      questions={questionsCoding}
+      questions={questionsQuizHTML}
       totalQuestionsCount={questionsCoding.length + questionsQuiz.length}
-      userFacingFormat="coding"
+      userFacingFormat={questionFormat}
     />
   );
 }

@@ -1,6 +1,5 @@
 import type { Metadata } from 'next/types';
 
-import { InterviewsQuestionsCategoryLanguageCodingFormatTabs } from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryCodingFormatTabs';
 import InterviewsQuestionsCategoryLanguagePage from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryLanguagePage';
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
@@ -20,8 +19,7 @@ import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
 const language = 'ts';
-const codingFormats =
-  InterviewsQuestionsCategoryLanguageCodingFormatTabs[language];
+const questionFormat = 'quiz';
 
 export const dynamic = 'force-static';
 
@@ -104,7 +102,7 @@ export default async function Page({ params }: Props) {
   ] = await Promise.all([
     fetchQuestionsListCodingForLanguage(language, locale),
     fetchQuestionsListQuizForLanguage(language, locale),
-    fetchQuestionsCompletionCount(codingFormats),
+    fetchQuestionsCompletionCount([questionFormat]),
     readAllFrontEndInterviewGuides(params.locale),
     fetchInterviewListingBottomContent('language-ts'),
   ]);
@@ -112,15 +110,12 @@ export default async function Page({ params }: Props) {
   return (
     <InterviewsQuestionsCategoryLanguagePage
       bottomContent={bottomContent}
-      codingFormat={{
-        options: codingFormats,
-      }}
       guides={guides}
       language={language}
       questionCompletionCount={questionCompletionCount}
-      questions={questionsCoding}
+      questions={questionsQuiz}
       totalQuestionsCount={questionsCoding.length + questionsQuiz.length}
-      userFacingFormat="coding"
+      userFacingFormat={questionFormat}
     />
   );
 }

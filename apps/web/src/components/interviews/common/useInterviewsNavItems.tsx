@@ -358,16 +358,19 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
       {
         bottomEl: (
           <div className="flex flex-wrap gap-2">
-            {['JavaScript coding', 'UI coding', 'Algo coding', '+2 more'].map(
-              (label) => (
-                <Badge
-                  key={label}
-                  label={label}
-                  size="xs"
-                  variant="neutral-active"
-                />
-              ),
-            )}
+            {[
+              'JavaScript functions',
+              'UI coding',
+              'Algo coding',
+              '+2 more',
+            ].map((label) => (
+              <Badge
+                key={label}
+                label={label}
+                size="xs"
+                variant="neutral-active"
+              />
+            ))}
           </div>
         ),
         currentMatchRegex: new RegExp(

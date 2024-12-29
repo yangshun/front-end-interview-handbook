@@ -1,6 +1,5 @@
 import type { Metadata } from 'next/types';
 
-import { InterviewsQuestionsCategoryLanguageCodingFormatTabs } from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryCodingFormatTabs';
 import InterviewsQuestionsCategoryLanguagePage from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryLanguagePage';
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
@@ -19,9 +18,8 @@ import {
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
-const language = 'ts';
-const codingFormats =
-  InterviewsQuestionsCategoryLanguageCodingFormatTabs[language];
+const language = 'js';
+const questionFormat = 'quiz';
 
 export const dynamic = 'force-static';
 
@@ -51,9 +49,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: intl.formatMessage(
       {
         defaultMessage:
-          'Practice {questionCount}+ curated TypeScript Interview Questions in-browser, with solutions and test cases from big tech ex-interviewers',
+          'Practice {questionCount}+ curated JavaScript Interview Questions in-browser, with solutions and test cases from big tech ex-interviewers',
         description: 'Description of Interview Questions page',
-        id: 'icPBtm',
+        id: '4qFdKz',
       },
       {
         questionCount: roundQuestionCountToNearestTen(
@@ -74,21 +72,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         id: 'uEiI+F',
       },
       {
-        category: 'TypeScript',
+        category: 'JavaScript',
       },
     ),
     pathname: `/questions/${language}`,
     socialTitle: intl.formatMessage({
       defaultMessage:
-        'TypeScript Interview Questions with Solutions | GreatFrontEnd',
-      description: 'Title of TypeScript Interview Questions page',
-      id: '/+I2B/',
+        'JavaScript Interview Questions with Solutions | GreatFrontEnd',
+      description: 'Social title of JavaScript Interview Questions page',
+      id: 'Y7kOcC',
     }),
     title: intl.formatMessage({
       defaultMessage:
-        'TypeScript Interview Questions | Solutions by Ex-FAANG interviewers',
-      description: 'Title of TypeScript Interview Questions page',
-      id: 'anKB4B',
+        'JavaScript Interview Questions | Solutions by Ex-FAANG interviewers',
+      description: 'Title of JavaScript Interview Questions page',
+      id: 'Ng8CsI',
     }),
   });
 }
@@ -104,23 +102,24 @@ export default async function Page({ params }: Props) {
   ] = await Promise.all([
     fetchQuestionsListCodingForLanguage(language, locale),
     fetchQuestionsListQuizForLanguage(language, locale),
-    fetchQuestionsCompletionCount(codingFormats),
+    fetchQuestionsCompletionCount([questionFormat]),
     readAllFrontEndInterviewGuides(params.locale),
-    fetchInterviewListingBottomContent('language-ts'),
+    fetchInterviewListingBottomContent('language-js'),
   ]);
+
+  const questionsQuizJS = questionsQuiz.filter((metadata) =>
+    metadata.topics.includes('javascript'),
+  );
 
   return (
     <InterviewsQuestionsCategoryLanguagePage
       bottomContent={bottomContent}
-      codingFormat={{
-        options: codingFormats,
-      }}
       guides={guides}
       language={language}
       questionCompletionCount={questionCompletionCount}
-      questions={questionsCoding}
+      questions={questionsQuizJS}
       totalQuestionsCount={questionsCoding.length + questionsQuiz.length}
-      userFacingFormat="coding"
+      userFacingFormat={questionFormat}
     />
   );
 }

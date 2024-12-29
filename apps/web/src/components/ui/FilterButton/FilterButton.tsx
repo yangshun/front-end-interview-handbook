@@ -6,6 +6,7 @@ import Button from '~/components/ui/Button';
 
 type Props = Omit<React.ComponentProps<typeof Button>, 'variant'> &
   Readonly<{
+    href?: string;
     selected?: boolean;
   }>;
 

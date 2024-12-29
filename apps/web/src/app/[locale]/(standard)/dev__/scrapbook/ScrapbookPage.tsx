@@ -1,18 +1,7 @@
 'use client';
 
-import { useState } from 'react';
-import {
-  RiBugLine,
-  RiFolder4Line,
-  RiGlobalLine,
-  RiNodeTree,
-  RiQuestionnaireLine,
-  RiShieldKeyholeLine,
-} from 'react-icons/ri';
-
 import InterviewsGuideCard from '~/components/interviews/guides/InterviewsGuideCard';
 import InterviewsQuestionsCategoryContentSlider from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryContentSlider';
-import QuestionListingTopicFilters from '~/components/interviews/questions/listings/filters/QuestionListingTopicFilters';
 import QuestionsProgressPanel from '~/components/interviews/questions/listings/stats/QuestionsProgressPanel';
 import QuestionCountLabel from '~/components/interviews/questions/metadata/QuestionCountLabel';
 import QuestionDifficultyLabel from '~/components/interviews/questions/metadata/QuestionDifficultyLabel';
@@ -35,10 +24,6 @@ import {
 } from '~/components/ui/theme';
 
 export default function ScrapbookPage() {
-  const [selectedFilters, setSelectedFilters] = useState<Set<string>>(
-    new Set(),
-  );
-
   return (
     <CardContainer className="grid gap-y-16">
       <Container className="grid gap-y-6">
@@ -172,77 +157,6 @@ export default function ScrapbookPage() {
                   title: 'JavaScript Interview guides',
                 }}
               />
-            </UIExamplesGroup>
-            <UIExamplesGroup darkMode="horizontal">
-              <div className="grid items-start gap-y-6">
-                <QuestionListingTopicFilters
-                  section={{
-                    id: 'foo',
-                    matches: () => true,
-                    name: '',
-                    onChange: (value) => {
-                      setSelectedFilters((oldFilters) => {
-                        const newFilters = new Set(oldFilters);
-
-                        if (oldFilters.has(value)) {
-                          newFilters.delete(value);
-                        } else {
-                          newFilters.add(value);
-                        }
-
-                        return newFilters;
-                      });
-                    },
-                    onClear: () => {
-                      setSelectedFilters(new Set());
-                    },
-                    options: [
-                      {
-                        icon: RiFolder4Line,
-                        label: 'All topics',
-                        value: 'all-topics',
-                      },
-                      {
-                        icon: RiGlobalLine,
-                        label: 'Internationalization',
-                        value: 'internationalization',
-                      },
-                      {
-                        icon: RiShieldKeyholeLine,
-                        label: 'Security',
-                        value: 'security',
-                      },
-                      {
-                        icon: RiBugLine,
-                        label: 'Testing',
-                        value: 'Testing',
-                      },
-                      {
-                        icon: RiFolder4Line,
-                        label: 'All questions',
-                        value: 'all-questions',
-                      },
-                      {
-                        icon: RiGlobalLine,
-                        label: 'Coding',
-                        value: 'coding',
-                      },
-                      {
-                        icon: RiQuestionnaireLine,
-                        label: 'Quiz',
-                        value: 'quiz',
-                      },
-                      {
-                        icon: RiNodeTree,
-                        label: 'System design',
-                        value: 'system-design',
-                      },
-                    ],
-                    setValues: setSelectedFilters,
-                  }}
-                  values={selectedFilters}
-                />
-              </div>
             </UIExamplesGroup>
           </div>
         </Section>

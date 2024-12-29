@@ -100,7 +100,6 @@ export default function InterviewsQuestionsCategoryFrameworkPage({
           <MDXContent
             components={{
               QuestionsCount: () => <span>{totalQuestionsCount}</span>,
-              QuizQuestionsCount: () => <span>{questionsQuiz.length}</span>,
             }}
             mdxCode={bottomContent.body.code}
           />

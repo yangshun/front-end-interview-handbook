@@ -1,5 +1,6 @@
 import type { Metadata } from 'next/types';
 
+import { InterviewsQuestionsCategoryLanguageCodingFormatTabs } from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryCodingFormatTabs';
 import InterviewsQuestionsCategoryLanguagePage from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryLanguagePage';
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
@@ -9,6 +10,7 @@ import {
   fetchQuestionsListCoding,
   fetchQuestionsListCodingForLanguage,
   fetchQuestionsListQuiz,
+  fetchQuestionsListQuizForLanguage,
 } from '~/db/QuestionsListReader';
 import {
   categorizeQuestionsByFrameworkAndLanguage,
@@ -18,6 +20,8 @@ import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
 const language = 'js';
+const codingFormats =
+  InterviewsQuestionsCategoryLanguageCodingFormatTabs[language];
 
 export const dynamic = 'force-static';
 
@@ -53,7 +57,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       },
       {
         questionCount: roundQuestionCountToNearestTen(
-          languageQuestions.js.length,
+          languageQuestions[language].length,
         ),
       },
     ),
@@ -92,31 +96,31 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Page({ params }: Props) {
   const { locale } = params;
   const [
-    questionsCodingJS,
-    { questions: questionsQuiz },
+    questionsCoding,
+    questionsQuiz,
     questionCompletionCount,
     guides,
     bottomContent,
   ] = await Promise.all([
     fetchQuestionsListCodingForLanguage(language, locale),
-    fetchQuestionsListQuiz(locale),
-    fetchQuestionsCompletionCount(['javascript', 'user-interface', 'quiz']),
+    fetchQuestionsListQuizForLanguage(language, locale),
+    fetchQuestionsCompletionCount(codingFormats),
     readAllFrontEndInterviewGuides(params.locale),
     fetchInterviewListingBottomContent('language-js'),
   ]);
 
-  const questionsQuizJS = questionsQuiz.filter((metadata) =>
-    metadata.topics.includes('javascript'),
-  );
-
   return (
     <InterviewsQuestionsCategoryLanguagePage
       bottomContent={bottomContent}
+      codingFormat={{
+        options: codingFormats,
+      }}
       guides={guides}
       language={language}
       questionCompletionCount={questionCompletionCount}
-      questionsCoding={questionsCodingJS}
-      questionsQuiz={questionsQuizJS}
+      questions={questionsCoding}
+      totalQuestionsCount={questionsCoding.length + questionsQuiz.length}
+      userFacingFormat="coding"
     />
   );
 }

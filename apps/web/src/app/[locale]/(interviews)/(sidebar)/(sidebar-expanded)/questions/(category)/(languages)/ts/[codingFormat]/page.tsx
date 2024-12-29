@@ -1,5 +1,6 @@
 import type { Metadata } from 'next/types';
 
+import type { QuestionCodingFormat } from '~/components/interviews/questions/common/QuestionsTypes';
 import { InterviewsQuestionsCategoryLanguageCodingFormatTabs } from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryCodingFormatTabs';
 import InterviewsQuestionsCategoryLanguagePage from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryLanguagePage';
 
@@ -27,6 +28,7 @@ export const dynamic = 'force-static';
 
 type Props = Readonly<{
   params: Readonly<{
+    codingFormat: QuestionCodingFormat;
     locale: string;
   }>;
 }>;
@@ -94,7 +96,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Page({ params }: Props) {
-  const { locale } = params;
+  const { codingFormat, locale } = params;
   const [
     questionsCoding,
     questionsQuiz,
@@ -104,21 +106,26 @@ export default async function Page({ params }: Props) {
   ] = await Promise.all([
     fetchQuestionsListCodingForLanguage(language, locale),
     fetchQuestionsListQuizForLanguage(language, locale),
-    fetchQuestionsCompletionCount(codingFormats),
+    fetchQuestionsCompletionCount([codingFormat]),
     readAllFrontEndInterviewGuides(params.locale),
     fetchInterviewListingBottomContent('language-ts'),
   ]);
+
+  const questionsCodingFormat = questionsCoding.filter((metadata) =>
+    metadata.format.includes(codingFormat),
+  );
 
   return (
     <InterviewsQuestionsCategoryLanguagePage
       bottomContent={bottomContent}
       codingFormat={{
         options: codingFormats,
+        value: codingFormat,
       }}
       guides={guides}
       language={language}
       questionCompletionCount={questionCompletionCount}
-      questions={questionsCoding}
+      questions={questionsCodingFormat}
       totalQuestionsCount={questionsCoding.length + questionsQuiz.length}
       userFacingFormat="coding"
     />

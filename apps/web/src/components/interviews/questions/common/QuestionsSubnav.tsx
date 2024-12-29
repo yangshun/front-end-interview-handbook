@@ -57,7 +57,7 @@ export default function QuestionsSubnav({ items }: Props) {
             )}
           />
           {items.map(({ href, label, value, icon: Icon }) => {
-            const isActive = href === pathname;
+            const isActive = href === pathname || pathname?.startsWith(href);
 
             return (
               <Anchor

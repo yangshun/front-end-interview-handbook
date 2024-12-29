@@ -98,9 +98,9 @@ function useCodingSectionFormatItems() {
       icon: RiJavascriptFill,
       id: 'javascript',
       label: intl.formatMessage({
-        defaultMessage: 'JavaScript coding',
-        description: 'Front End JavaScript questions',
-        id: 'Y3gxjL',
+        defaultMessage: 'JavaScript functions',
+        description: 'Front End JavaScript coding questions',
+        id: 'kA4yZ1',
       }),
       type: 'link',
     },

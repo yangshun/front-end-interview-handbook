@@ -32,6 +32,7 @@ import type { QuestionCompletionCount } from '~/db/QuestionsCount';
 type Props = Readonly<{
   categoryTabs?: ReactNode;
   description: string;
+  formatTabs?: ReactNode;
   guides: ReadonlyArray<GuideCardMetadata>;
   questionCompletionCount?: QuestionCompletionCount;
   questionList: ReadonlyArray<QuestionMetadata>;
@@ -54,6 +55,7 @@ type Props = Readonly<{
 export default function InterviewsQuestionsCategoryPage({
   categoryTabs,
   description,
+  formatTabs,
   questionCompletionCount,
   questionList,
   searchPlaceholder,
@@ -139,6 +141,7 @@ export default function InterviewsQuestionsCategoryPage({
       <Section>
         <QuestionsUnifiedListWithFiltersAndProgress
           categoryTabs={categoryTabs}
+          formatTabs={formatTabs}
           framework={
             props.category === 'framework' ? props.categoryValue : undefined
           }
