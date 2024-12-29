@@ -5,12 +5,71 @@ import graphIsTreeUsingUnion from '../setup/src/graph-is-tree-using-union.ts';
 
 ## 1. Graph Theory And DFS
 
-Time complexity: O(N + E), where `N` is the number of nodes and `E` is the number of edges
+The problem is to determine whether a given undirected graph is a valid tree. A tree is defined as a connected graph with no cycles and exactly `n - 1` edges for `n` nodes.
+
+The intuition behind the solution is to verify two key properties:
+
+1. The graph should be connected, meaning all nodes must be reachable starting from any node.
+2. The graph should have no cycles.
+
+A depth-first search (DFS) is used to traverse the graph while detecting cycles. The traversal starts from a single node, marking nodes as visited in a `Set`. During traversal, if a node is revisited (excluding the parent node in the traversal), a cycle is detected. Additionally, the number of edges is checked to ensure it is exactly `n - 1`, as this is a necessary condition for a valid tree.
+
+This approach avoids redundant checks by combining the cycle detection and connectivity verification in a single DFS traversal.
+
+### Algorithm
+
+1. Check if the number of edges is not equal to `num - 1`. If so, return `false` because the graph cannot be a tree.
+2. Create an adjacency list to represent the graph:
+   - Initialize a `Map` where each node points to an empty array.
+   - Populate the adjacency list by adding both endpoints of each edge to each other's neighbor list.
+3. Initialize an empty `Set` called `seen` to track visited nodes during traversal.
+4. Define a recursive `dfs` function:
+   - If the current node is already in `seen`, return `false` as this indicates a cycle.
+   - Add the current node to `seen`.
+   - For each neighbor of the current node:
+     - Skip the parent node to avoid false-positive cycle detection.
+     - Recursively call `dfs` on the neighbor. If any recursive call detects a cycle, return `false`.
+   - Return `true` after all neighbors are processed.
+5. Call `dfs` starting from node `0` with `-1` as the parent.
+6. Verify the graph is connected by checking if the size of `seen` is equal to `num`.
+7. Return `true` if no cycles were detected and the graph is connected.
 
 <MDXCodeBlock>{graphIsTree}</MDXCodeBlock>
 
+### Big-O analysis
+
+- **Time complexity: O(v + e)**. Each node (`v`) and edge (`e`) is visited once during the DFS traversal.
+- **Space complexity: O(v)**. The `seen` set and adjacency list require space proportional to the number of nodes.
+
 ## 2. Graph Theory And Union
 
-Time complexity: O(n), where `N` is the number of nodes
+The problem is to determine whether a given undirected graph is a valid tree. A tree is a connected graph with no cycles and exactly `n - 1` edges for `n` nodes.
+
+The union-find data structure is used to efficiently track connected components and detect cycles. Initially, each node is treated as its own component. The `union` operation merges components when an edge connects two nodes, while the `find` operation ensures efficient lookups for a node's component using path compression. If an edge connects two nodes already in the same component, a cycle is detected. Additionally, the graph must have exactly `n - 1` edges for it to be a single connected component.
+
+This approach eliminates redundant traversal of nodes and edges by directly managing the relationships between components using efficient union-find operations.
+
+### Algorithm
+
+1. Check if the number of edges is not equal to `num - 1`. If so, return `false` because the graph cannot be a tree.
+2. Initialize the union-find data structure:
+   - Create an array `parent` where each node is its own parent initially.
+   - Create an array `size` to track the size of each component, initializing all sizes to `1`.
+3. Define the `find` function:
+   - Traverse up the parent pointers until the root of the component is reached.
+   - Apply path compression by making all nodes on the path point directly to the root.
+4. Define the `union` function:
+   - Use the `find` function to determine the root components of the two nodes.
+   - If the roots are the same, a cycle is detected. Return `false`.
+   - Otherwise, merge the smaller component into the larger one and update the size.
+5. Iterate through the list of edges:
+   - Use the `union` function to merge the nodes connected by each edge.
+   - If a cycle is detected during the process, return `false`.
+6. If no cycles are detected and the graph has `n - 1` edges, return `true`.
 
 <MDXCodeBlock>{graphIsTreeUsingUnion}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(e.α(v))**. The `union` and `find` operations are nearly constant time due to path compression and union by size, where α(v) is the inverse Ackermann function.
+- **Space complexity: O(v)**. The `parent` and `size` arrays require space proportional to the number of nodes (`v`).

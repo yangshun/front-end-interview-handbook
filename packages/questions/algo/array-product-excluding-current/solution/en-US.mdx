@@ -1,16 +1,61 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import productOfArrayExceptSelf from '../setup/src/array-product-excluding-current.ts';
-import productOfArrayExceptSelfSolutionEfficientSpace from './array-product-excluding-current-solution-efficient-space.ts';
+import arrayProductExcludingCurrent from '../setup/src/array-product-excluding-current.ts';
+import arrayProductExcludingCurrentEfficientSpace from '../setup/src/array-product-excluding-current-efficient-space.ts';
 
 ## 1. Using Prefix and Suffix
 
-Time complexity: O(n)
+The task is to compute an array where each element at index `i` is the product of all elements in the input array except the one at `i`. This solution uses separate prefix and suffix arrays to store intermediate calculations, enabling an efficient computation of the result.
 
-<MDXCodeBlock>{productOfArrayExceptSelf}</MDXCodeBlock>
+A brute force approach would involve iterating through the array and calculating the product of all elements except the current one for each index. This results in a time complexity of O(n<sup>2</sup>) due to repeated multiplication for each index. The optimized prefix-suffix approach eliminates this redundancy by precomputing the products to the left and right of each element.
+
+The prefix array stores the cumulative product of elements from the start up to the index `i - 1`, and the suffix array stores the cumulative product of elements from the end down to the index `i + 1`. These arrays are combined to compute the final result array, with each element being the product of the corresponding prefix and suffix values. The handling of negative zero ensures consistent output formatting.
+
+### Algorithm
+
+1. Create three arrays: `prefix`, `suffix`, and `result`, each of size `n` and initialized with `1`.
+2. Calculate the prefix array:
+   - Set `prefix[0] = 1` because there are no elements to the left of the first element.
+   - Iterate from index `1` to `n - 1`, setting `prefix[i]` as `prefix[i - 1] * numbers[i - 1]`.
+3. Calculate the suffix array:
+   - Set `suffix[n - 1] = 1` because there are no elements to the right of the last element.
+   - Iterate from index `n - 2` to `0`, setting `suffix[i]` as `suffix[i + 1] * numbers[i + 1]`.
+4. Calculate the result array:
+   - Iterate through the array and set `result[i]` as `prefix[i] * suffix[i]`.
+5. Handle special cases:
+   - Iterate through the `result` array and replace any occurrences of `-0` with `0` for consistent output.
+6. Return the `result` array.
+
+<MDXCodeBlock>{arrayProductExcludingCurrent}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(n)**. The algorithm involves three linear passes: one to compute the prefix array, one to compute the suffix array, and one to compute the result array.
+- **Space complexity: O(n)**. Two auxiliary arrays (`prefix` and `suffix`) of size `n` are used in addition to the `result` array.
 
 ## 2. Space Optimized Version of Above Approach
 
-Time complexity: O(n)
+This solution improves the space usage further by calculating the product of all elements to the left of each index during the first pass and storing these values in the `result` array. During the second pass, it calculates the product of all elements to the right of each index and multiplies these values with the corresponding values already stored in the `result` array.
 
-<MDXCodeBlock>{productOfArrayExceptSelfSolutionEfficientSpace}</MDXCodeBlock>
+### Algorithm
+
+1. Initialize a `result` array of the same length as the input array with all elements set to `1`.
+2. Calculate the left products:
+   - Iterate through the array from left to right starting at index `1`.
+   - For each index `i`, compute the product of all elements to the left by multiplying `numbers[i - 1]` with `result[i - 1]`.
+   - Store the result in `result[i]`.
+3. Calculate the right products and combine with the left products:
+   - Initialize a variable `rightProduct` to `1`.
+   - Iterate through the array from right to left.
+   - For each index `i`, multiply the value in `result[i]` with `rightProduct` to include the product of all elements to the right.
+   - Update `rightProduct` by multiplying it with `numbers[i]`.
+4. Handle special cases:
+   - Replace any occurrences of `-0` in `result` with `0` for consistent output.
+5. Return the `result` array.
+
+<MDXCodeBlock>{arrayProductExcludingCurrentEfficientSpace}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(n)**. The algorithm involves two linear passes over the array for calculating left and right products and one additional pass for normalization.
+- **Space complexity: O(1)**. The solution uses constant extra space, as calculations are performed directly in the `result` array.

@@ -2,15 +2,67 @@ import MDXCodeBlock from 'MDXCodeBlock';
 
 import findMissingNumberInSequence from '../setup/src/array-find-missing-number-in-sequence.ts';
 import findMissingNumberInSequenceSorting from '../setup/src/array-find-missing-number-in-sequence-sorting.ts';
+import findMissingNumberInSequenceBruteForce from '../setup/src/array-find-missing-number-in-sequence-brute-force.ts';
 
-## 1. Using Sorting
+## 1. Brute Force
 
-Time complexity: O(NLogN), where N is the length of the array
+The problem requires identifying the missing number in a sequence from 0 to `n`. The brute force solution iterates through the expected range of numbers and checks if each number exists in the array. For each number, another iteration through the array is performed to check for its presence. This approach involves nested loops, resulting in a time complexity of O(n<sup>2</sup>). This method is simple but inefficient for larger arrays due to repeated checks.
+
+### Algorithm
+
+1. Calculate the expected range number `n`.
+2. Iterate through the range of numbers from 0 to `n`:
+   - For each number, iterate through the array to check if the current number is present.
+   - If the number is found, stop searching for it and move to the next number.
+   - If the number is not found, return it as the missing number.
+3. Return -1 if no missing number is found.
+
+<MDXCodeBlock>{findMissingNumberInSequenceBruteForce}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(n<sup>2</sup>)**. For each number in the range 0 to `n`, a full traversal of the array is performed to check for its presence.
+- **Space complexity: O(1)**. No additional space is used apart from a few variables to store intermediate results.
+
+## 2. Using Sorting
+
+To eliminate the redundant checks in the brute force solution, this optimized approach sorts the input array, making it easier to identify the missing number in a sequence by ensuring the numbers are in ascending order. Once sorted, the solution checks boundary cases (whether the first or last number in the sequence is missing). If no boundary case is detected, the solution iterates through the sorted array to check whether the expected values exists at each index.
+
+### Algorithm
+
+1. Sort the input array in ascending order.
+2. Check if the last number is equal to the array length:
+   - If not, return the array length as the missing number.
+3. Check if the first number is 0:
+   - If not, return 0 as the missing number.
+4. Iterate through the sorted array:
+   - For each number, calculate the expected next number as the current number plus one.
+   - If the next number does not match the expected value, return the expected value as the missing number.
+5. Return -1 if no missing number is found, which should not occur with valid input.
 
 <MDXCodeBlock>{findMissingNumberInSequenceSorting}</MDXCodeBlock>
 
-## 2. Using mathematical property to calculate sum of numbers from 0 to n
+### Big-O analysis
 
-Time complexity: O(n), where N is the length of the array
+- **Time complexity: O(n log n)**. Sorting the array dominates the runtime, requiring O(n log n) time. The subsequent iteration through the array is O(n).
+- **Space complexity: O(1)**. Sorting is performed in place, and no additional space is used beyond a few variables.
+
+## 3. Using mathematical property to calculate sum of numbers from 0 to n
+
+Sorting is probably unnecessary since the missing number can be determined by using the mathematical property of the sum of integers from 0 to `n`. The mathematical property eliminates the need to iterate through and compare elements. Instead, it calculates the total expected sum and subtracts the actual sum to find the missing number. This optimization removes the bottleneck of sorting and reduces the overall time complexity to O(n).
+
+### Algorithm
+
+1. Initialize `expectedSum` to 0. This will hold the sum of all integers from 0 to `n`.
+2. Calculate the total expected sum of integers from 0 to `n` using a loop and store the result in `expectedSum`.
+3. Initialize `actualSum` to 0. This will hold the sum of the elements in the given array.
+4. Iterate through the array and calculate the sum of all its elements, storing it in `actualSum`.
+5. Subtract `actualSum` from `expectedSum` to determine the missing number.
+6. Return the result.
 
 <MDXCodeBlock>{findMissingNumberInSequence}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(n)**. Calculating the expected sum and iterating through the array both take O(n) time.
+- **Space complexity: O(1)**. The solution uses a constant amount of space for variables.

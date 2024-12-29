@@ -6,18 +6,70 @@ import endOfArrayReachableBottomUp from '../setup/src/array-reachable-end-bottom
 
 ## 1. Bottom-Up Dynamic Programming
 
-Time complexity: O(n<sup>2</sup>)
+A naive solution would involve recursively exploring all possible paths from the first position to check if the last position can be reached. This approach suffers from redundant computations and an exponential time complexity, as it explores overlapping subproblems multiple times.
+
+The bottom-up dynamic programming approach optimizes this by iterating from the second-last position to the first position while maintaining a `memo` array that records whether each position is `GOOD`, `BAD`, or `UNKNOWN`. A position is `GOOD` if it can reach the last position or a position already marked as `GOOD`. The optimization eliminates redundant checks by using previously computed results in the `memo` array.
+
+### Algorithm
+
+1. Define an enumeration `Index` with states `GOOD`, `BAD`, and `UNKNOWN` to represent the state of each index.
+2. Initialize a `memo` array of the same length as the input array with all values set to `Index.UNKNOWN`.
+3. Set the last position in `memo` to `Index.GOOD` since the last position can trivially reach itself.
+4. Iterate backward through the input array from the second-last position to the first position:
+   - Calculate the furthest position reachable from the current index using the minimum of `i + numbers[i]` and the last index.
+   - Check all positions between the current index and the furthest reachable position:
+     - If any of these positions is marked as `Index.GOOD` in `memo`, mark the current position as `Index.GOOD` and break the inner loop.
+5. Return `true` if the first position is marked as `Index.GOOD` in `memo`, indicating the last position is reachable. Otherwise, return `false`.
 
 <MDXCodeBlock>{endOfArrayReachableBottomUp}</MDXCodeBlock>
 
+### Big-O analysis
+
+- **Time complexity: O(n<sup>2</sup>)**. For each position, the inner loop checks up to `numbers[i]` positions, leading to a worst-case quadratic complexity.
+- **Space complexity: O(n)**. The `memo` array of size `n` is used for dynamic programming storage.
+
 ## 2. Top-Down Dynamic Programming
 
-Time complexity: O(n<sup>2</sup>)
+There is another top-down dynamic programming approach, where the process begins from the first position and uses recursion to determine whether subsequent reachable positions can lead to the last position. The memoization array ensures that previously computed results are reused, avoiding redundant calculations and improving efficiency.
+
+### Algorithm
+
+1. Initialize a `memo` array of the same length as the input array with all values set to `'UNKNOWN'`.
+2. Set the last position in the `memo` array to `'GOOD'` because it can trivially reach itself.
+3. Define a helper function `canReachLastPosition` that takes the current position and the input array as arguments:
+   - If the current position is already marked in `memo`, return the corresponding result.
+   - If the value at the current position is `0`, mark it as `'BAD'` and return `false` because it cannot proceed further.
+   - Calculate the furthest position reachable from the current position as the minimum of `position + numbers[position]` and the last index.
+   - Iterate backward through all reachable positions from the current position:
+     - If any reachable position is `'GOOD'`, mark the current position as `'GOOD'` and return `true`.
+   - If none of the reachable positions are `'GOOD'`, mark the current position as `'BAD'` and return `false`.
+4. Start the recursion from the first position using the helper function.
+5. Return `true` if the first position is `'GOOD'`, indicating the last position is reachable. Otherwise, return `false`.
 
 <MDXCodeBlock>{endOfArrayReachableTopDown}</MDXCodeBlock>
 
+### Big-O analysis
+
+- **Time complexity: O(n<sup>2</sup>)**. The worst-case scenario involves checking all reachable positions for each index, resulting in quadratic complexity.
+- **Space complexity: O(n)**. The `memo` array of size `n` is used for storing intermediate results, and the recursion stack may go up to `n` calls.
+
 ## 3. Greedy Approach
 
-Time complexity: O(n)
+In the greedy approach, the algorithm starts from the last position and iterates backward. For each position, it checks if the current position can reach the farthest reachable position. If it can, the farthest reachable position is updated to the current position. If, after processing the entire array, the farthest reachable position becomes the first index, it means the last position is reachable.
+
+### Algorithm
+
+1. Initialize a variable `farthestReachable` to the last index of the array (`numbers.length - 1`).
+2. Iterate backward through the array starting from the last index:
+   - For each position, check if `currentPosition + numbers[currentPosition]` is greater than or equal to `farthestReachable`.
+   - If true, update `farthestReachable` to `currentPosition`.
+3. After the iteration, check if `farthestReachable` equals `0`:
+   - Return `true` if `farthestReachable` is `0`, indicating the last position is reachable from the first position.
+   - Otherwise, return `false`.
 
 <MDXCodeBlock>{endOfArrayReachable}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(n)**. The algorithm iterates through the array once in reverse order.
+- **Space complexity: O(1)**. No additional space is used other than a constant number of variables.

@@ -5,12 +5,59 @@ import kthSmallestElementInABstIteration from '../setup/src/binary-search-tree-k
 
 ## 1. Using Recursion
 
-Time complexity: O(n)
+The problem of finding the k-th smallest element in a binary search tree (BST) uses the properties of in-order traversal. In-order traversal of a BST visits nodes in ascending order of their values. Using this property, the algorithm collects node values in sorted order and directly retrieves the k-th smallest value.
+
+The in-order traversal ensures that the values of the BST are visited in ascending order. By traversing the left subtree, then the current node, and finally the right subtree, the algorithm systematically collects sorted values.
+
+The algorithm recursively traverses the BST, appending node values to an array during the process. This array contains all node values in ascending order.
+
+Since the array is sorted, the k-th smallest element corresponds to the element at index `k-1` due to zero-based indexing. This makes retrieval efficient.
+
+### Algorithm
+
+1. Define a helper function `inorderTraversal` that:
+   1. Takes a node `root` and an array `arr` as inputs.
+   2. Checks if the current node is `null`. If true, returns the array.
+   3. Recursively traverses the left subtree by calling `inorderTraversal` on `root.left`.
+   4. Appends the current node's value to the array.
+   5. Recursively traverses the right subtree by calling `inorderTraversal` on `root.right`.
+   6. Returns the array of values collected in sorted order.
+2. Call `inorderTraversal` on the root of the BST with an empty array to get all node values in sorted order.
+3. Retrieve the k-th smallest element by accessing the `(k-1)`-th index of the sorted array.
+4. Return this value as the result.
 
 <MDXCodeBlock>{kthSmallestElementInABst}</MDXCodeBlock>
 
+### Big-O analysis
+
+- **Time complexity: O(n)**. The in-order traversal visits each node exactly once.
+- **Space complexity: O(n)**. The array stores all node values, and the recursion stack may also use up to O(h) space, where `h` is the height of the BST.
+
 ## 2. Using Iteration
 
-Time complexity: O(h + k), where `h` is the height of the tree
+The iterative approach for finding the k-th smallest element in a binary search tree (BST) uses in-order traversal, which visits nodes in ascending order. Unlike the recursive approach, this method uses a stack to manage traversal, avoiding recursion and reducing the call stack usage.
+
+In-order traversal processes nodes in ascending order for a BST. By traversing the left subtree, visiting the root, and then traversing the right subtree, the nodes are visited sequentially in sorted order.
+
+Instead of traversing the entire tree, the algorithm keeps track of the number of nodes visited (`k`) and stops once the k-th smallest node is found. This optimization ensures efficiency.
+
+The iterative approach avoids the overhead of recursion and uses the stack to manage traversal, with the stack size proportional to the height of the tree.
+
+### Algorithm
+
+1. Initialize an empty stack to store nodes during traversal.
+2. While `true` (infinite loop):
+   1. Traverse to the leftmost node:
+      - Push the current `root` node onto the stack.
+      - Move to the left child (`root = root.left`).
+   2. Pop the node at the top of the stack:
+      - Assign the popped node to `root`.
+   3. Decrement `k`. If `k` becomes `0`, return the value of the current node (`root.val`).
+   4. Move to the right subtree (`root = root.right`).
 
 <MDXCodeBlock>{kthSmallestElementInABstIteration}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(h + k)**. The algorithm visits up to `k` nodes and explores a maximum depth of `h` (height of the tree) in the leftmost traversal.
+- **Space complexity: O(h)**. The stack stores nodes along the path to the leftmost node, which is proportional to the height of the tree.

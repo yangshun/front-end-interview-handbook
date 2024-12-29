@@ -2,8 +2,64 @@ import MDXCodeBlock from 'MDXCodeBlock';
 
 import shortestSubstringContainingCharacters from '../setup/src/string-shortest-substring-containing-characters.ts';
 
+import shortestSubstringContainingCharactersOptimized from '../setup/src/string-shortest-substring-containing-characters-optimized.ts';
+
 ## 1. Using Sliding Window
 
-Time complexity: O(|str1| + |str2|)
+The solution uses the sliding window technique to find the shortest substring in `str1` that contains all the characters of `str2`. The key intuition is to maintain a dynamic window that adjusts its size and position based on whether it satisfies the requirement of containing all characters from `str2` with the correct frequencies. The algorithm dynamically expands or decreases the window to find the smallest valid substring.
+
+### Algorithm
+
+1. Handle edge cases:
+   - If either string is empty, return an empty string.
+2. Create a `Map` `dictT` to store the frequency of each character in `str2`.
+3. Initialize variables:
+   - `required` to store the number of unique characters in `str2`.
+   - Two pointers `left` and `right` for the sliding window.
+   - `formed` to track the number of unique characters in the current window that meet the required frequency.
+   - `windowCounts` to track character counts in the current window.
+   - `ans` to store the smallest valid window found, initialized to `[-1, 0, 0]` (length, left index, right index).
+4. Expand the window by incrementing the `right` pointer:
+   - Add the character at `right` to `windowCounts`.
+   - If the count of the current character matches its count in `dictT`, increment `formed`.
+5. Contract the window by incrementing the `left` pointer while `formed` equals `required`:
+   - Check if the current window is smaller than the previously found smallest window. If so, update `ans`.
+   - Remove the character at `left` from `windowCounts`.
+   - If the count of the character falls below its count in `dictT`, decrement `formed`.
+6. Continue expanding and contracting until `right` reaches the end of `str1`.
+7. Return the substring corresponding to the smallest window in `ans`, or an empty string if no valid window exists.
 
 <MDXCodeBlock>{shortestSubstringContainingCharacters}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(n + m)**. The `right` pointer iterates through `str1` (O(n)), and the `left` pointer contracts the window as needed. The `Map` operations for checking and updating counts are O(1) on average. Constructing the frequency map for `str2` takes O(m), where `m` is the length of `str2`.
+- **Space complexity: O(n + m)**. The `windowCounts` and `dictT` maps require O(n + m) space to store character frequencies.
+
+## 2. Using Optimized Sliding Window
+
+The optimized sliding window approach improves efficiency by filtering `str1` to include only characters that exist in `str2`. This reduces the number of iterations and comparisons required during the sliding window process. The key intuition is that irrelevant characters in `str1` can be ignored since they do not contribute to forming the required substring. By working with a filtered version of `str1`, the algorithm processes only relevant characters, making it faster than the previous implementation.
+
+This optimization is especially impactful for large inputs where `str1` contains many characters not present in `str2`. The logic for expanding and contracting the window remains the same, but the number of operations is reduced due to filtering.
+
+### Algorithm
+
+1. Handle the base case:
+   - If either `str1` or `str2` is empty, return an empty string.
+2. Build a frequency map `dictT` for `str2` to track the required count of each character.
+3. Filter `str1` to include only characters that exist in `str2`, storing them as tuples of their index and character in `filteredStr1`.
+4. Initialize sliding window pointers `left` and `right`, a variable `formed` to track characters meeting their required frequency, and a `windowCounts` map to count characters in the current window.
+5. Use a sliding window:
+   - Expand the window by incrementing the `right` pointer.
+   - Update `windowCounts` and increment `formed` if the character at `right` meets the required count in `dictT`.
+   - Contract the window by incrementing the `left` pointer as long as all required characters are present:
+     - Update the result if the current window is smaller than the previously found one.
+     - Decrease the count of the character being removed from `windowCounts`, and decrement `formed` if it falls below the required count.
+6. Return the substring corresponding to the smallest window or an empty string if no valid window is found.
+
+<MDXCodeBlock>{shortestSubstringContainingCharactersOptimized}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(n + m)**. Filtering `str1` takes linear time proportional to the length of `str1`, and the sliding window operates on the filtered string, which has a length proportional to the number of characters in `str2`.
+- **Space complexity: O(n + m)**. The space used for the frequency map and the window counts is proportional to the number of characters in `str2`, while the filtered version of `str1` uses space proportional to the length of `str1`.

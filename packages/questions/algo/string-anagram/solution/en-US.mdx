@@ -5,12 +5,47 @@ import isStringAnagramUsingFrequency from '../setup/src/string-anagram-frequency
 
 ## 1. Using Sorting
 
-Time complexity: O(N.Log(N))
+The problem is to determine whether two strings are anagrams of each other. Two strings are anagrams if they contain the same characters in the same frequency, but in any order. The key insight of this approach is that sorting both strings will rearrange their characters in the same order if they are anagrams. After sorting, a simple comparison of the two sorted arrays can determine if the strings are anagrams.
+
+Sorting provides a straightforward way to align the characters in both strings, making it easy to check for equality.
+
+### Algorithm
+
+1. Check if the lengths of `str1` and `str2` are different. If they are, return `false` because strings of different lengths cannot be anagrams.
+2. Split `str1` and `str2` into character arrays using the `split` method.
+3. Sort the character arrays using the `sort` method.
+4. Iterate through the sorted arrays and compare characters at each index.
+   - If any character in the two arrays does not match, return `false`.
+5. If all characters match, return `true`.
 
 <MDXCodeBlock>{isStringAnagram}</MDXCodeBlock>
 
+### Big-O analysis
+
+- **Time complexity: O(n log n)**. Sorting the character arrays is the most expensive operation and dominates the runtime.
+- **Space complexity: O(n)**. The space is required to store the character arrays created from the input strings.
+
 ## 2. Using Frequency Count
 
-Time complexity: O(n)
+This solution optimizes the anagram-checking process by using a frequency count approach. Instead of sorting the strings, which requires O(n log n) time, the solution uses an array of fixed size (26 for the English alphabet) to count character occurrences. The frequency table is updated for each string: incrementing for one string and decrementing for the other. If the counts for all characters are zero at the end, the strings are anagrams.
+
+This approach avoids unnecessary sorting and directly targets the sorting bottleneck in the previous solution to reduce the time complexity from O(n log n) to O(n).
+
+### Algorithm
+
+1. Check if the lengths of the two strings are different.
+   - If they are, return `false` since the strings cannot be anagrams.
+2. Initialize an array of size 26 with all elements set to 0 to act as a frequency table.
+3. Iterate through the first string.
+   - For each character, increment its corresponding position in the frequency table.
+4. Iterate through the second string.
+   - For each character, decrement its corresponding position in the frequency table.
+   - If any count in the table goes below zero, return `false`.
+5. After both iterations, if no count is negative, return `true` as the strings are anagrams.
 
 <MDXCodeBlock>{isStringAnagramUsingFrequency}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(n)**. The solution iterates through both strings exactly once.
+- **Space complexity: O(1)**. The frequency table is a fixed size (26), regardless of the input size.

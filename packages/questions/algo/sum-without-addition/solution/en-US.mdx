@@ -4,6 +4,27 @@ import sumWithoutAddition from '../setup/src/sum-without-addition.ts';
 
 ## 1. Using Bit Manipulation
 
-Time complexity: O(1)
+The given solution uses bit manipulation to calculate the sum of two numbers without using the addition operator. The key idea relies on understanding how binary addition works:
+
+- The XOR operation (`^`) performs addition without carry. For example, in binary `1 ^ 1 = 0` and `0 ^ 1 = 1`.
+- The AND operation (`&`) identifies where carry bits are generated. For example, in binary `1 & 1 = 1` and `0 & 1 = 0`.
+- The left-shift operation (`<<`) moves the carry bits to the next higher position so they can be added in the subsequent iteration.
+
+By iteratively applying these operations, the algorithm processes the carry bits until no carry remains, yielding the sum.
+
+### Algorithm
+
+1. Initialize the `carry` variable to hold carry bits generated during each iteration.
+2. Continue looping as long as there are bits to process in `b` or there is a carry bit.
+3. Extract the carry bits using the `a & b` operation and store the result in `carry`.
+4. Use the XOR operation (`a ^ b`) to compute the sum without the carry bit and update `a`.
+5. Left-shift the `carry` by one position (`carry << 1`) to align it with the next higher bit and assign the result to `b`.
+6. Repeat steps 3–5 until both `b` and `carry` are zero.
+7. Return `a`, which holds the final sum.
 
 <MDXCodeBlock>{sumWithoutAddition}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(1)**. Each integer contains 32 bits.
+- **Space complexity: O(1)**. The algorithm uses constant space as it operates directly on the input variables.

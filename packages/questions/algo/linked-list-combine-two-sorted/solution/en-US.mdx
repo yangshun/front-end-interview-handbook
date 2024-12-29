@@ -5,12 +5,51 @@ import linkedListCombineTwoSortedUsingRecursion from '../setup/src/linked-list-c
 
 ## 1. Using Iterative Method
 
-Time complexity: O(N + M)
+The iterative approach for merging two sorted linked lists focuses on maintaining efficiency by using the already sorted nature of the input lists. The strategy involves traversing both lists simultaneously, comparing their current nodes, and building the combined list node by node. This ensures that the merged list remains sorted without requiring additional sorting steps.
+
+### Algorithm
+
+1. Create a `dummy` node with a placeholder value and set `prev` to point to `dummy`.
+2. While both `listA` and `listB` are non-`null`:
+   1. Compare the current nodes of `listA` and `listB`.
+   2. Append the smaller node to the merged list by updating `prev.next`.
+   3. Move the pointer of the list from which the smaller node was taken to its next node.
+   4. Update `prev` to point to the last node in the merged list.
+3. After exiting the loop, append the remaining nodes of either `listA` or `listB` (whichever is non-`null`) to the merged list.
+4. Return `dummy.next`, which points to the head of the merged list.
 
 <MDXCodeBlock>{linkedListCombineTwoSorted}</MDXCodeBlock>
 
+### Big-O analysis
+
+- **Time complexity: O(m + n)**. Each node in both lists is processed exactly once.
+- **Space complexity: O(1)**. The algorithm uses only a constant amount of extra space.
+
 ## 2. Using Recursive Method
 
-Time complexity: O(N + M)
+The recursive approach for merging two sorted linked lists relies on using recursion to simplify the process of combining the lists. The strategy involves comparing the current nodes of the two lists and making recursive calls to merge the rest of the lists. This ensures that the merged list is built in a sorted order as the recursion is called.
+
+At each step, the algorithm compares the current nodes of `listA` and `listB`. The smaller of the two nodes is chosen as the head of the merged list. This process is repeated recursively for the remaining nodes in the lists.
+
+The recursion terminates when either `listA` or `listB` becomes `null`. At this point, the non-`null` list is appended to the merged list since it is already sorted.
+
+The recursive approach effectively reduces the problem size at each step by processing one node at a time. Each node is processed exactly once, ensuring that the algorithm is linear with respect to the total number of nodes.
+
+### Algorithm
+
+1. Check if `listA` is `null`. If it is, return `listB` as the merged list.
+2. Check if `listB` is `null`. If it is, return `listA` as the merged list.
+3. Compare the values of the current nodes in `listA` and `listB`.
+   1. If `listA.val` is less than `listB.val`:
+      - Set `listA.next` to the result of recursively merging `listA.next` and `listB`.
+      - Return `listA` as the head of the merged list.
+   2. If `listB.val` is less than or equal to `listA.val`:
+      - Set `listB.next` to the result of recursively merging `listA` and `listB.next`.
+      - Return `listB` as the head of the merged list.
 
 <MDXCodeBlock>{linkedListCombineTwoSortedUsingRecursion}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(m + n)**. Each node in both lists is visited exactly once.
+- **Space complexity: O(m + n)**. The recursion depth depends on the total number of nodes, which results in additional stack space proportional to `m + n`.

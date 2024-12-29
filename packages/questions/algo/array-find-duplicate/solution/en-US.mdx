@@ -1,16 +1,68 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
 import findDuplicates from '../setup/src/array-find-duplicate.ts';
-import containsDuplicateSorting from '../setup/src/array-find-duplicate-sorting.ts';
+import findDuplicateSorting from '../setup/src/array-find-duplicate-sorting.ts';
+import findDuplicateBruteForce from '../setup/src/array-find-duplicate-brute-force.ts';
 
-## 1. Using Sorting
+## 1. Brute Force
 
-Time complexity: O(NLogN)
+The problem involves finding if there are duplicate elements in an array. The brute-force approach checks every possible pair of elements in the array to determine if they are equal. This is achieved through two nested loops, where each pair is compared. While this method is simple, it is inefficient for arrays with large size due to its O(n<sup>2</sup>) time complexity.
 
-<MDXCodeBlock>{containsDuplicateSorting}</MDXCodeBlock>
+### Algorithm
 
-## 2. Using Set
+1. Determine the length of the input array `numbers` and store it in a variable `n`.
+2. Use a loop with index `i` to iterate through each element in the array.
+3. For each `i`, use another loop with index `j` starting from `i + 1` to check every subsequent element in the array.
+4. Compare the elements at indices `i` and `j`:
+   - If they are equal, return `true` to indicate a duplicate is found.
+5. If no duplicate is found after checking all pairs, return `false`.
 
-Time complexity: O(n)
+<MDXCodeBlock>{findDuplicateBruteForce}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(n<sup>2</sup>)**. The outer loop iterates `n` times, and the inner loop iterates up to `n - i - 1` times, resulting in a quadratic time complexity.
+
+- **Space complexity: O(1)**. The algorithm uses a constant amount of additional space as it does not rely on any auxiliary data structures.
+
+## 2. Using Sorting
+
+The previous brute force solution has unnecessary work of checking all pairs. To eliminate the redundant comparisons, this optimized solution sorts the array in ascending order, which ensures that duplicate elements appear consecutively. Once the array is sorted, a single traversal is sufficient to check if any two consecutive elements are equal.
+
+### Algorithm
+
+1. Sort the input array `numbers` in ascending order using the built-in `sort` function.
+2. Iterate through the sorted array using a loop from index `0` to `numbers.length - 1`.
+   - For each element, compare it with the next element in the array.
+   - If the two elements are equal, return `true` to indicate a duplicate has been found.
+3. If no duplicates are found after the loop completes, return `false`.
+
+<MDXCodeBlock>{findDuplicateSorting}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(n log n)**. The sorting operation dominates the runtime with O(n log n). The subsequent linear traversal of the sorted array has a complexity of O(n), which is insignificant compared to the sorting step.
+
+- **Space complexity: O(1)**. The sorting is performed in-place, and the algorithm does not use any additional data structures, resulting in constant space usage.
+
+## 3. Using Set
+
+The previous solution using sorting had a bottleneck in its time complexity due to the sorting step, which is O(n log n). Sorting ensures duplicates appear consecutively but requires significant time for larger input arrays.
+
+The current solution improves upon this by using a `Set` to track elements seen so far. A `Set` allows for constant-time operations for checking existence and adding elements. This eliminates the need for sorting, reducing the time complexity to linear O(n). It also preserves the original array since no in-place changes are made.
+
+### Algorithm
+
+1. Create an empty `Set` to store unique elements.
+2. Iterate through each element in the input array:
+   - Check if the current element exists in the `Set`.
+   - If the element exists, return `true`, indicating a duplicate has been found.
+   - Otherwise, add the current element to the `Set`.
+3. If the iteration completes without finding duplicates, return `false`.
 
 <MDXCodeBlock>{findDuplicates}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(n)**. The algorithm iterates through the array once, performing constant-time operations for adding and checking elements in the `Set`.
+- **Space complexity: O(n)**. The `Set` requires additional space to store up to `n` elements in the worst case when all elements are unique.

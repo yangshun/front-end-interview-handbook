@@ -5,12 +5,54 @@ import countGridIsLandsBFS from '../setup/src/grid-count-islands-bfs.ts';
 
 ## 1. Using DFS
 
-Time complexity: O(M.N), where M is the number of rows, and N is the number of columns in the grid
+The problem requires counting the number of islands in a 2D grid where each cell is either land (`1`) or water (`0`). An island is defined as a group of adjacent land cells connected horizontally or vertically. The task is to count all distinct islands in the grid.
+
+The approach uses depth-first search (DFS) to traverse and mark all cells of an island starting from a land cell. The grid is modified in place to mark visited cells as water (`0`) to avoid revisiting them. Each time an unvisited land cell is encountered, it indicates a new island, and a DFS is initiated to explore all connected land cells. This ensures that every island is counted exactly once.
+
+This method eliminates unnecessary checks for already visited cells and avoids redundant processing by modifying the grid directly.
+
+### Algorithm
+
+1. Retrieve the number of rows and columns from the grid dimensions.
+2. Initialize a counter `numIslands` to `0` to store the total number of islands.
+3. Iterate through every cell in the grid:
+   - If the cell value is `1` (land), increment the `numIslands` counter.
+   - Perform a DFS from the current cell to explore the entire island and mark all connected land cells as visited by setting their values to `0`.
+4. Define a recursive `dfs` function:
+   - Mark the current cell as visited by setting its value to `0`.
+   - Recursively check and visit all adjacent cells (up, down, left, right) if they are within bounds and their value is `1`.
+5. After processing all cells in the grid, return the `numIslands` counter.
 
 <MDXCodeBlock>{countGridIslands}</MDXCodeBlock>
 
+### Big-O analysis
+
+- **Time complexity: O(m.n)**. Every cell in the grid is visited once, either during the main iteration or during the DFS traversal.
+- **Space complexity: O(m.n)**. The recursion stack may grow up to the size of the grid in the worst case when the grid contains one large connected island.
+
 ## 2. Using BFS
 
-Time complexity: O(M.N), where M is the number of rows, and N is the number of columns in the grid
+This approach uses breadth-first search (BFS) to traverse the grid. The approach starts from any unvisited land cell, which marks the beginning of a new island. A BFS traversal is performed to visit all connected land cells, marking them as visited by setting their value to `0`. This ensures that each island is counted exactly once. The grid is modified in place to save additional space for tracking visited cells.
+
+This approach systematically explores each island while avoiding redundant checks, making it efficient for large grids.
+
+### Algorithm
+
+1. Retrieve the number of rows and columns from the grid dimensions.
+2. Initialize a counter `numIslands` to `0` to keep track of the number of islands.
+3. Iterate through every cell in the grid:
+   - If the cell value is `1` (land), increment the `numIslands` counter.
+   - Set the cell value to `0` to mark it as visited.
+   - Initialize a queue for BFS traversal and add the current cell to the queue.
+4. Perform BFS using the queue:
+   - Dequeue a cell from the queue.
+   - For each of its neighbors (up, down, left, right):
+     - If the neighbor is within bounds and its value is `1`, enqueue it and mark it as visited by setting its value to `0`.
+5. After all cells in the grid are processed, return the `numIslands` counter.
 
 <MDXCodeBlock>{countGridIsLandsBFS}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(m.n)**. Each cell in the grid is visited exactly once, either during the BFS traversal or during the main loop.
+- **Space complexity: O(min(m, n))**. The BFS queue can grow up to the size of the smaller dimension in the worst case, such as when the grid has a single row or column of land.

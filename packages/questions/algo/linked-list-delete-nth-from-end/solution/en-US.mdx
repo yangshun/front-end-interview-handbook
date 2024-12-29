@@ -5,12 +5,69 @@ import deleteNthNodeFromEndOfListOnePass from '../setup/src/linked-list-delete-n
 
 ## 1. Using Two-Pass
 
-Time complexity: O(n)
+The two-pass approach for deleting the `n`th node from the end of a linked list breaks the problem into two clear steps. The first pass determines the total length of the linked list, and the second pass identifies and removes the target node. The use of a dummy node simplifies edge cases, such as when the head of the list needs to be removed.
+
+By traversing the list in the first pass, the total length of the linked list is calculated. This step ensures the position of the `n`th node from the end can be computed as `(length - n)` from the beginning of the list.
+
+Using the calculated position, the second pass stops at the node just before the target node. This is crucial because removing a node in a linked list requires access to the previous node.
+
+A dummy node is added at the beginning of the list to handle cases where the head node is removed. This ensures the logic remains consistent regardless of the node's position in the list.
+
+Once the node just before the target is located, the target node is bypassed by updating the `next` pointer of its predecessor. This operation ensures the list remains intact and properly linked after the removal.
+
+This approach is straightforward and ensures the problem is solved efficiently while minimizing complexity.
+
+### Algorithm
+
+1. Create a `dummy` node with its `next` pointer set to the head of the list.
+2. Initialize a variable `length` to 0 and set `first` to the head of the list.
+3. Traverse the list to compute the total length:
+   1. Increment `length` for each node encountered.
+   2. Move `first` to the next node until the end of the list is reached.
+4. Subtract `n` from `length` to calculate the position of the node just before the target node.
+5. Reset `first` to the `dummy` node.
+6. Traverse the list again until the position of the node just before the target node is reached:
+   1. Decrement `length` at each step.
+   2. Move `first` to the next node.
+7. Update the `next` pointer of `first` to bypass the target node by pointing to `first.next.next`.
+8. Return `dummy.next` as the head of the modified list.
 
 <MDXCodeBlock>{deleteNthNodeFromEndOfList}</MDXCodeBlock>
 
+### Big-O analysis
+
+- **Time complexity: O(n)**. The list is traversed twice—once to compute its length and once to locate the target node's predecessor.
+- **Space complexity: O(1)**. The algorithm uses a constant amount of additional space.
+
 ## 2. Using One-Pass
 
-Time complexity: O(n)
+The one-pass approach for removing the `n`th node from the end of a linked list optimizes traversal by using two pointers. Instead of calculating the total length of the list, this method ensures that both pointers traverse the list in a single iteration, maintaining a fixed gap between them.
+
+The algorithm uses two pointers, `first` and `second`, both starting at the `dummy` node. By advancing the `first` pointer by `n + 1` steps, a gap of `n` nodes is created between `first` and `second`.
+
+Once the gap is established, both pointers are moved simultaneously until `first` reaches the end of the list. At this point, the `second` pointer is positioned just before the node to be removed.
+
+Using the `second` pointer, the target node is skipped by updating `second.next` to `second.next.next`. This ensures that the list remains intact and properly linked after the removal.
+
+A `dummy` node is added at the start of the list to handle cases where the head node is removed. This eliminates the need for special handling of edge cases and simplifies the logic.
+
+This one-pass approach is efficient because it minimizes the number of iterations and maintains linear time complexity.
+
+### Algorithm
+
+1. Create a `dummy` node with its `next` pointer set to the head of the list.
+2. Initialize two pointers, `first` and `second`, both pointing to the `dummy` node.
+3. Advance the `first` pointer by `n + 1` steps to create a gap of `n` nodes between `first` and `second`:
+   1. If `first` is not `null`, move it to the next node for each step.
+4. Move both `first` and `second` pointers one step at a time until `first` reaches the end of the list:
+   1. Move `first` to `first.next`.
+   2. Move `second` to `second.next`.
+5. Remove the `n`th node from the end by updating `second.next` to `second.next.next`.
+6. Return `dummy.next`, which points to the head of the modified list.
 
 <MDXCodeBlock>{deleteNthNodeFromEndOfListOnePass}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(n)**. The list is traversed once.
+- **Space complexity: O(1)**. The algorithm uses a constant amount of additional space.

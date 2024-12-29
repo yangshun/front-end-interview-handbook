@@ -4,6 +4,33 @@ import extraterrestrialLanguage from '../setup/src/extraterrestrial-language.ts'
 
 ## 1. Using BFS
 
-Time complexity: O(C), where `C` is the sum of the lengths of all the words in the input list
+The problem is to determine the order of characters in an extraterrestrial language based on a list of words sorted in lexicographical order. This involves inferring a directed acyclic graph (DAG) from the given words and performing a topological sort on it.
+
+The algorithm:
+
+- Builds a graph where nodes represent unique characters and directed edges indicate character precedence.
+- Uses Breadth-First Search (BFS) to perform a topological sort of the graph.
+- Handles invalid cases such as prefix conflicts or cycles in the graph.
+
+### Algorithm
+
+1. Initialize an adjacency list `adjList` to represent the graph and a `counts` map to track in-degrees of each character.
+   - Add all unique characters to both `adjList` and `counts`.
+2. Iterate through the list of words to establish precedence relationships:
+   - Compare adjacent words `word1` and `word2`.
+   - Check for invalid cases where `word2` is a prefix of `word1` but shorter.
+   - For the first differing character between `word1` and `word2`, add a directed edge in `adjList` and increment the in-degree in `counts`.
+3. Use BFS to perform a topological sort:
+   - Add all characters with zero in-degree to a queue.
+   - Process each character from the queue:
+     - Append it to the result string.
+     - Decrease the in-degree of its neighbors and enqueue any neighbor whose in-degree becomes zero.
+4. Check if the resulting string contains all unique characters. If not, a cycle exists, and the result is invalid.
+5. Return the resulting string if valid, otherwise return an empty string.
 
 <MDXCodeBlock>{extraterrestrialLanguage}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(n + m)**. Processing all characters takes O(m), where `m` is the total number of characters in the input. Building edges and performing BFS takes O(n + m), where `n` is the number of unique characters.
+- **Space complexity: O(n + m)**. The adjacency list and in-degree map require O(n + m) space.

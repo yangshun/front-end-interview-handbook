@@ -4,8 +4,30 @@ import smallestInRotatedArray from '../setup/src/array-smallest-in-rotated.ts';
 
 ## 1. Using Modified Binary Search
 
-Time complexity: O(logN)
+The problem is to find the smallest element in a rotated sorted array using a modified binary search approach. A brute force solution would iterate through the array to find the minimum element in O(n) time. However, the sorted nature of the array can be exploited to reduce the time complexity to O(log n) using binary search.
 
-- N is the length of the array
+The key insight is that in a rotated sorted array, one part of the array is always sorted. By checking which part is sorted, the search space can be narrowed efficiently. The algorithm iteratively reduces the search space while keeping track of the smallest element encountered so far.
+
+This approach eliminates unnecessary iterations by focusing only on the part of the array that could contain the smallest element.
+
+### Algorithm
+
+1. Initialize `low` to 0 and `high` to `numbers.length - 1` to represent the search space.
+2. Initialize `ans` to `Number.MAX_SAFE_INTEGER` to store the minimum element found so far.
+3. Use a loop while `low <= high`:
+   - Calculate `mid` as the floor of `(low + high) / 2`.
+   - Check if the left half of the array is sorted by comparing `numbers[low]` and `numbers[mid]`.
+     - If the left half is sorted:
+       - Update `ans` with the smaller of `ans` and `numbers[low]`.
+       - Eliminate the left half by setting `low` to `mid + 1`.
+     - Otherwise, the right half must be sorted:
+       - Update `ans` with the smaller of `ans` and `numbers[mid]`.
+       - Eliminate the right half by setting `high` to `mid - 1`.
+4. After the loop, return `ans` as the smallest element in the array.
 
 <MDXCodeBlock>{smallestInRotatedArray}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(log n)**. The binary search reduces the search space by half at each step, resulting in logarithmic time complexity.
+- **Space complexity: O(1)**. The algorithm uses a constant amount of space for variables, as it operates directly on the input array.

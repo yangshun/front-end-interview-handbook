@@ -4,8 +4,31 @@ import designAddAndSearchWordsDataStructure from '../setup/src/word-finder.ts';
 
 ## 1. Using Trie Data-structure
 
-Time complexity: O(M)
+A `WordFinder` is built using a Trie (prefix tree) to efficiently store and search words. The TrieNode structure consists of a `Map` to store child nodes and a boolean flag indicating whether the node represents the end of a word. This design is particularly effective for solving problems that involve word searches with exact matches or wildcard patterns using `.`.
 
-- The time complexity is O(M) for words that are clearly defined without dots, where M represents the length of the word. For words with dots, the time complexity is O(N \* 26^M), where N is the number of words and M is the word length
+The main idea is to add words to the Trie node by node, where each character represents a path in the Trie. Searching is done recursively, with special handling for the `.` character, which acts as a wildcard. The `.` can match any character, and all possible child nodes are explored recursively to find a match.
+
+### Algorithm
+
+1. **Add word**:
+
+   - Start at the root node.
+   - For each character in the word, check if it exists in the current node's `children` map.
+   - If it does not exist, create a new `TrieNode` and add it to the map.
+   - Move to the next node and repeat until the word is fully added.
+   - Mark the final node as the end of the word by setting the `word` flag to `true`.
+
+2. **Search**:
+   - Use the helper function `searchInNode` to traverse the Trie recursively.
+   - For each character:
+     - If it exists in the current node's `children`, move to the child node.
+     - If the character is `.`, iterate over all children nodes and recursively search for the remaining substring.
+     - If the character does not exist and is not `.`, return `false`.
+   - At the end of the word, return `true` if the current node marks the end of a word.
 
 <MDXCodeBlock>{designAddAndSearchWordsDataStructure}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity**: O(m), for words that are clearly defined without dots, where `m` is the length of the word. For "undefined" words, the time complexity is O(n.26<sup>m</sup>), where n is the number of keys and m is the length of the undefined word. This represents the worst-case scenario when searching for an undefined word with m recursive calls, as the word is one character longer than all inserted keys.
+- **Space complexity**: O(1) for the search of "well-defined" words without dots. For "undefined" words, the space complexity can go up to O(m) to accommodate the recursion stack.

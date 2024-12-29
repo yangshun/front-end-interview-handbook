@@ -5,12 +5,57 @@ import binaryTreeSubtreeHashing from '../setup/src/binary-tree-subtree-hashing.t
 
 ## 1. Using Recursion
 
-Time complexity: O(n.m)
+The problem requires determining if one binary tree is a subtree of another. A subtree must match exactly in structure and node values with a part of the larger tree. The challenge lies in efficiently comparing subtrees while avoiding redundant checks.
+
+A brute force solution involves comparing every possible subtree in the larger tree to the smaller tree, but this approach results in significant unnecessary work. To optimize, the solution uses a recursive approach to directly verify if the current subtree matches the given smaller tree.
+
+The intuition is based on reducing the problem into smaller subproblems: if the current subtree does not match, the solution checks the left and right subtrees of the current node. To determine if two trees are identical, a helper function verifies their root values and recursively compares their left and right subtrees. This eliminates the need for unnecessary duplicate comparisons and ensures efficient subtree matching.
+
+### Algorithm
+
+1. Check if `root` is `null`. If it is, return `false` because no subtree can be found.
+2. Use a helper function to verify if the current subtree is identical to `subRoot`.
+   - If identical, return `true`.
+3. Recursively check the left and right subtrees of the current node.
+4. Return `true` if any of the recursive calls find a match; otherwise, return `false`.
 
 <MDXCodeBlock>{binaryTreeSubtree}</MDXCodeBlock>
 
+#### `isIdentical` helper function:
+
+1. If either tree is empty, return `true` only if both are empty.
+2. If both trees are non-empty:
+   - Compare the values at the root of each tree.
+   - Recursively check if the left subtrees are identical.
+   - Recursively check if the right subtrees are identical.
+3. Return `true` only if the values and structures match completely.
+
+### Big-O analysis
+
+- **Time complexity: O(m.n)**. For each node in the larger tree (O(m)), the subtree is compared to the smaller tree (O(n)).
+- **Space complexity: O(h)**. The space used is proportional to the height of the larger tree due to recursive calls.
+
 ## 2. Using Hashing
 
-Time complexity: O(n + m)
+The problem involves determining if one binary tree is a subtree of another. Instead of directly comparing nodes and structures repeatedly, the approach uses hashing to represent subtrees as compact hash values. This eliminates redundant structural comparisons by using the properties of hash functions to detect subtree matches efficiently.
+
+The intuition is to compute unique hash values for each subtree in the larger tree and compare them with the hash of the smaller tree. The subtree hash depends on the node value and the hash values of its left and right children, ensuring uniqueness for different subtree structures. By storing all subtree hashes in a collection, the presence of the smaller tree as a subtree can be checked in constant time for each hash comparison. This avoids repetitive structural checks and improves efficiency.
+
+### Algorithm
+
+1. Define a helper function `hashSubtreeAtNode` to compute hash values for a subtree rooted at a given node:
+   - For a `null` node, return a predefined base hash value.
+   - Recursively compute hash values for the left and right subtrees.
+   - Calculate the current node's hash using its value and the hash values of its children, applying modular arithmetic to prevent overflow.
+   - Optionally store the hash value in a global collection if needed.
+2. Initialize an empty collection `memo` to store the hash values of all subtrees in the larger tree.
+3. Compute the hash values for the entire larger tree, storing each subtree's hash in the `memo`.
+4. Compute the hash value for the smaller tree without adding it to the collection.
+5. Check if the computed hash of the smaller tree exists in the `memo` collection. Return `true` if found; otherwise, return `false`.
 
 <MDXCodeBlock>{binaryTreeSubtreeHashing}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(n + m)**. The larger tree with `n` nodes and the smaller tree with `m` nodes are each traversed once during hashing, resulting in a combined time complexity of O(n + m).
+- **Space complexity: O(n)**. The hash values for all `n` nodes in the larger tree are stored in the `memo` collection.

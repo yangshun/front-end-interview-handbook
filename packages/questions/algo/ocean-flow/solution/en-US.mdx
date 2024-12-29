@@ -5,16 +5,75 @@ import oceanFlowUsingBFS from '../setup/src/ocean-flow-bfs.ts';
 
 ## 1. Using DFS
 
-Time complexity: O(M.N)
+The problem involves finding cells in a matrix from which water can flow to both the Pacific Ocean (top and left edges) and the Atlantic Ocean (bottom and right edges). The solution uses a depth-first search (DFS) to explore reachable cells starting from each ocean's boundary.
 
-- M is the number of rows, and N is the number of columns in the matrix
+The intuition behind the approach is to treat the problem as a connectivity graph:
+
+- A cell is "connected" to an ocean if water can flow to that ocean.
+- A cell is considered reachable if all neighboring cells it flows to are at a height greater than or equal to its own.
+
+The algorithm uses two boolean matrices to track reachability for the Pacific and Atlantic Oceans. Starting DFS from the respective ocean boundaries ensures that only valid paths are explored. After processing, the intersection of the two reachability matrices gives the desired cells.
+
+### Algorithm
+
+1. Define the `DIRECTIONS` array to represent the four possible movements (up, down, left, right).
+2. Initialize two 2D boolean matrices: `oceanTopLeftReachable` and `oceanBottomRightReachable`, to mark cells reachable from the Pacific and Atlantic Oceans respectively.
+3. Define the `dfs` function:
+   - Mark the current cell as reachable in the given boolean matrix.
+   - Explore all valid neighboring cells that:
+     - Are within bounds.
+     - Are not already visited.
+     - Have a height greater than or equal to the current cell.
+4. Start DFS from the boundaries of the Pacific Ocean:
+   - Traverse the top row and left column of the matrix.
+5. Start DFS from the boundaries of the Atlantic Ocean:
+   - Traverse the bottom row and right column of the matrix.
+6. Iterate through all cells in the matrix:
+   - Add a cell to the result if it is marked as reachable in both `oceanTopLeftReachable` and `oceanBottomRightReachable`.
+7. Return the list of cells that can flow to both oceans.
 
 <MDXCodeBlock>{oceanFlow}</MDXCodeBlock>
 
+### Big-O analysis
+
+- **Time complexity: O(m.n)**. Each cell is visited at most once during DFS, and the matrix has `m.n` cells.
+- **Space complexity: O(m.n)**. Two boolean matrices of size `m.n` are used to track reachability, and the call stack for DFS can reach `m.n` in the worst case.
+
 ## 2. Using BFS
 
-Time complexity: O(M.N)
+The problem involves identifying cells in a matrix from which water can flow to both the Pacific Ocean (top and left edges) and the Atlantic Ocean (bottom and right edges). Using a breadth-first search (BFS) ensures that the flow constraints are met while exploring all valid cells. Each cell must have a height greater than or equal to its adjacent cells for water to flow in reverse.
 
-- M is the number of rows, and N is the number of columns in the matrix
+This solution uses two BFS traversals:
+
+- One starting from the Pacific Ocean's boundary.
+- Another starting from the Atlantic Ocean's boundary.
+
+Cells reachable from both BFS traversals are the desired result.
+
+### Algorithm
+
+1. Define the `DIRECTIONS` array to represent the four possible movements (up, down, left, right).
+2. Implement the `bfs` function:
+   - Initialize a `reachable` boolean matrix to track cells accessible during the traversal.
+   - Use a queue to process cells iteratively.
+   - For each cell:
+     - Mark it as reachable.
+     - Enqueue all valid neighboring cells:
+       - Ensure the neighbor is within bounds.
+       - Ensure the neighbor hasn't been visited yet.
+       - Ensure the neighbor has a height greater than or equal to the current cell.
+   - Return the `reachable` matrix.
+3. Prepare queues for BFS:
+   - The Pacific queue starts from the top row and left column.
+   - The Atlantic queue starts from the bottom row and right column.
+4. Perform BFS for both oceans using the `bfs` function.
+5. Iterate through all cells in the matrix:
+   - Add cells to the result if they are reachable from both the Pacific and Atlantic oceans.
+6. Return the list of common cells.
 
 <MDXCodeBlock>{oceanFlowUsingBFS}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(m.n)**. Each cell is processed at most once during BFS.
+- **Space complexity: O(m.n)**. Two boolean matrices are used for tracking reachability, and BFS uses a queue that may grow to the size of the matrix.

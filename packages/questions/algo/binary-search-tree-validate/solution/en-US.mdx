@@ -5,12 +5,76 @@ import binarySearchTreeValidateIteration from '../setup/src/binary-search-tree-v
 
 ## 1. Using Recursion
 
-Time complexity: O(n)
+The problem of validating a binary search tree (BST) ensures that for every node, the value of all nodes in the left subtree is smaller, and the value of all nodes in the right subtree is larger. This recursive approach leverages range checking to validate the BST property.
+
+For each node, a range is maintained:
+
+- The node's value must lie within the range defined by its ancestors.
+- For the left child, the range is updated to `[minAllowed, node.val)`.
+- For the right child, the range is updated to `(node.val, maxAllowed]`.
+
+The algorithm recursively checks each node, ensuring it lies within its allowable range. If any node violates the range constraint, the tree is not a valid BST.
+
+The algorithm traverses each node exactly once and ensures correctness by propagating range constraints through recursive calls.
+
+### Algorithm
+
+1. Define a helper function `checkNodeInRange` that:
+   - Takes a `node`, `minAllowed`, and `maxAllowed` as arguments.
+   - Returns `true` if the node and its subtrees satisfy the BST properties.
+2. For each node:
+   1. If the `node` is `null`, return `true` (base case for recursion).
+   2. Check if the `node.val` is outside the range defined by `minAllowed` and `maxAllowed`. If true, return `false`.
+   3. Recursively validate the left subtree with the range `[minAllowed, node.val)`.
+   4. Recursively validate the right subtree with the range `(node.val, maxAllowed]`.
+   5. Return `true` only if both left and right subtrees are valid.
+3. Start the validation from the root node with the full range `[-Infinity, Infinity]`.
+4. Return the result of the helper function.
 
 <MDXCodeBlock>{binarySearchTreeValidate}</MDXCodeBlock>
 
+### Big-O analysis
+
+- **Time complexity: O(n)**. Each node is visited exactly once.
+- **Space complexity: O(h)**. The recursion stack requires space proportional to the height of the tree, where `h` is the height of the BST.
+
 ## 2. Using Iteration
 
-Time complexity: O(n)
+The iterative approach for validating a binary search tree (BST) ensures that all nodes comply with the BST property: all values in the left subtree are less than the root, and all values in the right subtree are greater than the root. This solution uses a stack to manage nodes and their corresponding valid value ranges during traversal.
+
+Each node is associated with a range (`low` and `high`) representing the allowable values based on its ancestors.
+
+- For the left child, the range is updated to `[low, node.val)`.
+- For the right child, the range is updated to `(node.val, high]`.
+
+A stack is used to maintain nodes yet to be validated along with their valid ranges. The iterative process avoids recursion and ensures that all nodes are validated in compliance with the BST rules.
+
+For each node, its value is compared with its assigned range. If the value violates the range constraints, the tree is invalid.
+
+The algorithm processes each node exactly once and uses a stack to manage the traversal, making it both time and space-efficient.
+
+### Algorithm
+
+1. Initialize three stacks:
+   - `stack` to store nodes.
+   - `lowerLimits` to store the lower range for each node.
+   - `upperLimits` to store the upper range for each node.
+2. Define a helper function `update` that:
+   - Pushes a node along with its updated range (`low`, `high`) into the respective stacks.
+3. Push the root node into the stack with initial limits of `null` (no constraints).
+4. While `stack` is not empty:
+   1. Pop the top node and its corresponding range (`low`, `high`).
+   2. Skip if the node is `null`.
+   3. Validate the node's value:
+      - Check if the value is less than or equal to `low` or greater than or equal to `high`.
+      - Return `false` if any condition is violated.
+   4. Push the right child into the stack with updated limits `[node.val, high]`.
+   5. Push the left child into the stack with updated limits `[low, node.val]`.
+5. If no violations are found, return `true`.
 
 <MDXCodeBlock>{binarySearchTreeValidateIteration}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(n)**. Each node is processed exactly once.
+- **Space complexity: O(h)**. The stack holds up to `h` nodes simultaneously, where `h` is the height of the tree.

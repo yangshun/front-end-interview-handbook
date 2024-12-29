@@ -5,12 +5,51 @@ import binaryTreeEqualIterative from '../setup/src/binary-tree-equal-stack.ts';
 
 ## 1. Recursive
 
-Time complexity: O(n)
+The problem of checking if two binary trees are identical involves comparing the structure and values of both trees node by node. The recursive approach simplifies this process by breaking it into smaller subproblems for the left and right subtrees.
+
+The approach begins by checking base cases: if both nodes are null, the trees are identical at this point, but if one node is null and the other is not, or if their values differ, the trees are not identical. It then performs recursive checks, comparing the left subtrees of both trees and the right subtrees of both trees. The trees are considered identical only if both the left and right subtrees are identical. The recursion terminates once all corresponding nodes have been compared or a mismatch is found.
+
+This approach ensures that every node is checked for both structure and value.
+
+### Algorithm
+
+1. Check the base cases:
+   1. If both `a` and `b` are `null`, return `true` as the trees are identical at this point.
+   2. If one of `a` or `b` is `null`, return `false` as the trees differ in structure.
+   3. If the values of `a` and `b` are not equal, return `false` as the trees differ in value.
+2. Recursively check the left and right subtrees:
+   - Call `binaryTreeEqual` for the right subtrees of `a` and `b`.
+   - Call `binaryTreeEqual` for the left subtrees of `a` and `b`.
+3. Return `true` if both the left and right subtree comparisons return `true`.
 
 <MDXCodeBlock>{binaryTreeEqual}</MDXCodeBlock>
 
+### Big-O analysis
+
+- **Time complexity: O(n)**. Each node in both trees is visited once.
+- **Space complexity: O(h)**. The recursion stack requires space proportional to the height of the trees, where `h` is the maximum height of the two trees.
+
 ## 2. Iterative
 
-Time complexity: O(n)
+The iterative approach for determining if two binary trees are identical uses a breadth-first traversal strategy. Instead of relying on recursion, this method uses a queue to manage pairs of nodes from both trees, ensuring both structural and value equivalence.
+
+The algorithm begins by initializing a queue containing the root nodes of both trees as a pair. Each pair of nodes is dequeued, and their equivalence is checked. If both nodes are `null`, the pair is considered identical at this point. If one node is `null` and the other is not, or their values differ, the trees are not identical. For non-`null` nodes, the left and right children of both nodes are enqueued as new pairs. The process continues until the queue is empty, indicating that all corresponding nodes in the two trees are identical in structure and value.
+
+### Algorithm
+
+1. Define a helper function `check` that:
+   - Returns `true` if both nodes are `null`.
+   - Returns `false` if one node is `null` and the other is not.
+   - Compares the values of two non-`null` nodes and returns `true` if they are equal.
+2. Initialize a queue with the root nodes of both trees as a pair.
+3. While the queue is not empty:
+   - Dequeue the first pair of nodes and validate them using the `check` function.
+   - If the nodes are valid, enqueue their left and right children as new pairs for further comparison.
+4. Return `true` if no violations are found during the traversal.
 
 <MDXCodeBlock>{binaryTreeEqualIterative}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(n)**. Each node in both trees is processed once.
+- **Space complexity: O(n)**. The queue stores up to `n` pairs of nodes, depending on the size of the trees.

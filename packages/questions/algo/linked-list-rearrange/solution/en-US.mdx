@@ -4,6 +4,39 @@ import rearrangeLinkedList from '../setup/src/linked-list-rearrange.ts';
 
 ## 1. Merge List with Reversed Sublist
 
-Time complexity: O(n)
+The problem involves rearranging a linked list such that nodes alternate between the first and second halves of the list. This approach uses a combination of three key steps: locating the middle of the list, reversing the second half of the list, and merging the two halves.
+
+The middle of the linked list is determined using the two-pointer technique. The `slow` pointer moves one step at a time, while the `fast` pointer moves two steps. When the `fast` pointer reaches the end, the `slow` pointer is at the middle. This splits the list into two halves.
+
+The second half of the list is reversed in place. This transforms the linked list into two parts: the first half in the original order and the second half in reversed order. Reversing is done to facilitate the alternating merge.
+
+The two halves are merged by alternately selecting nodes from the first and reversed second halves. This rearranges the list in the desired alternating pattern.
+
+This approach efficiently solves the problem in linear time and uses constant space for reordering nodes.
+
+### Algorithm
+
+1. Check if the `head` is `null`. If true, return immediately as there is nothing to rearrange.
+2. Initialize two pointers, `slow` and `fast`, both set to the `head` of the linked list.
+3. Locate the middle of the list:
+   1. Move `slow` one step and `fast` two steps at a time.
+   2. Stop when `fast` is `null` or `fast.next` is `null`. The `slow` pointer will now point to the middle node.
+4. Reverse the second half of the list:
+   1. Initialize `prev` to `null` and `curr` to `slow`.
+   2. Traverse the list from `slow` to the end:
+      - Store the next node in a temporary variable `tmp`.
+      - Update `curr.next` to point to `prev`.
+      - Move `prev` to `curr` and `curr` to `tmp`.
+5. Merge the two halves of the list:
+   1. Initialize `first` to the `head` of the list and `second` to `prev` (head of the reversed second half).
+   2. Alternately link nodes from `first` and `second`:
+      - Store the next node of `first` in `tmp1` and `second` in `tmp2`.
+      - Update `first.next` to point to `second` and `second.next` to point to `tmp1`.
+      - Move `first` to `tmp1` and `second` to `tmp2`.
 
 <MDXCodeBlock>{rearrangeLinkedList}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(n)**. Each node is visited once during the three steps: finding the middle, reversing the second half, and merging.
+- **Space complexity: O(1)**. The algorithm uses a constant amount of additional space.

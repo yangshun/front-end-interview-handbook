@@ -5,12 +5,40 @@ import meetingCalendarBruteForce from '../setup/src/intervals-meeting-calendar-b
 
 ## 1. Brute Force Approach
 
-Time complexity: O(n<sup>2</sup>)
+The naive approach is to check if a set of intervals can form a valid meeting calendar by verifying that no two intervals overlap. The key idea is to iterate through all pairs of intervals and compare their start and end times. For each pair, the overlap is determined by checking if one interval starts before the other ends and vice versa. If any overlap is detected, the calendar is considered invalid.
+
+### Algorithm
+
+1. Define a helper function `overlap` that takes two intervals as input and checks if they overlap by comparing their start and end times.
+2. Use nested loops to iterate through all pairs of intervals:
+   1. For each pair of intervals, call the `overlap` function.
+   2. If the function returns `true`, immediately return `false` as the intervals are not valid.
+3. If no overlapping intervals are found after all comparisons, return `true`.
 
 <MDXCodeBlock>{meetingCalendarBruteForce}</MDXCodeBlock>
 
+### Big-O analysis
+
+- **Time complexity: O(n<sup>2</sup>)**. The algorithm iterates through all pairs of intervals, resulting in n(n - 1)/2 comparisons, which is O(n<sup>2</sup>).
+- **Space complexity: O(1)**. The algorithm uses constant space as it does not require any additional data structures.
+
 ## 2. Using Sorting
 
-Time complexity: O(N.LogN)
+This approach relies on sorting intervals by their start times to guarantee that overlapping intervals appear next to each other. Sorting ensures that intervals are ordered chronologically based on when they start. If two intervals overlap, the end time of an earlier interval will extend into the range of the next interval's start time. By arranging the intervals in ascending order of their start times, it becomes sufficient to check each interval against the next one in the sorted list to detect overlaps.
+
+This method removes unnecessary comparisons present in the brute force approach. Instead of comparing every pair of intervals, only adjacent intervals in the sorted order need to be checked, as any overlapping intervals are guaranteed to be consecutive after sorting.
+
+### Algorithm
+
+1. Sort the intervals based on their start times in ascending order using the `sort` method.
+2. Iterate through the sorted intervals:
+   1. For each interval, check if its end time is greater than the start time of the next interval.
+   2. If an overlap is detected, return `false` as the calendar is invalid.
+3. If the loop completes without detecting any overlaps, return `true`.
 
 <MDXCodeBlock>{meetingCalendar}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(n log n)**. Sorting the intervals dominates the runtime, taking O(n log n), while the linear scan through the intervals takes O(n), resulting in O(n log n) overall.
+- **Space complexity: O(1)**. The algorithm uses constant space as it modifies the intervals array in place and does not require additional data structures.

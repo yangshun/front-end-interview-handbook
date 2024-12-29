@@ -5,12 +5,39 @@ import binaryTreeLevelOrderTraversalIteration from '../setup/src/binary-tree-lev
 
 ## 1. Using Recursion
 
-Time complexity: O(n)
+The recursive approach groups nodes in a binary tree by their depth level. Each level is represented as an array, and all nodes at the same depth are stored together. The traversal starts from the root and proceeds level by level, ensuring that the hierarchical structure of the tree is preserved. Whenever a new level is reached, a new group is initialized to accommodate the nodes at that depth. This ensures that nodes are grouped efficiently, maintaining a clear distinction between levels of the tree.
+
+### Algorithm
+
+1. Traverse the tree starting from the root, keeping track of the current depth level.
+2. For each level encountered for the first time, initialize a new group to store node values.
+3. Add each node's value to the corresponding group based on its depth level.
+4. Recursively process the left and right children, incrementing the level as the traversal moves deeper into the tree.
+5. Continue until all nodes have been processed and grouped by level.
 
 <MDXCodeBlock>{binaryTreeLevelOrderTraversal}</MDXCodeBlock>
 
+### Big-O analysis
+
+- **Time complexity: O(n)**. Every node in the tree is visited exactly once.
+- **Space complexity: O(h)**. The space used by the recursion stack is proportional to the height of the tree, `h`, and additional space is used to store the level groups.
+
 ## 2. Using Iteration
 
-Time complexity: O(n)
+The iterative approach groups nodes in a binary tree by their depth level using a queue. The traversal starts from the root and processes each level separately. At each level, all nodes are dequeued, their values are stored in a group corresponding to the current level, and their children are enqueued for the next iteration. This ensures all nodes at the same depth are processed together before moving to the next level. The approach efficiently handles all nodes in a breadth-first manner, maintaining the hierarchical structure of the tree.
+
+### Algorithm
+
+1. Initialize a queue with the root node to process levels iteratively.
+2. Use a loop to process nodes level by level until the queue is empty.
+3. At each level, track the number of nodes to process and initialize a new group for storing their values.
+4. Dequeue each node at the current level, add its value to the group, and enqueue its left and right children (if they exist).
+5. Append the group of values to the result and proceed to the next level.
+6. Continue until all nodes have been processed and grouped by depth.
 
 <MDXCodeBlock>{binaryTreeLevelOrderTraversalIteration}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(n)**. Each node is visited exactly once.
+- **Space complexity: O(m)**. The queue holds nodes at the current level, where `m` is the maximum number of nodes at any level (equal to the width of the tree).

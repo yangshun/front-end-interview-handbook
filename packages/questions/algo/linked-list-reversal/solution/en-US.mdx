@@ -5,12 +5,64 @@ import linkedListReversalUsingRecursion from '../setup/src/linked-list-reversal-
 
 ## 1. Using Iterative Method
 
-Time complexity: O(n)
+Reversing a linked list involves flipping the `next` pointers of all nodes so that they point to the previous node instead of the next node. The iterative approach uses two pointers, `prev` and `curr`, to track the previous and current nodes, respectively. This ensures that the list is reversed in-place without requiring additional memory.
+
+Each node's `next` pointer is reversed to point to the previous node. This operation is performed iteratively for all nodes in the list.
+
+The `curr` pointer traverses the list from the head to the end, while the `prev` pointer lags behind, building the reversed portion of the list step by step.
+
+By using only a few pointers (`prev`, `curr`, and a temporary pointer for the next node), the algorithm achieves the reversal without requiring additional space for a new list.
+
+The process ends when the `curr` pointer becomes `null`, indicating that all nodes have been reversed. At this point, the `prev` pointer points to the new head of the reversed list.
+
+This approach efficiently reverses the list in linear time while maintaining constant space complexity.
+
+### Algorithm
+
+1. Initialize two pointers:
+   - `prev` to `null`, representing the previous node.
+   - `curr` to the `head`, representing the current node.
+2. Iterate over the list while `curr` is not `null`:
+   1. Store the next node in a temporary variable `nextTemp` (`curr.next`).
+   2. Reverse the `next` pointer of the current node (`curr.next = prev`).
+   3. Move the `prev` pointer to the current node (`prev = curr`).
+   4. Move the `curr` pointer to the next node (`curr = nextTemp`).
+3. After the loop, the `prev` pointer will point to the new head of the reversed list.
+4. Return `prev` as the new head.
 
 <MDXCodeBlock>{linkedListReversal}</MDXCodeBlock>
 
+### Big-O analysis
+
+- **Time complexity: O(n)**. Each node in the list is visited once.
+- **Space complexity: O(1)**. The algorithm uses a constant amount of additional space.
+
 ## 2. Using Recursive Method
 
-Time complexity: O(n)
+Reversing a linked list recursively involves breaking the problem into smaller subproblems by reversing the tail portion of the list first and adjusting the pointers as the recursion is called. The key is to reverse the `next` pointers of the nodes one step at a time as the recursion propagates back up the call stack.
+
+The problem is divided into reversing the sublist starting from the second node onward (`head.next`). The base case occurs when the list is empty or has only one node, in which case the reversal is complete.
+
+During each recursive call, the `next` pointer of the subsequent node is updated to point back to the current node (`head`). This reverses the direction of the `next` pointer for each node.
+
+The recursive call returns the new head of the reversed sublist, which propagates back to the top-level caller. This ensures that the final head of the reversed list is returned.
+
+The algorithm operates directly on the nodes of the list without requiring additional space for a new list or auxiliary data structures.
+
+### Algorithm
+
+1. Check the base case:
+   - If `head` is `null` or `head.next` is `null`, return `head` as the reversed list.
+2. Recursively call `reverseLinkedList` with `head.next` to reverse the remainder of the list.
+   - Store the result in a variable `p`, which represents the new head of the reversed list.
+3. Adjust the pointers:
+   - Set `head.next.next` to `head`, reversing the `next` pointer for the current node.
+   - Set `head.next` to `null` to disconnect the current node from the original list structure.
+4. Return `p` as the new head of the reversed list.
 
 <MDXCodeBlock>{linkedListReversalUsingRecursion}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(n)**. Each node is visited exactly once during the recursion.
+- **Space complexity: O(n)**. The recursion depth is proportional to the size of the list, requiring additional stack space.

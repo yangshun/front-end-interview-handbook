@@ -25,7 +25,7 @@ function countPalindromesAroundCenter(
     if (str[low] !== str[high]) {
       break; // Stop if characters don't match
     }
-    
+
     // Expand the window outward
     low--;
     high++;

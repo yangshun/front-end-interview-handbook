@@ -5,12 +5,60 @@ import longestRepeatingSubstringAfterReplacementBS from '../setup/src/longest-re
 
 ## 1. Using Sliding Window
 
-Time complexity: O(n)
+The task is to find the length of the longest substring with the same character after replacing at most `k` characters in the given string. A sliding window approach is used to dynamically manage a window of valid substrings. The solution focuses on maintaining a balance between the maximum frequency of any character in the current window and the number of replacements allowed (`k`).
+
+Instead of checking all possible substrings, the sliding window dynamically adjusts the window size to ensure validity. A frequency map keeps track of the occurrence of each character within the current window, and the `maxFrequency` variable helps determine the minimum replacements required to make all characters in the window the same. If the number of replacements exceeds `k`, the window size is adjusted by moving the `start` pointer forward.
+
+### Algorithm
+
+1. Initialize the `start` pointer to `0`, a frequency map `frequencyMap` of size `26` (for all uppercase English letters) filled with `0`, `maxFrequency` to track the highest frequency of any character in the current window, and `longestSubstringLength` to store the length of the longest valid substring found.
+2. Iterate through the string using an `end` pointer:
+   - Calculate the relative index of the current character in the frequency map.
+   - Increment the frequency of the current character in the frequency map.
+   - Update `maxFrequency` to the maximum frequency observed in the current window.
+3. Determine whether the current window is valid by checking if the number of replacements required (`end + 1 - start - maxFrequency`) is less than or equal to `k`.
+   - If the window is invalid, move the `start` pointer forward:
+     - Decrement the frequency of the character that is moving out of the window.
+     - Increment the `start` pointer.
+4. Update `longestSubstringLength` with the size of the current valid window (`end + 1 - start`).
+5. Return the value of `longestSubstringLength`.
 
 <MDXCodeBlock>{longestRepeatingSubstringAfterReplacement}</MDXCodeBlock>
 
+### Big-O analysis
+
+- **Time complexity: O(n)**. The `end` pointer iterates through the string once, and the `start` pointer adjusts as needed, resulting in linear time.
+- **Space complexity: O(1)**. The `frequencyMap` is of constant size (`26`), independent of the input string length.
+
 ## 2. Using Binary Search with Siding Window
 
-Time complexity: O(N.Log(N))
+The solution combines binary search with sliding window optimization to efficiently determine the result. Binary search is used to explore the possible lengths of valid substrings. The range of possible lengths is reduced logarithmically by checking whether a substring of a given length can be made valid with at most `k` replacements. The sliding window technique verifies the validity of each length by maintaining the frequency of characters in the current window and determining whether the required replacements fall within the allowed `k`.
+
+The core idea is to maximize the frequency of any character in the window while ensuring the window size does not exceed the allowed replacements. If a window of the desired length can be made valid, larger lengths are explored. Otherwise, smaller lengths are checked. This combination of binary search and sliding window ensures the solution is both efficient and scalable.
+
+### Algorithm
+
+1. Initialize the binary search bounds:
+   - Set `low` to `1`, representing the minimum possible substring length.
+   - Set `high` to `str.length + 1`, representing an invalid substring length beyond the input string's length.
+2. Perform binary search:
+   - Calculate the midpoint `mid` of the current range.
+   - Check if a valid substring of length `mid` can be created using the helper function `canMakeValidSubstring`.
+   - If valid, move `low` to `mid` to explore larger substrings.
+   - Otherwise, move `high` to `mid` to explore smaller substrings.
+3. Return `low`, which represents the largest valid substring length.
+4. Use the `canMakeValidSubstring` function to verify a given length:
+   - Maintain a frequency map `freqMap` to track character occurrences in the current window.
+   - Use a sliding window to traverse the string:
+     - Add the current character to the frequency map.
+     - If the window size exceeds the candidate substring length, remove the character at the start of the window.
+     - Update `maxFrequency` with the highest frequency observed in the current window.
+     - Check if the current window can be made valid with at most `k` replacements. If valid, return `true`.
+   - If no valid substring of the given length is found, return `false`.
 
 <MDXCodeBlock>{longestRepeatingSubstringAfterReplacementBS}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(n log n)**. The binary search performs `O(log n)` iterations, and each iteration calls `canMakeValidSubstring`, which runs in O(n).
+- **Space complexity: O(1)**. The frequency map is of fixed size (`26`), independent of the input size.

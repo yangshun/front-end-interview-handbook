@@ -4,6 +4,31 @@ import findWordsInGrid from '../setup/src/grid-find-words.ts';
 
 ## 1. Using Backtracking with Trie
 
-Time complexity: O(M(4.3^(L-1))), where `M` is the number of cells in the grid and `L` is the maximum length of words
+The task is to find all words from a given list (`words`) that exist in a 2D grid. Words can be formed by sequentially adjacent cells moving up, down, left, or right. Each cell can only be used once per word.
+
+This solution uses a Trie (prefix tree) combined with backtracking for efficient word lookup and validation. The Trie allows fast prefix matching, enabling the algorithm to abandon invalid paths early. Each word from the list is stored in the Trie, with each path representing a possible word. During backtracking, the algorithm explores all possible paths starting from each grid cell, checking against the Trie to verify valid prefixes. Words are recorded when a complete word in the Trie is matched.
+
+This approach minimizes redundant checks and efficiently prunes invalid paths, significantly improving performance compared to brute-force methods.
+
+### Algorithm
+
+1. Construct a Trie to store the given `words`:
+   - Initialize the Trie with a root node.
+   - For each word in `words`, traverse the Trie, adding a new node for each character if it doesn't already exist.
+   - Mark the end of each word in the Trie by storing the word in the corresponding node.
+2. Define a `backtracking` function to explore paths in the grid:
+   - Check if the current node in the Trie represents a complete word. If so, add the word to the result list and mark it as used to avoid duplicates.
+   - Temporarily mark the current grid cell as visited by changing its value.
+   - Explore all adjacent cells (up, down, left, right) and recursively call the `backtracking` function if the corresponding character exists in the Trie.
+   - Restore the grid cell's value after exploring all neighbors.
+   - Remove leaf nodes from the Trie for optimization if no further paths are possible.
+3. Iterate through each cell in the grid:
+   - If the cell's character exists as a child of the root node in the Trie, initiate a backtracking search from that cell.
+4. Return the list of matched words.
 
 <MDXCodeBlock>{findWordsInGrid}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(m.n.4.3<sup>l-1</sup>)**. The algorithm iterates over all `m.n` cells, exploring up to 4.3<sup>l-1</sup> paths per cell in the worst case. This occurs when all paths are valid, such as a board filled with the same letter and a dictionary containing a single long word. Optimizations like removing matched nodes from the Trie can reduce backtracking costs once all words are found.
+- **Space complexity: O(l)**, where `l` is the total number of letters in the dictionary. The Trie uses `l` space, or `2.l` if the words are also stored. In the worst case, each letter has its own node due to no shared prefixes.

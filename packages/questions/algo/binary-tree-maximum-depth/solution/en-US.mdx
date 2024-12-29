@@ -5,12 +5,41 @@ import binaryTreeMaximumDepthIteration from '../setup/src/binary-tree-maximum-de
 
 ## 1. Using Recursion
 
-Time complexity: O(n)
+The maximum depth of a binary tree is determined by finding the longest path from the root node to a leaf node. A recursive approach is well-suited for this problem because the depth of a node is 1 plus the maximum depth of its left and right subtrees. Starting at the root, the algorithm explores both left and right subtrees, computes their depths, and selects the larger value, effectively traversing all nodes in a divide-and-conquer manner.
+
+### Algorithm
+
+1. Begin at the root node.
+2. If the current node is `null`, return a depth of 0, as there are no nodes below it.
+3. Recursively calculate the depth of the left subtree.
+4. Recursively calculate the depth of the right subtree.
+5. Compute the depth of the current node by adding 1 (for the current node itself) to the maximum of the depths of its left and right subtrees.
+6. Continue this process until all nodes have been visited.
 
 <MDXCodeBlock>{binaryTreeMaximumDepth}</MDXCodeBlock>
 
+### Big-O analysis
+
+- **Time complexity: O(n)**. Each node in the tree is visited exactly once to calculate its depth.
+- **Space complexity: O(h)**. The recursive stack size depends on the height of the tree, where `h` is the height of the tree.
+
 ## 2. Using Iteration
 
-Time complexity: O(n)
+The iterative approach to finding the maximum depth of a binary tree uses a stack to simulate the depth-first traversal. Each stack entry contains a node and its current depth. This avoids recursion and explicitly manages the traversal using the stack. Starting with the root node at depth 1, the algorithm iterates through all nodes in the tree, updating the maximum depth as it processes each node. Nodes are added to the stack with their depths incremented by 1, representing the next level of the tree. This approach ensures every path from the root to a leaf is considered, and the maximum depth is recorded.
+
+### Algorithm
+
+1. Initialize a stack with the root node and its initial depth set to 1.
+2. Use a variable to keep track of the maximum depth encountered during traversal.
+3. While the stack is not empty:
+   - Pop the top node and its associated depth.
+   - Update the maximum depth if the current depth is greater.
+   - Push the left and right children of the node into the stack with their depths incremented by 1.
+4. Continue until all nodes have been processed.
 
 <MDXCodeBlock>{binaryTreeMaximumDepthIteration}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(n)**. Each node in the tree is visited exactly once during the traversal.
+- **Space complexity: O(h)**. The stack size depends on the height of the tree, where `h` is the height of the tree.

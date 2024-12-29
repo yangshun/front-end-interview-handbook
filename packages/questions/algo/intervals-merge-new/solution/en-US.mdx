@@ -5,12 +5,53 @@ import mergeNewIntervalUsingBinarySearch from '../setup/src/intervals-merge-new-
 
 ## 1. Using Linear Search
 
-Time complexity: O(n)
+The approach merges a new interval into a list of non-overlapping intervals by performing a single linear scan. The intervals are processed in three distinct phases based on their relationship to the new interval: intervals that come completely before, intervals that overlap, and intervals that come completely after. Sorting is unnecessary because the input intervals are already sorted.
+
+Intervals that do not overlap with the new interval are added to the result as-is. Overlapping intervals with the new interval are merged by updating the start and end of the new interval to cover the combined range. Once all overlapping intervals are merged, the new interval is added to the result, followed by the remaining intervals. This approach ensures that each interval is processed exactly once.
+
+### Algorithm
+
+1. Initialize an empty result array `res` and set a pointer `i` to `0`.
+2. Process intervals that come before the new interval:
+   1. While the end of the current interval is less than the start of the new interval, add the interval to `res`.
+   2. Increment the pointer `i` for each added interval.
+3. Process overlapping intervals:
+   1. While the start of the current interval is less than or equal to the end of the new interval, merge the intervals by updating the start and end of the new interval.
+   2. Increment the pointer `i` after merging.
+4. Add the merged interval (new interval) to the result array `res`.
+5. Process intervals that come after the new interval:
+   1. Add all remaining intervals to `res` starting from the current pointer position `i`.
+   2. Increment the pointer `i` for each added interval.
+6. Return the result array `res`.
 
 <MDXCodeBlock>{mergeNewInterval}</MDXCodeBlock>
 
+### Big-O analysis
+
+- **Time complexity: O(n)**. Each interval is processed exactly once, resulting in a linear runtime.
+- **Space complexity: O(n)**. The result array `res` stores all intervals, requiring space proportional to the input size.
+
 ## 2. Using Binary Search
 
-Time complexity: O(n)
+This approach combines binary search and merging to efficiently insert a new interval into a sorted list of intervals and merge any overlaps. Binary search is used to determine the correct position to insert the new interval based on its start time. Once inserted, a single pass through the intervals is sufficient to merge overlapping intervals. The merging process ensures that overlapping intervals are combined into a single interval by checking adjacent intervals in the result list.
+
+### Algorithm
+
+1. Handle the edge case where the `intervals` array is empty by returning a list containing only the `newInterval`.
+2. Use binary search to find the appropriate position to insert the `newInterval`:
+   1. Initialize two pointers, `left` and `right`, to represent the search range.
+   2. Compare the start value of the `newInterval` with the middle element of the current range.
+   3. Adjust the pointers until the position to insert the `newInterval` is found.
+3. Insert the `newInterval` at the determined position using the `splice` method.
+4. Initialize an empty array `res` to store the merged intervals.
+5. Iterate through the `intervals` array:
+   1. If `res` is empty or the current interval does not overlap with the last interval in `res`, add the current interval to `res`.
+   2. If there is an overlap, merge the intervals by updating the end of the last interval in `res` to the maximum of the two overlapping intervals.
+6. Return the `res` array containing the merged intervals.
 
 <MDXCodeBlock>{mergeNewIntervalUsingBinarySearch}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(n)**. Binary search takes O(log n), but this is insignificant compared to the O(n) time required to merge the intervals.
+- **Space complexity: O(n)**. The result array `res` requires space proportional to the input size.

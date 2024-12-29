@@ -5,16 +5,52 @@ import optimalStockTradingBruteForce from '../setup/src/optimal-stock-trading-br
 
 ## 1. Brute Force Approach
 
-Time complexity: O(n<sup>2</sup>)
+This solution calculates the maximum profit that can be achieved by buying and selling a stock on different days using a brute force approach. The idea is to evaluate all possible pairs of days and calculate the profit for each pair. The maximum profit is determined by comparing all the calculated profits.
 
-- N is the length of the array
+For each day, the algorithm assumes it to be the buying day and iterates through all subsequent days to check for possible selling days. The profit for each pair is calculated as the difference between the selling price and the buying price. The maximum profit encountered during these comparisons is stored and returned as the result.
+
+### Algorithm
+
+1. Initialize a variable `maxProfit` to `0` to store the maximum profit encountered.
+2. Use a nested loop to iterate through all possible pairs of days:
+   1. The outer loop represents the buying day (`i`), iterating from the first day to the second-to-last day.
+   2. The inner loop represents the selling day (`j`), iterating from the day after `i` to the last day.
+3. For each pair of days:
+   1. Calculate the profit as the difference between the price on the selling day (`prices[j]`) and the price on the buying day (`prices[i]`).
+   2. If the calculated profit is greater than `maxProfit`, update `maxProfit` with the new profit value.
+4. After all iterations, return `maxProfit` as the maximum profit that can be achieved.
 
 <MDXCodeBlock>{optimalStockTradingBruteForce}</MDXCodeBlock>
 
+### Big-O analysis
+
+- **Time complexity: O(n<sup>2</sup>)**. The nested loops iterate over all pairs of days, resulting in a quadratic time complexity.
+- **Space complexity: O(1)**. No additional data structures are used; only a few variables are required for calculations.
+
 ## 2. Greedy Approach
 
-Time complexity: O(n)
+This solution calculates the maximum profit that can be achieved by buying and selling a stock on different days using a greedy approach. The algorithm focuses on minimizing unnecessary calculations by keeping track of the lowest price encountered so far and calculating the profit dynamically as the iteration progresses.
 
-- N is the length of the array
+The key idea is to maintain two variables:
+
+1. `lowestPrice`, which tracks the minimum price encountered so far in the array.
+2. `maxProfit`, which tracks the maximum profit possible based on the current `lowestPrice` and the current price.
+
+For each price in the array, the algorithm updates `lowestPrice` if the current price is lower. It then calculates the potential profit by subtracting `lowestPrice` from the current price and updates `maxProfit` if the calculated profit is greater. This approach eliminates the need to compare all pairs of prices, reducing the time complexity significantly compared to the brute force approach.
+
+### Algorithm
+
+1. Initialize `maxProfit` to `0` to store the maximum profit encountered.
+2. Initialize `lowestPrice` to a very large value (`Number.MAX_SAFE_INTEGER`) to track the smallest price encountered so far.
+3. Iterate through each price in the `prices` array:
+   1. Update `lowestPrice` with the smaller value between `lowestPrice` and the current price.
+   2. Calculate the potential profit as the difference between the current price and `lowestPrice`.
+   3. Update `maxProfit` with the larger value between `maxProfit` and the potential profit.
+4. After completing the iteration, return `maxProfit` as the maximum profit that can be achieved.
 
 <MDXCodeBlock>{optimalStockTrading}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(n)**. The algorithm traverses the list of prices once, updating `lowestPrice` and calculating `maxProfit` in constant time for each price.
+- **Space complexity: O(1)**. Only two variables, `lowestPrice` and `maxProfit`, are used to track intermediate results.

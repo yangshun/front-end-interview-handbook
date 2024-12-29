@@ -5,12 +5,44 @@ import binaryTreeFlipIteration from '../setup/src/binary-tree-flip-iteration.ts'
 
 ## 1. Using Recursion
 
-Time complexity: O(n), where `n` is the number of nodes in the binary tree
+Flipping a binary tree involves swapping the left and right subtrees of every node in the tree. The recursive approach simplifies this by breaking the problem into smaller subproblems for each subtree.
+
+It begins with a base case: if the current node is `null`, there is nothing to flip, so it returns `null`. For each non-`null` node, the left and right subtrees are flipped recursively, and their results are stored in temporary variables. After recursion, the left and right children of the current node are swapped. This ensures that all levels of the tree are flipped correctly, and the structure is completely inverted.
+
+### Algorithm
+
+1. Check the base case: if the node is `null`, return `null`.
+2. Recursively call the function on the right subtree and store the result.
+3. Recursively call the function on the left subtree and store the result.
+4. Swap the left and right children of the current node.
+5. Return the current node as the root of the flipped tree.
 
 <MDXCodeBlock>{binaryTreeFlip}</MDXCodeBlock>
 
+### Big-O analysis
+
+- **Time complexity: O(n)**. Each node is visited exactly once.
+- **Space complexity: O(h)**. The recursion stack uses space proportional to the height of the tree, where `h` is the height of the tree.
+
 ## 2. Using Iteration
 
-Time complexity: O(n), where `n` is the number of nodes in the binary tree
+Flipping a binary tree involves swapping the left and right subtrees for every node. The iterative approach uses a queue to traverse the tree level by level, ensuring that all nodes are processed. This method avoids recursion, making it a good alternative when dealing with deep trees to prevent stack overflow.
+
+The iterative approach begins with a base case where an empty tree (`null` root) directly returns `null`. A queue is initialized with the root node, and a breadth-first traversal is performed. At each step, the left and right children of the current node are swapped. If the swapped children are not `null`, they are added to the queue for subsequent processing. The process continues until the queue is empty, ensuring that all nodes in the tree are flipped.
+
+### Algorithm
+
+1. Handle the base case by returning `null` if the root is `null`.
+2. Initialize a queue and add the root node.
+3. While the queue is not empty:
+   - Dequeue a node and swap its left and right children.
+   - If the left child exists, enqueue it.
+   - If the right child exists, enqueue it.
+4. Return the root of the inverted tree.
 
 <MDXCodeBlock>{binaryTreeFlipIteration}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(n)**. Each node in the tree is processed exactly once.
+- **Space complexity: O(n)**. The queue may store up to `n` nodes in the worst case, proportional to the breadth of the tree at its widest level.

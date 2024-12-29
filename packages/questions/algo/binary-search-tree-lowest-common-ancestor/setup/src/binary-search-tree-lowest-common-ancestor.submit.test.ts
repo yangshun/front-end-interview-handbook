@@ -72,7 +72,7 @@ function findNode(root: TreeNode | null, num: number): TreeNode | null {
   return null;
 }
 
-describe('lowestCommonAncestor', () => {
+describe('BSTLowestCommonAncestor', () => {
   (submitTestCases as any[]).forEach((example: any) => {
     test(`${example.input[0][0]} = [${example.input[0][1]}] ${example.input[1][0]} = ${example.input[1][1]} ${example.input[2][0]} = ${example.input[2][1]}`, () => {
       const root = createTreeFromSerialized(example.input[0][1]);

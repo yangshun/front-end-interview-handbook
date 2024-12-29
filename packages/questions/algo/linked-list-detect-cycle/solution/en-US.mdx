@@ -5,12 +5,64 @@ import linkedListDetectCycleFloydCycle from '../setup/src/linked-list-detect-cyc
 
 ## 1. Using Set
 
-Time complexity: O(n)
+The approach for detecting a cycle in a linked list using a `Set` uses the property that a cycle causes repeated traversal of certain nodes. By storing visited nodes in a `Set`, the algorithm efficiently checks if a node has already been seen. If a node is revisited, a cycle exists. Otherwise, if the traversal reaches the end of the list, no cycle is present.
+
+The `Set` provides an efficient way to store and check for the existence of nodes. The time complexity of insertion and lookup in a `Set` is O(1), making it well-suited for this task.
+
+During traversal, each node is added to the `Set`. If a node is encountered that is already present in the `Set`, it means the list has cycled back to a previously visited node.
+
+As soon as a cycle is detected (a repeated node is found), the traversal stops, ensuring the algorithm is efficient.
+
+If the end of the list (`null`) is reached without encountering a repeated node, it confirms there is no cycle in the list.
+
+This approach is simple and uses additional space to track visited nodes.
+
+### Algorithm
+
+1. Create a `Set` named `nodesSeen` to store nodes that have been visited.
+2. Initialize a variable `current` to point to the head of the linked list.
+3. Traverse the list using a `while` loop until `current` becomes `null`:
+   1. Check if `current` is already in `nodesSeen`.
+      - If `true`, return `true` as a cycle is detected.
+   2. Add `current` to `nodesSeen`.
+   3. Move `current` to the next node in the list.
+4. If the loop ends without detecting a cycle, return `false`.
 
 <MDXCodeBlock>{linkedListDetectCycle}</MDXCodeBlock>
 
+### Big-O analysis
+
+- **Time complexity: O(n)**. Each node in the list is visited once.
+- **Space complexity: O(n)**. The `Set` stores up to `n` nodes in the worst case (when there is no cycle).
+
 ## 2. Using Floyd Cycle Algorithm
 
-Time complexity: O(n)
+The Floyd Cycle Detection Algorithm, also known as the "Tortoise and Hare" algorithm, is an efficient method for detecting a cycle in a linked list. The algorithm uses two pointers, a `slow` pointer and a `fast` pointer, which traverse the list at different speeds. If a cycle exists, the two pointers will eventually meet. Otherwise, the `fast` pointer will reach the end of the list.
+
+The `slow` pointer moves one step at a time, while the `fast` pointer moves two steps at a time. This difference in speed ensures that if there is a cycle, the `fast` pointer will eventually catch up to the `slow` pointer.
+
+If the two pointers meet during traversal, it confirms the presence of a cycle. This is because the `fast` pointer loops around the cycle and catches up to the `slow` pointer.
+
+If the `fast` pointer reaches the end of the list (`null`), it means there is no cycle in the list. This ensures the algorithm terminates efficiently for acyclic lists.
+
+The algorithm operates in linear time and uses constant space, making it optimal for detecting cycles in linked lists.
+
+### Algorithm
+
+1. Check if the head of the list is `null`. If true, return `false` as an empty list cannot have a cycle.
+2. Initialize two pointers:
+   - `slow` pointer set to the head of the list.
+   - `fast` pointer set to `head.next`.
+3. Traverse the list using a `while` loop:
+   1. Check if `fast` or `fast.next` is `null`. If true, return `false` as there is no cycle.
+   2. Move the `slow` pointer one step forward (`slow = slow.next`).
+   3. Move the `fast` pointer two steps forward (`fast = fast.next.next`).
+   4. Check if the `slow` pointer is equal to the `fast` pointer. If true, return `true` as a cycle is detected.
+4. If the loop ends without the pointers meeting, return `false` as no cycle exists.
 
 <MDXCodeBlock>{linkedListDetectCycleFloydCycle}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(n)**. Each pointer traverses the list at most once.
+- **Space complexity: O(1)**. The algorithm uses only two pointers, regardless of the size of the list.

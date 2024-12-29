@@ -5,12 +5,51 @@ import tripletSumBruteForce from '../setup/src/triplet-sum-brute-force.ts';
 
 ## 1. Brute force
 
-Time complexity: O(N^3 \* log(no. of unique triplets))
+The goal is to find all unique triplets in an array that sum up to zero. The approach is to use three nested loops to explore every combination of three numbers. Each combination is checked to see if it sums to zero. A `Set` is used to store the unique triplets by converting them into strings, ensuring that duplicates are avoided. Sorting the triplets helps maintain order and ensures that duplicates are detected correctly when added to the `Set`.
+
+### Algorithm
+
+1. Initialize a `Set` to store unique triplets.
+2. Iterate through the array with three nested loops:
+   1. The outermost loop fixes the first number of the triplet.
+   2. The second loop fixes the second number of the triplet.
+   3. The innermost loop selects the third number of the triplet.
+3. For each combination of three numbers, check if their sum is equal to zero.
+4. If the sum is zero, sort the triplet to maintain order and convert it into a string to store in the `Set`.
+5. After completing the iterations, convert the `Set` back to an array of arrays by parsing the stored strings.
+6. Sort the resulting array of triplets to meet the requirements for ordered results.
+7. Return the sorted array of triplets.
 
 <MDXCodeBlock>{tripletSumBruteForce}</MDXCodeBlock>
 
+### Big-O analysis
+
+- **Time complexity: O(n<sup>3</sup>)**. The three nested loops iterate through all possible combinations of three numbers in the array.
+- **Space complexity: O(k)**. The `Set` used for storing unique triplets and the resulting array require space proportional to the number of unique triplets, which is `k`.
+
 ## 2. Two pointers
 
-Time complexity: O(n<sup>2</sup>)
+The two-pointer approach improves upon the brute force solution by reducing unnecessary computations. Sorting the array enables efficient searching for triplets that sum to zero by using two pointers (`j` and `k`) that move towards each other based on the current sum. This eliminates the need for a third nested loop and avoids redundant checks through duplicate skipping. By focusing on pairs of numbers that complement a fixed starting element (`i`), the solution significantly reduces time complexity.
+
+### Algorithm
+
+1. Sort the input array in ascending order to allow efficient two-pointer traversal.
+2. Initialize an empty array `ans` to store the triplets.
+3. Iterate through the sorted array with index `i`:
+   1. Skip duplicate elements to ensure that each starting element is unique.
+   2. Set two pointers: `j` at the index after `i`, and `k` at the last index of the array.
+4. While `j` is less than `k`:
+   1. Compute the sum of `numbers[i]`, `numbers[j]`, and `numbers[k]`.
+   2. If the sum equals zero:
+      - Add the triplet `[numbers[i], numbers[j], numbers[k]]` to `ans`.
+      - Move `j` forward and `k` backward, skipping duplicate elements.
+   3. If the sum is less than zero, increment `j` to increase the sum.
+   4. If the sum is greater than zero, decrement `k` to decrease the sum.
+5. Return the `ans` array containing all unique triplets.
 
 <MDXCodeBlock>{tripletSum}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(n<sup>2</sup>)**. Sorting the array takes O(n log n), and the two-pointer traversal for each element takes O(n), resulting in O(n<sup>2</sup>).
+- **Space complexity: O(1)**. The solution uses a constant amount of extra space apart from the output array.

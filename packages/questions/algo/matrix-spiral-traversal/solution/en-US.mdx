@@ -5,12 +5,74 @@ import matrixSpiralTraversalUsingMarkVisited from '../setup/src/matrix-spiral-tr
 
 ## 1. Set Up Boundaries
 
-Time complexity: O(M.N), where M is the number of rows, and N is the number of columns in the matrix
+The task requires traversing a 2D matrix in a spiral order, starting from the top-left corner and proceeding clockwise. The solution uses boundary variables to define the current limits of traversal and iteratively moves inward.
+
+The intuition is to treat the matrix as layers, starting from the outermost layer and moving inward. For each layer:
+
+1. Traverse from left to right along the top boundary.
+2. Traverse from top to bottom along the right boundary.
+3. Traverse from right to left along the bottom boundary, ensuring it does not overlap with the top row.
+4. Traverse from bottom to top along the left boundary, ensuring it does not overlap with the right column.
+
+After each traversal, the boundaries are adjusted inward, and the process continues until all elements are traversed.
+
+### Algorithm
+
+1. Initialize the result array `result` to store the spiral order.
+2. Define the boundaries:
+   - `up` as the topmost row index, starting at `0`.
+   - `down` as the bottommost row index, starting at `rows - 1`.
+   - `left` as the leftmost column index, starting at `0`.
+   - `right` as the rightmost column index, starting at `columns - 1`.
+3. While the size of `result` is less than the total number of elements in the matrix:
+   - Traverse from `left` to `right` along the `up` row and add elements to `result`.
+   - Traverse from `up + 1` to `down` along the `right` column and add elements to `result`.
+   - If `up` is not equal to `down`, traverse from `right - 1` to `left` along the `down` row and add elements to `result`.
+   - If `left` is not equal to `right`, traverse from `down - 1` to `up` along the `left` column and add elements to `result`.
+   - Move the boundaries inward:
+     - Increment `up` and `left`.
+     - Decrement `down` and `right`.
+4. Return `result`.
 
 <MDXCodeBlock>{matrixSpiralTraversal}</MDXCodeBlock>
 
+### Big-O analysis
+
+- **Time complexity: O(m.n)**. Each element in the matrix is visited exactly once.
+- **Space complexity: O(m.n)**. The result array `result` stores all elements of the matrix in spiral order.
+
 ## 2. Marking The Visited Element
 
-Time complexity: O(M.N), where M is the number of rows, and N is the number of columns in the matrix
+The task involves traversing a 2D matrix in a spiral order, starting from the top-left corner and proceeding clockwise. This solution uses a marker to identify visited cells and ensures the traversal continues until all elements are added to the result.
+
+The matrix is traversed in four possible directions: right, down, left, and up. The algorithm keeps track of the current position and direction. When a boundary or a previously visited cell is encountered, the direction changes. This process continues until the algorithm cycles through two direction changes without adding any new elements, indicating all elements have been visited.
+
+This approach eliminates the need for explicitly tracking boundaries by dynamically checking the next cell's validity.
+
+### Algorithm
+
+1. Initialize variables:
+   - Define `VISITED` as a marker for visited cells.
+   - Retrieve the number of rows and columns in the matrix.
+   - Create the `result` array, starting with the top-left element.
+   - Mark the top-left cell as visited by assigning it the `VISITED` value.
+2. Define the four possible directions for traversal: right, down, left, and up.
+3. Initialize `currentDirection` to `0` (right) and `changeDirection` to `0` to track consecutive direction changes without adding elements.
+4. Traverse the matrix:
+   - While `changeDirection` is less than `2`:
+     - Move in the current direction until a boundary or a visited cell is encountered.
+     - For each valid move:
+       - Update the current position.
+       - Add the element at the current position to the `result` array.
+       - Mark the cell as visited.
+       - Reset `changeDirection` to `0`.
+     - Change direction by updating `currentDirection` to the next value in the sequence.
+     - Increment `changeDirection`.
+5. Return the `result` array.
 
 <MDXCodeBlock>{matrixSpiralTraversalUsingMarkVisited}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(m.n)**. Each element in the matrix is visited exactly once.
+- **Space complexity: O(1)**. The traversal is performed in place, and no additional space is required apart from the result array.

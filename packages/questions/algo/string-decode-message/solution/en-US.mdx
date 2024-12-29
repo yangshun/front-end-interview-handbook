@@ -2,15 +2,83 @@ import MDXCodeBlock from 'MDXCodeBlock';
 
 import decodeMessage from '../setup/src/string-decode-message.ts';
 import decodeMessageTopDown from '../setup/src/string-decode-message-top-down.ts';
+import decodeMessageBottomUpConstantSpace from '../setup/src/string-decode-message-bottom-up-constant-space.ts';
 
-## 1. Bottom-Up Dynamic Programming
+## 1. Top-Down Dynamic Programming
 
-Time complexity: O(n)
+The problem of decoding a string into possible letter combinations can be visualized as navigating a decision tree. Each step in the string offers two choices: decode a single character or decode two characters (if they form a valid number between `10` and `26`). The goal is to count all valid decoding paths from the beginning to the end of the string.
+
+Using a brute force recursive approach leads to redundant calculations because the same subproblem (e.g., decoding a substring starting at a specific index) is solved multiple times. This redundancy can be avoided by storing results of previously computed subproblems in a memoization map. The memoized solution optimally navigates the decision tree, ensuring each subproblem is solved only once, significantly improving efficiency.
+
+### Algorithm
+
+1. Define a recursive function `recursiveWithMemo` that:
+   - Takes the current index, the input string, and a memoization map as arguments.
+   - Checks if the result for the current index exists in the `memo` and returns it if found.
+   - Returns `1` if the index reaches the end of the string (valid decode).
+   - Returns `0` if the current character is `'0'` (invalid decode).
+   - Returns `1` if the current index points to the last character (valid decode).
+2. Initialize a variable `ans` with the result of decoding the single character at the current index by calling `recursiveWithMemo` with `index + 1`.
+3. Check if the next two characters form a valid number between `10` and `26`:
+   - If valid, add the result of decoding two characters by calling `recursiveWithMemo` with `index + 2`.
+4. Store the computed result for the current index in the `memo` map.
+5. Return the value stored in `memo` for the current index.
+6. Implement a wrapper function `decodeMessage` that:
+   - Initializes an empty `Map` for memoization.
+   - Calls `recursiveWithMemo` with the initial index `0` and the input string.
+
+<MDXCodeBlock>{decodeMessageTopDown}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(n)**. Each index is processed only once due to memoization.
+- **Space complexity: O(n)**. The `Map` stores up to `n` entries, and the recursion stack requires O(n) space in the worst case.
+
+## 2. Bottom-Up Dynamic Programming
+
+Instead of solving subproblems recursively, this approach iteratively computes the number of ways to decode the string by using results from smaller substrings. The intuition is to maintain a `dp` array where each entry represents the number of ways to decode the substring up to that index.
+
+This approach avoids the overhead of recursion and memoization by iteratively filling the `dp` array in a single pass. The iterative nature ensures that each subproblem is solved only once, significantly optimizing both time and space.
+
+### Algorithm
+
+1. Initialize a `dp` array of size `str.length + 1` with all values set to `0`.
+   - Set `dp[0]` to `1` since there is one way to decode an empty string.
+   - Set `dp[1]` to `1` if the first character is not `'0'`, otherwise set it to `0`.
+2. Iterate from index `2` to `str.length`:
+   - If the current character is not `'0'`, add `dp[i - 1]` to `dp[i]` for single-digit decoding.
+   - Extract the last two characters as a two-digit number. If it is between `10` and `26`, add `dp[i - 2]` to `dp[i]` for two-digit decoding.
+3. Return the value in `dp[str.length]`, which represents the number of ways to decode the entire string.
 
 <MDXCodeBlock>{decodeMessage}</MDXCodeBlock>
 
-## 2. Top-Down Dynamic Programming
+### Big-O analysis
 
-Time complexity: O(n)
+- **Time complexity: O(n)**. The algorithm iterates through the string once.
+- **Space complexity: O(n)**. The `dp` array stores intermediate results for each index of the string.
 
-<MDXCodeBlock>{decodeMessageTopDown}</MDXCodeBlock>
+## 3. Bottom-Up Dynamic Programming With Constant Space
+
+This solution improves the bottom-up dynamic programming approach by reducing the space complexity to O(1). Instead of maintaining a `dp` array to store the results for all indices, this approach keeps track of only the last two results (`dp[i-2]` and `dp[i-1]`). This optimization is possible because the number of ways to decode a string at any position depends only on the results of the previous two positions.
+
+The previous bottom-up solution used an array that required O(n) space. By replacing the array with two variables, this solution reduces space usage without affecting the correctness or time complexity. This improvement is particularly useful when processing large strings.
+
+### Algorithm
+
+1. Handle the edge case where the string is empty by returning `0`.
+2. Initialize two variables:
+   - `prev` to represent `dp[i-2]`, set to `1` for the base case of an empty string.
+   - `curr` to represent `dp[i-1]`, set to `1` if the first character is not `'0'`, otherwise set to `0`.
+3. Iterate from index `2` to `str.length`:
+   - Initialize a temporary variable `temp` to store the current result.
+   - If the current character is not `'0'`, add `curr` to `temp` for single-digit decoding.
+   - Extract the last two characters as a two-digit number. If it is between `10` and `26`, add `prev` to `temp` for two-digit decoding.
+   - Update `prev` to `curr` and `curr` to `temp` for the next iteration.
+4. Return the value of `curr`, which contains the number of ways to decode the entire string.
+
+<MDXCodeBlock>{decodeMessageBottomUpConstantSpace}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(n)**. The solution iterates through the string once.
+- **Space complexity: O(1)**. Only two variables are used to store intermediate results.

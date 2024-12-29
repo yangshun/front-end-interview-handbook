@@ -5,12 +5,60 @@ import linkedListCombineKSortedBruteForce from '../setup/src/linked-list-combine
 
 ## 1. Brute force approach
 
-Time complexity: O(N.Log(N)) where N is the total number of nodes across all lists
+A naive approach is to extract all values from the `k` linked lists into an array, sorts them, and reconstructs a new sorted linked list from the sorted array.
+
+### Algorithm
+
+1. Create an empty array `nodes` to store all the node values from the linked lists.
+2. Create a dummy node to serve as the starting point for building the new linked list.
+3. Iterate over each linked list in the `lists` array.
+   1. Traverse the current linked list.
+   2. Append each node's value to the `nodes` array.
+4. Sort the `nodes` array in ascending order.
+5. Iterate over the sorted `nodes` array.
+   1. Create a new node for each value and link it to the combined linked list.
+   2. Move the pointer to the newly added node.
+6. Return the combined linked list, skipping the dummy node.
 
 <MDXCodeBlock>{linkedListCombineKSortedBruteForce}</MDXCodeBlock>
 
+### Big-O analysis
+
+- **Time complexity: O(n log n)**. Extracting the values requires O(n), where `n` is the total number of nodes in all `k` linked lists. Sorting the array requires O(n log n).
+- **Space complexity: O(n)**. Additional space is used to store the `nodes` array of size `n` and the new linked list.
+
 ## 2. Divide and conquer approach
 
-Time complexity: O(N.Log(K)) where N is the total number of nodes across all lists and K is the number of lists
+Instead of trying to merge all `k` lists in one step, the divide and conquer approach breaks the problem into smaller parts. Adjacent lists are merged in pairs, reducing the number of lists by half in each round.
+
+This process can be visualized as building a binary tree. At the bottom level, each of the `k` lists is treated as a separate node. At the next level, adjacent pairs of lists are merged to form `k/2` merged lists. This pairing and merging continue until there is only one list remaining, which forms the root of the tree.
+
+Each pairwise merge operation processes all the nodes in the two lists being merged. This ensures that no extra comparisons are made, leveraging the sorted order of the lists.
+
+The number of levels in the merge process corresponds to the height of the binary tree, which is proportional to `log k`. This hierarchical reduction significantly reduces the number of comparisons compared to a brute force approach.
+
+### Algorithm
+
+1. Initialize `amount` as the number of linked lists to combine.
+2. Set `interval` to 1, which represents the pairwise merge distance.
+3. While `interval` is less than `amount`:
+   1. Iterate through the `lists` array, merging pairs of linked lists that are `interval` apart.
+   2. Replace the first list in each pair with the merged result.
+   3. Double the `interval`.
+4. Return the first list in the `lists` array if `amount` is greater than 0; otherwise, return `null`.
+
+The helper function `merge2Lists` performs the merging of two sorted linked lists:
+
+1. Initialize a dummy node and a pointer to build the new combined list.
+2. Traverse both input lists:
+   1. Compare the current nodes of both lists and append the smaller node to the combined list.
+   2. Move to the next node in the list from which the smaller node was chosen.
+3. Attach any remaining nodes from the non-empty list to the combined list.
+4. Return the combined list, skipping the dummy node.
 
 <MDXCodeBlock>{linkedListCombineKSorted}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(n log k)**. Each merge operation for two lists is O(n), where `n` is the total number of nodes in the two lists. The number of merge levels is O(log k), where `k` is the number of lists.
+- **Space complexity: O(1)**. The merging process is performed in-place without requiring additional space beyond the pointers.

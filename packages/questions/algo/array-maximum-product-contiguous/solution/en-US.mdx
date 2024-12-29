@@ -4,20 +4,68 @@ import maxProductSubArray from '../setup/src/array-maximum-product-contiguous.ts
 import maxProductSubArrayDP from '../setup/src/array-maximum-product-contiguous-dp.ts';
 import maxProductSubArrayBruteForce from '../setup/src/array-maximum-product-contiguous-bruteforce.ts';
 
-## 1. Brute Froce Approach
+## 1. Brute Force Approach
 
-Time complexity: O(n<sup>2</sup>)
+The naive approach is to consider all possible contiguous subarrays to determine the maximum product. The process involves picking a starting index `i` and then iterating through all possible ending indices `j` for that subarray. For each subarray, the cumulative product is calculated and compared against the current maximum stored in `result`. Since every subarray is examined, the approach guarantees finding the maximum product.
+
+### Algorithm
+
+1. Check if the input array `numbers` is empty and return `0` if it is.
+2. Initialize `result` as the first element of `numbers`.
+3. Iterate through each element in `numbers` using an index `i`.
+4. Initialize an accumulator `accu` to `1` for the current subarray product.
+5. For each `i`, iterate through elements from `i` to the end of `numbers` using an index `j`.
+6. Update `accu` by multiplying it with `numbers[j]`.
+7. Compare `accu` with `result` and update `result` if `accu` is greater.
+8. After considering all subarrays, return `result`.
 
 <MDXCodeBlock>{maxProductSubArrayBruteForce}</MDXCodeBlock>
 
+### Big-O analysis
+
+- **Time complexity: O(n<sup>2</sup>)**. Each subarray is considered, leading to a nested iteration through the array.
+- **Space complexity: O(1)**. Only a few variables `result` and `accu` are used, requiring constant additional space.
+
 ## 2. Using Dynamic Programming
 
-Time complexity: O(n)
+A brute force approach considers every possible subarray and calculates the product, which leads to repeated multiplication and redundant checks. The time complexity for that approach is O(n<sup>2</sup>), where each element serves as the start point and all subsequent elements form subarrays to consider. The bottleneck lies in the large number of subarrays being recalculated multiple times.
+
+This solution uses a dynamic programming approach to solve the problem in O(n) time. The approach tracks at each position the maximum and minimum subarray product ending at that position. Negative numbers affect the product sign and can flip a minimum product into a maximum one. By maintaining running values of the maximum and minimum products so far, the computation avoids recalculating products for all subarrays.
+
+### Algorithm
+
+1. Check if `numbers` is empty and return `0` if true.
+2. Initialize `maxSoFar`, `minSoFar`, and `result` to the first element of `numbers`.
+3. Iterate from the second element of `numbers` to the end.
+4. For each element `curr`, compute a temporary maximum product as the maximum of `curr`, `maxSoFar * curr`, and `minSoFar * curr`.
+5. Update `minSoFar` as the minimum of `curr`, `maxSoFar * curr`, and `minSoFar * curr`.
+6. Update `maxSoFar` with the temporary maximum.
+7. Update `result` if `maxSoFar` is greater than `result`.
+8. Return `result`.
 
 <MDXCodeBlock>{maxProductSubArrayDP}</MDXCodeBlock>
 
+### Big-O analysis
+
+- **Time complexity: O(n)**. Each element is processed once.
+- **Space complexity: O(1)**. There is no additional data structures being used, so constant space is used.
+
 ## 3. Using Prefix and Suffix Product
 
-Time complexity: O(n)
+Another optimized approach uses prefix and suffix products to track the running products from both ends. By doing so, it becomes easier to handle zeros and negative values. When a zero is encountered, the running product can be reset instead of recalculating all subarrays again. This approach avoids redundant work and achieves a linear runtime.
+
+### Algorithm
+
+1. Initialize three variables: `pre` for prefix product, `suff` for suffix product, and `maxProduct` for tracking the maximum product found.
+2. Iterate through the array using an index `i` from 0 to `n-1`.
+3. Update `pre` by checking if `pre` is zero, then set `pre` to the current element, otherwise multiply `pre` by the current element.
+4. Similarly, update `suff` by checking if `suff` is zero, then set `suff` to the element from the end at index `n - i - 1`, otherwise multiply `suff` by that element.
+5. Update `maxProduct` by comparing it against both `pre` and `suff` and store the maximum value found.
+6. Return `maxProduct` after completing the iteration.
 
 <MDXCodeBlock>{maxProductSubArray}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(n)**. Each element is processed once.
+- **Space complexity: O(1)**. Only a constant amount of extra space is required.

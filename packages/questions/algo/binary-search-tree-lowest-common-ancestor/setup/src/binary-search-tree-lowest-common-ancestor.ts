@@ -4,7 +4,7 @@ interface TreeNode {
   right: TreeNode | null;
 }
 
-export default function lowestCommonAncestor(
+export default function BSTLowestCommonAncestor(
   root: TreeNode | null,
   a: TreeNode | null,
   b: TreeNode | null,
@@ -24,12 +24,12 @@ export default function lowestCommonAncestor(
 
   // If both a and b are bigger than parent, explore the right subtree
   if (aVal > parentVal && bVal > parentVal) {
-    return lowestCommonAncestor(root.right, a, b);
+    return BSTLowestCommonAncestor(root.right, a, b);
   }
 
   // If both a and b are smaller than parent, explore the left subtree
   if (aVal < parentVal && bVal < parentVal) {
-    return lowestCommonAncestor(root.left, a, b);
+    return BSTLowestCommonAncestor(root.left, a, b);
   }
 
   // If one of a or b is on one side and the other is on the opposite side,

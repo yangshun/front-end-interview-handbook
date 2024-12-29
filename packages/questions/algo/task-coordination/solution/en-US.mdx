@@ -5,12 +5,52 @@ import taskCoordinatorHeap from '../setup/src/task-coordination-heap.ts';
 
 ## 1. Using Greedy Approach
 
-Time complexity: O(n)
+This solution minimizes the time required to execute a series of tasks with a cooldown period `k`, ensuring that no two identical tasks are executed within `k` intervals. The core idea is to focus on tasks with the highest frequency since they dominate the scheduling process. These tasks must be distributed as evenly as possible, creating "partitions" in the schedule. The remaining tasks fill the gaps between these partitions, reducing idle time.
+
+Tasks with the highest frequency define the framework of the schedule because their distribution determines the placement of all other tasks. Each occurrence of these tasks is separated by at least `k` intervals. If there are other tasks to fill these gaps, idle periods are reduced; otherwise, idle slots remain, increasing the total time.
+
+The greedy approach ensures that the schedule is compact by filling the gaps created by the most frequent tasks first. This avoids unnecessary idle times and ensures the schedule respects the cooldown constraint while remaining as short as possible.
+
+### Algorithm
+
+1. Initialize an array `counter` of size 26 to count the frequency of each task.
+2. Traverse the `tasks` array to populate the `counter` array:
+   1. For each task, increment its frequency count in `counter`.
+   2. Update `maximum` to track the highest frequency of any task.
+   3. Update `maxCount` to count how many tasks have this maximum frequency.
+3. Compute the number of partitions as `maximum - 1`.
+4. Compute the length of each partition as `k - (maxCount - 1)`.
+5. Calculate the total number of empty slots as `partCount * partLength`.
+6. Compute the number of available tasks as the total number of tasks minus the tasks with maximum frequency.
+7. Calculate the number of idle slots as `Math.max(0, emptySlots - availableTasks)`.
+8. Return the total time required as `tasks.length + idles`.
 
 <MDXCodeBlock>{taskCoordinator}</MDXCodeBlock>
 
+### Big-O analysis
+
+- **Time complexity: O(n)**. Traversing the `tasks` array and updating the `counter` array each take linear time.
+- **Space complexity: O(1)**. The `counter` array has a fixed size of 26, regardless of the input size.
+
 ## 2. Using Heap
 
-Time complexity: O(n)
+The key idea is to minimize idle time by always executing the most frequent tasks first. A max heap is used to efficiently retrieve the task with the highest remaining frequency. This ensures that tasks with higher frequencies are executed earlier, reducing the likelihood of idle cycles.
+
+### Algorithm
+
+1. Build a frequency map to count the occurrences of each task.
+2. Populate a max heap with the task frequencies. The heap is structured to prioritize the highest frequency tasks.
+3. Initialize the total time counter to `0`.
+4. While the heap is not empty:
+   1. Execute tasks for a single cooldown cycle (`n + 1` times) or until the heap is empty.
+   2. Decrease the frequency of executed tasks and store updated frequencies.
+   3. After the cycle, reinsert the updated task frequencies back into the heap.
+   4. Update the total time counter. If the heap is empty after a cycle, add only the tasks executed during the cycle; otherwise, add `n + 1` time units for the full cycle.
+5. Return the total time counter as the result.
 
 <MDXCodeBlock>{taskCoordinatorHeap}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(n log k)**. Iterating through the `tasks` array and building the frequency map is O(n). Operations on the heap (insertion and deletion) are O(log k), where `k` is the number of unique tasks.
+- **Space complexity: O(k)**. The heap and the frequency map require storage proportional to the number of unique tasks, which is `k`.

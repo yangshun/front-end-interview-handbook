@@ -5,16 +5,50 @@ import maximumWaterBetweenWallsBruteForce from '../setup/src/maximum-water-betwe
 
 ## 1. Brute Force Approach
 
-Time complexity: O(n<sup>2</sup>)
+A brute force approach is to find the maximum water that can be trapped between two walls. The idea is to evaluate every possible pair of walls in the input array and calculate the amount of water that can be held between them. The water held is determined by the shorter wall in the pair and the distance between the two walls.
 
-- N is the length of the array
+The brute force approach ensures all pairs of walls are considered, making. The algorithm iterates through each possible pair of walls using nested loops and calculates the area for each pair. The largest area found during this process is returned as the result.
+
+### Algorithm
+
+1. Initialize a variable `maxArea` to `0` to keep track of the maximum water area found.
+2. Use a nested loop to iterate over all pairs of walls:
+   1. The outer loop represents the left wall, iterating from the first wall to the second-last wall.
+   2. The inner loop represents the right wall, iterating from one wall after the left wall to the last wall.
+3. For each pair of walls, calculate the width between the walls as `right - left`.
+4. Determine the height of the container using the shorter wall by calling `Math.min(walls[left], walls[right])`.
+5. Calculate the area of water that can be held by multiplying the height and width.
+6. Update `maxArea` with the larger value between the current `maxArea` and the newly calculated area.
+7. After completing the nested loops, return `maxArea` as the result.
 
 <MDXCodeBlock>{maximumWaterBetweenWallsBruteForce}</MDXCodeBlock>
 
+### Big-O analysis
+
+- **Time complexity: O(n<sup>2</sup>)**. The nested loops iterate over all pairs of walls, leading to a quadratic time complexity.
+- **Space complexity: O(1)**. No additional space is used beyond a few variables for tracking the maximum area and calculating values.
+
 ## 2. Using Two-Pointers
 
-Time complexity: O(n)
+This solution uses the two-pointer technique to optimize the process of finding the maximum water that can be trapped between two walls. The idea is to use two pointers, one starting at the leftmost wall and the other at the rightmost wall, and calculate the area between them. The area is determined by the shorter wall, as it limits the height, and the width between the two walls.
 
-- N is the length of the array
+Instead of evaluating every possible pair of walls, as in the brute force approach, the two-pointer technique eliminates unnecessary comparisons by moving the pointers. By always moving the pointer of the shorter wall inward, the algorithm ensures that the width decreases while trying to find a taller wall that could potentially increase the area. This approach avoids unnecessary or duplicated work, reducing the time complexity from O(n<sup>2</sup>) to O(n).
+
+### Algorithm
+
+1. Initialize two pointers, `left` at the start of the array and `right` at the end of the array.
+2. Initialize a variable `maxWaterArea` to store the maximum water area found.
+3. Use a `while` loop to iterate as long as `left` is less than `right`:
+   1. Calculate the area between the walls pointed to by `left` and `right`. The height is the smaller of the two walls, and the width is the distance between the pointers (`right - left`).
+   2. Update `maxWaterArea` with the larger value between the current `maxWaterArea` and the newly calculated area.
+   3. Move the pointer with the shorter wall inward:
+      - If `walls[left]` is smaller, increment `left` to find a taller wall.
+      - Otherwise, decrement `right` to find a taller wall on the right.
+4. Return `maxWaterArea` as the maximum water area found.
 
 <MDXCodeBlock>{maximumWaterBetweenWalls}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(n)**. Each pointer moves at most `n` steps, leading to a linear runtime.
+- **Space complexity: O(1)**. No additional space is required beyond a few variables for tracking pointers and area calculations.

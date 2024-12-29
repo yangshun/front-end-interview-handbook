@@ -2,15 +2,77 @@ import MDXCodeBlock from 'MDXCodeBlock';
 
 import pairSum from '../setup/src/pair-sum.ts';
 import pairSumBruteForce from '../setup/src/pair-sum-brute-force.ts';
+import pairSumTwoPassHash from '../setup/src/pair-sum-two-pass-hash.ts';
 
 ## 1. Brute Force
 
-Time complexity: O(n<sup>2</sup>), where `n` is the length of the array
+The pair sum problem involves identifying two indices in an array such that their values add up to a specified target. The brute-force approach checks all possible pairs of elements in the array. For every element at index `i`, all subsequent elements at index `j > i` are examined to determine if their sum matches the target. This ensures that all possible pairs are considered, making the solution straightforward but inefficient for large arrays.
+
+### Algorithm
+
+1. Use a loop with index `i` to iterate through each element of the `numbers` array.
+2. For each element at index `i`, use another loop with index `j` to iterate through the elements that come after `i` (`j > i`).
+3. Check if the sum of `numbers[i]` and `numbers[j]` is equal to the `target`:
+   - If the condition is true, return the indices `[i, j]`.
+4. If no such pair is found after examining all pairs, return an empty array.
 
 <MDXCodeBlock>{pairSumBruteForce}</MDXCodeBlock>
 
-## 2. Using Hash Maps
+### Big-O analysis
 
-Time complexity: O(n), where `n` is the length of the array
+- **Time complexity: O(n<sup>2</sup>)**. The outer loop runs `n` times, and for each iteration, the inner loop runs up to `n - 1` times, leading to quadratic time complexity.
+- **Space complexity: O(1)**. No additional data structures are used, and the space requirement is constant.
+
+## 2. Using Hash Map With Two Passes
+
+The previous brute-force solution involves checking all pairs of elements, resulting in O(n<sup>2</sup>) time complexity due to repeated comparisons of element pairs. Thus, this approach removes redundant work by replacing the nested loops with efficient O(1) hash table lookups, reducing the time complexity to O(n).
+
+This optimized solution uses a **two-pass hash map** approach:
+
+1. The first pass constructs a hash table to store each element's value as a key and its index as a value.
+2. In the second pass, the algorithm checks if the complement of the current element (i.e., `target - numbers[i]`) exists in the hash table.
+
+### Algorithm
+
+1. Initialize an empty hash table `hash` to store the numbers and their indices.
+2. Perform the first pass through the array:
+   - For each element `numbers[i]`, store it in the hash table with its index as the value (`hash[numbers[i]] = i`).
+3. Perform the second pass through the array:
+   - Calculate the `complement` as `target - numbers[i]`.
+   - Check if the `complement` exists in the hash table and ensure that its index is not the same as the current index.
+   - If the conditions are met, return the indices `[i, hash[complement]]`.
+4. If no valid pair is found, return an empty array.
+
+<MDXCodeBlock>{pairSumTwoPassHash}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(n)**. The algorithm iterates through the array twice, and each hash table operation (insertion or lookup) takes O(1).
+- **Space complexity: O(n)**. In the worst case, all `n` elements are stored in the hash map.
+
+## 3. Using Hash Map With One Pass
+
+The unnecessary work in the two-pass solution is the need for two iterations over the array. The optimized one-pass hash table approach eliminates this drawback by combining both steps into a single iteration:
+
+- During the iteration, the algorithm calculates the complement of the current number.
+- If the complement is already present in the hash table, the pair is found, and the indices are returned.
+- If not, the current number and its index are added to the hash table for future lookups.
+
+This removes the need for a second pass, reducing unnecessary work and improving runtime efficiency.
+
+### Algorithm
+
+1. Initialize an empty hash table `hash` to store numbers and their corresponding indices.
+2. Iterate through the array `numbers`:
+   - Calculate the `complement` as `target - numbers[i]`.
+   - Check if the `complement` exists in the hash table:
+     - If it does, return the indices `[hash[complement], i]`.
+   - Otherwise, add the current number and its index to the hash table.
+3. If no valid pair is found, return an empty array.
 
 <MDXCodeBlock>{pairSum}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(n)**. The algorithm processes each element of the array exactly once, and each lookup or insertion in the hash table takes O(1).
+- **Space complexity: O(n)**. In the worst case, all `n` elements are stored in the hash map.

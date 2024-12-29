@@ -1,18 +1,68 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
 import lowestCommonAncestorOfABinarySearchTree from '../setup/src/binary-search-tree-lowest-common-ancestor.ts';
-import lowestCommonAncestorOfABinarySearchTreeSolutionIteration from './binary-search-tree-lowest-common-ancestor-solution-iteration.ts';
+import lowestCommonAncestorOfABinarySearchTreeIteration from '../setup/src/binary-search-tree-lowest-common-ancestor-iteration.ts';
 
 ## 1. Using Recursion
 
-Time complexity: O(n)
+The problem of finding the lowest common ancestor (LCA) in a binary search tree (BST) uses the ordered properties of the BST. The LCA is the node where one node (`a`) is on one side of the current node and the other node (`b`) is on the opposite side, or the current node itself is one of the nodes being searched for.
+
+For any node in a BST, all values in the left subtree are smaller, and all values in the right subtree are larger. This property simplifies the process of finding the LCA.
+
+The algorithm checks the values of `a` and `b` relative to the current node (`root`).
+
+- If both values are greater than the current node's value, the LCA must lie in the right subtree.
+- If both values are smaller, the LCA must lie in the left subtree.
+- If one value is on the left and the other is on the right (or one of the nodes matches the current node), the current node is the LCA.
+
+The algorithm recursively traverses the tree based on the relative values of `a` and `b` until the LCA is found.
+
+### Algorithm
+
+1. Check the base case:
+   - If `root` is `null`, return `null` as there is no ancestor.
+2. Retrieve the values of the current node (`parentVal`), `a` (`aVal`), and `b` (`bVal`).
+3. Compare `aVal` and `bVal` with `parentVal`:
+   1. If both `aVal` and `bVal` are greater than `parentVal`, recursively call the function with the right subtree (`root.right`) as the new root.
+   2. If both `aVal` and `bVal` are smaller than `parentVal`, recursively call the function with the left subtree (`root.left`) as the new root.
+   3. If one value is on the left and the other is on the right, or one matches `parentVal`, return the current node (`root`) as the LCA.
 
 <MDXCodeBlock>{lowestCommonAncestorOfABinarySearchTree}</MDXCodeBlock>
 
+### Big-O analysis
+
+- **Time complexity: O(h)**. The algorithm traverses the height of the tree, where `h` is the height of the BST. In a balanced BST, this is O(log n), and in the worst case (unbalanced tree), this is O(n).
+- **Space complexity: O(h)**. The recursion stack requires space proportional to the height of the tree.
+
 ## 2. Using Iteration
 
-Time complexity: O(n)
+The iterative approach for finding the lowest common ancestor (LCA) in a binary search tree (BST) uses the properties of the BST to navigate from the root to the LCA without recursion. The LCA is identified as the node where the paths to two nodes (`a` and `b`) diverge or one of them matches the current node.
 
-<MDXCodeBlock>
-  {lowestCommonAncestorOfABinarySearchTreeSolutionIteration}
-</MDXCodeBlock>
+In a BST, all values in the left subtree are smaller than the root, and all values in the right subtree are larger. This property helps in determining the direction of traversal:
+
+- If both `a` and `b` are smaller than the current node, the LCA lies in the left subtree.
+- If both `a` and `b` are larger than the current node, the LCA lies in the right subtree.
+- If one node is on the left and the other is on the right, or one matches the current node, the current node is the LCA.
+
+The algorithm eliminates recursion by iteratively moving the pointer (`node`) based on comparisons, maintaining efficiency and simplicity.
+
+The traversal stops as soon as the LCA is found, avoiding unnecessary operations.
+
+### Algorithm
+
+1. Retrieve the values of `a` and `b` (`aVal` and `bVal`).
+2. Initialize a pointer `node` to the root of the BST.
+3. Traverse the BST using a `while` loop until `node` is `null`:
+   1. Retrieve the value of the current node (`parentVal`).
+   2. Compare `aVal` and `bVal` with `parentVal`:
+      - If both are greater than `parentVal`, move `node` to the right child (`node = node.right`).
+      - If both are smaller than `parentVal`, move `node` to the left child (`node = node.left`).
+      - Otherwise, the current node is the LCA; return it.
+4. If no LCA is found (edge case), return `null`.
+
+<MDXCodeBlock>{lowestCommonAncestorOfABinarySearchTreeIteration}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(h)**. The algorithm traverses the height of the tree, where `h` is the height of the BST. In a balanced BST, this is O(log n), and in the worst case (unbalanced tree), this is O(n).
+- **Space complexity: O(1)**. The algorithm uses a constant amount of space as there is no recursion or auxiliary data structures.

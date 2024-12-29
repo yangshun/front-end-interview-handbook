@@ -5,12 +5,53 @@ import minMeetingRoomsPQ from '../setup/src/intervals-minimum-meeting-rooms-pq.t
 
 ## 1. Using Two Pointer Approach
 
-Time complexity: O(N.LogN)
+This approach determines the minimum number of meeting rooms needed by separating and sorting the start and end times of the intervals. By using two pointers, one for the `start` times and one for the `end` times, the algorithm efficiently tracks the number of concurrent meetings.
+
+The intuition is that a meeting room becomes free when a meeting ends, which is represented by the `endPointer`. For each meeting start (`startPointer`), the algorithm checks if the meeting can reuse an available room (by comparing the start time with the earliest end time). If a room is free, the `endPointer` is moved forward to mark the room as available. Otherwise, a new room is allocated.
+
+This method avoids comparing all pairs of intervals directly, using sorted arrays and two pointers to achieve optimal efficiency.
+
+### Algorithm
+
+1. Handle the base case by returning `0` if the `intervals` array is empty.
+2. Create two arrays, `start` and `end`, to store the start and end times of each interval.
+3. Populate the `start` and `end` arrays by iterating through the `intervals` array.
+4. Sort both `start` and `end` arrays in ascending order.
+5. Initialize two pointers, `startPointer` and `endPointer`, to traverse the `start` and `end` arrays respectively. Also, initialize a variable `usedRooms` to track the number of rooms currently in use.
+6. Iterate through the `start` array:
+   1. If the start time of the current meeting is greater than or equal to the earliest end time (indicated by `end[endPointer]`), free a room by decrementing `usedRooms` and moving `endPointer` forward.
+   2. Allocate a room for the current meeting by incrementing `usedRooms`.
+   3. Move the `startPointer` forward to process the next meeting.
+7. Return the value of `usedRooms`, which represents the maximum number of rooms needed at any time.
 
 <MDXCodeBlock>{minMeetingRoomsNeeded}</MDXCodeBlock>
 
+### Big-O analysis
+
+- **Time complexity: O(n log n)**. Sorting the `start` and `end` arrays dominates the runtime, while the linear scan to process the intervals takes O(n).
+- **Space complexity: O(n)**. Two additional arrays, `start` and `end`, are used to store the start and end times of the intervals.
+
 ## 2. Using Priority Queue (Min-Heap)
 
-Time complexity: O(N.LogN)
+The approach uses a min heap to efficiently track the end times of ongoing meetings, ensuring that the earliest finishing meeting is always processed first. This allows determining if a room becomes free when a new meeting starts. Sorting the intervals by start time ensures that meetings are processed in chronological order.
+
+A min heap is used because it supports efficient insertion and extraction of the smallest element. At any point, the heap contains the end times of all active meetings. When a meeting starts, its start time is compared to the smallest end time in the heap (the meeting that finishes the earliest). If the new meeting can reuse the room (its start time is greater than or equal to the smallest end time), the end time is removed from the heap. Otherwise, a new room is allocated, and the meeting's end time is added to the heap.
+
+### Algorithm
+
+1. Handle the base case by returning `0` if the `intervals` array is empty.
+2. Sort the `intervals` array by the start times of the meetings in ascending order.
+3. Initialize a min heap (`allocator`) to store the end times of meetings currently occupying rooms.
+4. Add the end time of the first meeting to the heap.
+5. Iterate through the remaining intervals:
+   1. If the current meeting's start time is greater than or equal to the smallest end time in the heap, remove the smallest end time from the heap (indicating a room is freed).
+   2. Add the current meeting's end time to the heap, allocating a room for it.
+6. After processing all intervals, the size of the heap represents the minimum number of rooms required, as each element in the heap corresponds to a currently active meeting.
+7. Return the size of the heap.
 
 <MDXCodeBlock>{minMeetingRoomsPQ}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(n log n)**. Sorting the intervals takes O(n log n), and each insertion and removal operation in the heap takes O(log n), resulting in O(n log n) for heap operations over all intervals.
+- **Space complexity: O(n)**. The min heap can contain up to `n` elements in the worst case.

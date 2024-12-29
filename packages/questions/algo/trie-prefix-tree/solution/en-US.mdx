@@ -4,6 +4,36 @@ import trie from '../setup/src/trie-prefix-tree.ts';
 
 ## 1. Using Trie data structure
 
-Time complexity: O(n.m), where `n` is the length of `methods` and `m` is the average length of each word in words array
+A Trie (prefix tree) is a tree-like data structure used for efficient storage and retrieval of strings, particularly when working with prefixes. Each node in a Trie represents a single character and stores references to its child nodes. This structure enables fast operations such as inserting a word, searching for a word, and checking if any word starts with a given prefix.
+
+The Trie is initialized with a root node that has links to its child nodes. Each link corresponds to a character from 'a' to 'z'. Words are inserted character by character into the Trie, creating new child nodes if a character does not exist. The search operation traverses the Trie to check if all characters of a word or prefix exist, while the `isEnd` flag at each node indicates whether the node marks the end of a word. The design efficiently handles operations involving prefixes, as shared prefixes are stored only once.
+
+### Algorithm
+
+1. **Insert**:
+
+   - Start from the root node.
+   - For each character in the word, check if the node contains a link for the character.
+   - If not, create a new node and add it as a child.
+   - Move to the child node and repeat for all characters.
+   - Mark the last node as the end of a word using the `isEnd` flag.
+
+2. **Search**:
+
+   - Traverse the Trie using the characters of the word.
+   - If any character is not found, the word does not exist.
+   - Check if the last node represents the end of a word.
+
+3. **StartsWith**:
+   - Traverse the Trie using the characters of the prefix.
+   - If all characters are found, the prefix exists in the Trie.
 
 <MDXCodeBlock>{trie}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity**:
+  - Insert: O(m), where `m` is the length of the word being inserted.
+  - Search: O(m), where `m` is the length of the word being searched.
+  - StartsWith: O(m), where `m` is the length of the prefix.
+- **Space complexity**: O(n), where `n` is the total number of characters across all inserted words. Each character requires a node in the Trie, and shared prefixes reduce redundancy.

@@ -5,12 +5,44 @@ import isStringPalindromeUsingTwoPointers from '../setup/src/string-palindrome-u
 
 ## 1. Comparing the Reverse Order
 
-Time complexity: O(n)
+The solution identifies whether a string is a palindrome by focusing only on its alphanumeric characters and ignoring case sensitivity. The key intuition is that a palindrome's sequence of characters must be identical when reversed. Therefore, this approach will reverse the input string and compare the reversed string with original string to check whether they are similar. To simplify the comparison, the solution preprocesses the string by filtering out non-alphanumeric characters and converting the remaining ones to lowercase. This creates a normalized version of the string, making the reverse comparison straightforward.
+
+### Algorithm
+
+1. Initialize an empty string `filteredChars` to store alphanumeric characters in lowercase.
+2. Iterate through each character of the input string:
+   - If the character is alphanumeric, convert it to lowercase and append it to `filteredChars`.
+3. Reverse the `filteredChars` string using `split`, `reverse`, and `join`.
+4. Compare the original `filteredChars` with the reversed version.
+   - If they are the same, return `true` as the string is a palindrome.
+   - Otherwise, return `false`.
 
 <MDXCodeBlock>{isStringPalindrome}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(n)**. Filtering the characters and reversing the string each takes linear time.
+- **Space complexity: O(n)**. The `filteredChars` and `reversedChars` strings both require O(n) space.
 
 ## 2. Using Two-Pointers
 
-Time complexity: O(n)
+This solution improves on the previous one by avoiding the creation of a reversed string, which requires additional time and space. The two-pointer approach determines whether a string is a palindrome by using two indices—one starting at the beginning of the string and the other at the end—and moving toward the center. This removes the need to reverse the string, as comparisons can be made directly between corresponding characters.
+
+### Algorithm
+
+1. Initialize two pointers:
+   - One (`left`) at the start of the string.
+   - The other (`right`) at the end of the string.
+2. While `left` is less than `right`:
+   - Skip non-alphanumeric characters by moving `left` forward and `right` backward until valid characters are found.
+   - Convert both characters to lowercase for case-insensitive comparison.
+   - If the characters at `left` and `right` are not equal, return `false`.
+   - Otherwise, move `left` forward and `right` backward to continue comparisons.
+3. If all characters match, return `true`.
 
 <MDXCodeBlock>{isStringPalindrome}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(n)**. Each character in the string is processed once.
+- **Space complexity: O(1)**. The two-pointer approach uses constant extra space for variables.

@@ -6,18 +6,75 @@ import longestPalindromicSubstringExpandCenters from '../setup/src/longest-palin
 
 ## 1. BruteForce
 
-Time complexity: O(N^3)
+The problem requires finding the longest palindromic substring in a given string. A brute force approach systematically examines all possible substrings and checks whether each substring is a palindrome. This ensures that the algorithm correctly identifies palindromes and returns the longest one.
+
+### Algorithm
+
+1. Define a helper function `check(i, j)` to determine whether the substring from index `i` to `j-1` is a palindrome:
+   - Initialize two pointers, `left` at `i` and `right` at `j-1`.
+   - Compare characters at `left` and `right` while moving the pointers toward the center.
+   - Return `false` if any pair of characters does not match; otherwise, return `true` if the pointers meet or cross.
+2. Iterate over possible lengths of substrings in descending order:
+   - Start with the maximum possible length of the string and decrease the length until `1`.
+   - For each length, iterate over all possible starting indices for the substring.
+3. For each substring, call the helper function `check` to determine if it is a palindrome:
+   - If the substring is a palindrome, return it immediately as the longest palindrome.
+4. If no palindrome is found, return an empty string (this scenario does not occur with valid input).
 
 <MDXCodeBlock>{longestPalindromicSubstringBruteForce}</MDXCodeBlock>
 
+### Big-O analysis
+
+- **Time complexity: O(n<sup>3</sup>)**. The algorithm checks all substrings using two nested loops, and the palindrome check takes O(n) for each substring.
+- **Space complexity: O(1)**. The algorithm uses a constant amount of extra space regardless of the input size.
+
 ## 2. Using Dynamic Programming
 
-Time complexity: O(n<sup>2</sup>)
+A dynamic programming (DP) approach optimizes the brute force method by reducing redundant checks. Instead of re-evaluating overlapping substrings, the DP approach stores intermediate results in a table `dp`, where `dp[i][j]` is `true` if the substring `s[i..j]` is a palindrome.
+
+The dynamic programming approach iteratively builds the solution by considering substrings of increasing lengths. It starts by marking single characters as palindromes, then checks pairs of consecutive characters, and finally evaluates substrings of length 3 or more. The DP table eliminates the need for repetitive computations by ensuring that results for smaller substrings are reused when evaluating larger substrings.
+
+### Algorithm
+
+1. Initialize a 2D array `dp` of size `n x n`, where `n` is the length of the string. Set all values to `false`.
+2. Mark all single-character substrings as palindromes by setting `dp[i][i] = true` for all `i`.
+3. Check for two-character substrings:
+   - For indices `i` and `i + 1`, if `str[i] === str[i + 1]`, set `dp[i][i + 1] = true` and update the indices of the longest palindrome.
+4. Iterate over possible lengths of substrings starting from 3:
+   - For each length, iterate over possible starting indices `i`.
+   - Compute the ending index `j = i + length - 1`.
+   - If `str[i] === str[j]` and `dp[i + 1][j - 1]` is `true`, set `dp[i][j] = true` and update the indices of the longest palindrome.
+5. Extract the substring using the indices of the longest palindrome stored in the variable `ans`.
+6. Return the extracted substring.
 
 <MDXCodeBlock>{longestPalindromicSubstring}</MDXCodeBlock>
 
+### Big-O analysis
+
+- **Time complexity: O(n<sup>2</sup>)**. The algorithm iterates over all substrings of the string, and each substring evaluation takes constant time due to the use of the DP table.
+- **Space complexity: O(n<sup>2</sup>)**. The DP table requires storage proportional to the square of the string length.
+
 ## 3. Expanding from Centers
 
-Time complexity: O(n<sup>2</sup>)
+The expanding around the center approach is an efficient solution that avoids constructing a dynamic programming table or checking all substrings. The key idea is to treat each character (or pair of characters) as the center of a potential palindrome and expand outward to find the largest palindrome around that center.
+
+This method avoids unnecessary work by using the property of palindromes, which expand symmetrically around a center. For every character (or pair of characters for even-length palindromes), the algorithm expands outward until a mismatch occurs. This approach reduces redundant checks and eliminates the need to store intermediate results.
+
+### Algorithm
+
+1. Define a helper function `expand(i, j)`:
+   - Initialize two pointers, `left` at `i` and `right` at `j`.
+   - Expand the pointers outward while `left` is non-negative, `right` is within bounds, and the characters at `left` and `right` are equal.
+   - Return the substring bounded by `left + 1` and `right` as the palindrome.
+2. Initialize a variable `ans` to store the longest palindromic substring found.
+3. Iterate through each character in the string:
+   - Treat the character at index `i` as the center of an odd-length palindrome. Call `expand(i, i)` and update `ans` if the returned palindrome is longer than the current value of `ans`.
+   - Treat the characters at indices `i` and `i + 1` as the centers of an even-length palindrome. Call `expand(i, i + 1)` and update `ans` if the returned palindrome is longer than the current value of `ans`.
+4. Return the value of `ans` after processing all characters.
 
 <MDXCodeBlock>{longestPalindromicSubstringExpandCenters}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(n<sup>2</sup>)**. For each character, the expansion may run in O(n) in the worst case, resulting in O(n<sup>2</sup>) overall.
+- **Space complexity: O(1)**. The algorithm uses a constant amount of extra space, excluding the space required for the output.

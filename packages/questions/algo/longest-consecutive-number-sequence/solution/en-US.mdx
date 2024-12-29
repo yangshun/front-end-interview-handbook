@@ -2,15 +2,77 @@ import MDXCodeBlock from 'MDXCodeBlock';
 
 import longestConsecutiveNumberSequence from '../setup/src/longest-consecutive-number-sequence.ts';
 import longestConsecutiveNumberSequenceUsingSorting from '../setup/src/longest-consecutive-number-sequence-sorting.ts';
+import longestConsecutiveNumberSequenceBruteForce from '../setup/src/longest-consecutive-number-sequence-brute-force.ts';
 
-## 1. Using Sorting
+## 1. Brute Force
 
-Time complexity: O(NLogN)
+The goal is to find the length of the longest sequence of consecutive integers in an array. This brute force approach iterates through each element and checks for consecutive numbers by repeatedly searching the array.
+
+The logic starts by assuming the current number as the beginning of a potential sequence and checks if the next consecutive number exists using the `includes` method. The process continues until there are no more consecutive numbers in the sequence. The length of this sequence is then compared with the longest sequence found so far to update the result.
+
+<MDXCodeBlock>{longestConsecutiveNumberSequenceBruteForce}</MDXCodeBlock>
+
+### Algorithm
+
+1. Check if the array is empty. If it is, return `0` as there are no numbers.
+2. Initialize a variable `longestStreak` to track the longest consecutive sequence found so far.
+3. Iterate through each number in the array using a `for` loop:
+   1. Set `currentNum` to the current number and initialize `currentStreak` to `1`.
+   2. Use a `while` loop to check if the next consecutive number (`currentNum + 1`) exists in the array:
+      - If it exists, increment `currentNum` and increase `currentStreak` by `1`.
+   3. Update `longestStreak` to the maximum value between `longestStreak` and `currentStreak`.
+4. After the loop ends, return the value of `longestStreak`.
+
+### Big-O analysis
+
+- **Time complexity: O(n<sup>2</sup>)**. The `includes` method performs a linear search, making this approach quadratic as it is nested inside a loop iterating over all `n` elements.
+- **Space complexity: O(1)**. No additional data structures are used; only a few variables are allocated.
+
+## 2. Using Sorting
+
+This solution improves the brute force approach by sorting the input array to simplify the process of finding consecutive numbers. Sorting places all elements in ascending order, which allows consecutive numbers to appear next to each other. This eliminates the need to repeatedly search for the next number in the sequence, significantly reducing redundant operations.
+
+The algorithm iterates through the sorted array and keeps track of the length of the current sequence of consecutive numbers. Whenever the sequence breaks (a number is not consecutive to the previous one), the length of the current streak is compared with the longest streak found so far, and the maximum value is updated.
+
+### Algorithm
+
+1. Check if the array is empty. If it is, return `0`.
+2. Sort the array in ascending order using the `sort` method.
+3. Initialize two variables: `longestStreak` to `1` for tracking the longest sequence and `currentStreak` to `1` for the current consecutive sequence length.
+4. Iterate through the sorted array starting from the second element:
+   1. If the current number is equal to the previous number, skip it to avoid duplicates.
+   2. If the current number is exactly one greater than the previous number, increment `currentStreak`.
+   3. If the current number is neither equal to nor consecutive to the previous number:
+      - Update `longestStreak` with the maximum value between `longestStreak` and `currentStreak`.
+      - Reset `currentStreak` to `1`.
+5. After the loop ends, compare `longestStreak` with `currentStreak` one last time and return the maximum value.
 
 <MDXCodeBlock>{longestConsecutiveNumberSequenceUsingSorting}</MDXCodeBlock>
 
-## 2. Using HashSet
+### Big-O analysis
 
-Time complexity: O(n)
+- **Time complexity: O(n log n)**. Sorting the array dominates the runtime, taking O(n log n). The subsequent single traversal of the array is O(n), making the total complexity O(n log n).
+- **Space complexity: O(1)**. Sorting is performed in-place, and only a few variables are used for tracking streaks.
+
+## 3. Using HashSet
+
+This solution improves the runtime complexity by using a `Set` to store the input numbers. A `Set` provides O(1) average-time complexity for lookups, which eliminates the need for repeated searches through the array. The approach identifies the start of a potential sequence by checking if the current number does not have a preceding number in the set (`num - 1`). Once a sequence start is identified, it counts consecutive numbers until the sequence ends.
+
+### Algorithm
+
+1. Create a `Set` from the input array to remove duplicates and allow O(1) lookups.
+2. Initialize `longestStreak` to `0` to keep track of the longest sequence length.
+3. Iterate through each number in the `Set`:
+   1. Check if the current number is the start of a sequence by verifying that `num - 1` is not in the `Set`.
+   2. If it is the start, initialize `currentNum` to the current number and `currentStreak` to `1`.
+   3. Use a `while` loop to check if the next number (`currentNum + 1`) exists in the `Set`:
+      - If it exists, increment `currentNum` and `currentStreak`.
+   4. Update `longestStreak` to the maximum value between `longestStreak` and `currentStreak`.
+4. Return `longestStreak` as the length of the longest consecutive sequence.
 
 <MDXCodeBlock>{longestConsecutiveNumberSequence}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(n)**. Each number is processed at most twice: once when checking if it is the start of a sequence and once during the `while` loop to extend the sequence.
+- **Space complexity: O(n)**. The `Set` requires space proportional to the number of unique elements in the input array.

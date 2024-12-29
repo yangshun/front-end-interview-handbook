@@ -2,15 +2,71 @@ import MDXCodeBlock from 'MDXCodeBlock';
 
 import longestCommonSubsequence from '../setup/src/longest-common-subsequence.ts';
 import longestCommonSubsequenceDP from '../setup/src/longest-common-subsequence-dp.ts';
+import longestCommonSubsequenceDPOptimizedSpace from '../setup/src/longest-common-subsequence-dp-space-optimized.ts';
 
 ## 1. Using Dynamic Programming
 
-Time complexity: O(n.m) where `n` is the length of `str1` and `m` is the length of `str2`
+The dynamic programming approach for the longest common subsequence problem builds a 2D grid (`dpGrid`) where each cell represents the length of the longest common subsequence for the corresponding substrings of the two input strings. The solution iteratively fills the grid from the bottom-right corner to the top-left, leveraging the results of smaller subproblems to calculate larger ones. This approach avoids redundant calculations and ensures an optimal solution by systematically considering all possibilities.
+
+### Algorithm
+
+1. Initialize a 2D array `dpGrid` with dimensions `(str1.length + 1) x (str2.length + 1)` filled with zeros.
+2. Iterate through the grid starting from the bottom-right corner:
+   1. For each character in `str2` (columns, right to left):
+      - For each character in `str1` (rows, bottom to top):
+        1. If the characters at the current positions in both strings are equal, set the current cell in `dpGrid` to `1 + dpGrid[row + 1][col + 1]`.
+        2. Otherwise, set the current cell to the maximum value between `dpGrid[row + 1][col]` (below) and `dpGrid[row][col + 1]` (right).
+3. The top-left cell of `dpGrid` contains the length of the longest common subsequence for `str1` and `str2`.
+4. Return the value in `dpGrid[0][0]`.
 
 <MDXCodeBlock>{longestCommonSubsequenceDP}</MDXCodeBlock>
 
-## 2. Using Memoization
+### Big-O analysis
 
-Time complexity: O(n.m) where `n` is the length of `str1` and `m` is the length of `str2`
+- **Time complexity: O(m.n)**. The solution involves filling a grid of size `m x n`, where `m` is the length of `str1` and `n` is the length of `str2`.
+- **Space complexity: O(m.n)**. The `dpGrid` requires space proportional to the product of the lengths of the two strings.
+
+## 2. Using Dynamic Programming With Optimized Space
+
+Instead of using a full DP table, only two rows are maintained at a time to store intermediate results. A traditional DP solution uses a 2D table of size `(m+1) x (n+1)` to store results for all substrings of `str1` and `str2`, leading to a space complexity of O(m.n). However, at any point, only the current row and the previous row are required to compute the next row's values. This leads to an optimized solution with O(n) space complexity by recycling the rows.
+
+The optimized approach eliminates unnecessary storage by maintaining two rows: `currentRow` for storing results of the current state and `nextRow` for storing results of the previous state. The algorithm iterates over the strings in reverse order, updating the rows efficiently. By leveraging the relationship between `currentRow` and `nextRow`, the solution calculates the LCS without constructing the entire DP table.
+
+### Algorithm
+
+1. Initialize two arrays, `currentRow` and `nextRow`, with zeros, each having a size of `str2.length + 1`.
+2. Iterate through `str1` from bottom to top (index `row` starts from `str1.length - 1` and decreases to `0`).
+3. Swap the roles of `currentRow` and `nextRow`. This ensures `currentRow` holds results for the current iteration and `nextRow` holds results for the previous iteration.
+4. For each character of `str2`, iterate from right to left (index `col` starts from `str2.length - 1` and decreases to `0`):
+   - If `str1[row] === str2[col]`, set `currentRow[col]` to `1 + nextRow[col + 1]`, representing the diagonal value plus one.
+   - Otherwise, set `currentRow[col]` to the maximum of `nextRow[col]` and `currentRow[col + 1]`, representing the maximum value between skipping the current character of either `str1` or `str2`.
+5. After completing the iterations, the result is stored in `currentRow[0]`.
+
+<MDXCodeBlock>{longestCommonSubsequenceDPOptimizedSpace}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(m.n)**. Two nested loops are used: one iterating over the length of `str1` (m) and the other iterating over the length of `str2` (n).
+- **Space complexity: O(n)**. Only two rows, each of size `n+1`, are used for computation, reducing space usage from O(m.n) to O(n).
+
+## 3. Using Memoization
+
+The key intuition behind the memoization approach for solving the longest common subsequence problem is to avoid redundant calculations by storing the results of previously solved subproblems. This ensures that each unique pair of indices from the two strings is processed only once. By dividing the problem into smaller overlapping subproblems and storing their results, the solution efficiently combines these results to find the overall longest common subsequence.
+
+### Algorithm
+
+1. Create a 2D `dp` array initialized with `-1` to store results of subproblems.
+2. Define a recursive function `lcs` that takes the two strings, `str1` and `str2`, along with indices `index1` and `index2` as arguments:
+   1. Check if the result for the current indices is already computed in the `dp` array. If it is, return the stored value.
+   2. If either index reaches the end of its respective string, return `0` as there is no common subsequence beyond that point.
+   3. If the characters at the current indices match, compute the result as `1 + lcs(str1, str2, index1 + 1, index2 + 1)` and store it in the `dp` array.
+   4. If the characters do not match, compute the maximum of skipping one character in either string and store it in the `dp` array.
+3. Call the `lcs` function starting from indices `0` and `0` for `str1` and `str2`.
+4. Return the value computed by `lcs` for the full strings.
 
 <MDXCodeBlock>{longestCommonSubsequence}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(m.n)**. Each subproblem is solved at most once, where `m` is the length of `str1` and `n` is the length of `str2`.
+- **Space complexity: O(m.n)**. The `dp` array requires space proportional to the product of the lengths of the two strings.

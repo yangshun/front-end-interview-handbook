@@ -5,12 +5,50 @@ import combinationTargetSumTopDownApproach from '../setup/src/combinations-targe
 
 ## 1. Bottom-Up Dynamic Programming
 
-Time complexity: O(n.t), where `n` is the number of elements in the numbers array, and `t` is the `target` value
+The dynamic programming approach to solve the combination target sum problem works by decomposing the problem into smaller subproblems. The key intuition is that the number of ways to achieve a particular sum can be derived from the number of ways to achieve smaller sums. By iteratively building up the solution from the smallest subproblem (sum 0) to the target sum, the algorithm ensures all intermediate results are reused.
+
+For each possible sum from 1 to the target, every number in the input array is considered. If the number can be subtracted from the current sum without resulting in a negative value, the combinations for the remaining sum are added to the current sum's combinations. This ensures that all valid contributions to the current sum are accounted for. The base case, where there is exactly one way to form a sum of 0 (by using no elements), ensures that the process starts correctly.
+
+This approach avoids the inefficiency of a brute force solution, which would generate and check all possible subsets of the array. Instead, it builds the solution iteratively by using previously computed results, thereby eliminating redundant calculations and significantly reducing the runtime complexity.
 
 <MDXCodeBlock>{combinationTargetSum}</MDXCodeBlock>
 
+### Algorithm
+
+1. Initialize a `dp` array of size `target + 1`, filled with `0`. This array will store the number of combinations for each sum from `0` to `target`.
+2. Set `dp[0] = 1` to represent the base case, where there is exactly one way to achieve a sum of `0` (using no elements).
+3. Iterate through all possible sums (`combSum`) from `1` to `target`:
+   1. For each sum, iterate through the elements of the input array `numbers`.
+   2. Check if the current number can be subtracted from `combSum` without resulting in a negative value. This ensures only valid combinations are considered.
+   3. If valid, update `dp[combSum]` by adding the value of `dp[combSum - num]`. This adds the number of ways to achieve the remaining sum (`combSum - num`) to the current sum's count.
+4. Return `dp[target]`, which holds the number of distinct combinations to achieve the target sum.
+
+### Big-O analysis
+
+- **Time complexity: O(n.t)**. The algorithm iterates over all sums from `1` to `target` (outer loop) and processes each element in the `numbers` array (inner loop).
+- **Space complexity: O(t)**. The `dp` array requires space proportional to the target value.
+
 ## 2. Top-Down Dynamic Programming
 
-Time complexity: O(n.t), where `n` is the number of elements in the numbers array, and `t` is the `target` value
+The top-down dynamic programming approach uses recursion with memoization. The key idea is to break the problem into smaller subproblems by considering the remaining target after subtracting each number in the array. For a given target, the number of combinations is the sum of combinations for smaller targets that can be formed by subtracting each number.
+
+This approach avoids the inefficiency of recalculating results for overlapping subproblems, a common bottleneck in a brute force recursive solution. Memoization stores the results of previously solved subproblems in a map, allowing constant-time retrieval for subsequent calculations. This reduces redundant computations and improves efficiency compared to a naive recursive method.
+
+### Algorithm
+
+1. Initialize a `memo` map to store the number of combinations for each remaining target.
+2. Define a recursive helper function `combs(remain)`:
+   1. Check if `remain` equals 0. If so, return 1 as there is one valid combination (using no additional numbers).
+   2. If the `memo` map contains the result for `remain`, return the stored value to avoid redundant calculations.
+   3. Initialize a variable `result` to 0 to store the number of combinations for the current `remain`.
+   4. Iterate through each number in the `numbers` array:
+      1. If `remain - num` is non-negative, recursively call `combs(remain - num)` and add the result to `result`.
+   5. Store the computed `result` in the `memo` map for future reference.
+3. Return the result of calling `combs(target)` as the total number of combinations for the given target.
 
 <MDXCodeBlock>{combinationTargetSumTopDownApproach}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(n.t)**. Each subproblem for a target value is solved once, and solving each involves iterating through `numbers`..
+- **Space complexity: O(t)**. The `memo` map stores results for up to `target` different values, and the recursion stack can go as deep as `target` in the worst case.

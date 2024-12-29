@@ -1,4 +1,4 @@
-import validateBinarySearchTree from './binary-search-tree-validate';
+import binarySearchTreeValidate from './binary-search-tree-validate';
 import submitTestCases from './submit.tests.json';
 
 class TreeNode {
@@ -51,11 +51,11 @@ function createTreeFromSerialized(
   return root;
 }
 
-describe('validateBinarySearchTree', () => {
+describe('binarySearchTreeValidate', () => {
   (submitTestCases as any[]).forEach((example: any) => {
     test(`root = ${example.input[0][1]}`, () => {
       expect(
-        validateBinarySearchTree(createTreeFromSerialized(example.input[0][1])),
+        binarySearchTreeValidate(createTreeFromSerialized(example.input[0][1])),
       ).toStrictEqual(example.output);
     });
   });

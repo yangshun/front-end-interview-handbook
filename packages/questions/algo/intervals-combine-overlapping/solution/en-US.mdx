@@ -5,12 +5,52 @@ import mergeIntervalsUsingConnectedComponents from '../setup/src/intervals-combi
 
 ## 1. Using Sorting
 
-Time complexity: O(n log n)
+The problem involves merging overlapping intervals into a single interval for each overlap group. The approach uses sorting to ensure the intervals are processed in ascending order of their start times. By iterating through the sorted intervals, overlaps can be detected and merged efficiently.
+
+Sorting the intervals by their start times ensures that all potential overlaps appear consecutively, reducing unnecessary comparisons. Without sorting, a brute force approach would involve comparing every interval with all others, leading to duplicated work and inefficiency. The bottleneck in the brute force approach lies in these redundant comparisons, which sorting eliminates. After sorting, a single pass through the intervals is sufficient to merge overlaps by comparing the current interval with the last merged interval.
+
+### Algorithm
+
+1. Sort the `intervals` array by the starting points of each interval in ascending order.
+2. Initialize an empty array `merged` to store the merged intervals.
+3. Iterate through each interval in the sorted array:
+   1. If the `merged` array is empty or the current interval does not overlap with the last interval in `merged`, append the current interval to `merged`.
+   2. If there is an overlap, update the end time of the last interval in `merged` to the maximum of its current end time and the end time of the current interval.
+4. Return the `merged` array containing all merged intervals.
 
 <MDXCodeBlock>{mergeIntervals}</MDXCodeBlock>
 
+### Big-O analysis
+
+- **Time complexity: O(n log n)**. Sorting the intervals takes O(n log n), and the subsequent iteration through the intervals takes O(n).
+- **Space complexity: O(n)**. The `merged` array can hold up to all intervals in the worst case if no intervals overlap.
+
 ## 2. Using Connected Components
 
-Time complexity: O(n<sup>2</sup>)
+The problem of merging overlapping intervals can be approached using the concept of connected components from graph theory. Each interval is treated as a node in a graph, and an edge is created between two nodes if their corresponding intervals overlap. The goal is to identify all connected components in this graph, where each component represents a group of overlapping intervals. Each component can then be merged into a single interval.
+
+By building a graph of connected intervals and using a depth-first search (DFS) to identify connected components, the process becomes structured and avoids unnecessary comparisons. Once the components are identified, merging them is straightforward as it involves finding the minimum start and maximum end among all intervals in the component.
+
+### Algorithm
+
+1. Define a helper function `overlap` to check if two intervals overlap by comparing their start and end points.
+2. Build a graph using the `buildGraph` function:
+   1. Iterate through all pairs of intervals.
+   2. If two intervals overlap, add an edge between their corresponding nodes in the graph.
+3. Define a `mergeNodes` function to merge all intervals within a connected component by finding the minimum start and maximum end points.
+4. Implement the `markComponentDFS` function to perform DFS:
+   1. Start with a node and mark all connected nodes as part of the same component.
+   2. Use a stack to explore all neighbors recursively.
+5. In the main function:
+   1. Build the graph of intervals using `buildGraph`.
+   2. Use DFS to identify all connected components and group intervals into components.
+   3. Merge each component into a single interval using `mergeNodes`.
+6. Return the merged intervals.
 
 <MDXCodeBlock>{mergeIntervalsUsingConnectedComponents}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(n<sup>2</sup>)**. Building the graph requires comparing every pair of intervals, resulting in O(n<sup>2</sup>) operations.
+
+- **Space complexity: O(n<sup>2</sup>)**. The graph can have up to O(n<sup>2</sup>) edges in the worst case, and the `visited` set and `nodesInComp` storage scale with the number of intervals.

@@ -5,12 +5,62 @@ import matrixZeroingUsingExtraSpace from '../setup/src/matrix-zeroing-extra-spac
 
 ## 1. Using Extra Space
 
-Time complexity: O(M.N), where M is the number of rows, and N is the number of columns
+The problem requires modifying a matrix so that if any cell contains a `0`, all cells in the same row and column are set to `0`. This solution uses additional sets to track rows and columns that need to be zeroed.
+
+The approach involves two passes through the matrix:
+
+1. In the first pass, identify all rows and columns containing at least one `0` and store them in separate sets. This avoids immediate modification of the matrix, which could interfere with subsequent checks.
+2. In the second pass, update the matrix by setting all cells in the identified rows and columns to `0` based on the information stored in the sets.
+
+This separation of identifying and modifying ensures correctness and avoids prematurely zeroing elements that could affect later computations.
+
+### Algorithm
+
+1. Initialize two sets:
+   - `rows` to track row indices that contain at least one `0`.
+   - `cols` to track column indices that contain at least one `0`.
+2. Perform the first pass through the matrix:
+   - For each cell `(i, j)`, if the cell contains `0`, add `i` to `rows` and `j` to `cols`.
+3. Perform the second pass through the matrix:
+   - For each cell `(i, j)`, check if `i` is in `rows` or `j` is in `cols`.
+   - If either condition is true, set `matrix[i][j]` to `0`.
+4. The matrix is now updated with all relevant rows and columns zeroed.
 
 <MDXCodeBlock>{matrixZeroingUsingExtraSpace}</MDXCodeBlock>
 
+### Big-O analysis
+
+- **Time complexity: O(m.n)**. The algorithm involves two passes through the matrix, each visiting all `m.n` elements.
+- **Space complexity: O(m + n)**. The additional sets `rows` and `cols` store at most `m` row indices and `n` column indices.
+
 ## 2. Space Efficient Solution
 
-Time complexity: O(M.N), where M is the number of rows, and N is the number of columns
+The task requires modifying a matrix such that if any cell contains a `0`, all cells in the same row and column are set to `0`. This solution achieves the goal in a space-efficient manner by using the first row and first column of the matrix as markers instead of allocating extra space.
+
+The approach involves three main steps:
+
+1. Iterate through the matrix and use the first row and first column to mark which rows and columns need to be zeroed. A separate flag is used to determine if the first column needs to be zeroed.
+2. Traverse the matrix again, excluding the first row and column, and update the elements based on the markers.
+3. Update the first row and first column if necessary, based on the markers and the separate flag.
+
+This method ensures that no extra space beyond the input matrix is required, making it space-efficient.
+
+### Algorithm
+
+1. Initialize a flag `isCol` to `false` to track if the first column needs to be zeroed.
+2. Perform the first pass through the matrix:
+   - For each cell `(i, j)`:
+     - If the cell is in the first column and contains `0`, set `isCol` to `true`.
+     - If the cell is not in the first column and contains `0`, set the corresponding first row and first column markers to `0`.
+3. Perform the second pass through the matrix:
+   - For each cell `(i, j)` where `i > 0` and `j > 0`:
+     - If the corresponding markers in the first row or first column are `0`, set `matrix[i][j]` to `0`.
+4. If the first cell of the matrix (`matrix[0][0]`) is `0`, set the entire first row to `0`.
+5. If `isCol` is `true`, set the entire first column to `0`.
 
 <MDXCodeBlock>{matrixZeroing}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(m.n)**. The algorithm involves two passes through the matrix, each visiting all `m.n` elements.
+- **Space complexity: O(1)**. No additional space is used apart from the input matrix and a single flag.

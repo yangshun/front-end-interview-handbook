@@ -4,6 +4,21 @@ import countOnesInBinary from '../setup/src/count-ones-in-binary.ts';
 
 ## 1. Using Brian Kernighan's Algorithm
 
-Time complexity: O(1)
+Brian Kernighan's algorithm is used to iterate through the binary representation of the number. Instead of directly iterating through all the bits, the approach examines the least significant bit in each iteration, updates the count if it is `1`, and then performs a right shift to discard the least significant bit. This process continues until all bits are processed.
+
+### Algorithm
+
+1. Initialize a variable `count` to store the number of `1`s encountered in the binary representation.
+2. Use a loop to process the input number:
+   - Use the bitwise `AND` operation between the number and `1` to check the least significant bit.
+   - Increment the `count` if the least significant bit is `1`.
+   - Perform an unsigned right shift on the number by `1` to discard the least significant bit.
+3. Continue the loop until the number becomes `0`, meaning all bits have been processed.
+4. Return the value of `count`.
 
 <MDXCodeBlock>{countOnesInBinary}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(1)**. The input number is a 32-bit integer.
+- **Space complexity: O(1)**. The algorithm uses a constant amount of space regardless of the input size.

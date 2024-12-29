@@ -5,12 +5,40 @@ import maxSumSubArrayBruteForce from '../setup/src/array-maximum-sum-contiguous-
 
 ## 1. Efficient Brute Force Approach
 
-Time complexity: O(n<sup>2</sup>)
+A brute force approach for finding the maximum sum contiguous subarray checks every possible subarray. This involves iterating over each element as a starting point and then expanding the subarray by including subsequent elements one by one. As each subarray is formed, its sum is computed, and the maximum sum found so far is updated. This ensures that every subarray sum is evaluated and compared.
+
+### Algorithm
+
+1. Initialize a variable `maxSubarray` to `Number.NEGATIVE_INFINITY`.
+2. Use a loop index `i` to iterate from the start of the array.
+3. For each `i`, initialize `currentSubarray` to 0.
+4. Use another loop index `j` to iterate from `i` to the end of the array.
+5. Add `numbers[j]` to `currentSubarray`.
+6. Update `maxSubarray` with the maximum between `maxSubarray` and `currentSubarray`.
+7. After both loops finish, return `maxSubarray`.
 
 <MDXCodeBlock>{maxSumSubArrayBruteForce}</MDXCodeBlock>
 
+### Big-O analysis
+
+- **Time complexity: O(n²)**. There are two nested loops being used to consider all possible subarrays.
+- **Space complexity: O(1)**. Only a constant amount of extra space is used.
+
 ## 2. Using Kadane's Algorithm
 
-Time complexity: O(n)
+The previous brute force approach enumerates all possible subarrays and computes their sums. This process involves repeated summation of overlapping subarrays, creating unnecessary work that leads to O(n²) complexity. Kadane's algorithm addresses this by maintaining a running `currentSum` and updating it at each step. Instead of recalculating entire subarray sums, the algorithm decides whether to extend the existing subarray or start a new one from the current element. The global `maxSum` is continuously updated, ensuring that the largest encountered sum is tracked without enumerating every possible subarray. This eliminates unnecessary repeated work and reduces the complexity to O(n).
+
+### Algorithm
+
+1. Initialize `currentSum` to `0` and `maxSum` to `-Infinity`.
+2. Iterate through each element `num` in the array.
+3. Update `currentSum` to `Math.max(num, currentSum + num)`.
+4. Update `maxSum` to `Math.max(maxSum, currentSum)`.
+5. Return `maxSum`.
 
 <MDXCodeBlock>{maxSumSubArray}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(n)**. Each element is visited once.
+- **Space complexity: O(1)**. No additional space is required apart from a few variables.

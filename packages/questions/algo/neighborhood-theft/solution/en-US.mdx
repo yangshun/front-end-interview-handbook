@@ -2,19 +2,97 @@ import MDXCodeBlock from 'MDXCodeBlock';
 
 import neighborhoodTheft from '../setup/src/neighborhood-theft.ts';
 import neighborhoodTheftTopDownApproach from '../setup/src/neighborhood-theft-top-down.ts';
+import neighborhoodTheftBottomUpSpaceOptimized from '../setup/src/neighborhood-theft-bottom-up-space-optimized.ts';
 
-## 1. Bottom-Up Dynamic Programming
+## 1. Top-Down Dynamic Programming
 
-Time complexity: O(n)
+This solution uses a top-down dynamic programming approach with memoization to solve the "neighborhood theft" problem. The problem involves maximizing the amount of money stolen from houses while ensuring that no two adjacent houses are robbed.
 
-- N is the length of the array
+The algorithm starts from the first house and recursively explores two options:
+
+1. Skip the current house and move to the next one.
+2. Rob the current house and move to the house after the next one.
+
+Memoization is used to store the results of already-computed subproblems. This avoids redundant computations and significantly reduces the runtime complexity. By caching the results for each house, the solution only calculates each subproblem once, optimizing performance compared to a pure recursive approach.
+
+### Algorithm
+
+1. Initialize a `memo` array with the size of the input array, filled with `-1`, to indicate uncomputed values.
+2. Define a helper function `robFrom` that recursively computes the maximum money that can be robbed starting from the `i`th house.
+   1. Check the base case where `i` exceeds the bounds of the array, returning `0` since no houses are left to rob.
+   2. If the result for house `i` is already computed and stored in `memo[i]`, return the cached value.
+   3. Compute the maximum value between:
+      - Skipping the current house by calling `robFrom(i + 1, numbers)`.
+      - Robbing the current house and adding its value to the result of `robFrom(i + 2, numbers)`.
+   4. Store the computed result in `memo[i]` for future use.
+3. Start the computation by calling `robFrom(0, numbers)` to process all houses.
+4. Return the result of the computation, which represents the maximum money that can be robbed without triggering the alarm.
+
+<MDXCodeBlock>{neighborhoodTheftTopDownApproach}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(n)**. Each house is processed at most once, and the result is stored in the `memo` array, avoiding redundant recursive calls.
+- **Space complexity: O(n)**. The `memo` array requires space proportional to the number of houses, and the recursion stack may go up to a depth of `n` in the worst case.
+
+## 2. Bottom-Up Dynamic Programming
+
+This approach eliminates recursion by iteratively building a `dp` table (or array) from the last house to the first house, ensuring all subproblems are solved sequentially.
+
+The `dp` array, `maxRobbedAmount`, stores the maximum money that can be robbed considering houses from the current index up to the last house. For each house, two options are considered:
+
+1. Skip the current house and take the result stored for the next house (`maxRobbedAmount[i + 1]`).
+2. Rob the current house and add its value to the result stored for skipping the next house (`maxRobbedAmount[i + 2] + numbers[i]`).
+
+The decision for each house is made by choosing the option that provides the maximum amount. This avoids redundant calculations and ensures an efficient solution.
+
+### Algorithm
+
+1. Handle the base case where the input array is empty. Return `0` if there are no houses.
+2. Initialize the `dp` array `maxRobbedAmount` with size `N + 1`, filled with `0`. This array will store the maximum money that can be robbed starting from each house.
+3. Set the base cases for the last two houses:
+   - `maxRobbedAmount[N]` is `0`, representing the case where no houses are left to rob.
+   - `maxRobbedAmount[N - 1]` is set to the value of the last house (`numbers[N - 1]`), as there are no other options for the last house.
+4. Iterate backward through the houses starting from the second-to-last house (`N - 2`) down to the first house (`0`):
+   - For each house `i`, calculate the maximum money that can be robbed by choosing between:
+     1. Skipping the current house: `maxRobbedAmount[i + 1]`.
+     2. Robbing the current house and skipping the next house: `maxRobbedAmount[i + 2] + numbers[i]`.
+   - Store the maximum value in `maxRobbedAmount[i]`.
+5. Return `maxRobbedAmount[0]`, which represents the maximum money that can be robbed starting from the first house.
 
 <MDXCodeBlock>{neighborhoodTheft}</MDXCodeBlock>
 
-## 2. Top-Down Dynamic Programming
+### Big-O analysis
 
-Time complexity: O(n)
+- **Time complexity: O(n)**. The algorithm processes each house exactly once in a backward iteration.
+- **Space complexity: O(n)**. The `dp` array `maxRobbedAmount` requires space proportional to the number of houses.
 
-- N is the length of the array
+## 3. Bottom-Up Dynamic Programming With Optimized Space
 
-<MDXCodeBlock>{neighborhoodTheftTopDownApproach}</MDXCodeBlock>
+This solution builds upon the bottom-up dynamic programming approach used in the previous question but optimizes the space complexity from O(n) to O(1). In the earlier solution, a `dp` array was used to store the maximum amount that could be robbed starting from each house, requiring extra space proportional to the number of houses. However, only the last two values from this array were needed at any given time to compute the current result.
+
+To eliminate unnecessary storage, this solution replaces the `dp` array with two variables, `prev1` and `prev2`, which store the maximum amounts for the next house (`i + 1`) and the house after that (`i + 2`). This ensures that the algorithm still computes the same results but with significantly reduced space usage.
+
+The algorithm iterates backward through the array, updating these two variables at each step. The use of two variables rather than an entire array removes the space overhead while retaining the time efficiency of the earlier approach. This improvement is especially beneficial when dealing with a large number of houses.
+
+### Algorithm
+
+1. Handle special cases:
+   1. If there are no houses, return `0`.
+   2. If there is only one house, return its value, as no other options exist.
+2. Initialize two variables:
+   - `prev1` as `0`, representing the maximum money that can be robbed starting from the next house (`i + 1`).
+   - `prev2` as `0`, representing the maximum money that can be robbed starting from the house after the next (`i + 2`).
+3. Iterate backward through the houses:
+   1. Calculate the maximum money that can be robbed from the current house as the maximum of:
+      - Skipping the current house (`prev1`).
+      - Robbing the current house and adding the value of `prev2`.
+   2. Update `prev2` to the current value of `prev1`, and `prev1` to the newly calculated maximum.
+4. After the loop ends, `prev1` contains the maximum amount that can be robbed starting from the first house. Return this value.
+
+<MDXCodeBlock>{neighborhoodTheftBottomUpSpaceOptimized}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(n)**. Each house is processed exactly once in a backward iteration.
+- **Space complexity: O(1)**. Only two variables are used to track intermediate results, eliminating the need for an additional array.

@@ -4,6 +4,42 @@ import serializeAndDeserializeBinaryTree from '../setup/src/binary-tree-serializ
 
 ## 1. Using DFS
 
-Time complexity: O(n)
+Serialization and deserialization of a binary tree involves converting the tree structure into a string representation and reconstructing the tree from the string, respectively. The solution uses a depth-first traversal (DFS) approach to achieve this.
+
+#### Serialization
+
+- Each node's value is appended to a string, followed by its left and right subtrees serialized recursively.
+- If a node is `null`, it is represented as the string `"null"` to preserve the tree's structure.
+
+#### Deserialization
+
+- The serialized string is split into a list of node values for traversal.
+- A `null` value indicates the end of a branch, while other values are used to create tree nodes.
+- Recursively, left and right subtrees are deserialized to reconstruct the tree.
+
+### Algorithm
+
+#### Serialization
+
+1. Check if the current node is `null`. If it is, append `"null,"` to the string and return.
+2. Append the value of the current node to the string, followed by a comma.
+3. Recursively serialize the left subtree and append it to the string.
+4. Recursively serialize the right subtree and append it to the string.
+5. Return the serialized string.
+
+#### Deserialization
+
+1. Split the serialized string by commas to form a list of node values.
+2. Check if the first element in the list is `"null"`. If it is, remove it from the list and return `null`.
+3. Create a `TreeNode` using the first element of the list, converting it to a number.
+4. Remove the first element from the list.
+5. Recursively deserialize the left subtree and assign it to the node's left child.
+6. Recursively deserialize the right subtree and assign it to the node's right child.
+7. Return the reconstructed tree node.
 
 <MDXCodeBlock>{serializeAndDeserializeBinaryTree}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(n)**. Both serialization and deserialization traverse all `n` nodes of the binary tree once.
+- **Space complexity: O(n)**. The recursion stack for DFS and the space required to store the serialized string or list scale with the size of the tree.

@@ -5,12 +5,72 @@ import courseDependencyUsingDFS from '../setup/src/course-dependency-dfs.ts';
 
 ## 1. Kahn's Topological Sort
 
-Time complexity: O(m+n), where `n` is the number of courses and `m` is the size of prerequisites
+The problem involves determining if all courses can be completed given a set of prerequisites. This is a classic cycle detection problem in a directed graph. If there is a cycle, not all courses can be completed. Kahn's algorithm, a topological sorting method, is used to solve the problem by systematically removing nodes with no incoming edges.
+
+The key idea is:
+
+- Build the graph using an adjacency list.
+- Track the number of prerequisites (indegree) for each course.
+- Start with courses that have no prerequisites.
+- Process each course, reducing the indegree of its neighbors. If a neighbor's indegree becomes 0, add it to the processing queue.
+- If all courses are processed without any unvisited nodes, it means there is no cycle.
+
+### Algorithm
+
+1. Initialize an `indegree` array to count the number of prerequisites for each course.
+2. Initialize an adjacency list (`adj`) to represent the directed graph.
+3. Populate the adjacency list and `indegree` array by iterating through the prerequisites:
+   - For each pair `[a, b]`, add `a` as a neighbor of `b` in `adj`.
+   - Increment the indegree of `a`.
+4. Initialize a queue and add all courses with `indegree` 0 to the queue.
+5. Initialize a counter `nodesVisited` to track the number of courses processed.
+6. Perform BFS:
+   - Remove a course from the queue and increment `nodesVisited`.
+   - For each neighbor of the current course, decrement its indegree.
+   - If a neighbor's indegree becomes 0, add it to the queue.
+7. After processing all nodes, check if `nodesVisited` equals the total number of courses:
+   - If true, return `true` (all courses can be completed).
+   - Otherwise, return `false` (a cycle exists).
 
 <MDXCodeBlock>{courseDependency}</MDXCodeBlock>
 
+### Big-O analysis
+
+- **Time complexity: O(v + e)**. The graph is built in O(e), where `e` is the number of prerequisites. BFS traversal processes each course and edge once, taking O(v + e), where `v` is the number of courses.
+- **Space complexity: O(v + e)**. The adjacency list and queue require O(v + e) space.
+
 ## 2. Using DFS
 
-Time complexity: O(m+n), where `n` is the number of courses and `m` is the size of prerequisites
+The problem involves determining if all courses can be completed given a set of prerequisites. This is a graph cycle detection problem in a directed graph. If a cycle exists, not all courses can be completed since at least one course depends on itself, either directly or indirectly.
+
+The algorithm uses Depth-First Search (DFS) to detect cycles:
+
+- Each course is represented as a node in the graph.
+- Prerequisites are represented as directed edges between nodes.
+- During DFS, nodes are marked as visited and added to a recursion stack (`inStack`) to detect cycles. If a node is revisited while it is still in the recursion stack, a cycle is detected.
+- If no cycles are found after visiting all nodes, all courses can be completed.
+
+### Algorithm
+
+1. Initialize an adjacency list `adj` to represent the graph.
+2. Build the graph by iterating over the `prerequisites` array:
+   - For each pair `[a, b]`, add `a` as a neighbor of `b` in `adj`.
+3. Initialize two arrays:
+   - `visit` to track whether a node has been visited.
+   - `inStack` to track whether a node is in the current recursion stack.
+4. Define a `dfs` function to perform the following:
+   - If the current node is in the recursion stack (`inStack`), return `true` (cycle detected).
+   - If the current node is already visited, return `false`.
+   - Mark the current node as visited and add it to the recursion stack.
+   - For each neighbor of the current node, recursively call `dfs`. If any call detects a cycle, return `true`.
+   - Remove the current node from the recursion stack and return `false` (no cycle detected).
+5. Perform DFS on each node:
+   - If a cycle is detected, return `false`.
+6. If all nodes are processed without detecting a cycle, return `true`.
 
 <MDXCodeBlock>{courseDependencyUsingDFS}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(v + e)**. Building the graph takes O(e), where `e` is the number of prerequisites. DFS visits each node and edge once, taking O(v + e), where `v` is the number of courses.
+- **Space complexity: O(v + e)**. The adjacency list requires O(e) space, and the `visit` and `inStack` arrays require O(v) space.

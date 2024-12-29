@@ -5,12 +5,52 @@ import longestIncreasingSubsequenceDP from '../setup/src/longest-increasing-subs
 
 ## 1. Using Dynamic Programming
 
-Time complexity: O(n<sup>2</sup>)
+This solution uses dynamic programming to find the length of the longest increasing subsequence (LIS) in an array. A subsequence is a sequence that can be derived by deleting some or no elements without changing the order of the remaining elements. The dynamic programming approach eliminates redundant calculations by storing intermediate results.
+
+The algorithm maintains a `dp` array where `dp[i]` represents the length of the LIS ending at index `i`. For each element in the array, the algorithm checks all previous elements to determine if the current element can extend an increasing subsequence. This ensures that the solution is built incrementally while avoiding recomputation.
+
+### Algorithm
+
+1. Initialize a `dp` array of size `numbers.length` with all values set to `1`. Each element is initially its own subsequence.
+2. Iterate through the `numbers` array starting from the second element:
+   1. For each element at index `i`, iterate through all previous elements (index `j` where `j < i`).
+   2. If `numbers[i]` is greater than `numbers[j]`, update `dp[i]` to the maximum of `dp[i]` and `dp[j] + 1` to include the current element in the subsequence ending at `j`.
+3. Initialize a variable `longest` to `0` and iterate through the `dp` array to find the maximum value, which represents the LIS.
+4. Return the value of `longest`.
 
 <MDXCodeBlock>{longestIncreasingSubsequenceDP}</MDXCodeBlock>
 
+### Big-O analysis
+
+- **Time complexity: O(n<sup>2</sup>)**. For each element in the array, the algorithm iterates through all previous elements, resulting in a nested loop.
+- **Space complexity: O(n)**. The `dp` array requires space proportional to the number of elements in the input array.
+
 ## 2. Using Greedy and Binary Search
 
-Time complexity: O(N.log(N))
+This solution combines greedy and binary search techniques to efficiently compute the length of the longest increasing subsequence (LIS). The core idea is to maintain an auxiliary array called `sub`. This array represents the smallest ending values of increasing subsequences of different lengths. For instance, if `sub` has three elements, it indicates that an increasing subsequence of length 3 has been identified, and its ending value is stored as the last element of `sub`.
+
+The `sub` array does not directly represent the LIS itself but helps track the sequence length. At any point, the size of `sub` corresponds to the length of the LIS found so far. When processing a number:
+
+- If the number is greater than the largest value in `sub`, it extends the LIS and is appended to `sub`.
+- If the number is smaller than or equal to an element in `sub`, it replaces the smallest number in `sub` that is greater than or equal to it. This replacement ensures that `sub` remains optimal for extending the LIS later.
+
+To efficiently determine the position for insertion or replacement in `sub`, binary search is used. This ensures that the algorithm runs in O(n log n) time, as binary search allows for quick position determination.
+
+### Algorithm
+
+1. Define a helper function `binarySearch`:
+   1. Initialize two pointers `left` and `right` to represent the search space in the `sub` array.
+   2. Use a loop to perform binary search, updating the `left` or `right` pointer based on comparisons.
+   3. Return the index where the number should be inserted or replaced.
+2. Initialize an array `sub` with the first element of `numbers` to store the current LIS.
+3. Iterate through the `numbers` array starting from the second element:
+   1. If the current number is greater than the last element of `sub`, append it to `sub`.
+   2. Otherwise, use `binarySearch` to find the index in `sub` where the number should replace an existing value to maintain the LIS.
+4. Return the length of the `sub` array as the length of the LIS.
 
 <MDXCodeBlock>{longestIncreasingSubsequence}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(n log n)**. Each number is processed once, and binary search on the `sub` array takes O(log n) for each number.
+- **Space complexity: O(n)**. The `sub` array requires space proportional to the number of elements in the input array in the worst case.

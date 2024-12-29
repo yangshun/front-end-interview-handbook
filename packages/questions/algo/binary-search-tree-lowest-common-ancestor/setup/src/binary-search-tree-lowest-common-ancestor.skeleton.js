@@ -4,6 +4,6 @@
  * @param {TreeNode} b
  * @return {TreeNode | null}
  */
-export default function lowestCommonAncestor(root, a, b) {
+export default function BSTLowestCommonAncestor(root, a, b) {
   throw 'Not implemented!';
 }

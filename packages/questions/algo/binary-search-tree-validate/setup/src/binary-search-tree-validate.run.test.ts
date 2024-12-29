@@ -51,7 +51,7 @@ function createTreeFromSerialized(
   return root;
 }
 
-describe('validateBinarySearchTree', () => {
+describe('binarySearchTreeValidate', () => {
   runTestCases.forEach((example: any) => {
     test(`${example.input[0][0]} = ${example.input[0][1]}`, () => {
       expect(fn(createTreeFromSerialized(example.input[0][1]))).toStrictEqual(

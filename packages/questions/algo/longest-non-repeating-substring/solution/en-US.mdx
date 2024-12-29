@@ -5,14 +5,49 @@ import longestSubstringWithoutRepeatingCharactersBruteForce from '../setup/src/l
 
 ## 1. Brute Force
 
-Time complexity: O(n<sup>2</sup>)
+The task is to find the length of the longest substring without repeating characters in a given string. A brute force approach iterates through all possible substrings, ensuring each substring contains unique characters. By using a `visited` array to track the characters encountered, the algorithm ensures that duplicates are detected within the current substring. The result is updated whenever a larger substring without repeating characters is found.
+
+### Algorithm
+
+1. Initialize a variable `res` to store the length of the longest substring without repeating characters, and set it to `0`.
+2. Iterate through each possible starting index `i` of the substring:
+   - Initialize a `visited` array of size `256` (to represent all ASCII characters) and set all entries to `false`.
+3. For each starting index `i`, iterate through all possible ending indices `j`:
+   - If the character at index `j` has already been marked as visited, break the inner loop.
+   - Otherwise, calculate the current substring length as `j - i + 1` and update `res` with the maximum value between `res` and the current substring length.
+   - Mark the character at index `j` as visited in the `visited` array.
+4. Return the value of `res` after completing all iterations.
 
 <MDXCodeBlock>
   {longestSubstringWithoutRepeatingCharactersBruteForce}
 </MDXCodeBlock>
 
+### Big-O analysis
+
+- **Time complexity: O(n<sup>2</sup>)**. The outer loop iterates `n` times, and for each starting index, the inner loop may iterate up to `n` times in the worst case.
+- **Space complexity: O(1)**. The `visited` array has a fixed size of 256, which does not depend on the input size.
+
 ## 2. Using Sliding Window
 
-Time complexity: O(n)
+Instead of iterating through all substrings, the sliding window dynamically adjusts its size based on the position of duplicate characters. This reduces the time complexity from O(n<sup>2</sup>) to O(n).
+
+The brute force approach requires nested loops to generate all substrings and check for duplicates, leading to significant inefficiency. This results in redundant checks and repeated computation of overlapping substrings.
+
+The sliding window method eliminates unnecessary recomputation by maintaining a window of unique characters. A `map` is used to store the last seen position of each character, enabling efficient updates to the window boundaries. When a duplicate character is encountered, the starting index of the window (`left`) is adjusted to exclude the duplicate. This ensures all substrings are checked in linear time.
+
+### Algorithm
+
+1. Initialize a `map` to store the last seen positions of characters in the string.
+2. Initialize variables `maxLen` to track the length of the longest substring and `left` to represent the start index of the current window.
+3. Iterate through the string using `right` as the end index of the window:
+   - If the current character exists in the `map` and its last seen position is within the current window, update `left` to `Math.max(map.get(str[right]), left)` to exclude the duplicate.
+   - Update `maxLen` to `Math.max(maxLen, right - left + 1)` to store the length of the longest substring found so far.
+   - Update the `map` with the current character's position as `right + 1` to handle 0-based indexing.
+4. Return `maxLen` after the iteration is complete.
 
 <MDXCodeBlock>{longestSubstringWithoutRepeatingCharacters}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(n)**. Each character is processed once when moving the `right` pointer, and each duplicate character is processed once when adjusting the `left` pointer.
+- **Space complexity: O(n)**. The `map` stores the last seen positions of characters, which could require space proportional to the size of the input string.

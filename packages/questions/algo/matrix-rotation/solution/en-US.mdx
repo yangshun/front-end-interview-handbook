@@ -5,12 +5,64 @@ import matrixRotationUsingTranspose from '../setup/src/matrix-rotation-transpose
 
 ## 1. Rotating Group of Four Cells
 
-Time complexity: O(n<sup>2</sup>), where N is the number of rows (or columns) in the square matrix
+The task involves rotating a square matrix 90 degrees clockwise in place. This means the transformation must not use additional memory for another matrix. The solution uses a group rotation approach to move values within each layer of the matrix.
+
+The intuition is that for a 90-degree clockwise rotation:
+
+- The element at the top-left corner moves to the top-right.
+- The top-right element moves to the bottom-right.
+- The bottom-right element moves to the bottom-left.
+- The bottom-left element moves to the top-left.
+
+This transformation can be achieved by iterating through the matrix layer by layer. Each layer represents a set of nested squares, starting from the outermost layer and moving towards the center. For each layer, elements are swapped in groups of four, effectively performing the rotation without additional memory usage.
+
+### Algorithm
+
+1. Get the size of the matrix `n`.
+2. Iterate through the matrix by layers:
+   - The outer loop processes each layer from the outside to the center. The number of layers is `Math.floor((n + 1) / 2)`.
+   - The inner loop processes the elements within a layer. The number of elements in each layer is determined by `Math.floor(n / 2)`.
+3. For each group of four cells in the current layer:
+   - Temporarily store the top-left element.
+   - Move the bottom-left element to the top-left position.
+   - Move the bottom-right element to the bottom-left position.
+   - Move the top-right element to the bottom-right position.
+   - Assign the stored top-left value to the top-right position.
+4. Repeat the process for all layers.
 
 <MDXCodeBlock>{matrixRotation}</MDXCodeBlock>
 
+### Big-O analysis
+
+- **Time complexity: O(n<sup>2</sup>)**. Each element in the matrix is visited once during the layer-wise traversal.
+- **Space complexity: O(1)**. The rotation is performed in place without using additional memory.
+
 ## 2. Using Transpose of Matrix
 
-Time complexity: O(n<sup>2</sup>), where N is the number of rows (or columns) in the square matrix
+The task involves rotating a square matrix 90 degrees clockwise in place. This transformation can be achieved in two steps: transposing the matrix and then reflecting it horizontally.
+
+1. **Transpose**: The transpose operation swaps rows and columns by exchanging the element at position `(i, j)` with the element at `(j, i)`. This step converts the rows of the original matrix into columns of the resulting matrix.
+
+2. **Reflect horizontally**: After transposing, reflecting the matrix horizontally swaps elements in each row, exchanging the leftmost elements with the rightmost ones. This completes the 90-degree clockwise rotation.
+
+This approach efficiently manipulates the matrix in place without requiring additional space for another matrix.
+
+### Algorithm
+
+1. Retrieve the size of the matrix `n`.
+2. Perform the transpose operation:
+   - Iterate through each row `i` of the matrix.
+   - For each row, iterate through columns `j` where `j > i` to avoid redundant swaps.
+   - Swap the elements at `(i, j)` and `(j, i)`.
+3. Perform the horizontal reflection:
+   - Iterate through each row `i` of the matrix.
+   - For each row, iterate through the first half of the columns `j`.
+   - Swap the elements at `(i, j)` and `(i, n-1-j)`.
+4. The matrix is now rotated 90 degrees clockwise.
 
 <MDXCodeBlock>{matrixRotationUsingTranspose}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(n<sup>2</sup>)**. Both the transpose and reflection operations involve visiting each element of the matrix once.
+- **Space complexity: O(1)**. The rotation is performed in place without using additional memory.

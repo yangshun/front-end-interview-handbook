@@ -4,6 +4,23 @@ import nonOverLappingIntervals from '../setup/src/disjoint-intervals.ts';
 
 ## 1. Using Greedy Approach
 
-Time complexity: O(N.Log(N))
+The problem is to find the minimum number of intervals to remove so that the remaining intervals are non-overlapping. The greedy approach optimizes this by always choosing the interval with the earliest ending time, as this leaves the most room for subsequent intervals. Sorting by the second element ensures that intervals with the smallest end times are prioritized.
+
+### Algorithm
+
+1. Define a helper function `compareSecondElement` to compare the second elements of two intervals and return their difference.
+2. Sort the input `intervals` array using the `compareSecondElement` function.
+3. Initialize `ans` to track the number of intervals removed and `k` to track the end time of the last non-overlapping interval.
+4. Iterate through each interval in the sorted list:
+   1. Extract the start (`x`) and end (`y`) of the current interval.
+   2. If the start of the current interval is greater than or equal to `k`:
+      - Update `k` to the end time of the current interval as there is no overlap.
+   3. Otherwise, increment `ans` as the interval overlaps and needs to be removed.
+5. Return `ans`, which holds the count of intervals removed to make the intervals disjoint.
 
 <MDXCodeBlock>{nonOverLappingIntervals}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(n log n)**. Sorting the intervals takes O(n log n), and the subsequent iteration through the intervals takes O(n).
+- **Space complexity: O(1)**. The algorithm operates in constant space as it processes the input array in-place.

@@ -3,14 +3,78 @@ import MDXCodeBlock from 'MDXCodeBlock';
 import getMedianFromDataStream from '../setup/src/number-stream-median.ts';
 import getMedianFromDataStreamBruteForce from '../setup/src/number-stream-median-brute-force.ts';
 
-## 1. Using Two Heaps
+## 1. Brute Force Approach Using Sort
 
-Time complexity: O(N.Log(N))
+The goal of this problem is to calculate the median of a stream of numbers dynamically. The brute force approach maintains a list of all numbers received so far and calculates the median after sorting the list each time a median is requested.
+
+The median is defined as:
+
+- The middle element if the total count of numbers is odd.
+- The average of the two middle elements if the total count of numbers is even.
+
+This approach works by:
+
+1. Storing all incoming numbers in an array.
+2. Sorting the array each time the `getMedian` method is called to ensure the numbers are in ascending order.
+3. Calculating the median based on the sorted array.
+
+### Algorithm
+
+1. Create a `NumberStream` class with a private array `store` to hold all incoming numbers.
+2. Define an `add` method to append a number to the `store` array.
+3. Define a `getMedian` method to calculate the median:
+   1. Sort the `store` array in ascending order.
+   2. Determine the size of the array (`n`).
+   3. If `n` is odd, return the middle element.
+   4. If `n` is even, compute the average of the two middle elements and return the result.
+
+<MDXCodeBlock>{getMedianFromDataStreamBruteForce}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(n log n)**. Sorting the array dominates the runtime of the `getMedian` method. Adding a number to the `store` array takes O(1).
+- **Space complexity: O(n)**. The `store` array grows linearly with the number of elements in the stream.
+
+## 2. Using Two Heaps
+
+This solution optimizes the process of finding the median in a dynamic data stream by utilizing two heaps: a max heap and a min heap. The core idea is to maintain two balanced heaps:
+
+1. A max heap (`maxHeap`) that contains the smaller half of the numbers.
+2. A min heap (`minHeap`) that contains the larger half of the numbers.
+
+The heaps are structured such that the top of the max heap represents the largest number in the smaller half, and the top of the min heap represents the smallest number in the larger half. This structure allows efficient retrieval of the median:
+
+- If the heaps are balanced in size, the median is the average of the tops of both heaps.
+- If the max heap has one more element than the min heap, the median is the top of the max heap.
+
+The approach ensures that the heaps remain balanced after each insertion:
+
+1. A new number is first added to the max heap.
+2. The largest number from the max heap is moved to the min heap to maintain order.
+3. If the min heap grows larger than the max heap, the smallest number from the min heap is moved back to the max heap.
+
+By using the heap property, the solution avoids the O(n log n) sorting step of the brute force approach, achieving O(log n) time complexity for insertion and median calculation.
+
+### Algorithm
+
+1. Initialize two heaps:
+   - `maxHeap` for the smaller half of the numbers.
+   - `minHeap` for the larger half of the numbers.
+2. Define an `add` method to insert a new number into the data stream:
+   1. Add the number to `maxHeap`.
+   2. Move the largest number from `maxHeap` to `minHeap` to maintain order.
+   3. If `minHeap` grows larger than `maxHeap`, move the smallest number from `minHeap` back to `maxHeap`.
+3. Define a `getMedian` method to calculate the median:
+   1. If `maxHeap` has more elements than `minHeap`, return the top of `maxHeap`.
+   2. Otherwise, return the average of the tops of both heaps.
+4. Use utility functions for heap operations:
+   - `addNumberToHeap` to insert a number while maintaining the heap property.
+   - `removeTopFromHeap` to remove the top element while restoring the heap property.
+   - `heapify` to ensure the heap property from a given index downward.
 
 <MDXCodeBlock>{getMedianFromDataStream}</MDXCodeBlock>
 
-## 2. Brute Force Approach Using Sort
+### Big-O analysis
 
-Time complexity: O(N^2.Log(N))
-
-<MDXCodeBlock>{getMedianFromDataStreamBruteForce}</MDXCodeBlock>
+- **Time complexity: O(n log n)**. Each insertion involves O(log n) time complexity to maintain the heap property.
+- **Space complexity: O(n)**. The heaps together store all elements in the data stream.

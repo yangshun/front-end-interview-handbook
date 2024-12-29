@@ -1,18 +1,63 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import numberOfConnectedComponentsInAnUndirectedGraph from '../setup/src/graph-count-connected-components.ts';
-import numberOfConnectedComponentsInAnUndirectedGraphSolutionUsingDSU from './graph-count-connected-components-solution-using-DSU.ts';
+import graphCountConnectedComponents from '../setup/src/graph-count-connected-components.ts';
+import graphCountConnectedComponentsUsingDSU from '../setup/src/graph-count-connected-components-using-DSU.ts';
 
 ## 1. Using DFS
 
-Time complexity: O(N + E)
+The problem requires counting the number of connected components in an undirected graph. A connected component is a subgraph where any two nodes are reachable from each other, and no node in the subgraph is connected to any node outside of it.
 
-<MDXCodeBlock>{numberOfConnectedComponentsInAnUndirectedGraph}</MDXCodeBlock>
+The approach uses depth-first search (DFS) to explore the graph. The intuition is to treat the graph as a collection of nodes and edges, represented by an adjacency list. By starting at an unvisited node, a DFS traversal will explore all nodes in the same connected component. Each time a new unvisited node is encountered, it indicates the start of a new connected component. This ensures all nodes are processed, and no component is missed. The `visited` array is used to track nodes that have already been explored, avoiding redundant traversals.
+
+This method eliminates unnecessary traversal of nodes already part of a known connected component, making it efficient and systematic.
+
+### Algorithm
+
+1. Handle the edge case where the number of nodes (`num`) is `0` by returning `0` immediately.
+2. Initialize:
+   - A counter `components` to keep track of the number of connected components.
+   - An array `visited` of size `num` with all elements set to `0` to mark unvisited nodes.
+   - An adjacency list `adjList` to represent the graph, initialized as an array of empty arrays.
+3. Build the adjacency list from the given `edges` by adding each edge to the list of both connected nodes.
+4. Iterate through all nodes:
+   - If a node has not been visited, increment the `components` counter.
+   - Perform a DFS starting from this node to mark all reachable nodes in the current connected component as visited.
+5. Return the value of `components`.
+
+<MDXCodeBlock>{graphCountConnectedComponents}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(v + e)**. Each node (`v`) and edge (`e`) is processed exactly once during the DFS traversal.
+- **Space complexity: O(v + e)**. The adjacency list requires O(v + e) space to store the graph, and the `visited` array requires O(v) space.
 
 ## 2. Disjoint Set Union
 
-Time complexity: O(V+E.α(n))
+The intuition is to treat each node as its own component initially. As edges are processed, nodes are merged into the same component if they are connected. The union-find data structure efficiently tracks the components by maintaining a representative for each set and combining sets using the "union by size" strategy to minimize tree height. Path compression further optimizes the `find` operation by flattening the tree structure during lookups.
 
-<MDXCodeBlock>
-  {numberOfConnectedComponentsInAnUndirectedGraphSolutionUsingDSU}
-</MDXCodeBlock>
+This approach avoids redundant traversal of the graph by directly managing the relationships between components using efficient operations, making it well-suited for counting connected components.
+
+### Algorithm
+
+1. Initialize two arrays:
+   - `representative` to track the representative of each node. Initially, each node is its own representative.
+   - `size` to store the size of each component. All nodes are initialized with size `1`.
+2. Set the initial count of connected components to the number of nodes (`num`).
+3. Define a `find` function to determine the representative of a node:
+   - If a node is its own representative, return the node.
+   - Otherwise, recursively find the representative of its parent, applying path compression to flatten the tree structure.
+4. Define a `combine` function to merge two sets:
+   - Find the root representatives of the two sets.
+   - If the representatives are the same, the nodes are already in the same set. Return `0`.
+   - Otherwise, perform a union by size:
+     - Attach the smaller set to the larger set and update the size.
+     - Return `1` to indicate a union occurred.
+5. Iterate through the list of edges. For each edge, call the `combine` function to union the connected nodes and reduce the count of connected components.
+6. Return the final count of connected components.
+
+<MDXCodeBlock>{graphCountConnectedComponentsUsingDSU}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(e.α(v))**. The union-find operations `find` and `union` are nearly constant time due to path compression and union by size, where α(v) is the inverse Ackermann function.
+- **Space complexity: O(v)**. The `representative` and `size` arrays require space proportional to the number of nodes (`v`).

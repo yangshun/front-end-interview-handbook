@@ -5,12 +5,52 @@ import segmentWordsBFS from '../setup/src/string-segment-words-bfs.js';
 
 ## 1. Using Dynamic Programming
 
-Time complexity: O(N^2.M), where `N` is the length of the string and `M` is the maximum length of the words in the word dictionary
+The dynamic programming approach solves the problem of segmenting a string into words from a given dictionary by breaking it into smaller subproblems. The key intuition is that if a prefix of the string can be segmented and the remaining substring exists in the dictionary, then the entire string can be segmented. A `dp` array is used to store whether a substring ending at each position can be segmented.
+
+The `dp[i]` represents whether the substring `str[0...i-1]` can be segmented into valid words from the dictionary. This method ensures that overlapping subproblems are solved only once, avoiding redundant computations.
+
+### Algorithm
+
+1. Convert the word dictionary into a `Set` for fast lookup of words.
+2. Create a `dp` array of size `str.length + 1` initialized to `false`.
+   - Set `dp[0]` to `true` because an empty string can always be segmented.
+3. Iterate through the string to check substrings ending at each position `end`:
+   - For each `end`, iterate through possible starting positions `start` of substrings.
+   - Check if the substring `str[start...end-1]` exists in the dictionary and if `dp[start]` is `true`.
+   - If both conditions are satisfied, set `dp[end]` to `true` and break the inner loop.
+4. Return the value of `dp[str.length]`, which indicates whether the entire string can be segmented.
 
 <MDXCodeBlock>{segmentWords}</MDXCodeBlock>
 
+### Big-O analysis
+
+- **Time complexity: O(n.m.k)**. Calculating whether the substring exists in the dictionary costs O(m.k), where `m` is the size of the dictionary and `k` is the average word length. Since there are O(n) states to calculate, the total time complexity is O(n.m.k).
+- **Space complexity: O(n)**. The `dp` array requires O(n) space.
+
 ## 2. Using BFS
 
-Time complexity:Time complexity: O(N^3 + M.K), where `N` is the length of the string, `M` is the length of the word dictionary and `K` is the average length of the words in wordDict
+The breadth-first search (BFS) approach solves the string segmentation problem by exploring all possible segmentations as levels in a graph. The key intuition is that the problem can be represented as navigating from the start to the end of the string, where each valid substring corresponds to an edge connecting two nodes (indices). A queue is used to perform BFS, starting from index `0`, and exploring all possible substrings that exist in the dictionary.
+
+The use of BFS ensures that the solution checks all valid paths systematically. To prevent redundant computations, a `seen` set is used to track already visited indices.
+
+### Algorithm
+
+1. Convert the dictionary `dict` into a `Set` for O(1) average time complexity lookups.
+2. Check the base case where the string is empty. If the string is empty, return `true`.
+3. Initialize a queue with the starting index `0` and a `seen` set to track visited indices.
+4. Perform BFS:
+   - Dequeue the front element of the queue, representing the current starting index.
+   - If the starting index equals the length of the string, return `true`, as the string can be segmented.
+   - Iterate over all possible ending indices from `start + 1` to `str.length`:
+     - Skip indices that are already in the `seen` set.
+     - If the substring from `start` to `end` exists in the dictionary:
+       - Add the `end` index to the queue.
+       - Mark the `end` index as visited in the `seen` set.
+5. If the queue is exhausted and no valid segmentation is found, return `false`.
 
 <MDXCodeBlock>{segmentWordsBFS}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(n<sup>3</sup> + m⋅k)**. There are O(n) nodes, and each node is visited at most once due to the `seen` set. At each node, the algorithm iterates over the nodes in front of the current node (O(n)) and creates substrings (O(n)), resulting in O(n<sup>2</sup>) per node. Thus, the BFS costs O(n<sup>3</sup>). Additionally, creating the `words` set from the dictionary costs O(m⋅k), where `m` is the size of the dictionary and `k` is the average word length.
+- **Space complexity: O(n + m⋅k)**. The `queue` and `seen` set require O(n) space, while the `words` set requires O(m⋅k) space.

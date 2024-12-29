@@ -5,12 +5,45 @@ import minimumCoinsForChangeBruteForce from '../setup/src/coin-change-bruteforce
 
 ## 1. Brute Force Approach Using Recursion
 
-Time complexity: O(n<sup>t</sup>), where `n` is the number of different coin denominations, and `t` is the target amount
+The goal is to determine the minimum number of coins needed to make up a given target amount using the available coin denominations. The brute force approach recursively tries every possible combination of coins to find the solution with the fewest coins. The recursion explores all valid ways to reduce the target amount to zero and keeps track of the minimum number of coins required.
+
+### Algorithm
+
+1. Define a helper function `minimumCoinsForChangeHelper` that takes the array of coins and the remaining target amount as arguments.
+2. If the target amount is `0`, return `0` as no coins are needed.
+3. Initialize a variable `minCoins` to `Infinity` to keep track of the minimum coins required.
+4. Iterate through the array of coins:
+   1. Check if the current coin denomination is less than or equal to the remaining target amount.
+   2. Recursively call the helper function with the remaining amount (`target - coin`).
+   3. If a valid solution is found and the number of coins used is less than `minCoins`, update `minCoins`.
+5. After iterating through all coins, return `-1` if no valid solution is found; otherwise, return the value of `minCoins`.
+6. The main function `minimumCoinsForChange` initializes the recursion by calling the helper function with the full target amount.
 
 <MDXCodeBlock>{minimumCoinsForChangeBruteForce}</MDXCodeBlock>
 
+### Big-O analysis
+
+- **Time complexity: O(c<sup>t</sup>)**. The recursion explores all combinations of `c` coins for the target amount `t`, resulting in exponential time complexity.
+- **Space complexity: O(t)**. The recursive call stack grows proportionally to the target amount `t`.
+
 ## 2. Using Dynamic Programming
 
-Time complexity: O(n.t), where `n` is the number of different coin denominations, and `t` is the target amount
+The dynamic programming approach improves upon the brute force solution by avoiding repeated calculations for the same subproblems. Instead of recursively solving for each possible combination of coins, this method uses a `dp` array to store the minimum number of coins needed to make up amounts from `0` to the target. Each value is computed iteratively by building upon previously calculated values, ensuring that each subproblem is solved only once. This eliminates redundant work and significantly reduces the time complexity.
+
+### Algorithm
+
+1. Initialize a `dp` array of size `target + 1` with all values set to `Number.MAX_VALUE` to represent an unreachable state.
+2. Set `dp[0]` to `0` since no coins are needed to make up the amount `0`.
+3. Iterate over amounts from `1` to `target`:
+   1. For each amount, iterate through the list of coins.
+   2. If the current coin can contribute to the amount (`i - coin >= 0`), update `dp[i]` with the minimum of its current value or `dp[i - coin] + 1`.
+4. After filling the `dp` array, check the value at `dp[target]`:
+   - If it is still `Number.MAX_VALUE`, return `-1` as the target amount is not achievable.
+   - Otherwise, return `dp[target]` as the minimum number of coins required.
 
 <MDXCodeBlock>{minimumCoinsForChange}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(n.t)**. Iterating over `target` amounts and checking each of the `n` coins results in O(n.t).
+- **Space complexity: O(t)**. The `dp` array requires space proportional to the target amount `t`.

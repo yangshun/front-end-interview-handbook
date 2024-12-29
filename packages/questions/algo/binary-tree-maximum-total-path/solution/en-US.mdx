@@ -4,6 +4,19 @@ import binaryTreeMaximumPathSum from '../setup/src/binary-tree-maximum-total-pat
 
 ## 1. Using Post Order DFS
 
-Time complexity: O(n)
+The maximum path sum in a binary tree is the largest sum of node values in any path. A path can start and end at any nodes in the tree, but it must follow parent-child connections. The strategy uses post-order depth-first search (DFS) to explore each subtree and calculate the maximum gain from the left and right subtrees at each node. For each node, the potential maximum path sum is calculated as the sum of the node's value and the maximum gains from its left and right subtrees. Negative gains from a subtree are ignored to ensure that only paths with positive contributions are included. By traversing the entire tree, the global maximum path sum is determined.
+
+### Algorithm
+
+1. Perform a post-order traversal of the tree to process each node only after processing its left and right subtrees.
+2. For each node, compute the maximum gain from its left and right subtrees. If a subtree contributes a negative gain, it is ignored by treating it as 0.
+3. Calculate the path sum for the current node as the sum of its value and the maximum gains from its left and right subtrees.
+4. Update the global maximum path sum if the calculated path sum for the current node is greater.
+5. Return the maximum gain that can be passed to the parent node, which includes the node's value and the larger gain from either its left or right subtree.
 
 <MDXCodeBlock>{binaryTreeMaximumPathSum}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(n)**. Each node is visited once during the traversal.
+- **Space complexity: O(h)**. The space required for the recursion stack is proportional to the height of the tree, where `h` is the height of the tree.

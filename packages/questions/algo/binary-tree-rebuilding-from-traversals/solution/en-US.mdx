@@ -4,6 +4,24 @@ import binaryTreeRebuildingFromTraversals from '../setup/src/binary-tree-rebuild
 
 ## 1. Using Recursion
 
-Time complexity: O(n)
+The goal is to reconstruct a binary tree from its preorder and inorder traversals. In the preorder traversal, the first element is always the root of the tree. The inorder traversal divides the tree into its left and right subtrees based on the root's position. By combining these two traversals, it is possible to identify the root and recursively reconstruct the left and right subtrees.
+
+To optimize this process, a map is created to store the indices of elements in the inorder traversal, allowing for O(1) lookup of a root's position in the inorder array. Using this map, the algorithm avoids repeatedly searching for elements in the inorder traversal, which would otherwise result in higher time complexity.
+
+### Algorithm
+
+1. Create a map to store the index of each value in the inorder array for quick lookups.
+2. Define a recursive function to construct the tree within a given range of the inorder array.
+3. In the recursive function:
+   - Select the current element in the preorder array as the root and increment the preorder index.
+   - Use the inorder map to locate the root's position in the inorder array.
+   - Recursively build the left subtree using elements to the left of the root in the inorder array.
+   - Recursively build the right subtree using elements to the right of the root in the inorder array.
+4. Return the constructed tree after processing all elements in the preorder array.
 
 <MDXCodeBlock>{binaryTreeRebuildingFromTraversals}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(n)**. Each node is processed once, and the map allows O(1) lookups for indices in the inorder array.
+- **Space complexity: O(n)**. Space is used for the recursion stack and the map storing the indices of elements in the inorder array.

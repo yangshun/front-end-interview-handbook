@@ -4,6 +4,33 @@ import balancedBrackets from '../setup/src/array-balanced-brackets.ts';
 
 ## 1. Using Stack
 
-Time complexity: O(n)
+The balanced brackets problem involves determining whether a string containing brackets is valid. A string is valid if:
+
+1. Every opening bracket has a corresponding and correctly ordered closing bracket.
+2. Brackets are properly nested.
+
+A stack data structure is ideal for solving this problem because of its LIFO (Last In First Out) nature. As the string is traversed:
+
+1. Opening brackets are pushed onto the stack.
+2. Closing brackets are matched with the top element of the stack, and the top element is popped if there is a match.
+
+The bottleneck in a naive approach could involve repeatedly scanning the entire string for matching brackets, leading to O(n<sup>2</sup>) complexity. The stack-based approach eliminates unnecessary work by maintaining a single traversal and using constant-time operations for push and pop.
+
+### Algorithm
+
+1. Define a mapping object `mappings` where each closing bracket maps to its corresponding opening bracket.
+2. Initialize an empty stack to store opening brackets during traversal.
+3. Iterate through each character in the input string:
+   - If the character is a closing bracket:
+     - Pop the top element from the stack (use a placeholder if the stack is empty).
+     - Check if the popped element matches the opening bracket corresponding to the current closing bracket:
+       - If not, return `false`.
+   - If the character is an opening bracket, push it onto the stack.
+4. After processing all characters, check if the stack is empty. If it is not empty, return `false`; otherwise, return `true`.
 
 <MDXCodeBlock>{balancedBrackets}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(n)**. The algorithm processes each character in the input string exactly once, where `n` is the length of the string.
+- **Space complexity: O(n)**. In the worst case, all opening brackets are stored in the stack, leading to O(n) space usage.

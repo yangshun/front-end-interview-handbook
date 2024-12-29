@@ -5,12 +5,48 @@ import gridDistinctPathsTopDown from '../setup/src/grid-distinct-paths-top-down.
 
 ## 1. Bottom-Up Dynamic Programming
 
-Time complexity: O(n.m), where `m` is the number of rows, and `n` is the number of columns in the grid
+The problem requires finding the number of distinct paths from the top-left corner to the bottom-right corner of a grid with dimensions `m x n`. Movement is restricted to either down or right at any point in time.
+
+The approach uses bottom-up dynamic programming to solve the problem efficiently. The intuition is that the number of ways to reach a specific cell in the grid is the sum of the number of ways to reach the cell directly above it and the cell directly to its left. This is because the only valid moves to the current cell are either from above or from the left. A 2D table is used to store the number of ways to reach each cell, avoiding redundant computations.
+
+This method eliminates unnecessary recursion and overlapping subproblems by iteratively building the solution in a table.
+
+### Algorithm
+
+1. Initialize a 2D array `d` of size `m x n` with all cells set to `1`. This represents that there is exactly one way to reach any cell in the first row or the first column.
+2. Iterate through the grid starting from the second row and second column:
+   - For each cell `(col, row)`, calculate the number of paths to this cell as the sum of the paths to the cell above it (`d[col-1][row]`) and the paths to the cell to its left (`d[col][row-1]`).
+3. Continue this process until all cells are filled.
+4. Return the value of the bottom-right cell `d[m-1][n-1]`, which represents the total number of unique paths from the top-left to the bottom-right corner.
 
 <MDXCodeBlock>{gridDistinctPaths}</MDXCodeBlock>
 
+### Big-O analysis
+
+- **Time complexity: O(m.n)**. Every cell in the grid is processed once.
+- **Space complexity: O(m.n)**. A 2D array of size `m x n` is used to store the number of unique paths for each cell.
+
 ## 2. Top-Down Dynamic Programming
 
-Time complexity: O(n.m), where `m` is the number of rows, and `n` is the number of columns in the grid
+This approach uses top-down dynamic programming with memoization to avoid redundant computations. The recursive function calculates the number of paths to the destination from a given cell by summing the paths from the cell directly below and the cell directly to the right. A memoization table stores the results of previously computed cells, ensuring that each subproblem is solved only once. This eliminates unnecessary duplicate work, optimizing the solution.
+
+This method efficiently breaks the problem into overlapping subproblems while storing intermediate results to reduce overall computation time.
+
+### Algorithm
+
+1. Create a memoization table `memo` of size `m x n` initialized with `null` to store results for subproblems.
+2. Define a recursive helper function `helper(row, col)`:
+   - If the current cell is the bottom-right corner (`row === m-1` and `col === n-1`), return `1` because there is exactly one path to the destination.
+   - If the current cell is outside the grid (`row >= m` or `col >= n`), return `0` because no paths are possible.
+   - If the result for the current cell is already stored in `memo[row][col]`, return the stored value to avoid redundant computation.
+   - Calculate the number of paths as the sum of paths from the cell below (`helper(row+1, col)`) and the cell to the right (`helper(row, col+1)`).
+   - Store the calculated result in `memo[row][col]`.
+3. Start the computation by calling `helper(0, 0)` for the top-left corner.
+4. Return the result from the recursive call, which represents the total number of paths from the top-left to the bottom-right corner.
 
 <MDXCodeBlock>{gridDistinctPathsTopDown}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(m.n)**. Each cell is computed at most once due to memoization, resulting in a total of `m.n` subproblems.
+- **Space complexity: O(m.n)**. The memoization table requires `m.n` space, and the recursion stack can grow up to `m + n` levels in the worst case.

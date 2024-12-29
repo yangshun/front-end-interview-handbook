@@ -3,17 +3,80 @@ import MDXCodeBlock from 'MDXCodeBlock';
 import neighborhoodTheftCircular from '../setup/src/neighborhood-theft-circular.ts';
 import neighborhoodTheftCircularTopDownApproach from '../setup/src/neighborhood-theft-circular-top-down.ts';
 
-## 1. Bottom-Up Dynamic Programming
+## 1. Top-Down Dynamic Programming
 
-Time complexity: O(n)
+This solution extends the neighborhood theft problem to a circular arrangement of houses. In this scenario, the first and last houses are adjacent, so they cannot both be robbed. The solution uses a divide-and-conquer approach by breaking the circular problem into two linear subproblems:
 
-- N is the length of the array
-  <MDXCodeBlock>{neighborhoodTheftCircular}</MDXCodeBlock>
+1. Exclude the first house and calculate the maximum amount from the rest.
+2. Exclude the last house and calculate the maximum amount from the rest.
 
-## 2. Top-Down Dynamic Programming
+These subproblems are solved using a top-down dynamic programming approach with memoization. The helper function `robWithMemo` computes the maximum amount that can be robbed from a given range of houses by recursively exploring two options for each house:
 
-Time complexity: O(n)
+- Rob the current house and skip the next one.
+- Skip the current house and move to the next.
 
-- N is the length of the array
+Memoization ensures that intermediate results are cached, avoiding redundant calculations and improving efficiency. The final result is the maximum of the two subproblems, representing the optimal solution for the circular arrangement.
+
+### Algorithm
+
+1. Handle special cases:
+   - If there are no houses, return `0`.
+   - If there is only one house, return its value.
+2. Define a helper function `robWithMemo` to calculate the maximum money that can be robbed from a given range of houses:
+   1. Initialize a `memo` array to store intermediate results, filled with `-1` to indicate uncomputed values.
+   2. Define a recursive function `dp(i)`:
+      - Return `0` if `i` exceeds the range's end, as no houses are left to rob.
+      - Return the cached value in `memo[i]` if already computed.
+      - Calculate the maximum money for the current house by choosing between:
+        - Robbing the current house and adding the result of skipping the next house (`numbers[i] + dp(i + 2)`).
+        - Skipping the current house and moving to the next house (`dp(i + 1)`).
+      - Cache the result in `memo[i]` and return it.
+   3. Start the recursion from the given range's start index and return the result.
+3. Compute two subproblems:
+   - Maximum money excluding the first house (`robWithMemo(numbers, 1, numbers.length - 1)`).
+   - Maximum money excluding the last house (`robWithMemo(numbers, 0, numbers.length - 2)`).
+4. Return the maximum of the two results.
 
 <MDXCodeBlock>{neighborhoodTheftCircularTopDownApproach}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(n)**. Each subproblem processes all houses in its range once, resulting in linear time complexity.
+- **Space complexity: O(n)**. The memoization array requires space proportional to the number of houses in the range.
+
+## 2. Bottom-Up Dynamic Programming
+
+The circular neighborhood theft problem requires handling the additional constraint that the first and last houses are neighbors. This creates a conflict when both houses are considered for robbery, as robbing them together violates the problem's constraints. To solve this, the problem is divided into two separate scenarios:
+
+1. Rob houses from the second to the last, excluding the first house.
+2. Rob houses from the first to the second-to-last, excluding the last house.
+
+By solving these two linear subproblems independently, the circular constraint is effectively handled. The results of these two cases are then compared to determine the maximum amount that can be robbed.
+
+Each of these subproblems is solved using a space-optimized dynamic programming approach. Instead of maintaining a full `dp` array to store the maximum amounts for all houses, two variables are used to track the results for the current house and the previous house. This reduces the space complexity while ensuring that the optimal solution for each subproblem is calculated efficiently.
+
+The core idea uses the observation that in a linear house arrangement, the decision to rob or skip each house depends only on the maximum amounts that can be robbed from the previous two houses. This principle is adapted here to handle the circular arrangement by solving two separate linear cases and combining their results.
+
+### Algorithm
+
+1. Check if the `numbers` array is empty. If it is, return `0` because there are no houses to rob.
+2. Check if the `numbers` array has only one house. If it does, return the value of that house.
+3. Solve two linear subproblems:
+   - Call `robSimple` with the range from index `0` to `n - 2` (excluding the last house).
+   - Call `robSimple` with the range from index `1` to `n - 1` (excluding the first house).
+4. Return the maximum of the two results.
+5. Define the helper function `robSimple` to solve the linear robbery problem:
+   1. Initialize two variables, `t1` and `t2`, to `0`. These represent the maximum amounts that can be robbed up to the current and previous houses.
+   2. Iterate through the range of houses from `start` to `end`:
+      - Calculate the maximum amount that can be robbed at the current house as the maximum of:
+        - Robbing the current house and adding `t2` (representing the maximum amount robbed up to two houses before).
+        - Skipping the current house and using `t1` (representing the maximum amount robbed up to the previous house).
+      - Update `t2` to the value of `t1`.
+      - Update `t1` to the calculated maximum.
+   3. After the loop, return `t1`, which contains the maximum amount that can be robbed in the range.
+
+<MDXCodeBlock>{neighborhoodTheftCircular}</MDXCodeBlock>
+### Big-O analysis
+
+- **Time complexity: O(n)**. Each house is processed exactly once in two linear iterations of the helper function.
+- **Space complexity: O(1)**. Only two variables, `t1` and `t2`, are used to track intermediate results.

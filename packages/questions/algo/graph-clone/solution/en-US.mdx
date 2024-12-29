@@ -5,12 +5,55 @@ import graphCloneBFS from '../setup/src/graph-clone-bfs.ts';
 
 ## 1. Using DFS
 
-Time complexity: O(N + M), where `N` is a number of nodes (vertices) and `M` is a number of edges
+The task is to create a deep clone of a graph. A graph consists of nodes, each of which has a value and a list of neighbors. The challenge is to ensure that every node in the new graph is a completely independent copy, with all connections between nodes accurately replicated.
+
+The intuition is based on a depth-first search (DFS) traversal of the graph. Starting from a node, the algorithm recursively visits all its neighbors, creating new cloned nodes as it encounters unvisited ones. To avoid redundant work and ensure nodes are not cloned multiple times, a `Map` is used to store the relationship between original nodes and their cloned counterparts. This ensures that when a node is revisited (due to cycles or shared neighbors), the algorithm reuses the existing clone from the `Map` instead of creating a new one.
+
+This approach mirrors how the graph is naturally connected, building up the cloned graph incrementally as each node and its connections are processed. By recursively handling neighbors and leveraging the `Map` for efficiency, the solution avoids unnecessary duplication of work and guarantees the correctness of the cloned graph structure.
+
+### Algorithm
+
+1. Check if the input node is `null`. If it is, return `null` because there is no graph to clone.
+2. Initialize a `Map` to store the mapping between original nodes and their cloned counterparts.
+3. Define a recursive `dfs` function:
+   - If the current node has already been visited, return the corresponding cloned node from the `Map`.
+   - Create a new `GraphNode` with the value of the current node and an empty list for neighbors.
+   - Add the current node and its clone to the `Map`.
+   - For each neighbor of the current node, recursively clone the neighbor using the `dfs` function and add it to the neighbors list of the cloned node.
+4. Start the cloning process by calling `dfs` on the input node.
+5. Return the cloned graph's root node.
 
 <MDXCodeBlock>{graphClone}</MDXCodeBlock>
 
+### Big-O analysis
+
+- **Time complexity: O(v + e)**. Each node (`v`) and edge (`e`) in the graph is visited exactly once during the DFS traversal.
+- **Space complexity: O(v)**. The `Map` stores a mapping for each node, and the recursion stack can grow up to the number of nodes in the graph.
+
 ## 2. Using BFS
 
-Time complexity: O(N + M), where `N` is a number of nodes (vertices) and `M` is a number of edges
+This approach uses a breadth-first search (BFS) traversal to systematically visit all nodes and clone them. BFS ensures that nodes are visited level by level, and each node is processed only once. A `Map` is used to store the relationship between original nodes and their clones. This prevents redundant cloning and handles cycles in the graph efficiently. As the traversal proceeds, neighbors of each node are cloned and added to the corresponding clone's neighbors list. This ensures that the cloned graph maintains the same structure as the original graph.
+
+This method works intuitively by processing nodes layer by layer, cloning nodes and their connections as they are encountered, and avoiding duplication through the use of the `Map`.
+
+### Algorithm
+
+1. Check if the input node is `null`. If it is, return `null` because there is no graph to clone.
+2. Initialize a `Map` to store the mapping between original nodes and their cloned counterparts.
+3. Create a queue and add the input node to it for BFS traversal.
+4. Clone the input node and store it in the `Map`.
+5. While the queue is not empty:
+   - Remove a node from the front of the queue.
+   - Iterate through the neighbors of the current node.
+     - If a neighbor has not been cloned yet:
+       - Clone the neighbor and add it to the `Map`.
+       - Add the neighbor to the queue for further processing.
+     - Add the clone of the neighbor to the neighbors list of the current node's clone.
+6. Return the clone of the input node from the `Map`.
 
 <MDXCodeBlock>{graphCloneBFS}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(v + e)**. Each node (`v`) and edge (`e`) in the graph is visited exactly once during the BFS traversal.
+- **Space complexity: O(v)**. The `Map` stores a mapping for each node, and the queue holds up to `v` nodes in the worst case.

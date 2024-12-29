@@ -4,7 +4,7 @@ interface TreeNode {
   right: TreeNode | null;
 }
 
-export default function lowestCommonAncestor(
+export default function BSTLowestCommonAncestor(
   root: TreeNode | null,
   a: TreeNode | null,
   b: TreeNode | null,

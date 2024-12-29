@@ -4,6 +4,31 @@ import findWordInGrid from '../setup/src/grid-find-word.ts';
 
 ## 1. Using Backtracking
 
-Time complexity: O(M.N.3^L), where `L` is the length of the word
+The problem requires finding if a given `target` word exists in a 2D grid of characters. The word can be constructed by sequentially adjacent cells in the grid, moving up, down, left, or right. A cell cannot be reused within the same word construction.
+
+The approach uses backtracking with depth-first search (DFS) to explore all possible paths starting from each cell in the grid. At each step, the algorithm checks if the current cell matches the next character of the `target`. If a mismatch occurs or the cell goes out of bounds, the path is abandoned. To ensure a cell is not revisited, it is temporarily marked as visited during the DFS exploration. After exploring all directions, the cell's value is restored to enable other paths to use it.
+
+This method systematically explores all possible paths while pruning invalid paths early, optimizing the search process.
+
+### Algorithm
+
+1. Retrieve the number of rows and columns in the grid.
+2. Define a recursive `backtrack` function:
+   - If the `suffix` is empty, return `true` because the entire word has been matched.
+   - Check if the current cell is out of bounds or if it does not match the first character of the `suffix`. If so, return `false`.
+   - Mark the current cell as visited by temporarily changing its value to `'#'`.
+   - Define the four possible directions to explore: right, down, left, and up.
+   - Iterate through the directions and recursively call the `backtrack` function for the neighboring cells with the remaining `suffix`.
+   - Restore the cell's original value after exploring all directions.
+   - Return `true` if any direction leads to a successful match; otherwise, return `false`.
+3. Iterate through every cell in the grid:
+   - Call the `backtrack` function starting from the current cell with the full `target` string.
+   - If the function returns `true`, the word exists in the grid.
+4. If no starting cell leads to a match, return `false`.
 
 <MDXCodeBlock>{findWordInGrid}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(m.n.3<sup>l</sup>)**. Each cell in the grid (`m.n`) can initiate a search, and for each character in the word (`l`), up to 3 directions are explored (since we won't go back to where we come from).
+- **Space complexity: O(l)**. The recursion stack depth is proportional to the length of the word (`l`).

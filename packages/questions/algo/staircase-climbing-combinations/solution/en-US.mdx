@@ -5,16 +5,63 @@ import staircaseClimbingCombinationsBruteForce from '../setup/src/staircase-clim
 
 ## 1. Brute Force Approach
 
-Time complexity: O(2^N)
+This solution calculates the number of distinct ways to climb a staircase with a given number of steps using recursion. At each step, the climber can choose to take either 1 step or 2 steps. The problem is solved by recursively calculating the total number of ways to reach the top from the current step.
 
-- N is the length of the array
+The algorithm uses a helper function to explore all possible combinations of steps:
+
+1. If the current step exceeds the total number of steps, the path is invalid, so it returns 0.
+2. If the current step equals the total number of steps, it represents a valid path, so it returns 1.
+3. For all other cases, it recursively calculates the number of ways to reach the top by taking either 1 step or 2 steps from the current step.
+
+This brute force approach explores all possible paths to find the total number of combinations. However, it does redundant calculations as the same subproblems are solved multiple times, which increases its computational cost.
+
+### Algorithm
+
+1. Define a function `staircaseClimbingCombinations` that calls the helper function `climbFromStep` starting from step `0`.
+2. The helper function `climbFromStep` takes the current step and total steps as input:
+   1. Return `0` if the current step exceeds the total number of steps, as it is invalid.
+   2. Return `1` if the current step equals the total number of steps, as it represents a valid path.
+   3. Recursively calculate the total number of ways by summing:
+      - The result of taking 1 step (`climbFromStep(currentStep + 1, totalSteps)`).
+      - The result of taking 2 steps (`climbFromStep(currentStep + 2, totalSteps)`).
+3. Return the result of the helper function.
 
 <MDXCodeBlock>{staircaseClimbingCombinationsBruteForce}</MDXCodeBlock>
 
+### Big-O analysis
+
+- **Time complexity: O(2<sup>n</sup>)**. Each step branches into two recursive calls, leading to an exponential number of function calls.
+- **Space complexity: O(n)**. The recursion stack can grow up to the depth of `n`, where `n` is the total number of steps.
+
 ## 2. Using Dynamic Programming
 
-Time complexity: O(n)
+This solution calculates the number of distinct ways to climb a staircase with a given number of steps using dynamic programming (DP). The problem is solved by breaking it down into smaller subproblems and storing the results of these subproblems in a `dp` array to avoid redundant calculations.
 
-- N is the length of the array
+The intuition is that to reach step `i`, there are two possible ways:
+
+1. From step `i-1` by taking one step.
+2. From step `i-2` by taking two steps.
+
+This relationship leads to the recurrence formula: `dp[i] = dp[i-1] + dp[i-2]`. Using this formula, the solution builds up the `dp` array iteratively, starting from the base cases:
+
+- There is exactly 1 way to stay at step `0` (do nothing).
+- There is exactly 1 way to reach step `1` (a single step).
+
+The final value in `dp[steps]` gives the total number of ways to reach the top of the staircase.
+
+### Algorithm
+
+1. Create a `dp` array of size `steps + 1`, initialized with `-1` to store the number of ways to reach each step.
+2. Initialize the base cases:
+   1. Set `dp[0] = 1` since there is one way to stay at step `0`.
+   2. Set `dp[1] = 1` since there is one way to reach step `1` (a single step).
+3. Use a loop to fill the `dp` array from step `2` to `steps`:
+   1. For each step `i`, calculate `dp[i]` as the sum of `dp[i-1]` (ways to reach from the previous step) and `dp[i-2]` (ways to reach from two steps before).
+4. Return the value in `dp[steps]` as the total number of distinct ways to reach the top of the staircase.
 
 <MDXCodeBlock>{staircaseClimbingCombinations}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(n)**. The `dp` array is filled in a single pass from `0` to `steps`.
+- **Space complexity: O(n)**. The `dp` array requires additional space proportional to the number of steps.

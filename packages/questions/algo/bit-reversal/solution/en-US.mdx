@@ -5,12 +5,59 @@ import reverseBitsMaskAndShift from '../setup/src/bit-reversal-mask-shift.ts';
 
 ## 1. Using Mask and Shift Approach
 
-Time complexity: O(1)
+The mask and shift approach for bit reversal uses bitwise operations to efficiently reverse the bits of a 32-bit unsigned integer. The key intuition is that the reversal can be performed hierarchically by swapping progressively smaller groups of bits. Starting with large groups such as 16-bit halves, the algorithm continues swapping smaller groups (bytes, 4-bit nibbles, pairs of bits, and finally individual bits) until all bits are in their reversed positions.
+
+Using bitwise masks ensures that only the relevant bits are manipulated during each step, and shifts (`>>>` for unsigned right shift and `<<` for left shift) relocate the swapped bits to their correct places. This approach eliminates the need to process each bit individually, making the algorithm highly efficient.
+
+### Algorithm
+
+1. Swap the left and right 16-bit halves:
+   - Use `n >>> 16` to shift the right half to the leftmost position.
+   - Use `n << 16` to shift the left half to the rightmost position.
+   - Combine the results with a bitwise OR operation (`|`).
+2. Swap consecutive bytes (8 bits):
+   - Use the mask `0xff00ff00` to isolate the leftmost and rightmost bytes, and shift them right by 8 bits.
+   - Use the mask `0x00ff00ff` to isolate the inner bytes, and shift them left by 8 bits.
+   - Combine the results with a bitwise OR operation.
+3. Swap consecutive 4-bit groups (nibbles):
+   - Use the mask `0xf0f0f0f0` to isolate the 4-bit groups, and shift them right by 4 bits.
+   - Use the mask `0x0f0f0f0f` to isolate the other groups, and shift them left by 4 bits.
+   - Combine the results with a bitwise OR operation.
+4. Swap consecutive pairs of bits:
+   - Use the mask `0xcccccccc` to isolate pairs of bits, and shift them right by 2 bits.
+   - Use the mask `0x33333333` to isolate the other pairs, and shift them left by 2 bits.
+   - Combine the results with a bitwise OR operation.
+5. Swap individual bits:
+   - Use the mask `0xaaaaaaaa` to isolate alternating bits, and shift them right by 1 bit.
+   - Use the mask `0x55555555` to isolate the other alternating bits, and shift them left by 1 bit.
+   - Combine the results with a bitwise OR operation.
+6. Return the final result as an unsigned 32-bit integer using `>>> 0`.
 
 <MDXCodeBlock>{reverseBitsMaskAndShift}</MDXCodeBlock>
 
+### Big-O analysis
+
+- **Time complexity: O(1)**. The algorithm performs a constant number of bitwise operations regardless of the input value.
+- **Space complexity: O(1)**. No additional space is required beyond a few variables to store intermediate results.
+
 ## 2. Using bit manipulation
 
-Time complexity: O(1)
+The bit manipulation approach for bit reversal relies on iterating through all 32 bits of the given integer and reconstructing the reversed bit sequence in a new variable. The key idea is to extract the least significant bit (LSB) of the input number, shift it to its new position in the reversed number, and then move on to the next bit by right-shifting the input number. This process continues until all bits have been reversed.
+
+The reversed bits are progressively built by left-shifting the reversed number and appending the extracted bit at each step. The approach ensures correctness and efficiency by manipulating individual bits directly.
+
+### Algorithm
+
+1. Initialize a variable `reversed` to `0` to store the reversed bit sequence.
+2. Loop 32 times to process each bit of the input number:
+   - Extract the least significant bit (LSB) of the number using `n & 1`.
+   - Shift `reversed` left by one position and append the LSB using the bitwise OR operation (`|`).
+   - Right shift the input number (`n`) by one position to process the next bit.
+3. Return the `reversed` value as an unsigned 32-bit integer using `>>> 0`.
 
 <MDXCodeBlock>{reverseBits}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(1)**. The algorithm processes a fixed number of 32 bits, so the runtime does not depend on the input size.
+- **Space complexity: O(1)**. No additional space is used beyond a few variables to store intermediate results.

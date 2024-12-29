@@ -1,9 +1,73 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
 import findInRotatedArray from '../setup/src/array-rotated-find.ts';
+import findInRotatedArrayPivotBinarySearch from '../setup/src/array-rotated-find-pivot-binary-search.ts';
 
-## 1. Using Modified Binary Search
+## 1. Using Pivot Index With Binary Search
 
-Time complexity: O(log n), where `n` is the length of the array
+The solution tackles the problem of finding a target in a rotated sorted array by combining two efficient techniques: identifying the pivot index and performing binary search. In a naive approach, scanning the entire array linearly is the primary bottleneck, as it leads to a time complexity of O(n). This solution eliminates unnecessary work by using the fact that the array is sorted but rotated.
+
+The first step is finding the pivot index, which is the smallest element in the array. This index also represents the rotation point where the sorted array is divided into two subarrays. Knowing this pivot index helps in determining which part of the array to search for the target.
+
+Once the pivot index is determined, binary search is used to search for the target efficiently. The search space is divided based on the value of the target relative to the pivot. This allows focusing only on the relevant half of the array. Using binary search reduces the overall runtime from O(n) to O(log n), making the solution optimal.
+
+### Algorithm
+
+1. Define a helper function `findPivotIndex` to locate the pivot point where the array is rotated.
+
+   - Initialize two pointers `low` and `high` at the start and end of the array, respectively.
+   - Use a loop to adjust the pointers:
+     - Calculate the middle index `mid`.
+     - If `numbers[mid]` is greater than `numbers[high]`, the pivot is to the right. Update `low` to `mid + 1`.
+     - Otherwise, the pivot is to the left or at `mid`. Update `high` to `mid`.
+   - When the loop ends, `low` points to the pivot index.
+
+2. Define a helper function `binarySearch` to search for the target in a sorted subarray.
+
+   - Initialize `low` and `high` pointers to the start and end of the subarray.
+   - Use a loop to perform binary search:
+     - Calculate the middle index `mid`.
+     - If `numbers[mid]` matches the target, return `mid`.
+     - If `numbers[mid]` is less than the target, adjust `low` to `mid + 1`.
+     - Otherwise, adjust `high` to `mid - 1`.
+   - If the loop ends without finding the target, return `-1`.
+
+3. Find the pivot index using `findPivotIndex`.
+
+4. Decide which part of the array to search based on the target.
+
+   - If the target lies within the range of the rotated part (from `pivot` to the end of the array), perform binary search on that part.
+   - Otherwise, perform binary search on the non-rotated part (from the start of the array to `pivot - 1`).
+
+5. Return the result of the binary search.
+
+<MDXCodeBlock>{findInRotatedArrayPivotBinarySearch}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(log n)**. The pivot finding operation and the binary search both take O(log n) time, resulting in an overall time complexity of O(log n).
+- **Space complexity: O(1)**. The algorithm operates in constant space, using only a few variables for the pointer manipulations.
+
+## 2. Using Modified Binary Search
+
+The given solution improves upon the previous approach by eliminating the explicit pivot index computation. Instead of splitting the array into two parts and performing two separate binary searches, this approach uses a single binary search with additional logic to handle the rotated sorted array.
+
+The key insight is that in a rotated sorted array, at least one half (left or right) of the array is always sorted. By checking which half is sorted at each step, the algorithm determines whether the target lies within the sorted range. If it does, the search range is adjusted to exclude the unsorted half. Otherwise, the search continues in the unsorted half. This approach avoids the overhead of explicitly finding the pivot index, directly narrowing down the search space.
+
+### Algorithm
+
+1. Initialize two pointers `low` and `high` to the start and end of the array, respectively.
+2. Use a loop to perform binary search while `low` is less than or equal to `high`:
+   - Calculate the middle index `mid` as the floor of the average of `low` and `high`.
+   - If `numbers[mid]` equals the target, return `mid`.
+   - Determine if the left half of the array is sorted by comparing `numbers[low]` and `numbers[mid]`.
+     - If the left half is sorted, check if the target lies within this range. If it does, adjust `high` to `mid - 1`. Otherwise, adjust `low` to `mid + 1`.
+     - If the left half is not sorted, the right half must be sorted. Check if the target lies within this range. If it does, adjust `low` to `mid + 1`. Otherwise, adjust `high` to `mid - 1`.
+3. If the loop ends without finding the target, return `-1` to indicate that the target is not present in the array.
 
 <MDXCodeBlock>{findInRotatedArray}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(log n)**. The binary search divides the search space by half at each step, resulting in logarithmic time complexity.
+- **Space complexity: O(1)**. The algorithm uses a constant amount of extra space for variables, as it operates directly on the input array.

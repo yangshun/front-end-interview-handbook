@@ -2,6 +2,6 @@
  * @param {number[]} numbers
  * @return {boolean}
  */
-function findDuplicates(numbers) {
+export default function findDuplicates(numbers) {
   throw 'Not implemented!';
 }

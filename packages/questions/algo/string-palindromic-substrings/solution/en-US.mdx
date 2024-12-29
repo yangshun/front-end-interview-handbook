@@ -6,18 +6,89 @@ import palindromicSubstringsUsingBruteForce from '../setup/src/string-palindromi
 
 ## 1. Using BruteForce
 
-Time complexity: O(N^3)
+A brute force approach checks every possible substring to determine if it is a palindrome. This is achieved by iterating through all possible starting and ending indices of substrings and using a helper function to validate if the substring is palindromic. A substring is a palindrome if it reads the same forward and backward.
+
+### Algorithm
+
+1. Define a helper function `isPalindrome`:
+   - Take the string `str`, a starting index `low`, and an ending index `high`.
+   - Use a `while` loop to compare characters at `low` and `high`.
+   - If the characters do not match, return `false`.
+   - Increment `low` and decrement `high` to move toward the center.
+   - Return `true` if all characters match.
+2. Initialize a variable `ans` to store the count of palindromic substrings.
+3. Use a nested loop:
+   - The outer loop iterates over all possible starting indices `low` of substrings.
+   - The inner loop iterates over all possible ending indices `high` for the current starting index.
+   - For each pair of indices, check if the substring is a palindrome using the `isPalindrome` function.
+   - Increment `ans` by `1` if the substring is a palindrome.
+4. Return the value of `ans` as the total count of palindromic substrings.
 
 <MDXCodeBlock>{palindromicSubstringsUsingBruteForce}</MDXCodeBlock>
 
+### Big-O analysis
+
+- **Time complexity: O(n<sup>3</sup>)**. There are O(n<sup>2</sup>) substrings, and checking each substring for palindrome takes O(n) time.
+- **Space complexity: O(1)**. The algorithm uses constant space aside from the input string and loop variables.
+
 ## 2. Using Dynamic Programming
 
-Time complexity: O(n<sup>2</sup>)
+The dynamic programming approach improves the naive brute force method by avoiding repeated checks of overlapping substrings. The key intuition is that a substring is a palindrome if its two outermost characters are the same and the inner substring (excluding the outer characters) is also a palindrome. This recursive property is efficiently captured using a dynamic programming table.
+
+The `dp` table stores whether a substring starting at index `i` and ending at index `j` is a palindrome. This eliminates redundant recalculations by building solutions incrementally, starting with smaller substrings and using their results to solve for larger substrings.
+
+### Algorithm
+
+1. Handle the base case for an empty string by returning `0`.
+2. Initialize a 2D array `dp` of size `n x n` with all values set to `false`.
+3. Iterate through the string for substrings of length `1`:
+   - Set `dp[i][i]` to `true` for all indices `i` since single-character substrings are always palindromes.
+   - Increment the count `ans` for each single-character palindrome.
+4. Iterate through the string for substrings of length `2`:
+   - Set `dp[i][i + 1]` to `true` if the two characters at indices `i` and `i + 1` are equal.
+   - Increment the count `ans` for each double-character palindrome.
+5. Use nested loops to evaluate substrings of length `3` and greater:
+   - For each substring starting at index `i` and ending at index `j`, set `dp[i][j]` to `true` if:
+     - The characters at `i` and `j` are the same.
+     - The substring between `i` and `j` (`dp[i + 1][j - 1]`) is also a palindrome.
+   - Increment the count `ans` for each palindrome found.
+6. Return `ans` as the total count of palindromic substrings.
 
 <MDXCodeBlock>{palindromicSubstringsUsingDP}</MDXCodeBlock>
 
+### Big-O analysis
+
+- **Time complexity: O(n<sup>2</sup>)**. The outer loop iterates through substring lengths, and the inner loop iterates through all starting indices for substrings.
+- **Space complexity: O(n<sup>2</sup>)**. The `dp` table requires O(n<sup>2</sup>) space to store results for all substrings.
+
 ## 3. Using Centers of Palindromes
 
-Time complexity: O(n<sup>2</sup>)
+The expanding from center approach optimizes the process of finding all palindromic substrings by focusing on potential centers of palindromes. The key intuition is that every palindrome can be expanded outward from its center. A center can either be a single character (for odd-length palindromes) or a pair of consecutive characters (for even-length palindromes). By iteratively expanding from each center, this approach avoids redundant calculations and does not require the use of additional space for a dynamic programming table.
+
+This method improves upon the previous dynamic programming approach by reducing space usage. Instead of precomputing palindromic substrings for all possible lengths, it directly counts palindromes during the expansion process.
+
+### Algorithm
+
+1. Initialize a variable `ans` to store the total count of palindromic substrings.
+2. Iterate through each character in the string:
+   - Treat the character at the current index as the center of an odd-length palindrome and call the helper function `countPalindromesAroundCenter` with the same starting and ending index.
+   - Treat the current character and the next character as the center of an even-length palindrome and call the helper function `countPalindromesAroundCenter` with consecutive indices as the starting and ending points.
+3. Return `ans` as the total count of palindromic substrings.
+
+#### Helper function: `countPalindromesAroundCenter`
+
+1. Take the string `str`, a starting index `low`, and an ending index `high` as input.
+2. Initialize a variable `ans` to store the count of palindromes found during expansion.
+3. Use a `while` loop to expand outward as long as:
+   - The indices `low` and `high` are within the bounds of the string.
+   - The characters at `low` and `high` match.
+4. Increment `ans` for each valid palindrome.
+5. Decrement `low` and increment `high` to continue expanding.
+6. Return the count `ans`.
 
 <MDXCodeBlock>{palindromicSubstrings}</MDXCodeBlock>
+
+### Big-O analysis
+
+- **Time complexity: O(n<sup>2</sup>)**. For each character, the expansion can span the entire string in the worst case, leading to O(n) expansions for O(n) centers.
+- **Space complexity: O(1)**. The algorithm uses constant extra space for variables and does not require additional data structures.
