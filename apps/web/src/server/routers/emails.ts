@@ -25,6 +25,44 @@ export const emailsRouter = router({
         userId: viewer.id,
       });
     }),
+  resubscribe: publicProcedure
+    .input(
+      z.object({
+        contactListKey: EmailContactListKeyZodEnum,
+        email: z.string().email('Email is invalid'),
+        hash: z.string(),
+      }),
+    )
+    .mutation(async ({ input: { email, hash, contactListKey } }) => {
+      const contactListId = emailsContactListKeyToId(contactListKey);
+
+      if (!emailsVerifyHash(email, hash)) {
+        throw new TRPCError({
+          code: 'BAD_REQUEST',
+          message: `Error resubscribing ${email}`,
+        });
+      }
+
+      try {
+        const mailjetClient = MailjetClient();
+
+        await mailjetClient
+          .post('contactslist', { version: 'v3' })
+          .id(contactListId)
+          .action('managecontact')
+          .request({
+            Action: 'addforce',
+            Email: email,
+          });
+
+        return `Successfully resubscribed ${email}`;
+      } catch {
+        throw new TRPCError({
+          code: 'BAD_REQUEST',
+          message: 'Something went wrong',
+        });
+      }
+    }),
   scheduleWelcomeSeries: userProcedure.mutation(async ({ ctx: { viewer } }) => {
     await scheduleWelcomeSeriesEmail({
       userId: viewer.id,
