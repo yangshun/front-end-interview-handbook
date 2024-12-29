@@ -79,7 +79,7 @@ export default function QuestionsUnifiedListWithFilters({
   onMarkAsCompleted,
   onMarkAsNotCompleted,
   searchPlaceholder,
-  showCount_TEMPORARY,
+  showCount_TEMPORARY = true,
   sideColumnAddOn,
   guides,
 }: Props) {
