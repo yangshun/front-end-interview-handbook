@@ -64,7 +64,7 @@ function SidebarLinkItem({
   currentMatchRegex,
   size,
   onItemClick,
-}: Readonly<{ onItemClick?: () => void, size: SidebarSize; }> & SidebarLink) {
+}: Readonly<{ onItemClick?: () => void; size: SidebarSize }> & SidebarLink) {
   const { pathname } = useI18nPathname();
   const isActive = isItemActive({ currentMatchRegex, href }, pathname);
 
@@ -145,48 +145,46 @@ function SidebarLinks({
 
   return (
     <AccordionPrimitive.Item value={item.id}>
-      <AccordionPrimitive.Header>
-        <AccordionPrimitive.Trigger
+      <AccordionPrimitive.Trigger
+        className={clsx(
+          'flex items-center justify-between',
+          'w-full p-2',
+          'rounded-md',
+          'group',
+          'select-none outline-none',
+          [
+            themeOutlineElement_FocusVisible,
+            themeOutlineElementBrandColor_FocusVisible,
+          ],
+          'transition-colors',
+          themeBackgroundElementEmphasizedStateColor_Hover,
+        )}
+        onClick={() => {
+          onToggle();
+        }}>
+        <span
           className={clsx(
-            'flex items-center justify-between',
-            'w-full p-2',
-            'rounded-md',
-            'group',
-            'select-none outline-none',
-            [
-              themeOutlineElement_FocusVisible,
-              themeOutlineElementBrandColor_FocusVisible,
-            ],
+            'text-left',
+            size === 'sm'
+              ? 'text-[0.8125rem] leading-4'
+              : textVariants({ color: 'inherit', size: 'body2' }),
+            'font-medium',
+            themeTextSecondaryColor,
+            'group-hover:text-neutral-700 dark:group-hover:text-neutral-300',
             'transition-colors',
-            themeBackgroundElementEmphasizedStateColor_Hover,
+          )}>
+          {item.label}
+        </span>
+        <RiArrowRightSLine
+          aria-hidden={true}
+          className={clsx(
+            'size-4 shrink-0 group-data-[state=open]:rotate-90',
+            themeTextSubtleColor,
+            'transition-colors',
+            'transition-transform',
           )}
-          onClick={() => {
-            onToggle();
-          }}>
-          <span
-            className={clsx(
-              'text-left',
-              size === 'sm'
-                ? 'text-[0.8125rem] leading-4'
-                : textVariants({ color: 'inherit', size: 'body2' }),
-              'font-medium',
-              themeTextSecondaryColor,
-              'group-hover:text-neutral-700 dark:group-hover:text-neutral-300',
-              'transition-colors',
-            )}>
-            {item.label}
-          </span>
-          <RiArrowRightSLine
-            aria-hidden={true}
-            className={clsx(
-              'size-4 shrink-0 group-data-[state=open]:rotate-90',
-              themeTextSubtleColor,
-              'transition-colors',
-              'transition-transform',
-            )}
-          />
-        </AccordionPrimitive.Trigger>
-      </AccordionPrimitive.Header>
+        />
+      </AccordionPrimitive.Trigger>
       <AccordionPrimitive.Content
         className={clsx(
           'overflow-hidden transition-all',

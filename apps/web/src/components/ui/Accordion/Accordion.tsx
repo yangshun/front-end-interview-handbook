@@ -40,29 +40,27 @@ const AccordionTrigger = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Trigger>,
   React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Trigger>
 >(({ className, children, ...props }, ref) => (
-  <AccordionPrimitive.Header className="flex">
-    <AccordionPrimitive.Trigger
-      ref={ref}
+  <AccordionPrimitive.Trigger
+    ref={ref}
+    className={clsx(
+      'flex flex-1 items-center justify-between gap-1 text-left',
+      'py-5',
+      'group',
+      'font-medium transition-all',
+      themeOutlineElement_FocusVisible,
+      themeOutlineElementBrandColor_FocusVisible,
+      themeTextSubtitleColor,
+      className,
+    )}
+    {...props}>
+    {children}
+    <RiArrowDownSLine
       className={clsx(
-        'flex flex-1 items-center justify-between gap-1 text-left',
-        'py-5',
-        'group',
-        'font-medium transition-all',
-        themeOutlineElement_FocusVisible,
-        themeOutlineElementBrandColor_FocusVisible,
-        themeTextSubtitleColor,
-        className,
+        'size-4 shrink-0 transition-transform group-data-[state=open]:-rotate-180',
+        themeTextSecondaryInvertColor,
       )}
-      {...props}>
-      {children}
-      <RiArrowDownSLine
-        className={clsx(
-          'size-4 shrink-0 transition-transform group-data-[state=open]:-rotate-180',
-          themeTextSecondaryInvertColor,
-        )}
-      />
-    </AccordionPrimitive.Trigger>
-  </AccordionPrimitive.Header>
+    />
+  </AccordionPrimitive.Trigger>
 ));
 
 AccordionTrigger.displayName = AccordionPrimitive.Trigger.displayName;
