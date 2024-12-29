@@ -249,6 +249,13 @@ export default function InterviewsMarketingPracticeQuestionBankSection({
 
   return (
     <Container className={clsx('py-16 sm:py-20')} width="marketing">
+      <Heading className="sr-only" level="custom">
+        <FormattedMessage
+          defaultMessage="Huge question bank"
+          description="Marketing section title"
+          id="2JUtFz"
+        />
+      </Heading>
       <Heading
         className={clsx(
           themeMarketingHeadingSize,
@@ -256,6 +263,7 @@ export default function InterviewsMarketingPracticeQuestionBankSection({
           'max-w-2xl pb-1',
         )}
         level="custom"
+        tag="p"
         weight="medium">
         <FormattedMessage
           defaultMessage="A practice question bank with everything you'd ever need"

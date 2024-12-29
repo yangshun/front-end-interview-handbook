@@ -16,9 +16,11 @@ import gtag from '~/lib/gtag';
 
 import { useQuestionFormatsData } from '~/data/QuestionCategories';
 
-import { useIntl } from '~/components/intl';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Container from '~/components/ui/Container';
 import FilterButton from '~/components/ui/FilterButton/FilterButton';
+import Heading from '~/components/ui/Heading';
+import Section from '~/components/ui/Heading/HeadingContext';
 
 import InterviewsMarketingEmbedJavaScriptQuestion from './InterviewsMarketingEmbedJavaScriptQuestion';
 import type { EmbedUIQuestion } from './InterviewsMarketingEmbedUIQuestion';
@@ -152,63 +154,72 @@ export default function InterviewsMarketingEmbedSection({
       <Container
         className={clsx('relative', 'flex flex-col gap-y-5')}
         width="screen-xl">
-        <motion.div
-          style={{
-            marginBottom,
-            opacity,
-            scaleX,
-            scaleY,
-            transform: perspectiveTransform,
-            transformOrigin: 'center top',
-            transformStyle: 'preserve-3d',
-          }}>
-          <InterviewsMarketingHeroBrowserWindowFrame className="mx-auto lg:max-w-[1080px] xl:max-w-none">
-            <div className="h-[75vh] max-h-[600px]">
-              {showContents && (
-                <>
-                  {selectedTab === 'user-interface' && (
-                    <InterviewsMarketingEmbedUIQuestion
-                      question={uiEmbedExample}
-                    />
-                  )}
-                  {selectedTab === 'javascript' && (
-                    <InterviewsMarketingEmbedJavaScriptQuestion
-                      javaScriptEmbedExample={javaScriptEmbedExample}
-                    />
-                  )}
-                  {selectedTab === 'system-design' && (
-                    <MarketingEmbedSystemDesignQuestion />
-                  )}
-                  {selectedTab === 'quiz' && <MarketingEmbedQuizQuestion />}
-                </>
-              )}
-            </div>
-          </InterviewsMarketingHeroBrowserWindowFrame>
-        </motion.div>
-        <nav
-          aria-label={intl.formatMessage({
-            defaultMessage: 'Select question format',
-            description:
-              'Label for tabs to select sample interview question format',
-            id: '50kzzq',
-          })}
-          className="flex flex-wrap justify-center gap-2">
-          {tabs.map((tab) => (
-            <FilterButton
-              key={tab.value}
-              label={tab.label}
-              selected={selectedTab === tab.value}
-              onClick={() => {
-                gtag.event({
-                  action: `homepage.hero.embed.${tab.value}.click`,
-                  category: 'engagement',
-                  label: tab.value,
-                });
-                setSelectedTab(tab.value);
-              }}
-            />
-          ))}
-        </nav>
+        <Heading className="sr-only" level="custom">
+          <FormattedMessage
+            defaultMessage="Question demo"
+            description="Marketing section title"
+            id="C0Qauh"
+          />
+        </Heading>
+        <Section>
+          <motion.div
+            style={{
+              marginBottom,
+              opacity,
+              scaleX,
+              scaleY,
+              transform: perspectiveTransform,
+              transformOrigin: 'center top',
+              transformStyle: 'preserve-3d',
+            }}>
+            <InterviewsMarketingHeroBrowserWindowFrame className="mx-auto lg:max-w-[1080px] xl:max-w-none">
+              <div className="h-[75vh] max-h-[600px]">
+                {showContents && (
+                  <>
+                    {selectedTab === 'user-interface' && (
+                      <InterviewsMarketingEmbedUIQuestion
+                        question={uiEmbedExample}
+                      />
+                    )}
+                    {selectedTab === 'javascript' && (
+                      <InterviewsMarketingEmbedJavaScriptQuestion
+                        javaScriptEmbedExample={javaScriptEmbedExample}
+                      />
+                    )}
+                    {selectedTab === 'system-design' && (
+                      <MarketingEmbedSystemDesignQuestion />
+                    )}
+                    {selectedTab === 'quiz' && <MarketingEmbedQuizQuestion />}
+                  </>
+                )}
+              </div>
+            </InterviewsMarketingHeroBrowserWindowFrame>
+          </motion.div>
+          <nav
+            aria-label={intl.formatMessage({
+              defaultMessage: 'Select question format',
+              description:
+                'Label for tabs to select sample interview question format',
+              id: '50kzzq',
+            })}
+            className="flex flex-wrap justify-center gap-2">
+            {tabs.map((tab) => (
+              <FilterButton
+                key={tab.value}
+                label={tab.label}
+                selected={selectedTab === tab.value}
+                onClick={() => {
+                  gtag.event({
+                    action: `homepage.hero.embed.${tab.value}.click`,
+                    category: 'engagement',
+                    label: tab.value,
+                  });
+                  setSelectedTab(tab.value);
+                }}
+              />
+            ))}
+          </nav>
+        </Section>
       </Container>
     </div>
   );

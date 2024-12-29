@@ -140,6 +140,13 @@ export default function InterviewsMarketingForeword() {
         'overflow-hidden',
       )}
       width="marketing">
+      <Heading className="sr-only" level="custom">
+        <FormattedMessage
+          defaultMessage="Founder's foreword"
+          description="Marketing section title"
+          id="+1emCT"
+        />
+      </Heading>
       <Heading
         className={clsx(
           'max-w-xs text-center sm:max-w-2xl',
@@ -147,6 +154,7 @@ export default function InterviewsMarketingForeword() {
           themeGradientHeading,
         )}
         level="custom"
+        tag="p"
         weight="medium">
         <FormattedMessage
           defaultMessage="We're crafting GreatFrontEnd with passion, precision and quality."

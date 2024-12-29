@@ -40,6 +40,13 @@ export default function InterviewsMarketingFAQSection() {
   return (
     <Container className={clsx('py-16 sm:py-20')} width="marketing">
       <div className="flex flex-col gap-x-2 gap-y-6 lg:flex-row lg:items-end lg:justify-between">
+        <Heading className="sr-only" level="custom">
+          <FormattedMessage
+            defaultMessage="Frequently-asked questions"
+            description="Marketing section title"
+            id="T8v0EE"
+          />
+        </Heading>
         <Heading
           className={clsx(
             themeMarketingHeadingSize,
@@ -47,6 +54,7 @@ export default function InterviewsMarketingFAQSection() {
             'max-w-lg pb-1',
           )}
           level="custom"
+          tag="p"
           weight="medium">
           <FormattedMessage
             defaultMessage="Your commonly asked questions, answered"

@@ -56,9 +56,17 @@ export default function InterviewsMarketingSimulateRealInterviews() {
       className={clsx('flex flex-col gap-12 lg:gap-16', 'py-16 sm:py-20')}
       width="marketing">
       <div className={clsx('md:max-w-[634px]')}>
+        <Heading className="sr-only" level="custom">
+          <FormattedMessage
+            defaultMessage="Workspace features"
+            description="Marketing section title"
+            id="j+sZMz"
+          />
+        </Heading>
         <Heading
           className={clsx(themeMarketingHeadingSize, themeGradientHeading)}
           level="custom"
+          tag="p"
           weight="medium">
           <FormattedMessage
             defaultMessage="Practice in an environment that simulates real interviews"

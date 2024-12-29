@@ -27,6 +27,13 @@ export default function InterviewsMarketingCompaniesSection({
 
   return (
     <Container className={clsx('py-16 sm:py-20')} width="marketing">
+      <Heading className="sr-only" level="custom">
+        <FormattedMessage
+          defaultMessage="Company guides and tips"
+          description="Marketing section title"
+          id="xv/L23"
+        />
+      </Heading>
       <Heading
         className={clsx(
           themeMarketingHeadingSize,
@@ -34,6 +41,7 @@ export default function InterviewsMarketingCompaniesSection({
           'max-w-lg pb-1',
         )}
         level="custom"
+        tag="p"
         weight="medium">
         <FormattedMessage
           defaultMessage="Leverage insider tips from leading companies"

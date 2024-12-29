@@ -18,6 +18,7 @@ import {
   themeBackgroundCardColor,
   themeGlassyBorder,
   themeGradientHeading,
+  themeMarketingHeadingSize,
   themeWhiteGlowCardBackground,
 } from '~/components/ui/theme';
 
@@ -29,13 +30,22 @@ export default function MarketingCommunitySection() {
       className={clsx('flex flex-col gap-12 lg:gap-16', 'py-16 sm:py-20')}
       width="marketing">
       <div>
+        <Heading className="sr-only" level="custom">
+          <FormattedMessage
+            defaultMessage="Community"
+            description="Marketing section title"
+            id="JXC5RF"
+          />
+        </Heading>
         <Heading
           className={clsx(
+            themeMarketingHeadingSize,
             themeGradientHeading,
             'max-w-lg pb-1 xl:max-w-3xl',
             '!text-balance',
           )}
-          level="heading2"
+          level="custom"
+          tag="p"
           weight="medium">
           <FormattedMessage
             defaultMessage="Join the community"

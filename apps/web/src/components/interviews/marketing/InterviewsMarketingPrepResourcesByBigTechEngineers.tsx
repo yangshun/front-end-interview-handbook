@@ -117,6 +117,13 @@ export default function InterviewsMarketingPrepResourcesByBigTechEngineers() {
       className={clsx('flex flex-col gap-12 lg:gap-16', 'py-16 sm:py-20')}
       width="marketing">
       <div>
+        <Heading className="sr-only" level="custom">
+          <FormattedMessage
+            defaultMessage="Made by experienced senior engineers"
+            description="Marketing section title"
+            id="li6epc"
+          />
+        </Heading>
         <Heading
           className={clsx(
             themeMarketingHeadingSize,
@@ -124,6 +131,7 @@ export default function InterviewsMarketingPrepResourcesByBigTechEngineers() {
             'pb-1 lg:max-w-3xl',
           )}
           level="custom"
+          tag="p"
           weight="medium">
           <FormattedMessage
             defaultMessage="Let big tech senior/staff engineers write your prep resources"

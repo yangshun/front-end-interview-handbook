@@ -25,6 +25,13 @@ export default function InterviewsMarketingDreamJobSection() {
         'py-16 sm:py-20',
       )}
       width="marketing">
+      <Heading className="sr-only" level="custom">
+        <FormattedMessage
+          defaultMessage="Get started"
+          description="Marketing section title"
+          id="ENfAYw"
+        />
+      </Heading>
       <Heading
         className={clsx(
           themeMarketingHeadingSize,
@@ -33,6 +40,7 @@ export default function InterviewsMarketingDreamJobSection() {
           '!text-balance',
         )}
         level="custom"
+        tag="p"
         weight="medium">
         <FormattedMessage
           defaultMessage="Your dream job is absolutely worth it"

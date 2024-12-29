@@ -1,4 +1,8 @@
 {
+  "+1emCT": {
+    "defaultMessage": "Founder's foreword",
+    "description": "Marketing section title"
+  },
   "+1woLQ": {
     "defaultMessage": "+{points} rep",
     "description": "Rep gain for parent skill"
@@ -351,10 +355,6 @@
     "defaultMessage": "Algo concepts to cover and tips to succeed",
     "description": "Algorithm concepts needed in front end coding interviews"
   },
-  "0EoEMb": {
-    "defaultMessage": "Every question answered by Ex-interviewers",
-    "description": "Title for marketing page section"
-  },
   "0GT0SI": {
     "defaultMessage": "Cancel",
     "description": "Cancel button label"
@@ -650,6 +650,14 @@
   "2Hvmmw": {
     "defaultMessage": "Build better and learn faster with Premium",
     "description": "Title of Pricing section in Projects marketing page"
+  },
+  "2JUtFz": {
+    "defaultMessage": "Huge question bank",
+    "description": "Marketing section title"
+  },
+  "2LfuaN": {
+    "defaultMessage": "Example solutions",
+    "description": "Marketing section title"
   },
   "2LouBj": {
     "defaultMessage": "Holistic study plans",
@@ -1527,6 +1535,10 @@
     "defaultMessage": "Try another track",
     "description": "Label for next track on project submission success page"
   },
+  "8G4jST": {
+    "defaultMessage": "Contact",
+    "description": "Marketing section title"
+  },
   "8Gd7BO": {
     "defaultMessage": "Purchasing power parity for {countryName} - {discountPercentage}% discount applied!",
     "description": "Purchasing power parity message"
@@ -2055,6 +2067,10 @@
     "defaultMessage": "Our <link>Component Tracks</link> allow you to build entire design systems or component libraries from scratch – including very practical ones like Marketing, E-Commerce and Web Applications.",
     "description": "Description of 'Build entire design systems or component libraries with our Component Tracks' feature in Projects marketing page"
   },
+  "C0Qauh": {
+    "defaultMessage": "Question demo",
+    "description": "Marketing section title"
+  },
   "C34sRh": {
     "defaultMessage": "Account Settings",
     "description": "Screenreader text for account settings."
@@ -2398,6 +2414,10 @@
   "ENNKyg": {
     "defaultMessage": "View subscription plans",
     "description": "Button displayed on paywall on premium question pages, leading to our pricing plans"
+  },
+  "ENfAYw": {
+    "defaultMessage": "Get started",
+    "description": "Marketing section title"
   },
   "EO+aoa": {
     "defaultMessage": "Describe your project approach and take the opportunity to document challenges and how they were overcome. To help others in the community, also describe your general tech stack and how they were used together, as well as any guides or resources you used.",
@@ -2855,6 +2875,10 @@
     "defaultMessage": "<bold>{credits}</bold>/{totalCredits} <tooltip>premium credits</tooltip> left",
     "description": "Number of premium credits left"
   },
+  "HXZeeh": {
+    "defaultMessage": "Study plans and topics",
+    "description": "Marketing section title"
+  },
   "HY/9dZ": {
     "defaultMessage": "SEO",
     "description": "Front end development topic"
@@ -3199,6 +3223,10 @@
     "defaultMessage": "{tagName} | Blog",
     "description": "Title of GreatFrontEnd blog tag page"
   },
+  "JXC5RF": {
+    "defaultMessage": "Community",
+    "description": "Marketing section title"
+  },
   "JaQOv1": {
     "defaultMessage": "Back to home",
     "description": "Link text to navigate to blog home page"
@@ -3494,6 +3522,10 @@
   "LKILl5": {
     "defaultMessage": "Submission successfully unpinned!",
     "description": "Submission unpin toaster"
+  },
+  "LMI4bA": {
+    "defaultMessage": "Every question answered by ex-interviewers",
+    "description": "Title for marketing page section"
   },
   "LMrUbV": {
     "defaultMessage": "Get {discount}% Off All Plans - GreatFrontEnd Social Rewards Campaign",
@@ -4623,6 +4655,10 @@
     "defaultMessage": "<bold>{points}</bold> rep gained for this skill",
     "description": "Reputation points to be gained"
   },
+  "SRaazR": {
+    "defaultMessage": "Automated convenenient testing",
+    "description": "Marketing section title"
+  },
   "SRdJCV": {
     "defaultMessage": "You've earned:",
     "description": "Marketing rewards message"
@@ -4754,6 +4790,10 @@
   "T8giXw": {
     "defaultMessage": "Popularity: Least to most upvotes",
     "description": "Sorting option for submissions list - popularity"
+  },
+  "T8v0EE": {
+    "defaultMessage": "Frequently-asked questions",
+    "description": "Marketing section title"
   },
   "T9J/PN": {
     "defaultMessage": "Actual interview questions",
@@ -7215,6 +7255,10 @@
     "defaultMessage": "Resubscribe to unlock",
     "description": "Title for a paywall of a submission for a premium project"
   },
+  "j+sZMz": {
+    "defaultMessage": "Workspace features",
+    "description": "Marketing section title"
+  },
   "j/2Zyj": {
     "defaultMessage": "Front End Interview Focus Areas — Accessibility, Forms and more",
     "description": "Page title for focus areas listing"
@@ -7667,6 +7711,10 @@
     "defaultMessage": "Get full access",
     "description": "Link label to the pricing page"
   },
+  "li6epc": {
+    "defaultMessage": "Made by experienced senior engineers",
+    "description": "Marketing section title"
+  },
   "lpgN/0": {
     "defaultMessage": "Complete simple tasks",
     "description": "Button label for social discount promotion card"
@@ -8046,6 +8094,10 @@
   "oXdinV": {
     "defaultMessage": "The smallest list of practice questions that gets you the most mileage in your preparation. Covers the most commonly asked front end interview topics.",
     "description": "Description for study list"
+  },
+  "ocVZsr": {
+    "defaultMessage": "Users success stories",
+    "description": "Marketing section title"
   },
   "of3jrc": {
     "defaultMessage": "System design",
@@ -8839,6 +8891,10 @@
     "defaultMessage": "Click here to view the full solution and other System Design guides.",
     "description": "Button label within embed"
   },
+  "tj9cFk": {
+    "defaultMessage": "Pricing Plans",
+    "description": "Pricing plans title"
+  },
   "tnHfa2": {
     "defaultMessage": "Move line down",
     "description": "Text describing command to move lines down in the coding workspace shortcuts menu"
@@ -9327,6 +9383,10 @@
     "defaultMessage": "High quality solutions",
     "description": "Paywall tags"
   },
+  "x2h9Vn": {
+    "defaultMessage": "User testimonials",
+    "description": "Marketing section title"
+  },
   "x6+x/5": {
     "defaultMessage": "Edit profile",
     "description": "Title of Projects edit profile page"
@@ -9426,6 +9486,10 @@
   "xtUjHr": {
     "defaultMessage": "Discover front end interview questions and preparation resources for top tech companies like Google, Facebook, Amazon, Apple, Microsoft, TikTok and more.",
     "description": "Page description for company guides listing"
+  },
+  "xv/L23": {
+    "defaultMessage": "Company guides and tips",
+    "description": "Marketing section title"
   },
   "xyPOJe": {
     "defaultMessage": "{points} Reputation",

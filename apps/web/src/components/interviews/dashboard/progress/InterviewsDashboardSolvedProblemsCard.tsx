@@ -182,7 +182,8 @@ export default function InterviewsDashboardSolvedProblemsCard({
                   isQuestionsProgressLoading ? 'opacity-0' : 'opacity-100',
                 ])}
                 color="custom"
-                level="heading5">
+                level="heading5"
+                tag="span">
                 {completedCount}
               </Heading>
             </Tooltip>

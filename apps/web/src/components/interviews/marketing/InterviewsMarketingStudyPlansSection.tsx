@@ -27,6 +27,13 @@ import {
 export default function InterviewsMarketingStudyPlansSection() {
   return (
     <Container className={clsx('py-16 sm:py-20')} width="marketing">
+      <Heading className="sr-only" level="custom">
+        <FormattedMessage
+          defaultMessage="Study plans and topics"
+          description="Marketing section title"
+          id="HXZeeh"
+        />
+      </Heading>
       <Heading
         className={clsx(
           themeMarketingHeadingSize,
@@ -34,6 +41,7 @@ export default function InterviewsMarketingStudyPlansSection() {
           'pb-1 lg:max-w-2xl',
         )}
         level="custom"
+        tag="p"
         weight="medium">
         <FormattedMessage
           defaultMessage="A simple yet comprehensive plan to follow"

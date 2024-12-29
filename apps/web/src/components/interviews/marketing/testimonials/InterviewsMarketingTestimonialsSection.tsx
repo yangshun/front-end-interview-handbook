@@ -40,6 +40,13 @@ export default function InterviewsMarketingTestimonialsSection({
       )}
       width={width}>
       <div className="max-w-xl">
+        <Heading className="sr-only" level="custom">
+          <FormattedMessage
+            defaultMessage="User testimonials"
+            description="Marketing section title"
+            id="x2h9Vn"
+          />
+        </Heading>
         <Heading
           className={clsx(
             themeMarketingHeadingSize,
@@ -47,6 +54,7 @@ export default function InterviewsMarketingTestimonialsSection({
             'pb-1',
           )}
           level="custom"
+          tag="p"
           weight="medium">
           <FormattedMessage
             defaultMessage="{count} engineers trust us with their job interviews"

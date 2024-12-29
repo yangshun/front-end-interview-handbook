@@ -282,6 +282,13 @@ export default function InterviewsMarketingTestCodeSection() {
 
   return (
     <Container className={clsx('py-16 sm:py-20')} width="marketing">
+      <Heading className="sr-only" level="custom">
+        <FormattedMessage
+          defaultMessage="Automated convenenient testing"
+          description="Marketing section title"
+          id="SRaazR"
+        />
+      </Heading>
       <Heading
         className={clsx(
           themeMarketingHeadingSize,
@@ -289,6 +296,7 @@ export default function InterviewsMarketingTestCodeSection() {
           'max-w-2xl pb-1',
         )}
         level="custom"
+        tag="p"
         weight="medium">
         <FormattedMessage
           defaultMessage="Test your code automatically with a single click"

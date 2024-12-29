@@ -246,7 +246,9 @@ export default function InterviewsTestimonialsSlider({ data }: Props) {
                 />
                 <div className="flex flex-col gap-2">
                   <div className="flex items-center gap-3">
-                    <Heading level="heading6">{label}</Heading>
+                    <Heading level="heading6" tag="p">
+                      {label}
+                    </Heading>
                     {logos && (
                       <div className="isolate flex">
                         {logos.map((logo, index) => (

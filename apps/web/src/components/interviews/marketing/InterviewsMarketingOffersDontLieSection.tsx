@@ -20,9 +20,17 @@ export default function InterviewsMarketingOffersDontLieSection() {
       className={clsx('flex flex-col gap-12 lg:gap-16', 'py-16 sm:py-20')}
       width="marketing">
       <div>
+        <Heading className="sr-only" level="custom">
+          <FormattedMessage
+            defaultMessage="Users success stories"
+            description="Marketing section title"
+            id="ocVZsr"
+          />
+        </Heading>
         <Heading
           className={clsx(themeMarketingHeadingSize, themeGradientHeading)}
           level="custom"
+          tag="p"
           weight="medium">
           <FormattedMessage
             defaultMessage="The offers don't lie"

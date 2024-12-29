@@ -18,6 +18,7 @@ import {
   themeBorderBrandColor_GroupHover,
   themeBorderColor,
   themeGradientHeading,
+  themeMarketingHeadingSize,
   themeTextBrandColor_GroupHover,
   themeTextSubtitleColor,
   themeTextSubtleColor,
@@ -117,9 +118,21 @@ export default function InterviewsMarketingContactSection() {
 
   return (
     <Container className={clsx('py-16 sm:py-20')} width="marketing">
+      <Heading className="sr-only" level="custom">
+        <FormattedMessage
+          defaultMessage="Contact"
+          description="Marketing section title"
+          id="8G4jST"
+        />
+      </Heading>
       <Heading
-        className={clsx(themeGradientHeading, 'max-w-2xl pb-1')}
-        level="heading2"
+        className={clsx(
+          themeGradientHeading,
+          themeMarketingHeadingSize,
+          'max-w-2xl pb-1',
+        )}
+        level="custom"
+        tag="p"
         weight="medium">
         <FormattedMessage
           defaultMessage="Don't hesitate to reach out. We're always here to help."
