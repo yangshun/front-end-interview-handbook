@@ -43,6 +43,9 @@ type Props = Readonly<{
 }> &
   (
     | Readonly<{
+        category: 'all';
+      }>
+    | Readonly<{
         category: 'framework';
         categoryValue: QuestionFramework;
       }>
@@ -68,10 +71,11 @@ export default function InterviewsQuestionsCategoryPage({
   const frameworks = useQuestionFrameworksData();
   const questionFeatures = useInterviewsQuestionsFeatures();
   const categoryItem =
-    props.category === 'language'
-      ? languages[props.categoryValue]
-      : frameworks[props.categoryValue];
-  const { icon: Icon, label } = categoryItem;
+    props.category === 'all'
+      ? null
+      : props.category === 'language'
+        ? languages[props.categoryValue]
+        : frameworks[props.categoryValue];
   const intl = useIntl();
   const features = [
     questionFeatures.solvedByExInterviewers,
@@ -120,11 +124,14 @@ export default function InterviewsQuestionsCategoryPage({
     vue: frameworkGuidesSlugs,
   };
 
-  const filteredGuides = guides.filter((guide) =>
-    guidesSlugs[props.categoryValue].includes(
-      guide.id as FrontEndInterviewSlugType,
-    ),
-  );
+  const filteredGuides =
+    'categoryValue' in props
+      ? guides.filter((guide) =>
+          guidesSlugs[props.categoryValue].includes(
+            guide.id as FrontEndInterviewSlugType,
+          ),
+        )
+      : [];
 
   const guidesWithCompletionStatus =
     useGuidesWithCompletionStatus(filteredGuides);
@@ -135,7 +142,7 @@ export default function InterviewsQuestionsCategoryPage({
         className="flex-col min-[1186px]:flex-row"
         description={description}
         features={features}
-        icon={Icon}
+        icon={categoryItem?.icon}
         title={title}
       />
       <Section>
@@ -156,7 +163,7 @@ export default function InterviewsQuestionsCategoryPage({
                       id: 'FtnCTh',
                     },
                     {
-                      category: label,
+                      category: categoryItem?.label,
                     },
                   ),
                   items: guidesWithCompletionStatus,
@@ -167,27 +174,31 @@ export default function InterviewsQuestionsCategoryPage({
                       id: 'VYDUrI',
                     },
                     {
-                      category: label,
+                      category: categoryItem?.label,
                     },
                   ),
                 }
               : undefined
           }
           listType={
-            props.category === 'framework'
-              ? { type: 'framework', value: props.categoryValue }
-              : { type: 'language', value: props.categoryValue }
+            props.category === 'all'
+              ? undefined
+              : props.category === 'framework'
+                ? { type: 'framework', value: props.categoryValue }
+                : { type: 'language', value: props.categoryValue }
           }
           mode="framework"
           questionCompletionCount={questionCompletionCount}
           questions={questionList}
           searchPlaceholder={searchPlaceholder}
           sideColumnAddOn={
-            <div className="hidden lg:block">
-              <InterviewsQuestionsCategoryContentSlider
-                frameworkOrLanguage={props.categoryValue}
-              />
-            </div>
+            'categoryValue' in props && (
+              <div className="hidden lg:block">
+                <InterviewsQuestionsCategoryContentSlider
+                  frameworkOrLanguage={props.categoryValue}
+                />
+              </div>
+            )
           }
         />
       </Section>

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 
 import InterviewsPracticeQuestionsPage from '~/components/interviews/questions/listings/practice/InterviewsPracticeQuestionsPage';
 import { QuestionCount } from '~/components/interviews/questions/listings/stats/QuestionCount';
@@ -30,7 +31,7 @@ async function getPageSEOMetadata({ params }: Props) {
       description: 'Page description for focus areas listing',
       id: 'cNg7I1',
     }),
-    href: '/questions',
+    href: '/questions/list',
     socialTitle: intl.formatMessage({
       defaultMessage: 'Front End Interview Practice Questions | GreatFrontEnd',
       description: 'Social title for focus areas listing',
@@ -67,6 +68,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Page({ params }: Props) {
+  if (process.env.NEXT_PUBLIC_VERCEL_ENV === 'production') {
+    // Unpublished page, not used but kept for the future in case
+    return notFound();
+  }
+
   const { locale } = params;
 
   const [
