@@ -70,8 +70,8 @@ export default {
       '/interviews/faq',
       // Interviews / Dashboard
       '/interviews/get-started',
-      '/interviews/questions',
       // Interviews / Formats
+      '/questions',
       '/questions/algo',
       '/questions/javascript',
       '/questions/user-interface',

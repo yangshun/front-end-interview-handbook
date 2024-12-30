@@ -294,7 +294,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         id: 'Pp+bFM',
       }),
       ogImageTitle,
-      pathname: `/interviews/${format}`,
+      pathname: `/questions/${format}`,
       socialTitle,
       title: seoTitle,
     });

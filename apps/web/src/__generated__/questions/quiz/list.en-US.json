@@ -6362,7 +6362,7 @@
     "similarQuestions": [],
     "slug": "whats-the-difference-between-inline-and-inline-block",
     "subtitle": null,
-    "title": "What's the difference between `inline` and `inline-block`?",
+    "title": "What's the difference between `block`, `inline`, and `inline-block`?",
     "topics": [
       "css"
     ],

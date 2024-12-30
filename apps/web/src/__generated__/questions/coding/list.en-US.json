@@ -3024,10 +3024,6 @@
         "href": "/questions/user-interface/flight-booker/react"
       },
       {
-        "framework": "vanilla",
-        "href": "/questions/user-interface/flight-booker/vanilla"
-      },
-      {
         "framework": "angular",
         "href": "/questions/user-interface/flight-booker/angular"
       },
