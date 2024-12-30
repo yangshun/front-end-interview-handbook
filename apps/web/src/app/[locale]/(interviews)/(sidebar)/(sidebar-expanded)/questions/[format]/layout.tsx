@@ -16,11 +16,11 @@ export default function Layout({ children }: Props) {
     <>
       <QuestionsSubnav
         items={[
-          formats.javascript,
           formats['user-interface'],
-          formats.algo,
-          formats.quiz,
+          formats.javascript,
           formats['system-design'],
+          formats.quiz,
+          formats.algo,
         ]}
       />
       <Container

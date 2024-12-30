@@ -2611,6 +2611,10 @@
     "defaultMessage": "Explore our starter guides to get a solid grasp of {category} interview prep before jumping into practice.",
     "description": "Description for guide card"
   },
+  "Fvz5KG": {
+    "defaultMessage": "JavaScript Functions",
+    "description": "Page title for JavaScript coding question format"
+  },
   "FyfO1X": {
     "defaultMessage": "Front End System Design Playbook",
     "description": "Front end system design guidebook title"
@@ -5502,10 +5506,6 @@
   "XjIm4S": {
     "defaultMessage": "Oldest first",
     "description": "Sorting option for blog list"
-  },
-  "XjVpRD": {
-    "defaultMessage": "JavaScript Coding",
-    "description": "Page title for JavaScript coding question format"
   },
   "XjwGKd": {
     "defaultMessage": "Are you sure you want to delete this comment?",
@@ -9022,6 +9022,10 @@
   "uViVdm": {
     "defaultMessage": "Details of rep gain across skills",
     "description": "Details of rep gain across skills for submission"
+  },
+  "ua8BRe": {
+    "defaultMessage": "All Practice Questions",
+    "description": "Page title for all practice questions page"
   },
   "uaC2ny": {
     "defaultMessage": "For existing students",

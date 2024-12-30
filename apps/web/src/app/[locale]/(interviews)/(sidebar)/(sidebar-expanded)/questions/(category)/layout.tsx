@@ -20,11 +20,11 @@ export default function Layout({ children }: Props) {
     <>
       <QuestionsSubnav
         items={[
+          languages.js,
           frameworks.react,
           frameworks.angular,
           frameworks.vue,
           frameworks.svelte,
-          languages.js,
           languages.css,
           languages.html,
           languages.ts,

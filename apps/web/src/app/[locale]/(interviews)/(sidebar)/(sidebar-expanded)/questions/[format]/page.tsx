@@ -108,9 +108,9 @@ async function processParams(params: Props['params']) {
       }),
       ogImageTitle: jsSocialTitle,
       pageTitle: intl.formatMessage({
-        defaultMessage: 'JavaScript Coding',
+        defaultMessage: 'JavaScript Functions',
         description: 'Page title for JavaScript coding question format',
-        id: 'XjVpRD',
+        id: 'Fvz5KG',
       }),
       seoDescription: intl.formatMessage({
         defaultMessage:

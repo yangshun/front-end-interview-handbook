@@ -138,6 +138,18 @@ export default function InterviewsFrameworkAndLanguageSection({
 
   const frameworks: ReadonlyArray<FrameworkCardProps> = [
     {
+      completedQuestions: languageProgress.js.size,
+      href: languagesData.js.href,
+      icon: <JavaScriptLogo className="size-6" />,
+      title: languagesData.js.label,
+      titleAddOnText: intl.formatMessage({
+        defaultMessage: 'TypeScript supported',
+        description: 'JavaScript questions can be done in TypeScript',
+        id: '04Q6JH',
+      }),
+      totalQuestions: languageQuestions.js.length,
+    },
+    {
       completedQuestions: frameworkProgress.react.size,
       href: frameworksData.react.href,
       icon: (
@@ -166,18 +178,6 @@ export default function InterviewsFrameworkAndLanguageSection({
       icon: <SvelteLogo className="size-6" />,
       title: frameworksData.svelte.label,
       totalQuestions: frameworkQuestions.svelte.length,
-    },
-    {
-      completedQuestions: languageProgress.js.size,
-      href: languagesData.js.href,
-      icon: <JavaScriptLogo className="size-6" />,
-      title: languagesData.js.label,
-      titleAddOnText: intl.formatMessage({
-        defaultMessage: 'TypeScript supported',
-        description: 'JavaScript questions can be done in TypeScript',
-        id: '04Q6JH',
-      }),
-      totalQuestions: languageQuestions.js.length,
     },
     {
       completedQuestions: languageProgress.css.size,
