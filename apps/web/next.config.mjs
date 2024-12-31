@@ -99,34 +99,51 @@ const nextConfig = {
         destination: '/questions/quiz/:path*',
         permanent: false,
       },
+      // Formats
+      {
+        source: '/questions/javascript',
+        destination: '/questions/formats/javascript-functions',
+        permanent: false,
+      },
+      {
+        source: '/questions/user-interface',
+        destination: '/questions/formats/ui-coding',
+        permanent: false,
+      },
+      {
+        source: '/questions/algo',
+        destination: '/questions/formats/algo-coding',
+        permanent: false,
+      },
       {
         source: '/questions/js/coding',
-        destination: '/questions/js',
+        destination: '/questions/javascript-interview-questions',
         permanent: false,
       },
       {
         source: '/questions/js/coding/data-structures-algorithms',
-        destination: '/questions/js/algo',
+        destination: '/questions/javascript-interview-questions/algo-coding',
         permanent: false,
       },
       {
         source: '/questions/js/coding/user-interface',
-        destination: '/questions/js/user-interface',
+        destination: '/questions/javascript-interview-questions/ui-coding',
         permanent: false,
       },
       {
         source: '/questions/js/coding/utilities',
-        destination: '/questions/js/javascript',
+        destination:
+          '/questions/javascript-interview-questions/javascript-functions',
         permanent: false,
       },
       {
         source: '/questions/html/coding',
-        destination: '/questions/html',
+        destination: '/questions/html-interview-questions',
         permanent: false,
       },
       {
         source: '/questions/css/coding',
-        destination: '/questions/css',
+        destination: '/questions/css-interview-questions',
         permanent: false,
       },
       {
