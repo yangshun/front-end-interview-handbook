@@ -82,10 +82,9 @@ export default function InterviewsQuestionsCategoryFrameworkPage({
   return (
     <div className="flex flex-col gap-20">
       <InterviewsQuestionsCategoryPage
-        category="framework"
         categoryTabs={questionsQuiz.length > 0 ? categoryTabs : undefined}
-        categoryValue={framework}
         description={frameworks[framework].getDescription(totalQuestionsCount)}
+        listType={{ type: 'framework', value: framework }}
         questionList={filteredQuestions}
         searchPlaceholder={frameworks[framework].getSearchPlaceholder(
           totalQuestionsCount,

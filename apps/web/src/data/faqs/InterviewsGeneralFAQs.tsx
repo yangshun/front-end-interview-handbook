@@ -84,7 +84,7 @@ export const generalBuying: FAQItem = {
                   </Anchor>
                 ),
                 JavaScript: (
-                  <Anchor href="/questions/js-interview-questions">
+                  <Anchor href="/questions/javascript-interview-questions">
                     JavaScript
                   </Anchor>
                 ),
@@ -99,7 +99,7 @@ export const generalBuying: FAQItem = {
                   </Anchor>
                 ),
                 TypeScript: (
-                  <Anchor href="/questions/ts-interview-questions">
+                  <Anchor href="/questions/typescript-interview-questions">
                     TypeScript
                   </Anchor>
                 ),

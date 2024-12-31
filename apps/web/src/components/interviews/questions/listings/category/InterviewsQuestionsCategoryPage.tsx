@@ -16,9 +16,7 @@ import useGuidesWithCompletionStatus from '~/components/guides/useGuidesWithComp
 import InterviewsPageHeader from '~/components/interviews/common/InterviewsPageHeader';
 import useInterviewsQuestionsFeatures from '~/components/interviews/common/useInterviewsQuestionsFeatures';
 import type {
-  QuestionFramework,
   QuestionFrameworkOrLanguage,
-  QuestionLanguage,
   QuestionMetadata,
   QuestionUserFacingFormat,
 } from '~/components/interviews/questions/common/QuestionsTypes';
@@ -26,6 +24,7 @@ import InterviewsQuestionsCategoryContentSlider from '~/components/interviews/qu
 import QuestionsUnifiedListWithFiltersAndProgress from '~/components/interviews/questions/listings/items/QuestionsUnifiedListWithFiltersAndProgress';
 import { useIntl } from '~/components/intl';
 import Section from '~/components/ui/Heading/HeadingContext';
+import { themeTextSecondaryColor } from '~/components/ui/theme';
 
 import type { QuestionCompletionCount } from '~/db/QuestionsCount';
 
@@ -33,53 +32,45 @@ type Props = Readonly<{
   categoryTabs?: ReactNode;
   description: string;
   formatTabs?: ReactNode;
-  guides: ReadonlyArray<GuideCardMetadata>;
+  guides?: ReadonlyArray<GuideCardMetadata>;
+  listType?: React.ComponentProps<
+    typeof QuestionsUnifiedListWithFiltersAndProgress
+  >['listType'];
+  longDescription?: ReactNode;
   questionCompletionCount?: QuestionCompletionCount;
   questionList: ReadonlyArray<QuestionMetadata>;
   searchPlaceholder: string;
   selectedCategoryTab?: QuestionUserFacingFormat;
   title: string;
   titleAddOnText?: string;
-}> &
-  (
-    | Readonly<{
-        category: 'all';
-      }>
-    | Readonly<{
-        category: 'framework';
-        categoryValue: QuestionFramework;
-      }>
-    | Readonly<{
-        category: 'language';
-        categoryValue: QuestionLanguage;
-      }>
-  );
+}>;
 
 export default function InterviewsQuestionsCategoryPage({
   categoryTabs,
   description,
+  longDescription,
   formatTabs,
   questionCompletionCount,
   questionList,
   searchPlaceholder,
+  listType,
   title,
   selectedCategoryTab,
   guides,
-  ...props
 }: Props) {
+  const intl = useIntl();
   const languages = useQuestionLanguagesData();
   const frameworks = useQuestionFrameworksData();
   const questionFeatures = useInterviewsQuestionsFeatures();
   const categoryItem =
-    props.category === 'all'
-      ? null
-      : props.category === 'language'
-        ? languages[props.categoryValue]
-        : frameworks[props.categoryValue];
-  const intl = useIntl();
+    listType?.type === 'language'
+      ? languages[listType?.value]
+      : listType?.type === 'framework'
+        ? frameworks[listType?.value]
+        : null;
   const features = [
     questionFeatures.solvedByExInterviewers,
-    props.category === 'language'
+    listType?.type === 'language'
       ? questionFeatures.testCases
       : questionFeatures.testScenarios,
     questionFeatures.codeInBrowser,
@@ -87,7 +78,7 @@ export default function InterviewsQuestionsCategoryPage({
 
   const languageGuidesSlugs: ReadonlyArray<FrontEndInterviewSlugType> =
     selectedCategoryTab === 'coding'
-      ? props.category === 'language' && props.categoryValue === 'css'
+      ? listType?.type === 'language' && listType.value === 'css'
         ? [
             'user-interface',
             'user-interface-questions-cheatsheet',
@@ -124,14 +115,18 @@ export default function InterviewsQuestionsCategoryPage({
     vue: frameworkGuidesSlugs,
   };
 
-  const filteredGuides =
-    'categoryValue' in props
-      ? guides.filter((guide) =>
-          guidesSlugs[props.categoryValue].includes(
-            guide.id as FrontEndInterviewSlugType,
-          ),
-        )
-      : [];
+  const frameworkOrLanguageValue =
+    listType?.type === 'framework' || listType?.type === 'language'
+      ? listType?.value
+      : null;
+
+  const filteredGuides = frameworkOrLanguageValue
+    ? (guides ?? [])?.filter((guide) =>
+        guidesSlugs[frameworkOrLanguageValue].includes(
+          guide.id as FrontEndInterviewSlugType,
+        ),
+      )
+    : [];
 
   const guidesWithCompletionStatus =
     useGuidesWithCompletionStatus(filteredGuides);
@@ -145,12 +140,23 @@ export default function InterviewsQuestionsCategoryPage({
         icon={categoryItem?.icon}
         title={title}
       />
+      {longDescription && (
+        <div
+          className={clsx(
+            'w-full xl:max-w-[75%]',
+            'text-sm lg:text-base',
+            themeTextSecondaryColor,
+            'text-pretty',
+          )}>
+          {longDescription}
+        </div>
+      )}
       <Section>
         <QuestionsUnifiedListWithFiltersAndProgress
           categoryTabs={categoryTabs}
           formatTabs={formatTabs}
           framework={
-            props.category === 'framework' ? props.categoryValue : undefined
+            listType?.type === 'framework' ? listType?.value : undefined
           }
           guides={
             guidesWithCompletionStatus.length > 0
@@ -180,22 +186,16 @@ export default function InterviewsQuestionsCategoryPage({
                 }
               : undefined
           }
-          listType={
-            props.category === 'all'
-              ? undefined
-              : props.category === 'framework'
-                ? { type: 'framework', value: props.categoryValue }
-                : { type: 'language', value: props.categoryValue }
-          }
+          listType={listType}
           mode="framework"
           questionCompletionCount={questionCompletionCount}
           questions={questionList}
           searchPlaceholder={searchPlaceholder}
           sideColumnAddOn={
-            'categoryValue' in props && (
+            frameworkOrLanguageValue && (
               <div className="hidden lg:block">
                 <InterviewsQuestionsCategoryContentSlider
-                  frameworkOrLanguage={props.categoryValue}
+                  frameworkOrLanguage={frameworkOrLanguageValue}
                 />
               </div>
             )

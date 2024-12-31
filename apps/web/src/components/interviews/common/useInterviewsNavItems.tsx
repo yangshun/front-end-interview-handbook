@@ -379,17 +379,17 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
             .join('|')})`,
           'i',
         ),
-        href: formatsData.javascript.href,
+        href: '/questions',
         icon: RiQuestionAnswerLine,
         id: 'question-format',
         label: intl.formatMessage({
-          defaultMessage: 'Question formats',
+          defaultMessage: 'All practice questions',
           description: 'Practice for interviews question format',
-          id: 'OijcrF',
+          id: 'shjv0q',
         }),
         onClick: () => {
           gtag.event({
-            action: `${placement}.prepare.practice_questions.question_format.click`,
+            action: `${placement}.prepare.practice_questions.all.click`,
             category: 'engagement',
             label: 'Question formats',
           });

@@ -68,7 +68,7 @@ export default function QuestionListingUnifiedFilters({
   difficultyFilters,
   importanceFilterOptions,
   importanceFilters,
-  initialOpenItems,
+  initialOpenItems = ['format'],
   frameworkFilterOptions,
   frameworkFilters,
   languageFilterOptions,
@@ -84,6 +84,9 @@ export default function QuestionListingUnifiedFilters({
       <Accordion
         className={clsx('border-b', themeBorderElementColor)}
         defaultValue={[
+          initialOpenItems?.includes('format') || formatFilters.size > 0
+            ? formatFilterOptions.id
+            : null,
           companyFilterOptions.id,
           topicFilterOptions.id,
           initialOpenItems?.includes('difficulty') || difficultyFilters.size > 0
@@ -102,11 +105,13 @@ export default function QuestionListingUnifiedFilters({
           completionStatusFilters.size > 0
             ? completionStatusFilterOptions.id
             : null,
-          initialOpenItems?.includes('format') || formatFilters.size > 0
-            ? formatFilterOptions.id
-            : null,
         ].flatMap((val) => (val != null ? [val] : []))}
         type="multiple">
+        <QuestionListingFilterItem
+          coveredValues={attributesUnion.formats}
+          section={formatFilterOptions}
+          values={formatFilters}
+        />
         <QuestionListingFilterItem
           coveredValues={attributesUnion.topics}
           section={topicFilterOptions}
@@ -180,11 +185,6 @@ export default function QuestionListingUnifiedFilters({
             </AccordionContent>
           </AccordionItem>
         )}
-        <QuestionListingFilterItem
-          coveredValues={attributesUnion.formats}
-          section={formatFilterOptions}
-          values={formatFilters}
-        />
       </Accordion>
     </form>
   );

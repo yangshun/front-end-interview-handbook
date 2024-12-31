@@ -31,7 +31,7 @@ async function getPageSEOMetadata({ params }: Props) {
       description: 'Page description for focus areas listing',
       id: 'cNg7I1',
     }),
-    href: '/questions',
+    href: '/questions/quiz',
     socialTitle: intl.formatMessage({
       defaultMessage: 'Front End Interview Practice Questions | GreatFrontEnd',
       description: 'Social title for focus areas listing',
@@ -85,13 +85,13 @@ export default async function Page({ params }: Props) {
   return (
     <InterviewsQuestionsCategoryPreparePage
       bottomContent={bottomContent}
-      questions={codingQuestions}
+      questions={quizQuestions}
       totalQuestionCount={
         codingQuestions.length +
         systemDesignQuestions.length +
         quizQuestions.length
       }
-      userFacingFormat="coding"
+      userFacingFormat="quiz"
     />
   );
 }

@@ -116,11 +116,10 @@ export default function InterviewsQuestionsCategoryLanguagePage({
   return (
     <div className="flex flex-col gap-20">
       <InterviewsQuestionsCategoryPage
-        category="language"
         categoryTabs={categoryTabs}
-        categoryValue={language}
         description={languages[language].getDescription(totalQuestionsCount)}
         formatTabs={codingFormatTabs}
+        listType={{ type: 'language', value: language }}
         questionList={questions}
         searchPlaceholder={languages[language].getSearchPlaceholder(
           totalQuestionsCount,
