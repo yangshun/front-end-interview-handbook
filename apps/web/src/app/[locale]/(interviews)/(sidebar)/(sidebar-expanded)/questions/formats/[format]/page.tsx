@@ -1,10 +1,11 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
+import { QuestionFormatSEOToRawMapping } from '~/data/QuestionCategories';
+
 import {
   type QuestionFormat,
   type QuestionFormatSEO,
-  QuestionFormatSEOMapping,
   type QuestionMetadata,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import InterviewsQuestionFormatPage from '~/components/interviews/questions/listings/practice/InterviewsQuestionFormatPage';
@@ -221,7 +222,7 @@ async function processParams(params: Props['params']) {
     },
   };
 
-  const questionFormat = QuestionFormatSEOMapping[questionFormatSEO];
+  const questionFormat = QuestionFormatSEOToRawMapping[questionFormatSEO];
 
   const { seoDescription, socialTitle, pageTitle, description, ogImageTitle } =
     QuestionFormatStrings[questionFormat];
@@ -326,7 +327,7 @@ export async function generateStaticParams() {
 export default async function Page({ params }: Props) {
   const { format } = params;
   const questionFormatSEO = format.replace(/\/$/g, '') as QuestionFormatSEO;
-  const questionFormat = QuestionFormatSEOMapping[questionFormatSEO];
+  const questionFormat = QuestionFormatSEOToRawMapping[questionFormatSEO];
 
   const [
     { pageTitle, description, questions },

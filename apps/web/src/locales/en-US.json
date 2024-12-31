@@ -155,10 +155,6 @@
     "defaultMessage": "Support you can expect",
     "description": "Title for Expected Support section on Projects project page"
   },
-  "/+I2B/": {
-    "defaultMessage": "TypeScript Interview Questions with Solutions | GreatFrontEnd",
-    "description": "Title of TypeScript Interview Questions page"
-  },
   "//v4RL": {
     "defaultMessage": "Deploying your project",
     "description": "Title for Deployment Info in Projects"
@@ -366,6 +362,10 @@
   "0HKI99": {
     "defaultMessage": "{discountPercentage}% off GreatFrontEnd Projects",
     "description": "Projects product discount"
+  },
+  "0I3ugE": {
+    "defaultMessage": "{languageLabel} Interview Questions | Solutions by Ex-FAANG interviewers",
+    "description": "Title of interview questions page"
   },
   "0IALGm": {
     "defaultMessage": "Hello {userEmail}!",
@@ -743,10 +743,6 @@
     "defaultMessage": "You replied to <recipientProfileLink>{recipient}</recipientProfileLink> on the challenge forum for <link>{challengeTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for you replying to someone on the challenge forum"
   },
-  "31BVI1": {
-    "defaultMessage": "CSS Interview Questions | Solutions by Ex-FAANG interviewers",
-    "description": "Title of CSS interview Questions page"
-  },
   "37Ttml": {
     "defaultMessage": "Security",
     "description": "Title for Security section on profile page"
@@ -983,10 +979,6 @@
     "defaultMessage": "Number of questions completed",
     "description": "Number of questions completed in a list of questions"
   },
-  "4qFdKz": {
-    "defaultMessage": "Practice {questionCount}+ curated JavaScript Interview Questions in-browser, with solutions and test cases from big tech ex-interviewers",
-    "description": "Description of Interview Questions page"
-  },
   "4qv0in": {
     "defaultMessage": "Use a different payment method if the issue persists.",
     "description": "Reason label for different payment method"
@@ -1062,10 +1054,6 @@
   "5Gjt4J": {
     "defaultMessage": "Something went wrong. Try again later or contact <link>support@greatfrontend.com</link>!",
     "description": "Error toast for project"
-  },
-  "5Kx8ZQ": {
-    "defaultMessage": "CSS Interview Questions with Solutions | GreatFrontEnd",
-    "description": "Social title of CSS interview Questions page"
   },
   "5M4u9n": {
     "defaultMessage": "You have <bold>{amountLeft}</bold> premium credits remaining. Unlock this project to access all premium features for this challenge, including the Figma design files, official guides, and solutions.",
@@ -3831,10 +3819,6 @@
     "defaultMessage": "Front End System Design Guidebook",
     "description": "Front end system design guidebook title"
   },
-  "Ng8CsI": {
-    "defaultMessage": "JavaScript Interview Questions | Solutions by Ex-FAANG interviewers",
-    "description": "Title of JavaScript Interview Questions page"
-  },
   "NgG1HQ": {
     "defaultMessage": "Solving common questions",
     "description": "Title for solving common behavioral questions section"
@@ -3866,6 +3850,10 @@
   "NsGG2l": {
     "defaultMessage": "Features",
     "description": "Marketing section title"
+  },
+  "NsU/ae": {
+    "defaultMessage": "{languageLabel} Interview Questions",
+    "description": "Title for front end interview questions page"
   },
   "Nt+P5A": {
     "defaultMessage": "Simulate real interview conditions, no need for any setup!",
@@ -4590,10 +4578,6 @@
   "S2VtP2": {
     "defaultMessage": "Manage your subscription and renewal status on Stripe billing portal",
     "description": "Manage user membership subscription button label"
-  },
-  "S349rn": {
-    "defaultMessage": "Practice {questionCount}+ curated CSS Interview Questions in-browser, with solutions and test cases from big tech ex-interviewers",
-    "description": "Description of CSS Interview Questions page"
   },
   "S4nrpS": {
     "defaultMessage": "{trackName} Track",
@@ -5579,10 +5563,6 @@
     "defaultMessage": "By proceeding, you agree to GreatFrontEnd's <tos>Terms of Service</tos> and <pp>Privacy Policy</pp>.",
     "description": "Disclaimer of agreement to terms of service and privacy policy on Email Sign Up page"
   },
-  "Y7kOcC": {
-    "defaultMessage": "JavaScript Interview Questions with Solutions | GreatFrontEnd",
-    "description": "Social title of JavaScript Interview Questions page"
-  },
   "YBlo/J": {
     "defaultMessage": "As mentioned above, there are many ways to host your project for free. Our recommend hosts are:",
     "description": "Text for Deployment Info in Projects"
@@ -5654,6 +5634,10 @@
   "Yezbh0": {
     "defaultMessage": "Level up in your skills or complete component track",
     "description": "Description for \"Level up in your skills or complete component track\" feature on Projects home page"
+  },
+  "YfhHA3": {
+    "defaultMessage": "{languageLabel} Interview Questions with Solutions | GreatFrontEnd",
+    "description": "Social title of front end interview questions page"
   },
   "Yhn5fM": {
     "defaultMessage": "User Interface Coding",
@@ -5922,10 +5906,6 @@
   "amYRnY": {
     "defaultMessage": "To progress in the skill plan, you must add the skill to the <bold>\"Skills used\"</bold> field when completing a challenge.",
     "description": "Warning message for skill plan section"
-  },
-  "anKB4B": {
-    "defaultMessage": "TypeScript Interview Questions | Solutions by Ex-FAANG interviewers",
-    "description": "Title of TypeScript Interview Questions page"
   },
   "anZw89": {
     "defaultMessage": "Please enter your status",
@@ -6783,10 +6763,6 @@
     "defaultMessage": "on your first order amount",
     "description": "GFE discount"
   },
-  "fq5xTR": {
-    "defaultMessage": "HTML Interview Questions with Solutions | GreatFrontEnd",
-    "description": "Social title of HTML Interview Questions page"
-  },
   "fr4Vl4": {
     "defaultMessage": "Polish your answers with a comprehensive test suite that covers all the important edge cases that interviewers will look out for.",
     "description": "Marketing page section subtitle"
@@ -7063,6 +7039,10 @@
     "defaultMessage": "Angular Interview Questions",
     "description": "Angular questions category long title"
   },
+  "hY6aRS": {
+    "defaultMessage": "Practice {questionCount}+ curated {languageLabel} Interview Questions in-browser, with solutions and test cases from big tech ex-interviewers",
+    "description": "Description of interviews questions page"
+  },
   "hYp7sF": {
     "defaultMessage": "Normal",
     "description": "Label for Normal"
@@ -7219,10 +7199,6 @@
     "defaultMessage": "JavaScript functions",
     "description": "Front end JavaScript utility functions"
   },
-  "icPBtm": {
-    "defaultMessage": "Practice {questionCount}+ curated TypeScript Interview Questions in-browser, with solutions and test cases from big tech ex-interviewers",
-    "description": "Description of Interview Questions page"
-  },
   "ih/GUI": {
     "defaultMessage": "Practice {questionCount}+ curated Vue Interview Questions in-browser, with solutions and test cases from big tech ex-interviewers",
     "description": "Description of Interview Questions page"
@@ -7322,10 +7298,6 @@
   "jROOlG": {
     "defaultMessage": "Our users now work in these companies",
     "description": "Title of company logos section"
-  },
-  "jS+FMq": {
-    "defaultMessage": "HTML Interview Questions | Solutions by Ex-FAANG interviewers",
-    "description": "Title of HTML Interview Questions page"
   },
   "jSue8y": {
     "defaultMessage": "Guidebook",
@@ -9138,10 +9110,6 @@
   "vHU58I": {
     "defaultMessage": "Interviews",
     "description": "Label for Interviews filter button"
-  },
-  "vKD8vq": {
-    "defaultMessage": "Practice {questionCount}+ curated HTML Interview Questions in-browser, with solutions and test cases from big tech ex-interviewers",
-    "description": "Description of Interview Questions page"
   },
   "vLdUUt": {
     "defaultMessage": "View other's code and learn from their approach",

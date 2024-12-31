@@ -15,10 +15,13 @@ import { TbBinaryTree } from 'react-icons/tb';
 import type { IntlShape } from 'react-intl';
 
 import type {
+  QuestionCodingFormat,
+  QuestionCodingFormatSEO,
   QuestionFormat,
   QuestionFormatSEO,
   QuestionFramework,
   QuestionLanguage,
+  QuestionLanguageSEO,
   QuestionTopic,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import { useIntl } from '~/components/intl';
@@ -36,11 +39,11 @@ type QuestionListLink<T> = Readonly<{
   value: T;
 }>;
 
-type QuestionCategoryLists<T extends string> = Record<
+type QuestionCategoryLists<T extends string, Slug extends string> = Record<
   T,
   QuestionListLink<T> &
     Readonly<{
-      href: `/questions/${T}-interview-questions`;
+      href: `/questions/${Slug}`;
     }>
 >;
 
@@ -54,6 +57,7 @@ type QuestionFormatData = Record<
     listingDescription: string;
     listingName: string;
     searchPlaceholder: string;
+    seoValue: QuestionFormatSEO;
     shortLabel: string;
     tooltip: string;
     topics?: Array<QuestionTopic>;
@@ -98,6 +102,7 @@ export function getQuestionFormatsData(intl: IntlShape): QuestionFormatData {
         description: 'Search placeholder',
         id: 'BBf20X',
       }),
+      seoValue: 'algo-coding',
       shortLabel: intl.formatMessage({
         defaultMessage: 'Algo coding',
         description: 'Data structures and algorithm questions',
@@ -141,6 +146,7 @@ export function getQuestionFormatsData(intl: IntlShape): QuestionFormatData {
         description: 'Search placeholder',
         id: 'W9weyy',
       }),
+      seoValue: 'javascript-functions',
       shortLabel: intl.formatMessage({
         defaultMessage: 'JS functions',
         description: 'Front end JavaScript utility functions',
@@ -184,6 +190,7 @@ export function getQuestionFormatsData(intl: IntlShape): QuestionFormatData {
         description: 'Search placeholder',
         id: '3o++cB',
       }),
+      seoValue: 'quiz',
       shortLabel: intl.formatMessage({
         defaultMessage: 'Quiz',
         description: 'Front end quiz questions',
@@ -227,6 +234,7 @@ export function getQuestionFormatsData(intl: IntlShape): QuestionFormatData {
         description: 'Search placeholder',
         id: 'r0smyz',
       }),
+      seoValue: 'system-design',
       shortLabel: intl.formatMessage({
         defaultMessage: 'System design',
         description: 'Front end system design questions',
@@ -270,6 +278,7 @@ export function getQuestionFormatsData(intl: IntlShape): QuestionFormatData {
         description: 'Search placeholder',
         id: 'Z1vsfi',
       }),
+      seoValue: 'ui-coding',
       shortLabel: intl.formatMessage({
         defaultMessage: 'UI coding',
         description: 'Front end user interface questions',
@@ -287,15 +296,76 @@ export function getQuestionFormatsData(intl: IntlShape): QuestionFormatData {
   };
 }
 
-export function useQuestionLanguagesData(): QuestionCategoryLists<QuestionLanguage> {
+export const QuestionFormatSEOToRawMapping: Record<
+  QuestionFormatSEO,
+  QuestionFormat
+> = {
+  'algo-coding': 'algo',
+  'javascript-functions': 'javascript',
+  quiz: 'quiz',
+  'system-design': 'system-design',
+  'ui-coding': 'user-interface',
+};
+
+export const QuestionCodingFormatSEOToRawMapping: Record<
+  QuestionCodingFormatSEO,
+  QuestionCodingFormat
+> = {
+  'algo-coding': 'algo',
+  'javascript-functions': 'javascript',
+  'ui-coding': 'user-interface',
+};
+
+export const QuestionFormatRawToSEOMapping: Record<
+  QuestionFormat,
+  QuestionFormatSEO
+> = {
+  algo: 'algo-coding',
+  javascript: 'javascript-functions',
+  quiz: 'quiz',
+  'system-design': 'system-design',
+  'user-interface': 'ui-coding',
+};
+
+export const QuestionLanguageSEOToRawMapping: Record<
+  QuestionLanguageSEO,
+  QuestionLanguage
+> = {
+  'css-interview-questions': 'css',
+  'html-interview-questions': 'html',
+  'javascript-interview-questions': 'js',
+  'typescript-interview-questions': 'ts',
+};
+
+export const QuestionLanguageRawToSEOMapping: Record<
+  QuestionLanguage,
+  QuestionLanguageSEO
+> = {
+  css: 'css-interview-questions',
+  html: 'html-interview-questions',
+  js: 'javascript-interview-questions',
+  ts: 'typescript-interview-questions',
+};
+
+export function useQuestionLanguagesData(): QuestionCategoryLists<
+  QuestionLanguage,
+  QuestionLanguageSEO
+> {
   const intl = useIntl();
 
   return getQuestionLanguagesData(intl);
 }
 
+export const QuestionLanguageLabels: Record<QuestionLanguage, string> = {
+  css: 'CSS',
+  html: 'HTML',
+  js: 'JavaScript',
+  ts: 'TypeScript',
+};
+
 export function getQuestionLanguagesData(
   intl: IntlShape,
-): QuestionCategoryLists<QuestionLanguage> {
+): QuestionCategoryLists<QuestionLanguage, QuestionLanguageSEO> {
   return {
     css: {
       getDescription: (questionCount) =>
@@ -324,7 +394,7 @@ export function getQuestionLanguagesData(
         ),
       href: '/questions/css-interview-questions',
       icon: RiCss3Fill,
-      label: 'CSS',
+      label: QuestionLanguageLabels.css,
       longName: intl.formatMessage({
         defaultMessage: 'CSS Interview Questions',
         description: 'CSS questions category long title',
@@ -359,7 +429,7 @@ export function getQuestionLanguagesData(
         ),
       href: '/questions/html-interview-questions',
       icon: RiHtml5Fill,
-      label: 'HTML',
+      label: QuestionLanguageLabels.html,
       longName: intl.formatMessage({
         defaultMessage: 'HTML Interview Questions',
         description: 'HTML questions category long title',
@@ -393,9 +463,9 @@ export function getQuestionLanguagesData(
             questionCount: roundQuestionCountToNearestTen(questionCount),
           },
         ),
-      href: '/questions/js-interview-questions',
+      href: '/questions/javascript-interview-questions',
       icon: BiLogoJavascript,
-      label: 'JavaScript',
+      label: QuestionLanguageLabels.js,
       longName: intl.formatMessage({
         defaultMessage: 'JavaScript Interview Questions',
         description: 'JavaScript questions category long title',
@@ -429,9 +499,9 @@ export function getQuestionLanguagesData(
             questionCount: roundQuestionCountToNearestTen(questionCount),
           },
         ),
-      href: '/questions/ts-interview-questions',
+      href: '/questions/typescript-interview-questions',
       icon: BiLogoTypescript,
-      label: 'TypeScript',
+      label: QuestionLanguageLabels.ts,
       longName: intl.formatMessage({
         defaultMessage: 'TypeScript Interview Questions',
         description: 'TypeScript questions category long title',
@@ -442,7 +512,10 @@ export function getQuestionLanguagesData(
   };
 }
 
-export function useQuestionFrameworksData(): QuestionCategoryLists<QuestionFramework> {
+export function useQuestionFrameworksData(): QuestionCategoryLists<
+  QuestionFramework,
+  `${QuestionFramework}-interview-questions`
+> {
   const intl = useIntl();
 
   return getQuestionFrameworksData(intl);
@@ -450,7 +523,10 @@ export function useQuestionFrameworksData(): QuestionCategoryLists<QuestionFrame
 
 export function getQuestionFrameworksData(
   intl: IntlShape,
-): QuestionCategoryLists<QuestionFramework> {
+): QuestionCategoryLists<
+  QuestionFramework,
+  `${QuestionFramework}-interview-questions`
+> {
   return {
     angular: {
       getDescription: (questionCount) =>

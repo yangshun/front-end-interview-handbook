@@ -62,7 +62,7 @@ export default function InterviewsQuestionsCategoryLanguagePage({
       size="sm"
       tabs={[
         {
-          href: `/questions/${language}`,
+          href: languages[language].href,
           label: intl.formatMessage({
             defaultMessage: 'Coding',
             description: 'Question format',
@@ -71,7 +71,7 @@ export default function InterviewsQuestionsCategoryLanguagePage({
           value: 'coding',
         },
         {
-          href: `/questions/${language}/quiz`,
+          href: `${languages[language].href}/quiz`,
           label: intl.formatMessage({
             defaultMessage: 'Quiz',
             description: 'Question format',
@@ -99,10 +99,10 @@ export default function InterviewsQuestionsCategoryLanguagePage({
           .filter(({ value }) =>
             codingFormat.options.find((fmt) => fmt === value),
           )
-          .map(({ value, label, icon: Icon, tooltip }) => (
+          .map(({ value, seoValue, label, icon: Icon, tooltip }) => (
             <FilterButton
               key={value}
-              href={`/questions/${language}/${value}`}
+              href={`${languages[language].href}/${seoValue}`}
               icon={Icon}
               label={label}
               selected={value === codingFormat.value}

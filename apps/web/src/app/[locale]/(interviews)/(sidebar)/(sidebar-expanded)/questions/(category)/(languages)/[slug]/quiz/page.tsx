@@ -1,5 +1,11 @@
 import type { Metadata } from 'next/types';
 
+import {
+  QuestionLanguageLabels,
+  QuestionLanguageSEOToRawMapping,
+} from '~/data/QuestionCategories';
+
+import type { QuestionLanguageSEO } from '~/components/interviews/questions/common/QuestionsTypes';
 import InterviewsQuestionsCategoryLanguagePage from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryLanguagePage';
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
@@ -18,7 +24,6 @@ import {
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
-const language = 'html';
 const questionFormat = 'quiz';
 
 export const dynamic = 'force-static';
@@ -26,11 +31,14 @@ export const dynamic = 'force-static';
 type Props = Readonly<{
   params: Readonly<{
     locale: string;
+    slug: QuestionLanguageSEO;
   }>;
 }>;
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale } = params;
+  const { locale, slug } = params;
+  const language = QuestionLanguageSEOToRawMapping[slug];
+
   const [intl, { questions: questionsCoding }, { questions: questionsQuiz }] =
     await Promise.all([
       getIntlServerOnly(locale),
@@ -44,15 +52,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       quizQuestions: questionsQuiz,
     });
 
+  const languageLabel = QuestionLanguageLabels[language];
+
   return defaultMetadata({
     description: intl.formatMessage(
       {
         defaultMessage:
-          'Practice {questionCount}+ curated HTML Interview Questions in-browser, with solutions and test cases from big tech ex-interviewers',
-        description: 'Description of Interview Questions page',
-        id: 'vKD8vq',
+          'Practice {questionCount}+ curated {languageLabel} Interview Questions in-browser, with solutions and test cases from big tech ex-interviewers',
+        description: 'Description of interviews questions page',
+        id: 'hY6aRS',
       },
       {
+        languageLabel,
         questionCount: roundQuestionCountToNearestTen(
           languageQuestions[language].length,
         ),
@@ -66,31 +77,44 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     }),
     ogImageTitle: intl.formatMessage(
       {
-        defaultMessage: '{category} Interview Questions',
-        description: 'OG image title of framework and language page',
-        id: 'uEiI+F',
+        defaultMessage: '{languageLabel} Interview Questions',
+        description: 'Title for front end interview questions page',
+        id: 'NsU/ae',
       },
       {
-        category: 'HTML',
+        languageLabel,
       },
     ),
-    pathname: `/questions/${language}-interview-questions`,
-    socialTitle: intl.formatMessage({
-      defaultMessage: 'HTML Interview Questions with Solutions | GreatFrontEnd',
-      description: 'Social title of HTML Interview Questions page',
-      id: 'fq5xTR',
-    }),
-    title: intl.formatMessage({
-      defaultMessage:
-        'HTML Interview Questions | Solutions by Ex-FAANG interviewers',
-      description: 'Title of HTML Interview Questions page',
-      id: 'jS+FMq',
-    }),
+    pathname: `/questions/${slug}`,
+    socialTitle: intl.formatMessage(
+      {
+        defaultMessage:
+          '{languageLabel} Interview Questions with Solutions | GreatFrontEnd',
+        description: 'Social title of front end interview questions page',
+        id: 'YfhHA3',
+      },
+      {
+        languageLabel,
+      },
+    ),
+    title: intl.formatMessage(
+      {
+        defaultMessage:
+          '{languageLabel} Interview Questions | Solutions by Ex-FAANG interviewers',
+        description: 'Title of interview questions page',
+        id: '0I3ugE',
+      },
+      {
+        languageLabel,
+      },
+    ),
   });
 }
 
 export default async function Page({ params }: Props) {
-  const { locale } = params;
+  const { locale, slug } = params;
+  const language = QuestionLanguageSEOToRawMapping[slug];
+
   const [
     questionsCoding,
     questionsQuiz,
@@ -102,11 +126,11 @@ export default async function Page({ params }: Props) {
     fetchQuestionsListQuizForLanguage(language, locale),
     fetchQuestionsCompletionCount([questionFormat]),
     readAllFrontEndInterviewGuides(params.locale),
-    fetchInterviewListingBottomContent('language-html'),
+    fetchInterviewListingBottomContent(`language-${language}`),
   ]);
 
-  const questionsQuizHTML = questionsQuiz.filter((metadata) =>
-    metadata.topics.includes(language),
+  const questionsQuizJS = questionsQuiz.filter((metadata) =>
+    metadata.topics.includes('javascript'),
   );
 
   return (
@@ -115,7 +139,7 @@ export default async function Page({ params }: Props) {
       guides={guides}
       language={language}
       questionCompletionCount={questionCompletionCount}
-      questions={questionsQuizHTML}
+      questions={questionsQuizJS}
       totalQuestionsCount={questionsCoding.length + questionsQuiz.length}
       userFacingFormat={questionFormat}
     />

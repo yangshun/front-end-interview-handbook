@@ -26,13 +26,6 @@ export type QuestionCompany =
   | 'walmart'
   | 'yelp';
 export type QuestionLanguage = 'css' | 'html' | 'js' | 'ts';
-export const QuestionLanguageLabels: Record<QuestionLanguage, string> = {
-  css: 'CSS',
-  html: 'HTML',
-  js: 'JavaScript',
-  ts: 'TypeScript',
-};
-
 export type QuestionCompletionStatus = 'completed' | 'incomplete';
 export type QuestionDifficulty = 'easy' | 'hard' | 'medium';
 export type QuestionImportance = 'high' | 'low' | 'medium';
@@ -61,17 +54,19 @@ export type QuestionFormatSEO =
   | 'quiz'
   | 'system-design'
   | 'ui-coding';
-export const QuestionFormatSEOToSlug: Record<
+export type QuestionLanguageSEO =
+  | 'css-interview-questions'
+  | 'html-interview-questions'
+  | 'javascript-interview-questions'
+  | 'typescript-interview-questions';
+export type QuestionCodingFormatSEO = Extract<
   QuestionFormatSEO,
-  QuestionFormat
-> = {
-  'algo-coding': 'algo',
-  'javascript-functions': 'javascript',
-  quiz: 'quiz',
-  'system-design': 'system-design',
-  'ui-coding': 'user-interface',
-};
-export type QuestionCodingFormat = 'algo' | 'javascript' | 'user-interface';
+  'algo-coding' | 'javascript-functions' | 'ui-coding'
+>;
+export type QuestionCodingFormat = Extract<
+  QuestionFormat,
+  'algo' | 'javascript' | 'user-interface'
+>;
 export type QuestionUserFacingFormat = 'coding' | 'quiz' | 'system-design';
 export type QuestionFramework =
   | 'angular'

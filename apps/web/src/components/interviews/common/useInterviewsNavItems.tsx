@@ -379,7 +379,7 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
             .join('|')})`,
           'i',
         ),
-        href: '/questions/javascript',
+        href: formatsData.javascript.href,
         icon: RiQuestionAnswerLine,
         id: 'question-format',
         label: intl.formatMessage({
@@ -428,7 +428,7 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
           ].join('|')})`,
           'i',
         ),
-        href: '/questions/react-interview-questions',
+        href: frameworksData.react.href,
         icon: RiReactjsFill,
         id: 'question-framework',
         label: intl.formatMessage({
