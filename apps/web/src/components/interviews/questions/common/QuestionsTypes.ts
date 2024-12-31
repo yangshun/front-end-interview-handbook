@@ -74,6 +74,12 @@ export type QuestionFramework =
   | 'svelte'
   | 'vanilla'
   | 'vue';
+export type QuestionFrameworkSEO =
+  | 'angular-interview-questions'
+  | 'react-interview-questions'
+  | 'svelte-interview-questions'
+  | 'vanilla-javascript-interview-questions'
+  | 'vue-interview-questions';
 export type QuestionFrameworkOrLanguage = QuestionFramework | QuestionLanguage;
 export const QuestionFrameworkLabels: Record<QuestionFramework, string> = {
   angular: 'Angular',

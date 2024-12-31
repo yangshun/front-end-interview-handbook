@@ -78,18 +78,18 @@ const selectedTopics = [
 type QuestionTopicToDisplay = (typeof selectedTopics)[number];
 
 const topicHrefs: Record<QuestionTopicToDisplay, string> = {
-  a11y: '/questions/user-interface',
-  async: '/questions/quiz',
-  closure: '/questions/closure',
-  css: '/questions/css',
-  html: '/questions/html',
-  i18n: '/questions/quiz',
-  javascript: '/questions/javascript',
-  networking: '/questions/quiz',
-  oop: '/questions/quiz',
-  performance: '/questions/quiz',
-  security: '/questions/quiz',
-  'web-api': '/questions/quiz',
+  a11y: '/questions/formats/ui-coding',
+  async: '/questions/formats/javascript-functions',
+  closure: '/questions/formats/javascript-functions',
+  css: '/questions/css-interview-questions/quiz',
+  html: '/questions/html-interview-questions/quiz',
+  i18n: '/questions/formats/quiz',
+  javascript: '/questions/javascript-interview-questions/quiz',
+  networking: '/questions/formats/quiz',
+  oop: '/questions/javascript-interview-questions/quiz',
+  performance: '/questions/formats/quiz',
+  security: '/questions/formats/quiz',
+  'web-api': '/questions/formats/quiz',
 };
 
 const MAX_TO_SHOW = 4;

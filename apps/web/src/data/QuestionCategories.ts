@@ -20,6 +20,7 @@ import type {
   QuestionFormat,
   QuestionFormatSEO,
   QuestionFramework,
+  QuestionFrameworkSEO,
   QuestionLanguage,
   QuestionLanguageSEO,
   QuestionTopic,
@@ -514,7 +515,7 @@ export function getQuestionLanguagesData(
 
 export function useQuestionFrameworksData(): QuestionCategoryLists<
   QuestionFramework,
-  `${QuestionFramework}-interview-questions`
+  QuestionFrameworkSEO
 > {
   const intl = useIntl();
 
@@ -523,10 +524,7 @@ export function useQuestionFrameworksData(): QuestionCategoryLists<
 
 export function getQuestionFrameworksData(
   intl: IntlShape,
-): QuestionCategoryLists<
-  QuestionFramework,
-  `${QuestionFramework}-interview-questions`
-> {
+): QuestionCategoryLists<QuestionFramework, QuestionFrameworkSEO> {
   return {
     angular: {
       getDescription: (questionCount) =>
@@ -659,7 +657,7 @@ export function getQuestionFrameworksData(
             questionCount: roundQuestionCountToNearestTen(questionCount),
           },
         ),
-      href: '/questions/vanilla-interview-questions',
+      href: '/questions/vanilla-javascript-interview-questions',
       icon: RiHtml5Fill,
       label: intl.formatMessage({
         defaultMessage: 'Vanilla JS',
