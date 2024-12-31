@@ -129,17 +129,13 @@ export default async function Page({ params }: Props) {
     fetchInterviewListingBottomContent(`language-${language}`),
   ]);
 
-  const questionsQuizJS = questionsQuiz.filter((metadata) =>
-    metadata.topics.includes('javascript'),
-  );
-
   return (
     <InterviewsQuestionsCategoryLanguagePage
       bottomContent={bottomContent}
       guides={guides}
       language={language}
       questionCompletionCount={questionCompletionCount}
-      questions={questionsQuizJS}
+      questions={questionsQuiz}
       totalQuestionsCount={questionsCoding.length + questionsQuiz.length}
       userFacingFormat={questionFormat}
     />
