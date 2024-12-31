@@ -102,7 +102,7 @@
     "negotiator": "^0.6.3",
     "next": "14.2.15",
     "next-contentlayer": "^0.3.4",
-    "next-seo": "^5.15.0",
+    "next-seo": "^6.6.0",
     "node-mailjet": "^6.0.5",
     "nullthrows": "^1.1.1",
     "nuqs": "^2.2.3",

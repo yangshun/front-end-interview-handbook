@@ -458,8 +458,8 @@ importers:
         specifier: ^0.3.4
         version: 0.3.4(contentlayer@0.3.4)(esbuild@0.17.19)(next@14.2.15)(react-dom@18.2.0)(react@18.2.0)
       next-seo:
-        specifier: ^5.15.0
-        version: 5.15.0(next@14.2.15)(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^6.6.0
+        version: 6.6.0(next@14.2.15)(react-dom@18.2.0)(react@18.2.0)
       node-mailjet:
         specifier: ^6.0.5
         version: 6.0.5
@@ -12991,8 +12991,8 @@ packages:
       - supports-color
     dev: false
 
-  /next-seo@5.15.0(next@14.2.15)(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-LGbcY91yDKGMb7YI+28n3g+RuChUkt6pXNpa8FkfKkEmNiJkeRDEXTnnjVtwT9FmMhG6NH8qwHTelGrlYm9rgg==}
+  /next-seo@6.6.0(next@14.2.15)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-0VSted/W6XNtgAtH3D+BZrMLLudqfm0D5DYNJRXHcDgan/1ZF1tDFIsWrmvQlYngALyphPfZ3ZdOqlKpKdvG6w==}
     peerDependencies:
       next: ^8.1.1-canary.54 || >=9.0.0
       react: '>=16.0.0'
