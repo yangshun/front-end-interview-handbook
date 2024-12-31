@@ -108,8 +108,8 @@ export default async function Page({ params }: Props) {
       framework={framework}
       guides={guides}
       questionCompletionCount={questionCompletionCount}
-      questionsCoding={questionsCoding}
-      questionsQuiz={[]}
+      questions={questionsCoding}
+      totalQuestionsCount={questionsCoding.length}
     />
   );
 }

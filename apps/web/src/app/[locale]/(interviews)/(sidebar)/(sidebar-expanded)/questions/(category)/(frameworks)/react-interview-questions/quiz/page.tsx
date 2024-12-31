@@ -1,18 +1,26 @@
 import type { Metadata } from 'next/types';
 
-import type { QuestionFramework } from '~/components/interviews/questions/common/QuestionsTypes';
+import type {
+  QuestionFramework,
+  QuestionUserFacingFormat,
+} from '~/components/interviews/questions/common/QuestionsTypes';
 import InterviewsQuestionsCategoryFrameworkPage from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryFrameworkPage';
 
+import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
 import { readAllFrontEndInterviewGuides } from '~/db/guides/GuidesReader';
 import { fetchQuestionsCompletionCount } from '~/db/QuestionsCount';
-import { fetchQuestionsListCodingForFramework } from '~/db/QuestionsListReader';
+import {
+  fetchQuestionsListCodingForFramework,
+  fetchQuestionsListQuizForFramework,
+} from '~/db/QuestionsListReader';
 import { roundQuestionCountToNearestTen } from '~/db/QuestionsUtils';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
-export const dynamic = 'force-static';
+const framework: QuestionFramework = 'react';
+const format: QuestionUserFacingFormat = 'quiz';
 
-const framework: QuestionFramework = 'vanilla';
+export const dynamic = 'force-static';
 
 type Props = Readonly<{
   params: Readonly<{
@@ -22,9 +30,10 @@ type Props = Readonly<{
 
 async function processParams(params: Props['params']) {
   const { locale } = params;
-  const [intl, questionsCoding] = await Promise.all([
+  const [intl, questionsCoding, questionsQuiz] = await Promise.all([
     getIntlServerOnly(locale),
     fetchQuestionsListCodingForFramework(framework, locale),
+    fetchQuestionsListQuizForFramework(framework, locale),
   ]);
 
   return {
@@ -40,32 +49,34 @@ async function processParams(params: Props['params']) {
         id: 'uEiI+F',
       },
       {
-        category: 'Vanilla JavaScript',
+        category: 'React',
       },
     ),
     questionsCoding,
     seoDescription: intl.formatMessage(
       {
         defaultMessage:
-          'Practice {questionCount}+ curated Vanilla JavaScript UI Interview Questions in-browser, with solutions and test cases from big tech ex-interviewers',
+          'Practice {questionCount}+ curated React Interview Questions in-browser, with solutions and test cases from big tech ex-interviewers',
         description: 'Description of Interview Questions page',
-        id: '+5hnxx',
+        id: 'muCdsx',
       },
       {
-        questionCount: roundQuestionCountToNearestTen(questionsCoding.length),
+        questionCount: roundQuestionCountToNearestTen(
+          questionsCoding.length + questionsQuiz.length,
+        ),
       },
     ),
     seoTitle: intl.formatMessage({
       defaultMessage:
-        'Vanilla JavaScript UI Interview Questions | Solutions by Ex-FAANG interviewers',
+        'React Interview Questions | Solutions by Ex-FAANG interviewers',
       description: 'Title of React Interview Questions page',
-      id: 'bJcVtt',
+      id: '4+51tF',
     }),
     socialTitle: intl.formatMessage({
       defaultMessage:
-        'Vanilla JavaScript UI Interview Questions with Solutions | GreatFrontEnd',
+        'React Interview Questions with Solutions | GreatFrontEnd',
       description: 'Title of React Interview Questions page',
-      id: 'CbIPy4',
+      id: '/zdDbr',
     }),
   };
 }
@@ -73,8 +84,8 @@ async function processParams(params: Props['params']) {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
   const {
-    seoTitle,
     seoDescription,
+    seoTitle,
     socialTitle,
     ogImagePageType,
     ogImageTitle,
@@ -85,7 +96,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     locale,
     ogImagePageType,
     ogImageTitle,
-    pathname: `/questions/vanilla-javascript-interview-questions`,
+    pathname: `/questions/react-interview-questions/quiz`,
     socialTitle,
     title: seoTitle,
   });
@@ -93,19 +104,30 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function Page({ params }: Props) {
   const { locale } = params;
-  const [questionsCoding, questionCompletionCount, guides] = await Promise.all([
+
+  const [
+    questionsCoding,
+    questionsQuiz,
+    questionCompletionCount,
+    guides,
+    bottomContent,
+  ] = await Promise.all([
     fetchQuestionsListCodingForFramework(framework, locale),
-    fetchQuestionsCompletionCount(['user-interface']),
+    fetchQuestionsListQuizForFramework(framework, locale),
+    fetchQuestionsCompletionCount(['quiz']),
     readAllFrontEndInterviewGuides(locale),
+    fetchInterviewListingBottomContent('framework-react'),
   ]);
 
   return (
     <InterviewsQuestionsCategoryFrameworkPage
+      bottomContent={bottomContent}
       framework={framework}
       guides={guides}
       questionCompletionCount={questionCompletionCount}
-      questions={questionsCoding}
-      totalQuestionsCount={questionsCoding.length}
+      questions={questionsQuiz}
+      totalQuestionsCount={questionsCoding.length + questionsQuiz.length}
+      userFacingFormat={format}
     />
   );
 }

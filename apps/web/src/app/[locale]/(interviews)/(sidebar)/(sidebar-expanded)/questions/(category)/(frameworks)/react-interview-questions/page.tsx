@@ -1,6 +1,9 @@
 import type { Metadata } from 'next/types';
 
-import type { QuestionFramework } from '~/components/interviews/questions/common/QuestionsTypes';
+import type {
+  QuestionFramework,
+  QuestionUserFacingFormat,
+} from '~/components/interviews/questions/common/QuestionsTypes';
 import InterviewsQuestionsCategoryFrameworkPage from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryFrameworkPage';
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
@@ -15,6 +18,7 @@ import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
 const framework: QuestionFramework = 'react';
+const format: QuestionUserFacingFormat = 'coding';
 
 export const dynamic = 'force-static';
 
@@ -103,14 +107,14 @@ export default async function Page({ params }: Props) {
 
   const [
     questionsCoding,
-    quizQuestions,
+    questionsQuiz,
     questionCompletionCount,
     guides,
     bottomContent,
   ] = await Promise.all([
     fetchQuestionsListCodingForFramework(framework, locale),
     fetchQuestionsListQuizForFramework(framework, locale),
-    fetchQuestionsCompletionCount(['user-interface', 'quiz']),
+    fetchQuestionsCompletionCount(['user-interface']),
     readAllFrontEndInterviewGuides(locale),
     fetchInterviewListingBottomContent('framework-react'),
   ]);
@@ -121,8 +125,9 @@ export default async function Page({ params }: Props) {
       framework={framework}
       guides={guides}
       questionCompletionCount={questionCompletionCount}
-      questionsCoding={questionsCoding}
-      questionsQuiz={quizQuestions}
+      questions={questionsCoding}
+      totalQuestionsCount={questionsCoding.length + questionsQuiz.length}
+      userFacingFormat={format}
     />
   );
 }

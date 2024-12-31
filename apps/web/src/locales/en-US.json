@@ -3959,10 +3959,6 @@
     "defaultMessage": "Complete simple social tasks.",
     "description": "Social discount toast message"
   },
-  "OijcrF": {
-    "defaultMessage": "Question formats",
-    "description": "Practice for interviews question format"
-  },
   "OjLxYa": {
     "defaultMessage": "<bold>{count}</bold>",
     "description": "Number of incomplete challenges in projects dashboard"
@@ -8694,6 +8690,10 @@
   "sfJ1Oa": {
     "defaultMessage": "Purchase premium to get access to all component tracks as well as exclusive skills, official how-to guides and production-ready Figma files.",
     "description": "Subtitle for premium projects component track"
+  },
+  "shjv0q": {
+    "defaultMessage": "All practice questions",
+    "description": "Practice for interviews question format"
   },
   "sjLtW1": {
     "defaultMessage": "Manage subscription",

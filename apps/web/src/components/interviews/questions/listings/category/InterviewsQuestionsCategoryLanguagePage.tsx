@@ -72,11 +72,7 @@ export default function InterviewsQuestionsCategoryLanguagePage({
         },
         {
           href: `${languages[language].href}/quiz`,
-          label: intl.formatMessage({
-            defaultMessage: 'Quiz',
-            description: 'Question format',
-            id: 'doY6Fg',
-          }),
+          label: questionFormats.quiz.label,
           value: 'quiz',
         },
       ]}

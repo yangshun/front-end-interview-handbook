@@ -1,9 +1,11 @@
 'use client';
 
 import type { InterviewsListingBottomContent } from 'contentlayer/generated';
-import { useState } from 'react';
 
-import { useQuestionFrameworksData } from '~/data/QuestionCategories';
+import {
+  useQuestionFormatsData,
+  useQuestionFrameworksData,
+} from '~/data/QuestionCategories';
 
 import type { GuideCardMetadata } from '~/components/guides/types';
 import { useIntl } from '~/components/intl';
@@ -32,30 +34,29 @@ type Props = Omit<
     bottomContent?: InterviewsListingBottomContent;
     framework: QuestionFramework;
     guides: ReadonlyArray<GuideCardMetadata>;
-    questionsCoding: ReadonlyArray<QuestionMetadata>;
-    questionsQuiz: ReadonlyArray<QuestionMetadata>;
+    questions: ReadonlyArray<QuestionMetadata>;
+    totalQuestionsCount: number;
+    userFacingFormat?: QuestionUserFacingFormat;
   }>;
 
 export default function InterviewsQuestionsCategoryFrameworkPage({
   framework,
-  questionsCoding,
-  questionsQuiz,
+  questions,
   bottomContent,
+  userFacingFormat = 'coding',
+  totalQuestionsCount,
   ...props
 }: Props) {
   const intl = useIntl();
   const frameworks = useQuestionFrameworksData();
-  const [selectedTab, setSelectedTab] =
-    useState<QuestionUserFacingFormat>('coding');
-
-  const filteredQuestions =
-    selectedTab === 'coding' ? questionsCoding : questionsQuiz;
+  const questionFormats = useQuestionFormatsData();
 
   const categoryTabs = (
     <TabsUnderline
       size="sm"
       tabs={[
         {
+          href: frameworks[framework].href,
           label: intl.formatMessage({
             defaultMessage: 'Coding',
             description: 'Question format',
@@ -64,32 +65,26 @@ export default function InterviewsQuestionsCategoryFrameworkPage({
           value: 'coding',
         },
         {
-          label: intl.formatMessage({
-            defaultMessage: 'Quiz',
-            description: 'Question format',
-            id: 'doY6Fg',
-          }),
+          href: `${frameworks[framework].href}/quiz`,
+          label: questionFormats.quiz.label,
           value: 'quiz',
         },
       ]}
-      value={selectedTab}
-      onSelect={setSelectedTab}
+      value={userFacingFormat ?? 'coding'}
     />
   );
-
-  const totalQuestionsCount = questionsCoding.length + questionsQuiz.length;
 
   return (
     <div className="flex flex-col gap-20">
       <InterviewsQuestionsCategoryPage
-        categoryTabs={questionsQuiz.length > 0 ? categoryTabs : undefined}
+        categoryTabs={categoryTabs}
         description={frameworks[framework].getDescription(totalQuestionsCount)}
         listType={{ type: 'framework', value: framework }}
-        questionList={filteredQuestions}
+        questionList={questions}
         searchPlaceholder={frameworks[framework].getSearchPlaceholder(
           totalQuestionsCount,
         )}
-        selectedCategoryTab={selectedTab}
+        selectedCategoryTab={userFacingFormat}
         title={frameworks[framework].longName}
         {...props}
       />
