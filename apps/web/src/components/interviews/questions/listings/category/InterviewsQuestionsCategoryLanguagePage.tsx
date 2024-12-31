@@ -95,16 +95,23 @@ export default function InterviewsQuestionsCategoryLanguagePage({
           .filter(({ value }) =>
             codingFormat.options.find((fmt) => fmt === value),
           )
-          .map(({ value, seoValue, label, icon: Icon, tooltip }) => (
-            <FilterButton
-              key={value}
-              href={`${languages[language].href}/${seoValue}`}
-              icon={Icon}
-              label={label}
-              selected={value === codingFormat.value}
-              tooltip={tooltip}
-            />
-          ))}
+          .map(({ value, seoValue, label, icon: Icon, tooltip }) => {
+            const isSelected = value === codingFormat.value;
+            const href = isSelected
+              ? languages[language].href
+              : `${languages[language].href}/${seoValue}`;
+
+            return (
+              <FilterButton
+                key={value}
+                href={href}
+                icon={Icon}
+                label={label}
+                selected={isSelected}
+                tooltip={tooltip}
+              />
+            );
+          })}
       </div>
     );
   })();
