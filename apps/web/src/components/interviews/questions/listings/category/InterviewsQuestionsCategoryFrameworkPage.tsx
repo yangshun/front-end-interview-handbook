@@ -8,6 +8,7 @@ import {
 } from '~/data/QuestionCategories';
 
 import type { GuideCardMetadata } from '~/components/guides/types';
+import useInterviewsQuestionsFeatures from '~/components/interviews/common/useInterviewsQuestionsFeatures';
 import { useIntl } from '~/components/intl';
 import MDXContent from '~/components/mdx/MDXContent';
 import Divider from '~/components/ui/Divider';
@@ -22,9 +23,8 @@ import type {
 
 type Props = Omit<
   React.ComponentProps<typeof InterviewsQuestionsCategoryPage>,
-  | 'category'
-  | 'categoryValue'
   | 'description'
+  | 'features'
   | 'list'
   | 'questionList'
   | 'searchPlaceholder'
@@ -74,11 +74,19 @@ export default function InterviewsQuestionsCategoryFrameworkPage({
     />
   );
 
+  const questionFeatures = useInterviewsQuestionsFeatures();
+  const features = [
+    questionFeatures.solvedByExInterviewers,
+    questionFeatures.testScenarios,
+    questionFeatures.codeInBrowser,
+  ];
+
   return (
     <div className="flex flex-col gap-20">
       <InterviewsQuestionsCategoryPage
         categoryTabs={categoryTabs}
         description={frameworks[framework].getDescription(totalQuestionsCount)}
+        features={features}
         listType={{ type: 'framework', value: framework }}
         questionList={questions}
         searchPlaceholder={frameworks[framework].getSearchPlaceholder(

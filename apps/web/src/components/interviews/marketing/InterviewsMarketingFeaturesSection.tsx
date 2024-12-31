@@ -10,7 +10,7 @@ import {
   RiShieldCheckLine,
 } from 'react-icons/ri';
 
-import { QuestionCount } from '~/components/interviews/questions/listings/stats/QuestionCount';
+import { QuestionCountTotal } from '~/components/interviews/questions/listings/stats/QuestionCount';
 import { FormattedMessage, useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Container from '~/components/ui/Container';
@@ -45,7 +45,7 @@ function useFeatures() {
                 {chunks}
               </Anchor>
             ),
-            questionCount: QuestionCount,
+            questionCount: QuestionCountTotal,
           }}
         />
       ),

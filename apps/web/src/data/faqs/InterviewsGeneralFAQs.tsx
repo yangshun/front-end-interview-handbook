@@ -4,7 +4,7 @@ import url from 'url';
 import { SCROLL_HASH_INTERVIEWS_DASHBOARD_RECOMMENDED_PREPARATION } from '~/hooks/useScrollToHash';
 
 import {
-  QuestionCount,
+  QuestionCountTotal,
   QuestionCountFree,
 } from '~/components/interviews/questions/listings/stats/QuestionCount';
 import { FormattedMessage } from '~/components/intl';
@@ -50,7 +50,7 @@ export const generalBuying: FAQItem = {
             description='Paragraph 1 for "What does GreatFrontEnd Interviews offer exactly?" on Homepage FAQ sections'
             id="y0DBMD"
             values={{
-              questionCount: QuestionCount,
+              questionCount: QuestionCountTotal,
             }}
           />
         </strong>

@@ -13,7 +13,7 @@ import {
   countQuestionsTotalDurationMins,
   sortQuestions,
 } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
-import { QuestionCount } from '~/components/interviews/questions/listings/stats/QuestionCount';
+import { QuestionCountTotal } from '~/components/interviews/questions/listings/stats/QuestionCount';
 
 import { fetchInterviewsStudyLists } from '~/db/contentlayer/InterviewsStudyListReader';
 import {
@@ -51,7 +51,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         id: 'BQSR58',
       },
       {
-        questionCount: QuestionCount,
+        questionCount: QuestionCountTotal,
       },
     ),
     locale,

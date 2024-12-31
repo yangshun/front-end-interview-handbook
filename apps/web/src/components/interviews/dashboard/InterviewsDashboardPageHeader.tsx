@@ -6,7 +6,7 @@ import {
   RiVerifiedBadgeLine,
 } from 'react-icons/ri';
 
-import { QuestionCount } from '~/components/interviews/questions/listings/stats/QuestionCount';
+import { QuestionCountTotal } from '~/components/interviews/questions/listings/stats/QuestionCount';
 import { FormattedMessage, useIntl } from '~/components/intl';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
@@ -43,7 +43,7 @@ export default function InterviewsDashboardPageHeader({
           id: '6S+H0W',
         },
         {
-          count: QuestionCount,
+          count: QuestionCountTotal,
         },
       ),
     },
@@ -144,7 +144,7 @@ export default function InterviewsDashboardPageHeader({
       features={features}
       sideElement={
         <div className="w-full lg:w-auto lg:max-w-[363px]">
-          <InterviewsDashboardCreateAccountCard studyListsMap={studyListsMap}/>
+          <InterviewsDashboardCreateAccountCard studyListsMap={studyListsMap} />
         </div>
       }
       title={intl.formatMessage({

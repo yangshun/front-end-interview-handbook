@@ -14,7 +14,6 @@ import type {
 } from '~/components/guides/types';
 import useGuidesWithCompletionStatus from '~/components/guides/useGuidesWithCompletionStatus';
 import InterviewsPageHeader from '~/components/interviews/common/InterviewsPageHeader';
-import useInterviewsQuestionsFeatures from '~/components/interviews/common/useInterviewsQuestionsFeatures';
 import type {
   QuestionFrameworkOrLanguage,
   QuestionMetadata,
@@ -31,6 +30,7 @@ import type { QuestionCompletionCount } from '~/db/QuestionsCount';
 type Props = Readonly<{
   categoryTabs?: ReactNode;
   description: string;
+  features: React.ComponentProps<typeof InterviewsPageHeader>['features'];
   formatTabs?: ReactNode;
   guides?: ReadonlyArray<GuideCardMetadata>;
   listType?: React.ComponentProps<
@@ -49,6 +49,7 @@ export default function InterviewsQuestionsCategoryPage({
   categoryTabs,
   description,
   longDescription,
+  features,
   formatTabs,
   questionCompletionCount,
   questionList,
@@ -61,20 +62,12 @@ export default function InterviewsQuestionsCategoryPage({
   const intl = useIntl();
   const languages = useQuestionLanguagesData();
   const frameworks = useQuestionFrameworksData();
-  const questionFeatures = useInterviewsQuestionsFeatures();
   const categoryItem =
     listType?.type === 'language'
       ? languages[listType?.value]
       : listType?.type === 'framework'
         ? frameworks[listType?.value]
         : null;
-  const features = [
-    questionFeatures.solvedByExInterviewers,
-    listType?.type === 'language'
-      ? questionFeatures.testCases
-      : questionFeatures.testScenarios,
-    questionFeatures.codeInBrowser,
-  ];
 
   const languageGuidesSlugs: ReadonlyArray<FrontEndInterviewSlugType> =
     selectedCategoryTab === 'coding'
@@ -143,7 +136,7 @@ export default function InterviewsQuestionsCategoryPage({
       {longDescription && (
         <div
           className={clsx(
-            'w-full xl:max-w-[75%]',
+            'w-full lg:max-w-[75%]',
             'text-sm lg:text-base',
             themeTextSecondaryColor,
             'text-pretty',

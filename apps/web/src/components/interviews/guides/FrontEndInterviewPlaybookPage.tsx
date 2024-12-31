@@ -14,7 +14,7 @@ import type {
   GuideCardMetadata,
 } from '~/components/guides/types';
 import useGuidesWithCompletionStatus from '~/components/guides/useGuidesWithCompletionStatus';
-import { QuestionCount } from '~/components/interviews/questions/listings/stats/QuestionCount';
+import { QuestionCountTotal } from '~/components/interviews/questions/listings/stats/QuestionCount';
 import { useIntl } from '~/components/intl';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
@@ -148,7 +148,7 @@ export default function FrontEndInterviewPlaybookPage({
           id: '2NpESj',
         },
         {
-          questionCount: QuestionCount,
+          questionCount: QuestionCountTotal,
         },
       ),
     },

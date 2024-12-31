@@ -8,6 +8,7 @@ import {
   useQuestionLanguagesData,
 } from '~/data/QuestionCategories';
 
+import useInterviewsQuestionsFeatures from '~/components/interviews/common/useInterviewsQuestionsFeatures';
 import { useIntl } from '~/components/intl';
 import MDXContent from '~/components/mdx/MDXContent';
 import Divider from '~/components/ui/Divider';
@@ -24,9 +25,8 @@ import type {
 
 type Props = Omit<
   React.ComponentProps<typeof InterviewsQuestionsCategoryPage>,
-  | 'category'
-  | 'categoryValue'
   | 'description'
+  | 'features'
   | 'formatTabs'
   | 'questionList'
   | 'searchPlaceholder'
@@ -116,11 +116,19 @@ export default function InterviewsQuestionsCategoryLanguagePage({
     );
   })();
 
+  const questionFeatures = useInterviewsQuestionsFeatures();
+  const features = [
+    questionFeatures.solvedByExInterviewers,
+    questionFeatures.testCases,
+    questionFeatures.codeInBrowser,
+  ];
+
   return (
     <div className="flex flex-col gap-20">
       <InterviewsQuestionsCategoryPage
         categoryTabs={categoryTabs}
         description={languages[language].getDescription(totalQuestionsCount)}
+        features={features}
         formatTabs={codingFormatTabs}
         listType={{ type: 'language', value: language }}
         questionList={questions}

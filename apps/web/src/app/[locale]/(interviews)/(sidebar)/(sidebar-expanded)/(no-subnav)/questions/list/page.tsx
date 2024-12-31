@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 import InterviewsPracticeQuestionsPage from '~/components/interviews/questions/listings/practice/InterviewsPracticeQuestionsPage';
-import { QuestionCount } from '~/components/interviews/questions/listings/stats/QuestionCount';
+import { QuestionCountTotal } from '~/components/interviews/questions/listings/stats/QuestionCount';
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
 import {
@@ -45,7 +45,7 @@ async function getPageSEOMetadata({ params }: Props) {
         id: 'tV+VAr',
       },
       {
-        questionCount: QuestionCount,
+        questionCount: QuestionCountTotal,
       },
     ),
   };

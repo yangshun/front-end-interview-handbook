@@ -1,14 +1,10 @@
 import type { Metadata } from 'next';
 
 import InterviewsQuestionsCategoryPreparePage from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryPreparePage';
-import { QuestionCount } from '~/components/interviews/questions/listings/stats/QuestionCount';
+import { QuestionCountTotal } from '~/components/interviews/questions/listings/stats/QuestionCount';
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
-import {
-  fetchQuestionsListCoding,
-  fetchQuestionsListQuiz,
-  fetchQuestionsListSystemDesign,
-} from '~/db/QuestionsListReader';
+import { fetchQuestionsListSystemDesign } from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
@@ -45,7 +41,7 @@ async function getPageSEOMetadata({ params }: Props) {
         id: 'tV+VAr',
       },
       {
-        questionCount: QuestionCount,
+        questionCount: QuestionCountTotal,
       },
     ),
   };
@@ -70,27 +66,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Page({ params }: Props) {
   const { locale } = params;
 
-  const [
-    { questions: codingQuestions },
-    { questions: quizQuestions },
-    { questions: systemDesignQuestions },
-    bottomContent,
-  ] = await Promise.all([
-    fetchQuestionsListCoding(locale),
-    fetchQuestionsListQuiz(locale),
-    fetchQuestionsListSystemDesign(locale),
-    fetchInterviewListingBottomContent('all-questions'),
-  ]);
+  const [{ questions: systemDesignQuestions }, bottomContent] =
+    await Promise.all([
+      fetchQuestionsListSystemDesign(locale),
+      fetchInterviewListingBottomContent('all-questions'),
+    ]);
 
   return (
     <InterviewsQuestionsCategoryPreparePage
       bottomContent={bottomContent}
       questions={systemDesignQuestions}
-      totalQuestionCount={
-        codingQuestions.length +
-        systemDesignQuestions.length +
-        quizQuestions.length
-      }
+      totalQuestionCount={QuestionCountTotal}
       userFacingFormat="system-design"
     />
   );

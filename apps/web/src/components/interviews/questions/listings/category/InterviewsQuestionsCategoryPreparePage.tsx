@@ -4,6 +4,7 @@ import type { InterviewsListingBottomContent } from 'contentlayer/generated';
 
 import { useQuestionFormatsData } from '~/data/QuestionCategories';
 
+import useInterviewsQuestionsFeatures from '~/components/interviews/common/useInterviewsQuestionsFeatures';
 import type {
   QuestionMetadata,
   QuestionUserFacingFormat,
@@ -60,11 +61,19 @@ export default function InterviewsQuestionsCategoryPreparePage({
     />
   );
 
+  const questionFeatures = useInterviewsQuestionsFeatures();
+  const features = [
+    questionFeatures.solvedByExInterviewers,
+    questionFeatures.testCases,
+    questionFeatures.codeInBrowser,
+  ];
+
   return (
     <div className="flex flex-col gap-20">
       <InterviewsQuestionsCategoryPage
         categoryTabs={categoryTabs}
         description={`The largest bank of ${roundQuestionCountToNearestTen(totalQuestionCount)}+ practice questions for front end interviews.`}
+        features={features}
         listType={
           userFacingFormat === 'coding'
             ? undefined
