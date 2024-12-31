@@ -55,6 +55,22 @@ export type QuestionFormat =
   | 'quiz'
   | 'system-design'
   | 'user-interface';
+export type QuestionFormatSEO =
+  | 'algo-coding'
+  | 'javascript-functions'
+  | 'quiz'
+  | 'system-design'
+  | 'ui-coding';
+export const QuestionFormatSEOToSlug: Record<
+  QuestionFormatSEO,
+  QuestionFormat
+> = {
+  'algo-coding': 'algo',
+  'javascript-functions': 'javascript',
+  quiz: 'quiz',
+  'system-design': 'system-design',
+  'ui-coding': 'user-interface',
+};
 export type QuestionCodingFormat = 'algo' | 'javascript' | 'user-interface';
 export type QuestionUserFacingFormat = 'coding' | 'quiz' | 'system-design';
 export type QuestionFramework =

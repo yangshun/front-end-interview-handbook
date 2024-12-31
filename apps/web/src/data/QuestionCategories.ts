@@ -16,6 +16,7 @@ import type { IntlShape } from 'react-intl';
 
 import type {
   QuestionFormat,
+  QuestionFormatSEO,
   QuestionFramework,
   QuestionLanguage,
   QuestionTopic,
@@ -47,7 +48,7 @@ type QuestionFormatData = Record<
   QuestionFormat,
   {
     briefName: string;
-    href: `/questions/${QuestionFormat}`;
+    href: `/questions/formats/${QuestionFormatSEO}`;
     icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
     label: string;
     listingDescription: string;
@@ -74,7 +75,7 @@ export function getQuestionFormatsData(intl: IntlShape): QuestionFormatData {
         description: 'Data structures and algorithm questions',
         id: 'qvT5Mx',
       }),
-      href: '/questions/algo',
+      href: '/questions/formats/algo-coding',
       icon: TbBinaryTree,
       label: intl.formatMessage({
         defaultMessage: 'Algorithmic coding',
@@ -117,7 +118,7 @@ export function getQuestionFormatsData(intl: IntlShape): QuestionFormatData {
         description: 'Question format',
         id: '01DH9a',
       }),
-      href: '/questions/javascript',
+      href: '/questions/formats/javascript-functions',
       icon: RiJavascriptFill,
       label: intl.formatMessage({
         defaultMessage: 'JavaScript functions',
@@ -160,7 +161,7 @@ export function getQuestionFormatsData(intl: IntlShape): QuestionFormatData {
         description: 'Question format',
         id: 'doY6Fg',
       }),
-      href: '/questions/quiz',
+      href: '/questions/formats/quiz',
       icon: RiQuestionnaireLine,
       label: intl.formatMessage({
         defaultMessage: 'Quiz',
@@ -203,7 +204,7 @@ export function getQuestionFormatsData(intl: IntlShape): QuestionFormatData {
         description: 'Question format',
         id: '57qxzy',
       }),
-      href: '/questions/system-design',
+      href: '/questions/formats/system-design',
       icon: RiFlowChart,
       label: intl.formatMessage({
         defaultMessage: 'System design',
@@ -246,7 +247,7 @@ export function getQuestionFormatsData(intl: IntlShape): QuestionFormatData {
         description: 'Question format',
         id: 'mwlQkw',
       }),
-      href: '/questions/user-interface',
+      href: '/questions/formats/ui-coding',
       icon: RiTerminalWindowLine,
       label: intl.formatMessage({
         defaultMessage: 'User interface coding',

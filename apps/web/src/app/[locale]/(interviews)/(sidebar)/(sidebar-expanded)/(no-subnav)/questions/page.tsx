@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 
 import InterviewsQuestionsCategoryPage from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryPage';
-import InterviewsPracticeQuestionsPage from '~/components/interviews/questions/listings/practice/InterviewsPracticeQuestionsPage';
 import { QuestionCount } from '~/components/interviews/questions/listings/stats/QuestionCount';
 import MDXContent from '~/components/mdx/MDXContent';
 import Divider from '~/components/ui/Divider';
@@ -12,7 +11,6 @@ import {
   fetchQuestionsListQuiz,
   fetchQuestionsListSystemDesign,
 } from '~/db/QuestionsListReader';
-import { categorizeQuestionsByFrameworkAndLanguage } from '~/db/QuestionsUtils';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 

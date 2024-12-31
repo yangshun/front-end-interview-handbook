@@ -1,9 +1,11 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
-import type {
-  QuestionFormat,
-  QuestionMetadata,
+import {
+  type QuestionFormat,
+  type QuestionFormatSEO,
+  QuestionFormatSEOToSlug,
+  type QuestionMetadata,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import InterviewsQuestionFormatPage from '~/components/interviews/questions/listings/practice/InterviewsQuestionFormatPage';
 
@@ -25,14 +27,14 @@ import defaultMetadata from '~/seo/defaultMetadata';
 
 type Props = Readonly<{
   params: Readonly<{
-    format: QuestionFormat;
+    format: QuestionFormatSEO;
     locale: string;
   }>;
 }>;
 
 async function processParams(params: Props['params']) {
   const { format, locale } = params;
-  const questionFormat = format.replace(/\/$/g, '') as QuestionFormat;
+  const questionFormatSEO = format.replace(/\/$/g, '') as QuestionFormatSEO;
 
   const intl = await getIntlServerOnly(locale);
   const algoSocialTitle = intl.formatMessage({
@@ -219,6 +221,8 @@ async function processParams(params: Props['params']) {
     },
   };
 
+  const questionFormat = QuestionFormatSEOToSlug[questionFormatSEO];
+
   const { seoDescription, socialTitle, pageTitle, description, ogImageTitle } =
     QuestionFormatStrings[questionFormat];
   let seoTitle = QuestionFormatStrings[questionFormat].seoTitle(0);
@@ -321,7 +325,8 @@ export async function generateStaticParams() {
 
 export default async function Page({ params }: Props) {
   const { format } = params;
-  const questionFormat = format.replace(/\/$/g, '') as QuestionFormat;
+  const questionFormatSEO = format.replace(/\/$/g, '') as QuestionFormatSEO;
+  const questionFormat = QuestionFormatSEOToSlug[questionFormatSEO];
 
   const [
     { pageTitle, description, questions },
