@@ -26,6 +26,8 @@ import {
 } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
+import { useI18nPathname } from '~/next-i18nostic/src';
+
 import useInterviewsSidebarLinks from './useInterviewsSidebarLinks';
 
 import { useUser } from '@supabase/auth-helpers-react';
@@ -38,8 +40,14 @@ export function InterviewsSidebarExpanded({
   sidebarItems: React.ComponentProps<typeof SidebarExpanded>['sidebarItems'];
 }>) {
   const { isLoading, userProfile } = useUserProfile();
+  const { pathname } = useI18nPathname();
   const isPremium = userProfile?.premium ?? false;
   const commonNavItems = useCommonNavItems();
+
+  const shouldOpenPracticeQuestionsSectionByDefault =
+    pathname?.startsWith('/interviews/get-started') ||
+    pathname?.startsWith('/interviews/dashboard') ||
+    pathname?.startsWith('/questions');
 
   return (
     <SidebarExpanded
@@ -58,6 +66,11 @@ export function InterviewsSidebarExpanded({
             ),
           )}
         </>
+      }
+      defaultOpenSections={
+        shouldOpenPracticeQuestionsSectionByDefault
+          ? ['practice-questions']
+          : []
       }
       isLoading={isLoading}
       isViewerPremium={isPremium}

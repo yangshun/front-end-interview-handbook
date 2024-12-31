@@ -6,9 +6,9 @@ export default function useInterviewsSidebarLinks(isLoggedIn: boolean) {
   const links = [
     isLoggedIn ? navItems.dashboard : navItems.getStarted,
     ...[
+      navItems.practiceQuestions,
       navItems.recommendedPreparation,
       navItems.timeSavers,
-      navItems.practiceQuestions,
       navItems.guides,
     ].map(
       (item) =>

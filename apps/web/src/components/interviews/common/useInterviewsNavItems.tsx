@@ -2,8 +2,10 @@ import {
   RiBookOpenLine,
   RiBuilding2Line,
   RiCalendar2Line,
+  RiCodeSSlashLine,
   RiFocus2Line,
   RiHome3Line,
+  RiListCheck3,
   RiPriceTag3Line,
   RiQuestionAnswerLine,
   RiQuestionnaireLine,
@@ -352,18 +354,13 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
   const practiceQuestions = {
     align: 'center',
     currentMatchRegex: /\/questions/,
-    icon: RiQuestionnaireLine,
+    icon: RiListCheck3,
     id: 'practice-questions',
     items: [
       {
         bottomEl: (
           <div className="flex flex-wrap gap-2">
-            {[
-              'JavaScript functions',
-              'UI coding',
-              'Algo coding',
-              '+2 more',
-            ].map((label) => (
+            {['Coding', 'System design', 'Quiz'].map((label) => (
               <Badge
                 key={label}
                 label={label}
@@ -373,32 +370,27 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
             ))}
           </div>
         ),
-        currentMatchRegex: new RegExp(
-          `^(${Object.values(formatsData)
-            .map((formatData) => formatData.href)
-            .join('|')})`,
-          'i',
-        ),
+        currentMatchRegex:
+          /^\/questions$|^\/questions\/system-design$|^\/questions\/quiz$/,
         href: '/questions',
-        icon: RiQuestionAnswerLine,
-        id: 'question-format',
+        icon: RiListCheck3,
+        id: 'question-all',
         label: intl.formatMessage({
           defaultMessage: 'All practice questions',
-          description: 'Practice for interviews question format',
-          id: 'shjv0q',
+          description: 'Practice for interviews question',
+          id: 'YC+V97',
         }),
         onClick: () => {
           gtag.event({
             action: `${placement}.prepare.practice_questions.all.click`,
             category: 'engagement',
-            label: 'Question formats',
+            label: 'All practice questions',
           });
         },
         sublabel: intl.formatMessage({
-          defaultMessage:
-            'Targeted practice in specific question formats for front end interviews.',
+          defaultMessage: 'All front end interview practice questions',
           description: 'Description for interview practice by question format',
-          id: 'OlUgMf',
+          id: 'xzxLDQ',
         }),
         type: 'popover-link',
       },
@@ -446,10 +438,57 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
         },
         sublabel: intl.formatMessage({
           defaultMessage:
-            'Targeted practice in specific front end frameworks and languages.',
+            'Targeted practice in specific front end frameworks and languages',
           description:
             'Description for interviews practice by frameworks and languages',
-          id: 'taJXPg',
+          id: 'tk7bcb',
+        }),
+        type: 'popover-link',
+      },
+      {
+        bottomEl: (
+          <div className="flex flex-wrap gap-2">
+            {[
+              'JavaScript functions',
+              'UI coding',
+              'Algo coding',
+              '+2 more',
+            ].map((label) => (
+              <Badge
+                key={label}
+                label={label}
+                size="xs"
+                variant="neutral-active"
+              />
+            ))}
+          </div>
+        ),
+        currentMatchRegex: new RegExp(
+          `^(${Object.values(formatsData)
+            .map((formatData) => formatData.href)
+            .join('|')})`,
+          'i',
+        ),
+        href: formatsData.javascript.href,
+        icon: RiCodeSSlashLine,
+        id: 'question-format',
+        label: intl.formatMessage({
+          defaultMessage: 'Question formats',
+          description: 'Practice for interviews question format',
+          id: 'OijcrF',
+        }),
+        onClick: () => {
+          gtag.event({
+            action: `${placement}.prepare.practice_questions.question_format.click`,
+            category: 'engagement',
+            label: 'Question formats',
+          });
+        },
+        sublabel: intl.formatMessage({
+          defaultMessage:
+            'Targeted practice in specific question formats for front end interviews',
+          description: 'Description for interview practice by question format',
+          id: 'u5SlWb',
         }),
         type: 'popover-link',
       },
@@ -549,7 +588,7 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
     align: 'center',
     icon: RiTerminalWindowLine,
     id: 'practice-questions',
-    items: [recommendedPreparation, timeSavers, practiceQuestions, guides],
+    items: [practiceQuestions, recommendedPreparation, timeSavers, guides],
     label: intl.formatMessage({
       defaultMessage: 'Prepare',
       description: 'Prepare for interviews',
