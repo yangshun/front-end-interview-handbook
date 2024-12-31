@@ -3,7 +3,7 @@ import { redirect } from 'next/navigation';
 
 import { INTERVIEWS_REVAMP_BOTTOM_CONTENT } from '~/data/FeatureFlags';
 
-import InterviewsDashboardPage from '~/components/interviews/dashboard/InterviewsDashboardPage';
+import InterviewsDashboardPage_TEMPORARY from '~/components/interviews/dashboard/InterviewsDashboardPage_TEMPORARY';
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
 import { fetchInterviewsAllStudyLists } from '~/db/contentlayer/InterviewsStudyListReader';
@@ -83,7 +83,7 @@ export default async function Page({ params }: Props) {
     .sort((a, b) => a.ranking - b.ranking);
 
   return (
-    <InterviewsDashboardPage
+    <InterviewsDashboardPage_TEMPORARY
       bottomContent={
         INTERVIEWS_REVAMP_BOTTOM_CONTENT ? bottomContent : undefined
       }
