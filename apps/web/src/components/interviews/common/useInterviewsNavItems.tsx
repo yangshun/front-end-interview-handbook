@@ -428,7 +428,7 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
           ].join('|')})`,
           'i',
         ),
-        href: '/questions/react',
+        href: '/questions/react-interview-questions',
         icon: RiReactjsFill,
         id: 'question-framework',
         label: intl.formatMessage({

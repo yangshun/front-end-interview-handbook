@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 import {
   type QuestionFormat,
   type QuestionFormatSEO,
-  QuestionFormatSEOToSlug,
+  QuestionFormatSEOMapping,
   type QuestionMetadata,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import InterviewsQuestionFormatPage from '~/components/interviews/questions/listings/practice/InterviewsQuestionFormatPage';
@@ -221,7 +221,7 @@ async function processParams(params: Props['params']) {
     },
   };
 
-  const questionFormat = QuestionFormatSEOToSlug[questionFormatSEO];
+  const questionFormat = QuestionFormatSEOMapping[questionFormatSEO];
 
   const { seoDescription, socialTitle, pageTitle, description, ogImageTitle } =
     QuestionFormatStrings[questionFormat];
@@ -308,12 +308,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export async function generateStaticParams() {
-  const questionFormats: Record<QuestionFormat, null> = {
-    algo: null,
-    javascript: null,
+  const questionFormats: Record<QuestionFormatSEO, null> = {
+    'algo-coding': null,
+    'javascript-functions': null,
     quiz: null,
     'system-design': null,
-    'user-interface': null,
+    'ui-coding': null,
   };
 
   return generateStaticParamsWithLocale(
@@ -326,7 +326,7 @@ export async function generateStaticParams() {
 export default async function Page({ params }: Props) {
   const { format } = params;
   const questionFormatSEO = format.replace(/\/$/g, '') as QuestionFormatSEO;
-  const questionFormat = QuestionFormatSEOToSlug[questionFormatSEO];
+  const questionFormat = QuestionFormatSEOMapping[questionFormatSEO];
 
   const [
     { pageTitle, description, questions },

@@ -70,14 +70,42 @@ export const generalBuying: FAQItem = {
               description='Paragraph 1 for "What does GreatFrontEnd Interviews offer exactly?" on Homepage FAQ sections'
               id="J0I9im"
               values={{
-                Angular: <Anchor href="/questions/react">Angular</Anchor>,
-                CSS: <Anchor href="/questions/react">CSS</Anchor>,
-                HTML: <Anchor href="/questions/react">HTML</Anchor>,
-                JavaScript: <Anchor href="/questions/js">JavaScript</Anchor>,
-                React: <Anchor href="/questions/react">React</Anchor>,
-                Svelte: <Anchor href="/questions/react">Svelte</Anchor>,
-                TypeScript: <Anchor href="/questions/ts">TypeScript</Anchor>,
-                Vue: <Anchor href="/questions/react">Vue</Anchor>,
+                Angular: (
+                  <Anchor href="/questions/angular-interview-questions">
+                    Angular
+                  </Anchor>
+                ),
+                CSS: (
+                  <Anchor href="/questions/css-interview-questions">CSS</Anchor>
+                ),
+                HTML: (
+                  <Anchor href="/questions/html-interview-questions">
+                    HTML
+                  </Anchor>
+                ),
+                JavaScript: (
+                  <Anchor href="/questions/js-interview-questions">
+                    JavaScript
+                  </Anchor>
+                ),
+                React: (
+                  <Anchor href="/questions/react-interview-questions">
+                    React
+                  </Anchor>
+                ),
+                Svelte: (
+                  <Anchor href="/questions/svelte-interview-questions">
+                    Svelte
+                  </Anchor>
+                ),
+                TypeScript: (
+                  <Anchor href="/questions/ts-interview-questions">
+                    TypeScript
+                  </Anchor>
+                ),
+                Vue: (
+                  <Anchor href="/questions/vue-interview-questions">Vue</Anchor>
+                ),
               }}
             />
           </li>
@@ -90,19 +118,25 @@ export const generalBuying: FAQItem = {
               id="zOaxDi"
               values={{
                 algoCodingAnchor: (chunks) => (
-                  <Anchor href="/questions/algo">{chunks}</Anchor>
+                  <Anchor href="/questions/formats/algo-coding">
+                    {chunks}
+                  </Anchor>
                 ),
                 jsCodingAnchor: (chunks) => (
-                  <Anchor href="/questions/javascript">{chunks}</Anchor>
+                  <Anchor href="/questions/formats/javascript-functions">
+                    {chunks}
+                  </Anchor>
                 ),
                 quizAnchor: (chunks) => (
-                  <Anchor href="/questions/quiz">{chunks}</Anchor>
+                  <Anchor href="/questions/formats/quiz">{chunks}</Anchor>
                 ),
                 systemDesignAnchor: (chunks) => (
-                  <Anchor href="/questions/system-design">{chunks}</Anchor>
+                  <Anchor href="/questions/formats/system-design">
+                    {chunks}
+                  </Anchor>
                 ),
                 uiAnchor: (chunks) => (
-                  <Anchor href="/questions/user-interface">{chunks}</Anchor>
+                  <Anchor href="/questions/formats/ui-coding">{chunks}</Anchor>
                 ),
               }}
             />

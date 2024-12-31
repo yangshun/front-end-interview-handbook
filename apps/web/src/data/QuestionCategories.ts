@@ -40,7 +40,7 @@ type QuestionCategoryLists<T extends string> = Record<
   T,
   QuestionListLink<T> &
     Readonly<{
-      href: `/questions/${T}`;
+      href: `/questions/${T}-interview-questions`;
     }>
 >;
 
@@ -322,7 +322,7 @@ export function getQuestionLanguagesData(
             questionCount: roundQuestionCountToNearestTen(questionCount),
           },
         ),
-      href: '/questions/css',
+      href: '/questions/css-interview-questions',
       icon: RiCss3Fill,
       label: 'CSS',
       longName: intl.formatMessage({
@@ -357,7 +357,7 @@ export function getQuestionLanguagesData(
             questionCount: roundQuestionCountToNearestTen(questionCount),
           },
         ),
-      href: '/questions/html',
+      href: '/questions/html-interview-questions',
       icon: RiHtml5Fill,
       label: 'HTML',
       longName: intl.formatMessage({
@@ -393,7 +393,7 @@ export function getQuestionLanguagesData(
             questionCount: roundQuestionCountToNearestTen(questionCount),
           },
         ),
-      href: '/questions/js',
+      href: '/questions/js-interview-questions',
       icon: BiLogoJavascript,
       label: 'JavaScript',
       longName: intl.formatMessage({
@@ -429,7 +429,7 @@ export function getQuestionLanguagesData(
             questionCount: roundQuestionCountToNearestTen(questionCount),
           },
         ),
-      href: '/questions/ts',
+      href: '/questions/ts-interview-questions',
       icon: BiLogoTypescript,
       label: 'TypeScript',
       longName: intl.formatMessage({
@@ -477,7 +477,7 @@ export function getQuestionFrameworksData(
             questionCount: roundQuestionCountToNearestTen(questionCount),
           },
         ),
-      href: '/questions/angular',
+      href: '/questions/angular-interview-questions',
       icon: RiAngularjsFill,
       label: 'Angular',
       longName: intl.formatMessage({
@@ -512,7 +512,7 @@ export function getQuestionFrameworksData(
             questionCount: roundQuestionCountToNearestTen(questionCount),
           },
         ),
-      href: '/questions/react',
+      href: '/questions/react-interview-questions',
       icon: RiReactjsLine,
       label: 'React',
       longName: intl.formatMessage({
@@ -547,7 +547,7 @@ export function getQuestionFrameworksData(
             questionCount: roundQuestionCountToNearestTen(questionCount),
           },
         ),
-      href: '/questions/svelte',
+      href: '/questions/svelte-interview-questions',
       icon: RiSvelteFill,
       label: 'Svelte',
       longName: intl.formatMessage({
@@ -583,7 +583,7 @@ export function getQuestionFrameworksData(
             questionCount: roundQuestionCountToNearestTen(questionCount),
           },
         ),
-      href: '/questions/vanilla',
+      href: '/questions/vanilla-interview-questions',
       icon: RiHtml5Fill,
       label: intl.formatMessage({
         defaultMessage: 'Vanilla JS',
@@ -622,7 +622,7 @@ export function getQuestionFrameworksData(
             questionCount: roundQuestionCountToNearestTen(questionCount),
           },
         ),
-      href: '/questions/vue',
+      href: '/questions/vue-interview-questions',
       icon: RiVuejsLine,
       label: 'Vue',
       longName: intl.formatMessage({
