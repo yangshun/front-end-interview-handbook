@@ -223,7 +223,9 @@ export default function SidebarLinksSection({
   const { pathname } = useI18nPathname();
 
   // `single` type
-  const [openSection, setOpenSection] = useState<string | null>(null);
+  const [openSection, setOpenSection] = useState<string | null>(
+    defaultOpenSections.length > 0 ? defaultOpenSections[0] : null,
+  );
 
   // `multiple` type
   const [manuallyOpenSections, setManuallyOpenSections] =

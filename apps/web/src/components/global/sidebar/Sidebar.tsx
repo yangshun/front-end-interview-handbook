@@ -200,6 +200,7 @@ export function SidebarCollapsed({
 }
 
 export function SidebarExpanded({
+  defaultOpenSections,
   renderTopAddonElements,
   renderBottomAddonElements,
   isLoading,
@@ -212,6 +213,7 @@ export function SidebarExpanded({
   product,
 }: Readonly<{
   bottomBarItems?: React.ReactElement | false | null | undefined;
+  defaultOpenSections?: ReadonlyArray<string>;
   isLoading: boolean;
   isViewerPremium: boolean;
   moreMenuItems?: React.ReactElement | false | null | undefined;
@@ -242,7 +244,11 @@ export function SidebarExpanded({
           <div className="h-0 grow overflow-auto">
             <ScrollArea>
               {renderTopAddonElements?.(fadeInClass)}
-              <SidebarLinksSection items={startItems} type="single" />
+              <SidebarLinksSection
+                defaultOpenSections={defaultOpenSections}
+                items={startItems}
+                type="single"
+              />
             </ScrollArea>
           </div>
           <div className={clsx('flex flex-col gap-y-4', fadeInClass)}>
