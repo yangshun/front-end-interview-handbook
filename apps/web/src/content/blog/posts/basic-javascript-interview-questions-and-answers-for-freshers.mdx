@@ -87,6 +87,8 @@ foo.doSomething(); // Works normally.
 import foo from './modules/foo';
 ```
 
+[Explore the concept of "hoisting" in JavaScript on GreatFrontEnd](/questions/quiz/explain-hoisting?format=quiz)
+
 ## 2. What are the differences between JavaScript variables created using `let`, `var` or `const`?
 
 ### Scope
@@ -189,6 +191,8 @@ console.log(bar); // ReferenceError
 const bar = 'bar';
 ```
 
+[Explore the differences between Javascript variables created using `let`, `var`, and `const` on GreatFrontEnd](/questions/quiz/what-are-the-differences-between-variables-created-using-let-var-or-const?format=quiz)
+
 ## 3. What is the difference between `==` and `===` in JavaScript?
 
 ### Equality Operator (`==`)
@@ -232,6 +236,8 @@ null === undefined; // false
   ```
 
 - Prefer `===` for all other comparisons to avoid pitfalls of type coercion and ensure both value and type are the same.
+
+[Explore the difference between `==` and `===` in JavaScript on GreatFrontEnd](/questions/quiz/what-is-the-difference-between-double-equal-and-triple-equal?format=quiz)
 
 ## 4. What is the event loop in JavaScript?
 
@@ -310,6 +316,8 @@ Timeout 2
 
 Understanding the event loop helps write efficient, non-blocking JavaScript code.
 
+[Explore the event loop in JavaScript on GreatFrontEnd](/questions/quiz/what-is-event-loop-what-is-the-difference-between-call-stack-and-task-queue?format=quiz)
+
 ## 5. Explain event delegation in JavaScript
 
 Event delegation is an efficient way to handle events on multiple child elements by attaching a single event listener to a common parent element. This is useful for managing events on many similar elements, like list items.
@@ -382,6 +390,7 @@ A single click listener on `<ul>` handles clicks on any `<li>` due to event bubb
       console.log(`Changed ${name}: ${value}`);
     });
     ```
+[Explore event delegation in JavaScript on GreatFrontEnd](/questions/quiz/explain-event-delegation?format=quiz)
 
 ## 6. Explain how `this` works in JavaScript
 
@@ -469,6 +478,8 @@ function Timer() {
 const timer = new Timer();
 ```
 
+[Explore how `this` works in JavaScript on GreatFrontEnd](/questions/quiz/explain-how-this-works-in-javascript?format=quiz)
+
 ## 7. Describe the difference between a cookie, `sessionStorage` and `localStorage`.
 
 Cookies, localStorage, and sessionStorage are key client-side storage mechanisms in web applications, each serving distinct purposes:
@@ -540,6 +551,8 @@ Cookies, localStorage, and sessionStorage are key client-side storage mechanisms
   // Clear all data in sessionStorage
   sessionStorage.clear();
   ```
+
+[Explore the difference between a cookie, `sessionStorage` and `localStorage` on GreatFrontEnd](/questions/quiz/describe-the-difference-between-a-cookie-sessionstorage-and-localstorage?format=quiz)
 
 ## 8. Describe the difference between `<script>`, `<script async>` and `<script defer>`
 
@@ -617,6 +630,8 @@ The `<script>` tag is used to include JavaScript in a web page. When used withou
 </html>
 ```
 
+[Explore the difference between `<script>`, `<script async>` and `<script defer>` on GreatFrontEnd](/questions/quiz/describe-the-difference-between-script-async-and-script-defer?format=quiz)
+
 ## 9. What's the difference between a variable that is: `null`, `undefined` or undeclared?
 
 **Undeclared**: A variable that is not declared using **`var`**, **`let`**, or **`const`** will be created globally and can cause errors. Avoid them by using **`try/catch`** blocks to detect them.
@@ -630,6 +645,8 @@ The `<script>` tag is used to include JavaScript in a web page. When used withou
 - Always declare variables before using them.
 - Assign **`null`** to variables if you don't intend to use them yet.
 - Use static analysis tools like ESLint or TypeScript Compiler to detect undeclared variables.
+
+[Explore the difference between a variable that is: `null`, `undefined` or undeclared on GreatFrontEnd](/questions/quiz/whats-the-difference-between-a-variable-that-is-null-undefined-or-undeclared-how-would-you-go-about-checking-for-any-of-these-states?format=quiz)
 
 ## 10. What's the difference between `.call` and `.apply` in JavaScript?
 
@@ -657,6 +674,8 @@ The `<script>` tag is used to include JavaScript in a web page. When used withou
     // ES6 with spread operator
     console.log(add.call(null, ...[1, 2])); // 3
     ```
+
+[Explore the difference between `.call` and `.apply` in JavaScript on GreatFrontEnd](/questions/quiz/whats-the-difference-between-call-and-apply?format=quiz)
 
 ## 11. Explain `Function.prototype.bind`
 
@@ -690,6 +709,8 @@ The `<script>` tag is used to include JavaScript in a web page. When used withou
     1. **Binding `this` to preserve context:** The primary function of **`bind`** is to attach the **`this`** value of a function to a specific object. When you use **`func.bind(thisArg)`**, it generates a new function with the same code as **`func`**, but with **`this`** permanently set to **`thisArg`**.
     2. **Partial application of arguments:** **`bind`** also enables you to pre-set arguments for the new function. Any arguments provided to **`bind`** after **`thisArg`** will be prepended to the argument list when the new function is invoked.
     3. **Method borrowing:** **`bind`** allows you to borrow methods from one object and use them on another object, even if the methods were not initially designed for that object.
+
+[Explore `Function.prototype.bind` on GreatFrontEnd](/questions/quiz/explain-function-prototype-bind?format=quiz)
 
 ## 12. What advantage is there for using the arrow syntax for a method in a constructor?
 
@@ -725,6 +746,8 @@ The `<script>` tag is used to include JavaScript in a web page. When used withou
     On the other hand, the **`sayName2`** method uses an arrow function, which means its **`this`** value is automatically bound to the constructor's **`this`** context. If you call **`john.sayName2.call(dave)`**, the **`this`** value will still be **`john`**, and the method will log **`John`** to the console.
 
     This can be particularly helpful in React class components, where you often need to pass methods as props to child components. By using arrow functions, you can ensure that the methods always refer to the correct **`this`** context, without having to manually bind **`this`** in the constructor.
+
+[Explore the advantage for using the arrow syntax for a method in a constructor on GreatFrontEnd](/questions/quiz/what-advantage-is-there-for-using-the-arrow-syntax-for-a-method-in-a-constructor?format=quiz)
 
 ## 13. Explain how prototypal inheritance works
 
@@ -801,6 +824,8 @@ The `<script>` tag is used to include JavaScript in a web page. When used withou
        person.greet(); // "Hello, my name is John"
        ```
 
+[Explore how prototypal inheritance works on GreatFrontEnd](/questions/quiz/explain-how-prototypal-inheritance-works?format=quiz)
+
 ## 14. Difference between: `function Person(){}`, `const person = Person()`, and `const person = new Person()`?
 
     ### Function Declaration
@@ -814,6 +839,8 @@ The `<script>` tag is used to include JavaScript in a web page. When used withou
     ### Constructor Call
 
     **`const person = new Person()`** creates a new object using the **`Person`** constructor function. The **`new`** keyword creates a new object and sets its prototype to **`Person.prototype`**. The **`this`** keyword inside the constructor function refers to the new object being created.
+
+[Explore the difference between: `function Person(){}`, `const person = Person()`, and `const person = new Person()` on GreatFrontEnd](/questions/quiz/difference-between-function-person-var-person-person-and-var-person-new-person?format=quiz)
 
 ## 15. Explain the differences on the usage of `foo` between `function foo() {}` and `var foo = function() {}`
 
@@ -883,6 +910,8 @@ The `<script>` tag is used to include JavaScript in a web page. When used withou
     **Function Expressions:**
 
     - Use for functions needed only in specific contexts to limit the scope.
+
+[Explore the differences on the usage of `foo` between `function foo() {}` and `var foo = function() {}` on GreatFrontEnd](/questions/quiz/explain-the-differences-on-the-usage-of-foo-between-function-foo-and-var-foo-function?format=quiz)
 
 ## 16. What are the various ways to create objects in JavaScript?
 
@@ -962,6 +991,8 @@ The `<script>` tag is used to include JavaScript in a web page. When used withou
 
     Note: Constructor functions are less commonly used now that ES2015 classes are widely supported.
 
+[Explore various ways to create objects in JavaScript on GreatFrontEnd](/questions/quiz/what-are-the-various-ways-to-create-objects-in-javascript?format=quiz)
+
 ## 17. What is the definition of a higher-order function?
 
     A higher-order function is a function that:
@@ -995,6 +1026,8 @@ The `<script>` tag is used to include JavaScript in a web page. When used withou
        ```
 
     In other words, a higher-order function is a function that operates on other functions, either by taking them as input or by producing them as output.
+
+[Explore the definition of a higher-order function on GreatFrontEnd](/questions/quiz/what-is-the-definition-of-a-higher-order-function?format=quiz)
 
 ## 18. What are the differences between ES2015 classes and ES5 function constructors?
 
@@ -1070,6 +1103,8 @@ The `<script>` tag is used to include JavaScript in a web page. When used withou
       - ES5: Manual parent constructor function call
       - ES2015: Using **`super`** keyword to call parent class's constructor and methods
 
+[Explore differences between ES2015 classes and ES5 function constructors on GreatFrontEnd](/questions/quiz/what-are-the-differences-between-es6-class-and-es5-function-constructors?format=quiz)
+
 ## 19. Describe event bubbling
 
     **Event bubbling** is a mechanism in the DOM (Document Object Model) where an event, such as a click, is first triggered on the target element and then propagates upward through the DOM tree to the root of the document.
@@ -1109,6 +1144,8 @@ The `<script>` tag is used to include JavaScript in a web page. When used withou
         event.stopPropagation();
       });
       ```
+
+[Explore event bubbling on GreatFrontEnd](/questions/quiz/describe-event-bubbling?format=quiz)
 
 ## 20. Describe event capturing
 
@@ -1172,6 +1209,8 @@ The `<script>` tag is used to include JavaScript in a web page. When used withou
 
     In this example, only the parent event listener will be called when you click the "Click me!" button, as the event propagation is stopped at the parent element.
 
+[Explore event capturing on GreatFrontEnd](/questions/quiz/describe-event-capturing?format=quiz)
+
 ## 21. What is the difference between `mouseenter` and `mouseover` event in JavaScript and browsers?
 
     ### `mouseenter`
@@ -1185,6 +1224,8 @@ The `<script>` tag is used to include JavaScript in a web page. When used withou
     - Bubbles up the DOM tree
     - Triggered when the mouse pointer enters the element or one of its descendants
     - Can result in multiple event callbacks fired if there are child elements
+
+    [Explore the difference between `mouseenter` and `mouseover` event in JavaScript and browsers on GreatFrontEnd](/questions/quiz/what-is-the-difference-between-mouseenter-and-mouseover-event?format=quiz)
 
 ## 22. Explain the difference between synchronous and asynchronous functions
 
@@ -1225,6 +1266,8 @@ The `<script>` tag is used to include JavaScript in a web page. When used withou
 
     console.log('End of program');
     ```
+
+[Explore the difference between synchronous and asynchronous functions on GreatFrontEnd](/questions/quiz/explain-the-difference-between-synchronous-and-asynchronous-functions?format=quiz)
 
 ## 23. Explain AJAX in as much detail as possible
 
@@ -1313,6 +1356,8 @@ The `<script>` tag is used to include JavaScript in a web page. When used withou
     #### 6. Error Handling
        - Errors (e.g., network failures, invalid responses) are caught and propagated through the Promise chain using **`.catch()`** or **`try/catch`** with **`async/await`**.
 
+[Explore how to explain AJAX in as much detail as possible on GreatFrontEnd](/questions/quiz/explain-ajax-in-as-much-detail-as-possible?format=quiz)
+
 ## 24. What are the advantages and disadvantages of using AJAX?
 
     **AJAX (Asynchronous JavaScript and XML)** enables web pages to send and retrieve data asynchronously, allowing for dynamic updates without full page reloads.
@@ -1329,6 +1374,8 @@ The `<script>` tag is used to include JavaScript in a web page. When used withou
     - Dynamic content makes bookmarking specific page states challenging.
     - Search engines may struggle to index dynamic content, posing SEO challenges.
     - Processing AJAX data on low-end devices can be slow, raising performance concerns.
+
+[Explore the advantages and disadvantages of using AJAX on GreatFrontEnd](/questions/quiz/what-are-the-advantages-and-disadvantages-of-using-ajax?format=quiz)
 
 ## 25. What are the differences between `XMLHttpRequest` and `fetch()`?
 
@@ -1376,6 +1423,8 @@ The `<script>` tag is used to include JavaScript in a web page. When used withou
 
     **Choosing Between Them**: `fetch()` is generally preferred due to its cleaner syntax and promise-based handling, but `XMLHttpRequest` may still be useful for specific cases like progress tracking.
 
+[Explore the differences between `XMLHttpRequest` and `fetch()` on GreatFrontEnd](/questions/quiz/what-are-the-differences-between-xmlhttprequest-and-fetch?format=quiz)
+
 ## 26. What are the various data types in JavaScript?
 
     JavaScript has various data types categorized into two groups: primitive and non-primitive (reference) types.
@@ -1401,6 +1450,8 @@ The `<script>` tag is used to include JavaScript in a web page. When used withou
     - **Set**: A collection of unique values.
 
     **Determining Data Types**: JavaScript is dynamically typed, meaning variables can hold different data types over time. Use the `typeof` operator to determine a variable's type.
+
+[Explore the various data types in JavaScript on GreatFrontEnd](/questions/quiz/what-are-the-various-data-types-in-javascript?format=quiz)
 
 ## 27. What language constructions do you use for iterating over object properties and array items?
 
@@ -1480,6 +1531,8 @@ The `<script>` tag is used to include JavaScript in a web page. When used withou
     }
     ```
 
+[Explore language constructions used for iterating over object properties and array items on GreatFrontEnd](/questions/quiz/what-language-constructs-do-you-use-for-iterating-over-object-properties-and-array-items?format=quiz)
+
 ## 28. What are the benefits of using spread syntax and how is it different from rest syntax?
 
     ### Spread Syntax
@@ -1557,6 +1610,8 @@ The `<script>` tag is used to include JavaScript in a web page. When used withou
       }
       ```
 
+[Explore the benefits of using spread syntax and how it is different from rest syntax on GreatFrontEnd](/questions/quiz/what-are-the-benefits-of-using-spread-syntax-and-how-is-it-different-from-rest-syntax?format=quiz)
+
 ## 29. What is the difference between a `Map` object and a plain object in JavaScript?
 
     ### Map Object
@@ -1590,6 +1645,8 @@ The `<script>` tag is used to include JavaScript in a web page. When used withou
     console.log(Object.keys(obj).length); // 1 (keys are strings)
     ```
 
+[Explore the difference between a `Map` object and a plain object in JavaScript on GreatFrontEnd](/questions/quiz/what-is-the-difference-between-a-map-object-and-a-plain-object-in-javascript?format=quiz)
+
 ## 30. What are the differences between `Map`/`Set` vs `WeakMap`/`WeakSet`?
 
     The main distinctions between `Map`/`Set` and `WeakMap`/`WeakSet` in JavaScript are as follows:
@@ -1599,6 +1656,8 @@ The `<script>` tag is used to include JavaScript in a web page. When used withou
     - **Key enumeration**: Keys in `Map` and `Set` are enumerable and can be iterated over, while those in `WeakMap` and `WeakSet` are non-enumerable, precluding retrieval of key or value lists directly from them.
     - **Size property**: `Map` and `Set` possess a `size` property that indicates the number of elements they contain. In contrast, `WeakMap` and `WeakSet` lack a `size` property because their size may vary as a result of garbage collection.
     - **Use cases**: `Map` and `Set` serve well as general-purpose data structures and for caching purposes. Conversely, `WeakMap` and `WeakSet` are primarily suited for storing metadata or additional object-related data without impeding the object's potential garbage collection when no longer needed.
+
+[Explore the differences between `Map`/`Set` vs `WeakMap`/`WeakSet` on GreatFrontEnd](/questions/quiz/what-are-the-differences-between-map-set-and-weakmap-weakset?format=quiz)
 
 ## 31. Can you offer a use case for the new arrow => function syntax?
 
@@ -1628,6 +1687,8 @@ The `<script>` tag is used to include JavaScript in a web page. When used withou
     console.log(doubledNumbers); // Output: [2, 4, 6, 8, 10]
     ```
 
+[Explore a use case for the new arrow => function syntax on GreatFrontEnd](/questions/quiz/can-you-offer-a-use-case-for-the-new-arrow-function-syntax-how-does-this-new-syntax-differ-from-other-functions?format=quiz)
+
 ## 32. Explain the concept of a callback function in asynchronous operations
 
     In asynchronous programming, a callback function is passed as an argument to another function and invoked when a task completes, such as fetching data or handling I/O operations. Here's a concise explanation:
@@ -1646,6 +1707,8 @@ The `<script>` tag is used to include JavaScript in a web page. When used withou
       console.log(data); // { name: 'John', age: 30 }
     });
     ```
+
+[Explore the concept of a callback function in asynchronous operations on GreatFrontEnd](/questions/quiz/explain-the-concept-of-a-callback-function-in-asynchronous-operations?format=quiz)
 
 ## 33. Explain the concept of debouncing and throttling
 
@@ -1678,6 +1741,8 @@ The `<script>` tag is used to include JavaScript in a web page. When used withou
 
     These techniques optimize performance and manage event-driven behaviors effectively in JavaScript applications.
 
+[Explore the concept of debouncing and throttling on GreatFrontEnd](/questions/quiz/explain-the-concept-of-debouncing-and-throttling?format=quiz)
+
 ## 34. Explain the concept of destructuring assignment for objects and arrays
 
     Destructuring assignment simplifies extracting values from arrays or properties from objects into separate variables:
@@ -1693,6 +1758,8 @@ The `<script>` tag is used to include JavaScript in a web page. When used withou
     ```
 
     This syntax uses square brackets for arrays and curly braces for objects, enabling concise variable assignment directly from data structures.
+
+[Explore the concept of destructuring assignment for objects and arrays on GreatFrontEnd](/questions/quiz/explain-the-concept-of-destructuring-assignment-for-objects-and-arrays?format=quiz)
 
 ## 35. Explain the concept of hoisting with regards to functions
 
@@ -1713,6 +1780,8 @@ The `<script>` tag is used to include JavaScript in a web page. When used withou
       console.log('This function is not hoisted');
     };
     ```
+
+[Explore the concept of hoisting with regards to functions on GreatFrontEnd](/questions/quiz/explain-the-concept-of-hoisting-with-regards-to-functions?format=quiz)
 
 ## 36. Explain the concept of inheritance in ES2015 classes
 
@@ -1748,6 +1817,8 @@ The `<script>` tag is used to include JavaScript in a web page. When used withou
 
     Here, `Dog` inherits from `Animal`, showcasing how classes streamline inheritance and method overriding in JavaScript.
 
+[Explore the concept of inheritance in ES2015 classes on GreatFrontEnd](/questions/quiz/explain-the-concept-of-inheritance-in-es2015-classes?format=quiz)
+
 ### 37. Explain the concept of lexical scoping
 
     Lexical scoping in JavaScript determines variable access based on its position in the source code. Nested functions can access variables from their outer scope.
@@ -1769,6 +1840,8 @@ The `<script>` tag is used to include JavaScript in a web page. When used withou
     ```
 
     Here, `innerFunction` can access `outerVariable` due to lexical scoping rules.
+
+[Explore the concept of lexical scoping on GreatFrontEnd](/questions/quiz/explain-the-concept-of-lexical-scoping?format=quiz)
 
 ## 38. Explain the concept of scope in JavaScript
 
@@ -1798,6 +1871,8 @@ The `<script>` tag is used to include JavaScript in a web page. When used withou
     ```
 
     Global scope variables are accessible throughout the code, while function scope variables are limited to the function they are declared in. Block scope, introduced in ES6, confines variables to the block they are declared within (e.g., within curly braces {}).
+
+[Explore the concept of scope in JavaScript on GreatFrontEnd](/questions/quiz/explain-the-concept-of-scope-in-javascript?format=quiz)
 
 ## 39. Explain the concept of the spread operator and its uses
 
@@ -1830,11 +1905,15 @@ The `<script>` tag is used to include JavaScript in a web page. When used withou
 
     The spread operator simplifies tasks like copying, merging, and function argument handling by expanding iterable elements into individual components.
 
+[Explore the concept of the spread operator and its uses on GreatFrontEnd](/questions/quiz/explain-the-concept-of-the-spread-operator-and-its-uses?format=quiz)
+
 ## 40. Explain the concept of `this` binding in event handlers
 
     In JavaScript, the `this` keyword refers to the object executing the current code. In event handlers, `this` usually points to the element that triggered the event. However, its value can vary based on how the handler is defined and invoked. To ensure `this` refers correctly, methods like `bind()`, arrow functions, or explicit context assignment are used.
 
     These approaches help maintain the intended context for `this` within event handling functions, ensuring predictable behavior across different event-triggering scenarios in JavaScript applications.
+
+[Explore the concept of `this` binding in event handlers on GreatFrontEnd](/questions/quiz/explain-the-concept-of-this-binding-in-event-handlers?format=quiz)
 
 ## 41. Explain the difference between classical inheritance and prototypal inheritance
 
@@ -1843,6 +1922,8 @@ The `<script>` tag is used to include JavaScript in a web page. When used withou
     **Prototypal Inheritance:** In JavaScript, objects inherit directly from other objects. Objects serve as prototypes, and new objects are created based on existing ones.
 
     Classical inheritance uses classes for instantiation, while prototypal inheritance leverages object linkage for property and behavior inheritance, highlighting JavaScript's unique approach to object-oriented programming.
+
+[Explore the difference between classical inheritance and prototypal inheritance on GreatFrontEnd](/questions/quiz/explain-the-difference-between-classical-inheritance-and-prototypal-inheritance?format=quiz)
 
 ## 42. Explain the difference between `document.querySelector()` and `document.getElementById()`
 
@@ -1859,6 +1940,8 @@ The `<script>` tag is used to include JavaScript in a web page. When used withou
     ```
 
     While `document.querySelector()` offers flexibility with CSS selectors, `document.getElementById()` is straightforward for selecting elements by their unique IDs in the DOM.
+
+[Explore the difference between `document.querySelector()` and `document.getElementById()` on GreatFrontEnd](/questions/quiz/explain-the-difference-between-documentqueryselector-and-documentgetelementbyid?format=quiz)
 
 ## 43. Explain the difference between dot notation and bracket notation for accessing object properties
 
@@ -1879,6 +1962,8 @@ The `<script>` tag is used to include JavaScript in a web page. When used withou
     ```
 
     Dot notation is clear for standard properties, while bracket notation handles special cases like dynamic or non-standard property names effectively.
+
+[Explore the difference between dot notation and bracket notation for accessing object properties on GreatFrontEnd](/questions/quiz/explain-the-difference-between-dot-notation-and-bracket-notation-for-accessing-object-properties?format=quiz)
 
 ## 44. Explain the difference between global scope, function scope, and block scope
 
@@ -1916,6 +2001,8 @@ The `<script>` tag is used to include JavaScript in a web page. When used withou
 
     These scopes define where variables can be accessed, from global access throughout the code to specific function or block-level access for better control and encapsulation of variables.
 
+[Explore the difference between global scope, function scope, and block scope on GreatFrontEnd](/questions/quiz/explain-the-difference-between-global-scope-function-scope-and-block-scope?format=quiz)
+
 ## 45. Explain the difference between shallow copy and deep copy
 
     ### Shallow Copy
@@ -1940,6 +2027,8 @@ The `<script>` tag is used to include JavaScript in a web page. When used withou
     ```
 
     Shallow copies share references to nested objects, while deep copies create entirely new instances, ensuring independent modifications.
+
+[Explore the difference between shallow copy and deep copy on GreatFrontEnd](/questions/quiz/explain-the-difference-between-shallow-copy-and-deep-copy?format=quiz)
 
 ## 46. Explain the difference in hoisting between `var`, `let`, and `const`
 
@@ -1978,6 +2067,8 @@ The `<script>` tag is used to include JavaScript in a web page. When used withou
     PI = 3.14159; // TypeError: Assignment to constant variable.
     ```
 
+[Explore the difference in hoisting between `var`, `let`, and `const` on GreatFrontEnd](/questions/quiz/explain-the-difference-in-hoisting-between-var-let-and-const?format=quiz)
+
 ## 47. How can closures be used to create private variables?
 
     Closures in JavaScript provide a mechanism to create private variables by encapsulating them within a function scope. Here's how closures can be used to achieve this:
@@ -1999,6 +2090,8 @@ The `<script>` tag is used to include JavaScript in a web page. When used withou
     console.log(counter.count); // undefined
     ```
 
+[Explore how closures can be used to create private variables on GreatFrontEnd](/questions/quiz/how-can-closures-be-used-to-create-private-variables?format=quiz)
+
 ## 48. How do `Set`s and `Map`s handle equality checks for objects?
 
     `Set`s and `Map`s in JavaScript determine the equality of objects based on reference equality, not by comparing their contents. This means objects are considered equal only if they point to the same memory location. For instance:
@@ -2016,6 +2109,8 @@ The `<script>` tag is used to include JavaScript in a web page. When used withou
 
     In this example, `obj1` and `obj2` are treated as separate entries in the Set because they are distinct objects, despite having identical properties. Therefore, Sets and Maps rely on object references to determine equality, not their internal values.
 
+[Explore how `Set`s and `Map`s handle equality checks for objects on GreatFrontEnd](/questions/quiz/how-do-sets-and-maps-handle-equality-checks-for-objects?format=quiz)
+
 ## 49. How do you access the index of an element in an array during iteration?
 
     To access the index of an element in an array during iteration, you can utilize methods like forEach, map, for...of with entries, or a traditional for loop. Here's an example using forEach:
@@ -2027,9 +2122,14 @@ The `<script>` tag is used to include JavaScript in a web page. When used withou
     });
     ```
 
+[Explore how to access the index of an element in an array during iteration on GreatFrontEnd](/questions/quiz/how-do-you-access-the-index-of-an-element-in-an-array-during-iteration?format=quiz)
+
+
 ## 50. How do you check the data type of a variable?
 
     To determine the type of a variable in JavaScript, you use `typeof` followed by the variable name. It returns a string indicating the variable's type: "string", "number", "boolean", "object", "function", "undefined", or "symbol". For arrays, use `Array.isArray(variableName)`, and for null, check `variableName === null`.
+
+[Explore how to check the data type of a variable on GreatFrontEnd](/questions/quiz/how-do-you-check-the-data-type-of-a-variable?format=quiz)
 
 ## Conclusion
 

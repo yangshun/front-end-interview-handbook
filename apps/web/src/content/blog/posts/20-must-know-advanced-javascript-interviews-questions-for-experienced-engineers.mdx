@@ -20,6 +20,8 @@ IIFE stands for Immediately Invoked Function Expressions. The JavaScript parser 
 
 To fix this, wrap the function in parentheses: **`(function foo(){ })()`**. This turns it into a _function expression_, allowing it to be executed immediately.
 
+[Explore why the following doesn't work as an IIFE: `function foo(){ }();`. What needs to be changed to properly make it an IIFE on GreatFrontEnd](/questions/quiz/explain-why-the-following-doesnt-work-as-an-iife-function-foo--what-needs-to-be-changed-to-properly-make-it-an-iife?format=quiz)
+
 ## 2. What are iterators and generators in JavaScript and what are they used for?
 
 In JavaScript, iterators and generators are powerful tools for managing sequences of data and controlling the flow of execution in a more flexible way.
@@ -111,6 +113,8 @@ for await (const batch of dataGenerator) {
 }
 ```
 
+[Explore what iterators and generators are in JavaScript and what they are used for on GreatFrontEnd](/questions/quiz/what-are-iterators-and-generators-and-what-are-they-used-for?format=quiz)
+
 ## 3. What are JavaScript object property flags and descriptors?
 
 Property flags and descriptors in JavaScript manage how object properties behave, allowing control over property access, modification, and inheritance.
@@ -168,6 +172,8 @@ console.log(descriptor); // {value: "John Doe", writable: true, enumerable: true
   delete obj.name; // TypeError in strict mode
   ```
 
+[Explore what javascript object property flags and descriptors are on GreatFrontEnd](/questions/quiz/what-are-javascript-object-property-flags-and-descriptors?format=quiz)
+
 ## 4. What are JavaScript polyfills for?
 
 Polyfills are scripts that enable modern JavaScript features in older browsers that lack support, allowing developers to use the latest language features while maintaining compatibility.
@@ -217,6 +223,8 @@ if (!Array.prototype.includes) {
   ```
 
 Polyfills ensure modern JavaScript features work across all browsers, enhancing compatibility and functionality.
+
+[Explore what JavaScript polyfills are for on GreatFrontEnd](/questions/quiz/what-are-javascript-polyfills-for?format=quiz)
 
 ## 5. What are server-sent events?
 
@@ -289,6 +297,8 @@ http
 ```
 
 SSE provides an efficient and straightforward way to push updates from a server to a client in real-time. It is well-suited for applications requiring continuous data streams but not full bidirectional communication.
+
+[Explore what server-sent events are on GreatFrontEnd](/questions/quiz/what-are-server-sent-events?format=quiz)
 
 ## 6. What are workers in JavaScript used for?
 
@@ -389,6 +399,8 @@ self.addEventListener('fetch', (event) => {
 - **Performance**: Managing workers incurs overhead; use judiciously.
 - **Error Handling**: Implement proper error handling mechanisms.
 
+[Explore what workers in JavaScript are used for on GreatFrontEnd](/questions/quiz/what-are-workers-in-javascript-used-for?format=quiz)
+
 ## 7. What is `"use strict";`?\*\* What are the advantages and disadvantages to using it?
 
 **`"use strict";`** is a directive from ECMAScript 5 (ES5) that enforces stricter parsing and error handling in JavaScript, making code more secure and less error-prone.
@@ -428,7 +440,6 @@ self.addEventListener('fetch', (event) => {
 ### Example of preventing global variables:
 
 ```js
-javascriptCopy code
 // Without strict mode
 function defineNumber() { count = 123; }
 defineNumber();
@@ -450,17 +461,26 @@ console.log(strictVar); // ReferenceError
 
 While **`"use strict";`** is not mandatory in these contexts, it is still recommended for older code and broader compatibility.
 
+[Explore what "use strict" is and its advantages and disadvantages on GreatFrontEnd](/questions/quiz/what-is-use-strict-what-are-the-advantages-and-disadvantages-to-using-it?format=quiz)
+
 ## 8. How can you implement secure authentication and authorization in JavaScript applications?
 
 To secure authentication and authorization in JavaScript applications, use HTTPS to encrypt data in transit and store sensitive data like tokens securely with `localStorage` or `sessionStorage`. Employ token-based authentication using JWTs, validating tokens server-side. Utilize libraries like OAuth for third-party authentication and enforce role-based access control (RBAC) for proper authorization.
+
+[Explore how to implement secure authentication and authorization in JavaScript applications on GreatFrontEnd](/questions/quiz/how-can-you-implement-secure-authentication-and-authorization-in-javascript-applications?format=quiz)
 
 ## 9. How can you optimize DOM manipulation for better performance?
 
 Minimize direct DOM access by batching changes, using `documentFragment`, and leveraging virtual DOM libraries like React. Use `requestAnimationFrame` for animations and avoid layout thrashing by separating DOM reads and writes.
 
+[Explore how to optimize DOM manipulation for better performance on GreatFrontEnd](/questions/quiz/how-can-you-optimize-dom-manipulation-for-better-performance?format=quiz)
+
 ## 10. How can you optimize network requests for better performance?
 
 Minimize the number of requests, use caching, compress data, and leverage HTTP/2 and service workers. Combine CSS files, use `Cache-Control` headers for static assets, and enable Gzip compression to reduce data size.
+
+[Explore how to optimize network requests for better performance on GreatFrontEnd](/questions/quiz/how-can-you-optimize-network-requests-for-better-performance?format=quiz)
+
 
 ## 11. How can you prevent clickjacking attacks?
 
@@ -470,6 +490,8 @@ Prevent clickjacking by using the X-Frame-Options HTTP header set to DENY or SAM
 X-Frame-Options: DENY
 Content-Security-Policy: frame-ancestors 'self'
 ```
+
+[Explore how to prevent clickjacking attacks on GreatFrontEnd](/questions/quiz/how-can-you-prevent-clickjacking-attacks?format=quiz)
 
 ## 12. How do you validate form elements using the Constraint Validation API?
 
@@ -483,6 +505,8 @@ if (input.checkValidity()) {
   console.log(input.validationMessage);
 }
 ```
+
+[Explore how to validate form elements using the Constraint Validation API on GreatFrontEnd](/questions/quiz/how-do-you-validate-form-elements-using-the-constraint-validation-api?format=quiz)
 
 ## 13. How does hoisting affect function declarations and expressions?
 
@@ -502,6 +526,8 @@ var bar = function () {
 };
 ```
 
+[Explore how hoisting affects function declarations and expressions on GreatFrontEnd](/questions/quiz/how-does-hoisting-affect-function-declarations-and-expressions?format=quiz)
+
 ## 14. How does JavaScript garbage collection work?
 
 JavaScript uses automatic garbage collection to reclaim memory from objects and variables no longer in use. The two main algorithms are mark-and-sweep and generational garbage collection.
@@ -515,9 +541,13 @@ JavaScript uses automatic garbage collection to reclaim memory from objects and 
 
 Different JavaScript engines may use different garbage collection strategies.
 
+[Explore how JavaScript garbage collection works on GreatFrontEnd](/questions/quiz/how-does-javascript-garbage-collection-work?format=quiz)
+
 ## 15. What are mocks and stubs and how are they used in testing?
 
 Mocks and stubs simulate real objects in testing. Stubs provide predefined responses to function calls, isolating the code being tested from external dependencies. Mocks are more complex, verifying interactions like whether a function was called and with what arguments. Stubs focus on isolating functionality, while mocks ensure correct interaction with dependencies.
+
+[Explore what mocks and stubs are and how they are used in testing on GreatFrontEnd](/questions/quiz/what-are-mocks-and-stubs-and-how-are-they-used-in-testing?format=quiz)
 
 ## 16. What are proxies in JavaScript used for?
 
@@ -558,6 +588,8 @@ console.log(proxiedObject.age); // Logs: 42
 - **Function invocation interception**: Cache and optimize frequently called methods.
 - **Dynamic property creation**: Define properties on-the-fly with default values.
 
+[Explore what proxies in JavaScript are used for on GreatFrontEnd](/questions/quiz/what-are-proxies-in-javascript-used-for?format=quiz)
+
 ## 17. What are some of the advantages/disadvantages of writing JavaScript code in a language that compiles to JavaScript?
 
 Using languages like TypeScript or CoffeeScript, which compile to JavaScript, has several pros and cons.
@@ -574,6 +606,8 @@ Disadvantages:
 - Potential performance overhead
 - Learning curve for new syntax
 
+[Explore advantages and disadvantages of writing JavaScript code in a language that compiles to JavaScript on GreatFrontEnd](/questions/quiz/what-are-some-of-the-advantages-disadvantages-of-writing-javascript-code-in-a-language-that-compiles-to-javascript?format=quiz)
+
 ## 18. What are some techniques for reducing reflows and repaints?
 
 - Minimize DOM manipulations and batch changes.
@@ -583,13 +617,20 @@ Disadvantages:
 - Apply `will-change` to elements that change frequently.
 - Separate DOM reads and writes to avoid layout thrashing.
 
+[Explore techniques for reducing reflows and repaints on GreatFrontEnd](/questions/quiz/what-are-some-techniques-for-reducing-reflows-and-repaints?format=quiz)
+
 ## 19. What are some tools that can be used to measure and analyze JavaScript performance?
 
 Tools such as Chrome DevTools, Lighthouse, WebPageTest, and JSPerf are commonly used for this purpose. Chrome DevTools includes a Performance panel for profiling, Lighthouse provides performance audits, WebPageTest offers detailed performance testing, and JSPerf aids in comparing JavaScript snippet performance.
 
+[Explore tools to measure and analyze JavaScript performance on GreatFrontEnd](/questions/quiz/what-are-some-tools-that-can-be-used-to-measure-and-analyze-javascript-performance?format=quiz)
+
 ## 20. What are Web Workers and how can they be used to improve performance?
 
 Web Workers enable running JavaScript in the background, independent of the main execution thread of a web application. This is beneficial for handling intensive computations without blocking the user interface. Web Workers are created using the `Worker` constructor and communication with them is facilitated through the `postMessage` and `onmessage` methods.
+
+[Explore what Web Workers are and how they can be used to improve performance on GreatFrontEnd](/questions/quiz/what-are-web-workers-and-how-can-they-be-used-to-improve-performance?format=quiz)
+
 
 ### Conclusion
 

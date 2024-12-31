@@ -18,6 +18,8 @@ As a JavaScript developer with 2 years of experience, you've already demonstrate
 
 Caching involves storing copies of files or data temporarily to speed up access times. It enhances performance by minimizing the frequency of fetching data from its original source. In web development, caching techniques include utilizing browser caches, service workers, and HTTP headers such as `Cache-Control` to effectively implement this optimization.
 
+[Explore the concept of caching and how it can be used to improve performance on GreatFrontEnd](/questions/quiz/explain-the-concept-of-caching-and-how-it-can-be-used-to-improve-performance?format=quiz)
+
 ## 2. Explain the concept of lazy loading and how it can improve performance
 
 Lazy loading is a design approach that defers the loading of resources until they are required. This can notably enhance performance by decreasing initial load times and conserving bandwidth. For instance, in web development, images can be lazily loaded, ensuring they are fetched only when they enter the viewport. This is facilitated using techniques like the HTML `loading="lazy"` attribute or through JavaScript libraries designed for this purpose.
@@ -26,9 +28,13 @@ Lazy loading is a design approach that defers the loading of resources until the
 <img src="image.jpg" loading="lazy" alt="Lazy loaded image" />
 ```
 
+[Explore the concept of lazy loading and how it can improve performance on GreatFrontEnd](/questions/quiz/explain-the-concept-of-lazy-loading-and-how-it-can-improve-performance?format=quiz)
+
 ## 3. What are design patterns and why are they useful?
 
 Design patterns offer reusable solutions to typical software design challenges, serving as a blueprint for solving problems across various contexts. They are beneficial as they guide developers in sidestepping common issues, enhancing code clarity, and simplifying the maintenance and scalability of applications.
+
+[Explore what design patterns are and why they are useful on GreatFrontEnd](/questions/quiz/what-are-design-patterns-and-why-are-they-useful?format=quiz)
 
 ## 4. Explain the concept of the Prototype pattern
 
@@ -46,6 +52,8 @@ newObject.greet(); // Outputs: Hello, world!
 ```
 
 This pattern allows objects to inherit properties and methods from a prototype, promoting code reuse and maintaining a clear structure in object-oriented programming.
+
+[Explore the concept of the Prototype pattern on GreatFrontEnd](/questions/quiz/explain-the-concept-of-the-prototype-pattern?format=quiz)
 
 ## 5. Explain the concept of the Singleton pattern
 
@@ -69,6 +77,8 @@ console.log(instance1 === instance2); // true
 
 This pattern is useful in scenarios like managing configurations, logging, and resource sharing across an application, ensuring consistency and preventing multiple instances from being created unnecessarily.
 
+[Explore the concept of the Singleton pattern on GreatFrontEnd](/questions/quiz/explain-the-concept-of-the-singleton-pattern?format=quiz)
+
 ## 6. What is the Factory pattern and how is it used?
 
 The Factory pattern in software design enables object creation without specifying their exact class upfront. It encapsulates complex instantiation logic and is ideal for situations where object types are determined dynamically at runtime. In JavaScript, this pattern can be implemented using a factory function to create various objects based on conditions:
@@ -88,9 +98,13 @@ const cat = createAnimal('cat');
 
 This approach promotes code flexibility and modularity by centralizing object creation logic.
 
+[Explore the Factory pattern and how it is used on GreatFrontEnd](/questions/quiz/what-is-the-factory-pattern-and-how-is-it-used?format=quiz)
+
 ## 7. Explain the Observer pattern and its use cases
 
 The Observer pattern is a design pattern where an object, called the subject, maintains a list of its dependents, known as observers, and notifies them of any state changes. This pattern facilitates loose coupling between objects, making it useful for implementing event-driven architectures, real-time updates in user interfaces, and data synchronization across different parts of an application. It enables components to react dynamically to changes without explicitly knowing each other, promoting flexibility and maintainability in software design.
+
+[Explore the Observer pattern and its use cases on GreatFrontEnd](/questions/quiz/explain-the-observer-pattern-and-its-use-cases?format=quiz)
 
 ## 8. What is the Decorator pattern and how is it used?
 
@@ -125,6 +139,8 @@ console.log(myCarWithGPS.drive()); // Outputs: "Driving with GPS"
 ```
 
 Here, `CarDecorator` and `GPSDecorator` dynamically add features like GPS to a basic `Car` object, demonstrating how decorators can extend object functionalities.
+
+[Explore the Decorator pattern and how is it used on GreatFrontEnd](/questions/quiz/what-is-the-decorator-pattern-and-how-is-it-used?format=quiz)
 
 ## 9. Explain the concept of the Strategy pattern
 
@@ -166,6 +182,8 @@ console.log(context.execute(data)); // Outputs: [3, 2, 1]
 
 In this pattern, `Context` manages the selected `strategy` object, which performs its specific `algorithm` on `data`. This approach allows flexible algorithm switching and enhances code maintainability by separating algorithms from client code.
 
+[Explore the concept of the Strategy pattern on GreatFrontEnd](/questions/quiz/explain-the-concept-of-the-strategy-pattern?format=quiz)
+
 ## 10. What is the Command pattern and how is it used?
 
     The Command pattern is a behavioral design pattern that turns a request into a stand-alone object containing all information about the request. This transformation allows for parameterization of methods with different requests, queuing of requests, and logging of the requests. It also supports undoable operations. In JavaScript, it can be implemented by creating command objects with `execute` and `undo` methods.
@@ -204,6 +222,8 @@ In this pattern, `Context` manages the selected `strategy` object, which perform
     lightOnCommand.undo(); // Light is off
     ```
 
+[Explore the Command pattern and how it is used on GreatFrontEnd](/questions/quiz/what-is-the-command-pattern-and-how-is-it-used?format=quiz)
+
 ## 11. What is the Module pattern and how does it help with encapsulation?
 
     The Module pattern in JavaScript is a design pattern used to create self-contained modules of code. It helps with encapsulation by allowing you to define private and public members within a module. Private members are not accessible from outside the module, while public members are exposed through a returned object. This pattern helps in organizing code, avoiding global namespace pollution, and maintaining a clean separation of concerns.
@@ -226,6 +246,8 @@ In this pattern, `Context` manages the selected `strategy` object, which perform
     myModule.publicMethod(); // Logs: I am private
     ```
 
+[Explore the Module pattern and how it helps with encapsulation on GreatFrontEnd](/questions/quiz/what-is-the-module-pattern-and-how-does-it-help-with-encapsulation?format=quiz)
+
 ## 12. How can you avoid problems related to hoisting?
 
     To avoid issues related to hoisting in JavaScript, use `let` or `const` to declare variables instead of `var`. Unlike `var`, `let` and `const` are block-scoped, meaning they are only accessible within the block they are defined in and are not hoisted to the top of the scope. Additionally, ensure functions are declared before they are called to prevent any unexpected behavior due to function hoisting.
@@ -241,6 +263,8 @@ In this pattern, `Context` manages the selected `strategy` object, which perform
     }
     myFunction();
     ```
+
+[Explore how you can avoid problems related to hoisting on GreatFrontEnd](/questions/quiz/how-can-you-avoid-problems-related-to-hoisting?format=quiz)
 
 ## 13. How can you share code between JavaScript files?
 
@@ -274,6 +298,8 @@ In this pattern, `Context` manages the selected `strategy` object, which perform
     greet();
     ```
 
+[Explore you can share code between JavaScript files on GreatFrontEnd](/questions/quiz/how-can-you-share-code-between-files?format=quiz)
+
 ## 14. How do you get the query string values of the current page in JavaScript?
 
     To retrieve query string values from the current page's URL in JavaScript using `URLSearchParams`, you can follow these steps:
@@ -294,6 +320,8 @@ In this pattern, `Context` manages the selected `strategy` object, which perform
     ```
 
     This approach allows you to easily access and manipulate query string parameters directly from the browser's URL.
+
+[Explore how to get the query string values of the current page in JavaScript on GreatFrontEnd](/questions/quiz/how-do-you-get-the-query-string-values-of-the-current-page-in-javascript?format=quiz)
 
 ## 15. How do you handle errors in asynchronous operations?
 
@@ -332,6 +360,8 @@ In this pattern, `Context` manages the selected `strategy` object, which perform
 
     These methods ensure that errors, such as network failures or failed requests, are caught and handled appropriately, maintaining robust error management in your JavaScript applications.
 
+[Explore how to handle errors in asynchronous operations on GreatFrontEnd](/questions/quiz/how-do-you-handle-errors-in-asynchronous-operations?format=quiz)
+
 ## 16. How do you manipulate CSS styles using JavaScript?
 
     You can manipulate CSS styles in JavaScript by directly accessing an element's `style` property for specific changes like background color or font size:
@@ -349,29 +379,43 @@ In this pattern, `Context` manages the selected `strategy` object, which perform
     document.getElementById('myDiv').classList.toggle('toggleClass');
     ```
 
+[Explore how to manipulate CSS styles using JavaScript on GreatFrontEnd](/questions/quiz/how-do-you-manipulate-css-styles-using-javascript?format=quiz)
+
 ## 17. What are the common pitfalls of using the `this` keyword?
 
     Using the `this` keyword can be tricky because its value depends on the function's invocation context. Common pitfalls include losing `this` context when passing methods as callbacks, using `this` inside nested functions, and misunderstanding `this` in arrow functions. To address these issues, developers often use methods like `.bind()`, arrow functions, or store `this` context in a variable.
+
+[Explore common pitfalls of using the `this` keyword on GreatFrontEnd](/questions/quiz/what-are-the-common-pitfalls-of-using-the-this-keyword?format=quiz)
 
 ## 18. What is the DOM and how is it structured?
 
     The DOM, or Document Object Model, is a programming interface for web documents. It represents the page so that programs can change the document structure, style, and content. The DOM is structured as a tree of objects, where each node represents part of the document, such as elements, attributes, and text nodes.
 
+[Explore what the DOM is and how it is structured on GreatFrontEnd](/questions/quiz/what-is-the-dom-and-how-is-it-structured?format=quiz)
+
 ## 19. What do you think of AMD vs CommonJS?
 
     AMD (Asynchronous Module Definition) and CommonJS are JavaScript module systems. AMD focuses on asynchronous loading, ideal for browsers, using `define()` and `require()`. CommonJS, geared towards server-side environments like Node.js, employs `module.exports` and `require()` for synchronous module loading.
+
+[Explore AMD vs CommonJS on GreatFrontEnd](/questions/quiz/what-do-you-think-of-amd-vs-commonjs?format=quiz)
 
 ## 20. What are the different ways to make an API call in JavaScript?
 
     In JavaScript, there are several methods to make API calls. The traditional way is using `XMLHttpRequest`, which is more verbose. `fetch` is a modern approach that returns promises, making it easier to handle responses. Alternatively, Axios is a widely-used third-party library that simplifies API calls and offers additional features.
 
+[Explore different ways to make an API call in JavaScript on GreatFrontEnd](/questions/quiz/what-are-the-different-ways-to-make-an-api-call-in-javascript?format=quiz)
+
 ## 21. What are some tools that can be used for JavaScript testing?
 
     For JavaScript testing, tools like Jest, Mocha, Jasmine, and Cypress are commonly used. Jest is praised for its simplicity and built-in functionalities. Mocha offers flexibility and can be integrated with various libraries. Jasmine is known for its straightforward setup and behavior-driven development (BDD) approach. Cypress excels in end-to-end testing, emphasizing real browser interactions.
 
+[Explore some tools that can be used for JavaScript testing on GreatFrontEnd](/questions/quiz/what-are-some-tools-that-can-be-used-for-javascript-testing?format=quiz)
+
 ## 22. What is the difference between `event.preventDefault()` and `event.stopPropagation()`?
 
     `event.preventDefault()` prevents the default action of an event, like stopping a form submission whereas `event.stopPropagation()` prevents the event from bubbling up to parent elements.
+
+[Explore the difference between `event.preventDefault()` and `event.stopPropagation()` on GreatFrontEnd](/questions/quiz/what-is-the-difference-between-eventpreventdefault-and-eventstoppropagation?format=quiz)
 
 ## 23. What is the difference between `innerHTML` and `textContent`?
 
@@ -385,9 +429,13 @@ In this pattern, `Context` manages the selected `strategy` object, which perform
     element.textContent = '<strong>Bold Text</strong>'; // Renders as plain text: <strong>Bold Text</strong>
     ```
 
+[Explore the difference between `innerHTML` and `textContent` on GreatFrontEnd](/questions/quiz/what-is-the-difference-between-innerhtml-and-textcontent?format=quiz)
+
 ## 24. What is the difference between the `window` object and the `document` object?
 
     The `window` object represents the browser window, offering methods to control it (e.g., opening new windows, or accessing browser history). The `document` object represents the web page's content within the window, providing methods to manipulate the DOM (e.g., selecting elements, and modifying content).
+
+[Explore the difference between the `window` object and the `document` object on GreatFrontEnd](/questions/quiz/what-is-the-difference-between-the-window-object-and-the-document-object?format=quiz)
 
 ## 25. What is the difference between `setTimeout()`, `setImmediate()`, and `process.nextTick()`?
 
@@ -400,6 +448,8 @@ In this pattern, `Context` manages the selected `strategy` object, which perform
     ```
 
     In this example, `process.nextTick()` executes first, followed by either `setTimeout()` or `setImmediate()` depending on the environment.
+
+[Explore the difference between `setTimeout()`, `setImmediate()`, and `process.nextTick()` on GreatFrontEnd](/questions/quiz/what-is-the-difference-between-settimeout-setimmediate-and-processnexttick?format=quiz)
 
 ## 26. How do you use `window.history` API?
 
@@ -418,6 +468,8 @@ In this pattern, `Context` manages the selected `strategy` object, which perform
     history.go(-2); // Go back two steps
     ```
 
+[Explore how to use `window.history` API on GreatFrontEnd](/questions/quiz/how-do-you-use-windowhistory-api?format=quiz)
+
 ## 27. **What are the pros and cons of using Promises instead of callbacks in JavaScript?**
 
     **Pros of Promises over Callbacks:**
@@ -429,6 +481,8 @@ In this pattern, `Context` manages the selected `strategy` object, which perform
     **Cons:**
 
     - **Slightly More Complex:** Some developers find promises marginally more complex compared to straightforward callbacks.
+
+[Explore the pros and cons of using Promises instead of callbacks in JavaScript on GreatFrontEnd](/questions/quiz/what-are-the-pros-and-cons-of-using-promises-instead-of-callbacks?format=quiz)
 
 ## 28. **What are the metadata fields of a module?**
 
@@ -451,6 +505,8 @@ In this pattern, `Context` manages the selected `strategy` object, which perform
 
     These fields provide essential information about the module and its requirements.
 
+[Explore what the metadata fields of a module are on GreatFrontEnd](/questions/quiz/what-are-the-metadata-fields-of-a-module?format=quiz)
+
 ## 29. **What are the different types of errors in JavaScript?**
 
     In JavaScript, there are three main types of errors:
@@ -458,6 +514,8 @@ In this pattern, `Context` manages the selected `strategy` object, which perform
     1. **Syntax Errors**: Occur when the code violates the language's grammar rules, like missing a parenthesis.
     2. **Runtime Errors**: Happen during code execution, such as trying to access a property of `undefined`.
     3. **Logical Errors**: Mistakes in the code's logic that lead to incorrect results without throwing an error.
+
+[Explore different types of errors in JavaScript on GreatFrontEnd](/questions/quiz/what-are-the-different-types-of-errors-in-javascript?format=quiz)
 
 ## 30. **Explain the concept of error propagation in JavaScript**
 
@@ -480,6 +538,8 @@ In this pattern, `Context` manages the selected `strategy` object, which perform
     ```
 
     In this example, the error thrown in function `a` propagates to function `b` and is caught in the `try...catch` block.
+
+[Explore the concept of error propagation in JavaScript on GreatFrontEnd](/questions/quiz/explain-the-concept-of-error-propagation-in-javascript?format=quiz)
 
 ## Conclusion
 

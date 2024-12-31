@@ -44,6 +44,8 @@ const double = arr.map(function (el) {
 console.log(double); // [2, 4, 6]
 ```
 
+[Explore a typical use case for anonymous functions in JavaScript on GreatFrontEnd](/questions/quiz/whats-a-typical-use-case-for-anonymous-functions?format=quiz)
+
 ## 2. What is a closure in JavaScript, and why would you use one?
 
 A closure is a function that retains access to these variables even after the outer function has finished executing. This is like the function has a memory of its original environment.
@@ -70,6 +72,8 @@ Closures are useful for:
 - **Data encapsulation**: Create private variables and functions that can't be accessed from outside the closure.
 - **Maintaining state**: Particularly in functional programming and React hooks.
 - **Event handlers and callbacks**: Retain access to variables when handlers are defined.
+
+[Explore what a closure is in JavaScript, and why you would use one on GreatFrontEnd](/questions/quiz/what-is-a-closure-and-how-why-would-you-use-one?format=quiz)
 
 ## 3. What are the pros and cons of using Promises instead of callbacks in JavaScript?
 
@@ -103,6 +107,8 @@ Closures are useful for:
 **Cons**:
 
 - Can be slightly more complex to understand initially.
+
+[Explore the pros and cons of using Promises instead of callbacks in JavaScript on GreatFrontEnd](/questions/quiz/what-are-the-pros-and-cons-of-using-promises-instead-of-callbacks?format=quiz)
 
 ## 4. How do you abort a web request using `AbortController` in JavaScript?
 
@@ -140,6 +146,8 @@ Some of its use cases can be:
     - **Prioritize latest requests in a race condition**
     - **Cancel requests that are no longer needed**
 
+[Explore how to abort a web request using `AbortController` in JavaScript on GreatFrontEnd](/questions/quiz/how-do-you-abort-a-web-request-using-abortcontrollers?format=quiz)
+
 ## 5. Why is extending built-in JavaScript objects not a good idea?
 
 In JavaScript it's very easy to extend a built-in/native object. You can simply extend a built-in object by adding properties and functions to its **`prototype`**.
@@ -171,6 +179,8 @@ Extending built-in objects can lead to issues such as:
 - **Security**: Risk of introducing vulnerabilities.
 - **Compatibility**: Issues across different environments.
 
+[Explore why extending built-in JavaScript objects is not a good idea on GreatFrontEnd](/questions/quiz/why-is-extending-built-in-javascript-objects-not-a-good-idea?format=quiz)
+
 ## 6. Why is it, in general, a good idea to leave the global JavaScript scope of a website as-is and never touch it?
 
 In the browser, the global scope refers to the top-level context where variables, functions, and objects are accessible throughout the code. This scope is represented by the window object. Variables and functions declared outside of any function or block (excluding modules) are added to the window object, making them globally accessible.
@@ -199,6 +209,8 @@ Generally, it's advisable to avoid polluting the global namespace unless necessa
 - **Security concerns**: Global variables are accessible by all scripts, including potentially malicious ones, posing security risks, especially if they contain sensitive data.
 - **Compatibility and portability**: Relying heavily on global variables reduces code portability and complicates integration with other libraries or frameworks.
 
+[Explore why it is, in general, a good idea to leave the global JavaScript scope of a website as-is and never touch it on GreatFrontEnd](/questions/quiz/why-is-it-in-general-a-good-idea-to-leave-the-global-scope-of-a-website-as-is-and-never-touch-it?format=quiz)
+
 ## 7. Explain the differences between CommonJS modules and ES modules in JavaScript?
 
 In JavaScript, modules are reusable pieces of code that encapsulate functionality, making it easier to manage, maintain, and structure your applications. Modules allow you to break down your code into smaller, manageable parts, each with its own scope.
@@ -225,6 +237,8 @@ export const value = 42;
 import { value } from './my-module.js';
 console.log(value); // 42
 ```
+
+[Explore the differences between CommonJS modules and ES modules in JavaScript on GreatFrontEnd](/questions/quiz/explain-the-differences-between-commonjs-modules-and-es-modules?format=quiz)
 
 ## 8. Explain the difference between mutable and immutable objects in JavaScript
 
@@ -288,6 +302,8 @@ frozenPerson = { name: 'Jane' }; // Error: Assignment to constant variable
 
 In the first example with **`const`**, reassigning a new object to **`person`** is not allowed, but modifying the **`name`** property is permitted. In the second example, **`Object.freeze()`** makes the **`frozenPerson`** object immutable, preventing any changes to its properties.
 
+[Explore the difference between mutable and immutable objects in JavaScript on GreatFrontEnd](/questions/quiz/explain-the-difference-between-mutable-and-immutable-objects?format=quiz)
+
 ## 9. Why might you want to create static class members in JavaScript?
 
 Static class members in JavaScript, denoted by the `static` keyword, are accessed directly on the class itself, not on instances. They serve multiple purposes:
@@ -342,6 +358,8 @@ Static class members in JavaScript, denoted by the `static` keyword, are accesse
 
     4. **Performance Benefits**: Static members reduce memory usage by being shared across all instances.
 
+[Explore why you might want to create static class members in JavaScript on GreatFrontEnd](/questions/quiz/why-you-might-want-to-create-static-class-members?format=quiz)
+
 ## 10. What are `Symbol`s used for in JavaScript?
 
 Symbols in JavaScript, introduced in ES6, are unique and immutable identifiers primarily used as object property keys to avoid name collisions. They can be created using the `Symbol()` function, ensuring each Symbol value is unique even if descriptions are identical. Symbol properties are non-enumerable, making them suitable for private object state.
@@ -384,6 +402,8 @@ There are some well known `Symbol` in JavaScript like:
 - **`Symbol.toStringTag`**: Used to create a string description for an object.
 - **`Symbol.hasInstance`**: Used to determine if an object is an instance of a constructor.
 
+[Explore what `Symbol`s are used for in JavaScript on GreatFrontEnd](/questions/quiz/what-are-symbols-used-for?format=quiz)
+
 ## 11. What are JavaScript object getters and setters for?
 
 JavaScript object getters and setters are essential for controlling access to object properties, offering customization when getting or setting values.
@@ -411,6 +431,8 @@ console.log(user.fullName); // Output: 'Jane Smith'
 
 Getters (`fullName`) compute values based on internal properties (`_firstName` and `_lastName`), while setters (`fullName`) update these properties based on assigned values (`'Jane Smith'`). These mechanisms enhance data encapsulation and allow for custom data handling in JavaScript objects.
 
+[Explore what JavaScript object getters and setters are for on GreatFrontEnd](/questions/quiz/what-are-javascript-object-getters-and-setters-for?format=quiz)
+
 ## 12. What tools and techniques do you use for debugging JavaScript code?
 
 Tools and techniques for debugging JavaScript code vary depending on the context:
@@ -424,6 +446,8 @@ Tools and techniques for debugging JavaScript code vary depending on the context
   - [Redux Devtools](https://github.com/gaearon/redux-devtools): Enhances debugging Redux state changes, actions, and dispatched events.
 - Vue
   - [Vue Devtools](https://github.com/vuejs/vue-devtools): Extends Vue.js development experience with component inspection, state visualization, and event tracking.
+
+[Explore what tools and techniques are used for debugging JavaScript code on GreatFrontEnd](/questions/quiz/what-tools-and-techniques-do-you-use-for-debugging-javascript-code?format=quiz)
 
 ## 13. Can you give an example of a curry function and why this syntax offers an advantage?
 
@@ -469,11 +493,15 @@ console.log(result); // Output: 24
 
 Currying enhances the functional programming paradigm in JavaScript by enabling concise, composable, and reusable functions, promoting cleaner and more modular code.
 
+[Explore examples of a curry function and why this syntax offers an advantage on GreatFrontEnd](/questions/quiz/provide-some-examples-of-how-currying-and-partial-application-can-be-used?format=quiz)
+
 ## 14. What is the difference between the document `load` event and the document `DOMContentLoaded` event?
 
 The **`DOMContentLoaded`** event is triggered once the initial HTML document has been fully loaded and parsed, without waiting for stylesheets, images, and subframes to finish loading.
 
 In contrast, the window's **`load`** event is fired only after the DOM and all dependent resources, such as stylesheets, images, and subframes, have completely loaded.
+
+[Explore the difference between the document `load` event and the document `DOMContentLoaded` event on GreatFrontEnd](/questions/quiz/difference-between-document-load-event-and-document-domcontentloaded-event?format=quiz)
 
 ## 15. Explain how JSONP works (and how it's not really Ajax).
 
@@ -497,9 +525,13 @@ JSONP poses security risks because it executes JavaScript from external sources.
 
 Nowadays, [CORS](http://en.wikipedia.org/wiki/Cross-origin_resource_sharing) is the preferred method, making JSONP largely obsolete.
 
+[Explore how JSONP works (and how it's not really Ajax) on GreatFrontEnd](/questions/quiz/explain-how-jsonp-works-and-how-its-not-really-ajax?format=quiz)
+
 ## 16. Explain the same-origin policy with regard to JavaScript.
 
 The same-origin policy restricts JavaScript from making requests to different domains. An origin is specified by the combination of the URI scheme, hostname, and port number. This policy is crucial for security, as it prevents a malicious script on one page from accessing sensitive data on another page's Document Object Model (DOM). This ensures that data remains secure within its designated origin, blocking unauthorized cross-origin interactions.
+
+[Explore how JSONP works (and how it's not really Ajax) on GreatFrontEnd](/questions/quiz/explain-how-jsonp-works-and-how-its-not-really-ajax?format=quiz)
 
 ## 17. Explain what a single page app is and how to make one SEO-friendly.
 
@@ -522,6 +554,8 @@ To enhance SEO for SPAs, consider:
     - Server-side rendering to generate HTML on the server.
     - Using services like Prerender to render JavaScript in a browser, save static HTML, and return it to search engine crawlers.
 
+[Explore what a single page app is and how to make one SEO-friendly on GreatFrontEnd](/questions/quiz/explain-what-a-single-page-app-is-and-how-to-make-one-seo-friendly?format=quiz)
+
 ## 18. How do you organize your code?
 
 In the past, developers often used Backbone for models, promoting an OOP approach by creating Backbone models and attaching methods to them.
@@ -530,17 +564,23 @@ While the module pattern remains useful, modern development often favors React/R
 
 Avoid classical inheritance when possible. If you must use it, adhere to best practices and guidelines.
 
+[Explore how to organize your code on GreatFrontEnd](/questions/quiz/how-do-you-organize-your-code-module-pattern-classical-inheritance?format=quiz)
+
 ## 19. What is the extent of your experience with Promises and/or their polyfills?
 
 Possess working knowledge of it. Promises can be fulfilled, rejected, or pending, and allow users to attach callbacks for handling outcomes.
 
 Common polyfills include **`$.deferred`**, Q, and Bluebird. However, with ES2015 providing native support, polyfills are typically unnecessary.
 
+[Explore what promises are on GreatFrontEnd](/questions/quiz/what-are-promises-and-how-do-they-work?format=quiz)
+
 ## 20. What's the difference between an "attribute" and a "property"?
 
 **Attributes:** Defined in HTML tags, they provide initial info for the browser (like "Hello" in `<input type="text" value="Hello">`).
 
 **Properties:** Belong to the DOM (JavaScript's view of the page), allowing you to access and change element info after the page loads (like updating the text field value).
+
+[Explore the difference between an "attribute" and a "property" on GreatFrontEnd](/questions/quiz/whats-the-difference-between-an-attribute-and-a-property?format=quiz)
 
 ## Conclusion
 

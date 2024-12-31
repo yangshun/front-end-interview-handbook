@@ -18,6 +18,8 @@ For seasoned frontend engineers with over a decade of experience, interviews del
 
 The microtask queue in JavaScript is where tasks like promise callbacks (`then` and `catch`), `async` functions, and certain APIs like `MutationObserver` are queued for execution. It's separate from the regular task queue and has higher priority, ensuring microtasks are processed immediately after the current execution context is clear. This queue follows FIFO (First In, First Out) order, ensuring predictable handling of asynchronous operations in JavaScript applications.
 
+[Explore the concept of a microtask queue on GreatFrontEnd](/questions/quiz/explain-the-concept-of-a-microtask-queue?format=quiz)
+
 ## 2. What are the potential pitfalls of using closures?
 
 Potential pitfalls of using closures in JavaScript include:
@@ -26,6 +28,8 @@ Potential pitfalls of using closures in JavaScript include:
 - **Variable Sharing:** They can lead to unexpected variable sharing between closures.
 - **Performance Issues:** Overuse can impact performance due to increased memory usage.
 - **Debugging Complexity:** Understanding and debugging code with closures can be challenging due to the complexity of the scope chain.
+
+[Explore the potential pitfalls of using closures on GreatFrontEnd](/questions/quiz/what-are-the-potential-pitfalls-of-using-closures?format=quiz)
 
 ## 3. What is the typical use case for anonymous functions?
 
@@ -67,6 +71,8 @@ function App() {
 
 These uses showcase how anonymous functions streamline code by keeping logic concise and scoped appropriately.
 
+[Explore the typical use case for anonymous functions on GreatFrontEnd](/questions/quiz/whats-a-typical-use-case-for-anonymous-functions?format=quiz)
+
 ## 4. What are some advantages and disadvantages of using TypeScript with JavaScript?
 
 Languages that compile to JavaScript, like TypeScript or CoffeeScript, offer advantages such as improved syntax, type safety, and better tooling. These languages enhance code readability, provide robust error checking, and support advanced IDE features.
@@ -95,6 +101,8 @@ The event loop in JavaScript manages asynchronous operations to prevent blocking
 
 This cycle ensures JavaScript remains responsive by handling both synchronous and asynchronous tasks efficiently.
 
+[Explore the Event Loop and how it handles asynchronous operations on GreatFrontEnd](/questions/quiz/what-is-event-loop-what-is-the-difference-between-call-stack-and-task-queue?format=quiz)
+
 ## 6. Explain the concept of data binding in JavaScript?
 
 Data binding in JavaScript automates the synchronization of data between the model (data source) and the view (UI). It ensures changes in one are immediately reflected in the other, enhancing application interactivity and reducing manual updates. There are two types:
@@ -102,7 +110,9 @@ Data binding in JavaScript automates the synchronization of data between the mod
 1. **One-way Data Binding:** Updates in the model reflect in the view.
 2. **Two-way Data Binding:** Changes in the model update the view and vice versa. This approach is common in frameworks like Angular, React with state management, and Vue.js, simplifying UI updates and user interactions.
 
-## . What are the potential issues caused by hoisting?
+[Explore the concept of data binding in JavaScript on GreatFrontEnd](/questions/quiz/explain-the-concept-of-this-binding-in-event-handlers?format=quiz)
+
+## 7. What are the potential issues caused by hoisting?
 
 Hoisting in JavaScript can cause unexpected outcomes because variable and function declarations are lifted to the top of their scope during compilation. This behavior can lead to variables being accessed before their declaration, resulting in `undefined` values. It can also create confusion between function declarations and expressions. For instance:
 
@@ -115,6 +125,8 @@ let b = 10;
 ```
 
 In the example above, `a` is hoisted and initialized as `undefined` before it's assigned `5`. However, `b` throws a `ReferenceError` because `let` variables aren't hoisted like `var` variables are.
+
+[Explore the potential issues caused by hoisting on GreatFrontEnd](/questions/quiz/what-are-the-potential-issues-caused-by-hoisting?format=quiz)
 
 ## 8. What is async/await and how does it simplify asynchronous code?
 
@@ -138,6 +150,8 @@ In this example:
 
 - The async function fetchData() uses await to fetch data from an API endpoint.
 - Using await ensures that each asynchronous operation completes before proceeding, simplifying error handling within the try...catch block.
+
+[Explore async/await and how it simplifies asynchronous code on GreatFrontEnd](/questions/quiz/what-is-asyncawait-and-how-does-it-simplify-asynchronous-code?format=quiz)
 
 ## 9. What are iterators and generators in JavaScript and what are they used for?
 
@@ -191,6 +205,8 @@ console.log(gen.next()); // { value: undefined, done: true }
 
 Generators are efficient for creating iterators on-demand, useful for lazy evaluation, custom data structures, and asynchronous data handling.
 
+[Explore iterators and generators in JavaScript and their uses on GreatFrontEnd](/questions/quiz/what-are-iterators-and-generators-and-what-are-they-used-for?format=quiz)
+
 ## 10. What are Web Workers and how can they be used to improve performance?
 
 Web Workers enable JavaScript code to run in the background, separate from the main execution thread of a web application. They handle intensive computations without freezing the user interface. Here's a concise example:
@@ -214,6 +230,8 @@ onmessage = (event) => {
 ```
 
 Web Workers boost performance by offloading heavy tasks, ensuring smoother user interaction in web applications.
+
+[Explore Web Workers and how they improve performance on GreatFrontEnd](/questions/quiz/what-are-web-workers-and-how-can-they-be-used-to-improve-performance?format=quiz)
 
 ## 11. Explain the concept of memoization in JavaScript and how it can be implemented.
 
@@ -259,6 +277,8 @@ To optimize performance and reduce reflows and repaints, follow these strategies
 - **Separate Read and Write Operations:** Avoid layout thrashing by reading from the DOM separately from writing to it, minimizing reflows.
 
 Implementing these practices helps ensure that your web application performs efficiently, maintaining smooth user interactions and responsive UI updates.
+
+[Explore how to optimize DOM manipulation for better performance on GreatFrontEnd](/questions/quiz/how-can-you-optimize-dom-manipulation-for-better-performance?format=quiz)
 
 ## 13. What are JavaScript polyfills for?
 
@@ -310,6 +330,8 @@ import 'core-js/actual/array/flat-map'; // Example: polyfill for Array.prototype
 
 JavaScript polyfills play a crucial role in ensuring cross-browser compatibility and enabling the adoption of modern JavaScript features in environments with varying levels of browser support.
 
+[Explore what JavaScript polyfills are for on GreatFrontEnd](/questions/quiz/what-are-javascript-polyfills-for?format=quiz)
+
 ## 14. What are the benefits of using a module bundler?
 
 Module bundlers like Webpack, Parcel, and Rollup offer key benefits for web development:
@@ -322,15 +344,21 @@ Module bundlers like Webpack, Parcel, and Rollup offer key benefits for web deve
 
 Module bundlers streamline code organization, enhance performance, ensure compatibility, and integrate seamlessly with development tools, essential for modern web development.
 
+[Explore the benefits of using a module bundler on GreatFrontEnd](/questions/quiz/what-are-modules-and-why-are-they-useful?format=quiz)
+
 ## 15. Explain the concept of tree shaking in module bundling?
 
 Tree shaking is a module bundling technique that removes dead code — code that's never used or executed — from the final bundle. This optimization reduces bundle size and enhances application performance. Tools like Webpack and Rollup support tree shaking primarily with ES6 module syntax (`import`/`export`), analyzing the code's dependency graph to eliminate unused exports efficiently.
+
+[Explore the concept of tree shaking in module bundling on GreatFrontEnd](/questions/quiz/explain-the-concept-of-tree-shaking-in-module-bundling?format=quiz)
 
 ## 16. What are some common performance bottlenecks in JavaScript applications?
 
 Common performance bottlenecks in JavaScript applications often stem from inefficient DOM manipulation, excessive global variables, blocking the main thread with heavy computations, memory leaks, and improper use of asynchronous operations.
 
 To address these challenges, employing techniques such as debouncing and throttling for event handling, optimizing DOM updates with batch processing, and utilizing web workers for offloading heavy computations can significantly enhance application responsiveness and efficiency. These approaches help mitigate the impact of these bottlenecks on user experience and overall application performance.
+
+[Explore common performance bottlenecks in JavaScript applications on GreatFrontEnd](/questions/quiz/what-are-some-common-performance-bottlenecks-in-javascript-applications?format=quiz)
 
 ## 17. Explain the difference between unit testing, integration testing, and end-to-end testing
 
@@ -357,6 +385,8 @@ To address these challenges, employing techniques such as debouncing and throttl
 
 Each type of testing plays a crucial role in ensuring software quality across different levels of application functionality and integration.
 
+[Explore the difference between unit testing, integration testing, and end-to-end testing on GreatFrontEnd](/questions/quiz/explain-the-difference-between-unit-testing-integration-testing-and-end-to-end-testing?format=quiz)
+
 ## 18. What are some tools and techniques for identifying security vulnerabilities in JavaScript code?
 
 ### Tools:
@@ -375,6 +405,8 @@ Each type of testing plays a crucial role in ensuring software quality across di
 
 Using these tools and techniques helps ensure JavaScript applications are secure against common vulnerabilities.
 
+[Explore tools and techniques for identifying security vulnerabilities in JavaScript code on GreatFrontEnd](/questions/quiz/what-are-some-tools-and-techniques-for-identifying-security-vulnerabilities-in-javascript-code?format=quiz)
+
 ## 19. Explain the concept of Content Security Policy (CSP) and how it enhances security
 
 Content Security Policy (CSP) is a critical security feature designed to mitigate vulnerabilities like Cross-Site Scripting (XSS) and data injection attacks. By defining a whitelist of trusted sources for content such as scripts, stylesheets, and images, CSP restricts which resources a browser can load and execute on a webpage. This is typically set using HTTP headers or `<meta>` tags in HTML. For instance, the `Content-Security-Policy` header can specify that only scripts from the same origin ('self') are allowed to execute:
@@ -385,9 +417,13 @@ content-security-policy: script-src 'self';
 
 This approach ensures that only trusted scripts from specified sources can run, enhancing the security of web applications by preventing unauthorized script execution and protecting against malicious code injection attempts.
 
+[Explore the concept of Content Security Policy (CSP) and how it enhances security on GreatFrontEnd](/questions/quiz/explain-the-concept-of-content-security-policy-csp-and-how-it-enhances-security?format=quiz)
+
 ## 20. When would you use `document.write()`?
 
 `document.write()` is rarely used in modern web development because if called after the page has loaded, it can overwrite the entire document. It's typically reserved for simple tasks during initial page load, such as for educational purposes or quick debugging. Instead, it's generally recommended to use safer methods like `innerHTML`, `appendChild()`, or modern frameworks/libraries for more controlled and secure DOM manipulation.
+
+[Explore when to use `document.write()` on GreatFrontEnd](/questions/quiz/when-would-you-use-document-write?format=quiz)
 
 ## Conclusion
 
