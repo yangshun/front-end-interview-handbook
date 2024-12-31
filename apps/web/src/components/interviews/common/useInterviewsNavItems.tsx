@@ -420,7 +420,7 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
           ].join('|')})`,
           'i',
         ),
-        href: frameworksData.react.href,
+        href: languagesData.js.href,
         icon: RiReactjsFill,
         id: 'question-framework',
         label: intl.formatMessage({
@@ -469,7 +469,7 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
             .join('|')})`,
           'i',
         ),
-        href: formatsData.javascript.href,
+        href: formatsData['user-interface'].href,
         icon: RiCodeSSlashLine,
         id: 'question-format',
         label: intl.formatMessage({
