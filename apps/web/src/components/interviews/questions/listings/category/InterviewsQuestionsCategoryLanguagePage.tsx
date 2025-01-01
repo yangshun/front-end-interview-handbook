@@ -95,7 +95,8 @@ export default function InterviewsQuestionsCategoryLanguagePage({
     />
   ) : null;
 
-  const codingFormatTabs = (() => {
+  // TODO(interviews): add back and fix filters
+  const codingFormatTabs_ = (() => {
     if (codingFormat == null) {
       return null;
     }
@@ -138,7 +139,7 @@ export default function InterviewsQuestionsCategoryLanguagePage({
           description ?? languages[language].getDescription(totalQuestionsCount)
         }
         features={featureItems}
-        formatTabs={codingFormatTabs}
+        formatTabs={null}
         listType={{ type: 'language', value: language }}
         questionList={questions}
         searchPlaceholder={languages[language].getSearchPlaceholder(
