@@ -61,7 +61,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         category: 'React',
       },
     ),
-    pathname: `/questions/react-coding-interview-questions`,
+    pathname: `/react-coding-interview-questions`,
     socialTitle: intl.formatMessage({
       defaultMessage:
         'React Coding Interview Questions with Solutions | GreatFrontEnd',
@@ -114,6 +114,7 @@ export default async function Page({ params }: Props) {
       guides={guides}
       questionCompletionCount={questionCompletionCount}
       questions={questionsCoding}
+      showCategoryTabs={false}
       title={intl.formatMessage(
         {
           defaultMessage: '{category} Coding Interview Questions',

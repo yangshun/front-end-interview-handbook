@@ -115,6 +115,7 @@ export default async function Page({ params }: Props) {
       guides={guides}
       questionCompletionCount={questionCompletionCount}
       questions={questionsQuiz}
+      showCategoryTabs={false}
       title={intl.formatMessage(
         {
           defaultMessage: '{category} Quiz Interview Questions',

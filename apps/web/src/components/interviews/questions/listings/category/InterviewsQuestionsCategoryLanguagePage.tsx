@@ -43,6 +43,7 @@ type Props = Omit<
     features?: ReadonlyArray<QuestionListFeature>;
     language: QuestionLanguage;
     questions: ReadonlyArray<QuestionMetadata>;
+    showCategoryTabs?: boolean;
     title?: string;
     totalQuestionsCount: number;
     userFacingFormat?: QuestionUserFacingFormat;
@@ -61,6 +62,7 @@ export default function InterviewsQuestionsCategoryLanguagePage({
   features = defaultFeatures,
   language,
   questions,
+  showCategoryTabs = true,
   bottomContent,
   userFacingFormat = 'coding',
   totalQuestionsCount,
@@ -70,7 +72,7 @@ export default function InterviewsQuestionsCategoryLanguagePage({
   const languages = useQuestionLanguagesData();
   const questionFormats = useQuestionFormatsData();
 
-  const categoryTabs = (
+  const categoryTabs = showCategoryTabs ? (
     <TabsUnderline
       size="sm"
       tabs={[
@@ -91,7 +93,7 @@ export default function InterviewsQuestionsCategoryLanguagePage({
       ]}
       value={userFacingFormat ?? 'coding'}
     />
-  );
+  ) : null;
 
   const codingFormatTabs = (() => {
     if (codingFormat == null) {

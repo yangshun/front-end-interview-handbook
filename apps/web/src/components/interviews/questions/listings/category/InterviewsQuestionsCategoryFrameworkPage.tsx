@@ -38,6 +38,7 @@ type Props = Omit<
     framework: QuestionFramework;
     guides: ReadonlyArray<GuideCardMetadata>;
     questions: ReadonlyArray<QuestionMetadata>;
+    showCategoryTabs?: boolean;
     title?: string;
     totalQuestionsCount: number;
     userFacingFormat?: QuestionUserFacingFormat;
@@ -55,6 +56,7 @@ export default function InterviewsQuestionsCategoryFrameworkPage({
   features = defaultFeatures,
   framework,
   questions,
+  showCategoryTabs = true,
   bottomContent,
   userFacingFormat = 'coding',
   totalQuestionsCount,
@@ -64,7 +66,7 @@ export default function InterviewsQuestionsCategoryFrameworkPage({
   const frameworks = useQuestionFrameworksData();
   const questionFormats = useQuestionFormatsData();
 
-  const categoryTabs = (
+  const categoryTabs = showCategoryTabs ? (
     <TabsUnderline
       size="sm"
       tabs={[
@@ -85,7 +87,7 @@ export default function InterviewsQuestionsCategoryFrameworkPage({
       ]}
       value={userFacingFormat ?? 'coding'}
     />
-  );
+  ) : null;
 
   const questionFeatures = useInterviewsQuestionsFeatures();
   const featureItems = features.map(

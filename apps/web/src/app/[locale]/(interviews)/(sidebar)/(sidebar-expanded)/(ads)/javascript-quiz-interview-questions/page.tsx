@@ -7,16 +7,8 @@ import InterviewsQuestionsCategoryLanguagePage from '~/components/interviews/que
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
 import { readAllFrontEndInterviewGuides } from '~/db/guides/GuidesReader';
 import { fetchQuestionsCompletionCount } from '~/db/QuestionsCount';
-import {
-  fetchQuestionsListCoding,
-  fetchQuestionsListCodingForLanguage,
-  fetchQuestionsListQuiz,
-  fetchQuestionsListQuizForLanguage,
-} from '~/db/QuestionsListReader';
-import {
-  categorizeQuestionsByFrameworkAndLanguage,
-  roundQuestionCountToNearestTen,
-} from '~/db/QuestionsUtils';
+import { fetchQuestionsListQuizForLanguage } from '~/db/QuestionsListReader';
+import { roundQuestionCountToNearestTen } from '~/db/QuestionsUtils';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
@@ -34,20 +26,12 @@ type Props = Readonly<{
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
 
-  const [intl, { questions: questionsCoding }, { questions: questionsQuiz }] =
-    await Promise.all([
-      getIntlServerOnly(locale),
-      fetchQuestionsListCoding(locale),
-      fetchQuestionsListQuiz(locale),
-    ]);
+  const [intl, questionsQuiz] = await Promise.all([
+    getIntlServerOnly(locale),
+    fetchQuestionsListQuizForLanguage(language, locale),
+  ]);
 
   const category = QuestionLanguageLabels[language];
-
-  const { language: languageQuestions } =
-    categorizeQuestionsByFrameworkAndLanguage({
-      codingQuestions: questionsCoding,
-      quizQuestions: questionsQuiz,
-    });
 
   return defaultMetadata({
     description: intl.formatMessage(
@@ -59,9 +43,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       },
       {
         category,
-        questionCount: roundQuestionCountToNearestTen(
-          languageQuestions[language].length,
-        ),
+        questionCount: roundQuestionCountToNearestTen(questionsQuiz.length),
       },
     ),
     locale,
@@ -107,23 +89,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Page({ params }: Props) {
   const { locale } = params;
 
-  const [
-    intl,
-    questionsCoding,
-    questionsQuiz,
-    questionCompletionCount,
-    guides,
-    bottomContent,
-  ] = await Promise.all([
-    getIntlServerOnly(locale),
-    fetchQuestionsListCodingForLanguage(language, locale),
-    fetchQuestionsListQuizForLanguage(language, locale),
-    fetchQuestionsCompletionCount([questionFormat]),
-    readAllFrontEndInterviewGuides(params.locale),
-    fetchInterviewListingBottomContent(`language-${language}`),
-  ]);
-
-  const totalQuestionsCount = questionsCoding.length + questionsQuiz.length;
+  const [intl, questionsQuiz, questionCompletionCount, guides, bottomContent] =
+    await Promise.all([
+      getIntlServerOnly(locale),
+      fetchQuestionsListQuizForLanguage(language, locale),
+      fetchQuestionsCompletionCount([questionFormat]),
+      readAllFrontEndInterviewGuides(params.locale),
+      fetchInterviewListingBottomContent(`language-${language}`),
+    ]);
 
   return (
     <InterviewsQuestionsCategoryLanguagePage
@@ -138,12 +111,13 @@ export default async function Page({ params }: Props) {
       language={language}
       questionCompletionCount={questionCompletionCount}
       questions={questionsQuiz}
+      showCategoryTabs={false}
       title={intl.formatMessage({
         defaultMessage: 'JavaScript Quiz Interview Questions',
         description: 'Title of interview questions page',
         id: 'uQG7Ed',
       })}
-      totalQuestionsCount={totalQuestionsCount}
+      totalQuestionsCount={questionsQuiz.length}
       userFacingFormat="quiz"
     />
   );
