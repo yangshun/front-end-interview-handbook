@@ -100,7 +100,7 @@ export default async function Page({ params }: Props) {
     fetchQuestionsListCodingForLanguage(language, locale),
     fetchQuestionsCompletionCount([questionFormat]),
     readAllFrontEndInterviewGuides(params.locale),
-    fetchInterviewListingBottomContent(`language-${language}`),
+    fetchInterviewListingBottomContent('javascript-coding-interview-questions'),
   ]);
 
   const category = QuestionLanguageLabels[language];

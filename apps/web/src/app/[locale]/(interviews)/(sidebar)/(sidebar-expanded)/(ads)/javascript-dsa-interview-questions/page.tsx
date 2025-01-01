@@ -87,7 +87,7 @@ export default async function Page({ params }: Props) {
     fetchQuestionsListCodingForLanguage(language, locale),
     fetchQuestionsCompletionCount([codingFormat]),
     readAllFrontEndInterviewGuides(params.locale),
-    fetchInterviewListingBottomContent(`language-${language}`),
+    fetchInterviewListingBottomContent('javascript-dsa-interview-questions'),
   ]);
 
   const questionsCodingFormat = questionsCoding.filter((metadata) =>

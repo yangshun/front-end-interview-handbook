@@ -91,7 +91,7 @@ export default async function Page({ params }: Props) {
     fetchQuestionsListCodingForFramework(framework, locale),
     fetchQuestionsCompletionCount(['user-interface']),
     readAllFrontEndInterviewGuides(locale),
-    fetchInterviewListingBottomContent('framework-react'),
+    fetchInterviewListingBottomContent('react-coding-interview-questions'),
   ]);
 
   const category = QuestionFrameworkLabels[framework];

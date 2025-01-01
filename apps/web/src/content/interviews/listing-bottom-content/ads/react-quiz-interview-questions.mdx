@@ -1,0 +1,105 @@
+## React Quiz Interview Questions
+
+### React Quiz Interview Questions and Answers
+
+React interviews often include a mix of technical trivia and problem-solving challenges designed to assess your understanding of the framework. These trivia-style questions aim to gauge your knowledge of React fundamentals, its core concepts, and how well you grasp advanced features. If you're preparing for a React interview, you're likely to encounter questions that cover a range of critical topics, from component lifecycle and state management to performance optimization, hooks, and testing.
+
+This list of practice questions offers a curated collection of the top React quiz questions commonly asked in interviews. Each question is carefully chosen to highlight the essential areas you need to focus on and is paired with detailed answers crafted by experienced interviewers.
+
+### Why React Quiz Questions Are Critical in Interviews
+
+Employers use trivia questions in React interviews for several reasons. These questions provide insight into a candidate's depth of knowledge, their ability to think on their feet, and how well they've mastered the nuances of React. While solving coding challenges showcases problem-solving skills, trivia-style questions often reveal how familiar you are with the framework's core concepts and best practices.
+
+In real-world scenarios, understanding React goes beyond just writing components. It's about creating efficient, reusable, and performant applications. Interviewers often ask questions in areas such as:
+
+- **Component Lifecycle:** Understanding how components mount, update, and unmount is essential for managing UI and state.
+- **State and Props Management:** Knowing when and how to use props, state, and context to share data across components.
+- **Hooks:** Leveraging React hooks like `useState`, `useEffect`, and `useReducer` to simplify logic and manage side effects.
+- **Performance:** Optimizing rendering, using memoization, and handling large datasets efficiently.
+- **Testing:** Writing robust tests for React components using tools like Jest and React Testing Library.
+- **Routing:** Navigating and managing views in single-page applications with React Router.
+
+Being well-versed in these areas not only boosts your chances of clearing the interview but also prepares you for tackling real-world challenges you will face on the job.
+
+### Example React Quiz Questions
+
+Here are some examples of the types of questions you might face in a React interview, categorized by topic.
+
+#### **1. Component Lifecycle**
+
+- **Question:** What is the difference between `componentDidMount` and `componentDidUpdate`?
+  - _Answer:_ `componentDidMount` is invoked once after the component is inserted into the DOM, often used for API calls or subscriptions. `componentDidUpdate` is called after updates to props or state, useful for actions requiring updated DOM data.
+- **Question:** How can you handle cleanup in React components?
+  - _Answer:_ Cleanup is handled in the `componentWillUnmount` method for class components or inside the cleanup function returned by `useEffect` for functional components.
+
+#### **2. State and Props Management**
+
+- **Question:** What is the difference between state and props?
+  - _Answer:_ State is a local data store owned by a component and can change over time. Props are immutable data passed from a parent to a child component to configure or control the child.
+- **Question:** How do you manage global state in a React application?
+  - _Answer:_ Global state can be managed using Context API, Redux, or third-party libraries like Zustand or MobX.
+
+#### **3. Hooks**
+
+- **Question:** How does the `useEffect` hook differ from lifecycle methods?
+  - _Answer:_ `useEffect` can replace `componentDidMount`, `componentDidUpdate`, and `componentWillUnmount` in functional components. It allows combining setup and cleanup logic in one place.
+- **Question:** What are custom hooks, and when should you use them?
+  - _Answer:_ Custom hooks encapsulate reusable logic that involves state or side effects, making code more modular and DRY (Don't Repeat Yourself).
+
+#### **4. Performance**
+
+- **Question:** How can you prevent unnecessary re-renders in React?
+  - _Answer:_ Use `React.memo` for functional components, `PureComponent` for class components, or hooks like `useMemo` and `useCallback` to memoize values and functions.
+- **Question:** What is React's reconciliation process?
+  - _Answer:_ Reconciliation is React's process of updating the DOM efficiently by comparing the virtual DOM with the previous version and applying minimal updates.
+
+#### **5. Testing**
+
+- **Question:** What is the difference between shallow rendering and full rendering in testing?
+  - _Answer:_ Shallow rendering tests a component in isolation without rendering child components, while full rendering (e.g., using `mount` in Enzyme) renders the entire component tree.
+- **Question:** How can you test React hooks?
+  - _Answer:_ Use libraries like React Testing Library and tools like `renderHook` from `@testing-library/react-hooks` to test custom hooks directly.
+
+#### **6. Routing**
+
+- **Question:** How do you handle navigation in a React single-page application?
+  - _Answer:_ Use React Router to define routes and manage navigation with components like `<BrowserRouter>`, `<Route>`, and `<Link>`.
+- **Question:** How can you implement route-based code splitting in React?
+
+_Answer:_ Use `React.lazy` and `Suspense` to dynamically load components for specific routes:
+
+```jsx
+const LazyComponent = React.lazy(() => import('./LazyComponent'));
+
+<Suspense fallback={<div>Loading...</div>}>
+  <LazyComponent />
+</Suspense>;
+```
+
+### How These Questions Help You Prepare
+
+This guide is designed to do more than just familiarize you with common React interview questions; it provides the tools you need to confidently approach any technical discussion. By reviewing these examples, you will:
+
+1. **Improve React fundamentals:** Develop a stronger foundation in both React basics and advanced topics by learning how to answer questions that often appear in real interviews.
+2. **Enhance problem-solving:** Practice connecting theoretical concepts to real-world applications, making it easier to demonstrate your skills to interviewers.
+3. **Build confidence:** Rehearse concise and well-structured answers, so you're ready to communicate effectively under pressure.
+
+To make the learning process more effective, each question is paired with:
+
+- **Quick answers (TL;DR):** Short and precise responses for interviews when time is limited.
+- **Comprehensive explanations:** Detailed answers providing full context and examples to ensure you understand the topic deeply.
+
+This dual-answer format equips you with flexibility, allowing you to adapt your response to the interview's flow and depth of questioning. By focusing on practical, real-world knowledge, these questions also ensure you're well-prepared to solve problems and write efficient, maintainable React code—skills that matter in actual job scenarios.
+
+### Why Our Answers Stand Out
+
+The answers provided in this guide are written by experienced ex-interviewers who have conducted hundreds of React interviews. These experts understand what employers look for in candidates and how to craft answers that stand out. Each response is tailored to highlight your knowledge and problem-solving approach, ensuring you make a strong impression.
+
+By studying these questions and answers, you're not only preparing for an interview but also enhancing your overall React expertise. Whether you're a beginner or an experienced developer, this comprehensive guide can help you improve your skills and build confidence for your next interview.
+
+### Related lists
+
+Check out other lists of questions below if you're looking for something more specific:
+
+- [React Interview Questions](/react-interview-questions)
+- [React Coding Interview Questions](/react-coding-interview-questions)

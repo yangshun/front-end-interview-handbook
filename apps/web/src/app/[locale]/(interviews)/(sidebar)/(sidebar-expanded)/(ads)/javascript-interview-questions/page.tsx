@@ -120,7 +120,7 @@ export default async function Page({ params }: Props) {
     fetchQuestionsListQuizForLanguage(language, locale),
     fetchQuestionsCompletionCount([questionFormat]),
     readAllFrontEndInterviewGuides(params.locale),
-    fetchInterviewListingBottomContent(`language-${language}`),
+    fetchInterviewListingBottomContent('javascript-interview-questions'),
   ]);
 
   const totalQuestionsCount = questionsCoding.length + questionsQuiz.length;

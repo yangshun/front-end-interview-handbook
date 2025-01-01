@@ -96,7 +96,7 @@ export default async function Page({ params }: Props) {
     fetchQuestionsListQuizForFramework(framework, locale),
     fetchQuestionsCompletionCount(['user-interface']),
     readAllFrontEndInterviewGuides(locale),
-    fetchInterviewListingBottomContent('framework-react'),
+    fetchInterviewListingBottomContent('react-interview-questions'),
   ]);
 
   return (
