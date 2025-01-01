@@ -435,6 +435,10 @@
     "defaultMessage": "JavaScript Interview Guides",
     "description": "Title for guide card"
   },
+  "0n8VZl": {
+    "defaultMessage": "Front End Interview System Design Questions",
+    "description": "Title for front end interview questions page"
+  },
   "0qQNkH": {
     "defaultMessage": "You've also earned:",
     "description": "Marketing rewards message"
@@ -490,10 +494,6 @@
   "15O0qb": {
     "defaultMessage": "Get Started",
     "description": "Link to get started page"
-  },
-  "17Ty2c": {
-    "defaultMessage": "Front End Interview Practice Questions | GreatFrontEnd",
-    "description": "Social title for focus areas listing"
   },
   "17hELe": {
     "defaultMessage": "Disconnect your GitHub Auth account",
@@ -642,6 +642,10 @@
   "2BQudu": {
     "defaultMessage": "Visit external link",
     "description": "Label for open external link button"
+  },
+  "2CIsYV": {
+    "defaultMessage": "Front End Interview Quiz Questions",
+    "description": "Title for front end interview questions page"
   },
   "2CZvP8": {
     "defaultMessage": "Title",
@@ -842,6 +846,10 @@
   "3hQg9K": {
     "defaultMessage": "Vanilla JS Interview Questions",
     "description": "Vanilla JS questions category long title"
+  },
+  "3hqY/T": {
+    "defaultMessage": "Front End Interview System Design Questions | GreatFrontEnd",
+    "description": "Social title for practice questions page"
   },
   "3n0B1m": {
     "defaultMessage": "You currently have {count, plural, =0 {no premium credits} one {<bold>1 premium credit</bold>} other {<bold># premium credits</bold>}}. Proceed to unlock?",
@@ -1082,6 +1090,10 @@
   "5bW/ye": {
     "defaultMessage": "Created: Oldest to newest",
     "description": "Sorting option for projects list - sort by created"
+  },
+  "5cEMDJ": {
+    "defaultMessage": "Front End Interview Practice Questions | GreatFrontEnd",
+    "description": "Social title for all practice questions page"
   },
   "5db7o8": {
     "defaultMessage": "Coding Interviews",
@@ -1775,6 +1787,10 @@
     "defaultMessage": "Front End System Design Playbook",
     "description": "Title of frontend system design playbook page"
   },
+  "A1r7nd": {
+    "defaultMessage": "Front End Interview System Design Questions",
+    "description": "Page title for practice questions page"
+  },
   "A5COe1": {
     "defaultMessage": "Cancel",
     "description": "Label for cancel button on import progress dialog"
@@ -1998,6 +2014,10 @@
   "BQSRxW": {
     "defaultMessage": "Recommended resources",
     "description": "Features for focus areas question listing"
+  },
+  "BSRBkq": {
+    "defaultMessage": "{questionCount}+ Front End Interview Practice Questions",
+    "description": "Page title for practice questions page"
   },
   "BVZEeY": {
     "defaultMessage": "<authorProfileLink>{author}</authorProfileLink> replied to <recipientProfileLink>{recipient}</recipientProfileLink> on the challenge forum for <link>{challengeTitle}</link>: <comment>\"{description}\"</comment>",
@@ -2670,6 +2690,10 @@
   "GJbSo1": {
     "defaultMessage": "User onboarding",
     "description": "Title for Projects onboarding page"
+  },
+  "GJuETM": {
+    "defaultMessage": "Prepare for front end interviews with a vast question bank covering every format and popular frameworks/languages. Includes solutions and tests from ex-interviewers.",
+    "description": "Page description for interview questions listing"
   },
   "GKha2+": {
     "defaultMessage": "As mentioned, there are many ways to host your site. Our recommended hosts are:",
@@ -3959,6 +3983,10 @@
     "defaultMessage": "Complete simple social tasks.",
     "description": "Social discount toast message"
   },
+  "OijcrF": {
+    "defaultMessage": "Question formats",
+    "description": "Practice for interviews question format"
+  },
   "OjLxYa": {
     "defaultMessage": "<bold>{count}</bold>",
     "description": "Number of incomplete challenges in projects dashboard"
@@ -3970,10 +3998,6 @@
   "Ol2L0M": {
     "defaultMessage": "View GitHub profile",
     "description": "Link to GitHub profile"
-  },
-  "OlUgMf": {
-    "defaultMessage": "Targeted practice in specific question formats for front end interviews.",
-    "description": "Description for interview practice by question format"
   },
   "Omqpux": {
     "defaultMessage": "You have <bold>unlimited premium credits</bold>. Unlock this project to access all premium features for this challenge, including the Figma design files, official guides, and solutions.",
@@ -4250,6 +4274,10 @@
   "QENy25": {
     "defaultMessage": "Fully public and customizable",
     "description": "Features for test code section of homepage"
+  },
+  "QF5mIO": {
+    "defaultMessage": "Front End Interview Practice Questions",
+    "description": "Title for front end interview questions page"
   },
   "QJTIr/": {
     "defaultMessage": "Can't find the answer you are looking for?",
@@ -5563,6 +5591,10 @@
     "defaultMessage": "As mentioned above, there are many ways to host your project for free. Our recommend hosts are:",
     "description": "Text for Deployment Info in Projects"
   },
+  "YC+V97": {
+    "defaultMessage": "All practice questions",
+    "description": "Practice for interviews question"
+  },
   "YIry1B": {
     "defaultMessage": "Pricing plans",
     "description": "Title for projects pricing plans"
@@ -5666,6 +5698,10 @@
   "Z00R7H": {
     "defaultMessage": "Starter files and APIs",
     "description": "Title of 'Starter code and APIs' sub-feature in Projects marketing page"
+  },
+  "Z1KO72": {
+    "defaultMessage": "Front End Interview Quiz Questions | GreatFrontEnd",
+    "description": "Social title for practice questions page"
   },
   "Z1vsfi": {
     "defaultMessage": "Search user interface questions",
@@ -8691,10 +8727,6 @@
     "defaultMessage": "Purchase premium to get access to all component tracks as well as exclusive skills, official how-to guides and production-ready Figma files.",
     "description": "Subtitle for premium projects component track"
   },
-  "shjv0q": {
-    "defaultMessage": "All practice questions",
-    "description": "Practice for interviews question format"
-  },
   "sjLtW1": {
     "defaultMessage": "Manage subscription",
     "description": "Manage user membership subscription button label"
@@ -8843,10 +8875,6 @@
     "defaultMessage": "Difficulty: Hard to Easy",
     "description": "Sorting option for projects list - sort by difficulty from hard to easy"
   },
-  "taJXPg": {
-    "defaultMessage": "Targeted practice in specific front end frameworks and languages.",
-    "description": "Description for interviews practice by frameworks and languages"
-  },
   "tbIHno": {
     "defaultMessage": "Work start date cannot be in the future. Please recheck your selections",
     "description": "Error message for invalid \"Month and year you started work as a Front End Engineer\" input on Projects profile onboarding page"
@@ -8870,6 +8898,10 @@
   "thqnR6": {
     "defaultMessage": "Click here to view the full solution and other System Design guides.",
     "description": "Button label within embed"
+  },
+  "tk7bcb": {
+    "defaultMessage": "Targeted practice in specific front end frameworks and languages",
+    "description": "Description for interviews practice by frameworks and languages"
   },
   "tnHfa2": {
     "defaultMessage": "Move line down",
@@ -8934,6 +8966,10 @@
   "u59kYU": {
     "defaultMessage": "Challenge: {challengeName} | Submit your work",
     "description": "Title of Projects challenge submission page"
+  },
+  "u5SlWb": {
+    "defaultMessage": "Targeted practice in specific question formats for front end interviews",
+    "description": "Description for interview practice by question format"
   },
   "uA9EBK": {
     "defaultMessage": "Prepare for specific companies by learning insider tips and practicing known questions.",
@@ -9094,6 +9130,10 @@
   "v9//lW": {
     "defaultMessage": "Targeted practice in specific front end frameworks and languages.",
     "description": "Description for framework and language section"
+  },
+  "v9OyMJ": {
+    "defaultMessage": "Front End Interview Quiz Questions",
+    "description": "Page title for practice questions page"
   },
   "vC3/M4": {
     "defaultMessage": "Pricing plans",
@@ -9466,6 +9506,10 @@
   "xyPOJe": {
     "defaultMessage": "{points} Reputation",
     "description": "Label showing reputation count in profile header of Projects sidebar"
+  },
+  "xzxLDQ": {
+    "defaultMessage": "All front end interview practice questions",
+    "description": "Description for interview practice by question format"
   },
   "y/r8Q+": {
     "defaultMessage": "Roadmap | GreatFrontEnd Projects",

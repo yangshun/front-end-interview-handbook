@@ -4,8 +4,8 @@ import url from 'url';
 import { SCROLL_HASH_INTERVIEWS_DASHBOARD_RECOMMENDED_PREPARATION } from '~/hooks/useScrollToHash';
 
 import {
-  QuestionCountTotal,
   QuestionCountFree,
+  QuestionCountTotal,
 } from '~/components/interviews/questions/listings/stats/QuestionCount';
 import { FormattedMessage } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';

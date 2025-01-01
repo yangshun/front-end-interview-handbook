@@ -5,7 +5,6 @@ import type {
   InterviewsListingBottomContent,
   InterviewsStudyList,
 } from 'contentlayer/generated';
-import { useMemo } from 'react';
 
 import { trpc } from '~/hooks/trpc';
 
@@ -32,8 +31,6 @@ import InterviewsDashboardContinueLearningSection from './InterviewsDashboardCon
 import InterviewsDashboardMoreLearningSection from './InterviewsDashboardMoreLearningSection';
 import InterviewsDashboardPageHeader from './InterviewsDashboardPageHeader';
 import InterviewsDashboardRecommendedPreparationStrategy from './InterviewsDashboardRecommendedPreparationStrategy';
-import InterviewsDashboardProgressSection from './progress/InterviewsDashboardProgressSection';
-import { getDateRangeFromToday } from './progress/utils';
 import { createStudyListMapFromArray } from '../questions/content/study-list/StudyListUtils';
 
 import { useUser } from '@supabase/auth-helpers-react';

@@ -7,8 +7,6 @@ import {
   RiHome3Line,
   RiListCheck3,
   RiPriceTag3Line,
-  RiQuestionAnswerLine,
-  RiQuestionnaireLine,
   RiReactjsFill,
   RiShiningLine,
   RiTerminalWindowLine,

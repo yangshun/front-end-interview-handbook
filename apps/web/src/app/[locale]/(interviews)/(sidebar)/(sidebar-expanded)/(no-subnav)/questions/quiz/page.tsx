@@ -16,50 +16,34 @@ type Props = Readonly<{
   }>;
 }>;
 
-async function getPageSEOMetadata({ params }: Props) {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
   const intl = await getIntlServerOnly(locale);
 
-  return {
+  return defaultMetadata({
     description: intl.formatMessage({
       defaultMessage:
         'Prepare for front end interviews with a vast question bank covering every format and popular frameworks/languages. Includes solutions and tests from ex-interviewers.',
-      description: 'Page description for focus areas listing',
-      id: 'cNg7I1',
+      description: 'Page description for interview questions listing',
+      id: 'GJuETM',
     }),
-    href: '/questions/quiz',
-    socialTitle: intl.formatMessage({
-      defaultMessage: 'Front End Interview Practice Questions | GreatFrontEnd',
-      description: 'Social title for focus areas listing',
-      id: '17Ty2c',
-    }),
-    title: intl.formatMessage(
-      {
-        defaultMessage:
-          '{questionCount}+ Front End Interview Practice Questions',
-        description: 'Page title for all practice questions page',
-        id: 'tV+VAr',
-      },
-      {
-        questionCount: QuestionCountTotal,
-      },
-    ),
-  };
-}
-
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale } = params;
-
-  const { title, description, socialTitle, href } = await getPageSEOMetadata({
-    params,
-  });
-
-  return defaultMetadata({
-    description,
     locale,
-    pathname: href,
-    socialTitle,
-    title,
+    ogImageTitle: intl.formatMessage({
+      defaultMessage: 'Front End Interview Quiz Questions',
+      description: 'Title for front end interview questions page',
+      id: '2CIsYV',
+    }),
+    pathname: '/questions/quiz',
+    socialTitle: intl.formatMessage({
+      defaultMessage: 'Front End Interview Quiz Questions | GreatFrontEnd',
+      description: 'Social title for practice questions page',
+      id: 'Z1KO72',
+    }),
+    title: intl.formatMessage({
+      defaultMessage: 'Front End Interview Quiz Questions',
+      description: 'Page title for practice questions page',
+      id: 'v9OyMJ',
+    }),
   });
 }
 

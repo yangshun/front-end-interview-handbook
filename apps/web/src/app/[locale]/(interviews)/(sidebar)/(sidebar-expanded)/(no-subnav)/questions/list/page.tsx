@@ -20,22 +20,23 @@ type Props = Readonly<{
   }>;
 }>;
 
-async function getPageSEOMetadata({ params }: Props) {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
   const intl = await getIntlServerOnly(locale);
 
-  return {
+  return defaultMetadata({
     description: intl.formatMessage({
       defaultMessage:
         'Prepare for front end interviews with a vast question bank covering every format and popular frameworks/languages. Includes solutions and tests from ex-interviewers.',
       description: 'Page description for focus areas listing',
       id: 'cNg7I1',
     }),
-    href: '/questions/list',
+    locale,
+    pathname: '/questions/list',
     socialTitle: intl.formatMessage({
       defaultMessage: 'Front End Interview Practice Questions | GreatFrontEnd',
-      description: 'Social title for focus areas listing',
-      id: '17Ty2c',
+      description: 'Social title for all practice questions page',
+      id: '5cEMDJ',
     }),
     title: intl.formatMessage(
       {
@@ -48,22 +49,6 @@ async function getPageSEOMetadata({ params }: Props) {
         questionCount: QuestionCountTotal,
       },
     ),
-  };
-}
-
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale } = params;
-
-  const { title, description, socialTitle, href } = await getPageSEOMetadata({
-    params,
-  });
-
-  return defaultMetadata({
-    description,
-    locale,
-    pathname: href,
-    socialTitle,
-    title,
   });
 }
 
