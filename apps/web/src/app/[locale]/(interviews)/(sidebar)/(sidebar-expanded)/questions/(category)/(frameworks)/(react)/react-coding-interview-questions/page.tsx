@@ -1,18 +1,16 @@
 import type { Metadata } from 'next/types';
 
-import type {
-  QuestionFramework,
-  QuestionUserFacingFormat,
+import {
+  type QuestionFramework,
+  QuestionFrameworkLabels,
+  type QuestionUserFacingFormat,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import InterviewsQuestionsCategoryFrameworkPage from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryFrameworkPage';
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
 import { readAllFrontEndInterviewGuides } from '~/db/guides/GuidesReader';
 import { fetchQuestionsCompletionCount } from '~/db/QuestionsCount';
-import {
-  fetchQuestionsListCodingForFramework,
-  fetchQuestionsListQuizForFramework,
-} from '~/db/QuestionsListReader';
+import { fetchQuestionsListCodingForFramework } from '~/db/QuestionsListReader';
 import { roundQuestionCountToNearestTen } from '~/db/QuestionsUtils';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
@@ -30,24 +28,21 @@ type Props = Readonly<{
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
-  const [intl, questionsCoding, questionsQuiz] = await Promise.all([
+  const [intl, questionsCoding] = await Promise.all([
     getIntlServerOnly(locale),
     fetchQuestionsListCodingForFramework(framework, locale),
-    fetchQuestionsListQuizForFramework(framework, locale),
   ]);
 
   return defaultMetadata({
     description: intl.formatMessage(
       {
         defaultMessage:
-          'Practice {questionCount}+ curated React Interview Questions in-browser, with solutions and test cases from big tech ex-interviewers',
+          'Practice {questionCount}+ React Coding Interview Questions. Learn in-browser, with high quality answers written by Big Tech Ex-interviewers',
         description: 'Description of Interview Questions page',
-        id: 'muCdsx',
+        id: 'dy/I2C',
       },
       {
-        questionCount: roundQuestionCountToNearestTen(
-          questionsCoding.length + questionsQuiz.length,
-        ),
+        questionCount: roundQuestionCountToNearestTen(questionsCoding.length),
       },
     ),
     locale,
@@ -58,26 +53,26 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     }),
     ogImageTitle: intl.formatMessage(
       {
-        defaultMessage: '{category} Interview Questions',
-        description: 'OG image title of framework and language page',
-        id: 'uEiI+F',
+        defaultMessage: '{category} Coding Interview Questions',
+        description: 'Title for framework and language page',
+        id: '6mw6d/',
       },
       {
         category: 'React',
       },
     ),
-    pathname: `/questions/react-interview-questions`,
+    pathname: `/questions/react-coding-interview-questions`,
     socialTitle: intl.formatMessage({
       defaultMessage:
-        'React Interview Questions with Solutions | GreatFrontEnd',
+        'React Coding Interview Questions with Solutions | GreatFrontEnd',
       description: 'Title of React Interview Questions page',
-      id: '/zdDbr',
+      id: 'gd8jkF',
     }),
     title: intl.formatMessage({
       defaultMessage:
-        'React Interview Questions | Solutions by Ex-FAANG interviewers',
+        'React Coding Interview Questions | Solutions by Ex interviewers',
       description: 'Title of React Interview Questions page',
-      id: '4+51tF',
+      id: 'Y+6HHl',
     }),
   });
 }
@@ -86,27 +81,51 @@ export default async function Page({ params }: Props) {
   const { locale } = params;
 
   const [
+    intl,
     questionsCoding,
-    questionsQuiz,
     questionCompletionCount,
     guides,
     bottomContent,
   ] = await Promise.all([
+    getIntlServerOnly(locale),
     fetchQuestionsListCodingForFramework(framework, locale),
-    fetchQuestionsListQuizForFramework(framework, locale),
     fetchQuestionsCompletionCount(['user-interface']),
     readAllFrontEndInterviewGuides(locale),
-    fetchInterviewListingBottomContent('framework-react'),
+    fetchInterviewListingBottomContent('react-coding-interview-questions'),
   ]);
+
+  const category = QuestionFrameworkLabels[framework];
 
   return (
     <InterviewsQuestionsCategoryFrameworkPage
       bottomContent={bottomContent}
+      description={intl.formatMessage(
+        {
+          defaultMessage:
+            '{questionCount}+ most important React Coding Interview Questions: from state management to hooks and component design.',
+          description: 'Description of interview questions page',
+          id: 'RClfQM',
+        },
+        {
+          questionCount: roundQuestionCountToNearestTen(questionsCoding.length),
+        },
+      )}
       framework={framework}
       guides={guides}
       questionCompletionCount={questionCompletionCount}
       questions={questionsCoding}
-      totalQuestionsCount={questionsCoding.length + questionsQuiz.length}
+      showCategoryTabs={false}
+      title={intl.formatMessage(
+        {
+          defaultMessage: '{category} Coding Interview Questions',
+          description: 'Title of interview questions page',
+          id: 'TbOere',
+        },
+        {
+          category,
+        },
+      )}
+      totalQuestionsCount={questionsCoding.length}
       userFacingFormat={format}
     />
   );

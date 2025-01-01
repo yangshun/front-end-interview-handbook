@@ -1,21 +1,24 @@
 import type { Metadata } from 'next/types';
 
-import { QuestionLanguageLabels } from '~/data/QuestionCategories';
-
-import InterviewsQuestionsCategoryLanguagePage from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryLanguagePage';
+import {
+  type QuestionFramework,
+  QuestionFrameworkLabels,
+  type QuestionUserFacingFormat,
+} from '~/components/interviews/questions/common/QuestionsTypes';
+import InterviewsQuestionsCategoryFrameworkPage from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryFrameworkPage';
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
 import { readAllFrontEndInterviewGuides } from '~/db/guides/GuidesReader';
 import { fetchQuestionsCompletionCount } from '~/db/QuestionsCount';
-import { fetchQuestionsListQuizForLanguage } from '~/db/QuestionsListReader';
+import { fetchQuestionsListQuizForFramework } from '~/db/QuestionsListReader';
 import { roundQuestionCountToNearestTen } from '~/db/QuestionsUtils';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
-export const dynamic = 'force-static';
+const framework: QuestionFramework = 'react';
+const format: QuestionUserFacingFormat = 'quiz';
 
-const language = 'js';
-const questionFormat = 'quiz';
+export const dynamic = 'force-static';
 
 type Props = Readonly<{
   params: Readonly<{
@@ -25,24 +28,22 @@ type Props = Readonly<{
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
-
   const [intl, questionsQuiz] = await Promise.all([
     getIntlServerOnly(locale),
-    fetchQuestionsListQuizForLanguage(language, locale),
+    fetchQuestionsListQuizForFramework(framework, locale),
   ]);
 
-  const category = QuestionLanguageLabels[language];
+  const category = 'React';
 
   return defaultMetadata({
     description: intl.formatMessage(
       {
         defaultMessage:
-          'Practice {questionCount}+ Quiz-style JavaScript Interview Questions. Learn in-browser, with high quality answers written by Big Tech Ex-interviewers',
-        description: 'Description of interviews questions page',
-        id: 'vbWLam',
+          'Practice {questionCount}+ React Quiz Interview Questions. Learn in-browser, with high quality answers written by Big Tech Ex-interviewers',
+        description: 'Description of Interview Questions page',
+        id: 'yCEIJF',
       },
       {
-        category,
         questionCount: roundQuestionCountToNearestTen(questionsQuiz.length),
       },
     ),
@@ -55,19 +56,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     ogImageTitle: intl.formatMessage(
       {
         defaultMessage: '{category} Quiz Interview Questions',
-        description: 'Title for front end interview questions page',
-        id: 'j8Rea3',
+        description: 'OG image title of framework and language page',
+        id: 'zs/Ius',
       },
       {
         category,
       },
     ),
-    pathname: `/javascript-quiz-interview-questions`,
+    pathname: `/questions/react-quiz-interview-questions`,
     socialTitle: intl.formatMessage(
       {
-        defaultMessage: '{category} Quiz Interview Questions | GreatFrontEnd',
-        description: 'Social title of front end interview questions page',
-        id: 'BuQtA2',
+        defaultMessage:
+          '{category} Quiz Interview Questions with Solutions | GreatFrontEnd',
+        description: 'Title of React Interview Questions page',
+        id: 'jN1v5Q',
       },
       {
         category,
@@ -92,33 +94,45 @@ export default async function Page({ params }: Props) {
   const [intl, questionsQuiz, questionCompletionCount, guides, bottomContent] =
     await Promise.all([
       getIntlServerOnly(locale),
-      fetchQuestionsListQuizForLanguage(language, locale),
-      fetchQuestionsCompletionCount([questionFormat]),
-      readAllFrontEndInterviewGuides(params.locale),
-      fetchInterviewListingBottomContent('javascript-quiz-interview-questions'),
+      fetchQuestionsListQuizForFramework(framework, locale),
+      fetchQuestionsCompletionCount(['quiz']),
+      readAllFrontEndInterviewGuides(locale),
+      fetchInterviewListingBottomContent('react-quiz-interview-questions'),
     ]);
 
+  const category = QuestionFrameworkLabels[framework];
+
   return (
-    <InterviewsQuestionsCategoryLanguagePage
+    <InterviewsQuestionsCategoryFrameworkPage
       bottomContent={bottomContent}
-      description={intl.formatMessage({
-        defaultMessage: 'Q&A Quiz-style JavaScript Interview Questions',
-        description: 'Description of interview questions page',
-        id: 'NeDKXb',
-      })}
+      description={intl.formatMessage(
+        {
+          defaultMessage: 'Q&A quiz-style {category} Interview Questions',
+          description: 'Description of interview questions page',
+          id: 'zNN/De',
+        },
+        {
+          category,
+        },
+      )}
       features={['criticalTopics', 'answeredByExInterviewers']}
+      framework={framework}
       guides={guides}
-      language={language}
       questionCompletionCount={questionCompletionCount}
       questions={questionsQuiz}
       showCategoryTabs={false}
-      title={intl.formatMessage({
-        defaultMessage: 'JavaScript Quiz Interview Questions',
-        description: 'Title of interview questions page',
-        id: 'uQG7Ed',
-      })}
+      title={intl.formatMessage(
+        {
+          defaultMessage: '{category} Quiz Interview Questions',
+          description: 'Title of interview questions page',
+          id: 'ubkZxH',
+        },
+        {
+          category,
+        },
+      )}
       totalQuestionsCount={questionsQuiz.length}
-      userFacingFormat="quiz"
+      userFacingFormat={format}
     />
   );
 }

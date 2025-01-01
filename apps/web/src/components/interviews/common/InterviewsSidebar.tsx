@@ -4,6 +4,10 @@ import clsx from 'clsx';
 
 import useUserProfile from '~/hooks/user/useUserProfile';
 
+import {
+  QuestionFrameworkLabels,
+  QuestionLanguageLabels,
+} from '~/data/QuestionCategories';
 import { SocialLinks } from '~/data/SocialLinks';
 
 import useCommonNavItems from '~/components/common/navigation/useCommonNavItems';
@@ -44,10 +48,31 @@ export function InterviewsSidebarExpanded({
   const isPremium = userProfile?.premium ?? false;
   const commonNavItems = useCommonNavItems();
 
-  const shouldOpenPracticeQuestionsSectionByDefault =
-    pathname?.startsWith('/interviews/get-started') ||
-    pathname?.startsWith('/interviews/dashboard') ||
-    pathname?.startsWith('/questions');
+  const shouldOpenPracticeQuestionsSectionByDefault = (() => {
+    if (
+      pathname?.startsWith('/interviews/get-started') ||
+      pathname?.startsWith('/interviews/dashboard')
+    ) {
+      return true;
+    }
+
+    if (pathname?.startsWith('/questions')) {
+      return true;
+    }
+
+    const languageAndFrameworkValues = Object.keys({
+      ...QuestionLanguageLabels,
+      ...QuestionFrameworkLabels,
+    });
+
+    for (const value of languageAndFrameworkValues) {
+      if (pathname?.startsWith('/' + value)) {
+        return true;
+      }
+    }
+
+    return false;
+  })();
 
   return (
     <SidebarExpanded

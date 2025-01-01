@@ -32,6 +32,7 @@ import Badge from '~/components/ui/Badge';
 import type { NavbarTopLevelItem } from '~/components/ui/Navbar/NavTypes';
 
 import InterviewsPremiumBadge from './InterviewsPremiumBadge';
+import { QuestionCountTotal } from '../questions/listings/stats/QuestionCount';
 
 export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
   const intl = useIntl();
@@ -385,11 +386,18 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
             label: 'All practice questions',
           });
         },
-        sublabel: intl.formatMessage({
-          defaultMessage: 'All front end interview practice questions',
-          description: 'Description for interview practice by question format',
-          id: 'xzxLDQ',
-        }),
+        sublabel: intl.formatMessage(
+          {
+            defaultMessage:
+              '"The largest bank of {questionCount}+ practice questions for front end interviews',
+            description:
+              'Description for interview practice by question format',
+            id: 'IIrEKA',
+          },
+          {
+            questionCount: QuestionCountTotal,
+          },
+        ),
         type: 'popover-link',
       },
       {

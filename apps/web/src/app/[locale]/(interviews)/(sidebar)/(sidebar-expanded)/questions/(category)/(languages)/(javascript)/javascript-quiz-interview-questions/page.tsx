@@ -7,16 +7,8 @@ import InterviewsQuestionsCategoryLanguagePage from '~/components/interviews/que
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
 import { readAllFrontEndInterviewGuides } from '~/db/guides/GuidesReader';
 import { fetchQuestionsCompletionCount } from '~/db/QuestionsCount';
-import {
-  fetchQuestionsListCoding,
-  fetchQuestionsListCodingForLanguage,
-  fetchQuestionsListQuiz,
-  fetchQuestionsListQuizForLanguage,
-} from '~/db/QuestionsListReader';
-import {
-  categorizeQuestionsByFrameworkAndLanguage,
-  roundQuestionCountToNearestTen,
-} from '~/db/QuestionsUtils';
+import { fetchQuestionsListQuizForLanguage } from '~/db/QuestionsListReader';
+import { roundQuestionCountToNearestTen } from '~/db/QuestionsUtils';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
@@ -34,34 +26,24 @@ type Props = Readonly<{
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
 
-  const [intl, { questions: questionsCoding }, { questions: questionsQuiz }] =
-    await Promise.all([
-      getIntlServerOnly(locale),
-      fetchQuestionsListCoding(locale),
-      fetchQuestionsListQuiz(locale),
-    ]);
+  const [intl, questionsQuiz] = await Promise.all([
+    getIntlServerOnly(locale),
+    fetchQuestionsListQuizForLanguage(language, locale),
+  ]);
 
   const category = QuestionLanguageLabels[language];
-
-  const { language: languageQuestions } =
-    categorizeQuestionsByFrameworkAndLanguage({
-      codingQuestions: questionsCoding,
-      quizQuestions: questionsQuiz,
-    });
 
   return defaultMetadata({
     description: intl.formatMessage(
       {
         defaultMessage:
-          'Practice {questionCount}+ curated {category} Interview Questions in-browser, with solutions and test cases from big tech ex-interviewers',
+          'Practice {questionCount}+ Quiz-style JavaScript Interview Questions. Learn in-browser, with high quality answers written by Big Tech Ex-interviewers',
         description: 'Description of interviews questions page',
-        id: '/fWLrt',
+        id: 'vbWLam',
       },
       {
         category,
-        questionCount: roundQuestionCountToNearestTen(
-          languageQuestions[language].length,
-        ),
+        questionCount: roundQuestionCountToNearestTen(questionsQuiz.length),
       },
     ),
     locale,
@@ -72,21 +54,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     }),
     ogImageTitle: intl.formatMessage(
       {
-        defaultMessage: '{category} Interview Questions',
+        defaultMessage: '{category} Quiz Interview Questions',
         description: 'Title for front end interview questions page',
-        id: 'Mo5gp+',
+        id: 'j8Rea3',
       },
       {
         category,
       },
     ),
-    pathname: `/javascript-interview-questions`,
+    pathname: `/questions/javascript-quiz-interview-questions`,
     socialTitle: intl.formatMessage(
       {
-        defaultMessage:
-          '{category} Interview Questions with Solutions | GreatFrontEnd',
+        defaultMessage: '{category} Quiz Interview Questions | GreatFrontEnd',
         description: 'Social title of front end interview questions page',
-        id: 'DrtHuv',
+        id: 'BuQtA2',
       },
       {
         category,
@@ -94,10 +75,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     ),
     title: intl.formatMessage(
       {
-        defaultMessage:
-          '{category} Interview Questions | Solutions by Ex-FAANG interviewers',
+        defaultMessage: '{category} Quiz Interview Questions | With Answers',
         description: 'Title of interview questions page',
-        id: 'qo43kj',
+        id: 'VLBIk4',
       },
       {
         category,
@@ -109,31 +89,36 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Page({ params }: Props) {
   const { locale } = params;
 
-  const [
-    questionsCoding,
-    questionsQuiz,
-    questionCompletionCount,
-    guides,
-    bottomContent,
-  ] = await Promise.all([
-    fetchQuestionsListCodingForLanguage(language, locale),
-    fetchQuestionsListQuizForLanguage(language, locale),
-    fetchQuestionsCompletionCount([questionFormat]),
-    readAllFrontEndInterviewGuides(params.locale),
-    fetchInterviewListingBottomContent('javascript-interview-questions'),
-  ]);
-
-  const totalQuestionsCount = questionsCoding.length + questionsQuiz.length;
+  const [intl, questionsQuiz, questionCompletionCount, guides, bottomContent] =
+    await Promise.all([
+      getIntlServerOnly(locale),
+      fetchQuestionsListQuizForLanguage(language, locale),
+      fetchQuestionsCompletionCount([questionFormat]),
+      readAllFrontEndInterviewGuides(params.locale),
+      fetchInterviewListingBottomContent('javascript-quiz-interview-questions'),
+    ]);
 
   return (
     <InterviewsQuestionsCategoryLanguagePage
       bottomContent={bottomContent}
+      description={intl.formatMessage({
+        defaultMessage: 'Q&A Quiz-style JavaScript Interview Questions',
+        description: 'Description of interview questions page',
+        id: 'NeDKXb',
+      })}
+      features={['criticalTopics', 'answeredByExInterviewers']}
       guides={guides}
       language={language}
       questionCompletionCount={questionCompletionCount}
-      questions={questionsCoding}
-      totalQuestionsCount={totalQuestionsCount}
-      userFacingFormat="coding"
+      questions={questionsQuiz}
+      showCategoryTabs={false}
+      title={intl.formatMessage({
+        defaultMessage: 'JavaScript Quiz Interview Questions',
+        description: 'Title of interview questions page',
+        id: 'uQG7Ed',
+      })}
+      totalQuestionsCount={questionsQuiz.length}
+      userFacingFormat="quiz"
     />
   );
 }

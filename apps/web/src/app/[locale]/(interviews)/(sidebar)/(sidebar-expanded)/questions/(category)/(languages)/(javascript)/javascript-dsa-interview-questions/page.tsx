@@ -58,7 +58,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: 'Title for front end interview questions page',
       id: 'SepyEC',
     }),
-    pathname: `/javascript-dsa-interview-questions`,
+    pathname: `/questions/javascript-dsa-interview-questions`,
     socialTitle: intl.formatMessage({
       defaultMessage: 'JavaScript DSA Interview Questions | GreatFrontEnd',
       description: 'Social title of front end interview questions page',

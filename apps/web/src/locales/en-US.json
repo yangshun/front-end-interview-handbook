@@ -259,10 +259,6 @@
     "defaultMessage": "{matchScore}% match with the design for selected device breakpoint",
     "description": "Tooltip for match score"
   },
-  "/fWLrt": {
-    "defaultMessage": "Practice {questionCount}+ curated {category} Interview Questions in-browser, with solutions and test cases from big tech ex-interviewers",
-    "description": "Description of interviews questions page"
-  },
   "/ftlBv": {
     "defaultMessage": "Undo",
     "description": "Text describing undo command in the coding workspace shortcuts menu"
@@ -2371,10 +2367,6 @@
     "defaultMessage": "Next question",
     "description": "Next question"
   },
-  "DrtHuv": {
-    "defaultMessage": "{category} Interview Questions with Solutions | GreatFrontEnd",
-    "description": "Social title of front end interview questions page"
-  },
   "Dt0MpD": {
     "defaultMessage": "This user has not started any projects matching those filters.",
     "description": "Subtitle for no projects yet on projects progress tab"
@@ -3062,6 +3054,10 @@
   "IIctLn": {
     "defaultMessage": "Reputation that can be gained from completing all challenges in the recommended skill plan of this skill",
     "description": "Tooltip for reputation label"
+  },
+  "IIrEKA": {
+    "defaultMessage": "\"The largest bank of {questionCount}+ practice questions for front end interviews",
+    "description": "Description for interview practice by question format"
   },
   "IIyxmO": {
     "defaultMessage": "End project session?",
@@ -3798,10 +3794,6 @@
   "Midz7M": {
     "defaultMessage": "Try using a different card that supports payments in the required currency.",
     "description": "Reason label for wait for currency supported card"
-  },
-  "Mo5gp+": {
-    "defaultMessage": "{category} Interview Questions",
-    "description": "Title for front end interview questions page"
   },
   "MoV/nU": {
     "defaultMessage": "URL copied to clipboard",
@@ -5926,10 +5918,6 @@
   "a8ETQr": {
     "defaultMessage": "Meta logo",
     "description": "Meta company logo"
-  },
-  "aAbDbm": {
-    "defaultMessage": "React Quiz Interview Questions",
-    "description": "Title of React Interview Questions page"
   },
   "aCjI8I": {
     "defaultMessage": "Track completed",
@@ -8611,10 +8599,6 @@
     "defaultMessage": "Premium component track",
     "description": "Premium projects component track"
   },
-  "qo43kj": {
-    "defaultMessage": "{category} Interview Questions | Solutions by Ex-FAANG interviewers",
-    "description": "Title of interview questions page"
-  },
   "qoTBLI": {
     "defaultMessage": "Know where to find important info",
     "description": "Label for \"Know where to find important info\" step in dialog on Projects project page"
@@ -9666,10 +9650,6 @@
   "xyPOJe": {
     "defaultMessage": "{points} Reputation",
     "description": "Label showing reputation count in profile header of Projects sidebar"
-  },
-  "xzxLDQ": {
-    "defaultMessage": "All front end interview practice questions",
-    "description": "Description for interview practice by question format"
   },
   "y/r8Q+": {
     "defaultMessage": "Roadmap | GreatFrontEnd Projects",
