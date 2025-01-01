@@ -87,14 +87,8 @@ export default function InterviewsQuestionsCategoryLanguagePage({
 
     return (
       <div className={clsx('flex flex-wrap items-center gap-2')}>
-        {[
-          questionFormats.javascript,
-          questionFormats['user-interface'],
-          questionFormats.algo,
-        ]
-          .filter(({ value }) =>
-            codingFormat.options.find((fmt) => fmt === value),
-          )
+        {codingFormat.options
+          .map((codingFormatItem) => questionFormats[codingFormatItem])
           .map(({ value, seoValue, label, icon: Icon, tooltip }) => {
             const isSelected = value === codingFormat.value;
             const href = isSelected
