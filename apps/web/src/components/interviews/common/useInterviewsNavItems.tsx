@@ -389,10 +389,10 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
         sublabel: intl.formatMessage(
           {
             defaultMessage:
-              '"The largest bank of {questionCount}+ practice questions for front end interviews',
+              'The largest bank of {questionCount}+ practice questions for front end interviews',
             description:
               'Description for interview practice by question format',
-            id: 'IIrEKA',
+            id: 'vqaDA5',
           },
           {
             questionCount: QuestionCountTotal,

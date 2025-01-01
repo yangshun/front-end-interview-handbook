@@ -116,6 +116,11 @@ const nextConfig = {
         permanent: false,
       },
       {
+        source: '/questions/js',
+        destination: '/questions/javascript-interview-questions',
+        permanent: false,
+      },
+      {
         source: '/questions/js/coding',
         destination: '/questions/javascript-interview-questions',
         permanent: false,
@@ -137,13 +142,28 @@ const nextConfig = {
         permanent: false,
       },
       {
+        source: '/questions/html',
+        destination: '/questions/html-interview-questions',
+        permanent: false,
+      },
+      {
         source: '/questions/html/coding',
         destination: '/questions/html-interview-questions',
         permanent: false,
       },
       {
+        source: '/questions/css',
+        destination: '/questions/css-interview-questions',
+        permanent: false,
+      },
+      {
         source: '/questions/css/coding',
         destination: '/questions/css-interview-questions',
+        permanent: false,
+      },
+      {
+        source: '/questions/ts',
+        destination: '/questions/typescript-interview-questions',
         permanent: false,
       },
       {

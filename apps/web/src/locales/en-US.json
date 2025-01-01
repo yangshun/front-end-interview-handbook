@@ -3055,10 +3055,6 @@
     "defaultMessage": "Reputation that can be gained from completing all challenges in the recommended skill plan of this skill",
     "description": "Tooltip for reputation label"
   },
-  "IIrEKA": {
-    "defaultMessage": "\"The largest bank of {questionCount}+ practice questions for front end interviews",
-    "description": "Description for interview practice by question format"
-  },
   "IIyxmO": {
     "defaultMessage": "End project session?",
     "description": "Title for end project session dialog"
@@ -9378,6 +9374,10 @@
   "vqL6fD": {
     "defaultMessage": "Start earning passive commissions with a great product",
     "description": "Title of Call to action banner found at the bottom of the 'Become an Affiliate' page."
+  },
+  "vqaDA5": {
+    "defaultMessage": "The largest bank of {questionCount}+ practice questions for front end interviews",
+    "description": "Description for interview practice by question format"
   },
   "vsgUOt": {
     "defaultMessage": "Copy the link to this page",
