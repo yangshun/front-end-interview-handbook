@@ -10,5 +10,5 @@ export const InterviewsQuestionsCategoryLanguageCodingFormatTabs: Record<
   css: ['javascript', 'user-interface'],
   html: ['javascript', 'user-interface'],
   js: ['javascript', 'user-interface', 'algo'],
-  ts: ['javascript', 'user-interface', 'algo'],
+  ts: ['javascript', 'algo'],
 };
