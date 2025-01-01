@@ -147,6 +147,31 @@ const nextConfig = {
         permanent: false,
       },
       {
+        source: '/questions/react',
+        destination: '/questions/react-interview-questions',
+        permanent: false,
+      },
+      {
+        source: '/questions/vanilla',
+        destination: '/questions/vanilla-javascript-interview-questions',
+        permanent: false,
+      },
+      {
+        source: '/questions/svelte',
+        destination: '/questions/svelte-interview-questions',
+        permanent: false,
+      },
+      {
+        source: '/questions/angular',
+        destination: '/questions/angular-interview-questions',
+        permanent: false,
+      },
+      {
+        source: '/questions/vue',
+        destination: '/questions/vue-interview-questions',
+        permanent: false,
+      },
+      {
         source: '/study-plans',
         destination: '/interviews/study-plans',
         permanent: false,
