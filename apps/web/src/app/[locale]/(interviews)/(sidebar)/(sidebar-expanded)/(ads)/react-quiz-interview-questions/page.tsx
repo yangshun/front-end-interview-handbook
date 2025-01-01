@@ -1,18 +1,16 @@
 import type { Metadata } from 'next/types';
 
-import type {
-  QuestionFramework,
-  QuestionUserFacingFormat,
+import {
+  type QuestionFramework,
+  QuestionFrameworkLabels,
+  type QuestionUserFacingFormat,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import InterviewsQuestionsCategoryFrameworkPage from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryFrameworkPage';
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
 import { readAllFrontEndInterviewGuides } from '~/db/guides/GuidesReader';
 import { fetchQuestionsCompletionCount } from '~/db/QuestionsCount';
-import {
-  fetchQuestionsListCodingForFramework,
-  fetchQuestionsListQuizForFramework,
-} from '~/db/QuestionsListReader';
+import { fetchQuestionsListQuizForFramework } from '~/db/QuestionsListReader';
 import { roundQuestionCountToNearestTen } from '~/db/QuestionsUtils';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
@@ -30,24 +28,23 @@ type Props = Readonly<{
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
-  const [intl, questionsCoding, questionsQuiz] = await Promise.all([
+  const [intl, questionsQuiz] = await Promise.all([
     getIntlServerOnly(locale),
-    fetchQuestionsListCodingForFramework(framework, locale),
     fetchQuestionsListQuizForFramework(framework, locale),
   ]);
+
+  const category = 'React';
 
   return defaultMetadata({
     description: intl.formatMessage(
       {
         defaultMessage:
-          'Practice {questionCount}+ curated React Interview Questions in-browser, with solutions and test cases from big tech ex-interviewers',
+          'Practice {questionCount}+ React Quiz Interview Questions. Learn in-browser, with high quality answers written by Big Tech Ex-interviewers',
         description: 'Description of Interview Questions page',
-        id: 'muCdsx',
+        id: 'yCEIJF',
       },
       {
-        questionCount: roundQuestionCountToNearestTen(
-          questionsCoding.length + questionsQuiz.length,
-        ),
+        questionCount: roundQuestionCountToNearestTen(questionsQuiz.length),
       },
     ),
     locale,
@@ -58,26 +55,30 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     }),
     ogImageTitle: intl.formatMessage(
       {
-        defaultMessage: '{category} Interview Questions',
+        defaultMessage: '{category} Quiz Interview Questions',
         description: 'OG image title of framework and language page',
-        id: 'uEiI+F',
+        id: 'zs/Ius',
       },
       {
-        category: 'React',
+        category,
       },
     ),
-    pathname: `/questions/react-interview-questions/quiz`,
-    socialTitle: intl.formatMessage({
-      defaultMessage:
-        'React Interview Questions with Solutions | GreatFrontEnd',
-      description: 'Title of React Interview Questions page',
-      id: '/zdDbr',
-    }),
+    pathname: `/react-quiz-interview-questions`,
+    socialTitle: intl.formatMessage(
+      {
+        defaultMessage:
+          '{category} Quiz Interview Questions with Solutions | GreatFrontEnd',
+        description: 'Title of React Interview Questions page',
+        id: 'jN1v5Q',
+      },
+      {
+        category,
+      },
+    ),
     title: intl.formatMessage({
-      defaultMessage:
-        'React Interview Questions | Solutions by Ex-FAANG interviewers',
+      defaultMessage: 'React Quiz Interview Questions',
       description: 'Title of React Interview Questions page',
-      id: '4+51tF',
+      id: 'aAbDbm',
     }),
   });
 }
@@ -85,28 +86,46 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Page({ params }: Props) {
   const { locale } = params;
 
-  const [
-    questionsCoding,
-    questionsQuiz,
-    questionCompletionCount,
-    guides,
-    bottomContent,
-  ] = await Promise.all([
-    fetchQuestionsListCodingForFramework(framework, locale),
-    fetchQuestionsListQuizForFramework(framework, locale),
-    fetchQuestionsCompletionCount(['quiz']),
-    readAllFrontEndInterviewGuides(locale),
-    fetchInterviewListingBottomContent('framework-react'),
-  ]);
+  const [intl, questionsQuiz, questionCompletionCount, guides, bottomContent] =
+    await Promise.all([
+      getIntlServerOnly(locale),
+      fetchQuestionsListQuizForFramework(framework, locale),
+      fetchQuestionsCompletionCount(['quiz']),
+      readAllFrontEndInterviewGuides(locale),
+      fetchInterviewListingBottomContent('framework-react'),
+    ]);
+
+  const category = QuestionFrameworkLabels[framework];
 
   return (
     <InterviewsQuestionsCategoryFrameworkPage
       bottomContent={bottomContent}
+      description={intl.formatMessage(
+        {
+          defaultMessage: 'Q&A quiz-style {category} Interview Questions',
+          description: 'Description of interview questions page',
+          id: 'zNN/De',
+        },
+        {
+          category,
+        },
+      )}
+      features={['criticalTopics', 'answeredByExInterviewers']}
       framework={framework}
       guides={guides}
       questionCompletionCount={questionCompletionCount}
       questions={questionsQuiz}
-      totalQuestionsCount={questionsCoding.length + questionsQuiz.length}
+      title={intl.formatMessage(
+        {
+          defaultMessage: '{category} Quiz Interview Questions',
+          description: 'Title of interview questions page',
+          id: 'ubkZxH',
+        },
+        {
+          category,
+        },
+      )}
+      totalQuestionsCount={questionsQuiz.length}
       userFacingFormat={format}
     />
   );

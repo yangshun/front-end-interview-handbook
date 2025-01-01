@@ -20,14 +20,26 @@ type Props = Readonly<{
   }>;
 }>;
 
-async function processParams(params: Props['params']) {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
   const [intl, questionsCoding] = await Promise.all([
     getIntlServerOnly(locale),
     fetchQuestionsListCodingForFramework(framework, locale),
   ]);
 
-  return {
+  return defaultMetadata({
+    description: intl.formatMessage(
+      {
+        defaultMessage:
+          'Practice {questionCount}+ curated Svelte Interview Questions in-browser, with solutions and test cases from big tech ex-interviewers',
+        description: 'Description of Interview Questions page',
+        id: 'LkjqcQ',
+      },
+      {
+        questionCount: roundQuestionCountToNearestTen(questionsCoding.length),
+      },
+    ),
+    locale,
     ogImagePageType: intl.formatMessage({
       defaultMessage: 'Frameworks or languages',
       description: 'OG image page title of framework and language page',
@@ -43,51 +55,19 @@ async function processParams(params: Props['params']) {
         category: 'Svelte',
       },
     ),
-    questionsCoding,
-    seoDescription: intl.formatMessage(
-      {
-        defaultMessage:
-          'Practice {questionCount}+ curated Svelte Interview Questions in-browser, with solutions and test cases from big tech ex-interviewers',
-        description: 'Description of Interview Questions page',
-        id: 'LkjqcQ',
-      },
-      {
-        questionCount: roundQuestionCountToNearestTen(questionsCoding.length),
-      },
-    ),
-    seoTitle: intl.formatMessage({
-      defaultMessage:
-        'Svelte Interview Questions | Solutions by Ex-FAANG interviewers',
-      description: 'Title of React Interview Questions page',
-      id: 'uFcyu1',
-    }),
+    pathname: `/questions/svelte-interview-questions`,
     socialTitle: intl.formatMessage({
       defaultMessage:
         'Svelte Interview Questions with Solutions | GreatFrontEnd',
       description: 'Title of React Interview Questions page',
       id: '83G2F2',
     }),
-  };
-}
-
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale } = params;
-  const {
-    seoTitle,
-    seoDescription,
-    socialTitle,
-    ogImagePageType,
-    ogImageTitle,
-  } = await processParams(params);
-
-  return defaultMetadata({
-    description: seoDescription,
-    locale,
-    ogImagePageType,
-    ogImageTitle,
-    pathname: `/questions/svelte-interview-questions`,
-    socialTitle,
-    title: seoTitle,
+    title: intl.formatMessage({
+      defaultMessage:
+        'Svelte Interview Questions | Solutions by Ex-FAANG interviewers',
+      description: 'Title of React Interview Questions page',
+      id: 'uFcyu1',
+    }),
   });
 }
 

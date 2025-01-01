@@ -20,14 +20,26 @@ type Props = Readonly<{
   }>;
 }>;
 
-async function processParams(params: Props['params']) {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
   const [intl, questionsCoding] = await Promise.all([
     getIntlServerOnly(locale),
     fetchQuestionsListCodingForFramework(framework, locale),
   ]);
 
-  return {
+  return defaultMetadata({
+    description: intl.formatMessage(
+      {
+        defaultMessage:
+          'Practice {questionCount}+ curated Angular Interview Questions in-browser, with solutions and test cases from big tech ex-interviewers',
+        description: 'Description of Interview Questions page',
+        id: '/ZJu61',
+      },
+      {
+        questionCount: roundQuestionCountToNearestTen(questionsCoding.length),
+      },
+    ),
+    locale,
     ogImagePageType: intl.formatMessage({
       defaultMessage: 'Frameworks or languages',
       description: 'OG image page title of framework and language page',
@@ -43,57 +55,25 @@ async function processParams(params: Props['params']) {
         category: 'Angular',
       },
     ),
-    questionsCoding,
-    seoDescription: intl.formatMessage(
-      {
-        defaultMessage:
-          'Practice {questionCount}+ curated Angular Interview Questions in-browser, with solutions and test cases from big tech ex-interviewers',
-        description: 'Description of Interview Questions page',
-        id: '/ZJu61',
-      },
-      {
-        questionCount: roundQuestionCountToNearestTen(questionsCoding.length),
-      },
-    ),
-    seoTitle: intl.formatMessage({
-      defaultMessage:
-        'Angular Interview Questions | Solutions by Ex-FAANG interviewers',
-      description: 'Title of React Interview Questions page',
-      id: 'j/tNtM',
-    }),
+    pathname: `/questions/angular-interview-questions`,
     socialTitle: intl.formatMessage({
       defaultMessage:
         'Angular Interview Questions with Solutions | GreatFrontEnd',
       description: 'Title of React Interview Questions page',
       id: 't6SUbS',
     }),
-  };
-}
-
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale } = params;
-
-  const {
-    seoDescription,
-    seoTitle,
-    socialTitle,
-    ogImagePageType,
-    ogImageTitle,
-  } = await processParams(params);
-
-  return defaultMetadata({
-    description: seoDescription,
-    locale,
-    ogImagePageType,
-    ogImageTitle,
-    pathname: `/questions/angular-interview-questions`,
-    socialTitle,
-    title: seoTitle,
+    title: intl.formatMessage({
+      defaultMessage:
+        'Angular Interview Questions | Solutions by Ex-FAANG interviewers',
+      description: 'Title of React Interview Questions page',
+      id: 'j/tNtM',
+    }),
   });
 }
 
 export default async function Page({ params }: Props) {
   const { locale } = params;
+
   const [questionsCoding, questionCompletionCount, guides, bottomContent] =
     await Promise.all([
       fetchQuestionsListCodingForFramework(framework, locale),

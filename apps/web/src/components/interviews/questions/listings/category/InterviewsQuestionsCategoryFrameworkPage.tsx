@@ -8,6 +8,7 @@ import {
 } from '~/data/QuestionCategories';
 
 import type { GuideCardMetadata } from '~/components/guides/types';
+import type { QuestionListFeature } from '~/components/interviews/common/useInterviewsQuestionsFeatures';
 import useInterviewsQuestionsFeatures from '~/components/interviews/common/useInterviewsQuestionsFeatures';
 import { useIntl } from '~/components/intl';
 import MDXContent from '~/components/mdx/MDXContent';
@@ -32,14 +33,26 @@ type Props = Omit<
 > &
   Readonly<{
     bottomContent?: InterviewsListingBottomContent;
+    description?: string;
+    features?: ReadonlyArray<QuestionListFeature>;
     framework: QuestionFramework;
     guides: ReadonlyArray<GuideCardMetadata>;
     questions: ReadonlyArray<QuestionMetadata>;
+    title?: string;
     totalQuestionsCount: number;
     userFacingFormat?: QuestionUserFacingFormat;
   }>;
 
+const defaultFeatures: ReadonlyArray<QuestionListFeature> = [
+  'solvedByExInterviewers',
+  'testScenarios',
+  'codeInBrowser',
+];
+
 export default function InterviewsQuestionsCategoryFrameworkPage({
+  title,
+  description,
+  features = defaultFeatures,
   framework,
   questions,
   bottomContent,
@@ -75,25 +88,26 @@ export default function InterviewsQuestionsCategoryFrameworkPage({
   );
 
   const questionFeatures = useInterviewsQuestionsFeatures();
-  const features = [
-    questionFeatures.solvedByExInterviewers,
-    questionFeatures.testScenarios,
-    questionFeatures.codeInBrowser,
-  ];
+  const featureItems = features.map(
+    (featureItem) => questionFeatures[featureItem],
+  );
 
   return (
     <div className="flex flex-col gap-20">
       <InterviewsQuestionsCategoryPage
         categoryTabs={categoryTabs}
-        description={frameworks[framework].getDescription(totalQuestionsCount)}
-        features={features}
+        description={
+          description ??
+          frameworks[framework].getDescription(totalQuestionsCount)
+        }
+        features={featureItems}
         listType={{ type: 'framework', value: framework }}
         questionList={questions}
         searchPlaceholder={frameworks[framework].getSearchPlaceholder(
           totalQuestionsCount,
         )}
         selectedCategoryTab={userFacingFormat}
-        title={frameworks[framework].longName}
+        title={title ?? frameworks[framework].longName}
         {...props}
       />
       {bottomContent && (

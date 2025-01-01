@@ -41,7 +41,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       fetchQuestionsListQuiz(locale),
     ]);
 
-  const languageLabel = QuestionLanguageLabels[language];
+  const category = QuestionLanguageLabels[language];
 
   const { language: languageQuestions } =
     categorizeQuestionsByFrameworkAndLanguage({
@@ -53,12 +53,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: intl.formatMessage(
       {
         defaultMessage:
-          'Practice {questionCount}+ curated {languageLabel} Interview Questions in-browser, with solutions and test cases from big tech ex-interviewers',
+          'Practice {questionCount}+ curated {category} Interview Questions in-browser, with solutions and test cases from big tech ex-interviewers',
         description: 'Description of interviews questions page',
-        id: 'hY6aRS',
+        id: '/fWLrt',
       },
       {
-        languageLabel,
+        category,
         questionCount: roundQuestionCountToNearestTen(
           languageQuestions[language].length,
         ),
@@ -72,35 +72,35 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     }),
     ogImageTitle: intl.formatMessage(
       {
-        defaultMessage: '{languageLabel} Interview Questions',
+        defaultMessage: '{category} Interview Questions',
         description: 'Title for front end interview questions page',
-        id: 'NsU/ae',
+        id: 'Mo5gp+',
       },
       {
-        languageLabel,
+        category,
       },
     ),
     pathname: `/javascript-interview-questions`,
     socialTitle: intl.formatMessage(
       {
         defaultMessage:
-          '{languageLabel} Interview Questions with Solutions | GreatFrontEnd',
+          '{category} Interview Questions with Solutions | GreatFrontEnd',
         description: 'Social title of front end interview questions page',
-        id: 'YfhHA3',
+        id: 'DrtHuv',
       },
       {
-        languageLabel,
+        category,
       },
     ),
     title: intl.formatMessage(
       {
         defaultMessage:
-          '{languageLabel} Interview Questions | Solutions by Ex-FAANG interviewers',
+          '{category} Interview Questions | Solutions by Ex-FAANG interviewers',
         description: 'Title of interview questions page',
-        id: '0I3ugE',
+        id: 'qo43kj',
       },
       {
-        languageLabel,
+        category,
       },
     ),
   });
@@ -123,14 +123,16 @@ export default async function Page({ params }: Props) {
     fetchInterviewListingBottomContent(`language-${language}`),
   ]);
 
+  const totalQuestionsCount = questionsCoding.length + questionsQuiz.length;
+
   return (
     <InterviewsQuestionsCategoryLanguagePage
       bottomContent={bottomContent}
       guides={guides}
       language={language}
       questionCompletionCount={questionCompletionCount}
-      questions={questionsQuiz}
-      totalQuestionsCount={questionsCoding.length + questionsQuiz.length}
+      questions={questionsCoding}
+      totalQuestionsCount={totalQuestionsCount}
       userFacingFormat="coding"
     />
   );

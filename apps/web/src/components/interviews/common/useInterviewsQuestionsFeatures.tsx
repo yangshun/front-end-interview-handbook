@@ -12,7 +12,7 @@ import { useIntl } from '~/components/intl';
 
 import { roundQuestionCountToNearestTen } from '~/db/QuestionsUtils';
 
-type Keys =
+export type QuestionListFeature =
   | 'answeredByExInterviewers'
   | 'codeInBrowser'
   | 'criticalTopics'
@@ -29,7 +29,7 @@ type Keys =
   | 'timeEfficient';
 
 export default function useInterviewsQuestionsFeatures(count?: number): Record<
-  Keys,
+  QuestionListFeature,
   Readonly<{
     icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
     label: string;

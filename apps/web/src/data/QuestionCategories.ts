@@ -522,6 +522,14 @@ export function useQuestionFrameworksData(): QuestionCategoryLists<
   return getQuestionFrameworksData(intl);
 }
 
+export const QuestionFrameworkLabels: Record<QuestionFramework, string> = {
+  angular: 'Angular',
+  react: 'React',
+  svelte: 'Svelte',
+  vanilla: 'Vanilla JavaScript',
+  vue: 'Vue',
+};
+
 export function getQuestionFrameworksData(
   intl: IntlShape,
 ): QuestionCategoryLists<QuestionFramework, QuestionFrameworkSEO> {

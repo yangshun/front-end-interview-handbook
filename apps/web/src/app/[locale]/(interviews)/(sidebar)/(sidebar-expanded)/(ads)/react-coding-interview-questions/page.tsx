@@ -1,8 +1,13 @@
 import type { Metadata } from 'next/types';
 
-import type { QuestionFramework } from '~/components/interviews/questions/common/QuestionsTypes';
+import {
+  type QuestionFramework,
+  QuestionFrameworkLabels,
+  type QuestionUserFacingFormat,
+} from '~/components/interviews/questions/common/QuestionsTypes';
 import InterviewsQuestionsCategoryFrameworkPage from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryFrameworkPage';
 
+import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
 import { readAllFrontEndInterviewGuides } from '~/db/guides/GuidesReader';
 import { fetchQuestionsCompletionCount } from '~/db/QuestionsCount';
 import { fetchQuestionsListCodingForFramework } from '~/db/QuestionsListReader';
@@ -10,9 +15,10 @@ import { roundQuestionCountToNearestTen } from '~/db/QuestionsUtils';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
-export const dynamic = 'force-static';
+const framework: QuestionFramework = 'react';
+const format: QuestionUserFacingFormat = 'coding';
 
-const framework: QuestionFramework = 'vanilla';
+export const dynamic = 'force-static';
 
 type Props = Readonly<{
   params: Readonly<{
@@ -31,9 +37,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: intl.formatMessage(
       {
         defaultMessage:
-          'Practice {questionCount}+ curated Vanilla JavaScript UI Interview Questions in-browser, with solutions and test cases from big tech ex-interviewers',
+          'Practice {questionCount}+ React Coding Interview Questions. Learn in-browser, with high quality answers written by Big Tech Ex-interviewers',
         description: 'Description of Interview Questions page',
-        id: '+5hnxx',
+        id: 'dy/I2C',
       },
       {
         questionCount: roundQuestionCountToNearestTen(questionsCoding.length),
@@ -47,45 +53,79 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     }),
     ogImageTitle: intl.formatMessage(
       {
-        defaultMessage: '{category} Interview Questions',
-        description: 'OG image title of framework and language page',
-        id: 'uEiI+F',
+        defaultMessage: '{category} Coding Interview Questions',
+        description: 'Title for framework and language page',
+        id: '6mw6d/',
       },
       {
-        category: 'Vanilla JavaScript',
+        category: 'React',
       },
     ),
-    pathname: `/questions/vanilla-javascript-interview-questions`,
+    pathname: `/questions/react-coding-interview-questions`,
     socialTitle: intl.formatMessage({
       defaultMessage:
-        'Vanilla JavaScript UI Interview Questions with Solutions | GreatFrontEnd',
+        'React Coding Interview Questions with Solutions | GreatFrontEnd',
       description: 'Title of React Interview Questions page',
-      id: 'CbIPy4',
+      id: 'gd8jkF',
     }),
     title: intl.formatMessage({
       defaultMessage:
-        'Vanilla JavaScript UI Interview Questions | Solutions by Ex-FAANG interviewers',
+        'React Coding Interview Questions | Solutions by Ex interviewers',
       description: 'Title of React Interview Questions page',
-      id: 'bJcVtt',
+      id: 'Y+6HHl',
     }),
   });
 }
 
 export default async function Page({ params }: Props) {
   const { locale } = params;
-  const [questionsCoding, questionCompletionCount, guides] = await Promise.all([
+
+  const [
+    intl,
+    questionsCoding,
+    questionCompletionCount,
+    guides,
+    bottomContent,
+  ] = await Promise.all([
+    getIntlServerOnly(locale),
     fetchQuestionsListCodingForFramework(framework, locale),
     fetchQuestionsCompletionCount(['user-interface']),
     readAllFrontEndInterviewGuides(locale),
+    fetchInterviewListingBottomContent('framework-react'),
   ]);
+
+  const category = QuestionFrameworkLabels[framework];
 
   return (
     <InterviewsQuestionsCategoryFrameworkPage
+      bottomContent={bottomContent}
+      description={intl.formatMessage(
+        {
+          defaultMessage:
+            '{questionCount}+ most important React Coding Interview Questions: from state management to hooks and component design.',
+          description: 'Description of interview questions page',
+          id: 'RClfQM',
+        },
+        {
+          questionCount: roundQuestionCountToNearestTen(questionsCoding.length),
+        },
+      )}
       framework={framework}
       guides={guides}
       questionCompletionCount={questionCompletionCount}
       questions={questionsCoding}
+      title={intl.formatMessage(
+        {
+          defaultMessage: '{category} Coding Interview Questions',
+          description: 'Title of interview questions page',
+          id: 'TbOere',
+        },
+        {
+          category,
+        },
+      )}
       totalQuestionsCount={questionsCoding.length}
+      userFacingFormat={format}
     />
   );
 }

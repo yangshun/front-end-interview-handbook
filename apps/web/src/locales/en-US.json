@@ -23,6 +23,10 @@
     "defaultMessage": "Practice {questionCount}+ curated Vanilla JavaScript UI Interview Questions in-browser, with solutions and test cases from big tech ex-interviewers",
     "description": "Description of Interview Questions page"
   },
+  "+8ca0t": {
+    "defaultMessage": "JavaScript Data Structures and Algorithms Interview Questions",
+    "description": "Title of interview questions page"
+  },
   "+98gxd": {
     "defaultMessage": "Upload a photo",
     "description": "Label for upload photo"
@@ -254,6 +258,10 @@
   "/fHWzJ": {
     "defaultMessage": "{matchScore}% match with the design for selected device breakpoint",
     "description": "Tooltip for match score"
+  },
+  "/fWLrt": {
+    "defaultMessage": "Practice {questionCount}+ curated {category} Interview Questions in-browser, with solutions and test cases from big tech ex-interviewers",
+    "description": "Description of interviews questions page"
   },
   "/ftlBv": {
     "defaultMessage": "Undo",
@@ -1315,6 +1323,10 @@
     "defaultMessage": "Common mistakes you should avoid.",
     "description": "Comon mistakes to avoid during system design interviews"
   },
+  "6mw6d/": {
+    "defaultMessage": "{category} Coding Interview Questions",
+    "description": "Title for framework and language page"
+  },
   "6pmA7h": {
     "defaultMessage": "How it works",
     "description": "Heading of the 'How it works' marketing section on Projects home page"
@@ -2047,6 +2059,14 @@
     "defaultMessage": "Bio must contain at most {maxLength} character(s).",
     "description": "Error message when bio is too long"
   },
+  "BuQtA2": {
+    "defaultMessage": "{category} Quiz Interview Questions | GreatFrontEnd",
+    "description": "Social title of front end interview questions page"
+  },
+  "Butt5/": {
+    "defaultMessage": "JavaScript DSA Interview Questions",
+    "description": "Title of interview questions page"
+  },
   "BwHkBU": {
     "defaultMessage": "Profile",
     "description": "Link label to the profile page"
@@ -2311,6 +2331,10 @@
     "defaultMessage": "The one-stop page to prepare fully for your front end interviews.",
     "description": "Description for get started in dashboard"
   },
+  "DifSrp": {
+    "defaultMessage": "{category} Coding Interview Questions",
+    "description": "Title for front end interview questions page"
+  },
   "DiyRBB": {
     "defaultMessage": "Codeney Pte Ltd. All rights reserved.",
     "description": "Footer copyright text containing the company name"
@@ -2346,6 +2370,10 @@
   "DqvEKB": {
     "defaultMessage": "Next question",
     "description": "Next question"
+  },
+  "DrtHuv": {
+    "defaultMessage": "{category} Interview Questions with Solutions | GreatFrontEnd",
+    "description": "Social title of front end interview questions page"
   },
   "Dt0MpD": {
     "defaultMessage": "This user has not started any projects matching those filters.",
@@ -2402,6 +2430,10 @@
   "EDnI5H": {
     "defaultMessage": "Expand to view all guides",
     "description": "Tooltip for expanded guide button"
+  },
+  "EHK3Nn": {
+    "defaultMessage": "Practice {questionCount}+ JavaScript Interview Questions on JavaScript Functions. Code in-browser, with quality solutions and test cases from Big Tech Ex-interviewers",
+    "description": "Description of interviews questions page"
   },
   "EHngws": {
     "defaultMessage": "Copied!",
@@ -2822,6 +2854,10 @@
   "H6ueSi": {
     "defaultMessage": "Please contact support at <link>support@greatfrontend.com</link>. Including logs and screenshots will help us resolve the issue.",
     "description": "Error toast description for message sent"
+  },
+  "H92G22": {
+    "defaultMessage": "{category} Coding Interview Questions | With Answers",
+    "description": "Title of interview questions page"
   },
   "H94EnK": {
     "defaultMessage": "<strong>Note</strong>: We have some basic policies on affiliate conduct. Please read the agreement carefully in the sign up process.",
@@ -3763,6 +3799,10 @@
     "defaultMessage": "Try using a different card that supports payments in the required currency.",
     "description": "Reason label for wait for currency supported card"
   },
+  "Mo5gp+": {
+    "defaultMessage": "{category} Interview Questions",
+    "description": "Title for front end interview questions page"
+  },
   "MoV/nU": {
     "defaultMessage": "URL copied to clipboard",
     "description": "Copied heading URL"
@@ -3842,6 +3882,10 @@
   "NdDD5W": {
     "defaultMessage": "Front End System Design Guidebook",
     "description": "Front end system design guidebook title"
+  },
+  "NeDKXb": {
+    "defaultMessage": "Q&A Quiz-style JavaScript Interview Questions",
+    "description": "Description of interview questions page"
   },
   "NgG1HQ": {
     "defaultMessage": "Solving common questions",
@@ -4151,6 +4195,10 @@
     "defaultMessage": "Completed",
     "description": "The guide has been completed"
   },
+  "PaucmE": {
+    "defaultMessage": "Practice {questionCount}+ JavaScript Interview Questions on Data Structures and Algorithms. Code in-browser, with solutions and test cases from Big Tech Ex-interviewers",
+    "description": "Description of interviews questions page"
+  },
   "PbcB1O": {
     "defaultMessage": "If you haven’t started a job in SWE or front end yet, select another status to display in place of your YOE",
     "description": "Label for \"Status\" choices on Projects profile page"
@@ -4443,6 +4491,10 @@
     "defaultMessage": "Unpin",
     "description": "Label for unpin submission button"
   },
+  "RClfQM": {
+    "defaultMessage": "{questionCount}+ most important React Coding Interview Questions: from state management to hooks and component design.",
+    "description": "Description of interview questions page"
+  },
   "RDN4Md": {
     "defaultMessage": "Series",
     "description": "Label for series blog"
@@ -4534,6 +4586,10 @@
   "RYUQWi": {
     "defaultMessage": "Gamified and socialized",
     "description": "Short title for \"Build together with other like-minded individuals\" feature marketing section on Projects home page"
+  },
+  "RYbaoA": {
+    "defaultMessage": "Practice {questionCount}+ JavaScript Coding Interview Questions. Learn in-browser, with high quality answers written by Big Tech Ex-interviewers",
+    "description": "Description of interviews questions page"
   },
   "RZedau": {
     "defaultMessage": "See all",
@@ -4731,6 +4787,10 @@
     "defaultMessage": "Nothing found just yet",
     "description": "Title for empty state when application of filters return no results"
   },
+  "SepyEC": {
+    "defaultMessage": "JavaScript Data Structures and Algorithms Questions",
+    "description": "Title for front end interview questions page"
+  },
   "SgTflO": {
     "defaultMessage": "+{reputation}",
     "description": "Title for level Up"
@@ -4879,6 +4939,10 @@
     "defaultMessage": "Purchase premium to unlock full access to exclusive System Design content including high quality solutions and companies which ask this question.",
     "description": "System design questions paywall"
   },
+  "TbOere": {
+    "defaultMessage": "{category} Coding Interview Questions",
+    "description": "Title of interview questions page"
+  },
   "TbZTWa": {
     "defaultMessage": "Accessibility",
     "description": "Front end development topic"
@@ -4910,6 +4974,10 @@
   "Ti1Gle": {
     "defaultMessage": "Premium is required to access company tags",
     "description": "Title for company tags feature"
+  },
+  "Tjuk29": {
+    "defaultMessage": "JavaScript Functions Interview Questions | With Answers",
+    "description": "Title of interview questions page"
   },
   "Tjz+5U": {
     "defaultMessage": "Giving away {discountPercentage}% off all plans!",
@@ -5023,6 +5091,10 @@
     "defaultMessage": "Stack",
     "description": "Label for tech stack used in project"
   },
+  "UdrD3z": {
+    "defaultMessage": "JavaScript Functions Interview Questions | GreatFrontEnd",
+    "description": "Social title of front end interview questions page"
+  },
   "Ue7Ujc": {
     "defaultMessage": "Here are some awesome ideas for your portfolio, imagined for you",
     "description": "Heading of the 'Here are some awesome ideas for your portfolio, imagined for you' marketing section on Projects home page"
@@ -5102,6 +5174,10 @@
   "VJ8xZy": {
     "defaultMessage": "Prices will be increased as more content is being added to the website.",
     "description": "Tip at the bottom of the Pricing section to let users know that we would increase prices gradually as the content becomes more complete"
+  },
+  "VLBIk4": {
+    "defaultMessage": "{category} Quiz Interview Questions | With Answers",
+    "description": "Title of interview questions page"
   },
   "VMcSLx": {
     "defaultMessage": "Our in-browser coding workspace allows you to simulate a real interview environment with no set up required.",
@@ -5439,6 +5515,10 @@
     "defaultMessage": "Email us",
     "description": "Label for email us"
   },
+  "X6bc93": {
+    "defaultMessage": "{category} User Interface Interview Questions | GreatFrontEnd",
+    "description": "Social title of front end interview questions page"
+  },
   "X6kis4": {
     "defaultMessage": "Explore series",
     "description": "Explore series page title"
@@ -5466,6 +5546,10 @@
   "XK5qY6": {
     "defaultMessage": "You will submit the link to your public GitHub repo on the submission page.",
     "description": "Description for GitHub repo step in project submission checklist"
+  },
+  "XKRfBZ": {
+    "defaultMessage": "Practice {questionCount}+ JavaScript Interview Questions on User Interfaces (UI). Code in-browser, with quality solutions and test cases from Big Tech Ex-interviewers",
+    "description": "Description of interviews questions page"
   },
   "XMHcvt": {
     "defaultMessage": "We recommend quality submissions from more senior engineers using a similar tech stack to you, or tech stack you expressed interest in learning",
@@ -5570,6 +5654,10 @@
   "XysLlX": {
     "defaultMessage": "Settings",
     "description": "App settings label"
+  },
+  "Y+6HHl": {
+    "defaultMessage": "React Coding Interview Questions | Solutions by Ex interviewers",
+    "description": "Title of React Interview Questions page"
   },
   "Y0QGFG": {
     "defaultMessage": "Focus areas",
@@ -5838,6 +5926,10 @@
   "a8ETQr": {
     "defaultMessage": "Meta logo",
     "description": "Meta company logo"
+  },
+  "aAbDbm": {
+    "defaultMessage": "React Quiz Interview Questions",
+    "description": "Title of React Interview Questions page"
   },
   "aCjI8I": {
     "defaultMessage": "Track completed",
@@ -6467,6 +6559,10 @@
     "defaultMessage": "Retaking screenshots, please check back later.",
     "description": "Message for screenshot in progress"
   },
+  "dy/I2C": {
+    "defaultMessage": "Practice {questionCount}+ React Coding Interview Questions. Learn in-browser, with high quality answers written by Big Tech Ex-interviewers",
+    "description": "Description of Interview Questions page"
+  },
   "dz24ro": {
     "defaultMessage": "Send reset password instructions",
     "description": "Label of password reset button on Password Reset page"
@@ -6919,6 +7015,10 @@
     "defaultMessage": "<authorProfileLink>{author}</authorProfileLink> left a question on their submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for someone asking question on their submission"
   },
+  "gd8jkF": {
+    "defaultMessage": "React Coding Interview Questions with Solutions | GreatFrontEnd",
+    "description": "Title of React Interview Questions page"
+  },
   "ghssuE": {
     "defaultMessage": "Next",
     "description": "Label for Next button on Projects profile onboarding page"
@@ -7287,6 +7387,10 @@
     "defaultMessage": "You can add more skills e.g. UI frameworks used after starting the project",
     "description": "Additional information for skills section on Projects project page"
   },
+  "j8Rea3": {
+    "defaultMessage": "{category} Quiz Interview Questions",
+    "description": "Title for front end interview questions page"
+  },
   "jCBp3Z": {
     "defaultMessage": "Recommended prep strategy",
     "description": "Recommended interview preparation strategy"
@@ -7314,6 +7418,10 @@
   "jMTHcm": {
     "defaultMessage": "Manage subscription",
     "description": "Manage billing subscription"
+  },
+  "jN1v5Q": {
+    "defaultMessage": "{category} Quiz Interview Questions with Solutions | GreatFrontEnd",
+    "description": "Title of React Interview Questions page"
   },
   "jNLP4m": {
     "defaultMessage": "Other tech stack used (outside of skills roadmap)",
@@ -7550,6 +7658,10 @@
   "kjB9VN": {
     "defaultMessage": "Premium study plans",
     "description": "Paywall title for study plans feature"
+  },
+  "kmXWNc": {
+    "defaultMessage": "{category} UI Interview Questions | With Answers",
+    "description": "Title of interview questions page"
   },
   "kmemRr": {
     "defaultMessage": "Submission title",
@@ -7791,9 +7903,17 @@
     "defaultMessage": "Our plans cost <bold>less than the equivalent of one hour</bold> of an average Front End Engineer's salary. In contrast, a strong interview performance can lead to securing a competitive offer with a total compensation <bold>increase of hundreds of thousands of dollars</bold>. It's widely known that many companies structure their offers based on interview performance, and excelling in interviews can even result in being <bold>upleveled into a higher role</bold>, further increasing your earning potential.",
     "description": "Paragraph 1 answer to 'Is it really worth it to buy GreatFrontEnd?' on Homepage's FAQ sections"
   },
+  "mL9M8v": {
+    "defaultMessage": "JavaScript Functions Interview Questions",
+    "description": "Title of interview questions page"
+  },
   "mNb3b2": {
     "defaultMessage": "Hard",
     "description": "Hard difficulty question"
+  },
+  "mOd6tW": {
+    "defaultMessage": "JavaScript User Interface Interview Questions",
+    "description": "Title of interview questions page"
   },
   "mRneIU": {
     "defaultMessage": "Design files for desktop, tablet and mobile",
@@ -8002,6 +8122,10 @@
   "nivf5h": {
     "defaultMessage": "General",
     "description": "Profile settings tab title"
+  },
+  "nk2W/s": {
+    "defaultMessage": "JavaScript DSA Interview Questions | GreatFrontEnd",
+    "description": "Social title of front end interview questions page"
   },
   "nkY9S8": {
     "defaultMessage": "Behavioral Interview Playbook",
@@ -8467,6 +8591,10 @@
     "defaultMessage": "For your reference, these are the tests used when your code is submitted. They cannot be modified.",
     "description": "Text indicating to users that the below section are test cases that their code will be tested against"
   },
+  "qiR/gs": {
+    "defaultMessage": "{category} Coding Interview Questions | GreatFrontEnd",
+    "description": "Social title of front end interview questions page"
+  },
   "qjKLfH": {
     "defaultMessage": "Email us at <email>contact@greatfrontend.com</email> or use one of the options below. We usually get back within a day or two.",
     "description": "Subtitle for contact us section"
@@ -8482,6 +8610,10 @@
   "qnBYb6": {
     "defaultMessage": "Premium component track",
     "description": "Premium projects component track"
+  },
+  "qo43kj": {
+    "defaultMessage": "{category} Interview Questions | Solutions by Ex-FAANG interviewers",
+    "description": "Title of interview questions page"
   },
   "qoTBLI": {
     "defaultMessage": "Know where to find important info",
@@ -9019,6 +9151,10 @@
     "defaultMessage": "GreatFrontEnd Blog",
     "description": "Blog home page title"
   },
+  "uQG7Ed": {
+    "defaultMessage": "JavaScript Quiz Interview Questions",
+    "description": "Title of interview questions page"
+  },
   "uSGeKw": {
     "defaultMessage": "Frameworks and languages",
     "description": "Title for framework and language section"
@@ -9030,6 +9166,10 @@
   "uViVdm": {
     "defaultMessage": "Details of rep gain across skills",
     "description": "Details of rep gain across skills for submission"
+  },
+  "uWgMQQ": {
+    "defaultMessage": "Coding questions that use JavaScript to build user interfaces, including components, applications, and games.",
+    "description": "Description of interview questions page"
   },
   "ua8BRe": {
     "defaultMessage": "All Practice Questions",
@@ -9046,6 +9186,14 @@
   "ub441I": {
     "defaultMessage": "Help others improve",
     "description": "Title for recommended action for new projects platform user"
+  },
+  "ubkZxH": {
+    "defaultMessage": "{category} Quiz Interview Questions",
+    "description": "Title of interview questions page"
+  },
+  "ucUZT7": {
+    "defaultMessage": "{category} User Interface Interview Questions",
+    "description": "Title for front end interview questions page"
   },
   "ufyNP1": {
     "defaultMessage": "Created: Newest to oldest",
@@ -9191,6 +9339,10 @@
     "defaultMessage": "Full access to tracks & skills. Unlimited <tooltip>premium credits</tooltip>",
     "description": "Subtitle of premium plan CTA card"
   },
+  "vbWLam": {
+    "defaultMessage": "Practice {questionCount}+ Quiz-style JavaScript Interview Questions. Learn in-browser, with high quality answers written by Big Tech Ex-interviewers",
+    "description": "Description of interviews questions page"
+  },
   "vbwUYs": {
     "defaultMessage": "Clarify any doubts on a project in project-specific forums",
     "description": "Description for \"Learn from others\" feature on Projects home page"
@@ -9227,6 +9379,10 @@
     "defaultMessage": "Purchase premium to see companies which ask this question.",
     "description": "Subtitle for paywall over information about companies that asked the question"
   },
+  "vpSJsc": {
+    "defaultMessage": "Coding questions on data structures and algorithms, using JavaScript.",
+    "description": "Description of interview questions page"
+  },
   "vpXZzv": {
     "defaultMessage": "Check out the available <link>promotions</link>.",
     "description": "Promotional message"
@@ -9242,6 +9398,10 @@
   "vsgUOt": {
     "defaultMessage": "Copy the link to this page",
     "description": "Tooltip for copy link"
+  },
+  "vt3b5U": {
+    "defaultMessage": "{questionCount}+ most important JavaScript coding interview questions, from data structures and algorithms to JavaScript functions and user interfaces.",
+    "description": "Description of interview questions page"
   },
   "vvPx/k": {
     "defaultMessage": "You have not started any projects matching those filters.",
@@ -9543,6 +9703,10 @@
     "defaultMessage": "Reading time",
     "description": "Reading time of the article"
   },
+  "yCEIJF": {
+    "defaultMessage": "Practice {questionCount}+ React Quiz Interview Questions. Learn in-browser, with high quality answers written by Big Tech Ex-interviewers",
+    "description": "Description of Interview Questions page"
+  },
   "yCyxT4": {
     "defaultMessage": "All tracks",
     "description": "Label for component tracks feature for pricing plan"
@@ -9550,6 +9714,10 @@
   "yDVs1E": {
     "defaultMessage": "We will only use them to verify task completion. This information will not be stored on our servers.",
     "description": "Rewards campaign help text"
+  },
+  "yDXWTO": {
+    "defaultMessage": "Coding questions on JavaScript functions, covering concepts such as closures, event handling, async programming, and DOM manipulation.",
+    "description": "Description of interview questions page"
   },
   "yM3vbW": {
     "defaultMessage": "Editor Shortcuts",
@@ -9691,6 +9859,10 @@
     "defaultMessage": "Please enter your motivations",
     "description": "Error message for empty \"Other\" onboarding option in Projects"
   },
+  "zAYPO0": {
+    "defaultMessage": "JavaScript Functions Interview Questions",
+    "description": "Title for front end interview questions page"
+  },
   "zAl/H8": {
     "defaultMessage": "General account settings. Shared across all GreatFrontEnd products.",
     "description": "Description for general account settings"
@@ -9750,6 +9922,10 @@
   "zMpEuy": {
     "defaultMessage": "Popularity: Least to most completed",
     "description": "Sorting option for projects list - popularity"
+  },
+  "zNN/De": {
+    "defaultMessage": "Q&A quiz-style {category} Interview Questions",
+    "description": "Description of interview questions page"
   },
   "zOaxDi": {
     "defaultMessage": "Includes every possible question format you'll encounter: <jsCodingAnchor>JavaScript coding questions</jsCodingAnchor>, <uiAnchor>UI coding questions</uiAnchor>, <algoCodingAnchor>Algo coding questions</algoCodingAnchor>, <systemDesignAnchor>System design</systemDesignAnchor>, and <quizAnchor>Quiz-style questions</quizAnchor>.",
@@ -9826,6 +10002,10 @@
   "zrKftp": {
     "defaultMessage": "You just gained {points} reputation points for completing your profile!",
     "description": "Success message after completing profile form"
+  },
+  "zs/Ius": {
+    "defaultMessage": "{category} Quiz Interview Questions",
+    "description": "OG image title of framework and language page"
   },
   "zul/L1": {
     "defaultMessage": "Earlier this month",

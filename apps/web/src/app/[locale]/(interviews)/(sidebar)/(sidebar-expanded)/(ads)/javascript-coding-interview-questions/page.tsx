@@ -41,7 +41,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       fetchQuestionsListQuiz(locale),
     ]);
 
-  const languageLabel = QuestionLanguageLabels[language];
+  const category = QuestionLanguageLabels[language];
 
   const { language: languageQuestions } =
     categorizeQuestionsByFrameworkAndLanguage({
@@ -53,12 +53,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: intl.formatMessage(
       {
         defaultMessage:
-          'Practice {questionCount}+ curated {languageLabel} Interview Questions in-browser, with solutions and test cases from big tech ex-interviewers',
+          'Practice {questionCount}+ JavaScript Coding Interview Questions. Learn in-browser, with high quality answers written by Big Tech Ex-interviewers',
         description: 'Description of interviews questions page',
-        id: 'hY6aRS',
+        id: 'RYbaoA',
       },
       {
-        languageLabel,
+        category,
         questionCount: roundQuestionCountToNearestTen(
           languageQuestions[language].length,
         ),
@@ -72,35 +72,33 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     }),
     ogImageTitle: intl.formatMessage(
       {
-        defaultMessage: '{languageLabel} Interview Questions',
+        defaultMessage: '{category} Coding Interview Questions',
         description: 'Title for front end interview questions page',
-        id: 'NsU/ae',
+        id: 'DifSrp',
       },
       {
-        languageLabel,
+        category,
       },
     ),
     pathname: `/javascript-coding-interview-questions`,
     socialTitle: intl.formatMessage(
       {
-        defaultMessage:
-          '{languageLabel} Interview Questions with Solutions | GreatFrontEnd',
+        defaultMessage: '{category} Coding Interview Questions | GreatFrontEnd',
         description: 'Social title of front end interview questions page',
-        id: 'YfhHA3',
+        id: 'qiR/gs',
       },
       {
-        languageLabel,
+        category,
       },
     ),
     title: intl.formatMessage(
       {
-        defaultMessage:
-          '{languageLabel} Interview Questions | Solutions by Ex-FAANG interviewers',
+        defaultMessage: '{category} Coding Interview Questions | With Answers',
         description: 'Title of interview questions page',
-        id: '0I3ugE',
+        id: 'H92G22',
       },
       {
-        languageLabel,
+        category,
       },
     ),
   });
@@ -110,12 +108,14 @@ export default async function Page({ params }: Props) {
   const { locale } = params;
 
   const [
+    intl,
     questionsCoding,
     questionsQuiz,
     questionCompletionCount,
     guides,
     bottomContent,
   ] = await Promise.all([
+    getIntlServerOnly(locale),
     fetchQuestionsListCodingForLanguage(language, locale),
     fetchQuestionsListQuizForLanguage(language, locale),
     fetchQuestionsCompletionCount([questionFormat]),
@@ -123,14 +123,38 @@ export default async function Page({ params }: Props) {
     fetchInterviewListingBottomContent(`language-${language}`),
   ]);
 
+  const totalQuestionsCount = questionsCoding.length + questionsQuiz.length;
+  const category = QuestionLanguageLabels[language];
+
   return (
     <InterviewsQuestionsCategoryLanguagePage
       bottomContent={bottomContent}
+      description={intl.formatMessage(
+        {
+          defaultMessage:
+            '{questionCount}+ most important JavaScript coding interview questions, from data structures and algorithms to JavaScript functions and user interfaces.',
+          description: 'Description of interview questions page',
+          id: 'vt3b5U',
+        },
+        {
+          questionCount: roundQuestionCountToNearestTen(questionsCoding.length),
+        },
+      )}
       guides={guides}
       language={language}
       questionCompletionCount={questionCompletionCount}
-      questions={questionsQuiz}
-      totalQuestionsCount={questionsCoding.length + questionsQuiz.length}
+      questions={questionsCoding}
+      title={intl.formatMessage(
+        {
+          defaultMessage: '{category} Coding Interview Questions',
+          description: 'Title of interview questions page',
+          id: 'TbOere',
+        },
+        {
+          category,
+        },
+      )}
+      totalQuestionsCount={totalQuestionsCount}
       userFacingFormat="coding"
     />
   );

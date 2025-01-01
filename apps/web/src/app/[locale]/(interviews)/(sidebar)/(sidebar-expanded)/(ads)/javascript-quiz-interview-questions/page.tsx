@@ -41,7 +41,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       fetchQuestionsListQuiz(locale),
     ]);
 
-  const languageLabel = QuestionLanguageLabels[language];
+  const category = QuestionLanguageLabels[language];
 
   const { language: languageQuestions } =
     categorizeQuestionsByFrameworkAndLanguage({
@@ -53,12 +53,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: intl.formatMessage(
       {
         defaultMessage:
-          'Practice {questionCount}+ curated {languageLabel} Interview Questions in-browser, with solutions and test cases from big tech ex-interviewers',
+          'Practice {questionCount}+ Quiz-style JavaScript Interview Questions. Learn in-browser, with high quality answers written by Big Tech Ex-interviewers',
         description: 'Description of interviews questions page',
-        id: 'hY6aRS',
+        id: 'vbWLam',
       },
       {
-        languageLabel,
+        category,
         questionCount: roundQuestionCountToNearestTen(
           languageQuestions[language].length,
         ),
@@ -72,35 +72,33 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     }),
     ogImageTitle: intl.formatMessage(
       {
-        defaultMessage: '{languageLabel} Interview Questions',
+        defaultMessage: '{category} Quiz Interview Questions',
         description: 'Title for front end interview questions page',
-        id: 'NsU/ae',
+        id: 'j8Rea3',
       },
       {
-        languageLabel,
+        category,
       },
     ),
     pathname: `/javascript-quiz-interview-questions`,
     socialTitle: intl.formatMessage(
       {
-        defaultMessage:
-          '{languageLabel} Interview Questions with Solutions | GreatFrontEnd',
+        defaultMessage: '{category} Quiz Interview Questions | GreatFrontEnd',
         description: 'Social title of front end interview questions page',
-        id: 'YfhHA3',
+        id: 'BuQtA2',
       },
       {
-        languageLabel,
+        category,
       },
     ),
     title: intl.formatMessage(
       {
-        defaultMessage:
-          '{languageLabel} Interview Questions | Solutions by Ex-FAANG interviewers',
+        defaultMessage: '{category} Quiz Interview Questions | With Answers',
         description: 'Title of interview questions page',
-        id: '0I3ugE',
+        id: 'VLBIk4',
       },
       {
-        languageLabel,
+        category,
       },
     ),
   });
@@ -110,12 +108,14 @@ export default async function Page({ params }: Props) {
   const { locale } = params;
 
   const [
+    intl,
     questionsCoding,
     questionsQuiz,
     questionCompletionCount,
     guides,
     bottomContent,
   ] = await Promise.all([
+    getIntlServerOnly(locale),
     fetchQuestionsListCodingForLanguage(language, locale),
     fetchQuestionsListQuizForLanguage(language, locale),
     fetchQuestionsCompletionCount([questionFormat]),
@@ -123,14 +123,27 @@ export default async function Page({ params }: Props) {
     fetchInterviewListingBottomContent(`language-${language}`),
   ]);
 
+  const totalQuestionsCount = questionsCoding.length + questionsQuiz.length;
+
   return (
     <InterviewsQuestionsCategoryLanguagePage
       bottomContent={bottomContent}
+      description={intl.formatMessage({
+        defaultMessage: 'Q&A Quiz-style JavaScript Interview Questions',
+        description: 'Description of interview questions page',
+        id: 'NeDKXb',
+      })}
+      features={['criticalTopics', 'answeredByExInterviewers']}
       guides={guides}
       language={language}
       questionCompletionCount={questionCompletionCount}
       questions={questionsQuiz}
-      totalQuestionsCount={questionsCoding.length + questionsQuiz.length}
+      title={intl.formatMessage({
+        defaultMessage: 'JavaScript Quiz Interview Questions',
+        description: 'Title of interview questions page',
+        id: 'uQG7Ed',
+      })}
+      totalQuestionsCount={totalQuestionsCount}
       userFacingFormat="quiz"
     />
   );

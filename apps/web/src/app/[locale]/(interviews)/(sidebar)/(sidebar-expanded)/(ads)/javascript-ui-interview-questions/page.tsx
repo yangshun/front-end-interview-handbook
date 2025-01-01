@@ -47,18 +47,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       quizQuestions: questionsQuiz,
     });
 
-  const languageLabel = QuestionLanguageLabels[language];
+  const category = QuestionLanguageLabels[language];
 
   return defaultMetadata({
     description: intl.formatMessage(
       {
         defaultMessage:
-          'Practice {questionCount}+ curated {languageLabel} Interview Questions in-browser, with solutions and test cases from big tech ex-interviewers',
+          'Practice {questionCount}+ JavaScript Interview Questions on User Interfaces (UI). Code in-browser, with quality solutions and test cases from Big Tech Ex-interviewers',
         description: 'Description of interviews questions page',
-        id: 'hY6aRS',
+        id: 'XKRfBZ',
       },
       {
-        languageLabel,
         questionCount: roundQuestionCountToNearestTen(
           languageQuestions[language].length,
         ),
@@ -72,35 +71,34 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     }),
     ogImageTitle: intl.formatMessage(
       {
-        defaultMessage: '{languageLabel} Interview Questions',
+        defaultMessage: '{category} User Interface Interview Questions',
         description: 'Title for front end interview questions page',
-        id: 'NsU/ae',
+        id: 'ucUZT7',
       },
       {
-        languageLabel,
+        category,
       },
     ),
     pathname: `/javascript-ui-interview-questions`,
     socialTitle: intl.formatMessage(
       {
         defaultMessage:
-          '{languageLabel} Interview Questions with Solutions | GreatFrontEnd',
+          '{category} User Interface Interview Questions | GreatFrontEnd',
         description: 'Social title of front end interview questions page',
-        id: 'YfhHA3',
+        id: 'X6bc93',
       },
       {
-        languageLabel,
+        category,
       },
     ),
     title: intl.formatMessage(
       {
-        defaultMessage:
-          '{languageLabel} Interview Questions | Solutions by Ex-FAANG interviewers',
+        defaultMessage: '{category} UI Interview Questions | With Answers',
         description: 'Title of interview questions page',
-        id: '0I3ugE',
+        id: 'kmXWNc',
       },
       {
-        languageLabel,
+        category,
       },
     ),
   });
@@ -110,12 +108,14 @@ export default async function Page({ params }: Props) {
   const { locale } = params;
 
   const [
+    intl,
     questionsCoding,
     questionsQuiz,
     questionCompletionCount,
     guides,
     bottomContent,
   ] = await Promise.all([
+    getIntlServerOnly(locale),
     fetchQuestionsListCodingForLanguage(language, locale),
     fetchQuestionsListQuizForLanguage(language, locale),
     fetchQuestionsCompletionCount([codingFormat]),
@@ -127,14 +127,27 @@ export default async function Page({ params }: Props) {
     metadata.format.includes(codingFormat),
   );
 
+  const totalQuestionsCount = questionsCoding.length + questionsQuiz.length;
+
   return (
     <InterviewsQuestionsCategoryLanguagePage
       bottomContent={bottomContent}
+      description={intl.formatMessage({
+        defaultMessage:
+          'Coding questions that use JavaScript to build user interfaces, including components, applications, and games.',
+        description: 'Description of interview questions page',
+        id: 'uWgMQQ',
+      })}
       guides={guides}
       language={language}
       questionCompletionCount={questionCompletionCount}
       questions={questionsCodingFormat}
-      totalQuestionsCount={questionsCoding.length + questionsQuiz.length}
+      title={intl.formatMessage({
+        defaultMessage: 'JavaScript User Interface Interview Questions',
+        description: 'Title of interview questions page',
+        id: 'mOd6tW',
+      })}
+      totalQuestionsCount={totalQuestionsCount}
       userFacingFormat="coding"
     />
   );

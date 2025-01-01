@@ -8,6 +8,7 @@ import {
   useQuestionLanguagesData,
 } from '~/data/QuestionCategories';
 
+import type { QuestionListFeature } from '~/components/interviews/common/useInterviewsQuestionsFeatures';
 import useInterviewsQuestionsFeatures from '~/components/interviews/common/useInterviewsQuestionsFeatures';
 import { useIntl } from '~/components/intl';
 import MDXContent from '~/components/mdx/MDXContent';
@@ -38,14 +39,26 @@ type Props = Omit<
       options: ReadonlyArray<QuestionCodingFormat>;
       value?: QuestionCodingFormat;
     }>;
+    description?: string;
+    features?: ReadonlyArray<QuestionListFeature>;
     language: QuestionLanguage;
     questions: ReadonlyArray<QuestionMetadata>;
+    title?: string;
     totalQuestionsCount: number;
     userFacingFormat?: QuestionUserFacingFormat;
   }>;
 
+const defaultFeatures: ReadonlyArray<QuestionListFeature> = [
+  'solvedByExInterviewers',
+  'testCases',
+  'codeInBrowser',
+];
+
 export default function InterviewsQuestionsCategoryLanguagePage({
+  title,
+  description,
   codingFormat,
+  features = defaultFeatures,
   language,
   questions,
   bottomContent,
@@ -111,18 +124,18 @@ export default function InterviewsQuestionsCategoryLanguagePage({
   })();
 
   const questionFeatures = useInterviewsQuestionsFeatures();
-  const features = [
-    questionFeatures.solvedByExInterviewers,
-    questionFeatures.testCases,
-    questionFeatures.codeInBrowser,
-  ];
+  const featureItems = features.map(
+    (featureItem) => questionFeatures[featureItem],
+  );
 
   return (
     <div className="flex flex-col gap-20">
       <InterviewsQuestionsCategoryPage
         categoryTabs={categoryTabs}
-        description={languages[language].getDescription(totalQuestionsCount)}
-        features={features}
+        description={
+          description ?? languages[language].getDescription(totalQuestionsCount)
+        }
+        features={featureItems}
         formatTabs={codingFormatTabs}
         listType={{ type: 'language', value: language }}
         questionList={questions}
@@ -130,7 +143,7 @@ export default function InterviewsQuestionsCategoryLanguagePage({
           totalQuestionsCount,
         )}
         selectedCategoryTab={userFacingFormat}
-        title={languages[language].longName}
+        title={title ?? languages[language].longName}
         {...props}
       />
       {bottomContent && (
