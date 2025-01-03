@@ -2,11 +2,11 @@
 title: Cheatsheet for UI Interview Questions
 description: A cheatsheet you can use to improve the user interfaces you have to build or design during front end interviews.
 seo_title: User Interface Questions Cheatsheet | Front End Interview Playbook
-seo_description: A cheatsheet you can use to improve the user interfaces you have to build or design during front end interviews - component organization, state design, UX and more 
+seo_description: A cheatsheet you can use to improve the user interfaces you have to build or design during front end interviews - component organization, state design, UX and more
 social_title: User Interface Questions Cheatsheet | Front End Interview Playbook
 ---
 
-Here are some tips you can use to improve the user interfaces you have to build/design during front end interviews. These can be applied to both [User Interface Coding Interviews](/front-end-interview-guidebook/user-interface) and [Front End System Design Interviews](/system-design/types-of-questions).
+Here are some tips you can use to improve the user interfaces you have to build/design during front end interviews. These can be applied to both [User Interface Coding Interviews](/front-end-interview-playbook/user-interface) and [Front End System Design Interviews](/system-design/types-of-questions).
 
 ## General
 
@@ -150,7 +150,7 @@ There's probably not enough time to handle all edge cases scenarios in your code
 
 ## Security
 
-- **Cross-site Scripting (XSS)**: Avoid assigning to [`Element.innerHTML`](https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML) or React's `dangerouslySetInnerHTML` when rendering contents into the DOM if it comes from users to prevent cross-site scripting, assign to [`Node.textContent`](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent) or use the experimental[`Element.setHTML()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/setHTML) method instead. Refer to [OWASP's XSS Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
+- **Cross-site Scripting (XSS)**: Avoid assigning to [`Element.innerHTML`](https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML) or React's `dangerouslySetInnerHTML` when rendering contents into the DOM if it comes from users to prevent cross-site scripting, assign to [`Node.textContent`](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent) or use the experimental[`Element.setHTML()`](https://webdocs.dev/en-us/docs/web/api/element/sethtml) method instead. Refer to [OWASP's XSS Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
 - **Output encoding for "URL Contexts"**: If user-supplied input can be used in URL query parameters, use `encodeURIComponent` to prevent unintended values from becoming part of the URL (e.g. extra query parameters).
 - **Cross Site Request Forgery**: Refer to [OWASP's XSS Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html).
 
