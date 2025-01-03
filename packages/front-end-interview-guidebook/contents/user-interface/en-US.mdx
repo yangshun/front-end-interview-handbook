@@ -45,7 +45,7 @@ User interface coding interviews share a fair bit of similarity with non-front e
 1. Break down the problem into stages/milestones that build on top of each other. Communicate this breakdown to your interviewer. Unlike coding interviews, the focus of User Interface coding interviews is usually around the component states and APIs as opposed to complex data structures and algorithms.
 1. Code out your solution and explain your code to your interviewer while you are coding.
    - Where possible, test your code in the browser after every milestone/feature added, instead of only at the end.
-   - Refer to the [User Interface Questions Cheatsheet](/front-end-interview-guidebook/user-interface-questions-cheatsheet) for a list of things to take note of during User Interface coding interviews.
+   - Refer to the [User Interface Questions Cheatsheet](/front-end-interview-playbook/user-interface-questions-cheatsheet) for a list of things to take note of during User Interface coding interviews.
 1. After coding, read through your code once and try to spot basic errors like typos, using variables before initializing them, using APIs incorrectly, etc.
 1. Outline some basic test cases and some edge cases. Test your code with these cases and determine if your code passes them. If it fails, debug the issue(s) and fix them.
 1. Explain any tradeoffs you made, cases you explicitly didn't handle, and how you would improve the code if you had more time.
@@ -53,7 +53,7 @@ User interface coding interviews share a fair bit of similarity with non-front e
 
 ## How to Prepare for User Interface Coding Interviews
 
-1. Be familiar with the topics under the "Important Concepts" below. The [Quiz section](/front-end-interview-guidebook/quiz) can also be a good start since you might be asked on these concepts in the form of quiz questions during coding.
+1. Be familiar with the topics under the "Important Concepts" below. The [Quiz section](/front-end-interview-playbook/quiz) can also be a good start since you might be asked on these concepts in the form of quiz questions during coding.
 1. It's best to learn how to build UIs in both Vanilla JavaScript and a UI framework of choice. Most companies will allow using JavaScript UI frameworks but some companies (e.g. Google) mandate that you can only use Vanilla JavaScript.
    - **Vanilla JavaScript**: Learn the DOM manipulation APIs. At the very least you should know how to create new DOM elements, add classes/attributes to them, and add child elements. If you come from a [jQuery](https://jquery.com/) background, check out [You might not need jQuery](https://youmightnotneedjquery.com), a website showing you how to accomplish the common jQuery operations in Vanilla JavaScript. You will be pleasantly surprised to find out that with modern browser APIs there isn't really much need for jQuery anymore.
    - **JavaScript UI framework**: Be familiar with a UI framework of choice. Stick with the framework that you are most familiar with. There's no need and also probably not enough time to learn a new framework. If you are new to JavaScript UI frameworks, [React](https://reactjs.org/) will be our recommendation as it is the most popular library/framework to build UI right now and what most companies look for when hiring front end engineers.
@@ -61,8 +61,8 @@ User interface coding interviews share a fair bit of similarity with non-front e
    - **Write Vanilla CSS**: Learn to write CSS without reliance on preprocessors like Sass/Less. Not all coding environments will allow using processors and interview questions are likely small and do not really benefit from the features CSS preprocessors bring. The most useful feature of CSS processors is the use of variables, which is available natively via CSS custom properties (CSS variables).
    - **Adopt a CSS naming convention**: Consider adopting a CSS naming methodology like [Block Element Modifier](https://getbem.com) when writing your classes.
 1. Read our User Interface coding deep dive guides:
-   - [User Interface Questions Cheatsheet](/front-end-interview-guidebook/user-interface-questions-cheatsheet)
-   - [User Interface Components API Design Principles](/front-end-interview-guidebook/user-interface-components-api-design-principles)
+   - [User Interface Questions Cheatsheet](/front-end-interview-playbook/user-interface-questions-cheatsheet)
+   - [User Interface Components API Design Principles](/front-end-interview-playbook/user-interface-components-api-design-principles)
 1. Pick a [study plan](/get-started) and practice the [User Interface coding questions](/prepare/coding) recommended for the selected study plan.
    - Spend roughly equal amount of time practicing building both UI components and building apps/games. Both are equally important.
 
@@ -102,10 +102,10 @@ From experience, the best UI interview questions to practice, as determined by f
 - [Whack-a-mole](/questions/user-interface/whack-a-mole)
 - [Tic-tac-toe](/questions/user-interface/tic-tac-toe)
 - [Tabs](/questions/user-interface/tabs)
-- Image Carousel
+- [Image Carousel](/questions/user-interface/image-carousel)
 - Autocomplete
 - Dropdown Menu
-- Modal
+- [Modal](/questions/user-interface/modal-dialog)
 
 GreatFrontEnd has a [comprehensive list of User Interface coding questions](/prepare/coding) that you can practice in your framework of choice (currently supports Vanilla JavaScript and [React](https://reactjs.org/)). We also provide manual tests cases you can test your code against to verify the correctness and solutions written in the various JavaScript UI frameworks by ex-FAANG Senior Engineers. Automated test cases are not provided for UI questions because they tend to be coupled to implementation and hard for automated tests to test accurately. Moreover, during interviews you likely have to test your UI yourself.
 
