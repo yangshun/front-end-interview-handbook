@@ -1,3 +1,5 @@
+import type { QuestionFormat } from '~/components/interviews/questions/common/QuestionsTypes';
+
 import { scheduleEmailWithChecks } from '~/emails/qstash/EmailsQstashScheduler';
 import RedisCounter from '~/redis/RedisCounter';
 import prisma from '~/server/prisma';
@@ -5,13 +7,17 @@ import prisma from '~/server/prisma';
 const TRIGGER_INTEREST_POINT = 15;
 const TWO_HOURS_LATER_SECS = 2 * 60 * 60;
 
-type InterviewsInterestEntity =
-  | 'algo'
-  | 'article'
-  | 'javascript'
-  | 'quiz'
-  | 'system-design'
-  | 'user-interface';
+type InterviewsInterestEntity = QuestionFormat | 'article';
+
+// Interest point for each question format / article
+const interestPointMap: Record<InterviewsInterestEntity, number> = {
+  algo: 3,
+  article: 1,
+  javascript: 3,
+  quiz: 1,
+  'system-design': 3,
+  'user-interface': 3,
+};
 
 export default async function scheduleInterviewsProgressEmail({
   userId,
@@ -20,15 +26,6 @@ export default async function scheduleInterviewsProgressEmail({
   entity: InterviewsInterestEntity;
   userId: string;
 }>) {
-  // Interest point for each question format
-  const interestPointMap: Record<InterviewsInterestEntity, number> = {
-    algo: 3,
-    article: 1,
-    javascript: 3,
-    quiz: 1,
-    'system-design': 3,
-    'user-interface': 3,
-  };
   const points = interestPointMap[entity] || 0;
 
   const questionsInterestPointsRedisCounter = new RedisCounter(
@@ -38,6 +35,7 @@ export default async function scheduleInterviewsProgressEmail({
   const questionsInterestPointRedisValue =
     await questionsInterestPointsRedisCounter.incrby(points);
 
+  console.info({ entity, points, questionsInterestPointRedisValue });
   if (questionsInterestPointRedisValue < TRIGGER_INTEREST_POINT) {
     return;
   }
