@@ -6,6 +6,7 @@ import scheduleCheckoutInitiateEmail from '~/emails/items/checkout/EmailsSchedul
 import scheduleWelcomeSeriesEmail from '~/emails/items/welcome/EmailsSchedulerWelcomeSeries';
 import { emailsContactListKeyToId } from '~/emails/mailjet/EmailsMailjetContactLists';
 import MailjetClient from '~/emails/mailjet/MailjetClient';
+import prisma from '~/server/prisma';
 import { publicProcedure } from '~/server/trpc';
 
 import { router, userProcedure } from '../trpc';
@@ -70,6 +71,29 @@ export const emailsRouter = router({
       }),
     )
     .mutation(async ({ input: { userId } }) => {
+      const userProfile = await prisma.profile.findUnique({
+        where: {
+          id: userId,
+        },
+      });
+
+      if (userProfile == null) {
+        throw new TRPCError({
+          code: 'BAD_REQUEST',
+          message: `User profile not found for ${userId}`,
+        });
+      }
+
+      const lowerLimit = new Date(
+        // 2 days
+        new Date().getTime() - 2 * 24 * 60 * 60 * 1000,
+      );
+
+      if (userProfile.createdAt < lowerLimit) {
+        // Profile created too long ago
+        return;
+      }
+
       await scheduleWelcomeSeriesEmail({
         userId,
       });

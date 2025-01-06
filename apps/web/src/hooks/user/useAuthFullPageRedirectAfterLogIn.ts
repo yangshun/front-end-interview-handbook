@@ -1,4 +1,6 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
+
+import { trpc } from '~/hooks/trpc';
 
 import { useAuthSignedInBefore } from '~/components/auth/useAuthSignedInBefore';
 
@@ -9,6 +11,12 @@ export default function useAuthFullPageRedirectAfterLogin(
 ) {
   const user = useUser();
   const [, setSignedInBefore] = useAuthSignedInBefore();
+
+  const scheduleWelcomeSeriesEmailMutation =
+    trpc.emails.scheduleWelcomeSeries.useMutation();
+  const scheduleWelcomeSeriesEmailMutationRef = useRef(
+    scheduleWelcomeSeriesEmailMutation,
+  );
 
   useEffect(() => {
     // Only run effect when user is logged in.
@@ -24,6 +32,14 @@ export default function useAuthFullPageRedirectAfterLogin(
       !!next && next !== window.location.pathname
         ? next
         : '/interviews/dashboard';
+
+    // Attempt to schedule welcome series email
+    // No-op if sent before or account created too long ago
+    if (!redirectPath.includes('projects')) {
+      scheduleWelcomeSeriesEmailMutationRef.current.mutateAsync({
+        userId: user.id,
+      });
+    }
 
     // The cookie is set on the client side, so race conditions can happen
     // where we redirect to a new page that checks for signed in status

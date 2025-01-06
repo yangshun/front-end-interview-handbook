@@ -12,26 +12,14 @@ import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 import { themeRadialWhiteGlowBackground } from '~/components/ui/theme';
 
-import useEmailsOauthSignUpScheduleWelcomeSeries from '~/emails/items/welcome/useEmailsOauthSignupScheduleWelcomeSeries';
 import logEvent from '~/logging/logEvent';
 
 type Props = Readonly<{
   next: string | null;
-  shouldSendWelcomeSeriesEmail: boolean;
 }>;
 
-export default function AuthLoginSuccessPage({
-  next,
-  shouldSendWelcomeSeriesEmail,
-}: Props) {
+export default function AuthLoginSuccessPage({ next }: Props) {
   const intl = useIntl();
-
-  // Trigger welcome email
-  useEmailsOauthSignUpScheduleWelcomeSeries({
-    // To determine if the signup was triggered from projects or interviews
-    isFromProjects: Boolean(next?.includes('/projects')),
-    shouldSendWelcomeSeriesEmail,
-  });
 
   useAuthFullPageRedirectAfterLogin(next);
 
