@@ -3559,6 +3559,10 @@
     "defaultMessage": "Submission successfully unpinned!",
     "description": "Submission unpin toaster"
   },
+  "LL5UA7": {
+    "defaultMessage": "Purchase premium to get access to all {questionCount}+ interview questions, official solutions, study plans, and company tags.",
+    "description": "Text describing user's subscription plan."
+  },
   "LMI4bA": {
     "defaultMessage": "Every question answered by ex-interviewers",
     "description": "Title for marketing page section"
@@ -4058,10 +4062,6 @@
   "OrjlW6": {
     "defaultMessage": "{points} rep (in total)",
     "description": "Reputation points to be gained"
-  },
-  "OtaEwl": {
-    "defaultMessage": "Purchase premium to get access to all 200+ interview questions, official solutions, study plans, and company tags.",
-    "description": "Text describing user's subscription plan."
   },
   "Ov/A49": {
     "defaultMessage": "If you'd like a reply, please provide your email address.",

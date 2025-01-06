@@ -17,6 +17,7 @@ import Spinner from '~/components/ui/Spinner';
 import Text from '~/components/ui/Text';
 import { themeBorderColor } from '~/components/ui/theme';
 
+import { QuestionCountTotal } from '../interviews/questions/listings/stats/QuestionCount';
 import { useProjectsChallengePaywallSubtitle } from '../projects/challenges/premium/ProjectsPremiumPaywallStrings';
 import useUserProfileWithProjectsProfile from '../projects/common/useUserProfileWithProjectsProfile';
 import type { ProjectsViewerProjectsProfile } from '../projects/types';
@@ -67,13 +68,14 @@ function InterviewsPlanLabel({
             title="GreatFrontEnd Interviews Premium"
             variant="primary">
             <FormattedMessage
-              defaultMessage="Purchase premium to get access to all 200+ interview questions, official solutions, study plans, and company tags."
+              defaultMessage="Purchase premium to get access to all {questionCount}+ interview questions, official solutions, study plans, and company tags."
               description="Text describing user's subscription plan."
-              id="OtaEwl"
+              id="LL5UA7"
               values={{
                 link: (chunks) => (
                   <Anchor href="/interviews/pricing">{chunks}</Anchor>
                 ),
+                questionCount: QuestionCountTotal,
               }}
             />
           </Alert>
