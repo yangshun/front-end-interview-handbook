@@ -14,7 +14,7 @@ export default function EmailsHeader({
     <Section style={{ height: 68, ...style }} {...props}>
       <Img
         height="40"
-        src="https://bmygeefzuragewmbhlby.supabase.co/storage/v1/object/public/emails/logo.png"
+        src="https://emails.gfecdn.net/logos/logo-gray.png"
         style={align === 'center' ? { margin: '0 auto' } : undefined}
       />
     </Section>

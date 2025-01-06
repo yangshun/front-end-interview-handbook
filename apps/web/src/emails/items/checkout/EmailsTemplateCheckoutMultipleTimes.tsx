@@ -48,7 +48,7 @@ export default function EmailsTemplateCheckoutMultipleTimes({
               <Column align="center">
                 <Img
                   height="80"
-                  src="https://bmygeefzuragewmbhlby.supabase.co/storage/v1/object/public/emails/discounts/ticket.png"
+                  src="https://emails.gfecdn.net/discounts/ticket-25.png"
                   width="170"
                 />
               </Column>

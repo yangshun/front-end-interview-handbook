@@ -171,7 +171,7 @@ export default function EmailsTemplateWelcomeSeriesImmediate({ unsub }: Props) {
             </EmailsParagraph>
             <Img
               height="auto"
-              src="https://bmygeefzuragewmbhlby.supabase.co/storage/v1/object/public/emails/study-plans.png"
+              src="https://emails.gfecdn.net/interviews/welcome-series/study-plans.png"
               style={{ marginTop: 32 }}
               width="100%"
             />
@@ -236,7 +236,7 @@ export default function EmailsTemplateWelcomeSeriesImmediate({ unsub }: Props) {
             <Img
               alt="GreatFrontEnd Projects banner"
               height="auto"
-              src="https://bmygeefzuragewmbhlby.supabase.co/storage/v1/object/public/emails/projects-banner.png"
+              src="https://emails.gfecdn.net/interviews/welcome-series/projects-banner.png"
               style={{ marginTop: 48 }}
               width="100%"
             />
@@ -283,7 +283,7 @@ const FOCUS_AREAS = [
       '/interviews/focus-areas/accessibility',
       getSiteOrigin(),
     ).toString(),
-    logo: 'https://bmygeefzuragewmbhlby.supabase.co/storage/v1/object/public/emails/focus-area-icons/accessibility.png',
+    logo: 'https://emails.gfecdn.net/interviews/focus-areas/accessibility.png',
     name: 'Accessibility',
   },
   {
@@ -291,7 +291,7 @@ const FOCUS_AREAS = [
       '/interviews/focus-areas/async-operations',
       getSiteOrigin(),
     ).toString(),
-    logo: 'https://bmygeefzuragewmbhlby.supabase.co/storage/v1/object/public/emails/focus-area-icons/async-operations.png',
+    logo: 'https://emails.gfecdn.net/interviews/focus-areas/async-operations.png',
     name: 'Async Operations',
   },
   {
@@ -299,7 +299,7 @@ const FOCUS_AREAS = [
       '/interviews/focus-areas/data-structures-algorithms',
       getSiteOrigin(),
     ).toString(),
-    logo: 'https://bmygeefzuragewmbhlby.supabase.co/storage/v1/object/public/emails/focus-area-icons/data-structures.png',
+    logo: 'https://emails.gfecdn.net/interviews/focus-areas/data-structures.png',
     name: 'Data Structures & Algorithms',
   },
   {
@@ -307,7 +307,7 @@ const FOCUS_AREAS = [
       '/interviews/focus-areas/design-system-components',
       getSiteOrigin(),
     ).toString(),
-    logo: 'https://bmygeefzuragewmbhlby.supabase.co/storage/v1/object/public/emails/focus-area-icons/design-system-components.png',
+    logo: 'https://emails.gfecdn.net/interviews/focus-areas/design-system-components.png',
     name: 'Design System Components',
   },
   {
@@ -315,12 +315,12 @@ const FOCUS_AREAS = [
       '/interviews/focus-areas/dom-manipulation',
       getSiteOrigin(),
     ).toString(),
-    logo: 'https://bmygeefzuragewmbhlby.supabase.co/storage/v1/object/public/emails/focus-area-icons/dom-manipulation.png',
+    logo: 'https://emails.gfecdn.net/interviews/focus-areas/dom-manipulation.png',
     name: 'DOM Manipulation',
   },
   {
     href: new URL('/interviews/focus-areas/forms', getSiteOrigin()).toString(),
-    logo: 'https://bmygeefzuragewmbhlby.supabase.co/storage/v1/object/public/emails/focus-area-icons/forms.png',
+    logo: 'https://emails.gfecdn.net/interviews/focus-areas/forms.png',
     name: 'Forms',
   },
   {
@@ -328,12 +328,12 @@ const FOCUS_AREAS = [
       '/interviews/focus-areas/javascript-polyfills',
       getSiteOrigin(),
     ).toString(),
-    logo: 'https://bmygeefzuragewmbhlby.supabase.co/storage/v1/object/public/emails/focus-area-icons/js-polyfills.png',
+    logo: 'https://emails.gfecdn.net/interviews/focus-areas/js-polyfills.png',
     name: 'JavaScript Polyfills',
   },
   {
     href: new URL('/interviews/focus-areas/lodash', getSiteOrigin()).toString(),
-    logo: 'https://bmygeefzuragewmbhlby.supabase.co/storage/v1/object/public/emails/focus-area-icons/lodash.png',
+    logo: 'https://emails.gfecdn.net/interviews/focus-areas/lodash.png',
     name: 'Lodash Functions',
   },
 ];
@@ -341,47 +341,47 @@ const FOCUS_AREAS = [
 const QUIZ_TOPICS = [
   {
     href: new URL('/questions/quiz', getSiteOrigin()).toString(),
-    logo: 'https://bmygeefzuragewmbhlby.supabase.co/storage/v1/object/public/emails/topic-icons/javascript.png',
+    logo: 'https://emails.gfecdn.net/interviews/topics/javascript.png',
     name: 'JavaScript',
   },
   {
     href: new URL('/questions/quiz', getSiteOrigin()).toString(),
-    logo: 'https://bmygeefzuragewmbhlby.supabase.co/storage/v1/object/public/emails/topic-icons/css.png',
+    logo: 'https://emails.gfecdn.net/interviews/topics/css.png',
     name: 'CSS',
   },
   {
     href: new URL('/questions/quiz', getSiteOrigin()).toString(),
-    logo: 'https://bmygeefzuragewmbhlby.supabase.co/storage/v1/object/public/emails/topic-icons/html.png',
+    logo: 'https://emails.gfecdn.net/interviews/topics/html.png',
     name: 'HTML',
   },
   {
     href: new URL('/questions/quiz', getSiteOrigin()).toString(),
-    logo: 'https://bmygeefzuragewmbhlby.supabase.co/storage/v1/object/public/emails/topic-icons/accessibility.png',
+    logo: 'https://emails.gfecdn.net/interviews/topics/accessibility.png',
     name: 'Accessibility',
   },
   {
     href: new URL('/questions/quiz', getSiteOrigin()).toString(),
-    logo: 'https://bmygeefzuragewmbhlby.supabase.co/storage/v1/object/public/emails/topic-icons/internationalization.png',
+    logo: 'https://emails.gfecdn.net/interviews/topics/internationalization.png',
     name: 'Internationalization',
   },
   {
     href: new URL('/questions/quiz', getSiteOrigin()).toString(),
-    logo: 'https://bmygeefzuragewmbhlby.supabase.co/storage/v1/object/public/emails/topic-icons/performance.png',
+    logo: 'https://emails.gfecdn.net/interviews/topics/performance.png',
     name: 'Performance',
   },
   {
     href: new URL('/questions/quiz', getSiteOrigin()).toString(),
-    logo: 'https://bmygeefzuragewmbhlby.supabase.co/storage/v1/object/public/emails/topic-icons/testing.png',
+    logo: 'https://emails.gfecdn.net/interviews/topics/testing.png',
     name: 'Testing',
   },
   {
     href: new URL('/questions/quiz', getSiteOrigin()).toString(),
-    logo: 'https://bmygeefzuragewmbhlby.supabase.co/storage/v1/object/public/emails/topic-icons/network.png',
+    logo: 'https://emails.gfecdn.net/interviews/topics/network.png',
     name: 'Network',
   },
   {
     href: new URL('/questions/quiz', getSiteOrigin()).toString(),
-    logo: 'https://bmygeefzuragewmbhlby.supabase.co/storage/v1/object/public/emails/topic-icons/security.png',
+    logo: 'https://emails.gfecdn.net/interviews/topics/security.png',
     name: 'Security',
   },
 ];
@@ -392,7 +392,7 @@ const COMPANIES = [
       '/interviews/company/google/questions-guides',
       getSiteOrigin(),
     ).toString(),
-    logo: 'https://bmygeefzuragewmbhlby.supabase.co/storage/v1/object/public/emails/company-logo/google.png',
+    logo: 'https://emails.gfecdn.net/interviews/company/google.png',
     name: 'Google',
   },
   {
@@ -400,7 +400,7 @@ const COMPANIES = [
       '/interviews/company/amazon/questions-guides',
       getSiteOrigin(),
     ).toString(),
-    logo: 'https://bmygeefzuragewmbhlby.supabase.co/storage/v1/object/public/emails/company-logo/amazon.png',
+    logo: 'https://emails.gfecdn.net/interviews/company/amazon.png',
     name: 'Amazon',
   },
   {
@@ -408,7 +408,7 @@ const COMPANIES = [
       '/interviews/company/tiktok/questions-guides',
       getSiteOrigin(),
     ).toString(),
-    logo: 'https://bmygeefzuragewmbhlby.supabase.co/storage/v1/object/public/emails/company-logo/tiktok.png',
+    logo: 'https://emails.gfecdn.net/interviews/company/tiktok.png',
     name: 'TikTok',
   },
   {
@@ -416,7 +416,7 @@ const COMPANIES = [
       '/interviews/company/bytedance/questions-guides',
       getSiteOrigin(),
     ).toString(),
-    logo: 'https://bmygeefzuragewmbhlby.supabase.co/storage/v1/object/public/emails/company-logo/bytedance.png',
+    logo: 'https://emails.gfecdn.net/interviews/company/bytedance.png',
     name: 'ByteDance',
   },
   {
@@ -424,7 +424,7 @@ const COMPANIES = [
       '/interviews/company/apple/questions-guides',
       getSiteOrigin(),
     ).toString(),
-    logo: 'https://bmygeefzuragewmbhlby.supabase.co/storage/v1/object/public/emails/company-logo/apple.png',
+    logo: 'https://emails.gfecdn.net/interviews/company/apple.png',
     name: 'Apple',
   },
   {
@@ -432,7 +432,7 @@ const COMPANIES = [
       '/interviews/company/microsoft/questions-guides',
       getSiteOrigin(),
     ).toString(),
-    logo: 'https://bmygeefzuragewmbhlby.supabase.co/storage/v1/object/public/emails/company-logo/microsoft.png',
+    logo: 'https://emails.gfecdn.net/interviews/company/microsoft.png',
     name: 'Microsoft',
   },
   {
@@ -440,7 +440,7 @@ const COMPANIES = [
       '/interviews/company/atlassian/questions-guides',
       getSiteOrigin(),
     ).toString(),
-    logo: 'https://bmygeefzuragewmbhlby.supabase.co/storage/v1/object/public/emails/company-logo/atlassian.png',
+    logo: 'https://emails.gfecdn.net/interviews/company/atlassian.png',
     name: 'Atlassian',
   },
   {
@@ -448,7 +448,7 @@ const COMPANIES = [
       '/interviews/company/linkedin/questions-guides',
       getSiteOrigin(),
     ).toString(),
-    logo: 'https://bmygeefzuragewmbhlby.supabase.co/storage/v1/object/public/emails/company-logo/linkedin.png',
+    logo: 'https://emails.gfecdn.net/interviews/company/linkedin.png',
     name: 'LinkedIn',
   },
   {
@@ -456,7 +456,7 @@ const COMPANIES = [
       '/interviews/company/uber/questions-guides',
       getSiteOrigin(),
     ).toString(),
-    logo: 'https://bmygeefzuragewmbhlby.supabase.co/storage/v1/object/public/emails/company-logo/uber.png',
+    logo: 'https://emails.gfecdn.net/interviews/company/uber.png',
     name: 'Uber',
   },
   {
@@ -464,7 +464,7 @@ const COMPANIES = [
       '/interviews/company/dropbox/questions-guides',
       getSiteOrigin(),
     ).toString(),
-    logo: 'https://bmygeefzuragewmbhlby.supabase.co/storage/v1/object/public/emails/company-logo/dropbox.png',
+    logo: 'https://emails.gfecdn.net/interviews/company/dropbox.png',
     name: 'Dropbox',
   },
   {
@@ -472,7 +472,7 @@ const COMPANIES = [
       '/interviews/company/lyft/questions-guides',
       getSiteOrigin(),
     ).toString(),
-    logo: 'https://bmygeefzuragewmbhlby.supabase.co/storage/v1/object/public/emails/company-logo/lyft.png',
+    logo: 'https://emails.gfecdn.net/interviews/company/lyft.png',
     name: 'Lyft',
   },
   {
@@ -480,7 +480,7 @@ const COMPANIES = [
       '/interviews/company/airbnb/questions-guides',
       getSiteOrigin(),
     ).toString(),
-    logo: 'https://bmygeefzuragewmbhlby.supabase.co/storage/v1/object/public/emails/company-logo/airbnb.png',
+    logo: 'https://emails.gfecdn.net/interviews/company/airbnb.png',
     name: 'Airbnb',
   },
 ];

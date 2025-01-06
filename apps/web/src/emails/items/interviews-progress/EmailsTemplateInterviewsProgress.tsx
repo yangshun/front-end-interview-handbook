@@ -58,7 +58,7 @@ export default function EmailsTemplateInterviewsProgress({ unsub }: Props) {
                   <Img
                     alt="100% off ticket"
                     height="auto"
-                    src="https://bmygeefzuragewmbhlby.supabase.co/storage/v1/object/public/emails/discounts/discount1.png"
+                    src="https://emails.gfecdn.net/discounts/discount-100.png"
                     width="80"
                   />
                 </Column>
@@ -88,7 +88,7 @@ export default function EmailsTemplateInterviewsProgress({ unsub }: Props) {
                   <Img
                     alt="40% off ticket"
                     height="auto"
-                    src="https://bmygeefzuragewmbhlby.supabase.co/storage/v1/object/public/emails/discounts/discount2.png"
+                    src="https://emails.gfecdn.net/discounts/discount-40.png"
                     width="80"
                   />
                 </Column>
@@ -113,7 +113,7 @@ export default function EmailsTemplateInterviewsProgress({ unsub }: Props) {
                   <Img
                     alt="20% off ticket"
                     height="auto"
-                    src="https://bmygeefzuragewmbhlby.supabase.co/storage/v1/object/public/emails/discounts/discount3.png"
+                    src="https://emails.gfecdn.net/discounts/discount-20.png"
                     width="80"
                   />
                 </Column>
@@ -144,7 +144,7 @@ export default function EmailsTemplateInterviewsProgress({ unsub }: Props) {
             <Img
               alt="Premium vs Non-premium comparison"
               height="auto"
-              src="https://bmygeefzuragewmbhlby.supabase.co/storage/v1/object/public/emails/PremiumNonPremiumComparison.png"
+              src="https://emails.gfecdn.net/interviews/premium-comparison.png"
               style={{
                 marginTop: 32,
               }}

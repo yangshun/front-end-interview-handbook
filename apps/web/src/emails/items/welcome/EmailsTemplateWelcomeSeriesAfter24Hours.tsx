@@ -121,7 +121,7 @@ function ChenweiZhang() {
             <Img
               alt="Chenwei Zhang"
               height="48"
-              src="https://bmygeefzuragewmbhlby.supabase.co/storage/v1/object/public/emails/users/chenwei-zhang.png"
+              src="https://emails.gfecdn.net/testimonials/users/chenwei-zhang.png"
               style={{
                 borderRadius: '50%',
               }}
@@ -144,7 +144,7 @@ function ChenweiZhang() {
             logos={[
               {
                 logoUrl:
-                  'https://bmygeefzuragewmbhlby.supabase.co/storage/v1/object/public/emails/company/meta.png',
+                  'https://emails.gfecdn.net/testimonials/company/meta.png',
                 name: 'Meta',
               },
             ]}
@@ -219,7 +219,7 @@ function ShrinivasKangal() {
             <Img
               alt="Samsung's logo"
               height="48"
-              src="https://bmygeefzuragewmbhlby.supabase.co/storage/v1/object/public/emails/users/shrinivas-kangal.png"
+              src="https://emails.gfecdn.net/testimonials/users/shrinivas-kangal.png"
               style={{
                 borderRadius: '50%',
               }}
@@ -241,12 +241,12 @@ function ShrinivasKangal() {
           logos={[
             {
               logoUrl:
-                'https://bmygeefzuragewmbhlby.supabase.co/storage/v1/object/public/emails/company/zoox.png',
+                'https://emails.gfecdn.net/testimonials/company/zoox.png',
               name: 'Zoox',
             },
             {
               logoUrl:
-                'https://bmygeefzuragewmbhlby.supabase.co/storage/v1/object/public/emails/company/samsung.png',
+                'https://emails.gfecdn.net/testimonials/company/samsung.png',
               name: 'Samsung',
             },
           ]}
@@ -346,7 +346,7 @@ function Stanley() {
             <Img
               alt="Meta logo"
               height="48"
-              src="https://bmygeefzuragewmbhlby.supabase.co/storage/v1/object/public/emails/company/meta.png"
+              src="https://emails.gfecdn.net/testimonials/company/meta.png"
               style={{
                 border: '1px solid #d4d4d8',
                 borderRadius: '50%',
@@ -370,7 +370,7 @@ function Stanley() {
             logos={[
               {
                 logoUrl:
-                  'https://bmygeefzuragewmbhlby.supabase.co/storage/v1/object/public/emails/company/meta.png',
+                  'https://emails.gfecdn.net/testimonials/company/meta.png',
                 name: 'Meta',
               },
             ]}
@@ -507,7 +507,7 @@ function ShoaibAhmed() {
             <Img
               alt="Shoaib Ahmed"
               height="48"
-              src="https://bmygeefzuragewmbhlby.supabase.co/storage/v1/object/public/emails/users/shoaib-ahmed.jpg"
+              src="https://emails.gfecdn.net/testimonials/users/shoaib-ahmed.jpg"
               style={{
                 borderRadius: '50%',
               }}
@@ -530,12 +530,12 @@ function ShoaibAhmed() {
             logos={[
               {
                 logoUrl:
-                  'https://bmygeefzuragewmbhlby.supabase.co/storage/v1/object/public/emails/company/twilio.png',
+                  'https://emails.gfecdn.net/testimonials/company/twilio.png',
                 name: 'Twilio',
               },
               {
                 logoUrl:
-                  'https://bmygeefzuragewmbhlby.supabase.co/storage/v1/object/public/emails/company/mpokket.png',
+                  'https://emails.gfecdn.net/testimonials/company/mpokket.png',
                 name: 'mPokket',
               },
             ]}
