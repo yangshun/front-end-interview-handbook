@@ -29,27 +29,33 @@ export const guideProgressRouter = router({
           return null;
         }
 
-        try {
-          const guideProgress = await prisma.guideProgress.create({
-            data: {
+        const guideProgress = await prisma.guideProgress.upsert({
+          create: {
+            book,
+            slug,
+            status: 'COMPLETED',
+            userId: viewer.id,
+          },
+          update: {},
+          where: {
+            book_slug_status_userId: {
               book,
               slug,
               status: 'COMPLETED',
               userId: viewer.id,
             },
-          });
+          },
+        });
 
-          // Trigger completed some questions transactional email
+        if (guideProgress) {
           scheduleInterviewsProgressEmail({
             entity: 'article',
             userId: viewer.id,
           });
+        }
 
-          if (studyListKey == null) {
-            return guideProgress;
-          }
-        } catch (_err) {
-          // Do nothing because it's a unique index.
+        if (studyListKey == null) {
+          return guideProgress;
         }
 
         const session = await prisma.learningSession.findFirst({
@@ -60,6 +66,7 @@ export const guideProgressRouter = router({
           },
         });
 
+        // TODO(interviews): start learning session automatically like for questions.
         if (session == null) {
           throw 'No ongoing learning session. Start tracking progress first.';
         }
