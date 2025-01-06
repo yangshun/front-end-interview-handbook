@@ -10,9 +10,16 @@ import Text from '~/components/ui/Text';
 
 import RewardsCompletePromoCode from './RewardsCompletePromoCode';
 
+import { useUser } from '@supabase/auth-helpers-react';
+
 export default function RewardsCompletePage() {
-  const { data: promoCode } =
-    trpc.promotions.getSocialTasksPromoCode.useQuery();
+  const user = useUser();
+  const { data: promoCode } = trpc.promotions.getSocialTasksPromoCode.useQuery(
+    undefined,
+    {
+      enabled: user != null,
+    },
+  );
 
   return (
     <div className="mx-auto flex w-full max-w-xl flex-col items-center gap-y-12">

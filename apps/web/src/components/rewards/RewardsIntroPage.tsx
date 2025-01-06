@@ -11,9 +11,14 @@ import Text from '~/components/ui/Text';
 import RewardsCompletePromoCode from './complete/RewardsCompletePromoCode';
 import { useRewardsTasks } from './tasks/useRewardsTasks';
 
+import { useUser } from '@supabase/auth-helpers-react';
+
 export default function RewardsIntroPage() {
+  const user = useUser();
   const { data: promoCode, isLoading } =
-    trpc.promotions.getSocialTasksPromoCode.useQuery();
+    trpc.promotions.getSocialTasksPromoCode.useQuery(undefined, {
+      enabled: user != null,
+    });
   const tasks = useRewardsTasks();
   const tasksWithStatus = tasks.map((task) => ({
     ...task,

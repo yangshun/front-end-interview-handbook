@@ -38,15 +38,17 @@ type Props = Readonly<{
 
 export function PromotionsStudentDiscountCard({ variant = 'full' }: Props) {
   const intl = useIntl();
+  const user = useUser();
   const trpcUtils = trpc.useUtils();
   const labels = usePromotionsStudentDiscountLabels();
   const discountPercentage = STUDENT_DISCOUNT_PERCENTAGE;
-  const user = useUser();
   const { userProfile } = useUserProfile();
   const [promoCode, setPromoCode] = useState<Stripe.PromotionCode | null>(null);
   const [isCopied, onCopy] = useCopyToClipboardWithRevert(1000);
   const { data: existingPromoCode } =
-    trpc.promotions.getStudentDiscountPromoCode.useQuery();
+    trpc.promotions.getStudentDiscountPromoCode.useQuery(undefined, {
+      enabled: user != null,
+    });
   const {
     isLoading: isGeneratingStudentDiscount,
     mutate: generateStudentDiscountPromoCode,

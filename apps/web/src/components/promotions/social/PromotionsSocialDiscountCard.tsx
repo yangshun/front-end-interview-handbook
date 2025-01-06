@@ -22,16 +22,23 @@ import { useSocialDiscountLabels } from './useSocialDiscountLabels';
 import PromotionCard from '../PromotionCard';
 import { PromotionsEmailUsLink } from '../PromotionsEmailUsLink';
 
+import { useUser } from '@supabase/auth-helpers-react';
+
 type Props = Readonly<{
   variant?: 'compact' | 'full';
 }>;
 
 export function PromotionsSocialDiscountCard({ variant = 'full' }: Props) {
   const intl = useIntl();
+  const user = useUser();
   const socialDiscountLabels = useSocialDiscountLabels();
   const [isCopied, onCopy] = useCopyToClipboardWithRevert(1000);
-  const { data: promoCode } =
-    trpc.promotions.getSocialTasksPromoCode.useQuery();
+  const { data: promoCode } = trpc.promotions.getSocialTasksPromoCode.useQuery(
+    undefined,
+    {
+      enabled: user != null,
+    },
+  );
 
   if (variant === 'compact') {
     return (
