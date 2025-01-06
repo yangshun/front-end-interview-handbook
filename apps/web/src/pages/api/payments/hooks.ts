@@ -9,6 +9,7 @@ import {
 } from '~/components/purchase/PurchaseStripeWebhookHandlers';
 
 import sendPaymentFailedEmail from '~/emails/items/payment-fail/EmailsSenderPaymentFailed';
+import prisma from '~/server/prisma';
 import { getErrorMessage } from '~/utils/getErrorMessage';
 
 export const config = { api: { bodyParser: false } };
@@ -85,14 +86,24 @@ export default async function handler(
 
       const { name, email } = paymentMethod.billing_details;
 
-      if (email == null) {
-        return res.send(`No email found for error for ${customerId}`);
+      if (customerId == null) {
+        return res.send(`No customerId found for payment error`);
       }
+
+      if (email == null) {
+        return res.send(`No email found for payment error for ${customerId}`);
+      }
+
+      const userProfile = await prisma.profile.findFirstOrThrow({
+        where: {
+          stripeCustomer: customerId.toString(),
+        },
+      });
 
       await sendPaymentFailedEmail({
         email,
-        name: name || 'there',
-        userId: customerId as string,
+        name: name || userProfile.name,
+        userId: userProfile.id,
       });
 
       return res.send(`Error email sent for ${customerId}`);
