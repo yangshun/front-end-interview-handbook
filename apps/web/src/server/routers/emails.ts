@@ -63,11 +63,17 @@ export const emailsRouter = router({
         });
       }
     }),
-  scheduleWelcomeSeries: userProcedure.mutation(async ({ ctx: { viewer } }) => {
-    await scheduleWelcomeSeriesEmail({
-      userId: viewer.id,
-    });
-  }),
+  scheduleWelcomeSeries: publicProcedure
+    .input(
+      z.object({
+        userId: z.string().uuid('uuid is invalid'),
+      }),
+    )
+    .mutation(async ({ input: { userId } }) => {
+      await scheduleWelcomeSeriesEmail({
+        userId,
+      });
+    }),
   signUpForNewsletter: publicProcedure
     .input(
       z.object({

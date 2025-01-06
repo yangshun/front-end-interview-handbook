@@ -124,11 +124,13 @@ export default function SupabaseAuthEmailSignUp({
         type: 'email',
       });
 
-      const signedUpViaInterviews = !next?.includes('/projects');
+      const signedUpViaInterviews = !next?.includes('projects');
 
       if (signedUpViaInterviews) {
         // Schedule welcome series email
-        scheduleWelcomeSeriesEmailMutation.mutateAsync();
+        scheduleWelcomeSeriesEmailMutation.mutateAsync({
+          userId: signUpUser.id,
+        });
       }
 
       // Redirect to email verify page.

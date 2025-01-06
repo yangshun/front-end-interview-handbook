@@ -180,10 +180,8 @@ function PricingButtonNonPremium({
 
     setIsCheckoutSessionLoading(true);
     setErrorMessage(null);
-    try {
-      // Trigger checkout email, non-blocking fashion
-      checkoutInitiateEmailMutation.mutateAsync({ countryCode });
 
+    try {
       const res = await fetch(
         url.format({
           pathname: '/api/payments/purchase/checkout',
@@ -244,9 +242,7 @@ function PricingButtonNonPremium({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userProfile, checkoutSessionHref, paymentConfig.planType]);
 
-  const showUserThereIsAsyncRequest =
-    (hasClicked && isCheckoutSessionLoading) ||
-    checkoutInitiateEmailMutation.isLoading;
+  const showUserThereIsAsyncRequest = hasClicked && isCheckoutSessionLoading;
 
   return (
     <div className="flex flex-col gap-4">
@@ -270,12 +266,13 @@ function PricingButtonNonPremium({
             purchasePrice: paymentConfig,
           });
 
+          if (user != null) {
+            await checkoutInitiateEmailMutation.mutateAsync({
+              countryCode,
+            });
+          }
+
           if (checkoutSessionHref != null) {
-            if (user?.email) {
-              await checkoutInitiateEmailMutation.mutateAsync({
-                countryCode,
-              });
-            }
             // Had to move this checkout redirection here
             // Otherwise with href passed to the PricingButton, the checkoutInitialEmailMutation is unable to execute it
             // before the window is changed to stripe

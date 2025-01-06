@@ -46,8 +46,15 @@ export default function useEmailsOauthSignUpScheduleWelcomeSeries({
         createdAtMonth === currentMonth &&
         createdAtDate === currentDate
       ) {
-        scheduleWelcomeSeriesEmailMutationRef.current.mutateAsync();
+        scheduleWelcomeSeriesEmailMutationRef.current.mutateAsync({
+          userId: user.id,
+        });
       }
     }
-  }, [user?.created_at, shouldSendWelcomeSeriesEmail, isFromProjects]);
+  }, [
+    user?.created_at,
+    user?.id,
+    shouldSendWelcomeSeriesEmail,
+    isFromProjects,
+  ]);
 }

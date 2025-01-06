@@ -1,6 +1,6 @@
 import { scheduleEmailWithChecks } from '~/emails/qstash/EmailsQstashScheduler';
 
-const ONE_MIN_SECS = 60;
+const THIRTY_SECS = 30;
 const ONE_DAY_SECS = 24 * 60 * 60;
 
 export default async function scheduleWelcomeSeriesEmail({
@@ -10,7 +10,7 @@ export default async function scheduleWelcomeSeriesEmail({
 }>) {
   await Promise.all([
     scheduleEmailWithChecks({
-      delayInSeconds: ONE_MIN_SECS,
+      delayInSeconds: THIRTY_SECS,
       emailKey: 'INTERVIEWS_WELCOME_EMAIL_IMMEDIATE',
       userId,
     }),
