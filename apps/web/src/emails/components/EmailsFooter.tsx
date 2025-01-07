@@ -44,7 +44,7 @@ export default function EmailsFooter({ unsub }: Props) {
             textAlign: 'center',
           }}
           weight="bold">
-          Our mailing address:
+          Our Mailing Address Is:
         </EmailsParagraph>
         <EmailsParagraph
           color="subtitle"

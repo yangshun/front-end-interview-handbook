@@ -22,7 +22,7 @@ export default function EmailsNumberedPairText({
       <Row key={title} style={{ marginTop: index > 0 ? 20 : 0 }}>
         <Column style={{ height: 50, width: 50 }}>
           <Text style={numberCircle}>
-            <span style={{ display: 'inline-block', padding: 5 }}>
+            <span style={{ display: 'inline-block', padding: 4 }}>
               {index + 1}
             </span>
           </Text>
@@ -43,9 +43,9 @@ export default function EmailsNumberedPairText({
 }
 
 const numberCircle = {
-  border: '2px solid #7C7C7C',
+  background: '#066FFA',
   borderRadius: '50%',
-  color: '#bebebe',
+  color: '#FFFFFF',
   display: 'block',
   fontSize: 16,
   fontWeight: 600,

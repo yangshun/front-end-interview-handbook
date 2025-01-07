@@ -36,12 +36,12 @@ export default function EmailsTemplateWelcomeSeriesImmediate({ unsub }: Props) {
       <Head>
         <style>
           {`
-            @media only screen and (max-width: 500px) {
+            @media only screen and (max-width: 640px) {
               .responsive-card--width {
                 max-width: 100%;
               }
             }
-            @media only screen and (min-width: 501px) {
+            @media only screen and (min-width: 641px) {
               .responsive-card--width {
                 max-width: 50%;
               }
@@ -169,12 +169,18 @@ export default function EmailsTemplateWelcomeSeriesImmediate({ unsub }: Props) {
               weight="medium">
               Our curated study plans optimize your preparation for any timeline
             </EmailsParagraph>
-            <Img
-              height="auto"
-              src="https://emails.gfecdn.net/interviews/welcome-series/study-plans.png"
-              style={{ marginTop: 32 }}
-              width="100%"
-            />
+            <Link
+              href={new URL(
+                '/interviews/study-plans',
+                getSiteOrigin(),
+              ).toString()}>
+              <Img
+                height="auto"
+                src="https://emails.gfecdn.net/interviews/welcome-series/study-plans.png"
+                style={{ marginTop: 32 }}
+                width="100%"
+              />
+            </Link>
             <EmailsParagraph
               size="body0"
               style={{ marginBottom: 32, marginTop: 56 }}
