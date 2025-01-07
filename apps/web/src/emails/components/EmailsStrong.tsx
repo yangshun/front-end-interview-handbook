@@ -4,6 +4,7 @@ export default function EmailsStrong({ style, ...props }: Props) {
   return (
     <strong
       style={{
+        color: '#18181b',
         fontWeight: 600,
         ...style,
       }}

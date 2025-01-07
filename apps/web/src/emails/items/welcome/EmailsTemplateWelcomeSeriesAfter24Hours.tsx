@@ -4,6 +4,7 @@ import {
   EmailsFooter,
   EmailsHeader,
   EmailsHeading,
+  EmailsLink,
   EmailsNumberedPairText,
   EmailsParagraph,
   EmailsStrong,
@@ -158,9 +159,8 @@ function ChenweiZhang() {
       </Section>
       <Section>
         <EmailsParagraph color="subtitle" defaultMargins={true}>
-          "I practiced a lot of{' '}
-          <EmailsStrong>Data Structures and Algorithms</EmailsStrong> questions
-          before I joined GFE so I did not spend too much time on it.
+          "I did a lot of <EmailsStrong>DSA coding</EmailsStrong> before I
+          joined GFE so I did not spend too much time on it.
         </EmailsParagraph>
         <EmailsParagraph color="subtitle" defaultMargins={true}>
           Instead I put my focus on practicing system design and behavioral
@@ -201,7 +201,7 @@ function ChenweiZhang() {
               getSiteOrigin(),
             ).toString(),
             subtitle:
-              'Read through the Behavioral Interview Playbook at least once and test your understanding with mock interviews with your friends.',
+              'Read through the Behavioral Interview Playbook at least once and test your understanding with mock interviews.',
             title: 'Behavioral Interview Playbook',
           },
         ]}
@@ -287,26 +287,33 @@ function ShrinivasKangal() {
         items={[
           {
             href: new URL('/interviews/blind75', getSiteOrigin()).toString(),
-            subtitle:
-              'Earlier in your interview preparation, practice the Blind 75—a list of 75 of the most important data structure and algorithm questions. We have conveniently solved them in JavaScript/TypeScript for front end engineers.',
+            subtitle: (
+              <>
+                Earlier in your interview preparation, practice the{' '}
+                <EmailsStrong>Blind 75</EmailsStrong>—a list of 75 of the most
+                important data structure and algorithm questions.
+              </>
+            ),
             title: 'Blind 75',
           },
           {
-            href: new URL('/questions', getSiteOrigin()).toString(),
+            href: new URL('/interviews/gfe75', getSiteOrigin()).toString(),
             subtitle: (
               <>
                 <EmailsParagraph>
-                  As your interview date approaches, focus on solving questions
-                  across the question formats—Coding, Quiz, and System Design
+                  As your interview date approaches, focus on solving front end
+                  specific questions across the question formats—{' '}
+                  <EmailsStrong>Coding, Quiz, and System Design</EmailsStrong>{' '}
                   questions.
                 </EmailsParagraph>
                 <EmailsParagraph style={{ marginTop: 24 }}>
-                  If you need a prioritized list, we recommend starting with GFE
-                  75 or one of our Study plans.
+                  If you need a prioritized list, we recommend starting with{' '}
+                  <EmailsStrong>GFE 75</EmailsStrong> or one of our{' '}
+                  <EmailsStrong>Study plans</EmailsStrong>.
                 </EmailsParagraph>
               </>
             ),
-            title: 'Coding, Quiz, System Design, GFE 75 and Study plans',
+            title: 'GFE 75',
           },
         ]}
       />
@@ -399,9 +406,9 @@ function Stanley() {
             marginTop: 24,
           }}>
           As far as system design goes, I studied in-depth about{' '}
-          <EmailsStrong>2-3 per week</EmailsStrong>
-          and <EmailsStrong>did a one page cheatsheet</EmailsStrong> of all of
-          them with the highlights and topics I should address if asked in an
+          <EmailsStrong>2-3 per week</EmailsStrong> and{' '}
+          <EmailsStrong>did a one page cheatsheet</EmailsStrong> of all of them
+          with the highlights and topics I should address if asked in an
           interview. I{' '}
           <EmailsStrong>
             studied some of the system design cases multiple times
@@ -423,24 +430,48 @@ function Stanley() {
               getSiteOrigin(),
             ).toString(),
             subtitle: (
-              <EmailsParagraph>
-                If you're not confident in your UI skills, start by solving our{' '}
-                <EmailsStrong>UI Coding questions</EmailsStrong>. For a
-                prioritized list of UI questions, focus on those from the{' '}
-                <EmailsStrong>UI-related focus areas</EmailsStrong>.
-              </EmailsParagraph>
+              <>
+                <EmailsParagraph>
+                  If you're not confident in your UI skills, start by solving
+                  our <EmailsStrong>UI Coding questions</EmailsStrong>.
+                </EmailsParagraph>
+                <EmailsParagraph style={{ marginTop: 24 }}>
+                  For a prioritized list of UI questions, focus on those from
+                  the{' '}
+                  <EmailsLink
+                    href={new URL(
+                      '/interviews/focus-areas',
+                      getSiteOrigin(),
+                    ).toString()}>
+                    <EmailsStrong>UI-related focus areas</EmailsStrong>
+                  </EmailsLink>
+                  .
+                </EmailsParagraph>
+              </>
             ),
             title: 'User Interface Coding questions',
           },
           {
             href: new URL('/questions', getSiteOrigin()).toString(),
             subtitle: (
-              <EmailsParagraph>
-                Afterward, solve as many{' '}
-                <EmailsStrong>JavaScript Coding questions</EmailsStrong> as you
-                can. For a prioritized list, solve those from the{' '}
-                <EmailsStrong>JS coding-related focus areas</EmailsStrong>.
-              </EmailsParagraph>
+              <>
+                <EmailsParagraph>
+                  Afterward, solve as many{' '}
+                  <EmailsStrong>JavaScript Coding questions</EmailsStrong> as
+                  you can.
+                </EmailsParagraph>
+                <EmailsParagraph style={{ marginTop: 24 }}>
+                  For a prioritized list, solve those from the{' '}
+                  <EmailsLink
+                    href={new URL(
+                      '/interviews/focus-areas',
+                      getSiteOrigin(),
+                    ).toString()}>
+                    <EmailsStrong>JS coding-related focus areas</EmailsStrong>
+                  </EmailsLink>
+                  .
+                </EmailsParagraph>
+              </>
             ),
             title: 'JavaScript Coding questions',
           },
@@ -579,10 +610,7 @@ function ShoaibAhmed() {
             title: 'Study plans',
           },
           {
-            href: new URL(
-              '/front-end-system-design-playbook',
-              getSiteOrigin(),
-            ).toString(),
+            href: new URL('/questions', getSiteOrigin()).toString(),
             subtitle: (
               <>
                 With extra time, do a couple of{' '}
