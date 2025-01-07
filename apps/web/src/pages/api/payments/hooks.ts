@@ -94,6 +94,34 @@ export default async function handler(
         return res.send(`No email found for payment error for ${customerId}`);
       }
 
+      const product: 'interviews' | 'projects' = await (async () => {
+        if (paymentIntent.invoice == null) {
+          return 'interviews';
+        }
+
+        const invoice =
+          typeof paymentIntent.invoice === 'string'
+            ? await stripe.invoices.retrieve(paymentIntent.invoice)
+            : paymentIntent.invoice;
+
+        const { price } = invoice.lines.data[0];
+
+        if (price == null) {
+          return 'interviews';
+        }
+
+        const productId = price.product;
+
+        switch (productId) {
+          case process.env.STRIPE_PRODUCT_ID_INTERVIEWS: {
+            return 'projects';
+          }
+          case process.env.STRIPE_PRODUCT_ID_PROJECTS:
+          default:
+            return 'interviews';
+        }
+      })();
+
       const userProfile = await prisma.profile.findFirstOrThrow({
         where: {
           stripeCustomer: customerId.toString(),
@@ -103,6 +131,7 @@ export default async function handler(
       await sendPaymentFailedEmail({
         email,
         name: name || userProfile.name,
+        product,
         userId: userProfile.id,
       });
 

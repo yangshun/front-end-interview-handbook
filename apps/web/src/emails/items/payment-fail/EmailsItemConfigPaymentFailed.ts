@@ -8,6 +8,7 @@ export const EmailsItemConfigPaymentFailed: EmailItemConfig<
   component: EmailsTemplatePaymentFailed,
   defaultProps: {
     name: 'John',
+    product: 'interviews',
   },
   from: {
     email: 'contact@greatfrontend.com',

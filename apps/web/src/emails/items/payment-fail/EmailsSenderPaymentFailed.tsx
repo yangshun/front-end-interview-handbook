@@ -8,9 +8,11 @@ export default async function sendPaymentFailedEmail({
   name,
   email,
   userId,
+  product,
 }: Readonly<{
   email: string;
   name: string | null;
+  product: 'interviews' | 'projects';
   userId: string;
 }>) {
   return await sendEmailItemWithChecks(
@@ -21,7 +23,7 @@ export default async function sendPaymentFailedEmail({
     {
       emailItemConfig: {
         config: EmailsItemConfigPaymentFailed,
-        props: { name },
+        props: { name, product },
       },
       redis: {
         opts: {
