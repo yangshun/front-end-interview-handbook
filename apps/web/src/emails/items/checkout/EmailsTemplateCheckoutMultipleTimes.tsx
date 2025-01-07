@@ -88,14 +88,18 @@ export default function EmailsTemplateCheckoutMultipleTimes({
             <EmailsParagraph color="subtitle" defaultMargins={true}>
               We noticed you were so close to completing your purchase. To thank
               you for your interest, we're offering you a{' '}
-              <EmailsStrong>{coupon.percentOff}% discount</EmailsStrong>. This
-              is the <EmailsStrong>highest no-frills discount</EmailsStrong> we
+              <EmailsStrong>
+                limited-time {coupon.percentOff}% discount
+              </EmailsStrong>
+              !
+            </EmailsParagraph>
+            <EmailsParagraph color="subtitle" defaultMargins={true}>
+              This is the{' '}
+              <EmailsStrong>highest no-frills discount</EmailsStrong> we
               currently offer.
             </EmailsParagraph>
             <EmailsParagraph color="subtitle" defaultMargins={true}>
-              Use this promo code at checkout:{' '}
-              <EmailsStrong>{coupon.code}</EmailsStrong>, but don't wait too
-              long–this offer expires in{' '}
+              But don't wait too long-this offer expires in{' '}
               <EmailsStrong>{coupon.expiryDays * 24} hours</EmailsStrong>!
             </EmailsParagraph>
           </Section>
@@ -120,7 +124,7 @@ export default function EmailsTemplateCheckoutMultipleTimes({
                   style={{
                     textAlign: 'center',
                   }}>
-                  Apply the code to any plan you want, even lifetime!
+                  Apply the code to any plan at checkout, even lifetime!
                 </EmailsParagraph>
               </Column>
             </Row>
