@@ -21,6 +21,12 @@ export default class EmailsSendStatus {
     return sendStatus === SENT;
   }
 
+  async isScheduled() {
+    const sendStatus = await this.redis.get(this.redisKey);
+
+    return sendStatus === SCHEDULED;
+  }
+
   async isScheduledOrSent() {
     const sendStatus = await this.redis.get(this.redisKey);
 
