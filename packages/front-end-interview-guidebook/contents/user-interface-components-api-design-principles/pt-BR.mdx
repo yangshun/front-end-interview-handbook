@@ -11,7 +11,7 @@ Frequentemente, durante entrevistas de front-end, você será solicitado a const
 
 ### jQuery-style
 
-Antes das modernas bibliotecas de IU JavaScript como [React](https://reactjs.org/), [Angular](https://angular.io/), e [Vue](https://vuejs.org/) aparecerem, [jQuery]\(https://jquery. om/) (e [jQuery UI](https://jqueryui.com/)) era a maneira mais popular de construir a interface do usuário. A jQuery UI popularizou a ideia de inicializar os componentes da UI através de "construtores" que envolvia dois argumentos:
+Antes das modernas bibliotecas de IU JavaScript como [React](https://reactjs.org/), [Angular](https://angular.io/), e [Vue](https://vuejs.org/) aparecerem, [jQuery](https://jquery.com) (e [jQuery UI](https://jqueryui.com/)) era a maneira mais popular de construir a interface do usuário. A jQuery UI popularizou a ideia de inicializar os componentes da UI através de "construtores" que envolvia dois argumentos:
 
 1.  **Elemento Raiz**: Um elemento raiz da DOM para renderizar o conteúdo.
 2.  **Opções de Customização**: Opcionais, opções adicionais de customização, geralmente na forma de um objeto JavaScript simples.
@@ -43,7 +43,7 @@ O slider pode ser customizado passando um objeto JavaScript simples com opções
 
 ### Estilo JavaScript Puro
 
-Não existe um estilo de JavaScript puro para inicializar componentes, uma vez que JavaScript puro não é um padrão ou framework. Mas se você já leu as soluções do GreatFrontEnd, para nossas [perguntas sobre codificação de UI](/questions/vanilla), você verá que a API que recomendamos é semelhante ao do jQuery, o construtor recebe um elemento raiz e opções:
+Não existe um estilo de JavaScript puro para inicializar componentes, uma vez que JavaScript puro não é um padrão ou framework. Mas se você já leu as soluções do GreatFrontEnd, para nossas [perguntas sobre codificação de UI](/questions/vanilla-javascript-interview-questions), você verá que a API que recomendamos é semelhante ao do jQuery, o construtor recebe um elemento raiz e opções:
 
 ```js
 function slider(rootEl, opções) {
@@ -315,13 +315,13 @@ O objeto de tema é apenas uma maneira de restringir a estilização a determina
 
 ### CSS Preprocessor Compilation
 
-Bibliotecas de UI geralmente são escritas com pré-processadores de CSS como [Sass] \(https://sass-lang.com/) e [Less](https://lesscss.org/). [Bootstrap](https://getbootstrap.com/) é escrito com Sass e eles fornecem uma maneira de [personalizar as variáveis Sas]\(https://getbootstrap. om/docs/5.3/customize/sass/) usados para que os desenvolvedores possam gerar uma biblioteca de biblioteca de UI personalizada.
+Bibliotecas de UI geralmente são escritas com pré-processadores de CSS como [Sass](https://sass-lang.com/) e [Less](https://lesscss.org/). [Bootstrap](https://getbootstrap.com/) é escrito com Sass e eles fornecem uma maneira de [personalizar as variáveis Sas](https://getbootstrap.com/docs/5.3/customize/sass/) usados para que os desenvolvedores possam gerar uma biblioteca de biblioteca de UI personalizada.
 
 Essa abordagem é excelente porque não depende de substituir seletores CSS para alcançar a personalização. Também há uma quantidade menor de CSS resultante e nenhum estilo redundante sobreposto. A desvantagem é que é necessário um passo de compilação.
 
 ### Variáveis CSS / Propriedades Personalizadas
 
-[Variáveis CSS]\(https://developer.mozilla. rg/en-US/docs/Web/CSS/Using_CSS_custom_properties) (ou mais formalmente conhecido como propriedades personalizadas CSS) são entidades definidas por autores de CSS que contêm valores específicos para serem reutilizados através de um documento. A função `var()`, aceita valores de fallback se a variável determinada não estiver definida.
+[Variáveis CSS](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) (ou mais formalmente conhecido como propriedades personalizadas CSS) são entidades definidas por autores de CSS que contêm valores específicos para serem reutilizados através de um documento. A função `var()`, aceita valores de fallback se a variável determinada não estiver definida.
 
 ```jsx
 function Slider({ value, label }) {

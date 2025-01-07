@@ -3,7 +3,7 @@ title: Resumo de Perguntas de Interface de Usuário Front-End
 description: Principais dicas para melhorar as interfaces de usuário que você precisa construir durante entrevistas para desenvolvedores front-end/web - Estrutura de código, gerenciamento de estado, acessibilidade e muito mais.
 ---
 
-Aqui estão algumas dicas que você pode usar para melhorar as interfaces de usuário que você precisa construir ou projetar durante entrevistas para desenvolvedores front-end. Essas dicas podem ser aplicadas tanto a [Entrevistas de Codificação de Interface de Usuário](/front-end-interview-guidebook/user-interface) quanto a [Entrevistas de Design de Sistema Front End](/system-design/types-of-questions).
+Aqui estão algumas dicas que você pode usar para melhorar as interfaces de usuário que você precisa construir ou projetar durante entrevistas para desenvolvedores front-end. Essas dicas podem ser aplicadas tanto a [Entrevistas de Codificação de Interface de Usuário](/front-end-interview-playbook/user-interface) quanto a [Entrevistas de Design de Sistema Front End](/front-end-system-design-playbook/types-of-questions).
 
 ## Geral
 
@@ -147,7 +147,7 @@ Provavelmente não há tempo suficiente para lidar com todos os cenários de cas
 
 ## Segurança
 
-- **Scripting Cross-site (XSS)**: Evitar atribuir a [`Element.innerHTML`]\(https://developer.mozilla. rg/en-US/docs/Web/API/Element/innerHTML) ou `dangerouslySetInnerHTML` do React ao renderizar conteúdo no DOM se ele vier de usuários para impedir script entre sites, atribuir ao [`Node. extContent`](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent) ou use o método experimental[`Element.setHTML()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/setHTML) em vez disso. Consulte o [Folha de Dicas de Prevenção de XSS do OWASP](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
+- **Scripting Cross-site (XSS)**: Evitar atribuir a [`Element.innerHTML`](https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML) ou `dangerouslySetInnerHTML` do React ao renderizar conteúdo no DOM se ele vier de usuários para impedir script entre sites, atribuir ao [`Node. extContent`](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent) ou use o método experimental[`Element.setHTML()`](https://webdocs.dev/en-us/docs/web/api/element/sethtml) em vez disso. Consulte o [Folha de Dicas de Prevenção de XSS do OWASP](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
 - **Codificação de saída para "Contextos de URL"**: Se a entrada fornecida pelo usuário puder ser usada em parâmetros de consulta de URL, use `encodeURIComponent` para evitar que valores indesejados façam parte da URL (por exemplo, parâmetros de consulta extras).
 - **Cross Site Request Forgery (CSRF)**: Consulte a [OWASP's XSS Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html) para obter informações sobre prevenção de CSRF e outras vulnerabilidades de segurança.
 
