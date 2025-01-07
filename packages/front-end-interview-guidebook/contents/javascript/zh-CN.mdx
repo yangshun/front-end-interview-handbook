@@ -24,7 +24,7 @@ description: 为前端/网站开发人员面试准备JavaScript问题的指南�
 
 1.  它传递 4 个参数给回调函数，包括 `index` 和 `this` ？
 2.  它保留稀疏数组中的“空”，即 `[1, 2, , 4].map(val => val * val) === [1, 4, , 16]`。
-3.  `map`处理的元素范围在第一个调用*callbackfn*之前设置。 在调用 map 之后附加到数组中的元素将不会被*callbackfn*访问。 如果更改数组的现有元素，则将它们的值作为传递给*callbackfn*的值在`map`访问它们时。 来源：[Array.prototype.map ECMAScript 说明]（https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.prototype.map）
+3.  `map`处理的元素范围在第一个调用*callbackfn*之前设置。 在调用 map 之后附加到数组中的元素将不会被*callbackfn*访问。 如果更改数组的现有元素，则将它们的值作为传递给*callbackfn*的值在`map`访问它们时。 来源：[Array.prototype.map ECMAScript 说明](https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.prototype.map)
 
 您的实施不必处理所有这些情况，特别是数组突变的情况。 但是，如果您提到了这些情况，那么这是一个积极的信号。 您的实现越接近规范，您就会显得更加资深/有经验。
 
@@ -66,8 +66,8 @@ JavaScript 编码面试与算法编码面试有许多相似之处。 一般来�
 
 ## JavaScript 编码面试规则
 
-1.  通过参考下面的“重要概念”熟悉 HTML、CSS、JavaScript 和 DOM 概念。 [测验部分](/front-end-interview-guidebook/quiz) 也可以是一个好的开始，因为您可能会以测验问题的形式被问到这些概念。
-2.  选择[学习计划](/get-started)并练习所选学习计划推荐的[JavaScript 编码问题](/questions/js/coding/utilities)。 在做问题的同时，也可以学习某个主题。
+1.  通过参考下面的“重要概念”熟悉 HTML、CSS、JavaScript 和 DOM 概念。 [测验部分](/front-end-interview-playbook/quiz) 也可以是一个好的开始，因为您可能会以测验问题的形式被问到这些概念。
+2.  选择[学习计划](/interviews/get-started)并练习所选学习计划推荐的[JavaScript 编码问题](/questions/javascript-interview-questions/javascript-functions)。 在做问题的同时，也可以学习某个主题。
 
 ## 重要概念
 
@@ -114,6 +114,6 @@ JavaScript 编码面试类似于算法编码面试，应该采用相似的方法
 - [Deep Clone](/questions/javascript/deep-clone)
 - [Data Selection](/questions/javascript/data-selection)
 
-GreatFrontEnd 有[全面的 JavaScript 编码问题列表](/questions/js/coding/utilities)，您可以练习。 还有可以运行您的代码以验证正确性的自动化测试用例，以及由前 FAANG 资深工程师编写的解决方案。
+GreatFrontEnd 有[全面的 JavaScript 编码问题列表](/questions/javascript-interview-questions/javascript-functions)，您可以练习。 还有可以运行您的代码以验证正确性的自动化测试用例，以及由前 FAANG 资深工程师编写的解决方案。
 
 请注意，我们在某些问题中故意含糊不清，并没有在问题说明中全面介绍要求。 但是，我们将在解决方案中涵盖尽可能多的方面。 在阅读解决方案时，如果您发现错过了一些内容，可能会感到沮丧，但是这可以锻炼您的提前思考，并考虑在解决方案工作时需要注意哪些可能区域。 最好在练习期间找出，而不是在实际面试中发现。

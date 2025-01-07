@@ -3,7 +3,7 @@ title: 前端用户界面问题备忘单
 description: 在前端/网络开发人员面试时，改善你必须建立的用户界面的顶级技巧 - 代码结构、管理状态、可访问性等。
 ---
 
-以下是一些提示，可帮助您在前端/ Web 开发人员面试期间改善您必须构建/设计的用户界面。 这些提示可应用于[用户界面编码面试](/front-end-interview-guidebook/user-interface)和[前端系统设计面试](/system-design/types-of-questions)。
+以下是一些提示，可帮助您在前端/ Web 开发人员面试期间改善您必须构建/设计的用户界面。 这些提示可应用于[用户界面编码面试](/front-end-interview-playbook/user-interface)和[前端系统设计面试](/front-end-system-design-playbook/types-of-questions)。
 
 ## 概览
 
@@ -147,7 +147,7 @@ Google 的[web.dev]有一个[免费的深入课程](https://web.dev/learn/access
 
 ## 安全
 
-- **跨站点脚本（XSS）**: 在渲染内容时，请避免分配给[`Element.innerHTML`](https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML)或 React 的`dangerouslySetInnerHTML`，因为它来自用户会导致跨站点脚本，应将其分配给[`Node.textContent`](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent) 或使用实验性的[`Element.setHTML()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/setHTML) 方法代替。 请参考[OWASP 的 XSS 预防备忘单](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
+- **跨站点脚本（XSS）**: 在渲染内容时，请避免分配给[`Element.innerHTML`](https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML)或 React 的`dangerouslySetInnerHTML`，因为它来自用户会导致跨站点脚本，应将其分配给[`Node.textContent`](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent) 或使用实验性的[`Element.setHTML()`](https://webdocs.dev/en-us/docs/web/api/element/sethtml) 方法代替。 请参考[OWASP 的 XSS 预防备忘单](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
 - **“URL 上下文”的输出编码**: 如果用户提供的输入可能用于 URL 查询参数，请使用`encodeURIComponent`来防止意外的值成为 URL 的一部分（例如额外的查询参数）。
 - **跨站点请求伪造**: 请参见[OWASP 的 XSS 预防备忘单](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)。
 
