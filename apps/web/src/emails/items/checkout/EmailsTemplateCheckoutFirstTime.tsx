@@ -4,20 +4,30 @@ import { Body, Html } from '@react-email/components';
 
 type Props = Readonly<{
   countryCode: string | null;
+  hook: number;
   name: string | null;
 }>;
 
 const popularCountries = ['US', 'IN', 'CA', 'SG', 'GB', 'DE', 'TW'];
 
+const hooks = [
+  "What's harder: aligning a div without Flexbox or nailing a front end interview? (Spoiler: we can help with both!)",
+  "Front end interviews can feel like trying to center a div in 2005—but don't worry, you've got this.",
+  "Front end interviews are a huge pain in the ass, but not to worry, you've come to the right place.",
+];
+
 export default function EmailsTemplateCheckoutFirstTime({
   countryCode,
   name,
+  hook,
 }: Props) {
+  const hookString = hooks[(hook + hooks.length) % hooks.length];
+
   return (
     <Html lang="en">
       <Body>
         <p>Hi {name ?? 'there'},</p>
-        <p>How is it going? Thank you for your interest in GreatFrontEnd!</p>
+        <p>{hookString}</p>
         <p>
           I'm Yangshun, co-founder at GreatFrontEnd and an ex-Staff Eng at Meta.
           I love front end engineering and have spent over 5 years at Meta

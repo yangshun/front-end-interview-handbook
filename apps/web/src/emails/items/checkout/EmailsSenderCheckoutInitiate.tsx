@@ -22,7 +22,7 @@ export async function sendInitiateCheckoutFirstTimeEmail({
   name: string | null;
   userId: string;
 }>) {
-  const props = { countryCode, name };
+  const props = { countryCode, name, hook: Math.floor(Math.random() * 10) };
 
   return await sendEmailItemWithChecks(
     {

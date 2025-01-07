@@ -8,6 +8,7 @@ export const EmailsItemConfigCheckoutFirstTime: EmailItemConfig<
   component: EmailsTemplateCheckoutFirstTime,
   defaultProps: {
     countryCode: 'US',
+    hook: 0,
     name: 'John',
   },
   from: {
