@@ -39,7 +39,7 @@ export default function EmailsTemplateInterviewsProgress({ unsub }: Props) {
               Premium offers you'll love
             </EmailsHeading>
             <EmailsParagraph size="body1" style={{ marginTop: 8 }}>
-              Get amazing discounts with simple steps – choose your offer and
+              Get amazing discounts with simple steps - choose your offer and
               save today!
             </EmailsParagraph>
           </Section>
@@ -69,7 +69,7 @@ export default function EmailsTemplateInterviewsProgress({ unsub }: Props) {
                       marginLeft: 20,
                     }}>
                     Share a <EmailsStrong>success story or review</EmailsStrong>{' '}
-                    of GreatFrontEnd →
+                    of GreatFrontEnd
                   </EmailsParagraph>
                 </Column>
               </Row>
@@ -137,7 +137,7 @@ export default function EmailsTemplateInterviewsProgress({ unsub }: Props) {
             <EmailsHeading as="h2" level="heading2">
               Fast-track to your dream job
             </EmailsHeading>
-            <EmailsParagraph color="secondary" style={{ marginTop: 8 }}>
+            <EmailsParagraph style={{ marginTop: 8 }}>
               You could land a job without Premium, but why not get there
               faster?
             </EmailsParagraph>
@@ -152,7 +152,7 @@ export default function EmailsTemplateInterviewsProgress({ unsub }: Props) {
             />
           </Section>
           <Section style={{ ...grayCard, marginTop: 64 }}>
-            <EmailsParagraph color="secondary" style={{ fontWeight: 500 }}>
+            <EmailsParagraph style={{ fontWeight: 500 }}>
               🔊 Did you know?
             </EmailsParagraph>
             <EmailsParagraph
@@ -169,6 +169,7 @@ export default function EmailsTemplateInterviewsProgress({ unsub }: Props) {
                   getSiteOrigin(),
                 ).toString()}
                 style={{
+                  color: '#18181b',
                   fontWeight: 600,
                 }}>
                 Go premium →
