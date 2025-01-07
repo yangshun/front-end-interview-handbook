@@ -1,7 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
-import { type ReactNode, useRef, useState } from 'react';
+import { type ReactNode, useEffect, useRef, useState } from 'react';
 import { FaCheck } from 'react-icons/fa6';
 import {
   RiArrowLeftLine,
@@ -153,8 +153,9 @@ export default function RewardsTasksPage() {
   );
 
   const latestTasks = useRef<ReadonlyArray<RewardsTaskProps>>([]);
-  const [currentVerifyingTask, setCurrentVerifyingTask] =
-    useState<RewardsTasksActionName | null>(null);
+  const [currentVerifyingTasks, setCurrentVerifyingTasks] = useState<
+    Set<RewardsTasksActionName>
+  >(new Set());
   const [taskWithError, setTaskWithError] =
     useState<RewardsTasksActionName | null>(null);
 
@@ -162,16 +163,16 @@ export default function RewardsTasksPage() {
   const tasksWithStatus = tasks.map((task) => ({
     ...task,
     status: (() => {
-      if (currentVerifyingTask === task.actionName) {
-        return 'verifying' as const;
-      }
-
       if (completedTasks?.some(({ action }) => action === task.actionName)) {
         return 'completed' as const;
       }
 
       if (taskWithError === task.actionName) {
         return 'error' as const;
+      }
+
+      if (currentVerifyingTasks.has(task.actionName)) {
+        return 'verifying' as const;
       }
 
       return 'pending' as const;
@@ -191,15 +192,19 @@ export default function RewardsTasksPage() {
     );
 
     if (task == null) {
-      setCurrentVerifyingTask(null);
-
       return;
     }
 
     const verifyCallback = (actionName: RewardsTasksActionName) => ({
       onError: () => {
         setTaskWithError(actionName);
-        setCurrentVerifyingTask(null);
+        setCurrentVerifyingTasks((prevTasks) => {
+          const newVerifyingTasks = new Set(prevTasks);
+
+          newVerifyingTasks.delete(actionName);
+
+          return newVerifyingTasks;
+        });
       },
       onSuccess: () => {
         trpcUtils.promotions.getTasksCompleted.invalidate();
@@ -207,9 +212,15 @@ export default function RewardsTasksPage() {
       },
     });
 
+    setCurrentVerifyingTasks((prevTasks) => {
+      const newVerifyingTasks = new Set(prevTasks);
+
+      newVerifyingTasks.add(task.actionName);
+
+      return newVerifyingTasks;
+    });
     switch (task.actionName) {
       case 'GITHUB_STAR.JS_INTERVIEWS': {
-        setCurrentVerifyingTask('GITHUB_STAR.JS_INTERVIEWS');
         checkGitHubStarMutation.mutate(
           {
             action: 'GITHUB_STAR.JS_INTERVIEWS',
@@ -220,7 +231,6 @@ export default function RewardsTasksPage() {
         break;
       }
       case 'GITHUB_STAR.SYSTEM_DESIGN': {
-        setCurrentVerifyingTask('GITHUB_STAR.SYSTEM_DESIGN');
         checkGitHubStarMutation.mutate(
           {
             action: 'GITHUB_STAR.SYSTEM_DESIGN',
@@ -231,7 +241,6 @@ export default function RewardsTasksPage() {
         break;
       }
       case 'GITHUB_FOLLOW': {
-        setCurrentVerifyingTask('GITHUB_FOLLOW');
         checkGitHubFollowMutation.mutate(
           {
             username: handlesData.gitHubUsername,
@@ -241,7 +250,6 @@ export default function RewardsTasksPage() {
         break;
       }
       case 'LINKEDIN_FOLLOW': {
-        setCurrentVerifyingTask('LINKEDIN_FOLLOW');
         checkLinkedInFollowMutation.mutate(
           {
             username: handlesData.linkedInUsername,
@@ -251,7 +259,6 @@ export default function RewardsTasksPage() {
         break;
       }
       case 'TWITTER_FOLLOW': {
-        setCurrentVerifyingTask('TWITTER_FOLLOW');
         checkTwitterFollowMutation.mutate(
           {
             username: handlesData.twitterUsername,
@@ -268,6 +275,13 @@ export default function RewardsTasksPage() {
   );
 
   const isLastStep = currentStep === 2;
+
+  // Clear the verifying tasks after all the tasks are completed
+  useEffect(() => {
+    if (completedAllTasks) {
+      setCurrentVerifyingTasks(new Set());
+    }
+  }, [completedAllTasks]);
 
   return (
     <div className="mx-auto flex w-full max-w-lg flex-col items-center gap-y-10">
@@ -330,7 +344,7 @@ export default function RewardsTasksPage() {
               <Button
                 addonPosition="start"
                 icon={RiArrowLeftLine}
-                isDisabled={currentVerifyingTask != null}
+                isDisabled={!taskWithError && currentVerifyingTasks.size > 0}
                 label="Back"
                 size="sm"
                 variant="secondary"
@@ -368,7 +382,10 @@ export default function RewardsTasksPage() {
               />
             ) : (
               <Button
-                isDisabled={currentVerifyingTask != null || !isLastStep}
+                isDisabled={
+                  (!taskWithError && currentVerifyingTasks.size > 0) ||
+                  !isLastStep
+                }
                 label="Verify"
                 size="sm"
                 variant="primary"
