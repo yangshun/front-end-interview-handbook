@@ -18,11 +18,11 @@ import {
 } from '@react-email/components';
 
 // This email template is just to generate HTML content to be used in Supabase email template
-// It is not trigger from client side
-export default function EmailsTemplateResetPassword() {
+// It is not triggered from GFE website
+export default function EmailsTemplatePasswordReset() {
   return (
     <Html lang="en">
-      <Preview>Here are some remedies that have worked for other users</Preview>
+      <Preview>Reset your GreatFrontEnd password</Preview>
       <Body style={mainStyle}>
         <Container style={containerStyle}>
           <EmailsHeader />
@@ -33,9 +33,15 @@ export default function EmailsTemplateResetPassword() {
             <EmailsParagraph defaultMargins={true}>
               Click the button below to securely reset your password.
             </EmailsParagraph>
-            <EmailsButton href="{{ .ConfirmationURL }}" variant="primary">
-              Reset Password
-            </EmailsButton>
+            <EmailsParagraph defaultMargins={true}>
+              <EmailsButton href="{{ .ConfirmationURL }}" variant="primary">
+                Reset Password
+              </EmailsButton>
+            </EmailsParagraph>
+            <EmailsParagraph>
+              If you didn't request to reset your password, you can safely
+              ignore this email.
+            </EmailsParagraph>
           </Section>
           <EmailsFooter />
         </Container>

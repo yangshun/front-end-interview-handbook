@@ -3699,10 +3699,6 @@
     "defaultMessage": "You left a question on your submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for you asking question on your submission"
   },
-  "M8S0Dp": {
-    "defaultMessage": "Star our \"Front End System Design\" repo",
-    "description": "Title for task"
-  },
   "M9z02W": {
     "defaultMessage": "Airbnb",
     "description": "Company name for Airbnb"
@@ -8974,6 +8970,10 @@
   "tPpYwO": {
     "defaultMessage": "Starter",
     "description": "Starter blog"
+  },
+  "tPzONL": {
+    "defaultMessage": "Star our \"React.js Interview Questions\" repo",
+    "description": "Title for task"
   },
   "tQEmTt": {
     "defaultMessage": "All practice questions",

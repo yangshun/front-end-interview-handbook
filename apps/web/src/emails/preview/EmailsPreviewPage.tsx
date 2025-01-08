@@ -164,7 +164,7 @@ export default function EmailsPreviewPage({ emailKey, html, text }: Props) {
                   const results = await response.json();
 
                   showToast({
-                    description: results.message,
+                    description: results.error,
                     title: `Email error`,
                     variant: 'danger',
                   });
@@ -221,7 +221,7 @@ export default function EmailsPreviewPage({ emailKey, html, text }: Props) {
                   )}>
                   {selectedPreviewTab === 'text'
                     ? emailContents?.text
-                    : emailContents?.html}
+                    : formatHTML(emailContents?.html)}
                 </pre>
               </div>
             )}
@@ -263,4 +263,36 @@ export default function EmailsPreviewPage({ emailKey, html, text }: Props) {
       </PanelGroup>
     </div>
   );
+}
+
+function formatHTML(codeStr: string): string {
+  const process = (input: string) => {
+    const div = document.createElement('div');
+
+    div.innerHTML = input.trim();
+
+    return format(div, 0).innerHTML.trim();
+  };
+
+  const format = (node: Element, level: number) => {
+    const indentBefore = new Array(level++ + 1).join('  ');
+    const indentAfter = new Array(level - 1).join('  ');
+    let textNode: Text = document.createTextNode('');
+
+    for (let i = 0; i < node.children.length; i++) {
+      textNode = document.createTextNode('\n' + indentBefore);
+      node.insertBefore(textNode, node.children[i]);
+
+      format(node.children[i], level);
+
+      if (node.lastElementChild === node.children[i]) {
+        textNode = document.createTextNode('\n' + indentAfter);
+        node.appendChild(textNode);
+      }
+    }
+
+    return node;
+  };
+
+  return process(codeStr);
 }

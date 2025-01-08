@@ -25,6 +25,7 @@ export default function EmailsPreviewSendSection({ onSubmit }: Props) {
       <TextInput
         label="Email"
         placeholder="Email"
+        type="email"
         value={email}
         onChange={setEmail}
       />
