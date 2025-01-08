@@ -83,7 +83,7 @@ export default function EmailsTemplateCheckoutMultipleTimes({
           </Section>
           <Section style={{ marginTop: 40 }}>
             <EmailsParagraph color="subtitle" defaultMargins={true}>
-              Hi {name ?? 'there'},
+              Hi {name ? name.split(/\s+/)[0] : 'there'},
             </EmailsParagraph>
             <EmailsParagraph color="subtitle" defaultMargins={true}>
               We noticed you were so close to completing your purchase. To thank

@@ -21,5 +21,7 @@ export const EmailsItemConfigCheckoutFirstTime: EmailItemConfig<
     name: 'Yangshun Tay',
   },
   subject: ({ name }) =>
-    `Hi ${name ?? 'there'}, this is Yangshun from GreatFrontEnd`,
+    name
+      ? `${name.split(/\s+/)[0]}, just wanted to reach out and say hello`
+      : 'Just wanted to reach out and say hello',
 };

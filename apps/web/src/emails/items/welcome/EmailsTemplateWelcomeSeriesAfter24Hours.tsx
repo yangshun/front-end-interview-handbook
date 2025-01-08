@@ -452,7 +452,10 @@ function Stanley() {
             title: 'User Interface Coding questions',
           },
           {
-            href: new URL('/questions', getSiteOrigin()).toString(),
+            href: new URL(
+              '/questions/javascript-interview-questions',
+              getSiteOrigin(),
+            ).toString(),
             subtitle: (
               <>
                 <EmailsParagraph>

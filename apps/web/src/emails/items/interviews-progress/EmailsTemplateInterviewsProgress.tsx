@@ -69,7 +69,7 @@ export default function EmailsTemplateInterviewsProgress({ unsub }: Props) {
                       marginLeft: 20,
                     }}>
                     Share a <EmailsStrong>success story or review</EmailsStrong>{' '}
-                    of GreatFrontEnd
+                    of GreatFrontEnd →
                   </EmailsParagraph>
                 </Column>
               </Row>

@@ -35,7 +35,6 @@ export default async function scheduleInterviewsProgressEmail({
   const questionsInterestPointRedisValue =
     await questionsInterestPointsRedisCounter.incrby(points);
 
-  console.info({ entity, points, questionsInterestPointRedisValue });
   if (questionsInterestPointRedisValue < TRIGGER_INTEREST_POINT) {
     return;
   }

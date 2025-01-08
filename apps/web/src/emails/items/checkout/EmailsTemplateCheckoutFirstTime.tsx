@@ -26,7 +26,7 @@ export default function EmailsTemplateCheckoutFirstTime({
   return (
     <Html lang="en">
       <Body>
-        <p>Hi {name ?? 'there'},</p>
+        <p>Hey {name ? name.split(/\s+/)[0] : 'there'},</p>
         <p>{hookString}</p>
         <p>
           I'm Yangshun, co-founder at GreatFrontEnd and an ex-Staff Eng at Meta.
