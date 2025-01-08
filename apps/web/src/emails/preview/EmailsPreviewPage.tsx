@@ -9,6 +9,7 @@ import { useToast } from '~/components/global/toasts/useToast';
 import InterviewsNavbarEnd from '~/components/interviews/common/InterviewsNavbarEnd';
 import Heading from '~/components/ui/Heading';
 import Select from '~/components/ui/Select';
+import TabsUnderline from '~/components/ui/Tabs/TabsUnderline';
 import Text from '~/components/ui/Text';
 import TextArea from '~/components/ui/TextArea';
 import {
@@ -50,6 +51,9 @@ export default function EmailsPreviewPage({ emailKey, html, text }: Props) {
     JSON.stringify(emailConfig.defaultProps, null, 2),
   );
   const [emailPropsError, setEmailPropsError] = useState<string | null>(null);
+  const [selectedPreviewTab, setSelectedPreviewTab] = useState<'html' | 'text'>(
+    'text',
+  );
 
   const [emailContents, setEmailContents] = useState<{
     html: string;
@@ -133,7 +137,6 @@ export default function EmailsPreviewPage({ emailKey, html, text }: Props) {
           className={clsx(
             'flex flex-col',
             'rounded-lg',
-
             ['border', themeBorderColor],
             themeBackgroundColor,
           )}
@@ -194,9 +197,18 @@ export default function EmailsPreviewPage({ emailKey, html, text }: Props) {
             )}
             {emailContents?.text && (
               <div className="flex flex-col gap-2">
-                <Text className="block" size="body2" weight="medium">
-                  Text content
-                </Text>
+                <div>
+                  <TabsUnderline
+                    label="Select navigation item"
+                    size="sm"
+                    tabs={[
+                      { label: 'Text content', value: 'text' },
+                      { label: 'HTML content', value: 'html' },
+                    ]}
+                    value={selectedPreviewTab}
+                    onSelect={setSelectedPreviewTab}
+                  />
+                </div>
                 <pre
                   className={clsx(
                     'rounded',
@@ -207,7 +219,9 @@ export default function EmailsPreviewPage({ emailKey, html, text }: Props) {
                     'overflow-x-auto',
                     themeBackgroundInputColor,
                   )}>
-                  {emailContents?.text}
+                  {selectedPreviewTab === 'text'
+                    ? emailContents?.text
+                    : emailContents?.html}
                 </pre>
               </div>
             )}

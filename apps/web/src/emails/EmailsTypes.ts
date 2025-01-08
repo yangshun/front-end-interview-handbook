@@ -7,7 +7,8 @@ export type EmailKey =
   | 'INTERVIEWS_PROGRESS'
   | 'INTERVIEWS_WELCOME_EMAIL_24_HOURS'
   | 'INTERVIEWS_WELCOME_EMAIL_IMMEDIATE'
-  | 'PAYMENT_FAILED';
+  | 'PAYMENT_FAILED'
+  | 'RESET_PASSWORD';
 
 export const EmailContactListKeyZodEnum = z.enum([
   'ANNOUNCEMENTS',
