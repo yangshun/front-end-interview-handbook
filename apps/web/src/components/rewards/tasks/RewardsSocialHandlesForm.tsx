@@ -48,6 +48,9 @@ export default function RewardsSocialHandlesForm({
   const [validationErrors, setValidationErrors] =
     useState<RewardsHandlesValidation | null>(null);
   const [hasError, setHasError] = useState(false);
+  const [openTooltip, setOpenTooltip] = useState<
+    'github' | 'linkedin' | 'twitter' | null
+  >(null);
 
   return (
     <form
@@ -95,26 +98,27 @@ export default function RewardsSocialHandlesForm({
       <div className={clsx('w-full divide-y', themeDivideColor)}>
         <div className="flex items-center justify-between gap-4 py-4">
           <Text size="body2">GitHub</Text>{' '}
-          <Tooltip
-            asChild={true}
-            label={
-              <FormattedMessage
-                defaultMessage="For a profile URL like <bold>https://github.com/john-doe</bold>, your handle would be <bold>john-doe</bold>."
-                description="Rewards campaign help text"
-                id="4OAQyn"
-                values={{
-                  bold: (chunks) => (
-                    <Text color="inherit" size="inherit" weight="bold">
-                      {chunks}
-                    </Text>
-                  ),
-                }}
-              />
-            }>
-            <div className="flex w-full max-w-sm items-center gap-2">
-              <RiGithubFill
-                className={clsx('size-5 shrink-0', themeTextSubtitleColor)}
-              />
+          <div className="flex w-full max-w-sm items-center gap-2">
+            <RiGithubFill
+              className={clsx('size-5 shrink-0', themeTextSubtitleColor)}
+            />
+            <Tooltip
+              asChild={true}
+              label={
+                <FormattedMessage
+                  defaultMessage="For a profile URL like <bold>https://github.com/john-doe</bold>, your handle would be <bold>john-doe</bold>."
+                  description="Rewards campaign help text"
+                  id="4OAQyn"
+                  values={{
+                    bold: (chunks) => (
+                      <Text color="inherit" size="inherit" weight="bold">
+                        {chunks}
+                      </Text>
+                    ),
+                  }}
+                />
+              }
+              open={openTooltip === 'github'}>
               <div className="w-full">
                 <TextInput
                   autoFocus={true}
@@ -129,39 +133,43 @@ export default function RewardsSocialHandlesForm({
                   name="github"
                   placeholder="john-doe"
                   value={handlesData.gitHubUsername}
+                  onBlur={() => setOpenTooltip(null)}
                   onChange={(value) => {
                     onHandlesDataChange({
                       ...handlesData,
                       gitHubUsername: value,
                     });
+                    setOpenTooltip(null);
                   }}
+                  onFocus={() => setOpenTooltip('github')}
                 />
               </div>
-            </div>
-          </Tooltip>
+            </Tooltip>
+          </div>
         </div>
         <div className="flex items-center justify-between gap-4 py-4">
           <Text size="body2">LinkedIn</Text>
-          <Tooltip
-            asChild={true}
-            label={
-              <FormattedMessage
-                defaultMessage="For a profile URL like <bold>https://linkedin.com/in/john-doe</bold>, your handle would be <bold>john-doe</bold>."
-                description="Rewards campaign help text"
-                id="72r1UC"
-                values={{
-                  bold: (chunks) => (
-                    <Text color="inherit" size="inherit" weight="bold">
-                      {chunks}
-                    </Text>
-                  ),
-                }}
-              />
-            }>
-            <div className="flex w-full max-w-sm items-center gap-2">
-              <RiLinkedinFill
-                className={clsx('size-5 shrink-0', themeTextSubtitleColor)}
-              />
+          <div className="flex w-full max-w-sm items-center gap-2">
+            <RiLinkedinFill
+              className={clsx('size-5 shrink-0', themeTextSubtitleColor)}
+            />
+            <Tooltip
+              asChild={true}
+              label={
+                <FormattedMessage
+                  defaultMessage="For a profile URL like <bold>https://linkedin.com/in/john-doe</bold>, your handle would be <bold>john-doe</bold>."
+                  description="Rewards campaign help text"
+                  id="72r1UC"
+                  values={{
+                    bold: (chunks) => (
+                      <Text color="inherit" size="inherit" weight="bold">
+                        {chunks}
+                      </Text>
+                    ),
+                  }}
+                />
+              }
+              open={openTooltip === 'linkedin'}>
               <div className="w-full">
                 <TextInput
                   errorMessage={
@@ -175,39 +183,43 @@ export default function RewardsSocialHandlesForm({
                   name="linkedin"
                   placeholder="john-doe"
                   value={handlesData.linkedInUsername}
+                  onBlur={() => setOpenTooltip(null)}
                   onChange={(value) => {
                     onHandlesDataChange({
                       ...handlesData,
                       linkedInUsername: value,
                     });
+                    setOpenTooltip(null);
                   }}
+                  onFocus={() => setOpenTooltip('linkedin')}
                 />
               </div>
-            </div>
-          </Tooltip>
+            </Tooltip>
+          </div>
         </div>
         <div className="flex items-center justify-between gap-4 py-4">
           <Text size="body2">X / Twitter</Text>
-          <Tooltip
-            asChild={true}
-            label={
-              <FormattedMessage
-                defaultMessage="For a profile URL like <bold>https://x.com/in/john-doe</bold>, your handle would be <bold>john-doe</bold>."
-                description="Rewards campaign help text"
-                id="qsjqbZ"
-                values={{
-                  bold: (chunks) => (
-                    <Text color="inherit" size="inherit" weight="bold">
-                      {chunks}
-                    </Text>
-                  ),
-                }}
-              />
-            }>
-            <div className="flex w-full max-w-sm items-center gap-2">
-              <RiTwitterXFill
-                className={clsx('size-5 shrink-0', themeTextSubtitleColor)}
-              />
+          <div className="flex w-full max-w-sm items-center gap-2">
+            <RiTwitterXFill
+              className={clsx('size-5 shrink-0', themeTextSubtitleColor)}
+            />
+            <Tooltip
+              asChild={true}
+              label={
+                <FormattedMessage
+                  defaultMessage="For a profile URL like <bold>https://x.com/in/john-doe</bold>, your handle would be <bold>john-doe</bold>."
+                  description="Rewards campaign help text"
+                  id="qsjqbZ"
+                  values={{
+                    bold: (chunks) => (
+                      <Text color="inherit" size="inherit" weight="bold">
+                        {chunks}
+                      </Text>
+                    ),
+                  }}
+                />
+              }
+              open={openTooltip === 'twitter'}>
               <div className="w-full max-w-sm">
                 <TextInput
                   className="w-full"
@@ -222,16 +234,19 @@ export default function RewardsSocialHandlesForm({
                   name="twitter"
                   placeholder="john-doe"
                   value={handlesData.twitterUsername}
+                  onBlur={() => setOpenTooltip(null)}
                   onChange={(value) => {
                     onHandlesDataChange({
                       ...handlesData,
                       twitterUsername: value,
                     });
+                    setOpenTooltip(null);
                   }}
+                  onFocus={() => setOpenTooltip('twitter')}
                 />
               </div>
-            </div>
-          </Tooltip>
+            </Tooltip>
+          </div>
         </div>
       </div>
       {hasError && (

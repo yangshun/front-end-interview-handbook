@@ -32,6 +32,10 @@ type Props = Readonly<{
   hyphenated?: boolean;
   invert?: boolean;
   label?: ReactNode;
+  onOpenChange?: React.ComponentProps<
+    typeof TooltipPrimitive.Root
+  >['onOpenChange'];
+  open?: React.ComponentProps<typeof TooltipPrimitive.Root>['open'];
   side?: TooltipContentSide;
   size?: TooltipSize;
   triggerClassName?: string;
@@ -51,6 +55,8 @@ export default function Tooltip({
   size = 'sm',
   triggerClassName,
   triggerType = 'button', // To prevent clicking on tooltip from submitting if it is within a form.
+  open,
+  onOpenChange,
 }: Props) {
   const tooltipBackgroundColor = invert
     ? 'bg-neutral-200 dark:bg-neutral-900'
@@ -62,7 +68,10 @@ export default function Tooltip({
   return (
     // TODO: Move to global-level.
     <TooltipPrimitive.Provider>
-      <TooltipPrimitive.Root delayDuration={delayDuration}>
+      <TooltipPrimitive.Root
+        delayDuration={delayDuration}
+        open={open}
+        onOpenChange={onOpenChange}>
         <TooltipPrimitive.Trigger
           asChild={asChild}
           className={triggerClassName}
