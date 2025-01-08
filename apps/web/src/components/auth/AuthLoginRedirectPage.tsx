@@ -18,7 +18,7 @@ type Props = Readonly<{
   next: string | null;
 }>;
 
-export default function AuthLoginSuccessPage({ next }: Props) {
+export default function AuthLoginRedirectPage({ next }: Props) {
   const intl = useIntl();
 
   useAuthFullPageRedirectAfterLogin(next);

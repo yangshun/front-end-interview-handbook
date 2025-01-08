@@ -44,7 +44,7 @@ export default function SupabaseAuthEmailSignIn({
     const emailRedirectTo =
       window.location.origin +
       url.format({
-        pathname: '/auth/login-success',
+        pathname: '/auth/login-redirect',
         query: {
           next,
         },

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next/types';
 
-import AuthLoginSuccessPage from '~/components/auth/AuthLoginSuccessPage';
+import AuthLoginRedirectPage from '~/components/auth/AuthLoginRedirectPage';
+import { redirectToLoginPageIfNotLoggedIn } from '~/components/auth/redirectToLoginPageIfNotLoggedIn';
 
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
@@ -9,7 +10,7 @@ type Props = Readonly<{
   params: Readonly<{
     locale: string;
   }>;
-  searchParams: { next: string | null };
+  searchParams: { error: string | null; next: string | null };
 }>;
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -19,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return defaultMetadata({
     locale,
-    pathname: '/auth/login-success',
+    pathname: '/auth/login-redirect',
     title: intl.formatMessage({
       defaultMessage: 'Login successful',
       description: 'Title of login successful page',
@@ -29,5 +30,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Page({ searchParams }: Props) {
-  return <AuthLoginSuccessPage next={searchParams.next} />;
+  if (searchParams.error) {
+    await redirectToLoginPageIfNotLoggedIn(searchParams.next ?? '');
+  }
+
+  return <AuthLoginRedirectPage next={searchParams.next} />;
 }

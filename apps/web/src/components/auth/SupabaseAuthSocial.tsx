@@ -63,7 +63,7 @@ export default function SupabaseAuthSocial({
     const redirectTo =
       window.location.origin +
       url.format({
-        pathname: '/auth/login-success',
+        pathname: '/auth/login-redirect',
         query: {
           next,
         },
