@@ -4,9 +4,10 @@ import submitTestCases from './submit.tests.json';
 describe('arrayProductExcludingCurrent', () => {
   (submitTestCases as any[]).forEach((example: any) => {
     test(`numbers = [${example.input[0][1]}]`, () => {
-      expect(arrayProductExcludingCurrent(example.input[0][1])).toStrictEqual(
-        example.output,
+      const actual = arrayProductExcludingCurrent(example.input[0][1]).map(
+        (num) => (num === -0 ? 0 : num),
       );
+      expect(actual).toStrictEqual(example.output);
     });
   });
 });

@@ -2,6 +2,6 @@
  * @param {number[]} numbers
  * @return {boolean}
  */
-export default function endOfArrayReachable(numbers) {
+export default function arrayReachableEnd(numbers) {
   throw 'Not implemented!';
 }

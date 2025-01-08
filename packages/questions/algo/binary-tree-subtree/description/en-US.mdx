@@ -8,11 +8,6 @@ import runTestCases from '../setup/src/run.tests.json';
 
 Given the roots of two binary trees, `root` and `subRoot`, determine whether `subRoot` is a subtree of `root`. The function should return `true` if there exists a subtree within `root` that has the same structure and node values as `subRoot`. If no such subtree exists, return `false`.
 
-### Notes
-
-- A subtree is defined as a portion of a binary tree that includes a node and all of its descendants
-- A tree can be considered a subtree of itself
-
 The binary tree is represented by a collection of `TreeNode`s, where each node has optional `left` and `right` child nodes, which are also `TreeNode`s.
 
 A `TreeNode` has the following interface:
@@ -24,6 +19,11 @@ interface TreeNode {
   right: TreeNode | null;
 }
 ```
+
+A subtree of a binary tree is defined as a portion of the tree that consists of a node and all its descendants. Subtrees have the following properties:
+
+1. **Matching structure**: For `subRoot` to be a subtree of `root`, the nodes in `subRoot` must match the nodes in the corresponding portion of `root` both in value and structure.
+2. **Self-containment**: A tree is always considered a subtree of itself.
 
 ### Input
 

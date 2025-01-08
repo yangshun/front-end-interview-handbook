@@ -1,4 +1,4 @@
-export default function endOfArrayReachable(numbers: number[]): boolean {
+export default function arrayReachableEnd(numbers: number[]): boolean {
   // Initialize a variable to track the farthest reachable position (last element initially)
   let farthestReachable = numbers.length - 1;
 

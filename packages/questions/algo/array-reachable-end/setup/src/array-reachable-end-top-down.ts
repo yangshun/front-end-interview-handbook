@@ -5,7 +5,7 @@ let memo: string[];
  * Helper function to determine if you can reach to the last position from the current position.
  *
  * @param {number} position - The current position in the array.
- * @param {number[]} numbers - An array of numbers representing maximum jump lengths at each index.
+ * @param {number[]} numbers - An array of numbers representing maximum movement lengths at each index.
  * @returns {boolean} - True if you can reach the last element from the current position, false otherwise.
  */
 const canReachLastPosition = (position: number, numbers: number[]): boolean => {
@@ -21,7 +21,7 @@ const canReachLastPosition = (position: number, numbers: number[]): boolean => {
   }
 
   // Calculate the furthest position that can be reached from the current position
-  const furthestJump = Math.min(
+  const furthestPosition = Math.min(
     position + numbers[position],
     numbers.length - 1,
   );
@@ -29,7 +29,7 @@ const canReachLastPosition = (position: number, numbers: number[]): boolean => {
   // Iterate through all positions that can be reached from the current position
   // Iterate backward for better efficiency (reduce redundant calls)
   for (
-    let nextPosition = furthestJump;
+    let nextPosition = furthestPosition;
     nextPosition > position;
     nextPosition--
   ) {
@@ -46,12 +46,12 @@ const canReachLastPosition = (position: number, numbers: number[]): boolean => {
 
 /**
  * Determines if you can reach the last element in an array, where each element represents
- * the maximum jump length you can make from that position.
+ * the maximum positions you can reach from that index.
  *
- * @param {number[]} numbers - An array of numbers representing maximum jump lengths at each index.
- * @returns {boolean} - True if you can reach the last element, false otherwise.
+ * @param {number[]} numbers - An array of numbers representing maximum positions reachable from that index.
+ * @returns {boolean} - True if you can reach the last index, false otherwise.
  */
-export default function endOfArrayReachable(numbers: number[]): boolean {
+export default function arrayReachableEnd(numbers: number[]): boolean {
   // Initialize the memoization array with "UNKNOWN"
   memo = new Array(numbers.length).fill('UNKNOWN');
 

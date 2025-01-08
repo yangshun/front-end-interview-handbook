@@ -1,8 +1,8 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import endOfArrayReachable from '../setup/src/array-reachable-end.ts';
-import endOfArrayReachableTopDown from '../setup/src/array-reachable-end-top-down.ts';
-import endOfArrayReachableBottomUp from '../setup/src/array-reachable-end-bottom-up.ts';
+import arrayReachableEnd from '../setup/src/array-reachable-end.ts';
+import arrayReachableEndTopDown from '../setup/src/array-reachable-end-top-down.ts';
+import arrayReachableEndBottomUp from '../setup/src/array-reachable-end-bottom-up.ts';
 
 ## 1. Bottom-Up Dynamic Programming
 
@@ -21,7 +21,7 @@ The bottom-up dynamic programming approach optimizes this by iterating from the 
      - If any of these positions is marked as `Index.GOOD` in `memo`, mark the current position as `Index.GOOD` and break the inner loop.
 5. Return `true` if the first position is marked as `Index.GOOD` in `memo`, indicating the last position is reachable. Otherwise, return `false`.
 
-<MDXCodeBlock>{endOfArrayReachableBottomUp}</MDXCodeBlock>
+<MDXCodeBlock>{arrayReachableEndBottomUp}</MDXCodeBlock>
 
 ### Big-O analysis
 
@@ -46,7 +46,7 @@ There is another top-down dynamic programming approach, where the process begins
 4. Start the recursion from the first position using the helper function.
 5. Return `true` if the first position is `'GOOD'`, indicating the last position is reachable. Otherwise, return `false`.
 
-<MDXCodeBlock>{endOfArrayReachableTopDown}</MDXCodeBlock>
+<MDXCodeBlock>{arrayReachableEndTopDown}</MDXCodeBlock>
 
 ### Big-O analysis
 
@@ -67,7 +67,7 @@ In the greedy approach, the algorithm starts from the last position and iterates
    - Return `true` if `farthestReachable` is `0`, indicating the last position is reachable from the first position.
    - Otherwise, return `false`.
 
-<MDXCodeBlock>{endOfArrayReachable}</MDXCodeBlock>
+<MDXCodeBlock>{arrayReachableEnd}</MDXCodeBlock>
 
 ### Big-O analysis
 

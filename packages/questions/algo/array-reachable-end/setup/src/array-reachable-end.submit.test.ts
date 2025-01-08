@@ -1,10 +1,10 @@
-import endOfArrayReachable from './array-reachable-end';
+import arrayReachableEnd from './array-reachable-end';
 import submitTestCases from './submit.tests.json';
 
-describe('endOfArrayReachable', () => {
+describe('arrayReachableEnd', () => {
   (submitTestCases as any[]).forEach((example: any) => {
     test(`numbers = [${example.input[0][1]}]`, () => {
-      expect(endOfArrayReachable(example.input[0][1])).toStrictEqual(
+      expect(arrayReachableEnd(example.input[0][1])).toStrictEqual(
         example.output,
       );
     });

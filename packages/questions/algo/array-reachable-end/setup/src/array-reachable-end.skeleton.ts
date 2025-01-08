@@ -1,3 +1,3 @@
-export default function endOfArrayReachable(numbers: number[]): boolean {
+export default function arrayReachableEnd(numbers: number[]): boolean {
   throw 'Not implemented!';
 }

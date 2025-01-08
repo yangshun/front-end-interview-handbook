@@ -6,13 +6,13 @@ excerpt: Implement a function to determine if the end of the array is reachable
 import MDXTestExamples from 'MDXTestExamples';
 import runTestCases from '../setup/src/run.tests.json';
 
-Given an array of integers `numbers`, starting at the first index of the array, each element in the array represents the maximum number of steps that can be jumped forward from that position.
+Given an array of integers `numbers` where each element in the array represents the **maximum** number of positions that can be moved forward from that index; it is acceptable to move by fewer positions.
 
-Determine whether it is possible to arrive at the final index of the array, returning `true` if it can be achieved and `false` otherwise.
+Determine whether it is possible to reach the last index of the array by starting from the first index. Return `true` if it can be reached and `false` otherwise.
 
 ### Input
 
-- `numbers: number[]`: An array of integers
+- `numbers: number[]`: An array of integers, each index's value is the maximum number of positions reachable from that index
 
 <MDXTestExamples testCases={runTestCases} />
 
