@@ -17,7 +17,11 @@ export default function EmailsUnsubscribePage({
   email,
   hash,
   list,
-}: EmailsUnsubscribeFields) {
+  listName,
+}: EmailsUnsubscribeFields &
+  Readonly<{
+    listName: string;
+  }>) {
   const [status, setStatus] = useState<
     | { errorMessage?: string; type: 'subscribed' }
     | { errorMessage?: string; type: 'unsubscribed' }
@@ -57,7 +61,6 @@ export default function EmailsUnsubscribePage({
                         setStatus({
                           type: 'unsubscribed',
                         });
-                        // TODO(emails): clear URL params
                       },
                     },
                   );
@@ -65,8 +68,8 @@ export default function EmailsUnsubscribePage({
               />
             }
             icon={RiMailLine}
-            subtitle={`By clicking "Unsubscribe", you will no longer receive "${list}" emails. You can resubscribe at anytime`}
-            title={`Unsubscribe from "${list}" emails?`}
+            subtitle={`By clicking "Unsubscribe", you will no longer receive "${listName}" emails. You can resubscribe at anytime`}
+            title={`Unsubscribe from "${listName}" emails?`}
           />
         )}
         {status.type === 'unsubscribed' && (
@@ -103,14 +106,14 @@ export default function EmailsUnsubscribePage({
               />
             }
             icon={RiMailLine}
-            subtitle={`You will no longer receive "${list}" emails from us. If you've unsubscribed by accident you can resubscribe below`}
+            subtitle={`You will no longer receive "${listName}" emails from us. If you've unsubscribed by accident you can resubscribe below`}
             title={`You've unsubscribed`}
           />
         )}
         {status.type === 'resubscribed' && (
           <EmptyState
             icon={RiMailLine}
-            subtitle={`You have been resubscribed to "${list}" emails`}
+            subtitle={`You have been resubscribed to "${listName}" emails`}
             title="You've resubscribed"
           />
         )}
