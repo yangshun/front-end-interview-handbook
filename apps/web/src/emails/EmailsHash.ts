@@ -1,7 +1,6 @@
 import crypto from 'crypto';
 
-// TODO(emails): use proper env var
-const SECRET_KEY = '123456';
+const SECRET_KEY = process.env.EMAIL_HASH_SECRET!;
 
 export function emailsGenerateHash(email: string) {
   return crypto.createHmac('sha256', SECRET_KEY).update(email).digest('hex');
