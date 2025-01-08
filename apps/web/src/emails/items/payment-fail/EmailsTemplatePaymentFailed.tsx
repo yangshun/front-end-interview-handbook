@@ -10,7 +10,6 @@ import {
   EmailsStrong,
 } from '~/emails/components/EmailsComponents';
 import { containerStyle, mainStyle } from '~/emails/components/EmailsStyles';
-import { getSiteOrigin } from '~/seo/siteUrl';
 
 import {
   Body,
@@ -22,36 +21,17 @@ import {
   Section,
 } from '@react-email/components';
 
-type Product = 'interviews' | 'projects';
-
 type Props = Readonly<{
+  billingPortalUrl: string;
   name?: string | null;
-  product: Product;
+  pricingPageUrl: string;
 }>;
 
-function productHrefs(product: Product) {
-  switch (product) {
-    case 'interviews': {
-      return {
-        billingHref: new URL('/profile/billing', getSiteOrigin()).toString(),
-        pricingHref: new URL('/interviews/pricing', getSiteOrigin()).toString(),
-      };
-    }
-    case 'projects': {
-      return {
-        billingHref: new URL(
-          '/projects/settings/billing',
-          getSiteOrigin(),
-        ).toString(),
-        pricingHref: new URL('/projects/pricing', getSiteOrigin()).toString(),
-      };
-    }
-  }
-}
-
-export default function EmailsTemplatePaymentFailed({ name, product }: Props) {
-  const { billingHref, pricingHref } = productHrefs(product);
-
+export default function EmailsTemplatePaymentFailed({
+  billingPortalUrl,
+  name,
+  pricingPageUrl,
+}: Props) {
   return (
     <Html lang="en">
       <Preview>Here are some remedies that have worked for other users</Preview>
@@ -88,14 +68,14 @@ export default function EmailsTemplatePaymentFailed({ name, product }: Props) {
             <EmailsParagraph defaultMargins={true}>
               3. <EmailsStrong>Re-add your card</EmailsStrong>: If the payment
               still doesn't succeed, go to the{' '}
-              <EmailsLink href={billingHref}>
-                Customer Portal from the Billing page
+              <EmailsLink href={billingPortalUrl}>
+                Stripe Customer Portal
               </EmailsLink>
               , delete any cards that have been added, then try paying again.
             </EmailsParagraph>
             <Row style={{ marginBottom: 40, marginTop: 40 }}>
               <Column align="center">
-                <EmailsButton href={pricingHref} variant="primary">
+                <EmailsButton href={pricingPageUrl} variant="primary">
                   Click here to try again →
                 </EmailsButton>
               </Column>

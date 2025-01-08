@@ -7,8 +7,9 @@ export const EmailsItemConfigPaymentFailed: EmailItemConfig<
 > = {
   component: EmailsTemplatePaymentFailed,
   defaultProps: {
-    name: 'John',
-    product: 'interviews',
+    billingPortalUrl: 'https://stripe.com',
+    name: 'John Doe',
+    pricingPageUrl: 'https://greatfrontend.com/interviews/pricing',
   },
   from: {
     email: 'contact@greatfrontend.com',
