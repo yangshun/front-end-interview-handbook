@@ -38,7 +38,8 @@ export default function InterviewsPaymentFailureDialog({
   const intl = useIntl();
   const { setShowFeedbackWidget } = useUserPreferences();
   const [isOpenFeedback, setIsOpenFeedback] = useState(false);
-  const billingPortalMutation = trpc.purchases.billingPortal.useMutation();
+  const billingPortalMutation =
+    trpc.purchases.billingPortalSessionUrl.useMutation();
   const [billingPortalHref, setBillingPortalHref] = useState<string | null>(
     null,
   );

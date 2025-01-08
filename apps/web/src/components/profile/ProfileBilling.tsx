@@ -242,7 +242,8 @@ function ProjectsPlanLabel({
 function ManageSubscriptionSection(): JSX.Element | null {
   const { userProfile } = useUserProfileWithProjectsProfile();
   const intl = useIntl();
-  const billingPortalMutation = trpc.purchases.billingPortal.useMutation();
+  const billingPortalMutation =
+    trpc.purchases.billingPortalSessionUrl.useMutation();
 
   const plan = userProfile?.plan;
 

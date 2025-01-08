@@ -1,8 +1,6 @@
 import Stripe from 'stripe';
 import { z } from 'zod';
 
-import absoluteUrl from '~/lib/absoluteUrl';
-
 import countryNames from '~/data/countryCodesToNames.json';
 
 import fetchInterviewsPricingPlanPaymentConfigLocalizedRecord from '~/components/interviews/purchase/fetchInterviewsPricingPlanPaymentConfigLocalizedRecord';
@@ -62,15 +60,13 @@ export const purchasesRouter = router({
           }
         : null;
     }),
-  billingPortal: userProcedure
+  billingPortalSessionUrl: userProcedure
     .input(
       z.object({
-        returnUrl: z.string().url().optional(),
+        returnUrl: z.string().url(),
       }),
     )
-    .mutation(async ({ input: { returnUrl }, ctx: { viewer, req } }) => {
-      const { origin } = absoluteUrl(req);
-
+    .mutation(async ({ input: { returnUrl }, ctx: { viewer } }) => {
       const { stripeCustomer: stripeCustomerId } =
         await prisma.profile.findFirstOrThrow({
           select: {
@@ -83,7 +79,7 @@ export const purchasesRouter = router({
 
       const session = await stripe.billingPortal.sessions.create({
         customer: stripeCustomerId!,
-        return_url: returnUrl || `${origin}/profile/billing`,
+        return_url: returnUrl,
       });
 
       return session.url;

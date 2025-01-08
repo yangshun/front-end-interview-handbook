@@ -12,7 +12,8 @@ import Text from '~/components/ui/Text';
 
 export default function ProjectsSettingsBillingPaymentSection() {
   const intl = useIntl();
-  const billingPortalMutation = trpc.purchases.billingPortal.useMutation();
+  const billingPortalMutation =
+    trpc.purchases.billingPortalSessionUrl.useMutation();
 
   async function navigateToStripePortal() {
     const billingPortalUrl = await billingPortalMutation.mutateAsync({

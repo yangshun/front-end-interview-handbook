@@ -276,7 +276,8 @@ function PricingButtonSection({
   const { isLoading: isUserLoading } = useSessionContext();
   const { userProfile, isLoading: isUserProfileLoading } =
     useUserProfileWithProjectsProfile();
-  const billingPortalMutation = trpc.purchases.billingPortal.useMutation();
+  const billingPortalMutation =
+    trpc.purchases.billingPortalSessionUrl.useMutation();
 
   const isPending = isUserLoading || isUserProfileLoading;
 
