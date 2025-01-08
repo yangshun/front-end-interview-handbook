@@ -48,10 +48,14 @@ export const guideProgressRouter = router({
         });
 
         if (guideProgress) {
-          scheduleInterviewsProgressEmail({
-            entity: 'article',
-            userId: viewer.id,
-          });
+          try {
+            await scheduleInterviewsProgressEmail({
+              entity: 'article',
+              userId: viewer.id,
+            });
+          } catch {
+            // No-op, don't fail the mutation if cannot schedule
+          }
         }
 
         if (studyListKey == null) {
