@@ -18,7 +18,7 @@ const LINKEDIN_USERNAME_REGEX = /^[a-zA-Z0-9-_]+$/;
 const TWITTER_USERNAME_REGEX = /^[a-zA-Z0-9-_]+$/;
 // GITHUB_REPO_ID_SYSTEM_DESIGN = 593048179; // https://github.com/greatfrontend/awesome-front-end-system-design
 const GITHUB_REPO_ID_JS_INTERVIEW = 812973427; // https://github.com/yangshun/top-javascript-interview-questions
-const GITHUB_REPO_ID_REACT_INTERVIEW = 817526318; // https://github.com/yangshun/top-reactjs-interview-questions
+const GITHUB_REPO_ID_REACT_INTERVIEW = 815755359; // https://github.com/yangshun/top-reactjs-interview-questions
 
 const GitHubStarActionNames = [
   GITHUB_STAR_JS_INTERVIEWS,
