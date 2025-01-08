@@ -230,13 +230,13 @@ export default function RewardsTasksPage() {
         );
         break;
       }
-      case 'GITHUB_STAR.SYSTEM_DESIGN': {
+      case 'GITHUB_STAR.REACT_INTERVIEWS': {
         checkGitHubStarMutation.mutate(
           {
-            action: 'GITHUB_STAR.SYSTEM_DESIGN',
+            action: 'GITHUB_STAR.REACT_INTERVIEWS',
             username: handlesData.gitHubUsername,
           },
-          verifyCallback('GITHUB_STAR.SYSTEM_DESIGN'),
+          verifyCallback('GITHUB_STAR.REACT_INTERVIEWS'),
         );
         break;
       }

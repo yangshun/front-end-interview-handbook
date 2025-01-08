@@ -32,15 +32,14 @@ export function useRewardsTasks() {
         'https://github.com/yangshun/top-javascript-interview-questions',
     },
     {
-      actionName: 'GITHUB_STAR.SYSTEM_DESIGN',
+      actionName: 'GITHUB_STAR.REACT_INTERVIEWS',
       icon: RiStarFill,
       label: intl.formatMessage({
-        defaultMessage: 'Star our "Front End System Design" repo',
+        defaultMessage: 'Star our "React.js Interview Questions" repo',
         description: 'Title for task',
-        id: 'M8S0Dp',
+        id: 'tPzONL',
       }),
-      taskHref:
-        'https://github.com/greatfrontend/awesome-front-end-system-design',
+      taskHref: 'https://github.com/yangshun/top-reactjs-interview-questions',
     },
     {
       actionName: 'LINKEDIN_FOLLOW',

@@ -14,9 +14,11 @@ export type RewardsTasksItemStatus =
   | 'pending'
   | 'verifying';
 export const GITHUB_STAR_JS_INTERVIEWS = 'GITHUB_STAR.JS_INTERVIEWS';
+export const GITHUB_STAR_REACT_INTERVIEWS = 'GITHUB_STAR.REACT_INTERVIEWS';
 export const GITHUB_STAR_SYSTEM_DESIGN = 'GITHUB_STAR.SYSTEM_DESIGN';
 export type RewardsTasksActionName =
   | typeof GITHUB_STAR_JS_INTERVIEWS
+  | typeof GITHUB_STAR_REACT_INTERVIEWS
   | typeof GITHUB_STAR_SYSTEM_DESIGN
   | 'GITHUB_FOLLOW'
   | 'LINKEDIN_FOLLOW'

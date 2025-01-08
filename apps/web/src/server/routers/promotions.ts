@@ -5,7 +5,7 @@ import { z } from 'zod';
 
 import {
   GITHUB_STAR_JS_INTERVIEWS,
-  GITHUB_STAR_SYSTEM_DESIGN,
+  GITHUB_STAR_REACT_INTERVIEWS,
 } from '~/components/rewards/tasks/RewardsTaskItem';
 
 import prisma from '~/server/prisma';
@@ -16,12 +16,13 @@ import { publicProcedure, router, userProcedure } from '../trpc';
 const GITHUB_USERNAME_REGEX = /^[a-zA-Z0-9-]+$/;
 const LINKEDIN_USERNAME_REGEX = /^[a-zA-Z0-9-_]+$/;
 const TWITTER_USERNAME_REGEX = /^[a-zA-Z0-9-_]+$/;
-const GITHUB_REPO_ID_SYSTEM_DESIGN = 593048179; // https://github.com/greatfrontend/awesome-front-end-system-design
+// GITHUB_REPO_ID_SYSTEM_DESIGN = 593048179; // https://github.com/greatfrontend/awesome-front-end-system-design
 const GITHUB_REPO_ID_JS_INTERVIEW = 812973427; // https://github.com/yangshun/top-javascript-interview-questions
+const GITHUB_REPO_ID_REACT_INTERVIEW = 817526318; // https://github.com/yangshun/top-reactjs-interview-questions
 
 const GitHubStarActionNames = [
   GITHUB_STAR_JS_INTERVIEWS,
-  GITHUB_STAR_SYSTEM_DESIGN,
+  GITHUB_STAR_REACT_INTERVIEWS,
 ] as const;
 
 const GitHubStarActionToRepoId: Record<
@@ -29,7 +30,7 @@ const GitHubStarActionToRepoId: Record<
   number
 > = {
   [GITHUB_STAR_JS_INTERVIEWS]: GITHUB_REPO_ID_JS_INTERVIEW,
-  [GITHUB_STAR_SYSTEM_DESIGN]: GITHUB_REPO_ID_SYSTEM_DESIGN,
+  [GITHUB_STAR_REACT_INTERVIEWS]: GITHUB_REPO_ID_REACT_INTERVIEW,
 };
 const GITHUB_ORG_NAME = 'greatfrontend';
 const gitHubUsernameSchema = z
