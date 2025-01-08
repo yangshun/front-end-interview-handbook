@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import React from 'react';
 
 import {
@@ -40,11 +41,23 @@ export default function EmailsTemplateWelcomeSeriesImmediate({ unsub }: Props) {
               .responsive-card--width {
                 max-width: 100%;
               }
+              .responsive-card--left{
+                padding-right: 0px !important;
+              }
+              .responsive-card--right{
+                padding-left: 0px !important;
+              }
             }
             @media only screen and (min-width: 641px) {
               .responsive-card--width {
                 max-width: 50%;
               }
+            }
+            .responsive-card--left{
+              padding-right: 8px;
+            }
+            .responsive-card--right{
+              padding-left: 8px;
             }
           `}
         </style>
@@ -79,14 +92,18 @@ export default function EmailsTemplateWelcomeSeriesImmediate({ unsub }: Props) {
             </EmailsHeading>
             <EmailsParagraph
               size="body0"
-              style={{ marginBottom: 32, marginTop: 48 }}
-              weight="medium">
+              style={{ marginBottom: 32, marginTop: 48 }}>
               Hone in specific topics you need the most practice
             </EmailsParagraph>
-            {FOCUS_AREAS.map(({ name, logo, href }) => (
+            {FOCUS_AREAS.map(({ name, logo, href }, index) => (
               <Section
                 key={name}
-                className="responsive-card--width"
+                className={clsx(
+                  'responsive-card--width',
+                  index % 2 === 0
+                    ? 'responsive-card--left'
+                    : 'responsive-card--right',
+                )}
                 style={{
                   display: 'inline-block',
                   marginBottom: 24,
@@ -107,9 +124,8 @@ export default function EmailsTemplateWelcomeSeriesImmediate({ unsub }: Props) {
                       <EmailsParagraph
                         size="body0"
                         style={{
-                          marginLeft: 28,
-                        }}
-                        weight="medium">
+                          marginLeft: 20,
+                        }}>
                         {name} →
                       </EmailsParagraph>
                     </Column>
@@ -119,14 +135,18 @@ export default function EmailsTemplateWelcomeSeriesImmediate({ unsub }: Props) {
             ))}
             <EmailsParagraph
               size="body0"
-              style={{ marginBottom: 32, marginTop: 56 }}
-              weight="medium">
+              style={{ marginBottom: 32, marginTop: 56 }}>
               Revise your fundamentals with knowledge quizzes
             </EmailsParagraph>
-            {QUIZ_TOPICS.map(({ name, logo, href }) => (
+            {QUIZ_TOPICS.map(({ name, logo, href }, index) => (
               <Section
                 key={name}
-                className="responsive-card--width"
+                className={clsx(
+                  'responsive-card--width',
+                  index % 2 === 0
+                    ? 'responsive-card--left'
+                    : 'responsive-card--right',
+                )}
                 style={{
                   display: 'inline-block',
                   marginBottom: 16,
@@ -147,9 +167,8 @@ export default function EmailsTemplateWelcomeSeriesImmediate({ unsub }: Props) {
                       <EmailsParagraph
                         size="body0"
                         style={{
-                          marginLeft: 16,
-                        }}
-                        weight="medium">
+                          marginLeft: 8,
+                        }}>
                         {name} →
                       </EmailsParagraph>
                     </Column>
@@ -163,10 +182,7 @@ export default function EmailsTemplateWelcomeSeriesImmediate({ unsub }: Props) {
             <EmailsHeading as="h2" level="heading2">
               More time-savers
             </EmailsHeading>
-            <EmailsParagraph
-              size="body0"
-              style={{ marginTop: 48 }}
-              weight="medium">
+            <EmailsParagraph size="body0" style={{ marginTop: 48 }}>
               Our curated study plans optimize your preparation for any timeline
             </EmailsParagraph>
             <Link
@@ -183,8 +199,7 @@ export default function EmailsTemplateWelcomeSeriesImmediate({ unsub }: Props) {
             </Link>
             <EmailsParagraph
               size="body0"
-              style={{ marginBottom: 32, marginTop: 56 }}
-              weight="medium">
+              style={{ marginBottom: 32, marginTop: 56 }}>
               Preparing for specific companies? Tackle their interview questions
             </EmailsParagraph>
             {Array.from({ length: Math.ceil(COMPANIES.length / 2) }, (_, i) =>
@@ -212,9 +227,8 @@ export default function EmailsTemplateWelcomeSeriesImmediate({ unsub }: Props) {
                           <EmailsParagraph
                             size="body0"
                             style={{
-                              marginLeft: 16,
-                            }}
-                            weight="medium">
+                              marginLeft: 8,
+                            }}>
                             {name} →
                           </EmailsParagraph>
                         </Column>

@@ -105,8 +105,7 @@ function Card({
         size="body2"
         style={{
           marginTop: 8,
-        }}
-        weight="medium">
+        }}>
         {subtitle}
       </EmailsParagraph>
     </Section>
@@ -511,12 +510,12 @@ function Stanley() {
           </li>
           <li>
             <EmailsParagraph color="subtitle">
-              For system design, study 2-3 questions in-depth per week.
+              For System Design, study 2-3 questions in-depth per week.
             </EmailsParagraph>
           </li>
           <li>
             <EmailsParagraph color="subtitle">
-              Do up a System design cheatsheet to summarize highlights and
+              Do up a System Design cheatsheet to summarize highlights and
               topics that should be addressed if asked in an interview.
             </EmailsParagraph>
           </li>
