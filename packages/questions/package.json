@@ -2,6 +2,9 @@
   "name": "@gfe/questions",
   "version": "0.0.1",
   "scripts": {
+    "sync": "npm run sync:ui && npm run sync:algo",
+    "sync:algo": "rsync -av --delete ./../../../gfe-questions/packages/questions/algo/ ./algo/",
+    "sync:ui": "rsync -av --delete ./../../../gfe-questions/packages/questions/user-interface/ ./user-interface/",
     "test": "jest"
   },
   "license": "ISC",
