@@ -3,7 +3,7 @@ import type { Metadata } from 'next/types';
 
 import { INTERVIEWS_REVAMP_BOTTOM_CONTENT } from '~/data/FeatureFlags';
 
-import InterviewsDashboardPage_TEMPORARY from '~/components/interviews/dashboard/InterviewsDashboardPage_TEMPORARY';
+import InterviewsDashboardPage from '~/components/interviews/dashboard/InterviewsDashboardPage';
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
 import { fetchInterviewsAllStudyLists } from '~/db/contentlayer/InterviewsStudyListReader';
@@ -84,7 +84,7 @@ export default async function Page({ params }: Props) {
     .sort((a, b) => a.ranking - b.ranking);
 
   return (
-    <InterviewsDashboardPage_TEMPORARY
+    <InterviewsDashboardPage
       bottomContent={
         INTERVIEWS_REVAMP_BOTTOM_CONTENT ? bottomContent : undefined
       }
