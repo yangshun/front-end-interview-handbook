@@ -85,6 +85,7 @@ export default async function Page({ params }: Props) {
       guides={guides}
       questionCompletionCount={questionCompletionCount}
       questions={questionsCoding}
+      showCategoryTabs={false}
       totalQuestionsCount={questionsCoding.length}
     />
   );
