@@ -101,7 +101,7 @@ export function SlideOutHeader({
   return (
     <div
       className={clsx(
-        'flex flex-col justify-between gap-x-4 gap-y-2 px-6 py-6',
+        'flex flex-col justify-between gap-x-4 gap-y-2 px-6 py-4',
         className,
       )}
       {...props}>
@@ -137,7 +137,9 @@ export const SlideOutTitle = React.forwardRef<
     ref={ref}
     className={clsx('flex items-center justify-between gap-x-4', className)}
     {...props}>
-    <Heading level="heading5">{children}</Heading>
+    <Heading level="heading5" tag="div">
+      {children}
+    </Heading>
   </DialogPrimitive.Title>
 ));
 
@@ -184,6 +186,7 @@ type Props = Readonly<{
   children: React.ReactNode;
   className?: string;
   enterFrom?: SlideOutEnterFrom;
+  headerClassName?: string;
   isShown?: boolean;
   isTitleHidden?: boolean;
   onClose?: () => void;
@@ -199,6 +202,7 @@ export default function SlideOut({
   asChild = true,
   className,
   children,
+  headerClassName,
   enterFrom = 'end',
   isShown,
   size,
@@ -221,7 +225,7 @@ export default function SlideOut({
         <SlideOutTrigger asChild={asChild}>{trigger}</SlideOutTrigger>
       )}
       <SlideOutContent className={className} enterFrom={enterFrom} size={size}>
-        <SlideOutHeader>
+        <SlideOutHeader className={headerClassName}>
           {title && <SlideOutTitle>{title}</SlideOutTitle>}
         </SlideOutHeader>
         <SlideOutBody padding={padding}>{children}</SlideOutBody>
