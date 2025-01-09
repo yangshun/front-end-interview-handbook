@@ -118,6 +118,7 @@ export default function QuestionsList<Q extends QuestionMetadata>({
             className={clsx(
               'group relative',
               'focus-within:ring-brand focus-within:ring-2 focus-within:ring-inset',
+              '[&:has(.progress-chip:focus)]:ring-0', // Hide focus ring on parent if the progress chip is focused
               'transition-colors',
               themeBackgroundCardWhiteOnLightColor,
               themeBackgroundEmphasized_Hover,

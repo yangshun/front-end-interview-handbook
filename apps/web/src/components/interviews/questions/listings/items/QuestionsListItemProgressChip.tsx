@@ -104,6 +104,7 @@ export function CompletedChip({
             themeBorderElementColor_Hover,
             themeBackgroundCardNoAlphaColor_Hover,
           ],
+          onClick && 'progress-chip focus:ring-brand focus:ring-2',
         )}
         type="button"
         onClick={onClick}>
@@ -157,6 +158,7 @@ function CompletedBeforeChip({
           'border-success dark:border-success-light border border-dashed',
           number != null ? themeTextSubtleColor : themeTextFainterColor,
           canShowHoverState && themeTextSuccessColor_Hover,
+          onClick && 'progress-chip focus:ring-brand focus:ring-2',
         )}
         type="button"
         onClick={onClick}>
@@ -214,6 +216,7 @@ export function NotCompleted({
           'text-sm font-semibold',
           number != null ? themeTextSubtleColor : themeTextFainterColor,
           canShowHoverState && themeTextSuccessColor_Hover,
+          onClick && 'progress-chip focus:ring-brand focus:ring-2',
         )}
         type="button"
         onClick={onClick}>
