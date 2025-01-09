@@ -1,4 +1,3 @@
-import clsx from 'clsx';
 import React from 'react';
 
 import {
@@ -18,7 +17,6 @@ import {
   Body,
   Column,
   Container,
-  Head,
   Html,
   Img,
   Link,
@@ -34,34 +32,6 @@ type Props = Readonly<{
 export default function EmailsTemplateWelcomeSeriesImmediate({ unsub }: Props) {
   return (
     <Html lang="en">
-      <Head>
-        <style>
-          {`
-            @media only screen and (max-width: 640px) {
-              .responsive-card--width {
-                max-width: 100%;
-              }
-              .responsive-card--left{
-                padding-right: 0px !important;
-              }
-              .responsive-card--right{
-                padding-left: 0px !important;
-              }
-            }
-            @media only screen and (min-width: 641px) {
-              .responsive-card--width {
-                max-width: 50%;
-              }
-            }
-            .responsive-card--left{
-              padding-right: 8px;
-            }
-            .responsive-card--right{
-              padding-left: 8px;
-            }
-          `}
-        </style>
-      </Head>
       <Preview>
         Ready to ace your interviews? Welcome to the inside track.
       </Preview>
@@ -95,87 +65,79 @@ export default function EmailsTemplateWelcomeSeriesImmediate({ unsub }: Props) {
               style={{ marginBottom: 32, marginTop: 48 }}>
               Hone in specific topics you need the most practice
             </EmailsParagraph>
-            {FOCUS_AREAS.map(({ name, logo, href }, index) => (
-              <Section
-                key={name}
-                className={clsx(
-                  'responsive-card--width',
-                  index % 2 === 0
-                    ? 'responsive-card--left'
-                    : 'responsive-card--right',
-                )}
-                style={{
-                  display: 'inline-block',
-                  marginBottom: 24,
-                  width: '100%',
-                }}>
-                <Link href={href}>
-                  <Row>
-                    <Column style={{ width: 55 }}>
-                      <Img
-                        alt={`${name}'s logo`}
-                        height="55"
-                        src={logo}
-                        style={{ borderRadius: 8 }}
-                        width="55"
-                      />
-                    </Column>
-                    <Column>
-                      <EmailsParagraph
-                        size="body0"
-                        style={{
-                          marginLeft: 20,
-                        }}>
-                        {name} →
-                      </EmailsParagraph>
-                    </Column>
-                  </Row>
-                </Link>
-              </Section>
-            ))}
+            <Section>
+              {FOCUS_AREAS.map(({ name, logo, href }) => (
+                <Section
+                  key={name}
+                  style={{
+                    display: 'inline-block',
+                    marginBottom: 24,
+                    width: '300px',
+                  }}>
+                  <Link href={href}>
+                    <Row>
+                      <Column style={{ width: 55 }}>
+                        <Img
+                          alt={`${name}'s logo`}
+                          height="55"
+                          src={logo}
+                          style={{ borderRadius: 8 }}
+                          width="55"
+                        />
+                      </Column>
+                      <Column>
+                        <EmailsParagraph
+                          size="body0"
+                          style={{
+                            marginLeft: 20,
+                          }}>
+                          {name} →
+                        </EmailsParagraph>
+                      </Column>
+                    </Row>
+                  </Link>
+                </Section>
+              ))}
+            </Section>
             <EmailsParagraph
               size="body0"
               style={{ marginBottom: 32, marginTop: 56 }}>
               Revise your fundamentals with knowledge quizzes
             </EmailsParagraph>
-            {QUIZ_TOPICS.map(({ name, logo, href }, index) => (
-              <Section
-                key={name}
-                className={clsx(
-                  'responsive-card--width',
-                  index % 2 === 0
-                    ? 'responsive-card--left'
-                    : 'responsive-card--right',
-                )}
-                style={{
-                  display: 'inline-block',
-                  marginBottom: 16,
-                  width: '100%',
-                }}>
-                <Link href={href}>
-                  <Row>
-                    <Column style={{ width: 55 }}>
-                      <Img
-                        alt={`${name}'s logo`}
-                        height="55"
-                        src={logo}
-                        style={{ borderRadius: 8 }}
-                        width="55"
-                      />
-                    </Column>
-                    <Column>
-                      <EmailsParagraph
-                        size="body0"
-                        style={{
-                          marginLeft: 8,
-                        }}>
-                        {name} →
-                      </EmailsParagraph>
-                    </Column>
-                  </Row>
-                </Link>
-              </Section>
-            ))}
+            <Section>
+              {QUIZ_TOPICS.map(({ name, logo, href }) => (
+                <Section
+                  key={name}
+                  style={{
+                    display: 'inline-block',
+                    marginBottom: 16,
+                    width: '300px',
+                  }}>
+                  <Link href={href}>
+                    <Row>
+                      <Column style={{ width: 55 }}>
+                        <Img
+                          alt={`${name}'s logo`}
+                          height="55"
+                          src={logo}
+                          style={{ borderRadius: 8 }}
+                          width="55"
+                        />
+                      </Column>
+                      <Column>
+                        <EmailsParagraph
+                          size="body0"
+                          style={{
+                            marginLeft: 8,
+                          }}>
+                          {name} →
+                        </EmailsParagraph>
+                      </Column>
+                    </Row>
+                  </Link>
+                </Section>
+              ))}
+            </Section>
           </Section>
           <EmailsHr />
           <Section>
