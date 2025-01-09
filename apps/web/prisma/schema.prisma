@@ -260,6 +260,8 @@ model ProjectsProfile {
   notifications      ProjectsNotification[]
 
   lastSeenNotification DateTime @default(now()) @db.Timestamptz(6)
+
+  @@index([userId])
 }
 
 enum ProjectsChallengeSessionStatus {
@@ -282,6 +284,8 @@ model ProjectsChallengeSession {
 
   challengeDetails ProjectsChallengeDetails? @relation(fields: [slug], references: [slug])
   projectsProfile  ProjectsProfile           @relation(fields: [profileId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@index([profileId, slug])
 }
 
 // This model only exists to allow models that are connected to a challenge
@@ -323,6 +327,8 @@ model ProjectsChallengeCreditTransaction {
 
   projectsProfile ProjectsProfile          @relation(fields: [profileId], references: [id], onDelete: Cascade, onUpdate: NoAction)
   access          ProjectsChallengeAccess?
+
+  @@index([profileId])
 }
 
 enum ProjectsChallengeSubmissionScreenshotStatus {
@@ -358,6 +364,10 @@ model ProjectsChallengeSubmission {
   recommendationLearn  ProjectsChallengeSubmissionRecommendationLearn?
   recommendationMentor ProjectsChallengeSubmissionRecommendationMentor?
   notifications        ProjectsNotification[]
+
+  @@index([shortId])
+  @@index([profileId])
+  @@index([slug])
 }
 
 model ProjectsChallengeSubmissionPin {
@@ -370,6 +380,7 @@ model ProjectsChallengeSubmissionPin {
   projectsProfile ProjectsProfile             @relation(fields: [profileId], references: [id], onDelete: Cascade, onUpdate: NoAction)
 
   @@unique([submissionId, profileId])
+  @@index([profileId])
 }
 
 model ProjectsChallengeSubmissionVote {
@@ -382,6 +393,7 @@ model ProjectsChallengeSubmissionVote {
   projectsProfile ProjectsProfile             @relation(fields: [profileId], references: [id], onDelete: Cascade, onUpdate: NoAction)
 
   @@unique([submissionId, profileId])
+  @@index([submissionId])
 }
 
 model ProjectsReputationPoint {
@@ -394,6 +406,7 @@ model ProjectsReputationPoint {
   projectsProfile ProjectsProfile @relation(fields: [profileId], references: [id], onDelete: Cascade, onUpdate: NoAction)
 
   @@unique([profileId, key])
+  @@index([profileId])
 }
 
 view ProjectsChallengeSubmissionRecommendationAll {
@@ -440,6 +453,9 @@ model ProjectsDiscussionComment {
   replies       ProjectsDiscussionComment[]     @relation("DiscussionThread")
   votes         ProjectsDiscussionCommentVote[]
   notifications ProjectsNotification[]
+
+  @@index([entityId])
+  @@index([profileId])
 }
 
 model ProjectsDiscussionCommentVote {
@@ -452,6 +468,8 @@ model ProjectsDiscussionCommentVote {
   author  ProjectsProfile           @relation(fields: [profileId], references: [id], onDelete: Cascade, onUpdate: NoAction)
 
   @@unique([commentId, profileId])
+  @@index([commentId])
+  @@index([profileId])
 }
 
 model RewardsTaskCompletion {
@@ -465,6 +483,7 @@ model RewardsTaskCompletion {
   profile Profile @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
 
   @@unique([userId, campaign, action])
+  @@index([userId])
 }
 
 model RoadmapItem {
@@ -491,4 +510,6 @@ model ProjectsNotification {
   commentId       String?                      @db.Uuid
   comment         ProjectsDiscussionComment?   @relation(fields: [commentId], references: [id], onDelete: Cascade, onUpdate: NoAction)
   projectsProfile ProjectsProfile              @relation(fields: [profileId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@index([profileId])
 }
