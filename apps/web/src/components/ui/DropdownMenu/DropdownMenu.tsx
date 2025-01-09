@@ -34,6 +34,7 @@ type CommonProps = Readonly<{
   onClose?: () => void;
   onCloseAutoFocus?: (event: Event) => void;
   side?: DropdownMenuContentSide;
+  triggerClassName?: string;
 }>;
 
 type ButtonModeProps = CommonProps &
@@ -67,6 +68,7 @@ export default function DropdownMenu({
   children,
   side = 'bottom',
   modal = false,
+  triggerClassName,
   onClose,
   onCloseAutoFocus,
   ...props
@@ -84,6 +86,7 @@ export default function DropdownMenu({
           props.trigger
         ) : (
           <Button
+            className={triggerClassName}
             icon={props.icon}
             iconSecondary_USE_SPARINGLY={
               props.showChevron ? RiArrowDownSLine : undefined
