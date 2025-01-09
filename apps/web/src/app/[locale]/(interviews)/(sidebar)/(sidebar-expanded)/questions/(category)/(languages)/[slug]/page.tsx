@@ -150,9 +150,6 @@ export default async function Page({ params }: Props) {
   return (
     <InterviewsQuestionsCategoryLanguagePage
       bottomContent={bottomContent}
-      codingFormat={{
-        options: codingFormats,
-      }}
       guides={guides}
       language={language}
       questionCompletionCount={questionCompletionCount}

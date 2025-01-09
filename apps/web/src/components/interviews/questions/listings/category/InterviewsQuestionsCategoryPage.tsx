@@ -31,7 +31,6 @@ type Props = Readonly<{
   categoryTabs?: ReactNode;
   description: string;
   features: React.ComponentProps<typeof InterviewsPageHeader>['features'];
-  formatTabs?: ReactNode;
   guides?: ReadonlyArray<GuideCardMetadata>;
   listType?: React.ComponentProps<
     typeof QuestionsUnifiedListWithFiltersAndProgress
@@ -50,7 +49,6 @@ export default function InterviewsQuestionsCategoryPage({
   description,
   longDescription,
   features,
-  formatTabs,
   questionCompletionCount,
   questionList,
   searchPlaceholder,
@@ -147,7 +145,6 @@ export default function InterviewsQuestionsCategoryPage({
       <Section>
         <QuestionsUnifiedListWithFiltersAndProgress
           categoryTabs={categoryTabs}
-          formatTabs={formatTabs}
           framework={
             listType?.type === 'framework' ? listType?.value : undefined
           }

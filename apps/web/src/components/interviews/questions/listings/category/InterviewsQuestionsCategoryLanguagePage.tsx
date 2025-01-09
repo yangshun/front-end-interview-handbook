@@ -1,6 +1,5 @@
 'use client';
 
-import clsx from 'clsx';
 import type { InterviewsListingBottomContent } from 'contentlayer/generated';
 
 import {
@@ -13,12 +12,10 @@ import useInterviewsQuestionsFeatures from '~/components/interviews/common/useIn
 import { useIntl } from '~/components/intl';
 import MDXContent from '~/components/mdx/MDXContent';
 import Divider from '~/components/ui/Divider';
-import FilterButton from '~/components/ui/FilterButton/FilterButton';
 import TabsUnderline from '~/components/ui/Tabs/TabsUnderline';
 
 import InterviewsQuestionsCategoryPage from './InterviewsQuestionsCategoryPage';
 import type {
-  QuestionCodingFormat,
   QuestionLanguage,
   QuestionMetadata,
   QuestionUserFacingFormat,
@@ -35,10 +32,6 @@ type Props = Omit<
 > &
   Readonly<{
     bottomContent?: InterviewsListingBottomContent;
-    codingFormat?: Readonly<{
-      options: ReadonlyArray<QuestionCodingFormat>;
-      value?: QuestionCodingFormat;
-    }>;
     description?: string;
     features?: ReadonlyArray<QuestionListFeature>;
     language: QuestionLanguage;
@@ -58,7 +51,6 @@ const defaultFeatures: ReadonlyArray<QuestionListFeature> = [
 export default function InterviewsQuestionsCategoryLanguagePage({
   title,
   description,
-  codingFormat,
   features = defaultFeatures,
   language,
   questions,
@@ -95,37 +87,6 @@ export default function InterviewsQuestionsCategoryLanguagePage({
     />
   ) : null;
 
-  // TODO(interviews): add back and fix filters
-  const codingFormatTabs_ = (() => {
-    if (codingFormat == null) {
-      return null;
-    }
-
-    return (
-      <div className={clsx('flex flex-wrap items-center gap-2')}>
-        {codingFormat.options
-          .map((codingFormatItem) => questionFormats[codingFormatItem])
-          .map(({ value, seoValue, label, icon: Icon, tooltip }) => {
-            const isSelected = value === codingFormat.value;
-            const href = isSelected
-              ? languages[language].href
-              : `${languages[language].href}/${seoValue}`;
-
-            return (
-              <FilterButton
-                key={value}
-                href={href}
-                icon={Icon}
-                label={label}
-                selected={isSelected}
-                tooltip={tooltip}
-              />
-            );
-          })}
-      </div>
-    );
-  })();
-
   const questionFeatures = useInterviewsQuestionsFeatures();
   const featureItems = features.map(
     (featureItem) => questionFeatures[featureItem],
@@ -139,7 +100,6 @@ export default function InterviewsQuestionsCategoryLanguagePage({
           description ?? languages[language].getDescription(totalQuestionsCount)
         }
         features={featureItems}
-        formatTabs={null}
         listType={{ type: 'language', value: language }}
         questionList={questions}
         searchPlaceholder={languages[language].getSearchPlaceholder(

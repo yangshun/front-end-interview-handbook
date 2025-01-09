@@ -22,6 +22,7 @@ import {
 import QuestionsList from '~/components/interviews/questions/listings/items/QuestionsList';
 import { FormattedMessage, useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
+import FilterButton from '~/components/ui/FilterButton/FilterButton';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import ScrollArea from '~/components/ui/ScrollArea';
@@ -47,7 +48,6 @@ type Props = Readonly<{
     a: QuestionFormat,
     b: QuestionFormat,
   ) => number;
-  formatTabs?: ReactNode;
   framework?: QuestionFramework;
   guides?: {
     description: string;
@@ -71,7 +71,6 @@ export default function QuestionsUnifiedListWithFilters({
   checkIfCompletedQuestionBefore,
   categoryTabs,
   initialFormat = null,
-  formatTabs,
   framework,
   listType,
   listMode,
@@ -184,7 +183,29 @@ export default function QuestionsUnifiedListWithFilters({
         {sortAndFilters}
       </div>
       {categoryTabs}
-      {formatTabs}
+      {questionAttributesUnion.formats.size > 1 && (
+        <div className={clsx('flex flex-wrap items-center gap-2')}>
+          {formatFilterOptions.options
+            .filter((option) =>
+              questionAttributesUnion.formats == null
+                ? true
+                : questionAttributesUnion.formats?.has(option.value),
+            )
+            .map(({ value, label, icon: Icon, tooltip }) => (
+              <FilterButton
+                key={value}
+                icon={Icon}
+                label={label}
+                selected={formatFilters.has(value)}
+                tooltip={tooltip}
+                onClick={() => {
+                  formatFilterOptions.onChange(value);
+                }}>
+                {label}
+              </FilterButton>
+            ))}
+        </div>
+      )}
     </div>
   );
   const listMetadata = (
