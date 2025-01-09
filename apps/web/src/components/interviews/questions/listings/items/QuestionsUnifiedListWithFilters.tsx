@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import type { ReactNode } from 'react';
-import { RiSearchLine } from 'react-icons/ri';
+import { RiCloseLine, RiSearchLine } from 'react-icons/ri';
 
 import VignetteOverlay from '~/components/common/VignetteOverlay';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
@@ -21,9 +21,11 @@ import {
 } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 import QuestionsList from '~/components/interviews/questions/listings/items/QuestionsList';
 import { FormattedMessage, useIntl } from '~/components/intl';
+import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import ScrollArea from '~/components/ui/ScrollArea';
+import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
 import { themeDivideEmphasizeColor } from '~/components/ui/theme';
 
@@ -117,6 +119,7 @@ export default function QuestionsUnifiedListWithFilters({
     topicFilters,
     topicFilterOptions,
     filters,
+    clearAllFilters,
   } = useQuestionUnifiedFilters({
     filterNamespace,
     formatFiltersFilterPredicate,
@@ -134,6 +137,10 @@ export default function QuestionsUnifiedListWithFilters({
   const totalDurationMins = countQuestionsTotalDurationMins(processedQuestions);
   const showPaywall =
     !userProfile?.isInterviewsPremium && companyFilters.size > 0;
+
+  // Add the search query in the active filter count
+  const numberOfFilters =
+    filters.filter(([size]) => size > 0).length + (query.length > 0 ? 1 : 0);
 
   const sortAndFilters = (
     <div className="flex shrink-0 justify-end gap-2 sm:pt-0 md:gap-4">
@@ -181,13 +188,46 @@ export default function QuestionsUnifiedListWithFilters({
     </div>
   );
   const listMetadata = (
-    <div className="flex gap-x-10">
+    <div className="flex gap-x-4 sm:gap-x-10">
       {showCount_TEMPORARY && (
         <QuestionCountLabel count={processedQuestions.length} showIcon={true} />
       )}
       {totalDurationMins > 0 && (
         <QuestionTotalTimeLabel mins={totalDurationMins} showIcon={true} />
       )}
+    </div>
+  );
+
+  const filterApplied = (
+    <div className={clsx('flex items-center gap-0.5', '-my-1 -mr-1')}>
+      <Text color="secondary" size="body3">
+        <FormattedMessage
+          defaultMessage="{count, plural, =0 {<bold>#</bold> filters} =1 {<bold>#</bold> filter} other {<bold>#</bold> filters}} applied"
+          description="Number of applied filters"
+          id="oafz//"
+          values={{
+            bold: (chunk) => (
+              <Text color="subtitle" size="body2" weight="bold">
+                {chunk}
+              </Text>
+            ),
+            count: numberOfFilters,
+          }}
+        />
+      </Text>
+      <Button
+        icon={RiCloseLine}
+        isLabelHidden={true}
+        label="Close"
+        size="xs"
+        tooltip={intl.formatMessage({
+          defaultMessage: 'Clear filter',
+          description: 'Tooltip for clear filters',
+          id: 'frYfIh',
+        })}
+        variant="tertiary"
+        onClick={clearAllFilters}
+      />
     </div>
   );
 
@@ -200,7 +240,10 @@ export default function QuestionsUnifiedListWithFilters({
       <section className="flex flex-col gap-8 lg:col-span-2">
         <div className="flex flex-col gap-8">{searchFilterRow}</div>
         <div className="flex flex-col gap-4">
-          {listMetadata}
+          <div className="flex flex-wrap items-center justify-between gap-4">
+            {listMetadata}
+            {numberOfFilters > 0 && filterApplied}
+          </div>
           {showPaywall ? (
             <VignetteOverlay
               className="max-h-[500px] md:max-h-none"

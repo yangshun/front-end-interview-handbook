@@ -6875,6 +6875,10 @@
     "defaultMessage": "Polish your answers with a comprehensive test suite that covers all the important edge cases that interviewers will look out for.",
     "description": "Marketing page section subtitle"
   },
+  "frYfIh": {
+    "defaultMessage": "Clear filter",
+    "description": "Tooltip for clear filters"
+  },
   "frl+Af": {
     "defaultMessage": "Prev",
     "description": "Label for button leading to the previous page"
@@ -8210,6 +8214,10 @@
   "oXdinV": {
     "defaultMessage": "The smallest list of practice questions that gets you the most mileage in your preparation. Covers the most commonly asked front end interview topics.",
     "description": "Description for study list"
+  },
+  "oafz//": {
+    "defaultMessage": "{count, plural, =0 {<bold>#</bold> filters} =1 {<bold>#</bold> filter} other {<bold>#</bold> filters}} applied",
+    "description": "Number of applied filters"
   },
   "ocVZsr": {
     "defaultMessage": "Users success stories",
