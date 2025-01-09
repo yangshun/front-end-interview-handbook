@@ -2,6 +2,7 @@ import type React from 'react';
 import { z } from 'zod';
 
 export type EmailKey =
+  | 'EMAIL_VERIFY'
   | 'INTERVIEWS_CHECKOUT_FIRST_TIME'
   | 'INTERVIEWS_CHECKOUT_MULTIPLE_TIMES'
   | 'INTERVIEWS_PROGRESS'

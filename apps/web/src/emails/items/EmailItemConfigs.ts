@@ -1,5 +1,6 @@
 import { EmailsItemConfigCheckoutFirstTime } from './checkout/EmailsItemConfigCheckoutFirstTime';
 import { EmailsItemConfigCheckoutMultipleTimes } from './checkout/EmailsItemConfigCheckoutMultipleTimes';
+import { EmailsItemConfigEmailVerify } from './email/EmailsItemConfigEmailVerify';
 import { EmailsItemConfigInterviewsProgress } from './interviews-progress/EmailsItemConfigInterviewsProgress';
 import { EmailsItemConfigPasswordReset } from './password/EmailsItemConfigPasswordReset';
 import { EmailsItemConfigPaymentFailed } from './payment-fail/EmailsItemConfigPaymentFailed';
@@ -14,4 +15,5 @@ export const EmailsItemConfigs = [
   EmailsItemConfigCheckoutMultipleTimes,
   EmailsItemConfigPaymentFailed,
   EmailsItemConfigPasswordReset,
+  EmailsItemConfigEmailVerify,
 ] as const;
