@@ -3,12 +3,8 @@ import { isEqual } from 'lodash-es';
 import { useRouter } from 'next/navigation';
 import { parseAsBoolean, useQueryState } from 'nuqs';
 import { Suspense, useEffect, useState } from 'react';
-import {
-  RiArrowDownSLine,
-  RiArrowUpSLine,
-  RiFilterLine,
-  RiSearchLine,
-} from 'react-icons/ri';
+import { RiArrowDownSLine, RiFilterLine, RiSearchLine } from 'react-icons/ri';
+import { RiCloseLine } from 'react-icons/ri';
 import { useMediaQuery } from 'usehooks-ts';
 
 import ConfirmationDialog from '~/components/common/ConfirmationDialog';
@@ -43,9 +39,11 @@ import Spinner from '~/components/ui/Spinner';
 import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
 import {
+  themeBackgroundBrandColor,
+  themeBackgroundCardColor,
   themeBackgroundGlimmerColor,
   themeBorderColor,
-  themeTextInvertColor,
+  themeTextDarkColor,
 } from '~/components/ui/theme';
 
 import InterviewsQuestionsListSlideOutContents from './InterviewsQuestionsListSlideOutContents';
@@ -270,75 +268,62 @@ function Contents({
   );
 
   const embedFilters = (
-    <div>
-      <div className="flex flex-wrap gap-2 py-2">
+    <div
+      className={clsx(
+        'flex flex-wrap items-center gap-2',
+        'px-6 py-4',
+        themeBackgroundCardColor,
+      )}>
+      <FilterSection
+        coveredValues={attributesUnion.topics}
+        filterOptions={topicFilterOptions}
+        filters={topicFilters}
+      />
+      <FilterSection
+        filterOptions={companyFilterOptions}
+        filters={companyFilters}
+      />
+      <FilterSection
+        coveredValues={attributesUnion.difficulty}
+        filterOptions={difficultyFilterOptions}
+        filters={difficultyFilters}
+      />
+      <FilterSection
+        coveredValues={attributesUnion.importance}
+        filterOptions={importanceFilterOptions}
+        filters={importanceFilters}
+      />
+      {userProfile != null && (
         <FilterSection
-          coveredValues={attributesUnion.topics}
-          filterOptions={topicFilterOptions}
-          filters={topicFilters}
+          filterOptions={completionStatusFilterOptions}
+          filters={completionStatusFilters}
         />
-        <FilterSection
-          filterOptions={companyFilterOptions}
-          filters={companyFilters}
-        />
-        <FilterSection
-          coveredValues={attributesUnion.difficulty}
-          filterOptions={difficultyFilterOptions}
-          filters={difficultyFilters}
-        />
-        <FilterSection
-          coveredValues={attributesUnion.importance}
-          filterOptions={importanceFilterOptions}
-          filters={importanceFilters}
-        />
-        {userProfile != null && (
-          <FilterSection
-            filterOptions={completionStatusFilterOptions}
-            filters={completionStatusFilters}
-          />
-        )}
-        <FrameworkAndLanguageFilterSection
-          frameworkCoveredValues={attributesUnion.frameworks}
-          frameworkFilterOptions={frameworkFilterOptions}
-          frameworkFilters={frameworkFilters}
-          languageCoveredValues={attributesUnion.languages}
-          languageFilterOptions={languageFilterOptions}
-          languageFilters={languageFilters}
-          listType={listType}
-        />
-        <FilterSection
-          coveredValues={attributesUnion.formats}
-          filterOptions={formatFilterOptions}
-          filters={formatFilters}
-        />
-      </div>
-      <div
-        className={clsx('flex items-center justify-between gap-2', 'py-2', [
-          'border-t',
-          themeBorderColor,
-        ])}>
-        <Button
-          icon={RiArrowUpSLine}
-          label={intl.formatMessage({
-            defaultMessage: 'Hide',
-            description: 'Label for hide filter button',
-            id: 'rfSyqp',
-          })}
-          size="xs"
-          variant="tertiary"
-          onClick={() => setShowFilters(false)}
-        />
-        <Button
-          label={intl.formatMessage({
-            defaultMessage: 'Reset filters',
-            description: 'Label for reset filter button',
-            id: 'L3y2pt',
-          })}
-          size="xs"
-          variant="tertiary"
-          onClick={clearAllFilters}
-        />
-      </div>
+      )}
+      <FrameworkAndLanguageFilterSection
+        frameworkCoveredValues={attributesUnion.frameworks}
+        frameworkFilterOptions={frameworkFilterOptions}
+        frameworkFilters={frameworkFilters}
+        languageCoveredValues={attributesUnion.languages}
+        languageFilterOptions={languageFilterOptions}
+        languageFilters={languageFilters}
+        listType={listType}
+      />
+      <FilterSection
+        coveredValues={attributesUnion.formats}
+        filterOptions={formatFilterOptions}
+        filters={formatFilters}
+      />
+      <Button
+        icon={RiCloseLine}
+        label={intl.formatMessage({
+          defaultMessage: 'Reset filters',
+          description: 'Label for reset filter button',
+          id: 'L3y2pt',
+        })}
+        size="xs"
+        variant="tertiary"
+        onClick={clearAllFilters}
+      />
     </div>
   );
 
@@ -373,11 +358,11 @@ function Contents({
   return (
     <div className="flex flex-col gap-y-4 pt-3.5">
       <form
-        className="flex w-full flex-col gap-4 px-6"
+        className="flex w-full flex-col gap-4"
         onSubmit={(event) => {
           event.preventDefault();
         }}>
-        <div className="flex w-full items-center gap-3">
+        <div className="flex w-full items-center gap-3 px-6">
           <div className="flex-1">
             <TextInput
               autoComplete="off"
@@ -391,35 +376,41 @@ function Contents({
               onChange={(value) => setQuery(value)}
             />
           </div>
-          <FilterButton
-            icon={RiFilterLine}
-            isLabelHidden={true}
-            label={
-              intl.formatMessage({
-                defaultMessage: 'Filters',
-                description: 'Label for filters button',
-                id: 'k2Oi+j',
-              }) + (numberOfFilters > 0 ? ` (${numberOfFilters})` : '')
-            }
-            selected={numberOfFilters > 0}
-            size="sm"
-            tooltip={
-              showFilters
-                ? intl.formatMessage({
-                    defaultMessage: 'Collapse filters',
-                    description: 'Tooltip for collapse filters',
-                    id: 'i2950u',
-                  })
-                : intl.formatMessage({
-                    defaultMessage: 'Expand filters',
-                    description: 'Tooltip for expand filters',
-                    id: 'ymvdJV',
-                  })
-            }
-            onClick={() => {
-              setShowFilters(!showFilters);
-            }}
-          />
+          <div className="relative">
+            <FilterButton
+              icon={RiFilterLine}
+              isLabelHidden={true}
+              label={
+                intl.formatMessage({
+                  defaultMessage: 'Filters',
+                  description: 'Label for filters button',
+                  id: 'k2Oi+j',
+                }) + (numberOfFilters > 0 ? ` (${numberOfFilters})` : '')
+              }
+              selected={showFilters}
+              size="sm"
+              tooltip={
+                showFilters
+                  ? intl.formatMessage({
+                      defaultMessage: 'Collapse filters',
+                      description: 'Tooltip for collapse filters',
+                      id: 'i2950u',
+                    })
+                  : intl.formatMessage({
+                      defaultMessage: 'Expand filters',
+                      description: 'Tooltip for expand filters',
+                      id: 'ymvdJV',
+                    })
+              }
+              onClick={() => {
+                setShowFilters(!showFilters);
+              }}
+            />
+            <FilterButtonBadge
+              className={clsx('absolute -right-2 -top-1.5', 'size-5 text-xs')}
+              numberOfFilters={numberOfFilters}
+            />
+          </div>
           {sortFilter}
         </div>
         {showFilters && embedFilters}
@@ -444,6 +435,29 @@ function Contents({
           onClickDifferentStudyListQuestion={onClickDifferentStudyListQuestion}
         />
       )}
+    </div>
+  );
+}
+
+function FilterButtonBadge({
+  className,
+  numberOfFilters,
+}: Readonly<{ className: string; numberOfFilters: number }>) {
+  if (numberOfFilters <= 0) {
+    return null;
+  }
+
+  return (
+    <div
+      className={clsx(
+        className,
+        'flex items-center justify-center',
+        'rounded-full',
+        themeBackgroundBrandColor,
+        themeTextDarkColor,
+        'font-bold',
+      )}>
+      {numberOfFilters}
     </div>
   );
 }
@@ -609,19 +623,10 @@ function InterviewsQuestionsListSlideOutImpl({
               )}
             </div>
           </Button>
-          {numberOfFilters > 0 && (
-            <div
-              className={clsx(
-                'absolute bottom-0 left-4',
-                'flex items-center justify-center',
-                'size-3 rounded-full',
-                'bg-neutral-900 dark:bg-neutral-100',
-                'text-[8px] font-bold',
-                themeTextInvertColor,
-              )}>
-              {numberOfFilters}
-            </div>
-          )}
+          <FilterButtonBadge
+            className={clsx('absolute left-4 top-0', 'size-3 text-[8px]')}
+            numberOfFilters={numberOfFilters}
+          />
         </div>
       }
       onClose={onClose}>

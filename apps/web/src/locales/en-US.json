@@ -8703,10 +8703,6 @@
     "defaultMessage": "Cancel",
     "description": "Label for button to cancel action"
   },
-  "rfSyqp": {
-    "defaultMessage": "Hide",
-    "description": "Label for hide filter button"
-  },
   "rfZvjQ": {
     "defaultMessage": "Complete simple tasks like following our social media pages for another {percentOff}%",
     "description": "Tooltip for used by engineers"
