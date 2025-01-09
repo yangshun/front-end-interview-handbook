@@ -5,10 +5,12 @@ import { RiArrowRightLine, RiMapPinLine } from 'react-icons/ri';
 
 import Anchor from '~/components/ui/Anchor';
 import Container from '~/components/ui/Container';
+import EmptyState from '~/components/ui/EmptyState';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 import {
+  themeBackgroundCardColor,
   themeBackgroundLayerColor,
   themeBackgroundLayerEmphasized_Hover,
   themeBorderColor,
@@ -124,17 +126,28 @@ export default async function Page({ searchParams }: Props) {
         </Text>
       </div>
       <Section>
-        <div className="grid gap-6 md:grid-cols-2">
-          {filteredJobPostings.map((jobPosting) => (
-            <JobPostingItem
-              key={jobPosting.slug}
-              department={jobPosting.department}
-              href={jobPosting.href}
-              location="Remote"
-              title={jobPosting.title}
-            />
-          ))}
-        </div>
+        {filteredJobPostings.length > 0 ? (
+          <div className="grid gap-6 md:grid-cols-2">
+            {filteredJobPostings.map((jobPosting) => (
+              <JobPostingItem
+                key={jobPosting.slug}
+                department={jobPosting.department}
+                href={jobPosting.href}
+                location="Remote"
+                title={jobPosting.title}
+              />
+            ))}
+          </div>
+        ) : (
+          <div
+            className={clsx(
+              'flex items-center justify-center',
+              themeBackgroundCardColor,
+              'h-80 rounded-xl',
+            )}>
+            <EmptyState title="There are no jobs available for your location" />
+          </div>
+        )}
       </Section>
     </Container>
   );
