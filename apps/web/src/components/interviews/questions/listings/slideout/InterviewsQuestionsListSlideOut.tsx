@@ -371,7 +371,7 @@ function Contents({
   });
 
   return (
-    <div className="flex flex-col gap-y-4">
+    <div className="flex flex-col gap-y-4 pt-3.5">
       <form
         className="flex w-full flex-col gap-4 px-6"
         onSubmit={(event) => {
@@ -562,6 +562,7 @@ function InterviewsQuestionsListSlideOutImpl({
   return (
     <SlideOut
       enterFrom="start"
+      headerClassName={clsx('border-b', themeBorderColor)}
       isShown={Boolean(isSlideOutShown)}
       padding={false}
       size="xl"
