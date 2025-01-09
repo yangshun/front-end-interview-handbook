@@ -1,6 +1,5 @@
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next/types';
-import { ArticleJsonLd } from 'next-seo';
 
 import InterviewsPurchaseStudyListPaywallPage from '~/components/interviews/purchase/InterviewsPurchaseStudyListPaywallPage';
 import QuestionQuizContents from '~/components/interviews/questions/content/quiz/QuestionQuizContents';
@@ -10,7 +9,6 @@ import { fetchInterviewsStudyList } from '~/db/contentlayer/InterviewsStudyListR
 import { readQuestionQuizContents } from '~/db/QuestionsContentsReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
-import { getSiteOrigin } from '~/seo/siteUrl';
 import {
   createSupabaseAdminClientGFE_SERVER_ONLY,
   readViewerFromToken,
@@ -87,40 +85,21 @@ export default async function Page({ params }: Props) {
 
   const { question } = readQuestionQuizContents(slug, locale);
 
-  return (
-    <>
-      <ArticleJsonLd
-        authorName={[
-          {
-            name: 'GreatFrontEnd',
-            url: 'https://twitter.com/greatfrontend',
-          },
-        ]}
-        datePublished="2022-11-01T08:00:00+08:00"
-        description={question.metadata.excerpt ?? ''}
-        images={[]}
-        isAccessibleForFree={true}
-        title={question.metadata.title}
-        url={new URL(question.metadata.href, getSiteOrigin()).toString()}
-        useAppDir={true}
-      />
-      {isStudyListLockedForViewer ? (
-        <InterviewsPurchaseStudyListPaywallPage
-          studyListCategory={studyList.category}
-        />
-      ) : (
-        <QuestionQuizContents
-          paginationEl={
-            <InterviewsQuestionsListSlideOutButton
-              metadata={question.metadata}
-              slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE="qns_slideout"
-              studyListKey={studyListKey}
-            />
-          }
-          question={question}
+  return isStudyListLockedForViewer ? (
+    <InterviewsPurchaseStudyListPaywallPage
+      studyListCategory={studyList.category}
+    />
+  ) : (
+    <QuestionQuizContents
+      paginationEl={
+        <InterviewsQuestionsListSlideOutButton
+          metadata={question.metadata}
+          slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE="qns_slideout"
           studyListKey={studyListKey}
         />
-      )}
-    </>
+      }
+      question={question}
+      studyListKey={studyListKey}
+    />
   );
 }

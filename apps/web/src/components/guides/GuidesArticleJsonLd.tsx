@@ -1,5 +1,7 @@
 import { ArticleJsonLd } from 'next-seo';
 
+import { GFEArticleAuthor } from '~/seo/SEOArticleAuthor';
+
 type Props = Readonly<{
   description: string;
   isAccessibleForFree?: boolean;
@@ -15,12 +17,7 @@ export default function GuidesArticleJsonLd({
 }: Props) {
   return (
     <ArticleJsonLd
-      authorName={[
-        {
-          name: 'GreatFrontEnd',
-          url: 'https://twitter.com/greatfrontend',
-        },
-      ]}
+      authorName={GFEArticleAuthor}
       datePublished="2022-11-01T08:00:00+08:00"
       description={description}
       images={[]}

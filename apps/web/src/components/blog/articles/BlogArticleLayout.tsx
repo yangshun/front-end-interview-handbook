@@ -1,10 +1,11 @@
 'use client';
 
 import clsx from 'clsx';
+import type { BlogPost } from 'contentlayer/generated';
 import { useRouter } from 'next/navigation';
+import { ArticleJsonLd } from 'next-seo';
 
 import BlogArticle from '~/components/blog/articles/BlogArticle';
-import BlogArticleJsonLd from '~/components/blog/articles/BlogArticleJsonLd';
 import type {
   BlogArticleNavigationType,
   BlogMetadata,
@@ -15,6 +16,8 @@ import Container from '~/components/ui/Container';
 import Text from '~/components/ui/Text';
 
 import { useI18nPathname } from '~/next-i18nostic/src';
+
+import { getSiteOrigin } from '../../../seo/siteUrl';
 
 type Props = Readonly<{
   children?: React.ReactNode;
@@ -29,14 +32,29 @@ export default function BlogArticleLayout({
 }: Props) {
   const router = useRouter();
   const { pathname } = useI18nPathname();
+  const blogPostMetadata = metadata as BlogPost;
 
   return (
     <>
-      <BlogArticleJsonLd
-        description={metadata.description}
+      <ArticleJsonLd
+        authorName={{
+          name: blogPostMetadata.author.name,
+          type: 'Person',
+        }}
+        datePublished={
+          blogPostMetadata.createdAt ?? '2025-01-01T08:00:00+08:00'
+        }
+        description={blogPostMetadata.description}
+        images={
+          blogPostMetadata.imageUrl
+            ? [getSiteOrigin() + blogPostMetadata.imageUrl]
+            : []
+        }
         isAccessibleForFree={true}
-        pathname={pathname}
-        title={metadata.title}
+        publisherName="GreatFrontEnd"
+        title={blogPostMetadata.title}
+        url={getSiteOrigin() + pathname}
+        useAppDir={true}
       />
       <BlogMainLayout seriesContents={seriesContents}>
         <Container

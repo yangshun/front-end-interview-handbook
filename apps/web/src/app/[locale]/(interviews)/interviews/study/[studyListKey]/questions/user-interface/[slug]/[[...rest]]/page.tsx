@@ -1,6 +1,5 @@
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next/types';
-import { ArticleJsonLd } from 'next-seo';
 
 import InterviewsPurchaseQuestionPaywallPage from '~/components/interviews/purchase/InterviewsPurchaseQuestionPaywallPage';
 import InterviewsPurchaseStudyListPaywallPage from '~/components/interviews/purchase/InterviewsPurchaseStudyListPaywallPage';
@@ -226,7 +225,6 @@ export default async function Page({ params }: Props) {
 
     return true;
   })();
-  const { url } = frameworkAgnosticLinks(question, mode);
 
   const [{ questions: codingQuestions }] = await Promise.all([
     fetchQuestionsListCoding(locale),
@@ -262,45 +260,24 @@ export default async function Page({ params }: Props) {
     ],
   );
 
-  return (
-    <>
-      <ArticleJsonLd
-        authorName={[
-          {
-            name: 'GreatFrontEnd',
-            url: 'https://twitter.com/greatfrontend',
-          },
-        ]}
-        datePublished="2022-11-01T08:00:00+08:00"
-        description={question.metadata.excerpt!}
-        images={[]}
-        isAccessibleForFree={question.metadata.access !== 'premium'}
-        title={`Front End Coding Interview Question: ${
-          mode === 'solution' ? 'Solution ' : ''
-        }${question.metadata.title}`}
-        url={url}
-        useAppDir={true}
-      />
-      {isStudyListLockedForViewer ? (
-        <InterviewsPurchaseStudyListPaywallPage
-          studyListCategory={studyList.category}
-        />
-      ) : isQuestionLockedForViewer ? (
-        <InterviewsPurchaseQuestionPaywallPage
-          metadata={question.metadata}
-          mode={mode}
-          studyListKey={studyListKey}
-        />
-      ) : (
-        <UserInterfaceCodingWorkspacePage
-          canViewPremiumContent={isViewerPremium}
-          mode={mode}
-          nextQuestions={nextQuestions}
-          question={question}
-          similarQuestions={similarQuestions}
-          studyListKey={studyListKey}
-        />
-      )}
-    </>
+  return isStudyListLockedForViewer ? (
+    <InterviewsPurchaseStudyListPaywallPage
+      studyListCategory={studyList.category}
+    />
+  ) : isQuestionLockedForViewer ? (
+    <InterviewsPurchaseQuestionPaywallPage
+      metadata={question.metadata}
+      mode={mode}
+      studyListKey={studyListKey}
+    />
+  ) : (
+    <UserInterfaceCodingWorkspacePage
+      canViewPremiumContent={isViewerPremium}
+      mode={mode}
+      nextQuestions={nextQuestions}
+      question={question}
+      similarQuestions={similarQuestions}
+      studyListKey={studyListKey}
+    />
   );
 }

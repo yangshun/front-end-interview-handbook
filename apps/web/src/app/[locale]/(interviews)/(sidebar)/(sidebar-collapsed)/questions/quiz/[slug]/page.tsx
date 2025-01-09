@@ -1,6 +1,6 @@
 import type { Metadata } from 'next/types';
-import { ArticleJsonLd } from 'next-seo';
 
+import QuestionJsonLd from '~/components/interviews/questions/common/QuestionJsonLd';
 import QuestionQuizContents from '~/components/interviews/questions/content/quiz/QuestionQuizContents';
 import QuestionQuizPagination from '~/components/interviews/questions/content/quiz/QuestionQuizPagination';
 import { sortQuestionsMultiple } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
@@ -10,7 +10,6 @@ import { fetchQuestionsListQuiz } from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';
 import { generateStaticParamsWithLocale } from '~/next-i18nostic/src';
 import defaultMetadata from '~/seo/defaultMetadata';
-import { getSiteOrigin } from '~/seo/siteUrl';
 
 type Props = Readonly<{
   params: Readonly<{
@@ -74,21 +73,7 @@ export default async function Page({ params }: Props) {
 
   return (
     <>
-      <ArticleJsonLd
-        authorName={[
-          {
-            name: 'GreatFrontEnd',
-            url: 'https://twitter.com/greatfrontend',
-          },
-        ]}
-        datePublished="2022-11-01T08:00:00+08:00"
-        description={question.metadata.excerpt ?? ''}
-        images={[]}
-        isAccessibleForFree={true}
-        title={question.metadata.title}
-        url={new URL(question.metadata.href, getSiteOrigin()).toString()}
-        useAppDir={true}
-      />
+      <QuestionJsonLd metadata={question.metadata} />
       <QuestionQuizContents
         paginationEl={
           <QuestionQuizPagination

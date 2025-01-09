@@ -1,8 +1,8 @@
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next/types';
-import { ArticleJsonLd } from 'next-seo';
 
 import InterviewsPurchaseQuestionPaywallPage from '~/components/interviews/purchase/InterviewsPurchaseQuestionPaywallPage';
+import QuestionJsonLd from '~/components/interviews/questions/common/QuestionJsonLd';
 import type { QuestionUserInterface } from '~/components/interviews/questions/common/QuestionsTypes';
 import { QuestionFrameworkLabels } from '~/components/interviews/questions/common/QuestionsTypes';
 import type { QuestionUserInterfaceMode } from '~/components/interviews/questions/common/QuestionUserInterfacePath';
@@ -214,7 +214,6 @@ export default async function Page({ params }: Props) {
 
     return true;
   })();
-  const { url } = frameworkAgnosticLinks(question, mode);
 
   const { questions: codingQuestions } = await fetchQuestionsListCoding(locale);
   const nextQuestions = sortQuestionsMultiple(
@@ -250,23 +249,7 @@ export default async function Page({ params }: Props) {
 
   return (
     <>
-      <ArticleJsonLd
-        authorName={[
-          {
-            name: 'GreatFrontEnd',
-            url: 'https://twitter.com/greatfrontend',
-          },
-        ]}
-        datePublished="2022-11-01T08:00:00+08:00"
-        description={question.metadata.excerpt!}
-        images={[]}
-        isAccessibleForFree={question.metadata.access !== 'premium'}
-        title={`Front End Coding Interview Question: ${
-          mode === 'solution' ? 'Solution ' : ''
-        }${question.metadata.title}`}
-        url={url}
-        useAppDir={true}
-      />
+      <QuestionJsonLd metadata={question.metadata} />
       {isQuestionLockedForViewer ? (
         <InterviewsPurchaseQuestionPaywallPage
           metadata={question.metadata}

@@ -1,8 +1,8 @@
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next/types';
-import { ArticleJsonLd } from 'next-seo';
 
 import InterviewsPurchaseQuestionPaywallPage from '~/components/interviews/purchase/InterviewsPurchaseQuestionPaywallPage';
+import QuestionJsonLd from '~/components/interviews/questions/common/QuestionJsonLd';
 import { sortQuestionsMultiple } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 import JavaScriptCodingWorkspacePage from '~/components/workspace/javascript/JavaScriptCodingWorkspacePage';
 
@@ -10,7 +10,6 @@ import { readQuestionJavaScriptContents } from '~/db/QuestionsContentsReader';
 import { fetchQuestionsListCoding } from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
-import { getSiteOrigin } from '~/seo/siteUrl';
 import { readViewerFromToken } from '~/supabase/SupabaseServerGFE';
 import { createSupabaseAdminClientGFE_SERVER_ONLY } from '~/supabase/SupabaseServerGFE';
 
@@ -119,21 +118,7 @@ export default async function Page({ params }: Props) {
 
   return (
     <>
-      <ArticleJsonLd
-        authorName={[
-          {
-            name: 'GreatFrontEnd',
-            url: 'https://twitter.com/greatfrontend',
-          },
-        ]}
-        datePublished="2022-11-01T08:00:00+08:00"
-        description={question.metadata.excerpt!}
-        images={[]}
-        isAccessibleForFree={question.metadata.access !== 'premium'}
-        title={`Front End Coding Interview Question: ${question.metadata.title}`}
-        url={new URL(question.metadata.href, getSiteOrigin()).toString()}
-        useAppDir={true}
-      />
+      <QuestionJsonLd metadata={question.metadata} />
       {isQuestionLockedForViewer ? (
         <InterviewsPurchaseQuestionPaywallPage
           metadata={question.metadata}
