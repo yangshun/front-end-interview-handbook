@@ -133,7 +133,7 @@ export default function InterviewsQuestionsListSlideOutContents<
                           'group relative',
                           'flex',
                           'px-6',
-                          'gap-6',
+                          'gap-4',
                           'transition-colors',
                           'focus-within:ring-brand focus-within:ring-2 focus-within:ring-inset',
                           themeBackgroundElementEmphasizedStateColor_Hover,
@@ -183,7 +183,7 @@ export default function InterviewsQuestionsListSlideOutContents<
                             </div>
                           </div>
                         </div>
-                        <div className="w-[100px] flex-none py-4">
+                        <div className="w-[106px] flex-none py-4">
                           <QuestionFormatLabel
                             showIcon={true}
                             value={questionMetadata.format}
