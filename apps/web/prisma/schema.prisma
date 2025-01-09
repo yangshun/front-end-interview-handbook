@@ -72,7 +72,7 @@ model QuestionProgress {
 
   @@unique([format, slug, status, userId])
   @@index([userId]) // User's progress across all qns
-  @@index([userId, slug, format]) // Single qn for user
+  @@index([userId, format, slug]) // Single qn for user
   @@index([slug, format]) // Global completed for qn
 }
 
@@ -97,7 +97,7 @@ model GuideProgress {
 
   @@unique([book, slug, status, userId])
   @@index([userId]) // User's progress across all guides
-  @@index([userId, slug, book]) // Single guide for a user
+  @@index([userId, book, slug]) // Single guide for a user
 }
 
 model QuestionDiscussionPost {
@@ -224,6 +224,7 @@ model LearningSessionProgress {
   session   LearningSession               @relation(fields: [sessionId], references: [id])
 
   @@unique([sessionId, key])
+  @@index([sessionId])
 }
 
 enum ProjectsSubscriptionPlan {
