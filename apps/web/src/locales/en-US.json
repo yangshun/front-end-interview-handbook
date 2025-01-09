@@ -619,6 +619,10 @@
     "defaultMessage": "Search questions",
     "description": "Placeholder for search input of question list"
   },
+  "1wO0TT": {
+    "defaultMessage": "All practice questions",
+    "description": "All front end interview practice questions"
+  },
   "1wrVTx": {
     "defaultMessage": "Edit on GitHub",
     "description": "Edit on GitHub button"
@@ -9050,10 +9054,6 @@
   "tPzONL": {
     "defaultMessage": "Star our \"React.js Interview Questions\" repo",
     "description": "Title for task"
-  },
-  "tQEmTt": {
-    "defaultMessage": "All practice questions",
-    "description": "Title for practice questions section"
   },
   "tV+VAr": {
     "defaultMessage": "{questionCount}+ Front End Interview Practice Questions",

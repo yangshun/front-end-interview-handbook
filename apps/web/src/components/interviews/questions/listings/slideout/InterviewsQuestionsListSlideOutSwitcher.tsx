@@ -38,6 +38,15 @@ function DropdownContent({
   const studyPlansMap = convertToMap(questionLists.studyPlans);
   const categories: ReadonlyArray<QuestionListCategories> = [
     {
+      items: questionLists.practice,
+      key: 'practice',
+      label: intl.formatMessage({
+        defaultMessage: 'All practice questions',
+        description: 'All front end interview practice questions',
+        id: '1wO0TT',
+      }),
+    },
+    {
       items: [studyPlansMap.gfe75, studyPlansMap.blind75],
       key: 'prep-strategy',
       label: intl.formatMessage({

@@ -2,12 +2,12 @@ import { useSearchParams } from 'next/navigation';
 
 import { trpc } from '~/hooks/trpc';
 
-import type { QuestionListTypeData } from './QuestionHrefUtils';
-import type {
-  QuestionFormat,
-  QuestionFramework,
-  QuestionLanguage,
-} from './QuestionsTypes';
+import type { QuestionFormatForList } from './QuestionHrefUtils';
+import {
+  type QuestionListTypeData,
+  QuestionListTypeDefault,
+} from './QuestionHrefUtils';
+import type { QuestionFramework, QuestionLanguage } from './QuestionsTypes';
 
 /**
  * Please remember to wrap usage of these components in <Suspense>
@@ -25,7 +25,7 @@ export function useQuestionsListTypeCurrent(
   if (searchParams?.get('format')) {
     return {
       type: 'format',
-      value: searchParams.get('format') as QuestionFormat,
+      value: searchParams.get('format') as QuestionFormatForList,
     };
   }
 
@@ -52,10 +52,7 @@ export function useQuestionsListTypeCurrent(
     };
   }
 
-  return {
-    type: 'coding',
-    value: 'all',
-  };
+  return QuestionListTypeDefault;
 }
 
 export function useQuestionsListDataForType(

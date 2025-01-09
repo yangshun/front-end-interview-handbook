@@ -9,20 +9,21 @@ import type {
 
 const origin = getSiteOrigin();
 
+export type QuestionFormatForList = QuestionFormat | 'coding';
 export type QuestionListTypeData =
-  | Readonly<{ type: 'coding'; value: 'all' }>
-  | Readonly<{ type: 'format'; value: QuestionFormat }>
+  | Readonly<{ type: 'format'; value: QuestionFormatForList }>
   | Readonly<{ type: 'framework'; value: QuestionFramework }>
   | Readonly<{ type: 'language'; value: QuestionLanguage }>
   | Readonly<{ type: 'study-list'; value: string }>;
 
-export function questionListFilterNamespace(
-  listType?: QuestionListTypeData,
-): string {
-  if (listType == null || listType.type === 'coding') {
-    return 'coding';
-  }
+export const QuestionListTypeDefault: QuestionListTypeData = {
+  type: 'format',
+  value: 'coding',
+};
 
+export function questionListFilterNamespace(
+  listType: QuestionListTypeData = QuestionListTypeDefault,
+): string {
   return `${listType.type}:${listType.value}`;
 }
 
@@ -66,9 +67,7 @@ export function questionHrefWithListType(
     );
   }
 
-  if (listType.type !== 'coding') {
-    urlObject.searchParams.set(listType.type, listType.value);
-  }
+  urlObject.searchParams.set(listType.type, listType.value);
 
   return urlObject.pathname + urlObject.search + urlObject.hash;
 }

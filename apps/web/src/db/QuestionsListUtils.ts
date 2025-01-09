@@ -54,6 +54,25 @@ export async function fetchQuestionLists(intl: IntlShape) {
           value,
         }) as const,
     ),
+    practice: [
+      {
+        label: intl.formatMessage({
+          defaultMessage: 'Coding',
+          description: 'Question format',
+          id: 'eJU0PN',
+        }),
+        value: 'coding',
+      } as const,
+      formatsData['system-design'],
+      formatsData.quiz,
+    ].map(
+      ({ label, value }) =>
+        ({
+          label,
+          type: 'format',
+          value,
+        }) as const,
+    ),
     studyPlans: reduceStudyListData(studyLists.studyPlans),
   };
 }

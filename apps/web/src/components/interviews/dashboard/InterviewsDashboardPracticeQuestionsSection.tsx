@@ -47,8 +47,8 @@ export default function InterviewsDashboardPracticeQuestionsSection({
         <Heading className={themeTextColor} color="custom" level="heading5">
           <FormattedMessage
             defaultMessage="All practice questions"
-            description="Title for practice questions section"
-            id="tQEmTt"
+            description="All front end interview practice questions"
+            id="1wO0TT"
           />
         </Heading>
         <Text color="secondary" size="body2">

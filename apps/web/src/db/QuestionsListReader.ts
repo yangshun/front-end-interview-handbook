@@ -5,6 +5,7 @@
 // It's only meant to be used on the server.
 import fs from 'node:fs';
 
+import type { QuestionFormatForList } from '~/components/interviews/questions/common/QuestionHrefUtils';
 import type {
   QuestionFormat,
   QuestionFramework,
@@ -160,7 +161,7 @@ export async function fetchQuestionsListUserInterface(
 }
 
 export async function fetchQuestionListForFormat(
-  format: QuestionFormat,
+  format: QuestionFormatForList,
   requestedLocale = 'en-US',
 ): Promise<
   Readonly<{
@@ -179,6 +180,8 @@ export async function fetchQuestionListForFormat(
       return fetchQuestionsListSystemDesign(requestedLocale);
     case 'quiz':
       return fetchQuestionsListQuiz(requestedLocale);
+    case 'coding':
+      return fetchQuestionsListCoding(requestedLocale);
   }
 }
 

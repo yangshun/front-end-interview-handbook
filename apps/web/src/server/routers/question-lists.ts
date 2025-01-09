@@ -7,8 +7,9 @@ import {
   getQuestionLanguagesData,
 } from '~/data/QuestionCategories';
 
+import type { QuestionFormatForList } from '~/components/interviews/questions/common/QuestionHrefUtils';
+import { QuestionListTypeDefault } from '~/components/interviews/questions/common/QuestionHrefUtils';
 import type {
-  QuestionFormat,
   QuestionFramework,
   QuestionLanguage,
 } from '~/components/interviews/questions/common/QuestionsTypes';
@@ -84,7 +85,7 @@ export const questionListsRouter = router({
       }
 
       if (format) {
-        const format_ = format as QuestionFormat;
+        const format_ = format as QuestionFormatForList;
         const formatData = getQuestionFormatsData(intl);
         const { questions } = await fetchQuestionListForFormat(format_);
 
@@ -94,7 +95,14 @@ export const questionListsRouter = router({
             value: format_,
           },
           questions,
-          title: formatData[format_].label,
+          title:
+            format_ === 'coding'
+              ? intl.formatMessage({
+                  defaultMessage: 'Coding',
+                  description: 'Question format',
+                  id: 'eJU0PN',
+                })
+              : formatData[format_].label,
         } as const;
       }
 
@@ -117,10 +125,7 @@ export const questionListsRouter = router({
       const { questions: questionsCoding } = await fetchQuestionsListCoding();
 
       return {
-        listType: {
-          type: 'coding',
-          value: 'all',
-        },
+        listType: QuestionListTypeDefault,
         questions: questionsCoding,
         title: 'Coding questions',
       } as const;
