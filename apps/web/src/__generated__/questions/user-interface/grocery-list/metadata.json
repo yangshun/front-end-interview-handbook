@@ -1,0 +1,36 @@
+{
+  "access": "premium",
+  "author": null,
+  "companies": [],
+  "created": 1723766400,
+  "difficulty": "medium",
+  "duration": 30,
+  "excerpt": "Build a grocery list app where you can search, add, and remove items",
+  "featured": false,
+  "format": "user-interface",
+  "frameworkDefault": "react",
+  "frameworks": [
+    {
+      "framework": "react",
+      "href": "/questions/user-interface/grocery-list/react"
+    }
+  ],
+  "href": "/questions/user-interface/grocery-list",
+  "importance": "low",
+  "languages": [
+    "html",
+    "css",
+    "js"
+  ],
+  "nextQuestions": [],
+  "published": false,
+  "ranking": 100,
+  "similarQuestions": [],
+  "slug": "grocery-list",
+  "subtitle": null,
+  "title": "Grocery List",
+  "topics": [
+    "a11y",
+    "networking"
+  ]
+}
