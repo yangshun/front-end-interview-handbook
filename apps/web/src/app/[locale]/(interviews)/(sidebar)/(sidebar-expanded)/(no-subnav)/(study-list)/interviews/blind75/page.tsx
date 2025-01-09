@@ -1,6 +1,5 @@
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next/types';
-import { CourseJsonLd } from 'next-seo';
 
 import { INTERVIEWS_REVAMP_BOTTOM_CONTENT } from '~/data/FeatureFlags';
 
@@ -12,7 +11,6 @@ import { fetchQuestionsByHash } from '~/db/QuestionsListReader';
 import { groupQuestionHashesByFormat } from '~/db/QuestionsUtils';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
-import { getSiteOrigin } from '~/seo/siteUrl';
 
 async function getPageSEOMetadata() {
   const studyPlanDocument = await fetchInterviewsStudyList('blind75');
@@ -74,24 +72,13 @@ export default async function Page({ params }: Props) {
   ]);
 
   return (
-    <>
-      <CourseJsonLd
-        courseName={blind75.seoTitle}
-        description={blind75.description}
-        provider={{
-          name: 'GreatFrontEnd',
-          url: getSiteOrigin(),
-        }}
-        useAppDir={true}
-      />
-      <InterviewsStudyPlanBlind75Page
-        bottomContent={
-          INTERVIEWS_REVAMP_BOTTOM_CONTENT ? bottomContent : undefined
-        }
-        questions={questions}
-        questionsSlugs={questionsSlugs}
-        studyList={blind75}
-      />
-    </>
+    <InterviewsStudyPlanBlind75Page
+      bottomContent={
+        INTERVIEWS_REVAMP_BOTTOM_CONTENT ? bottomContent : undefined
+      }
+      questions={questions}
+      questionsSlugs={questionsSlugs}
+      studyList={blind75}
+    />
   );
 }

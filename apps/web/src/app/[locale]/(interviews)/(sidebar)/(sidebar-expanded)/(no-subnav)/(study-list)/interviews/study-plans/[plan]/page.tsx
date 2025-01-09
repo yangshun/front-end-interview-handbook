@@ -1,6 +1,5 @@
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next/types';
-import { CourseJsonLd } from 'next-seo';
 
 import { INTERVIEWS_REVAMP_BOTTOM_CONTENT } from '~/data/FeatureFlags';
 
@@ -16,7 +15,6 @@ import { groupQuestionHashesByFormat } from '~/db/QuestionsUtils';
 import { getIntlServerOnly } from '~/i18n';
 import { generateStaticParamsWithLocale } from '~/next-i18nostic/src';
 import defaultMetadata from '~/seo/defaultMetadata';
-import { getSiteOrigin } from '~/seo/siteUrl';
 
 async function getPageSEOMetadata({ plan }: Props['params']) {
   const studyPlanDocument = await fetchInterviewsStudyList(plan);
@@ -85,24 +83,13 @@ export default async function Page({ params }: Props) {
   ]);
 
   return (
-    <>
-      <CourseJsonLd
-        courseName={studyPlan.seoTitle}
-        description={studyPlan.description}
-        provider={{
-          name: 'GreatFrontEnd',
-          url: getSiteOrigin(),
-        }}
-        useAppDir={true}
-      />
-      <InterviewsStudyPlanPage
-        bottomContent={
-          INTERVIEWS_REVAMP_BOTTOM_CONTENT ? bottomContent : undefined
-        }
-        questions={questions}
-        questionsSlugs={questionsSlugs}
-        studyList={studyPlan}
-      />
-    </>
+    <InterviewsStudyPlanPage
+      bottomContent={
+        INTERVIEWS_REVAMP_BOTTOM_CONTENT ? bottomContent : undefined
+      }
+      questions={questions}
+      questionsSlugs={questionsSlugs}
+      studyList={studyPlan}
+    />
   );
 }
