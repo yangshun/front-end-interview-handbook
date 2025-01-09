@@ -1,4 +1,4 @@
-import type { Dispatch, ReactNode, SetStateAction } from 'react';
+import type { Dispatch, SetStateAction } from 'react';
 
 import type { QuestionMetadata } from '../../common/QuestionsTypes';
 
@@ -13,7 +13,7 @@ export type QuestionFilter<
   onClear: () => void;
   options: ReadonlyArray<{
     icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
-    label: ReactNode;
+    label: string;
     tooltip?: string;
     value: T;
   }>;

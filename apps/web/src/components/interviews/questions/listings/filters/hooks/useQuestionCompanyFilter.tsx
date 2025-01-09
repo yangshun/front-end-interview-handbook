@@ -1,4 +1,3 @@
-import clsx from 'clsx';
 import { useState } from 'react';
 
 import useCompanyNames from '~/hooks/useCompanyNames';
@@ -7,7 +6,6 @@ import useSessionStorageForSets from '~/hooks/useSessionStorageForSets';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import type { QuestionCompany } from '~/components/interviews/questions/common/QuestionsTypes';
 import { useIntl } from '~/components/intl';
-import { themeIconColor } from '~/components/ui/theme';
 
 import type { QuestionFilter } from '../QuestionFilterType';
 
@@ -78,12 +76,8 @@ export default function useQuestionCompanyFilter({
       const Icon = companyNames[company].logo;
 
       return {
-        label: (
-          <div className="flex items-center gap-2">
-            <Icon className={clsx('size-4 shrink-0', themeIconColor)} />
-            {companyNames[company].label}
-          </div>
-        ),
+        icon: Icon,
+        label: companyNames[company].label,
         value: company,
       };
     }),

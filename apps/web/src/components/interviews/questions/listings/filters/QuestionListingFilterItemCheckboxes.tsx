@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { RiInformationLine } from 'react-icons/ri';
 
 import CheckboxInput from '~/components/ui/CheckboxInput';
-import { themeTextSubtleColor } from '~/components/ui/theme';
+import { themeIconColor, themeTextSubtleColor } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
 import type { QuestionFilter } from './QuestionFilterType';
@@ -29,7 +29,18 @@ export default function QuestionListingFilterItemCheckboxes<
         .map((option) => (
           <div key={option.value} className="flex items-center gap-2">
             <CheckboxInput
-              label={option.label}
+              label={
+                option.icon ? (
+                  <div className="flex items-center gap-2">
+                    <option.icon
+                      className={clsx('size-4 shrink-0', themeIconColor)}
+                    />
+                    {option.label}
+                  </div>
+                ) : (
+                  option.label
+                )
+              }
               value={values.has(option.value)}
               onChange={() => section.onChange(option.value)}
             />
