@@ -131,6 +131,10 @@
     "defaultMessage": "Name",
     "description": "Lable for name field"
   },
+  "+nHCR2": {
+    "defaultMessage": "Binary",
+    "description": "Computer science topic"
+  },
   "+pieds": {
     "defaultMessage": "Sign up for our newsletter and join our community of passionate <span>Front End Engineers</span>.",
     "description": "Subtitle text for newsletter sign up section"
@@ -138,6 +142,10 @@
   "+u6zX0": {
     "defaultMessage": "Design systems",
     "description": "Title for \"Design systems\" feature on Projects home page"
+  },
+  "+uklHy": {
+    "defaultMessage": "Queue",
+    "description": "Computer science data structure"
   },
   "+uw4/h": {
     "defaultMessage": "No projects matching those filters",
@@ -170,6 +178,10 @@
   "/17ryO": {
     "defaultMessage": "Are you preparing for a front end engineering interview and feeling overwhelmed by the behavioral round? You're not alone. While coding skills are essential, companies are equally interested in how you think, communicate, and collaborate.",
     "description": "Long description of behavioral interview playbook page"
+  },
+  "/3fbsW": {
+    "defaultMessage": "Intervals",
+    "description": "Computer science algorithms data structure"
   },
   "/5Oi3r": {
     "defaultMessage": "Nothing found just yet",
@@ -407,6 +419,10 @@
     "defaultMessage": "Feel free to include any custom pages you have added for this challenge. They will be featured on the submission page.",
     "description": "Button tooltip for adding another URL to a project submission"
   },
+  "0ZP3Ts": {
+    "defaultMessage": "Array",
+    "description": "Computer science topic"
+  },
   "0ZZ4Vl": {
     "defaultMessage": "In progress",
     "description": "Projects challenge in progress"
@@ -554,6 +570,10 @@
   "1fjGWk": {
     "defaultMessage": "{questionCount}+ most important TypeScript interview questions on library APIs, utility types, algorithms, and building strong, typed components.",
     "description": "Subtitle for questions list page"
+  },
+  "1gk5Pf": {
+    "defaultMessage": "Dynamic programming",
+    "description": "Computer science topic"
   },
   "1gkgr4": {
     "defaultMessage": "Sign In",
@@ -951,10 +971,6 @@
     "defaultMessage": "Number of challenges completed using this skill, including challenges not in the recommended skill plan",
     "description": "Tooltip for completed challenges label"
   },
-  "4MzF6x": {
-    "defaultMessage": "Security",
-    "description": "Front end development topic"
-  },
   "4OAQyn": {
     "defaultMessage": "For a profile URL like <bold>https://github.com/john-doe</bold>, your handle would be <bold>john-doe</bold>.",
     "description": "Rewards campaign help text"
@@ -1018,6 +1034,10 @@
   "50kzzq": {
     "defaultMessage": "Select question format",
     "description": "Label for tabs to select sample interview question format"
+  },
+  "52NgJr": {
+    "defaultMessage": "Linked list",
+    "description": "Computer science data structure"
   },
   "54g6sz": {
     "defaultMessage": "Preserve logs",
@@ -1467,6 +1487,10 @@
     "defaultMessage": "Implementation must contain at least {minLength} character(s).",
     "description": "Error message"
   },
+  "7b8bt1": {
+    "defaultMessage": "Binary search tree",
+    "description": "Computer science data structure"
+  },
   "7fCoNs": {
     "defaultMessage": "Will I have to code within the platform, or use my own IDE?",
     "description": "FAQ question for projects platform"
@@ -1611,6 +1635,10 @@
     "defaultMessage": "Contact Us",
     "description": "Link to contact us page"
   },
+  "8jSm6h": {
+    "defaultMessage": "Binary search",
+    "description": "Computer science algorithm"
+  },
   "8klsso": {
     "defaultMessage": "Study Plans",
     "description": "Section heading in footer for links to study plans (i.e. recommended order to study and practice based on specific timelines e.g. prepare in 1 week, 1 month or 3 months)"
@@ -1738,10 +1766,6 @@
   "9RYs96": {
     "defaultMessage": "Review community submissions",
     "description": "Recommended action for new projects platform user"
-  },
-  "9a88P6": {
-    "defaultMessage": "OOP",
-    "description": "Front end development topic"
   },
   "9dQ21j": {
     "defaultMessage": "Set new profile photo",
@@ -2022,6 +2046,10 @@
   "BQSRxW": {
     "defaultMessage": "Recommended resources",
     "description": "Features for focus areas question listing"
+  },
+  "BRZJBS": {
+    "defaultMessage": "Tree",
+    "description": "Computer science data structure"
   },
   "BSRBkq": {
     "defaultMessage": "{questionCount}+ Front End Interview Practice Questions",
@@ -2391,6 +2419,10 @@
     "defaultMessage": "Add custom page",
     "description": "Button label to add another URL to a project submission"
   },
+  "E5WE+V": {
+    "defaultMessage": "Recursion",
+    "description": "Computer science topic"
+  },
   "E5x8uP": {
     "defaultMessage": "Undergrad CS",
     "description": "Label for \"Undergrad CS\" option in YOE replacement"
@@ -2546,10 +2578,6 @@
   "F5oV3L": {
     "defaultMessage": "Delete line",
     "description": "Text describing command to delete line(s) in the coding workspace shortcuts menu"
-  },
-  "F8ULPJ": {
-    "defaultMessage": "Graph",
-    "description": "Front end development topic"
   },
   "F8wNUD": {
     "defaultMessage": "Starter code with content copy",
@@ -2919,6 +2947,10 @@
     "defaultMessage": "SEO",
     "description": "Front end development topic"
   },
+  "HYUdzA": {
+    "defaultMessage": "Sorting",
+    "description": "Computer science algorithm"
+  },
   "HaIAzk": {
     "defaultMessage": "Light",
     "description": "Select label for light console theme in console settings"
@@ -3190,6 +3222,10 @@
   "J7bWrf": {
     "defaultMessage": "Search for your target company",
     "description": "Placeholder for search input of company guides"
+  },
+  "J7mnO8": {
+    "defaultMessage": "Binary tree",
+    "description": "Computer science data structure"
   },
   "JCAJF/": {
     "defaultMessage": "Practice Front End Algorithmic Coding Interview Questions",
@@ -3535,6 +3571,10 @@
     "defaultMessage": "Show completed challenges",
     "description": "Description of completed challenges filter"
   },
+  "LDHRu2": {
+    "defaultMessage": "Greedy",
+    "description": "Computer science algorithm"
+  },
   "LEh5WZ": {
     "defaultMessage": "Clear all",
     "description": "Label for clear all button"
@@ -3863,6 +3903,10 @@
     "defaultMessage": "Other",
     "description": "Label for other input for yoe replacement status on projects profile page"
   },
+  "NZKztk": {
+    "defaultMessage": "Breadth-first search",
+    "description": "Computer science topic"
+  },
   "NbNtxn": {
     "defaultMessage": "GreatFrontEnd: The great way to prepare for Front End Interviews",
     "description": "Title of GreatFrontEnd standard page"
@@ -3926,6 +3970,10 @@
   "Nz7W/0": {
     "defaultMessage": "Oops something went wrong",
     "description": "Error message"
+  },
+  "NzHpGm": {
+    "defaultMessage": "Networking",
+    "description": "Computer science topic"
   },
   "O+ovnq": {
     "defaultMessage": "Seasonal Discount",
@@ -4603,10 +4651,6 @@
     "defaultMessage": "An account is required to purchase premium",
     "description": "Title of alert requesting user to create an account to purchase premium plans"
   },
-  "Rs1Xi9": {
-    "defaultMessage": "Tree",
-    "description": "Front end development topic"
-  },
   "RsPxKM": {
     "defaultMessage": "Superscript",
     "description": "Label for superscript"
@@ -4783,6 +4827,10 @@
     "defaultMessage": "Having interviewed hundreds of candidates, we know what to look out for. Learn best practices and techniques gleaned from years of experience.",
     "description": "Subtitle for the prep resources section"
   },
+  "SiShj/": {
+    "defaultMessage": "Topological sort",
+    "description": "Computer science algorithm"
+  },
   "SiWL+G": {
     "defaultMessage": "Once you're done developing, follow this step-by-step guide to host your solution and submit the challenge.",
     "description": "Description for the project submission checklist section"
@@ -4802,6 +4850,10 @@
   "SlcOi4": {
     "defaultMessage": "Number of challenges completed in skill plan",
     "description": "Tooltip for skill plan challenges label"
+  },
+  "SnhoqJ": {
+    "defaultMessage": "Depth-first search",
+    "description": "Computer science algorithm"
   },
   "Sp5xdN": {
     "defaultMessage": "{numberOfBlogs} articles",
@@ -5314,6 +5366,10 @@
   "W9weyy": {
     "defaultMessage": "Search JavaScript functions questions",
     "description": "Search placeholder"
+  },
+  "WAaivX": {
+    "defaultMessage": "Graph",
+    "description": "Computer science data structure"
   },
   "WB/L0V": {
     "defaultMessage": "{numberOfHours} hours weekly",
@@ -5891,10 +5947,6 @@
     "defaultMessage": "Focus areas",
     "description": "Title of focus areas page"
   },
-  "ZutazH": {
-    "defaultMessage": "Networking",
-    "description": "Front end development topic"
-  },
   "a0Osa7": {
     "defaultMessage": "Challenge: {challengeName} | Completion steps",
     "description": "Title of Projects challenge completion page"
@@ -6410,6 +6462,10 @@
   "d+wYSW": {
     "defaultMessage": "Sign up for a free GreatFrontEnd account to track your progress and access premium",
     "description": "Description of Sign Up page"
+  },
+  "d/YjsO": {
+    "defaultMessage": "Stack",
+    "description": "Computer science data structure"
   },
   "d/hzjd": {
     "defaultMessage": "The vast breadth of topics that could come up during a front end interview can be daunting.",
@@ -7214,6 +7270,10 @@
   "htx1cR": {
     "defaultMessage": "Study plans",
     "description": "Interviews study plans"
+  },
+  "hurk0k": {
+    "defaultMessage": "Trie",
+    "description": "Computer science data structure"
   },
   "hz5dJR": {
     "defaultMessage": "No notification yet!",
@@ -8107,6 +8167,10 @@
     "defaultMessage": "General",
     "description": "Profile settings tab title"
   },
+  "njjJbJ": {
+    "defaultMessage": "String",
+    "description": "Computer science data structure"
+  },
   "nk2W/s": {
     "defaultMessage": "JavaScript DSA Interview Questions | GreatFrontEnd",
     "description": "Social title of front end interview questions page"
@@ -8310,6 +8374,10 @@
   "p1MoBS": {
     "defaultMessage": "You're on a roll! You've kept your streak going for {days, plural, =0 {0 consecutive days} =1 {1 consecutive day} other {# consecutive days}}, completing at least one question every day.",
     "description": "Tooltip for max consecutive days of contributions"
+  },
+  "p31t35": {
+    "defaultMessage": "Matrix",
+    "description": "Computer science data structure"
   },
   "p3mRa0": {
     "defaultMessage": "Job title is required.",
@@ -8955,6 +9023,10 @@
     "defaultMessage": "Build entire component libraries or design systems from scratch for your portfolio or as a toolkit for future projects.",
     "description": "Description of Projects component tracks page"
   },
+  "tM5fjO": {
+    "defaultMessage": "Security",
+    "description": "Computer science topic"
+  },
   "tMvSIc": {
     "defaultMessage": "Enjoy your exclusive promo code",
     "description": "Title for rewards complete page"
@@ -8986,6 +9058,10 @@
   "tV+VAr": {
     "defaultMessage": "{questionCount}+ Front End Interview Practice Questions",
     "description": "Page title for all practice questions page"
+  },
+  "tWtbVf": {
+    "defaultMessage": "OOP",
+    "description": "Computer science topic"
   },
   "tZPTnS": {
     "defaultMessage": "Difficulty: Hard to Easy",
@@ -9023,6 +9099,10 @@
     "defaultMessage": "Move line down",
     "description": "Text describing command to move lines down in the coding workspace shortcuts menu"
   },
+  "to34Rt": {
+    "defaultMessage": "Heap",
+    "description": "Computer science data structure"
+  },
   "toykkS": {
     "defaultMessage": "Not sure where to start? This preparation roadmap has been proven to work for most of our users.",
     "description": "Description for recommended preparation strategy section"
@@ -9030,10 +9110,6 @@
   "tpQwtr": {
     "defaultMessage": "Thanks for contributing",
     "description": "Toast message title about gaining reputation points"
-  },
-  "trRb9Z": {
-    "defaultMessage": "Recursion",
-    "description": "Front end development topic"
   },
   "tryW5f": {
     "defaultMessage": "Use a different card if you are unsure of the correct CVC.",

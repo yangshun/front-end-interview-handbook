@@ -18,11 +18,53 @@ export default function useQuestionTopicLabels() {
         id: 'TbZTWa',
       }),
     },
+    array: {
+      label: intl.formatMessage({
+        defaultMessage: 'Array',
+        description: 'Computer science topic',
+        id: '0ZP3Ts',
+      }),
+    },
     async: {
       label: intl.formatMessage({
         defaultMessage: 'Async',
         description: 'Front end development topic',
         id: 'ezEYel',
+      }),
+    },
+    bfs: {
+      label: intl.formatMessage({
+        defaultMessage: 'Breadth-first search',
+        description: 'Computer science topic',
+        id: 'NZKztk',
+      }),
+    },
+    binary: {
+      label: intl.formatMessage({
+        defaultMessage: 'Binary',
+        description: 'Computer science topic',
+        id: '+nHCR2',
+      }),
+    },
+    'binary-search': {
+      label: intl.formatMessage({
+        defaultMessage: 'Binary search',
+        description: 'Computer science algorithm',
+        id: '8jSm6h',
+      }),
+    },
+    'binary-search-tree': {
+      label: intl.formatMessage({
+        defaultMessage: 'Binary search tree',
+        description: 'Computer science data structure',
+        id: '7b8bt1',
+      }),
+    },
+    'binary-tree': {
+      label: intl.formatMessage({
+        defaultMessage: 'Binary tree',
+        description: 'Computer science data structure',
+        id: 'J7mnO8',
       }),
     },
     browser: {
@@ -42,11 +84,39 @@ export default function useQuestionTopicLabels() {
     css: {
       label: 'CSS',
     },
+    dfs: {
+      label: intl.formatMessage({
+        defaultMessage: 'Depth-first search',
+        description: 'Computer science algorithm',
+        id: 'SnhoqJ',
+      }),
+    },
+    'dynamic-programming': {
+      label: intl.formatMessage({
+        defaultMessage: 'Dynamic programming',
+        description: 'Computer science topic',
+        id: '1gk5Pf',
+      }),
+    },
     graph: {
       label: intl.formatMessage({
         defaultMessage: 'Graph',
-        description: 'Front end development topic',
-        id: 'F8ULPJ',
+        description: 'Computer science data structure',
+        id: 'WAaivX',
+      }),
+    },
+    greedy: {
+      label: intl.formatMessage({
+        defaultMessage: 'Greedy',
+        description: 'Computer science algorithm',
+        id: 'LDHRu2',
+      }),
+    },
+    heap: {
+      label: intl.formatMessage({
+        defaultMessage: 'Heap',
+        description: 'Computer science data structure',
+        id: 'to34Rt',
       }),
     },
     html: {
@@ -59,21 +129,42 @@ export default function useQuestionTopicLabels() {
         id: 'Oykw81',
       }),
     },
+    intervals: {
+      label: intl.formatMessage({
+        defaultMessage: 'Intervals',
+        description: 'Computer science algorithms data structure',
+        id: '/3fbsW',
+      }),
+    },
     javascript: {
       label: 'JavaScript',
+    },
+    'linked-list': {
+      label: intl.formatMessage({
+        defaultMessage: 'Linked list',
+        description: 'Computer science data structure',
+        id: '52NgJr',
+      }),
+    },
+    matrix: {
+      label: intl.formatMessage({
+        defaultMessage: 'Matrix',
+        description: 'Computer science data structure',
+        id: 'p31t35',
+      }),
     },
     networking: {
       label: intl.formatMessage({
         defaultMessage: 'Networking',
-        description: 'Front end development topic',
-        id: 'ZutazH',
+        description: 'Computer science topic',
+        id: 'NzHpGm',
       }),
     },
     oop: {
       label: intl.formatMessage({
         defaultMessage: 'OOP',
-        description: 'Front end development topic',
-        id: '9a88P6',
+        description: 'Computer science topic',
+        id: 'tWtbVf',
       }),
     },
     performance: {
@@ -81,6 +172,13 @@ export default function useQuestionTopicLabels() {
         defaultMessage: 'Performance',
         description: 'Front end development topic',
         id: 'd1LTa+',
+      }),
+    },
+    queue: {
+      label: intl.formatMessage({
+        defaultMessage: 'Queue',
+        description: 'Computer science data structure',
+        id: '+uklHy',
       }),
     },
     react: {
@@ -93,15 +191,15 @@ export default function useQuestionTopicLabels() {
     recursion: {
       label: intl.formatMessage({
         defaultMessage: 'Recursion',
-        description: 'Front end development topic',
-        id: 'trRb9Z',
+        description: 'Computer science topic',
+        id: 'E5WE+V',
       }),
     },
     security: {
       label: intl.formatMessage({
         defaultMessage: 'Security',
-        description: 'Front end development topic',
-        id: '4MzF6x',
+        description: 'Computer science topic',
+        id: 'tM5fjO',
       }),
     },
     seo: {
@@ -111,6 +209,27 @@ export default function useQuestionTopicLabels() {
         id: 'HY/9dZ',
       }),
     },
+    sorting: {
+      label: intl.formatMessage({
+        defaultMessage: 'Sorting',
+        description: 'Computer science algorithm',
+        id: 'HYUdzA',
+      }),
+    },
+    stack: {
+      label: intl.formatMessage({
+        defaultMessage: 'Stack',
+        description: 'Computer science data structure',
+        id: 'd/YjsO',
+      }),
+    },
+    string: {
+      label: intl.formatMessage({
+        defaultMessage: 'String',
+        description: 'Computer science data structure',
+        id: 'njjJbJ',
+      }),
+    },
     testing: {
       label: intl.formatMessage({
         defaultMessage: 'Testing',
@@ -118,11 +237,25 @@ export default function useQuestionTopicLabels() {
         id: 'QwoKre',
       }),
     },
+    'topological-sort': {
+      label: intl.formatMessage({
+        defaultMessage: 'Topological sort',
+        description: 'Computer science algorithm',
+        id: 'SiShj/',
+      }),
+    },
     tree: {
       label: intl.formatMessage({
         defaultMessage: 'Tree',
-        description: 'Front end development topic',
-        id: 'Rs1Xi9',
+        description: 'Computer science data structure',
+        id: 'BRZJBS',
+      }),
+    },
+    trie: {
+      label: intl.formatMessage({
+        defaultMessage: 'Trie',
+        description: 'Computer science data structure',
+        id: 'hurk0k',
       }),
     },
     'ui-component': {
