@@ -34,7 +34,9 @@
     "slug": "array-find-missing-number-in-sequence",
     "subtitle": null,
     "title": "Find Missing Number in Sequence",
-    "topics": []
+    "topics": [
+      "array"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {number[]} numbers\n * @return {number}\n */\nexport default function findMissingNumberInSequence(numbers) {\n  throw 'Not implemented!';\n}",

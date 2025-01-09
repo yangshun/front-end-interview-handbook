@@ -34,7 +34,9 @@
     "slug": "matrix-zeroing",
     "subtitle": null,
     "title": "Matrix Zeroing",
-    "topics": []
+    "topics": [
+      "matrix"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {number[][]} matrix\n * @return {void}\n */\nexport default function matrixZeroing(matrix) {\n  throw 'Not implemented!';\n}",

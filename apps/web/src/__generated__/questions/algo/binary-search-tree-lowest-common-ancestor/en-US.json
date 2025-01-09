@@ -34,7 +34,11 @@
     "slug": "binary-search-tree-lowest-common-ancestor",
     "subtitle": null,
     "title": "Binary Search Tree Lowest Common Ancestor",
-    "topics": []
+    "topics": [
+      "binary-tree",
+      "binary-search-tree",
+      "tree"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {TreeNode} root\n * @param {TreeNode} a\n * @param {TreeNode} b\n * @return {TreeNode | null}\n */\nexport default function BSTLowestCommonAncestor(root, a, b) {\n  throw 'Not implemented!';\n}",

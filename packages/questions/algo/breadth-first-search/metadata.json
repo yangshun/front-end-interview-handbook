@@ -8,5 +8,6 @@
   "published": true,
   "importance": "low",
   "difficulty": "medium",
-  "similar_questions": ["depth-first-search"]
+  "similar_questions": ["depth-first-search"],
+  "topics": ["bfs"]
 }

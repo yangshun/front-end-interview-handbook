@@ -34,7 +34,9 @@
     "slug": "sum-without-addition",
     "subtitle": null,
     "title": "Sum Without Addition",
-    "topics": []
+    "topics": [
+      "binary"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {number} a\n * @param {number} b\n * @return {number}\n */\nexport default function sumWithoutAddition(a, b) {\n  throw 'Not implemented!';\n}",

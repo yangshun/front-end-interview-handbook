@@ -34,7 +34,11 @@
     "slug": "binary-search-tree-validate",
     "subtitle": null,
     "title": "Validate Binary Search Tree",
-    "topics": []
+    "topics": [
+      "binary-tree",
+      "binary-search-tree",
+      "tree"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {TreeNode | null} root\n * @return {boolean}\n */\nexport default function binarySearchTreeValidate(root) {\n  throw 'Not implemented!';\n}",

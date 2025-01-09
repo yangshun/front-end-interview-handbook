@@ -14,5 +14,6 @@
     "merge-sort",
     "depth-first-search",
     "breadth-first-search"
-  ]
+  ],
+  "topics": ["binary-search", "sorting"]
 }

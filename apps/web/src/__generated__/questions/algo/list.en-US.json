@@ -24,7 +24,10 @@
     "slug": "array-balanced-brackets",
     "subtitle": null,
     "title": "Balanced Brackets",
-    "topics": []
+    "topics": [
+      "array",
+      "stack"
+    ]
   },
   {
     "access": "standard",
@@ -51,7 +54,9 @@
     "slug": "array-find-duplicate",
     "subtitle": null,
     "title": "Find Duplicates in Array",
-    "topics": []
+    "topics": [
+      "array"
+    ]
   },
   {
     "access": "standard",
@@ -78,7 +83,9 @@
     "slug": "array-find-missing-number-in-sequence",
     "subtitle": null,
     "title": "Find Missing Number in Sequence",
-    "topics": []
+    "topics": [
+      "array"
+    ]
   },
   {
     "access": "standard",
@@ -105,7 +112,9 @@
     "slug": "array-maximum-product-contiguous",
     "subtitle": null,
     "title": "Maximum Product in Contiguous Array",
-    "topics": []
+    "topics": [
+      "array"
+    ]
   },
   {
     "access": "standard",
@@ -132,7 +141,9 @@
     "slug": "array-maximum-sum-contiguous",
     "subtitle": null,
     "title": "Maximum Sum in Contiguous Array",
-    "topics": []
+    "topics": [
+      "array"
+    ]
   },
   {
     "access": "standard",
@@ -159,7 +170,10 @@
     "slug": "array-most-common-elements",
     "subtitle": null,
     "title": "Most Common Elements",
-    "topics": []
+    "topics": [
+      "array",
+      "heap"
+    ]
   },
   {
     "access": "standard",
@@ -186,7 +200,9 @@
     "slug": "array-product-excluding-current",
     "subtitle": null,
     "title": "Array Product Excluding Current",
-    "topics": []
+    "topics": [
+      "array"
+    ]
   },
   {
     "access": "standard",
@@ -213,7 +229,11 @@
     "slug": "array-reachable-end",
     "subtitle": null,
     "title": "End of Array Reachable",
-    "topics": []
+    "topics": [
+      "array",
+      "dynamic-programming",
+      "greedy"
+    ]
   },
   {
     "access": "standard",
@@ -240,7 +260,10 @@
     "slug": "array-rotated-find",
     "subtitle": null,
     "title": "Find Element in Rotated Array",
-    "topics": []
+    "topics": [
+      "array",
+      "binary-search"
+    ]
   },
   {
     "access": "standard",
@@ -267,7 +290,10 @@
     "slug": "array-smallest-in-rotated",
     "subtitle": null,
     "title": "Smallest element in rotated sorted array",
-    "topics": []
+    "topics": [
+      "array",
+      "binary-search"
+    ]
   },
   {
     "access": "free",
@@ -300,7 +326,10 @@
     "slug": "binary-search",
     "subtitle": null,
     "title": "Binary Search",
-    "topics": []
+    "topics": [
+      "binary-search",
+      "sorting"
+    ]
   },
   {
     "access": "standard",
@@ -327,7 +356,11 @@
     "slug": "binary-search-tree-kth-smallest",
     "subtitle": null,
     "title": "Binary Search Tree Kth Smallest Element",
-    "topics": []
+    "topics": [
+      "binary-tree",
+      "binary-search-tree",
+      "tree"
+    ]
   },
   {
     "access": "standard",
@@ -354,7 +387,11 @@
     "slug": "binary-search-tree-lowest-common-ancestor",
     "subtitle": null,
     "title": "Binary Search Tree Lowest Common Ancestor",
-    "topics": []
+    "topics": [
+      "binary-tree",
+      "binary-search-tree",
+      "tree"
+    ]
   },
   {
     "access": "standard",
@@ -381,7 +418,11 @@
     "slug": "binary-search-tree-validate",
     "subtitle": null,
     "title": "Validate Binary Search Tree",
-    "topics": []
+    "topics": [
+      "binary-tree",
+      "binary-search-tree",
+      "tree"
+    ]
   },
   {
     "access": "standard",
@@ -408,7 +449,10 @@
     "slug": "binary-tree-equal",
     "subtitle": null,
     "title": "Binary Tree Equal",
-    "topics": []
+    "topics": [
+      "binary-tree",
+      "tree"
+    ]
   },
   {
     "access": "standard",
@@ -435,7 +479,10 @@
     "slug": "binary-tree-flip",
     "subtitle": null,
     "title": "Flip Binary Tree",
-    "topics": []
+    "topics": [
+      "binary-tree",
+      "tree"
+    ]
   },
   {
     "access": "standard",
@@ -462,7 +509,10 @@
     "slug": "binary-tree-level-order-traversal",
     "subtitle": null,
     "title": "Binary Tree Level Order Traversal",
-    "topics": []
+    "topics": [
+      "binary-tree",
+      "tree"
+    ]
   },
   {
     "access": "standard",
@@ -489,7 +539,11 @@
     "slug": "binary-tree-maximum-depth",
     "subtitle": null,
     "title": "Binary Tree Maximum Depth",
-    "topics": []
+    "topics": [
+      "binary-tree",
+      "tree",
+      "dfs"
+    ]
   },
   {
     "access": "standard",
@@ -516,7 +570,11 @@
     "slug": "binary-tree-maximum-total-path",
     "subtitle": null,
     "title": "Binary Tree Maximum Total Path",
-    "topics": []
+    "topics": [
+      "binary-tree",
+      "tree",
+      "dfs"
+    ]
   },
   {
     "access": "standard",
@@ -543,7 +601,10 @@
     "slug": "binary-tree-rebuilding-from-traversals",
     "subtitle": null,
     "title": "Binary Tree Rebuilding from Preorder and Inorder Traversals",
-    "topics": []
+    "topics": [
+      "binary-tree",
+      "tree"
+    ]
   },
   {
     "access": "standard",
@@ -570,7 +631,11 @@
     "slug": "binary-tree-serialization-deserialization",
     "subtitle": null,
     "title": "Binary Tree Serialization and Deserialization",
-    "topics": []
+    "topics": [
+      "binary-tree",
+      "tree",
+      "dfs"
+    ]
   },
   {
     "access": "standard",
@@ -597,7 +662,10 @@
     "slug": "binary-tree-subtree",
     "subtitle": null,
     "title": "Binary Tree Subtree",
-    "topics": []
+    "topics": [
+      "binary-tree",
+      "tree"
+    ]
   },
   {
     "access": "standard",
@@ -624,7 +692,9 @@
     "slug": "bit-counting",
     "subtitle": null,
     "title": "Bit Counting",
-    "topics": []
+    "topics": [
+      "binary"
+    ]
   },
   {
     "access": "standard",
@@ -651,7 +721,9 @@
     "slug": "bit-reversal",
     "subtitle": null,
     "title": "Bit Reversal",
-    "topics": []
+    "topics": [
+      "binary"
+    ]
   },
   {
     "access": "free",
@@ -680,7 +752,9 @@
     "slug": "breadth-first-search",
     "subtitle": null,
     "title": "Breadth-first Search",
-    "topics": []
+    "topics": [
+      "bfs"
+    ]
   },
   {
     "access": "standard",
@@ -707,7 +781,9 @@
     "slug": "coin-change",
     "subtitle": null,
     "title": "Minimum Coins for Change",
-    "topics": []
+    "topics": [
+      "dynamic-programming"
+    ]
   },
   {
     "access": "standard",
@@ -734,7 +810,9 @@
     "slug": "combinations-target-sum",
     "subtitle": null,
     "title": "Combinations for Target Sum",
-    "topics": []
+    "topics": [
+      "dynamic-programming"
+    ]
   },
   {
     "access": "standard",
@@ -761,7 +839,9 @@
     "slug": "count-ones-in-binary",
     "subtitle": null,
     "title": "Count Set Bits in a Binary Number",
-    "topics": []
+    "topics": [
+      "binary"
+    ]
   },
   {
     "access": "standard",
@@ -788,7 +868,11 @@
     "slug": "course-dependency",
     "subtitle": null,
     "title": "Course Dependency",
-    "topics": []
+    "topics": [
+      "graph",
+      "topological-sort",
+      "dfs"
+    ]
   },
   {
     "access": "free",
@@ -817,7 +901,9 @@
     "slug": "depth-first-search",
     "subtitle": null,
     "title": "Depth-first Search",
-    "topics": []
+    "topics": [
+      "dfs"
+    ]
   },
   {
     "access": "standard",
@@ -844,7 +930,10 @@
     "slug": "disjoint-intervals",
     "subtitle": null,
     "title": "Disjoint Intervals",
-    "topics": []
+    "topics": [
+      "intervals",
+      "greedy"
+    ]
   },
   {
     "access": "standard",
@@ -871,7 +960,10 @@
     "slug": "extraterrestrial-language",
     "subtitle": null,
     "title": "Extraterrestrial Language",
-    "topics": []
+    "topics": [
+      "graph",
+      "topological-sort"
+    ]
   },
   {
     "access": "standard",
@@ -898,7 +990,10 @@
     "slug": "graph-clone",
     "subtitle": null,
     "title": "Graph Clone",
-    "topics": []
+    "topics": [
+      "graph",
+      "dfs"
+    ]
   },
   {
     "access": "standard",
@@ -925,7 +1020,10 @@
     "slug": "graph-count-connected-components",
     "subtitle": null,
     "title": "Graph Count Connected Components",
-    "topics": []
+    "topics": [
+      "graph",
+      "dfs"
+    ]
   },
   {
     "access": "standard",
@@ -952,7 +1050,10 @@
     "slug": "graph-is-tree",
     "subtitle": null,
     "title": "Is the Graph a Tree",
-    "topics": []
+    "topics": [
+      "graph",
+      "dfs"
+    ]
   },
   {
     "access": "standard",
@@ -979,7 +1080,10 @@
     "slug": "grid-count-islands",
     "subtitle": null,
     "title": "Count Islands in a Grid",
-    "topics": []
+    "topics": [
+      "matrix",
+      "dfs"
+    ]
   },
   {
     "access": "standard",
@@ -1006,7 +1110,9 @@
     "slug": "grid-distinct-paths",
     "subtitle": null,
     "title": "Distinct Paths in Grid",
-    "topics": []
+    "topics": [
+      "dynamic-programming"
+    ]
   },
   {
     "access": "standard",
@@ -1033,7 +1139,10 @@
     "slug": "grid-find-word",
     "subtitle": null,
     "title": "Find Word in Grid",
-    "topics": []
+    "topics": [
+      "matrix",
+      "dfs"
+    ]
   },
   {
     "access": "standard",
@@ -1060,7 +1169,11 @@
     "slug": "grid-find-words",
     "subtitle": null,
     "title": "Find Words in Grid",
-    "topics": []
+    "topics": [
+      "matrix",
+      "tree",
+      "trie"
+    ]
   },
   {
     "access": "free",
@@ -1091,7 +1204,10 @@
     "slug": "heap-sort",
     "subtitle": null,
     "title": "Heap Sort",
-    "topics": []
+    "topics": [
+      "heap",
+      "sorting"
+    ]
   },
   {
     "access": "free",
@@ -1122,7 +1238,9 @@
     "slug": "insertion-sort",
     "subtitle": null,
     "title": "Insertion Sort",
-    "topics": []
+    "topics": [
+      "sorting"
+    ]
   },
   {
     "access": "standard",
@@ -1149,7 +1267,11 @@
     "slug": "intervals-combine-overlapping",
     "subtitle": null,
     "title": "Merge Overlapping Intervals",
-    "topics": []
+    "topics": [
+      "intervals",
+      "sorting",
+      "dfs"
+    ]
   },
   {
     "access": "standard",
@@ -1176,7 +1298,10 @@
     "slug": "intervals-meeting-calendar",
     "subtitle": null,
     "title": "Meeting Calendar",
-    "topics": []
+    "topics": [
+      "intervals",
+      "sorting"
+    ]
   },
   {
     "access": "standard",
@@ -1203,7 +1328,11 @@
     "slug": "intervals-merge-new",
     "subtitle": null,
     "title": "Merge New Interval",
-    "topics": []
+    "topics": [
+      "binary-search",
+      "intervals",
+      "sorting"
+    ]
   },
   {
     "access": "standard",
@@ -1230,7 +1359,10 @@
     "slug": "intervals-minimum-meeting-rooms",
     "subtitle": null,
     "title": "Minimum Meeting Rooms Needed",
-    "topics": []
+    "topics": [
+      "heap",
+      "intervals"
+    ]
   },
   {
     "access": "standard",
@@ -1257,7 +1389,10 @@
     "slug": "linked-list-combine-k-sorted",
     "subtitle": null,
     "title": "Linked Lists Combine K Sorted",
-    "topics": []
+    "topics": [
+      "linked-list",
+      "heap"
+    ]
   },
   {
     "access": "standard",
@@ -1284,7 +1419,9 @@
     "slug": "linked-list-combine-two-sorted",
     "subtitle": null,
     "title": "Linked Lists Combine Two Sorted",
-    "topics": []
+    "topics": [
+      "linked-list"
+    ]
   },
   {
     "access": "standard",
@@ -1311,7 +1448,9 @@
     "slug": "linked-list-delete-nth-from-end",
     "subtitle": null,
     "title": "Delete Nth Node from End of Linked List",
-    "topics": []
+    "topics": [
+      "linked-list"
+    ]
   },
   {
     "access": "standard",
@@ -1338,7 +1477,9 @@
     "slug": "linked-list-detect-cycle",
     "subtitle": null,
     "title": "Linked List Detect Cycle",
-    "topics": []
+    "topics": [
+      "linked-list"
+    ]
   },
   {
     "access": "standard",
@@ -1365,7 +1506,9 @@
     "slug": "linked-list-rearrange",
     "subtitle": null,
     "title": "Rearrange Linked List",
-    "topics": []
+    "topics": [
+      "linked-list"
+    ]
   },
   {
     "access": "standard",
@@ -1392,7 +1535,9 @@
     "slug": "linked-list-reversal",
     "subtitle": null,
     "title": "Linked List Reversal",
-    "topics": []
+    "topics": [
+      "linked-list"
+    ]
   },
   {
     "access": "standard",
@@ -1419,7 +1564,10 @@
     "slug": "longest-common-subsequence",
     "subtitle": null,
     "title": "Longest Common Subsequence",
-    "topics": []
+    "topics": [
+      "array",
+      "dynamic-programming"
+    ]
   },
   {
     "access": "standard",
@@ -1446,7 +1594,9 @@
     "slug": "longest-consecutive-number-sequence",
     "subtitle": null,
     "title": "Longest Consecutive Number Sequence",
-    "topics": []
+    "topics": [
+      "array"
+    ]
   },
   {
     "access": "standard",
@@ -1473,7 +1623,11 @@
     "slug": "longest-increasing-subsequence",
     "subtitle": null,
     "title": "Longest Increasing Subsequence",
-    "topics": []
+    "topics": [
+      "array",
+      "binary-search",
+      "greedy"
+    ]
   },
   {
     "access": "standard",
@@ -1500,7 +1654,9 @@
     "slug": "longest-non-repeating-substring",
     "subtitle": null,
     "title": "Longest Non-repeating Substring",
-    "topics": []
+    "topics": [
+      "string"
+    ]
   },
   {
     "access": "standard",
@@ -1527,7 +1683,9 @@
     "slug": "longest-palindromic-substring",
     "subtitle": null,
     "title": "Find the Longest Palindromic Substring",
-    "topics": []
+    "topics": [
+      "string"
+    ]
   },
   {
     "access": "standard",
@@ -1554,7 +1712,10 @@
     "slug": "longest-repeating-substring-after-replacements",
     "subtitle": null,
     "title": "Longest Repeating Substring After Replacements",
-    "topics": []
+    "topics": [
+      "string",
+      "binary-search"
+    ]
   },
   {
     "access": "standard",
@@ -1581,7 +1742,9 @@
     "slug": "matrix-rotation",
     "subtitle": null,
     "title": "Matrix Rotation",
-    "topics": []
+    "topics": [
+      "matrix"
+    ]
   },
   {
     "access": "standard",
@@ -1608,7 +1771,9 @@
     "slug": "matrix-spiral-traversal",
     "subtitle": null,
     "title": "Matrix Spiral Traversal",
-    "topics": []
+    "topics": [
+      "matrix"
+    ]
   },
   {
     "access": "standard",
@@ -1635,7 +1800,9 @@
     "slug": "matrix-zeroing",
     "subtitle": null,
     "title": "Matrix Zeroing",
-    "topics": []
+    "topics": [
+      "matrix"
+    ]
   },
   {
     "access": "standard",
@@ -1662,7 +1829,9 @@
     "slug": "maximum-water-between-walls",
     "subtitle": null,
     "title": "Maximum Water Trapped Between Walls",
-    "topics": []
+    "topics": [
+      "array"
+    ]
   },
   {
     "access": "free",
@@ -1691,7 +1860,9 @@
     "slug": "merge-sort",
     "subtitle": null,
     "title": "Merge Sort",
-    "topics": []
+    "topics": [
+      "sorting"
+    ]
   },
   {
     "access": "standard",
@@ -1718,7 +1889,10 @@
     "slug": "neighborhood-theft",
     "subtitle": null,
     "title": "Neighborhood Theft",
-    "topics": []
+    "topics": [
+      "array",
+      "dynamic-programming"
+    ]
   },
   {
     "access": "standard",
@@ -1745,7 +1919,10 @@
     "slug": "neighborhood-theft-circular",
     "subtitle": null,
     "title": "Neighborhood Theft (Circular)",
-    "topics": []
+    "topics": [
+      "array",
+      "dynamic-programming"
+    ]
   },
   {
     "access": "standard",
@@ -1772,7 +1949,9 @@
     "slug": "number-stream-median",
     "subtitle": null,
     "title": "Number Stream Median",
-    "topics": []
+    "topics": [
+      "heap"
+    ]
   },
   {
     "access": "standard",
@@ -1799,7 +1978,11 @@
     "slug": "ocean-flow",
     "subtitle": null,
     "title": "Ocean Flow",
-    "topics": []
+    "topics": [
+      "graph",
+      "dfs",
+      "bfs"
+    ]
   },
   {
     "access": "standard",
@@ -1826,7 +2009,10 @@
     "slug": "optimal-stock-trading",
     "subtitle": null,
     "title": "Optimal Stock Trading",
-    "topics": []
+    "topics": [
+      "array",
+      "greedy"
+    ]
   },
   {
     "access": "standard",
@@ -1853,7 +2039,9 @@
     "slug": "pair-sum",
     "subtitle": null,
     "title": "Pair sum",
-    "topics": []
+    "topics": [
+      "array"
+    ]
   },
   {
     "access": "free",
@@ -1882,7 +2070,9 @@
     "slug": "queue",
     "subtitle": null,
     "title": "Queue",
-    "topics": []
+    "topics": [
+      "queue"
+    ]
   },
   {
     "access": "free",
@@ -1911,7 +2101,9 @@
     "slug": "quick-sort",
     "subtitle": null,
     "title": "Quick Sort",
-    "topics": []
+    "topics": [
+      "sorting"
+    ]
   },
   {
     "access": "standard",
@@ -1942,7 +2134,9 @@
     "slug": "selection-sort",
     "subtitle": null,
     "title": "Selection Sort",
-    "topics": []
+    "topics": [
+      "sorting"
+    ]
   },
   {
     "access": "free",
@@ -1973,7 +2167,9 @@
     "slug": "stack",
     "subtitle": null,
     "title": "Stack",
-    "topics": []
+    "topics": [
+      "stack"
+    ]
   },
   {
     "access": "standard",
@@ -2000,7 +2196,9 @@
     "slug": "staircase-climbing-combinations",
     "subtitle": null,
     "title": "Staircase Climbing Combinations",
-    "topics": []
+    "topics": [
+      "dynamic-programming"
+    ]
   },
   {
     "access": "standard",
@@ -2027,7 +2225,9 @@
     "slug": "string-anagram",
     "subtitle": null,
     "title": "String Anagram",
-    "topics": []
+    "topics": [
+      "string"
+    ]
   },
   {
     "access": "standard",
@@ -2054,7 +2254,9 @@
     "slug": "string-anagram-groups",
     "subtitle": null,
     "title": "String Anagram Groups",
-    "topics": []
+    "topics": [
+      "string"
+    ]
   },
   {
     "access": "standard",
@@ -2081,7 +2283,10 @@
     "slug": "string-decode-message",
     "subtitle": null,
     "title": "Decode Message",
-    "topics": []
+    "topics": [
+      "string",
+      "dynamic-programming"
+    ]
   },
   {
     "access": "standard",
@@ -2108,7 +2313,9 @@
     "slug": "string-palindrome",
     "subtitle": null,
     "title": "String Palindrome",
-    "topics": []
+    "topics": [
+      "string"
+    ]
   },
   {
     "access": "standard",
@@ -2135,7 +2342,9 @@
     "slug": "string-palindromic-substrings",
     "subtitle": null,
     "title": "Palindromic Substrings",
-    "topics": []
+    "topics": [
+      "string"
+    ]
   },
   {
     "access": "standard",
@@ -2162,7 +2371,11 @@
     "slug": "string-segment-words",
     "subtitle": null,
     "title": "Segment Words",
-    "topics": []
+    "topics": [
+      "string",
+      "dynamic-programming",
+      "graph"
+    ]
   },
   {
     "access": "standard",
@@ -2189,7 +2402,9 @@
     "slug": "string-shortest-substring-containing-characters",
     "subtitle": null,
     "title": "Shortest Substring Containing Characters",
-    "topics": []
+    "topics": [
+      "string"
+    ]
   },
   {
     "access": "standard",
@@ -2216,7 +2431,9 @@
     "slug": "sum-without-addition",
     "subtitle": null,
     "title": "Sum Without Addition",
-    "topics": []
+    "topics": [
+      "binary"
+    ]
   },
   {
     "access": "standard",
@@ -2243,7 +2460,10 @@
     "slug": "task-coordination",
     "subtitle": null,
     "title": "Task Coordination",
-    "topics": []
+    "topics": [
+      "greedy",
+      "heap"
+    ]
   },
   {
     "access": "free",
@@ -2274,7 +2494,10 @@
     "slug": "topological-sort",
     "subtitle": null,
     "title": "Topological Sort",
-    "topics": []
+    "topics": [
+      "topological-sort",
+      "graph"
+    ]
   },
   {
     "access": "standard",
@@ -2301,7 +2524,10 @@
     "slug": "trie-prefix-tree",
     "subtitle": null,
     "title": "Trie (Prefix Tree)",
-    "topics": []
+    "topics": [
+      "tree",
+      "trie"
+    ]
   },
   {
     "access": "standard",
@@ -2328,7 +2554,9 @@
     "slug": "triplet-sum",
     "subtitle": null,
     "title": "Triplet Sum",
-    "topics": []
+    "topics": [
+      "array"
+    ]
   },
   {
     "access": "standard",
@@ -2355,6 +2583,10 @@
     "slug": "word-finder",
     "subtitle": null,
     "title": "Word Finder",
-    "topics": []
+    "topics": [
+      "matrix",
+      "graph",
+      "trie"
+    ]
   }
 ]

@@ -8,5 +8,6 @@
   "published": false,
   "importance": "low",
   "difficulty": "hard",
-  "similar_questions": ["heap-sort"]
+  "similar_questions": ["heap-sort"],
+  "topics": ["heap"]
 }

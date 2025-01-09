@@ -34,7 +34,10 @@
     "slug": "intervals-meeting-calendar",
     "subtitle": null,
     "title": "Meeting Calendar",
-    "topics": []
+    "topics": [
+      "intervals",
+      "sorting"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {number[][]} numbers\n * @return {boolean}\n */\nexport default function isMeetingCalendarValid(intervals) {\n  throw 'Not implemented!';\n}",

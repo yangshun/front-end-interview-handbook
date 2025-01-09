@@ -30,7 +30,7 @@ Instead of checking all possible substrings, the sliding window dynamically adju
 - **Time complexity: O(n)**. The `end` pointer iterates through the string once, and the `start` pointer adjusts as needed, resulting in linear time.
 - **Space complexity: O(1)**. The `frequencyMap` is of constant size (`26`), independent of the input string length.
 
-## 2. Using Binary Search with Siding Window
+## 2. Using Binary Search with Sliding Window
 
 The solution combines binary search with sliding window optimization to efficiently determine the result. Binary search is used to explore the possible lengths of valid substrings. The range of possible lengths is reduced logarithmically by checking whether a substring of a given length can be made valid with at most `k` replacements. The sliding window technique verifies the validity of each length by maintaining the frequency of characters in the current window and determining whether the required replacements fall within the allowed `k`.
 

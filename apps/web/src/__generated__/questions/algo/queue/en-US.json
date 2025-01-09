@@ -34,7 +34,9 @@
     "slug": "queue",
     "subtitle": null,
     "title": "Queue",
-    "topics": []
+    "topics": [
+      "queue"
+    ]
   },
   "skeleton": {
     "js": "export default class Queue {\n  constructor() {\n    throw 'Not implemented!';\n  }\n\n  /**\n   * Adds an item to the back of the queue.\n   * @param {*} item The item to be pushed onto the queue.\n   * @return {number} The new length of the queue.\n   */\n  enqueue(item) {\n    throw 'Not implemented!';\n  }\n\n  /**\n   * Removes an item from the front of the queue.\n   * @return {*} The item at the front of the queue if it is not empty, `undefined` otherwise.\n   */\n  dequeue() {\n    throw 'Not implemented!';\n  }\n\n  /**\n   * Determines if the queue is empty.\n   * @return {boolean} `true` if the queue has no items, `false` otherwise.\n   */\n  isEmpty() {\n    throw 'Not implemented!';\n  }\n\n  /**\n   * Returns the item at the front of the queue without removing it from the queue.\n   * @return {*} The item at the front of the queue if it is not empty, `undefined` otherwise.\n   */\n  front() {\n    throw 'Not implemented!';\n  }\n\n  /**\n   * Returns the item at the back of the queue without removing it from the queue.\n   * @return {*} The item at the back of the queue if it is not empty, `undefined` otherwise.\n   */\n  back() {\n    throw 'Not implemented!';\n  }\n\n  /**\n   * Returns the number of items in the queue.\n   * @return {number} The number of items in the queue.\n   */\n  length() {\n    throw 'Not implemented!';\n  }\n}",

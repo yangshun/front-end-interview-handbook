@@ -34,7 +34,11 @@
     "slug": "binary-tree-serialization-deserialization",
     "subtitle": null,
     "title": "Binary Tree Serialization and Deserialization",
-    "topics": []
+    "topics": [
+      "binary-tree",
+      "tree",
+      "dfs"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {TreeNode | null} root\n * @return {string}\n */\nexport function serializeBinaryTree(root) {\n  throw 'Not implemented!';\n}\n\n/**\n * @param {string} data\n * @return {TreeNode | null}\n */\nexport function deserializeBinaryTree(data) {\n  throw 'Not implemented!';\n}",

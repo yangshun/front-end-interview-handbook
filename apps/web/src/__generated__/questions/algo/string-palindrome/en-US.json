@@ -34,7 +34,9 @@
     "slug": "string-palindrome",
     "subtitle": null,
     "title": "String Palindrome",
-    "topics": []
+    "topics": [
+      "string"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {string} str\n * @return {boolean}\n */\nexport default function isStringPalindrome(str) {\n  throw 'Not implemented!';\n}",

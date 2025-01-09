@@ -34,7 +34,9 @@
     "slug": "grid-distinct-paths",
     "subtitle": null,
     "title": "Distinct Paths in Grid",
-    "topics": []
+    "topics": [
+      "dynamic-programming"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {number} m\n * @param {number} n\n * @return {number}\n */\nexport default function gridDistinctPaths(m, n) {\n  throw 'Not implemented!';\n}",

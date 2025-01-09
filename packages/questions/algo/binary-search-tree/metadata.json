@@ -8,5 +8,6 @@
   "published": false,
   "importance": "low",
   "difficulty": "medium",
-  "similar_questions": ["heap", "binary-search"]
+  "similar_questions": ["heap", "binary-search"],
+  "topics": ["binary-tree", "binary-search-tree", "tree"]
 }

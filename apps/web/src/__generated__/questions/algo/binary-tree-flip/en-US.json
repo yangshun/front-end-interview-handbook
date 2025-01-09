@@ -34,7 +34,10 @@
     "slug": "binary-tree-flip",
     "subtitle": null,
     "title": "Flip Binary Tree",
-    "topics": []
+    "topics": [
+      "binary-tree",
+      "tree"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {TreeNode | null} root\n * @return {TreeNode | null}\n */\nexport default function binaryTreeFlip(root) {\n  throw 'Not implemented!';\n}",

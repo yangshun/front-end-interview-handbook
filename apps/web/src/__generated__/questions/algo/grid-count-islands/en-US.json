@@ -34,7 +34,10 @@
     "slug": "grid-count-islands",
     "subtitle": null,
     "title": "Count Islands in a Grid",
-    "topics": []
+    "topics": [
+      "matrix",
+      "dfs"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {number[][]} grid\n * @return {number}\n */\nexport default function countGridIslands(grid) {\n  throw 'Not implemented!';\n}",

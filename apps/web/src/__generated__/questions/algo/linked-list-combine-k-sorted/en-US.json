@@ -34,7 +34,10 @@
     "slug": "linked-list-combine-k-sorted",
     "subtitle": null,
     "title": "Linked Lists Combine K Sorted",
-    "topics": []
+    "topics": [
+      "linked-list",
+      "heap"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {(Node | null)[]} lists\n * @returns Node | null\n */\nexport default function linkedListCombineKSorted(lists) {\n  throw 'Not implemented!';\n}",

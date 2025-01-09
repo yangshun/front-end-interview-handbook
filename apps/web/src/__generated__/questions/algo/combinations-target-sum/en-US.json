@@ -34,7 +34,9 @@
     "slug": "combinations-target-sum",
     "subtitle": null,
     "title": "Combinations for Target Sum",
-    "topics": []
+    "topics": [
+      "dynamic-programming"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {number[]} numbers\n * @param {number} target\n * @return {number}\n */\nexport default function combinationTargetSum(numbers, target) {\n  throw 'Not implemented!';\n}",

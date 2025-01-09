@@ -34,7 +34,9 @@
     "slug": "staircase-climbing-combinations",
     "subtitle": null,
     "title": "Staircase Climbing Combinations",
-    "topics": []
+    "topics": [
+      "dynamic-programming"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {number} steps\n * @return {number}\n */\nexport default function staircaseClimbingCombinations(steps) {\n  throw 'Not implemented!';\n}",

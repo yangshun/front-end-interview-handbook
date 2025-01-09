@@ -34,7 +34,9 @@
     "slug": "number-stream-median",
     "subtitle": null,
     "title": "Number Stream Median",
-    "topics": []
+    "topics": [
+      "heap"
+    ]
   },
   "skeleton": {
     "js": "export default class NumberStream {\n  /**\n   * Adds an integer into the data structure\n   *\n   * @param {number} num\n   */\n  add(num) {\n    throw 'Not implemented!';\n  }\n\n  /**\n   * Returns the median of the current number stream\n   *\n   * @returns {number}\n   */\n  getMedian() {\n    throw 'Not implemented!';\n  }\n}",

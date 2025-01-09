@@ -38,7 +38,10 @@
     "slug": "binary-search",
     "subtitle": null,
     "title": "Binary Search",
-    "topics": []
+    "topics": [
+      "binary-search",
+      "sorting"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {Array<number>} arr The input integer array to be searched.\n * @param {number} target The target integer to search within the array.\n * @return {number} The index of target element in the array, or -1 if not found.\n */\nexport default function binarySearch(arr, target) {\n  throw 'Not implemented!';\n}",

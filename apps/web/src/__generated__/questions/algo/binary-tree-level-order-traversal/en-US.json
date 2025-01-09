@@ -34,7 +34,10 @@
     "slug": "binary-tree-level-order-traversal",
     "subtitle": null,
     "title": "Binary Tree Level Order Traversal",
-    "topics": []
+    "topics": [
+      "binary-tree",
+      "tree"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {TreeNode | null} root\n * @return {number[][]}\n */\nexport default function binaryTreeLevelOrderTraversal(root) {\n  throw 'Not implemented!';\n}",

@@ -34,7 +34,10 @@
     "slug": "longest-common-subsequence",
     "subtitle": null,
     "title": "Longest Common Subsequence",
-    "topics": []
+    "topics": [
+      "array",
+      "dynamic-programming"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {string} str1\n * @param {string} str2\n * @return {number}\n */\nexport default function longestCommonSubsequence(str1, str2) {\n  throw 'Not implemented!';\n}",

@@ -34,7 +34,10 @@
     "slug": "task-coordination",
     "subtitle": null,
     "title": "Task Coordination",
-    "topics": []
+    "topics": [
+      "greedy",
+      "heap"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {string[]} tasks\n * @param {number} k\n * @return {number}\n */\nexport default function taskCoordinator(tasks, k) {\n  throw 'Not implemented!';\n}",

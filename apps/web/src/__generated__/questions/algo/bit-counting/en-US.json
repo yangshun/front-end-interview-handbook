@@ -34,7 +34,9 @@
     "slug": "bit-counting",
     "subtitle": null,
     "title": "Bit Counting",
-    "topics": []
+    "topics": [
+      "binary"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {number} n\n * @return {number[]}\n */\nexport default function bitCounting(n) {\n  throw 'Not implemented!';\n}",

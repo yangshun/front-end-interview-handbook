@@ -34,7 +34,9 @@
     "slug": "string-shortest-substring-containing-characters",
     "subtitle": null,
     "title": "Shortest Substring Containing Characters",
-    "topics": []
+    "topics": [
+      "string"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {string} str1\n * @param {string} str2\n * @return {string}\n */\nexport default function shortestSubstringContainingCharacters(str1, str2) {\n  throw 'Not implemented!';\n}",

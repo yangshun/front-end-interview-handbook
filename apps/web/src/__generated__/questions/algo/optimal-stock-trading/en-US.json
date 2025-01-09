@@ -34,7 +34,10 @@
     "slug": "optimal-stock-trading",
     "subtitle": null,
     "title": "Optimal Stock Trading",
-    "topics": []
+    "topics": [
+      "array",
+      "greedy"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {number[]} prices\n * @return {number}\n */\nexport default function optimalStockTrading(prices) {\n  throw 'Not implemented!';\n}",

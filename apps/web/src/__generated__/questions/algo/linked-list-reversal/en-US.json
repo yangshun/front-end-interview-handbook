@@ -34,7 +34,9 @@
     "slug": "linked-list-reversal",
     "subtitle": null,
     "title": "Linked List Reversal",
-    "topics": []
+    "topics": [
+      "linked-list"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {ListNode} head\n * @param {number} n\n * @return {Node | null}\n */\nexport default function reverseLinkedList(head) {\n  throw 'Not implemented!';\n}",

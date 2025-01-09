@@ -34,7 +34,9 @@
     "slug": "longest-palindromic-substring",
     "subtitle": null,
     "title": "Find the Longest Palindromic Substring",
-    "topics": []
+    "topics": [
+      "string"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {string} str\n * @return {string}\n */\nexport default function longestPalindromeSubstring(str) {\n  throw 'Not implemented!';\n}",

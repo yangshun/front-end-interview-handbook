@@ -34,7 +34,10 @@
     "slug": "binary-tree-equal",
     "subtitle": null,
     "title": "Binary Tree Equal",
-    "topics": []
+    "topics": [
+      "binary-tree",
+      "tree"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {TreeNode | null} a\n * @param {TreeNode | null} b\n * @return {boolean}\n */\nexport default function binaryTreeEqual(a, b) {\n  throw 'Not implemented!';\n}",

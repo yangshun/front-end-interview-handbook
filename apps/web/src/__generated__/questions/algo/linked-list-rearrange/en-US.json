@@ -34,7 +34,9 @@
     "slug": "linked-list-rearrange",
     "subtitle": null,
     "title": "Rearrange Linked List",
-    "topics": []
+    "topics": [
+      "linked-list"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {ListNode} head\n * @return {void}\n */\nexport default function rearrangeLinkedList(head) {\n  throw 'Not implemented!';\n}",

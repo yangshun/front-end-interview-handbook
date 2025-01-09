@@ -20,9 +20,9 @@ Binary Search Trees (BSTs) are a fundamental data structure in computer science,
 
 - `search(value)`: Searches for a node containing the specified value. Starting from the root, the tree is traversed to the left or right depending on how the target value compares to the current node’s value. The process is repeated until the value is found or until a leaf is reached. Similar to `insert(value)`, the average time complexity is O(log n), with a worst-case of O(n).
 - `delete(value)`: Removes a node with the specified value from the BST. This operation is more complex as it needs to handle three cases:
-   - Leaf Node: Directly remove the node.
-   - Node with One Child: Remove the node and replace it with its child.
-   - Node with Two Children: Replace the node's value with the smallest value in the right subtree and then delete the successor node.
+  - Leaf Node: Directly remove the node.
+  - Node with One Child: Remove the node and replace it with its child.
+  - Node with Two Children: Replace the node's value with the smallest value in the right subtree and then delete the successor node.
 
 ![Delete](/img/questions/binary-search-tree/delete.png)
 

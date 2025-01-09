@@ -34,7 +34,9 @@
     "slug": "array-maximum-product-contiguous",
     "subtitle": null,
     "title": "Maximum Product in Contiguous Array",
-    "topics": []
+    "topics": [
+      "array"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {number[]} numbers\n * @return {number}\n */\nexport default function maxProductSubArray(numbers) {\n  throw 'Not implemented!';\n}",

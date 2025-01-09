@@ -9,5 +9,6 @@
   "importance": "low",
   "difficulty": "medium",
   "similar_questions": ["selection-sort"],
-  "next_questions": ["quick-sort"]
+  "next_questions": ["quick-sort"],
+  "topics": ["heap", "sorting"]
 }

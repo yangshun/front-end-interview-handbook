@@ -34,7 +34,10 @@
     "slug": "graph-count-connected-components",
     "subtitle": null,
     "title": "Graph Count Connected Components",
-    "topics": []
+    "topics": [
+      "graph",
+      "dfs"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {number} n\n * @param {Array<[number, number]>} edges\n */\nexport default function graphCountConnectedComponents(n, edges) {\n  throw 'Not implemented!';\n}",

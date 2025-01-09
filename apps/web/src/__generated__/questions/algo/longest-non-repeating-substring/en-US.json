@@ -34,7 +34,9 @@
     "slug": "longest-non-repeating-substring",
     "subtitle": null,
     "title": "Longest Non-repeating Substring",
-    "topics": []
+    "topics": [
+      "string"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {string} str\n * @return {number}\n */\nexport default function longestUniqueSubstring(str) {\n  throw 'Not implemented!';\n}",

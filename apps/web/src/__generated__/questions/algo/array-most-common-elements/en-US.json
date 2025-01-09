@@ -34,7 +34,10 @@
     "slug": "array-most-common-elements",
     "subtitle": null,
     "title": "Most Common Elements",
-    "topics": []
+    "topics": [
+      "array",
+      "heap"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {number[]} numbers\n * @param {number} k\n * @return {number[]}\n */\nexport default function mostCommonElements(numbers, k) {\n  throw 'Not implemented!';\n}",

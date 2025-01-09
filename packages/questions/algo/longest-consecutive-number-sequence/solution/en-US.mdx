@@ -54,7 +54,7 @@ The algorithm iterates through the sorted array and keeps track of the length of
 - **Time complexity: O(n log n)**. Sorting the array dominates the runtime, taking O(n log n). The subsequent single traversal of the array is O(n), making the total complexity O(n log n).
 - **Space complexity: O(1)**. Sorting is performed in-place, and only a few variables are used for tracking streaks.
 
-## 3. Using HashSet
+## 3. Using Hashing
 
 This solution improves the runtime complexity by using a `Set` to store the input numbers. A `Set` provides O(1) average-time complexity for lookups, which eliminates the need for repeated searches through the array. The approach identifies the start of a potential sequence by checking if the current number does not have a preceding number in the set (`num - 1`). Once a sequence start is identified, it counts consecutive numbers until the sequence ends.
 

@@ -37,7 +37,9 @@
     "slug": "bubble-sort",
     "subtitle": null,
     "title": "Bubble Sort",
-    "topics": []
+    "topics": [
+      "sorting"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {Array<number>} arr The input integer array to be sorted.\n * @return {Array<number>}\n */\nexport default function bubbleSort(arr) {\n  throw 'Not implemented!';\n}",

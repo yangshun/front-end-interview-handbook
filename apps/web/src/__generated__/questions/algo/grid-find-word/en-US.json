@@ -34,7 +34,10 @@
     "slug": "grid-find-word",
     "subtitle": null,
     "title": "Find Word in Grid",
-    "topics": []
+    "topics": [
+      "matrix",
+      "dfs"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {string[][]} grid\n * @param {string} target\n * @return {boolean}\n */\nexport default function findWordInGrid(grid, target) {\n  throw 'Not implemented!';\n}",

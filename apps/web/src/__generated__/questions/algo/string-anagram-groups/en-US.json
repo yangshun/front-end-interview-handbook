@@ -34,7 +34,9 @@
     "slug": "string-anagram-groups",
     "subtitle": null,
     "title": "String Anagram Groups",
-    "topics": []
+    "topics": [
+      "string"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {string[]} strs\n * @return {string[][]}\n */\nexport default function anagramGroups(strs) {\n  throw 'Not implemented!';\n}",

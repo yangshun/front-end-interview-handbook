@@ -34,7 +34,9 @@
     "slug": "matrix-spiral-traversal",
     "subtitle": null,
     "title": "Matrix Spiral Traversal",
-    "topics": []
+    "topics": [
+      "matrix"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {number[][]} matrix\n * @return {number[]}\n */\nexport default function matrixSpiralTraversal(matrix) {\n  throw 'Not implemented!';\n}",

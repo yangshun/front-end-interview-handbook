@@ -34,7 +34,9 @@
     "slug": "breadth-first-search",
     "subtitle": null,
     "title": "Breadth-first Search",
-    "topics": []
+    "topics": [
+      "bfs"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {Record<string, Array<string>} graph The adjacency list representing the graph.\n * @param {string} source The source node to start traversal from. Has to be a valid node if graph is non-empty.\n * @return {Array<string>} A BFS-traversed order of nodes.\n */\nexport default function breadthFirstSearch(graph, source) {\n  throw 'Not implemented!';\n}\n\n/*  Auxiliary classes */\n\n/**\n * A Queue class with O(1) enqueue and dequeue is provided for you.\n * You can use it directly should you wish to.\n *\n * Example usage:\n * const q = new Queue();\n * q.enqueue('a');\n * q.enqueue('b');\n * q.dequeue(); //'a'\n * q.isEmpty(); // False\n */\nclass Node {\n  constructor(value) {\n    this.value = value;\n    this.next = null;\n  }\n}\n\nclass Queue {\n  constructor() {\n    this.head = null;\n    this.tail = null;\n    this.length = 0;\n  }\n\n  isEmpty() {\n    return this.length === 0;\n  }\n\n  enqueue(item) {\n    const newNode = new Node(item);\n    if (this.isEmpty()) {\n      this.head = newNode;\n    } else if (this.tail) {\n      this.tail.next = newNode;\n    }\n    this.tail = newNode;\n    this.length++;\n  }\n\n  dequeue() {\n    if (this.isEmpty() || !this.head) {\n      return null;\n    } else {\n      const removedNode = this.head;\n      this.head = this.head.next;\n      removedNode.next = null;\n      this.length--;\n      if (this.isEmpty()) {\n        this.tail = null;\n      }\n      return removedNode.value;\n    }\n  }\n}",

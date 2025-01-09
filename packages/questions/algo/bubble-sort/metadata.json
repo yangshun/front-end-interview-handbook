@@ -9,5 +9,6 @@
   "importance": "low",
   "difficulty": "easy",
   "similar_questions": ["insertion-sort", "selection-sort"],
-  "next_questions": ["quick-sort"]
+  "next_questions": ["quick-sort"],
+  "topics": ["sorting"]
 }

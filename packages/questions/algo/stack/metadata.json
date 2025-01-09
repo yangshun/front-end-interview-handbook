@@ -10,5 +10,6 @@
   "importance": "low",
   "difficulty": "easy",
   "similar_questions": ["queue"],
-  "next_questions": ["queue"]
+  "next_questions": ["queue"],
+  "topics": ["stack"]
 }

@@ -34,7 +34,11 @@
     "slug": "intervals-merge-new",
     "subtitle": null,
     "title": "Merge New Interval",
-    "topics": []
+    "topics": [
+      "binary-search",
+      "intervals",
+      "sorting"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {number[][]} intervals\n * @param {number[]} newInterval\n * @return {number[][]}\n */\nexport default function mergeNewInterval(intervals, newInterval) {\n  throw 'Not implemented!';\n}",

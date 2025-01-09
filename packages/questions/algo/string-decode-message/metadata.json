@@ -11,5 +11,6 @@
   "difficulty": "medium",
   "featured": false,
   "similar_questions": [],
-  "next_questions": []
+  "next_questions": [],
+  "topics": ["string", "dynamic-programming"]
 }

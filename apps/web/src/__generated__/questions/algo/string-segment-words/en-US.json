@@ -34,7 +34,11 @@
     "slug": "string-segment-words",
     "subtitle": null,
     "title": "Segment Words",
-    "topics": []
+    "topics": [
+      "string",
+      "dynamic-programming",
+      "graph"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {string} str\n * @param {string[]} dict\n * @return {boolean}\n */\nexport default function segmentWords(str, dict) {\n  throw 'Not implemented!';\n}",

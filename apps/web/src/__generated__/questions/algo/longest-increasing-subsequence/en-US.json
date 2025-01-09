@@ -34,7 +34,11 @@
     "slug": "longest-increasing-subsequence",
     "subtitle": null,
     "title": "Longest Increasing Subsequence",
-    "topics": []
+    "topics": [
+      "array",
+      "binary-search",
+      "greedy"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {number[]} numbers\n * @return {number}\n */\nexport default function longestIncreasingSubsequence(numbers) {\n  throw 'Not implemented!';\n}",

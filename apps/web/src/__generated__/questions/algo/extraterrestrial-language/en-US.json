@@ -34,7 +34,10 @@
     "slug": "extraterrestrial-language",
     "subtitle": null,
     "title": "Extraterrestrial Language",
-    "topics": []
+    "topics": [
+      "graph",
+      "topological-sort"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {string[]} words\n * @return {string}\n */\nexport default function extraterrestrialLanguage(words) {\n  throw 'Not implemented!';\n}",

@@ -34,7 +34,10 @@
     "slug": "binary-tree-rebuilding-from-traversals",
     "subtitle": null,
     "title": "Binary Tree Rebuilding from Preorder and Inorder Traversals",
-    "topics": []
+    "topics": [
+      "binary-tree",
+      "tree"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {number[]} preorder\n * @param {number[]} inorder\n * @return {TreeNode | null}\n */\nexport default function binaryTreeRebuildingFromTraversals(preorder, inorder) {\n  throw 'Not implemented!';\n}",

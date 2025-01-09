@@ -34,7 +34,9 @@
     "slug": "linked-list-combine-two-sorted",
     "subtitle": null,
     "title": "Linked Lists Combine Two Sorted",
-    "topics": []
+    "topics": [
+      "linked-list"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {ListNode | null} listA\n * @param {ListNode | null} listB\n * @return {ListNode | null}\n */\nexport default function linkedListCombineTwoSorted(listA, listB) {\n  throw 'Not implemented!';\n}",

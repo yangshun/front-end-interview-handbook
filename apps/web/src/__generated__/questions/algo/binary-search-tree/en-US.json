@@ -35,7 +35,11 @@
     "slug": "binary-search-tree",
     "subtitle": null,
     "title": "Binary Search Tree",
-    "topics": []
+    "topics": [
+      "binary-tree",
+      "binary-search-tree",
+      "tree"
+    ]
   },
   "skeleton": {
     "js": "export default class BinarySearchTree {\n  constructor() {\n    throw 'Not implemented!';\n  }\n\n  /**\n   * Inserts a new value into the BST while maintaining BST properties.\n   * @param {*} value The value to be inserted into the BST.\n   */\n  insert(value) {\n    throw 'Not implemented!';\n  }\n\n  /**\n   * Searches for a value in the BST. Returns true if the value exists, false otherwise.\n   * @param {*} value The value to search for.\n   * @return {boolean} True if the value is found, false otherwise.\n   */\n  search(value) {\n    throw 'Not implemented!';\n  }\n\n  /**\n   * Deletes a value from the BST, if it exists, while maintaining BST properties.\n   * @param {*} value The value to be deleted from the BST.\n   */\n  delete(value) {\n    throw 'Not implemented!';\n  }\n}",

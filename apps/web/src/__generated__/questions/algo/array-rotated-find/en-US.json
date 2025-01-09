@@ -34,7 +34,10 @@
     "slug": "array-rotated-find",
     "subtitle": null,
     "title": "Find Element in Rotated Array",
-    "topics": []
+    "topics": [
+      "array",
+      "binary-search"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {number[]} numbers\n * @param {number} target\n * @return {number}\n */\nexport default function findInRotatedArray(numbers, target) {\n  throw 'Not implemented!';\n}",

@@ -34,7 +34,10 @@
     "slug": "disjoint-intervals",
     "subtitle": null,
     "title": "Disjoint Intervals",
-    "topics": []
+    "topics": [
+      "intervals",
+      "greedy"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {number[][]} intervals\n * @return {number}\n */\nexport default function disjointIntervals(intervals) {\n  throw 'Not implemented!';\n}",

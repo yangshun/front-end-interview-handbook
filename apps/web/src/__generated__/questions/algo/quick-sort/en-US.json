@@ -34,7 +34,9 @@
     "slug": "quick-sort",
     "subtitle": null,
     "title": "Quick Sort",
-    "topics": []
+    "topics": [
+      "sorting"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {Array<number>} arr The input integer array to be sorted.\n * @return {Array<number>}\n */\nexport default function quickSort(arr) {\n  throw 'Not implemented!';\n}",

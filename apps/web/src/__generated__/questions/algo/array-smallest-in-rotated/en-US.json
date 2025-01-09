@@ -34,7 +34,10 @@
     "slug": "array-smallest-in-rotated",
     "subtitle": null,
     "title": "Smallest element in rotated sorted array",
-    "topics": []
+    "topics": [
+      "array",
+      "binary-search"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {number[]} numbers\n * @return {number}\n */\nexport default function smallestInRotatedArray(numbers) {\n  throw 'Not implemented!';\n}",

@@ -34,7 +34,11 @@
     "slug": "intervals-combine-overlapping",
     "subtitle": null,
     "title": "Merge Overlapping Intervals",
-    "topics": []
+    "topics": [
+      "intervals",
+      "sorting",
+      "dfs"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {number[][]} intervals\n * @return {number[][]}\n */\nexport default function mergeOverlappingIntervals(intervals) {\n  throw 'Not implemented!';\n}",

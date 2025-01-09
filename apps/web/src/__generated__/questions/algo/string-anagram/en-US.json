@@ -34,7 +34,9 @@
     "slug": "string-anagram",
     "subtitle": null,
     "title": "String Anagram",
-    "topics": []
+    "topics": [
+      "string"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {string} str1\n * @param {string} str2\n * @return {boolean}\n */\nexport default function isStringAnagram(str1, str2) {\n  throw 'Not implemented!';\n}",

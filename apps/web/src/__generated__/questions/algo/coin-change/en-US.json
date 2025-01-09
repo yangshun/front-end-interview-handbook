@@ -34,7 +34,9 @@
     "slug": "coin-change",
     "subtitle": null,
     "title": "Minimum Coins for Change",
-    "topics": []
+    "topics": [
+      "dynamic-programming"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {number[]} coins\n * @param {number} target\n * @return {number}\n */\nexport default function minimumCoinsForChange(coins, target) {\n  throw 'Not implemented!';\n}",

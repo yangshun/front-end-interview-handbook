@@ -36,7 +36,9 @@
     "slug": "insertion-sort",
     "subtitle": null,
     "title": "Insertion Sort",
-    "topics": []
+    "topics": [
+      "sorting"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {Array<number>} arr The input integer array to be sorted.\n * @return {Array<number>}\n */\nexport default function insertionSort(arr) {\n  throw 'Not implemented!';\n}",

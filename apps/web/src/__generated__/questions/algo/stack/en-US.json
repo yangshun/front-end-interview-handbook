@@ -36,7 +36,9 @@
     "slug": "stack",
     "subtitle": null,
     "title": "Stack",
-    "topics": []
+    "topics": [
+      "stack"
+    ]
   },
   "skeleton": {
     "js": "export default class Stack {\n  constructor() {\n    throw 'Not implemented!';\n  }\n\n  /**\n   * Pushes an item onto the top of the stack.\n   * @param {*} item The item to be pushed onto the stack.\n   * @return {number} The new length of the stack.\n   */\n  push(item) {\n    throw 'Not implemented!';\n  }\n\n  /**\n   * Remove an item at the top of the stack.\n   * @return {*} The item at the top of the stack if it is not empty, `undefined` otherwise.\n   */\n  pop() {\n    throw 'Not implemented!';\n  }\n\n  /**\n   * Determines if the stack is empty.\n   * @return {boolean} `true` if the stack has no items, `false` otherwise.\n   */\n  isEmpty() {\n    throw 'Not implemented!';\n  }\n\n  /**\n   * Returns the item at the top of the stack without removing it from the stack.\n   * @return {*} The item at the top of the stack if it is not empty, `undefined` otherwise.\n   */\n  peek() {\n    throw 'Not implemented!';\n  }\n\n  /**\n   * Returns the number of items in the stack.\n   * @return {number} The number of items in the stack.\n   */\n  length() {\n    throw 'Not implemented!';\n  }\n}",

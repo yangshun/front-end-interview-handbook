@@ -36,7 +36,10 @@
     "slug": "heap-sort",
     "subtitle": null,
     "title": "Heap Sort",
-    "topics": []
+    "topics": [
+      "heap",
+      "sorting"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {Array<number>} arr The input integer array to be sorted.\n * @return {Array<number>}\n */\nexport default function heapSort(arr) {\n  throw 'Not implemented!';\n}",

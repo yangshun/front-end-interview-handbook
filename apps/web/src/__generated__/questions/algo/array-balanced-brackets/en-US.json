@@ -34,7 +34,10 @@
     "slug": "array-balanced-brackets",
     "subtitle": null,
     "title": "Balanced Brackets",
-    "topics": []
+    "topics": [
+      "array",
+      "stack"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {string} str\n * @return {boolean}\n */\nexport default function isBalancedBrackets(str) {\n  throw 'Not implemented!';\n}",

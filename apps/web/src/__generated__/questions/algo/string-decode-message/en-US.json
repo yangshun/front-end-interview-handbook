@@ -34,7 +34,10 @@
     "slug": "string-decode-message",
     "subtitle": null,
     "title": "Decode Message",
-    "topics": []
+    "topics": [
+      "string",
+      "dynamic-programming"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {str} str\n * @return {number}\n */\nexport default function decodeMessage(str) {\n  throw 'Not implemented!';\n}",

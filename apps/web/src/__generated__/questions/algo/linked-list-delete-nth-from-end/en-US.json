@@ -34,7 +34,9 @@
     "slug": "linked-list-delete-nth-from-end",
     "subtitle": null,
     "title": "Delete Nth Node from End of Linked List",
-    "topics": []
+    "topics": [
+      "linked-list"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {ListNode} head\n * @param {number} n\n * @return {Node | null}\n */\nexport default function deleteNthNodeFromEnd(head, n) {\n  throw 'Not implemented!';\n}",

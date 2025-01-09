@@ -36,7 +36,9 @@
     "slug": "selection-sort",
     "subtitle": null,
     "title": "Selection Sort",
-    "topics": []
+    "topics": [
+      "sorting"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {Array<number>} arr The input integer array to be sorted.\n * @return {Array<number>}\n */\nexport default function selectionSort(arr) {\n  throw 'Not implemented!';\n}",

@@ -34,7 +34,9 @@
     "slug": "heap",
     "subtitle": null,
     "title": "Heap",
-    "topics": []
+    "topics": [
+      "heap"
+    ]
   },
   "skeleton": {
     "js": "export default class Heap {\n  constructor(array = []) {\n    throw 'Not implemented!';\n  }\n\n  /**\n   * Constructs the initial heap structure with a given `array`.\n   * @param {Array} array The initial array.\n   */\n  heapify(array) {\n    throw 'Not implemented!';\n  }\n\n  /**\n   * Adds an item into the heap.\n   * @param {*} item The item to be added into the heap.\n   */\n  insert(value) {\n    throw 'Not implemented!';\n  }\n\n  /**\n   * Removes the top of the heap / maximum element.\n   * @return {*} The element removed.\n   */\n  delete() {\n    throw 'Not implemented!';\n  }\n\n  /**\n   * Returns the value of the maximum element.\n   * @return {number} The maximum element.\n   */\n  findMax() {\n    throw 'Not implemented!';\n  }\n}",

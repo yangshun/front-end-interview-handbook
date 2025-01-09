@@ -34,7 +34,11 @@
     "slug": "binary-tree-maximum-total-path",
     "subtitle": null,
     "title": "Binary Tree Maximum Total Path",
-    "topics": []
+    "topics": [
+      "binary-tree",
+      "tree",
+      "dfs"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {TreeNode | null} root\n * @return {number}\n */\nexport default function binaryTreeMaximumPathSum(root) {\n  throw 'Not implemented!';\n}",

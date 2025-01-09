@@ -34,7 +34,9 @@
     "slug": "count-ones-in-binary",
     "subtitle": null,
     "title": "Count Set Bits in a Binary Number",
-    "topics": []
+    "topics": [
+      "binary"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {number} num\n * @return {number}\n */\nexport default function countOnesInBinary(num) {\n  throw 'Not implemented!';\n}",

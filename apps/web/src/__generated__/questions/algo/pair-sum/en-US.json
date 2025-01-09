@@ -34,7 +34,9 @@
     "slug": "pair-sum",
     "subtitle": null,
     "title": "Pair sum",
-    "topics": []
+    "topics": [
+      "array"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {number[]} numbers\n * @param {number} target\n * @return {number[]}\n */\nexport default function pairSum(numbers, target) {\n  throw 'Not implemented!';\n}",

@@ -34,7 +34,10 @@
     "slug": "neighborhood-theft",
     "subtitle": null,
     "title": "Neighborhood Theft",
-    "topics": []
+    "topics": [
+      "array",
+      "dynamic-programming"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {number[]} numbers\n * @return {number}\n */\nexport default function neighborhoodTheft(numbers) {\n  throw 'Not implemented!';\n}",

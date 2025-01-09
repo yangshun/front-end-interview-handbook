@@ -8,5 +8,6 @@
   "published": true,
   "importance": "low",
   "difficulty": "medium",
-  "similar_questions": ["merge-sort"]
+  "similar_questions": ["merge-sort"],
+  "topics": ["sorting"]
 }

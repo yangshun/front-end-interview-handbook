@@ -34,7 +34,9 @@
     "slug": "bit-reversal",
     "subtitle": null,
     "title": "Bit Reversal",
-    "topics": []
+    "topics": [
+      "binary"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {number} n\n * @return {number}\n */\nexport default function bitReversal(n) {\n  throw 'Not implemented!';\n}",

@@ -34,7 +34,10 @@
     "slug": "trie-prefix-tree",
     "subtitle": null,
     "title": "Trie (Prefix Tree)",
-    "topics": []
+    "topics": [
+      "tree",
+      "trie"
+    ]
   },
   "skeleton": {
     "js": "export default class Trie {\n  /**\n   * @param {string} word\n   */\n  insert(word) {\n    throw 'Not implemented!';\n  }\n\n  /**\n   * @param {string} word\n   * @returns {boolean}\n   */\n  search(word) {\n    throw 'Not implemented!';\n  }\n\n  /**\n   * @param {string} prefix\n   * @returns {boolean}\n   */\n  startsWith(prefix) {\n    throw 'Not implemented!';\n  }\n}",

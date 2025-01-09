@@ -34,7 +34,10 @@
     "slug": "intervals-minimum-meeting-rooms",
     "subtitle": null,
     "title": "Minimum Meeting Rooms Needed",
-    "topics": []
+    "topics": [
+      "heap",
+      "intervals"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {number[][]} intervals\n * @return {number}\n */\nexport default function minMeetingRoomsNeeded(intervals) {\n  throw 'Not implemented!';\n}",

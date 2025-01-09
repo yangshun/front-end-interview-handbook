@@ -34,7 +34,9 @@
     "slug": "matrix-rotation",
     "subtitle": null,
     "title": "Matrix Rotation",
-    "topics": []
+    "topics": [
+      "matrix"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {number[][]} matrix\n * @return {void}\n */\nexport default function matrixRotation(matrix) {\n  throw 'Not implemented!';\n}",

@@ -34,7 +34,9 @@
     "slug": "linked-list-detect-cycle",
     "subtitle": null,
     "title": "Linked List Detect Cycle",
-    "topics": []
+    "topics": [
+      "linked-list"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {ListNode} head\n * @return {boolean}\n */\nexport default function linkedListDetectCycle(head) {\n  throw 'Not implemented!';\n}",

@@ -11,5 +11,6 @@
   "difficulty": "hard",
   "featured": false,
   "similar_questions": [],
-  "next_questions": []
+  "next_questions": [],
+  "topics": ["linked-list", "heap"]
 }

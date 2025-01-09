@@ -34,7 +34,10 @@
     "slug": "graph-is-tree",
     "subtitle": null,
     "title": "Is the Graph a Tree",
-    "topics": []
+    "topics": [
+      "graph",
+      "dfs"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {number} num\n * @param {Array<[number, number]>} edges\n * @return {boolean}\n */\nexport default function graphIsTree(num, edges) {\n  throw 'Not implemented!';\n}",
