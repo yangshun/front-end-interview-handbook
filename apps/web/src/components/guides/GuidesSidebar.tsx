@@ -10,6 +10,7 @@ import { themeBorderColor } from '~/components/ui/theme';
 
 import GuidesDropdownMenu from './GuidesDropdownMenu';
 import GuidesFocusModeToggle from './GuidesFocusModeToggle';
+import { GUIDES_BOTTOM_PAGINATION_HEIGHT } from './GuidesPagination';
 import type { GuideNavigation } from './types';
 import SidebarLinksSection from '../global/sidebar/SidebarLinksSection';
 
@@ -51,7 +52,7 @@ export function GuidesSidebar({
         )}
         style={{
           height: sticky
-            ? 'calc(100vh - var(--global-sticky-height))'
+            ? `calc(100vh - var(--global-sticky-height) - ${GUIDES_BOTTOM_PAGINATION_HEIGHT})`
             : undefined,
           top: 'calc(var(--global-sticky-height))',
         }}>

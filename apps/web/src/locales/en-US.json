@@ -8483,10 +8483,6 @@
     "defaultMessage": "Guidebook",
     "description": "How to prepare for front end system design interviews"
   },
-  "piDflv": {
-    "defaultMessage": "Marked \"{articleName}\" as complete",
-    "description": "Success message shown when an article was marked as complete"
-  },
   "piqimi": {
     "defaultMessage": "OFF",
     "description": "Amount cashback/discount"

@@ -7,6 +7,7 @@ import { useToggle } from 'usehooks-ts';
 
 import { GuidesSidebar } from '~/components/guides/GuidesSidebar';
 
+import GuidesPagination from './GuidesPagination';
 import type { GuideNavigation } from './types';
 
 import type { GuidebookItem } from '@prisma/client';
@@ -67,6 +68,7 @@ export default function GuidesLayout({ children, guide, navigation }: Props) {
           </div>
           {children}
         </div>
+        <GuidesPagination guide={guide} navigation={navigation} />
       </div>
     </GuidesContext.Provider>
   );

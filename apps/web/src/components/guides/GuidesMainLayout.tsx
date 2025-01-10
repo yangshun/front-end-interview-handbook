@@ -7,25 +7,22 @@ import { useRef } from 'react';
 import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
 import useScrollToTop from '~/hooks/useScrollToTop';
 
-import ArticlePagination from '~/components/common/ArticlePagination';
 import { useIntl } from '~/components/intl';
 import CheckboxInput from '~/components/ui/CheckboxInput';
-import Divider from '~/components/ui/Divider';
 import Section from '~/components/ui/Heading/HeadingContext';
 
-import { useMutationGuideProgressAdd } from '~/db/guides/GuidesProgressClient';
 import { useI18nPathname } from '~/next-i18nostic/src';
 
 import GuidesHeadingObserver from './GuidesHeadingObserver';
 import { useGuidesContext } from './GuidesLayout';
 import GuidesNavbar from './GuidesNavbar';
+import { GUIDES_BOTTOM_PAGINATION_HEIGHT } from './GuidesPagination';
 import GuidesProgressAction from './GuidesProgressAction';
 import type { TableOfContents } from './GuidesTableOfContents';
 import GuidesTableOfContents from './GuidesTableOfContents';
 import type { GuideMetadata, GuideNavigation } from './types';
 import useFlattenedNavigationItems from './useFlattenedNavigationItems';
 import { useGuidesAutoMarkAsComplete } from './useGuidesAutoMarkAsComplete';
-import { useToast } from '../global/toasts/useToast';
 
 import type { GuidebookItem, GuideProgress } from '@prisma/client';
 import { useUser } from '@supabase/auth-helpers-react';
@@ -71,12 +68,9 @@ export default function GuidesMainLayout({
   const { navigateToSignInUpPage } = useAuthSignInUp();
   const { collapsedToC, setCollapsedToC } = useGuidesContext();
   const articleContainerRef = useRef<HTMLDivElement>(null);
-  const { showToast } = useToast();
   const user = useUser();
 
   useScrollToTop([pathname]);
-
-  const addGuideProgressMutation = useMutationGuideProgressAdd();
 
   const [autoMarkAsComplete, setAutoMarkAsComplete] =
     useGuidesAutoMarkAsComplete();
@@ -121,98 +115,39 @@ export default function GuidesMainLayout({
             <div ref={articleContainerRef}>{children}</div>
             <Section>
               {showMarkAsComplete && metadata && (
-                <>
-                  <div
-                    className={clsx('flex justify-end', 'transition-colors')}>
-                    <div className="max-w-64 flex flex-col items-end gap-2">
-                      <GuidesProgressAction
-                        guideName={currentItem.label}
-                        guideProgress={
-                          'guideProgress' in props ? props.guideProgress : null
+                <div className={clsx('flex justify-end', 'transition-colors')}>
+                  <div className="max-w-64 flex flex-col items-end gap-2">
+                    <GuidesProgressAction
+                      guideName={currentItem.label}
+                      guideProgress={
+                        'guideProgress' in props ? props.guideProgress : null
+                      }
+                      metadata={metadata}
+                      studyListKey={studyListKey}
+                    />
+                    <CheckboxInput
+                      label={intl.formatMessage({
+                        defaultMessage:
+                          'Automatically mark as complete when moving to the next article',
+                        description: 'Mark article as complete automatically',
+                        id: 'tdR9Fm',
+                      })}
+                      size="sm"
+                      value={user == null ? undefined : autoMarkAsComplete}
+                      onChange={(value) => {
+                        if (user == null) {
+                          navigateToSignInUpPage({
+                            query: { source: 'track_progress' },
+                          });
+
+                          return;
                         }
-                        metadata={metadata}
-                        studyListKey={studyListKey}
-                      />
-                      <CheckboxInput
-                        label={intl.formatMessage({
-                          defaultMessage:
-                            'Automatically mark as complete when moving to the next article',
-                          description: 'Mark article as complete automatically',
-                          id: 'tdR9Fm',
-                        })}
-                        size="sm"
-                        value={user == null ? undefined : autoMarkAsComplete}
-                        onChange={(value) => {
-                          if (user == null) {
-                            navigateToSignInUpPage({
-                              query: { source: 'track_progress' },
-                            });
-
-                            return;
-                          }
-                          setAutoMarkAsComplete(value);
-                        }}
-                      />
-                    </div>
+                        setAutoMarkAsComplete(value);
+                      }}
+                    />
                   </div>
-                  <Divider />
-                </>
+                </div>
               )}
-              <ArticlePagination
-                activeItem={pathname ?? ''}
-                items={flatNavigationItems}
-                onNext={() => {
-                  if (
-                    user == null ||
-                    !autoMarkAsComplete ||
-                    metadata == null ||
-                    ('guideProgress' in props &&
-                      props.guideProgress?.status === 'COMPLETED')
-                  ) {
-                    return;
-                  }
-
-                  addGuideProgressMutation.mutate(
-                    {
-                      book: metadata.book,
-                      slug: metadata.id,
-                      studyListKey,
-                      title: currentItem.label,
-                    },
-                    {
-                      onError: () => {
-                        showToast({
-                          title: intl.formatMessage({
-                            defaultMessage:
-                              'Failed to mark article as complete. Please try again',
-                            description:
-                              'Error message shown when a guide has failed to mark as complete',
-                            id: '6eVVTu',
-                          }),
-                          variant: 'danger',
-                        });
-                      },
-                      onSuccess: () => {
-                        showToast({
-                          title: intl.formatMessage(
-                            {
-                              defaultMessage:
-                                'Marked "{articleName}" as complete',
-                              description:
-                                'Success message shown when an article was marked as complete',
-                              id: 'piDflv',
-                            },
-                            {
-                              articleName: currentItem.label,
-                            },
-                          ),
-                          variant: 'success',
-                        });
-                      },
-                    },
-                  );
-                }}
-              />
             </Section>
           </div>
           {tableOfContents && (
@@ -224,7 +159,7 @@ export default function GuidesMainLayout({
                   collapsedToC ? 'lg:w-[252px]' : 'w-[252px]',
                 )}
                 style={{
-                  height: 'calc(100vh - 48px - var(--global-sticky-height))',
+                  height: `calc(100vh - 48px - var(--global-sticky-height) - ${GUIDES_BOTTOM_PAGINATION_HEIGHT})`,
                   top: 'calc(48px + var(--global-sticky-height))',
                 }}>
                 <GuidesTableOfContents
