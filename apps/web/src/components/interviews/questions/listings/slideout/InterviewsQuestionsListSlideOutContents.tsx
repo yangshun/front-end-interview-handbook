@@ -21,6 +21,7 @@ import Button from '~/components/ui/Button';
 import Divider from '~/components/ui/Divider';
 import FilterButton from '~/components/ui/FilterButton/FilterButton';
 import Popover from '~/components/ui/Popover';
+import ScrollArea from '~/components/ui/ScrollArea';
 import Spinner from '~/components/ui/Spinner';
 import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
@@ -45,24 +46,7 @@ import type {
 } from '../../common/QuestionsTypes';
 import { useQuestionsListDataForType } from '../../common/useQuestionsListDataForType';
 
-type Props = Readonly<{
-  filterNamespace: string;
-  framework?: QuestionFramework;
-  isDifferentListFromInitial: boolean;
-  listType: QuestionListTypeData;
-  metadata: QuestionMetadata;
-  onCancelSwitchStudyList?: () => void;
-  onClickDifferentStudyListQuestion: (href: string) => void;
-  onCloseSwitchQuestionListDialog: () => void;
-  setFirstQuestionHref: (href: string) => void;
-  showSwitchQuestionListDialog: Readonly<{
-    href: string | null;
-    show: boolean;
-    type: 'question-click' | 'switch';
-  }>;
-}>;
-
-export function FilterSection<T extends string, Q extends QuestionMetadata>({
+function FilterSection<T extends string, Q extends QuestionMetadata>({
   coveredValues,
   filters,
   filterOptions,
@@ -87,7 +71,7 @@ export function FilterSection<T extends string, Q extends QuestionMetadata>({
             (filters.size === 0 ? '' : ` (${filters.size})`)
           }
           selected={filters.size > 0}
-          size="sm"
+          size="xs"
           tooltip={filterOptions.tooltip}
         />
       }>
@@ -100,7 +84,7 @@ export function FilterSection<T extends string, Q extends QuestionMetadata>({
   );
 }
 
-export function FrameworkAndLanguageFilterSection<Q extends QuestionMetadata>({
+function FrameworkAndLanguageFilterSection<Q extends QuestionMetadata>({
   languageCoveredValues,
   frameworkCoveredValues,
   frameworkFilters,
@@ -186,11 +170,32 @@ export function FrameworkAndLanguageFilterSection<Q extends QuestionMetadata>({
   );
 }
 
+type Props = Readonly<{
+  filterNamespace: string;
+  framework?: QuestionFramework;
+  isDifferentListFromInitial: boolean;
+  listType: QuestionListTypeData;
+  metadata: QuestionMetadata;
+  mode: React.ComponentProps<
+    typeof InterviewsQuestionsListSlideOutQuestionList
+  >['mode'];
+  onCancelSwitchStudyList?: () => void;
+  onClickDifferentStudyListQuestion: (href: string) => void;
+  onCloseSwitchQuestionListDialog: () => void;
+  setFirstQuestionHref?: (href: string) => void;
+  showSwitchQuestionListDialog: Readonly<{
+    href: string | null;
+    show: boolean;
+    type: 'question-click' | 'switch';
+  }>;
+}>;
+
 export default function InterviewsQuestionsListSlideOutContents({
   framework,
   listType,
   isDifferentListFromInitial,
   metadata,
+  mode,
   filterNamespace,
   setFirstQuestionHref,
   showSwitchQuestionListDialog,
@@ -345,7 +350,7 @@ export default function InterviewsQuestionsListSlideOutContents({
   // Get the href of the first question in the list for navigation on closing slide out
   useEffect(() => {
     if (processedQuestions.length > 0 && !showCompanyPaywall) {
-      setFirstQuestionHref(
+      setFirstQuestionHref?.(
         questionHrefFrameworkSpecificAndListType(
           processedQuestions[0],
           listType,
@@ -369,7 +374,11 @@ export default function InterviewsQuestionsListSlideOutContents({
 
   return (
     <>
-      <div className="flex flex-col gap-y-4 pt-3.5">
+      <div
+        className={clsx(
+          'flex h-full flex-col pt-3.5',
+          !showFilters && 'gap-y-4',
+        )}>
         <form
           className="flex w-full flex-col gap-4"
           onSubmit={(event) => {
@@ -426,28 +435,31 @@ export default function InterviewsQuestionsListSlideOutContents({
           </div>
           {showFilters && embedFilters}
         </form>
-        {isLoading ? (
-          <div className="flex h-40 w-full items-center justify-center">
-            <Spinner size="sm" />
-          </div>
-        ) : (
-          <InterviewsQuestionsListSlideOutQuestionList
-            checkIfCompletedQuestion={(question) => question.isCompleted}
-            framework={framework}
-            isDifferentListFromInitial={isDifferentListFromInitial}
-            listType={listType}
-            metadata={metadata}
-            questions={
-              showCompanyPaywall
-                ? sortedQuestions.slice(0, 4)
-                : processedQuestions
-            }
-            showCompanyPaywall={showCompanyPaywall}
-            onClickDifferentStudyListQuestion={
-              onClickDifferentStudyListQuestion
-            }
-          />
-        )}
+        <ScrollArea>
+          {isLoading ? (
+            <div className="flex h-40 w-full items-center justify-center">
+              <Spinner size="sm" />
+            </div>
+          ) : (
+            <InterviewsQuestionsListSlideOutQuestionList
+              checkIfCompletedQuestion={(question) => question.isCompleted}
+              framework={framework}
+              isDifferentListFromInitial={isDifferentListFromInitial}
+              listType={listType}
+              metadata={metadata}
+              mode={mode}
+              questions={
+                showCompanyPaywall
+                  ? sortedQuestions.slice(0, 4)
+                  : processedQuestions
+              }
+              showCompanyPaywall={showCompanyPaywall}
+              onClickDifferentStudyListQuestion={
+                onClickDifferentStudyListQuestion
+              }
+            />
+          )}
+        </ScrollArea>
       </div>
       <ConfirmationDialog
         cancelButtonLabel={intl.formatMessage({

@@ -3,7 +3,7 @@ import type { Metadata } from 'next/types';
 import QuestionJsonLd from '~/components/interviews/questions/common/QuestionJsonLd';
 import QuestionQuizContents from '~/components/interviews/questions/content/quiz/QuestionQuizContents';
 import QuestionQuizPagination from '~/components/interviews/questions/content/quiz/QuestionQuizPagination';
-import { sortQuestionsMultiple } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
+import QuestionsQuizContentLayout from '~/components/interviews/questions/content/quiz/QuestionsQuizContentLayout';
 
 import { readQuestionQuizContents } from '~/db/QuestionsContentsReader';
 import { fetchQuestionsListQuiz } from '~/db/QuestionsListReader';
@@ -59,32 +59,18 @@ export default async function Page({ params }: Props) {
   const { locale, slug } = params;
   const { question } = readQuestionQuizContents(slug, locale);
 
-  const { questions: quizQuestions } = await fetchQuestionsListQuiz(locale);
-  const questionList = sortQuestionsMultiple(quizQuestions, [
-    {
-      field: 'ranking',
-      isAscendingOrder: true,
-    },
-    {
-      field: 'importance',
-      isAscendingOrder: false,
-    },
-  ]);
-
   return (
     <>
       <QuestionJsonLd metadata={question.metadata} />
-      <QuestionQuizContents
-        paginationEl={
-          <QuestionQuizPagination
-            question={question}
-            questionList={questionList}
-          />
-        }
-        question={question}
-        // Keep in sync with layout.
-        questionList={questionList}
-      />
+      <QuestionsQuizContentLayout metadata={question.metadata}>
+        <QuestionQuizContents
+          paginationEl={
+            <QuestionQuizPagination question={question} questionList={[]} />
+          }
+          question={question}
+          questionList={[]}
+        />
+      </QuestionsQuizContentLayout>
     </>
   );
 }

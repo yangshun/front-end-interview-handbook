@@ -41,6 +41,7 @@ type Props<Q extends QuestionMetadata> = Readonly<{
   isDifferentListFromInitial: boolean;
   listType: QuestionListTypeData;
   metadata: QuestionMetadata;
+  mode: 'compact' | 'full';
   onClickDifferentStudyListQuestion: (href: string) => void;
   questions: ReadonlyArray<Q>;
   showCompanyPaywall?: boolean;
@@ -53,6 +54,7 @@ export default function InterviewsQuestionsListSlideOutQuestionList<
   framework,
   isDifferentListFromInitial,
   listType,
+  mode,
   questions,
   metadata,
   onClickDifferentStudyListQuestion,
@@ -183,18 +185,22 @@ export default function InterviewsQuestionsListSlideOutQuestionList<
                             </div>
                           </div>
                         </div>
-                        <div className="w-[106px] flex-none py-4">
-                          <QuestionFormatLabel
-                            showIcon={true}
-                            value={questionMetadata.format}
-                          />
-                        </div>
-                        <div className="w-[70px] flex-none py-4">
-                          <QuestionDifficultyLabel
-                            showIcon={true}
-                            value={questionMetadata.difficulty}
-                          />
-                        </div>
+                        {mode === 'full' && (
+                          <>
+                            <div className="w-[106px] flex-none py-4">
+                              <QuestionFormatLabel
+                                showIcon={true}
+                                value={questionMetadata.format}
+                              />
+                            </div>
+                            <div className="w-[70px] flex-none py-4">
+                              <QuestionDifficultyLabel
+                                showIcon={true}
+                                value={questionMetadata.difficulty}
+                              />
+                            </div>
+                          </>
+                        )}
                       </div>
                     }
                   </HovercardTrigger>

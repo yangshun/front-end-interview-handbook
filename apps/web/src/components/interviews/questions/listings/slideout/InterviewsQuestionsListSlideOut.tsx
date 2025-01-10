@@ -17,7 +17,6 @@ import InterviewsQuestionsListSlideOutSwitcher from '~/components/interviews/que
 import { useIntl } from '~/components/intl';
 import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
-import ScrollArea from '~/components/ui/ScrollArea';
 import SlideOut from '~/components/ui/SlideOut';
 import {
   themeBackgroundGlimmerColor,
@@ -195,31 +194,30 @@ function InterviewsQuestionsListSlideOutImpl({
       }
       onClose={onClose}>
       {isSlideOutShown && (
-        <ScrollArea>
-          <InterviewsQuestionsListSlideOutContents
-            key={filterNamespace}
-            filterNamespace={filterNamespace}
-            framework={framework}
-            isDifferentListFromInitial={
-              !isEqual(initialListType, currentListType)
-            }
-            listType={currentListType}
-            metadata={metadata}
-            setFirstQuestionHref={setFirstQuestionInListHref}
-            showSwitchQuestionListDialog={showSwitchQuestionListDialog}
-            onCancelSwitchStudyList={() => {
-              closeSlideOut();
-            }}
-            onClickDifferentStudyListQuestion={(href: string) =>
-              setShowSwitchQuestionListDialog({
-                href,
-                show: true,
-                type: 'question-click',
-              })
-            }
-            onCloseSwitchQuestionListDialog={onCloseSwitchQuestionListDialog}
-          />
-        </ScrollArea>
+        <InterviewsQuestionsListSlideOutContents
+          key={filterNamespace}
+          filterNamespace={filterNamespace}
+          framework={framework}
+          isDifferentListFromInitial={
+            !isEqual(initialListType, currentListType)
+          }
+          listType={currentListType}
+          metadata={metadata}
+          mode="full"
+          setFirstQuestionHref={setFirstQuestionInListHref}
+          showSwitchQuestionListDialog={showSwitchQuestionListDialog}
+          onCancelSwitchStudyList={() => {
+            closeSlideOut();
+          }}
+          onClickDifferentStudyListQuestion={(href: string) =>
+            setShowSwitchQuestionListDialog({
+              href,
+              show: true,
+              type: 'question-click',
+            })
+          }
+          onCloseSwitchQuestionListDialog={onCloseSwitchQuestionListDialog}
+        />
       )}
     </SlideOut>
   );
