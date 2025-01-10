@@ -1,320 +1,500 @@
 import clsx from 'clsx';
+import { useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import {
+  RiArrowDownSLine,
+  RiCloseLine,
+  RiFilterLine,
+  RiSearchLine,
+} from 'react-icons/ri';
 
-import VignetteOverlay from '~/components/common/VignetteOverlay';
+import ConfirmationDialog from '~/components/common/ConfirmationDialog';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
-import InterviewsPremiumBadge from '~/components/interviews/common/InterviewsPremiumBadge';
-import type { QuestionListTypeData } from '~/components/interviews/questions/common/QuestionHrefUtils';
-import { questionHrefFrameworkSpecificAndListType } from '~/components/interviews/questions/common/QuestionHrefUtils';
+import useQuestionCodingSorting from '~/components/interviews/questions/listings/filters/hooks/useQuestionCodingSorting';
+import useQuestionsWithCompletionStatus from '~/components/interviews/questions/listings/filters/hooks/useQuestionsWithCompletionStatus';
+import useQuestionUnifiedFilters from '~/components/interviews/questions/listings/filters/hooks/useQuestionUnifiedFilters';
+import type { QuestionFilter } from '~/components/interviews/questions/listings/filters/QuestionFilterType';
+import QuestionFrameworkLanguageTooltipLabel from '~/components/interviews/questions/listings/filters/QuestionFrameworkLanguageTooltipLabel';
+import QuestionListingFilterItemCheckboxes from '~/components/interviews/questions/listings/filters/QuestionListingFilterItemCheckboxes';
+import { FormattedMessage, useIntl } from '~/components/intl';
+import Button from '~/components/ui/Button';
+import Divider from '~/components/ui/Divider';
+import FilterButton from '~/components/ui/FilterButton/FilterButton';
+import Popover from '~/components/ui/Popover';
+import Spinner from '~/components/ui/Spinner';
+import Text from '~/components/ui/Text';
+import TextInput from '~/components/ui/TextInput';
+import { themeBackgroundCardColor } from '~/components/ui/theme';
+
+import InterviewsQuestionsListSlideOutQuestionList from './InterviewsQuestionsListSlideOutQuestionList';
+import QuestionListingFilterButtonBadgeWrapper from '../filters/QuestionListingFilterButtonBadgeWrapper';
+import {
+  filterQuestions,
+  sortQuestionsMultiple,
+  tabulateQuestionsAttributesUnion,
+} from '../filters/QuestionsProcessor';
+import QuestionsListSortButton from '../items/QuestionsListSortButton';
+import {
+  questionHrefFrameworkSpecificAndListType,
+  type QuestionListTypeData,
+} from '../../common/QuestionHrefUtils';
 import type {
   QuestionFramework,
+  QuestionLanguage,
   QuestionMetadata,
-} from '~/components/interviews/questions/common/QuestionsTypes';
-import QuestionsListItemProgressChip from '~/components/interviews/questions/listings/items/QuestionsListItemProgressChip';
-import InterviewsQuestionsListSlideOutHovercardContents from '~/components/interviews/questions/listings/slideout/InterviewsQuestionsListSlideOutHovercardContents';
-import QuestionDifficultyLabel from '~/components/interviews/questions/metadata/QuestionDifficultyLabel';
-import QuestionFormatLabel from '~/components/interviews/questions/metadata/QuestionFormatLabel';
-import { useIntl } from '~/components/intl';
-import Anchor from '~/components/ui/Anchor';
-import EmptyState from '~/components/ui/EmptyState';
-import {
-  Hovercard,
-  HovercardContent,
-  HovercardPortal,
-  HovercardTrigger,
-} from '~/components/ui/Hovercard/Hovercard';
-import Text from '~/components/ui/Text';
-import {
-  themeBackgroundColor,
-  themeBackgroundElementEmphasizedStateColor,
-  themeBackgroundElementEmphasizedStateColor_Hover,
-  themeBorderColor,
-  themeDivideColor,
-} from '~/components/ui/theme';
+} from '../../common/QuestionsTypes';
+import { useQuestionsListDataForType } from '../../common/useQuestionsListDataForType';
 
-import { hashQuestion } from '~/db/QuestionsUtils';
-
-import InterviewsPurchasePaywall from '../../../purchase/InterviewsPurchasePaywall';
-
-type Props<Q extends QuestionMetadata> = Readonly<{
-  checkIfCompletedQuestion?: (question: Q) => boolean;
+type Props = Readonly<{
+  filterNamespace: string;
   framework?: QuestionFramework;
   isDifferentListFromInitial: boolean;
   listType: QuestionListTypeData;
   metadata: QuestionMetadata;
+  onCancelSwitchStudyList?: () => void;
   onClickDifferentStudyListQuestion: (href: string) => void;
-  questions: ReadonlyArray<Q>;
-  showCompanyPaywall?: boolean;
+  onCloseSwitchQuestionListDialog: () => void;
+  setFirstQuestionHref: (href: string) => void;
+  showSwitchQuestionListDialog: Readonly<{
+    href: string | null;
+    show: boolean;
+    type: 'question-click' | 'switch';
+  }>;
 }>;
 
-export default function InterviewsQuestionsListSlideOutContents<
-  Q extends QuestionMetadata,
->({
-  checkIfCompletedQuestion,
-  framework,
-  isDifferentListFromInitial,
-  listType,
-  questions,
-  metadata,
-  onClickDifferentStudyListQuestion,
-  showCompanyPaywall,
-}: Props<Q>) {
-  const intl = useIntl();
-  const { userProfile } = useUserProfile();
-
-  if (questions.length === 0) {
-    return (
-      <div className={clsx('p-10')}>
-        <EmptyState
-          subtitle={intl.formatMessage({
-            defaultMessage: 'Try changing your search terms or filters',
-            description:
-              'Subtitle for empty state when no questions are returned from application of filters on quiz questions list',
-            id: '62sNHV',
-          })}
-          title={intl.formatMessage({
-            defaultMessage: 'No questions',
-            description:
-              'Title for empty state when application of filters return no results',
-            id: 'AmBMf9',
-          })}
-          variant="empty"
-        />
-      </div>
-    );
+export function FilterSection<T extends string, Q extends QuestionMetadata>({
+  coveredValues,
+  filters,
+  filterOptions,
+}: Readonly<{
+  coveredValues?: Set<T>;
+  filterOptions: QuestionFilter<T, Q>;
+  filters: Set<T>;
+}>) {
+  // No need filter if there's only a single option.
+  if (coveredValues != null && coveredValues.size <= 1) {
+    return null;
   }
 
-  const isCurrentQuestionInTheList = !!questions.find(
-    (question) => hashQuestion(question) === hashQuestion(metadata),
+  return (
+    <Popover
+      trigger={
+        <FilterButton
+          addonPosition="end"
+          icon={RiArrowDownSLine}
+          label={
+            filterOptions.name +
+            (filters.size === 0 ? '' : ` (${filters.size})`)
+          }
+          selected={filters.size > 0}
+          size="sm"
+          tooltip={filterOptions.tooltip}
+        />
+      }>
+      <QuestionListingFilterItemCheckboxes
+        coveredValues={coveredValues}
+        section={filterOptions}
+        values={filters}
+      />
+    </Popover>
   );
+}
+
+export function FrameworkAndLanguageFilterSection<Q extends QuestionMetadata>({
+  languageCoveredValues,
+  frameworkCoveredValues,
+  frameworkFilters,
+  frameworkFilterOptions,
+  languageFilters,
+  languageFilterOptions,
+  listType,
+}: Readonly<{
+  frameworkCoveredValues?: Set<QuestionFramework>;
+  frameworkFilterOptions: QuestionFilter<QuestionFramework, Q>;
+  frameworkFilters: Set<QuestionFramework>;
+  languageCoveredValues?: Set<QuestionLanguage>;
+  languageFilterOptions: QuestionFilter<QuestionLanguage, Q>;
+  languageFilters: Set<QuestionLanguage>;
+  listType?: QuestionListTypeData;
+}>) {
+  const intl = useIntl();
+
+  // No need filter if there's only a single option.
+  if (
+    languageCoveredValues != null &&
+    languageCoveredValues.size <= 1 &&
+    frameworkCoveredValues != null &&
+    frameworkCoveredValues.size <= 1
+  ) {
+    return null;
+  }
+
+  const totalSelectionSize = frameworkFilters.size + languageFilters.size;
 
   return (
-    <div>
-      <div className="relative hidden h-full w-full md:block">
-        <VignetteOverlay
-          className={clsx('min-h-[500px]')}
-          overlay={
-            <InterviewsPurchasePaywall
-              background="vignette"
-              premiumFeature="company-tags"
-            />
+    <Popover
+      trigger={
+        <FilterButton
+          addonPosition="end"
+          icon={RiArrowDownSLine}
+          label={
+            intl.formatMessage({
+              defaultMessage: 'Framework / Language',
+              description:
+                'Label for frameworks and programming language button',
+              id: 'XhL9G7',
+            }) + (totalSelectionSize === 0 ? '' : ` (${totalSelectionSize})`)
           }
-          overlayClass="top-10 lg:top-4"
-          showOverlay={showCompanyPaywall}>
-          <div
-            className={clsx(['divide-y', themeDivideColor])}
-            {...(showCompanyPaywall && { inert: '' })}>
-            {questions.map((questionMetadata, index) => {
-              const hasCompletedQuestion =
-                checkIfCompletedQuestion?.(questionMetadata);
-
-              // If the current question is not in the list or different
-              // question list, the first question is going to be the active question
-              const isActiveQuestion =
-                isCurrentQuestionInTheList && !isDifferentListFromInitial
-                  ? hashQuestion(questionMetadata) === hashQuestion(metadata)
-                  : index === 0;
-              const href = questionHrefFrameworkSpecificAndListType(
-                questionMetadata,
-                listType,
-                framework,
-              );
-
-              return (
-                <Hovercard
-                  key={hashQuestion(questionMetadata)}
-                  // Add a small close delay so that cursor can enter the card
-                  // fast enough before the card disappears.
-                  closeDelay={50}
-                  openDelay={0}>
-                  <HovercardTrigger asChild={true}>
-                    {
-                      <div
-                        className={clsx(
-                          'group relative',
-                          'flex',
-                          'px-6',
-                          'gap-4',
-                          'transition-colors',
-                          'focus-within:ring-brand focus-within:ring-2 focus-within:ring-inset',
-                          themeBackgroundElementEmphasizedStateColor_Hover,
-                          isActiveQuestion &&
-                            themeBackgroundElementEmphasizedStateColor,
-                        )}>
-                        <div className="grow py-4">
-                          <div className="flex items-center gap-x-4">
-                            {checkIfCompletedQuestion != null && (
-                              <QuestionsListItemProgressChip
-                                className="z-[1]"
-                                hasCompletedQuestion={!!hasCompletedQuestion}
-                                hasCompletedQuestionBefore={false}
-                                premiumUser={userProfile?.isInterviewsPremium}
-                                question={questionMetadata}
-                                size="sm"
-                              />
-                            )}
-                            <div className="flex flex-wrap items-center gap-x-2 gap-y-1.5">
-                              <Text
-                                className="flex items-center gap-x-2"
-                                size="body3"
-                                weight="medium">
-                                <Anchor
-                                  className="focus:outline-none"
-                                  href={isDifferentListFromInitial ? '#' : href}
-                                  variant="unstyled"
-                                  onClick={
-                                    isDifferentListFromInitial
-                                      ? () =>
-                                          onClickDifferentStudyListQuestion(
-                                            href,
-                                          )
-                                      : undefined
-                                  }>
-                                  {/* Extend touch target to entire panel */}
-                                  <span
-                                    aria-hidden="true"
-                                    className="absolute inset-0"
-                                  />
-                                  {questionMetadata.title}
-                                </Anchor>
-                              </Text>
-                              {questionMetadata.access === 'premium' && (
-                                <InterviewsPremiumBadge size="xs" />
-                              )}
-                            </div>
-                          </div>
-                        </div>
-                        <div className="w-[106px] flex-none py-4">
-                          <QuestionFormatLabel
-                            showIcon={true}
-                            value={questionMetadata.format}
-                          />
-                        </div>
-                        <div className="w-[70px] flex-none py-4">
-                          <QuestionDifficultyLabel
-                            showIcon={true}
-                            value={questionMetadata.difficulty}
-                          />
-                        </div>
-                      </div>
-                    }
-                  </HovercardTrigger>
-                  <HovercardPortal>
-                    <HovercardContent
-                      className={clsx(themeBackgroundColor, [
-                        'border',
-                        themeBorderColor,
-                      ])}
-                      side="right"
-                      // Remove offset so that cursor can enter the card
-                      // fast enough before the card disappears.
-                      sideOffset={0}>
-                      <InterviewsQuestionsListSlideOutHovercardContents
-                        listType={listType}
-                        question={questionMetadata}
-                      />
-                    </HovercardContent>
-                  </HovercardPortal>
-                </Hovercard>
-              );
-            })}
+          selected={frameworkFilters.size > 0 || languageFilters.size > 0}
+          size="sm"
+          tooltip={<QuestionFrameworkLanguageTooltipLabel />}
+        />
+      }>
+      <div className={clsx('flex flex-col')}>
+        {languageCoveredValues && languageCoveredValues.size > 1 && (
+          <div className="flex flex-col gap-2">
+            <Text className="block" size="body3" weight="medium">
+              {languageFilterOptions.name}
+            </Text>
+            <QuestionListingFilterItemCheckboxes
+              coveredValues={languageCoveredValues}
+              section={languageFilterOptions}
+              values={languageFilters}
+            />
           </div>
-        </VignetteOverlay>
+        )}
+        {frameworkCoveredValues &&
+          frameworkCoveredValues.size > 1 &&
+          listType?.type !== 'framework' &&
+          listType?.type !== 'language' && (
+            <>
+              <Divider className="my-4" />
+              <div className="flex flex-col gap-2">
+                <Text className="block" size="body3" weight="medium">
+                  {frameworkFilterOptions.name}
+                </Text>
+                <QuestionListingFilterItemCheckboxes
+                  coveredValues={frameworkCoveredValues}
+                  section={frameworkFilterOptions}
+                  values={frameworkFilters}
+                />
+              </div>
+            </>
+          )}
       </div>
-      <div className="block md:hidden">
-        <VignetteOverlay
-          className={clsx('min-h-[500px]')}
-          overlay={
-            <InterviewsPurchasePaywall
-              background="vignette"
-              premiumFeature="company-tags"
-            />
-          }
-          overlayClass="top-14 sm:top-16"
-          showOverlay={showCompanyPaywall}>
-          <ul
-            className={clsx(['divide-y', themeDivideColor])}
-            {...(showCompanyPaywall && { inert: '' })}>
-            {questions.map((questionMetadata) => {
-              const hasCompletedQuestion =
-                checkIfCompletedQuestion?.(questionMetadata);
+    </Popover>
+  );
+}
 
-              const isActiveQuestion =
-                hashQuestion(questionMetadata) === hashQuestion(metadata);
+export default function InterviewsQuestionsListSlideOutContents({
+  framework,
+  listType,
+  isDifferentListFromInitial,
+  metadata,
+  filterNamespace,
+  setFirstQuestionHref,
+  showSwitchQuestionListDialog,
+  onCancelSwitchStudyList,
+  onCloseSwitchQuestionListDialog,
+  onClickDifferentStudyListQuestion,
+}: Props) {
+  const intl = useIntl();
+  const router = useRouter();
+  const { userProfile } = useUserProfile();
 
-              const href = questionHrefFrameworkSpecificAndListType(
-                questionMetadata,
-                listType,
-                framework,
-              );
+  const [showFilters, setShowFilters] = useState(false);
 
-              return (
-                <li
-                  key={hashQuestion(questionMetadata)}
-                  className={clsx(
-                    'group relative',
-                    'px-6 py-4',
-                    'transition-colors',
-                    'focus-within:ring-brand focus-within:ring-2 focus-within:ring-inset',
-                    themeBackgroundElementEmphasizedStateColor_Hover,
-                    isActiveQuestion &&
-                      themeBackgroundElementEmphasizedStateColor,
-                  )}>
-                  <div className="flex items-center gap-x-4">
-                    {checkIfCompletedQuestion != null && (
-                      <QuestionsListItemProgressChip
-                        className="z-[1]"
-                        hasCompletedQuestion={!!hasCompletedQuestion}
-                        hasCompletedQuestionBefore={false}
-                        premiumUser={userProfile?.isInterviewsPremium}
-                        question={questionMetadata}
-                        size="sm"
-                      />
-                    )}
-                    <div className="flex flex-col gap-3">
-                      <div className="flex flex-wrap items-center gap-x-2 gap-y-1.5">
-                        <Text
-                          className="flex items-center gap-x-2"
-                          size="body3"
-                          weight="medium">
-                          <Anchor
-                            className="focus:outline-none"
-                            href={isDifferentListFromInitial ? '#' : href}
-                            variant="unstyled"
-                            onClick={
-                              isDifferentListFromInitial
-                                ? () => onClickDifferentStudyListQuestion(href)
-                                : undefined
-                            }>
-                            {/* Extend touch target to entire panel */}
-                            <span
-                              aria-hidden="true"
-                              className="absolute inset-0"
-                            />
-                            {questionMetadata.title}
-                          </Anchor>
-                        </Text>
-                        {questionMetadata.access === 'premium' && (
-                          <InterviewsPremiumBadge size="xs" />
-                        )}
-                      </div>
-                      <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5">
-                        <QuestionFormatLabel
-                          showIcon={true}
-                          value={questionMetadata.format}
-                        />
-                        <QuestionDifficultyLabel
-                          showIcon={true}
-                          value={questionMetadata.difficulty}
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </li>
-              );
-            })}
-          </ul>
-        </VignetteOverlay>
+  const studyListKey =
+    listType != null && listType.type === 'study-list'
+      ? listType.value
+      : undefined;
+
+  // To fetch the list-specific question when user change the study list
+  const { isLoading, data } = useQuestionsListDataForType(listType ?? null);
+
+  const questionsWithCompletionStatus = useQuestionsWithCompletionStatus(
+    data?.questions ?? [],
+    studyListKey,
+  );
+
+  // Tabulating.
+  const attributesUnion = tabulateQuestionsAttributesUnion(
+    questionsWithCompletionStatus,
+  );
+
+  // Filtering.
+  const {
+    query,
+    setQuery,
+    difficultyFilters,
+    difficultyFilterOptions,
+    companyFilters,
+    companyFilterOptions,
+    frameworkFilters,
+    frameworkFilterOptions,
+    languageFilters,
+    languageFilterOptions,
+    completionStatusFilters,
+    completionStatusFilterOptions,
+    importanceFilters,
+    importanceFilterOptions,
+    formatFilters,
+    formatFilterOptions,
+    topicFilterOptions,
+    topicFilters,
+    filters,
+    clearAllFilters,
+  } = useQuestionUnifiedFilters({
+    filterNamespace,
+  });
+
+  // Sorting.
+  const { sortFields } = useQuestionCodingSorting({
+    listType,
+  });
+
+  // Processing.
+  const sortedQuestions = sortQuestionsMultiple(
+    questionsWithCompletionStatus,
+    sortFields,
+  );
+  const processedQuestions = filterQuestions(
+    sortedQuestions,
+    filters.map(([_, filterFn]) => filterFn),
+  );
+
+  const numberOfFilters = filters.filter(([size]) => size > 0).length;
+
+  const sortFilter = (
+    <QuestionsListSortButton isLabelHidden={true} listType={listType} />
+  );
+
+  const embedFilters = (
+    <div className={clsx('flex gap-4', 'px-6 py-4', themeBackgroundCardColor)}>
+      <div className={clsx('flex flex-wrap items-center gap-2')}>
+        <FilterSection
+          coveredValues={attributesUnion.formats}
+          filterOptions={formatFilterOptions}
+          filters={formatFilters}
+        />
+        <FilterSection
+          coveredValues={attributesUnion.topics}
+          filterOptions={topicFilterOptions}
+          filters={topicFilters}
+        />
+        <FilterSection
+          filterOptions={companyFilterOptions}
+          filters={companyFilters}
+        />
+        <FilterSection
+          coveredValues={attributesUnion.difficulty}
+          filterOptions={difficultyFilterOptions}
+          filters={difficultyFilters}
+        />
+        <FilterSection
+          coveredValues={attributesUnion.importance}
+          filterOptions={importanceFilterOptions}
+          filters={importanceFilters}
+        />
+        {userProfile != null && (
+          <FilterSection
+            filterOptions={completionStatusFilterOptions}
+            filters={completionStatusFilters}
+          />
+        )}
+        <FrameworkAndLanguageFilterSection
+          frameworkCoveredValues={attributesUnion.frameworks}
+          frameworkFilterOptions={frameworkFilterOptions}
+          frameworkFilters={frameworkFilters}
+          languageCoveredValues={attributesUnion.languages}
+          languageFilterOptions={languageFilterOptions}
+          languageFilters={languageFilters}
+          listType={listType}
+        />
+        <Button
+          icon={RiCloseLine}
+          label={intl.formatMessage({
+            defaultMessage: 'Reset filters',
+            description: 'Label for reset filter button',
+            id: 'L3y2pt',
+          })}
+          size="xs"
+          variant="tertiary"
+          onClick={clearAllFilters}
+        />
       </div>
+      <Button
+        icon={RiCloseLine}
+        isLabelHidden={true}
+        label={intl.formatMessage({
+          defaultMessage: 'Close filters',
+          description: 'Label for close filter button',
+          id: '7noH4F',
+        })}
+        size="sm"
+        tooltip="Close filters"
+        variant="tertiary"
+        onClick={() => setShowFilters(false)}
+      />
     </div>
+  );
+
+  const showCompanyPaywall =
+    !userProfile?.isInterviewsPremium && companyFilters.size > 0;
+
+  // Get the href of the first question in the list for navigation on closing slide out
+  useEffect(() => {
+    if (processedQuestions.length > 0 && !showCompanyPaywall) {
+      setFirstQuestionHref(
+        questionHrefFrameworkSpecificAndListType(
+          processedQuestions[0],
+          listType,
+          framework,
+        ),
+      );
+    }
+  }, [
+    framework,
+    listType,
+    processedQuestions,
+    setFirstQuestionHref,
+    showCompanyPaywall,
+  ]);
+
+  const label = intl.formatMessage({
+    defaultMessage: 'Search within this list',
+    description: 'Search placeholder for question list',
+    id: 'hA7U8d',
+  });
+
+  return (
+    <>
+      <div className="flex flex-col gap-y-4 pt-3.5">
+        <form
+          className="flex w-full flex-col gap-4"
+          onSubmit={(event) => {
+            event.preventDefault();
+          }}>
+          <div className="flex w-full items-center gap-3 px-6">
+            <div className="flex-1">
+              <TextInput
+                autoComplete="off"
+                isLabelHidden={true}
+                label={label}
+                placeholder={label}
+                size="sm"
+                startIcon={RiSearchLine}
+                type="search"
+                value={query}
+                onChange={(value) => setQuery(value)}
+              />
+            </div>
+            <QuestionListingFilterButtonBadgeWrapper
+              badgeClassName={clsx('-right-2 -top-1.5', 'size-5 text-xs')}
+              numberOfFilters={numberOfFilters}>
+              <FilterButton
+                icon={RiFilterLine}
+                isLabelHidden={true}
+                label={
+                  intl.formatMessage({
+                    defaultMessage: 'Filters',
+                    description: 'Label for filters button',
+                    id: 'k2Oi+j',
+                  }) + (numberOfFilters > 0 ? ` (${numberOfFilters})` : '')
+                }
+                selected={numberOfFilters > 0}
+                size="sm"
+                tooltip={
+                  showFilters
+                    ? intl.formatMessage({
+                        defaultMessage: 'Collapse filters',
+                        description: 'Tooltip for collapse filters',
+                        id: 'i2950u',
+                      })
+                    : intl.formatMessage({
+                        defaultMessage: 'Expand filters',
+                        description: 'Tooltip for expand filters',
+                        id: 'ymvdJV',
+                      })
+                }
+                onClick={() => {
+                  setShowFilters(!showFilters);
+                }}
+              />
+            </QuestionListingFilterButtonBadgeWrapper>
+            {sortFilter}
+          </div>
+          {showFilters && embedFilters}
+        </form>
+        {isLoading ? (
+          <div className="flex h-40 w-full items-center justify-center">
+            <Spinner size="sm" />
+          </div>
+        ) : (
+          <InterviewsQuestionsListSlideOutQuestionList
+            checkIfCompletedQuestion={(question) => question.isCompleted}
+            framework={framework}
+            isDifferentListFromInitial={isDifferentListFromInitial}
+            listType={listType}
+            metadata={metadata}
+            questions={
+              showCompanyPaywall
+                ? sortedQuestions.slice(0, 4)
+                : processedQuestions
+            }
+            showCompanyPaywall={showCompanyPaywall}
+            onClickDifferentStudyListQuestion={
+              onClickDifferentStudyListQuestion
+            }
+          />
+        )}
+      </div>
+      <ConfirmationDialog
+        cancelButtonLabel={intl.formatMessage({
+          defaultMessage: 'Stay on previous list',
+          description: 'Stay on previous question list',
+          id: 'IEnLEU',
+        })}
+        confirmButtonLabel={intl.formatMessage({
+          defaultMessage: 'Switch',
+          description: 'Button label for switch study list',
+          id: '09QDZQ',
+        })}
+        isShown={showSwitchQuestionListDialog.show}
+        title={intl.formatMessage({
+          defaultMessage: 'Switch study list',
+          description: 'Change study list dialog title',
+          id: '6rN7CN',
+        })}
+        onCancel={() => {
+          onCloseSwitchQuestionListDialog();
+          onCancelSwitchStudyList?.();
+        }}
+        onClose={() => {
+          onCloseSwitchQuestionListDialog();
+        }}
+        onConfirm={() => {
+          if (!showSwitchQuestionListDialog.href) {
+            return;
+          }
+
+          onCloseSwitchQuestionListDialog();
+          router.push(showSwitchQuestionListDialog.href);
+        }}>
+        {showSwitchQuestionListDialog.type === 'question-click' ? (
+          <FormattedMessage
+            defaultMessage="You've selected a question from a different study list than the one you're currently using. Navigating to it will switch your current list. Do you want to proceed?"
+            description="Confirmation text for switching study list"
+            id="+C/8iu"
+          />
+        ) : (
+          <FormattedMessage
+            defaultMessage="You've selected a different study list than the one you're currently using. Navigating to it will switch your current list. Do you want to proceed?"
+            description="Confirmation text for switching study list"
+            id="/D6EXa"
+          />
+        )}
+      </ConfirmationDialog>
+    </>
   );
 }
