@@ -135,7 +135,7 @@ export default function InterviewsQuestionsCategoryPage({
         <div
           className={clsx(
             'w-full lg:max-w-[75%]',
-            'text-sm lg:text-base',
+            'text-sm xl:text-base',
             themeTextSecondaryColor,
             'text-pretty',
           )}>
