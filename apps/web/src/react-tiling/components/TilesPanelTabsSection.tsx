@@ -20,6 +20,7 @@ type Props<TabType> = Readonly<{
   activeTabId: TabType | null;
   getTabLabel: (tabId: TabType) => Readonly<{
     icon?: (iconProps: React.ComponentProps<'svg'>) => JSX.Element;
+    iconSecondary?: (iconProps: React.ComponentProps<'svg'>) => JSX.Element;
     label: string;
   }>;
   mode?: 'interactive' | 'readonly';
@@ -186,7 +187,7 @@ export default function TilesPanelTabsSection<TabType extends string>({
             const isActive =
               mode === 'interactive' && activeTabId === tabItem.id;
             const key = String(tabItem.id) + ' ' + String(index);
-            const { icon, label } = getTabLabel(tabItem.id);
+            const { icon, label, iconSecondary } = getTabLabel(tabItem.id);
 
             return (
               <div key={key} className={clsx('flex h-8 flex-col')}>
@@ -194,6 +195,7 @@ export default function TilesPanelTabsSection<TabType extends string>({
                   closeable={tabItem.closeable}
                   href={tabItem.href}
                   icon={icon}
+                  iconSecondary={iconSecondary}
                   index={index}
                   isActive={isActive}
                   label={label}

@@ -34,6 +34,7 @@ export default function JavaScriptCodingWorkspaceNewTab({
               key={tabType}
               addonPosition="start"
               icon={tabDetails.icon}
+              iconSecondary_USE_SPARINGLY={tabDetails.iconSecondary}
               label={tabDetails.label}
               variant="secondary"
               onClick={() => {

@@ -60,6 +60,7 @@ export default function TilesPanelItem<TabType extends string>({
   fullScreen?: boolean;
   getTabLabel: (tabId: TabType) => Readonly<{
     icon?: (iconProps: React.ComponentProps<'svg'>) => JSX.Element;
+    iconSecondary?: (iconProps: React.ComponentProps<'svg'>) => JSX.Element;
     label: string;
   }>;
   id: string;
@@ -151,7 +152,7 @@ export default function TilesPanelItem<TabType extends string>({
         <Divider className="my-2" />
         <div className="flex flex-col items-center gap-y-4">
           {tabs.map((tabItem) => {
-            const { icon, label } = getTabLabel(tabItem.id);
+            const { icon, iconSecondary, label } = getTabLabel(tabItem.id);
 
             return (
               <Button
@@ -166,6 +167,7 @@ export default function TilesPanelItem<TabType extends string>({
                 )}
                 href={tabItem.href}
                 icon={icon}
+                iconSecondary_USE_SPARINGLY={iconSecondary}
                 isLabelHidden={true}
                 label={label}
                 size="lg"

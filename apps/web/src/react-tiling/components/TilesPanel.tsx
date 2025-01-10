@@ -18,6 +18,7 @@ type TilesPanelCommonProps<TabType> = Readonly<{
   }>;
   getTabLabel: (tabId: TabType) => Readonly<{
     icon?: (iconProps: React.ComponentProps<'svg'>) => JSX.Element;
+    iconSecondary?: (iconProps: React.ComponentProps<'svg'>) => JSX.Element;
     label: string;
   }>;
   level: number;

@@ -10,6 +10,7 @@ export type CodingWorkspaceTabContents<TabType extends string> = Readonly<
     [K in TabType]: Readonly<{
       contents: ReactNode;
       icon: (iconProps: React.ComponentProps<'svg'>) => JSX.Element;
+      iconSecondary?: (iconProps: React.ComponentProps<'svg'>) => JSX.Element;
       label: string;
     }>;
   }>

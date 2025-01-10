@@ -58,6 +58,7 @@ import {
   codingWorkspaceTabSubmissionId,
   codingWorkspaceTabSubmissionPattern,
 } from '../common/tabs/codingWorkspaceTabId';
+import InterviewsPremiumBadge from '../../interviews/common/InterviewsPremiumBadge';
 
 import { useSandpack } from '@codesandbox/sandpack-react';
 import { useMonaco } from '@monaco-editor/react';
@@ -231,6 +232,10 @@ function JavaScriptCodingWorkspaceImpl({
         />
       ),
       icon: CodingWorkspaceTabIcons.solution.icon,
+      iconSecondary:
+        question.metadata.access !== 'free'
+          ? () => <InterviewsPremiumBadge iconOnly={true} />
+          : undefined,
       label: 'Solution',
     },
     submission_test_cases: {
@@ -370,6 +375,7 @@ function JavaScriptCodingWorkspaceImpl({
                 })}
                 getTabLabel={(tabId) => ({
                   icon: tabContents[tabId]?.icon,
+                  iconSecondary: tabContents[tabId]?.iconSecondary,
                   label: tabContents[tabId]?.label ?? `New tab`,
                 })}
                 renderTab={(tabId) => (

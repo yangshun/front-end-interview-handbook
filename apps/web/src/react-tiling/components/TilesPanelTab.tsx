@@ -76,6 +76,7 @@ export default function TilesPanelTab<TabType extends string>({
   closeable,
   href,
   icon: Icon,
+  iconSecondary: IconSecondary,
   index,
   isActive,
   label,
@@ -88,6 +89,7 @@ export default function TilesPanelTab<TabType extends string>({
   closeable: boolean;
   href?: string;
   icon?: (iconProps: React.ComponentProps<'svg'>) => JSX.Element;
+  iconSecondary?: (iconProps: React.ComponentProps<'svg'>) => JSX.Element;
   index: number;
   isActive: boolean;
   label: string;
@@ -216,6 +218,14 @@ export default function TilesPanelTab<TabType extends string>({
     }
   }, [isOver, setTabHoverIndicator]);
 
+  const contents = (
+    <>
+      {Icon && <Icon className="size-4 shrink-0" />}
+      {label}
+      {IconSecondary && <IconSecondary className="size-4 shrink-0" />}
+    </>
+  );
+
   return (
     <div
       ref={tabRef}
@@ -233,8 +243,7 @@ export default function TilesPanelTab<TabType extends string>({
         <I18nLink
           className={clsx('flex gap-x-1.5 whitespace-nowrap text-xs')}
           href={href}>
-          {Icon && <Icon className="size-4 shrink-0" />}
-          {label}
+          {contents}
         </I18nLink>
       ) : (
         <TabButton
@@ -245,8 +254,7 @@ export default function TilesPanelTab<TabType extends string>({
           onClick={onClick}
           onMouseDown={onClick}>
           <span aria-hidden={true} className="absolute inset-0" />
-          {Icon && <Icon className="size-4 shrink-0" />}
-          {label}
+          {contents}
         </TabButton>
       )}
       {closeable && (

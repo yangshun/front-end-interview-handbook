@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import { useCallback, useEffect, useState } from 'react';
 import { RiCodeLine } from 'react-icons/ri';
 
+import InterviewsPremiumBadge from '~/components/interviews/common/InterviewsPremiumBadge';
 import { questionHrefWithListType } from '~/components/interviews/questions/common/QuestionHrefUtils';
 import type {
   QuestionFramework,
@@ -291,6 +292,10 @@ function UserInterfaceCodingWorkspaceImpl({
           />
         ),
       icon: CodingWorkspaceTabIcons.solution.icon,
+      iconSecondary:
+        question.metadata.access !== 'free'
+          ? () => <InterviewsPremiumBadge iconOnly={true} />
+          : undefined,
       label: 'Solution',
     },
     solution_preview: {
@@ -424,6 +429,7 @@ function UserInterfaceCodingWorkspaceImpl({
               })}
               getTabLabel={(tabId) => ({
                 icon: tabContents[tabId]?.icon,
+                iconSecondary: tabContents[tabId]?.iconSecondary,
                 label: tabContents[tabId]?.label ?? `New tab`,
               })}
               renderTab={(tabId) => (
