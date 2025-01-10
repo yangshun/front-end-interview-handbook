@@ -1511,6 +1511,10 @@
     "defaultMessage": "Blog",
     "description": "Link to blog page"
   },
+  "7noH4F": {
+    "defaultMessage": "Close filters",
+    "description": "Label for close filter button"
+  },
   "7o0DXO": {
     "defaultMessage": "All our challenges come with at least 1 official solution (coming soon) and step-by-step guide from senior big tech engineers. Learn best practices as early as possible.",
     "description": "Description of 'Practical foundation' feature in Projects marketing page"
@@ -6934,10 +6938,6 @@
   "fr4Vl4": {
     "defaultMessage": "Polish your answers with a comprehensive test suite that covers all the important edge cases that interviewers will look out for.",
     "description": "Marketing page section subtitle"
-  },
-  "frYfIh": {
-    "defaultMessage": "Clear filter",
-    "description": "Tooltip for clear filters"
   },
   "frl+Af": {
     "defaultMessage": "Prev",

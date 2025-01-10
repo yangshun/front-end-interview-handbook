@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { useEffect, useState } from 'react';
 import { RiFilterLine } from 'react-icons/ri';
 
@@ -8,6 +9,7 @@ import FilterButton from '~/components/ui/FilterButton/FilterButton';
 import SlideOut from '~/components/ui/SlideOut';
 
 import useQuestionUnifiedFilters from './hooks/useQuestionUnifiedFilters';
+import QuestionListingFilterButtonBadgeWrapper from './QuestionListingFilterButtonBadgeWrapper';
 import QuestionListingUnifiedFilters from './QuestionListingUnifiedFilters';
 import type { QuestionsListAttributesUnion } from './QuestionsProcessor';
 
@@ -149,22 +151,26 @@ export default function QuestionsListingFilterSlideOut({
         id: 'k2Oi+j',
       })}
       trigger={
-        <FilterButton
-          icon={RiFilterLine}
-          isLabelHidden={true}
-          label={
-            intl.formatMessage({
-              defaultMessage: 'Filters',
-              description: 'Label for filters button',
-              id: 'k2Oi+j',
-            }) + (numberOfFilters > 0 ? ` (${numberOfFilters})` : '')
-          }
-          selected={numberOfFilters > 0}
-          size="sm"
-          onClick={() => {
-            setIsFiltersShown(true);
-          }}
-        />
+        <QuestionListingFilterButtonBadgeWrapper
+          badgeClassName={clsx('-right-2 -top-1.5', 'size-5 text-xs')}
+          numberOfFilters={numberOfFilters}>
+          <FilterButton
+            icon={RiFilterLine}
+            isLabelHidden={true}
+            label={
+              intl.formatMessage({
+                defaultMessage: 'Filters',
+                description: 'Label for filters button',
+                id: 'k2Oi+j',
+              }) + (numberOfFilters > 0 ? ` (${numberOfFilters})` : '')
+            }
+            selected={numberOfFilters > 0}
+            size="sm"
+            onClick={() => {
+              setIsFiltersShown(true);
+            }}
+          />
+        </QuestionListingFilterButtonBadgeWrapper>
       }
       onClose={() => {
         setIsFiltersShown(false);

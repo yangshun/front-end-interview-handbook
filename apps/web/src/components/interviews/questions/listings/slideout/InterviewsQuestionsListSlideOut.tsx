@@ -39,15 +39,14 @@ import Spinner from '~/components/ui/Spinner';
 import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
 import {
-  themeBackgroundBrandColor,
   themeBackgroundCardColor,
   themeBackgroundGlimmerColor,
   themeBorderColor,
-  themeTextDarkColor,
 } from '~/components/ui/theme';
 
 import InterviewsQuestionsListSlideOutContents from './InterviewsQuestionsListSlideOutContents';
 import useQuestionsWithCompletionStatus from '../filters/hooks/useQuestionsWithCompletionStatus';
+import QuestionListingFilterButtonBadgeWrapper from '../filters/QuestionListingFilterButtonBadgeWrapper';
 import QuestionsListSortButton from '../items/QuestionsListSortButton';
 import type { QuestionListTypeData } from '../../common/QuestionHrefUtils';
 import {
@@ -268,61 +267,71 @@ function Contents({
   );
 
   const embedFilters = (
-    <div
-      className={clsx(
-        'flex flex-wrap items-center gap-2',
-        'px-6 py-4',
-        themeBackgroundCardColor,
-      )}>
-      <FilterSection
-        coveredValues={attributesUnion.topics}
-        filterOptions={topicFilterOptions}
-        filters={topicFilters}
-      />
-      <FilterSection
-        filterOptions={companyFilterOptions}
-        filters={companyFilters}
-      />
-      <FilterSection
-        coveredValues={attributesUnion.difficulty}
-        filterOptions={difficultyFilterOptions}
-        filters={difficultyFilters}
-      />
-      <FilterSection
-        coveredValues={attributesUnion.importance}
-        filterOptions={importanceFilterOptions}
-        filters={importanceFilters}
-      />
-      {userProfile != null && (
+    <div className={clsx('flex gap-4', 'px-6 py-4', themeBackgroundCardColor)}>
+      <div className={clsx('flex flex-wrap items-center gap-2')}>
         <FilterSection
-          filterOptions={completionStatusFilterOptions}
-          filters={completionStatusFilters}
+          coveredValues={attributesUnion.formats}
+          filterOptions={formatFilterOptions}
+          filters={formatFilters}
         />
-      )}
-      <FrameworkAndLanguageFilterSection
-        frameworkCoveredValues={attributesUnion.frameworks}
-        frameworkFilterOptions={frameworkFilterOptions}
-        frameworkFilters={frameworkFilters}
-        languageCoveredValues={attributesUnion.languages}
-        languageFilterOptions={languageFilterOptions}
-        languageFilters={languageFilters}
-        listType={listType}
-      />
-      <FilterSection
-        coveredValues={attributesUnion.formats}
-        filterOptions={formatFilterOptions}
-        filters={formatFilters}
-      />
+        <FilterSection
+          coveredValues={attributesUnion.topics}
+          filterOptions={topicFilterOptions}
+          filters={topicFilters}
+        />
+        <FilterSection
+          filterOptions={companyFilterOptions}
+          filters={companyFilters}
+        />
+        <FilterSection
+          coveredValues={attributesUnion.difficulty}
+          filterOptions={difficultyFilterOptions}
+          filters={difficultyFilters}
+        />
+        <FilterSection
+          coveredValues={attributesUnion.importance}
+          filterOptions={importanceFilterOptions}
+          filters={importanceFilters}
+        />
+        {userProfile != null && (
+          <FilterSection
+            filterOptions={completionStatusFilterOptions}
+            filters={completionStatusFilters}
+          />
+        )}
+        <FrameworkAndLanguageFilterSection
+          frameworkCoveredValues={attributesUnion.frameworks}
+          frameworkFilterOptions={frameworkFilterOptions}
+          frameworkFilters={frameworkFilters}
+          languageCoveredValues={attributesUnion.languages}
+          languageFilterOptions={languageFilterOptions}
+          languageFilters={languageFilters}
+          listType={listType}
+        />
+        <Button
+          icon={RiCloseLine}
+          label={intl.formatMessage({
+            defaultMessage: 'Reset filters',
+            description: 'Label for reset filter button',
+            id: 'L3y2pt',
+          })}
+          size="xs"
+          variant="tertiary"
+          onClick={clearAllFilters}
+        />
+      </div>
       <Button
         icon={RiCloseLine}
+        isLabelHidden={true}
         label={intl.formatMessage({
-          defaultMessage: 'Reset filters',
-          description: 'Label for reset filter button',
-          id: 'L3y2pt',
+          defaultMessage: 'Close filters',
+          description: 'Label for close filter button',
+          id: '7noH4F',
         })}
-        size="xs"
+        size="sm"
+        tooltip="Close filters"
         variant="tertiary"
-        onClick={clearAllFilters}
+        onClick={() => setShowFilters(false)}
       />
     </div>
   );
@@ -376,7 +385,9 @@ function Contents({
               onChange={(value) => setQuery(value)}
             />
           </div>
-          <div className="relative">
+          <QuestionListingFilterButtonBadgeWrapper
+            badgeClassName={clsx('-right-2 -top-1.5', 'size-5 text-xs')}
+            numberOfFilters={numberOfFilters}>
             <FilterButton
               icon={RiFilterLine}
               isLabelHidden={true}
@@ -387,7 +398,7 @@ function Contents({
                   id: 'k2Oi+j',
                 }) + (numberOfFilters > 0 ? ` (${numberOfFilters})` : '')
               }
-              selected={showFilters}
+              selected={numberOfFilters > 0}
               size="sm"
               tooltip={
                 showFilters
@@ -406,11 +417,7 @@ function Contents({
                 setShowFilters(!showFilters);
               }}
             />
-            <FilterButtonBadge
-              className={clsx('absolute -right-2 -top-1.5', 'size-5 text-xs')}
-              numberOfFilters={numberOfFilters}
-            />
-          </div>
+          </QuestionListingFilterButtonBadgeWrapper>
           {sortFilter}
         </div>
         {showFilters && embedFilters}
@@ -435,29 +442,6 @@ function Contents({
           onClickDifferentStudyListQuestion={onClickDifferentStudyListQuestion}
         />
       )}
-    </div>
-  );
-}
-
-function FilterButtonBadge({
-  className,
-  numberOfFilters,
-}: Readonly<{ className: string; numberOfFilters: number }>) {
-  if (numberOfFilters <= 0) {
-    return null;
-  }
-
-  return (
-    <div
-      className={clsx(
-        className,
-        'flex items-center justify-center',
-        'rounded-full',
-        themeBackgroundBrandColor,
-        themeTextDarkColor,
-        'font-bold',
-      )}>
-      {numberOfFilters}
     </div>
   );
 }
@@ -587,7 +571,9 @@ function InterviewsQuestionsListSlideOutImpl({
         />
       }
       trigger={
-        <div className="relative">
+        <QuestionListingFilterButtonBadgeWrapper
+          badgeClassName={clsx('left-4 top-0', 'size-3 text-[8px]')}
+          numberOfFilters={numberOfFilters}>
           <Button
             addonPosition="start"
             icon={RiFilterLine}
@@ -623,11 +609,7 @@ function InterviewsQuestionsListSlideOutImpl({
               )}
             </div>
           </Button>
-          <FilterButtonBadge
-            className={clsx('absolute left-4 top-0', 'size-3 text-[8px]')}
-            numberOfFilters={numberOfFilters}
-          />
-        </div>
+        </QuestionListingFilterButtonBadgeWrapper>
       }
       onClose={onClose}>
       {isSlideOutShown && (

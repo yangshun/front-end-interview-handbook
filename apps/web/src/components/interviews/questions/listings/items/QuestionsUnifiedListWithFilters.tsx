@@ -239,12 +239,16 @@ export default function QuestionsUnifiedListWithFilters({
       <Button
         icon={RiCloseLine}
         isLabelHidden={true}
-        label="Close"
+        label={intl.formatMessage({
+          defaultMessage: 'Reset filters',
+          description: 'Label for reset filter button',
+          id: 'L3y2pt',
+        })}
         size="xs"
         tooltip={intl.formatMessage({
-          defaultMessage: 'Clear filter',
-          description: 'Tooltip for clear filters',
-          id: 'frYfIh',
+          defaultMessage: 'Reset filters',
+          description: 'Label for reset filter button',
+          id: 'L3y2pt',
         })}
         variant="tertiary"
         onClick={clearAllFilters}
