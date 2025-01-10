@@ -105,7 +105,8 @@
     "author": null,
     "companies": [
       "amazon",
-      "apple"
+      "apple",
+      "bytedance"
     ],
     "created": 1652918400,
     "difficulty": "easy",
@@ -146,7 +147,8 @@
       "adobe",
       "amazon",
       "apple",
-      "sprinklr"
+      "sprinklr",
+      "bytedance"
     ],
     "created": 1652659200,
     "difficulty": "easy",
@@ -183,7 +185,8 @@
     "author": null,
     "companies": [
       "bytedance",
-      "linkedin"
+      "linkedin",
+      "bytedance"
     ],
     "created": 1652832000,
     "difficulty": "easy",
@@ -606,7 +609,8 @@
     "access": "standard",
     "author": "yangshun",
     "companies": [
-      "intuit"
+      "intuit",
+      "amazon"
     ],
     "created": 1655510400,
     "difficulty": "medium",
@@ -764,7 +768,9 @@
     "access": "premium",
     "author": null,
     "companies": [
-      "soundcloud"
+      "soundcloud",
+      "amazon",
+      "tiktok"
     ],
     "created": 1655596800,
     "difficulty": "hard",
@@ -799,7 +805,12 @@
       "google",
       "lyft",
       "walmart",
-      "yelp"
+      "yelp",
+      "tiktok",
+      "bytedance",
+      "microsoft",
+      "linkedin",
+      "uber"
     ],
     "created": 1649894400,
     "difficulty": "medium",
@@ -840,7 +851,9 @@
       "google",
       "lyft",
       "walmart",
-      "yelp"
+      "yelp",
+      "microsoft",
+      "linkedin"
     ],
     "created": 1670630400,
     "difficulty": "medium",
@@ -876,7 +889,9 @@
     "access": "free",
     "author": "zhenghao",
     "companies": [
-      "bytedance"
+      "bytedance",
+      "amazon",
+      "tiktok"
     ],
     "created": 1653091200,
     "difficulty": "medium",
@@ -913,7 +928,9 @@
   {
     "access": "premium",
     "author": "zhenghao",
-    "companies": [],
+    "companies": [
+      "bytedance"
+    ],
     "created": 1653177600,
     "difficulty": "hard",
     "duration": 45,
@@ -1165,7 +1182,9 @@
       "google",
       "lyft",
       "rippling",
-      "tiktok"
+      "tiktok",
+      "bytedance",
+      "microsoft"
     ],
     "created": 1669420800,
     "difficulty": "medium",
@@ -1202,7 +1221,10 @@
     "author": null,
     "companies": [
       "google",
-      "lyft"
+      "lyft",
+      "tiktok",
+      "bytedance",
+      "microsoft"
     ],
     "created": 1669939200,
     "difficulty": "medium",
@@ -1329,7 +1351,8 @@
       "lyft",
       "meta",
       "rippling",
-      "salesforce"
+      "salesforce",
+      "google"
     ],
     "created": 1649894400,
     "difficulty": "medium",
@@ -1425,7 +1448,8 @@
     "author": "zhenghao",
     "companies": [
       "amazon",
-      "rippling"
+      "rippling",
+      "atlassian"
     ],
     "created": 1656201600,
     "difficulty": "easy",
@@ -1520,6 +1544,8 @@
     "access": "premium",
     "author": "yangshun",
     "companies": [
+      "tiktok",
+      "amazon",
       "tiktok"
     ],
     "created": 1649894400,
@@ -1555,7 +1581,8 @@
     "companies": [
       "dropbox",
       "google",
-      "linkedin"
+      "linkedin",
+      "amazon"
     ],
     "created": 1655337600,
     "difficulty": "medium",
@@ -1627,7 +1654,8 @@
     "access": "premium",
     "author": "yangshun",
     "companies": [
-      "google"
+      "google",
+      "dropbox"
     ],
     "created": 1655251200,
     "difficulty": "medium",
@@ -1697,7 +1725,9 @@
   {
     "access": "premium",
     "author": null,
-    "companies": [],
+    "companies": [
+      "linkedin"
+    ],
     "created": 1690502400,
     "difficulty": "medium",
     "duration": 15,
@@ -1974,7 +2004,9 @@
   {
     "access": "premium",
     "author": "yangshun",
-    "companies": [],
+    "companies": [
+      "linkedin"
+    ],
     "created": 1654992000,
     "difficulty": "easy",
     "duration": 15,
@@ -2169,7 +2201,9 @@
   {
     "access": "premium",
     "author": null,
-    "companies": [],
+    "companies": [
+      "amazon"
+    ],
     "created": 1683331200,
     "difficulty": "medium",
     "duration": 10,
@@ -2206,7 +2240,8 @@
     "companies": [
       "google",
       "lyft",
-      "uber"
+      "uber",
+      "apple"
     ],
     "created": 1699401600,
     "difficulty": "medium",
@@ -2243,7 +2278,8 @@
     "companies": [
       "google",
       "lyft",
-      "uber"
+      "uber",
+      "apple"
     ],
     "created": 1699401600,
     "difficulty": "medium",
@@ -2336,7 +2372,9 @@
     "author": null,
     "companies": [
       "intuit",
-      "linkedin"
+      "linkedin",
+      "atlassian",
+      "uber"
     ],
     "created": 1690848000,
     "difficulty": "medium",
@@ -2524,7 +2562,8 @@
       "bytedance",
       "google",
       "lyft",
-      "tiktok"
+      "tiktok",
+      "microsoft"
     ],
     "created": 1655337600,
     "difficulty": "medium",
@@ -2698,7 +2737,8 @@
     "access": "premium",
     "author": null,
     "companies": [
-      "google"
+      "google",
+      "bytedance"
     ],
     "created": 1690329600,
     "difficulty": "easy",
@@ -2733,7 +2773,8 @@
     "access": "premium",
     "author": null,
     "companies": [
-      "google"
+      "google",
+      "bytedance"
     ],
     "created": 1690329600,
     "difficulty": "medium",
@@ -2829,7 +2870,8 @@
     "access": "standard",
     "author": null,
     "companies": [
-      "amazon"
+      "amazon",
+      "microsoft"
     ],
     "created": 1690070400,
     "difficulty": "medium",
@@ -2861,7 +2903,9 @@
   {
     "access": "premium",
     "author": null,
-    "companies": [],
+    "companies": [
+      "amazon"
+    ],
     "created": 1690070400,
     "difficulty": "medium",
     "duration": 15,
@@ -3237,7 +3281,10 @@
       "google",
       "tiktok",
       "walmart",
-      "yelp"
+      "yelp",
+      "tiktok",
+      "atlassian",
+      "uber"
     ],
     "created": 1649894400,
     "difficulty": "medium",

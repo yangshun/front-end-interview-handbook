@@ -2,7 +2,14 @@
   "slug": "event-emitter",
   "created": "2022-11-26T00:00:00.000Z",
   "languages": ["js", "ts"],
-  "companies": ["google", "lyft", "rippling", "tiktok"],
+  "companies": [
+    "google",
+    "lyft",
+    "rippling",
+    "tiktok",
+    "bytedance",
+    "microsoft"
+  ],
   "access": "free",
   "duration": 20,
   "published": true,

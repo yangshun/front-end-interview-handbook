@@ -11,7 +11,9 @@
     "access": "premium",
     "author": null,
     "companies": [
-      "soundcloud"
+      "soundcloud",
+      "amazon",
+      "tiktok"
     ],
     "created": 1655596800,
     "difficulty": "hard",

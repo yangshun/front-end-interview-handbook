@@ -5,7 +5,9 @@
     "google",
     "amazon",
     "microsoft",
-    "twitter"
+    "twitter",
+    "apple",
+    "atlassian"
   ],
   "created": 1683763200,
   "difficulty": "hard",

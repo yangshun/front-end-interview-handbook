@@ -2,7 +2,7 @@
   "slug": "array-map",
   "created": "2022-05-19T00:00:00.000Z",
   "languages": ["js", "ts"],
-  "companies": ["amazon", "apple"],
+  "companies": ["amazon", "apple", "bytedance"],
   "access": "premium",
   "duration": 15,
   "published": true,

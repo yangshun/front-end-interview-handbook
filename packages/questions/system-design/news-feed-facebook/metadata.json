@@ -3,7 +3,14 @@
   "author": "yangshun",
   "created": "2022-09-25T00:00:00.000Z",
   "languages": [],
-  "companies": ["facebook", "twitter"],
+  "companies": [
+    "facebook",
+    "twitter",
+    "google",
+    "amazon",
+    "tiktok",
+    "linkedin"
+  ],
   "access": "free",
   "duration": 30,
   "published": true,

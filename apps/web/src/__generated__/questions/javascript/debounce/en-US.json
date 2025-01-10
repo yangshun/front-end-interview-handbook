@@ -15,7 +15,12 @@
       "google",
       "lyft",
       "walmart",
-      "yelp"
+      "yelp",
+      "tiktok",
+      "bytedance",
+      "microsoft",
+      "linkedin",
+      "uber"
     ],
     "created": 1649894400,
     "difficulty": "medium",

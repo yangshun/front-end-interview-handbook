@@ -2,7 +2,15 @@
   "slug": "debounce-ii",
   "created": "2022-12-10T00:00:00.000Z",
   "languages": ["js", "ts"],
-  "companies": ["flipkart", "google", "lyft", "walmart", "yelp"],
+  "companies": [
+    "flipkart",
+    "google",
+    "lyft",
+    "walmart",
+    "yelp",
+    "microsoft",
+    "linkedin"
+  ],
   "author": "yangshun",
   "access": "premium",
   "duration": 20,

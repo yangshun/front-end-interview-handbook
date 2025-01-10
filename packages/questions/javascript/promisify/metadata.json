@@ -2,7 +2,7 @@
   "slug": "promisify",
   "created": "2023-07-23T00:00:00.000Z",
   "languages": ["js", "ts"],
-  "companies": ["amazon"],
+  "companies": ["amazon", "microsoft"],
   "access": "standard",
   "duration": 15,
   "published": true,

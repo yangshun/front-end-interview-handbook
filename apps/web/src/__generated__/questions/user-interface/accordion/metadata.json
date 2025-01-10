@@ -1,7 +1,9 @@
 {
   "access": "standard",
   "author": "yangshun",
-  "companies": [],
+  "companies": [
+    "amazon"
+  ],
   "created": 1671580800,
   "difficulty": "easy",
   "duration": 15,

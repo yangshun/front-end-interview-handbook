@@ -2,7 +2,10 @@
   "access": "premium",
   "author": "yangshun",
   "companies": [
-    "uber"
+    "uber",
+    "google",
+    "amazon",
+    "microsoft"
   ],
   "created": 1656720000,
   "difficulty": "easy",

@@ -6,7 +6,12 @@
     "companies": [
       "airbnb",
       "lyft",
-      "twitter"
+      "twitter",
+      "google",
+      "apple",
+      "microsoft",
+      "linkedin",
+      "uber"
     ],
     "created": 1650326400,
     "difficulty": "medium",

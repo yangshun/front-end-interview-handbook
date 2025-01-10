@@ -5,7 +5,11 @@
     "author": "yangshun",
     "companies": [
       "facebook",
-      "twitter"
+      "twitter",
+      "google",
+      "amazon",
+      "tiktok",
+      "linkedin"
     ],
     "created": 1664064000,
     "difficulty": "medium",

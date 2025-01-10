@@ -2,7 +2,9 @@
   {
     "access": "standard",
     "author": "yangshun",
-    "companies": [],
+    "companies": [
+      "amazon"
+    ],
     "created": 1671580800,
     "difficulty": "easy",
     "duration": 15,
@@ -43,7 +45,9 @@
   {
     "access": "premium",
     "author": "yangshun",
-    "companies": [],
+    "companies": [
+      "amazon"
+    ],
     "created": 1671580800,
     "difficulty": "medium",
     "duration": 20,
@@ -83,7 +87,9 @@
   {
     "access": "premium",
     "author": "yangshun",
-    "companies": [],
+    "companies": [
+      "amazon"
+    ],
     "created": 1671580800,
     "difficulty": "medium",
     "duration": 20,
@@ -299,7 +305,8 @@
     "access": "free",
     "author": "yangshun",
     "companies": [
-      "lyft"
+      "lyft",
+      "amazon"
     ],
     "created": 1658880000,
     "difficulty": "easy",
@@ -918,7 +925,9 @@
   {
     "access": "free",
     "author": "yangshun",
-    "companies": [],
+    "companies": [
+      "atlassian"
+    ],
     "created": 1658275200,
     "difficulty": "easy",
     "duration": 15,
@@ -1106,7 +1115,8 @@
     "author": "dhillon",
     "companies": [
       "microsoft",
-      "tiktok"
+      "tiktok",
+      "atlassian"
     ],
     "created": 1683849600,
     "difficulty": "medium",
@@ -1254,7 +1264,8 @@
     "access": "standard",
     "author": "yangshun",
     "companies": [
-      "amazon"
+      "amazon",
+      "tiktok"
     ],
     "created": 1723766400,
     "difficulty": "medium",
@@ -1293,7 +1304,8 @@
     "access": "premium",
     "author": "yangshun",
     "companies": [
-      "amazon"
+      "amazon",
+      "tiktok"
     ],
     "created": 1723766400,
     "difficulty": "medium",
@@ -1332,7 +1344,8 @@
     "access": "premium",
     "author": "yangshun",
     "companies": [
-      "amazon"
+      "amazon",
+      "tiktok"
     ],
     "created": 1723766400,
     "difficulty": "medium",
@@ -1370,7 +1383,8 @@
     "access": "premium",
     "author": "yangshun",
     "companies": [
-      "amazon"
+      "amazon",
+      "tiktok"
     ],
     "created": 1723766400,
     "difficulty": "hard",
@@ -1537,7 +1551,10 @@
     "access": "premium",
     "author": "yangshun",
     "companies": [
-      "uber"
+      "uber",
+      "google",
+      "amazon",
+      "microsoft"
     ],
     "created": 1656720000,
     "difficulty": "easy",
@@ -1770,7 +1787,8 @@
     "author": "yangshun",
     "companies": [
       "lyft",
-      "toptal"
+      "toptal",
+      "amazon"
     ],
     "created": 1658707200,
     "difficulty": "medium",
@@ -2115,7 +2133,9 @@
       "google",
       "amazon",
       "microsoft",
-      "twitter"
+      "twitter",
+      "apple",
+      "atlassian"
     ],
     "created": 1683763200,
     "difficulty": "medium",
@@ -2169,7 +2189,9 @@
       "google",
       "amazon",
       "microsoft",
-      "twitter"
+      "twitter",
+      "apple",
+      "atlassian"
     ],
     "created": 1683763200,
     "difficulty": "hard",
@@ -2219,7 +2241,8 @@
     "author": "yangshun",
     "companies": [
       "grab",
-      "toptal"
+      "toptal",
+      "amazon"
     ],
     "created": 1656460800,
     "difficulty": "medium",
@@ -2380,7 +2403,9 @@
   {
     "access": "premium",
     "author": "yangshun",
-    "companies": [],
+    "companies": [
+      "tiktok"
+    ],
     "created": 1683158400,
     "difficulty": "hard",
     "duration": 40,
@@ -2524,7 +2549,9 @@
   {
     "access": "premium",
     "author": "yangshun",
-    "companies": [],
+    "companies": [
+      "tiktok"
+    ],
     "created": 1723766400,
     "difficulty": "medium",
     "duration": 30,

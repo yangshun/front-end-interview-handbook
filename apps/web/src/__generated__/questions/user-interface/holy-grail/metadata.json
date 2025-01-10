@@ -1,7 +1,9 @@
 {
   "access": "free",
   "author": "yangshun",
-  "companies": [],
+  "companies": [
+    "atlassian"
+  ],
   "created": 1658275200,
   "difficulty": "easy",
   "duration": 15,

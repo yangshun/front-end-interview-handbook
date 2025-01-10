@@ -11,7 +11,8 @@
     "access": "standard",
     "author": null,
     "companies": [
-      "amazon"
+      "amazon",
+      "microsoft"
     ],
     "created": 1690070400,
     "difficulty": "medium",

@@ -3,7 +3,9 @@
   "metadata": {
     "access": "premium",
     "author": null,
-    "companies": [],
+    "companies": [
+      "tiktok"
+    ],
     "created": 1674950400,
     "difficulty": "medium",
     "duration": 30,

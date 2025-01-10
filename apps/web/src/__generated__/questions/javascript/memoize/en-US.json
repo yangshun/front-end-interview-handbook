@@ -12,7 +12,9 @@
     "author": null,
     "companies": [
       "intuit",
-      "linkedin"
+      "linkedin",
+      "atlassian",
+      "uber"
     ],
     "created": 1690848000,
     "difficulty": "medium",

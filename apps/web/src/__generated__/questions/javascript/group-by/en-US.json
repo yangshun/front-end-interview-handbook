@@ -10,7 +10,9 @@
   "metadata": {
     "access": "premium",
     "author": null,
-    "companies": [],
+    "companies": [
+      "linkedin"
+    ],
     "created": 1690502400,
     "difficulty": "medium",
     "duration": 15,

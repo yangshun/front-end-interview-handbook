@@ -2,7 +2,7 @@
   "slug": "data-selection",
   "created": "2022-06-19T00:00:00.000Z",
   "languages": ["js", "ts"],
-  "companies": ["soundcloud"],
+  "companies": ["soundcloud", "amazon", "tiktok"],
   "access": "premium",
   "duration": 30,
   "published": true,

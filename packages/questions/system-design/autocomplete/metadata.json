@@ -2,7 +2,16 @@
   "slug": "autocomplete",
   "created": "2022-04-19T00:00:00.000Z",
   "languages": [],
-  "companies": ["airbnb", "lyft", "twitter"],
+  "companies": [
+    "airbnb",
+    "lyft",
+    "twitter",
+    "google",
+    "apple",
+    "microsoft",
+    "linkedin",
+    "uber"
+  ],
   "access": "free",
   "duration": 30,
   "published": true,

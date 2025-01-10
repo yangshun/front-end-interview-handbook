@@ -5,7 +5,12 @@
     "companies": [
       "airbnb",
       "lyft",
-      "twitter"
+      "twitter",
+      "google",
+      "apple",
+      "microsoft",
+      "linkedin",
+      "uber"
     ],
     "created": 1650326400,
     "difficulty": "medium",
@@ -60,7 +65,8 @@
     "access": "premium",
     "author": "yangshun",
     "companies": [
-      "asana"
+      "asana",
+      "atlassian"
     ],
     "created": 1724371200,
     "difficulty": "hard",
@@ -191,7 +197,9 @@
   {
     "access": "premium",
     "author": null,
-    "companies": [],
+    "companies": [
+      "microsoft"
+    ],
     "created": 1630800000,
     "difficulty": "medium",
     "duration": 30,
@@ -249,7 +257,9 @@
   {
     "access": "premium",
     "author": null,
-    "companies": [],
+    "companies": [
+      "tiktok"
+    ],
     "created": 1674950400,
     "difficulty": "medium",
     "duration": 30,
@@ -304,7 +314,11 @@
     "author": "yangshun",
     "companies": [
       "facebook",
-      "twitter"
+      "twitter",
+      "google",
+      "amazon",
+      "tiktok",
+      "linkedin"
     ],
     "created": 1664064000,
     "difficulty": "medium",

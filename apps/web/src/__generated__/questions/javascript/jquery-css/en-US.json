@@ -10,7 +10,9 @@
   "metadata": {
     "access": "premium",
     "author": "yangshun",
-    "companies": [],
+    "companies": [
+      "linkedin"
+    ],
     "created": 1654992000,
     "difficulty": "easy",
     "duration": 15,

@@ -11,7 +11,9 @@
     "access": "free",
     "author": "zhenghao",
     "companies": [
-      "bytedance"
+      "bytedance",
+      "amazon",
+      "tiktok"
     ],
     "created": 1653091200,
     "difficulty": "medium",

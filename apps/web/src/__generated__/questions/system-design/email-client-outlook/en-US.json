@@ -3,7 +3,9 @@
   "metadata": {
     "access": "premium",
     "author": null,
-    "companies": [],
+    "companies": [
+      "microsoft"
+    ],
     "created": 1630800000,
     "difficulty": "medium",
     "duration": 30,

@@ -3,7 +3,15 @@
   "author": "yangshun",
   "created": "2022-04-14T00:00:00.000Z",
   "languages": ["js", "ts"],
-  "companies": ["google", "tiktok", "walmart", "yelp"],
+  "companies": [
+    "google",
+    "tiktok",
+    "walmart",
+    "yelp",
+    "tiktok",
+    "atlassian",
+    "uber"
+  ],
   "access": "standard",
   "duration": 15,
   "published": true,

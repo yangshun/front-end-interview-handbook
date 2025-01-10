@@ -12,7 +12,10 @@
     "author": null,
     "companies": [
       "google",
-      "lyft"
+      "lyft",
+      "tiktok",
+      "bytedance",
+      "microsoft"
     ],
     "created": 1669939200,
     "difficulty": "medium",

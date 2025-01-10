@@ -2,7 +2,7 @@
   "slug": "memoize",
   "created": "2023-08-01T00:00:00.000Z",
   "languages": ["js", "ts"],
-  "companies": ["intuit", "linkedin"],
+  "companies": ["intuit", "linkedin", "atlassian", "uber"],
   "access": "standard",
   "duration": 20,
   "published": true,

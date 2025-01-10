@@ -10,7 +10,9 @@
   "metadata": {
     "access": "premium",
     "author": "zhenghao",
-    "companies": [],
+    "companies": [
+      "bytedance"
+    ],
     "created": 1653177600,
     "difficulty": "hard",
     "duration": 45,

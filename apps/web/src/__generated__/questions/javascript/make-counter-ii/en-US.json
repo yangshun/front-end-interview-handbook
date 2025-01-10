@@ -10,7 +10,9 @@
   "metadata": {
     "access": "premium",
     "author": null,
-    "companies": [],
+    "companies": [
+      "amazon"
+    ],
     "created": 1683331200,
     "difficulty": "medium",
     "duration": 10,

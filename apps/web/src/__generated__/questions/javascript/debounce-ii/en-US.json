@@ -15,7 +15,9 @@
       "google",
       "lyft",
       "walmart",
-      "yelp"
+      "yelp",
+      "microsoft",
+      "linkedin"
     ],
     "created": 1670630400,
     "difficulty": "medium",

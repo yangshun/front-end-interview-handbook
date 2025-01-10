@@ -1,7 +1,9 @@
 {
   "access": "premium",
   "author": "yangshun",
-  "companies": [],
+  "companies": [
+    "tiktok"
+  ],
   "created": 1683158400,
   "difficulty": "hard",
   "duration": 40,
