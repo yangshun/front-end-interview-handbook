@@ -126,20 +126,23 @@ export default function QuestionsUnifiedListWithFilters({
     initialFormat,
   });
 
-  // Processing.
-  const sortedQuestions = sortQuestionsMultiple(questions, sortFields);
-  const processedQuestions = filterQuestions(
-    sortedQuestions,
+  // Add the search query in the active filter count
+  const numberOfFilters =
+    filters.filter(([size]) => size > 0).length + (query.length > 0 ? 1 : 0);
+
+  // Processing
+  const filteredQuestions = filterQuestions(
+    questions,
     filters.map(([_, filterFn]) => filterFn),
+  );
+  const processedQuestions = sortQuestionsMultiple(
+    filteredQuestions,
+    sortFields,
   );
 
   const totalDurationMins = countQuestionsTotalDurationMins(processedQuestions);
   const showPaywall =
     !userProfile?.isInterviewsPremium && companyFilters.size > 0;
-
-  // Add the search query in the active filter count
-  const numberOfFilters =
-    filters.filter(([size]) => size > 0).length + (query.length > 0 ? 1 : 0);
 
   const sortAndFilters = (
     <div className="flex shrink-0 justify-end gap-2 sm:pt-0 md:gap-4">
