@@ -6,7 +6,7 @@ import { RiArrowLeftSLine, RiArrowRightSLine } from 'react-icons/ri';
 
 import type {
   QuestionFramework,
-  QuestionMetadata,
+  QuestionHash,
   QuestionMetadataWithCompletedStatus,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import useQuestionCodingSorting from '~/components/interviews/questions/listings/filters/hooks/useQuestionCodingSorting';
@@ -33,8 +33,8 @@ import {
 } from '../../common/useQuestionsListDataForType';
 
 type Props = Readonly<{
+  currentQuestionHash: QuestionHash;
   framework?: QuestionFramework;
-  metadata: QuestionMetadata;
   slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE: string;
   studyListKey?: string;
 }>;
@@ -49,7 +49,7 @@ export default function InterviewsQuestionsListSlideOutButton(props: Props) {
 
 function InterviewsQuestionsListSlideOutButtonWithLoader({
   framework,
-  metadata,
+  currentQuestionHash,
   slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE,
   studyListKey,
 }: Props) {
@@ -76,9 +76,9 @@ function InterviewsQuestionsListSlideOutButtonWithLoader({
 
         return (
           <InterviewsQuestionsListSlideOutButtonImpl
+            currentQuestionHash={currentQuestionHash}
             framework={framework}
             listType={data.listType}
-            metadata={metadata}
             questions={questionsWithCompletionStatus}
             slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE={
               slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE
@@ -92,16 +92,16 @@ function InterviewsQuestionsListSlideOutButtonWithLoader({
 }
 
 function InterviewsQuestionsListSlideOutButtonImpl({
+  currentQuestionHash,
   framework,
   title,
   listType,
-  metadata,
   questions,
   slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE,
 }: Readonly<{
+  currentQuestionHash: QuestionHash;
   framework?: QuestionFramework;
   listType: QuestionListTypeData;
-  metadata: QuestionMetadata;
   questions: ReadonlyArray<QuestionMetadataWithCompletedStatus>;
   slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE: string;
   title: string;
@@ -127,7 +127,7 @@ function InterviewsQuestionsListSlideOutButtonImpl({
   );
 
   const currentQuestionIndex = processedQuestions.findIndex(
-    (question) => hashQuestion(question) === hashQuestion(metadata),
+    (question) => hashQuestion(question) === currentQuestionHash,
   );
 
   // The current question might not appear in the filtered list,
@@ -162,12 +162,12 @@ function InterviewsQuestionsListSlideOutButtonImpl({
         variant="tertiary"
       />
       <InterviewsQuestionsListSlideOut
-        key={metadata.slug}
+        key={currentQuestionHash}
+        currentQuestionHash={currentQuestionHash}
         currentQuestionPosition={currentQuestionIndex + 1}
         framework={framework}
         initialListType={{ ...listType, label: title }}
         isLoading={false}
-        metadata={metadata}
         processedQuestions={processedQuestions}
         slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE={
           slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE

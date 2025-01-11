@@ -2,8 +2,6 @@ import type { Metadata } from 'next/types';
 
 import QuestionJsonLd from '~/components/interviews/questions/common/QuestionJsonLd';
 import QuestionQuizContents from '~/components/interviews/questions/content/quiz/QuestionQuizContents';
-import QuestionQuizPagination from '~/components/interviews/questions/content/quiz/QuestionQuizPagination';
-import QuestionsQuizContentLayout from '~/components/interviews/questions/content/quiz/QuestionsQuizContentLayout';
 
 import { readQuestionQuizContents } from '~/db/QuestionsContentsReader';
 import { fetchQuestionsListQuiz } from '~/db/QuestionsListReader';
@@ -62,15 +60,7 @@ export default async function Page({ params }: Props) {
   return (
     <>
       <QuestionJsonLd metadata={question.metadata} />
-      <QuestionsQuizContentLayout metadata={question.metadata}>
-        <QuestionQuizContents
-          paginationEl={
-            <QuestionQuizPagination question={question} questionList={[]} />
-          }
-          question={question}
-          questionList={[]}
-        />
-      </QuestionsQuizContentLayout>
+      <QuestionQuizContents question={question} questionList={[]} />
     </>
   );
 }

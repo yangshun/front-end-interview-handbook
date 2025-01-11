@@ -6,18 +6,20 @@ import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 
+import { hashQuestion } from '~/db/QuestionsUtils';
+
 import type {
+  QuestionHash,
   QuestionMetadata,
-  QuestionQuiz,
 } from '../../common/QuestionsTypes';
 
 type Props = Readonly<{
-  question: QuestionQuiz;
+  questionHash?: QuestionHash;
   questionList: ReadonlyArray<QuestionMetadata>;
 }>;
 
 export default function QuestionQuizPagination({
-  question,
+  questionHash,
   questionList,
 }: Props) {
   const intl = useIntl();
@@ -30,7 +32,7 @@ export default function QuestionQuizPagination({
   for (let i = 0; i < questionList.length; i++) {
     currentQuestionPosition++;
 
-    if (questionList[i].slug !== question.metadata.slug) {
+    if (hashQuestion(questionList[i]) !== questionHash) {
       continue;
     }
     // We have found the active item.

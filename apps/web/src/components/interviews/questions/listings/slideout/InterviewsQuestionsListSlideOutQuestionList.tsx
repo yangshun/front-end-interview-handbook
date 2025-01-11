@@ -7,6 +7,7 @@ import type { QuestionListTypeData } from '~/components/interviews/questions/com
 import { questionHrefFrameworkSpecificAndListType } from '~/components/interviews/questions/common/QuestionHrefUtils';
 import type {
   QuestionFramework,
+  QuestionHash,
   QuestionMetadata,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import QuestionsListItemProgressChip from '~/components/interviews/questions/listings/items/QuestionsListItemProgressChip';
@@ -37,10 +38,10 @@ import InterviewsPurchasePaywall from '../../../purchase/InterviewsPurchasePaywa
 
 type Props<Q extends QuestionMetadata> = Readonly<{
   checkIfCompletedQuestion?: (question: Q) => boolean;
+  currentQuestionHash?: QuestionHash;
   framework?: QuestionFramework;
   isDifferentListFromInitial: boolean;
   listType: QuestionListTypeData;
-  metadata: QuestionMetadata;
   mode: 'compact' | 'full';
   onClickDifferentStudyListQuestion: (href: string) => void;
   questions: ReadonlyArray<Q>;
@@ -56,7 +57,7 @@ export default function InterviewsQuestionsListSlideOutQuestionList<
   listType,
   mode,
   questions,
-  metadata,
+  currentQuestionHash,
   onClickDifferentStudyListQuestion,
   showCompanyPaywall,
 }: Props<Q>) {
@@ -86,7 +87,7 @@ export default function InterviewsQuestionsListSlideOutQuestionList<
   }
 
   const isCurrentQuestionInTheList = !!questions.find(
-    (question) => hashQuestion(question) === hashQuestion(metadata),
+    (question) => hashQuestion(question) === currentQuestionHash,
   );
 
   return (
@@ -113,7 +114,7 @@ export default function InterviewsQuestionsListSlideOutQuestionList<
               // question list, the first question is going to be the active question
               const isActiveQuestion =
                 isCurrentQuestionInTheList && !isDifferentListFromInitial
-                  ? hashQuestion(questionMetadata) === hashQuestion(metadata)
+                  ? hashQuestion(questionMetadata) === currentQuestionHash
                   : index === 0;
               const href = questionHrefFrameworkSpecificAndListType(
                 questionMetadata,
@@ -245,7 +246,7 @@ export default function InterviewsQuestionsListSlideOutQuestionList<
                 checkIfCompletedQuestion?.(questionMetadata);
 
               const isActiveQuestion =
-                hashQuestion(questionMetadata) === hashQuestion(metadata);
+                hashQuestion(questionMetadata) === currentQuestionHash;
 
               const href = questionHrefFrameworkSpecificAndListType(
                 questionMetadata,

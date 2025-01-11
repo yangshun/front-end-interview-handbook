@@ -30,7 +30,6 @@ import useQuestionsAutoMarkAsComplete from '../../common/useQuestionsAutoMarkAsC
 import InterviewsStudyListBottomBar from '../../listings/study-list/InterviewsStudyListBottomBar';
 
 type Props = Readonly<{
-  paginationEl: React.ReactNode;
   question: QuestionQuiz;
   questionList?: ReadonlyArray<QuestionMetadata>;
   studyListKey?: string;
@@ -66,7 +65,6 @@ export default function QuestionQuizContents({
   question,
   questionList,
   studyListKey,
-  paginationEl,
 }: Props) {
   const copyRef = useQuestionLogEventCopyContents<HTMLDivElement>();
   const { solution } = question;
@@ -174,7 +172,6 @@ export default function QuestionQuizContents({
       </Container>
       <InterviewsStudyListBottomBar
         metadata={question.metadata}
-        paginationEl={paginationEl}
         studyListKey={studyListKey}
       />
     </div>

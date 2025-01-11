@@ -11,6 +11,8 @@ import {
   themeBorderColor,
 } from '~/components/ui/theme';
 
+import { hashQuestion } from '~/db/QuestionsUtils';
+
 type Props = Readonly<{
   framework?: QuestionFramework;
   leftElements?: ReactNode;
@@ -45,8 +47,8 @@ export default function CodingWorkspaceBottomBar({
       <div className={clsx('flex flex-1 sm:justify-center', 'h-7')}>
         {showQuestionsListButton && (
           <InterviewsQuestionsListSlideOutButton
+            currentQuestionHash={hashQuestion(metadata)}
             framework={framework}
-            metadata={metadata}
             slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE={
               slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE
             }

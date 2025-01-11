@@ -5,7 +5,6 @@ import GuidesArticleJsonLd from '~/components/guides/GuidesArticleJsonLd';
 import InterviewsPurchaseQuestionPaywallPage from '~/components/interviews/purchase/InterviewsPurchaseQuestionPaywallPage';
 import InterviewsPurchaseStudyListPaywallPage from '~/components/interviews/purchase/InterviewsPurchaseStudyListPaywallPage';
 import InterviewsQuestionsSystemDesignPage from '~/components/interviews/questions/content/system-design/InterviewsQuestionsSystemDesignPage';
-import InterviewsQuestionsListSlideOutButton from '~/components/interviews/questions/listings/slideout/InterviewsQuestionsListSlideOutButton';
 import InterviewsStudyListBottomBar from '~/components/interviews/questions/listings/study-list/InterviewsStudyListBottomBar';
 
 import { fetchInterviewsStudyList } from '~/db/contentlayer/InterviewsStudyListReader';
@@ -139,13 +138,6 @@ export default async function Page({ params }: Props) {
           bottomNav={
             <InterviewsStudyListBottomBar
               metadata={question.metadata}
-              paginationEl={
-                <InterviewsQuestionsListSlideOutButton
-                  metadata={question.metadata}
-                  slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE="qns_slideout"
-                  studyListKey={studyListKey}
-                />
-              }
               studyListKey={studyListKey}
             />
           }

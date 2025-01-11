@@ -1,16 +1,18 @@
 'use client';
 
 import clsx from 'clsx';
-import { type ReactNode, Suspense } from 'react';
+import { Suspense } from 'react';
 
 import QuestionProgressAction from '~/components/interviews/questions/common/QuestionProgressAction';
 import QuestionReportIssueButton from '~/components/interviews/questions/common/QuestionReportIssueButton';
+import InterviewsQuestionsListSlideOutButton from '~/components/interviews/questions/listings/slideout/InterviewsQuestionsListSlideOutButton';
 import {
   themeBackgroundDarkColor,
   themeBorderColor,
 } from '~/components/ui/theme';
 
 import { useQueryQuestionProgress } from '~/db/QuestionsProgressClient';
+import { hashQuestion } from '~/db/QuestionsUtils';
 
 import type { QuestionMetadata } from '../../common/QuestionsTypes';
 
@@ -18,14 +20,12 @@ import { useUser } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
   allowMarkComplete?: boolean;
-  metadata: QuestionMetadata;
-  paginationEl: ReactNode;
+  metadata: Pick<QuestionMetadata, 'format' | 'slug'>;
   studyListKey?: string;
 }>;
 
 export default function InterviewsStudyListBottomBar({
   allowMarkComplete = true,
-  paginationEl,
   metadata,
   studyListKey,
 }: Props) {
@@ -44,12 +44,18 @@ export default function InterviewsStudyListBottomBar({
         themeBackgroundDarkColor,
       )}>
       <div className="flex shrink-0 justify-center sm:order-2 sm:flex-1">
-        <Suspense>{paginationEl}</Suspense>
+        <Suspense>
+          <InterviewsQuestionsListSlideOutButton
+            currentQuestionHash={hashQuestion(metadata)}
+            slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE="qns_slideout"
+            studyListKey={studyListKey}
+          />
+        </Suspense>
       </div>
       <div className="hidden sm:flex sm:flex-1">
         <QuestionReportIssueButton
           format={metadata.format}
-          title={metadata.title}
+          title={metadata.slug}
         />
       </div>
       <div
@@ -61,7 +67,7 @@ export default function InterviewsStudyListBottomBar({
         <QuestionReportIssueButton
           className="mr-2 sm:hidden"
           format={metadata.format}
-          title={metadata.title}
+          title={metadata.slug}
         />
         {allowMarkComplete && (
           <QuestionProgressAction

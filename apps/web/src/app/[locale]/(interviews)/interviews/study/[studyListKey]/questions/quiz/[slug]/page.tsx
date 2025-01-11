@@ -3,7 +3,6 @@ import type { Metadata } from 'next/types';
 
 import InterviewsPurchaseStudyListPaywallPage from '~/components/interviews/purchase/InterviewsPurchaseStudyListPaywallPage';
 import QuestionQuizContents from '~/components/interviews/questions/content/quiz/QuestionQuizContents';
-import InterviewsQuestionsListSlideOutButton from '~/components/interviews/questions/listings/slideout/InterviewsQuestionsListSlideOutButton';
 
 import { fetchInterviewsStudyList } from '~/db/contentlayer/InterviewsStudyListReader';
 import { readQuestionQuizContents } from '~/db/QuestionsContentsReader';
@@ -90,16 +89,6 @@ export default async function Page({ params }: Props) {
       studyListCategory={studyList.category}
     />
   ) : (
-    <QuestionQuizContents
-      paginationEl={
-        <InterviewsQuestionsListSlideOutButton
-          metadata={question.metadata}
-          slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE="qns_slideout"
-          studyListKey={studyListKey}
-        />
-      }
-      question={question}
-      studyListKey={studyListKey}
-    />
+    <QuestionQuizContents question={question} studyListKey={studyListKey} />
   );
 }

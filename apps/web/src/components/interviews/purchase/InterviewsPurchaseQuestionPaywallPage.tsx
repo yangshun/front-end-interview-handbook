@@ -4,7 +4,6 @@ import clsx from 'clsx';
 
 import InterviewsPurchasePaywall from '~/components/interviews/purchase/InterviewsPurchasePaywall';
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
-import InterviewsQuestionsListSlideOutButton from '~/components/interviews/questions/listings/slideout/InterviewsQuestionsListSlideOutButton';
 import InterviewsStudyListBottomBar from '~/components/interviews/questions/listings/study-list/InterviewsStudyListBottomBar';
 import QuestionMetadataSection from '~/components/interviews/questions/metadata/QuestionMetadataSection';
 import Container from '~/components/ui/Container';
@@ -50,13 +49,6 @@ export default function InterviewsPurchaseQuestionPaywallPage({
       <InterviewsStudyListBottomBar
         allowMarkComplete={false}
         metadata={metadata}
-        paginationEl={
-          <InterviewsQuestionsListSlideOutButton
-            metadata={metadata}
-            slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE="qns_slideout"
-            studyListKey={studyListKey}
-          />
-        }
         studyListKey={studyListKey}
       />
     </div>

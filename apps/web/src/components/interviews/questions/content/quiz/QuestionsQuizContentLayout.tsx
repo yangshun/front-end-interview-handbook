@@ -2,7 +2,7 @@
 
 import clsx from 'clsx';
 import { isEqual } from 'lodash-es';
-import { usePathname } from 'next/navigation';
+import { usePathname, useSelectedLayoutSegment } from 'next/navigation';
 import { useState } from 'react';
 
 import useScrollToTop from '~/hooks/useScrollToTop';
@@ -10,27 +10,26 @@ import useScrollToTop from '~/hooks/useScrollToTop';
 import SidebarCollapser from '~/components/global/sidebar/SidebarCollapser';
 import { useUserPreferences } from '~/components/global/UserPreferencesProvider';
 import { questionListFilterNamespace } from '~/components/interviews/questions/common/QuestionHrefUtils';
-import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import InterviewsQuestionsListSlideOutSwitcher from '~/components/interviews/questions/listings/slideout/InterviewsQuestionsListSlideOutSwitcher';
 import Section from '~/components/ui/Heading/HeadingContext';
 import { themeBorderColor } from '~/components/ui/theme';
+
+import { hashQuestion } from '~/db/QuestionsUtils';
 
 import InterviewsQuestionsListSlideOutContents from '../../listings/slideout/InterviewsQuestionsListSlideOutContents';
 import type { QuestionListTypeWithLabel } from '../../listings/slideout/InterviewsQuestionsListSlideOutSwitcher';
 
 type Props = Readonly<{
   children: React.ReactNode;
-  metadata: QuestionMetadata;
 }>;
 
-export default function QuestionsQuizContentLayout({
-  children,
-  metadata,
-}: Props) {
+export default function QuestionsQuizContentLayout({ children }: Props) {
   const { showSidebar } = useUserPreferences();
   const pathname = usePathname();
 
   useScrollToTop([pathname]);
+
+  const segment = useSelectedLayoutSegment();
 
   const initialListType = {
     label: 'Quiz',
@@ -60,6 +59,15 @@ export default function QuestionsQuizContentLayout({
     }));
   }
 
+  const questionSlug = segment;
+
+  const currentQuestionHash = questionSlug
+    ? hashQuestion({
+        format: 'quiz',
+        slug: questionSlug,
+      })
+    : undefined;
+
   return (
     <div className="flex w-full">
       <div
@@ -84,12 +92,12 @@ export default function QuestionsQuizContentLayout({
               <div className="h-0 grow">
                 <InterviewsQuestionsListSlideOutContents
                   key={filterNamespace}
+                  currentQuestionHash={currentQuestionHash}
                   filterNamespace={filterNamespace}
                   isDifferentListFromInitial={
                     !isEqual(initialListType, currentListType)
                   }
                   listType={currentListType}
-                  metadata={metadata}
                   mode="compact"
                   showSwitchQuestionListDialog={showSwitchQuestionListDialog}
                   onClickDifferentStudyListQuestion={(href: string) =>

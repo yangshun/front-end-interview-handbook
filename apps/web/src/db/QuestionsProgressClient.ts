@@ -12,7 +12,7 @@ import { useIntl } from '~/components/intl';
 import { useUser } from '@supabase/auth-helpers-react';
 
 export function useQueryQuestionProgress(
-  metadata: QuestionMetadata,
+  metadata: Pick<QuestionMetadata, 'format' | 'slug'>,
   studyListKey: string | null,
 ) {
   const user = useUser();

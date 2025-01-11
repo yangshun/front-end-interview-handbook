@@ -8,7 +8,7 @@ import { useMediaQuery } from 'usehooks-ts';
 
 import type {
   QuestionFramework,
-  QuestionMetadata,
+  QuestionHash,
   QuestionMetadataWithCompletedStatus,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import useQuestionUnifiedFilters from '~/components/interviews/questions/listings/filters/hooks/useQuestionUnifiedFilters';
@@ -28,11 +28,11 @@ import QuestionListingFilterButtonBadgeWrapper from '../filters/QuestionListingF
 import { questionListFilterNamespace } from '../../common/QuestionHrefUtils';
 
 type Props = Readonly<{
+  currentQuestionHash: QuestionHash;
   currentQuestionPosition: number;
   framework?: QuestionFramework;
   initialListType: QuestionListTypeWithLabel;
   isLoading: boolean;
-  metadata: QuestionMetadata;
   processedQuestions: ReadonlyArray<QuestionMetadataWithCompletedStatus>;
   slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE: string;
   title?: string;
@@ -54,7 +54,7 @@ function InterviewsQuestionsListSlideOutImpl({
   initialListType,
   currentQuestionPosition,
   processedQuestions,
-  metadata,
+  currentQuestionHash,
   slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE,
 }: Props) {
   const intl = useIntl();
@@ -196,13 +196,13 @@ function InterviewsQuestionsListSlideOutImpl({
       {isSlideOutShown && (
         <InterviewsQuestionsListSlideOutContents
           key={filterNamespace}
+          currentQuestionHash={currentQuestionHash}
           filterNamespace={filterNamespace}
           framework={framework}
           isDifferentListFromInitial={
             !isEqual(initialListType, currentListType)
           }
           listType={currentListType}
-          metadata={metadata}
           mode="full"
           setFirstQuestionHref={setFirstQuestionInListHref}
           showSwitchQuestionListDialog={showSwitchQuestionListDialog}

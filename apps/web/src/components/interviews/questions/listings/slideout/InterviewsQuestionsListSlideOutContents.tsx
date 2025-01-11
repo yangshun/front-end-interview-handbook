@@ -41,6 +41,7 @@ import {
 } from '../../common/QuestionHrefUtils';
 import type {
   QuestionFramework,
+  QuestionHash,
   QuestionLanguage,
   QuestionMetadata,
 } from '../../common/QuestionsTypes';
@@ -171,11 +172,11 @@ function FrameworkAndLanguageFilterSection<Q extends QuestionMetadata>({
 }
 
 type Props = Readonly<{
+  currentQuestionHash?: QuestionHash;
   filterNamespace: string;
   framework?: QuestionFramework;
   isDifferentListFromInitial: boolean;
   listType: QuestionListTypeData;
-  metadata: QuestionMetadata;
   mode: React.ComponentProps<
     typeof InterviewsQuestionsListSlideOutQuestionList
   >['mode'];
@@ -194,7 +195,7 @@ export default function InterviewsQuestionsListSlideOutContents({
   framework,
   listType,
   isDifferentListFromInitial,
-  metadata,
+  currentQuestionHash,
   mode,
   filterNamespace,
   setFirstQuestionHref,
@@ -443,10 +444,10 @@ export default function InterviewsQuestionsListSlideOutContents({
           ) : (
             <InterviewsQuestionsListSlideOutQuestionList
               checkIfCompletedQuestion={(question) => question.isCompleted}
+              currentQuestionHash={currentQuestionHash}
               framework={framework}
               isDifferentListFromInitial={isDifferentListFromInitial}
               listType={listType}
-              metadata={metadata}
               mode={mode}
               questions={
                 showCompanyPaywall
