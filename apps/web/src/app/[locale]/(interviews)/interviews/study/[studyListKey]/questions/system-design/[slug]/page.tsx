@@ -137,6 +137,7 @@ export default async function Page({ params }: Props) {
         <InterviewsQuestionsSystemDesignPage
           bottomNav={
             <InterviewsStudyListBottomBar
+              listIsShownInSidebarOnDesktop={false}
               metadata={question.metadata}
               studyListKey={studyListKey}
             />

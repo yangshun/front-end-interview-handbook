@@ -31,6 +31,7 @@ export default function QuestionsQuizContentLayout({ children }: Props) {
 
   const segment = useSelectedLayoutSegment();
 
+  // TODO(interviews): remove hardcoding
   const initialListType = {
     label: 'Quiz',
     type: 'format',
@@ -78,7 +79,7 @@ export default function QuestionsQuizContentLayout({ children }: Props) {
         {showSidebar && (
           <Section>
             <div
-              className={clsx('flex-col', 'hidden w-[420px] lg:flex', [
+              className={clsx('flex-col', 'hidden w-[420px] xl:flex', [
                 'border-r',
                 themeBorderColor,
               ])}>

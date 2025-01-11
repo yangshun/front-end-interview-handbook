@@ -33,7 +33,7 @@ export default function SidebarCollapser() {
     <button
       aria-label={title}
       className={clsx(
-        'hidden items-center justify-center p-1 lg:flex',
+        'hidden items-center justify-center p-1 xl:flex',
         'absolute top-[80px] -ml-px h-10 translate-x-full',
         showSidebar ? 'right-px' : 'right-0',
         themeTextSecondaryColor,

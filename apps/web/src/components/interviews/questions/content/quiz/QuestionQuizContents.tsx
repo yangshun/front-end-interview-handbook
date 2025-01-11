@@ -171,6 +171,7 @@ export default function QuestionQuizContents({
         </div>
       </Container>
       <InterviewsStudyListBottomBar
+        listIsShownInSidebarOnDesktop={true}
         metadata={question.metadata}
         studyListKey={studyListKey}
       />

@@ -49,6 +49,7 @@ export default function CodingWorkspaceBottomBar({
           <InterviewsQuestionsListSlideOutButton
             currentQuestionHash={hashQuestion(metadata)}
             framework={framework}
+            listIsShownInSidebarOnDesktop={false}
             slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE={
               slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE
             }

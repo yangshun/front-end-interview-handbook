@@ -6,6 +6,7 @@ import { Suspense, useState } from 'react';
 import { RiFilterLine } from 'react-icons/ri';
 import { useMediaQuery } from 'usehooks-ts';
 
+import { useUserPreferences } from '~/components/global/UserPreferencesProvider';
 import type {
   QuestionFramework,
   QuestionHash,
@@ -33,6 +34,7 @@ type Props = Readonly<{
   framework?: QuestionFramework;
   initialListType: QuestionListTypeWithLabel;
   isLoading: boolean;
+  listIsShownInSidebarOnDesktop: boolean;
   processedQuestions: ReadonlyArray<QuestionMetadataWithCompletedStatus>;
   slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE: string;
   title?: string;
@@ -52,12 +54,15 @@ function InterviewsQuestionsListSlideOutImpl({
   framework,
   isLoading,
   initialListType,
+  listIsShownInSidebarOnDesktop,
   currentQuestionPosition,
   processedQuestions,
   currentQuestionHash,
   slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE,
 }: Props) {
   const intl = useIntl();
+  const { showSidebar, setShowSidebar } = useUserPreferences();
+
   // Have to be controlled because we don't want to
   // fetch the question lists for nothing
   const [isSlideOutShown, setIsSlideOutShown] = useQueryState(
@@ -65,6 +70,7 @@ function InterviewsQuestionsListSlideOutImpl({
     parseAsBoolean.withDefault(false),
   );
   const isMobile = useMediaQuery('(max-width: 640px)');
+  const isDesktop = useMediaQuery('(min-width: 1367px)');
   const router = useRouter();
   const [currentListType, setCurrentListType] =
     useState<QuestionListTypeWithLabel>(initialListType);
@@ -164,7 +170,13 @@ function InterviewsQuestionsListSlideOutImpl({
             label={listName}
             size="xs"
             variant="secondary"
-            onClick={() => setIsSlideOutShown(true)}>
+            onClick={() => {
+              if (isDesktop && listIsShownInSidebarOnDesktop) {
+                setShowSidebar(!showSidebar);
+              } else {
+                setIsSlideOutShown(true);
+              }
+            }}>
             <div className="flex items-center gap-3">
               {isLoading ? (
                 <div

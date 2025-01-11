@@ -48,6 +48,7 @@ export default function InterviewsPurchaseQuestionPaywallPage({
       </Container>
       <InterviewsStudyListBottomBar
         allowMarkComplete={false}
+        listIsShownInSidebarOnDesktop={false}
         metadata={metadata}
         studyListKey={studyListKey}
       />

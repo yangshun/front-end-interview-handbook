@@ -20,6 +20,7 @@ import { useUser } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
   allowMarkComplete?: boolean;
+  listIsShownInSidebarOnDesktop: boolean;
   metadata: Pick<QuestionMetadata, 'format' | 'slug'>;
   studyListKey?: string;
 }>;
@@ -27,6 +28,7 @@ type Props = Readonly<{
 export default function InterviewsStudyListBottomBar({
   allowMarkComplete = true,
   metadata,
+  listIsShownInSidebarOnDesktop,
   studyListKey,
 }: Props) {
   const user = useUser();
@@ -47,6 +49,7 @@ export default function InterviewsStudyListBottomBar({
         <Suspense>
           <InterviewsQuestionsListSlideOutButton
             currentQuestionHash={hashQuestion(metadata)}
+            listIsShownInSidebarOnDesktop={listIsShownInSidebarOnDesktop}
             slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE="qns_slideout"
             studyListKey={studyListKey}
           />
