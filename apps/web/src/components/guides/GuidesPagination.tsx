@@ -213,10 +213,17 @@ export default function GuidesPagination({
         </div>
       </div>
       <div className="hidden sm:flex sm:flex-1">
-        {isSystemDesignQuestion && (
+        {isSystemDesignQuestion ? (
           <QuestionReportIssueButton
+            entity="question"
             format="system-design"
-            title={currentItem.label}
+            slug={currentItem.id}
+          />
+        ) : (
+          <QuestionReportIssueButton
+            book={guide}
+            entity="article"
+            slug={currentItem.id}
           />
         )}
       </div>
@@ -226,11 +233,19 @@ export default function GuidesPagination({
           'transition-colors',
           isLoading && user != null ? 'opacity-0' : 'opacity-100',
         )}>
-        {isSystemDesignQuestion && (
+        {isSystemDesignQuestion ? (
           <QuestionReportIssueButton
             className="mr-2 sm:hidden"
+            entity="question"
             format="system-design"
-            title={currentItem.label}
+            slug={currentItem.id}
+          />
+        ) : (
+          <QuestionReportIssueButton
+            book={guide}
+            className="mr-2 sm:hidden"
+            entity="article"
+            slug={currentItem.id}
           />
         )}
         <GuidesProgressAction

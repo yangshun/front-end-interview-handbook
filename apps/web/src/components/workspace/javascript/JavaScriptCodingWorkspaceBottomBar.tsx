@@ -90,8 +90,9 @@ export default function JavaScriptCodingWorkspaceBottomBar({
     <>
       <span className="inline sm:hidden">
         <QuestionReportIssueButton
+          entity="question"
           format={metadata.format}
-          title={metadata.title}
+          slug={metadata.slug}
         />
       </span>
       <div className="hidden lg:inline">
@@ -120,8 +121,9 @@ export default function JavaScriptCodingWorkspaceBottomBar({
         layout === 'full' && (
           <div className="hidden items-center gap-x-2 sm:inline-flex">
             <QuestionReportIssueButton
+              entity="question"
               format={metadata.format}
-              title={metadata.title}
+              slug={metadata.slug}
             />
             <DropdownMenu
               icon={RiSettings2Line}

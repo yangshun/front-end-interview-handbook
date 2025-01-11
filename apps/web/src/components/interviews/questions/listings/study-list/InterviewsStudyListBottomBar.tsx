@@ -57,8 +57,9 @@ export default function InterviewsStudyListBottomBar({
       </div>
       <div className="hidden sm:flex sm:flex-1">
         <QuestionReportIssueButton
+          entity="question"
           format={metadata.format}
-          title={metadata.slug}
+          slug={metadata.slug}
         />
       </div>
       <div
@@ -69,8 +70,9 @@ export default function InterviewsStudyListBottomBar({
         )}>
         <QuestionReportIssueButton
           className="mr-2 sm:hidden"
+          entity="question"
           format={metadata.format}
-          title={metadata.slug}
+          slug={metadata.slug}
         />
         {allowMarkComplete && (
           <QuestionProgressAction

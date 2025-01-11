@@ -3107,6 +3107,10 @@
     "defaultMessage": "Search over {questionCount} JavaScript interview questions",
     "description": "Search placeholder for JavaScript questions list page"
   },
+  "IPWLLl": {
+    "defaultMessage": "Found a bug or have an improvement to suggest? We would prefer if you could create an issue on <link>GitHub</link>.",
+    "description": "Reporting a bug on GitHub"
+  },
   "IQ9qW7": {
     "defaultMessage": "Get promo code",
     "description": "Button label for student discount"
@@ -3670,10 +3674,6 @@
   "Lel52s": {
     "defaultMessage": "Frameworks",
     "description": "Label for question framework list"
-  },
-  "LfcLVQ": {
-    "defaultMessage": "Found a bug or have an improvement to suggest to a question? We would prefer if you could create an issue on <link>GitHub</link>.",
-    "description": "Sentence to report bug on GitHub"
   },
   "LgMYXR": {
     "defaultMessage": "<authorLink>{author}</authorLink> left a code review on <submissionLink>{entityTitle}</submissionLink> {timestamp}",

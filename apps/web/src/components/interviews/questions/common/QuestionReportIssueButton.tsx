@@ -1,5 +1,7 @@
+import { kebabCase } from 'lodash-es';
 import { useState } from 'react';
 import { RiBugLine } from 'react-icons/ri';
+import url from 'url';
 
 import FeedbackDialog from '~/components/global/feedback/FeedbackDialog';
 import { FormattedMessage, useIntl } from '~/components/intl';
@@ -10,14 +12,27 @@ import type { TooltipContentSide } from '~/components/ui/Tooltip';
 
 import type { QuestionFormat } from './QuestionsTypes';
 
-type Props = Readonly<{
+import type { GuidebookItem } from '@prisma/client';
+
+type CommonProps = Readonly<{
   className?: string;
-  format: QuestionFormat;
   isLabelHidden?: boolean;
   showTooltip?: boolean;
-  title: string;
+  slug: string;
   tooltipSide?: TooltipContentSide;
 }>;
+
+type Props =
+  | (CommonProps &
+      Readonly<{
+        book: GuidebookItem;
+        entity: 'article';
+      }>)
+  | (CommonProps &
+      Readonly<{
+        entity: 'question';
+        format: QuestionFormat;
+      }>);
 
 // https://github.com/greatfrontend/greatfrontend/labels
 const QuestionFormatToGitHubIssueLabel: Record<QuestionFormat, string> = {
@@ -28,18 +43,43 @@ const QuestionFormatToGitHubIssueLabel: Record<QuestionFormat, string> = {
   'user-interface': 'question-ui',
 };
 
+// https://github.com/greatfrontend/greatfrontend/labels
+const GuidebookToGitHubIssueLabel: Record<GuidebookItem, string> = {
+  BEHAVIORAL_INTERVIEW_PLAYBOOK: 'guide-behavioral-interview',
+  FRONT_END_INTERVIEW_PLAYBOOK: 'guide-front-end-interview',
+  FRONT_END_SYSTEM_DESIGN_PLAYBOOK: 'guide-front-end-system-design',
+};
+
 export default function QuestionReportIssueButton({
   className,
   isLabelHidden = true,
-  format,
   showTooltip = true,
-  title,
+  slug,
   tooltipSide = 'top',
+  ...props
 }: Props) {
   const intl = useIntl();
   const [isOpen, setIsOpen] = useState(false);
 
-  const gitHubIssueHref = `https://github.com/greatfrontend/greatfrontend/issues/new?template=question-report.md&labels=${QuestionFormatToGitHubIssueLabel[format]}&title=Issue with ${title}`;
+  const gitHubIssueHref =
+    'https://github.com/greatfrontend' +
+    (props.entity === 'article'
+      ? url.format({
+          pathname: '/greatfrontend/issues/new',
+          query: {
+            labels: GuidebookToGitHubIssueLabel[props.book],
+            template: 'article-report.md',
+            title: `[Article] ${kebabCase(props.book)}/${slug}`,
+          },
+        })
+      : url.format({
+          pathname: '/greatfrontend/issues/new',
+          query: {
+            labels: QuestionFormatToGitHubIssueLabel[props.format],
+            template: 'question-report.md',
+            title: `[Question] ${props.format}/${slug}`,
+          },
+        }));
 
   return (
     <>
@@ -72,9 +112,9 @@ export default function QuestionReportIssueButton({
           <>
             <div>
               <FormattedMessage
-                defaultMessage="Found a bug or have an improvement to suggest to a question? We would prefer if you could create an issue on <link>GitHub</link>."
-                description="Sentence to report bug on GitHub"
-                id="LfcLVQ"
+                defaultMessage="Found a bug or have an improvement to suggest? We would prefer if you could create an issue on <link>GitHub</link>."
+                description="Reporting a bug on GitHub"
+                id="IPWLLl"
                 values={{
                   link: (chunks) => (
                     <Anchor href={gitHubIssueHref}>{chunks}</Anchor>

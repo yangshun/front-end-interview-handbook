@@ -149,10 +149,11 @@ export default function QuestionQuizContents({
           </div>
           <div className="flex justify-between">
             <QuestionReportIssueButton
+              entity="question"
               format={question.metadata.format}
               isLabelHidden={false}
               showTooltip={false}
-              title={question.metadata.title}
+              slug={question.metadata.slug}
             />
             <GitHubEditButton question={question} />
           </div>

@@ -82,9 +82,10 @@ export default function QuestionContentsSystemDesign({
           <div className="flex items-start justify-between">
             <QuestionMetadataSection metadata={metadata} />
             <QuestionReportIssueButton
+              entity="question"
               format={question.metadata.format}
               isLabelHidden={false}
-              title={question.metadata.title}
+              slug={question.metadata.slug}
             />
           </div>
         </Section>
@@ -112,10 +113,11 @@ export default function QuestionContentsSystemDesign({
         </div>
         <div className="flex justify-between">
           <QuestionReportIssueButton
+            entity="question"
             format={question.metadata.format}
             isLabelHidden={false}
             showTooltip={false}
-            title={question.metadata.title}
+            slug={question.metadata.slug}
           />
           <div
             className={clsx(
