@@ -64,10 +64,12 @@ export default async function Page({ params }: Props) {
     return notFound();
   }
 
-  const questionsSlugs = groupQuestionHashesByFormat(blind75.questionHashes);
+  const questionsSlugs = groupQuestionHashesByFormat(
+    blind75?.questionHashes ?? [],
+  );
 
   const [questions, bottomContent] = await Promise.all([
-    fetchQuestionsByHash(blind75.questionHashes, locale),
+    fetchQuestionsByHash(blind75?.questionHashes ?? [], locale),
     fetchInterviewListingBottomContent('blind75'),
   ]);
 

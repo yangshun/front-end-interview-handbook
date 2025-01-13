@@ -25,6 +25,27 @@ export type QuestionCompany =
   | 'uber'
   | 'walmart'
   | 'yelp';
+
+export const QuestionCompanies: ReadonlyArray<QuestionCompany> = [
+  'airbnb',
+  'amazon',
+  'apple',
+  'bytedance',
+  'dropbox',
+  'google',
+  'linkedin',
+  'lyft',
+  'microsoft',
+  'palantir',
+  'salesforce',
+  'snap',
+  'stripe',
+  'toptal',
+  'twitter',
+  'uber',
+  'walmart',
+] as const;
+
 export type QuestionLanguage = 'css' | 'html' | 'js' | 'ts';
 export type QuestionCompletionStatus = 'completed' | 'incomplete';
 export type QuestionDifficulty = 'easy' | 'hard' | 'medium';

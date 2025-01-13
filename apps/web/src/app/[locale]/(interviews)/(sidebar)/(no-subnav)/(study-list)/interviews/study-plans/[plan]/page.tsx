@@ -75,10 +75,12 @@ export default async function Page({ params }: Props) {
     return notFound();
   }
 
-  const questionsSlugs = groupQuestionHashesByFormat(studyPlan.questionHashes);
+  const questionsSlugs = groupQuestionHashesByFormat(
+    studyPlan?.questionHashes ?? [],
+  );
 
   const [questions, bottomContent] = await Promise.all([
-    fetchQuestionsByHash(studyPlan.questionHashes, locale),
+    fetchQuestionsByHash(studyPlan?.questionHashes ?? [], locale),
     fetchInterviewListingBottomContent(`${plan}-study-plan`),
   ]);
 

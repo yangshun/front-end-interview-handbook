@@ -42,7 +42,10 @@ type Props = Readonly<{
   questionListSessions: Array<
     LearningSession & { _count: { progress: number } }
   >;
-  studyListsMap: Record<string, InterviewsStudyList>;
+  studyListsMap: Record<
+    string,
+    InterviewsStudyList & Readonly<{ questionCount?: number }>
+  >;
   variant?: 'combined' | 'normal';
 }>;
 
@@ -65,19 +68,23 @@ export default function InterviewsDashboardContinueLearningSection({
         return false;
       }
 
-      const { questionHashes } = studyList;
+      const { questionHashes, questionCount } = studyList;
 
       // Remove completed session
-      return _count.progress !== questionHashes.length;
+      return (
+        (_count.progress !== questionCount || _count.progress) !==
+        questionHashes?.length
+      );
     })
     .map(({ key, _count, updatedAt }) => {
-      const { href, longName, questionHashes } = studyListsMap[key];
+      const { href, longName, questionHashes, questionCount } =
+        studyListsMap[key];
 
       return {
         href,
         questionProgress: {
           completed: _count.progress,
-          total: questionHashes.length,
+          total: questionCount ?? questionHashes?.length ?? 0,
         },
         title: longName,
         updatedAt,

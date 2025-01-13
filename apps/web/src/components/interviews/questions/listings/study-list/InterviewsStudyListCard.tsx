@@ -62,7 +62,7 @@ export default function InterviewsStudyListCard({
     schedule,
     topics,
   } = studyList;
-  const totalQuestionCount = questionCount || questionHashes.length;
+  const totalQuestionCount = questionCount || questionHashes?.length || 0;
 
   return (
     <div

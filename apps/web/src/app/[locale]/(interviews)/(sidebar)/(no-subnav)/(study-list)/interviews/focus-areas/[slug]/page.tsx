@@ -85,10 +85,12 @@ export default async function Page({ params }: Props) {
     return notFound();
   }
 
-  const questionsSlugs = groupQuestionHashesByFormat(focusArea.questionHashes);
+  const questionsSlugs = groupQuestionHashesByFormat(
+    focusArea?.questionHashes ?? [],
+  );
 
   const [questions, bottomContent] = await Promise.all([
-    fetchQuestionsByHash(focusArea.questionHashes, locale),
+    fetchQuestionsByHash(focusArea?.questionHashes ?? [], locale),
     fetchInterviewListingBottomContent(`${slug}-focus-area`),
   ]);
 

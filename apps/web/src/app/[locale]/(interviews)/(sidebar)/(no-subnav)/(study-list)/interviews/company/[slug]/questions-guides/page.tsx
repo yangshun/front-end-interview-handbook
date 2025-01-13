@@ -78,7 +78,7 @@ export default async function Page({ params }: Props) {
   }
 
   const questionsSlugs = groupQuestionHashesByFormat(
-    companyGuide.questionHashes,
+    companyGuide?.questionHashes ?? [],
   );
 
   const [questions, bottomContent] = await Promise.all([

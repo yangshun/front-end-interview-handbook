@@ -9,9 +9,11 @@ import {
 
 import type { QuestionFormatForList } from '~/components/interviews/questions/common/QuestionHrefUtils';
 import { QuestionListTypeDefault } from '~/components/interviews/questions/common/QuestionHrefUtils';
-import type {
-  QuestionFramework,
-  QuestionLanguage,
+import type { QuestionCompany } from '~/components/interviews/questions/common/QuestionsTypes';
+import {
+  QuestionCompanies,
+  type QuestionFramework,
+  type QuestionLanguage,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 
 import { fetchInterviewsStudyList } from '~/db/contentlayer/InterviewsStudyListReader';
@@ -21,6 +23,7 @@ import {
   fetchQuestionsListCoding,
   fetchQuestionsListCodingForFramework,
   fetchQuestionsListCodingForLanguage,
+  fetchQuestionsListQuizForCompany,
   fetchQuestionsListSystemDesign,
 } from '~/db/QuestionsListReader';
 import { fetchQuestionLists } from '~/db/QuestionsListUtils';
@@ -54,8 +57,23 @@ export const questionListsRouter = router({
           `Study list not found for key ${studyList}`,
         );
 
+        if (QuestionCompanies.includes(studyList as QuestionCompany)) {
+          const studyListQuestions = await fetchQuestionsListQuizForCompany(
+            studyList as QuestionCompany,
+          );
+
+          return {
+            listType: {
+              type: 'study-list',
+              value: studyList,
+            },
+            questions: studyListQuestions,
+            title: studyListData.name,
+          } as const;
+        }
+
         const studyListQuestions = await fetchQuestionsByHash(
-          studyListData.questionHashes,
+          studyListData?.questionHashes ?? [],
         );
 
         return {
@@ -139,11 +157,11 @@ export const questionListsRouter = router({
 
     return {
       blind75: {
-        questionCount: blind75?.questionHashes.length ?? 0,
+        questionCount: (blind75?.questionHashes ?? []).length ?? 0,
         studyListKey: blind75?.slug ?? '',
       },
       gfe75: {
-        questionCount: gfe75?.questionHashes.length ?? 0,
+        questionCount: (gfe75?.questionHashes ?? []).length ?? 0,
         studyListKey: gfe75?.slug ?? '',
       },
       systemDesignQuestionCount: questions.length,

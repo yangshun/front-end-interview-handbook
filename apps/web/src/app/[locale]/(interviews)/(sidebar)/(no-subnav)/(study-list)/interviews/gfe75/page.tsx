@@ -62,10 +62,12 @@ export default async function Page({ params }: Props) {
     return notFound();
   }
 
-  const questionsSlugs = groupQuestionHashesByFormat(gfe75.questionHashes);
+  const questionsSlugs = groupQuestionHashesByFormat(
+    gfe75?.questionHashes ?? [],
+  );
 
   const [questions, bottomContent] = await Promise.all([
-    fetchQuestionsByHash(gfe75.questionHashes, locale),
+    fetchQuestionsByHash(gfe75?.questionHashes ?? [], locale),
     fetchInterviewListingBottomContent('gfe75'),
   ]);
 

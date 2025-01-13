@@ -84,7 +84,7 @@ export default function InterviewsDashboardMoreLearningSection({
               studyPlans={studyPlans}
             />
             <InterviewsDashboardCompanySection
-              companyGuides={companyGuides}
+            companyGuides={companyGuides}
               questionListSessions={questionListSessions}
             />
             <InterviewsDashboardFocusAreasSection
