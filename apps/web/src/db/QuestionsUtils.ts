@@ -2,6 +2,7 @@ import { forEach, mapValues } from 'lodash-es';
 
 import type {
   QuestionCodingFormat,
+  QuestionCompany,
   QuestionFormat,
   QuestionFramework,
   QuestionHash,
@@ -464,6 +465,58 @@ export function categorizeQuestionsByTopic(
   quizQuestions.forEach((question) => {
     question.topics.forEach((topic) => {
       categorizedQuestions[topic]?.push(question);
+    });
+  });
+
+  return categorizedQuestions;
+}
+
+export function categorizeQuestionsByCompany(
+  questions: Readonly<{
+    codingQuestions: ReadonlyArray<QuestionMetadata>;
+    quizQuestions: ReadonlyArray<QuestionMetadata>;
+    systemDesignQuestions: ReadonlyArray<QuestionMetadata>;
+  }>,
+): Record<QuestionCompany, ReadonlyArray<QuestionMetadata>> {
+  const categorizedQuestions: Record<
+    QuestionCompany,
+    Array<QuestionMetadata>
+  > = {
+    airbnb: [],
+    amazon: [],
+    apple: [],
+    bytedance: [],
+    dropbox: [],
+    google: [],
+    linkedin: [],
+    lyft: [],
+    microsoft: [],
+    palantir: [],
+    salesforce: [],
+    snap: [],
+    stripe: [],
+    toptal: [],
+    twitter: [],
+    uber: [],
+    walmart: [],
+    yelp: [],
+  };
+  const { codingQuestions, quizQuestions, systemDesignQuestions } =
+    questions;
+
+  codingQuestions.forEach((question) => {
+    question.companies.forEach((company) => {
+      categorizedQuestions[company]?.push(question);
+    });
+  });
+  quizQuestions.forEach((question) => {
+    question.companies.forEach((company) => {
+      categorizedQuestions[company]?.push(question);
+    });
+  });
+  systemDesignQuestions.forEach((question) => {
+    question.companies.forEach((company) => {
+      categorizedQuestions[company]?.push(question);
     });
   });
 

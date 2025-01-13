@@ -27,6 +27,7 @@ type Props = Readonly<{
   completionCount?: number;
   icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
   isStarted?: boolean;
+  questionCount?: number;
   showDescription?: boolean;
   showLogoShadow?: boolean;
   showLongName?: boolean;
@@ -47,6 +48,7 @@ export default function InterviewsStudyListCard({
   alignVerticalOnMobile = true,
   showLongName = false,
   showTopics = true,
+  questionCount,
 }: Props) {
   const intl = useIntl();
 
@@ -60,7 +62,7 @@ export default function InterviewsStudyListCard({
     schedule,
     topics,
   } = studyList;
-  const questionCount = questionHashes.length;
+  const totalQuestionCount = questionCount || questionHashes.length;
 
   return (
     <div
@@ -137,7 +139,7 @@ export default function InterviewsStudyListCard({
               entity="question"
               showProgress={showProgress && isStarted}
               title={name}
-              total={questionCount}
+              total={totalQuestionCount}
             />
             {schedule && (
               <QuestionStudyAllocationLabel

@@ -6,6 +6,12 @@ import InterviewsCompanyGuideListPage from '~/components/interviews/questions/li
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
 import { fetchInterviewsStudyLists } from '~/db/contentlayer/InterviewsStudyListReader';
+import {
+  fetchQuestionsListCoding,
+  fetchQuestionsListQuiz,
+  fetchQuestionsListSystemDesign,
+} from '~/db/QuestionsListReader';
+import { categorizeQuestionsByCompany } from '~/db/QuestionsUtils';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
@@ -63,14 +69,41 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   });
 }
 
-export default async function Page() {
-  const [companyGuides, bottomContent] = await Promise.all([
+export default async function Page({ params }: Props) {
+  const { locale } = params;
+  const [
+    { questions: codingQuestions },
+    { questions: quizQuestions },
+    { questions: systemDesignQuestions },
+    companyGuides,
+    bottomContent,
+  ] = await Promise.all([
+    fetchQuestionsListCoding(locale),
+    fetchQuestionsListQuiz(locale),
+    fetchQuestionsListSystemDesign(locale),
     fetchInterviewsStudyLists('company'),
     fetchInterviewListingBottomContent('company'),
   ]);
+
+  const categorizedCompanyQuestions = categorizeQuestionsByCompany({
+    codingQuestions,
+    quizQuestions,
+    systemDesignQuestions,
+  });
+  const companyQuestionsCount = Object.fromEntries(
+    Object.entries(categorizedCompanyQuestions).map(([key, questions]) => [
+      key,
+      questions.length,
+    ]),
+  );
+
   const sortedGuides = companyGuides
     .slice()
-    .sort((a, b) => a.ranking - b.ranking);
+    .sort((a, b) => a.ranking - b.ranking)
+    .map((company) => ({
+      ...company,
+      questionCount: companyQuestionsCount[company.slug],
+    }));
 
   return (
     <InterviewsCompanyGuideListPage

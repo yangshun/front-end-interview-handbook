@@ -25,7 +25,9 @@ const InterviewsMarketingHomePageBottom = dynamic(
 );
 
 type Props = Readonly<{
-  companyGuides: ReadonlyArray<InterviewsStudyList>;
+  companyGuides: ReadonlyArray<
+    InterviewsStudyList & Readonly<{ questionCount: number }>
+  >;
   questions: QuestionBankDataType;
 }>;
 

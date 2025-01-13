@@ -22,7 +22,9 @@ import InterviewsCompanyGuideListWithFilters from './InterviewsCompanyGuideListW
 
 type Props = Readonly<{
   bottomContent?: InterviewsListingBottomContent;
-  companyGuides: Array<InterviewsStudyList>;
+  companyGuides: ReadonlyArray<
+    InterviewsStudyList & Readonly<{ questionCount: number }>
+  >;
 }>;
 
 export default function InterviewsStudyListListPage({

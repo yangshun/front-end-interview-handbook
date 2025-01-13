@@ -95,7 +95,7 @@ export const InterviewsStudyListDocument = defineDocumentType(() => ({
     questionHashes: {
       description: 'List of question slugs prefixed with format',
       of: { type: 'string' },
-      required: true,
+      required: false,
       type: 'list',
     },
     ranking: { default: 999, required: false, type: 'number' },

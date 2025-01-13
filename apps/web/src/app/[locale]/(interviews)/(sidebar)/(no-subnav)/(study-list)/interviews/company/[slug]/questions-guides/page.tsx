@@ -3,6 +3,7 @@ import type { Metadata } from 'next/types';
 
 import { INTERVIEWS_REVAMP_BOTTOM_CONTENT } from '~/data/FeatureFlags';
 
+import type { QuestionCompany } from '~/components/interviews/questions/common/QuestionsTypes';
 import InterviewsCompanyGuidePage from '~/components/interviews/questions/listings/study-list/company/InterviewsCompanyGuidePage';
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
@@ -10,7 +11,7 @@ import {
   fetchInterviewsStudyList,
   fetchInterviewsStudyLists,
 } from '~/db/contentlayer/InterviewsStudyListReader';
-import { fetchQuestionsByHash } from '~/db/QuestionsListReader';
+import { fetchQuestionsListQuizForCompany } from '~/db/QuestionsListReader';
 import { groupQuestionHashesByFormat } from '~/db/QuestionsUtils';
 import { getIntlServerOnly } from '~/i18n';
 import { generateStaticParamsWithLocale } from '~/next-i18nostic/src';
@@ -81,7 +82,7 @@ export default async function Page({ params }: Props) {
   );
 
   const [questions, bottomContent] = await Promise.all([
-    fetchQuestionsByHash(companyGuide.questionHashes, locale),
+    fetchQuestionsListQuizForCompany(slug as QuestionCompany, locale),
     fetchInterviewListingBottomContent('company-detail'),
   ]);
 

@@ -22,7 +22,9 @@ import InterviewsDashboardStudyPlansSection from './time-savers/InterviewsDashbo
 import type { GuideProgress, LearningSession } from '@prisma/client';
 
 type Props = Readonly<{
-  companyGuides: Array<InterviewsStudyList>;
+  companyGuides: ReadonlyArray<
+    InterviewsStudyList & Readonly<{ questionCount: number }>
+  >;
   focusAreas: ReadonlyArray<InterviewsStudyList>;
   guidesProgress: ReadonlyArray<GuideProgress>;
   questionListSessions: Array<

@@ -15,7 +15,9 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import InterviewsMarketingHomePageBottomContainer from './InterviewsMarketingHomePageBottomContainer';
 
 type Props = Readonly<{
-  companyGuides: ReadonlyArray<InterviewsStudyList>;
+  companyGuides: ReadonlyArray<
+    InterviewsStudyList & Readonly<{ questionCount: number }>
+  >;
   javaScriptEmbedExample: QuestionJavaScript;
   questions: QuestionBankDataType;
   testimonials: ReadonlyArray<InterviewsMarketingTestimonial>;

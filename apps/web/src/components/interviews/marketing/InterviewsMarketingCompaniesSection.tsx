@@ -16,7 +16,9 @@ import {
 } from '~/components/ui/theme';
 
 type Props = Readonly<{
-  companyGuides: ReadonlyArray<InterviewsStudyList>;
+  companyGuides: ReadonlyArray<
+    InterviewsStudyList & Readonly<{ questionCount: number }>
+  >;
 }>;
 
 export default function InterviewsMarketingCompaniesSection({
@@ -87,6 +89,7 @@ export default function InterviewsMarketingCompaniesSection({
                   backgroundClass="bg-neutral-50 dark:bg-neutral-800/40"
                   completionCount={0}
                   isStarted={false}
+                  questionCount={companyGuide.questionCount}
                   showDescription={false}
                   showLogoShadow={false}
                   showProgress={false}

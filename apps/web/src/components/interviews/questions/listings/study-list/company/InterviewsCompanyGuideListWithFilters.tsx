@@ -17,7 +17,9 @@ import {
 import { useUser } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
-  companyGuides: Array<InterviewsStudyList>;
+  companyGuides: ReadonlyArray<
+    InterviewsStudyList & Readonly<{ questionCount: number }>
+  >;
 }>;
 
 export default function InterviewsStudyListListWithFilters({
@@ -97,6 +99,7 @@ export default function InterviewsStudyListListWithFilters({
                 alignVerticalOnMobile={false}
                 completionCount={completionCount}
                 isStarted={session != null}
+                questionCount={companyGuide.questionCount}
                 showDescription={false}
                 studyList={companyGuide}
               />

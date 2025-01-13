@@ -7,6 +7,7 @@ import fs from 'node:fs';
 
 import type { QuestionFormatForList } from '~/components/interviews/questions/common/QuestionHrefUtils';
 import type {
+  QuestionCompany,
   QuestionFormat,
   QuestionFramework,
   QuestionHash,
@@ -294,6 +295,26 @@ export async function fetchQuestionsListQuizForLanguage(
         ? question.topics.includes('javascript')
         : question.topics.includes(language),
   ]);
+}
+
+export async function fetchQuestionsListQuizForCompany(
+  company: QuestionCompany,
+  locale = 'en-US',
+): Promise<ReadonlyArray<QuestionMetadata>> {
+  const [
+    { questions: codingQuestions },
+    { questions: quizQuestions },
+    { questions: systemDesignQuestions },
+  ] = await Promise.all([
+    fetchQuestionsListCoding(locale),
+    fetchQuestionsListQuiz(locale),
+    fetchQuestionsListSystemDesign(locale),
+  ]);
+
+  return filterQuestions(
+    [...codingQuestions, ...quizQuestions, ...systemDesignQuestions],
+    [(question) => question.companies.includes(company)],
+  );
 }
 
 export async function fetchQuestionsByHash(

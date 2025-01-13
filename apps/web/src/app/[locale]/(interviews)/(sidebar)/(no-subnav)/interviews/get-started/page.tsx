@@ -12,7 +12,10 @@ import {
   fetchQuestionsListQuiz,
   fetchQuestionsListSystemDesign,
 } from '~/db/QuestionsListReader';
-import { categorizeQuestionsByFrameworkAndLanguage } from '~/db/QuestionsUtils';
+import {
+  categorizeQuestionsByCompany,
+  categorizeQuestionsByFrameworkAndLanguage,
+} from '~/db/QuestionsUtils';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 import { readViewerFromToken } from '~/supabase/SupabaseServerGFE';
@@ -79,9 +82,24 @@ export default async function Page({ params }: Props) {
     codingQuestions,
     quizQuestions,
   });
+  const categorizedCompanyQuestions = categorizeQuestionsByCompany({
+    codingQuestions,
+    quizQuestions,
+    systemDesignQuestions,
+  });
+  const companyQuestionsCount = Object.fromEntries(
+    Object.entries(categorizedCompanyQuestions).map(([key, questions]) => [
+      key,
+      questions.length,
+    ]),
+  );
   const companyGuidesSorted = studyLists.companies
     .slice()
-    .sort((a, b) => a.ranking - b.ranking);
+    .sort((a, b) => a.ranking - b.ranking)
+    .map((company) => ({
+      ...company,
+      questionCount: companyQuestionsCount[company.slug],
+    }));
 
   return (
     <InterviewsDashboardPage

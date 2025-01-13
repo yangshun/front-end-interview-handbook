@@ -40,7 +40,9 @@ import { useUser } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
   bottomContent?: InterviewsListingBottomContent;
-  companyGuides: Array<InterviewsStudyList>;
+  companyGuides: ReadonlyArray<
+    InterviewsStudyList & Readonly<{ questionCount: number }>
+  >;
   defaultLoggedIn: boolean;
   focusAreas: ReadonlyArray<InterviewsStudyList>;
   questions: {

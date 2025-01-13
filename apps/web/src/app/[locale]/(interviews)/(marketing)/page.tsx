@@ -28,6 +28,7 @@ import {
   fetchQuestionsListUserInterface,
 } from '~/db/QuestionsListReader';
 import {
+  categorizeQuestionsByCompany,
   categorizeQuestionsByFrameworkAndLanguage,
   categorizeQuestionsByTopic,
 } from '~/db/QuestionsUtils';
@@ -267,10 +268,29 @@ export default async function Page({ params }: Props) {
     'system-design': systemDesignQuestions,
     'user-interface': userInterfaceQuestions,
   });
+  const categorizedCompanyQuestions = categorizeQuestionsByCompany({
+    codingQuestions: [
+      ...algoQuestions,
+      ...javaScriptQuestions,
+      ...userInterfaceQuestions,
+    ],
+    quizQuestions,
+    systemDesignQuestions,
+  });
+  const companyQuestionsCount = Object.fromEntries(
+    Object.entries(categorizedCompanyQuestions).map(([key, questions]) => [
+      key,
+      questions.length,
+    ]),
+  );
 
   const sortedGuides = companyGuides
     .slice()
-    .sort((a, b) => a.ranking - b.ranking);
+    .sort((a, b) => a.ranking - b.ranking)
+    .map((company) => ({
+      ...company,
+      questionCount: companyQuestionsCount[company.slug],
+    }));
 
   return (
     <InterviewsMarketingHomePage

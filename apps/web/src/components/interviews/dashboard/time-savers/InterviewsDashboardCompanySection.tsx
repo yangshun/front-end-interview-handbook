@@ -8,7 +8,9 @@ import InterviewsDashboardLearningSection from '../InterviewsDashboardLearningSe
 import type { LearningSession } from '@prisma/client';
 
 type Props = Readonly<{
-  companyGuides: ReadonlyArray<InterviewsStudyList>;
+  companyGuides: ReadonlyArray<
+    InterviewsStudyList & Readonly<{ questionCount: number }>
+  >;
   questionListSessions: ReadonlyArray<
     LearningSession & { _count: { progress: number } }
   >;
@@ -46,6 +48,7 @@ export default function InterviewsDashboardCompanySection({
               alignVerticalOnMobile={false}
               completionCount={completionCount}
               isStarted={session != null}
+              questionCount={companyGuide.questionCount}
               showDescription={false}
               studyList={companyGuide}
             />
