@@ -136,16 +136,15 @@ function CenterNode({
   number: number;
 }>) {
   return (
-    <Anchor
+    <div
       className={clsx(
+        'relative',
         'flex items-center gap-3',
         'px-3 py-2',
         'rounded-lg',
         'transition-colors',
         ['border', themeBorderColor, themeBorderBrandColor_Hover],
-      )}
-      href={href}
-      variant="unstyled">
+      )}>
       <div
         className={clsx(
           'flex items-center justify-center',
@@ -156,8 +155,14 @@ function CenterNode({
         )}>
         {number}
       </div>
-      <div className={clsx('text-xs font-medium lg:text-base')}>{children}</div>
-    </Anchor>
+      <Anchor
+        className={clsx('text-xs font-medium lg:text-base')}
+        href={href}
+        variant="unstyled">
+        {children}
+      </Anchor>
+      <Anchor className="absolute inset-0" href={href} variant="flat" />
+    </div>
   );
 }
 
