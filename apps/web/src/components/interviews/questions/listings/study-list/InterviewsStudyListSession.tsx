@@ -236,9 +236,18 @@ function InterviewsStudyListSessionImpl({
               <div className="flex flex-col gap-0.5">
                 <Text size="body3" weight="bold">
                   <FormattedMessage
-                    defaultMessage="Progress"
+                    defaultMessage="{percent} Progress"
                     description="Title for learning progress card"
-                    id="q+ZK0L"
+                    id="y3no2l"
+                    values={{
+                      percent: intl.formatNumber(
+                        completedQuestions / questionCount,
+                        {
+                          maximumFractionDigits: 0,
+                          style: 'percent',
+                        },
+                      ),
+                    }}
                   />
                 </Text>
                 <div className="flex items-center gap-3">

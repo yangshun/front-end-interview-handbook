@@ -8531,10 +8531,6 @@
     "defaultMessage": "Next",
     "description": "Next button label"
   },
-  "q+ZK0L": {
-    "defaultMessage": "Progress",
-    "description": "Title for learning progress card"
-  },
   "q0J0CA": {
     "defaultMessage": "Continue with {authProviderLabel}",
     "description": "Label of social media sign in button on Social Sign In page"
@@ -9742,6 +9738,10 @@
   "y2x1w7": {
     "defaultMessage": "Ex-Staff Engineer, Meta. Author of Blind 75 and Docusaurus 2",
     "description": "Position of Yangshun"
+  },
+  "y3no2l": {
+    "defaultMessage": "{percent} Progress",
+    "description": "Title for learning progress card"
   },
   "y4v8AZ": {
     "defaultMessage": "Component libraries",
