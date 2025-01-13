@@ -2807,6 +2807,10 @@
     "defaultMessage": "Tips for making a strong first impression in your self introduction",
     "description": "How to make strong first impressions during self introductions"
   },
+  "GcBB3Q": {
+    "defaultMessage": "Tiktok",
+    "description": "Company name for Titok"
+  },
   "GcKgjB": {
     "defaultMessage": "Submit review",
     "description": "Badge label for review promotion"
@@ -3222,6 +3226,10 @@
   "J4hWfE": {
     "defaultMessage": "React",
     "description": "Front end development topic"
+  },
+  "J6Yt0F": {
+    "defaultMessage": "Atlassian",
+    "description": "Company name for Atlassian"
   },
   "J7VxuG": {
     "defaultMessage": "Social Rewards Discount",

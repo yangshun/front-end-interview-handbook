@@ -14,6 +14,7 @@ import {
   FaUber,
   FaYelp,
 } from 'react-icons/fa';
+import { FaAtlassian, FaTiktok } from 'react-icons/fa6';
 import { SiBytedance, SiPalantir, SiToptal } from 'react-icons/si';
 import { TbBrandWalmart } from 'react-icons/tb';
 
@@ -53,6 +54,14 @@ export default function useCompanyNames(): Record<
         id: 'hNQSH/',
       }),
       logo: FaApple,
+    },
+    atlassian: {
+      label: intl.formatMessage({
+        defaultMessage: 'Atlassian',
+        description: 'Company name for Atlassian',
+        id: 'J6Yt0F',
+      }),
+      logo: FaAtlassian,
     },
     bytedance: {
       label: intl.formatMessage({
@@ -133,6 +142,14 @@ export default function useCompanyNames(): Record<
         id: 'v7xpbV',
       }),
       logo: FaStripeS,
+    },
+    tiktok: {
+      label: intl.formatMessage({
+        defaultMessage: 'Tiktok',
+        description: 'Company name for Titok',
+        id: 'GcBB3Q',
+      }),
+      logo: FaTiktok,
     },
     toptal: {
       label: intl.formatMessage({

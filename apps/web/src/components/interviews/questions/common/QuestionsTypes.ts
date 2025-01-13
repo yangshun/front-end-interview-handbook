@@ -10,6 +10,7 @@ export type QuestionCompany =
   | 'airbnb'
   | 'amazon'
   | 'apple'
+  | 'atlassian'
   | 'bytedance'
   | 'dropbox'
   | 'google'
@@ -20,6 +21,7 @@ export type QuestionCompany =
   | 'salesforce'
   | 'snap'
   | 'stripe'
+  | 'tiktok'
   | 'toptal'
   | 'twitter'
   | 'uber'
@@ -44,6 +46,8 @@ export const QuestionCompanies: ReadonlyArray<QuestionCompany> = [
   'twitter',
   'uber',
   'walmart',
+  'tiktok',
+  'atlassian',
 ] as const;
 
 export type QuestionLanguage = 'css' | 'html' | 'js' | 'ts';

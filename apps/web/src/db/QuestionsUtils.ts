@@ -485,6 +485,7 @@ export function categorizeQuestionsByCompany(
     airbnb: [],
     amazon: [],
     apple: [],
+    atlassian: [],
     bytedance: [],
     dropbox: [],
     google: [],
@@ -495,14 +496,14 @@ export function categorizeQuestionsByCompany(
     salesforce: [],
     snap: [],
     stripe: [],
+    tiktok: [],
     toptal: [],
     twitter: [],
     uber: [],
     walmart: [],
     yelp: [],
   };
-  const { codingQuestions, quizQuestions, systemDesignQuestions } =
-    questions;
+  const { codingQuestions, quizQuestions, systemDesignQuestions } = questions;
 
   codingQuestions.forEach((question) => {
     question.companies.forEach((company) => {
