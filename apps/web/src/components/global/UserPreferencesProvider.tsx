@@ -10,23 +10,23 @@ type Props = Readonly<{
 type UserPreferencesContextType = Readonly<{
   setShowFeedbackWidget: (collapsed: boolean) => void;
   setShowGlobalBanner: (isHidden: boolean) => void;
-  setShowSidebar: (collapsed: boolean) => void;
+  setShowSecondarySidebar: (collapsed: boolean) => void;
   showFeedbackWidget: boolean;
   showGlobalBanner: boolean;
-  showSidebar: boolean;
+  showSecondarySidebar: boolean;
 }>;
 
-const DEFAULT_SHOW_SIDEBAR = true;
+const DEFAULT_SHOW_SECONDARY_SIDEBAR = false;
 const DEFAULT_SHOW_FEEDBACK_WIDGET = true;
 const DEFAULT_SHOW_GLOBAL_BANNER = true;
 
 const UserPreferencesContext = createContext<UserPreferencesContextType>({
   setShowFeedbackWidget: () => {},
   setShowGlobalBanner: () => {},
-  setShowSidebar: () => {},
+  setShowSecondarySidebar: () => {},
   showFeedbackWidget: DEFAULT_SHOW_FEEDBACK_WIDGET,
   showGlobalBanner: DEFAULT_SHOW_GLOBAL_BANNER,
-  showSidebar: DEFAULT_SHOW_SIDEBAR,
+  showSecondarySidebar: DEFAULT_SHOW_SECONDARY_SIDEBAR,
 });
 
 export function useUserPreferences() {
@@ -34,7 +34,9 @@ export function useUserPreferences() {
 }
 
 export default function UserPreferencesProvider({ children }: Props) {
-  const [showSidebar, setShowSidebar] = useState(DEFAULT_SHOW_SIDEBAR);
+  const [showSecondarySidebar, setShowSecondarySidebar] = useState(
+    DEFAULT_SHOW_SECONDARY_SIDEBAR,
+  );
   const [showFeedbackWidget, setShowFeedbackWidget] = useState(
     DEFAULT_SHOW_FEEDBACK_WIDGET,
   );
@@ -56,10 +58,10 @@ export default function UserPreferencesProvider({ children }: Props) {
       value={{
         setShowFeedbackWidget,
         setShowGlobalBanner,
-        setShowSidebar,
+        setShowSecondarySidebar,
         showFeedbackWidget,
         showGlobalBanner,
-        showSidebar,
+        showSecondarySidebar,
       }}>
       {children}
     </UserPreferencesContext.Provider>

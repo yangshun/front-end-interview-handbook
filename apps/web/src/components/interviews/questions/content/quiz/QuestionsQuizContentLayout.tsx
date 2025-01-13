@@ -3,12 +3,14 @@
 import clsx from 'clsx';
 import { isEqual } from 'lodash-es';
 import { usePathname, useSelectedLayoutSegment } from 'next/navigation';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import useScrollToTop from '~/hooks/useScrollToTop';
 
-import SidebarCollapser from '~/components/global/sidebar/SidebarCollapser';
+import SecondarySidebarCollapser from '~/components/global/sidebar/SecondarySidebarCollapser';
 import { useUserPreferences } from '~/components/global/UserPreferencesProvider';
+import InterviewsNavbarEnd from '~/components/interviews/common/InterviewsNavbarEnd';
+import useInterviewsSidebarCollapsed from '~/components/interviews/common/useInterviewsSidebarCollapsed';
 import { questionListFilterNamespace } from '~/components/interviews/questions/common/QuestionHrefUtils';
 import InterviewsQuestionsListSlideOutSwitcher from '~/components/interviews/questions/listings/slideout/InterviewsQuestionsListSlideOutSwitcher';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -24,7 +26,9 @@ type Props = Readonly<{
 }>;
 
 export default function QuestionsQuizContentLayout({ children }: Props) {
-  const { showSidebar } = useUserPreferences();
+  const [, setIsInterviewsSidebarCollapsed] =
+    useInterviewsSidebarCollapsed(false);
+  const { showSecondarySidebar } = useUserPreferences();
   const pathname = usePathname();
 
   useScrollToTop([pathname]);
@@ -52,6 +56,10 @@ export default function QuestionsQuizContentLayout({ children }: Props) {
       type: 'switch',
     });
 
+  useEffect(() => {
+    setIsInterviewsSidebarCollapsed(showSecondarySidebar);
+  }, [showSecondarySidebar, setIsInterviewsSidebarCollapsed]);
+
   function onCloseSwitchQuestionListDialog() {
     setShowSwitchQuestionListDialog((prev) => ({
       ...prev,
@@ -74,12 +82,12 @@ export default function QuestionsQuizContentLayout({ children }: Props) {
       <div
         className={clsx(
           'flex',
-          'sticky top-[var(--global-sticky-height)] h-[calc(100vh_-_var(--global-sticky-height))]',
+          'sticky top-[var(--banner-height)] h-[calc(100vh_-_var(--banner-height))]',
         )}>
-        {showSidebar && (
+        {showSecondarySidebar && (
           <Section>
             <div
-              className={clsx('flex-col', 'hidden w-[420px] xl:flex', [
+              className={clsx('flex-col', 'hidden w-[380px] xl:flex', [
                 'border-r',
                 themeBorderColor,
               ])}>
@@ -116,9 +124,12 @@ export default function QuestionsQuizContentLayout({ children }: Props) {
             </div>
           </Section>
         )}
-        <SidebarCollapser />
+        <SecondarySidebarCollapser />
       </div>
-      <div className="w-full">{children}</div>
+      <div className="w-full">
+        <InterviewsNavbarEnd />
+        {children}
+      </div>
     </div>
   );
 }

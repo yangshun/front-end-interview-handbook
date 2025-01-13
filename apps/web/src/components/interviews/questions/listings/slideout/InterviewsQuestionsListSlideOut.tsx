@@ -61,7 +61,10 @@ function InterviewsQuestionsListSlideOutImpl({
   slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE,
 }: Props) {
   const intl = useIntl();
-  const { showSidebar, setShowSidebar } = useUserPreferences();
+  const {
+    showSecondarySidebar: showSidebar,
+    setShowSecondarySidebar: setShowSidebar,
+  } = useUserPreferences();
 
   // Have to be controlled because we don't want to
   // fetch the question lists for nothing

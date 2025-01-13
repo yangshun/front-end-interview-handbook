@@ -60,7 +60,11 @@ export default async function Page({ params }: Props) {
   return (
     <>
       <QuestionJsonLd metadata={question.metadata} />
-      <QuestionQuizContents question={question} questionList={[]} />
+      <QuestionQuizContents
+        listIsShownInSidebarOnDesktop={true}
+        question={question}
+        questionList={[]}
+      />
     </>
   );
 }

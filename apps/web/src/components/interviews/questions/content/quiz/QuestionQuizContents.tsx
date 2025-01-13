@@ -30,6 +30,7 @@ import useQuestionsAutoMarkAsComplete from '../../common/useQuestionsAutoMarkAsC
 import InterviewsStudyListBottomBar from '../../listings/study-list/InterviewsStudyListBottomBar';
 
 type Props = Readonly<{
+  listIsShownInSidebarOnDesktop: boolean;
   question: QuestionQuiz;
   questionList?: ReadonlyArray<QuestionMetadata>;
   studyListKey?: string;
@@ -65,6 +66,7 @@ export default function QuestionQuizContents({
   question,
   questionList,
   studyListKey,
+  listIsShownInSidebarOnDesktop,
 }: Props) {
   const copyRef = useQuestionLogEventCopyContents<HTMLDivElement>();
   const { solution } = question;
@@ -172,7 +174,7 @@ export default function QuestionQuizContents({
         </div>
       </Container>
       <InterviewsStudyListBottomBar
-        listIsShownInSidebarOnDesktop={true}
+        listIsShownInSidebarOnDesktop={listIsShownInSidebarOnDesktop}
         metadata={question.metadata}
         studyListKey={studyListKey}
       />

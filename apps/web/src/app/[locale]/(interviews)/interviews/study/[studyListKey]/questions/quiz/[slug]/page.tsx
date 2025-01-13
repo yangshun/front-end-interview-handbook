@@ -89,6 +89,10 @@ export default async function Page({ params }: Props) {
       studyListCategory={studyList.category}
     />
   ) : (
-    <QuestionQuizContents question={question} studyListKey={studyListKey} />
+    <QuestionQuizContents
+      listIsShownInSidebarOnDesktop={false}
+      question={question}
+      studyListKey={studyListKey}
+    />
   );
 }

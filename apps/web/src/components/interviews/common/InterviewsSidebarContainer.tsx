@@ -1,12 +1,12 @@
 'use client';
 
 import clsx from 'clsx';
-import { useEffect, useState } from 'react';
-import { useSessionStorage } from 'usehooks-ts';
 
+import { useUserPreferences } from '~/components/global/UserPreferencesProvider';
 import { themeBorderColor } from '~/components/ui/theme';
 
 import InterviewsSidebar from './InterviewsSidebar';
+import useInterviewsSidebarCollapsed from './useInterviewsSidebarCollapsed';
 
 type Props = Readonly<{
   initialCollapsed?: boolean;
@@ -15,20 +15,18 @@ type Props = Readonly<{
 export default function InterviewsSidebarContainer({
   initialCollapsed = false,
 }: Props) {
-  const [isMounted, setIsMounted] = useState(false);
-  const [storedCollapsed, setStoredCollapsed] = useSessionStorage<boolean>(
-    `gfe:interviews:sidebar-collapsed`,
-    initialCollapsed,
-  );
-  const isCollapsed = isMounted ? storedCollapsed : initialCollapsed;
-
-  // To prevent server side mismatch
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
+  const { setShowSecondarySidebar } = useUserPreferences();
+  const [isSidebarCollapsed, setIsSidebarCollapsed] =
+    useInterviewsSidebarCollapsed(initialCollapsed);
 
   function toggleIsCollapsed() {
-    setStoredCollapsed(!isCollapsed);
+    const newCollapsedValue = !isSidebarCollapsed;
+
+    setIsSidebarCollapsed(newCollapsedValue);
+
+    if (!newCollapsedValue) {
+      setShowSecondarySidebar(false);
+    }
   }
 
   return (
@@ -38,10 +36,10 @@ export default function InterviewsSidebarContainer({
         'sticky top-[var(--banner-height)] h-[calc(100vh_-_var(--banner-height))]',
         'shrink-0 overflow-y-hidden',
         ['border-e', themeBorderColor],
-        isCollapsed ? 'w-[78px]' : 'w-[260px]',
+        isSidebarCollapsed ? 'w-[78px]' : 'w-[260px]',
       )}>
       <InterviewsSidebar
-        isCollapsed={isCollapsed}
+        isCollapsed={isSidebarCollapsed}
         onCollapseClick={toggleIsCollapsed}
       />
     </aside>

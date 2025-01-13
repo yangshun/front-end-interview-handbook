@@ -12,9 +12,12 @@ import {
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
 
-export default function SidebarCollapser() {
+export default function SecondarySidebarCollapser() {
   const intl = useIntl();
-  const { showSidebar, setShowSidebar } = useUserPreferences();
+  const {
+    showSecondarySidebar: showSidebar,
+    setShowSecondarySidebar: setShowSidebar,
+  } = useUserPreferences();
   const title = showSidebar
     ? intl.formatMessage({
         defaultMessage: 'Collapse side menu',
