@@ -45,7 +45,7 @@ export default function BlogPostCard({
       {type === 'wide' && metadata.imageUrl && (
         <img
           alt={metadata.title}
-          className="!m-0 hidden aspect-[15/8] h-20 shrink-0 rounded object-cover lg:block"
+          className="!m-0 hidden aspect-[15/8] h-20 shrink-0 rounded object-cover sm:block"
           decoding="async"
           loading="lazy"
           src={metadata.imageUrl}
@@ -62,7 +62,7 @@ export default function BlogPostCard({
             {type === 'wide' && metadata.imageUrl && (
               <img
                 alt={metadata.title}
-                className="size-8 !m-0 shrink-0 rounded object-cover lg:hidden"
+                className="size-8 !m-0 shrink-0 rounded object-cover sm:hidden"
                 decoding="async"
                 loading="lazy"
                 src={metadata.imageUrl}
