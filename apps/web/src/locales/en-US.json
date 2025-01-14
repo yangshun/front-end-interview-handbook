@@ -5223,6 +5223,10 @@
     "defaultMessage": "With our study plans, many users have secured multiple offers at leading companies with substantial TC gains. You could be next.",
     "description": "Testimonials section description of study plans page"
   },
+  "VHG62y": {
+    "defaultMessage": "Create profile",
+    "description": "Create a user profile"
+  },
   "VJ8xZy": {
     "defaultMessage": "Prices will be increased as more content is being added to the website.",
     "description": "Tip at the bottom of the Pricing section to let users know that we would increase prices gradually as the content becomes more complete"
@@ -7383,10 +7387,6 @@
     "defaultMessage": "Practice {questionCount}+ curated Vue Interview Questions in-browser, with solutions and test cases from big tech ex-interviewers",
     "description": "Description of Interview Questions page"
   },
-  "iq1rXh": {
-    "defaultMessage": "Settings",
-    "description": "Title of settings page"
-  },
   "iqz/fo": {
     "defaultMessage": "Types of JS questions, concepts to cover and rubrics",
     "description": "JavaScript questions, concepts and rubrics during front end interviews"
@@ -8714,6 +8714,10 @@
   "r9Az7V": {
     "defaultMessage": "Great start!",
     "description": "Toast title for project session started"
+  },
+  "rBnWDc": {
+    "defaultMessage": "No Projects profile",
+    "description": "User does not have a profile for the Projects product"
   },
   "rGbEEY": {
     "defaultMessage": "Resources & discussions",

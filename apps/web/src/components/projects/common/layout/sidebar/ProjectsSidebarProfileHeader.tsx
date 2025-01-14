@@ -71,6 +71,32 @@ export function ProjectsSidebarProfileHeader() {
             </Text>
           </div>
         </>
+      ) : userProfile.projectsProfile == null ? (
+        <>
+          <Avatar alt="N/A" size="lg" src="" />
+          <div className="flex flex-col gap-1">
+            <Text color="secondary" size="body2" weight="medium">
+              <FormattedMessage
+                defaultMessage="No Projects profile"
+                description="User does not have a profile for the Projects product"
+                id="rBnWDc"
+              />
+            </Text>
+            <Text size="body3" weight="medium">
+              <Anchor
+                href="/projects/onboarding"
+                suppressHydrationWarning={true}
+                variant="flat">
+                <FormattedMessage
+                  defaultMessage="Create profile"
+                  description="Create a user profile"
+                  id="VHG62y"
+                />
+                <RiArrowRightLine className="size-4 ms-1 inline-flex shrink-0" />
+              </Anchor>
+            </Text>
+          </div>
+        </>
       ) : (
         <>
           <ProjectsProfileAvatar

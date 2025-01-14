@@ -20,8 +20,6 @@ import Text from '~/components/ui/Text';
 import { themeBackgroundColor, themeBorderColor } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
-import { useUser } from '@supabase/auth-helpers-react';
-
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;
   isParentInView: boolean;
@@ -39,7 +37,6 @@ export default function ProjectsChallengeSubmissionHero({
   isViewerPremium,
   onScrollToDiscussionsButtonClick,
 }: Props) {
-  const user = useUser();
   const intl = useIntl();
   const isMobileAndBelow = useMediaQuery('(max-width: 768px)');
   const heroRef = useRef<HTMLDivElement>(null);
@@ -48,7 +45,6 @@ export default function ProjectsChallengeSubmissionHero({
   const isHeroMobileInView = useInView(mobileHeroRef);
   const showStickyActionBar =
     isParentInView && !(isMobileAndBelow ? isHeroMobileInView : isHeroInView);
-  const isLoggedIn = user != null;
 
   const backButton = (
     <Button
@@ -94,7 +90,6 @@ export default function ProjectsChallengeSubmissionHero({
 
   const voteButton = (
     <ProjectsChallengeSubmissionHeroVoteButton
-      disabled={!isLoggedIn}
       submissionId={submission.id}
       votes={submission._count.votes}
     />
@@ -104,7 +99,6 @@ export default function ProjectsChallengeSubmissionHero({
     <FilterButton
       className={clsx('flex-1 md:flex-none')}
       icon={RiMessage2Fill}
-      isDisabled={!isLoggedIn}
       label={String(submission.comments ?? 0)}
       tooltip={intl.formatMessage({
         defaultMessage: 'Comment on this submission',

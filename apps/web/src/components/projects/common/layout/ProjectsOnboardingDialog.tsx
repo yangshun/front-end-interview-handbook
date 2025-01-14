@@ -1,5 +1,3 @@
-import { useEffect, useState } from 'react';
-
 import { trpc } from '~/hooks/trpc';
 
 import Text from '~/components/ui/Text';
@@ -8,43 +6,16 @@ import { useI18nPathname, useI18nRouter } from '~/next-i18nostic/src';
 
 import ConfirmationDialog from '../../../common/ConfirmationDialog';
 
-const EXCLUSIONS = [
-  '/projects',
-  '/projects/onboarding',
-  '/projects/onboarding/profile',
-];
+type Props = Readonly<{
+  isShown: boolean;
+  onClose: () => void;
+}>;
 
-export default function ProjectsRedirectToOnboardingIfNecessary() {
+export default function ProjectsOnboardingDialog({ isShown, onClose }: Props) {
   const router = useI18nRouter();
   const { pathname } = useI18nPathname();
-  const [showDialog, setShowDialog] = useState(false);
 
   const { data: userProfile } = trpc.projects.profile.viewer.useQuery();
-
-  useEffect(() => {
-    if (EXCLUSIONS.includes(pathname ?? '')) {
-      setShowDialog(false);
-
-      return;
-    }
-
-    if (userProfile != null) {
-      if (
-        // Redirect to onboarding page if projectsProfile has not been set up.
-        userProfile?.projectsProfile == null
-      ) {
-        setShowDialog(true);
-      }
-
-      if (
-        // Redirect to profile setup page if projectsProfile not fully set up.
-        !userProfile?.name ||
-        !userProfile?.title
-      ) {
-        setShowDialog(true);
-      }
-    }
-  }, [router, userProfile, pathname]);
 
   function navigateToOnboarding() {
     if (userProfile == null) {
@@ -62,17 +33,13 @@ export default function ProjectsRedirectToOnboardingIfNecessary() {
     });
   }
 
-  if (!showDialog) {
-    return null;
-  }
-
   return (
     <ConfirmationDialog
       confirmButtonLabel="Get started"
-      isShown={showDialog}
+      isShown={isShown}
       showCancelButton={false}
-      title="Create your projects profile"
-      onCancel={navigateToOnboarding}
+      title="Create a projects profile first"
+      onCancel={onClose}
       onConfirm={navigateToOnboarding}>
       <div className="flex flex-col gap-y-4">
         <Text className="block" color="subtitle">

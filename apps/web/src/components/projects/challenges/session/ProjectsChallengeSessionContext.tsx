@@ -3,7 +3,6 @@ import { RiFireFill } from 'react-icons/ri';
 
 import { trpc } from '~/hooks/trpc';
 import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
-import useUserProfile from '~/hooks/user/useUserProfile';
 
 import { useToast } from '~/components/global/toasts/useToast';
 import { FormattedMessage } from '~/components/intl';
@@ -12,6 +11,8 @@ import Anchor from '~/components/ui/Anchor';
 import logEvent from '~/logging/logEvent';
 
 import type { ProjectsChallengeSessionSkillsFormValues } from '../types';
+import ProjectsOnboardingDialog from '../../common/layout/ProjectsOnboardingDialog';
+import useUserProfileWithProjectsProfile from '../../common/useUserProfileWithProjectsProfile';
 import { ProjectsReputationPointsConfig } from '../../reputation/ProjectsReputationPointsConfig';
 
 import type { ProjectsChallengeSession } from '@prisma/client';
@@ -60,7 +61,7 @@ export default function ProjectsChallengeSessionContextProvider({
   children,
   slug,
 }: Props) {
-  const { userProfile } = useUserProfile();
+  const { userProfile } = useUserProfileWithProjectsProfile();
   const { navigateToSignInUpPage } = useAuthSignInUp();
   const trpcUtils = trpc.useUtils();
   const { showToast } = useToast();
@@ -78,6 +79,8 @@ export default function ProjectsChallengeSessionContextProvider({
         initialData: null,
       },
     );
+  const [projectsOnboardingDialogShown, setProjectsOnboardingDialogShown] =
+    useState(false);
 
   const startProjectMutation = trpc.projects.sessions.start.useMutation({
     onMutate: () => {
@@ -168,6 +171,12 @@ export default function ProjectsChallengeSessionContextProvider({
         return;
       }
 
+      if (userProfile?.projectsProfile == null) {
+        setProjectsOnboardingDialogShown(true);
+
+        return;
+      }
+
       setIsGetStartedDialogShown(true);
     },
     startSession: async (skills: ProjectsChallengeSessionSkillsFormValues) => {
@@ -226,6 +235,12 @@ export default function ProjectsChallengeSessionContextProvider({
   return (
     <ProjectsChallengeSessionContext.Provider value={value}>
       {children}
+      <ProjectsOnboardingDialog
+        isShown={projectsOnboardingDialogShown}
+        onClose={() => {
+          setProjectsOnboardingDialogShown(false);
+        }}
+      />
     </ProjectsChallengeSessionContext.Provider>
   );
 }

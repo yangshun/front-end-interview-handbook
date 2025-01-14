@@ -5,7 +5,6 @@ import { useEffect } from 'react';
 import { ProductThemeScript } from '~/components/global/product-theme/ProductThemeScript';
 import { useProductMenuUnseenIndicator } from '~/components/global/product-theme/useProductMenuUnseenIndicator';
 
-import ProjectsRedirectToOnboardingIfNecessary from './ProjectsRedirectToOnboardingIfNecessary';
 import useProjectsLevelUpToaster from './useProjectsLevelUpToaster';
 
 type Props = Readonly<{
@@ -25,7 +24,6 @@ export default function ProjectsRootLayout({ children }: Props) {
     <>
       <ProductThemeScript theme="projects" />
       {children}
-      <ProjectsRedirectToOnboardingIfNecessary />
     </>
   );
 }
