@@ -49,7 +49,7 @@ export default function InterviewsMarketingDreamJobSection() {
         />
       </Heading>
       <Section>
-        <div className="flex flex-col items-start justify-center gap-2 md:items-end">
+        <div className="flex flex-col items-start justify-center gap-2 sm:items-end">
           <Button
             href="/interviews/get-started"
             label={intl.formatMessage({
@@ -63,7 +63,7 @@ export default function InterviewsMarketingDreamJobSection() {
             variant="primary"
           />
           <Text
-            className="block max-w-xl"
+            className="block max-w-xl whitespace-nowrap"
             color="secondary"
             size="body3"
             weight="medium">

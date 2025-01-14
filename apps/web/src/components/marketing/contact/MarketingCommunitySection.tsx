@@ -108,7 +108,7 @@ export default function MarketingCommunitySection() {
                   <Text
                     className={clsx(
                       themeGradientHeading,
-                      'text-4xl md:text-5xl',
+                      'text-5xl tracking-tight',
                       'font-medium',
                       'z-[2]',
                     )}
