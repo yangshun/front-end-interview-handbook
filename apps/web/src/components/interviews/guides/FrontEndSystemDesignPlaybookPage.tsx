@@ -1,6 +1,5 @@
 'use client';
 
-import clsx from 'clsx';
 import { sumBy } from 'lodash-es';
 import {
   RiFlowChart,
@@ -21,7 +20,6 @@ import { useIntl } from '~/components/intl';
 import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
-import Text from '~/components/ui/Text';
 
 import type { QuestionCompletionCount } from '~/db/QuestionsCount';
 import { roundQuestionCountToNearestTen } from '~/db/QuestionsUtils';
@@ -103,19 +101,12 @@ export default function FrontEndSystemDesignPlaybookPage({
       })}
       features={features}
       icon={RiFlowChart}
-      longDescription={
-        <div className={clsx('flex flex-col gap-4', 'text-sm xl:text-base')}>
-          <Text color="secondary" size="inherit">
-            {intl.formatMessage({
-              defaultMessage:
-                "System design interviews are often reserved for mid-to-senior roles, focusing on your ability to design complex, scalable, and maintainable systems. With few resources out there specifically for front end system design, we've crafted the Front End System Design Guide—the most comprehensive resource available.",
-              description:
-                'Long description of frontend interview playbook page',
-              id: 'BFqUim',
-            })}
-          </Text>
-        </div>
-      }
+      longDescription={intl.formatMessage({
+        defaultMessage:
+          "System design interviews are often reserved for mid-to-senior roles, focusing on your ability to design complex, scalable, and maintainable systems. With few resources out there specifically for front end system design, we've crafted the Front End System Design Guide—the most comprehensive resource available.",
+        description: 'Long description of frontend interview playbook page',
+        id: 'BFqUim',
+      })}
       metadata={metadata}
       title={intl.formatMessage({
         defaultMessage: 'Front End System Design Playbook',

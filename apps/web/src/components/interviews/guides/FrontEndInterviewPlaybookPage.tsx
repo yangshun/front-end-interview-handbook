@@ -17,7 +17,6 @@ import useGuidesWithCompletionStatus from '~/components/guides/useGuidesWithComp
 import { QuestionCountTotal } from '~/components/interviews/questions/listings/stats/QuestionCount';
 import { useIntl } from '~/components/intl';
 import Section from '~/components/ui/Heading/HeadingContext';
-import Text from '~/components/ui/Text';
 
 import { categorizeGuides } from '~/db/guides/GuidesUtils';
 
@@ -163,16 +162,12 @@ export default function FrontEndInterviewPlaybookPage({
       })}
       features={features}
       icon={RiBookOpenLine}
-      longDescription={
-        <Text className="text-sm xl:text-base" color="secondary" size="inherit">
-          {intl.formatMessage({
-            defaultMessage:
-              "Tackle your next interview with confidence using this focused, no-nonsense front end prep guide. Created by the author of the Front End Interview Handbook, it's filled with practical strategies and insider tips you won't find anywhere else.",
-            description: 'Long description of frontend interview playbook page',
-            id: 'ejhiw3',
-          })}
-        </Text>
-      }
+      longDescription={intl.formatMessage({
+        defaultMessage:
+          "Tackle your next interview with confidence using this focused, no-nonsense front end prep guide. Created by the author of the Front End Interview Handbook, it's filled with practical strategies and insider tips you won't find anywhere else.",
+        description: 'Long description of frontend interview playbook page',
+        id: 'ejhiw3',
+      })}
       metadata={metadata}
       title={intl.formatMessage({
         defaultMessage: 'Front End Interview Playbook',

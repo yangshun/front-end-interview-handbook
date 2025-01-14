@@ -88,16 +88,15 @@ export default function InterviewsStudyPlanGFE75Page({
             />
           }
           longDescription={
-            <div
-              className={clsx('flex flex-col gap-4', 'text-sm xl:text-base')}>
-              <Text color="secondary" size="inherit">
+            <>
+              <Text color="inherit" size="inherit">
                 <FormattedMessage
                   defaultMessage="The smallest list of practice questions that gets you the most mileage in your preparation. Covers the most commonly asked front end interview topics."
                   description="Description for study list"
                   id="oXdinV"
                 />
               </Text>
-              <Text color="secondary" size="inherit">
+              <Text color="inherit" size="inherit">
                 <FormattedMessage
                   defaultMessage="Created with the expertise of senior to staff front end interviewers from some of the top companies in the world. <button>Have a suggestion?</button>"
                   description="Description for study list"
@@ -117,7 +116,7 @@ export default function InterviewsStudyPlanGFE75Page({
                   }}
                 />
               </Text>
-            </div>
+            </>
           }
           metadata={{
             description: studyList.seoDescription,

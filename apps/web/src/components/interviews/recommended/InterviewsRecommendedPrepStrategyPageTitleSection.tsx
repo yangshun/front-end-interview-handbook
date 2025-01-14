@@ -3,6 +3,7 @@ import { type ReactNode } from 'react';
 
 import { trpc } from '~/hooks/trpc';
 
+import InterviewsPageLongDescription from '~/components/interviews/common/InterviewsPageLongDescription';
 import { FormattedMessage, useIntl } from '~/components/intl';
 import Badge from '~/components/ui/Badge';
 import Tooltip from '~/components/ui/Tooltip';
@@ -108,7 +109,9 @@ export default function InterviewsRecommendedPrepStrategyPageTitleSection({
           title={title}
           {...props}
         />
-        <div className="w-full lg:max-w-[75%]">{longDescription}</div>
+        <InterviewsPageLongDescription>
+          {longDescription}
+        </InterviewsPageLongDescription>
       </div>
     </div>
   );

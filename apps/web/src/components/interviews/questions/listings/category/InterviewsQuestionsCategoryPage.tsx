@@ -14,6 +14,7 @@ import type {
 } from '~/components/guides/types';
 import useGuidesWithCompletionStatus from '~/components/guides/useGuidesWithCompletionStatus';
 import InterviewsPageHeader from '~/components/interviews/common/InterviewsPageHeader';
+import InterviewsPageLongDescription from '~/components/interviews/common/InterviewsPageLongDescription';
 import type {
   QuestionFrameworkOrLanguage,
   QuestionMetadata,
@@ -23,7 +24,6 @@ import InterviewsQuestionsCategoryContentSlider from '~/components/interviews/qu
 import QuestionsUnifiedListWithFiltersAndProgress from '~/components/interviews/questions/listings/items/QuestionsUnifiedListWithFiltersAndProgress';
 import { useIntl } from '~/components/intl';
 import Section from '~/components/ui/Heading/HeadingContext';
-import { themeTextSecondaryColor } from '~/components/ui/theme';
 
 import type { QuestionCompletionCount } from '~/db/QuestionsCount';
 
@@ -132,15 +132,9 @@ export default function InterviewsQuestionsCategoryPage({
         title={title}
       />
       {longDescription && (
-        <div
-          className={clsx(
-            'w-full lg:max-w-[75%]',
-            'text-sm xl:text-base',
-            themeTextSecondaryColor,
-            'text-pretty',
-          )}>
+        <InterviewsPageLongDescription>
           {longDescription}
-        </div>
+        </InterviewsPageLongDescription>
       )}
       <Section>
         <QuestionsUnifiedListWithFiltersAndProgress

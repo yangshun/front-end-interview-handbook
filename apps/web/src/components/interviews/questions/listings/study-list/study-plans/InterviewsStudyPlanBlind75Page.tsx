@@ -87,23 +87,22 @@ export default function InterviewsStudyPlanBlind75Page({
           features={features}
           icon={StudyPlanIcons[studyList.slug]}
           longDescription={
-            <div
-              className={clsx('flex flex-col gap-4', 'text-sm xl:text-base')}>
-              <Text color="secondary" size="inherit">
+            <>
+              <Text color="inherit" size="inherit">
                 <FormattedMessage
                   defaultMessage="For data structures and algorithms (DSA) questions, we recommend working through the Blind 75, a concise list that effectively prepares you for these topics."
                   description="Description for Blind 75 page"
                   id="iF6Qjg"
                 />
               </Text>
-              <Text color="secondary" size="inherit">
+              <Text color="inherit" size="inherit">
                 <FormattedMessage
                   defaultMessage="Many candidates use this list as a guide, focusing on each problem to grasp core concepts and techniques. We've solved these questions in JavaScript/TypeScript to make them accessible to front end engineers."
                   description="Description for Blind 75 page"
                   id="Wyg5gk"
                 />
               </Text>
-            </div>
+            </>
           }
           metadata={{
             description: studyList.seoDescription,
