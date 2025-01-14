@@ -4,7 +4,8 @@ import type { PropsWithChildren } from 'react';
 
 import type { BlogMetadata } from '~/components/blog/BlogTypes';
 import BlogMetadataSection from '~/components/blog/metadata/BlogMetadataSection';
-import Heading from '~/components/ui/Heading';
+import Anchor from '~/components/ui/Anchor';
+import Heading, { headingCVA } from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 
 type ArticleView = 'card' | 'default';
@@ -25,9 +26,18 @@ export default function BlogArticle({
     <div className="flex flex-col gap-12">
       <div className="flex flex-col gap-5">
         <div className="flex flex-col gap-3">
-          <Heading level={view === 'card' ? 'heading6' : 'heading4'}>
-            {metadata.title}
-          </Heading>
+          {view === 'card' ? (
+            <Anchor
+              className={headingCVA({
+                level: 'heading6',
+              })}
+              href={metadata.href}>
+              {metadata.title}
+            </Anchor>
+          ) : (
+            <Heading level="heading4">{metadata.title}</Heading>
+          )}
+
           <Text
             className="block"
             color="secondary"
