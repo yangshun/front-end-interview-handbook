@@ -7,11 +7,11 @@ import { useEffect, useState } from 'react';
 
 import useScrollToTop from '~/hooks/useScrollToTop';
 
-import SecondarySidebarCollapser from '~/components/global/sidebar/SecondarySidebarCollapser';
 import { useUserPreferences } from '~/components/global/UserPreferencesProvider';
 import InterviewsNavbarEnd from '~/components/interviews/common/InterviewsNavbarEnd';
 import useInterviewsSidebarCollapsed from '~/components/interviews/common/useInterviewsSidebarCollapsed';
 import { questionListFilterNamespace } from '~/components/interviews/questions/common/QuestionHrefUtils';
+import QuestionsQuizSidebarCollapser from '~/components/interviews/questions/content/quiz/QuestionsQuizSidebarCollapser';
 import InterviewsQuestionsListSlideOutSwitcher from '~/components/interviews/questions/listings/slideout/InterviewsQuestionsListSlideOutSwitcher';
 import Section from '~/components/ui/Heading/HeadingContext';
 import { themeBorderColor } from '~/components/ui/theme';
@@ -124,7 +124,7 @@ export default function QuestionsQuizContentLayout({ children }: Props) {
             </div>
           </Section>
         )}
-        <SecondarySidebarCollapser />
+        <QuestionsQuizSidebarCollapser />
       </div>
       <div className="w-full">
         <InterviewsNavbarEnd />

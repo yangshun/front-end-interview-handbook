@@ -13,7 +13,7 @@ function useFooterNavigation() {
 
   const navigation: FooterNavigation = [
     {
-      key: 'info',
+      key: 'product',
       links: [
         {
           href: url.format({
@@ -45,12 +45,20 @@ function useFooterNavigation() {
             id: 'EITf7R',
           }),
         },
+        {
+          href: '/projects/roadmap',
+          key: 'projects-roadmap',
+          name: intl.formatMessage({
+            defaultMessage: 'Roadmap',
+            description: 'Link to roadmap page',
+            id: '7VXf2Y',
+          }),
+        },
       ],
       title: intl.formatMessage({
-        defaultMessage: 'Info',
-        description:
-          'Section heading in Projects footer for links to more information',
-        id: 'txe6H8',
+        defaultMessage: 'Product',
+        description: 'Section heading in footer',
+        id: 'PR+tvh',
       }),
     },
     {
@@ -92,7 +100,7 @@ function useFooterNavigation() {
       }),
     },
     {
-      key: 'company',
+      key: 'explore',
       links: [
         {
           href: '/blog',
@@ -104,14 +112,25 @@ function useFooterNavigation() {
           }),
         },
         {
-          href: '/projects/roadmap',
-          key: 'projects-roadmap',
-          name: intl.formatMessage({
-            defaultMessage: 'Roadmap',
-            description: 'Link to roadmap page',
-            id: '7VXf2Y',
-          }),
+          href: 'https://medium.com/@greatfrontend',
+          key: 'medium',
+          name: 'Medium',
         },
+        {
+          href: 'https://dev.to/greatfrontend',
+          key: 'medium',
+          name: 'DEV Community',
+        },
+      ],
+      title: intl.formatMessage({
+        defaultMessage: 'Explore',
+        description: 'Section heading in footer',
+        id: 'XMbtCr',
+      }),
+    },
+    {
+      key: 'company',
+      links: [
         {
           href: '/about',
           key: 'about',
@@ -134,27 +153,27 @@ function useFooterNavigation() {
           href: '/contact',
           key: 'contact',
           name: intl.formatMessage({
-            defaultMessage: 'Contact Us',
+            defaultMessage: 'Contact us',
             description: 'Link to contact us page',
-            id: '8iiFM+',
+            id: '5pRXcv',
           }),
         },
         {
           href: '/affiliates',
           key: 'affiliates',
           name: intl.formatMessage({
-            defaultMessage: 'Become an Affiliate',
+            defaultMessage: 'Become an affiliate',
             description: 'Link to affiliate marketing program page',
-            id: 'XS6Jyn',
+            id: 'IZH9WZ',
           }),
         },
         {
           href: '/jobs',
           key: 'hiring',
           name: intl.formatMessage({
-            defaultMessage: "We're Hiring",
+            defaultMessage: 'Careers',
             description: 'Link to careers page',
-            id: 'ivmSx0',
+            id: 'JMDUrK',
           }),
         },
       ],

@@ -1,5 +1,4 @@
 import { GlobalBannerInterviews } from '~/components/global/banners/GlobalBannerInterviews';
-import FeedbackWidget from '~/components/global/feedback/FeedbackWidget';
 import InterviewsFooter from '~/components/interviews/common/InterviewsFooter';
 import InterviewsNavbar from '~/components/interviews/common/InterviewsNavbar';
 import InterviewsSidebarContainer from '~/components/interviews/common/InterviewsSidebarContainer';
@@ -19,7 +18,6 @@ export default function InterviewsSidebarLayout({ children }: Props) {
           <div className="flex">
             <InterviewsSidebarContainer />
             {children}
-            <FeedbackWidget />
           </div>
         </div>
         <Section>

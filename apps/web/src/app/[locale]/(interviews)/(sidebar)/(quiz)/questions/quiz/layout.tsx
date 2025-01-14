@@ -1,3 +1,4 @@
+import FeedbackWidget from '~/components/global/feedback/FeedbackWidget';
 import QuestionsQuizContentLayout from '~/components/interviews/questions/content/quiz/QuestionsQuizContentLayout';
 
 type Props = Readonly<{
@@ -5,5 +6,10 @@ type Props = Readonly<{
 }>;
 
 export default async function QuizContentLayout({ children }: Props) {
-  return <QuestionsQuizContentLayout>{children}</QuestionsQuizContentLayout>;
+  return (
+    <QuestionsQuizContentLayout>
+      {children}
+      <FeedbackWidget bottomClassname="bottom-12" />
+    </QuestionsQuizContentLayout>
+  );
 }

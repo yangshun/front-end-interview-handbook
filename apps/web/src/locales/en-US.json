@@ -755,6 +755,10 @@
     "defaultMessage": "Popularity: Most to least upvotes",
     "description": "Sorting option for submissions list - popularity"
   },
+  "2u88E/": {
+    "defaultMessage": "Collapse questions list",
+    "description": "Collapse sidebar containing questions list"
+  },
   "2vJhW9": {
     "defaultMessage": "We have questions in every critical topic, interview format and framework / language. Every question comes with solutions and test cases.",
     "description": "Subtitle for marketing page section"
@@ -3503,10 +3507,6 @@
     "defaultMessage": "Select a project",
     "description": "Select a project on ready to start page"
   },
-  "KlEAfS": {
-    "defaultMessage": "Show side menu",
-    "description": "Screenreader text for the button that expands the side menu"
-  },
   "KmiBbk": {
     "defaultMessage": "I would like to sign up for GreatFrontEnd's newsletter to receive interview tips and question updates",
     "description": "Label of checkbox to sign up for newsletter on Email Sign Up page"
@@ -4931,10 +4931,6 @@
     "defaultMessage": "While working on project",
     "description": "Tab label for projects challenges"
   },
-  "TB8vuT": {
-    "defaultMessage": "Collapse side menu",
-    "description": "Screenreader text for the button that collapses the side menu"
-  },
   "TBD8mM": {
     "defaultMessage": "Disconnect your Google Auth account",
     "description": "Label to disconnect social"
@@ -4990,6 +4986,10 @@
   "TaIXVz": {
     "defaultMessage": "Purchase premium to unlock full access to exclusive System Design content including high quality solutions and companies which ask this question.",
     "description": "System design questions paywall"
+  },
+  "TbN6Yv": {
+    "defaultMessage": "Show questions list",
+    "description": "Show sidebar containing questions list"
   },
   "TbOere": {
     "defaultMessage": "{category} Coding Interview Questions",
