@@ -1,13 +1,11 @@
 import type { Metadata } from 'next';
-import { redirect } from 'next/navigation';
 
 import { redirectToLoginPageIfNotLoggedIn } from '~/components/auth/redirectToLoginPageIfNotLoggedIn';
 import ProjectsProfileEditPage from '~/components/projects/profile/edit/ProjectsProfileEditPage';
+import { redirectToProjectsOnboardingIfNoProjectsProfile } from '~/components/projects/utils/redirectToPathIfNoProjectsProfile';
 
 import { getIntlServerOnly } from '~/i18n';
 import defaultProjectsMetadata from '~/seo/defaultProjectsMetadata';
-import prisma from '~/server/prisma';
-import { readViewerFromToken } from '~/supabase/SupabaseServerGFE';
 
 type Props = Readonly<{
   params: Readonly<{ locale: string }>;
@@ -36,35 +34,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Page() {
-  await redirectToLoginPageIfNotLoggedIn('/projects/profile/edit');
+  const viewer = await redirectToLoginPageIfNotLoggedIn(
+    '/projects/profile/edit',
+  );
 
-  const viewer = await readViewerFromToken();
-  const viewerProfile = await prisma.profile.findUnique({
-    include: {
-      projectsProfile: true,
-    },
-    where: {
-      id: viewer!.id,
-    },
-  });
-
-  // If no user profile.
-  if (viewerProfile == null) {
-    return redirect(`/projects/challenges`);
-  }
-
-  const { projectsProfile } = viewerProfile;
-
-  // If no projects profile, get them to create one.
-  if (projectsProfile == null) {
-    return redirect(`/projects/onboarding`);
-  }
+  const viewerProfile =
+    await redirectToProjectsOnboardingIfNoProjectsProfile(viewer);
 
   return (
     <ProjectsProfileEditPage
       userProfile={{
         ...viewerProfile,
-        projectsProfile,
+        projectsProfile: viewerProfile.projectsProfile!,
       }}
     />
   );

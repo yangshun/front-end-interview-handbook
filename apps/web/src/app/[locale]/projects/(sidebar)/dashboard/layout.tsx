@@ -1,13 +1,15 @@
+import { redirectToLoginPageIfNotLoggedIn } from '~/components/auth/redirectToLoginPageIfNotLoggedIn';
 import ProjectsDashboardLayout from '~/components/projects/dashboard/ProjectsDashboardLayout';
-
-import { readViewerFromToken } from '~/supabase/SupabaseServerGFE';
+import { redirectToProjectsOnboardingIfNoProjectsProfile } from '~/components/projects/utils/redirectToPathIfNoProjectsProfile';
 
 type Props = Readonly<{
   children: React.ReactNode;
 }>;
 
 export default async function Layout({ children }: Props) {
-  const viewer = await readViewerFromToken();
+  const viewer = await redirectToLoginPageIfNotLoggedIn('/projects/dashboard');
+
+  await redirectToProjectsOnboardingIfNoProjectsProfile(viewer);
 
   return (
     <ProjectsDashboardLayout viewer={viewer}>

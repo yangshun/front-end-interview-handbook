@@ -9,7 +9,7 @@ export async function redirectToLoginPageIfNotLoggedIn(next: string) {
   const viewer = await readViewerFromToken();
 
   if (viewer != null) {
-    return;
+    return viewer;
   }
 
   return redirect(

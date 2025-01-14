@@ -78,10 +78,12 @@ export async function fetchUser_DO_NOT_USE_IF_ONLY_USER_ID_OR_EMAIL_NEEDED(
   }
 }
 
+export type Viewer = SupabaseJwtUser;
+
 // TODO(auth): Migrate fetchUser() to this function as much as possible.
 export async function readViewerFromToken(
   authToken?: string,
-): Promise<SupabaseJwtUser | null> {
+): Promise<Viewer | null> {
   try {
     let supabaseAuthToken = authToken;
 
