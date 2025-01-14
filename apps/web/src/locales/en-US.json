@@ -135,10 +135,6 @@
     "defaultMessage": "Binary",
     "description": "Computer science topic"
   },
-  "+pieds": {
-    "defaultMessage": "Sign up for our newsletter and join our community of passionate <span>Front End Engineers</span>.",
-    "description": "Subtitle text for newsletter sign up section"
-  },
   "+u6zX0": {
     "defaultMessage": "Design systems",
     "description": "Title for \"Design systems\" feature on Projects home page"
@@ -6695,10 +6691,6 @@
     "defaultMessage": "GreatFrontEnd Blog - News and insights for Front End Engineers",
     "description": "Title of GreatFrontEnd blog homepage"
   },
-  "ePyk/V": {
-    "defaultMessage": "Get notified about new front end resources, interview tips and practice questions",
-    "description": "Title for newsletter sign up section"
-  },
   "eQwU0l": {
     "defaultMessage": "Copy line up",
     "description": "Text describing command to copy lines up in the coding workspace shortcuts menu"
@@ -8815,10 +8807,6 @@
     "defaultMessage": "Time-savers",
     "description": "Section title for study plans"
   },
-  "ryCcOP": {
-    "defaultMessage": "Notify Me",
-    "description": "Button label for a newsletter subscription section"
-  },
   "rzOz2q": {
     "defaultMessage": "We're still growing our challenge base",
     "description": "Challenge base section title"
@@ -9538,6 +9526,10 @@
   "wO0zga": {
     "defaultMessage": "Skills roadmap",
     "description": "Title for \"Skills roadmap\" feature on Projects home page"
+  },
+  "wOddZ+": {
+    "defaultMessage": "Contact Us",
+    "description": "Page title for contact page"
   },
   "wPCPuk": {
     "defaultMessage": "{Title}: A balanced plan to enhance both coding and system design skills, preparing you thoroughly in a month.",

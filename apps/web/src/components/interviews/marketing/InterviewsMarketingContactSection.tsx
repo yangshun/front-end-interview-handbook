@@ -1,3 +1,5 @@
+'use client';
+
 import clsx from 'clsx';
 import type { ReactNode } from 'react';
 import {
@@ -132,7 +134,7 @@ export default function InterviewsMarketingContactSection() {
         className={clsx(
           themeGradientHeading,
           themeMarketingHeadingSize,
-          'max-w-2xl pb-1',
+          'max-w-lg pb-1 md:max-w-2xl',
         )}
         level="custom"
         tag="p"

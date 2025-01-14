@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-import MarketingContactUs from '~/components/marketing/contact/MarketingContactUs';
+import InterviewsMarketingContactSection from '~/components/interviews/marketing/InterviewsMarketingContactSection';
 
 import defaultMetadata from '~/seo/defaultMetadata';
 
@@ -36,9 +36,7 @@ export default function PortfolioReviewPage() {
       <ResumeReviewTestimonials />
       <ResumeReviewPricing />
       <ResumeReviewFAQs />
-      <div className="py-12">
-        <MarketingContactUs />
-      </div>
+      <InterviewsMarketingContactSection />
     </main>
   );
 }

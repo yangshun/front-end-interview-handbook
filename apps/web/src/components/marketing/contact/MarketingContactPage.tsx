@@ -1,23 +1,26 @@
 'use client';
 
+import InterviewsMarketingContactSection from '~/components/interviews/marketing/InterviewsMarketingContactSection';
+import InterviewsMarketingDreamJobSection from '~/components/interviews/marketing/InterviewsMarketingDreamJobSection';
+import { FormattedMessage } from '~/components/intl';
 import MarketingCommunitySection from '~/components/marketing/contact/MarketingCommunitySection';
-import MarketingContactUs from '~/components/marketing/contact/MarketingContactUs';
-import MarketingEmailSubscribe from '~/components/marketing/contact/MarketingEmailSubscribe';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 
 export default function MarketingContactPage() {
   return (
-    <div className="flex flex-col gap-12 py-12 md:py-16">
+    <div className="flex flex-col">
       <Heading className="sr-only" level="custom">
-        {/* TODO: i18n */}
-        Contact Us
+        <FormattedMessage
+          defaultMessage="Contact Us"
+          description="Page title for contact page"
+          id="wOddZ+"
+        />
       </Heading>
       <Section>
-        <MarketingContactUs />
+        <InterviewsMarketingContactSection />
         <MarketingCommunitySection />
-        <div className="mt-12" />
-        <MarketingEmailSubscribe />
+        <InterviewsMarketingDreamJobSection />
       </Section>
     </div>
   );
