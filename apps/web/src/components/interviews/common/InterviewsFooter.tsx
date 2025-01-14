@@ -3,10 +3,9 @@
 import { useGuidesData } from '~/data/Guides';
 import { useQuestionFormatsData } from '~/data/QuestionCategories';
 
+import type { FooterNavigation } from '~/components/global/footers/Footer';
+import Footer from '~/components/global/footers/Footer';
 import { useIntl } from '~/components/intl';
-
-import type { FooterNavigation } from '../../global/footers/Footer';
-import FooterNew from '../../global/footers/FooterNew';
 
 function useFooterNavigation() {
   const intl = useIntl();
@@ -169,28 +168,47 @@ function useFooterNavigation() {
           href: '/contact',
           key: 'contact',
           name: intl.formatMessage({
-            defaultMessage: 'Contact Us',
+            defaultMessage: 'Contact us',
             description: 'Link to contact us page',
-            id: '8iiFM+',
+            id: '5pRXcv',
           }),
         },
         {
           href: '/affiliates',
           key: 'affiliates',
           name: intl.formatMessage({
-            defaultMessage: 'Become an Affiliate',
+            defaultMessage: 'Become an affiliate',
             description: 'Link to affiliate marketing program page',
-            id: 'XS6Jyn',
+            id: 'IZH9WZ',
           }),
         },
         {
           href: '/jobs',
           key: 'hiring',
           name: intl.formatMessage({
-            defaultMessage: "We're Hiring",
+            defaultMessage: 'Careers',
             description: 'Link to careers page',
-            id: 'ivmSx0',
+            id: 'JMDUrK',
           }),
+        },
+        {
+          href: '/blog',
+          key: 'blog',
+          name: intl.formatMessage({
+            defaultMessage: 'Blog',
+            description: 'Link to blog page',
+            id: '7lppmr',
+          }),
+        },
+        {
+          href: 'https://medium.com/@greatfrontend',
+          key: 'medium',
+          name: 'Medium',
+        },
+        {
+          href: 'https://dev.to/greatfrontend',
+          key: 'medium',
+          name: 'DEV Community',
         },
       ],
       title: intl.formatMessage({
@@ -208,5 +226,5 @@ function useFooterNavigation() {
 export default function InterviewsFooter() {
   const navigation = useFooterNavigation();
 
-  return <FooterNew navigation={navigation} />;
+  return <Footer navigation={navigation} />;
 }

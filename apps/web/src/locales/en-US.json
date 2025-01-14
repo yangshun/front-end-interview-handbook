@@ -159,10 +159,6 @@
     "defaultMessage": "Prepare well for your front end interviews regardless of time left.",
     "description": "Description for study plans page"
   },
-  "+wR7CJ": {
-    "defaultMessage": "Legal",
-    "description": "Section heading in footer for links to legal pages like privacy policy and terms of service"
-  },
   "+y/iOY": {
     "defaultMessage": "Support you can expect",
     "description": "Title for Expected Support section on Projects project page"
@@ -1179,6 +1175,10 @@
     "defaultMessage": "Start the project to access guides, discussions and reference code",
     "description": "Title for project overlay on projects details page"
   },
+  "5pRXcv": {
+    "defaultMessage": "Contact us",
+    "description": "Link to contact us page"
+  },
   "5pdUYV": {
     "defaultMessage": "Deep-dives into real world applications",
     "description": "Features for question format page"
@@ -1642,10 +1642,6 @@
   "8hrzCT": {
     "defaultMessage": "Edit",
     "description": "Tooltip for Edit button"
-  },
-  "8iiFM+": {
-    "defaultMessage": "Contact Us",
-    "description": "Link to contact us page"
   },
   "8jSm6h": {
     "defaultMessage": "Binary search",
@@ -3143,6 +3139,10 @@
     "defaultMessage": "Light",
     "description": "Light color scheme option label"
   },
+  "IZH9WZ": {
+    "defaultMessage": "Become an affiliate",
+    "description": "Link to affiliate marketing program page"
+  },
   "Ia88Vb": {
     "defaultMessage": "Related articles",
     "description": "Blog related articles section"
@@ -3286,6 +3286,10 @@
   "JMBOyp": {
     "defaultMessage": "{questionTitle} | Algorithms Interview Questions with Solutions",
     "description": "Title of Algorithms Front End interview questions page"
+  },
+  "JMDUrK": {
+    "defaultMessage": "Careers",
+    "description": "Link to careers page"
   },
   "JPr1gs": {
     "defaultMessage": "Collaboration questions",
@@ -4234,6 +4238,10 @@
   "PQRmTe": {
     "defaultMessage": "You are on the <bold>Lifetime</bold> plan.",
     "description": "Text describing user's subscription plan."
+  },
+  "PR+tvh": {
+    "defaultMessage": "Product",
+    "description": "Section heading in footer"
   },
   "PXcS/H": {
     "defaultMessage": "<authorLink>{author}</authorLink> replied to your code review on <submissionLink>{entityTitle}</submissionLink> {timestamp}",
@@ -5611,13 +5619,13 @@
     "defaultMessage": "We recommend quality submissions from more senior engineers using a similar tech stack to you, or tech stack you expressed interest in learning",
     "description": "Tooltip label for Trending submissions section on Projects dashboard page"
   },
+  "XMbtCr": {
+    "defaultMessage": "Explore",
+    "description": "Section heading in footer"
+  },
   "XOtMNQ": {
     "defaultMessage": "Contribution type",
     "description": "Label for contribution type filter for contribution list"
-  },
-  "XS6Jyn": {
-    "defaultMessage": "Become an Affiliate",
-    "description": "Link to affiliate marketing program page"
   },
   "XTQvzh": {
     "defaultMessage": "Subscribe to our newsletter",
@@ -7399,10 +7407,6 @@
     "defaultMessage": "Types of JS questions, concepts to cover and rubrics",
     "description": "JavaScript questions, concepts and rubrics during front end interviews"
   },
-  "ivmSx0": {
-    "defaultMessage": "We're Hiring",
-    "description": "Link to careers page"
-  },
   "iw1XYQ": {
     "defaultMessage": "No community contributions",
     "description": "Title for empty state when there are no contributions"
@@ -9134,10 +9138,6 @@
   "twAHPt": {
     "defaultMessage": "What interviewers are looking for",
     "description": "What front end system design interviewer are looking for"
-  },
-  "txe6H8": {
-    "defaultMessage": "Info",
-    "description": "Section heading in Projects footer for links to more information"
   },
   "u/YBSN": {
     "defaultMessage": "We currently offer student discounts at up to 40% off plans if you sign in / up with your .edu student email account. Alumni are excluded from this discount. Please read more at our <link>Student Discount Terms and Conditions</link>.",
