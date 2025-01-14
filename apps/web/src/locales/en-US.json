@@ -3683,10 +3683,6 @@
     "defaultMessage": "Learn to answer \"Tell me about a time..\" growth mindset questions",
     "description": "How to answer growth mindset collaboration questions"
   },
-  "Lel52s": {
-    "defaultMessage": "Frameworks",
-    "description": "Label for question framework list"
-  },
   "LgMYXR": {
     "defaultMessage": "<authorLink>{author}</authorLink> left a code review on <submissionLink>{entityTitle}</submissionLink> {timestamp}",
     "description": "Notification for code review left on your submission"
@@ -7223,10 +7219,6 @@
     "defaultMessage": "{questionCount}+ most important Angular interview questions on services, directives, RxJS, forms, state management, and dynamic component building.",
     "description": "Subtitle for questions list page"
   },
-  "hUENEC": {
-    "defaultMessage": "Languages",
-    "description": "Label for question languages list"
-  },
   "hW1w8e": {
     "defaultMessage": "Angular Interview Questions",
     "description": "Angular questions category long title"
@@ -8419,6 +8411,10 @@
     "defaultMessage": "Explore articles related to \"{tagName}\".",
     "description": "Description of GreatFrontEnd blog tag page"
   },
+  "pHQFA0": {
+    "defaultMessage": "Frameworks / languages",
+    "description": "Front end frameworks or language"
+  },
   "pI+b1R": {
     "defaultMessage": "The account linked to the card is invalid, possibly closed or inactivated.",
     "description": "Decline message for invalid account"
@@ -8534,10 +8530,6 @@
   "puP8B5": {
     "defaultMessage": "Collapse {replyCount, plural, =0 {none} one {# reply} other {# replies}}",
     "description": "Label for collapse replies button"
-  },
-  "pvBjOq": {
-    "defaultMessage": "Framework / Languages",
-    "description": "Practice for interviews by question frameworks or language"
   },
   "pz1v44": {
     "defaultMessage": "Next",

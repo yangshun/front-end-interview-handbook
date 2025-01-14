@@ -430,16 +430,15 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
         icon: RiReactjsFill,
         id: 'question-framework',
         label: intl.formatMessage({
-          defaultMessage: 'Framework / Languages',
-          description:
-            'Practice for interviews by question frameworks or language',
-          id: 'pvBjOq',
+          defaultMessage: 'Frameworks / languages',
+          description: 'Front end frameworks or language',
+          id: 'pHQFA0',
         }),
         onClick: () => {
           gtag.event({
             action: `${placement}.prepare.practice_questions.frameworks.click`,
             category: 'engagement',
-            label: 'Framework / Languages',
+            label: 'Frameworks / Languages',
           });
         },
         sublabel: intl.formatMessage({

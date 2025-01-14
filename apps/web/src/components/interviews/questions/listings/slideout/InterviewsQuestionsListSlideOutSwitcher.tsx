@@ -4,10 +4,13 @@ import { RiFilterLine } from 'react-icons/ri';
 import { trpc } from '~/hooks/trpc';
 import useUserProfile from '~/hooks/user/useUserProfile';
 
+import { useQuestionFormatsData } from '~/data/QuestionCategories';
+
 import SidebarPremiumChip from '~/components/global/sidebar/SidebarPremiumChip';
 import InterviewsPricingTableDialog from '~/components/interviews/purchase/InterviewsPricingTableDialog';
 import type { InterviewsPurchasePremiumFeature } from '~/components/interviews/purchase/InterviewsPurchaseTypes';
 import { useIntl } from '~/components/intl';
+import Divider from '~/components/ui/Divider';
 import DropdownMenu from '~/components/ui/DropdownMenu';
 import Spinner from '~/components/ui/Spinner';
 
@@ -26,6 +29,7 @@ function DropdownContent({
   const intl = useIntl();
   const { data: questionLists, isLoading } = trpc.questionLists.get.useQuery();
   const { userProfile } = useUserProfile();
+  const formatData = useQuestionFormatsData();
 
   if (isLoading || !questionLists) {
     return (
@@ -47,7 +51,15 @@ function DropdownContent({
       }),
     },
     {
-      items: [studyPlansMap.gfe75, studyPlansMap.blind75],
+      items: [
+        studyPlansMap.gfe75,
+        studyPlansMap.blind75,
+        {
+          label: formatData['system-design'].label,
+          type: 'format',
+          value: formatData['system-design'].value,
+        },
+      ],
       key: 'prep-strategy',
       label: intl.formatMessage({
         defaultMessage: 'Recommended prep strategy',
@@ -99,21 +111,16 @@ function DropdownContent({
       }),
     },
     {
-      items: questionLists.frameworks,
-      key: 'frameworks',
+      items: [
+        ...questionLists.frameworks,
+        { type: 'divider', value: 'divider-1' },
+        ...questionLists.languages,
+      ],
+      key: 'frameworks-languages',
       label: intl.formatMessage({
-        defaultMessage: 'Frameworks',
-        description: 'Label for question framework list',
-        id: 'Lel52s',
-      }),
-    },
-    {
-      items: questionLists.languages,
-      key: 'languages',
-      label: intl.formatMessage({
-        defaultMessage: 'Languages',
-        description: 'Label for question languages list',
-        id: 'hUENEC',
+        defaultMessage: 'Frameworks / languages',
+        description: 'Front end frameworks or language',
+        id: 'pHQFA0',
       }),
     },
   ];
@@ -127,17 +134,21 @@ function DropdownContent({
             category.premiumFeature ? <SidebarPremiumChip /> : undefined
           }
           label={category.label}>
-          {category.items.map((item) => (
-            <DropdownMenu.Item
-              key={item.value}
-              label={item.label}
-              onClick={() => {
-                category.premiumFeature && !userProfile?.premium
-                  ? openPricingDialog(category.premiumFeature)
-                  : onChangeListType(item);
-              }}
-            />
-          ))}
+          {category.items.map((item) =>
+            item.type === 'divider' ? (
+              <Divider key={item.value} />
+            ) : (
+              <DropdownMenu.Item
+                key={item.value}
+                label={item.label}
+                onClick={() => {
+                  category.premiumFeature && !userProfile?.premium
+                    ? openPricingDialog(category.premiumFeature)
+                    : onChangeListType(item);
+                }}
+              />
+            ),
+          )}
         </DropdownMenu.Sub>
       ))}
     </>
@@ -145,7 +156,10 @@ function DropdownContent({
 }
 
 type QuestionListCategories = Readonly<{
-  items: ReadonlyArray<QuestionListTypeData & Readonly<{ label: string }>>;
+  items: ReadonlyArray<
+    | { type: 'divider'; value: string }
+    | (QuestionListTypeData & Readonly<{ label: string }>)
+  >;
   key: string;
   label: string;
   premiumFeature?: InterviewsPurchasePremiumFeature;
