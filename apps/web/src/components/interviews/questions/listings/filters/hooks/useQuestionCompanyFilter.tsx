@@ -20,6 +20,9 @@ const COMPANY_OPTIONS: ReadonlyArray<QuestionCompany> = [
   'dropbox',
   'microsoft',
   'stripe',
+  'tiktok',
+  'bytedance',
+  'atlassian',
 ];
 
 type Props = Readonly<{
