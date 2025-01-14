@@ -27,10 +27,10 @@ module.exports = ({ theme }) => ({
         marginTop: 'intentionally-invalid',
       },
       h3: {
-        fontSize: `${17 / BASE_FONT_SIZE}em`,
+        fontSize: `${20 / BASE_FONT_SIZE}em`,
         fontWeight: theme('fontWeight.semibold'),
-        lineHeight: `${24.5 / 17}em`,
-        marginTop: `${48 / 17}em`,
+        lineHeight: `${28 / 20}em`,
+        marginTop: `${48 / 20}em`,
         marginBottom: 0,
       },
       'h3 + *': {
