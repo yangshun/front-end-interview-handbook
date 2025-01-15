@@ -8,7 +8,7 @@ import { fetchInterviewListingBottomContent } from '~/db/contentlayer/Interviews
 import { readAllFrontEndInterviewGuides } from '~/db/guides/GuidesReader';
 import { fetchQuestionsCompletionCount } from '~/db/QuestionsCount';
 import {
-  fetchQuestionsListCoding,
+  fetchQuestionsList,
   fetchQuestionsListCodingForLanguage,
 } from '~/db/QuestionsListReader';
 import { roundQuestionCountToNearestTen } from '~/db/QuestionsUtils';
@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const [intl, { questions: questionsCoding }] = await Promise.all([
     getIntlServerOnly(locale),
-    fetchQuestionsListCoding(locale),
+    fetchQuestionsList({ type: 'format', value: 'coding' }, locale),
   ]);
 
   const questionsCodingFormat = questionsCoding.filter((metadata) =>

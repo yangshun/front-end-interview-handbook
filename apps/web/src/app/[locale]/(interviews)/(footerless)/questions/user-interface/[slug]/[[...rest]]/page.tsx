@@ -11,7 +11,7 @@ import { sortQuestionsMultiple } from '~/components/interviews/questions/listing
 import UserInterfaceCodingWorkspacePage from '~/components/workspace/user-interface/UserInterfaceCodingWorkspacePage';
 
 import { readQuestionUserInterface } from '~/db/QuestionsContentsReader';
-import { fetchQuestionsListCoding } from '~/db/QuestionsListReader';
+import { fetchQuestionsList } from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 import { getSiteOrigin } from '~/seo/siteUrl';
@@ -215,9 +215,12 @@ export default async function Page({ params }: Props) {
     return true;
   })();
 
-  const { questions: codingQuestions } = await fetchQuestionsListCoding(locale);
+  const { questions } = await fetchQuestionsList(
+    { type: 'format', value: 'user-interface' },
+    locale,
+  );
   const nextQuestions = sortQuestionsMultiple(
-    codingQuestions.filter((questionItem) =>
+    questions.filter((questionItem) =>
       question.metadata.nextQuestions.includes(questionItem.slug),
     ),
     [
@@ -232,7 +235,7 @@ export default async function Page({ params }: Props) {
     ],
   );
   const similarQuestions = sortQuestionsMultiple(
-    codingQuestions.filter((questionItem) =>
+    questions.filter((questionItem) =>
       question.metadata.similarQuestions.includes(questionItem.slug),
     ),
     [

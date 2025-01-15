@@ -5,11 +5,7 @@ import InterviewsPracticeQuestionsPage from '~/components/interviews/questions/l
 import { QuestionCountTotal } from '~/components/interviews/questions/listings/stats/QuestionCount';
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
-import {
-  fetchQuestionsListCoding,
-  fetchQuestionsListQuiz,
-  fetchQuestionsListSystemDesign,
-} from '~/db/QuestionsListReader';
+import { fetchQuestionsList } from '~/db/QuestionsListReader';
 import { categorizeQuestionsByFrameworkAndLanguage } from '~/db/QuestionsUtils';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
@@ -61,14 +57,14 @@ export default async function Page({ params }: Props) {
   const { locale } = params;
 
   const [
-    { questions: quizQuestions },
     { questions: codingQuestions },
+    { questions: quizQuestions },
     { questions: systemDesignQuestions },
     bottomContent,
   ] = await Promise.all([
-    fetchQuestionsListQuiz(locale),
-    fetchQuestionsListCoding(locale),
-    fetchQuestionsListSystemDesign(locale),
+    fetchQuestionsList({ type: 'format', value: 'coding' }, locale),
+    fetchQuestionsList({ type: 'format', value: 'quiz' }, locale),
+    fetchQuestionsList({ type: 'format', value: 'system-design' }, locale),
     fetchInterviewListingBottomContent('all-questions'),
   ]);
 

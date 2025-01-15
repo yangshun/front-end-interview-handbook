@@ -8,8 +8,10 @@ import Anchor from '~/components/ui/Anchor';
 import Tooltip from '~/components/ui/Tooltip';
 
 import QuestionFrameworkIcon from './QuestionFrameworkIcon';
-import type { QuestionListTypeData } from '../common/QuestionHrefUtils';
-import type { QuestionFramework } from '../common/QuestionsTypes';
+import type {
+  QuestionFramework,
+  QuestionListTypeData,
+} from '../common/QuestionsTypes';
 
 type Props = Readonly<{
   frameworks: ReadonlyArray<

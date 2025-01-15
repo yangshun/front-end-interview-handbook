@@ -7,9 +7,11 @@ import {
   getQuestionLanguagesData,
 } from '~/data/QuestionCategories';
 
-import type { QuestionFormatForList } from '~/components/interviews/questions/common/QuestionHrefUtils';
 import { QuestionListTypeDefault } from '~/components/interviews/questions/common/QuestionHrefUtils';
-import type { QuestionCompany } from '~/components/interviews/questions/common/QuestionsTypes';
+import type {
+  QuestionCompany,
+  QuestionFormatForList,
+} from '~/components/interviews/questions/common/QuestionsTypes';
 import {
   QuestionCompanies,
   type QuestionFramework,
@@ -18,13 +20,10 @@ import {
 
 import { fetchInterviewsStudyList } from '~/db/contentlayer/InterviewsStudyListReader';
 import {
-  fetchQuestionListForFormat,
-  fetchQuestionsByHash,
-  fetchQuestionsListCoding,
-  fetchQuestionsListCodingForFramework,
+  fetchQuestionsList,
+  fetchQuestionsListByHash,
   fetchQuestionsListCodingForLanguage,
   fetchQuestionsListQuizForCompany,
-  fetchQuestionsListSystemDesign,
 } from '~/db/QuestionsListReader';
 import { fetchQuestionLists } from '~/db/QuestionsListUtils';
 import { getIntlClientOnly } from '~/i18n/getIntlClientOnly';
@@ -72,7 +71,7 @@ export const questionListsRouter = router({
           } as const;
         }
 
-        const studyListQuestions = await fetchQuestionsByHash(
+        const studyListQuestions = await fetchQuestionsListByHash(
           studyListData?.questionHashes ?? [],
         );
 
@@ -89,15 +88,17 @@ export const questionListsRouter = router({
       if (framework) {
         const framework_ = framework as QuestionFramework;
         const frameworksData = getQuestionFrameworksData(intl);
-        const frameworkQuestions =
-          await fetchQuestionsListCodingForFramework(framework_);
+        const { questions } = await fetchQuestionsList({
+          type: 'framework',
+          value: framework_,
+        });
 
         return {
           listType: {
             type: 'framework',
             value: framework_,
           },
-          questions: frameworkQuestions,
+          questions,
           title: frameworksData[framework_].label,
         } as const;
       }
@@ -105,7 +106,10 @@ export const questionListsRouter = router({
       if (format) {
         const format_ = format as QuestionFormatForList;
         const formatData = getQuestionFormatsData(intl);
-        const { questions } = await fetchQuestionListForFormat(format_);
+        const { questions } = await fetchQuestionsList({
+          type: 'format',
+          value: format_,
+        });
 
         return {
           listType: {
@@ -140,7 +144,10 @@ export const questionListsRouter = router({
         } as const;
       }
 
-      const { questions: questionsCoding } = await fetchQuestionsListCoding();
+      const { questions: questionsCoding } = await fetchQuestionsList({
+        type: 'format',
+        value: 'coding',
+      });
 
       return {
         listType: QuestionListTypeDefault,
@@ -152,7 +159,7 @@ export const questionListsRouter = router({
     const [blind75, gfe75, { questions }] = await Promise.all([
       fetchInterviewsStudyList('blind75'),
       fetchInterviewsStudyList('gfe75'),
-      fetchQuestionsListSystemDesign('en-US'),
+      fetchQuestionsList({ type: 'format', value: 'system-design' }, 'en-US'),
     ]);
 
     return {

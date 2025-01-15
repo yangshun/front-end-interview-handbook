@@ -6,11 +6,7 @@ import InterviewsCompanyGuideListPage from '~/components/interviews/questions/li
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
 import { fetchInterviewsStudyLists } from '~/db/contentlayer/InterviewsStudyListReader';
-import {
-  fetchQuestionsListCoding,
-  fetchQuestionsListQuiz,
-  fetchQuestionsListSystemDesign,
-} from '~/db/QuestionsListReader';
+import { fetchQuestionsList } from '~/db/QuestionsListReader';
 import { categorizeQuestionsByCompany } from '~/db/QuestionsUtils';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
@@ -78,9 +74,9 @@ export default async function Page({ params }: Props) {
     companyGuides,
     bottomContent,
   ] = await Promise.all([
-    fetchQuestionsListCoding(locale),
-    fetchQuestionsListQuiz(locale),
-    fetchQuestionsListSystemDesign(locale),
+    fetchQuestionsList({ type: 'format', value: 'coding' }, locale),
+    fetchQuestionsList({ type: 'format', value: 'quiz' }, locale),
+    fetchQuestionsList({ type: 'format', value: 'system-design' }, locale),
     fetchInterviewsStudyLists('company'),
     fetchInterviewListingBottomContent('company'),
   ]);

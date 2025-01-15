@@ -93,6 +93,7 @@ export type QuestionCodingFormat = Extract<
   'algo' | 'javascript' | 'user-interface'
 >;
 export type QuestionUserFacingFormat = 'coding' | 'quiz' | 'system-design';
+export type QuestionFormatForList = QuestionFormat | 'coding';
 export type QuestionFramework =
   | 'angular'
   | 'react'
@@ -247,3 +248,9 @@ export type QuestionTopic =
   | 'web-api';
 
 export type QuestionQuiz = QuestionBase;
+
+export type QuestionListTypeData =
+  | Readonly<{ type: 'format'; value: QuestionFormatForList }>
+  | Readonly<{ type: 'framework'; value: QuestionFramework }>
+  | Readonly<{ type: 'language'; value: QuestionLanguage }>
+  | Readonly<{ type: 'study-list'; value: string }>;

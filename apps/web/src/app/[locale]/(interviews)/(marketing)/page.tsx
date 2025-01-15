@@ -20,13 +20,7 @@ import {
   readQuestionJavaScriptContents,
   readQuestionUserInterface,
 } from '~/db/QuestionsContentsReader';
-import {
-  fetchQuestionsListAlgo,
-  fetchQuestionsListJavaScript,
-  fetchQuestionsListQuiz,
-  fetchQuestionsListSystemDesign,
-  fetchQuestionsListUserInterface,
-} from '~/db/QuestionsListReader';
+import { fetchQuestionsList } from '~/db/QuestionsListReader';
 import {
   categorizeQuestionsByCompany,
   categorizeQuestionsByFrameworkAndLanguage,
@@ -250,11 +244,11 @@ export default async function Page({ params }: Props) {
     readQuestionUserInterface('todo-list', false, 'vue', 'solution'),
     readQuestionUserInterface('todo-list', false, 'svelte', 'solution'),
     // Question list
-    fetchQuestionsListJavaScript(locale),
-    fetchQuestionsListAlgo(locale),
-    fetchQuestionsListUserInterface(locale),
-    fetchQuestionsListQuiz(locale),
-    fetchQuestionsListSystemDesign(locale),
+    fetchQuestionsList({ type: 'format', value: 'javascript' }, locale),
+    fetchQuestionsList({ type: 'format', value: 'algo' }, locale),
+    fetchQuestionsList({ type: 'format', value: 'user-interface' }, locale),
+    fetchQuestionsList({ type: 'format', value: 'quiz' }, locale),
+    fetchQuestionsList({ type: 'format', value: 'system-design' }, locale),
     // Company guides
     fetchInterviewsStudyLists('company'),
   ]);

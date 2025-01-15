@@ -6,7 +6,7 @@ import { sortQuestionsMultiple } from '~/components/interviews/questions/listing
 import UserInterfaceCodingWorkspaceSavesPage from '~/components/workspace/user-interface/UserInterfaceCodingWorkspaceSavesPage';
 
 import { readQuestionUserInterface } from '~/db/QuestionsContentsReader';
-import { fetchQuestionsListCoding } from '~/db/QuestionsListReader';
+import { fetchQuestionsList } from '~/db/QuestionsListReader';
 import defaultMetadata from '~/seo/defaultMetadata';
 import prisma from '~/server/prisma';
 import {
@@ -54,7 +54,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Page({ params }: Props) {
-  const { slug, saveId } = params;
+  const { locale, slug, saveId } = params;
 
   const [viewer, save] = await Promise.all([
     readViewerFromToken(),
@@ -104,9 +104,12 @@ export default async function Page({ params }: Props) {
     );
   }
 
-  const { questions: codingQuestions } = await fetchQuestionsListCoding();
+  const { questions } = await fetchQuestionsList(
+    { type: 'format', value: 'user-interface' },
+    locale,
+  );
   const nextQuestions = sortQuestionsMultiple(
-    codingQuestions.filter((questionItem) =>
+    questions.filter((questionItem) =>
       question.metadata.nextQuestions.includes(questionItem.slug),
     ),
     [
@@ -121,7 +124,7 @@ export default async function Page({ params }: Props) {
     ],
   );
   const similarQuestions = sortQuestionsMultiple(
-    codingQuestions.filter((questionItem) =>
+    questions.filter((questionItem) =>
       question.metadata.similarQuestions.includes(questionItem.slug),
     ),
     [

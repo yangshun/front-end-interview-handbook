@@ -5,13 +5,14 @@
 // It's only meant to be used on the server.
 import fs from 'node:fs';
 
-import type { QuestionFormatForList } from '~/components/interviews/questions/common/QuestionHrefUtils';
 import type {
   QuestionCompany,
   QuestionFormat,
+  QuestionFormatForList,
   QuestionFramework,
   QuestionHash,
   QuestionLanguage,
+  QuestionListTypeData,
   QuestionMetadata,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import { ReadyQuestions } from '~/components/interviews/questions/content/system-design/SystemDesignConfig';
@@ -49,9 +50,7 @@ export async function fetchQuestionsListCount(): Promise<QuestionTotalAvailableC
   };
 }
 
-export async function fetchQuestionsListQuiz(
-  requestedLocale = 'en-US',
-): Promise<
+async function fetchQuestionsListQuiz(requestedLocale = 'en-US'): Promise<
   Readonly<{
     loadedLocale: string;
     questions: ReadonlyArray<QuestionMetadata>;
@@ -75,9 +74,7 @@ export async function fetchQuestionsListQuiz(
   };
 }
 
-export async function fetchQuestionsListAlgo(
-  requestedLocale = 'en-US',
-): Promise<
+async function fetchQuestionsListAlgo(requestedLocale = 'en-US'): Promise<
   Readonly<{
     loadedLocale: string;
     questions: ReadonlyArray<QuestionMetadata>;
@@ -101,9 +98,7 @@ export async function fetchQuestionsListAlgo(
   };
 }
 
-export async function fetchQuestionsListJavaScript(
-  requestedLocale = 'en-US',
-): Promise<
+async function fetchQuestionsListJavaScript(requestedLocale = 'en-US'): Promise<
   Readonly<{
     loadedLocale: string;
     questions: ReadonlyArray<QuestionMetadata>;
@@ -131,7 +126,7 @@ export async function fetchQuestionsListJavaScript(
   };
 }
 
-export async function fetchQuestionsListUserInterface(
+async function fetchQuestionsListUserInterface(
   requestedLocale = 'en-US',
 ): Promise<
   Readonly<{
@@ -161,7 +156,7 @@ export async function fetchQuestionsListUserInterface(
   };
 }
 
-export async function fetchQuestionListForFormat(
+async function fetchQuestionsListForFormat(
   format: QuestionFormatForList,
   requestedLocale = 'en-US',
 ): Promise<
@@ -186,9 +181,7 @@ export async function fetchQuestionListForFormat(
   }
 }
 
-export async function fetchQuestionsListCoding(
-  requestedLocale = 'en-US',
-): Promise<
+async function fetchQuestionsListCoding(requestedLocale = 'en-US'): Promise<
   Readonly<{
     loadedLocale: string;
     questions: ReadonlyArray<QuestionMetadata>;
@@ -214,7 +207,7 @@ export async function fetchQuestionsListCoding(
   };
 }
 
-export async function fetchQuestionsListSystemDesign(
+async function fetchQuestionsListSystemDesign(
   requestedLocale = 'en-US',
 ): Promise<
   Readonly<{
@@ -317,7 +310,7 @@ export async function fetchQuestionsListQuizForCompany(
   );
 }
 
-export async function fetchQuestionsByHash(
+export async function fetchQuestionsListByHash(
   questionHashes: ReadonlyArray<QuestionHash>,
   locale = 'en-US',
 ): Promise<ReadonlyArray<QuestionMetadata>> {
@@ -359,4 +352,45 @@ export async function fetchQuestionsByHash(
   });
 
   return questionMetadata.flatMap((item) => (item != null ? [item] : []));
+}
+
+export async function fetchQuestionsList(
+  listType: QuestionListTypeData,
+  requestedLocale = 'en-US',
+): Promise<
+  Readonly<{
+    loadedLocale: string;
+    questions: ReadonlyArray<QuestionMetadata>;
+  }>
+> {
+  switch (listType.type) {
+    case 'language': {
+      const [questionsCoding, questionsQuiz] = await Promise.all([
+        fetchQuestionsListCodingForLanguage(listType.value, requestedLocale),
+        fetchQuestionsListQuizForLanguage(listType.value, requestedLocale),
+      ]);
+
+      return {
+        loadedLocale: requestedLocale,
+        questions: [...questionsCoding, ...questionsQuiz],
+      };
+    }
+    case 'framework': {
+      const [questionsCoding, questionsQuiz] = await Promise.all([
+        fetchQuestionsListCodingForFramework(listType.value, requestedLocale),
+        fetchQuestionsListQuizForFramework(listType.value, requestedLocale),
+      ]);
+
+      return {
+        loadedLocale: requestedLocale,
+        questions: [...questionsCoding, ...questionsQuiz],
+      };
+    }
+    case 'format': {
+      return await fetchQuestionsListForFormat(listType.value, requestedLocale);
+    }
+    default: {
+      throw `Unsupported list type "${listType.value}"`;
+    }
+  }
 }

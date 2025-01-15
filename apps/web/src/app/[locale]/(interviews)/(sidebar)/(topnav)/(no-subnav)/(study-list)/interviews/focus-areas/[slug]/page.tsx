@@ -10,7 +10,7 @@ import {
   fetchInterviewsStudyList,
   fetchInterviewsStudyLists,
 } from '~/db/contentlayer/InterviewsStudyListReader';
-import { fetchQuestionsByHash } from '~/db/QuestionsListReader';
+import { fetchQuestionsListByHash } from '~/db/QuestionsListReader';
 import { groupQuestionHashesByFormat } from '~/db/QuestionsUtils';
 import { getIntlServerOnly } from '~/i18n';
 import { generateStaticParamsWithLocale } from '~/next-i18nostic/src';
@@ -90,7 +90,7 @@ export default async function Page({ params }: Props) {
   );
 
   const [questions, bottomContent] = await Promise.all([
-    fetchQuestionsByHash(focusArea?.questionHashes ?? [], locale),
+    fetchQuestionsListByHash(focusArea?.questionHashes ?? [], locale),
     fetchInterviewListingBottomContent(`${slug}-focus-area`),
   ]);
 

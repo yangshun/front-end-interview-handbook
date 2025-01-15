@@ -4,7 +4,7 @@ import QuestionJsonLd from '~/components/interviews/questions/common/QuestionJso
 import QuestionQuizContents from '~/components/interviews/questions/content/quiz/QuestionQuizContents';
 
 import { readQuestionQuizContents } from '~/db/QuestionsContentsReader';
-import { fetchQuestionsListQuiz } from '~/db/QuestionsListReader';
+import { fetchQuestionsList } from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';
 import { generateStaticParamsWithLocale } from '~/next-i18nostic/src';
 import defaultMetadata from '~/seo/defaultMetadata';
@@ -44,7 +44,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export async function generateStaticParams({ params }: Props) {
   const { locale } = params;
-  const { questions: quizQuestions } = await fetchQuestionsListQuiz(locale);
+  const { questions: quizQuestions } = await fetchQuestionsList(
+    { type: 'format', value: 'quiz' },
+    locale,
+  );
 
   return generateStaticParamsWithLocale(
     quizQuestions.map((question) => ({

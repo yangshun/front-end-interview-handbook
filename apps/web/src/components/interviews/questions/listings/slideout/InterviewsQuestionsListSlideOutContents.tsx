@@ -35,14 +35,12 @@ import {
   tabulateQuestionsAttributesUnion,
 } from '../filters/QuestionsProcessor';
 import QuestionsListSortButton from '../items/QuestionsListSortButton';
-import {
-  questionHrefFrameworkSpecificAndListType,
-  type QuestionListTypeData,
-} from '../../common/QuestionHrefUtils';
+import { questionHrefFrameworkSpecificAndListType } from '../../common/QuestionHrefUtils';
 import type {
   QuestionFramework,
   QuestionHash,
   QuestionLanguage,
+  QuestionListTypeData,
   QuestionMetadata,
 } from '../../common/QuestionsTypes';
 import { useQuestionsListDataForType } from '../../common/useQuestionsListDataForType';

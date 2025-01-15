@@ -23,7 +23,7 @@ import ScrollArea from '~/components/ui/ScrollArea';
 import Spinner from '~/components/ui/Spinner';
 import Text from '~/components/ui/Text';
 
-import type { QuestionListTypeData } from '../../common/QuestionHrefUtils';
+import type { QuestionListTypeData } from '../../common/QuestionsTypes';
 
 export type QuestionListTypeWithLabel = QuestionListTypeData &
   Readonly<{ label: string }>;

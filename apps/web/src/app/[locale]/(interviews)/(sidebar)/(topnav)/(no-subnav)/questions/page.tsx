@@ -4,7 +4,7 @@ import InterviewsQuestionsCategoryPreparePage from '~/components/interviews/ques
 import { QuestionCountTotal } from '~/components/interviews/questions/listings/stats/QuestionCount';
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
-import { fetchQuestionsListCoding } from '~/db/QuestionsListReader';
+import { fetchQuestionsList } from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
@@ -57,7 +57,7 @@ export default async function Page({ params }: Props) {
   const { locale } = params;
 
   const [{ questions: codingQuestions }, bottomContent] = await Promise.all([
-    fetchQuestionsListCoding(locale),
+    fetchQuestionsList({ type: 'format', value: 'coding' }, locale),
     fetchInterviewListingBottomContent('all-questions'),
   ]);
 

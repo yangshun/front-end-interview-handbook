@@ -22,11 +22,11 @@ import Button from '~/components/ui/Button';
 
 import { hashQuestion } from '~/db/QuestionsUtils';
 
-import type { QuestionListTypeData } from '../../common/QuestionHrefUtils';
 import {
   questionHrefFrameworkSpecificAndListType,
   questionListFilterNamespace,
 } from '../../common/QuestionHrefUtils';
+import type { QuestionListTypeData } from '../../common/QuestionsTypes';
 import {
   useQuestionsListDataForType,
   useQuestionsListTypeCurrent,

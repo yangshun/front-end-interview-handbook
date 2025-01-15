@@ -16,11 +16,7 @@ import {
   readAllFrontendSystemDesignGuides,
 } from '~/db/guides/GuidesReader';
 import { fetchQuestionsCompletionCount } from '~/db/QuestionsCount';
-import {
-  fetchQuestionsListCoding,
-  fetchQuestionsListQuiz,
-  fetchQuestionsListSystemDesign,
-} from '~/db/QuestionsListReader';
+import { fetchQuestionsList } from '~/db/QuestionsListReader';
 import { roundQuestionCountToNearestTen } from '~/db/QuestionsUtils';
 import { getIntlServerOnly } from '~/i18n';
 import { generateStaticParamsWithLocale } from '~/next-i18nostic/src';
@@ -230,7 +226,10 @@ async function processParams(params: Props['params']) {
   let questions: ReadonlyArray<QuestionMetadata> = [];
 
   if (questionFormat === 'quiz') {
-    const { questions: quizQuestions } = await fetchQuestionsListQuiz(locale);
+    const { questions: quizQuestions } = await fetchQuestionsList(
+      { type: 'format', value: 'quiz' },
+      locale,
+    );
 
     seoTitle = QuestionFormatStrings[questionFormat].seoTitle(
       quizQuestions.length,
@@ -239,8 +238,10 @@ async function processParams(params: Props['params']) {
   }
 
   if (questionFormat === 'system-design') {
-    const { questions: systemDesignQuestions } =
-      await fetchQuestionsListSystemDesign(locale);
+    const { questions: systemDesignQuestions } = await fetchQuestionsList(
+      { type: 'format', value: 'system-design' },
+      locale,
+    );
 
     questions = systemDesignQuestions;
   }
@@ -250,26 +251,12 @@ async function processParams(params: Props['params']) {
     questionFormat === 'javascript' ||
     questionFormat === 'user-interface'
   ) {
-    const { questions: codingQuestions } =
-      await fetchQuestionsListCoding(locale);
-    const algoQuestions = codingQuestions.filter(
-      (question) => question.format === 'algo',
-    );
-    const jsQuestions = codingQuestions.filter(
-      (question) => question.format === 'javascript',
-    );
-    const uiQuestions = codingQuestions.filter(
-      (question) => question.format === 'user-interface',
+    const { questions: qnList } = await fetchQuestionsList(
+      { type: 'format', value: questionFormat },
+      locale,
     );
 
-    questions =
-      questionFormat === 'algo'
-        ? algoQuestions
-        : questionFormat === 'javascript'
-          ? jsQuestions
-          : questionFormat === 'user-interface'
-            ? uiQuestions
-            : [];
+    questions = qnList;
   }
 
   return {

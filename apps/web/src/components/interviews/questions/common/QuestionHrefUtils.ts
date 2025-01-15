@@ -1,20 +1,12 @@
 import { getSiteOrigin } from '~/seo/siteUrl';
 
 import type {
-  QuestionFormat,
   QuestionFramework,
-  QuestionLanguage,
+  QuestionListTypeData,
   QuestionMetadata,
 } from './QuestionsTypes';
 
 const origin = getSiteOrigin();
-
-export type QuestionFormatForList = QuestionFormat | 'coding';
-export type QuestionListTypeData =
-  | Readonly<{ type: 'format'; value: QuestionFormatForList }>
-  | Readonly<{ type: 'framework'; value: QuestionFramework }>
-  | Readonly<{ type: 'language'; value: QuestionLanguage }>
-  | Readonly<{ type: 'study-list'; value: string }>;
 
 export const QuestionListTypeDefault: QuestionListTypeData = {
   type: 'format',

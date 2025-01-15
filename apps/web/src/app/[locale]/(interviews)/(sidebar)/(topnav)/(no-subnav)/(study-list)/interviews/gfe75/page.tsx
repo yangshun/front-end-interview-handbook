@@ -7,7 +7,7 @@ import InterviewsStudyPlanGFE75Page from '~/components/interviews/questions/list
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
 import { fetchInterviewsStudyList } from '~/db/contentlayer/InterviewsStudyListReader';
-import { fetchQuestionsByHash } from '~/db/QuestionsListReader';
+import { fetchQuestionsListByHash } from '~/db/QuestionsListReader';
 import { groupQuestionHashesByFormat } from '~/db/QuestionsUtils';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
@@ -67,7 +67,7 @@ export default async function Page({ params }: Props) {
   );
 
   const [questions, bottomContent] = await Promise.all([
-    fetchQuestionsByHash(gfe75?.questionHashes ?? [], locale),
+    fetchQuestionsListByHash(gfe75?.questionHashes ?? [], locale),
     fetchInterviewListingBottomContent('gfe75'),
   ]);
 

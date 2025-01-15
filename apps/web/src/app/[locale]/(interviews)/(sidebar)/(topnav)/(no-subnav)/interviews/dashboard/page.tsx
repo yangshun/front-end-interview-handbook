@@ -7,11 +7,7 @@ import InterviewsDashboardPage from '~/components/interviews/dashboard/Interview
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
 import { fetchInterviewsAllStudyLists } from '~/db/contentlayer/InterviewsStudyListReader';
-import {
-  fetchQuestionsListCoding,
-  fetchQuestionsListQuiz,
-  fetchQuestionsListSystemDesign,
-} from '~/db/QuestionsListReader';
+import { fetchQuestionsList } from '~/db/QuestionsListReader';
 import {
   categorizeQuestionsByCompany,
   categorizeQuestionsByFrameworkAndLanguage,
@@ -65,15 +61,15 @@ export default async function Page({ params }: Props) {
   const { locale } = params;
 
   const [
-    { questions: quizQuestions },
     { questions: codingQuestions },
+    { questions: quizQuestions },
     { questions: systemDesignQuestions },
     bottomContent,
     studyLists,
   ] = await Promise.all([
-    fetchQuestionsListQuiz(locale),
-    fetchQuestionsListCoding(locale),
-    fetchQuestionsListSystemDesign(locale),
+    fetchQuestionsList({ type: 'format', value: 'coding' }, locale),
+    fetchQuestionsList({ type: 'format', value: 'quiz' }, locale),
+    fetchQuestionsList({ type: 'format', value: 'system-design' }, locale),
     fetchInterviewListingBottomContent('dashboard'),
     fetchInterviewsAllStudyLists(),
   ]);

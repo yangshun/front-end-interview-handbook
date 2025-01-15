@@ -15,12 +15,10 @@ import {
 
 import { hashQuestion } from '~/db/QuestionsUtils';
 
-import {
-  questionHrefFrameworkSpecificAndListType,
-  type QuestionListTypeData,
-} from '../../common/QuestionHrefUtils';
+import { questionHrefFrameworkSpecificAndListType } from '../../common/QuestionHrefUtils';
 import type {
   QuestionFramework,
+  QuestionListTypeData,
   QuestionMetadata,
 } from '../../common/QuestionsTypes';
 import QuestionDifficultyLabel from '../../metadata/QuestionDifficultyLabel';

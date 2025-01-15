@@ -4,7 +4,7 @@ import InterviewsQuestionsCategoryPreparePage from '~/components/interviews/ques
 import { QuestionCountTotal } from '~/components/interviews/questions/listings/stats/QuestionCount';
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
-import { fetchQuestionsListQuiz } from '~/db/QuestionsListReader';
+import { fetchQuestionsList } from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
@@ -51,7 +51,7 @@ export default async function Page({ params }: Props) {
   const { locale } = params;
 
   const [{ questions: quizQuestions }, bottomContent] = await Promise.all([
-    fetchQuestionsListQuiz(locale),
+    fetchQuestionsList({ type: 'format', value: 'quiz' }, locale),
     fetchInterviewListingBottomContent('all-questions'),
   ]);
 

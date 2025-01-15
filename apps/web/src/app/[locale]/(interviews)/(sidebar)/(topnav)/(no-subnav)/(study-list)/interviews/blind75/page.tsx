@@ -7,7 +7,7 @@ import InterviewsStudyPlanBlind75Page from '~/components/interviews/questions/li
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
 import { fetchInterviewsStudyList } from '~/db/contentlayer/InterviewsStudyListReader';
-import { fetchQuestionsByHash } from '~/db/QuestionsListReader';
+import { fetchQuestionsListByHash } from '~/db/QuestionsListReader';
 import { groupQuestionHashesByFormat } from '~/db/QuestionsUtils';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
@@ -69,7 +69,7 @@ export default async function Page({ params }: Props) {
   );
 
   const [questions, bottomContent] = await Promise.all([
-    fetchQuestionsByHash(blind75?.questionHashes ?? [], locale),
+    fetchQuestionsListByHash(blind75?.questionHashes ?? [], locale),
     fetchInterviewListingBottomContent('blind75'),
   ]);
 

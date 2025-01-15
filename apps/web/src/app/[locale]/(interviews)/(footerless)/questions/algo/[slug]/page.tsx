@@ -7,7 +7,7 @@ import { sortQuestionsMultiple } from '~/components/interviews/questions/listing
 import JavaScriptCodingWorkspacePage from '~/components/workspace/javascript/JavaScriptCodingWorkspacePage';
 
 import { readQuestionAlgoContents } from '~/db/QuestionsContentsReader';
-import { fetchQuestionsListCoding } from '~/db/QuestionsListReader';
+import { fetchQuestionsList } from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 import { readViewerFromToken } from '~/supabase/SupabaseServerGFE';
@@ -80,9 +80,12 @@ export default async function Page({ params }: Props) {
   const isQuestionLockedForViewer =
     question.metadata.access === 'premium' && !isViewerPremium;
 
-  const { questions: codingQuestions } = await fetchQuestionsListCoding(locale);
+  const { questions } = await fetchQuestionsList(
+    { type: 'format', value: 'algo' },
+    locale,
+  );
   const nextQuestions = sortQuestionsMultiple(
-    codingQuestions.filter((questionItem) =>
+    questions.filter((questionItem) =>
       question.metadata.nextQuestions.includes(questionItem.slug),
     ),
     [
@@ -97,7 +100,7 @@ export default async function Page({ params }: Props) {
     ],
   );
   const similarQuestions = sortQuestionsMultiple(
-    codingQuestions.filter((questionItem) =>
+    questions.filter((questionItem) =>
       question.metadata.similarQuestions.includes(questionItem.slug),
     ),
     [
