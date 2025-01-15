@@ -14,6 +14,7 @@ import type {
   QuestionLanguage,
   QuestionListTypeData,
   QuestionMetadata,
+  QuestionPracticeFormat,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import { ReadyQuestions } from '~/components/interviews/questions/content/system-design/SystemDesignConfig';
 import { filterQuestions } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
@@ -237,7 +238,46 @@ async function fetchQuestionsListSystemDesign(
   };
 }
 
-export async function fetchQuestionsListCodingForFramework(
+async function fetchQuestionsListForFramework(
+  {
+    framework,
+    format,
+  }: { format?: QuestionPracticeFormat; framework: QuestionFramework },
+  locale = 'en-US',
+): Promise<
+  Readonly<{
+    loadedLocale: string;
+    questions: ReadonlyArray<QuestionMetadata>;
+  }>
+> {
+  const [questionsCoding, questionsQuiz] = await Promise.all([
+    fetchQuestionsListCodingForFramework(framework, locale),
+    fetchQuestionsListQuizForFramework(framework, locale),
+  ]);
+
+  switch (format) {
+    case 'coding': {
+      return {
+        loadedLocale: locale,
+        questions: questionsCoding,
+      };
+    }
+    case 'quiz': {
+      return {
+        loadedLocale: locale,
+        questions: questionsQuiz,
+      };
+    }
+    default: {
+      return {
+        loadedLocale: locale,
+        questions: [...questionsCoding, ...questionsQuiz],
+      };
+    }
+  }
+}
+
+async function fetchQuestionsListCodingForFramework(
   framework: QuestionFramework,
   locale = 'en-US',
 ): Promise<ReadonlyArray<QuestionMetadata>> {
@@ -251,18 +291,7 @@ export async function fetchQuestionsListCodingForFramework(
   ]);
 }
 
-export async function fetchQuestionsListCodingForLanguage(
-  language: QuestionLanguage,
-  locale = 'en-US',
-): Promise<ReadonlyArray<QuestionMetadata>> {
-  const { questions } = await fetchQuestionsListCoding(locale);
-
-  return filterQuestions(questions, [
-    (question) => question.languages.includes(language),
-  ]);
-}
-
-export async function fetchQuestionsListQuizForFramework(
+async function fetchQuestionsListQuizForFramework(
   framework: QuestionFramework,
   locale = 'en-US',
 ): Promise<ReadonlyArray<QuestionMetadata>> {
@@ -276,7 +305,57 @@ export async function fetchQuestionsListQuizForFramework(
   ]);
 }
 
-export async function fetchQuestionsListQuizForLanguage(
+async function fetchQuestionsListForLanguage(
+  {
+    language,
+    format,
+  }: { format?: QuestionPracticeFormat; language: QuestionLanguage },
+  locale = 'en-US',
+): Promise<
+  Readonly<{
+    loadedLocale: string;
+    questions: ReadonlyArray<QuestionMetadata>;
+  }>
+> {
+  const [questionsCoding, questionsQuiz] = await Promise.all([
+    fetchQuestionsListCodingForLanguage(language, locale),
+    fetchQuestionsListQuizForLanguage(language, locale),
+  ]);
+
+  switch (format) {
+    case 'coding': {
+      return {
+        loadedLocale: locale,
+        questions: questionsCoding,
+      };
+    }
+    case 'quiz': {
+      return {
+        loadedLocale: locale,
+        questions: questionsQuiz,
+      };
+    }
+    default: {
+      return {
+        loadedLocale: locale,
+        questions: [...questionsCoding, ...questionsQuiz],
+      };
+    }
+  }
+}
+
+async function fetchQuestionsListCodingForLanguage(
+  language: QuestionLanguage,
+  locale = 'en-US',
+): Promise<ReadonlyArray<QuestionMetadata>> {
+  const { questions } = await fetchQuestionsListCoding(locale);
+
+  return filterQuestions(questions, [
+    (question) => question.languages.includes(language),
+  ]);
+}
+
+async function fetchQuestionsListQuizForLanguage(
   language: QuestionLanguage,
   locale = 'en-US',
 ): Promise<ReadonlyArray<QuestionMetadata>> {
@@ -379,26 +458,16 @@ export async function fetchQuestionsList(
       }
     }
     case 'language': {
-      const [questionsCoding, questionsQuiz] = await Promise.all([
-        fetchQuestionsListCodingForLanguage(listType.value, requestedLocale),
-        fetchQuestionsListQuizForLanguage(listType.value, requestedLocale),
-      ]);
-
-      return {
-        loadedLocale: requestedLocale,
-        questions: [...questionsCoding, ...questionsQuiz],
-      };
+      return await fetchQuestionsListForLanguage({
+        format: listType.tab,
+        language: listType.value,
+      });
     }
     case 'framework': {
-      const [questionsCoding, questionsQuiz] = await Promise.all([
-        fetchQuestionsListCodingForFramework(listType.value, requestedLocale),
-        fetchQuestionsListQuizForFramework(listType.value, requestedLocale),
-      ]);
-
-      return {
-        loadedLocale: requestedLocale,
-        questions: [...questionsCoding, ...questionsQuiz],
-      };
+      return await fetchQuestionsListForFramework({
+        format: listType.tab,
+        framework: listType.value,
+      });
     }
     case 'format': {
       return await fetchQuestionsListForFormat(listType.value, requestedLocale);

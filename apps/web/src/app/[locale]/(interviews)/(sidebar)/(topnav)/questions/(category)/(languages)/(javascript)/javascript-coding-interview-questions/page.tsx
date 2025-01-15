@@ -2,20 +2,21 @@ import type { Metadata } from 'next/types';
 
 import { QuestionLanguageLabels } from '~/data/QuestionCategories';
 
+import type { QuestionLanguage } from '~/components/interviews/questions/common/QuestionsTypes';
 import InterviewsQuestionsCategoryLanguagePage from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryLanguagePage';
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
 import { readAllFrontEndInterviewGuides } from '~/db/guides/GuidesReader';
 import { fetchQuestionsCompletionCount } from '~/db/QuestionsCount';
-import { fetchQuestionsListCodingForLanguage } from '~/db/QuestionsListReader';
+import { fetchQuestionsList } from '~/db/QuestionsListReader';
 import { roundQuestionCountToNearestTen } from '~/db/QuestionsUtils';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
 export const dynamic = 'force-static';
 
-const language = 'js';
-const questionFormat = 'quiz';
+const language: QuestionLanguage = 'js';
+const format = 'coding';
 
 type Props = Readonly<{
   params: Readonly<{
@@ -26,9 +27,12 @@ type Props = Readonly<{
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
 
-  const [intl, questionsCoding] = await Promise.all([
+  const [intl, { questions }] = await Promise.all([
     getIntlServerOnly(locale),
-    fetchQuestionsListCodingForLanguage(language, locale),
+    fetchQuestionsList(
+      { tab: format, type: 'language', value: language },
+      locale,
+    ),
   ]);
 
   const category = QuestionLanguageLabels[language];
@@ -43,7 +47,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       },
       {
         category,
-        questionCount: roundQuestionCountToNearestTen(questionsCoding.length),
+        questionCount: roundQuestionCountToNearestTen(questions.length),
       },
     ),
     locale,
@@ -89,19 +93,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Page({ params }: Props) {
   const { locale } = params;
 
-  const [
-    intl,
-    questionsCoding,
-    questionCompletionCount,
-    guides,
-    bottomContent,
-  ] = await Promise.all([
-    getIntlServerOnly(locale),
-    fetchQuestionsListCodingForLanguage(language, locale),
-    fetchQuestionsCompletionCount([questionFormat]),
-    readAllFrontEndInterviewGuides(params.locale),
-    fetchInterviewListingBottomContent('javascript-coding-interview-questions'),
-  ]);
+  const [intl, { questions }, questionCompletionCount, guides, bottomContent] =
+    await Promise.all([
+      getIntlServerOnly(locale),
+      fetchQuestionsList(
+        { tab: 'coding', type: 'language', value: language },
+        locale,
+      ),
+      fetchQuestionsCompletionCount(['algo', 'javascript', 'user-interface']),
+      readAllFrontEndInterviewGuides(params.locale),
+      fetchInterviewListingBottomContent(
+        'javascript-coding-interview-questions',
+      ),
+    ]);
 
   const category = QuestionLanguageLabels[language];
 
@@ -116,13 +120,13 @@ export default async function Page({ params }: Props) {
           id: 'vt3b5U',
         },
         {
-          questionCount: roundQuestionCountToNearestTen(questionsCoding.length),
+          questionCount: roundQuestionCountToNearestTen(questions.length),
         },
       )}
       guides={guides}
       language={language}
       questionCompletionCount={questionCompletionCount}
-      questions={questionsCoding}
+      questions={questions}
       showCategoryTabs={false}
       title={intl.formatMessage(
         {
@@ -134,7 +138,7 @@ export default async function Page({ params }: Props) {
           category,
         },
       )}
-      totalQuestionsCount={questionsCoding.length}
+      totalQuestionsCount={questions.length}
       userFacingFormat="coding"
     />
   );

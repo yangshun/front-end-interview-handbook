@@ -1,16 +1,17 @@
 import type { Metadata } from 'next/types';
 
+import type { QuestionFramework } from '~/components/interviews/questions/common/QuestionsTypes';
 import InterviewsQuestionsCategoryFrameworkPage from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryFrameworkPage';
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
 import { readAllFrontEndInterviewGuides } from '~/db/guides/GuidesReader';
 import { fetchQuestionsCompletionCount } from '~/db/QuestionsCount';
-import { fetchQuestionsListCodingForFramework } from '~/db/QuestionsListReader';
+import { fetchQuestionsList } from '~/db/QuestionsListReader';
 import { roundQuestionCountToNearestTen } from '~/db/QuestionsUtils';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
-const framework = 'angular';
+const framework: QuestionFramework = 'angular';
 
 export const dynamic = 'force-static';
 
@@ -22,9 +23,9 @@ type Props = Readonly<{
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
-  const [intl, questionsCoding] = await Promise.all([
+  const [intl, { questions }] = await Promise.all([
     getIntlServerOnly(locale),
-    fetchQuestionsListCodingForFramework(framework, locale),
+    fetchQuestionsList({ type: 'framework', value: framework }, locale),
   ]);
 
   return defaultMetadata({
@@ -36,7 +37,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         id: '/ZJu61',
       },
       {
-        questionCount: roundQuestionCountToNearestTen(questionsCoding.length),
+        questionCount: roundQuestionCountToNearestTen(questions.length),
       },
     ),
     locale,
@@ -74,9 +75,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Page({ params }: Props) {
   const { locale } = params;
 
-  const [questionsCoding, questionCompletionCount, guides, bottomContent] =
+  const [{ questions }, questionCompletionCount, guides, bottomContent] =
     await Promise.all([
-      fetchQuestionsListCodingForFramework(framework, locale),
+      fetchQuestionsList({ type: 'framework', value: framework }, locale),
       fetchQuestionsCompletionCount(['user-interface']),
       readAllFrontEndInterviewGuides(locale),
       fetchInterviewListingBottomContent('framework-angular'),
@@ -88,9 +89,9 @@ export default async function Page({ params }: Props) {
       framework={framework}
       guides={guides}
       questionCompletionCount={questionCompletionCount}
-      questions={questionsCoding}
+      questions={questions}
       showCategoryTabs={false}
-      totalQuestionsCount={questionsCoding.length}
+      totalQuestionsCount={questions.length}
     />
   );
 }

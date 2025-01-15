@@ -7,7 +7,7 @@ import InterviewsQuestionsCategoryLanguagePage from '~/components/interviews/que
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
 import { readAllFrontEndInterviewGuides } from '~/db/guides/GuidesReader';
 import { fetchQuestionsCompletionCount } from '~/db/QuestionsCount';
-import { fetchQuestionsListQuizForLanguage } from '~/db/QuestionsListReader';
+import { fetchQuestionsList } from '~/db/QuestionsListReader';
 import { roundQuestionCountToNearestTen } from '~/db/QuestionsUtils';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
@@ -26,9 +26,12 @@ type Props = Readonly<{
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
 
-  const [intl, questionsQuiz] = await Promise.all([
+  const [intl, { questions }] = await Promise.all([
     getIntlServerOnly(locale),
-    fetchQuestionsListQuizForLanguage(language, locale),
+    fetchQuestionsList(
+      { tab: 'quiz', type: 'language', value: language },
+      locale,
+    ),
   ]);
 
   const category = QuestionLanguageLabels[language];
@@ -43,7 +46,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       },
       {
         category,
-        questionCount: roundQuestionCountToNearestTen(questionsQuiz.length),
+        questionCount: roundQuestionCountToNearestTen(questions.length),
       },
     ),
     locale,
@@ -89,10 +92,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Page({ params }: Props) {
   const { locale } = params;
 
-  const [intl, questionsQuiz, questionCompletionCount, guides, bottomContent] =
+  const [intl, { questions }, questionCompletionCount, guides, bottomContent] =
     await Promise.all([
       getIntlServerOnly(locale),
-      fetchQuestionsListQuizForLanguage(language, locale),
+      fetchQuestionsList(
+        { tab: 'quiz', type: 'language', value: language },
+        locale,
+      ),
       fetchQuestionsCompletionCount([questionFormat]),
       readAllFrontEndInterviewGuides(params.locale),
       fetchInterviewListingBottomContent('javascript-quiz-interview-questions'),
@@ -110,14 +116,14 @@ export default async function Page({ params }: Props) {
       guides={guides}
       language={language}
       questionCompletionCount={questionCompletionCount}
-      questions={questionsQuiz}
+      questions={questions}
       showCategoryTabs={false}
       title={intl.formatMessage({
         defaultMessage: 'JavaScript Quiz Interview Questions',
         description: 'Title of interview questions page',
         id: 'uQG7Ed',
       })}
-      totalQuestionsCount={questionsQuiz.length}
+      totalQuestionsCount={questions.length}
       userFacingFormat="quiz"
     />
   );

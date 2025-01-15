@@ -18,7 +18,7 @@ import InterviewsPageLongDescription from '~/components/interviews/common/Interv
 import type {
   QuestionFrameworkOrLanguage,
   QuestionMetadata,
-  QuestionUserFacingFormat,
+  QuestionPracticeFormat,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import InterviewsQuestionsCategoryContentSlider from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryContentSlider';
 import QuestionsUnifiedListWithFiltersAndProgress from '~/components/interviews/questions/listings/items/QuestionsUnifiedListWithFiltersAndProgress';
@@ -39,7 +39,7 @@ type Props = Readonly<{
   questionCompletionCount?: QuestionCompletionCount;
   questionList: ReadonlyArray<QuestionMetadata>;
   searchPlaceholder: string;
-  selectedCategoryTab?: QuestionUserFacingFormat;
+  selectedCategoryTab?: QuestionPracticeFormat;
   title: string;
   titleAddOnText?: string;
 }>;

@@ -2,23 +2,20 @@ import type { Metadata } from 'next/types';
 
 import type {
   QuestionFramework,
-  QuestionUserFacingFormat,
+  QuestionPracticeFormat,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import InterviewsQuestionsCategoryFrameworkPage from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryFrameworkPage';
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
 import { readAllFrontEndInterviewGuides } from '~/db/guides/GuidesReader';
 import { fetchQuestionsCompletionCount } from '~/db/QuestionsCount';
-import {
-  fetchQuestionsListCodingForFramework,
-  fetchQuestionsListQuizForFramework,
-} from '~/db/QuestionsListReader';
+import { fetchQuestionsList } from '~/db/QuestionsListReader';
 import { roundQuestionCountToNearestTen } from '~/db/QuestionsUtils';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
 const framework: QuestionFramework = 'react';
-const format: QuestionUserFacingFormat = 'quiz';
+const format: QuestionPracticeFormat = 'quiz';
 
 export const dynamic = 'force-static';
 
@@ -30,10 +27,9 @@ type Props = Readonly<{
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
-  const [intl, questionsCoding, questionsQuiz] = await Promise.all([
+  const [intl, { questions }] = await Promise.all([
     getIntlServerOnly(locale),
-    fetchQuestionsListCodingForFramework(framework, locale),
-    fetchQuestionsListQuizForFramework(framework, locale),
+    fetchQuestionsList({ type: 'framework', value: framework }, locale),
   ]);
 
   return defaultMetadata({
@@ -45,9 +41,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         id: 'muCdsx',
       },
       {
-        questionCount: roundQuestionCountToNearestTen(
-          questionsCoding.length + questionsQuiz.length,
-        ),
+        questionCount: roundQuestionCountToNearestTen(questions.length),
       },
     ),
     locale,
@@ -86,14 +80,17 @@ export default async function Page({ params }: Props) {
   const { locale } = params;
 
   const [
-    questionsCoding,
-    questionsQuiz,
+    { questions: questionsQuiz },
+    { questions: questionsAll },
     questionCompletionCount,
     guides,
     bottomContent,
   ] = await Promise.all([
-    fetchQuestionsListCodingForFramework(framework, locale),
-    fetchQuestionsListQuizForFramework(framework, locale),
+    fetchQuestionsList(
+      { tab: format, type: 'framework', value: framework },
+      locale,
+    ),
+    fetchQuestionsList({ type: 'framework', value: framework }, locale),
     fetchQuestionsCompletionCount(['quiz']),
     readAllFrontEndInterviewGuides(locale),
     fetchInterviewListingBottomContent('framework-react'),
@@ -106,7 +103,7 @@ export default async function Page({ params }: Props) {
       guides={guides}
       questionCompletionCount={questionCompletionCount}
       questions={questionsQuiz}
-      totalQuestionsCount={questionsCoding.length + questionsQuiz.length}
+      totalQuestionsCount={questionsAll.length}
       userFacingFormat={format}
     />
   );

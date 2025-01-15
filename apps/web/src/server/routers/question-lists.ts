@@ -23,7 +23,6 @@ import { fetchInterviewsStudyList } from '~/db/contentlayer/InterviewsStudyListR
 import {
   fetchQuestionsList,
   fetchQuestionsListByHash,
-  fetchQuestionsListCodingForLanguage,
   fetchQuestionsListQuizForCompany,
 } from '~/db/QuestionsListReader';
 import { fetchQuestionLists } from '~/db/QuestionsListUtils';
@@ -135,15 +134,17 @@ export const questionListsRouter = router({
         if (language) {
           const language_ = language as QuestionLanguage;
           const languagesData = getQuestionLanguagesData(intl);
-          const languageQuestions =
-            await fetchQuestionsListCodingForLanguage(language_);
+          const { questions } = await fetchQuestionsList({
+            type: 'language',
+            value: language_,
+          });
 
           return {
             listType: {
               type: 'language',
               value: language_,
             },
-            questions: languageQuestions,
+            questions,
             title: languagesData[language_].label,
           } as const;
         }

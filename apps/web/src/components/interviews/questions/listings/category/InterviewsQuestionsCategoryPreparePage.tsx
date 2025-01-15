@@ -7,7 +7,7 @@ import { useQuestionFormatsData } from '~/data/QuestionCategories';
 import useInterviewsQuestionsFeatures from '~/components/interviews/common/useInterviewsQuestionsFeatures';
 import type {
   QuestionMetadata,
-  QuestionUserFacingFormat,
+  QuestionPracticeFormat,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import InterviewsQuestionsCategoryPage from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryPage';
 import { useIntl } from '~/components/intl';
@@ -21,7 +21,7 @@ type Props = Readonly<{
   bottomContent?: InterviewsListingBottomContent;
   questions: ReadonlyArray<QuestionMetadata>;
   totalQuestionCount: number;
-  userFacingFormat: QuestionUserFacingFormat;
+  userFacingFormat: QuestionPracticeFormat;
 }>;
 
 export default function InterviewsQuestionsCategoryPreparePage({

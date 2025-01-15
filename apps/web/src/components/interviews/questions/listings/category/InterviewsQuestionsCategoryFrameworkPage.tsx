@@ -19,7 +19,7 @@ import InterviewsQuestionsCategoryPage from './InterviewsQuestionsCategoryPage';
 import type {
   QuestionFramework,
   QuestionMetadata,
-  QuestionUserFacingFormat,
+  QuestionPracticeFormat,
 } from '../../common/QuestionsTypes';
 
 type Props = Omit<
@@ -41,7 +41,7 @@ type Props = Omit<
     showCategoryTabs?: boolean;
     title?: string;
     totalQuestionsCount: number;
-    userFacingFormat?: QuestionUserFacingFormat;
+    userFacingFormat?: QuestionPracticeFormat;
   }>;
 
 const defaultFeatures: ReadonlyArray<QuestionListFeature> = [

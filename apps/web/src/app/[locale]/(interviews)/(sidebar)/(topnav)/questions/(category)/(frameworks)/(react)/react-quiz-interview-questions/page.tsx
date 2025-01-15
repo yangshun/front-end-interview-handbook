@@ -3,20 +3,20 @@ import type { Metadata } from 'next/types';
 import {
   type QuestionFramework,
   QuestionFrameworkLabels,
-  type QuestionUserFacingFormat,
+  type QuestionPracticeFormat,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import InterviewsQuestionsCategoryFrameworkPage from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryFrameworkPage';
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
 import { readAllFrontEndInterviewGuides } from '~/db/guides/GuidesReader';
 import { fetchQuestionsCompletionCount } from '~/db/QuestionsCount';
-import { fetchQuestionsListQuizForFramework } from '~/db/QuestionsListReader';
+import { fetchQuestionsList } from '~/db/QuestionsListReader';
 import { roundQuestionCountToNearestTen } from '~/db/QuestionsUtils';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
 const framework: QuestionFramework = 'react';
-const format: QuestionUserFacingFormat = 'quiz';
+const format: QuestionPracticeFormat = 'quiz';
 
 export const dynamic = 'force-static';
 
@@ -28,9 +28,12 @@ type Props = Readonly<{
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
-  const [intl, questionsQuiz] = await Promise.all([
+  const [intl, { questions }] = await Promise.all([
     getIntlServerOnly(locale),
-    fetchQuestionsListQuizForFramework(framework, locale),
+    fetchQuestionsList(
+      { tab: format, type: 'framework', value: framework },
+      locale,
+    ),
   ]);
 
   const category = 'React';
@@ -44,7 +47,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         id: 'yCEIJF',
       },
       {
-        questionCount: roundQuestionCountToNearestTen(questionsQuiz.length),
+        questionCount: roundQuestionCountToNearestTen(questions.length),
       },
     ),
     locale,
@@ -91,10 +94,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Page({ params }: Props) {
   const { locale } = params;
 
-  const [intl, questionsQuiz, questionCompletionCount, guides, bottomContent] =
+  const [intl, { questions }, questionCompletionCount, guides, bottomContent] =
     await Promise.all([
       getIntlServerOnly(locale),
-      fetchQuestionsListQuizForFramework(framework, locale),
+      fetchQuestionsList(
+        { tab: format, type: 'framework', value: framework },
+        locale,
+      ),
       fetchQuestionsCompletionCount(['quiz']),
       readAllFrontEndInterviewGuides(locale),
       fetchInterviewListingBottomContent('react-quiz-interview-questions'),
@@ -119,7 +125,7 @@ export default async function Page({ params }: Props) {
       framework={framework}
       guides={guides}
       questionCompletionCount={questionCompletionCount}
-      questions={questionsQuiz}
+      questions={questions}
       showCategoryTabs={false}
       title={intl.formatMessage(
         {
@@ -131,7 +137,7 @@ export default async function Page({ params }: Props) {
           category,
         },
       )}
-      totalQuestionsCount={questionsQuiz.length}
+      totalQuestionsCount={questions.length}
       userFacingFormat={format}
     />
   );

@@ -5,7 +5,7 @@ import InterviewsQuestionsCategoryLanguagePage from '~/components/interviews/que
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
 import { readAllFrontEndInterviewGuides } from '~/db/guides/GuidesReader';
 import { fetchQuestionsCompletionCount } from '~/db/QuestionsCount';
-import { fetchQuestionsListCodingForLanguage } from '~/db/QuestionsListReader';
+import { fetchQuestionsList } from '~/db/QuestionsListReader';
 import { roundQuestionCountToNearestTen } from '~/db/QuestionsUtils';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
@@ -24,12 +24,15 @@ type Props = Readonly<{
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
 
-  const [intl, questionsCoding] = await Promise.all([
+  const [intl, { questions }] = await Promise.all([
     getIntlServerOnly(locale),
-    fetchQuestionsListCodingForLanguage(language, locale),
+    fetchQuestionsList(
+      { tab: 'coding', type: 'language', value: language },
+      locale,
+    ),
   ]);
 
-  const questionsCodingFormat = questionsCoding.filter((metadata) =>
+  const questionsCodingFormat = questions.filter((metadata) =>
     metadata.format.includes(codingFormat),
   );
 
@@ -76,21 +79,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Page({ params }: Props) {
   const { locale } = params;
 
-  const [
-    intl,
-    questionsCoding,
-    questionCompletionCount,
-    guides,
-    bottomContent,
-  ] = await Promise.all([
-    getIntlServerOnly(locale),
-    fetchQuestionsListCodingForLanguage(language, locale),
-    fetchQuestionsCompletionCount([codingFormat]),
-    readAllFrontEndInterviewGuides(params.locale),
-    fetchInterviewListingBottomContent('javascript-dsa-interview-questions'),
-  ]);
+  const [intl, { questions }, questionCompletionCount, guides, bottomContent] =
+    await Promise.all([
+      getIntlServerOnly(locale),
+      fetchQuestionsList(
+        { tab: 'coding', type: 'language', value: language },
+        locale,
+      ),
+      fetchQuestionsCompletionCount([codingFormat]),
+      readAllFrontEndInterviewGuides(params.locale),
+      fetchInterviewListingBottomContent('javascript-dsa-interview-questions'),
+    ]);
 
-  const questionsCodingFormat = questionsCoding.filter((metadata) =>
+  const questionsCodingFormat = questions.filter((metadata) =>
     metadata.format.includes(codingFormat),
   );
 

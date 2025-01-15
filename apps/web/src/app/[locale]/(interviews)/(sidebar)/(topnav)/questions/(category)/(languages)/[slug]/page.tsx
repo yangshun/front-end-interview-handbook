@@ -12,11 +12,7 @@ import InterviewsQuestionsCategoryLanguagePage from '~/components/interviews/que
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
 import { readAllFrontEndInterviewGuides } from '~/db/guides/GuidesReader';
 import { fetchQuestionsCompletionCount } from '~/db/QuestionsCount';
-import {
-  fetchQuestionsList,
-  fetchQuestionsListCodingForLanguage,
-  fetchQuestionsListQuizForLanguage,
-} from '~/db/QuestionsListReader';
+import { fetchQuestionsList } from '~/db/QuestionsListReader';
 import { roundQuestionCountToNearestTen } from '~/db/QuestionsUtils';
 import { getIntlServerOnly } from '~/i18n';
 import { generateStaticParamsWithLocale } from '~/next-i18nostic/src';
@@ -37,7 +33,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const [intl, { questions }] = await Promise.all([
     getIntlServerOnly(locale),
-    // TODO(context)
     fetchQuestionsList({ type: 'language', value: language }, locale),
   ]);
 
@@ -121,14 +116,17 @@ export default async function Page({ params }: Props) {
     InterviewsQuestionsCategoryLanguageCodingFormatTabs[language];
 
   const [
-    questionsCoding,
-    questionsQuiz,
+    { questions: questionsCoding },
+    { questions: questionsAll },
     questionCompletionCount,
     guides,
     bottomContent,
   ] = await Promise.all([
-    fetchQuestionsListCodingForLanguage(language, locale),
-    fetchQuestionsListQuizForLanguage(language, locale),
+    fetchQuestionsList(
+      { tab: 'coding', type: 'language', value: language },
+      locale,
+    ),
+    fetchQuestionsList({ type: 'language', value: language }, locale),
     fetchQuestionsCompletionCount(codingFormats),
     readAllFrontEndInterviewGuides(params.locale),
     fetchInterviewListingBottomContent(`language-${language}`),
@@ -141,7 +139,7 @@ export default async function Page({ params }: Props) {
       language={language}
       questionCompletionCount={questionCompletionCount}
       questions={questionsCoding}
-      totalQuestionsCount={questionsCoding.length + questionsQuiz.length}
+      totalQuestionsCount={questionsAll.length}
       userFacingFormat="coding"
     />
   );

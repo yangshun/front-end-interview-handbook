@@ -93,7 +93,6 @@ export type QuestionCodingFormat = Extract<
   QuestionFormat,
   'algo' | 'javascript' | 'user-interface'
 >;
-export type QuestionUserFacingFormat = 'coding' | 'quiz' | 'system-design';
 export type QuestionFormatForList = QuestionFormat | 'coding';
 export type QuestionFramework =
   | 'angular'
@@ -251,8 +250,16 @@ export type QuestionTopic =
 export type QuestionQuiz = QuestionBase;
 
 export type QuestionListTypeData =
+  | Readonly<{
+      tab?: QuestionPracticeFormat;
+      type: 'framework';
+      value: QuestionFramework;
+    }>
+  | Readonly<{
+      tab?: QuestionPracticeFormat;
+      type: 'language';
+      value: QuestionLanguage;
+    }>
   | Readonly<{ type: 'format'; value: QuestionFormatForList }>
-  | Readonly<{ type: 'framework'; value: QuestionFramework }>
-  | Readonly<{ type: 'language'; value: QuestionLanguage }>
   | Readonly<{ type: 'practice'; value: QuestionPracticeFormat }>
   | Readonly<{ type: 'study-list'; value: string }>;
