@@ -22,7 +22,7 @@ export default function MarketingAffiliateHero() {
     <div className="theme-bg-radial-glow isolate before:opacity-30">
       <main>
         <div ref={sectionMarkerRef} />
-        <Container>
+        <Container width="marketing">
           <div
             className={clsx(
               'relative mx-auto max-w-xl px-4 py-24 transition-opacity duration-1000 ease-in-out sm:max-w-3xl sm:px-12 md:max-w-4xl lg:max-w-5xl lg:px-0 lg:pt-32',

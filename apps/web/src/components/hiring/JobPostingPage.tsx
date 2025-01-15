@@ -31,7 +31,9 @@ export default function JobPostingPage({
   title,
 }: Props) {
   return (
-    <Container className="my-10 grid gap-y-8 md:my-20 md:gap-y-16" width="6xl">
+    <Container
+      className="my-10 grid gap-y-8 md:my-20 md:gap-y-16"
+      width="marketing">
       <div className="flex flex-col gap-y-6">
         <div>
           <Anchor href="/jobs">← Back to jobs</Anchor>

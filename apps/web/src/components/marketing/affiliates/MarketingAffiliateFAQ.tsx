@@ -105,7 +105,7 @@ export default function MarketingAffialiateFAQ() {
     <div>
       <Container
         className="max-lg:theme-bg-radial-glow relative isolate flex flex-col gap-y-12 py-24 max-lg:rounded-t-3xl lg:py-32"
-        width="6xl">
+        width="marketing">
         <MarketingSectionHeader
           description={
             <FormattedMessage

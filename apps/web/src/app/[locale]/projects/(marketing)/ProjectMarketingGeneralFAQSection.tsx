@@ -46,7 +46,7 @@ export default function ProjectMarketingGeneralFAQSection() {
           'relative isolate flex flex-col gap-y-12',
           'py-12 lg:py-24',
         )}
-        width="6xl">
+        width="marketing">
         <MarketingSectionHeader
           description={
             <FormattedMessage

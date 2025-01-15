@@ -180,7 +180,7 @@ const testimonials = [
 export default function ResumeReviewTestimonials() {
   return (
     <div className="bg-neutral-950 py-16 lg:py-24 xl:py-32">
-      <Container width="6xl">
+      <Container width="marketing">
         <p className="text-brand pb-6 text-base font-semibold leading-7">
           Testimonials
         </p>
