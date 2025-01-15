@@ -51,7 +51,7 @@ export default async function Page({ params }: Props) {
   const { locale } = params;
 
   const [{ questions: quizQuestions }, bottomContent] = await Promise.all([
-    fetchQuestionsList({ type: 'format', value: 'quiz' }, locale),
+    fetchQuestionsList({ type: 'practice', value: 'quiz' }, locale),
     fetchInterviewListingBottomContent('all-questions'),
   ]);
 

@@ -31,6 +31,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const [intl, { questions: questionsCoding }] = await Promise.all([
     getIntlServerOnly(locale),
+    // TODO(context)
     fetchQuestionsList({ type: 'format', value: 'coding' }, locale),
   ]);
 

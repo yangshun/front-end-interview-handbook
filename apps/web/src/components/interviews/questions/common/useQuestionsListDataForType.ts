@@ -8,6 +8,7 @@ import type {
   QuestionFramework,
   QuestionLanguage,
   QuestionListTypeData,
+  QuestionPracticeFormat,
 } from './QuestionsTypes';
 
 /**
@@ -44,6 +45,13 @@ export function useQuestionsListTypeCurrent(
     };
   }
 
+  if (searchParams?.get('practice')) {
+    return {
+      type: 'practice',
+      value: searchParams.get('practice') as QuestionPracticeFormat,
+    };
+  }
+
   // Used by framework-specific UI qns (e.g. /questions/user-interface/counter/vue)
   // But lower priority than the searchParams
   if (framework) {
@@ -62,6 +70,8 @@ export function useQuestionsListDataForType(
   const { isLoading, data } = trpc.questionLists.getQuestions.useQuery(
     (() => {
       switch (listType?.type) {
+        case 'practice':
+          return { practice: listType.value };
         case 'study-list':
           return { studyList: listType.value };
         case 'framework':

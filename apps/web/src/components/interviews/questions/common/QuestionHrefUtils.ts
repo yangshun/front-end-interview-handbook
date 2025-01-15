@@ -9,7 +9,7 @@ import type {
 const origin = getSiteOrigin();
 
 export const QuestionListTypeDefault: QuestionListTypeData = {
-  type: 'format',
+  type: 'practice',
   value: 'coding',
 };
 

@@ -11,6 +11,7 @@ import { QuestionListTypeDefault } from '~/components/interviews/questions/commo
 import type {
   QuestionCompany,
   QuestionFormatForList,
+  QuestionPracticeFormat,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import {
   QuestionCompanies,
@@ -42,23 +43,46 @@ export const questionListsRouter = router({
         format: z.string().nullable().optional(),
         framework: z.string().nullable().optional(),
         language: z.string().nullable().optional(),
+        practice: z.string().nullable().optional(),
         studyList: z.string().nullable().optional(),
       }),
     )
-    .query(async ({ input: { format, framework, language, studyList } }) => {
-      const intl = await getIntlClientOnly('en-US');
+    .query(
+      async ({
+        input: { practice, format, framework, language, studyList },
+      }) => {
+        const intl = await getIntlClientOnly('en-US');
+        const codingLabel = intl.formatMessage({
+          defaultMessage: 'Coding',
+          description: 'Question format',
+          id: 'eJU0PN',
+        });
 
-      if (studyList != null) {
-        const studyListData_ = await fetchInterviewsStudyList(studyList);
+        if (studyList != null) {
+          const studyListData_ = await fetchInterviewsStudyList(studyList);
 
-        const studyListData = nullthrows(
-          studyListData_,
-          `Study list not found for key ${studyList}`,
-        );
+          const studyListData = nullthrows(
+            studyListData_,
+            `Study list not found for key ${studyList}`,
+          );
 
-        if (QuestionCompanies.includes(studyList as QuestionCompany)) {
-          const studyListQuestions = await fetchQuestionsListQuizForCompany(
-            studyList as QuestionCompany,
+          if (QuestionCompanies.includes(studyList as QuestionCompany)) {
+            const studyListQuestions = await fetchQuestionsListQuizForCompany(
+              studyList as QuestionCompany,
+            );
+
+            return {
+              listType: {
+                type: 'study-list',
+                value: studyList,
+              },
+              questions: studyListQuestions,
+              title: studyListData.name,
+            } as const;
+          }
+
+          const studyListQuestions = await fetchQuestionsListByHash(
+            studyListData?.questionHashes ?? [],
           );
 
           return {
@@ -71,90 +95,92 @@ export const questionListsRouter = router({
           } as const;
         }
 
-        const studyListQuestions = await fetchQuestionsListByHash(
-          studyListData?.questionHashes ?? [],
-        );
-
-        return {
-          listType: {
-            type: 'study-list',
-            value: studyList,
-          },
-          questions: studyListQuestions,
-          title: studyListData.name,
-        } as const;
-      }
-
-      if (framework) {
-        const framework_ = framework as QuestionFramework;
-        const frameworksData = getQuestionFrameworksData(intl);
-        const { questions } = await fetchQuestionsList({
-          type: 'framework',
-          value: framework_,
-        });
-
-        return {
-          listType: {
+        if (framework) {
+          const framework_ = framework as QuestionFramework;
+          const frameworksData = getQuestionFrameworksData(intl);
+          const { questions } = await fetchQuestionsList({
             type: 'framework',
             value: framework_,
-          },
-          questions,
-          title: frameworksData[framework_].label,
-        } as const;
-      }
+          });
 
-      if (format) {
-        const format_ = format as QuestionFormatForList;
-        const formatData = getQuestionFormatsData(intl);
-        const { questions } = await fetchQuestionsList({
-          type: 'format',
-          value: format_,
+          return {
+            listType: {
+              type: 'framework',
+              value: framework_,
+            },
+            questions,
+            title: frameworksData[framework_].label,
+          } as const;
+        }
+
+        if (format) {
+          const format_ = format as QuestionFormatForList;
+          const formatData = getQuestionFormatsData(intl);
+          const { questions } = await fetchQuestionsList({
+            type: 'format',
+            value: format_,
+          });
+
+          return {
+            listType: {
+              type: 'format',
+              value: format_,
+            },
+            questions,
+            title:
+              format_ === 'coding' ? codingLabel : formatData[format_].label,
+          } as const;
+        }
+
+        if (language) {
+          const language_ = language as QuestionLanguage;
+          const languagesData = getQuestionLanguagesData(intl);
+          const languageQuestions =
+            await fetchQuestionsListCodingForLanguage(language_);
+
+          return {
+            listType: {
+              type: 'language',
+              value: language_,
+            },
+            questions: languageQuestions,
+            title: languagesData[language_].label,
+          } as const;
+        }
+
+        if (practice) {
+          const practice_ = practice as QuestionPracticeFormat;
+          const formatData = getQuestionFormatsData(intl);
+          const { questions } = await fetchQuestionsList({
+            type: 'practice',
+            value: practice_,
+          });
+
+          return {
+            listType: {
+              type: 'practice',
+              value: practice_,
+            },
+            questions,
+            title:
+              practice_ === 'coding'
+                ? codingLabel
+                : formatData[practice_].label,
+          } as const;
+        }
+
+        const { questions: questionsCoding } = await fetchQuestionsList({
+          type: 'practice',
+          value: 'coding',
         });
 
         return {
-          listType: {
-            type: 'format',
-            value: format_,
-          },
-          questions,
-          title:
-            format_ === 'coding'
-              ? intl.formatMessage({
-                  defaultMessage: 'Coding',
-                  description: 'Question format',
-                  id: 'eJU0PN',
-                })
-              : formatData[format_].label,
+          listType: QuestionListTypeDefault,
+          questions: questionsCoding,
+          title: codingLabel,
         } as const;
-      }
-
-      if (language) {
-        const language_ = language as QuestionLanguage;
-        const languagesData = getQuestionLanguagesData(intl);
-        const languageQuestions =
-          await fetchQuestionsListCodingForLanguage(language_);
-
-        return {
-          listType: {
-            type: 'language',
-            value: language_,
-          },
-          questions: languageQuestions,
-          title: languagesData[language_].label,
-        } as const;
-      }
-
-      const { questions: questionsCoding } = await fetchQuestionsList({
-        type: 'format',
-        value: 'coding',
-      });
-
-      return {
-        listType: QuestionListTypeDefault,
-        questions: questionsCoding,
-        title: 'Coding questions',
-      } as const;
-    }),
+      },
+    ),
   getRecommendedStudyList: publicProcedure.query(async () => {
     const [blind75, gfe75, { questions }] = await Promise.all([
       fetchInterviewsStudyList('blind75'),

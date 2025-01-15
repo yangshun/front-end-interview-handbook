@@ -364,6 +364,20 @@ export async function fetchQuestionsList(
   }>
 > {
   switch (listType.type) {
+    case 'practice': {
+      switch (listType.value) {
+        case 'quiz': {
+          return await fetchQuestionsListQuiz(requestedLocale);
+        }
+        case 'system-design': {
+          return await fetchQuestionsListSystemDesign(requestedLocale);
+        }
+        case 'coding':
+        default: {
+          return await fetchQuestionsListCoding(requestedLocale);
+        }
+      }
+    }
     case 'language': {
       const [questionsCoding, questionsQuiz] = await Promise.all([
         fetchQuestionsListCodingForLanguage(listType.value, requestedLocale),

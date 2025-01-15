@@ -16,10 +16,7 @@ import {
   fetchQuestionsListCodingForLanguage,
   fetchQuestionsListQuizForLanguage,
 } from '~/db/QuestionsListReader';
-import {
-  categorizeQuestionsByFrameworkAndLanguage,
-  roundQuestionCountToNearestTen,
-} from '~/db/QuestionsUtils';
+import { roundQuestionCountToNearestTen } from '~/db/QuestionsUtils';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
@@ -38,18 +35,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = params;
   const language = QuestionLanguageSEOToRawMapping[slug];
 
-  const [intl, { questions: questionsCoding }, { questions: questionsQuiz }] =
-    await Promise.all([
-      getIntlServerOnly(locale),
-      fetchQuestionsList({ type: 'format', value: 'coding' }, locale),
-      fetchQuestionsList({ type: 'format', value: 'quiz' }, locale),
-    ]);
-
-  const { language: languageQuestions } =
-    categorizeQuestionsByFrameworkAndLanguage({
-      codingQuestions: questionsCoding,
-      quizQuestions: questionsQuiz,
-    });
+  const [intl, { questions }] = await Promise.all([
+    getIntlServerOnly(locale),
+    // TODO(context)
+    fetchQuestionsList({ type: 'language', value: language }, locale),
+  ]);
 
   const languageLabel = QuestionLanguageLabels[language];
 
@@ -63,9 +53,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       },
       {
         languageLabel,
-        questionCount: roundQuestionCountToNearestTen(
-          languageQuestions[language].length,
-        ),
+        questionCount: roundQuestionCountToNearestTen(questions.length),
       },
     ),
     locale,

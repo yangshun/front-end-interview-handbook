@@ -74,7 +74,7 @@ export default function InterviewsQuestionsCategoryPreparePage({
         categoryTabs={categoryTabs}
         description={`The largest bank of ${roundQuestionCountToNearestTen(totalQuestionCount)}+ practice questions for front end interviews.`}
         features={features}
-        listType={{ type: 'format', value: userFacingFormat }}
+        listType={{ type: 'practice', value: userFacingFormat }}
         longDescription={`Save the trouble of searching the web for front end interview questions. We have ${roundQuestionCountToNearestTen(totalQuestionCount)}+ practice questions in every framework, format, and topic, each with high quality answers and tests from big tech senior / staff engineers.`}
         questionList={questions}
         searchPlaceholder="Search within this list of questions"

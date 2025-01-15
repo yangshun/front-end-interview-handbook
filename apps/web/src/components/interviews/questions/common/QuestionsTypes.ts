@@ -73,6 +73,7 @@ export type QuestionFormat =
   | 'quiz'
   | 'system-design'
   | 'user-interface';
+export type QuestionPracticeFormat = 'coding' | 'quiz' | 'system-design';
 export type QuestionFormatSEO =
   | 'algo-coding'
   | 'javascript-functions'
@@ -253,4 +254,5 @@ export type QuestionListTypeData =
   | Readonly<{ type: 'format'; value: QuestionFormatForList }>
   | Readonly<{ type: 'framework'; value: QuestionFramework }>
   | Readonly<{ type: 'language'; value: QuestionLanguage }>
+  | Readonly<{ type: 'practice'; value: QuestionPracticeFormat }>
   | Readonly<{ type: 'study-list'; value: string }>;
