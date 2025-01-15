@@ -323,50 +323,34 @@ export const questionProgressRouter = router({
       }),
     )
     .query(async ({ ctx: { viewer }, input: { startTime, endTime } }) => {
-      const [questionProgress, learningSessionProgress, guideProgress] =
-        await Promise.all([
-          prisma.questionProgress.groupBy({
-            _count: {
-              id: true,
+      const [questionProgress, guideProgress] = await Promise.all([
+        prisma.questionProgress.groupBy({
+          _count: {
+            id: true,
+          },
+          by: ['createdAt'],
+          where: {
+            createdAt: {
+              gte: startTime,
+              lte: endTime,
             },
-            by: ['createdAt'],
-            where: {
-              createdAt: {
-                gte: startTime,
-                lte: endTime,
-              },
-              userId: viewer.id,
+            userId: viewer.id,
+          },
+        }),
+        prisma.guideProgress.groupBy({
+          _count: {
+            id: true,
+          },
+          by: ['createdAt'],
+          where: {
+            createdAt: {
+              gte: startTime,
+              lte: endTime,
             },
-          }),
-          prisma.learningSessionProgress.groupBy({
-            _count: {
-              id: true,
-            },
-            by: ['createdAt'],
-            where: {
-              createdAt: {
-                gte: startTime,
-                lte: endTime,
-              },
-              session: {
-                userId: viewer.id,
-              },
-            },
-          }),
-          prisma.guideProgress.groupBy({
-            _count: {
-              id: true,
-            },
-            by: ['createdAt'],
-            where: {
-              createdAt: {
-                gte: startTime,
-                lte: endTime,
-              },
-              userId: viewer.id,
-            },
-          }),
-        ]);
+            userId: viewer.id,
+          },
+        }),
+      ]);
 
       const formattedResults: Record<string, number> = {};
       const addCounts = (
@@ -382,7 +366,6 @@ export const questionProgressRouter = router({
 
       // Aggregate each progress array
       addCounts(questionProgress);
-      addCounts(learningSessionProgress);
       addCounts(guideProgress);
 
       return formattedResults;
