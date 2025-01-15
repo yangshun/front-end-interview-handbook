@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { useState } from 'react';
 import { RiFilterLine } from 'react-icons/ri';
 
@@ -10,9 +11,17 @@ import SidebarPremiumChip from '~/components/global/sidebar/SidebarPremiumChip';
 import InterviewsPricingTableDialog from '~/components/interviews/purchase/InterviewsPricingTableDialog';
 import type { InterviewsPurchasePremiumFeature } from '~/components/interviews/purchase/InterviewsPurchaseTypes';
 import { useIntl } from '~/components/intl';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '~/components/ui/Accordion';
 import Divider from '~/components/ui/Divider';
 import DropdownMenu from '~/components/ui/DropdownMenu';
+import ScrollArea from '~/components/ui/ScrollArea';
 import Spinner from '~/components/ui/Spinner';
+import Text from '~/components/ui/Text';
 
 import type { QuestionListTypeData } from '../../common/QuestionHrefUtils';
 
@@ -22,7 +31,9 @@ export type QuestionListTypeWithLabel = QuestionListTypeData &
 function DropdownContent({
   onChangeListType,
   openPricingDialog,
+  listType,
 }: Readonly<{
+  listType: QuestionListTypeWithLabel;
   onChangeListType: (value: QuestionListTypeWithLabel) => void;
   openPricingDialog: (feature: InterviewsPurchasePremiumFeature) => void;
 }>) {
@@ -125,32 +136,106 @@ function DropdownContent({
     },
   ];
 
+  function activeAccordionItem() {
+    return categories
+      .filter(
+        (category) =>
+          !!category.items.find((item) => item.value === listType.value),
+      )
+      .map((section) => section.key);
+  }
+
   return (
     <>
-      {categories.map((category) => (
-        <DropdownMenu.Sub
-          key={category.key}
-          endAddOn={
-            category.premiumFeature ? <SidebarPremiumChip /> : undefined
-          }
-          label={category.label}>
-          {category.items.map((item) =>
-            item.type === 'divider' ? (
-              <Divider key={item.value} />
-            ) : (
-              <DropdownMenu.Item
-                key={item.value}
-                label={item.label}
-                onClick={() => {
-                  category.premiumFeature && !userProfile?.premium
-                    ? openPricingDialog(category.premiumFeature)
-                    : onChangeListType(item);
-                }}
-              />
-            ),
-          )}
-        </DropdownMenu.Sub>
-      ))}
+      {/* Accordion for mobile screen */}
+      <ScrollArea className="block sm:hidden" viewportClass="max-h-[80vh]">
+        <Accordion
+          asChild={true}
+          className={clsx('flex w-80 flex-col gap-y-1.5', 'divide-none')}
+          defaultValue={activeAccordionItem()}
+          type="multiple">
+          <div>
+            {categories.map((category) => (
+              <AccordionItem
+                key={category.key}
+                className="flex flex-col gap-1"
+                value={category.key}>
+                <AccordionTrigger className="!py-1 px-2">
+                  <div className="flex items-center gap-2">
+                    <Text color="secondary" size="body3" weight="medium">
+                      {category.label}
+                    </Text>
+                    {category.premiumFeature && <SidebarPremiumChip />}
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent className="!pb-0">
+                  <ul className={clsx('flex flex-col gap-y-px')} role="list">
+                    {category.items.map((item) =>
+                      item.type === 'divider' ? (
+                        <Divider key={item.value} />
+                      ) : (
+                        <DropdownMenu.Item
+                          key={item.value}
+                          label={
+                            <Text
+                              className="w-full"
+                              color={
+                                listType.value === item.value
+                                  ? 'active'
+                                  : 'default'
+                              }
+                              size="body2"
+                              weight={
+                                listType.value === item.value
+                                  ? 'bold'
+                                  : 'normal'
+                              }>
+                              {item.label}
+                            </Text>
+                          }
+                          onClick={() => {
+                            category.premiumFeature && !userProfile?.premium
+                              ? openPricingDialog(category.premiumFeature)
+                              : onChangeListType(item);
+                          }}
+                        />
+                      ),
+                    )}
+                  </ul>
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </div>
+        </Accordion>
+      </ScrollArea>
+
+      {/* DropdownMenu.Sub for screen greater than tablet */}
+      <div className="hidden sm:block">
+        {categories.map((category) => (
+          <DropdownMenu.Sub
+            key={category.key}
+            endAddOn={
+              category.premiumFeature ? <SidebarPremiumChip /> : undefined
+            }
+            label={category.label}>
+            {category.items.map((item) =>
+              item.type === 'divider' ? (
+                <Divider key={item.value} />
+              ) : (
+                <DropdownMenu.Item
+                  key={item.value}
+                  label={item.label}
+                  onClick={() => {
+                    category.premiumFeature && !userProfile?.premium
+                      ? openPricingDialog(category.premiumFeature)
+                      : onChangeListType(item);
+                  }}
+                />
+              ),
+            )}
+          </DropdownMenu.Sub>
+        ))}
+      </div>
     </>
   );
 }
@@ -199,6 +284,7 @@ export default function InterviewsQuestionsListSlideOutSwitcher({
         triggerClassName="-ml-4"
         variant="tertiary">
         <DropdownContent
+          listType={listType}
           openPricingDialog={(feature) => setPricingDialogFeature(feature)}
           onChangeListType={onChangeListType}
         />
