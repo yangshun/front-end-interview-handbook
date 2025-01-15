@@ -1,15 +1,17 @@
 import clsx from 'clsx';
 import { RiArrowLeftLine, RiArrowRightLine } from 'react-icons/ri';
 
-import { useUserPreferences } from '~/components/global/UserPreferencesProvider';
 import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 
+import useQuestionsQuizSidebarExpanded from './useQuestionsQuizSidebarExpanded';
+
 export default function QuestionsQuizSidebarCollapser() {
   const intl = useIntl();
-  const { showSecondarySidebar, setShowSecondarySidebar } =
-    useUserPreferences();
-  const label = showSecondarySidebar
+  const [questionsQuizSidebarExpanded, setQuestionsQuizSidebarExpanded] =
+    useQuestionsQuizSidebarExpanded();
+
+  const label = questionsQuizSidebarExpanded
     ? intl.formatMessage({
         defaultMessage: 'Collapse questions list',
         description: 'Collapse sidebar containing questions list',
@@ -26,16 +28,18 @@ export default function QuestionsQuizSidebarCollapser() {
       className={clsx(
         'max-xl:hidden',
         'absolute top-[67px] translate-x-1/2',
-        showSecondarySidebar ? '-right-0.5' : 'right-0',
+        questionsQuizSidebarExpanded ? 'right-0' : '-right-0.5',
       )}
-      icon={showSecondarySidebar ? RiArrowLeftLine : RiArrowRightLine}
+      icon={questionsQuizSidebarExpanded ? RiArrowLeftLine : RiArrowRightLine}
       isLabelHidden={true}
       label={label}
       tooltip={label}
       tooltipSide="right"
       type="button"
       variant="secondary"
-      onClick={() => setShowSecondarySidebar(!showSecondarySidebar)}
+      onClick={() =>
+        setQuestionsQuizSidebarExpanded(!questionsQuizSidebarExpanded)
+      }
     />
   );
 }

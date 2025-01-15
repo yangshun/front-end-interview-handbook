@@ -6,7 +6,6 @@ import { Suspense, useState } from 'react';
 import { RiFilterLine } from 'react-icons/ri';
 import { useMediaQuery } from 'usehooks-ts';
 
-import { useUserPreferences } from '~/components/global/UserPreferencesProvider';
 import type {
   QuestionFramework,
   QuestionHash,
@@ -27,6 +26,7 @@ import {
 import InterviewsQuestionsListSlideOutContents from './InterviewsQuestionsListSlideOutContents';
 import QuestionListingFilterButtonBadgeWrapper from '../filters/QuestionListingFilterButtonBadgeWrapper';
 import { questionListFilterNamespace } from '../../common/QuestionHrefUtils';
+import useQuestionsQuizSidebarExpanded from '../../content/quiz/useQuestionsQuizSidebarExpanded';
 
 type Props = Readonly<{
   currentQuestionHash: QuestionHash;
@@ -61,10 +61,8 @@ function InterviewsQuestionsListSlideOutImpl({
   slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE,
 }: Props) {
   const intl = useIntl();
-  const {
-    showSecondarySidebar: showSidebar,
-    setShowSecondarySidebar: setShowSidebar,
-  } = useUserPreferences();
+  const [questionsQuizSidebarExpanded, setQuestionsQuizSidebarExpanded] =
+    useQuestionsQuizSidebarExpanded();
 
   // Have to be controlled because we don't want to
   // fetch the question lists for nothing
@@ -175,7 +173,7 @@ function InterviewsQuestionsListSlideOutImpl({
             variant="secondary"
             onClick={() => {
               if (isDesktop && listIsShownInSidebarOnDesktop) {
-                setShowSidebar(!showSidebar);
+                setQuestionsQuizSidebarExpanded(!questionsQuizSidebarExpanded);
               } else {
                 setIsSlideOutShown(true);
               }

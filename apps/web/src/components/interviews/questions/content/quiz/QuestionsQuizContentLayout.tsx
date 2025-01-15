@@ -3,13 +3,10 @@
 import clsx from 'clsx';
 import { isEqual } from 'lodash-es';
 import { usePathname, useSelectedLayoutSegment } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import useScrollToTop from '~/hooks/useScrollToTop';
 
-import { useUserPreferences } from '~/components/global/UserPreferencesProvider';
-import InterviewsNavbarEnd from '~/components/interviews/common/InterviewsNavbarEnd';
-import useInterviewsSidebarCollapsed from '~/components/interviews/common/useInterviewsSidebarCollapsed';
 import { questionListFilterNamespace } from '~/components/interviews/questions/common/QuestionHrefUtils';
 import QuestionsQuizSidebarCollapser from '~/components/interviews/questions/content/quiz/QuestionsQuizSidebarCollapser';
 import InterviewsQuestionsListSlideOutSwitcher from '~/components/interviews/questions/listings/slideout/InterviewsQuestionsListSlideOutSwitcher';
@@ -18,6 +15,7 @@ import { themeBorderColor } from '~/components/ui/theme';
 
 import { hashQuestion } from '~/db/QuestionsUtils';
 
+import useQuestionsQuizSidebarExpanded from './useQuestionsQuizSidebarExpanded';
 import InterviewsQuestionsListSlideOutContents from '../../listings/slideout/InterviewsQuestionsListSlideOutContents';
 import type { QuestionListTypeWithLabel } from '../../listings/slideout/InterviewsQuestionsListSlideOutSwitcher';
 
@@ -26,9 +24,7 @@ type Props = Readonly<{
 }>;
 
 export default function QuestionsQuizContentLayout({ children }: Props) {
-  const [, setIsInterviewsSidebarCollapsed] =
-    useInterviewsSidebarCollapsed(false);
-  const { showSecondarySidebar } = useUserPreferences();
+  const [questionsQuizSidebarExpanded] = useQuestionsQuizSidebarExpanded();
   const pathname = usePathname();
 
   useScrollToTop([pathname]);
@@ -56,10 +52,6 @@ export default function QuestionsQuizContentLayout({ children }: Props) {
       type: 'switch',
     });
 
-  useEffect(() => {
-    setIsInterviewsSidebarCollapsed(showSecondarySidebar);
-  }, [showSecondarySidebar, setIsInterviewsSidebarCollapsed]);
-
   function onCloseSwitchQuestionListDialog() {
     setShowSwitchQuestionListDialog((prev) => ({
       ...prev,
@@ -82,9 +74,9 @@ export default function QuestionsQuizContentLayout({ children }: Props) {
       <div
         className={clsx(
           'flex',
-          'sticky top-[var(--banner-height)] h-[calc(100vh_-_var(--banner-height))]',
+          'sticky top-[var(--global-sticky-height)] h-[calc(100vh_-_var(--global-sticky-height))]',
         )}>
-        {showSecondarySidebar && (
+        {questionsQuizSidebarExpanded && (
           <Section>
             <div
               className={clsx('flex-col', 'hidden w-[380px] xl:flex', [
@@ -126,10 +118,7 @@ export default function QuestionsQuizContentLayout({ children }: Props) {
         )}
         <QuestionsQuizSidebarCollapser />
       </div>
-      <div className="w-full">
-        <InterviewsNavbarEnd />
-        {children}
-      </div>
+      <div className="w-full">{children}</div>
     </div>
   );
 }

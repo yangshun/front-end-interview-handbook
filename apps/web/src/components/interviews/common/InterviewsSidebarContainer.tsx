@@ -2,7 +2,6 @@
 
 import clsx from 'clsx';
 
-import { useUserPreferences } from '~/components/global/UserPreferencesProvider';
 import { themeBorderColor } from '~/components/ui/theme';
 
 import InterviewsSidebar from './InterviewsSidebar';
@@ -15,7 +14,6 @@ type Props = Readonly<{
 export default function InterviewsSidebarContainer({
   initialCollapsed = false,
 }: Props) {
-  const { setShowSecondarySidebar } = useUserPreferences();
   const [isSidebarCollapsed, setIsSidebarCollapsed] =
     useInterviewsSidebarCollapsed(initialCollapsed);
 
@@ -23,10 +21,6 @@ export default function InterviewsSidebarContainer({
     const newCollapsedValue = !isSidebarCollapsed;
 
     setIsSidebarCollapsed(newCollapsedValue);
-
-    if (!newCollapsedValue) {
-      setShowSecondarySidebar(false);
-    }
   }
 
   return (
