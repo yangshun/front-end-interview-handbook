@@ -24,8 +24,13 @@ export function useQuestionsListTypeCurrent(
     return { type: 'study-list', value: studyListKey };
   }
 
+  const tab = searchParams?.get('tab')
+    ? (searchParams?.get('tab') as QuestionPracticeFormat)
+    : undefined;
+
   if (searchParams?.get('format')) {
     return {
+      tab,
       type: 'format',
       value: searchParams.get('format') as QuestionFormatForList,
     };
@@ -33,6 +38,7 @@ export function useQuestionsListTypeCurrent(
 
   if (searchParams?.get('framework')) {
     return {
+      tab,
       type: 'framework',
       value: searchParams?.get('framework') as QuestionFramework,
     };
@@ -40,6 +46,7 @@ export function useQuestionsListTypeCurrent(
 
   if (searchParams?.get('language')) {
     return {
+      tab,
       type: 'language',
       value: searchParams?.get('language') as QuestionLanguage,
     };
@@ -47,8 +54,9 @@ export function useQuestionsListTypeCurrent(
 
   if (searchParams?.get('practice')) {
     return {
+      tab,
       type: 'practice',
-      value: searchParams.get('practice') as QuestionPracticeFormat,
+      value: searchParams?.get('practice') as QuestionPracticeFormat,
     };
   }
 
@@ -56,6 +64,7 @@ export function useQuestionsListTypeCurrent(
   // But lower priority than the searchParams
   if (framework) {
     return {
+      tab,
       type: 'framework',
       value: framework,
     };
@@ -71,15 +80,15 @@ export function useQuestionsListDataForType(
     (() => {
       switch (listType?.type) {
         case 'practice':
-          return { practice: listType.value };
+          return { practice: listType.value, tab: listType?.tab };
         case 'study-list':
-          return { studyList: listType.value };
+          return { studyList: listType.value, tab: listType?.tab };
         case 'framework':
-          return { framework: listType.value };
+          return { framework: listType.value, tab: listType?.tab };
         case 'format':
-          return { format: listType.value };
+          return { format: listType.value, tab: listType?.tab };
         case 'language':
-          return { language: listType.value };
+          return { language: listType.value, tab: listType?.tab };
 
         default:
           return {};

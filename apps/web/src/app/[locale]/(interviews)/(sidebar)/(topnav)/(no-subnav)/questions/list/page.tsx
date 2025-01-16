@@ -62,9 +62,18 @@ export default async function Page({ params }: Props) {
     { questions: systemDesignQuestions },
     bottomContent,
   ] = await Promise.all([
-    fetchQuestionsList({ type: 'practice', value: 'coding' }, locale),
-    fetchQuestionsList({ type: 'practice', value: 'quiz' }, locale),
-    fetchQuestionsList({ type: 'practice', value: 'system-design' }, locale),
+    fetchQuestionsList(
+      { tab: 'coding', type: 'practice', value: 'coding' },
+      locale,
+    ),
+    fetchQuestionsList(
+      { tab: 'quiz', type: 'practice', value: 'quiz' },
+      locale,
+    ),
+    fetchQuestionsList(
+      { tab: 'system-design', type: 'practice', value: 'system-design' },
+      locale,
+    ),
     fetchInterviewListingBottomContent('all-questions'),
   ]);
 

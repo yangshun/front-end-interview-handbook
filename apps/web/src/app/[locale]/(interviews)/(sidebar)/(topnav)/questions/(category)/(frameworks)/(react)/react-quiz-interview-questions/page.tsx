@@ -16,7 +16,7 @@ import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
 const framework: QuestionFramework = 'react';
-const format: QuestionPracticeFormat = 'quiz';
+const practiceFormat: QuestionPracticeFormat = 'quiz';
 
 export const dynamic = 'force-static';
 
@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const [intl, { questions }] = await Promise.all([
     getIntlServerOnly(locale),
     fetchQuestionsList(
-      { tab: format, type: 'framework', value: framework },
+      { tab: practiceFormat, type: 'framework', value: framework },
       locale,
     ),
   ]);
@@ -98,7 +98,7 @@ export default async function Page({ params }: Props) {
     await Promise.all([
       getIntlServerOnly(locale),
       fetchQuestionsList(
-        { tab: format, type: 'framework', value: framework },
+        { tab: practiceFormat, type: 'framework', value: framework },
         locale,
       ),
       fetchQuestionsCompletionCount(['quiz']),
@@ -124,6 +124,7 @@ export default async function Page({ params }: Props) {
       features={['criticalTopics', 'answeredByExInterviewers']}
       framework={framework}
       guides={guides}
+      practiceFormat={practiceFormat}
       questionCompletionCount={questionCompletionCount}
       questions={questions}
       showCategoryTabs={false}
@@ -138,7 +139,6 @@ export default async function Page({ params }: Props) {
         },
       )}
       totalQuestionsCount={questions.length}
-      userFacingFormat={format}
     />
   );
 }

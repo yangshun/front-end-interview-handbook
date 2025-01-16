@@ -2,7 +2,10 @@ import type { Metadata } from 'next/types';
 
 import { QuestionLanguageLabels } from '~/data/QuestionCategories';
 
-import type { QuestionLanguage } from '~/components/interviews/questions/common/QuestionsTypes';
+import type {
+  QuestionLanguage,
+  QuestionPracticeFormat,
+} from '~/components/interviews/questions/common/QuestionsTypes';
 import InterviewsQuestionsCategoryLanguagePage from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryLanguagePage';
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
@@ -16,7 +19,7 @@ import defaultMetadata from '~/seo/defaultMetadata';
 export const dynamic = 'force-static';
 
 const language: QuestionLanguage = 'js';
-const format = 'coding';
+const practiceFormat: QuestionPracticeFormat = 'coding';
 
 type Props = Readonly<{
   params: Readonly<{
@@ -30,7 +33,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const [intl, { questions }] = await Promise.all([
     getIntlServerOnly(locale),
     fetchQuestionsList(
-      { tab: format, type: 'language', value: language },
+      { tab: practiceFormat, type: 'language', value: language },
       locale,
     ),
   ]);
@@ -97,7 +100,7 @@ export default async function Page({ params }: Props) {
     await Promise.all([
       getIntlServerOnly(locale),
       fetchQuestionsList(
-        { tab: 'coding', type: 'language', value: language },
+        { tab: practiceFormat, type: 'language', value: language },
         locale,
       ),
       fetchQuestionsCompletionCount(['algo', 'javascript', 'user-interface']),
@@ -125,6 +128,7 @@ export default async function Page({ params }: Props) {
       )}
       guides={guides}
       language={language}
+      practiceFormat="coding"
       questionCompletionCount={questionCompletionCount}
       questions={questions}
       showCategoryTabs={false}
@@ -139,7 +143,6 @@ export default async function Page({ params }: Props) {
         },
       )}
       totalQuestionsCount={questions.length}
-      userFacingFormat="coding"
     />
   );
 }

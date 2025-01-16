@@ -252,6 +252,11 @@ export type QuestionQuiz = QuestionBase;
 export type QuestionListTypeData =
   | Readonly<{
       tab?: QuestionPracticeFormat;
+      type: 'format';
+      value: QuestionFormatForList;
+    }>
+  | Readonly<{
+      tab?: QuestionPracticeFormat;
       type: 'framework';
       value: QuestionFramework;
     }>
@@ -260,6 +265,13 @@ export type QuestionListTypeData =
       type: 'language';
       value: QuestionLanguage;
     }>
-  | Readonly<{ type: 'format'; value: QuestionFormatForList }>
-  | Readonly<{ type: 'practice'; value: QuestionPracticeFormat }>
-  | Readonly<{ type: 'study-list'; value: string }>;
+  | Readonly<{
+      tab?: QuestionPracticeFormat;
+      type: 'practice';
+      value: QuestionPracticeFormat;
+    }>
+  | Readonly<{
+      tab?: QuestionPracticeFormat;
+      type: 'study-list';
+      value: string;
+    }>;

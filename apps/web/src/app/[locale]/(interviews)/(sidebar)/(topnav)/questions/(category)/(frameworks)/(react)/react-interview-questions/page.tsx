@@ -15,7 +15,7 @@ import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
 const framework: QuestionFramework = 'react';
-const format: QuestionPracticeFormat = 'coding';
+const practiceFormat: QuestionPracticeFormat = 'coding';
 
 export const dynamic = 'force-static';
 
@@ -87,7 +87,7 @@ export default async function Page({ params }: Props) {
     bottomContent,
   ] = await Promise.all([
     fetchQuestionsList(
-      { tab: format, type: 'framework', value: framework },
+      { tab: practiceFormat, type: 'framework', value: framework },
       locale,
     ),
     fetchQuestionsList({ type: 'framework', value: framework }, locale),
@@ -101,10 +101,10 @@ export default async function Page({ params }: Props) {
       bottomContent={bottomContent}
       framework={framework}
       guides={guides}
+      practiceFormat={practiceFormat}
       questionCompletionCount={questionCompletionCount}
       questions={questionsCoding}
       totalQuestionsCount={questionsAll.length}
-      userFacingFormat={format}
     />
   );
 }

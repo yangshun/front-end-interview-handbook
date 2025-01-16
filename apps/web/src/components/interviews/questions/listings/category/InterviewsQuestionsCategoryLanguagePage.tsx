@@ -35,11 +35,11 @@ type Props = Omit<
     description?: string;
     features?: ReadonlyArray<QuestionListFeature>;
     language: QuestionLanguage;
+    practiceFormat?: QuestionPracticeFormat;
     questions: ReadonlyArray<QuestionMetadata>;
     showCategoryTabs?: boolean;
     title?: string;
     totalQuestionsCount: number;
-    userFacingFormat?: QuestionPracticeFormat;
   }>;
 
 const defaultFeatures: ReadonlyArray<QuestionListFeature> = [
@@ -56,7 +56,7 @@ export default function InterviewsQuestionsCategoryLanguagePage({
   questions,
   showCategoryTabs = true,
   bottomContent,
-  userFacingFormat = 'coding',
+  practiceFormat = 'coding',
   totalQuestionsCount,
   ...props
 }: Props) {
@@ -83,7 +83,7 @@ export default function InterviewsQuestionsCategoryLanguagePage({
           value: 'quiz',
         },
       ]}
-      value={userFacingFormat ?? 'coding'}
+      value={practiceFormat ?? 'coding'}
     />
   ) : null;
 
@@ -100,12 +100,12 @@ export default function InterviewsQuestionsCategoryLanguagePage({
           description ?? languages[language].getDescription(totalQuestionsCount)
         }
         features={featureItems}
-        listType={{ type: 'language', value: language }}
+        listType={{ tab: practiceFormat, type: 'language', value: language }}
         questionList={questions}
         searchPlaceholder={languages[language].getSearchPlaceholder(
           totalQuestionsCount,
         )}
-        selectedCategoryTab={userFacingFormat}
+        selectedCategoryTab={practiceFormat}
         title={title ?? languages[language].longName}
         {...props}
       />

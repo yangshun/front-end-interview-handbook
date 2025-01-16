@@ -111,6 +111,12 @@ function QuestionsQuizSidebarQuestionListImpl({
             })
           }
           onCloseSwitchQuestionListDialog={onCloseSwitchQuestionListDialog}
+          onListTabChange={(newTab) =>
+            setCurrentListType({
+              ...currentListType,
+              tab: newTab,
+            })
+          }
         />
       </div>
     </div>

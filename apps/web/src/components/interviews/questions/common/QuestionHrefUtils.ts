@@ -9,6 +9,7 @@ import type {
 const origin = getSiteOrigin();
 
 export const QuestionListTypeDefault: QuestionListTypeData = {
+  tab: 'coding',
   type: 'practice',
   value: 'coding',
 };
@@ -60,6 +61,9 @@ export function questionHrefWithListType(
   }
 
   urlObject.searchParams.set(listType.type, listType.value);
+  if (listType.tab) {
+    urlObject.searchParams.set('tab', listType.tab);
+  }
 
   return urlObject.pathname + urlObject.search + urlObject.hash;
 }

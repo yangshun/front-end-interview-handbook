@@ -44,11 +44,19 @@ export const questionListsRouter = router({
         language: z.string().nullable().optional(),
         practice: z.string().nullable().optional(),
         studyList: z.string().nullable().optional(),
+        tab: z.string().nullable().optional(),
       }),
     )
     .query(
       async ({
-        input: { practice, format, framework, language, studyList },
+        input: {
+          practice,
+          format,
+          framework,
+          language,
+          studyList,
+          tab: tabInput,
+        },
       }) => {
         const intl = await getIntlClientOnly('en-US');
         const codingLabel = intl.formatMessage({
@@ -56,6 +64,9 @@ export const questionListsRouter = router({
           description: 'Question format',
           id: 'eJU0PN',
         });
+
+        const tab =
+          tabInput != null ? (tabInput as QuestionPracticeFormat) : undefined;
 
         if (studyList != null) {
           const studyListData_ = await fetchInterviewsStudyList(studyList);
@@ -72,6 +83,7 @@ export const questionListsRouter = router({
 
             return {
               listType: {
+                tab: undefined,
                 type: 'study-list',
                 value: studyList,
               },
@@ -86,6 +98,7 @@ export const questionListsRouter = router({
 
           return {
             listType: {
+              tab,
               type: 'study-list',
               value: studyList,
             },
@@ -97,17 +110,20 @@ export const questionListsRouter = router({
         if (framework) {
           const framework_ = framework as QuestionFramework;
           const frameworksData = getQuestionFrameworksData(intl);
-          const { questions } = await fetchQuestionsList({
+          const { questions, tabs } = await fetchQuestionsList({
+            tab,
             type: 'framework',
             value: framework_,
           });
 
           return {
             listType: {
+              tab,
               type: 'framework',
               value: framework_,
             },
             questions,
+            tabs,
             title: frameworksData[framework_].label,
           } as const;
         }
@@ -115,17 +131,19 @@ export const questionListsRouter = router({
         if (format) {
           const format_ = format as QuestionFormatForList;
           const formatData = getQuestionFormatsData(intl);
-          const { questions } = await fetchQuestionsList({
+          const { questions, tabs } = await fetchQuestionsList({
             type: 'format',
             value: format_,
           });
 
           return {
             listType: {
+              tab,
               type: 'format',
               value: format_,
             },
             questions,
+            tabs,
             title:
               format_ === 'coding' ? codingLabel : formatData[format_].label,
           } as const;
@@ -134,17 +152,20 @@ export const questionListsRouter = router({
         if (language) {
           const language_ = language as QuestionLanguage;
           const languagesData = getQuestionLanguagesData(intl);
-          const { questions } = await fetchQuestionsList({
+          const { questions, tabs } = await fetchQuestionsList({
+            tab,
             type: 'language',
             value: language_,
           });
 
           return {
             listType: {
+              tab,
               type: 'language',
               value: language_,
             },
             questions,
+            tabs,
             title: languagesData[language_].label,
           } as const;
         }
@@ -152,17 +173,20 @@ export const questionListsRouter = router({
         if (practice) {
           const practice_ = practice as QuestionPracticeFormat;
           const formatData = getQuestionFormatsData(intl);
-          const { questions } = await fetchQuestionsList({
+          const { questions, tabs } = await fetchQuestionsList({
+            tab,
             type: 'practice',
             value: practice_,
           });
 
           return {
             listType: {
+              tab,
               type: 'practice',
               value: practice_,
             },
             questions,
+            tabs,
             title:
               practice_ === 'coding'
                 ? codingLabel
@@ -170,7 +194,8 @@ export const questionListsRouter = router({
           } as const;
         }
 
-        const { questions: questionsCoding } = await fetchQuestionsList({
+        const { questions: questionsCoding, tabs } = await fetchQuestionsList({
+          tab: 'coding',
           type: 'practice',
           value: 'coding',
         });
@@ -178,6 +203,7 @@ export const questionListsRouter = router({
         return {
           listType: QuestionListTypeDefault,
           questions: questionsCoding,
+          tabs,
           title: codingLabel,
         } as const;
       },

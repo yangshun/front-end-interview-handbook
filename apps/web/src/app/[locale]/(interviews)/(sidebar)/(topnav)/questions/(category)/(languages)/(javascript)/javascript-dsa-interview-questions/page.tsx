@@ -106,6 +106,7 @@ export default async function Page({ params }: Props) {
       })}
       guides={guides}
       language={language}
+      practiceFormat="coding"
       questionCompletionCount={questionCompletionCount}
       questions={questionsCodingFormat}
       showCategoryTabs={false}
@@ -115,7 +116,6 @@ export default async function Page({ params }: Props) {
         id: 'Butt5/',
       })}
       totalQuestionsCount={questionsCodingFormat.length}
-      userFacingFormat="coding"
     />
   );
 }

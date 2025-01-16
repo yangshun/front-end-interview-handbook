@@ -23,6 +23,7 @@ import FilterButton from '~/components/ui/FilterButton/FilterButton';
 import Popover from '~/components/ui/Popover';
 import ScrollArea from '~/components/ui/ScrollArea';
 import Spinner from '~/components/ui/Spinner';
+import TabsUnderline from '~/components/ui/Tabs/TabsUnderline';
 import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
 import { themeBackgroundCardColor } from '~/components/ui/theme';
@@ -42,6 +43,7 @@ import type {
   QuestionLanguage,
   QuestionListTypeData,
   QuestionMetadata,
+  QuestionPracticeFormat,
 } from '../../common/QuestionsTypes';
 import { useQuestionsListDataForType } from '../../common/useQuestionsListDataForType';
 
@@ -181,6 +183,7 @@ type Props = Readonly<{
   onCancelSwitchStudyList?: () => void;
   onClickDifferentStudyListQuestion: (href: string) => void;
   onCloseSwitchQuestionListDialog: () => void;
+  onListTabChange?: (newTab: QuestionPracticeFormat) => void;
   setFirstQuestionHref?: (href: string) => void;
   showSwitchQuestionListDialog: Readonly<{
     href: string | null;
@@ -192,6 +195,7 @@ type Props = Readonly<{
 export default function InterviewsQuestionsListSlideOutContents({
   framework,
   listType,
+  onListTabChange,
   isDifferentListFromInitial,
   currentQuestionHash,
   mode,
@@ -220,6 +224,18 @@ export default function InterviewsQuestionsListSlideOutContents({
     data?.questions ?? [],
     studyListKey,
   );
+
+  const [prevTabs, setPrevTabs] = useState<
+    ReadonlyArray<QuestionPracticeFormat> | undefined
+  >();
+
+  useEffect(() => {
+    if (data?.tabs == null) {
+      return;
+    }
+
+    setPrevTabs(data?.tabs);
+  }, [data?.tabs]);
 
   // Tabulating.
   const attributesUnion = tabulateQuestionsAttributesUnion(
@@ -371,13 +387,12 @@ export default function InterviewsQuestionsListSlideOutContents({
     id: 'hA7U8d',
   });
 
+  // Show the previous tabs while the new tabs are loading
+  const displayedTabs = data?.tabs ?? prevTabs;
+
   return (
     <>
-      <div
-        className={clsx(
-          'flex h-full flex-col pt-3.5',
-          !showFilters && 'gap-y-4',
-        )}>
+      <div className={clsx('flex h-full flex-col pt-3.5')}>
         <form
           className="flex w-full flex-col gap-4"
           onSubmit={(event) => {
@@ -434,6 +449,44 @@ export default function InterviewsQuestionsListSlideOutContents({
           </div>
           {showFilters && embedFilters}
         </form>
+        {displayedTabs ? (
+          <div className="mt-3 px-6">
+            <TabsUnderline
+              size="sm"
+              tabs={displayedTabs.map((listTabValue) => {
+                const labels: Record<QuestionPracticeFormat, string> = {
+                  coding: intl.formatMessage({
+                    defaultMessage: 'Coding',
+                    description: 'Question format',
+                    id: 'eJU0PN',
+                  }),
+                  quiz: intl.formatMessage({
+                    defaultMessage: 'Quiz',
+                    description: 'Question format',
+                    id: 'doY6Fg',
+                  }),
+                  'system-design': intl.formatMessage({
+                    defaultMessage: 'System design',
+                    description: 'Question format',
+                    id: '57qxzy',
+                  }),
+                };
+
+                return {
+                  label: labels[listTabValue],
+
+                  value: listTabValue,
+                };
+              })}
+              value={data?.listType.tab}
+              onSelect={(value: QuestionPracticeFormat) =>
+                onListTabChange?.(value)
+              }
+            />
+          </div>
+        ) : (
+          <div className="mt-4" />
+        )}
         <ScrollArea>
           {isLoading ? (
             <div className="flex h-40 w-full items-center justify-center">
@@ -441,6 +494,7 @@ export default function InterviewsQuestionsListSlideOutContents({
             </div>
           ) : (
             <InterviewsQuestionsListSlideOutQuestionList
+              key={`${listType.type}/${listType.value}/${listType.tab}`}
               checkIfCompletedQuestion={(question) => question.isCompleted}
               currentQuestionHash={currentQuestionHash}
               framework={framework}

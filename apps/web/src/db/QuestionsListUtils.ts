@@ -42,6 +42,7 @@ export async function fetchQuestionLists(intl: IntlShape) {
       ({ label, value }) =>
         ({
           label,
+          tab: 'coding',
           type: 'framework',
           value,
         }) as const,
@@ -50,26 +51,39 @@ export async function fetchQuestionLists(intl: IntlShape) {
       ({ label, value }) =>
         ({
           label,
+          tab: 'coding',
           type: 'language',
           value,
         }) as const,
     ),
-    practice: [
-      {
-        label: intl.formatMessage({
-          defaultMessage: 'Coding',
-          description: 'Question format',
-          id: 'eJU0PN',
-        }),
-        value: 'coding',
-      } as const,
-      formatsData['system-design'],
-      formatsData.quiz,
-    ].map(
-      ({ label, value }) =>
+    practice: (
+      [
+        {
+          label: intl.formatMessage({
+            defaultMessage: 'Coding',
+            description: 'Question format',
+            id: 'eJU0PN',
+          }),
+          tab: 'coding',
+          value: 'coding',
+        },
+        {
+          label: formatsData['system-design'].label,
+          tab: 'system-design',
+          value: 'system-design',
+        },
+        {
+          label: formatsData.quiz.label,
+          tab: 'quiz',
+          value: 'quiz',
+        },
+      ] as const
+    ).map(
+      ({ label, value, tab }) =>
         ({
           label,
-          type: 'format',
+          tab,
+          type: 'practice',
           value,
         }) as const,
     ),

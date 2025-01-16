@@ -137,10 +137,10 @@ export default async function Page({ params }: Props) {
       bottomContent={bottomContent}
       guides={guides}
       language={language}
+      practiceFormat="coding"
       questionCompletionCount={questionCompletionCount}
       questions={questionsCoding}
       totalQuestionsCount={questionsAll.length}
-      userFacingFormat="coding"
     />
   );
 }

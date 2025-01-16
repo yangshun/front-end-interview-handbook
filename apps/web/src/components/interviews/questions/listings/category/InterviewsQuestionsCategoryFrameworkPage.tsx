@@ -37,11 +37,11 @@ type Props = Omit<
     features?: ReadonlyArray<QuestionListFeature>;
     framework: QuestionFramework;
     guides: ReadonlyArray<GuideCardMetadata>;
+    practiceFormat?: QuestionPracticeFormat;
     questions: ReadonlyArray<QuestionMetadata>;
     showCategoryTabs?: boolean;
     title?: string;
     totalQuestionsCount: number;
-    userFacingFormat?: QuestionPracticeFormat;
   }>;
 
 const defaultFeatures: ReadonlyArray<QuestionListFeature> = [
@@ -58,7 +58,7 @@ export default function InterviewsQuestionsCategoryFrameworkPage({
   questions,
   showCategoryTabs = true,
   bottomContent,
-  userFacingFormat = 'coding',
+  practiceFormat = 'coding',
   totalQuestionsCount,
   ...props
 }: Props) {
@@ -85,7 +85,7 @@ export default function InterviewsQuestionsCategoryFrameworkPage({
           value: 'quiz',
         },
       ]}
-      value={userFacingFormat ?? 'coding'}
+      value={practiceFormat ?? 'coding'}
     />
   ) : null;
 
@@ -103,12 +103,16 @@ export default function InterviewsQuestionsCategoryFrameworkPage({
           frameworks[framework].getDescription(totalQuestionsCount)
         }
         features={featureItems}
-        listType={{ type: 'framework', value: framework }}
+        listType={{
+          tab: practiceFormat,
+          type: 'framework',
+          value: framework,
+        }}
         questionList={questions}
         searchPlaceholder={frameworks[framework].getSearchPlaceholder(
           totalQuestionsCount,
         )}
-        selectedCategoryTab={userFacingFormat}
+        selectedCategoryTab={practiceFormat}
         title={title ?? frameworks[framework].longName}
         {...props}
       />

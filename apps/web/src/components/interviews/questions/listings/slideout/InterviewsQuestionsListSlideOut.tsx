@@ -10,6 +10,7 @@ import type {
   QuestionFramework,
   QuestionHash,
   QuestionMetadataWithCompletedStatus,
+  QuestionPracticeFormat,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import useQuestionUnifiedFilters from '~/components/interviews/questions/listings/filters/hooks/useQuestionUnifiedFilters';
 import type { QuestionListTypeWithLabel } from '~/components/interviews/questions/listings/slideout/InterviewsQuestionsListSlideOutSwitcher';
@@ -35,6 +36,7 @@ type Props = Readonly<{
   initialListType: QuestionListTypeWithLabel;
   isLoading: boolean;
   listIsShownInSidebarOnDesktop: boolean;
+  listTabs?: ReadonlyArray<QuestionPracticeFormat>;
   processedQuestions: ReadonlyArray<QuestionMetadataWithCompletedStatus>;
   slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE: string;
   title?: string;
@@ -230,6 +232,12 @@ function InterviewsQuestionsListSlideOutImpl({
             })
           }
           onCloseSwitchQuestionListDialog={onCloseSwitchQuestionListDialog}
+          onListTabChange={(newTab) =>
+            setCurrentListType({
+              ...currentListType,
+              tab: newTab,
+            })
+          }
         />
       )}
     </SlideOut>

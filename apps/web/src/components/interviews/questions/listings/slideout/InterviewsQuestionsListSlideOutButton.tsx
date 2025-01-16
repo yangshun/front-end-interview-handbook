@@ -8,6 +8,7 @@ import type {
   QuestionFramework,
   QuestionHash,
   QuestionMetadataWithCompletedStatus,
+  QuestionPracticeFormat,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import useQuestionCodingSorting from '~/components/interviews/questions/listings/filters/hooks/useQuestionCodingSorting';
 import useQuestionsWithCompletionStatus from '~/components/interviews/questions/listings/filters/hooks/useQuestionsWithCompletionStatus';
@@ -80,13 +81,13 @@ function InterviewsQuestionsListSlideOutButtonWithLoader({
           <InterviewsQuestionsListSlideOutButtonImpl
             currentQuestionHash={currentQuestionHash}
             framework={framework}
+            listInfo={{ tabs: data.tabs, title: data.title }}
             listIsShownInSidebarOnDesktop={listIsShownInSidebarOnDesktop}
             listType={data.listType}
             questions={questionsWithCompletionStatus}
             slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE={
               slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE
             }
-            title={data.title}
           />
         );
       })()}
@@ -97,16 +98,19 @@ function InterviewsQuestionsListSlideOutButtonWithLoader({
 function InterviewsQuestionsListSlideOutButtonImpl({
   currentQuestionHash,
   framework,
-  title,
+  listInfo,
   listType,
   listIsShownInSidebarOnDesktop,
   questions,
   slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE,
 }: Omit<Props, 'studyListKey'> &
   Readonly<{
+    listInfo: Readonly<{
+      tabs?: ReadonlyArray<QuestionPracticeFormat>;
+      title: string;
+    }>;
     listType: QuestionListTypeData;
     questions: ReadonlyArray<QuestionMetadataWithCompletedStatus>;
-    title: string;
   }>) {
   const intl = useIntl();
   const filterNamespace = questionListFilterNamespace(listType);
@@ -168,9 +172,10 @@ function InterviewsQuestionsListSlideOutButtonImpl({
         currentQuestionHash={currentQuestionHash}
         currentQuestionPosition={currentQuestionIndex + 1}
         framework={framework}
-        initialListType={{ ...listType, label: title }}
+        initialListType={{ ...listType, label: listInfo.title }}
         isLoading={false}
         listIsShownInSidebarOnDesktop={listIsShownInSidebarOnDesktop}
+        listTabs={listInfo.tabs}
         processedQuestions={processedQuestions}
         slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE={
           slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE

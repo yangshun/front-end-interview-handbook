@@ -115,6 +115,7 @@ export default async function Page({ params }: Props) {
       features={['criticalTopics', 'answeredByExInterviewers']}
       guides={guides}
       language={language}
+      practiceFormat="quiz"
       questionCompletionCount={questionCompletionCount}
       questions={questions}
       showCategoryTabs={false}
@@ -124,7 +125,6 @@ export default async function Page({ params }: Props) {
         id: 'uQG7Ed',
       })}
       totalQuestionsCount={questions.length}
-      userFacingFormat="quiz"
     />
   );
 }

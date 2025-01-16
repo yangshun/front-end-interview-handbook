@@ -440,34 +440,71 @@ export async function fetchQuestionsList(
   Readonly<{
     loadedLocale: string;
     questions: ReadonlyArray<QuestionMetadata>;
+    tabs?: ReadonlyArray<QuestionPracticeFormat>;
   }>
 > {
   switch (listType.type) {
     case 'practice': {
-      switch (listType.value) {
+      const practiceTabs: ReadonlyArray<QuestionPracticeFormat> = [
+        'coding',
+        'system-design',
+        'quiz',
+      ];
+
+      switch (listType.tab) {
         case 'quiz': {
-          return await fetchQuestionsListQuiz(requestedLocale);
+          const results = await fetchQuestionsListQuiz(requestedLocale);
+
+          return {
+            ...results,
+            tabs: practiceTabs,
+          };
         }
         case 'system-design': {
-          return await fetchQuestionsListSystemDesign(requestedLocale);
+          const results = await fetchQuestionsListSystemDesign(requestedLocale);
+
+          return {
+            ...results,
+            tabs: practiceTabs,
+          };
         }
         case 'coding':
         default: {
-          return await fetchQuestionsListCoding(requestedLocale);
+          const results = await fetchQuestionsListCoding(requestedLocale);
+
+          return {
+            ...results,
+            tabs: practiceTabs,
+          };
         }
       }
     }
     case 'language': {
-      return await fetchQuestionsListForLanguage({
+      const practiceTabs: ReadonlyArray<QuestionPracticeFormat> = [
+        'coding',
+        'quiz',
+      ];
+
+      const results = await fetchQuestionsListForLanguage({
         format: listType.tab,
         language: listType.value,
       });
+
+      return {
+        ...results,
+        tabs: practiceTabs,
+      };
     }
     case 'framework': {
-      return await fetchQuestionsListForFramework({
+      const results = await fetchQuestionsListForFramework({
         format: listType.tab,
         framework: listType.value,
       });
+
+      return {
+        ...results,
+        tabs: listType.value === 'react' ? ['coding', 'quiz'] : undefined,
+      };
     }
     case 'format': {
       return await fetchQuestionsListForFormat(listType.value, requestedLocale);

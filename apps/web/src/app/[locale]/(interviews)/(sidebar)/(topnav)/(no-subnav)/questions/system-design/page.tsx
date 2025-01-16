@@ -53,16 +53,19 @@ export default async function Page({ params }: Props) {
 
   const [{ questions: systemDesignQuestions }, bottomContent] =
     await Promise.all([
-      fetchQuestionsList({ type: 'practice', value: 'system-design' }, locale),
+      fetchQuestionsList(
+        { tab: 'system-design', type: 'practice', value: 'system-design' },
+        locale,
+      ),
       fetchInterviewListingBottomContent('all-questions'),
     ]);
 
   return (
     <InterviewsQuestionsCategoryPreparePage
       bottomContent={bottomContent}
+      practiceFormat="system-design"
       questions={systemDesignQuestions}
       totalQuestionCount={QuestionCountTotal}
-      userFacingFormat="system-design"
     />
   );
 }

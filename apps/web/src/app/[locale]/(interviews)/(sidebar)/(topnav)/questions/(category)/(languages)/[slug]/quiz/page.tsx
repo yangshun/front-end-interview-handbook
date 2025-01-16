@@ -119,10 +119,10 @@ export default async function Page({ params }: Props) {
       bottomContent={bottomContent}
       guides={guides}
       language={language}
+      practiceFormat={questionFormat}
       questionCompletionCount={questionCompletionCount}
       questions={questionsQuiz}
       totalQuestionsCount={questionsAll.length}
-      userFacingFormat={questionFormat}
     />
   );
 }

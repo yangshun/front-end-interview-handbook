@@ -242,8 +242,7 @@ function DropdownContent({
 
 type QuestionListCategories = Readonly<{
   items: ReadonlyArray<
-    | { type: 'divider'; value: string }
-    | (QuestionListTypeData & Readonly<{ label: string }>)
+    QuestionListTypeWithLabel | Readonly<{ type: 'divider'; value: string }>
   >;
   key: string;
   label: string;
