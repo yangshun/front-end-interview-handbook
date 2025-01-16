@@ -129,15 +129,6 @@ function useFooterNavigation() {
           }),
         },
         {
-          href: '/blog',
-          key: 'blog',
-          name: intl.formatMessage({
-            defaultMessage: 'Blog',
-            description: 'Link to blog page',
-            id: '7lppmr',
-          }),
-        },
-        {
           href: '/interviews/roadmap',
           key: 'interviews-roadmap',
           name: intl.formatMessage({
@@ -207,7 +198,7 @@ function useFooterNavigation() {
         },
         {
           href: 'https://dev.to/greatfrontend',
-          key: 'medium',
+          key: 'dev',
           name: 'DEV Community',
         },
       ],
