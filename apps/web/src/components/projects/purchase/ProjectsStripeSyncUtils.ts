@@ -35,42 +35,47 @@ export async function projectsCustomerAddPlan(
   planName: ProjectsSubscriptionPlan,
   invoice: Stripe.Invoice,
 ) {
-  const { id: projectsProfileId, credits } =
-    await prisma.projectsProfile.findFirstOrThrow({
-      select: {
-        credits: true,
-        id: true,
-      },
-      where: {
-        userProfile: {
-          stripeCustomer: customerId.toString(),
-        },
-      },
-    });
+  const userProfile = await prisma.profile.findFirstOrThrow({
+    include: {
+      projectsProfile: true,
+    },
+    where: {
+      stripeCustomer: customerId.toString(),
+    },
+  });
+
   const features = projectsPaidPlanFeatures[planName];
   const creditsForPlan =
     features.credits === 'unlimited' ? 100 : features.credits ?? 0;
+  const creditsAtStartOfCycle =
+    (userProfile.projectsProfile?.credits ?? 0) + creditsForPlan;
 
-  await prisma.$transaction([
-    prisma.projectsProfile.updateMany({
-      data: {
-        creditsAtStartOfCycle: credits + creditsForPlan,
-        plan: planName,
-        premium: true,
-      },
-      where: {
-        id: projectsProfileId,
-      },
-    }),
-    prisma.projectsChallengeCreditTransaction.create({
-      data: {
-        amount: creditsForPlan,
-        profileId: projectsProfileId,
-        stripeInvoiceId: invoice.id,
-        type: 'CREDIT',
-      },
-    }),
-  ]);
+  // Create projects profile if it doesn't exist
+  const projectsProfile = await prisma.projectsProfile.upsert({
+    create: {
+      creditsAtStartOfCycle,
+      plan: planName,
+      premium: true,
+      userId: userProfile.id,
+    },
+    update: {
+      creditsAtStartOfCycle,
+      plan: planName,
+      premium: true,
+    },
+    where: {
+      id: userProfile.projectsProfile?.id,
+    },
+  });
+
+  await prisma.projectsChallengeCreditTransaction.create({
+    data: {
+      amount: creditsForPlan,
+      profileId: projectsProfile.id,
+      stripeInvoiceId: invoice.id,
+      type: 'CREDIT',
+    },
+  });
 }
 
 export async function projectsCustomerRemovePlan(
