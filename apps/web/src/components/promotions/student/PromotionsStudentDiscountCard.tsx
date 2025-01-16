@@ -175,7 +175,7 @@ export function PromotionsStudentDiscountCard({ variant = 'full' }: Props) {
       ]}
       footer={
         <Text
-          className="flex justify-between gap-x-4"
+          className="flex flex-wrap justify-between gap-4"
           color="secondary"
           size="body3">
           <span>
