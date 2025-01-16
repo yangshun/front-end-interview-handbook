@@ -5,10 +5,7 @@ import type { InterviewsListingBottomContent } from 'contentlayer/generated';
 import { useQuestionFormatsData } from '~/data/QuestionCategories';
 
 import useInterviewsQuestionsFeatures from '~/components/interviews/common/useInterviewsQuestionsFeatures';
-import type {
-  QuestionMetadata,
-  QuestionPracticeFormat,
-} from '~/components/interviews/questions/common/QuestionsTypes';
+import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import InterviewsQuestionsCategoryPage from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryPage';
 import { useIntl } from '~/components/intl';
 import MDXContent from '~/components/mdx/MDXContent';
@@ -19,15 +16,17 @@ import { roundQuestionCountToNearestTen } from '~/db/QuestionsUtils';
 
 type Props = Readonly<{
   bottomContent?: InterviewsListingBottomContent;
-  practiceFormat: QuestionPracticeFormat;
+  listType: React.ComponentProps<
+    typeof InterviewsQuestionsCategoryPage
+  >['listType'];
   questions: ReadonlyArray<QuestionMetadata>;
   totalQuestionCount: number;
 }>;
 
 export default function InterviewsQuestionsCategoryPreparePage({
   bottomContent,
-  practiceFormat,
   questions,
+  listType,
   totalQuestionCount,
 }: Props) {
   const intl = useIntl();
@@ -57,7 +56,7 @@ export default function InterviewsQuestionsCategoryPreparePage({
           value: formats.quiz.value,
         },
       ]}
-      value={practiceFormat ?? 'coding'}
+      value={listType?.tab ?? 'coding'}
     />
   );
 
@@ -74,11 +73,7 @@ export default function InterviewsQuestionsCategoryPreparePage({
         categoryTabs={categoryTabs}
         description={`The largest bank of ${roundQuestionCountToNearestTen(totalQuestionCount)}+ practice questions for front end interviews.`}
         features={features}
-        listType={{
-          tab: practiceFormat,
-          type: 'practice',
-          value: practiceFormat,
-        }}
+        listType={listType}
         longDescription={`Save the trouble of searching the web for front end interview questions. We have ${roundQuestionCountToNearestTen(totalQuestionCount)}+ practice questions in every framework, format, and topic, each with high quality answers and tests from big tech senior / staff engineers.`}
         questionList={questions}
         searchPlaceholder="Search within this list of questions"

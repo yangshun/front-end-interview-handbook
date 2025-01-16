@@ -1,5 +1,10 @@
 import type { Metadata } from 'next/types';
 
+import type {
+  QuestionFormat,
+  QuestionLanguage,
+  QuestionListTypeData,
+} from '~/components/interviews/questions/common/QuestionsTypes';
 import InterviewsQuestionsCategoryLanguagePage from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryLanguagePage';
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
@@ -12,8 +17,13 @@ import defaultMetadata from '~/seo/defaultMetadata';
 
 export const dynamic = 'force-static';
 
-const language = 'js';
-const codingFormat = 'javascript';
+const language: QuestionLanguage = 'js';
+const codingFormat: QuestionFormat = 'javascript';
+const listType: QuestionListTypeData = {
+  tab: 'coding',
+  type: 'language',
+  value: language,
+};
 
 type Props = Readonly<{
   params: Readonly<{
@@ -26,10 +36,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const [intl, { questions }] = await Promise.all([
     getIntlServerOnly(locale),
-    fetchQuestionsList(
-      { tab: 'coding', type: 'language', value: language },
-      locale,
-    ),
+    fetchQuestionsList(listType, locale),
   ]);
 
   const questionsCodingFormat = questions.filter((metadata) =>
@@ -82,10 +89,7 @@ export default async function Page({ params }: Props) {
   const [intl, { questions }, questionCompletionCount, guides, bottomContent] =
     await Promise.all([
       getIntlServerOnly(locale),
-      fetchQuestionsList(
-        { tab: 'coding', type: 'language', value: language },
-        locale,
-      ),
+      fetchQuestionsList(listType, locale),
       fetchQuestionsCompletionCount([codingFormat]),
       readAllFrontEndInterviewGuides(params.locale),
       fetchInterviewListingBottomContent(
@@ -108,7 +112,7 @@ export default async function Page({ params }: Props) {
       })}
       guides={guides}
       language={language}
-      practiceFormat="coding"
+      listType={listType}
       questionCompletionCount={questionCompletionCount}
       questions={questionsCodingFormat}
       showCategoryTabs={false}

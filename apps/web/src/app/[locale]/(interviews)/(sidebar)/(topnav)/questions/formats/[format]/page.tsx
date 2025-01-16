@@ -6,7 +6,6 @@ import { QuestionFormatSEOToRawMapping } from '~/data/QuestionCategories';
 import {
   type QuestionFormat,
   type QuestionFormatSEO,
-  type QuestionMetadata,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import InterviewsQuestionFormatPage from '~/components/interviews/questions/listings/practice/InterviewsQuestionFormatPage';
 
@@ -223,40 +222,13 @@ async function processParams(params: Props['params']) {
   const { seoDescription, socialTitle, pageTitle, description, ogImageTitle } =
     QuestionFormatStrings[questionFormat];
   let seoTitle = QuestionFormatStrings[questionFormat].seoTitle(0);
-  let questions: ReadonlyArray<QuestionMetadata> = [];
+  const { questions } = await fetchQuestionsList(
+    { type: 'format', value: questionFormat },
+    locale,
+  );
 
   if (questionFormat === 'quiz') {
-    const { questions: quizQuestions } = await fetchQuestionsList(
-      { type: 'format', value: 'quiz' },
-      locale,
-    );
-
-    seoTitle = QuestionFormatStrings[questionFormat].seoTitle(
-      quizQuestions.length,
-    );
-    questions = quizQuestions;
-  }
-
-  if (questionFormat === 'system-design') {
-    const { questions: systemDesignQuestions } = await fetchQuestionsList(
-      { type: 'format', value: 'system-design' },
-      locale,
-    );
-
-    questions = systemDesignQuestions;
-  }
-
-  if (
-    questionFormat === 'algo' ||
-    questionFormat === 'javascript' ||
-    questionFormat === 'user-interface'
-  ) {
-    const { questions: qnList } = await fetchQuestionsList(
-      { type: 'format', value: questionFormat },
-      locale,
-    );
-
-    questions = qnList;
+    seoTitle = QuestionFormatStrings[questionFormat].seoTitle(questions.length);
   }
 
   return {

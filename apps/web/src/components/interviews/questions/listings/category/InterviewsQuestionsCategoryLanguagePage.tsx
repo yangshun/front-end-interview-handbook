@@ -18,7 +18,6 @@ import InterviewsQuestionsCategoryPage from './InterviewsQuestionsCategoryPage';
 import type {
   QuestionLanguage,
   QuestionMetadata,
-  QuestionPracticeFormat,
 } from '../../common/QuestionsTypes';
 
 type Props = Omit<
@@ -35,7 +34,9 @@ type Props = Omit<
     description?: string;
     features?: ReadonlyArray<QuestionListFeature>;
     language: QuestionLanguage;
-    practiceFormat?: QuestionPracticeFormat;
+    listType: React.ComponentProps<
+      typeof InterviewsQuestionsCategoryPage
+    >['listType'];
     questions: ReadonlyArray<QuestionMetadata>;
     showCategoryTabs?: boolean;
     title?: string;
@@ -54,9 +55,9 @@ export default function InterviewsQuestionsCategoryLanguagePage({
   features = defaultFeatures,
   language,
   questions,
+  listType,
   showCategoryTabs = true,
   bottomContent,
-  practiceFormat = 'coding',
   totalQuestionsCount,
   ...props
 }: Props) {
@@ -83,7 +84,7 @@ export default function InterviewsQuestionsCategoryLanguagePage({
           value: 'quiz',
         },
       ]}
-      value={practiceFormat ?? 'coding'}
+      value={listType?.tab ?? 'coding'}
     />
   ) : null;
 
@@ -100,12 +101,11 @@ export default function InterviewsQuestionsCategoryLanguagePage({
           description ?? languages[language].getDescription(totalQuestionsCount)
         }
         features={featureItems}
-        listType={{ tab: practiceFormat, type: 'language', value: language }}
+        listType={listType}
         questionList={questions}
         searchPlaceholder={languages[language].getSearchPlaceholder(
           totalQuestionsCount,
         )}
-        selectedCategoryTab={practiceFormat}
         title={title ?? languages[language].longName}
         {...props}
       />

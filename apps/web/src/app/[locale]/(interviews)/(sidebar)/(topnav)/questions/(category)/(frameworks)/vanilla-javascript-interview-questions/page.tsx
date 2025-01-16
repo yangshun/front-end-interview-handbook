@@ -1,6 +1,9 @@
 import type { Metadata } from 'next/types';
 
-import type { QuestionFramework } from '~/components/interviews/questions/common/QuestionsTypes';
+import type {
+  QuestionFramework,
+  QuestionListTypeData,
+} from '~/components/interviews/questions/common/QuestionsTypes';
 import InterviewsQuestionsCategoryFrameworkPage from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryFrameworkPage';
 
 import { readAllFrontEndInterviewGuides } from '~/db/guides/GuidesReader';
@@ -13,6 +16,7 @@ import defaultMetadata from '~/seo/defaultMetadata';
 export const dynamic = 'force-static';
 
 const framework: QuestionFramework = 'vanilla';
+const listType: QuestionListTypeData = { type: 'framework', value: framework };
 
 type Props = Readonly<{
   params: Readonly<{
@@ -74,7 +78,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Page({ params }: Props) {
   const { locale } = params;
   const [{ questions }, questionCompletionCount, guides] = await Promise.all([
-    fetchQuestionsList({ type: 'framework', value: framework }, locale),
+    fetchQuestionsList(listType, locale),
     fetchQuestionsCompletionCount(['user-interface']),
     readAllFrontEndInterviewGuides(locale),
   ]);
@@ -83,6 +87,7 @@ export default async function Page({ params }: Props) {
     <InterviewsQuestionsCategoryFrameworkPage
       framework={framework}
       guides={guides}
+      listType={listType}
       questionCompletionCount={questionCompletionCount}
       questions={questions}
       showCategoryTabs={false}

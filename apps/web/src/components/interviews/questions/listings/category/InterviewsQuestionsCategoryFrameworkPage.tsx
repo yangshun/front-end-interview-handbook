@@ -19,7 +19,6 @@ import InterviewsQuestionsCategoryPage from './InterviewsQuestionsCategoryPage';
 import type {
   QuestionFramework,
   QuestionMetadata,
-  QuestionPracticeFormat,
 } from '../../common/QuestionsTypes';
 
 type Props = Omit<
@@ -37,7 +36,9 @@ type Props = Omit<
     features?: ReadonlyArray<QuestionListFeature>;
     framework: QuestionFramework;
     guides: ReadonlyArray<GuideCardMetadata>;
-    practiceFormat?: QuestionPracticeFormat;
+    listType: React.ComponentProps<
+      typeof InterviewsQuestionsCategoryPage
+    >['listType'];
     questions: ReadonlyArray<QuestionMetadata>;
     showCategoryTabs?: boolean;
     title?: string;
@@ -58,8 +59,8 @@ export default function InterviewsQuestionsCategoryFrameworkPage({
   questions,
   showCategoryTabs = true,
   bottomContent,
-  practiceFormat = 'coding',
   totalQuestionsCount,
+  listType,
   ...props
 }: Props) {
   const intl = useIntl();
@@ -85,7 +86,7 @@ export default function InterviewsQuestionsCategoryFrameworkPage({
           value: 'quiz',
         },
       ]}
-      value={practiceFormat ?? 'coding'}
+      value={listType?.value ?? 'coding'}
     />
   ) : null;
 
@@ -103,16 +104,11 @@ export default function InterviewsQuestionsCategoryFrameworkPage({
           frameworks[framework].getDescription(totalQuestionsCount)
         }
         features={featureItems}
-        listType={{
-          tab: practiceFormat,
-          type: 'framework',
-          value: framework,
-        }}
+        listType={listType}
         questionList={questions}
         searchPlaceholder={frameworks[framework].getSearchPlaceholder(
           totalQuestionsCount,
         )}
-        selectedCategoryTab={practiceFormat}
         title={title ?? frameworks[framework].longName}
         {...props}
       />

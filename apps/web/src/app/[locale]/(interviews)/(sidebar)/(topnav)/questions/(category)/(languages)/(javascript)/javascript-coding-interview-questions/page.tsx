@@ -4,6 +4,7 @@ import { QuestionLanguageLabels } from '~/data/QuestionCategories';
 
 import type {
   QuestionLanguage,
+  QuestionListTypeData,
   QuestionPracticeFormat,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import InterviewsQuestionsCategoryLanguagePage from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryLanguagePage';
@@ -20,6 +21,11 @@ export const dynamic = 'force-static';
 
 const language: QuestionLanguage = 'js';
 const practiceFormat: QuestionPracticeFormat = 'coding';
+const listType: QuestionListTypeData = {
+  tab: practiceFormat,
+  type: 'language',
+  value: language,
+};
 
 type Props = Readonly<{
   params: Readonly<{
@@ -32,10 +38,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const [intl, { questions }] = await Promise.all([
     getIntlServerOnly(locale),
-    fetchQuestionsList(
-      { tab: practiceFormat, type: 'language', value: language },
-      locale,
-    ),
+    fetchQuestionsList(listType, locale),
   ]);
 
   const category = QuestionLanguageLabels[language];
@@ -99,10 +102,7 @@ export default async function Page({ params }: Props) {
   const [intl, { questions }, questionCompletionCount, guides, bottomContent] =
     await Promise.all([
       getIntlServerOnly(locale),
-      fetchQuestionsList(
-        { tab: practiceFormat, type: 'language', value: language },
-        locale,
-      ),
+      fetchQuestionsList(listType, locale),
       fetchQuestionsCompletionCount(['algo', 'javascript', 'user-interface']),
       readAllFrontEndInterviewGuides(params.locale),
       fetchInterviewListingBottomContent(
@@ -128,7 +128,7 @@ export default async function Page({ params }: Props) {
       )}
       guides={guides}
       language={language}
-      practiceFormat="coding"
+      listType={listType}
       questionCompletionCount={questionCompletionCount}
       questions={questions}
       showCategoryTabs={false}

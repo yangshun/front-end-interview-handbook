@@ -5,7 +5,11 @@ import {
   QuestionLanguageSEOToRawMapping,
 } from '~/data/QuestionCategories';
 
-import type { QuestionLanguageSEO } from '~/components/interviews/questions/common/QuestionsTypes';
+import type {
+  QuestionFormat,
+  QuestionLanguageSEO,
+  QuestionListTypeData,
+} from '~/components/interviews/questions/common/QuestionsTypes';
 import InterviewsQuestionsCategoryLanguagePage from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryLanguagePage';
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
@@ -16,7 +20,7 @@ import { roundQuestionCountToNearestTen } from '~/db/QuestionsUtils';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
-const questionFormat = 'quiz';
+const questionFormat: QuestionFormat = 'quiz';
 
 export const dynamic = 'force-static';
 
@@ -96,6 +100,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Page({ params }: Props) {
   const { locale, slug } = params;
   const language = QuestionLanguageSEOToRawMapping[slug];
+  const listType: QuestionListTypeData = {
+    tab: 'quiz',
+    type: 'language',
+    value: language,
+  };
 
   const [
     { questions: questionsQuiz },
@@ -104,10 +113,7 @@ export default async function Page({ params }: Props) {
     guides,
     bottomContent,
   ] = await Promise.all([
-    fetchQuestionsList(
-      { tab: 'quiz', type: 'language', value: language },
-      locale,
-    ),
+    fetchQuestionsList(listType, locale),
     fetchQuestionsList({ type: 'language', value: language }, locale),
     fetchQuestionsCompletionCount([questionFormat]),
     readAllFrontEndInterviewGuides(params.locale),
@@ -119,7 +125,7 @@ export default async function Page({ params }: Props) {
       bottomContent={bottomContent}
       guides={guides}
       language={language}
-      practiceFormat={questionFormat}
+      listType={listType}
       questionCompletionCount={questionCompletionCount}
       questions={questionsQuiz}
       totalQuestionsCount={questionsAll.length}

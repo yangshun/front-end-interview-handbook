@@ -12,7 +12,10 @@ import GuidesCoverLayout from '~/components/guides/cover/GuidesCoverLayout';
 import GuidesListWithCategory from '~/components/guides/cover/GuidesListWithCategory';
 import type { GuideCardMetadata } from '~/components/guides/types';
 import useGuidesWithCompletionStatus from '~/components/guides/useGuidesWithCompletionStatus';
-import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
+import type {
+  QuestionListTypeData,
+  QuestionMetadata,
+} from '~/components/interviews/questions/common/QuestionsTypes';
 import { countQuestionsByAccess } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 import QuestionsUnifiedListWithFiltersAndProgress from '~/components/interviews/questions/listings/items/QuestionsUnifiedListWithFiltersAndProgress';
 import QuestionListingAccessSummary from '~/components/interviews/questions/listings/stats/QuestionListingAccessSummary';
@@ -26,6 +29,7 @@ import { roundQuestionCountToNearestTen } from '~/db/QuestionsUtils';
 
 type Props = Readonly<{
   allGuides: ReadonlyArray<GuideCardMetadata>;
+  listType: QuestionListTypeData;
   metadata: {
     description: string;
     href: string;
@@ -37,6 +41,7 @@ type Props = Readonly<{
 
 export default function FrontEndSystemDesignPlaybookPage({
   allGuides,
+  listType,
   questions,
   questionCompletionCount,
   metadata,
@@ -128,10 +133,7 @@ export default function FrontEndSystemDesignPlaybookPage({
                 })}
               </Heading>
               <QuestionsUnifiedListWithFiltersAndProgress
-                listType={{
-                  type: 'format',
-                  value: 'system-design',
-                }}
+                listType={listType}
                 questionCompletionCount={questionCompletionCount}
                 questions={questions}
                 sideColumnAddOn={

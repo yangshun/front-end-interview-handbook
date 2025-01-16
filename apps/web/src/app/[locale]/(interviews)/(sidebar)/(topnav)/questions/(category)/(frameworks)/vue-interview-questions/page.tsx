@@ -1,5 +1,9 @@
 import type { Metadata } from 'next/types';
 
+import type {
+  QuestionFramework,
+  QuestionListTypeData,
+} from '~/components/interviews/questions/common/QuestionsTypes';
 import InterviewsQuestionsCategoryFrameworkPage from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryFrameworkPage';
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
@@ -10,9 +14,10 @@ import { roundQuestionCountToNearestTen } from '~/db/QuestionsUtils';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
-const framework = 'vue';
-
 export const dynamic = 'force-static';
+
+const framework: QuestionFramework = 'vue';
+const listType: QuestionListTypeData = { type: 'framework', value: framework };
 
 type Props = Readonly<{
   params: Readonly<{
@@ -74,7 +79,7 @@ export default async function Page({ params }: Props) {
   const { locale } = params;
   const [{ questions }, questionCompletionCount, guides, bottomContent] =
     await Promise.all([
-      fetchQuestionsList({ type: 'framework', value: framework }, locale),
+      fetchQuestionsList(listType, locale),
       fetchQuestionsCompletionCount(['user-interface']),
       readAllFrontEndInterviewGuides(locale),
       fetchInterviewListingBottomContent('framework-vue'),
@@ -85,6 +90,7 @@ export default async function Page({ params }: Props) {
       bottomContent={bottomContent}
       framework={framework}
       guides={guides}
+      listType={listType}
       questionCompletionCount={questionCompletionCount}
       questions={questions}
       showCategoryTabs={false}

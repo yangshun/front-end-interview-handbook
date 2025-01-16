@@ -2,6 +2,7 @@ import type { Metadata } from 'next/types';
 
 import type {
   QuestionFramework,
+  QuestionListTypeData,
   QuestionPracticeFormat,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import InterviewsQuestionsCategoryFrameworkPage from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryFrameworkPage';
@@ -14,10 +15,15 @@ import { roundQuestionCountToNearestTen } from '~/db/QuestionsUtils';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
+export const dynamic = 'force-static';
+
 const framework: QuestionFramework = 'react';
 const practiceFormat: QuestionPracticeFormat = 'quiz';
-
-export const dynamic = 'force-static';
+const listType: QuestionListTypeData = {
+  tab: practiceFormat,
+  type: 'framework',
+  value: framework,
+};
 
 type Props = Readonly<{
   params: Readonly<{
@@ -86,10 +92,7 @@ export default async function Page({ params }: Props) {
     guides,
     bottomContent,
   ] = await Promise.all([
-    fetchQuestionsList(
-      { tab: practiceFormat, type: 'framework', value: framework },
-      locale,
-    ),
+    fetchQuestionsList(listType, locale),
     fetchQuestionsList({ type: 'framework', value: framework }, locale),
     fetchQuestionsCompletionCount(['quiz']),
     readAllFrontEndInterviewGuides(locale),
@@ -101,7 +104,7 @@ export default async function Page({ params }: Props) {
       bottomContent={bottomContent}
       framework={framework}
       guides={guides}
-      practiceFormat={practiceFormat}
+      listType={listType}
       questionCompletionCount={questionCompletionCount}
       questions={questionsQuiz}
       totalQuestionsCount={questionsAll.length}

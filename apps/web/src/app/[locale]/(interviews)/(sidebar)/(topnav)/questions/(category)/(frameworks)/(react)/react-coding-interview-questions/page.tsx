@@ -1,5 +1,6 @@
 import type { Metadata } from 'next/types';
 
+import type { QuestionListTypeData } from '~/components/interviews/questions/common/QuestionsTypes';
 import {
   type QuestionFramework,
   QuestionFrameworkLabels,
@@ -15,10 +16,15 @@ import { roundQuestionCountToNearestTen } from '~/db/QuestionsUtils';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
+export const dynamic = 'force-static';
+
 const framework: QuestionFramework = 'react';
 const practiceFormat: QuestionPracticeFormat = 'coding';
-
-export const dynamic = 'force-static';
+const listType: QuestionListTypeData = {
+  tab: practiceFormat,
+  type: 'framework',
+  value: framework,
+};
 
 type Props = Readonly<{
   params: Readonly<{
@@ -30,10 +36,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
   const [intl, { questions }] = await Promise.all([
     getIntlServerOnly(locale),
-    fetchQuestionsList(
-      { tab: practiceFormat, type: 'framework', value: framework },
-      locale,
-    ),
+    fetchQuestionsList(listType, locale),
   ]);
 
   return defaultMetadata({
@@ -86,10 +89,7 @@ export default async function Page({ params }: Props) {
   const [intl, { questions }, questionCompletionCount, guides, bottomContent] =
     await Promise.all([
       getIntlServerOnly(locale),
-      fetchQuestionsList(
-        { tab: practiceFormat, type: 'framework', value: framework },
-        locale,
-      ),
+      fetchQuestionsList(listType, locale),
       fetchQuestionsCompletionCount(['user-interface']),
       readAllFrontEndInterviewGuides(locale),
       fetchInterviewListingBottomContent('react-coding-interview-questions'),
@@ -113,7 +113,7 @@ export default async function Page({ params }: Props) {
       )}
       framework={framework}
       guides={guides}
-      practiceFormat={practiceFormat}
+      listType={listType}
       questionCompletionCount={questionCompletionCount}
       questions={questions}
       showCategoryTabs={false}

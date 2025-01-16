@@ -1,6 +1,7 @@
 import type { Metadata } from 'next/types';
 
 import FrontEndSystemDesignPlaybookPage from '~/components/interviews/guides/FrontEndSystemDesignPlaybookPage';
+import type { QuestionListTypeData } from '~/components/interviews/questions/common/QuestionsTypes';
 import { basePath } from '~/components/interviews/questions/content/system-design/SystemDesignNavigation';
 
 import { readAllFrontendSystemDesignGuides } from '~/db/guides/GuidesReader';
@@ -10,6 +11,11 @@ import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
 export const dynamic = 'force-static';
+
+const listType: QuestionListTypeData = {
+  type: 'format',
+  value: 'system-design',
+};
 
 type Props = Readonly<{
   params: Readonly<{
@@ -73,7 +79,7 @@ export default async function Page({ params }: Props) {
     { title, description, socialTitle, href },
   ] = await Promise.all([
     readAllFrontendSystemDesignGuides(params.locale),
-    fetchQuestionsList({ type: 'format', value: 'system-design' }, locale),
+    fetchQuestionsList(listType, locale),
     fetchQuestionsCompletionCount(['system-design']),
     getPageSEOMetadata({ params }),
   ]);
@@ -81,6 +87,7 @@ export default async function Page({ params }: Props) {
   return (
     <FrontEndSystemDesignPlaybookPage
       allGuides={allGuides}
+      listType={listType}
       metadata={{
         description,
         href,

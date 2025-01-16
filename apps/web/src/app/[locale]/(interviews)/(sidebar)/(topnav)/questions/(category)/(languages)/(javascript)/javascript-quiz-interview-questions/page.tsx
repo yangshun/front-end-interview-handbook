@@ -2,6 +2,10 @@ import type { Metadata } from 'next/types';
 
 import { QuestionLanguageLabels } from '~/data/QuestionCategories';
 
+import type {
+  QuestionLanguage,
+  QuestionListTypeData,
+} from '~/components/interviews/questions/common/QuestionsTypes';
 import InterviewsQuestionsCategoryLanguagePage from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryLanguagePage';
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
@@ -14,8 +18,13 @@ import defaultMetadata from '~/seo/defaultMetadata';
 
 export const dynamic = 'force-static';
 
-const language = 'js';
+const language: QuestionLanguage = 'js';
 const questionFormat = 'quiz';
+const listType: QuestionListTypeData = {
+  tab: questionFormat,
+  type: 'language',
+  value: language,
+};
 
 type Props = Readonly<{
   params: Readonly<{
@@ -28,10 +37,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const [intl, { questions }] = await Promise.all([
     getIntlServerOnly(locale),
-    fetchQuestionsList(
-      { tab: 'quiz', type: 'language', value: language },
-      locale,
-    ),
+    fetchQuestionsList(listType, locale),
   ]);
 
   const category = QuestionLanguageLabels[language];
@@ -95,10 +101,7 @@ export default async function Page({ params }: Props) {
   const [intl, { questions }, questionCompletionCount, guides, bottomContent] =
     await Promise.all([
       getIntlServerOnly(locale),
-      fetchQuestionsList(
-        { tab: 'quiz', type: 'language', value: language },
-        locale,
-      ),
+      fetchQuestionsList(listType, locale),
       fetchQuestionsCompletionCount([questionFormat]),
       readAllFrontEndInterviewGuides(params.locale),
       fetchInterviewListingBottomContent('javascript-quiz-interview-questions'),
@@ -115,7 +118,7 @@ export default async function Page({ params }: Props) {
       features={['criticalTopics', 'answeredByExInterviewers']}
       guides={guides}
       language={language}
-      practiceFormat="quiz"
+      listType={listType}
       questionCompletionCount={questionCompletionCount}
       questions={questions}
       showCategoryTabs={false}

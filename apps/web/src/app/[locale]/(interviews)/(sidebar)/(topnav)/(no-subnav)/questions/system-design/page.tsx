@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 
+import type { QuestionListTypeData } from '~/components/interviews/questions/common/QuestionsTypes';
 import InterviewsQuestionsCategoryPreparePage from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryPreparePage';
 import { QuestionCountTotal } from '~/components/interviews/questions/listings/stats/QuestionCount';
 
@@ -9,6 +10,12 @@ import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
 export const dynamic = 'force-static';
+
+const listType: QuestionListTypeData = {
+  tab: 'system-design',
+  type: 'practice',
+  value: 'system-design',
+};
 
 type Props = Readonly<{
   params: Readonly<{
@@ -53,17 +60,14 @@ export default async function Page({ params }: Props) {
 
   const [{ questions: systemDesignQuestions }, bottomContent] =
     await Promise.all([
-      fetchQuestionsList(
-        { tab: 'system-design', type: 'practice', value: 'system-design' },
-        locale,
-      ),
+      fetchQuestionsList(listType, locale),
       fetchInterviewListingBottomContent('all-questions'),
     ]);
 
   return (
     <InterviewsQuestionsCategoryPreparePage
       bottomContent={bottomContent}
-      practiceFormat="system-design"
+      listType={listType}
       questions={systemDesignQuestions}
       totalQuestionCount={QuestionCountTotal}
     />

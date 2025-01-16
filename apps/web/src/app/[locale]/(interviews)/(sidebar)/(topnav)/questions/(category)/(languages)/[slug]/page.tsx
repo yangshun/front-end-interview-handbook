@@ -5,7 +5,10 @@ import {
   QuestionLanguageSEOToRawMapping,
 } from '~/data/QuestionCategories';
 
-import type { QuestionLanguageSEO } from '~/components/interviews/questions/common/QuestionsTypes';
+import type {
+  QuestionLanguageSEO,
+  QuestionListTypeData,
+} from '~/components/interviews/questions/common/QuestionsTypes';
 import { InterviewsQuestionsCategoryLanguageCodingFormatTabs } from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryCodingFormatTabs';
 import InterviewsQuestionsCategoryLanguagePage from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryLanguagePage';
 
@@ -114,7 +117,11 @@ export default async function Page({ params }: Props) {
 
   const codingFormats =
     InterviewsQuestionsCategoryLanguageCodingFormatTabs[language];
-
+  const listType: QuestionListTypeData = {
+    tab: 'coding',
+    type: 'language',
+    value: language,
+  };
   const [
     { questions: questionsCoding },
     { questions: questionsAll },
@@ -122,10 +129,7 @@ export default async function Page({ params }: Props) {
     guides,
     bottomContent,
   ] = await Promise.all([
-    fetchQuestionsList(
-      { tab: 'coding', type: 'language', value: language },
-      locale,
-    ),
+    fetchQuestionsList(listType, locale),
     fetchQuestionsList({ type: 'language', value: language }, locale),
     fetchQuestionsCompletionCount(codingFormats),
     readAllFrontEndInterviewGuides(params.locale),
@@ -137,7 +141,7 @@ export default async function Page({ params }: Props) {
       bottomContent={bottomContent}
       guides={guides}
       language={language}
-      practiceFormat="coding"
+      listType={listType}
       questionCompletionCount={questionCompletionCount}
       questions={questionsCoding}
       totalQuestionsCount={questionsAll.length}

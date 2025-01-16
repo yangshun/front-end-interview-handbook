@@ -18,7 +18,6 @@ import InterviewsPageLongDescription from '~/components/interviews/common/Interv
 import type {
   QuestionFrameworkOrLanguage,
   QuestionMetadata,
-  QuestionPracticeFormat,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import InterviewsQuestionsCategoryContentSlider from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryContentSlider';
 import QuestionsUnifiedListWithFiltersAndProgress from '~/components/interviews/questions/listings/items/QuestionsUnifiedListWithFiltersAndProgress';
@@ -39,7 +38,6 @@ type Props = Readonly<{
   questionCompletionCount?: QuestionCompletionCount;
   questionList: ReadonlyArray<QuestionMetadata>;
   searchPlaceholder: string;
-  selectedCategoryTab?: QuestionPracticeFormat;
   title: string;
   titleAddOnText?: string;
 }>;
@@ -54,7 +52,6 @@ export default function InterviewsQuestionsCategoryPage({
   searchPlaceholder,
   listType,
   title,
-  selectedCategoryTab,
   guides,
 }: Props) {
   const intl = useIntl();
@@ -68,7 +65,7 @@ export default function InterviewsQuestionsCategoryPage({
         : null;
 
   const languageGuidesSlugs: ReadonlyArray<FrontEndInterviewSlugType> =
-    selectedCategoryTab === 'coding'
+    listType?.tab === 'coding'
       ? listType?.type === 'language' && listType.value === 'css'
         ? [
             'user-interface',
@@ -84,7 +81,7 @@ export default function InterviewsQuestionsCategoryPage({
           ]
       : ['quiz'];
   const frameworkGuidesSlugs: ReadonlyArray<FrontEndInterviewSlugType> =
-    selectedCategoryTab === 'coding'
+    listType?.tab === 'coding'
       ? [
           'user-interface',
           'user-interface-questions-cheatsheet',
