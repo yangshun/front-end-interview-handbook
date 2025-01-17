@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import useSessionStorageForSets from '~/hooks/useSessionStorageForSets';
+import { useGreatStorageLocal } from '~/hooks/useGreatStorageLocal';
 
 import type { QuestionLanguage } from '~/components/interviews/questions/common/QuestionsTypes';
 import { useIntl } from '~/components/intl';
@@ -30,9 +30,12 @@ export default function useQuestionLanguageFilter(
     new Set<QuestionLanguage>(initialValue),
   );
   const [languageFSessionStorage, setLanguageSessionStorage] =
-    useSessionStorageForSets<QuestionLanguage>(
-      `gfe:${namespace}:language-filter`,
+    useGreatStorageLocal<Set<QuestionLanguage>>(
+      `qns:${namespace}:filter:language`,
       new Set(initialValue),
+      {
+        ttl: 24 * 60 * 60,
+      },
     );
 
   // Conditionally select which hook's state to use

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import useSessionStorageForSets from '~/hooks/useSessionStorageForSets';
+import { useGreatStorageLocal } from '~/hooks/useGreatStorageLocal';
 
 import type { QuestionFramework } from '~/components/interviews/questions/common/QuestionsTypes';
 import { QuestionFrameworkLabels } from '~/components/interviews/questions/common/QuestionsTypes';
@@ -30,9 +30,12 @@ export default function useQuestionFrameworkFilter(
     new Set<QuestionFramework>(initialValue),
   );
   const [frameworkSessionStorage, setFrameworkSessionStorage] =
-    useSessionStorageForSets<QuestionFramework>(
-      `gfe:${namespace}:framework-filter`,
+    useGreatStorageLocal<Set<QuestionFramework>>(
+      `qns:${namespace}:filter:framework`,
       new Set(initialValue),
+      {
+        ttl: 24 * 60 * 60,
+      },
     );
 
   // Conditionally select which hook's state to use

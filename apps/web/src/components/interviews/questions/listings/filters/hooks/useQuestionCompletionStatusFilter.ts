@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import useSessionStorageForSets from '~/hooks/useSessionStorageForSets';
+import { useGreatStorageLocal } from '~/hooks/useGreatStorageLocal';
 
 import type {
   QuestionCompletionStatus,
@@ -51,9 +51,12 @@ export default function useQuestionCompletionStatusFilter({
   );
 
   const [completionStatusSessionStorage, setCompletionStatusSessionStorage] =
-    useSessionStorageForSets<QuestionCompletionStatus>(
-      `gfe:${namespace}:completion-status-filter`,
+    useGreatStorageLocal<Set<QuestionCompletionStatus>>(
+      `qns:${namespace}:filter:completion-status`,
       new Set(),
+      {
+        ttl: 24 * 60 * 60,
+      },
     );
 
   // Conditionally select which hook's state to use

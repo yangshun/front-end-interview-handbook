@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import useSessionStorageForSets from '~/hooks/useSessionStorageForSets';
+import { useGreatStorageLocal } from '~/hooks/useGreatStorageLocal';
 
 import { useQuestionFormatsData } from '~/data/QuestionCategories';
 
@@ -28,9 +28,12 @@ export default function useQuestionFormatFilter({
     new Set<QuestionFormat>(initialValue),
   );
   const [codingFormatSessionStorage, setCodingFormatSessionStorage] =
-    useSessionStorageForSets<QuestionFormat>(
-      `gfe:${namespace}:coding-format-filter`,
+    useGreatStorageLocal<Set<QuestionFormat>>(
+      `qns:${namespace}:filter:format`,
       new Set(initialValue),
+      {
+        ttl: 24 * 60 * 60,
+      },
     );
 
   // Conditionally select which hook's state to use

@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { useSessionStorage } from 'usehooks-ts';
+
+import { useGreatStorageLocal } from '~/hooks/useGreatStorageLocal';
 
 type Props = Readonly<{
   namespace?: string;
@@ -8,9 +9,12 @@ type Props = Readonly<{
 export default function useQuestionSearchFilter({
   namespace,
 }: Props): [string, (value: string) => void] {
-  const [querySessionStorage, setQuerySessionStorage] = useSessionStorage(
-    `gfe:${namespace}:search-filter`,
+  const [querySessionStorage, setQuerySessionStorage] = useGreatStorageLocal(
+    `qns:${namespace}:filter:search`,
     '',
+    {
+      ttl: 24 * 60 * 60,
+    },
   );
   const [queryState, setQueryState] = useState('');
 

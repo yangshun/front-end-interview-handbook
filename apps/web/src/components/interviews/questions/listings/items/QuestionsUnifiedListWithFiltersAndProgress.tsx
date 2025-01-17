@@ -15,7 +15,7 @@ import {
 } from '~/db/QuestionsProgressClient';
 
 import QuestionsUnifiedListWithFilters from './QuestionsUnifiedListWithFilters';
-import useQuestionsWithCompletionStatus from '../filters/hooks/useQuestionsWithCompletionStatus';
+import useQuestionsWithCompletionStatus from './useQuestionsWithCompletionStatus';
 import type {
   QuestionFormat,
   QuestionMetadata,

@@ -11,12 +11,12 @@ import type {
   QuestionPracticeFormat,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import useQuestionCodingSorting from '~/components/interviews/questions/listings/filters/hooks/useQuestionCodingSorting';
-import useQuestionsWithCompletionStatus from '~/components/interviews/questions/listings/filters/hooks/useQuestionsWithCompletionStatus';
 import useQuestionUnifiedFilters from '~/components/interviews/questions/listings/filters/hooks/useQuestionUnifiedFilters';
 import {
   filterQuestions,
   sortQuestionsMultiple,
 } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
+import useQuestionsWithCompletionStatus from '~/components/interviews/questions/listings/items/useQuestionsWithCompletionStatus';
 import InterviewsQuestionsListSlideOut from '~/components/interviews/questions/listings/slideout/InterviewsQuestionsListSlideOut';
 import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';

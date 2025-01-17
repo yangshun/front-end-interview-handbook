@@ -1,4 +1,4 @@
-import { useSessionStorage } from 'usehooks-ts';
+import { useGreatStorageLocal } from '~/hooks/useGreatStorageLocal';
 
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import { questionListFilterNamespace } from '~/components/interviews/questions/common/QuestionHrefUtils';
@@ -20,13 +20,19 @@ export default function useQuestionCodingSorting({ listType }: Props) {
   const { userProfile } = useUserProfile();
   const filterNamespace = questionListFilterNamespace(listType);
 
-  const [isAscendingOrder, setIsAscendingOrder] = useSessionStorage<boolean>(
-    `gfe:${filterNamespace}:sort-order-ascending`,
+  const [isAscendingOrder, setIsAscendingOrder] = useGreatStorageLocal<boolean>(
+    `qns:${filterNamespace}:sort:ascending`,
     true,
+    {
+      ttl: 24 * 60 * 60,
+    },
   );
-  const [sortField, setSortField] = useSessionStorage<QuestionSortField>(
-    `gfe:${filterNamespace}:sort-field`,
+  const [sortField, setSortField] = useGreatStorageLocal<QuestionSortField>(
+    `qns:${filterNamespace}:sort:field`,
     'default',
+    {
+      ttl: 24 * 60 * 60,
+    },
   );
 
   const baseSortFields: ReadonlyArray<QuestionSortFieldItem> =

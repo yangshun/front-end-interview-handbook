@@ -11,11 +11,11 @@ import {
 import ConfirmationDialog from '~/components/common/ConfirmationDialog';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import useQuestionCodingSorting from '~/components/interviews/questions/listings/filters/hooks/useQuestionCodingSorting';
-import useQuestionsWithCompletionStatus from '~/components/interviews/questions/listings/filters/hooks/useQuestionsWithCompletionStatus';
 import useQuestionUnifiedFilters from '~/components/interviews/questions/listings/filters/hooks/useQuestionUnifiedFilters';
 import type { QuestionFilter } from '~/components/interviews/questions/listings/filters/QuestionFilterType';
 import QuestionFrameworkLanguageTooltipLabel from '~/components/interviews/questions/listings/filters/QuestionFrameworkLanguageTooltipLabel';
 import QuestionListingFilterItemCheckboxes from '~/components/interviews/questions/listings/filters/QuestionListingFilterItemCheckboxes';
+import useQuestionsWithCompletionStatus from '~/components/interviews/questions/listings/items/useQuestionsWithCompletionStatus';
 import { FormattedMessage, useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import Divider from '~/components/ui/Divider';

@@ -1,12 +1,12 @@
 import { useState } from 'react';
 
-import useSessionStorageForSets from '~/hooks/useSessionStorageForSets';
+import { useGreatStorageLocal } from '~/hooks/useGreatStorageLocal';
 
 import type {
   QuestionMetadata,
   QuestionTopic,
 } from '~/components/interviews/questions/common/QuestionsTypes';
-import useQuestionTopicLabels from '~/components/interviews/questions/listings/filters/useQuestionTopicLabels';
+import useQuestionTopicLabels from '~/components/interviews/questions/listings/items/useQuestionTopicLabels';
 import { useIntl } from '~/components/intl';
 
 import type { QuestionFilter } from '../QuestionFilterType';
@@ -69,9 +69,12 @@ export default function useQuestionTopicFilter(
     Set<QuestionTopic>
   >(new Set(initialValue));
   const [topicFiltersSessionStorage, setTopicFiltersSessionStorage] =
-    useSessionStorageForSets<QuestionTopic>(
-      `gfe:${namespace}:topic-filter`,
+    useGreatStorageLocal<Set<QuestionTopic>>(
+      `qns:${namespace}:filter:topic`,
       new Set(initialValue),
+      {
+        ttl: 24 * 60 * 60,
+      },
     );
 
   // Conditionally select which hook's state to use

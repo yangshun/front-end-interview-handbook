@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import useSessionStorageForSets from '~/hooks/useSessionStorageForSets';
+import { useGreatStorageLocal } from '~/hooks/useGreatStorageLocal';
 
 import type { QuestionDifficulty } from '~/components/interviews/questions/common/QuestionsTypes';
 import { useIntl } from '~/components/intl';
@@ -48,9 +48,12 @@ export default function useQuestionDifficultyFilter({
     new Set<QuestionDifficulty>(),
   );
   const [difficultySessionStorage, setDifficultySessionStorage] =
-    useSessionStorageForSets<QuestionDifficulty>(
-      `gfe:${namespace}:difficulty-filter`,
+    useGreatStorageLocal<Set<QuestionDifficulty>>(
+      `qns:${namespace}:filter:difficulty`,
       new Set(),
+      {
+        ttl: 24 * 60 * 60,
+      },
     );
 
   // Conditionally select which hook's state to use

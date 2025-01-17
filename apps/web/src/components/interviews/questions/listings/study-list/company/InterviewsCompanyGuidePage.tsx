@@ -38,7 +38,7 @@ import {
   filterQuestionsProgressByList,
 } from '~/db/QuestionsUtils';
 
-import useQuestionTopicLabels from '../../filters/useQuestionTopicLabels';
+import useQuestionTopicLabels from '../../items/useQuestionTopicLabels';
 
 import { useUser } from '@supabase/auth-helpers-react';
 

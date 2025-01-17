@@ -5,7 +5,7 @@ import Text from '~/components/ui/Text';
 import { themeBackgroundCardNoAlphaColor } from '~/components/ui/theme';
 
 import type { QuestionTopic } from '../common/QuestionsTypes';
-import useQuestionTopicLabels from '../listings/filters/useQuestionTopicLabels';
+import useQuestionTopicLabels from '../listings/items/useQuestionTopicLabels';
 
 export default function QuestionTopicLabel({
   value,

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import useCompanyNames from '~/hooks/useCompanyNames';
-import useSessionStorageForSets from '~/hooks/useSessionStorageForSets';
+import { useGreatStorageLocal } from '~/hooks/useGreatStorageLocal';
 
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import type { QuestionCompany } from '~/components/interviews/questions/common/QuestionsTypes';
@@ -40,9 +40,12 @@ export default function useQuestionCompanyFilter({
     Set<QuestionCompany>
   >(new Set());
   const [companyFiltersSessionStorage, setCompanyFiltersSessionStorage] =
-    useSessionStorageForSets<QuestionCompany>(
-      `gfe:${namespace}:company-filter`,
+    useGreatStorageLocal<Set<QuestionCompany>>(
+      `qns:${namespace}:filter:company`,
       new Set(),
+      {
+        ttl: 24 * 60 * 60,
+      },
     );
 
   // Conditionally select which hook's state to use

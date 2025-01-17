@@ -39,7 +39,7 @@ import {
 } from '~/components/ui/theme';
 
 import useQuestionFormatFilter from '../questions/listings/filters/hooks/useQuestionFormatFilter';
-import useQuestionTopicLabels from '../questions/listings/filters/useQuestionTopicLabels';
+import useQuestionTopicLabels from '../questions/listings/items/useQuestionTopicLabels';
 
 type FilterType = 'format' | 'framework' | 'topics';
 

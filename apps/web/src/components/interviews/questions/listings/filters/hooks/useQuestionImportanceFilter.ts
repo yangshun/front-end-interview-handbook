@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import useSessionStorageForSets from '~/hooks/useSessionStorageForSets';
+import { useGreatStorageLocal } from '~/hooks/useGreatStorageLocal';
 
 import type { QuestionImportance } from '~/components/interviews/questions/common/QuestionsTypes';
 import { useIntl } from '~/components/intl';
@@ -48,9 +48,12 @@ export default function useQuestionImportanceFilter({
     new Set<QuestionImportance>(),
   );
   const [importanceSessionStorage, setImportanceSessionStorage] =
-    useSessionStorageForSets<QuestionImportance>(
-      `gfe:${namespace}:importance-filter`,
+    useGreatStorageLocal<Set<QuestionImportance>>(
+      `qns:${namespace}:filter:importance`,
       new Set(),
+      {
+        ttl: 24 * 60 * 60,
+      },
     );
 
   // Conditionally select which hook's state to use
