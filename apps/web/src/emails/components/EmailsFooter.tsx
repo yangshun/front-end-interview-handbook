@@ -52,8 +52,9 @@ export default function EmailsFooter({ unsub }: Props) {
           style={{
             textAlign: 'center',
           }}>
-          Codeney Pte. Ltd., 30 Cecil Street, #19-08 Prudential Tower, Singapore
-          049712
+          {/* Wrap in <a> so that Gmail mobile doesn't automatically turn the address into a Google Maps link automatically and wrongly */}
+          Codeney Pte. Ltd., <a>30 Cecil Street, #19-08 Prudential Tower</a>,
+          Singapore 049712
         </EmailsParagraph>
         {unsub && (
           <>
