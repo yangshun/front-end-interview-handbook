@@ -1,0 +1,416 @@
+---
+title: 30 Basic to Advanced React Interview Questions with Solution
+description: 30 React interview questions and solutions, covering basic to advanced topics. Ideal for developers preparing for their next job interview in 2025
+tags:
+  - react
+  - interviews
+level: starter
+createdAt: 2025-01-15
+author: blog/author/nitesh-seram.json
+category: blog/category/front-end-interviews.json
+series: blog/series/beginner-interview-questions.json
+published: true
+---
+
+Preparing for React developer interviews can be daunting, especially with so many questions to choose from. With a wealth of resources available, it's crucial to identify the most relevant topics that will give you the best return on your time investment.
+
+React interviews often emphasize a mix of core concepts and practical skills, such as state management, hooks, performance optimization, etc. To enhance your preparation, focus on the most commonly asked questions and those that integrate multiple skills for a comprehensive understanding.
+
+In this list, we've compiled 30 essential React interview questions that are essential for your success. Let's dive in!
+
+## Basic Level Questions
+
+### 1. What is React?
+
+React is an open-source JavaScript library developed by Facebook for building user interfaces, particularly single-page applications (SPAs). It allows developers to create reusable UI components that manage their own state. Key benefits include a component-based structure, efficient updates with the virtual DOM, declarative UI for readability, and strong community support.
+
+Key features include:
+
+- Virtual DOM: Enhances performance by minimizing direct DOM manipulations.
+- Component-Based Architecture: Encourages reusability and separation of concerns.
+- Unidirectional Data Flow: Simplifies data management and debugging.
+- JSX Syntax: Allows mixing HTML with JavaScript, making the code more readable.
+
+[Read more about it](/questions/quiz/what-is-react-describe-the-benefits-of-react)
+
+### 2. What is JSX?
+
+JSX stands for JavaScript XML and is a syntax extension for JavaScript that lets you write HTML-like code within JavaScript. It simplifies creating React components. JSX is transformed into JavaScript function calls, usually by Babel. For example, `<div>Hello, world!</div>` becomes `React.createElement('div', null, 'Hello, world!')`.
+
+[Read more about it](/questions/quiz/what-is-jsx-and-how-does-it-work)
+
+### 3. Difference Between React Node, Element, and Component
+
+A React Node is any renderable unit in React, like an element, string, number, or `null`. A React Element is an immutable object describing what to render, created with `JSX` or `React.createElement`. A React Component is a function or class that returns React Elements, allowing for reusable UI pieces.
+
+[Read more about it](/questions/quiz/what-is-the-difference-between-react-node-react-element-and-a-react-component)
+
+### 4. What are fragments in React?
+
+Fragments allow grouping multiple elements without adding extra nodes to the DOM, helping keep the markup clean and efficient.
+
+```jsx
+return (
+  <>
+    <h1>Title</h1>
+    <p>Description</p>
+  </>
+);
+```
+
+[Read more about it](/questions/quiz/what-are-react-fragments-used-for)
+
+### 5. What is the virtual DOM?
+
+The virtual DOM is a lightweight copy of the real DOM. React uses it to optimize rendering by updating only the parts of the DOM that have changed, rather than re-rendering the entire tree.
+
+[Read more about it](/questions/quiz/what-is-virtual-dom-in-react)
+
+### 6. What is the purpose of the key Prop in React?
+
+The key prop in React uniquely identifies elements in a list, helping React optimize rendering by efficiently updating and reordering items. Without unique keys, React may unnecessarily re-render elements, leading to performance issues and bugs.
+
+```jsx
+{
+  items.map((item) => <ListItem key={item.id} value={item.value} />);
+}
+```
+
+[Read more about it](/questions/quiz/what-is-the-purpose-of-the-key-prop-in-react)
+
+### 7. What are the implications of using array indices as `key`s in React?
+
+Using array indices as `key`s in React can lead to performance problems and unexpected behavior. When the order of items in an array changes, React might struggle to accurately determine which items have been modified. This can result in unnecessary re-renders or incorrect updates to the UI. To ensure efficient DOM management, it is advisable to use unique identifiers for keys instead of relying on array indices.
+
+[Read more about it](/questions/quiz/what-is-the-consequence-of-using-array-indices-as-the-value-for-key-s-in-react)
+
+## Intermediate Level Questions
+
+### 8. What are the rules of React hooks?
+
+React hooks must be called at the top level of a function, never inside loops, conditions, or nested functions. They should only be called from React function components or custom hooks. These rules help maintain correct state and lifecycle behavior.
+
+[Read more about it](/questions/quiz/what-are-the-rules-of-react-hooks)
+
+### 9. How do state and props differ in React?
+
+- State: State is an internal data structure managed within a component. It is mutable, meaning that it can be updated and changed over time, allowing the component to respond to user interactions or other events dynamically.
+- Props: Props, short for properties, are external data passed from parent components to child components. They are immutable within the child component, meaning that once set, they cannot be altered by the child. This ensures a clear flow of data and helps maintain the integrity of the component hierarchy.
+
+[Read more about it](/questions/quiz/what-is-the-difference-between-state-and-props-in-react)
+
+### 10. What are controlled components?
+
+Controlled components are form elements whose values are controlled by React state, allowing for more predictable behavior and easier validation.
+
+```jsx
+function MyForm() {
+  const [inputValue, setInputValue] = useState('');
+
+  const handleChange = (e) => {
+    setInputValue(e.target.value);
+  };
+
+  return <input type="text" value={inputValue} onChange={handleChange} />;
+}
+```
+
+[Read more about it](/questions/quiz/what-is-the-difference-between-controlled-and-uncontrolled-react-components)
+
+### 11. Explain hooks in React.
+
+Hooks are functions that allow developers to use state and other React features without writing a class. Common hooks include useState for managing state and useEffect for side effects.
+
+### 12. What distinguishes `useEffect` from `useLayoutEffect` in React?
+
+`useEffect` and `useLayoutEffect` are both hooks utilized for managing side effects in React functional components, but they differ in terms of execution timing:
+
+- `useEffect`: This hook runs asynchronously after the DOM has been updated and painted. It is well-suited for operations like data fetching or setting up subscriptions, as it does not block the rendering process.
+- `useLayoutEffect`: In contrast, `useLayoutEffect` executes synchronously immediately after DOM mutations but before the browser has a chance to paint. This makes it ideal for tasks that require immediate access to the DOM, such as measuring element sizes or synchronizing the UI with the current DOM state.
+
+Code Example:
+
+```jsx
+import React, { useEffect, useLayoutEffect, useRef } from 'react';
+
+function Example() {
+  const ref = useRef();
+
+  useEffect(() => {
+    console.log('useEffect: Runs after DOM paint');
+  });
+
+  useLayoutEffect(() => {
+    console.log('useLayoutEffect: Runs before DOM paint');
+    console.log('Element width:', ref.current.offsetWidth);
+  });
+
+  return <div ref={ref}>Hello</div>;
+}
+```
+
+[Read more about it](/questions/quiz/what-is-the-difference-between-useeffect-and-uselayouteffect-in-react)
+
+### 13. What does the dependency array of `useEffect` affect?
+
+The dependency array of `useEffect` controls when the effect re-runs:
+
+- If it's empty, the effect runs only once after the initial render.
+- If it contains variables, the effect re-runs whenever any of those variables change.
+- If omitted, the effect runs after every render.
+
+[Read more about it](/questions/quiz/what-does-the-dependency-array-of-useeffect-affect)
+
+## Advanced Level Questions
+
+### 14. What is Redux?
+
+Redux is a predictable state management library often used with React to manage application state through actions and reducers, promoting a unidirectional data flow.
+
+### 15. Explain prop drilling.
+
+Prop drilling occurs when you pass data through multiple layers of components, even if some intermediate components don't need that data. This can make your code cumbersome and harder to maintain.
+
+```jsx
+// ParentComponent.js
+import React from 'react';
+import ChildComponentA from './ChildComponentA';
+
+function ParentComponent() {
+  const data = 'Hello from Parent';
+  return <ChildComponentA data={data} />;
+}
+
+// ChildComponentA.js
+import React from 'react';
+import ChildComponentB from './ChildComponentB';
+
+function ChildComponentA({ data }) {
+  return <ChildComponentB data={data} />;
+}
+
+// ChildComponentB.js
+import React from 'react';
+import ChildComponentC from './ChildComponentC';
+
+function ChildComponentB({ data }) {
+  return <ChildComponentC data={data} />;
+}
+
+// ChildComponentC.js
+import React from 'react';
+
+function ChildComponentC({ data }) {
+  return <h1>{data}</h1>;
+}
+
+export default ChildComponentC;
+```
+
+In the example above, `data` is passed from `ParentComponent` to `ChildComponentC` through `ChildComponentA` and `ChildComponentB`, which don't use it. This unnecessary passing exemplifies prop drilling. To avoid this, consider using the Context API for more efficient data sharing.
+
+### 16. What are higher-order components (HOCs)?
+
+HOCs are functions that take a component and return a new component, allowing for code reuse and abstraction of common functionality.
+
+```jsx
+function withLogging(WrappedComponent) {
+  return function EnhancedComponent(props) {
+    console.log('Rendering:', WrappedComponent.name);
+    return <WrappedComponent {...props} />;
+  };
+}
+```
+
+[Read more about it](/questions/quiz/what-are-higher-order-components-in-react)
+
+### 17. Describe lazy loading in React.
+
+Lazy loading is an optimization technique where components or modules are loaded only when they are needed, improving application performance.
+
+```jsx
+const LazyComponent = React.lazy(() => import('./LazyComponent'));
+
+function App() {
+  return (
+    <React.Suspense fallback={<div>Loading...</div>}>
+      <LazyComponent />
+    </React.Suspense>
+  );
+}
+```
+
+[Read more about it](/questions/quiz/what-is-code-splitting-in-a-react-application)
+
+### 18. What is Context API?
+
+The Context API provides a way to share values (like global state) between components without having to explicitly pass props through every level of the tree.
+
+[Read more about it](/questions/quiz/what-are-some-pitfalls-about-using-context-in-react)
+
+### 19. How do you optimize performance in React applications?
+
+Techniques include:
+
+- Using `React.memo` for functional components.
+- Implementing `shouldComponentUpdate` for class components.
+- Utilizing lazy loading for code splitting.
+
+[Read more about it](/questions/quiz/how-would-one-optimize-the-performance-of-react-contexts-to-reduce-rerenders)
+
+### 20. Explain error boundaries in React.
+
+Error boundaries are special components that catch JavaScript errors anywhere in their child component tree, log those errors, and display a fallback UI instead of crashing the whole application.
+
+```jsx
+class ErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError(error) {
+    return { hasError: true };
+  }
+
+  componentDidCatch(error, info) {
+    console.error('Error caught:', error);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return <h1>Something went wrong.</h1>;
+    }
+    return this.props.children;
+  }
+}
+```
+
+[Read more about it](/questions/quiz/what-are-error-boundaries-in-react-for)
+
+### 21. What are custom hooks?
+
+Custom hooks allow developers to extract component logic into reusable functions, promoting cleaner code and better organization.
+
+```jsx
+function useFetch(url) {
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    fetch(url)
+      .then((response) => response.json())
+      .then((data) => setData(data));
+  }, [url]);
+
+  return data;
+}
+```
+
+### 22. How does React handle forms?
+
+Forms can be controlled or uncontrolled; controlled forms use state to manage input values while uncontrolled forms rely on DOM elements directly.
+
+[Read more about it](/questions/quiz/what-is-the-difference-between-controlled-and-uncontrolled-react-components)
+
+### 23. What is server-side rendering (SSR)?
+
+Server-side rendering (SSR) involves rendering components on the server before sending fully rendered HTML to clients, improving initial load times and SEO through efficient hydration processes.
+
+[Read more about it](/questions/quiz/explain-server-side-rendering-of-react-applications-and-its-benefits)
+
+### 24. How do you test React applications?
+
+Testing React applications can be done using Jest and React Testing Library. Jest serves as the testing framework while React Testing Library provides utilities for testing components similarly to user interactions.
+
+[Read more about it](/questions/quiz/how-do-you-test-react-applications)
+
+### 25. Discuss synthetic events in React.
+
+Synthetic events are cross-browser wrappers around native events that provide consistent behavior across different browsers while maintaining performance optimizations.
+
+### 26. Describe `useReducer` hook in React.
+
+The `useReducer` hook is an alternative to `useState` for managing complex state logic by using reducers similar to Redux patterns.
+
+```jsx
+const initialState = { count: 0 };
+
+function reducer(state, action) {
+  switch (action.type) {
+    case 'increment':
+      return { count: state.count + 1 };
+    case 'decrement':
+      return { count: state.count - 1 };
+    default:
+      throw new Error();
+  }
+}
+
+function Counter() {
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  return (
+    <>
+      Count: {state.count}
+      <button onClick={() => dispatch({ type: 'increment' })}>+</button>
+      <button onClick={() => dispatch({ type: 'decrement' })}>-</button>
+    </>
+  );
+}
+```
+
+[Read more about it](/questions/quiz/what-is-the-usereducer-hook-in-react-and-when-should-it-be-used)
+
+### 27. Explain what React hydration is.
+
+Hydration involves attaching event listeners and making server-rendered HTML interactive on the client side. After server-side rendering, React initializes dynamic behavior by attaching event handlers.
+
+[Read more about it](/questions/quiz/explain-what-react-hydration-is)
+
+### 28. What are some React anti-patterns?
+
+React anti-patterns are practices that can lead to inefficient or hard-to-maintain code. Common examples include:
+
+- Directly mutating state instead of using setState
+- Using componentWillMount for data fetching
+- Overusing componentWillReceiveProps
+- Not using keys in lists
+- Excessive inline functions in render
+- Deeply nested state
+
+[Read more about it](/questions/quiz/what-are-some-react-anti-patterns)
+
+### 29. Explain how you would implement routing in a React application using React Router?
+
+You can implement routing using react-router-dom. Here's an example:
+
+```jsx
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+function App() {
+  return (
+    <Router>
+      <Switch>
+        <Route path="/" exact component={Home} />
+        <Route path="/about" component={About} />
+        <Route path="/contact" component={Contact} />
+      </Switch>
+    </Router>
+  );
+}
+```
+
+### 30. How do you localize React applications?
+
+Localization typically involves libraries like react-i18next or react-intl. Set up translation files for different languages and configure the library within your app using provided hooks or components.
+
+```jsx
+// Example using react-i18next
+import { useTranslation } from 'react-i18next';
+
+const MyComponent = () => {
+  const { t } = useTranslation();
+  return <p>{t('welcome_message')}</p>;
+};
+```
+
+[Read more about it](/questions/quiz/how-do-you-localize-react-applications)
