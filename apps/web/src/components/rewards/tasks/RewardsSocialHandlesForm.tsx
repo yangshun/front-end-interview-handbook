@@ -207,9 +207,9 @@ export default function RewardsSocialHandlesForm({
               asChild={true}
               label={
                 <FormattedMessage
-                  defaultMessage="For a profile URL like <bold>https://x.com/in/john-doe</bold>, your handle would be <bold>john-doe</bold>."
+                  defaultMessage="For a profile URL like <bold>https://x.com/john-doe</bold>, your handle would be <bold>john-doe</bold>."
                   description="Rewards campaign help text"
-                  id="qsjqbZ"
+                  id="8ADLgY"
                   values={{
                     bold: (chunks) => (
                       <Text color="inherit" size="inherit" weight="bold">

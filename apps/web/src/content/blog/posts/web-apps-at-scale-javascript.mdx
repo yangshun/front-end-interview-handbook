@@ -54,7 +54,7 @@ Meta uses [ESLint](https://eslint.org/) with [eslint-plugin-flowtype](https://gi
 
 It is recommended to add ESLint rules around sorting imports, sorting object keys alphabetically, sorting React component props alphabetically, etc. This reduces the chances of merge conflicts when developers edit the same file. [Christoph Nakazawa](https://cpojer.net/), ex-manager on Meta's JavaScript infrastructure and React Native team published [@nkzw/eslint-config](https://github.com/cpojer/eslint-config) which has a high degree of overlap with Meta's ESLint configuration.
 
-Coding style is another aspect that can be automated and benefits from consistency. [Prettier](https://prettier.io/) is the de facto choice for formatting. In 2018, Christopher Chedeau [ran a format-athon at Meta](https://twitter.com/Vjeux/status/968310207305564161) where he rallied around 20 engineers across the company to format the codebase with Prettier.
+Coding style is another aspect that can be automated and benefits from consistency. [Prettier](https://prettier.io/) is the de facto choice for formatting. In 2018, Christopher Chedeau [ran a format-athon at Meta](https://x.com/Vjeux/status/968310207305564161) where he rallied around 20 engineers across the company to format the codebase with Prettier.
 
 Linting should ideally be executed during development so that errors and warnings are reflected within the IDE instantly. The fast feedback loop increases productivity as the developer can fix the issues on-the-spot while the context is still fresh. Autofix lint issues and format the code on save by adding to VS Code's `settings.json`:
 

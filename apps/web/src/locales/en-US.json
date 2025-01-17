@@ -1563,6 +1563,10 @@
     "defaultMessage": "Created: Newest to oldest",
     "description": "Sorting option for discussions comment - sort by created"
   },
+  "8ADLgY": {
+    "defaultMessage": "For a profile URL like <bold>https://x.com/john-doe</bold>, your handle would be <bold>john-doe</bold>.",
+    "description": "Rewards campaign help text"
+  },
   "8Eo8Y5": {
     "defaultMessage": "Behavioral Interview Playbook",
     "description": "Title of behavioral interview playbook page"
@@ -8666,10 +8670,6 @@
   "qpQlsV": {
     "defaultMessage": "Front End System Design Playbook",
     "description": "Social title for frontend system design playbook cover page"
-  },
-  "qsjqbZ": {
-    "defaultMessage": "For a profile URL like <bold>https://x.com/in/john-doe</bold>, your handle would be <bold>john-doe</bold>.",
-    "description": "Rewards campaign help text"
   },
   "qv5NJ8": {
     "defaultMessage": "Feedback submitted successfully",

@@ -76,10 +76,10 @@ export default function ShareButton({
             via: 'greatfrontend',
           },
         }),
-        'https://twitter.com',
+        'https://x.com',
       ).toString(),
       icon: RiTwitterXFill,
-      label: 'Twitter',
+      label: 'X / Twitter',
       value: 'twitter',
     },
     {

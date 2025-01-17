@@ -60,7 +60,7 @@ export const SocialLinks: Record<
     userCount: null,
   },
   x: {
-    href: 'https://www.twitter.com/greatfrontend',
+    href: 'https://x.com/greatfrontend',
     icon: RiTwitterXFill,
     key: 'x',
     name: 'Twitter / X',

@@ -59,7 +59,7 @@ export function useRewardsTasks() {
         description: 'Title for task',
         id: 'RL7b8v',
       }),
-      taskHref: 'https://twitter.com/greatfrontend',
+      taskHref: 'https://x.com/greatfrontend',
     },
   ] as const;
 
