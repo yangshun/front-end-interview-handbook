@@ -2,13 +2,13 @@ import type React from 'react';
 import { z } from 'zod';
 
 export type EmailKey =
-  | 'EMAIL_VERIFY'
+  | 'AUTH_EMAIL_VERIFY'
+  | 'AUTH_PASSWORD_RESET'
   | 'INTERVIEWS_CHECKOUT_FIRST_TIME'
   | 'INTERVIEWS_CHECKOUT_MULTIPLE_TIMES'
   | 'INTERVIEWS_PROGRESS'
   | 'INTERVIEWS_WELCOME_EMAIL_24_HOURS'
   | 'INTERVIEWS_WELCOME_EMAIL_IMMEDIATE'
-  | 'PASSWORD_RESET'
   | 'PAYMENT_FAILED';
 
 export const EmailContactListKeyZodEnum = z.enum([

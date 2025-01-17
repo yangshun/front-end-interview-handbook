@@ -19,10 +19,13 @@ import {
 
 // This email template is just to generate HTML content to be used in Supabase email template
 // It is not triggered from GFE website
-export default function EmailsTemplateEmailVerify() {
+export default function EmailsTemplateAuthEmailVerify() {
   return (
     <Html lang="en">
-      <Preview>Verify your GreatFrontEnd account email address</Preview>
+      <Preview>
+        Thanks for signing up with GreatFrontEnd! Simply click the button below,
+        verify your email address and you're free to explore the platform.
+      </Preview>
       <Body style={mainStyle}>
         <Container style={containerStyle}>
           <EmailsHeader />

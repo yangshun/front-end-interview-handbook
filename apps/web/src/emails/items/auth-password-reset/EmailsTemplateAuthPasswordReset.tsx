@@ -19,7 +19,7 @@ import {
 
 // This email template is just to generate HTML content to be used in Supabase email template
 // It is not triggered from GFE website
-export default function EmailsTemplatePasswordReset() {
+export default function EmailsTemplateAuthPasswordReset() {
   return (
     <Html lang="en">
       <Preview>Reset your GreatFrontEnd password</Preview>
