@@ -3,6 +3,7 @@ import React from 'react';
 
 import type { Props as DropdownMenuItemProps } from './DropdownMenuItem';
 import DropdownMenuItemContent from './DropdownMenuItemContent';
+import type { Props as DropdownMenuLabelProps } from './DropdownMenuLabel';
 import {
   dropdownContentClassName,
   dropdownContentItemClassName,
@@ -11,7 +12,9 @@ import type { TextColor } from '../Text';
 
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 
-type ChildItem = React.ReactElement<DropdownMenuItemProps>;
+type ChildItem = React.ReactElement<
+  DropdownMenuItemProps | DropdownMenuLabelProps
+>;
 
 export type Props = Readonly<{
   __forceDark?: boolean;

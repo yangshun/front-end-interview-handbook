@@ -231,8 +231,6 @@ export default function DropdownMenuExamples() {
             />
           ))}
         </DropdownMenu>
-      </div>
-      <div className="flex gap-x-12">
         <DropdownMenu icon={RiMenuLine} label="Submenu">
           <DropdownMenu.Sub icon={RiMoonLine} label="Theme">
             <DropdownMenu.Item icon={RiSunLine} label="Light" />
@@ -251,7 +249,29 @@ export default function DropdownMenuExamples() {
             label="Log out"
           />
         </DropdownMenu>
+        <DropdownMenu icon={RiMenuLine} label="Kitchen sink">
+          <DropdownMenu.Label>Hello</DropdownMenu.Label>
+          <DropdownMenu.Sub icon={RiMoonLine} label="Theme">
+            <DropdownMenu.Label>Themes</DropdownMenu.Label>
+            <DropdownMenu.Item icon={RiSunLine} label="Light" />
+            <DropdownMenu.Item icon={RiMoonLine} label="Dark" />
+            <DropdownMenu.Item icon={RiComputerLine} label="System" />
+          </DropdownMenu.Sub>
+          <DropdownMenu.Sub icon={RiTranslate2} label="Language">
+            <DropdownMenu.Label>Languages</DropdownMenu.Label>
+            <DropdownMenu.Item label="English" />
+            <DropdownMenu.Item label="Chinese" />
+            <DropdownMenu.Item label="Japanese" />
+          </DropdownMenu.Sub>
+          <DropdownMenu.Item icon={RiSettings3Line} label="Settings" />
+          <DropdownMenu.Item
+            color="error"
+            icon={RiLogoutBoxLine}
+            label="Log out"
+          />
+        </DropdownMenu>
       </div>
+
       <div>
         <GuidesDropdownMenu guide="FRONT_END_INTERVIEW_PLAYBOOK" />
       </div>

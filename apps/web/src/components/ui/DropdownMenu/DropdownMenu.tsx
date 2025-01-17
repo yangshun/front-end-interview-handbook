@@ -4,6 +4,8 @@ import { RiArrowDownSLine } from 'react-icons/ri';
 
 import type { Props as DropdownMenuItemProps } from './DropdownMenuItem';
 import DropdownMenuItem from './DropdownMenuItem';
+import type { Props as DropdownMenuLabelProps } from './DropdownMenuLabel';
+import DropdownMenuLabel from './DropdownMenuLabel';
 import type { Props as DropdownMenuSubProps } from './DropdownMenuSub';
 import DropdownMenuSub from './DropdownMenuSub';
 import { dropdownContentClassName } from './dropdownStyles';
@@ -20,7 +22,9 @@ export type DropdownMenuContentAlignment = 'center' | 'end' | 'start';
 export type DropdownMenuContentSide = 'bottom' | 'left' | 'right' | 'top';
 
 type ChildItem =
-  | React.ReactElement<DropdownMenuItemProps | DropdownMenuSubProps>
+  | React.ReactElement<
+      DropdownMenuItemProps | DropdownMenuLabelProps | DropdownMenuSubProps
+    >
   | false
   | null
   | undefined;
@@ -60,6 +64,7 @@ type Props = ButtonModeProps | CustomTriggerModeProps;
 
 DropdownMenu.Item = DropdownMenuItem;
 DropdownMenu.Sub = DropdownMenuSub;
+DropdownMenu.Label = DropdownMenuLabel;
 
 export default function DropdownMenu({
   __forceDark = false,
