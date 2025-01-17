@@ -503,10 +503,6 @@
     "defaultMessage": "Access to updates while subscription is active",
     "description": "Feature of monthly pricing plan"
   },
-  "15O0qb": {
-    "defaultMessage": "Get Started",
-    "description": "Link to get started page"
-  },
   "17hELe": {
     "defaultMessage": "Disconnect your GitHub Auth account",
     "description": "Label to disconnect social"
@@ -738,6 +734,10 @@
   "2rcoOT": {
     "defaultMessage": "Edit",
     "description": "Edit button label"
+  },
+  "2s9sfp": {
+    "defaultMessage": "Our diverse network of team members, contributors, industry experts, and community leaders spans across the globe.",
+    "description": "Team page subtitle"
   },
   "2sBv9j": {
     "defaultMessage": "Popularity: Most to least upvotes",
@@ -3850,6 +3850,10 @@
   "Midz7M": {
     "defaultMessage": "Try using a different card that supports payments in the required currency.",
     "description": "Reason label for wait for currency supported card"
+  },
+  "Mn7jsR": {
+    "defaultMessage": "Our Team",
+    "description": "Team page title"
   },
   "MoV/nU": {
     "defaultMessage": "URL copied to clipboard",

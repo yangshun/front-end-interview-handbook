@@ -4,6 +4,7 @@ import clsx from 'clsx';
 import { startCase } from 'lodash-es';
 import { RiArrowRightUpLine } from 'react-icons/ri';
 
+import { FormattedMessage } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import type { BadgeVariant } from '~/components/ui/Badge';
 import Badge from '~/components/ui/Badge';
@@ -13,6 +14,10 @@ import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
+import {
+  themeGradientHeading,
+  themeMarketingHeadingSize,
+} from '~/components/ui/theme';
 
 import type { TeamCategory, TeamUser } from './MarketingTeamUsers';
 
@@ -30,17 +35,46 @@ export default function MarketingTeamPage({
 }>) {
   return (
     <Container width="marketing">
-      <div className="flex flex-col gap-y-12 py-12 lg:gap-y-16 lg:py-16">
-        <div className="flex flex-col gap-y-4">
-          <Heading level="heading3">Our team</Heading>
-          <Text className="block text-xl" size="inherit">
-            Our diverse network of team members, contributors, industry experts,
-            and community leaders spans across the globe.
-          </Text>
-        </div>
+      <div className="flex flex-col py-12 lg:py-20">
+        <Heading
+          className={clsx(
+            themeGradientHeading,
+            themeMarketingHeadingSize,
+            'max-w-lg pb-1 md:max-w-2xl',
+          )}
+          level="custom"
+          tag="h1"
+          weight="medium">
+          <FormattedMessage
+            defaultMessage="Our Team"
+            description="Team page title"
+            id="Mn7jsR"
+          />
+        </Heading>
+        <Text
+          className={clsx(
+            'mt-6 block',
+            'text-base lg:text-lg',
+            'lg:font-medium',
+            'lg:max-w-[634px]',
+            'text-pretty',
+          )}
+          color="secondary"
+          size="inherit"
+          weight="inherit">
+          <FormattedMessage
+            defaultMessage="Our diverse network of team members, contributors, industry experts, and community leaders spans across the globe."
+            description="Team page subtitle"
+            id="2s9sfp"
+          />
+        </Text>
         <Section>
           <CardContainer>
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <div
+              className={clsx(
+                'grid gap-6 sm:grid-cols-2 lg:grid-cols-3',
+                'mt-12 lg:mt-16',
+              )}>
               {users.map((user) => (
                 <Card
                   key={user.name}

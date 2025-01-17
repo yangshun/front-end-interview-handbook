@@ -14,7 +14,9 @@ import {
   themeBackgroundLayerColor,
   themeBackgroundLayerEmphasized_Hover,
   themeBorderColor,
+  themeGradientHeading,
   themeIconColor,
+  themeMarketingHeadingSize,
 } from '~/components/ui/theme';
 
 import { fetchJobPostings } from '~/db/contentlayer/JobPostingReader';
@@ -117,19 +119,35 @@ export default async function Page({ searchParams }: Props) {
   });
 
   return (
-    <Container
-      className="my-10 grid gap-y-8 md:my-20 md:gap-y-16"
-      width="marketing">
-      <div className="flex flex-col gap-y-6">
-        <Heading level="heading2">Open positions</Heading>
-        <Text className="text-lg" color="subtitle" size="inherit">
-          Join us in building innovative products that are well-loved by Front
-          End Engineers.
-        </Text>
-      </div>
+    <Container className="flex flex-col py-12 lg:py-20" width="marketing">
+      <Heading
+        className={clsx(
+          themeGradientHeading,
+          themeMarketingHeadingSize,
+          'max-w-lg pb-1 md:max-w-2xl',
+        )}
+        level="custom"
+        tag="h1"
+        weight="medium">
+        Open Positions
+      </Heading>
+      <Text
+        className={clsx(
+          'mt-6 block',
+          'text-base lg:text-lg',
+          'lg:font-medium',
+          'lg:max-w-3xl',
+          'text-pretty',
+        )}
+        color="secondary"
+        size="inherit"
+        weight="inherit">
+        Join us in building innovative products that are well-loved by Front End
+        Engineers.
+      </Text>
       <Section>
         {filteredJobPostings.length > 0 ? (
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className={clsx('grid gap-6 md:grid-cols-2', 'mt-12 lg:mt-16')}>
             {filteredJobPostings.map((jobPosting) => (
               <JobPostingItem
                 key={jobPosting.slug}

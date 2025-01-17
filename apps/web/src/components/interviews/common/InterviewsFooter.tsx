@@ -17,12 +17,12 @@ function useFooterNavigation() {
       key: 'practice',
       links: [
         {
-          href: '/get-started',
+          href: '/interviews/get-started',
           key: 'get_started',
           name: intl.formatMessage({
-            defaultMessage: 'Get Started',
+            defaultMessage: 'Get started',
             description: 'Link to get started page',
-            id: '15O0qb',
+            id: '60XjnL',
           }),
         },
         {
@@ -175,7 +175,7 @@ function useFooterNavigation() {
         },
         {
           href: '/jobs',
-          key: 'hiring',
+          key: 'jobs',
           name: intl.formatMessage({
             defaultMessage: 'Careers',
             description: 'Link to careers page',
