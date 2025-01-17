@@ -241,14 +241,16 @@ export default function TilesPanelTab<TabType extends string>({
       )}>
       {href ? (
         <I18nLink
-          className={clsx('flex gap-x-1.5 whitespace-nowrap text-xs')}
+          className={clsx(
+            'flex items-center gap-x-1.5 whitespace-nowrap text-xs',
+          )}
           href={href}>
           {contents}
         </I18nLink>
       ) : (
         <TabButton
           className={clsx(
-            'flex gap-x-1.5 whitespace-nowrap text-xs',
+            'flex items-center gap-x-1.5 whitespace-nowrap text-xs',
             isDragging && 'invisible',
           )}
           onClick={onClick}

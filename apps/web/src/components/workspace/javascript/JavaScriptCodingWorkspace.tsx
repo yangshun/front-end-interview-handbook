@@ -231,11 +231,10 @@ function JavaScriptCodingWorkspaceImpl({
           solution={solution}
         />
       ),
-      icon: CodingWorkspaceTabIcons.solution.icon,
-      iconSecondary:
+      icon:
         question.metadata.access !== 'free'
           ? () => <InterviewsPremiumBadge iconOnly={true} />
-          : undefined,
+          : CodingWorkspaceTabIcons.solution.icon,
       label: 'Solution',
     },
     submission_test_cases: {
