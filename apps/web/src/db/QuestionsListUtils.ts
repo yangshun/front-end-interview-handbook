@@ -56,37 +56,6 @@ export async function fetchQuestionLists(intl: IntlShape) {
           value,
         }) as const,
     ),
-    practice: (
-      [
-        {
-          label: intl.formatMessage({
-            defaultMessage: 'Coding',
-            description: 'Question format',
-            id: 'eJU0PN',
-          }),
-          tab: 'coding',
-          value: 'coding',
-        },
-        {
-          label: formatsData['system-design'].label,
-          tab: 'system-design',
-          value: 'system-design',
-        },
-        {
-          label: formatsData.quiz.label,
-          tab: 'quiz',
-          value: 'quiz',
-        },
-      ] as const
-    ).map(
-      ({ label, value, tab }) =>
-        ({
-          label,
-          tab,
-          type: 'practice',
-          value,
-        }) as const,
-    ),
     studyPlans: reduceStudyListData(studyLists.studyPlans),
   };
 }

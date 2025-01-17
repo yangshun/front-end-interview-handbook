@@ -59,12 +59,6 @@ export const questionListsRouter = router({
         },
       }) => {
         const intl = await getIntlClientOnly('en-US');
-        const codingLabel = intl.formatMessage({
-          defaultMessage: 'Coding',
-          description: 'Question format',
-          id: 'eJU0PN',
-        });
-
         const tab =
           tabInput != null ? (tabInput as QuestionPracticeFormat) : undefined;
 
@@ -135,6 +129,11 @@ export const questionListsRouter = router({
             type: 'format',
             value: format_,
           });
+          const codingLabel = intl.formatMessage({
+            defaultMessage: 'Coding',
+            description: 'Question format',
+            id: 'eJU0PN',
+          });
 
           return {
             listType: {
@@ -170,9 +169,14 @@ export const questionListsRouter = router({
           } as const;
         }
 
+        const allPracticeQuestionsLabel = intl.formatMessage({
+          defaultMessage: 'All practice questions',
+          description: 'Question list',
+          id: 'AbV98R',
+        });
+
         if (practice) {
           const practice_ = practice as QuestionPracticeFormat;
-          const formatData = getQuestionFormatsData(intl);
           const { questions, tabs } = await fetchQuestionsList({
             tab,
             type: 'practice',
@@ -187,10 +191,7 @@ export const questionListsRouter = router({
             },
             questions,
             tabs,
-            title:
-              practice_ === 'coding'
-                ? codingLabel
-                : formatData[practice_].label,
+            title: allPracticeQuestionsLabel,
           } as const;
         }
 
@@ -204,7 +205,7 @@ export const questionListsRouter = router({
           listType: QuestionListTypeDefault,
           questions: questionsCoding,
           tabs,
-          title: codingLabel,
+          title: allPracticeQuestionsLabel,
         } as const;
       },
     ),

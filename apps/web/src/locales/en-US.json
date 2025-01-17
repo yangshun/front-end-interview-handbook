@@ -611,10 +611,6 @@
     "defaultMessage": "Search questions",
     "description": "Placeholder for search input of question list"
   },
-  "1wO0TT": {
-    "defaultMessage": "All practice questions",
-    "description": "All front end interview practice questions"
-  },
   "1wrVTx": {
     "defaultMessage": "Edit on GitHub",
     "description": "Edit on GitHub button"
@@ -1894,6 +1890,10 @@
   "Aarfzt": {
     "defaultMessage": "Start task",
     "description": "Label for button to start task"
+  },
+  "AbV98R": {
+    "defaultMessage": "All practice questions",
+    "description": "Question list"
   },
   "AcrAV0": {
     "defaultMessage": "You are not subscribed. <link>View subscription plans</link> for GreatFrontEnd Projects.",
@@ -5738,10 +5738,6 @@
   "YBlo/J": {
     "defaultMessage": "As mentioned above, there are many ways to host your project for free. Our recommend hosts are:",
     "description": "Text for Deployment Info in Projects"
-  },
-  "YC+V97": {
-    "defaultMessage": "All practice questions",
-    "description": "Practice for interviews question"
   },
   "YIry1B": {
     "defaultMessage": "Pricing plans",

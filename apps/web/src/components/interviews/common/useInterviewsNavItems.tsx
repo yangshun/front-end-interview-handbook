@@ -376,8 +376,8 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
         id: 'question-all',
         label: intl.formatMessage({
           defaultMessage: 'All practice questions',
-          description: 'Practice for interviews question',
-          id: 'YC+V97',
+          description: 'Question list',
+          id: 'AbV98R',
         }),
         onClick: () => {
           gtag.event({

@@ -51,22 +51,25 @@ function DropdownContent({
   }
 
   const studyPlansMap = convertToMap(questionLists.studyPlans);
-  const categories: ReadonlyArray<QuestionListCategories> = [
+  const categories: ReadonlyArray<QuestionListCategories | QuestionListItem> = [
     {
-      items: questionLists.practice,
-      key: 'practice',
       label: intl.formatMessage({
         defaultMessage: 'All practice questions',
-        description: 'All front end interview practice questions',
-        id: '1wO0TT',
+        description: 'Question list',
+        id: 'AbV98R',
       }),
+      menuType: 'item',
+      tab: 'coding',
+      type: 'practice',
+      value: 'coding',
     },
     {
       items: [
-        studyPlansMap.gfe75,
-        studyPlansMap.blind75,
+        { menuType: 'item', ...studyPlansMap.gfe75 },
+        { menuType: 'item', ...studyPlansMap.blind75 },
         {
           label: formatData['system-design'].label,
+          menuType: 'item',
           type: 'format',
           value: formatData['system-design'].value,
         },
@@ -77,12 +80,13 @@ function DropdownContent({
         description: 'Recommended interview preparation strategy',
         id: 'jCBp3Z',
       }),
+      menuType: 'list',
     },
     {
       items: [
-        studyPlansMap['one-week'],
-        studyPlansMap['one-month'],
-        studyPlansMap['three-months'],
+        { menuType: 'item', ...studyPlansMap['one-week'] },
+        { menuType: 'item', ...studyPlansMap['one-month'] },
+        { menuType: 'item', ...studyPlansMap['three-months'] },
       ],
       key: 'study-plan',
       label: intl.formatMessage({
@@ -90,42 +94,67 @@ function DropdownContent({
         description: 'Label for study plans study list',
         id: 'mKOi1B',
       }),
+      menuType: 'list',
       premiumFeature: 'study-plans',
     },
     {
-      items: questionLists.focusAreas,
+      items: questionLists.focusAreas.map((item) => ({
+        menuType: 'item',
+        ...item,
+      })),
       key: 'focus-area',
       label: intl.formatMessage({
         defaultMessage: 'Focus areas',
         description: 'Label for focus areas study list',
         id: 'l714HN',
       }),
+      menuType: 'list',
       premiumFeature: 'focus-areas',
     },
     {
-      items: questionLists.companies,
+      items: questionLists.companies.map((item) => ({
+        menuType: 'item',
+        ...item,
+      })),
       key: 'company',
       label: intl.formatMessage({
         defaultMessage: 'Company guides',
         description: 'Label for company study list',
         id: 'Ekf7hb',
       }),
+      menuType: 'list',
       premiumFeature: 'company-guides',
     },
     {
-      items: questionLists.formats,
+      items: questionLists.formats.map((item) => ({
+        menuType: 'item',
+        ...item,
+      })),
       key: 'formats',
       label: intl.formatMessage({
         defaultMessage: 'Question formats',
         description: 'Label for question format list',
         id: 'nAM572',
       }),
+      menuType: 'list',
     },
     {
       items: [
-        ...questionLists.frameworks,
-        { type: 'divider', value: 'divider-1' },
-        ...questionLists.languages,
+        ...questionLists.frameworks.map(
+          (item) =>
+            ({
+              menuType: 'item',
+              ...item,
+            }) as const,
+        ),
+        { menuType: 'divider', value: 'divider-1' },
+        ...questionLists.languages.map(
+          (item) =>
+            ({
+              menuType: 'item',
+              ...item,
+            }) as const,
+        ),
       ],
       key: 'frameworks-languages',
       label: intl.formatMessage({
@@ -133,16 +162,23 @@ function DropdownContent({
         description: 'Front end frameworks or language',
         id: 'pHQFA0',
       }),
+      menuType: 'list',
     },
   ];
 
   function activeAccordionItem() {
     return categories
-      .filter(
-        (category) =>
-          !!category.items.find((item) => item.value === listType.value),
-      )
-      .map((section) => section.key);
+      .flatMap((category) => {
+        if (
+          category.menuType === 'list' &&
+          category.items.find((item) => item.value === listType.value)
+        ) {
+          return [category];
+        }
+
+        return [];
+      })
+      .map((category) => category.key);
   }
 
   return (
@@ -155,97 +191,133 @@ function DropdownContent({
           defaultValue={activeAccordionItem()}
           type="multiple">
           <div>
-            {categories.map((category) => (
-              <AccordionItem
-                key={category.key}
-                className="flex flex-col gap-1"
-                value={category.key}>
-                <AccordionTrigger className="!py-1 px-2">
-                  <div className="flex items-center gap-2">
-                    <Text color="secondary" size="body3" weight="medium">
-                      {category.label}
-                    </Text>
-                    {category.premiumFeature && <SidebarPremiumChip />}
-                  </div>
-                </AccordionTrigger>
-                <AccordionContent className="!pb-0">
-                  <ul className={clsx('flex flex-col gap-y-px')} role="list">
-                    {category.items.map((item) =>
-                      item.type === 'divider' ? (
-                        <Divider key={item.value} />
-                      ) : (
-                        <DropdownMenu.Item
-                          key={item.value}
-                          label={
-                            <Text
-                              className="w-full"
-                              color={
-                                listType.value === item.value
-                                  ? 'active'
-                                  : 'default'
-                              }
-                              size="body2"
-                              weight={
-                                listType.value === item.value
-                                  ? 'bold'
-                                  : 'normal'
-                              }>
-                              {item.label}
-                            </Text>
-                          }
-                          onClick={() => {
-                            category.premiumFeature && !userProfile?.premium
-                              ? openPricingDialog(category.premiumFeature)
-                              : onChangeListType(item);
-                          }}
-                        />
-                      ),
-                    )}
-                  </ul>
-                </AccordionContent>
-              </AccordionItem>
-            ))}
+            {categories.map((categoryItem) => {
+              switch (categoryItem.menuType) {
+                case 'list': {
+                  return (
+                    <AccordionItem
+                      key={categoryItem.key}
+                      className="flex flex-col gap-1"
+                      value={categoryItem.key}>
+                      <AccordionTrigger className="!py-1 px-2">
+                        <div className="flex items-center gap-2">
+                          <Text color="secondary" size="body3" weight="medium">
+                            {categoryItem.label}
+                          </Text>
+                          {categoryItem.premiumFeature && (
+                            <SidebarPremiumChip />
+                          )}
+                        </div>
+                      </AccordionTrigger>
+                      <AccordionContent className="!pb-0">
+                        <ul
+                          className={clsx('flex flex-col gap-y-px')}
+                          role="list">
+                          {categoryItem.items.map((item) =>
+                            item.menuType === 'divider' ? (
+                              <Divider key={item.value} />
+                            ) : (
+                              <DropdownMenu.Item
+                                key={item.value}
+                                label={
+                                  <Text
+                                    className="w-full"
+                                    color={
+                                      listType.value === item.value
+                                        ? 'active'
+                                        : 'default'
+                                    }
+                                    size="body2"
+                                    weight={
+                                      listType.value === item.value
+                                        ? 'bold'
+                                        : 'normal'
+                                    }>
+                                    {item.label}
+                                  </Text>
+                                }
+                                onClick={() => {
+                                  categoryItem.premiumFeature &&
+                                  !userProfile?.premium
+                                    ? openPricingDialog(
+                                        categoryItem.premiumFeature,
+                                      )
+                                    : onChangeListType(item);
+                                }}
+                              />
+                            ),
+                          )}
+                        </ul>
+                      </AccordionContent>
+                    </AccordionItem>
+                  );
+                }
+              }
+            })}
           </div>
         </Accordion>
       </ScrollArea>
-
-      {/* DropdownMenu.Sub for screen greater than tablet */}
+      {/* DropdownMenu for screen greater than tablet */}
       <div className="hidden sm:block">
-        {categories.map((category) => (
-          <DropdownMenu.Sub
-            key={category.key}
-            endAddOn={
-              category.premiumFeature ? <SidebarPremiumChip /> : undefined
-            }
-            label={category.label}>
-            {category.items.map((item) =>
-              item.type === 'divider' ? (
-                <Divider key={item.value} />
-              ) : (
+        {categories.map((categoryItem) => {
+          switch (categoryItem.menuType) {
+            case 'item': {
+              return (
                 <DropdownMenu.Item
-                  key={item.value}
-                  label={item.label}
+                  key={categoryItem.value}
+                  label={categoryItem.label}
                   onClick={() => {
-                    category.premiumFeature && !userProfile?.premium
-                      ? openPricingDialog(category.premiumFeature)
-                      : onChangeListType(item);
+                    onChangeListType(categoryItem);
                   }}
                 />
-              ),
-            )}
-          </DropdownMenu.Sub>
-        ))}
+              );
+            }
+            case 'divider': {
+              return <Divider key={categoryItem.value} />;
+            }
+            case 'list': {
+              return (
+                <DropdownMenu.Sub
+                  key={categoryItem.key}
+                  endAddOn={
+                    categoryItem.premiumFeature ? (
+                      <SidebarPremiumChip />
+                    ) : undefined
+                  }
+                  label={categoryItem.label}>
+                  {categoryItem.items.map((item) =>
+                    item.menuType === 'divider' ? (
+                      <Divider key={item.value} />
+                    ) : (
+                      <DropdownMenu.Item
+                        key={item.value}
+                        label={item.label}
+                        onClick={() => {
+                          categoryItem.premiumFeature && !userProfile?.premium
+                            ? openPricingDialog(categoryItem.premiumFeature)
+                            : onChangeListType(item);
+                        }}
+                      />
+                    ),
+                  )}
+                </DropdownMenu.Sub>
+              );
+            }
+          }
+        })}
       </div>
     </>
   );
 }
+type QuestionListItem =
+  | Readonly<{ menuType: 'divider'; value: string }>
+  | Readonly<QuestionListTypeWithLabel & { menuType: 'item' }>;
 
 type QuestionListCategories = Readonly<{
-  items: ReadonlyArray<
-    QuestionListTypeWithLabel | Readonly<{ type: 'divider'; value: string }>
-  >;
+  items: ReadonlyArray<QuestionListItem>;
   key: string;
   label: string;
+  menuType: 'list';
   premiumFeature?: InterviewsPurchasePremiumFeature;
 }>;
 
