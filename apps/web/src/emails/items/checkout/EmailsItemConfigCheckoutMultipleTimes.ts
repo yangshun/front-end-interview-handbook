@@ -16,7 +16,7 @@ export const EmailsItemConfigCheckoutMultipleTimes: EmailItemConfig<
     name: 'John',
   },
   from: {
-    email: 'hello@greatfrontend.com',
+    email: 'team@greatfrontend.com',
     name: 'GreatFrontEnd',
   },
   id: 'INTERVIEWS_CHECKOUT_MULTIPLE_TIMES',

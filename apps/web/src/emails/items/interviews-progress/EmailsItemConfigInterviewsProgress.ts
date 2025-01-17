@@ -9,7 +9,7 @@ export const EmailsItemConfigInterviewsProgress: EmailItemConfig<
   contactListKey: 'PROMOTIONS',
   defaultProps: {},
   from: {
-    email: 'hello@greatfrontend.com',
+    email: 'team@greatfrontend.com',
     name: 'GreatFrontEnd',
   },
   id: 'INTERVIEWS_PROGRESS',

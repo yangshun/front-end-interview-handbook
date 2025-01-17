@@ -9,7 +9,7 @@ export const EmailsItemConfigWelcomeSeriesImmediate: EmailItemConfig<
   contactListKey: 'INTERVIEWS_TIPS',
   defaultProps: {},
   from: {
-    email: 'hello@greatfrontend.com',
+    email: 'team@greatfrontend.com',
     name: 'GreatFrontEnd',
   },
   id: 'INTERVIEWS_WELCOME_EMAIL_IMMEDIATE',
