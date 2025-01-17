@@ -40,7 +40,7 @@ export default function RewardsIntroPage() {
             </Text>
             <RewardsTaskList isDisabled={isLoading} tasks={tasksWithStatus} />
           </div>
-          <RewardsFooter isDisabled={isLoading} />
+          <RewardsFooter isDisabled={user != null && isLoading} />
         </>
       ) : (
         <RewardsCompletePromoCode promoCode={promoCode} />
