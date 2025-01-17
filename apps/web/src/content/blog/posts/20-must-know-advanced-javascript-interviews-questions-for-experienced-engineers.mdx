@@ -121,11 +121,13 @@ Property flags and descriptors in JavaScript manage how object properties behave
 
 ### Property Flags
 
-Property flags are defined using **`Object.defineProperty()`**. Key flags include:
+Property flags are used to specify the behavior of a property on an object. Here are the available flags:
 
 - **`writable`**: Can the property be written to? Default is **`true`**.
 - **`enumerable`**: Is the property enumerable? Default is **`true`**.
 - **`configurable`**: Can the property be deleted or reconfigured? Default is **`true`**.
+
+When we create a property the usual way, all of them are `true`. But we also can change them anytime.
 
 ### Property Descriptors
 
@@ -441,12 +443,14 @@ self.addEventListener('fetch', (event) => {
 
 ```js
 // Without strict mode
-function defineNumber() { count = 123; }
+function defineNumber() {
+  count = 123;
+}
 defineNumber();
 console.log(count); // Logs: 123
 
 // With strict mode
-'use strict';
+('use strict');
 function strictFunc() {
   strictVar = 123; // ReferenceError
 }
@@ -480,7 +484,6 @@ Minimize direct DOM access by batching changes, using `documentFragment`, and le
 Minimize the number of requests, use caching, compress data, and leverage HTTP/2 and service workers. Combine CSS files, use `Cache-Control` headers for static assets, and enable Gzip compression to reduce data size.
 
 [Explore how to optimize network requests for better performance on GreatFrontEnd](/questions/quiz/how-can-you-optimize-network-requests-for-better-performance?format=quiz)
-
 
 ## 11. How can you prevent clickjacking attacks?
 
@@ -630,7 +633,6 @@ Tools such as Chrome DevTools, Lighthouse, WebPageTest, and JSPerf are commonly 
 Web Workers enable running JavaScript in the background, independent of the main execution thread of a web application. This is beneficial for handling intensive computations without blocking the user interface. Web Workers are created using the `Worker` constructor and communication with them is facilitated through the `postMessage` and `onmessage` methods.
 
 [Explore what Web Workers are and how they can be used to improve performance on GreatFrontEnd](/questions/quiz/what-are-web-workers-and-how-can-they-be-used-to-improve-performance?format=quiz)
-
 
 ### Conclusion
 
