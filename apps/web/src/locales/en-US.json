@@ -3703,6 +3703,10 @@
     "defaultMessage": "Unlock challenge",
     "description": "Unlock premium access for a project"
   },
+  "Lm4GCE": {
+    "defaultMessage": "Practice questions",
+    "description": "All front end interview practice questions"
+  },
   "LmwfmQ": {
     "defaultMessage": "Front End System Design",
     "description": "Page title for System design question format page"
@@ -3950,6 +3954,10 @@
   "NgyZKR": {
     "defaultMessage": "Purchase premium to unlock study plans and all the best materials we have to offer.",
     "description": "Paywall subtitle for study plans feature"
+  },
+  "NioKQ5": {
+    "defaultMessage": "The largest bank of {questionCount}+ practice questions for front end interviews.",
+    "description": "Description for practice questions section"
   },
   "NjnYqU": {
     "defaultMessage": "Sort by",
@@ -6167,6 +6175,10 @@
     "defaultMessage": "Next",
     "description": "Label for button leading to the next page"
   },
+  "b7LUKd": {
+    "defaultMessage": "See all questions",
+    "description": "Label for see all practice questions button"
+  },
   "b7eX+v": {
     "defaultMessage": "Stripe",
     "description": "Placeholder for \"Company\" input on Projects profile onboarding page"
@@ -6746,6 +6758,10 @@
   "emlXOt": {
     "defaultMessage": "You've just attained level {level} ✨ Congratulations!",
     "description": "Description for level up"
+  },
+  "enDTfj": {
+    "defaultMessage": "See all {questionCount} practice questions",
+    "description": "Label for see all practice questions button"
   },
   "epwmlp": {
     "defaultMessage": "Visit the ultimate swag store for Front End Engineers! <strong>Check it out</strong>",
@@ -9006,6 +9022,10 @@
   "tGFT2g": {
     "defaultMessage": "Premium challenge that is locked",
     "description": "Label for projects premium challenge"
+  },
+  "tJ0eYV": {
+    "defaultMessage": "Practice Questions",
+    "description": "All front end interview practice questions"
   },
   "tJexBp": {
     "defaultMessage": "Practical guides",
