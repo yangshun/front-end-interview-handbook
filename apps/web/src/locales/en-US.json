@@ -1507,10 +1507,6 @@
     "defaultMessage": "Blog",
     "description": "Link to blog page"
   },
-  "7noH4F": {
-    "defaultMessage": "Close filters",
-    "description": "Label for close filter button"
-  },
   "7o0DXO": {
     "defaultMessage": "All our challenges come with at least 1 official solution (coming soon) and step-by-step guide from senior big tech engineers. Learn best practices as early as possible.",
     "description": "Description of 'Practical foundation' feature in Projects marketing page"
@@ -7902,6 +7898,10 @@
   "li6epc": {
     "defaultMessage": "Made by experienced senior engineers",
     "description": "Marketing section title"
+  },
+  "lmhAqm": {
+    "defaultMessage": "Hide",
+    "description": "Label for close filter button"
   },
   "lpgN/0": {
     "defaultMessage": "Complete simple tasks",

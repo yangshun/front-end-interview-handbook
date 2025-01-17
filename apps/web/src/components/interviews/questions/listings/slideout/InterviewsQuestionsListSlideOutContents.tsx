@@ -3,6 +3,7 @@ import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import {
   RiArrowDownSLine,
+  RiArrowUpSLine,
   RiCloseLine,
   RiFilterLine,
   RiSearchLine,
@@ -290,8 +291,8 @@ export default function InterviewsQuestionsListSlideOutContents({
   );
 
   const embedFilters = (
-    <div className={clsx('flex gap-4', 'px-6 py-4', themeBackgroundCardColor)}>
-      <div className={clsx('flex flex-wrap items-center gap-2')}>
+    <div className={clsx('flex flex-col', themeBackgroundCardColor)}>
+      <div className={clsx('flex flex-wrap items-center gap-2', 'px-6 py-4')}>
         <FilterSection
           coveredValues={attributesUnion.formats}
           filterOptions={formatFilterOptions}
@@ -331,6 +332,26 @@ export default function InterviewsQuestionsListSlideOutContents({
           languageFilters={languageFilters}
           listType={listType}
         />
+      </div>
+      <Divider />
+      <div
+        className={clsx(
+          'flex items-center justify-between gap-2',
+          'px-6 py-2',
+        )}>
+        <Button
+          className="-ml-3"
+          icon={RiArrowUpSLine}
+          label={intl.formatMessage({
+            defaultMessage: 'Hide',
+            description: 'Label for close filter button',
+            id: 'lmhAqm',
+          })}
+          size="sm"
+          tooltip="Close filters"
+          variant="tertiary"
+          onClick={() => setShowFilters(false)}
+        />
         <Button
           icon={RiCloseLine}
           label={intl.formatMessage({
@@ -343,19 +364,6 @@ export default function InterviewsQuestionsListSlideOutContents({
           onClick={clearAllFilters}
         />
       </div>
-      <Button
-        icon={RiCloseLine}
-        isLabelHidden={true}
-        label={intl.formatMessage({
-          defaultMessage: 'Close filters',
-          description: 'Label for close filter button',
-          id: '7noH4F',
-        })}
-        size="sm"
-        tooltip="Close filters"
-        variant="tertiary"
-        onClick={() => setShowFilters(false)}
-      />
     </div>
   );
 
