@@ -140,6 +140,15 @@ function DropdownContent({
     },
     {
       items: [
+        {
+          label: intl.formatMessage({
+            defaultMessage: 'Frameworks',
+            description: 'Software frameworks',
+            id: 'NS3jrc',
+          }),
+          menuType: 'label',
+          value: 'frameworks',
+        },
         ...questionLists.frameworks.map(
           (item) =>
             ({
@@ -148,6 +157,15 @@ function DropdownContent({
             }) as const,
         ),
         { menuType: 'divider', value: 'divider-1' },
+        {
+          label: intl.formatMessage({
+            defaultMessage: 'Languages',
+            description: 'Programming languages',
+            id: 'yPG5Kr',
+          }),
+          menuType: 'label',
+          value: 'languages',
+        },
         ...questionLists.languages.map(
           (item) =>
             ({
@@ -213,40 +231,48 @@ function DropdownContent({
                         <ul
                           className={clsx('flex flex-col gap-y-px')}
                           role="list">
-                          {categoryItem.items.map((item) =>
-                            item.menuType === 'divider' ? (
-                              <Divider key={item.value} />
-                            ) : (
-                              <DropdownMenu.Item
-                                key={item.value}
-                                label={
-                                  <Text
-                                    className="w-full"
-                                    color={
-                                      listType.value === item.value
-                                        ? 'active'
-                                        : 'default'
+                          {categoryItem.items.map((item) => {
+                            switch (item.menuType) {
+                              case 'divider': {
+                                return <Divider key={item.value} />;
+                              }
+                              case 'label': {
+                                return null;
+                              }
+                              case 'item':
+                              default:
+                                return (
+                                  <DropdownMenu.Item
+                                    key={item.value}
+                                    label={
+                                      <Text
+                                        className="w-full"
+                                        color={
+                                          listType.value === item.value
+                                            ? 'active'
+                                            : 'default'
+                                        }
+                                        size="body2"
+                                        weight={
+                                          listType.value === item.value
+                                            ? 'bold'
+                                            : 'normal'
+                                        }>
+                                        {item.label}
+                                      </Text>
                                     }
-                                    size="body2"
-                                    weight={
-                                      listType.value === item.value
-                                        ? 'bold'
-                                        : 'normal'
-                                    }>
-                                    {item.label}
-                                  </Text>
-                                }
-                                onClick={() => {
-                                  categoryItem.premiumFeature &&
-                                  !userProfile?.premium
-                                    ? openPricingDialog(
-                                        categoryItem.premiumFeature,
-                                      )
-                                    : onChangeListType(item);
-                                }}
-                              />
-                            ),
-                          )}
+                                    onClick={() => {
+                                      categoryItem.premiumFeature &&
+                                      !userProfile?.premium
+                                        ? openPricingDialog(
+                                            categoryItem.premiumFeature,
+                                          )
+                                        : onChangeListType(item);
+                                    }}
+                                  />
+                                );
+                            }
+                          })}
                         </ul>
                       </AccordionContent>
                     </AccordionItem>
@@ -272,9 +298,6 @@ function DropdownContent({
                 />
               );
             }
-            case 'divider': {
-              return <Divider key={categoryItem.value} />;
-            }
             case 'list': {
               return (
                 <DropdownMenu.Sub
@@ -285,21 +308,34 @@ function DropdownContent({
                     ) : undefined
                   }
                   label={categoryItem.label}>
-                  {categoryItem.items.map((item) =>
-                    item.menuType === 'divider' ? (
-                      <Divider key={item.value} />
-                    ) : (
-                      <DropdownMenu.Item
-                        key={item.value}
-                        label={item.label}
-                        onClick={() => {
-                          categoryItem.premiumFeature && !userProfile?.premium
-                            ? openPricingDialog(categoryItem.premiumFeature)
-                            : onChangeListType(item);
-                        }}
-                      />
-                    ),
-                  )}
+                  {categoryItem.items.map((item) => {
+                    switch (item.menuType) {
+                      case 'divider': {
+                        return <Divider key={item.value} />;
+                      }
+                      case 'label': {
+                        return (
+                          <DropdownMenu.Label key={item.value}>
+                            {item.label}
+                          </DropdownMenu.Label>
+                        );
+                      }
+                      default: {
+                        return (
+                          <DropdownMenu.Item
+                            key={item.value}
+                            label={item.label}
+                            onClick={() => {
+                              categoryItem.premiumFeature &&
+                              !userProfile?.premium
+                                ? openPricingDialog(categoryItem.premiumFeature)
+                                : onChangeListType(item);
+                            }}
+                          />
+                        );
+                      }
+                    }
+                  })}
                 </DropdownMenu.Sub>
               );
             }
@@ -309,12 +345,19 @@ function DropdownContent({
     </>
   );
 }
-type QuestionListItem =
-  | Readonly<{ menuType: 'divider'; value: string }>
-  | Readonly<QuestionListTypeWithLabel & { menuType: 'item' }>;
+
+type QuestionListLabel = Readonly<{
+  label: string;
+  menuType: 'label';
+  value: string;
+}>;
+type QuestionListDivider = Readonly<{ menuType: 'divider'; value: string }>;
+type QuestionListItem = QuestionListTypeWithLabel & { menuType: 'item' };
 
 type QuestionListCategories = Readonly<{
-  items: ReadonlyArray<QuestionListItem>;
+  items: ReadonlyArray<
+    QuestionListDivider | QuestionListItem | QuestionListLabel
+  >;
   key: string;
   label: string;
   menuType: 'list';

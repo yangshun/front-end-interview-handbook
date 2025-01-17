@@ -3899,6 +3899,10 @@
     "defaultMessage": "Preview solution",
     "description": "Label for preview solution button"
   },
+  "NS3jrc": {
+    "defaultMessage": "Frameworks",
+    "description": "Software frameworks"
+  },
   "NUrxUb": {
     "defaultMessage": "Gain reputation and level up for productive actions",
     "description": "Short description for \"Gamified learning\" feature on Projects home page"
@@ -9770,6 +9774,10 @@
   "yM3vbW": {
     "defaultMessage": "Editor Shortcuts",
     "description": "Label for slideout for code editor shortcuts"
+  },
+  "yPG5Kr": {
+    "defaultMessage": "Languages",
+    "description": "Programming languages"
   },
   "yQr+jJ": {
     "defaultMessage": "Click here to try out the actual workspace",
