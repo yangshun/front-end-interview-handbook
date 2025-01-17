@@ -14,12 +14,16 @@ import type { GuidebookItem } from '@prisma/client';
 
 type GuidesContextType = Readonly<{
   collapsedToC: boolean;
+  isMobileGuideMenuOpen: boolean;
   setCollapsedToC: (value: boolean) => void;
+  setIsMobileGuideMenuOpen: (value: boolean) => void;
 }>;
 
 const GuidesContext = createContext<GuidesContextType>({
   collapsedToC: false,
+  isMobileGuideMenuOpen: false,
   setCollapsedToC: () => {},
+  setIsMobileGuideMenuOpen: () => {},
 });
 
 export function useGuidesContext() {
@@ -44,13 +48,20 @@ type Props = Readonly<{
 export default function GuidesLayout({ children, guide, navigation }: Props) {
   const [isFocusMode, toggleFocusMode] = useToggle();
   const [collapsedToC, setCollapsedToC] = useState(isFocusMode);
+  const [isMobileGuideMenuOpen, setIsMobileGuideMenuOpen] = useState(false);
 
   useEffect(() => {
     setCollapsedToC(isFocusMode);
   }, [isFocusMode]);
 
   return (
-    <GuidesContext.Provider value={{ collapsedToC, setCollapsedToC }}>
+    <GuidesContext.Provider
+      value={{
+        collapsedToC,
+        isMobileGuideMenuOpen,
+        setCollapsedToC,
+        setIsMobileGuideMenuOpen,
+      }}>
       <div className="w-full">
         <div className="mx-auto flex">
           <div

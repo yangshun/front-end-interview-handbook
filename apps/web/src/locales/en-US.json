@@ -3375,6 +3375,10 @@
     "defaultMessage": "Curated learning resources",
     "description": "Title of 'Curated learning resources' sub-feature in Projects marketing page"
   },
+  "K2D5dy": {
+    "defaultMessage": "Guide Menu",
+    "description": "Guides navbar menu button label"
+  },
   "K2G0qM": {
     "defaultMessage": "Download",
     "description": "Download file label"
@@ -8350,10 +8354,6 @@
   "olxZ5i": {
     "defaultMessage": "Optimized preparation for target companies, leveraging insider tips and expertise.",
     "description": "Description for company guides page"
-  },
-  "oo7GzR": {
-    "defaultMessage": "Menu",
-    "description": "Guides navbar menu button label"
   },
   "ooGnHf": {
     "defaultMessage": "Popularity: Most to least upvotes",

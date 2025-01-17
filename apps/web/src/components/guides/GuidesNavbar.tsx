@@ -13,6 +13,7 @@ import Container from '~/components/ui/Container';
 import SlideOut from '~/components/ui/SlideOut';
 import { themeBorderColor } from '~/components/ui/theme';
 
+import { useGuidesContext } from './GuidesLayout';
 import { GuidesSidebar } from './GuidesSidebar';
 import type { TableOfContents } from './GuidesTableOfContents';
 import GuidesTableOfContents from './GuidesTableOfContents';
@@ -32,7 +33,8 @@ export default function GuidesNavbar({
   tableOfContents: TableOfContents | undefined;
 }>) {
   const intl = useIntl();
-  const [isLeftSidebarOpen, setIsLeftSidebarOpen] = useState(false);
+  const { isMobileGuideMenuOpen, setIsMobileGuideMenuOpen } =
+    useGuidesContext();
   const [isRightSidebarOpen, setIsRightSidebarOpen] = useState(false);
   const pathname = usePathname();
   const navbarRef = useRef(null);
@@ -40,7 +42,8 @@ export default function GuidesNavbar({
 
   useEffect(() => {
     // Hide left sidebar when page changes.
-    setIsLeftSidebarOpen(false);
+    setIsMobileGuideMenuOpen(false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]);
 
   useEffect(() => {
@@ -75,7 +78,7 @@ export default function GuidesNavbar({
         {showMenu && (
           <SlideOut
             enterFrom="start"
-            isShown={isLeftSidebarOpen}
+            isShown={isMobileGuideMenuOpen}
             padding={false}
             size="sm"
             title={navigation.navigation.title}
@@ -84,23 +87,23 @@ export default function GuidesNavbar({
                 addonPosition="start"
                 icon={RiMenu2Line}
                 label={intl.formatMessage({
-                  defaultMessage: 'Menu',
+                  defaultMessage: 'Guide Menu',
                   description: 'Guides navbar menu button label',
-                  id: 'oo7GzR',
+                  id: 'K2D5dy',
                 })}
                 size="xs"
                 variant="secondary"
                 onClick={() => {
-                  setIsLeftSidebarOpen(true);
+                  setIsMobileGuideMenuOpen(true);
                 }}
               />
             }
-            onClose={() => setIsLeftSidebarOpen(false)}>
+            onClose={() => setIsMobileGuideMenuOpen(false)}>
             <GuidesSidebar
               guide={guide}
               mode="navbar"
               navigation={navigation}
-              onClose={() => setIsLeftSidebarOpen(false)}
+              onClose={() => setIsMobileGuideMenuOpen(false)}
             />
           </SlideOut>
         )}

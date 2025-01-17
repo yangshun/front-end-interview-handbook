@@ -1,13 +1,23 @@
 'use client';
 
 import { clsx } from 'clsx';
-import { RiArrowLeftSLine, RiArrowRightSLine } from 'react-icons/ri';
+import {
+  RiArrowLeftSLine,
+  RiArrowRightSLine,
+  RiListCheck,
+} from 'react-icons/ri';
 
 import { useGuidesData } from '~/data/Guides';
 
 import { useIntl } from '~/components/intl';
+import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
+import {
+  themeBackgroundDarkColor,
+  themeBorderColor,
+  themeTextSubtitleColor,
+} from '~/components/ui/theme';
 
 import {
   useMutationGuideProgressAdd,
@@ -15,13 +25,12 @@ import {
 } from '~/db/guides/GuidesProgressClient';
 import { useI18nPathname } from '~/next-i18nostic/src';
 
+import { useGuidesContext } from './GuidesLayout';
 import GuidesProgressAction from './GuidesProgressAction';
 import type { GuideMetadata, GuideNavigation } from './types';
 import useFlattenedNavigationItems from './useFlattenedNavigationItems';
 import { useGuidesAutoMarkAsComplete } from './useGuidesAutoMarkAsComplete';
 import QuestionReportIssueButton from '../interviews/questions/common/QuestionReportIssueButton';
-import Badge from '../ui/Badge';
-import { themeBackgroundDarkColor } from '../ui/theme';
 
 import type { GuidebookItem } from '@prisma/client';
 import { useUser } from '@supabase/auth-helpers-react';
@@ -49,6 +58,8 @@ export default function GuidesPagination({
   const user = useUser();
   const { pathname } = useI18nPathname();
   const guidesData = useGuidesData();
+  const { isMobileGuideMenuOpen, setIsMobileGuideMenuOpen } =
+    useGuidesContext();
   const [autoMarkAsComplete] = useGuidesAutoMarkAsComplete();
   const flatNavigationItems = useFlattenedNavigationItems(navigation);
 
@@ -123,9 +134,10 @@ export default function GuidesPagination({
         'sticky inset-x-0 bottom-0',
         'flex items-center justify-between gap-2',
         'px-4 py-2.5 sm:px-6',
+        ['border-t', themeBorderColor],
         themeBackgroundDarkColor,
       )}>
-      <div className="flex flex-1 shrink-0 justify-center sm:order-2">
+      <div className="flex shrink-0 justify-center sm:order-2 sm:flex-1">
         <div className="hidden lg:flex">
           <Button
             addonPosition="start"
@@ -141,7 +153,8 @@ export default function GuidesPagination({
             tooltip={prevArticle ? prevArticle.label : undefined}
             variant="secondary"
           />
-          <div className="flex items-center gap-2 px-3">
+          <div className="flex items-center gap-2 px-5">
+            <RiListCheck className={clsx('size-4', themeTextSubtitleColor)} />
             <Text className="whitespace-nowrap" size="body3" weight="medium">
               {guidesData[guide].shortName}
             </Text>
@@ -182,19 +195,40 @@ export default function GuidesPagination({
             tooltip={prevArticle ? prevArticle.label : undefined}
             variant="tertiary"
           />
-          <div className="flex items-center gap-2 px-3">
-            <Text
-              className="line-clamp-1 sm:line-clamp-none sm:whitespace-nowrap"
-              size="body3"
-              weight="medium">
-              {guidesData[guide].shortName}
-            </Text>
-            <Badge
-              label={`${currentArticlePosition}/${totalNumArticles}`}
-              size="xs"
-              variant="neutral"
-            />
-          </div>
+          {/* Button for tablet */}
+          <Button
+            addonPosition="start"
+            className="mx-3.5 hidden sm:flex"
+            icon={RiListCheck}
+            label={guidesData[guide].shortName}
+            size="xs"
+            variant="secondary"
+            onClick={() => setIsMobileGuideMenuOpen(!isMobileGuideMenuOpen)}>
+            <div className="flex items-center gap-2">
+              <Text
+                className="line-clamp-1 sm:line-clamp-none sm:whitespace-nowrap"
+                size="body3"
+                weight="medium">
+                {guidesData[guide].shortName}
+              </Text>
+              <Badge
+                label={`${currentArticlePosition}/${totalNumArticles}`}
+                size="xs"
+                variant="neutral"
+              />
+            </div>
+          </Button>
+          {/* Button for mobile */}
+          <Button
+            addonPosition="start"
+            className="mx-3.5 flex sm:hidden"
+            icon={RiListCheck}
+            isLabelHidden={true}
+            label={guidesData[guide].shortName}
+            size="xs"
+            variant="secondary"
+            onClick={() => setIsMobileGuideMenuOpen(!isMobileGuideMenuOpen)}
+          />
           <Button
             href={nextArticle?.href}
             icon={RiArrowRightSLine}
