@@ -68,15 +68,15 @@ export default async function Page({ params }: Props) {
     studyLists,
   ] = await Promise.all([
     fetchQuestionsList(
-      { tab: 'coding', type: 'practice', value: 'coding' },
+      { tab: 'coding', type: 'practice', value: 'practice' },
       locale,
     ),
     fetchQuestionsList(
-      { tab: 'quiz', type: 'practice', value: 'quiz' },
+      { tab: 'quiz', type: 'practice', value: 'practice' },
       locale,
     ),
     fetchQuestionsList(
-      { tab: 'system-design', type: 'practice', value: 'system-design' },
+      { tab: 'system-design', type: 'practice', value: 'practice' },
       locale,
     ),
     fetchInterviewListingBottomContent('dashboard'),

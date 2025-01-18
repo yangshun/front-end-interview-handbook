@@ -56,7 +56,7 @@ export function useQuestionsListTypeCurrent(
     return {
       tab,
       type: 'practice',
-      value: searchParams?.get('practice') as QuestionPracticeFormat,
+      value: 'practice',
     };
   }
 

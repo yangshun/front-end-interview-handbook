@@ -14,7 +14,7 @@ export const dynamic = 'force-static';
 const listType: QuestionListTypeData = {
   tab: 'coding',
   type: 'practice',
-  value: 'coding',
+  value: 'practice',
 };
 
 type Props = Readonly<{

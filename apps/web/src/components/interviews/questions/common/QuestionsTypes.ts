@@ -268,7 +268,7 @@ export type QuestionListTypeData =
   | Readonly<{
       tab?: QuestionPracticeFormat;
       type: 'practice';
-      value: QuestionPracticeFormat;
+      value: 'practice';
     }>
   | Readonly<{
       tab?: QuestionPracticeFormat;

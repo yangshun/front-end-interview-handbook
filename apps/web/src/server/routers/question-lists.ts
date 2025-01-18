@@ -176,18 +176,17 @@ export const questionListsRouter = router({
         });
 
         if (practice) {
-          const practice_ = practice as QuestionPracticeFormat;
           const { questions, tabs } = await fetchQuestionsList({
             tab,
             type: 'practice',
-            value: practice_,
+            value: 'practice',
           });
 
           return {
             listType: {
               tab,
               type: 'practice',
-              value: practice_,
+              value: 'practice',
             },
             questions,
             tabs,
@@ -198,7 +197,7 @@ export const questionListsRouter = router({
         const { questions: questionsCoding, tabs } = await fetchQuestionsList({
           tab: 'coding',
           type: 'practice',
-          value: 'coding',
+          value: 'practice',
         });
 
         return {

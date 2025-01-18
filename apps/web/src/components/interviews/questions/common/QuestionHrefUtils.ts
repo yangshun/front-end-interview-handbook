@@ -11,13 +11,21 @@ const origin = getSiteOrigin();
 export const QuestionListTypeDefault: QuestionListTypeData = {
   tab: 'coding',
   type: 'practice',
-  value: 'coding',
+  value: 'practice',
 };
 
 export function questionListFilterNamespace(
   listType: QuestionListTypeData = QuestionListTypeDefault,
+  level: 'list' | 'tab' = 'list',
 ): string {
-  return `${listType.type}:${listType.value}`;
+  switch (level) {
+    case 'list':
+      return [listType.type, listType.value].join(':');
+    case 'tab':
+      return [listType.type, listType.value, listType.tab]
+        .filter(Boolean)
+        .join(':');
+  }
 }
 
 function questionHrefFrameworkSpecific(

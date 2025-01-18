@@ -61,7 +61,7 @@ function DropdownContent({
       menuType: 'item',
       tab: 'coding',
       type: 'practice',
-      value: 'coding',
+      value: 'practice',
     },
     {
       items: [
