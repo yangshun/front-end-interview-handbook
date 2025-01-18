@@ -96,7 +96,6 @@ function QuestionsQuizSidebarQuestionListImpl({
         <InterviewsQuestionsListSlideOutContents
           key={filterNamespace}
           currentQuestionHash={currentQuestionHash}
-          filterNamespace={filterNamespace}
           isDifferentListFromInitial={
             !isEqual(initialListType, currentListType)
           }

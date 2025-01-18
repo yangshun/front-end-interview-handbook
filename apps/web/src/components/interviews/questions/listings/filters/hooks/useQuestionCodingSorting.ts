@@ -68,7 +68,6 @@ export default function useQuestionCodingSorting({ listType }: Props) {
     );
 
   return {
-    filterNamespace,
     isAscendingOrder,
     setIsAscendingOrder,
     setSortField,

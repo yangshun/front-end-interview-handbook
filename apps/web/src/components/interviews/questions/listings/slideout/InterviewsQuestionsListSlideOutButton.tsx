@@ -23,10 +23,7 @@ import Button from '~/components/ui/Button';
 
 import { hashQuestion } from '~/db/QuestionsUtils';
 
-import {
-  questionHrefFrameworkSpecificAndListType,
-  questionListFilterNamespace,
-} from '../../common/QuestionHrefUtils';
+import { questionHrefFrameworkSpecificAndListType } from '../../common/QuestionHrefUtils';
 import type { QuestionListTypeData } from '../../common/QuestionsTypes';
 import {
   useQuestionsListDataForType,
@@ -113,11 +110,10 @@ function InterviewsQuestionsListSlideOutButtonImpl({
     questions: ReadonlyArray<QuestionMetadataWithCompletedStatus>;
   }>) {
   const intl = useIntl();
-  const filterNamespace = questionListFilterNamespace(listType);
 
   // Filtering.
   const { filters } = useQuestionUnifiedFilters({
-    filterNamespace,
+    listType,
   });
 
   // Sorting.

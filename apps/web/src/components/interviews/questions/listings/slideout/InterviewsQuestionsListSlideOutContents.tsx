@@ -174,7 +174,6 @@ function FrameworkAndLanguageFilterSection<Q extends QuestionMetadata>({
 
 type Props = Readonly<{
   currentQuestionHash?: QuestionHash;
-  filterNamespace: string;
   framework?: QuestionFramework;
   isDifferentListFromInitial: boolean;
   listType: QuestionListTypeData;
@@ -200,7 +199,6 @@ export default function InterviewsQuestionsListSlideOutContents({
   isDifferentListFromInitial,
   currentQuestionHash,
   mode,
-  filterNamespace,
   setFirstQuestionHref,
   showSwitchQuestionListDialog,
   onCancelSwitchStudyList,
@@ -266,7 +264,7 @@ export default function InterviewsQuestionsListSlideOutContents({
     filters,
     clearAllFilters,
   } = useQuestionUnifiedFilters({
-    filterNamespace,
+    listType,
   });
 
   // Sorting.

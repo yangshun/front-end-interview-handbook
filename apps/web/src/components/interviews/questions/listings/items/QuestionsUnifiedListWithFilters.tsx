@@ -7,6 +7,7 @@ import { useUserProfile } from '~/components/global/UserProfileProvider';
 import type { GuideCardMetadataWithCompletedStatus } from '~/components/guides/types';
 import InterviewsGuideCard from '~/components/interviews/guides/InterviewsGuideCard';
 import InterviewsPurchasePaywall from '~/components/interviews/purchase/InterviewsPurchasePaywall';
+import { questionListFilterNamespace } from '~/components/interviews/questions/common/QuestionHrefUtils';
 import type {
   QuestionFormat,
   QuestionFramework,
@@ -93,7 +94,7 @@ export default function QuestionsUnifiedListWithFilters({
   const questionAttributesUnion = tabulateQuestionsAttributesUnion(questions);
 
   // Sorting.
-  const { sortFields, filterNamespace } = useQuestionCodingSorting({
+  const { sortFields } = useQuestionCodingSorting({
     listType,
   });
 
@@ -120,10 +121,10 @@ export default function QuestionsUnifiedListWithFilters({
     filters,
     clearAllFilters,
   } = useQuestionUnifiedFilters({
-    filterNamespace,
     formatFiltersFilterPredicate,
     formatFiltersOrderComparator,
     initialFormat,
+    listType,
   });
 
   // Add the search query in the active filter count
@@ -149,7 +150,7 @@ export default function QuestionsUnifiedListWithFilters({
       <div className={clsx('min-[1200px]:hidden')}>
         <QuestionsListingFilterSlideOut
           attributesUnion={questionAttributesUnion}
-          filterNamespace={filterNamespace}
+          listType={listType}
           mode={mode}
         />
       </div>

@@ -132,7 +132,7 @@ function InterviewsQuestionsListSlideOutImpl({
   }
 
   const { filters, query } = useQuestionUnifiedFilters({
-    filterNamespace,
+    listType: currentListType,
   });
 
   // Add the search query in the active filter count
@@ -212,7 +212,6 @@ function InterviewsQuestionsListSlideOutImpl({
         <InterviewsQuestionsListSlideOutContents
           key={filterNamespace}
           currentQuestionHash={currentQuestionHash}
-          filterNamespace={filterNamespace}
           framework={framework}
           isDifferentListFromInitial={
             !isEqual(initialListType, currentListType)

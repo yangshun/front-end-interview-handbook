@@ -1,5 +1,6 @@
 import type {
   QuestionFormat,
+  QuestionListTypeData,
   QuestionMetadataWithCompletedStatus,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 
@@ -13,9 +14,10 @@ import useQuestionLanguageFilter from './useQuestionLanguageFilter';
 import useQuestionSearchFilter from './useQuestionSearchFilter';
 import useQuestionTopicFilter from './useQuestionTopicFilter';
 import questionMatchesTextQuery from '../questionMatchesTextQuery';
+import { questionListFilterNamespace } from '~/components/interviews/questions/common/QuestionHrefUtils';
 
 type Props = Readonly<{
-  filterNamespace?: string;
+  listType?: QuestionListTypeData;
   formatFiltersFilterPredicate?: (format: QuestionFormat) => boolean;
   formatFiltersOrderComparator?: (
     a: QuestionFormat,
@@ -27,33 +29,37 @@ type Props = Readonly<{
 export default function useQuestionUnifiedFilters({
   formatFiltersFilterPredicate,
   formatFiltersOrderComparator,
-  filterNamespace: namespace,
+  listType,
   initialFormat,
 }: Props) {
+  const namespaceListLevel = questionListFilterNamespace(listType);
+
   // Filtering.
-  const [query, setQuery] = useQuestionSearchFilter({ namespace });
+  const [query, setQuery] = useQuestionSearchFilter({
+    namespace: namespaceListLevel,
+  });
   const [difficultyFilters, difficultyFilterOptions] =
-    useQuestionDifficultyFilter({ namespace });
+    useQuestionDifficultyFilter({ namespace: namespaceListLevel });
   const [importanceFilters, importanceFilterOptions] =
-    useQuestionImportanceFilter({ namespace });
+    useQuestionImportanceFilter({ namespace: namespaceListLevel });
   const [companyFilters, companyFilterOptions] = useQuestionCompanyFilter({
-    namespace,
+    namespace: namespaceListLevel,
   });
   const [languageFilters, languageFilterOptions] = useQuestionLanguageFilter({
-    namespace,
+    namespace: namespaceListLevel,
   });
   const [frameworkFilters, frameworkFilterOptions] = useQuestionFrameworkFilter(
-    { namespace },
+    { namespace: namespaceListLevel },
   );
   const [topicFilters, topicFilterOptions] = useQuestionTopicFilter({
-    namespace,
+    namespace: namespaceListLevel,
   });
   const [completionStatusFilters, completionStatusFilterOptions] =
-    useQuestionCompletionStatusFilter({ namespace });
+    useQuestionCompletionStatusFilter({ namespace: namespaceListLevel });
   const [formatFilters, formatFilterOptions] = useQuestionFormatFilter({
     filter: formatFiltersFilterPredicate,
     initialValue: initialFormat == null ? [] : [initialFormat],
-    namespace,
+    namespace: namespaceListLevel,
     order: formatFiltersOrderComparator,
   });
 

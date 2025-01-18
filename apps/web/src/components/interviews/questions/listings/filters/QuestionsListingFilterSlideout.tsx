@@ -2,7 +2,10 @@ import clsx from 'clsx';
 import { useEffect, useState } from 'react';
 import { RiFilterLine } from 'react-icons/ri';
 
-import type { QuestionFormat } from '~/components/interviews/questions/common/QuestionsTypes';
+import type {
+  QuestionFormat,
+  QuestionListTypeData,
+} from '~/components/interviews/questions/common/QuestionsTypes';
 import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import FilterButton from '~/components/ui/FilterButton/FilterButton';
@@ -15,7 +18,6 @@ import type { QuestionsListAttributesUnion } from './QuestionsProcessor';
 
 type Props = Readonly<{
   attributesUnion: QuestionsListAttributesUnion;
-  filterNamespace: string;
   formatFiltersFilterPredicate?: (format: QuestionFormat) => boolean;
   formatFiltersOrderComparator?: (
     a: QuestionFormat,
@@ -23,12 +25,13 @@ type Props = Readonly<{
   ) => number;
   initialFormat?: QuestionFormat | null;
   initialOpenItems?: ReadonlyArray<string>;
+  listType?: QuestionListTypeData;
   mode?: 'default' | 'framework';
 }>;
 
 export default function QuestionsListingFilterSlideOut({
   attributesUnion,
-  filterNamespace,
+  listType,
   initialFormat,
   formatFiltersFilterPredicate,
   formatFiltersOrderComparator,
@@ -57,10 +60,10 @@ export default function QuestionsListingFilterSlideOut({
     topicFilterOptions,
     filters,
   } = useQuestionUnifiedFilters({
-    filterNamespace,
     formatFiltersFilterPredicate,
     formatFiltersOrderComparator,
     initialFormat,
+    listType,
   });
 
   // To maintain local state of the filters
