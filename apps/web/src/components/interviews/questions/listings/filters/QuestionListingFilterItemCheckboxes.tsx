@@ -23,9 +23,17 @@ export default function QuestionListingFilterItemCheckboxes<
   return (
     <div className={clsx('flex flex-wrap', 'gap-x-8 gap-y-4')}>
       {section.options
-        .filter((option) =>
-          coveredValues == null ? true : coveredValues?.has(option.value),
-        )
+        .filter((option) => {
+          // Show items that are active even if they are not in the current list
+          // so that users can unselect them. Useful for topics and formats
+          if (values.has(option.value)) {
+            return true;
+          }
+
+          return coveredValues == null
+            ? true
+            : coveredValues?.has(option.value);
+        })
         .map((option) => (
           <div key={option.value} className="flex items-center gap-2">
             <CheckboxInput
