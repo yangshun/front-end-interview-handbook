@@ -1,3 +1,4 @@
+import { questionListFilterNamespace } from '~/components/interviews/questions/common/QuestionHrefUtils';
 import type {
   QuestionFormat,
   QuestionListTypeData,
@@ -14,16 +15,15 @@ import useQuestionLanguageFilter from './useQuestionLanguageFilter';
 import useQuestionSearchFilter from './useQuestionSearchFilter';
 import useQuestionTopicFilter from './useQuestionTopicFilter';
 import questionMatchesTextQuery from '../questionMatchesTextQuery';
-import { questionListFilterNamespace } from '~/components/interviews/questions/common/QuestionHrefUtils';
 
 type Props = Readonly<{
-  listType?: QuestionListTypeData;
   formatFiltersFilterPredicate?: (format: QuestionFormat) => boolean;
   formatFiltersOrderComparator?: (
     a: QuestionFormat,
     b: QuestionFormat,
   ) => number;
   initialFormat?: QuestionFormat | null;
+  listType?: QuestionListTypeData;
 }>;
 
 export default function useQuestionUnifiedFilters({
@@ -32,7 +32,8 @@ export default function useQuestionUnifiedFilters({
   listType,
   initialFormat,
 }: Props) {
-  const namespaceListLevel = questionListFilterNamespace(listType);
+  const namespaceListLevel = questionListFilterNamespace(listType, 'list');
+  const namespaceTabLevel = questionListFilterNamespace(listType, 'tab');
 
   // Filtering.
   const [query, setQuery] = useQuestionSearchFilter({
@@ -59,7 +60,8 @@ export default function useQuestionUnifiedFilters({
   const [formatFilters, formatFilterOptions] = useQuestionFormatFilter({
     filter: formatFiltersFilterPredicate,
     initialValue: initialFormat == null ? [] : [initialFormat],
-    namespace: namespaceListLevel,
+    // Tabs have different formats, so formats should be persisted on the tab level.
+    namespace: namespaceTabLevel,
     order: formatFiltersOrderComparator,
   });
 

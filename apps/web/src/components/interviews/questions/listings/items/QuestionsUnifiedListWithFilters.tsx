@@ -7,7 +7,6 @@ import { useUserProfile } from '~/components/global/UserProfileProvider';
 import type { GuideCardMetadataWithCompletedStatus } from '~/components/guides/types';
 import InterviewsGuideCard from '~/components/interviews/guides/InterviewsGuideCard';
 import InterviewsPurchasePaywall from '~/components/interviews/purchase/InterviewsPurchasePaywall';
-import { questionListFilterNamespace } from '~/components/interviews/questions/common/QuestionHrefUtils';
 import type {
   QuestionFormat,
   QuestionFramework,
