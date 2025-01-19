@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import * as React from 'react';
 import { RiCloseLine } from 'react-icons/ri';
 
-import { FormattedMessage } from '~/components/intl';
+import Button from '~/components/ui/Button';
 
 import DialogBaseOverlay from '../Dialog/DialogBaseOverlay';
 import Heading from '../Heading';
@@ -101,28 +101,20 @@ export function SlideOutHeader({
   return (
     <div
       className={clsx(
-        'flex flex-col justify-between gap-x-4 gap-y-2 px-6 py-4',
+        'flex justify-between gap-x-4 gap-y-2 px-6 py-4',
         className,
       )}
       {...props}>
       {children}
-      <DialogPrimitive.Close
-        className={clsx(
-          'flex items-center justify-center',
-          'absolute right-4 top-4 -mr-2',
-          'size-10 rounded-full p-2',
-          'text-neutral-400 hover:text-neutral-500',
-          'disabled:pointer-events-none',
-          'focus:ring-brand focus:outline-none focus:ring-2 focus:ring-inset',
-        )}>
-        <span className="sr-only">
-          <FormattedMessage
-            defaultMessage="Close menu"
-            description="Close menu"
-            id="lu1/V5"
-          />
-        </span>
-        <RiCloseLine aria-hidden="true" className="size-6" />
+      <DialogPrimitive.Close asChild={true}>
+        <Button
+          className="-mr-3"
+          icon={RiCloseLine}
+          isLabelHidden={true}
+          label="Close menu"
+          size="md"
+          variant="tertiary"
+        />
       </DialogPrimitive.Close>
     </div>
   );

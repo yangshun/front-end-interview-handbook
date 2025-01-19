@@ -7931,10 +7931,6 @@
     "defaultMessage": "No community contributions",
     "description": "Title for empty state when there are no contributions matching filters"
   },
-  "lu1/V5": {
-    "defaultMessage": "Close menu",
-    "description": "Close menu"
-  },
   "lyxOq4": {
     "defaultMessage": "Check out the latest promotions and discounts that GreatFrontEnd offers.",
     "description": "Description of Promotions page"
