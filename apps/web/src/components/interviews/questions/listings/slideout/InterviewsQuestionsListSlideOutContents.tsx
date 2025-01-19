@@ -456,7 +456,7 @@ export default function InterviewsQuestionsListSlideOutContents({
           {showFilters && embedFilters}
         </form>
         {displayedTabs ? (
-          <div className="mt-3 px-6">
+          <div className="my-3 px-6">
             <TabsUnderline
               size="sm"
               tabs={displayedTabs.map((listTabValue) => {

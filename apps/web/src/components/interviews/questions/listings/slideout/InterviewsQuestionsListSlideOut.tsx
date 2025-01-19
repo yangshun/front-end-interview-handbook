@@ -20,6 +20,7 @@ import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
 import SlideOut from '~/components/ui/SlideOut';
 import {
+  themeBackgroundDarkColor,
   themeBackgroundGlimmerColor,
   themeBorderColor,
 } from '~/components/ui/theme';
@@ -149,8 +150,13 @@ function InterviewsQuestionsListSlideOutImpl({
 
   return (
     <SlideOut
+      bodyClassName={themeBackgroundDarkColor}
       enterFrom="start"
-      headerClassName={clsx('border-b', themeBorderColor)}
+      headerClassName={clsx(
+        'border-b',
+        themeBorderColor,
+        themeBackgroundDarkColor,
+      )}
       isShown={Boolean(isSlideOutShown)}
       padding={false}
       size="xl"

@@ -183,6 +183,7 @@ SlideOutFooter.displayName = 'SlideOutFooter';
 
 type Props = Readonly<{
   asChild?: boolean;
+  bodyClassName?: string;
   children: React.ReactNode;
   className?: string;
   enterFrom?: SlideOutEnterFrom;
@@ -202,6 +203,7 @@ export default function SlideOut({
   asChild = true,
   className,
   children,
+  bodyClassName,
   headerClassName,
   enterFrom = 'end',
   isShown,
@@ -228,7 +230,9 @@ export default function SlideOut({
         <SlideOutHeader className={headerClassName}>
           {title && <SlideOutTitle>{title}</SlideOutTitle>}
         </SlideOutHeader>
-        <SlideOutBody padding={padding}>{children}</SlideOutBody>
+        <SlideOutBody className={bodyClassName} padding={padding}>
+          {children}
+        </SlideOutBody>
         {(primaryButton || secondaryButton) && (
           <SlideOutFooter>
             {primaryButton}
