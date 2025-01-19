@@ -14,7 +14,7 @@ import QuestionsListItemProgressChip from '~/components/interviews/questions/lis
 import InterviewsQuestionsListSlideOutHovercardContents from '~/components/interviews/questions/listings/slideout/InterviewsQuestionsListSlideOutHovercardContents';
 import QuestionDifficultyLabel from '~/components/interviews/questions/metadata/QuestionDifficultyLabel';
 import QuestionFormatLabel from '~/components/interviews/questions/metadata/QuestionFormatLabel';
-import { useIntl } from '~/components/intl';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import EmptyState from '~/components/ui/EmptyState';
 import {
@@ -36,14 +36,18 @@ import { hashQuestion } from '~/db/QuestionsUtils';
 
 import InterviewsPurchasePaywall from '../../../purchase/InterviewsPurchasePaywall';
 
+type QuestionClickEvent = Parameters<
+  NonNullable<React.ComponentProps<typeof Anchor>['onClick']>
+>[0];
+
 type Props<Q extends QuestionMetadata> = Readonly<{
   checkIfCompletedQuestion?: (question: Q) => boolean;
   currentQuestionHash?: QuestionHash;
   framework?: QuestionFramework;
   isDifferentListFromInitial: boolean;
   listType: QuestionListTypeData;
-  mode: 'compact' | 'full';
-  onClickDifferentStudyListQuestion: (href: string) => void;
+  mode: 'embedded' | 'slideout';
+  onClickQuestion: (event: QuestionClickEvent, href: string) => void;
   questions: ReadonlyArray<Q>;
   showCompanyPaywall?: boolean;
 }>;
@@ -52,13 +56,13 @@ export default function InterviewsQuestionsListSlideOutQuestionList<
   Q extends QuestionMetadata,
 >({
   checkIfCompletedQuestion,
-  framework,
   isDifferentListFromInitial,
+  framework,
   listType,
   mode,
   questions,
   currentQuestionHash,
-  onClickDifferentStudyListQuestion,
+  onClickQuestion,
   showCompanyPaywall,
 }: Props<Q>) {
   const intl = useIntl();
@@ -105,27 +109,48 @@ export default function InterviewsQuestionsListSlideOutQuestionList<
         <div
           className={clsx(['divide-y', themeDivideColor])}
           {...(showCompanyPaywall && { inert: '' })}>
-          <div className={clsx('flex gap-x-4 max-sm:hidden', 'px-6 py-3')}>
-            <Text className="grow" color="subtle" size="body3">
-              Name
-            </Text>
-            <Text className="w-[106px]" color="subtle" size="body3">
-              Format
-            </Text>
-            <Text className="w-[68px]" color="subtle" size="body3">
-              Difficulty
-            </Text>
-          </div>
+          {mode === 'slideout' && (
+            <div className={clsx('flex gap-x-4 max-sm:hidden', 'px-6 py-3')}>
+              <Text className="grow" color="subtle" size="body3">
+                <FormattedMessage
+                  defaultMessage="Name"
+                  description="Question name"
+                  id="aXNdwx"
+                />
+              </Text>
+              <Text className="w-[106px]" color="subtle" size="body3">
+                <FormattedMessage
+                  defaultMessage="Format"
+                  description="Question format"
+                  id="yQELr2"
+                />
+              </Text>
+              <Text className="w-[68px]" color="subtle" size="body3">
+                <FormattedMessage
+                  defaultMessage="Difficulty"
+                  description="Question difficulty"
+                  id="ULuy8I"
+                />
+              </Text>
+            </div>
+          )}
           {questions.map((questionMetadata, index) => {
             const hasCompletedQuestion =
               checkIfCompletedQuestion?.(questionMetadata);
 
-            // If the current question is not in the list or different
-            // question list, the first question is going to be the active question
-            const isActiveQuestion =
-              isCurrentQuestionInTheList && !isDifferentListFromInitial
-                ? hashQuestion(questionMetadata) === currentQuestionHash
-                : index === 0;
+            const isActiveQuestion = (() => {
+              if (mode === 'slideout' && isDifferentListFromInitial) {
+                // If the current question is not in the list or different
+                // question list, the first question is going to be the active question
+                return isCurrentQuestionInTheList
+                  ? hashQuestion(questionMetadata) === currentQuestionHash
+                  : index === 0;
+              }
+
+              // Non-slideout modes don't have the prompt
+              return hashQuestion(questionMetadata) === currentQuestionHash;
+            })();
+
             const href = questionHrefFrameworkSpecificAndListType(
               questionMetadata,
               listType,
@@ -170,16 +195,11 @@ export default function InterviewsQuestionsListSlideOutQuestionList<
                               <Text size="body3" weight="medium">
                                 <Anchor
                                   className="focus:outline-none"
-                                  href={isDifferentListFromInitial ? '#' : href}
+                                  href={href}
                                   variant="unstyled"
-                                  onClick={
-                                    isDifferentListFromInitial
-                                      ? () =>
-                                          onClickDifferentStudyListQuestion(
-                                            href,
-                                          )
-                                      : undefined
-                                  }>
+                                  onClick={(event) => {
+                                    onClickQuestion(event, href);
+                                  }}>
                                   {/* Extend touch target to entire panel */}
                                   <span
                                     aria-hidden="true"
@@ -192,7 +212,7 @@ export default function InterviewsQuestionsListSlideOutQuestionList<
                                 <InterviewsPremiumBadge size="xs" />
                               )}
                             </div>
-                            {mode === 'full' && (
+                            {mode === 'slideout' && (
                               <div className="flex gap-x-4">
                                 <div className="sm:w-[106px]">
                                   <QuestionFormatLabel

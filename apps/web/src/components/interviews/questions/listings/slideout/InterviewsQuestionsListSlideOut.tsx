@@ -1,5 +1,4 @@
 import clsx from 'clsx';
-import { isEqual } from 'lodash-es';
 import { useRouter } from 'next/navigation';
 import { parseAsBoolean, useQueryState } from 'nuqs';
 import { Suspense, useState } from 'react';
@@ -99,13 +98,17 @@ function InterviewsQuestionsListSlideOutImpl({
     setCurrentListType(initialListType);
   }
 
+  const hasChangedList =
+    initialListType.type !== currentListType.type ||
+    initialListType.value !== currentListType.value;
+
   function onClose() {
     // If there are no questions after the filter, prevent closing
     if (processedQuestions.length === 0) {
       return;
     }
 
-    if (!isEqual(initialListType, currentListType)) {
+    if (hasChangedList) {
       setShowSwitchQuestionListDialog({
         href: firstQuestionInListHref,
         show: true,
@@ -219,23 +222,24 @@ function InterviewsQuestionsListSlideOutImpl({
           key={filterNamespace}
           currentQuestionHash={currentQuestionHash}
           framework={framework}
-          isDifferentListFromInitial={
-            !isEqual(initialListType, currentListType)
-          }
+          isDifferentListFromInitial={hasChangedList}
           listType={currentListType}
-          mode="full"
+          mode="slideout"
           setFirstQuestionHref={setFirstQuestionInListHref}
           showSwitchQuestionListDialog={showSwitchQuestionListDialog}
           onCancelSwitchStudyList={() => {
             closeSlideOut();
           }}
-          onClickDifferentStudyListQuestion={(href: string) =>
-            setShowSwitchQuestionListDialog({
-              href,
-              show: true,
-              type: 'question-click',
-            })
-          }
+          onClickQuestion={(event, href: string) => {
+            if (hasChangedList) {
+              event.preventDefault();
+              setShowSwitchQuestionListDialog({
+                href,
+                show: true,
+                type: 'question-click',
+              });
+            }
+          }}
           onCloseSwitchQuestionListDialog={onCloseSwitchQuestionListDialog}
           onListTabChange={(newTab) =>
             setCurrentListType({

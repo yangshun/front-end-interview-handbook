@@ -86,7 +86,7 @@ export default function InterviewsQuestionsCategoryFrameworkPage({
           value: 'quiz',
         },
       ]}
-      value={listType?.value ?? 'coding'}
+      value={listType?.tab ?? 'coding'}
     />
   ) : null;
 

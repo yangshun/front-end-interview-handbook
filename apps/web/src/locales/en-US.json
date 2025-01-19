@@ -6051,6 +6051,10 @@
     "defaultMessage": "RADIO framework",
     "description": "RADIO (acroynm) framework name for front end system design interviews. Don't translate RADIO"
   },
+  "aXNdwx": {
+    "defaultMessage": "Name",
+    "description": "Question name"
+  },
   "aYJLMU": {
     "defaultMessage": "Save",
     "description": "Save update button label"
@@ -9802,6 +9806,10 @@
   "yPG5Kr": {
     "defaultMessage": "Languages",
     "description": "Programming languages"
+  },
+  "yQELr2": {
+    "defaultMessage": "Format",
+    "description": "Question format"
   },
   "yQr+jJ": {
     "defaultMessage": "Click here to try out the actual workspace",

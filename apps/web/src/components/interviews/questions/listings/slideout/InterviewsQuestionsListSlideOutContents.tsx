@@ -181,7 +181,9 @@ type Props = Readonly<{
     typeof InterviewsQuestionsListSlideOutQuestionList
   >['mode'];
   onCancelSwitchStudyList?: () => void;
-  onClickDifferentStudyListQuestion: (href: string) => void;
+  onClickQuestion: React.ComponentProps<
+    typeof InterviewsQuestionsListSlideOutQuestionList
+  >['onClickQuestion'];
   onCloseSwitchQuestionListDialog: () => void;
   onListTabChange?: (newTab: QuestionPracticeFormat) => void;
   setFirstQuestionHref?: (href: string) => void;
@@ -203,7 +205,7 @@ export default function InterviewsQuestionsListSlideOutContents({
   showSwitchQuestionListDialog,
   onCancelSwitchStudyList,
   onCloseSwitchQuestionListDialog,
-  onClickDifferentStudyListQuestion,
+  onClickQuestion,
 }: Props) {
   const intl = useIntl();
   const router = useRouter();
@@ -513,9 +515,7 @@ export default function InterviewsQuestionsListSlideOutContents({
                   : processedQuestions
               }
               showCompanyPaywall={showCompanyPaywall}
-              onClickDifferentStudyListQuestion={
-                onClickDifferentStudyListQuestion
-              }
+              onClickQuestion={onClickQuestion}
             />
           )}
         </ScrollArea>

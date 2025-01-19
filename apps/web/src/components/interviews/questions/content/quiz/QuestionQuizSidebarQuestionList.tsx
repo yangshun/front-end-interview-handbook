@@ -1,5 +1,4 @@
 import clsx from 'clsx';
-import { isEqual } from 'lodash-es';
 import { useSelectedLayoutSegment } from 'next/navigation';
 import { Suspense, useState } from 'react';
 
@@ -84,6 +83,10 @@ function QuestionsQuizSidebarQuestionListImpl({
       })
     : undefined;
 
+  const hasChangedList =
+    initialListType.type !== currentListType.type ||
+    initialListType.value !== currentListType.value;
+
   return (
     <div className={clsx('flex flex-col', 'w-full')}>
       <div className={clsx('px-6 py-2', ['border-b', themeBorderColor])}>
@@ -96,19 +99,20 @@ function QuestionsQuizSidebarQuestionListImpl({
         <InterviewsQuestionsListSlideOutContents
           key={filterNamespace}
           currentQuestionHash={currentQuestionHash}
-          isDifferentListFromInitial={
-            !isEqual(initialListType, currentListType)
-          }
+          isDifferentListFromInitial={hasChangedList}
           listType={currentListType}
-          mode="compact"
+          mode="embedded"
           showSwitchQuestionListDialog={showSwitchQuestionListDialog}
-          onClickDifferentStudyListQuestion={(href: string) =>
-            setShowSwitchQuestionListDialog({
-              href,
-              show: true,
-              type: 'question-click',
-            })
-          }
+          onClickQuestion={(event, href: string) => {
+            if (hasChangedList) {
+              event.preventDefault();
+              setShowSwitchQuestionListDialog({
+                href,
+                show: true,
+                type: 'question-click',
+              });
+            }
+          }}
           onCloseSwitchQuestionListDialog={onCloseSwitchQuestionListDialog}
           onListTabChange={(newTab) =>
             setCurrentListType({
