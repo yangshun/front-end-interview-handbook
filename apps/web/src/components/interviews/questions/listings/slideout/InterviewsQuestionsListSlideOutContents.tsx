@@ -461,7 +461,7 @@ export default function InterviewsQuestionsListSlideOutContents({
         {displayedTabs ? (
           <div className="my-3 px-6">
             <TabsUnderline
-              size="sm"
+              size="xs"
               tabs={displayedTabs.map((listTabValue) => {
                 const labels: Record<QuestionPracticeFormat, string> = {
                   coding: intl.formatMessage({
