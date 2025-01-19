@@ -284,7 +284,7 @@ function DropdownContent({
         </Accordion>
       </ScrollArea>
       {/* DropdownMenu for screen greater than tablet */}
-      <div className="hidden sm:block">
+      <div className="hidden sm:contents">
         {categories.map((categoryItem) => {
           switch (categoryItem.menuType) {
             case 'item': {
