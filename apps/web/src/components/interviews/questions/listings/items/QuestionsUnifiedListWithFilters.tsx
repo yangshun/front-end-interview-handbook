@@ -362,8 +362,6 @@ export default function QuestionsUnifiedListWithFilters({
                 completionStatusFilters={completionStatusFilters}
                 difficultyFilterOptions={difficultyFilterOptions}
                 difficultyFilters={difficultyFilters}
-                formatFilterOptions={formatFilterOptions}
-                formatFilters={formatFilters}
                 frameworkFilterOptions={frameworkFilterOptions}
                 frameworkFilters={frameworkFilters}
                 importanceFilterOptions={importanceFilterOptions}

@@ -42,8 +42,8 @@ type Props = Readonly<{
   completionStatusFilters: Set<QuestionCompletionStatus>;
   difficultyFilterOptions: QuestionFilter<QuestionDifficulty, QuestionMetadata>;
   difficultyFilters: Set<QuestionDifficulty>;
-  formatFilterOptions: QuestionFilter<QuestionFormat, QuestionMetadata>;
-  formatFilters: Set<QuestionFormat>;
+  formatFilterOptions?: QuestionFilter<QuestionFormat, QuestionMetadata>;
+  formatFilters?: Set<QuestionFormat>;
   frameworkFilterOptions: QuestionFilter<QuestionFramework, QuestionMetadata>;
   frameworkFilters: Set<QuestionFramework>;
   importanceFilterOptions: QuestionFilter<QuestionImportance, QuestionMetadata>;
@@ -84,8 +84,11 @@ export default function QuestionListingUnifiedFilters({
       <Accordion
         className={clsx('border-b', themeBorderElementColor)}
         defaultValue={[
-          initialOpenItems?.includes('format') || formatFilters.size > 0
-            ? formatFilterOptions.id
+          initialOpenItems?.includes('format') ||
+          (formatFilterOptions != null &&
+            formatFilters != null &&
+            formatFilters.size > 0)
+            ? formatFilterOptions?.id
             : null,
           companyFilterOptions.id,
           topicFilterOptions.id,
@@ -107,11 +110,13 @@ export default function QuestionListingUnifiedFilters({
             : null,
         ].flatMap((val) => (val != null ? [val] : []))}
         type="multiple">
-        <QuestionListingFilterItem
-          coveredValues={attributesUnion.formats}
-          section={formatFilterOptions}
-          values={formatFilters}
-        />
+        {formatFilterOptions != null && formatFilters != null && (
+          <QuestionListingFilterItem
+            coveredValues={attributesUnion.formats}
+            section={formatFilterOptions}
+            values={formatFilters}
+          />
+        )}
         <QuestionListingFilterItem
           coveredValues={attributesUnion.topics}
           section={topicFilterOptions}
