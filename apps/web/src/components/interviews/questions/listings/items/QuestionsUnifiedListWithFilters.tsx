@@ -22,7 +22,6 @@ import {
 import QuestionsList from '~/components/interviews/questions/listings/items/QuestionsList';
 import { FormattedMessage, useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
-import FilterButton from '~/components/ui/FilterButton/FilterButton';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import ScrollArea from '~/components/ui/ScrollArea';
@@ -35,6 +34,7 @@ import type { QuestionCompletionCount } from '~/db/QuestionsCount';
 import QuestionsListSortButton from './QuestionsListSortButton';
 import useQuestionCodingSorting from '../filters/hooks/useQuestionCodingSorting';
 import useQuestionUnifiedFilters from '../filters/hooks/useQuestionUnifiedFilters';
+import QuestionListFilterFormats from '../filters/QuestionListingFilterFormats';
 import QuestionListingUnifiedFilters from '../filters/QuestionListingUnifiedFilters';
 import QuestionsListingFilterSlideOut from '../filters/QuestionsListingFilterSlideout';
 import QuestionCountLabel from '../../metadata/QuestionCountLabel';
@@ -187,27 +187,11 @@ export default function QuestionsUnifiedListWithFilters({
       </div>
       {categoryTabs}
       {questionAttributesUnion.formats.size > 1 && (
-        <div className={clsx('flex flex-wrap items-center gap-2')}>
-          {formatFilterOptions.options
-            .filter((option) =>
-              questionAttributesUnion.formats == null
-                ? true
-                : questionAttributesUnion.formats?.has(option.value),
-            )
-            .map(({ value, label, icon: Icon, tooltip }) => (
-              <FilterButton
-                key={value}
-                icon={Icon}
-                label={label}
-                selected={formatFilters.has(value)}
-                tooltip={tooltip}
-                onClick={() => {
-                  formatFilterOptions.onChange(value);
-                }}>
-                {label}
-              </FilterButton>
-            ))}
-        </div>
+        <QuestionListFilterFormats
+          formatFilterOptions={formatFilterOptions}
+          formatFilters={formatFilters}
+          formatFiltersUnion={questionAttributesUnion.formats}
+        />
       )}
     </div>
   );

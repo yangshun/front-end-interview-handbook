@@ -31,6 +31,7 @@ import { themeBackgroundCardColor } from '~/components/ui/theme';
 
 import InterviewsQuestionsListSlideOutQuestionList from './InterviewsQuestionsListSlideOutQuestionList';
 import QuestionListingFilterButtonBadgeWrapper from '../filters/QuestionListingFilterButtonBadgeWrapper';
+import QuestionListFilterFormats from '../filters/QuestionListingFilterFormats';
 import {
   filterQuestions,
   sortQuestionsMultiple,
@@ -239,7 +240,7 @@ export default function InterviewsQuestionsListSlideOutContents({
   }, [data?.tabs]);
 
   // Tabulating.
-  const attributesUnion = tabulateQuestionsAttributesUnion(
+  const questionAttributesUnion = tabulateQuestionsAttributesUnion(
     questionsWithCompletionStatus,
   );
 
@@ -294,12 +295,12 @@ export default function InterviewsQuestionsListSlideOutContents({
     <div className={clsx('flex flex-col', themeBackgroundCardColor)}>
       <div className={clsx('flex flex-wrap items-center gap-2', 'px-6 py-4')}>
         <FilterSection
-          coveredValues={attributesUnion.formats}
+          coveredValues={questionAttributesUnion.formats}
           filterOptions={formatFilterOptions}
           filters={formatFilters}
         />
         <FilterSection
-          coveredValues={attributesUnion.topics}
+          coveredValues={questionAttributesUnion.topics}
           filterOptions={topicFilterOptions}
           filters={topicFilters}
         />
@@ -308,12 +309,12 @@ export default function InterviewsQuestionsListSlideOutContents({
           filters={companyFilters}
         />
         <FilterSection
-          coveredValues={attributesUnion.difficulty}
+          coveredValues={questionAttributesUnion.difficulty}
           filterOptions={difficultyFilterOptions}
           filters={difficultyFilters}
         />
         <FilterSection
-          coveredValues={attributesUnion.importance}
+          coveredValues={questionAttributesUnion.importance}
           filterOptions={importanceFilterOptions}
           filters={importanceFilters}
         />
@@ -324,10 +325,10 @@ export default function InterviewsQuestionsListSlideOutContents({
           />
         )}
         <FrameworkAndLanguageFilterSection
-          frameworkCoveredValues={attributesUnion.frameworks}
+          frameworkCoveredValues={questionAttributesUnion.frameworks}
           frameworkFilterOptions={frameworkFilterOptions}
           frameworkFilters={frameworkFilters}
-          languageCoveredValues={attributesUnion.languages}
+          languageCoveredValues={questionAttributesUnion.languages}
           languageFilterOptions={languageFilterOptions}
           languageFilters={languageFilters}
           listType={listType}
@@ -494,6 +495,15 @@ export default function InterviewsQuestionsListSlideOutContents({
           </div>
         ) : (
           <div className="mt-4" />
+        )}
+        {questionAttributesUnion.formats.size > 1 && (
+          <div className="mb-3 px-6">
+            <QuestionListFilterFormats
+              formatFilterOptions={formatFilterOptions}
+              formatFilters={formatFilters}
+              formatFiltersUnion={questionAttributesUnion.formats}
+            />
+          </div>
         )}
         <ScrollArea>
           {isLoading ? (
