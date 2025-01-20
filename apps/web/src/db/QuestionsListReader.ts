@@ -6,6 +6,7 @@
 import fs from 'node:fs';
 
 import type {
+  QuestionCodingFormat,
   QuestionCompany,
   QuestionFormat,
   QuestionFormatForList,
@@ -433,6 +434,20 @@ export async function fetchQuestionsListByHash(
   return questionMetadata.flatMap((item) => (item != null ? [item] : []));
 }
 
+function filterQuestionByCodingFormat(
+  questions: ReadonlyArray<QuestionMetadata>,
+  formats: ReadonlyArray<QuestionCodingFormat>,
+) {
+  if (formats.length === 0) {
+    return questions;
+  }
+
+  return questions.filter(
+    (metadata) =>
+      formats.findIndex((format) => format === metadata.format) >= 0,
+  );
+}
+
 export async function fetchQuestionsList(
   listType: QuestionListTypeData,
   requestedLocale = 'en-US',
@@ -474,7 +489,7 @@ export async function fetchQuestionsList(
 
           return {
             ...results,
-            tabs: practiceTabs,
+            tabs: listType.tab ? practiceTabs : undefined,
           };
         }
       }
@@ -491,8 +506,12 @@ export async function fetchQuestionsList(
       });
 
       return {
-        ...results,
-        tabs: practiceTabs,
+        loadedLocale: results.loadedLocale,
+        questions: filterQuestionByCodingFormat(
+          results.questions,
+          listType.filters?.formats ?? [],
+        ),
+        tabs: listType.tab ? practiceTabs : undefined,
       };
     }
     case 'framework': {
@@ -502,8 +521,15 @@ export async function fetchQuestionsList(
       });
 
       return {
-        ...results,
-        tabs: listType.value === 'react' ? ['coding', 'quiz'] : undefined,
+        loadedLocale: results.loadedLocale,
+        questions: filterQuestionByCodingFormat(
+          results.questions,
+          listType.filters?.formats ?? [],
+        ),
+        tabs:
+          listType.tab && listType.value === 'react'
+            ? ['coding', 'quiz']
+            : undefined,
       };
     }
     case 'format': {

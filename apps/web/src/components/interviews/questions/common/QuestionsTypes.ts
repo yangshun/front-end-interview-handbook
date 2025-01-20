@@ -74,6 +74,10 @@ export type QuestionFormat =
   | 'system-design'
   | 'user-interface';
 export type QuestionPracticeFormat = 'coding' | 'quiz' | 'system-design';
+export type QuestionCodingFormat = Extract<
+  QuestionFormat,
+  'algo' | 'javascript' | 'user-interface'
+>;
 export type QuestionFormatSEO =
   | 'algo-coding'
   | 'javascript-functions'
@@ -88,10 +92,6 @@ export type QuestionLanguageSEO =
 export type QuestionCodingFormatSEO = Extract<
   QuestionFormatSEO,
   'algo-coding' | 'javascript-functions' | 'ui-coding'
->;
-export type QuestionCodingFormat = Extract<
-  QuestionFormat,
-  'algo' | 'javascript' | 'user-interface'
 >;
 export type QuestionFormatForList = QuestionFormat | 'coding';
 export type QuestionFramework =
@@ -249,29 +249,30 @@ export type QuestionTopic =
 
 export type QuestionQuiz = QuestionBase;
 
+export type QuestionListTypeDataFilters = Readonly<{
+  formats?: Array<QuestionCodingFormat>;
+}>;
 export type QuestionListTypeData =
-  | Readonly<{
-      tab?: QuestionPracticeFormat;
-      type: 'format';
-      value: QuestionFormatForList;
-    }>
-  | Readonly<{
+  Readonly<{
+      filters?: QuestionListTypeDataFilters;
       tab?: QuestionPracticeFormat;
       type: 'framework';
       value: QuestionFramework;
-    }>
-  | Readonly<{
+    }> | Readonly<{
+      filters?: QuestionListTypeDataFilters;
       tab?: QuestionPracticeFormat;
       type: 'language';
       value: QuestionLanguage;
-    }>
-  | Readonly<{
+    }> | Readonly<{
       tab?: QuestionPracticeFormat;
       type: 'practice';
       value: 'practice';
-    }>
-  | Readonly<{
-      tab?: QuestionPracticeFormat;
+    }> | Readonly<{
+      tab?: QuestionPracticeFormat; // Not used by format list
+      type: 'format';
+      value: QuestionFormatForList;
+    }> | Readonly<{
+      tab?: QuestionPracticeFormat; // Not used by study list
       type: 'study-list';
       value: string;
     }>;

@@ -8,6 +8,7 @@ import type {
   QuestionFramework,
   QuestionLanguage,
   QuestionListTypeData,
+  QuestionListTypeDataFilters,
   QuestionPracticeFormat,
 } from './QuestionsTypes';
 
@@ -27,6 +28,9 @@ export function useQuestionsListTypeCurrent(
   const tab = searchParams?.get('tab')
     ? (searchParams?.get('tab') as QuestionPracticeFormat)
     : undefined;
+  const filters = searchParams?.get('filters')
+    ? (JSON.parse(searchParams!.get('filters')!) as QuestionListTypeDataFilters)
+    : undefined;
 
   if (searchParams?.get('format')) {
     return {
@@ -38,6 +42,7 @@ export function useQuestionsListTypeCurrent(
 
   if (searchParams?.get('framework')) {
     return {
+      filters,
       tab,
       type: 'framework',
       value: searchParams?.get('framework') as QuestionFramework,
@@ -46,6 +51,7 @@ export function useQuestionsListTypeCurrent(
 
   if (searchParams?.get('language')) {
     return {
+      filters,
       tab,
       type: 'language',
       value: searchParams?.get('language') as QuestionLanguage,
@@ -84,11 +90,19 @@ export function useQuestionsListDataForType(
         case 'study-list':
           return { studyList: listType.value, tab: listType?.tab };
         case 'framework':
-          return { framework: listType.value, tab: listType?.tab };
+          return {
+            filters: listType?.filters,
+            framework: listType.value,
+            tab: listType?.tab,
+          };
         case 'format':
           return { format: listType.value, tab: listType?.tab };
         case 'language':
-          return { language: listType.value, tab: listType?.tab };
+          return {
+            filters: listType?.filters,
+            language: listType.value,
+            tab: listType?.tab,
+          };
 
         default:
           return {};

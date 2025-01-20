@@ -11,6 +11,8 @@ import { QuestionListTypeDefault } from '~/components/interviews/questions/commo
 import type {
   QuestionCompany,
   QuestionFormatForList,
+  QuestionListTypeData,
+  QuestionListTypeDataFilters,
   QuestionPracticeFormat,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import {
@@ -39,6 +41,12 @@ export const questionListsRouter = router({
   getQuestions: publicProcedure
     .input(
       z.object({
+        filters: z
+          .object({
+            formats: z.array(z.string()).optional(),
+          })
+          .nullable()
+          .optional(),
         format: z.string().nullable().optional(),
         framework: z.string().nullable().optional(),
         language: z.string().nullable().optional(),
@@ -56,11 +64,16 @@ export const questionListsRouter = router({
           language,
           studyList,
           tab: tabInput,
+          filters: filtersInput,
         },
       }) => {
         const intl = await getIntlClientOnly('en-US');
         const tab =
           tabInput != null ? (tabInput as QuestionPracticeFormat) : undefined;
+        const filters =
+          filtersInput != null
+            ? (filtersInput as QuestionListTypeDataFilters)
+            : undefined;
 
         if (studyList != null) {
           const studyListData_ = await fetchInterviewsStudyList(studyList);
@@ -70,17 +83,18 @@ export const questionListsRouter = router({
             `Study list not found for key ${studyList}`,
           );
 
+          const listType: QuestionListTypeData = {
+            type: 'study-list',
+            value: studyList,
+          } as const;
+
           if (QuestionCompanies.includes(studyList as QuestionCompany)) {
             const studyListQuestions = await fetchQuestionsListQuizForCompany(
               studyList as QuestionCompany,
             );
 
             return {
-              listType: {
-                tab: undefined,
-                type: 'study-list',
-                value: studyList,
-              },
+              listType,
               questions: studyListQuestions,
               title: studyListData.name,
             } as const;
@@ -91,11 +105,7 @@ export const questionListsRouter = router({
           );
 
           return {
-            listType: {
-              tab,
-              type: 'study-list',
-              value: studyList,
-            },
+            listType,
             questions: studyListQuestions,
             title: studyListData.name,
           } as const;
@@ -104,18 +114,16 @@ export const questionListsRouter = router({
         if (framework) {
           const framework_ = framework as QuestionFramework;
           const frameworksData = getQuestionFrameworksData(intl);
-          const { questions, tabs } = await fetchQuestionsList({
+          const listType: QuestionListTypeData = {
+            filters,
             tab,
             type: 'framework',
             value: framework_,
-          });
+          } as const;
+          const { questions, tabs } = await fetchQuestionsList(listType);
 
           return {
-            listType: {
-              tab,
-              type: 'framework',
-              value: framework_,
-            },
+            listType,
             questions,
             tabs,
             title: frameworksData[framework_].label,
@@ -125,10 +133,12 @@ export const questionListsRouter = router({
         if (format) {
           const format_ = format as QuestionFormatForList;
           const formatData = getQuestionFormatsData(intl);
-          const { questions, tabs } = await fetchQuestionsList({
+          const listType: QuestionListTypeData = {
             type: 'format',
             value: format_,
-          });
+          } as const;
+
+          const { questions, tabs } = await fetchQuestionsList(listType);
           const codingLabel = intl.formatMessage({
             defaultMessage: 'Coding',
             description: 'Question format',
@@ -136,11 +146,7 @@ export const questionListsRouter = router({
           });
 
           return {
-            listType: {
-              tab,
-              type: 'format',
-              value: format_,
-            },
+            listType,
             questions,
             tabs,
             title:
@@ -151,18 +157,16 @@ export const questionListsRouter = router({
         if (language) {
           const language_ = language as QuestionLanguage;
           const languagesData = getQuestionLanguagesData(intl);
-          const { questions, tabs } = await fetchQuestionsList({
+          const listType: QuestionListTypeData = {
+            filters,
             tab,
             type: 'language',
             value: language_,
-          });
+          } as const;
+          const { questions, tabs } = await fetchQuestionsList(listType);
 
           return {
-            listType: {
-              tab,
-              type: 'language',
-              value: language_,
-            },
+            listType,
             questions,
             tabs,
             title: languagesData[language_].label,
@@ -176,29 +180,24 @@ export const questionListsRouter = router({
         });
 
         if (practice) {
-          const { questions, tabs } = await fetchQuestionsList({
+          const listType: QuestionListTypeData = {
             tab,
             type: 'practice',
             value: 'practice',
-          });
+          } as const;
+          const { questions, tabs } = await fetchQuestionsList(listType);
 
           return {
-            listType: {
-              tab,
-              type: 'practice',
-              value: 'practice',
-            },
+            listType,
             questions,
             tabs,
             title: allPracticeQuestionsLabel,
           } as const;
         }
 
-        const { questions: questionsCoding, tabs } = await fetchQuestionsList({
-          tab: 'coding',
-          type: 'practice',
-          value: 'practice',
-        });
+        const { questions: questionsCoding, tabs } = await fetchQuestionsList(
+          QuestionListTypeDefault,
+        );
 
         return {
           listType: QuestionListTypeDefault,
