@@ -77,7 +77,6 @@ export default function InterviewsStudyListBottomBar({
         {allowMarkComplete && (
           <QuestionProgressAction
             metadata={metadata}
-            questionProgress={questionProgress}
             studyListKey={studyListKey}
           />
         )}

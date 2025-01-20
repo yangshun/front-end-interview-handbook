@@ -119,17 +119,18 @@ export default function QuestionContentsSystemDesign({
             showTooltip={false}
             slug={question.metadata.slug}
           />
-          <div
-            className={clsx(
-              'transition-colors',
-              isLoading && user != null ? 'opacity-0' : 'opacity-100',
-            )}>
-            <QuestionProgressAction
-              metadata={question.metadata}
-              questionProgress={questionProgress}
-              studyListKey={studyListKey}
-            />
-          </div>
+          {!isQuestionLocked && (
+            <div
+              className={clsx(
+                'transition-colors',
+                isLoading && user != null ? 'opacity-0' : 'opacity-100',
+              )}>
+              <QuestionProgressAction
+                metadata={question.metadata}
+                studyListKey={studyListKey}
+              />
+            </div>
+          )}
         </div>
       </Section>
     </article>

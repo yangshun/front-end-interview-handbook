@@ -30,7 +30,6 @@ import { useUser } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
   metadata: Pick<QuestionMetadata, 'format' | 'slug'>;
-  questionProgress?: QuestionProgress | null;
   signInModalContents?: React.ReactNode;
   studyListKey?: string;
 }>;

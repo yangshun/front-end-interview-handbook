@@ -9,6 +9,7 @@ import {
 
 import { useGuidesData } from '~/data/Guides';
 
+import QuestionProgressAction from '~/components/interviews/questions/common/QuestionProgressAction';
 import { useIntl } from '~/components/intl';
 import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
@@ -282,12 +283,20 @@ export default function GuidesPagination({
             slug={currentItem.id}
           />
         )}
-        <GuidesProgressAction
-          guideName={currentItem.label}
-          guideProgress={guideProgress}
-          metadata={guideMetadata}
-          studyListKey={studyListKey}
-        />
+        {user != null &&
+          (isSystemDesignQuestion ? (
+            <QuestionProgressAction
+              metadata={{ format: 'system-design', slug: currentItem.id }}
+              studyListKey={studyListKey}
+            />
+          ) : (
+            <GuidesProgressAction
+              guideName={currentItem.label}
+              guideProgress={guideProgress}
+              metadata={guideMetadata}
+              studyListKey={studyListKey}
+            />
+          ))}
       </div>
     </nav>
   );
