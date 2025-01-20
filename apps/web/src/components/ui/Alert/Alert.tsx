@@ -89,7 +89,7 @@ const classes: Record<
     titleClass: themeTextSuccessColor,
   },
   warning: {
-    backgroundClass: 'bg-warning-lighter dark:bg-neutral-800/70',
+    backgroundClass: 'bg-warning-lightest dark:bg-neutral-800/70',
     icon: RiErrorWarningFill,
     iconClass: themeTextWarningColor,
     titleClass: themeTextWarningColor,

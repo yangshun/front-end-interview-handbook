@@ -50,9 +50,7 @@ export const themeTextSuccessColor = clsx('text-success');
 export const themeTextSuccessColor_Hover = clsx(
   'hover:text-success dark:hover:text-success',
 );
-export const themeTextWarningColor = clsx(
-  'text-warning dark:text-warning-light',
-);
+export const themeTextWarningColor = clsx('text-warning dark:text-warning');
 export const themeTextInfoColor = clsx('text-info dark:text-info-light');
 export const themeTextDangerColor = clsx('text-danger');
 export const themeTextPlaceholderColor = themeTextFaintColor;
