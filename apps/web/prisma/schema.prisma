@@ -59,6 +59,9 @@ model Profile {
   questionUserInterfaceCommunitySolutions QuestionUserInterfaceCommunitySolution[]
   projectsProfile                         ProjectsProfile?
   rewardsTaskCompletions                  RewardsTaskCompletion[]
+
+  @@index([username])
+  @@index([stripeCustomer])
 }
 
 model QuestionProgress {
