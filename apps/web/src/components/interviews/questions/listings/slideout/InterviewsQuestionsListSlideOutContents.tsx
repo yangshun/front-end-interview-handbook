@@ -401,13 +401,14 @@ export default function InterviewsQuestionsListSlideOutContents({
 
   return (
     <>
-      <div className={clsx('flex h-full flex-col pt-3.5')}>
+      <div className={clsx('flex h-full flex-col pt-3')}>
         <form
           className="flex w-full flex-col gap-4"
           onSubmit={(event) => {
             event.preventDefault();
           }}>
-          <div className="flex w-full items-center gap-3 px-6">
+          <div
+            className={clsx('flex w-full items-center gap-3', 'px-6 py-1.5')}>
             <div className="flex-1">
               <TextInput
                 autoComplete="off"

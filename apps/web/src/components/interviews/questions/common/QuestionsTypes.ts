@@ -253,25 +253,29 @@ export type QuestionListTypeDataFilters = Readonly<{
   formats?: Array<QuestionCodingFormat>;
 }>;
 export type QuestionListTypeData =
-  Readonly<{
+  | Readonly<{
       filters?: QuestionListTypeDataFilters;
       tab?: QuestionPracticeFormat;
       type: 'framework';
       value: QuestionFramework;
-    }> | Readonly<{
+    }>
+  | Readonly<{
       filters?: QuestionListTypeDataFilters;
       tab?: QuestionPracticeFormat;
       type: 'language';
       value: QuestionLanguage;
-    }> | Readonly<{
+    }>
+  | Readonly<{
       tab?: QuestionPracticeFormat;
       type: 'practice';
       value: 'practice';
-    }> | Readonly<{
+    }>
+  | Readonly<{
       tab?: QuestionPracticeFormat; // Not used by format list
       type: 'format';
       value: QuestionFormatForList;
-    }> | Readonly<{
+    }>
+  | Readonly<{
       tab?: QuestionPracticeFormat; // Not used by study list
       type: 'study-list';
       value: string;

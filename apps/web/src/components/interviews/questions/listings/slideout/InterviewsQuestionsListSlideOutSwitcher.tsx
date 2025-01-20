@@ -395,6 +395,7 @@ export default function InterviewsQuestionsListSlideOutSwitcher({
         modal={true}
         showChevron={true}
         size="md"
+        triggerClassName="-ml-4"
         variant="tertiary">
         <DropdownContent
           listType={listType}
