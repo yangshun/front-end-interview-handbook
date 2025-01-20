@@ -9,7 +9,6 @@ import InterviewsGuideCard from '~/components/interviews/guides/InterviewsGuideC
 import InterviewsPurchasePaywall from '~/components/interviews/purchase/InterviewsPurchasePaywall';
 import type {
   QuestionFormat,
-  QuestionFramework,
   QuestionMetadata,
   QuestionMetadataWithCompletedStatus,
 } from '~/components/interviews/questions/common/QuestionsTypes';
@@ -48,7 +47,7 @@ type Props = Readonly<{
     a: QuestionFormat,
     b: QuestionFormat,
   ) => number;
-  framework?: QuestionFramework;
+  // Framework?: QuestionFramework;
   guides?: {
     description: string;
     items: ReadonlyArray<GuideCardMetadataWithCompletedStatus>;
@@ -57,7 +56,7 @@ type Props = Readonly<{
   initialFormat?: QuestionFormat | null;
   listMode?: React.ComponentProps<typeof QuestionsList>['mode'];
   listType?: React.ComponentProps<typeof QuestionsList>['listType'];
-  mode?: 'default' | 'framework';
+  // Mode?: 'default' | 'framework';
   onMarkAsCompleted?: (question: QuestionMetadata) => void;
   onMarkAsNotCompleted?: (question: QuestionMetadata) => void;
   questionCompletionCount?: QuestionCompletionCount;
@@ -71,10 +70,8 @@ export default function QuestionsUnifiedListWithFilters({
   checkIfCompletedQuestionBefore,
   categoryTabs,
   initialFormat = null,
-  framework,
   listType,
   listMode,
-  mode = 'default',
   questions,
   questionCompletionCount,
   formatFiltersFilterPredicate,
@@ -87,6 +84,8 @@ export default function QuestionsUnifiedListWithFilters({
   guides,
 }: Props) {
   const intl = useIntl();
+  const framework =
+    listType?.type === 'framework' ? listType?.value : undefined;
   const { userProfile } = useUserProfile();
 
   // Tabulating.
@@ -150,7 +149,6 @@ export default function QuestionsUnifiedListWithFilters({
         <QuestionsListingFilterSlideOut
           attributesUnion={questionAttributesUnion}
           listType={listType}
-          mode={mode}
         />
       </div>
       <QuestionsListSortButton listType={listType} />
@@ -352,7 +350,6 @@ export default function QuestionsUnifiedListWithFilters({
                 importanceFilters={importanceFilters}
                 languageFilterOptions={languageFilterOptions}
                 languageFilters={languageFilters}
-                mode={mode}
                 topicFilterOptions={topicFilterOptions}
                 topicFilters={topicFilters}
               />

@@ -26,7 +26,6 @@ type Props = Readonly<{
   initialFormat?: QuestionFormat | null;
   initialOpenItems?: ReadonlyArray<string>;
   listType?: QuestionListTypeData;
-  mode?: 'default' | 'framework';
 }>;
 
 export default function QuestionsListingFilterSlideOut({
@@ -36,7 +35,6 @@ export default function QuestionsListingFilterSlideOut({
   formatFiltersFilterPredicate,
   formatFiltersOrderComparator,
   initialOpenItems,
-  mode,
 }: Props) {
   const intl = useIntl();
   const [isFiltersShown, setIsFiltersShown] = useState(false);
@@ -195,7 +193,6 @@ export default function QuestionsListingFilterSlideOut({
         initialOpenItems={initialOpenItems}
         languageFilterOptions={localLanguageFilterOptions}
         languageFilters={localLanguageFilters}
-        mode={mode}
         topicFilterOptions={localTopicsFilterOptions}
         topicFilters={localTopicFilters}
       />

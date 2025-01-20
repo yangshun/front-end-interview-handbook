@@ -136,9 +136,6 @@ export default function InterviewsQuestionsCategoryPage({
       <Section>
         <QuestionsUnifiedListWithFiltersAndProgress
           categoryTabs={categoryTabs}
-          framework={
-            listType?.type === 'framework' ? listType?.value : undefined
-          }
           guides={
             guidesWithCompletionStatus.length > 0
               ? {
@@ -168,7 +165,6 @@ export default function InterviewsQuestionsCategoryPage({
               : undefined
           }
           listType={listType}
-          mode="framework"
           questionCompletionCount={questionCompletionCount}
           questions={questionList}
           searchPlaceholder={searchPlaceholder}

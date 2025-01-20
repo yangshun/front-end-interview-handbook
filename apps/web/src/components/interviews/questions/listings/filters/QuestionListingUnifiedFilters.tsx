@@ -51,7 +51,6 @@ type Props = Readonly<{
   initialOpenItems?: ReadonlyArray<string>;
   languageFilterOptions: QuestionFilter<QuestionLanguage, QuestionMetadata>;
   languageFilters: Set<QuestionLanguage>;
-  mode?: 'default' | 'framework';
   topicFilterOptions: QuestionFilter<QuestionTopic, QuestionMetadata>;
   topicFilters: Set<QuestionTopic>;
 }>;
@@ -75,7 +74,6 @@ export default function QuestionListingUnifiedFilters({
   languageFilters,
   topicFilterOptions,
   topicFilters,
-  mode,
 }: Props) {
   const { userProfile } = useUserProfile();
 
@@ -158,34 +156,31 @@ export default function QuestionListingUnifiedFilters({
             <AccordionContent>
               <div className="flex flex-col gap-y-5">
                 {attributesUnion.languages.size > 1 && (
-                  <>
-                    <div className="flex flex-col gap-y-3">
-                      <Text className="block" size="body2">
-                        {languageFilterOptions.name}
-                      </Text>
-                      <QuestionListingFilterItemCheckboxes
-                        coveredValues={attributesUnion.languages}
-                        section={languageFilterOptions}
-                        values={languageFilters}
-                      />
-                    </div>
-                    {mode !== 'framework' &&
-                      attributesUnion.frameworks.size > 1 && <Divider />}
-                  </>
+                  <div className="flex flex-col gap-y-3">
+                    <Text className="block" size="body2">
+                      {languageFilterOptions.name}
+                    </Text>
+                    <QuestionListingFilterItemCheckboxes
+                      coveredValues={attributesUnion.languages}
+                      section={languageFilterOptions}
+                      values={languageFilters}
+                    />
+                  </div>
                 )}
-                {mode !== 'framework' &&
-                  attributesUnion.frameworks.size > 1 && (
-                    <div className="flex flex-col gap-y-3">
-                      <Text className="block" size="body2">
-                        {frameworkFilterOptions.name}
-                      </Text>
-                      <QuestionListingFilterItemCheckboxes
-                        coveredValues={attributesUnion.frameworks}
-                        section={frameworkFilterOptions}
-                        values={frameworkFilters}
-                      />
-                    </div>
-                  )}
+                {attributesUnion.languages.size > 1 &&
+                  attributesUnion.frameworks.size > 1 && <Divider />}
+                {attributesUnion.frameworks.size > 1 && (
+                  <div className="flex flex-col gap-y-3">
+                    <Text className="block" size="body2">
+                      {frameworkFilterOptions.name}
+                    </Text>
+                    <QuestionListingFilterItemCheckboxes
+                      coveredValues={attributesUnion.frameworks}
+                      section={frameworkFilterOptions}
+                      values={frameworkFilters}
+                    />
+                  </div>
+                )}
               </div>
             </AccordionContent>
           </AccordionItem>
