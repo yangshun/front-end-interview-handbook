@@ -53,7 +53,7 @@ export function PromotionsSocialDiscountCard({ variant = 'full' }: Props) {
         footer={
           <div className="-mb-1.5 -mr-3 sm:-ml-3 sm:mb-0 sm:mr-0 sm:w-full">
             {(() => {
-              const promoCodeToDisplay = data?.promoCode ?? null;
+              const promoCodeToDisplay = data?.activePromoCode ?? null;
 
               if (promoCodeToDisplay) {
                 return (
@@ -200,7 +200,7 @@ export function PromotionsSocialDiscountCard({ variant = 'full' }: Props) {
           </Text>
           <div className="mt-4">
             {(() => {
-              const promoCodeToDisplay = data?.promoCode ?? null;
+              const promoCodeToDisplay = data?.activePromoCode ?? null;
 
               if (promoCodeToDisplay) {
                 return (

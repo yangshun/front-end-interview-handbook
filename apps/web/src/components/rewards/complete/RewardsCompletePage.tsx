@@ -67,8 +67,8 @@ export default function RewardsCompletePage() {
       </div>
       {data && (
         <RewardsCompletePromoCode
-          isLastPromoCode={data.isLastPromoCode}
-          promoCode={data.promoCode}
+          isLastAttempt={data.isLastAttempt}
+          promoCode={data.activePromoCode}
         />
       )}
     </div>

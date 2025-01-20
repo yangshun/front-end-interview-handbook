@@ -538,14 +538,11 @@ export const promotionsRouter = router({
       }),
     ]);
 
-    if (activePromoCodes.data.length === 0) {
-      return null;
-    }
-
     return {
-      isLastPromoCode:
+      activePromoCode:
+        activePromoCodes.data.length === 0 ? null : activePromoCodes.data[0],
+      isLastAttempt:
         inactivePromoCodes.data.length >= PROMO_CODE_MAX_ATTEMPTS - 1,
-      promoCode: activePromoCodes.data[0],
     };
   }),
   // Intentionally make it publicProcedure since this can be called by

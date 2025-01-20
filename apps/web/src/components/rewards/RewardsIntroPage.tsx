@@ -46,8 +46,8 @@ export default function RewardsIntroPage() {
         </>
       ) : (
         <RewardsCompletePromoCode
-          isLastPromoCode={data.isLastPromoCode}
-          promoCode={data.promoCode}
+          isLastAttempt={data.isLastAttempt}
+          promoCode={data.activePromoCode}
         />
       )}
     </div>
