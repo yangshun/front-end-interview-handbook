@@ -32,7 +32,7 @@ export default function InterviewsStudyListBottomBar({
   studyListKey,
 }: Props) {
   const user = useUser();
-  const { data: questionProgress, isLoading } = useQueryQuestionProgress(
+  const { isLoading } = useQueryQuestionProgress(
     metadata,
     studyListKey ?? null,
   );

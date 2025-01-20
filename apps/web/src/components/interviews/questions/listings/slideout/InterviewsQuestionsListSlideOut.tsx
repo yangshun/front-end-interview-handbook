@@ -21,7 +21,6 @@ import SlideOut from '~/components/ui/SlideOut';
 import {
   themeBackgroundDarkColor,
   themeBackgroundGlimmerColor,
-  themeBorderColor,
 } from '~/components/ui/theme';
 
 import InterviewsQuestionsListSlideOutContents from './InterviewsQuestionsListSlideOutContents';
@@ -155,11 +154,7 @@ function InterviewsQuestionsListSlideOutImpl({
     <SlideOut
       bodyClassName={themeBackgroundDarkColor}
       enterFrom="start"
-      headerClassName={clsx(
-        'border-b',
-        themeBorderColor,
-        themeBackgroundDarkColor,
-      )}
+      headerClassName={clsx(themeBackgroundDarkColor)}
       isShown={Boolean(isSlideOutShown)}
       padding={false}
       size="xl"

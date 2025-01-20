@@ -19,7 +19,6 @@ import {
   useMutationQuestionProgressDelete,
   useQueryQuestionProgress,
 } from '~/db/QuestionsProgressClient';
-import type { QuestionProgress } from '~/db/QuestionsProgressTypes';
 import logEvent from '~/logging/logEvent';
 
 import type { QuestionMetadata } from './QuestionsTypes';
