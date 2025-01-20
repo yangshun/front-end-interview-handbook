@@ -14,12 +14,9 @@ import { useUser } from '@supabase/auth-helpers-react';
 
 export default function RewardsCompletePage() {
   const user = useUser();
-  const { data: promoCode } = trpc.promotions.getSocialTasksPromoCode.useQuery(
-    undefined,
-    {
-      enabled: user != null,
-    },
-  );
+  const { data } = trpc.promotions.getSocialTasksPromoCode.useQuery(undefined, {
+    enabled: user != null,
+  });
 
   return (
     <div className="mx-auto flex w-full max-w-xl flex-col items-center gap-y-12">
@@ -42,7 +39,6 @@ export default function RewardsCompletePage() {
               />
             </Heading>
           </div>
-
           {/* For small screens */}
           <div className="flex flex-col items-center md:hidden">
             <Heading className="text-center" level="heading4">
@@ -69,7 +65,12 @@ export default function RewardsCompletePage() {
           />
         </Text>
       </div>
-      {promoCode && <RewardsCompletePromoCode promoCode={promoCode} />}
+      {data && (
+        <RewardsCompletePromoCode
+          isLastPromoCode={data.isLastPromoCode}
+          promoCode={data.promoCode}
+        />
+      )}
     </div>
   );
 }

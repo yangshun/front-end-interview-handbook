@@ -7663,6 +7663,10 @@
     "defaultMessage": "JavaScript functions",
     "description": "Front End JavaScript coding questions"
   },
+  "kBDOw0": {
+    "defaultMessage": "You can find your promo codes on the <link>profile page</link>",
+    "description": "Help text for promo code"
+  },
   "kCkca8": {
     "defaultMessage": "Errors",
     "description": "Select label for error log level in console filter"

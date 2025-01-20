@@ -1,13 +1,17 @@
 'use client';
 
+import clsx from 'clsx';
 import { FaCheck } from 'react-icons/fa6';
 import { RiArrowRightLine, RiFileCopyLine } from 'react-icons/ri';
 import type Stripe from 'stripe';
 
 import useCopyToClipboardWithRevert from '~/hooks/useCopyToClipboardWithRevert';
 
+import { PROMO_CODE_MAX_ATTEMPTS } from '~/data/PromotionConfig';
+
 import { FormattedMessage, useIntl } from '~/components/intl';
 import RewardsTicket from '~/components/rewards/complete/RewardsTicket';
+import Alert from '~/components/ui/Alert';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
@@ -19,7 +23,9 @@ const dateFormatter = new Intl.DateTimeFormat(undefined, {
 
 export default function RewardsCompletePromoCode({
   promoCode,
+  isLastPromoCode,
 }: Readonly<{
+  isLastPromoCode: boolean;
   promoCode: Stripe.PromotionCode;
 }>) {
   const intl = useIntl();
@@ -34,58 +40,66 @@ export default function RewardsCompletePromoCode({
   }
 
   return (
-    <div className="flex w-[350px] flex-col items-center gap-8 md:w-[400px]">
-      <RewardsTicket
-        ratio="wide"
-        subtitle={
-          <div className="flex flex-col gap-1">
-            {promoCode.expires_at && (
-              <>
+    <div
+      className={clsx(
+        'flex flex-col items-center gap-10',
+        'w-[350px] md:w-[450px]',
+      )}>
+      <div className={clsx('flex flex-col items-center gap-8')}>
+        <RewardsTicket
+          ratio="wide"
+          subtitle={
+            <div className="flex flex-col gap-1">
+              {promoCode.expires_at && (
+                <>
+                  {intl.formatMessage(
+                    {
+                      defaultMessage: 'Expires on {expiryDate}',
+                      description: 'Subtext for rewards complete page',
+                      id: 'YzW/Zb',
+                    },
+                    {
+                      discountPercentage: promoCode.coupon.percent_off,
+                      expiryDate: dateFormatter.format(
+                        promoCode.expires_at * 1000,
+                      ),
+                    },
+                  )}
+                </>
+              )}
+              <span>
                 {intl.formatMessage(
                   {
-                    defaultMessage: 'Expires on {expiryDate}',
+                    defaultMessage: '{discountPercentage}% off all plans',
                     description: 'Subtext for rewards complete page',
-                    id: 'YzW/Zb',
+                    id: 'sM1Ppu',
                   },
                   {
                     discountPercentage: promoCode.coupon.percent_off,
-                    expiryDate: dateFormatter.format(
-                      promoCode.expires_at * 1000,
-                    ),
                   },
                 )}
-              </>
-            )}
-            <span>
-              {intl.formatMessage(
-                {
-                  defaultMessage: '{discountPercentage}% off all plans',
-                  description: 'Subtext for rewards complete page',
-                  id: 'sM1Ppu',
-                },
-                {
-                  discountPercentage: promoCode.coupon.percent_off,
-                },
-              )}
-            </span>
-          </div>
-        }
-        title={promoCode.code}
-        width={350}
-      />
-      <Text
-        className="block w-60 text-center md:w-full"
-        color="secondary"
-        size="body1">
-        <FormattedMessage
-          defaultMessage="You can find your promo codes on the <link>profile page</link>."
-          description="Help text for promo code"
-          id="1mbKJP"
-          values={{
-            link: (chunks) => <Anchor href="/profile/coupons">{chunks}</Anchor>,
-          }}
+              </span>
+            </div>
+          }
+          title={promoCode.code}
+          width={350}
         />
-      </Text>
+        <Text
+          className="max-w-60 block text-center"
+          color="secondary"
+          size="body1">
+          <FormattedMessage
+            defaultMessage="You can find your promo codes on the <link>profile page</link>"
+            description="Help text for promo code"
+            id="kBDOw0"
+            values={{
+              link: (chunks) => (
+                <Anchor href="/profile/coupons">{chunks}</Anchor>
+              ),
+            }}
+          />
+        </Text>
+      </div>
       <div className="flex w-full flex-col gap-x-6 gap-y-4 sm:flex-row">
         <Button
           className="self-stretch sm:self-auto"
@@ -122,6 +136,12 @@ export default function RewardsCompletePromoCode({
           variant="primary"
         />
       </div>
+      {isLastPromoCode && (
+        <Alert title="Attempt limit reached" variant="warning">
+          You've reached the attempt limit of {PROMO_CODE_MAX_ATTEMPTS} for this
+          campaign. Once this code expires, you cannot participate again.
+        </Alert>
+      )}
     </div>
   );
 }

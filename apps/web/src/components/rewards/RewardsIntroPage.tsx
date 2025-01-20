@@ -15,10 +15,12 @@ import { useUser } from '@supabase/auth-helpers-react';
 
 export default function RewardsIntroPage() {
   const user = useUser();
-  const { data: promoCode, isLoading } =
-    trpc.promotions.getSocialTasksPromoCode.useQuery(undefined, {
+  const { data, isLoading } = trpc.promotions.getSocialTasksPromoCode.useQuery(
+    undefined,
+    {
       enabled: user != null,
-    });
+    },
+  );
   const tasks = useRewardsTasks();
   const tasksWithStatus = tasks.map((task) => ({
     ...task,
@@ -28,7 +30,7 @@ export default function RewardsIntroPage() {
   return (
     <div className="mx-auto flex w-full max-w-lg flex-col items-center gap-y-10">
       <RewardsHeader />
-      {promoCode == null || isLoading ? (
+      {data == null || isLoading ? (
         <>
           <div className="flex w-full flex-col gap-y-3">
             <Text className="block" color="secondary" size="body2">
@@ -43,7 +45,10 @@ export default function RewardsIntroPage() {
           <RewardsFooter isDisabled={user != null && isLoading} />
         </>
       ) : (
-        <RewardsCompletePromoCode promoCode={promoCode} />
+        <RewardsCompletePromoCode
+          isLastPromoCode={data.isLastPromoCode}
+          promoCode={data.promoCode}
+        />
       )}
     </div>
   );

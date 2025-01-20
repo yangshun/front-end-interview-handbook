@@ -33,12 +33,9 @@ export function PromotionsSocialDiscountCard({ variant = 'full' }: Props) {
   const user = useUser();
   const socialDiscountLabels = useSocialDiscountLabels();
   const [isCopied, onCopy] = useCopyToClipboardWithRevert(1000);
-  const { data: promoCode } = trpc.promotions.getSocialTasksPromoCode.useQuery(
-    undefined,
-    {
-      enabled: user != null,
-    },
-  );
+  const { data } = trpc.promotions.getSocialTasksPromoCode.useQuery(undefined, {
+    enabled: user != null,
+  });
 
   if (variant === 'compact') {
     return (
@@ -56,7 +53,7 @@ export function PromotionsSocialDiscountCard({ variant = 'full' }: Props) {
         footer={
           <div className="-mb-1.5 -mr-3 sm:-ml-3 sm:mb-0 sm:mr-0 sm:w-full">
             {(() => {
-              const promoCodeToDisplay = promoCode ?? null;
+              const promoCodeToDisplay = data?.promoCode ?? null;
 
               if (promoCodeToDisplay) {
                 return (
@@ -203,7 +200,7 @@ export function PromotionsSocialDiscountCard({ variant = 'full' }: Props) {
           </Text>
           <div className="mt-4">
             {(() => {
-              const promoCodeToDisplay = promoCode ?? null;
+              const promoCodeToDisplay = data?.promoCode ?? null;
 
               if (promoCodeToDisplay) {
                 return (

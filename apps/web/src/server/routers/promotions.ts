@@ -3,6 +3,8 @@ import Stripe from 'stripe';
 import type { ZodError } from 'zod';
 import { z } from 'zod';
 
+import { PROMO_CODE_MAX_ATTEMPTS } from '~/data/PromotionConfig';
+
 import {
   GITHUB_STAR_JS_INTERVIEWS,
   GITHUB_STAR_REACT_INTERVIEWS,
@@ -247,7 +249,6 @@ export const promotionsRouter = router({
       // No way to actually check, just assume its real
       return true;
     }),
-
   checkTwitterFollowing: userProcedure
     .input(
       z.object({
@@ -427,10 +428,10 @@ export const promotionsRouter = router({
         return activePromoCodes.data[0];
       }
 
-      // Allow 3 promo generations since some users might waste
+      // Allow extra promo generations since some users might waste
       // the promo code on failed payments (e.g. India)
-      if (inactivePromoCodes.data.length > 3) {
-        throw 'You have claimed this reward before.';
+      if (inactivePromoCodes.data.length > PROMO_CODE_MAX_ATTEMPTS) {
+        throw "You've used all your attempts for generating a promo code and your last code has now expired. If you need help or have questions, feel free to contact us.";
       }
 
       // Generate a new promo code
@@ -438,7 +439,7 @@ export const promotionsRouter = router({
       const threeDaysLater = new Date(today.setDate(today.getDate() + 3));
       const threeDaysLaterUnix = Math.round(threeDaysLater.getTime() / 1000);
 
-      return await stripe.promotionCodes.create({
+      const promoCode = await stripe.promotionCodes.create({
         coupon,
         customer: stripeCustomer,
         expires_at: threeDaysLaterUnix,
@@ -447,6 +448,8 @@ export const promotionsRouter = router({
           campaign: SOCIAL_TASKS_DISCOUNT_CAMPAIGN,
         },
       });
+
+      return promoCode;
     },
   ),
   generateStudentDiscountPromoCode: userProcedure.mutation(
@@ -480,7 +483,7 @@ export const promotionsRouter = router({
       // Allow 3 promo generations since some users
       // might waste the promo code on failed payments (e.g. India).
       if (promotionCodes.data.length > 3) {
-        throw 'You have claimed this reward before.';
+        throw "You've used all your attempts for generating a promo code and your last code has now expired. If you need help or have questions, feel free to contact us.";
       }
 
       const today = new Date();
@@ -522,17 +525,28 @@ export const promotionsRouter = router({
         ? socialTasksDiscountCouponId_PROD
         : socialTasksDiscountCouponId_TEST;
 
-    const promotionCodes = await stripe.promotionCodes.list({
-      active: true,
-      coupon,
-      customer,
-    });
+    const [activePromoCodes, inactivePromoCodes] = await Promise.all([
+      stripe.promotionCodes.list({
+        active: true,
+        coupon,
+        customer,
+      }),
+      stripe.promotionCodes.list({
+        active: false,
+        coupon,
+        customer,
+      }),
+    ]);
 
-    if (promotionCodes.data.length === 0) {
+    if (activePromoCodes.data.length === 0) {
       return null;
     }
 
-    return promotionCodes.data[0];
+    return {
+      isLastPromoCode:
+        inactivePromoCodes.data.length >= PROMO_CODE_MAX_ATTEMPTS - 1,
+      promoCode: activePromoCodes.data[0],
+    };
   }),
   // Intentionally make it publicProcedure since this can be called by
   // non-logged in users and showing an error is ugly.
