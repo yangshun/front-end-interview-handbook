@@ -18,7 +18,7 @@ export default function MarketingContactPage() {
         />
       </Heading>
       <Section>
-        <div className="mt-6" />
+        <div className="mt-6 sm:mt-2 xl:mt-7" />
         <InterviewsMarketingContactSection />
         <MarketingCommunitySection />
         <InterviewsMarketingDreamJobSection />
