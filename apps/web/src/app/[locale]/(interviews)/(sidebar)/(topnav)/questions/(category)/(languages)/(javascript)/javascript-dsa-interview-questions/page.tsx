@@ -1,6 +1,7 @@
 import type { Metadata } from 'next/types';
 
 import type {
+  QuestionFormat,
   QuestionLanguage,
   QuestionListTypeData,
 } from '~/components/interviews/questions/common/QuestionsTypes';
@@ -17,9 +18,11 @@ import defaultMetadata from '~/seo/defaultMetadata';
 export const dynamic = 'force-static';
 
 const language: QuestionLanguage = 'js';
-const codingFormat = 'algo';
+const codingFormat: QuestionFormat = 'algo';
 const listType: QuestionListTypeData = {
-  tab: 'coding',
+  filters: {
+    formats: [codingFormat],
+  },
   type: 'language',
   value: language,
 };
@@ -38,10 +41,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     fetchQuestionsList(listType, locale),
   ]);
 
-  const questionsCodingFormat = questions.filter((metadata) =>
-    metadata.format.includes(codingFormat),
-  );
-
   return defaultMetadata({
     description: intl.formatMessage(
       {
@@ -51,9 +50,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         id: 'PaucmE',
       },
       {
-        questionCount: roundQuestionCountToNearestTen(
-          questionsCodingFormat.length,
-        ),
+        questionCount: roundQuestionCountToNearestTen(questions.length),
       },
     ),
     locale,
@@ -94,10 +91,6 @@ export default async function Page({ params }: Props) {
       fetchInterviewListingBottomContent('javascript-dsa-interview-questions'),
     ]);
 
-  const questionsCodingFormat = questions.filter((metadata) =>
-    metadata.format.includes(codingFormat),
-  );
-
   return (
     <InterviewsQuestionsCategoryLanguagePage
       bottomContent={bottomContent}
@@ -111,14 +104,14 @@ export default async function Page({ params }: Props) {
       language={language}
       listType={listType}
       questionCompletionCount={questionCompletionCount}
-      questions={questionsCodingFormat}
+      questions={questions}
       showCategoryTabs={false}
       title={intl.formatMessage({
         defaultMessage: 'JavaScript DSA Interview Questions',
         description: 'Title of interview questions page',
         id: 'Butt5/',
       })}
-      totalQuestionsCount={questionsCodingFormat.length}
+      totalQuestionsCount={questions.length}
     />
   );
 }

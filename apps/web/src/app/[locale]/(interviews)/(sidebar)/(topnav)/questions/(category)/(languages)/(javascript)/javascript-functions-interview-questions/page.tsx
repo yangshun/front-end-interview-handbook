@@ -20,7 +20,9 @@ export const dynamic = 'force-static';
 const language: QuestionLanguage = 'js';
 const codingFormat: QuestionFormat = 'javascript';
 const listType: QuestionListTypeData = {
-  tab: 'coding',
+  filters: {
+    formats: [codingFormat],
+  },
   type: 'language',
   value: language,
 };
@@ -39,10 +41,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     fetchQuestionsList(listType, locale),
   ]);
 
-  const questionsCodingFormat = questions.filter((metadata) =>
-    metadata.format.includes(codingFormat),
-  );
-
   return defaultMetadata({
     description: intl.formatMessage(
       {
@@ -52,9 +50,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         id: 'EHK3Nn',
       },
       {
-        questionCount: roundQuestionCountToNearestTen(
-          questionsCodingFormat.length,
-        ),
+        questionCount: roundQuestionCountToNearestTen(questions.length),
       },
     ),
     locale,
@@ -97,10 +93,6 @@ export default async function Page({ params }: Props) {
       ),
     ]);
 
-  const questionsCodingFormat = questions.filter((metadata) =>
-    metadata.format.includes(codingFormat),
-  );
-
   return (
     <InterviewsQuestionsCategoryLanguagePage
       bottomContent={bottomContent}
@@ -114,14 +106,14 @@ export default async function Page({ params }: Props) {
       language={language}
       listType={listType}
       questionCompletionCount={questionCompletionCount}
-      questions={questionsCodingFormat}
+      questions={questions}
       showCategoryTabs={false}
       title={intl.formatMessage({
         defaultMessage: 'JavaScript Functions Interview Questions',
         description: 'Title of interview questions page',
         id: 'mL9M8v',
       })}
-      totalQuestionsCount={questionsCodingFormat.length}
+      totalQuestionsCount={questions.length}
     />
   );
 }

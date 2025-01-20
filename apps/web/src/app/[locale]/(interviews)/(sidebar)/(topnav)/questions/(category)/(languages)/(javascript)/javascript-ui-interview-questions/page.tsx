@@ -22,7 +22,9 @@ export const dynamic = 'force-static';
 const language: QuestionLanguage = 'js';
 const codingFormat: QuestionFormat = 'user-interface';
 const listType: QuestionListTypeData = {
-  tab: 'coding',
+  filters: {
+    formats: [codingFormat],
+  },
   type: 'language',
   value: language,
 };
@@ -36,14 +38,10 @@ type Props = Readonly<{
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
 
-  const [intl, { questions: questionsCoding }] = await Promise.all([
+  const [intl, { questions }] = await Promise.all([
     getIntlServerOnly(locale),
     fetchQuestionsList(listType, locale),
   ]);
-
-  const questionsCodingFormat = questionsCoding.filter((metadata) =>
-    metadata.format.includes(codingFormat),
-  );
 
   const category = QuestionLanguageLabels[language];
 
@@ -56,9 +54,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         id: 'XKRfBZ',
       },
       {
-        questionCount: roundQuestionCountToNearestTen(
-          questionsCodingFormat.length,
-        ),
+        questionCount: roundQuestionCountToNearestTen(questions.length),
       },
     ),
     locale,
@@ -114,10 +110,6 @@ export default async function Page({ params }: Props) {
       fetchInterviewListingBottomContent('javascript-ui-interview-questions'),
     ]);
 
-  const questionsCodingFormat = questions.filter((metadata) =>
-    metadata.format.includes(codingFormat),
-  );
-
   return (
     <InterviewsQuestionsCategoryLanguagePage
       bottomContent={bottomContent}
@@ -131,14 +123,14 @@ export default async function Page({ params }: Props) {
       language={language}
       listType={listType}
       questionCompletionCount={questionCompletionCount}
-      questions={questionsCodingFormat}
+      questions={questions}
       showCategoryTabs={false}
       title={intl.formatMessage({
         defaultMessage: 'JavaScript User Interface Interview Questions',
         description: 'Title of interview questions page',
         id: 'mOd6tW',
       })}
-      totalQuestionsCount={questionsCodingFormat.length}
+      totalQuestionsCount={questions.length}
     />
   );
 }
