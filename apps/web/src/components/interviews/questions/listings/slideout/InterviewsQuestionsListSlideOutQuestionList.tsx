@@ -1,8 +1,6 @@
 import clsx from 'clsx';
 
 import VignetteOverlay from '~/components/common/VignetteOverlay';
-import { useUserProfile } from '~/components/global/UserProfileProvider';
-import InterviewsPremiumBadge from '~/components/interviews/common/InterviewsPremiumBadge';
 import { questionHrefFrameworkSpecificAndListType } from '~/components/interviews/questions/common/QuestionHrefUtils';
 import type {
   QuestionFramework,
@@ -10,35 +8,15 @@ import type {
   QuestionListTypeData,
   QuestionMetadata,
 } from '~/components/interviews/questions/common/QuestionsTypes';
-import QuestionsListItemProgressChip from '~/components/interviews/questions/listings/items/QuestionsListItemProgressChip';
-import InterviewsQuestionsListSlideOutHovercardContents from '~/components/interviews/questions/listings/slideout/InterviewsQuestionsListSlideOutHovercardContents';
-import QuestionDifficultyLabel from '~/components/interviews/questions/metadata/QuestionDifficultyLabel';
-import QuestionFormatLabel from '~/components/interviews/questions/metadata/QuestionFormatLabel';
 import { FormattedMessage, useIntl } from '~/components/intl';
-import Anchor from '~/components/ui/Anchor';
 import EmptyState from '~/components/ui/EmptyState';
-import {
-  Hovercard,
-  HovercardContent,
-  HovercardPortal,
-  HovercardTrigger,
-} from '~/components/ui/Hovercard/Hovercard';
 import Text from '~/components/ui/Text';
-import {
-  themeBackgroundColor,
-  themeBackgroundElementEmphasizedStateColor,
-  themeBackgroundElementEmphasizedStateColor_Hover,
-  themeBorderColor,
-  themeDivideColor,
-} from '~/components/ui/theme';
+import { themeDivideColor } from '~/components/ui/theme';
 
 import { hashQuestion } from '~/db/QuestionsUtils';
 
+import InterviewsQuestionsListSlideOutQuestionListItem from './InterviewsQuestionsListSlideOutQuestionListItem';
 import InterviewsPurchasePaywall from '../../../purchase/InterviewsPurchasePaywall';
-
-type QuestionClickEvent = Parameters<
-  NonNullable<React.ComponentProps<typeof Anchor>['onClick']>
->[0];
 
 type Props<Q extends QuestionMetadata> = Readonly<{
   checkIfCompletedQuestion?: (question: Q) => boolean;
@@ -47,7 +25,9 @@ type Props<Q extends QuestionMetadata> = Readonly<{
   isDifferentListFromInitial: boolean;
   listType: QuestionListTypeData;
   mode: 'embedded' | 'slideout';
-  onClickQuestion: (event: QuestionClickEvent, href: string) => void;
+  onClickQuestion: React.ComponentProps<
+    typeof InterviewsQuestionsListSlideOutQuestionListItem
+  >['onClick'];
   questions: ReadonlyArray<Q>;
   showCompanyPaywall?: boolean;
 }>;
@@ -66,7 +46,6 @@ export default function InterviewsQuestionsListSlideOutQuestionList<
   showCompanyPaywall,
 }: Props<Q>) {
   const intl = useIntl();
-  const { userProfile } = useUserProfile();
 
   if (questions.length === 0) {
     return (
@@ -158,99 +137,17 @@ export default function InterviewsQuestionsListSlideOutQuestionList<
             );
 
             return (
-              <Hovercard
+              <InterviewsQuestionsListSlideOutQuestionListItem
                 key={hashQuestion(questionMetadata)}
-                // Add a small close delay so that cursor can enter the card
-                // fast enough before the card disappears.
-                closeDelay={50}
-                openDelay={0}>
-                <HovercardTrigger asChild={true}>
-                  {
-                    <div
-                      className={clsx(
-                        'group relative',
-                        'flex',
-                        'px-6',
-                        'gap-4',
-                        'transition-colors',
-                        'focus-within:ring-brand focus-within:ring-2 focus-within:ring-inset',
-                        themeBackgroundElementEmphasizedStateColor_Hover,
-                        isActiveQuestion &&
-                          themeBackgroundElementEmphasizedStateColor,
-                      )}>
-                      <div className="grow py-4">
-                        <div className="flex items-center gap-x-4">
-                          {checkIfCompletedQuestion != null && (
-                            <QuestionsListItemProgressChip
-                              className="z-[1]"
-                              hasCompletedQuestion={!!hasCompletedQuestion}
-                              hasCompletedQuestionBefore={false}
-                              premiumUser={userProfile?.isInterviewsPremium}
-                              question={questionMetadata}
-                              size="sm"
-                            />
-                          )}
-                          <div className="flex grow items-center gap-x-4 gap-y-1.5 max-sm:flex-wrap">
-                            <div className="flex grow items-center gap-x-2 max-sm:w-full">
-                              <Text size="body3" weight="medium">
-                                <Anchor
-                                  className="focus:outline-none"
-                                  href={href}
-                                  variant="unstyled"
-                                  onClick={(event) => {
-                                    onClickQuestion(event, href);
-                                  }}>
-                                  {/* Extend touch target to entire panel */}
-                                  <span
-                                    aria-hidden="true"
-                                    className="absolute inset-0"
-                                  />
-                                  {questionMetadata.title}
-                                </Anchor>
-                              </Text>
-                              {questionMetadata.access === 'premium' && (
-                                <InterviewsPremiumBadge size="xs" />
-                              )}
-                            </div>
-                            {mode === 'slideout' && (
-                              <div className="flex gap-x-4">
-                                <div className="sm:w-[106px]">
-                                  <QuestionFormatLabel
-                                    showIcon={true}
-                                    value={questionMetadata.format}
-                                  />
-                                </div>
-                                <div className="sm:w-[68px]">
-                                  <QuestionDifficultyLabel
-                                    showIcon={true}
-                                    value={questionMetadata.difficulty}
-                                  />
-                                </div>
-                              </div>
-                            )}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  }
-                </HovercardTrigger>
-                <HovercardPortal>
-                  <HovercardContent
-                    className={clsx(themeBackgroundColor, [
-                      'border',
-                      themeBorderColor,
-                    ])}
-                    side="right"
-                    // Remove offset so that cursor can enter the card
-                    // fast enough before the card disappears.
-                    sideOffset={0}>
-                    <InterviewsQuestionsListSlideOutHovercardContents
-                      listType={listType}
-                      question={questionMetadata}
-                    />
-                  </HovercardContent>
-                </HovercardPortal>
-              </Hovercard>
+                checkIfCompletedQuestion={checkIfCompletedQuestion}
+                hasCompletedQuestion={hasCompletedQuestion}
+                href={href}
+                isActiveQuestion={isActiveQuestion}
+                listType={listType}
+                mode={mode}
+                questionMetadata={questionMetadata}
+                onClick={onClickQuestion}
+              />
             );
           })}
         </div>
