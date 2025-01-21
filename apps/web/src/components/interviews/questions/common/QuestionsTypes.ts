@@ -256,12 +256,14 @@ export type QuestionListTypeData =
   | Readonly<{
       filters?: QuestionListTypeDataFilters;
       tab?: QuestionPracticeFormat;
+      title?: string; // For SEO pages with custom title
       type: 'framework';
       value: QuestionFramework;
     }>
   | Readonly<{
       filters?: QuestionListTypeDataFilters;
       tab?: QuestionPracticeFormat;
+      title?: string; // For SEO pages with custom title
       type: 'language';
       value: QuestionLanguage;
     }>

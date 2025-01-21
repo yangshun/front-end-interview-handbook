@@ -391,7 +391,7 @@ export default function InterviewsQuestionsListSlideOutSwitcher({
       <DropdownMenu
         align="start"
         icon={RiFilterLine}
-        label={listType.label}
+        label={('title' in listType ? listType.title : null) ?? listType.label}
         modal={true}
         showChevron={true}
         size="md"

@@ -78,6 +78,10 @@ export function questionHrefWithListType(
     urlObject.searchParams.set('filters', JSON.stringify(listType.filters));
   }
 
+  if ('title' in listType && listType.title) {
+    urlObject.searchParams.set('title', listType.title);
+  }
+
   return urlObject.pathname + urlObject.search + urlObject.hash;
 }
 

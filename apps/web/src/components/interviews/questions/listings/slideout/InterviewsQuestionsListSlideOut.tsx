@@ -143,6 +143,7 @@ function InterviewsQuestionsListSlideOutImpl({
     filters.filter(([size]) => size > 0).length + (query.length > 0 ? 1 : 0);
 
   const listName =
+    ('title' in initialListType ? initialListType.title : null) ??
     initialListType?.label ??
     intl.formatMessage({
       defaultMessage: 'Question list',

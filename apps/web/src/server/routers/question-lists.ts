@@ -53,6 +53,7 @@ export const questionListsRouter = router({
         practice: z.string().nullable().optional(),
         studyList: z.string().nullable().optional(),
         tab: z.string().nullable().optional(),
+        title: z.string().nullable().optional(),
       }),
     )
     .query(
@@ -62,6 +63,7 @@ export const questionListsRouter = router({
           format,
           framework,
           language,
+          title,
           studyList,
           tab: tabInput,
           filters: filtersInput,
@@ -117,6 +119,7 @@ export const questionListsRouter = router({
           const listType: QuestionListTypeData = {
             filters,
             tab,
+            title: title ?? undefined,
             type: 'framework',
             value: framework_,
           } as const;
@@ -160,6 +163,7 @@ export const questionListsRouter = router({
           const listType: QuestionListTypeData = {
             filters,
             tab,
+            title: title ?? undefined,
             type: 'language',
             value: language_,
           } as const;

@@ -44,6 +44,7 @@ export function useQuestionsListTypeCurrent(
     return {
       filters,
       tab,
+      title: searchParams?.get('title') ?? undefined,
       type: 'framework',
       value: searchParams?.get('framework') as QuestionFramework,
     };
@@ -53,6 +54,7 @@ export function useQuestionsListTypeCurrent(
     return {
       filters,
       tab,
+      title: searchParams?.get('title') ?? undefined,
       type: 'language',
       value: searchParams?.get('language') as QuestionLanguage,
     };
@@ -94,6 +96,7 @@ export function useQuestionsListDataForType(
             filters: listType?.filters,
             framework: listType.value,
             tab: listType?.tab,
+            title: listType?.title,
           };
         case 'format':
           return { format: listType.value, tab: listType?.tab };
@@ -102,6 +105,7 @@ export function useQuestionsListDataForType(
             filters: listType?.filters,
             language: listType.value,
             tab: listType?.tab,
+            title: listType?.title,
           };
 
         default:
