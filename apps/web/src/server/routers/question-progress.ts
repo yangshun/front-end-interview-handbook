@@ -4,6 +4,7 @@ import { groupByDateFormatter } from '~/components/interviews/dashboard/progress
 import type { QuestionFormat } from '~/components/interviews/questions/common/QuestionsTypes';
 
 import { fetchInterviewsStudyList } from '~/db/contentlayer/InterviewsStudyListReader';
+import { fetchQuestion } from '~/db/QuestionsListReader';
 import type { QuestionProgressStatus } from '~/db/QuestionsProgressTypes';
 import { hashQuestion, unhashQuestion } from '~/db/QuestionsUtils';
 import scheduleInterviewsProgressEmail from '~/emails/items/interviews-progress/EmailsSchedulerInterviewsProgress';
@@ -208,90 +209,118 @@ export const questionProgressRouter = router({
         studyListKey: z.string().optional(),
       }),
     )
-    .query(async ({ input: { question, studyListKey }, ctx: { viewer } }) => {
-      if (studyListKey) {
-        const session = await prisma.learningSession.findFirst({
+    .query(
+      async ({
+        input: { question: questionParam, studyListKey },
+        ctx: { viewer },
+      }) => {
+        const [userProfile, { question: questionMetadata }] = await Promise.all(
+          [
+            prisma.profile.findFirstOrThrow({
+              select: {
+                premium: true,
+              },
+              where: {
+                id: viewer.id,
+              },
+            }),
+            fetchQuestion(questionParam),
+          ],
+        );
+
+        const isQuestionLockedForViewer =
+          questionMetadata?.access === 'premium' && !userProfile.premium;
+
+        if (studyListKey) {
+          const session = await prisma.learningSession.findFirst({
+            where: {
+              key: studyListKey,
+              status: 'IN_PROGRESS',
+              userId: viewer.id,
+            },
+          });
+
+          if (session == null) {
+            return { isQuestionLockedForViewer, questionProgress: null };
+          }
+
+          const [sessionProgress, questionProgress] = await Promise.all([
+            prisma.learningSessionProgress.findFirst({
+              where: {
+                key: hashQuestion(questionMetadata),
+                sessionId: session.id,
+              },
+            }),
+            prisma.questionProgress.findFirst({
+              orderBy: {
+                createdAt: 'desc',
+              },
+              select: {
+                createdAt: true,
+                format: true,
+                id: true,
+                slug: true,
+                status: true,
+              },
+              where: {
+                format: questionMetadata.format,
+                slug: questionMetadata.slug,
+                userId: viewer.id,
+              },
+            }),
+          ]);
+
+          if (!sessionProgress) {
+            return { isQuestionLockedForViewer, questionProgress: null };
+          }
+
+          const [format, slug] = unhashQuestion(sessionProgress.key);
+          const completeStatus: QuestionProgressStatus = 'complete';
+
+          return {
+            isQuestionLockedForViewer,
+            questionProgress: {
+              ...sessionProgress,
+              format,
+              questionProgressId: questionProgress?.id,
+              slug,
+              status: completeStatus,
+            },
+          };
+        }
+
+        const questionProgress = await prisma.questionProgress.findFirst({
+          orderBy: {
+            createdAt: 'desc',
+          },
+          select: {
+            createdAt: true,
+            format: true,
+            id: true,
+            slug: true,
+            status: true,
+          },
           where: {
-            key: studyListKey,
-            status: 'IN_PROGRESS',
+            format: questionMetadata.format,
+            slug: questionMetadata.slug,
             userId: viewer.id,
           },
         });
 
-        if (session == null) {
-          return null;
+        if (!questionProgress) {
+          return { isQuestionLockedForViewer, questionProgress: null };
         }
-
-        const [sessionProgress, questionProgress] = await Promise.all([
-          prisma.learningSessionProgress.findFirst({
-            where: {
-              key: hashQuestion(question),
-              sessionId: session.id,
-            },
-          }),
-          prisma.questionProgress.findFirst({
-            orderBy: {
-              createdAt: 'desc',
-            },
-            select: {
-              createdAt: true,
-              format: true,
-              id: true,
-              slug: true,
-              status: true,
-            },
-            where: {
-              format: question.format,
-              slug: question.slug,
-              userId: viewer.id,
-            },
-          }),
-        ]);
-
-        if (!sessionProgress) {
-          return null;
-        }
-
-        const [format, slug] = unhashQuestion(sessionProgress.key);
-        const completeStatus: QuestionProgressStatus = 'complete';
 
         return {
-          ...sessionProgress,
-          format,
-          questionProgressId: questionProgress?.id,
-          slug,
-          status: completeStatus,
+          isQuestionLockedForViewer,
+          questionProgress: {
+            ...questionProgress,
+            format: questionProgress.format as QuestionFormat,
+            status: questionProgress.status as QuestionProgressStatus,
+          },
         };
-      }
-
-      const questionProgress = await prisma.questionProgress.findFirst({
-        orderBy: {
-          createdAt: 'desc',
-        },
-        select: {
-          createdAt: true,
-          format: true,
-          id: true,
-          slug: true,
-          status: true,
-        },
-        where: {
-          format: question.format,
-          slug: question.slug,
-          userId: viewer.id,
-        },
-      });
-
-      if (!questionProgress) {
-        return null;
-      }
-
-      return {
-        ...questionProgress,
-        format: questionProgress.format as QuestionFormat,
-        status: questionProgress.status as QuestionProgressStatus,
-      };
-    }),
+      },
+    ),
   getAll: userProcedure.query(async ({ ctx: { viewer } }) => {
     const questionProgressList = await prisma.questionProgress.findMany({
       orderBy: {

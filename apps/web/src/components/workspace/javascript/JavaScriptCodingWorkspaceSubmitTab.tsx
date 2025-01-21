@@ -48,10 +48,7 @@ export default function JavaScriptCodingWorkspaceTestsSubmitTab({
     });
 
   const user = useUser();
-  const { data: questionProgress } = useQueryQuestionProgress(
-    metadata,
-    studyListKey ?? null,
-  );
+  const { data } = useQueryQuestionProgress(metadata, studyListKey ?? null);
   const { showToast } = useToast();
 
   useEffect(() => {
@@ -96,7 +93,7 @@ export default function JavaScriptCodingWorkspaceTestsSubmitTab({
         }
 
         function markAsComplete() {
-          if (user == null || questionProgress?.status === 'complete') {
+          if (user == null || data?.questionProgress?.status === 'complete') {
             return;
           }
 

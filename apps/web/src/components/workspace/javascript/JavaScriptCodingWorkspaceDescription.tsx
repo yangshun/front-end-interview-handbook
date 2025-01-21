@@ -34,10 +34,7 @@ export default function JavaScriptCodingWorkspaceDescription({
 }: Props) {
   const copyRef = useQuestionLogEventCopyContents<HTMLDivElement>();
 
-  const { data: questionProgress } = useQueryQuestionProgress(
-    metadata,
-    studyListKey ?? null,
-  );
+  const { data } = useQueryQuestionProgress(metadata, studyListKey ?? null);
   const intl = useIntl();
 
   return (
@@ -52,7 +49,7 @@ export default function JavaScriptCodingWorkspaceDescription({
             <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
               <Heading level="heading5">{metadata.title}</Heading>
               {metadata.access === 'premium' && <InterviewsPremiumBadge />}
-              {questionProgress?.status === 'complete' && (
+              {data?.questionProgress?.status === 'complete' && (
                 <Badge
                   label={intl.formatMessage({
                     defaultMessage: 'Completed',

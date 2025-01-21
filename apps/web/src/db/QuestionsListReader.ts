@@ -4,6 +4,7 @@
 // This file reads from filesystem only (hence the term "reader" in the name)
 // It's only meant to be used on the server.
 import fs from 'node:fs';
+import nullthrows from 'nullthrows';
 
 import type {
   QuestionCodingFormat,
@@ -537,6 +538,76 @@ export async function fetchQuestionsList(
     }
     default: {
       throw `Unsupported list type "${listType.value}"`;
+    }
+  }
+}
+
+export async function fetchQuestion(
+  metadata: Readonly<{
+    format: QuestionFormat;
+    slug: string;
+  }>,
+  requestedLocale = 'en-US',
+): Promise<{ loadedLocale: string; question: QuestionMetadata }> {
+  const [
+    { questions: quizQuestions, loadedLocale: quizLoadedLocale },
+    { questions: algoQuestions, loadedLocale: algoLoadedLocale },
+    { questions: jsQuestions, loadedLocale: jsLoadedLocale },
+    { questions: uiQuestions, loadedLocale: uiLoadedLocale },
+    {
+      questions: systemDesignQuestions,
+      loadedLocale: systemDesignLoadedLocale,
+    },
+  ] = await Promise.all([
+    fetchQuestionsListQuiz(requestedLocale),
+    fetchQuestionsListAlgo(requestedLocale),
+    fetchQuestionsListJavaScript(requestedLocale),
+    fetchQuestionsListUserInterface(requestedLocale),
+    fetchQuestionsListSystemDesign(requestedLocale),
+  ]);
+
+  const { format, slug } = metadata;
+
+  switch (format) {
+    case 'algo': {
+      return {
+        loadedLocale: algoLoadedLocale,
+        question: nullthrows(
+          algoQuestions.find((question) => question.slug === slug),
+        ),
+      };
+    }
+    case 'javascript': {
+      return {
+        loadedLocale: jsLoadedLocale,
+        question: nullthrows(
+          jsQuestions.find((question) => question.slug === slug),
+        ),
+      };
+    }
+    case 'user-interface': {
+      return {
+        loadedLocale: uiLoadedLocale,
+        question: nullthrows(
+          uiQuestions.find((question) => question.slug === slug),
+        ),
+      };
+    }
+    case 'system-design': {
+      return {
+        loadedLocale: systemDesignLoadedLocale,
+        question: nullthrows(
+          systemDesignQuestions.find((question) => question.slug === slug),
+        ),
+      };
+    }
+    case 'quiz': {
+      return {
+        loadedLocale: quizLoadedLocale,
+        question: nullthrows(
+          quizQuestions.find((question) => question.slug === slug),
+        ),
+      };
     }
   }
 }

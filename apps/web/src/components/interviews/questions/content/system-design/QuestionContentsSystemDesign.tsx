@@ -36,7 +36,7 @@ export default function QuestionContentsSystemDesign({
 }: Props) {
   const intl = useIntl();
   const user = useUser();
-  const { data: questionProgress, isLoading } = useQueryQuestionProgress(
+  const { data, isLoading } = useQueryQuestionProgress(
     question.metadata,
     studyListKey ?? null,
   );
@@ -64,7 +64,7 @@ export default function QuestionContentsSystemDesign({
             </Heading>
             <div className="flex gap-2">
               {metadata.access === 'premium' && <InterviewsPremiumBadge />}
-              {questionProgress?.status === 'complete' && (
+              {data?.questionProgress?.status === 'complete' && (
                 <Badge
                   label={intl.formatMessage({
                     defaultMessage: 'Completed',
@@ -119,18 +119,16 @@ export default function QuestionContentsSystemDesign({
             showTooltip={false}
             slug={question.metadata.slug}
           />
-          {!isQuestionLocked && (
-            <div
-              className={clsx(
-                'transition-colors',
-                isLoading && user != null ? 'opacity-0' : 'opacity-100',
-              )}>
-              <QuestionProgressAction
-                metadata={question.metadata}
-                studyListKey={studyListKey}
-              />
-            </div>
-          )}
+          <div
+            className={clsx(
+              'transition-colors',
+              isLoading && user != null ? 'opacity-0' : 'opacity-100',
+            )}>
+            <QuestionProgressAction
+              metadata={question.metadata}
+              studyListKey={studyListKey}
+            />
+          </div>
         </div>
       </Section>
     </article>

@@ -63,10 +63,7 @@ export default function UserInterfaceCodingWorkspaceWriteup({
 }: Props) {
   const copyRef = useQuestionLogEventCopyContents<HTMLDivElement>();
   const listType = useQuestionsListTypeCurrent(studyListKey, framework);
-  const { data: questionProgress } = useQueryQuestionProgress(
-    metadata,
-    studyListKey ?? null,
-  );
+  const { data } = useQueryQuestionProgress(metadata, studyListKey ?? null);
   const { save } = useUserInterfaceCodingWorkspaceSavesContext();
   const intl = useIntl();
   const frameworks = useQuestionFrameworksData();
@@ -144,7 +141,7 @@ export default function UserInterfaceCodingWorkspaceWriteup({
                 />
               )}
               <div>
-                {questionProgress?.status === 'complete' && (
+                {data?.questionProgress?.status === 'complete' && (
                   <Badge
                     label={intl.formatMessage({
                       defaultMessage: 'Completed',
