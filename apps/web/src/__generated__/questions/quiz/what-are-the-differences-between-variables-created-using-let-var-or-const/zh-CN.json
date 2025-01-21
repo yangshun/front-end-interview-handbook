@@ -4,7 +4,10 @@
     "access": "free",
     "author": null,
     "companies": [
-      "microsoft"
+      "microsoft",
+      "tiktok",
+      "atlassian",
+      "linkedin"
     ],
     "created": 1630800000,
     "difficulty": "medium",

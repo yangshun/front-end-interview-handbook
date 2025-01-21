@@ -87,7 +87,9 @@
     "author": null,
     "companies": [
       "amazon",
-      "bytedance"
+      "bytedance",
+      "tiktok",
+      "apple"
     ],
     "created": 1630800000,
     "difficulty": "medium",
@@ -144,7 +146,9 @@
   {
     "access": "free",
     "author": null,
-    "companies": [],
+    "companies": [
+      "atlassian"
+    ],
     "created": 1630800000,
     "difficulty": "medium",
     "duration": 5,
@@ -258,7 +262,9 @@
   {
     "access": "free",
     "author": null,
-    "companies": [],
+    "companies": [
+      "atlassian"
+    ],
     "created": 1630800000,
     "difficulty": "medium",
     "duration": 5,
@@ -342,7 +348,11 @@
   {
     "access": "free",
     "author": null,
-    "companies": [],
+    "companies": [
+      "apple",
+      "microsoft",
+      "linkedin"
+    ],
     "created": 1630800000,
     "difficulty": "medium",
     "duration": 5,
@@ -370,7 +380,9 @@
   {
     "access": "free",
     "author": null,
-    "companies": [],
+    "companies": [
+      "linkedin"
+    ],
     "created": 1630800000,
     "difficulty": "hard",
     "duration": 5,
@@ -3442,7 +3454,9 @@
   {
     "access": "free",
     "author": null,
-    "companies": [],
+    "companies": [
+      "bytedance"
+    ],
     "created": 1630800000,
     "difficulty": "medium",
     "duration": 5,
@@ -3496,7 +3510,9 @@
   {
     "access": "free",
     "author": null,
-    "companies": [],
+    "companies": [
+      "google"
+    ],
     "created": 1630800000,
     "difficulty": "hard",
     "duration": 5,
@@ -3717,7 +3733,10 @@
     "access": "free",
     "author": null,
     "companies": [
-      "microsoft"
+      "microsoft",
+      "tiktok",
+      "atlassian",
+      "linkedin"
     ],
     "created": 1630800000,
     "difficulty": "medium",
@@ -3993,7 +4012,11 @@
     "access": "free",
     "author": null,
     "companies": [
-      "linkedin"
+      "linkedin",
+      "google",
+      "amazon",
+      "bytedance",
+      "atlassian"
     ],
     "created": 1630800000,
     "difficulty": "medium",
@@ -4163,7 +4186,8 @@
       "amazon",
       "linkedin",
       "microsoft",
-      "salesforce"
+      "salesforce",
+      "bytedance"
     ],
     "created": 1630800000,
     "difficulty": "medium",
@@ -4278,7 +4302,9 @@
     "author": null,
     "companies": [
       "amazon",
-      "salesforce"
+      "salesforce",
+      "google",
+      "tiktok"
     ],
     "created": 1630800000,
     "difficulty": "hard",
@@ -5049,7 +5075,9 @@
   {
     "access": "free",
     "author": null,
-    "companies": [],
+    "companies": [
+      "amazon"
+    ],
     "created": 1630800000,
     "difficulty": "hard",
     "duration": 5,
@@ -5213,7 +5241,9 @@
   {
     "access": "free",
     "author": null,
-    "companies": [],
+    "companies": [
+      "atlassian"
+    ],
     "created": 1630800000,
     "difficulty": "easy",
     "duration": 5,
@@ -5683,7 +5713,8 @@
     "companies": [
       "amazon",
       "google",
-      "linkedin"
+      "linkedin",
+      "uber"
     ],
     "created": 1630800000,
     "difficulty": "medium",
@@ -5956,7 +5987,9 @@
   {
     "access": "free",
     "author": null,
-    "companies": [],
+    "companies": [
+      "bytedance"
+    ],
     "created": 1630800000,
     "difficulty": "hard",
     "duration": 5,
@@ -6069,7 +6102,9 @@
   {
     "access": "free",
     "author": null,
-    "companies": [],
+    "companies": [
+      "bytedance"
+    ],
     "created": 1630800000,
     "difficulty": "medium",
     "duration": 5,
@@ -6124,7 +6159,9 @@
   {
     "access": "free",
     "author": null,
-    "companies": [],
+    "companies": [
+      "apple"
+    ],
     "created": 1630800000,
     "difficulty": "hard",
     "duration": 5,
@@ -6288,7 +6325,8 @@
     "author": null,
     "companies": [
       "rippling",
-      "salesforce"
+      "salesforce",
+      "amazon"
     ],
     "created": 1630800000,
     "difficulty": "medium",
@@ -6344,7 +6382,9 @@
   {
     "access": "free",
     "author": null,
-    "companies": [],
+    "companies": [
+      "amazon"
+    ],
     "created": 1630800000,
     "difficulty": "easy",
     "duration": 5,

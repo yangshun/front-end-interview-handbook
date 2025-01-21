@@ -6,7 +6,8 @@
     "companies": [
       "amazon",
       "google",
-      "linkedin"
+      "linkedin",
+      "uber"
     ],
     "created": 1630800000,
     "difficulty": "medium",

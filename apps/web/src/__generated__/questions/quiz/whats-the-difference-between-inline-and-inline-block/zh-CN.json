@@ -3,7 +3,9 @@
   "metadata": {
     "access": "free",
     "author": null,
-    "companies": [],
+    "companies": [
+      "amazon"
+    ],
     "created": 1630800000,
     "difficulty": "easy",
     "duration": 5,

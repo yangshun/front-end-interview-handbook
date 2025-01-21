@@ -3,7 +3,11 @@
   "metadata": {
     "access": "free",
     "author": null,
-    "companies": [],
+    "companies": [
+      "apple",
+      "microsoft",
+      "linkedin"
+    ],
     "created": 1630800000,
     "difficulty": "medium",
     "duration": 5,

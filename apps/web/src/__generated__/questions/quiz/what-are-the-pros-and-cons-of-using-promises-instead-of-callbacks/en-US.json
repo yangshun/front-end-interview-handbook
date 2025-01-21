@@ -4,7 +4,11 @@
     "access": "free",
     "author": null,
     "companies": [
-      "linkedin"
+      "linkedin",
+      "google",
+      "amazon",
+      "bytedance",
+      "atlassian"
     ],
     "created": 1630800000,
     "difficulty": "medium",
