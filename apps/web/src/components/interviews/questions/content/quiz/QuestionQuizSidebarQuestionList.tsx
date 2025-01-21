@@ -95,7 +95,7 @@ function QuestionsQuizSidebarQuestionListImpl({
           onChangeListType={setCurrentListType}
         />
       </div>
-      <div className="h-0 grow">
+      <div className="h-0 grow pt-4">
         <InterviewsQuestionsListSlideOutContents
           key={filterNamespace}
           currentQuestionHash={currentQuestionHash}

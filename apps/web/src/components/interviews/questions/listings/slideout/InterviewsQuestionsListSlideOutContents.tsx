@@ -401,14 +401,13 @@ export default function InterviewsQuestionsListSlideOutContents({
 
   return (
     <>
-      <div className={clsx('flex h-full flex-col pt-3')}>
+      <div className={clsx('flex flex-col gap-4', 'h-full')}>
         <form
           className="flex w-full flex-col gap-4"
           onSubmit={(event) => {
             event.preventDefault();
           }}>
-          <div
-            className={clsx('flex w-full items-center gap-3', 'px-6 py-1.5')}>
+          <div className={clsx('flex w-full items-center gap-3', 'px-6')}>
             <div className="flex-1">
               <TextInput
                 autoComplete="off"
@@ -459,8 +458,8 @@ export default function InterviewsQuestionsListSlideOutContents({
           </div>
           {showFilters && embedFilters}
         </form>
-        {displayedTabs ? (
-          <div className="my-3 px-6">
+        {displayedTabs && (
+          <div className="px-6">
             <TabsUnderline
               size="xs"
               tabs={displayedTabs.map((listTabValue) => {
@@ -494,8 +493,6 @@ export default function InterviewsQuestionsListSlideOutContents({
               }
             />
           </div>
-        ) : (
-          <div className="mt-4" />
         )}
         {questionAttributesUnion.formats.size > 1 && (
           <div className="mb-3 px-6">
