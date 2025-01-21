@@ -647,10 +647,6 @@
     "defaultMessage": "Next challenge:",
     "description": "Label for next challenge for skill plan on project submission success page"
   },
-  "2BOlBd": {
-    "defaultMessage": "Your motivations",
-    "description": "Title of projects onboarding motivations page"
-  },
   "2BQudu": {
     "defaultMessage": "Visit external link",
     "description": "Label for open external link button"
@@ -782,6 +778,10 @@
   "3I6rHR": {
     "defaultMessage": "These resources help you prepare effectively while saving time by focusing on high-impact areas:",
     "description": "Paragraph 3 for \"What does GreatFrontEnd Interviews offer exactly?\" on Homepage FAQ sections"
+  },
+  "3IElB6": {
+    "defaultMessage": "You just gained reputation points for creating your profile!",
+    "description": "Success message after completing profile form"
   },
   "3IiqOd": {
     "defaultMessage": "Copy promo code",
@@ -7707,10 +7707,6 @@
     "defaultMessage": "Step 3",
     "description": "Step N of multiple steps when completing a project"
   },
-  "kaEcHw": {
-    "defaultMessage": "You've gained reputation points for signing up",
-    "description": "Toast message about gaining reputation points"
-  },
   "kaQWYn": {
     "defaultMessage": "Add Bio",
     "description": "Title for Add Bio task on Projects dashboard page"
@@ -7850,10 +7846,6 @@
   "lD302L": {
     "defaultMessage": "Recommended duration to spend during interviews",
     "description": "Recommended duration tooltip displayed on question cards found on question lists"
-  },
-  "lD4azu": {
-    "defaultMessage": "Tell us your motivations so that we can tailor your experience",
-    "description": "Description of projects onboarding motivations page"
   },
   "lDlJyX": {
     "defaultMessage": "<percent>{percentage}</percent>%",
@@ -9199,10 +9191,6 @@
     "defaultMessage": "Svelte Interview Questions | Solutions by Ex-FAANG interviewers",
     "description": "Title of React Interview Questions page"
   },
-  "uGIcYs": {
-    "defaultMessage": "Welcome to GreatFrontEnd Projects!",
-    "description": "Title for Projects profile onboarding page"
-  },
   "uGbcAo": {
     "defaultMessage": "Famed list of the 75 most important algorithm questions",
     "description": "Description of Blind 75"
@@ -10086,10 +10074,6 @@
   "zqNjnp": {
     "defaultMessage": "CSS",
     "description": "Label for CSS language"
-  },
-  "zrKftp": {
-    "defaultMessage": "You just gained {points} reputation points for completing your profile!",
-    "description": "Success message after completing profile form"
   },
   "zs/Ius": {
     "defaultMessage": "{category} Quiz Interview Questions",

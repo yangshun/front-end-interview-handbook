@@ -1,7 +1,7 @@
 import type { Metadata } from 'next/types';
 
 import { redirectToLoginPageIfNotLoggedIn } from '~/components/auth/redirectToLoginPageIfNotLoggedIn';
-import ProjectsOnboardingReasonPage from '~/components/projects/onboarding/ProjectsOnboardingReasonPage';
+import ProjectsOnboardingPage from '~/components/projects/onboarding/ProjectsOnboardingPage';
 
 import { getIntlServerOnly } from '~/i18n';
 import defaultProjectsMetadata from '~/seo/defaultProjectsMetadata';
@@ -14,16 +14,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return defaultProjectsMetadata(intl, {
     description: intl.formatMessage({
       defaultMessage:
-        'Tell us your motivations so that we can tailor your experience',
-      description: 'Description of projects onboarding motivations page',
-      id: 'lD4azu',
+        'Create your developer profile on GreatFrontEnd. Showcase your skills, experiences and connect with the community.',
+      description: 'Description of projects onboarding profile page',
+      id: '/nidaR',
     }),
     locale,
     pathname: '/projects/onboarding',
     title: intl.formatMessage({
-      defaultMessage: 'Your motivations',
-      description: 'Title of projects onboarding motivations page',
-      id: '2BOlBd',
+      defaultMessage: 'Profile set up',
+      description: 'Title of projects onboarding profile page',
+      id: '9KGyJX',
     }),
   });
 }
@@ -35,5 +35,5 @@ type Props = Readonly<{
 export default async function Page() {
   await redirectToLoginPageIfNotLoggedIn('/projects/onboarding');
 
-  return <ProjectsOnboardingReasonPage />;
+  return <ProjectsOnboardingPage />;
 }

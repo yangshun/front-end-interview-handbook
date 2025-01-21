@@ -18,15 +18,12 @@ export default function ProjectsOnboardingDialog({ isShown, onClose }: Props) {
   const { data: userProfile } = trpc.projects.profile.viewer.useQuery();
 
   function navigateToOnboarding() {
-    if (userProfile == null) {
+    if (userProfile?.projectsProfile == null) {
       return;
     }
 
     router.push({
-      pathname:
-        userProfile?.projectsProfile == null
-          ? '/projects/onboarding'
-          : '/projects/onboarding/profile',
+      pathname: '/projects/onboarding',
       query: {
         next: pathname,
       },

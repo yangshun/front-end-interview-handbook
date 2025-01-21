@@ -6,18 +6,14 @@ import { trpc } from '~/hooks/trpc';
 
 import { useIntl } from '~/components/intl';
 import { getProfileUsernameAttrs } from '~/components/profile/fields/ProfileUsernameSchema';
-import type { ProjectsProfileOnboardingStep1FormValues } from '~/components/projects/onboarding/ProjectsOnboardingProfileStep1';
+import type { ProjectsProfileOnboardingStepFormValues } from '~/components/projects/onboarding/ProjectsOnboardingProfileForm';
 import type { ProjectsProfileEditFormValues } from '~/components/projects/types';
 import TextInput from '~/components/ui/TextInput';
 
 type Props = Readonly<{
   errorMessage: string | undefined;
   field:
-    | ControllerRenderProps<
-        ProjectsProfileOnboardingStep1FormValues,
-        'username'
-      >
-    | ControllerRenderProps<ProjectsProfileEditFormValues, 'username'>;
+    ControllerRenderProps<ProjectsProfileEditFormValues, 'username'> | ControllerRenderProps<ProjectsProfileOnboardingStepFormValues, 'username'>;
   setUsernameExistsError: (hasError: boolean) => void;
 }>;
 

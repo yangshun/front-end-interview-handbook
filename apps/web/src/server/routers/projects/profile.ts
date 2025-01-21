@@ -75,6 +75,70 @@ async function fetchProjectsProfileStatistics(projectsProfileId: string) {
 }
 
 export const projectsProfileRouter = router({
+  create: userProcedure
+    .input(
+      z.object({
+        avatarUrl: z.string().optional(),
+        company: z.string().optional().nullable(),
+        currentStatus: z.string().optional().nullable(),
+        motivations: z.array(z.string()),
+        name: z.string(),
+        startWorkDate: z.date().optional().nullable(),
+        title: projectsJobTitleInputSchemaServer,
+        username: profileUserNameSchemaServer,
+      }),
+    )
+    .mutation(
+      async ({
+        input: {
+          currentStatus,
+          name,
+          title,
+          startWorkDate,
+          avatarUrl,
+          motivations,
+          username,
+          company,
+        },
+        ctx: { viewer, req },
+      }) => {
+        const projectsProfileFields = {
+          motivations,
+        };
+        const result = await prisma.profile.update({
+          data: {
+            avatarUrl,
+            company,
+            currentStatus,
+            name,
+            projectsProfile: {
+              upsert: {
+                create: projectsProfileFields,
+                update: projectsProfileFields,
+              },
+            },
+            startWorkDate,
+            title,
+            username,
+          },
+          include: {
+            projectsProfile: true,
+          },
+          where: {
+            id: viewer.id,
+          },
+        });
+
+        if (result) {
+          await fetchProjectsProfileRecalculatePoints(
+            req,
+            result.projectsProfile?.id,
+          );
+        }
+
+        return result;
+      },
+    ),
   dashboardStatistics: publicProcedure
     .input(
       z.object({
@@ -162,97 +226,6 @@ export const projectsProfileRouter = router({
             : latestSubmissions,
       };
     }),
-  motivationsUpdate: userProcedure
-    .input(
-      z.object({
-        motivations: z.array(z.string()),
-      }),
-    )
-    .mutation(async ({ input: { motivations }, ctx: { viewer, req } }) => {
-      const projectsProfileFields = {
-        motivations,
-      };
-
-      const result = await prisma.profile.update({
-        data: {
-          projectsProfile: {
-            upsert: {
-              create: projectsProfileFields,
-              update: projectsProfileFields,
-            },
-          },
-        },
-        select: {
-          projectsProfile: {
-            select: {
-              id: true,
-            },
-          },
-        },
-        where: {
-          id: viewer.id,
-        },
-      });
-
-      if (result) {
-        fetchProjectsProfileRecalculatePoints(req, result.projectsProfile?.id);
-      }
-
-      return result;
-    }),
-  onboardingStep1Update: userProcedure
-    .input(
-      z.object({
-        avatarUrl: z.string().optional(),
-        company: z.string().optional().nullable(),
-        currentStatus: z.string().optional().nullable(),
-        name: z.string(),
-        startWorkDate: z.date().optional().nullable(),
-        title: projectsJobTitleInputSchemaServer,
-        username: profileUserNameSchemaServer,
-      }),
-    )
-    .mutation(
-      async ({
-        input: {
-          currentStatus,
-          name,
-          title,
-          startWorkDate,
-          avatarUrl,
-          username,
-          company,
-        },
-        ctx: { viewer, req },
-      }) => {
-        const result = await prisma.profile.update({
-          data: {
-            avatarUrl,
-            company,
-            currentStatus,
-            name,
-            startWorkDate,
-            title,
-            username,
-          },
-          include: {
-            projectsProfile: true,
-          },
-          where: {
-            id: viewer.id,
-          },
-        });
-
-        if (result) {
-          fetchProjectsProfileRecalculatePoints(
-            req,
-            result.projectsProfile?.id,
-          );
-        }
-
-        return result;
-      },
-    ),
   update: projectsUserProcedure
     .input(
       z
@@ -329,7 +302,7 @@ export const projectsProfileRouter = router({
         });
 
         if (result) {
-          fetchProjectsProfileRecalculatePoints(
+          await fetchProjectsProfileRecalculatePoints(
             req,
             result.projectsProfile?.id,
           );

@@ -1,17 +1,15 @@
 import { trpc } from '~/hooks/trpc';
 
-import { useUser } from '@supabase/auth-helpers-react';
+import useUserProfileWithProjectsProfile from '../../common/useUserProfileWithProjectsProfile';
 
 export default function useProjectsNotificationUnreadCount() {
-  const user = useUser();
+  const { isLoading, userProfile } = useUserProfileWithProjectsProfile();
 
-  const { data } = trpc.projects.notifications.getUnreadCount.useQuery(
-    undefined,
-    {
-      enabled: !!user,
+  const { data: unreadCount } =
+    trpc.projects.notifications.getUnreadCount.useQuery(undefined, {
+      enabled: userProfile?.projectsProfile != null,
       refetchOnWindowFocus: true,
-    },
-  );
+    });
 
-  return data ?? 0;
+  return isLoading ? unreadCount ?? 0 : 0;
 }

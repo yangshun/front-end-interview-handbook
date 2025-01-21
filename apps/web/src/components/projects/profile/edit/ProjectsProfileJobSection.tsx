@@ -2,7 +2,7 @@ import { Controller, useFormContext } from 'react-hook-form';
 
 import { FormattedMessage, useIntl } from '~/components/intl';
 import ProjectsChallengeReputationBadge from '~/components/projects/challenges/metadata/ProjectsChallengeReputationBadge';
-import type { ProjectsProfileOnboardingStep1FormValues } from '~/components/projects/onboarding/ProjectsOnboardingProfileStep1';
+import type { ProjectsProfileOnboardingStepFormValues } from '~/components/projects/onboarding/ProjectsOnboardingProfileForm';
 import type { ProjectsProfileEditFormValues } from '~/components/projects/types';
 import Heading from '~/components/ui/Heading';
 import RadioGroup from '~/components/ui/RadioGroup';
@@ -17,7 +17,7 @@ import { ProjectsReputationPointsConfig } from '../../reputation/ProjectsReputat
 
 type Values =
   | ProjectsProfileEditFormValues
-  | ProjectsProfileOnboardingStep1FormValues;
+  | ProjectsProfileOnboardingStepFormValues;
 
 export default function ProjectsProfileJobSection() {
   const intl = useIntl();
