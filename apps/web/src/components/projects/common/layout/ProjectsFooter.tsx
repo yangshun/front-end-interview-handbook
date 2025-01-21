@@ -118,7 +118,7 @@ function useFooterNavigation() {
         },
         {
           href: 'https://dev.to/greatfrontend',
-          key: 'medium',
+          key: 'dev',
           name: 'DEV Community',
         },
       ],
