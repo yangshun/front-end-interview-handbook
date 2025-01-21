@@ -54,7 +54,7 @@ import useProjectsPricingPlansList from './useProjectsPricingPlansList';
 import useUserProfileWithProjectsProfile from '../common/useUserProfileWithProjectsProfile';
 
 import type { ProjectsSubscriptionPlan } from '@prisma/client';
-import { useSessionContext } from '@supabase/auth-helpers-react';
+import { useSessionContext, useUser } from '@supabase/auth-helpers-react';
 
 function PricingButton({
   href,
@@ -273,6 +273,7 @@ function PricingButtonSection({
   useCurrentPageAsCancelUrl: boolean;
 }>) {
   const intl = useIntl();
+  const user = useUser();
   const { isLoading: isUserLoading } = useSessionContext();
   const { userProfile, isLoading: isUserProfileLoading } =
     useUserProfileWithProjectsProfile();
@@ -285,67 +286,70 @@ function PricingButtonSection({
     return null;
   }
 
-  if (userProfile?.projectsProfile) {
-    if (!userProfile?.projectsProfile.premium) {
-      if (paymentConfig == null) {
-        return null;
-      }
-
-      if (planType == null || (planType != null && planType === 'FREE')) {
-        return null;
-      }
-
-      // User is logged in but not a premium user.
-      return (
-        <PricingButtonNonPremium
-          paymentConfig={paymentConfig}
-          planType={planType}
-          useCurrentPageAsCancelUrl={useCurrentPageAsCancelUrl}
-        />
-      );
-    }
-
-    if (userProfile.projectsProfile.plan === planType) {
-      // User is already subscribed, link to billing page.
-      return (
-        <PricingButton
-          icon={RiExternalLinkFill}
-          isDisabled={billingPortalMutation.isLoading}
-          isLoading={billingPortalMutation.isLoading}
-          label={intl.formatMessage({
-            defaultMessage: 'Manage on Stripe',
-            description: 'Manage user membership subscription button label',
-            id: 'NBSMFm',
-          })}
-          tooltip={intl.formatMessage({
-            defaultMessage:
-              'Manage your subscription and renewal status on Stripe billing portal',
-            description: 'Manage user membership subscription button label',
-            id: 'S2VtP2',
-          })}
-          variant="secondary"
-          onClick={async () => {
-            const billingPortalUrl = await billingPortalMutation.mutateAsync({
-              returnUrl: window.location.href,
-            });
-
-            window.location.href = billingPortalUrl;
-          }}
-        />
-      );
-    }
-
-    return null;
+  if (user == null) {
+    // User is not logged in, they have to create an account first.
+    return (
+      <PricingButtonNonLoggedIn
+        isDisabled={isPending}
+        paymentConfig={paymentConfig}
+        planType={planType}
+      />
+    );
   }
 
-  // User is not logged in, they have to create an account first.
-  return (
-    <PricingButtonNonLoggedIn
-      isDisabled={isPending}
-      paymentConfig={paymentConfig}
-      planType={planType}
-    />
-  );
+  if (
+    userProfile?.projectsProfile == null ||
+    !userProfile?.projectsProfile?.premium
+  ) {
+    if (paymentConfig == null) {
+      return null;
+    }
+
+    if (planType == null || planType === 'FREE') {
+      return null;
+    }
+
+    // User is logged in but not a premium user.
+    return (
+      <PricingButtonNonPremium
+        paymentConfig={paymentConfig}
+        planType={planType}
+        useCurrentPageAsCancelUrl={useCurrentPageAsCancelUrl}
+      />
+    );
+  }
+
+  if (userProfile.projectsProfile.plan === planType) {
+    // User is already subscribed, link to billing page.
+    return (
+      <PricingButton
+        icon={RiExternalLinkFill}
+        isDisabled={billingPortalMutation.isLoading}
+        isLoading={billingPortalMutation.isLoading}
+        label={intl.formatMessage({
+          defaultMessage: 'Manage on Stripe',
+          description: 'Manage user membership subscription button label',
+          id: 'NBSMFm',
+        })}
+        tooltip={intl.formatMessage({
+          defaultMessage:
+            'Manage your subscription and renewal status on Stripe billing portal',
+          description: 'Manage user membership subscription button label',
+          id: 'S2VtP2',
+        })}
+        variant="secondary"
+        onClick={async () => {
+          const billingPortalUrl = await billingPortalMutation.mutateAsync({
+            returnUrl: window.location.href,
+          });
+
+          window.location.href = billingPortalUrl;
+        }}
+      />
+    );
+  }
+
+  return null;
 }
 
 function PricingPlanComparisonDiscount({

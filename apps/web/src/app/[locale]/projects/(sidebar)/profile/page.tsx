@@ -8,7 +8,7 @@ export default async function Page() {
   const viewer = await redirectToLoginPageIfNotLoggedIn('/projects/profile');
   const viewerProfile = await redirectToPathIfNoProjectsProfile(
     viewer,
-    '/projects/challenges',
+    '/projects/onboarding',
   );
 
   return redirect(`/projects/u/${viewerProfile.username}`);
