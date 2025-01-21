@@ -97,6 +97,17 @@ export default async function Page({ params }: Props) {
       ),
     ]);
 
+  const title = intl.formatMessage({
+    defaultMessage: 'JavaScript Functions Interview Questions',
+    description: 'Title of interview questions page',
+    id: 'mL9M8v',
+  });
+
+  const listTypeWithTitle = {
+    ...listType,
+    title,
+  };
+
   return (
     <InterviewsQuestionsCategoryLanguagePage
       bottomContent={bottomContent}
@@ -108,15 +119,11 @@ export default async function Page({ params }: Props) {
       })}
       guides={guides}
       language={language}
-      listType={listType}
+      listType={listTypeWithTitle}
       questionCompletionCount={questionCompletionCount}
       questions={questions}
       showCategoryTabs={false}
-      title={intl.formatMessage({
-        defaultMessage: 'JavaScript Functions Interview Questions',
-        description: 'Title of interview questions page',
-        id: 'mL9M8v',
-      })}
+      title={title}
       totalQuestionsCount={questions.length}
     />
   );

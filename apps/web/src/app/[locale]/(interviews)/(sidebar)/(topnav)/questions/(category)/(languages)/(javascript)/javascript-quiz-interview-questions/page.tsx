@@ -111,6 +111,17 @@ export default async function Page({ params }: Props) {
       fetchInterviewListingBottomContent('javascript-quiz-interview-questions'),
     ]);
 
+  const title = intl.formatMessage({
+    defaultMessage: 'JavaScript Quiz Interview Questions',
+    description: 'Title of interview questions page',
+    id: 'uQG7Ed',
+  });
+
+  const listTypeWithTitle = {
+    ...listType,
+    title,
+  };
+
   return (
     <InterviewsQuestionsCategoryLanguagePage
       bottomContent={bottomContent}
@@ -122,15 +133,11 @@ export default async function Page({ params }: Props) {
       features={['criticalTopics', 'answeredByExInterviewers']}
       guides={guides}
       language={language}
-      listType={listType}
+      listType={listTypeWithTitle}
       questionCompletionCount={questionCompletionCount}
       questions={questions}
       showCategoryTabs={false}
-      title={intl.formatMessage({
-        defaultMessage: 'JavaScript Quiz Interview Questions',
-        description: 'Title of interview questions page',
-        id: 'uQG7Ed',
-      })}
+      title={title}
       totalQuestionsCount={questions.length}
     />
   );

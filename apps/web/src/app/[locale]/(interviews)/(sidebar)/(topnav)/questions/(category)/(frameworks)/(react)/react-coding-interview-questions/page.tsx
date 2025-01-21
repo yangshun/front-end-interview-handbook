@@ -100,6 +100,21 @@ export default async function Page({ params }: Props) {
     ]);
 
   const category = QuestionFrameworkLabels[framework];
+  const title = intl.formatMessage(
+    {
+      defaultMessage: '{category} Coding Interview Questions',
+      description: 'Title of interview questions page',
+      id: 'TbOere',
+    },
+    {
+      category,
+    },
+  );
+
+  const listTypeWithTitle = {
+    ...listType,
+    title,
+  };
 
   return (
     <InterviewsQuestionsCategoryFrameworkPage
@@ -117,20 +132,11 @@ export default async function Page({ params }: Props) {
       )}
       framework={framework}
       guides={guides}
-      listType={listType}
+      listType={listTypeWithTitle}
       questionCompletionCount={questionCompletionCount}
       questions={questions}
       showCategoryTabs={false}
-      title={intl.formatMessage(
-        {
-          defaultMessage: '{category} Coding Interview Questions',
-          description: 'Title of interview questions page',
-          id: 'TbOere',
-        },
-        {
-          category,
-        },
-      )}
+      title={title}
       totalQuestionsCount={questions.length}
     />
   );
