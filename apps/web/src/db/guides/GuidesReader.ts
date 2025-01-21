@@ -74,10 +74,17 @@ function requestToGuidePaths<T extends keyof GuidesRouteTypeMap>(
 }
 
 // TODO(interviews): consolidate
-export async function readAllFrontEndInterviewGuides(locale: string) {
+export async function readFrontEndInterviewGuides(
+  options?: Readonly<{
+    locale?: string;
+    slugs?: ReadonlyArray<FrontEndInterviewSlugType>;
+  }>,
+) {
+  const { slugs, locale } = options ?? {};
+
   const guidesData: Array<GuideCardMetadata> = [];
 
-  frontendInterviewSlugs.forEach((slug) => {
+  (slugs ?? frontendInterviewSlugs).forEach((slug) => {
     const { directoryPath } = requestToGuidePaths(
       'front-end-interview-guidebook',
       slug,

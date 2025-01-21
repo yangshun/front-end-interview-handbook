@@ -1,6 +1,6 @@
 import type { FrontEndInterviewSlugType } from '~/components/guides/types';
 
-export const InterviewsQuestionsLanguageCSSGuideSlugs: ReadonlyArray<FrontEndInterviewSlugType> =
+export const InterviewsQuestionsLanguageGuideSlugs: ReadonlyArray<FrontEndInterviewSlugType> =
   [
     'user-interface',
     'user-interface-questions-cheatsheet',

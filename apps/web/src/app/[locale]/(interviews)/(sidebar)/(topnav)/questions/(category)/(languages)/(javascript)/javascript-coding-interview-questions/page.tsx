@@ -7,10 +7,11 @@ import type {
   QuestionListTypeData,
   QuestionPracticeFormat,
 } from '~/components/interviews/questions/common/QuestionsTypes';
+import { InterviewsQuestionsLanguageJavaScriptGuideSlugs } from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryGuideSlugs';
 import InterviewsQuestionsCategoryLanguagePage from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryLanguagePage';
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
-import { readAllFrontEndInterviewGuides } from '~/db/guides/GuidesReader';
+import { readFrontEndInterviewGuides } from '~/db/guides/GuidesReader';
 import { fetchQuestionsCompletionCount } from '~/db/QuestionsCount';
 import { fetchQuestionsList } from '~/db/QuestionsListReader';
 import { roundQuestionCountToNearestTen } from '~/db/QuestionsUtils';
@@ -104,7 +105,10 @@ export default async function Page({ params }: Props) {
       getIntlServerOnly(locale),
       fetchQuestionsList(listType, locale),
       fetchQuestionsCompletionCount(['algo', 'javascript', 'user-interface']),
-      readAllFrontEndInterviewGuides(params.locale),
+      readFrontEndInterviewGuides({
+        locale,
+        slugs: InterviewsQuestionsLanguageJavaScriptGuideSlugs,
+      }),
       fetchInterviewListingBottomContent(
         'javascript-coding-interview-questions',
       ),

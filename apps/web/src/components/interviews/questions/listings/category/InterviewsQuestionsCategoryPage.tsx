@@ -8,30 +8,17 @@ import {
   useQuestionLanguagesData,
 } from '~/data/QuestionCategories';
 
-import type {
-  FrontEndInterviewSlugType,
-  GuideCardMetadata,
-} from '~/components/guides/types';
+import type { GuideCardMetadata } from '~/components/guides/types';
 import useGuidesWithCompletionStatus from '~/components/guides/useGuidesWithCompletionStatus';
 import InterviewsPageHeader from '~/components/interviews/common/InterviewsPageHeader';
 import InterviewsPageLongDescription from '~/components/interviews/common/InterviewsPageLongDescription';
-import type {
-  QuestionFrameworkOrLanguage,
-  QuestionMetadata,
-} from '~/components/interviews/questions/common/QuestionsTypes';
+import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import InterviewsQuestionsCategoryContentSlider from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryContentSlider';
 import QuestionsUnifiedListWithFiltersAndProgress from '~/components/interviews/questions/listings/items/QuestionsUnifiedListWithFiltersAndProgress';
 import { useIntl } from '~/components/intl';
 import Section from '~/components/ui/Heading/HeadingContext';
 
 import type { QuestionCompletionCount } from '~/db/QuestionsCount';
-
-import {
-  InterviewsQuestionsFrameworkGuideSlugs,
-  InterviewsQuestionsLanguageCSSGuideSlugs,
-  InterviewsQuestionsLanguageJavaScriptGuideSlugs,
-  InterviewsQuestionsQuizGuideSlugs,
-} from './InterviewsQuestionsCategoryGuideSlugs';
 
 type Props = Readonly<{
   categoryTabs?: ReactNode;
@@ -71,46 +58,14 @@ export default function InterviewsQuestionsCategoryPage({
         ? frameworks[listType?.value]
         : null;
 
-  const languageGuidesSlugs: ReadonlyArray<FrontEndInterviewSlugType> =
-    listType?.tab === 'coding'
-      ? listType?.type === 'language' && listType.value === 'css'
-        ? InterviewsQuestionsLanguageCSSGuideSlugs
-        : InterviewsQuestionsLanguageJavaScriptGuideSlugs
-      : InterviewsQuestionsQuizGuideSlugs;
-  const frameworkGuidesSlugs: ReadonlyArray<FrontEndInterviewSlugType> =
-    listType?.tab === 'coding'
-      ? InterviewsQuestionsFrameworkGuideSlugs
-      : InterviewsQuestionsQuizGuideSlugs;
-  const guidesSlugs: Record<
-    QuestionFrameworkOrLanguage,
-    ReadonlyArray<FrontEndInterviewSlugType>
-  > = {
-    angular: frameworkGuidesSlugs,
-    css: languageGuidesSlugs,
-    html: languageGuidesSlugs,
-    js: languageGuidesSlugs,
-    react: frameworkGuidesSlugs,
-    svelte: frameworkGuidesSlugs,
-    ts: languageGuidesSlugs,
-    vanilla: languageGuidesSlugs,
-    vue: frameworkGuidesSlugs,
-  };
-
   const frameworkOrLanguageValue =
     listType?.type === 'framework' || listType?.type === 'language'
       ? listType?.value
       : null;
 
-  const filteredGuides = frameworkOrLanguageValue
-    ? (guides ?? [])?.filter((guide) =>
-        guidesSlugs[frameworkOrLanguageValue].includes(
-          guide.id as FrontEndInterviewSlugType,
-        ),
-      )
-    : [];
-
-  const guidesWithCompletionStatus =
-    useGuidesWithCompletionStatus(filteredGuides);
+  const guidesWithCompletionStatus = useGuidesWithCompletionStatus(
+    guides ?? [],
+  );
 
   return (
     <div className={clsx('flex flex-col', 'gap-y-10')}>

@@ -11,8 +11,8 @@ import InterviewsQuestionFormatPage from '~/components/interviews/questions/list
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
 import {
-  readAllFrontEndInterviewGuides,
   readAllFrontendSystemDesignGuides,
+  readFrontEndInterviewGuides,
 } from '~/db/guides/GuidesReader';
 import { fetchQuestionsCompletionCount } from '~/db/QuestionsCount';
 import { fetchQuestionsList } from '~/db/QuestionsListReader';
@@ -284,7 +284,7 @@ export async function generateStaticParams() {
 }
 
 export default async function Page({ params }: Props) {
-  const { format } = params;
+  const { format, locale } = params;
   const questionFormatSEO = format.replace(/\/$/g, '') as QuestionFormatSEO;
   const questionFormat = QuestionFormatSEOToRawMapping[questionFormatSEO];
 
@@ -298,8 +298,8 @@ export default async function Page({ params }: Props) {
     fetchQuestionsCompletionCount([questionFormat]),
     fetchInterviewListingBottomContent(`${format}-question-format`),
     format === 'system-design'
-      ? readAllFrontendSystemDesignGuides(params.locale)
-      : readAllFrontEndInterviewGuides(params.locale),
+      ? readAllFrontendSystemDesignGuides(locale)
+      : readFrontEndInterviewGuides({ locale }),
   ]);
 
   return (

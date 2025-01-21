@@ -10,10 +10,11 @@ import type {
   QuestionLanguageSEO,
   QuestionListTypeData,
 } from '~/components/interviews/questions/common/QuestionsTypes';
+import { InterviewsQuestionsQuizGuideSlugs } from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryGuideSlugs';
 import InterviewsQuestionsCategoryLanguagePage from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryLanguagePage';
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
-import { readAllFrontEndInterviewGuides } from '~/db/guides/GuidesReader';
+import { readFrontEndInterviewGuides } from '~/db/guides/GuidesReader';
 import { fetchQuestionsCompletionCount } from '~/db/QuestionsCount';
 import { fetchQuestionsList } from '~/db/QuestionsListReader';
 import { roundQuestionCountToNearestTen } from '~/db/QuestionsUtils';
@@ -116,7 +117,10 @@ export default async function Page({ params }: Props) {
     fetchQuestionsList(listType, locale),
     fetchQuestionsList({ type: 'language', value: language }, locale),
     fetchQuestionsCompletionCount([questionFormat]),
-    readAllFrontEndInterviewGuides(params.locale),
+    readFrontEndInterviewGuides({
+      locale,
+      slugs: InterviewsQuestionsQuizGuideSlugs,
+    }),
     fetchInterviewListingBottomContent(`language-${language}`),
   ]);
 

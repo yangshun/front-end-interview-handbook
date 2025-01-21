@@ -3,7 +3,7 @@ import type { Metadata } from 'next/types';
 import { basePath } from '~/components/guides/useBehavioralInterviewGuidebookNavigation';
 import FrontEndInterviewPlaybookPage from '~/components/interviews/guides/FrontEndInterviewPlaybookPage';
 
-import { readAllFrontEndInterviewGuides } from '~/db/guides/GuidesReader';
+import { readFrontEndInterviewGuides } from '~/db/guides/GuidesReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
@@ -63,9 +63,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Page({ params }: Props) {
+  const { locale } = params;
   const [allGuides, { title, description, socialTitle, href }] =
     await Promise.all([
-      readAllFrontEndInterviewGuides(params.locale),
+      readFrontEndInterviewGuides({ locale }),
       getPageSEOMetadata({ params }),
     ]);
 

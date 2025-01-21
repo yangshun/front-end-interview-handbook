@@ -5,9 +5,10 @@ import type {
   QuestionListTypeData,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import InterviewsQuestionsCategoryFrameworkPage from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryFrameworkPage';
+import { InterviewsQuestionsFrameworkGuideSlugs } from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryGuideSlugs';
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
-import { readAllFrontEndInterviewGuides } from '~/db/guides/GuidesReader';
+import { readFrontEndInterviewGuides } from '~/db/guides/GuidesReader';
 import { fetchQuestionsCompletionCount } from '~/db/QuestionsCount';
 import { fetchQuestionsList } from '~/db/QuestionsListReader';
 import { roundQuestionCountToNearestTen } from '~/db/QuestionsUtils';
@@ -82,7 +83,10 @@ export default async function Page({ params }: Props) {
     await Promise.all([
       fetchQuestionsList(listType, locale),
       fetchQuestionsCompletionCount(['user-interface']),
-      readAllFrontEndInterviewGuides(locale),
+      readFrontEndInterviewGuides({
+        locale,
+        slugs: InterviewsQuestionsFrameworkGuideSlugs,
+      }),
       fetchInterviewListingBottomContent('framework-svelte'),
     ]);
 
