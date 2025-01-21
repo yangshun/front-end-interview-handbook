@@ -26,6 +26,13 @@ import Section from '~/components/ui/Heading/HeadingContext';
 
 import type { QuestionCompletionCount } from '~/db/QuestionsCount';
 
+import {
+  InterviewsQuestionsFrameworkGuideSlugs,
+  InterviewsQuestionsLanguageCSSGuideSlugs,
+  InterviewsQuestionsLanguageJavaScriptGuideSlugs,
+  InterviewsQuestionsQuizGuideSlugs,
+} from './InterviewsQuestionsCategoryGuideSlugs';
+
 type Props = Readonly<{
   categoryTabs?: ReactNode;
   description: string;
@@ -67,27 +74,13 @@ export default function InterviewsQuestionsCategoryPage({
   const languageGuidesSlugs: ReadonlyArray<FrontEndInterviewSlugType> =
     listType?.tab === 'coding'
       ? listType?.type === 'language' && listType.value === 'css'
-        ? [
-            'user-interface',
-            'user-interface-questions-cheatsheet',
-            'user-interface-components-api-design-principles',
-          ]
-        : [
-            'javascript',
-            'algorithms',
-            'user-interface',
-            'user-interface-questions-cheatsheet',
-            'user-interface-components-api-design-principles',
-          ]
-      : ['quiz'];
+        ? InterviewsQuestionsLanguageCSSGuideSlugs
+        : InterviewsQuestionsLanguageJavaScriptGuideSlugs
+      : InterviewsQuestionsQuizGuideSlugs;
   const frameworkGuidesSlugs: ReadonlyArray<FrontEndInterviewSlugType> =
     listType?.tab === 'coding'
-      ? [
-          'user-interface',
-          'user-interface-questions-cheatsheet',
-          'user-interface-components-api-design-principles',
-        ]
-      : ['quiz'];
+      ? InterviewsQuestionsFrameworkGuideSlugs
+      : InterviewsQuestionsQuizGuideSlugs;
   const guidesSlugs: Record<
     QuestionFrameworkOrLanguage,
     ReadonlyArray<FrontEndInterviewSlugType>
