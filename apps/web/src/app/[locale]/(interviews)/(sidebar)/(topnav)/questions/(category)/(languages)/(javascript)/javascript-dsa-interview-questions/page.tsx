@@ -95,15 +95,13 @@ export default async function Page({ params }: Props) {
       fetchInterviewListingBottomContent('javascript-dsa-interview-questions'),
     ]);
 
-  const title = intl.formatMessage({
-    defaultMessage: 'JavaScript DSA Interview Questions',
-    description: 'Title of interview questions page',
-    id: 'Butt5/',
-  });
-
   const listTypeWithTitle = {
     ...listType,
-    title,
+    title: intl.formatMessage({
+      defaultMessage: 'JavaScript DSA',
+      description: 'Question list',
+      id: 'TbI6UW',
+    }),
   };
 
   return (
@@ -120,7 +118,11 @@ export default async function Page({ params }: Props) {
       listType={listTypeWithTitle}
       questionCompletionCount={questionCompletionCount}
       questions={questions}
-      title={title}
+      title={intl.formatMessage({
+        defaultMessage: 'JavaScript DSA Interview Questions',
+        description: 'Title of interview questions page',
+        id: 'Butt5/',
+      })}
       totalQuestionsCount={questions.length}
     />
   );

@@ -114,20 +114,18 @@ export default async function Page({ params }: Props) {
     ]);
 
   const category = QuestionFrameworkLabels[framework];
-  const title = intl.formatMessage(
-    {
-      defaultMessage: '{category} Quiz Interview Questions',
-      description: 'Title of interview questions page',
-      id: 'ubkZxH',
-    },
-    {
-      category,
-    },
-  );
-
   const listTypeWithTitle = {
     ...listType,
-    title,
+    title: intl.formatMessage(
+      {
+        defaultMessage: '{category} quiz',
+        description: 'Question list',
+        id: 'IxMQSr',
+      },
+      {
+        category,
+      },
+    ),
   };
 
   return (
@@ -150,7 +148,16 @@ export default async function Page({ params }: Props) {
       questionCompletionCount={questionCompletionCount}
       questions={questions}
       showCategoryTabs={false}
-      title={title}
+      title={intl.formatMessage(
+        {
+          defaultMessage: '{category} Quiz Interview Questions',
+          description: 'Title of interview questions page',
+          id: 'ubkZxH',
+        },
+        {
+          category,
+        },
+      )}
       totalQuestionsCount={questions.length}
     />
   );

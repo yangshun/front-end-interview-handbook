@@ -97,15 +97,13 @@ export default async function Page({ params }: Props) {
       ),
     ]);
 
-  const title = intl.formatMessage({
-    defaultMessage: 'JavaScript Functions Interview Questions',
-    description: 'Title of interview questions page',
-    id: 'mL9M8v',
-  });
-
   const listTypeWithTitle = {
     ...listType,
-    title,
+    title: intl.formatMessage({
+      defaultMessage: 'JavaScript functions',
+      description: 'Title of questions list',
+      id: 'yBb1/v',
+    }),
   };
 
   return (
@@ -122,7 +120,11 @@ export default async function Page({ params }: Props) {
       listType={listTypeWithTitle}
       questionCompletionCount={questionCompletionCount}
       questions={questions}
-      title={title}
+      title={intl.formatMessage({
+        defaultMessage: 'JavaScript Functions Interview Questions',
+        description: 'Title of interview questions page',
+        id: 'mL9M8v',
+      })}
       totalQuestionsCount={questions.length}
     />
   );

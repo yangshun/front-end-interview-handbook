@@ -114,15 +114,13 @@ export default async function Page({ params }: Props) {
       fetchInterviewListingBottomContent('javascript-ui-interview-questions'),
     ]);
 
-  const title = intl.formatMessage({
-    defaultMessage: 'JavaScript User Interface Interview Questions',
-    description: 'Title of interview questions page',
-    id: 'mOd6tW',
-  });
-
   const listTypeWithTitle = {
     ...listType,
-    title,
+    title: intl.formatMessage({
+      defaultMessage: 'JavaScript UI',
+      description: 'Question list',
+      id: '0UEoo1',
+    }),
   };
 
   return (
@@ -139,7 +137,11 @@ export default async function Page({ params }: Props) {
       listType={listTypeWithTitle}
       questionCompletionCount={questionCompletionCount}
       questions={questions}
-      title={title}
+      title={intl.formatMessage({
+        defaultMessage: 'JavaScript User Interface Interview Questions',
+        description: 'Title of interview questions page',
+        id: 'mOd6tW',
+      })}
       totalQuestionsCount={questions.length}
     />
   );

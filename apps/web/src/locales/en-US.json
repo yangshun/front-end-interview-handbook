@@ -135,6 +135,10 @@
     "defaultMessage": "Binary",
     "description": "Computer science topic"
   },
+  "+s7kuS": {
+    "defaultMessage": "Prev",
+    "description": "Previous label"
+  },
   "+u6zX0": {
     "defaultMessage": "Design systems",
     "description": "Title for \"Design systems\" feature on Projects home page"
@@ -398,6 +402,10 @@
   "0U+s+4": {
     "defaultMessage": "A user can complete a project multiple times – each instance is tracked as separate sessions.",
     "description": "Tooltip for current project session"
+  },
+  "0UEoo1": {
+    "defaultMessage": "JavaScript UI",
+    "description": "Question list"
   },
   "0WJfoT": {
     "defaultMessage": "Intermediate",
@@ -1642,6 +1650,10 @@
   "8klsso": {
     "defaultMessage": "Study Plans",
     "description": "Section heading in footer for links to study plans (i.e. recommended order to study and practice based on specific timelines e.g. prepare in 1 week, 1 month or 3 months)"
+  },
+  "8lMwo1": {
+    "defaultMessage": "Create",
+    "description": "Create label"
   },
   "8tTY7b": {
     "defaultMessage": "Loading submissions",
@@ -3199,6 +3211,10 @@
     "defaultMessage": "Features",
     "description": "Sidebar navigation label"
   },
+  "IxMQSr": {
+    "defaultMessage": "{category} quiz",
+    "description": "Question list"
+  },
   "IxaZ5e": {
     "defaultMessage": "Are there student discounts available for GreatFrontEnd Projects?",
     "description": "Question on projects pricing's FAQ section - student discounts"
@@ -4663,6 +4679,10 @@
     "defaultMessage": "See all",
     "description": "Label for See all button on project submission success page"
   },
+  "Ra8aIf": {
+    "defaultMessage": "{category} coding",
+    "description": "Question list"
+  },
   "RdVD3x": {
     "defaultMessage": "Don't hesitate to reach out. We're always here to help.",
     "description": "Title for marketing page section"
@@ -5006,6 +5026,10 @@
   "TaIXVz": {
     "defaultMessage": "Purchase premium to unlock full access to exclusive System Design content including high quality solutions and companies which ask this question.",
     "description": "System design questions paywall"
+  },
+  "TbI6UW": {
+    "defaultMessage": "JavaScript DSA",
+    "description": "Question list"
   },
   "TbN6Yv": {
     "defaultMessage": "Show questions list",
@@ -7098,10 +7122,6 @@
   "gd8jkF": {
     "defaultMessage": "React Coding Interview Questions with Solutions | GreatFrontEnd",
     "description": "Title of React Interview Questions page"
-  },
-  "ghssuE": {
-    "defaultMessage": "Next",
-    "description": "Label for Next button on Projects profile onboarding page"
   },
   "gjRrM6": {
     "defaultMessage": "Networking",
@@ -9770,6 +9790,10 @@
   "y9hdD1": {
     "defaultMessage": "Reading time",
     "description": "Reading time of the article"
+  },
+  "yBb1/v": {
+    "defaultMessage": "JavaScript functions",
+    "description": "Title of questions list"
   },
   "yCEIJF": {
     "defaultMessage": "Practice {questionCount}+ React Quiz Interview Questions. Learn in-browser, with high quality answers written by Big Tech Ex-interviewers",
