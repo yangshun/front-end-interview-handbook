@@ -1,11 +1,14 @@
-import React from 'react';
+import { usePathname } from 'next/navigation';
+import React, { useState } from 'react';
 import { FaCheck } from 'react-icons/fa6';
+import url from 'url';
 
 import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
 
 import { useToast } from '~/components/global/toasts/useToast';
-import { useIntl } from '~/components/intl';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
+import Dialog from '~/components/ui/Dialog';
 
 import {
   useMutationGuideProgressAdd,
@@ -14,6 +17,7 @@ import {
 import logEvent from '~/logging/logEvent';
 
 import type { GuideMetadata } from './types';
+import Text from '../ui/Text';
 
 import type { GuideProgress } from '@prisma/client';
 import { useUser } from '@supabase/auth-helpers-react';
@@ -32,29 +36,74 @@ export default function GuidesProgressAction({
   studyListKey,
 }: Props) {
   const intl = useIntl();
+  const pathname = usePathname();
   const user = useUser();
+
+  const [isLoginDialogShown, setIsLoginDialogShown] = useState(false);
   const addGuideProgressMutation = useMutationGuideProgressAdd();
   const deleteGuideProgressMutation = useMutationGuideProgressDelete();
 
   const { showToast } = useToast();
-  const { signInUpHref } = useAuthSignInUp();
+  const { signInUpHref, signInUpLabel } = useAuthSignInUp();
 
   if (user == null) {
     return (
-      <Button
-        addonPosition="start"
-        href={signInUpHref({
-          query: { source: 'track_progress' },
-        })}
-        icon={FaCheck}
-        label={intl.formatMessage({
-          defaultMessage: 'Mark complete',
-          description: 'Mark guide as complete',
-          id: 'Kt8F9D',
-        })}
-        size="xs"
-        variant="secondary"
-      />
+      <>
+        <Button
+          addonPosition="start"
+          icon={FaCheck}
+          label={intl.formatMessage({
+            defaultMessage: 'Mark complete',
+            description: 'Mark guide as complete',
+            id: 'Kt8F9D',
+          })}
+          size="xs"
+          variant="secondary"
+          onClick={() => setIsLoginDialogShown(true)}
+        />
+        <Dialog
+          isShown={isLoginDialogShown}
+          primaryButton={
+            <Button
+              href={signInUpHref({
+                next: url.format({
+                  pathname,
+                }),
+                query: {
+                  source: 'track_progress',
+                },
+              })}
+              label={signInUpLabel}
+              variant="primary"
+              onClick={() => setIsLoginDialogShown(false)}
+            />
+          }
+          secondaryButton={
+            <Button
+              label={intl.formatMessage({
+                defaultMessage: 'Cancel',
+                description: 'Cancel and close the sign in modal',
+                id: 'YXs0ZC',
+              })}
+              variant="secondary"
+              onClick={() => setIsLoginDialogShown(false)}
+            />
+          }
+          title={intl.formatMessage({
+            defaultMessage: 'Sign in to save progress',
+            description: 'Instructions for saving platform progress',
+            id: 'MaorIw',
+          })}
+          onClose={() => setIsLoginDialogShown(false)}>
+          <Text className="block" color="secondary" size="body2">
+            <FormattedMessage
+              defaultMessage="Sign into your account or sign up for free to save your progress!"
+              description="Instructions for saving platform progress"
+              id="ZV4dGC"
+            />
+          </Text>
+        </Dialog>
+      </>
     );
   }
 

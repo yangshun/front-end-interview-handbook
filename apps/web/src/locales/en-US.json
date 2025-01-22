@@ -3851,6 +3851,10 @@
     "defaultMessage": "Only foundational skills",
     "description": "Label for skill roadmap feature for month plan"
   },
+  "MaorIw": {
+    "defaultMessage": "Sign in to save progress",
+    "description": "Instructions for saving platform progress"
+  },
   "MeV/ww": {
     "defaultMessage": "Microsoft",
     "description": "Company name for Microsoft"
@@ -5946,6 +5950,10 @@
   "ZRUNG5": {
     "defaultMessage": "Promotions",
     "description": "Title of Promotions page"
+  },
+  "ZV4dGC": {
+    "defaultMessage": "Sign into your account or sign up for free to save your progress!",
+    "description": "Instructions for saving platform progress"
   },
   "ZWMfa0": {
     "defaultMessage": "Pricing plans",

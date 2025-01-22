@@ -283,20 +283,19 @@ export default function GuidesPagination({
             slug={currentItem.id}
           />
         )}
-        {user != null &&
-          (isSystemDesignQuestion ? (
-            <QuestionProgressAction
-              metadata={{ format: 'system-design', slug: currentItem.id }}
-              studyListKey={studyListKey}
-            />
-          ) : (
-            <GuidesProgressAction
-              guideName={currentItem.label}
-              guideProgress={guideProgress}
-              metadata={guideMetadata}
-              studyListKey={studyListKey}
-            />
-          ))}
+        {isSystemDesignQuestion ? (
+          <QuestionProgressAction
+            metadata={{ format: 'system-design', slug: currentItem.id }}
+            studyListKey={studyListKey}
+          />
+        ) : (
+          <GuidesProgressAction
+            guideName={currentItem.label}
+            guideProgress={guideProgress}
+            metadata={guideMetadata}
+            studyListKey={studyListKey}
+          />
+        )}
       </div>
     </nav>
   );

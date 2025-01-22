@@ -46,6 +46,7 @@ export default function QuestionProgressAction({
   const [isLoginDialogShown, setIsLoginDialogShown] = useState(false);
   const markCompleteMutation = useMutationQuestionProgressAdd();
   const deleteProgressMutation = useMutationQuestionProgressDelete();
+
   const { showToast } = useToast();
   const { signInUpHref, signInUpLabel } = useAuthSignInUp();
 
@@ -77,6 +78,7 @@ export default function QuestionProgressAction({
                     [queryParamActionKey]: MARK_AS_COMPLETE_ACTION_NAME,
                   },
                 }),
+                query: { source: 'track_progress' },
               })}
               label={signInUpLabel}
               variant="primary"
