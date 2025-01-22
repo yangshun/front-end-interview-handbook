@@ -355,7 +355,11 @@ export const projectsProfileRouter = router({
 
       return profile != null && profile.id !== viewer.id;
     }),
-  viewer: userProcedure.query(async ({ ctx: { viewer } }) => {
+  viewer: publicProcedure.query(async ({ ctx: { viewer } }) => {
+    if (viewer == null) {
+      return null;
+    }
+
     return await prisma.profile.findUnique({
       include: {
         projectsProfile: true,
