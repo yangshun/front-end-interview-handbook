@@ -3,7 +3,6 @@
 import { usePathname } from 'next/navigation';
 import React, { useState } from 'react';
 import { FaCheck } from 'react-icons/fa6';
-import { RiLockLine } from 'react-icons/ri';
 import url from 'url';
 
 import { queryParamActionKey } from '~/hooks/useQueryParamAction';
@@ -50,7 +49,10 @@ export default function QuestionProgressAction({
   const { showToast } = useToast();
   const { signInUpHref, signInUpLabel } = useAuthSignInUp();
 
-  const { data } = useQueryQuestionProgress(metadata, studyListKey ?? null);
+  const { data, isFetching } = useQueryQuestionProgress(
+    metadata,
+    studyListKey ?? null,
+  );
 
   if (user == null) {
     return (
@@ -116,6 +118,10 @@ export default function QuestionProgressAction({
     );
   }
 
+  if (isFetching || data?.isQuestionLockedForViewer) {
+    return null;
+  }
+
   if (data?.questionProgress?.status === 'complete') {
     return (
       <Button
@@ -179,10 +185,8 @@ export default function QuestionProgressAction({
   return (
     <Button
       addonPosition="start"
-      icon={data?.isQuestionLockedForViewer ? RiLockLine : FaCheck}
-      isDisabled={
-        data?.isQuestionLockedForViewer || markCompleteMutation.isLoading
-      }
+      icon={FaCheck}
+      isDisabled={markCompleteMutation.isLoading}
       isLoading={markCompleteMutation.isLoading}
       label={intl.formatMessage({
         defaultMessage: 'Mark complete',
