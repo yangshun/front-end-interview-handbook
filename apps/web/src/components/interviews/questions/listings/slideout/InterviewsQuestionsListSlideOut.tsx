@@ -18,10 +18,7 @@ import { useIntl } from '~/components/intl';
 import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
 import SlideOut from '~/components/ui/SlideOut';
-import {
-  themeBackgroundDarkColor,
-  themeBackgroundGlimmerColor,
-} from '~/components/ui/theme';
+import { themeBackgroundGlimmerColor } from '~/components/ui/theme';
 
 import InterviewsQuestionsListSlideOutContents from './InterviewsQuestionsListSlideOutContents';
 import QuestionListingFilterButtonBadgeWrapper from '../filters/QuestionListingFilterButtonBadgeWrapper';
@@ -153,9 +150,7 @@ function InterviewsQuestionsListSlideOutImpl({
 
   return (
     <SlideOut
-      bodyClassName={themeBackgroundDarkColor}
       enterFrom="start"
-      headerClassName={clsx(themeBackgroundDarkColor)}
       isShown={Boolean(isSlideOutShown)}
       padding={false}
       size="xl"
