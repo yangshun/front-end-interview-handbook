@@ -14,6 +14,7 @@ export type NavLinkItem = NavBaseItem &
     icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
     labelAddon?: React.ReactNode;
     scroll?: boolean;
+    suppressHydrationWarning?: boolean;
     type: 'link';
   }>;
 

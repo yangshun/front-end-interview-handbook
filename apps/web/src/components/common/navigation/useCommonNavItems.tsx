@@ -32,6 +32,7 @@ export default function useCommonNavItems() {
       });
     },
     position: 'end',
+    suppressHydrationWarning: true,
     type: 'link',
   };
   const logout: NavbarTopLevelItem = {
@@ -47,6 +48,7 @@ export default function useCommonNavItems() {
       });
     },
     position: 'end',
+    suppressHydrationWarning: true,
     type: 'link',
   };
   const blog: NavbarTopLevelItem = {

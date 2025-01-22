@@ -63,6 +63,7 @@ export default function NavbarItem({
         )}
         href={props.href}
         prefetch={null}
+        suppressHydrationWarning={props.suppressHydrationWarning}
         variant="unstyled"
         onClick={onClick}>
         {label} {props.labelAddon}
