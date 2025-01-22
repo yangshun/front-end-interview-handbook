@@ -27,11 +27,9 @@ export function questionsListTabsConfig(
         }
       }
     }
+    case 'study-list':
     case 'format': {
       return null;
-    }
-    default: {
-      throw `Unsupported list type "${listType.value}"`;
     }
   }
 }
