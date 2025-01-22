@@ -12,7 +12,7 @@ import { base64toBlob } from '~/components/projects/utils/profilePhotoUtils';
 import prisma from '~/server/prisma';
 import { createSupabaseAdminClientGFE_SERVER_ONLY } from '~/supabase/SupabaseServerGFE';
 
-import { projectsUserProcedure, publicProjectsProcedure } from './procedures';
+import { projectsUserProcedure } from './procedures';
 import { publicProcedure, router, userProcedure } from '../../trpc';
 import { projectsProfileBioSchemaServer } from '../../../components/projects/profile/fields/ProjectsProfileBioSchema';
 
@@ -355,7 +355,7 @@ export const projectsProfileRouter = router({
 
       return profile != null && profile.id !== viewer.id;
     }),
-  viewer: publicProjectsProcedure.query(async ({ ctx: { viewer } }) => {
+  viewer: userProcedure.query(async ({ ctx: { viewer } }) => {
     return await prisma.profile.findUnique({
       include: {
         projectsProfile: true,

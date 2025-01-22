@@ -8,7 +8,6 @@ import {
 } from 'react-icons/ri';
 import url from 'url';
 
-import { trpc } from '~/hooks/trpc';
 import { SCROLL_HASH_PROJECTS_PROFILE } from '~/hooks/useScrollToHash';
 
 import { FormattedMessage, useIntl } from '~/components/intl';
@@ -23,13 +22,15 @@ import {
   themeGradientPurpleGreen,
 } from '~/components/ui/theme';
 
+import useUserProfileWithProjectsProfile from '../common/useUserProfileWithProjectsProfile';
+
 const progressBarClassName = themeGradientPurpleGreen.className;
 
 export default function ProjectsDashboardCompleteProfileCard() {
   const intl = useIntl();
   const [isCardOpen, setIsCardOpen] = useState(false);
 
-  const { data: userProfile } = trpc.projects.profile.viewer.useQuery();
+  const { userProfile } = useUserProfileWithProjectsProfile();
   const profileTasks = [
     {
       formHash: SCROLL_HASH_PROJECTS_PROFILE.BIO,

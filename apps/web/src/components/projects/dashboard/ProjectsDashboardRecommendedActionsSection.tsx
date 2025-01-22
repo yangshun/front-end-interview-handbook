@@ -3,8 +3,6 @@
 import clsx from 'clsx';
 import { RiArrowRightLine } from 'react-icons/ri';
 
-import { trpc } from '~/hooks/trpc';
-
 import { FormattedMessage, useIntl } from '~/components/intl';
 import useProjectsDashboardRecommendedActions from '~/components/projects/dashboard/useProjectsDashboardRecommendedActions';
 import { motivationReasonValue } from '~/components/projects/misc';
@@ -25,6 +23,8 @@ import {
   themeTextColor,
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
+
+import useUserProfileWithProjectsProfile from '../common/useUserProfileWithProjectsProfile';
 
 function isOtherMotivation(motivation: string | null) {
   // It is an other motivation is there is some text that is not a motivationReasonValue
@@ -103,7 +103,7 @@ export default function ProjectsDashboardRecommendedActionsSection() {
   const intl = useIntl();
   const actions = useProjectsDashboardRecommendedActions();
 
-  const { data: userProfile } = trpc.projects.profile.viewer.useQuery();
+  const { userProfile } = useUserProfileWithProjectsProfile();
   const motivations = userProfile?.projectsProfile?.motivations ?? [];
 
   const recommendedActions = getRecommendedActions(actions, motivations);

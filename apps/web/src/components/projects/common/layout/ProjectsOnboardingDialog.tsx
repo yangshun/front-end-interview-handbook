@@ -1,9 +1,8 @@
-import { trpc } from '~/hooks/trpc';
-
 import Text from '~/components/ui/Text';
 
 import { useI18nPathname, useI18nRouter } from '~/next-i18nostic/src';
 
+import useUserProfileWithProjectsProfile from '../useUserProfileWithProjectsProfile';
 import ConfirmationDialog from '../../../common/ConfirmationDialog';
 
 type Props = Readonly<{
@@ -15,7 +14,7 @@ export default function ProjectsOnboardingDialog({ isShown, onClose }: Props) {
   const router = useI18nRouter();
   const { pathname } = useI18nPathname();
 
-  const { data: userProfile } = trpc.projects.profile.viewer.useQuery();
+  const { userProfile } = useUserProfileWithProjectsProfile();
 
   function navigateToOnboarding() {
     if (userProfile?.projectsProfile == null) {
