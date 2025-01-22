@@ -2,17 +2,16 @@
 
 import type { InterviewsListingBottomContent } from 'contentlayer/generated';
 
-import { useQuestionFormatsData } from '~/data/QuestionCategories';
-
 import useInterviewsQuestionsFeatures from '~/components/interviews/common/useInterviewsQuestionsFeatures';
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import InterviewsQuestionsCategoryPage from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryPage';
 import { useIntl } from '~/components/intl';
 import MDXContent from '~/components/mdx/MDXContent';
 import Divider from '~/components/ui/Divider';
-import TabsUnderline from '~/components/ui/Tabs/TabsUnderline';
 
 import { roundQuestionCountToNearestTen } from '~/db/QuestionsUtils';
+
+import InterviewsQuestionsCategoryPracticeFormatTabs from './InterviewsQuestionsCategoryPracticeFormatTabs';
 
 type Props = Readonly<{
   bottomContent?: InterviewsListingBottomContent;
@@ -30,42 +29,19 @@ export default function InterviewsQuestionsCategoryPreparePage({
   totalQuestionCount,
 }: Props) {
   const intl = useIntl();
-  const formats = useQuestionFormatsData();
-
-  const categoryTabs = (
-    <TabsUnderline
-      size="sm"
-      tabs={[
-        {
-          href: '/questions',
-          label: intl.formatMessage({
-            defaultMessage: 'Coding',
-            description: 'Question format',
-            id: 'eJU0PN',
-          }),
-          value: 'coding',
-        },
-        {
-          href: `/questions/${formats['system-design'].value}`,
-          label: formats['system-design'].label,
-          value: formats['system-design'].value,
-        },
-        {
-          href: `/questions/${formats.quiz.value}`,
-          label: formats.quiz.label,
-          value: formats.quiz.value,
-        },
-      ]}
-      value={listType?.tab ?? 'coding'}
-    />
-  );
-
   const questionFeatures = useInterviewsQuestionsFeatures();
   const features = [
     questionFeatures.solvedByExInterviewers,
     questionFeatures.testCases,
     questionFeatures.codeInBrowser,
   ];
+
+  const categoryTabs = (
+    <InterviewsQuestionsCategoryPracticeFormatTabs
+      baseHref="/questions"
+      listType={listType}
+    />
+  );
 
   return (
     <div className="flex flex-col gap-20">

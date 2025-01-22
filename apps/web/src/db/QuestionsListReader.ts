@@ -456,51 +456,24 @@ export async function fetchQuestionsList(
   Readonly<{
     loadedLocale: string;
     questions: ReadonlyArray<QuestionMetadata>;
-    tabs?: ReadonlyArray<QuestionPracticeFormat>;
   }>
 > {
   switch (listType.type) {
     case 'practice': {
-      const practiceTabs: ReadonlyArray<QuestionPracticeFormat> = [
-        'coding',
-        'system-design',
-        'quiz',
-      ];
-
       switch (listType.tab) {
         case 'quiz': {
-          const results = await fetchQuestionsListQuiz(requestedLocale);
-
-          return {
-            ...results,
-            tabs: practiceTabs,
-          };
+          return await fetchQuestionsListQuiz(requestedLocale);
         }
         case 'system-design': {
-          const results = await fetchQuestionsListSystemDesign(requestedLocale);
-
-          return {
-            ...results,
-            tabs: practiceTabs,
-          };
+          return await fetchQuestionsListSystemDesign(requestedLocale);
         }
         case 'coding':
         default: {
-          const results = await fetchQuestionsListCoding(requestedLocale);
-
-          return {
-            ...results,
-            tabs: listType.tab ? practiceTabs : undefined,
-          };
+          return await fetchQuestionsListCoding(requestedLocale);
         }
       }
     }
     case 'language': {
-      const practiceTabs: ReadonlyArray<QuestionPracticeFormat> = [
-        'coding',
-        'quiz',
-      ];
-
       const results = await fetchQuestionsListForLanguage({
         format: listType.tab,
         language: listType.value,
@@ -512,7 +485,6 @@ export async function fetchQuestionsList(
           results.questions,
           listType.filters?.formats ?? [],
         ),
-        tabs: listType.tab ? practiceTabs : undefined,
       };
     }
     case 'framework': {
@@ -527,10 +499,6 @@ export async function fetchQuestionsList(
           results.questions,
           listType.filters?.formats ?? [],
         ),
-        tabs:
-          listType.tab && listType.value === 'react'
-            ? ['coding', 'quiz']
-            : undefined,
       };
     }
     case 'format': {

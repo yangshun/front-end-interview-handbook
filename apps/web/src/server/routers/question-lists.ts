@@ -123,12 +123,11 @@ export const questionListsRouter = router({
             type: 'framework',
             value: framework_,
           } as const;
-          const { questions, tabs } = await fetchQuestionsList(listType);
+          const { questions } = await fetchQuestionsList(listType);
 
           return {
             listType,
             questions,
-            tabs,
             title: frameworksData[framework_].label,
           } as const;
         }
@@ -141,7 +140,7 @@ export const questionListsRouter = router({
             value: format_,
           } as const;
 
-          const { questions, tabs } = await fetchQuestionsList(listType);
+          const { questions } = await fetchQuestionsList(listType);
           const codingLabel = intl.formatMessage({
             defaultMessage: 'Coding',
             description: 'Question format',
@@ -151,7 +150,6 @@ export const questionListsRouter = router({
           return {
             listType,
             questions,
-            tabs,
             title:
               format_ === 'coding' ? codingLabel : formatData[format_].label,
           } as const;
@@ -167,12 +165,11 @@ export const questionListsRouter = router({
             type: 'language',
             value: language_,
           } as const;
-          const { questions, tabs } = await fetchQuestionsList(listType);
+          const { questions } = await fetchQuestionsList(listType);
 
           return {
             listType,
             questions,
-            tabs,
             title: languagesData[language_].label,
           } as const;
         }
@@ -189,24 +186,22 @@ export const questionListsRouter = router({
             type: 'practice',
             value: 'practice',
           } as const;
-          const { questions, tabs } = await fetchQuestionsList(listType);
+          const { questions } = await fetchQuestionsList(listType);
 
           return {
             listType,
             questions,
-            tabs,
             title: allPracticeQuestionsLabel,
           } as const;
         }
 
-        const { questions: questionsCoding, tabs } = await fetchQuestionsList(
+        const { questions: questionsCoding } = await fetchQuestionsList(
           QuestionListTypeDefault,
         );
 
         return {
           listType: QuestionListTypeDefault,
           questions: questionsCoding,
-          tabs,
           title: allPracticeQuestionsLabel,
         } as const;
       },

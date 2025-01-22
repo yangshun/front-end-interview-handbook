@@ -11,8 +11,8 @@ import type {
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import type { QuestionUserInterfaceMode } from '~/components/interviews/questions/common/QuestionUserInterfacePath';
 import useQuestionsAutoMarkAsComplete from '~/components/interviews/questions/common/useQuestionsAutoMarkAsComplete';
-import { useQuestionsListTypeCurrent } from '~/components/interviews/questions/common/useQuestionsListDataForType';
 import { questionUserInterfaceSolutionPath } from '~/components/interviews/questions/content/user-interface/QuestionUserInterfaceRoutes';
+import { useQuestionsListTypeCurrent } from '~/components/interviews/questions/listings/utils/useQuestionsListDataForType';
 import Button from '~/components/ui/Button';
 import EmptyState from '~/components/ui/EmptyState';
 import {

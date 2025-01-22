@@ -99,7 +99,6 @@ export default async function Page({ params }: Props) {
       listType={listType}
       questionCompletionCount={questionCompletionCount}
       questions={questions}
-      showCategoryTabs={false}
       totalQuestionsCount={questions.length}
     />
   );

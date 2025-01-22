@@ -2,7 +2,7 @@ import { useSearchParams } from 'next/navigation';
 
 import { trpc } from '~/hooks/trpc';
 
-import { QuestionListTypeDefault } from './QuestionHrefUtils';
+import { QuestionListTypeDefault } from '~/components/interviews/questions/common/QuestionHrefUtils';
 import type {
   QuestionFormatForList,
   QuestionFramework,
@@ -10,7 +10,7 @@ import type {
   QuestionListTypeData,
   QuestionListTypeDataFilters,
   QuestionPracticeFormat,
-} from './QuestionsTypes';
+} from '~/components/interviews/questions/common/QuestionsTypes';
 
 /**
  * Please remember to wrap usage of these components in <Suspense>

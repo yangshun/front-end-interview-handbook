@@ -2,20 +2,16 @@
 
 import type { InterviewsListingBottomContent } from 'contentlayer/generated';
 
-import {
-  useQuestionFormatsData,
-  useQuestionFrameworksData,
-} from '~/data/QuestionCategories';
+import { useQuestionFrameworksData } from '~/data/QuestionCategories';
 
 import type { GuideCardMetadata } from '~/components/guides/types';
 import type { QuestionListFeature } from '~/components/interviews/common/useInterviewsQuestionsFeatures';
 import useInterviewsQuestionsFeatures from '~/components/interviews/common/useInterviewsQuestionsFeatures';
-import { useIntl } from '~/components/intl';
 import MDXContent from '~/components/mdx/MDXContent';
 import Divider from '~/components/ui/Divider';
-import TabsUnderline from '~/components/ui/Tabs/TabsUnderline';
 
 import InterviewsQuestionsCategoryPage from './InterviewsQuestionsCategoryPage';
+import InterviewsQuestionsCategoryPracticeFormatTabs from './InterviewsQuestionsCategoryPracticeFormatTabs';
 import type {
   QuestionFramework,
   QuestionMetadata,
@@ -63,30 +59,12 @@ export default function InterviewsQuestionsCategoryFrameworkPage({
   listType,
   ...props
 }: Props) {
-  const intl = useIntl();
   const frameworks = useQuestionFrameworksData();
-  const questionFormats = useQuestionFormatsData();
 
   const categoryTabs = showCategoryTabs ? (
-    <TabsUnderline
-      size="sm"
-      tabs={[
-        {
-          href: frameworks[framework].href,
-          label: intl.formatMessage({
-            defaultMessage: 'Coding',
-            description: 'Question format',
-            id: 'eJU0PN',
-          }),
-          value: 'coding',
-        },
-        {
-          href: `${frameworks[framework].href}/quiz`,
-          label: questionFormats.quiz.label,
-          value: 'quiz',
-        },
-      ]}
-      value={listType?.tab ?? 'coding'}
+    <InterviewsQuestionsCategoryPracticeFormatTabs
+      baseHref={frameworks[framework].href}
+      listType={listType}
     />
   ) : null;
 

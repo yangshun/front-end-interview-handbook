@@ -3,11 +3,11 @@ import { useSelectedLayoutSegment } from 'next/navigation';
 import { Suspense, useState } from 'react';
 
 import { questionListFilterNamespace } from '~/components/interviews/questions/common/QuestionHrefUtils';
+import InterviewsQuestionsListSlideOutSwitcher from '~/components/interviews/questions/listings/slideout/InterviewsQuestionsListSlideOutSwitcher';
 import {
   useQuestionsListDataForType,
   useQuestionsListTypeCurrent,
-} from '~/components/interviews/questions/common/useQuestionsListDataForType';
-import InterviewsQuestionsListSlideOutSwitcher from '~/components/interviews/questions/listings/slideout/InterviewsQuestionsListSlideOutSwitcher';
+} from '~/components/interviews/questions/listings/utils/useQuestionsListDataForType';
 import { themeBorderColor } from '~/components/ui/theme';
 
 import { hashQuestion } from '~/db/QuestionsUtils';

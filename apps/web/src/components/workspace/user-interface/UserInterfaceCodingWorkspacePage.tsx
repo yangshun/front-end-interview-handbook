@@ -7,11 +7,11 @@ import type {
   QuestionUserInterface,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import type { QuestionUserInterfaceMode } from '~/components/interviews/questions/common/QuestionUserInterfacePath';
-import { useQuestionsListTypeCurrent } from '~/components/interviews/questions/common/useQuestionsListDataForType';
 import {
   questionUserInterfaceDescriptionPath,
   questionUserInterfaceSolutionPath,
 } from '~/components/interviews/questions/content/user-interface/QuestionUserInterfaceRoutes';
+import { useQuestionsListTypeCurrent } from '~/components/interviews/questions/listings/utils/useQuestionsListDataForType';
 
 import { useI18nRouter } from '~/next-i18nostic/src';
 

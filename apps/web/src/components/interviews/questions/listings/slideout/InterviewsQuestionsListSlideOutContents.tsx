@@ -38,6 +38,8 @@ import {
   tabulateQuestionsAttributesUnion,
 } from '../filters/QuestionsProcessor';
 import QuestionsListSortButton from '../items/QuestionsListSortButton';
+import { questionsListTabsConfig } from '../utils/QuestionsListTabsConfig';
+import { useQuestionsListDataForType } from '../utils/useQuestionsListDataForType';
 import { questionHrefFrameworkSpecificAndListType } from '../../common/QuestionHrefUtils';
 import type {
   QuestionFramework,
@@ -47,7 +49,6 @@ import type {
   QuestionMetadata,
   QuestionPracticeFormat,
 } from '../../common/QuestionsTypes';
-import { useQuestionsListDataForType } from '../../common/useQuestionsListDataForType';
 
 function FilterSection<T extends string, Q extends QuestionMetadata>({
   coveredValues,
@@ -227,24 +228,14 @@ export default function InterviewsQuestionsListSlideOutContents({
     studyListKey,
   );
 
-  const [prevTabs, setPrevTabs] = useState<
-    ReadonlyArray<QuestionPracticeFormat> | undefined
-  >();
+  const listTabs = questionsListTabsConfig(listType);
 
-  useEffect(() => {
-    if (data?.tabs == null) {
-      return;
-    }
-
-    setPrevTabs(data?.tabs);
-  }, [data?.tabs]);
-
-  // Tabulating.
+  // Tabulating
   const questionAttributesUnion = tabulateQuestionsAttributesUnion(
     questionsWithCompletionStatus,
   );
 
-  // Filtering.
+  // Filtering
   const {
     query,
     setQuery,
@@ -270,12 +261,12 @@ export default function InterviewsQuestionsListSlideOutContents({
     listType,
   });
 
-  // Sorting.
+  // Sorting
   const { sortFields } = useQuestionCodingSorting({
     listType,
   });
 
-  // Processing.
+  // Processing
   const sortedQuestions = sortQuestionsMultiple(
     questionsWithCompletionStatus,
     sortFields,
@@ -396,9 +387,6 @@ export default function InterviewsQuestionsListSlideOutContents({
     id: 'hA7U8d',
   });
 
-  // Show the previous tabs while the new tabs are loading
-  const displayedTabs = data?.tabs ?? prevTabs;
-
   return (
     <>
       <div className={clsx('flex flex-col gap-4', 'h-full')}>
@@ -458,11 +446,11 @@ export default function InterviewsQuestionsListSlideOutContents({
           </div>
           {showFilters && embedFilters}
         </form>
-        {displayedTabs && (
+        {listTabs && (
           <div className="px-6">
             <TabsUnderline
               size="xs"
-              tabs={displayedTabs.map((listTabValue) => {
+              tabs={listTabs.map((listTabValue) => {
                 const labels: Record<QuestionPracticeFormat, string> = {
                   coding: intl.formatMessage({
                     defaultMessage: 'Coding',
@@ -483,7 +471,6 @@ export default function InterviewsQuestionsListSlideOutContents({
 
                 return {
                   label: labels[listTabValue],
-
                   value: listTabValue,
                 };
               })}

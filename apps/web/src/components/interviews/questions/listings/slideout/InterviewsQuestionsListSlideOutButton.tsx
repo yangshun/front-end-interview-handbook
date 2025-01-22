@@ -4,11 +4,11 @@ import clsx from 'clsx';
 import { Suspense } from 'react';
 import { RiArrowLeftSLine, RiArrowRightSLine } from 'react-icons/ri';
 
+import { questionHrefFrameworkSpecificAndListType } from '~/components/interviews/questions/common/QuestionHrefUtils';
 import type {
   QuestionFramework,
   QuestionHash,
   QuestionMetadataWithCompletedStatus,
-  QuestionPracticeFormat,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import useQuestionCodingSorting from '~/components/interviews/questions/listings/filters/hooks/useQuestionCodingSorting';
 import useQuestionUnifiedFilters from '~/components/interviews/questions/listings/filters/hooks/useQuestionUnifiedFilters';
@@ -18,17 +18,16 @@ import {
 } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 import useQuestionsWithCompletionStatus from '~/components/interviews/questions/listings/items/useQuestionsWithCompletionStatus';
 import InterviewsQuestionsListSlideOut from '~/components/interviews/questions/listings/slideout/InterviewsQuestionsListSlideOut';
+import {
+  useQuestionsListDataForType,
+  useQuestionsListTypeCurrent,
+} from '~/components/interviews/questions/listings/utils/useQuestionsListDataForType';
 import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 
 import { hashQuestion } from '~/db/QuestionsUtils';
 
-import { questionHrefFrameworkSpecificAndListType } from '../../common/QuestionHrefUtils';
-import type { QuestionListTypeData } from '../../common/QuestionsTypes';
-import {
-  useQuestionsListDataForType,
-  useQuestionsListTypeCurrent,
-} from '../../common/useQuestionsListDataForType';
+import type { QuestionListTypeWithLabel } from './InterviewsQuestionsListSlideOutSwitcher';
 
 type Props = Readonly<{
   currentQuestionHash: QuestionHash;
@@ -78,9 +77,8 @@ function InterviewsQuestionsListSlideOutButtonWithLoader({
           <InterviewsQuestionsListSlideOutButtonImpl
             currentQuestionHash={currentQuestionHash}
             framework={framework}
-            listInfo={{ tabs: data.tabs, title: data.title }}
             listIsShownInSidebarOnDesktop={listIsShownInSidebarOnDesktop}
-            listType={data.listType}
+            listType={{ ...data.listType, label: data.title }}
             questions={questionsWithCompletionStatus}
             slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE={
               slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE
@@ -95,18 +93,13 @@ function InterviewsQuestionsListSlideOutButtonWithLoader({
 function InterviewsQuestionsListSlideOutButtonImpl({
   currentQuestionHash,
   framework,
-  listInfo,
   listType,
   listIsShownInSidebarOnDesktop,
   questions,
   slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE,
 }: Omit<Props, 'studyListKey'> &
   Readonly<{
-    listInfo: Readonly<{
-      tabs?: ReadonlyArray<QuestionPracticeFormat>;
-      title: string;
-    }>;
-    listType: QuestionListTypeData;
+    listType: QuestionListTypeWithLabel;
     questions: ReadonlyArray<QuestionMetadataWithCompletedStatus>;
   }>) {
   const intl = useIntl();
@@ -168,10 +161,9 @@ function InterviewsQuestionsListSlideOutButtonImpl({
         currentQuestionHash={currentQuestionHash}
         currentQuestionPosition={currentQuestionIndex + 1}
         framework={framework}
-        initialListType={{ ...listType, label: listInfo.title }}
+        initialListType={listType}
         isLoading={false}
         listIsShownInSidebarOnDesktop={listIsShownInSidebarOnDesktop}
-        listTabs={listInfo.tabs}
         processedQuestions={processedQuestions}
         slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE={
           slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE

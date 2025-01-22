@@ -10,11 +10,11 @@ import type {
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import type { QuestionUserInterfaceMode } from '~/components/interviews/questions/common/QuestionUserInterfacePath';
 import useQuestionLogEventCopyContents from '~/components/interviews/questions/common/useQuestionLogEventCopyContents';
-import { useQuestionsListTypeCurrent } from '~/components/interviews/questions/common/useQuestionsListDataForType';
 import QuestionCompanies from '~/components/interviews/questions/content/QuestionCompanies';
 import QuestionContentProse from '~/components/interviews/questions/content/QuestionContentProse';
 import QuestionNextQuestions from '~/components/interviews/questions/content/QuestionNextQuestions';
 import QuestionSimilarQuestions from '~/components/interviews/questions/content/QuestionSimilarQuestions';
+import { useQuestionsListTypeCurrent } from '~/components/interviews/questions/listings/utils/useQuestionsListDataForType';
 import QuestionMetadataSection from '~/components/interviews/questions/metadata/QuestionMetadataSection';
 import { useIntl } from '~/components/intl';
 import Alert from '~/components/ui/Alert';
