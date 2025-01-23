@@ -2,7 +2,6 @@ import { createContext, useCallback, useContext, useState } from 'react';
 import { RiFireFill } from 'react-icons/ri';
 
 import { trpc } from '~/hooks/trpc';
-import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
 
 import { useToast } from '~/components/global/toasts/useToast';
 import { FormattedMessage } from '~/components/intl';
@@ -11,8 +10,7 @@ import Anchor from '~/components/ui/Anchor';
 import logEvent from '~/logging/logEvent';
 
 import type { ProjectsChallengeSessionSkillsFormValues } from '../types';
-import ProjectsOnboardingDialog from '../../common/layout/ProjectsOnboardingDialog';
-import useUserProfileWithProjectsProfile from '../../common/useUserProfileWithProjectsProfile';
+import { useProjectsOnboardingContext } from '../../onboarding/ProjectsOnboardingContext';
 import { ProjectsReputationPointsConfig } from '../../reputation/ProjectsReputationPointsConfig';
 
 import type { ProjectsChallengeSession } from '@prisma/client';
@@ -61,8 +59,6 @@ export default function ProjectsChallengeSessionContextProvider({
   children,
   slug,
 }: Props) {
-  const { userProfile } = useUserProfileWithProjectsProfile();
-  const { navigateToSignInUpPage } = useAuthSignInUp();
   const trpcUtils = trpc.useUtils();
   const { showToast } = useToast();
   const { data: canAccessAllSteps, isLoading: fetchingCanAccessAllSteps } =
@@ -79,8 +75,9 @@ export default function ProjectsChallengeSessionContextProvider({
         initialData: null,
       },
     );
-  const [projectsOnboardingDialogShown, setProjectsOnboardingDialogShown] =
-    useState(false);
+
+  const { handleActionRequiringProjectsProfile } =
+    useProjectsOnboardingContext();
 
   const startProjectMutation = trpc.projects.sessions.start.useMutation({
     onMutate: () => {
@@ -165,19 +162,10 @@ export default function ProjectsChallengeSessionContextProvider({
     session,
     setIsGetStartedDialogShown,
     startProject: () => {
-      if (userProfile == null) {
-        navigateToSignInUpPage({ query: { source: 'start_project' } });
-
-        return;
-      }
-
-      if (userProfile?.projectsProfile == null) {
-        setProjectsOnboardingDialogShown(true);
-
-        return;
-      }
-
-      setIsGetStartedDialogShown(true);
+      handleActionRequiringProjectsProfile(
+        () => setIsGetStartedDialogShown(true),
+        'start_project',
+      );
     },
     startSession: async (skills: ProjectsChallengeSessionSkillsFormValues) => {
       await startProjectMutation.mutateAsync(
@@ -235,12 +223,6 @@ export default function ProjectsChallengeSessionContextProvider({
   return (
     <ProjectsChallengeSessionContext.Provider value={value}>
       {children}
-      <ProjectsOnboardingDialog
-        isShown={projectsOnboardingDialogShown}
-        onClose={() => {
-          setProjectsOnboardingDialogShown(false);
-        }}
-      />
     </ProjectsChallengeSessionContext.Provider>
   );
 }

@@ -11,6 +11,7 @@ import {
 } from '~/components/ui/theme';
 
 import type { ProjectsDiscussionsCommentItem } from './types';
+import { useProjectsOnboardingContext } from '../onboarding/ProjectsOnboardingContext';
 
 type Props = Readonly<{
   comment: ProjectsDiscussionsCommentItem;
@@ -24,6 +25,9 @@ export default function ProjectsDiscussionsCommentVoteButton({
   const intl = useIntl();
   const trpcUtils = trpc.useUtils();
   const { id: commentId } = comment;
+  const { handleActionRequiringProjectsProfile } =
+    useProjectsOnboardingContext();
+
   const voteCommentMutation = trpc.projects.comments.vote.useMutation({
     onSuccess: () => {
       trpcUtils.projects.comments.invalidate();
@@ -72,13 +76,15 @@ export default function ProjectsDiscussionsCommentVoteButton({
       tooltip={actionLabel}
       variant={hasVoted ? 'unstyled' : 'tertiary'}
       onClick={() => {
-        hasVoted
-          ? unvoteCommentMutation.mutate({
-              commentId,
-            })
-          : voteCommentMutation.mutate({
-              commentId,
-            });
+        handleActionRequiringProjectsProfile(() => {
+          hasVoted
+            ? unvoteCommentMutation.mutate({
+                commentId,
+              })
+            : voteCommentMutation.mutate({
+                commentId,
+              });
+        });
       }}
     />
   );

@@ -1,7 +1,9 @@
 import clsx from 'clsx';
+import { RiAddLine } from 'react-icons/ri';
 
 import { FormattedMessage } from '~/components/intl';
-import DiscussionsCommentList from '~/components/projects/discussions/ProjectsDiscussionsCommentList';
+import ProjectsDiscussionsCommentList from '~/components/projects/discussions/ProjectsDiscussionsCommentList';
+import Button from '~/components/ui/Button';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 import {
@@ -12,6 +14,7 @@ import {
 import ProjectsChallengeSubmissionDiscussionsNewComment from './ProjectsChallengeSubmissionDiscussionsNewComment';
 import type { ProjectsChallengeSubmissionAugmented } from '../types';
 import useUserProfileWithProjectsProfile from '../../common/useUserProfileWithProjectsProfile';
+import { useProjectsOnboardingContext } from '../../onboarding/ProjectsOnboardingContext';
 
 type Props = Readonly<{
   submission: ProjectsChallengeSubmissionAugmented;
@@ -21,6 +24,8 @@ export default function ProjectsChallengeSubmissionDiscussionsSection({
   submission,
 }: Props) {
   const { userProfile } = useUserProfileWithProjectsProfile();
+  const { handleActionRequiringProjectsProfile } =
+    useProjectsOnboardingContext();
   const viewer = userProfile?.projectsProfile
     ? {
         points: userProfile.projectsProfile.points,
@@ -43,14 +48,25 @@ export default function ProjectsChallengeSubmissionDiscussionsSection({
         />
       </Text>
       <Section>
-        {viewer && (
+        {viewer ? (
           <ProjectsChallengeSubmissionDiscussionsNewComment
             submission={submission}
             viewer={viewer}
           />
+        ) : (
+          <div>
+            <Button
+              addonPosition="start"
+              icon={RiAddLine}
+              label="Add a comment"
+              size="lg"
+              variant="secondary"
+              onClick={() => handleActionRequiringProjectsProfile()}
+            />
+          </div>
         )}
         <div className="w-full">
-          <DiscussionsCommentList
+          <ProjectsDiscussionsCommentList
             domain="PROJECTS_SUBMISSION"
             entityId={submission.id}
             viewer={viewer}

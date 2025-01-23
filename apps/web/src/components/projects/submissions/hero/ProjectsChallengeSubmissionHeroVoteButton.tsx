@@ -1,8 +1,6 @@
-import { useState } from 'react';
 import { RiThumbUpFill } from 'react-icons/ri';
 
 import { trpc } from '~/hooks/trpc';
-import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
 
 import { useToast } from '~/components/global/toasts/useToast';
 import { useIntl } from '~/components/intl';
@@ -10,8 +8,7 @@ import FilterButton from '~/components/ui/FilterButton/FilterButton';
 
 import { useI18nRouter } from '~/next-i18nostic/src';
 
-import ProjectsOnboardingDialog from '../../common/layout/ProjectsOnboardingDialog';
-import useUserProfileWithProjectsProfile from '../../common/useUserProfileWithProjectsProfile';
+import { useProjectsOnboardingContext } from '../../onboarding/ProjectsOnboardingContext';
 
 type Props = Readonly<{
   submissionId: string;
@@ -24,12 +21,10 @@ export default function ProjectsChallengeSubmissionHeroVoteButton({
 }: Props) {
   const { showToast } = useToast();
   const intl = useIntl();
-  const { userProfile } = useUserProfileWithProjectsProfile();
   const router = useI18nRouter();
-  const { navigateToSignInUpPage } = useAuthSignInUp();
   const trpcUtils = trpc.useUtils();
-  const [projectsOnboardingDialogShown, setProjectsOnboardingDialogShown] =
-    useState(false);
+  const { handleActionRequiringProjectsProfile } =
+    useProjectsOnboardingContext();
 
   const { data: viewerVote, isLoading } =
     trpc.projects.submission.hasVoted.useQuery({
@@ -64,50 +59,32 @@ export default function ProjectsChallengeSubmissionHeroVoteButton({
   const viewerUpvoted = viewerVote != null;
 
   return (
-    <>
-      <FilterButton
-        className="flex-1 md:flex-none"
-        icon={RiThumbUpFill}
-        isDisabled={isLoading || vote.isLoading || unvote.isLoading}
-        label={String(votes)}
-        selected={viewerUpvoted}
-        tooltip={
+    <FilterButton
+      className="flex-1 md:flex-none"
+      icon={RiThumbUpFill}
+      isDisabled={isLoading || vote.isLoading || unvote.isLoading}
+      label={String(votes)}
+      selected={viewerUpvoted}
+      tooltip={
+        viewerUpvoted
+          ? intl.formatMessage({
+              defaultMessage: 'You upvoted this',
+              description: 'Tooltip for upvoted submission button',
+              id: 'soQjY2',
+            })
+          : intl.formatMessage({
+              defaultMessage: 'Upvote this submission',
+              description: 'Tooltip for Upvote submission button',
+              id: '3cNSBC',
+            })
+      }
+      onClick={() => {
+        handleActionRequiringProjectsProfile(() => {
           viewerUpvoted
-            ? intl.formatMessage({
-                defaultMessage: 'You upvoted this',
-                description: 'Tooltip for upvoted submission button',
-                id: 'soQjY2',
-              })
-            : intl.formatMessage({
-                defaultMessage: 'Upvote this submission',
-                description: 'Tooltip for Upvote submission button',
-                id: '3cNSBC',
-              })
-        }
-        onClick={() => {
-          if (userProfile == null) {
-            navigateToSignInUpPage();
-
-            return;
-          }
-
-          if (userProfile?.projectsProfile == null) {
-            setProjectsOnboardingDialogShown(true);
-
-            return;
-          }
-
-          return viewerUpvoted
             ? unvote.mutate({ submissionId })
             : vote.mutate({ submissionId });
-        }}
-      />
-      <ProjectsOnboardingDialog
-        isShown={projectsOnboardingDialogShown}
-        onClose={() => {
-          setProjectsOnboardingDialogShown(false);
-        }}
-      />
-    </>
+        });
+      }}
+    />
   );
 }

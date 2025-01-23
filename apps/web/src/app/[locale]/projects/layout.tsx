@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 
 import ProjectsRootLayout from '~/components/projects/common/layout/ProjectsRootLayout';
+import ProjectsOnboardingContextProvider from '~/components/projects/onboarding/ProjectsOnboardingContext';
 
 import { getIntlServerOnly } from '~/i18n';
 import defaultProjectsMetadata from '~/seo/defaultProjectsMetadata';
@@ -38,5 +39,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Layout({ children }: Props) {
-  return <ProjectsRootLayout>{children}</ProjectsRootLayout>;
+  return (
+    <ProjectsRootLayout>
+      <ProjectsOnboardingContextProvider>
+        {children}
+      </ProjectsOnboardingContextProvider>
+    </ProjectsRootLayout>
+  );
 }

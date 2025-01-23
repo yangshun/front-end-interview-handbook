@@ -33,7 +33,7 @@ import type {
   ProjectsDiscussionsCommentAuthor,
   ProjectsDiscussionsCommentItem,
 } from './types';
-import ProjectsVoteCountTag from '../stats/ProjectsVoteCountTag';
+import { useProjectsOnboardingContext } from '../onboarding/ProjectsOnboardingContext';
 import ProjectsProfileAvatar from '../users/ProjectsProfileAvatar';
 import ProjectsProfileDisplayNameLink from '../users/ProjectsProfileDisplayNameLink';
 import UserProfileInformationRow from '../../profile/info/UserProfileInformationRow';
@@ -102,6 +102,8 @@ export default function ProjectsDiscussionsComment({
       replyCount,
     },
   );
+  const { handleActionRequiringProjectsProfile } =
+    useProjectsOnboardingContext();
 
   return (
     // Id is to enable linking / auto scrolling to a specific comment
@@ -199,17 +201,13 @@ export default function ProjectsDiscussionsComment({
           <div
             className={clsx(
               '-mt-1 flex',
-              viewer != null && '-ml-3', // Because the upvote button has some horizontal padding.
+              '-ml-3', // Because the upvote button has some horizontal padding.
             )}>
-            {viewer == null ? (
-              <ProjectsVoteCountTag count={votesCount} />
-            ) : (
-              <ProjectsDiscussionsCommentVoteButton
-                comment={comment}
-                count={votesCount}
-              />
-            )}
-            {viewer != null && level <= MAX_LEVEL_TO_ALLOW_REPLIES && (
+            <ProjectsDiscussionsCommentVoteButton
+              comment={comment}
+              count={votesCount}
+            />
+            {level <= MAX_LEVEL_TO_ALLOW_REPLIES && (
               <Button
                 addonPosition="start"
                 icon={RiReplyFill}
@@ -221,7 +219,11 @@ export default function ProjectsDiscussionsComment({
                   id: 'buggxJ',
                 })}
                 variant="tertiary"
-                onClick={() => setMode(mode === 'reply' ? null : 'reply')}
+                onClick={() =>
+                  handleActionRequiringProjectsProfile(() =>
+                    setMode(mode === 'reply' ? null : 'reply'),
+                  )
+                }
               />
             )}
             {viewer?.userProfile.id === author.userProfile.id && (
