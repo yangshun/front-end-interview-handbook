@@ -48,6 +48,7 @@ export default function InterviewsQuestionsSystemDesignPage({
       bottomNav={bottomNav}
       guide={guide}
       navigation={navigation}
+      questionMetadata={question.metadata}
       studyListKey={studyListKey}
       tableOfContents={tableOfContents}>
       {!isAvailable ? (

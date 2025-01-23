@@ -28,7 +28,7 @@ import CodingWorkspaceBottomBarEmitter from '../../../workspace/common/CodingWor
 import { useUser } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
-  metadata: Pick<QuestionMetadata, 'format' | 'slug'>;
+  metadata: Pick<QuestionMetadata, 'access' | 'format' | 'slug'>;
   signInModalContents?: React.ReactNode;
   studyListKey?: string;
 }>;
@@ -55,6 +55,10 @@ export default function QuestionProgressAction({
   );
 
   if (user == null) {
+    if (metadata.access === 'premium') {
+      return null;
+    }
+
     return (
       <>
         <Button

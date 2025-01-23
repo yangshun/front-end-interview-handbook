@@ -14,14 +14,12 @@ import {
 import { useQueryQuestionProgress } from '~/db/QuestionsProgressClient';
 import { hashQuestion } from '~/db/QuestionsUtils';
 
-import type { QuestionMetadata } from '../../common/QuestionsTypes';
-
 import { useUser } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
   allowMarkComplete?: boolean;
   listIsShownInSidebarOnDesktop: boolean;
-  metadata: Pick<QuestionMetadata, 'format' | 'slug'>;
+  metadata: React.ComponentProps<typeof QuestionProgressAction>['metadata'];
   studyListKey?: string;
 }>;
 

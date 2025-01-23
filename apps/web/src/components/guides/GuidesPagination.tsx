@@ -32,6 +32,7 @@ import type { GuideMetadata, GuideNavigation } from './types';
 import useFlattenedNavigationItems from './useFlattenedNavigationItems';
 import { useGuidesAutoMarkAsComplete } from './useGuidesAutoMarkAsComplete';
 import QuestionReportIssueButton from '../interviews/questions/common/QuestionReportIssueButton';
+import type { QuestionMetadata } from '../interviews/questions/common/QuestionsTypes';
 
 import type { GuidebookItem } from '@prisma/client';
 import { useUser } from '@supabase/auth-helpers-react';
@@ -45,11 +46,13 @@ type PaginationItem = Readonly<{
 type Props = Readonly<{
   guide: GuidebookItem;
   navigation: GuideNavigation;
+  questionMetadata?: QuestionMetadata;
   studyListKey?: string;
 }>;
 
 export default function GuidesPagination({
   navigation,
+  questionMetadata,
   guide,
   studyListKey,
 }: Props) {
@@ -99,10 +102,6 @@ export default function GuidesPagination({
     useQueryGuideProgress(guideMetadata);
 
   const addGuideProgressMutation = useMutationGuideProgressAdd();
-
-  const isSystemDesignQuestion =
-    guide === 'FRONT_END_SYSTEM_DESIGN_PLAYBOOK' &&
-    currentItem?.kind === 'question';
 
   function onNext() {
     if (
@@ -247,11 +246,11 @@ export default function GuidesPagination({
         </div>
       </div>
       <div className="hidden sm:flex sm:flex-1">
-        {isSystemDesignQuestion ? (
+        {questionMetadata ? (
           <QuestionReportIssueButton
             entity="question"
-            format="system-design"
-            slug={currentItem.id}
+            format={questionMetadata.format}
+            slug={questionMetadata.slug}
           />
         ) : (
           <QuestionReportIssueButton
@@ -267,12 +266,12 @@ export default function GuidesPagination({
           'transition-colors',
           isLoading && user != null ? 'opacity-0' : 'opacity-100',
         )}>
-        {isSystemDesignQuestion ? (
+        {questionMetadata ? (
           <QuestionReportIssueButton
             className="mr-2 sm:hidden"
             entity="question"
-            format="system-design"
-            slug={currentItem.id}
+            format={questionMetadata.format}
+            slug={questionMetadata.slug}
           />
         ) : (
           <QuestionReportIssueButton
@@ -282,9 +281,9 @@ export default function GuidesPagination({
             slug={currentItem.id}
           />
         )}
-        {isSystemDesignQuestion ? (
+        {questionMetadata ? (
           <QuestionProgressAction
-            metadata={{ format: 'system-design', slug: currentItem.id }}
+            metadata={questionMetadata}
             studyListKey={studyListKey}
           />
         ) : (

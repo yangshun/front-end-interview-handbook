@@ -2,7 +2,7 @@
 
 import clsx from 'clsx';
 import type { ReactNode } from 'react';
-import { useRef } from 'react';
+import React, { useRef } from 'react';
 
 import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
 import useScrollToTop from '~/hooks/useScrollToTop';
@@ -47,6 +47,9 @@ type Props = Readonly<
     guide: GuidebookItem;
     isAccessibleForFree?: boolean;
     navigation: GuideNavigation;
+    questionMetadata?: React.ComponentProps<
+      typeof GuidesPagination
+    >['questionMetadata'];
     studyListKey?: string;
     tableOfContents?: TableOfContents;
   }
@@ -57,6 +60,7 @@ export default function GuidesMainLayout({
   children,
   navigation,
   guide,
+  questionMetadata,
   studyListKey,
   tableOfContents,
   showMarkAsComplete = false,
@@ -91,10 +95,12 @@ export default function GuidesMainLayout({
     break;
   }
 
-  const tocWidthClassName = collapsedToC ? 'lg:w-[252px]' : 'w-[252px]';
-
   const bottomNav = bottomNavProp ?? (
-    <GuidesPagination guide={guide} navigation={navigation} />
+    <GuidesPagination
+      guide={guide}
+      navigation={navigation}
+      questionMetadata={questionMetadata}
+    />
   );
 
   return (
@@ -160,30 +166,28 @@ export default function GuidesMainLayout({
               )}
             </Section>
           </div>
-          {tableOfContents ? (
-            <Section>
-              <aside
-                key={currentItem?.href}
-                className={clsx(
-                  tocWidthClassName,
-                  'hidden xl:sticky xl:block xl:flex-none',
-                  'overflow-hidden xl:overflow-x-hidden',
-                )}
-                style={{
-                  height: `calc(100vh - 48px - var(--global-sticky-height)`,
-                  top: 'calc(48px + var(--global-sticky-height))',
-                }}>
+          <Section>
+            <aside
+              key={currentItem?.href}
+              className={clsx(
+                collapsedToC ? 'lg:w-[252px]' : 'w-[252px]',
+                'hidden xl:sticky xl:block xl:flex-none',
+                'overflow-hidden xl:overflow-x-hidden',
+              )}
+              style={{
+                height: `calc(100vh - 48px - var(--global-sticky-height)`,
+                top: 'calc(48px + var(--global-sticky-height))',
+              }}>
+              {tableOfContents && (
                 <GuidesTableOfContents
                   collapsed={collapsedToC}
                   isCollapsible={true}
                   setCollapsedToC={setCollapsedToC}
                   tableOfContents={tableOfContents}
                 />
-              </aside>
-            </Section>
-          ) : (
-            <div className={tocWidthClassName} />
-          )}
+              )}
+            </aside>
+          </Section>
         </div>
         {bottomNav}
       </div>
