@@ -7,6 +7,7 @@ import { useRef } from 'react';
 import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
 import useScrollToTop from '~/hooks/useScrollToTop';
 
+import GuidesPagination from '~/components/guides/GuidesPagination';
 import { useIntl } from '~/components/intl';
 import CheckboxInput from '~/components/ui/CheckboxInput';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -16,7 +17,6 @@ import { useI18nPathname } from '~/next-i18nostic/src';
 import GuidesHeadingObserver from './GuidesHeadingObserver';
 import { useGuidesContext } from './GuidesLayout';
 import GuidesNavbar from './GuidesNavbar';
-import { GUIDES_BOTTOM_PAGINATION_HEIGHT } from './GuidesPagination';
 import GuidesProgressAction from './GuidesProgressAction';
 import type { TableOfContents } from './GuidesTableOfContents';
 import GuidesTableOfContents from './GuidesTableOfContents';
@@ -53,7 +53,7 @@ type Props = Readonly<
 >;
 
 export default function GuidesMainLayout({
-  bottomNav,
+  bottomNav: bottomNavProp,
   children,
   navigation,
   guide,
@@ -66,7 +66,7 @@ export default function GuidesMainLayout({
   const intl = useIntl();
   const { pathname } = useI18nPathname();
   const { navigateToSignInUpPage } = useAuthSignInUp();
-  const { collapsedToC, setCollapsedToC } = useGuidesContext();
+  const { focusMode, collapsedToC, setCollapsedToC } = useGuidesContext();
   const articleContainerRef = useRef<HTMLDivElement>(null);
   const user = useUser();
 
@@ -91,6 +91,12 @@ export default function GuidesMainLayout({
     break;
   }
 
+  const tocWidthClassName = collapsedToC ? 'lg:w-[252px]' : 'w-[252px]';
+
+  const bottomNav = bottomNavProp ?? (
+    <GuidesPagination guide={guide} navigation={navigation} />
+  );
+
   return (
     <GuidesHeadingObserver
       articleContainerRef={articleContainerRef}
@@ -105,7 +111,11 @@ export default function GuidesMainLayout({
         <div
           className={clsx(
             'flex w-full grow gap-12',
-            'px-4 pb-20 pt-12 md:px-6 lg:px-8 xl:pl-12 xl:pr-6',
+            'px-4 md:px-6 lg:px-8 xl:pr-6',
+            focusMode
+              ? 'xl:pl-[calc(var(--guides-sidebar-width)-var(--guides-sidebar-width-collapsed)+48px)]'
+              : 'xl:pl-12',
+            'pb-20 pt-12',
           )}>
           <div
             className={clsx(
@@ -150,16 +160,17 @@ export default function GuidesMainLayout({
               )}
             </Section>
           </div>
-          {tableOfContents && (
+          {tableOfContents ? (
             <Section>
               <aside
                 key={currentItem?.href}
                 className={clsx(
-                  'hidden overflow-hidden xl:sticky xl:block xl:flex-none xl:overflow-x-hidden',
-                  collapsedToC ? 'lg:w-[252px]' : 'w-[252px]',
+                  tocWidthClassName,
+                  'hidden xl:sticky xl:block xl:flex-none',
+                  'overflow-hidden xl:overflow-x-hidden',
                 )}
                 style={{
-                  height: `calc(100vh - 48px - var(--global-sticky-height) - ${GUIDES_BOTTOM_PAGINATION_HEIGHT})`,
+                  height: `calc(100vh - 48px - var(--global-sticky-height)`,
                   top: 'calc(48px + var(--global-sticky-height))',
                 }}>
                 <GuidesTableOfContents
@@ -170,6 +181,8 @@ export default function GuidesMainLayout({
                 />
               </aside>
             </Section>
+          ) : (
+            <div className={tocWidthClassName} />
           )}
         </div>
         {bottomNav}

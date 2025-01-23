@@ -1,6 +1,6 @@
 import type { Metadata } from 'next/types';
 
-import { basePath } from '~/components/guides/useBehavioralInterviewGuidebookNavigation';
+import { basePath } from '~/components/guides/books/useBehavioralInterviewGuidebookNavigation';
 import FrontEndInterviewPlaybookPage from '~/components/interviews/guides/FrontEndInterviewPlaybookPage';
 
 import { readFrontEndInterviewGuides } from '~/db/guides/GuidesReader';

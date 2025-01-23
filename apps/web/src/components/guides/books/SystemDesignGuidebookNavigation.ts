@@ -36,8 +36,8 @@ import { useIntl } from '~/components/intl';
 import {
   allSystemDesignQuestions,
   readySystemDesignQuestions,
-} from './InterviewsSystemDesignQuestions';
-import { ReadyQuestions } from './SystemDesignConfig';
+} from '../../interviews/questions/content/system-design/InterviewsSystemDesignQuestions';
+import { ReadyQuestions } from '../../interviews/questions/content/system-design/SystemDesignConfig';
 
 export const basePath = '/front-end-system-design-playbook';
 

@@ -3,9 +3,9 @@ import { getMDXExport } from 'mdx-bundler/client';
 import type { Metadata } from 'next/types';
 import path from 'path';
 
-import SystemDesignGuidebookLayout from '~/components/guides/SystemDesignGuidebookLayout';
+import SystemDesignGuidebookLayout from '~/components/guides/books/SystemDesignGuidebookLayout';
+import { basePath } from '~/components/guides/books/SystemDesignGuidebookNavigation';
 import type { FrontEndSystemDesignSlugType } from '~/components/guides/types';
-import { basePath } from '~/components/interviews/questions/content/system-design/SystemDesignNavigation';
 import MDXCodeBlock from '~/components/mdx/MDXCodeBlock';
 import MDXComponents from '~/components/mdx/MDXComponents';
 

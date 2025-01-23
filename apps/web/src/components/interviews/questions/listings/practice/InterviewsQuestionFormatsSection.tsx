@@ -5,7 +5,7 @@ import { useQuestionFormatsData } from '~/data/QuestionCategories';
 
 import useBehavioralInterviewGuidebookNavigation, {
   basePath,
-} from '~/components/guides/useBehavioralInterviewGuidebookNavigation';
+} from '~/components/guides/books/useBehavioralInterviewGuidebookNavigation';
 import InterviewsEntityProgress from '~/components/interviews/common/InterviewsEntityProgress';
 import type {
   QuestionMetadata,

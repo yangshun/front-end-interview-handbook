@@ -1,8 +1,8 @@
 import type { Metadata } from 'next/types';
 
+import { basePath } from '~/components/guides/books/SystemDesignGuidebookNavigation';
 import FrontEndSystemDesignPlaybookPage from '~/components/interviews/guides/FrontEndSystemDesignPlaybookPage';
 import type { QuestionListTypeData } from '~/components/interviews/questions/common/QuestionsTypes';
-import { basePath } from '~/components/interviews/questions/content/system-design/SystemDesignNavigation';
 
 import { readAllFrontendSystemDesignGuides } from '~/db/guides/GuidesReader';
 import { fetchQuestionsCompletionCount } from '~/db/QuestionsCount';

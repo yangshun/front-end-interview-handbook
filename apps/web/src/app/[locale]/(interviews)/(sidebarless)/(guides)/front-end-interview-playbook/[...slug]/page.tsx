@@ -3,9 +3,9 @@ import { getMDXExport } from 'mdx-bundler/client';
 import type { Metadata } from 'next/types';
 import path from 'path';
 
-import FrontEndInterviewGuidebookLayout from '~/components/guides/FrontEndInterviewGuidebookLayout';
+import FrontEndInterviewGuidebookLayout from '~/components/guides/books/FrontEndInterviewGuidebookLayout';
+import { basePath } from '~/components/guides/books/useFrontEndInterviewGuidebookNavigation';
 import type { FrontEndInterviewSlugType } from '~/components/guides/types';
-import { basePath } from '~/components/guides/useFrontEndInterviewGuidebookNavigation';
 import MDXCodeBlock from '~/components/mdx/MDXCodeBlock';
 import MDXComponents from '~/components/mdx/MDXComponents';
 

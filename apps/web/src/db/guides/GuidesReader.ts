@@ -3,15 +3,15 @@ import grayMatter from 'gray-matter';
 import path from 'path';
 import readingTime from 'reading-time';
 
+import { basePath as frontEndSystemDesignGuidebookBasePath } from '~/components/guides/books/SystemDesignGuidebookNavigation';
+import { basePath as behavioralInterviewGuidebookBasePath } from '~/components/guides/books/useBehavioralInterviewGuidebookNavigation';
+import { basePath as frontEndInterviewGuidebookBasePath } from '~/components/guides/books/useFrontEndInterviewGuidebookNavigation';
 import type {
   BehavioralSlugType,
   FrontEndInterviewSlugType,
   FrontEndSystemDesignSlugType,
   GuideCardMetadata,
 } from '~/components/guides/types';
-import { basePath as behavioralInterviewGuidebookBasePath } from '~/components/guides/useBehavioralInterviewGuidebookNavigation';
-import { basePath as frontEndInterviewGuidebookBasePath } from '~/components/guides/useFrontEndInterviewGuidebookNavigation';
-import { basePath as frontEndSystemDesignGuidebookBasePath } from '~/components/interviews/questions/content/system-design/SystemDesignNavigation';
 
 import {
   behavioralRouteToFile,

@@ -3,8 +3,8 @@
 import type { ReactNode } from 'react';
 
 import SidebarPremiumChip from '~/components/global/sidebar/SidebarPremiumChip';
+import { useSystemDesignNavigation } from '~/components/guides/books/SystemDesignGuidebookNavigation';
 import GuidesLayout from '~/components/guides/GuidesLayout';
-import { useSystemDesignNavigation } from '~/components/interviews/questions/content/system-design/SystemDesignNavigation';
 
 export default function Layout({ children }: { children: ReactNode }) {
   const navigation = useSystemDesignNavigation();

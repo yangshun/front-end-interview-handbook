@@ -9,7 +9,7 @@ import { TbBinaryTree } from 'react-icons/tb';
 
 import { useIntl } from '~/components/intl';
 
-import type { GuideNavigation, GuideNavigationLink } from './types';
+import type { GuideNavigation, GuideNavigationLink } from '../types';
 
 export const basePath = '/front-end-interview-playbook';
 

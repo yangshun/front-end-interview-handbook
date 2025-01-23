@@ -7,23 +7,26 @@ import { useToggle } from 'usehooks-ts';
 
 import { GuidesSidebar } from '~/components/guides/GuidesSidebar';
 
-import GuidesPagination from './GuidesPagination';
 import type { GuideNavigation } from './types';
 
 import type { GuidebookItem } from '@prisma/client';
 
 type GuidesContextType = Readonly<{
   collapsedToC: boolean;
+  focusMode: boolean;
   isMobileGuideMenuOpen: boolean;
   setCollapsedToC: (value: boolean) => void;
   setIsMobileGuideMenuOpen: (value: boolean) => void;
+  toggleFocusMode: () => void;
 }>;
 
 const GuidesContext = createContext<GuidesContextType>({
   collapsedToC: false,
+  focusMode: false,
   isMobileGuideMenuOpen: false,
   setCollapsedToC: () => {},
   setIsMobileGuideMenuOpen: () => {},
+  toggleFocusMode: () => {},
 });
 
 export function useGuidesContext() {
@@ -46,40 +49,46 @@ type Props = Readonly<{
 }>;
 
 export default function GuidesLayout({ children, guide, navigation }: Props) {
-  const [isFocusMode, toggleFocusMode] = useToggle();
-  const [collapsedToC, setCollapsedToC] = useState(isFocusMode);
+  const [focusMode, toggleFocusMode] = useToggle();
+  const [collapsedToC, setCollapsedToC] = useState(focusMode);
   const [isMobileGuideMenuOpen, setIsMobileGuideMenuOpen] = useState(false);
 
   useEffect(() => {
-    setCollapsedToC(isFocusMode);
-  }, [isFocusMode]);
+    setCollapsedToC(focusMode);
+  }, [focusMode]);
 
   return (
     <GuidesContext.Provider
       value={{
         collapsedToC,
+        focusMode,
         isMobileGuideMenuOpen,
         setCollapsedToC,
         setIsMobileGuideMenuOpen,
+        toggleFocusMode,
       }}>
-      <div className="w-full">
-        <div className="mx-auto flex">
-          <div
-            className={clsx(
-              'hidden lg:contents',
-              'sticky top-[var(--global-sticky-height)]',
-            )}>
-            <GuidesSidebar
-              guide={guide}
-              isFocusMode={isFocusMode}
-              navigation={navigation}
-              sticky={true}
-              toggleFocusMode={toggleFocusMode}
-            />
-          </div>
-          {children}
+      <div
+        className="flex w-full"
+        style={{
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
+          '--guides-sidebar-width': '240px',
+          '--guides-sidebar-width-collapsed': '78px',
+        }}>
+        <div
+          className={clsx(
+            'hidden lg:contents',
+            'sticky top-[var(--global-sticky-height)]',
+          )}>
+          <GuidesSidebar
+            guide={guide}
+            isFocusMode={focusMode}
+            navigation={navigation}
+            sticky={true}
+            toggleFocusMode={toggleFocusMode}
+          />
         </div>
-        <GuidesPagination guide={guide} navigation={navigation} />
+        <div className="w-full">{children}</div>
       </div>
     </GuidesContext.Provider>
   );

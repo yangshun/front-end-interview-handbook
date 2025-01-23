@@ -3,13 +3,13 @@
 import { useQueryGuideProgress } from '~/db/guides/GuidesProgressClient';
 import { useI18nPathname } from '~/next-i18nostic/src';
 
-import GuidesArticle from './GuidesArticle';
-import GuidesArticleJsonLd from './GuidesArticleJsonLd';
-import GuidesMainLayout from './GuidesMainLayout';
-import type { TableOfContents } from './GuidesTableOfContents';
-import type { GuideMetadata } from './types';
-import useFlattenedNavigationItems from './useFlattenedNavigationItems';
-import { useFrontEndInterviewGuidebookNavigation } from './useFrontEndInterviewGuidebookNavigation';
+import useBehavioralInterviewGuidebookNavigation from './useBehavioralInterviewGuidebookNavigation';
+import GuidesArticle from '../GuidesArticle';
+import GuidesArticleJsonLd from '../GuidesArticleJsonLd';
+import GuidesMainLayout from '../GuidesMainLayout';
+import type { TableOfContents } from '../GuidesTableOfContents';
+import type { GuideMetadata } from '../types';
+import useFlattenedNavigationItems from '../useFlattenedNavigationItems';
 
 type Props = Readonly<{
   children?: React.ReactNode;
@@ -18,13 +18,15 @@ type Props = Readonly<{
   title: string;
 }>;
 
-export default function FrontEndInterviewGuidebookLayout({
+const guide = 'BEHAVIORAL_INTERVIEW_PLAYBOOK';
+
+export default function BehavioralInterviewGuidebookLayout({
   children,
   description,
-  tableOfContents,
   title,
+  tableOfContents,
 }: Props) {
-  const navigation = useFrontEndInterviewGuidebookNavigation();
+  const navigation = useBehavioralInterviewGuidebookNavigation();
   const { pathname } = useI18nPathname();
 
   const flatNavigationItems = useFlattenedNavigationItems(navigation);
@@ -34,7 +36,7 @@ export default function FrontEndInterviewGuidebookLayout({
   )!;
 
   const guideMetadata: GuideMetadata = {
-    book: 'FRONT_END_INTERVIEW_PLAYBOOK',
+    book: guide,
     id: currentItem.id,
   };
 
@@ -50,7 +52,7 @@ export default function FrontEndInterviewGuidebookLayout({
         title={title}
       />
       <GuidesMainLayout
-        guide="FRONT_END_INTERVIEW_PLAYBOOK"
+        guide={guide}
         guideProgress={guideProgress}
         isGuideProgressLoaded={isSuccess}
         metadata={guideMetadata}

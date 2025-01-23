@@ -4,9 +4,9 @@ import {
   RiQuestionAnswerLine,
 } from 'react-icons/ri';
 
-import { basePath as behavioralInterviewPlaybookBasePath } from '~/components/guides/useBehavioralInterviewGuidebookNavigation';
-import { basePath as frontEndInterviewPlaybookBasePath } from '~/components/guides/useFrontEndInterviewGuidebookNavigation';
-import { basePath as frontEndSystemDesignPlaybookBasePath } from '~/components/interviews/questions/content/system-design/SystemDesignNavigation';
+import { basePath as frontEndSystemDesignPlaybookBasePath } from '~/components/guides/books/SystemDesignGuidebookNavigation';
+import { basePath as behavioralInterviewPlaybookBasePath } from '~/components/guides/books/useBehavioralInterviewGuidebookNavigation';
+import { basePath as frontEndInterviewPlaybookBasePath } from '~/components/guides/books/useFrontEndInterviewGuidebookNavigation';
 import { useIntl } from '~/components/intl';
 
 import type { GuidebookItem } from '@prisma/client';

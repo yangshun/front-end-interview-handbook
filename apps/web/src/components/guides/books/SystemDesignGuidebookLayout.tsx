@@ -3,14 +3,14 @@
 import { useQueryGuideProgress } from '~/db/guides/GuidesProgressClient';
 import { useI18nPathname } from '~/next-i18nostic/src';
 
-import GuidesArticle from './GuidesArticle';
-import GuidesArticleJsonLd from './GuidesArticleJsonLd';
-import GuidesMainLayout from './GuidesMainLayout';
-import type { TableOfContents } from './GuidesTableOfContents';
-import type { GuideMetadata } from './types';
-import useFlattenedNavigationItems from './useFlattenedNavigationItems';
-import { useSystemDesignNavigation } from '../interviews/questions/content/system-design/SystemDesignNavigation';
-import SystemDesignPaywall from '../interviews/questions/content/system-design/SystemDesignPaywall';
+import { useSystemDesignNavigation } from './SystemDesignGuidebookNavigation';
+import GuidesArticle from '../GuidesArticle';
+import GuidesArticleJsonLd from '../GuidesArticleJsonLd';
+import GuidesMainLayout from '../GuidesMainLayout';
+import type { TableOfContents } from '../GuidesTableOfContents';
+import type { GuideMetadata } from '../types';
+import useFlattenedNavigationItems from '../useFlattenedNavigationItems';
+import SystemDesignPaywall from '../../interviews/questions/content/system-design/SystemDesignPaywall';
 
 type Props = Readonly<{
   children?: React.ReactNode;
@@ -19,6 +19,8 @@ type Props = Readonly<{
   tableOfContents?: TableOfContents;
   title: string;
 }>;
+
+const guide = 'FRONT_END_SYSTEM_DESIGN_PLAYBOOK';
 
 export default function SystemDesignGuidebookLayout({
   children,
@@ -37,7 +39,7 @@ export default function SystemDesignGuidebookLayout({
   )!;
 
   const guideMetadata: GuideMetadata = {
-    book: 'FRONT_END_SYSTEM_DESIGN_PLAYBOOK',
+    book: guide,
     id: currentItem.id,
   };
 
@@ -54,7 +56,7 @@ export default function SystemDesignGuidebookLayout({
         title={`Front End System Design: ${title}`}
       />
       <GuidesMainLayout
-        guide="FRONT_END_SYSTEM_DESIGN_PLAYBOOK"
+        guide={guide}
         guideProgress={guideProgress}
         isGuideProgressLoaded={isSuccess}
         metadata={guideMetadata}

@@ -10,7 +10,6 @@ import { themeBorderColor } from '~/components/ui/theme';
 
 import GuidesDropdownMenu from './GuidesDropdownMenu';
 import GuidesFocusModeToggle from './GuidesFocusModeToggle';
-import { GUIDES_BOTTOM_PAGINATION_HEIGHT } from './GuidesPagination';
 import type { GuideNavigation } from './types';
 import SidebarLinksSection from '../global/sidebar/SidebarLinksSection';
 
@@ -41,18 +40,22 @@ export function GuidesSidebar({
     <div
       className={clsx(
         'shrink-0',
-        isSidebar ? (isFocusMode ? 'xl:w-60' : 'w-60') : 'w-full',
+        isSidebar
+          ? isFocusMode
+            ? null
+            : 'w-[var(--guides-sidebar-width)]'
+          : 'w-full',
       )}>
       <nav
         className={clsx(
           'flex shrink-0 flex-col justify-end',
           isSidebar && ['border-e', themeBorderColor],
-          isFocusMode ? 'w-[78px]' : 'w-full',
+          isFocusMode ? 'w-[var(--guides-sidebar-width-collapsed)]' : 'w-full',
           sticky && 'sticky',
         )}
         style={{
           height: sticky
-            ? `calc(100vh - var(--global-sticky-height) - ${GUIDES_BOTTOM_PAGINATION_HEIGHT})`
+            ? `calc(100vh - var(--global-sticky-height))`
             : undefined,
           top: 'calc(var(--global-sticky-height))',
         }}>

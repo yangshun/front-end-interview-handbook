@@ -15,7 +15,7 @@ import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 import {
-  themeBackgroundDarkColor,
+  themeBackgroundColor,
   themeBorderColor,
   themeTextSubtitleColor,
 } from '~/components/ui/theme';
@@ -47,8 +47,6 @@ type Props = Readonly<{
   navigation: GuideNavigation;
   studyListKey?: string;
 }>;
-
-export const GUIDES_BOTTOM_PAGINATION_HEIGHT = '48px';
 
 export default function GuidesPagination({
   navigation,
@@ -134,9 +132,10 @@ export default function GuidesPagination({
       className={clsx(
         'sticky inset-x-0 bottom-0',
         'flex items-center justify-between gap-2',
-        'px-4 py-2.5 sm:px-6',
+        'px-4 sm:px-6',
+        'h-12',
         ['border-t', themeBorderColor],
-        themeBackgroundDarkColor,
+        themeBackgroundColor,
       )}>
       <div className="flex shrink-0 justify-center sm:order-2 sm:flex-1">
         <div className="hidden lg:flex">

@@ -3,13 +3,13 @@
 import { getMDXExport } from 'mdx-bundler/client';
 import type { ReactNode } from 'react';
 
+import { useSystemDesignNavigation } from '~/components/guides/books/SystemDesignGuidebookNavigation';
 import GuidesMainLayout from '~/components/guides/GuidesMainLayout';
 import type { TableOfContents } from '~/components/guides/GuidesTableOfContents';
 import InterviewsPurchasePaywall from '~/components/interviews/purchase/InterviewsPurchasePaywall';
 import type { QuestionSystemDesign } from '~/components/interviews/questions/common/QuestionsTypes';
 import QuestionContentsSystemDesign from '~/components/interviews/questions/content/system-design/QuestionContentsSystemDesign';
 import { ReadyQuestions } from '~/components/interviews/questions/content/system-design/SystemDesignConfig';
-import { useSystemDesignNavigation } from '~/components/interviews/questions/content/system-design/SystemDesignNavigation';
 
 import { hashQuestion } from '~/db/QuestionsUtils';
 
@@ -20,6 +20,8 @@ type Props = Readonly<{
   question: QuestionSystemDesign;
   studyListKey?: string;
 }>;
+
+const guide = 'FRONT_END_SYSTEM_DESIGN_PLAYBOOK';
 
 export default function InterviewsQuestionsSystemDesignPage({
   bottomNav,
@@ -44,7 +46,7 @@ export default function InterviewsQuestionsSystemDesignPage({
   return (
     <GuidesMainLayout
       bottomNav={bottomNav}
-      guide="FRONT_END_SYSTEM_DESIGN_PLAYBOOK"
+      guide={guide}
       navigation={navigation}
       studyListKey={studyListKey}
       tableOfContents={tableOfContents}>

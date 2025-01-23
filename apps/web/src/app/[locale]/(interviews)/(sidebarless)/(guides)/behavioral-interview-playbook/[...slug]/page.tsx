@@ -3,9 +3,9 @@ import { getMDXExport } from 'mdx-bundler/client';
 import type { Metadata } from 'next/types';
 import path from 'path';
 
-import BehavioralInterviewGuidebookLayout from '~/components/guides/BehavioralInterviewGuidebookLayout';
+import BehavioralInterviewGuidebookLayout from '~/components/guides/books/BehavioralInterviewGuidebookLayout';
+import { basePath } from '~/components/guides/books/useBehavioralInterviewGuidebookNavigation';
 import type { BehavioralSlugType } from '~/components/guides/types';
-import { basePath } from '~/components/guides/useBehavioralInterviewGuidebookNavigation';
 import MDXCodeBlock from '~/components/mdx/MDXCodeBlock';
 import MDXComponents from '~/components/mdx/MDXComponents';
 

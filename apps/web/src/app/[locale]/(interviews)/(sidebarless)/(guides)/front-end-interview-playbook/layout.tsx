@@ -2,8 +2,8 @@
 
 import type { ReactNode } from 'react';
 
+import { useFrontEndInterviewGuidebookNavigation } from '~/components/guides/books/useFrontEndInterviewGuidebookNavigation';
 import GuidesLayout from '~/components/guides/GuidesLayout';
-import { useFrontEndInterviewGuidebookNavigation } from '~/components/guides/useFrontEndInterviewGuidebookNavigation';
 
 export default function Layout({ children }: { children: ReactNode }) {
   const navigation = useFrontEndInterviewGuidebookNavigation();
