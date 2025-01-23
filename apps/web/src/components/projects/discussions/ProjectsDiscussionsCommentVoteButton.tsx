@@ -25,8 +25,7 @@ export default function ProjectsDiscussionsCommentVoteButton({
   const intl = useIntl();
   const trpcUtils = trpc.useUtils();
   const { id: commentId } = comment;
-  const { handleActionRequiringProjectsProfile } =
-    useProjectsOnboardingContext();
+  const { handleActionRequiringLogin } = useProjectsOnboardingContext();
 
   const voteCommentMutation = trpc.projects.comments.vote.useMutation({
     onSuccess: () => {
@@ -76,7 +75,7 @@ export default function ProjectsDiscussionsCommentVoteButton({
       tooltip={actionLabel}
       variant={hasVoted ? 'unstyled' : 'tertiary'}
       onClick={() => {
-        handleActionRequiringProjectsProfile(() => {
+        handleActionRequiringLogin(() => {
           hasVoted
             ? unvoteCommentMutation.mutate({
                 commentId,

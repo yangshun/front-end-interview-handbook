@@ -10,7 +10,7 @@ import { PrismaClient } from '@prisma/client';
 
 const prismaClientSingleton = () => {
   return new PrismaClient().$extends({
-    name: 'ProjectsChallengeSubmission extension',
+    name: 'Projects extensions',
     result: {
       projectsChallengeSubmission: {
         deploymentUrls: {
@@ -46,6 +46,11 @@ const prismaClientSingleton = () => {
                 ?.desktop ?? deploymentPages[0].images?.desktop
             );
           },
+        },
+      },
+      projectsProfile: {
+        completed: {
+          compute: (projectsProfile) => projectsProfile.motivations?.length > 0,
         },
       },
     },

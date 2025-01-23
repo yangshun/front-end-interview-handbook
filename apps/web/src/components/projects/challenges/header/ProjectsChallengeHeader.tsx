@@ -19,6 +19,7 @@ import { themeBackgroundColor, themeBorderColor } from '~/components/ui/theme';
 
 import ProjectsChallengeCompletedCountButton from './ProjectsChallengeCompletedCountButton';
 import ProjectsChallengeHowItWorksDialog from './ProjectsChallengeHowItWorksDialog';
+import ProjectsChallengeSubmitButton from '../completion/ProjectsChallengeSubmitButton';
 import ProjectsChallengeSkillsTag from '../metadata/ProjectsChallengeSkillsTag';
 import type { ProjectsPremiumAccessControlFields } from '../premium/ProjectsPremiumAccessControl';
 import ProjectsChallengeAddSkillFromSkillPlanDialog from '../session/ProjectsChallengeAddSkillFromSkillPlanDialog';
@@ -127,17 +128,10 @@ function ProjectsChallengeHeaderImpl({
           {!isGetLatestSessionFetched ? (
             <Spinner size="sm" />
           ) : hasSession ? (
-            <Button
+            <ProjectsChallengeSubmitButton
               display="block"
-              href={submitHref}
-              label={intl.formatMessage({
-                defaultMessage: 'Submit project',
-                description:
-                  'Label for "Submit project" button on Projects project page',
-                id: '+SjaQc',
-              })}
               size="md"
-              variant="primary"
+              submitHref={submitHref}
             />
           ) : (
             startButton

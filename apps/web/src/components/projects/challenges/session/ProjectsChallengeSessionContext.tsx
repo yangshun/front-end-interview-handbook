@@ -76,8 +76,7 @@ export default function ProjectsChallengeSessionContextProvider({
       },
     );
 
-  const { handleActionRequiringProjectsProfile } =
-    useProjectsOnboardingContext();
+  const { handleActionRequiringLogin } = useProjectsOnboardingContext();
 
   const startProjectMutation = trpc.projects.sessions.start.useMutation({
     onMutate: () => {
@@ -162,7 +161,7 @@ export default function ProjectsChallengeSessionContextProvider({
     session,
     setIsGetStartedDialogShown,
     startProject: () => {
-      handleActionRequiringProjectsProfile(
+      handleActionRequiringLogin(
         () => setIsGetStartedDialogShown(true),
         'start_project',
       );

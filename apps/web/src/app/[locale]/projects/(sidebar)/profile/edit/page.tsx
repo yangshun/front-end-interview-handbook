@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 
 import { redirectToLoginPageIfNotLoggedIn } from '~/components/auth/redirectToLoginPageIfNotLoggedIn';
 import ProjectsProfileEditPage from '~/components/projects/profile/edit/ProjectsProfileEditPage';
-import { redirectToProjectsOnboardingIfNoProjectsProfile } from '~/components/projects/utils/redirectToPathIfNoProjectsProfile';
+import { getOrCreateUserProfileWithProjectsProfile } from '~/components/projects/utils/ProjectsProfileUtils';
 
 import { getIntlServerOnly } from '~/i18n';
 import defaultProjectsMetadata from '~/seo/defaultProjectsMetadata';
@@ -37,9 +37,7 @@ export default async function Page() {
   const viewer = await redirectToLoginPageIfNotLoggedIn(
     '/projects/profile/edit',
   );
-
-  const viewerProfile =
-    await redirectToProjectsOnboardingIfNoProjectsProfile(viewer);
+  const viewerProfile = await getOrCreateUserProfileWithProjectsProfile(viewer);
 
   return (
     <ProjectsProfileEditPage

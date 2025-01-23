@@ -8,7 +8,7 @@ import Button from '~/components/ui/Button';
 import type { LabelDescriptionStyle } from '~/components/ui/Label';
 import Label from '~/components/ui/Label';
 import Text from '~/components/ui/Text';
-import { themeBackgroundElementColor } from '~/components/ui/theme';
+import { themeBackgroundInputColor } from '~/components/ui/theme';
 
 import ProjectsSkillRoadmapSelectionDialog from './ProjectsSkillRoadmapSelectionDialog';
 import ProjectsSkillRoadmapChips from '../metadata/ProjectsSkillRoadmapChips';
@@ -87,7 +87,7 @@ function ProjectsSkillRoadmapSelectionInput(
           'focus:outline-0',
           'ring-1 ring-inset',
           'focus-within:ring-2 focus-within:ring-inset',
-          clsx(themeBackgroundElementColor, stateClasses[state]),
+          clsx(themeBackgroundInputColor, stateClasses[state]),
         )}
         role={value.length === 0 ? 'button' : undefined}
         tabIndex={0}

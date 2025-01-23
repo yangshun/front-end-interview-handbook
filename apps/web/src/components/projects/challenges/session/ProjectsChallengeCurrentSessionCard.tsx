@@ -23,6 +23,7 @@ import Tooltip from '~/components/ui/Tooltip';
 
 import ProjectsChallengeCurrentSessionSkillsForm from './ProjectsChallengeCurrentSessionSkillsForm';
 import { useProjectsChallengeSessionContext } from './ProjectsChallengeSessionContext';
+import ProjectsChallengeSubmitButton from '../completion/ProjectsChallengeSubmitButton';
 import type { ProjectsChallengeItem } from '../types';
 
 import type { ProjectsChallengeSession } from '@prisma/client';
@@ -189,17 +190,16 @@ export default function ProjectsChallengeCurrentProjectSessionCard({
               </div>
             </div>
             <div className="flex w-full shrink-0 gap-4 md:w-auto md:gap-2">
-              <Button
+              <ProjectsChallengeSubmitButton
                 className="flex min-w-[100px] flex-1 md:inline-flex md:grow-0"
-                href={submitHref}
+                icon={undefined}
                 label={intl.formatMessage({
                   defaultMessage: 'Submit',
-                  description:
-                    'Label for "Submit project" button on current project session card',
-                  id: '8RXTKM',
+                  description: 'Submit a project',
+                  id: 'zUvbCs',
                 })}
                 size="xs"
-                variant="primary"
+                submitHref={submitHref}
               />
               <Button
                 addonPosition="start"

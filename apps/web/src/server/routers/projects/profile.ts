@@ -8,6 +8,7 @@ import { projectsProfileWebsiteSchemaServer } from '~/components/projects/profil
 import { fetchProjectsProfileRecalculatePoints } from '~/components/projects/reputation/ProjectsProfileRecalculatePoints';
 import { projectsSkillListInputOptionalSchemaServer } from '~/components/projects/skills/form/ProjectsSkillListInputSchema';
 import { base64toBlob } from '~/components/projects/utils/profilePhotoUtils';
+import { getOrCreateUserProfileWithProjectsProfile } from '~/components/projects/utils/ProjectsProfileUtils';
 
 import prisma from '~/server/prisma';
 import { createSupabaseAdminClientGFE_SERVER_ONLY } from '~/supabase/SupabaseServerGFE';
@@ -356,17 +357,11 @@ export const projectsProfileRouter = router({
       return profile != null && profile.id !== viewer.id;
     }),
   viewer: publicProcedure.query(async ({ ctx: { viewer } }) => {
+    // Non-logged in
     if (viewer == null) {
       return null;
     }
 
-    return await prisma.profile.findUnique({
-      include: {
-        projectsProfile: true,
-      },
-      where: {
-        id: viewer?.id,
-      },
-    });
+    return await getOrCreateUserProfileWithProjectsProfile(viewer);
   }),
 });

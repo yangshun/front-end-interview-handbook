@@ -12,14 +12,17 @@ import useUserProfileWithProjectsProfile from '../common/useUserProfileWithProje
 import ConfirmationDialog from '../../common/ConfirmationDialog';
 
 type ProjectsOnboardingContextType = Readonly<{
-  handleActionRequiringProjectsProfile: (
-    fn?: () => void,
-    signUpSource?: string,
-  ) => void;
+  handleActionRequiringCompletedProjectsProfile: (opts?: {
+    fn?: () => void;
+    onboardingNextHref?: string;
+    signUpSource?: string;
+  }) => void;
+  handleActionRequiringLogin: (fn?: () => void, signUpSource?: string) => void;
 }>;
 
 const ProjectsOnboardingContext = createContext<ProjectsOnboardingContextType>({
-  handleActionRequiringProjectsProfile: () => {},
+  handleActionRequiringCompletedProjectsProfile: () => {},
+  handleActionRequiringLogin: () => {},
 });
 
 type Props = Readonly<{
@@ -33,32 +36,53 @@ export function useProjectsOnboardingContext() {
 export default function ProjectsOnboardingContextProvider({ children }: Props) {
   const router = useI18nRouter();
   const { pathname } = useI18nPathname();
-  const [showOnboardingDialog, setShowOnboardingDialog] = useState(false);
+  const [showOnboardingDialog, setShowOnboardingDialog] = useState<{
+    onboardingNextHref: string | null;
+    shown: boolean;
+  }>({ onboardingNextHref: null, shown: false });
 
   const { userProfile } = useUserProfileWithProjectsProfile();
   const { navigateToSignInUpPage } = useAuthSignInUp();
 
-  function navigateToOnboarding() {
+  function navigateToOnboarding(nextPathname: string | null) {
     router.push({
       pathname: '/projects/onboarding',
       query: {
-        next: pathname,
+        next: nextPathname || pathname,
       },
     });
   }
 
-  function handleActionRequiringProjectsProfile(
-    fn?: () => void,
-    signUpSource?: string,
-  ) {
+  function handleActionRequiringLogin(fn?: () => void, signUpSource?: string) {
     if (userProfile == null) {
       navigateToSignInUpPage({ query: { source: signUpSource } });
 
       return;
     }
 
-    if (userProfile?.projectsProfile == null) {
-      setShowOnboardingDialog(true);
+    fn?.();
+  }
+
+  function handleActionRequiringCompletedProjectsProfile({
+    fn,
+    onboardingNextHref,
+    signUpSource,
+  }: {
+    fn?: () => void;
+    onboardingNextHref?: string;
+    signUpSource?: string;
+  } = {}) {
+    if (userProfile == null) {
+      navigateToSignInUpPage({ query: { source: signUpSource } });
+
+      return;
+    }
+
+    if (!userProfile?.projectsProfile?.completed) {
+      setShowOnboardingDialog({
+        onboardingNextHref: onboardingNextHref ?? null,
+        shown: true,
+      });
 
       return;
     }
@@ -68,19 +92,27 @@ export default function ProjectsOnboardingContextProvider({ children }: Props) {
 
   return (
     <ProjectsOnboardingContext.Provider
-      value={{ handleActionRequiringProjectsProfile }}>
+      value={{
+        handleActionRequiringCompletedProjectsProfile,
+        handleActionRequiringLogin,
+      }}>
       {children}
       <ConfirmationDialog
         confirmButtonLabel="Get started"
-        isShown={showOnboardingDialog}
+        isShown={showOnboardingDialog.shown}
         showCancelButton={false}
         title="Create a projects profile first"
         onCancel={() => {
-          setShowOnboardingDialog(false);
+          setShowOnboardingDialog({
+            onboardingNextHref: null,
+            shown: false,
+          });
         }}
         onConfirm={() => {
-          setShowOnboardingDialog(false);
-          navigateToOnboarding();
+          const href = showOnboardingDialog.onboardingNextHref;
+
+          setShowOnboardingDialog({ onboardingNextHref: null, shown: false });
+          navigateToOnboarding(href);
         }}>
         <div className="flex flex-col gap-y-4">
           <Text className="block" color="subtitle">

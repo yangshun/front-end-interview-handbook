@@ -23,8 +23,7 @@ export default function ProjectsChallengeSubmissionHeroVoteButton({
   const intl = useIntl();
   const router = useI18nRouter();
   const trpcUtils = trpc.useUtils();
-  const { handleActionRequiringProjectsProfile } =
-    useProjectsOnboardingContext();
+  const { handleActionRequiringLogin } = useProjectsOnboardingContext();
 
   const { data: viewerVote, isLoading } =
     trpc.projects.submission.hasVoted.useQuery({
@@ -79,7 +78,7 @@ export default function ProjectsChallengeSubmissionHeroVoteButton({
             })
       }
       onClick={() => {
-        handleActionRequiringProjectsProfile(() => {
+        handleActionRequiringLogin(() => {
           viewerUpvoted
             ? unvote.mutate({ submissionId })
             : vote.mutate({ submissionId });

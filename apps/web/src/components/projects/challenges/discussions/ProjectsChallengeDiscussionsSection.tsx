@@ -1,26 +1,24 @@
 'use client';
 
-import { RiAddLine } from 'react-icons/ri';
-
 import ProjectsDiscussionsCommentList from '~/components/projects/discussions/ProjectsDiscussionsCommentList';
-import Button from '~/components/ui/Button';
 
 import ProjectsChallengeDiscussionsNewComment from './ProjectsChallengeDiscussionsNewComment';
 import type { ProjectsChallengeItem } from '../types';
 import useUserProfileWithProjectsProfile from '../../common/useUserProfileWithProjectsProfile';
-import { useProjectsOnboardingContext } from '../../onboarding/ProjectsOnboardingContext';
+import ProjectsDiscussionsCommentCompleteProfileButton from '../../discussions/ProjectsDiscussionsCommentCompleteProfileButton';
 
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;
 }>;
 
+const scrollHash = 'projects-challenge-discussion-comment';
+
 export default function ProjectsChallengeDiscussionsSection({
   challenge,
 }: Props) {
   const { userProfile } = useUserProfileWithProjectsProfile();
-  const { handleActionRequiringProjectsProfile } =
-    useProjectsOnboardingContext();
-  const viewer = userProfile?.projectsProfile
+
+  const viewer = userProfile?.projectsProfile?.completed
     ? {
         points: userProfile.projectsProfile.points,
         userProfile,
@@ -28,7 +26,7 @@ export default function ProjectsChallengeDiscussionsSection({
     : null;
 
   return (
-    <div className="flex flex-col gap-y-9">
+    <div className="flex flex-col gap-y-9" id={scrollHash}>
       {viewer ? (
         <ProjectsChallengeDiscussionsNewComment
           challenge={challenge}
@@ -36,13 +34,8 @@ export default function ProjectsChallengeDiscussionsSection({
         />
       ) : (
         <div>
-          <Button
-            addonPosition="start"
-            icon={RiAddLine}
-            label="Add a comment"
-            size="lg"
-            variant="secondary"
-            onClick={() => handleActionRequiringProjectsProfile()}
+          <ProjectsDiscussionsCommentCompleteProfileButton
+            scrollHash={scrollHash}
           />
         </div>
       )}

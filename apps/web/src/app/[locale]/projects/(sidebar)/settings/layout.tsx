@@ -2,7 +2,6 @@ import type { ReactNode } from 'react';
 
 import { redirectToLoginPageIfNotLoggedIn } from '~/components/auth/redirectToLoginPageIfNotLoggedIn';
 import ProjectsSettingsLayout from '~/components/projects/settings/ProjectsSettingsLayout';
-import { redirectToProjectsOnboardingIfNoProjectsProfile } from '~/components/projects/utils/redirectToPathIfNoProjectsProfile';
 
 type Props = Readonly<{
   children: ReactNode;
@@ -12,9 +11,7 @@ type Props = Readonly<{
 }>;
 
 export default async function Layout({ children }: Props) {
-  const viewer = await redirectToLoginPageIfNotLoggedIn('/projects/settings');
-
-  await redirectToProjectsOnboardingIfNoProjectsProfile(viewer);
+  await redirectToLoginPageIfNotLoggedIn('/projects/settings');
 
   return <ProjectsSettingsLayout>{children}</ProjectsSettingsLayout>;
 }

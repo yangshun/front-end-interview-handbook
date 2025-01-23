@@ -1,9 +1,7 @@
 import clsx from 'clsx';
-import { RiAddLine } from 'react-icons/ri';
 
 import { FormattedMessage } from '~/components/intl';
 import ProjectsDiscussionsCommentList from '~/components/projects/discussions/ProjectsDiscussionsCommentList';
-import Button from '~/components/ui/Button';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 import {
@@ -14,19 +12,19 @@ import {
 import ProjectsChallengeSubmissionDiscussionsNewComment from './ProjectsChallengeSubmissionDiscussionsNewComment';
 import type { ProjectsChallengeSubmissionAugmented } from '../types';
 import useUserProfileWithProjectsProfile from '../../common/useUserProfileWithProjectsProfile';
-import { useProjectsOnboardingContext } from '../../onboarding/ProjectsOnboardingContext';
+import ProjectsDiscussionsCommentCompleteProfileButton from '../../discussions/ProjectsDiscussionsCommentCompleteProfileButton';
 
 type Props = Readonly<{
   submission: ProjectsChallengeSubmissionAugmented;
 }>;
 
+const scrollHash = 'projects-challenge-submission-comment';
+
 export default function ProjectsChallengeSubmissionDiscussionsSection({
   submission,
 }: Props) {
   const { userProfile } = useUserProfileWithProjectsProfile();
-  const { handleActionRequiringProjectsProfile } =
-    useProjectsOnboardingContext();
-  const viewer = userProfile?.projectsProfile
+  const viewer = userProfile?.projectsProfile?.completed
     ? {
         points: userProfile.projectsProfile.points,
         userProfile,
@@ -39,7 +37,8 @@ export default function ProjectsChallengeSubmissionDiscussionsSection({
         'flex flex-col gap-8 rounded-b-lg px-4 py-8 md:px-8',
         ['border-x border-b', themeBorderColor],
         themeBackgroundCardColor,
-      )}>
+      )}
+      id={scrollHash}>
       <Text size="body1" weight="bold">
         <FormattedMessage
           defaultMessage="Discussions"
@@ -55,13 +54,8 @@ export default function ProjectsChallengeSubmissionDiscussionsSection({
           />
         ) : (
           <div>
-            <Button
-              addonPosition="start"
-              icon={RiAddLine}
-              label="Add a comment"
-              size="lg"
-              variant="secondary"
-              onClick={() => handleActionRequiringProjectsProfile()}
+            <ProjectsDiscussionsCommentCompleteProfileButton
+              scrollHash={scrollHash}
             />
           </div>
         )}

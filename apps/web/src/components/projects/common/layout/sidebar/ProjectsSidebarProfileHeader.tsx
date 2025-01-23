@@ -71,7 +71,7 @@ export function ProjectsSidebarProfileHeader() {
             </Text>
           </div>
         </>
-      ) : userProfile.projectsProfile == null ? (
+      ) : !userProfile.projectsProfile?.completed ? (
         <>
           <Avatar alt="N/A" size="lg" src="" />
           <div className="flex flex-col gap-1">

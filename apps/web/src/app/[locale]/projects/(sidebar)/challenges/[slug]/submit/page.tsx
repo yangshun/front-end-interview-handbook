@@ -1,17 +1,14 @@
 import { redirect } from 'next/navigation';
 import type { Metadata } from 'next/types';
 
+import { redirectToLoginPageIfNotLoggedIn } from '~/components/auth/redirectToLoginPageIfNotLoggedIn';
 import ProjectsChallengeSubmitPage from '~/components/projects/submissions/form/ProjectsChallengeSubmitPage';
-import fetchViewerProjectsProfile from '~/components/projects/utils/fetchViewerProjectsProfile';
+import { redirectToProjectsOnboardingIfProjectsProfileIncomplete } from '~/components/projects/utils/ProjectsProfileUtils';
 
-import {
-  readProjectsChallengeInfo,
-  readProjectsChallengeItem,
-} from '~/db/projects/ProjectsReader';
+import { readProjectsChallengeItem } from '~/db/projects/ProjectsReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultProjectsMetadata from '~/seo/defaultProjectsMetadata';
 import prisma from '~/server/prisma';
-import { readViewerFromToken } from '~/supabase/SupabaseServerGFE';
 
 type Props = Readonly<{
   params: Readonly<{ locale: string; slug: string }>;
@@ -19,9 +16,9 @@ type Props = Readonly<{
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = params;
-  const [intl, { challengeInfo }] = await Promise.all([
+  const [intl, { challenge }] = await Promise.all([
     getIntlServerOnly(locale),
-    readProjectsChallengeInfo(slug, locale),
+    readProjectsChallengeItem(slug, locale),
   ]);
 
   return defaultProjectsMetadata(intl, {
@@ -33,11 +30,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         id: 'B4AISh',
       },
       {
-        challengeName: challengeInfo.title,
+        challengeName: challenge.info.title,
       },
     ),
     locale,
-    pathname: `/projects/challenges/${slug}/submit`,
+    pathname: challenge.metadata.submitHref,
     title: intl.formatMessage(
       {
         defaultMessage: 'Challenge: {challengeName} | Submit your work',
@@ -45,7 +42,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         id: 'u59kYU',
       },
       {
-        challengeName: challengeInfo.title,
+        challengeName: challenge.info.title,
       },
     ),
   });
@@ -53,34 +50,37 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function Page({ params }: Props) {
   const { slug, locale } = params;
-  const [viewer, { challenge }] = await Promise.all([
-    readViewerFromToken(),
-    readProjectsChallengeItem(slug, locale),
-  ]);
+  const { challenge } = await readProjectsChallengeItem(slug, locale);
+  const viewer = await redirectToLoginPageIfNotLoggedIn(
+    challenge.metadata.submitHref,
+  );
 
-  const [session, { viewerProjectsProfile }] = await Promise.all([
-    prisma.projectsChallengeSession.findFirst({
-      where: {
-        projectsProfile: {
-          userId: viewer?.id,
-        },
-        slug: challenge.metadata.slug,
-        status: 'IN_PROGRESS',
+  const session = await prisma.projectsChallengeSession.findFirst({
+    where: {
+      projectsProfile: {
+        userId: viewer?.id,
       },
-    }),
-    fetchViewerProjectsProfile(viewer),
-  ]);
+      slug: challenge.metadata.slug,
+      status: 'IN_PROGRESS',
+    },
+  });
 
   if (session == null) {
     return redirect(challenge.metadata.href);
   }
 
+  const viewerProfile =
+    await redirectToProjectsOnboardingIfProjectsProfileIncomplete(
+      viewer,
+      challenge.metadata.submitHref,
+    );
+
   return (
     <ProjectsChallengeSubmitPage
       challenge={challenge}
-      isViewerPremium={viewerProjectsProfile?.premium ?? false}
+      isViewerPremium={viewerProfile.projectsProfile?.premium ?? false}
       locale={locale}
-      points={viewerProjectsProfile?.points ?? 0}
+      points={viewerProfile.projectsProfile?.points ?? 0}
       session={session}
     />
   );

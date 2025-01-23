@@ -1,12 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
-import {
-  RiArrowRightLine,
-  RiCodeLine,
-  RiGithubFill,
-  RiShareCircleLine,
-} from 'react-icons/ri';
+import { RiCodeLine, RiGithubFill, RiShareCircleLine } from 'react-icons/ri';
 
 import BlurOverlay from '~/components/common/BlurOverlay';
 import { FormattedMessage } from '~/components/intl';
@@ -14,7 +9,6 @@ import { useIntl } from '~/components/intl';
 import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
-import Button from '~/components/ui/Button';
 import Card from '~/components/ui/Card';
 import Chip from '~/components/ui/Chip';
 import Divider from '~/components/ui/Divider';
@@ -29,6 +23,7 @@ import {
   themeBorderElementColor,
 } from '~/components/ui/theme';
 
+import ProjectsChallengeSubmitButton from './ProjectsChallengeSubmitButton';
 import ProjectsChallengeContentPaywall from '../premium/ProjectsChallengeContentPaywall';
 import type { ProjectsPremiumAccessControlFields } from '../premium/ProjectsPremiumAccessControl';
 import { useProjectsChallengeSessionContext } from '../session/ProjectsChallengeSessionContext';
@@ -316,17 +311,9 @@ export default function ProjectsChallengeDeploymentCompletionPage({
                         id="mh0xHS"
                       />
                     </Text>
-                    <Button
+                    <ProjectsChallengeSubmitButton
                       className="mt-4 self-start"
-                      href={submitHref}
-                      icon={RiArrowRightLine}
-                      label={intl.formatMessage({
-                        defaultMessage: 'Submit project',
-                        description:
-                          'Submit project button label for Submit step in project submission checklist',
-                        id: 'oxeO+l',
-                      })}
-                      variant="primary"
+                      submitHref={submitHref}
                     />
                   </div>
                 </Card>

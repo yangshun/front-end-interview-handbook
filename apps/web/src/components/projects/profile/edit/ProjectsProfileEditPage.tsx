@@ -105,6 +105,8 @@ export default function ProjectsProfileEditPage({ userProfile }: Props) {
   const { data: initialValues } = trpc.projects.profile.viewer.useQuery(
     undefined,
     {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore Because we extended projectsProfile model but generated types are not synced
       initialData: userProfile,
       refetchOnMount: false,
       refetchOnReconnect: false,

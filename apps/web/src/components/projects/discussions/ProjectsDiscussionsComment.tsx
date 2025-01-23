@@ -8,6 +8,7 @@ import {
   RiPencilFill,
   RiReplyFill,
 } from 'react-icons/ri';
+import url from 'url';
 
 import useScrollToHash from '~/hooks/useScrollToHash';
 
@@ -22,6 +23,8 @@ import {
   themeBorderElementColor,
   themeTextSubtleColor,
 } from '~/components/ui/theme';
+
+import { useI18nPathname } from '~/next-i18nostic/src';
 
 import ProjectsDiscussionsCommentDeleteButton from './ProjectsDiscussionsCommentDeleteButton';
 import ProjectsDiscussionsCommentEditInput from './ProjectsDiscussionsCommentEditInput';
@@ -54,6 +57,7 @@ export default function ProjectsDiscussionsComment({
   viewer,
 }: Props) {
   const params = useParams();
+  const { pathname } = useI18nPathname();
   const [highlightComment, setHighlightComment] = useState<boolean>(false);
   const {
     _count: { votes: votesCount },
@@ -102,7 +106,7 @@ export default function ProjectsDiscussionsComment({
       replyCount,
     },
   );
-  const { handleActionRequiringProjectsProfile } =
+  const { handleActionRequiringCompletedProjectsProfile } =
     useProjectsOnboardingContext();
 
   return (
@@ -220,9 +224,13 @@ export default function ProjectsDiscussionsComment({
                 })}
                 variant="tertiary"
                 onClick={() =>
-                  handleActionRequiringProjectsProfile(() =>
-                    setMode(mode === 'reply' ? null : 'reply'),
-                  )
+                  handleActionRequiringCompletedProjectsProfile({
+                    fn: () => setMode(mode === 'reply' ? null : 'reply'),
+                    onboardingNextHref: url.format({
+                      hash: comment.id,
+                      pathname,
+                    }),
+                  })
                 }
               />
             )}
