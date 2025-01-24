@@ -1,3 +1,4 @@
+import nullthrows from 'nullthrows';
 import { z } from 'zod';
 
 import { profileUserNameSchemaServer } from '~/components/profile/fields/ProfileUsernameSchema';
@@ -5,7 +6,7 @@ import { useProjectsProfileGitHubSchemaServer } from '~/components/projects/prof
 import { projectsJobTitleInputSchemaServer } from '~/components/projects/profile/fields/ProjectsProfileJobSchema';
 import { useProjectsProfileLinkedInSchemaServer } from '~/components/projects/profile/fields/ProjectsProfileLinkedInSchema';
 import { projectsProfileWebsiteSchemaServer } from '~/components/projects/profile/fields/ProjectsProfileWebsiteSchema';
-import { fetchProjectsProfileRecalculatePoints } from '~/components/projects/reputation/ProjectsProfileRecalculatePoints';
+import { projectsProfileRecalculatePoints } from '~/components/projects/reputation/ProjectsProfileRecalculatePoints';
 import { projectsSkillListInputOptionalSchemaServer } from '~/components/projects/skills/form/ProjectsSkillListInputSchema';
 import { base64toBlob } from '~/components/projects/utils/profilePhotoUtils';
 import { getOrCreateUserProfileWithProjectsProfile } from '~/components/projects/utils/ProjectsProfileUtils';
@@ -101,43 +102,44 @@ export const projectsProfileRouter = router({
           username,
           company,
         },
-        ctx: { viewer, req },
+        ctx: { viewer },
       }) => {
         const projectsProfileFields = {
           motivations,
         };
-        const result = await prisma.profile.update({
-          data: {
-            avatarUrl,
-            company,
-            currentStatus,
-            name,
-            projectsProfile: {
-              upsert: {
-                create: projectsProfileFields,
-                update: projectsProfileFields,
+        const userProfile = nullthrows(
+          await prisma.profile.update({
+            data: {
+              avatarUrl,
+              company,
+              currentStatus,
+              name,
+              projectsProfile: {
+                upsert: {
+                  create: projectsProfileFields,
+                  update: projectsProfileFields,
+                },
               },
+              startWorkDate,
+              title,
+              username,
             },
-            startWorkDate,
-            title,
-            username,
-          },
-          include: {
-            projectsProfile: true,
-          },
-          where: {
-            id: viewer.id,
-          },
-        });
+            include: {
+              projectsProfile: true,
+            },
+            where: {
+              id: viewer.id,
+            },
+          }),
+        );
 
-        if (result) {
-          await fetchProjectsProfileRecalculatePoints(
-            req,
-            result.projectsProfile?.id,
-          );
-        }
+        const projectsProfile = nullthrows(
+          await projectsProfileRecalculatePoints(
+            userProfile.projectsProfile?.id,
+          ),
+        );
 
-        return result;
+        return { ...userProfile, projectsProfile };
       },
     ),
   dashboardStatistics: publicProcedure
@@ -266,7 +268,7 @@ export const projectsProfileRouter = router({
           username,
           company,
         },
-        ctx: { viewer, req },
+        ctx: { viewer },
       }) => {
         const projectsProfileFields = {
           motivations,
@@ -274,42 +276,46 @@ export const projectsProfileRouter = router({
           skillsToGrow,
         };
 
-        const result = await prisma.profile.update({
-          data: {
-            avatarUrl,
-            bio,
-            company,
-            currentStatus,
-            githubUsername,
-            linkedInUsername,
-            name,
-            projectsProfile: {
-              upsert: {
-                create: projectsProfileFields,
-                update: projectsProfileFields,
+        const userProfile = nullthrows(
+          await prisma.profile.update({
+            data: {
+              avatarUrl,
+              bio,
+              company,
+              currentStatus,
+              githubUsername,
+              linkedInUsername,
+              name,
+              projectsProfile: {
+                upsert: {
+                  create: projectsProfileFields,
+                  update: projectsProfileFields,
+                },
               },
+              startWorkDate,
+              title,
+              username,
+              website,
             },
-            startWorkDate,
-            title,
-            username,
-            website,
-          },
-          include: {
-            projectsProfile: true,
-          },
-          where: {
-            id: viewer.id,
-          },
-        });
+            include: {
+              projectsProfile: true,
+            },
+            where: {
+              id: viewer.id,
+            },
+          }),
+        );
 
-        if (result) {
-          await fetchProjectsProfileRecalculatePoints(
-            req,
-            result.projectsProfile?.id,
-          );
-        }
+        const projectsProfile = nullthrows(
+          await projectsProfileRecalculatePoints(
+            userProfile.projectsProfile?.id,
+          ),
+        );
 
-        return result;
+        return {
+          ...userProfile,
+          projectsProfile,
+        };
       },
     ),
   uploadProfilePhoto: userProcedure
