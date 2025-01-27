@@ -71,10 +71,6 @@
     "defaultMessage": "Component track",
     "description": "Label for Component Track filter for projects list"
   },
-  "+SjaQc": {
-    "defaultMessage": "Submit project",
-    "description": "Label for \"Submit project\" button on Projects project page"
-  },
   "+XLpUw": {
     "defaultMessage": "Frameworks or languages",
     "description": "OG image page title of framework and language page"
@@ -1598,10 +1594,6 @@
   "8Nm9WZ": {
     "defaultMessage": "Walmart",
     "description": "Company name for Walmart"
-  },
-  "8RXTKM": {
-    "defaultMessage": "Submit",
-    "description": "Label for \"Submit project\" button on current project session card"
   },
   "8SsXE6": {
     "defaultMessage": "{Title}: Optimized for those with limited time, focusing on the most important concepts through coding and quiz-style questions.",
@@ -3430,6 +3422,10 @@
   "KBkMan": {
     "defaultMessage": "Filter by skills",
     "description": "Tooltip for Skills filter for projects list"
+  },
+  "KC9zNV": {
+    "defaultMessage": "Submit project",
+    "description": "Submit project button label"
   },
   "KDDzWX": {
     "defaultMessage": "{questionExcerpt} using {questionFramework}",
@@ -8403,10 +8399,6 @@
     "defaultMessage": "Fresh Grad",
     "description": "Label for \"Fresh Grad\" option in YOE replacement"
   },
-  "oxeO+l": {
-    "defaultMessage": "Submit project",
-    "description": "Submit project button label for Submit step in project submission checklist"
-  },
   "oy3YYM": {
     "defaultMessage": "Coupons",
     "description": "Screenreader text for account settings."
@@ -10050,6 +10042,10 @@
   "zUB9Jv": {
     "defaultMessage": "Upcoming content or features to be launched. Not all features will be publicized on the roadmap.",
     "description": "Description of Public roadmap page"
+  },
+  "zUvbCs": {
+    "defaultMessage": "Submit",
+    "description": "Submit a project"
   },
   "zUz27Y": {
     "defaultMessage": "Custom page",
