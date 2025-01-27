@@ -1,5 +1,6 @@
 import { buffer } from 'micro';
 import type { NextApiRequest, NextApiResponse } from 'next';
+import url from 'node:url';
 import Stripe from 'stripe';
 
 import { interviewsDetermineSubscriptionPlan } from '~/components/interviews/purchase/InterviewsStripeSyncUtils';
@@ -180,9 +181,14 @@ export default async function handler(
             return res.send(`No customer email for ${checkoutSession.id}`);
           }
 
-          // Invite to FTL.
+          // Invite to FTL
           const results = await fetch(
-            `https://www.faangtechleads.com/api/invite?email=${customerEmail}`,
+            url.format({
+              hostname: 'faangtechleads.com',
+              pathname: '/api/invite',
+              protocol: 'https',
+              query: { email: customerEmail },
+            }),
           );
           const data = await results.json();
 
