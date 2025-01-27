@@ -1,5 +1,5 @@
 ---
-title: 50 Must-Know HTML, CSS and JavaScript Interview Questions by Ex-Interviewers
+title: 50 Must-know HTML, CSS and JavaScript Interview Questions by Ex-interviewers
 description: Discover fundamental HTML, CSS, and JavaScript knowledge with these expert-crafted interview questions and answers. Perfect for freshers preparing for junior developer roles.
 imageUrl: /img/blog/50-must-know-html-css-and-javascript-interview-questions-by-ex-interviewers.webp
 tags:
@@ -8,8 +8,8 @@ tags:
   - javascript
   - interviews
 level: starter
-createdAt: 2025-01-10
-author: blog/author/minh-man.json
+createdAt: 2025-01-28
+author: blog/author/greatfrontend.json
 category: blog/category/front-end-interviews.json
 series: blog/series/beginner-interview-questions.json
 published: true
@@ -22,6 +22,7 @@ HTML, CSS, and JavaScript are fundamental skills for any aspiring web developer,
 Hoisting refers to JavaScript's behavior of moving variable and function declarations to the top of their scope during the compilation phase. While declarations are hoisted, initializations are not.
 
 ### Example with `var`:
+
 ```js
 console.log(foo); // undefined
 var foo = 1;
@@ -78,8 +79,8 @@ foo.doSomething(); // Accessible
 
 ### 1. Scope:
 
--   **`var`**: Function-scoped or globally scoped.
--   **`let` and `const`**: Block-scoped, confined to their nearest enclosing block.
+- **`var`**: Function-scoped or globally scoped.
+- **`let` and `const`**: Block-scoped, confined to their nearest enclosing block.
 
 ```js
 function test() {
@@ -94,8 +95,8 @@ console.log(c); // ReferenceError
 
 ### 2. Initialization:
 
--   **`var` and `let`**: Can be declared without initialization.
--   **`const`**: Must be initialized during declaration.
+- **`var` and `let`**: Can be declared without initialization.
+- **`const`**: Must be initialized during declaration.
 
 ```js
 var a;
@@ -105,8 +106,8 @@ const c; // SyntaxError: Missing initializer
 
 ### 3. Redeclaration:
 
--   **`var`**: Allows redeclaration in the same scope.
--   **`let` and `const`**: Redeclaration is not allowed.
+- **`var`**: Allows redeclaration in the same scope.
+- **`let` and `const`**: Redeclaration is not allowed.
 
 ```js
 var x = 1;
@@ -118,8 +119,8 @@ let y = 2; // SyntaxError
 
 ### 4. Reassignment:
 
--   **`var` and `let`**: Reassignment is allowed.
--   **`const`**: Reassignment is not allowed.
+- **`var` and `let`**: Reassignment is allowed.
+- **`const`**: Reassignment is not allowed.
 
 ```js
 const z = 1;
@@ -128,8 +129,8 @@ z = 2; // TypeError
 
 ### 5. Hoisting:
 
--   **`var`**: Hoisted and initialized to `undefined`.
--   **`let` and `const`**: Hoisted but not initialized, causing a `ReferenceError` if accessed before declaration.
+- **`var`**: Hoisted and initialized to `undefined`.
+- **`let` and `const`**: Hoisted but not initialized, causing a `ReferenceError` if accessed before declaration.
 
 ```js
 console.log(a); // undefined
@@ -145,8 +146,8 @@ let b = 2;
 
 ### Equality Operator (`==`):
 
--   Converts operands to a common type before comparison.
--   May produce unexpected results due to type coercion.
+- Converts operands to a common type before comparison.
+- May produce unexpected results due to type coercion.
 
 ```js
 42 == '42'; // true
@@ -156,8 +157,8 @@ null == undefined; // true
 
 ### Strict Equality Operator (`===`):
 
--   No type conversion; checks both value and type.
--   Ensures accurate comparisons.
+- No type conversion; checks both value and type.
+- Ensures accurate comparisons.
 
 ```js
 42 === '42'; // false
@@ -214,6 +215,7 @@ End
 Promise
 Timeout
 ```
+
 [Explore the event loop in JavaScript on GreatFrontEnd](/questions/quiz/what-is-event-loop-what-is-the-difference-between-call-stack-and-task-queue?format=quiz)
 
 ## 5. What Is Event Delegation?
@@ -222,8 +224,8 @@ Event delegation uses a single event listener on a parent element to manage even
 
 ### Benefits:
 
--   Reduces memory usage by limiting the number of listeners.
--   Dynamically handles added or removed child elements.
+- Reduces memory usage by limiting the number of listeners.
+- Dynamically handles added or removed child elements.
 
 ### Example:
 
@@ -266,9 +268,9 @@ obj.greet(); // Alice
 
 ### Cookies:
 
--   Sent with every HTTP request.
--   Limited to 4KB per domain.
--   Can be set to expire.
+- Sent with every HTTP request.
+- Limited to 4KB per domain.
+- Can be set to expire.
 
 ```js
 document.cookie = 'token=abc123; expires=Fri, 31 Dec 2025 23:59:59 GMT; path=/';
@@ -277,8 +279,8 @@ console.log(document.cookie);
 
 ### `localStorage`:
 
--   Persistent storage (until manually cleared).
--   5MB limit per origin.
+- Persistent storage (until manually cleared).
+- 5MB limit per origin.
 
 ```js
 localStorage.setItem('key', 'value');
@@ -287,8 +289,8 @@ console.log(localStorage.getItem('key'));
 
 ### `sessionStorage`:
 
--   Data cleared when the tab or browser is closed.
--   Limited to 5MB.
+- Data cleared when the tab or browser is closed.
+- Limited to 5MB.
 
 ```js
 sessionStorage.setItem('key', 'value');
@@ -301,17 +303,17 @@ console.log(sessionStorage.getItem('key'));
 
 ### `<script>`:
 
--   Blocks HTML parsing until the script loads and executes.
+- Blocks HTML parsing until the script loads and executes.
 
 ### `<script async>`:
 
--   Loads scripts asynchronously.
--   Executes as soon as the script is ready, potentially before HTML parsing completes.
+- Loads scripts asynchronously.
+- Executes as soon as the script is ready, potentially before HTML parsing completes.
 
 ### `<script defer>`:
 
--   Loads scripts asynchronously.
--   Executes only after the HTML parsing is complete.
+- Loads scripts asynchronously.
+- Executes only after the HTML parsing is complete.
 
 ```html
 <script src="main.js"></script>
@@ -345,7 +347,6 @@ console.log(b); // null
 
 [Explore the difference between `null`, `undefined`, and undeclared variables on GreatFrontEnd](/questions/quiz/whats-the-difference-between-a-variable-that-is-null-undefined-or-undeclared-how-would-you-go-about-checking-for-any-of-these-states?format=quiz)
 
-
 ## 10. What Is the Difference Between `.call` and `.apply`?
 
 ### `.call`:
@@ -371,6 +372,7 @@ console.log(sum.apply(null, [1, 2])); // 3
 The `Function.prototype.bind` method allows you to create a new function with a specific `this` context and optional preset arguments. It’s particularly useful for ensuring a function has the correct `this` context when passed to another function or used as a callback.
 
 ### Example:
+
 ```js
 const john = {
   age: 42,
@@ -431,7 +433,7 @@ john.sayName2.call(dave); // John
 
 ### When to Use:
 
--   In scenarios like React class components, where methods are passed as props and need to retain their original `this` context.
+- In scenarios like React class components, where methods are passed as props and need to retain their original `this` context.
 
 [Explore the advantage of using the arrow syntax for a method in a constructor on GreatFrontEnd](/questions/quiz/what-advantage-is-there-for-using-the-arrow-syntax-for-a-method-in-a-constructor?format=quiz)
 
@@ -519,8 +521,8 @@ function foo() {
 }
 ```
 
--   Hoisted with their body.
--   Can be invoked before their definition.
+- Hoisted with their body.
+- Can be invoked before their definition.
 
 ### Function Expressions:
 
@@ -530,8 +532,8 @@ const foo = function () {
 };
 ```
 
--   Only the variable is hoisted, not the function body.
--   Cannot be invoked before their definition.
+- Only the variable is hoisted, not the function body.
+- Cannot be invoked before their definition.
 
 [Explore the differences between function declarations and expressions on GreatFrontEnd](/questions/quiz/explain-the-differences-on-the-usage-of-foo-between-function-foo-and-var-foo-function?format=quiz)
 
@@ -554,7 +556,11 @@ person.lastName = 'Doe';
 3.  **`Object.create()`**:
 
 ```js
-const proto = { greet() { console.log('Hello!'); } };
+const proto = {
+  greet() {
+    console.log('Hello!');
+  },
+};
 const person = Object.create(proto);
 person.greet(); // Hello!
 ```
@@ -623,8 +629,8 @@ class Person {
 
 Key Differences:
 
--   Syntax: Classes are easier to read and write.
--   Inheritance: Classes use `extends` and `super`.
+- Syntax: Classes are easier to read and write.
+- Inheritance: Classes use `extends` and `super`.
 
 [Explore ES2015 classes and ES5 constructors on GreatFrontEnd](/questions/quiz/what-are-the-differences-between-es6-class-and-es5-function-constructors?format=quiz)
 
@@ -659,15 +665,15 @@ parent.addEventListener('click', () => console.log('Parent capturing'), true);
 
 ### `mouseenter`
 
--   Does not propagate through the DOM tree
--   Fires solely when the cursor enters the element itself, excluding its child elements
--   Triggers only once upon entering the parent element, regardless of its internal content
+- Does not propagate through the DOM tree
+- Fires solely when the cursor enters the element itself, excluding its child elements
+- Triggers only once upon entering the parent element, regardless of its internal content
 
 ### `mouseover`
 
--   Propagates upwards through the DOM hierarchy
--   Activates when the cursor enters the element or any of its descendant elements
--   May lead to multiple event callbacks if there are nested child elements
+- Propagates upwards through the DOM hierarchy
+- Activates when the cursor enters the element or any of its descendant elements
+- May lead to multiple event callbacks if there are nested child elements
 
 [Discover the distinctions between `mouseenter` and `mouseover` events in JavaScript and browsers on GreatFrontEnd](/questions/quiz/what-is-the-difference-between-mouseenter-and-mouseover-event?format=quiz)
 
@@ -675,11 +681,11 @@ parent.addEventListener('click', () => console.log('Parent capturing'), true);
 
 ### Synchronous Functions
 
--   Execute operations in a sequential, step-by-step manner
--   Block the program's execution until the current task completes
--   Adhere to a strict, line-by-line execution order
--   Are generally easier to comprehend and debug due to their predictable flow
--   Common use cases include reading files synchronously and iterating over large datasets
+- Execute operations in a sequential, step-by-step manner
+- Block the program's execution until the current task completes
+- Adhere to a strict, line-by-line execution order
+- Are generally easier to comprehend and debug due to their predictable flow
+- Common use cases include reading files synchronously and iterating over large datasets
 
 **Example:**
 
@@ -692,10 +698,10 @@ console.log('End of the program');
 
 ### Asynchronous Functions
 
--   Allow the program to continue running without waiting for the task to finish
--   Enable other operations to proceed while waiting for responses or the completion of time-consuming tasks
--   Are non-blocking, facilitating concurrent execution and enhancing performance and responsiveness
--   Commonly used for network requests, file I/O, timers, and animations
+- Allow the program to continue running without waiting for the task to finish
+- Enable other operations to proceed while waiting for responses or the completion of time-consuming tasks
+- Are non-blocking, facilitating concurrent execution and enhancing performance and responsiveness
+- Commonly used for network requests, file I/O, timers, and animations
 
 **Example:**
 
@@ -718,9 +724,9 @@ console.log('End of program');
 
 **Key Highlights:**
 
--   **Asynchronous Operations:** AJAX allows parts of a web page to update independently without reloading the entire page.
--   **Data Formats:** Initially utilized XML, but JSON has become more prevalent due to its seamless compatibility with JavaScript.
--   **APIs:** Traditionally relied on **`XMLHttpRequest`**, though **`fetch()`** is now the preferred choice for modern web development.
+- **Asynchronous Operations:** AJAX allows parts of a web page to update independently without reloading the entire page.
+- **Data Formats:** Initially utilized XML, but JSON has become more prevalent due to its seamless compatibility with JavaScript.
+- **APIs:** Traditionally relied on **`XMLHttpRequest`**, though **`fetch()`** is now the preferred choice for modern web development.
 
 ### `XMLHttpRequest` API
 
@@ -741,7 +747,7 @@ xhr.open('GET', 'https://jsonplaceholder.typicode.com/todos/1', true);
 xhr.send();
 ```
 
--   **Process:** Initiates a new **`XMLHttpRequest`**, assigns a callback to handle state changes, opens a connection to a specified URL, and sends the request.
+- **Process:** Initiates a new **`XMLHttpRequest`**, assigns a callback to handle state changes, opens a connection to a specified URL, and sends the request.
 
 ### `fetch()` API
 
@@ -759,56 +765,54 @@ fetch('https://jsonplaceholder.typicode.com/todos/1')
   .catch((error) => console.error('Fetch error:', error));
 ```
 
--   **Process:** Starts a fetch request, processes the response with **`.then()`** to parse JSON data, and handles errors using **`.catch()`**.
+- **Process:** Starts a fetch request, processes the response with **`.then()`** to parse JSON data, and handles errors using **`.catch()`**.
 
 ### How AJAX Operates with `fetch`
 
 #### 1. Initiating a Request
 
--   **`fetch()`** starts an asynchronous request to obtain a resource from a given URL.
+- **`fetch()`** starts an asynchronous request to obtain a resource from a given URL.
 
--   **Example:**
+- **Example:**
 
-    ```js
-    fetch('https://api.example.com/data', {
-      method: 'GET', // or 'POST', 'PUT', 'DELETE', etc.
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-    ```
-
+  ```js
+  fetch('https://api.example.com/data', {
+    method: 'GET', // or 'POST', 'PUT', 'DELETE', etc.
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+  ```
 
 #### 2. Promise-Based Response
 
--   **`fetch()`** returns a Promise that resolves to a **`Response`** object representing the server's reply.
+- **`fetch()`** returns a Promise that resolves to a **`Response`** object representing the server's reply.
 
 #### 3. Managing the Response
 
--   The **`Response`** object provides methods to handle the content, such as **`.json()`**, **`.text()`**, and **`.blob()`**.
+- The **`Response`** object provides methods to handle the content, such as **`.json()`**, **`.text()`**, and **`.blob()`**.
 
--   **Example:**
+- **Example:**
 
-    ```js
-    fetch('https://api.example.com/data')
-      .then((response) => response.json())
-      .then((data) => console.log(data))
-      .catch((error) => console.error('Error:', error));
-    ```
-
+  ```js
+  fetch('https://api.example.com/data')
+    .then((response) => response.json())
+    .then((data) => console.log(data))
+    .catch((error) => console.error('Error:', error));
+  ```
 
 #### 4. Asynchronous Nature
 
--   **`fetch()`** operates asynchronously, allowing the browser to perform other tasks while awaiting the server's response.
--   Promises (**`.then()`**, **`.catch()`**) are processed in the microtask queue as part of the event loop.
+- **`fetch()`** operates asynchronously, allowing the browser to perform other tasks while awaiting the server's response.
+- Promises (**`.then()`**, **`.catch()`**) are processed in the microtask queue as part of the event loop.
 
 #### 5. Configuring Request Options
 
--   The optional second parameter in **`fetch()`** allows configuration of various request settings, including HTTP method, headers, body, credentials, and caching behavior.
+- The optional second parameter in **`fetch()`** allows configuration of various request settings, including HTTP method, headers, body, credentials, and caching behavior.
 
 #### 6. Handling Errors
 
--   Errors such as network failures or invalid responses are captured and managed through the Promise chain using **`.catch()`** or **`try/catch`** with **`async/await`**.
+- Errors such as network failures or invalid responses are captured and managed through the Promise chain using **`.catch()`** or **`try/catch`** with **`async/await`**.
 
 [Learn how to explain AJAX in detail on GreatFrontEnd](/questions/quiz/explain-ajax-in-as-much-detail-as-possible?format=quiz)
 
@@ -818,16 +822,16 @@ fetch('https://jsonplaceholder.typicode.com/todos/1')
 
 ### Advantages
 
--   **Enhanced User Experience:** Updates content seamlessly without refreshing the entire page.
--   **Improved Performance:** Reduces server load by fetching only the required data.
--   **Maintains State:** Preserves user interactions and client-side states within the page.
+- **Enhanced User Experience:** Updates content seamlessly without refreshing the entire page.
+- **Improved Performance:** Reduces server load by fetching only the required data.
+- **Maintains State:** Preserves user interactions and client-side states within the page.
 
 ### Disadvantages
 
--   **Dependency on JavaScript:** Functionality can break if JavaScript is disabled in the browser.
--   **Bookmarking Issues:** Dynamic content updates make it difficult to bookmark specific states of a page.
--   **SEO Challenges:** Search engines may find it hard to index dynamically loaded content effectively.
--   **Performance on Low-End Devices:** Processing AJAX data can be resource-intensive, potentially slowing down performance on less powerful devices.
+- **Dependency on JavaScript:** Functionality can break if JavaScript is disabled in the browser.
+- **Bookmarking Issues:** Dynamic content updates make it difficult to bookmark specific states of a page.
+- **SEO Challenges:** Search engines may find it hard to index dynamically loaded content effectively.
+- **Performance on Low-End Devices:** Processing AJAX data can be resource-intensive, potentially slowing down performance on less powerful devices.
 
 [Explore the benefits and drawbacks of using AJAX on GreatFrontEnd](/questions/quiz/what-are-the-advantages-and-disadvantages-of-using-ajax?format=quiz)
 
@@ -837,43 +841,43 @@ Both `XMLHttpRequest (XHR)` and `fetch()` facilitate asynchronous HTTP requests 
 
 ### Syntax and Implementation
 
--   **XMLHttpRequest:** Utilizes an event-driven approach, requiring event listeners to manage responses and errors.
--   **fetch():** Employs a Promise-based model, offering a more straightforward and intuitive syntax.
+- **XMLHttpRequest:** Utilizes an event-driven approach, requiring event listeners to manage responses and errors.
+- **fetch():** Employs a Promise-based model, offering a more straightforward and intuitive syntax.
 
 ### Setting Request Headers
 
--   **XMLHttpRequest:** Headers are set using the `setRequestHeader` method.
--   **fetch():** Headers are provided as an object within the options parameter.
+- **XMLHttpRequest:** Headers are set using the `setRequestHeader` method.
+- **fetch():** Headers are provided as an object within the options parameter.
 
 ### Sending the Request Body
 
--   **XMLHttpRequest:** The request body is sent using the `send` method.
--   **fetch():** The `body` property within the options parameter is used to include the request body.
+- **XMLHttpRequest:** The request body is sent using the `send` method.
+- **fetch():** The `body` property within the options parameter is used to include the request body.
 
 ### Handling Responses
 
--   **XMLHttpRequest:** Uses the `responseType` property to manage different response formats.
--   **fetch():** Offers a unified `Response` object with `.then` methods for accessing data.
+- **XMLHttpRequest:** Uses the `responseType` property to manage different response formats.
+- **fetch():** Offers a unified `Response` object with `.then` methods for accessing data.
 
 ### Managing Errors
 
--   **XMLHttpRequest:** Errors are handled via the `onerror` event.
--   **fetch():** Errors are managed using the `.catch` method.
+- **XMLHttpRequest:** Errors are handled via the `onerror` event.
+- **fetch():** Errors are managed using the `.catch` method.
 
 ### Controlling Caching
 
--   **XMLHttpRequest:** Managing cache can be cumbersome and often requires workaround strategies.
--   **fetch():** Directly supports caching options through its configuration.
+- **XMLHttpRequest:** Managing cache can be cumbersome and often requires workaround strategies.
+- **fetch():** Directly supports caching options through its configuration.
 
 ### Canceling Requests
 
--   **XMLHttpRequest:** Requests can be aborted using the `abort()` method.
--   **fetch():** Utilizes `AbortController` for canceling requests.
+- **XMLHttpRequest:** Requests can be aborted using the `abort()` method.
+- **fetch():** Utilizes `AbortController` for canceling requests.
 
 ### Tracking Progress
 
--   **XMLHttpRequest:** Supports progress tracking with the `onprogress` event.
--   **fetch():** Lacks native support for tracking progress.
+- **XMLHttpRequest:** Supports progress tracking with the `onprogress` event.
+- **fetch():** Lacks native support for tracking progress.
 
 **Choosing Between Them:** `fetch()` is generally favored for its cleaner syntax and Promise-based handling, though `XMLHttpRequest` remains useful for specific scenarios like progress tracking.
 
@@ -885,23 +889,23 @@ JavaScript encompasses a variety of data types, which are categorized into two m
 
 ### Primitive Data Types
 
--   **Number:** Represents both integer and floating-point numbers.
--   **String:** Denotes sequences of characters, enclosed in single quotes, double quotes, or backticks.
--   **Boolean:** Logical values with `true` or `false`.
--   **Undefined:** A variable that has been declared but not assigned a value.
--   **Null:** Signifies the intentional absence of any object value.
--   **Symbol:** A unique and immutable value used primarily as object property keys.
--   **BigInt:** Allows representation of integers with arbitrary precision, useful for very large numbers.
+- **Number:** Represents both integer and floating-point numbers.
+- **String:** Denotes sequences of characters, enclosed in single quotes, double quotes, or backticks.
+- **Boolean:** Logical values with `true` or `false`.
+- **Undefined:** A variable that has been declared but not assigned a value.
+- **Null:** Signifies the intentional absence of any object value.
+- **Symbol:** A unique and immutable value used primarily as object property keys.
+- **BigInt:** Allows representation of integers with arbitrary precision, useful for very large numbers.
 
 ### Non-Primitive Data Types
 
--   **Object:** Stores collections of data and more complex entities.
--   **Array:** An ordered list of values.
--   **Function:** Functions are treated as objects and can be defined using declarations or expressions.
--   **Date:** Represents dates and times.
--   **RegExp:** Used for defining regular expressions for pattern matching within strings.
--   **Map:** A collection of keyed data items, allowing keys of any type.
--   **Set:** A collection of unique values.
+- **Object:** Stores collections of data and more complex entities.
+- **Array:** An ordered list of values.
+- **Function:** Functions are treated as objects and can be defined using declarations or expressions.
+- **Date:** Represents dates and times.
+- **RegExp:** Used for defining regular expressions for pattern matching within strings.
+- **Map:** A collection of keyed data items, allowing keys of any type.
+- **Set:** A collection of unique values.
 
 **Identifying Data Types:** JavaScript is dynamically typed, meaning variables can hold different types of data at various times. The `typeof` operator is used to determine a variable's type.
 
@@ -938,9 +942,7 @@ Object.keys(obj).forEach((property) => console.log(property));
 Provides an array of the object's own enumerable string-keyed `[key, value]` pairs.
 
 ```js
-Object.entries(obj).forEach(([key, value]) =>
-  console.log(`${key}: ${value}`),
-);
+Object.entries(obj).forEach(([key, value]) => console.log(`${key}: ${value}`));
 ```
 
 #### 4. `Object.getOwnPropertyNames()`
@@ -948,9 +950,7 @@ Object.entries(obj).forEach(([key, value]) =>
 Returns an array of all properties (including non-enumerable ones) directly found on the object.
 
 ```js
-Object.getOwnPropertyNames(obj).forEach((property) =>
-  console.log(property),
-);
+Object.getOwnPropertyNames(obj).forEach((property) => console.log(property));
 ```
 
 ### Iterating Over Arrays
@@ -986,6 +986,7 @@ for (let element of arr) {
 #### 4. `Array.prototype.entries()`
 
 Provides both the index and value of each array element within a `for...of` loop.
+
 ```js
 for (let [index, elem] of arr.entries()) {
   console.log(index, ': ', elem);
@@ -1000,80 +1001,76 @@ for (let [index, elem] of arr.entries()) {
 
 Introduced in ES2015, the spread syntax (`...`) is a powerful feature for copying and merging arrays and objects without altering the originals. It's widely used in functional programming, Redux, and RxJS.
 
--   **Cloning Arrays/Objects:** Creates shallow copies.
+- **Cloning Arrays/Objects:** Creates shallow copies.
 
+  ```js
+  const array = [1, 2, 3];
+  const newArray = [...array]; // [1, 2, 3]
 
-    ```js
-    const array = [1, 2, 3];
-    const newArray = [...array]; // [1, 2, 3]
+  const obj = { name: 'John', age: 30 };
+  const newObj = { ...obj, city: 'New York' }; // { name: 'John', age: 30, city: 'New York' }
+  ```
 
-    const obj = { name: 'John', age: 30 };
-    const newObj = { ...obj, city: 'New York' }; // { name: 'John', age: 30, city: 'New York' }
-    ```
+- **Combining Arrays/Objects:** Merges them into a new entity.
 
--   **Combining Arrays/Objects:** Merges them into a new entity.
+  ```js
+  const arr1 = [1, 2, 3];
+  const arr2 = [4, 5, 6];
+  const mergedArray = [...arr1, ...arr2]; // [1, 2, 3, 4, 5, 6]
 
-    ```js
-    const arr1 = [1, 2, 3];
-    const arr2 = [4, 5, 6];
-    const mergedArray = [...arr1, ...arr2]; // [1, 2, 3, 4, 5, 6]
+  const obj1 = { foo: 'bar' };
+  const obj2 = { qux: 'baz' };
+  const mergedObj = { ...obj1, ...obj2 }; // { foo: 'bar', qux: 'baz' }
+  ```
 
-    const obj1 = { foo: 'bar' };
-    const obj2 = { qux: 'baz' };
-    const mergedObj = { ...obj1, ...obj2 }; // { foo: 'bar', qux: 'baz' }
-    ```
+- **Passing Function Arguments:** Spreads array elements as individual arguments.
 
--   **Passing Function Arguments:** Spreads array elements as individual arguments.
+  ```js
+  const numbers = [1, 2, 3];
+  Math.max(...numbers); // Equivalent to Math.max(1, 2, 3)
+  ```
 
-    ```js
-    const numbers = [1, 2, 3];
-    Math.max(...numbers); // Equivalent to Math.max(1, 2, 3)
-    ```
+- **Array vs. Object Spreads:** Only iterables can be spread into arrays, while arrays can also be spread into objects.
 
--   **Array vs. Object Spreads:** Only iterables can be spread into arrays, while arrays can also be spread into objects.
-
-    ```js
-    const array = [1, 2, 3];
-    const obj = { ...array }; // { 0: 1, 1: 2, 2: 3 }
-    ```
-
+  ```js
+  const array = [1, 2, 3];
+  const obj = { ...array }; // { 0: 1, 1: 2, 2: 3 }
+  ```
 
 ### Rest Syntax
 
 The rest syntax (`...`) collects multiple elements into an array or object, functioning as the opposite of spread syntax.
 
--   **Function Parameters:** Gathers remaining arguments into an array.
+- **Function Parameters:** Gathers remaining arguments into an array.
 
-    ```js
-    function addFiveToNumbers(...numbers) {
-      return numbers.map((x) => x + 5);
-    }
-    const result = addFiveToNumbers(4, 5, 6, 7); // [9, 10, 11, 12]
-    ```
+  ```js
+  function addFiveToNumbers(...numbers) {
+    return numbers.map((x) => x + 5);
+  }
+  const result = addFiveToNumbers(4, 5, 6, 7); // [9, 10, 11, 12]
+  ```
 
--   **Array Destructuring:** Collects remaining elements into a new array.
+- **Array Destructuring:** Collects remaining elements into a new array.
 
+  ```js
+  const [first, second, ...remaining] = [1, 2, 3, 4, 5];
+  // first: 1, second: 2, remaining: [3, 4, 5]
+  ```
 
-    ```js
-    const [first, second, ...remaining] = [1, 2, 3, 4, 5];
-    // first: 1, second: 2, remaining: [3, 4, 5]
-    ```
+- **Object Destructuring:** Gathers remaining properties into a new object.
 
--   **Object Destructuring:** Gathers remaining properties into a new object.
+  ```js
+  const { e, f, ...others } = { e: 1, f: 2, g: 3, h: 4 };
+  // e: 1, f: 2, others: { g: 3, h: 4 }
+  ```
 
-    ```js
-    const { e, f, ...others } = { e: 1, f: 2, g: 3, h: 4 };
-    // e: 1, f: 2, others: { g: 3, h: 4 }
-    ```
+- **Rest Parameter Rules:** Must be the final parameter in a function.
 
--   **Rest Parameter Rules:** Must be the final parameter in a function.
-
-    ```js
-    function addFiveToNumbers(arg1, ...numbers, arg2) {
-      // Error: Rest element must be last element.
-    }
-    ```
-
+  ```js
+  function addFiveToNumbers(arg1, ...numbers, arg2) {
+    // Error: Rest element must be last element.
+  }
+  ```
 
 [Understand the benefits of spread syntax and how it differs from rest syntax on GreatFrontEnd](/questions/quiz/what-are-the-benefits-of-using-spread-syntax-and-how-is-it-different-from-rest-syntax?format=quiz)
 
@@ -1081,19 +1078,19 @@ The rest syntax (`...`) collects multiple elements into an array or object, func
 
 ### Map Object
 
--   **Key Flexibility:** Allows keys of any type, including objects, functions, and primitives.
--   **Order Preservation:** Maintains the order in which keys are inserted.
--   **Size Property:** Includes a `size` property to easily determine the number of key-value pairs.
--   **Iteration:** Directly iterable with methods like `forEach`, `keys()`, `values()`, and `entries()`.
--   **Performance:** Typically offers better performance for larger datasets and frequent modifications.
+- **Key Flexibility:** Allows keys of any type, including objects, functions, and primitives.
+- **Order Preservation:** Maintains the order in which keys are inserted.
+- **Size Property:** Includes a `size` property to easily determine the number of key-value pairs.
+- **Iteration:** Directly iterable with methods like `forEach`, `keys()`, `values()`, and `entries()`.
+- **Performance:** Typically offers better performance for larger datasets and frequent modifications.
 
 ### Plain Object
 
--   **Key Types:** Primarily uses strings or symbols as keys. Non-string keys are converted to strings.
--   **Order:** Does not guarantee the order of key insertion.
--   **Size Tracking:** Lacks a built-in property to determine the number of keys; requires manual counting.
--   **Iteration:** Not inherently iterable. Requires methods like `Object.keys()`, `Object.values()`, or `Object.entries()` to iterate.
--   **Performance:** Generally faster for small datasets and simple operations.
+- **Key Types:** Primarily uses strings or symbols as keys. Non-string keys are converted to strings.
+- **Order:** Does not guarantee the order of key insertion.
+- **Size Tracking:** Lacks a built-in property to determine the number of keys; requires manual counting.
+- **Iteration:** Not inherently iterable. Requires methods like `Object.keys()`, `Object.values()`, or `Object.entries()` to iterate.
+- **Performance:** Generally faster for small datasets and simple operations.
 
 ### Example
 
@@ -1116,26 +1113,30 @@ console.log(Object.keys(obj).length); // 1 (keys are strings)
 
 The primary distinctions between `Map`/`Set` and `WeakMap`/`WeakSet` in JavaScript are outlined below:
 
--   **Key Types:**
+- **Key Types:**
 
-    -   `Map` and `Set` accept keys of any type, including objects, primitives, and functions.
-    -   `WeakMap` and `WeakSet` exclusively use objects as keys, disallowing primitive values like strings or numbers.
--   **Memory Management:**
+  - `Map` and `Set` accept keys of any type, including objects, primitives, and functions.
+  - `WeakMap` and `WeakSet` exclusively use objects as keys, disallowing primitive values like strings or numbers.
 
-    -   `Map` and `Set` maintain strong references to their keys and values, preventing their garbage collection.
-    -   `WeakMap` and `WeakSet` use weak references for keys (objects), allowing garbage collection if there are no other strong references.
--   **Key Enumeration:**
+- **Memory Management:**
 
-    -   `Map` and `Set` have enumerable keys that can be iterated over.
-    -   `WeakMap` and `WeakSet` do not allow enumeration of keys, making it impossible to retrieve lists of keys or values directly.
--   **Size Property:**
+  - `Map` and `Set` maintain strong references to their keys and values, preventing their garbage collection.
+  - `WeakMap` and `WeakSet` use weak references for keys (objects), allowing garbage collection if there are no other strong references.
 
-    -   `Map` and `Set` provide a `size` property indicating the number of elements.
-    -   `WeakMap` and `WeakSet` lack a `size` property since their size can change due to garbage collection.
--   **Use Cases:**
+- **Key Enumeration:**
 
-    -   `Map` and `Set` are suitable for general-purpose data storage and caching.
-    -   `WeakMap` and `WeakSet` are ideal for storing metadata or additional object-related information without preventing the objects from being garbage collected when they are no longer needed.
+  - `Map` and `Set` have enumerable keys that can be iterated over.
+  - `WeakMap` and `WeakSet` do not allow enumeration of keys, making it impossible to retrieve lists of keys or values directly.
+
+- **Size Property:**
+
+  - `Map` and `Set` provide a `size` property indicating the number of elements.
+  - `WeakMap` and `WeakSet` lack a `size` property since their size can change due to garbage collection.
+
+- **Use Cases:**
+
+  - `Map` and `Set` are suitable for general-purpose data storage and caching.
+  - `WeakMap` and `WeakSet` are ideal for storing metadata or additional object-related information without preventing the objects from being garbage collected when they are no longer needed.
 
 [Learn about the differences between `Map`/`Set` and `WeakMap`/`WeakSet` on GreatFrontEnd](/questions/quiz/what-are-the-differences-between-map-set-and-weakmap-weakset?format=quiz)
 
@@ -1158,6 +1159,7 @@ console.log(doubledNumbers); // Output: [2, 4, 6, 8, 10]
 ```
 
 By utilizing arrow function syntax, the same outcome can be achieved more succinctly:
+
 ```js
 // Arrow function syntax
 const numbers = [1, 2, 3, 4, 5];
@@ -1173,7 +1175,6 @@ console.log(doubledNumbers); // Output: [2, 4, 6, 8, 10]
 In the realm of asynchronous programming, a callback function is passed as an argument to another function and is executed once a particular task completes, such as data retrieval or handling input/output operations. Here's a straightforward explanation:
 
 ### Example
-
 
 ```js
 function fetchData(callback) {
@@ -1194,33 +1195,32 @@ fetchData((data) => {
 
 Debouncing and throttling are techniques used to control the rate at which functions are executed, optimizing performance and managing event-driven behaviors in JavaScript applications.
 
--   **Debouncing:** Delays the execution of a function until a specified period has elapsed since its last invocation. This is particularly useful for scenarios like handling search input where you want to wait until the user has finished typing before executing a function.
+- **Debouncing:** Delays the execution of a function until a specified period has elapsed since its last invocation. This is particularly useful for scenarios like handling search input where you want to wait until the user has finished typing before executing a function.
 
-    ```js
-    function debounce(func, delay) {
-      let timeoutId;
-      return (...args) => {
-        clearTimeout(timeoutId);
-        timeoutId = setTimeout(() => func.apply(this, args), delay);
-      };
-    }
-    ```
+  ```js
+  function debounce(func, delay) {
+    let timeoutId;
+    return (...args) => {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => func.apply(this, args), delay);
+    };
+  }
+  ```
 
--   **Throttling:** Restricts a function to be executed no more than once within a given timeframe. This is beneficial for handling events that fire frequently, such as window resizing or scrolling.
+- **Throttling:** Restricts a function to be executed no more than once within a given timeframe. This is beneficial for handling events that fire frequently, such as window resizing or scrolling.
 
-    ```js
-    function throttle(func, limit) {
-      let inThrottle;
-      return (...args) => {
-        if (!inThrottle) {
-          func.apply(this, args);
-          inThrottle = true;
-          setTimeout(() => (inThrottle = false), limit);
-        }
-      };
-    }
-    ```
-
+  ```js
+  function throttle(func, limit) {
+    let inThrottle;
+    return (...args) => {
+      if (!inThrottle) {
+        func.apply(this, args);
+        inThrottle = true;
+        setTimeout(() => (inThrottle = false), limit);
+      }
+    };
+  }
+  ```
 
 These strategies help in enhancing application performance by preventing excessive function calls.
 
@@ -1231,6 +1231,7 @@ These strategies help in enhancing application performance by preventing excessi
 Destructuring assignment in JavaScript provides a concise way to extract values from arrays or properties from objects into individual variables.
 
 ### Example
+
 ```js
 // Array destructuring
 const [a, b] = [1, 2];
@@ -1248,6 +1249,7 @@ This syntax employs square brackets for arrays and curly braces for objects, all
 Hoisting in JavaScript refers to the behavior where function declarations are moved to the top of their containing scope during the compilation phase. This allows functions to be invoked before their actual definition in the code. Conversely, function expressions and arrow functions must be defined prior to their invocation to avoid errors.
 
 ### Example
+
 ```js
 // Function declaration
 hoistedFunction(); // Works fine
@@ -1408,10 +1410,10 @@ Grasping how to initiate a BFC is essential because, without it, the containing 
 
 A BFC is formed when an HTML box satisfies at least one of the following criteria:
 
--   The `float` property is set to a value other than `none`.
--   The `position` property is assigned a value that is neither `static` nor `relative`.
--   The `display` property is set to `table-cell`, `table-caption`, `inline-block`, `flex`, `inline-flex`, `grid`, or `inline-grid`.
--   The `overflow` property is set to a value other than `visible`.
+- The `float` property is set to a value other than `none`.
+- The `position` property is assigned a value that is neither `static` nor `relative`.
+- The `display` property is set to `table-cell`, `table-caption`, `inline-block`, `flex`, `inline-flex`, `grid`, or `inline-grid`.
+- The `overflow` property is set to a value other than `visible`.
 
 Within a BFC, each box's left outer edge aligns with the left edge of its containing block (or the right edge in right-to-left layouts). Additionally, vertical margins between adjacent block-level boxes within a BFC collapse into a single margin.
 
@@ -1445,19 +1447,19 @@ The CSS box model is a fundamental concept that describes the rectangular boxes 
 
 The box model is responsible for calculating:
 
--   The total space a block element occupies.
--   Whether borders and margins overlap or collapse.
--   The overall dimensions of a box.
+- The total space a block element occupies.
+- Whether borders and margins overlap or collapse.
+- The overall dimensions of a box.
 
 ### Box Model Rules
 
--   **Dimensions Calculation:** A block element's size is determined by its `width`, `height`, `padding`, and `border`.
--   **Automatic Height:** If no `height` is specified, a block element's height adjusts to its content plus `padding` (unless floats are involved).
--   **Automatic Width:** If no `width` is set, a non-floated block element expands to fit its parent's width minus `padding`, unless a `max-width` is specified.
-    -   Certain block-level elements like `table`, `figure`, and `input` have inherent width values and may not expand fully.
-    -   Inline elements like `span` do not have a default width and will not expand to fit.
--   **Content Dimensions:** An element's `height` and `width` are determined by its content.
--   **Box-Sizing:** By default (`box-sizing: content-box`), `padding` and `border` are not included in an element's `width` and `height`.
+- **Dimensions Calculation:** A block element's size is determined by its `width`, `height`, `padding`, and `border`.
+- **Automatic Height:** If no `height` is specified, a block element's height adjusts to its content plus `padding` (unless floats are involved).
+- **Automatic Width:** If no `width` is set, a non-floated block element expands to fit its parent's width minus `padding`, unless a `max-width` is specified.
+  - Certain block-level elements like `table`, `figure`, and `input` have inherent width values and may not expand fully.
+  - Inline elements like `span` do not have a default width and will not expand to fit.
+- **Content Dimensions:** An element's `height` and `width` are determined by its content.
+- **Box-Sizing:** By default (`box-sizing: content-box`), `padding` and `border` are not included in an element's `width` and `height`.
 
 **Note:** Margins do not contribute to the actual size of the box; they affect the space outside the box. The box's area is confined to the `border` and does not extend into the `margin`.
 
@@ -1465,8 +1467,8 @@ The box model is responsible for calculating:
 
 Understanding the `box-sizing` property is crucial as it alters how an element's `height` and `width` are calculated.
 
--   **`box-sizing: content-box`:** The default behavior where only the content size is considered.
--   **`box-sizing: border-box`:** Includes `padding` and `border` in the element's total `width` and `height`, excluding `margin`.
+- **`box-sizing: content-box`:** The default behavior where only the content size is considered.
+- **`box-sizing: border-box`:** Includes `padding` and `border` in the element's total `width` and `height`, excluding `margin`.
 
 Many CSS frameworks adopt `box-sizing: border-box` globally for a more intuitive sizing approach.
 
@@ -1522,21 +1524,19 @@ For a comprehensive list of `display` property values, refer to the [CSS Display
 
 [Understand the CSS `display` Property with Examples on GreatFrontEnd](/interviews/study/gfe75/questions/quiz/what-is-the-css-display-property-and-can-you-give-a-few-examples-of-its-use)
 
-
 ## 46. How Do `relative`, `fixed`, `absolute`, `sticky`, and `static` Positioning Differ?
 
 In CSS, an element's positioning is determined by its `position` property, which can be set to `relative`, `fixed`, `absolute`, `sticky`, or `static`. Here's how each behaves:
 
--   **`static`:** The default positioning. Elements flow naturally within the document. The `top`, `right`, `bottom`, `left`, and `z-index` properties have no effect.
+- **`static`:** The default positioning. Elements flow naturally within the document. The `top`, `right`, `bottom`, `left`, and `z-index` properties have no effect.
 
--   **`relative`:** The element is positioned relative to its normal position. Adjustments using `top`, `right`, `bottom`, or `left` move the element without affecting the layout of surrounding elements, leaving a gap where it would have been.
+- **`relative`:** The element is positioned relative to its normal position. Adjustments using `top`, `right`, `bottom`, or `left` move the element without affecting the layout of surrounding elements, leaving a gap where it would have been.
 
--   **`absolute`:** The element is removed from the normal document flow and positioned relative to its nearest positioned ancestor (an ancestor with a `position` other than `static`). If no such ancestor exists, it positions relative to the initial containing block. Absolutely positioned elements do not affect the position of other elements and can have `width` and `height` specified.
+- **`absolute`:** The element is removed from the normal document flow and positioned relative to its nearest positioned ancestor (an ancestor with a `position` other than `static`). If no such ancestor exists, it positions relative to the initial containing block. Absolutely positioned elements do not affect the position of other elements and can have `width` and `height` specified.
 
--   **`fixed`:** Similar to `absolute`, but the element is positioned relative to the viewport, meaning it stays in the same place even when the page is scrolled.
+- **`fixed`:** Similar to `absolute`, but the element is positioned relative to the viewport, meaning it stays in the same place even when the page is scrolled.
 
--   **`sticky`:** A hybrid of `relative` and `fixed`. The element behaves like `relative` until it crosses a specified threshold (e.g., scroll position), after which it behaves like `fixed`, sticking to its position within its parent container.
-
+- **`sticky`:** A hybrid of `relative` and `fixed`. The element behaves like `relative` until it crosses a specified threshold (e.g., scroll position), after which it behaves like `fixed`, sticking to its position within its parent container.
 
 Understanding these positioning schemes is vital for controlling the layout and behavior of elements, especially in responsive and dynamic designs.
 
@@ -1548,63 +1548,61 @@ Designing and developing for multilingual websites involves various consideratio
 
 ### Search Engine Optimization (SEO)
 
--   **Language Attribute:** Use the `lang` attribute on the `<html>` tag to specify the page's language.
--   **Locale in URLs:** Include locale identifiers in URLs (e.g., `en_US`, `zh_CN`).
--   **Alternate Links:** Utilize `<link rel="alternate" hreflang="other_locale" href="url_for_other_locale">` to inform search engines about alternate language versions of the page.
--   **Fallback Pages:** Provide a fallback page for unmatched languages using `<link rel="alternate" href="url_for_fallback" hreflang="x-default" />`.
+- **Language Attribute:** Use the `lang` attribute on the `<html>` tag to specify the page's language.
+- **Locale in URLs:** Include locale identifiers in URLs (e.g., `en_US`, `zh_CN`).
+- **Alternate Links:** Utilize `<link rel="alternate" hreflang="other_locale" href="url_for_other_locale">` to inform search engines about alternate language versions of the page.
+- **Fallback Pages:** Provide a fallback page for unmatched languages using `<link rel="alternate" href="url_for_fallback" hreflang="x-default" />`.
 
 ### Locale vs. Language
 
--   **Locale:** Controls regional settings like number formats, dates, and times, which may vary within a language.
--   **Language Variations:** Recognize that widely spoken languages have different dialects and regional variations (e.g., `en-US` vs. `en-GB`, `zh-CN` vs. `zh-TW`).
+- **Locale:** Controls regional settings like number formats, dates, and times, which may vary within a language.
+- **Language Variations:** Recognize that widely spoken languages have different dialects and regional variations (e.g., `en-US` vs. `en-GB`, `zh-CN` vs. `zh-TW`).
 
 ### Locale Prediction and Flexibility
 
--   **Automatic Detection:** Servers can detect a visitor's locale using HTTP `Accept-Language` headers and IP addresses.
--   **User Control:** Allow users to easily change their preferred language and locale settings to account for inaccuracies in automatic detection.
+- **Automatic Detection:** Servers can detect a visitor's locale using HTTP `Accept-Language` headers and IP addresses.
+- **User Control:** Allow users to easily change their preferred language and locale settings to account for inaccuracies in automatic detection.
 
 ### Text Length and Layout
 
--   **Variable Lengths:** Be aware that translations can alter text length, potentially affecting layout and causing overflow issues.
--   **Design Flexibility:** Avoid rigid designs that cannot accommodate varying text lengths, especially for headings, labels, and buttons.
+- **Variable Lengths:** Be aware that translations can alter text length, potentially affecting layout and causing overflow issues.
+- **Design Flexibility:** Avoid rigid designs that cannot accommodate varying text lengths, especially for headings, labels, and buttons.
 
 ### Reading Direction
 
--   **Left-to-Right (LTR) vs. Right-to-Left (RTL):** Accommodate different text directions, such as Hebrew and Arabic, by designing flexible layouts that can adapt to both LTR and RTL orientations.
+- **Left-to-Right (LTR) vs. Right-to-Left (RTL):** Accommodate different text directions, such as Hebrew and Arabic, by designing flexible layouts that can adapt to both LTR and RTL orientations.
 
 ### Avoid Concatenating Translated Strings
 
--   **Dynamic Content:** Instead of concatenating strings (e.g., `"The date today is " + date`), use template strings with parameter substitution to accommodate different grammar structures across languages.
+- **Dynamic Content:** Instead of concatenating strings (e.g., `"The date today is " + date`), use template strings with parameter substitution to accommodate different grammar structures across languages.
 
-    **Example:**
+  **Example:**
 
-    ```js
-    // English
-    const message = `I will travel on ${date}`;
+  ```js
+  // English
+  const message = `I will travel on ${date}`;
 
-    // Chinese
-    const message = `我会在${date}出发`;
-    ```
-
+  // Chinese
+  const message = `我会在${date}出发`;
+  ```
 
 ### Formatting Dates and Currencies
 
--   **Regional Formats:** Adapt date and currency formats to match regional conventions (e.g., "May 31, 2012" in the U.S. vs. "31 May 2012" in Europe).
+- **Regional Formats:** Adapt date and currency formats to match regional conventions (e.g., "May 31, 2012" in the U.S. vs. "31 May 2012" in Europe).
 
 ### Text in Images
 
--   **Scalability Issues:** Avoid embedding text within images, as it complicates translation and accessibility. Use text elements styled with CSS instead to allow for easier localization.
+- **Scalability Issues:** Avoid embedding text within images, as it complicates translation and accessibility. Use text elements styled with CSS instead to allow for easier localization.
 
 ### Cultural Perceptions of Color
 
--   **Color Sensitivity:** Be mindful that colors can carry different meanings and emotions across cultures. Choose color schemes that are culturally appropriate and inclusive.
+- **Color Sensitivity:** Be mindful that colors can carry different meanings and emotions across cultures. Choose color schemes that are culturally appropriate and inclusive.
 
 [Understand Multilingual Design Considerations on GreatFrontEnd](/interviews/study/gfe75/questions/quiz/designing-or-developing-for-multilingual-sites)
 
 ## 48. How Do `block`, `inline`, and `inline-block` Display Types Differ?
 
 The `display` property in CSS determines how elements are rendered on the page. The `block`, `inline`, and `inline-block` values have distinct behaviors and use cases:
-
 
 | Property | `block` | `inline-block` | `inline` |
 | --- | --- | --- | --- |
@@ -1614,7 +1612,7 @@ The `display` property in CSS determines how elements are rendered on the page. 
 | Can be aligned with `vertical-align` | No | Yes | Yes |
 | Margins and paddings | All sides respected. | All sides respected. | Only horizontal sides respected. Vertical sides, if specified, do not affect layout. Vertical space it takes up depends on `line-height`, even though the `border` and `padding` appear visually around the content. |
 | Float | - | - | Becomes like a `block` element where you can set vertical margins and paddings. |
-| Use Cases | Layout elements like `<div>`, `<p>`, `<section>`. | Used for buttons, images, and form fields that need custom sizes but stay in line with text. | Links `<a>`, text formatting `<span>`, text styling - bold `<b>`, italics `<i>`.|
+| Use Cases | Layout elements like `<div>`, `<p>`, `<section>`. | Used for buttons, images, and form fields that need custom sizes but stay in line with text. | Links `<a>`, text formatting `<span>`, text styling - bold `<b>`, italics `<i>`. |
 
 [Learn the Differences Between `block`, `inline`, and `inline-block` on GreatFrontEnd](/interviews/study/gfe75/questions/quiz/whats-the-difference-between-inline-and-inline-block)
 
@@ -1622,33 +1620,31 @@ The `display` property in CSS determines how elements are rendered on the page. 
 
 The `translate()` function is a part of the CSS `transform` property and offers a different approach to positioning compared to `absolute` positioning. Here's why you might choose one over the other:
 
--   **Using `translate()`:**
+- **Using `translate()`:**
 
-    -   **Flow Preservation:** Elements remain in their original position within the document flow, similar to `position: relative`.
-    -   **Performance Benefits:** Modifying `transform` or `opacity` does not trigger browser reflows or repaints; instead, it initiates a composition layer. This results in smoother and more efficient animations, as `translate()` leverages the GPU for rendering.
-    -   **Layout Stability:** The surrounding layout remains unaffected since the element's space is preserved.
+  - **Flow Preservation:** Elements remain in their original position within the document flow, similar to `position: relative`.
+  - **Performance Benefits:** Modifying `transform` or `opacity` does not trigger browser reflows or repaints; instead, it initiates a composition layer. This results in smoother and more efficient animations, as `translate()` leverages the GPU for rendering.
+  - **Layout Stability:** The surrounding layout remains unaffected since the element's space is preserved.
 
+  ```css
+  .element {
+    transform: translateX(50px);
+  }
+  ```
 
-	```css
-	.element {
-	 transform: translateX(50px);
-	}
-	```
+- **Using `absolute` Positioning:**
 
--   **Using `absolute` Positioning:**
+  - **Flow Removal:** The element is taken out of the normal document flow, and its position is calculated relative to the nearest positioned ancestor or the viewport.
+  - **Reflow Trigger:** Changing an element's absolute position can cause the browser to recalculate the layout (reflow), which is more CPU-intensive.
+  - **Overlapping Control:** Useful for precise placement of elements without affecting other elements' positions.
 
-    -   **Flow Removal:** The element is taken out of the normal document flow, and its position is calculated relative to the nearest positioned ancestor or the viewport.
-    -   **Reflow Trigger:** Changing an element's absolute position can cause the browser to recalculate the layout (reflow), which is more CPU-intensive.
-    -   **Overlapping Control:** Useful for precise placement of elements without affecting other elements' positions.
-
-    ```css
-    .element {
-      position: absolute;
-      top: 20px;
-      left: 30px;
-    }
-    ```
-
+  ```css
+  .element {
+    position: absolute;
+    top: 20px;
+    left: 30px;
+  }
+  ```
 
 **Why Choose `translate()`?**
 
@@ -1670,7 +1666,6 @@ By default, elements use `box-sizing: content-box`, where the `width` and `heigh
 
 ### Comparison Table
 
-
 | Property  | `box-sizing: content-box` (default) | `box-sizing: border-box` |
 | --------- | ----------------------------------- | ------------------------ |
 | content   | Yes                                 | Yes                      |
@@ -1678,12 +1673,11 @@ By default, elements use `box-sizing: content-box`, where the `width` and `heigh
 | `border`  | No                                  | Yes                      |
 | `margin`  | No                                  | No                       |
 
-
 ### Advantages
 
--   **Intuitive Sizing:** Including `padding` and `border` within the `width` and `height` makes it easier to calculate the size of elements, aligning more closely with designers' expectations.
--   **Simplified Layouts:** Prevents unexpected sizing issues, especially when adding `padding` or `border` to elements, as it doesn't alter the total size.
--   **Consistency Across Frameworks:** Many CSS frameworks like Bootstrap, Tailwind, and Bulma set `box-sizing: border-box` globally to maintain consistency and predictability in element sizing.
+- **Intuitive Sizing:** Including `padding` and `border` within the `width` and `height` makes it easier to calculate the size of elements, aligning more closely with designers' expectations.
+- **Simplified Layouts:** Prevents unexpected sizing issues, especially when adding `padding` or `border` to elements, as it doesn't alter the total size.
+- **Consistency Across Frameworks:** Many CSS frameworks like Bootstrap, Tailwind, and Bulma set `box-sizing: border-box` globally to maintain consistency and predictability in element sizing.
 
 [Explore What `* { box-sizing: border-box; }` Does and Its Benefits on GreatFrontEnd](/interviews/study/gfe75/questions/quiz/what-does-box-sizing-border-box-do-what-are-its-advantages)
 

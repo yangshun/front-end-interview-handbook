@@ -1,13 +1,13 @@
 ---
-title: 50 Must-Know JavaScript Interview Questions by Ex-Interviewers
+title: 50 Must-know JavaScript Interview Questions by Ex-interviewers
 description: 50 essential JavaScript coding interview questions and answers, curated by senior engineers and former interviewers from leading tech companies.
 imageUrl: /img/blog/50-must-know-javascript-interview-questions-by-ex-interviewers.webp
 tags:
   - javascript
   - interviews
 level: starter
-createdAt: 2025-01-09
-author: blog/author/minh-man.json
+createdAt: 2025-01-27
+author: blog/author/greatfrontend.json
 category: blog/category/front-end-interviews.json
 series: blog/series/beginner-interview-questions.json
 published: true
@@ -20,9 +20,11 @@ JavaScript is an essential skill for anyone pursuing a career in web development
 Debouncing is a smart way to handle events that fire repeatedly within a short time, such as typing in a search box or resizing a window. Instead of executing a function every single time the event is triggered, debouncing ensures the function runs only after the event stops firing for a specified time.
 
 ### **Why is it important?**
+
 It prevents performance bottlenecks by reducing the number of unnecessary function calls, making your app smoother and more efficient.
 
 ### **How does it work?**
+
 The `debounce` method delays a function’s execution until after a defined "waiting period" has passed since the last event. Let’s see an example using Lodash:
 
 ```js
@@ -40,9 +42,9 @@ searchInput.addEventListener('input', debouncedSearch);
 
 ### **Key Features of Debouncing**
 
--   **Delay-based execution:** Runs the function after user activity has stopped.
--   **Improves performance:** Prevents excessive computations or network calls during rapid events.
--   **Flexible configurations:** Supports leading (immediate) and trailing (delayed) execution, and even a maximum wait time.
+- **Delay-based execution:** Runs the function after user activity has stopped.
+- **Improves performance:** Prevents excessive computations or network calls during rapid events.
+- **Flexible configurations:** Supports leading (immediate) and trailing (delayed) execution, and even a maximum wait time.
 
 ### **How is it different from Throttling?**
 
@@ -55,6 +57,7 @@ While **debouncing** waits until user activity stops, **throttling** ensures the
 `Promise.all()` is a powerful method in JavaScript that allows you to handle multiple asynchronous tasks simultaneously. It takes an array of promises and returns a single promise that resolves when all the promises resolve, or rejects if any one of them fails.
 
 ### **Why is it useful?**
+
 This method is perfect when you need to wait for several independent asynchronous tasks to finish before proceeding, like fetching data from multiple APIs.
 
 ### **Example Usage**
@@ -79,9 +82,9 @@ Promise.all([promise1, promise2, promise3])
 
 ### **Key Features of `Promise.all`**
 
--   **Concurrency:** Runs multiple asynchronous tasks in parallel, improving performance.
--   **All-or-nothing resolution:** The promise resolves only when all tasks succeed, or it rejects if any one fails.
--   **Simplifies workflows:** Ideal for managing interdependent or independent tasks efficiently.
+- **Concurrency:** Runs multiple asynchronous tasks in parallel, improving performance.
+- **All-or-nothing resolution:** The promise resolves only when all tasks succeed, or it rejects if any one fails.
+- **Simplifies workflows:** Ideal for managing interdependent or independent tasks efficiently.
 
 [Explore more and practice `Promise.all` on GreatFrontEnd](/questions/javascript/promise-all)
 
@@ -182,9 +185,9 @@ console.log(sum); // Output: 15
 
 ### **Why Use `reduce`?**
 
--   **Flexibility:** Handles various operations, from aggregations to transformations.
--   **Functional programming:** Encourages declarative and clean code.
--   **Powerful:** Can replace loops or multiple utility methods in a single chain.
+- **Flexibility:** Handles various operations, from aggregations to transformations.
+- **Functional programming:** Encourages declarative and clean code.
+- **Powerful:** Can replace loops or multiple utility methods in a single chain.
 
 [Practice building `Array.protoype.reduce` on GreatFrontEnd](/questions/javascript/array-reduce)
 
@@ -207,8 +210,11 @@ Before ES2019, custom solutions were common:
 ```js
 // Custom recursive array flattener
 function flattenArray(arr) {
-  return arr.reduce((acc, val) =>
-    Array.isArray(val) ? acc.concat(flattenArray(val)) : acc.concat(val), []);
+  return arr.reduce(
+    (acc, val) =>
+      Array.isArray(val) ? acc.concat(flattenArray(val)) : acc.concat(val),
+    [],
+  );
 }
 
 const nestedArray = [1, [2, [3, [4, [5]]]]];
@@ -385,7 +391,6 @@ Libraries like Lodash also provide a `memoize` utility.
 
 Accessing nested object properties risk errors if any property is undefined. Tools like Lodash's `get` or JavaScript's optional chaining (`?.`) help mitigate this.
 
-
 ```js
 const user = { address: { city: 'New York' } };
 
@@ -419,6 +424,7 @@ Variables declared with `let`, `const`, and `class` are hoisted but exist in a "
 console.log(y); // ReferenceError
 let y = 'local';
 ```
+
 ### Function Hoisting
 
 #### Function Declarations
@@ -460,14 +466,15 @@ import foo from './modules/foo';
 
 Modern JavaScript uses `let` and `const` to avoid hoisting pitfalls. Declare variables at the top of their scope for better readability and use tools like ESLint to enforce best practices:
 
--   [`no-use-before-define`](https://eslint.org/docs/latest/rules/no-use-before-define)
--   [`no-undef`](https://eslint.org/docs/latest/rules/no-undef)
+- [`no-use-before-define`](https://eslint.org/docs/latest/rules/no-use-before-define)
+- [`no-undef`](https://eslint.org/docs/latest/rules/no-undef)
 
 By following these practices, you can write robust, maintainable code.
 
 [Practice Hoisting on GreatFrontEnd](/questions/quiz/explain-hoisting?format=quiz)
 
 ## 12. What are the differences between JavaScript variables created using `let`, `var` or `const`?
+
 In JavaScript, `let`, `var`, and `const` are used to declare variables, but they differ in scope, initialization, redeclaration, reassignment, and behavior when accessed before declaration.
 
 ### Scope
@@ -507,6 +514,7 @@ var x = 20; // Allowed
 let y = 10;
 let y = 20; // SyntaxError: Identifier 'y' has already been declared
 ```
+
 ### Reassignment
 
 `var` and `let` allow reassignment, while `const` does not.
@@ -533,10 +541,10 @@ let bar = 'bar';
 
 ### Best Practices
 
--   Use `const` for variables that don’t change to ensure immutability.
--   Use `let` when reassignment is needed.
--   Avoid `var` due to its hoisting and scoping issues.
--   Use tools like ESLint to enforce modern best practices
+- Use `const` for variables that don’t change to ensure immutability.
+- Use `let` when reassignment is needed.
+- Avoid `var` due to its hoisting and scoping issues.
+- Use tools like ESLint to enforce modern best practices
 
 [Explore the difference between `==` and `===` in JavaScript on GreatFrontEnd](/questions/quiz/what-are-the-differences-between-variables-created-using-let-var-or-const?format=quiz)
 
@@ -566,9 +574,10 @@ null === undefined; // false
 
 ### Use Case Tips
 
--   Prefer `===` for most comparisons as it avoids implicit type conversion and makes code more predictable.
--   Use `==` only when comparing `null` or `undefined` for simplicity.
+- Prefer `===` for most comparisons as it avoids implicit type conversion and makes code more predictable.
+- Use `==` only when comparing `null` or `undefined` for simplicity.
 -
+
 ```js
 let x = null;
 console.log(x == null); // true
@@ -583,9 +592,11 @@ console.log(x == undefined); // true
 console.log(Object.is(-0, +0)); // false
 console.log(Object.is(NaN, NaN)); // true
 ```
+
 ### Conclusion
--   Use `===` for strict comparisons to avoid bugs caused by type coercion.
--   Rely on `Object.is()` for nuanced comparisons like distinguishing `-0` and `+0`.
+
+- Use `===` for strict comparisons to avoid bugs caused by type coercion.
+- Rely on `Object.is()` for nuanced comparisons like distinguishing `-0` and `+0`.
 
 [Explore the difference between `==` and `===` in JavaScript on GreatFrontEnd](/questions/quiz/what-is-the-difference-between-double-equal-and-triple-equal?format=quiz)
 
@@ -606,8 +617,9 @@ The event loop is the backbone of JavaScript’s asynchronous behavior, enabling
 2. **Asynchronous Tasks**: Offloaded to APIs for processing.
 3. **Task Completion**: Completed tasks are queued.
 4. **Event Loop Execution**:
- - Executes microtasks until the queue is empty.
- - Processes one macrotask and checks the microtask queue again.
+
+- Executes microtasks until the queue is empty.
+- Processes one macrotask and checks the microtask queue again.
 
 ### Example
 
@@ -635,9 +647,9 @@ Timeout 2
 
 **Explanation**:
 
--   Synchronous logs (`Start`, `End`) run first.
--   Microtasks (`Promise 1`) follow.
--   Macrotasks (`Timeout 1`, `Timeout 2`) run last.
+- Synchronous logs (`Start`, `End`) run first.
+- Microtasks (`Promise 1`) follow.
+- Macrotasks (`Timeout 1`, `Timeout 2`) run last.
 
 [Explore the event loop in JavaScript on GreatFrontEnd](/questions/quiz/what-is-event-loop-what-is-the-difference-between-call-stack-and-task-queue?format=quiz)
 
@@ -653,7 +665,6 @@ Event delegation is an efficient way to manage events for multiple elements by a
 4.  **Perform Action**: Execute logic based on the event target.
 
 ### Example
-
 
 ```js
 // HTML:
@@ -768,75 +779,73 @@ When it comes to client-side storage, cookies, `localStorage`, and `sessionStora
 - **Security**: Features like HttpOnly and Secure flags add extra security.
 - **Example**:
 
-	```js
-	// Set a cookie with an expiry date
-	document.cookie = 'userId=12345; expires=Fri, 31 Dec 2025 23:59:59 GMT; path=/';
+  ```js
+  // Set a cookie with an expiry date
+  document.cookie =
+    'userId=12345; expires=Fri, 31 Dec 2025 23:59:59 GMT; path=/';
 
-	// Read all cookies
-	console.log(document.cookie);
+  // Read all cookies
+  console.log(document.cookie);
 
-	// Delete a cookie
-	document.cookie = 'userId=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/';
-	```
+  // Delete a cookie
+  document.cookie = 'userId=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/';
+  ```
 
 ### `localStorage`
 
--   **Function**: Allows persistent data storage on the client side.
+- **Function**: Allows persistent data storage on the client side.
 
--   **Limit**: About 5MB per origin.
+- **Limit**: About 5MB per origin.
 
--   **Lifetime**: Data stays until explicitly removed.
+- **Lifetime**: Data stays until explicitly removed.
 
--   **Scope**: Shared across all tabs and windows for the same origin.
+- **Scope**: Shared across all tabs and windows for the same origin.
 
--   **Security**: Accessible by JavaScript within the same origin.
+- **Security**: Accessible by JavaScript within the same origin.
 
--   **Example**:
+- **Example**:
 
+  ```js
+  // Store data in localStorage
+  localStorage.setItem('username', 'john_doe');
 
-    ```js
-    // Store data in localStorage
-    localStorage.setItem('username', 'john_doe');
+  // Retrieve data
+  console.log(localStorage.getItem('username'));
 
-    // Retrieve data
-    console.log(localStorage.getItem('username'));
+  // Remove an item
+  localStorage.removeItem('username');
 
-    // Remove an item
-    localStorage.removeItem('username');
-
-    // Clear all localStorage data
-    localStorage.clear();
-    ```
-
+  // Clear all localStorage data
+  localStorage.clear();
+  ```
 
 ### `sessionStorage`
 
--   **Function**: Stores data for the duration of a page session.
+- **Function**: Stores data for the duration of a page session.
 
--   **Limit**: Similar to `localStorage` (around 5MB).
+- **Limit**: Similar to `localStorage` (around 5MB).
 
--   **Lifetime**: Cleared when the tab or browser closes.
+- **Lifetime**: Cleared when the tab or browser closes.
 
--   **Scope**: Data is confined to the current tab or window.
+- **Scope**: Data is confined to the current tab or window.
 
--   **Security**: Accessible by JavaScript on the same origin.
+- **Security**: Accessible by JavaScript on the same origin.
 
--   **Example**:
+- **Example**:
 
-    ```js
-    // Store data in sessionStorage
-    sessionStorage.setItem('sessionId', 'abcdef');
+  ```js
+  // Store data in sessionStorage
+  sessionStorage.setItem('sessionId', 'abcdef');
 
-    // Retrieve data
-    console.log(sessionStorage.getItem('sessionId'));
+  // Retrieve data
+  console.log(sessionStorage.getItem('sessionId'));
 
-    // Remove an item
-    sessionStorage.removeItem('sessionId');
+  // Remove an item
+  sessionStorage.removeItem('sessionId');
 
-    // Clear all sessionStorage data
-    sessionStorage.clear();
-    ```
-
+  // Clear all sessionStorage data
+  sessionStorage.clear();
+  ```
 
 [Learn more about cookies, `sessionStorage`, and `localStorage` on GreatFrontEnd](/questions/quiz/describe-the-difference-between-a-cookie-sessionstorage-and-localstorage?format=quiz)
 
@@ -846,44 +855,51 @@ When it comes to client-side storage, cookies, `localStorage`, and `sessionStora
 
 When using the `<script>` tag without attributes, it fetches and executes the script immediately, pausing HTML parsing.
 
--   **Use Case**: Critical scripts needed before page rendering.
+- **Use Case**: Critical scripts needed before page rendering.
 
--   **Example**:
+- **Example**:
 
-	```html
-	<script src="main.js"></script>
-	```
+  ```html
+  <script src="main.js"></script>
+  ```
 
 ### The `<script async>` Tag
+
 With `async`, the script loads in parallel to HTML parsing and executes as soon as it’s ready.
--   **Use Case**: Independent scripts like analytics or ads.
--   **Example**:
-    ```html
-    <script async src="analytics.js"></script>
-    ```
+
+- **Use Case**: Independent scripts like analytics or ads.
+- **Example**:
+  ```html
+  <script async src="analytics.js"></script>
+  ```
 
 ### The `<script defer>` Tag
-When using `defer`, the script loads alongside HTML parsing but only executes after the HTML is fully parsed.
--   **Use Case**: Scripts that rely on a complete DOM structure.
--   **Example**:
 
-    ```html
-    <script defer src="deferred.js"></script>
-    ```
+When using `defer`, the script loads alongside HTML parsing but only executes after the HTML is fully parsed.
+
+- **Use Case**: Scripts that rely on a complete DOM structure.
+- **Example**:
+
+  ```html
+  <script defer src="deferred.js"></script>
+  ```
 
 [Discover more about `<script>`, `<script async>`, and `<script defer>` on GreatFrontEnd](/questions/quiz/describe-the-difference-between-script-async-and-script-defer?format=quiz)
 
 ## 19. `null`, `undefined`, or Undeclared: What’s the Difference?
 
 ### Undeclared
+
 Variables not defined using `var`, `let`, or `const` are considered undeclared and can cause global scope issues.
 
 ### `undefined`
+
 A declared variable that hasn’t been assigned a value is `undefined`.
 
 ### `null`
-Represents the intentional absence of any value. It’s an explicit assignment.
-**Example Code**:
+
+Represents the intentional absence of any value. It’s an explicit assignment. **Example Code**:
+
 ```js
 let a;
 console.log(a); // undefined
@@ -904,13 +920,13 @@ try {
 
 Both `.call` and `.apply` let you invoke a function with a specified `this` value. The key difference lies in how arguments are passed:
 
--   **`.call`**: Accepts arguments as a comma-separated list.
--   **`.apply`**: Accepts arguments as an array.
+- **`.call`**: Accepts arguments as a comma-separated list.
+- **`.apply`**: Accepts arguments as an array.
 
 **Memory Aid**:
 
--   **C** for **call** = **comma-separated**
--   **A** for **apply** = **array**
+- **C** for **call** = **comma-separated**
+- **A** for **apply** = **array**
 
 **Example Code**:
 
@@ -930,6 +946,7 @@ console.log(sum.apply(null, [1, 2])); // 3
 The **`bind`** method is used to create a new function with a specific **`this`** value and, optionally, preset arguments. This ensures that the function always has the correct **`this`** context, regardless of how or where it’s called.
 
 ### Key Uses of `bind`:
+
 1. **Maintaining Context**: Ensures that `this` is correctly set for the function.
 2. **Preset Arguments**: Allows you to predefine arguments for a function.
 3. **Borrowing Methods**: Enables you to use methods from one object in another.
@@ -1044,34 +1061,33 @@ fido.sayName(); // "My name is Fido"
 
 ### Function Declarations:
 
--   **Syntax**: `function foo() {}`
+- **Syntax**: `function foo() {}`
 
--   **Hoisting**: Fully hoisted; can be called before its definition.
+- **Hoisting**: Fully hoisted; can be called before its definition.
 
--   **Example**:
+- **Example**:
 
-    ```js
-    foo(); // "Hello!"
-    function foo() {
-      console.log('Hello!');
-    }
-    ```
+  ```js
+  foo(); // "Hello!"
+  function foo() {
+    console.log('Hello!');
+  }
+  ```
 
 ### Function Expressions:
 
--   **Syntax**: `var foo = function() {}`
+- **Syntax**: `var foo = function() {}`
 
--   **Hoisting**: Only the variable is hoisted, not the function body.
+- **Hoisting**: Only the variable is hoisted, not the function body.
 
--   **Example**:
+- **Example**:
 
-    ```js
-    foo(); // TypeError: foo is not a function
-    var foo = function () {
-      console.log('Hello!');
-    };
-    ```
-
+  ```js
+  foo(); // TypeError: foo is not a function
+  var foo = function () {
+    console.log('Hello!');
+  };
+  ```
 
 [Explore the differences on the usage of `foo` between `function foo() {}` and `var foo = function() {}` on GreatFrontEnd](/questions/quiz/explain-the-differences-on-the-usage-of-foo-between-function-foo-and-var-foo-function?format=quiz)
 
@@ -1079,75 +1095,66 @@ fido.sayName(); // "My name is Fido"
 
 Here are various approaches to creating objects in JavaScript:
 
-1. **Object Literals**
-   The simplest and most common way to create an object is using curly braces `{}` with key-value pairs.
+1. **Object Literals** The simplest and most common way to create an object is using curly braces `{}` with key-value pairs.
 
-	```js
-	const person = {
-	  firstName: 'John',
-	  lastName: 'Doe',
-	};
-	```
+   ```js
+   const person = {
+     firstName: 'John',
+     lastName: 'Doe',
+   };
+   ```
 
-2.  **`Object` Constructor**
-    Use the built-in `Object` constructor with the `new` keyword.
+2. **`Object` Constructor** Use the built-in `Object` constructor with the `new` keyword.
 
+   ```js
+   const person = new Object();
+   person.firstName = 'John';
+   person.lastName = 'Doe';
+   ```
 
-    ```js
-    const person = new Object();
-    person.firstName = 'John';
-    person.lastName = 'Doe';
-    ```
+3. **`Object.create()` Method** Create an object with a specific prototype.
 
-3.  **`Object.create()` Method**
-    Create an object with a specific prototype.
+   ```js
+   const personPrototype = {
+     greet() {
+       console.log(`Hello, my name is ${this.name}.`);
+     },
+   };
 
+   const person = Object.create(personPrototype);
+   person.name = 'John';
+   person.greet(); // Hello, my name is John.
+   ```
 
-    ```js
-    const personPrototype = {
-      greet() {
-        console.log(`Hello, my name is ${this.name}.`);
-      },
-    };
+4. **ES2015 Classes** Define objects using the `class` syntax for a blueprint-like structure.
 
-    const person = Object.create(personPrototype);
-    person.name = 'John';
-    person.greet(); // Hello, my name is John.
-    ```
+   ```js
+   class Person {
+     constructor(name, age) {
+       this.name = name;
+       this.age = age;
+     }
 
-4.  **ES2015 Classes**
-    Define objects using the `class` syntax for a blueprint-like structure.
+     greet() {
+       console.log(`Hi, I’m ${this.name} and I’m ${this.age} years old.`);
+     }
+   }
 
-    ```js
-    class Person {
-      constructor(name, age) {
-        this.name = name;
-        this.age = age;
-      }
+   const john = new Person('John', 30);
+   john.greet(); // Hi, I’m John and I’m 30 years old.
+   ```
 
-      greet() {
-        console.log(`Hi, I’m ${this.name} and I’m ${this.age} years old.`);
-      }
-    }
+5. **Constructor Functions** Use a function as a template for creating multiple objects.
 
-    const john = new Person('John', 30);
-    john.greet(); // Hi, I’m John and I’m 30 years old.
-    ```
+   ```js
+   function Person(name, age) {
+     this.name = name;
+     this.age = age;
+   }
 
-5.  **Constructor Functions**
-    Use a function as a template for creating multiple objects.
-
-
-    ```js
-    function Person(name, age) {
-      this.name = name;
-      this.age = age;
-    }
-
-    const john = new Person('John', 30);
-    console.log(john.name); // John
-    ```
-
+   const john = new Person('John', 30);
+   console.log(john.name); // John
+   ```
 
 [Explore various ways to create objects in JavaScript on GreatFrontEnd](/questions/quiz/what-are-the-various-ways-to-create-objects-in-javascript?format=quiz)
 
@@ -1155,8 +1162,7 @@ Here are various approaches to creating objects in JavaScript:
 
 A higher-order function is a function that either:
 
-1.  **Accepts another function as an argument**
-    Example:
+1.  **Accepts another function as an argument** Example:
 
     ```js
     function greet(name) {
@@ -1170,8 +1176,7 @@ A higher-order function is a function that either:
     greetUser(greet, 'Alice'); // Hello, Alice!
     ```
 
-2.  **Returns another function**
-    Example:
+2.  **Returns another function** Example:
 
     ```js
     function multiplier(factor) {
@@ -1184,14 +1189,13 @@ A higher-order function is a function that either:
     console.log(double(4)); // 8
     ```
 
-
 [Explore the definition of a higher-order function on GreatFrontEnd](/questions/quiz/what-is-the-definition-of-a-higher-order-function?format=quiz)
 
 ## 28. How Do ES2015 Classes Differ from ES5 Constructor Functions?
 
 ### ES5 Constructor Functions
 
--   Use function constructors and prototypes for object creation and inheritance.
+- Use function constructors and prototypes for object creation and inheritance.
 
 ```js
 function Person(name, age) {
@@ -1209,8 +1213,7 @@ john.greet(); // Hi, I’m John and I’m 30 years old.
 
 ### ES2015 Classes
 
--   Use the `class` keyword for cleaner and more intuitive syntax.
-
+- Use the `class` keyword for cleaner and more intuitive syntax.
 
 ```js
 class Person {
@@ -1230,9 +1233,9 @@ john.greet(); // Hi, I’m John and I’m 30 years old.
 
 ### Key Differences:
 
--   **Syntax**: ES2015 classes are more readable and concise.
--   **Static Methods**: Easier to define using `static` in ES2015.
--   **Inheritance**: Simpler with the `extends` and `super` keywords in ES2015.
+- **Syntax**: ES2015 classes are more readable and concise.
+- **Static Methods**: Easier to define using `static` in ES2015.
+- **Inheritance**: Simpler with the `extends` and `super` keywords in ES2015.
 
 [Explore differences between ES2015 classes and ES5 constructor functions on GreatFrontEnd](/questions/quiz/what-are-the-differences-between-es6-class-and-es5-function-constructors?format=quiz)
 
@@ -1287,7 +1290,7 @@ parent.addEventListener(
   () => {
     console.log('Parent capturing');
   },
-  { capture: true }
+  { capture: true },
 );
 
 child.addEventListener('click', () => {
@@ -1302,11 +1305,13 @@ Clicking the child will log "Parent capturing" first, followed by "Child clicked
 ## 31. How Do `mouseenter` and `mouseover` Differ?
 
 ### `mouseenter`
+
 - Does **not** bubble up the DOM tree.
 - Triggered only when the mouse pointer enters the element itself, excluding its children.
 - Fires a single event when entering the target element.
 
 ### `mouseover`
+
 - Bubbles up the DOM tree.
 - Triggered when the mouse pointer enters the target element or any of its children.
 - Fires multiple events when moving over child elements.
@@ -1316,6 +1321,7 @@ Clicking the child will log "Parent capturing" first, followed by "Child clicked
 ## 32. Synchronous vs. Asynchronous Functions: What's the Difference?
 
 ### Synchronous Functions
+
 - Execute tasks in a sequential, blocking manner.
 - Program execution halts until the current task completes.
 - Easier to debug due to their predictable flow.
@@ -1331,9 +1337,9 @@ console.log('Program ends');
 
 ### Asynchronous Functions
 
--   Perform tasks without blocking program execution.
--   Other operations can run while waiting for the task to finish.
--   Commonly used for I/O operations, network requests, and timers.
+- Perform tasks without blocking program execution.
+- Other operations can run while waiting for the task to finish.
+- Commonly used for I/O operations, network requests, and timers.
 
 **Example:**
 
@@ -1356,9 +1362,9 @@ console.log('End');
 
 ### Key Points
 
--   **Asynchronous**: Updates parts of a page without reloading.
--   **Data Formats**: Initially XML, now primarily JSON due to its simplicity.
--   **APIs**: Traditionally used `XMLHttpRequest`; `fetch()` is the modern alternative.
+- **Asynchronous**: Updates parts of a page without reloading.
+- **Data Formats**: Initially XML, now primarily JSON due to its simplicity.
+- **APIs**: Traditionally used `XMLHttpRequest`; `fetch()` is the modern alternative.
 
 ### Using `XMLHttpRequest`:
 
@@ -1392,15 +1398,15 @@ fetch('https://jsonplaceholder.typicode.com/todos/1')
 
 ### Advantages
 
--   Enhances user experience by enabling seamless updates.
--   Reduces server load by fetching only necessary data.
--   Keeps the user on the same page while updating content.
+- Enhances user experience by enabling seamless updates.
+- Reduces server load by fetching only necessary data.
+- Keeps the user on the same page while updating content.
 
 ### Disadvantages
 
--   Relies on JavaScript, so functionality may break if it’s disabled.
--   SEO challenges with dynamically loaded content.
--   Bookmarking specific page states becomes difficult.
+- Relies on JavaScript, so functionality may break if it’s disabled.
+- SEO challenges with dynamically loaded content.
+- Bookmarking specific page states becomes difficult.
 
 [Explore the advantages and disadvantages of using AJAX on GreatFrontEnd](/questions/quiz/what-are-the-advantages-and-disadvantages-of-using-ajax?format=quiz)
 
@@ -1408,9 +1414,9 @@ fetch('https://jsonplaceholder.typicode.com/todos/1')
 
 ### `XMLHttpRequest`
 
--   **Syntax**: Event-driven; requires listeners for response handling.
--   **Progress Tracking**: Supports progress tracking via `onprogress`.
--   **Error Handling**: Uses `onerror` event.
+- **Syntax**: Event-driven; requires listeners for response handling.
+- **Progress Tracking**: Supports progress tracking via `onprogress`.
+- **Error Handling**: Uses `onerror` event.
 
 **Example:**
 
@@ -1426,9 +1432,10 @@ xhr.send();
 ```
 
 ### `fetch()`
--   **Syntax**: Promise-based; simpler and more readable.
--   **Error Handling**: Uses `.catch()` for better error management.
--   **Modern Features**: Built-in support for `AbortController` for cancellations.
+
+- **Syntax**: Promise-based; simpler and more readable.
+- **Error Handling**: Uses `.catch()` for better error management.
+- **Modern Features**: Built-in support for `AbortController` for cancellations.
 
 **Example:**
 
@@ -1440,8 +1447,9 @@ fetch('https://example.com/api')
 ```
 
 ### Key Differences
--   `fetch()` has cleaner syntax and better Promise integration.
--   `XMLHttpRequest` supports progress tracking, which `fetch()` does not.
+
+- `fetch()` has cleaner syntax and better Promise integration.
+- `XMLHttpRequest` supports progress tracking, which `fetch()` does not.
 
 [Explore the differences between `XMLHttpRequest` and `fetch()` on GreatFrontEnd](/questions/quiz/what-are-the-differences-between-xmlhttprequest-and-fetch?format=quiz)
 
@@ -1450,6 +1458,7 @@ fetch('https://example.com/api')
 JavaScript features a mix of primitive and non-primitive (reference) data types.
 
 ### Primitive Data Types
+
 - **Number**: Includes integers and floating-point values.
 - **String**: Text values enclosed in single, double quotes, or backticks.
 - **Boolean**: Represents `true` or `false`.
@@ -1459,6 +1468,7 @@ JavaScript features a mix of primitive and non-primitive (reference) data types.
 - **BigInt**: Handles large integers with arbitrary precision.
 
 ### Non-Primitive Data Types
+
 - **Object**: Collections of key-value pairs.
 - **Array**: Ordered lists of elements.
 - **Function**: First-class objects that can be assigned, passed, and returned.
@@ -1478,6 +1488,7 @@ JavaScript provides multiple ways to iterate over objects and arrays.
 ### Iterating Over Objects
 
 #### 1. `for...in`
+
 Loops over all enumerable properties, including inherited ones.
 
 ```js
@@ -1546,7 +1557,6 @@ for (const element of arr) {
 
 Iterates with both index and value.
 
-
 ```js
 for (const [index, element] of arr.entries()) {
   console.log(index, ':', element);
@@ -1561,50 +1571,47 @@ for (const [index, element] of arr.entries()) {
 
 The spread operator is used to expand elements of arrays or objects.
 
--   **Copying Arrays/Objects**:
+- **Copying Arrays/Objects**:
 
-    ```js
-    const array = [1, 2, 3];
-    const newArray = [...array]; // [1, 2, 3]
-    ```
+  ```js
+  const array = [1, 2, 3];
+  const newArray = [...array]; // [1, 2, 3]
+  ```
 
--   **Merging Arrays/Objects**:
+- **Merging Arrays/Objects**:
 
+  ```js
+  const arr1 = [1, 2];
+  const arr2 = [3, 4];
+  const mergedArray = [...arr1, ...arr2]; // [1, 2, 3, 4]
+  ```
 
-    ```js
-    const arr1 = [1, 2];
-    const arr2 = [3, 4];
-    const mergedArray = [...arr1, ...arr2]; // [1, 2, 3, 4]
-    ```
+- **Passing Function Arguments**:
 
--   **Passing Function Arguments**:
-
-    ```js
-    const nums = [1, 2, 3];
-    console.log(Math.max(...nums)); // 3
-    ```
-
+  ```js
+  const nums = [1, 2, 3];
+  console.log(Math.max(...nums)); // 3
+  ```
 
 ### Rest Syntax (`...`)
 
 The rest operator collects multiple elements into an array or object.
 
--   **Function Parameters**:
+- **Function Parameters**:
 
-    ```js
-    function sum(...numbers) {
-      return numbers.reduce((a, b) => a + b);
-    }
-    sum(1, 2, 3); // 6
-    ```
+  ```js
+  function sum(...numbers) {
+    return numbers.reduce((a, b) => a + b);
+  }
+  sum(1, 2, 3); // 6
+  ```
 
--   **Destructuring**:
+- **Destructuring**:
 
-    ```js
-    const [first, ...rest] = [1, 2, 3];
-    console.log(rest); // [2, 3]
-    ```
-
+  ```js
+  const [first, ...rest] = [1, 2, 3];
+  console.log(rest); // [2, 3]
+  ```
 
 [Explore spread and rest syntax on GreatFrontEnd](/questions/quiz/what-are-the-benefits-of-using-spread-syntax-and-how-is-it-different-from-rest-syntax?format=quiz)
 
@@ -1612,10 +1619,10 @@ The rest operator collects multiple elements into an array or object.
 
 ### `Map`
 
--   Keys can be any type.
--   Maintains the insertion order.
--   Has a `size` property.
--   Directly iterable.
+- Keys can be any type.
+- Maintains the insertion order.
+- Has a `size` property.
+- Directly iterable.
 
 ```js
 const map = new Map();
@@ -1625,10 +1632,9 @@ console.log(map.size); // 1
 
 ### Plain Object
 
--   Keys are strings or symbols.
--   Iteration requires `Object.keys()`, `Object.values()`, or `Object.entries()`.
--   No direct `size` property.
-
+- Keys are strings or symbols.
+- Iteration requires `Object.keys()`, `Object.values()`, or `Object.entries()`.
+- No direct `size` property.
 
 ```js
 const obj = { key: 'value' };
@@ -1641,13 +1647,12 @@ console.log(Object.keys(obj).length); // 1
 
 ### Key Differences
 
--   **Key Types**: `WeakMap` and `WeakSet` keys must be objects, while `Map` and `Set` accept any data type.
--   **Memory Management**: `WeakMap` and `WeakSet` allow garbage collection of keys, making them useful for managing memory.
--   **Size**: Only `Map` and `Set` have a `size` property.
--   **Iteration**: `WeakMap` and `WeakSet` are not iterable.
+- **Key Types**: `WeakMap` and `WeakSet` keys must be objects, while `Map` and `Set` accept any data type.
+- **Memory Management**: `WeakMap` and `WeakSet` allow garbage collection of keys, making them useful for managing memory.
+- **Size**: Only `Map` and `Set` have a `size` property.
+- **Iteration**: `WeakMap` and `WeakSet` are not iterable.
 
 ### Example
-
 
 ```js
 // Map Example
@@ -1669,6 +1674,7 @@ obj = null; // Key is garbage-collected
 Arrow functions simplify function syntax, making them ideal for inline callbacks.
 
 ### Example: Mapping an Array
+
 ```js
 // Traditional function syntax
 const numbers = [1, 2, 3, 4, 5];
