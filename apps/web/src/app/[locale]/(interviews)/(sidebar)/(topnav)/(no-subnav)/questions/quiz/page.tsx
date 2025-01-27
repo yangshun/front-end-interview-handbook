@@ -6,6 +6,7 @@ import { QuestionCountTotal } from '~/components/interviews/questions/listings/s
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
 import { fetchQuestionsList } from '~/db/QuestionsListReader';
+import { roundQuestionCountToNearestTen } from '~/db/QuestionsUtils';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
@@ -25,32 +26,43 @@ type Props = Readonly<{
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
-  const intl = await getIntlServerOnly(locale);
+  const [intl, { questions }] = await Promise.all([
+    getIntlServerOnly(locale),
+    fetchQuestionsList(listType, locale),
+  ]);
+  const questionCount = roundQuestionCountToNearestTen(questions.length);
 
   return defaultMetadata({
-    description: intl.formatMessage({
-      defaultMessage:
-        'Prepare for front end interviews with a vast question bank covering every format and popular frameworks/languages. Includes solutions and tests from ex-interviewers.',
-      description: 'Page description for interview questions listing',
-      id: 'GJuETM',
-    }),
+    description: intl.formatMessage(
+      {
+        defaultMessage:
+          'Practice {questionCount}+ front end quiz interview questions, each with high quality reference answers written by big tech ex-interviewers.',
+        description: 'Page description for interview questions listing',
+        id: 'r+ed50',
+      },
+      { questionCount },
+    ),
     locale,
     ogImageTitle: intl.formatMessage({
-      defaultMessage: 'Front End Interview Quiz Questions',
+      defaultMessage: 'Front End Interview Practice Questions - Quizzes',
       description: 'Title for front end interview questions page',
-      id: '2CIsYV',
+      id: 'ffpupd',
     }),
     pathname: '/questions/quiz',
     socialTitle: intl.formatMessage({
-      defaultMessage: 'Front End Interview Quiz Questions | GreatFrontEnd',
+      defaultMessage:
+        'Front End Interview Practice Questions - Quizzes | GreatFrontEnd',
       description: 'Social title for practice questions page',
-      id: 'Z1KO72',
+      id: 'd4DJw9',
     }),
-    title: intl.formatMessage({
-      defaultMessage: 'Front End Interview Quiz Questions',
-      description: 'Page title for practice questions page',
-      id: 'v9OyMJ',
-    }),
+    title: intl.formatMessage(
+      {
+        defaultMessage: '{questionCount}+ Front End Interview Quiz Questions',
+        description: 'Page title for practice questions page',
+        id: 'xiKHPp',
+      },
+      { questionCount },
+    ),
   });
 }
 
@@ -59,7 +71,7 @@ export default async function Page({ params }: Props) {
 
   const [{ questions: quizQuestions }, bottomContent] = await Promise.all([
     fetchQuestionsList(listType, locale),
-    fetchInterviewListingBottomContent('all-questions'),
+    fetchInterviewListingBottomContent('questions-quiz'),
   ]);
 
   return (

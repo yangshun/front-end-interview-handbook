@@ -49,9 +49,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: intl.formatMessage(
       {
         defaultMessage:
-          '{questionCount}+ Front End Interview Practice Questions',
+          '{questionCount}+ Front End Interview Questions and Answers',
         description: 'Page title for practice questions page',
-        id: 'BSRBkq',
+        id: 'nHYQlP',
       },
       {
         questionCount: QuestionCountTotal,
@@ -65,7 +65,7 @@ export default async function Page({ params }: Props) {
 
   const [{ questions: codingQuestions }, bottomContent] = await Promise.all([
     fetchQuestionsList(listType, locale),
-    fetchInterviewListingBottomContent('all-questions'),
+    fetchInterviewListingBottomContent('questions-coding'),
   ]);
 
   return (

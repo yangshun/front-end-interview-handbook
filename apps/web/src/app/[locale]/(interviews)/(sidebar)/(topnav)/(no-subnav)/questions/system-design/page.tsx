@@ -6,6 +6,7 @@ import { QuestionCountTotal } from '~/components/interviews/questions/listings/s
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
 import { fetchQuestionsList } from '~/db/QuestionsListReader';
+import { roundQuestionCountToNearestTen } from '~/db/QuestionsUtils';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
@@ -25,33 +26,44 @@ type Props = Readonly<{
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
-  const intl = await getIntlServerOnly(locale);
+  const [intl, { questions }] = await Promise.all([
+    getIntlServerOnly(locale),
+    fetchQuestionsList(listType, locale),
+  ]);
+  const questionCount = roundQuestionCountToNearestTen(questions.length);
 
   return defaultMetadata({
-    description: intl.formatMessage({
-      defaultMessage:
-        'Prepare for front end interviews with a vast question bank covering every format and popular frameworks/languages. Includes solutions and tests from ex-interviewers.',
-      description: 'Page description for interview questions listing',
-      id: 'GJuETM',
-    }),
+    description: intl.formatMessage(
+      {
+        defaultMessage:
+          'Practice {questionCount}+ front end system design interview questions on the architecture of components, apps, games. Reference answers by big tech ex-interviewers.',
+        description: 'Page description for interview questions listing',
+        id: 'dCKqPL',
+      },
+      { questionCount },
+    ),
     locale,
     ogImageTitle: intl.formatMessage({
-      defaultMessage: 'Front End Interview System Design Questions',
+      defaultMessage: 'Front End Interview Practice Questions - System Design',
       description: 'Title for front end interview questions page',
-      id: '0n8VZl',
+      id: 'WGhcfY',
     }),
     pathname: '/questions/system-design',
     socialTitle: intl.formatMessage({
       defaultMessage:
-        'Front End Interview System Design Questions | GreatFrontEnd',
+        'Front End Interview Practice Questions - System Design | GreatFrontEnd',
       description: 'Social title for practice questions page',
-      id: '3hqY/T',
+      id: 'SHXV1e',
     }),
-    title: intl.formatMessage({
-      defaultMessage: 'Front End Interview System Design Questions',
-      description: 'Page title for practice questions page',
-      id: 'A1r7nd',
-    }),
+    title: intl.formatMessage(
+      {
+        defaultMessage:
+          '{questionCount}+ Front End System Design Interview Questions',
+        description: 'Page title for practice questions page',
+        id: 'Z2eqSt',
+      },
+      { questionCount },
+    ),
   });
 }
 
@@ -61,7 +73,7 @@ export default async function Page({ params }: Props) {
   const [{ questions: systemDesignQuestions }, bottomContent] =
     await Promise.all([
       fetchQuestionsList(listType, locale),
-      fetchInterviewListingBottomContent('all-questions'),
+      fetchInterviewListingBottomContent('questions-system-design'),
     ]);
 
   return (

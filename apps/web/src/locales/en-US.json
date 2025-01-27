@@ -451,10 +451,6 @@
     "defaultMessage": "JavaScript Interview Guides",
     "description": "Title for guide card"
   },
-  "0n8VZl": {
-    "defaultMessage": "Front End Interview System Design Questions",
-    "description": "Title for front end interview questions page"
-  },
   "0qQNkH": {
     "defaultMessage": "You've also earned:",
     "description": "Marketing rewards message"
@@ -654,10 +650,6 @@
   "2BQudu": {
     "defaultMessage": "Visit external link",
     "description": "Label for open external link button"
-  },
-  "2CIsYV": {
-    "defaultMessage": "Front End Interview Quiz Questions",
-    "description": "Title for front end interview questions page"
   },
   "2CZvP8": {
     "defaultMessage": "Title",
@@ -870,10 +862,6 @@
   "3hQg9K": {
     "defaultMessage": "Vanilla JS Interview Questions",
     "description": "Vanilla JS questions category long title"
-  },
-  "3hqY/T": {
-    "defaultMessage": "Front End Interview System Design Questions | GreatFrontEnd",
-    "description": "Social title for practice questions page"
   },
   "3n0B1m": {
     "defaultMessage": "You currently have {count, plural, =0 {no premium credits} one {<bold>1 premium credit</bold>} other {<bold># premium credits</bold>}}. Proceed to unlock?",
@@ -1823,10 +1811,6 @@
     "defaultMessage": "Front End System Design Playbook",
     "description": "Title of frontend system design playbook page"
   },
-  "A1r7nd": {
-    "defaultMessage": "Front End Interview System Design Questions",
-    "description": "Page title for practice questions page"
-  },
   "A5COe1": {
     "defaultMessage": "Cancel",
     "description": "Label for cancel button on import progress dialog"
@@ -2058,10 +2042,6 @@
   "BRZJBS": {
     "defaultMessage": "Tree",
     "description": "Computer science data structure"
-  },
-  "BSRBkq": {
-    "defaultMessage": "{questionCount}+ Front End Interview Practice Questions",
-    "description": "Page title for practice questions page"
   },
   "BVZEeY": {
     "defaultMessage": "<authorProfileLink>{author}</authorProfileLink> replied to <recipientProfileLink>{recipient}</recipientProfileLink> on the challenge forum for <link>{challengeTitle}</link>: <comment>\"{description}\"</comment>",
@@ -2750,10 +2730,6 @@
   "GJbSo1": {
     "defaultMessage": "User onboarding",
     "description": "Title for Projects onboarding page"
-  },
-  "GJuETM": {
-    "defaultMessage": "Prepare for front end interviews with a vast question bank covering every format and popular frameworks/languages. Includes solutions and tests from ex-interviewers.",
-    "description": "Page description for interview questions listing"
   },
   "GKha2+": {
     "defaultMessage": "As mentioned, there are many ways to host your site. Our recommended hosts are:",
@@ -4775,6 +4751,10 @@
     "defaultMessage": "Challenge unlocked successfully",
     "description": "Label to unlock a premium project"
   },
+  "SHXV1e": {
+    "defaultMessage": "Front End Interview Practice Questions - System Design | GreatFrontEnd",
+    "description": "Social title for practice questions page"
+  },
   "SK7Xn6": {
     "defaultMessage": "Write your status here",
     "description": "Placeholder for status others field on project profile edit page"
@@ -5475,6 +5455,10 @@
     "defaultMessage": "Close",
     "description": "Label for close button"
   },
+  "WGhcfY": {
+    "defaultMessage": "Front End Interview Practice Questions - System Design",
+    "description": "Title for front end interview questions page"
+  },
   "WHJSVt": {
     "defaultMessage": "Style guide for typography, colors and spacing",
     "description": "Provided resource for project"
@@ -5887,13 +5871,13 @@
     "defaultMessage": "Starter files and APIs",
     "description": "Title of 'Starter code and APIs' sub-feature in Projects marketing page"
   },
-  "Z1KO72": {
-    "defaultMessage": "Front End Interview Quiz Questions | GreatFrontEnd",
-    "description": "Social title for practice questions page"
-  },
   "Z1vsfi": {
     "defaultMessage": "Search user interface questions",
     "description": "Search placeholder"
+  },
+  "Z2eqSt": {
+    "defaultMessage": "{questionCount}+ Front End System Design Interview Questions",
+    "description": "Page title for practice questions page"
   },
   "Z3Z5Fp": {
     "defaultMessage": "Review other's project code and help them improve",
@@ -6551,6 +6535,10 @@
     "defaultMessage": "Copy line down",
     "description": "Text describing command to copy lines down in the coding workspace shortcuts menu"
   },
+  "d4DJw9": {
+    "defaultMessage": "Front End Interview Practice Questions - Quizzes | GreatFrontEnd",
+    "description": "Social title for practice questions page"
+  },
   "d4LSzo": {
     "defaultMessage": "Overview",
     "description": "Title for overview category of behavioral playbook cover page"
@@ -6570,6 +6558,10 @@
   "dAHBqv": {
     "defaultMessage": "Theme",
     "description": "Label for select that changes the theme of the editor"
+  },
+  "dCKqPL": {
+    "defaultMessage": "Practice {questionCount}+ front end system design interview questions on the architecture of components, apps, games. Reference answers by big tech ex-interviewers.",
+    "description": "Page description for interview questions listing"
   },
   "dFjMzR": {
     "defaultMessage": "Copy link",
@@ -6970,6 +6962,10 @@
   "fcKx8Z": {
     "defaultMessage": "Advanced",
     "description": "Advanced blog"
+  },
+  "ffpupd": {
+    "defaultMessage": "Front End Interview Practice Questions - Quizzes",
+    "description": "Title for front end interview questions page"
   },
   "fg9NRy": {
     "defaultMessage": "Download your unlocked Figma file (<code>.fig</code>) and open it using the <link>Figma desktop app</link> or the <link2>Figma website</link2>.",
@@ -8139,6 +8135,10 @@
     "defaultMessage": "Progress | {name}",
     "description": "Title of user profile progress page"
   },
+  "nHYQlP": {
+    "defaultMessage": "{questionCount}+ Front End Interview Questions and Answers",
+    "description": "Page title for practice questions page"
+  },
   "nI4Alg": {
     "defaultMessage": "Test cases",
     "description": "Features for question format page"
@@ -8718,6 +8718,10 @@
   "qwP4CA": {
     "defaultMessage": "Huge question bank",
     "description": "Title for huge question bank feature"
+  },
+  "r+ed50": {
+    "defaultMessage": "Practice {questionCount}+ front end quiz interview questions, each with high quality reference answers written by big tech ex-interviewers.",
+    "description": "Page description for interview questions listing"
   },
   "r/YoFx": {
     "defaultMessage": "Premium accounts are not eligible",
@@ -9359,10 +9363,6 @@
     "defaultMessage": "Targeted practice in specific front end frameworks and languages.",
     "description": "Description for framework and language section"
   },
-  "v9OyMJ": {
-    "defaultMessage": "Front End Interview Quiz Questions",
-    "description": "Page title for practice questions page"
-  },
   "vC3/M4": {
     "defaultMessage": "Pricing plans",
     "description": "Pricing plans section title"
@@ -9722,6 +9722,10 @@
   "xiEHQ1": {
     "defaultMessage": "Job title",
     "description": "Label for \"Job Title\" input on Projects profile onboarding page"
+  },
+  "xiKHPp": {
+    "defaultMessage": "{questionCount}+ Front End Interview Quiz Questions",
+    "description": "Page title for practice questions page"
   },
   "xjHSyF": {
     "defaultMessage": "All log levels",

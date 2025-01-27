@@ -134,13 +134,12 @@ export default function ProjectsOnboardingContextProvider({ children }: Props) {
         }}>
         <div className="flex flex-col gap-y-4">
           <Text className="block" color="subtitle">
-            Before proceeding, take a moment to fill out some basic details like
-            your name and YOE. This helps the community provide more relevant
-            support.
+            Before proceeding, fill out your name and YOE. This helps the
+            community provide more relevant support.
           </Text>
           <Text className="block" color="subtitle">
-            Psst: This profile is exclusively for Projects and won't impact the
-            Interviews product.
+            PS: This profile is only for Projects – it won't be linked to your
+            Interviews account.
           </Text>
         </div>
       </ConfirmationDialog>
