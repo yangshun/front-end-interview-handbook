@@ -86,7 +86,7 @@ export default function ProjectsOnboardingProfileForm({
   const trpcUtils = trpc.useUtils();
   const onboardingProfileStepSchema = useOnboardingProfileStepSchema();
   const { data: initialValues } = trpc.profile.viewer.useQuery();
-  const profileCreationMutation = trpc.projects.profile.create.useMutation({
+  const profileOnboardMutation = trpc.projects.profile.onboard.useMutation({
     onMutate: () => {
       logEvent('projects.onboarding.submit', {
         namespace: 'projects',
@@ -150,7 +150,7 @@ export default function ProjectsOnboardingProfileForm({
             className="flex flex-col gap-y-8"
             onSubmit={handleSubmit(
               async (data: OnboardingProfileStepTransformedValues) => {
-                await profileCreationMutation.mutateAsync({
+                await profileOnboardMutation.mutateAsync({
                   avatarUrl: data.avatarUrl,
                   company: data.company,
                   currentStatus: data.yoeReplacement,

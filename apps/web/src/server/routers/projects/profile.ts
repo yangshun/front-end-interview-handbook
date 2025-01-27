@@ -77,71 +77,6 @@ async function fetchProjectsProfileStatistics(projectsProfileId: string) {
 }
 
 export const projectsProfileRouter = router({
-  create: userProcedure
-    .input(
-      z.object({
-        avatarUrl: z.string().optional(),
-        company: z.string().optional().nullable(),
-        currentStatus: z.string().optional().nullable(),
-        motivations: z.array(z.string()),
-        name: z.string(),
-        startWorkDate: z.date().optional().nullable(),
-        title: projectsJobTitleInputSchemaServer,
-        username: profileUserNameSchemaServer,
-      }),
-    )
-    .mutation(
-      async ({
-        input: {
-          currentStatus,
-          name,
-          title,
-          startWorkDate,
-          avatarUrl,
-          motivations,
-          username,
-          company,
-        },
-        ctx: { viewer },
-      }) => {
-        const projectsProfileFields = {
-          motivations,
-        };
-        const userProfile = nullthrows(
-          await prisma.profile.update({
-            data: {
-              avatarUrl,
-              company,
-              currentStatus,
-              name,
-              projectsProfile: {
-                upsert: {
-                  create: projectsProfileFields,
-                  update: projectsProfileFields,
-                },
-              },
-              startWorkDate,
-              title,
-              username,
-            },
-            include: {
-              projectsProfile: true,
-            },
-            where: {
-              id: viewer.id,
-            },
-          }),
-        );
-
-        const projectsProfile = nullthrows(
-          await projectsProfileRecalculatePoints(
-            userProfile.projectsProfile?.id,
-          ),
-        );
-
-        return { ...userProfile, projectsProfile };
-      },
-    ),
   dashboardStatistics: publicProcedure
     .input(
       z.object({
@@ -229,6 +164,71 @@ export const projectsProfileRouter = router({
             : latestSubmissions,
       };
     }),
+  onboard: userProcedure
+    .input(
+      z.object({
+        avatarUrl: z.string().optional(),
+        company: z.string().optional().nullable(),
+        currentStatus: z.string().optional().nullable(),
+        motivations: z.array(z.string()),
+        name: z.string(),
+        startWorkDate: z.date().optional().nullable(),
+        title: projectsJobTitleInputSchemaServer,
+        username: profileUserNameSchemaServer,
+      }),
+    )
+    .mutation(
+      async ({
+        input: {
+          currentStatus,
+          name,
+          title,
+          startWorkDate,
+          avatarUrl,
+          motivations,
+          username,
+          company,
+        },
+        ctx: { viewer },
+      }) => {
+        const projectsProfileFields = {
+          motivations,
+        };
+        const userProfile = nullthrows(
+          await prisma.profile.update({
+            data: {
+              avatarUrl,
+              company,
+              currentStatus,
+              name,
+              projectsProfile: {
+                upsert: {
+                  create: projectsProfileFields,
+                  update: projectsProfileFields,
+                },
+              },
+              startWorkDate,
+              title,
+              username,
+            },
+            include: {
+              projectsProfile: true,
+            },
+            where: {
+              id: viewer.id,
+            },
+          }),
+        );
+
+        const projectsProfile = nullthrows(
+          await projectsProfileRecalculatePoints(
+            userProfile.projectsProfile?.id,
+          ),
+        );
+
+        return { ...userProfile, projectsProfile };
+      },
+    ),
   update: projectsUserProcedure
     .input(
       z
