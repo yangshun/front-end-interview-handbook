@@ -78,10 +78,12 @@ export default function ProjectsChallengeSubmissionHeroVoteButton({
             })
       }
       onClick={() => {
-        handleActionRequiringLogin(() => {
-          viewerUpvoted
-            ? unvote.mutate({ submissionId })
-            : vote.mutate({ submissionId });
+        handleActionRequiringLogin({
+          fn: () => {
+            viewerUpvoted
+              ? unvote.mutate({ submissionId })
+              : vote.mutate({ submissionId });
+          },
         });
       }}
     />

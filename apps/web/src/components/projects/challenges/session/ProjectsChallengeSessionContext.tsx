@@ -161,10 +161,10 @@ export default function ProjectsChallengeSessionContextProvider({
     session,
     setIsGetStartedDialogShown,
     startProject: () => {
-      handleActionRequiringLogin(
-        () => setIsGetStartedDialogShown(true),
-        'start_project',
-      );
+      handleActionRequiringLogin({
+        fn: () => setIsGetStartedDialogShown(true),
+        signUpSource: 'start_project',
+      });
     },
     startSession: async (skills: ProjectsChallengeSessionSkillsFormValues) => {
       await startProjectMutation.mutateAsync(

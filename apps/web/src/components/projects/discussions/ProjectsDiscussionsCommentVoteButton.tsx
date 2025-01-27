@@ -75,14 +75,16 @@ export default function ProjectsDiscussionsCommentVoteButton({
       tooltip={actionLabel}
       variant={hasVoted ? 'unstyled' : 'tertiary'}
       onClick={() => {
-        handleActionRequiringLogin(() => {
-          hasVoted
-            ? unvoteCommentMutation.mutate({
-                commentId,
-              })
-            : voteCommentMutation.mutate({
-                commentId,
-              });
+        handleActionRequiringLogin({
+          fn: () => {
+            hasVoted
+              ? unvoteCommentMutation.mutate({
+                  commentId,
+                })
+              : voteCommentMutation.mutate({
+                  commentId,
+                });
+          },
         });
       }}
     />

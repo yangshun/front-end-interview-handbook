@@ -17,7 +17,11 @@ type ProjectsOnboardingContextType = Readonly<{
     onboardingNextHref?: string;
     signUpSource?: string;
   }) => void;
-  handleActionRequiringLogin: (fn?: () => void, signUpSource?: string) => void;
+  handleActionRequiringLogin: (opts?: {
+    fn?: () => void;
+    nextHref?: string;
+    signUpSource?: string;
+  }) => void;
 }>;
 
 const ProjectsOnboardingContext = createContext<ProjectsOnboardingContextType>({
@@ -53,9 +57,20 @@ export default function ProjectsOnboardingContextProvider({ children }: Props) {
     });
   }
 
-  function handleActionRequiringLogin(fn?: () => void, signUpSource?: string) {
+  function handleActionRequiringLogin({
+    fn,
+    nextHref,
+    signUpSource,
+  }: Readonly<{
+    fn?: () => void;
+    nextHref?: string;
+    signUpSource?: string;
+  }> = {}) {
     if (userProfile == null) {
-      navigateToSignInUpPage({ query: { source: signUpSource } });
+      navigateToSignInUpPage({
+        next: nextHref,
+        query: { source: signUpSource },
+      });
 
       return;
     }
@@ -67,13 +82,16 @@ export default function ProjectsOnboardingContextProvider({ children }: Props) {
     fn,
     onboardingNextHref,
     signUpSource,
-  }: {
+  }: Readonly<{
     fn?: () => void;
     onboardingNextHref?: string;
     signUpSource?: string;
-  } = {}) {
+  }> = {}) {
     if (userProfile == null) {
-      navigateToSignInUpPage({ query: { source: signUpSource } });
+      navigateToSignInUpPage({
+        next: onboardingNextHref,
+        query: { source: signUpSource },
+      });
 
       return;
     }
@@ -101,7 +119,7 @@ export default function ProjectsOnboardingContextProvider({ children }: Props) {
         confirmButtonLabel="Get started"
         isShown={showOnboardingDialog.shown}
         showCancelButton={false}
-        title="Create a projects profile first"
+        title="Set up your profile first (it's quick!)"
         onCancel={() => {
           setShowOnboardingDialog({
             onboardingNextHref: null,
@@ -116,11 +134,12 @@ export default function ProjectsOnboardingContextProvider({ children }: Props) {
         }}>
         <div className="flex flex-col gap-y-4">
           <Text className="block" color="subtitle">
-            Welcome to GreatFrontEnd Projects! Set up your profile to improve
-            your experience on the platform.
+            Before proceeding, take a moment to fill out some basic details like
+            your name and YOE. This helps the community provide more relevant
+            support.
           </Text>
           <Text className="block" color="subtitle">
-            Psst: This profile is only used for Projects, it does not affect the
+            Psst: This profile is exclusively for Projects and won't impact the
             Interviews product.
           </Text>
         </div>

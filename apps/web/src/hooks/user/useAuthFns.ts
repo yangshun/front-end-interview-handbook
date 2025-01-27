@@ -9,12 +9,12 @@ import { useIntl } from '~/components/intl';
 
 import { useI18nRouter } from '~/next-i18nostic/src';
 
-type HrefProps = Readonly<{
+type AuthHrefProps = Readonly<{
   next?: string;
   query?: ParsedUrlQueryInput;
 }>;
 
-function forwardCurrentSearchParams(href: string) {
+function mergeWithCurrentURL(href: string) {
   if (typeof window === 'undefined') {
     return href;
   }
@@ -24,13 +24,18 @@ function forwardCurrentSearchParams(href: string) {
     'https://greatfrontend.com', // The domain is not used.
   );
 
+  // Merge with search params
   const searchParams = new URLSearchParams(window.location.search);
 
   searchParams.forEach((value, key) => {
     urlObj.searchParams.set(key, value);
   });
 
+  // Merge with search params
+  urlObj.hash ||= window.location.hash;
+
   return url.format({
+    hash: urlObj.hash,
     pathname: urlObj.pathname,
     search: urlObj.search,
   });
@@ -48,7 +53,10 @@ export function useAuthSignInUp() {
   // Hence use useLocation() to listen to URL changes and force re-renders
   useLocation();
 
-  function signInUpHref({ next, query }: HrefProps | undefined = {}): string {
+  function signInUpHref({
+    next,
+    query,
+  }: AuthHrefProps | undefined = {}): string {
     const resolvedNext = next || pathname || window.location.pathname;
 
     return url.format({
@@ -56,16 +64,14 @@ export function useAuthSignInUp() {
       query: {
         // To prevent hydration errors and add query params
         // when on the client
-        next: isClient
-          ? forwardCurrentSearchParams(resolvedNext)
-          : resolvedNext,
+        next: isClient ? mergeWithCurrentURL(resolvedNext) : resolvedNext,
         ...query,
       },
     });
   }
 
   return {
-    navigateToSignInUpPage: (hrefProps: HrefProps | undefined = {}) =>
+    navigateToSignInUpPage: (hrefProps: AuthHrefProps | undefined = {}) =>
       router.push(signInUpHref(hrefProps)),
     signInUpHref,
     signInUpLabel: intl.formatMessage({
@@ -87,7 +93,7 @@ export function useAuthLogout() {
   // Hence use useLocation() to listen to URL changes and force re-renders
   useLocation();
 
-  function logoutHref({ next, query }: HrefProps | undefined = {}): string {
+  function logoutHref({ next, query }: AuthHrefProps | undefined = {}): string {
     const resolvedNext = next || pathname || window.location.pathname;
 
     return url.format({
@@ -95,9 +101,7 @@ export function useAuthLogout() {
       query: {
         // To prevent hydration errors and add query params
         // when on the client
-        next: isClient
-          ? forwardCurrentSearchParams(resolvedNext)
-          : resolvedNext,
+        next: isClient ? mergeWithCurrentURL(resolvedNext) : resolvedNext,
         ...query,
       },
     });
@@ -110,7 +114,7 @@ export function useAuthLogout() {
       description: 'Link label to the sign out page',
       id: 'BDbpLJ',
     }),
-    navigateToLogoutPage: (hrefProps: HrefProps | undefined = {}) =>
+    navigateToLogoutPage: (hrefProps: AuthHrefProps | undefined = {}) =>
       router.push(logoutHref(hrefProps)),
   };
 }
