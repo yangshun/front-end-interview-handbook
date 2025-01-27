@@ -285,13 +285,7 @@ export default function InterviewsQuestionsListSlideOutContents({
   const embedFilters = (
     <div className={clsx('flex flex-col', themeBackgroundCardColor)}>
       <div className={clsx('flex flex-wrap items-center gap-2', 'px-6 py-4')}>
-        {formatFilterOptions != null && formatFilters != null && (
-          <FilterSection
-            coveredValues={questionAttributesUnion.formats}
-            filterOptions={formatFilterOptions}
-            filters={formatFilters}
-          />
-        )}
+        {/* Intentionally don't show the format filters since it's shown below the tabs */}
         <FilterSection
           coveredValues={questionAttributesUnion.topics}
           filterOptions={topicFilterOptions}
