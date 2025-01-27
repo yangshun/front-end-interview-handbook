@@ -285,11 +285,13 @@ export default function InterviewsQuestionsListSlideOutContents({
   const embedFilters = (
     <div className={clsx('flex flex-col', themeBackgroundCardColor)}>
       <div className={clsx('flex flex-wrap items-center gap-2', 'px-6 py-4')}>
-        <FilterSection
-          coveredValues={questionAttributesUnion.formats}
-          filterOptions={formatFilterOptions}
-          filters={formatFilters}
-        />
+        {formatFilterOptions != null && formatFilters != null && (
+          <FilterSection
+            coveredValues={questionAttributesUnion.formats}
+            filterOptions={formatFilterOptions}
+            filters={formatFilters}
+          />
+        )}
         <FilterSection
           coveredValues={questionAttributesUnion.topics}
           filterOptions={topicFilterOptions}
@@ -395,7 +397,7 @@ export default function InterviewsQuestionsListSlideOutContents({
           onSubmit={(event) => {
             event.preventDefault();
           }}>
-          <div className={clsx('flex w-full items-center gap-3', 'px-6')}>
+          <div className={clsx('flex w-full items-center gap-3', 'px-6 pt-2')}>
             <div className="flex-1">
               <TextInput
                 autoComplete="off"
