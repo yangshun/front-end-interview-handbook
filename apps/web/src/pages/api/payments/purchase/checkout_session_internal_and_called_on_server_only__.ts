@@ -183,7 +183,7 @@ async function processSubscriptionPlan(
   })();
 
   const pppEligibleForFTLBundle =
-    planPaymentConfig.conversionFactor <=
+    planPaymentConfig.conversionFactor <
     MAX_PPP_ELIGIBLE_FOR_FAANG_TECH_LEADS_PROMO;
 
   const session = await stripe.checkout.sessions.create({
@@ -251,7 +251,7 @@ async function processOneTimePlan(
   })();
 
   const pppEligibleForFTLBundle =
-    planPaymentConfig.conversionFactor <=
+    planPaymentConfig.conversionFactor <
     MAX_PPP_ELIGIBLE_FOR_FAANG_TECH_LEADS_PROMO;
 
   const session = await stripe.checkout.sessions.create({

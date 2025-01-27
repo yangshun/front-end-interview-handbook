@@ -654,7 +654,7 @@ export default function InterviewsPricingTableSection({
     featuredPlan.paymentConfig.conversionFactor <=
     MAXIMUM_PPP_CONVERSION_FACTOR_TO_DISPLAY_BEFORE_PRICE;
   const pppEligibleForFTLBundle =
-    featuredPlan.paymentConfig.conversionFactor <=
+    featuredPlan.paymentConfig.conversionFactor <
     MAX_PPP_ELIGIBLE_FOR_FAANG_TECH_LEADS_PROMO;
 
   const pppDiscountRounded = Math.ceil(
