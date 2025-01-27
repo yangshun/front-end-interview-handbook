@@ -13,7 +13,10 @@ export type TeamUser = Readonly<{
 export const teamUsers: ReadonlyArray<TeamUser> = [
   {
     category: 'team',
-    companyLogos: ['/img/company-logos/meta-logomark.png'],
+    companyLogos: [
+      '/img/company-logos/meta-logomark.png',
+      '/img/company-logos/docusaurus-logo.svg',
+    ],
     description:
       'Yangshun is the author of "Blind 75" and "Front End Interview Handbook". At Meta, he created Docusaurus 2 and led engineering teams to build www.meta.com and www.oculus.com.',
     href: 'https://www.linkedin.com/in/yangshun',
@@ -55,7 +58,7 @@ export const teamUsers: ReadonlyArray<TeamUser> = [
     title: 'Senior Staff Software Engineer @ Google',
   },
   {
-    category: 'team',
+    category: 'alumni',
     companyLogos: [
       '/img/company-logos/robinhood-logomark.svg',
       '/img/company-logos/amazon-logomark.svg',
@@ -118,13 +121,16 @@ export const teamUsers: ReadonlyArray<TeamUser> = [
   },
   {
     category: 'expert',
-    companyLogos: ['/img/company-logos/flexport-logomark.png'],
+    companyLogos: [
+      '/img/company-logos/hubspot-logomark.svg',
+      '/img/company-logos/flexport-logomark.png',
+    ],
     description:
       'Kevin is a software engineer who enjoys the front end ecosystem. At Flexport, he led several big refactors to modernize the front end tech stack.',
     href: 'https://www.linkedin.com/in/gonzalezkev/',
     image: '/img/team/kevin-gonzalez.jpg',
     name: 'Kevin Gonzalez',
-    title: 'Software Engineer @ Flexport',
+    title: 'Software Engineer @ HubSpot',
   },
   {
     category: 'expert',
@@ -132,7 +138,7 @@ export const teamUsers: ReadonlyArray<TeamUser> = [
     description:
       'Utpal is well-versed in React and React Native and an experienced interviewer.',
     href: 'https://www.linkedin.com/in/utpalsingh/',
-    image: '/img/team/utpal.jpg',
+    image: '/img/team/utpal-singh.jpg',
     name: 'Utpal Singh',
     roundedCompanyLogo: true,
     title: 'Front End Engineer @ Rattle',
@@ -145,17 +151,17 @@ export const teamUsers: ReadonlyArray<TeamUser> = [
     href: 'https://www.linkedin.com/in/lukefiji/',
     image: '/img/team/luke-fiji.jpg',
     name: 'Luke Fiji',
-    title: 'Front End Software Engineer, ex-Dapper Labs',
+    title: 'Front End Engineer @ Codified',
   },
   {
-    category: 'team',
+    category: 'alumni',
     companyLogos: ['/img/company-logos/tiktok-logomark.svg'],
     description:
       'Jeff is passionate about creating delightful user experiences and well-engineered software primarily using React and Flutter. He showcases his projects and other creations at jeffsieu.com',
     href: 'https://jeffsieu.com',
     image: '/img/team/jeff-sieu-yong.jpg',
     name: 'Jeff Sieu',
-    title: 'Front End Engineering Intern @ TikTok',
+    title: 'Ex-Front End Engineering Intern @ TikTok',
   },
   {
     category: 'alumni',
@@ -165,7 +171,7 @@ export const teamUsers: ReadonlyArray<TeamUser> = [
     href: 'https://www.linkedin.com/in/ai-ling-hong/',
     image: '/img/team/hong-ai-ling.jpg',
     name: 'Hong Ai Ling',
-    title: 'Software Engineering Intern @ Palantir',
+    title: 'Software Engineer @ Palantir',
   },
   {
     category: 'alumni',
@@ -175,16 +181,26 @@ export const teamUsers: ReadonlyArray<TeamUser> = [
     href: 'https://www.linkedin.com/in/ziqingzhang26/',
     image: '/img/team/zhang-ziqing.jpg',
     name: 'Zhang Ziqing',
-    title: 'Front End Engineering Intern @ TikTok',
+    title: 'Software Engineer @ TikTok',
   },
   {
-    category: 'team',
+    category: 'alumni',
     companyLogos: [],
     description:
       'Feilin is a software engineering intern who is into competitive programming and promoting tech education & literacy amongst youths. She is also a Google Cloud Certified Professional ML Engineer.',
     href: 'https://www.linkedin.com/in/feilin-liangga-putri/',
     image: '/img/team/feilin.jpg',
     name: 'Feilin Liangga Putri',
-    title: 'Software Engineering Intern',
+    title: 'Ex-Software Engineering Intern @ GreatFrontEnd',
+  },
+  {
+    category: 'alumni',
+    companyLogos: [],
+    description:
+      'Minh Man is a software engineering intern who is passionate about building web applications, with special interest in competitive programming and machine learning research.',
+    href: 'https://www.linkedin.com/in/feilin-liangga-putri/',
+    image: '/img/team/minh-man.jpg',
+    name: 'Tram Minh Man',
+    title: 'Ex-Software Engineering Intern @ GreatFrontEnd',
   },
 ];
