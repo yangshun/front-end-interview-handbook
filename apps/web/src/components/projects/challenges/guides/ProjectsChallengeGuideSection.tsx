@@ -110,7 +110,7 @@ export default function ProjectsChallengeGuideSection({
     challengeGuideItems != null && challengeGuideItems.length > 0
       ? {
           items: challengeGuideItems,
-          label: intl.formatMessage({
+          title: intl.formatMessage({
             defaultMessage: 'Challenge walkthrough',
             description: 'Project guides category title',
             id: 'aICrh0',
@@ -120,7 +120,7 @@ export default function ProjectsChallengeGuideSection({
     relevantGuideItems.length > 0
       ? {
           items: relevantGuideItems,
-          label: intl.formatMessage({
+          title: intl.formatMessage({
             defaultMessage: 'Relevant techniques',
             description: 'Project guides category title',
             id: 'IK3TnA',
@@ -129,7 +129,7 @@ export default function ProjectsChallengeGuideSection({
       : null,
     {
       items: commonGuidesWithoutRelevantGuides,
-      label: intl.formatMessage({
+      title: intl.formatMessage({
         defaultMessage: 'General guides',
         description: 'Project guides category title',
         id: 'q6xeLh',

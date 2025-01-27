@@ -88,7 +88,7 @@ export function readBlogSeriesPostNavigation(
 
   return {
     items: posts,
-    seriesTitle: series?.title,
+    seriesTitle: series?.title ?? '',
     subseriesTitle: subseries?.title,
   };
 }

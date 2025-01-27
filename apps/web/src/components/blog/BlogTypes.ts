@@ -37,6 +37,6 @@ export type BlogSubseries = BlogSubseriesOrig &
 
 export type BlogArticleNavigationType = Readonly<{
   items: ReadonlyArray<BlogSeriesNavigationLink>;
-  seriesTitle?: string;
+  seriesTitle: string;
   subseriesTitle?: string;
 }>;

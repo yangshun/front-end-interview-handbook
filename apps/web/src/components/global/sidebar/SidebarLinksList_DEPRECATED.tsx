@@ -31,7 +31,7 @@ type SidebarItemType = Readonly<
 export type NavigationType = {
   items: ReadonlyArray<SidebarItemType>;
   subtitle?: string;
-  title?: string;
+  title: string;
 };
 
 function LinksListItem({

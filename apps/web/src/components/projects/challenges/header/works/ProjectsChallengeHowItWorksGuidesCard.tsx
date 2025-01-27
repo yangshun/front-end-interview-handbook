@@ -18,7 +18,7 @@ export default function ProjectsChallengeHowItWorksGuidesCard() {
           slug: 'cloud',
         },
       ],
-      label: 'Official guides',
+      title: 'Official guides',
     },
   ];
 
