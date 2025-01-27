@@ -23,13 +23,15 @@ export default function BlogRelatedArticleCard({ metadata }: Props) {
         themeBackgroundCardWhiteOnLightColor,
         themeGlassyBorder,
       )}>
-      <img
-        alt={metadata.title}
-        className="!m-0 h-[175px] w-full rounded object-cover"
-        decoding="async"
-        loading="lazy"
-        src={metadata.imageUrl}
-      />
+      {metadata.imageUrl && (
+        <img
+          alt={metadata.title}
+          className="!m-0 h-[175px] w-full rounded object-cover"
+          decoding="async"
+          loading="lazy"
+          src={metadata.imageUrl}
+        />
+      )}
       <div className="flex flex-col gap-y-2">
         <Anchor href={metadata.href} variant="unstyled">
           <span aria-hidden={true} className="absolute inset-0" />
