@@ -125,11 +125,20 @@ export default function JavaScriptCodingQuizCodeEditor(props: Props) {
         default:
           // For other console methods (log, warn, etc.)
           (console as Console)[method] = (...args: Array<unknown>) => {
+            const sanitizedArgs = args.map((arg) => {
+              // Check if `arg` is `globalThis` and replace it with a safe object
+              if (arg === window) {
+                return '[object Window]'; // Or return a safe subset, e.g., `{ windowLocation: globalThis.location }`
+              }
+
+              return arg;
+            });
+
             setOutput((prevOutput) => [
               ...prevOutput,
-              { data: args, id: uuidv4(), method },
+              { data: sanitizedArgs, id: uuidv4(), method },
             ]);
-            (originalConsoleMethods as any)[method](...args);
+            (originalConsoleMethods as any)[method](...sanitizedArgs);
           };
           break;
       }
@@ -140,7 +149,12 @@ export default function JavaScriptCodingQuizCodeEditor(props: Props) {
 
     try {
       // Using eval to execute the code with the overridden console
-      const result = eval(code);
+      const modifiedCode = code.replace(
+        /console\.log\((\s*this\s*)\)/g,
+        'console.log(this || window)',
+      );
+      // Using eval to execute the modified code with the overridden console
+      const result = eval(`${modifiedCode}; void 0;`);
 
       if (result !== undefined) {
         // If eval returned something, push it to the logs
