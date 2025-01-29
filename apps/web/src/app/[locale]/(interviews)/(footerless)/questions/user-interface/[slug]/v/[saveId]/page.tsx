@@ -66,7 +66,7 @@ export default async function Page({ params }: Props) {
   ]);
 
   if (save == null) {
-    // TODO(submission): show error page for not found save.
+    // TODO(interviews): show error page for not found save.
     return <div className="p-4 text-center">No such save.</div>;
   }
 

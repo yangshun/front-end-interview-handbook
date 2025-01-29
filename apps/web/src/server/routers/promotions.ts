@@ -455,13 +455,19 @@ export const promotionsRouter = router({
   generateStudentDiscountPromoCode: userProcedure.mutation(
     async ({ ctx: { viewer } }) => {
       const profile = await prisma.profile.findFirst({
+        include: {
+          projectsProfile: true,
+        },
         where: {
           id: viewer.id,
         },
       });
 
-      // TODO(projects): handle interviews vs projects premium.
-      if (profile == null || profile?.premium || !profile?.stripeCustomer) {
+      if (profile == null || !profile?.stripeCustomer) {
+        return null;
+      }
+
+      if (profile.premium && profile.projectsProfile?.premium) {
         return null;
       }
 

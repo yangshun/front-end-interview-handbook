@@ -111,7 +111,7 @@ export default function ProjectsDiscussionsComment({
 
   return (
     // Id is to enable linking / auto scrolling to a specific comment
-    // TODO: rework this to integrate with comment pagination if comments list are paginated
+    // TODO(projects): rework this to integrate with comment pagination if comments list are paginated
     <div
       className={clsx(
         'flex grow flex-col',

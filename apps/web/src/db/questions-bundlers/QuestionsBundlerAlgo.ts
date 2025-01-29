@@ -1,5 +1,4 @@
 import fs from 'fs';
-// TODO(interviews): Move glob to globby.
 import { globby } from 'globby';
 import grayMatter from 'gray-matter';
 import path from 'path';
