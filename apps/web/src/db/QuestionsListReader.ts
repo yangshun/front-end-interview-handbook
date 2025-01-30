@@ -27,7 +27,7 @@ import { getQuestionsListOutFilenameJavaScript } from './questions-bundlers/Ques
 import { getQuestionsListOutFilenameQuiz } from './questions-bundlers/QuestionsBundlerQuizConfig';
 import { getQuestionsListOutFilenameSystemDesign } from './questions-bundlers/QuestionsBundlerSystemDesignConfig';
 import { getQuestionsListOutFilenameUserInterface } from './questions-bundlers/QuestionsBundlerUserInterfaceConfig';
-import { unhashQuestion } from './QuestionsUtils';
+import { hashQuestion } from './QuestionsUtils';
 
 export type QuestionTotalAvailableCount = Record<QuestionFormat, number>;
 
@@ -409,28 +409,22 @@ export async function fetchQuestionsListByHash(
     fetchQuestionsListSystemDesign(locale),
   ]);
 
-  const questionMetadata = questionHashes.map((qnHash) => {
-    const [format, slug] = unhashQuestion(qnHash);
+  const qnHashToQnMetadataMap = new Map<
+    QuestionHash,
+    Readonly<QuestionMetadata>
+  >(
+    [
+      ...quizQuestions,
+      ...algoQuestions,
+      ...jsQuestions,
+      ...uiQuestions,
+      ...systemDesignQuestions,
+    ].map((qn) => [hashQuestion({ format: qn.format, slug: qn.slug }), qn]),
+  );
 
-    // TODO(interviews): Make the lookup more efficient.
-    switch (format) {
-      case 'algo': {
-        return algoQuestions.find((question) => question.slug === slug);
-      }
-      case 'javascript': {
-        return jsQuestions.find((question) => question.slug === slug);
-      }
-      case 'user-interface': {
-        return uiQuestions.find((question) => question.slug === slug);
-      }
-      case 'system-design': {
-        return systemDesignQuestions.find((question) => question.slug === slug);
-      }
-      case 'quiz': {
-        return quizQuestions.find((question) => question.slug === slug);
-      }
-    }
-  });
+  const questionMetadata = questionHashes.map((qnHash) =>
+    qnHashToQnMetadataMap.get(qnHash),
+  );
 
   return questionMetadata.flatMap((item) => (item != null ? [item] : []));
 }
