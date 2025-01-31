@@ -26,18 +26,15 @@ In this list, we've compiled 30 essential React interview questions that are ess
 
 React is an open-source JavaScript library developed by Facebook for building user interfaces, particularly single-page applications (SPAs). It allows developers to create reusable UI components that manage their own state. Key benefits include a component-based structure, efficient updates with the virtual DOM, declarative UI for readability, and strong community support.
 
-Key features include:
-
-- Virtual DOM: Enhances performance by minimizing direct DOM manipulations.
-- Component-Based Architecture: Encourages reusability and separation of concerns.
-- Unidirectional Data Flow: Simplifies data management and debugging.
-- JSX Syntax: Allows mixing HTML with JavaScript, making the code more readable.
+![React Features](/img/blog/react-article/features.jpg)
 
 [Read more about it](/questions/quiz/what-is-react-describe-the-benefits-of-react)
 
 ### 2. What is JSX?
 
 JSX stands for JavaScript XML and is a syntax extension for JavaScript that lets you write HTML-like code within JavaScript. It simplifies creating React components. JSX is transformed into JavaScript function calls, usually by Babel. For example, `<div>Hello, world!</div>` becomes `React.createElement('div', null, 'Hello, world!')`.
+
+![How JSX works](/img/blog/react-article/babel-to-react.jpg)
 
 [Read more about it](/questions/quiz/what-is-jsx-and-how-does-it-work)
 
@@ -98,6 +95,8 @@ React hooks must be called at the top level of a function, never inside loops, c
 
 - State: State is an internal data structure managed within a component. It is mutable, meaning that it can be updated and changed over time, allowing the component to respond to user interactions or other events dynamically.
 - Props: Props, short for properties, are external data passed from parent components to child components. They are immutable within the child component, meaning that once set, they cannot be altered by the child. This ensures a clear flow of data and helps maintain the integrity of the component hierarchy.
+
+![State vs Props](/img/blog/react-article/state-vs-props.jpg)
 
 [Read more about it](/questions/quiz/what-is-the-difference-between-state-and-props-in-react)
 
@@ -318,6 +317,8 @@ Forms can be controlled or uncontrolled; controlled forms use state to manage in
 
 Server-side rendering (SSR) involves rendering components on the server before sending fully rendered HTML to clients, improving initial load times and SEO through efficient hydration processes.
 
+![Server side rendering](/img/blog/react-article/server-side-rendering.jpg)
+
 [Read more about it](/questions/quiz/explain-server-side-rendering-of-react-applications-and-its-benefits)
 
 ### 24. How do you test React applications?
@@ -366,6 +367,8 @@ function Counter() {
 ### 27. Explain what React hydration is.
 
 Hydration involves attaching event listeners and making server-rendered HTML interactive on the client side. After server-side rendering, React initializes dynamic behavior by attaching event handlers.
+
+![React Hydration](/img/blog/react-article/react-hydration.jpg)
 
 [Read more about it](/questions/quiz/explain-what-react-hydration-is)
 

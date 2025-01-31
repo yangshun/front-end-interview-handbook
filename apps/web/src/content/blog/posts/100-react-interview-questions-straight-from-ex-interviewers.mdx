@@ -22,18 +22,15 @@ Preparing for a React interview can be daunting, but having access to the right 
 
 React is a JavaScript library developed by Facebook for creating user interfaces, particularly in single-page applications. It enables the use of reusable components that manage their own state. Key advantages include a component-driven architecture, optimized updates through the virtual DOM, a declarative approach for better readability, and robust community backing.
 
-#### Key features:
-
-- Declarative: React updates the DOM based on state.
-- Component-based: Reusable UI elements with state management.
-- Virtual DOM: Efficient updates using a lightweight DOM copy.
-- JSX: HTML-like syntax for intuitive UI development.
+![React Features](/img/blog/react-article/features.jpg)
 
 [Read more about it here](/questions/quiz/what-is-react-describe-the-benefits-of-react)
 
 ### 2. What is JSX and how does it work?
 
 JSX, short for JavaScript XML, is a syntax extension for JavaScript that allows you to write HTML-like code within JavaScript. It makes building React components easier. JSX gets converted into JavaScript function calls, often by Babel. For instance, `<div>Hello, world!</div>` is transformed into `React.createElement('div', null, 'Hello, world!')`.
+
+![How JSX works](/img/blog/react-article/babel-to-react.jpg)
 
 [Read more about it here](/questions/quiz/what-is-jsx-and-how-does-it-work)
 
@@ -111,6 +108,8 @@ React Fiber is a complete rewrite of the React core algorithm, designed to impro
 ### 13. What is reconciliation?
 
 Reconciliation is the process by which React updates the DOM to match the virtual DOM efficiently. It involves comparing the new virtual DOM tree with the previous one and determining the minimum number of changes required to update the actual DOM. This process ensures optimal performance by avoiding unnecessary re-renders.
+
+![React Reconciliation](/img/blog/react-article/react-reconciliation.jpg)
 
 [Read more about it here](/questions/quiz/what-is-reconciliation-in-react)
 
@@ -480,6 +479,8 @@ This involves:
 3. Updating the real DOM with only the differences (efficient rendering).
 4. Re-rendering ensures that the UI stays in sync with the component's state and props.
 
+![Virtual DOM vs Browser DOM](/img/blog/react-article/virtual-dom-vs-browser-dom.jpg)
+
 [Read more about it here](/questions/quiz/what-does-re-rendering-mean-in-react)
 
 ### 35. What is `forwardRef()` in React used for?
@@ -553,6 +554,8 @@ function MyComponent() {
 
 Hydration involves attaching event listeners and making server-rendered HTML interactive on the client side. After server-side rendering, React initializes dynamic behavior by attaching event handlers.
 
+![React Hydration](/img/blog/react-article/react-hydration.jpg)
+
 [Read more about it here](/questions/quiz/explain-what-react-hydration-is)
 
 ### 40. What are React Portals used for?
@@ -611,6 +614,8 @@ const value = useMemo(() => ({ state, dispatch }), [state, dispatch]);
 
 The Flux pattern manages application state through unidirectional data flow, simplifying debugging and enhancing maintainability with clear separation of concerns between Dispatcher, Stores, Actions, and Views.
 
+![Flux pattern](/img/blog/react-article/flux-pattern.jpg)
+
 [Read more about it here](/questions/quiz/what-is-the-flux-pattern-and-what-are-its-benefits)
 
 ### 45. Explain one-way data flow of React.
@@ -634,6 +639,8 @@ function Child({ count, increment }) {
 ```
 
 This ensures data flows in one direction, making the app more predictable.
+
+![React data flow](/img/blog/react-article/react-data-flow.jpg)
 
 [Read more about it here](/questions/quiz/explain-one-way-data-flow-of-react-and-its-benefits)
 
@@ -813,6 +820,8 @@ useEffect(() => {
 ### 57. Explain server-side rendering of React applications and its benefits.
 
 Server-side rendering (SSR) involves rendering components on the server before sending fully rendered HTML to clients, improving initial load times and SEO through efficient hydration processes.
+
+![Server side rendering](/img/blog/react-article/server-side-rendering.jpg)
 
 [Read more about it here](/questions/quiz/explain-server-side-rendering-of-react-applications-and-its-benefits)
 

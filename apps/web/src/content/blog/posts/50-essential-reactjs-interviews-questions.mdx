@@ -6,6 +6,7 @@ tags:
   - interviews
 level: starter
 createdAt: 2025-01-09
+imageUrl: /img/blog/50-essential-reactjs-interviews-questions.jpg
 author: blog/author/nitesh-seram.json
 category: blog/category/front-end-interviews.json
 series: blog/series/beginner-interview-questions.json
@@ -20,12 +21,7 @@ To help you stand out, we've compiled 50 essential React JS interview questions 
 
 React is a JavaScript library by Facebook for building user interfaces, especially in single-page apps. It allows reusable components with their own state. Key benefits include a component-based structure, efficient updates with the virtual DOM, declarative UI for readability, and strong community support.
 
-### Key features:
-
-- **Declarative**: React updates the DOM based on state.
-- **Component-based**: Reusable UI elements with state management.
-- **Virtual DOM**: Efficient updates using a lightweight DOM copy.
-- **JSX**: HTML-like syntax for intuitive UI development.
+![React Features](/img/blog/react-article/features.jpg)
 
 [Read the detailed answer here](/questions/quiz/what-is-react-describe-the-benefits-of-react)
 
@@ -39,11 +35,15 @@ A React Node is any renderable unit in React, like an element, string, number, o
 
 JSX stands for JavaScript XML and is a syntax extension for JavaScript that lets you write HTML-like code within JavaScript. It simplifies creating React components. JSX is transformed into JavaScript function calls, usually by Babel. For example, `<div>Hello, world!</div>` becomes `React.createElement('div', null, 'Hello, world!')`.
 
+![How JSX works](/img/blog/react-article/babel-to-react.jpg)
+
 [Read the detailed answer here](/questions/quiz/what-is-jsx-and-how-does-it-work)
 
 ## 4. Difference between state and props in React
 
 In React, `state` is local data managed within a component that can change over time, while `props` are read-only attributes passed from a parent to a child component. `state` is used for data that changes within a component, whereas `props` are used to pass data and event handlers to child components.
+
+![State vs Props](/img/blog/react-article/state-vs-props.jpg)
 
 [Read the detailed answer here](/questions/quiz/what-is-the-difference-between-state-and-props-in-react)
 
@@ -241,6 +241,8 @@ function MyComponent() {
 
 Re-rendering refers to updating a component's output in the DOM due to changes in state or props. When these changes occur, React triggers a re-render to ensure the UI reflects current data by calling the render method again.
 
+![Virtual DOM vs Browser DOM](/img/blog/react-article/virtual-dom-vs-browser-dom.jpg)
+
 [Read the detailed answer here](/questions/quiz/what-does-re-rendering-mean-in-react)
 
 ## 20. What are React Fragments used for?
@@ -302,6 +304,8 @@ Testing React applications can be done using Jest and React Testing Library. Jes
 ## 26. Explain what React hydration is
 
 Hydration involves attaching event listeners and making server-rendered HTML interactive on the client side. After server-side rendering, React initializes dynamic behavior by attaching event handlers.
+
+![React Hydration](/img/blog/react-article/react-hydration.jpg)
 
 [Read the detailed answer here](/questions/quiz/explain-what-react-hydration-is)
 
@@ -386,11 +390,15 @@ const EnhancedComponent = withExtraProps(MyComponent);
 
 The Flux pattern manages application state through unidirectional data flow, simplifying debugging and enhancing maintainability with clear separation of concerns between Dispatcher, Stores, Actions, and Views.
 
+![Flux pattern](/img/blog/react-article/flux-pattern.jpg)
+
 [Read the detailed answer here](/questions/quiz/what-is-the-flux-pattern-and-what-are-its-benefits)
 
 ## 35. Explain one-way data flow of React
 
 One-way data flow means data moves from parent to child components only, making it predictable and easier to debug while enhancing maintainability and performance.
+
+![React data flow](/img/blog/react-article/react-data-flow.jpg)
 
 [Read the detailed answer here](/questions/quiz/explain-one-way-data-flow-of-react-and-its-benefits)
 
@@ -440,6 +448,8 @@ export default FetchAndDisplayData;
 ## 37. Explain server-side rendering of React applications and its benefits
 
 Server-side rendering (SSR) involves rendering components on the server before sending fully rendered HTML to clients, improving initial load times and SEO through efficient hydration processes.
+
+![Server side rendering](/img/blog/react-article/server-side-rendering.jpg)
 
 [Read the detailed answer here](/questions/quiz/explain-server-side-rendering-of-react-applications-and-its-benefits)
 
@@ -533,11 +543,15 @@ function Dialog(props) {
 
 The virtual DOM is a lightweight representation of the actual DOM used by React. It enables efficient UI updates by comparing the virtual DOM with the real DOM and applying only necessary changes through a process called reconciliation.
 
+![Virtual DOM](/img/blog/react-article/virtual-dom.jpg)
+
 [Read the detailed answer here](/questions/quiz/what-is-virtual-dom-in-react)
 
 ## 46. How does virtual DOM in React work? What are its benefits and downsides?
 
 The virtual DOM works by creating a new tree whenever a component's state changes and comparing it with the previous tree through "reconciliation." This allows only the differences to be updated in the actual DOM, enhancing performance. Benefits include improved efficiency and a declarative UI management style, while downsides may include added complexity for simple applications.
+
+![How Virtual DOM works](/img/blog/react-article/virtual-dom-works.jpg)
 
 [Read the detailed answer here](/questions/quiz/how-does-virtual-dom-in-react-work-what-are-its-benefits-and-downsides)
 
@@ -550,6 +564,8 @@ React Fiber is a complete rewrite of React's reconciliation algorithm introduced
 ## 48. What is reconciliation in React?
 
 Reconciliation is the process where React updates the DOM to match changes in the virtual DOM. When a component's state or props change, a new virtual DOM tree is created and compared with the previous one through "diffing," allowing efficient updates to only changed parts of the actual DOM.
+
+![React Reconciliation](/img/blog/react-article/react-reconciliation.jpg)
 
 [Read the detailed answer here](/questions/quiz/what-is-reconciliation-in-react)
 
