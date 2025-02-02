@@ -175,7 +175,7 @@ export default function GuidesMainLayout({
                 'overflow-hidden xl:overflow-x-hidden',
               )}
               style={{
-                height: `calc(100vh - 48px - var(--global-sticky-height)`,
+                height: `calc(100vh - 48px - 48px - var(--global-sticky-height))`, // 48px for top padding, 48px for bottom bar
                 top: 'calc(48px + var(--global-sticky-height))',
               }}>
               {tableOfContents && (
