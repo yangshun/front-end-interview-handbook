@@ -63,6 +63,10 @@
     "defaultMessage": "Practice JavaScript coding interview questions by implementing utility functions like throttle or polyfills. Code in-browser with solutions from ex-interviewers.",
     "description": "SEO description for JavaScript coding question format page"
   },
+  "+OInLK": {
+    "defaultMessage": "Join Premium Discord",
+    "description": "Button title for joining the Premium Discord community on interviews payment success page"
+  },
   "+OVTKu": {
     "defaultMessage": "Billing | Profile",
     "description": "Title of Profile Billing page"
@@ -338,6 +342,10 @@
   "032cio": {
     "defaultMessage": "Move line up",
     "description": "Text describing command to move lines up in the coding workspace shortcuts menu"
+  },
+  "03K4gC": {
+    "defaultMessage": "How will I know my application has been accepted?",
+    "description": "FAQ about the turnaround time for application approval"
   },
   "03TVln": {
     "defaultMessage": "Filter by component track",
@@ -714,6 +722,10 @@
   "2eN4S3": {
     "defaultMessage": "Finally, premium features include access to time-saving resources such as <bold>curated question lists</bold>, including study plans, focus areas, and company guides, designed to streamline your preparation process and maximize efficiency.",
     "description": "Paragraph 3 answer to 'What is included in the premium plan?' on Homepage's FAQ sections"
+  },
+  "2fISDf": {
+    "defaultMessage": "Our team will carefully review every application. In most cases, applications will be processed within 15 business days. If your application is approved, you will receive an acceptance email into the program.",
+    "description": "Answer to the FAQ about the turnaround time for application approval"
   },
   "2fVNQZ": {
     "defaultMessage": "{count} topical deep-dives",
@@ -1139,6 +1151,10 @@
     "defaultMessage": "Your dream job is within reach—just a few months of preparation away. Unlock premium for less than the cost of a day's pay and get there faster.",
     "description": "Subtitle for a premium interviews content"
   },
+  "5kU0WD": {
+    "defaultMessage": "Does it cost anything to join?",
+    "description": "FAQ about whether it costs anything to join as an affiliate"
+  },
   "5kWNqG": {
     "defaultMessage": "We've had {number} unique active users on our site. Verifiable by Google Analytics.",
     "description": "Tooltip for used by engineers"
@@ -1358,6 +1374,10 @@
   "7/se2x": {
     "defaultMessage": "{count}+ questions are free to do",
     "description": "Marketing page section subtitle"
+  },
+  "71+OLd": {
+    "defaultMessage": "Join over {userCount} users in our private Discord community for Premium users",
+    "description": "Button subtitle for joining the Premium Discord community on interviews payment success page"
   },
   "72GwzV": {
     "defaultMessage": "Available in {frameworkLabel}",
@@ -2215,6 +2235,10 @@
     "defaultMessage": "The following challenges will be unlocked:",
     "description": "Confirmation text for unlocking a premium challenge"
   },
+  "CsbOOj": {
+    "defaultMessage": "Join Discord",
+    "description": "Button title for joining Discord commmunity on projects payment success page"
+  },
   "Ctnuuc": {
     "defaultMessage": "+ {numberOfTags} more",
     "description": "Number of tags in a list"
@@ -2599,6 +2623,10 @@
     "defaultMessage": "Explore Front End Series | GreatFrontEnd",
     "description": "Social title of GreatFrontEnd blog explore series page"
   },
+  "FJ0LYY": {
+    "defaultMessage": "What requirements do I need to meet to apply?",
+    "description": "FAQ about requirements for applying as an affiliate"
+  },
   "FLKG3X": {
     "defaultMessage": "Cut line (empty selection)",
     "description": "Text describing command to cut line(s) in the coding workspace shortcuts menu"
@@ -2803,6 +2831,10 @@
     "defaultMessage": "View your submission",
     "description": "Label for View your submission button on project submit page"
   },
+  "GhEwYP": {
+    "defaultMessage": "Go to dashboard and start practicing",
+    "description": "Button subtitle for starting practicing on interviews payment success page"
+  },
   "Ghc5ye": {
     "defaultMessage": "{numberOfQuestions, plural, =0 {No questions} one {1 question} other {# questions}}",
     "description": "Number of questions in a list"
@@ -2967,9 +2999,17 @@
     "defaultMessage": "Test your code",
     "description": "Title of test panel for coding workspace"
   },
+  "HeSq+m": {
+    "defaultMessage": "Review other's submissions and leave a feedback or question",
+    "description": "Button subtitle for reviewing submissions on projects payment success page"
+  },
   "Hh2IoR": {
     "defaultMessage": "Sign in / up",
     "description": "Link label to the sign in / up page"
+  },
+  "Hh5i/2": {
+    "defaultMessage": "Welcome to the Premium Club for GreatFrontEnd Projects!",
+    "description": "Title for projects payment success page"
   },
   "HheXnK": {
     "defaultMessage": "Next skill",
@@ -3387,6 +3427,10 @@
     "defaultMessage": "Recommended resources",
     "description": "Features for company guides"
   },
+  "K7qkc7": {
+    "defaultMessage": "Yes, our referral program is global. We sell to users in more than 100 countries.",
+    "description": "Answer to the FAQ about whether the affiliate program is global"
+  },
   "KBBRmA": {
     "defaultMessage": "While working on project",
     "description": "Hint for \"Tips, Resources and Discussions\" tab on Projects project page"
@@ -3478,6 +3522,10 @@
   "KgN46v": {
     "defaultMessage": "Leveling progress",
     "description": "Label for leveling progress on project submission success page"
+  },
+  "KgZhx6": {
+    "defaultMessage": "Choose a skill you want to hone, or a component library you want to build",
+    "description": "Button subtitle for starting a project on projects payment success page"
   },
   "KhMTHf": {
     "defaultMessage": "We're largely free to use, but Premium gives you access to our best material and efforts.",
@@ -4387,6 +4435,10 @@
     "defaultMessage": "Front End Interview Practice Questions",
     "description": "Title for front end interview questions page"
   },
+  "QFhW8Z": {
+    "defaultMessage": "Welcome to the Premium Club for GreatFrontEnd Interviews!",
+    "description": "Welcome message for premium club members after payment success"
+  },
   "QJTIr/": {
     "defaultMessage": "Can't find the answer you are looking for?",
     "description": "Marketing page section subtitle"
@@ -4627,6 +4679,10 @@
     "defaultMessage": "Challenges | Progress | {name}",
     "description": "Title of user profile challenge page"
   },
+  "RVcMne": {
+    "defaultMessage": "Start practicing",
+    "description": "Button title for starting practicing on interviews payment success page"
+  },
   "RW0xSE": {
     "defaultMessage": "Official solutions in JS/TS",
     "description": "Features for blind75"
@@ -4682,6 +4738,10 @@
   "RnHcaK": {
     "defaultMessage": "An account is required to purchase premium",
     "description": "Title of alert requesting user to create an account to purchase premium plans"
+  },
+  "Rr7G89": {
+    "defaultMessage": "Join our Discord community for GreatFrontEnd Projects",
+    "description": "Button subtitle for joining Discord commmunity on projects payment success page"
   },
   "RsPxKM": {
     "defaultMessage": "Superscript",
@@ -5030,6 +5090,10 @@
   "TfBpeT": {
     "defaultMessage": "Here are some highly-rated submissions you can reference while doing your project. We prioritize submissions by their ratings, the similarity of their tech stack to yours, and the seniority level of the commenter.",
     "description": "Description for Reference Submissions section on Projects project tips & resources page"
+  },
+  "TfadhY": {
+    "defaultMessage": "You will get paid at the end of every month. Payment is made directly to your PayPal account.",
+    "description": "Answer to the FAQ about payment for affiliates"
   },
   "Tfuq+t": {
     "defaultMessage": "{title} skill plan progress",
@@ -5523,6 +5587,10 @@
     "defaultMessage": "Here you'll find curated collection of our most insightful and engaging blog content, neatly organized into series for your convenience. Each series focuses on a unique theme or topic providing deep dive subject.",
     "description": "Latest blog articles page subtitle"
   },
+  "WfqD8P": {
+    "defaultMessage": "<p>If users use your affiliate link to access our website, an attribution cookie will be added which lasts for 7 days. As long as the user purchases products within the duration of the cookie, you will earn 15% commissions on their first order.</p>",
+    "description": "Answer to the FAQ about how referrals are tracked"
+  },
   "WiZAwx": {
     "defaultMessage": "I want to use React for this challenge, but it's not listed as one of the skills. Can I still use it?",
     "description": "FAQ question for projects platform"
@@ -5666,6 +5734,10 @@
   "XVPYZg": {
     "defaultMessage": "Forgot your password?",
     "description": "Label of forget password button on Email Sign In page"
+  },
+  "XZYjaQ": {
+    "defaultMessage": "We pay out a commission rate of 15% for all valid first purchases within 7 days of the cookie window, with no limit in terms of the max commission or number of referrals that will be rewarded.",
+    "description": "Answer to the FAQ about the commission structure for affiliates"
   },
   "Xcw/lL": {
     "defaultMessage": "Explore user submissions handpicked for your growth - based on your profile, skills you're keen to learn, and the projects you've completed.",
@@ -5975,6 +6047,10 @@
     "defaultMessage": "Edit your submission for the {challengeName} challenge. Include new strategies and insights, enriching the knowledge base.",
     "description": "Description of Projects edit submission page"
   },
+  "Zq2tuw": {
+    "defaultMessage": "No, signing up as an affiliate is completely free.",
+    "description": "Answer to the FAQ if it costs anything to join as an affiliate"
+  },
   "ZqJYfb": {
     "defaultMessage": "Subscript",
     "description": "Label for subscript"
@@ -6110,6 +6186,10 @@
   "all5El": {
     "defaultMessage": "You can download assets after starting the project",
     "description": "Title for project overlay on projects details page"
+  },
+  "am6Lx2": {
+    "defaultMessage": "How are referrals tracked?",
+    "description": "FAQ about how referrals are tracked"
   },
   "amYRnY": {
     "defaultMessage": "To progress in the skill plan, you must add the skill to the <bold>\"Skills used\"</bold> field when completing a challenge.",
@@ -6843,6 +6923,10 @@
     "defaultMessage": "Async",
     "description": "Front end development topic"
   },
+  "f/2QqM": {
+    "defaultMessage": "<p>When sharing about GreatFrontEnd with your audience, always use your unique affiliate link.</p>",
+    "description": "Answer to the FAQ about how referrals are tracked"
+  },
   "f/t2zt": {
     "defaultMessage": "Project session ended!",
     "description": "Toast title for project session ended"
@@ -7330,6 +7414,10 @@
   "hurk0k": {
     "defaultMessage": "Trie",
     "description": "Computer science data structure"
+  },
+  "hwpLbI": {
+    "defaultMessage": "<p>Once accepted into the affiliate program, you will receive a unique reference handle and affiliate link which will be used to track all your referrals.</p>",
+    "description": "Answer to the FAQ about how referrals are tracked"
   },
   "hz5dJR": {
     "defaultMessage": "No notification yet!",
@@ -7863,6 +7951,10 @@
     "defaultMessage": "This guide is the only resource designed specifically for front end engineers, offering you an insider's look at the unique behavioral challenges you'll face in interviews. From nailing your self introduction to effectively working with cross-functional teams, this guide equips you with the tools, tips, and strategies you need to shine.",
     "description": "Long description of behavioral interview playbook page"
   },
+  "lBeTMC": {
+    "defaultMessage": "What is the commission structure?",
+    "description": "FAQ about the commission structure for affiliates"
+  },
   "lD302L": {
     "defaultMessage": "Recommended duration to spend during interviews",
     "description": "Recommended duration tooltip displayed on question cards found on question lists"
@@ -8007,6 +8099,10 @@
     "defaultMessage": "Design files for desktop, tablet and mobile",
     "description": "Provided resource for project"
   },
+  "mTVs6A": {
+    "defaultMessage": "Learn from others or help them out",
+    "description": "Button title for reviewing submissions on projects payment success page"
+  },
   "mU5c9N": {
     "defaultMessage": "After completion",
     "description": "Tab label for projects challenges"
@@ -8127,6 +8223,10 @@
     "defaultMessage": "{questionCount}+ most important Vue interview questions covering stores, bindings, reactivity, lifecycle, and building interactive components.",
     "description": "Subtitle for questions list page"
   },
+  "nAHx0y": {
+    "defaultMessage": "Leverage time-savers like study plans and focus areas to turbocharge your prep",
+    "description": "Button subtitle for leveraging time-savers on interviews payment success page"
+  },
   "nAM572": {
     "defaultMessage": "Question formats",
     "description": "Label for question format list"
@@ -8142,6 +8242,10 @@
   "nI4Alg": {
     "defaultMessage": "Test cases",
     "description": "Features for question format page"
+  },
+  "nJS5qE": {
+    "defaultMessage": "How and when do I get paid?",
+    "description": "FAQ about payment for affiliates"
   },
   "nL4iPh": {
     "defaultMessage": "We offer bulk discounts at attractive rates for group trainings. Please send an email to <link>institutions@greatfrontend.com</link> with your company email and address, and we would be happy to assist.",
@@ -8311,6 +8415,10 @@
     "defaultMessage": "Marked question as incomplete",
     "description": "Success message shown when a question is marked as complete"
   },
+  "oRCEvl": {
+    "defaultMessage": "Premium time-savers",
+    "description": "Button title for leveraging time-savers on interviews payment success page"
+  },
   "oS10TF": {
     "defaultMessage": "Follow us on GitHub",
     "description": "Title for task"
@@ -8382,6 +8490,10 @@
   "ooGnHf": {
     "defaultMessage": "Popularity: Most to least upvotes",
     "description": "Sorting option for discussions comment - popularity"
+  },
+  "ooXTuY": {
+    "defaultMessage": "Start on a project",
+    "description": "Button title for starting a project on projects payment success page"
   },
   "ouJSar": {
     "defaultMessage": "{name} completed",
@@ -8562,6 +8674,10 @@
   "puP8B5": {
     "defaultMessage": "Collapse {replyCount, plural, =0 {none} one {# reply} other {# replies}}",
     "description": "Label for collapse replies button"
+  },
+  "pyCMaw": {
+    "defaultMessage": "To apply, you must:<ul><li>Have an established audience through at least 1 <strong>active</strong> channel that you own, such as a website, blog, video channel, courses or social media.</li><li>Create original content.</li></ul>",
+    "description": "Answer to the FAQ about requirements for applying as an affiliate"
   },
   "pz1v44": {
     "defaultMessage": "Next",
@@ -9254,6 +9370,10 @@
   "uWgMQQ": {
     "defaultMessage": "Coding questions that use JavaScript to build user interfaces, including components, applications, and games.",
     "description": "Description of interview questions page"
+  },
+  "uYb9qn": {
+    "defaultMessage": "Can I participate from outside the US?",
+    "description": "FAQ about whether the affiliate program is global"
   },
   "ua8BRe": {
     "defaultMessage": "All Practice Questions",

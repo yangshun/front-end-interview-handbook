@@ -22,14 +22,14 @@ import {
 
 type Props = Readonly<{
   actions: ReadonlyArray<{
-    description: string;
+    description: React.ReactNode;
     featured?: boolean;
     href: string;
     icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
-    title: string;
+    title: React.ReactNode;
   }>;
   crossSellSection?: React.ReactNode;
-  title: string;
+  title: React.ReactNode;
 }>;
 
 export default function PurchasePaymentSuccessSection({
@@ -83,7 +83,7 @@ export default function PurchasePaymentSuccessSection({
                 role="list">
                 {actions.map((action) => (
                   <li
-                    key={action.title}
+                    key={action.href}
                     className="group relative flex items-start gap-x-4 py-6">
                     <div className="shrink-0">
                       <span
