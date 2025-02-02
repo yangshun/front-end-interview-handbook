@@ -61,7 +61,7 @@ In this approach, an inner `classNamesImpl` helper function is defined and it ac
 
 ## Follow-up: De-duplicating classes
 
-The provided solution doesn't handle de-duplicating classes, which would be a nice optimization. Without du-duplication, `classNames('foo', 'foo')` will give you `'foo foo'` which is unnecessary as far as the browser result is concerned.
+The provided solution doesn't handle de-duplicating classes, which would be a nice optimization. Without de-duplication, `classNames('foo', 'foo')` will give you `'foo foo'` which is unnecessary as far as the browser result is concerned.
 
 In some cases, de-duplication can also affect the result, e.g. in the case of `classNames('foo', { foo: false })`, `{ foo: false }` appears later in the arguments, so the user probably did not mean for `'foo'` to appear in the final result.
 

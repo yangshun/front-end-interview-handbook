@@ -716,7 +716,7 @@ Only the important APIs are mentioned here. For more possible APIs, see [`TextNo
 
 ## Optimizations and deep dive
 
-The sections above have given a good overview of how a modern, extensible, modular can be designed, using Lexical as an example. Let's dive into how Lexical handles the following topics.
+The sections above have given a good overview of how a modern, extensible, modular text editor can be designed, using Lexical as an example. Let's dive into how Lexical handles the following topics.
 
 ### Update loop in detail
 
@@ -1164,7 +1164,7 @@ Real-time collaborative editing is complicated because of the following complexi
 
 Real-time collaborative editing is beyond the scope of rich text editor system design, but Lexical's core model + commands architecture allows for real-time collaboration functionality; the collaboration layer can be built beneath the existing editor core and dispatch commands for the editor core to execute.
 
-For a deep dive on collaborative editing, we recommend reading our entire [Collaborative Editor system design article](/questions/system-design/collaborative-editing-google-docs).
+For a deep dive on collaborative editing, we recommend reading our entire [Collaborative Editor system design article](/questions/system-design/collaborative-editor-google-docs).
 
 Operational Transformations (OT) and Conflict-free Replicated Data Types (CRDTs) are ways of handling simultaneous conflicts in documents. OT resolves conflicts by transforming user operations against peer operations by accounting for the state of the document when the operation was made. CRDTs avoid conflicts altogether with specially-designed data structures so that updates can be made in any order and clients will still eventually converge into a consistent state.
 

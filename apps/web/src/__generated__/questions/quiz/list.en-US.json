@@ -5202,7 +5202,7 @@
     "ranking": 90,
     "similarQuestions": [],
     "slug": "whats-the-difference-between-a-variable-that-is-null-undefined-or-undeclared-how-would-you-go-about-checking-for-any-of-these-states",
-    "subtitle": "How would you go about checking for any of these states?\"",
+    "subtitle": "How would you go about checking for any of these states?",
     "title": "What's the difference between a JavaScript variable that is: `null`, `undefined` or undeclared?",
     "topics": [
       "javascript"

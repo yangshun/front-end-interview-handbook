@@ -91,7 +91,7 @@ Using `iframe`s is a very common technique for embedding your content within thi
 
 **Cons**
 
-- Need a web server to host a website that renders the widget. This is not a huge deal because the a web server is needed to serve the poll results anyway. Depending on the type of website you build, this setup can range from simple to complex.
+- Need a web server to host a website that renders the widget. This is not a huge deal because a web server is needed to serve the poll results anyway. Depending on the type of website you build, this setup can range from simple to complex.
 - It is slower to load a separate website than to render it directly into the page.
 - Because of the isolation, the host website cannot use CSS to customize the component internals.
 
@@ -206,7 +206,7 @@ There are three kinds of APIs to discuss:
 
 ### Embed API
 
-Websites should be provided with some code to be copied and pasted to render the poll widget. The `iframe`'s `src` attribute should be unique URL specific to a poll instance.
+Websites should be provided with some code to be copied and pasted to render the poll widget. The `iframe`'s `src` attribute should be a unique URL specific to a poll instance.
 
 ```html
 <iframe
