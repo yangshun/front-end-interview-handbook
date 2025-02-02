@@ -283,14 +283,14 @@ const defaultTheme = { color: 'black', height: 12 };
 
 function Slider({ value, label, theme }) {
   // Combinar com o padrão.
-  const finalTheme = { ...defaultTheme, ...theme };
+  const mergedTheme = { ...defaultTheme, ...theme };
 
   return (
     <div className="gfe-slider">
       <label
         for={id}
         style={{
-          color: finalTheme.color,
+          color: mergedTheme.color,
         }}>
         {label}
       </label>
@@ -299,14 +299,14 @@ function Slider({ value, label, theme }) {
         type="range"
         value={value}
         style={{
-          height: finalTheme.height,
+          height: mergedTheme.height,
         }}
       />
     </div>
   );
 }
 
-<Slider themeOptions={{ color: 'red', height: 24 }} {...props} />;
+<Slider theme={{ color: 'red', height: 24 }} {...props} />;
 ```
 
 No entanto, como não são usadas classes com estilos conflitantes e os estilos em linha têm maior especificidade do que as classes, não há conflito de especificidade e os estilos em linha serão aplicados. No entanto, o número de opções que precisam ser suportadas pode aumentar rapidamente. Os estilos em linha também estão presentes no DOM por instância do componente, o que pode ser prejudicial para o desempenho se esse componente for renderizado centenas/milhares de vezes em uma página.

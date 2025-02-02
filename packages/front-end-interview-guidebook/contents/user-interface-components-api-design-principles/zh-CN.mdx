@@ -280,14 +280,14 @@ const defaultTheme = { color: 'black', height: 12 };
 
 function Slider({ value, label, theme }) {
   // Combine with default.
-  const finalTheme = { ...defaultTheme, ...theme };
+  const mergedTheme = { ...defaultTheme, ...theme };
 
   return (
     <div className="gfe-slider">
       <label
         for={id}
         style={{
-          color: finalTheme.color,
+          color: mergedTheme.color,
         }}>
         {label}
       </label>
@@ -296,14 +296,14 @@ function Slider({ value, label, theme }) {
         type="range"
         value={value}
         style={{
-          height: finalTheme.height,
+          height: mergedTheme.height,
         }}
       />
     </div>
   );
 }
 
-<Slider themeOptions={{ color: 'red', height: 24 }} {...props} />;
+<Slider theme={{ color: 'red', height: 24 }} {...props} />;
 ```
 
 然而，由于没有使用有冲突的样式的类，而且内联样式的特异性比类高，所以没有特异性冲突，内联样式将获胜。 然而，需要支持的选项数量可能真的会迅速增长。 内联样式也存在于每个组件实例的 DOM 中，如果这个组件在一个页面中被渲染了数百/数千次，这可能对性能不利。

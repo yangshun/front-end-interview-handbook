@@ -286,14 +286,14 @@ const defaultTheme = { color: 'black', height: 12 };
 
 function Slider({ value, label, theme }) {
   // Combine with default.
-  const finalTheme = { ...defaultTheme, ...theme };
+  const mergedTheme = { ...defaultTheme, ...theme };
 
   return (
     <div className="gfe-slider">
       <label
         for={id}
         style={{
-          color: finalTheme.color,
+          color: mergedTheme.color,
         }}>
         {label}
       </label>
@@ -302,14 +302,14 @@ function Slider({ value, label, theme }) {
         type="range"
         value={value}
         style={{
-          height: finalTheme.height,
+          height: mergedTheme.height,
         }}
       />
     </div>
   );
 }
 
-<Slider themeOptions={{ color: 'red', height: 24 }} {...props} />;
+<Slider theme={{ color: 'red', height: 24 }} {...props} />;
 ```
 
 However, since no classes with conflicting styles are used, and inline styles have higher specificity than classes, there's no specificity conflict and the inline styles will win. However, the number of options that need to be supported can grow really quickly. Inline styles are also present in the DOM per component instance, which can be bad for performance if this component is rendered hundreds/thousands of times within a page.
