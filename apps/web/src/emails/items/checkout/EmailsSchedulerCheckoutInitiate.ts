@@ -2,8 +2,6 @@ import EmailsSendStatus from '~/emails/EmailsSendStatus';
 import { scheduleEmailWithChecks } from '~/emails/qstash/EmailsQstashScheduler';
 import RedisCounter from '~/redis/RedisCounter';
 
-import { EmailsItemConfigCheckoutFirstTime } from './EmailsItemConfigCheckoutFirstTime';
-
 const CHECKOUT_ATTEMPTS_TO_QUALIFY_FOR_DISCOUNT = 3;
 const ONE_DAY_SECS = 24 * 60 * 60;
 const THREE_MONTHS_IN_SECS = 3 * 30 * ONE_DAY_SECS;
@@ -38,7 +36,8 @@ export default async function scheduleCheckoutInitiateEmail({
     // with the multiple checkout email. Just send the latter and
     // mark the first email as sent so that it doesn't get sent out.
     const sendStatusCheckoutFirstTime = new EmailsSendStatus(
-      EmailsItemConfigCheckoutFirstTime.id,
+      // Directly mentioned here instead of importing the config so as to not exceed serverless function size as the config imports react-email which is huge
+      'INTERVIEWS_CHECKOUT_FIRST_TIME',
       userId,
     );
 
