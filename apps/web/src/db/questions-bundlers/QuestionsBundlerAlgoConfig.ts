@@ -1,19 +1,21 @@
 import path from 'path';
 
+const format = 'algo';
+
 export const QUESTIONS_SRC_DIR_ALGO = path.join(
   process.cwd(),
   '..',
   '..',
   'packages',
   'questions',
-  'algo',
+  format,
 );
 export const QUESTIONS_OUT_DIR_ALGO = path.join(
   process.cwd(),
   'src',
   '__generated__',
   'questions',
-  'algo',
+  format,
 );
 
 export function getQuestionSrcPathAlgo(slug: string) {

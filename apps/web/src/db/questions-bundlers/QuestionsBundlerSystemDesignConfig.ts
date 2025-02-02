@@ -1,19 +1,21 @@
 import path from 'path';
 
+const format = 'system-design';
+
 export const QUESTIONS_SRC_DIR_SYSTEM_DESIGN = path.join(
   process.cwd(),
   '..',
   '..',
   'packages',
   'questions',
-  'system-design',
+  format,
 );
 export const QUESTIONS_OUT_DIR_SYSTEM_DESIGN = path.join(
   process.cwd(),
   'src',
   '__generated__',
   'questions',
-  'system-design',
+  format,
 );
 
 export function getQuestionSrcPathSystemDesign(slug: string) {

@@ -21,11 +21,7 @@ import {
 } from './../db/questions-bundlers/QuestionsBundlerJavaScriptConfig';
 
 const PRETTIER_CONFIG_PATH = path.join(
-  '..',
-  '..',
-  'packages',
-  'questions',
-  'javascript',
+  QUESTIONS_SRC_DIR_JAVASCRIPT,
   '.prettierrc',
 );
 

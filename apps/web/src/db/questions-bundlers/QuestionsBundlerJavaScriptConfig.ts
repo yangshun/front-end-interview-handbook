@@ -1,19 +1,21 @@
 import path from 'path';
 
+const format = 'javascript';
+
 export const QUESTIONS_SRC_DIR_JAVASCRIPT = path.join(
   process.cwd(),
   '..',
   '..',
   'packages',
   'questions',
-  'javascript',
+  format,
 );
 export const QUESTIONS_OUT_DIR_JAVASCRIPT = path.join(
   process.cwd(),
   'src',
   '__generated__',
   'questions',
-  'javascript',
+  format,
 );
 
 export function getQuestionSrcPathJavaScript(slug: string) {

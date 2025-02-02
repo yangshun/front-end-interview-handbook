@@ -1,11 +1,24 @@
 import path from 'path';
 
+const format = 'quiz';
+
 export const QUESTIONS_OUT_DIR_QUIZ = path.join(
   process.cwd(),
   'src',
   '__generated__',
   'questions',
-  'quiz',
+  format,
+);
+
+const QUESTIONS_SRC_DIR_QUIZ_NON_JS = path.join(
+  process.cwd(),
+  '..',
+  '..',
+  'submodules',
+  'front-end-interview-handbook',
+  'packages',
+  format,
+  'questions',
 );
 
 export type QuestionsQuizSourceConfig = Readonly<{
@@ -15,17 +28,6 @@ export type QuestionsQuizSourceConfig = Readonly<{
   questionsItemPath: (slug: string) => string;
   questionsListPath: string;
 }>;
-
-const QUESTIONS_SRC_DIR_QUIZ_NON_JS = path.join(
-  process.cwd(),
-  '..',
-  '..',
-  'submodules',
-  'front-end-interview-handbook',
-  'packages',
-  'quiz',
-  'questions',
-);
 
 export const QuestionsQuizSourceConfigNonJavaScript: QuestionsQuizSourceConfig =
   {

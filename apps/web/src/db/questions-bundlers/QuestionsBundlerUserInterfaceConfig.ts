@@ -1,19 +1,21 @@
 import path from 'path';
 
+const format = 'user-interface';
+
 export const QUESTIONS_SRC_DIR_USER_INTERFACE = path.join(
   process.cwd(),
   '..',
   '..',
   'packages',
   'questions',
-  'user-interface',
+  format,
 );
 export const QUESTIONS_OUT_DIR_USER_INTERFACE = path.join(
   process.cwd(),
   'src',
   '__generated__',
   'questions',
-  'user-interface',
+  format,
 );
 export function getQuestionSrcPathUserInterface(slug: string) {
   return path.join(QUESTIONS_SRC_DIR_USER_INTERFACE, slug);
