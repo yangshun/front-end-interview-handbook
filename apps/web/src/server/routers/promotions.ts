@@ -123,11 +123,12 @@ export const promotionsRouter = router({
       }),
     )
     .mutation(async ({ input: { action, username }, ctx: { viewer } }) => {
-      const octokit = new Octokit({});
+      const octokit = new Octokit({
+        auth: process.env.GITHUB_TOKEN,
+      });
       const repoId = GitHubStarActionToRepoId[action];
 
       const lastPattern = /(?<=<)([\S]*)(?=>; rel="last")/i;
-      const normalUrl = `/users/${username}/starred`;
       const pagesToCheck = 5;
       const campaign = SOCIAL_TASKS_DISCOUNT_CAMPAIGN;
       const userId = viewer.id;
@@ -137,14 +138,14 @@ export const promotionsRouter = router({
         throw `No matching repo for ${action}`;
       }
 
-      // TODO: Migrate to octokit SDK methods
-      const initialResponse = await octokit.request(`GET ${normalUrl}`, {
-        headers: {
-          Accept: 'application/vnd.github+json',
-          Authorization: `token ${process.env.GITHUB_TOKEN}`,
-        },
-        per_page: 100,
-      });
+      const initialResponse =
+        await octokit.rest.activity.listReposStarredByUser({
+          headers: {
+            Accept: 'application/vnd.github+json',
+          },
+          per_page: 100,
+          username,
+        });
 
       // Check if there is a last page
       const hasLastPage = initialResponse.headers.link?.includes(`rel="last"`);
@@ -153,9 +154,10 @@ export const promotionsRouter = router({
         const { data } = initialResponse;
 
         if (
-          !data.some(
-            // TODO: Remove manual typing after migrating to octokit SDK methods.
-            (repo: Readonly<{ id: number }>) => repo.id === repoId,
+          !data.some((starredRepo) =>
+            'repo' in starredRepo
+              ? starredRepo.repo.id === repoId
+              : starredRepo.id === repoId,
           )
         ) {
           throw 'Not starred';
@@ -177,35 +179,32 @@ export const promotionsRouter = router({
       const lastUrl =
         initialResponse.headers.link?.match(lastPattern)?.[0] ?? '';
       const lastNumberString = lastUrl.match(/\d+$/)?.[0] ?? '0';
-      const baseUrl = lastUrl.slice(0, -lastNumberString.length);
       const lastNumber = Number(lastNumberString);
-      const urls =
-        lastNumber === 0
-          ? []
-          : Array.from(
-              { length: pagesToCheck },
-              (_, i) => `${baseUrl}${lastNumber - i}`,
-            );
+      const pageNumbersToFetch = Array.from(
+        { length: pagesToCheck },
+        (_, i) => lastNumber - i,
+      );
 
       const responses = await Promise.all(
-        urls.map((url) =>
-          // TODO: Remove manual typing after migrating to octokit SDK methods
-          octokit.request(`GET ${url}`, {
+        pageNumbersToFetch.map((pageNumber) =>
+          octokit.rest.activity.listReposStarredByUser({
             headers: {
               Accept: 'application/vnd.github+json',
-              Authorization: `token ${process.env.GITHUB_TOKEN}`,
             },
+            page: pageNumber,
             per_page: 100,
+            username,
           }),
         ),
       );
 
       const ids = responses.flatMap((response) =>
-        // TODO: Remove after using typesafe Octokit APIs
-        response.data.map((repo: Readonly<{ id: number }>) => repo.id),
+        response.data.map((starredRepo) =>
+          'repo' in starredRepo ? starredRepo.repo.id : starredRepo.id,
+        ),
       );
 
-      const isStarred = ids.includes(GITHUB_REPO_ID_JS_INTERVIEW);
+      const isStarred = ids.includes(repoId);
 
       if (!isStarred && lastNumber <= pagesToCheck) {
         throw 'Not starred';
