@@ -91,7 +91,11 @@ function Tabs<T>(
   } = sizeClasses[size];
 
   return (
-    <ScrollArea className="-mb-2" scrollbars="horizontal" viewportClass="pb-2">
+    <ScrollArea
+      className="-mb-2"
+      heightClass="" // To make the tabs not taller than it should (bug in Projects challenge assets tab)
+      scrollbars="horizontal"
+      viewportClass="pb-2">
       <div ref={ref} className="isolate w-full overflow-y-hidden">
         <div
           className={clsx('flex items-center', [

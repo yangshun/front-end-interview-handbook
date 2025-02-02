@@ -32,8 +32,8 @@ const ScrollArea = React.forwardRef<
       size = 'default',
       radius = 'rounded',
       scrollbars = 'vertical',
-      heightClass,
-      widthClass,
+      heightClass = 'h-full',
+      widthClass = 'w-full',
       viewportClass,
       ...props
     },
