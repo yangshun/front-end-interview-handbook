@@ -14,7 +14,6 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 import { themeTextColor } from '~/components/ui/theme';
 
-import InterviewsDashboardPracticeQuestionsPreviewSection from './InterviewsDashboardPracticeQuestionsPreviewSection';
 import InterviewsDashboardPracticeQuestionsSection from './InterviewsDashboardPracticeQuestionsSection';
 import InterviewsDashboardCompanySection from './time-savers/InterviewsDashboardCompanySection';
 import InterviewsDashboardFocusAreasSection from './time-savers/InterviewsDashboardFocusAreasSection';
@@ -62,9 +61,6 @@ export default function InterviewsDashboardMoreLearningSection({
   return (
     <>
       <div className={clsx('flex flex-col gap-16')}>
-        <InterviewsDashboardPracticeQuestionsPreviewSection
-          questions={questions}
-        />
         <Divider />
         <div className="flex flex-col gap-3">
           <Heading className={themeTextColor} color="custom" level="heading5">
