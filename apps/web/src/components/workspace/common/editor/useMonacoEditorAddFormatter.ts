@@ -7,8 +7,6 @@ import { useIntl } from '~/components/intl';
 
 import type { Monaco } from '@monaco-editor/react';
 
-// TODO(workspace): temporarily disabled this so that prettier is
-// not imported, making serverless function exceed the size limit
 export default function useMonacoEditorAddFormatter(
   monaco: Monaco | null,
   editor: Editor.IStandaloneCodeEditor | null,
