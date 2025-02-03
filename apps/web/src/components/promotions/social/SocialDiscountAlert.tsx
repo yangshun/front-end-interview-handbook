@@ -6,6 +6,8 @@ import { FormattedMessage } from 'react-intl';
 import { trpc } from '~/hooks/trpc';
 import useUserProfile from '~/hooks/user/useUserProfile';
 
+import { PROMO_SOCIAL_DISCOUNT_PERCENTAGE } from '~/data/PromotionConfig';
+
 import Anchor from '~/components/ui/Anchor';
 import Text from '~/components/ui/Text';
 import {
@@ -14,7 +16,6 @@ import {
 } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
-import { SOCIAL_DISCOUNT_PERCENTAGE } from './SocialDiscountConfig';
 import { useSocialDiscountLabels } from './useSocialDiscountLabels';
 
 import { useUser } from '@supabase/auth-helpers-react';
@@ -91,7 +92,7 @@ function SocialDiscountAlertImpl() {
             description="Tooltip for used by engineers"
             id="rfZvjQ"
             values={{
-              percentOff: SOCIAL_DISCOUNT_PERCENTAGE,
+              percentOff: PROMO_SOCIAL_DISCOUNT_PERCENTAGE,
             }}
           />
         }>
@@ -103,7 +104,7 @@ function SocialDiscountAlertImpl() {
                 description="Tooltip for used by engineers"
                 id="UQxm8e"
                 values={{
-                  percentOff: SOCIAL_DISCOUNT_PERCENTAGE,
+                  percentOff: PROMO_SOCIAL_DISCOUNT_PERCENTAGE,
                 }}
               />
               <RiArrowRightLine className="size-4 ml-0.5 inline-flex shrink-0" />

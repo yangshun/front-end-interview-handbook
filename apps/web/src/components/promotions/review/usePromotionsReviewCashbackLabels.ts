@@ -1,4 +1,4 @@
-import { REVIEW_CASHBACK_DISCOUNT_PERCENTAGE } from '~/data/PromotionConfig';
+import { PROMO_REVIEW_CASHBACK_DISCOUNT_PERCENTAGE } from '~/data/PromotionConfig';
 
 import { useIntl } from '~/components/intl';
 
@@ -14,7 +14,7 @@ export default function usePromotionsReviewCashbackLabels() {
         id: 'l/9/qK',
       },
       {
-        discountPercentage: REVIEW_CASHBACK_DISCOUNT_PERCENTAGE,
+        discountPercentage: PROMO_REVIEW_CASHBACK_DISCOUNT_PERCENTAGE,
       },
     ),
     title: intl.formatMessage({

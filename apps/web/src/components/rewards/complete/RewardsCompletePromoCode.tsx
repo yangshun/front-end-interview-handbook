@@ -7,7 +7,7 @@ import type Stripe from 'stripe';
 
 import useCopyToClipboardWithRevert from '~/hooks/useCopyToClipboardWithRevert';
 
-import { PROMO_CODE_MAX_ATTEMPTS } from '~/data/PromotionConfig';
+import { PROMO_SOCIAL_DISCOUNT_CODE_MAX_GENERATIONS } from '~/data/PromotionConfig';
 
 import { FormattedMessage, useIntl } from '~/components/intl';
 import RewardsTicket from '~/components/rewards/complete/RewardsTicket';
@@ -22,10 +22,10 @@ const dateFormatter = new Intl.DateTimeFormat(undefined, {
 });
 
 export default function RewardsCompletePromoCode({
+  canStillGenerate,
   promoCode,
-  isLastAttempt,
 }: Readonly<{
-  isLastAttempt: boolean;
+  canStillGenerate: boolean;
   promoCode: Stripe.PromotionCode | null;
 }>) {
   const intl = useIntl();
@@ -137,10 +137,11 @@ export default function RewardsCompletePromoCode({
             variant="primary"
           />
         </div>
-        {isLastAttempt && (
+        {!canStillGenerate && (
           <Alert title="Attempt limit reached" variant="warning">
-            You've reached the attempt limit of {PROMO_CODE_MAX_ATTEMPTS} for
-            this campaign. Once this code expires, you cannot participate again.
+            You've reached the attempt limit of{' '}
+            {PROMO_SOCIAL_DISCOUNT_CODE_MAX_GENERATIONS} for this campaign. Once
+            this code expires, you cannot participate again.
           </Alert>
         )}
       </div>

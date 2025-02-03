@@ -8,6 +8,8 @@ import {
 import { trpc } from '~/hooks/trpc';
 import useCopyToClipboardWithRevert from '~/hooks/useCopyToClipboardWithRevert';
 
+import { PROMO_SOCIAL_DISCOUNT_PERCENTAGE } from '~/data/PromotionConfig';
+
 import { FormattedMessage, useIntl } from '~/components/intl';
 import PurchaseBlockCard from '~/components/purchase/PurchaseBlockCard';
 import Anchor from '~/components/ui/Anchor';
@@ -17,7 +19,6 @@ import Text from '~/components/ui/Text';
 import { themeTextSubtleColor } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
-import { SOCIAL_DISCOUNT_PERCENTAGE } from './SocialDiscountConfig';
 import { useSocialDiscountLabels } from './useSocialDiscountLabels';
 import PromotionCard from '../PromotionCard';
 import { PromotionsEmailUsLink } from '../PromotionsEmailUsLink';
@@ -49,7 +50,7 @@ export function PromotionsSocialDiscountCard({ variant = 'full' }: Props) {
             />
           </Text>
         }
-        discountLabel={`${SOCIAL_DISCOUNT_PERCENTAGE}%`}
+        discountLabel={`${PROMO_SOCIAL_DISCOUNT_PERCENTAGE}%`}
         footer={
           <div className="-mb-1.5 -mr-3 sm:-ml-3 sm:mb-0 sm:mr-0 sm:w-full">
             {(() => {
@@ -173,7 +174,7 @@ export function PromotionsSocialDiscountCard({ variant = 'full' }: Props) {
           <div className="mt-4 flex items-end gap-1">
             <Text
               className={clsx('inline-flex items-center text-5xl font-bold')}>
-              {SOCIAL_DISCOUNT_PERCENTAGE}%
+              {PROMO_SOCIAL_DISCOUNT_PERCENTAGE}%
             </Text>
             <Text
               className="text-xl font-medium tracking-normal"

@@ -2,14 +2,14 @@
 
 import { RiTimeLine } from 'react-icons/ri';
 
+import { PROMO_SOCIAL_DISCOUNT_PERCENTAGE } from '~/data/PromotionConfig';
+
 import { FormattedMessage, useIntl } from '~/components/intl';
 import Badge from '~/components/ui/Badge';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 import { themeGradientHeading, themeTextColor } from '~/components/ui/theme';
-
-import { SOCIAL_DISCOUNT_PERCENTAGE } from '../promotions/social/SocialDiscountConfig';
 
 export default function RewardsHeader() {
   const intl = useIntl();
@@ -37,7 +37,7 @@ export default function RewardsHeader() {
             id: 'Vm0aAX',
           },
           {
-            discountPercentage: SOCIAL_DISCOUNT_PERCENTAGE,
+            discountPercentage: PROMO_SOCIAL_DISCOUNT_PERCENTAGE,
           },
         )}
       </Heading>
@@ -53,7 +53,7 @@ export default function RewardsHeader() {
               description="Title for rewards page"
               id="/arZkH"
               values={{
-                discountPercentage: SOCIAL_DISCOUNT_PERCENTAGE,
+                discountPercentage: PROMO_SOCIAL_DISCOUNT_PERCENTAGE,
                 strong: (chunks) => (
                   <Text color="default" weight="medium">
                     {chunks}

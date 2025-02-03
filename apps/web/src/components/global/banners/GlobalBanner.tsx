@@ -5,8 +5,9 @@ import type { ReactNode } from 'react';
 import { useEffect, useState } from 'react';
 import { RiArrowRightLine } from 'react-icons/ri';
 
+import { PROMO_SOCIAL_DISCOUNT_PERCENTAGE } from '~/data/PromotionConfig';
+
 import { FormattedMessage } from '~/components/intl';
-import { SOCIAL_DISCOUNT_PERCENTAGE } from '~/components/promotions/social/SocialDiscountConfig';
 import Anchor from '~/components/ui/Anchor';
 import Banner from '~/components/ui/Banner';
 import Text, { textVariants } from '~/components/ui/Text';
@@ -39,7 +40,7 @@ function MarketingMessage() {
         description="Text on Promo Banner appearing almost on all application pages to inform user of a discount"
         id="AEkIua"
         values={{
-          discountPercentage: SOCIAL_DISCOUNT_PERCENTAGE,
+          discountPercentage: PROMO_SOCIAL_DISCOUNT_PERCENTAGE,
           strong: (chunks) => (
             <Text className="hidden md:inline" color="inherit" weight="bold">
               {chunks}

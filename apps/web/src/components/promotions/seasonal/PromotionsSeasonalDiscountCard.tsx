@@ -4,8 +4,8 @@ import { RiFileCopyLine } from 'react-icons/ri';
 import useCopyToClipboardWithRevert from '~/hooks/useCopyToClipboardWithRevert';
 
 import {
-  PERPETUAL_PROMO_CODE,
-  PERPETUAL_PROMO_CODE_DISCOUNT_PERCENTAGE,
+  PROMO_PERPETUAL_CODE,
+  PROMO_PERPETUAL_DISCOUNT_PERCENTAGE,
 } from '~/data/PromotionConfig';
 
 import { FormattedMessage, useIntl } from '~/components/intl';
@@ -37,7 +37,7 @@ export function PromotionsSeasonalDiscountCard({ variant = 'full' }: Props) {
             />
           </Text>
         }
-        discountLabel={`${PERPETUAL_PROMO_CODE_DISCOUNT_PERCENTAGE}%`}
+        discountLabel={`${PROMO_PERPETUAL_DISCOUNT_PERCENTAGE}%`}
         footer={
           <Button
             className="-mb-1.5 -mr-3 sm:-ml-3 sm:mb-0 sm:mr-0"
@@ -49,12 +49,12 @@ export function PromotionsSeasonalDiscountCard({ variant = 'full' }: Props) {
                     description: 'Indication that text has been copied',
                     id: 'EHngws',
                   })
-                : PERPETUAL_PROMO_CODE
+                : PROMO_PERPETUAL_CODE
             }
             size="md"
             variant="tertiary"
             onClick={() => {
-              onCopy(PERPETUAL_PROMO_CODE);
+              onCopy(PROMO_PERPETUAL_CODE);
             }}
           />
         }
@@ -99,7 +99,7 @@ export function PromotionsSeasonalDiscountCard({ variant = 'full' }: Props) {
           <div className="mt-4 flex items-end gap-1">
             <Text
               className={clsx('inline-flex items-center text-5xl font-bold')}>
-              {PERPETUAL_PROMO_CODE_DISCOUNT_PERCENTAGE}%
+              {PROMO_PERPETUAL_DISCOUNT_PERCENTAGE}%
             </Text>
             <Text
               className="text-xl font-medium tracking-normal"
@@ -135,13 +135,13 @@ export function PromotionsSeasonalDiscountCard({ variant = 'full' }: Props) {
                       description: 'Indication that text has been copied',
                       id: 'EHngws',
                     })
-                  : PERPETUAL_PROMO_CODE
+                  : PROMO_PERPETUAL_CODE
               }
               size="md"
               type="button"
               variant="primary"
               onClick={() => {
-                onCopy(PERPETUAL_PROMO_CODE);
+                onCopy(PROMO_PERPETUAL_CODE);
               }}
             />
           </div>
@@ -160,7 +160,7 @@ export function PromotionsSeasonalDiscountCard({ variant = 'full' }: Props) {
           description="Subtitle of discount promotion card"
           id="k64L83"
           values={{
-            discountPercentage: PERPETUAL_PROMO_CODE_DISCOUNT_PERCENTAGE,
+            discountPercentage: PROMO_PERPETUAL_DISCOUNT_PERCENTAGE,
           }}
         />
       }

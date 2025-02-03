@@ -1,7 +1,7 @@
+import { PROMO_SOCIAL_DISCOUNT_PERCENTAGE } from '~/data/PromotionConfig';
+
 import { FormattedMessage, useIntl } from '~/components/intl';
 import Text from '~/components/ui/Text';
-
-import { SOCIAL_DISCOUNT_PERCENTAGE } from './SocialDiscountConfig';
 
 const dateFormatter = new Intl.DateTimeFormat(undefined, {
   dateStyle: 'medium',
@@ -34,7 +34,7 @@ export function useSocialDiscountLabels() {
       ),
     existingPromoSubtitle: (
       expiryDate: number | null,
-      discountPercentage: number | null = SOCIAL_DISCOUNT_PERCENTAGE,
+      discountPercentage: number | null = PROMO_SOCIAL_DISCOUNT_PERCENTAGE,
     ) =>
       expiryDate == null
         ? intl.formatMessage(
@@ -74,7 +74,7 @@ export function useSocialDiscountLabels() {
               {chunks}
             </Text>
           ),
-          discountPercentage: SOCIAL_DISCOUNT_PERCENTAGE,
+          discountPercentage: PROMO_SOCIAL_DISCOUNT_PERCENTAGE,
         }}
       />
     ),
@@ -90,7 +90,7 @@ export function useSocialDiscountLabels() {
         id: 'T4ajXP',
       },
       {
-        discountPercentage: SOCIAL_DISCOUNT_PERCENTAGE,
+        discountPercentage: PROMO_SOCIAL_DISCOUNT_PERCENTAGE,
       },
     ),
     title: intl.formatMessage(
@@ -100,7 +100,7 @@ export function useSocialDiscountLabels() {
         id: 'Tjz+5U',
       },
       {
-        discountPercentage: SOCIAL_DISCOUNT_PERCENTAGE,
+        discountPercentage: PROMO_SOCIAL_DISCOUNT_PERCENTAGE,
       },
     ),
   };

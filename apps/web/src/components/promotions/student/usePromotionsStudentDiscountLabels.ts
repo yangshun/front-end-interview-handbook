@@ -1,4 +1,4 @@
-import { STUDENT_DISCOUNT_PERCENTAGE } from '~/data/PromotionConfig';
+import { PROMO_STUDENT_DISCOUNT_PERCENTAGE } from '~/data/PromotionConfig';
 
 import { useIntl } from '~/components/intl';
 
@@ -14,7 +14,7 @@ export default function usePromotionsStudentDiscountLabels() {
         id: 'eSkmDW',
       },
       {
-        discountPercentage: STUDENT_DISCOUNT_PERCENTAGE,
+        discountPercentage: PROMO_STUDENT_DISCOUNT_PERCENTAGE,
       },
     ),
     title: intl.formatMessage({

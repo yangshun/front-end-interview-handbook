@@ -1,1 +1,0 @@
-export const SOCIAL_DISCOUNT_PERCENTAGE = 20;

@@ -4,7 +4,7 @@ import url from 'url';
 
 import { SCROLL_HASH_PROMOTIONS_REVIEW_CASHBACK } from '~/hooks/useScrollToHash';
 
-import { REVIEW_CASHBACK_DISCOUNT_PERCENTAGE } from '~/data/PromotionConfig';
+import { PROMO_REVIEW_CASHBACK_DISCOUNT_PERCENTAGE } from '~/data/PromotionConfig';
 
 import { FormattedMessage, useIntl } from '~/components/intl';
 import PurchaseBlockCard from '~/components/purchase/PurchaseBlockCard';
@@ -37,7 +37,7 @@ export function PromotionsReviewCashbackCard({ variant = 'full' }: Props) {
             />
           </Text>
         }
-        discountLabel={`${REVIEW_CASHBACK_DISCOUNT_PERCENTAGE}%`}
+        discountLabel={`${PROMO_REVIEW_CASHBACK_DISCOUNT_PERCENTAGE}%`}
         footer={
           <Button
             className="-mb-1.5 -mr-3 sm:-ml-3 sm:mb-0 sm:mr-0"
@@ -147,7 +147,7 @@ export function PromotionsReviewCashbackCard({ variant = 'full' }: Props) {
               className={clsx('inline-flex items-center text-5xl font-bold')}
               size="inherit"
               weight="inherit">
-              {REVIEW_CASHBACK_DISCOUNT_PERCENTAGE}%
+              {PROMO_REVIEW_CASHBACK_DISCOUNT_PERCENTAGE}%
             </Text>
           </div>
           <Text className="block text-xl" color="label" weight="medium">

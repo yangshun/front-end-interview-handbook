@@ -3,7 +3,19 @@ import Stripe from 'stripe';
 import type { ZodError } from 'zod';
 import { z } from 'zod';
 
-import { PROMO_CODE_MAX_ATTEMPTS } from '~/data/PromotionConfig';
+import {
+  PROMO_INTERVIEWS_PREMIUM_PERK_PROJECTS_DISCOUNT_CAMPAIGN,
+  PROMO_INTERVIEWS_PREMIUM_PERK_PROJECTS_DISCOUNT_COUPON_ID_PROD,
+  PROMO_INTERVIEWS_PREMIUM_PERK_PROJECTS_DISCOUNT_COUPON_ID_TEST,
+  PROMO_SOCIAL_DISCOUNT_CAMPAIGN,
+  PROMO_SOCIAL_DISCOUNT_CODE_MAX_GENERATIONS,
+  PROMO_SOCIAL_DISCOUNT_COUPON_ID_PROD,
+  PROMO_SOCIAL_DISCOUNT_COUPON_ID_TEST,
+  PROMO_STUDENT_DISCOUNT_CAMPAIGN,
+  PROMO_STUDENT_DISCOUNT_CODE_MAX_GENERATIONS,
+  PROMO_STUDENT_DISCOUNT_COUPON_ID_PROD,
+  PROMO_STUDENT_DISCOUNT_COUPON_ID_TEST,
+} from '~/data/PromotionConfig';
 
 import {
   GITHUB_STAR_JS_INTERVIEWS,
@@ -60,18 +72,6 @@ const twitterUsernameSchema = z
       'Contains invalid characters. Only alphanumeric characters, hyphens, and underscore allowed.',
   });
 
-const SOCIAL_TASKS_DISCOUNT_CAMPAIGN = 'SOCIAL_TASKS_DISCOUNT';
-const STUDENT_DISCOUNT_CAMPAIGN = 'STUDENT_DISCOUNT';
-
-const studentDiscountCouponId_TEST = 'r1nhvjSn';
-const studentDiscountCouponId_PROD = 'tgklHrfQ';
-
-const socialTasksDiscountCouponId_TEST = 'HvFQPL5W';
-const socialTasksDiscountCouponId_PROD = 'IAx9mkqM';
-
-const interviewsPremiumPerkProjectsDiscountCouponId_TEST = 'hV8qtZIX';
-const interviewsPremiumPerkProjectsDiscountCouponId_PROD = 'SKcIcPgB';
-
 function delay(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
@@ -99,7 +99,7 @@ export const promotionsRouter = router({
         throw 'Not followed';
       }
 
-      const campaign = SOCIAL_TASKS_DISCOUNT_CAMPAIGN;
+      const campaign = PROMO_SOCIAL_DISCOUNT_CAMPAIGN;
       const action = 'GITHUB_FOLLOW';
       const userId = viewer.id;
       const identifier = username;
@@ -130,7 +130,7 @@ export const promotionsRouter = router({
 
       const lastPattern = /(?<=<)([\S]*)(?=>; rel="last")/i;
       const pagesToCheck = 5;
-      const campaign = SOCIAL_TASKS_DISCOUNT_CAMPAIGN;
+      const campaign = PROMO_SOCIAL_DISCOUNT_CAMPAIGN;
       const userId = viewer.id;
       const identifier = username;
 
@@ -221,7 +221,6 @@ export const promotionsRouter = router({
 
       return true;
     }),
-
   checkLinkedInFollowing: userProcedure
     .input(
       z.object({
@@ -231,7 +230,7 @@ export const promotionsRouter = router({
     .mutation(async ({ input: { username }, ctx: { viewer } }) => {
       await delay(1000);
 
-      const campaign = SOCIAL_TASKS_DISCOUNT_CAMPAIGN;
+      const campaign = PROMO_SOCIAL_DISCOUNT_CAMPAIGN;
       const action = 'LINKEDIN_FOLLOW';
       const userId = viewer.id;
       const identifier = username;
@@ -257,7 +256,7 @@ export const promotionsRouter = router({
     .mutation(async ({ input: { username }, ctx: { viewer } }) => {
       await delay(1000);
 
-      const campaign = SOCIAL_TASKS_DISCOUNT_CAMPAIGN;
+      const campaign = PROMO_SOCIAL_DISCOUNT_CAMPAIGN;
       const action = 'TWITTER_FOLLOW';
       const userId = viewer.id;
       const identifier = username;
@@ -306,8 +305,8 @@ export const promotionsRouter = router({
 
       const coupon =
         process.env.NEXT_PUBLIC_VERCEL_ENV === 'production'
-          ? interviewsPremiumPerkProjectsDiscountCouponId_PROD
-          : interviewsPremiumPerkProjectsDiscountCouponId_TEST;
+          ? PROMO_INTERVIEWS_PREMIUM_PERK_PROJECTS_DISCOUNT_COUPON_ID_PROD
+          : PROMO_INTERVIEWS_PREMIUM_PERK_PROJECTS_DISCOUNT_COUPON_ID_TEST;
 
       const promotionCodes = await stripe.promotionCodes.list({
         active: true,
@@ -324,17 +323,15 @@ export const promotionsRouter = router({
       const threeDaysLater = new Date(today.setDate(today.getDate() + 3));
       const threeDaysLaterUnix = Math.round(threeDaysLater.getTime() / 1000);
 
-      const promotionCode = await stripe.promotionCodes.create({
+      return await stripe.promotionCodes.create({
         coupon,
         customer: stripeCustomer,
         expires_at: threeDaysLaterUnix,
         max_redemptions: 2,
         metadata: {
-          campaign: 'INTERVIEWS_PREMIUM_PERK_PROJECTS_DISCOUNT',
+          campaign: PROMO_INTERVIEWS_PREMIUM_PERK_PROJECTS_DISCOUNT_CAMPAIGN,
         },
       });
-
-      return promotionCode;
     }),
   generateOrGetSocialTasksPromoCode: userProcedure.mutation(
     async ({ ctx: { viewer } }) => {
@@ -342,7 +339,7 @@ export const promotionsRouter = router({
 
       const tasks = await prisma.rewardsTaskCompletion.findMany({
         where: {
-          campaign: SOCIAL_TASKS_DISCOUNT_CAMPAIGN,
+          campaign: PROMO_SOCIAL_DISCOUNT_CAMPAIGN,
           userId,
         },
       });
@@ -406,17 +403,16 @@ export const promotionsRouter = router({
 
       const coupon =
         process.env.NEXT_PUBLIC_VERCEL_ENV === 'production'
-          ? socialTasksDiscountCouponId_PROD
-          : socialTasksDiscountCouponId_TEST;
+          ? PROMO_SOCIAL_DISCOUNT_COUPON_ID_PROD
+          : PROMO_SOCIAL_DISCOUNT_COUPON_ID_TEST;
 
-      const [activePromoCodes, inactivePromoCodes] = await Promise.all([
+      const [activePromoCodes, allPromoCodes] = await Promise.all([
         stripe.promotionCodes.list({
           active: true,
           coupon,
           customer: stripeCustomer,
         }),
         stripe.promotionCodes.list({
-          active: false,
           coupon,
           customer: stripeCustomer,
         }),
@@ -429,7 +425,9 @@ export const promotionsRouter = router({
 
       // Allow extra promo generations since some users might waste
       // the promo code on failed payments (e.g. India)
-      if (inactivePromoCodes.data.length > PROMO_CODE_MAX_ATTEMPTS) {
+      if (
+        allPromoCodes.data.length > PROMO_SOCIAL_DISCOUNT_CODE_MAX_GENERATIONS
+      ) {
         throw "You've used all your attempts for generating a promo code and your last code has now expired. If you need help or have questions, feel free to contact us.";
       }
 
@@ -444,7 +442,7 @@ export const promotionsRouter = router({
         expires_at: threeDaysLaterUnix,
         max_redemptions: 2,
         metadata: {
-          campaign: SOCIAL_TASKS_DISCOUNT_CAMPAIGN,
+          campaign: PROMO_SOCIAL_DISCOUNT_CAMPAIGN,
         },
       });
 
@@ -476,8 +474,8 @@ export const promotionsRouter = router({
 
       const coupon =
         process.env.NEXT_PUBLIC_VERCEL_ENV === 'production'
-          ? studentDiscountCouponId_PROD
-          : studentDiscountCouponId_TEST;
+          ? PROMO_STUDENT_DISCOUNT_COUPON_ID_PROD
+          : PROMO_STUDENT_DISCOUNT_COUPON_ID_TEST;
       const customer = profile.stripeCustomer;
 
       const promotionCodes = await stripe.promotionCodes.list({
@@ -487,7 +485,10 @@ export const promotionsRouter = router({
 
       // Allow 3 promo generations since some users
       // might waste the promo code on failed payments (e.g. India).
-      if (promotionCodes.data.length > 3) {
+      if (
+        promotionCodes.data.length >=
+        PROMO_STUDENT_DISCOUNT_CODE_MAX_GENERATIONS
+      ) {
         throw "You've used all your attempts for generating a promo code and your last code has now expired. If you need help or have questions, feel free to contact us.";
       }
 
@@ -501,7 +502,7 @@ export const promotionsRouter = router({
         expires_at: threeDaysLaterUnix,
         max_redemptions: 1,
         metadata: {
-          campaign: STUDENT_DISCOUNT_CAMPAIGN,
+          campaign: PROMO_STUDENT_DISCOUNT_CAMPAIGN,
         },
       });
 
@@ -527,17 +528,16 @@ export const promotionsRouter = router({
     const customer = profile.stripeCustomer;
     const coupon =
       process.env.NEXT_PUBLIC_VERCEL_ENV === 'production'
-        ? socialTasksDiscountCouponId_PROD
-        : socialTasksDiscountCouponId_TEST;
+        ? PROMO_SOCIAL_DISCOUNT_COUPON_ID_PROD
+        : PROMO_SOCIAL_DISCOUNT_COUPON_ID_TEST;
 
-    const [activePromoCodes, inactivePromoCodes] = await Promise.all([
+    const [activePromoCodes, allPromoCodes] = await Promise.all([
       stripe.promotionCodes.list({
         active: true,
         coupon,
         customer,
       }),
       stripe.promotionCodes.list({
-        active: false,
         coupon,
         customer,
       }),
@@ -546,8 +546,8 @@ export const promotionsRouter = router({
     return {
       activePromoCode:
         activePromoCodes.data.length === 0 ? null : activePromoCodes.data[0],
-      isLastAttempt:
-        inactivePromoCodes.data.length >= PROMO_CODE_MAX_ATTEMPTS - 1,
+      canStillGenerate:
+        allPromoCodes.data.length < PROMO_SOCIAL_DISCOUNT_CODE_MAX_GENERATIONS,
     };
   }),
   // Intentionally make it publicProcedure since this can be called by
@@ -577,8 +577,8 @@ export const promotionsRouter = router({
       const customer = profile.stripeCustomer;
       const coupon =
         process.env.NEXT_PUBLIC_VERCEL_ENV === 'production'
-          ? studentDiscountCouponId_PROD
-          : studentDiscountCouponId_TEST;
+          ? PROMO_STUDENT_DISCOUNT_COUPON_ID_PROD
+          : PROMO_STUDENT_DISCOUNT_COUPON_ID_TEST;
 
       const promotionCodes = await stripe.promotionCodes.list({
         active: true,
@@ -596,7 +596,7 @@ export const promotionsRouter = router({
   getTasksCompleted: userProcedure.query(async ({ ctx: { viewer } }) => {
     return await prisma.rewardsTaskCompletion.findMany({
       where: {
-        campaign: SOCIAL_TASKS_DISCOUNT_CAMPAIGN,
+        campaign: PROMO_SOCIAL_DISCOUNT_CAMPAIGN,
         userId: viewer.id,
       },
     });
@@ -632,7 +632,6 @@ export const promotionsRouter = router({
 
     return promotionCodes;
   }),
-
   verifySocialHandles: userProcedure
     .input(
       z.object({

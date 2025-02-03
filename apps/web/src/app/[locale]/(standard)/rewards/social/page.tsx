@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 
-import { SOCIAL_DISCOUNT_PERCENTAGE } from '~/components/promotions/social/SocialDiscountConfig';
+import { PROMO_SOCIAL_DISCOUNT_PERCENTAGE } from '~/data/PromotionConfig';
+
 import RewardsIntroPage from '~/components/rewards/RewardsIntroPage';
 
 import { getIntlServerOnly } from '~/i18n';
@@ -25,7 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         description: 'Title of Rewards page',
         id: 'M3b/ni',
       },
-      { discount: SOCIAL_DISCOUNT_PERCENTAGE },
+      { discount: PROMO_SOCIAL_DISCOUNT_PERCENTAGE },
     ),
     locale,
     ogImageProduct: null,
@@ -35,7 +36,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         description: 'Social title of Rewards page',
         id: '7SDFxN',
       },
-      { discount: SOCIAL_DISCOUNT_PERCENTAGE },
+      { discount: PROMO_SOCIAL_DISCOUNT_PERCENTAGE },
     ),
     pathname: '/rewards/social',
     socialTitle: intl.formatMessage(
@@ -45,7 +46,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         description: 'Social title of Rewards page',
         id: 'LC6VcF',
       },
-      { discount: SOCIAL_DISCOUNT_PERCENTAGE },
+      { discount: PROMO_SOCIAL_DISCOUNT_PERCENTAGE },
     ),
     title: intl.formatMessage(
       {
@@ -54,7 +55,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         description: 'Title of Rewards page',
         id: 'LMrUbV',
       },
-      { discount: SOCIAL_DISCOUNT_PERCENTAGE },
+      { discount: PROMO_SOCIAL_DISCOUNT_PERCENTAGE },
     ),
   });
 }

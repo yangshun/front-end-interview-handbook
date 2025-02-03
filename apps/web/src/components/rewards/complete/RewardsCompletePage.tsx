@@ -1,5 +1,6 @@
 'use client';
 
+import clsx from 'clsx';
 import { RiCheckboxCircleLine } from 'react-icons/ri';
 
 import { trpc } from '~/hooks/trpc';
@@ -19,7 +20,11 @@ export default function RewardsCompletePage() {
   });
 
   return (
-    <div className="mx-auto flex w-full max-w-xl flex-col items-center gap-y-12">
+    <div
+      className={clsx(
+        'flex flex-col items-center gap-y-10',
+        'mx-auto w-full max-w-lg',
+      )}>
       <div className="flex flex-col items-center gap-y-4">
         <RiCheckboxCircleLine className="text-success size-16" />
         <div className="flex flex-col items-center">
@@ -65,9 +70,9 @@ export default function RewardsCompletePage() {
           />
         </Text>
       </div>
-      {data && (
+      {data?.activePromoCode && (
         <RewardsCompletePromoCode
-          isLastAttempt={data.isLastAttempt}
+          canStillGenerate={data.canStillGenerate}
           promoCode={data.activePromoCode}
         />
       )}

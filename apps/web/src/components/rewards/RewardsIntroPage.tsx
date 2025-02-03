@@ -1,5 +1,7 @@
 'use client';
 
+import clsx from 'clsx';
+
 import { trpc } from '~/hooks/trpc';
 
 import { FormattedMessage } from '~/components/intl';
@@ -28,11 +30,17 @@ export default function RewardsIntroPage() {
   }));
 
   return (
-    <div className="mx-auto flex w-full max-w-lg flex-col items-center gap-y-10">
+    <div
+      className={clsx(
+        'flex flex-col items-center gap-y-10',
+        'mx-auto w-full max-w-lg',
+      )}>
       <RewardsHeader />
-      {data == null || isLoading ? (
+      {isLoading ||
+      data == null ||
+      (data?.activePromoCode == null && data?.canStillGenerate) ? (
         <>
-          <div className="flex w-full flex-col gap-y-3">
+          <div className={clsx('flex flex-col gap-y-3', 'w-full')}>
             <Text className="block" color="secondary" size="body2">
               <FormattedMessage
                 defaultMessage="Here are the tasks for this campaign:"
@@ -46,7 +54,7 @@ export default function RewardsIntroPage() {
         </>
       ) : (
         <RewardsCompletePromoCode
-          isLastAttempt={data.isLastAttempt}
+          canStillGenerate={data.canStillGenerate}
           promoCode={data.activePromoCode}
         />
       )}

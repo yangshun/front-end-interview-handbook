@@ -4,7 +4,7 @@ import Stripe from 'stripe';
 import absoluteUrl from '~/lib/absoluteUrl';
 import { normalizeCurrencyValue } from '~/lib/stripeUtils';
 
-import { MAX_PPP_ELIGIBLE_FOR_FAANG_TECH_LEADS_PROMO } from '~/data/PromotionConfig';
+import { PROMO_FAANG_TECH_LEADS_MAX_PPP_ELIGIBLE } from '~/data/PromotionConfig';
 
 import fetchInterviewsPricingPlanPaymentConfigLocalizedRecord from '~/components/interviews/purchase/fetchInterviewsPricingPlanPaymentConfigLocalizedRecord';
 import type { InterviewsPricingPlanType } from '~/components/interviews/purchase/InterviewsPricingPlans';
@@ -184,7 +184,7 @@ async function processSubscriptionPlan(
 
   const pppEligibleForFTLBundle =
     planPaymentConfig.conversionFactor <
-    MAX_PPP_ELIGIBLE_FOR_FAANG_TECH_LEADS_PROMO;
+    PROMO_FAANG_TECH_LEADS_MAX_PPP_ELIGIBLE;
 
   const session = await stripe.checkout.sessions.create({
     allow_promotion_codes: planPaymentConfig.allowPromoCode,
@@ -252,7 +252,7 @@ async function processOneTimePlan(
 
   const pppEligibleForFTLBundle =
     planPaymentConfig.conversionFactor <
-    MAX_PPP_ELIGIBLE_FOR_FAANG_TECH_LEADS_PROMO;
+    PROMO_FAANG_TECH_LEADS_MAX_PPP_ELIGIBLE;
 
   const session = await stripe.checkout.sessions.create({
     allow_promotion_codes: planPaymentConfig.allowPromoCode,

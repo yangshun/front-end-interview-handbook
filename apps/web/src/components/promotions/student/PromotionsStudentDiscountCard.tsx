@@ -13,7 +13,7 @@ import useCopyToClipboardWithRevert from '~/hooks/useCopyToClipboardWithRevert';
 import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
 import { SCROLL_HASH_PROMOTIONS_STUDENT_DISCOUNT } from '~/hooks/useScrollToHash';
 
-import { STUDENT_DISCOUNT_PERCENTAGE } from '~/data/PromotionConfig';
+import { PROMO_STUDENT_DISCOUNT_PERCENTAGE } from '~/data/PromotionConfig';
 
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import { FormattedMessage, useIntl } from '~/components/intl';
@@ -41,7 +41,7 @@ export function PromotionsStudentDiscountCard({ variant = 'full' }: Props) {
   const user = useUser();
   const trpcUtils = trpc.useUtils();
   const labels = usePromotionsStudentDiscountLabels();
-  const discountPercentage = STUDENT_DISCOUNT_PERCENTAGE;
+  const discountPercentage = PROMO_STUDENT_DISCOUNT_PERCENTAGE;
   const { userProfile } = useUserProfile();
   const [promoCode, setPromoCode] = useState<Stripe.PromotionCode | null>(null);
   const [isCopied, onCopy] = useCopyToClipboardWithRevert(1000);

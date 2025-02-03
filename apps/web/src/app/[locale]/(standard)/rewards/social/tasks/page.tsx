@@ -2,7 +2,8 @@ import type { Metadata } from 'next';
 import { redirect } from 'next/navigation';
 import url from 'node:url';
 
-import { SOCIAL_DISCOUNT_PERCENTAGE } from '~/components/promotions/social/SocialDiscountConfig';
+import { PROMO_SOCIAL_DISCOUNT_PERCENTAGE } from '~/data/PromotionConfig';
+
 import RewardsTasksPage from '~/components/rewards/tasks/RewardsTasksPage';
 
 import { getIntlServerOnly } from '~/i18n';
@@ -25,7 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: 'Title of Rewards tasks page',
       id: 'cWZk16',
     },
-    { discount: SOCIAL_DISCOUNT_PERCENTAGE },
+    { discount: PROMO_SOCIAL_DISCOUNT_PERCENTAGE },
   );
 
   return defaultMetadata({
@@ -36,7 +37,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         description: 'Title of Rewards tasks page',
         id: 'K366Ff',
       },
-      { discount: SOCIAL_DISCOUNT_PERCENTAGE },
+      { discount: PROMO_SOCIAL_DISCOUNT_PERCENTAGE },
     ),
     locale,
     ogImageProduct: null,

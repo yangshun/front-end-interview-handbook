@@ -13,7 +13,7 @@ import { isProhibitedCountry } from '~/lib/stripeUtils';
 import { trpc } from '~/hooks/trpc';
 import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
 
-import { MAX_PPP_ELIGIBLE_FOR_FAANG_TECH_LEADS_PROMO } from '~/data/PromotionConfig';
+import { PROMO_FAANG_TECH_LEADS_MAX_PPP_ELIGIBLE } from '~/data/PromotionConfig';
 
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import InterviewsRibbonBadge from '~/components/interviews/common/InterviewsRibbonBadge';
@@ -655,7 +655,7 @@ export default function InterviewsPricingTableSection({
     MAXIMUM_PPP_CONVERSION_FACTOR_TO_DISPLAY_BEFORE_PRICE;
   const pppEligibleForFTLBundle =
     featuredPlan.paymentConfig.conversionFactor <
-    MAX_PPP_ELIGIBLE_FOR_FAANG_TECH_LEADS_PROMO;
+    PROMO_FAANG_TECH_LEADS_MAX_PPP_ELIGIBLE;
 
   const pppDiscountRounded = Math.ceil(
     100 - featuredPlan.paymentConfig.conversionFactor * 100,

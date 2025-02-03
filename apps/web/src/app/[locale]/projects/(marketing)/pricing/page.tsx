@@ -2,10 +2,10 @@ import { cookies } from 'next/headers';
 import type { Metadata } from 'next/types';
 
 import countryNames from '~/data/countryCodesToNames.json';
+import { PROMO_SOCIAL_DISCOUNT_PERCENTAGE } from '~/data/PromotionConfig';
 
 import fetchProjectsPricingPlanPaymentConfigLocalizedRecord from '~/components/projects/purchase/fetchProjectsPricingPlanPaymentConfigLocalizedRecord';
 import ProjectsPricingPage from '~/components/projects/purchase/ProjectsPricingPage';
-import { SOCIAL_DISCOUNT_PERCENTAGE } from '~/components/promotions/social/SocialDiscountConfig';
 
 import { getIntlServerOnly } from '~/i18n';
 import defaultProjectsMetadata from '~/seo/defaultProjectsMetadata';
@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         id: 'VYwrk6',
       },
       {
-        discountPercentage: SOCIAL_DISCOUNT_PERCENTAGE,
+        discountPercentage: PROMO_SOCIAL_DISCOUNT_PERCENTAGE,
       },
     ),
     locale,
