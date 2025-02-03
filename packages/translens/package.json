@@ -1,0 +1,37 @@
+{
+  "name": "@gfe/translens",
+  "version": "0.0.0",
+  "description": "Boilerplate for building CLI packages in TypeScript",
+  "author": "Nitesh Seram <niteshseram@gmail.com>",
+  "license": "MIT",
+  "type": "module",
+  "bin": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "clean": "rimraf dist",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc",
+    "verify": "npm run typecheck && npm run test && npm run build",
+    "prepublishOnly": "npm run verify"
+  },
+  "dependencies": {
+    "@clack/prompts": "^0.9.1",
+    "chalk": "^5.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.12.0",
+    "rimraf": "^6.0.1",
+    "tsup": "^8.3.6",
+    "typescript": "^5.7.3",
+    "vitest": "^3.0.2"
+  },
+  "engines": {
+    "node": "^20.0.0 || >=22.0.0"
+  }
+}
