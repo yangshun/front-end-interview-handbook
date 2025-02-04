@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import Config from '../config';
+import Config from '.';
 
 const TEST_CONFIG_PATH = path.join(process.cwd(), 'test-translens.config.json');
 

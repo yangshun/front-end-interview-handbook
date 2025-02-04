@@ -1,7 +1,7 @@
 {
-  "name": "@gfe/translens",
-  "version": "0.0.0",
-  "description": "Boilerplate for building CLI packages in TypeScript",
+  "name": "translens",
+  "version": "0.0.1",
+  "description": "Modern translation toolchain",
   "author": "Nitesh Seram <niteshseram@gmail.com>",
   "license": "MIT",
   "type": "module",
