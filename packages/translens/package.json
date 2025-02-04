@@ -22,7 +22,8 @@
   },
   "dependencies": {
     "@clack/prompts": "^0.9.1",
-    "chalk": "^5.2.0"
+    "chalk": "^5.2.0",
+    "glob": "^11.0.1"
   },
   "devDependencies": {
     "@types/node": "^22.12.0",
@@ -32,6 +33,8 @@
     "vitest": "^3.0.2"
   },
   "engines": {
-    "node": "^20.0.0 || >=22.0.0"
-  }
+    "node": "18.18.2",
+    "pnpm": "8.15.8"
+  },
+  "packageManager": "pnpm@8.15.8"
 }

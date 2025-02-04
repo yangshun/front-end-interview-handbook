@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
-import { IConfig } from './interfaces/IConfig';
+import { IConfig } from './interfaces';
+import { log } from '@clack/prompts';
 
 export const CONFIG_PATH = path.join(process.cwd(), 'translens.config.json');
 
@@ -40,9 +41,9 @@ export default class Config {
   public static initializeConfig(configPath = CONFIG_PATH) {
     if (!fs.existsSync(configPath)) {
       fs.writeFileSync(configPath, JSON.stringify(DEFAULT_CONFIG, null, 2));
-      console.log(`Default configuration created at ${configPath}`);
+      log.info(`Default configuration created at ${configPath}`);
     } else {
-      console.log('Configuration file already exists.');
+      log.info('Configuration file already exists.');
     }
   }
 }
