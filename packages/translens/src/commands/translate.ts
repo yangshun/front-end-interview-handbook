@@ -4,10 +4,12 @@ import chalk from 'chalk';
 import Config from '../config';
 import { JsonHandler } from '../handlers';
 import FileEnumerator from '../lib/FileEnumerator';
+import { FileRegistryManager } from '../core/FileRegistryManager';
 
 export async function translate() {
   const config = new Config().getConfig();
-  const jsonHandler = new JsonHandler();
+  const registryManager = new FileRegistryManager();
+  const jsonHandler = new JsonHandler(registryManager);
 
   const translationSpinner = spinner();
   translationSpinner.start(chalk.blue('🔍 Searching for files...'));
@@ -22,8 +24,10 @@ export async function translate() {
           group.localeConfig?.source || config.localeConfig.source; // Override the default locale config if provided
         const targetLocales =
           group.localeConfig?.target || config.localeConfig.target; // Override the default locale config if provided
-
-        const targetFilePaths = targetLocales.map((targetLocale) =>
+        const finalTargetLocales = targetLocales.filter(
+          (locale) => locale !== sourceLocale,
+        ); // For safety, filter out the source locale from the target locales
+        const targetFilePaths = finalTargetLocales.map((targetLocale) =>
           file.target.replace('{locale}', targetLocale),
         ); // replace {locale} placeholder with target locale
 
@@ -35,17 +39,12 @@ export async function translate() {
         );
         const filteredFiles = await fileEnumerator.enumerateFiles();
 
-        // Prepare translation objects for each file
-        return filteredFiles.flatMap((sourceFile) =>
-          targetLocales
-            .filter((locale) => locale !== sourceLocale)
-            .map((targetLocale) => ({
-              source: sourceFile,
-              target: file.target.replace('{locale}', targetLocale), // replace {locale} placeholder with target locale
-              excludeKeys: file.excludeKeys,
-              targetLocale,
-            })),
-        );
+        return filteredFiles.flatMap((sourceFile) => ({
+          source: sourceFile,
+          targetLocales: finalTargetLocales,
+          excludeKeys: file.excludeKeys,
+          target: file.target,
+        }));
       });
     }),
   ).then((result) => result.flat());
@@ -66,7 +65,7 @@ export async function translate() {
         if (file.source.endsWith('.json')) {
           translationSpinner.message(
             chalk.blue(
-              `Translating ${chalk.cyan(file.source)} for locale: ${chalk.yellow(file.targetLocale)}`,
+              `Translating ${chalk.cyan(file.source)} to ${file.targetLocales.join(', ')}`,
             ),
           );
           await jsonHandler.translate(
@@ -75,15 +74,15 @@ export async function translate() {
               target: file.target,
               excludeKeys: file.excludeKeys,
             },
-            file.targetLocale,
+            file.targetLocales,
           );
           log.success(
-            `✔ Successfully translated: ${chalk.bold(file.source)} -> ${chalk.bold(file.targetLocale)}`,
+            `✔ Successfully translated: ${chalk.bold(file.source)} to ${file.targetLocales.join(', ')}`,
           );
         }
       } catch (error: any) {
         log.error(
-          `❌ Error translating file ${chalk.red(file.source)} for locale ${chalk.red(file.targetLocale)}: ${error.message}`,
+          `❌ Error translating file ${chalk.red(file.source)} to ${file.targetLocales.join(', ')}: ${error.message}`,
         );
       }
     }),

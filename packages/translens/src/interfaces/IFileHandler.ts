@@ -1,5 +1,5 @@
-import { IConfigFile } from './IConfig';
+import { IConfigFile } from '../types/config';
 
 export interface IFileHandler {
-  translate(file: IConfigFile, targetLocale: string): Promise<void>;
+  translate(file: IConfigFile, targetLocales: string[]): Promise<void>;
 }

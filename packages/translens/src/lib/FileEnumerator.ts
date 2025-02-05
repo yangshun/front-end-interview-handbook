@@ -34,6 +34,8 @@ export default class FileEnumerator {
     const excludedFiles = this.getExcludedFiles([
       ...this.ignoreFiles,
       ...this.targetFilePaths,
+      // Ignore the file registry
+      '**/*.translens.json',
     ]);
 
     return sourceFiles.filter((file) => !excludedFiles.includes(file));

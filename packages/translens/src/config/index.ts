@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
-import { IConfig } from '../interfaces';
 import { log } from '@clack/prompts';
+import { IConfig } from '../types/config';
 
 export const CONFIG_PATH = path.join(process.cwd(), 'translens.config.json');
 

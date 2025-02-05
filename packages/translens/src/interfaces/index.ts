@@ -1,2 +1,2 @@
-export * from './IConfig';
 export * from './IFileHandler';
+export * from './IFileRegistryManager';

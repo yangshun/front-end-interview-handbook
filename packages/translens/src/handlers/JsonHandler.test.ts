@@ -1,44 +1,31 @@
 import fs from 'fs';
 import { JsonHandler } from '../handlers/JsonHandler';
-import { IConfig } from '../interfaces';
-import { log } from '@clack/prompts';
+import { IConfigFile } from '../types/config';
+import { IFileRegistryManager } from '../interfaces/IFileRegistryManager';
+import { vi } from 'vitest';
 
 // Mock `fs` functions
 vi.mock('fs');
 
+const mockRegistryManager: IFileRegistryManager = {
+  load: vi.fn().mockResolvedValue({ translatedLocales: [] }),
+  save: vi.fn().mockResolvedValue(undefined),
+  getRegistryPath: vi.fn().mockRejectedValue(''),
+};
+
 describe('JsonHandler', () => {
   let jsonHandler: JsonHandler;
-  let mockConfig: IConfig;
 
   beforeEach(() => {
     vi.clearAllMocks();
-
-    mockConfig = {
-      localeConfig: {
-        source: 'en-US',
-        target: ['pt-BR', 'zh-CN'],
-      },
-      groups: [
-        {
-          name: 'example',
-          type: 'json',
-          files: [
-            {
-              source: '.src/locales/en-US.json',
-              target: '.src/locales/example/{locale}.json',
-            },
-          ],
-        },
-      ],
-    };
-    jsonHandler = new JsonHandler();
+    jsonHandler = new JsonHandler(mockRegistryManager);
   });
 
   describe('translate()', () => {
-    it('should read and write JSON file content', async () => {
-      const mockFile = {
+    it('should read, write JSON file content and update the registry', async () => {
+      const mockFile: IConfigFile = {
         source: '/mock/path/en-US.json',
-        target: '/mock/path/pt-BR.json',
+        target: '/mock/path/{locale}.json',
       };
       const mockContent = { key: 'value' };
 
@@ -46,7 +33,7 @@ describe('JsonHandler', () => {
       vi.spyOn(fs, 'existsSync').mockReturnValue(false);
       vi.spyOn(fs, 'writeFileSync').mockImplementation(() => {});
 
-      await jsonHandler.translate(mockFile, 'pt-BR');
+      await jsonHandler.translate(mockFile, ['pt-BR']);
 
       expect(fs.readFileSync).toHaveBeenCalledWith(
         '/mock/path/en-US.json',
@@ -56,6 +43,12 @@ describe('JsonHandler', () => {
         '/mock/path/pt-BR.json',
         JSON.stringify(mockContent, null, 2),
         'utf-8',
+      );
+      expect(mockRegistryManager.save).toHaveBeenCalledWith(
+        '/mock/path/en-US.json',
+        expect.objectContaining({
+          translatedLocales: ['pt-BR'],
+        }),
       );
     });
   });
@@ -86,25 +79,30 @@ describe('JsonHandler', () => {
 
   describe('writeFile()', () => {
     it('should create a new file if it does not exist', async () => {
-      const filePath = '/mock/path/pt-BR.json';
+      const filePath = '/mock/path/{locale}.json';
+      const targetLocale = 'pt-BR';
       const newContent = { hello: 'bonjour' };
+      const finalPath = filePath.replace('{locale}', targetLocale);
 
       vi.spyOn(fs, 'existsSync').mockReturnValue(false);
       vi.spyOn(fs, 'writeFileSync').mockImplementation(() => {});
 
-      await (jsonHandler as any).writeFile(filePath, newContent);
+      await (jsonHandler as any).writeFile(filePath, targetLocale, newContent);
 
       expect(fs.writeFileSync).toHaveBeenCalledWith(
-        filePath,
+        finalPath,
         JSON.stringify(newContent, null, 2),
         'utf-8',
       );
     });
 
     it('should merge existing content with new content', async () => {
-      const filePath = '/mock/path/pt-BR.json';
+      const filePath = '/mock/path/{locale}.json';
+      const targetLocale = 'pt-BR';
+      const finalPath = filePath.replace('{locale}', targetLocale);
       const existingContent = { greeting: 'bonjour' };
       const newContent = { farewell: 'au revoir' };
+      const mergedContent = { ...existingContent, ...newContent };
 
       vi.spyOn(fs, 'existsSync').mockReturnValue(true);
       vi.spyOn(fs, 'readFileSync').mockReturnValue(
@@ -112,11 +110,11 @@ describe('JsonHandler', () => {
       );
       vi.spyOn(fs, 'writeFileSync').mockImplementation(() => {});
 
-      await (jsonHandler as any).writeFile(filePath, newContent);
+      await (jsonHandler as any).writeFile(filePath, targetLocale, newContent);
 
       expect(fs.writeFileSync).toHaveBeenCalledWith(
-        filePath,
-        JSON.stringify({ greeting: 'bonjour', farewell: 'au revoir' }, null, 2),
+        finalPath,
+        JSON.stringify(mergedContent, null, 2),
         'utf-8',
       );
     });

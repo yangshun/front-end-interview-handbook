@@ -1,4 +1,3 @@
-import { describe, it, expect, vi } from 'vitest';
 import FileEnumerator from './FileEnumerator'; // Adjust the import path
 
 describe('FileEnumerator', () => {

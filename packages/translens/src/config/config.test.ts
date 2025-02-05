@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import Config, { DEFAULT_CONFIG } from '.';
-import { IConfig } from '../interfaces';
+import { IConfig } from '../types/config';
 
 const TEST_CONFIG_PATH = path.join(process.cwd(), 'test-translens.config.json');
 
