@@ -1,3 +1,5 @@
+import { IConfigFile } from './IConfig';
+
 export interface IFileHandler {
-  translate(filePath: string, locales: string[]): Promise<void>;
+  translate(file: IConfigFile, targetLocale: string): Promise<void>;
 }

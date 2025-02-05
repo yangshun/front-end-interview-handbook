@@ -1,18 +1,11 @@
 import fs from 'fs';
 import path from 'path';
-import Config from '.';
+import Config, { DEFAULT_CONFIG } from '.';
+import { IConfig } from '../interfaces';
 
 const TEST_CONFIG_PATH = path.join(process.cwd(), 'test-translens.config.json');
 
-const mockConfig = {
-  source: 'en-US',
-  paths: ['./src/locales'],
-  cache: '.file-registry.json',
-  locales: ['pt-BR', 'zh-CN'],
-  mdxConfig: {
-    excludeFrontMatter: [],
-  },
-};
+const mockConfig: IConfig = DEFAULT_CONFIG;
 
 describe('Config Class', () => {
   beforeEach(() => {

@@ -1,40 +1,18 @@
 import fs from 'fs';
 import path from 'path';
-import { spinner, log } from '@clack/prompts';
-import { IConfig, IFileHandler } from '../interfaces';
+import { log } from '@clack/prompts';
+import { IConfigFile, IFileHandler } from '../interfaces';
 
 export class JsonHandler implements IFileHandler {
-  constructor(private config: IConfig) {}
-
   /**
    * Translate a JSON file to multiple locales
    */
-  async translate(filePath: string, locales: string[]): Promise<void> {
-    const s = spinner();
-    s.start(
-      `Translating ${path.basename(filePath)} for locales: ${locales.join(', ')}`,
-    );
+  async translate(file: IConfigFile, targetLocale: string): Promise<void> {
+    const { source, target } = file;
+    const fileContent = await this.readFileContent(source);
 
-    try {
-      const fileContent = await this.readFileContent(filePath);
-
-      // Translate all locales
-      await Promise.all(
-        locales
-          .filter((locale) => locale !== this.config.source)
-          .map(async (locale) => {
-            const { dir, name, ext } = path.parse(filePath);
-            const outputPath = path.join(dir, `${locale}${ext}`);
-
-            await this.writeFile(outputPath, fileContent);
-          }),
-      );
-
-      s.stop('🚀 Translation completed!');
-    } catch (error: any) {
-      s.stop();
-      log.error(`❌ Error translating file ${filePath}: ${error.message}`);
-    }
+    // Translate the file
+    await this.writeFile(target, fileContent);
   }
 
   /**
@@ -55,8 +33,10 @@ export class JsonHandler implements IFileHandler {
     try {
       let existingContent: object = {};
 
+      // Check if the file exists
+      const fileExist = fs.existsSync(filePath);
       // Read existing file content if it exists
-      if (fs.existsSync(filePath)) {
+      if (fileExist) {
         try {
           const fileData = fs.readFileSync(filePath, 'utf-8');
           existingContent = JSON.parse(fileData);
@@ -69,16 +49,26 @@ export class JsonHandler implements IFileHandler {
         log.info(`📄 Creating new file: ${filePath}`);
       }
 
+      // Ensure the directory exists
+      const directoryPath = path.dirname(filePath);
+      if (!fs.existsSync(directoryPath)) {
+        fs.mkdirSync(directoryPath, { recursive: true }); // Create the directory if it doesn't exist
+      }
+
       // Merge new content with existing content
       const mergedContent = { ...existingContent, ...newContent };
 
-      // Write to file
+      // Write to the file
       fs.writeFileSync(
         filePath,
         JSON.stringify(mergedContent, null, 2),
         'utf-8',
       );
-      log.success(`✅ File updated: ${filePath}`);
+      log.success(
+        fileExist
+          ? `✅ File updated: ${filePath}`
+          : `✅ File created: ${filePath}`,
+      );
     } catch (error: any) {
       throw new Error(`Error writing file ${filePath}: ${error.message}`);
     }

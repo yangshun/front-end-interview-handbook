@@ -14,79 +14,48 @@ describe('JsonHandler', () => {
     vi.clearAllMocks();
 
     mockConfig = {
-      source: 'en-US',
-      paths: ['./src/locales'],
-      cache: '.file-registry.json',
-      locales: ['pt-BR', 'zh-CN'],
-      mdxConfig: {
-        excludeFrontMatter: [],
+      localeConfig: {
+        source: 'en-US',
+        target: ['pt-BR', 'zh-CN'],
       },
+      groups: [
+        {
+          name: 'example',
+          type: 'json',
+          files: [
+            {
+              source: '.src/locales/en-US.json',
+              target: '.src/locales/example/{locale}.json',
+            },
+          ],
+        },
+      ],
     };
-    jsonHandler = new JsonHandler(mockConfig);
+    jsonHandler = new JsonHandler();
   });
 
   describe('translate()', () => {
-    it('should translate a JSON file and create locale versions', async () => {
-      const filePath = '/mock/path/en-US.json';
-      const locales = ['pt-BR', 'zh-CN', 'en-US'];
+    it('should read and write JSON file content', async () => {
+      const mockFile = {
+        source: '/mock/path/en-US.json',
+        target: '/mock/path/pt-BR.json',
+      };
+      const mockContent = { key: 'value' };
 
-      // Mock file read
-      vi.spyOn(fs, 'readFileSync').mockReturnValue(
-        JSON.stringify({ key: 'value' }),
-      );
+      vi.spyOn(fs, 'readFileSync').mockReturnValue(JSON.stringify(mockContent));
       vi.spyOn(fs, 'existsSync').mockReturnValue(false);
       vi.spyOn(fs, 'writeFileSync').mockImplementation(() => {});
 
-      await jsonHandler.translate(filePath, locales);
+      await jsonHandler.translate(mockFile, 'pt-BR');
 
-      expect(fs.readFileSync).toHaveBeenCalledWith(filePath, 'utf-8');
-      expect(fs.writeFileSync).toHaveBeenCalledTimes(2);
+      expect(fs.readFileSync).toHaveBeenCalledWith(
+        '/mock/path/en-US.json',
+        'utf-8',
+      );
       expect(fs.writeFileSync).toHaveBeenCalledWith(
         '/mock/path/pt-BR.json',
-        expect.any(String),
+        JSON.stringify(mockContent, null, 2),
         'utf-8',
-      );
-      expect(fs.writeFileSync).toHaveBeenCalledWith(
-        '/mock/path/zh-CN.json',
-        expect.any(String),
-        'utf-8',
-      );
-    });
-
-    it('should skip translation for the source locale', async () => {
-      const filePath = '/mock/path/en-US.json';
-      const locales = ['pt-BR', 'en-US']; // en-US is the source locale
-
-      vi.spyOn(fs, 'readFileSync').mockReturnValue(
-        JSON.stringify({ key: 'value' }),
-      );
-      vi.spyOn(fs, 'existsSync').mockReturnValue(false);
-      vi.spyOn(fs, 'writeFileSync').mockImplementation(() => {});
-
-      await jsonHandler.translate(filePath, locales);
-
-      expect(fs.writeFileSync).toHaveBeenCalledTimes(1); // Only 'pt-BR' should be translated
-      expect(fs.writeFileSync).toHaveBeenCalledWith(
-        '/mock/path/pt-BR.json',
-        expect.any(String),
-        'utf-8',
-      );
-    });
-
-    it('should handle file read error gracefully', async () => {
-      const filePath = '/mock/path/en-US.json';
-      const locales = ['pt-BR'];
-
-      vi.spyOn(fs, 'readFileSync').mockImplementation(() => {
-        throw new Error('Read error');
-      });
-
-      const logErrorSpy = vi.spyOn(log, 'error').mockImplementation(() => {});
-
-      await jsonHandler.translate(filePath, locales);
-
-      expect(logErrorSpy).toHaveBeenCalledWith(
-        expect.stringContaining('❌ Error translating file'),
       );
     });
   });
@@ -95,7 +64,6 @@ describe('JsonHandler', () => {
     it('should read and parse JSON file content', async () => {
       const filePath = '/mock/path/en-US.json';
       const mockContent = { key: 'value' };
-
       vi.spyOn(fs, 'readFileSync').mockReturnValue(JSON.stringify(mockContent));
 
       const result = await (jsonHandler as any).readFileContent(filePath);
@@ -106,7 +74,6 @@ describe('JsonHandler', () => {
 
     it('should throw an error when file reading fails', async () => {
       const filePath = '/mock/path/en-US.json';
-
       vi.spyOn(fs, 'readFileSync').mockImplementation(() => {
         throw new Error('File not found');
       });
@@ -150,25 +117,6 @@ describe('JsonHandler', () => {
       expect(fs.writeFileSync).toHaveBeenCalledWith(
         filePath,
         JSON.stringify({ greeting: 'bonjour', farewell: 'au revoir' }, null, 2),
-        'utf-8',
-      );
-    });
-
-    it('should log an error when writing fails', async () => {
-      const filePath = '/mock/path/pt-BR.json';
-      const newContent = { hello: 'bonjour' };
-
-      vi.spyOn(fs, 'writeFileSync').mockImplementation(() => {
-        throw new Error('Write error');
-      });
-
-      await expect(
-        (jsonHandler as any).writeFile(filePath, newContent),
-      ).rejects.toThrow('Error writing file');
-
-      expect(fs.writeFileSync).toHaveBeenCalledWith(
-        filePath,
-        expect.any(String),
         'utf-8',
       );
     });

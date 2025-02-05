@@ -5,14 +5,23 @@ import { log } from '@clack/prompts';
 
 export const CONFIG_PATH = path.join(process.cwd(), 'translens.config.json');
 
-const DEFAULT_CONFIG: IConfig = {
-  source: 'en-US',
-  paths: ['./src/locales'],
-  cache: '.file-registry.json',
-  locales: ['pt-BR', 'zh-CN'],
-  mdxConfig: {
-    excludeFrontMatter: [],
+export const DEFAULT_CONFIG: IConfig = {
+  localeConfig: {
+    source: 'en-US',
+    target: ['pt-BR', 'zh-CN'],
   },
+  groups: [
+    {
+      name: 'example',
+      type: 'json',
+      files: [
+        {
+          source: './src/locales/en-US.json',
+          target: './src/locales/example/{locale}.json',
+        },
+      ],
+    },
+  ],
 };
 
 export default class Config {
