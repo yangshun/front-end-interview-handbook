@@ -1,9 +1,9 @@
 const { themes } = require('prism-react-renderer');
 
 module.exports = {
-  title: 'The Official Front End Interview Handbook 2024',
+  title: 'The Official Front End Interview Handbook 2025',
   tagline:
-    'Front end interview preparation resources for busy engineers – quiz questions, JavaScript coding questions, algorithms questions, front end system design questions and more. Updated for 2024!',
+    'Front end interview preparation resources for busy engineers – quiz questions, JavaScript coding questions, algorithms questions, front end system design questions and more. Updated for 2025!',
   url: 'https://www.frontendinterviewhandbook.com',
   baseUrl: '/',
   trailingSlash: false,
