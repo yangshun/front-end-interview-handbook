@@ -1,5 +1,5 @@
 import fs from 'fs/promises';
-import { FileRegistryManager } from './FileRegistryManager';
+import FileRegistryManager from './FileRegistryManager';
 
 vi.mock('fs/promises');
 

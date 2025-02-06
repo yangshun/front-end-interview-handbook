@@ -3,7 +3,7 @@ import path from 'path';
 import { FileRegistry } from '../types/registry';
 import { IFileRegistryManager } from '../interfaces';
 
-export class FileRegistryManager implements IFileRegistryManager {
+export default class FileRegistryManager implements IFileRegistryManager {
   getRegistryPath(sourceFilePath: string): string {
     const dir = path.dirname(sourceFilePath);
     const filename = path.basename(

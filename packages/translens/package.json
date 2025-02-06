@@ -1,6 +1,6 @@
 {
-  "name": "translens",
-  "version": "0.0.1",
+  "name": "@gfe/translens",
+  "version": "0.0.0",
   "description": "Modern translation toolchain",
   "author": "Nitesh Seram <niteshseram@gmail.com>",
   "license": "MIT",
@@ -23,7 +23,8 @@
   "dependencies": {
     "@clack/prompts": "^0.9.1",
     "chalk": "^5.2.0",
-    "glob": "^11.0.1"
+    "glob": "^11.0.1",
+    "murmurhash": "^2.0.1"
   },
   "devDependencies": {
     "@types/node": "^22.12.0",
