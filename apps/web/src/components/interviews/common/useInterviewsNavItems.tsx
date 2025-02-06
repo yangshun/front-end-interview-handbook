@@ -530,7 +530,7 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
           gtag.event({
             action: `${placement}.prepare.guides.feig.click`,
             category: 'engagement',
-            label: 'Front End Interview Guidebook',
+            label: guidesData.FRONT_END_INTERVIEW_PLAYBOOK.name,
           });
         },
         sublabel: intl.formatMessage({
@@ -549,7 +549,7 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
           gtag.event({
             action: `${placement}.prepare.guides.fesdg.click`,
             category: 'engagement',
-            label: 'Front End System Design Guidebook',
+            label: guidesData.FRONT_END_SYSTEM_DESIGN_PLAYBOOK.name,
           });
         },
         sublabel: guidesData.FRONT_END_SYSTEM_DESIGN_PLAYBOOK.description,
@@ -575,7 +575,7 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
           gtag.event({
             action: `${placement}.prepare.guides.big.click`,
             category: 'engagement',
-            label: 'Behavioral Interview Guidebook',
+            label: guidesData.BEHAVIORAL_INTERVIEW_PLAYBOOK.name,
           });
         },
         sublabel: guidesData.BEHAVIORAL_INTERVIEW_PLAYBOOK.description,

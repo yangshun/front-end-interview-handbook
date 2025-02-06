@@ -1,9 +1,9 @@
 import { keyBy, mapValues, sumBy } from 'lodash-es';
 
+import { BehavioralInterviewPlaybookPaths } from '~/components/guides/books/BehavioralInterviewPlaybookNavigation';
+import { FrontEndInterviewPlaybookPaths } from '~/components/guides/books/FrontEndInterviewPlaybookNavigation';
+import { FrontEndSystemDesignPlaybookPaths } from '~/components/guides/books/FrontEndSystemDesignPlaybookNavigation';
 import type {
-  BehavioralSlugType,
-  FrontEndInterviewSlugType,
-  FrontEndSystemDesignSlugType,
   GuideCardMetadata,
   GuideMetadata,
 } from '~/components/guides/types';
@@ -26,79 +26,6 @@ export function hasCompletedGuide(
 ): boolean {
   return completedGuides.has(hashGuide(guide.book, guide.id));
 }
-
-export const frontendInterviewSlugs = [
-  'introduction',
-  'javascript',
-  'algorithms',
-  'user-interface',
-  'user-interface-questions-cheatsheet',
-  'user-interface-components-api-design-principles',
-  'quiz',
-  'system-design',
-  'resume',
-  'coding',
-] as const;
-
-export const frontEndInterviewsRouteToFile: Record<
-  FrontEndInterviewSlugType,
-  string
-> = {
-  algorithms: 'algorithms',
-  coding: 'coding',
-  introduction: 'overview',
-  javascript: 'javascript',
-  quiz: 'quiz',
-  resume: 'resume',
-  'system-design': 'system-design',
-  'user-interface': 'user-interface',
-  'user-interface-components-api-design-principles':
-    'user-interface-components-api-design-principles',
-  'user-interface-questions-cheatsheet': 'user-interface-questions-cheatsheet',
-};
-
-export const frontendSystemDesignSlugs = [
-  'introduction',
-  'types-of-questions',
-  'framework',
-  'evaluation-axes',
-  'common-mistakes',
-  'cheatsheet',
-] as const;
-
-export const frontendSystemDesignRouteToFile: Record<
-  FrontEndSystemDesignSlugType,
-  string
-> = {
-  cheatsheet: 'cheatsheet',
-  'common-mistakes': 'common-mistakes',
-  'evaluation-axes': 'evaluation-axes',
-  framework: 'framework',
-  introduction: 'introduction',
-  'types-of-questions': 'types-of-questions',
-};
-
-export const behavioralSlugs = [
-  'introduction',
-  'questions',
-  'self-introduction',
-  'why-work-here',
-  'questions-to-ask',
-  'problem-solving',
-  'collaboration',
-  'growth-mindset',
-] as const;
-
-export const behavioralRouteToFile: Record<BehavioralSlugType, string> = {
-  collaboration: 'collaboration',
-  'growth-mindset': 'growth-mindset',
-  introduction: 'overview',
-  'problem-solving': 'problem-solving',
-  questions: 'questions',
-  'questions-to-ask': 'questions-to-ask',
-  'self-introduction': 'self-introduction',
-  'why-work-here': 'why-work-here',
-};
 
 export function categorizeGuides<
   T extends string,
@@ -140,17 +67,17 @@ export function getGuideCompletionCount(
     return {
       behavioralPlaybook: {
         completed: 0,
-        total: behavioralSlugs.length,
+        total: BehavioralInterviewPlaybookPaths.length,
         updatedAt: null,
       },
       frontendInterviewPlaybook: {
         completed: 0,
-        total: frontendInterviewSlugs.length,
+        total: FrontEndInterviewPlaybookPaths.length,
         updatedAt: null,
       },
       systemDesignPlaybook: {
         completed: 0,
-        total: frontendSystemDesignSlugs.length,
+        total: FrontEndSystemDesignPlaybookPaths.length,
         updatedAt: null,
       },
     };
@@ -213,17 +140,17 @@ export function getGuideCompletionCount(
   return {
     behavioralPlaybook: {
       completed: behavioralPlaybookCompletionCount,
-      total: behavioralSlugs.length,
+      total: BehavioralInterviewPlaybookPaths.length,
       updatedAt: behavioralPlaybookLatestDate,
     },
     frontendInterviewPlaybook: {
       completed: frontendInterviewPlaybookCompletionCount,
-      total: frontendInterviewSlugs.length,
+      total: FrontEndInterviewPlaybookPaths.length,
       updatedAt: frontendInterviewPlaybookLatestDate,
     },
     systemDesignPlaybook: {
       completed: systemDesignPlaybookCompletionCount,
-      total: frontendSystemDesignSlugs.length,
+      total: FrontEndSystemDesignPlaybookPaths.length,
       updatedAt: systemDesignPlaybookLatestDate,
     },
   };

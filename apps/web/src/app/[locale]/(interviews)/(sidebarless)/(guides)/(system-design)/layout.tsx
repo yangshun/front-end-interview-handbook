@@ -3,11 +3,11 @@
 import type { ReactNode } from 'react';
 
 import SidebarPremiumChip from '~/components/global/sidebar/SidebarPremiumChip';
-import { useSystemDesignNavigation } from '~/components/guides/books/SystemDesignGuidebookNavigation';
+import { useFrontEndSystemDesignPlaybookNavigation } from '~/components/guides/books/FrontEndSystemDesignPlaybookNavigation';
 import GuidesLayout from '~/components/guides/GuidesLayout';
 
 export default function Layout({ children }: { children: ReactNode }) {
-  const navigation = useSystemDesignNavigation();
+  const navigation = useFrontEndSystemDesignPlaybookNavigation();
 
   const mappedItems = navigation.navigation.items.map((navItem) => ({
     ...navItem,

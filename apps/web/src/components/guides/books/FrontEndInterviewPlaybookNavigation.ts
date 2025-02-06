@@ -11,6 +11,38 @@ import { useIntl } from '~/components/intl';
 
 import type { GuideNavigation, GuideNavigationLink } from '../types';
 
+export const FrontEndInterviewPlaybookPaths = [
+  'introduction',
+  'javascript',
+  'algorithms',
+  'user-interface',
+  'user-interface-questions-cheatsheet',
+  'user-interface-components-api-design-principles',
+  'quiz',
+  'system-design',
+  'resume',
+  'coding',
+] as const;
+
+export type FrontEndInterviewPlaybookPathType =
+  (typeof FrontEndInterviewPlaybookPaths)[number];
+export const frontEndInterviewPlaybookPathToFile: Record<
+  FrontEndInterviewPlaybookPathType,
+  string
+> = {
+  algorithms: 'algorithms',
+  coding: 'coding',
+  introduction: 'overview',
+  javascript: 'javascript',
+  quiz: 'quiz',
+  resume: 'resume',
+  'system-design': 'system-design',
+  'user-interface': 'user-interface',
+  'user-interface-components-api-design-principles':
+    'user-interface-components-api-design-principles',
+  'user-interface-questions-cheatsheet': 'user-interface-questions-cheatsheet',
+};
+
 export const basePath = '/front-end-interview-playbook';
 
 function useCodingSectionItem() {
@@ -163,7 +195,7 @@ export function useCodingQuestionListGuideItems() {
 
   return combined;
 }
-export function useFrontEndInterviewGuidebookNavigation() {
+export function useFrontEndInterviewPlaybookNavigation() {
   const intl = useIntl();
   const codingSectionItem = useCodingSectionItem();
   const quizSectionItem = useQuizSectionItem();
@@ -234,9 +266,9 @@ export function useFrontEndInterviewGuidebookNavigation() {
         },
       ],
       title: intl.formatMessage({
-        defaultMessage: 'Front End Interview Guidebook',
-        description: 'Front End Interview Guidebook title',
-        id: 'w0Gmne',
+        defaultMessage: 'Front End Interview Playbook',
+        description: 'Front End Interview Playbook title',
+        id: 'd1mCvP',
       }),
     },
   };

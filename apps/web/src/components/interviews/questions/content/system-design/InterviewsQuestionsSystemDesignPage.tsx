@@ -3,7 +3,7 @@
 import { getMDXExport } from 'mdx-bundler/client';
 import type { ReactNode } from 'react';
 
-import { useSystemDesignNavigation } from '~/components/guides/books/SystemDesignGuidebookNavigation';
+import { useFrontEndSystemDesignPlaybookNavigation } from '~/components/guides/books/FrontEndSystemDesignPlaybookNavigation';
 import GuidesMainLayout from '~/components/guides/GuidesMainLayout';
 import type { TableOfContents } from '~/components/guides/GuidesTableOfContents';
 import InterviewsPurchasePaywall from '~/components/interviews/purchase/InterviewsPurchasePaywall';
@@ -41,7 +41,7 @@ export default function InterviewsQuestionsSystemDesignPage({
         ).tableOfContents
       : undefined;
 
-  const navigation = useSystemDesignNavigation();
+  const navigation = useFrontEndSystemDesignPlaybookNavigation();
 
   return (
     <GuidesMainLayout

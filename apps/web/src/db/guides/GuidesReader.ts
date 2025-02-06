@@ -3,24 +3,25 @@ import grayMatter from 'gray-matter';
 import path from 'path';
 import readingTime from 'reading-time';
 
-import { basePath as frontEndSystemDesignGuidebookBasePath } from '~/components/guides/books/SystemDesignGuidebookNavigation';
-import { basePath as behavioralInterviewGuidebookBasePath } from '~/components/guides/books/useBehavioralInterviewGuidebookNavigation';
-import { basePath as frontEndInterviewGuidebookBasePath } from '~/components/guides/books/useFrontEndInterviewGuidebookNavigation';
-import type {
-  BehavioralSlugType,
-  FrontEndInterviewSlugType,
-  FrontEndSystemDesignSlugType,
-  GuideCardMetadata,
-} from '~/components/guides/types';
-
 import {
-  behavioralRouteToFile,
-  behavioralSlugs,
-  frontendInterviewSlugs,
-  frontEndInterviewsRouteToFile,
-  frontendSystemDesignRouteToFile,
-  frontendSystemDesignSlugs,
-} from './GuidesUtils';
+  basePath as behavioralInterviewPlaybookBasePath,
+  BehavioralInterviewPlaybookPaths,
+  behavioralInterviewPlaybookPathToFile,
+} from '~/components/guides/books/BehavioralInterviewPlaybookNavigation';
+import type { FrontEndInterviewPlaybookPathType } from '~/components/guides/books/FrontEndInterviewPlaybookNavigation';
+import {
+  basePath as frontEndInterviewPlaybookBasePath,
+  FrontEndInterviewPlaybookPaths,
+  frontEndInterviewPlaybookPathToFile,
+} from '~/components/guides/books/FrontEndInterviewPlaybookNavigation';
+import {
+  basePath as frontEndSystemDesignPlaybookBasePath,
+  FrontEndSystemDesignPlaybookPaths,
+  frontEndSystemDesignPlaybookPathToFile,
+} from '~/components/guides/books/FrontEndSystemDesignPlaybookNavigation';
+import type { GuideCardMetadata } from '~/components/guides/types';
+
+import type { GuidebookItem } from '@prisma/client';
 
 export function readGuidesContents(
   directoryPath: string,
@@ -38,57 +39,54 @@ export function readGuidesContents(
   return fileContents.toString();
 }
 
-type GuidesRouteTypeMap = {
-  'behavioral-interview-guidebook': BehavioralSlugType;
-  'front-end-interview-guidebook': FrontEndInterviewSlugType;
-  'system-design': FrontEndSystemDesignSlugType;
-};
+const guideDirectoryData = {
+  BEHAVIORAL_INTERVIEW_PLAYBOOK: {
+    guideDirectory: 'behavioral-interview-guidebook',
+    pathToFile: behavioralInterviewPlaybookPathToFile,
+  } as const,
+  FRONT_END_INTERVIEW_PLAYBOOK: {
+    guideDirectory: 'front-end-interview-guidebook',
+    pathToFile: frontEndInterviewPlaybookPathToFile,
+  } as const,
+  FRONT_END_SYSTEM_DESIGN_PLAYBOOK: {
+    guideDirectory: 'system-design',
+    pathToFile: frontEndSystemDesignPlaybookPathToFile,
+  } as const,
+} as const;
 
-function requestToGuidePaths<T extends keyof GuidesRouteTypeMap>(
-  guideType: T,
-  route: GuidesRouteTypeMap[T],
-): Readonly<{
-  directoryPath: string;
-}> {
-  const fileMap: Record<keyof GuidesRouteTypeMap, Record<string, string>> = {
-    'behavioral-interview-guidebook': behavioralRouteToFile,
-    'front-end-interview-guidebook': frontEndInterviewsRouteToFile,
-    'system-design': frontendSystemDesignRouteToFile,
-  };
+export function guidesRequestToFilePath<T extends GuidebookItem>(
+  guideBook: T,
+  route: keyof (typeof guideDirectoryData)[T]['pathToFile'],
+) {
+  const { pathToFile, guideDirectory } = guideDirectoryData[guideBook];
 
-  const file = fileMap[guideType][route];
-
-  const directoryPath = path.join(
+  return path.join(
     process.cwd(),
     '..',
     '..',
     'submodules',
     'front-end-interview-handbook',
     'packages',
-    guideType,
+    guideDirectory,
     'contents',
-    file,
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore TODO: fix this
+    pathToFile[route],
   );
-
-  return { directoryPath };
 }
 
 // TODO(interviews): consolidate
 export async function readFrontEndInterviewGuides(
   options?: Readonly<{
     locale?: string;
-    slugs?: ReadonlyArray<FrontEndInterviewSlugType>;
+    slugs?: ReadonlyArray<FrontEndInterviewPlaybookPathType>;
   }>,
-) {
+): Promise<ReadonlyArray<GuideCardMetadata>> {
   const { slugs, locale } = options ?? {};
+  const book = 'FRONT_END_INTERVIEW_PLAYBOOK';
 
-  const guidesData: Array<GuideCardMetadata> = [];
-
-  (slugs ?? frontendInterviewSlugs).forEach((slug) => {
-    const { directoryPath } = requestToGuidePaths(
-      'front-end-interview-guidebook',
-      slug,
-    );
+  return (slugs ?? FrontEndInterviewPlaybookPaths).map((slug) => {
+    const directoryPath = guidesRequestToFilePath(book, slug);
 
     const mdxSource = readGuidesContents(directoryPath, locale);
 
@@ -96,68 +94,61 @@ export async function readFrontEndInterviewGuides(
     const { description, title } = data;
     const time = Math.ceil(readingTime(mdxSource ?? '').minutes);
 
-    guidesData.push({
-      book: 'FRONT_END_INTERVIEW_PLAYBOOK',
+    return {
+      book,
       description,
-      href: `${frontEndInterviewGuidebookBasePath}/${slug}`,
+      href: `${frontEndInterviewPlaybookBasePath}/${slug}`,
       id: slug,
       readingTime: time,
       title,
-    });
+    };
   });
-
-  return guidesData;
 }
 
-export async function readAllFrontendSystemDesignGuides(locale: string) {
-  const guidesData: Array<GuideCardMetadata> = [];
+export async function readAllFrontendSystemDesignGuides(
+  locale: string,
+): Promise<ReadonlyArray<GuideCardMetadata>> {
+  const book = 'FRONT_END_SYSTEM_DESIGN_PLAYBOOK';
 
-  frontendSystemDesignSlugs.forEach((slug) => {
-    const { directoryPath } = requestToGuidePaths('system-design', slug);
-
+  return FrontEndSystemDesignPlaybookPaths.map((slug) => {
+    const directoryPath = guidesRequestToFilePath(book, slug);
     const mdxSource = readGuidesContents(directoryPath, locale);
 
     const { data } = grayMatter(mdxSource);
     const { description, title } = data;
     const time = Math.ceil(readingTime(mdxSource ?? '').minutes);
 
-    guidesData.push({
-      book: 'FRONT_END_SYSTEM_DESIGN_PLAYBOOK',
+    return {
+      book,
       description,
-      href: `${frontEndSystemDesignGuidebookBasePath}/${slug}`,
+      href: `${frontEndSystemDesignPlaybookBasePath}/${slug}`,
       id: slug,
       readingTime: time,
       title,
-    });
+    };
   });
-
-  return guidesData;
 }
 
-export async function readAllBehavioralGuides(locale: string) {
-  const guidesData: Array<GuideCardMetadata> = [];
+export async function readAllBehavioralGuides(
+  locale: string,
+): Promise<ReadonlyArray<GuideCardMetadata>> {
+  const book = 'BEHAVIORAL_INTERVIEW_PLAYBOOK';
 
-  behavioralSlugs.forEach((slug) => {
-    const { directoryPath } = requestToGuidePaths(
-      'behavioral-interview-guidebook',
-      slug,
-    );
-
+  return BehavioralInterviewPlaybookPaths.map((slug) => {
+    const directoryPath = guidesRequestToFilePath(book, slug);
     const mdxSource = readGuidesContents(directoryPath, locale);
 
     const { data } = grayMatter(mdxSource);
     const { description, title } = data;
     const time = Math.ceil(readingTime(mdxSource ?? '').minutes);
 
-    guidesData.push({
-      book: 'BEHAVIORAL_INTERVIEW_PLAYBOOK',
+    return {
+      book,
       description,
-      href: `${behavioralInterviewGuidebookBasePath}/${slug}`,
+      href: `${behavioralInterviewPlaybookBasePath}/${slug}`,
       id: slug,
       readingTime: time,
       title,
-    });
+    };
   });
-
-  return guidesData;
 }

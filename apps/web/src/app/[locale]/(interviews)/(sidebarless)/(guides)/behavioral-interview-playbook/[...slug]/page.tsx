@@ -1,16 +1,20 @@
 import grayMatter from 'gray-matter';
 import { getMDXExport } from 'mdx-bundler/client';
 import type { Metadata } from 'next/types';
-import path from 'path';
 
-import BehavioralInterviewGuidebookLayout from '~/components/guides/books/BehavioralInterviewGuidebookLayout';
-import { basePath } from '~/components/guides/books/useBehavioralInterviewGuidebookNavigation';
-import type { BehavioralSlugType } from '~/components/guides/types';
+import BehavioralInterviewPlaybookLayout from '~/components/guides/books/BehavioralInterviewPlaybookLayout';
+import type { BehavioralInterviewPlaybookPathType } from '~/components/guides/books/BehavioralInterviewPlaybookNavigation';
+import {
+  basePath,
+  behavioralInterviewPlaybookPathToFile,
+} from '~/components/guides/books/BehavioralInterviewPlaybookNavigation';
 import MDXCodeBlock from '~/components/mdx/MDXCodeBlock';
 import MDXComponents from '~/components/mdx/MDXComponents';
 
-import { readGuidesContents } from '~/db/guides/GuidesReader';
-import { behavioralRouteToFile } from '~/db/guides/GuidesUtils';
+import {
+  guidesRequestToFilePath,
+  readGuidesContents,
+} from '~/db/guides/GuidesReader';
 import { readMDXFileWithLocaleFallback } from '~/db/questions-bundlers/QuestionsBundler';
 import { generateStaticParamsWithLocale } from '~/next-i18nostic/src';
 import defaultMetadata from '~/seo/defaultMetadata';
@@ -24,7 +28,7 @@ type Props = Readonly<{
 
 export async function generateStaticParams() {
   return generateStaticParamsWithLocale(
-    Object.keys(behavioralRouteToFile).map((slug) => ({
+    Object.keys(behavioralInterviewPlaybookPathToFile).map((slug) => ({
       slug: slug ? slug.split('/') : [],
     })),
   );
@@ -36,18 +40,11 @@ function requestToPaths({ params }: Props): Readonly<{
 }> {
   const mdxPath = (params.slug ?? [])
     .join('/')
-    .replace(/\/$/g, '') as BehavioralSlugType;
+    .replace(/\/$/g, '') as BehavioralInterviewPlaybookPathType;
 
-  const directoryPath = path.join(
-    process.cwd(),
-    '..',
-    '..',
-    'submodules',
-    'front-end-interview-handbook',
-    'packages',
-    'behavioral-interview-guidebook',
-    'contents',
-    behavioralRouteToFile[mdxPath],
+  const directoryPath = guidesRequestToFilePath(
+    'BEHAVIORAL_INTERVIEW_PLAYBOOK',
+    mdxPath,
   );
   const pathname = `${basePath}/${mdxPath}`;
 
@@ -90,11 +87,11 @@ export default async function Page(props: Props) {
   });
 
   return (
-    <BehavioralInterviewGuidebookLayout
+    <BehavioralInterviewPlaybookLayout
       description={description}
       tableOfContents={tableOfContents}
       title={title}>
       <Markdown components={MDXComponents} />
-    </BehavioralInterviewGuidebookLayout>
+    </BehavioralInterviewPlaybookLayout>
   );
 }

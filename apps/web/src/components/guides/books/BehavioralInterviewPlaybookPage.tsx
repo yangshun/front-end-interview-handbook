@@ -6,12 +6,10 @@ import {
   RiShiningLine,
 } from 'react-icons/ri';
 
+import type { BehavioralInterviewPlaybookPathType } from '~/components/guides/books/BehavioralInterviewPlaybookNavigation';
 import GuidesCoverLayout from '~/components/guides/cover/GuidesCoverLayout';
 import GuidesListWithCategory from '~/components/guides/cover/GuidesListWithCategory';
-import type {
-  BehavioralSlugType,
-  GuideCardMetadata,
-} from '~/components/guides/types';
+import type { GuideCardMetadata } from '~/components/guides/types';
 import useGuidesWithCompletionStatus from '~/components/guides/useGuidesWithCompletionStatus';
 import { useIntl } from '~/components/intl';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -28,7 +26,7 @@ export default function BehavioralInterviewPlaybookPage({ allGuides }: Props) {
 
   const categorizedGuideSlugs: Record<
     'common-questions' | 'overview',
-    ReadonlyArray<BehavioralSlugType>
+    ReadonlyArray<BehavioralInterviewPlaybookPathType>
   > = {
     'common-questions': [
       'self-introduction',

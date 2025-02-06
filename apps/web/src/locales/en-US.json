@@ -1331,10 +1331,6 @@
     "defaultMessage": "Failed to mark article as complete. Please try again",
     "description": "Error message shown when a guide has failed to mark as complete"
   },
-  "6fAxyB": {
-    "defaultMessage": "Behavioral Interview Guidebook",
-    "description": "Title for behavioral interview guidebook"
-  },
   "6fcExT": {
     "defaultMessage": "You are currently working on this track",
     "description": "Description for projects track in progress status"
@@ -3211,6 +3207,10 @@
     "defaultMessage": "User interface coding",
     "description": "Front end user interface questions"
   },
+  "IsJxd7": {
+    "defaultMessage": "The only behavioral interview guide written specifically for front end engineers.",
+    "description": "Guidebook description"
+  },
   "IuGYUN": {
     "defaultMessage": "Community | Dashboard",
     "description": "Title of community section on dashboard page"
@@ -3843,10 +3843,6 @@
     "defaultMessage": "You posted on the challenge forum for <link>{challengeTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for you making a post on the challenge forum"
   },
-  "MV8xp3": {
-    "defaultMessage": "The only behavioral interview guide written specifically for front end engineers.",
-    "description": "Behavioral interview guidebook description"
-  },
   "MVgsuv": {
     "defaultMessage": "We provide a refund policy based on the principle of \"fair use\" during the initial 14-day period of your first subscription. The concept of fair use implies that if you download a couple of premium assets such as designs or premium challenges and realize that our service isn't suitable for you, we are more than happy to process a refund. However, if you download three or more premium assets and then request a refund, we retain the right to decline your request. To initiate a refund, please send an email to <link>projects@greatfrontend.com</link> within 14 days of commencing your subscription.",
     "description": "Answer on projects pricing's FAQ section - offer refunds"
@@ -3978,10 +3974,6 @@
   "NbNtxn": {
     "defaultMessage": "GreatFrontEnd: The great way to prepare for Front End Interviews",
     "description": "Title of GreatFrontEnd standard page"
-  },
-  "NdDD5W": {
-    "defaultMessage": "Front End System Design Guidebook",
-    "description": "Front end system design guidebook title"
   },
   "NeDKXb": {
     "defaultMessage": "Q&A Quiz-style JavaScript Interview Questions",
@@ -5783,10 +5775,6 @@
     "defaultMessage": "Suggests best projects for skill",
     "description": "Title of 'Recommended projects to build' sub-feature in Projects marketing page"
   },
-  "XtKx03": {
-    "defaultMessage": "The definitive guide to preparing for Front End Interviews, written by the author of Front End Interview Handbook.",
-    "description": "Front end interview guidebook description"
-  },
   "Xu6JMi": {
     "defaultMessage": "{questionCount}+ most important CSS interview questions covering layouts, animations, responsive design, specificity, and creating engaging interfaces.",
     "description": "Subtitle for CSS questions list page"
@@ -5818,6 +5806,10 @@
   "Y+6HHl": {
     "defaultMessage": "React Coding Interview Questions | Solutions by Ex interviewers",
     "description": "Title of React Interview Questions page"
+  },
+  "Y072iD": {
+    "defaultMessage": "Behavioral Interview Playbook",
+    "description": "Title for behavioral interview playbook"
   },
   "Y0QGFG": {
     "defaultMessage": "Focus areas",
@@ -6610,6 +6602,10 @@
   "d1LTa+": {
     "defaultMessage": "Performance",
     "description": "Front end development topic"
+  },
+  "d1mCvP": {
+    "defaultMessage": "Front End Interview Playbook",
+    "description": "Front End Interview Playbook title"
   },
   "d3GL1v": {
     "defaultMessage": "Copy line down",
@@ -8519,6 +8515,10 @@
     "defaultMessage": "Hide widget for this session",
     "description": "Feedback widget button label to hide the feedback widget for their current session"
   },
+  "p0TEPs": {
+    "defaultMessage": "Front End System Design Playbook",
+    "description": "Front end system design playbook title"
+  },
   "p17SP8": {
     "defaultMessage": "Useful into the future",
     "description": "Title of the 'Permanent toolkit' marketing section on Projects home page"
@@ -9038,6 +9038,10 @@
   "sYQ9YX": {
     "defaultMessage": "Username already exists",
     "description": "Error for user already exists"
+  },
+  "sYlXT3": {
+    "defaultMessage": "The definitive guide to preparing for Front End Interviews, written by the author of Front End Interview Handbook.",
+    "description": "Guidebook description"
   },
   "saKoIy": {
     "defaultMessage": "Join Discord (public)",
@@ -9630,10 +9634,6 @@
   "w+HZnz": {
     "defaultMessage": "Our projects are never one-off - they always fit into some component library or design system with other projects. Any projects you build can be composed to build future projects, forming an ever-growing toolkit for your future.",
     "description": "Part 1 of subtitle of the 'Permanent toolkit' marketing section on Projects home page"
-  },
-  "w0Gmne": {
-    "defaultMessage": "Front End Interview Guidebook",
-    "description": "Front End Interview Guidebook title"
   },
   "w3T2Ld": {
     "defaultMessage": "Editor shortcuts",

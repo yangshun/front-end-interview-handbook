@@ -3,30 +3,33 @@
 import { useQueryGuideProgress } from '~/db/guides/GuidesProgressClient';
 import { useI18nPathname } from '~/next-i18nostic/src';
 
-import { useFrontEndInterviewGuidebookNavigation } from './useFrontEndInterviewGuidebookNavigation';
+import { useFrontEndSystemDesignPlaybookNavigation } from './FrontEndSystemDesignPlaybookNavigation';
 import GuidesArticle from '../GuidesArticle';
 import GuidesArticleJsonLd from '../GuidesArticleJsonLd';
 import GuidesMainLayout from '../GuidesMainLayout';
 import type { TableOfContents } from '../GuidesTableOfContents';
 import type { GuideMetadata } from '../types';
 import useFlattenedNavigationItems from '../useFlattenedNavigationItems';
+import SystemDesignPaywall from '../../interviews/questions/content/system-design/SystemDesignPaywall';
 
 type Props = Readonly<{
   children?: React.ReactNode;
   description: string;
+  isAccessibleForFree?: boolean;
   tableOfContents?: TableOfContents;
   title: string;
 }>;
 
-const guide = 'FRONT_END_INTERVIEW_PLAYBOOK';
+const guide = 'FRONT_END_SYSTEM_DESIGN_PLAYBOOK';
 
-export default function FrontEndInterviewGuidebookLayout({
+export default function FrontEndSystemDesignPlaybookLayout({
   children,
   description,
   tableOfContents,
   title,
+  isAccessibleForFree = true,
 }: Props) {
-  const navigation = useFrontEndInterviewGuidebookNavigation();
+  const navigation = useFrontEndSystemDesignPlaybookNavigation();
   const { pathname } = useI18nPathname();
 
   const flatNavigationItems = useFlattenedNavigationItems(navigation);
@@ -47,9 +50,10 @@ export default function FrontEndInterviewGuidebookLayout({
     <>
       <GuidesArticleJsonLd
         description={description}
-        isAccessibleForFree={true}
+        isAccessibleForFree={isAccessibleForFree}
         pathname={pathname}
-        title={title}
+        // TODO: i18n
+        title={`Front End System Design: ${title}`}
       />
       <GuidesMainLayout
         guide={guide}
@@ -59,9 +63,11 @@ export default function FrontEndInterviewGuidebookLayout({
         navigation={navigation}
         showMarkAsComplete={true}
         tableOfContents={tableOfContents}>
-        <GuidesArticle description={description} title={title}>
-          {children}
-        </GuidesArticle>
+        <SystemDesignPaywall isPremium={currentItem.premium}>
+          <GuidesArticle description={description} title={title}>
+            {children}
+          </GuidesArticle>
+        </SystemDesignPaywall>
       </GuidesMainLayout>
     </>
   );

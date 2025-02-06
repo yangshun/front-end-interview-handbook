@@ -1,16 +1,20 @@
 import grayMatter from 'gray-matter';
 import { getMDXExport } from 'mdx-bundler/client';
 import type { Metadata } from 'next/types';
-import path from 'path';
 
-import SystemDesignGuidebookLayout from '~/components/guides/books/SystemDesignGuidebookLayout';
-import { basePath } from '~/components/guides/books/SystemDesignGuidebookNavigation';
-import type { FrontEndSystemDesignSlugType } from '~/components/guides/types';
+import FrontEndSystemDesignPlaybookLayout from '~/components/guides/books/FrontEndSystemDesignPlaybookLayout';
+import type { FrontEndSystemDesignPlaybookPathType } from '~/components/guides/books/FrontEndSystemDesignPlaybookNavigation';
+import {
+  basePath,
+  frontEndSystemDesignPlaybookPathToFile,
+} from '~/components/guides/books/FrontEndSystemDesignPlaybookNavigation';
 import MDXCodeBlock from '~/components/mdx/MDXCodeBlock';
 import MDXComponents from '~/components/mdx/MDXComponents';
 
-import { readGuidesContents } from '~/db/guides/GuidesReader';
-import { frontendSystemDesignRouteToFile } from '~/db/guides/GuidesUtils';
+import {
+  guidesRequestToFilePath,
+  readGuidesContents,
+} from '~/db/guides/GuidesReader';
 import { readMDXFileWithLocaleFallback } from '~/db/questions-bundlers/QuestionsBundler';
 import { generateStaticParamsWithLocale } from '~/next-i18nostic/src';
 import defaultMetadata from '~/seo/defaultMetadata';
@@ -24,31 +28,23 @@ type Props = Readonly<{
 
 export async function generateStaticParams() {
   return generateStaticParamsWithLocale(
-    Object.keys(frontendSystemDesignRouteToFile).map((slug) => ({
+    Object.keys(frontEndSystemDesignPlaybookPathToFile).map((slug) => ({
       slug: slug ? slug.split('/') : [],
     })),
   );
 }
 
-// TODO(interviews): consolidate
 function requestToPaths({ params }: Props): Readonly<{
   directoryPath: string;
   pathname: string;
 }> {
   const mdxPath = (params.slug ?? [])
     .join('/')
-    .replace(/\/$/g, '') as FrontEndSystemDesignSlugType;
+    .replace(/\/$/g, '') as FrontEndSystemDesignPlaybookPathType;
 
-  const directoryPath = path.join(
-    process.cwd(),
-    '..',
-    '..',
-    'submodules',
-    'front-end-interview-handbook',
-    'packages',
-    'system-design',
-    'contents',
-    frontendSystemDesignRouteToFile[mdxPath],
+  const directoryPath = guidesRequestToFilePath(
+    'FRONT_END_SYSTEM_DESIGN_PLAYBOOK',
+    mdxPath,
   );
   const pathname = `${basePath}/${mdxPath}`;
 
@@ -91,11 +87,11 @@ export default async function Page(props: Props) {
   });
 
   return (
-    <SystemDesignGuidebookLayout
+    <FrontEndSystemDesignPlaybookLayout
       description={description}
       tableOfContents={tableOfContents}
       title={title}>
       <Markdown components={MDXComponents} />
-    </SystemDesignGuidebookLayout>
+    </FrontEndSystemDesignPlaybookLayout>
   );
 }

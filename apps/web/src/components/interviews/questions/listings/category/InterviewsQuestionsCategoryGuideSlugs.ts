@@ -1,12 +1,12 @@
-import type { FrontEndInterviewSlugType } from '~/components/guides/types';
+import type { FrontEndInterviewPlaybookPathType } from '~/components/guides/books/FrontEndInterviewPlaybookNavigation';
 
-export const InterviewsQuestionsLanguageGuideSlugs: ReadonlyArray<FrontEndInterviewSlugType> =
+export const InterviewsQuestionsLanguageGuideSlugs: ReadonlyArray<FrontEndInterviewPlaybookPathType> =
   [
     'user-interface',
     'user-interface-questions-cheatsheet',
     'user-interface-components-api-design-principles',
   ];
-export const InterviewsQuestionsLanguageJavaScriptGuideSlugs: ReadonlyArray<FrontEndInterviewSlugType> =
+export const InterviewsQuestionsLanguageJavaScriptGuideSlugs: ReadonlyArray<FrontEndInterviewPlaybookPathType> =
   [
     'javascript',
     'algorithms',
@@ -14,9 +14,9 @@ export const InterviewsQuestionsLanguageJavaScriptGuideSlugs: ReadonlyArray<Fron
     'user-interface-questions-cheatsheet',
     'user-interface-components-api-design-principles',
   ];
-export const InterviewsQuestionsQuizGuideSlugs: ReadonlyArray<FrontEndInterviewSlugType> =
+export const InterviewsQuestionsQuizGuideSlugs: ReadonlyArray<FrontEndInterviewPlaybookPathType> =
   ['quiz'];
-export const InterviewsQuestionsFrameworkGuideSlugs: ReadonlyArray<FrontEndInterviewSlugType> =
+export const InterviewsQuestionsFrameworkGuideSlugs: ReadonlyArray<FrontEndInterviewPlaybookPathType> =
   [
     'user-interface',
     'user-interface-questions-cheatsheet',

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next/types';
 
-import { basePath } from '~/components/guides/books/useBehavioralInterviewGuidebookNavigation';
-import FrontEndInterviewPlaybookPage from '~/components/interviews/guides/FrontEndInterviewPlaybookPage';
+import { basePath } from '~/components/guides/books/BehavioralInterviewPlaybookNavigation';
+import FrontEndInterviewPlaybookPage from '~/components/guides/books/FrontEndInterviewPlaybookPage';
 
 import { readFrontEndInterviewGuides } from '~/db/guides/GuidesReader';
 import { getIntlServerOnly } from '~/i18n';

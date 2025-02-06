@@ -4,9 +4,9 @@ import {
   RiQuestionAnswerLine,
 } from 'react-icons/ri';
 
-import { basePath as frontEndSystemDesignPlaybookBasePath } from '~/components/guides/books/SystemDesignGuidebookNavigation';
-import { basePath as behavioralInterviewPlaybookBasePath } from '~/components/guides/books/useBehavioralInterviewGuidebookNavigation';
-import { basePath as frontEndInterviewPlaybookBasePath } from '~/components/guides/books/useFrontEndInterviewGuidebookNavigation';
+import { basePath as behavioralInterviewPlaybookBasePath } from '~/components/guides/books/BehavioralInterviewPlaybookNavigation';
+import { basePath as frontEndInterviewPlaybookBasePath } from '~/components/guides/books/FrontEndInterviewPlaybookNavigation';
+import { basePath as frontEndSystemDesignPlaybookBasePath } from '~/components/guides/books/FrontEndSystemDesignPlaybookNavigation';
 import { useIntl } from '~/components/intl';
 
 import type { GuidebookItem } from '@prisma/client';
@@ -29,8 +29,8 @@ export function useGuidesData() {
       description: intl.formatMessage({
         defaultMessage:
           'The only behavioral interview guide written specifically for front end engineers.',
-        description: 'Behavioral interview guidebook description',
-        id: 'MV8xp3',
+        description: 'Guidebook description',
+        id: 'IsJxd7',
       }),
       firstPageHref: `${behavioralInterviewPlaybookBasePath}/introduction`,
       href: behavioralInterviewPlaybookBasePath,
@@ -51,8 +51,8 @@ export function useGuidesData() {
       description: intl.formatMessage({
         defaultMessage:
           'The definitive guide to preparing for Front End Interviews, written by the author of Front End Interview Handbook.',
-        description: 'Front end interview guidebook description',
-        id: 'XtKx03',
+        description: 'Guidebook description',
+        id: 'sYlXT3',
       }),
       firstPageHref: `${frontEndInterviewPlaybookBasePath}/introduction`,
       href: frontEndInterviewPlaybookBasePath,

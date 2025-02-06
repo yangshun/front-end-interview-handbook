@@ -5,11 +5,9 @@ import type { InterviewsListingBottomContent } from 'contentlayer/generated';
 
 import { useQuestionFormatsData } from '~/data/QuestionCategories';
 
-import type {
-  FrontEndInterviewSlugType,
-  FrontEndSystemDesignSlugType,
-  GuideCardMetadata,
-} from '~/components/guides/types';
+import type { FrontEndInterviewPlaybookPathType } from '~/components/guides/books/FrontEndInterviewPlaybookNavigation';
+import type { FrontEndSystemDesignPlaybookPathType } from '~/components/guides/books/FrontEndSystemDesignPlaybookNavigation';
+import type { GuideCardMetadata } from '~/components/guides/types';
 import useGuidesWithCompletionStatus from '~/components/guides/useGuidesWithCompletionStatus';
 import InterviewsPageHeader from '~/components/interviews/common/InterviewsPageHeader';
 import type {
@@ -52,7 +50,9 @@ export default function InterviewsQuestionFormatPage({
 
   const guidesSlugs: Record<
     QuestionFormat,
-    ReadonlyArray<FrontEndInterviewSlugType | FrontEndSystemDesignSlugType>
+    ReadonlyArray<
+      FrontEndInterviewPlaybookPathType | FrontEndSystemDesignPlaybookPathType
+    >
   > = {
     algo: ['algorithms'],
     javascript: ['javascript'],
@@ -99,7 +99,7 @@ export default function InterviewsQuestionFormatPage({
   };
 
   const filteredGuides = guides.filter((guide) =>
-    guidesSlugs[format].includes(guide.id as FrontEndInterviewSlugType),
+    guidesSlugs[format].includes(guide.id as FrontEndInterviewPlaybookPathType),
   );
 
   const guidesWithCompletionStatus =

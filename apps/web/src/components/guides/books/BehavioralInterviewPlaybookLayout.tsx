@@ -3,7 +3,7 @@
 import { useQueryGuideProgress } from '~/db/guides/GuidesProgressClient';
 import { useI18nPathname } from '~/next-i18nostic/src';
 
-import useBehavioralInterviewGuidebookNavigation from './useBehavioralInterviewGuidebookNavigation';
+import { useBehavioralInterviewPlaybookNavigation } from './BehavioralInterviewPlaybookNavigation';
 import GuidesArticle from '../GuidesArticle';
 import GuidesArticleJsonLd from '../GuidesArticleJsonLd';
 import GuidesMainLayout from '../GuidesMainLayout';
@@ -20,13 +20,13 @@ type Props = Readonly<{
 
 const guide = 'BEHAVIORAL_INTERVIEW_PLAYBOOK';
 
-export default function BehavioralInterviewGuidebookLayout({
+export default function BehavioralInterviewPlaybookLayout({
   children,
   description,
   title,
   tableOfContents,
 }: Props) {
-  const navigation = useBehavioralInterviewGuidebookNavigation();
+  const navigation = useBehavioralInterviewPlaybookNavigation();
   const { pathname } = useI18nPathname();
 
   const flatNavigationItems = useFlattenedNavigationItems(navigation);

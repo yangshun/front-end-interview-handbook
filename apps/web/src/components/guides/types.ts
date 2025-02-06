@@ -1,11 +1,5 @@
 import type { ReactNode } from 'react';
 
-import type {
-  behavioralSlugs,
-  frontendInterviewSlugs,
-  frontendSystemDesignSlugs,
-} from '~/db/guides/GuidesUtils';
-
 import type { GuidebookItem } from '@prisma/client';
 
 export type BaseGuideNavigationLink<T = Record<string, unknown>> = Readonly<
@@ -55,11 +49,6 @@ export type GuideMetadata = Readonly<{
   book: GuidebookItem;
   id: string;
 }>;
-
-export type FrontEndInterviewSlugType = (typeof frontendInterviewSlugs)[number];
-export type FrontEndSystemDesignSlugType =
-  (typeof frontendSystemDesignSlugs)[number];
-export type BehavioralSlugType = (typeof behavioralSlugs)[number];
 
 export type GuideCardMetadata = GuideMetadata &
   Readonly<{

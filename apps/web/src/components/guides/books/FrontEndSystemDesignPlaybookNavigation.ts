@@ -31,22 +31,47 @@ import type {
   BaseGuideNavigationLink,
   GuideNavigation,
 } from '~/components/guides/types';
-import { useIntl } from '~/components/intl';
-
 import {
   allSystemDesignQuestions,
   readySystemDesignQuestions,
-} from '../../interviews/questions/content/system-design/InterviewsSystemDesignQuestions';
-import { ReadyQuestions } from '../../interviews/questions/content/system-design/SystemDesignConfig';
+} from '~/components/interviews/questions/content/system-design/InterviewsSystemDesignQuestions';
+import { ReadyQuestions } from '~/components/interviews/questions/content/system-design/SystemDesignConfig';
+import { useIntl } from '~/components/intl';
 
 export const basePath = '/front-end-system-design-playbook';
 
-export type SystemDesignNavigationLink = BaseGuideNavigationLink<{
-  kind: 'guide' | 'question';
-  premium: boolean;
-}>;
+export const FrontEndSystemDesignPlaybookPaths = [
+  'introduction',
+  'types-of-questions',
+  'framework',
+  'evaluation-axes',
+  'common-mistakes',
+  'cheatsheet',
+] as const;
 
-type NavigationLinks = ReadonlyArray<SystemDesignNavigationLink>;
+export type FrontEndSystemDesignPlaybookPathType =
+  (typeof FrontEndSystemDesignPlaybookPaths)[number];
+
+export const frontEndSystemDesignPlaybookPathToFile: Record<
+  FrontEndSystemDesignPlaybookPathType,
+  string
+> = {
+  cheatsheet: 'cheatsheet',
+  'common-mistakes': 'common-mistakes',
+  'evaluation-axes': 'evaluation-axes',
+  framework: 'framework',
+  introduction: 'introduction',
+  'types-of-questions': 'types-of-questions',
+};
+
+export type FrontEndSystemDesignPlaybookNavigationLink =
+  BaseGuideNavigationLink<{
+    kind: 'guide' | 'question';
+    premium: boolean;
+  }>;
+
+type NavigationLinks =
+  ReadonlyArray<FrontEndSystemDesignPlaybookNavigationLink>;
 
 const SystemDesignIcons: Record<
   string,
@@ -197,52 +222,28 @@ export function useSystemDesignGuides() {
   return systemDesignGuides;
 }
 
-export function useSystemDesignNavigation() {
+export function useFrontEndSystemDesignPlaybookNavigation() {
   const intl = useIntl();
   const systemDesignGuides = useSystemDesignGuides();
-  const navigation: GuideNavigation<SystemDesignNavigationLink> = {
-    initialOpenSections: ['guidebook', 'questions'],
-    navigation: {
-      items: [
-        {
-          id: 'guidebook',
-          items: systemDesignGuides,
-          label: intl.formatMessage({
-            defaultMessage: 'Guidebook',
-            description:
-              'How to prepare for front end system design interviews',
-            id: 'pgK6Eb',
-          }),
-          type: 'list',
-        },
-        {
-          id: 'questions',
-          items: readySystemDesignQuestions.map((questionMetadata) => ({
-            href: questionMetadata.href,
-            icon: SystemDesignIcons[questionMetadata.slug],
-            id: questionMetadata.slug,
-            kind: 'question',
-            label: questionMetadata.title,
-            premium: questionMetadata.access === 'premium',
-            type: 'link',
-          })),
-          label: intl.formatMessage({
-            defaultMessage: 'Questions',
-            description: 'Front end system design interviews questions',
-            id: 'WDJgWl',
-          }),
-          type: 'list',
-        },
-        {
-          id: 'coming-soon',
-          items: allSystemDesignQuestions
-            .slice()
-            .sort((a, b) => a.ranking - b.ranking)
-            .filter(
-              (questionMetadata) =>
-                !ReadyQuestions.includes(questionMetadata.slug),
-            )
-            .map((questionMetadata) => ({
+  const navigation: GuideNavigation<FrontEndSystemDesignPlaybookNavigationLink> =
+    {
+      initialOpenSections: ['guidebook', 'questions'],
+      navigation: {
+        items: [
+          {
+            id: 'guidebook',
+            items: systemDesignGuides,
+            label: intl.formatMessage({
+              defaultMessage: 'Guidebook',
+              description:
+                'How to prepare for front end system design interviews',
+              id: 'pgK6Eb',
+            }),
+            type: 'list',
+          },
+          {
+            id: 'questions',
+            items: readySystemDesignQuestions.map((questionMetadata) => ({
               href: questionMetadata.href,
               icon: SystemDesignIcons[questionMetadata.slug],
               id: questionMetadata.slug,
@@ -251,22 +252,47 @@ export function useSystemDesignNavigation() {
               premium: questionMetadata.access === 'premium',
               type: 'link',
             })),
-          label: intl.formatMessage({
-            defaultMessage: 'Coming soon',
-            description:
-              'Front end system design questions that are coming soon',
-            id: '0krNBp',
-          }),
-          type: 'list',
-        },
-      ],
-      title: intl.formatMessage({
-        defaultMessage: 'Front End System Design Guidebook',
-        description: 'Front end system design guidebook title',
-        id: 'NdDD5W',
-      }),
-    },
-  };
+            label: intl.formatMessage({
+              defaultMessage: 'Questions',
+              description: 'Front end system design interviews questions',
+              id: 'WDJgWl',
+            }),
+            type: 'list',
+          },
+          {
+            id: 'coming-soon',
+            items: allSystemDesignQuestions
+              .slice()
+              .sort((a, b) => a.ranking - b.ranking)
+              .filter(
+                (questionMetadata) =>
+                  !ReadyQuestions.includes(questionMetadata.slug),
+              )
+              .map((questionMetadata) => ({
+                href: questionMetadata.href,
+                icon: SystemDesignIcons[questionMetadata.slug],
+                id: questionMetadata.slug,
+                kind: 'question',
+                label: questionMetadata.title,
+                premium: questionMetadata.access === 'premium',
+                type: 'link',
+              })),
+            label: intl.formatMessage({
+              defaultMessage: 'Coming soon',
+              description:
+                'Front end system design questions that are coming soon',
+              id: '0krNBp',
+            }),
+            type: 'list',
+          },
+        ],
+        title: intl.formatMessage({
+          defaultMessage: 'Front End System Design Playbook',
+          description: 'Front end system design playbook title',
+          id: 'p0TEPs',
+        }),
+      },
+    };
 
   return navigation;
 }

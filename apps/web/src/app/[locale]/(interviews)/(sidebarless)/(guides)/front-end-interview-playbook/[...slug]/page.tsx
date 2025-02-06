@@ -1,16 +1,20 @@
 import grayMatter from 'gray-matter';
 import { getMDXExport } from 'mdx-bundler/client';
 import type { Metadata } from 'next/types';
-import path from 'path';
 
-import FrontEndInterviewGuidebookLayout from '~/components/guides/books/FrontEndInterviewGuidebookLayout';
-import { basePath } from '~/components/guides/books/useFrontEndInterviewGuidebookNavigation';
-import type { FrontEndInterviewSlugType } from '~/components/guides/types';
+import FrontEndInterviewPlaybookLayout from '~/components/guides/books/FrontEndInterviewPlaybookLayout';
+import type { FrontEndInterviewPlaybookPathType } from '~/components/guides/books/FrontEndInterviewPlaybookNavigation';
+import {
+  basePath,
+  frontEndInterviewPlaybookPathToFile,
+} from '~/components/guides/books/FrontEndInterviewPlaybookNavigation';
 import MDXCodeBlock from '~/components/mdx/MDXCodeBlock';
 import MDXComponents from '~/components/mdx/MDXComponents';
 
-import { readGuidesContents } from '~/db/guides/GuidesReader';
-import { frontEndInterviewsRouteToFile } from '~/db/guides/GuidesUtils';
+import {
+  guidesRequestToFilePath,
+  readGuidesContents,
+} from '~/db/guides/GuidesReader';
 import { readMDXFileWithLocaleFallback } from '~/db/questions-bundlers/QuestionsBundler';
 import { generateStaticParamsWithLocale } from '~/next-i18nostic/src';
 import defaultMetadata from '~/seo/defaultMetadata';
@@ -24,7 +28,7 @@ type Props = Readonly<{
 
 export async function generateStaticParams() {
   return generateStaticParamsWithLocale(
-    Object.keys(frontEndInterviewsRouteToFile).map((slug) => ({
+    Object.keys(frontEndInterviewPlaybookPathToFile).map((slug) => ({
       slug: slug ? slug.split('/') : [],
     })),
   );
@@ -37,18 +41,11 @@ function requestToPaths({ params }: Props): Readonly<{
   const { slug } = params;
   const mdxPath = (slug ?? [''])
     .join('/')
-    .replace(/\/$/g, '') as FrontEndInterviewSlugType;
+    .replace(/\/$/g, '') as FrontEndInterviewPlaybookPathType;
 
-  const directoryPath = path.join(
-    process.cwd(),
-    '..',
-    '..',
-    'submodules',
-    'front-end-interview-handbook',
-    'packages',
-    'front-end-interview-guidebook',
-    'contents',
-    frontEndInterviewsRouteToFile[mdxPath],
+  const directoryPath = guidesRequestToFilePath(
+    'FRONT_END_INTERVIEW_PLAYBOOK',
+    mdxPath,
   );
   const pathname = `${basePath}/${mdxPath}`;
 
@@ -91,11 +88,11 @@ export default async function Page(props: Props) {
   });
 
   return (
-    <FrontEndInterviewGuidebookLayout
+    <FrontEndInterviewPlaybookLayout
       description={description}
       tableOfContents={tableOfContents}
       title={title}>
       <Markdown components={MDXComponents} />
-    </FrontEndInterviewGuidebookLayout>
+    </FrontEndInterviewPlaybookLayout>
   );
 }

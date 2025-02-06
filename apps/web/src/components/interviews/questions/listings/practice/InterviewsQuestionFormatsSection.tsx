@@ -3,9 +3,10 @@ import { RiArrowRightLine, RiChat4Line } from 'react-icons/ri';
 
 import { useQuestionFormatsData } from '~/data/QuestionCategories';
 
-import useBehavioralInterviewGuidebookNavigation, {
-  basePath,
-} from '~/components/guides/books/useBehavioralInterviewGuidebookNavigation';
+import {
+  basePath as behavioralInterviewPlaybookBasePath,
+  useBehavioralInterviewPlaybookNavigation,
+} from '~/components/guides/books/BehavioralInterviewPlaybookNavigation';
 import InterviewsEntityProgress from '~/components/interviews/common/InterviewsEntityProgress';
 import type {
   QuestionMetadata,
@@ -144,8 +145,8 @@ export default function InterviewsQuestionFormatsSection({
   variant = 'full',
 }: Props) {
   const intl = useIntl();
-  const behavioralInterviewGuidebook =
-    useBehavioralInterviewGuidebookNavigation();
+  const behavioralInterviewPlaybook =
+    useBehavioralInterviewPlaybookNavigation();
   const questionsProgressAll = categorizeQuestionsProgress(questionsProgress);
 
   const { quizQuestions, systemDesignQuestions, codingQuestions } = questions;
@@ -214,7 +215,7 @@ export default function InterviewsQuestionFormatsSection({
 
   const behavioralQuestionsData: InterviewsQuestionFormatType = {
     entity: 'article',
-    href: basePath,
+    href: behavioralInterviewPlaybookBasePath,
     icon: RiChat4Line,
     listingDescription: intl.formatMessage({
       defaultMessage:
@@ -229,7 +230,7 @@ export default function InterviewsQuestionFormatsSection({
     }),
     progress: {
       completed: behavioralGuideProgress.length,
-      total: behavioralInterviewGuidebook.navigation.items
+      total: behavioralInterviewPlaybook.navigation.items
         .map((item) => item.items)
         .flat().length,
     },

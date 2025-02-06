@@ -7,12 +7,10 @@ import {
   RiShiningLine,
 } from 'react-icons/ri';
 
+import type { FrontEndInterviewPlaybookPathType } from '~/components/guides/books/FrontEndInterviewPlaybookNavigation';
 import GuidesCoverLayout from '~/components/guides/cover/GuidesCoverLayout';
 import GuidesListWithCategory from '~/components/guides/cover/GuidesListWithCategory';
-import type {
-  FrontEndInterviewSlugType,
-  GuideCardMetadata,
-} from '~/components/guides/types';
+import type { GuideCardMetadata } from '~/components/guides/types';
 import useGuidesWithCompletionStatus from '~/components/guides/useGuidesWithCompletionStatus';
 import { QuestionCountTotal } from '~/components/interviews/questions/listings/stats/QuestionCount';
 import { useIntl } from '~/components/intl';
@@ -37,7 +35,7 @@ export default function FrontEndInterviewPlaybookPage({
 
   const categorizedGuideSlugs: Record<
     'coding' | 'introduction' | 'quiz' | 'resume' | 'system-design' | 'ui',
-    ReadonlyArray<FrontEndInterviewSlugType>
+    ReadonlyArray<FrontEndInterviewPlaybookPathType>
   > = {
     coding: ['coding', 'javascript', 'algorithms'],
     introduction: ['introduction'],

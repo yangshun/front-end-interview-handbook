@@ -15,7 +15,35 @@ import type { GuideNavigation } from '../types';
 
 export const basePath = '/behavioral-interview-playbook';
 
-export default function useBehavioralInterviewGuidebookNavigation() {
+export const BehavioralInterviewPlaybookPaths = [
+  'introduction',
+  'questions',
+  'self-introduction',
+  'why-work-here',
+  'questions-to-ask',
+  'problem-solving',
+  'collaboration',
+  'growth-mindset',
+] as const;
+
+export type BehavioralInterviewPlaybookPathType =
+  (typeof BehavioralInterviewPlaybookPaths)[number];
+
+export const behavioralInterviewPlaybookPathToFile: Record<
+  BehavioralInterviewPlaybookPathType,
+  string
+> = {
+  collaboration: 'collaboration',
+  'growth-mindset': 'growth-mindset',
+  introduction: 'overview',
+  'problem-solving': 'problem-solving',
+  questions: 'questions',
+  'questions-to-ask': 'questions-to-ask',
+  'self-introduction': 'self-introduction',
+  'why-work-here': 'why-work-here',
+};
+
+export function useBehavioralInterviewPlaybookNavigation() {
   const intl = useIntl();
   const navigation: GuideNavigation = {
     initialOpenSections: ['overview', 'questions'],
@@ -194,9 +222,9 @@ export default function useBehavioralInterviewGuidebookNavigation() {
         },
       ],
       title: intl.formatMessage({
-        defaultMessage: 'Behavioral Interview Guidebook',
-        description: 'Title for behavioral interview guidebook',
-        id: '6fAxyB',
+        defaultMessage: 'Behavioral Interview Playbook',
+        description: 'Title for behavioral interview playbook',
+        id: 'Y072iD',
       }),
     },
   };
