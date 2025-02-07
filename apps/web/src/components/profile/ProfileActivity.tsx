@@ -1,13 +1,10 @@
 'use client';
 
 import clsx from 'clsx';
-import { uniqBy } from 'lodash-es';
 import { RiInboxLine } from 'react-icons/ri';
 
 import { trpc } from '~/hooks/trpc';
 
-import type { QuestionLanguage } from '~/components/interviews/questions/common/QuestionsTypes';
-import QuestionLanguages from '~/components/interviews/questions/metadata/QuestionLanguages';
 import { FormattedMessage, useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
@@ -22,11 +19,9 @@ import {
   themeDivideColor,
 } from '~/components/ui/theme';
 
-import { getQuestionMetadata } from '~/db/QuestionsProgressClient';
-import { hashQuestion } from '~/db/QuestionsUtils';
-
 import ProfileActivityResetProgressButton from './ProfileActivityResetProgressButton';
 import Timestamp from '../common/datetime/Timestamp';
+import QuestionFormatLabel from '../interviews/questions/metadata/QuestionFormatLabel';
 
 function NoCompletedQuestions() {
   const intl = useIntl();
@@ -67,17 +62,12 @@ function NoCompletedQuestions() {
 
 export default function ProfileActivity() {
   const {
-    data: questionProgress,
+    data: questionProgressWithMetadata,
     isLoading: isFetchingQuestionProgress,
     isError: isErrorQuestionProgress,
-  } = trpc.questionProgress.getAll.useQuery();
-  const {
-    data,
-    isLoading: isFetchingQuestionList,
-    isError: isErrorQuestionList,
-  } = trpc.questionLists.getQuestions.useQuery({});
+  } = trpc.questionProgress.getAllIncludingMetadata.useQuery();
 
-  if (isFetchingQuestionProgress || isFetchingQuestionList) {
+  if (isFetchingQuestionProgress) {
     return (
       <div className="py-10">
         <Spinner display="block" />
@@ -85,7 +75,7 @@ export default function ProfileActivity() {
     );
   }
 
-  if (isErrorQuestionProgress || isErrorQuestionList) {
+  if (isErrorQuestionProgress) {
     // TODO: Better error handling.
     return (
       <div>
@@ -98,22 +88,12 @@ export default function ProfileActivity() {
     );
   }
 
-  if (questionProgress == null || questionProgress.length === 0) {
+  if (
+    questionProgressWithMetadata == null ||
+    questionProgressWithMetadata.length === 0
+  ) {
     return <NoCompletedQuestions />;
   }
-
-  const questionsProgressWithMetadata = uniqBy(questionProgress, (progress) =>
-    hashQuestion(progress),
-  )
-    .map((progress) => ({
-      createdAt: progress.createdAt,
-      metadata: getQuestionMetadata(
-        data.questions ?? [],
-        progress.format,
-        progress.slug,
-      ),
-    }))
-    .filter(({ metadata }) => !!metadata);
 
   return (
     <div className="flex flex-col gap-y-4">
@@ -135,42 +115,43 @@ export default function ProfileActivity() {
             ['divide-y', themeDivideColor],
           )}
           role="list">
-          {questionsProgressWithMetadata.map(({ metadata, createdAt }) => (
-            <li
-              key={createdAt.toDateString()}
-              className={clsx(
-                'relative px-4 py-3',
-                themeBackgroundCardWhiteOnLightColor,
-                themeBackgroundEmphasized_Hover,
-                'focus-within:ring-brand focus-within:ring-2 focus-within:ring-inset',
-                'overflow-hidden',
-              )}>
-              <div className="flex items-center justify-between gap-x-4">
-                <div className="flex w-3/4 flex-col gap-y-1 sm:flex-row sm:items-center sm:gap-x-3">
-                  <Text className="w-1/2" size="body2" weight="medium">
-                    <Anchor href={metadata?.href} variant="unstyled">
-                      <span aria-hidden="true" className="absolute inset-0" />
-                      {metadata!.title}
-                    </Anchor>
-                  </Text>
-                  {metadata?.languages && (
-                    <div className="w-1/2">
-                      <QuestionLanguages
-                        languages={
-                          metadata?.languages as ReadonlyArray<QuestionLanguage>
-                        }
-                      />
-                    </div>
-                  )}
+          {questionProgressWithMetadata.map(({ createdAt, id, metadata }) => {
+            return (
+              <li
+                key={id}
+                className={clsx(
+                  'relative px-4 py-3',
+                  themeBackgroundCardWhiteOnLightColor,
+                  themeBackgroundEmphasized_Hover,
+                  'focus-within:ring-brand focus-within:ring-2 focus-within:ring-inset',
+                  'overflow-hidden',
+                )}>
+                <div className="flex items-center justify-between gap-x-4">
+                  <div className="flex w-3/4 flex-col gap-y-1 sm:flex-row sm:items-center sm:gap-x-3">
+                    <Text className="w-1/2" size="body2" weight="medium">
+                      <Anchor href={metadata?.href} variant="unstyled">
+                        <span aria-hidden="true" className="absolute inset-0" />
+                        {metadata!.title}
+                      </Anchor>
+                    </Text>
+                    {metadata?.format && (
+                      <div className="w-1/2">
+                        <QuestionFormatLabel
+                          showIcon={true}
+                          value={metadata.format}
+                        />
+                      </div>
+                    )}
+                  </div>
+                  <Section>
+                    <Text className="block" color="secondary" size="body3">
+                      <Timestamp date={createdAt} />
+                    </Text>
+                  </Section>
                 </div>
-                <Section>
-                  <Text className="block" color="secondary" size="body3">
-                    <Timestamp date={createdAt} />
-                  </Text>
-                </Section>
-              </div>
-            </li>
-          ))}
+              </li>
+            );
+          })}
         </ul>
       </Section>
     </div>

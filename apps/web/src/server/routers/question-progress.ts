@@ -4,7 +4,10 @@ import { groupByDateFormatter } from '~/components/interviews/dashboard/progress
 import type { QuestionFormat } from '~/components/interviews/questions/common/QuestionsTypes';
 
 import { fetchInterviewsStudyList } from '~/db/contentlayer/InterviewsStudyListReader';
-import { fetchQuestion } from '~/db/QuestionsListReader';
+import {
+  fetchQuestion,
+  fetchQuestionsListByHash,
+} from '~/db/QuestionsListReader';
 import type { QuestionProgressStatus } from '~/db/QuestionsProgressTypes';
 import { hashQuestion, unhashQuestion } from '~/db/QuestionsUtils';
 import scheduleInterviewsProgressEmail from '~/emails/items/interviews-progress/EmailsSchedulerInterviewsProgress';
@@ -342,6 +345,47 @@ export const questionProgressRouter = router({
       ...questionProgress,
       format: questionProgress.format as QuestionFormat,
       status: questionProgress.status as QuestionProgressStatus,
+    }));
+  }),
+  getAllIncludingMetadata: userProcedure.query(async ({ ctx: { viewer } }) => {
+    const questionProgressList = await prisma.questionProgress.findMany({
+      orderBy: {
+        createdAt: 'desc',
+      },
+      select: {
+        createdAt: true,
+        format: true,
+        id: true,
+        slug: true,
+        status: true,
+      },
+      where: {
+        userId: viewer.id,
+      },
+    });
+
+    const questionProgressMetadata = await fetchQuestionsListByHash(
+      questionProgressList.map((qn) =>
+        hashQuestion({ format: qn.format as QuestionFormat, slug: qn.slug }),
+      ),
+    );
+
+    const metadataMap = new Map(
+      questionProgressMetadata.map((metadata) => [
+        hashQuestion(metadata),
+        metadata,
+      ]),
+    );
+
+    return questionProgressList.map((progress) => ({
+      createdAt: progress.createdAt,
+      id: progress.id,
+      metadata: metadataMap.get(
+        hashQuestion({
+          format: progress.format as QuestionFormat,
+          slug: progress.slug,
+        }),
+      ),
     }));
   }),
   getContributionsCount: userProcedure
