@@ -39,6 +39,8 @@ import QuestionsListingFilterSlideOut from '../filters/QuestionsListingFilterSli
 import QuestionCountLabel from '../../metadata/QuestionCountLabel';
 import QuestionTotalTimeLabel from '../../metadata/QuestionTotalTimeLabel';
 
+import NumberFlow from '@number-flow/react';
+
 type Props = Readonly<{
   categoryTabs?: ReactNode;
   checkIfCompletedQuestionBefore?: (question: QuestionMetadata) => boolean;
@@ -212,9 +214,9 @@ export default function QuestionsUnifiedListWithFilters({
           description="Number of applied filters"
           id="oafz//"
           values={{
-            bold: (chunk) => (
+            bold: () => (
               <Text color="subtitle" size="body2" weight="bold">
-                {chunk}
+                <NumberFlow value={numberOfFilters} />
               </Text>
             ),
             count: numberOfFilters,

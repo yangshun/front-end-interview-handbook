@@ -2,11 +2,13 @@ import clsx from 'clsx';
 import { useId } from 'react';
 import { RiTimeLine } from 'react-icons/ri';
 
-import { FormattedMessage, useIntl } from '~/components/intl';
+import { useIntl } from '~/components/intl';
 import type { TextSize } from '~/components/ui/Text';
 import Text from '~/components/ui/Text';
 import { themeIconColor } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
+
+import NumberFlow from '@number-flow/react';
 
 type Props = Readonly<{
   mins: number;
@@ -44,13 +46,13 @@ export default function QuestionDurationLabel({
           className="whitespace-nowrap text-neutral-700 dark:text-neutral-500"
           color="inherit"
           size={size}>
-          <FormattedMessage
-            defaultMessage="{duration} mins"
-            description="Actual value for recommended duration that the user should take to complete a question, displayed on question cards found on question lists"
-            id="PfOyMR"
-            values={{
-              duration: mins,
-            }}
+          <NumberFlow
+            suffix={intl.formatMessage({
+              defaultMessage: ' mins',
+              description: 'Duration minutes',
+              id: 'ucl849',
+            })}
+            value={mins}
           />
         </Text>
       </div>

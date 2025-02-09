@@ -2623,6 +2623,10 @@
     "defaultMessage": "What requirements do I need to meet to apply?",
     "description": "FAQ about requirements for applying as an affiliate"
   },
+  "FJQZpc": {
+    "defaultMessage": "{numberOfQuestions, plural, =1 {<number>#</number> question} other {<number>#</number> questions}}",
+    "description": "Number of applied filters"
+  },
   "FLKG3X": {
     "defaultMessage": "Cut line (empty selection)",
     "description": "Text describing command to cut line(s) in the coding workspace shortcuts menu"
@@ -2830,10 +2834,6 @@
   "GhEwYP": {
     "defaultMessage": "Go to dashboard and start practicing",
     "description": "Button subtitle for starting practicing on interviews payment success page"
-  },
-  "Ghc5ye": {
-    "defaultMessage": "{numberOfQuestions, plural, =0 {No questions} one {1 question} other {# questions}}",
-    "description": "Number of questions in a list"
   },
   "GiSp0E": {
     "defaultMessage": "Medium",
@@ -4310,10 +4310,6 @@
   "PeXK7/": {
     "defaultMessage": "Pricing",
     "description": "Title of Pricing page"
-  },
-  "PfOyMR": {
-    "defaultMessage": "{duration} mins",
-    "description": "Actual value for recommended duration that the user should take to complete a question, displayed on question cards found on question lists"
   },
   "PhPw02": {
     "defaultMessage": "Subscribe early to lock in this earlybird price.",
@@ -8399,6 +8395,10 @@
     "defaultMessage": "One-time use; can only be completed once.",
     "description": "Condition for promotion"
   },
+  "oMKaYH": {
+    "defaultMessage": "{numberOfHours, plural, =1 {<number>#</number> hour total} other {<number>#</number> hours total}}",
+    "description": "Number of applied filters"
+  },
   "oNMAi3": {
     "defaultMessage": "Difficulty: Easy to Hard",
     "description": "Sorting option for question list - sort by difficulty from easy to hard"
@@ -8999,10 +8999,6 @@
     "defaultMessage": "Billing | Settings",
     "description": "Title of billing page"
   },
-  "sGSrxk": {
-    "defaultMessage": "{numberOfHours} hours total",
-    "description": "Total duration needed to complete the list of questions"
-  },
   "sGgZ9N": {
     "defaultMessage": "Choose additional skills you will use in this project",
     "description": "Dialog title for skills section"
@@ -9402,6 +9398,10 @@
   "ucUZT7": {
     "defaultMessage": "{category} User Interface Interview Questions",
     "description": "Title for front end interview questions page"
+  },
+  "ucl849": {
+    "defaultMessage": "mins",
+    "description": "Duration minutes"
   },
   "ufyNP1": {
     "defaultMessage": "Created: Newest to oldest",

@@ -6,6 +6,8 @@ import {
   themeTextDarkColor,
 } from '~/components/ui/theme';
 
+import NumberFlow from '@number-flow/react';
+
 type Props = Readonly<{
   badgeClassName: string;
   children: ReactElement;
@@ -34,7 +36,7 @@ export default function QuestionListingFilterButtonBadgeWrapper({
           themeTextDarkColor,
           'font-bold',
         )}>
-        {numberOfFilters}
+        <NumberFlow value={numberOfFilters} />
       </div>
     </span>
   );

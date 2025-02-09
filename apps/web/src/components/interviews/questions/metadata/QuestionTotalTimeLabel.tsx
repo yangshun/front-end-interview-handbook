@@ -8,6 +8,8 @@ import Text from '~/components/ui/Text';
 import { themeIconColor } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
+import NumberFlow from '@number-flow/react';
+
 type Props = Readonly<{
   color?: 'default' | 'inherit';
   mins: number;
@@ -29,6 +31,8 @@ export default function QuestionTotalTimeLabel({
     id: 'ImDbLo',
   });
 
+  const numberOfHours = Math.ceil(mins / 60);
+
   return (
     <Tooltip label={label}>
       <span className="sr-only" id={id}>
@@ -49,11 +53,12 @@ export default function QuestionTotalTimeLabel({
           color="inherit"
           size={size}>
           <FormattedMessage
-            defaultMessage="{numberOfHours} hours total"
-            description="Total duration needed to complete the list of questions"
-            id="sGSrxk"
+            defaultMessage="{numberOfHours, plural, =1 {<number>#</number> hour total} other {<number>#</number> hours total}}"
+            description="Number of applied filters"
+            id="oMKaYH"
             values={{
-              numberOfHours: Math.ceil(mins / 60),
+              number: () => <NumberFlow value={numberOfHours} />,
+              numberOfHours,
             }}
           />
         </Text>

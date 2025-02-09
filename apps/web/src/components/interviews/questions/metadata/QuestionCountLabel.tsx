@@ -8,6 +8,8 @@ import Text from '~/components/ui/Text';
 import { themeIconColor } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
+import NumberFlow from '@number-flow/react';
+
 type Props = Readonly<{
   color?: 'default' | 'inherit';
   count: number;
@@ -59,15 +61,16 @@ export default function QuestionCountLabel({
           size={size}>
           {showQuestionsLabel ? (
             <FormattedMessage
-              defaultMessage="{numberOfQuestions, plural, =0 {No questions} one {1 question} other {# questions}}"
-              description="Number of questions in a list"
-              id="Ghc5ye"
+              defaultMessage="{numberOfQuestions, plural, =1 {<number>#</number> question} other {<number>#</number> questions}}"
+              description="Number of applied filters"
+              id="FJQZpc"
               values={{
+                number: () => <NumberFlow value={count} />,
                 numberOfQuestions: count,
               }}
             />
           ) : (
-            count
+            <NumberFlow value={count} />
           )}
         </Text>
       </div>

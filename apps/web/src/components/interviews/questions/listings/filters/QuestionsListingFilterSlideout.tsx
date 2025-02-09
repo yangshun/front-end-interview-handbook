@@ -91,7 +91,7 @@ export default function QuestionsListingFilterSlideOut({
 
   const numberOfFilters = filters.filter(([size]) => size > 0).length;
 
-  const onApply = () => {
+  function onApply() {
     topicFilterOptions.setValues(localTopicFilters);
     difficultyFilterOptions.setValues(localDifficultyFilters);
     companyFilterOptions.setValues(localCompanyFilters);
@@ -101,7 +101,7 @@ export default function QuestionsListingFilterSlideOut({
     completionStatusFilterOptions.setValues(localCompletionStatusFilters);
     formatFilterOptions.setValues(localFormatFilters);
     setIsFiltersShown(false);
-  };
+  }
 
   useEffect(() => {
     if (!isFiltersShown) {

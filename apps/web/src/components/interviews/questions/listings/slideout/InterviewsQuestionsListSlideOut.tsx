@@ -131,13 +131,12 @@ function InterviewsQuestionsListSlideOutImpl({
     }));
   }
 
-  const { filters, query } = useQuestionUnifiedFilters({
+  const { filters } = useQuestionUnifiedFilters({
     listType: currentListType,
   });
 
   // Add the search query in the active filter count
-  const numberOfFilters =
-    filters.filter(([size]) => size > 0).length + (query.length > 0 ? 1 : 0);
+  const numberOfFilters = filters.filter(([size]) => size > 0).length;
 
   const listName =
     ('title' in initialListType ? initialListType.title : null) ??

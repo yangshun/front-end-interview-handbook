@@ -81,7 +81,10 @@ export default function useQuestionUnifiedFilters({
     [number, (question: QuestionMetadataWithCompletedStatus) => boolean]
   > = [
     // Query.
-    [0, (question) => questionMatchesTextQuery(question, query)],
+    [
+      query.length > 0 ? 1 : 0,
+      (question) => questionMatchesTextQuery(question, query),
+    ],
     // Difficulty.
     [difficultyFilters.size, difficultyFilterOptions.matches],
     // Importance.
