@@ -140,7 +140,7 @@ a {
 
   background-color: var(--code-bg-color);
   color: var(--code-color);
-  opacity: 0.5;
+  opacity: 0.75;
 
   user-select: none;
   -moz-user-select: none;
