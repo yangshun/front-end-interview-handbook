@@ -13,15 +13,18 @@ import {
   ITranslationManager,
 } from '../interfaces';
 import TranslationManager from '../core/TranslationManager';
+import DeepSeekTranslationService from '../translation/DeepSeekTranslationService';
 
 export async function translate() {
   const config = new Config().getConfig();
   const registryManager = new FileRegistryManager();
   const changeDetector = new ChangeDetector();
   const jsonHandler = new JsonHandler(changeDetector, registryManager);
+  const translationService = new DeepSeekTranslationService();
   const translationManager = new TranslationManager(
     changeDetector,
     registryManager,
+    translationService,
   );
 
   const translationSpinner = spinner();
@@ -43,12 +46,7 @@ export async function translate() {
   if (filesToTranslate.length === 0) return;
 
   translationSpinner.start(`Translating ${filesToTranslate.length} files...`);
-  await translateFiles(
-    filesToTranslate,
-    jsonHandler,
-    translationManager,
-    translationSpinner,
-  );
+  await translateFiles(filesToTranslate, jsonHandler, translationManager);
 
   translationSpinner.stop();
 }
@@ -131,17 +129,12 @@ async function translateFiles(
   }[],
   jsonHandler: IFileHandler,
   translationManager: ITranslationManager,
-  translationSpinner: ReturnType<typeof spinner>,
 ) {
+
   await Promise.all(
     filesToTranslate.map(async (file) => {
       try {
         if (file.source.endsWith('.json')) {
-          translationSpinner.message(
-            chalk.blue(
-              `Translating ${chalk.cyan(file.source)} to ${file.targetLocales.join(', ')}`,
-            ),
-          );
           await translationManager.translate(
             {
               source: file.source,
@@ -150,9 +143,6 @@ async function translateFiles(
             },
             file.targetLocales,
             jsonHandler,
-          );
-          log.success(
-            `✔ Successfully translated: ${chalk.bold(file.source)} to ${file.targetLocales.join(', ')}`,
           );
         }
       } catch (error: any) {

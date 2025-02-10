@@ -1,8 +1,10 @@
+import { log } from '@clack/prompts';
 import {
   IChangeDetector,
   IFileHandler,
   IFileRegistryManager,
   ITranslationManager,
+  ITranslationService,
 } from '../interfaces';
 import { IConfigFile } from '../types/config';
 
@@ -10,6 +12,7 @@ export default class TranslationManager implements ITranslationManager {
   constructor(
     private changeDetector: IChangeDetector,
     private registryManager: IFileRegistryManager,
+    private translationService: ITranslationService,
   ) {}
   /**
    * Translate a JSON file to multiple locales
@@ -47,8 +50,18 @@ export default class TranslationManager implements ITranslationManager {
               {} as Record<string, string>,
             )
           : fileContent;
-
-        await fileHandler.writeFile(target, locale, translationContent);
+        try {
+          const translatedContent = await this.translationService.translate(
+            translationContent,
+            locale,
+          );
+          await fileHandler.writeFile(target, locale, translatedContent);
+          log.success(`✅ Successfully translated file ${source} to ${locale}`);
+        } catch (error: any) {
+          log.error(
+            `❌ Error translating file ${source} to ${locale}: ${error.message}`,
+          );
+        }
       }),
     );
 

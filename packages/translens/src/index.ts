@@ -5,6 +5,10 @@ import chalk from 'chalk';
 
 import { init } from './commands/init';
 import { translate } from './commands/translate';
+import { config } from 'dotenv';
+
+// Load environment variables from .env file
+config();
 
 async function main() {
   const [command] = process.argv.slice(2);

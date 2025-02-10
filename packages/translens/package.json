@@ -21,8 +21,11 @@
     "prepublishOnly": "npm run verify"
   },
   "dependencies": {
+    "@ai-sdk/openai": "^0.0.33",
     "@clack/prompts": "^0.9.1",
+    "ai": "^3.2.8",
     "chalk": "^5.2.0",
+    "dotenv": "^16.3.1",
     "glob": "^11.0.1",
     "murmurhash": "^2.0.1"
   },
