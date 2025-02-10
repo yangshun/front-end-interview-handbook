@@ -231,7 +231,7 @@ export default function QuestionProgressAction({
                 }),
                 variant: 'success',
               });
-              CodingWorkspaceBottomBarEmitter.emit('stop_timer');
+              CodingWorkspaceBottomBarEmitter.emit('pause_timer');
             },
           },
         );

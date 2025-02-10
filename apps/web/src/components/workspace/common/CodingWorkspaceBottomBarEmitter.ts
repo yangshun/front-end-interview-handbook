@@ -1,7 +1,7 @@
 import mitt from 'mitt';
 
 type TimerEvents = Readonly<{
-  stop_timer: void;
+  pause_timer: void;
 }>;
 
 const emitter = mitt<TimerEvents>();

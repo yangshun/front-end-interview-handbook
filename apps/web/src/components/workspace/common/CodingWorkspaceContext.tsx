@@ -77,7 +77,7 @@ export function CodingWorkspaceProvider({
   }, []);
 
   const submit = useCallback(() => {
-    CodingWorkspaceBottomBarEmitter.emit('stop_timer');
+    CodingWorkspaceBottomBarEmitter.emit('pause_timer');
     setStatus('submitting');
   }, []);
 

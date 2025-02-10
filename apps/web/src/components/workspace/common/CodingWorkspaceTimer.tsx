@@ -1,8 +1,11 @@
 import clsx from 'clsx';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { RiArrowGoBackLine } from 'react-icons/ri';
 import { RxPause, RxPlay, RxStopwatch } from 'react-icons/rx';
 
+import { useGreatStorageLocal } from '~/hooks/useGreatStorageLocal';
+
+import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import Button from '~/components/ui/Button';
 import {
   themeBackgroundColor,
@@ -11,37 +14,80 @@ import {
   themeTextColor,
 } from '~/components/ui/theme';
 
+import { hashQuestion } from '~/db/QuestionsUtils';
+
 import CodingWorkspaceBottomBarEmitter from './CodingWorkspaceBottomBarEmitter';
 
-export default function CodingWorkspaceTimer() {
-  const [timePassedInSeconds, setTimePassedInSeconds] = useState(0);
-  const [timer, setTimer] = useState<ReturnType<typeof setTimeout> | undefined>(
-    undefined,
+type Props = Readonly<{
+  qnMetadata: QuestionMetadata;
+}>;
+
+export default function CodingWorkspaceTimer({ qnMetadata }: Props) {
+  const qnHash = hashQuestion(qnMetadata);
+  const [storedTime, setStoredTime] = useGreatStorageLocal<number>(
+    `questions:${qnHash}:timer:value`,
+    0,
   );
+  const [timerIsRunning, setTimerIsRunning] = useGreatStorageLocal<boolean>(
+    `questions:${qnHash}:timer:running`,
+    false,
+    {
+      ttl: 60,
+    },
+  );
+
+  const [timePassedInSeconds, setTimePassedInSeconds] = useState(storedTime);
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const [isTimerHovered, setIsTimerHovered] = useState(false);
 
-  function startTimer() {
-    const timerId = setInterval(() => {
-      setTimePassedInSeconds((seconds) => seconds + 1);
+  const startTimer = useCallback(() => {
+    if (timerRef.current) {
+      return;
+    }
+    setTimerIsRunning(true);
+
+    timerRef.current = setInterval(() => {
+      setTimePassedInSeconds((seconds) => {
+        setStoredTime(seconds + 1);
+
+        return seconds + 1;
+      });
     }, 1000);
+  }, [setStoredTime, setTimerIsRunning]);
 
-    setTimer(timerId);
-  }
+  const pauseTimer = useCallback(() => {
+    setTimerIsRunning(false);
+    setStoredTime(timePassedInSeconds);
 
-  const clearTimer = useCallback(() => {
-    clearInterval(timer);
-    setTimer(undefined);
-  }, [timer]);
+    if (timerRef.current) {
+      clearInterval(timerRef.current);
+      timerRef.current = null;
+    }
+  }, [setStoredTime, setTimerIsRunning, timePassedInSeconds]);
 
   useEffect(() => {
-    CodingWorkspaceBottomBarEmitter.on('stop_timer', clearTimer);
+    if (timerIsRunning && !timerRef.current) {
+      startTimer();
+    }
 
     return () => {
-      CodingWorkspaceBottomBarEmitter.off('stop_timer', clearTimer);
+      if (timerRef.current) {
+        clearInterval(timerRef.current);
+        timerRef.current = null;
+      }
+      setTimerIsRunning(timerIsRunning);
     };
-  }, [timer, clearTimer]);
+  }, [setTimerIsRunning, startTimer, timerIsRunning]);
 
-  if (timer == null && timePassedInSeconds === 0) {
+  useEffect(() => {
+    CodingWorkspaceBottomBarEmitter.on('pause_timer', pauseTimer);
+
+    return () => {
+      CodingWorkspaceBottomBarEmitter.off('pause_timer', pauseTimer);
+    };
+  }, [pauseTimer]);
+
+  if (timerRef.current == null && timePassedInSeconds === 0) {
     return (
       <Button
         icon={RxStopwatch}
@@ -66,18 +112,14 @@ export default function CodingWorkspaceTimer() {
       )}>
       <button
         className="flex items-center gap-x-1 font-mono text-xs"
-        title={timer === null ? 'Start' : 'Pause'}
+        title={timerRef.current === null ? 'Start' : 'Pause'}
         type="button"
         onClick={() => {
-          timer == null ? startTimer() : clearTimer();
+          timerRef.current === null ? startTimer() : pauseTimer();
         }}
-        onMouseEnter={() => {
-          setIsTimerHovered(true);
-        }}
-        onMouseLeave={() => {
-          setIsTimerHovered(false);
-        }}>
-        {timer == null ? (
+        onMouseEnter={() => setIsTimerHovered(true)}
+        onMouseLeave={() => setIsTimerHovered(false)}>
+        {timerRef.current === null ? (
           <RxPlay aria-hidden={true} className="h-3 w-4" />
         ) : (
           <RxPause aria-hidden={true} className="size-4" />
@@ -95,7 +137,8 @@ export default function CodingWorkspaceTimer() {
         type="button"
         onClick={() => {
           setTimePassedInSeconds(0);
-          clearTimer();
+          pauseTimer();
+          setStoredTime(0);
         }}>
         <RiArrowGoBackLine className="size-3" />
       </button>

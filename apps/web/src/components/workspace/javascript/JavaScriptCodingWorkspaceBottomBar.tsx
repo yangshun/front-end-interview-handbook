@@ -96,7 +96,7 @@ export default function JavaScriptCodingWorkspaceBottomBar({
         />
       </span>
       <div className="hidden lg:inline">
-        <CodingWorkspaceTimer />
+        <CodingWorkspaceTimer qnMetadata={metadata} />
       </div>
       <QuestionProgressAction
         metadata={metadata}
