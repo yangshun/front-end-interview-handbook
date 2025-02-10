@@ -8,7 +8,7 @@ import Text from '~/components/ui/Text';
 
 import { useMutationQuestionProgressDeleteAll } from '~/db/QuestionsProgressClient';
 
-export default function ProfileActivityResetProgressButton() {
+export default function ProfileActivityDeleteAllProgressButton() {
   const intl = useIntl();
 
   const { showToast } = useToast();
@@ -49,9 +49,9 @@ export default function ProfileActivityResetProgressButton() {
     <>
       <Button
         label={intl.formatMessage({
-          defaultMessage: 'Reset Progress',
-          description: 'Label for button to reset progress',
-          id: 'PB+rpp',
+          defaultMessage: 'Delete all progress',
+          description: 'Label for button to delete all progress',
+          id: '0eog9q',
         })}
         size="sm"
         variant="secondary"

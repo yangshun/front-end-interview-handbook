@@ -149,21 +149,12 @@ export const questionProgressRouter = router({
   delete: userProcedure
     .input(
       z.object({
-        question: z.object({
-          format: zodInterviewsQuestionFormats,
-          slug: z.string(),
-        }),
+        qnHashes: z.array(z.string()),
         studyListKey: z.string().optional(),
       }),
     )
     .mutation(
-      async ({
-        input: {
-          question: { slug, format },
-          studyListKey,
-        },
-        ctx: { viewer },
-      }) => {
+      async ({ input: { qnHashes, studyListKey }, ctx: { viewer } }) => {
         // Remove EITHER overall progress or learning session progress but not both.
         if (studyListKey) {
           const session = await prisma.learningSession.findFirst({
@@ -180,17 +171,21 @@ export const questionProgressRouter = router({
 
           return await prisma.learningSessionProgress.deleteMany({
             where: {
-              key: hashQuestion({ format, slug }),
+              key: { in: qnHashes },
               sessionId: session.id,
             },
           });
         }
 
+        const questionFilters = qnHashes.map((qnHash) => {
+          const [format, slug] = unhashQuestion(qnHash);
+
+          return { format, slug, userId: viewer.id };
+        });
+
         return await prisma.questionProgress.deleteMany({
           where: {
-            format,
-            slug,
-            userId: viewer.id,
+            OR: questionFilters,
           },
         });
       },

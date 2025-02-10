@@ -439,6 +439,10 @@
     "defaultMessage": "Get full access",
     "description": "Get full access button on the top right corner of the navigation bar to allow users to start evaluating plans and make a purchase"
   },
+  "0eog9q": {
+    "defaultMessage": "Delete all progress",
+    "description": "Label for button to delete all progress"
+  },
   "0gmEji": {
     "defaultMessage": "Browse series",
     "description": "Browse series section title in blog homepage"
@@ -775,6 +779,10 @@
     "defaultMessage": "Security",
     "description": "Title for Security section on profile page"
   },
+  "3Eov45": {
+    "defaultMessage": "The selected questions progress will be reset. This is an irreversible action, are you sure you want to proceed?",
+    "description": "Warning message in selective questions reset progress confirmation dialog"
+  },
   "3FeosO": {
     "defaultMessage": "NEW",
     "description": "Label for new questions ribbon"
@@ -862,6 +870,10 @@
   "3edoDu": {
     "defaultMessage": "Page name must contain at least {minLength} character(s).",
     "description": "Error message"
+  },
+  "3fQKhq": {
+    "defaultMessage": "Failed to reset progress. Please try again.",
+    "description": "Message shown when selective questions reset progress action fails."
   },
   "3fkhgw": {
     "defaultMessage": "Marked question as complete",
@@ -1434,6 +1446,10 @@
   "7HLv+l": {
     "defaultMessage": "Try these questions next",
     "description": "Text above suggested questions to indicate to the user that they can try those questions next"
+  },
+  "7HQs3a": {
+    "defaultMessage": "Selected questions progress has been reset.",
+    "description": "Message shown when selective questions reset progress action succeeds."
   },
   "7Hng1e": {
     "defaultMessage": "Already have an account? <link>Sign in</link>",
@@ -2663,6 +2679,10 @@
     "defaultMessage": "Tip: Many users have reimbursed GreatFrontEnd Interviews Premium as part of their company's flexible benefits or learning and training budget.",
     "description": "Tip at the bottom of the Pricing section to let users they can reimburse their purchase of GreatFrontEnd with their company's learning budgets"
   },
+  "FjrpK8": {
+    "defaultMessage": "Select {question} for deletion",
+    "description": "Aria label for checkbox to select question for deletion"
+  },
   "FlysR+": {
     "defaultMessage": "You are not subscribed. <link>View subscription plans</link> for GreatFrontEnd Interviews.",
     "description": "Text describing user's subscription plan."
@@ -3242,6 +3262,10 @@
   "J2nKZE": {
     "defaultMessage": "Purchase premium to unlock company tags and all the best materials we have to offer.",
     "description": "Paywall subtitle for company tags feature"
+  },
+  "J3bpoq": {
+    "defaultMessage": "Delete selected questions progress ({selectedQnsCount})",
+    "description": "Label for button to reset progress for selected questions"
   },
   "J41qJW": {
     "defaultMessage": "{totalQuestions} questions",
@@ -4230,10 +4254,6 @@
   "PAq50+": {
     "defaultMessage": "Choose up to 2 reasons why you are here so that we can improve your experience",
     "description": "Subtitle for Projects onboarding page"
-  },
-  "PB+rpp": {
-    "defaultMessage": "Reset Progress",
-    "description": "Label for button to reset progress"
   },
   "PDOWFg": {
     "defaultMessage": "The card was declined, but no specific reason was given by the card issuer.",

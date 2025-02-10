@@ -19,6 +19,7 @@ import {
   useMutationQuestionProgressDelete,
   useQueryQuestionProgress,
 } from '~/db/QuestionsProgressClient';
+import { hashQuestion } from '~/db/QuestionsUtils';
 import logEvent from '~/logging/logEvent';
 
 import type { QuestionMetadata } from './QuestionsTypes';
@@ -148,10 +149,7 @@ export default function QuestionProgressAction({
         onClick={() => {
           deleteProgressMutation.mutate(
             {
-              question: {
-                format: metadata.format,
-                slug: metadata.slug,
-              },
+              qnHashes: [hashQuestion(metadata)],
               studyListKey,
             },
             {

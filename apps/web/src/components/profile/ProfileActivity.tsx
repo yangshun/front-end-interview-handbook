@@ -1,6 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
+import { useState } from 'react';
 import { RiInboxLine } from 'react-icons/ri';
 
 import { trpc } from '~/hooks/trpc';
@@ -19,9 +20,14 @@ import {
   themeDivideColor,
 } from '~/components/ui/theme';
 
-import ProfileActivityResetProgressButton from './ProfileActivityResetProgressButton';
+import { hashQuestion } from '~/db/QuestionsUtils';
+
+import ProfileActivityDeleteAllProgressButton from './ProfileActivityDeleteAllProgressButton';
+import ProfileActivitySelectivelyDeleteProgressButton from './ProfileActivitySelectivelyDeleteProgressButton';
 import Timestamp from '../common/datetime/Timestamp';
+import type { QuestionHash } from '../interviews/questions/common/QuestionsTypes';
 import QuestionFormatLabel from '../interviews/questions/metadata/QuestionFormatLabel';
+import CheckboxInput from '../ui/CheckboxInput';
 
 function NoCompletedQuestions() {
   const intl = useIntl();
@@ -61,11 +67,17 @@ function NoCompletedQuestions() {
 }
 
 export default function ProfileActivity() {
+  const intl = useIntl();
+
   const {
     data: questionProgressWithMetadata,
     isLoading: isFetchingQuestionProgress,
     isError: isErrorQuestionProgress,
   } = trpc.questionProgress.getAllIncludingMetadata.useQuery();
+
+  const [selectedQuestions, setSelectedQuestions] = useState<Set<QuestionHash>>(
+    new Set(),
+  );
 
   if (isFetchingQuestionProgress) {
     return (
@@ -95,18 +107,40 @@ export default function ProfileActivity() {
     return <NoCompletedQuestions />;
   }
 
+  const handleCheckboxChange = (id: string, isChecked: boolean) => {
+    setSelectedQuestions((prev) => {
+      const newSet = new Set(prev);
+
+      isChecked ? newSet.add(id) : newSet.delete(id);
+
+      return newSet;
+    });
+  };
+  const clearSelectedQuestions = () => setSelectedQuestions(new Set());
+
   return (
     <div className="flex flex-col gap-y-4">
-      <Heading
-        className={clsx('flex flex-row justify-between', themeBorderColor)}
-        level="heading6">
-        <FormattedMessage
-          defaultMessage="Completed Questions"
-          description="Heading for list of completed questions."
-          id="CqG3Op"
-        />
-        <ProfileActivityResetProgressButton />
-      </Heading>
+      <div className="flex flex-col gap-y-4 sm:flex-row sm:items-center sm:justify-between">
+        <Heading
+          className={clsx('flex flex-row justify-between', themeBorderColor)}
+          level="heading6">
+          <FormattedMessage
+            defaultMessage="Completed Questions"
+            description="Heading for list of completed questions."
+            id="CqG3Op"
+          />
+        </Heading>
+
+        <div className="flex flex-col gap-y-2 sm:flex-row sm:gap-x-2">
+          {selectedQuestions.size > 0 && (
+            <ProfileActivitySelectivelyDeleteProgressButton
+              clearSelectedQuestions={clearSelectedQuestions}
+              qnHashes={Array.from(selectedQuestions)}
+            />
+          )}
+          <ProfileActivityDeleteAllProgressButton />
+        </div>
+      </div>
       <Section>
         <ul
           className={clsx(
@@ -116,6 +150,8 @@ export default function ProfileActivity() {
           )}
           role="list">
           {questionProgressWithMetadata.map(({ createdAt, id, metadata }) => {
+            const qnHash = metadata ? hashQuestion(metadata) : '';
+
             return (
               <li
                 key={id}
@@ -127,10 +163,31 @@ export default function ProfileActivity() {
                   'overflow-hidden',
                 )}>
                 <div className="flex items-center justify-between gap-x-4">
+                  <div>
+                    <CheckboxInput
+                      aria-label={intl.formatMessage(
+                        {
+                          defaultMessage: `Select {question} for deletion`,
+                          description:
+                            'Aria label for checkbox to select question for deletion',
+                          id: 'FjrpK8',
+                        },
+                        { question: metadata?.title },
+                      )}
+                      isLabelHidden={true}
+                      value={selectedQuestions.has(qnHash)}
+                      onChange={(isChecked) =>
+                        handleCheckboxChange(qnHash, isChecked)
+                      }
+                    />
+                  </div>
                   <div className="flex w-3/4 flex-col gap-y-1 sm:flex-row sm:items-center sm:gap-x-3">
                     <Text className="w-1/2" size="body2" weight="medium">
                       <Anchor href={metadata?.href} variant="unstyled">
-                        <span aria-hidden="true" className="absolute inset-0" />
+                        <span
+                          aria-hidden="true"
+                          className="absolute inset-y-0 left-[3rem] right-0"
+                        />
                         {metadata!.title}
                       </Anchor>
                     </Text>

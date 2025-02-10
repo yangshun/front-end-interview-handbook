@@ -13,6 +13,7 @@ import {
   useMutationQuestionProgressAdd,
   useMutationQuestionProgressDelete,
 } from '~/db/QuestionsProgressClient';
+import { hashQuestion } from '~/db/QuestionsUtils';
 
 import QuestionsUnifiedListWithFilters from './QuestionsUnifiedListWithFilters';
 import useQuestionsWithCompletionStatus from './useQuestionsWithCompletionStatus';
@@ -151,10 +152,7 @@ export default function QuestionsUnifiedListWithFiltersAndProgress({
 
     markNotCompleteMutation.mutate(
       {
-        question: {
-          format: question.format,
-          slug: question.slug,
-        },
+        qnHashes: [hashQuestion(question)],
         studyListKey,
       },
       {
