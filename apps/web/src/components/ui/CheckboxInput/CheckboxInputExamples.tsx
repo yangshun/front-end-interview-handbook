@@ -99,7 +99,19 @@ export default function CheckboxInputExamples() {
           }}
         />
       </div>
-
+      <div className="flex gap-x-24">
+        <CheckboxInput aria-label="Checked" isLabelHidden={true} value={true} />
+        <CheckboxInput
+          aria-label="Unchecked"
+          isLabelHidden={true}
+          value={false}
+        />
+        <CheckboxInput
+          aria-label="Indeterminate"
+          isLabelHidden={true}
+          value="indeterminate"
+        />
+      </div>
       <div className="flex gap-x-24">
         <CheckboxInput label="Checked" value={true} />
         <CheckboxInput label="Unchecked" value={false} />

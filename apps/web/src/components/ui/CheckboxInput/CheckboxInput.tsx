@@ -21,19 +21,32 @@ type Attributes = Pick<
   'disabled' | 'name'
 >;
 
-type Props = Readonly<{
+type BaseProps = Readonly<{
   defaultValue?: boolean;
   description?: string;
   errorMessage?: string;
-  label: ReactNode;
   onChange?: (
     value: boolean,
     event: ChangeEvent<HTMLInputElement>,
   ) => undefined | void;
   size?: CheckboxSize;
   value?: CheckboxValue;
-}> &
-  Readonly<Attributes>;
+}>;
+
+type OwnProps =
+  | (BaseProps &
+      Readonly<{
+        'aria-label': string;
+        isLabelHidden: true;
+      }>)
+  | (BaseProps &
+      Readonly<{
+        'aria-label'?: string;
+        isLabelHidden?: false;
+        label: ReactNode;
+      }>);
+
+type Props = OwnProps & Readonly<Attributes>;
 
 const checkboxSizeClasses: Record<CheckboxSize, string> = {
   md: 'ml-3',
@@ -52,15 +65,17 @@ const topMarginVariants: Record<CheckboxSize, string> = {
 
 function CheckboxInput(
   {
+    'aria-label': ariaLabel,
     defaultValue,
     description,
     disabled = false,
     errorMessage,
-    label,
+    isLabelHidden = false,
     name,
     size = 'md',
     value,
     onChange,
+    ...props
   }: Props,
   ref: ForwardedRef<HTMLInputElement>,
 ) {
@@ -84,6 +99,7 @@ function CheckboxInput(
           <input
             ref={mergedRef}
             aria-describedby={description != null ? descriptionId : undefined}
+            aria-label={ariaLabel}
             checked={value === true}
             className={clsx(
               'size-4',
@@ -117,38 +133,40 @@ function CheckboxInput(
             }}
           />
         </div>
-        <div
-          className={clsx(
-            'grid gap-1',
-            checkboxSizeClasses[size],
-            topMarginVariants[size],
-          )}>
-          <label
+        {!isLabelHidden && 'label' in props && (
+          <div
             className={clsx(
-              textVariants({
-                className: 'block',
-                color: disabled ? 'disabled' : 'secondary',
-                size: textSizeVariants[size],
-              }),
-              !disabled && 'cursor-pointer',
+              'grid gap-1',
+              checkboxSizeClasses[size],
+              topMarginVariants[size],
+            )}>
+            <label
+              className={clsx(
+                textVariants({
+                  className: 'block',
+                  color: disabled ? 'disabled' : 'secondary',
+                  size: textSizeVariants[size],
+                }),
+                !disabled && 'cursor-pointer',
+              )}
+              htmlFor={id}>
+              {props.label}
+            </label>
+            {description && (
+              <Text
+                className="block"
+                color={disabled ? 'disabled' : 'secondary'}
+                size="body3">
+                {description}
+              </Text>
             )}
-            htmlFor={id}>
-            {label}
-          </label>
-          {description && (
-            <Text
-              className="block"
-              color={disabled ? 'disabled' : 'secondary'}
-              size="body3">
-              {description}
-            </Text>
-          )}
-          {errorMessage && (
-            <Text className="block" color="error" id={errorId} size="body3">
-              {errorMessage}
-            </Text>
-          )}
-        </div>
+            {errorMessage && (
+              <Text className="block" color="error" id={errorId} size="body3">
+                {errorMessage}
+              </Text>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );
