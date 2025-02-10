@@ -22,7 +22,7 @@ export default class TranslationManager implements ITranslationManager {
     targetLocales: string[],
     fileHandler: IFileHandler,
   ): Promise<void> {
-    const { source, target } = file;
+    const { source, target, excludeKeys } = file;
     const fileContent = await fileHandler.readFileContent(source);
     const registry = await this.registryManager.load(source);
     const fileHash = this.changeDetector.generateHash(
@@ -35,6 +35,24 @@ export default class TranslationManager implements ITranslationManager {
       registry?.hashes || {},
     );
 
+    // Extract excluded content before translation
+    const excludedContent: Record<string, string> = {};
+    if (excludeKeys) {
+      for (const key of excludeKeys) {
+        if (key in fileContent) {
+          excludedContent[key] = fileContent[key];
+          delete fileContent[key];
+        }
+      }
+    }
+
+    // Get list of removed keys by comparing current keys with registry keys
+    const currentKeys = new Set(Object.keys(fileContent));
+    const registryKeys = new Set(Object.keys(registry?.hashes || {}));
+    const removedKeys = [...registryKeys].filter(
+      (key) => !currentKeys.has(key),
+    );
+
     // Translate the file for all the locales
     await Promise.all(
       targetLocales.map(async (locale) => {
@@ -42,7 +60,7 @@ export default class TranslationManager implements ITranslationManager {
         const translationContent = registry?.translatedLocales.includes(locale)
           ? changedKeys.reduce(
               (acc, key) => {
-                if (key in fileContent) {
+                if (key in fileContent && !excludeKeys?.includes(key)) {
                   acc[key] = fileContent[key];
                 }
                 return acc;
@@ -55,7 +73,18 @@ export default class TranslationManager implements ITranslationManager {
             translationContent,
             locale,
           );
-          await fileHandler.writeFile(target, locale, translatedContent);
+
+          // Merge back excluded content
+          const finalContent = {
+            ...translatedContent,
+            ...excludedContent, // Add back excluded keys with original values
+          };
+          await fileHandler.writeFile(
+            target,
+            locale,
+            finalContent,
+            removedKeys,
+          );
           log.success(`✅ Successfully translated file ${source} to ${locale}`);
         } catch (error: any) {
           log.error(

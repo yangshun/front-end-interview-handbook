@@ -11,6 +11,7 @@ export interface IFileHandler {
     filePath: string,
     targetLocale: string,
     newContent: Record<string, string>,
+    removedKeys: string[],
   ): Promise<void>;
 
   /**
@@ -30,5 +31,6 @@ export interface IFileHandler {
   rebuildContent(
     originalContent: any,
     translatedContent: Record<string, string>,
+    removedKeys: string[],
   ): Promise<any>;
 }

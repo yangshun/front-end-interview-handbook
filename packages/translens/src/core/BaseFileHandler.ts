@@ -19,6 +19,7 @@ export default abstract class BaseFileHandler implements IFileHandler {
   abstract rebuildContent(
     originalContent: any,
     translatedContent: Record<string, string>,
+    removedKeys: string[],
   ): Promise<any>;
 
   /**
@@ -56,6 +57,7 @@ export default abstract class BaseFileHandler implements IFileHandler {
     filePath: string,
     targetLocale: string,
     newContent: Record<string, string>,
+    removedKeys: string[],
   ): Promise<void> {
     const sourcePath = filePath.replace('{locale}', targetLocale);
     try {
@@ -79,7 +81,11 @@ export default abstract class BaseFileHandler implements IFileHandler {
         fs.mkdirSync(directoryPath, { recursive: true }); // Create the directory if it doesn't exist
       }
 
-      const content = await this.rebuildContent(existingContent, newContent);
+      const content = await this.rebuildContent(
+        existingContent,
+        newContent,
+        removedKeys,
+      );
 
       // Write to the file
       fs.writeFileSync(sourcePath, JSON.stringify(content, null, 2), 'utf-8');

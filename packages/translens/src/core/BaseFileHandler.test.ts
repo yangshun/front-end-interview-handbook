@@ -93,9 +93,14 @@ describe('BaseFileHandler', () => {
   test('writeFile should write translated content to file', async () => {
     fileHandler.rebuildContent.mockResolvedValue({ key: 'translated' });
 
-    await fileHandler.writeFile('test-{locale}.txt', 'en', {
-      key: 'translated',
-    });
+    await fileHandler.writeFile(
+      'test-{locale}.txt',
+      'en',
+      {
+        key: 'translated',
+      },
+      [],
+    );
 
     expect(fs.writeFileSync).toHaveBeenCalledWith(
       'test-en.txt',
@@ -107,9 +112,14 @@ describe('BaseFileHandler', () => {
   test('writeFile should create directory if it does not exist', async () => {
     vi.spyOn(fs, 'existsSync').mockReturnValue(false);
 
-    await fileHandler.writeFile('test-{locale}.txt', 'en', {
-      key: 'translated',
-    });
+    await fileHandler.writeFile(
+      'test-{locale}.txt',
+      'en',
+      {
+        key: 'translated',
+      },
+      [],
+    );
 
     expect(fs.mkdirSync).toHaveBeenCalledWith(path.dirname('test-en.txt'), {
       recursive: true,

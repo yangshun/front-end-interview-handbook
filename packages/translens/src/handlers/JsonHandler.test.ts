@@ -40,6 +40,26 @@ describe('JsonHandler', () => {
     const rebuiltContent = jsonHandler.rebuildContent(
       originalContent,
       translatedContent,
+      [],
+    );
+
+    expect(rebuiltContent).toEqual({
+      key1: 'Hello',
+      key2: 'Mundo',
+      key3: 'Bonjour',
+    });
+  });
+
+  test('should rebuild content by merging original, translated content and removing the keys which have been removed from base file', () => {
+    const originalContent =
+      '{"key1": "Hello", "key2": "World", "key4": "Testing"}';
+    const translatedContent = { key2: 'Mundo', key3: 'Bonjour' };
+    const removedKeys = ['key4'];
+
+    const rebuiltContent = jsonHandler.rebuildContent(
+      originalContent,
+      translatedContent,
+      removedKeys,
     );
 
     expect(rebuiltContent).toEqual({
@@ -52,7 +72,11 @@ describe('JsonHandler', () => {
   test('should rebuild content correctly when original content is empty', () => {
     const translatedContent = { key1: 'Hola', key2: 'Bonjour' };
 
-    const rebuiltContent = jsonHandler.rebuildContent(null, translatedContent);
+    const rebuiltContent = jsonHandler.rebuildContent(
+      null,
+      translatedContent,
+      [],
+    );
 
     expect(rebuiltContent).toEqual({ key1: 'Hola', key2: 'Bonjour' });
   });
