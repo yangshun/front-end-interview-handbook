@@ -33,51 +33,68 @@ describe('JsonHandler', () => {
     expect(extractedContent).toEqual({ key1: 'Hello', key2: 'World' });
   });
 
-  test('should rebuild content by merging original and translated content', () => {
+  test('should rebuild content by merging original and translated content', async () => {
     const originalContent = '{"key1": "Hello", "key2": "World"}';
     const translatedContent = { key2: 'Mundo', key3: 'Bonjour' };
 
-    const rebuiltContent = jsonHandler.rebuildContent(
+    const rebuiltContent = await jsonHandler.rebuildContent(
       originalContent,
+      '',
       translatedContent,
       [],
     );
 
-    expect(rebuiltContent).toEqual({
-      key1: 'Hello',
-      key2: 'Mundo',
-      key3: 'Bonjour',
-    });
+    expect(rebuiltContent).toEqual(
+      JSON.stringify(
+        {
+          key1: 'Hello',
+          key2: 'Mundo',
+          key3: 'Bonjour',
+        },
+        null,
+        2,
+      ),
+    );
   });
 
-  test('should rebuild content by merging original, translated content and removing the keys which have been removed from base file', () => {
+  test('should rebuild content by merging original, translated content and removing the keys which have been removed from base file', async () => {
     const originalContent =
       '{"key1": "Hello", "key2": "World", "key4": "Testing"}';
     const translatedContent = { key2: 'Mundo', key3: 'Bonjour' };
     const removedKeys = ['key4'];
 
-    const rebuiltContent = jsonHandler.rebuildContent(
+    const rebuiltContent = await jsonHandler.rebuildContent(
       originalContent,
+      '',
       translatedContent,
       removedKeys,
     );
 
-    expect(rebuiltContent).toEqual({
-      key1: 'Hello',
-      key2: 'Mundo',
-      key3: 'Bonjour',
-    });
+    expect(rebuiltContent).toEqual(
+      JSON.stringify(
+        {
+          key1: 'Hello',
+          key2: 'Mundo',
+          key3: 'Bonjour',
+        },
+        null,
+        2,
+      ),
+    );
   });
 
-  test('should rebuild content correctly when original content is empty', () => {
+  test('should rebuild content correctly when original content is empty', async () => {
     const translatedContent = { key1: 'Hola', key2: 'Bonjour' };
 
-    const rebuiltContent = jsonHandler.rebuildContent(
-      null,
+    const rebuiltContent = await jsonHandler.rebuildContent(
+      '',
+      '',
       translatedContent,
       [],
     );
 
-    expect(rebuiltContent).toEqual({ key1: 'Hola', key2: 'Bonjour' });
+    expect(rebuiltContent).toEqual(
+      JSON.stringify({ key1: 'Hola', key2: 'Bonjour' }, null, 2),
+    );
   });
 });

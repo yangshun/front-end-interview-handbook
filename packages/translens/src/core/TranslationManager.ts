@@ -1,3 +1,4 @@
+import fs from 'fs';
 import { log } from '@clack/prompts';
 import {
   IChangeDetector,
@@ -23,8 +24,12 @@ export default class TranslationManager implements ITranslationManager {
     fileHandler: IFileHandler,
   ): Promise<void> {
     const { source, target, excludeKeys } = file;
-    const fileContent = await fileHandler.readFileContent(source);
-    const registry = await this.registryManager.load(source);
+    const [fileContent, registry] = await Promise.all([
+      fileHandler.readFileContent(source),
+      this.registryManager.load(source),
+    ]);
+    const baseFileContent = fs.readFileSync(source, 'utf-8');
+
     const fileHash = this.changeDetector.generateHash(
       JSON.stringify(fileContent),
     );
@@ -82,6 +87,7 @@ export default class TranslationManager implements ITranslationManager {
           await fileHandler.writeFile(
             target,
             locale,
+            baseFileContent,
             finalContent,
             removedKeys,
           );

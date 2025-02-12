@@ -1,3 +1,4 @@
+import fs from 'fs';
 import TranslationManager from './TranslationManager';
 import {
   IChangeDetector,
@@ -68,6 +69,10 @@ describe('TranslationManager', () => {
       }),
     };
 
+    vi.spyOn(fs, 'readFileSync').mockReturnValue(
+      JSON.stringify({ key1: 'Hello', key2: 'World', key3: 'ExcludeMe' }),
+    );
+
     translationManager = new TranslationManager(
       changeDetector,
       registryManager,
@@ -92,12 +97,14 @@ describe('TranslationManager', () => {
     expect(fileHandler.writeFile).toHaveBeenCalledWith(
       'target_{locale}.json',
       'es',
+      JSON.stringify({ key1: 'Hello', key2: 'World', key3: 'ExcludeMe' }),
       { key1: 'Hello_es', key2: 'World_es', key3: 'ExcludeMe' },
       [],
     );
     expect(fileHandler.writeFile).toHaveBeenCalledWith(
       'target_{locale}.json',
       'de',
+      JSON.stringify({ key1: 'Hello', key2: 'World', key3: 'ExcludeMe' }),
       { key1: 'Hello_de', key2: 'World_de', key3: 'ExcludeMe' },
       [],
     );
@@ -128,6 +135,7 @@ describe('TranslationManager', () => {
     expect(fileHandler.writeFile).toHaveBeenCalledWith(
       'target_{locale}.json',
       'es',
+      JSON.stringify({ key1: 'Hello', key2: 'World', key3: 'ExcludeMe' }),
       { key1: 'Hello_es' },
       [],
     );

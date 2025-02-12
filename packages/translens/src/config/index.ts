@@ -13,7 +13,7 @@ export const DEFAULT_CONFIG: IConfig = {
   groups: [
     {
       name: 'example',
-      type: 'json',
+      handler: 'json',
       files: [
         {
           source: './src/locales/en-US.json',

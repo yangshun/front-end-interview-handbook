@@ -91,11 +91,20 @@ describe('BaseFileHandler', () => {
   });
 
   test('writeFile should write translated content to file', async () => {
-    fileHandler.rebuildContent.mockResolvedValue({ key: 'translated' });
+    fileHandler.rebuildContent.mockResolvedValue(
+      JSON.stringify(
+        {
+          key: 'translated',
+        },
+        null,
+        2,
+      ),
+    );
 
     await fileHandler.writeFile(
       'test-{locale}.txt',
       'en',
+      '',
       {
         key: 'translated',
       },
@@ -104,7 +113,13 @@ describe('BaseFileHandler', () => {
 
     expect(fs.writeFileSync).toHaveBeenCalledWith(
       'test-en.txt',
-      JSON.stringify({ key: 'translated' }, null, 2),
+      JSON.stringify(
+        {
+          key: 'translated',
+        },
+        null,
+        2,
+      ),
       'utf-8',
     );
   });
@@ -115,6 +130,7 @@ describe('BaseFileHandler', () => {
     await fileHandler.writeFile(
       'test-{locale}.txt',
       'en',
+      '',
       {
         key: 'translated',
       },

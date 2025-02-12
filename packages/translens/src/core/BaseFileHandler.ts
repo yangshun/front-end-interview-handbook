@@ -14,13 +14,14 @@ export default abstract class BaseFileHandler implements IFileHandler {
   ) {}
 
   abstract extractTranslatableContent(
-    content: any,
+    content: string,
   ): Promise<Record<string, string>>;
   abstract rebuildContent(
-    originalContent: any,
+    baseContent: string,
+    originalContent: string,
     translatedContent: Record<string, string>,
     removedKeys: string[],
-  ): Promise<any>;
+  ): Promise<string>;
 
   /**
    * Return if the file has changed via comparing
@@ -56,12 +57,13 @@ export default abstract class BaseFileHandler implements IFileHandler {
   async writeFile(
     filePath: string,
     targetLocale: string,
+    baseContent: string,
     newContent: Record<string, string>,
     removedKeys: string[],
   ): Promise<void> {
     const sourcePath = filePath.replace('{locale}', targetLocale);
     try {
-      let existingContent: any;
+      let existingContent: string = '';
       // Check if the file exists
       const fileExist = fs.existsSync(sourcePath);
       // Read existing file content if it exists
@@ -82,13 +84,14 @@ export default abstract class BaseFileHandler implements IFileHandler {
       }
 
       const content = await this.rebuildContent(
+        baseContent,
         existingContent,
         newContent,
         removedKeys,
       );
 
       // Write to the file
-      fs.writeFileSync(sourcePath, JSON.stringify(content, null, 2), 'utf-8');
+      fs.writeFileSync(sourcePath, content, 'utf-8');
     } catch (error: any) {
       throw new Error(`Error writing file ${sourcePath}: ${error.message}`);
     }

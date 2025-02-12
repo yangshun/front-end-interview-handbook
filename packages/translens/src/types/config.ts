@@ -10,14 +10,23 @@ export interface IConfigFile {
   ignore?: string[]; // files to ignore
 }
 
+export interface IPluginFileHandler {
+  name: string;
+  handlerFilePath: string;
+}
+
+export interface IPlugin {
+  handlers?: IPluginFileHandler[];
+}
+
 export interface IConfigGroup {
   name: string;
-  type: 'json' | 'mdx'; // Type of the file to be translated
+  handler: 'json' | 'mdx' | 'string'; // Type of the file to be translated or a custom handler
   files: IConfigFile[];
   localeConfig?: LocaleConfig; // Optional
 }
-
 export interface IConfig {
   localeConfig: LocaleConfig;
   groups: IConfigGroup[];
+  plugin?: IPlugin;
 }

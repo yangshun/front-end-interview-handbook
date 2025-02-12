@@ -5,7 +5,9 @@
   "author": "Nitesh Seram <niteshseram@gmail.com>",
   "license": "MIT",
   "type": "module",
-  "bin": "dist/index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": "dist/cli.js",
   "files": [
     "dist"
   ],

@@ -10,6 +10,7 @@ export interface IFileHandler {
   writeFile(
     filePath: string,
     targetLocale: string,
+    baseContent: string,
     newContent: Record<string, string>,
     removedKeys: string[],
   ): Promise<void>;
@@ -23,14 +24,20 @@ export interface IFileHandler {
   /**
    * Extracts translatable content from the file.
    */
-  extractTranslatableContent(content: any): Promise<Record<string, string>>;
+  extractTranslatableContent(content: string): Promise<Record<string, string>>;
 
   /**
    * Rebuilds the file content with translated values.
    */
   rebuildContent(
-    originalContent: any,
+    baseContent: string,
+    originalContent: string,
     translatedContent: Record<string, string>,
     removedKeys: string[],
-  ): Promise<any>;
+  ): Promise<string>;
+}
+
+export interface IFileHandlerPlugin {
+  name: string;
+  createHandler(): IFileHandler;
 }

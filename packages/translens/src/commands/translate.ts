@@ -6,14 +6,16 @@ import { JsonHandler } from '../handlers';
 import FileEnumerator from '../lib/FileEnumerator';
 import FileRegistryManager from '../core/FileRegistryManager';
 import ChangeDetector from '../core/ChangeDetector';
-import { IConfig, IConfigGroup } from '../types/config';
+import TranslationManager from '../core/TranslationManager';
+import { PluginManager } from '../core/PluginManager';
 import {
   IFileHandler,
   IFileRegistryManager,
+  IPluginManager,
   ITranslationManager,
 } from '../interfaces';
-import TranslationManager from '../core/TranslationManager';
 import DeepSeekTranslationService from '../translation/DeepSeekTranslationService';
+import { IConfig, IConfigGroup } from '../types/config';
 
 export async function translate() {
   const config = new Config().getConfig();
@@ -26,6 +28,12 @@ export async function translate() {
     registryManager,
     translationService,
   );
+  const pluginManager = new PluginManager(
+    config,
+    changeDetector,
+    registryManager,
+  );
+  await pluginManager.registerFileHandlers();
 
   const translationSpinner = spinner();
   translationSpinner.start(chalk.blue('🔍 Searching for files...'));
@@ -34,6 +42,7 @@ export async function translate() {
   const filesToTranslate = await findFilesToTranslate(
     config,
     registryManager,
+    pluginManager,
     jsonHandler,
   );
 
@@ -46,7 +55,12 @@ export async function translate() {
   if (filesToTranslate.length === 0) return;
 
   translationSpinner.start(`Translating ${filesToTranslate.length} files...`);
-  await translateFiles(filesToTranslate, jsonHandler, translationManager);
+  await translateFiles(
+    filesToTranslate,
+    pluginManager,
+    jsonHandler,
+    translationManager,
+  );
 
   translationSpinner.stop();
 }
@@ -54,11 +68,18 @@ export async function translate() {
 async function findFilesToTranslate(
   config: IConfig,
   registryManager: IFileRegistryManager,
+  pluginManager: IPluginManager,
   jsonHandler: IFileHandler,
 ) {
+  const fileHandlers = pluginManager.getFileHandlers();
   const files = await Promise.all(
     config.groups.flatMap((group) => {
-      if (group.type !== 'json') return []; // Only process JSON files for now
+      const fileHandler = getFileHandler({
+        jsonHandler,
+        handler: group.handler,
+        fileHandlers,
+      });
+      if (!fileHandler) return []; //
 
       return group.files.map(async (file) => {
         const { sourceLocale, targetLocales } = getLocaleConfig(group, config);
@@ -81,7 +102,7 @@ async function findFilesToTranslate(
           files.map(async (sourceFile) => {
             const [registry, hasFileChanged] = await Promise.all([
               registryManager.load(sourceFile),
-              jsonHandler.hasFileChanged(sourceFile),
+              fileHandler.hasFileChanged(sourceFile),
             ]);
 
             const translatedLocales = new Set(
@@ -105,6 +126,7 @@ async function findFilesToTranslate(
             targetLocales: finalTargetLocales,
             excludeKeys: file.excludeKeys,
             target: file.target,
+            handler: group.handler,
           }));
       });
     }),
@@ -126,14 +148,26 @@ async function translateFiles(
     source: string;
     targetLocales: string[];
     excludeKeys: string[] | undefined;
+    handler: string;
   }[],
+  pluginManager: IPluginManager,
   jsonHandler: IFileHandler,
   translationManager: ITranslationManager,
 ) {
-
+  const fileHandlers = pluginManager.getFileHandlers();
   await Promise.all(
     filesToTranslate.map(async (file) => {
       try {
+        const fileHandler = getFileHandler({
+          jsonHandler,
+          handler: file.handler,
+          fileHandlers,
+        });
+
+        if (!fileHandler) {
+          throw Error(`File handler ${file.handler} not found.`);
+        }
+
         if (file.source.endsWith('.json')) {
           await translationManager.translate(
             {
@@ -142,7 +176,7 @@ async function translateFiles(
               excludeKeys: file.excludeKeys,
             },
             file.targetLocales,
-            jsonHandler,
+            fileHandler,
           );
         }
       } catch (error: any) {
@@ -152,4 +186,21 @@ async function translateFiles(
       }
     }),
   );
+}
+
+function getFileHandler({
+  handler,
+  jsonHandler,
+  fileHandlers,
+}: {
+  handler: string;
+  fileHandlers: Map<string, IFileHandler>;
+  jsonHandler: IFileHandler;
+}) {
+  if (handler === 'json') {
+    return jsonHandler;
+  } else if (fileHandlers.has(handler)) {
+    return fileHandlers.get(handler);
+  }
+  return null;
 }
