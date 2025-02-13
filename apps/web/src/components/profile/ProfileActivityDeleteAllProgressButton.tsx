@@ -49,12 +49,12 @@ export default function ProfileActivityDeleteAllProgressButton() {
     <>
       <Button
         label={intl.formatMessage({
-          defaultMessage: 'Delete all progress',
+          defaultMessage: 'Reset all progress',
           description: 'Label for button to delete all progress',
-          id: '0eog9q',
+          id: 'K8TgFg',
         })}
-        size="sm"
-        variant="secondary"
+        size="xs"
+        variant="danger"
         onClick={() => setIsResetProgressDialogShown(true)}
       />
       <Dialog
@@ -86,9 +86,9 @@ export default function ProfileActivityDeleteAllProgressButton() {
           />
         }
         title={intl.formatMessage({
-          defaultMessage: 'Reset Progress',
+          defaultMessage: 'Reset all progress',
           description: 'Title for reset progress confirmation dialog',
-          id: 'eBp6vh',
+          id: 'zPB/q7',
         })}
         onClose={() => setIsResetProgressDialogShown(false)}>
         <Text className="block" color="secondary" size="body2">

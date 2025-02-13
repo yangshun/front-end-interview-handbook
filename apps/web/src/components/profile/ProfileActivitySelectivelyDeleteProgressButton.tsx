@@ -66,16 +66,16 @@ export default function ProfileActivitySelectivelyDeleteProgressButton({
       <Button
         label={intl.formatMessage(
           {
-            defaultMessage: `Delete selected progress ({selectedQnsCount})`,
+            defaultMessage: 'Reset selected ({selectedQnsCount})',
             description:
               'Label for button to reset progress for selected questions',
-            id: 'rV/aK9',
+            id: 'nf6hOC',
           },
           {
             selectedQnsCount: qnHashes.length,
           },
         )}
-        size="sm"
+        size="xs"
         variant="secondary"
         onClick={() => setIsResetProgressDialogShown(true)}
       />
@@ -108,9 +108,9 @@ export default function ProfileActivitySelectivelyDeleteProgressButton({
           />
         }
         title={intl.formatMessage({
-          defaultMessage: 'Reset Progress',
+          defaultMessage: 'Reset progress',
           description: 'Title for reset progress confirmation dialog',
-          id: 'eBp6vh',
+          id: 'juOcXX',
         })}
         onClose={() => setIsResetProgressDialogShown(false)}>
         <Text className="block" color="secondary" size="body2">

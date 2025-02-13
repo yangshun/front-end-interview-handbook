@@ -439,10 +439,6 @@
     "defaultMessage": "Get full access",
     "description": "Get full access button on the top right corner of the navigation bar to allow users to start evaluating plans and make a purchase"
   },
-  "0eog9q": {
-    "defaultMessage": "Delete all progress",
-    "description": "Label for button to delete all progress"
-  },
   "0gmEji": {
     "defaultMessage": "Browse series",
     "description": "Browse series section title in blog homepage"
@@ -2239,10 +2235,6 @@
     "defaultMessage": "Front End System Design Interview Questions",
     "description": "Social title for System design question format page"
   },
-  "CqG3Op": {
-    "defaultMessage": "Completed Questions",
-    "description": "Heading for list of completed questions."
-  },
   "Cqx/J0": {
     "defaultMessage": "The following challenges will be unlocked:",
     "description": "Confirmation text for unlocking a premium challenge"
@@ -3450,6 +3442,10 @@
   "K7qkc7": {
     "defaultMessage": "Yes, our referral program is global. We sell to users in more than 100 countries.",
     "description": "Answer to the FAQ about whether the affiliate program is global"
+  },
+  "K8TgFg": {
+    "defaultMessage": "Reset all progress",
+    "description": "Label for button to delete all progress"
   },
   "KBBRmA": {
     "defaultMessage": "While working on project",
@@ -6795,10 +6791,6 @@
     "defaultMessage": "Roadmap",
     "description": "Label for roadmap in sidebar"
   },
-  "eBp6vh": {
-    "defaultMessage": "Reset Progress",
-    "description": "Title for reset progress confirmation dialog"
-  },
   "eC4GRM": {
     "defaultMessage": "Filter user submissions by whether you have completed their corresponding challenges",
     "description": "Tooltip for Status filter for projects list"
@@ -7707,6 +7699,10 @@
     "defaultMessage": "About Us",
     "description": "Title of About Us page"
   },
+  "juOcXX": {
+    "defaultMessage": "Reset progress",
+    "description": "Title for reset progress confirmation dialog"
+  },
   "jvi6yy": {
     "defaultMessage": "Tech stack",
     "description": "Placeholder for \"Other tech stack used\" text input"
@@ -8323,6 +8319,10 @@
     "defaultMessage": "Cancel",
     "description": "Label for cancel button for projects profile edit page"
   },
+  "nf6hOC": {
+    "defaultMessage": "Reset selected ({selectedQnsCount})",
+    "description": "Label for button to reset progress for selected questions"
+  },
   "nhMxxN": {
     "defaultMessage": "End-to-end guide",
     "description": "Features for frontend interviews playbook page"
@@ -8935,10 +8935,6 @@
     "defaultMessage": "Curated, external resources that could be helpful.",
     "description": "FAQ answer for projects platform"
   },
-  "rV/aK9": {
-    "defaultMessage": "Delete selected progress ({selectedQnsCount})",
-    "description": "Label for button to reset progress for selected questions"
-  },
   "rWhQtZ": {
     "defaultMessage": "Full list of shortcuts can be found on the <link>Visual Studio Code website</link>.",
     "description": "Text in coding workspace shortcuts that provides user with the link to the full list of shortcuts"
@@ -9270,6 +9266,10 @@
   "thqnR6": {
     "defaultMessage": "Click here to view the full solution and other System Design guides.",
     "description": "Button label within embed"
+  },
+  "tj/SqK": {
+    "defaultMessage": "Completed questions",
+    "description": "Heading for list of completed questions."
   },
   "tk7bcb": {
     "defaultMessage": "Targeted practice in specific front end frameworks and languages",
@@ -10186,6 +10186,10 @@
   "zOaxDi": {
     "defaultMessage": "Includes every possible question format you'll encounter: <jsCodingAnchor>JavaScript coding questions</jsCodingAnchor>, <uiAnchor>UI coding questions</uiAnchor>, <algoCodingAnchor>Algo coding questions</algoCodingAnchor>, <systemDesignAnchor>System design</systemDesignAnchor>, and <quizAnchor>Quiz-style questions</quizAnchor>.",
     "description": "Paragraph 1 for \"What does GreatFrontEnd Interviews offer exactly?\" on Homepage FAQ sections"
+  },
+  "zPB/q7": {
+    "defaultMessage": "Reset all progress",
+    "description": "Title for reset progress confirmation dialog"
   },
   "zQFib0": {
     "defaultMessage": "Progress",

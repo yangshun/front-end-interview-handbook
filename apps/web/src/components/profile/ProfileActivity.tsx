@@ -19,6 +19,7 @@ import {
   themeBorderColor,
   themeDivideColor,
 } from '~/components/ui/theme';
+import { themeBackgroundCardColor } from '~/components/ui/theme';
 
 import { hashQuestion } from '~/db/QuestionsUtils';
 
@@ -79,13 +80,7 @@ export default function ProfileActivity() {
   } = trpc.questionProgress.getAllIncludingMetadata.useQuery();
 
   const [formatFilters, formatFilterOptions] = useQuestionFormatFilter({
-    initialValue: [
-      'javascript',
-      'user-interface',
-      'algo',
-      'system-design',
-      'quiz',
-    ],
+    initialValue: [],
   });
 
   const [selectedQuestions, setSelectedQuestions] = useState<Set<QuestionHash>>(
@@ -122,10 +117,14 @@ export default function ProfileActivity() {
 
   const filteredQuestionProgressWithMetadata =
     questionProgressWithMetadata.filter((qn) =>
-      qn.metadata ? formatFilters.has(qn.metadata.format) : false,
+      formatFilters.size === 0
+        ? true
+        : qn.metadata
+          ? formatFilters.has(qn.metadata.format)
+          : false,
     );
 
-  const handleIndividualCheckboxChange = (id: string, isChecked: boolean) => {
+  function handleIndividualCheckboxChange(id: string, isChecked: boolean) {
     setSelectedQuestions((prev) => {
       const newSet = new Set(prev);
 
@@ -133,8 +132,11 @@ export default function ProfileActivity() {
 
       return newSet;
     });
-  };
-  const clearSelectedQuestions = () => setSelectedQuestions(new Set());
+  }
+
+  function clearSelectedQuestions() {
+    setSelectedQuestions(new Set());
+  }
 
   return (
     <div className="flex flex-col gap-y-4">
@@ -143,23 +145,17 @@ export default function ProfileActivity() {
           className={clsx('flex flex-row justify-between', themeBorderColor)}
           level="heading6">
           <FormattedMessage
-            defaultMessage="Completed Questions"
+            defaultMessage="Completed questions"
             description="Heading for list of completed questions."
-            id="CqG3Op"
+            id="tj/SqK"
           />
         </Heading>
-
-        <div className="flex flex-row gap-x-1">
-          {selectedQuestions.size > 0 && (
-            <ProfileActivitySelectivelyDeleteProgressButton
-              clearSelectedQuestions={clearSelectedQuestions}
-              qnHashes={Array.from(selectedQuestions)}
-            />
-          )}
-          <ProfileActivityDeleteAllProgressButton />
-        </div>
       </div>
-      <div className={clsx('flex flex-row flex-wrap gap-2', themeBorderColor)}>
+      <div
+        className={clsx(
+          'flex flex-row flex-wrap gap-2 pt-2',
+          themeBorderColor,
+        )}>
         {formatFilterOptions.options.map(
           ({ value, label, icon: Icon, tooltip }) => (
             <FilterButton
@@ -178,8 +174,12 @@ export default function ProfileActivity() {
           ),
         )}
       </div>
-      {filteredQuestionProgressWithMetadata.length > 0 && (
-        <div className="relative px-4 pt-1">
+      <div
+        className={clsx(
+          'flex items-end justify-between gap-4',
+          'relative pt-1',
+        )}>
+        <div className="pl-4">
           <CheckboxInput
             label={intl.formatMessage({
               defaultMessage: 'Select all',
@@ -207,12 +207,21 @@ export default function ProfileActivity() {
             }}
           />
         </div>
-      )}
+        <div className="flex items-center gap-x-2">
+          {selectedQuestions.size > 0 && (
+            <ProfileActivitySelectivelyDeleteProgressButton
+              clearSelectedQuestions={clearSelectedQuestions}
+              qnHashes={Array.from(selectedQuestions)}
+            />
+          )}
+          <ProfileActivityDeleteAllProgressButton />
+        </div>
+      </div>
       <Section>
         {filteredQuestionProgressWithMetadata.length > 0 ? (
           <ul
             className={clsx(
-              'relative rounded-md',
+              'rounded-md',
               ['border', themeBorderColor],
               ['divide-y', themeDivideColor],
             )}
@@ -228,40 +237,36 @@ export default function ProfileActivity() {
                       'relative px-4 py-3',
                       themeBackgroundCardWhiteOnLightColor,
                       themeBackgroundEmphasized_Hover,
-                      'focus-within:ring-brand focus-within:ring-2 focus-within:ring-inset',
                       'overflow-hidden',
                     )}>
-                    <div className="flex items-center justify-between gap-x-4">
-                      <div>
-                        <CheckboxInput
-                          aria-label={intl.formatMessage(
-                            {
-                              defaultMessage: `Select {question} for deletion`,
-                              description:
-                                'Aria label for checkbox to select question for deletion',
-                              id: 'FjrpK8',
-                            },
-                            { question: metadata?.title },
-                          )}
-                          isLabelHidden={true}
-                          value={selectedQuestions.has(qnHash)}
-                          onChange={(isChecked) =>
-                            handleIndividualCheckboxChange(qnHash, isChecked)
-                          }
-                        />
-                      </div>
-                      <div className="flex w-3/4 flex-col gap-y-1 sm:flex-row sm:items-center sm:gap-x-3">
-                        <Text className="w-1/2" size="body2" weight="medium">
-                          <Anchor href={metadata?.href} variant="unstyled">
-                            <span
-                              aria-hidden="true"
-                              className="absolute inset-y-0 left-[3rem] right-0"
-                            />
+                    <div className="flex items-center gap-x-3">
+                      <CheckboxInput
+                        aria-label={intl.formatMessage(
+                          {
+                            defaultMessage: `Select {question} for deletion`,
+                            description:
+                              'Aria label for checkbox to select question for deletion',
+                            id: 'FjrpK8',
+                          },
+                          { question: metadata?.title },
+                        )}
+                        isLabelHidden={true}
+                        value={selectedQuestions.has(qnHash)}
+                        onChange={(isChecked) =>
+                          handleIndividualCheckboxChange(qnHash, isChecked)
+                        }
+                      />
+                      <div className="flex grow flex-col gap-y-1 sm:flex-row sm:items-center sm:gap-x-3">
+                        <Text
+                          className="line-clamp-2 w-3/4"
+                          size="body2"
+                          weight="medium">
+                          <Anchor href={metadata?.href} variant="flat">
                             {metadata!.title}
                           </Anchor>
                         </Text>
                         {metadata?.format && (
-                          <div className="w-1/2">
+                          <div className="w-1/4">
                             <QuestionFormatLabel
                               showIcon={true}
                               value={metadata.format}
@@ -269,11 +274,12 @@ export default function ProfileActivity() {
                           </div>
                         )}
                       </div>
-                      <Section>
-                        <Text className="block" color="secondary" size="body3">
-                          <Timestamp date={createdAt} />
-                        </Text>
-                      </Section>
+                      <Text
+                        className="block whitespace-nowrap"
+                        color="secondary"
+                        size="body3">
+                        <Timestamp date={createdAt} />
+                      </Text>
                     </div>
                   </li>
                 );
@@ -281,21 +287,29 @@ export default function ProfileActivity() {
             )}
           </ul>
         ) : (
-          <EmptyState
-            subtitle={intl.formatMessage({
-              defaultMessage: 'Try changing your search filters',
-              description:
-                'Subtitle for empty state when no questions are returned from application of filters on profile activity page',
-              id: 'LGiJGy',
-            })}
-            title={intl.formatMessage({
-              defaultMessage: 'No questions match the current filters',
-              description:
-                'Title for empty state when application of filters return no results on profile activity page',
-              id: 'r051EE',
-            })}
-            variant="empty"
-          />
+          <div
+            className={clsx(
+              'w-full p-10',
+              'rounded-lg',
+              themeBackgroundCardColor,
+              ['border', themeBorderColor],
+            )}>
+            <EmptyState
+              subtitle={intl.formatMessage({
+                defaultMessage: 'Try changing your search filters',
+                description:
+                  'Subtitle for empty state when no questions are returned from application of filters on profile activity page',
+                id: 'LGiJGy',
+              })}
+              title={intl.formatMessage({
+                defaultMessage: 'No questions match the current filters',
+                description:
+                  'Title for empty state when application of filters return no results on profile activity page',
+                id: 'r051EE',
+              })}
+              variant="empty"
+            />
+          </div>
         )}
       </Section>
     </div>
