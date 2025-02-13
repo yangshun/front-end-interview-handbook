@@ -3263,10 +3263,6 @@
     "defaultMessage": "Purchase premium to unlock company tags and all the best materials we have to offer.",
     "description": "Paywall subtitle for company tags feature"
   },
-  "J3bpoq": {
-    "defaultMessage": "Delete selected questions progress ({selectedQnsCount})",
-    "description": "Label for button to reset progress for selected questions"
-  },
   "J41qJW": {
     "defaultMessage": "{totalQuestions} questions",
     "description": "Number of questions"
@@ -3678,6 +3674,10 @@
   "LGHLf5": {
     "defaultMessage": "Gamified learning",
     "description": "Title for \"Gamified learning\" feature on Projects home page"
+  },
+  "LGiJGy": {
+    "defaultMessage": "Try changing your search filters",
+    "description": "Subtitle for empty state when no questions are returned from application of filters on profile activity page"
   },
   "LKILl5": {
     "defaultMessage": "Submission successfully unpinned!",
@@ -7163,6 +7163,10 @@
     "defaultMessage": "Email",
     "description": "Label for email field for subscribe newsletter"
   },
+  "gG1M3s": {
+    "defaultMessage": "Select all",
+    "description": "Label for checkbox to select all visible questions on profile activity page"
+  },
   "gGg9If": {
     "defaultMessage": "User interfaces",
     "description": "Front end topic"
@@ -8867,6 +8871,10 @@
     "defaultMessage": "Requirement specs by product managers",
     "description": "Title of 'Specs by product managers' sub-feature in Projects marketing page"
   },
+  "r051EE": {
+    "defaultMessage": "No questions match the current filters",
+    "description": "Title for empty state when application of filters return no results on profile activity page"
+  },
   "r0smyz": {
     "defaultMessage": "Search system design questions",
     "description": "Search placeholder"
@@ -8926,6 +8934,10 @@
   "rUiB1g": {
     "defaultMessage": "Curated, external resources that could be helpful.",
     "description": "FAQ answer for projects platform"
+  },
+  "rV/aK9": {
+    "defaultMessage": "Delete selected progress ({selectedQnsCount})",
+    "description": "Label for button to reset progress for selected questions"
   },
   "rWhQtZ": {
     "defaultMessage": "Full list of shortcuts can be found on the <link>Visual Studio Code website</link>.",

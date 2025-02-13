@@ -26,8 +26,11 @@ import ProfileActivityDeleteAllProgressButton from './ProfileActivityDeleteAllPr
 import ProfileActivitySelectivelyDeleteProgressButton from './ProfileActivitySelectivelyDeleteProgressButton';
 import Timestamp from '../common/datetime/Timestamp';
 import type { QuestionHash } from '../interviews/questions/common/QuestionsTypes';
+import useQuestionFormatFilter from '../interviews/questions/listings/filters/hooks/useQuestionFormatFilter';
 import QuestionFormatLabel from '../interviews/questions/metadata/QuestionFormatLabel';
 import CheckboxInput from '../ui/CheckboxInput';
+import EmptyState from '../ui/EmptyState';
+import FilterButton from '../ui/FilterButton/FilterButton';
 
 function NoCompletedQuestions() {
   const intl = useIntl();
@@ -75,6 +78,16 @@ export default function ProfileActivity() {
     isError: isErrorQuestionProgress,
   } = trpc.questionProgress.getAllIncludingMetadata.useQuery();
 
+  const [formatFilters, formatFilterOptions] = useQuestionFormatFilter({
+    initialValue: [
+      'javascript',
+      'user-interface',
+      'algo',
+      'system-design',
+      'quiz',
+    ],
+  });
+
   const [selectedQuestions, setSelectedQuestions] = useState<Set<QuestionHash>>(
     new Set(),
   );
@@ -107,7 +120,12 @@ export default function ProfileActivity() {
     return <NoCompletedQuestions />;
   }
 
-  const handleCheckboxChange = (id: string, isChecked: boolean) => {
+  const filteredQuestionProgressWithMetadata =
+    questionProgressWithMetadata.filter((qn) =>
+      qn.metadata ? formatFilters.has(qn.metadata.format) : false,
+    );
+
+  const handleIndividualCheckboxChange = (id: string, isChecked: boolean) => {
     setSelectedQuestions((prev) => {
       const newSet = new Set(prev);
 
@@ -131,7 +149,7 @@ export default function ProfileActivity() {
           />
         </Heading>
 
-        <div className="flex flex-col gap-y-2 sm:flex-row sm:gap-x-2">
+        <div className="flex flex-row gap-x-1">
           {selectedQuestions.size > 0 && (
             <ProfileActivitySelectivelyDeleteProgressButton
               clearSelectedQuestions={clearSelectedQuestions}
@@ -141,75 +159,144 @@ export default function ProfileActivity() {
           <ProfileActivityDeleteAllProgressButton />
         </div>
       </div>
+      <div className={clsx('flex flex-row flex-wrap gap-2', themeBorderColor)}>
+        {formatFilterOptions.options.map(
+          ({ value, label, icon: Icon, tooltip }) => (
+            <FilterButton
+              key={value}
+              icon={Icon}
+              label={label}
+              selected={formatFilters.has(value)}
+              size="xs"
+              tooltip={tooltip}
+              onClick={() => {
+                formatFilterOptions.onChange(value);
+                clearSelectedQuestions();
+              }}>
+              {label}
+            </FilterButton>
+          ),
+        )}
+      </div>
+      {filteredQuestionProgressWithMetadata.length > 0 && (
+        <div className="relative px-4 pt-1">
+          <CheckboxInput
+            label={intl.formatMessage({
+              defaultMessage: 'Select all',
+              description:
+                'Label for checkbox to select all visible questions on profile activity page',
+              id: 'gG1M3s',
+            })}
+            value={
+              selectedQuestions.size > 0 &&
+              selectedQuestions.size ===
+                filteredQuestionProgressWithMetadata.length
+            }
+            onChange={(isChecked) => {
+              if (isChecked) {
+                setSelectedQuestions(
+                  new Set(
+                    filteredQuestionProgressWithMetadata.map(({ metadata }) =>
+                      metadata ? hashQuestion(metadata) : '',
+                    ),
+                  ),
+                );
+              } else {
+                setSelectedQuestions(new Set());
+              }
+            }}
+          />
+        </div>
+      )}
       <Section>
-        <ul
-          className={clsx(
-            'relative rounded-md',
-            ['border', themeBorderColor],
-            ['divide-y', themeDivideColor],
-          )}
-          role="list">
-          {questionProgressWithMetadata.map(({ createdAt, id, metadata }) => {
-            const qnHash = metadata ? hashQuestion(metadata) : '';
+        {filteredQuestionProgressWithMetadata.length > 0 ? (
+          <ul
+            className={clsx(
+              'relative rounded-md',
+              ['border', themeBorderColor],
+              ['divide-y', themeDivideColor],
+            )}
+            role="list">
+            {filteredQuestionProgressWithMetadata.map(
+              ({ createdAt, id, metadata }) => {
+                const qnHash = metadata ? hashQuestion(metadata) : '';
 
-            return (
-              <li
-                key={id}
-                className={clsx(
-                  'relative px-4 py-3',
-                  themeBackgroundCardWhiteOnLightColor,
-                  themeBackgroundEmphasized_Hover,
-                  'focus-within:ring-brand focus-within:ring-2 focus-within:ring-inset',
-                  'overflow-hidden',
-                )}>
-                <div className="flex items-center justify-between gap-x-4">
-                  <div>
-                    <CheckboxInput
-                      aria-label={intl.formatMessage(
-                        {
-                          defaultMessage: `Select {question} for deletion`,
-                          description:
-                            'Aria label for checkbox to select question for deletion',
-                          id: 'FjrpK8',
-                        },
-                        { question: metadata?.title },
-                      )}
-                      isLabelHidden={true}
-                      value={selectedQuestions.has(qnHash)}
-                      onChange={(isChecked) =>
-                        handleCheckboxChange(qnHash, isChecked)
-                      }
-                    />
-                  </div>
-                  <div className="flex w-3/4 flex-col gap-y-1 sm:flex-row sm:items-center sm:gap-x-3">
-                    <Text className="w-1/2" size="body2" weight="medium">
-                      <Anchor href={metadata?.href} variant="unstyled">
-                        <span
-                          aria-hidden="true"
-                          className="absolute inset-y-0 left-[3rem] right-0"
-                        />
-                        {metadata!.title}
-                      </Anchor>
-                    </Text>
-                    {metadata?.format && (
-                      <div className="w-1/2">
-                        <QuestionFormatLabel
-                          showIcon={true}
-                          value={metadata.format}
+                return (
+                  <li
+                    key={id}
+                    className={clsx(
+                      'relative px-4 py-3',
+                      themeBackgroundCardWhiteOnLightColor,
+                      themeBackgroundEmphasized_Hover,
+                      'focus-within:ring-brand focus-within:ring-2 focus-within:ring-inset',
+                      'overflow-hidden',
+                    )}>
+                    <div className="flex items-center justify-between gap-x-4">
+                      <div>
+                        <CheckboxInput
+                          aria-label={intl.formatMessage(
+                            {
+                              defaultMessage: `Select {question} for deletion`,
+                              description:
+                                'Aria label for checkbox to select question for deletion',
+                              id: 'FjrpK8',
+                            },
+                            { question: metadata?.title },
+                          )}
+                          isLabelHidden={true}
+                          value={selectedQuestions.has(qnHash)}
+                          onChange={(isChecked) =>
+                            handleIndividualCheckboxChange(qnHash, isChecked)
+                          }
                         />
                       </div>
-                    )}
-                  </div>
-                  <Section>
-                    <Text className="block" color="secondary" size="body3">
-                      <Timestamp date={createdAt} />
-                    </Text>
-                  </Section>
-                </div>
-              </li>
-            );
-          })}
-        </ul>
+                      <div className="flex w-3/4 flex-col gap-y-1 sm:flex-row sm:items-center sm:gap-x-3">
+                        <Text className="w-1/2" size="body2" weight="medium">
+                          <Anchor href={metadata?.href} variant="unstyled">
+                            <span
+                              aria-hidden="true"
+                              className="absolute inset-y-0 left-[3rem] right-0"
+                            />
+                            {metadata!.title}
+                          </Anchor>
+                        </Text>
+                        {metadata?.format && (
+                          <div className="w-1/2">
+                            <QuestionFormatLabel
+                              showIcon={true}
+                              value={metadata.format}
+                            />
+                          </div>
+                        )}
+                      </div>
+                      <Section>
+                        <Text className="block" color="secondary" size="body3">
+                          <Timestamp date={createdAt} />
+                        </Text>
+                      </Section>
+                    </div>
+                  </li>
+                );
+              },
+            )}
+          </ul>
+        ) : (
+          <EmptyState
+            subtitle={intl.formatMessage({
+              defaultMessage: 'Try changing your search filters',
+              description:
+                'Subtitle for empty state when no questions are returned from application of filters on profile activity page',
+              id: 'LGiJGy',
+            })}
+            title={intl.formatMessage({
+              defaultMessage: 'No questions match the current filters',
+              description:
+                'Title for empty state when application of filters return no results on profile activity page',
+              id: 'r051EE',
+            })}
+            variant="empty"
+          />
+        )}
       </Section>
     </div>
   );

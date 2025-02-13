@@ -66,10 +66,10 @@ export default function ProfileActivitySelectivelyDeleteProgressButton({
       <Button
         label={intl.formatMessage(
           {
-            defaultMessage: `Delete selected questions progress ({selectedQnsCount})`,
+            defaultMessage: `Delete selected progress ({selectedQnsCount})`,
             description:
               'Label for button to reset progress for selected questions',
-            id: 'J3bpoq',
+            id: 'rV/aK9',
           },
           {
             selectedQnsCount: qnHashes.length,
