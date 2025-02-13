@@ -58,21 +58,34 @@ export default class TranslationManager implements ITranslationManager {
       (key) => !currentKeys.has(key),
     );
 
+    // Keep track of translated locales
+    const successfulLocales: string[] = [];
+    const failedLocales: string[] = [];
+
     // Translate the file for all the locales
     await Promise.all(
       targetLocales.map(async (locale) => {
+        const targetPath = target.replace('{locale}', locale);
+        // Check if the target locale file exists
+        const targetLocaleFileExist = fs.existsSync(targetPath);
         // if the target locale has its corresponding translated file, then only translate the changed values
-        const translationContent = registry?.translatedLocales.includes(locale)
-          ? changedKeys.reduce(
-              (acc, key) => {
-                if (key in fileContent && !excludeKeys?.includes(key)) {
-                  acc[key] = fileContent[key];
-                }
-                return acc;
-              },
-              {} as Record<string, string>,
-            )
-          : fileContent;
+        const translationContent =
+          registry?.translatedLocales.includes(locale) || targetLocaleFileExist
+            ? changedKeys.reduce(
+                (acc, key) => {
+                  if (key in fileContent && !excludeKeys?.includes(key)) {
+                    acc[key] = fileContent[key];
+                  }
+                  return acc;
+                },
+                {} as Record<string, string>,
+              )
+            : fileContent;
+
+        if (Object.keys(translationContent).length === 0) {
+          return;
+        }
+
         try {
           const translatedContent = await this.translationService.translate(
             translationContent,
@@ -85,20 +98,30 @@ export default class TranslationManager implements ITranslationManager {
             ...excludedContent, // Add back excluded keys with original values
           };
           await fileHandler.writeFile(
-            target,
+            targetPath,
             locale,
             baseFileContent,
             finalContent,
             removedKeys,
           );
           log.success(`✅ Successfully translated file ${source} to ${locale}`);
+          successfulLocales.push(locale);
         } catch (error: any) {
+          failedLocales.push(locale);
           log.error(
             `❌ Error translating file ${source} to ${locale}: ${error.message}`,
           );
         }
       }),
     );
+
+    // Removed the locale for which translation failed, so that it can be re-detected
+    const registryTranslatedLocales = [
+      ...new Set([
+        ...(registry?.translatedLocales || []),
+        ...successfulLocales,
+      ]),
+    ].filter((locale) => !failedLocales.includes(locale));
 
     // Update registry
     const newRegistry = {
@@ -107,9 +130,7 @@ export default class TranslationManager implements ITranslationManager {
         currentHashes,
       ),
       hash: fileHash,
-      translatedLocales: [
-        ...new Set([...(registry?.translatedLocales || []), ...targetLocales]),
-      ],
+      translatedLocales: registryTranslatedLocales,
     };
 
     await this.registryManager.save(source, newRegistry);

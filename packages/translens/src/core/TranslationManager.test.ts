@@ -95,14 +95,14 @@ describe('TranslationManager', () => {
     expect(changeDetector.getChangedKeys).toHaveBeenCalled();
 
     expect(fileHandler.writeFile).toHaveBeenCalledWith(
-      'target_{locale}.json',
+      'target_es.json',
       'es',
       JSON.stringify({ key1: 'Hello', key2: 'World', key3: 'ExcludeMe' }),
       { key1: 'Hello_es', key2: 'World_es', key3: 'ExcludeMe' },
       [],
     );
     expect(fileHandler.writeFile).toHaveBeenCalledWith(
-      'target_{locale}.json',
+      'target_de.json',
       'de',
       JSON.stringify({ key1: 'Hello', key2: 'World', key3: 'ExcludeMe' }),
       { key1: 'Hello_de', key2: 'World_de', key3: 'ExcludeMe' },
@@ -133,7 +133,7 @@ describe('TranslationManager', () => {
     await translationManager.translate(file, targetLocales, fileHandler);
 
     expect(fileHandler.writeFile).toHaveBeenCalledWith(
-      'target_{locale}.json',
+      'target_es.json',
       'es',
       JSON.stringify({ key1: 'Hello', key2: 'World', key3: 'ExcludeMe' }),
       { key1: 'Hello_es' },

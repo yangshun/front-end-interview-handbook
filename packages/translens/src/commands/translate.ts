@@ -2,7 +2,7 @@ import { spinner, log } from '@clack/prompts';
 import chalk from 'chalk';
 
 import Config from '../config';
-import { JsonHandler } from '../handlers';
+import { JsonHandler, MDXHandler } from '../handlers';
 import FileEnumerator from '../lib/FileEnumerator';
 import FileRegistryManager from '../core/FileRegistryManager';
 import ChangeDetector from '../core/ChangeDetector';
@@ -22,6 +22,7 @@ export async function translate() {
   const registryManager = new FileRegistryManager();
   const changeDetector = new ChangeDetector();
   const jsonHandler = new JsonHandler(changeDetector, registryManager);
+  const mdxHandler = new MDXHandler(changeDetector, registryManager);
   const translationService = new DeepSeekTranslationService();
   const translationManager = new TranslationManager(
     changeDetector,
@@ -44,6 +45,7 @@ export async function translate() {
     registryManager,
     pluginManager,
     jsonHandler,
+    mdxHandler,
   );
 
   translationSpinner.stop(
@@ -59,6 +61,7 @@ export async function translate() {
     filesToTranslate,
     pluginManager,
     jsonHandler,
+    mdxHandler,
     translationManager,
   );
 
@@ -70,12 +73,14 @@ async function findFilesToTranslate(
   registryManager: IFileRegistryManager,
   pluginManager: IPluginManager,
   jsonHandler: IFileHandler,
+  mdxHandler: IFileHandler,
 ) {
   const fileHandlers = pluginManager.getFileHandlers();
   const files = await Promise.all(
     config.groups.flatMap((group) => {
       const fileHandler = getFileHandler({
         jsonHandler,
+        mdxHandler,
         handler: group.handler,
         fileHandlers,
       });
@@ -152,6 +157,7 @@ async function translateFiles(
   }[],
   pluginManager: IPluginManager,
   jsonHandler: IFileHandler,
+  mdxHandler: IFileHandler,
   translationManager: ITranslationManager,
 ) {
   const fileHandlers = pluginManager.getFileHandlers();
@@ -162,23 +168,22 @@ async function translateFiles(
           jsonHandler,
           handler: file.handler,
           fileHandlers,
+          mdxHandler,
         });
 
         if (!fileHandler) {
           throw Error(`File handler ${file.handler} not found.`);
         }
 
-        if (file.source.endsWith('.json')) {
-          await translationManager.translate(
-            {
-              source: file.source,
-              target: file.target,
-              excludeKeys: file.excludeKeys,
-            },
-            file.targetLocales,
-            fileHandler,
-          );
-        }
+        await translationManager.translate(
+          {
+            source: file.source,
+            target: file.target,
+            excludeKeys: file.excludeKeys,
+          },
+          file.targetLocales,
+          fileHandler,
+        );
       } catch (error: any) {
         log.error(
           `❌ Error translating file ${chalk.red(file.source)} to ${file.targetLocales.join(', ')}: ${error.message}`,
@@ -191,14 +196,18 @@ async function translateFiles(
 function getFileHandler({
   handler,
   jsonHandler,
+  mdxHandler,
   fileHandlers,
 }: {
   handler: string;
   fileHandlers: Map<string, IFileHandler>;
   jsonHandler: IFileHandler;
+  mdxHandler: IFileHandler;
 }) {
   if (handler === 'json') {
     return jsonHandler;
+  } else if (handler === 'mdx') {
+    return mdxHandler;
   } else if (fileHandlers.has(handler)) {
     return fileHandlers.get(handler);
   }
