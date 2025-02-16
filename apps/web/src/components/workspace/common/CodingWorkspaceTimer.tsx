@@ -77,7 +77,6 @@ export default function CodingWorkspaceTimer({ qnMetadata }: Props) {
         clearInterval(timerRef.current);
         timerRef.current = null;
       }
-      setTimerIsRunning(timerIsRunning);
     };
   }, [setTimerIsRunning, startTimer, timerIsRunning]);
 
@@ -113,7 +112,10 @@ export default function CodingWorkspaceTimer({ qnMetadata }: Props) {
         isTimerHovered && 'hover:bg-neutral-100 dark:hover:bg-neutral-900',
       )}>
       <button
-        className="flex items-center gap-x-1 font-mono text-xs"
+        className={clsx(
+          'flex items-center gap-x-1 text-xs',
+          'font-mono', // To prevent shifting
+        )}
         title={timerRef.current === null ? 'Start' : 'Pause'}
         type="button"
         onClick={() => {
