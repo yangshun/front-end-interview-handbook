@@ -78,7 +78,7 @@ export default function CodingWorkspaceTimer({ qnMetadata }: Props) {
         timerRef.current = null;
       }
     };
-  }, [setTimerIsRunning, startTimer, timerIsRunning]);
+  }, [startTimer, timerIsRunning]);
 
   useEffect(() => {
     CodingWorkspaceBottomBarEmitter.on('pause_timer', pauseTimer);
