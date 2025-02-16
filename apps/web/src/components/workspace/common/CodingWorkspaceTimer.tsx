@@ -18,6 +18,8 @@ import { hashQuestion } from '~/db/QuestionsUtils';
 
 import CodingWorkspaceBottomBarEmitter from './CodingWorkspaceBottomBarEmitter';
 
+import NumberFlow, { NumberFlowGroup } from '@number-flow/react';
+
 type Props = Readonly<{
   qnMetadata: QuestionMetadata;
 }>;
@@ -124,7 +126,31 @@ export default function CodingWorkspaceTimer({ qnMetadata }: Props) {
         ) : (
           <RxPause aria-hidden={true} className="size-4" />
         )}
-        {new Date(timePassedInSeconds * 1000).toISOString().slice(14, 19)}
+        <div className="flex items-center">
+          <NumberFlowGroup>
+            <NumberFlow
+              digits={{ 1: { max: 5 } }}
+              format={{ minimumIntegerDigits: 2 }}
+              style={{
+                fontFamily: 'sans-serif',
+                fontSize: '1.1em',
+              }}
+              trend={+1}
+              value={Math.floor((timePassedInSeconds % 3600) / 60)}
+            />
+            <span>:</span>
+            <NumberFlow
+              digits={{ 1: { max: 5 } }}
+              format={{ minimumIntegerDigits: 2 }}
+              style={{
+                fontFamily: 'sans-serif',
+                fontSize: '1.1em',
+              }}
+              trend={+1}
+              value={timePassedInSeconds % 60}
+            />{' '}
+          </NumberFlowGroup>{' '}
+        </div>
       </button>
       <button
         className={clsx(
