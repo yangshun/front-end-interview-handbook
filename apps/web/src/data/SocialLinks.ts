@@ -14,16 +14,15 @@ type SocialLinkPlatform =
   | 'reddit'
   | 'x';
 
-export const SocialLinks: Record<
-  SocialLinkPlatform,
-  Readonly<{
-    href: string;
-    icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
-    key: string;
-    name: string;
-    userCount: number | null;
-  }>
-> = {
+export type SocialLinkMetadata = Readonly<{
+  href: string;
+  icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
+  key: string;
+  name: string;
+  userCount: number | null;
+}>;
+
+export const SocialLinks: Record<SocialLinkPlatform, SocialLinkMetadata> = {
   discord: {
     href: 'https://discord.gg/NDFx8f6P6B',
     icon: RiDiscordFill,

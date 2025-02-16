@@ -1,13 +1,15 @@
 'use client';
 
 import clsx from 'clsx';
+import { useInView } from 'framer-motion';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { RiArrowRightSLine } from 'react-icons/ri';
 
 import gtag from '~/lib/gtag';
 
+import type { SocialLinkMetadata } from '~/data/SocialLinks';
 import { SocialLinks } from '~/data/SocialLinks';
 
-import { formatBigNumber } from '~/components/common/formatBigNumber';
 import { FormattedMessage } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
@@ -24,7 +26,39 @@ import {
 
 import logEvent from '~/logging/logEvent';
 
+import NumberFlow from '@number-flow/react';
+
 export default function MarketingCommunitySection() {
+  const socialLinks = useMemo(
+    () => [
+      SocialLinks.linkedin,
+      SocialLinks.discord,
+      SocialLinks.github,
+      SocialLinks.x,
+    ],
+    [],
+  );
+
+  const socialStatsDivRef = useRef<HTMLDivElement>(null);
+  const socialStatsInView = useInView(socialStatsDivRef, {
+    amount: 'some',
+    once: true,
+  });
+  const [socialUserCounts, setSocialUserCounts] = useState<
+    Record<string, number>
+  >({});
+
+  useEffect(() => {
+    if (socialStatsInView) {
+      const newValues: Record<string, number> = {};
+
+      socialLinks.map((platform: SocialLinkMetadata) => {
+        newValues[platform.key] = platform.userCount ?? 0;
+      });
+      setSocialUserCounts(newValues);
+    }
+  }, [socialStatsInView, socialLinks]);
+
   return (
     <Container
       className={clsx('flex flex-col gap-12 lg:gap-16', 'py-16 sm:py-20')}
@@ -75,15 +109,12 @@ export default function MarketingCommunitySection() {
       </div>
       <Section>
         <div className="w-full">
-          <div className="grid w-full grid-cols-2 gap-4 sm:grid-cols-4 lg:gap-6">
-            {[
-              SocialLinks.linkedin,
-              SocialLinks.discord,
-              SocialLinks.github,
-              SocialLinks.x,
-            ].map((platform) => {
+          <div
+            ref={socialStatsDivRef}
+            className="grid w-full grid-cols-2 gap-4 sm:grid-cols-4 lg:gap-6">
+            {socialLinks.map((platform: SocialLinkMetadata) => {
               const { icon: Icon, name, key, href } = platform;
-              const count = platform.userCount ?? 0;
+              const count = socialUserCounts[key] ?? 0;
 
               return (
                 <div
@@ -105,17 +136,15 @@ export default function MarketingCommunitySection() {
                       themeGlassyBorder,
                     )}
                   />
-                  <Text
-                    className={clsx(
-                      themeGradientHeading,
-                      'text-5xl tracking-tight',
-                      'font-medium',
-                      'z-[2]',
-                    )}
-                    size="inherit"
-                    weight="inherit">
-                    {count ? formatBigNumber(count) : '-'}
-                  </Text>
+                  <div>
+                    <NumberFlow
+                      className="text-5xl font-medium "
+                      opacityTiming={{ duration: 350, easing: 'ease-out' }}
+                      spinTiming={{ duration: 3000, easing: 'ease-in-out' }}
+                      transformTiming={{ duration: 750 }}
+                      value={count}
+                    />
+                  </div>
                   <Button
                     className="z-[2]"
                     href={href}
