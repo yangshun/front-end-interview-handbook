@@ -9,7 +9,7 @@ Data can be fetched either on the server (server-side rendering) or on the clien
 
 ## Client-side data fetching
 
-The built-in `fetch` API is a straightforward way to make HTTP requests in JavaScript. Here’s a simple example using the `useEffect` hook to fetch data from an API:
+The built-in `fetch` API is a straightforward way to make HTTP requests in JavaScript. Here's a simple example using the `useEffect` hook to fetch data from an API:
 
 ```jsx
 import { useState, useEffect } from 'react';
@@ -129,13 +129,13 @@ Spot any problem with the example above? On first glance it might look fine, but
 
 ### A `fetch` request is made per keystroke
 
-Since there's no submit button, the `fetchData()` function is called on every change in the `<input>`. If a user enters "tomato", a total of 6 HTTP requests will be made! This is quite redundant considering the user probably only cares about the results for "tomato".
+Since there's no submit button, the `fetchData()` function is called on every change in the `<input>`. If a user enters `'tomato'`, a total of 6 HTTP requests will be made! This is quite redundant considering the user probably only cares about the results for `'tomato'`.
 
 One way to resolve this is to debounce the query so that the API request is only made after the user has stopped typing for a specific duration.
 
 ### Race conditions
 
-Wastefulness of multiple requests aside, a more serious problem is that the displayed results aren't even for the current search term. Race conditions can occur because when multiple requests are made, the server can return the results in any order. The response for the term "toma" can arrive later than the response for the term "tomato", but the code simply displays the results of the latest request, not necessarily the request of the current search term.
+Wastefulness of multiple requests aside, a more serious problem is that the displayed results aren't even for the current search term. Race conditions can occur because when multiple requests are made, the server can return the results in any order. The response for the term `'toma'` can arrive later than the response for the term `'tomato'`, but the code simply displays the results of the latest request, not necessarily the request of the current search term.
 
 This problem can be fixed/improved in multiple ways:
 
@@ -169,7 +169,7 @@ useEffect(() => {
 
 This happens when a user types a query, receives results, and then retypes the same query, triggering another API request when the data is already available.
 
-Example: If a user types "tomato", deletes it, and then types "tomato" again, the API is queried twice despite already having the results.
+Example: If a user types `'tomato'`, deletes it, and then types `'tomato'` again, the API is queried twice despite already having the results.
 
 Caching is the solution to this issue. An example is to use a `Map<query, results>` as the cache. Before making an API call, check if the results already exist in the cache. If they do, use them instead of fetching again.
 
@@ -282,28 +282,15 @@ However CSR vs SSR is a common discussion topic during system design rounds and 
 
 ## What you need to know for interviews
 
-1. Basics of data fetching:
-   - Using the `fetch` API and `axios` for API requests
-   - Handling loading and error states
-   - Using `useEffect` and `useState` for fetching data in functional components
-2. Handling side effects with `useEffect`:
-   - Understanding dependency arrays (`[]` for on-mount fetch, `[query]` for fetch-on-change)
-   - Avoiding infinite loops due to missing dependencies
-   - Cleaning up side effects (e.g., aborting fetch requests to prevent setting state on unmount)
-3. Optimizing data fetching:
-   - Implementing debouncing and throttling to prevent redundant API calls
-   - Using pagination and infinite scroll for large datasets
-   - Avoiding duplicate requests by caching previous queries
-4. Handling data mutations (POST, PUT, DELETE):
-   - Using optimistic updates vs. re-fetching after mutations
-   - Rolling back state when mutations fail
-   - Invalidating queries after a mutation
-5. (For take-home assignments) Using TanStack Query:
-   - Automatically caches and re-fetches data
-   - Reduces unnecessary state management with `useState` and `useEffect`
-   - Handles background refetching and pagination
+- **Basic data fetching**:
+  - Using `useEffect` and `useState` for fetching data in functional components
+  - Handling loading and error states
+  - Understanding dependency arrays (`[]` for on-mount fetch, `[query]` for fetch-on-change)
+  - Avoiding infinite loops due to missing dependencies
+  - Cleaning up side effects (e.g., aborting fetch requests to prevent setting state on unmount)
+- **Issues with basic data fetching approach**: Although you probably won't be asked to implement optimized data fetching approaches, you should know what the issues are and how to fix them on a high level
 
-## Key interview questions on data fetching
+## Key interview questions
 
 1. How do you fetch data in React?
 2. What are the benefits of using TanStack Query over `useState` and `useEffect`?

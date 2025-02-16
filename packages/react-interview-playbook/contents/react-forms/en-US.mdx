@@ -99,8 +99,6 @@ In interviews, considering the forms usually do not have many fields, both contr
 
 The following are code examples for various input types using the controlled approach, meaning their values are stored in state and updated via `onChange` handlers.
 
----
-
 ### Text input
 
 A controlled text input updates its value in state as the user types.
@@ -126,7 +124,7 @@ function TextInputExample() {
 }
 ```
 
-- The input field’s value is controlled by React state (`text`)
+- The input field's value is controlled by React state (`text`)
 - The `onChange` event updates state with `setText(event.target.value)`
 - This ensures React manages the input value dynamically
 
@@ -153,8 +151,6 @@ There are many other text-based values for the `type` attribute, each with vario
 - Use **`search`** for fields optimized for searching
 - Use **`datetime-local`** when date & time selection is needed
 - Use **`color`** for color selection
-
----
 
 ### Checkbox input
 
@@ -184,8 +180,6 @@ function CheckboxExample() {
 - The `checked` attribute is bound to `isChecked` state
 - The `onChange` event updates state with `setIsChecked(event.target.checked)`
 - This allows React to track the checkbox's checked status
-
----
 
 ### Radio group
 
@@ -257,8 +251,6 @@ function TextAreaExample() {
 
 - Unlike HTML, React uses `value` instead of setting text inside `<textarea>`
 - The `onChange` updates the state with `setBio(event.target.value)`, ensuring React controls the input
-
----
 
 ### Select dropdown
 
@@ -781,3 +773,10 @@ function ServerErrorHandlingForm() {
 - Display clear error messages that guide users on how to fix their inputs
 - Merely client-side validation is insufficient. Server-side validation is also required to prevent security loopholes
 - If 3rd party libraries are allowed (e.g. in take home assignments), React Hook Form is a great addition that provides many useful features helps you achieve better performance at the same time
+
+## What you need to know for interviews
+
+- **Uncontrolled and controlled forms**: What's the difference, how to use either, and when to use
+- **Form controls**: Be able to build forms that use the various input types
+- **Complex forms**: How to build complex forms and the best practices
+- **Error handling and validation**: How to validate forms and show errors using native browser approaches and React approaches

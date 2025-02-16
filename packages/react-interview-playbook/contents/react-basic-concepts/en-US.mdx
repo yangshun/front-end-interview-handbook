@@ -96,7 +96,7 @@ This looks almost exactly like the HTML that it is meant to produce! Instead of 
 
 Under the hood, `React.createElement()` creates a lightweight representation of the UI and displays it in the browser using DOM APIs like `document.createElement()`, `document.appendChild()`. This process will be covered in more detail in the [Rendering section](#rendering).
 
-**Key points for interviews**:
+Take note of the following key points:
 
 - JSX is syntactic sugar for `React.createElement()` and converted before running in the browser
 - Components must return a single root element
@@ -121,6 +121,8 @@ function Welcome({ name }) {
 }
 ```
 
+Further reading on react.dev: [Passing Props to a Component](https://react.dev/learn/passing-props-to-a-component)
+
 ### State
 
 State can be viewed as the "memory" of a component instance. Each component instance's state is isolated and cannot be directly modified from external.
@@ -137,6 +139,8 @@ function Counter() {
 }
 ```
 
+Further reading on react.dev: [State: A Component's Memory](https://react.dev/learn/state-a-components-memory)
+
 ## Rendering
 
 Traditionally, rendering in the context of the browser is the process by which a web browser takes the raw code of a webpage—primarily HTML, CSS, and JavaScript—and converts it into the visual, interactive page you see on your screen. However in React also uses the term "rendering" to describe how React converts components into actual DOM elements to be shown on the screen.
@@ -144,8 +148,6 @@ Traditionally, rendering in the context of the browser is the process by which a
 To avoid confusion, in this guide, "rendering" will refer to React's definition and "browser rendering" will be referred to as "browser painting".
 
 Rendering a component in React involves several steps, from writing JSX to updating the DOM. Below is a **detailed breakdown** of how React renders a component, including the internal processes and optimizations.
-
----
 
 ### 1. JSX transformation to JavaScript
 
@@ -194,8 +196,16 @@ When a component's props or state changes, the component is re-rendered:
 A React component does not directly modify the DOM. Instead:
 
 1. JSX is compiled into `React.createElement()` calls
-2. virtual DOM is generated as a lightweight representation
+2. Virtual DOM is generated as a lightweight representation
 3. During updates, React reconciles the new virtual DOM with the previous virtual DOM
 4. Only the minimal, necessary updates are made to the real DOM
 
-The [React documentation explains the rendering process in more detail](https://react.dev/learn/render-and-commit), do give it a read.
+Further reading on react.dev: [Render and Commit](https://react.dev/learn/render-and-commit)
+
+## What you need to know for interviews
+
+- **Components**: Writing functional components, reading from props, and adding state
+- **JSX**: What is JSX
+- **Rendering**: How React renders components
+- **Virtual DOM**: What virtual DOM is and what it is for
+- **Reconciliation**: Be able to explain the reconciliation process
