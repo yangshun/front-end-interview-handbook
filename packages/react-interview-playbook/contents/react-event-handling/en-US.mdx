@@ -242,8 +242,6 @@ You should know the following keyboard events:
 - `onKeyUp`: Fires when a key is released after being pressed. Useful for detecting final key input after typing
 - `onKeyPress`: (Deprecated) Similar to `onKeyDown`, but does not detect special keys
 
-#### `KeyboardEvent` properties
-
 Keyboard event handlers receive the `KeyboardEvent` which has some properties, these are the ones you should know:
 
 | Property | Description | Example output (<kbd>A</kbd> key) |
@@ -328,7 +326,7 @@ function PreventFormSubmit() {
 
 Without `event.preventDefault()`, clicking "Submit" would cause the page to refresh, disrupting the React application. By intercepting the event, we can handle the form submission programmatically without affecting the user experience.
 
-## Best practices in interviews
+## Best practices for interviews
 
 - Use the functional update form of `setState` when state depends on the previous state e.g. `setCount((prevCount) => prevCount + 1)`. This also eliminates the problem of stale closures within the event handlers
 - If there's a performance with excessive re-rendering, avoid inline event handlers and memoize using `useCallback`
