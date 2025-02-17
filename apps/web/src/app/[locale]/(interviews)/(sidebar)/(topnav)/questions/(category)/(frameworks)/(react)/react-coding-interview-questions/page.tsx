@@ -10,7 +10,7 @@ import InterviewsQuestionsCategoryFrameworkPage from '~/components/interviews/qu
 import { InterviewsQuestionsFrameworkGuideSlugs } from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryGuideSlugs';
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
-import { readFrontEndInterviewGuides } from '~/db/guides/GuidesReader';
+import { readFrontEndInterviewPlaybookGuides } from '~/db/guides/GuidesReader';
 import { fetchQuestionsCompletionCount } from '~/db/QuestionsCount';
 import { fetchQuestionsList } from '~/db/QuestionsListReader';
 import { roundQuestionCountToNearestTen } from '~/db/QuestionsUtils';
@@ -92,7 +92,7 @@ export default async function Page({ params }: Props) {
       getIntlServerOnly(locale),
       fetchQuestionsList(listType, locale),
       fetchQuestionsCompletionCount(['user-interface']),
-      readFrontEndInterviewGuides({
+      readFrontEndInterviewPlaybookGuides({
         locale,
         slugs: InterviewsQuestionsFrameworkGuideSlugs,
       }),

@@ -19,7 +19,11 @@ import {
   FrontEndSystemDesignPlaybookPaths,
   FrontEndSystemDesignPlaybookPathToFile,
 } from '~/components/guides/books/FrontEndSystemDesignPlaybookNavigation';
-import { ReactInterviewPlaybookPathToFile } from '~/components/guides/books/ReactInterviewPlaybookNavigation';
+import {
+  basePath as reactInterviewPlaybookBasePath,
+  ReactInterviewPlaybookPaths,
+  ReactInterviewPlaybookPathToFile,
+} from '~/components/guides/books/ReactInterviewPlaybookNavigation';
 import type { GuideCardMetadata } from '~/components/guides/types';
 
 import type { GuidebookItem } from '@prisma/client';
@@ -81,7 +85,7 @@ export function guidesRequestToFilePath<T extends GuidebookItem>(
 }
 
 // TODO(interviews): consolidate
-export async function readFrontEndInterviewGuides(
+export async function readFrontEndInterviewPlaybookGuides(
   options?: Readonly<{
     locale?: string;
     slugs?: ReadonlyArray<FrontEndInterviewPlaybookPathType>;
@@ -110,7 +114,7 @@ export async function readFrontEndInterviewGuides(
   });
 }
 
-export async function readAllFrontendSystemDesignGuides(
+export async function readFrontEndSystemDesignGuides(
   locale: string,
 ): Promise<ReadonlyArray<GuideCardMetadata>> {
   const book = 'FRONT_END_SYSTEM_DESIGN_PLAYBOOK';
@@ -134,7 +138,31 @@ export async function readAllFrontendSystemDesignGuides(
   });
 }
 
-export async function readAllBehavioralGuides(
+export async function readReactInterviewPlaybookGuides(
+  locale: string,
+): Promise<ReadonlyArray<GuideCardMetadata>> {
+  const book = 'REACT_INTERVIEW_PLAYBOOK';
+
+  return ReactInterviewPlaybookPaths.map((slug) => {
+    const directoryPath = guidesRequestToFilePath(book, slug);
+    const mdxSource = readGuidesContents(directoryPath, locale);
+
+    const { data } = grayMatter(mdxSource);
+    const { description, title } = data;
+    const time = Math.ceil(readingTime(mdxSource ?? '').minutes);
+
+    return {
+      book,
+      description,
+      href: `${reactInterviewPlaybookBasePath}/${slug}`,
+      id: slug,
+      readingTime: time,
+      title,
+    };
+  });
+}
+
+export async function readBehavioralInterviewPlaybookGuides(
   locale: string,
 ): Promise<ReadonlyArray<GuideCardMetadata>> {
   const book = 'BEHAVIORAL_INTERVIEW_PLAYBOOK';

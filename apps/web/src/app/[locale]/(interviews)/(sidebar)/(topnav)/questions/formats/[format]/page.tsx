@@ -11,8 +11,8 @@ import InterviewsQuestionFormatPage from '~/components/interviews/questions/list
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
 import {
-  readAllFrontendSystemDesignGuides,
-  readFrontEndInterviewGuides,
+  readFrontEndInterviewPlaybookGuides,
+  readFrontEndSystemDesignGuides,
 } from '~/db/guides/GuidesReader';
 import { fetchQuestionsCompletionCount } from '~/db/QuestionsCount';
 import { fetchQuestionsList } from '~/db/QuestionsListReader';
@@ -298,8 +298,8 @@ export default async function Page({ params }: Props) {
     fetchQuestionsCompletionCount([questionFormat]),
     fetchInterviewListingBottomContent(`${format}-question-format`),
     format === 'system-design'
-      ? readAllFrontendSystemDesignGuides(locale)
-      : readFrontEndInterviewGuides({ locale }),
+      ? readFrontEndSystemDesignGuides(locale)
+      : readFrontEndInterviewPlaybookGuides({ locale }),
   ]);
 
   return (

@@ -231,10 +231,6 @@
     "defaultMessage": "Increase in total compensation",
     "description": "Total compensation label"
   },
-  "/Ig2Nh": {
-    "defaultMessage": "Answering common questions",
-    "description": "Title for Answering common questions category of behavioral playbook cover page"
-  },
   "/KVfm1": {
     "defaultMessage": "Star",
     "description": "Label for github star button"
@@ -527,6 +523,10 @@
     "defaultMessage": "Browse content series that are tailored to your experience level.",
     "description": "Browse series section description in blog homepage"
   },
+  "1K9s6g": {
+    "defaultMessage": "React Interview",
+    "description": "Short title for behavioral interview playbook"
+  },
   "1NRSGb": {
     "defaultMessage": "Pin",
     "description": "Label for pin submission button"
@@ -618,10 +618,6 @@
   "1wrVTx": {
     "defaultMessage": "Edit on GitHub",
     "description": "Edit on GitHub button"
-  },
-  "1zLRKA": {
-    "defaultMessage": "Introduction",
-    "description": "Title for introduction category of frontend interview playbook cover page"
   },
   "2+sEvv": {
     "defaultMessage": "Challenge: {challengeName} | Assets",
@@ -782,10 +778,6 @@
   "3FeosO": {
     "defaultMessage": "NEW",
     "description": "Label for new questions ribbon"
-  },
-  "3GRLIt": {
-    "defaultMessage": "User Interface Interviews",
-    "description": "Title for User Interface Interviews category of frontend interview playbook cover page"
   },
   "3I6rHR": {
     "defaultMessage": "These resources help you prepare effectively while saving time by focusing on high-impact areas:",
@@ -1127,10 +1119,6 @@
     "defaultMessage": "Front End Interview Practice Questions | GreatFrontEnd",
     "description": "Social title for all practice questions page"
   },
-  "5db7o8": {
-    "defaultMessage": "Coding Interviews",
-    "description": "Title for Coding Interviews category of frontend interview playbook cover page"
-  },
   "5fJI7m": {
     "defaultMessage": "Core maintainers of well-known open source projects",
     "description": "Prep resources open source projects"
@@ -1354,6 +1342,10 @@
   "6mw6d/": {
     "defaultMessage": "{category} Coding Interview Questions",
     "description": "Title for framework and language page"
+  },
+  "6p31z/": {
+    "defaultMessage": "The only React interview guide written specifically for front end engineers.",
+    "description": "Guidebook description"
   },
   "6pmA7h": {
     "defaultMessage": "How it works",
@@ -1599,6 +1591,10 @@
     "defaultMessage": "Purchasing power parity for {countryName} - {discountPercentage}% discount applied!",
     "description": "Purchasing power parity message"
   },
+  "8Ix7Fe": {
+    "defaultMessage": "{questionCount}+ practice questions",
+    "description": "Features for React interviews playbook page"
+  },
   "8JoIUN": {
     "defaultMessage": "Coming soon",
     "description": "Tooltip for Coming Soon questions label"
@@ -1786,6 +1782,10 @@
   "9RYs96": {
     "defaultMessage": "Review community submissions",
     "description": "Recommended action for new projects platform user"
+  },
+  "9TEFrN": {
+    "defaultMessage": "React Interview Playbook",
+    "description": "Title of React interview playbook page"
   },
   "9dQ21j": {
     "defaultMessage": "Set new profile photo",
@@ -2211,6 +2211,10 @@
     "defaultMessage": "Your subscription renews on <bold>{date}</bold>",
     "description": "Information about subscription"
   },
+  "CZl1aD": {
+    "defaultMessage": "Essential topics",
+    "description": "React essential topics"
+  },
   "CbIPy4": {
     "defaultMessage": "Vanilla JavaScript UI Interview Questions with Solutions | GreatFrontEnd",
     "description": "Title of React Interview Questions page"
@@ -2234,6 +2238,10 @@
   "CmlQsV": {
     "defaultMessage": "Front End System Design Interview Questions",
     "description": "Social title for System design question format page"
+  },
+  "CnobOB": {
+    "defaultMessage": "React Interview Playbook",
+    "description": "Social title for React interview playbook cover page"
   },
   "Cqx/J0": {
     "defaultMessage": "The following challenges will be unlocked:",
@@ -2426,6 +2434,10 @@
   "DxjQLP": {
     "defaultMessage": "Front end system design guides",
     "description": "Paywall tags"
+  },
+  "DyvzNM": {
+    "defaultMessage": "Event handling",
+    "description": "React event handling"
   },
   "Dzv5LY": {
     "defaultMessage": "Explore skills roadmap",
@@ -2739,10 +2751,6 @@
     "defaultMessage": "Changes saved successfully!",
     "description": "Update challenge success message"
   },
-  "GAqip7": {
-    "defaultMessage": "Quiz Interviews",
-    "description": "Title for Quiz Interviews category of frontend interview playbook cover page"
-  },
   "GCr4nr": {
     "defaultMessage": "({discountPercentage}% off)",
     "description": "Usual price of the item and the discount off"
@@ -2851,6 +2859,10 @@
     "defaultMessage": "Medium",
     "description": "Medium difficulty question"
   },
+  "GkiGfX": {
+    "defaultMessage": "Design patterns",
+    "description": "React design patterns"
+  },
   "GoDdwh": {
     "defaultMessage": "Marked \"{articleTitle}\" as complete",
     "description": "Success message for marking a question as complete"
@@ -2894,6 +2906,10 @@
   "H39M2g": {
     "defaultMessage": "What to expect for Front End System Design interviews",
     "description": "Sidebar link title for front end system design interviews"
+  },
+  "H5rbVW": {
+    "defaultMessage": "React hooks",
+    "description": "React hooks"
   },
   "H6Hg+y": {
     "defaultMessage": "Are you sure you want to terminate this session? You will be able to restart the project anytime.",
@@ -3398,6 +3414,10 @@
   "Ju61WC": {
     "defaultMessage": "To download",
     "description": "Title for To Download section on Projects project assets page"
+  },
+  "JuzehK": {
+    "defaultMessage": "Basic concepts",
+    "description": "React concepts"
   },
   "JyoY2G": {
     "defaultMessage": "See all",
@@ -4047,6 +4067,10 @@
     "defaultMessage": "Welcome!",
     "description": "Welcome message"
   },
+  "NtcWrM": {
+    "defaultMessage": "React Interview Playbook: Everything you need to excel",
+    "description": "Page title for React interview playbook cover page"
+  },
   "Ntem6r": {
     "defaultMessage": "See all questions",
     "description": "Label for see all questions button"
@@ -4506,6 +4530,10 @@
   "Qhyafe": {
     "defaultMessage": "Active users in the last 2 hours",
     "description": "Label for online user count"
+  },
+  "QiGjFK": {
+    "defaultMessage": "How to prepare",
+    "description": "How to prepare for React interviews"
   },
   "QizhYt": {
     "defaultMessage": "Write a review",
@@ -5091,6 +5119,10 @@
     "defaultMessage": "Accessibility",
     "description": "Front end development topic"
   },
+  "Td0UNU": {
+    "defaultMessage": "The definitive guide to React interviews.",
+    "description": "Description of React interview playbook page"
+  },
   "Tdn+OY": {
     "defaultMessage": "Starting is as easy as clicking a Start project button, and we will take you through every step of the way.",
     "description": "Ready to start section subtitle"
@@ -5374,6 +5406,10 @@
   "VaPcOr": {
     "defaultMessage": "User Interface Coding Interview Questions",
     "description": "Social title for UI question format page"
+  },
+  "VbwnB/": {
+    "defaultMessage": "The definitive guide to React interviews written by Ex-FAANG interviewers. Find out what to expect, the different types of questions and how to prepare.",
+    "description": "Page description for React interview playbook cover page"
   },
   "VeRWF3": {
     "defaultMessage": "Challenge guide",
@@ -5767,6 +5803,10 @@
     "defaultMessage": "Oldest first",
     "description": "Sorting option for blog list"
   },
+  "XjgIMA": {
+    "defaultMessage": "Signup form example",
+    "description": "React signup form example"
+  },
   "XjwGKd": {
     "defaultMessage": "Are you sure you want to delete this comment?",
     "description": "Confirmation text for deleting a comment"
@@ -5819,6 +5859,10 @@
     "defaultMessage": "Settings",
     "description": "App settings label"
   },
+  "XzhySv": {
+    "defaultMessage": "Landscape and history",
+    "description": "React landscape and history"
+  },
   "Y+6HHl": {
     "defaultMessage": "React Coding Interview Questions | Solutions by Ex interviewers",
     "description": "Title of React Interview Questions page"
@@ -5838,6 +5882,10 @@
   "Y4hby8": {
     "defaultMessage": "Easy: {numberOfEasy}, Medium: {numberOfMedium}, Hard: {numberOfHard}",
     "description": "Difficulty breakdown tooltip displayed on question cards found on question lists"
+  },
+  "Y5Ba+S": {
+    "defaultMessage": "End-to-end guide",
+    "description": "Features for React interviews playbook page"
   },
   "Y6CFPM": {
     "defaultMessage": "By proceeding, you agree to GreatFrontEnd's <tos>Terms of Service</tos> and <pp>Privacy Policy</pp>.",
@@ -5882,6 +5930,10 @@
   "YS1B1R": {
     "defaultMessage": "Find submissions suggested for your review, based on your completed challenges, tech skills, and experience.",
     "description": "Page subtitle"
+  },
+  "YTXJnS": {
+    "defaultMessage": "TODO",
+    "description": "TODO"
   },
   "YU7Df2": {
     "defaultMessage": "Your recent attempt to pay on GreatFrontEnd has failed with the following reason:",
@@ -6335,6 +6387,10 @@
     "defaultMessage": "Vanilla JavaScript UI Interview Questions | Solutions by Ex-FAANG interviewers",
     "description": "Title of React Interview Questions page"
   },
+  "bKQrOw": {
+    "defaultMessage": "React Interview Playbook",
+    "description": "Title for react interview playbook"
+  },
   "bNW00Y": {
     "defaultMessage": "Available frameworks",
     "description": "Screenreader text to indicate the presence of available frameworks, displayed on question cards in question lists"
@@ -6362,6 +6418,10 @@
   "bT5MuR": {
     "defaultMessage": "Insufficient credits",
     "description": "Title for unlocking a premium challenge"
+  },
+  "bTfNOy": {
+    "defaultMessage": "Tips for all questions types",
+    "description": "Features for React interviews playbook page"
   },
   "bVOC6y": {
     "defaultMessage": "Now in BETA.",
@@ -6631,10 +6691,6 @@
     "defaultMessage": "Front End Interview Practice Questions - Quizzes | GreatFrontEnd",
     "description": "Social title for practice questions page"
   },
-  "d4LSzo": {
-    "defaultMessage": "Overview",
-    "description": "Title for overview category of behavioral playbook cover page"
-  },
   "d4ZiFU": {
     "defaultMessage": "Quote",
     "description": "Quote tooltip for richtext toolbar"
@@ -6670,6 +6726,10 @@
   "dHaRPA": {
     "defaultMessage": "Build to learn",
     "description": "Title for recommended action for new projects platform user"
+  },
+  "dJsXKj": {
+    "defaultMessage": "Intro to React interviews",
+    "description": "Introduction to react interviews"
   },
   "dKaQQ+": {
     "defaultMessage": "Intro to behavioral interviews",
@@ -6794,6 +6854,10 @@
   "e6dIRP": {
     "defaultMessage": "Roadmap",
     "description": "Label for roadmap in sidebar"
+  },
+  "e7JLna": {
+    "defaultMessage": "Forms",
+    "description": "React forms"
   },
   "eC4GRM": {
     "defaultMessage": "Filter user submissions by whether you have completed their corresponding challenges",
@@ -7218,6 +7282,10 @@
   "gd8jkF": {
     "defaultMessage": "React Coding Interview Questions with Solutions | GreatFrontEnd",
     "description": "Title of React Interview Questions page"
+  },
+  "ggLl5X": {
+    "defaultMessage": "State design",
+    "description": "State design in React"
   },
   "gjRrM6": {
     "defaultMessage": "Networking",
@@ -8007,6 +8075,10 @@
     "defaultMessage": "Challenges completed",
     "description": "Number of project challenges completed"
   },
+  "lXYENq": {
+    "defaultMessage": "React Interview Playbook",
+    "description": "Title for react interview guide"
+  },
   "ladXww": {
     "defaultMessage": "Company-specific preparation for interviews at top companies like <bold>Google</bold>, <bold>Amazon</bold>, <bold>Microsoft</bold>, <bold>TikTok</bold>, <bold>Apple</bold>, and <bold>more</bold>. These guides include insider tips and practice questions tailored to the company's interview style.",
     "description": "Paragraph 3 for \"What does GreatFrontEnd Interviews offer exactly?\" on Homepage FAQ sections"
@@ -8259,6 +8331,10 @@
     "defaultMessage": "Test cases",
     "description": "Features for question format page"
   },
+  "nJ9Le/": {
+    "defaultMessage": "Behavioral question deep-dives",
+    "description": "Features for frontend interviews playbook page"
+  },
   "nJS5qE": {
     "defaultMessage": "How and when do I get paid?",
     "description": "FAQ about payment for affiliates"
@@ -8447,10 +8523,6 @@
     "defaultMessage": "Follow us on GitHub",
     "description": "Title for task"
   },
-  "oTMcbU": {
-    "defaultMessage": "System Design Interviews",
-    "description": "Title for System Design Interviews category of frontend interview playbook cover page"
-  },
   "oWznNz": {
     "defaultMessage": "Status must contain at most {maxLength} character(s).",
     "description": "Error message for exceed char limit in other input for yoe status on projects profile page"
@@ -8498,10 +8570,6 @@
   "okTd78": {
     "defaultMessage": "We noticed that your recent attempt to pay on GreatFrontEnd has failed. Here are some actions that may help:",
     "description": "Description for payment failure dialog"
-  },
-  "okguyM": {
-    "defaultMessage": "{questionCount} question deep-dives",
-    "description": "Features for frontend interviews playbook page"
   },
   "okx37l": {
     "defaultMessage": "johndoe",
@@ -9927,6 +9995,10 @@
     "defaultMessage": "Find out what questions companies are asking their candidates.",
     "description": "Subtitle for company-tagged questions feature"
   },
+  "y29cTt": {
+    "defaultMessage": "Tackle your next interview with confidence using this focused, no-nonsense front end prep guide. Created by the author of the Front End Interview Handbook, it's filled with practical strategies and insider tips you won't find anywhere else.",
+    "description": "Long description of React interview playbook page"
+  },
   "y2x1w7": {
     "defaultMessage": "Ex-Staff Engineer, Meta. Author of Blind 75 and Docusaurus 2",
     "description": "Position of Yangshun"
@@ -10015,6 +10087,10 @@
     "defaultMessage": "ByteDance",
     "description": "Company name for ByteDance"
   },
+  "yg17Hv": {
+    "defaultMessage": "Thinking declaratively",
+    "description": "Thinking declaratively in React"
+  },
   "yhHx9e": {
     "defaultMessage": "All your question progress will be reset. This is an irreversible action, are you sure you want to proceed?",
     "description": "Warning message in reset progress confirmation dialog"
@@ -10094,10 +10170,6 @@
   "z1Offf": {
     "defaultMessage": "Sign up with school email",
     "description": "Button label"
-  },
-  "z3B/G3": {
-    "defaultMessage": "Resume Preparation",
-    "description": "Title for Resume Preparation category of frontend interview playbook cover page"
   },
   "z5iOkW": {
     "defaultMessage": "Creators of widely-used interview materials",
@@ -10223,6 +10295,10 @@
     "defaultMessage": "Premium is required to access company guides",
     "description": "Title for company guides feature"
   },
+  "zVrFhs": {
+    "defaultMessage": "Data fetching",
+    "description": "React data fetching"
+  },
   "zYh2Tl": {
     "defaultMessage": "80% of challenges are <bold>free to do</bold>",
     "description": "Caption for Explore projects button in Projects marketing hero section"
@@ -10242,6 +10318,10 @@
   "zl/anP": {
     "defaultMessage": "{Title}: A list of the top 75 data structures and algorithms questions, adapted and solved in JavaScript and TypeScript to make them more accessible for front-end engineers. This ensures you're prepared for DSA questions, which are often a requirement at FAANG and similar companies.",
     "description": "Paragraph 2 for \"What does GreatFrontEnd Interviews offer exactly?\" on Homepage FAQ sections"
+  },
+  "zl0c0t": {
+    "defaultMessage": "Overview",
+    "description": "Overview of react interview"
   },
   "zmCysL": {
     "defaultMessage": "Student",

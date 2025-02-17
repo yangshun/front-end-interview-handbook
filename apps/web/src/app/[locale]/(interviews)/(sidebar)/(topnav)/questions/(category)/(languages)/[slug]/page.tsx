@@ -17,7 +17,7 @@ import {
 import InterviewsQuestionsCategoryLanguagePage from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryLanguagePage';
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
-import { readFrontEndInterviewGuides } from '~/db/guides/GuidesReader';
+import { readFrontEndInterviewPlaybookGuides } from '~/db/guides/GuidesReader';
 import { fetchQuestionsCompletionCount } from '~/db/QuestionsCount';
 import { fetchQuestionsList } from '~/db/QuestionsListReader';
 import { roundQuestionCountToNearestTen } from '~/db/QuestionsUtils';
@@ -136,7 +136,7 @@ export default async function Page({ params }: Props) {
     fetchQuestionsList(listType, locale),
     fetchQuestionsList({ type: 'language', value: language }, locale),
     fetchQuestionsCompletionCount(codingFormats),
-    readFrontEndInterviewGuides({
+    readFrontEndInterviewPlaybookGuides({
       locale,
       slugs:
         language === 'js' || language === 'ts'

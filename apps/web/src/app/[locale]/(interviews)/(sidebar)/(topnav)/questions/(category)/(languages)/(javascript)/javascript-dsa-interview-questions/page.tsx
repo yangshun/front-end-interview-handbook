@@ -9,7 +9,7 @@ import { InterviewsQuestionsLanguageJavaScriptGuideSlugs } from '~/components/in
 import InterviewsQuestionsCategoryLanguagePage from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryLanguagePage';
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
-import { readFrontEndInterviewGuides } from '~/db/guides/GuidesReader';
+import { readFrontEndInterviewPlaybookGuides } from '~/db/guides/GuidesReader';
 import { fetchQuestionsCompletionCount } from '~/db/QuestionsCount';
 import { fetchQuestionsList } from '~/db/QuestionsListReader';
 import { roundQuestionCountToNearestTen } from '~/db/QuestionsUtils';
@@ -88,7 +88,7 @@ export default async function Page({ params }: Props) {
       getIntlServerOnly(locale),
       fetchQuestionsList(listType, locale),
       fetchQuestionsCompletionCount([codingFormat]),
-      readFrontEndInterviewGuides({
+      readFrontEndInterviewPlaybookGuides({
         locale,
         slugs: InterviewsQuestionsLanguageJavaScriptGuideSlugs,
       }),

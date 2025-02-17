@@ -1,9 +1,9 @@
 import type { Metadata } from 'next/types';
 
 import { basePath } from '~/components/guides/books/BehavioralInterviewPlaybookNavigation';
-import FrontEndInterviewPlaybookPage from '~/components/guides/books/FrontEndInterviewPlaybookPage';
+import ReactInterviewPlaybookPage from '~/components/guides/books/ReactInterviewPlaybookPage';
 
-import { readFrontEndInterviewPlaybookGuides } from '~/db/guides/GuidesReader';
+import { readReactInterviewPlaybookGuides } from '~/db/guides/GuidesReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
@@ -19,27 +19,25 @@ async function getPageSEOMetadata({ params }: Props) {
   const { locale } = params;
   const intl = await getIntlServerOnly(locale);
   const socialTitle = intl.formatMessage({
-    defaultMessage: 'Front End Interview Playbook',
-    description: 'Social title for frontend interview playbook cover page',
-    id: 'BO6Xxw',
+    defaultMessage: 'React Interview Playbook',
+    description: 'Social title for React interview playbook cover page',
+    id: 'CnobOB',
   });
 
   return {
     description: intl.formatMessage({
       defaultMessage:
-        'The definitive guide to front end interviews written by Ex-FAANG interviewers. Find out what to expect, the different types of questions and how to prepare.',
-      description:
-        'Page description for frontend interview playbook cover page',
-      id: 'qI3Dry',
+        'The definitive guide to React interviews written by Ex-FAANG interviewers. Find out what to expect, the different types of questions and how to prepare.',
+      description: 'Page description for React interview playbook cover page',
+      id: 'VbwnB/',
     }),
     href: basePath,
     ogImageTitle: socialTitle,
-    socialTitle: `${socialTitle} | GreatFrontEnd`,
+    socialTitle: `${socialTitle} | GreatReact`,
     title: intl.formatMessage({
-      defaultMessage:
-        'Front End Interview Playbook: Everything you need to excel',
-      description: 'Page title for frontend interview playbook cover page',
-      id: 'hALSD8',
+      defaultMessage: 'React Interview Playbook: Everything you need to excel',
+      description: 'Page title for React interview playbook cover page',
+      id: 'NtcWrM',
     }),
   };
 }
@@ -66,12 +64,12 @@ export default async function Page({ params }: Props) {
   const { locale } = params;
   const [allGuides, { title, description, socialTitle, href }] =
     await Promise.all([
-      readFrontEndInterviewPlaybookGuides({ locale }),
+      readReactInterviewPlaybookGuides(locale),
       getPageSEOMetadata({ params }),
     ]);
 
   return (
-    <FrontEndInterviewPlaybookPage
+    <ReactInterviewPlaybookPage
       allGuides={allGuides}
       metadata={{
         description,
