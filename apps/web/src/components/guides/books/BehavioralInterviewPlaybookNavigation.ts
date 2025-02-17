@@ -29,7 +29,7 @@ export const BehavioralInterviewPlaybookPaths = [
 export type BehavioralInterviewPlaybookPathType =
   (typeof BehavioralInterviewPlaybookPaths)[number];
 
-export const behavioralInterviewPlaybookPathToFile: Record<
+export const BehavioralInterviewPlaybookPathToFile: Record<
   BehavioralInterviewPlaybookPathType,
   string
 > = {

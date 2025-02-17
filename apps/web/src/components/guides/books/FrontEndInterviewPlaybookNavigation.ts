@@ -26,7 +26,7 @@ export const FrontEndInterviewPlaybookPaths = [
 
 export type FrontEndInterviewPlaybookPathType =
   (typeof FrontEndInterviewPlaybookPaths)[number];
-export const frontEndInterviewPlaybookPathToFile: Record<
+export const FrontEndInterviewPlaybookPathToFile: Record<
   FrontEndInterviewPlaybookPathType,
   string
 > = {

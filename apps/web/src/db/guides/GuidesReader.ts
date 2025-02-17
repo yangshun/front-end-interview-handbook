@@ -6,19 +6,20 @@ import readingTime from 'reading-time';
 import {
   basePath as behavioralInterviewPlaybookBasePath,
   BehavioralInterviewPlaybookPaths,
-  behavioralInterviewPlaybookPathToFile,
+  BehavioralInterviewPlaybookPathToFile,
 } from '~/components/guides/books/BehavioralInterviewPlaybookNavigation';
 import type { FrontEndInterviewPlaybookPathType } from '~/components/guides/books/FrontEndInterviewPlaybookNavigation';
 import {
   basePath as frontEndInterviewPlaybookBasePath,
   FrontEndInterviewPlaybookPaths,
-  frontEndInterviewPlaybookPathToFile,
+  FrontEndInterviewPlaybookPathToFile,
 } from '~/components/guides/books/FrontEndInterviewPlaybookNavigation';
 import {
   basePath as frontEndSystemDesignPlaybookBasePath,
   FrontEndSystemDesignPlaybookPaths,
-  frontEndSystemDesignPlaybookPathToFile,
+  FrontEndSystemDesignPlaybookPathToFile,
 } from '~/components/guides/books/FrontEndSystemDesignPlaybookNavigation';
+import { ReactInterviewPlaybookPathToFile } from '~/components/guides/books/ReactInterviewPlaybookNavigation';
 import type { GuideCardMetadata } from '~/components/guides/types';
 
 import type { GuidebookItem } from '@prisma/client';
@@ -42,15 +43,19 @@ export function readGuidesContents(
 const guideDirectoryData = {
   BEHAVIORAL_INTERVIEW_PLAYBOOK: {
     guideDirectory: 'behavioral-interview-guidebook',
-    pathToFile: behavioralInterviewPlaybookPathToFile,
+    pathToFile: BehavioralInterviewPlaybookPathToFile,
   } as const,
   FRONT_END_INTERVIEW_PLAYBOOK: {
     guideDirectory: 'front-end-interview-guidebook',
-    pathToFile: frontEndInterviewPlaybookPathToFile,
+    pathToFile: FrontEndInterviewPlaybookPathToFile,
   } as const,
   FRONT_END_SYSTEM_DESIGN_PLAYBOOK: {
     guideDirectory: 'system-design',
-    pathToFile: frontEndSystemDesignPlaybookPathToFile,
+    pathToFile: FrontEndSystemDesignPlaybookPathToFile,
+  } as const,
+  REACT_INTERVIEW_PLAYBOOK: {
+    guideDirectory: 'react-interview-playbook',
+    pathToFile: ReactInterviewPlaybookPathToFile,
   } as const,
 } as const;
 

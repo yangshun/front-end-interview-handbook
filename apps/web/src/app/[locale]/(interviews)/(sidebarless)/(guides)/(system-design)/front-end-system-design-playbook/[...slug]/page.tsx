@@ -6,7 +6,7 @@ import FrontEndSystemDesignPlaybookLayout from '~/components/guides/books/FrontE
 import type { FrontEndSystemDesignPlaybookPathType } from '~/components/guides/books/FrontEndSystemDesignPlaybookNavigation';
 import {
   basePath,
-  frontEndSystemDesignPlaybookPathToFile,
+  FrontEndSystemDesignPlaybookPathToFile,
 } from '~/components/guides/books/FrontEndSystemDesignPlaybookNavigation';
 import MDXCodeBlock from '~/components/mdx/MDXCodeBlock';
 import MDXComponents from '~/components/mdx/MDXComponents';
@@ -28,7 +28,7 @@ type Props = Readonly<{
 
 export async function generateStaticParams() {
   return generateStaticParamsWithLocale(
-    Object.keys(frontEndSystemDesignPlaybookPathToFile).map((slug) => ({
+    Object.keys(FrontEndSystemDesignPlaybookPathToFile).map((slug) => ({
       slug: slug ? slug.split('/') : [],
     })),
   );

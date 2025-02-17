@@ -48,6 +48,7 @@ const GuidebookToGitHubIssueLabel: Record<GuidebookItem, string> = {
   BEHAVIORAL_INTERVIEW_PLAYBOOK: 'guide-behavioral-interview',
   FRONT_END_INTERVIEW_PLAYBOOK: 'guide-front-end-interview',
   FRONT_END_SYSTEM_DESIGN_PLAYBOOK: 'guide-front-end-system-design',
+  REACT_INTERVIEW_PLAYBOOK: 'guide-react-interview',
 };
 
 export default function QuestionReportIssueButton({

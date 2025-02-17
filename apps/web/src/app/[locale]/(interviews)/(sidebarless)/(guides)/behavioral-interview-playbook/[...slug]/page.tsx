@@ -6,7 +6,7 @@ import BehavioralInterviewPlaybookLayout from '~/components/guides/books/Behavio
 import type { BehavioralInterviewPlaybookPathType } from '~/components/guides/books/BehavioralInterviewPlaybookNavigation';
 import {
   basePath,
-  behavioralInterviewPlaybookPathToFile,
+  BehavioralInterviewPlaybookPathToFile,
 } from '~/components/guides/books/BehavioralInterviewPlaybookNavigation';
 import MDXCodeBlock from '~/components/mdx/MDXCodeBlock';
 import MDXComponents from '~/components/mdx/MDXComponents';
@@ -28,7 +28,7 @@ type Props = Readonly<{
 
 export async function generateStaticParams() {
   return generateStaticParamsWithLocale(
-    Object.keys(behavioralInterviewPlaybookPathToFile).map((slug) => ({
+    Object.keys(BehavioralInterviewPlaybookPathToFile).map((slug) => ({
       slug: slug ? slug.split('/') : [],
     })),
   );

@@ -2,12 +2,12 @@ import grayMatter from 'gray-matter';
 import { getMDXExport } from 'mdx-bundler/client';
 import type { Metadata } from 'next/types';
 
-import FrontEndInterviewPlaybookLayout from '~/components/guides/books/FrontEndInterviewPlaybookLayout';
-import type { FrontEndInterviewPlaybookPathType } from '~/components/guides/books/FrontEndInterviewPlaybookNavigation';
+import ReactInterviewPlaybookLayout from '~/components/guides/books/ReactInterviewPlaybookLayout';
+import type { ReactInterviewPlaybookPathType } from '~/components/guides/books/ReactInterviewPlaybookNavigation';
 import {
   basePath,
-  FrontEndInterviewPlaybookPathToFile,
-} from '~/components/guides/books/FrontEndInterviewPlaybookNavigation';
+  ReactInterviewPlaybookPathToFile,
+} from '~/components/guides/books/ReactInterviewPlaybookNavigation';
 import MDXCodeBlock from '~/components/mdx/MDXCodeBlock';
 import MDXComponents from '~/components/mdx/MDXComponents';
 
@@ -28,7 +28,7 @@ type Props = Readonly<{
 
 export async function generateStaticParams() {
   return generateStaticParamsWithLocale(
-    Object.keys(FrontEndInterviewPlaybookPathToFile).map((slug) => ({
+    Object.keys(ReactInterviewPlaybookPathToFile).map((slug) => ({
       slug: slug ? slug.split('/') : [],
     })),
   );
@@ -38,13 +38,12 @@ function requestToPaths({ params }: Props): Readonly<{
   directoryPath: string;
   pathname: string;
 }> {
-  const { slug } = params;
-  const mdxPath = (slug ?? [''])
+  const mdxPath = (params.slug ?? [])
     .join('/')
-    .replace(/\/$/g, '') as FrontEndInterviewPlaybookPathType;
+    .replace(/\/$/g, '') as ReactInterviewPlaybookPathType;
 
   const directoryPath = guidesRequestToFilePath(
-    'FRONT_END_INTERVIEW_PLAYBOOK',
+    'REACT_INTERVIEW_PLAYBOOK',
     mdxPath,
   );
   const pathname = `${basePath}/${mdxPath}`;
@@ -88,11 +87,11 @@ export default async function Page(props: Props) {
   });
 
   return (
-    <FrontEndInterviewPlaybookLayout
+    <ReactInterviewPlaybookLayout
       description={description}
       tableOfContents={tableOfContents}
       title={title}>
       <Markdown components={MDXComponents} />
-    </FrontEndInterviewPlaybookLayout>
+    </ReactInterviewPlaybookLayout>
   );
 }

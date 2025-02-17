@@ -2,11 +2,13 @@ import {
   RiBookOpenLine,
   RiFlowChart,
   RiQuestionAnswerLine,
+  RiReactjsFill,
 } from 'react-icons/ri';
 
 import { basePath as behavioralInterviewPlaybookBasePath } from '~/components/guides/books/BehavioralInterviewPlaybookNavigation';
 import { basePath as frontEndInterviewPlaybookBasePath } from '~/components/guides/books/FrontEndInterviewPlaybookNavigation';
 import { basePath as frontEndSystemDesignPlaybookBasePath } from '~/components/guides/books/FrontEndSystemDesignPlaybookNavigation';
+import { basePath as reactInterviewPlaybookBasePath } from '~/components/guides/books/ReactInterviewPlaybookNavigation';
 import { useIntl } from '~/components/intl';
 
 import type { GuidebookItem } from '@prisma/client';
@@ -89,6 +91,28 @@ export function useGuidesData() {
         defaultMessage: 'Front End System Design',
         description: 'Short title of front end system design playbook',
         id: 'owQqZY',
+      }),
+    },
+    REACT_INTERVIEW_PLAYBOOK: {
+      description: intl.formatMessage({
+        defaultMessage:
+          'The only React interview guide written specifically for front end engineers.',
+        description: 'Guidebook description',
+        id: '6p31z/',
+      }),
+      firstPageHref: `${reactInterviewPlaybookBasePath}/introduction`,
+      href: reactInterviewPlaybookBasePath,
+      icon: RiReactjsFill,
+      key: 'REACT_INTERVIEW_PLAYBOOK',
+      name: intl.formatMessage({
+        defaultMessage: 'React Interview Playbook',
+        description: 'Title for react interview guide',
+        id: 'lXYENq',
+      }),
+      shortName: intl.formatMessage({
+        defaultMessage: 'React Interview',
+        description: 'Short title for behavioral interview playbook',
+        id: '1K9s6g',
       }),
     },
   };

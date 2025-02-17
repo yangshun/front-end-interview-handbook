@@ -52,7 +52,7 @@ export const FrontEndSystemDesignPlaybookPaths = [
 export type FrontEndSystemDesignPlaybookPathType =
   (typeof FrontEndSystemDesignPlaybookPaths)[number];
 
-export const frontEndSystemDesignPlaybookPathToFile: Record<
+export const FrontEndSystemDesignPlaybookPathToFile: Record<
   FrontEndSystemDesignPlaybookPathType,
   string
 > = {

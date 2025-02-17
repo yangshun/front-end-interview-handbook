@@ -10,6 +10,7 @@ const guidebookZodEnum = z.enum([
   'BEHAVIORAL_INTERVIEW_PLAYBOOK',
   'FRONT_END_INTERVIEW_PLAYBOOK',
   'FRONT_END_SYSTEM_DESIGN_PLAYBOOK',
+  'REACT_INTERVIEW_PLAYBOOK',
 ]);
 
 export const guideProgressRouter = router({
