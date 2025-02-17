@@ -48,54 +48,57 @@ export const basePath = '/front-end-interview-playbook';
 function useCodingSectionItem() {
   const intl = useIntl();
 
-  const codingSectionItem: GuideNavigationLink = {
-    cardTitle: intl.formatMessage({
-      defaultMessage: 'Intro to Coding Round',
-      description: 'Introduction to front end coding interview',
-      id: 'DDJTQX',
-    }),
-    description: intl.formatMessage({
-      defaultMessage: 'What to expect in the coding round and tips to succeed',
-      description: 'What to expect in front end coding interviews',
-      id: 'Z5P0Gp',
-    }),
-    href: `${basePath}/coding`,
-    icon: RiCodeSSlashLine,
-    id: 'coding',
-    label: intl.formatMessage({
-      defaultMessage: 'Overview',
-      description: 'Coding interview questions',
-      id: 'GHbtp8',
-    }),
-    type: 'link',
-  };
+  const codingSectionItem: GuideNavigationLink<FrontEndInterviewPlaybookPathType> =
+    {
+      cardTitle: intl.formatMessage({
+        defaultMessage: 'Intro to Coding Round',
+        description: 'Introduction to front end coding interview',
+        id: 'DDJTQX',
+      }),
+      description: intl.formatMessage({
+        defaultMessage:
+          'What to expect in the coding round and tips to succeed',
+        description: 'What to expect in front end coding interviews',
+        id: 'Z5P0Gp',
+      }),
+      href: `${basePath}/coding`,
+      icon: RiCodeSSlashLine,
+      id: 'coding',
+      label: intl.formatMessage({
+        defaultMessage: 'Overview',
+        description: 'Coding interview questions',
+        id: 'GHbtp8',
+      }),
+      type: 'link',
+    };
 
   return codingSectionItem;
 }
 
 export function useQuizSectionItem() {
   const intl = useIntl();
-  const quizSectionItem: GuideNavigationLink = {
-    cardTitle: intl.formatMessage({
-      defaultMessage: 'Intro to quiz questions',
-      description: 'Introduction to front end quiz questions',
-      id: 'Eru4eL',
-    }),
-    description: intl.formatMessage({
-      defaultMessage:
-        'What to expect, which rounds to expect them, and how to prepare',
-      description: 'What to expect in front end quiz interviews',
-      id: 'XdezZk',
-    }),
-    href: `${basePath}/quiz`,
-    id: 'quiz',
-    label: intl.formatMessage({
-      defaultMessage: 'Quiz interviews',
-      description: 'Front end quiz interview questions',
-      id: 'P3l/Ce',
-    }),
-    type: 'link',
-  };
+  const quizSectionItem: GuideNavigationLink<FrontEndInterviewPlaybookPathType> =
+    {
+      cardTitle: intl.formatMessage({
+        defaultMessage: 'Intro to quiz questions',
+        description: 'Introduction to front end quiz questions',
+        id: 'Eru4eL',
+      }),
+      description: intl.formatMessage({
+        defaultMessage:
+          'What to expect, which rounds to expect them, and how to prepare',
+        description: 'What to expect in front end quiz interviews',
+        id: 'XdezZk',
+      }),
+      href: `${basePath}/quiz`,
+      id: 'quiz',
+      label: intl.formatMessage({
+        defaultMessage: 'Quiz interviews',
+        description: 'Front end quiz interview questions',
+        id: 'P3l/Ce',
+      }),
+      type: 'link',
+    };
 
   return quizSectionItem;
 }
@@ -184,7 +187,9 @@ function useCodingSectionFormatItems() {
 export function useCodingQuestionListGuideItems() {
   const codingSectionItem = useCodingSectionItem();
   const codingSectionFormatItems = useCodingSectionFormatItems();
-  const combined: ReadonlyArray<GuideNavigationLink> = [
+  const combined: ReadonlyArray<
+    GuideNavigationLink<FrontEndInterviewPlaybookPathType>
+  > = [
     codingSectionItem,
     codingSectionFormatItems.javascript,
     codingSectionFormatItems.algo,
@@ -201,7 +206,7 @@ export function useFrontEndInterviewPlaybookNavigation() {
   const quizSectionItem = useQuizSectionItem();
   const codingSectionFormatItems = useCodingSectionFormatItems();
 
-  const navigation: GuideNavigation = {
+  const navigation: GuideNavigation<FrontEndInterviewPlaybookPathType> = {
     initialOpenSections: ['coding-interviews', 'ui-interviews'],
     navigation: {
       items: [

@@ -12,14 +12,16 @@ export default function Layout({ children }: { children: ReactNode }) {
   const mappedItems = navigation.navigation.items.map((navItem) => ({
     ...navItem,
     items:
-      navItem.items?.map((navItemItem) => ({
-        ...navItemItem,
-        addOnElement: navItemItem.premium ? (
-          <div className="flex grow justify-end">
-            <SidebarPremiumChip />
-          </div>
-        ) : null,
-      })) ?? [],
+      navItem.type === 'list'
+        ? navItem.items?.map((navItemItem) => ({
+            ...navItemItem,
+            addOnElement: navItemItem.premium ? (
+              <div className="flex grow justify-end">
+                <SidebarPremiumChip />
+              </div>
+            ) : null,
+          }))
+        : [],
   }));
 
   return (

@@ -65,10 +65,13 @@ export const FrontEndSystemDesignPlaybookPathToFile: Record<
 };
 
 export type FrontEndSystemDesignPlaybookNavigationLink =
-  BaseGuideNavigationLink<{
-    kind: 'guide' | 'question';
-    premium: boolean;
-  }>;
+  BaseGuideNavigationLink<
+    FrontEndSystemDesignPlaybookPathType,
+    {
+      kind: 'guide' | 'question';
+      premium: boolean;
+    }
+  >;
 
 type NavigationLinks =
   ReadonlyArray<FrontEndSystemDesignPlaybookNavigationLink>;
@@ -225,25 +228,56 @@ export function useSystemDesignGuides() {
 export function useFrontEndSystemDesignPlaybookNavigation() {
   const intl = useIntl();
   const systemDesignGuides = useSystemDesignGuides();
-  const navigation: GuideNavigation<FrontEndSystemDesignPlaybookNavigationLink> =
-    {
-      initialOpenSections: ['guidebook', 'questions'],
-      navigation: {
-        items: [
-          {
-            id: 'guidebook',
-            items: systemDesignGuides,
-            label: intl.formatMessage({
-              defaultMessage: 'Guidebook',
-              description:
-                'How to prepare for front end system design interviews',
-              id: 'pgK6Eb',
-            }),
-            type: 'list',
-          },
-          {
-            id: 'questions',
-            items: readySystemDesignQuestions.map((questionMetadata) => ({
+  const navigation: GuideNavigation<
+    FrontEndSystemDesignPlaybookPathType,
+    FrontEndSystemDesignPlaybookNavigationLink
+  > = {
+    initialOpenSections: ['guidebook', 'questions'],
+    navigation: {
+      items: [
+        {
+          id: 'guidebook',
+          items: systemDesignGuides,
+          label: intl.formatMessage({
+            defaultMessage: 'Guidebook',
+            description:
+              'How to prepare for front end system design interviews',
+            id: 'pgK6Eb',
+          }),
+          type: 'list',
+        },
+        {
+          id: 'questions',
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-expect-error
+          items: readySystemDesignQuestions.map((questionMetadata) => ({
+            href: questionMetadata.href,
+            icon: SystemDesignIcons[questionMetadata.slug],
+            id: questionMetadata.slug,
+            kind: 'question',
+            label: questionMetadata.title,
+            premium: questionMetadata.access === 'premium',
+            type: 'link',
+          })),
+          label: intl.formatMessage({
+            defaultMessage: 'Questions',
+            description: 'Front end system design interviews questions',
+            id: 'WDJgWl',
+          }),
+          type: 'list',
+        },
+        {
+          id: 'coming-soon',
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-expect-error
+          items: allSystemDesignQuestions
+            .slice()
+            .sort((a, b) => a.ranking - b.ranking)
+            .filter(
+              (questionMetadata) =>
+                !ReadyQuestions.includes(questionMetadata.slug),
+            )
+            .map((questionMetadata) => ({
               href: questionMetadata.href,
               icon: SystemDesignIcons[questionMetadata.slug],
               id: questionMetadata.slug,
@@ -252,47 +286,22 @@ export function useFrontEndSystemDesignPlaybookNavigation() {
               premium: questionMetadata.access === 'premium',
               type: 'link',
             })),
-            label: intl.formatMessage({
-              defaultMessage: 'Questions',
-              description: 'Front end system design interviews questions',
-              id: 'WDJgWl',
-            }),
-            type: 'list',
-          },
-          {
-            id: 'coming-soon',
-            items: allSystemDesignQuestions
-              .slice()
-              .sort((a, b) => a.ranking - b.ranking)
-              .filter(
-                (questionMetadata) =>
-                  !ReadyQuestions.includes(questionMetadata.slug),
-              )
-              .map((questionMetadata) => ({
-                href: questionMetadata.href,
-                icon: SystemDesignIcons[questionMetadata.slug],
-                id: questionMetadata.slug,
-                kind: 'question',
-                label: questionMetadata.title,
-                premium: questionMetadata.access === 'premium',
-                type: 'link',
-              })),
-            label: intl.formatMessage({
-              defaultMessage: 'Coming soon',
-              description:
-                'Front end system design questions that are coming soon',
-              id: '0krNBp',
-            }),
-            type: 'list',
-          },
-        ],
-        title: intl.formatMessage({
-          defaultMessage: 'Front End System Design Playbook',
-          description: 'Front end system design playbook title',
-          id: 'p0TEPs',
-        }),
-      },
-    };
+          label: intl.formatMessage({
+            defaultMessage: 'Coming soon',
+            description:
+              'Front end system design questions that are coming soon',
+            id: '0krNBp',
+          }),
+          type: 'list',
+        },
+      ],
+      title: intl.formatMessage({
+        defaultMessage: 'Front End System Design Playbook',
+        description: 'Front end system design playbook title',
+        id: 'p0TEPs',
+      }),
+    },
+  };
 
   return navigation;
 }

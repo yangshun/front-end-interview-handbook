@@ -40,13 +40,13 @@ type MarkAsCompleteProps = Readonly<
     }
 >;
 
-type Props = Readonly<
+type Props<GuideSlug extends string> = Readonly<
   MarkAsCompleteProps & {
     bottomNav?: ReactNode;
     children?: React.ReactNode;
     guide: GuidebookItem;
     isAccessibleForFree?: boolean;
-    navigation: GuideNavigation;
+    navigation: GuideNavigation<GuideSlug>;
     questionMetadata?: React.ComponentProps<
       typeof GuidesPagination
     >['questionMetadata'];
@@ -55,7 +55,7 @@ type Props = Readonly<
   }
 >;
 
-export default function GuidesMainLayout({
+export default function GuidesMainLayout<GuideSlug extends string>({
   bottomNav: bottomNavProp,
   children,
   navigation,
@@ -66,7 +66,7 @@ export default function GuidesMainLayout({
   showMarkAsComplete = false,
   metadata,
   ...props
-}: Props) {
+}: Props<GuideSlug>) {
   const intl = useIntl();
   const { pathname } = useI18nPathname();
   const { navigateToSignInUpPage } = useAuthSignInUp();

@@ -21,14 +21,14 @@ import type { GuideNavigation } from './types';
 
 import type { GuidebookItem } from '@prisma/client';
 
-export default function GuidesNavbar({
+export default function GuidesNavbar<GuideSlug extends string>({
   guide,
   navigation,
   tableOfContents,
   showMenu = true,
 }: Readonly<{
   guide: GuidebookItem;
-  navigation: GuideNavigation;
+  navigation: GuideNavigation<GuideSlug>;
   showMenu?: boolean;
   tableOfContents: TableOfContents | undefined;
 }>) {

@@ -45,7 +45,7 @@ export const BehavioralInterviewPlaybookPathToFile: Record<
 
 export function useBehavioralInterviewPlaybookNavigation() {
   const intl = useIntl();
-  const navigation: GuideNavigation = {
+  const navigation: GuideNavigation<BehavioralInterviewPlaybookPathType> = {
     initialOpenSections: ['overview', 'questions'],
     navigation: {
       items: [
@@ -79,7 +79,7 @@ export function useBehavioralInterviewPlaybookNavigation() {
               }),
               href: `${basePath}/questions`,
               icon: RiQuestionAnswerLine,
-              id: 'common-interview-questions',
+              id: 'questions',
               label: intl.formatMessage({
                 defaultMessage: 'Most common questions',
                 description: 'Most common behavioral interview questions',

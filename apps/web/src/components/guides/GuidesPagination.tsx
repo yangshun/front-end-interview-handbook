@@ -43,19 +43,19 @@ type PaginationItem = Readonly<{
   slug?: string;
 }>;
 
-type Props = Readonly<{
+type Props<GuideSlug extends string> = Readonly<{
   guide: GuidebookItem;
-  navigation: GuideNavigation;
+  navigation: GuideNavigation<GuideSlug>;
   questionMetadata?: QuestionMetadata;
   studyListKey?: string;
 }>;
 
-export default function GuidesPagination({
+export default function GuidesPagination<GuideSlug extends string>({
   navigation,
   questionMetadata,
   guide,
   studyListKey,
-}: Props) {
+}: Props<GuideSlug>) {
   const intl = useIntl();
   const user = useUser();
   const { pathname } = useI18nPathname();

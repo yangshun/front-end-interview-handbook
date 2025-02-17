@@ -10,9 +10,10 @@ type GuideNavigationLinkFlat<T> = T & {
   breadcrumbs: Array<string>;
 };
 
-function flattenNavigationItems<Link extends BaseGuideNavigationLink>({
-  navigation,
-}: GuideNavigation<Link>) {
+function flattenNavigationItems<
+  GuideSlug extends string,
+  Link extends BaseGuideNavigationLink = BaseGuideNavigationLink<GuideSlug>,
+>({ navigation }: GuideNavigation<GuideSlug, Link>) {
   const { title, items } = navigation;
   const flatItems: Array<GuideNavigationLinkFlat<Link>> = [];
   const crumbs: Array<string> = [title];
@@ -51,9 +52,10 @@ function flattenNavigationItems<Link extends BaseGuideNavigationLink>({
 }
 
 export default function useFlattenedNavigationItems<
+  GuideSlug extends string,
   Link extends BaseGuideNavigationLink,
->(navigation: GuideNavigation<Link>) {
+>(navigation: GuideNavigation<GuideSlug, Link>) {
   return useMemo(() => {
-    return flattenNavigationItems(navigation);
+    return flattenNavigationItems<GuideSlug, Link>(navigation);
   }, [navigation]);
 }

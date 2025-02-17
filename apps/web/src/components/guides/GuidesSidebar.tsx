@@ -15,17 +15,17 @@ import SidebarLinksSection from '../global/sidebar/SidebarLinksSection';
 
 import type { GuidebookItem } from '@prisma/client';
 
-type Props = Readonly<{
+type Props<GuideSlug extends string> = Readonly<{
   guide: GuidebookItem;
   isFocusMode?: boolean;
   mode?: 'navbar' | 'sidebar';
-  navigation: GuideNavigation;
+  navigation: GuideNavigation<GuideSlug>;
   onClose?: () => void;
   sticky?: boolean;
   toggleFocusMode?: () => void;
 }>;
 
-export function GuidesSidebar({
+export function GuidesSidebar<GuideSlug extends string>({
   guide,
   sticky = false,
   navigation,
@@ -33,7 +33,7 @@ export function GuidesSidebar({
   isFocusMode = false,
   toggleFocusMode,
   onClose,
-}: Props) {
+}: Props<GuideSlug>) {
   const isSidebar = mode === 'sidebar';
 
   return (

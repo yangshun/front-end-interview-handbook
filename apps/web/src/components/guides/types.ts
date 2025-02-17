@@ -2,29 +2,36 @@ import type { ReactNode } from 'react';
 
 import type { GuidebookItem } from '@prisma/client';
 
-export type BaseGuideNavigationLink<T = Record<string, unknown>> = Readonly<
+export type BaseGuideNavigationLink<
+  GuideSlug extends string = string,
+  T = Record<string, unknown>,
+> = Readonly<
   T & {
     addOnElement?: ReactNode | null;
     description?: string;
     href: string;
     icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
-    id: string;
-    items?: GuideNavigationLinks<BaseGuideNavigationLink<T>>;
+    id: GuideSlug;
     label: string;
     type: 'link';
   }
 >;
 
-export type GuideNavigationLink = BaseGuideNavigationLink<{
-  cardTitle?: string; // Shown in card titles primarily on dashboard
-}>;
+export type GuideNavigationLink<GuideSlug extends string> =
+  BaseGuideNavigationLink<
+    GuideSlug,
+    {
+      cardTitle?: string; // Shown in card titles primarily on dashboard
+    }
+  >;
 
 export type GuideNavigationLinks<
   Link extends BaseGuideNavigationLink = BaseGuideNavigationLink,
 > = ReadonlyArray<Link>;
 
 export type GuideNavigationItems<
-  Link extends BaseGuideNavigationLink = BaseGuideNavigationLink,
+  GuideSlug extends string,
+  Link extends BaseGuideNavigationLink = BaseGuideNavigationLink<GuideSlug>,
 > = ReadonlyArray<
   | Link
   | Readonly<{
@@ -36,11 +43,12 @@ export type GuideNavigationItems<
 >;
 
 export type GuideNavigation<
-  Link extends BaseGuideNavigationLink = BaseGuideNavigationLink,
+  GuideSlug extends string,
+  Link extends BaseGuideNavigationLink = BaseGuideNavigationLink<GuideSlug>,
 > = Readonly<{
   initialOpenSections: ReadonlyArray<string>;
   navigation: Readonly<{
-    items: GuideNavigationItems<Link>;
+    items: GuideNavigationItems<GuideSlug, Link>;
     title: string;
   }>;
 }>;

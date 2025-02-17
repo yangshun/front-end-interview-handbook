@@ -42,13 +42,17 @@ export function useGuidesContext() {
   return context;
 }
 
-type Props = Readonly<{
+type Props<GuideSlug extends string> = Readonly<{
   children: ReactNode;
   guide: GuidebookItem;
-  navigation: GuideNavigation;
+  navigation: GuideNavigation<GuideSlug>;
 }>;
 
-export default function GuidesLayout({ children, guide, navigation }: Props) {
+export default function GuidesLayout<GuideSlug extends string>({
+  children,
+  guide,
+  navigation,
+}: Props<GuideSlug>) {
   const [focusMode, toggleFocusMode] = useToggle();
   const [collapsedToC, setCollapsedToC] = useState(focusMode);
   const [isMobileGuideMenuOpen, setIsMobileGuideMenuOpen] = useState(false);

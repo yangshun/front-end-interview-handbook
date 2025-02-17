@@ -57,7 +57,7 @@ export const ReactInterviewPlaybookPathToFile: Record<
 
 export function useReactInterviewPlaybookNavigation() {
   const intl = useIntl();
-  const navigation: GuideNavigation = {
+  const navigation: GuideNavigation<ReactInterviewPlaybookPathType> = {
     initialOpenSections: ['overview', 'topics'],
     navigation: {
       items: [
@@ -88,7 +88,7 @@ export function useReactInterviewPlaybookNavigation() {
               }),
               href: `${basePath}/react-landscape-history`,
               icon: RiLandscapeLine,
-              id: 'landscape-history',
+              id: 'react-landscape-history',
               label: intl.formatMessage({
                 defaultMessage: 'Landscape and history',
                 description: 'React landscape and history',
@@ -104,7 +104,7 @@ export function useReactInterviewPlaybookNavigation() {
               }),
               href: `${basePath}/react-interview-preparation`,
               icon: RiApps2AddLine,
-              id: 'fundamentals',
+              id: 'react-interview-preparation',
               label: intl.formatMessage({
                 defaultMessage: 'How to prepare',
                 description: 'How to prepare for React interviews',
@@ -131,7 +131,7 @@ export function useReactInterviewPlaybookNavigation() {
               }),
               href: `${basePath}/react-basic-concepts`,
               icon: RiLightbulbLine,
-              id: 'concepts',
+              id: 'react-basic-concepts',
               label: intl.formatMessage({
                 defaultMessage: 'Basic concepts',
                 description: 'React concepts',
@@ -147,7 +147,7 @@ export function useReactInterviewPlaybookNavigation() {
               }),
               href: `${basePath}/react-thinking-declaratively`,
               icon: RiMegaphoneLine,
-              id: 'hooks',
+              id: 'react-thinking-declaratively',
               label: intl.formatMessage({
                 defaultMessage: 'Thinking declaratively',
                 description: 'Thinking declaratively in React',
@@ -163,7 +163,7 @@ export function useReactInterviewPlaybookNavigation() {
               }),
               href: `${basePath}/react-state-design`,
               icon: RiFlowChart,
-              id: 'hooks',
+              id: 'react-state-design',
               label: intl.formatMessage({
                 defaultMessage: 'State design',
                 description: 'State design in React',
@@ -179,7 +179,7 @@ export function useReactInterviewPlaybookNavigation() {
               }),
               href: `${basePath}/react-hooks`,
               icon: RiWebhookLine,
-              id: 'hooks',
+              id: 'react-hooks',
               label: intl.formatMessage({
                 defaultMessage: 'React hooks',
                 description: 'React hooks',
@@ -195,7 +195,7 @@ export function useReactInterviewPlaybookNavigation() {
               }),
               href: `${basePath}/react-event-handling`,
               icon: RiCursorLine,
-              id: 'event-handling',
+              id: 'react-event-handling',
               label: intl.formatMessage({
                 defaultMessage: 'Event handling',
                 description: 'React event handling',
@@ -211,7 +211,7 @@ export function useReactInterviewPlaybookNavigation() {
               }),
               href: `${basePath}/react-forms`,
               icon: RiInputField,
-              id: 'forms',
+              id: 'react-forms',
               label: intl.formatMessage({
                 defaultMessage: 'Forms',
                 description: 'React forms',
@@ -227,7 +227,7 @@ export function useReactInterviewPlaybookNavigation() {
               }),
               href: `${basePath}/react-signup-form-example`,
               icon: RiUserLine,
-              id: 'forms',
+              id: 'react-signup-form-example',
               label: intl.formatMessage({
                 defaultMessage: 'Signup form example',
                 description: 'React signup form example',
@@ -243,7 +243,7 @@ export function useReactInterviewPlaybookNavigation() {
               }),
               href: `${basePath}/react-data-fetching`,
               icon: RiGlobalLine,
-              id: 'data-fetching',
+              id: 'react-data-fetching',
               label: intl.formatMessage({
                 defaultMessage: 'Data fetching',
                 description: 'React data fetching',
@@ -259,7 +259,7 @@ export function useReactInterviewPlaybookNavigation() {
               }),
               href: `${basePath}/react-design-patterns`,
               icon: RiRecycleLine,
-              id: 'design-patterns',
+              id: 'react-design-patterns',
               label: intl.formatMessage({
                 defaultMessage: 'Design patterns',
                 description: 'React design patterns',

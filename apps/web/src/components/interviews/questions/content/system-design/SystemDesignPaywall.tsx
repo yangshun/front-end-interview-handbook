@@ -2,9 +2,8 @@ import type { PropsWithChildren } from 'react';
 import { Fragment } from 'react';
 
 import { useUserProfile } from '~/components/global/UserProfileProvider';
+import InterviewsPurchasePaywall from '~/components/interviews/purchase/InterviewsPurchasePaywall';
 import { useIntl } from '~/components/intl';
-
-import InterviewsPurchasePaywall from '../../../purchase/InterviewsPurchasePaywall';
 
 type Props = PropsWithChildren<
   Readonly<{
