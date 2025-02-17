@@ -1,6 +1,6 @@
 ---
-title: React State Management
-description: TODO
+title: Designing State in React Interviews
+description: How to think about state in React, detailing best practices for structuring, resetting, and updating state to build efficient, maintainable, and performant applications
 ---
 
 State is the backbone of any React application, dictating how components behave and render over time. Unlike static data, state enables dynamic updates, user interactions, and real-time changes without requiring a full page reload.
@@ -152,17 +152,21 @@ function ContactForm() {
 
 **Why is this better?**
 
-- **Prevents contradictions** :The form can only be in one state at a time
-- **Handles errors properly** :The UI can react to errors without incorrectly marking the form as "submitted"
+- **Prevents contradictions**: The form can only be in one state at a time
+- **Handles errors properly**: The UI can react to errors without incorrectly marking the form as "submitted"
 - **Simpler logic**: No need to sync multiple boolean states manually
 
-### Use derived state instead of storing redundant values
+### Derive state instead of storing redundant values
 
 ❌ **Bad**: Storing both the list and a count when count can be derived.
 
 ```jsx
 const [todos, setTodos] = useState(['Task 1', 'Task 2']);
-const [count, setCount] = useState(2); // Unnecessary state
+const [count, setCount] = useState(2); // Unnecessary state that needs to be synced
+
+useEffect(() => {
+  setCount(todos.length);
+}, [todos]);
 ```
 
 ✅ **Good**: Derive count from the `todos` array.
@@ -209,6 +213,25 @@ function App() {
 - `<form>`s have built-in ways to reset its state (e.g. `formElement.reset()`), but the `key` approach works for any component
 
 Further reading on react.dev: [Preserving and Resetting State](https://react.dev/learn/preserving-and-resetting-state)
+
+## Controlled vs uncontrolled components
+
+In React, a component can be described as controlled or uncontrolled based on how its state is managed. These terms are not strict technical definitions but rather a way to understand how components interact with their parents.
+
+**Note**: the legacy definition of uncontrolled components was restricted to form `<input>` elements and whether the state lived within the DOM or was controlled by React. The [modern definition](https://react.dev/learn/sharing-state-between-components#controlled-and-uncontrolled-components) expands the definition of uncontrolled to be more than form `<input>` elements.
+
+| **Type** | **Who controls state?** | **Pros** | **Cons** |
+| --- | --- | --- | --- |
+| **Controlled** | Parent via props | Flexible, easily coordinated with other components | Requires more props/configuration |
+| **Uncontrolled** | Component itself via local state | Simpler to use, fewer props needed | Less flexible, harder to coordinate |
+
+A **controlled component** is one where its behavior is fully determined by its props rather than its own local state. This allows the parent component to have full control over how the component behaves.
+
+An **uncontrolled component** manages its own state internally, making it independent of the parent component. The parent cannot directly modify the state of an uncontrolled component.
+
+Most components are not strictly controlled or uncontrolled, they often use a mix of both. A good practice is to start with local state (uncontrolled) and lift state up when needed.
+
+**Example**: An example of a common component where both controlled or uncontrolled are viable is accordions. On marketing pages, accordions tend to be used for FAQ sections and uncontrolled versions is sufficient. On dashboards and detail pages, accordions items might expand or collapse depending on user actions and it is necessary for these accordions to be controlled.
 
 ## Context
 
@@ -269,13 +292,17 @@ Further reading on react.dev: [Passing Data Deeply with Context](https://react.d
 
 As an app grows, the amount of state in the app increases and these things happen:
 
-- The number of ways state can change increases proportionately or even exponentially
-- State updates can be triggered from multiple places (e.g. various places in the UI, background events, command palette, etc.)
-- It becomes harder to see at a glance all the different ways a component's state can get updated. As a result, certain state values should be modified together (e.g. request state and error message) but the logic might not be consistent in various parts of the UI
+- **Complex state transitions**: The number of ways state can change increases proportionately or even exponentially
+- **Multiple origins for transitions**: State updates can be triggered from multiple places (e.g. various places in the UI, background events, command palette, etc.)
+- **Inconsistent state transitions**: It becomes harder to see at a glance all the different ways a component's state can get updated. As a result, certain state values should be modified together (e.g. request state and error message) but the logic might not be consistent in various parts of the UI
 
-One way to manage state at a larger scale is to consolidate the possible changes into "actions" and consolidate how state should change in response to these actions.
+One way to manage state at a larger scale is to consolidate the possible changes into "actions" and consolidate the logic for how state should change in response to these actions.
 
-A reducer in React is a function that manages complex state logic by taking the current state and an action, then returning a new state based on that action. It follows the Redux pattern and is commonly used with the `useReducer` hook, which makes state updates more predictable and easier to debug.
+A reducer in React is a function that manages complex state logic by taking the current state and an action, then returning a new state based on that action. It follows the Redux pattern and is commonly used with the `useReducer` hook, which makes state updates more predictable and easier to debug. All changes to the state have to be made through an action, the state should not be modified directly.
+
+```js
+const newState = reducer(currentState, action);
+```
 
 A reducer function follows this structure:
 
@@ -294,9 +321,9 @@ function reducer(state, action) {
 
 - `state`: Represents the current state
 - `action`: An object describing the update (e.g., `{ type: "INCREMENT" }` with an optional payload field)
-- `reducer`: Function that takes in the current `state` and `action` and returns a new state based on the action
+- `reducer`: Pure function that takes in the current `state` and `action` and returns a new state based on the action
 
-Here's an example of a counter implemented using reducers.
+Here's an example of a counter implemented using reducers:
 
 ```jsx
 function Counter() {
@@ -305,25 +332,35 @@ function Counter() {
   return (
     <div>
       <p>Count: {state.count}</p>
-      <button onClick={() => dispatch({ type: 'INCREMENT' })}>+</button>
-      <button onClick={() => dispatch({ type: 'DECREMENT' })}>-</button>
+      <button
+        aria-label="Increment"
+        onClick={() => dispatch({ type: 'INCREMENT' })}>
+        +
+      </button>
+      <button
+        aria-label="Decrement"
+        onClick={() => dispatch({ type: 'DECREMENT' })}>
+        -
+      </button>
       <button onClick={() => dispatch({ type: 'RESET' })}>Reset</button>
     </div>
   );
 }
 ```
 
-1. `useReducer(reducer, initialState)` initializes state using the reducer function
+1. `useReducer(reducer, initialState)` initializes state using the `reducer` function
 2. `dispatch({ type: "INCREMENT" })` triggers the reducer, updating state accordingly
 3. State updates **do not mutate** the previous state but return a new object
 
-### Use cases
+### Use cases of reducers
 
-1. **Complex forms**: Managing multi-step form data
-2. **State-driven UI**: Handling toggles, modals, notifications
-3. **Finite state machines**: Managing state transitions in apps with well-defined behavior (e.g., authentication flows)
+`useReducer` is useful for managing complex state updates where multiple actions modify the state in a structured way. Here's how reducers help in different use cases:
 
-### Key points
+1. **Complex multi-step forms**: Forms with multiple steps or dependent fields can be hard to manage with useState. Reducers help reduce repetitive state updates by centralizing form logic Keeps form submission, validation, and step navigation logic clean
+2. **State-driven UI (e.g. Handling modals, notifications, dropdown menus)**: Managing modals, notifications, dropdown menus, with only `useState` can get messy. Multiple UI elements (e.g., opening modals, dismissing notifications) share state, making it harder to track
+3. **Finite state machines and flows requiring transition**: Flows with well-defined behavior (e.g., authentication, multi-step processes) follow a finite number of states. Using `useState` for each authentication step results in too many independent state variables. `useReducer` helps to structure state transitions so that they are predictable
+
+### Benefits of reducers
 
 - **Readability**: Reducers centralize state logic changes and this separation of actions vs. reducers improves readability
 - **Debugging**: Easier to debug with `useReducer` as you can add a `console.log` at the top to see every state update and which action caused it
@@ -338,7 +375,34 @@ Further reading on react.dev: [Extracting State Logic into a Reducer](https://re
 
 Given the close-ended and limited nature of UI coding questions during interviews, bear the following in mind:
 
-- **State design is crucial**: Since the question is small, there are usually not many ways to structure the state. You absolutely have to come up with the most efficient and minimal state for the question. Derive state where you can, avoid possible contradictions in state, and group state fields appropriately.
+- **State design is crucial**: Since the question is small, there are usually not many fields needed and hence limited in the ways state can be structured. You absolutely have to come up with the most efficient and minimal state for the question. Remember the suggested practice – derive state where you can, avoid possible contradictions in state, and group state fields appropriately.
 - **State lives at the top level**: Given that most questions will be small, it is highly likely that the state should live at the top level / app level and most children should be stateless, receiving data as props. The few cases where state should live within children are ephemeral state in form inputs or state that isn't needed across the whole app.
-- **You probably won't need context**: Most interview questions are small and prop passing will probably not be deeper than two or three levels in the worst case. Stick with prop passing since it's simpler
-- **You probably won't need reducers**: Most UI coding questions are small and will not require that many different state changes. You can consolidate state updates within action functions without the need for `useReducer`. The exception being games since game logic can get pretty complex
+- **You probably won't need context**: Most interview questions are small and prop passing will probably not be deeper than two or three levels in the worst case. Stick with prop passing since it's simpler.
+- **You probably won't need reducers**: Most UI coding questions are small and will not require that many different state changes. You can consolidate state updates within action functions without the need for `useReducer`. The exception being games since game logic can get pretty complex.
+
+## Practice questions
+
+**Quiz**:
+
+- [What is the difference between controlled and uncontrolled React Components?](/questions/quiz/what-is-the-difference-between-controlled-and-uncontrolled-react-components?framework=react&tab=quiz)
+- [What are some pitfalls about using context in React?](/questions/quiz/what-are-some-pitfalls-about-using-context-in-react?framework=react&tab=quiz)
+- [How do you reset a component's state in React?](/questions/quiz/how-do-you-reset-a-components-state-in-react?framework=react&tab=quiz)
+- [How do you decide between using React state, context, and external state managers?](/questions/quiz/how-do-you-decide-between-using-react-state-context-and-external-state-managers?framework=react&tab=quiz)
+
+**Coding**:
+
+- [Data Table](/questions/user-interface/data-table/react?framework=react&tab=coding)
+- [Data Table II](/questions/user-interface/data-table-ii/react?framework=react&tab=coding)
+- [Todo List](/questions/user-interface/todo-list/react?framework=react&tab=coding)
+- [Traffic Light](/questions/user-interface/traffic-light/react?framework=react&tab=coding)
+- [Tic-tac-toe](/questions/user-interface/tic-tac-toe/react?framework=react&tab=coding)
+- [Connect Four](/questions/user-interface/connect-four/react?framework=react&tab=coding)
+- [Image Carousel](/questions/user-interface/image-carousel/react?framework=react&tab=coding)
+- [Pixel Art](/questions/user-interface/pixel-art/react?framework=react&tab=coding)
+- [Transfer List](/questions/user-interface/transfer-list/react?framework=react&tab=coding)
+- [Undoable Counter](/questions/user-interface/undoable-counter/react?framework=react&tab=coding)
+- [Users Database](/questions/user-interface/users-database/react?framework=react&tab=coding)
+- [Whack-A-Mole](/questions/user-interface/whack-a-mole/react?framework=react&tab=coding)
+- [Memory Game](/questions/user-interface/memory-game/react?framework=react&tab=coding)
+- [Nested Checkboxes](/questions/user-interface/nested-checkboxes/react?framework=react&tab=coding)
+- [Wordle](/questions/user-interface/wordle/react?framework=react&tab=coding)

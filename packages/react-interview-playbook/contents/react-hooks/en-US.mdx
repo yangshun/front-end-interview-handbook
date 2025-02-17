@@ -1,6 +1,6 @@
 ---
 title: React Hooks for Interviews
-description: TODO
+description: Master React hooks for interviews, covering key hooks like useState, useEffect, useContext, common pitfalls, and best practices for building reusable logic
 ---
 
 React hooks are special functions that start with `use`. Introduced in React 16.8, they allow developers to use state and lifecycle features in function components. This simplifies code organization, reduce boilerplate, and enable better logic reuse.
@@ -346,9 +346,41 @@ function FocusInput() {
 }
 ```
 
-- **Pitfalls**: Overusing `useRef` for state instead of [`useState`](#usestate)
+**Pitfalls**:
+
+- Overusing `useRef` for state instead of [`useState`](#usestate)
 
 Further reading on react.dev: [useRef - React](https://react.dev/reference/react/useRef)
+
+## `useId`
+
+`useId` is a hook introduced in React 18 that generates unique IDs for accessibility attributes and form elements. It ensures that the IDs are unique within a component tree, even when server-rendering.
+
+```jsx
+import { useId } from 'react';
+
+function Form() {
+  const id = useId();
+
+  return (
+    <div>
+      <label htmlFor={id}>Name:</label>
+      <input id={id} type="text" />
+    </div>
+  );
+}
+```
+
+- Primarily design system components where IDs are used for accessibility attributes (like `aria-labelledby`) yet they need to have unique values because there can be multiple component instances on the page
+- Generating unique IDs for form inputs, especially in server-rendered applications
+- Avoiding having to manually generating unique IDs with libraries or global counters
+
+**Pitfalls**:
+
+- Do not use `useId` for keys in lists. Use stable values like database IDs instead
+- It is only useful for generating static IDs and should not be used to track dynamic state
+
+Further reading on react.dev: [useId - React](https://react.dev/reference/react/useId)
 
 ## Rules of hooks
 
@@ -357,11 +389,13 @@ React hooks follow a strict set of rules to ensure they function correctly and m
 1. **Only call hooks at the top level**: Do not call hooks inside loops, conditions, nested functions, or `try`/`catch`/`finally` blocks
 2. **Only call hooks from React function components or custom hooks**: Avoid using hooks in regular JavaScript functions
 
+---
+
 Examples of incorrect vs correct hooks usage:
 
 ### Do not call hooks inside conditions
 
-❌ **Wrong: Calling hooks inside a condition**
+❌ **Wrong: Call hooks inside a condition**
 
 ```jsx
 if (someCondition) {
@@ -384,7 +418,7 @@ Hooks must be called in the same order on every render. Conditional hooks may ca
 
 ### Only call hooks within React components or custom hooks
 
-❌ **Wrong: Calling a hook outside a component**
+❌ **Wrong: Call a hook outside a component**
 
 ```jsx
 // ❌ Wrong: Outside of the component
@@ -414,7 +448,7 @@ Hooks rely on React's render cycle and component state. Calling hooks outside a 
 
 ### Do not call hooks after a conditional `return`
 
-❌ **Wrong: Calling hooks conditionally**
+❌ **Wrong: Call hooks conditionally**
 
 ```jsx
 function Counter({ hidden }) {
@@ -443,7 +477,7 @@ function Counter({ hidden }) {
 
 ### Do not calling hooks within loops
 
-❌ **Wrong: Calling hooks inside a loop**
+❌ **Wrong: Call hooks inside a loop**
 
 ```jsx
 for (let i = 0; i < 2; i++) {
@@ -463,7 +497,7 @@ React assumes hooks are called in the same order every render. Calling them in a
 
 ### Do not call in event handlers
 
-❌ **Wrong: Calling hooks inside an event handler**
+❌ **Wrong: Call hooks inside an event handler**
 
 ```jsx
 function Counter() {
@@ -547,3 +581,26 @@ Further reading on react.dev: [Reusing Logic with Custom Hooks](https://react.de
 3. **Understand re-rendering issues**: Recognize how dependency arrays impact performance and how `useMemo`/`useCallback` optimize rendering
 4. **Implement a custom hook**: Be able to write and explain a reusable custom hook in an interview
 5. **Debug common hook pitfalls**: Identify and fix common mistakes like missing dependencies in `useEffect` or unnecessary state updates causing re-renders
+
+## Practice questions
+
+**Quiz**:
+
+- [What are the benefits of using hooks in React?](/questions/quiz/what-are-the-benefits-of-using-hooks-in-react?framework=react&tab=quiz)
+- [What are the rules of React hooks?](/questions/quiz/what-are-the-rules-of-react-hooks?framework=react&tab=quiz)
+- [What is the difference between `useEffect` and `useLayoutEffect` in React?](/questions/quiz/what-is-the-difference-between-useeffect-and-uselayouteffect-in-react?framework=react&tab=quiz)
+- [What is the purpose of callback function argument format of `setState()` in React and when should it be used?](/questions/quiz/what-is-the-purpose-of-callback-function-argument-format-of-setstate-in-react-and-when-should-it-be-used?framework=react&tab=quiz)
+- [What does the dependency array of `useEffect` affect?](/questions/quiz/what-does-the-dependency-array-of-useeffect-affect?framework=react&tab=quiz)
+- [What is the `useRef` hook in React and when should it be used?](/questions/quiz/what-is-the-useref-hook-in-react-and-when-should-it-be-used?framework=react&tab=quiz)
+- [What is the `useCallback` hook in React and when should it be used?](/questions/quiz/what-is-the-usecallback-hook-in-react-and-when-should-it-be-used?framework=react&tab=quiz)
+- [What is the `useMemo` hook in React and when should it be used?](/questions/quiz/what-is-the-usememo-hook-in-react-and-when-should-it-be-used?framework=react&tab=quiz)
+- [What is the `useReducer` hook in React and when should it be used?](/questions/quiz/what-is-the-usereducer-hook-in-react-and-when-should-it-be-used?framework=react&tab=quiz)
+- [What is the `useId` hook in React and when should it be used?](/questions/quiz/what-is-the-useid-hook-in-react-and-when-should-it-be-used?framework=react&tab=quiz)
+- [What is `forwardRef()` in React used for?](/questions/quiz/what-is-forwardref-in-react-used-for?framework=react&tab=quiz)
+
+**Coding**:
+
+- [Progress Bars](/questions/user-interface/progress-bars/react?framework=react&tab=coding)
+- [Tabs](/questions/user-interface/tabs/react?framework=react&tab=coding)
+- [Analog Clock](/questions/user-interface/analog-clock/react?framework=react&tab=coding)
+- [Digital Clock](/questions/user-interface/digital-clock/react?framework=react&tab=coding)

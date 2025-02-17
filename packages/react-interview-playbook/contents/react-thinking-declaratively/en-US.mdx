@@ -1,6 +1,6 @@
 ---
 title: Thinking Declaratively in React
-description: TODO
+description: Guide on thinking in declarative and state-driven approaches in React, featuring practical examples like a todo list to illustrate building dynamic, maintainable UIs
 ---
 
 One of the core principles of React is its declarative nature. Instead of manually updating the DOM step by step (imperative programming), React allows you to define what the UI should look like based on the current state, and it takes care of the updates for you. This approach makes UI development more predictable, scalable, and easier to reason about.
@@ -56,15 +56,15 @@ Using an imperative approach (e.g., using vanilla JavaScript and the DOM API), e
 
 The following user actions will require these DOM operations:
 
-1. Adding a task:
+1. **Adding a task**:
    1. Append the new task to the existing list
    2. Clear the contents of the input
    3. Add event listener to the newly-added task for task completion
    4. Increment the number of total tasks
-2. Completing a task:
+2. **Completing a task**:
    1. Update the task to show completed state
    2. Modify the number of completed tasks
-3. Deleting a task:
+3. **Deleting a task**:
    1. Remove the task from the list
    2. Decrement the number of total tasks
    3. Decrement the number of completed tasks if the task was completed
@@ -102,7 +102,7 @@ A todo list has several possible UI states:
 Next, we define the actions that affect state:
 
 - Adding a task
-- Toggling a task's completion status
+- Completing a task
 - Deleting a task
 - Filtering tasks (show All, Active, or Completed)
 
@@ -133,9 +133,9 @@ However, in this design, there's some duplication of data. Tasks are part of bot
 Some ways to improve it:
 
 1. The `incompleteTasks` state is redundant since if a task is not within `completedTasks`, then it is incomplete. However, it would be inefficient when linear scanning the `completedTasks` array for every task to check if a task is completed
-2. We can use a `Set` for `completedTasks` and store only the task ID. This way, the task titles aren't repeated and looking up a task's completion status is fast. However, we still need to remember to modify two places when a complete task is being deleted.
+2. We can use a `Set` for `completedTasks` that stores only the task ID. This way, the task titles don't have to be repeated and looking up a task's completion status is efficient. However, we still need to remember to modify two places when a completed task is being deleted.
 
-Instead of storing multiple independent pieces of state that require syncing, here's a minimal and structured state representation:
+Instead of storing multiple independent pieces of state that require syncing, we can track completion status on the task itself. Here's a minimal and structured state representation:
 
 ```js
 const [tasks, setTasks] = useState([
@@ -146,12 +146,14 @@ const [tasks, setTasks] = useState([
 const [filter, setFilter] = useState('all'); // all | active | completed
 ```
 
-Here:
+Using this structure:
 
 - `tasks` is an array where each task has an `id`, `title`, and `completed` status
 - `filter` determines which tasks to display
 
 To avoid redundant state, instead of keeping a separate `completedTasks` array, we can derive completed tasks from `tasks`.
+
+There are tradeoffs to consider here. Although state is now consolidated, toggling tasks completion will now require cloning of the entire `tasks` array when there wasn't a need to if we use a `Set` for `completedTasks`.
 
 ### 4. Call actions within event handlers
 
@@ -265,7 +267,7 @@ This example shows how thinking declaratively simplifies UI development in React
 3. Design a **minimal state structure**
 4. Use **event handlers** to update state
 
-Instead of micromanaging DOM updates, we let React **react** to state changes—making our code cleaner, scalable, and easier to maintain.
+Instead of micromanaging DOM updates, we let React **react** to state changes – making our code cleaner, scalable, and easier to maintain.
 
 Thinking declaratively in React means shifting from a step-by-step, command-driven mindset to a state-driven approach. By focusing on defining what the UI should be based on state, you create components that are more readable, predictable, and maintainable.
 
@@ -273,4 +275,15 @@ Embracing this paradigm makes it easier to manage complex UIs and lets React do 
 
 ## What you need to know for interviews
 
-Given a UI and the requirements, you should be able to think in a declarative fashion to define the various necessary components, props, state, operations that change the state, and connecting all of them together.
+- **Think declaratively and design the component**: Given a UI and the requirements, you should be able to think in a declarative fashion to define the various necessary components, props, state, operations that change the state, and connect all of them together.
+
+## Practice questions
+
+**Coding**:
+
+- [Tweet](/questions/user-interface/tweet/react?framework=react&tab=coding)
+- [Progress Bar](/questions/user-interface/progress-bar/react?framework=react&tab=coding)
+- [Progress Bars](/questions/user-interface/progress-bars/react?framework=react&tab=coding)
+- [File Explorer](/questions/user-interface/file-explorer/react?framework=react&tab=coding)
+- [File Explorer II](/questions/user-interface/file-explorer-ii/react?framework=react&tab=coding)
+- [File Explorer III](/questions/user-interface/file-explorer-iii/react?framework=react&tab=coding)

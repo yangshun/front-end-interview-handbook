@@ -1,17 +1,17 @@
 ---
-title: Forms in React
-description: TODO
+title: Forms in React Interviews
+description: Guide to building interactive React forms, covering controlled vs uncontrolled components, diverse input types, complex state management, and robust error handling and validation strategies
 ---
 
 Forms in React are a crucial part of building interactive applications, allowing users to input and submit data. In React, it is common to control form elements using state, making them dynamic yet predictable.
 
-## Controlled vs Uncontrolled components
+## Controlled vs uncontrolled form components
 
-In React, form inputs can be managed in two ways: **controlled components** and **uncontrolled components**. The main difference lies in how the form data is handled.
+In React, form inputs can be managed in two ways: **controlled** and **uncontrolled**. The main difference lies in how the form data is handled.
 
-### Controlled components
+### Controlled form components
 
-In a **controlled component**, React manages the form element's state. The value of the input is stored in a state variable and updated via an `onChange` handler.
+In a **controlled form component**, React manages the form element's state. The value of the input is stored in a state variable and updated via an `onChange` handler.
 
 ```jsx
 import { useState } from 'react';
@@ -42,9 +42,9 @@ function ControlledForm() {
 
 In controlled components, the input value is stored in React state (`name`). The `onChange` handler updates the state as the user types. This ensures the value is always controlled by React.
 
-### Uncontrolled components
+### Uncontrolled form components
 
-In an **uncontrolled component**, the form element's value is managed by the DOM itself rather than React state.
+In an **uncontrolled form component**, the form element's value is managed by the DOM itself rather than React state.
 
 ```jsx
 import { useRef } from 'react';
@@ -82,7 +82,7 @@ In uncontrolled components, the input value is not stored in React state. To acc
 
 ### When to use which?
 
-| Feature | Controlled Component | Uncontrolled Component |
+| Feature | Controlled form | Uncontrolled form |
 | --- | --- | --- |
 | **Where state is stored** | React state (`useState`) | Native DOM |
 | **Performance** | Re-rendering needed on update, might cause issues in large forms | More performant for simple use cases |
@@ -90,8 +90,8 @@ In uncontrolled components, the input value is not stored in React state. To acc
 | **Form reset** | Easy (`setState("")`) | Needs `ref.current.value = ""` or trigger a `'reset'` event |
 | **Use case** | Dynamic forms, validation, real-time updates | Simple forms, file uploads, or integrating non-React code |
 
-- Use **controlled components** when you need to validate, manipulate, or track user input dynamically (e.g. toggling visibility of certain form fields based on previous responses) or nested form state
-- Use **uncontrolled components** when working with large forms, integrating with non-React code, or optimizing performance
+- Use **controlled form components** when you need to validate, manipulate, or track user input dynamically (e.g. toggling visibility of certain form fields based on previous responses) or nested form state
+- Use **uncontrolled form components** when working with large forms, integrating with non-React code, or optimizing performance
 
 In interviews, considering the forms usually do not have many fields, both controlled components and uncontrolled approaches are viable. Personally, we'd lean towards controlled components since you might be asked to reset the values, add validation-on-typing, etc and it'd be easier to implement.
 
@@ -780,3 +780,14 @@ function ServerErrorHandlingForm() {
 - **Form controls**: Be able to build forms that use the various input types
 - **Complex forms**: How to build complex forms and the best practices
 - **Error handling and validation**: How to validate forms and show errors using native browser approaches and React approaches
+
+## Practice questions
+
+**Coding**:
+
+- [Generate Table](/questions/user-interface/generate-table/react?framework=react&tab=coding)
+- [Contact Form](/questions/user-interface/contact-form/react?framework=react&tab=coding)
+- [Mortgage Calculator](/questions/user-interface/mortgage-calculator/react?framework=react&tab=coding)
+- [Temperature Converter](/questions/user-interface/temperature-converter/react?framework=react&tab=coding)
+- [Flight Booker](/questions/user-interface/flight-booker/react?framework=react&tab=coding)
+- [Auth Code Input](/questions/user-interface/auth-code-input/react?framework=react&tab=coding)
