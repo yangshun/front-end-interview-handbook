@@ -1,5 +1,6 @@
 import clsx from 'clsx';
-import React, { useEffect, useRef, useState } from 'react';
+import { AnimatePresence, motion, wrap } from 'framer-motion';
+import React, { useState } from 'react';
 import { RiArrowLeftSLine, RiArrowRightSLine } from 'react-icons/ri';
 
 import { FormattedMessage, useIntl } from '~/components/intl';
@@ -8,6 +9,32 @@ import {
   themeBackgroundBrandColor,
   themeTextLightColor,
 } from '~/components/ui/theme';
+
+const variants = {
+  center: {
+    opacity: 1,
+    x: 0,
+    zIndex: 1,
+  },
+  enter: (direction: number) => {
+    return {
+      opacity: 0,
+      x: direction > 0 ? 1000 : -1000,
+    };
+  },
+  exit: (direction: number) => {
+    return {
+      opacity: 0,
+      x: direction < 0 ? 1000 : -1000,
+      zIndex: 0,
+    };
+  },
+};
+
+const swipeConfidenceThreshold = 10000;
+const swipePower = (offset: number, velocity: number) => {
+  return Math.abs(offset) * velocity;
+};
 
 function NavigationButton({
   direction,
@@ -37,7 +64,7 @@ function NavigationButton({
       aria-label={label}
       className={clsx(
         'flex items-center justify-center',
-        'group absolute bottom-0 top-0 w-12',
+        'group absolute bottom-0 top-0 z-10 w-12',
         direction === 'left' ? 'left-0' : 'right-0',
         'bg-neutral-800/20',
         'opacity-0 transition-opacity duration-1000 hover:opacity-100',
@@ -57,138 +84,97 @@ type Props = Readonly<{
 }>;
 
 export default function ProjectsChallengeBriefImageCarousel({ images }: Props) {
-  const ref = useRef<HTMLDivElement>(null);
-  const imageListRef = useRef<HTMLDivElement>(null);
-  const [current, setCurrent] = useState(0);
-  const [imageWidth, setImageWidth] = useState(0);
-  const GAP_BETWEEN_IMAGE = 8;
-  const showInformationText = !!imageWidth;
+  const intl = useIntl();
 
-  const scrollImage = (direction: 'left' | 'right') => {
-    const maxScrollLeft =
-      (imageListRef?.current?.scrollWidth ?? 0) -
-      (imageListRef?.current?.clientWidth ?? 0);
+  const [page, setPage] = useState(0);
+  const [direction, setDirection] = useState(0);
+  const imageIndex = wrap(0, images.length, page);
 
-    const directionValue = direction === 'left' ? -1 : 1;
-    const scrollAmount =
-      (imageListRef.current?.clientWidth ?? 0) * directionValue;
-
-    imageListRef.current?.scrollBy({
-      behavior: 'smooth',
-      left:
-        direction === 'right'
-          ? imageListRef?.current.scrollLeft + 4 >= maxScrollLeft
-            ? -imageListRef?.current.scrollLeft
-            : scrollAmount ?? 0
-          : imageListRef?.current.scrollLeft - 4 <= 0
-            ? maxScrollLeft
-            : scrollAmount ?? 0,
-    });
+  const paginate = (newDirection: number) => {
+    setPage((prevPage) => prevPage + newDirection);
+    setDirection(newDirection);
   };
-
-  useEffect(() => {
-    const element = imageListRef.current;
-    const handleScroll = () => {
-      if (imageListRef.current) {
-        const { scrollLeft } = imageListRef.current;
-        const currentIndex = Math.round(
-          scrollLeft / (imageWidth + GAP_BETWEEN_IMAGE),
-        );
-
-        setCurrent(currentIndex);
-      }
-    };
-
-    if (element) {
-      element.addEventListener('scroll', handleScroll);
-    }
-
-    return () => {
-      if (element) {
-        element.removeEventListener('scroll', handleScroll);
-      }
-    };
-  }, [imageWidth]);
-
-  useEffect(() => {
-    setImageWidth(ref.current?.offsetWidth ?? 0);
-  }, []);
-
-  useEffect(() => {
-    const moveOnWindowResize = () => {
-      setImageWidth(ref.current?.offsetWidth ?? 0);
-    };
-
-    window.addEventListener('resize', moveOnWindowResize);
-
-    return () => window.removeEventListener('resize', moveOnWindowResize);
-  });
 
   return (
     <div className="flex flex-col items-center gap-y-4">
-      <div ref={ref} className="relative w-full overflow-clip rounded-lg">
-        <div
-          ref={imageListRef}
-          className="no-scrollbar grid snap-x snap-mandatory overflow-x-auto"
-          style={{
-            gap: `${GAP_BETWEEN_IMAGE}px`,
-            gridTemplateColumns: `repeat(${images.length}, 1fr)`,
-          }}>
-          {images.map((image) => (
-            <img
-              key={image}
-              alt=""
-              className="aspect-[1500/1116] w-full snap-center rounded-lg object-cover"
-              decoding="async"
-              loading="lazy"
-              src={image}
-              style={{
-                maxWidth: `${imageWidth}px`,
-                minWidth: `${imageWidth}px`,
+      <div className="relative aspect-[1500/1116] w-full overflow-hidden rounded-lg">
+        <div className="relative flex h-full w-full items-center justify-center">
+          <AnimatePresence custom={direction} initial={false}>
+            <motion.img
+              key={page}
+              animate="center"
+              className="absolute inset-0 h-full w-full rounded-lg object-cover"
+              custom={direction}
+              drag="x"
+              dragConstraints={{ left: 0, right: 0 }}
+              dragElastic={1}
+              exit="exit"
+              initial="enter"
+              src={images[imageIndex]}
+              transition={{
+                opacity: { duration: 0.2 },
+                x: { damping: 30, stiffness: 300, type: 'spring' },
+              }}
+              variants={variants}
+              onDragEnd={(_, { offset, velocity }) => {
+                const swipe = swipePower(offset.x, velocity.x);
+
+                if (swipe < -swipeConfidenceThreshold) {
+                  paginate(1);
+                } else if (swipe > swipeConfidenceThreshold) {
+                  paginate(-1);
+                }
               }}
             />
-          ))}
+          </AnimatePresence>
         </div>
         {images.length > 1 && (
           <>
-            <NavigationButton
-              direction="left"
-              onClick={() => scrollImage('left')}
-            />
-            <NavigationButton
-              direction="right"
-              onClick={() => scrollImage('right')}
-            />
-            <div className="absolute bottom-0 right-0 mb-3 me-3 flex rounded-full bg-neutral-300 px-2 py-0.5">
+            <NavigationButton direction="left" onClick={() => paginate(-1)} />
+            <NavigationButton direction="right" onClick={() => paginate(1)} />
+            <div className="absolute bottom-0 right-0 z-10 mb-3 me-3 flex rounded-full bg-neutral-300 px-2 py-0.5">
               <Text color="dark" size="body3" weight="medium">
-                {current + 1}/{images.length}
+                {imageIndex + 1}/{images.length}
               </Text>
             </div>
-            <div className="absolute bottom-0 left-1/2 mb-3 flex -translate-x-1/2 gap-2">
+            <div className="absolute bottom-0 left-1/2 z-10 mb-3 flex -translate-x-1/2 gap-2">
               {images.map((image, index) => (
-                <div
+                <button
                   key={image}
+                  aria-label={intl.formatMessage(
+                    {
+                      defaultMessage: 'Go to image {imgIndex}',
+                      description:
+                        'Label for button to navigate carousel image',
+                      id: 'Q3mZ0W',
+                    },
+                    { imgIndex: index + 1 },
+                  )}
                   className={clsx(
                     'h-0.5 w-6 flex-1 rounded-lg',
-                    index === current
+                    index === imageIndex
                       ? themeBackgroundBrandColor
                       : 'bg-neutral-800/40',
                   )}
-                />
+                  type="button"
+                  onClick={() => {
+                    const newDirection = index - imageIndex > 0 ? 1 : -1;
+
+                    setPage(index);
+                    setDirection(newDirection);
+                  }}></button>
               ))}
             </div>
           </>
         )}
       </div>
-      {showInformationText && (
-        <Text color="secondary" size="body3" weight="normal">
-          <FormattedMessage
-            defaultMessage="Images just for illustration. Actual page(s) could be longer"
-            description="Info for carousel images in project brief"
-            id="Ae22GD"
-          />
-        </Text>
-      )}
+      <Text color="secondary" size="body3" weight="normal">
+        <FormattedMessage
+          defaultMessage="Images just for illustration. Actual page(s) could be longer"
+          description="Info for carousel images in project brief"
+          id="Ae22GD"
+        />
+      </Text>
     </div>
   );
 }

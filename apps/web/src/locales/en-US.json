@@ -4419,6 +4419,10 @@
     "defaultMessage": "All premium questions",
     "description": "Paywall tags"
   },
+  "Q3mZ0W": {
+    "defaultMessage": "Go to image {imgIndex}",
+    "description": "Label for button to navigate carousel image"
+  },
   "Q7apLT": {
     "defaultMessage": "Blog | GreatFrontEnd",
     "description": "Title of GreatFrontEnd blog homepage"
