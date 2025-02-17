@@ -1,4 +1,4 @@
-import { keyBy, mapValues, sumBy } from 'lodash-es';
+import { keyBy, sumBy } from 'lodash-es';
 
 import { BehavioralInterviewPlaybookPaths } from '~/components/guides/books/BehavioralInterviewPlaybookNavigation';
 import { FrontEndInterviewPlaybookPaths } from '~/components/guides/books/FrontEndInterviewPlaybookNavigation';
@@ -6,6 +6,7 @@ import { FrontEndSystemDesignPlaybookPaths } from '~/components/guides/books/Fro
 import type {
   GuideCardMetadata,
   GuideMetadata,
+  GuideNavigation,
 } from '~/components/guides/types';
 
 import type { GuidebookItem, GuideProgress } from '@prisma/client';
@@ -27,27 +28,28 @@ export function hasCompletedGuide(
   return completedGuides.has(hashGuide(guide.book, guide.id));
 }
 
-export function categorizeGuides<
-  T extends string,
-  R extends string,
+export function processForGuidesCover<
+  GuideSlug extends string,
   Q extends GuideCardMetadata,
->({
-  guides,
-  categorizedSlugs,
-}: {
-  categorizedSlugs: Record<T, ReadonlyArray<R>>;
-  guides: ReadonlyArray<Q>;
-}): Record<T, { articles: Array<Q>; totalReadingTime: number }> {
-  // Create a map of guides based on their slug for quick lookup
-  const guideMap = keyBy(guides, 'id');
+>(guidesNavigation: GuideNavigation<GuideSlug>, guides: ReadonlyArray<Q>) {
+  const guidesMap = keyBy(guides, 'id');
 
-  // Iterate through each category in categorizedSlugs
-  return mapValues(categorizedSlugs, (slugs) => {
-    const articles = slugs.map((slug) => guideMap[slug]).filter(Boolean); // Filter out undefined (in case a route doesn't match any guide)
+  return guidesNavigation.navigation.items.map((navItem) => {
+    if (navItem.type === 'list') {
+      const articles = navItem.items.map((item) => guidesMap[item.id]);
 
-    const totalReadingTime = sumBy(articles, 'readingTime');
+      return {
+        articles,
+        title: navItem.label,
+        totalReadingTime: sumBy(articles, 'readingTime'),
+      };
+    }
 
-    return { articles, totalReadingTime };
+    return {
+      articles: [guidesMap[navItem.id]],
+      title: navItem.label,
+      totalReadingTime: guidesMap[navItem.id].readingTime,
+    };
   });
 }
 

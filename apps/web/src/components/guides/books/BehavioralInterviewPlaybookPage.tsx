@@ -6,7 +6,7 @@ import {
   RiShiningLine,
 } from 'react-icons/ri';
 
-import type { BehavioralInterviewPlaybookPathType } from '~/components/guides/books/BehavioralInterviewPlaybookNavigation';
+import { useBehavioralInterviewPlaybookNavigation } from '~/components/guides/books/BehavioralInterviewPlaybookNavigation';
 import GuidesCoverLayout from '~/components/guides/cover/GuidesCoverLayout';
 import GuidesListWithCategory from '~/components/guides/cover/GuidesListWithCategory';
 import type { GuideCardMetadata } from '~/components/guides/types';
@@ -15,59 +15,21 @@ import { useIntl } from '~/components/intl';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 
-import { categorizeGuides } from '~/db/guides/GuidesUtils';
+import { processForGuidesCover } from '~/db/guides/GuidesUtils';
 
 type Props = Readonly<{
-  allGuides: ReadonlyArray<GuideCardMetadata>;
+  guides: ReadonlyArray<GuideCardMetadata>;
 }>;
 
-export default function BehavioralInterviewPlaybookPage({ allGuides }: Props) {
+export default function BehavioralInterviewPlaybookPage({ guides }: Props) {
   const intl = useIntl();
 
-  const categorizedGuideSlugs: Record<
-    'common-questions' | 'overview',
-    ReadonlyArray<BehavioralInterviewPlaybookPathType>
-  > = {
-    'common-questions': [
-      'self-introduction',
-      'why-work-here',
-      'questions-to-ask',
-      'problem-solving',
-      'collaboration',
-      'growth-mindset',
-    ],
-    overview: ['introduction', 'questions'],
-  };
-
-  const guidesWithCompletionStatus = useGuidesWithCompletionStatus(allGuides);
-
-  const categorizedGuides = categorizeGuides({
-    categorizedSlugs: categorizedGuideSlugs,
-    guides: guidesWithCompletionStatus,
-  });
-
-  const guidesData = [
-    {
-      articles: categorizedGuides.overview.articles,
-      title: intl.formatMessage({
-        defaultMessage: 'Overview',
-        description:
-          'Title for overview category of behavioral playbook cover page',
-        id: 'd4LSzo',
-      }),
-      totalReadingTime: categorizedGuides.overview.totalReadingTime,
-    },
-    {
-      articles: categorizedGuides['common-questions'].articles,
-      title: intl.formatMessage({
-        defaultMessage: 'Answering common questions',
-        description:
-          'Title for Answering common questions category of behavioral playbook cover page',
-        id: '/Ig2Nh',
-      }),
-      totalReadingTime: categorizedGuides['common-questions'].totalReadingTime,
-    },
-  ];
+  const guidesWithCompletionStatus = useGuidesWithCompletionStatus(guides);
+  const navigation = useBehavioralInterviewPlaybookNavigation();
+  const guidesData = processForGuidesCover(
+    navigation,
+    guidesWithCompletionStatus,
+  );
 
   const features = [
     {
@@ -80,16 +42,11 @@ export default function BehavioralInterviewPlaybookPage({ allGuides }: Props) {
     },
     {
       icon: RiShiningLine,
-      label: intl.formatMessage(
-        {
-          defaultMessage: '{questionCount} question deep-dives',
-          description: 'Features for frontend interviews playbook page',
-          id: 'okguyM',
-        },
-        {
-          questionCount: categorizedGuides['common-questions'].articles.length,
-        },
-      ),
+      label: intl.formatMessage({
+        defaultMessage: 'Behavioral question deep-dives',
+        description: 'Features for frontend interviews playbook page',
+        id: 'nJ9Le/',
+      }),
     },
   ];
 

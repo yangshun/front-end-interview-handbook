@@ -63,7 +63,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Page({ params }: Props) {
-  const allGuides = await readAllBehavioralGuides(params.locale);
+  const guides = await readAllBehavioralGuides(params.locale);
 
-  return <BehavioralInterviewPlaybookPage allGuides={allGuides} />;
+  return <BehavioralInterviewPlaybookPage guides={guides} />;
 }

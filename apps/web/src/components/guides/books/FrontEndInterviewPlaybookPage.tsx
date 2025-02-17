@@ -7,7 +7,7 @@ import {
   RiShiningLine,
 } from 'react-icons/ri';
 
-import type { FrontEndInterviewPlaybookPathType } from '~/components/guides/books/FrontEndInterviewPlaybookNavigation';
+import { useFrontEndInterviewPlaybookNavigation } from '~/components/guides/books/FrontEndInterviewPlaybookNavigation';
 import GuidesCoverLayout from '~/components/guides/cover/GuidesCoverLayout';
 import GuidesListWithCategory from '~/components/guides/cover/GuidesListWithCategory';
 import type { GuideCardMetadata } from '~/components/guides/types';
@@ -16,7 +16,7 @@ import { QuestionCountTotal } from '~/components/interviews/questions/listings/s
 import { useIntl } from '~/components/intl';
 import Section from '~/components/ui/Heading/HeadingContext';
 
-import { categorizeGuides } from '~/db/guides/GuidesUtils';
+import { processForGuidesCover } from '~/db/guides/GuidesUtils';
 
 type Props = Readonly<{
   allGuides: ReadonlyArray<GuideCardMetadata>;
@@ -33,91 +33,12 @@ export default function FrontEndInterviewPlaybookPage({
 }: Props) {
   const intl = useIntl();
 
-  const categorizedGuideSlugs: Record<
-    'coding' | 'introduction' | 'quiz' | 'resume' | 'system-design' | 'ui',
-    ReadonlyArray<FrontEndInterviewPlaybookPathType>
-  > = {
-    coding: ['coding', 'javascript', 'algorithms'],
-    introduction: ['introduction'],
-    quiz: ['quiz'],
-    resume: ['resume'],
-    'system-design': ['system-design'],
-    ui: [
-      'user-interface',
-      'user-interface-questions-cheatsheet',
-      'user-interface-components-api-design-principles',
-    ],
-  };
-
   const guidesWithCompletionStatus = useGuidesWithCompletionStatus(allGuides);
-
-  const categorizedGuides = categorizeGuides({
-    categorizedSlugs: categorizedGuideSlugs,
-    guides: guidesWithCompletionStatus,
-  });
-
-  const guidesData = [
-    {
-      articles: categorizedGuides.introduction.articles,
-      title: intl.formatMessage({
-        defaultMessage: 'Introduction',
-        description:
-          'Title for introduction category of frontend interview playbook cover page',
-        id: '1zLRKA',
-      }),
-      totalReadingTime: categorizedGuides.introduction.totalReadingTime,
-    },
-    {
-      articles: categorizedGuides.coding.articles,
-      title: intl.formatMessage({
-        defaultMessage: 'Coding Interviews',
-        description:
-          'Title for Coding Interviews category of frontend interview playbook cover page',
-        id: '5db7o8',
-      }),
-      totalReadingTime: categorizedGuides.coding.totalReadingTime,
-    },
-    {
-      articles: categorizedGuides.ui.articles,
-      title: intl.formatMessage({
-        defaultMessage: 'User Interface Interviews',
-        description:
-          'Title for User Interface Interviews category of frontend interview playbook cover page',
-        id: '3GRLIt',
-      }),
-      totalReadingTime: categorizedGuides.ui.totalReadingTime,
-    },
-    {
-      articles: categorizedGuides['system-design'].articles,
-      title: intl.formatMessage({
-        defaultMessage: 'System Design Interviews',
-        description:
-          'Title for System Design Interviews category of frontend interview playbook cover page',
-        id: 'oTMcbU',
-      }),
-      totalReadingTime: categorizedGuides['system-design'].totalReadingTime,
-    },
-    {
-      articles: categorizedGuides.quiz.articles,
-      title: intl.formatMessage({
-        defaultMessage: 'Quiz Interviews',
-        description:
-          'Title for Quiz Interviews category of frontend interview playbook cover page',
-        id: 'GAqip7',
-      }),
-      totalReadingTime: categorizedGuides.quiz.totalReadingTime,
-    },
-    {
-      articles: categorizedGuides.resume.articles,
-      title: intl.formatMessage({
-        defaultMessage: 'Resume Preparation',
-        description:
-          'Title for Resume Preparation category of frontend interview playbook cover page',
-        id: 'z3B/G3',
-      }),
-      totalReadingTime: categorizedGuides.resume.totalReadingTime,
-    },
-  ];
+  const navigation = useFrontEndInterviewPlaybookNavigation();
+  const guidesData = processForGuidesCover(
+    navigation,
+    guidesWithCompletionStatus,
+  );
 
   const features = [
     {
