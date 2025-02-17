@@ -1,0 +1,358 @@
+---
+title: Event Handling in React Interviews
+description: Guide to React's synthetic event system, covering best practices for handling, intercepting, and optimizing mouse, input, form, focus, and keyboard events for interview success
+---
+
+React uses a **synthetic event system** to provide a consistent way to handle events across different browsers. Unlike native JavaScript events, React wraps native events into a standardized object called `SyntheticEvent`, which improves performance and ensures cross-browser compatibility.
+
+## How React handles events
+
+React's **synthetic event system** provides consistency across different browsers and optimizations for performance.
+
+In vanilla JavaScript, event listeners are added like this:
+
+```js
+document.getElementById('btn').addEventListener('click', (event) => {
+  console.log('Clicked!');
+});
+```
+
+In React, events are attached to elements like this:
+
+```tsx
+<button onClick={() => console.log('Clicked!')}>Click Me</button>
+```
+
+However, since React uses event delegation and events are attached to the root of the React application (not the document root) instead of individual elements to improve performance.
+
+React wraps native events into a `SyntheticEvent` for efficiency and compatibility.
+
+Like event listeners in vanilla JavaScript, React's `SyntheticEvent`s are passed as the first argument to event handler callbacks. For the most part they can be treated as raw browser `Event` objects and [`Event` attributes and methods](https://developer.mozilla.org/en-US/docs/Web/API/Event) can also be accessed on the `SyntheticEvent`.
+
+```jsx
+function handleClick(event) {
+  console.log(event); // React SyntheticEvent
+  console.log(event.nativeEvent); // Native browser event
+  console.log(event.target); // <button>...</button>
+}
+
+<button onClick={handleClick}>Click me</button>;
+```
+
+Further reading on react.dev: [Responding to Events](https://react.dev/learn/responding-to-events)
+
+## Event handlers in React
+
+Event handlers in React are functions that respond to user interactions, such as clicks, key presses, form submissions, or mouse movements.
+
+### Mouse events
+
+Mouse event handlers fire when users interact with the mouse (clicks, hovers, etc.). Mouse events can be added to most elements but for accessibility purposes, certain handlers like `onClick` should only be added to interactive elements such as `<button>`, `<a>`, `<input>` otherwise screen reader users will not be able to trigger those interactions.
+
+Mouse event handlers receive the [`MouseEvent`](https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent) argument.
+
+```jsx
+function ClickButton() {
+  function handleClick() {
+    alert('Button clicked!');
+  }
+
+  return <button onClick={handleClick}>Click me</button>;
+}
+```
+
+You should know the following mouse events:
+
+- `onClick`: Fires when an element is clicked (mousedown + mouseup). Commonly used in interviews
+- `onMouseEnter`: Fires when the mouse enters an element. Does not bubble (useful for hover interactions). Sometimes used in interviews
+- `onMouseLeave`: Fires when the mouse leaves an element. Does not bubble. Sometimes used in interviews
+- `onMouseOver`: Fires when the mouse enters an element or its children. Does bubble. Sometimes used in interviews
+- `onMouseOut`: Fires when the mouse leaves an element or its children. Does bubble. Sometimes used in interviews
+- `onMouseDown`: Fires when the mouse button is pressed down. Rarely used in interviews, in most cases you should use `onClick`
+- `onMouseUp`: Fires when the mouse button is released. Rarely used in interviews, in most cases you should use `onClick`
+- `onDoubleClick`: Fires when an element is double-clicked. Rarely used in interviews
+
+In case you get quizzed, you should be able to explain the difference between `onMouseEnter`/`onMouseLeave` and `onMouseOver`/`onMouseOut` – the former pair does not [bubble up the DOM](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting/Event_bubbling) while the latter pair does.
+
+For accessibility purposes, bear in mind to not add `onClick` handlers to non-interactive (non-clickable and non-focusable) elements.
+
+90% of the time you'd use `onClick` only on `<button>`s. `<a href="#" onClick={...}>` is also an anti-pattern, just use `<button onClick={...}>` and modify the styling accordingly.
+
+`onMouseEnter`/`onMouseLeave` and `onMouseOver`/`onMouseOut` can be used for adding hover styles, it's better to use CSS's `:hover` pseudo-class. There is no need to use JavaScript when CSS is able to do the job.
+
+### Input events
+
+Input event handlers are fired when user input changes (typing, pasting, etc.) and can be attached on `<input>` and `<textarea>` elements.
+
+Input event handlers receive the [`InputEvent`](https://developer.mozilla.org/en-US/docs/Web/API/InputEvent) as argument.
+
+```jsx
+function Foo() {
+  const [value, setValue] = useState('');
+
+  return (
+    <input
+      onChange={(event) => setValue(event.target.value)}
+      value={value}
+      placeholder="Type here"
+    />
+  );
+}
+```
+
+You should know the following input events:
+
+- `onChange`: Fires when the value of an input changes
+- `onInput`: Fires when the user inputs data (similar to `onChange`). Most of the time, use `onChange` instead
+
+#### What's the difference between `'change'` and `'input'` events?
+
+For most event handlers in React, the `onEventName` attribute is the same as doing `element.addEventListener('eventname', ...)` in the browser. But not for `onChange` and `onInput`!
+
+Both `'change'` and `'input'` events detect when the value of an input field changes, but they have key differences in behavior and when they fire.
+
+In browsers, for some elements, including `<input type="text">`, the change event doesn't fire until the control loses focus. React's `onChange` behaves more like the DOM `'input'` event where it is fired on every keystroke.
+
+The browser `'change'` event is fired when the value is committed (e.g. loses focus):
+
+- In most cases, it is not fired on every keystroke
+- Works for `<input>`, `<textarea>`, `<select>`, etc
+
+The browser `'input'` event fires on every input change, including typing, pasting, and voice input:
+
+- Works in both React and vanilla JS
+- Fires immediately on every character input (like React's `onChange`)
+- Triggers even when using voice input, drag-and-drop, and pasting
+
+**Key differences**
+
+| Feature | `onChange` | `onInput` |
+| --- | --- | --- |
+| Triggers on every keystroke? | ✅ (React only) | ✅ |
+| Triggers on copy-paste? | ✅ | ✅ |
+| Triggers on IME (Chinese, Japanese, Korean)? | ❌ (only on commit) | ✅ (on every character) |
+| Triggers on speech-to-text input? | ❌ (only on commit) | ✅ (on every spoken word) |
+| Works with `contenteditable`? | ❌ | ✅ |
+| Detects programmatic value updates? | ❌ | ✅ |
+
+It can be confusing to know when to use `onChange` vs `onInput`, during interviews, when in doubt, use `onChange`.
+
+### Form events
+
+Form event handlers (`onSubmit` and `onReset`) only work on `<form>` elements.
+
+`onSubmit` receives the [`SubmitEvent`](https://developer.mozilla.org/en-US/docs/Web/API/SubmitEvent) argument while the `onReset` handler receives the generic [`Event`](https://developer.mozilla.org/en-US/docs/Web/API/Event) argument.
+
+```jsx
+function SimpleForm() {
+  const [input, setInput] = useState('');
+
+  function handleSubmit(event) {
+    event.preventDefault(); // Prevents page reload
+    alert(`Form submitted with: ${input}`);
+  }
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
+        placeholder="Enter something"
+      />
+      <button type="submit">Submit</button>
+    </form>
+  );
+}
+```
+
+You should know the following form events:
+
+- `onSubmit`: Fires when a form is submitted. Only fires when triggered by a `<button type="submit">` or `<input type="submit">` within a `<form>`
+- `onReset`: Fires when a form is reset. Only fires when triggered by a `<button type="reset">` or `<input type="reset">` within a `<form>`
+
+Since most of the time you are dealing with single-page applications and do not have a server, you likely have to do `event.preventDefault()` within the `onSubmit` handler to prevent a full-page refresh.
+
+### Focus events
+
+Focus event handlers work with elements that can receive focus such as form elements and interactive elements such as `<input>`, `<textarea>`, `<select>`, `<button>`.
+
+Focus event handlers receive the [`FocusEvent`](https://developer.mozilla.org/en-US/docs/Web/API/FocusEvent) argument.
+
+```jsx
+function FocusBlurExample() {
+  const [focused, setFocused] = useState(false);
+
+  return (
+    <div>
+      <input
+        type="text"
+        placeholder="Click to focus..."
+        onFocus={() => setFocused(true)}
+        onBlur={() => setFocused(false)}
+        style={{
+          border: focused ? '2px solid blue' : '2px solid gray',
+          outline: 'none',
+          padding: '5px',
+        }}
+      />
+      <p>{focused ? 'Input is focused' : 'Input is blurred'}</p>
+    </div>
+  );
+}
+```
+
+You should know the following form events:
+
+- `onFocus`: Fires when an element gains focus
+- `onBlur`: Fires when an element loses focus
+
+While the above example uses `onFocus`/`onBlur` for adding focus styles, it's better to use CSS's `:focus` pseudo-class. There is no need to use JavaScript when CSS is able to do the job.
+
+Note that `onFocus` and `onBlur` can be fired on any elements as long as they can receive focus, even if they aren't able to by default. Adding `tabIndex` to an element will allow it to receive focus and become clickable. This is mostly used in custom design systems UI components for building custom form components to have full control over their appearance.
+
+During interviews you probably shouldn't need to do that and most of the time you should just use the default set of focusable elements.
+
+| Element type | Supports `onFocus` | Supports `onBlur` | Notes |
+| --- | --- | --- | --- |
+| Form Inputs (`<input>`, `<textarea>`, `<select>`) | ✅ Yes | ✅ Yes | Standard usage |
+| Interactive Elements (`<button>`, `<a href="...">`, `<details>`) | ✅ Yes | ✅ Yes | Automatically focusable |
+| Elements with `tabIndex` defined | ✅ Yes | ✅ Yes | Becomes focusable |
+| Non-focusable elements (`<div>`, `<span>`, `<p>`) | ❌ No | ❌ No | Needs `tabindex` |
+
+Focus handling is an important accessibility topic that goes beyond the scope of this guide.
+
+### Keyboard events
+
+Keyboard event handlers are used to detect keyboard interactions inside input fields, buttons, or any focusable elements.
+
+Keyboard event handlers receive the [`KeyboardEvent`](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent) argument.
+
+```jsx
+function handleKeyPress(event) {
+  if (event.key === 'Enter') {
+    alert('Enter key pressed!');
+  }
+}
+
+<input type="text" onKeyPress={handleKeyPress} />;
+```
+
+You should know the following keyboard events:
+
+- `onKeyDown`: Fires when a key is pressed down. Fires continuously if the key is held
+- `onKeyUp`: Fires when a key is released after being pressed. Useful for detecting final key input after typing
+- `onKeyPress`: (Deprecated) Similar to `onKeyDown`, but does not detect special keys
+
+Keyboard event handlers receive the `KeyboardEvent` which has some properties, these are the ones you should know:
+
+| Property | Description | Example output (<kbd>A</kbd> key) |
+| --- | --- | --- |
+| `event.key` | The key as a string | `"a"` or `"A"` |
+| `event.code` | The physical key on the keyboard | `"KeyA"` |
+| `event.which` (deprecated) | System and implementation dependent numerical code | `65` (for `A`) |
+| `event.keyCode` (deprecated) | System and implementation dependent numerical code | `65` (for `A`) |
+| `event.shiftKey` | `true` if `Shift` is held | `true / false` |
+| `event.ctrlKey` | `true` if `Ctrl` is held | `true / false` |
+
+This is just a brief list, find the [full list of `KeyboardEvent` properties on MDN](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent#instance_properties).
+
+`event.key`, `event.code`, `event.which` and `event.keyCode` look very similar. For interviews, just know that you should use `event.key`.
+
+**Best practices for handling keyboard events in React**
+
+- Use `onKeyDown` instead of `onKeyPress` (since `onKeyPress` is deprecated)
+- Use `event.key` instead of `event.which` or `event.keyCode` (they're deprecated)
+- Use `event.preventDefault()` when needed (e.g., prevent `Enter` from submitting a form)
+- Add `tabIndex` for non-focusable elements (e.g., `<div>` needs it to receive keyboard events)
+- Handle accessibility properly (keyboard navigation should be consistent)
+
+In most cases you shouldn't need to use keyboard events during interviews. Detecting text changes within `<input>`s is better done using `onChange`/`onInput` and detecting <kbd>Enter</kbd> key for the purpose of form submission is better done using `onSubmit` on `<form>`s.
+
+## Event interception
+
+Event interception in React refers to the ability to capture, modify, or stop an event's behavior before it reaches its final target.
+
+### Stopping event propagation
+
+One way to intercept an event in React is by using `event.stopPropagation()`, which prevents the event from bubbling up to parent components. By default, events in React follow the bubbling phase, meaning they propagate from the target element up through its ancestors.
+
+However, there are cases where this behavior is undesirable, such as when clicking inside a dropdown should not close the entire menu because the click event bubbles up to a parent listener.
+
+```jsx
+function Dropdown() {
+  function handleParentClick() {
+    console.log('Parent div clicked!');
+  }
+
+  function handleChildClick(event: React.MouseEvent<HTMLDivElement>) {
+    event.stopPropagation(); // Prevents bubbling to the parent
+    console.log('Dropdown item clicked!');
+  }
+
+  return (
+    <div
+      onClick={handleParentClick}
+      style={{ padding: '20px', border: '2px solid black' }}>
+      <div
+        onClick={handleChildClick}
+        style={{ padding: '10px', border: '1px solid blue' }}>
+        Click inside dropdown
+      </div>
+    </div>
+  );
+}
+```
+
+In interviews, there shouldn't be many instances where you need to nest `onClick` handlers. If you ever do so, consider if you need `event.stopPropagation()` in the inner event handler.
+
+Further reading on react.dev: [Event propagation](https://react.dev/learn/responding-to-events#event-propagation)
+
+### Preventing default behavior
+
+Another form of event interception is preventing default browser actions using `event.preventDefault()`. Certain HTML elements, like `<form>`, `<a>`, and `<input>`, have built-in behaviors (e.g., form submission, link navigation). If you want to handle these interactions with custom logic in React, you must prevent their default behavior.
+
+```jsx
+function PreventFormSubmit() {
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault(); // Prevents full-page reload
+    console.log('Form submitted without reloading!');
+  }
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input type="text" placeholder="Enter something" />
+      <button type="submit">Submit</button>
+    </form>
+  );
+}
+```
+
+Without `event.preventDefault()`, clicking "Submit" would cause the page to refresh, disrupting the React application. By intercepting the event, we can handle the form submission programmatically without affecting the user experience.
+
+Further reading on react.dev: [Preventing default behavior](https://react.dev/learn/responding-to-events#preventing-default-behavior)
+
+## Best practices for interviews
+
+- If there's a performance with excessive re-rendering, avoid inline event handlers and memoize using `useCallback`
+- Use `onChange` instead of `onInput` for form inputs
+- Use `onMouseEnter`/`onMouseLeave` instead of `onMouseOver`/`onMouseOut` to prevent bubbling issues
+- For performance-sensitive events like `onScroll`, debounce or throttle the event handlers
+
+## What you need to know for interviews
+
+- **Event system**: Explain how the event system in React works and how it is different from browser event system
+- **Common events**: Common mouse (`onClick`, `onMouseEnter`, `onMouseLeave`), input (`onChange`), form events (`onSubmit`), and keyboard events (`onKeyDown`)
+- **Event interception**: When and how to use event interception
+
+## Practice questions
+
+**Coding**:
+
+- [Temperature Converter](/questions/user-interface/temperature-converter/react?framework=react&tab=coding)
+- [Dice Roller](/questions/user-interface/dice-roller/react?framework=react&tab=coding)
+- [Grid Lights](/questions/user-interface/grid-lights/react?framework=react&tab=coding)
+- [Star Rating](/questions/user-interface/star-rating/react?framework=react&tab=coding)
+- [Stopwatch](/questions/user-interface/stopwatch/react?framework=react&tab=coding)
+- [Auth Code Input](/questions/user-interface/auth-code-input/react?framework=react&tab=coding)
+- [Selectable Cells](/questions/user-interface/selectable-cells/react?framework=react&tab=coding)

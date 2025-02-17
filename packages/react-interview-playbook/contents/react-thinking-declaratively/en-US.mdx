@@ -1,0 +1,289 @@
+---
+title: Thinking Declaratively in React
+description: Guide on thinking in declarative and state-driven approaches in React, featuring practical examples like a todo list to illustrate building dynamic, maintainable UIs
+---
+
+One of the core principles of React is its declarative nature. Instead of manually updating the DOM step by step (imperative programming), React allows you to define what the UI should look like based on the current state, and it takes care of the updates for you. This approach makes UI development more predictable, scalable, and easier to reason about.
+
+## Declarative UI vs imperative UI
+
+In imperative programming, you give explicit instructions on how things should happen. DOM APIs are inherently imperative. When manipulating the DOM, this often means selecting elements and modifying them manually.
+
+```js
+const button = document.createElement('button');
+button.textContent = 'Click me';
+button.style.backgroundColor = 'blue';
+document.body.appendChild(button);
+
+button.addEventListener('click', () => {
+  button.style.backgroundColor = 'red';
+  alert('Button clicked!');
+});
+```
+
+See that every single action is explicitly defined: creating the button, setting styles, appending it to the DOM, and changing properties in response to an event.
+
+Declarative programming, on the other hand, focuses on describing the desired outcome rather than detailing how to achieve it. React components allow us to declare what the UI should look like, and React takes care of updating it when state changes.
+
+```jsx
+function App() {
+  const [color, setColor] = React.useState('blue');
+
+  return (
+    <button style={{ backgroundColor: color }} onClick={() => setColor('red')}>
+      Click me
+    </button>
+  );
+}
+```
+
+In this example, we define the button's UI based on `color` state. When the state changes, React automatically updates the DOM without us having to manage it manually.
+
+### Analogy: Imperative vs Declarative
+
+Think of making a cup of coffee:
+
+- **Imperative:** "Take a mug, pour hot water, add coffee, stir, and serve"
+- **Declarative:** "I want a cup of coffee"
+
+In a declarative approach, the details of execution are abstracted away. You describe the final outcome, and a system (e.g. a coffee machine, a barista, or React) ensures it happens correctly.
+
+The benefit of declarative programming might not be too obvious in the button example above because it is small.
+
+Let's use a slightly more complex example of a todo list that allows adding, deleting, and completing of tasks. The UI should show the task list and the total number of tasks as well as completed tasks.
+
+Using an imperative approach (e.g., using vanilla JavaScript and the DOM API), every interaction requires manually finding, updating, and re-rendering elements.
+
+The following user actions will require these DOM operations:
+
+1. **Adding a task**:
+   1. Append the new task to the existing list
+   2. Clear the contents of the input
+   3. Add event listener to the newly-added task for task completion
+   4. Increment the number of total tasks
+2. **Completing a task**:
+   1. Update the task to show completed state
+   2. Modify the number of completed tasks
+3. **Deleting a task**:
+   1. Remove the task from the list
+   2. Decrement the number of total tasks
+   3. Decrement the number of completed tasks if the task was completed
+
+Using an imperative approach, it is much tougher to keep the UI in-sync with state as you have to remember the relevant areas to modify. When new features are introduced, imperatively-written logic becomes harder to read and trace. That's bad for maintainability!
+
+Using a declarative approach such as React, you can simply describe the UI that should be shown based on the updated tasks state, and React will figure out the necessary imperative DOM operations to evolve the current UI into the intended UI.
+
+There can be infinitely many possible current UIs – how does React figure out the right imperative DOM operations to make? That's where React's virtual DOM and reconciliation process comes in. React compares/diffs the current UI representation with the new UI representation, and generates the necessary list of DOM operations.
+
+Declarative UI is the approach taken by virtually any modern UI framework due to its overwhelming advantages over the imperative approach.
+
+Further reading on react.dev: [How declarative UI compares to imperative ](https://react.dev/learn/reacting-to-input-with-state#how-declarative-ui-compares-to-imperative)
+
+## How to think about UI declaratively
+
+Thinking declaratively requires shifting your focus from how to update the UI to what the UI should be at any given moment.
+
+Let's use the same todo list example above and demonstrate how declarative programming is better. Instead of manually manipulating the DOM (imperative programming), we define how the UI should look based on state and let React take care of the rendering.
+
+To make things a bit more complex, the todo list supports filtering (All, Complete, Incomplete).
+
+### 1. Identify visual states in the components
+
+A todo list has several possible UI states:
+
+- Input field that can accept text input from the user
+- A list of tasks, which can be empty or non-empty
+- Each task can be completed or incomplete
+- Selector for task filters and the selected option
+- The list of tasks can be filtered (All, Active, Completed)
+
+### 2. Determine the actions that trigger state changes
+
+Next, we define the actions that affect state:
+
+- Adding a task
+- Completing a task
+- Deleting a task
+- Filtering tasks (show All, Active, or Completed)
+
+These actions will modify state, and React will automatically re-render the UI accordingly.
+
+### 3. Design a minimal structure to represent the state
+
+Next, we need to design a structure to capture the state data in the UI.
+
+Here's one possible design:
+
+```js
+const [tasks, setTasks] = useState([
+  { id: 1, title: 'Learn React' },
+  { id: 2, title: 'Build a project' },
+]);
+const [completedTasks, setCompletedTasks] = useState([
+  { id: 1, title: 'Learn React' },
+]);
+const [incompleteTasks, setIncompleteTasks] = useState([
+  { id: 2, title: 'Build a project' },
+]);
+const [filter, setFilter] = useState('all'); // all | active | completed
+```
+
+However, in this design, there's some duplication of data. Tasks are part of both `tasks` and either `completedTasks` or `incompleteTasks`, and adding/remove tasks will involve modifying multiple tasks arrays. This state design is not great.
+
+Some ways to improve it:
+
+1. The `incompleteTasks` state is redundant since if a task is not within `completedTasks`, then it is incomplete. However, it would be inefficient when linear scanning the `completedTasks` array for every task to check if a task is completed
+2. We can use a `Set` for `completedTasks` that stores only the task ID. This way, the task titles don't have to be repeated and looking up a task's completion status is efficient. However, we still need to remember to modify two places when a completed task is being deleted.
+
+Instead of storing multiple independent pieces of state that require syncing, we can track completion status on the task itself. Here's a minimal and structured state representation:
+
+```js
+const [tasks, setTasks] = useState([
+  { id: 1, title: 'Learn React', completed: false },
+  { id: 2, title: 'Build a project', completed: true },
+]);
+
+const [filter, setFilter] = useState('all'); // all | active | completed
+```
+
+Using this structure:
+
+- `tasks` is an array where each task has an `id`, `title`, and `completed` status
+- `filter` determines which tasks to display
+
+To avoid redundant state, instead of keeping a separate `completedTasks` array, we can derive completed tasks from `tasks`.
+
+There are tradeoffs to consider here. Although state is now consolidated, toggling tasks completion will now require cloning of the entire `tasks` array when there wasn't a need to if we use a `Set` for `completedTasks`.
+
+### 4. Call actions within event handlers
+
+Actions are triggered in response to two kinds of events:
+
+- **User events**: Actions directly performed by the user, such as clicking a button, typing in an input field, or selecting an option from a dropdown
+- **Background events**: Actions triggered without direct user interaction such as API responses, timers and intervals, WebSocket real-time updates
+
+For the todo list at hand, we only need to care about user events.
+
+However, it is advisable to write a function for each of these actions, and call the state setters within each action function. This is because the same operation can be triggered from many places on the UI, or even in the background. An example is a video player where there to pause the video, users can either press the "Pause" button or press the spacebar.
+
+Centralizing state update logic within these action functions will help to keep the code maintainable.
+
+### Full example
+
+Now, let's implement what we have learnt above.
+
+```jsx
+import { useState } from 'react';
+
+function TodoApp() {
+  const [tasks, setTasks] = useState([]);
+  const [filter, setFilter] = useState('all');
+  const [taskInput, setTaskInput] = useState('');
+
+  // Add a task
+  function addTask() {
+    if (taskInput.trim() === '') {
+      return;
+    }
+    const newTask = { id: Date.now(), text: taskInput, completed: false };
+    setTasks([...tasks, newTask]);
+    setTaskInput('');
+  }
+
+  // Toggle task completion
+  function toggleTask(id) {
+    setTasks(
+      tasks.map((task) =>
+        task.id === id ? { ...task, completed: !task.completed } : task,
+      ),
+    );
+  }
+
+  // Delete a task
+  function deleteTask(id) {
+    setTasks(tasks.filter((task) => task.id !== id));
+  }
+
+  // Get tasks based on filter
+  const filteredTasks = tasks.filter((task) => {
+    if (filter === 'active') {
+      return !task.completed;
+    }
+
+    if (filter === 'completed') {
+      return task.completed;
+    }
+
+    return true; // "all" case
+  });
+
+  return (
+    <div>
+      <h2>Todo List</h2>
+      <input
+        value={taskInput}
+        onChange={(e) => setTaskInput(e.target.value)}
+        placeholder="Add a new task..."
+      />
+      <button onClick={addTask}>Add</button>
+      <div>
+        <button onClick={() => setFilter('all')}>All</button>
+        <button onClick={() => setFilter('active')}>Active</button>
+        <button onClick={() => setFilter('completed')}>Completed</button>
+      </div>
+      <ul>
+        {filteredTasks.map((task) => (
+          <li
+            key={task.id}
+            style={{
+              textDecoration: task.completed ? 'line-through' : 'none',
+            }}>
+            {task.text}
+            <button onClick={() => toggleTask(task.id)}>
+              {task.completed ? 'Undo' : 'Complete'}
+            </button>
+            <button onClick={() => deleteTask(task.id)}>❌</button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+export default TodoApp;
+```
+
+This todo list is declarative because:
+
+- **UI updates automatically**: When `tasks` or `filter` changes, React re-renders the UI accordingly
+- **No manual DOM manipulation**: No need to select elements, manually remove tasks, or update styles via `document.querySelector`.
+- **Minimal and structured state**: The UI is derived from a **single source of truth** (`tasks` and `filter`)
+- **Event handlers update state, not the DOM**: The functions `addTask`, `toggleTask`, and `deleteTask` only update state, React handles the re-rendering.
+
+This example shows how thinking declaratively simplifies UI development in React:
+
+1. Identify **UI states**
+2. Determine **state-changing actions/operations**
+3. Design a **minimal state structure**
+4. Use **event handlers** to update state
+
+Instead of micromanaging DOM updates, we let React **react** to state changes – making our code cleaner, scalable, and easier to maintain.
+
+Thinking declaratively in React means shifting from a step-by-step, command-driven mindset to a state-driven approach. By focusing on defining what the UI should be based on state, you create components that are more readable, predictable, and maintainable.
+
+Embracing this paradigm makes it easier to manage complex UIs and lets React do the heavy lifting of figuring out how to update the DOM efficiently.
+
+## What you need to know for interviews
+
+- **Think declaratively and design the component**: Given a UI and the requirements, you should be able to think in a declarative fashion to define the various necessary components, props, state, operations that change the state, and connect all of them together.
+
+## Practice questions
+
+**Coding**:
+
+- [Tweet](/questions/user-interface/tweet/react?framework=react&tab=coding)
+- [Progress Bar](/questions/user-interface/progress-bar/react?framework=react&tab=coding)
+- [Progress Bars](/questions/user-interface/progress-bars/react?framework=react&tab=coding)
+- [File Explorer](/questions/user-interface/file-explorer/react?framework=react&tab=coding)
+- [File Explorer II](/questions/user-interface/file-explorer-ii/react?framework=react&tab=coding)
+- [File Explorer III](/questions/user-interface/file-explorer-iii/react?framework=react&tab=coding)

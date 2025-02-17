@@ -1,0 +1,127 @@
+---
+title: Landscape and History of React
+description: A overview of React's evolution, from its Facebook origins to its current dominance as a versatile, battle-tested library with a vast ecosystem of tools and innovations
+---
+
+## Why React?
+
+Why has React remained dominant in the front end ecosystem for so long? There are several key reasons:
+
+- **Corporate backing and enterprise adoption**: React was created at Facebook and powers all of their products user interfaces. It's trusted by major companies and enterprises worldwide to build applications across all sizes.
+- **Huge community support**: Abundance of resources for learning React, from React's official docs, along with countless tutorials, courses, and GitHub projects.
+- **Massive open source ecosystem**: From state management libraries (Redux, Zustand, Recoil) to UI component frameworks (Material UI, Chakra UI), React's ecosystem is vast and continues to evolve.
+- **Server-side and full stack capabilities**: React is no longer just for the front end. With Next.js and React Server Components, it's now deeply integrated into the back-end, enabling full-stack React applications.
+- **Support & stability**: React has consistently evolved while maintaining good backward compatibility.
+
+React's wide adoption, strong community, and ongoing innovation make it the go-to choice for front end development today.
+
+## History and evolution of React
+
+React didn't become the most widely used front end framework overnight. It evolved through years of iteration and problem-solving. To truly appreciate where React is today, it helps to look back at how it started and progressed.
+
+**2011 – Birth of React:** React began as an internal project at Facebook. Engineers were struggling with performance issues when rendering dynamic UIs (like Facebook's News Feed). Jordan Walke created an early version of React called "FaxJS", which later became React.
+
+**2013 – Open sourcing React:** React was [officially open sourced at JSConf US](https://www.youtube.com/watch?v=GW0rj4sNH2w) in May 2013. At first, it was met with skepticism – especially JSX, which mixed JavaScript with HTML. However, developers soon realized that React's Virtual DOM approach led to better performance.
+
+**2015 – Flux & state management:** State management in React was a growing challenge, especially for large-scale applications with complex data flows. To address this, Facebook introduced Flux, an architectural pattern that enforced a unidirectional data flow, making state changes more predictable and easier to debug. Flux inspired the creation of Redux, which quickly became the de facto state management solution for React due to its centralized store, immutability principles, and time-travel debugging capabilities.
+
+**2016 – Functional components & Fiber architecture:** React introduced functional components as an alternative to class components, making component logic cleaner and more reusable. Around the same time, work on [React Fiber](https://github.com/acdlite/react-fiber-architecture) started, which is a complete rewrite of React's core architecture and reconciliation algorithm, improving performance and paving the way for features like Concurrent Mode and Suspense.
+
+**2018 – React hooks:** Before Hooks, developers relied on class components to manage state and lifecycle methods. Unveiled at React Conf 2018, React 16.8 introduced Hooks (`useState`, `useEffect`, etc.), shifting React's development style towards functional programming.
+
+**2020 – Concurrent mode & Suspense:** React 17 laid the groundwork for Concurrent Mode, allowing React to prioritize rendering work and make apps feel more responsive. React Suspense made it easier to handle data fetching.
+
+**2021 - React Forget:** An early preview of [React Forget](https://www.youtube.com/watch?v=lGEMwh32soc) was presented at React Conf 2021. It's a compiler that automatically generates the equivalent of `useMemo` and `useCallback` calls to minimize the cost of re-rendering.
+
+**2022 – React 18 and Server Components:** React 18 introduced automatic batching, new hooks (`useId`, `useTransition`), and [React Server Components](https://react.dev/reference/rsc/use-server), allowing developers to offload rendering work to the server.
+
+**2023 – New official website:** React unveiled [react.dev](https://react.dev/) as the new official website for React documentation and resources, offering a more comprehensive and user-friendly experience for developers with the inclusion of embedded coding exercises.
+
+**2024 – React 19:** The latest React version further optimized Server Components and improved static site generation. The introduction of Actions simplified state updates, making React apps easier to manage. An experimental release of [React Compiler](https://react.dev/learn/react-compiler) was [announced](https://react.dev/blog/2024/10/21/react-compiler-beta-release) at React Conf 2024.
+
+## React ecosystem
+
+The React ecosystem is vast and consists of several official and community-driven projects that extend React's capabilities. These projects help developers build scalable, performant, and maintainable applications.
+
+Aim to be familiar and gain experience with at least one technology in each category.
+
+### State management
+
+React has built-in state management (`useState`, `useReducer`, and Context API), but external solutions are often used for managing global state.
+
+- [Redux](https://redux.js.org): A predictable state container often used for large applications
+- [Zustand](https://zustand-demo.pmnd.rs): A lightweight alternative to Redux with a simple API
+- [Jotai](https://jotai.pmnd.rs): A minimal atomic state library for React
+
+### UI components
+
+Many UI libraries provide styled and themeable components for React applications.
+
+- [MUI (Material UI)](https://mui.com): A popular and themeable component library based originally on Material Design
+- [Mantine](https://mantine.dev): A modern, fully-featured React component library with built-in accessibility, dark mode support, and a flexible styling API
+- [Ant Design](https://ant.design): A popular enterprise-focused UI component library
+
+Meanwhile, headless UI libraries provide unstyled, fully accessible components that give developers full control over styling while maintaining functionality and accessibility best practices.
+
+- [Headless UI](https://headlessui.com): Developed by the Tailwind team, it provides fully accessible, unstyled components like modals, dropdowns, and accordions
+- [Radix UI](https://radix-ui.com): A set of highly composable, accessible components designed for low-level UI building with full styling flexibility
+- [Base UI](https://base-ui.com/): Headless, unstyled component library from creators of Radix UI, and Material UI team
+- [React Aria](https://react-spectrum.adobe.com/react-aria/): A set of highly accessible hooks from Adobe for building fully customizable UI components
+- [Ariakit](https://ariakit.org/): Open-source library with unstyled, primitive components, with a collection of styled examples that you can copy and paste into your apps
+
+### Data fetching
+
+React apps frequently fetch data from HTTP APIs and libraries have been built to make it easier to fetch data, incorporating useful features like caching, retries, and pagination.
+
+- [React Query (TanStack Query)](https://tanstack.com/query): Popular server state management tool for React. It optimizes caching, background syncing, and pagination
+- [SWR](https://swr.vercel.app): A lightweight data fetching library by Vercel, optimized for performance
+- [Apollo Client](https://www.apollographql.com): The most widely-used GraphQL client for React
+- [Relay](https://relay.dev): A GraphQL client by Meta that is optimized for performance
+
+### Form validation
+
+Libraries for client-side validation of forms built in React.
+
+- [React Hook Form](https://react-hook-form.com/): A lightweight, performant library built entirely with React hooks. Minimizes re-renders and supports both built‑in validation rules and schema-based validation (with Yup, Zod, etc.), making it ideal for both small and complex forms
+- [Formik](https://formik.org/): Although no longer maintained, it was one of the most popular form libraries that offers a declarative way to manage form state, validation, and error handling. Formik is often paired with Yup for schema validation but tends to be more opinionated and slightly heavier compared to React Hook Form
+
+### Routing & metaframeworks
+
+Several frameworks extend React (known as metaframeworks) by adding routing, server-side rendering, and full stack capabilities.
+
+- [Next.js](https://nextjs.org): A full stack React framework by Vercel that supports various rendering approaches (e.g. server-side rendering (SSR), static site generation (SSG)) and nested routing
+- [Remix](https://remix.run) & [React Router](https://reactrouter.com): A full-stack React framework that emphasizes progressive enhancement and nested routing, from the creators of React Router. The Remix team [merged Remix's features into React Router v7](https://remix.run/blog/merging-remix-and-react-router)
+- [TanStack Start](https://tanstack.com/start): Full-stack React framework powered by TanStack Router
+
+### Testing & debugging
+
+React applications often require unit, integration, and end-to-end testing.
+
+- [Jest](https://jestjs.io): A popular testing framework for unit and integration tests
+- [Vitest](https://vitest.dev): A testing framework that uses Vite bundling and config
+- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/): A user-focused testing library that simulates real user interactions
+- [Storybook](https://storybook.js.org): A tool for developing and testing isolated UI components
+- [Cypress](https://www.cypress.io): A popular end-to-end (E2E) testing tool for websites
+- [React DevTools](https://react.dev/tools): An official browser extension for debugging React components
+
+### Bundlers
+
+Bundlers help convert your modular code (with imports, JSX, CSS, images, etc.) into optimized bundles that can be efficiently served in development and production.
+
+- [Vite](https://vitejs.dev): A very fast development server and bundler for web apps, with great support for React
+- [Parcel](https://parceljs.org): A zero-config bundler for JavaScript apps, including React
+- [webpack](https://webpack.js.org): Highly configurable module bundler that has been the industry standard for many years. Succeeded by [Turbopack](https://turbo.build/pack/docs)
+
+### Animation & effects
+
+Animation has traditionally been quite difficult to build in React. Thankfully, various animation and transition libraries were created to make animation easier.
+
+- [Motion](https://motion.dev/): A popular and powerful animation library with a declarative API. Previously Framer Motion
+- [React Spring](https://react-spring.dev): Provides fluid, physics-based animations
+- [GSAP (GreenSock)](https://greensock.com/gsap/): A high-performance JavaScript animation library compatible with React
+
+---
+
+React has come a long way from its early days as an internal library at Meta. Today, it's a mature, battle-tested library/framework that continues to evolve. Understanding its history and ecosystem gives you context on why certain patterns exist and how React solves real-world problems.
+
+As we move through this guide, keep in mind that companies look for engineers who understand React's core principles, performance optimizations, and real-world applications. By the time you finish this guide, you'll not only be able to answer React interview questions – you'll be better at using React.

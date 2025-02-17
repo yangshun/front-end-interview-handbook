@@ -1,0 +1,154 @@
+---
+title: Design Patterns for React Interviews
+description: An exploration of React design patterns, including higher-order components, render props, and container/presentational patterns, to help you build clean, reusable, and scalable applications
+---
+
+React encourages component-based architecture, but as applications grow, maintaining clean, reusable, and scalable code becomes essential. The following are some of the most common design patterns in React and when to use them.
+
+## Higher-order components (HOC)
+
+A Higher-order component (HOC) is a function that takes a component and returns an enhanced component with additional props or logic. It promotes code reuse across multiple components.
+
+```jsx
+function withAuth(Component) {
+  return function WrappedComponent(props) {
+    const isAuthenticated = localStorage.getItem('token'); // Check auth status
+    return isAuthenticated ? <Component {...props} /> : <p>Access Denied</p>;
+  };
+}
+
+function Dashboard() {
+  return <h1>Dashboard</h1>;
+}
+
+const ProtectedDashboard = withAuth(Dashboard);
+```
+
+HOCs are useful for:
+
+- Reusing logic across multiple components (e.g., authentication, analytics, logging, fetching data)
+- Adding behavior without modifying original components
+- Scenarios where hooks aren't an option, such as class components
+
+Higher-order components were more useful in the pre-hooks era for adding functionality to components. Now that we have React hooks and the ability to create custom hooks, HOCs are no longer that widespread.
+
+Further reading on react.dev: [Higher-Order Components – React](https://legacy.reactjs.org/docs/higher-order-components.html)
+
+## Render props
+
+Render props involves passing a function that renders an element as a prop to a component. The component calls the prop with certain parameters, which is usually its own state.
+
+This allows the parent to the component to render based on the the component state still allowing the parent to customize the behavior/appearance from outside.
+
+```jsx
+function MouseTracker({ render }) {
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const handleMouseMove = (event) => {
+      setPosition({ x: event.clientX, y: event.clientY });
+    };
+    window.addEventListener('mousemove', handleMouseMove);
+
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
+  return render(position);
+}
+
+function App() {
+  return (
+    <MouseTracker
+      render={(position) => (
+        <p>
+          Mouse: {position.x}, {position.y}
+        </p>
+      )}
+    />
+  );
+}
+```
+
+Render props are useful for:
+
+- Sharing logic between components while keeping UI flexible
+- Scenarios where hooks aren't an option, such as class components
+- Headless components that provide logic and behavior while allowing customization of appearance
+
+Further reading on react.dev: [Render Props - React](https://legacy.reactjs.org/docs/render-props.html)
+
+## Container/presentational pattern
+
+The Container/presentational pattern is a design pattern used in React to separate state management (logic) from UI rendering (presentation). It helps in making components reusable, maintainable, and testable by ensuring a clear separation of concerns.
+
+On the client, data can come from the user's input, fetched from an API, `localStorage`, WebSockets, etc. Not assuming where the data comes from is a good way to structure your components.
+
+**Presentational components:**
+
+- Focus only on rendering the UI
+- Do not contain state (except local UI state like toggles)
+- Receive all data via props and use event handlers (e.g. `onClick`, `onChange`)
+- Reusable and easy to test because they are independent of business logic
+- Does not assume how data is fetched
+
+```jsx
+function UserList({ users }) {
+  return (
+    <ul>
+      {users.map((user) => (
+        <li key={user.id}>
+          {user.name} - {user.email}
+        </li>
+      ))}
+    </ul>
+  );
+}
+```
+
+**Container components:**
+
+- Manage state, API calls, and business logic
+- Pass data and functions as props to presentational components
+- Do not contain UI code (minimal JSX except for wrapping presentational components)
+
+```jsx
+function UserListContainer() {
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    fetch('https://jsonplaceholder.typicode.com/users')
+      .then((res) => res.json())
+      .then((data) => setUsers(data));
+  }, []);
+
+  return <UserList users={users} />;
+}
+```
+
+This pattern allows:
+
+- Reusing UI components with different data sources
+- A clear separation between UI and state logic
+- Making UI components easier to test
+
+### Alternative approaches
+
+- **Custom hooks (e.g. `useUser` hook for fetching users)**: A more modern approach that keeps logic reusable across multiple components
+- **State management libraries (Redux, Zustand)**: Handle global state separately without needing explicit container components
+
+Further reading on react.dev: [Container/Presentational Pattern](https://www.patterns.dev/react/presentational-container-pattern)
+
+## What you need to know for interviews
+
+- **Use hooks first**: While HOCs and render props were once popular patterns for code reuse in React, they have largely been replaced by hooks. However, they are still useful in certain scenarios where Hooks alone may not be sufficient or usable, such as in legacy code bases still using class components.
+- **Container/presentation goes beyond front end**: The key idea behind the container/presentational pattern is to separate presentation from the source of data. Separating data fetching from presentation is a powerful concept that is useful beyond front end engineering. When building back end systems, data can be fetched from other services, loaded from a database, read from a filesystem, etc. By doing such a separation, code will be easier to reuse and test.
+
+## Practice questions
+
+**Quiz**:
+
+- [What are higher order components in React?](/questions/quiz/what-are-higher-order-components-in-react?framework=react&tab=quiz)
+- [What is the Flux pattern and what are its benefits?](/questions/quiz/what-is-the-flux-pattern-and-what-are-its-benefits?framework=react&tab=quiz)
+- [Explain the presentational vs container component pattern in React](/questions/quiz/explain-the-presentational-vs-container-component-pattern-in-react?framework=react&tab=quiz)
+- [What are render props in React and what are they for?](/questions/quiz/what-are-render-props-in-react-and-what-are-they-for?framework=react&tab=quiz)
+- [Explain the composition pattern in React](/questions/quiz/explain-the-composition-pattern-in-react?framework=react&tab=quiz)
