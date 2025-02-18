@@ -1,6 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
+import { AnimatePresence, motion, wrap } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 
 import type { InterviewsMarketingTestimonial } from '~/components/interviews/marketing/testimonials/InterviewsMarketingTestimonialCard';
@@ -21,7 +22,32 @@ import {
 } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
-import * as TabsPrimitive from '@radix-ui/react-tabs';
+import NumberFlow from '@number-flow/react';
+
+const carouselMotionVariants = {
+  center: {
+    opacity: 1,
+    x: 0,
+    zIndex: 1,
+  },
+  enter: (direction: number) => {
+    return {
+      opacity: 0,
+      x: direction > 0 ? 1000 : -1000,
+    };
+  },
+  exit: (direction: number) => {
+    return {
+      opacity: 0,
+      x: direction < 0 ? 1000 : -1000,
+      zIndex: 0,
+    };
+  },
+};
+const swipeConfidenceThreshold = 1000;
+const swipePower = (offset: number, velocity: number) => {
+  return Math.abs(offset) * velocity;
+};
 
 type TestimonialCardProps = Readonly<{
   anonymous: boolean;
@@ -60,13 +86,13 @@ function TestimonialCard({
       )}>
       <ScrollArea
         className={clsx(
-          'relative',
+          'pointer-events-none relative',
           maskClasses,
           authorThumbnailUrl ? 'mb-20 sm:mb-12' : 'mb-12 sm:mb-9',
         )}
         heightClass="h-full">
         <blockquote className={clsx('pb-8 lg:pb-4', 'px-8 sm:px-10')}>
-          <Text className="block" size="body1">
+          <Text className="pointer-events-auto block" size="body1">
             {testimonial}
           </Text>
         </blockquote>
@@ -138,12 +164,21 @@ type Props = Readonly<{
 
 export default function InterviewsTestimonialsSlider({ data }: Props) {
   const intl = useIntl();
+
+  const [page, setPage] = useState(0);
+  const [direction, setDirection] = useState(0);
   const timer = useRef<NodeJS.Timeout>();
-  const [currentItemIndex, setCurrentItemIndex] = useState(0);
+  const currentItemIndex = wrap(0, data.length, page);
+
+  const paginate = (newDirection: number) => {
+    setPage((prevPage) => prevPage + newDirection);
+    setDirection(newDirection);
+  };
 
   useEffect(() => {
     timer.current = setInterval(() => {
-      setCurrentItemIndex((preIndex) => (preIndex + 1) % data.length);
+      setDirection(1);
+      setPage((prevPage) => prevPage + 1);
     }, 10000);
 
     return () => {
@@ -188,43 +223,79 @@ export default function InterviewsTestimonialsSlider({ data }: Props) {
   ];
 
   const sliderNavigation = (
-    <TabsPrimitive.List className="flex justify-center gap-3">
-      {data.map((item) => (
-        <TabsPrimitive.Trigger key={item.id} asChild={true} value={item.id}>
-          <button aria-label={item.id} className="w-12 py-[5px]" type="button">
-            <div
-              className={clsx(
-                'h-1 w-full rounded',
-                item.id === dataValue
-                  ? 'bg-neutral-900 dark:bg-neutral-100'
-                  : 'bg-neutral-200/70 dark:bg-neutral-700',
-                themeOutlineElement_FocusVisible,
-                themeOutlineElementBrandColor_FocusVisible,
-              )}
-            />
-          </button>
-        </TabsPrimitive.Trigger>
+    <div className="flex justify-center gap-3">
+      {data.map((item, index) => (
+        <button
+          key={item.id}
+          aria-label={item.id}
+          className="w-12 py-[5px]"
+          type="button"
+          onClick={() => {
+            // Stop auto-advancing if user interacts with steppers.
+            window.clearInterval(timer.current);
+
+            const newDirection = index - currentItemIndex > 0 ? 1 : -1;
+
+            setPage(index);
+            setDirection(newDirection);
+          }}>
+          <div
+            className={clsx(
+              'h-1 w-full rounded',
+              item.id === dataValue
+                ? 'bg-neutral-900 dark:bg-neutral-100'
+                : 'bg-neutral-200/70 dark:bg-neutral-700',
+              themeOutlineElement_FocusVisible,
+              themeOutlineElementBrandColor_FocusVisible,
+            )}
+          />
+        </button>
       ))}
-    </TabsPrimitive.List>
+    </div>
   );
 
   return (
-    <TabsPrimitive.Root
-      className="flex w-full grid-cols-3 flex-col gap-x-6 gap-y-8 lg:grid lg:flex-row lg:items-center"
-      value={dataValue}
-      onValueChange={(newValue) => {
-        // Stop auto-advancing if user interacts with steppers.
-        window.clearInterval(timer.current);
-        setCurrentItemIndex(data.findIndex(({ id }) => id === newValue));
-      }}>
+    <div className="flex w-full grid-cols-3 flex-col gap-x-6 gap-y-8 lg:grid lg:flex-row lg:items-center">
       <div className="flex flex-col gap-[18px] overflow-hidden lg:col-span-2">
-        <div className="relative rounded-lg">
-          {data.map((item) => (
-            <TabsPrimitive.Content key={item.id} value={item.id}>
-              <TestimonialCard {...item} />
-            </TabsPrimitive.Content>
-          ))}
-          <BorderBeam />
+        <div
+          className={clsx(
+            'relative h-[338px] rounded-lg sm:h-[252px] lg:h-[280px] xl:h-[252px]',
+            'isolate',
+          )}>
+          <BorderBeam className="z-10" />
+          <AnimatePresence custom={direction} initial={false}>
+            <motion.div
+              key={page}
+              animate="center"
+              className="absolute"
+              custom={direction}
+              drag="x"
+              dragConstraints={{ left: 0, right: 0 }}
+              dragElastic={1}
+              exit="exit"
+              initial="enter"
+              transition={{
+                opacity: { duration: 0.2 },
+                x: { damping: 30, stiffness: 300, type: 'spring' },
+              }}
+              variants={carouselMotionVariants}
+              onDragEnd={(_, { offset, velocity }) => {
+                const swipe = swipePower(offset.x, velocity.x);
+
+                // Stop auto-advancing if user interacts by swiping.
+                if (Math.abs(swipe) > swipeConfidenceThreshold) {
+                  window.clearInterval(timer.current);
+                }
+
+                if (swipe < -swipeConfidenceThreshold) {
+                  paginate(1);
+                } else if (swipe > swipeConfidenceThreshold) {
+                  paginate(-1);
+                }
+              }}>
+              <TestimonialCard {...data[currentItemIndex]} />
+            </motion.div>
+          </AnimatePresence>
         </div>
         <div className="hidden lg:block">{sliderNavigation}</div>
       </div>
@@ -235,60 +306,82 @@ export default function InterviewsTestimonialsSlider({ data }: Props) {
           )}>
           {overview
             .flatMap((item) => (item != null ? [item] : []))
-            .map(({ id, subtitle, logos, label }) => (
-              <div key={id} className={clsx('flex flex-1 items-center gap-6')}>
+            .map(({ id, subtitle, logos, label }) => {
+              const isString = typeof label === 'string';
+
+              const numeralPrefixString = label.toString().match(/^\d+/)?.[0];
+              const numeralPrefix = numeralPrefixString
+                ? parseInt(numeralPrefixString, 10)
+                : null;
+              const textSuffix = label.toString().replace(/^\d+/, '');
+
+              return (
                 <div
-                  className={clsx(
-                    'h-6 w-0.5',
-                    'rounded-3xl',
-                    themeBackgroundLineEmphasizedColor,
-                  )}
-                />
-                <div className="flex flex-col gap-2">
-                  <div className="flex items-center gap-3">
-                    <Heading level="heading6" tag="p">
-                      {label}
-                    </Heading>
-                    {logos && (
-                      <div className="isolate flex">
-                        {logos.map((logo, index) => (
-                          <Tooltip
-                            key={logo.name}
-                            asChild={true}
-                            label={logo.name}>
-                            <div
-                              className={clsx(
-                                'flex items-center justify-center',
-                                'size-8 shrink-0',
-                                'rounded-full',
-                                'overflow-hidden',
-                                'bg-white',
-                                'hover:z-[1]',
-                                'border border-neutral-200 dark:border-neutral-900',
-                                index > 0 && '-ml-2',
-                              )}>
-                              <img
-                                alt={logo.name}
-                                className="size-4"
-                                decoding="async"
-                                loading="lazy"
-                                src={logo.logoUrl}
-                              />
-                            </div>
-                          </Tooltip>
-                        ))}
-                      </div>
+                  key={id}
+                  className={clsx('flex flex-1 items-center gap-6')}>
+                  <div
+                    className={clsx(
+                      'h-6 w-0.5',
+                      'rounded-3xl',
+                      themeBackgroundLineEmphasizedColor,
                     )}
+                  />
+                  <div className="flex flex-col gap-2">
+                    <div className="flex items-center gap-3">
+                      <Heading level="heading6" tag="p">
+                        {isString ? (
+                          <>
+                            {numeralPrefix && (
+                              <NumberFlow value={numeralPrefix} />
+                            )}
+                            {textSuffix}
+                          </>
+                        ) : (
+                          label
+                        )}
+                      </Heading>
+
+                      {logos && (
+                        <div className="isolate flex">
+                          {logos.map((logo, index) => (
+                            <Tooltip
+                              key={logo.name}
+                              asChild={true}
+                              label={logo.name}>
+                              <div
+                                className={clsx(
+                                  'flex items-center justify-center',
+                                  'size-8 shrink-0',
+                                  'rounded-full',
+                                  'overflow-hidden',
+                                  'bg-white',
+                                  'hover:z-[1]',
+                                  'border border-neutral-200 dark:border-neutral-900',
+                                  index > 0 && '-ml-2',
+                                )}>
+                                <img
+                                  alt={logo.name}
+                                  className="size-4"
+                                  decoding="async"
+                                  loading="lazy"
+                                  src={logo.logoUrl}
+                                />
+                              </div>
+                            </Tooltip>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                    <Text color="subtitle" size="body2" weight="medium">
+                      {subtitle}
+                    </Text>
                   </div>
-                  <Text color="subtitle" size="body2" weight="medium">
-                    {subtitle}
-                  </Text>
                 </div>
-              </div>
-            ))}
+              );
+            })}
         </div>
       </div>
       <div className="block lg:hidden">{sliderNavigation}</div>
-    </TabsPrimitive.Root>
+    </div>
   );
 }
