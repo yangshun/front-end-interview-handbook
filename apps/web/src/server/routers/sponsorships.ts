@@ -1,19 +1,19 @@
 import { z } from 'zod';
 
-import type { SponsorPlacementObject } from '~/components/sponsors/SponsorTypes';
+import type { SponsorPlacementAd } from '~/components/sponsors/SponsorTypes';
 import { SponsorPlacementZodEnum } from '~/components/sponsors/SponsorTypes';
 
 import { publicProcedure, router } from '../trpc';
 
 export const sponsorshipsRouter = router({
-  sponsor: publicProcedure
+  ad: publicProcedure
     .input(
       z.object({
         placement: SponsorPlacementZodEnum,
       }),
     )
     .query(async ({ input: { placement } }) => {
-      const sponsorPlacement: SponsorPlacementObject = (() => {
+      const sponsorPlacement: SponsorPlacementAd = (() => {
         switch (placement) {
           case 'IN_CONTENT': {
             return {

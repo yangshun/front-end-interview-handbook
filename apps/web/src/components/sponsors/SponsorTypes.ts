@@ -8,7 +8,20 @@ export const SponsorPlacementZodEnum = z.enum([
 
 export type SponsorPlacement = z.infer<typeof SponsorPlacementZodEnum>;
 
-export type SponsorPlacementObject =
+export type SponsorPlacementDataType = Readonly<{
+  config: SponsorPlacementConfig;
+  description: string;
+  name: string;
+  placement: SponsorPlacement;
+}>;
+
+export type SponsorPlacementConfig = Readonly<{
+  impressions: string;
+  pages: number;
+  pricePerWeekUSD: number;
+}>;
+
+export type SponsorPlacementAd =
   | Readonly<{
       imageUrl?: string;
       placement: 'IN_CONTENT';

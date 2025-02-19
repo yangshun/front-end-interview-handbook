@@ -167,6 +167,10 @@
     "defaultMessage": "Deploying your project",
     "description": "Title for Deployment Info in Projects"
   },
+  "/01zKd": {
+    "defaultMessage": "Global banner",
+    "description": "Ad placement"
+  },
   "/06NwY": {
     "defaultMessage": "Company-tagged questions",
     "description": "Title for company-tagged questions feature"
@@ -1194,6 +1198,14 @@
   "5tLsdY": {
     "defaultMessage": "{questionTitle} in {questionFramework}",
     "description": "Title of Front End Interview UI Coding Questions practice page"
+  },
+  "5wXtT4": {
+    "defaultMessage": "Showcase your brand or offer in a pinned top banner that appears across our entire site",
+    "description": "Ad placement description"
+  },
+  "5x8bSw": {
+    "defaultMessage": "Showcase your brand or offer with a high visibility ad pinned on the application sidebar and pages",
+    "description": "Ad placement description"
   },
   "5y9YGh": {
     "defaultMessage": "Submission title must contain at most {maxLength} character(s).",
@@ -8455,6 +8467,10 @@
     "defaultMessage": "What's new",
     "description": "Latest blog articles page title"
   },
+  "nwNS1U": {
+    "defaultMessage": "In-content display ad",
+    "description": "Ad placement"
+  },
   "nxJioH": {
     "defaultMessage": "Warnings",
     "description": "Select label for warning log level in console filter"
@@ -9699,6 +9715,10 @@
     "defaultMessage": "Reference others' approaches",
     "description": "Title of 'Reference other's approach' sub-feature in Projects marketing page"
   },
+  "vq81Mh": {
+    "defaultMessage": "Spotlight ad",
+    "description": "Ad placement"
+  },
   "vqL6fD": {
     "defaultMessage": "Start earning passive commissions with a great product",
     "description": "Title of Call to action banner found at the bottom of the 'Become an Affiliate' page."
@@ -9874,6 +9894,10 @@
   "x6+x/5": {
     "defaultMessage": "Edit profile",
     "description": "Title of Projects edit profile page"
+  },
+  "x6UznE": {
+    "defaultMessage": "Showcase your brand or offer with a premium ad unit seamlessly integrated into all {questionCount}+ of our questions and guides, reaching deeply immersed users",
+    "description": "Ad placement description"
   },
   "x8SJHC": {
     "defaultMessage": "GreatFrontEnd",
