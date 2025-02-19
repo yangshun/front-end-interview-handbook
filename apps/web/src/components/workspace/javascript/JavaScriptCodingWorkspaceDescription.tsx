@@ -1,5 +1,3 @@
-import clsx from 'clsx';
-
 import InterviewsPremiumBadge from '~/components/interviews/common/InterviewsPremiumBadge';
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import useQuestionLogEventCopyContents from '~/components/interviews/questions/common/useQuestionLogEventCopyContents';
@@ -9,6 +7,7 @@ import QuestionNextQuestions from '~/components/interviews/questions/content/Que
 import QuestionSimilarQuestions from '~/components/interviews/questions/content/QuestionSimilarQuestions';
 import QuestionMetadataSection from '~/components/interviews/questions/metadata/QuestionMetadataSection';
 import { useIntl } from '~/components/intl';
+import SponsorsAdPlacementInContentContainer from '~/components/sponsors/ads/SponsorsAdPlacementInContentContainer';
 import Badge from '~/components/ui/Badge';
 import Heading from '~/components/ui/Heading';
 import ScrollArea from '~/components/ui/ScrollArea';
@@ -66,14 +65,13 @@ export default function JavaScriptCodingWorkspaceDescription({
           </div>
           <div className="flex flex-col gap-y-8">
             <QuestionContentProse contents={description} />
-            <div className={clsx('flex flex-col gap-y-8')}>
-              <QuestionCompanies
-                canViewPremiumContent={canViewPremiumContent}
-                companies={metadata.companies}
-              />
-              <QuestionNextQuestions questions={nextQuestions} />
-              <QuestionSimilarQuestions questions={similarQuestions} />
-            </div>
+            <QuestionCompanies
+              canViewPremiumContent={canViewPremiumContent}
+              companies={metadata.companies}
+            />
+            <QuestionNextQuestions questions={nextQuestions} />
+            <QuestionSimilarQuestions questions={similarQuestions} />
+            <SponsorsAdPlacementInContentContainer size="sm" />
           </div>
         </div>
       </ScrollArea>

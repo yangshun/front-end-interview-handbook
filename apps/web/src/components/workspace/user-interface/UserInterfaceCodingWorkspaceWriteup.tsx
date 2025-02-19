@@ -17,6 +17,7 @@ import QuestionSimilarQuestions from '~/components/interviews/questions/content/
 import { useQuestionsListTypeCurrent } from '~/components/interviews/questions/listings/utils/useQuestionsListDataForType';
 import QuestionMetadataSection from '~/components/interviews/questions/metadata/QuestionMetadataSection';
 import { useIntl } from '~/components/intl';
+import SponsorsAdPlacementInContentContainer from '~/components/sponsors/ads/SponsorsAdPlacementInContentContainer';
 import Alert from '~/components/ui/Alert';
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
@@ -195,6 +196,7 @@ export default function UserInterfaceCodingWorkspaceWriteup({
             )}
             <QuestionNextQuestions questions={nextQuestions} />
             <QuestionSimilarQuestions questions={similarQuestions} />
+            <SponsorsAdPlacementInContentContainer size="sm" />
           </div>
         </div>
       </ScrollArea>

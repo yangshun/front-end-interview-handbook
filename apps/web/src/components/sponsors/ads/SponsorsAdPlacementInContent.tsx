@@ -6,9 +6,9 @@ import { themeBorderColor } from '~/components/ui/theme';
 
 import type { SponsorsAdPlacementPayloadInContent } from '../SponsorsTypes';
 
-type Size = 'md' | 'sm';
+export type SponsorsAdPlacementInContentSize = 'md' | 'sm';
 
-const sizeToTitle: Record<Size, TextSize> = {
+const sizeToTitle: Record<SponsorsAdPlacementInContentSize, TextSize> = {
   md: 'body0',
   sm: 'body1',
 };
@@ -21,7 +21,7 @@ export default function SponsorsAdPlacementInContent({
   size,
 }: Omit<SponsorsAdPlacementPayloadInContent, 'placement'> &
   Readonly<{
-    size: Size;
+    size: SponsorsAdPlacementInContentSize;
   }>) {
   return (
     <div>
