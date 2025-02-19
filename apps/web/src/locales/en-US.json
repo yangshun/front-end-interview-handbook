@@ -783,6 +783,10 @@
     "defaultMessage": "NEW",
     "description": "Label for new questions ribbon"
   },
+  "3Hh9Vd": {
+    "defaultMessage": "Reach {engineersCount}+ front end engineers per week for just ~${price} CPM",
+    "description": "Title of advertise with us page"
+  },
   "3I6rHR": {
     "defaultMessage": "These resources help you prepare effectively while saving time by focusing on high-impact areas:",
     "description": "Paragraph 3 for \"What does GreatFrontEnd Interviews offer exactly?\" on Homepage FAQ sections"
@@ -1146,6 +1150,10 @@
   "5kFTG0": {
     "defaultMessage": "Learn how GreatFrontEnd collects, uses, and protects your data. Review our privacy policy to understand your rights and our commitment to your privacy.",
     "description": "Description of Privacy Policy page"
+  },
+  "5kQQs5": {
+    "defaultMessage": "Software engineers",
+    "description": "Label for software engineers"
   },
   "5kTIFT": {
     "defaultMessage": "Your dream job is within reach—just a few months of preparation away. Unlock premium for less than the cost of a day's pay and get there faster.",
@@ -1850,6 +1858,10 @@
   "A0t3x6": {
     "defaultMessage": "Front End System Design Playbook",
     "description": "Title of frontend system design playbook page"
+  },
+  "A38qrC": {
+    "defaultMessage": "Page per user",
+    "description": "Label for page per user"
   },
   "A5COe1": {
     "defaultMessage": "Cancel",
@@ -3615,6 +3627,10 @@
     "defaultMessage": "Mark complete",
     "description": "Mark guide as complete"
   },
+  "KtRb5s": {
+    "defaultMessage": "Advertise with us",
+    "description": "Title of advertise with us page"
+  },
   "KtYnhS": {
     "defaultMessage": "Create a new account",
     "description": "Subtitle of Sign Up page"
@@ -4378,6 +4394,10 @@
   "PoILgY": {
     "defaultMessage": "No",
     "description": "No option label"
+  },
+  "PomxMS": {
+    "defaultMessage": "Browsing",
+    "description": "Label for browsing"
   },
   "Potyfh": {
     "defaultMessage": "{trackName} track",
@@ -5455,6 +5475,10 @@
     "defaultMessage": "{discountPercentage}% off all plans",
     "description": "Title for rewards page"
   },
+  "Vmkov5": {
+    "defaultMessage": "Guides",
+    "description": "Label for guides"
+  },
   "VmzkpS": {
     "defaultMessage": "Screenshot-taking success!",
     "description": "Success message for screenshot generation"
@@ -6403,6 +6427,10 @@
     "defaultMessage": "React Interview Playbook",
     "description": "Title for react interview playbook"
   },
+  "bM6qGi": {
+    "defaultMessage": "Event",
+    "description": "Label for event"
+  },
   "bNW00Y": {
     "defaultMessage": "Available frameworks",
     "description": "Screenreader text to indicate the presence of available frameworks, displayed on question cards in question lists"
@@ -6718,6 +6746,10 @@
   "dAHBqv": {
     "defaultMessage": "Theme",
     "description": "Label for select that changes the theme of the editor"
+  },
+  "dAesjD": {
+    "defaultMessage": "Next slot: {date}",
+    "description": "Next slot date"
   },
   "dCKqPL": {
     "defaultMessage": "Practice {questionCount}+ front end system design interview questions on the architecture of components, apps, games. Reference answers by big tech ex-interviewers.",
@@ -7258,6 +7290,10 @@
   "gIvdNL": {
     "defaultMessage": "We help you learn through building - without tutorial hell",
     "description": "Heading of the 'We help you learn through building - without tutorial hell' marketing section on Projects home page"
+  },
+  "gKCetv": {
+    "defaultMessage": "Avg. session duration across all users",
+    "description": "Label for average session duration"
   },
   "gRN6GJ": {
     "defaultMessage": "Assets provided",
@@ -8363,6 +8399,10 @@
     "defaultMessage": "Basic details",
     "description": "Section title for user onboarding form"
   },
+  "nQCwrP": {
+    "defaultMessage": "Advertise to a <bold>highly engaged audience</bold>. Publicize your products, tools, courses, articles, videos, conferences, and more!",
+    "description": "Description for advertise hero section"
+  },
   "nRFkBV": {
     "defaultMessage": "Create a free account to track your progress",
     "description": "Title for overlay on Projects dashboard page"
@@ -9015,6 +9055,10 @@
     "defaultMessage": "Learn from others",
     "description": "Title for recommended action for new projects platform user"
   },
+  "rTg/bq": {
+    "defaultMessage": "Schedule your slot",
+    "description": "Button label for schedule slot"
+  },
   "rUKlWg": {
     "defaultMessage": "Build projects to learn any front end skill using our <link>Skills roadmap</link>",
     "description": "Caption for Projects marketing hero section skills roadmap feature"
@@ -9026,6 +9070,10 @@
   "rWhQtZ": {
     "defaultMessage": "Full list of shortcuts can be found on the <link>Visual Studio Code website</link>.",
     "description": "Text in coding workspace shortcuts that provides user with the link to the full list of shortcuts"
+  },
+  "rXZQEC": {
+    "defaultMessage": "Focus on platform",
+    "description": "Focus on platform"
   },
   "rZaG+f": {
     "defaultMessage": "Unpin one or more existing submissions to pin a new one.",
@@ -9166,6 +9214,10 @@
   "scZfxP": {
     "defaultMessage": "A practice question bank with everything you'd ever need",
     "description": "Title for marketing page section"
+  },
+  "se7YSg": {
+    "defaultMessage": "Engagement rate",
+    "description": "Label for engagement rate"
   },
   "sfJ1Oa": {
     "defaultMessage": "Purchase premium to get access to all component tracks as well as exclusive skills, official how-to guides and production-ready Figma files.",
@@ -9326,6 +9378,10 @@
   "tWtbVf": {
     "defaultMessage": "OOP",
     "description": "Computer science topic"
+  },
+  "tYSCae": {
+    "defaultMessage": "Views",
+    "description": "Label for views"
   },
   "tZPTnS": {
     "defaultMessage": "Difficulty: Hard to Easy",
@@ -9755,6 +9811,10 @@
     "defaultMessage": "More",
     "description": "Label for more contribution"
   },
+  "vzta63": {
+    "defaultMessage": "Solving questions",
+    "description": "Label for solving questions"
+  },
   "w+HZnz": {
     "defaultMessage": "Our projects are never one-off - they always fit into some component library or design system with other projects. Any projects you build can be composed to build future projects, forming an ever-growing toolkit for your future.",
     "description": "Part 1 of subtitle of the 'Permanent toolkit' marketing section on Projects home page"
@@ -9934,6 +9994,10 @@
   "xR9d8+": {
     "defaultMessage": "Get Started - One-stop to prepare for your Front End Interviews",
     "description": "Title of Get Started page"
+  },
+  "xRyx1X": {
+    "defaultMessage": "<bold>{duration}</bold> minutes",
+    "description": "Label for session duration"
   },
   "xWAt8Q": {
     "defaultMessage": "The ultimate Front End Interview preparation platform.",
@@ -10334,6 +10398,10 @@
   "zeK111": {
     "defaultMessage": "E.g. \"Responsive solution with React and Tailwind CSS\"",
     "description": "Placeholder for submission name input on project submit page"
+  },
+  "zfkiwP": {
+    "defaultMessage": "Pricing and availability",
+    "description": "Button label for pricing & availability"
   },
   "zgj9Pd": {
     "defaultMessage": "Learn from others",
