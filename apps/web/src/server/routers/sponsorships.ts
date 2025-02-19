@@ -21,7 +21,8 @@ export const sponsorshipsRouter = router({
               imageUrl:
                 'https://www.techinterviewhandbook.org/social/software-engineering-interview-guide.png',
               placement: 'IN_CONTENT',
-              title: 'Tech Interview Handbook',
+              sponsorName: 'Tech Interview Handbook',
+              title: 'Ace your technical interviews',
               url: 'https://www.techinterviewhandbook.org',
             } as const;
           }
@@ -30,6 +31,7 @@ export const sponsorshipsRouter = router({
               imageUrl:
                 'https://www.techinterviewhandbook.org/social/software-engineering-interview-guide.png',
               placement: 'SPOTLIGHT',
+              sponsorName: 'Tech Interview Handbook',
               text: 'Spotlight Tech Interview Handbook is the best handbook blah blah',
               url: 'https://www.techinterviewhandbook.org',
             } as const;
@@ -37,6 +39,7 @@ export const sponsorshipsRouter = router({
           case 'GLOBAL_BANNER': {
             return {
               placement: 'GLOBAL_BANNER',
+              sponsorName: 'Tech Interview Handbook',
               text: 'Tech Interview Handbook global banner is the best handbook blah blah',
               url: 'https://www.techinterviewhandbook.org',
             } as const;

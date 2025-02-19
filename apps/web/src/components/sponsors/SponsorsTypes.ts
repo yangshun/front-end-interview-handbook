@@ -25,19 +25,21 @@ export type SponsorsAdPlacementPayloadInContent = Readonly<{
   body: string;
   imageUrl?: string;
   placement: 'IN_CONTENT';
+  sponsorName: string;
   title: string;
-  url: string;
 }>;
 
 export type SponsorsAdPlacementPayloadSpotlight = Readonly<{
   imageUrl?: string;
   placement: 'SPOTLIGHT';
+  sponsorName: string;
   text: string;
   url: string;
 }>;
 
 export type SponsorsAdPlacementPayloadGlobalBanner = Readonly<{
   placement: 'GLOBAL_BANNER';
+  sponsorName: string;
   text: string;
   url: string;
 }>;
