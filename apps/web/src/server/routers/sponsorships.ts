@@ -1,7 +1,7 @@
 import { z } from 'zod';
 
-import type { SponsorPlacementAd } from '~/components/sponsors/SponsorTypes';
-import { SponsorPlacementZodEnum } from '~/components/sponsors/SponsorTypes';
+import type { SponsorsAdPlacementPayload } from '~/components/sponsors/SponsorsTypes';
+import { SponsorsPlacementZodEnum } from '~/components/sponsors/SponsorsTypes';
 
 import { publicProcedure, router } from '../trpc';
 
@@ -9,36 +9,37 @@ export const sponsorshipsRouter = router({
   ad: publicProcedure
     .input(
       z.object({
-        placement: SponsorPlacementZodEnum,
+        placement: SponsorsPlacementZodEnum,
       }),
     )
     .query(async ({ input: { placement } }) => {
-      const sponsorPlacement: SponsorPlacementAd = (() => {
+      const sponsorPlacement: SponsorsAdPlacementPayload = (() => {
         switch (placement) {
           case 'IN_CONTENT': {
             return {
+              body: 'Tech Interview Handbook is the best handbook blah blah',
               imageUrl:
                 'https://www.techinterviewhandbook.org/social/software-engineering-interview-guide.png',
               placement: 'IN_CONTENT',
-              text: 'Tech Interview Handbook is the best handbook blah blah',
+              title: 'Tech Interview Handbook',
               url: 'https://www.techinterviewhandbook.org',
-            };
+            } as const;
           }
           case 'SPOTLIGHT': {
             return {
               imageUrl:
                 'https://www.techinterviewhandbook.org/social/software-engineering-interview-guide.png',
-              placement: 'IN_CONTENT',
+              placement: 'SPOTLIGHT',
               text: 'Spotlight Tech Interview Handbook is the best handbook blah blah',
               url: 'https://www.techinterviewhandbook.org',
-            };
+            } as const;
           }
           case 'GLOBAL_BANNER': {
             return {
-              placement: 'IN_CONTENT',
+              placement: 'GLOBAL_BANNER',
               text: 'Tech Interview Handbook global banner is the best handbook blah blah',
               url: 'https://www.techinterviewhandbook.org',
-            };
+            } as const;
           }
         }
       })();

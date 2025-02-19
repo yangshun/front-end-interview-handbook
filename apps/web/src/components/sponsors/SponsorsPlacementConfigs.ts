@@ -1,15 +1,15 @@
 import { useIntl } from '~/components/intl';
 
 import type {
-  SponsorPlacement,
-  SponsorPlacementConfig,
-  SponsorPlacementDataType,
-} from './SponsorTypes';
+  SponsorsPlacement,
+  SponsorsPlacementConfig,
+  SponsorsPlacementDataType,
+} from './SponsorsTypes';
 import { QuestionCountTotal } from '../interviews/questions/listings/stats/QuestionCount';
 
 export const SponsorPlacementConfigs: Record<
-  SponsorPlacement,
-  SponsorPlacementConfig
+  SponsorsPlacement,
+  SponsorsPlacementConfig
 > = {
   GLOBAL_BANNER: {
     impressions: '100,000',
@@ -29,8 +29,8 @@ export const SponsorPlacementConfigs: Record<
 };
 
 export function useSponsorPlacementData(): Record<
-  SponsorPlacement,
-  SponsorPlacementDataType
+  SponsorsPlacement,
+  SponsorsPlacementDataType
 > {
   const intl = useIntl();
 
