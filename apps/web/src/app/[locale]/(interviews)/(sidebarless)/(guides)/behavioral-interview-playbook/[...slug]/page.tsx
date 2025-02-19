@@ -8,8 +8,8 @@ import {
   basePath,
   BehavioralInterviewPlaybookPathToFile,
 } from '~/components/guides/books/BehavioralInterviewPlaybookNavigation';
+import GuidesMarkdown from '~/components/guides/GuidesMarkdown';
 import MDXCodeBlock from '~/components/mdx/MDXCodeBlock';
-import MDXComponents from '~/components/mdx/MDXComponents';
 
 import {
   guidesRequestToFilePath,
@@ -91,7 +91,7 @@ export default async function Page(props: Props) {
       description={description}
       tableOfContents={tableOfContents}
       title={title}>
-      <Markdown components={MDXComponents} />
+      <GuidesMarkdown markdown={Markdown} />
     </BehavioralInterviewPlaybookLayout>
   );
 }
