@@ -1703,6 +1703,10 @@
     "defaultMessage": "You may be interested",
     "description": "Title for you may be interested section on Projects challenge submission page"
   },
+  "9/9ljj": {
+    "defaultMessage": "Engage a large and global tech audience of front end developers",
+    "description": "Advertise with us section title"
+  },
   "90E9LR": {
     "defaultMessage": "The card has reached its limit for the number of allowed transactions in a given timeframe, as defined by the issuer.",
     "description": "Decline message for card velocity exceeded"
@@ -4639,6 +4643,10 @@
     "defaultMessage": "Resources provided",
     "description": "Title for Assets Provided section on Projects project page"
   },
+  "R0oH1n": {
+    "defaultMessage": "As a premium platform tailored for front end engineers to upskill and advance their careers, we attracted over <highlight>{activeUsersCount} active users</highlight> last year.",
+    "description": "Advertise with us section subtitle"
+  },
   "R1ji0N": {
     "defaultMessage": "Signing out. See you again!",
     "description": "Main content of Sign Out page"
@@ -6974,6 +6982,10 @@
   "egSWgk": {
     "defaultMessage": "Example solutions",
     "description": "Example code solutions"
+  },
+  "eixmPm": {
+    "defaultMessage": "Event count /month",
+    "description": "Label for event count/month"
   },
   "ejhiw3": {
     "defaultMessage": "Tackle your next interview with confidence using this focused, no-nonsense front end prep guide. Created by the author of the Front End Interview Handbook, it's filled with practical strategies and insider tips you won't find anywhere else.",
@@ -10186,6 +10198,10 @@
   "yhRL5u": {
     "defaultMessage": "Images, style guides, design files",
     "description": "Title of 'Images, style guides, design files' sub-feature in Projects marketing page"
+  },
+  "yi/hOm": {
+    "defaultMessage": "Page views /month",
+    "description": "Label for page views/month"
   },
   "yiXkEL": {
     "defaultMessage": "View all <link>frequently asked questions</link>",
