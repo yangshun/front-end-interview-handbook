@@ -19,8 +19,14 @@ export default function SponsorsAdPlacementInContent({
   imageUrl,
 }: Omit<SponsorsAdPlacementPayloadSpotlight, 'placement'>) {
   return (
-    <div
-      className={clsx('flex items-center gap-4', 'w-full', 'relative isolate')}>
+    <Anchor
+      className={clsx(
+        'flex items-center gap-x-3',
+        'w-full',
+        'relative isolate',
+      )}
+      href={url}
+      variant="flat">
       <div className={clsx('relative shrink-0', 'aspect-[2/1] h-12')}>
         <Tooltip asChild={true} label={`Sponsor: ${sponsorName}`} side="bottom">
           <div
@@ -46,10 +52,9 @@ export default function SponsorsAdPlacementInContent({
           src={imageUrl}
         />
       </div>
-      <Text className="line-clamp-3 grow" size="body3">
+      <Text className="line-clamp-3 grow" color="subtitle" size="body3">
         {text}
       </Text>
-      <Anchor aria-label={text} className="absolute inset-0" href={url} />
-    </div>
+    </Anchor>
   );
 }

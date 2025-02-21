@@ -61,7 +61,6 @@ export default function InterviewsDashboardMoreLearningSection({
   return (
     <>
       <div className={clsx('flex flex-col gap-16')}>
-        <Divider />
         <div className="flex flex-col gap-3">
           <Heading className={themeTextColor} color="custom" level="heading5">
             <FormattedMessage

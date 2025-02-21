@@ -23,6 +23,8 @@ export type SponsorsPlacementConfig = Readonly<{
 
 export type SponsorsAdPlacementPayloadInContent = Readonly<{
   body: string;
+  external: boolean;
+  id: string;
   imageUrl?: string;
   placement: 'IN_CONTENT';
   sponsorName: string;
@@ -30,6 +32,8 @@ export type SponsorsAdPlacementPayloadInContent = Readonly<{
 }>;
 
 export type SponsorsAdPlacementPayloadSpotlight = Readonly<{
+  external: boolean;
+  id: string;
   imageUrl?: string;
   placement: 'SPOTLIGHT';
   sponsorName: string;
@@ -38,6 +42,8 @@ export type SponsorsAdPlacementPayloadSpotlight = Readonly<{
 }>;
 
 export type SponsorsAdPlacementPayloadGlobalBanner = Readonly<{
+  external: boolean;
+  id: string;
   placement: 'GLOBAL_BANNER';
   sponsorName: string;
   text: string;

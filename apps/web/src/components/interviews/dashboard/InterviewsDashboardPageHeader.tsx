@@ -8,6 +8,7 @@ import {
 
 import { QuestionCountTotal } from '~/components/interviews/questions/listings/stats/QuestionCount';
 import { FormattedMessage, useIntl } from '~/components/intl';
+import SponsorsAdPlacementSpotlightCard from '~/components/sponsors/ads/SponsorsAdPlacementSpotlightCard';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 import { themeGlassyBorder, themeTextColor } from '~/components/ui/theme';
@@ -59,31 +60,49 @@ export default function InterviewsDashboardPageHeader({
 
   if (isLoggedIn) {
     return (
-      <div className="flex items-center gap-4">
-        <Heading level="heading4">
-          <FormattedMessage
-            defaultMessage="Dashboard"
-            description="Label for dashboard title for logged in user"
-            id="TW5R5d"
-          />
-        </Heading>
-        <div className="flex items-center gap-2">
-          <Tooltip
-            label={
-              <FormattedMessage
-                defaultMessage="You're on a roll! You've kept your streak going for {days, plural, =0 {0 consecutive days} =1 {1 consecutive day} other {# consecutive days}}, completing at least one question every day."
-                description="Tooltip for max consecutive days of contributions"
-                id="p1MoBS"
-                values={{
-                  days: currentMaxConsecutiveDays,
-                }}
-              />
-            }>
-            <div
+      <div className="flex flex-col items-start gap-4 lg:flex-row">
+        <div className="flex items-center gap-4 lg:grow">
+          <Heading level="heading4">
+            <FormattedMessage
+              defaultMessage="Dashboard"
+              description="Label for dashboard title for logged in user"
+              id="TW5R5d"
+            />
+          </Heading>
+          <div className="flex items-center gap-2">
+            <Tooltip
+              label={
+                <FormattedMessage
+                  defaultMessage="You're on a roll! You've kept your streak going for {days, plural, =0 {0 consecutive days} =1 {1 consecutive day} other {# consecutive days}}, completing at least one question every day."
+                  description="Tooltip for max consecutive days of contributions"
+                  id="p1MoBS"
+                  values={{
+                    days: currentMaxConsecutiveDays,
+                  }}
+                />
+              }>
+              <div
+                className={clsx(
+                  'flex items-center justify-center',
+                  'size-5 rounded-full',
+                  themeGlassyBorder,
+                  [
+                    'transition-opacity duration-500',
+                    isContributionsLoading ? 'opacity-0' : 'opacity-100',
+                  ],
+                  [
+                    !isContributionsLoading &&
+                      currentMaxConsecutiveDays === 0 &&
+                      'hidden',
+                  ],
+                )}>
+                <RiFlashlightFill
+                  className={clsx('size-3 shrink-0', themeTextColor)}
+                />
+              </div>
+            </Tooltip>
+            <Text
               className={clsx(
-                'flex items-center justify-center',
-                'size-5 rounded-full',
-                themeGlassyBorder,
                 [
                   'transition-opacity duration-500',
                   isContributionsLoading ? 'opacity-0' : 'opacity-100',
@@ -93,41 +112,26 @@ export default function InterviewsDashboardPageHeader({
                     currentMaxConsecutiveDays === 0 &&
                     'hidden',
                 ],
-              )}>
-              <RiFlashlightFill
-                className={clsx('size-3 shrink-0', themeTextColor)}
+              )}
+              color="secondary"
+              size="body3">
+              <FormattedMessage
+                defaultMessage="{days, plural, =0 {<bold>0 days</bold>} =1 {<bold>1 day</bold>} other {<bold># days</bold>}} current streak"
+                description="Label for max consecutive days"
+                id="BzDeUP"
+                values={{
+                  bold: (chunk) => (
+                    <Text size="body2" weight="medium">
+                      {chunk}
+                    </Text>
+                  ),
+                  days: currentMaxConsecutiveDays,
+                }}
               />
-            </div>
-          </Tooltip>
-          <Text
-            className={clsx(
-              [
-                'transition-opacity duration-500',
-                isContributionsLoading ? 'opacity-0' : 'opacity-100',
-              ],
-              [
-                !isContributionsLoading &&
-                  currentMaxConsecutiveDays === 0 &&
-                  'hidden',
-              ],
-            )}
-            color="secondary"
-            size="body3">
-            <FormattedMessage
-              defaultMessage="{days, plural, =0 {<bold>0 days</bold>} =1 {<bold>1 day</bold>} other {<bold># days</bold>}} current streak"
-              description="Label for max consecutive days"
-              id="BzDeUP"
-              values={{
-                bold: (chunk) => (
-                  <Text size="body2" weight="medium">
-                    {chunk}
-                  </Text>
-                ),
-                days: currentMaxConsecutiveDays,
-              }}
-            />
-          </Text>
+            </Text>
+          </div>
         </div>
+        <SponsorsAdPlacementSpotlightCard />
       </div>
     );
   }

@@ -74,7 +74,7 @@ export default function InterviewsPageHeader({
       )}
       <div
         className={clsx(
-          'flex w-full justify-between',
+          'flex w-full flex-col items-start justify-between xl:flex-row',
           'gap-x-6 gap-y-8 sm:gap-y-6',
           className,
         )}>

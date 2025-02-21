@@ -16,12 +16,11 @@ import type {
   QuestionSlug,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import { StudyPlanIcons } from '~/components/interviews/questions/content/study-list/StudyListUtils';
-import { countQuestionsByAccess } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
-import QuestionListingAccessSummary from '~/components/interviews/questions/listings/stats/QuestionListingAccessSummary';
 import InterviewsStudyListQuestions from '~/components/interviews/questions/listings/study-list/InterviewsStudyListQuestions';
 import InterviewsRecommendedPrepStrategyPageTitleSection from '~/components/interviews/recommended/InterviewsRecommendedPrepStrategyPageTitleSection';
 import { FormattedMessage, useIntl } from '~/components/intl';
 import MDXContent from '~/components/mdx/MDXContent';
+import SponsorsAdPlacementSpotlightCard from '~/components/sponsors/ads/SponsorsAdPlacementSpotlightCard';
 import Divider from '~/components/ui/Divider';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
@@ -63,8 +62,6 @@ export default function InterviewsStudyPlanBlind75Page({
     questionsProgressAll,
     questionsSlugs,
   );
-
-  const questionsAccessCount = countQuestionsByAccess(questions);
 
   const features = [
     questionFeatures.codeInBrowser,
@@ -113,8 +110,8 @@ export default function InterviewsStudyPlanBlind75Page({
           studyListKey="blind75"
           title={studyList.name}
         />
-        <div className="block lg:hidden">
-          <QuestionListingAccessSummary {...questionsAccessCount} />
+        <div className="block xl:hidden">
+          <SponsorsAdPlacementSpotlightCard />
         </div>
       </div>
       <Section>
@@ -123,8 +120,8 @@ export default function InterviewsStudyPlanBlind75Page({
             overallProgress={questionsOverallProgress}
             questions={questions}
             sideColumnAddOn={
-              <div className="hidden lg:block">
-                <QuestionListingAccessSummary {...questionsAccessCount} />
+              <div className="hidden xl:block">
+                <SponsorsAdPlacementSpotlightCard />
               </div>
             }
             studyListKey={studyList.slug}

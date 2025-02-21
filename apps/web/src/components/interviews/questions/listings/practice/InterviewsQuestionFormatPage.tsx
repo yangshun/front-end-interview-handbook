@@ -19,6 +19,7 @@ import QuestionsUnifiedListWithFiltersAndProgress from '~/components/interviews/
 import QuestionListingAccessSummary from '~/components/interviews/questions/listings/stats/QuestionListingAccessSummary';
 import { useIntl } from '~/components/intl';
 import MDXContent from '~/components/mdx/MDXContent';
+import SponsorsAdPlacementSpotlightCard from '~/components/sponsors/ads/SponsorsAdPlacementSpotlightCard';
 import Divider from '~/components/ui/Divider';
 import Section from '~/components/ui/Heading/HeadingContext';
 
@@ -114,6 +115,7 @@ export default function InterviewsQuestionFormatPage({
         description={description}
         features={features[format]}
         icon={formatData[format].icon}
+        sideElement={<SponsorsAdPlacementSpotlightCard />}
         title={title}
       />
       <Section>

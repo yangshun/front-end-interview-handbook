@@ -23,6 +23,7 @@ import InterviewsStudyListQuestions from '~/components/interviews/questions/list
 import InterviewsRecommendedPrepStrategyPageTitleSection from '~/components/interviews/recommended/InterviewsRecommendedPrepStrategyPageTitleSection';
 import { FormattedMessage } from '~/components/intl';
 import MDXContent from '~/components/mdx/MDXContent';
+import SponsorsAdPlacementSpotlightCard from '~/components/sponsors/ads/SponsorsAdPlacementSpotlightCard';
 import Divider from '~/components/ui/Divider';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text, { textVariants } from '~/components/ui/Text';
@@ -127,6 +128,9 @@ export default function InterviewsStudyPlanGFE75Page({
           studyListKey="gfe75"
           title={studyList.name}
         />
+        <div className="block xl:hidden">
+          <SponsorsAdPlacementSpotlightCard />
+        </div>
       </div>
       <Section>
         <div className="flex flex-col gap-20">
@@ -134,6 +138,11 @@ export default function InterviewsStudyPlanGFE75Page({
             overallProgress={questionsOverallProgress}
             questions={questions}
             showCount_TEMPORARY={false}
+            sideColumnAddOn={
+              <div className="hidden xl:block">
+                <SponsorsAdPlacementSpotlightCard />
+              </div>
+            }
             studyListKey={studyList.slug}
           />
           {bottomContent && (

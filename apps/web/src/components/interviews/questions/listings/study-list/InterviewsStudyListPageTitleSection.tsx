@@ -1,12 +1,16 @@
 import InterviewsPageHeader from '~/components/interviews/common/InterviewsPageHeader';
 import type { InterviewsPurchasePremiumFeature } from '~/components/interviews/purchase/InterviewsPurchaseTypes';
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
+import SponsorsAdPlacementSpotlightCard from '~/components/sponsors/ads/SponsorsAdPlacementSpotlightCard';
 
 import type { QuestionProgress } from '~/db/QuestionsProgressTypes';
 
 import InterviewsStudyListSession from './InterviewsStudyListSession';
 
-type Props = React.ComponentProps<typeof InterviewsPageHeader> &
+type Props = Omit<
+  React.ComponentProps<typeof InterviewsPageHeader>,
+  'sideElement'
+> &
   Readonly<{
     overallProgress: ReadonlyArray<QuestionProgress>;
     progressTrackingAvailableToNonPremiumUsers?: boolean;
@@ -41,7 +45,9 @@ export default function InterviewsStudyListPageTitleSection({
             studyListKey={studyListKey}
             studyListTitle={props.title}
           />
-        ) : undefined
+        ) : (
+          <SponsorsAdPlacementSpotlightCard />
+        )
       }
     />
   );

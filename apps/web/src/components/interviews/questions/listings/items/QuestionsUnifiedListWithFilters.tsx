@@ -319,7 +319,7 @@ export default function QuestionsUnifiedListWithFilters({
         className={clsx(
           'hidden flex-col min-[1200px]:col-span-1 min-[1200px]:flex',
           'h-full',
-          'px-5',
+          'pl-5',
           'gap-6',
         )}>
         {sideColumnAddOn}

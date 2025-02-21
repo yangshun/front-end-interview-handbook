@@ -24,6 +24,8 @@ export const sponsorshipsRouter = router({
 	•	Unique Accessories: From mugs to tote bags, deck out your workspace and wardrobe with must-have items you won’t find anywhere else.
 
 Elevate your style, inspire your creativity, and represent your coding chops with every piece from SwagOverflow. Grab yours now and stand out in any crowd—on or off the keyboard!`,
+              external: true,
+              id: 'tih',
               imageUrl:
                 'https://www.techinterviewhandbook.org/social/software-engineering-interview-guide.png',
               placement: 'IN_CONTENT',
@@ -34,16 +36,20 @@ Elevate your style, inspire your creativity, and represent your coding chops wit
           }
           case 'SPOTLIGHT': {
             return {
+              external: true,
+              id: 'tih',
               imageUrl:
                 'https://www.techinterviewhandbook.org/social/software-engineering-interview-guide.png',
               placement: 'SPOTLIGHT',
               sponsorName: 'Tech Interview Handbook',
-              text: 'Spotlight Tech Interview Handbook is the best handbook blah blah',
+              text: 'Tech Interview Handbook is the best handbook blah blah',
               url: 'https://www.techinterviewhandbook.org',
             } as const;
           }
           case 'GLOBAL_BANNER': {
             return {
+              external: true,
+              id: 'tih',
               placement: 'GLOBAL_BANNER',
               sponsorName: 'Tech Interview Handbook',
               text: 'Tech Interview Handbook global banner is the best handbook blah blah',
