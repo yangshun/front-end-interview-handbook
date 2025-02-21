@@ -1139,6 +1139,10 @@
     "defaultMessage": "Front End Interview Practice Questions | GreatFrontEnd",
     "description": "Social title for all practice questions page"
   },
+  "5fF7Tn": {
+    "defaultMessage": "Global banner that appears on all pages",
+    "description": "Item 1 for global banner placement pages info"
+  },
   "5fJI7m": {
     "defaultMessage": "Core maintainers of well-known open source projects",
     "description": "Prep resources open source projects"
@@ -1807,6 +1811,10 @@
     "defaultMessage": "The only platform with front end system design questions with official solutions written by senior engineers.",
     "description": "Subtitle for front end system design feature"
   },
+  "9L3fSb": {
+    "defaultMessage": "Body: {charactersLimit} characters max 1 line",
+    "description": "Placement constraints"
+  },
   "9LT8eh": {
     "defaultMessage": "Email",
     "description": "Label of email field on Sign In/Up page"
@@ -1922,6 +1930,10 @@
   "AKnqip": {
     "defaultMessage": "Name must contain at least {minLength} character(s).",
     "description": "Error message when display name is too short"
+  },
+  "AMx8j7": {
+    "defaultMessage": "Based on last {days} days data",
+    "description": "Item 2 for global banner placement impressions info"
   },
   "ANSxyW": {
     "defaultMessage": "Low",
@@ -2326,6 +2338,10 @@
   "D7z/wQ": {
     "defaultMessage": "Keep your reason to under {characterLimit} characters",
     "description": "String validation message"
+  },
+  "D96Hpr": {
+    "defaultMessage": "/week",
+    "description": "Per week"
   },
   "D9oArH": {
     "defaultMessage": "A confirmation email has been sent to the new email address. The email change will not take effect until the confirmation link in the new email address has been clicked and signing out",
@@ -3387,10 +3403,6 @@
     "defaultMessage": "Careers",
     "description": "Link to careers page"
   },
-  "JMvvTa": {
-    "defaultMessage": "{count} pages",
-    "description": "Ad placement pages count"
-  },
   "JPr1gs": {
     "defaultMessage": "Collaboration questions",
     "description": "Title for sidebar on collaboration situation questions in behavioral interviews"
@@ -3579,6 +3591,10 @@
     "defaultMessage": "Previous",
     "description": "Previous step button label"
   },
+  "KU6vxj": {
+    "defaultMessage": "Pages the ad will be shown",
+    "description": "Label for pages"
+  },
   "KUKb7F": {
     "defaultMessage": "{name} | Profile",
     "description": "Title of a user profile page"
@@ -3598,6 +3614,10 @@
   "KbLzJO": {
     "defaultMessage": "Bullet list",
     "description": "Bullet list tooltip for Richtext toolbar"
+  },
+  "KbcuWF": {
+    "defaultMessage": "Monday 28 Jan - Sunday 01 Feb",
+    "description": "Item 1 for global banner placement slot info"
   },
   "KbgzvC": {
     "defaultMessage": "Hide",
@@ -4051,6 +4071,10 @@
     "defaultMessage": "Preview solution",
     "description": "Label for preview solution button"
   },
+  "NLQRm+": {
+    "defaultMessage": "View placement constraints",
+    "description": "Accordion trigger label"
+  },
   "NS3jrc": {
     "defaultMessage": "Frameworks",
     "description": "Software frameworks"
@@ -4371,6 +4395,10 @@
     "defaultMessage": "Multi-page & fully-functional apps",
     "description": "Label for apps feature"
   },
+  "PMbV3v": {
+    "defaultMessage": "See more available slots",
+    "description": "See more available slots"
+  },
   "PMvcx6": {
     "defaultMessage": "Advanced",
     "description": "Advanced level blog"
@@ -4562,6 +4590,10 @@
   "QVh3mt": {
     "defaultMessage": "Dropbox",
     "description": "Company name for Dropbox"
+  },
+  "QVwSU6": {
+    "defaultMessage": "Next available slot(s)",
+    "description": "Label for slots"
   },
   "QWwKE4": {
     "defaultMessage": "If these steps do not resolve the issue, please contact our support team at <link>support@greatfrontend.com</link> or through the <feedback>feedback widget</feedback>.",
@@ -5258,6 +5290,10 @@
   "TyQdcx": {
     "defaultMessage": "Sort by",
     "description": "Label for sort button"
+  },
+  "TyhBEz": {
+    "defaultMessage": "Monday 14 Jan - Sunday 16 Feb",
+    "description": "Item 2 for global banner placement slot info"
   },
   "TzB7wE": {
     "defaultMessage": "Step 4",
@@ -6887,6 +6923,10 @@
     "defaultMessage": "Terms of Service",
     "description": "Title of Terms of Service page"
   },
+  "dlRik2": {
+    "defaultMessage": "Accounting for rotations with {bannerCount} other banners",
+    "description": "Item 1 for global banner placement impressions info"
+  },
   "doY6Fg": {
     "defaultMessage": "Quiz",
     "description": "Question format"
@@ -7763,6 +7803,10 @@
     "defaultMessage": "Each project you build adds to your permanent toolkit",
     "description": "Heading of the 'Permanent toolkit' marketing section on Projects home page"
   },
+  "j3Bmlg": {
+    "defaultMessage": "Estimated Impressions",
+    "description": "Label for impressions"
+  },
   "j63zLB": {
     "defaultMessage": "You can add more skills e.g. UI frameworks used after starting the project",
     "description": "Additional information for skills section on Projects project page"
@@ -8310,6 +8354,10 @@
   "mTVs6A": {
     "defaultMessage": "Learn from others or help them out",
     "description": "Button title for reviewing submissions on projects payment success page"
+  },
+  "mTh7dB": {
+    "defaultMessage": "{count}+ pages",
+    "description": "Ad placement pages count"
   },
   "mU5c9N": {
     "defaultMessage": "After completion",
@@ -9835,6 +9883,10 @@
     "defaultMessage": "Gain expertise in handling commonly asked question formats in front end interviews",
     "description": "Description for question formats section"
   },
+  "voGLL8": {
+    "defaultMessage": "Explore our Advertising Opportunities",
+    "description": "Advertise with us section title"
+  },
   "vp4zbB": {
     "defaultMessage": "Purchase premium to see companies which ask this question.",
     "description": "Subtitle for paywall over information about companies that asked the question"
@@ -10534,6 +10586,10 @@
   "zul/L1": {
     "defaultMessage": "Earlier this month",
     "description": "Title for earlier this month list of comments"
+  },
+  "zvcJI/": {
+    "defaultMessage": "Preview",
+    "description": "Label for preview button"
   },
   "zw0Ov8": {
     "defaultMessage": "Hard",

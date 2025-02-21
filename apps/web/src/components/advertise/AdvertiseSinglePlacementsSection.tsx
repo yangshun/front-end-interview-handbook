@@ -261,9 +261,9 @@ function PagesCountBadge({ count }: { count: number }) {
       iconClassName={themeTextColor}
       label={intl.formatMessage(
         {
-          defaultMessage: '{count} pages',
+          defaultMessage: '{count}+ pages',
           description: 'Ad placement pages count',
-          id: 'JMvvTa',
+          id: 'mTh7dB',
         },
         { count },
       )}
