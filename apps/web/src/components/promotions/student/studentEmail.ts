@@ -41,6 +41,26 @@ const validDomains = Object.freeze({
     'uva.nl', // University of Amsterdam
     'vu.nl', // Vrije Universiteit Amsterdam
   ],
+  disposableDomains: [
+    '50sale.edu.vn',
+    'dse.edu.pl',
+    'dwse.edu.pl',
+    'edupolska.edu.pl',
+    'email.edu.pl',
+    'fast.edu.pl',
+    'mailers.edu.pl',
+    'mjj.edu.ge',
+    'munik.edu.pl',
+    'nullsto.edu.pl',
+    'omail.edu.pl',
+    'outlook.edu.pl',
+    'pbl.edu.pl',
+    'privmail.edu.pl',
+    'promail.edu.pl',
+    'umail.edu.pl',
+    'yomail.edu.pl',
+    'zod.edu.pl',
+  ],
   prefixes: ['edu.'],
   substring: ['.edu.', '.ac.'],
   suffixes: [
@@ -94,12 +114,22 @@ export function isValidStudentEmail(
   const allowedDomain = validDomains.allowlisted.some((validDomain) =>
     domain.toLowerCase().includes(validDomain),
   );
+  const isDisposableDomain = validDomains.disposableDomains.some(
+    (validDomain) => domain.toLowerCase().endsWith(validDomain),
+  );
+
+  if (isDisposableDomain) {
+    return {
+      reason: "Scammer alert! We've notified the police 🚨",
+      valid: false,
+    };
+  }
 
   if (
+    !allowedDomain &&
     !containsPrefix &&
     !containsSubstring &&
-    !containsSuffix &&
-    !allowedDomain
+    !containsSuffix
   ) {
     return {
       reason:

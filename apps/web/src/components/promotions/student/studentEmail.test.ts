@@ -150,5 +150,15 @@ describe('isValidStudentEmail', () => {
         valid: false,
       });
     });
+
+    test('disposable emails', () => {
+      expect(isValidStudentEmail('1pux5hn9lm@fast.edu.pl').valid).toEqual(
+        false,
+      );
+      expect(isValidStudentEmail('1pux5hn9lm@mail.fast.edu.pl').valid).toEqual(
+        false,
+      );
+      expect(isValidStudentEmail('1pux5hn9lm@pw.edu.pl').valid).toEqual(true);
+    });
   });
 });
