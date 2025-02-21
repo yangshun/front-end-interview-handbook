@@ -783,6 +783,10 @@
     "defaultMessage": "Security",
     "description": "Title for Security section on profile page"
   },
+  "3C1g+S": {
+    "defaultMessage": "Don't settle for single placements - we'll give you repeated ad exposure",
+    "description": "Advertise with us section title"
+  },
   "3Eov45": {
     "defaultMessage": "The selected questions progress will be reset. This is an irreversible action, are you sure you want to proceed?",
     "description": "Warning message in selective questions reset progress confirmation dialog"
@@ -3382,6 +3386,10 @@
   "JMDUrK": {
     "defaultMessage": "Careers",
     "description": "Link to careers page"
+  },
+  "JMvvTa": {
+    "defaultMessage": "{count} pages",
+    "description": "Ad placement pages count"
   },
   "JPr1gs": {
     "defaultMessage": "Collaboration questions",
@@ -6834,6 +6842,10 @@
   "dRUyU9": {
     "defaultMessage": "Contact us",
     "description": "Link to contact page"
+  },
+  "dVkXTc": {
+    "defaultMessage": "While other advertising options only provide a single placement—like a one-time newsletter mention—our solution <highlight>places your ad across multiple pages</highlight>, ensuring repeated, high-impact visibility on every visit.",
+    "description": "Advertise with us section subtitle"
   },
   "dWy8fS": {
     "defaultMessage": "Success!",
