@@ -163,6 +163,10 @@
     "defaultMessage": "Support you can expect",
     "description": "Title for Expected Support section on Projects project page"
   },
+  "+zHK+N": {
+    "defaultMessage": "Pages per Active User",
+    "description": "Label for pages per active user"
+  },
   "//v4RL": {
     "defaultMessage": "Deploying your project",
     "description": "Title for Deployment Info in Projects"
@@ -250,6 +254,10 @@
   "/ZJu61": {
     "defaultMessage": "Practice {questionCount}+ curated Angular Interview Questions in-browser, with solutions and test cases from big tech ex-interviewers",
     "description": "Description of Interview Questions page"
+  },
+  "/ZYBru": {
+    "defaultMessage": "Industry benchmarks from SimilarWeb",
+    "description": "Subtitle for other media"
   },
   "/aaSHm": {
     "defaultMessage": "Star our \"JavaScript Interview Questions\" repo",
@@ -1483,6 +1491,10 @@
     "defaultMessage": "Start coding!",
     "description": "Label for \"Start coding!\" step in dialog on Projects project page"
   },
+  "7QoNzs": {
+    "defaultMessage": "Ultra-sticky & highly engaged—far beyond industry benchmarks",
+    "description": "Advertise with us section title"
+  },
   "7Rr7Yf": {
     "defaultMessage": "{minutes} min read",
     "description": "Blog read duration label"
@@ -2010,6 +2022,10 @@
   "B6YW6R": {
     "defaultMessage": "Are you sure you want to disconnect your Google Auth account? This action can be reversed at any time.",
     "description": "Label to disconnect social"
+  },
+  "B8kokj": {
+    "defaultMessage": "Average metrics per week",
+    "description": "Subtitle for GreatFrontEnd"
   },
   "B8uTwW": {
     "defaultMessage": "No contributions in the community matching those filters",
@@ -3515,6 +3531,10 @@
     "defaultMessage": "{questionExcerpt} using {questionFramework}",
     "description": "Description of Front End Interview UI Coding Questions practice page"
   },
+  "KENLYd": {
+    "defaultMessage": "Average Session",
+    "description": "Label for average session"
+  },
   "KIP7Ey": {
     "defaultMessage": "Show in progress challenges",
     "description": "Description of in progress challenges filter"
@@ -3838,6 +3858,10 @@
   "Lwa7+3": {
     "defaultMessage": "Have any doubts or need help? Ask in the community and discuss with others.",
     "description": "Description for \"Ask any questions in community\" item in Expected Support section on Projects project page"
+  },
+  "LzrO5R": {
+    "defaultMessage": "Other Media",
+    "description": "Title for other media"
   },
   "M0TkWc": {
     "defaultMessage": "Reviews meeting eligibility and terms will be rewarded regardless of whether it was positive or negative.",
@@ -4511,6 +4535,10 @@
     "defaultMessage": "Can't find the answer you are looking for?",
     "description": "Marketing page section subtitle"
   },
+  "QLHqwW": {
+    "defaultMessage": "Engagement / Open Rate",
+    "description": "Label for engagement rate"
+  },
   "QLv259": {
     "defaultMessage": "Expires on <strong>{expiryDate}</strong>.",
     "description": "Help text for promo code"
@@ -4574,6 +4602,10 @@
   "QizhYt": {
     "defaultMessage": "Write a review",
     "description": "Button label to write a review"
+  },
+  "Qj8iGG": {
+    "defaultMessage": "Other media (e.g. Newsletters, Websites)",
+    "description": "Title for other media"
   },
   "QjQj5L": {
     "defaultMessage": "Build projects to train every front end skill from beginner to advanced",
@@ -4790,6 +4822,10 @@
   "Ra8aIf": {
     "defaultMessage": "{category} coding",
     "description": "Question list"
+  },
+  "Rbwncn": {
+    "defaultMessage": "{seconds} seconds - {minutes} minutes",
+    "description": "Average session duration"
   },
   "RdVD3x": {
     "defaultMessage": "Don't hesitate to reach out. We're always here to help.",
@@ -6507,6 +6543,10 @@
     "defaultMessage": "Tracking your progress",
     "description": "Tooltip for skill track warning section"
   },
+  "bhXbj4": {
+    "defaultMessage": "{count} pages",
+    "description": "Pages per active user"
+  },
   "bj5dJV": {
     "defaultMessage": "Upvote",
     "description": "Vote button label"
@@ -7103,6 +7143,10 @@
     "defaultMessage": "Mark as incomplete",
     "description": "Mark the guide as incomplete"
   },
+  "fFvImN": {
+    "defaultMessage": "{duration} minutes",
+    "description": "Average session duration"
+  },
   "fG/W54": {
     "defaultMessage": "Our projects are composable with different themes - choose the theme you want to personalize your project",
     "description": "Description for \"Design systems\" feature on Projects home page"
@@ -7566,6 +7610,10 @@
   "i+5/Aq": {
     "defaultMessage": "Failed to mark article as not complete. Please try again",
     "description": "Error message shown when a guide has failed to mark as not complete"
+  },
+  "i+QiBQ": {
+    "defaultMessage": "Industry benchmarks for “Other Media” taken from SimilarWeb",
+    "description": "Subtitle for other media"
   },
   "i/1i64": {
     "defaultMessage": "You've previously completed {questionCount, plural, =0 {<bold>0</bold> questions} one {<bold>1</bold> question} other {<bold>#</bold> questions}} from this list.",
@@ -8403,6 +8451,10 @@
     "defaultMessage": "We offer bulk discounts at attractive rates for group trainings. Please send an email to <link>institutions@greatfrontend.com</link> with your company email and address, and we would be happy to assist.",
     "description": "Answer on projects pricing's FAQ section - institutions and organizations discounts"
   },
+  "nLjOlf": {
+    "defaultMessage": "Last year, our average session duration was a whole <bold>{duration} minutes</bold> - across all {activeUsersCount} active users.",
+    "description": "Advertise with us section subtitle"
+  },
   "nMbx46": {
     "defaultMessage": "Select all ({questionCount})",
     "description": "Label for select all in import progress dialog"
@@ -8822,6 +8874,10 @@
   "pn9hGi": {
     "defaultMessage": "Uniquely identifies you. You may be given an option to set a different handle for certain products for anonymity.",
     "description": "Description for \"Username\" input on Projects profile onboarding page"
+  },
+  "pnwnko": {
+    "defaultMessage": "Unlike the fleeting attention from a quick email scan or brief banner glance, users <bold>stay on our platform much longer</bold> - actively learning and coding.",
+    "description": "Advertise with us section subtitle"
   },
   "pp1TOt": {
     "defaultMessage": "Copy line (empty selection)",
@@ -9858,6 +9914,10 @@
   "wBeFIk": {
     "defaultMessage": "Scores of our users have landed multiple offers at the world's top companies with substantial TC gains. Be the next.",
     "description": "Subtitle for the offers don't lie section"
+  },
+  "wD01Al": {
+    "defaultMessage": "(e.g. Newsletter, Website)",
+    "description": "Medium for other media"
   },
   "wDKscz": {
     "defaultMessage": "Completed",
