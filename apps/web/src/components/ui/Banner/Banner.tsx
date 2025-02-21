@@ -62,11 +62,11 @@ export default function Banner({
         size === 'xs' && 'min-h-6',
       )}
       {...props}>
-      <div className={clsx('mx-auto w-full', 'px-4 sm:px-6')}>
+      <div className={clsx('mx-auto w-full', 'px-6')}>
         <div
           className={clsx(
-            'flex items-center justify-center gap-4',
-            onHide != null && 'pr-8',
+            'flex items-center gap-4 md:justify-center',
+            onHide != null && 'max-md:pr-8',
           )}>
           <Text
             className={clsx(
