@@ -4,8 +4,8 @@ import { FormattedMessage } from '~/components/intl';
 import Heading from '~/components/ui/Heading';
 import { themeGradientHeading } from '~/components/ui/theme';
 
-import SponsorsGlobalBannerPlacementSection from './placements/SponsorsGlobalBannerPlacementSection';
-import SponsorsInContentAdPlacementSection from './placements/SponsorsInContentAdPlacementSection';
+import SponsorsAdFormatGlobalBannerSection from './formats/SponsorsAdFormatGlobalBannerSection';
+import SponsorsAdFormatInContentSection from './formats/SponsorsAdFormatInContentSection';
 
 export default function SponsorsOpportunitiesSection() {
   return (
@@ -23,8 +23,8 @@ export default function SponsorsOpportunitiesSection() {
         />
       </Heading>
       <div className="flex flex-col gap-24 lg:gap-32">
-        <SponsorsGlobalBannerPlacementSection />
-        <SponsorsInContentAdPlacementSection />
+        <SponsorsAdFormatGlobalBannerSection />
+        <SponsorsAdFormatInContentSection />
       </div>
     </div>
   );

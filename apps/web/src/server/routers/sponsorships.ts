@@ -1,7 +1,7 @@
 import { z } from 'zod';
 
-import type { SponsorsAdPlacementPayload } from '~/components/sponsors/SponsorsTypes';
-import { SponsorsPlacementZodEnum } from '~/components/sponsors/SponsorsTypes';
+import type { SponsorsAdFormatPayload } from '~/components/sponsors/SponsorsTypes';
+import { SponsorsAdFormatZodEnum } from '~/components/sponsors/SponsorsTypes';
 
 import { publicProcedure, router } from '../trpc';
 
@@ -9,11 +9,11 @@ export const sponsorshipsRouter = router({
   ad: publicProcedure
     .input(
       z.object({
-        placement: SponsorsPlacementZodEnum,
+        placement: SponsorsAdFormatZodEnum,
       }),
     )
     .query(async ({ input: { placement } }) => {
-      const sponsorPlacement: SponsorsAdPlacementPayload = (() => {
+      const sponsorPlacement: SponsorsAdFormatPayload = (() => {
         switch (placement) {
           case 'IN_CONTENT': {
             return {
@@ -25,10 +25,10 @@ export const sponsorshipsRouter = router({
 
 Elevate your style, inspire your creativity, and represent your coding chops with every piece from SwagOverflow. Grab yours now and stand out in any crowd—on or off the keyboard!`,
               external: true,
+              format: 'IN_CONTENT',
               id: 'tih',
               imageUrl:
                 'https://www.techinterviewhandbook.org/social/software-engineering-interview-guide.png',
-              placement: 'IN_CONTENT',
               sponsorName: 'Tech Interview Handbook',
               title: 'Ace your technical interviews',
               url: 'https://www.techinterviewhandbook.org',
@@ -37,10 +37,10 @@ Elevate your style, inspire your creativity, and represent your coding chops wit
           case 'SPOTLIGHT': {
             return {
               external: true,
+              format: 'SPOTLIGHT',
               id: 'tih',
               imageUrl:
                 'https://www.techinterviewhandbook.org/social/software-engineering-interview-guide.png',
-              placement: 'SPOTLIGHT',
               sponsorName: 'Tech Interview Handbook',
               text: 'Tech Interview Handbook is the best handbook blah blah',
               url: 'https://www.techinterviewhandbook.org',
@@ -49,8 +49,8 @@ Elevate your style, inspire your creativity, and represent your coding chops wit
           case 'GLOBAL_BANNER': {
             return {
               external: true,
+              format: 'GLOBAL_BANNER',
               id: 'tih',
-              placement: 'GLOBAL_BANNER',
               sponsorName: 'Tech Interview Handbook',
               text: 'Tech Interview Handbook global banner is the best handbook blah blah',
               url: 'https://www.techinterviewhandbook.org',

@@ -16,7 +16,7 @@ import type { QuestionMetadata } from '~/components/interviews/questions/common/
 import InterviewsQuestionsCategoryContentSlider from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryContentSlider';
 import QuestionsUnifiedListWithFiltersAndProgress from '~/components/interviews/questions/listings/items/QuestionsUnifiedListWithFiltersAndProgress';
 import { useIntl } from '~/components/intl';
-import SponsorsAdPlacementSpotlightCard from '~/components/sponsors/ads/SponsorsAdPlacementSpotlightCard';
+import SponsorsAdFormatSpotlightCard from '~/components/sponsors/ads/SponsorsAdFormatSpotlightCard';
 import Section from '~/components/ui/Heading/HeadingContext';
 
 import type { QuestionCompletionCount } from '~/db/QuestionsCount';
@@ -75,7 +75,7 @@ export default function InterviewsQuestionsCategoryPage({
         description={description}
         features={features}
         icon={categoryItem?.icon}
-        sideElement={<SponsorsAdPlacementSpotlightCard />}
+        sideElement={<SponsorsAdFormatSpotlightCard />}
         title={title}
       />
       {longDescription && (

@@ -1,56 +1,56 @@
 import { z } from 'zod';
 
-export const SponsorsPlacementZodEnum = z.enum([
+export const SponsorsAdFormatZodEnum = z.enum([
   'GLOBAL_BANNER',
   'IN_CONTENT',
   'SPOTLIGHT',
 ]);
 
-export type SponsorsPlacement = z.infer<typeof SponsorsPlacementZodEnum>;
+export type SponsorsAdFormat = z.infer<typeof SponsorsAdFormatZodEnum>;
 
-export type SponsorsPlacementDataType = Readonly<{
-  config: SponsorsPlacementConfig;
+export type SponsorsAdFormatDataType = Readonly<{
+  config: SponsorsAdFormatConfig;
   description: string;
+  format: SponsorsAdFormat;
   name: string;
-  placement: SponsorsPlacement;
 }>;
 
-export type SponsorsPlacementConfig = Readonly<{
+export type SponsorsAdFormatConfig = Readonly<{
   impressions: string;
   pages: number;
   pricePerWeekUSD: number;
 }>;
 
-export type SponsorsAdPlacementPayloadInContent = Readonly<{
+export type SponsorsAdFormatPayloadInContent = Readonly<{
   body: string;
   external: boolean;
+  format: 'IN_CONTENT';
   id: string;
   imageUrl?: string;
-  placement: 'IN_CONTENT';
   sponsorName: string;
   title: string;
 }>;
 
-export type SponsorsAdPlacementPayloadSpotlight = Readonly<{
+export type SponsorsAdFormatPayloadSpotlight = Readonly<{
   external: boolean;
+  format: 'SPOTLIGHT';
   id: string;
   imageUrl?: string;
-  placement: 'SPOTLIGHT';
   sponsorName: string;
   text: string;
   url: string;
 }>;
 
-export type SponsorsAdPlacementPayloadGlobalBanner = Readonly<{
+export type SponsorsAdFormatPayloadGlobalBanner = Readonly<{
   external: boolean;
+  format: 'GLOBAL_BANNER';
   id: string;
-  placement: 'GLOBAL_BANNER';
   sponsorName: string;
   text: string;
   url: string;
 }>;
 
-export type SponsorsAdPlacementPayload =
-  | SponsorsAdPlacementPayloadGlobalBanner
-  | SponsorsAdPlacementPayloadInContent
-  | SponsorsAdPlacementPayloadSpotlight;
+export type SponsorsAdFormatPayload =
+  | SponsorsAdFormatPayloadGlobalBanner
+  | SponsorsAdFormatPayloadInContent
+  | SponsorsAdFormatPayloadSpotlight;

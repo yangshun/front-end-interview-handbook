@@ -10,7 +10,7 @@ import QuestionMetadataSection from '~/components/interviews/questions/metadata/
 import { FormattedMessage, useIntl } from '~/components/intl';
 import MDXCodeBlock from '~/components/mdx/MDXCodeBlock';
 import MDXComponentsForQuiz from '~/components/mdx/MDXComponentsForQuiz';
-import SponsorsAdPlacementInContentContainer from '~/components/sponsors/ads/SponsorsAdPlacementInContentContainer';
+import SponsorsAdFormatInContentContainer from '~/components/sponsors/ads/SponsorsAdFormatInContentContainer';
 import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
 import Divider from '~/components/ui/Divider';
@@ -173,7 +173,7 @@ export default function QuestionQuizContents({
             </>
           )}
         </div>
-        <SponsorsAdPlacementInContentContainer size="md" />
+        <SponsorsAdFormatInContentContainer size="md" />
       </Container>
       <InterviewsStudyListBottomBar
         listIsShownInSidebarOnDesktop={listIsShownInSidebarOnDesktop}

@@ -5,7 +5,7 @@ import type { ReactNode } from 'react';
 import { RiCheckLine } from 'react-icons/ri';
 
 import { FormattedMessage, useIntl } from '~/components/intl';
-import { SponsorPlacementConfigs } from '~/components/sponsors/SponsorsPlacementConfigs';
+import { SponsorAdFormatConfigs } from '~/components/sponsors/SponsorsAdFormatConfigs';
 import {
   Accordion,
   AccordionContent,
@@ -21,12 +21,12 @@ import {
   themeTextSuccessColor,
 } from '~/components/ui/theme';
 
-import SponsorsPlacementHeader from './SponsorsPlacementHeader';
-import SponsorsPlacementInfo from './SponsorsPlacementInfo';
+import SponsorsAdFormatHeader from './SponsorsAdFormatHeader';
+import SponsorsAdFormatInfo from './SponsorsAdFormatInfo';
 
-export default function SponsorsInContentAdPlacementSection() {
+export default function SponsorsAdFormatInContentSection() {
   const intl = useIntl();
-  const { impressions, pages } = SponsorPlacementConfigs.IN_CONTENT;
+  const { impressions, pages } = SponsorAdFormatConfigs.IN_CONTENT;
 
   const impressionsItems = [
     {
@@ -235,23 +235,23 @@ export default function SponsorsInContentAdPlacementSection() {
 
   return (
     <div className="flex flex-col gap-12">
-      <SponsorsPlacementHeader placement="IN_CONTENT" />
+      <SponsorsAdFormatHeader placement="IN_CONTENT" />
       <div className="flex flex-col gap-10">
         <Asset />
         <div className="flex flex-col gap-x-6 gap-y-10 sm:flex-row">
-          <SponsorsPlacementInfo
+          <SponsorsAdFormatInfo
             className="flex-1"
             items={impressionsItems}
             title={`${impressions}+`}
             type="impressions"
           />
-          <SponsorsPlacementInfo
+          <SponsorsAdFormatInfo
             className="flex-1"
             items={pagesItems}
             title={`${pages}+`}
             type="pages"
           />
-          <SponsorsPlacementInfo
+          <SponsorsAdFormatInfo
             addOnItem={
               <Anchor variant="flat">
                 <Text size="body3" weight="medium">

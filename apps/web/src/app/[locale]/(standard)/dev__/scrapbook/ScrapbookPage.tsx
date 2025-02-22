@@ -9,8 +9,8 @@ import QuestionProgressLabel from '~/components/interviews/questions/metadata/Qu
 import QuestionStudyAllocationLabel from '~/components/interviews/questions/metadata/QuestionStudyAllocationLabel';
 import ExclusiveTicket from '~/components/promotions/tickets/ExclusiveTicket';
 import Ticket from '~/components/promotions/tickets/Ticket';
-import SponsorsAdPlacementInContent from '~/components/sponsors/ads/SponsorsAdPlacementInContent';
-import SponsorsAdPlacementSpotlight from '~/components/sponsors/ads/SponsorsAdPlacementSpotlight';
+import SponsorsAdFormatInContent from '~/components/sponsors/ads/SponsorsAdFormatInContent';
+import SponsorsAdFormatSpotlight from '~/components/sponsors/ads/SponsorsAdFormatSpotlight';
 import Badge from '~/components/ui/Badge';
 import CardContainer from '~/components/ui/Card/CardContainer';
 import Container from '~/components/ui/Container';
@@ -168,7 +168,7 @@ export default function ScrapbookPage() {
       </Container>
       <Section>
         <UIExamplesGroup darkMode="horizontal">
-          <SponsorsAdPlacementInContent
+          <SponsorsAdFormatInContent
             body={`Struggling with tech interviews? 🚀 Get the Tech Interview Handbook—your ultimate guide to mastering coding challenges, system design, and behavioral interviews. Packed with expert strategies, real-world examples, and must-know concepts, this handbook is designed to boost your confidence and help you land your dream job at top tech companies.
 
 📖 What’s inside?
@@ -187,7 +187,7 @@ Don’t leave your success to chance—prepare smarter with the Tech Interview H
           />
           <Divider />
           <div className="w-[260px]">
-            <SponsorsAdPlacementSpotlight
+            <SponsorsAdFormatSpotlight
               external={false}
               id="tih"
               imageUrl="https://www.techinterviewhandbook.org/social/software-engineering-interview-guide.png"

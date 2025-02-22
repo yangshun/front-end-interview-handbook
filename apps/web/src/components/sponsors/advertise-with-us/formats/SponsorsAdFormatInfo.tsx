@@ -18,7 +18,7 @@ type Props = Readonly<{
   type: 'impressions' | 'pages' | 'slot';
 }>;
 
-export default function SponsorsPlacementInfo({
+export default function SponsorsAdFormatInfo({
   items,
   title,
   className,

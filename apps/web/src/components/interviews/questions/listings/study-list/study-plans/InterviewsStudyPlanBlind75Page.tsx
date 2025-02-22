@@ -20,7 +20,7 @@ import InterviewsStudyListQuestions from '~/components/interviews/questions/list
 import InterviewsRecommendedPrepStrategyPageTitleSection from '~/components/interviews/recommended/InterviewsRecommendedPrepStrategyPageTitleSection';
 import { FormattedMessage, useIntl } from '~/components/intl';
 import MDXContent from '~/components/mdx/MDXContent';
-import SponsorsAdPlacementSpotlightCard from '~/components/sponsors/ads/SponsorsAdPlacementSpotlightCard';
+import SponsorsAdFormatSpotlightCard from '~/components/sponsors/ads/SponsorsAdFormatSpotlightCard';
 import Divider from '~/components/ui/Divider';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
@@ -111,7 +111,7 @@ export default function InterviewsStudyPlanBlind75Page({
           title={studyList.name}
         />
         <div className="block xl:hidden">
-          <SponsorsAdPlacementSpotlightCard />
+          <SponsorsAdFormatSpotlightCard />
         </div>
       </div>
       <Section>
@@ -121,7 +121,7 @@ export default function InterviewsStudyPlanBlind75Page({
             questions={questions}
             sideColumnAddOn={
               <div className="hidden xl:block">
-                <SponsorsAdPlacementSpotlightCard />
+                <SponsorsAdFormatSpotlightCard />
               </div>
             }
             studyListKey={studyList.slug}

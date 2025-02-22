@@ -7,7 +7,7 @@ import QuestionNextQuestions from '~/components/interviews/questions/content/Que
 import QuestionSimilarQuestions from '~/components/interviews/questions/content/QuestionSimilarQuestions';
 import QuestionMetadataSection from '~/components/interviews/questions/metadata/QuestionMetadataSection';
 import { useIntl } from '~/components/intl';
-import SponsorsAdPlacementInContentContainer from '~/components/sponsors/ads/SponsorsAdPlacementInContentContainer';
+import SponsorsAdFormatInContentContainer from '~/components/sponsors/ads/SponsorsAdFormatInContentContainer';
 import Badge from '~/components/ui/Badge';
 import Heading from '~/components/ui/Heading';
 import ScrollArea from '~/components/ui/ScrollArea';
@@ -71,7 +71,7 @@ export default function JavaScriptCodingWorkspaceDescription({
             />
             <QuestionNextQuestions questions={nextQuestions} />
             <QuestionSimilarQuestions questions={similarQuestions} />
-            <SponsorsAdPlacementInContentContainer size="sm" />
+            <SponsorsAdFormatInContentContainer size="sm" />
           </div>
         </div>
       </ScrollArea>

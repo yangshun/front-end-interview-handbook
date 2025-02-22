@@ -1,5 +1,5 @@
 import MDXComponents from '~/components/mdx/MDXComponents';
-import SponsorsAdPlacementInContentContainer from '~/components/sponsors/ads/SponsorsAdPlacementInContentContainer';
+import SponsorsAdFormatInContentContainer from '~/components/sponsors/ads/SponsorsAdFormatInContentContainer';
 
 type Props = Readonly<{
   markdown: ({
@@ -16,7 +16,7 @@ export default function GuidesMarkdown({ markdown: Markdown }: Props) {
         ...MDXComponents,
         Ad: () => (
           <div className="not-prose">
-            <SponsorsAdPlacementInContentContainer size="md" />
+            <SponsorsAdFormatInContentContainer size="md" />
           </div>
         ),
       }}

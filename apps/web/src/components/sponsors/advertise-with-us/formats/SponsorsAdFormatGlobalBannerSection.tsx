@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { RiCheckLine } from 'react-icons/ri';
 
 import { FormattedMessage } from '~/components/intl';
-import { SponsorPlacementConfigs } from '~/components/sponsors/SponsorsPlacementConfigs';
+import { SponsorAdFormatConfigs } from '~/components/sponsors/SponsorsAdFormatConfigs';
 import {
   Accordion,
   AccordionContent,
@@ -17,11 +17,11 @@ import {
   themeTextSuccessColor,
 } from '~/components/ui/theme';
 
-import SponsorsPlacementHeader from './SponsorsPlacementHeader';
-import SponsorsPlacementInfo from './SponsorsPlacementInfo';
+import SponsorsAdFormatHeader from './SponsorsAdFormatHeader';
+import SponsorsAdFormatInfo from './SponsorsAdFormatInfo';
 
-export default function SponsorsGlobalBannerPlacementSection() {
-  const { impressions, pages } = SponsorPlacementConfigs.GLOBAL_BANNER;
+export default function SponsorsAdFormatGlobalBannerSection() {
+  const { impressions, pages } = SponsorAdFormatConfigs.GLOBAL_BANNER;
 
   const impressionsItems = [
     {
@@ -90,23 +90,23 @@ export default function SponsorsGlobalBannerPlacementSection() {
 
   return (
     <div className="flex flex-col gap-12">
-      <SponsorsPlacementHeader placement="GLOBAL_BANNER" />
+      <SponsorsAdFormatHeader placement="GLOBAL_BANNER" />
       <div className="flex flex-col gap-10">
         <Asset />
         <div className="flex flex-col gap-x-6 gap-y-10 sm:flex-row">
-          <SponsorsPlacementInfo
+          <SponsorsAdFormatInfo
             className="flex-1"
             items={impressionsItems}
             title={`${impressions}+`}
             type="impressions"
           />
-          <SponsorsPlacementInfo
+          <SponsorsAdFormatInfo
             className="flex-1"
             items={pagesItems}
             title={`${pages}+`}
             type="pages"
           />
-          <SponsorsPlacementInfo
+          <SponsorsAdFormatInfo
             addOnItem={
               <Anchor variant="flat">
                 <Text size="body3" weight="medium">

@@ -162,7 +162,7 @@ function MarketingMessageImpl({
 
   switch (bannerType) {
     case 'ad': {
-      if (data?.placement === 'GLOBAL_BANNER') {
+      if (data?.format === 'GLOBAL_BANNER') {
         return (
           <BannerShell className={themeBackgroundInvertColor}>
             <Anchor

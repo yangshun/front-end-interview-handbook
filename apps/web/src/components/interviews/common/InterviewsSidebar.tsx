@@ -17,7 +17,7 @@ import {
 } from '~/components/global/sidebar/Sidebar';
 import { SocialDiscountSidebarMention } from '~/components/promotions/social/SocialDiscountSidebarMention';
 import { useSocialDiscountLabels } from '~/components/promotions/social/useSocialDiscountLabels';
-import SponsorsAdPlacementSpotlightContainerWrapper from '~/components/sponsors/ads/SponsorsAdPlacementSpotlightContainer';
+import SponsorsAdFormatSpotlightContainerWrapper from '~/components/sponsors/ads/SponsorsAdFormatSpotlightContainer';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import Divider from '~/components/ui/Divider';
@@ -121,7 +121,7 @@ export function InterviewsSidebarExpanded({
       renderBottomAddonElements={() => (
         <div className="flex flex-col gap-4">
           <SocialDiscountSidebarMention />
-          <SponsorsAdPlacementSpotlightContainerWrapper />
+          <SponsorsAdFormatSpotlightContainerWrapper />
         </div>
       )}
       sidebarItems={sidebarItems}

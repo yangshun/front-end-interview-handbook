@@ -9,22 +9,22 @@ import {
   themeBorderColor,
 } from '~/components/ui/theme';
 
-import SponsorsAdPlacementSpotlight from './SponsorsAdPlacementSpotlight';
+import SponsorsAdFormatSpotlight from './SponsorsAdFormatSpotlight';
 
-export default function SponsorsAdPlacementSpotlightCard() {
+export default function SponsorsAdFormatSpotlightCard() {
   if (!SPONSORSHIPS_AVAILABLE) {
     return null;
   }
 
-  return <SponsorsAdPlacementSpotlightCardImpl />;
+  return <SponsorsAdFormatSpotlightCardImpl />;
 }
 
-function SponsorsAdPlacementSpotlightCardImpl() {
+function SponsorsAdFormatSpotlightCardImpl() {
   const { data, isLoading } = trpc.sponsorships.ad.useQuery({
     placement: 'SPOTLIGHT',
   });
 
-  if (isLoading || data?.placement !== 'SPOTLIGHT') {
+  if (isLoading || data?.format !== 'SPOTLIGHT') {
     return null;
   }
 
@@ -37,7 +37,7 @@ function SponsorsAdPlacementSpotlightCardImpl() {
         ['border', themeBorderColor],
         'rounded-lg',
       )}>
-      <SponsorsAdPlacementSpotlight {...data} />
+      <SponsorsAdFormatSpotlight {...data} />
     </div>
   );
 }

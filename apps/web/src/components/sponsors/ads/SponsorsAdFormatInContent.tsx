@@ -4,24 +4,24 @@ import type { TextSize } from '~/components/ui/Text';
 import Text from '~/components/ui/Text';
 import { themeBorderColor } from '~/components/ui/theme';
 
-import type { SponsorsAdPlacementPayloadInContent } from '../SponsorsTypes';
+import type { SponsorsAdFormatPayloadInContent } from '../SponsorsTypes';
 
-export type SponsorsAdPlacementInContentSize = 'md' | 'sm';
+export type SponsorsAdFormatInContentSize = 'md' | 'sm';
 
-const sizeToTitle: Record<SponsorsAdPlacementInContentSize, TextSize> = {
+const sizeToTitle: Record<SponsorsAdFormatInContentSize, TextSize> = {
   md: 'body0',
   sm: 'body1',
 };
 
-export default function SponsorsAdPlacementInContent({
+export default function SponsorsAdFormatInContent({
   title,
   body,
   sponsorName,
   imageUrl,
   size,
-}: Omit<SponsorsAdPlacementPayloadInContent, 'placement'> &
+}: Omit<SponsorsAdFormatPayloadInContent, 'format'> &
   Readonly<{
-    size: SponsorsAdPlacementInContentSize;
+    size: SponsorsAdFormatInContentSize;
   }>) {
   return (
     <div>

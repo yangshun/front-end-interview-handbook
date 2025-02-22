@@ -5,7 +5,7 @@ import { RiEyeFill } from 'react-icons/ri';
 import { useMediaQuery } from 'usehooks-ts';
 
 import { FormattedMessage, useIntl } from '~/components/intl';
-import { SponsorPlacementConfigs } from '~/components/sponsors/SponsorsPlacementConfigs';
+import { SponsorAdFormatConfigs } from '~/components/sponsors/SponsorsAdFormatConfigs';
 import Badge from '~/components/ui/Badge';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
@@ -142,7 +142,7 @@ function GlobalBannerPlacement() {
           src="/img/sponsors/global-banner-placement-dark.png"
         />
       </picture>
-      <PagesCountBadge count={SponsorPlacementConfigs.GLOBAL_BANNER.pages} />
+      <PagesCountBadge count={SponsorAdFormatConfigs.GLOBAL_BANNER.pages} />
     </div>
   );
 }
@@ -193,7 +193,7 @@ function InContentPlacementAsset() {
           src="/img/sponsors/in-content-placement-dark.png"
         />
       </picture>
-      <PagesCountBadge count={SponsorPlacementConfigs.IN_CONTENT.pages} />
+      <PagesCountBadge count={SponsorAdFormatConfigs.IN_CONTENT.pages} />
     </div>
   );
 }
@@ -245,7 +245,7 @@ function SpotlightPlacementAsset() {
         />
       </picture>
 
-      <PagesCountBadge count={SponsorPlacementConfigs.SPOTLIGHT.pages} />
+      <PagesCountBadge count={SponsorAdFormatConfigs.SPOTLIGHT.pages} />
     </div>
   );
 }

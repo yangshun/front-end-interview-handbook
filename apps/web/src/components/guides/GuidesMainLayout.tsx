@@ -9,7 +9,7 @@ import useScrollToTop from '~/hooks/useScrollToTop';
 
 import GuidesPagination from '~/components/guides/GuidesPagination';
 import { useIntl } from '~/components/intl';
-import SponsorsAdPlacementInContentContainer from '~/components/sponsors/ads/SponsorsAdPlacementInContentContainer';
+import SponsorsAdFormatInContentContainer from '~/components/sponsors/ads/SponsorsAdFormatInContentContainer';
 import CheckboxInput from '~/components/ui/CheckboxInput';
 import Section from '~/components/ui/Heading/HeadingContext';
 
@@ -165,7 +165,7 @@ export default function GuidesMainLayout<GuideSlug extends string>({
                   </div>
                 </div>
               )}
-              <SponsorsAdPlacementInContentContainer size="sm" />
+              <SponsorsAdFormatInContentContainer size="sm" />
             </Section>
           </div>
           <Section>

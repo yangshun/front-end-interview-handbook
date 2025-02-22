@@ -10,14 +10,14 @@ import {
 } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
-import type { SponsorsAdPlacementPayloadSpotlight } from '../SponsorsTypes';
+import type { SponsorsAdFormatPayloadSpotlight } from '../SponsorsTypes';
 
-export default function SponsorsAdPlacementInContent({
+export default function SponsorsAdFormatInContent({
   text,
   sponsorName,
   url,
   imageUrl,
-}: Omit<SponsorsAdPlacementPayloadSpotlight, 'placement'>) {
+}: Omit<SponsorsAdFormatPayloadSpotlight, 'format'>) {
   return (
     <Anchor
       className={clsx(

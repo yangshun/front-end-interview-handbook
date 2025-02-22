@@ -1,7 +1,7 @@
 import InterviewsPageHeader from '~/components/interviews/common/InterviewsPageHeader';
 import type { InterviewsPurchasePremiumFeature } from '~/components/interviews/purchase/InterviewsPurchaseTypes';
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
-import SponsorsAdPlacementSpotlightCard from '~/components/sponsors/ads/SponsorsAdPlacementSpotlightCard';
+import SponsorsAdFormatSpotlightCard from '~/components/sponsors/ads/SponsorsAdFormatSpotlightCard';
 
 import type { QuestionProgress } from '~/db/QuestionsProgressTypes';
 
@@ -46,7 +46,7 @@ export default function InterviewsStudyListPageTitleSection({
             studyListTitle={props.title}
           />
         ) : (
-          <SponsorsAdPlacementSpotlightCard />
+          <SponsorsAdFormatSpotlightCard />
         )
       }
     />

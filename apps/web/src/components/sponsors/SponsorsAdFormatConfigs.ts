@@ -1,15 +1,15 @@
 import { useIntl } from '~/components/intl';
 
 import type {
-  SponsorsPlacement,
-  SponsorsPlacementConfig,
-  SponsorsPlacementDataType,
+  SponsorsAdFormat,
+  SponsorsAdFormatConfig,
+  SponsorsAdFormatDataType,
 } from './SponsorsTypes';
 import { QuestionCountTotal } from '../interviews/questions/listings/stats/QuestionCount';
 
-export const SponsorPlacementConfigs: Record<
-  SponsorsPlacement,
-  SponsorsPlacementConfig
+export const SponsorAdFormatConfigs: Record<
+  SponsorsAdFormat,
+  SponsorsAdFormatConfig
 > = {
   GLOBAL_BANNER: {
     impressions: '100,000',
@@ -29,29 +29,29 @@ export const SponsorPlacementConfigs: Record<
 };
 
 export function useSponsorPlacementData(): Record<
-  SponsorsPlacement,
-  SponsorsPlacementDataType
+  SponsorsAdFormat,
+  SponsorsAdFormatDataType
 > {
   const intl = useIntl();
 
   return {
     GLOBAL_BANNER: {
-      config: SponsorPlacementConfigs.GLOBAL_BANNER,
+      config: SponsorAdFormatConfigs.GLOBAL_BANNER,
       description: intl.formatMessage({
         defaultMessage:
           'Showcase your brand or offer in a pinned top banner that appears across our entire site',
         description: 'Ad placement description',
         id: '5wXtT4',
       }),
+      format: 'GLOBAL_BANNER',
       name: intl.formatMessage({
         defaultMessage: 'Global banner',
         description: 'Ad placement',
         id: '/01zKd',
       }),
-      placement: 'GLOBAL_BANNER',
     },
     IN_CONTENT: {
-      config: SponsorPlacementConfigs.IN_CONTENT,
+      config: SponsorAdFormatConfigs.IN_CONTENT,
       description: intl.formatMessage(
         {
           defaultMessage:
@@ -63,27 +63,27 @@ export function useSponsorPlacementData(): Record<
           questionCount: QuestionCountTotal,
         },
       ),
+      format: 'IN_CONTENT',
       name: intl.formatMessage({
         defaultMessage: 'In-content display ad',
         description: 'Ad placement',
         id: 'nwNS1U',
       }),
-      placement: 'IN_CONTENT',
     },
     SPOTLIGHT: {
-      config: SponsorPlacementConfigs.SPOTLIGHT,
+      config: SponsorAdFormatConfigs.SPOTLIGHT,
       description: intl.formatMessage({
         defaultMessage:
           'Showcase your brand or offer with a high visibility ad pinned on the application sidebar and pages',
         description: 'Ad placement description',
         id: '5x8bSw',
       }),
+      format: 'SPOTLIGHT',
       name: intl.formatMessage({
         defaultMessage: 'Spotlight ad',
         description: 'Ad placement',
         id: 'vq81Mh',
       }),
-      placement: 'SPOTLIGHT',
     },
   };
 }

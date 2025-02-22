@@ -4,18 +4,18 @@ import clsx from 'clsx';
 import { RiArrowRightUpLine } from 'react-icons/ri';
 
 import { FormattedMessage, useIntl } from '~/components/intl';
-import { useSponsorPlacementData } from '~/components/sponsors/SponsorsPlacementConfigs';
-import type { SponsorsPlacement } from '~/components/sponsors/SponsorsTypes';
+import { useSponsorPlacementData } from '~/components/sponsors/SponsorsAdFormatConfigs';
+import type { SponsorsAdFormat } from '~/components/sponsors/SponsorsTypes';
 import Button from '~/components/ui/Button';
 import Heading, { headingCVA } from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 import { themeTextSubtitleColor } from '~/components/ui/theme';
 
 type Props = Readonly<{
-  placement: SponsorsPlacement;
+  placement: SponsorsAdFormat;
 }>;
 
-export default function SponsorsPlacementHeader({ placement }: Props) {
+export default function SponsorsAdFormatHeader({ placement }: Props) {
   const intl = useIntl();
   const placementData = useSponsorPlacementData();
   const { name, description, config } = placementData[placement];

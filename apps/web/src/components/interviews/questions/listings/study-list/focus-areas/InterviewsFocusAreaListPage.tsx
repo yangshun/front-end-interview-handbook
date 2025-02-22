@@ -19,7 +19,7 @@ import {
 import InterviewsStudyListCard from '~/components/interviews/questions/listings/study-list/InterviewsStudyListCard';
 import { useIntl } from '~/components/intl';
 import MDXContent from '~/components/mdx/MDXContent';
-import SponsorsAdPlacementSpotlightCard from '~/components/sponsors/ads/SponsorsAdPlacementSpotlightCard';
+import SponsorsAdFormatSpotlightCard from '~/components/sponsors/ads/SponsorsAdFormatSpotlightCard';
 import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -78,7 +78,7 @@ export default function InterviewsRevampFocusAreaListPage({
         })}
         features={features}
         headingAddOnElement={<InterviewsPremiumBadge />}
-        sideElement={<SponsorsAdPlacementSpotlightCard />}
+        sideElement={<SponsorsAdFormatSpotlightCard />}
         title={intl.formatMessage({
           defaultMessage: 'Focus areas',
           description: 'Title of focus areas page',
