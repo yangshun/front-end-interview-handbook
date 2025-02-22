@@ -17,10 +17,10 @@ import {
   themeTextSuccessColor,
 } from '~/components/ui/theme';
 
-import AdvertisePlacementHeader from './AdvertisePlacementHeader';
-import AdvertisePlacementInfo from './AdvertisePlacementInfo';
+import SponsorsPlacementHeader from './SponsorsPlacementHeader';
+import SponsorsPlacementInfo from './SponsorsPlacementInfo';
 
-export default function AdvertiseGlobalBannerPlacementSection() {
+export default function SponsorsGlobalBannerPlacementSection() {
   const { impressions, pages } = SponsorPlacementConfigs.GLOBAL_BANNER;
 
   const impressionsItems = [
@@ -90,25 +90,25 @@ export default function AdvertiseGlobalBannerPlacementSection() {
 
   return (
     <div className="flex flex-col gap-12">
-      <AdvertisePlacementHeader placement="GLOBAL_BANNER" />
+      <SponsorsPlacementHeader placement="GLOBAL_BANNER" />
       <div className="flex flex-col gap-10">
         <Asset />
         <div className="flex flex-col gap-x-6 gap-y-10 sm:flex-row">
-          <AdvertisePlacementInfo
+          <SponsorsPlacementInfo
             className="flex-1"
             items={impressionsItems}
             title={`${impressions}+`}
             type="impressions"
           />
-          <AdvertisePlacementInfo
+          <SponsorsPlacementInfo
             className="flex-1"
             items={pagesItems}
             title={`${pages}+`}
             type="pages"
           />
-          <AdvertisePlacementInfo
+          <SponsorsPlacementInfo
             addOnItem={
-              <Anchor>
+              <Anchor variant="flat">
                 <Text size="body3" weight="medium">
                   <FormattedMessage
                     defaultMessage="See more available slots"
@@ -179,18 +179,18 @@ function Asset() {
       <picture className={clsx('block dark:hidden')}>
         <source
           media="(max-width: 640px)"
-          srcSet="/img/advertise/global-banner-mobile-light.png"
+          srcSet="/img/sponsors/global-banner-mobile-light.png"
         />
         <source
           media="(min-width: 640px)"
-          srcSet="/img/advertise/global-banner-light.png"
+          srcSet="/img/sponsors/global-banner-light.png"
         />
         <img
           alt="Global banner placement preview"
           className="h-[200px] w-full object-cover object-top md:h-full lg:h-auto"
           decoding="async"
           loading="lazy"
-          src="/img/advertise/global-banner-light.png"
+          src="/img/sponsors/global-banner-light.png"
         />
       </picture>
 
@@ -198,18 +198,18 @@ function Asset() {
       <picture className={clsx('hidden dark:block')}>
         <source
           media="(max-width: 640px)"
-          srcSet="/img/advertise/global-banner-mobile-dark.png"
+          srcSet="/img/sponsors/global-banner-mobile-dark.png"
         />
         <source
           media="(min-width: 640px)"
-          srcSet="/img/advertise/global-banner-dark.png"
+          srcSet="/img/sponsors/global-banner-dark.png"
         />
         <img
           alt="Global banner placement preview"
           className="h-[200px] w-full object-cover object-top md:h-full lg:h-auto"
           decoding="async"
           loading="lazy"
-          src="/img/advertise/global-banner-dark.png"
+          src="/img/sponsors/global-banner-dark.png"
         />
       </picture>
     </div>

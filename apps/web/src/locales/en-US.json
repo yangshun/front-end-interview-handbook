@@ -607,6 +607,10 @@
     "defaultMessage": "Practice in an environment that simulates real interviews",
     "description": "Title for the simulate real interviews section"
   },
+  "1p5F3G": {
+    "defaultMessage": "Interview Guides",
+    "description": "Label for in content placement in guides"
+  },
   "1pqvM+": {
     "defaultMessage": "You have no premium credits left for this cycle. Please wait for new premium credits to be added when the next cycle starts.",
     "description": "Subtitle for project paywall"
@@ -1719,6 +1723,10 @@
     "defaultMessage": "Bold",
     "description": "Bold tooltip for Richtext toolbar"
   },
+  "8yb0/o": {
+    "defaultMessage": "Coding workspace",
+    "description": "Label for in content placement in workspace"
+  },
   "9//mtm": {
     "defaultMessage": "You may be interested",
     "description": "Title for you may be interested section on Projects challenge submission page"
@@ -1802,6 +1810,10 @@
   "9Ftt1s": {
     "defaultMessage": "Filter by component track of original project brief",
     "description": "Tooltip for Component track filter for submissions list"
+  },
+  "9I1J4a": {
+    "defaultMessage": "Will be rotated with an ad unit from 1 other sponsor",
+    "description": "Item 1 for in content ad placement impressions info"
   },
   "9KGyJX": {
     "defaultMessage": "Profile set up",
@@ -2667,6 +2679,10 @@
     "defaultMessage": "Our projects are never one-off - they always fit into some component library or design system which can be composed into your very own toolset to build future projects",
     "description": "Description for \"Never waste your time building one-off projects\" feature marketing section on Projects home page"
   },
+  "F4tK8l": {
+    "defaultMessage": "Included in all our questions and guides pages",
+    "description": "Item 1 for in content ad placement pages info"
+  },
   "F5oV3L": {
     "defaultMessage": "Delete line",
     "description": "Text describing command to delete line(s) in the coding workspace shortcuts menu"
@@ -2690,6 +2706,10 @@
   "FD+Giz": {
     "defaultMessage": "Deployment instructions",
     "description": "Label for button to open deployment instructions"
+  },
+  "FDIoJ9": {
+    "defaultMessage": "Title: {charactersLimit} characters max {maxLinkCount} link",
+    "description": "Title placement constraints"
   },
   "FDiHN7": {
     "defaultMessage": "Feedback",
@@ -3631,6 +3651,10 @@
     "defaultMessage": "Views on your submissions",
     "description": "Number of views on the project submissions"
   },
+  "KgLyGJ": {
+    "defaultMessage": "{guidesCount}+ guides pages",
+    "description": "Label for guides count"
+  },
   "KgN46v": {
     "defaultMessage": "Leveling progress",
     "description": "Label for leveling progress on project submission success page"
@@ -3674,6 +3698,10 @@
   "KsNZvV": {
     "defaultMessage": "Get premium",
     "description": "Description of the pricing section in the Projects marketing page"
+  },
+  "Kshski": {
+    "defaultMessage": "Quiz questions",
+    "description": "Label for in content placement in quiz questions"
   },
   "Kt8F9D": {
     "defaultMessage": "Mark complete",
@@ -3890,6 +3918,10 @@
   "LzrO5R": {
     "defaultMessage": "Other Media",
     "description": "Title for other media"
+  },
+  "M++J8U": {
+    "defaultMessage": "{questionCount}+ quizzes",
+    "description": "Label for quizzes count"
   },
   "M0TkWc": {
     "defaultMessage": "Reviews meeting eligibility and terms will be rewarded regardless of whether it was positive or negative.",
@@ -4203,6 +4235,10 @@
     "defaultMessage": "Coding interviews",
     "description": "Preparing by front end interview question format"
   },
+  "O9HLcY": {
+    "defaultMessage": "{questionCount}+ questions",
+    "description": "Label for questions count"
+  },
   "OBxxHX": {
     "defaultMessage": "Tips for all questions types",
     "description": "Features for frontend interviews playbook page"
@@ -4310,6 +4346,10 @@
   "Ow7Mov": {
     "defaultMessage": "Solutions & test from ex-interviewers",
     "description": "Features for dashboard"
+  },
+  "OwNRRU": {
+    "defaultMessage": "Image: Ideally {width}px x {height}px",
+    "description": "Image placement constraints"
   },
   "Oxj7x1": {
     "defaultMessage": "Company (optional)",
@@ -6083,6 +6123,10 @@
     "defaultMessage": "Start building from our large repository of real-world front end project challenges. Hone core front end skills and build an impressive project portfolio.",
     "description": "Description of Challenges page"
   },
+  "YaVS4f": {
+    "defaultMessage": "Based on averages derived from last {days}d data",
+    "description": "Item 2 for in content ad placement impressions info"
+  },
   "YdQTiq": {
     "defaultMessage": "Preparation plans for all kinds of preparation timelines — <owlink>1 week</owlink>, <omlink>1 month</omlink>, <tmlink>3 months</tmlink>.",
     "description": "Subtitle for proven preparation plans feature"
@@ -6614,6 +6658,10 @@
   "bq/h99": {
     "defaultMessage": "14-day money back guarantee",
     "description": "Pricing plan policy"
+  },
+  "bryw70": {
+    "defaultMessage": "{questionCount} questions",
+    "description": "Label for questions count"
   },
   "bsCmcK": {
     "defaultMessage": "Email Us",
@@ -9811,6 +9859,10 @@
     "defaultMessage": "View other's code and learn from their approach",
     "description": "Description for recommended action for new projects platform user"
   },
+  "vMEMKV": {
+    "defaultMessage": "Body: {charactersLimit} characters max {maxLinkCount} links",
+    "description": "Body placement constraints"
+  },
   "vMy9f3": {
     "defaultMessage": "Months",
     "description": "Title of months accordion in Roadmap Slide out filter"
@@ -10219,6 +10271,10 @@
     "defaultMessage": "Find out what questions companies are asking their candidates.",
     "description": "Subtitle for company-tagged questions feature"
   },
+  "y1IBOv": {
+    "defaultMessage": "System Design",
+    "description": "Label for in content placement in system design"
+  },
   "y29cTt": {
     "defaultMessage": "Tackle your next interview with confidence using this focused, no-nonsense front end prep guide. Created by the author of the Front End Interview Handbook, it's filled with practical strategies and insider tips you won't find anywhere else.",
     "description": "Long description of React interview playbook page"
@@ -10410,6 +10466,10 @@
   "z9RrSL": {
     "defaultMessage": "JavaScript Coding Interview Questions",
     "description": "Social title for JavaScript coding question format page"
+  },
+  "z9d6Ys": {
+    "defaultMessage": "Specific locations this ad will be shown",
+    "description": "Label for specific locations this ad will be shown"
   },
   "z9lq1x": {
     "defaultMessage": "Practicing company-specific questions is the quickest way to ace specific interviews. We regularly survey and update lists for known questions tested in top companies around the world.",

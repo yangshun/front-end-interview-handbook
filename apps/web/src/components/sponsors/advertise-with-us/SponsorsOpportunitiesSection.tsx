@@ -4,9 +4,10 @@ import { FormattedMessage } from '~/components/intl';
 import Heading from '~/components/ui/Heading';
 import { themeGradientHeading } from '~/components/ui/theme';
 
-import AdvertiseGlobalBannerPlacementSection from './AdsPlacement/AdvertiseGlobalBannerPlacementSection';
+import SponsorsGlobalBannerPlacementSection from './placements/SponsorsGlobalBannerPlacementSection';
+import SponsorsInContentAdPlacementSection from './placements/SponsorsInContentAdPlacementSection';
 
-export default function AdvertiseOpportunitiesSection() {
+export default function SponsorsOpportunitiesSection() {
   return (
     <div
       className={clsx('flex flex-col gap-y-12 lg:gap-y-16', 'py-16 sm:py-20')}>
@@ -22,7 +23,8 @@ export default function AdvertiseOpportunitiesSection() {
         />
       </Heading>
       <div className="flex flex-col gap-24 lg:gap-32">
-        <AdvertiseGlobalBannerPlacementSection />
+        <SponsorsGlobalBannerPlacementSection />
+        <SponsorsInContentAdPlacementSection />
       </div>
     </div>
   );

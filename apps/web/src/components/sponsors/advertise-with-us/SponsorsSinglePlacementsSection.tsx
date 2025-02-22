@@ -17,7 +17,7 @@ import {
   themeWhiteGlowCardBackground,
 } from '~/components/ui/theme';
 
-export default function AdvertiseSinglePlacementsSection() {
+export default function SponsorsSinglePlacementsSection() {
   return (
     <div
       className={clsx('flex flex-col gap-y-12 lg:gap-y-16', 'py-16 sm:py-20')}>
@@ -107,17 +107,17 @@ function GlobalBannerPlacement() {
         )}>
         <source
           media="(max-width: 640px)"
-          srcSet="/img/advertise/global-banner-placement-mobile-light.png"
+          srcSet="/img/sponsors/global-banner-placement-mobile-light.png"
         />
         <source
           media="(min-width: 641px)"
-          srcSet="/img/advertise/global-banner-placement-light.png"
+          srcSet="/img/sponsors/global-banner-placement-light.png"
         />
         <img
           alt="Global banner placement"
           decoding="async"
           loading="lazy"
-          src="/img/advertise/global-banner-placement-light.png"
+          src="/img/sponsors/global-banner-placement-light.png"
         />
       </picture>
 
@@ -129,17 +129,17 @@ function GlobalBannerPlacement() {
         )}>
         <source
           media="(max-width: 640px)"
-          srcSet="/img/advertise/global-banner-placement-mobile-dark.png"
+          srcSet="/img/sponsors/global-banner-placement-mobile-dark.png"
         />
         <source
           media="(min-width: 641px)"
-          srcSet="/img/advertise/global-banner-placement-dark.png"
+          srcSet="/img/sponsors/global-banner-placement-dark.png"
         />
         <img
           alt="Global banner placement"
           decoding="async"
           loading="lazy"
-          src="/img/advertise/global-banner-placement-dark.png"
+          src="/img/sponsors/global-banner-placement-dark.png"
         />
       </picture>
       <PagesCountBadge count={SponsorPlacementConfigs.GLOBAL_BANNER.pages} />
@@ -158,17 +158,17 @@ function InContentPlacementAsset() {
         )}>
         <source
           media="(max-width: 640px)"
-          srcSet="/img/advertise/in-content-placement-mobile-light.png"
+          srcSet="/img/sponsors/in-content-placement-mobile-light.png"
         />
         <source
           media="(min-width: 641px)"
-          srcSet="/img/advertise/in-content-placement-light.png"
+          srcSet="/img/sponsors/in-content-placement-light.png"
         />
         <img
           alt="In content placement"
           decoding="async"
           loading="lazy"
-          src="/img/advertise/in-content-placement-light.png"
+          src="/img/sponsors/in-content-placement-light.png"
         />
       </picture>
 
@@ -180,17 +180,17 @@ function InContentPlacementAsset() {
         )}>
         <source
           media="(max-width: 640px)"
-          srcSet="/img/advertise/in-content-placement-mobile-dark.png"
+          srcSet="/img/sponsors/in-content-placement-mobile-dark.png"
         />
         <source
           media="(min-width: 640px)"
-          srcSet="/img/advertise/in-content-placement-dark.png"
+          srcSet="/img/sponsors/in-content-placement-dark.png"
         />
         <img
           alt="In content placement"
           decoding="async"
           loading="lazy"
-          src="/img/advertise/in-content-placement-dark.png"
+          src="/img/sponsors/in-content-placement-dark.png"
         />
       </picture>
       <PagesCountBadge count={SponsorPlacementConfigs.IN_CONTENT.pages} />
@@ -209,17 +209,17 @@ function SpotlightPlacementAsset() {
         )}>
         <source
           media="(max-width: 640px)"
-          srcSet="/img/advertise/spotlight-placement-mobile-light.png"
+          srcSet="/img/sponsors/spotlight-placement-mobile-light.png"
         />
         <source
           media="(min-width: 640px)"
-          srcSet="/img/advertise/spotlight-placement-light.png"
+          srcSet="/img/sponsors/spotlight-placement-light.png"
         />
         <img
           alt="Spotlight placement"
           decoding="async"
           loading="lazy"
-          src="/img/advertise/spotlight-placement-light.png"
+          src="/img/sponsors/spotlight-placement-light.png"
         />
       </picture>
 
@@ -231,17 +231,17 @@ function SpotlightPlacementAsset() {
         )}>
         <source
           media="(max-width: 640px)"
-          srcSet="/img/advertise/spotlight-placement-mobile-dark.png"
+          srcSet="/img/sponsors/spotlight-placement-mobile-dark.png"
         />
         <source
           media="(min-width: 640px)"
-          srcSet="/img/advertise/spotlight-placement-dark.png"
+          srcSet="/img/sponsors/spotlight-placement-dark.png"
         />
         <img
           alt="Spotlight placement"
           decoding="async"
           loading="lazy"
-          src="/img/advertise/spotlight-placement-dark.png"
+          src="/img/sponsors/spotlight-placement-dark.png"
         />
       </picture>
 

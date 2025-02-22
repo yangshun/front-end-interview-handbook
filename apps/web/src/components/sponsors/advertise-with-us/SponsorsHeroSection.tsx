@@ -24,7 +24,7 @@ import {
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
 
-export default function AdvertiseHeroSection() {
+export default function SponsorsHeroSection() {
   const intl = useIntl();
 
   return (

@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next/types';
 
-import AdvertiseWithUsPage from '~/components/advertise/AdvertiseWithUsPage';
+import SponsorsAdvertiseWithUsPage from '~/components/sponsors/advertise-with-us/SponsorsAdvertiseWithUsPage';
 
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
@@ -43,5 +43,5 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Page() {
-  return <AdvertiseWithUsPage />;
+  return <SponsorsAdvertiseWithUsPage />;
 }

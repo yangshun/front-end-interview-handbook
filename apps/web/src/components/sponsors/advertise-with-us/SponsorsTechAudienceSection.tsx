@@ -12,7 +12,7 @@ import {
   themeWhiteGlowCardBackground,
 } from '~/components/ui/theme';
 
-export default function AdvertiseTechAudienceSection() {
+export default function SponsorsTechAudienceSection() {
   return (
     <div
       className={clsx('flex flex-col gap-y-12 lg:gap-y-16', 'py-16 sm:py-20')}>
@@ -91,7 +91,7 @@ function Asset() {
             'h-full w-auto object-contain md:object-cover',
             'hidden dark:block', // TODO: Find a better way to handle switching of images based on theme
           )}
-          src="/img/advertise/global-tech-audience-dark.png"
+          src="/img/sponsors/global-tech-audience-dark.png"
         />
         <img
           alt="Globe"
@@ -99,7 +99,7 @@ function Asset() {
             'h-full w-auto object-contain md:object-cover',
             'block dark:hidden',
           )}
-          src="/img/advertise/global-tech-audience-light.png"
+          src="/img/sponsors/global-tech-audience-light.png"
         />
       </div>
       <div

@@ -15,7 +15,7 @@ import {
   themeGradientHeading,
 } from '~/components/ui/theme';
 
-export default function AdvertiseAudienceProfileSection() {
+export default function SponsorsAudienceProfileSection() {
   return (
     <div
       className={clsx('flex flex-col gap-y-12 lg:gap-y-16', 'py-16 sm:py-20')}>

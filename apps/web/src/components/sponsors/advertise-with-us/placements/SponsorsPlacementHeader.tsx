@@ -15,7 +15,7 @@ type Props = Readonly<{
   placement: SponsorsPlacement;
 }>;
 
-export default function AdvertisePlacementHeader({ placement }: Props) {
+export default function SponsorsPlacementHeader({ placement }: Props) {
   const intl = useIntl();
   const placementData = useSponsorPlacementData();
   const { name, description, config } = placementData[placement];
