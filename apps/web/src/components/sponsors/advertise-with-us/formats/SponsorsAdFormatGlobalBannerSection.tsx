@@ -129,7 +129,7 @@ export default function SponsorsAdFormatGlobalBannerSection() {
           className={clsx('border-b border-t', themeBorderColor)}
           type="multiple">
           <AccordionItem value="item-1">
-            <AccordionTrigger className="w-full">
+            <AccordionTrigger>
               <FormattedMessage
                 defaultMessage="View placement constraints"
                 description="Accordion trigger label"

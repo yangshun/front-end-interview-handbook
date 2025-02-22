@@ -4,11 +4,13 @@ import clsx from 'clsx';
 import * as React from 'react';
 import { RiArrowDownSLine } from 'react-icons/ri';
 
+import Heading from '../Heading';
 import { textVariants } from '../Text';
 import {
   themeDivideEmphasizeColor,
   themeOutlineElement_FocusVisible,
   themeOutlineElementBrandColor_FocusVisible,
+  themeTextBrandColor_GroupHover,
   themeTextSecondaryInvertColor,
   themeTextSubtitleColor,
 } from '../theme';
@@ -40,27 +42,33 @@ const AccordionTrigger = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Trigger>,
   React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Trigger>
 >(({ className, children, ...props }, ref) => (
-  <AccordionPrimitive.Trigger
-    ref={ref}
-    className={clsx(
-      'flex flex-1 items-center justify-between gap-1 text-left',
-      'py-5',
-      'group',
-      'font-medium transition-all',
-      themeOutlineElement_FocusVisible,
-      themeOutlineElementBrandColor_FocusVisible,
-      themeTextSubtitleColor,
-      className,
-    )}
-    {...props}>
-    {children}
-    <RiArrowDownSLine
-      className={clsx(
-        'size-4 shrink-0 transition-transform group-data-[state=open]:-rotate-180',
-        themeTextSecondaryInvertColor,
-      )}
-    />
-  </AccordionPrimitive.Trigger>
+  <AccordionPrimitive.Header asChild={true} className="flex">
+    <Heading color="custom" level="custom" weight="custom">
+      <AccordionPrimitive.Trigger
+        ref={ref}
+        className={clsx(
+          'flex flex-1 items-center justify-between gap-1',
+          'w-full',
+          'py-5',
+          'group',
+          'text-left font-medium transition-all',
+          themeOutlineElement_FocusVisible,
+          themeOutlineElementBrandColor_FocusVisible,
+          themeTextSubtitleColor,
+          className,
+        )}
+        {...props}>
+        {children}
+        <RiArrowDownSLine
+          className={clsx(
+            'size-5 shrink-0 transition-transform group-data-[state=open]:-rotate-180',
+            themeTextSecondaryInvertColor,
+            themeTextBrandColor_GroupHover,
+          )}
+        />
+      </AccordionPrimitive.Trigger>
+    </Heading>
+  </AccordionPrimitive.Header>
 ));
 
 AccordionTrigger.displayName = AccordionPrimitive.Trigger.displayName;

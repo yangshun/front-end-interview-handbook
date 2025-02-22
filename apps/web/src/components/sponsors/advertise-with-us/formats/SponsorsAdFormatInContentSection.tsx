@@ -278,7 +278,7 @@ export default function SponsorsAdFormatInContentSection() {
           )}
           type="multiple">
           <AccordionItem value="item-1">
-            <AccordionTrigger className="w-full">
+            <AccordionTrigger>
               <FormattedMessage
                 defaultMessage="View placement constraints"
                 description="Accordion trigger label"
@@ -302,7 +302,7 @@ export default function SponsorsAdFormatInContentSection() {
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-2">
-            <AccordionTrigger className="w-full">
+            <AccordionTrigger>
               <FormattedMessage
                 defaultMessage="Specific locations this ad will be shown"
                 description="Label for specific locations this ad will be shown"
