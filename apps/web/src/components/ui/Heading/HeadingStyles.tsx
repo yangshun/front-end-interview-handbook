@@ -16,7 +16,7 @@ export type HeadingLevel =
   | 'heading5'
   | 'heading6';
 export type HeadingColor = 'auto' | 'custom' | 'dark' | 'light';
-export type HeadingWeight = 'default' | 'medium';
+export type HeadingWeight = 'custom' | 'default' | 'medium';
 
 const headingLevelClasses: Record<HeadingLevel, string> = {
   custom: '',
@@ -39,6 +39,7 @@ const headingColorClasses: Record<HeadingColor, string> = {
 };
 
 const headingWeightClasses: Record<HeadingWeight, string> = {
+  custom: '',
   default: 'font-semibold',
   medium: 'font-medium',
 };
