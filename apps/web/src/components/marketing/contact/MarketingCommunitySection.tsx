@@ -32,9 +32,9 @@ export default function MarketingCommunitySection() {
   const socialLinks = useMemo(
     () => [
       SocialLinks.linkedin,
-      SocialLinks.discord,
       SocialLinks.github,
       SocialLinks.x,
+      SocialLinks.discord,
     ],
     [],
   );
@@ -138,10 +138,7 @@ export default function MarketingCommunitySection() {
                   />
                   <div>
                     <NumberFlow
-                      className="text-5xl font-medium "
-                      opacityTiming={{ duration: 350, easing: 'ease-out' }}
-                      spinTiming={{ duration: 3000, easing: 'ease-in-out' }}
-                      transformTiming={{ duration: 750 }}
+                      className="text-5xl font-medium"
                       value={count}
                     />
                   </div>
