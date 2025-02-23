@@ -1,7 +1,8 @@
 import clsx from 'clsx';
 
+import Anchor from '~/components/ui/Anchor';
 import type { TextSize } from '~/components/ui/Text';
-import Text from '~/components/ui/Text';
+import Text, { textVariants } from '~/components/ui/Text';
 import { themeBorderColor } from '~/components/ui/theme';
 
 import type { SponsorsAdFormatPayloadInContent } from '../SponsorsTypes';
@@ -15,6 +16,7 @@ const sizeToTitle: Record<SponsorsAdFormatInContentSize, TextSize> = {
 
 export default function SponsorsAdFormatInContent({
   title,
+  url,
   body,
   sponsorName,
   imageUrl,
@@ -38,9 +40,13 @@ export default function SponsorsAdFormatInContent({
         />
         <Text className="mt-2 block" color="secondary" size="body3">
           Sponsor:{' '}
-          <Text color="active" weight="medium">
+          <Anchor
+            className={textVariants({ color: 'active' })}
+            href={url}
+            variant="flat"
+            weight="medium">
             {sponsorName}
-          </Text>
+          </Anchor>
         </Text>
       </div>
       <Text className="mt-6 block" size={sizeToTitle[size]} weight="bold">

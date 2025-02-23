@@ -21,7 +21,7 @@ export default function SponsorsAdFormatSpotlightCard() {
 
 function SponsorsAdFormatSpotlightCardImpl() {
   const { data, isLoading } = trpc.sponsorships.ad.useQuery({
-    placement: 'SPOTLIGHT',
+    format: 'SPOTLIGHT',
   });
 
   if (isLoading || data?.format !== 'SPOTLIGHT') {

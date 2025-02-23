@@ -13,7 +13,7 @@ function SponsorsAdFormatInContentContainer({
   size: SponsorsAdFormatInContentSize;
 }>) {
   const { data, isLoading } = trpc.sponsorships.ad.useQuery({
-    placement: 'IN_CONTENT',
+    format: 'IN_CONTENT',
   });
 
   if (isLoading || data?.format !== 'IN_CONTENT') {

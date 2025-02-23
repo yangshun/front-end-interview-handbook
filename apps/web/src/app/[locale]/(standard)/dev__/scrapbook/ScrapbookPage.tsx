@@ -184,6 +184,7 @@ Don’t leave your success to chance—prepare smarter with the Tech Interview H
             size="sm"
             sponsorName="Tech Interview Handbook"
             title="Tech Interview Handbook"
+            url="https://www.techinterviewhandbook.org"
           />
           <Divider />
           <div className="w-[260px]">

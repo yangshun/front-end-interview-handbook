@@ -26,9 +26,10 @@ export type SponsorsAdFormatPayloadInContent = Readonly<{
   external: boolean;
   format: 'IN_CONTENT';
   id: string;
-  imageUrl?: string;
+  imageUrl: string;
   sponsorName: string;
   title: string;
+  url: string;
 }>;
 
 export type SponsorsAdFormatPayloadSpotlight = Readonly<{

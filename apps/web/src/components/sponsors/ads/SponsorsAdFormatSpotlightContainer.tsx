@@ -8,7 +8,7 @@ import SponsorsAdFormatSpotlight from './SponsorsAdFormatSpotlight';
 
 function SponsorsAdFormatSpotlightContainer() {
   const { data, isLoading } = trpc.sponsorships.ad.useQuery({
-    placement: 'SPOTLIGHT',
+    format: 'SPOTLIGHT',
   });
 
   if (isLoading || data?.format !== 'SPOTLIGHT') {

@@ -9,12 +9,12 @@ export const sponsorshipsRouter = router({
   ad: publicProcedure
     .input(
       z.object({
-        placement: SponsorsAdFormatZodEnum,
+        format: SponsorsAdFormatZodEnum,
       }),
     )
-    .query(async ({ input: { placement } }) => {
-      const sponsorPlacement: SponsorsAdFormatPayload = (() => {
-        switch (placement) {
+    .query(async ({ input: { format } }) => {
+      const adPayload: SponsorsAdFormatPayload = (() => {
+        switch (format) {
           case 'IN_CONTENT': {
             return {
               body: `Level up your coding style with SwagOverflow—the ultimate destination for front-end developer gear. Our high-quality merchandise lets you wear your passion on your sleeve, literally. Check out some of the highlights:
@@ -59,6 +59,6 @@ Elevate your style, inspire your creativity, and represent your coding chops wit
         }
       })();
 
-      return sponsorPlacement;
+      return adPayload;
     }),
 });

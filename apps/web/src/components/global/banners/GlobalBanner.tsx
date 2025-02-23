@@ -133,7 +133,7 @@ function MarketingMessageImpl({
 
   const { data, isLoading } = trpc.sponsorships.ad.useQuery(
     {
-      placement: 'GLOBAL_BANNER',
+      format: 'GLOBAL_BANNER',
     },
     {
       onSuccess() {
