@@ -36,7 +36,7 @@ export type SponsorsAdFormatPayloadSpotlight = Readonly<{
   external: boolean;
   format: 'SPOTLIGHT';
   id: string;
-  imageUrl?: string;
+  imageUrl: string;
   sponsorName: string;
   text: string;
   url: string;
