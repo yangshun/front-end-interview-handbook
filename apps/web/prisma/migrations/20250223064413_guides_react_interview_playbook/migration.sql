@@ -1,0 +1,2 @@
+-- AlterEnum
+ALTER TYPE "GuidebookItem" ADD VALUE 'REACT_INTERVIEW_PLAYBOOK';
