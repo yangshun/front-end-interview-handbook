@@ -476,6 +476,22 @@ model ProjectsDiscussionCommentVote {
   @@index([profileId])
 }
 
+model ProjectsNotification {
+  id              String                       @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  profileId       String                       @db.Uuid
+  createdAt       DateTime                     @default(now()) @db.Timestamptz(6)
+  category        String
+  read            Boolean                      @default(false)
+  data            Json?
+  submissionId    String?                      @db.Uuid
+  submission      ProjectsChallengeSubmission? @relation(fields: [submissionId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  commentId       String?                      @db.Uuid
+  comment         ProjectsDiscussionComment?   @relation(fields: [commentId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  projectsProfile ProjectsProfile              @relation(fields: [profileId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@index([profileId])
+}
+
 model RewardsTaskCompletion {
   id         String   @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
   userId     String   @db.Uuid
@@ -502,18 +518,53 @@ model RoadmapItem {
   updatedAt   DateTime @default(now()) @updatedAt
 }
 
-model ProjectsNotification {
-  id              String                       @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
-  profileId       String                       @db.Uuid
-  createdAt       DateTime                     @default(now()) @db.Timestamptz(6)
-  category        String
-  read            Boolean                      @default(false)
-  data            Json?
-  submissionId    String?                      @db.Uuid
-  submission      ProjectsChallengeSubmission? @relation(fields: [submissionId], references: [id], onDelete: Cascade, onUpdate: NoAction)
-  commentId       String?                      @db.Uuid
-  comment         ProjectsDiscussionComment?   @relation(fields: [commentId], references: [id], onDelete: Cascade, onUpdate: NoAction)
-  projectsProfile ProjectsProfile              @relation(fields: [profileId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+enum SponsorsAdRequestStatus {
+  PENDING
+  REJECTED
+  APPROVED
+}
 
-  @@index([profileId])
+model SponsorsAdRequest {
+  id             String                  @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  emails         String[]
+  legalName      String
+  taxNumber      String
+  address        Json?                   @db.Json
+  signatoryName  String
+  signatoryTitle String
+  status         SponsorsAdRequestStatus
+
+  ads SponsorsAd[]
+}
+
+enum SponsorsAdFormat {
+  GLOBAL_BANNER
+  IN_CONTENT
+  SPOTLIGHT
+}
+
+model SponsorsAd {
+  id        String           @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  format    SponsorsAdFormat
+  title     String
+  body      String?
+  url       String
+  imageUrl  String?
+  requestId String           @db.Uuid
+
+  request SponsorsAdRequest @relation(fields: [requestId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  slots   SponsorsAdSlot[]
+
+  @@unique([format, requestId])
+}
+
+model SponsorsAdSlot {
+  id   String @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  year Int
+  week Int
+  adId String @db.Uuid
+
+  ad SponsorsAd @relation(fields: [adId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@unique([year, week, adId])
 }

@@ -1,7 +1,10 @@
+import { getISOWeek, getYear } from 'date-fns';
 import { z } from 'zod';
 
 import type { SponsorsAdFormatPayload } from '~/components/sponsors/SponsorsTypes';
 import { SponsorsAdFormatZodEnum } from '~/components/sponsors/SponsorsTypes';
+
+import prisma from '~/server/prisma';
 
 import { publicProcedure, router } from '../trpc';
 
@@ -13,9 +16,52 @@ export const sponsorshipsRouter = router({
       }),
     )
     .query(async ({ input: { format } }) => {
-      const adPayload: SponsorsAdFormatPayload = (() => {
+      const date = new Date();
+      const year = getYear(date);
+      const week = getISOWeek(date);
+
+      const adPayload: SponsorsAdFormatPayload = await (async () => {
+        const ads = await prisma.sponsorsAd.findMany({
+          select: {
+            body: true,
+            format: true,
+            id: true,
+            imageUrl: true,
+            request: true,
+            title: true,
+            url: true,
+          },
+          where: {
+            format,
+            request: {
+              status: 'APPROVED',
+            },
+            slots: {
+              some: {
+                week,
+                year,
+              },
+            },
+          },
+        });
+
         switch (format) {
           case 'IN_CONTENT': {
+            if (ads.length > 0) {
+              const ad = ads[0];
+
+              return {
+                body: ad.body!,
+                external: true,
+                format: 'IN_CONTENT',
+                id: ad.id,
+                imageUrl: ad.imageUrl,
+                sponsorName: ad.request.legalName,
+                title: ad.title,
+                url: ad.url,
+              } as const;
+            }
+
             return {
               body: `Level up your coding style with SwagOverflow—the ultimate destination for front-end developer gear. Our high-quality merchandise lets you wear your passion on your sleeve, literally. Check out some of the highlights:
 	•	Eye-Catching Designs: Show off your front-end pride with sleek, creative prints that celebrate coding culture.
@@ -35,6 +81,20 @@ Elevate your style, inspire your creativity, and represent your coding chops wit
             } as const;
           }
           case 'SPOTLIGHT': {
+            if (ads.length > 0) {
+              const ad = ads[0];
+
+              return {
+                external: true,
+                format: 'SPOTLIGHT',
+                id: ad.id,
+                imageUrl: ad.imageUrl,
+                sponsorName: ad.request.legalName,
+                text: ad.title,
+                url: ad.url,
+              } as const;
+            }
+
             return {
               external: true,
               format: 'SPOTLIGHT',
@@ -47,6 +107,19 @@ Elevate your style, inspire your creativity, and represent your coding chops wit
             } as const;
           }
           case 'GLOBAL_BANNER': {
+            if (ads.length > 0) {
+              const ad = ads[0];
+
+              return {
+                external: true,
+                format: 'GLOBAL_BANNER',
+                id: ad.id,
+                sponsorName: ad.request.legalName,
+                text: ad.title,
+                url: ad.url,
+              } as const;
+            }
+
             return {
               external: true,
               format: 'GLOBAL_BANNER',
