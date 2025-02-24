@@ -3,10 +3,9 @@ import type { ForwardedRef } from 'react';
 import { forwardRef, useId } from 'react';
 
 import {
-  themeBackgroundElementColor,
   themeBackgroundElementEmphasizedStateColor_Hover,
   themeBackgroundElementPressedStateColor_Active,
-  themeBorderElementColor,
+  themeBackgroundInputColor,
   themeTextSubtitleColor,
 } from '~/components/ui/theme';
 
@@ -20,6 +19,7 @@ export type SelectItem<T> = Readonly<{
 
 export type SelectDisplay = 'block' | 'inline';
 type SelectSize = 'md' | 'sm' | 'xs';
+type SelectRounded = 'full' | 'normal';
 
 type Props<T> = Readonly<{
   display?: SelectDisplay;
@@ -28,8 +28,9 @@ type Props<T> = Readonly<{
   name?: string;
   onChange: (value: T) => void;
   options: ReadonlyArray<SelectItem<T>>;
+  rounded?: SelectRounded;
   size?: SelectSize;
-  value: T;
+  value?: T;
 }>;
 
 const textSizeClasses: Record<
@@ -56,6 +57,11 @@ const heightClasses: Record<SelectSize, string> = {
   xs: 'h-7',
 };
 
+const roundedClasses: Record<SelectRounded, string> = {
+  full: 'rounded-full',
+  normal: 'rounded',
+};
+
 function Select<T>(
   {
     display,
@@ -64,6 +70,7 @@ function Select<T>(
     name,
     options,
     size = 'md',
+    rounded = 'full',
     value,
     onChange,
   }: Props<T>,
@@ -88,19 +95,16 @@ function Select<T>(
         className={clsx(
           display === 'block' && 'block w-full',
           'flex items-center py-0',
-          'rounded-full',
+          roundedClasses[rounded],
           'transition-colors',
-          [
-            'border',
-            themeBorderElementColor,
-            'focus:border-neutral-300 dark:focus:border-neutral-700',
-          ],
+          'border-0',
+          ['ring-1 ring-inset', 'ring-neutral-300 dark:ring-neutral-700'],
           themeTextSubtitleColor,
-          themeBackgroundElementColor,
+          themeBackgroundInputColor,
           themeBackgroundElementEmphasizedStateColor_Hover,
           themeBackgroundElementPressedStateColor_Active,
           [
-            'focus:ring-2 focus:ring-offset-2',
+            'focus:ring-2 focus:ring-inset',
             'focus:ring-neutral-700 dark:focus:ring-neutral-300',
           ],
           heightClasses[size],

@@ -56,6 +56,15 @@ export default function SelectExamples() {
         />
       </div>
       <Select
+        label="Framework"
+        options={options}
+        rounded="normal"
+        value={value}
+        onChange={(val) => {
+          setValue(val);
+        }}
+      />
+      <Select
         isLabelHidden={true}
         label="Framework"
         options={options}
