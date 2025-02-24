@@ -2599,6 +2599,10 @@
     "defaultMessage": "Error downloading file",
     "description": "Error message"
   },
+  "EVrvEF": {
+    "defaultMessage": "{pagesCount}+ pages",
+    "description": "Label for pages count"
+  },
   "EYI2aK": {
     "defaultMessage": "Access to over {freeChallengeCount} free challenges. {unlocks, plural, =0 {No access to <tooltip>premium credits</tooltip>} one {<tooltip>1 premium credit</tooltip> unspent} other {<tooltip># premium credits</tooltip> unspent}}",
     "description": "Subtitle of Free Plan CTA card in Projects sidebar"
@@ -2698,6 +2702,10 @@
   "FAArTO": {
     "defaultMessage": "Earn passive commissions when others purchase GreatFrontEnd through you.",
     "description": "Subtitle of the Hero section of the 'Become An Affiliate' page"
+  },
+  "FAXajj": {
+    "defaultMessage": "Image: Ideally {width} x {height} px",
+    "description": "Image placement constraints"
   },
   "FCFcH2": {
     "defaultMessage": "Start tasks",
@@ -3634,10 +3642,6 @@
   "KbLzJO": {
     "defaultMessage": "Bullet list",
     "description": "Bullet list tooltip for Richtext toolbar"
-  },
-  "KbcuWF": {
-    "defaultMessage": "Monday 28 Jan - Sunday 01 Feb",
-    "description": "Item 1 for global banner placement slot info"
   },
   "KbgzvC": {
     "defaultMessage": "Hide",
@@ -4987,6 +4991,10 @@
     "defaultMessage": "Project brief",
     "description": "Title for Project Brief section on Projects project page"
   },
+  "SACEEk": {
+    "defaultMessage": "All Question Listing pages",
+    "description": "Label for spotlight ad placement in question listing"
+  },
   "SAjGy/": {
     "defaultMessage": "Review must not be generated or written with the assistance of artificial intelligence.",
     "description": "Condition for promotion"
@@ -5330,10 +5338,6 @@
   "TyQdcx": {
     "defaultMessage": "Sort by",
     "description": "Label for sort button"
-  },
-  "TyhBEz": {
-    "defaultMessage": "Monday 14 Jan - Sunday 16 Feb",
-    "description": "Item 2 for global banner placement slot info"
   },
   "TzB7wE": {
     "defaultMessage": "Step 4",
@@ -7215,6 +7219,10 @@
     "defaultMessage": "Showing {startCount} to {endCount} out of {totalCount} submissions",
     "description": "Pagination label"
   },
+  "fA5KHA": {
+    "defaultMessage": "One-liner: {charactersLimit} characters max {maxLinkCount} link",
+    "description": "Title placement constraints"
+  },
   "fAZVc9": {
     "defaultMessage": "Live site URL",
     "description": "Form label"
@@ -7899,6 +7907,10 @@
     "defaultMessage": "Other tech stack used (outside of skills roadmap)",
     "description": "Label for tech stack input on project submit page"
   },
+  "jNY7ys": {
+    "defaultMessage": "Application Sidebar",
+    "description": "Label for spotlight ad placement in app sidebar"
+  },
   "jOyFXD": {
     "defaultMessage": "{count, plural, =0 {0 completions} one {<bold>{value}</bold> completion} other {<bold>{value}</bold> completions}} in the last year",
     "description": "Label for completions count"
@@ -8010,6 +8022,10 @@
   "k+T8RZ": {
     "defaultMessage": "Warning",
     "description": "Warning badge label for GitHub repo step in project submission checklist"
+  },
+  "k08xzj": {
+    "defaultMessage": "See all",
+    "description": "Button label for see all"
   },
   "k18teo": {
     "defaultMessage": "This is a one-time use promo code exclusive to your account and <strong>can only be generated once</strong>.",
@@ -9230,6 +9246,10 @@
   "rR79ua": {
     "defaultMessage": "Learn from others",
     "description": "Title for recommended action for new projects platform user"
+  },
+  "rSr8Ph": {
+    "defaultMessage": "All Question Detail pages",
+    "description": "Label Label for spotlight ad placement in question detail pages"
   },
   "rTg/bq": {
     "defaultMessage": "Schedule your slot",

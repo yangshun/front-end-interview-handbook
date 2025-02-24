@@ -9,7 +9,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '~/components/ui/Accordion';
-import Anchor from '~/components/ui/Anchor';
 import Text from '~/components/ui/Text';
 import {
   themeBorderColor,
@@ -17,11 +16,13 @@ import {
   themeTextSuccessColor,
 } from '~/components/ui/theme';
 
+import SponsorsAdFormatAvailableSlotInfo from './SponsorsAdFormatAvailableSlotInfo';
 import SponsorsAdFormatHeader from './SponsorsAdFormatHeader';
 import SponsorsAdFormatInfo from './SponsorsAdFormatInfo';
 
 export default function SponsorsAdFormatGlobalBannerSection() {
-  const { impressions, pages } = SponsorAdFormatConfigs.GLOBAL_BANNER;
+  const FORMAT = 'GLOBAL_BANNER';
+  const { impressions, pages } = SponsorAdFormatConfigs[FORMAT];
 
   const impressionsItems = [
     {
@@ -64,33 +65,9 @@ export default function SponsorsAdFormatGlobalBannerSection() {
     },
   ];
 
-  // TODO(advertise): Replace hardcoded slot items
-  const slotItems = [
-    {
-      key: 'item1',
-      label: (
-        <FormattedMessage
-          defaultMessage="Monday 28 Jan - Sunday 01 Feb"
-          description="Item 1 for global banner placement slot info"
-          id="KbcuWF"
-        />
-      ),
-    },
-    {
-      key: 'item2',
-      label: (
-        <FormattedMessage
-          defaultMessage="Monday 14 Jan - Sunday 16 Feb"
-          description="Item 2 for global banner placement slot info"
-          id="TyhBEz"
-        />
-      ),
-    },
-  ];
-
   return (
     <div className="flex flex-col gap-12">
-      <SponsorsAdFormatHeader placement="GLOBAL_BANNER" />
+      <SponsorsAdFormatHeader placement={FORMAT} />
       <div className="flex flex-col gap-10">
         <Asset />
         <div className="flex flex-col gap-x-6 gap-y-10 sm:flex-row">
@@ -106,24 +83,7 @@ export default function SponsorsAdFormatGlobalBannerSection() {
             title={`${pages}+`}
             type="pages"
           />
-          <SponsorsAdFormatInfo
-            addOnItem={
-              <Anchor variant="flat">
-                <Text size="body3" weight="medium">
-                  <FormattedMessage
-                    defaultMessage="See more available slots"
-                    description="See more available slots"
-                    id="PMbV3v"
-                  />
-                  {' ->'}
-                </Text>
-              </Anchor>
-            }
-            className="flex-1"
-            items={slotItems}
-            title="23 Feb 2025" // TODO(advertise) : Remove hardcoded date
-            type="slot"
-          />
+          <SponsorsAdFormatAvailableSlotInfo format={FORMAT} />
         </div>
         <Accordion
           className={clsx('border-b border-t', themeBorderColor)}

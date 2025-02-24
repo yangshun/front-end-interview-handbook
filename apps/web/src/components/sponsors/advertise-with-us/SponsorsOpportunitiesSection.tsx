@@ -6,6 +6,7 @@ import { themeGradientHeading } from '~/components/ui/theme';
 
 import SponsorsAdFormatGlobalBannerSection from './formats/SponsorsAdFormatGlobalBannerSection';
 import SponsorsAdFormatInContentSection from './formats/SponsorsAdFormatInContentSection';
+import SponsorsAdFormatSpotlightSection from './formats/SponsorsAdFormatSpotlightSection';
 
 export default function SponsorsOpportunitiesSection() {
   return (
@@ -25,6 +26,7 @@ export default function SponsorsOpportunitiesSection() {
       <div className="flex flex-col gap-24 lg:gap-32">
         <SponsorsAdFormatGlobalBannerSection />
         <SponsorsAdFormatInContentSection />
+        <SponsorsAdFormatSpotlightSection />
       </div>
     </div>
   );

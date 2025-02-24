@@ -14,6 +14,7 @@ import {
 import Text from '~/components/ui/Text';
 import {
   themeBorderColor,
+  themeBorderElementColor,
   themeDivideColor,
   themeTextSuccessColor,
 } from '~/components/ui/theme';
@@ -23,8 +24,8 @@ import SponsorsAdFormatHeader from './SponsorsAdFormatHeader';
 import SponsorsAdFormatInfo from './SponsorsAdFormatInfo';
 import SponsorsAdFormatPlacementInfo from './SponsorsAdFormatPlacementInfo';
 
-export default function SponsorsAdFormatInContentSection() {
-  const FORMAT = 'IN_CONTENT';
+export default function SponsorsAdFormatSpotlightSection() {
+  const FORMAT = 'SPOTLIGHT';
   const intl = useIntl();
   const { impressions, pages } = SponsorAdFormatConfigs[FORMAT];
 
@@ -74,26 +75,12 @@ export default function SponsorsAdFormatInContentSection() {
       key: 'title',
       label: (
         <FormattedMessage
-          defaultMessage="Title: {charactersLimit} characters max {maxLinkCount} link"
+          defaultMessage="One-liner: {charactersLimit} characters max {maxLinkCount} link"
           description="Title placement constraints"
-          id="FDIoJ9"
+          id="fA5KHA"
           values={{
-            charactersLimit: 55,
+            charactersLimit: 34,
             maxLinkCount: 1,
-          }}
-        />
-      ),
-    },
-    {
-      key: 'body',
-      label: (
-        <FormattedMessage
-          defaultMessage="Body: {charactersLimit} characters max {maxLinkCount} links"
-          description="Body placement constraints"
-          id="vMEMKV"
-          values={{
-            charactersLimit: 800,
-            maxLinkCount: 3,
           }}
         />
       ),
@@ -102,12 +89,12 @@ export default function SponsorsAdFormatInContentSection() {
       key: 'image',
       label: (
         <FormattedMessage
-          defaultMessage="Image: Ideally {width}px x {height}px"
+          defaultMessage="Image: Ideally {width} x {height} px"
           description="Image placement constraints"
-          id="OwNRRU"
+          id="FAXajj"
           values={{
-            height: 190,
-            width: 380,
+            height: 48,
+            width: 96,
           }}
         />
       ),
@@ -116,87 +103,60 @@ export default function SponsorsAdFormatInContentSection() {
 
   const placementInfo = [
     {
-      badgeLabel: intl.formatMessage(
-        {
-          defaultMessage: '{questionCount}+ questions',
-          description: 'Label for questions count',
-          id: 'O9HLcY',
-        },
-        { questionCount: 500 },
-      ),
       img: {
-        alt: 'In Content Ad Placement in coding workspace',
-        srcDark: '/img/sponsors/in-content-placement-workspace-dark.png',
-        srcLight: '/img/sponsors/in-content-placement-workspace-light.png',
+        alt: 'Spotlight Ad Placement in app sidebar',
+        srcDark: '/img/sponsors/spotlight-placement-sidebar-dark.png',
+        srcLight: '/img/sponsors/spotlight-placement-sidebar-light.png',
       },
-      key: 'workspace',
+      key: 'sidebar',
       title: intl.formatMessage({
-        defaultMessage: 'Coding workspace',
-        description: 'Label for in content placement in workspace',
-        id: '8yb0/o',
+        defaultMessage: 'Application Sidebar',
+        description: 'Label for spotlight ad placement in app sidebar',
+        id: 'jNY7ys',
       }),
     },
     {
       badgeLabel: intl.formatMessage(
         {
-          defaultMessage: '{questionCount}+ quizzes',
-          description: 'Label for quizzes count',
-          id: 'M++J8U',
+          defaultMessage: '{pagesCount}+ pages',
+          description: 'Label for pages count',
+          id: 'EVrvEF',
         },
-        { questionCount: 300 },
+        { pagesCount: 30 },
       ),
       img: {
-        alt: 'In Content Ad Placement in quiz questions',
-        srcDark: '/img/sponsors/in-content-placement-quiz-dark.png',
-        srcLight: '/img/sponsors/in-content-placement-quiz-light.png',
+        alt: 'Spotlight Ad Placement in question listing',
+        srcDark: '/img/sponsors/spotlight-placement-question-listing-dark.png',
+        srcLight:
+          '/img/sponsors/spotlight-placement-question-listing-light.png',
       },
-      key: 'quiz',
+      key: 'questions-listing',
       title: intl.formatMessage({
-        defaultMessage: 'Quiz questions',
-        description: 'Label for in content placement in quiz questions',
-        id: 'Kshski',
+        defaultMessage: 'All Question Listing pages',
+        description: 'Label for spotlight ad placement in question listing',
+        id: 'SACEEk',
       }),
     },
     {
       badgeLabel: intl.formatMessage(
         {
-          defaultMessage: '{guidesCount}+ guides pages',
-          description: 'Label for guides count',
-          id: 'KgLyGJ',
+          defaultMessage: '{pagesCount}+ pages',
+          description: 'Label for pages count',
+          id: 'EVrvEF',
         },
-        { guidesCount: 50 },
+        { pagesCount: 20 },
       ),
       img: {
-        alt: 'In Content Ad Placement in guides',
-        srcDark: '/img/sponsors/in-content-placement-guides-dark.png',
-        srcLight: '/img/sponsors/in-content-placement-guides-light.png',
+        alt: 'Spotlight Ad Placement in question detail page',
+        srcDark: '/img/sponsors/spotlight-placement-question-detail-dark.png',
+        srcLight: '/img/sponsors/spotlight-placement-question-detail-light.png',
       },
-      key: 'guides',
+      key: 'question-detail',
       title: intl.formatMessage({
-        defaultMessage: 'Interview Guides',
-        description: 'Label for in content placement in guides',
-        id: '1p5F3G',
-      }),
-    },
-    {
-      badgeLabel: intl.formatMessage(
-        {
-          defaultMessage: '{questionCount} questions',
-          description: 'Label for questions count',
-          id: 'bryw70',
-        },
-        { questionCount: 10 },
-      ),
-      img: {
-        alt: 'In Content Ad Placement in system design',
-        srcDark: '/img/sponsors/in-content-placement-system-design-dark.png',
-        srcLight: '/img/sponsors/in-content-placement-system-design-light.png',
-      },
-      key: 'guides',
-      title: intl.formatMessage({
-        defaultMessage: 'System Design',
-        description: 'Label for in content placement in system design',
-        id: 'y1IBOv',
+        defaultMessage: 'All Question Detail pages',
+        description:
+          'Label Label for spotlight ad placement in question detail pages',
+        id: 'rSr8Ph',
       }),
     },
   ];
@@ -268,6 +228,10 @@ export default function SponsorsAdFormatInContentSection() {
                     badgeLabel={item.badgeLabel}
                     className="col-span-1"
                     img={item.img}
+                    showSeeAll={
+                      item.key === 'questions-listing' ||
+                      item.key === 'question-detail'
+                    }
                     title={item.title}
                   />
                 ))}
@@ -282,20 +246,61 @@ export default function SponsorsAdFormatInContentSection() {
 
 function Asset() {
   return (
-    <>
+    <div
+      className={clsx(
+        'relative',
+        'h-full w-full overflow-hidden sm:h-[155px] lg:h-[200px] xl:h-[240px]',
+        'rounded-[4px] sm:rounded-lg lg:rounded-xl',
+      )}>
+      <div
+        className={clsx(
+          'pointer-events-none absolute inset-0',
+          'rounded-[inherit]',
+          ['border', themeBorderElementColor],
+        )}></div>
       {/* Light mode image */}
-      <img
-        alt="In content ad placement preview"
-        className={clsx('h-auto w-full object-cover', 'block dark:hidden')}
-        src="/img/sponsors/in-content-ad-placement-light.png"
-      />
+      <picture className={clsx('block dark:hidden')}>
+        <source
+          media="(max-width: 640px)"
+          srcSet="/img/sponsors/spotlight-ad-placement-mobile-light.png"
+        />
+        <source
+          media="(min-width: 640px)"
+          srcSet="/img/sponsors/spotlight-ad-placement-light.png"
+        />
+        <img
+          alt="Spotlight ad placement preview"
+          className={clsx(
+            'h-full w-full sm:h-[155px] lg:h-[200px] xl:h-[240px]',
+            'object-cover object-left-top',
+          )}
+          decoding="async"
+          loading="lazy"
+          src="/img/sponsors/spotlight-ad-placement-light.png"
+        />
+      </picture>
 
       {/* Dark mode image */}
-      <img
-        alt="In content ad placement preview"
-        className={clsx('h-auto w-full object-cover', 'hidden dark:block')}
-        src="/img/sponsors/in-content-ad-placement-dark.png"
-      />
-    </>
+      <picture className={clsx('hidden dark:block')}>
+        <source
+          media="(max-width: 640px)"
+          srcSet="/img/sponsors/spotlight-ad-placement-mobile-dark.png"
+        />
+        <source
+          media="(min-width: 640px)"
+          srcSet="/img/sponsors/spotlight-ad-placement-dark.png"
+        />
+        <img
+          alt="Spotlight ad placement preview"
+          className={clsx(
+            'h-full w-full sm:h-[155px] lg:h-[200px] xl:h-[240px]',
+            'object-cover object-left-top',
+          )}
+          decoding="async"
+          loading="lazy"
+          src="/img/sponsors/spotlight-ad-placement-dark.png"
+        />
+      </picture>
+    </div>
   );
 }
