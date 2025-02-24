@@ -4,6 +4,7 @@ import SponsorsAudienceProfileSection from './SponsorsAudienceProfileSection';
 import SponsorsHeroSection from './SponsorsHeroSection';
 import SponsorsOpportunitiesSection from './SponsorsOpportunitiesSection';
 import SponsorsSinglePlacementsSection from './SponsorsSinglePlacementsSection';
+import SponsorsStepsToStartAdvertisingSection from './SponsorsStepsToStartAdvertisingSection';
 import SponsorsTechAudienceSection from './SponsorsTechAudienceSection';
 
 export default function SponsorsAdvertiseWithUsPage() {
@@ -14,6 +15,7 @@ export default function SponsorsAdvertiseWithUsPage() {
       <SponsorsAudienceProfileSection />
       <SponsorsSinglePlacementsSection />
       <SponsorsOpportunitiesSection />
+      <SponsorsStepsToStartAdvertisingSection />
     </Container>
   );
 }

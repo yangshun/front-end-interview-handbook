@@ -107,6 +107,10 @@
     "defaultMessage": "Post",
     "description": "Label for post reply button on project discussions page"
   },
+  "+g+A4p": {
+    "defaultMessage": "Simply email us at <anchor>sponsor@greatfrontend.com</anchor>.",
+    "description": "Advertise with us section subtitle"
+  },
   "+gMPfE": {
     "defaultMessage": "Search by challenge name / brief",
     "description": "Search placeholder for challenge listing"
@@ -1379,6 +1383,10 @@
     "defaultMessage": "Common mistakes you should avoid.",
     "description": "Comon mistakes to avoid during system design interviews"
   },
+  "6lImeU": {
+    "defaultMessage": "Approval & Confirmation",
+    "description": "Title for 2nd step of advertising"
+  },
   "6mw6d/": {
     "defaultMessage": "{category} Coding Interview Questions",
     "description": "Title for framework and language page"
@@ -1542,6 +1550,10 @@
   "7ZjmR2": {
     "defaultMessage": "Implementation must contain at least {minLength} character(s).",
     "description": "Error message"
+  },
+  "7aiZNf": {
+    "defaultMessage": "We will be happy to answer any questions you might have.",
+    "description": "Advertise with us section subtitle"
   },
   "7b8bt1": {
     "defaultMessage": "Binary search tree",
@@ -6931,6 +6943,10 @@
     "defaultMessage": "Contact us",
     "description": "Link to contact page"
   },
+  "dS8dPa": {
+    "defaultMessage": "3 simple steps to start advertising",
+    "description": "Advertise with us section title"
+  },
   "dVkXTc": {
     "defaultMessage": "While other advertising options only provide a single placement—like a one-time newsletter mention—our solution <highlight>places your ad across multiple pages</highlight>, ensuring repeated, high-impact visibility on every visit.",
     "description": "Advertise with us section subtitle"
@@ -7930,6 +7946,10 @@
   "jTKrPE": {
     "defaultMessage": "Invalid Github username or URL",
     "description": "Error message when github username or url is invalid"
+  },
+  "jUwdc1": {
+    "defaultMessage": "Your ad slot is officially booked once payment is completed.",
+    "description": "Description for 3rd step of advertising"
   },
   "jV6cb9": {
     "defaultMessage": "Appendix",
@@ -9891,6 +9911,10 @@
     "defaultMessage": "Purchase premium to get access to all skill plans as well as exclusive component tracks, official how-to guides and production-ready Figma files.",
     "description": "Subtitle for premium projects skill roadmap"
   },
+  "vRqYEI": {
+    "defaultMessage": "Once reviewed, you'll receive a confirmation email along with the payment link.",
+    "description": "Description for 2nd step of advertising"
+  },
   "vSCWmc": {
     "defaultMessage": "Let big tech senior/staff engineers write your prep resources",
     "description": "Title for the prep resources section"
@@ -10171,6 +10195,10 @@
     "defaultMessage": "GreatFrontEnd",
     "description": "Social title of GreatFrontEnd standard page"
   },
+  "xAJOvM": {
+    "defaultMessage": "Fill out our <anchor>advertising enquiry form</anchor> and upload your assets.",
+    "description": "Description for 1st step of advertising"
+  },
   "xBNYLl": {
     "defaultMessage": "Behavioral Interview",
     "description": "Short title for behavioral interview playbook"
@@ -10214,6 +10242,10 @@
   "xWBL/9": {
     "defaultMessage": "Data Structures and Algorithms Coding",
     "description": "Title for ui coding questions"
+  },
+  "xWWWQR": {
+    "defaultMessage": "Make Payment",
+    "description": "Title for 3rd step of advertising"
   },
   "xXWABp": {
     "defaultMessage": "Receive feedback from a vibrant community",
@@ -10326,6 +10358,10 @@
   "yBb1/v": {
     "defaultMessage": "JavaScript functions",
     "description": "Title of questions list"
+  },
+  "yBkrw8": {
+    "defaultMessage": "Submit Your Ad Enquiry",
+    "description": "Title for 1st step of advertising"
   },
   "yCEIJF": {
     "defaultMessage": "Practice {questionCount}+ React Quiz Interview Questions. Learn in-browser, with high quality answers written by Big Tech Ex-interviewers",
