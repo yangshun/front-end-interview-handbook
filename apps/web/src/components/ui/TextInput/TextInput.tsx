@@ -16,6 +16,7 @@ export type TextInputSize = 'md' | 'sm' | 'xs';
 type Attributes = Pick<
   InputHTMLAttributes<HTMLInputElement>,
   | 'autoComplete'
+  | 'autoCorrect'
   | 'autoFocus'
   | 'id'
   | 'maxLength'
@@ -25,6 +26,7 @@ type Attributes = Pick<
   | 'onFocus'
   | 'placeholder'
   | 'required'
+  | 'spellCheck'
 >;
 
 type Props = Readonly<{
