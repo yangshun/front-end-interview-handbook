@@ -1,6 +1,7 @@
 import Container from '~/components/ui/Container';
 
 import SponsorsAudienceProfileSection from './SponsorsAudienceProfileSection';
+import SponsorsContactUsSection from './SponsorsContactUsSection';
 import SponsorsHeroSection from './SponsorsHeroSection';
 import SponsorsOpportunitiesSection from './SponsorsOpportunitiesSection';
 import SponsorsSinglePlacementsSection from './SponsorsSinglePlacementsSection';
@@ -16,6 +17,7 @@ export default function SponsorsAdvertiseWithUsPage() {
       <SponsorsSinglePlacementsSection />
       <SponsorsOpportunitiesSection />
       <SponsorsStepsToStartAdvertisingSection />
+      <SponsorsContactUsSection />
     </Container>
   );
 }

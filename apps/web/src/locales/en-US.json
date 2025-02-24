@@ -1115,6 +1115,10 @@
     "defaultMessage": "Something went wrong. Try again later or contact <link>support@greatfrontend.com</link>!",
     "description": "Error toast for project"
   },
+  "5Gvh/t": {
+    "defaultMessage": "Contact us",
+    "description": "Button label for contact us"
+  },
   "5M4u9n": {
     "defaultMessage": "You have <bold>{amountLeft}</bold> premium credits remaining. Unlock this project to access all premium features for this challenge, including the Figma design files, official guides, and solutions.",
     "description": "Subtitle for project paywall"
@@ -10498,6 +10502,10 @@
   "yw92sr": {
     "defaultMessage": "Unlike other challenge platforms, all our projects are modular with one other as they are constructed with the same design system. Easily mix and match any component or project you build to craft a unique app.",
     "description": "Description of 'Personalized projects' feature in Projects marketing page"
+  },
+  "yyGk2u": {
+    "defaultMessage": "Have doubts?",
+    "description": "Advertise with us section title"
   },
   "yyYVov": {
     "defaultMessage": "Roadmap - Upcoming features and updates on GreatFrontEnd Interviews",
