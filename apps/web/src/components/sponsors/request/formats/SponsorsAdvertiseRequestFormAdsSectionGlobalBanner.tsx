@@ -4,6 +4,7 @@ import { RiArrowRightLine } from 'react-icons/ri';
 import { useSet } from 'react-use';
 
 import InterviewsMarketingHeroBrowserWindowFrame from '~/components/interviews/marketing/embed/InterviewsMarketingHeroBrowserWindowFrame';
+import { SponsorAdFormatConfigs } from '~/components/sponsors/SponsorsAdFormatConfigs';
 import Button from '~/components/ui/Button';
 import Label from '~/components/ui/Label';
 import TextInput from '~/components/ui/TextInput';
@@ -46,9 +47,11 @@ export default function SponsorsAdvertiseRequestFormAdsSectionGlobalBanner({
         />
         <div className="mt-4 grid gap-4 md:grid-cols-2">
           <TextInput
-            description="Maximum of 75 characters"
+            description={`Maximum of ${SponsorAdFormatConfigs.GLOBAL_BANNER.placementConstraints.text} characters`}
             label="Title"
-            maxLength={75}
+            maxLength={
+              SponsorAdFormatConfigs.GLOBAL_BANNER.placementConstraints.text
+            }
             required={true}
             value={text}
             onChange={(value) => setText(value)}

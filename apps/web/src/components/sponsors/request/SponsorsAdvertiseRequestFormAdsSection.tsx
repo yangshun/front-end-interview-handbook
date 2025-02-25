@@ -9,6 +9,7 @@ import {
 import { useList } from 'react-use';
 import { v4 as uuidv4 } from 'uuid';
 
+import { useSponsorsAdFormatData } from '~/components/sponsors/SponsorsAdFormatConfigs';
 import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
 import Divider from '~/components/ui/Divider';
@@ -23,9 +24,9 @@ import {
   themeOutlineElementBrandColor_FocusVisible,
 } from '~/components/ui/theme';
 
-import SponsorsAdvertiseRequestFormAdsSectionGlobalBanner from './ads/SponsorsAdvertiseRequestFormAdsSectionGlobalBanner';
-import SponsorsAdvertiseRequestFormAdsSectionLongForm from './ads/SponsorsAdvertiseRequestFormAdsSectionLongForm';
-import SponsorsAdvertiseRequestFormAdsSectionShortForm from './ads/SponsorsAdvertiseRequestFormAdsSectionShortForm';
+import SponsorsAdvertiseRequestFormAdsSectionGlobalBanner from './formats/SponsorsAdvertiseRequestFormAdsSectionGlobalBanner';
+import SponsorsAdvertiseRequestFormAdsSectionInContent from './formats/SponsorsAdvertiseRequestFormAdsSectionInContent';
+import SponsorsAdvertiseRequestFormAdsSectionSpotlight from './formats/SponsorsAdvertiseRequestFormAdsSectionSpotlight';
 import { SponsorAdFormatConfigs } from '../SponsorsAdFormatConfigs';
 import { themeBackgroundElementEmphasizedStateColor_Hover } from '../../ui/theme';
 
@@ -66,6 +67,7 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
   const [selectedFormat, setSelectedFormat] = useState<SponsorsAdFormat | null>(
     'GLOBAL_BANNER',
   );
+  const adFormatData = useSponsorsAdFormatData();
   const [ads, adsActions] = useList<SponsorsAdFormatFormItem>([]);
 
   return (
@@ -156,22 +158,22 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
                 {(
                   [
                     {
-                      description: 'Appears on every page',
+                      description: adFormatData.GLOBAL_BANNER.shortDescription,
                       format: 'GLOBAL_BANNER',
-                      label: 'Global banner',
+                      label: adFormatData.GLOBAL_BANNER.name,
                       price:
                         SponsorAdFormatConfigs.GLOBAL_BANNER.pricePerWeekUSD,
                     },
                     {
-                      description: 'Image and short text',
+                      description: adFormatData.SPOTLIGHT.shortDescription,
                       format: 'SPOTLIGHT',
-                      label: 'Short form',
+                      label: adFormatData.SPOTLIGHT.name,
                       price: SponsorAdFormatConfigs.SPOTLIGHT.pricePerWeekUSD,
                     },
                     {
-                      description: 'Image and paragraph text',
+                      description: adFormatData.IN_CONTENT.shortDescription,
                       format: 'IN_CONTENT',
-                      label: 'Long form',
+                      label: adFormatData.IN_CONTENT.name,
                       price: SponsorAdFormatConfigs.IN_CONTENT.pricePerWeekUSD,
                     },
                   ] as const
@@ -190,20 +192,24 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
                             ? themeBorderBrandColor
                             : themeBorderElementColor,
                         ],
+                        themeOutlineElement_FocusVisible,
+                        themeOutlineElementBrandColor_FocusVisible,
                         themeBackgroundElementEmphasizedStateColor_Hover,
                         'rounded-lg',
                         'transition-colors',
                         'px-4 py-4',
-                        themeOutlineElement_FocusVisible,
-                        themeOutlineElementBrandColor_FocusVisible,
+                        'text-left',
                       )}
                       type="button"
                       onClick={() => setSelectedFormat(format)}>
-                      <div className="flex flex-col items-start">
+                      <div className="flex w-full grow flex-col items-start">
                         <Text size="body2" weight="bold">
                           {label}
                         </Text>
-                        <Text color="secondary" size="body3">
+                        <Text
+                          className="mt-1 block"
+                          color="secondary"
+                          size="body3">
                           {description}
                         </Text>
                       </div>
@@ -238,7 +244,7 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
                 />
               )}
               {selectedFormat === 'IN_CONTENT' && (
-                <SponsorsAdvertiseRequestFormAdsSectionLongForm
+                <SponsorsAdvertiseRequestFormAdsSectionInContent
                   onCancel={
                     ads.length > 0
                       ? () => {
@@ -259,7 +265,7 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
                 />
               )}
               {selectedFormat === 'SPOTLIGHT' && (
-                <SponsorsAdvertiseRequestFormAdsSectionShortForm
+                <SponsorsAdvertiseRequestFormAdsSectionSpotlight
                   onCancel={
                     ads.length > 0
                       ? () => {

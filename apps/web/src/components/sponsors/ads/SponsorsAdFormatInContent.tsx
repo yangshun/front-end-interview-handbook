@@ -1,9 +1,13 @@
 import clsx from 'clsx';
+import { RiAdvertisementLine } from 'react-icons/ri';
 
 import Anchor from '~/components/ui/Anchor';
 import type { TextSize } from '~/components/ui/Text';
 import Text, { textVariants } from '~/components/ui/Text';
-import { themeBorderColor } from '~/components/ui/theme';
+import {
+  themeBackgroundBrandColor,
+  themeBorderColor,
+} from '~/components/ui/theme';
 
 import type { SponsorsAdFormatPayloadInContent } from '../SponsorsTypes';
 
@@ -28,16 +32,30 @@ export default function SponsorsAdFormatInContent({
   return (
     <div>
       <div>
-        <img
-          alt={title}
-          className={clsx(
-            'aspect-[2/1] rounded-lg',
-            'object-cover',
-            'border',
-            themeBorderColor,
-          )}
-          src={imageUrl}
-        />
+        {imageUrl ? (
+          <img
+            alt={title}
+            className={clsx(
+              'aspect-[2/1] rounded-lg',
+              'object-cover',
+              'border',
+              themeBorderColor,
+            )}
+            src={imageUrl}
+          />
+        ) : (
+          <div
+            className={clsx(
+              'aspect-[2/1] rounded-lg',
+              'flex items-center justify-center',
+              themeBackgroundBrandColor,
+            )}>
+            <RiAdvertisementLine
+              aria-hidden={true}
+              className={clsx('size-16', 'text-neutral-700')}
+            />
+          </div>
+        )}
         <Text className="mt-2 block" color="secondary" size="body3">
           Sponsor:{' '}
           <Anchor

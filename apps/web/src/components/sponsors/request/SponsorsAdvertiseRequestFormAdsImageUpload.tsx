@@ -3,15 +3,23 @@ import clsx from 'clsx';
 import Label from '~/components/ui/Label';
 import Text from '~/components/ui/Text';
 import {
-  themeBackgroundCardColor,
+  themeBackgroundInputColor,
   themeBorderEmphasizeColor,
 } from '~/components/ui/theme';
 
-export default function SponsorsAdvertiseRequestFormAdsImageUpload() {
+type Props = Readonly<{
+  heightConstraint: number;
+  widthConstraint: number;
+}>;
+
+export default function SponsorsAdvertiseRequestFormAdsImageUpload({
+  widthConstraint,
+  heightConstraint,
+}: Props) {
   return (
     <div className="flex flex-col gap-2">
       <Label
-        description="Upload your ad image"
+        description="Follow the image dimensions guidelines"
         label="Ad asset"
         required={true}
       />
@@ -21,13 +29,14 @@ export default function SponsorsAdvertiseRequestFormAdsImageUpload() {
           'py-10',
           ['border', themeBorderEmphasizeColor, 'border-dashed'],
           'rounded-md',
-          themeBackgroundCardColor,
+          themeBackgroundInputColor,
         )}>
         <Text className="block" color="subtitle" size="body2">
           Select or drop an image here
         </Text>
         <Text className="mt-1 block" color="secondary" size="body3">
-          100px x 200px
+          {widthConstraint}px x {heightConstraint}px (
+          {widthConstraint / heightConstraint}:1 ratio)
         </Text>
       </div>
     </div>

@@ -4,9 +4,11 @@ import { RiArrowRightLine } from 'react-icons/ri';
 import { useSet } from 'react-use';
 
 import SponsorsAdFormatInContent from '~/components/sponsors/ads/SponsorsAdFormatInContent';
+import { SponsorAdFormatConfigs } from '~/components/sponsors/SponsorsAdFormatConfigs';
 import Button from '~/components/ui/Button';
 import Label from '~/components/ui/Label';
 import RichTextEditor from '~/components/ui/RichTextEditor';
+import TextArea from '~/components/ui/TextArea';
 import TextInput from '~/components/ui/TextInput';
 import {
   themeBackgroundColor,
@@ -29,7 +31,7 @@ type Props = Readonly<{
   }>) => void;
 }>;
 
-export default function SponsorsAdvertiseRequestFormAdsSectionLongForm({
+export default function SponsorsAdvertiseRequestFormAdsSectionInContent({
   onCancel,
   onSubmit,
 }: Props) {
@@ -46,28 +48,42 @@ export default function SponsorsAdvertiseRequestFormAdsSectionLongForm({
       />
       <div>
         <Label
-          description="Configure your long form ad and upload the required assets"
-          label="Long form ad configuration"
+          description="Configure your ad and upload the required assets"
+          label="In-content ad configuration"
         />
         <div className="mt-4 grid gap-4 md:grid-cols-2">
           <div>
-            <TextInput
-              description="Maximum of 75 characters"
+            <TextArea
+              description={`Maximum of ${SponsorAdFormatConfigs.IN_CONTENT.placementConstraints.text} characters`}
               label="Title"
-              maxLength={75}
+              maxLength={
+                SponsorAdFormatConfigs.IN_CONTENT.placementConstraints.text
+              }
               required={true}
               value={text}
               onChange={(value) => setText(value)}
             />
             <RichTextEditor
-              description="Maximum of 3 links allowed"
+              description={`Maximum of ${SponsorAdFormatConfigs.IN_CONTENT.placementConstraints.body?.links} links allowed`}
               label="Body"
-              maxLength={700}
+              maxLength={
+                SponsorAdFormatConfigs.IN_CONTENT.placementConstraints.body
+                  ?.length
+              }
               minHeight="200px"
               placeholder="Enter something"
               required={true}
             />
-            <SponsorsAdvertiseRequestFormAdsImageUpload />
+            <SponsorsAdvertiseRequestFormAdsImageUpload
+              heightConstraint={
+                SponsorAdFormatConfigs.IN_CONTENT.placementConstraints.image
+                  ?.height ?? 1
+              }
+              widthConstraint={
+                SponsorAdFormatConfigs.IN_CONTENT.placementConstraints.image
+                  ?.width ?? 1
+              }
+            />
             <TextInput
               classNameOuter="mt-4"
               description="Destination for ad clicks"
@@ -97,10 +113,10 @@ export default function SponsorsAdvertiseRequestFormAdsSectionLongForm({
                   body="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
                   external={true}
                   id="short-form"
-                  imageUrl="https://www.techinterviewhandbook.org/social/coding-interview-prep.png"
+                  imageUrl=""
                   size="md"
                   sponsorName="Your product / company name"
-                  title={text || 'Your long form ad title here'}
+                  title={text || 'The quick brown fox jumped over the lazy fox'}
                   url="#"
                 />
               </div>
@@ -108,7 +124,6 @@ export default function SponsorsAdvertiseRequestFormAdsSectionLongForm({
           </div>
         </div>
       </div>
-
       <div className="flex justify-end gap-2">
         {onCancel && (
           <Button

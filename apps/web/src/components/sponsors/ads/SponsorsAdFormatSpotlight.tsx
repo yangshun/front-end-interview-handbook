@@ -1,9 +1,10 @@
 import clsx from 'clsx';
-import { RiMegaphoneLine } from 'react-icons/ri';
+import { RiAdvertisementLine, RiMegaphoneLine } from 'react-icons/ri';
 
 import Anchor from '~/components/ui/Anchor';
 import Text from '~/components/ui/Text';
 import {
+  themeBackgroundBrandColor,
   themeBackgroundCardNoAlphaColor,
   themeBorderColor,
   themeTextSecondaryColor,
@@ -27,7 +28,14 @@ export default function SponsorsAdFormatSpotlight({
       )}
       href={url}
       variant="flat">
-      <div className={clsx('relative shrink-0', 'aspect-[2/1] h-12')}>
+      <div
+        className={clsx(
+          'relative shrink-0',
+          'aspect-[2/1] h-12',
+          'rounded',
+          'flex items-center justify-center',
+          themeBackgroundBrandColor,
+        )}>
         <Tooltip asChild={true} label={`Sponsor: ${sponsorName}`} side="bottom">
           <div
             className={clsx(
@@ -43,14 +51,21 @@ export default function SponsorsAdFormatSpotlight({
             />
           </div>
         </Tooltip>
-        <img
-          alt={text}
-          className={clsx('size-full rounded', 'object-cover', [
-            'border',
-            themeBorderColor,
-          ])}
-          src={imageUrl}
-        />
+        {imageUrl ? (
+          <img
+            alt={text}
+            className={clsx('size-full', 'object-cover', [
+              'border',
+              themeBorderColor,
+            ])}
+            src={imageUrl}
+          />
+        ) : (
+          <RiAdvertisementLine
+            aria-hidden={true}
+            className={clsx('size-6', 'text-neutral-700')}
+          />
+        )}
       </div>
       <Text className="line-clamp-3 grow" color="subtitle" size="body3">
         {text}

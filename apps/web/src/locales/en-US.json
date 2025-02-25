@@ -175,10 +175,6 @@
     "defaultMessage": "Deploying your project",
     "description": "Title for Deployment Info in Projects"
   },
-  "/01zKd": {
-    "defaultMessage": "Global banner",
-    "description": "Ad placement"
-  },
   "/06NwY": {
     "defaultMessage": "Company-tagged questions",
     "description": "Title for company-tagged questions feature"
@@ -630,6 +626,10 @@
   "1q1I7J": {
     "defaultMessage": "Vercel",
     "description": "Label for \"Vercel\" option in Deployment Info"
+  },
+  "1qwgK6": {
+    "defaultMessage": "Image: {width}px x {height}px ({ratio}:1 ratio)",
+    "description": "Image placement constraints"
   },
   "1sJ8d7": {
     "defaultMessage": "Free plan",
@@ -1247,14 +1247,6 @@
     "defaultMessage": "{questionTitle} in {questionFramework}",
     "description": "Title of Front End Interview UI Coding Questions practice page"
   },
-  "5wXtT4": {
-    "defaultMessage": "Showcase your brand or offer in a pinned top banner that appears across our entire site",
-    "description": "Ad placement description"
-  },
-  "5x8bSw": {
-    "defaultMessage": "Showcase your brand or offer with a high visibility ad pinned on the application sidebar and pages",
-    "description": "Ad placement description"
-  },
   "5y9YGh": {
     "defaultMessage": "Submission title must contain at most {maxLength} character(s).",
     "description": "Error message for submission title"
@@ -1687,6 +1679,10 @@
     "defaultMessage": "{Title}: Optimized for those with limited time, focusing on the most important concepts through coding and quiz-style questions.",
     "description": "Paragraph 3 for \"What does GreatFrontEnd Interviews offer exactly?\" on Homepage FAQ sections"
   },
+  "8TRyuI": {
+    "defaultMessage": "Showcase your brand or offer with a premium ad unit seamlessly integrated into all {questionCount}+ of our questions and guides, reaching deeply immersed users",
+    "description": "Ad format description"
+  },
   "8TZX1E": {
     "defaultMessage": "You have completed this skill",
     "description": "Description for projects skill completed status"
@@ -1795,6 +1791,10 @@
     "defaultMessage": "Quickly convert challenge designs into HTML, CSS, and Tailwind code by using our <link>Figma to Code plugin</link>.",
     "description": "Use the Figma to code plugin"
   },
+  "95KhOK": {
+    "defaultMessage": "Spotlight ad",
+    "description": "Ad format"
+  },
   "99Ewym": {
     "defaultMessage": "Introduction",
     "description": "Front End interview preparation guide"
@@ -1854,10 +1854,6 @@
   "9KrOcn": {
     "defaultMessage": "The only platform with front end system design questions with official solutions written by senior engineers.",
     "description": "Subtitle for front end system design feature"
-  },
-  "9L3fSb": {
-    "defaultMessage": "Body: {charactersLimit} characters max 1 line",
-    "description": "Placement constraints"
   },
   "9LT8eh": {
     "defaultMessage": "Email",
@@ -2238,6 +2234,10 @@
   "BzDeUP": {
     "defaultMessage": "{days, plural, =0 {<bold>0 days</bold>} =1 {<bold>1 day</bold>} other {<bold># days</bold>}} current streak",
     "description": "Label for max consecutive days"
+  },
+  "BzKxjN": {
+    "defaultMessage": "One-liner: {characterLimit} characters maximum",
+    "description": "Title placement constraints"
   },
   "C+WlY+": {
     "defaultMessage": "Please create a free account in order to purchase the premium plans.",
@@ -2751,10 +2751,6 @@
     "defaultMessage": "Earn passive commissions when others purchase GreatFrontEnd through you.",
     "description": "Subtitle of the Hero section of the 'Become An Affiliate' page"
   },
-  "FAXajj": {
-    "defaultMessage": "Image: Ideally {width} x {height} px",
-    "description": "Image placement constraints"
-  },
   "FCFcH2": {
     "defaultMessage": "Start tasks",
     "description": "Start tasks button"
@@ -2762,10 +2758,6 @@
   "FD+Giz": {
     "defaultMessage": "Deployment instructions",
     "description": "Label for button to open deployment instructions"
-  },
-  "FDIoJ9": {
-    "defaultMessage": "Title: {charactersLimit} characters max {maxLinkCount} link",
-    "description": "Title placement constraints"
   },
   "FDiHN7": {
     "defaultMessage": "Feedback",
@@ -3122,6 +3114,10 @@
   "HTxeQV": {
     "defaultMessage": "<bold>{credits}</bold>/{totalCredits} <tooltip>premium credits</tooltip> left",
     "description": "Number of premium credits left"
+  },
+  "HUASHd": {
+    "defaultMessage": "Pinned top banner that appears across the entire site",
+    "description": "Ad format description"
   },
   "HXZeeh": {
     "defaultMessage": "Study plans and topics",
@@ -4411,10 +4407,6 @@
     "defaultMessage": "Solutions & test from ex-interviewers",
     "description": "Features for dashboard"
   },
-  "OwNRRU": {
-    "defaultMessage": "Image: Ideally {width}px x {height}px",
-    "description": "Image placement constraints"
-  },
   "Oxj7x1": {
     "defaultMessage": "Company (optional)",
     "description": "Label for \"Company\" input on Projects profile onboarding page"
@@ -4698,10 +4690,6 @@
   "QVh3mt": {
     "defaultMessage": "Dropbox",
     "description": "Company name for Dropbox"
-  },
-  "QVwSU6": {
-    "defaultMessage": "Next available slot(s)",
-    "description": "Label for slots"
   },
   "QWwKE4": {
     "defaultMessage": "If these steps do not resolve the issue, please contact our support team at <link>support@greatfrontend.com</link> or through the <feedback>feedback widget</feedback>.",
@@ -5827,6 +5815,10 @@
     "defaultMessage": "Quarterly plan",
     "description": "Title of quarterly pricing plan"
   },
+  "WJitRq": {
+    "defaultMessage": "Showcase your brand or offer with a high visibility ad pinned on the application sidebar and pages",
+    "description": "Ad format description"
+  },
   "WNERnb": {
     "defaultMessage": "End session",
     "description": "Label for \"End session\" button on current project session card"
@@ -5974,6 +5966,10 @@
   "X6kis4": {
     "defaultMessage": "Explore series",
     "description": "Explore series page title"
+  },
+  "XB1qXx": {
+    "defaultMessage": "Body: {characterLimit} characters maximum, not more than {maxLinkCount} links",
+    "description": "Body placement constraints"
   },
   "XD52zM": {
     "defaultMessage": "More",
@@ -6234,6 +6230,10 @@
   "YfhHA3": {
     "defaultMessage": "{languageLabel} Interview Questions with Solutions | GreatFrontEnd",
     "description": "Social title of front end interview questions page"
+  },
+  "YhjdIq": {
+    "defaultMessage": "Global banner",
+    "description": "Ad format"
   },
   "Yhn5fM": {
     "defaultMessage": "User Interface Coding",
@@ -6694,6 +6694,10 @@
   "bVOC6y": {
     "defaultMessage": "Now in BETA.",
     "description": "Project marketing hero section badge"
+  },
+  "bXysio": {
+    "defaultMessage": "Explore our advertising opportunities",
+    "description": "Advertise with us section title"
   },
   "bYY9Mh": {
     "defaultMessage": "Crop your new profile photo",
@@ -7315,10 +7319,6 @@
     "defaultMessage": "Showing {startCount} to {endCount} out of {totalCount} submissions",
     "description": "Pagination label"
   },
-  "fA5KHA": {
-    "defaultMessage": "One-liner: {charactersLimit} characters max {maxLinkCount} link",
-    "description": "Title placement constraints"
-  },
   "fAZVc9": {
     "defaultMessage": "Live site URL",
     "description": "Form label"
@@ -7854,6 +7854,10 @@
   "iCm44V": {
     "defaultMessage": "Get started",
     "description": "Label for Get started button on Projects dashboard page"
+  },
+  "iD2LlI": {
+    "defaultMessage": "Body: {characterLimit} characters in {maxLine} line",
+    "description": "Placement constraints"
   },
   "iElBQT": {
     "defaultMessage": "Pricing Plans",
@@ -8471,6 +8475,10 @@
     "defaultMessage": "JavaScript Functions",
     "description": "Title for js coding questions"
   },
+  "m1O0/b": {
+    "defaultMessage": "Showcase your brand or offer in a pinned top banner that appears across the entire site",
+    "description": "Ad format description"
+  },
   "m2WYh/": {
     "defaultMessage": "Insert code block",
     "description": "Insert code block tooltip for Richtext toolbar"
@@ -8554,6 +8562,10 @@
   "mb7erW": {
     "defaultMessage": "Importance",
     "description": "Label for question importance - how important it is to practice this question"
+  },
+  "mbDl7F": {
+    "defaultMessage": "Based on averages derived from last {days} days data",
+    "description": "Item 2 for in content ad placement impressions info"
   },
   "mbOL/R": {
     "defaultMessage": "Projects",
@@ -8803,10 +8815,6 @@
     "defaultMessage": "What's new",
     "description": "Latest blog articles page title"
   },
-  "nwNS1U": {
-    "defaultMessage": "In-content display ad",
-    "description": "Ad placement"
-  },
   "nxJioH": {
     "defaultMessage": "Warnings",
     "description": "Select label for warning log level in console filter"
@@ -8874,6 +8882,10 @@
   "oS10TF": {
     "defaultMessage": "Follow us on GitHub",
     "description": "Title for task"
+  },
+  "oW70kj": {
+    "defaultMessage": "High visibility ad pinned on sidebars and pages",
+    "description": "Ad format description"
   },
   "oWznNz": {
     "defaultMessage": "Status must contain at most {maxLength} character(s).",
@@ -9022,6 +9034,10 @@
   "pJja0T": {
     "defaultMessage": "Add website",
     "description": "Title for Add Website task on Projects dashboard page"
+  },
+  "pJy0c+": {
+    "defaultMessage": "Title: {characterLimit} characters maximum",
+    "description": "Title placement constraints"
   },
   "pN0mtf": {
     "defaultMessage": "Settings | Projects",
@@ -9470,6 +9486,10 @@
   "sCpKTY": {
     "defaultMessage": "Billing | Settings",
     "description": "Title of billing page"
+  },
+  "sGTWfz": {
+    "defaultMessage": "Next available slot",
+    "description": "Next available timeslot"
   },
   "sGgZ9N": {
     "defaultMessage": "Choose additional skills you will use in this project",
@@ -9991,10 +10011,6 @@
     "defaultMessage": "View other's code and learn from their approach",
     "description": "Description for recommended action for new projects platform user"
   },
-  "vMEMKV": {
-    "defaultMessage": "Body: {charactersLimit} characters max {maxLinkCount} links",
-    "description": "Body placement constraints"
-  },
   "vMy9f3": {
     "defaultMessage": "Months",
     "description": "Title of months accordion in Roadmap Slide out filter"
@@ -10071,10 +10087,6 @@
     "defaultMessage": "Gain expertise in handling commonly asked question formats in front end interviews",
     "description": "Description for question formats section"
   },
-  "voGLL8": {
-    "defaultMessage": "Explore our Advertising Opportunities",
-    "description": "Advertise with us section title"
-  },
   "vp4zbB": {
     "defaultMessage": "Purchase premium to see companies which ask this question.",
     "description": "Subtitle for paywall over information about companies that asked the question"
@@ -10090,10 +10102,6 @@
   "vq1VAh": {
     "defaultMessage": "Reference others' approaches",
     "description": "Title of 'Reference other's approach' sub-feature in Projects marketing page"
-  },
-  "vq81Mh": {
-    "defaultMessage": "Spotlight ad",
-    "description": "Ad placement"
   },
   "vqL6fD": {
     "defaultMessage": "Start earning passive commissions with a great product",
@@ -10279,13 +10287,13 @@
     "defaultMessage": "User testimonials",
     "description": "Marketing section title"
   },
+  "x5QZI9": {
+    "defaultMessage": "Seamlessly integrated into all {questionCount}+ questions and guide pages",
+    "description": "Ad format description"
+  },
   "x6+x/5": {
     "defaultMessage": "Edit profile",
     "description": "Title of Projects edit profile page"
-  },
-  "x6UznE": {
-    "defaultMessage": "Showcase your brand or offer with a premium ad unit seamlessly integrated into all {questionCount}+ of our questions and guides, reaching deeply immersed users",
-    "description": "Ad placement description"
   },
   "x8SJHC": {
     "defaultMessage": "GreatFrontEnd",
@@ -10506,6 +10514,10 @@
   "yZkY1S": {
     "defaultMessage": "Tell us about the skills you will be using",
     "description": "Label for \"Tell us about the skills you will be using\" step in dialog on Projects project page"
+  },
+  "yb8Eaa": {
+    "defaultMessage": "In-content display ad",
+    "description": "Ad format"
   },
   "ycp+Vk": {
     "defaultMessage": "Out of {total} hard-level problems, you have solved or marked as complete {completed} across Coding, Quiz, and System Design.",

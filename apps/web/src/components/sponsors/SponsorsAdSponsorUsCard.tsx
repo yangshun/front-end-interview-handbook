@@ -9,7 +9,6 @@ import Text from '~/components/ui/Text';
 import {
   themeBackgroundBrandColor,
   themeTextColor,
-  themeTextInvertColor,
 } from '~/components/ui/theme';
 
 type Props = Readonly<{

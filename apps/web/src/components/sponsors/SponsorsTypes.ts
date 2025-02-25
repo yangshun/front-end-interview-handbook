@@ -13,6 +13,7 @@ export type SponsorsAdFormatDataType = Readonly<{
   description: string;
   format: SponsorsAdFormat;
   name: string;
+  shortDescription: string;
 }>;
 
 export type SponsorsAdFormatConfig = Readonly<{

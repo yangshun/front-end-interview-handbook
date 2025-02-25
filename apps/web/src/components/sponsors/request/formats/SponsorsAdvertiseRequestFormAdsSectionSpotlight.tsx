@@ -4,6 +4,7 @@ import { RiArrowRightLine } from 'react-icons/ri';
 import { useSet } from 'react-use';
 
 import SponsorsAdFormatSpotlight from '~/components/sponsors/ads/SponsorsAdFormatSpotlight';
+import { SponsorAdFormatConfigs } from '~/components/sponsors/SponsorsAdFormatConfigs';
 import Button from '~/components/ui/Button';
 import Label from '~/components/ui/Label';
 import TextArea from '~/components/ui/TextArea';
@@ -29,7 +30,7 @@ type Props = Readonly<{
   }>) => void;
 }>;
 
-export default function SponsorsAdvertiseRequestFormAdsSectionShortForm({
+export default function SponsorsAdvertiseRequestFormAdsSectionSpotlight({
   onCancel,
   onSubmit,
 }: Props) {
@@ -46,20 +47,31 @@ export default function SponsorsAdvertiseRequestFormAdsSectionShortForm({
       />
       <div>
         <Label
-          description="Configure your short form ad and upload the required assets"
-          label="Short form ad configuration"
+          description="Configure your spotlight ad and upload the required assets"
+          label="Spotlight ad configuration"
         />
         <div className="mt-4 grid gap-4 md:grid-cols-2">
           <div>
             <TextArea
-              description="Maximum of 75 characters"
+              description={`Maximum of ${SponsorAdFormatConfigs.SPOTLIGHT.placementConstraints.text} characters`}
               label="Title"
-              maxLength={75}
+              maxLength={
+                SponsorAdFormatConfigs.SPOTLIGHT.placementConstraints.text
+              }
               required={true}
               value={text}
               onChange={(value) => setText(value)}
             />
-            <SponsorsAdvertiseRequestFormAdsImageUpload />
+            <SponsorsAdvertiseRequestFormAdsImageUpload
+              heightConstraint={
+                SponsorAdFormatConfigs.SPOTLIGHT.placementConstraints.image
+                  ?.height ?? 1
+              }
+              widthConstraint={
+                SponsorAdFormatConfigs.SPOTLIGHT.placementConstraints.image
+                  ?.width ?? 1
+              }
+            />
             <TextInput
               classNameOuter="mt-4"
               description="Destination for ad clicks"
@@ -89,7 +101,7 @@ export default function SponsorsAdvertiseRequestFormAdsSectionShortForm({
                 <SponsorsAdFormatSpotlight
                   external={true}
                   id="short-form"
-                  imageUrl="https://www.techinterviewhandbook.org/social/coding-interview-prep.png"
+                  imageUrl=""
                   sponsorName="Your product / company name"
                   text={text || 'Your short form ad text here'}
                   url="#"
