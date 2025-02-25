@@ -9,6 +9,7 @@ import FadeInSentence from '~/components/common/FadeInSentence';
 import GoogleAnalyticsLogo from '~/components/icons/GoogleAnalyticsLogo';
 import InterviewsMarketingTestimonialCard from '~/components/interviews/marketing/testimonials/InterviewsMarketingTestimonialCard';
 import { FormattedMessage, useIntl } from '~/components/intl';
+import SponsorsAdvertiseWithUsBadge from '~/components/sponsors/SponsorsAdvertiseWithUsBadge';
 import Avatar from '~/components/ui/Avatar';
 import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
@@ -52,12 +53,20 @@ export default function InterviewsMarketingHeroNew({ testimonials }: Props) {
       )}
       tag="section"
       width="marketing">
-      <div
-        ref={titleRef}
-        className={clsx('flex flex-col gap-8', 'md:max-w-[634px]')}>
+      <div ref={titleRef} className={clsx('flex flex-col', 'md:max-w-[634px]')}>
+        <div
+          className={clsx(
+            'duration-1000',
+            'transition-opacity',
+            DELAY_SECOND,
+            isTitleVisible ? 'opacity-100' : 'opacity-0',
+          )}>
+          <SponsorsAdvertiseWithUsBadge />
+        </div>
         {/* Cannot use gradient for heading because it messes with the entrance transitions */}
         <Heading
           className={clsx(
+            'mt-3',
             '-tracking-4 text-5xl md:text-6xl md:leading-[4rem]',
             themeTextColor,
           )}
@@ -75,6 +84,7 @@ export default function InterviewsMarketingHeroNew({ testimonials }: Props) {
         </Heading>
         <Text
           className={clsx(
+            'mt-8',
             'max-w-[634px] text-lg md:text-xl',
             'transition-opacity',
             'duration-1000',
