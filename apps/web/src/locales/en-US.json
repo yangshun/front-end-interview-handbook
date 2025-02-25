@@ -1571,6 +1571,10 @@
     "defaultMessage": "Binary search tree",
     "description": "Computer science data structure"
   },
+  "7f9BoF": {
+    "defaultMessage": "Technical interview preparation platform",
+    "description": "Title for interviews product"
+  },
   "7fCoNs": {
     "defaultMessage": "Will I have to code within the platform, or use my own IDE?",
     "description": "FAQ question for projects platform"
@@ -3655,6 +3659,10 @@
     "defaultMessage": "Software Engineer",
     "description": "Placeholder for \"Job Title\" input on Projects profile onboarding page"
   },
+  "KXfN0X": {
+    "defaultMessage": "The leading platform in the world front end engineers use to prepare for their interviews",
+    "description": "Description for interviews product"
+  },
   "KZWEcx": {
     "defaultMessage": "Please enter a different email address.",
     "description": "Email validation error message"
@@ -5267,6 +5275,10 @@
     "defaultMessage": "JavaScript Console",
     "description": "Title of JavaScript console panel"
   },
+  "TNt++l": {
+    "defaultMessage": "A platform to learn front-end development the practical way—by building real-world projects from beginner to pro.",
+    "description": "Description for projects product"
+  },
   "TO74hd": {
     "defaultMessage": "Join the community",
     "description": "Title of community page"
@@ -5274,6 +5286,10 @@
   "TQLJ/G": {
     "defaultMessage": "There is something to learn from GreatFrontEnd for engineers of all seniority levels. Junior engineers will be able to solidify their fundamentals and learn techniques they never knew about. Mid-level engineers will benefit from more advanced concepts like internationalization, accessibility, and performance. Senior engineers will benefit most from the system design questions which impart architectural concepts.",
     "description": "Answer to 'Is GreatFrontEnd targeted at engineers of specific seniority?' on Homepage's FAQ sections"
+  },
+  "TRy1SC": {
+    "defaultMessage": "What is GreatFrontEnd",
+    "description": "Label for what is GFE"
   },
   "TV3jir": {
     "defaultMessage": "Loading",
@@ -5727,6 +5743,10 @@
     "defaultMessage": "Dark",
     "description": "Select label for dark console theme in console settings"
   },
+  "WClrFo": {
+    "defaultMessage": "Built by ex-senior engineers from",
+    "description": "Label for built by"
+  },
   "WDJgWl": {
     "defaultMessage": "Questions",
     "description": "Front end system design interviews questions"
@@ -5979,6 +5999,10 @@
     "defaultMessage": "Explore user submissions handpicked for your growth - based on your profile, skills you're keen to learn, and the projects you've completed.",
     "description": "Page subtitle"
   },
+  "XdTpL0": {
+    "defaultMessage": "Real world projects platform",
+    "description": "Title for projects product"
+  },
   "XdezZk": {
     "defaultMessage": "What to expect, which rounds to expect them, and how to prepare",
     "description": "What to expect in front end quiz interviews"
@@ -6030,6 +6054,10 @@
   "XuVGsX": {
     "defaultMessage": "Account",
     "description": "Profile account tab title"
+  },
+  "Xvce0b": {
+    "defaultMessage": "A platform built to help front end engineers upskill and advance their careers",
+    "description": "Advertise with us section title"
   },
   "XwbyU0": {
     "defaultMessage": "Types of UI questions, concepts to cover and rubrics",
@@ -8915,6 +8943,10 @@
     "defaultMessage": "GitHub username",
     "description": "GitHub profile form label"
   },
+  "p9oMlL": {
+    "defaultMessage": "Used by {engineersCount}+ engineers",
+    "description": "Label for used by engineers"
+  },
   "pA6Utl": {
     "defaultMessage": "Task has not been completed! Please try again. Ensure that your profile activity is accessible to public",
     "description": "Error task label"
@@ -10138,6 +10170,10 @@
   "wW8IAK": {
     "defaultMessage": "No file selected from the repository. Select a file to view.",
     "description": "Empty state message when the default file from the repository could not be loaded"
+  },
+  "wXX9A5": {
+    "defaultMessage": "View product",
+    "description": "Button label for view product"
   },
   "wdjeYA": {
     "defaultMessage": "View",

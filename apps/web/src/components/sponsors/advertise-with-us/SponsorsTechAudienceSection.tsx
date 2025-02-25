@@ -18,13 +18,8 @@ export default function SponsorsTechAudienceSection() {
       className={clsx('flex flex-col gap-y-12 lg:gap-y-16', 'py-16 sm:py-20')}>
       <div className="flex flex-col gap-6">
         <Heading
-          className={clsx(
-            'text-4xl sm:text-5xl',
-            'sm:-tracking-3 -tracking-2',
-            'max-w-3xl',
-            themeGradientHeading,
-          )}
-          level="custom"
+          className={themeGradientHeading}
+          level="heading2"
           tag="p"
           weight="medium">
           <FormattedMessage

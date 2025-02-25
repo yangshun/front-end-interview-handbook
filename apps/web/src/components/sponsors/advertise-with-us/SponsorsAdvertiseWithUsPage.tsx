@@ -1,5 +1,6 @@
 import Container from '~/components/ui/Container';
 
+import SponsorsAboutGFESection from './SponsorsAboutGFESection';
 import SponsorsAudienceProfileSection from './SponsorsAudienceProfileSection';
 import SponsorsContactUsSection from './SponsorsContactUsSection';
 import SponsorsHeroSection from './SponsorsHeroSection';
@@ -18,6 +19,7 @@ export default function SponsorsAdvertiseWithUsPage() {
       <SponsorsOpportunitiesSection />
       <SponsorsStepsToStartAdvertisingSection />
       <SponsorsContactUsSection />
+      <SponsorsAboutGFESection />
     </Container>
   );
 }
