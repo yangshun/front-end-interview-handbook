@@ -7,10 +7,14 @@ import DropdownMenu from '~/components/ui/DropdownMenu';
 import { useColorSchemePreferences } from '../color-scheme/ColorSchemePreferencesProvider';
 
 type Props = Readonly<{
+  includeSystem?: boolean;
   size?: 'md' | 'sm' | 'xs';
 }>;
 
-export default function NavColorSchemeDropdown({ size }: Props) {
+export default function NavColorSchemeDropdown({
+  includeSystem = true,
+  size,
+}: Props) {
   const intl = useIntl();
   const { colorSchemePreference, colorScheme, setColorSchemePreference } =
     useColorSchemePreferences();
@@ -37,17 +41,19 @@ export default function NavColorSchemeDropdown({ size }: Props) {
         description: 'Tooltip for theme selector',
         id: '41uq3N',
       })}>
-      {colorSchemeOptions.map(({ label, value, icon }) => (
-        <DropdownMenu.Item
-          key={value}
-          icon={icon}
-          isSelected={colorSchemePreference === value}
-          label={label}
-          onClick={() => {
-            setColorSchemePreference(value);
-          }}
-        />
-      ))}
+      {colorSchemeOptions
+        .filter(({ value }) => value !== 'system' || includeSystem)
+        .map(({ label, value, icon }) => (
+          <DropdownMenu.Item
+            key={value}
+            icon={icon}
+            isSelected={colorSchemePreference === value}
+            label={label}
+            onClick={() => {
+              setColorSchemePreference(value);
+            }}
+          />
+        ))}
     </DropdownMenu>
   );
 }

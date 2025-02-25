@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { RiArrowRightLine } from 'react-icons/ri';
 import { useSet } from 'react-use';
 
+import NavColorSchemeDropdown from '~/components/global/navbar/NavColorSchemeDropdown';
 import SponsorsAdFormatInContent from '~/components/sponsors/ads/SponsorsAdFormatInContent';
 import { SponsorAdFormatConfigs } from '~/components/sponsors/SponsorsAdFormatConfigs';
 import Button from '~/components/ui/Button';
@@ -96,10 +97,13 @@ export default function SponsorsAdvertiseRequestFormAdsSectionInContent({
             />
           </div>
           <div>
-            <Label
-              description="See how your ad looks like when it goes live"
-              label="Preview"
-            />
+            <div className="flex items-end justify-between gap-4">
+              <Label
+                description="See how your ad looks like when it goes live"
+                label="Preview"
+              />
+              <NavColorSchemeDropdown includeSystem={false} size="xs" />
+            </div>
             <div
               className={clsx(
                 'mt-2 flex w-full items-center justify-center',

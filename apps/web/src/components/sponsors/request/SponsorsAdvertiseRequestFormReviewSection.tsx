@@ -1,7 +1,9 @@
 import clsx from 'clsx';
+import { useState } from 'react';
 import { RiArrowLeftLine, RiArrowRightLine } from 'react-icons/ri';
 
 import Button from '~/components/ui/Button';
+import CheckboxInput from '~/components/ui/CheckboxInput';
 import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -9,8 +11,6 @@ import Text from '~/components/ui/Text';
 import { themeBorderColor } from '~/components/ui/theme';
 
 import SponsorsAdvertiseRequestAgreement from './SponsorsAdvertiseRequestAgreement';
-import CheckboxInput from '~/components/ui/CheckboxInput';
-import { useState } from 'react';
 
 type Props = Readonly<{
   onPrevious: () => void;
@@ -183,9 +183,9 @@ export default function SponsorsAdvertiseRequestFormReviewSection({
           />
           <Button
             icon={RiArrowRightLine}
+            isDisabled={!signedAgreement}
             label="Submit"
             size="md"
-            isDisabled={!signedAgreement}
             variant="primary"
             onClick={() => {
               onSubmit();
