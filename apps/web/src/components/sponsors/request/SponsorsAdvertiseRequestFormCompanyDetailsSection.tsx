@@ -33,6 +33,18 @@ export default function SponsorsAdvertiseRequestFormCompanyDetailsSection({
             placeholder="E.g. ACME Inc"
             required={true}
           />
+          <div className="flex gap-2">
+            <div className="flex-1">
+              <TextInput
+                label="Company full legal name"
+                placeholder="E.g. ACME Inc"
+                required={true}
+              />
+            </div>
+            <div className="flex-1">
+              <TextInput label="VAT / Tax number" />
+            </div>
+          </div>
           <fieldset className="flex flex-col gap-2">
             <div>
               <legend className="block">
@@ -116,18 +128,6 @@ export default function SponsorsAdvertiseRequestFormCompanyDetailsSection({
               </div>
             </div>
           </fieldset>
-          <div className="flex gap-2">
-            <div className="flex-1">
-              <TextInput
-                label="Company full legal name"
-                placeholder="E.g. ACME Inc"
-                required={true}
-              />
-            </div>
-            <div className="flex-1">
-              <TextInput label="VAT / Tax number" />
-            </div>
-          </div>
           <div className="flex gap-2">
             <div className="flex-1">
               <TextInput
