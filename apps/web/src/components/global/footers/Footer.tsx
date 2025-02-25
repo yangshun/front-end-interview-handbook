@@ -1,6 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
+import type { ReactNode } from 'react';
 
 import { fbqGFE } from '~/lib/fbq';
 import gtag from '~/lib/gtag';
@@ -32,6 +33,7 @@ type FooterLink = Readonly<{
   icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
   key: string;
   name: string;
+  nameAddOn?: ReactNode;
 }>;
 type FooterLinks = ReadonlyArray<FooterLink>;
 type FooterLinkSection = {
@@ -95,7 +97,7 @@ function FooterSection({
               const item = item_ as FooterLink;
 
               return (
-                <li key={item.key}>
+                <li key={item.key} className="flex items-center gap-x-2">
                   <Text className="block" size="body2">
                     <Anchor
                       href={item.href}
@@ -110,6 +112,7 @@ function FooterSection({
                       {item.name}
                     </Anchor>
                   </Text>
+                  {item?.nameAddOn}
                 </li>
               );
             })}

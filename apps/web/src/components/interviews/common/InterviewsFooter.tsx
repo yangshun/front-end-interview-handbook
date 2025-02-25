@@ -1,16 +1,20 @@
 'use client';
 
+import { SPONSORSHIPS_AVAILABLE } from '~/data/FeatureFlags';
 import { useGuidesData } from '~/data/Guides';
 import { useQuestionFormatsData } from '~/data/QuestionCategories';
 
+import useCommonNavItems from '~/components/common/navigation/useCommonNavItems';
 import type { FooterNavigation } from '~/components/global/footers/Footer';
 import Footer from '~/components/global/footers/Footer';
 import { useIntl } from '~/components/intl';
+import Badge from '~/components/ui/Badge';
 
 function useFooterNavigation() {
   const intl = useIntl();
   const formats = useQuestionFormatsData();
   const guidesData = useGuidesData();
+  const { advertise } = useCommonNavItems();
 
   const navigation: FooterNavigation = [
     {
@@ -164,6 +168,26 @@ function useFooterNavigation() {
             id: '5pRXcv',
           }),
         },
+        ...(SPONSORSHIPS_AVAILABLE
+          ? [
+              {
+                href: advertise.href!,
+                key: advertise.id,
+                name: advertise.label,
+                nameAddOn: (
+                  <Badge
+                    label={intl.formatMessage({
+                      defaultMessage: 'New',
+                      description: 'Badge label for new',
+                      id: 'Aem5n7',
+                    })}
+                    size="xs"
+                    variant="primary"
+                  />
+                ),
+              },
+            ]
+          : []),
         {
           href: '/affiliates',
           key: 'affiliates',
