@@ -5,6 +5,7 @@ import clsx from 'clsx';
 import useUserProfile from '~/hooks/user/useUserProfile';
 
 import useCommonNavItems from '~/components/common/navigation/useCommonNavItems';
+import SponsorsAdvertiseWithUsBadge from '~/components/sponsors/SponsorsAdvertiseWithUsBadge';
 import NavbarEnd from '~/components/ui/Navbar/NavbarEnd';
 import NavbarHeightStyles from '~/components/ui/Navbar/NavbarHeightStyles';
 import type { NavbarTopLevelItem } from '~/components/ui/Navbar/NavTypes';
@@ -35,15 +36,17 @@ export default function InterviewsNavbarEnd() {
         themeBackgroundColor,
       )}>
       <NavbarHeightStyles borderHeight={0} />
-      <NavbarEnd
-        addOnItems={<InterviewsNavbarEndAddOnItems />}
-        className={clsx(
-          'flex items-center justify-end gap-x-3 px-6',
-          'h-12 w-full',
-        )}
-        isLoading={isUserProfileLoading}
-        links={links}
-      />
+      <div className="flex items-center gap-3">
+        <div className={clsx('w-full', 'flex items-center justify-end')}>
+          <SponsorsAdvertiseWithUsBadge />
+        </div>
+        <NavbarEnd
+          addOnItems={<InterviewsNavbarEndAddOnItems />}
+          className={clsx('flex items-center justify-end gap-x-3 pr-6', 'h-12')}
+          isLoading={isUserProfileLoading}
+          links={links}
+        />
+      </div>
     </div>
   );
 }

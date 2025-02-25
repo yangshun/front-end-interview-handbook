@@ -29,6 +29,7 @@ import { useIntl } from '~/components/intl';
 import { SocialDiscountSidebarMention } from '~/components/promotions/social/SocialDiscountSidebarMention';
 import SponsorsAdFormatSpotlightContainerWrapper from '~/components/sponsors/ads/SponsorsAdFormatSpotlightContainer';
 import SponsorsAdSponsorUsCard from '~/components/sponsors/SponsorsAdSponsorUsCard';
+import SponsorsAdvertiseWithUsBadge from '~/components/sponsors/SponsorsAdvertiseWithUsBadge';
 import Anchor from '~/components/ui/Anchor';
 import Avatar from '~/components/ui/Avatar';
 import Button from '~/components/ui/Button';
@@ -173,7 +174,10 @@ export default function InterviewsNavbar({
                 </div>
               }
               onClose={closeMobileNav}>
-              <div className="flex h-full flex-col">
+              <div className="flex h-full flex-col gap-7">
+                <div className="px-6">
+                  <SponsorsAdvertiseWithUsBadge />
+                </div>
                 <div className="flex h-0 flex-1 flex-col">
                   <nav
                     aria-label="Sidebar"
@@ -186,9 +190,6 @@ export default function InterviewsNavbar({
                         onItemClick={closeMobileNav}
                       />
                     </ScrollArea>
-                    <SponsorsAdSponsorUsCard
-                      className={clsx('px-6 py-4', 'max-w-[290px]')}
-                    />
                     <Divider />
                     <div className={clsx('flex flex-col gap-y-4', 'py-4')}>
                       {rightLinks
