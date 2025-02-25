@@ -1,7 +1,6 @@
 'use client';
 
 import clsx from 'clsx';
-import type { ReactNode } from 'react';
 import { useEffect, useState } from 'react';
 import { RiArrowRightLine } from 'react-icons/ri';
 
@@ -10,17 +9,14 @@ import { trpc } from '~/hooks/trpc';
 import { PROMO_SOCIAL_DISCOUNT_PERCENTAGE } from '~/data/PromotionConfig';
 
 import { FormattedMessage } from '~/components/intl';
+import SponsorsAdFormatGlobalBanner from '~/components/sponsors/ads/SponsorsAdFormatGlobalBanner';
 import Anchor from '~/components/ui/Anchor';
-import Banner from '~/components/ui/Banner';
 import Text, { textVariants } from '~/components/ui/Text';
-import {
-  themeBackgroundColor,
-  themeBackgroundInvertColor,
-  themeTextColor,
-} from '~/components/ui/theme';
+import { themeBackgroundInvertColor } from '~/components/ui/theme';
 
 import { useI18nPathname } from '~/next-i18nostic/src';
 
+import GlobalBannerShell from './GlobalBannerShell';
 import SwagOverflowLogo from '../logos/SwagOverflowLogo';
 import { useUserPreferences } from '../UserPreferencesProvider';
 import { useUserProfile } from '../UserProfileProvider';
@@ -71,48 +67,17 @@ const projectsLaunchMessageEl = (
   </Anchor>
 );
 
-const swagOverflowBannerEl = (
-  <BannerShell className={themeBackgroundInvertColor}>
-    <Anchor
-      className={textVariants({
-        color: 'invert',
-        weight: 'medium',
-      })}
-      href="https://swagoverflow.store"
-      target="_blank"
-      variant="flat">
-      <SwagOverflowLogo className="mr-2 hidden sm:inline" />
-      <FormattedMessage
-        defaultMessage="Visit the ultimate swag store for Front End Engineers! <strong>Check it out</strong>"
-        description="Text on SwagStore Banner"
-        id="epwmlp"
-        values={{
-          strong: (chunks) => (
-            <Text className="hidden md:inline" color="inherit" weight="bold">
-              {chunks}
-            </Text>
-          ),
-        }}
-      />
-      {arrowEl}
-    </Anchor>
-  </BannerShell>
-);
-
-const socialMediaBannerEl = (
-  <BannerShell theme="interviews">{socialMediaRewardMessageEl}</BannerShell>
-);
-const projectBannerEl = (
-  <BannerShell theme="projects">{projectsLaunchMessageEl}</BannerShell>
-);
-
 type BannerType = 'ad' | 'projects' | 'social' | 'swag';
 
 function MarketingMessage() {
   const { isUserProfileLoading, userProfile } = useUserProfile();
 
   if (isUserProfileLoading) {
-    return <BannerShell theme="interviews">{null}</BannerShell>;
+    return (
+      <GlobalBannerShell isLoading={true} theme="interviews">
+        {null}
+      </GlobalBannerShell>
+    );
   }
 
   const isInterviewsPremium = userProfile?.isInterviewsPremium ?? false;
@@ -124,6 +89,8 @@ function MarketingMessageImpl({
   isInterviewsPremium,
 }: Readonly<{ isInterviewsPremium: boolean }>) {
   const { pathname } = useI18nPathname();
+  const { setShowGlobalBanner } = useUserPreferences();
+
   const [bannerIndex, setBannerIndex] = useState(0);
   const [banners, setBanners] = useState<ReadonlyArray<BannerType>>([
     'social',
@@ -154,92 +121,93 @@ function MarketingMessageImpl({
     return () => clearInterval(interval);
   }, [banners.length]);
 
+  function hideBanner() {
+    setShowGlobalBanner(false);
+  }
+
   if (isLoading) {
-    return <BannerShell theme="interviews">{null}</BannerShell>;
+    return (
+      <GlobalBannerShell isLoading={isLoading} theme="interviews">
+        {null}
+      </GlobalBannerShell>
+    );
   }
 
   const bannerType = banners[bannerIndex];
+  const projectsBannerEl = (
+    <GlobalBannerShell
+      isLoading={isLoading}
+      theme="projects"
+      onHide={hideBanner}>
+      {projectsLaunchMessageEl}
+    </GlobalBannerShell>
+  );
 
   switch (bannerType) {
     case 'ad': {
       if (data?.format === 'GLOBAL_BANNER') {
         return (
-          <BannerShell className={themeBackgroundInvertColor}>
-            <Anchor
-              className={textVariants({
-                color: 'invert',
-                weight: 'medium',
-              })}
-              href={data.url}
-              target="_blank"
-              variant="flat">
-              <span
-                className={clsx(
-                  'inline-block',
-                  themeBackgroundColor,
-                  'px-1 py-0.5',
-                  'rounded',
-                  'text-2xs',
-                  themeTextColor,
-                )}>
-                AD
-              </span>{' '}
-              {data.text}
-            </Anchor>
-          </BannerShell>
+          <SponsorsAdFormatGlobalBanner
+            isLoading={isLoading}
+            text={data.text}
+            url={data.url}
+            onHide={hideBanner}
+          />
         );
       }
       break;
     }
     case 'social': {
-      return socialMediaBannerEl;
+      return (
+        <GlobalBannerShell
+          isLoading={isLoading}
+          theme="interviews"
+          onHide={hideBanner}>
+          {socialMediaRewardMessageEl}
+        </GlobalBannerShell>
+      );
     }
     case 'projects': {
-      return projectBannerEl;
+      return projectsBannerEl;
     }
     case 'swag': {
-      return swagOverflowBannerEl;
+      return (
+        <GlobalBannerShell
+          className={themeBackgroundInvertColor}
+          isLoading={isLoading}
+          onHide={hideBanner}>
+          <Anchor
+            className={textVariants({
+              color: 'invert',
+              weight: 'medium',
+            })}
+            href="https://swagoverflow.store"
+            target="_blank"
+            variant="flat">
+            <SwagOverflowLogo className="mr-2 hidden sm:inline" />
+            <FormattedMessage
+              defaultMessage="Visit the ultimate swag store for Front End Engineers! <strong>Check it out</strong>"
+              description="Text on SwagStore Banner"
+              id="epwmlp"
+              values={{
+                strong: (chunks) => (
+                  <Text
+                    className="hidden md:inline"
+                    color="inherit"
+                    weight="bold">
+                    {chunks}
+                  </Text>
+                ),
+              }}
+            />
+            {arrowEl}
+          </Anchor>
+        </GlobalBannerShell>
+      );
     }
   }
 
-  return projectBannerEl;
-}
-
-function BannerShell({
-  children,
-  className,
-  theme,
-}: Readonly<{
-  children: ReactNode;
-  className?: string;
-  theme?: 'interviews' | 'projects';
-}>) {
-  const { isUserProfileLoading } = useUserProfile();
-  const { setShowGlobalBanner } = useUserPreferences();
-
-  return (
-    <Banner
-      className={clsx(
-        'h-6', // Sync with sticky.css.
-        textVariants({ color: 'light' }),
-        className,
-      )}
-      data-theme={theme}
-      size="xs"
-      variant="primary"
-      onHide={() => {
-        setShowGlobalBanner(false);
-      }}>
-      <span
-        className={clsx(
-          'transition-opacity duration-500',
-          isUserProfileLoading ? 'opacity-0' : 'opacity-100',
-        )}
-        suppressHydrationWarning={true}>
-        {children}
-      </span>
-    </Banner>
-  );
+  return projectsBannerEl;
 }
 
 export default function GlobalBanner() {
@@ -247,7 +215,7 @@ export default function GlobalBanner() {
     <div
       className={clsx(
         'global-banner', // Non-Tailwind class. Sync with sticky.css.
-        'z-sticky sticky top-0 w-full',
+        'z-fixed sticky top-0 w-full',
       )}>
       <MarketingMessage />
     </div>

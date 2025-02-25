@@ -399,6 +399,10 @@
     "defaultMessage": "Hello {userEmail}!",
     "description": "Title of AuthPage when logged in"
   },
+  "0JpG1r": {
+    "defaultMessage": "Sponsorship request",
+    "description": "Title of advertisement request page"
+  },
   "0K1Xot": {
     "defaultMessage": "We offer a few guidance options",
     "description": "FAQ answer for projects platform"
@@ -854,6 +858,10 @@
   "3UtpZS": {
     "defaultMessage": "Submission deleted!",
     "description": "Delete challenge success message"
+  },
+  "3W2LB+": {
+    "defaultMessage": "Request form | Advertise with us",
+    "description": "Title of advertise with us page"
   },
   "3WHiQS": {
     "defaultMessage": "Cheatsheet",

@@ -12,7 +12,7 @@ import Tooltip from '~/components/ui/Tooltip';
 
 import type { SponsorsAdFormatPayloadSpotlight } from '../SponsorsTypes';
 
-export default function SponsorsAdFormatInContent({
+export default function SponsorsAdFormatSpotlight({
   text,
   sponsorName,
   url,

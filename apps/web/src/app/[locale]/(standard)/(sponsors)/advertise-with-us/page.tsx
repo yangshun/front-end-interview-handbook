@@ -1,4 +1,3 @@
-import { notFound } from 'next/navigation';
 import type { Metadata } from 'next/types';
 
 import SponsorsAdvertiseWithUsPage from '~/components/sponsors/advertise-with-us/SponsorsAdvertiseWithUsPage';
@@ -15,31 +14,27 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const intl = await getIntlServerOnly(locale);
 
-  try {
-    return defaultMetadata({
-      locale,
-      ogImageTitle: intl.formatMessage(
-        {
-          defaultMessage:
-            'Reach {engineersCount}+ front end engineers per week for just ~${price} CPM',
-          description: 'Title of advertise with us page',
-          id: '3Hh9Vd',
-        },
-        {
-          engineersCount: '20,000',
-          price: 12,
-        },
-      ),
-      pathname: '/advertise-with-us',
-      title: intl.formatMessage({
-        defaultMessage: 'Advertise with us',
+  return defaultMetadata({
+    locale,
+    ogImageTitle: intl.formatMessage(
+      {
+        defaultMessage:
+          'Reach {engineersCount}+ front end engineers per week for just ~${price} CPM',
         description: 'Title of advertise with us page',
-        id: 'KtRb5s',
-      }),
-    });
-  } catch {
-    notFound();
-  }
+        id: '3Hh9Vd',
+      },
+      {
+        engineersCount: '20,000',
+        price: 12,
+      },
+    ),
+    pathname: '/advertise-with-us',
+    title: intl.formatMessage({
+      defaultMessage: 'Advertise with us',
+      description: 'Title of advertise with us page',
+      id: 'KtRb5s',
+    }),
+  });
 }
 
 export default async function Page() {
