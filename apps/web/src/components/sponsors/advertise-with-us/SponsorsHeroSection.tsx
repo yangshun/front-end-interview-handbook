@@ -66,6 +66,7 @@ export default function SponsorsHeroSection() {
         <div className="flex gap-6">
           <div className="flex flex-col items-center gap-3">
             <Button
+              href="/advertise-with-us/request"
               label={intl.formatMessage({
                 defaultMessage: 'Schedule your slot',
                 description: 'Button label for schedule slot',
@@ -80,11 +81,12 @@ export default function SponsorsHeroSection() {
                 description="Next slot date"
                 id="dAesjD"
                 values={{
-                  date: '28 January', // TODO(advertise): remove hardcoded date
+                  date: '28 January', // TODO(sponsors): remove hardcoded date
                 }}
               />
             </Text>
           </div>
+          {/* TODO(sponsors): anchor scroll to bottom */}
           <Button
             label={intl.formatMessage({
               defaultMessage: 'Pricing and availability',

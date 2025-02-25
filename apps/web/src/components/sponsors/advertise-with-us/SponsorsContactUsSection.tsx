@@ -13,8 +13,7 @@ export default function SponsorsContactUsSection() {
   const intl = useIntl();
 
   return (
-    <div
-      className={clsx('flex flex-col gap-y-12 lg:gap-y-16', 'py-16')}>
+    <div className={clsx('flex flex-col gap-y-12 lg:gap-y-16', 'py-16')}>
       <div className="flex flex-col gap-6">
         <Heading
           className={clsx('max-w-3xl', themeGradientHeading)}
@@ -69,7 +68,7 @@ export default function SponsorsContactUsSection() {
             />
             <Button
               className="flex-1 sm:flex-auto"
-              href="/" // TODO(sponsors): add schedule link
+              href="/advertise-with-us/request"
               label={intl.formatMessage({
                 defaultMessage: 'Schedule your slot',
                 description: 'Button label for schedule slot',

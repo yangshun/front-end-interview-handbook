@@ -75,12 +75,12 @@ export default function SponsorsAdFormatSpotlightSection() {
       key: 'title',
       label: (
         <FormattedMessage
-          defaultMessage="One-liner: {charactersLimit} characters max {maxLinkCount} link"
+          defaultMessage="One-liner: {characterLimit} characters maximum"
           description="Title placement constraints"
-          id="fA5KHA"
+          id="BzKxjN"
           values={{
-            charactersLimit: 34,
-            maxLinkCount: 1,
+            characterLimit:
+              SponsorAdFormatConfigs.SPOTLIGHT.placementConstraints.text,
           }}
         />
       ),
@@ -89,12 +89,21 @@ export default function SponsorsAdFormatSpotlightSection() {
       key: 'image',
       label: (
         <FormattedMessage
-          defaultMessage="Image: Ideally {width} x {height} px"
+          defaultMessage="Image: {width}px x {height}px ({ratio}:1 ratio)"
           description="Image placement constraints"
-          id="FAXajj"
+          id="1qwgK6"
           values={{
-            height: 48,
-            width: 96,
+            height:
+              SponsorAdFormatConfigs.SPOTLIGHT.placementConstraints.image
+                ?.height,
+            ratio:
+              (SponsorAdFormatConfigs.SPOTLIGHT.placementConstraints.image
+                ?.width ?? 0) /
+              (SponsorAdFormatConfigs.SPOTLIGHT.placementConstraints.image
+                ?.height ?? 1),
+            width:
+              SponsorAdFormatConfigs.SPOTLIGHT.placementConstraints.image
+                ?.width,
           }}
         />
       ),
@@ -163,7 +172,7 @@ export default function SponsorsAdFormatSpotlightSection() {
 
   return (
     <div className="flex flex-col gap-12">
-      <SponsorsAdFormatHeader placement={FORMAT} />
+      <SponsorsAdFormatHeader format={FORMAT} />
       <div className="flex flex-col gap-10">
         <Asset />
         <div className="flex flex-col gap-x-6 gap-y-10 sm:flex-row">
@@ -279,7 +288,6 @@ function Asset() {
           src="/img/sponsors/spotlight-ad-placement-light.png"
         />
       </picture>
-
       {/* Dark mode image */}
       <picture className={clsx('hidden dark:block')}>
         <source

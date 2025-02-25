@@ -13,6 +13,8 @@ import { NextResponse } from 'next/server';
 import prisma from '~/server/prisma';
 import { getErrorMessage } from '~/utils/getErrorMessage';
 
+import type { SponsorsAdFormat } from '@prisma/client';
+
 const availabilityMaxWeeksAhead = 12;
 
 function incrementISOWeek(week: number, delta = 1) {
@@ -54,7 +56,8 @@ export async function GET(request: NextRequest) {
 
     const approvedAdFilter = {
       ad: {
-        format: 'IN_CONTENT',
+        format: (searchParams.get('format') ||
+          'IN_CONTENT') as SponsorsAdFormat,
         request: {
           status: 'APPROVED',
         },

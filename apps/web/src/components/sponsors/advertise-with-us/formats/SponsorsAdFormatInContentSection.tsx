@@ -46,9 +46,9 @@ export default function SponsorsAdFormatInContentSection() {
       key: 'item2',
       label: (
         <FormattedMessage
-          defaultMessage="Based on averages derived from last {days}d data"
+          defaultMessage="Based on averages derived from last {days} days data"
           description="Item 2 for in content ad placement impressions info"
-          id="YaVS4f"
+          id="mbDl7F"
           values={{
             days: 90,
           }}
@@ -74,12 +74,12 @@ export default function SponsorsAdFormatInContentSection() {
       key: 'title',
       label: (
         <FormattedMessage
-          defaultMessage="Title: {charactersLimit} characters max {maxLinkCount} link"
+          defaultMessage="Title: {characterLimit} characters maximum"
           description="Title placement constraints"
-          id="FDIoJ9"
+          id="pJy0c+"
           values={{
-            charactersLimit: 55,
-            maxLinkCount: 1,
+            characterLimit:
+              SponsorAdFormatConfigs.IN_CONTENT.placementConstraints.text,
           }}
         />
       ),
@@ -88,12 +88,16 @@ export default function SponsorsAdFormatInContentSection() {
       key: 'body',
       label: (
         <FormattedMessage
-          defaultMessage="Body: {charactersLimit} characters max {maxLinkCount} links"
+          defaultMessage="Body: {characterLimit} characters maximum, not more than {maxLinkCount} links"
           description="Body placement constraints"
-          id="vMEMKV"
+          id="XB1qXx"
           values={{
-            charactersLimit: 800,
-            maxLinkCount: 3,
+            characterLimit:
+              SponsorAdFormatConfigs.IN_CONTENT.placementConstraints.body
+                ?.length,
+            maxLinkCount:
+              SponsorAdFormatConfigs.IN_CONTENT.placementConstraints.body
+                ?.links,
           }}
         />
       ),
@@ -102,12 +106,21 @@ export default function SponsorsAdFormatInContentSection() {
       key: 'image',
       label: (
         <FormattedMessage
-          defaultMessage="Image: Ideally {width}px x {height}px"
+          defaultMessage="Image: {width}px x {height}px ({ratio}:1 ratio)"
           description="Image placement constraints"
-          id="OwNRRU"
+          id="1qwgK6"
           values={{
-            height: 190,
-            width: 380,
+            height:
+              SponsorAdFormatConfigs.IN_CONTENT.placementConstraints.image
+                ?.height,
+            ratio:
+              (SponsorAdFormatConfigs.IN_CONTENT.placementConstraints.image
+                ?.width ?? 0) /
+              (SponsorAdFormatConfigs.IN_CONTENT.placementConstraints.image
+                ?.height ?? 1),
+            width:
+              SponsorAdFormatConfigs.IN_CONTENT.placementConstraints.image
+                ?.width,
           }}
         />
       ),
@@ -203,7 +216,7 @@ export default function SponsorsAdFormatInContentSection() {
 
   return (
     <div className="flex flex-col gap-12">
-      <SponsorsAdFormatHeader placement={FORMAT} />
+      <SponsorsAdFormatHeader format={FORMAT} />
       <div className="flex flex-col gap-10">
         <Asset />
         <div className="flex flex-col gap-x-6 gap-y-10 sm:flex-row">

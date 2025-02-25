@@ -40,7 +40,7 @@ export default function SponsorsAdSponsorUsCard({ className }: Props) {
           )}>
           <RiAdvertisementLine
             aria-hidden={true}
-            className={clsx('size-6', themeTextInvertColor)}
+            className={clsx('size-6', 'text-neutral-900')}
           />
         </div>
         <Text color="subtitle" size="body3">

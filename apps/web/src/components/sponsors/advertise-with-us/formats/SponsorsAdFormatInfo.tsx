@@ -40,9 +40,9 @@ export default function SponsorsAdFormatInfo({
       />
     ) : (
       <FormattedMessage
-        defaultMessage="Next available slot(s)"
-        description="Label for slots"
-        id="QVwSU6"
+        defaultMessage="Next available slot"
+        description="Next available timeslot"
+        id="sGTWfz"
       />
     );
 

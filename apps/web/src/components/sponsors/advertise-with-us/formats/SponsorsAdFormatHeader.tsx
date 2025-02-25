@@ -3,8 +3,10 @@
 import clsx from 'clsx';
 import { RiArrowRightUpLine } from 'react-icons/ri';
 
+import { trpc } from '~/hooks/trpc';
+
 import { FormattedMessage, useIntl } from '~/components/intl';
-import { useSponsorPlacementData } from '~/components/sponsors/SponsorsAdFormatConfigs';
+import { useSponsorsAdFormatData } from '~/components/sponsors/SponsorsAdFormatConfigs';
 import type { SponsorsAdFormat } from '~/components/sponsors/SponsorsTypes';
 import Button from '~/components/ui/Button';
 import Heading, { headingCVA } from '~/components/ui/Heading';
@@ -12,13 +14,18 @@ import Text from '~/components/ui/Text';
 import { themeTextSubtitleColor } from '~/components/ui/theme';
 
 type Props = Readonly<{
-  placement: SponsorsAdFormat;
+  format: SponsorsAdFormat;
 }>;
 
-export default function SponsorsAdFormatHeader({ placement }: Props) {
+export default function SponsorsAdFormatHeader({ format }: Props) {
   const intl = useIntl();
-  const placementData = useSponsorPlacementData();
-  const { name, description, config } = placementData[placement];
+  const placementData = useSponsorsAdFormatData();
+  const { name, description, config } = placementData[format];
+
+  const { data } = trpc.sponsorships.availability.useQuery({
+    format,
+  });
+  const availableSlots = (data ?? [])?.filter((slot) => slot.available);
 
   return (
     <div className="flex flex-col gap-8">
@@ -30,7 +37,6 @@ export default function SponsorsAdFormatHeader({ placement }: Props) {
           weight="medium">
           {name}
         </Heading>
-
         <Text
           className="mt-2 flex flex-wrap items-baseline gap-x-0.5"
           color="secondary"
@@ -61,17 +67,6 @@ export default function SponsorsAdFormatHeader({ placement }: Props) {
         </Text>
         <div className="flex gap-4">
           <Button
-            className="hidden sm:flex"
-            icon={RiArrowRightUpLine}
-            label={intl.formatMessage({
-              defaultMessage: 'Preview',
-              description: 'Label for preview button',
-              id: 'zvcJI/',
-            })}
-            size="md"
-            variant="tertiary"
-          />
-          <Button
             className="flex flex-1 sm:hidden"
             icon={RiArrowRightUpLine}
             label={intl.formatMessage({
@@ -89,6 +84,7 @@ export default function SponsorsAdFormatHeader({ placement }: Props) {
             )}>
             <Button
               className="w-full"
+              href="/advertise-with-us/request"
               label={intl.formatMessage({
                 defaultMessage: 'Schedule your slot',
                 description: 'Button label for schedule slot',
@@ -97,16 +93,22 @@ export default function SponsorsAdFormatHeader({ placement }: Props) {
               size="md"
               variant="primary"
             />
-            <Text color="secondary" size="body3">
-              <FormattedMessage
-                defaultMessage="Next slot: {date}"
-                description="Next slot date"
-                id="dAesjD"
-                values={{
-                  date: '28 January', // TODO(advertise): remove hardcoded date
-                }}
-              />
-            </Text>
+            {availableSlots.length > 0 && (
+              <Text color="secondary" size="body3">
+                <FormattedMessage
+                  defaultMessage="Next slot: {date}"
+                  description="Next slot date"
+                  id="dAesjD"
+                  values={{
+                    date: Intl.DateTimeFormat('en-US', {
+                      day: 'numeric',
+                      month: 'short',
+                      year: 'numeric',
+                    }).format(new Date(availableSlots[0].start)),
+                  }}
+                />
+              </Text>
+            )}
           </div>
         </div>
       </div>

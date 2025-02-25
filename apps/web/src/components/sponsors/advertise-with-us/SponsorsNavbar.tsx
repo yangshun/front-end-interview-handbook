@@ -32,7 +32,8 @@ export default function SponsorsNavbar() {
             size="xs"
             variant="secondary"
           />
-          <Button // TODO(sponsors): Add link to schedule slot
+          <Button
+            href="/advertise-with-us/request"
             label={intl.formatMessage({
               defaultMessage: 'Schedule your slot',
               description: 'Schedule your slot button label',
@@ -67,6 +68,7 @@ export default function SponsorsNavbar() {
             onClick={closeMobileNav}
           />
           <Button
+            href="/advertise-with-us/request"
             label={intl.formatMessage({
               defaultMessage: 'Schedule your slot',
               description: 'Schedule your slot button label',
@@ -74,7 +76,7 @@ export default function SponsorsNavbar() {
             })}
             size="xs"
             variant="primary"
-            onClick={closeMobileNav} // TODO(sponsors): Add link to schedule slot
+            onClick={closeMobileNav}
           />
         </div>
       )}

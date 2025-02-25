@@ -18,7 +18,7 @@ export default function SponsorsTechAudienceSection() {
       className={clsx('flex flex-col gap-y-12 lg:gap-y-16', 'py-16 sm:py-20')}>
       <div className="flex flex-col gap-6">
         <Heading
-          className={themeGradientHeading}
+          className={clsx(themeGradientHeading, 'max-w-3xl pb-1')}
           level="heading2"
           tag="p"
           weight="medium">

@@ -18,6 +18,17 @@ export type SponsorsAdFormatDataType = Readonly<{
 export type SponsorsAdFormatConfig = Readonly<{
   impressions: string;
   pages: number;
+  placementConstraints: Readonly<{
+    body?: {
+      length: number;
+      links: number;
+    };
+    image?: {
+      height: number;
+      width: number;
+    };
+    text: number;
+  }>;
   pricePerWeekUSD: number;
 }>;
 

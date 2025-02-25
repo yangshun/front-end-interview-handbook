@@ -13,14 +13,14 @@ export default function SponsorsOpportunitiesSection() {
     <div
       className={clsx('flex flex-col gap-y-12 lg:gap-y-16', 'py-16 sm:py-20')}>
       <Heading
-        className={themeGradientHeading}
+        className={clsx(themeGradientHeading, 'pb-1')}
         level="heading2"
         tag="p"
         weight="medium">
         <FormattedMessage
-          defaultMessage="Explore our Advertising Opportunities"
+          defaultMessage="Explore our advertising opportunities"
           description="Advertise with us section title"
-          id="voGLL8"
+          id="bXysio"
         />
       </Heading>
       <div className="flex flex-col gap-24 lg:gap-32">

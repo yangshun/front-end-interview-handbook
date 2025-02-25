@@ -33,7 +33,7 @@ export default function SponsorsAdFormatGlobalBannerSection() {
           description="Item 1 for global banner placement impressions info"
           id="dlRik2"
           values={{
-            bannerCount: '2-3',
+            bannerCount: '2–3',
           }}
         />
       ),
@@ -67,7 +67,7 @@ export default function SponsorsAdFormatGlobalBannerSection() {
 
   return (
     <div className="flex flex-col gap-12">
-      <SponsorsAdFormatHeader placement={FORMAT} />
+      <SponsorsAdFormatHeader format={FORMAT} />
       <div className="flex flex-col gap-10">
         <Asset />
         <div className="flex flex-col gap-x-6 gap-y-10 sm:flex-row">
@@ -86,7 +86,7 @@ export default function SponsorsAdFormatGlobalBannerSection() {
           <SponsorsAdFormatAvailableSlotInfo format={FORMAT} />
         </div>
         <Accordion
-          className={clsx('border-b border-t', themeBorderColor)}
+          className={clsx('border-y', themeBorderColor)}
           type="multiple">
           <AccordionItem value="item-1">
             <AccordionTrigger>
@@ -104,11 +104,14 @@ export default function SponsorsAdFormatGlobalBannerSection() {
                 />
                 <Text color="subtitle" size="body2">
                   <FormattedMessage
-                    defaultMessage="Body: {charactersLimit} characters max 1 line"
+                    defaultMessage="Body: {characterLimit} characters in {maxLine} line"
                     description="Placement constraints"
-                    id="9L3fSb"
+                    id="iD2LlI"
                     values={{
-                      charactersLimit: 55,
+                      characterLimit:
+                        SponsorAdFormatConfigs.GLOBAL_BANNER
+                          .placementConstraints.text,
+                      maxLine: 1,
                     }}
                   />
                 </Text>
@@ -134,7 +137,8 @@ function Asset() {
           'pointer-events-none absolute inset-0',
           'rounded-[inherit]',
           ['border', themeBorderElementColor],
-        )}></div>
+        )}
+      />
       {/* Light mode image */}
       <picture className={clsx('block dark:hidden')}>
         <source
@@ -153,7 +157,6 @@ function Asset() {
           src="/img/sponsors/global-banner-light.png"
         />
       </picture>
-
       {/* Dark mode image */}
       <picture className={clsx('hidden dark:block')}>
         <source

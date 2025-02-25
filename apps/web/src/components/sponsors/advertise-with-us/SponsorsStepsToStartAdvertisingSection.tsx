@@ -78,46 +78,17 @@ export default function SponsorsStepsToStartAdvertisingSection() {
   return (
     <div
       className={clsx('flex flex-col gap-y-12 lg:gap-y-16', 'py-16 sm:py-20')}>
-      <div className="flex flex-col gap-6">
-        <Heading
-          className={clsx('max-w-3xl', themeGradientHeading)}
-          level="heading2"
-          tag="p"
-          weight="medium">
-          <FormattedMessage
-            defaultMessage="3 simple steps to start advertising"
-            description="Advertise with us section title"
-            id="dS8dPa"
-          />
-        </Heading>
-        <Text
-          className={clsx('max-w-[634px]', 'text-base lg:text-lg')}
-          color="secondary"
-          size="inherit"
-          weight="medium">
-          <div>
-            <FormattedMessage
-              defaultMessage="Simply email us at <anchor>sponsor@greatfrontend.com</anchor>."
-              description="Advertise with us section subtitle"
-              id="+g+A4p"
-              values={{
-                anchor: (chunks) => (
-                  <Anchor href="mailto:sponsor@greatfrontend.com">
-                    {chunks}
-                  </Anchor>
-                ),
-              }}
-            />
-          </div>
-          <div>
-            <FormattedMessage
-              defaultMessage="We will be happy to answer any questions you might have."
-              description="Advertise with us section subtitle"
-              id="7aiZNf"
-            />
-          </div>
-        </Text>
-      </div>
+      <Heading
+        className={clsx('max-w-3xl', themeGradientHeading)}
+        level="heading2"
+        tag="p"
+        weight="medium">
+        <FormattedMessage
+          defaultMessage="3 simple steps to start advertising"
+          description="Advertise with us section title"
+          id="dS8dPa"
+        />
+      </Heading>
       <div
         className={clsx(
           'flex flex-col justify-between sm:flex-row',
