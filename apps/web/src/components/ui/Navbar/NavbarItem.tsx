@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { RiArrowDownSLine } from 'react-icons/ri';
 import { useDebounce } from 'usehooks-ts';
 
@@ -21,11 +21,12 @@ import { anchorVariants } from '../Anchor/AnchorStyles';
 
 import * as PopoverPrimitive from '@radix-ui/react-popover';
 
-export default function NavbarItem({
-  onClick,
-  label,
-  ...props
-}: NavbarTopLevelItem) {
+type Props = NavbarTopLevelItem &
+  Readonly<{
+    popoverTabsItemsAddOn?: React.ReactNode;
+  }>;
+
+export default function NavbarItem({ onClick, label, ...props }: Props) {
   const [open, setOpen] = useState(false);
   // To debounce open state when quick hovering on and out
   const debouncedOpen = useDebounce(open, 100);
@@ -127,6 +128,7 @@ export default function NavbarItem({
                 return (
                   <NavbarPopoverTabs
                     items={props.items}
+                    itemsAddOn={props.popoverTabsItemsAddOn}
                     onClose={() => {
                       setOpen(false);
                     }}

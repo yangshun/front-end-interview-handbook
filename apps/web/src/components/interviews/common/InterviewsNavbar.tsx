@@ -28,6 +28,7 @@ import SidebarLinksSection from '~/components/global/sidebar/SidebarLinksSection
 import { useIntl } from '~/components/intl';
 import { SocialDiscountSidebarMention } from '~/components/promotions/social/SocialDiscountSidebarMention';
 import SponsorsAdFormatSpotlightContainerWrapper from '~/components/sponsors/ads/SponsorsAdFormatSpotlightContainer';
+import SponsorsAdSponsorUsCard from '~/components/sponsors/SponsorsAdSponsorUsCard';
 import Anchor from '~/components/ui/Anchor';
 import Avatar from '~/components/ui/Avatar';
 import Button from '~/components/ui/Button';
@@ -120,7 +121,15 @@ export default function InterviewsNavbar({
             />
             <nav className="hidden items-center gap-x-2 lg:ml-[68px] lg:flex lg:w-0 lg:flex-1">
               {leftLinks.map((navItem) => (
-                <NavbarItem key={navItem.id} {...navItem} />
+                <NavbarItem
+                  key={navItem.id}
+                  {...navItem}
+                  popoverTabsItemsAddOn={
+                    <SponsorsAdSponsorUsCard
+                      className={clsx('h-full', 'mt-5 px-3')}
+                    />
+                  }
+                />
               ))}
             </nav>
           </div>
@@ -177,6 +186,9 @@ export default function InterviewsNavbar({
                         onItemClick={closeMobileNav}
                       />
                     </ScrollArea>
+                    <SponsorsAdSponsorUsCard
+                      className={clsx('px-6 py-4', 'max-w-[290px]')}
+                    />
                     <Divider />
                     <div className={clsx('flex flex-col gap-y-4', 'py-4')}>
                       {rightLinks

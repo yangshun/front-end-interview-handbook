@@ -19,8 +19,10 @@ import * as TabsPrimitive from '@radix-ui/react-tabs';
 export default function NavbarPopoverTabs({
   items,
   onClose,
+  itemsAddOn,
 }: Readonly<{
   items: ReadonlyArray<NavPopoverListItem>;
+  itemsAddOn?: React.ReactNode;
   onClose: (event?: React.MouseEvent<HTMLElement>) => void;
 }>) {
   const [value, setValue] = useState(items[0].id);
@@ -74,6 +76,7 @@ export default function NavbarPopoverTabs({
               {label}
             </TabsPrimitive.Trigger>
           ))}
+          {itemsAddOn}
         </TabsPrimitive.List>
         <div className="flex w-full grow items-center py-4 pe-4">
           {items.map((item) => (
