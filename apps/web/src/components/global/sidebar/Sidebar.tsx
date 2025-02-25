@@ -6,8 +6,10 @@ import {
   RiMoreLine,
   RiPhoneLine,
   RiScales3Line,
+  RiShakeHandsLine,
 } from 'react-icons/ri';
 
+import { SPONSORSHIPS_AVAILABLE } from '~/data/FeatureFlags';
 import { SocialLinks } from '~/data/SocialLinks';
 
 import SidebarI18nSubMenu from '~/components/global/sidebar/SidebarI18nSubMenu';
@@ -81,6 +83,32 @@ function SidebarDropdownMenu({
           })}
         />
       </DropdownMenu.Sub>
+      {SPONSORSHIPS_AVAILABLE && (
+        <DropdownMenu.Sub
+          icon={RiShakeHandsLine}
+          label={intl.formatMessage({
+            defaultMessage: 'Partner',
+            description: 'Label for partner',
+            id: '9hx6+J',
+          })}>
+          <DropdownMenu.Item
+            href="/affiliates"
+            label={intl.formatMessage({
+              defaultMessage: 'Become an affiliate',
+              description: 'Link to affiliate marketing program page',
+              id: 'IZH9WZ',
+            })}
+          />
+          <DropdownMenu.Item
+            href="/advertise-with-us"
+            label={intl.formatMessage({
+              defaultMessage: 'Advertise with us',
+              description: 'Link to advertise with us',
+              id: '9OVmVF',
+            })}
+          />
+        </DropdownMenu.Sub>
+      )}
       {moreEndMenuItems}
       <Divider />
       <SidebarAuthDropdownItem />
