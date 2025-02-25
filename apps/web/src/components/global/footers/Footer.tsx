@@ -7,8 +7,6 @@ import { fbqGFE } from '~/lib/fbq';
 import gtag from '~/lib/gtag';
 import { trpc } from '~/hooks/trpc';
 
-import { SocialLinks } from '~/data/SocialLinks';
-
 import LogoLink from '~/components/global/logos/LogoLink';
 import { FormattedMessage, useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
@@ -26,6 +24,7 @@ import {
   themeTextSubtleColor,
 } from '~/components/ui/theme';
 
+import useCommonFooterLinks from './useCommonFooterLinks';
 import NavI18nDropdown from '../navbar/NavI18nDropdown';
 
 type FooterLink = Readonly<{
@@ -41,39 +40,6 @@ type FooterLinkSection = {
   links: FooterLinks;
   title: string;
 };
-
-function useCommonFooterLinks() {
-  const intl = useIntl();
-
-  return {
-    legal: [
-      {
-        href: '/legal/privacy-policy',
-        key: 'privacy',
-        name: intl.formatMessage({
-          defaultMessage: 'Privacy Policy',
-          description: 'Link to privacy policy page',
-          id: 'ITq0p4',
-        }),
-      },
-      {
-        href: '/legal/terms',
-        key: 'tos',
-        name: intl.formatMessage({
-          defaultMessage: 'Terms of Service',
-          description: 'Link to terms of service page',
-          id: 'zIQsmk',
-        }),
-      },
-    ],
-    social: [
-      SocialLinks.linkedin,
-      SocialLinks.discord,
-      SocialLinks.github,
-      SocialLinks.x,
-    ],
-  };
-}
 
 function FooterSection({
   title,

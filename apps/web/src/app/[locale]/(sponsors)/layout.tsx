@@ -1,4 +1,5 @@
 import { GlobalBannerInterviews } from '~/components/global/banners/GlobalBannerInterviews';
+import SponsorsFooter from '~/components/sponsors/advertise-with-us/SponsorsFooter';
 import SponsorsNavbar from '~/components/sponsors/advertise-with-us/SponsorsNavbar';
 
 type Props = Readonly<{
@@ -12,6 +13,7 @@ export default function InterviewsMarketingLayout({ children }: Props) {
       <div className="flex min-h-screen flex-col">
         <SponsorsNavbar />
         <div className="grow">{children}</div>
+        <SponsorsFooter />
       </div>
     </>
   );
