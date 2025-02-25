@@ -3,7 +3,10 @@ import type { ReactNode } from 'react';
 import { PiPathBold } from 'react-icons/pi';
 import { RiAwardLine, RiBriefcaseLine } from 'react-icons/ri';
 
+import { SPONSORSHIPS_AVAILABLE } from '~/data/FeatureFlags';
+
 import useCommonNavItems from '~/components/common/navigation/useCommonNavItems';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
 import Divider from '~/components/ui/Divider';
@@ -104,6 +107,7 @@ const roadmapLinks: Record<ProductValue, string> = {
 };
 
 export default function NavProductPopoverContent({ product, ...props }: Props) {
+  const intl = useIntl();
   const items = useCommonNavItems();
   const [showUnseenIndicator] = useProductMenuUnseenIndicator();
 
@@ -122,7 +126,11 @@ export default function NavProductPopoverContent({ product, ...props }: Props) {
       {...props}>
       <div className={clsx('flex flex-col gap-3', 'px-5 pb-3 pt-4')}>
         <Text color="secondary" size="body3">
-          Products
+          <FormattedMessage
+            defaultMessage="Products"
+            description="Products"
+            id="VJ7bP6"
+          />
         </Text>
         <div className={clsx('flex flex-col gap-1.5')}>
           <NavProductMenuItem
@@ -155,7 +163,11 @@ export default function NavProductPopoverContent({ product, ...props }: Props) {
           themeBackgroundCardNoAlphaColor,
         )}>
         <Text color="secondary" size="body3">
-          Others
+          <FormattedMessage
+            defaultMessage="Others"
+            description="Others"
+            id="EkxQWy"
+          />
         </Text>
         <div className={clsx('flex flex-col gap-0.5')}>
           {[
@@ -164,41 +176,75 @@ export default function NavProductPopoverContent({ product, ...props }: Props) {
               icon: items.blog.icon,
               label: items.blog.label,
             },
+            ...(SPONSORSHIPS_AVAILABLE
+              ? [
+                  {
+                    href: items.advertise.href,
+                    icon: items.advertise.icon,
+                    label: items.advertise.label,
+                    labelAddOn: (
+                      <Badge
+                        label={intl.formatMessage({
+                          defaultMessage: 'New',
+                          description: 'Badge label for new',
+                          id: 'Aem5n7',
+                        })}
+                        size="xs"
+                        variant="primary"
+                      />
+                    ),
+                  },
+                ]
+              : []),
             {
               href: '/affiliates',
               icon: RiAwardLine,
-              label: 'Become an affiliate',
+              label: intl.formatMessage({
+                defaultMessage: 'Become an affiliate',
+                description: 'Link label to the affiliates page',
+                id: 'OhuJuA',
+              }),
             },
             {
               href: roadmapLinks[product],
               icon: PiPathBold,
-              label: 'Roadmap',
+              label: intl.formatMessage({
+                defaultMessage: 'Roadmap',
+                description: 'Link label to the roadmap page',
+                id: 'Pw5S6B',
+              }),
             },
             {
               href: '/jobs',
               icon: RiBriefcaseLine,
-              label: "We're hiring",
+              label: intl.formatMessage({
+                defaultMessage: "We're hiring",
+                description: 'Link label to the jobs page',
+                id: '0Rkn1f',
+              }),
             },
-          ].map(({ label, href, icon: Icon }) => (
-            <Anchor
-              key={href}
-              className={clsx(
-                'inline-flex items-center gap-2 py-2',
-                textVariants({
-                  color: 'inherit',
-                  size: 'body2',
-                }),
-              )}
-              href={href}
-              variant="flat">
-              {Icon && (
-                <Icon
-                  aria-hidden={true}
-                  className={clsx('size-4 shrink-0', themeTextSubtleColor)}
-                />
-              )}
-              {label}
-            </Anchor>
+          ].map(({ label, href, icon: Icon, labelAddOn }) => (
+            <div key={href} className="inline-flex items-center gap-2">
+              <Anchor
+                className={clsx(
+                  'inline-flex items-center gap-2 py-2',
+                  textVariants({
+                    color: 'inherit',
+                    size: 'body2',
+                  }),
+                )}
+                href={href}
+                variant="flat">
+                {Icon && (
+                  <Icon
+                    aria-hidden={true}
+                    className={clsx('size-4 shrink-0', themeTextSubtleColor)}
+                  />
+                )}
+                {label}
+              </Anchor>
+              {labelAddOn}
+            </div>
           ))}
         </div>
       </div>

@@ -1,4 +1,5 @@
 import {
+  RiAdvertisementLine,
   RiLogoutBoxLine,
   RiPagesLine,
   RiSettings3Line,
@@ -106,6 +107,32 @@ export default function useCommonNavItems() {
     },
     type: 'link',
   };
+  const advertise: NavbarTopLevelItem = {
+    href: '/advertise-with-us',
+    icon: RiAdvertisementLine,
+    id: 'advertise',
+    label: intl.formatMessage({
+      defaultMessage: 'Advertise with us',
+      description: 'Link to advertise with us',
+      id: '9OVmVF',
+    }),
+    onClick: () => {
+      gtag.event({
+        action: `nav.advertise.click`,
+        category: 'engagement',
+        label: 'Advertise with us',
+      });
+    },
+    position: 'start',
+    type: 'link',
+  };
 
-  return { blog, interviewsBilling, interviewsSettings, login, logout };
+  return {
+    advertise,
+    blog,
+    interviewsBilling,
+    interviewsSettings,
+    login,
+    logout,
+  };
 }

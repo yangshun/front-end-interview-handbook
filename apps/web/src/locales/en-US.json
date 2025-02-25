@@ -415,6 +415,10 @@
     "defaultMessage": "Recommended schedule",
     "description": "Recommended schedule tooltip displayed on question cards found on question lists"
   },
+  "0Rkn1f": {
+    "defaultMessage": "We're hiring",
+    "description": "Link label to the jobs page"
+  },
   "0SrfG9": {
     "defaultMessage": "Run",
     "description": "Label for run button"
@@ -1863,6 +1867,10 @@
     "defaultMessage": "Tracks | Progress | {name}",
     "description": "Title of user profile progress tracks page"
   },
+  "9OVmVF": {
+    "defaultMessage": "Advertise with us",
+    "description": "Link to advertise with us"
+  },
   "9Oyn4m": {
     "defaultMessage": "Leverage our <anchor>front end interview roadmap</anchor> to prepare quickly and effectively.",
     "description": "Description for front end interview roadmap"
@@ -2026,6 +2034,10 @@
   "AeJ6Oz": {
     "defaultMessage": "Screenshot failure",
     "description": "Screen failure error title"
+  },
+  "Aem5n7": {
+    "defaultMessage": "New",
+    "description": "Badge label for new"
   },
   "AfXYpF": {
     "defaultMessage": "Current project session",
@@ -2666,6 +2678,10 @@
   "Ekf7hb": {
     "defaultMessage": "Company guides",
     "description": "Label for company study list"
+  },
+  "EkxQWy": {
+    "defaultMessage": "Others",
+    "description": "Others"
   },
   "EpJ74A": {
     "defaultMessage": "Try changing the filters",
@@ -4327,6 +4343,10 @@
     "defaultMessage": "Project challenges",
     "description": "Sidebar navigation label"
   },
+  "OhuJuA": {
+    "defaultMessage": "Become an affiliate",
+    "description": "Link label to the affiliates page"
+  },
   "OigD3P": {
     "defaultMessage": "Complete simple social tasks.",
     "description": "Social discount toast message"
@@ -4574,6 +4594,10 @@
   "Pw1evM": {
     "defaultMessage": "All of our payments are processed using <link>Stripe</link>; we do not directly store your payment and billing information. If you would like to change them, please use Stripe's customer billing portal to do so. {goToStripeCTA}",
     "description": "Description for payments and billing section of projects setting page"
+  },
+  "Pw5S6B": {
+    "defaultMessage": "Roadmap",
+    "description": "Link label to the roadmap page"
   },
   "Pwr5QY": {
     "defaultMessage": "You replied to <recipientProfileLink>{recipient}</recipientProfileLink> on the submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
@@ -5558,6 +5582,10 @@
   "VHG62y": {
     "defaultMessage": "Create profile",
     "description": "Create a user profile"
+  },
+  "VJ7bP6": {
+    "defaultMessage": "Products",
+    "description": "Products"
   },
   "VJ8xZy": {
     "defaultMessage": "Prices will be increased as more content is being added to the website.",
