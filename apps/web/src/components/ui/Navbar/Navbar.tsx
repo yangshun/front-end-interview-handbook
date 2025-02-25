@@ -27,7 +27,11 @@ type Props = Readonly<{
   links: ReadonlyArray<NavbarTopLevelItem>;
   logo?: React.ReactNode;
   mobileSidebarBottomItems?: React.ReactNode;
+  mobileSidebarWrapperClassName?: string;
   renderMobileSidebarAddOnItems?: ({
+    closeMobileNav,
+  }: Readonly<{ closeMobileNav: () => void }>) => React.ReactNode;
+  renderMobileSidebarContent?: ({
     closeMobileNav,
   }: Readonly<{ closeMobileNav: () => void }>) => React.ReactNode;
   style?: CSSProperties;
@@ -48,6 +52,8 @@ function Navbar(
     hideOnDesktop = false,
     unreadNotificationCount = 0,
     bottomBorder,
+    renderMobileSidebarContent,
+    mobileSidebarWrapperClassName,
   }: Props,
   ref: React.Ref<HTMLDivElement>,
 ) {
@@ -98,7 +104,11 @@ function Navbar(
             isLoading={isLoading}
             links={rightLinks}
           />
-          <div className="-my-2 sm:-mr-2 lg:hidden">
+          <div
+            className={clsx(
+              '-my-2 sm:-mr-2 lg:hidden',
+              mobileSidebarWrapperClassName,
+            )}>
             <SlideOut
               enterFrom="start"
               isShown={isMobileNavOpen}
@@ -131,52 +141,54 @@ function Navbar(
               onClose={() => {
                 setIsMobileNavOpen(false);
               }}>
-              <div className="flex h-full flex-col">
-                <div className="flex h-0 flex-1 flex-col pb-4">
-                  <nav
-                    aria-label="Sidebar"
-                    className="flex flex-1 flex-col justify-between overflow-hidden">
-                    <div className={clsx('flex flex-col overflow-y-auto')}>
-                      {leftLinks.length > 0 &&
-                        leftLinks.map((navItem) => (
-                          <NavbarSidebarItem
-                            key={navItem.id}
-                            {...navItem}
-                            onClick={(event) => {
-                              closeMobileNav();
-                              navItem.onClick?.(event);
-                            }}
-                          />
-                        ))}
-                      {rightLinks.length > 0 &&
-                        rightLinks.map((navItem) => (
-                          <NavbarSidebarItem
-                            key={navItem.id}
-                            {...navItem}
-                            onClick={(event) => {
-                              closeMobileNav();
-                              navItem.onClick?.(event);
-                            }}
-                          />
-                        ))}
-                    </div>
-                    {renderMobileSidebarAddOnItems && (
-                      <div className={clsx('border-t', themeBorderColor)}>
-                        {renderMobileSidebarAddOnItems?.({ closeMobileNav })}
+              {renderMobileSidebarContent?.({ closeMobileNav }) ?? (
+                <div className="flex h-full flex-col">
+                  <div className="flex h-0 flex-1 flex-col pb-4">
+                    <nav
+                      aria-label="Sidebar"
+                      className="flex flex-1 flex-col justify-between overflow-hidden">
+                      <div className={clsx('flex flex-col overflow-y-auto')}>
+                        {leftLinks.length > 0 &&
+                          leftLinks.map((navItem) => (
+                            <NavbarSidebarItem
+                              key={navItem.id}
+                              {...navItem}
+                              onClick={(event) => {
+                                closeMobileNav();
+                                navItem.onClick?.(event);
+                              }}
+                            />
+                          ))}
+                        {rightLinks.length > 0 &&
+                          rightLinks.map((navItem) => (
+                            <NavbarSidebarItem
+                              key={navItem.id}
+                              {...navItem}
+                              onClick={(event) => {
+                                closeMobileNav();
+                                navItem.onClick?.(event);
+                              }}
+                            />
+                          ))}
                       </div>
-                    )}
-                  </nav>
-                </div>
-                {mobileSidebarBottomItems && (
-                  <div
-                    className={clsx(
-                      'flex shrink-0 border-t p-4',
-                      themeBorderColor,
-                    )}>
-                    {mobileSidebarBottomItems}
+                      {renderMobileSidebarAddOnItems && (
+                        <div className={clsx('border-t', themeBorderColor)}>
+                          {renderMobileSidebarAddOnItems?.({ closeMobileNav })}
+                        </div>
+                      )}
+                    </nav>
                   </div>
-                )}
-              </div>
+                  {mobileSidebarBottomItems && (
+                    <div
+                      className={clsx(
+                        'flex shrink-0 border-t p-4',
+                        themeBorderColor,
+                      )}>
+                      {mobileSidebarBottomItems}
+                    </div>
+                  )}
+                </div>
+              )}
             </SlideOut>
           </div>
         </div>

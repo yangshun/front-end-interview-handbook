@@ -3391,6 +3391,10 @@
     "defaultMessage": "{category} quiz",
     "description": "Question list"
   },
+  "IxYmig": {
+    "defaultMessage": "Contact us",
+    "description": "Contact us button label"
+  },
   "IxaZ5e": {
     "defaultMessage": "Are there student discounts available for GreatFrontEnd Projects?",
     "description": "Question on projects pricing's FAQ section - student discounts"
@@ -7978,6 +7982,10 @@
   "jIpLwU": {
     "defaultMessage": "Resume",
     "description": "Button label for resume"
+  },
+  "jLIDJB": {
+    "defaultMessage": "Schedule your slot",
+    "description": "Schedule your slot button label"
   },
   "jLJBBH": {
     "defaultMessage": "<authorProfileLink>{author}</authorProfileLink> replied to <bold>themselves</bold> on the submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
