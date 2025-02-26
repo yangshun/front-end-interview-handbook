@@ -44,9 +44,9 @@ The slider can be customized by passing in a plain JavaScript object of options:
 </script>
 ```
 
-### Vanilla JavaScript Style
+### Vanilla JavaScript style
 
-There's no vanilla JavaScript style for initializing components since vanilla JavaScript is not a standard or framework. But if you have read enough of GreatFrontEnd's solutions for our vanilla JavaScript [UI coding questions](/questions/javascript-interview-questions/ui-coding), you'll see that the API we recommend is similar to jQuery's, the constructor takes in a root element and options:
+There's no vanilla JavaScript style for initializing components since vanilla JavaScript is not a standard or framework. But if you have read enough of GreatFrontEnd's solutions for our vanilla JavaScript [UI coding questions](/questions/formats/ui-coding), you'll see that the API we recommend is similar to jQuery's, the constructor takes in a root element and options:
 
 ```js
 function slider(rootEl, options) {
@@ -54,7 +54,7 @@ function slider(rootEl, options) {
 }
 ```
 
-### React
+### React (components)
 
 React forces you to write UI as components which contain its own logic and appearance. React components are JavaScript functions that return markup (a description of how to render itself). React components can take in `props`, which are essentially customization of a component's options.
 
@@ -82,11 +82,11 @@ root.render(<Slider max={50} min={10} />);
 
 You will usually not need to call `createRoot()` yourself if the entire page a React app because there will only be one `createRoot` call for the root/page-level component.
 
-## Customizing Appearance
+## Customizing appearance
 
 Even though UI components in UI libraries provide default styling, developers will usually want to customize them with their company/product's branding and theme colors. Hence all UI components will allow for customization of the appearance, via a few methods:
 
-### Class Injection
+### Class injection
 
 The idea here is simple, components accept a prop/option to allow the developer to provide their own classes and these classes are added to the actual DOM elements. This approach is not very robust because if the component also adds its own styling via classes, there could be conflicting properties within the component's classes and developer-provided classes.
 
@@ -170,7 +170,7 @@ $('#gfe-slider').slider({
 });
 ```
 
-#### Non-deterministic Styling
+#### Non-deterministic styling
 
 Class injection has an unobvious downside — the final visual result is non-deterministic and may not be what is expected. Take the following code for example:
 
@@ -209,7 +209,7 @@ In jQuery UI, if a custom class is added, the existing default value is not used
 
 Despite its possible flaws, class injection is still a very popular option.
 
-### CSS Selector Hooks
+### CSS selector hooks
 
 Technically speaking, developers can achieve customization if they read the source code of the component and define their custom styling by using the same classes. However, doing this is dangerous as relying on a component's internals and there's no guarantee that the class names won't change in future.
 
@@ -277,7 +277,7 @@ This approach saves developers the hassle of passing in classes into the compone
 
 However, this approach still suffers from the non-deterministic styling issue as per "class injection" and doesn't easily allow per-instance styling. If per-instance styling is desired, this approach can be combined with the class injection approach.
 
-### Theme Object
+### Theme object
 
 Instead of taking in classes, the component takes in an object of key/values for styling. This is useful if there is only a strict subset of properties to customize, or if you want to restrict styling to only a few properties.
 
@@ -316,13 +316,13 @@ However, since no classes with conflicting styles are used, and inline styles ha
 
 The theme object is just a way to restrict the styling to certain properties and optionally, an accepted set of values, the values do not need be used as inline styles and instead can be combined with other styling approaches.
 
-### CSS Preprocessor Compilation
+### CSS preprocessor compilation
 
 UI libraries are usually written with CSS preprocessors like [Sass](https://sass-lang.com/) and [Less](https://lesscss.org/). [Bootstrap](https://getbootstrap.com/) is written with Sass and they provide a way to [customize the Sass variables](https://getbootstrap.com/docs/5.3/customize/sass/) used so that developers can generate a custom UI library stylesheet.
 
 This approach is great because it doesn't rely on overriding CSS selectors to achieve customization. There's also less amount of resulting CSS and no redundant overridden styles. The downside is that a compilation step is needed.
 
-### CSS Variables / Custom Properties
+### CSS variables / custom properties
 
 [CSS variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) (or more formally known as CSS custom properties) are entities defined by CSS authors that contain specific values to be reused throughout a document. The `var()` function, it accepts fallback values if the given variable is not set.
 
@@ -354,7 +354,7 @@ function Slider({ value, label }) {
 
 The developer can define a value for `--gfe-slider-font-size` globally via the `:root` selector and set the font size for the `.gfe-slider` class to be 15px. The benefit of this approach is that it doesn't require JavaScript, however, per-component customization will be more troublesome (but still possible).
 
-### Render Props
+### Render props
 
 In React, render props are function props that a component uses to know what to render. It is useful for separating behavior from presentation. Many behavioral/headless UI libraries like [Radix](https://www.radix-ui.com/), [Headless UI](https://headlessui.com/), and [Reach UI](https://reach.tech/menu-button) make heavy use of render props.
 

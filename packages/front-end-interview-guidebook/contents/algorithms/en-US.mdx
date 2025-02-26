@@ -22,31 +22,33 @@ There are a ton of resources out there that cover algorithmic coding interviews 
 - Determine if a string contains balanced brackets.
 - Determine how many substrings in a string are palindromes.
 
-## How to Prepare
+## How to prepare
 
-1. Pick a good programming language to use. If you want to save preparation time you should probably stick with JavaScript for algorithmic questions, although note that the JavaScript language doesn't contain certain common useful data structures and algorithms whereas other languages like Python, Java, and C++ do. Personally I use Python for solving algorithmic interview questions.
-1. Plan your time and tackle topics and questions in order of importance.
-1. Combine studying and practicing for a single topic.
-1. Accompany practice with coding interview cheat sheets to internalize the must-dos and must-remembers.
+1. Pick a good programming language to use. If you want to save preparation time you should probably stick with JavaScript for algorithmic questions, although note that the JavaScript language doesn't contain certain common useful data structures and algorithms whereas other languages like Python, Java, and C++ do. We recommend using Python for solving algorithmic interview questions
+1. Plan your time and tackle topics and questions in order of importance
+1. Combine studying and practicing for a single topic
+1. Accompany practice with coding interview cheat sheets to internalize the must-dos and must-remembers
 
 Refer to [Tech Interview Handbook's step-by-step guide on how to prepare for algorithmic coding interviews](https://www.techinterviewhandbook.org/coding-interview-prep/).
 
-## Important Concepts
+## Important concepts
 
 Although you can still be asked any algorithmic question, companies tend to go easier on Front End Engineer candidates and probably will not ask questions involving hard topics like dynamic programming or complex graph algorithms.
 
 Since the DOM is a tree, prioritize learning about trees and the various tree traversal algorithms.
 
-| Category | Important Topics |
+| Category | Important topics |
 | --- | --- |
-| Data Structures | Arrays, Maps, Stacks, Trees, Graphs, Matrix (2D Arrays), Sets |
+| Data structures | Arrays, Maps, Stacks, Trees, Graphs, Matrix (2D Arrays), Sets |
 | Algorithms | Binary Search, Breadth-first Search, Depth-first Search, Topological Sorting, Recursion |
 
-## Common JavaScript Operations
+## Common JavaScript operations
+
+Be aware of the common JavaScript operations and their time complexities.
 
 ### `Array`
 
-| Operation                   | Time Complexity |
+| Operation                   | Time complexity |
 | --------------------------- | --------------- |
 | `Array.prototype.concat()`  | O(m + n)        |
 | `Array.prototype.every()`   | O(n)            |
@@ -69,7 +71,7 @@ elements to be added.
 
 ### `Map`
 
-| Operation | Time Complexity |
+| Operation | Time complexity |
 | --- | --- |
 | `Map.prototype.clear()` | O(n) |
 | `Map.prototype.delete()` | O(1) |
@@ -85,7 +87,7 @@ elements to be added.
 
 ### `Set`
 
-| Operation | Time Complexity |
+| Operation | Time complexity |
 | --- | --- |
 | `Set.prototype.add()` | O(1) |
 | `Set.prototype.clear()` | O(n) |
@@ -98,16 +100,16 @@ elements to be added.
 
 <sup>*</sup> `n` is the number of elements in the set.
 
-## Algorithmic Coding Interview Rubrics
+## Algorithmic coding interview rubrics
 
 During algorithmic coding interviews, interviewers are evaluating candidates on the following skills:
 
-- **Problem Solving**: Use a systematic and logical approach to understanding and addressing a problem. Break down the problem into smaller independent problems. Evaluate different approaches and their tradeoffs.
-- **Technical Competence**: Ability to translate solutions into working code and demonstrating a strong understanding of the language being used.
+- **Problem solving**: Use a systematic and logical approach to understanding and addressing a problem. Break down the problem into smaller independent problems. Evaluate different approaches and their tradeoffs.
+- **Technical competence**: Ability to translate solutions into working code and demonstrating a strong understanding of the language being used.
 - **Communication**: Ask questions to clarify details and clearly explain one's approach and considerations.
 - **Verification**: Identify various scenarios to test the code against, including edge cases. Be able to diagnose and fix any issues that arise.
 
-## Useful Tips
+## Useful tips
 
 - **Wishful thinking**. JavaScript's standard library doesn't have some useful data structures and algorithms like queue, heap, binary search, which can make your life easier during JavaScript coding interviews. However, you can ask the interviewer if you can pretend such a data structure/algorithm exists and use it directly in your solution without implementing it.
 - **Pure functions**. Aim to write pure functions which have the benefit of reusability and modularity, aka functions which don't rely on state outside of the function and doesn't cause side effects.
@@ -116,6 +118,8 @@ During algorithmic coding interviews, interviewers are evaluating candidates on 
   - If you have identified that solving the question requires recursion, ask about the input size and how to handle the case of recursion stack overflow. Usually you won't have to handle it but raising this issue is a good signal.
   - Nested deep data structures can have recursive references to itself, which makes certain operations like serialization much trickier. Ask the interviewer if you have to handle such cases. Usually you won't have to handle it but raising this issue is a good signal.
 
-## Practice Questions
+## Practice questions
 
-Currently the best platform to practice algorithmic questions is undeniably LeetCode. However, GreatFrontEnd provides some [practice questions for Data Structures and Algorithms](/questions/js/coding/data-structures-algorithms) where you can practice implementing common data structures ([Stack](/questions/algo/stack), [Queue](/questions/algo/queue)) and algorithms ([Binary Search](/questions/algo/binary-search), [Merge Sort](/questions/algo/merge-sort)), etc in JavaScript.
+Blind 75 is a famous and concise list of algorithm questions by Yangshun Tay. You can practice the [Blind 75 question list on GreatFrontEnd](/interviews/blind75).
+
+GreatFrontEnd also provides some [general practice questions for Data Structures and Algorithms](/questions/formats/algo-coding) where you can practice implementing common data structures ([Stack](/questions/algo/stack), [Queue](/questions/algo/queue)) and algorithms ([Binary Search](/questions/algo/binary-search), [Merge Sort](/questions/algo/merge-sort)), etc in JavaScript.
