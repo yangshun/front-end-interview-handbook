@@ -10,6 +10,7 @@ import {
   createSupabaseAdminClientGFE_SERVER_ONLY,
   readViewerFromToken,
 } from '~/supabase/SupabaseServerGFE';
+import { resolveCountryCode } from '~/utils/CountryUtils';
 import { getErrorMessage } from '~/utils/getErrorMessage';
 
 import type {
@@ -64,10 +65,10 @@ export default async function handler(req: NextRequest) {
 
   try {
     // Step 2: Check if request location is banned.
-    const countryCode = req.geo?.country ?? 'US';
+    const countryCodeRaw = req.geo?.country ?? 'US';
 
-    if (isProhibitedCountry(countryCode)) {
-      throw new Error(`Prohibited country: ${countryCode}`);
+    if (isProhibitedCountry(countryCodeRaw)) {
+      throw new Error(`Prohibited country: ${countryCodeRaw}`);
     }
 
     const city = req.geo?.city;
@@ -141,6 +142,7 @@ export default async function handler(req: NextRequest) {
     ) as CheckoutProductDomain;
     const planType = searchParams.get('plan_type');
     const cancelUrl = searchParams.get('cancel_url');
+    const countryCode = resolveCountryCode(req) ?? 'US';
 
     const commonQueryParams = {
       cancel_url: cancelUrl ?? '',

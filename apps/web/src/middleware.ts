@@ -7,6 +7,7 @@ import { i18nMiddleware } from '~/next-i18nostic/src';
 
 import { addBrowserFingerprint } from './logging/fingerprint';
 import { addFirstVisit } from './logging/firstVisit';
+import { resolveCountryCode } from './utils/CountryUtils';
 
 function upsertCookie(request: NextRequest, response: NextResponse) {
   if (
@@ -22,12 +23,14 @@ function upsertCookie(request: NextRequest, response: NextResponse) {
   }
 }
 
-function addCountry(req: NextRequest, res: NextResponse) {
-  const country = req.geo?.country ?? null;
+function writeCountryCodeToCookie(req: NextRequest, res: NextResponse) {
+  const country = resolveCountryCode(req);
 
-  if (country != null) {
-    res.cookies.set('country', country);
+  if (country == null) {
+    return;
   }
+
+  res.cookies.set('country', country);
 }
 
 export function middleware(req: NextRequest) {
@@ -36,7 +39,7 @@ export function middleware(req: NextRequest) {
 
   upsertCookie(req, res);
   addBrowserFingerprint(req, res);
-  addCountry(req, res);
+  writeCountryCodeToCookie(req, res);
   addFirstVisit(req, res);
 
   return res;
