@@ -88,8 +88,8 @@ export default function SponsorsAdvertiseRequestForm() {
       )}
       {step === 'ads' && (
         <SponsorsAdvertiseRequestFormAdsSection
-          defaultValues={formData.ads}
-          updateFormData={(ads) => setFormData((prev) => ({ ...prev, ads }))}
+          ads={formData.ads}
+          updateAds={(ads) => setFormData((prev) => ({ ...prev, ads }))}
           onPrevious={() => setStep('contact')}
           onSubmit={() => {
             setStep('company');

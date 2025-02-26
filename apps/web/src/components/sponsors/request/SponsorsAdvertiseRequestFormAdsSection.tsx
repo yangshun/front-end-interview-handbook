@@ -1,12 +1,11 @@
 import clsx from 'clsx';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import {
   RiAddLine,
   RiArrowLeftLine,
   RiArrowRightLine,
   RiDeleteBinLine,
 } from 'react-icons/ri';
-import { useList } from 'react-use';
 import { v4 as uuidv4 } from 'uuid';
 
 import { FormattedMessage, useIntl } from '~/components/intl';
@@ -35,29 +34,23 @@ import { themeBackgroundElementEmphasizedStateColor_Hover } from '../../ui/theme
 import type { SponsorsAdFormat } from '@prisma/client';
 
 type Props = Readonly<{
-  defaultValues: Array<SponsorsAdFormatFormItem>;
+  ads: Array<SponsorsAdFormatFormItem>;
   onPrevious: () => void;
   onSubmit: () => void;
-  updateFormData(ads: Array<SponsorsAdFormatFormItem>): void;
+  updateAds(ads: Array<SponsorsAdFormatFormItem>): void;
 }>;
 
 export default function SponsorsAdvertiseRequestFormAdsSection({
   onSubmit,
   onPrevious,
-  defaultValues,
-  updateFormData,
+  ads,
+  updateAds,
 }: Props) {
   const intl = useIntl();
   const [selectedFormat, setSelectedFormat] = useState<SponsorsAdFormat | null>(
-    defaultValues.length > 0 ? null : 'GLOBAL_BANNER',
+    ads.length > 0 ? null : 'GLOBAL_BANNER',
   );
   const adFormatData = useSponsorsAdFormatData();
-  const [ads, adsActions] = useList<SponsorsAdFormatFormItem>(defaultValues);
-
-  useEffect(() => {
-    updateFormData(ads);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [ads]);
 
   return (
     <div className="mx-auto w-full max-w-5xl">
@@ -109,7 +102,7 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
                           (adItem) => adItem.id !== ad.id,
                         );
 
-                        adsActions.filter((adItem) => adItem.id !== ad.id);
+                        updateAds(ads.filter((adItem) => adItem.id !== ad.id));
                         if (remainingAds.length === 0) {
                           setSelectedFormat('GLOBAL_BANNER');
                         }
@@ -257,13 +250,16 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
                       : undefined
                   }
                   onSubmit={({ text, url, weeks }) => {
-                    adsActions.push({
-                      format: 'GLOBAL_BANNER',
-                      id: uuidv4(),
-                      text,
-                      url,
-                      weeks,
-                    });
+                    updateAds([
+                      ...ads,
+                      {
+                        format: 'GLOBAL_BANNER',
+                        id: uuidv4(),
+                        text,
+                        url,
+                        weeks,
+                      },
+                    ]);
                     setSelectedFormat(null);
                   }}
                 />
@@ -278,13 +274,16 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
                       : undefined
                   }
                   onSubmit={({ text, url, weeks }) => {
-                    adsActions.push({
-                      format: 'IN_CONTENT',
-                      id: uuidv4(),
-                      text,
-                      url,
-                      weeks,
-                    });
+                    updateAds([
+                      ...ads,
+                      {
+                        format: 'IN_CONTENT',
+                        id: uuidv4(),
+                        text,
+                        url,
+                        weeks,
+                      },
+                    ]);
                     setSelectedFormat(null);
                   }}
                 />
@@ -299,13 +298,16 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
                       : undefined
                   }
                   onSubmit={({ text, url, weeks }) => {
-                    adsActions.push({
-                      format: 'SPOTLIGHT',
-                      id: uuidv4(),
-                      text,
-                      url,
-                      weeks,
-                    });
+                    updateAds([
+                      ...ads,
+                      {
+                        format: 'SPOTLIGHT',
+                        id: uuidv4(),
+                        text,
+                        url,
+                        weeks,
+                      },
+                    ]);
                     setSelectedFormat(null);
                   }}
                 />
