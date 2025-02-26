@@ -1,5 +1,8 @@
 import clsx from 'clsx';
+import jsCookie from 'js-cookie';
 import { RiArrowLeftLine, RiArrowRightLine } from 'react-icons/ri';
+
+import countryCodesToNames from '~/data/countryCodesToNames.json';
 
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
@@ -13,6 +16,13 @@ type Props = Readonly<{
   onPrevious: () => void;
   onSubmit: () => void;
 }>;
+
+const countryOptions = Object.entries(countryCodesToNames).map(
+  ([value, label]) => ({ label, value }),
+);
+const countryOptionsSorted = countryOptions.sort((a, b) =>
+  a.label.localeCompare(b.label),
+);
 
 export default function SponsorsAdvertiseRequestFormCompanyDetailsSection({
   onSubmit,
@@ -59,22 +69,9 @@ export default function SponsorsAdvertiseRequestFormCompanyDetailsSection({
               display="block"
               isLabelHidden={true}
               label="Country"
-              options={[
-                {
-                  label: 'United States',
-                  value: 'US',
-                },
-                {
-                  label: 'Singapore',
-                  value: 'SG',
-                },
-                {
-                  label: 'United Kingdom',
-                  value: 'GB',
-                },
-              ]}
+              options={countryOptionsSorted}
               rounded="normal"
-              value="react"
+              value={jsCookie.get('country') ?? 'US'}
               onChange={() => {}}
             />
             <TextInput
