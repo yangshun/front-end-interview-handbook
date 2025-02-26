@@ -12,12 +12,14 @@ Often during front end interviews, you will be asked to build UI components and 
 
 ## Initialization
 
+There are multiple ways to initialize a UI component:
+
 ### jQuery-style
 
 Before modern JavaScript UI libraries/frameworks like [React](https://reactjs.org/), [Angular](https://angular.io/), and [Vue](https://vuejs.org/) came into the picture, [jQuery](https://jquery.com/) (and [jQuery UI](https://jqueryui.com/)) was the most popular way to build UI. jQuery UI popularized the idea of initializing UI components via "constructors" which involved two arguments:
 
-1. **Root Element**: A root DOM element to render the contents.
-1. **Customization Options**: Optional, additional, customization options usually in the form of a plain JavaScript object.
+1. **Root element**: A root DOM element to render the contents
+1. **Customization options**: Optional, additional, customization options usually in the form of a plain JavaScript object
 
 Using jQuery UI, one can turn a DOM element into a [slider](https://api.jqueryui.com/slider/) (among many other UI components) with a single line of code:
 
@@ -54,9 +56,11 @@ function slider(rootEl, options) {
 }
 ```
 
-### React (components)
+### React (Or similar component-based libraries)
 
-React forces you to write UI as components which contain its own logic and appearance. React components are JavaScript functions that return markup (a description of how to render itself). React components can take in `props`, which are essentially customization of a component's options.
+React forces you to write UI as components where the logic and structure is contained within. React components are JavaScript functions that return markup, a description of how to render itself.
+
+React components can take in `props`, which are essentially customization options for a component.
 
 ```js
 function Slider({ min, max }) {
@@ -80,11 +84,13 @@ const root = createRoot(domNode);
 root.render(<Slider max={50} min={10} />);
 ```
 
-You will usually not need to call `createRoot()` yourself if the entire page a React app because there will only be one `createRoot` call for the root/page-level component.
+You will usually not need to call `createRoot()` yourself if the entire page is a React app because there will only be one `createRoot()` call at the root/page-level.
 
 ## Customizing appearance
 
-Even though UI components in UI libraries provide default styling, developers will usually want to customize them with their company/product's branding and theme colors. Hence all UI components will allow for customization of the appearance, via a few methods:
+Even though UI components in UI libraries provide default styling, developers will usually want to customize them with their company/product's branding and theme colors.
+
+Hence most UI components (especially those built as 3rd-party libraries) will allow for customization of the appearance, via a few methods:
 
 ### Class injection
 
@@ -170,7 +176,7 @@ $('#gfe-slider').slider({
 });
 ```
 
-#### Non-deterministic styling
+#### Downside: Non-deterministic styling
 
 Class injection has an unobvious downside — the final visual result is non-deterministic and may not be what is expected. Take the following code for example:
 
@@ -203,11 +209,13 @@ function Slider({ className, value }) {
 }
 ```
 
-In the example above, both `.gfe-slider` and `.my-custom-slider` classes specify the `color` and because these two selectors have the same specificity, the winning style is actually the class that appears later on the HTML page. If the loading order of the stylesheet is not guaranteed (e.g. if stylesheets are lazily loaded), the visual result will not be deterministic. This is when developers start using hacks like `!important` or `.my-custom-slider.my-custom-slider` to let their selectors win the specificity war and the CSS code starts becoming unmaintainable.
+In the example above, both `.gfe-slider` and `.my-custom-slider` classes specify the `color` and because these two selectors have the same specificity, the winning style is actually the class that appears later on the HTML page.
+
+If the loading order of the stylesheet is not guaranteed (e.g. if stylesheets are lazily loaded), the visual result will not be deterministic. The results is that developers start using hacks like `!important` or `.my-custom-slider.my-custom-slider` to let their selectors win the specificity war. With all these hacks, the CSS code starts becoming unmaintainable.
 
 In jQuery UI, if a custom class is added, the existing default value is not used. This removes the "winning style" ambiguity but the user must now reimplement all the necessary styles present in the original class. This approach can also be applied to React components to resolve the ambiguity.
 
-Despite its possible flaws, class injection is still a very popular option.
+Despite its flaws, class injection is still a very popular option.
 
 ### CSS selector hooks
 
@@ -215,8 +223,8 @@ Technically speaking, developers can achieve customization if they read the sour
 
 If UI library authors can make these classes/attributes part of their API, which comes with these guarantees:
 
-1. The list of selectors is published for external reference.
-1. Existing published selectors will not be changed. If they are changed, it will be a breaking change and a version bump is needed as per semver.
+1. The list of selectors is published for external reference
+1. Existing published selectors will not be changed. If they are changed, it will be a breaking change and a version bump is needed as per semver
 
 Then it's an acceptable practice and developers can "hook" onto them (target them) by using these selectors in their stylesheets.
 
