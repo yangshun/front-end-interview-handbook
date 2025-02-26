@@ -14,11 +14,9 @@ import SponsorsAdvertiseRequestAgreement from './SponsorsAdvertiseRequestAgreeme
 
 type Props = Readonly<{
   onPrevious: () => void;
-  onSubmit: () => void;
 }>;
 
 export default function SponsorsAdvertiseRequestFormReviewSection({
-  onSubmit,
   onPrevious,
 }: Props) {
   const [signedAgreement, setSignedAgreement] = useState(false);
@@ -186,10 +184,8 @@ export default function SponsorsAdvertiseRequestFormReviewSection({
             isDisabled={!signedAgreement}
             label="Submit"
             size="md"
+            type="submit"
             variant="primary"
-            onClick={() => {
-              onSubmit();
-            }}
           />
         </div>
       </Section>

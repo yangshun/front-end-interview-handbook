@@ -6411,6 +6411,10 @@
     "defaultMessage": "Meta logo",
     "description": "Meta company logo"
   },
+  "a8I10Q": {
+    "defaultMessage": "Contact details",
+    "description": "Title for contact details"
+  },
   "aCjI8I": {
     "defaultMessage": "Track completed",
     "description": "Subtext for track completed"
@@ -8047,6 +8051,10 @@
     "defaultMessage": "Purchase premium to unlock full access to the question.",
     "description": "Subtitle on question paywall appearing on the question pages of premium questions"
   },
+  "jXX7Jw": {
+    "defaultMessage": "Invalid email address",
+    "description": "Error message for invalid email address"
+  },
   "jYsoqB": {
     "defaultMessage": "Component libraries for your portfolio",
     "description": "Title for recommended action for new projects platform user"
@@ -8150,6 +8158,10 @@
   "k2qYCS": {
     "defaultMessage": "Company guides",
     "description": "Title of company guides page"
+  },
+  "k2vWyb": {
+    "defaultMessage": "Additional email addresses should you require",
+    "description": "Placeholder for additional emails"
   },
   "k64L83": {
     "defaultMessage": "{discountPercentage}% off GreatFrontEnd Annual plan.",
@@ -8370,6 +8382,10 @@
   "l9EqMY": {
     "defaultMessage": "This guide is the only resource designed specifically for front end engineers, offering you an insider's look at the unique behavioral challenges you'll face in interviews. From nailing your self introduction to effectively working with cross-functional teams, this guide equips you with the tools, tips, and strategies you need to shine.",
     "description": "Long description of behavioral interview playbook page"
+  },
+  "lBK7ry": {
+    "defaultMessage": "At least one email is required",
+    "description": "Error message for min length"
   },
   "lBeTMC": {
     "defaultMessage": "What is the commission structure?",
@@ -8842,6 +8858,10 @@
   "oAUXEp": {
     "defaultMessage": "Beautiful designs made by high-end designers",
     "description": "Title of 'Beautiful designs made by high-end designers' feature in Projects marketing page"
+  },
+  "oBV4CX": {
+    "defaultMessage": "Provide the company email addresses we will use to contact you",
+    "description": "Subtitle for contact details"
   },
   "oC86Nx": {
     "defaultMessage": "Views on submissions",
@@ -9862,6 +9882,10 @@
   "uSGeKw": {
     "defaultMessage": "Frameworks and languages",
     "description": "Title for framework and language section"
+  },
+  "uSMCBJ": {
+    "defaultMessage": "Next",
+    "description": "Label for next button"
   },
   "uTqd3B": {
     "defaultMessage": "Add skills to grow in",
