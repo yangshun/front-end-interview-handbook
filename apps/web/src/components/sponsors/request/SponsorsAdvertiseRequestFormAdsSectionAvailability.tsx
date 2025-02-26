@@ -1,10 +1,10 @@
 import clsx from 'clsx';
 import { format } from 'date-fns';
 import { FaCheck } from 'react-icons/fa6';
-import type { StableActions } from 'react-use/lib/useSet';
 
 import { trpc } from '~/hooks/trpc';
 
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Badge from '~/components/ui/Badge';
 import Chip from '~/components/ui/Chip';
 import Label from '~/components/ui/Label';
@@ -26,7 +26,10 @@ import type { SponsorsAdFormat } from '@prisma/client';
 type Props = Readonly<{
   adFormat: SponsorsAdFormat;
   selectedWeeks: Set<string>;
-  selectedWeeksActions: StableActions<string>;
+  selectedWeeksActions: {
+    add: (value: string) => void;
+    remove: (value: string) => void;
+  };
 }>;
 
 export default function SponsorsAdvertiseRequestFormAdsSectionAvailability({
@@ -34,6 +37,7 @@ export default function SponsorsAdvertiseRequestFormAdsSectionAvailability({
   selectedWeeks,
   selectedWeeksActions,
 }: Props) {
+  const intl = useIntl();
   const { isLoading, data } = trpc.sponsorships.availability.useQuery({
     format: adFormat,
   });
@@ -41,8 +45,16 @@ export default function SponsorsAdvertiseRequestFormAdsSectionAvailability({
   return (
     <div>
       <Label
-        description="Select the weeks you would like to advertise"
-        label="Schedule"
+        description={intl.formatMessage({
+          defaultMessage: 'Select the weeks you would like to advertise',
+          description: 'Label description for schedule',
+          id: 'dCMrlg',
+        })}
+        label={intl.formatMessage({
+          defaultMessage: 'Schedule',
+          description: 'Label for schedule',
+          id: '3Z408Q',
+        })}
       />
       {data == null ? (
         <div
@@ -94,7 +106,7 @@ export default function SponsorsAdvertiseRequestFormAdsSectionAvailability({
                       color={!available ? 'secondary' : undefined}
                       size="body2"
                       weight="medium">
-                      {format(new Date(start), 'MMM dd')} –{' '}
+                      {format(new Date(start), 'MMM dd')} -{' '}
                       {format(new Date(end), 'MMM dd')}
                     </Text>
                     {selected && (
@@ -119,12 +131,26 @@ export default function SponsorsAdvertiseRequestFormAdsSectionAvailability({
       {selectedWeeks.size > 0 && (
         <div className="mt-6 flex justify-between">
           <Text className="block" color="subtitle" size="body2">
-            {selectedWeeks.size} week(s) selected
+            <FormattedMessage
+              defaultMessage="{noOfSelectedWeeks} week(s) selected"
+              description="Number of week selected"
+              id="RHmgyU"
+              values={{
+                noOfSelectedWeeks: selectedWeeks.size,
+              }}
+            />
           </Text>
           <Text className="block" size="body1" weight="bold">
-            Total: $
-            {selectedWeeks.size *
-              SponsorAdFormatConfigs[adFormat].pricePerWeekUSD}
+            <FormattedMessage
+              defaultMessage="Total: ${total}"
+              description="Total price label"
+              id="0kDCAp"
+              values={{
+                total:
+                  selectedWeeks.size *
+                  SponsorAdFormatConfigs[adFormat].pricePerWeekUSD,
+              }}
+            />
           </Text>
         </div>
       )}

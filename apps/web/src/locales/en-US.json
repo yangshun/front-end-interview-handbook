@@ -7,6 +7,10 @@
     "defaultMessage": "+{points} rep",
     "description": "Rep gain for parent skill"
   },
+  "+3r4Ek": {
+    "defaultMessage": "Select an ad format to display, you can create multiple ads",
+    "description": "Ad format selection description"
+  },
   "+4J3PK": {
     "defaultMessage": "Browser",
     "description": "Front end development topic"
@@ -467,6 +471,10 @@
     "defaultMessage": "Premium challenge that is unlocked",
     "description": "Label for projects premium challenge"
   },
+  "0kDCAp": {
+    "defaultMessage": "Total: ${total}",
+    "description": "Total price label"
+  },
   "0krNBp": {
     "defaultMessage": "Coming soon",
     "description": "Front end system design questions that are coming soon"
@@ -679,6 +687,10 @@
     "defaultMessage": "Next challenge:",
     "description": "Label for next challenge for skill plan on project submission success page"
   },
+  "28DOVL": {
+    "defaultMessage": "Title must be at most {maxLength} characters",
+    "description": "Error message for title"
+  },
   "2BQudu": {
     "defaultMessage": "Visit external link",
     "description": "Label for open external link button"
@@ -870,6 +882,10 @@
   "3WHiQS": {
     "defaultMessage": "Cheatsheet",
     "description": "One-page summary sheet for front end system design interviews"
+  },
+  "3Z408Q": {
+    "defaultMessage": "Schedule",
+    "description": "Label for schedule"
   },
   "3aT98+": {
     "defaultMessage": "Recommended actions for you",
@@ -1182,6 +1198,10 @@
   "5hTR16": {
     "defaultMessage": "Profile",
     "description": "Title of Profile page"
+  },
+  "5hyhBV": {
+    "defaultMessage": "At least one schedule is required",
+    "description": "Error message for schedule"
   },
   "5jFQfq": {
     "defaultMessage": "Known {company} front end interview questions",
@@ -1639,6 +1659,10 @@
     "defaultMessage": "Created: Newest to oldest",
     "description": "Sorting option for discussions comment - sort by created"
   },
+  "88+6BH": {
+    "defaultMessage": "Invalid URL",
+    "description": "Error message for URL"
+  },
   "8ADLgY": {
     "defaultMessage": "For a profile URL like <bold>https://x.com/john-doe</bold>, your handle would be <bold>john-doe</bold>.",
     "description": "Rewards campaign help text"
@@ -2075,6 +2099,10 @@
     "defaultMessage": "Menu",
     "description": "Project guide navigation menu button label"
   },
+  "B0+yAo": {
+    "defaultMessage": "Invalid image URL",
+    "description": "Error message for image"
+  },
   "B2171J": {
     "defaultMessage": "Download design assets",
     "description": "Label for \"Download design assets\" step in dialog on Projects project page"
@@ -2206,6 +2234,10 @@
   "BhmpD2": {
     "defaultMessage": "A structured way to approach system design questions",
     "description": "Sidebar link for front end system design interview"
+  },
+  "BjmcJ4": {
+    "defaultMessage": "Ads",
+    "description": "Advertise request form ads section title"
   },
   "BrhcC+": {
     "defaultMessage": "Bio must contain at most {maxLength} character(s).",
@@ -2702,6 +2734,10 @@
   "Eru4eL": {
     "defaultMessage": "Intro to quiz questions",
     "description": "Introduction to front end quiz questions"
+  },
+  "Es4JKW": {
+    "defaultMessage": "Destination for banner clicks",
+    "description": "Description for URL input"
   },
   "Et6OSf": {
     "defaultMessage": "Could not load the file from the repository. Select a different file to view.",
@@ -3439,6 +3475,10 @@
     "defaultMessage": "Binary tree",
     "description": "Computer science data structure"
   },
+  "JAQf3o": {
+    "defaultMessage": "Preview",
+    "description": "Label for preview"
+  },
   "JCAJF/": {
     "defaultMessage": "Practice Front End Algorithmic Coding Interview Questions",
     "description": "SEO title for algo coding question format page"
@@ -3682,6 +3722,10 @@
   "KXfN0X": {
     "defaultMessage": "The leading platform in the world front end engineers use to prepare for their interviews",
     "description": "Description for interviews product"
+  },
+  "KZOa5l": {
+    "defaultMessage": "Cancel",
+    "description": "Label for cancel button"
   },
   "KZWEcx": {
     "defaultMessage": "Please enter a different email address.",
@@ -3967,6 +4011,10 @@
     "defaultMessage": "React, HTML, JavaScript",
     "description": "Placeholder for tech stack field"
   },
+  "LwZ1ye": {
+    "defaultMessage": "Image is required",
+    "description": "Error message for image"
+  },
   "Lwa7+3": {
     "defaultMessage": "Have any doubts or need help? Ask in the community and discuss with others.",
     "description": "Description for \"Ask any questions in community\" item in Expected Support section on Projects project page"
@@ -4106,6 +4154,10 @@
   "MoV/nU": {
     "defaultMessage": "URL copied to clipboard",
     "description": "Copied heading URL"
+  },
+  "MpD3WU": {
+    "defaultMessage": "Maximum of {maxLength} characters",
+    "description": "Description for title input"
   },
   "MwvhTF": {
     "defaultMessage": "See whole component track",
@@ -4330,6 +4382,10 @@
   "OWKf+S": {
     "defaultMessage": "Overview",
     "description": "Overview of behavioral interview"
+  },
+  "OY0i/0": {
+    "defaultMessage": "Company details",
+    "description": "Label for company details button"
   },
   "OYgvni": {
     "defaultMessage": "New here? <link>How it works</link>",
@@ -4655,6 +4711,10 @@
     "defaultMessage": "View",
     "description": "Link to a submission page"
   },
+  "QCyCcO": {
+    "defaultMessage": "Body is required",
+    "description": "Error message for body"
+  },
   "QENy25": {
     "defaultMessage": "Fully public and customizable",
     "description": "Features for test code section of homepage"
@@ -4874,6 +4934,10 @@
   "RHPU56": {
     "defaultMessage": "Deployment",
     "description": "Title for Deployment step in project submission checklist"
+  },
+  "RHmgyU": {
+    "defaultMessage": "{noOfSelectedWeeks} week(s) selected",
+    "description": "Number of week selected"
   },
   "RIhdqg": {
     "defaultMessage": "Sign In",
@@ -5330,6 +5394,10 @@
   "TaIXVz": {
     "defaultMessage": "Purchase premium to unlock full access to exclusive System Design content including high quality solutions and companies which ask this question.",
     "description": "System design questions paywall"
+  },
+  "TajwCE": {
+    "defaultMessage": "Body must be at most {maxLength} characters",
+    "description": "Error message for body"
   },
   "TbI6UW": {
     "defaultMessage": "JavaScript DSA",
@@ -6371,6 +6439,10 @@
     "defaultMessage": "Edit your submission for the {challengeName} challenge. Include new strategies and insights, enriching the knowledge base.",
     "description": "Description of Projects edit submission page"
   },
+  "ZpNg6A": {
+    "defaultMessage": "Ad format",
+    "description": "Label for ad format selection"
+  },
   "Zq2tuw": {
     "defaultMessage": "No, signing up as an affiliate is completely free.",
     "description": "Answer to the FAQ if it costs anything to join as an affiliate"
@@ -6723,6 +6795,10 @@
     "defaultMessage": "Title is required.",
     "description": "Error message"
   },
+  "bdirwv": {
+    "defaultMessage": "Title is required",
+    "description": "Error message for title"
+  },
   "bdt+FN": {
     "defaultMessage": "Purchase premium to unlock premium questions and all the best materials we have to offer.",
     "description": "Paywall subtitle for premium questions feature"
@@ -6967,6 +7043,10 @@
     "defaultMessage": "Front End Interview Playbook",
     "description": "Front End Interview Playbook title"
   },
+  "d2w71C": {
+    "defaultMessage": "Previous",
+    "description": "Label for previous button"
+  },
   "d3GL1v": {
     "defaultMessage": "Copy line down",
     "description": "Text describing command to copy lines down in the coding workspace shortcuts menu"
@@ -6998,6 +7078,10 @@
   "dCKqPL": {
     "defaultMessage": "Practice {questionCount}+ front end system design interview questions on the architecture of components, apps, games. Reference answers by big tech ex-interviewers.",
     "description": "Page description for interview questions listing"
+  },
+  "dCMrlg": {
+    "defaultMessage": "Select the weeks you would like to advertise",
+    "description": "Label description for schedule"
   },
   "dFjMzR": {
     "defaultMessage": "Copy link",
@@ -7398,6 +7482,10 @@
   "fRGOI+": {
     "defaultMessage": "Number of questions",
     "description": "Total number of questions in a list"
+  },
+  "fTD+AB": {
+    "defaultMessage": "Choose your ad formats, go live schedule, and upload assets",
+    "description": "Advertise request form ads section description"
   },
   "fXNw/d": {
     "defaultMessage": "Your Email",
@@ -7806,6 +7894,10 @@
   "hurk0k": {
     "defaultMessage": "Trie",
     "description": "Computer science data structure"
+  },
+  "huxjqQ": {
+    "defaultMessage": "Add another ad",
+    "description": "Label for add another ad button"
   },
   "hwpLbI": {
     "defaultMessage": "<p>Once accepted into the affiliate program, you will receive a unique reference handle and affiliate link which will be used to track all your referrals.</p>",
@@ -8399,6 +8491,10 @@
     "defaultMessage": "<percent>{percentage}</percent>%",
     "description": "Progress percentage in Continue Learning section in preparation dashboard"
   },
+  "lHuGip": {
+    "defaultMessage": "See how your ad looks like when it goes live",
+    "description": "Description for preview"
+  },
   "lJF2aI": {
     "defaultMessage": "See child skills ({count})",
     "description": "Label to show skills card"
@@ -8678,6 +8774,10 @@
   "n7/w8e": {
     "defaultMessage": "{questionCount}+ most important Vue interview questions covering stores, bindings, reactivity, lifecycle, and building interactive components.",
     "description": "Subtitle for questions list page"
+  },
+  "n7SF/r": {
+    "defaultMessage": "Configure your global banner and upload the required assets",
+    "description": "Description for global banner configuration"
   },
   "nAHx0y": {
     "defaultMessage": "Leverage time-savers like study plans and focus areas to turbocharge your prep",
@@ -9314,6 +9414,10 @@
   "qpQlsV": {
     "defaultMessage": "Front End System Design Playbook",
     "description": "Social title for frontend system design playbook cover page"
+  },
+  "quZZdV": {
+    "defaultMessage": "URL is required",
+    "description": "Error message for URL"
   },
   "qv5NJ8": {
     "defaultMessage": "Feedback submitted successfully",
@@ -10842,6 +10946,10 @@
   "zvcJI/": {
     "defaultMessage": "Preview",
     "description": "Label for preview button"
+  },
+  "zvqK99": {
+    "defaultMessage": "Global banner configuration",
+    "description": "Label for global banner configuration"
   },
   "zw0Ov8": {
     "defaultMessage": "Hard",

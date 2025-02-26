@@ -8,8 +8,10 @@ import SponsorsAdvertiseRequestFormAdsSection from './SponsorsAdvertiseRequestFo
 import SponsorsAdvertiseRequestFormCompanyDetailsSection from './SponsorsAdvertiseRequestFormCompanyDetailsSection';
 import SponsorsAdvertiseRequestFormContactSection from './SponsorsAdvertiseRequestFormContactSection';
 import SponsorsAdvertiseRequestFormReviewSection from './SponsorsAdvertiseRequestFormReviewSection';
+import type { SponsorsAdFormatFormItem } from './types';
 
 type AdvertiseRequestFormValues = Readonly<{
+  ads: Array<SponsorsAdFormatFormItem>;
   emails: Array<string>;
 }>;
 
@@ -42,6 +44,7 @@ export default function SponsorsAdvertiseRequestForm() {
   ] as const;
 
   const [formData, setFormData] = useState<AdvertiseRequestFormValues>({
+    ads: [],
     emails: [],
   });
   const [step, setStep] = useState<(typeof steps)[number]['value']>('contact');
@@ -85,8 +88,12 @@ export default function SponsorsAdvertiseRequestForm() {
       )}
       {step === 'ads' && (
         <SponsorsAdvertiseRequestFormAdsSection
+          defaultValues={formData.ads}
+          updateFormData={(ads) => setFormData((prev) => ({ ...prev, ads }))}
           onPrevious={() => setStep('contact')}
-          onSubmit={() => setStep('company')}
+          onSubmit={() => {
+            setStep('company');
+          }}
         />
       )}
       {step === 'company' && (

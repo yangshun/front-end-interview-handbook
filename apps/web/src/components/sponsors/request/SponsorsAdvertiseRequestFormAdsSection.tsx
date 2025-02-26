@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   RiAddLine,
   RiArrowLeftLine,
@@ -9,6 +9,7 @@ import {
 import { useList } from 'react-use';
 import { v4 as uuidv4 } from 'uuid';
 
+import { FormattedMessage, useIntl } from '~/components/intl';
 import { useSponsorsAdFormatData } from '~/components/sponsors/SponsorsAdFormatConfigs';
 import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
@@ -27,55 +28,53 @@ import {
 import SponsorsAdvertiseRequestFormAdsSectionGlobalBanner from './formats/SponsorsAdvertiseRequestFormAdsSectionGlobalBanner';
 import SponsorsAdvertiseRequestFormAdsSectionInContent from './formats/SponsorsAdvertiseRequestFormAdsSectionInContent';
 import SponsorsAdvertiseRequestFormAdsSectionSpotlight from './formats/SponsorsAdvertiseRequestFormAdsSectionSpotlight';
+import type { SponsorsAdFormatFormItem } from './types';
 import { SponsorAdFormatConfigs } from '../SponsorsAdFormatConfigs';
 import { themeBackgroundElementEmphasizedStateColor_Hover } from '../../ui/theme';
 
 import type { SponsorsAdFormat } from '@prisma/client';
 
 type Props = Readonly<{
+  defaultValues: Array<SponsorsAdFormatFormItem>;
   onPrevious: () => void;
   onSubmit: () => void;
+  updateFormData(ads: Array<SponsorsAdFormatFormItem>): void;
 }>;
-
-type SponsorsAdFormatFormItem =
-  | Readonly<{
-      format: 'GLOBAL_BANNER';
-      id: string;
-      text: string;
-      url: string;
-      weeks: Set<string>;
-    }>
-  | Readonly<{
-      format: 'IN_CONTENT';
-      id: string;
-      text: string;
-      url: string;
-      weeks: Set<string>;
-    }>
-  | Readonly<{
-      format: 'SPOTLIGHT';
-      id: string;
-      text: string;
-      url: string;
-      weeks: Set<string>;
-    }>;
 
 export default function SponsorsAdvertiseRequestFormAdsSection({
   onSubmit,
   onPrevious,
+  defaultValues,
+  updateFormData,
 }: Props) {
+  const intl = useIntl();
   const [selectedFormat, setSelectedFormat] = useState<SponsorsAdFormat | null>(
-    'GLOBAL_BANNER',
+    defaultValues.length > 0 ? null : 'GLOBAL_BANNER',
   );
   const adFormatData = useSponsorsAdFormatData();
-  const [ads, adsActions] = useList<SponsorsAdFormatFormItem>([]);
+  const [ads, adsActions] = useList<SponsorsAdFormatFormItem>(defaultValues);
+
+  useEffect(() => {
+    updateFormData(ads);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [ads]);
 
   return (
     <div className="mx-auto w-full max-w-5xl">
-      <Heading level="heading6">Ads</Heading>
+      <Heading level="heading6">
+        <FormattedMessage
+          defaultMessage="Ads"
+          description="Advertise request form ads section title"
+          id="BjmcJ4"
+        />
+      </Heading>
       <Section>
         <Text className="block" color="secondary">
-          Choose your ad formats, go live schedule, and upload assets
+          <FormattedMessage
+            defaultMessage="Choose your ad formats, go live schedule, and upload assets"
+            description="Advertise request form ads section description"
+            id="fTD+AB"
+          />
         </Text>
         {ads.length > 0 && (
           <div className="mt-12 flex flex-col items-start">
@@ -106,7 +105,14 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
                       tooltip="Delete ad"
                       variant="tertiary"
                       onClick={() => {
+                        const remainingAds = ads.filter(
+                          (adItem) => adItem.id !== ad.id,
+                        );
+
                         adsActions.filter((adItem) => adItem.id !== ad.id);
+                        if (remainingAds.length === 0) {
+                          setSelectedFormat('GLOBAL_BANNER');
+                        }
                       }}
                     />
                   </div>
@@ -122,20 +128,30 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
             </ul>
             <div className="mt-4 flex w-full flex-row-reverse justify-between gap-4">
               <Text className="mr-3" size="body2" weight="bold">
-                Total: $
-                {ads.reduce(
-                  (acc, curr) =>
-                    acc +
-                    curr.weeks.size *
-                      SponsorAdFormatConfigs[curr.format].pricePerWeekUSD,
-                  0,
-                )}
+                <FormattedMessage
+                  defaultMessage="Total: ${total}"
+                  description="Total price label"
+                  id="0kDCAp"
+                  values={{
+                    total: ads.reduce(
+                      (acc, curr) =>
+                        acc +
+                        curr.weeks.size *
+                          SponsorAdFormatConfigs[curr.format].pricePerWeekUSD,
+                      0,
+                    ),
+                  }}
+                />
               </Text>
               {selectedFormat == null && (
                 <Button
                   addonPosition="start"
                   icon={RiAddLine}
-                  label="Add another ad"
+                  label={intl.formatMessage({
+                    defaultMessage: 'Add another ad',
+                    description: 'Label for add another ad button',
+                    id: 'huxjqQ',
+                  })}
                   size="md"
                   variant="secondary"
                   onClick={() => {
@@ -151,8 +167,17 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
           <>
             <div className="mt-12">
               <Label
-                description="Select an ad format to display, you can create multiple ads"
-                label="Ad format"
+                description={intl.formatMessage({
+                  defaultMessage:
+                    'Select an ad format to display, you can create multiple ads',
+                  description: 'Ad format selection description',
+                  id: '+3r4Ek',
+                })}
+                label={intl.formatMessage({
+                  defaultMessage: 'Ad format',
+                  description: 'Label for ad format selection',
+                  id: 'ZpNg6A',
+                })}
               />
               <div className="mt-3 grid gap-3 md:grid-cols-2 lg:grid-cols-3">
                 {(
@@ -293,7 +318,11 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
             <Button
               addonPosition="start"
               icon={RiArrowLeftLine}
-              label="Previous"
+              label={intl.formatMessage({
+                defaultMessage: 'Previous',
+                description: 'Label for previous button',
+                id: 'd2w71C',
+              })}
               size="md"
               variant="secondary"
               onClick={() => {
@@ -303,7 +332,11 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
             <Button
               icon={RiArrowRightLine}
               isDisabled={ads.length === 0}
-              label="Company details"
+              label={intl.formatMessage({
+                defaultMessage: 'Company details',
+                description: 'Label for company details button',
+                id: 'OY0i/0',
+              })}
               size="md"
               variant="primary"
               onClick={() => {
