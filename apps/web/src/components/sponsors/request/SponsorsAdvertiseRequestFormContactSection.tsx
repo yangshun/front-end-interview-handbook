@@ -1,12 +1,8 @@
 import clsx from 'clsx';
 import { useEffect } from 'react';
-import {
-  Controller,
-  useFieldArray,
-  useFormContext,
-  useWatch,
-} from 'react-hook-form';
+import { Controller, useFieldArray, useForm, useWatch } from 'react-hook-form';
 import { RiArrowRightLine } from 'react-icons/ri';
+import type { z } from 'zod';
 
 import { FormattedMessage, useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
@@ -15,20 +11,42 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
 
+import { useSponsorsAdvertiseRequestContactSchema } from './schema/SponsorsAdvertiseRequestContactSchema';
+
+import { zodResolver } from '@hookform/resolvers/zod';
+
 type Props = Readonly<{
-  onSubmit: () => void;
+  defaultValues: ReadonlyArray<string>;
+  onSubmit: (emails: Array<string>) => void;
 }>;
 
 const emailRegex = /^\S+@\S+\.\S+$/;
 
 export default function SponsorsAdvertiseRequestFormContactSection({
   onSubmit,
+  defaultValues,
 }: Props) {
-  const intl = useIntl();
+  const contactDetailsSchema = useSponsorsAdvertiseRequestContactSchema();
+  const methods = useForm<z.infer<typeof contactDetailsSchema>>({
+    defaultValues: {
+      emails:
+        defaultValues.length >= 2
+          ? defaultValues.map((email) => ({
+              value: email,
+            }))
+          : defaultValues.length === 1
+            ? [{ value: defaultValues[0] }, { value: '' }]
+            : [{ value: '' }, { value: '' }],
+    },
+    mode: 'onTouched',
+    resolver: zodResolver(contactDetailsSchema),
+  });
   const {
     control,
     formState: { isValid },
-  } = useFormContext();
+    handleSubmit,
+  } = methods;
+  const intl = useIntl();
   const { fields, append } = useFieldArray({
     control,
     name: 'emails',
@@ -50,8 +68,16 @@ export default function SponsorsAdvertiseRequestFormContactSection({
     }
   }, [emails, append]);
 
+  function handleOnSubmit(data: z.infer<typeof contactDetailsSchema>) {
+    onSubmit(
+      data.emails.map((email) => email.value).filter((value) => value !== ''),
+    );
+  }
+
   return (
-    <div className="mx-auto w-full max-w-xl">
+    <form
+      className="mx-auto w-full max-w-xl"
+      onSubmit={handleSubmit(handleOnSubmit)}>
       <Heading level="heading6">
         <FormattedMessage
           defaultMessage="Contact details"
@@ -105,13 +131,11 @@ export default function SponsorsAdvertiseRequestFormContactSection({
               id: 'uSMCBJ',
             })}
             size="md"
+            type="submit"
             variant="primary"
-            onClick={() => {
-              onSubmit();
-            }}
           />
         </div>
       </Section>
-    </div>
+    </form>
   );
 }
