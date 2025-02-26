@@ -29,7 +29,7 @@ export default function SponsorsAdvertiseRequestAgreement({
   return (
     <div
       className={clsx(
-        'prose',
+        'prose dark:prose-invert',
         textVariants({
           color: 'secondary',
           size: 'body2',
