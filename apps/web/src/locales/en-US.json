@@ -147,6 +147,10 @@
     "defaultMessage": "Prev",
     "description": "Previous label"
   },
+  "+sDMju": {
+    "defaultMessage": "City / Town",
+    "description": "City / Town input label"
+  },
   "+u6zX0": {
     "defaultMessage": "Design systems",
     "description": "Title for \"Design systems\" feature on Projects home page"
@@ -166,6 +170,10 @@
   "+wAHkD": {
     "defaultMessage": "Prepare well for your front end interviews regardless of time left.",
     "description": "Description for study plans page"
+  },
+  "+wUGiM": {
+    "defaultMessage": "ZIP / Postal code",
+    "description": "ZIP / Postal code input label"
   },
   "+y/iOY": {
     "defaultMessage": "Support you can expect",
@@ -807,6 +815,10 @@
     "defaultMessage": "You replied to <recipientProfileLink>{recipient}</recipientProfileLink> on the challenge forum for <link>{challengeTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for you replying to someone on the challenge forum"
   },
+  "3/KJgr": {
+    "defaultMessage": "Country is required",
+    "description": "Error message for country"
+  },
   "37Ttml": {
     "defaultMessage": "Security",
     "description": "Title for Security section on profile page"
@@ -990,6 +1002,10 @@
   "47jdAi": {
     "defaultMessage": "{count, plural, one {1 credit} other {# credits}}",
     "description": "Number of credits"
+  },
+  "49TDbW": {
+    "defaultMessage": "VAT / Tax number",
+    "description": "Tax number input label"
   },
   "4AAKga": {
     "defaultMessage": "Vue Interview Questions | Solutions by Ex-FAANG interviewers",
@@ -1955,6 +1971,10 @@
     "defaultMessage": "Created: Newest to Oldest",
     "description": "Sorting option on question list page to sort by creation time, from newest to oldest"
   },
+  "A/BZd2": {
+    "defaultMessage": "Title of authorized signatory",
+    "description": "Signatory title input label"
+  },
   "A0i9qA": {
     "defaultMessage": "Read more",
     "description": "Read more"
@@ -2419,6 +2439,10 @@
     "defaultMessage": "Build together with other like-minded individuals",
     "description": "Title for \"Build together with other like-minded individuals\" feature marketing section on Projects home page"
   },
+  "CxiBL1": {
+    "defaultMessage": "Company full legal name",
+    "description": "Legal name input label"
+  },
   "D0xOX8": {
     "defaultMessage": "Framework / language",
     "description": "Label for framework/language filter"
@@ -2426,6 +2450,10 @@
   "D1kkKk": {
     "defaultMessage": "The skills / tools / frameworks you are already familiar in. Cannot find the tag you need? Email us at {supportEmail}",
     "description": "Description for tech stack field"
+  },
+  "D2WaF7": {
+    "defaultMessage": "Street is required",
+    "description": "Error message for street"
   },
   "D5644P": {
     "defaultMessage": "Existing subscribers can upgrade to the lifetime plan at a discount, send an email to <link>contact@greatfrontend</link> to find out more.",
@@ -3083,6 +3111,10 @@
     "defaultMessage": "Rep will be awarded for using skills in a project. Realistically, we expect up to 8 skills being used in a large project.",
     "description": "Description for rep gains from top 10 skills"
   },
+  "H34NwF": {
+    "defaultMessage": "Signatory title is required",
+    "description": "Error message for signatory title"
+  },
   "H39M2g": {
     "defaultMessage": "What to expect for Front End System Design interviews",
     "description": "Sidebar link title for front end system design interviews"
@@ -3326,6 +3358,10 @@
   "IIyxmO": {
     "defaultMessage": "End project session?",
     "description": "Title for end project session dialog"
+  },
+  "IJYd3w": {
+    "defaultMessage": "This will be displayed on the ad",
+    "description": "Sponsor name input description"
   },
   "IK3TnA": {
     "defaultMessage": "Relevant techniques",
@@ -3947,9 +3983,17 @@
     "defaultMessage": "User submissions | Learn from others",
     "description": "Title of projects learn from others page"
   },
+  "LQwMJq": {
+    "defaultMessage": "State is required",
+    "description": "Error message for state"
+  },
   "LREMMc": {
     "defaultMessage": "Retry task",
     "description": "Label for button to start task"
+  },
+  "LRxWVH": {
+    "defaultMessage": "Name of authorized signatory",
+    "description": "Signatory name input label"
   },
   "LSQPwj": {
     "defaultMessage": "Skills roadmap",
@@ -4791,6 +4835,10 @@
     "defaultMessage": "Edit your submission",
     "description": "Title for the challenge submission edit page"
   },
+  "Qd4bl9": {
+    "defaultMessage": "Postal code is required",
+    "description": "Error message for postal code"
+  },
   "Qd5BTL": {
     "defaultMessage": "Holistic front end skill roadmap",
     "description": "Title of 'Roadmap of front end skills' sub-feature in Projects marketing page"
@@ -5323,6 +5371,10 @@
     "defaultMessage": "Company Interview Guides | GreatFrontEnd",
     "description": "Social title for company guides listing"
   },
+  "T+XVje": {
+    "defaultMessage": "Provide the company details for invoicing and agreement purposes",
+    "description": "Company details section description"
+  },
   "T4ajXP": {
     "defaultMessage": "{discountPercentage}% off",
     "description": "Rewards discount message"
@@ -5478,6 +5530,10 @@
   "Tgl+yQ": {
     "defaultMessage": "Copy",
     "description": "Button label for copy button"
+  },
+  "ThjDJa": {
+    "defaultMessage": "Address",
+    "description": "Address section label"
   },
   "Ti1Gle": {
     "defaultMessage": "Premium is required to access company tags",
@@ -7631,6 +7687,10 @@
     "defaultMessage": "LinkedIn",
     "description": "Company name for LinkedIn"
   },
+  "g6ZUKV": {
+    "defaultMessage": "Company details",
+    "description": "Company details section heading"
+  },
   "g9OX0J": {
     "defaultMessage": "{replyCount, plural, one {Show # reply} other {Show # replies}}",
     "description": "Label for more replies button on project discussions page"
@@ -7738,6 +7798,10 @@
   "glZsYe": {
     "defaultMessage": "Max streak: <bold>{count}</bold>",
     "description": "Label for max streak"
+  },
+  "gmgOLc": {
+    "defaultMessage": "City is required",
+    "description": "Error message for city"
   },
   "goncmR": {
     "defaultMessage": "Submission title must contain at least {minLength} character(s).",
@@ -8035,6 +8099,10 @@
     "defaultMessage": "Amazon",
     "description": "Company name for Amazon"
   },
+  "iOm9a5": {
+    "defaultMessage": "Sponsor name",
+    "description": "Sponsor name input label"
+  },
   "iSDQh3": {
     "defaultMessage": "Companies",
     "description": "Title for section on question that shows which companies asked the question"
@@ -8042,6 +8110,10 @@
   "iSFCj/": {
     "defaultMessage": "Signing Out",
     "description": "Title of Logout page"
+  },
+  "iV+56f": {
+    "defaultMessage": "Country",
+    "description": "Country input label"
   },
   "iWvwoB": {
     "defaultMessage": "It looks like you don’t have any notifications at the moment. Check back here for updates on your activities, messages, and more.",
@@ -8170,6 +8242,10 @@
   "jTKrPE": {
     "defaultMessage": "Invalid Github username or URL",
     "description": "Error message when github username or url is invalid"
+  },
+  "jTWrRY": {
+    "defaultMessage": "Apartment, unit, or other",
+    "description": "Apartment, unit, or other input label"
   },
   "jUwdc1": {
     "defaultMessage": "Your ad slot is officially booked once payment is completed.",
@@ -8659,6 +8735,10 @@
     "defaultMessage": "You are currently working on this skill",
     "description": "Description for projects skill in progress status"
   },
+  "mIhFbl": {
+    "defaultMessage": "Legal name is required",
+    "description": "Error message for legal name"
+  },
   "mKOi1B": {
     "defaultMessage": "Study plans",
     "description": "Label for study plans study list"
@@ -8698,6 +8778,10 @@
   "mVFZ09": {
     "defaultMessage": "We've started tracking your progress for {studyListName}",
     "description": "Success message for starting a study plan"
+  },
+  "mWSkkL": {
+    "defaultMessage": "Sponsor name is required",
+    "description": "Error message for sponsor name"
   },
   "mYn2DH": {
     "defaultMessage": "Get started",
@@ -8790,6 +8874,10 @@
   "n1RgqQ": {
     "defaultMessage": "Skills roadmap",
     "description": "Projects skills roadmap item label"
+  },
+  "n1Wo2N": {
+    "defaultMessage": "The address is used in the agreement",
+    "description": "Address section description"
   },
   "n2GSsV": {
     "defaultMessage": "Tech stack used",
@@ -8942,6 +9030,10 @@
   "nkY9S8": {
     "defaultMessage": "Behavioral Interview Playbook",
     "description": "Social title for behavioral interview playbook cover page"
+  },
+  "nkdi2x": {
+    "defaultMessage": "Street address",
+    "description": "Street address input label"
   },
   "nkhVnD": {
     "defaultMessage": "Browse curated content series on front end development. Explore structured guides, tutorials, and expert insights to deepen your knowledge and boost your skills.",
@@ -9418,6 +9510,10 @@
   "qVn8Yq": {
     "defaultMessage": "Trending user submissions",
     "description": "Title for Trending submissions section on Projects dashboard page"
+  },
+  "qWP6XC": {
+    "defaultMessage": "Body",
+    "description": "Label for body input"
   },
   "qdOBuk": {
     "defaultMessage": "Practice questions",
@@ -10743,6 +10839,10 @@
     "defaultMessage": "You are on the <bold>Quarterly</bold> plan.",
     "description": "Text describing user's subscription plan."
   },
+  "ymIkds": {
+    "defaultMessage": "State / Province / Region",
+    "description": "State / Province / Region input label"
+  },
   "ymmDf7": {
     "defaultMessage": "Premium",
     "description": "Label for premium"
@@ -10798,6 +10898,10 @@
   "z1Offf": {
     "defaultMessage": "Sign up with school email",
     "description": "Button label"
+  },
+  "z4Pmzh": {
+    "defaultMessage": "Signatory name is required",
+    "description": "Error message for signatory name"
   },
   "z5iOkW": {
     "defaultMessage": "Creators of widely-used interview materials",

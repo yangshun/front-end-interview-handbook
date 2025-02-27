@@ -124,7 +124,11 @@ export default function SponsorsAdvertiseRequestFormAdsSectionGlobalBanner({
                   },
                 )}
                 errorMessage={error?.message}
-                label="Title"
+                label={intl.formatMessage({
+                  defaultMessage: 'Title',
+                  description: 'Label for title input',
+                  id: 'hF+MYj',
+                })}
                 maxLength={
                   SponsorAdFormatConfigs.GLOBAL_BANNER.placementConstraints.text
                 }

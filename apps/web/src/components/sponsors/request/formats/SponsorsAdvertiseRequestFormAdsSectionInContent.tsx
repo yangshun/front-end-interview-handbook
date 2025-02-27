@@ -155,7 +155,11 @@ export default function SponsorsAdvertiseRequestFormAdsSectionInContent({
                     },
                   )}
                   errorMessage={error?.message}
-                  label="Title"
+                  label={intl.formatMessage({
+                    defaultMessage: 'Title',
+                    description: 'Label for title input',
+                    id: 'hF+MYj',
+                  })}
                   maxLength={
                     SponsorAdFormatConfigs.IN_CONTENT.placementConstraints.text
                   }
@@ -181,7 +185,11 @@ export default function SponsorsAdvertiseRequestFormAdsSectionInContent({
                     },
                   )}
                   errorMessage={error?.message}
-                  label="Body"
+                  label={intl.formatMessage({
+                    defaultMessage: 'Body',
+                    description: 'Label for body input',
+                    id: 'qWP6XC',
+                  })}
                   maxLength={
                     SponsorAdFormatConfigs.IN_CONTENT.placementConstraints.body
                       ?.length
@@ -193,6 +201,7 @@ export default function SponsorsAdvertiseRequestFormAdsSectionInContent({
                     id: 'xaoljh',
                   })}
                   required={true}
+                  {...field}
                   value={field.value}
                   onChange={(newValue) => {
                     field.onChange({
