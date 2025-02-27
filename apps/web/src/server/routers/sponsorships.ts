@@ -263,7 +263,12 @@ Elevate your style, inspire your creativity, and represent your coding chops wit
             ? 'in-content'
             : 'global-banner';
       const storagePath =
-        sessionId + '/' + fileName + String(new Date().getTime()) + '.jpg';
+        sessionId +
+        '/' +
+        fileName +
+        '-' +
+        String(new Date().getTime()) +
+        '.jpg';
       const { error } = await supabaseAdmin.storage
         .from('ads')
         .upload(storagePath, blob, {
