@@ -17,6 +17,7 @@ export type SponsorsAdFormatFormItem =
   | Readonly<{
       format: 'SPOTLIGHT';
       id: string;
+      imageUrl: string;
       text: string;
       url: string;
       weeks: Set<string>;

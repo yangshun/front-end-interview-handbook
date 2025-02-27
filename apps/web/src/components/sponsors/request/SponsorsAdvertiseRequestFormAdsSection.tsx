@@ -303,12 +303,13 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
                         }
                       : undefined
                   }
-                  onSubmit={({ text, url, weeks }) => {
+                  onSubmit={({ text, url, weeks, imageUrl }) => {
                     updateAds([
                       ...ads,
                       {
                         format: 'SPOTLIGHT',
                         id: uuidv4(),
+                        imageUrl,
                         text,
                         url,
                         weeks,

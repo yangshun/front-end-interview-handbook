@@ -5291,6 +5291,10 @@
     "defaultMessage": "Bootcamp Grad",
     "description": "Label for \"Bootcamp Grad\" option in YOE replacement"
   },
+  "SqCCTt": {
+    "defaultMessage": "Spotlight ad configuration",
+    "description": "Label for ad configuration"
+  },
   "SsWL2T": {
     "defaultMessage": "Explore series",
     "description": "Sidebar label for explore series"
@@ -5382,6 +5386,10 @@
   "TO74hd": {
     "defaultMessage": "Join the community",
     "description": "Title of community page"
+  },
+  "TPtepX": {
+    "defaultMessage": "Configure your spotlight ad and upload the required assets",
+    "description": "Description for spotlight ad configuration"
   },
   "TQLJ/G": {
     "defaultMessage": "There is something to learn from GreatFrontEnd for engineers of all seniority levels. Junior engineers will be able to solidify their fundamentals and learn techniques they never knew about. Mid-level engineers will benefit from more advanced concepts like internationalization, accessibility, and performance. Senior engineers will benefit most from the system design questions which impart architectural concepts.",
@@ -7794,6 +7802,10 @@
   "hEu8WR": {
     "defaultMessage": "{repRemaining} rep to <emph>level {nextLevel}</emph>",
     "description": "Rep remaining to next level"
+  },
+  "hF+MYj": {
+    "defaultMessage": "Title",
+    "description": "Label for title input"
   },
   "hFD3sp": {
     "defaultMessage": "Confirm",
