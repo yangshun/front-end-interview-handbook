@@ -1,7 +1,59 @@
+import { $getRoot } from 'lexical';
 import { z } from 'zod';
 
 import { useIntl } from '~/components/intl';
 import { SponsorAdFormatConfigs } from '~/components/sponsors/SponsorsAdFormatConfigs';
+import { RichTextEditorConfig } from '~/components/ui/RichTextEditor/RichTextEditorConfig';
+
+import { createHeadlessEditor } from '@lexical/headless';
+
+const editor = createHeadlessEditor(RichTextEditorConfig);
+
+function bodySchema(options?: {
+  maxLength: number;
+  maxMessage?: string;
+  minMessage?: string;
+}) {
+  const {
+    minMessage = 'Body is required',
+    maxMessage = 'Body is too long',
+    maxLength = 500,
+  } = options ?? {};
+
+  return z
+    .string()
+    .trim()
+    .refine(
+      (value) => {
+        try {
+          const editorState = editor.parseEditorState(value);
+          const text = editorState.read(() => $getRoot().getTextContent());
+
+          return text.length >= 1;
+        } catch {
+          return false;
+        }
+      },
+      {
+        message: minMessage,
+      },
+    )
+    .refine(
+      (value) => {
+        try {
+          const editorState = editor.parseEditorState(value);
+          const text = editorState.read(() => $getRoot().getTextContent());
+
+          return text.length <= maxLength;
+        } catch {
+          return false;
+        }
+      },
+      {
+        message: maxMessage,
+      },
+    );
+}
 
 /** Schema for schedule validation */
 function scheduleSchema(options?: { minMessage: string }) {
@@ -162,10 +214,11 @@ export function useSponsorsInContentAdSchema() {
   return useSponsorsAdvertiseAdBaseSchema(
     SponsorAdFormatConfigs.IN_CONTENT.placementConstraints.text,
   ).extend({
-    body: z
-      .string()
-      .min(1, bodyRequiredMessage)
-      .max(maxLength, bodyMaxLengthMessage),
+    body: bodySchema({
+      maxLength,
+      maxMessage: bodyMaxLengthMessage,
+      minMessage: bodyRequiredMessage,
+    }),
     format: z.literal('IN_CONTENT'),
     imageUrl: z
       .string()
@@ -178,14 +231,11 @@ export function useSponsorsInContentAdSchema() {
 export const sponsorsInContentAdSchemaServer = adBaseSchema({
   maxLength: SponsorAdFormatConfigs.IN_CONTENT.placementConstraints.text,
 }).extend({
-  body: z
-    .string()
-    .min(1, 'Body is required')
-    .max(
+  body: bodySchema({
+    maxLength:
       SponsorAdFormatConfigs.IN_CONTENT.placementConstraints.body?.length ??
-        500,
-      'Body is too long',
-    ),
+      500,
+  }),
   format: z.literal('IN_CONTENT'),
   imageUrl: z.string().url('Invalid image URL').min(1, 'Image is required'),
   weeks: scheduleSchema(),

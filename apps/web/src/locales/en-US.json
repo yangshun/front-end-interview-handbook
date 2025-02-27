@@ -2699,6 +2699,10 @@
     "defaultMessage": "Meet the <strong>front end interview prep platform</strong> built to make your interviews much easier. By Big Tech ex-interviewers at",
     "description": "Subtitle for hero"
   },
+  "EfUaYk": {
+    "defaultMessage": "Select or drop an image here",
+    "description": "Ad image upload description"
+  },
   "EflBca": {
     "defaultMessage": "Started: {daysSinceStarted} days",
     "description": "Days since started for Continue projects section on Projects dashboard page"
@@ -4163,6 +4167,10 @@
     "defaultMessage": "See whole component track",
     "description": "Label for \"See whole component track\" button in Component track accordion"
   },
+  "Mx3eHd": {
+    "defaultMessage": "{noOfWeeks} week(s)",
+    "description": "No of weeks"
+  },
   "Myky94": {
     "defaultMessage": "JS functions",
     "description": "Front end JavaScript utility functions"
@@ -4986,6 +4994,10 @@
   "RTBOas": {
     "defaultMessage": "JavaScript",
     "description": "Label for JavaScript language"
+  },
+  "RTTAsr": {
+    "defaultMessage": "Maximum of {maxLinks} links allowed",
+    "description": "Description for body input"
   },
   "RUj4TG": {
     "defaultMessage": "Challenges | Progress | {name}",
@@ -6214,6 +6226,10 @@
   "Y6CFPM": {
     "defaultMessage": "By proceeding, you agree to GreatFrontEnd's <tos>Terms of Service</tos> and <pp>Privacy Policy</pp>.",
     "description": "Disclaimer of agreement to terms of service and privacy policy on Email Sign Up page"
+  },
+  "Y8acmz": {
+    "defaultMessage": "Follow the image dimensions guidelines",
+    "description": "Description for ad asset"
   },
   "YBlo/J": {
     "defaultMessage": "As mentioned above, there are many ways to host your project for free. Our recommend hosts are:",
@@ -10175,6 +10191,10 @@
     "defaultMessage": "Official solutions for all questions, authored by former FAANG interviewers",
     "description": "Tooltip label for unlock all premium interviews content"
   },
+  "vWBErz": {
+    "defaultMessage": "Ad asset",
+    "description": "Label for ad image"
+  },
   "vWzLH8": {
     "defaultMessage": "Full access to tracks & skills. Unlimited <tooltip>premium credits</tooltip>",
     "description": "Subtitle of premium plan CTA card"
@@ -10490,6 +10510,10 @@
   "xYKCsE": {
     "defaultMessage": "Сoncise step by step practical guides",
     "description": "Short description for \"Official guides\" feature on Projects home page"
+  },
+  "xaoljh": {
+    "defaultMessage": "Enter something here...",
+    "description": "Placeholder for body input"
   },
   "xbSTzm": {
     "defaultMessage": "<authorLink>{author}</authorLink> left a comment on <submissionLink>{entityTitle}</submissionLink> {timestamp}",

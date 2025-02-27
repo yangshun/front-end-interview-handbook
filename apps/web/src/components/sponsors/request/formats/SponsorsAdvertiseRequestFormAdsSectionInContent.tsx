@@ -1,14 +1,17 @@
 import clsx from 'clsx';
-import { useState } from 'react';
+import { $getRoot } from 'lexical';
+import { Controller, useForm } from 'react-hook-form';
 import { RiArrowRightLine } from 'react-icons/ri';
-import { useSet } from 'react-use';
+import type { z } from 'zod';
 
 import NavColorSchemeDropdown from '~/components/global/navbar/NavColorSchemeDropdown';
+import { useIntl } from '~/components/intl';
 import SponsorsAdFormatInContent from '~/components/sponsors/ads/SponsorsAdFormatInContent';
 import { SponsorAdFormatConfigs } from '~/components/sponsors/SponsorsAdFormatConfigs';
 import Button from '~/components/ui/Button';
 import Label from '~/components/ui/Label';
 import RichTextEditor from '~/components/ui/RichTextEditor';
+import { RichTextEditorConfig } from '~/components/ui/RichTextEditor/RichTextEditorConfig';
 import TextArea from '~/components/ui/TextArea';
 import TextInput from '~/components/ui/TextInput';
 import {
@@ -16,8 +19,14 @@ import {
   themeBorderEmphasizeColor,
 } from '~/components/ui/theme';
 
+import { useSponsorsInContentAdSchema } from '../schema/SponsorsAdvertiseRequestAdSchema';
 import SponsorsAdvertiseRequestFormAdsImageUpload from '../SponsorsAdvertiseRequestFormAdsImageUpload';
 import SponsorsAdvertiseRequestFormAdsSectionAvailability from '../SponsorsAdvertiseRequestFormAdsSectionAvailability';
+
+const editor = createHeadlessEditor(RichTextEditorConfig);
+
+import { zodResolver } from '@hookform/resolvers/zod';
+import { createHeadlessEditor } from '@lexical/headless';
 
 type Props = Readonly<{
   onCancel?: () => void;
@@ -25,7 +34,9 @@ type Props = Readonly<{
     text,
     url,
     weeks,
+    imageUrl,
   }: Readonly<{
+    imageUrl: string;
     text: string;
     url: string;
     weeks: Set<string>;
@@ -36,16 +47,62 @@ export default function SponsorsAdvertiseRequestFormAdsSectionInContent({
   onCancel,
   onSubmit,
 }: Props) {
-  const [selectedWeeks, selectedWeeksActions] = useSet<string>();
-  const [text, setText] = useState('');
-  const [url, setURL] = useState('');
+  const intl = useIntl();
+  const adSchema = useSponsorsInContentAdSchema();
+  const methods = useForm<z.infer<typeof adSchema>>({
+    defaultValues: {
+      format: 'IN_CONTENT',
+      text: '',
+      url: '',
+      weeks: new Set(''),
+    },
+    mode: 'onTouched',
+    resolver: zodResolver(adSchema),
+  });
+  const {
+    control,
+    watch,
+    setValue,
+    formState: { isValid },
+  } = methods;
+
+  const selectedWeeks = watch('weeks');
+  const title = watch('text');
+  const body = watch('body');
+
+  const editorState = editor.parseEditorState(body);
+  const bodyText = editorState.read(() => $getRoot().getTextContent());
+
+  function handleOnSubmit(data: z.infer<typeof adSchema>) {
+    onSubmit({
+      imageUrl: data.imageUrl,
+      text: data.text,
+      url: data.url,
+      weeks: data.weeks,
+    });
+  }
 
   return (
-    <div className="flex flex-col gap-12">
+    <form
+      className="flex flex-col gap-12"
+      onSubmit={methods.handleSubmit(handleOnSubmit)}>
       <SponsorsAdvertiseRequestFormAdsSectionAvailability
         adFormat="IN_CONTENT"
         selectedWeeks={selectedWeeks}
-        selectedWeeksActions={selectedWeeksActions}
+        selectedWeeksActions={{
+          add: (week: string) =>
+            setValue('weeks', new Set([...Array.from(selectedWeeks), week]), {
+              shouldValidate: true,
+            }),
+          remove: (week: string) =>
+            setValue(
+              'weeks',
+              new Set([...Array.from(selectedWeeks)].filter((w) => w !== week)),
+              {
+                shouldValidate: true,
+              },
+            ),
+        }}
       />
       <div>
         <Label
@@ -54,26 +111,73 @@ export default function SponsorsAdvertiseRequestFormAdsSectionInContent({
         />
         <div className="mt-4 grid gap-4 md:grid-cols-2">
           <div>
-            <TextArea
-              description={`Maximum of ${SponsorAdFormatConfigs.IN_CONTENT.placementConstraints.text} characters`}
-              label="Title"
-              maxLength={
-                SponsorAdFormatConfigs.IN_CONTENT.placementConstraints.text
-              }
-              required={true}
-              value={text}
-              onChange={(value) => setText(value)}
+            <Controller
+              control={control}
+              name="text"
+              render={({ field, fieldState: { error } }) => (
+                <TextArea
+                  {...field}
+                  description={intl.formatMessage(
+                    {
+                      defaultMessage: 'Maximum of {maxLength} characters',
+                      description: 'Description for title input',
+                      id: 'MpD3WU',
+                    },
+                    {
+                      maxLength:
+                        SponsorAdFormatConfigs.IN_CONTENT.placementConstraints
+                          .text,
+                    },
+                  )}
+                  errorMessage={error?.message}
+                  label="Title"
+                  maxLength={
+                    SponsorAdFormatConfigs.IN_CONTENT.placementConstraints.text
+                  }
+                  required={true}
+                />
+              )}
             />
-            <RichTextEditor
-              description={`Maximum of ${SponsorAdFormatConfigs.IN_CONTENT.placementConstraints.body?.links} links allowed`}
-              label="Body"
-              maxLength={
-                SponsorAdFormatConfigs.IN_CONTENT.placementConstraints.body
-                  ?.length
-              }
-              minHeight="200px"
-              placeholder="Enter something"
-              required={true}
+            <Controller
+              control={control}
+              name="body"
+              render={({ field, fieldState: { error } }) => (
+                <RichTextEditor
+                  description={intl.formatMessage(
+                    {
+                      defaultMessage: 'Maximum of {maxLinks} links allowed',
+                      description: 'Description for body input',
+                      id: 'RTTAsr',
+                    },
+                    {
+                      maxLinks:
+                        SponsorAdFormatConfigs.IN_CONTENT.placementConstraints
+                          .body?.links,
+                    },
+                  )}
+                  errorMessage={error?.message}
+                  label="Body"
+                  maxLength={
+                    SponsorAdFormatConfigs.IN_CONTENT.placementConstraints.body
+                      ?.length
+                  }
+                  minHeight="200px"
+                  placeholder={intl.formatMessage({
+                    defaultMessage: 'Enter something here...',
+                    description: 'Placeholder for body input',
+                    id: 'xaoljh',
+                  })}
+                  required={true}
+                  value={field.value}
+                  onChange={(newValue) => {
+                    field.onChange({
+                      target: {
+                        value: newValue,
+                      },
+                    });
+                  }}
+                />
+              )}
             />
             <SponsorsAdvertiseRequestFormAdsImageUpload
               heightConstraint={
@@ -85,22 +189,41 @@ export default function SponsorsAdvertiseRequestFormAdsSectionInContent({
                   ?.width ?? 1
               }
             />
-            <TextInput
-              classNameOuter="mt-4"
-              description="Destination for ad clicks"
-              label="URL"
-              placeholder="https://www.example.com"
-              required={true}
-              type="url"
-              value={url}
-              onChange={(value) => setURL(value)}
+            <Controller
+              control={control}
+              name="url"
+              render={({ field, fieldState: { error } }) => (
+                <TextInput
+                  {...field}
+                  classNameOuter="mt-4"
+                  description={intl.formatMessage({
+                    defaultMessage: 'Destination for banner clicks',
+                    description: 'Description for URL input',
+                    id: 'Es4JKW',
+                  })}
+                  errorMessage={error?.message}
+                  label="URL"
+                  placeholder="https://www.example.com"
+                  required={true}
+                  type="url"
+                />
+              )}
             />
           </div>
           <div>
             <div className="flex items-end justify-between gap-4">
               <Label
-                description="See how your ad looks like when it goes live"
-                label="Preview"
+                description={intl.formatMessage({
+                  defaultMessage:
+                    'See how your ad looks like when it goes live',
+                  description: 'Description for preview',
+                  id: 'lHuGip',
+                })}
+                label={intl.formatMessage({
+                  defaultMessage: 'Preview',
+                  description: 'Label for preview',
+                  id: 'JAQf3o',
+                })}
               />
               <NavColorSchemeDropdown includeSystem={false} size="xs" />
             </div>
@@ -114,13 +237,19 @@ export default function SponsorsAdvertiseRequestFormAdsSectionInContent({
               )}>
               <div className="max-w-xl">
                 <SponsorsAdFormatInContent
-                  body="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                  body={
+                    bodyText.length > 0
+                      ? body
+                      : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+                  }
                   external={true}
                   id="short-form"
                   imageUrl=""
                   size="md"
                   sponsorName="Your product / company name"
-                  title={text || 'The quick brown fox jumped over the lazy fox'}
+                  title={
+                    title || 'The quick brown fox jumped over the lazy fox'
+                  }
                   url="#"
                 />
               </div>
@@ -131,7 +260,11 @@ export default function SponsorsAdvertiseRequestFormAdsSectionInContent({
       <div className="flex justify-end gap-2">
         {onCancel && (
           <Button
-            label="Cancel"
+            label={intl.formatMessage({
+              defaultMessage: 'Cancel',
+              description: 'Label for cancel button',
+              id: 'KZOa5l',
+            })}
             size="md"
             variant="secondary"
             onClick={() => {
@@ -141,18 +274,17 @@ export default function SponsorsAdvertiseRequestFormAdsSectionInContent({
         )}
         <Button
           icon={RiArrowRightLine}
-          label="Next"
+          isDisabled={!isValid}
+          label={intl.formatMessage({
+            defaultMessage: 'Next',
+            description: 'Label for next button',
+            id: 'uSMCBJ',
+          })}
           size="md"
+          type="submit"
           variant="primary"
-          onClick={() => {
-            onSubmit({
-              text,
-              url,
-              weeks: selectedWeeks,
-            });
-          }}
         />
       </div>
-    </div>
+    </form>
   );
 }

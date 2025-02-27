@@ -89,7 +89,12 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
                     </Text>{' '}
                     &middot;
                     <Text color="secondary" size="body3">
-                      {ad.weeks.size} week(s)
+                      <FormattedMessage
+                        defaultMessage="{noOfWeeks} week(s)"
+                        description="No of weeks"
+                        id="Mx3eHd"
+                        values={{ noOfWeeks: ad.weeks.size }}
+                      />
                     </Text>
                     <Button
                       icon={RiDeleteBinLine}
@@ -273,12 +278,13 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
                         }
                       : undefined
                   }
-                  onSubmit={({ text, url, weeks }) => {
+                  onSubmit={({ text, url, weeks, imageUrl }) => {
                     updateAds([
                       ...ads,
                       {
                         format: 'IN_CONTENT',
                         id: uuidv4(),
+                        imageUrl,
                         text,
                         url,
                         weeks,

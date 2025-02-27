@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Label from '~/components/ui/Label';
 import Text from '~/components/ui/Text';
 import {
@@ -16,11 +17,21 @@ export default function SponsorsAdvertiseRequestFormAdsImageUpload({
   widthConstraint,
   heightConstraint,
 }: Props) {
+  const intl = useIntl();
+
   return (
     <div className="flex flex-col gap-2">
       <Label
-        description="Follow the image dimensions guidelines"
-        label="Ad asset"
+        description={intl.formatMessage({
+          defaultMessage: 'Follow the image dimensions guidelines',
+          description: 'Description for ad asset',
+          id: 'Y8acmz',
+        })}
+        label={intl.formatMessage({
+          defaultMessage: 'Ad asset',
+          description: 'Label for ad image',
+          id: 'vWBErz',
+        })}
         required={true}
       />
       <div
@@ -32,7 +43,11 @@ export default function SponsorsAdvertiseRequestFormAdsImageUpload({
           themeBackgroundInputColor,
         )}>
         <Text className="block" color="subtitle" size="body2">
-          Select or drop an image here
+          <FormattedMessage
+            defaultMessage="Select or drop an image here"
+            description="Ad image upload description"
+            id="EfUaYk"
+          />
         </Text>
         <Text className="mt-1 block" color="secondary" size="body3">
           {widthConstraint}px x {heightConstraint}px (

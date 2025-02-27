@@ -9,6 +9,7 @@ export type SponsorsAdFormatFormItem =
   | Readonly<{
       format: 'IN_CONTENT';
       id: string;
+      imageUrl: string;
       text: string;
       url: string;
       weeks: Set<string>;

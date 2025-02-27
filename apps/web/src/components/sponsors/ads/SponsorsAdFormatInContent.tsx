@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import { RiAdvertisementLine } from 'react-icons/ri';
 
 import Anchor from '~/components/ui/Anchor';
+import RichText from '~/components/ui/RichTextEditor/RichText';
 import type { TextSize } from '~/components/ui/Text';
 import Text, { textVariants } from '~/components/ui/Text';
 import {
@@ -18,6 +19,22 @@ const sizeToTitle: Record<SponsorsAdFormatInContentSize, TextSize> = {
   sm: 'body1',
 };
 
+function isLexicalEditorValue(value: string) {
+  if (!value) {
+    return false;
+  }
+
+  try {
+    const parsed = JSON.parse(value);
+
+    // Check if it follows the Lexical editor format
+    return typeof parsed === 'object';
+  } catch (e) {
+    // If JSON parsing fails, it's a normal string
+    return false;
+  }
+}
+
 export default function SponsorsAdFormatInContent({
   title,
   url,
@@ -29,6 +46,8 @@ export default function SponsorsAdFormatInContent({
   Readonly<{
     size: SponsorsAdFormatInContentSize;
   }>) {
+  const isRichTextValue = isLexicalEditorValue(body);
+
   return (
     <div>
       <div>
@@ -70,9 +89,13 @@ export default function SponsorsAdFormatInContent({
       <Text className="mt-6 block" size={sizeToTitle[size]} weight="bold">
         {title}
       </Text>
-      <Text className="mt-3 block" color="secondary" size="body3">
-        {body}
-      </Text>
+      {isRichTextValue ? (
+        <RichText key={body} size="sm" value={body} />
+      ) : (
+        <Text className="mt-3 block" color="secondary" size="body3">
+          {body}
+        </Text>
+      )}
     </div>
   );
 }
