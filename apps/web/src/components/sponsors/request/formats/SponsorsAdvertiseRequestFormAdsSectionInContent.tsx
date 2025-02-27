@@ -25,6 +25,9 @@ import SponsorsAdvertiseRequestFormAdsSectionAvailability from '../SponsorsAdver
 
 const editor = createHeadlessEditor(RichTextEditorConfig);
 
+import { objectUrlToBase64 } from '~/lib/imageUtils';
+import { trpc } from '~/hooks/trpc';
+
 import { zodResolver } from '@hookform/resolvers/zod';
 import { createHeadlessEditor } from '@lexical/headless';
 
@@ -41,17 +44,22 @@ type Props = Readonly<{
     url: string;
     weeks: Set<string>;
   }>) => void;
+  sessionId: string;
 }>;
+
+const FORMAT = 'IN_CONTENT';
 
 export default function SponsorsAdvertiseRequestFormAdsSectionInContent({
   onCancel,
   onSubmit,
+  sessionId,
 }: Props) {
   const intl = useIntl();
+  const uploadAsset = trpc.sponsorships.uploadAdAsset.useMutation();
   const adSchema = useSponsorsInContentAdSchema();
   const methods = useForm<z.infer<typeof adSchema>>({
     defaultValues: {
-      format: 'IN_CONTENT',
+      format: FORMAT,
       text: '',
       url: '',
       weeks: new Set(''),
@@ -63,6 +71,7 @@ export default function SponsorsAdvertiseRequestFormAdsSectionInContent({
     control,
     watch,
     setValue,
+    setError,
     formState: { isValid },
   } = methods;
 
@@ -73,9 +82,25 @@ export default function SponsorsAdvertiseRequestFormAdsSectionInContent({
   const editorState = editor.parseEditorState(body);
   const bodyText = editorState.read(() => $getRoot().getTextContent());
 
-  function handleOnSubmit(data: z.infer<typeof adSchema>) {
+  async function handleOnSubmit(data: z.infer<typeof adSchema>) {
+    const base64 = await objectUrlToBase64(data.imageUrl);
+    const storageImageUrl = await uploadAsset.mutateAsync(
+      {
+        format: FORMAT,
+        imageFile: base64,
+        sessionId,
+      },
+      {
+        onError: (error) => {
+          setError('imageUrl', {
+            message: error.message,
+          });
+        },
+      },
+    );
+
     onSubmit({
-      imageUrl: data.imageUrl,
+      imageUrl: storageImageUrl,
       text: data.text,
       url: data.url,
       weeks: data.weeks,
@@ -179,15 +204,26 @@ export default function SponsorsAdvertiseRequestFormAdsSectionInContent({
                 />
               )}
             />
-            <SponsorsAdvertiseRequestFormAdsImageUpload
-              heightConstraint={
-                SponsorAdFormatConfigs.IN_CONTENT.placementConstraints.image
-                  ?.height ?? 1
-              }
-              widthConstraint={
-                SponsorAdFormatConfigs.IN_CONTENT.placementConstraints.image
-                  ?.width ?? 1
-              }
+            <Controller
+              control={control}
+              name="imageUrl"
+              render={({ field, fieldState: { error } }) => (
+                <SponsorsAdvertiseRequestFormAdsImageUpload
+                  errorMessage={error?.message}
+                  heightConstraint={
+                    SponsorAdFormatConfigs.IN_CONTENT.placementConstraints.image
+                      ?.height ?? 1
+                  }
+                  setError={(message) => setError('imageUrl', { message })}
+                  setImageUrl={(url) => {
+                    field.onChange(url);
+                  }}
+                  widthConstraint={
+                    SponsorAdFormatConfigs.IN_CONTENT.placementConstraints.image
+                      ?.width ?? 1
+                  }
+                />
+              )}
             />
             <Controller
               control={control}
@@ -274,7 +310,8 @@ export default function SponsorsAdvertiseRequestFormAdsSectionInContent({
         )}
         <Button
           icon={RiArrowRightLine}
-          isDisabled={!isValid}
+          isDisabled={!isValid || uploadAsset.isLoading}
+          isLoading={uploadAsset.isLoading}
           label={intl.formatMessage({
             defaultMessage: 'Next',
             description: 'Label for next button',

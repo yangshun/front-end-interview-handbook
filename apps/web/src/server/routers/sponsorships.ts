@@ -9,10 +9,13 @@ import {
 import { range } from 'lodash-es';
 import { z } from 'zod';
 
+import { base64toBlob } from '~/lib/imageUtils';
+
 import type { SponsorsAdFormatPayload } from '~/components/sponsors/SponsorsTypes';
 import { SponsorsAdFormatZodEnum } from '~/components/sponsors/SponsorsTypes';
 
 import prisma from '~/server/prisma';
+import { createSupabaseAdminClientGFE_SERVER_ONLY } from '~/supabase/SupabaseServerGFE';
 
 import { publicProcedure, router } from '../trpc';
 
@@ -239,5 +242,42 @@ Elevate your style, inspire your creativity, and represent your coding chops wit
           year,
         };
       });
+    }),
+  uploadAdAsset: publicProcedure
+    .input(
+      z.object({
+        format: SponsorsAdFormatZodEnum,
+        imageFile: z.string(),
+        sessionId: z.string(),
+      }),
+    )
+    .mutation(async ({ input: { imageFile, sessionId, format } }) => {
+      const supabaseAdmin = createSupabaseAdminClientGFE_SERVER_ONLY();
+
+      const blob = base64toBlob(imageFile);
+
+      const fileName =
+        format === 'SPOTLIGHT'
+          ? 'spotlight'
+          : format === 'IN_CONTENT'
+            ? 'in-content'
+            : 'global-banner';
+      const storagePath =
+        sessionId + '/' + fileName + String(new Date().getTime()) + '.jpg';
+      const { error } = await supabaseAdmin.storage
+        .from('ads')
+        .upload(storagePath, blob, {
+          upsert: true,
+        });
+
+      if (error) {
+        throw error;
+      }
+
+      const { data: imageUrl } = supabaseAdmin.storage
+        .from('ads')
+        .getPublicUrl(storagePath);
+
+      return imageUrl.publicUrl;
     }),
 });

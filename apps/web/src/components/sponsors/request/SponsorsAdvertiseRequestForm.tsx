@@ -15,7 +15,11 @@ type AdvertiseRequestFormValues = Readonly<{
   emails: Array<string>;
 }>;
 
-export default function SponsorsAdvertiseRequestForm() {
+type Props = Readonly<{
+  sessionId: string;
+}>;
+
+export default function SponsorsAdvertiseRequestForm({ sessionId }: Props) {
   const steps = [
     {
       status: 'not_started',
@@ -89,6 +93,7 @@ export default function SponsorsAdvertiseRequestForm() {
       {step === 'ads' && (
         <SponsorsAdvertiseRequestFormAdsSection
           ads={formData.ads}
+          sessionId={sessionId}
           updateAds={(ads) => setFormData((prev) => ({ ...prev, ads }))}
           onPrevious={() => setStep('contact')}
           onSubmit={() => {

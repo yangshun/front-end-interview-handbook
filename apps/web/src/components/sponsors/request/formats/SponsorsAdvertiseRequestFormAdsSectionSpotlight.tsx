@@ -3,6 +3,9 @@ import { Controller, useForm } from 'react-hook-form';
 import { RiArrowRightLine } from 'react-icons/ri';
 import type { z } from 'zod';
 
+import { objectUrlToBase64 } from '~/lib/imageUtils';
+import { trpc } from '~/hooks/trpc';
+
 import NavColorSchemeDropdown from '~/components/global/navbar/NavColorSchemeDropdown';
 import { useIntl } from '~/components/intl';
 import SponsorsAdFormatSpotlight from '~/components/sponsors/ads/SponsorsAdFormatSpotlight';
@@ -35,18 +38,23 @@ type Props = Readonly<{
     url: string;
     weeks: Set<string>;
   }>) => void;
+  sessionId: string;
 }>;
+
+const FORMAT = 'SPOTLIGHT';
 
 export default function SponsorsAdvertiseRequestFormAdsSectionSpotlight({
   onCancel,
   onSubmit,
+  sessionId,
 }: Props) {
   const intl = useIntl();
+  const uploadAsset = trpc.sponsorships.uploadAdAsset.useMutation();
   const adSchema = useSponsorsSpotlightAdSchema();
 
   const methods = useForm<z.infer<typeof adSchema>>({
     defaultValues: {
-      format: 'SPOTLIGHT',
+      format: FORMAT,
       text: '',
       url: '',
       weeks: new Set(''),
@@ -59,14 +67,33 @@ export default function SponsorsAdvertiseRequestFormAdsSectionSpotlight({
     watch,
     setValue,
     formState: { isValid },
+    setError,
   } = methods;
 
   const selectedWeeks = watch('weeks');
   const title = watch('text');
+  const imageUrl = watch('imageUrl');
 
-  function handleOnSubmit(data: z.infer<typeof adSchema>) {
+  async function handleOnSubmit(data: z.infer<typeof adSchema>) {
+    const base64 = await objectUrlToBase64(data.imageUrl);
+
+    const storageImageUrl = await uploadAsset.mutateAsync(
+      {
+        format: FORMAT,
+        imageFile: base64,
+        sessionId,
+      },
+      {
+        onError: (error) => {
+          setError('imageUrl', {
+            message: error.message,
+          });
+        },
+      },
+    );
+
     onSubmit({
-      imageUrl: data.imageUrl,
+      imageUrl: storageImageUrl,
       text: data.text,
       url: data.url,
       weeks: data.weeks,
@@ -74,7 +101,7 @@ export default function SponsorsAdvertiseRequestFormAdsSectionSpotlight({
   }
 
   return (
-    <div
+    <form
       className="flex flex-col gap-12"
       onSubmit={methods.handleSubmit(handleOnSubmit)}>
       <SponsorsAdvertiseRequestFormAdsSectionAvailability
@@ -142,15 +169,26 @@ export default function SponsorsAdvertiseRequestFormAdsSectionSpotlight({
                 />
               )}
             />
-            <SponsorsAdvertiseRequestFormAdsImageUpload
-              heightConstraint={
-                SponsorAdFormatConfigs.SPOTLIGHT.placementConstraints.image
-                  ?.height ?? 1
-              }
-              widthConstraint={
-                SponsorAdFormatConfigs.SPOTLIGHT.placementConstraints.image
-                  ?.width ?? 1
-              }
+            <Controller
+              control={control}
+              name="imageUrl"
+              render={({ field, fieldState: { error } }) => (
+                <SponsorsAdvertiseRequestFormAdsImageUpload
+                  errorMessage={error?.message}
+                  heightConstraint={
+                    SponsorAdFormatConfigs.SPOTLIGHT.placementConstraints.image
+                      ?.height ?? 1
+                  }
+                  setError={(message) => setError('imageUrl', { message })}
+                  setImageUrl={(url) => {
+                    field.onChange(url);
+                  }}
+                  widthConstraint={
+                    SponsorAdFormatConfigs.SPOTLIGHT.placementConstraints.image
+                      ?.width ?? 1
+                  }
+                />
+              )}
             />
             <Controller
               control={control}
@@ -203,7 +241,7 @@ export default function SponsorsAdvertiseRequestFormAdsSectionSpotlight({
                 <SponsorsAdFormatSpotlight
                   external={true}
                   id="short-form"
-                  imageUrl=""
+                  imageUrl={imageUrl}
                   sponsorName="Your product / company name"
                   text={title || 'Your short form ad text here'}
                   url="#"
@@ -231,7 +269,8 @@ export default function SponsorsAdvertiseRequestFormAdsSectionSpotlight({
         )}
         <Button
           icon={RiArrowRightLine}
-          isDisabled={!isValid}
+          isDisabled={!isValid || uploadAsset.isLoading}
+          isLoading={uploadAsset.isLoading}
           label={intl.formatMessage({
             defaultMessage: 'Next',
             description: 'Label for next button',
@@ -242,6 +281,6 @@ export default function SponsorsAdvertiseRequestFormAdsSectionSpotlight({
           variant="primary"
         />
       </div>
-    </div>
+    </form>
   );
 }

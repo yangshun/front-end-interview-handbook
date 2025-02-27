@@ -37,6 +37,7 @@ type Props = Readonly<{
   ads: Array<SponsorsAdFormatFormItem>;
   onPrevious: () => void;
   onSubmit: () => void;
+  sessionId: string;
   updateAds(ads: Array<SponsorsAdFormatFormItem>): void;
 }>;
 
@@ -45,6 +46,7 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
   onPrevious,
   ads,
   updateAds,
+  sessionId,
 }: Props) {
   const intl = useIntl();
   const [selectedFormat, setSelectedFormat] = useState<SponsorsAdFormat | null>(
@@ -271,6 +273,7 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
               )}
               {selectedFormat === 'IN_CONTENT' && (
                 <SponsorsAdvertiseRequestFormAdsSectionInContent
+                  sessionId={sessionId}
                   onCancel={
                     ads.length > 0
                       ? () => {
@@ -296,6 +299,7 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
               )}
               {selectedFormat === 'SPOTLIGHT' && (
                 <SponsorsAdvertiseRequestFormAdsSectionSpotlight
+                  sessionId={sessionId}
                   onCancel={
                     ads.length > 0
                       ? () => {

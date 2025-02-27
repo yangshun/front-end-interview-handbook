@@ -1,6 +1,8 @@
 import nullthrows from 'nullthrows';
 import { z } from 'zod';
 
+import { base64toBlob } from '~/lib/imageUtils';
+
 import { profileUserNameSchemaServer } from '~/components/profile/fields/ProfileUsernameSchema';
 import { useProjectsProfileGitHubSchemaServer } from '~/components/projects/profile/fields/ProjectsProfileGithubSchema';
 import { projectsJobTitleInputSchemaServer } from '~/components/projects/profile/fields/ProjectsProfileJobSchema';
@@ -8,7 +10,6 @@ import { useProjectsProfileLinkedInSchemaServer } from '~/components/projects/pr
 import { projectsProfileWebsiteSchemaServer } from '~/components/projects/profile/fields/ProjectsProfileWebsiteSchema';
 import { projectsProfileRecalculatePoints } from '~/components/projects/reputation/ProjectsProfileRecalculatePoints';
 import { projectsSkillListInputOptionalSchemaServer } from '~/components/projects/skills/form/ProjectsSkillListInputSchema';
-import { base64toBlob } from '~/components/projects/utils/profilePhotoUtils';
 import { getOrCreateUserProfileWithProjectsProfile } from '~/components/projects/utils/ProjectsProfileUtils';
 
 import prisma from '~/server/prisma';

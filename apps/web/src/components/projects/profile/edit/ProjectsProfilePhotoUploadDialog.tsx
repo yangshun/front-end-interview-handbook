@@ -3,10 +3,10 @@ import { useEffect, useRef, useState } from 'react';
 import type { CropperRef } from 'react-advanced-cropper';
 import { CircleStencil, Cropper } from 'react-advanced-cropper';
 
+import { blobToBase64 } from '~/lib/imageUtils';
 import { trpc } from '~/hooks/trpc';
 
 import { useIntl } from '~/components/intl';
-import { blobToBase64 } from '~/components/projects/utils/profilePhotoUtils';
 import Button from '~/components/ui/Button';
 import Dialog from '~/components/ui/Dialog';
 import Spinner from '~/components/ui/Spinner';

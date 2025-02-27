@@ -1883,6 +1883,10 @@
     "defaultMessage": "Email",
     "description": "Label of email field on Sign In/Up page"
   },
+  "9MjKe9": {
+    "defaultMessage": "File size must be less than {size}",
+    "description": "Error message for image size exceeded"
+  },
   "9NUuQM": {
     "defaultMessage": "Tracks | Progress | {name}",
     "description": "Title of user profile progress tracks page"
@@ -2322,6 +2326,10 @@
   "CCiMOz": {
     "defaultMessage": "We recommend well-rated submissions using the same stack for your reference",
     "description": "Description for \"Learn from good code\" item in Expected Support section on Projects project page"
+  },
+  "CILeO3": {
+    "defaultMessage": "Fill this super quick form to start advertising! Upon approval ({approvalDays} days), you will receive a confirmation email with the invoice and payment link.",
+    "description": "Subtitle for advertise request page"
   },
   "CJmMgh": {
     "defaultMessage": "Practice JavaScript Coding Interview Questions with Solutions",
@@ -4502,6 +4510,10 @@
   "P3mHDw": {
     "defaultMessage": "Hoping to grow in skills / tools / frameworks",
     "description": "Projects profile tech stack I am hoping to grow section title"
+  },
+  "P4PHei": {
+    "defaultMessage": "Advertise on GreatFrontEnd",
+    "description": "Title for advertise request page"
   },
   "P4knVE": {
     "defaultMessage": "Expires {expiryDate}",

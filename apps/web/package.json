@@ -38,6 +38,7 @@
     "@codesandbox/sandpack-react": "2.13.8",
     "@formatjs/intl": "^2.9.9",
     "@formatjs/intl-localematcher": "^0.2.32",
+    "@gfe/translens": "workspace:0.0.0",
     "@hookform/resolvers": "^3.3.2",
     "@lexical/code": "^0.13.1",
     "@lexical/headless": "^0.13.1",
@@ -121,6 +122,7 @@
     "react-dnd": "^16.0.1",
     "react-dnd-html5-backend": "^16.0.1",
     "react-dom": "^18.2.0",
+    "react-dropzone": "^14.3.8",
     "react-hook-form": "^7.47.0",
     "react-icons": "5.3.0",
     "react-intl": "^6.2.8",
@@ -141,8 +143,7 @@
     "ua-parser-js": "^1.0.38",
     "usehooks-ts": "^2.9.1",
     "uuid": "^9.0.0",
-    "zod": "^3.21.4",
-    "@gfe/translens": "workspace:0.0.0"
+    "zod": "^3.21.4"
   },
   "devDependencies": {
     "@formatjs/cli": "^6.0.1",

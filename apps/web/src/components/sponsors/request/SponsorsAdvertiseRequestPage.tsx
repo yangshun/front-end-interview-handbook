@@ -1,3 +1,6 @@
+import { v4 as uuidv4 } from 'uuid';
+
+import { FormattedMessage } from '~/components/intl';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -6,17 +9,32 @@ import Text from '~/components/ui/Text';
 import SponsorsAdvertiseRequestForm from './SponsorsAdvertiseRequestForm';
 
 export default function SponsorsAdvertiseRequestPage() {
+  const sessionId = uuidv4();
+
   return (
     <Container className="py-12 lg:py-20" width="5xl">
-      <Heading level="heading4">Advertise on GreatFrontEnd</Heading>
+      <Heading level="heading4">
+        <FormattedMessage
+          defaultMessage="Advertise on GreatFrontEnd"
+          description="Title for advertise request page"
+          id="P4PHei"
+        />
+      </Heading>
       <Text className="mt-4 block max-w-prose" color="subtitle">
-        Fill this super quick form to start advertising! Upon approval (1–2
+        <FormattedMessage
+          defaultMessage="Fill this super quick form to start advertising! Upon approval ({approvalDays}
         days), you will receive a confirmation email with the invoice and
-        payment link.
+        payment link."
+          description="Subtitle for advertise request page"
+          id="CILeO3"
+          values={{
+            approvalDays: '1-2',
+          }}
+        />
       </Text>
       <Section>
         <div className="mt-12">
-          <SponsorsAdvertiseRequestForm />
+          <SponsorsAdvertiseRequestForm sessionId={sessionId} />
         </div>
       </Section>
     </Container>
