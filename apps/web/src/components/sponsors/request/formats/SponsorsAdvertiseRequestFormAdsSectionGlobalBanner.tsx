@@ -1,8 +1,10 @@
 import clsx from 'clsx';
+import { useEffect } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { RiArrowRightLine } from 'react-icons/ri';
 import type { z } from 'zod';
 
+import type { StepsTabItemStatus } from '~/components/common/StepsTabs';
 import NavColorSchemeDropdown from '~/components/global/navbar/NavColorSchemeDropdown';
 import InterviewsMarketingHeroBrowserWindowFrame from '~/components/interviews/marketing/embed/InterviewsMarketingHeroBrowserWindowFrame';
 import { useIntl } from '~/components/intl';
@@ -30,11 +32,13 @@ type Props = Readonly<{
     url: string;
     weeks: Set<string>;
   }) => void;
+  updateStepStatus: (status: StepsTabItemStatus) => void;
 }>;
 
 export default function SponsorsAdvertiseRequestFormAdsSectionGlobalBanner({
   onCancel,
   onSubmit,
+  updateStepStatus,
 }: Props) {
   const intl = useIntl();
   const adSchema = useSponsorsGlobalBannerAdSchema();
@@ -53,7 +57,7 @@ export default function SponsorsAdvertiseRequestFormAdsSectionGlobalBanner({
     control,
     watch,
     setValue,
-    formState: { isValid },
+    formState: { isValid, isDirty },
   } = methods;
 
   const selectedWeeks = watch('weeks');
@@ -67,6 +71,14 @@ export default function SponsorsAdvertiseRequestFormAdsSectionGlobalBanner({
       weeks: data.weeks,
     });
   }
+
+  useEffect(() => {
+    if (isDirty) {
+      updateStepStatus('in_progress');
+    }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isDirty]);
 
   return (
     <form

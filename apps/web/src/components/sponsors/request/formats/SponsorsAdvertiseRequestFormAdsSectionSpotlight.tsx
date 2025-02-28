@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { useEffect } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { RiArrowRightLine } from 'react-icons/ri';
 import type { z } from 'zod';
@@ -6,6 +7,7 @@ import type { z } from 'zod';
 import { objectUrlToBase64 } from '~/lib/imageUtils';
 import { trpc } from '~/hooks/trpc';
 
+import type { StepsTabItemStatus } from '~/components/common/StepsTabs';
 import NavColorSchemeDropdown from '~/components/global/navbar/NavColorSchemeDropdown';
 import { useIntl } from '~/components/intl';
 import SponsorsAdFormatSpotlight from '~/components/sponsors/ads/SponsorsAdFormatSpotlight';
@@ -39,6 +41,7 @@ type Props = Readonly<{
     weeks: Set<string>;
   }>) => void;
   sessionId: string;
+  updateStepStatus: (status: StepsTabItemStatus) => void;
 }>;
 
 const FORMAT = 'SPOTLIGHT';
@@ -47,6 +50,7 @@ export default function SponsorsAdvertiseRequestFormAdsSectionSpotlight({
   onCancel,
   onSubmit,
   sessionId,
+  updateStepStatus,
 }: Props) {
   const intl = useIntl();
   const uploadAsset = trpc.sponsorships.uploadAdAsset.useMutation();
@@ -66,7 +70,7 @@ export default function SponsorsAdvertiseRequestFormAdsSectionSpotlight({
     control,
     watch,
     setValue,
-    formState: { isValid },
+    formState: { isValid, isDirty },
     setError,
   } = methods;
 
@@ -99,6 +103,14 @@ export default function SponsorsAdvertiseRequestFormAdsSectionSpotlight({
       weeks: data.weeks,
     });
   }
+
+  useEffect(() => {
+    if (isDirty) {
+      updateStepStatus('in_progress');
+    }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isDirty]);
 
   return (
     <form

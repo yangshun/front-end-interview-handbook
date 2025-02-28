@@ -3671,6 +3671,10 @@
     "defaultMessage": "Start completing simple tasks to unlock {discount}% off with GreatFrontEnd.",
     "description": "Title of Rewards tasks page"
   },
+  "K3opjL": {
+    "defaultMessage": "Submit",
+    "description": "Label for submit button"
+  },
   "K4JOjo": {
     "defaultMessage": "Deep-dives into real-world applications",
     "description": "Features for frontend system design playbook page"
@@ -6479,6 +6483,10 @@
     "defaultMessage": "Completed",
     "description": "Completed status for a question"
   },
+  "ZO6Axb": {
+    "defaultMessage": "Advertise with us steps",
+    "description": "Label for advertise request steps"
+  },
   "ZOdYqa": {
     "defaultMessage": "Study Plans | GreatFrontEnd",
     "description": "Social title for study plans listing"
@@ -7606,6 +7614,10 @@
   "fcKx8Z": {
     "defaultMessage": "Advanced",
     "description": "Advanced blog"
+  },
+  "ff7X1z": {
+    "defaultMessage": "Apartment, unit or other is required",
+    "description": "Error message for apartment, unit or other"
   },
   "ffpupd": {
     "defaultMessage": "Front End Interview Practice Questions - Quizzes",

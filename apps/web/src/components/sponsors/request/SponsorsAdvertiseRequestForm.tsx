@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 
 import StepsTabs from '~/components/common/StepsTabs';
+import { useIntl } from '~/components/intl';
 
 import SponsorsAdvertiseRequestFormAdsSection from './SponsorsAdvertiseRequestFormAdsSection';
 import SponsorsAdvertiseRequestFormCompanyDetailsSection from './SponsorsAdvertiseRequestFormCompanyDetailsSection';
@@ -20,28 +21,40 @@ type Props = Readonly<{
   sessionId: string;
 }>;
 
+type Step = 'ads' | 'company' | 'contact' | 'review';
+
 export default function SponsorsAdvertiseRequestForm({ sessionId }: Props) {
+  const intl = useIntl();
+  const [stepsStatus, setStepsStatus] = useState<
+    Record<Step, 'completed' | 'in_progress' | 'not_started'>
+  >({
+    ads: 'not_started',
+    company: 'not_started',
+    contact: 'not_started',
+    review: 'not_started',
+  });
+
   const steps = [
     {
-      status: 'not_started',
+      status: stepsStatus.contact,
       subtitle: 'Provide your contact details',
       title: 'Contact details',
       value: 'contact',
     },
     {
-      status: 'in_progress',
+      status: stepsStatus.ads,
       subtitle: 'Choose ad formats and upload assets',
       title: 'Ads',
       value: 'ads',
     },
     {
-      status: 'completed',
+      status: stepsStatus.company,
       subtitle: 'Provide company details for invoicing and agreements',
       title: 'Company details',
       value: 'company',
     },
     {
-      status: 'not_started',
+      status: stepsStatus.review,
       subtitle: 'Review the final details and sign the agreement',
       title: 'Review and sign',
       value: 'review',
@@ -76,19 +89,40 @@ export default function SponsorsAdvertiseRequestForm({ sessionId }: Props) {
     <div ref={stepsContainerRef} className="flex flex-col gap-16">
       <StepsTabs
         className="z-sticky sticky top-[var(--global-sticky-height)]"
-        label="Advertise with us steps"
+        label={intl.formatMessage({
+          defaultMessage: 'Advertise with us steps',
+          description: 'Label for advertise request steps',
+          id: 'ZO6Axb',
+        })}
         tabs={steps}
         value={step}
         onSelect={(newStep) => {
+          // If the current step status is in progress, prevent step navigation
+          if (stepsStatus[step] === 'in_progress') {
+            return;
+          }
+          if (newStep === 'ads' && stepsStatus.contact !== 'completed') {
+            return;
+          }
+          if (newStep === 'company' && stepsStatus.ads !== 'completed') {
+            return;
+          }
+          if (newStep === 'review' && stepsStatus.company !== 'completed') {
+            return;
+          }
           setStep(newStep);
         }}
       />
       {step === 'contact' && (
         <SponsorsAdvertiseRequestFormContactSection
           defaultValues={formData.emails}
+          updateStepStatus={(status) =>
+            setStepsStatus((prev) => ({ ...prev, contact: status }))
+          }
           onSubmit={(emails) => {
             setStep('ads');
             setFormData((prev) => ({ ...prev, emails }));
+            setStepsStatus((prev) => ({ ...prev, contact: 'completed' }));
           }}
         />
       )}
@@ -97,6 +131,9 @@ export default function SponsorsAdvertiseRequestForm({ sessionId }: Props) {
           ads={formData.ads}
           sessionId={sessionId}
           updateAds={(ads) => setFormData((prev) => ({ ...prev, ads }))}
+          updateStepStatus={(status) =>
+            setStepsStatus((prev) => ({ ...prev, ads: status }))
+          }
           onPrevious={() => setStep('contact')}
           onSubmit={() => {
             setStep('company');
@@ -106,15 +143,22 @@ export default function SponsorsAdvertiseRequestForm({ sessionId }: Props) {
       {step === 'company' && (
         <SponsorsAdvertiseRequestFormCompanyDetailsSection
           defaultValues={formData.company}
+          updateStepStatus={(status) =>
+            setStepsStatus((prev) => ({ ...prev, company: status }))
+          }
           onPrevious={() => setStep('ads')}
           onSubmit={(company) => {
             setStep('review');
             setFormData((prev) => ({ ...prev, company }));
+            setStepsStatus((prev) => ({ ...prev, company: 'completed' }));
           }}
         />
       )}
       {step === 'review' && (
         <SponsorsAdvertiseRequestFormReviewSection
+          updateStepStatus={(status) =>
+            setStepsStatus((prev) => ({ ...prev, review: status }))
+          }
           onPrevious={() => setStep('company')}
         />
       )}

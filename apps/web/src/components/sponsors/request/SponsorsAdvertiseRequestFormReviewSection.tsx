@@ -1,7 +1,9 @@
 import clsx from 'clsx';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { RiArrowLeftLine, RiArrowRightLine } from 'react-icons/ri';
 
+import type { StepsTabItemStatus } from '~/components/common/StepsTabs';
+import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import CheckboxInput from '~/components/ui/CheckboxInput';
 import Divider from '~/components/ui/Divider';
@@ -14,11 +16,14 @@ import SponsorsAdvertiseRequestAgreement from './SponsorsAdvertiseRequestAgreeme
 
 type Props = Readonly<{
   onPrevious: () => void;
+  updateStepStatus: (status: StepsTabItemStatus) => void;
 }>;
 
 export default function SponsorsAdvertiseRequestFormReviewSection({
   onPrevious,
+  updateStepStatus,
 }: Props) {
+  const intl = useIntl();
   const [signedAgreement, setSignedAgreement] = useState(false);
   const contactEmails = [
     'yangshun@greatfrontend.com',
@@ -46,6 +51,12 @@ export default function SponsorsAdvertiseRequestFormReviewSection({
     .filter(Boolean)
     .join(', ');
   const totalAmount = 6100;
+
+  useEffect(() => {
+    updateStepStatus(signedAgreement ? 'in_progress' : 'not_started');
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [signedAgreement]);
 
   return (
     <div className="mx-auto w-full max-w-xl">
@@ -172,7 +183,11 @@ export default function SponsorsAdvertiseRequestFormReviewSection({
           <Button
             addonPosition="start"
             icon={RiArrowLeftLine}
-            label="Previous"
+            label={intl.formatMessage({
+              defaultMessage: 'Previous',
+              description: 'Label for previous button',
+              id: 'd2w71C',
+            })}
             size="md"
             variant="secondary"
             onClick={() => {
@@ -182,7 +197,11 @@ export default function SponsorsAdvertiseRequestFormReviewSection({
           <Button
             icon={RiArrowRightLine}
             isDisabled={!signedAgreement}
-            label="Submit"
+            label={intl.formatMessage({
+              defaultMessage: 'Submit',
+              description: 'Label for submit button',
+              id: 'K3opjL',
+            })}
             size="md"
             type="submit"
             variant="primary"

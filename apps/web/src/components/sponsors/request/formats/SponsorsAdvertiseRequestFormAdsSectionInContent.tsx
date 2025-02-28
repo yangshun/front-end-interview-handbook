@@ -25,8 +25,12 @@ import SponsorsAdvertiseRequestFormAdsSectionAvailability from '../SponsorsAdver
 
 const editor = createHeadlessEditor(RichTextEditorConfig);
 
+import { useEffect } from 'react';
+
 import { objectUrlToBase64 } from '~/lib/imageUtils';
 import { trpc } from '~/hooks/trpc';
+
+import type { StepsTabItemStatus } from '~/components/common/StepsTabs';
 
 import { zodResolver } from '@hookform/resolvers/zod';
 import { createHeadlessEditor } from '@lexical/headless';
@@ -45,6 +49,7 @@ type Props = Readonly<{
     weeks: Set<string>;
   }>) => void;
   sessionId: string;
+  updateStepStatus: (status: StepsTabItemStatus) => void;
 }>;
 
 const FORMAT = 'IN_CONTENT';
@@ -53,6 +58,7 @@ export default function SponsorsAdvertiseRequestFormAdsSectionInContent({
   onCancel,
   onSubmit,
   sessionId,
+  updateStepStatus,
 }: Props) {
   const intl = useIntl();
   const uploadAsset = trpc.sponsorships.uploadAdAsset.useMutation();
@@ -72,7 +78,7 @@ export default function SponsorsAdvertiseRequestFormAdsSectionInContent({
     watch,
     setValue,
     setError,
-    formState: { isValid },
+    formState: { isValid, isDirty },
   } = methods;
 
   const selectedWeeks = watch('weeks');
@@ -106,6 +112,14 @@ export default function SponsorsAdvertiseRequestFormAdsSectionInContent({
       weeks: data.weeks,
     });
   }
+
+  useEffect(() => {
+    if (isDirty) {
+      updateStepStatus('in_progress');
+    }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isDirty]);
 
   return (
     <form

@@ -8,6 +8,7 @@ import {
 } from 'react-icons/ri';
 import { v4 as uuidv4 } from 'uuid';
 
+import type { StepsTabItemStatus } from '~/components/common/StepsTabs';
 import { FormattedMessage, useIntl } from '~/components/intl';
 import { useSponsorsAdFormatData } from '~/components/sponsors/SponsorsAdFormatConfigs';
 import Badge from '~/components/ui/Badge';
@@ -39,6 +40,7 @@ type Props = Readonly<{
   onSubmit: () => void;
   sessionId: string;
   updateAds(ads: Array<SponsorsAdFormatFormItem>): void;
+  updateStepStatus(status: StepsTabItemStatus): void;
 }>;
 
 export default function SponsorsAdvertiseRequestFormAdsSection({
@@ -47,6 +49,7 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
   ads,
   updateAds,
   sessionId,
+  updateStepStatus,
 }: Props) {
   const intl = useIntl();
   const [selectedFormat, setSelectedFormat] = useState<SponsorsAdFormat | null>(
@@ -249,10 +252,12 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
             <div className="mt-12">
               {selectedFormat === 'GLOBAL_BANNER' && (
                 <SponsorsAdvertiseRequestFormAdsSectionGlobalBanner
+                  updateStepStatus={updateStepStatus}
                   onCancel={
                     ads.length > 0
                       ? () => {
                           setSelectedFormat(null);
+                          updateStepStatus('completed');
                         }
                       : undefined
                   }
@@ -267,6 +272,7 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
                         weeks,
                       },
                     ]);
+                    updateStepStatus('completed');
                     setSelectedFormat(null);
                   }}
                 />
@@ -274,10 +280,12 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
               {selectedFormat === 'IN_CONTENT' && (
                 <SponsorsAdvertiseRequestFormAdsSectionInContent
                   sessionId={sessionId}
+                  updateStepStatus={updateStepStatus}
                   onCancel={
                     ads.length > 0
                       ? () => {
                           setSelectedFormat(null);
+                          updateStepStatus('completed');
                         }
                       : undefined
                   }
@@ -293,6 +301,7 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
                         weeks,
                       },
                     ]);
+                    updateStepStatus('completed');
                     setSelectedFormat(null);
                   }}
                 />
@@ -300,10 +309,12 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
               {selectedFormat === 'SPOTLIGHT' && (
                 <SponsorsAdvertiseRequestFormAdsSectionSpotlight
                   sessionId={sessionId}
+                  updateStepStatus={updateStepStatus}
                   onCancel={
                     ads.length > 0
                       ? () => {
                           setSelectedFormat(null);
+                          updateStepStatus('completed');
                         }
                       : undefined
                   }
@@ -319,6 +330,7 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
                         weeks,
                       },
                     ]);
+                    updateStepStatus('completed');
                     setSelectedFormat(null);
                   }}
                 />

@@ -22,6 +22,7 @@ function addressSchema(options?: {
   cityRequiredMessage: string;
   countryRequiredMessage: string;
   line1RequiredMessage: string;
+  line2RequiredMessage: string;
   postalCodeRequiredMessage: string;
   stateRequiredMessage: string;
 }) {
@@ -31,13 +32,14 @@ function addressSchema(options?: {
     postalCodeRequiredMessage = 'Postal code is required',
     stateRequiredMessage = 'State is required',
     line1RequiredMessage = 'Street is required',
+    line2RequiredMessage = 'Apartment, unit or other is required',
   } = options ?? {};
 
   return z.object({
     city: z.string().min(1, cityRequiredMessage),
     country: z.string().min(1, countryRequiredMessage),
     line1: z.string().min(1, line1RequiredMessage),
-    line2: z.string().optional(),
+    line2: z.string().min(1, line2RequiredMessage),
     postalCode: z.string().min(1, postalCodeRequiredMessage),
     state: z.string().min(1, stateRequiredMessage),
   });
@@ -74,6 +76,11 @@ export function useSponsorsCompanySchema() {
         defaultMessage: 'Street is required',
         description: 'Error message for street',
         id: 'D2WaF7',
+      }),
+      line2RequiredMessage: intl.formatMessage({
+        defaultMessage: 'Apartment, unit or other is required',
+        description: 'Error message for apartment, unit or other',
+        id: 'ff7X1z',
       }),
       postalCodeRequiredMessage: intl.formatMessage({
         defaultMessage: 'Postal code is required',
@@ -123,6 +130,7 @@ export const sponsorsCompanySchemaServer = z.object({
     cityRequiredMessage: 'City is required',
     countryRequiredMessage: 'Country is required',
     line1RequiredMessage: 'Street is required',
+    line2RequiredMessage: 'Apartment, unit or other is required',
     postalCodeRequiredMessage: 'Postal code is required',
     stateRequiredMessage: 'State is required',
   }),

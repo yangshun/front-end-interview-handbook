@@ -1,11 +1,13 @@
 import clsx from 'clsx';
 import jsCookie from 'js-cookie';
+import { useEffect } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { RiArrowLeftLine, RiArrowRightLine } from 'react-icons/ri';
 import type { z } from 'zod';
 
 import countryCodesToNames from '~/data/countryCodesToNames.json';
 
+import type { StepsTabItemStatus } from '~/components/common/StepsTabs';
 import { FormattedMessage, useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
@@ -24,6 +26,7 @@ type Props = Readonly<{
   defaultValues: SponsorsCompanyDetails | null;
   onPrevious: () => void;
   onSubmit: (company: SponsorsCompanyDetails) => void;
+  updateStepStatus(status: StepsTabItemStatus): void;
 }>;
 
 const countryOptions = Object.entries(countryCodesToNames).map(
@@ -37,6 +40,7 @@ export default function SponsorsAdvertiseRequestFormCompanyDetailsSection({
   onSubmit,
   onPrevious,
   defaultValues,
+  updateStepStatus,
 }: Props) {
   const intl = useIntl();
   const companySchema = useSponsorsCompanySchema();
@@ -64,8 +68,16 @@ export default function SponsorsAdvertiseRequestFormCompanyDetailsSection({
   const {
     control,
     handleSubmit,
-    formState: { isValid },
+    formState: { isValid, isDirty },
   } = methods;
+
+  useEffect(() => {
+    if (isDirty) {
+      updateStepStatus('in_progress');
+    }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isDirty]);
 
   return (
     <form className="mx-auto w-full max-w-xl" onSubmit={handleSubmit(onSubmit)}>
@@ -358,6 +370,7 @@ export default function SponsorsAdvertiseRequestFormCompanyDetailsSection({
           <Button
             addonPosition="start"
             icon={RiArrowLeftLine}
+            isDisabled={isDirty}
             label={intl.formatMessage({
               defaultMessage: 'Previous',
               description: 'Label for previous button',

@@ -77,7 +77,7 @@ function StepsTabItem({
   );
 }
 
-type StepsTabItemStatus = 'completed' | 'in_progress' | 'not_started';
+export type StepsTabItemStatus = 'completed' | 'in_progress' | 'not_started';
 type StepsTabItem<T> = Readonly<{
   status: StepsTabItemStatus;
   subtitle: string;

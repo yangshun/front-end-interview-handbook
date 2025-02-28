@@ -4,6 +4,7 @@ import { Controller, useFieldArray, useForm, useWatch } from 'react-hook-form';
 import { RiArrowRightLine } from 'react-icons/ri';
 import type { z } from 'zod';
 
+import type { StepsTabItemStatus } from '~/components/common/StepsTabs';
 import { FormattedMessage, useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
@@ -18,6 +19,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 type Props = Readonly<{
   defaultValues: ReadonlyArray<string>;
   onSubmit: (emails: Array<string>) => void;
+  updateStepStatus: (status: StepsTabItemStatus) => void;
 }>;
 
 const emailRegex = /^\S+@\S+\.\S+$/;
@@ -25,6 +27,7 @@ const emailRegex = /^\S+@\S+\.\S+$/;
 export default function SponsorsAdvertiseRequestFormContactSection({
   onSubmit,
   defaultValues,
+  updateStepStatus,
 }: Props) {
   const contactDetailsSchema = useSponsorsAdvertiseRequestContactSchema();
   const methods = useForm<z.infer<typeof contactDetailsSchema>>({
@@ -43,7 +46,7 @@ export default function SponsorsAdvertiseRequestFormContactSection({
   });
   const {
     control,
-    formState: { isValid },
+    formState: { isValid, isDirty },
     handleSubmit,
   } = methods;
   const intl = useIntl();
@@ -73,6 +76,13 @@ export default function SponsorsAdvertiseRequestFormContactSection({
       data.emails.map((email) => email.value).filter((value) => value !== ''),
     );
   }
+
+  useEffect(() => {
+    if (isDirty) {
+      updateStepStatus('in_progress');
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isDirty]);
 
   return (
     <form
