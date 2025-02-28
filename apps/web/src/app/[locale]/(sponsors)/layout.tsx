@@ -10,7 +10,7 @@ export default function InterviewsMarketingLayout({ children }: Props) {
   return (
     <>
       <GlobalBannerInterviews />
-      <div className="flex min-h-screen flex-col">
+      <div className="flex min-h-[calc(100vh_-_var(--banner-height))] flex-col">
         <SponsorsNavbar />
         <div className="grow">{children}</div>
         <SponsorsFooter />

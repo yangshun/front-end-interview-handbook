@@ -1591,6 +1591,10 @@
     "defaultMessage": "Roadmap",
     "description": "Link to roadmap page"
   },
+  "7YO/82": {
+    "defaultMessage": "Sponsorship request success page",
+    "description": "Title of advertisement request success page"
+  },
   "7YjBUE": {
     "defaultMessage": "Founder, CEO of GreatFrontEnd",
     "description": "Position of Yangshun"
@@ -3179,6 +3183,10 @@
     "defaultMessage": "Created: Oldest to Newest",
     "description": "Sorting option on question list page to sort by creation time, from oldest to newest"
   },
+  "HERJCK": {
+    "defaultMessage": "Upon approval ({approvalDays} days), you will receive a confirmation email with the invoice and payment link.",
+    "description": "Advertise request success message"
+  },
   "HEV8y4": {
     "defaultMessage": "Mentor others",
     "description": "Label for Mentor others sidebar item in Projects sidebar"
@@ -3434,6 +3442,10 @@
   "Id0zS8": {
     "defaultMessage": "Sign up",
     "description": "Button label for a newsletter subscription section"
+  },
+  "Ie6Nzu": {
+    "defaultMessage": "Go back",
+    "description": "Go back button label"
   },
   "IeUbyv": {
     "defaultMessage": "Tell us anything - about your journey as a front end developer, your goals and next steps, or how you want to connect with others",
@@ -7695,6 +7707,10 @@
     "defaultMessage": "Please accept the agreement by selecting the checkbox at the end of the agreement",
     "description": "Message for accept agreement checkbox"
   },
+  "fig6ds": {
+    "defaultMessage": "Request success | Advertise with us",
+    "description": "Title of advertise with us page"
+  },
   "fjj5BL": {
     "defaultMessage": "Profile saved!",
     "description": "Toast for project profile saved"
@@ -7846,6 +7862,10 @@
   "gbjgjg": {
     "defaultMessage": "<authorProfileLink>{author}</authorProfileLink> left a question on their submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for someone asking question on their submission"
+  },
+  "gco77c": {
+    "defaultMessage": "Request submitted successfully!",
+    "description": "Subtitle for advertise request success page"
   },
   "gd8jkF": {
     "defaultMessage": "React Coding Interview Questions with Solutions | GreatFrontEnd",
