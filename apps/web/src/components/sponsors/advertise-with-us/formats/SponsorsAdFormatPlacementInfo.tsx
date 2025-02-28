@@ -48,6 +48,7 @@ export default function SponsorsAdFormatPlacementInfo({
         </div>
         {showSeeAll && (
           <Button
+            className="-my-1"
             icon={RiArrowRightLine}
             label={intl.formatMessage({
               defaultMessage: 'See all',

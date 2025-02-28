@@ -23,7 +23,9 @@ export default function SponsorsStepsToStartAdvertisingSection() {
           description="Description for 1st step of advertising"
           id="xAJOvM"
           values={{
-            anchor: (chunks) => <Anchor href="/">{chunks}</Anchor>, // TODO(sponsors): Add link to sponsors form page
+            anchor: (chunks) => (
+              <Anchor href="/advertise-with-us/request">{chunks}</Anchor>
+            ),
           }}
         />
       ),
