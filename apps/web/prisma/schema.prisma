@@ -534,7 +534,7 @@ model SponsorsAdRequest {
   signatoryName  String
   signatoryTitle String
   agreement      String?
-  status         SponsorsAdRequestStatus
+  status         SponsorsAdRequestStatus @default(PENDING)
 
   ads SponsorsAd[]
 }
