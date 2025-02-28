@@ -224,11 +224,13 @@ Elevate your style, inspire your creativity, and represent your coding chops wit
                 ...adData,
                 slots: {
                   create: Array.from(ad.weeks).map((slot) => {
-                    const [year, week] = slot.split('/');
+                    const [year, week] = slot
+                      .split('/')
+                      .map((part) => Number(part));
 
                     return {
-                      week: Number(week),
-                      year: Number(year),
+                      week,
+                      year,
                     };
                   }),
                 },
@@ -241,7 +243,7 @@ Elevate your style, inspire your creativity, and represent your coding chops wit
           signatoryName,
           signatoryTitle,
           sponsorName,
-          taxNumber: taxNumber ?? '',
+          taxNumber,
         },
       });
     }),
