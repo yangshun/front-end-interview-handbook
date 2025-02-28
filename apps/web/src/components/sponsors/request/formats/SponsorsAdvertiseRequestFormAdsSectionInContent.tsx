@@ -32,6 +32,8 @@ import { trpc } from '~/hooks/trpc';
 
 import type { StepsTabItemStatus } from '~/components/common/StepsTabs';
 
+import type { SponsorsAdFormatInContentItem } from '../types';
+
 import { zodResolver } from '@hookform/resolvers/zod';
 import { createHeadlessEditor } from '@lexical/headless';
 
@@ -42,12 +44,8 @@ type Props = Readonly<{
     url,
     weeks,
     imageUrl,
-  }: Readonly<{
-    imageUrl: string;
-    text: string;
-    url: string;
-    weeks: Set<string>;
-  }>) => void;
+    body,
+  }: Omit<SponsorsAdFormatInContentItem, 'format' | 'id'>) => void;
   sessionId: string;
   updateStepStatus: (status: StepsTabItemStatus) => void;
 }>;
@@ -106,6 +104,7 @@ export default function SponsorsAdvertiseRequestFormAdsSectionInContent({
     );
 
     onSubmit({
+      body: data.body,
       imageUrl: storageImageUrl,
       text: data.text,
       url: data.url,

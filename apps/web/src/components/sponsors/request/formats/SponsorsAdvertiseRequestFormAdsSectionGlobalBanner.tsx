@@ -15,6 +15,7 @@ import TextInput from '~/components/ui/TextInput';
 
 import { useSponsorsGlobalBannerAdSchema } from '../schema/SponsorsAdvertiseRequestAdSchema';
 import SponsorsAdvertiseRequestFormAdsSectionAvailability from '../SponsorsAdvertiseRequestFormAdsSectionAvailability';
+import type { SponsorsAdFormatGlobalBannerItem } from '../types';
 import SponsorsAdFormatGlobalBanner from '../../ads/SponsorsAdFormatGlobalBanner';
 
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -22,16 +23,10 @@ import { zodResolver } from '@hookform/resolvers/zod';
 type Props = Readonly<{
   onCancel?: () => void;
   onSubmit: ({
-    format,
     text,
     url,
     weeks,
-  }: {
-    format: 'GLOBAL_BANNER';
-    text: string;
-    url: string;
-    weeks: Set<string>;
-  }) => void;
+  }: Omit<SponsorsAdFormatGlobalBannerItem, 'format' | 'id'>) => void;
   updateStepStatus: (status: StepsTabItemStatus) => void;
 }>;
 
@@ -65,7 +60,6 @@ export default function SponsorsAdvertiseRequestFormAdsSectionGlobalBanner({
 
   function handleOnSubmit(data: z.infer<typeof adSchema>) {
     onSubmit({
-      format: 'GLOBAL_BANNER',
       text: data.text,
       url: data.url,
       weeks: data.weeks,

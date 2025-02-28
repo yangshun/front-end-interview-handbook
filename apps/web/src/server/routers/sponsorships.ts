@@ -11,6 +11,12 @@ import { z } from 'zod';
 
 import { base64toBlob } from '~/lib/imageUtils';
 
+import {
+  sponsorsGlobalBannerAdSchemaServer,
+  sponsorsInContentAdSchemaServer,
+  sponsorsSpotlightAdSchemaServer,
+} from '~/components/sponsors/request/schema/SponsorsAdvertiseRequestAdSchema';
+import { sponsorsCompanySchemaServer } from '~/components/sponsors/request/schema/SponsorsAdvertiseRequestCompanySchema';
 import type { SponsorsAdFormatPayload } from '~/components/sponsors/SponsorsTypes';
 import { SponsorsAdFormatZodEnum } from '~/components/sponsors/SponsorsTypes';
 
@@ -168,6 +174,76 @@ Elevate your style, inspire your creativity, and represent your coding chops wit
       })();
 
       return adPayload;
+    }),
+  adRequest: publicProcedure
+    .input(
+      z.object({
+        ads: z.array(
+          z.union([
+            sponsorsGlobalBannerAdSchemaServer,
+            sponsorsSpotlightAdSchemaServer,
+            sponsorsInContentAdSchemaServer,
+          ]),
+        ),
+        agreement: z.string(),
+        company: sponsorsCompanySchemaServer,
+        emails: z.array(z.string()),
+      }),
+    )
+    .mutation(async ({ input: { ads, company, emails, agreement } }) => {
+      const {
+        legalName,
+        taxNumber,
+        address,
+        signatoryName,
+        signatoryTitle,
+        sponsorName,
+      } = company;
+
+      return await prisma.sponsorsAdRequest.create({
+        data: {
+          address,
+          ads: {
+            create: ads.map((ad) => {
+              const adData =
+                ad.format === 'GLOBAL_BANNER'
+                  ? {}
+                  : ad.format === 'IN_CONTENT'
+                    ? {
+                        body: ad.body,
+                        imageUrl: ad.imageUrl,
+                      }
+                    : {
+                        imageUrl: ad.imageUrl,
+                      };
+
+              return {
+                format: ad.format,
+                title: ad.text,
+                url: ad.url,
+                ...adData,
+                slots: {
+                  create: Array.from(ad.weeks).map((slot) => {
+                    const [year, week] = slot.split('/');
+
+                    return {
+                      week: Number(week),
+                      year: Number(year),
+                    };
+                  }),
+                },
+              };
+            }),
+          },
+          agreement,
+          emails,
+          legalName,
+          signatoryName,
+          signatoryTitle,
+          sponsorName,
+          taxNumber: taxNumber ?? '',
+        },
+      });
     }),
   availability: publicProcedure
     .input(

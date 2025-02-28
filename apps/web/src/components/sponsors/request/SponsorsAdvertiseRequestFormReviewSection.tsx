@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { RiArrowLeftLine, RiArrowRightLine } from 'react-icons/ri';
 
 import type { StepsTabItemStatus } from '~/components/common/StepsTabs';
@@ -25,7 +25,9 @@ type Props = Readonly<{
     company: SponsorsCompanyDetails;
     emails: Array<string>;
   };
+  isSubmitting?: boolean;
   onPrevious: () => void;
+  onSubmit: ({ agreement }: Readonly<{ agreement: string }>) => void;
   updateStepStatus: (status: StepsTabItemStatus) => void;
 }>;
 
@@ -33,8 +35,11 @@ export default function SponsorsAdvertiseRequestFormReviewSection({
   onPrevious,
   updateStepStatus,
   data,
+  onSubmit,
+  isSubmitting,
 }: Props) {
   const intl = useIntl();
+  const agreementRef = useRef<HTMLDivElement>(null);
   const adsData = useSponsorsAdFormatData();
   const [signedAgreement, setSignedAgreement] = useState(false);
   const { emails, ads, company } = data;
@@ -71,8 +76,15 @@ export default function SponsorsAdvertiseRequestFormReviewSection({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [signedAgreement]);
 
+  async function handleOnSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    await onSubmit({
+      agreement: agreementRef.current?.innerHTML ?? '',
+    });
+  }
+
   return (
-    <div className="mx-auto w-full max-w-xl">
+    <form className="mx-auto w-full max-w-xl" onSubmit={handleOnSubmit}>
       <Heading level="heading6">
         <FormattedMessage
           defaultMessage="Review and sign"
@@ -286,6 +298,7 @@ export default function SponsorsAdvertiseRequestFormReviewSection({
               />
             </Text>
             <div
+              ref={agreementRef}
               className={clsx('mt-2 rounded p-5', themeBorderColor, 'border')}>
               <SponsorsAdvertiseRequestAgreement
                 address={`${addressString}, ${address.country}`}
@@ -322,7 +335,8 @@ export default function SponsorsAdvertiseRequestFormReviewSection({
           />
           <Button
             icon={RiArrowRightLine}
-            isDisabled={!signedAgreement}
+            isDisabled={!signedAgreement || isSubmitting}
+            isLoading={isSubmitting}
             label={intl.formatMessage({
               defaultMessage: 'Submit',
               description: 'Label for submit button',
@@ -334,6 +348,6 @@ export default function SponsorsAdvertiseRequestFormReviewSection({
           />
         </div>
       </Section>
-    </div>
+    </form>
   );
 }

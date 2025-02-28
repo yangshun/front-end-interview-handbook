@@ -24,6 +24,7 @@ import {
 import { useSponsorsSpotlightAdSchema } from '../schema/SponsorsAdvertiseRequestAdSchema';
 import SponsorsAdvertiseRequestFormAdsImageUpload from '../SponsorsAdvertiseRequestFormAdsImageUpload';
 import SponsorsAdvertiseRequestFormAdsSectionAvailability from '../SponsorsAdvertiseRequestFormAdsSectionAvailability';
+import type { SponsorsAdFormatSpotlightItem } from '../types';
 
 import { zodResolver } from '@hookform/resolvers/zod';
 
@@ -34,12 +35,7 @@ type Props = Readonly<{
     url,
     weeks,
     imageUrl,
-  }: Readonly<{
-    imageUrl: string;
-    text: string;
-    url: string;
-    weeks: Set<string>;
-  }>) => void;
+  }: Omit<SponsorsAdFormatSpotlightItem, 'format' | 'id'>) => void;
   sessionId: string;
   updateStepStatus: (status: StepsTabItemStatus) => void;
 }>;

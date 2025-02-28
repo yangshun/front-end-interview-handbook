@@ -3747,6 +3747,10 @@
     "defaultMessage": "Must be two characters or more",
     "description": "Error message for min length"
   },
+  "KJX/Um": {
+    "defaultMessage": "Failed to submit request",
+    "description": "Error title for request submission"
+  },
   "KPn83+": {
     "defaultMessage": "Series Contents",
     "description": "Series contents navigation menu button label"
@@ -5162,6 +5166,10 @@
   "RxU5TE": {
     "defaultMessage": "Privacy policy",
     "description": "Link to privacy policy page"
+  },
+  "RyuIJe": {
+    "defaultMessage": "Your request has been submitted successfully",
+    "description": "Success message for request submission"
   },
   "Rz6MDM": {
     "defaultMessage": "System design questions in front-end interviews evaluate a candidate's ability to architect large-scale, maintainable, and scalable web applications. Unlike backend system design, these questions focus more on designing the client-side architecture, managing state, ensuring performance, and integrating with APIs or backend services. Candidates may be asked to design complex UI systems, plan for accessibility, or discuss strategies for handling large volumes of user interactions or data. Asked in mid-level to senior level interviews",
@@ -6766,6 +6774,10 @@
   "atvqCE": {
     "defaultMessage": "Recommended strategy",
     "description": "Recommended interview preparation resources"
+  },
+  "auTrf6": {
+    "defaultMessage": "Request submitted",
+    "description": "Success title for request submission"
   },
   "avuK5U": {
     "defaultMessage": "Rewards Terms and Conditions",

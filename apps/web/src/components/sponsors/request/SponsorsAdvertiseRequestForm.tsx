@@ -2,7 +2,10 @@
 
 import { useEffect, useRef, useState } from 'react';
 
+import { trpc } from '~/hooks/trpc';
+
 import StepsTabs from '~/components/common/StepsTabs';
+import { useToast } from '~/components/global/toasts/useToast';
 import { useIntl } from '~/components/intl';
 
 import SponsorsAdvertiseRequestFormAdsSection from './SponsorsAdvertiseRequestFormAdsSection';
@@ -25,6 +28,8 @@ type Step = 'ads' | 'company' | 'contact' | 'review';
 
 export default function SponsorsAdvertiseRequestForm({ sessionId }: Props) {
   const intl = useIntl();
+  const { showToast } = useToast();
+  const adRequestMutation = trpc.sponsorships.adRequest.useMutation();
   const [stepsStatus, setStepsStatus] = useState<
     Record<Step, 'completed' | 'in_progress' | 'not_started'>
   >({
@@ -117,6 +122,67 @@ export default function SponsorsAdvertiseRequestForm({ sessionId }: Props) {
     }
   }, [step]);
 
+  function resetForm() {
+    setFormData({
+      ads: [],
+      company: null,
+      emails: [],
+    });
+    setStep('contact');
+    setStepsStatus({
+      ads: 'not_started',
+      company: 'not_started',
+      contact: 'not_started',
+      review: 'not_started',
+    });
+  }
+
+  async function handleCreateRequest({
+    agreement,
+  }: Readonly<{
+    agreement: string;
+  }>) {
+    await adRequestMutation.mutateAsync(
+      {
+        ads: formData.ads,
+        agreement,
+        company: formData.company!,
+        emails: formData.emails,
+      },
+      {
+        onError: (error) => {
+          showToast({
+            description: error.message,
+            title:
+              error.message ||
+              intl.formatMessage({
+                defaultMessage: 'Failed to submit request',
+                description: 'Error title for request submission',
+                id: 'KJX/Um',
+              }),
+            variant: 'danger',
+          });
+        },
+        onSuccess: () => {
+          showToast({
+            description: intl.formatMessage({
+              defaultMessage: 'Your request has been submitted successfully',
+              description: 'Success message for request submission',
+              id: 'RyuIJe',
+            }),
+            title: intl.formatMessage({
+              defaultMessage: 'Request submitted',
+              description: 'Success title for request submission',
+              id: 'auTrf6',
+            }),
+            variant: 'success',
+          });
+          resetForm();
+        },
+      },
+    );
+  }
+
   return (
     <div ref={stepsContainerRef} className="flex flex-col gap-16">
       <StepsTabs
@@ -193,10 +259,12 @@ export default function SponsorsAdvertiseRequestForm({ sessionId }: Props) {
             company: formData.company!,
             emails: formData.emails,
           }}
+          isSubmitting={adRequestMutation.isLoading}
           updateStepStatus={(status) =>
             setStepsStatus((prev) => ({ ...prev, review: status }))
           }
           onPrevious={() => setStep('company')}
+          onSubmit={handleCreateRequest}
         />
       )}
     </div>
