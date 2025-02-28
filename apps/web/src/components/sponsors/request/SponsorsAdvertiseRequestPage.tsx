@@ -12,7 +12,7 @@ export default function SponsorsAdvertiseRequestPage() {
   const sessionId = uuidv4();
 
   return (
-    <Container className="py-12 lg:py-20" width="5xl">
+    <Container className="py-12 lg:py-20" width="marketing">
       <Heading level="heading4">
         <FormattedMessage
           defaultMessage="Advertise on GreatFrontEnd"

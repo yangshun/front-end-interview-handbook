@@ -65,7 +65,7 @@ export default function SponsorsAdvertiseRequestFormAdsSectionAvailability({
           <Spinner />
         </div>
       ) : (
-        <div className="mt-3 grid gap-3 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-3 grid gap-3 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {data.map(({ start, end, available, year, week }) => {
             const weekHash = `${year}/${week}`;
             const selected = selectedWeeks.has(weekHash);

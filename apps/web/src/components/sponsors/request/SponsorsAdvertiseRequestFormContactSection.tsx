@@ -85,9 +85,7 @@ export default function SponsorsAdvertiseRequestFormContactSection({
   }, [isDirty]);
 
   return (
-    <form
-      className="mx-auto w-full max-w-xl"
-      onSubmit={handleSubmit(handleOnSubmit)}>
+    <form className="w-full max-w-xl" onSubmit={handleSubmit(handleOnSubmit)}>
       <Heading level="heading6">
         <FormattedMessage
           defaultMessage="Contact details"

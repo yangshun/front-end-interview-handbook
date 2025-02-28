@@ -185,32 +185,34 @@ export default function SponsorsAdvertiseRequestForm({ sessionId }: Props) {
 
   return (
     <div ref={stepsContainerRef} className="flex flex-col gap-16">
-      <StepsTabs
-        className="z-sticky sticky top-[var(--global-sticky-height)]"
-        label={intl.formatMessage({
-          defaultMessage: 'Advertise with us steps',
-          description: 'Label for advertise request steps',
-          id: 'ZO6Axb',
-        })}
-        tabs={steps}
-        value={step}
-        onSelect={(newStep) => {
-          // If the current step status is in progress, prevent step navigation
-          if (stepsStatus[step] === 'in_progress') {
-            return;
-          }
-          if (newStep === 'ads' && stepsStatus.contact !== 'completed') {
-            return;
-          }
-          if (newStep === 'company' && stepsStatus.ads !== 'completed') {
-            return;
-          }
-          if (newStep === 'review' && stepsStatus.company !== 'completed') {
-            return;
-          }
-          setStep(newStep);
-        }}
-      />
+      {steps[0].status === 'completed' && (
+        <StepsTabs
+          className="z-sticky sticky top-[var(--global-sticky-height)]"
+          label={intl.formatMessage({
+            defaultMessage: 'Advertise with us steps',
+            description: 'Label for advertise request steps',
+            id: 'ZO6Axb',
+          })}
+          tabs={steps}
+          value={step}
+          onSelect={(newStep) => {
+            // If the current step status is in progress, prevent step navigation
+            if (stepsStatus[step] === 'in_progress') {
+              return;
+            }
+            if (newStep === 'ads' && stepsStatus.contact !== 'completed') {
+              return;
+            }
+            if (newStep === 'company' && stepsStatus.ads !== 'completed') {
+              return;
+            }
+            if (newStep === 'review' && stepsStatus.company !== 'completed') {
+              return;
+            }
+            setStep(newStep);
+          }}
+        />
+      )}
       {step === 'contact' && (
         <SponsorsAdvertiseRequestFormContactSection
           defaultValues={formData.emails}

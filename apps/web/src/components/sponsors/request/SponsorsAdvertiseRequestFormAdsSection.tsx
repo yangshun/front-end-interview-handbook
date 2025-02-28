@@ -58,7 +58,7 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
   const adFormatData = useSponsorsAdFormatData();
 
   return (
-    <div className="mx-auto w-full max-w-5xl">
+    <div>
       <Heading level="heading6">
         <FormattedMessage
           defaultMessage="Ads"
