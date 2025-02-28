@@ -1,19 +1,28 @@
 import clsx from 'clsx';
 import { useId } from 'react';
 import { useDropzone } from 'react-dropzone';
+import { RiCloseFill } from 'react-icons/ri';
 
 import { FormattedMessage, useIntl } from '~/components/intl';
+import Button from '~/components/ui/Button';
 import Label from '~/components/ui/Label';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundInputColor,
+  themeBorderBrandColor,
+  themeBorderBrandColor_Hover,
+  themeBorderColor,
   themeBorderEmphasizeColor,
+  themeBorderErrorColor,
+  themeBorderSuccessColor,
 } from '~/components/ui/theme';
 
 type Props = Readonly<{
+  className?: string;
   errorMessage?: string;
   heightConstraint: number;
-  setError: (message: string) => void;
+  imageUrl: string;
+  setError: (message: string | undefined) => void;
   setImageUrl: (url: string) => void;
   widthConstraint: number;
 }>;
@@ -21,9 +30,11 @@ type Props = Readonly<{
 const MAX_FILE_SIZE = 2 * 1024 * 1024; // 2MB
 
 export default function SponsorsAdvertiseRequestFormAdsImageUpload({
+  className,
   widthConstraint,
   heightConstraint,
   setImageUrl,
+  imageUrl,
   errorMessage,
   setError,
 }: Props) {
@@ -31,6 +42,8 @@ export default function SponsorsAdvertiseRequestFormAdsImageUpload({
   const messageId = useId();
 
   function onDrop(acceptedFiles: Array<File>) {
+    setError(undefined);
+
     if (acceptedFiles.length > 0) {
       const file = acceptedFiles[0];
 
@@ -49,18 +62,34 @@ export default function SponsorsAdvertiseRequestFormAdsImageUpload({
 
         return;
       }
+
       setImageUrl(URL.createObjectURL(file));
     }
   }
 
-  const { getRootProps, getInputProps } = useDropzone({
-    accept: { 'image/*': [] },
-    multiple: false,
-    onDrop,
-  });
+  const { getRootProps, getInputProps, isFocused, isDragAccept, isDragReject } =
+    useDropzone({
+      accept: { 'image/*': [] },
+      multiple: false,
+      onDrop,
+    });
+
+  const dropzoneBorderClassName = (() => {
+    if (isDragAccept) {
+      return themeBorderSuccessColor;
+    }
+    if (isDragReject) {
+      return themeBorderErrorColor;
+    }
+    if (isFocused) {
+      return themeBorderBrandColor;
+    }
+
+    return themeBorderEmphasizeColor;
+  })();
 
   return (
-    <div className="flex flex-col gap-2">
+    <div className={clsx('flex flex-col gap-2', className)}>
       <Label
         description={intl.formatMessage({
           defaultMessage: 'Follow the image dimensions guidelines',
@@ -74,35 +103,67 @@ export default function SponsorsAdvertiseRequestFormAdsImageUpload({
         })}
         required={true}
       />
-      <div
-        {...getRootProps()}
-        className={clsx(
-          'flex w-full flex-col items-center justify-center',
-          'py-10',
-          ['border', themeBorderEmphasizeColor, 'border-dashed'],
-          'rounded-md',
-          themeBackgroundInputColor,
-        )}>
-        <input
-          {...getInputProps()}
-          aria-describedby={errorMessage ? messageId : undefined}
-        />
-        <Text className="block" color="subtitle" size="body2">
-          <FormattedMessage
-            defaultMessage="Select or drop an image here"
-            description="Ad image upload description"
-            id="EfUaYk"
+      {imageUrl ? (
+        <div className="relative">
+          <Button
+            className="absolute -right-3 -top-3"
+            icon={RiCloseFill}
+            isLabelHidden={true}
+            label="Remove image"
+            tooltip="Remove image"
+            variant="secondary"
+            onClick={() => setImageUrl('')}
           />
-        </Text>
-        <Text className="mt-1 block" color="secondary" size="body3">
-          {widthConstraint}px x {heightConstraint}px (
-          {widthConstraint / heightConstraint}:1 ratio)
-        </Text>
-      </div>
-      {errorMessage && (
-        <Text className="block" color="error" id={messageId} size="body3">
-          {errorMessage}
-        </Text>
+          <img
+            alt="Uploaded image"
+            className={clsx(
+              'aspect-[2/1] rounded-lg',
+              'object-cover',
+              'border',
+              themeBorderColor,
+            )}
+            src={imageUrl}
+          />
+        </div>
+      ) : (
+        <>
+          <div
+            {...getRootProps()}
+            className={clsx(
+              'flex w-full flex-col items-center justify-center',
+              'cursor-pointer',
+              'aspect-[2/1]',
+              [
+                'transition-colors',
+                'border border-dashed',
+                dropzoneBorderClassName,
+                themeBorderBrandColor_Hover,
+              ],
+              'rounded-md',
+              themeBackgroundInputColor,
+            )}>
+            <input
+              {...getInputProps()}
+              aria-describedby={errorMessage ? messageId : undefined}
+            />
+            <Text className="block" color="subtitle" size="body2">
+              <FormattedMessage
+                defaultMessage="Select or drop an image here"
+                description="Ad image upload description"
+                id="EfUaYk"
+              />
+            </Text>
+            <Text className="mt-1 block" color="secondary" size="body3">
+              {widthConstraint}px x {heightConstraint}px (
+              {widthConstraint / heightConstraint}:1 ratio)
+            </Text>
+          </div>
+          {errorMessage && (
+            <Text className="block" color="error" id={messageId} size="body3">
+              {errorMessage}
+            </Text>
+          )}
+        </>
       )}
     </div>
   );

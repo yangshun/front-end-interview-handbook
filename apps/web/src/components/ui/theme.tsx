@@ -180,6 +180,8 @@ export const themeBorderBrandColor_Hover = clsx(
 export const themeBorderBrandColor_GroupHover = clsx(
   'group-hover:border-neutral-900 dark:group-hover:border-brand',
 );
+export const themeBorderSuccessColor = clsx('border-success');
+export const themeBorderErrorColor = clsx('border-danger');
 
 export const themeOutlineElement_FocusVisible = clsx(
   'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2',

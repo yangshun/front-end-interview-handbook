@@ -182,11 +182,13 @@ export default function SponsorsAdvertiseRequestFormAdsSectionSpotlight({
               name="imageUrl"
               render={({ field, fieldState: { error } }) => (
                 <SponsorsAdvertiseRequestFormAdsImageUpload
+                  className="mt-4"
                   errorMessage={error?.message}
                   heightConstraint={
                     SponsorAdFormatConfigs.SPOTLIGHT.placementConstraints.image
                       ?.height ?? 1
                   }
+                  imageUrl={imageUrl}
                   setError={(message) => setError('imageUrl', { message })}
                   setImageUrl={(url) => {
                     field.onChange(url);

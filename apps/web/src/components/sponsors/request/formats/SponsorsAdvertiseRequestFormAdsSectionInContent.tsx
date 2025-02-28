@@ -82,6 +82,7 @@ export default function SponsorsAdvertiseRequestFormAdsSectionInContent({
   const selectedWeeks = watch('weeks');
   const title = watch('text');
   const body = watch('body');
+  const imageUrl = watch('imageUrl');
 
   const editorState = editor.parseEditorState(body);
   const bodyText = editorState.read(() => $getRoot().getTextContent());
@@ -185,6 +186,7 @@ export default function SponsorsAdvertiseRequestFormAdsSectionInContent({
               name="body"
               render={({ field, fieldState: { error } }) => (
                 <RichTextEditor
+                  classNameOuter="mt-4"
                   description={intl.formatMessage(
                     {
                       defaultMessage: 'Maximum of {maxLinks} links allowed',
@@ -231,11 +233,13 @@ export default function SponsorsAdvertiseRequestFormAdsSectionInContent({
               name="imageUrl"
               render={({ field, fieldState: { error } }) => (
                 <SponsorsAdvertiseRequestFormAdsImageUpload
+                  className="mt-4"
                   errorMessage={error?.message}
                   heightConstraint={
                     SponsorAdFormatConfigs.IN_CONTENT.placementConstraints.image
                       ?.height ?? 1
                   }
+                  imageUrl={imageUrl}
                   setError={(message) => setError('imageUrl', { message })}
                   setImageUrl={(url) => {
                     field.onChange(url);
@@ -302,7 +306,7 @@ export default function SponsorsAdvertiseRequestFormAdsSectionInContent({
                   }
                   external={true}
                   id="short-form"
-                  imageUrl=""
+                  imageUrl={imageUrl}
                   size="md"
                   sponsorName="Your product / company name"
                   title={
