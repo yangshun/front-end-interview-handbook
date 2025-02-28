@@ -511,6 +511,10 @@
     "defaultMessage": "Adjust your filters a bit, and let's see what we can find!",
     "description": "Subtitle for empty state when no projects are returned from application of filters on projects list"
   },
+  "0uKafI": {
+    "defaultMessage": "Address",
+    "description": "Label for address"
+  },
   "0vBaIF": {
     "defaultMessage": "You have {amountLeft, plural, =0 {no premium credits} one {<bold>1</bold> premium credit} other {<bold>#</bold> premium credits}} remaining. Resubscribe to premium to unlock this challenge and access all its premium features, including the Figma design files, official guides, and solutions.",
     "description": "Subtitle for project paywall"
@@ -2183,6 +2187,10 @@
     "defaultMessage": "System design interviews are often reserved for mid-to-senior roles, focusing on your ability to design complex, scalable, and maintainable systems. With few resources out there specifically for front end system design, we've crafted the Front End System Design Guide—the most comprehensive resource available.",
     "description": "Long description of frontend interview playbook page"
   },
+  "BGKx/h": {
+    "defaultMessage": "Review everything and make sure they are in order",
+    "description": "Subtitle for review section"
+  },
   "BHjWCo": {
     "defaultMessage": "API specifications and sample data",
     "description": "Provided resource for project"
@@ -2466,6 +2474,10 @@
   "D96Hpr": {
     "defaultMessage": "/week",
     "description": "Per week"
+  },
+  "D9lA4s": {
+    "defaultMessage": "Review and sign",
+    "description": "Review and sign"
   },
   "D9oArH": {
     "defaultMessage": "A confirmation email has been sent to the new email address. The email change will not take effect until the confirmation link in the new email address has been clicked and signing out",
@@ -3406,6 +3418,10 @@
   "Ia88Vb": {
     "defaultMessage": "Related articles",
     "description": "Blog related articles section"
+  },
+  "IaEOEI": {
+    "defaultMessage": "Authorized signatory",
+    "description": "Label for Authorized signatory"
   },
   "IbMc1j": {
     "defaultMessage": "Submission summary must contain at most {maxLength} character(s).",
@@ -5159,6 +5175,10 @@
     "defaultMessage": "Coding questions that require you to implement functions in JavaScript, which can be utility functions found in Lodash/Underscore. a polyfill for the JavaScript language, or DOM APIs.",
     "description": "Description for js coding questions"
   },
+  "S1ozyI": {
+    "defaultMessage": "{count} week(s)",
+    "description": "No of weeks"
+  },
   "S21xBI": {
     "defaultMessage": "Login to track your progress and access premium",
     "description": "Description of Login page"
@@ -5174,6 +5194,10 @@
   "S4nrpS": {
     "defaultMessage": "{trackName} Track",
     "description": "Title for track in Continue tracks and skills section on Projects dashboard page"
+  },
+  "S57dW3": {
+    "defaultMessage": "Choose ad formats and upload assets",
+    "description": "Subtitle for ads"
   },
   "S5984+": {
     "defaultMessage": "Free plan",
@@ -5554,6 +5578,10 @@
   "Tm6FbS": {
     "defaultMessage": "This URL is invalid. Check if you've typed it correctly.",
     "description": "Error message"
+  },
+  "TriOQe": {
+    "defaultMessage": "Company",
+    "description": "Label for company"
   },
   "Tt86gs": {
     "defaultMessage": "Importance: High to Low",
@@ -6627,6 +6655,10 @@
     "defaultMessage": "Reset password",
     "description": "Title of Password Reset page"
   },
+  "aQYg46": {
+    "defaultMessage": "Ads",
+    "description": "Label for ads"
+  },
   "aSyD6u": {
     "defaultMessage": "Filters",
     "description": "Title of Projects challenge submission filter slide-out"
@@ -7311,6 +7343,10 @@
     "defaultMessage": "Challenges",
     "description": "Link to all projects challenges page"
   },
+  "e/4TCP": {
+    "defaultMessage": "Contact emails",
+    "description": "Contact email addresses"
+  },
   "e/t5dH": {
     "defaultMessage": "Download starter files",
     "description": "Label for \"Download starter files\" step in dialog on Projects project page"
@@ -7639,6 +7675,10 @@
     "defaultMessage": "Your edits have been successfully saved. Thank you for contributing to our community!",
     "description": "Update challenge success message"
   },
+  "fifLMg": {
+    "defaultMessage": "Please accept the agreement by selecting the checkbox at the end of the agreement",
+    "description": "Message for accept agreement checkbox"
+  },
   "fjj5BL": {
     "defaultMessage": "Profile saved!",
     "description": "Toast for project profile saved"
@@ -7694,6 +7734,10 @@
   "g2Nt5j": {
     "defaultMessage": "Edit",
     "description": "Label for edit button on project discussions page"
+  },
+  "g2WgPq": {
+    "defaultMessage": "Provide company details for invoicing and agreements",
+    "description": "Subtitle for company details"
   },
   "g3PJQr": {
     "defaultMessage": "LinkedIn",
@@ -7850,6 +7894,10 @@
   "gvncuz": {
     "defaultMessage": "Prioritized lists",
     "description": "Features for study plans"
+  },
+  "gz4/q4": {
+    "defaultMessage": "Provide your contact details",
+    "description": "Subtitle for contact details"
   },
   "h+CFG8": {
     "defaultMessage": "All tasks completed! Enjoy your exclusive promo code",
@@ -8619,6 +8667,10 @@
     "defaultMessage": "<percent>{percentage}</percent>%",
     "description": "Progress percentage in Continue Learning section in preparation dashboard"
   },
+  "lGVunh": {
+    "defaultMessage": "Review the final details and sign the agreement",
+    "description": "Subtitle for Review and sign"
+  },
   "lHuGip": {
     "defaultMessage": "See how your ad looks like when it goes live",
     "description": "Description for preview"
@@ -8830,6 +8882,10 @@
   "mflEX7": {
     "defaultMessage": "You made a post on <recipientProfileLink>{recipient}</recipientProfileLink>'s submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for you making a post on others submission"
+  },
+  "mgV3k+": {
+    "defaultMessage": "Agreement",
+    "description": "Label for Agreement"
   },
   "mh0xHS": {
     "defaultMessage": "You can edit your submission and code anytime.",
@@ -10430,6 +10486,10 @@
   "w3T2Ld": {
     "defaultMessage": "Editor shortcuts",
     "description": "Tooltip for button to open code editor shortcuts"
+  },
+  "w6p/Js": {
+    "defaultMessage": "Total",
+    "description": "Label for total ads amount"
   },
   "w85sKh": {
     "defaultMessage": "<authorLink>{author}</authorLink> replied to your question on the project discussions for <challengeLink>{entityTitle}</challengeLink> {timestamp}",

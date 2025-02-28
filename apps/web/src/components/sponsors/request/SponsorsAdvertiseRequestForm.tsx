@@ -37,26 +37,58 @@ export default function SponsorsAdvertiseRequestForm({ sessionId }: Props) {
   const steps = [
     {
       status: stepsStatus.contact,
-      subtitle: 'Provide your contact details',
-      title: 'Contact details',
+      subtitle: intl.formatMessage({
+        defaultMessage: 'Provide your contact details',
+        description: 'Subtitle for contact details',
+        id: 'gz4/q4',
+      }),
+      title: intl.formatMessage({
+        defaultMessage: 'Contact details',
+        description: 'Title for contact details',
+        id: 'a8I10Q',
+      }),
       value: 'contact',
     },
     {
       status: stepsStatus.ads,
-      subtitle: 'Choose ad formats and upload assets',
-      title: 'Ads',
+      subtitle: intl.formatMessage({
+        defaultMessage: 'Choose ad formats and upload assets',
+        description: 'Subtitle for ads',
+        id: 'S57dW3',
+      }),
+      title: intl.formatMessage({
+        defaultMessage: 'Ads',
+        description: 'Label for ads',
+        id: 'aQYg46',
+      }),
       value: 'ads',
     },
     {
       status: stepsStatus.company,
-      subtitle: 'Provide company details for invoicing and agreements',
-      title: 'Company details',
+      subtitle: intl.formatMessage({
+        defaultMessage: 'Provide company details for invoicing and agreements',
+        description: 'Subtitle for company details',
+        id: 'g2WgPq',
+      }),
+      title: intl.formatMessage({
+        defaultMessage: 'Company details',
+        description: 'Company details section heading',
+        id: 'g6ZUKV',
+      }),
       value: 'company',
     },
     {
       status: stepsStatus.review,
-      subtitle: 'Review the final details and sign the agreement',
-      title: 'Review and sign',
+      subtitle: intl.formatMessage({
+        defaultMessage: 'Review the final details and sign the agreement',
+        description: 'Subtitle for Review and sign',
+        id: 'lGVunh',
+      }),
+      title: intl.formatMessage({
+        defaultMessage: 'Review and sign',
+        description: 'Review and sign',
+        id: 'D9lA4s',
+      }),
       value: 'review',
     },
   ] as const;
@@ -156,6 +188,11 @@ export default function SponsorsAdvertiseRequestForm({ sessionId }: Props) {
       )}
       {step === 'review' && (
         <SponsorsAdvertiseRequestFormReviewSection
+          data={{
+            ads: formData.ads,
+            company: formData.company!,
+            emails: formData.emails,
+          }}
           updateStepStatus={(status) =>
             setStepsStatus((prev) => ({ ...prev, review: status }))
           }

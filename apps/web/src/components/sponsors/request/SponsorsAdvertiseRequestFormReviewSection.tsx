@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { RiArrowLeftLine, RiArrowRightLine } from 'react-icons/ri';
 
 import type { StepsTabItemStatus } from '~/components/common/StepsTabs';
-import { useIntl } from '~/components/intl';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import CheckboxInput from '~/components/ui/CheckboxInput';
 import Divider from '~/components/ui/Divider';
@@ -13,8 +13,18 @@ import Text from '~/components/ui/Text';
 import { themeBorderColor } from '~/components/ui/theme';
 
 import SponsorsAdvertiseRequestAgreement from './SponsorsAdvertiseRequestAgreement';
+import type { SponsorsAdFormatFormItem, SponsorsCompanyDetails } from './types';
+import {
+  SponsorAdFormatConfigs,
+  useSponsorsAdFormatData,
+} from '../SponsorsAdFormatConfigs';
 
 type Props = Readonly<{
+  data: {
+    ads: Array<SponsorsAdFormatFormItem>;
+    company: SponsorsCompanyDetails;
+    emails: Array<string>;
+  };
   onPrevious: () => void;
   updateStepStatus: (status: StepsTabItemStatus) => void;
 }>;
@@ -22,26 +32,20 @@ type Props = Readonly<{
 export default function SponsorsAdvertiseRequestFormReviewSection({
   onPrevious,
   updateStepStatus,
+  data,
 }: Props) {
   const intl = useIntl();
+  const adsData = useSponsorsAdFormatData();
   const [signedAgreement, setSignedAgreement] = useState(false);
-  const contactEmails = [
-    'yangshun@greatfrontend.com',
-    'nitesh@greatfrontend.com',
-  ];
-  const sponsorName = 'Facebook Reels';
-  const advertiserFullLegalName = 'Meta Platforms, Inc.';
-  const advertiserTaxNumber = 'UEN123456';
-  const authorizedSignatoryName = 'Mark Zuckerberg';
-  const authorizedSignatoryTitle = 'Co-founder, CEO';
-  const address = {
-    city: 'Menlo Park',
-    country: 'US',
-    line1: '1 Hacker Way',
-    line2: '',
-    postalCode: '94025',
-    state: 'CA',
-  };
+  const { emails, ads, company } = data;
+  const {
+    address,
+    sponsorName,
+    legalName,
+    taxNumber,
+    signatoryName,
+    signatoryTitle,
+  } = company;
   const addressString = [
     [address.line1, address.line2].filter(Boolean).join(', '),
     address.city,
@@ -50,7 +54,16 @@ export default function SponsorsAdvertiseRequestFormReviewSection({
     .map((part) => part.trim())
     .filter(Boolean)
     .join(', ');
-  const totalAmount = 6100;
+  const totalAmount = ads.reduce(
+    (acc, curr) =>
+      acc +
+      curr.weeks.size * SponsorAdFormatConfigs[curr.format].pricePerWeekUSD,
+    0,
+  );
+
+  const globalBannersAd = ads.filter((ad) => ad.format === 'GLOBAL_BANNER');
+  const inContentAd = ads.filter((ad) => ad.format === 'IN_CONTENT');
+  const spotlightAd = ads.filter((ad) => ad.format === 'SPOTLIGHT');
 
   useEffect(() => {
     updateStepStatus(signedAgreement ? 'in_progress' : 'not_started');
@@ -60,23 +73,41 @@ export default function SponsorsAdvertiseRequestFormReviewSection({
 
   return (
     <div className="mx-auto w-full max-w-xl">
-      <Heading level="heading6">Review and sign</Heading>
+      <Heading level="heading6">
+        <FormattedMessage
+          defaultMessage="Review and sign"
+          description="Review and sign"
+          id="D9lA4s"
+        />
+      </Heading>
       <Section>
         <Text className="block" color="secondary">
-          Review everything and make sure they are in order
+          <FormattedMessage
+            defaultMessage="Review everything and make sure they are in order"
+            description="Subtitle for review section"
+            id="BGKx/h"
+          />
         </Text>
         <div className="mt-8 flex flex-col gap-6">
           <div>
             <Text className="block" size="body2" weight="medium">
-              Contact emails
+              <FormattedMessage
+                defaultMessage="Contact emails"
+                description="Contact email addresses"
+                id="e/4TCP"
+              />
             </Text>
             <Text className="block" color="secondary" size="body2">
-              {contactEmails.join('; ')}
+              {emails.join('; ')}
             </Text>
           </div>
           <div>
             <Text className="block" size="body2" weight="medium">
-              Sponsor name
+              <FormattedMessage
+                defaultMessage="Sponsor name"
+                description="Sponsor name input label"
+                id="iOm9a5"
+              />
             </Text>
             <Text className="block" color="secondary" size="body2">
               {sponsorName}
@@ -84,7 +115,11 @@ export default function SponsorsAdvertiseRequestFormReviewSection({
           </div>
           <div>
             <Text className="block" size="body2" weight="medium">
-              Ads
+              <FormattedMessage
+                defaultMessage="Ads"
+                description="Label for ads"
+                id="aQYg46"
+              />
             </Text>
             <div
               className={clsx(
@@ -92,26 +127,98 @@ export default function SponsorsAdvertiseRequestFormReviewSection({
                 themeBorderColor,
                 'border',
               )}>
-              <div className="flex justify-between">
-                <Text color="secondary" size="body2">
-                  Global banner x 2 weeks
-                </Text>
-                <Text color="secondary" size="body2" weight="medium">
-                  $2500
-                </Text>
-              </div>
-              <div className="flex justify-between">
-                <Text color="secondary" size="body2">
-                  In-content x 3 weeks
-                </Text>
-                <Text color="secondary" size="body2" weight="medium">
-                  $3600
-                </Text>
-              </div>
+              {globalBannersAd.length > 0 && (
+                <div className="flex justify-between">
+                  <Text color="secondary" size="body2">
+                    {adsData.GLOBAL_BANNER.name} {' x '}
+                    <FormattedMessage
+                      defaultMessage="{count} week(s)"
+                      description="No of weeks"
+                      id="S1ozyI"
+                      values={{
+                        count: globalBannersAd.reduce(
+                          (acc, curr) => acc + curr.weeks.size,
+                          0,
+                        ),
+                      }}
+                    />
+                  </Text>
+                  <Text color="secondary" size="body2" weight="medium">
+                    $
+                    {globalBannersAd.reduce(
+                      (acc, curr) =>
+                        acc +
+                        curr.weeks.size *
+                          SponsorAdFormatConfigs[curr.format].pricePerWeekUSD,
+                      0,
+                    )}
+                  </Text>
+                </div>
+              )}
+              {inContentAd.length > 0 && (
+                <div className="flex justify-between">
+                  <Text color="secondary" size="body2">
+                    {adsData.IN_CONTENT.name} {' x '}
+                    <FormattedMessage
+                      defaultMessage="{count} week(s)"
+                      description="No of weeks"
+                      id="S1ozyI"
+                      values={{
+                        count: inContentAd.reduce(
+                          (acc, curr) => acc + curr.weeks.size,
+                          0,
+                        ),
+                      }}
+                    />
+                  </Text>
+                  <Text color="secondary" size="body2" weight="medium">
+                    $
+                    {inContentAd.reduce(
+                      (acc, curr) =>
+                        acc +
+                        curr.weeks.size *
+                          SponsorAdFormatConfigs[curr.format].pricePerWeekUSD,
+                      0,
+                    )}
+                  </Text>
+                </div>
+              )}
+              {spotlightAd.length > 0 && (
+                <div className="flex justify-between">
+                  <Text color="secondary" size="body2">
+                    {adsData.SPOTLIGHT.name} {' x '}
+                    <FormattedMessage
+                      defaultMessage="{count} week(s)"
+                      description="No of weeks"
+                      id="S1ozyI"
+                      values={{
+                        count: spotlightAd.reduce(
+                          (acc, curr) => acc + curr.weeks.size,
+                          0,
+                        ),
+                      }}
+                    />
+                  </Text>
+                  <Text color="secondary" size="body2" weight="medium">
+                    $
+                    {spotlightAd.reduce(
+                      (acc, curr) =>
+                        acc +
+                        curr.weeks.size *
+                          SponsorAdFormatConfigs[curr.format].pricePerWeekUSD,
+                      0,
+                    )}
+                  </Text>
+                </div>
+              )}
               <Divider className="my-2" />
               <div className="flex justify-between">
                 <Text color="secondary" size="body2">
-                  Total
+                  <FormattedMessage
+                    defaultMessage="Total"
+                    description="Label for total ads amount"
+                    id="w6p/Js"
+                  />
                 </Text>
                 <Text color="secondary" size="body2" weight="medium">
                   ${totalAmount}
@@ -122,18 +229,26 @@ export default function SponsorsAdvertiseRequestFormReviewSection({
           <div className="grid gap-4 md:grid-cols-2">
             <div>
               <Text className="block" size="body2" weight="medium">
-                Company
+                <FormattedMessage
+                  defaultMessage="Company"
+                  description="Label for company"
+                  id="TriOQe"
+                />
               </Text>
               <Text className="block" color="secondary" size="body2">
-                {advertiserFullLegalName}
+                {legalName}
               </Text>
               <Text className="block" color="secondary" size="body2">
-                {advertiserTaxNumber}
+                {taxNumber}
               </Text>
             </div>
             <div>
               <Text className="block" size="body2" weight="medium">
-                Address
+                <FormattedMessage
+                  defaultMessage="Address"
+                  description="Label for address"
+                  id="0uKafI"
+                />
               </Text>
               <Text className="block" color="secondary" size="body2">
                 {addressString}
@@ -145,28 +260,39 @@ export default function SponsorsAdvertiseRequestFormReviewSection({
           </div>
           <div>
             <Text className="block" size="body2" weight="medium">
-              Authorized signatory
+              <FormattedMessage
+                defaultMessage="Authorized signatory"
+                description="Label for Authorized signatory"
+                id="IaEOEI"
+              />
             </Text>
             <Text className="block" color="secondary" size="body2">
-              {authorizedSignatoryName}, {authorizedSignatoryTitle}
+              {signatoryName}, {signatoryTitle}
             </Text>
           </div>
           <div>
             <Text className="block" size="body2" weight="medium">
-              Agreement
+              <FormattedMessage
+                defaultMessage="Agreement"
+                description="Label for Agreement"
+                id="mgV3k+"
+              />
             </Text>
             <Text className="block" color="error" size="body2">
-              Please accept the agreement by selecting the checkbox at the end
-              of the agreement
+              <FormattedMessage
+                defaultMessage="Please accept the agreement by selecting the checkbox at the end of the agreement"
+                description="Message for accept agreement checkbox"
+                id="fifLMg"
+              />
             </Text>
             <div
               className={clsx('mt-2 rounded p-5', themeBorderColor, 'border')}>
               <SponsorsAdvertiseRequestAgreement
                 address={`${addressString}, ${address.country}`}
-                advertiserFullLegalName={advertiserFullLegalName}
-                authorizedSignatoryName={authorizedSignatoryName}
-                authorizedSignatoryTitle={authorizedSignatoryTitle}
-                contactEmails={contactEmails}
+                advertiserFullLegalName={legalName}
+                authorizedSignatoryName={signatoryName}
+                authorizedSignatoryTitle={signatoryTitle}
+                contactEmails={emails}
                 totalAmount={totalAmount}
               />
             </div>
