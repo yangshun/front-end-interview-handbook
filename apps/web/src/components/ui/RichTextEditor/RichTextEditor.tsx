@@ -42,6 +42,7 @@ import { RichTextPlugin } from '@lexical/react/LexicalRichTextPlugin';
 type Props = Readonly<{
   autoFocus?: boolean;
   className?: string;
+  classNameOuter?: string;
   description?: React.ReactNode;
   descriptionStyle?: LabelDescriptionStyle;
   disabled?: boolean;
@@ -74,6 +75,7 @@ function RichTextEditor(
   {
     autoFocus = false,
     className,
+    classNameOuter,
     description,
     descriptionStyle,
     disabled = false,
@@ -134,6 +136,7 @@ function RichTextEditor(
         className={clsx(
           'flex flex-col',
           (description || !isLabelHidden) && 'gap-2',
+          classNameOuter,
         )}>
         <div
           onClick={() =>
@@ -201,7 +204,7 @@ function RichTextEditor(
         {hasBottomSection && (
           <div
             className={clsx(
-              'mt-2 flex w-full',
+              'flex w-full',
               errorMessage ? 'justify-between' : 'justify-end',
             )}>
             {errorMessage && (
