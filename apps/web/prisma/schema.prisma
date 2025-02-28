@@ -527,11 +527,13 @@ enum SponsorsAdRequestStatus {
 model SponsorsAdRequest {
   id             String                  @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
   emails         String[]
+  sponsorName    String?
   legalName      String
   taxNumber      String
   address        Json?                   @db.Json
   signatoryName  String
   signatoryTitle String
+  agreement      String?
   status         SponsorsAdRequestStatus
 
   ads SponsorsAd[]
