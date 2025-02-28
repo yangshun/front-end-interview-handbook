@@ -4,6 +4,7 @@ import { RiArrowRightUpLine } from 'react-icons/ri';
 import Button from '~/components/ui/Button';
 import Dialog from '~/components/ui/Dialog';
 import Text from '~/components/ui/Text';
+import { themeDivideEmphasizeColor } from '~/components/ui/theme';
 
 type Props = Readonly<{
   isShown: boolean;
@@ -51,8 +52,7 @@ export default function SponsorsAdFormatPlacementListDialog({
       <div
         className={clsx('flex flex-col', [
           'divide-y',
-          'divide-neutral-300 dark:divide-neutral-700',
-          'max-',
+          themeDivideEmphasizeColor,
         ])}>
         {pages.map((page) => (
           <div

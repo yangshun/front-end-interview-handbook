@@ -6459,6 +6459,10 @@
     "defaultMessage": "Starter files and APIs",
     "description": "Title of 'Starter code and APIs' sub-feature in Projects marketing page"
   },
+  "Z1NAxi": {
+    "defaultMessage": "No slots available",
+    "description": "No slots available"
+  },
   "Z1vsfi": {
     "defaultMessage": "Search user interface questions",
     "description": "Search placeholder"
@@ -10782,6 +10786,10 @@
   "y2x1w7": {
     "defaultMessage": "Ex-Staff Engineer, Meta. Author of Blind 75 and Docusaurus 2",
     "description": "Position of Yangshun"
+  },
+  "y3PN6C": {
+    "defaultMessage": "{format} - Available slots",
+    "description": "Title for available slots dialog"
   },
   "y3no2l": {
     "defaultMessage": "{percent} Progress",

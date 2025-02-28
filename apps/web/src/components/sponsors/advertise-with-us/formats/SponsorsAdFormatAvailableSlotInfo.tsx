@@ -1,12 +1,14 @@
 'use client';
 
+import { RiArrowRightLine } from 'react-icons/ri';
+
 import { trpc } from '~/hooks/trpc';
 
-import { FormattedMessage } from '~/components/intl';
+import { useIntl } from '~/components/intl';
 import type { SponsorsAdFormat } from '~/components/sponsors/SponsorsTypes';
-import Anchor from '~/components/ui/Anchor';
-import { textVariants } from '~/components/ui/Text';
+import Button from '~/components/ui/Button';
 
+import SponsorsAdFormatAvailableSlotsDialog from './SponsorsAdFormatAvailableSlotsDialog';
 import SponsorsAdFormatInfo from './SponsorsAdFormatInfo';
 
 type Props = Readonly<{
@@ -19,36 +21,67 @@ const formatter = new Intl.DateTimeFormat('en-US', {
   weekday: 'long',
 });
 
+const formatterWithYear = new Intl.DateTimeFormat('en-US', {
+  day: '2-digit',
+  month: 'short',
+  weekday: 'long',
+  year: 'numeric',
+});
+
+const MAX_SLOTS_SHOWN__UPFRONT = 3;
+
 export default function SponsorsAdFormatAvailableSlotInfo({ format }: Props) {
-  const { data } = trpc.sponsorships.availability.useQuery({
+  const intl = useIntl();
+  const { data, isLoading } = trpc.sponsorships.availability.useQuery({
     format,
   });
   const availableSlots = (data ?? [])?.filter((slot) => slot.available);
 
-  const nextAvailableSlots = availableSlots.slice(1, 3).map((slot) => {
-    const startDate = formatter.format(new Date(slot.start));
-    const endDate = formatter.format(new Date(slot.end));
+  const nextAvailableSlots = availableSlots
+    .slice(1, MAX_SLOTS_SHOWN__UPFRONT)
+    .map((slot) => {
+      const startDate = formatter.format(new Date(slot.start));
+      const endDate = formatter.format(new Date(slot.end));
+
+      return {
+        key: slot.start,
+        label: `${startDate} - ${endDate}`,
+      };
+    });
+  const formattedAvailableSlots = availableSlots.map((slot) => {
+    const startDate = formatterWithYear.format(new Date(slot.start));
+    const endDate = formatterWithYear.format(new Date(slot.end));
 
     return {
       key: slot.start,
-      label: `${startDate} – ${endDate}`,
+      label: `${startDate} - ${endDate}`,
     };
   });
 
   return (
     <SponsorsAdFormatInfo
       addOnItem={
-        <Anchor
-          className={textVariants({ size: 'body3', weight: 'medium' })}
-          href="/advertise-with-us/request"
-          variant="flat">
-          <FormattedMessage
-            defaultMessage="See more available slots"
-            description="See more available slots"
-            id="PMbV3v"
-          />
-          {' ->'}
-        </Anchor>
+        formattedAvailableSlots.length <= MAX_SLOTS_SHOWN__UPFRONT ? null : (
+          <div className="-ml-1">
+            <SponsorsAdFormatAvailableSlotsDialog
+              format={format}
+              slots={formattedAvailableSlots}
+              trigger={
+                <Button
+                  icon={RiArrowRightLine}
+                  isDisabled={isLoading}
+                  label={intl.formatMessage({
+                    defaultMessage: 'See more available slots',
+                    description: 'See more available slots',
+                    id: 'PMbV3v',
+                  })}
+                  size="xs"
+                  variant="tertiary"
+                />
+              }
+            />
+          </div>
+        )
       }
       className="flex-1"
       items={nextAvailableSlots}

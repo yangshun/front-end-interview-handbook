@@ -55,19 +55,29 @@ export default function SponsorsAdFormatInfo({
         {subtitle}
       </Text>
       <div className="mt-6 flex flex-col gap-4">
-        <ul className="flex flex-col gap-4" role="list">
-          {items.map((item) => (
-            <li key={item.key} className="flex gap-x-2">
-              <RiCheckLine
-                aria-hidden="true"
-                className={clsx('size-4 shrink-0', themeTextSuccessColor)}
-              />
-              <Text color="secondary" size="body3">
-                {item.label}
-              </Text>
-            </li>
-          ))}
-        </ul>
+        {items.length === 0 ? (
+          <Text color="secondary" size="body3">
+            <FormattedMessage
+              defaultMessage="No slots available"
+              description="No slots available"
+              id="Z1NAxi"
+            />
+          </Text>
+        ) : (
+          <ul className="flex flex-col gap-4" role="list">
+            {items.map((item) => (
+              <li key={item.key} className="flex gap-x-2">
+                <RiCheckLine
+                  aria-hidden="true"
+                  className={clsx('size-4 shrink-0', themeTextSuccessColor)}
+                />
+                <Text color="secondary" size="body3">
+                  {item.label}
+                </Text>
+              </li>
+            ))}
+          </ul>
+        )}
         {addOnItem}
       </div>
     </div>
