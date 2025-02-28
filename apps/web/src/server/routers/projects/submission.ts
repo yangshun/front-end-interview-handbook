@@ -529,8 +529,10 @@ export const projectsChallengeSubmissionItemRouter = router({
             },
           });
 
-          await projectsReputationSubmissionVoteAwardPoints(vote);
-          projectsNotificationForSubmissionVote(vote);
+          await Promise.all([
+            projectsReputationSubmissionVoteAwardPoints(vote),
+            projectsNotificationForSubmissionVote(vote),
+          ]);
         } catch (error) {
           if (
             error instanceof Prisma.PrismaClientKnownRequestError &&

@@ -59,7 +59,11 @@ export const projectsCommentsRouter = router({
           entityOwnerId !== projectsProfileId &&
           entityOwnerId
         ) {
-          projectsNotificationForComment(comment.id, entityOwnerId, entityId);
+          await projectsNotificationForComment(
+            comment.id,
+            entityOwnerId,
+            entityId,
+          );
         }
         await projectsReputationCommentAwardPoints(comment, projectsProfileId);
 
@@ -378,14 +382,15 @@ export const projectsCommentsRouter = router({
           },
         });
 
-        projectsNotificationForReply(
-          comment.id,
-          projectsProfileId,
-          entityId,
-          domain,
-        );
-
-        await projectsReputationCommentAwardPoints(comment, projectsProfileId);
+        await Promise.all([
+          projectsNotificationForReply(
+            comment.id,
+            projectsProfileId,
+            entityId,
+            domain,
+          ),
+          projectsReputationCommentAwardPoints(comment, projectsProfileId),
+        ]);
 
         return comment;
       },
