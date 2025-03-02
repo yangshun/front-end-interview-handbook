@@ -375,6 +375,10 @@
     "defaultMessage": "TypeScript supported",
     "description": "JavaScript questions can be done in TypeScript"
   },
+  "06WD6D": {
+    "defaultMessage": "{count, plural, one {# week} other {# weeks}}",
+    "description": "Number of weeks"
+  },
   "08L9Y1": {
     "defaultMessage": "Previous submissions",
     "description": "Historical project submissions"
@@ -1218,10 +1222,6 @@
   "5hTR16": {
     "defaultMessage": "Profile",
     "description": "Title of Profile page"
-  },
-  "5hyhBV": {
-    "defaultMessage": "At least one schedule is required",
-    "description": "Error message for schedule"
   },
   "5jFQfq": {
     "defaultMessage": "Known {company} front end interview questions",
@@ -4019,10 +4019,6 @@
     "defaultMessage": "User submissions | Learn from others",
     "description": "Title of projects learn from others page"
   },
-  "LQwMJq": {
-    "defaultMessage": "State is required",
-    "description": "Error message for state"
-  },
   "LREMMc": {
     "defaultMessage": "Retry task",
     "description": "Label for button to start task"
@@ -4254,10 +4250,6 @@
   "MwvhTF": {
     "defaultMessage": "See whole component track",
     "description": "Label for \"See whole component track\" button in Component track accordion"
-  },
-  "Mx3eHd": {
-    "defaultMessage": "{noOfWeeks} week(s)",
-    "description": "No of weeks"
   },
   "Myky94": {
     "defaultMessage": "JS functions",
@@ -5039,10 +5031,6 @@
     "defaultMessage": "Deployment",
     "description": "Title for Deployment step in project submission checklist"
   },
-  "RHmgyU": {
-    "defaultMessage": "{noOfSelectedWeeks} week(s) selected",
-    "description": "Number of week selected"
-  },
   "RIhdqg": {
     "defaultMessage": "Sign In",
     "description": "Title of Login page"
@@ -5194,10 +5182,6 @@
   "S/DgGm": {
     "defaultMessage": "Coding questions that require you to implement functions in JavaScript, which can be utility functions found in Lodash/Underscore. a polyfill for the JavaScript language, or DOM APIs.",
     "description": "Description for js coding questions"
-  },
-  "S1ozyI": {
-    "defaultMessage": "{count} week(s)",
-    "description": "No of weeks"
   },
   "S21xBI": {
     "defaultMessage": "Login to track your progress and access premium",
@@ -5546,6 +5530,10 @@
   "TbZTWa": {
     "defaultMessage": "Accessibility",
     "description": "Front end development topic"
+  },
+  "TczmTT": {
+    "defaultMessage": "At least one week is required",
+    "description": "Error message for ads booking"
   },
   "Td0UNU": {
     "defaultMessage": "The definitive guide to React interviews.",
@@ -7679,10 +7667,6 @@
     "defaultMessage": "Advanced",
     "description": "Advanced blog"
   },
-  "ff7X1z": {
-    "defaultMessage": "Apartment, unit or other is required",
-    "description": "Error message for apartment, unit or other"
-  },
   "ffpupd": {
     "defaultMessage": "Front End Interview Practice Questions - Quizzes",
     "description": "Title for front end interview questions page"
@@ -7890,10 +7874,6 @@
   "glZsYe": {
     "defaultMessage": "Max streak: <bold>{count}</bold>",
     "description": "Label for max streak"
-  },
-  "gmgOLc": {
-    "defaultMessage": "City is required",
-    "description": "Error message for city"
   },
   "goncmR": {
     "defaultMessage": "Submission title must contain at least {minLength} character(s).",
@@ -10586,6 +10566,10 @@
   "wPCPuk": {
     "defaultMessage": "{Title}: A balanced plan to enhance both coding and system design skills, preparing you thoroughly in a month.",
     "description": "Paragraph 3 for \"What does GreatFrontEnd Interviews offer exactly?\" on Homepage FAQ sections"
+  },
+  "wQuRLK": {
+    "defaultMessage": "{count, plural, one {# week} other {# weeks}} selected",
+    "description": "Number of weeks"
   },
   "wRV8PN": {
     "defaultMessage": "Settings",

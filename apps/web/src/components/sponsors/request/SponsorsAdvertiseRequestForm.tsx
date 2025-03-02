@@ -1,12 +1,16 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 import { trpc } from '~/hooks/trpc';
+import { useGreatStorageLocal } from '~/hooks/useGreatStorageLocal';
 
 import StepsTabs from '~/components/common/StepsTabs';
 import { useToast } from '~/components/global/toasts/useToast';
 import { useIntl } from '~/components/intl';
+
+import { useI18nRouter } from '~/next-i18nostic/src';
 
 import SponsorsAdvertiseRequestFormAdsSection from './SponsorsAdvertiseRequestFormAdsSection';
 import SponsorsAdvertiseRequestFormCompanyDetailsSection from './SponsorsAdvertiseRequestFormCompanyDetailsSection';
@@ -18,17 +22,16 @@ type AdvertiseRequestFormValues = Readonly<{
   ads: Array<SponsorsAdFormatFormItem>;
   company: SponsorsCompanyDetails | null;
   emails: Array<string>;
-}>;
-
-type Props = Readonly<{
   sessionId: string;
 }>;
 
 type Step = 'ads' | 'company' | 'contact' | 'review';
 
-export default function SponsorsAdvertiseRequestForm({ sessionId }: Props) {
+export default function SponsorsAdvertiseRequestForm() {
   const intl = useIntl();
   const { showToast } = useToast();
+  const router = useI18nRouter();
+
   const adRequestMutation = trpc.sponsorships.adRequest.useMutation();
   const [stepsStatus, setStepsStatus] = useState<
     Record<Step, 'completed' | 'in_progress' | 'not_started'>
@@ -98,11 +101,16 @@ export default function SponsorsAdvertiseRequestForm({ sessionId }: Props) {
     },
   ] as const;
 
-  const [formData, setFormData] = useState<AdvertiseRequestFormValues>({
-    ads: [],
-    company: null,
-    emails: [],
-  });
+  const [formData, setFormData] =
+    useGreatStorageLocal<AdvertiseRequestFormValues>(
+      'sponsorships:advertise-request',
+      () => ({
+        ads: [],
+        company: null,
+        emails: [],
+        sessionId: uuidv4(),
+      }),
+    );
   const [step, setStep] = useState<(typeof steps)[number]['value']>('contact');
   const firstMountRef = useRef<boolean>(false);
   const stepsContainerRef = useRef<HTMLDivElement>(null);
@@ -127,6 +135,7 @@ export default function SponsorsAdvertiseRequestForm({ sessionId }: Props) {
       ads: [],
       company: null,
       emails: [],
+      sessionId: uuidv4(),
     });
     setStep('contact');
     setStepsStatus({
@@ -178,6 +187,8 @@ export default function SponsorsAdvertiseRequestForm({ sessionId }: Props) {
             variant: 'success',
           });
           resetForm();
+
+          router.push('/advertise-with-us/request/success');
         },
       },
     );
@@ -229,7 +240,7 @@ export default function SponsorsAdvertiseRequestForm({ sessionId }: Props) {
       {step === 'ads' && (
         <SponsorsAdvertiseRequestFormAdsSection
           ads={formData.ads}
-          sessionId={sessionId}
+          sessionId={formData.sessionId}
           updateAds={(ads) => setFormData((prev) => ({ ...prev, ads }))}
           updateStepStatus={(status) =>
             setStepsStatus((prev) => ({ ...prev, ads: status }))
@@ -237,6 +248,7 @@ export default function SponsorsAdvertiseRequestForm({ sessionId }: Props) {
           onPrevious={() => setStep('contact')}
           onSubmit={() => {
             setStep('company');
+            setStepsStatus((prev) => ({ ...prev, ads: 'completed' }));
           }}
         />
       )}

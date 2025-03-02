@@ -3,7 +3,7 @@ export type SponsorsAdFormatGlobalBannerItem = Readonly<{
   id: string;
   text: string;
   url: string;
-  weeks: Set<string>;
+  weeks: Array<string>;
 }>;
 
 export type SponsorsAdFormatSpotlightItem = Readonly<{
@@ -12,7 +12,7 @@ export type SponsorsAdFormatSpotlightItem = Readonly<{
   imageUrl: string;
   text: string;
   url: string;
-  weeks: Set<string>;
+  weeks: Array<string>;
 }>;
 
 export type SponsorsAdFormatInContentItem = Readonly<{
@@ -22,7 +22,7 @@ export type SponsorsAdFormatInContentItem = Readonly<{
   imageUrl: string;
   text: string;
   url: string;
-  weeks: Set<string>;
+  weeks: Array<string>;
 }>;
 
 export type SponsorsAdFormatFormItem =

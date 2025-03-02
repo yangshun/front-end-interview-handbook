@@ -19,6 +19,8 @@ import {
   useSponsorsAdFormatData,
 } from '../SponsorsAdFormatConfigs';
 
+import type { SponsorsAdFormat } from '@prisma/client';
+
 type Props = Readonly<{
   data: {
     ads: Array<SponsorsAdFormatFormItem>;
@@ -30,6 +32,12 @@ type Props = Readonly<{
   onSubmit: ({ agreement }: Readonly<{ agreement: string }>) => void;
   updateStepStatus: (status: StepsTabItemStatus) => void;
 }>;
+
+const adFormats: Record<SponsorsAdFormat, SponsorsAdFormat> = {
+  GLOBAL_BANNER: 'GLOBAL_BANNER',
+  IN_CONTENT: 'IN_CONTENT',
+  SPOTLIGHT: 'SPOTLIGHT',
+};
 
 export default function SponsorsAdvertiseRequestFormReviewSection({
   onPrevious,
@@ -54,21 +62,18 @@ export default function SponsorsAdvertiseRequestFormReviewSection({
   const addressString = [
     [address.line1, address.line2].filter(Boolean).join(', '),
     address.city,
-    `${address.state} ${address.postalCode}`,
+    [address.state, address.postalCode].filter(Boolean).join(' '),
   ]
+    .flatMap((part) => (part ? [part] : []))
     .map((part) => part.trim())
     .filter(Boolean)
     .join(', ');
   const totalAmount = ads.reduce(
     (acc, curr) =>
       acc +
-      curr.weeks.size * SponsorAdFormatConfigs[curr.format].pricePerWeekUSD,
+      curr.weeks.length * SponsorAdFormatConfigs[curr.format].pricePerWeekUSD,
     0,
   );
-
-  const globalBannersAd = ads.filter((ad) => ad.format === 'GLOBAL_BANNER');
-  const inContentAd = ads.filter((ad) => ad.format === 'IN_CONTENT');
-  const spotlightAd = ads.filter((ad) => ad.format === 'SPOTLIGHT');
 
   useEffect(() => {
     updateStepStatus(signedAgreement ? 'in_progress' : 'not_started');
@@ -135,94 +140,42 @@ export default function SponsorsAdvertiseRequestFormReviewSection({
             </Text>
             <div
               className={clsx(
-                'mt-1 rounded px-3 py-2',
+                'mt-2 rounded px-3 py-2',
                 themeBorderColor,
                 'border',
               )}>
-              {globalBannersAd.length > 0 && (
-                <div className="flex justify-between">
-                  <Text color="secondary" size="body2">
-                    {adsData.GLOBAL_BANNER.name} {' x '}
-                    <FormattedMessage
-                      defaultMessage="{count} week(s)"
-                      description="No of weeks"
-                      id="S1ozyI"
-                      values={{
-                        count: globalBannersAd.reduce(
-                          (acc, curr) => acc + curr.weeks.size,
-                          0,
-                        ),
-                      }}
-                    />
-                  </Text>
-                  <Text color="secondary" size="body2" weight="medium">
-                    $
-                    {globalBannersAd.reduce(
-                      (acc, curr) =>
-                        acc +
-                        curr.weeks.size *
-                          SponsorAdFormatConfigs[curr.format].pricePerWeekUSD,
-                      0,
-                    )}
-                  </Text>
-                </div>
-              )}
-              {inContentAd.length > 0 && (
-                <div className="flex justify-between">
-                  <Text color="secondary" size="body2">
-                    {adsData.IN_CONTENT.name} {' x '}
-                    <FormattedMessage
-                      defaultMessage="{count} week(s)"
-                      description="No of weeks"
-                      id="S1ozyI"
-                      values={{
-                        count: inContentAd.reduce(
-                          (acc, curr) => acc + curr.weeks.size,
-                          0,
-                        ),
-                      }}
-                    />
-                  </Text>
-                  <Text color="secondary" size="body2" weight="medium">
-                    $
-                    {inContentAd.reduce(
-                      (acc, curr) =>
-                        acc +
-                        curr.weeks.size *
-                          SponsorAdFormatConfigs[curr.format].pricePerWeekUSD,
-                      0,
-                    )}
-                  </Text>
-                </div>
-              )}
-              {spotlightAd.length > 0 && (
-                <div className="flex justify-between">
-                  <Text color="secondary" size="body2">
-                    {adsData.SPOTLIGHT.name} {' x '}
-                    <FormattedMessage
-                      defaultMessage="{count} week(s)"
-                      description="No of weeks"
-                      id="S1ozyI"
-                      values={{
-                        count: spotlightAd.reduce(
-                          (acc, curr) => acc + curr.weeks.size,
-                          0,
-                        ),
-                      }}
-                    />
-                  </Text>
-                  <Text color="secondary" size="body2" weight="medium">
-                    $
-                    {spotlightAd.reduce(
-                      (acc, curr) =>
-                        acc +
-                        curr.weeks.size *
-                          SponsorAdFormatConfigs[curr.format].pricePerWeekUSD,
-                      0,
-                    )}
-                  </Text>
-                </div>
-              )}
+              {Object.values(adFormats).map((adFormat) => {
+                const numberOfWeeksForFormat = ads
+                  .filter((ad) => ad.format === adFormat)
+                  .reduce((acc, curr) => acc + curr.weeks.length, 0);
+
+                if (numberOfWeeksForFormat === 0) {
+                  return null;
+                }
+
+                const totalPriceForFormat =
+                  numberOfWeeksForFormat *
+                  SponsorAdFormatConfigs[adFormat].pricePerWeekUSD;
+
+                return (
+                  <div key={adFormat} className="flex justify-between">
+                    <Text color="secondary" size="body2">
+                      {adsData[adFormat].name} &times;{' '}
+                      <FormattedMessage
+                        defaultMessage="{count, plural, one {# week} other {# weeks}}"
+                        description="Number of weeks"
+                        id="06WD6D"
+                        values={{
+                          count: numberOfWeeksForFormat,
+                        }}
+                      />
+                    </Text>
+                    <Text color="secondary" size="body2" weight="medium">
+                      ${totalPriceForFormat}
+                    </Text>
+                  </div>
+                );
+              })}
               <Divider className="my-2" />
               <div className="flex justify-between">
                 <Text color="secondary" size="body2">

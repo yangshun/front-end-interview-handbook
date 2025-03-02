@@ -20,6 +20,8 @@ import SponsorsAdFormatGlobalBanner from '../../ads/SponsorsAdFormatGlobalBanner
 
 import { zodResolver } from '@hookform/resolvers/zod';
 
+const AD_FORMAT = 'GLOBAL_BANNER';
+
 type Props = Readonly<{
   onCancel?: () => void;
   onSubmit: ({
@@ -40,10 +42,10 @@ export default function SponsorsAdvertiseRequestFormAdsSectionGlobalBanner({
 
   const methods = useForm<z.infer<typeof adSchema>>({
     defaultValues: {
-      format: 'GLOBAL_BANNER',
+      format: AD_FORMAT,
       text: '',
       url: '',
-      weeks: new Set(''),
+      weeks: [],
     },
     mode: 'onTouched',
     resolver: zodResolver(adSchema),
@@ -79,22 +81,26 @@ export default function SponsorsAdvertiseRequestFormAdsSectionGlobalBanner({
       className="flex flex-col gap-12"
       onSubmit={methods.handleSubmit(handleOnSubmit)}>
       <SponsorsAdvertiseRequestFormAdsSectionAvailability
-        adFormat="GLOBAL_BANNER"
+        adFormat={AD_FORMAT}
         selectedWeeks={selectedWeeks}
-        selectedWeeksActions={{
-          add: (week: string) =>
-            setValue('weeks', new Set([...Array.from(selectedWeeks), week]), {
+        onAddWeek={(week: string) => {
+          return setValue(
+            'weeks',
+            Array.from(new Set([...Array.from(selectedWeeks), week])),
+            {
               shouldValidate: true,
-            }),
-          remove: (week: string) =>
-            setValue(
-              'weeks',
-              new Set([...Array.from(selectedWeeks)].filter((w) => w !== week)),
-              {
-                shouldValidate: true,
-              },
-            ),
+            },
+          );
         }}
+        onRemoveWeek={(week: string) =>
+          setValue(
+            'weeks',
+            selectedWeeks.filter((week_) => week_ !== week),
+            {
+              shouldValidate: true,
+            },
+          )
+        }
       />
       <div>
         <Label
@@ -125,7 +131,7 @@ export default function SponsorsAdvertiseRequestFormAdsSectionGlobalBanner({
                   },
                   {
                     maxLength:
-                      SponsorAdFormatConfigs.GLOBAL_BANNER.placementConstraints
+                      SponsorAdFormatConfigs[AD_FORMAT].placementConstraints
                         .text,
                   },
                 )}
@@ -136,7 +142,7 @@ export default function SponsorsAdvertiseRequestFormAdsSectionGlobalBanner({
                   id: 'hF+MYj',
                 })}
                 maxLength={
-                  SponsorAdFormatConfigs.GLOBAL_BANNER.placementConstraints.text
+                  SponsorAdFormatConfigs[AD_FORMAT].placementConstraints.text
                 }
                 required={true}
               />

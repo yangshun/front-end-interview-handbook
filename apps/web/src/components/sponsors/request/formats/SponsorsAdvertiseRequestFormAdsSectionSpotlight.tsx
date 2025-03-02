@@ -40,7 +40,7 @@ type Props = Readonly<{
   updateStepStatus: (status: StepsTabItemStatus) => void;
 }>;
 
-const FORMAT = 'SPOTLIGHT';
+const AD_FORMAT = 'SPOTLIGHT';
 
 export default function SponsorsAdvertiseRequestFormAdsSectionSpotlight({
   onCancel,
@@ -54,10 +54,10 @@ export default function SponsorsAdvertiseRequestFormAdsSectionSpotlight({
 
   const methods = useForm<z.infer<typeof adSchema>>({
     defaultValues: {
-      format: FORMAT,
+      format: AD_FORMAT,
       text: '',
       url: '',
-      weeks: new Set(''),
+      weeks: [],
     },
     mode: 'onTouched',
     resolver: zodResolver(adSchema),
@@ -79,7 +79,7 @@ export default function SponsorsAdvertiseRequestFormAdsSectionSpotlight({
 
     const storageImageUrl = await uploadAsset.mutateAsync(
       {
-        format: FORMAT,
+        format: AD_FORMAT,
         imageFile: base64,
         sessionId,
       },
@@ -113,22 +113,26 @@ export default function SponsorsAdvertiseRequestFormAdsSectionSpotlight({
       className="flex flex-col gap-12"
       onSubmit={methods.handleSubmit(handleOnSubmit)}>
       <SponsorsAdvertiseRequestFormAdsSectionAvailability
-        adFormat="SPOTLIGHT"
+        adFormat={AD_FORMAT}
         selectedWeeks={selectedWeeks}
-        selectedWeeksActions={{
-          add: (week: string) =>
-            setValue('weeks', new Set([...Array.from(selectedWeeks), week]), {
+        onAddWeek={(week: string) => {
+          return setValue(
+            'weeks',
+            Array.from(new Set([...Array.from(selectedWeeks), week])),
+            {
               shouldValidate: true,
-            }),
-          remove: (week: string) =>
-            setValue(
-              'weeks',
-              new Set([...Array.from(selectedWeeks)].filter((w) => w !== week)),
-              {
-                shouldValidate: true,
-              },
-            ),
+            },
+          );
         }}
+        onRemoveWeek={(week: string) =>
+          setValue(
+            'weeks',
+            selectedWeeks.filter((week_) => week_ !== week),
+            {
+              shouldValidate: true,
+            },
+          )
+        }
       />
       <div>
         <Label
@@ -160,7 +164,7 @@ export default function SponsorsAdvertiseRequestFormAdsSectionSpotlight({
                     },
                     {
                       maxLength:
-                        SponsorAdFormatConfigs.SPOTLIGHT.placementConstraints
+                        SponsorAdFormatConfigs[AD_FORMAT].placementConstraints
                           .text,
                     },
                   )}
@@ -171,7 +175,7 @@ export default function SponsorsAdvertiseRequestFormAdsSectionSpotlight({
                     id: 'hF+MYj',
                   })}
                   maxLength={
-                    SponsorAdFormatConfigs.SPOTLIGHT.placementConstraints.text
+                    SponsorAdFormatConfigs[AD_FORMAT].placementConstraints.text
                   }
                   required={true}
                 />
@@ -185,7 +189,7 @@ export default function SponsorsAdvertiseRequestFormAdsSectionSpotlight({
                   className="mt-4"
                   errorMessage={error?.message}
                   heightConstraint={
-                    SponsorAdFormatConfigs.SPOTLIGHT.placementConstraints.image
+                    SponsorAdFormatConfigs[AD_FORMAT].placementConstraints.image
                       ?.height ?? 1
                   }
                   imageUrl={imageUrl}
@@ -194,7 +198,7 @@ export default function SponsorsAdvertiseRequestFormAdsSectionSpotlight({
                     field.onChange(url);
                   }}
                   widthConstraint={
-                    SponsorAdFormatConfigs.SPOTLIGHT.placementConstraints.image
+                    SponsorAdFormatConfigs[AD_FORMAT].placementConstraints.image
                       ?.width ?? 1
                   }
                 />
@@ -261,7 +265,6 @@ export default function SponsorsAdvertiseRequestFormAdsSectionSpotlight({
           </div>
         </div>
       </div>
-
       <div className="flex justify-end gap-2">
         {onCancel && (
           <Button

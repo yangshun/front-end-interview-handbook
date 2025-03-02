@@ -25,17 +25,16 @@ import type { SponsorsAdFormat } from '@prisma/client';
 
 type Props = Readonly<{
   adFormat: SponsorsAdFormat;
-  selectedWeeks: Set<string>;
-  selectedWeeksActions: {
-    add: (value: string) => void;
-    remove: (value: string) => void;
-  };
+  onAddWeek: (value: string) => void;
+  onRemoveWeek: (value: string) => void;
+  selectedWeeks: ReadonlyArray<string>;
 }>;
 
 export default function SponsorsAdvertiseRequestFormAdsSectionAvailability({
   adFormat,
   selectedWeeks,
-  selectedWeeksActions,
+  onAddWeek,
+  onRemoveWeek,
 }: Props) {
   const intl = useIntl();
   const { isLoading, data } = trpc.sponsorships.availability.useQuery({
@@ -68,7 +67,7 @@ export default function SponsorsAdvertiseRequestFormAdsSectionAvailability({
         <div className="mt-3 grid gap-3 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {data.map(({ start, end, available, year, week }) => {
             const weekHash = `${year}/${week}`;
-            const selected = selectedWeeks.has(weekHash);
+            const selected = selectedWeeks.includes(weekHash);
 
             return (
               <Tooltip
@@ -97,9 +96,7 @@ export default function SponsorsAdvertiseRequestFormAdsSectionAvailability({
                   disabled={!available || isLoading}
                   type="button"
                   onClick={() =>
-                    selected
-                      ? selectedWeeksActions.remove(weekHash)
-                      : selectedWeeksActions.add(weekHash)
+                    selected ? onRemoveWeek(weekHash) : onAddWeek(weekHash)
                   }>
                   <div className="flex w-full items-center justify-between gap-4">
                     <Text
@@ -128,15 +125,15 @@ export default function SponsorsAdvertiseRequestFormAdsSectionAvailability({
           })}
         </div>
       )}
-      {selectedWeeks.size > 0 && (
+      {selectedWeeks.length > 0 && (
         <div className="mt-6 flex justify-between">
           <Text className="block" color="subtitle" size="body2">
             <FormattedMessage
-              defaultMessage="{noOfSelectedWeeks} week(s) selected"
-              description="Number of week selected"
-              id="RHmgyU"
+              defaultMessage="{count, plural, one {# week} other {# weeks}} selected"
+              description="Number of weeks"
+              id="wQuRLK"
               values={{
-                noOfSelectedWeeks: selectedWeeks.size,
+                count: selectedWeeks.length,
               }}
             />
           </Text>
@@ -147,7 +144,7 @@ export default function SponsorsAdvertiseRequestFormAdsSectionAvailability({
               id="0kDCAp"
               values={{
                 total:
-                  selectedWeeks.size *
+                  selectedWeeks.length *
                   SponsorAdFormatConfigs[adFormat].pricePerWeekUSD,
               }}
             />

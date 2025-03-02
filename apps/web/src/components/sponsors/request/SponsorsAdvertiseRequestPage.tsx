@@ -1,5 +1,3 @@
-import { v4 as uuidv4 } from 'uuid';
-
 import { FormattedMessage } from '~/components/intl';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
@@ -9,8 +7,6 @@ import Text from '~/components/ui/Text';
 import SponsorsAdvertiseRequestForm from './SponsorsAdvertiseRequestForm';
 
 export default function SponsorsAdvertiseRequestPage() {
-  const sessionId = uuidv4();
-
   return (
     <Container className="py-12 lg:py-20" width="marketing">
       <Heading level="heading4">
@@ -34,7 +30,7 @@ export default function SponsorsAdvertiseRequestPage() {
       </Text>
       <Section>
         <div className="mt-12">
-          <SponsorsAdvertiseRequestForm sessionId={sessionId} />
+          <SponsorsAdvertiseRequestForm />
         </div>
       </Section>
     </Container>

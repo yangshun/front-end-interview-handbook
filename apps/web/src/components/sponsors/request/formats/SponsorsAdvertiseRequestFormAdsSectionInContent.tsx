@@ -50,7 +50,7 @@ type Props = Readonly<{
   updateStepStatus: (status: StepsTabItemStatus) => void;
 }>;
 
-const FORMAT = 'IN_CONTENT';
+const AD_FORMAT = 'IN_CONTENT';
 
 export default function SponsorsAdvertiseRequestFormAdsSectionInContent({
   onCancel,
@@ -63,10 +63,10 @@ export default function SponsorsAdvertiseRequestFormAdsSectionInContent({
   const adSchema = useSponsorsInContentAdSchema();
   const methods = useForm<z.infer<typeof adSchema>>({
     defaultValues: {
-      format: FORMAT,
+      format: AD_FORMAT,
       text: '',
       url: '',
-      weeks: new Set(''),
+      weeks: [],
     },
     mode: 'onTouched',
     resolver: zodResolver(adSchema),
@@ -91,7 +91,7 @@ export default function SponsorsAdvertiseRequestFormAdsSectionInContent({
     const base64 = await objectUrlToBase64(data.imageUrl);
     const storageImageUrl = await uploadAsset.mutateAsync(
       {
-        format: FORMAT,
+        format: AD_FORMAT,
         imageFile: base64,
         sessionId,
       },
@@ -126,22 +126,26 @@ export default function SponsorsAdvertiseRequestFormAdsSectionInContent({
       className="flex flex-col gap-12"
       onSubmit={methods.handleSubmit(handleOnSubmit)}>
       <SponsorsAdvertiseRequestFormAdsSectionAvailability
-        adFormat="IN_CONTENT"
+        adFormat={AD_FORMAT}
         selectedWeeks={selectedWeeks}
-        selectedWeeksActions={{
-          add: (week: string) =>
-            setValue('weeks', new Set([...Array.from(selectedWeeks), week]), {
+        onAddWeek={(week: string) => {
+          return setValue(
+            'weeks',
+            Array.from(new Set([...Array.from(selectedWeeks), week])),
+            {
               shouldValidate: true,
-            }),
-          remove: (week: string) =>
-            setValue(
-              'weeks',
-              new Set([...Array.from(selectedWeeks)].filter((w) => w !== week)),
-              {
-                shouldValidate: true,
-              },
-            ),
+            },
+          );
         }}
+        onRemoveWeek={(week: string) =>
+          setValue(
+            'weeks',
+            selectedWeeks.filter((week_) => week_ !== week),
+            {
+              shouldValidate: true,
+            },
+          )
+        }
       />
       <div>
         <Label
@@ -164,7 +168,7 @@ export default function SponsorsAdvertiseRequestFormAdsSectionInContent({
                     },
                     {
                       maxLength:
-                        SponsorAdFormatConfigs.IN_CONTENT.placementConstraints
+                        SponsorAdFormatConfigs[AD_FORMAT].placementConstraints
                           .text,
                     },
                   )}
@@ -175,7 +179,7 @@ export default function SponsorsAdvertiseRequestFormAdsSectionInContent({
                     id: 'hF+MYj',
                   })}
                   maxLength={
-                    SponsorAdFormatConfigs.IN_CONTENT.placementConstraints.text
+                    SponsorAdFormatConfigs[AD_FORMAT].placementConstraints.text
                   }
                   required={true}
                 />
@@ -195,7 +199,7 @@ export default function SponsorsAdvertiseRequestFormAdsSectionInContent({
                     },
                     {
                       maxLinks:
-                        SponsorAdFormatConfigs.IN_CONTENT.placementConstraints
+                        SponsorAdFormatConfigs[AD_FORMAT].placementConstraints
                           .body?.links,
                     },
                   )}
@@ -206,7 +210,7 @@ export default function SponsorsAdvertiseRequestFormAdsSectionInContent({
                     id: 'qWP6XC',
                   })}
                   maxLength={
-                    SponsorAdFormatConfigs.IN_CONTENT.placementConstraints.body
+                    SponsorAdFormatConfigs[AD_FORMAT].placementConstraints.body
                       ?.length
                   }
                   minHeight="200px"
@@ -236,7 +240,7 @@ export default function SponsorsAdvertiseRequestFormAdsSectionInContent({
                   className="mt-4"
                   errorMessage={error?.message}
                   heightConstraint={
-                    SponsorAdFormatConfigs.IN_CONTENT.placementConstraints.image
+                    SponsorAdFormatConfigs[AD_FORMAT].placementConstraints.image
                       ?.height ?? 1
                   }
                   imageUrl={imageUrl}
@@ -245,7 +249,7 @@ export default function SponsorsAdvertiseRequestFormAdsSectionInContent({
                     field.onChange(url);
                   }}
                   widthConstraint={
-                    SponsorAdFormatConfigs.IN_CONTENT.placementConstraints.image
+                    SponsorAdFormatConfigs[AD_FORMAT].placementConstraints.image
                       ?.width ?? 1
                   }
                 />

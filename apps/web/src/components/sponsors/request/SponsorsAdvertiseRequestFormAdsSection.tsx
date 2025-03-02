@@ -88,17 +88,20 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
                     themeBorderElementColor,
                   )}>
                   <div className="flex items-center gap-2">
-                    <Badge label={ad.format} variant="neutral-active" />
-                    <Text size="body2" weight="medium">
+                    <Badge
+                      label={adFormatData[ad.format].name}
+                      variant="neutral-active"
+                    />
+                    <Text className="truncate" size="body2" weight="medium">
                       {ad.text}
                     </Text>{' '}
                     &middot;
                     <Text color="secondary" size="body3">
                       <FormattedMessage
-                        defaultMessage="{noOfWeeks} week(s)"
-                        description="No of weeks"
-                        id="Mx3eHd"
-                        values={{ noOfWeeks: ad.weeks.size }}
+                        defaultMessage="{count, plural, one {# week} other {# weeks}}"
+                        description="Number of weeks"
+                        id="06WD6D"
+                        values={{ count: ad.weeks.length }}
                       />
                     </Text>
                     <Button
@@ -122,7 +125,7 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
                   <div className="flex items-center gap-4">
                     <Text size="body2" weight="bold">
                       $
-                      {ad.weeks.size *
+                      {ad.weeks.length *
                         SponsorAdFormatConfigs[ad.format].pricePerWeekUSD}
                     </Text>
                   </div>
@@ -139,7 +142,7 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
                     total: ads.reduce(
                       (acc, curr) =>
                         acc +
-                        curr.weeks.size *
+                        curr.weeks.length *
                           SponsorAdFormatConfigs[curr.format].pricePerWeekUSD,
                       0,
                     ),
