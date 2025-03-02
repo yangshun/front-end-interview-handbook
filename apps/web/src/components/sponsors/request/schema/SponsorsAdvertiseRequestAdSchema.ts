@@ -58,8 +58,8 @@ function bodySchema(options?: {
 /** Schema for schedule validation */
 function scheduleSchema(options?: { minMessage: string }) {
   return z
-    .set(z.string())
-    .min(1, options?.minMessage ?? 'At least one schedule is required');
+    .array(z.string())
+    .min(1, options?.minMessage ?? 'At least one week is required');
 }
 
 function useSponsorsAdvertiseAdScheduleSchema() {
@@ -67,9 +67,9 @@ function useSponsorsAdvertiseAdScheduleSchema() {
 
   return scheduleSchema({
     minMessage: intl.formatMessage({
-      defaultMessage: 'At least one schedule is required',
-      description: 'Error message for schedule',
-      id: '5hyhBV',
+      defaultMessage: 'At least one week is required',
+      description: 'Error message for ads booking',
+      id: 'TczmTT',
     }),
   });
 }

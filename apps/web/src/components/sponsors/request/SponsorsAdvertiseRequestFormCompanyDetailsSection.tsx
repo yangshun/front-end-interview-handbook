@@ -239,7 +239,6 @@ export default function SponsorsAdvertiseRequestFormCompanyDetailsSection({
                     description: 'Apartment, unit, or other input label',
                     id: 'jTWrRY',
                   })}
-                  required={true}
                   spellCheck={false}
                 />
               )}
@@ -290,7 +289,6 @@ export default function SponsorsAdvertiseRequestFormCompanyDetailsSection({
                         description: 'State / Province / Region input label',
                         id: 'ymIkds',
                       })}
-                      required={true}
                       spellCheck={false}
                     />
                   )}

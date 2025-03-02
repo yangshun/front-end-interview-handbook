@@ -19,29 +19,23 @@ function taxNumberSchema() {
 }
 
 function addressSchema(options?: {
-  cityRequiredMessage: string;
   countryRequiredMessage: string;
   line1RequiredMessage: string;
-  line2RequiredMessage: string;
   postalCodeRequiredMessage: string;
-  stateRequiredMessage: string;
 }) {
   const {
     countryRequiredMessage = 'Country is required',
-    cityRequiredMessage = 'City is required',
     postalCodeRequiredMessage = 'Postal code is required',
-    stateRequiredMessage = 'State is required',
     line1RequiredMessage = 'Street is required',
-    line2RequiredMessage = 'Apartment, unit or other is required',
   } = options ?? {};
 
   return z.object({
-    city: z.string().min(1, cityRequiredMessage),
+    city: z.string().optional(),
     country: z.string().min(1, countryRequiredMessage),
     line1: z.string().min(1, line1RequiredMessage),
-    line2: z.string().min(1, line2RequiredMessage),
+    line2: z.string().optional(),
     postalCode: z.string().min(1, postalCodeRequiredMessage),
-    state: z.string().min(1, stateRequiredMessage),
+    state: z.string().optional(),
   });
 }
 
@@ -62,11 +56,6 @@ export function useSponsorsCompanySchema() {
 
   return z.object({
     address: addressSchema({
-      cityRequiredMessage: intl.formatMessage({
-        defaultMessage: 'City is required',
-        description: 'Error message for city',
-        id: 'gmgOLc',
-      }),
       countryRequiredMessage: intl.formatMessage({
         defaultMessage: 'Country is required',
         description: 'Error message for country',
@@ -77,20 +66,10 @@ export function useSponsorsCompanySchema() {
         description: 'Error message for street',
         id: 'D2WaF7',
       }),
-      line2RequiredMessage: intl.formatMessage({
-        defaultMessage: 'Apartment, unit or other is required',
-        description: 'Error message for apartment, unit or other',
-        id: 'ff7X1z',
-      }),
       postalCodeRequiredMessage: intl.formatMessage({
         defaultMessage: 'Postal code is required',
         description: 'Error message for postal code',
         id: 'Qd4bl9',
-      }),
-      stateRequiredMessage: intl.formatMessage({
-        defaultMessage: 'State is required',
-        description: 'Error message for state',
-        id: 'LQwMJq',
       }),
     }),
     legalName: legalNameSchema({
@@ -127,12 +106,9 @@ export function useSponsorsCompanySchema() {
 
 export const sponsorsCompanySchemaServer = z.object({
   address: addressSchema({
-    cityRequiredMessage: 'City is required',
     countryRequiredMessage: 'Country is required',
     line1RequiredMessage: 'Street is required',
-    line2RequiredMessage: 'Apartment, unit or other is required',
     postalCodeRequiredMessage: 'Postal code is required',
-    stateRequiredMessage: 'State is required',
   }),
   legalName: legalNameSchema({
     minMessage: 'Legal name is required',

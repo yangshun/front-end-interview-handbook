@@ -32,12 +32,12 @@ export type SponsorsAdFormatFormItem =
 
 export type SponsorsCompanyDetails = Readonly<{
   address: Readonly<{
-    city: string;
+    city?: string;
     country: string;
     line1: string;
-    line2: string;
+    line2?: string;
     postalCode: string;
-    state: string;
+    state?: string;
   }>;
   legalName: string;
   signatoryName: string;
