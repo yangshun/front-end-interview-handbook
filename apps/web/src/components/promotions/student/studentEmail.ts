@@ -1,5 +1,5 @@
-const validDomains = Object.freeze({
-  allowlisted: [
+const domainsConfig = Object.freeze({
+  allowlist: [
     'cuni.cz', // Charles University
     'eur.nl', // Erasmus University Rotterdam
     'ethz.ch', // ETH Zurich
@@ -41,6 +41,10 @@ const validDomains = Object.freeze({
     'uva.nl', // University of Amsterdam
     'vu.nl', // Vrije Universiteit Amsterdam
   ],
+  alumniSubstrings: ['former', 'alum'],
+  blocklist: [
+    'edu.pl', // Too many disposable domains end with edu.pl and too few real ones. We block all of them and tell them to email us if they believe it is a mistake
+  ],
   disposableDomains: [
     '50sale.edu.vn',
     'dse.edu.pl',
@@ -54,6 +58,7 @@ const validDomains = Object.freeze({
     'nullsto.edu.pl',
     'omail.edu.pl',
     'outlook.edu.pl',
+    'ozel.edu.pl',
     'pbl.edu.pl',
     'privmail.edu.pl',
     'promail.edu.pl',
@@ -95,35 +100,54 @@ export function isValidStudentEmail(
     };
   }
 
-  if (email.includes('alumn')) {
+  const alumniEmail = domainsConfig.alumniSubstrings.some((alumniSubstring) =>
+    domain.includes(alumniSubstring),
+  );
+
+  if (alumniEmail) {
     return {
-      reason: 'Alumni email addresses are not eligible.',
+      reason:
+        'Alumni email addresses are not eligible. Send us an email if you believe your email address should qualify.',
       valid: false,
     };
   }
 
-  const containsPrefix = validDomains.prefixes.some((prefix) =>
-    domain.toLowerCase().startsWith(prefix),
-  );
-  const containsSubstring = validDomains.substring.some((substring) =>
-    domain.includes(substring),
-  );
-  const containsSuffix = validDomains.suffixes.some((suffix) =>
-    domain.toLowerCase().endsWith(suffix),
-  );
-  const allowedDomain = validDomains.allowlisted.some((validDomain) =>
-    domain.toLowerCase().includes(validDomain),
-  );
-  const isDisposableDomain = validDomains.disposableDomains.some(
+  const isDisposableDomain = domainsConfig.disposableDomains.some(
     (validDomain) => domain.toLowerCase().endsWith(validDomain),
   );
 
   if (isDisposableDomain) {
     return {
-      reason: "Scammer alert! We've notified the police 🚨",
+      reason:
+        "Wow, a disposable email! Where's your integrity? We've notified the cops 🚨",
       valid: false,
     };
   }
+
+  const blockedDomain = domainsConfig.blocklist.some((blocklistedDomain) =>
+    domain.toLowerCase().includes(blocklistedDomain),
+  );
+
+  if (blockedDomain) {
+    return {
+      reason:
+        'The email domain is not allowed due to abuse. Send us an email if you believe your email address should qualify.',
+      valid: false,
+    };
+  }
+
+  const containsPrefix = domainsConfig.prefixes.some((prefix) =>
+    domain.toLowerCase().startsWith(prefix),
+  );
+  const containsSubstring = domainsConfig.substring.some((substring) =>
+    domain.includes(substring),
+  );
+  const containsSuffix = domainsConfig.suffixes.some((suffix) =>
+    domain.toLowerCase().endsWith(suffix),
+  );
+  const allowedDomain = domainsConfig.allowlist.some((allowlistedDomain) =>
+    domain.toLowerCase().includes(allowlistedDomain),
+  );
 
   if (
     !allowedDomain &&
@@ -133,7 +157,7 @@ export function isValidStudentEmail(
   ) {
     return {
       reason:
-        'Email address does not seem to belong to an accredited educational institution. Send us an email if you believe your school should qualify.',
+        'Email address does not seem to belong to an accredited educational institution. Send us an email if you believe your email address should qualify.',
       valid: false,
     };
   }
