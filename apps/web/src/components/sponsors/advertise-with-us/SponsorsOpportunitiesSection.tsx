@@ -11,7 +11,8 @@ import SponsorsAdFormatSpotlightSection from './formats/SponsorsAdFormatSpotligh
 export default function SponsorsOpportunitiesSection() {
   return (
     <div
-      className={clsx('flex flex-col gap-y-12 lg:gap-y-16', 'py-16 sm:py-20')}>
+      className={clsx('flex flex-col gap-y-12 lg:gap-y-16', 'py-16 sm:py-20')}
+      id="pricing-and-availability">
       <Heading
         className={clsx(themeGradientHeading, 'pb-1')}
         level="heading2"

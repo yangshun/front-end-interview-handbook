@@ -3,6 +3,8 @@
 import clsx from 'clsx';
 import type { ReactNode } from 'react';
 
+import { trpc } from '~/hooks/trpc';
+
 import AngularLogo from '~/components/icons/AngularLogo';
 import JavaScriptLogo from '~/components/icons/JavaScriptLogo';
 import ReactLogo from '~/components/icons/ReactLogo';
@@ -24,8 +26,12 @@ import {
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
 
+import { sponsorsDateFormatter } from '../SponsorsDatesUtils';
+
 export default function SponsorsHeroSection() {
   const intl = useIntl();
+
+  const { data } = trpc.sponsorships.firstAvailabilityAcrossFormats.useQuery();
 
   return (
     <div className="flex flex-col gap-x-4 gap-y-12 py-20 lg:flex-row xl:gap-x-6">
@@ -62,7 +68,6 @@ export default function SponsorsHeroSection() {
             }}
           />
         </Text>
-        {/* TODO(advertise): Add links to the button */}
         <div className="flex gap-6">
           <div className="flex flex-col items-center gap-3">
             <Button
@@ -75,19 +80,21 @@ export default function SponsorsHeroSection() {
               size="md"
               variant="primary"
             />
-            <Text color="secondary" size="body3">
-              <FormattedMessage
-                defaultMessage="Next slot: {date}"
-                description="Next slot date"
-                id="dAesjD"
-                values={{
-                  date: '28 January', // TODO(sponsors): remove hardcoded date
-                }}
-              />
-            </Text>
+            {data != null && (
+              <Text color="secondary" size="body3">
+                <FormattedMessage
+                  defaultMessage="Next slot: {date}"
+                  description="Next slot date"
+                  id="dAesjD"
+                  values={{
+                    date: sponsorsDateFormatter.format(new Date(data.start)),
+                  }}
+                />
+              </Text>
+            )}
           </div>
-          {/* TODO(sponsors): anchor scroll to bottom */}
           <Button
+            href="#pricing-and-availability"
             label={intl.formatMessage({
               defaultMessage: 'Pricing and availability',
               description: 'Button label for pricing & availability',

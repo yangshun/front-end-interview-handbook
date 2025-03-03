@@ -299,6 +299,112 @@ Elevate your style, inspire your creativity, and represent your coding chops wit
         };
       });
     }),
+  firstAvailabilityAcrossFormats: publicProcedure.query(async () => {
+    const date = new Date();
+    const currentYear = getYear(date);
+    const currentWeek = getISOWeek(date);
+
+    const availabilityStartWeek = incrementISOWeek(currentWeek);
+    const availabilityEndWeek = incrementISOWeek(
+      availabilityStartWeek,
+      availabilityMaxWeeksAhead,
+    );
+
+    const approvedAdFilter = {
+      ad: {
+        request: {
+          status: 'APPROVED',
+        },
+      },
+    } as const;
+
+    const allSlots = await prisma.sponsorsAdSlot.findMany({
+      include: {
+        ad: {
+          select: {
+            format: true,
+          },
+        },
+      },
+      where:
+        availabilityStartWeek < availabilityEndWeek
+          ? {
+              ...approvedAdFilter,
+              week: {
+                gte: availabilityStartWeek,
+                lte: availabilityEndWeek,
+              },
+              year: currentYear,
+            }
+          : {
+              // Goes into next year
+              OR: [
+                {
+                  ...approvedAdFilter,
+                  week: {
+                    gte: availabilityStartWeek,
+                    lte: 52,
+                  },
+                  year: currentYear,
+                },
+                {
+                  ...approvedAdFilter,
+                  week: {
+                    lte: availabilityEndWeek,
+                  },
+                  year: currentYear + 1,
+                },
+              ],
+            },
+    });
+
+    const NO_OF_FORMATS = 3;
+    const bookedSlots = new Map<string, Set<string>>();
+
+    for (const { year, week, ad } of allSlots) {
+      const key = `${year}-${week}`;
+
+      if (!bookedSlots.has(key)) {
+        bookedSlots.set(key, new Set());
+      }
+      bookedSlots.get(key)!.add(ad.format);
+    }
+
+    let earliestAvailability: { week: number; year: number } | null = null as {
+      week: number;
+      year: number;
+    } | null;
+
+    for (
+      let weekDelta = 1;
+      weekDelta <= availabilityMaxWeeksAhead;
+      weekDelta++
+    ) {
+      const week = incrementISOWeek(currentWeek, weekDelta);
+      const year = currentWeek < week ? currentYear : currentYear + 1;
+
+      const key = `${year}-${week}`;
+      const bookedFormats = bookedSlots.get(key) || new Set();
+
+      // If at least one format is available, mark this as the earliest available slot
+      if (bookedFormats.size < NO_OF_FORMATS) {
+        earliestAvailability = { week, year };
+        break;
+      }
+    }
+
+    return earliestAvailability
+      ? {
+          ...sponsorsWeekDateRange(
+            earliestAvailability.year,
+            earliestAvailability.week,
+          ),
+          available: true,
+          week: earliestAvailability.week,
+          year: earliestAvailability.year,
+        }
+      : null;
+  }),
   uploadAdAsset: publicProcedure
     .input(
       z.object({
