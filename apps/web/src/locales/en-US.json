@@ -6411,6 +6411,10 @@
     "defaultMessage": "Completed",
     "description": "Project completed label"
   },
+  "YYJEeq": {
+    "defaultMessage": "None",
+    "description": "No available slots"
+  },
   "YZa0RE": {
     "defaultMessage": "Start building from our large repository of real-world front end project challenges. Hone core front end skills and build an impressive project portfolio.",
     "description": "Description of Challenges page"

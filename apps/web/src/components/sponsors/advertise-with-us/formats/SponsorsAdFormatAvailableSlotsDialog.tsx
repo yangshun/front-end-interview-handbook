@@ -40,9 +40,9 @@ export default function SponsorsAdFormatAvailableSlotsDialog({
       scrollable={true}
       title={title}
       trigger={trigger}
-      width="sm">
+      width="screen-sm">
       <div
-        className={clsx('mt-1.5', 'flex flex-col', [
+        className={clsx('pt-1.5', 'flex flex-col', [
           'divide-y',
           themeDivideEmphasizeColor,
         ])}>

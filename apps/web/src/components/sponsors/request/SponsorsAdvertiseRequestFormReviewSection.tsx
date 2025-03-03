@@ -48,7 +48,7 @@ export default function SponsorsAdvertiseRequestFormReviewSection({
 }: Props) {
   const intl = useIntl();
   const agreementRef = useRef<HTMLDivElement>(null);
-  const adsData = useSponsorsAdFormatData();
+  const adsFormatData = useSponsorsAdFormatData();
   const [signedAgreement, setSignedAgreement] = useState(false);
   const { emails, ads, company } = data;
   const {
@@ -160,7 +160,7 @@ export default function SponsorsAdvertiseRequestFormReviewSection({
                 return (
                   <div key={adFormat} className="flex justify-between">
                     <Text color="secondary" size="body2">
-                      {adsData[adFormat].name} &times;{' '}
+                      {adsFormatData[adFormat].name} &times;{' '}
                       <FormattedMessage
                         defaultMessage="{count, plural, one {# week} other {# weeks}}"
                         description="Number of weeks"

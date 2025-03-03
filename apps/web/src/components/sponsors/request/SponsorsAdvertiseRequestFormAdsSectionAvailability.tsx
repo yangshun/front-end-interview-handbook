@@ -1,5 +1,4 @@
 import clsx from 'clsx';
-import { format } from 'date-fns';
 import { FaCheck } from 'react-icons/fa6';
 
 import { trpc } from '~/hooks/trpc';
@@ -19,6 +18,10 @@ import {
 import Tooltip from '~/components/ui/Tooltip';
 
 import { SponsorAdFormatConfigs } from '../SponsorsAdFormatConfigs';
+import {
+  sponsorsDateFormatterShort,
+  sponsorsDateFormatterWithYear,
+} from '../SponsorsDatesUtils';
 import { themeBackgroundElementEmphasizedStateColor_Hover } from '../../ui/theme';
 
 import type { SponsorsAdFormat } from '@prisma/client';
@@ -73,7 +76,10 @@ export default function SponsorsAdvertiseRequestFormAdsSectionAvailability({
               <Tooltip
                 key={weekHash}
                 asChild={true}
-                label={`${format(new Date(start), 'do MMM yyyy')} – ${format(new Date(end), 'do MMM yyyy')}`}>
+                label={[
+                  sponsorsDateFormatterWithYear.format(new Date(start)),
+                  sponsorsDateFormatterWithYear.format(new Date(end)),
+                ].join(' – ')}>
                 <button
                   className={clsx(
                     'flex items-center justify-between gap-3',
@@ -103,8 +109,8 @@ export default function SponsorsAdvertiseRequestFormAdsSectionAvailability({
                       color={!available ? 'secondary' : undefined}
                       size="body2"
                       weight="medium">
-                      {format(new Date(start), 'MMM dd')} -{' '}
-                      {format(new Date(end), 'MMM dd')}
+                      {sponsorsDateFormatterShort.format(new Date(start))} -{' '}
+                      {sponsorsDateFormatterShort.format(new Date(end))}
                     </Text>
                     {selected && (
                       <Chip

@@ -13,6 +13,8 @@ import Heading, { headingCVA } from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 import { themeTextSubtitleColor } from '~/components/ui/theme';
 
+import { sponsorsDateFormatter } from '../../SponsorsDatesUtils';
+
 type Props = Readonly<{
   format: SponsorsAdFormat;
 }>;
@@ -100,11 +102,9 @@ export default function SponsorsAdFormatHeader({ format }: Props) {
                   description="Next slot date"
                   id="dAesjD"
                   values={{
-                    date: Intl.DateTimeFormat('en-US', {
-                      day: 'numeric',
-                      month: 'short',
-                      year: 'numeric',
-                    }).format(new Date(availableSlots[0].start)),
+                    date: sponsorsDateFormatter.format(
+                      new Date(availableSlots[0].start),
+                    ),
                   }}
                 />
               </Text>

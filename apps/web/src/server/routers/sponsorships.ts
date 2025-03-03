@@ -1,11 +1,4 @@
-import {
-  addWeeks,
-  endOfWeek,
-  format as formatDate,
-  getISOWeek,
-  getYear,
-  startOfWeek,
-} from 'date-fns';
+import { getISOWeek, getYear } from 'date-fns';
 import { range } from 'lodash-es';
 import { z } from 'zod';
 
@@ -17,6 +10,7 @@ import {
   sponsorsSpotlightAdSchemaServer,
 } from '~/components/sponsors/request/schema/SponsorsAdvertiseRequestAdSchema';
 import { sponsorsCompanySchemaServer } from '~/components/sponsors/request/schema/SponsorsAdvertiseRequestCompanySchema';
+import { sponsorsWeekDateRange } from '~/components/sponsors/SponsorsDatesUtils';
 import type { SponsorsAdFormatPayload } from '~/components/sponsors/SponsorsTypes';
 import { SponsorsAdFormatZodEnum } from '~/components/sponsors/SponsorsTypes';
 
@@ -26,22 +20,6 @@ import { createSupabaseAdminClientGFE_SERVER_ONLY } from '~/supabase/SupabaseSer
 import { publicProcedure, router } from '../trpc';
 
 const availabilityMaxWeeksAhead = 12;
-
-function getWeekDateRange(
-  year: number,
-  weekNumber: number,
-): { end: string; start: string } {
-  const firstDayOfYear = new Date(year, 0, 1); // Jan 1st
-  const firstMonday = startOfWeek(firstDayOfYear, { weekStartsOn: 1 }); // Adjust to first Monday
-
-  const startDate = addWeeks(firstMonday, weekNumber - 1); // Get Monday of the target week
-  const endDate = endOfWeek(startDate, { weekStartsOn: 1 }); // Get Sunday of that week
-
-  return {
-    end: formatDate(endDate, 'yyyy-MM-dd'),
-    start: formatDate(startDate, 'yyyy-MM-dd'),
-  };
-}
 
 function incrementISOWeek(week: number, delta = 1) {
   const newWeek = week + delta;
@@ -314,7 +292,7 @@ Elevate your style, inspire your creativity, and represent your coding chops wit
         );
 
         return {
-          ...getWeekDateRange(year, week),
+          ...sponsorsWeekDateRange(year, week),
           available: !hasMatchingSlot,
           week,
           year,

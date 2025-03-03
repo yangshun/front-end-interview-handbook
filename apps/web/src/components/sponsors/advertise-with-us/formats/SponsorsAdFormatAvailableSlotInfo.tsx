@@ -10,23 +10,15 @@ import Button from '~/components/ui/Button';
 
 import SponsorsAdFormatAvailableSlotsDialog from './SponsorsAdFormatAvailableSlotsDialog';
 import SponsorsAdFormatInfo from './SponsorsAdFormatInfo';
+import {
+  sponsorsDateFormatter,
+  sponsorsDateFormatterWithDay,
+  sponsorsDateFormatterWithYear,
+} from '../../SponsorsDatesUtils';
 
 type Props = Readonly<{
   format: SponsorsAdFormat;
 }>;
-
-const formatter = new Intl.DateTimeFormat('en-US', {
-  day: '2-digit',
-  month: 'short',
-  weekday: 'long',
-});
-
-const formatterWithYear = new Intl.DateTimeFormat('en-US', {
-  day: '2-digit',
-  month: 'short',
-  weekday: 'long',
-  year: 'numeric',
-});
 
 const MAX_SLOTS_SHOWN__UPFRONT = 3;
 
@@ -40,8 +32,10 @@ export default function SponsorsAdFormatAvailableSlotInfo({ format }: Props) {
   const nextAvailableSlots = availableSlots
     .slice(1, MAX_SLOTS_SHOWN__UPFRONT)
     .map((slot) => {
-      const startDate = formatter.format(new Date(slot.start));
-      const endDate = formatter.format(new Date(slot.end));
+      const startDate = sponsorsDateFormatterWithDay.format(
+        new Date(slot.start),
+      );
+      const endDate = sponsorsDateFormatterWithDay.format(new Date(slot.end));
 
       return {
         key: slot.start,
@@ -49,12 +43,14 @@ export default function SponsorsAdFormatAvailableSlotInfo({ format }: Props) {
       };
     });
   const formattedAvailableSlots = availableSlots.map((slot) => {
-    const startDate = formatterWithYear.format(new Date(slot.start));
-    const endDate = formatterWithYear.format(new Date(slot.end));
+    const startDate = sponsorsDateFormatterWithYear.format(
+      new Date(slot.start),
+    );
+    const endDate = sponsorsDateFormatterWithYear.format(new Date(slot.end));
 
     return {
       key: slot.start,
-      label: `${startDate} - ${endDate}`,
+      label: `${startDate} – ${endDate}`,
     };
   });
 
@@ -87,12 +83,12 @@ export default function SponsorsAdFormatAvailableSlotInfo({ format }: Props) {
       items={nextAvailableSlots}
       title={
         availableSlots.length === 0
-          ? '–'
-          : Intl.DateTimeFormat('en-US', {
-              day: 'numeric',
-              month: 'short',
-              year: 'numeric',
-            }).format(new Date(availableSlots[0].start))
+          ? intl.formatMessage({
+              defaultMessage: 'None',
+              description: 'No available slots',
+              id: 'YYJEeq',
+            })
+          : sponsorsDateFormatter.format(new Date(availableSlots[0].start))
       }
       type="slot"
     />
