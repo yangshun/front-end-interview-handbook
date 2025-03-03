@@ -57,6 +57,10 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
   );
   const adFormatData = useSponsorsAdFormatData();
 
+  const selectedWeeks = ads
+    .flatMap((ad) => (ad.format === selectedFormat ? ad.weeks : []))
+    .flat();
+
   return (
     <div>
       <Heading level="heading6">
@@ -255,6 +259,7 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
             <div className="mt-12">
               {selectedFormat === 'GLOBAL_BANNER' && (
                 <SponsorsAdvertiseRequestFormAdsSectionGlobalBanner
+                  unavailableWeeks={selectedWeeks}
                   updateStepStatus={updateStepStatus}
                   onCancel={
                     ads.length > 0
@@ -283,6 +288,7 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
               {selectedFormat === 'IN_CONTENT' && (
                 <SponsorsAdvertiseRequestFormAdsSectionInContent
                   sessionId={sessionId}
+                  unavailableWeeks={selectedWeeks}
                   updateStepStatus={updateStepStatus}
                   onCancel={
                     ads.length > 0
@@ -313,6 +319,7 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
               {selectedFormat === 'SPOTLIGHT' && (
                 <SponsorsAdvertiseRequestFormAdsSectionSpotlight
                   sessionId={sessionId}
+                  unavailableWeeks={selectedWeeks}
                   updateStepStatus={updateStepStatus}
                   onCancel={
                     ads.length > 0

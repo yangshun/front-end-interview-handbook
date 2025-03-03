@@ -37,6 +37,7 @@ type Props = Readonly<{
     imageUrl,
   }: Omit<SponsorsAdFormatSpotlightItem, 'format' | 'id'>) => void;
   sessionId: string;
+  unavailableWeeks: ReadonlyArray<string>;
   updateStepStatus: (status: StepsTabItemStatus) => void;
 }>;
 
@@ -47,6 +48,7 @@ export default function SponsorsAdvertiseRequestFormAdsSectionSpotlight({
   onSubmit,
   sessionId,
   updateStepStatus,
+  unavailableWeeks,
 }: Props) {
   const intl = useIntl();
   const uploadAsset = trpc.sponsorships.uploadAdAsset.useMutation();
@@ -115,6 +117,7 @@ export default function SponsorsAdvertiseRequestFormAdsSectionSpotlight({
       <SponsorsAdvertiseRequestFormAdsSectionAvailability
         adFormat={AD_FORMAT}
         selectedWeeks={selectedWeeks}
+        unavailableWeeks={unavailableWeeks}
         onAddWeek={(week: string) => {
           return setValue(
             'weeks',

@@ -29,6 +29,7 @@ type Props = Readonly<{
     url,
     weeks,
   }: Omit<SponsorsAdFormatGlobalBannerItem, 'format' | 'id'>) => void;
+  unavailableWeeks: ReadonlyArray<string>;
   updateStepStatus: (status: StepsTabItemStatus) => void;
 }>;
 
@@ -36,6 +37,7 @@ export default function SponsorsAdvertiseRequestFormAdsSectionGlobalBanner({
   onCancel,
   onSubmit,
   updateStepStatus,
+  unavailableWeeks,
 }: Props) {
   const intl = useIntl();
   const adSchema = useSponsorsGlobalBannerAdSchema();
@@ -83,6 +85,7 @@ export default function SponsorsAdvertiseRequestFormAdsSectionGlobalBanner({
       <SponsorsAdvertiseRequestFormAdsSectionAvailability
         adFormat={AD_FORMAT}
         selectedWeeks={selectedWeeks}
+        unavailableWeeks={unavailableWeeks}
         onAddWeek={(week: string) => {
           return setValue(
             'weeks',

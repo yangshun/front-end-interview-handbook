@@ -31,6 +31,7 @@ type Props = Readonly<{
   onAddWeek: (value: string) => void;
   onRemoveWeek: (value: string) => void;
   selectedWeeks: ReadonlyArray<string>;
+  unavailableWeeks: ReadonlyArray<string>;
 }>;
 
 export default function SponsorsAdvertiseRequestFormAdsSectionAvailability({
@@ -38,10 +39,20 @@ export default function SponsorsAdvertiseRequestFormAdsSectionAvailability({
   selectedWeeks,
   onAddWeek,
   onRemoveWeek,
+  unavailableWeeks,
 }: Props) {
   const intl = useIntl();
   const { isLoading, data } = trpc.sponsorships.availability.useQuery({
     format: adFormat,
+  });
+
+  const availableWeeks = data?.map((slot) => {
+    return {
+      ...slot,
+      available: slot.available
+        ? !unavailableWeeks.includes(`${slot.year}/${slot.week}`)
+        : false,
+    };
   });
 
   return (
@@ -58,7 +69,7 @@ export default function SponsorsAdvertiseRequestFormAdsSectionAvailability({
           id: '3Z408Q',
         })}
       />
-      {data == null ? (
+      {availableWeeks == null ? (
         <div
           className={clsx(
             'flex items-center justify-center',
@@ -68,7 +79,7 @@ export default function SponsorsAdvertiseRequestFormAdsSectionAvailability({
         </div>
       ) : (
         <div className="mt-3 grid gap-3 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {data.map(({ start, end, available, year, week }) => {
+          {availableWeeks.map(({ start, end, available, year, week }) => {
             const weekHash = `${year}/${week}`;
             const selected = selectedWeeks.includes(weekHash);
 
