@@ -3,18 +3,25 @@ import customLinkRichTextEditorConfig from '~/components/ui/RichTextEditor/RichT
 
 import { sponsorsAdTrackingHref } from './SponsorsAdHref';
 
-type Props = Omit<React.ComponentProps<typeof RichText>, 'editorConfig'> &
-  Readonly<{ adId: string }>;
+type AdProps = Readonly<{ adId: string; tracking: boolean }>;
+type Props = AdProps &
+  Omit<React.ComponentProps<typeof RichText>, 'editorConfig'>;
 
 export default function SponsorsAdFormatInContentBodyRenderer({
   adId,
+  tracking = true,
   ...props
 }: Props) {
-  return <RichText {...props} editorConfig={getRichTextEditorConfig(adId)} />;
+  return (
+    <RichText
+      {...props}
+      editorConfig={getRichTextEditorConfig({ adId, tracking })}
+    />
+  );
 }
 
-function getRichTextEditorConfig(adId: string) {
+function getRichTextEditorConfig({ adId, tracking = true }: AdProps) {
   return customLinkRichTextEditorConfig((url) =>
-    sponsorsAdTrackingHref({ id: adId, url }),
+    tracking ? sponsorsAdTrackingHref({ adId, url }) : url,
   );
 }

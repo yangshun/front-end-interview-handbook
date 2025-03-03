@@ -3,7 +3,8 @@ import { Redis } from '@upstash/redis';
 type RedisCounterKey =
   | 'INTERVIEWS_CHECKOUT_COUNT'
   | 'QUESTIONS_INTEREST_POINT'
-  | 'SPONSORSHIPS';
+  | 'SPONSORSHIPS_AD_CLICK'
+  | 'SPONSORSHIPS_AD_IMPRESSION';
 
 export default class RedisCounter {
   redisKey: string;

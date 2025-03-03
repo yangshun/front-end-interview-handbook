@@ -11,6 +11,7 @@ import {
 
 import SponsorsAdFormatInContentBodyRenderer from './SponsorsAdFormatInContentBodyRenderer';
 import { sponsorsAdTrackingHref } from './SponsorsAdHref';
+import useSponsorsAdImpressionLogging from './useSponsorsAdImpressionLogging';
 import type { SponsorsAdFormatPayloadInContent } from '../SponsorsTypes';
 
 export type SponsorsAdFormatInContentSize = 'md' | 'sm';
@@ -30,28 +31,34 @@ function isLexicalEditorValue(value: string) {
 
     // Check if it follows the Lexical editor format
     return typeof parsed === 'object';
-  } catch (e) {
+  } catch (err) {
     // If JSON parsing fails, it's a normal string
     return false;
   }
 }
 
+type Props = Omit<SponsorsAdFormatPayloadInContent, 'format'> &
+  Readonly<{
+    size: SponsorsAdFormatInContentSize;
+    tracking?: boolean;
+  }>;
+
 export default function SponsorsAdFormatInContent({
-  id,
+  adId,
   title,
   url,
   body,
   sponsorName,
   imageUrl,
   size,
-}: Omit<SponsorsAdFormatPayloadInContent, 'format'> &
-  Readonly<{
-    size: SponsorsAdFormatInContentSize;
-  }>) {
+  tracking = true,
+}: Props) {
+  const ref = useSponsorsAdImpressionLogging<HTMLDivElement>(adId);
+
   const isRichTextValue = isLexicalEditorValue(body);
 
   return (
-    <div>
+    <div ref={tracking ? ref : undefined}>
       <div>
         {imageUrl ? (
           <img
@@ -81,7 +88,7 @@ export default function SponsorsAdFormatInContent({
           Sponsor:{' '}
           <Anchor
             className={textVariants({ color: 'active' })}
-            href={sponsorsAdTrackingHref({ id, url })}
+            href={tracking ? sponsorsAdTrackingHref({ adId, url }) : url}
             target="_blank"
             variant="flat"
             weight="medium">
@@ -95,8 +102,9 @@ export default function SponsorsAdFormatInContent({
       {isRichTextValue ? (
         <SponsorsAdFormatInContentBodyRenderer
           key={body}
-          adId={id}
+          adId={adId}
           size="sm"
+          tracking={tracking}
           value={body}
         />
       ) : (

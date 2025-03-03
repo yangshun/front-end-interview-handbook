@@ -1,13 +1,13 @@
 import url from 'url';
 
 export function sponsorsAdTrackingHref({
-  id,
+  adId,
   url: urlParam,
-}: Readonly<{ id: string; url: string }>) {
+}: Readonly<{ adId: string; url: string }>) {
   return url.format({
     pathname: '/ads/click',
     query: {
-      a: id,
+      a: adId,
       u: urlParam,
     },
   });

@@ -256,11 +256,12 @@ export default function SponsorsAdvertiseRequestFormAdsSectionSpotlight({
               )}>
               <div className="max-w-[260px]">
                 <SponsorsAdFormatSpotlight
+                  adId="test-spotlight"
                   external={true}
-                  id="short-form"
                   imageUrl={imageUrl}
                   sponsorName="Your product / company name"
                   text={title || 'Your short form ad text here'}
+                  tracking={false}
                   url="#"
                 />
               </div>

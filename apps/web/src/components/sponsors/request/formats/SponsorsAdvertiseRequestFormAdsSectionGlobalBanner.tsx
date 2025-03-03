@@ -191,10 +191,11 @@ export default function SponsorsAdvertiseRequestFormAdsSectionGlobalBanner({
         <div className="mt-4">
           <InterviewsMarketingHeroBrowserWindowFrame>
             <SponsorsAdFormatGlobalBanner
-              id="test"
+              adId="test-global-banner"
               isLoading={false}
               text={title || 'Your ad text here'}
-              url="#"
+              tracking={false}
+              url="https://greatfrontend.com"
             />
             <div className="flex h-[300px] w-full items-stretch justify-stretch p-3">
               <div

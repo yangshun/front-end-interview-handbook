@@ -70,10 +70,10 @@ export const sponsorshipsRouter = router({
               const ad = ads[0];
 
               return {
+                adId: ad.id,
                 body: ad.body!,
                 external: true,
                 format: 'IN_CONTENT',
-                id: ad.id,
                 imageUrl: ad.imageUrl!,
                 sponsorName: ad.request.legalName,
                 title: ad.title,
@@ -82,6 +82,7 @@ export const sponsorshipsRouter = router({
             }
 
             return {
+              adId: 'tih-in-content',
               body: `Level up your coding style with SwagOverflow—the ultimate destination for front-end developer gear. Our high-quality merchandise lets you wear your passion on your sleeve, literally. Check out some of the highlights:
 	•	Eye-Catching Designs: Show off your front-end pride with sleek, creative prints that celebrate coding culture.
 	•	Premium Materials: Enjoy durable, comfortable apparel that can handle everyday wear as easily as you handle bug fixes.
@@ -91,7 +92,6 @@ export const sponsorshipsRouter = router({
 Elevate your style, inspire your creativity, and represent your coding chops with every piece from SwagOverflow. Grab yours now and stand out in any crowd—on or off the keyboard!`,
               external: true,
               format: 'IN_CONTENT',
-              id: 'tih',
               imageUrl:
                 'https://www.techinterviewhandbook.org/social/software-engineering-interview-guide.png',
               sponsorName: 'Tech Interview Handbook',
@@ -104,9 +104,9 @@ Elevate your style, inspire your creativity, and represent your coding chops wit
               const ad = ads[0];
 
               return {
+                adId: ad.id,
                 external: true,
                 format: 'SPOTLIGHT',
-                id: ad.id,
                 imageUrl: ad.imageUrl!,
                 sponsorName: ad.request.legalName,
                 text: ad.title,
@@ -115,9 +115,9 @@ Elevate your style, inspire your creativity, and represent your coding chops wit
             }
 
             return {
+              adId: 'tih-spotlight',
               external: true,
               format: 'SPOTLIGHT',
-              id: 'tih',
               imageUrl:
                 'https://www.techinterviewhandbook.org/social/software-engineering-interview-guide.png',
               sponsorName: 'Tech Interview Handbook',
@@ -130,9 +130,9 @@ Elevate your style, inspire your creativity, and represent your coding chops wit
               const ad = ads[0];
 
               return {
+                adId: ad.id,
                 external: true,
                 format: 'GLOBAL_BANNER',
-                id: ad.id,
                 sponsorName: ad.request.legalName,
                 text: ad.title,
                 url: ad.url,
@@ -140,9 +140,9 @@ Elevate your style, inspire your creativity, and represent your coding chops wit
             }
 
             return {
+              adId: 'tih-global-banner',
               external: true,
               format: 'GLOBAL_BANNER',
-              id: 'tih',
               sponsorName: 'Tech Interview Handbook',
               text: 'Tech Interview Handbook global banner is the best handbook blah blah',
               url: 'https://www.techinterviewhandbook.org',

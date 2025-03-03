@@ -169,6 +169,7 @@ export default function ScrapbookPage() {
       <Section>
         <UIExamplesGroup darkMode="horizontal">
           <SponsorsAdFormatInContent
+            adId="tih-in-content"
             body={`Struggling with tech interviews? 🚀 Get the Tech Interview Handbook—your ultimate guide to mastering coding challenges, system design, and behavioral interviews. Packed with expert strategies, real-world examples, and must-know concepts, this handbook is designed to boost your confidence and help you land your dream job at top tech companies.
 
 📖 What’s inside?
@@ -179,21 +180,22 @@ export default function ScrapbookPage() {
 
 Don’t leave your success to chance—prepare smarter with the Tech Interview Handbook! Get your copy today! 💡🔥`}
             external={false}
-            id="tih"
             imageUrl="https://www.techinterviewhandbook.org/social/software-engineering-interview-guide.png"
             size="sm"
             sponsorName="Tech Interview Handbook"
             title="Tech Interview Handbook"
+            tracking={false}
             url="https://www.techinterviewhandbook.org"
           />
           <Divider />
           <div className="w-[260px]">
             <SponsorsAdFormatSpotlight
+              adId="tih-spotlight"
               external={false}
-              id="tih"
               imageUrl="https://www.techinterviewhandbook.org/social/software-engineering-interview-guide.png"
               sponsorName="Tech Interview Handbook"
               text="Ace your next tech interview with confidence"
+              tracking={false}
               url="https://www.techinterviewhandbook.org"
             />
           </div>

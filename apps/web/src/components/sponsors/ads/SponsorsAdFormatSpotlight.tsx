@@ -12,23 +12,31 @@ import {
 import Tooltip from '~/components/ui/Tooltip';
 
 import { sponsorsAdTrackingHref } from './SponsorsAdHref';
+import useSponsorsAdImpressionLogging from './useSponsorsAdImpressionLogging';
 import type { SponsorsAdFormatPayloadSpotlight } from '../SponsorsTypes';
 
+type Props = Omit<SponsorsAdFormatPayloadSpotlight, 'format'> &
+  Readonly<{ tracking?: boolean }>;
+
 export default function SponsorsAdFormatSpotlight({
-  id,
+  adId,
   text,
   sponsorName,
   url,
   imageUrl,
-}: Omit<SponsorsAdFormatPayloadSpotlight, 'format'>) {
+  tracking = true,
+}: Props) {
+  const ref = useSponsorsAdImpressionLogging<HTMLAnchorElement>(adId);
+
   return (
     <Anchor
+      ref={tracking ? ref : undefined}
       className={clsx(
         'flex items-center gap-x-3',
         'w-full',
         'relative isolate',
       )}
-      href={sponsorsAdTrackingHref({ id, url })}
+      href={tracking ? sponsorsAdTrackingHref({ adId, url }) : url}
       target="blank"
       variant="flat">
       <div
