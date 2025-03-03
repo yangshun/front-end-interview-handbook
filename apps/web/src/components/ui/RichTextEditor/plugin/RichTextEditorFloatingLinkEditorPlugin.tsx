@@ -302,9 +302,14 @@ function FloatingLinkEditor({
                 <TextInput
                   isLabelHidden={true}
                   label={intl.formatMessage({
-                    defaultMessage: 'Link Title',
+                    defaultMessage: 'Link text',
                     description: 'Label for link title',
-                    id: 't4Ma6G',
+                    id: 'YRIsJs',
+                  })}
+                  placeholder={intl.formatMessage({
+                    defaultMessage: 'Enter link text',
+                    description: 'Placeholder for link title',
+                    id: '+xOnIx',
                   })}
                   value={linkText}
                   onChange={(value) => setLinkText(value)}
@@ -317,6 +322,7 @@ function FloatingLinkEditor({
                     description: 'Label for link URL',
                     id: '74BSpM',
                   })}
+                  placeholder="https://example.com"
                   value={editedLinkUrl}
                   onChange={(value) => setEditedLinkUrl(value)}
                 />

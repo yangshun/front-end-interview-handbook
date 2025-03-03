@@ -175,6 +175,10 @@
     "defaultMessage": "ZIP / Postal code",
     "description": "ZIP / Postal code input label"
   },
+  "+xOnIx": {
+    "defaultMessage": "Enter link text",
+    "description": "Placeholder for link title"
+  },
   "+y/iOY": {
     "defaultMessage": "Support you can expect",
     "description": "Title for Expected Support section on Projects project page"
@@ -6383,6 +6387,10 @@
     "defaultMessage": "Do unspent GreatFrontEnd Projects credits roll over?",
     "description": "Question on projects pricing's FAQ section - unused credits"
   },
+  "YRIsJs": {
+    "defaultMessage": "Link text",
+    "description": "Label for link title"
+  },
   "YRVMeX": {
     "defaultMessage": "Review Cashback Terms and Conditions",
     "description": "Title of legal page"
@@ -9962,10 +9970,6 @@
   "t44/MF": {
     "defaultMessage": "Purchase premium to unlock official solutions and all the best materials we have to offer.",
     "description": "Paywall subtitle for official solutions feature"
-  },
-  "t4Ma6G": {
-    "defaultMessage": "Link Title",
-    "description": "Label for link title"
   },
   "t5L0yE": {
     "defaultMessage": "Pricing",

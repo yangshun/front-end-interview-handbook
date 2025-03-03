@@ -26,7 +26,6 @@ export default function RichTextEditorDropdownMenu({
       size="xs"
       tooltip={isLabelHidden ? label : undefined}
       variant="tertiary"
-      onClose={() => setTimeout(() => editor.focus(), 0)}
       onCloseAutoFocus={(event) => event.preventDefault()}>
       {children}
     </DropdownMenu>
