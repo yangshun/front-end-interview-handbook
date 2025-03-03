@@ -405,6 +405,24 @@ Elevate your style, inspire your creativity, and represent your coding chops wit
         }
       : null;
   }),
+  removeAdAsset: publicProcedure
+    .input(
+      z.object({
+        imageUrl: z.string(),
+      }),
+    )
+    .mutation(async ({ input: { imageUrl } }) => {
+      const supabaseAdmin = createSupabaseAdminClientGFE_SERVER_ONLY();
+      const filePath = imageUrl.split('/').slice(-2).join('/'); // Get :sessionId/:fileName file path
+
+      const { error } = await supabaseAdmin.storage
+        .from('ads')
+        .remove([filePath]);
+
+      if (error) {
+        throw error;
+      }
+    }),
   uploadAdAsset: publicProcedure
     .input(
       z.object({

@@ -8,6 +8,8 @@ import {
 } from 'react-icons/ri';
 import { v4 as uuidv4 } from 'uuid';
 
+import { trpc } from '~/hooks/trpc';
+
 import type { StepsTabItemStatus } from '~/components/common/StepsTabs';
 import { FormattedMessage, useIntl } from '~/components/intl';
 import { useSponsorsAdFormatData } from '~/components/sponsors/SponsorsAdFormatConfigs';
@@ -52,6 +54,7 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
   updateStepStatus,
 }: Props) {
   const intl = useIntl();
+  const removeAdAssetMutation = trpc.sponsorships.removeAdAsset.useMutation();
   const [selectedFormat, setSelectedFormat] = useState<SponsorsAdFormat | null>(
     ads.length > 0 ? null : 'GLOBAL_BANNER',
   );
@@ -119,6 +122,12 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
                           (adItem) => adItem.id !== ad.id,
                         );
 
+                        // Remove uploaded ad asset
+                        if ('imageUrl' in ad) {
+                          removeAdAssetMutation.mutate({
+                            imageUrl: ad.imageUrl,
+                          });
+                        }
                         updateAds(ads.filter((adItem) => adItem.id !== ad.id));
                         if (remainingAds.length === 0) {
                           setSelectedFormat('GLOBAL_BANNER');
