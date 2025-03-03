@@ -12,6 +12,8 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
 
+import logEvent from '~/logging/logEvent';
+
 import { useSponsorsAdvertiseRequestContactSchema } from './schema/SponsorsAdvertiseRequestContactSchema';
 
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -19,6 +21,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 type Props = Readonly<{
   defaultValues: ReadonlyArray<string>;
   onSubmit: (emails: Array<string>) => void;
+  sessionId: string;
   updateStepStatus: (status: StepsTabItemStatus) => void;
 }>;
 
@@ -28,6 +31,7 @@ export default function SponsorsAdvertiseRequestFormContactSection({
   onSubmit,
   defaultValues,
   updateStepStatus,
+  sessionId,
 }: Props) {
   const contactDetailsSchema = useSponsorsAdvertiseRequestContactSchema();
   const methods = useForm<z.infer<typeof contactDetailsSchema>>({
@@ -72,9 +76,16 @@ export default function SponsorsAdvertiseRequestFormContactSection({
   }, [emails, append]);
 
   function handleOnSubmit(data: z.infer<typeof contactDetailsSchema>) {
-    onSubmit(
-      data.emails.map((email) => email.value).filter((value) => value !== ''),
-    );
+    const emailsData = data.emails
+      .map((email) => email.value)
+      .filter((value) => value !== '');
+
+    onSubmit(emailsData);
+    logEvent('sponsorships.request', {
+      emails: emailsData,
+      namespace: 'marketing',
+      sessionId,
+    });
   }
 
   useEffect(() => {

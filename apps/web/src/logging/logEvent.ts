@@ -36,6 +36,7 @@ type LoggingAction =
   | 'sandpack.reachable'
   | 'sandpack.timeout'
   | 'sandpack.unreachable'
+  | 'sponsorships.request'
   | 'web_vitals'
   | 'window.blur'
   | 'window.focus';

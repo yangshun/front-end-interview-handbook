@@ -227,6 +227,7 @@ export default function SponsorsAdvertiseRequestForm() {
       {step === 'contact' && (
         <SponsorsAdvertiseRequestFormContactSection
           defaultValues={formData.emails}
+          sessionId={formData.sessionId}
           updateStepStatus={(status) =>
             setStepsStatus((prev) => ({ ...prev, contact: status }))
           }
