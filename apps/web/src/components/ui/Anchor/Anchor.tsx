@@ -10,13 +10,14 @@ import url from 'url';
 import { useAppContext } from '~/components/global/AppContextProvider';
 
 import type { I18nLinkProps } from '~/next-i18nostic/src';
-import { i18nHref, I18nLink, useI18n } from '~/next-i18nostic/src';
+import { I18nLink, useI18n } from '~/next-i18nostic/src';
 
 import {
   type AnchorVariant,
   anchorVariants,
   type AnchorWeight,
 } from './AnchorStyles';
+import { externalLinkHref } from './ExternalLinkHref';
 import {
   themeOutlineElement_FocusVisible,
   themeOutlineElementBrandColor_FocusVisible,
@@ -92,17 +93,7 @@ function Anchor(
         className={className}
         href={
           warnAboutExternalLink
-            ? url.format(
-                i18nHref(
-                  {
-                    pathname: '/link',
-                    query: {
-                      u: encodeURI(finalHrefString),
-                    },
-                  },
-                  locale,
-                ),
-              )
+            ? externalLinkHref({ locale, url: finalHrefString })
             : finalHrefString
         }
         rel={rel}

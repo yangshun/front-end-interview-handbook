@@ -2,7 +2,6 @@ import clsx from 'clsx';
 import { RiAdvertisementLine } from 'react-icons/ri';
 
 import Anchor from '~/components/ui/Anchor';
-import RichText from '~/components/ui/RichTextEditor/RichText';
 import type { TextSize } from '~/components/ui/Text';
 import Text, { textVariants } from '~/components/ui/Text';
 import {
@@ -10,6 +9,7 @@ import {
   themeBorderColor,
 } from '~/components/ui/theme';
 
+import SponsorsAdFormatInContentBodyRenderer from './SponsorsAdFormatInContentBodyRenderer';
 import { sponsorsAdTrackingHref } from './SponsorsAdHref';
 import type { SponsorsAdFormatPayloadInContent } from '../SponsorsTypes';
 
@@ -93,7 +93,12 @@ export default function SponsorsAdFormatInContent({
         {title}
       </Text>
       {isRichTextValue ? (
-        <RichText key={body} size="sm" value={body} />
+        <SponsorsAdFormatInContentBodyRenderer
+          key={body}
+          adId={id}
+          size="sm"
+          value={body}
+        />
       ) : (
         <Text className="mt-3 block" color="secondary" size="body3">
           {body}

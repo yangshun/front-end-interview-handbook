@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 
-import { RichTextEditorConfig } from './RichTextEditorConfig';
+import type { RichTextEditorConfigType } from './RichTextEditorConfig';
+import { RichTextEditorWithExternalLinkConfig } from './RichTextEditorConfig';
 import type { ProseTextSize } from '../Prose';
 import { proseStyle } from '../Prose';
 import { themeTextColor } from '../theme';
@@ -15,6 +16,7 @@ type RichTextColor = 'body' | 'default';
 type Props = Readonly<{
   className?: string;
   color?: RichTextColor;
+  editorConfig?: RichTextEditorConfigType;
   size?: ProseTextSize;
   value: string;
 }>;
@@ -29,11 +31,12 @@ export default function RichText({
   color = 'default',
   size,
   value,
+  editorConfig,
 }: Props) {
   return (
     <LexicalComposer
       initialConfig={{
-        ...RichTextEditorConfig,
+        ...(editorConfig ? editorConfig : RichTextEditorWithExternalLinkConfig),
         editable: false,
         editorState: value,
       }}>

@@ -1,14 +1,12 @@
 import clsx from 'clsx';
+import type { NodeKey } from 'lexical';
 import { type SerializedElementNode, type Spread } from 'lexical';
-import URL from 'url';
 
 import { anchorVariants } from '~/components/ui/Anchor';
 import {
   themeOutlineElement_FocusVisible,
   themeOutlineElementBrandColor_FocusVisible,
 } from '~/components/ui/theme';
-
-import { i18nHref } from '~/next-i18nostic/src';
 
 import type { LinkAttributes, SerializedAutoLinkNode } from '@lexical/link';
 import {
@@ -27,6 +25,7 @@ export type SerializedCustomLinkNode = Spread<
 >;
 
 export class CustomLinkNode extends LinkNode {
+  __customLinkWrapper?: (__url: string) => string;
   static getType() {
     return 'custom-link';
   }
@@ -34,9 +33,24 @@ export class CustomLinkNode extends LinkNode {
   static clone(node: CustomLinkNode): CustomLinkNode {
     return new CustomLinkNode(
       node.__url,
+      node?.__customLinkWrapper,
       { rel: node.__rel, target: node.__target, title: node.__title },
       node.__key,
     );
+  }
+
+  constructor(
+    url: string,
+    customLinkWrapper?: (__url: string) => string,
+    attributes?: LinkAttributes,
+    key?: NodeKey,
+  ) {
+    super(key ?? 'custom-link');
+    this.__url = url;
+    this.__target = attributes?.target ?? null;
+    this.__rel = attributes?.rel ?? null;
+    this.__title = attributes?.title ?? null;
+    this.__customLinkWrapper = customLinkWrapper;
   }
 
   createDOM(): HTMLAnchorElement {
@@ -50,17 +64,12 @@ export class CustomLinkNode extends LinkNode {
       ),
     });
 
-    const warnLink = URL.format(
-      i18nHref({
-        pathname: '/link',
-        query: {
-          u: encodeURI(finalHrefString),
-        },
-      }),
-    );
+    const finalHref = this.__customLinkWrapper
+      ? this.__customLinkWrapper(finalHrefString)
+      : finalHrefString;
 
     element.target = '_blank';
-    element.href = warnLink;
+    element.href = finalHref;
     addClassNamesToElement(element, className);
 
     return element;
@@ -94,6 +103,7 @@ export class CustomLinkNode extends LinkNode {
 }
 
 export class CustomAutoLinkNode extends AutoLinkNode {
+  __customLinkWrapper?: (__url: string) => string;
   static getType(): string {
     return 'custom-autolink';
   }
@@ -101,9 +111,24 @@ export class CustomAutoLinkNode extends AutoLinkNode {
   static clone(node: CustomAutoLinkNode): CustomAutoLinkNode {
     return new CustomAutoLinkNode(
       node.__url,
+      node?.__customLinkWrapper,
       { rel: node.__rel, target: node.__target, title: node.__title },
       node.__key,
     );
+  }
+
+  constructor(
+    url: string,
+    customLinkWrapper?: (__url: string) => string,
+    attributes?: LinkAttributes,
+    key?: NodeKey,
+  ) {
+    super(key ?? 'custom-autolink');
+    this.__url = url;
+    this.__target = attributes?.target ?? null;
+    this.__rel = attributes?.rel ?? null;
+    this.__title = attributes?.title ?? null;
+    this.__customLinkWrapper = customLinkWrapper;
   }
 
   createDOM(): HTMLAnchorElement {
@@ -117,17 +142,12 @@ export class CustomAutoLinkNode extends AutoLinkNode {
       ),
     });
 
-    const warnLink = URL.format(
-      i18nHref({
-        pathname: '/link',
-        query: {
-          u: encodeURI(finalHrefString),
-        },
-      }),
-    );
+    const finalHref = this.__customLinkWrapper
+      ? this.__customLinkWrapper(finalHrefString)
+      : finalHrefString;
 
     element.target = '_blank';
-    element.href = warnLink;
+    element.href = finalHref;
     addClassNamesToElement(element, className);
 
     return element;

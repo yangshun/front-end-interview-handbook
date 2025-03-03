@@ -22,7 +22,8 @@ import RichTextEditorAutoLinkPlugin from './plugin/RichTextEditorAutoLinkPlugin'
 import RichTextEditorDisablePlugin from './plugin/RichTextEditorDisablePlugin';
 import RichTextEditorLinkPlugin from './plugin/RichTextEditorLinkPlugin';
 import RichTextEditorRefPlugin from './plugin/RichTextEditorRefPlugin';
-import { RichTextEditorConfig } from './RichTextEditorConfig';
+import type { RichTextEditorConfigType } from './RichTextEditorConfig';
+import { RichTextEditorWithExternalLinkConfig } from './RichTextEditorConfig';
 import { proseStyle } from '../Prose';
 import TextMaxLengthLabel from '../Text/TextMaxLengthLabel';
 
@@ -46,6 +47,7 @@ type Props = Readonly<{
   description?: React.ReactNode;
   descriptionStyle?: LabelDescriptionStyle;
   disabled?: boolean;
+  editorConfig?: RichTextEditorConfigType;
   errorMessage?: React.ReactNode;
   id?: string;
   isLabelHidden?: boolean;
@@ -69,7 +71,7 @@ const stateClasses: Record<State, string> = {
   ),
 };
 
-const editor = createHeadlessEditor(RichTextEditorConfig);
+const editor = createHeadlessEditor(RichTextEditorWithExternalLinkConfig);
 
 function RichTextEditor(
   {
@@ -90,6 +92,7 @@ function RichTextEditor(
     onBlur,
     onChange,
     placeholder,
+    editorConfig,
   }: Props,
   ref: ForwardedRef<LexicalEditor | null>,
 ) {
@@ -129,7 +132,7 @@ function RichTextEditor(
   return (
     <LexicalComposer
       initialConfig={{
-        ...RichTextEditorConfig,
+        ...(editorConfig ? editorConfig : RichTextEditorWithExternalLinkConfig),
         editorState: value ? value : undefined,
       }}>
       <div

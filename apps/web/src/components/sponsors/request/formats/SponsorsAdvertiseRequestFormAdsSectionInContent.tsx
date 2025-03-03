@@ -206,6 +206,7 @@ export default function SponsorsAdvertiseRequestFormAdsSectionInContent({
                           .body?.links,
                     },
                   )}
+                  editorConfig={RichTextEditorConfig}
                   errorMessage={error?.message}
                   label={intl.formatMessage({
                     defaultMessage: 'Body',
