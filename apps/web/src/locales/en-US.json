@@ -587,6 +587,10 @@
     "defaultMessage": "Quick start guide to front end interviews",
     "description": "Description of front end interview playbook"
   },
+  "1Ry887": {
+    "defaultMessage": "Image dimensions: {width}px x {height}px ({ratio}:1 ratio)",
+    "description": "Description for ad asset"
+  },
   "1VQd95": {
     "defaultMessage": "Official solutions and tests",
     "description": "Features for focus areas"
@@ -4155,6 +4159,10 @@
     "defaultMessage": "Next.js, Nuxt, SvelteKit",
     "description": "Placeholder for tech stack field"
   },
+  "MFgHcw": {
+    "defaultMessage": "Ad image",
+    "description": "Label for ad image"
+  },
   "MHO54p": {
     "defaultMessage": "Billing",
     "description": "Profile billing tab title"
@@ -6350,10 +6358,6 @@
   "Y6CFPM": {
     "defaultMessage": "By proceeding, you agree to GreatFrontEnd's <tos>Terms of Service</tos> and <pp>Privacy Policy</pp>.",
     "description": "Disclaimer of agreement to terms of service and privacy policy on Email Sign Up page"
-  },
-  "Y8acmz": {
-    "defaultMessage": "Follow the image dimensions guidelines",
-    "description": "Description for ad asset"
   },
   "YBlo/J": {
     "defaultMessage": "As mentioned above, there are many ways to host your project for free. Our recommend hosts are:",
@@ -10398,10 +10402,6 @@
   "vVS7kl": {
     "defaultMessage": "Official solutions for all questions, authored by former FAANG interviewers",
     "description": "Tooltip label for unlock all premium interviews content"
-  },
-  "vWBErz": {
-    "defaultMessage": "Ad asset",
-    "description": "Label for ad image"
   },
   "vWzLH8": {
     "defaultMessage": "Full access to tracks & skills. Unlimited <tooltip>premium credits</tooltip>",

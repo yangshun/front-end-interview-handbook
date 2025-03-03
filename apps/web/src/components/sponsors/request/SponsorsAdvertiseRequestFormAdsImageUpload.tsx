@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { useId } from 'react';
 import { useDropzone } from 'react-dropzone';
-import { RiCloseFill } from 'react-icons/ri';
+import { RiCloseFill, RiImageLine } from 'react-icons/ri';
 
 import { FormattedMessage, useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
@@ -15,6 +15,7 @@ import {
   themeBorderEmphasizeColor,
   themeBorderErrorColor,
   themeBorderSuccessColor,
+  themeTextPlaceholderColor,
 } from '~/components/ui/theme';
 
 type Props = Readonly<{
@@ -91,15 +92,23 @@ export default function SponsorsAdvertiseRequestFormAdsImageUpload({
   return (
     <div className={clsx('flex flex-col gap-2', className)}>
       <Label
-        description={intl.formatMessage({
-          defaultMessage: 'Follow the image dimensions guidelines',
-          description: 'Description for ad asset',
-          id: 'Y8acmz',
-        })}
+        description={intl.formatMessage(
+          {
+            defaultMessage:
+              'Image dimensions: {width}px x {height}px ({ratio}:1 ratio)',
+            description: 'Description for ad asset',
+            id: '1Ry887',
+          },
+          {
+            height: heightConstraint,
+            ratio: widthConstraint / heightConstraint,
+            width: widthConstraint,
+          },
+        )}
         label={intl.formatMessage({
-          defaultMessage: 'Ad asset',
+          defaultMessage: 'Ad image',
           description: 'Label for ad image',
-          id: 'vWBErz',
+          id: 'MFgHcw',
         })}
         required={true}
       />
@@ -145,6 +154,13 @@ export default function SponsorsAdvertiseRequestFormAdsImageUpload({
             <input
               {...getInputProps()}
               aria-describedby={errorMessage ? messageId : undefined}
+            />
+            <RiImageLine
+              aria-hidden="true"
+              className={clsx(
+                'size-10 mx-auto mb-2 shrink-0',
+                themeTextPlaceholderColor,
+              )}
             />
             <Text className="block" color="subtitle" size="body2">
               <FormattedMessage
