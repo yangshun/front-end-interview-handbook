@@ -46,9 +46,9 @@ export default function SponsorsNavbar() {
             <Button
               href="/advertise-with-us/request"
               label={intl.formatMessage({
-                defaultMessage: 'Schedule your slot',
-                description: 'Schedule your slot button label',
-                id: 'jLIDJB',
+                defaultMessage: 'Schedule your slots',
+                description: 'Book advertising slots',
+                id: 'Y/+dNC',
               })}
               size="xs"
               variant="primary"
@@ -86,9 +86,9 @@ export default function SponsorsNavbar() {
             <Button
               href="/advertise-with-us/request"
               label={intl.formatMessage({
-                defaultMessage: 'Schedule your slot',
-                description: 'Schedule your slot button label',
-                id: 'jLIDJB',
+                defaultMessage: 'Schedule your slots',
+                description: 'Book advertising slots',
+                id: 'Y/+dNC',
               })}
               size="xs"
               variant="primary"

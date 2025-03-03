@@ -6319,6 +6319,10 @@
     "defaultMessage": "React Coding Interview Questions | Solutions by Ex interviewers",
     "description": "Title of React Interview Questions page"
   },
+  "Y/+dNC": {
+    "defaultMessage": "Schedule your slots",
+    "description": "Book advertising slots"
+  },
   "Y072iD": {
     "defaultMessage": "Behavioral Interview Playbook",
     "description": "Title for behavioral interview playbook"
@@ -8275,10 +8279,6 @@
     "defaultMessage": "Resume",
     "description": "Button label for resume"
   },
-  "jLIDJB": {
-    "defaultMessage": "Schedule your slot",
-    "description": "Schedule your slot button label"
-  },
   "jLJBBH": {
     "defaultMessage": "<authorProfileLink>{author}</authorProfileLink> replied to <bold>themselves</bold> on the submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for someone replying to themselves on a submission"
@@ -9726,10 +9726,6 @@
   "rSr8Ph": {
     "defaultMessage": "All Question Detail pages",
     "description": "Label Label for spotlight ad placement in question detail pages"
-  },
-  "rTg/bq": {
-    "defaultMessage": "Schedule your slot",
-    "description": "Button label for schedule slot"
   },
   "rUKlWg": {
     "defaultMessage": "Build projects to learn any front end skill using our <link>Skills roadmap</link>",

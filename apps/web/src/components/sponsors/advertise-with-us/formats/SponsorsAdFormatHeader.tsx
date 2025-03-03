@@ -88,9 +88,9 @@ export default function SponsorsAdFormatHeader({ format }: Props) {
               className="w-full"
               href="/advertise-with-us/request"
               label={intl.formatMessage({
-                defaultMessage: 'Schedule your slot',
-                description: 'Button label for schedule slot',
-                id: 'rTg/bq',
+                defaultMessage: 'Schedule your slots',
+                description: 'Book advertising slots',
+                id: 'Y/+dNC',
               })}
               size="md"
               variant="primary"

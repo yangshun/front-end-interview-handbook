@@ -50,7 +50,7 @@ export default function SponsorsAdFormatAvailableSlotInfo({ format }: Props) {
 
     return {
       key: slot.start,
-      label: `${startDate} – ${endDate}`,
+      label: [startDate, endDate].join(' – '),
     };
   });
 
