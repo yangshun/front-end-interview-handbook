@@ -148,6 +148,7 @@ function MarketingMessageImpl({
       if (data?.format === 'GLOBAL_BANNER') {
         return (
           <SponsorsAdFormatGlobalBanner
+            id={data.id}
             isLoading={isLoading}
             text={data.text}
             url={data.url}

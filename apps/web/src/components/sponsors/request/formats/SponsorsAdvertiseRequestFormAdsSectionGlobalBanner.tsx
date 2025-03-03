@@ -191,6 +191,7 @@ export default function SponsorsAdvertiseRequestFormAdsSectionGlobalBanner({
         <div className="mt-4">
           <InterviewsMarketingHeroBrowserWindowFrame>
             <SponsorsAdFormatGlobalBanner
+              id="test"
               isLoading={false}
               text={title || 'Your ad text here'}
               url="#"

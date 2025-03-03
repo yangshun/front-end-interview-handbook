@@ -10,6 +10,7 @@ import {
   themeBorderColor,
 } from '~/components/ui/theme';
 
+import { sponsorsAdTrackingHref } from './SponsorsAdHref';
 import type { SponsorsAdFormatPayloadInContent } from '../SponsorsTypes';
 
 export type SponsorsAdFormatInContentSize = 'md' | 'sm';
@@ -36,6 +37,7 @@ function isLexicalEditorValue(value: string) {
 }
 
 export default function SponsorsAdFormatInContent({
+  id,
   title,
   url,
   body,
@@ -79,7 +81,8 @@ export default function SponsorsAdFormatInContent({
           Sponsor:{' '}
           <Anchor
             className={textVariants({ color: 'active' })}
-            href={url}
+            href={sponsorsAdTrackingHref({ id, url })}
+            target="_blank"
             variant="flat"
             weight="medium">
             {sponsorName}

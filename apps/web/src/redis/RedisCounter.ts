@@ -1,13 +1,16 @@
 import { Redis } from '@upstash/redis';
 
-type RedisCounterKey = 'INTERVIEWS_CHECKOUT_COUNT' | 'QUESTIONS_INTEREST_POINT';
+type RedisCounterKey =
+  | 'INTERVIEWS_CHECKOUT_COUNT'
+  | 'QUESTIONS_INTEREST_POINT'
+  | 'SPONSORSHIPS';
 
 export default class RedisCounter {
   redisKey: string;
   redis: Redis;
 
-  constructor(counterKey: RedisCounterKey, userId: string) {
-    this.redisKey = `${userId}:count:${counterKey}`;
+  constructor(counterKey: RedisCounterKey, prefix: string) {
+    this.redisKey = `${prefix}:count:${counterKey}`;
     this.redis = Redis.fromEnv();
   }
 

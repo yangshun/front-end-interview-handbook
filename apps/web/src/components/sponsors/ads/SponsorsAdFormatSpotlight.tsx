@@ -11,9 +11,11 @@ import {
 } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
+import { sponsorsAdTrackingHref } from './SponsorsAdHref';
 import type { SponsorsAdFormatPayloadSpotlight } from '../SponsorsTypes';
 
 export default function SponsorsAdFormatSpotlight({
+  id,
   text,
   sponsorName,
   url,
@@ -26,7 +28,8 @@ export default function SponsorsAdFormatSpotlight({
         'w-full',
         'relative isolate',
       )}
-      href={url}
+      href={sponsorsAdTrackingHref({ id, url })}
+      target="blank"
       variant="flat">
       <div
         className={clsx(

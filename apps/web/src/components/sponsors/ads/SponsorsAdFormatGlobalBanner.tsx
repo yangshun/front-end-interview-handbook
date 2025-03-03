@@ -9,7 +9,10 @@ import {
   themeTextColor,
 } from '~/components/ui/theme';
 
+import { sponsorsAdTrackingHref } from './SponsorsAdHref';
+
 type Props = Readonly<{
+  id: string;
   isLoading: boolean;
   onHide?: () => void;
   text: string;
@@ -17,6 +20,7 @@ type Props = Readonly<{
 }>;
 
 export default function SponsorsAdFormatGlobalBanner({
+  id,
   url,
   text,
   isLoading,
@@ -32,7 +36,7 @@ export default function SponsorsAdFormatGlobalBanner({
           color: 'invert',
           weight: 'medium',
         })}
-        href={url}
+        href={sponsorsAdTrackingHref({ id, url })}
         target="_blank"
         variant="flat">
         <span
