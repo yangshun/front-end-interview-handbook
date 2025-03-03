@@ -255,6 +255,7 @@ export default function SponsorsAdvertiseRequestFormReviewSection({
               className={clsx('mt-2 rounded p-5', themeBorderColor, 'border')}>
               <SponsorsAdvertiseRequestAgreement
                 address={`${addressString}, ${address.country}`}
+                ads={ads}
                 advertiserFullLegalName={legalName}
                 authorizedSignatoryName={signatoryName}
                 authorizedSignatoryTitle={signatoryTitle}

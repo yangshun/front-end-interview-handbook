@@ -1,10 +1,19 @@
 import clsx from 'clsx';
 
+import { useSponsorsAdFormatData } from '~/components/sponsors/SponsorsAdFormatConfigs';
+import {
+  sponsorsDateFormatterWithYear,
+  sponsorsWeekDateRange,
+} from '~/components/sponsors/SponsorsDatesUtils';
 import Heading from '~/components/ui/Heading';
 import { textVariants } from '~/components/ui/Text';
 
+import type { SponsorsAdFormatFormItem } from './types';
+import { sponsorsDateFormatterFull } from '../SponsorsDatesUtils';
+
 type Props = Readonly<{
   address: string;
+  ads: Array<SponsorsAdFormatFormItem>;
   advertiserFullLegalName: string;
   authorizedSignatoryName: string;
   authorizedSignatoryTitle: string;
@@ -12,6 +21,7 @@ type Props = Readonly<{
   totalAmount: number;
 }>;
 
+const adNameMaxLengthToDisplay = 40;
 const cpmInUSD = 12;
 const advertiserResolutionDays = 2;
 const publisherApprovalDays = 5;
@@ -23,9 +33,12 @@ export default function SponsorsAdvertiseRequestAgreement({
   advertiserFullLegalName,
   authorizedSignatoryName,
   address,
+  ads,
   totalAmount,
   authorizedSignatoryTitle,
 }: Props) {
+  const adsFormatData = useSponsorsAdFormatData();
+
   return (
     <div
       className={clsx(
@@ -120,18 +133,38 @@ export default function SponsorsAdvertiseRequestAgreement({
       <p>
         <strong>2.2 Campaign Schedule</strong>
       </p>
-      <ul>
-        <li>
-          <strong>Start Date</strong>: [StartDate]
-        </li>
-        <li>
-          <strong>End Date</strong>: [EndDate]
-        </li>
-        <li>
-          Ads will be displayed continuously during the agreed-upon period,
-          subject to the terms herein.
-        </li>
-      </ul>
+      <p>
+        The following ads will be displayed continuously during the agreed-upon
+        period, subject to the terms herein:
+      </p>
+      <ol>
+        {ads.map((ad) => (
+          <li key={ad.id}>
+            <strong>{adsFormatData[ad.format].name}:</strong> "
+            {ad.text.slice(0, adNameMaxLengthToDisplay)}
+            {ad.text.length > adNameMaxLengthToDisplay && '...'}"
+            <ul>
+              {ad.weeks.map((week) => {
+                const parts = week.split('/').map(Number);
+
+                const { start, end } = sponsorsWeekDateRange(
+                  parts[0],
+                  parts[1],
+                );
+
+                const startDate = sponsorsDateFormatterWithYear.format(
+                  new Date(start),
+                );
+                const endDate = sponsorsDateFormatterWithYear.format(
+                  new Date(end),
+                );
+
+                return <li key={week}>{[startDate, endDate].join(' – ')}</li>;
+              })}
+            </ul>
+          </li>
+        ))}
+      </ol>
       <p>
         <strong>2.3 Creative Submission and Revisions</strong>
       </p>
@@ -548,32 +581,40 @@ export default function SponsorsAdvertiseRequestAgreement({
         considered fully executed and <strong>legally binding</strong>.
       </p>
       <p>
-        <strong>
-          For Publisher
-          <br />
-          Codeney Pte. Ltd.
-          <br />
-          Name: Ms. Gina Ng
-        </strong>
+        <strong style={{ textDecoration: 'underline' }}>For Publisher</strong>
         <br />
-        <strong>
-          Title: Head of Product
-          <br />
-        </strong>{' '}
-        Date: _____________________________
+        <strong>Codeney Pte. Ltd.</strong>
+        <br />
+        Name:{' '}
+        <strong style={{ textDecoration: 'underline' }}>Ms. Gina Ng</strong>
+        <br />
+        Title:{' '}
+        <strong style={{ textDecoration: 'underline' }}>Head of Product</strong>
+        <br />
+        Date:{' '}
+        <strong style={{ textDecoration: 'underline' }}>
+          {sponsorsDateFormatterFull.format(new Date())}
+        </strong>
       </p>
       <p>
-        <strong>
-          For Advertiser
-          <br />
-          {advertiserFullLegalName}
+        <strong style={{ textDecoration: 'underline' }}>For Advertiser</strong>
+        <br />
+        <strong>{advertiserFullLegalName}</strong>
+        <br />
+        Name:{' '}
+        <strong style={{ textDecoration: 'underline' }}>
+          {authorizedSignatoryName}
         </strong>
         <br />
-        <strong>Name: {authorizedSignatoryName}</strong>
+        Title:{' '}
+        <strong style={{ textDecoration: 'underline' }}>
+          {authorizedSignatoryTitle}
+        </strong>
         <br />
-        <strong>Title: {authorizedSignatoryTitle}</strong>
-        <br />
-        Date: _____________________________
+        Date:{' '}
+        <strong style={{ textDecoration: 'underline' }}>
+          {sponsorsDateFormatterFull.format(new Date())}
+        </strong>
       </p>
     </div>
   );
