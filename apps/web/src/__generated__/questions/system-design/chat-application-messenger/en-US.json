@@ -3,7 +3,9 @@
   "metadata": {
     "access": "premium",
     "author": null,
-    "companies": [],
+    "companies": [
+      "openai"
+    ],
     "created": 1668211200,
     "difficulty": "hard",
     "duration": 30,

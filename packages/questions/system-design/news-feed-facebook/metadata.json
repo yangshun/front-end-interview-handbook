@@ -9,7 +9,8 @@
     "google",
     "amazon",
     "tiktok",
-    "linkedin"
+    "linkedin",
+    "openai"
   ],
   "access": "free",
   "duration": 30,

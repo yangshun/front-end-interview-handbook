@@ -4,7 +4,8 @@
     "access": "premium",
     "author": "yangshun",
     "companies": [
-      "meta"
+      "meta",
+      "openai"
     ],
     "created": 1724371200,
     "difficulty": "hard",

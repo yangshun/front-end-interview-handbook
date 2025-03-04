@@ -4,7 +4,8 @@
   "companies": [
     "lyft",
     "toptal",
-    "amazon"
+    "amazon",
+    "openai"
   ],
   "created": 1658707200,
   "difficulty": "medium",

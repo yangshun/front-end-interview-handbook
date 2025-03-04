@@ -2,7 +2,8 @@
   "access": "standard",
   "author": "yangshun",
   "companies": [
-    "amazon"
+    "amazon",
+    "openai"
   ],
   "created": 1670976000,
   "difficulty": "medium",

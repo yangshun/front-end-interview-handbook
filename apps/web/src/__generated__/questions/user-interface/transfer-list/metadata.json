@@ -2,7 +2,8 @@
   "access": "standard",
   "author": "yangshun",
   "companies": [
-    "tiktok"
+    "tiktok",
+    "openai"
   ],
   "created": 1682208000,
   "difficulty": "medium",

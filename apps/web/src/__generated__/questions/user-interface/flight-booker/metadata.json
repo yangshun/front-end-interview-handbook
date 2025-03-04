@@ -1,7 +1,9 @@
 {
   "access": "premium",
   "author": "yangshun",
-  "companies": [],
+  "companies": [
+    "openai"
+  ],
   "created": 1682121600,
   "difficulty": "easy",
   "duration": 15,

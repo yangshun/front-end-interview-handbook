@@ -1371,7 +1371,8 @@
     "author": "yangshun",
     "companies": [
       "lyft",
-      "amazon"
+      "amazon",
+      "openai"
     ],
     "created": 1658880000,
     "difficulty": "easy",
@@ -3132,7 +3133,9 @@
   {
     "access": "premium",
     "author": "yangshun",
-    "companies": [],
+    "companies": [
+      "openai"
+    ],
     "created": 1682121600,
     "difficulty": "easy",
     "duration": 15,
@@ -4237,7 +4240,8 @@
     "companies": [
       "microsoft",
       "tiktok",
-      "atlassian"
+      "atlassian",
+      "openai"
     ],
     "created": 1683849600,
     "difficulty": "medium",
@@ -4428,7 +4432,8 @@
     "access": "standard",
     "author": "yangshun",
     "companies": [
-      "amazon"
+      "amazon",
+      "openai"
     ],
     "created": 1670976000,
     "difficulty": "medium",
@@ -7013,7 +7018,8 @@
     "companies": [
       "lyft",
       "toptal",
-      "amazon"
+      "amazon",
+      "openai"
     ],
     "created": 1658707200,
     "difficulty": "medium",
@@ -7548,7 +7554,8 @@
     "author": "yangshun",
     "companies": [
       "airbnb",
-      "amazon"
+      "amazon",
+      "openai"
     ],
     "created": 1670976000,
     "difficulty": "medium",
@@ -7884,7 +7891,8 @@
       "microsoft",
       "twitter",
       "apple",
-      "atlassian"
+      "atlassian",
+      "openai"
     ],
     "created": 1683763200,
     "difficulty": "medium",
@@ -8136,7 +8144,8 @@
     "access": "standard",
     "author": "yangshun",
     "companies": [
-      "tiktok"
+      "tiktok",
+      "openai"
     ],
     "created": 1682208000,
     "difficulty": "medium",
