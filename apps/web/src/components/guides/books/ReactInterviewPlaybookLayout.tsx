@@ -53,13 +53,16 @@ export default function ReactInterviewPlaybookLayout({
       />
       <GuidesMainLayout
         guide={guide}
+        guideMetadata={guideMetadata}
         guideProgress={guideProgress}
         isGuideProgressLoaded={isSuccess}
-        metadata={guideMetadata}
         navigation={navigation}
         showMarkAsComplete={true}
         tableOfContents={tableOfContents}>
-        <GuidesArticle description={description} title={title}>
+        <GuidesArticle
+          description={description}
+          metadata={guideMetadata}
+          title={title}>
           {children}
         </GuidesArticle>
       </GuidesMainLayout>

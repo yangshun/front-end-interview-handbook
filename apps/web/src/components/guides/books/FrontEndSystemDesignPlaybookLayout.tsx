@@ -57,14 +57,17 @@ export default function FrontEndSystemDesignPlaybookLayout({
       />
       <GuidesMainLayout
         guide={guide}
+        guideMetadata={guideMetadata}
         guideProgress={guideProgress}
         isGuideProgressLoaded={isSuccess}
-        metadata={guideMetadata}
         navigation={navigation}
         showMarkAsComplete={true}
         tableOfContents={tableOfContents}>
         <SystemDesignPaywall isPremium={currentItem.premium}>
-          <GuidesArticle description={description} title={title}>
+          <GuidesArticle
+            description={description}
+            metadata={guideMetadata}
+            title={title}>
             {children}
           </GuidesArticle>
         </SystemDesignPaywall>

@@ -30,13 +30,13 @@ import { useUser } from '@supabase/auth-helpers-react';
 
 type MarkAsCompleteProps = Readonly<
   | {
+      guideMetadata: GuideMetadata;
       guideProgress?: GuideProgress | null;
       isGuideProgressLoaded: boolean;
-      metadata: GuideMetadata;
       showMarkAsComplete?: true;
     }
   | {
-      metadata?: GuideMetadata;
+      guideMetadata?: GuideMetadata;
       showMarkAsComplete?: false;
     }
 >;
@@ -65,7 +65,7 @@ export default function GuidesMainLayout<GuideSlug extends string>({
   studyListKey,
   tableOfContents,
   showMarkAsComplete = false,
-  metadata,
+  guideMetadata,
   ...props
 }: Props<GuideSlug>) {
   const intl = useIntl();
@@ -131,7 +131,7 @@ export default function GuidesMainLayout<GuideSlug extends string>({
             )}>
             <div ref={articleContainerRef}>{children}</div>
             <Section>
-              {showMarkAsComplete && metadata && (
+              {showMarkAsComplete && guideMetadata && (
                 <div className={clsx('flex justify-end', 'transition-colors')}>
                   <div className="max-w-64 flex flex-col items-end gap-2">
                     <GuidesProgressAction
@@ -139,7 +139,7 @@ export default function GuidesMainLayout<GuideSlug extends string>({
                       guideProgress={
                         'guideProgress' in props ? props.guideProgress : null
                       }
-                      metadata={metadata}
+                      metadata={guideMetadata}
                       studyListKey={studyListKey}
                     />
                     <CheckboxInput

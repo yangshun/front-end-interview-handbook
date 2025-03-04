@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { useId } from 'react';
 import { RiLinkedinBoxFill } from 'react-icons/ri';
 
@@ -12,10 +13,15 @@ import Tooltip from '~/components/ui/Tooltip';
 
 type Props = Readonly<{
   author: string;
+  className?: string;
   size?: TextSize;
 }>;
 
-export default function QuestionAuthor({ author, size = 'body3' }: Props) {
+export default function QuestionAuthor({
+  author,
+  className,
+  size = 'body3',
+}: Props) {
   const intl = useIntl();
   const id = useId();
   const authorData = authors[author];
@@ -31,7 +37,7 @@ export default function QuestionAuthor({ author, size = 'body3' }: Props) {
   });
 
   return (
-    <div className="group block shrink-0">
+    <div className={clsx('group block shrink-0', className)}>
       <span className="sr-only" id={id}>
         {label}
       </span>
