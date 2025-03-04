@@ -25,7 +25,7 @@ import { fetchInterviewsStudyList } from '~/db/contentlayer/InterviewsStudyListR
 import {
   fetchQuestionsList,
   fetchQuestionsListByHash,
-  fetchQuestionsListQuizForCompany,
+  fetchQuestionsListForCompany,
 } from '~/db/QuestionsListReader';
 import { fetchQuestionLists } from '~/db/QuestionsListUtils';
 import { getIntlClientOnly } from '~/i18n/getIntlClientOnly';
@@ -91,7 +91,7 @@ export const questionListsRouter = router({
           } as const;
 
           if (QuestionCompanies.includes(studyList as QuestionCompany)) {
-            const studyListQuestions = await fetchQuestionsListQuizForCompany(
+            const studyListQuestions = await fetchQuestionsListForCompany(
               studyList as QuestionCompany,
             );
 

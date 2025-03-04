@@ -9943,6 +9943,10 @@
     "defaultMessage": "Accessibility",
     "description": "Front end topic"
   },
+  "syNZit": {
+    "defaultMessage": "OpenAI",
+    "description": "Company name for OpenAI"
+  },
   "syVPb5": {
     "defaultMessage": "Add GitHub",
     "description": "Title for Add GitHub task on Projects dashboard page"

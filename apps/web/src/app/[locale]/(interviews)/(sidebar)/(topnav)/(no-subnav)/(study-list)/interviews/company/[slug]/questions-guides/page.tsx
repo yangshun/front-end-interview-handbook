@@ -11,7 +11,7 @@ import {
   fetchInterviewsStudyList,
   fetchInterviewsStudyLists,
 } from '~/db/contentlayer/InterviewsStudyListReader';
-import { fetchQuestionsListQuizForCompany } from '~/db/QuestionsListReader';
+import { fetchQuestionsListForCompany } from '~/db/QuestionsListReader';
 import { groupQuestionHashesByFormat } from '~/db/QuestionsUtils';
 import { getIntlServerOnly } from '~/i18n';
 import { generateStaticParamsWithLocale } from '~/next-i18nostic/src';
@@ -82,7 +82,7 @@ export default async function Page({ params }: Props) {
   );
 
   const [questions, bottomContent] = await Promise.all([
-    fetchQuestionsListQuizForCompany(slug as QuestionCompany, locale),
+    fetchQuestionsListForCompany(slug as QuestionCompany, locale),
     fetchInterviewListingBottomContent('company-detail'),
   ]);
 

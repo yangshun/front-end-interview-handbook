@@ -371,7 +371,7 @@ async function fetchQuestionsListQuizForLanguage(
   ]);
 }
 
-export async function fetchQuestionsListQuizForCompany(
+export async function fetchQuestionsListForCompany(
   company: QuestionCompany,
   locale = 'en-US',
 ): Promise<ReadonlyArray<QuestionMetadata>> {
