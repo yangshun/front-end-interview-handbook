@@ -1,5 +1,5 @@
 <script setup>
-import submitFrom from './submitForm';
+import submitForm from './submitForm';
 </script>
 
 <template>
