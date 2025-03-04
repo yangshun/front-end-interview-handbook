@@ -5,22 +5,13 @@ import { RiCheckLine } from 'react-icons/ri';
 
 import { FormattedMessage, useIntl } from '~/components/intl';
 import { SponsorAdFormatConfigs } from '~/components/sponsors/SponsorsAdFormatConfigs';
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from '~/components/ui/Accordion';
 import Text from '~/components/ui/Text';
-import {
-  themeBorderColor,
-  themeDivideColor,
-  themeTextSuccessColor,
-} from '~/components/ui/theme';
+import { themeTextSuccessColor } from '~/components/ui/theme';
 
 import SponsorsAdFormatAvailableSlotInfo from './SponsorsAdFormatAvailableSlotInfo';
 import SponsorsAdFormatHeader from './SponsorsAdFormatHeader';
 import SponsorsAdFormatInfo from './SponsorsAdFormatInfo';
+import SponsorsAdFormatInfoAccordion from './SponsorsAdFormatInfoAccordion';
 import SponsorsAdFormatPlacementInfo from './SponsorsAdFormatPlacementInfo';
 
 export default function SponsorsAdFormatInContentSection() {
@@ -214,6 +205,57 @@ export default function SponsorsAdFormatInContentSection() {
     },
   ];
 
+  const accordionItems = [
+    {
+      content: (
+        <ul className="flex flex-col gap-4" role="list">
+          {placementConstraints.map((item) => (
+            <li key={item.key} className="flex gap-x-2">
+              <RiCheckLine
+                aria-hidden="true"
+                className={clsx('size-4 shrink-0', themeTextSuccessColor)}
+              />
+              <Text color="subtitle" size="body2">
+                {item.label}
+              </Text>
+            </li>
+          ))}
+        </ul>
+      ),
+      key: 'item-1',
+      title: (
+        <FormattedMessage
+          defaultMessage="View placement constraints"
+          description="Accordion trigger label"
+          id="NLQRm+"
+        />
+      ),
+    },
+    {
+      content: (
+        <div className="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2 lg:gap-10">
+          {placementInfo.map((item) => (
+            <SponsorsAdFormatPlacementInfo
+              key={item.key}
+              badgeLabel={item.badgeLabel}
+              className="col-span-1"
+              img={item.img}
+              title={item.title}
+            />
+          ))}
+        </div>
+      ),
+      key: 'item2',
+      title: (
+        <FormattedMessage
+          defaultMessage="Specific locations this ad will be shown"
+          description="Label for specific locations this ad will be shown"
+          id="z9d6Ys"
+        />
+      ),
+    },
+  ];
+
   return (
     <div className="flex flex-col gap-12">
       <SponsorsAdFormatHeader format={FORMAT} />
@@ -234,60 +276,7 @@ export default function SponsorsAdFormatInContentSection() {
           />
           <SponsorsAdFormatAvailableSlotInfo format={FORMAT} />
         </div>
-        <Accordion
-          className={clsx(
-            'border-b border-t',
-            themeBorderColor,
-            themeDivideColor,
-          )}
-          type="multiple">
-          <AccordionItem value="item-1">
-            <AccordionTrigger>
-              <FormattedMessage
-                defaultMessage="View placement constraints"
-                description="Accordion trigger label"
-                id="NLQRm+"
-              />
-            </AccordionTrigger>
-            <AccordionContent>
-              <ul className="flex flex-col gap-4" role="list">
-                {placementConstraints.map((item) => (
-                  <li key={item.key} className="flex gap-x-2">
-                    <RiCheckLine
-                      aria-hidden="true"
-                      className={clsx('size-4 shrink-0', themeTextSuccessColor)}
-                    />
-                    <Text color="subtitle" size="body2">
-                      {item.label}
-                    </Text>
-                  </li>
-                ))}
-              </ul>
-            </AccordionContent>
-          </AccordionItem>
-          <AccordionItem value="item-2">
-            <AccordionTrigger>
-              <FormattedMessage
-                defaultMessage="Specific locations this ad will be shown"
-                description="Label for specific locations this ad will be shown"
-                id="z9d6Ys"
-              />
-            </AccordionTrigger>
-            <AccordionContent>
-              <div className="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2 lg:gap-10">
-                {placementInfo.map((item) => (
-                  <SponsorsAdFormatPlacementInfo
-                    key={item.key}
-                    badgeLabel={item.badgeLabel}
-                    className="col-span-1"
-                    img={item.img}
-                    title={item.title}
-                  />
-                ))}
-              </div>
-            </AccordionContent>
-          </AccordionItem>
-        </Accordion>
+        <SponsorsAdFormatInfoAccordion items={accordionItems} />
       </div>
     </div>
   );

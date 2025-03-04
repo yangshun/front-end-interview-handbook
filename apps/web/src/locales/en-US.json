@@ -1835,6 +1835,10 @@
     "defaultMessage": "View LinkedIn profile",
     "description": "Link to LinkedIn profile"
   },
+  "91sJoh": {
+    "defaultMessage": "{characterLimit} characters in {maxLine} line",
+    "description": "Placement constraints"
+  },
   "93rlLI": {
     "defaultMessage": "URL is required",
     "description": "Error message"
@@ -8150,10 +8154,6 @@
   "iCm44V": {
     "defaultMessage": "Get started",
     "description": "Label for Get started button on Projects dashboard page"
-  },
-  "iD2LlI": {
-    "defaultMessage": "Body: {characterLimit} characters in {maxLine} line",
-    "description": "Placement constraints"
   },
   "iElBQT": {
     "defaultMessage": "Pricing Plans",

@@ -3,15 +3,8 @@ import { RiCheckLine } from 'react-icons/ri';
 
 import { FormattedMessage } from '~/components/intl';
 import { SponsorAdFormatConfigs } from '~/components/sponsors/SponsorsAdFormatConfigs';
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from '~/components/ui/Accordion';
 import Text from '~/components/ui/Text';
 import {
-  themeBorderColor,
   themeBorderElementColor,
   themeTextSuccessColor,
 } from '~/components/ui/theme';
@@ -19,6 +12,7 @@ import {
 import SponsorsAdFormatAvailableSlotInfo from './SponsorsAdFormatAvailableSlotInfo';
 import SponsorsAdFormatHeader from './SponsorsAdFormatHeader';
 import SponsorsAdFormatInfo from './SponsorsAdFormatInfo';
+import SponsorsAdFormatInfoAccordion from './SponsorsAdFormatInfoAccordion';
 
 export default function SponsorsAdFormatGlobalBannerSection() {
   const FORMAT = 'GLOBAL_BANNER';
@@ -65,6 +59,40 @@ export default function SponsorsAdFormatGlobalBannerSection() {
     },
   ];
 
+  const accordionItems = [
+    {
+      content: (
+        <div className="flex gap-x-2">
+          <RiCheckLine
+            aria-hidden="true"
+            className={clsx('size-4 shrink-0', themeTextSuccessColor)}
+          />
+          <Text color="subtitle" size="body2">
+            <FormattedMessage
+              defaultMessage="{characterLimit} characters in {maxLine} line"
+              description="Placement constraints"
+              id="91sJoh"
+              values={{
+                characterLimit:
+                  SponsorAdFormatConfigs.GLOBAL_BANNER.placementConstraints
+                    .text,
+                maxLine: 1,
+              }}
+            />
+          </Text>
+        </div>
+      ),
+      key: 'item1',
+      title: (
+        <FormattedMessage
+          defaultMessage="View placement constraints"
+          description="Accordion trigger label"
+          id="NLQRm+"
+        />
+      ),
+    },
+  ];
+
   return (
     <div className="flex flex-col gap-12">
       <SponsorsAdFormatHeader format={FORMAT} />
@@ -85,40 +113,7 @@ export default function SponsorsAdFormatGlobalBannerSection() {
           />
           <SponsorsAdFormatAvailableSlotInfo format={FORMAT} />
         </div>
-        <Accordion
-          className={clsx('border-y', themeBorderColor)}
-          type="multiple">
-          <AccordionItem value="item-1">
-            <AccordionTrigger>
-              <FormattedMessage
-                defaultMessage="View placement constraints"
-                description="Accordion trigger label"
-                id="NLQRm+"
-              />
-            </AccordionTrigger>
-            <AccordionContent>
-              <div className="flex gap-x-2">
-                <RiCheckLine
-                  aria-hidden="true"
-                  className={clsx('size-4 shrink-0', themeTextSuccessColor)}
-                />
-                <Text color="subtitle" size="body2">
-                  <FormattedMessage
-                    defaultMessage="Body: {characterLimit} characters in {maxLine} line"
-                    description="Placement constraints"
-                    id="iD2LlI"
-                    values={{
-                      characterLimit:
-                        SponsorAdFormatConfigs.GLOBAL_BANNER
-                          .placementConstraints.text,
-                      maxLine: 1,
-                    }}
-                  />
-                </Text>
-              </div>
-            </AccordionContent>
-          </AccordionItem>
-        </Accordion>
+        <SponsorsAdFormatInfoAccordion items={accordionItems} />
       </div>
     </div>
   );
