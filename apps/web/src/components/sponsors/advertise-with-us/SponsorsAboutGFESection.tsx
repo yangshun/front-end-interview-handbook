@@ -13,7 +13,6 @@ import Text from '~/components/ui/Text';
 import {
   themeBackgroundCardColor,
   themeBackgroundCardNoAlphaColor,
-  themeBorderColor,
   themeGlassyBorder,
   themeGradientHeading,
   themeWhiteGlowCardBackground,
@@ -70,9 +69,9 @@ export default function SponsorsAboutGFESection() {
     {
       description: intl.formatMessage({
         defaultMessage:
-          'The leading platform in the world front end engineers use to prepare for their interviews',
+          "The world's leading platform for front end engineers to prepare for technical interviews",
         description: 'Description for interviews product',
-        id: 'KXfN0X',
+        id: 'jYhEuD',
       }),
       href: '/',
       image: {
@@ -140,10 +139,10 @@ export default function SponsorsAboutGFESection() {
                 key={item.name}
                 alt={item.name ?? ''}
                 className={clsx(
-                  'size-[28px]',
-                  ['border-[1px] sm:border-2', themeBorderColor],
+                  'size-6',
+                  ['border', 'border-white dark:border-neutral-900'],
                   'relative',
-                  index > 0 && '-ml-2',
+                  index > 0 && '-ml-1',
                 )}
                 size="custom"
                 src={item.image!}
@@ -178,17 +177,17 @@ export default function SponsorsAboutGFESection() {
                 <div
                   className={clsx(
                     'flex items-center justify-center',
-                    'size-8 shrink-0',
+                    'size-6 shrink-0',
                     'rounded-full',
                     'overflow-hidden',
                     'bg-white',
                     'hover:z-[1]',
-                    'border border-neutral-200 dark:border-neutral-900',
-                    index > 0 && '-ml-2',
+                    ['border', 'border-white dark:border-neutral-900'],
+                    index > 0 && '-ml-1.5',
                   )}>
                   <img
                     alt={company.name}
-                    className="size-4"
+                    className="size-3"
                     decoding="async"
                     loading="lazy"
                     src={company.logoUrl}
@@ -306,13 +305,13 @@ function LogoCard() {
         themeBackgroundCardNoAlphaColor,
         themeGlassyBorder,
       )}>
-      <LogoMark height={19} width={26} />
+      <LogoMark height={26} width={34} />
       <div className="absolute inset-0">
         <div
           className={clsx(
             'absolute -top-[10px] left-1/2 -translate-x-1/2',
             'size-8',
-            'bg-neutral-900 opacity-40 mix-blend-normal blur-[20.25px] dark:bg-neutral-100',
+            'bg-white opacity-0 mix-blend-normal blur-[20.25px] dark:bg-neutral-100 dark:opacity-40',
           )}
         />
       </div>

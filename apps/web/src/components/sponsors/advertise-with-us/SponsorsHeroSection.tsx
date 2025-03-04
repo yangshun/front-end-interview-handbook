@@ -154,9 +154,9 @@ function Asset() {
             key: 'page-per-user',
             label: (
               <FormattedMessage
-                defaultMessage="Page per user"
-                description="Label for page per user"
-                id="A38qrC"
+                defaultMessage="Pages per user"
+                description="Label for pages per user"
+                id="Y1uNFE"
               />
             ),
             value: '18',
@@ -190,9 +190,9 @@ function Asset() {
           {
             label: (
               <FormattedMessage
-                defaultMessage="Event"
-                description="Label for event"
-                id="bM6qGi"
+                defaultMessage="Events"
+                description="Label for events"
+                id="1FyNUM"
               />
             ),
             value: 'event',

@@ -20,7 +20,7 @@ import Tooltip from '~/components/ui/Tooltip';
 import { SponsorAdFormatConfigs } from '../SponsorsAdFormatConfigs';
 import {
   sponsorsDateFormatterShort,
-  sponsorsDateFormatterWithYear,
+  sponsorsDateFormatterWithDayAndYear,
 } from '../SponsorsDatesUtils';
 import { themeBackgroundElementEmphasizedStateColor_Hover } from '../../ui/theme';
 
@@ -88,8 +88,8 @@ export default function SponsorsAdvertiseRequestFormAdsSectionAvailability({
                 key={weekHash}
                 asChild={true}
                 label={[
-                  sponsorsDateFormatterWithYear.format(new Date(start)),
-                  sponsorsDateFormatterWithYear.format(new Date(end)),
+                  sponsorsDateFormatterWithDayAndYear.format(new Date(start)),
+                  sponsorsDateFormatterWithDayAndYear.format(new Date(end)),
                 ].join(' – ')}>
                 <button
                   className={clsx(

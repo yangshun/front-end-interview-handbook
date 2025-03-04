@@ -1,7 +1,6 @@
 'use client';
 
 import clsx from 'clsx';
-import { RiArrowRightUpLine } from 'react-icons/ri';
 
 import { trpc } from '~/hooks/trpc';
 
@@ -68,22 +67,7 @@ export default function SponsorsAdFormatHeader({ format }: Props) {
           {description}
         </Text>
         <div className="flex gap-4">
-          <Button
-            className="flex flex-1 sm:hidden"
-            icon={RiArrowRightUpLine}
-            label={intl.formatMessage({
-              defaultMessage: 'Preview',
-              description: 'Label for preview button',
-              id: 'zvcJI/',
-            })}
-            size="md"
-            variant="secondary"
-          />
-          <div
-            className={clsx(
-              'flex-1 sm:flex-auto',
-              'flex flex-col items-end gap-3',
-            )}>
+          <div className={clsx('flex flex-col items-center gap-3')}>
             <Button
               className="w-full"
               href="/advertise-with-us/request"

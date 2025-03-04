@@ -42,9 +42,9 @@ export default function SponsorsStepsToStartAdvertisingSection() {
     {
       description: (
         <FormattedMessage
-          defaultMessage="Once reviewed, you'll receive a confirmation email along with the payment link."
+          defaultMessage="After review, we'll email you a confirmation along with the payment link."
           description="Description for 2nd step of advertising"
-          id="vRqYEI"
+          id="5xaR91"
         />
       ),
       image: Step2SVG,
@@ -60,9 +60,9 @@ export default function SponsorsStepsToStartAdvertisingSection() {
     {
       description: (
         <FormattedMessage
-          defaultMessage="Your ad slot is officially booked once payment is completed."
+          defaultMessage="Your chosen ad slots will be secured once payment is completed."
           description="Description for 3rd step of advertising"
-          id="jUwdc1"
+          id="ts93Kg"
         />
       ),
       image: Step3SVG,

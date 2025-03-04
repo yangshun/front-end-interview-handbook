@@ -2,7 +2,7 @@ import clsx from 'clsx';
 
 import { useSponsorsAdFormatData } from '~/components/sponsors/SponsorsAdFormatConfigs';
 import {
-  sponsorsDateFormatterWithYear,
+  sponsorsDateFormatterWithDayAndYear,
   sponsorsWeekDateRange,
 } from '~/components/sponsors/SponsorsDatesUtils';
 import Heading from '~/components/ui/Heading';
@@ -152,10 +152,10 @@ export default function SponsorsAdvertiseRequestAgreement({
                   parts[1],
                 );
 
-                const startDate = sponsorsDateFormatterWithYear.format(
+                const startDate = sponsorsDateFormatterWithDayAndYear.format(
                   new Date(start),
                 );
-                const endDate = sponsorsDateFormatterWithYear.format(
+                const endDate = sponsorsDateFormatterWithDayAndYear.format(
                   new Date(end),
                 );
 

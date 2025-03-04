@@ -40,9 +40,9 @@ export default function SponsorsAdFormatSpotlightSection() {
       key: 'item2',
       label: (
         <FormattedMessage
-          defaultMessage="Based on averages derived from last {days}d data"
-          description="Item 2 for in content ad placement impressions info"
-          id="YaVS4f"
+          defaultMessage="Based on weekly averages over last {days} days"
+          description="Item 2 for placement impressions info"
+          id="4JGMxB"
           values={{
             days: 90,
           }}
@@ -55,9 +55,9 @@ export default function SponsorsAdFormatSpotlightSection() {
       key: 'item1',
       label: (
         <FormattedMessage
-          defaultMessage="Included in all our questions and guides pages"
-          description="Item 1 for in content ad placement pages info"
-          id="F4tK8l"
+          defaultMessage="Includes all our questions and guides pages"
+          description="Item 1 for placement pages info"
+          id="YQ5lLr"
         />
       ),
     },
@@ -68,9 +68,9 @@ export default function SponsorsAdFormatSpotlightSection() {
       key: 'title',
       label: (
         <FormattedMessage
-          defaultMessage="One-liner: {characterLimit} characters maximum"
+          defaultMessage="One-liner: {characterLimit} characters maximum, not more than 1 link"
           description="Title placement constraints"
-          id="BzKxjN"
+          id="Z40/iW"
           values={{
             characterLimit:
               SponsorAdFormatConfigs.SPOTLIGHT.placementConstraints.text,

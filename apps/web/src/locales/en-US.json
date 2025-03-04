@@ -571,6 +571,10 @@
     "defaultMessage": "Browse content series that are tailored to your experience level.",
     "description": "Browse series section description in blog homepage"
   },
+  "1FyNUM": {
+    "defaultMessage": "Events",
+    "description": "Label for events"
+  },
   "1K9s6g": {
     "defaultMessage": "React Interview",
     "description": "Short title for behavioral interview playbook"
@@ -1051,6 +1055,10 @@
     "defaultMessage": "{focusAreasCount} critical topical focus areas for deep dives",
     "description": "Tooltip label for unlock all premium interviews content"
   },
+  "4JGMxB": {
+    "defaultMessage": "Based on weekly averages over last {days} days",
+    "description": "Item 2 for placement impressions info"
+  },
   "4KKeKQ": {
     "defaultMessage": "Syntax highlighting, theming and shortcuts",
     "description": "Label for item 3 for simulate real interviews section"
@@ -1211,10 +1219,6 @@
     "defaultMessage": "Front End Interview Practice Questions | GreatFrontEnd",
     "description": "Social title for all practice questions page"
   },
-  "5fF7Tn": {
-    "defaultMessage": "Global banner that appears on all pages",
-    "description": "Item 1 for global banner placement pages info"
-  },
   "5fJI7m": {
     "defaultMessage": "Core maintainers of well-known open source projects",
     "description": "Prep resources open source projects"
@@ -1294,6 +1298,10 @@
   "5tLsdY": {
     "defaultMessage": "{questionTitle} in {questionFramework}",
     "description": "Title of Front End Interview UI Coding Questions practice page"
+  },
+  "5xaR91": {
+    "defaultMessage": "After review, we'll email you a confirmation along with the payment link.",
+    "description": "Description for 2nd step of advertising"
   },
   "5y9YGh": {
     "defaultMessage": "Submission title must contain at most {maxLength} character(s).",
@@ -1851,10 +1859,6 @@
     "defaultMessage": "Quickly convert challenge designs into HTML, CSS, and Tailwind code by using our <link>Figma to Code plugin</link>.",
     "description": "Use the Figma to code plugin"
   },
-  "95KhOK": {
-    "defaultMessage": "Spotlight ad",
-    "description": "Ad format"
-  },
   "99Ewym": {
     "defaultMessage": "Introduction",
     "description": "Front End interview preparation guide"
@@ -2003,10 +2007,6 @@
     "defaultMessage": "Front End System Design Playbook",
     "description": "Title of frontend system design playbook page"
   },
-  "A38qrC": {
-    "defaultMessage": "Page per user",
-    "description": "Label for page per user"
-  },
   "A5COe1": {
     "defaultMessage": "Cancel",
     "description": "Label for cancel button on import progress dialog"
@@ -2046,10 +2046,6 @@
   "AKnqip": {
     "defaultMessage": "Name must contain at least {minLength} character(s).",
     "description": "Error message when display name is too short"
-  },
-  "AMx8j7": {
-    "defaultMessage": "Based on last {days} days data",
-    "description": "Item 2 for global banner placement impressions info"
   },
   "ANSxyW": {
     "defaultMessage": "Low",
@@ -2314,10 +2310,6 @@
   "BzDeUP": {
     "defaultMessage": "{days, plural, =0 {<bold>0 days</bold>} =1 {<bold>1 day</bold>} other {<bold># days</bold>}} current streak",
     "description": "Label for max consecutive days"
-  },
-  "BzKxjN": {
-    "defaultMessage": "One-liner: {characterLimit} characters maximum",
-    "description": "Title placement constraints"
   },
   "C+WlY+": {
     "defaultMessage": "Please create a free account in order to purchase the premium plans.",
@@ -2834,10 +2826,6 @@
   "F4esBf": {
     "defaultMessage": "Our projects are never one-off - they always fit into some component library or design system which can be composed into your very own toolset to build future projects",
     "description": "Description for \"Never waste your time building one-off projects\" feature marketing section on Projects home page"
-  },
-  "F4tK8l": {
-    "defaultMessage": "Included in all our questions and guides pages",
-    "description": "Item 1 for in content ad placement pages info"
   },
   "F5oV3L": {
     "defaultMessage": "Delete line",
@@ -3814,10 +3802,6 @@
   "KXNpDt": {
     "defaultMessage": "Software Engineer",
     "description": "Placeholder for \"Job Title\" input on Projects profile onboarding page"
-  },
-  "KXfN0X": {
-    "defaultMessage": "The leading platform in the world front end engineers use to prepare for their interviews",
-    "description": "Description for interviews product"
   },
   "KZOa5l": {
     "defaultMessage": "Cancel",
@@ -6295,6 +6279,10 @@
     "defaultMessage": "Suggests best projects for skill",
     "description": "Title of 'Recommended projects to build' sub-feature in Projects marketing page"
   },
+  "Xq97/V": {
+    "defaultMessage": "Estimated impressions per week",
+    "description": "Label for impressions"
+  },
   "Xu6JMi": {
     "defaultMessage": "{questionCount}+ most important CSS interview questions covering layouts, animations, responsive design, specificity, and creating engaging interfaces.",
     "description": "Subtitle for CSS questions list page"
@@ -6347,6 +6335,10 @@
     "defaultMessage": "Focus areas",
     "description": "Interview preparation focus areas"
   },
+  "Y1uNFE": {
+    "defaultMessage": "Pages per user",
+    "description": "Label for pages per user"
+  },
   "Y2R80N": {
     "defaultMessage": "Unpin",
     "description": "Unpin button label"
@@ -6395,6 +6387,10 @@
     "defaultMessage": "Do unspent GreatFrontEnd Projects credits roll over?",
     "description": "Question on projects pricing's FAQ section - unused credits"
   },
+  "YQ5lLr": {
+    "defaultMessage": "Includes all our questions and guides pages",
+    "description": "Item 1 for placement pages info"
+  },
   "YRIsJs": {
     "defaultMessage": "Link text",
     "description": "Label for link title"
@@ -6439,10 +6435,6 @@
     "defaultMessage": "Start building from our large repository of real-world front end project challenges. Hone core front end skills and build an impressive project portfolio.",
     "description": "Description of Challenges page"
   },
-  "YaVS4f": {
-    "defaultMessage": "Based on averages derived from last {days}d data",
-    "description": "Item 2 for in content ad placement impressions info"
-  },
   "YdQTiq": {
     "defaultMessage": "Preparation plans for all kinds of preparation timelines — <owlink>1 week</owlink>, <omlink>1 month</omlink>, <tmlink>3 months</tmlink>.",
     "description": "Subtitle for proven preparation plans feature"
@@ -6454,10 +6446,6 @@
   "YfhHA3": {
     "defaultMessage": "{languageLabel} Interview Questions with Solutions | GreatFrontEnd",
     "description": "Social title of front end interview questions page"
-  },
-  "YhjdIq": {
-    "defaultMessage": "Global banner",
-    "description": "Ad format"
   },
   "Yhn5fM": {
     "defaultMessage": "User Interface Coding",
@@ -6506,6 +6494,10 @@
   "Z3Z5Fp": {
     "defaultMessage": "Review other's project code and help them improve",
     "description": "Description for recommended action for new projects platform user"
+  },
+  "Z40/iW": {
+    "defaultMessage": "One-liner: {characterLimit} characters maximum, not more than 1 link",
+    "description": "Title placement constraints"
   },
   "Z4BPbp": {
     "defaultMessage": "Please upload a photo smaller than 1 MB",
@@ -6903,10 +6895,6 @@
     "defaultMessage": "React Interview Playbook",
     "description": "Title for react interview playbook"
   },
-  "bM6qGi": {
-    "defaultMessage": "Event",
-    "description": "Label for event"
-  },
   "bNW00Y": {
     "defaultMessage": "Available frameworks",
     "description": "Screenreader text to indicate the presence of available frameworks, displayed on question cards in question lists"
@@ -7011,10 +6999,6 @@
     "defaultMessage": "14-day money back guarantee",
     "description": "Pricing plan policy"
   },
-  "bryw70": {
-    "defaultMessage": "{questionCount} questions",
-    "description": "Label for questions count"
-  },
   "bsCmcK": {
     "defaultMessage": "Email Us",
     "description": "Button label to send to a support email"
@@ -7038,6 +7022,10 @@
   "bvzjIm": {
     "defaultMessage": "Tell the community about your motivations for joining this platform",
     "description": "Description for \"Motivation for joining\" for projects profile page"
+  },
+  "bwkYET": {
+    "defaultMessage": "The Global banner appears on all pages on our website",
+    "description": "Item 1 for global banner placement pages info"
   },
   "c23MPV": {
     "defaultMessage": "Robust framework",
@@ -8215,6 +8203,10 @@
     "defaultMessage": "It looks like you don’t have any notifications at the moment. Check back here for updates on your activities, messages, and more.",
     "description": "Description for no notification"
   },
+  "iWwbYU": {
+    "defaultMessage": "In-Content Display Ad",
+    "description": "Ad format"
+  },
   "iZ7WT0": {
     "defaultMessage": "JavaScript functions",
     "description": "Front end JavaScript utility functions"
@@ -8262,10 +8254,6 @@
   "j1T8lc": {
     "defaultMessage": "Each project you build adds to your permanent toolkit",
     "description": "Heading of the 'Permanent toolkit' marketing section on Projects home page"
-  },
-  "j3Bmlg": {
-    "defaultMessage": "Estimated Impressions",
-    "description": "Label for impressions"
   },
   "j63zLB": {
     "defaultMessage": "You can add more skills e.g. UI frameworks used after starting the project",
@@ -8339,10 +8327,6 @@
     "defaultMessage": "Apartment, unit, or other",
     "description": "Apartment, unit, or other input label"
   },
-  "jUwdc1": {
-    "defaultMessage": "Your ad slot is officially booked once payment is completed.",
-    "description": "Description for 3rd step of advertising"
-  },
   "jV6cb9": {
     "defaultMessage": "Appendix",
     "description": "Project assets category label"
@@ -8354,6 +8338,10 @@
   "jXX7Jw": {
     "defaultMessage": "Invalid email address",
     "description": "Error message for invalid email address"
+  },
+  "jYhEuD": {
+    "defaultMessage": "The world's leading platform for front end engineers to prepare for technical interviews",
+    "description": "Description for interviews product"
   },
   "jYsoqB": {
     "defaultMessage": "Component libraries for your portfolio",
@@ -8526,6 +8514,10 @@
   "kK7Cf2": {
     "defaultMessage": "Invalid inputs. Please check that you have filled in the username or profile URL correctly.",
     "description": "Form error text"
+  },
+  "kMKuAf": {
+    "defaultMessage": "Global Banner",
+    "description": "Ad format"
   },
   "kPBwBR": {
     "defaultMessage": "Resume preparation",
@@ -8895,10 +8887,6 @@
     "defaultMessage": "Importance",
     "description": "Label for question importance - how important it is to practice this question"
   },
-  "mbDl7F": {
-    "defaultMessage": "Based on averages derived from last {days} days data",
-    "description": "Item 2 for in content ad placement impressions info"
-  },
   "mbOL/R": {
     "defaultMessage": "Projects",
     "description": "Label for Project filter button"
@@ -9178,6 +9166,10 @@
   "o+1cag": {
     "defaultMessage": "Clear Console",
     "description": "Button label to clear the console in the coding workspace"
+  },
+  "o/N/F1": {
+    "defaultMessage": "Next available slot(s)",
+    "description": "Next available timeslot"
   },
   "o3nhZ8": {
     "defaultMessage": "Session status",
@@ -9651,6 +9643,10 @@
     "defaultMessage": "Front End System Design Playbook",
     "description": "Social title for frontend system design playbook cover page"
   },
+  "qsq4DL": {
+    "defaultMessage": "Spotlight Ad",
+    "description": "Ad format"
+  },
   "quZZdV": {
     "defaultMessage": "URL is required",
     "description": "Error message for URL"
@@ -9842,10 +9838,6 @@
   "sCpKTY": {
     "defaultMessage": "Billing | Settings",
     "description": "Title of billing page"
-  },
-  "sGTWfz": {
-    "defaultMessage": "Next available slot",
-    "description": "Next available timeslot"
   },
   "sGgZ9N": {
     "defaultMessage": "Choose additional skills you will use in this project",
@@ -10123,6 +10115,10 @@
     "defaultMessage": "Use a different card if you are unsure of the correct CVC.",
     "description": "Reason label for different card"
   },
+  "ts93Kg": {
+    "defaultMessage": "Your chosen ad slots will be secured once payment is completed.",
+    "description": "Description for 3rd step of advertising"
+  },
   "tsVEh8": {
     "defaultMessage": "Title: A to Z",
     "description": "Sorting option for question list - sort titles from A to Z"
@@ -10378,10 +10374,6 @@
   "vNvx2g": {
     "defaultMessage": "Purchase premium to get access to all skill plans as well as exclusive component tracks, official how-to guides and production-ready Figma files.",
     "description": "Subtitle for premium projects skill roadmap"
-  },
-  "vRqYEI": {
-    "defaultMessage": "Once reviewed, you'll receive a confirmation email along with the payment link.",
-    "description": "Description for 2nd step of advertising"
   },
   "vSCWmc": {
     "defaultMessage": "Let big tech senior/staff engineers write your prep resources",
@@ -10891,10 +10883,6 @@
     "defaultMessage": "Tell us about the skills you will be using",
     "description": "Label for \"Tell us about the skills you will be using\" step in dialog on Projects project page"
   },
-  "yb8Eaa": {
-    "defaultMessage": "In-content display ad",
-    "description": "Ad format"
-  },
   "ycp+Vk": {
     "defaultMessage": "Out of {total} hard-level problems, you have solved or marked as complete {completed} across Coding, Quiz, and System Design.",
     "description": "Tooltip for solved problems progress"
@@ -11198,10 +11186,6 @@
   "zul/L1": {
     "defaultMessage": "Earlier this month",
     "description": "Title for earlier this month list of comments"
-  },
-  "zvcJI/": {
-    "defaultMessage": "Preview",
-    "description": "Label for preview button"
   },
   "zvqK99": {
     "defaultMessage": "Global banner configuration",

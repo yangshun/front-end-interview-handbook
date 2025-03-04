@@ -36,9 +36,9 @@ export default function SponsorsAdFormatGlobalBannerSection() {
       key: 'item2',
       label: (
         <FormattedMessage
-          defaultMessage="Based on last {days} days data"
-          description="Item 2 for global banner placement impressions info"
-          id="AMx8j7"
+          defaultMessage="Based on weekly averages over last {days} days"
+          description="Item 2 for placement impressions info"
+          id="4JGMxB"
           values={{
             days: 90,
           }}
@@ -51,9 +51,9 @@ export default function SponsorsAdFormatGlobalBannerSection() {
       key: 'item1',
       label: (
         <FormattedMessage
-          defaultMessage="Global banner that appears on all pages"
+          defaultMessage="The Global banner appears on all pages on our website"
           description="Item 1 for global banner placement pages info"
-          id="5fF7Tn"
+          id="bwkYET"
         />
       ),
     },

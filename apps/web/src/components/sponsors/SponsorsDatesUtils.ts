@@ -16,18 +16,26 @@ export const sponsorsDateFormatterShort = Intl.DateTimeFormat('en-US', {
   month: 'short',
 });
 
-export const sponsorsDateFormatterWithDay = Intl.DateTimeFormat('en-US', {
+export const sponsorsDateFormatterWithoutYear = Intl.DateTimeFormat('en-US', {
   day: '2-digit',
   month: 'short',
-  weekday: 'long',
 });
 
 export const sponsorsDateFormatterWithYear = Intl.DateTimeFormat('en-US', {
   day: '2-digit',
   month: 'short',
-  weekday: 'long',
   year: 'numeric',
 });
+
+export const sponsorsDateFormatterWithDayAndYear = Intl.DateTimeFormat(
+  'en-US',
+  {
+    day: '2-digit',
+    month: 'short',
+    weekday: 'long',
+    year: 'numeric',
+  },
+);
 
 export const sponsorsDateFormatterFull = new Intl.DateTimeFormat('en-US', {
   day: '2-digit',

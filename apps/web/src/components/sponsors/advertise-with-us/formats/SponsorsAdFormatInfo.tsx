@@ -28,9 +28,9 @@ export default function SponsorsAdFormatInfo({
   const subtitle =
     type === 'impressions' ? (
       <FormattedMessage
-        defaultMessage="Estimated Impressions"
+        defaultMessage="Estimated impressions per week"
         description="Label for impressions"
-        id="j3Bmlg"
+        id="Xq97/V"
       />
     ) : type === 'pages' ? (
       <FormattedMessage
@@ -40,9 +40,9 @@ export default function SponsorsAdFormatInfo({
       />
     ) : (
       <FormattedMessage
-        defaultMessage="Next available slot"
+        defaultMessage="Next available slot(s)"
         description="Next available timeslot"
-        id="sGTWfz"
+        id="o/N/F1"
       />
     );
 

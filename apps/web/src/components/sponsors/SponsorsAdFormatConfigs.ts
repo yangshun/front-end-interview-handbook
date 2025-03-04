@@ -13,7 +13,7 @@ export const SponsorAdFormatConfigs: Record<
 > = {
   GLOBAL_BANNER: {
     impressions: '100,000',
-    pages: 500,
+    pages: QuestionCountTotal,
     placementConstraints: {
       text: 55,
     },
@@ -21,7 +21,7 @@ export const SponsorAdFormatConfigs: Record<
   },
   IN_CONTENT: {
     impressions: '110,700',
-    pages: 400,
+    pages: QuestionCountTotal,
     placementConstraints: {
       body: {
         length: 800,
@@ -66,9 +66,9 @@ export function useSponsorsAdFormatData(): Record<
       }),
       format: 'GLOBAL_BANNER',
       name: intl.formatMessage({
-        defaultMessage: 'Global banner',
+        defaultMessage: 'Global Banner',
         description: 'Ad format',
-        id: 'YhjdIq',
+        id: 'kMKuAf',
       }),
       shortDescription: intl.formatMessage({
         defaultMessage: 'Pinned top banner that appears across the entire site',
@@ -91,9 +91,9 @@ export function useSponsorsAdFormatData(): Record<
       ),
       format: 'IN_CONTENT',
       name: intl.formatMessage({
-        defaultMessage: 'In-content display ad',
+        defaultMessage: 'In-Content Display Ad',
         description: 'Ad format',
-        id: 'yb8Eaa',
+        id: 'iWwbYU',
       }),
       shortDescription: intl.formatMessage(
         {
@@ -117,9 +117,9 @@ export function useSponsorsAdFormatData(): Record<
       }),
       format: 'SPOTLIGHT',
       name: intl.formatMessage({
-        defaultMessage: 'Spotlight ad',
+        defaultMessage: 'Spotlight Ad',
         description: 'Ad format',
-        id: '95KhOK',
+        id: 'qsq4DL',
       }),
       shortDescription: intl.formatMessage({
         defaultMessage: 'High visibility ad pinned on sidebars and pages',

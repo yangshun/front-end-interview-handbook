@@ -12,7 +12,8 @@ import SponsorsAdFormatAvailableSlotsDialog from './SponsorsAdFormatAvailableSlo
 import SponsorsAdFormatInfo from './SponsorsAdFormatInfo';
 import {
   sponsorsDateFormatter,
-  sponsorsDateFormatterWithDay,
+  sponsorsDateFormatterWithDayAndYear,
+  sponsorsDateFormatterWithoutYear,
   sponsorsDateFormatterWithYear,
 } from '../../SponsorsDatesUtils';
 
@@ -32,10 +33,10 @@ export default function SponsorsAdFormatAvailableSlotInfo({ format }: Props) {
   const nextAvailableSlots = availableSlots
     .slice(1, MAX_SLOTS_SHOWN__UPFRONT)
     .map((slot) => {
-      const startDate = sponsorsDateFormatterWithDay.format(
+      const startDate = sponsorsDateFormatterWithoutYear.format(
         new Date(slot.start),
       );
-      const endDate = sponsorsDateFormatterWithDay.format(new Date(slot.end));
+      const endDate = sponsorsDateFormatterWithYear.format(new Date(slot.end));
 
       return {
         key: slot.start,
@@ -43,10 +44,12 @@ export default function SponsorsAdFormatAvailableSlotInfo({ format }: Props) {
       };
     });
   const formattedAvailableSlots = availableSlots.map((slot) => {
-    const startDate = sponsorsDateFormatterWithYear.format(
+    const startDate = sponsorsDateFormatterWithDayAndYear.format(
       new Date(slot.start),
     );
-    const endDate = sponsorsDateFormatterWithYear.format(new Date(slot.end));
+    const endDate = sponsorsDateFormatterWithDayAndYear.format(
+      new Date(slot.end),
+    );
 
     return {
       key: slot.start,

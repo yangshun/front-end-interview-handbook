@@ -37,9 +37,9 @@ export default function SponsorsAdFormatInContentSection() {
       key: 'item2',
       label: (
         <FormattedMessage
-          defaultMessage="Based on averages derived from last {days} days data"
-          description="Item 2 for in content ad placement impressions info"
-          id="mbDl7F"
+          defaultMessage="Based on weekly averages over last {days} days"
+          description="Item 2 for placement impressions info"
+          id="4JGMxB"
           values={{
             days: 90,
           }}
@@ -52,9 +52,9 @@ export default function SponsorsAdFormatInContentSection() {
       key: 'item1',
       label: (
         <FormattedMessage
-          defaultMessage="Included in all our questions and guides pages"
-          description="Item 1 for in content ad placement pages info"
-          id="F4tK8l"
+          defaultMessage="Includes all our questions and guides pages"
+          description="Item 1 for placement pages info"
+          id="YQ5lLr"
         />
       ),
     },
@@ -185,9 +185,9 @@ export default function SponsorsAdFormatInContentSection() {
     {
       badgeLabel: intl.formatMessage(
         {
-          defaultMessage: '{questionCount} questions',
+          defaultMessage: '{questionCount}+ questions',
           description: 'Label for questions count',
-          id: 'bryw70',
+          id: 'O9HLcY',
         },
         { questionCount: 10 },
       ),
