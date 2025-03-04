@@ -77,25 +77,61 @@ function Asset() {
       />
       <div
         className={clsx(
-          'absolute inset-1 pl-2',
+          'absolute inset-x-px  inset-y-0.5',
           'flex items-center justify-center',
+          'overflow-hidden rounded-[inherit]',
         )}>
-        <img
-          alt="Globe"
+        {/* Light mode image */}
+        <picture
           className={clsx(
-            'h-full w-auto object-contain md:object-cover',
-            'hidden dark:block', // TODO: Find a better way to handle switching of images based on theme
-          )}
-          src="/img/sponsors/global-tech-audience-dark.png"
-        />
-        <img
-          alt="Globe"
-          className={clsx(
-            'h-full w-auto object-contain md:object-cover',
             'block dark:hidden',
-          )}
-          src="/img/sponsors/global-tech-audience-light.png"
-        />
+            'block h-full w-auto',
+          )}>
+          <source
+            media="(max-width: 500px)"
+            srcSet="/img/sponsors/global-tech-audience-mobile-light.png"
+          />
+          <source
+            media="(min-width: 501px)"
+            srcSet="/img/sponsors/global-tech-audience-light.png"
+          />
+          <img
+            alt="Globe"
+            className={clsx(
+              'block sm:h-full sm:w-auto',
+              'object-cover sm:object-contain md:object-cover',
+            )}
+            decoding="async"
+            loading="lazy"
+            src="/img/sponsors/global-tech-audience-light.png"
+          />
+        </picture>
+
+        {/* Dark mode image */}
+        <picture
+          className={clsx(
+            'hidden dark:block',
+            'block h-full w-auto',
+          )}>
+          <source
+            media="(max-width: 500px)"
+            srcSet="/img/sponsors/global-tech-audience-mobile-dark.png"
+          />
+          <source
+            media="(min-width: 501px)"
+            srcSet="/img/sponsors/global-tech-audience-dark.png"
+          />
+          <img
+            alt="Globe"
+            className={clsx(
+              'block sm:h-full sm:w-auto',
+              'object-cover sm:object-contain md:object-cover',
+            )}
+            decoding="async"
+            loading="lazy"
+            src="/img/sponsors/global-tech-audience-dark.png"
+          />
+        </picture>
       </div>
       <div
         className={clsx(
