@@ -11,8 +11,10 @@ import Text from '~/components/ui/Text';
 import {
   themeBackgroundBrandColor,
   themeBackgroundCardWhiteOnLightColor,
+  themeBackgroundLineEmphasizedColor,
   themeGlassyBorder,
   themeGradientHeading,
+  themeWhiteGlowCardBackground,
 } from '~/components/ui/theme';
 
 export default function SponsorsAudienceProfileSection() {
@@ -33,7 +35,7 @@ export default function SponsorsAudienceProfileSection() {
         </Heading>
         <div
           className={clsx(
-            'flex flex-col gap-4',
+            'flex flex-col gap-7',
             'max-w-[634px]',
             'text-base lg:text-lg',
           )}>
@@ -181,12 +183,13 @@ function Asset() {
   return (
     <>
       <div className="hidden sm:block" inert="">
-        <div className="flex gap-6 lg:gap-7">
+        <div className="flex items-end gap-6 lg:gap-7">
           <div
             className={clsx(
-              'flex flex-1 flex-col items-end gap-[18px] lg:gap-5',
+              'flex flex-col items-end gap-[18px] lg:gap-5',
+              'flex-1 lg:w-60 lg:flex-none',
             )}>
-            <LogoComboMark className="shrink-0" height={isDesktop ? 28 : 22} />
+            <LogoComboMark className="shrink-0" height={isDesktop ? 31 : 24} />
             <Text className="text-xs lg:text-sm" color="subtle" size="inherit">
               <FormattedMessage
                 defaultMessage="Average metrics per week"
@@ -202,8 +205,8 @@ function Asset() {
             )}>
             <div
               className={clsx(
-                'mt-5 h-7 w-[1px] lg:h-[35px]',
-                'bg-neutral-300 dark:bg-neutral-700',
+                'mb-5 h-7 w-[1px] lg:h-[35px]',
+                themeBackgroundLineEmphasizedColor,
               )}
             />
           </div>
@@ -237,7 +240,7 @@ function Asset() {
                 index < items.length - 1 && 'mb-1.5',
               )}>
               <div className="flex w-full items-center gap-6 lg:gap-7">
-                <div className={clsx('flex-1')}>
+                <div className={clsx('flex-1 lg:w-60 lg:flex-none')}>
                   <Text
                     className="float-right text-lg lg:text-2xl"
                     color="active"
@@ -248,22 +251,40 @@ function Asset() {
                 </div>
                 <div
                   className={clsx(
-                    'flex flex-col',
+                    'flex flex-col items-center gap-1.5',
                     'w-full max-w-[240px] lg:max-w-[351px]',
                   )}>
                   <Text
                     className={clsx(
+                      'relative overflow-hidden',
                       'w-full py-3 lg:py-4',
-                      'rounded-md',
+                      'rounded-md shadow-sm',
                       themeBackgroundCardWhiteOnLightColor,
-                      themeGlassyBorder,
+                      [
+                        themeWhiteGlowCardBackground,
+                        'before:-left-5 before:-top-5 before:z-[1] before:h-[47px] before:w-[97px] before:blur-[22px]',
+                      ],
                       'text-sm lg:text-lg',
                       'text-center',
                     )}
                     size="inherit"
                     weight="medium">
+                    <div
+                      className={clsx(
+                        '!absolute inset-0 rounded-[inherit] before:m-[-1px]',
+                        themeGlassyBorder,
+                      )}
+                    />
                     {title}
                   </Text>
+                  {index < items.length - 1 && (
+                    <div
+                      className={clsx(
+                        'h-[22px] w-[1px] lg:h-[29px]',
+                        themeBackgroundLineEmphasizedColor,
+                      )}
+                    />
+                  )}
                 </div>
                 <div className={clsx('flex-1')}>
                   <Text
@@ -275,14 +296,6 @@ function Asset() {
                   </Text>
                 </div>
               </div>
-              {index < items.length - 1 && (
-                <div
-                  className={clsx(
-                    'h-[22px] w-[1px] lg:h-[29px]',
-                    'bg-neutral-300 dark:bg-neutral-700',
-                  )}
-                />
-              )}
             </div>
           ))}
         </div>
