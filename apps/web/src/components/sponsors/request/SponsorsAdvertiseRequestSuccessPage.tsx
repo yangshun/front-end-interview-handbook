@@ -4,6 +4,7 @@ import clsx from 'clsx';
 import { RiArrowRightLine, RiCheckboxCircleLine } from 'react-icons/ri';
 
 import { FormattedMessage, useIntl } from '~/components/intl';
+import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
@@ -23,30 +24,43 @@ export default function SponsorsAdvertiseRequestSuccessPage() {
         <div className="flex flex-col gap-y-2">
           <Heading level="heading4">
             <FormattedMessage
-              defaultMessage="Advertise on GreatFrontEnd"
+              defaultMessage="Your request has been received"
               description="Title for advertise request page"
-              id="P4PHei"
+              id="EGDkQQ"
             />
           </Heading>
-          <Text className="max-w-md text-center" color="subtitle" size="body0">
-            <FormattedMessage
-              defaultMessage="Request submitted successfully!"
-              description="Subtitle for advertise request success page"
-              id="gco77c"
-            />
-          </Text>
         </div>
-        <Text className="max-w-md text-center" color="secondary" size="body1">
+        <Text
+          className="text-pretty block max-w-md text-center"
+          color="secondary"
+          size="body1">
           <FormattedMessage
-            defaultMessage="Upon approval ({approvalDays} days), you will receive a confirmation email with the invoice and payment link."
+            defaultMessage="We will review your advertising request and get back to you with the confirmation and payment in {approvalDays} business days."
             description="Advertise request success message"
-            id="HERJCK"
+            id="Mai1gI"
             values={{
               approvalDays: '1-2',
             }}
           />
         </Text>
-
+        <Text
+          className="text-pretty block max-w-md text-center"
+          color="secondary"
+          size="body1">
+          <FormattedMessage
+            defaultMessage="Meanwhile, if you have any questions, feel free to reach out to us at <link>{email}</link>."
+            description="Advertise request success message"
+            id="DqzUW4"
+            values={{
+              email: 'sponsor@greatfrontend.com',
+              link: (chunks) => (
+                <Anchor href="mailto:sponsor@greatfrontend.com">
+                  {chunks}
+                </Anchor>
+              ),
+            }}
+          />
+        </Text>
         <Button
           className="mt-10"
           href="/advertise-with-us"

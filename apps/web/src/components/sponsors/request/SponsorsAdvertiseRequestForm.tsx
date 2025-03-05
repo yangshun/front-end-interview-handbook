@@ -101,7 +101,7 @@ export default function SponsorsAdvertiseRequestForm() {
     },
   ] as const;
 
-  const [formData, setFormData] =
+  const [formData, setFormData, removeFormData] =
     useGreatStorageLocal<AdvertiseRequestFormValues>(
       'sponsorships:advertise-request',
       () => ({
@@ -110,6 +110,7 @@ export default function SponsorsAdvertiseRequestForm() {
         emails: [],
         sessionId: uuidv4(),
       }),
+      { ttl: 7 * 24 * 60 * 60 },
     );
   const [step, setStep] = useState<(typeof steps)[number]['value']>('contact');
   const firstMountRef = useRef<boolean>(false);
@@ -129,22 +130,6 @@ export default function SponsorsAdvertiseRequestForm() {
       });
     }
   }, [step]);
-
-  function resetForm() {
-    setFormData({
-      ads: [],
-      company: null,
-      emails: [],
-      sessionId: uuidv4(),
-    });
-    setStep('contact');
-    setStepsStatus({
-      ads: 'not_started',
-      company: 'not_started',
-      contact: 'not_started',
-      review: 'not_started',
-    });
-  }
 
   async function handleCreateRequest({
     agreement,
@@ -186,8 +171,8 @@ export default function SponsorsAdvertiseRequestForm() {
             }),
             variant: 'success',
           });
-          resetForm();
 
+          removeFormData();
           router.push('/advertise-with-us/request/success');
         },
       },
