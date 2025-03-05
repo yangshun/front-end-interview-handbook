@@ -48,20 +48,20 @@ export default function SponsorsAboutGFESection() {
 
   const companies = [
     {
-      logoUrl: '/img/company-logos/dropbox-logomark.svg',
-      name: 'Dropbox',
+      logoUrl: '/img/company-logos/amazon-logomark.svg',
+      name: 'Amazon',
     },
     {
-      logoUrl: '/img/company-logos/lyft-logomark.svg',
-      name: 'Lyft',
+      logoUrl: '/img/company-logos/meta-logomark.svg',
+      name: 'Meta',
+    },
+    {
+      logoUrl: '/img/company-logos/shopify-logomark.svg',
+      name: 'Shopify',
     },
     {
       logoUrl: '/img/company-logos/google-logomark.svg',
       name: 'Google',
-    },
-    {
-      logoUrl: '/img/company-logos/airbnb-logomark.svg',
-      name: 'Airbnb',
     },
   ];
 
@@ -182,7 +182,7 @@ export default function SponsorsAboutGFESection() {
                     'overflow-hidden',
                     'bg-white',
                     'hover:z-[1]',
-                    ['border', 'border-white dark:border-neutral-900'],
+                    ['border', 'border-neutral-200 dark:border-neutral-900'],
                     index > 0 && '-ml-1.5',
                   )}>
                   <img
@@ -269,7 +269,7 @@ function ProductCard({
         className={clsx('h-auto w-full object-cover', 'hidden dark:block')}
         src={image.srcDark}
       />
-      <div className={clsx('flex flex-col p-4 pt-5', 'relative')}>
+      <div className={clsx('flex flex-col', 'relative', 'px-6 pb-4 pt-5')}>
         <Text size="body1" weight="medium">
           {title}
         </Text>

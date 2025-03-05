@@ -124,7 +124,7 @@ function Asset() {
     <div
       className={clsx(
         'relative',
-        'h-[200px] w-full overflow-hidden sm:h-[155px] lg:h-[200px]',
+        'h-[200px] w-full overflow-hidden sm:h-[155px] lg:h-[168px] xl:h-[200px]',
         'rounded-[4px] sm:rounded-lg lg:rounded-xl',
       )}>
       <div
@@ -135,7 +135,7 @@ function Asset() {
         )}
       />
       {/* Light mode image */}
-      <picture className={clsx('block dark:hidden')}>
+      <picture className={clsx('block dark:hidden', 'h-full')}>
         <source
           media="(max-width: 640px)"
           srcSet="/img/sponsors/global-banner-mobile-light.png"
@@ -146,14 +146,14 @@ function Asset() {
         />
         <img
           alt="Global banner placement preview"
-          className="h-[200px] w-full object-cover object-top md:h-full lg:h-auto"
+          className="size-full object-cover object-top"
           decoding="async"
           loading="lazy"
           src="/img/sponsors/global-banner-light.png"
         />
       </picture>
       {/* Dark mode image */}
-      <picture className={clsx('hidden dark:block')}>
+      <picture className={clsx('hidden dark:block', 'h-full')}>
         <source
           media="(max-width: 640px)"
           srcSet="/img/sponsors/global-banner-mobile-dark.png"
@@ -164,7 +164,7 @@ function Asset() {
         />
         <img
           alt="Global banner placement preview"
-          className="h-[200px] w-full object-cover object-top md:h-full lg:h-auto"
+          className="size-full object-cover object-top"
           decoding="async"
           loading="lazy"
           src="/img/sponsors/global-banner-dark.png"

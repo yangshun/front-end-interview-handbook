@@ -4647,6 +4647,10 @@
     "defaultMessage": "Advanced",
     "description": "Advanced level blog"
   },
+  "PN+PBz": {
+    "defaultMessage": "Next available {slotsCount, plural, =0 {slots} one {slot} other {slots}}",
+    "description": "Next available timeslot"
+  },
   "PPjL+V": {
     "defaultMessage": "Solve coding challenges involving performance-optimized data structures and algorithms.",
     "description": "Description for algo coding question format page"
@@ -6479,10 +6483,6 @@
     "defaultMessage": "Starter files and APIs",
     "description": "Title of 'Starter code and APIs' sub-feature in Projects marketing page"
   },
-  "Z1NAxi": {
-    "defaultMessage": "No slots available",
-    "description": "No slots available"
-  },
   "Z1vsfi": {
     "defaultMessage": "Search user interface questions",
     "description": "Search placeholder"
@@ -6930,10 +6930,6 @@
   "bVOC6y": {
     "defaultMessage": "Now in BETA.",
     "description": "Project marketing hero section badge"
-  },
-  "bXysio": {
-    "defaultMessage": "Explore our advertising opportunities",
-    "description": "Advertise with us section title"
   },
   "bYY9Mh": {
     "defaultMessage": "Crop your new profile photo",
@@ -9167,10 +9163,6 @@
     "defaultMessage": "Clear Console",
     "description": "Button label to clear the console in the coding workspace"
   },
-  "o/N/F1": {
-    "defaultMessage": "Next available slot(s)",
-    "description": "Next available timeslot"
-  },
   "o3nhZ8": {
     "defaultMessage": "Session status",
     "description": "Completed and in progress challenges"
@@ -10438,6 +10430,10 @@
   "vmqlMW": {
     "defaultMessage": "Gain expertise in handling commonly asked question formats in front end interviews",
     "description": "Description for question formats section"
+  },
+  "voGLL8": {
+    "defaultMessage": "Explore our Advertising Opportunities",
+    "description": "Advertise with us section title"
   },
   "vp4zbB": {
     "defaultMessage": "Purchase premium to see companies which ask this question.",

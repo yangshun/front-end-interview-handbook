@@ -40,9 +40,12 @@ export default function SponsorsAdFormatInfo({
       />
     ) : (
       <FormattedMessage
-        defaultMessage="Next available slot(s)"
+        defaultMessage="Next available {slotsCount, plural, =0 {slots} one {slot} other {slots}}"
         description="Next available timeslot"
-        id="o/N/F1"
+        id="PN+PBz"
+        values={{
+          slotsCount: items.length,
+        }}
       />
     );
 
@@ -51,19 +54,11 @@ export default function SponsorsAdFormatInfo({
       <Heading className="font-semibold" level="heading4">
         {title}
       </Heading>
-      <Text className="mt-2.5" color="secondary" size="body2">
+      <Text className="mt-2.5 block" color="secondary" size="body2">
         {subtitle}
       </Text>
-      <div className="mt-6 flex flex-col gap-4">
-        {items.length === 0 ? (
-          <Text color="secondary" size="body3">
-            <FormattedMessage
-              defaultMessage="No slots available"
-              description="No slots available"
-              id="Z1NAxi"
-            />
-          </Text>
-        ) : (
+      {items.length > 0 && (
+        <div className="mt-6 flex flex-col gap-4">
           <ul className="flex flex-col gap-4" role="list">
             {items.map((item) => (
               <li key={item.key} className="flex gap-x-2">
@@ -77,9 +72,9 @@ export default function SponsorsAdFormatInfo({
               </li>
             ))}
           </ul>
-        )}
-        {addOnItem}
-      </div>
+          {addOnItem}
+        </div>
+      )}
     </div>
   );
 }

@@ -19,9 +19,9 @@ export default function SponsorsOpportunitiesSection() {
         tag="p"
         weight="medium">
         <FormattedMessage
-          defaultMessage="Explore our advertising opportunities"
+          defaultMessage="Explore our Advertising Opportunities"
           description="Advertise with us section title"
-          id="bXysio"
+          id="voGLL8"
         />
       </Heading>
       <div className="flex flex-col gap-24 lg:gap-32">

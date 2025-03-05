@@ -68,7 +68,7 @@ export default function SponsorsHeroSection() {
             }}
           />
         </Text>
-        <div className="flex gap-6">
+        <div className="flex flex-wrap gap-x-4 gap-y-4 sm:gap-x-6">
           <div className="flex flex-col items-center gap-3">
             <Button
               href="/advertise-with-us/request"
@@ -123,6 +123,7 @@ function Asset() {
       className={clsx(
         'relative',
         'w-full sm:max-w-[642px] lg:max-w-[483px]',
+        'lg:h-[356px] xl:h-auto',
         'px-3 py-5 sm:px-4 sm:py-6',
         'rounded-2xl',
         themeBackgroundLayerEmphasized,
@@ -216,14 +217,16 @@ function Asset() {
           </div>
         ))}
       </div>
-      <GraphAsset />
-      <div className="absolute -left-4 bottom-[20%] sm:-left-8">
+      <div className="h-auto lg:h-[200px] xl:h-auto">
+        <GraphAsset />
+      </div>
+      <div className="absolute -left-4 bottom-[20%] sm:-left-8 lg:bottom-[25%] xl:bottom-[20%]">
         <FocusOnPlatformAsset />
       </div>
       <div className="absolute -right-4 -top-8 sm:-right-8">
         <SessionDurationAsset />
       </div>
-      <div className="absolute -right-4 bottom-1 sm:-right-8">
+      <div className="absolute -right-4 bottom-1 sm:-right-8 lg:-bottom-5 xl:bottom-1">
         <SoftwareEngineersAsset />
       </div>
     </div>

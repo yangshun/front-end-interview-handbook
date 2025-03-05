@@ -9,7 +9,6 @@ import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 import {
-  themeBackgroundBrandColor,
   themeBackgroundCardWhiteOnLightColor,
   themeBackgroundLineEmphasizedColor,
   themeGlassyBorder,
@@ -334,59 +333,64 @@ function Asset() {
           </div>
         </div>
         <Divider className="my-5" />
-        {items.map(({ key, title, values }) => (
-          <div key={key} className="flex flex-col gap-5">
-            <div className="flex items-center gap-5">
-              <Text className={clsx('w-[20%]')} size="body3" weight="medium">
-                {title}
-              </Text>
-              <div className={clsx('flex w-[70%] flex-col gap-1.5')}>
-                <div className={clsx('flex w-full items-center gap-2.5')}>
-                  <div
-                    className={clsx(
-                      key === 'average-session'
-                        ? 'w-full'
-                        : key === 'engagement-rate'
-                          ? 'w-[60%]'
-                          : 'w-[70%]',
-                      'h-4',
-                      'rounded-sm',
-                      themeBackgroundBrandColor,
-                    )}
-                  />
+        <div className="flex flex-col gap-5">
+          {items.map(({ key, title, values }) => (
+            <div key={key} className="flex flex-col gap-5">
+              <div className="flex items-center gap-5">
+                <Text
+                  className={clsx('w-[20%] min-w-[70px]')}
+                  size="body3"
+                  weight="medium">
+                  {title}
+                </Text>
+                <div className={clsx('flex w-[70%] flex-col gap-1.5')}>
+                  <div className={clsx('flex w-full items-center gap-2.5')}>
+                    <div
+                      className={clsx(
+                        key === 'average-session'
+                          ? 'w-full'
+                          : key === 'engagement-rate'
+                            ? 'w-[60%]'
+                            : 'w-[70%]',
+                        'h-4',
+                        'rounded-sm',
+                        'dark:bg-brand bg-neutral-900',
+                      )}
+                    />
 
-                  <Text
-                    className="whitespace-nowrap"
-                    color="active"
-                    size="body2"
-                    weight="bold">
-                    {values.gfe.label}
-                  </Text>
-                </div>
-                <div className={clsx('flex w-full items-center gap-2.5')}>
-                  <div
-                    className={clsx(
-                      'h-4',
-                      'rounded-sm',
-                      'bg-neutral-400 dark:bg-neutral-600',
-                    )}
-                    style={{
-                      width: `${values.other.value}%`,
-                    }}
-                  />
-                  <Text
-                    className="whitespace-nowrap"
-                    color="subtle"
-                    size="body2"
-                    weight="medium">
-                    {values.other.label}
-                  </Text>
+                    <Text
+                      className="whitespace-nowrap"
+                      color="active"
+                      size="body2"
+                      weight="bold">
+                      {values.gfe.label}
+                    </Text>
+                  </div>
+                  <div className={clsx('flex w-full items-center gap-2.5')}>
+                    <div
+                      className={clsx(
+                        'h-4',
+                        'rounded-sm',
+                        'bg-neutral-400 dark:bg-neutral-600',
+                      )}
+                      style={{
+                        width: `${values.other.value}%`,
+                      }}
+                    />
+                    <Text
+                      className="whitespace-nowrap"
+                      color="subtle"
+                      size="body2"
+                      weight="medium">
+                      {values.other.label}
+                    </Text>
+                  </div>
                 </div>
               </div>
+              <Divider />
             </div>
-            <Divider />
-          </div>
-        ))}
+          ))}
+        </div>
 
         <div className={clsx('flex items-center gap-4', 'mb-[26px] mt-4')}>
           {[
@@ -410,7 +414,7 @@ function Asset() {
                 className={clsx(
                   'size-[13px] rounded-sm',
                   value === 'gfe'
-                    ? themeBackgroundBrandColor
+                    ? 'dark:bg-brand bg-neutral-900'
                     : 'bg-neutral-400 dark:bg-neutral-600',
                 )}
               />
