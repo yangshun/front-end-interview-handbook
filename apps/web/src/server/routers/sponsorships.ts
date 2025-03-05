@@ -75,7 +75,7 @@ export const sponsorshipsRouter = router({
                 external: true,
                 format: 'IN_CONTENT',
                 imageUrl: ad.imageUrl!,
-                sponsorName: ad.request.legalName,
+                sponsorName: ad.request.sponsorName,
                 title: ad.title,
                 url: ad.url,
               } as const;
@@ -108,7 +108,7 @@ Elevate your style, inspire your creativity, and represent your coding chops wit
                 external: true,
                 format: 'SPOTLIGHT',
                 imageUrl: ad.imageUrl!,
-                sponsorName: ad.request.legalName,
+                sponsorName: ad.request.sponsorName,
                 text: ad.title,
                 url: ad.url,
               } as const;
@@ -133,7 +133,7 @@ Elevate your style, inspire your creativity, and represent your coding chops wit
                 adId: ad.id,
                 external: true,
                 format: 'GLOBAL_BANNER',
-                sponsorName: ad.request.legalName,
+                sponsorName: ad.request.sponsorName,
                 text: ad.title,
                 url: ad.url,
               } as const;

@@ -31,7 +31,9 @@ import { objectUrlToBase64 } from '~/lib/imageUtils';
 import { trpc } from '~/hooks/trpc';
 
 import type { StepsTabItemStatus } from '~/components/common/StepsTabs';
+import Divider from '~/components/ui/Divider';
 
+import SponsorsAdvertiseRequestFormAdsSectionTitle from './SponsorsAdvertiseRequestFormAdsSectionTitle';
 import type { SponsorsAdFormatInContentItem } from '../types';
 
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -150,184 +152,190 @@ export default function SponsorsAdvertiseRequestFormAdsSectionInContent({
           )
         }
       />
-      <div>
-        <Label
-          description="Configure your ad and upload the required assets"
-          label="In-content ad configuration"
-        />
-        <div className="mt-4 grid gap-4 md:grid-cols-2">
+      {selectedWeeks.length > 0 && (
+        <>
+          <Divider />
           <div>
-            <Controller
-              control={control}
-              name="text"
-              render={({ field, fieldState: { error } }) => (
-                <TextArea
-                  {...field}
-                  description={intl.formatMessage(
-                    {
-                      defaultMessage: 'Maximum of {maxLength} characters',
-                      description: 'Description for title input',
-                      id: 'MpD3WU',
-                    },
-                    {
-                      maxLength:
-                        SponsorAdFormatConfigs[AD_FORMAT].placementConstraints
-                          .text,
-                    },
-                  )}
-                  errorMessage={error?.message}
-                  label={intl.formatMessage({
-                    defaultMessage: 'Title',
-                    description: 'Label for title input',
-                    id: 'hF+MYj',
-                  })}
-                  maxLength={
-                    SponsorAdFormatConfigs[AD_FORMAT].placementConstraints.text
-                  }
-                  required={true}
-                />
-              )}
-            />
-            <Controller
-              control={control}
-              name="body"
-              render={({ field, fieldState: { error } }) => (
-                <RichTextEditor
-                  classNameOuter="mt-4"
-                  description={intl.formatMessage(
-                    {
-                      defaultMessage: 'Maximum of {maxLinks} links allowed',
-                      description: 'Description for body input',
-                      id: 'RTTAsr',
-                    },
-                    {
-                      maxLinks:
-                        SponsorAdFormatConfigs[AD_FORMAT].placementConstraints
-                          .body?.links,
-                    },
-                  )}
-                  editorConfig={RichTextEditorConfig}
-                  errorMessage={error?.message}
-                  label={intl.formatMessage({
-                    defaultMessage: 'Body',
-                    description: 'Label for body input',
-                    id: 'qWP6XC',
-                  })}
-                  maxLength={
-                    SponsorAdFormatConfigs[AD_FORMAT].placementConstraints.body
-                      ?.length
-                  }
-                  minHeight="200px"
-                  placeholder={intl.formatMessage({
-                    defaultMessage: 'Enter something here...',
-                    description: 'Placeholder for body input',
-                    id: 'xaoljh',
-                  })}
-                  required={true}
-                  {...field}
-                  value={field.value}
-                  onChange={(newValue) => {
-                    field.onChange({
-                      target: {
-                        value: newValue,
-                      },
-                    });
-                  }}
-                />
-              )}
-            />
-            <Controller
-              control={control}
-              name="imageUrl"
-              render={({ field, fieldState: { error } }) => (
-                <SponsorsAdvertiseRequestFormAdsImageUpload
-                  className="mt-4"
-                  errorMessage={error?.message}
-                  heightConstraint={
-                    SponsorAdFormatConfigs[AD_FORMAT].placementConstraints.image
-                      ?.height ?? 1
-                  }
-                  imageUrl={imageUrl}
-                  setError={(message) => setError('imageUrl', { message })}
-                  setImageUrl={(url) => {
-                    field.onChange(url);
-                  }}
-                  widthConstraint={
-                    SponsorAdFormatConfigs[AD_FORMAT].placementConstraints.image
-                      ?.width ?? 1
-                  }
-                />
-              )}
-            />
-            <Controller
-              control={control}
-              name="url"
-              render={({ field, fieldState: { error } }) => (
-                <TextInput
-                  {...field}
-                  classNameOuter="mt-4"
-                  description={intl.formatMessage({
-                    defaultMessage: 'Destination for banner clicks',
-                    description: 'Description for URL input',
-                    id: 'Es4JKW',
-                  })}
-                  errorMessage={error?.message}
-                  label="URL"
-                  placeholder="https://www.example.com"
-                  required={true}
-                  type="url"
-                />
-              )}
-            />
-          </div>
-          <div>
-            <div className="flex items-end justify-between gap-4">
-              <Label
-                description={intl.formatMessage({
-                  defaultMessage:
-                    'See how your ad looks like when it goes live',
-                  description: 'Description for preview',
-                  id: 'lHuGip',
-                })}
-                label={intl.formatMessage({
-                  defaultMessage: 'Preview',
-                  description: 'Label for preview',
-                  id: 'JAQf3o',
-                })}
-              />
-              <NavColorSchemeDropdown includeSystem={false} size="xs" />
-            </div>
+            <SponsorsAdvertiseRequestFormAdsSectionTitle format={AD_FORMAT} />
             <div
-              className={clsx(
-                'mt-2 flex w-full items-center justify-center',
-                'px-4 py-4',
-                ['border-2', 'border-dashed', themeBorderEmphasizeColor],
-                'rounded-md',
-                themeBackgroundColor,
-              )}>
-              <div className="max-w-xl">
-                <SponsorsAdFormatInContent
-                  adId="test-short-form"
-                  body={
-                    bodyText.length > 0
-                      ? body
-                      : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-                  }
-                  external={true}
-                  imageUrl={imageUrl}
-                  size="md"
-                  sponsorName="Your product / company name"
-                  title={
-                    title || 'The quick brown fox jumped over the lazy fox'
-                  }
-                  tracking={false}
-                  url="#"
+              className={clsx('mt-8', 'grid gap-x-4 gap-y-6 md:grid-cols-2')}>
+              <div className="flex flex-col gap-6">
+                <Controller
+                  control={control}
+                  name="imageUrl"
+                  render={({ field, fieldState: { error } }) => (
+                    <SponsorsAdvertiseRequestFormAdsImageUpload
+                      errorMessage={error?.message}
+                      heightConstraint={
+                        SponsorAdFormatConfigs[AD_FORMAT].placementConstraints
+                          .image?.height ?? 1
+                      }
+                      imageUrl={imageUrl}
+                      setError={(message) => setError('imageUrl', { message })}
+                      setImageUrl={(url) => {
+                        field.onChange(url);
+                      }}
+                      widthConstraint={
+                        SponsorAdFormatConfigs[AD_FORMAT].placementConstraints
+                          .image?.width ?? 1
+                      }
+                    />
+                  )}
                 />
+                <Controller
+                  control={control}
+                  name="text"
+                  render={({ field, fieldState: { error } }) => (
+                    <TextArea
+                      {...field}
+                      description={intl.formatMessage(
+                        {
+                          defaultMessage: 'Maximum of {maxLength} characters',
+                          description: 'Description for title input',
+                          id: 'MpD3WU',
+                        },
+                        {
+                          maxLength:
+                            SponsorAdFormatConfigs[AD_FORMAT]
+                              .placementConstraints.text,
+                        },
+                      )}
+                      errorMessage={error?.message}
+                      label={intl.formatMessage({
+                        defaultMessage: 'Title',
+                        description: 'Label for title input',
+                        id: 'hF+MYj',
+                      })}
+                      maxLength={
+                        SponsorAdFormatConfigs[AD_FORMAT].placementConstraints
+                          .text
+                      }
+                      required={true}
+                    />
+                  )}
+                />
+                <Controller
+                  control={control}
+                  name="body"
+                  render={({ field, fieldState: { error } }) => (
+                    <RichTextEditor
+                      description={intl.formatMessage(
+                        {
+                          defaultMessage: 'Maximum of {maxLinks} links allowed',
+                          description: 'Description for body input',
+                          id: 'RTTAsr',
+                        },
+                        {
+                          maxLinks:
+                            SponsorAdFormatConfigs[AD_FORMAT]
+                              .placementConstraints.body?.links,
+                        },
+                      )}
+                      editorConfig={RichTextEditorConfig}
+                      errorMessage={error?.message}
+                      label={intl.formatMessage({
+                        defaultMessage: 'Body',
+                        description: 'Label for body input',
+                        id: 'qWP6XC',
+                      })}
+                      maxLength={
+                        SponsorAdFormatConfigs[AD_FORMAT].placementConstraints
+                          .body?.length
+                      }
+                      minHeight="200px"
+                      placeholder={intl.formatMessage({
+                        defaultMessage: 'Enter something here...',
+                        description: 'Placeholder for body input',
+                        id: 'xaoljh',
+                      })}
+                      required={true}
+                      {...field}
+                      value={field.value}
+                      onChange={(newValue) => {
+                        field.onChange({
+                          target: {
+                            value: newValue,
+                          },
+                        });
+                      }}
+                    />
+                  )}
+                />
+                <Controller
+                  control={control}
+                  name="url"
+                  render={({ field, fieldState: { error } }) => (
+                    <TextInput
+                      {...field}
+                      description={intl.formatMessage({
+                        defaultMessage:
+                          'The URL the user will be led to when they click on the Ad image',
+                        description: 'Description for URL input',
+                        id: 'Ujn4Ms',
+                      })}
+                      errorMessage={error?.message}
+                      label={intl.formatMessage({
+                        defaultMessage: 'Destination URL',
+                        description: 'Ad destination URL',
+                        id: 'DWvf03',
+                      })}
+                      placeholder="https://www.example.com"
+                      required={true}
+                      type="url"
+                    />
+                  )}
+                />
+              </div>
+              <div>
+                <div className="flex items-end justify-between gap-4">
+                  <Label
+                    description={intl.formatMessage({
+                      defaultMessage:
+                        'See how your ad looks like when it goes live',
+                      description: 'Description for preview',
+                      id: 'lHuGip',
+                    })}
+                    label={intl.formatMessage({
+                      defaultMessage: 'Preview',
+                      description: 'Label for preview',
+                      id: 'JAQf3o',
+                    })}
+                  />
+                  <NavColorSchemeDropdown includeSystem={false} size="xs" />
+                </div>
+                <div
+                  className={clsx(
+                    'mt-2 flex w-full items-center justify-center',
+                    'px-4 py-4',
+                    ['border-2', 'border-dashed', themeBorderEmphasizeColor],
+                    'rounded-md',
+                    themeBackgroundColor,
+                  )}>
+                  <div className="max-w-xl">
+                    <SponsorsAdFormatInContent
+                      adId="test-short-form"
+                      body={
+                        bodyText.length > 0
+                          ? body
+                          : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+                      }
+                      external={true}
+                      imageUrl={imageUrl}
+                      size="md"
+                      sponsorName="Your product / company name"
+                      title={
+                        title || 'The quick brown fox jumped over the lazy fox'
+                      }
+                      tracking={false}
+                      url="#"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
+        </>
+      )}
       <div className="flex justify-end gap-2">
         {onCancel && (
           <Button

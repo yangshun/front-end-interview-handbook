@@ -13,6 +13,7 @@ import { useIntl } from '~/components/intl';
 import SponsorsAdFormatSpotlight from '~/components/sponsors/ads/SponsorsAdFormatSpotlight';
 import { SponsorAdFormatConfigs } from '~/components/sponsors/SponsorsAdFormatConfigs';
 import Button from '~/components/ui/Button';
+import Divider from '~/components/ui/Divider';
 import Label from '~/components/ui/Label';
 import TextArea from '~/components/ui/TextArea';
 import TextInput from '~/components/ui/TextInput';
@@ -21,6 +22,7 @@ import {
   themeBorderEmphasizeColor,
 } from '~/components/ui/theme';
 
+import SponsorsAdvertiseRequestFormAdsSectionTitle from './SponsorsAdvertiseRequestFormAdsSectionTitle';
 import { useSponsorsSpotlightAdSchema } from '../schema/SponsorsAdvertiseRequestAdSchema';
 import SponsorsAdvertiseRequestFormAdsImageUpload from '../SponsorsAdvertiseRequestFormAdsImageUpload';
 import SponsorsAdvertiseRequestFormAdsSectionAvailability from '../SponsorsAdvertiseRequestFormAdsSectionAvailability';
@@ -137,138 +139,136 @@ export default function SponsorsAdvertiseRequestFormAdsSectionSpotlight({
           )
         }
       />
-      <div>
-        <Label
-          description={intl.formatMessage({
-            defaultMessage:
-              'Configure your spotlight ad and upload the required assets',
-            description: 'Description for spotlight ad configuration',
-            id: 'TPtepX',
-          })}
-          label={intl.formatMessage({
-            defaultMessage: 'Spotlight ad configuration',
-            description: 'Label for ad configuration',
-            id: 'SqCCTt',
-          })}
-        />
-        <div className="mt-4 grid gap-4 md:grid-cols-2">
+      {selectedWeeks.length > 0 && (
+        <>
+          <Divider />
           <div>
-            <Controller
-              control={control}
-              name="text"
-              render={({ field, fieldState: { error } }) => (
-                <TextArea
-                  {...field}
-                  description={intl.formatMessage(
-                    {
-                      defaultMessage: 'Maximum of {maxLength} characters',
-                      description: 'Description for title input',
-                      id: 'MpD3WU',
-                    },
-                    {
-                      maxLength:
-                        SponsorAdFormatConfigs[AD_FORMAT].placementConstraints
-                          .text,
-                    },
-                  )}
-                  errorMessage={error?.message}
-                  label={intl.formatMessage({
-                    defaultMessage: 'Title',
-                    description: 'Label for title input',
-                    id: 'hF+MYj',
-                  })}
-                  maxLength={
-                    SponsorAdFormatConfigs[AD_FORMAT].placementConstraints.text
-                  }
-                  required={true}
-                />
-              )}
-            />
-            <Controller
-              control={control}
-              name="imageUrl"
-              render={({ field, fieldState: { error } }) => (
-                <SponsorsAdvertiseRequestFormAdsImageUpload
-                  className="mt-4"
-                  errorMessage={error?.message}
-                  heightConstraint={
-                    SponsorAdFormatConfigs[AD_FORMAT].placementConstraints.image
-                      ?.height ?? 1
-                  }
-                  imageUrl={imageUrl}
-                  setError={(message) => setError('imageUrl', { message })}
-                  setImageUrl={(url) => {
-                    field.onChange(url);
-                  }}
-                  widthConstraint={
-                    SponsorAdFormatConfigs[AD_FORMAT].placementConstraints.image
-                      ?.width ?? 1
-                  }
-                />
-              )}
-            />
-            <Controller
-              control={control}
-              name="url"
-              render={({ field, fieldState: { error } }) => (
-                <TextInput
-                  {...field}
-                  classNameOuter="mt-4"
-                  description={intl.formatMessage({
-                    defaultMessage: 'Destination for banner clicks',
-                    description: 'Description for URL input',
-                    id: 'Es4JKW',
-                  })}
-                  errorMessage={error?.message}
-                  label="URL"
-                  placeholder="https://www.example.com"
-                  required={true}
-                  type="url"
-                />
-              )}
-            />
-          </div>
-          <div>
-            <div className="flex items-end justify-between gap-4">
-              <Label
-                description={intl.formatMessage({
-                  defaultMessage:
-                    'See how your ad looks like when it goes live',
-                  description: 'Description for preview',
-                  id: 'lHuGip',
-                })}
-                label={intl.formatMessage({
-                  defaultMessage: 'Preview',
-                  description: 'Label for preview',
-                  id: 'JAQf3o',
-                })}
-              />
-              <NavColorSchemeDropdown includeSystem={false} size="xs" />
-            </div>
+            <SponsorsAdvertiseRequestFormAdsSectionTitle format={AD_FORMAT} />
             <div
-              className={clsx(
-                'mt-2 h-[200px] w-full',
-                'flex items-center justify-center',
-                'py-10',
-                ['border-2', 'border-dashed', themeBorderEmphasizeColor],
-                'rounded-md',
-                themeBackgroundColor,
-              )}>
-              <div className="max-w-[260px]">
-                <SponsorsAdFormatSpotlight
-                  adId="test-spotlight"
-                  external={true}
-                  imageUrl={imageUrl}
-                  sponsorName="Your product / company name"
-                  text={title || 'Your short form ad text here'}
-                  tracking={false}
-                  url="#"
+              className={clsx('mt-8', 'grid gap-x-4 gap-y-6 md:grid-cols-2')}>
+              <div className="flex flex-col gap-6">
+                <Controller
+                  control={control}
+                  name="imageUrl"
+                  render={({ field, fieldState: { error } }) => (
+                    <SponsorsAdvertiseRequestFormAdsImageUpload
+                      errorMessage={error?.message}
+                      heightConstraint={
+                        SponsorAdFormatConfigs[AD_FORMAT].placementConstraints
+                          .image?.height ?? 1
+                      }
+                      imageUrl={imageUrl}
+                      setError={(message) => setError('imageUrl', { message })}
+                      setImageUrl={(url) => {
+                        field.onChange(url);
+                      }}
+                      widthConstraint={
+                        SponsorAdFormatConfigs[AD_FORMAT].placementConstraints
+                          .image?.width ?? 1
+                      }
+                    />
+                  )}
                 />
+                <Controller
+                  control={control}
+                  name="text"
+                  render={({ field, fieldState: { error } }) => (
+                    <TextArea
+                      {...field}
+                      description={intl.formatMessage(
+                        {
+                          defaultMessage: 'Maximum of {maxLength} characters',
+                          description: 'Description for title input',
+                          id: 'MpD3WU',
+                        },
+                        {
+                          maxLength:
+                            SponsorAdFormatConfigs[AD_FORMAT]
+                              .placementConstraints.text,
+                        },
+                      )}
+                      errorMessage={error?.message}
+                      label={intl.formatMessage({
+                        defaultMessage: 'Title',
+                        description: 'Label for title input',
+                        id: 'hF+MYj',
+                      })}
+                      maxLength={
+                        SponsorAdFormatConfigs[AD_FORMAT].placementConstraints
+                          .text
+                      }
+                      required={true}
+                    />
+                  )}
+                />
+                <Controller
+                  control={control}
+                  name="url"
+                  render={({ field, fieldState: { error } }) => (
+                    <TextInput
+                      {...field}
+                      description={intl.formatMessage({
+                        defaultMessage:
+                          'The URL the user will be led to when they click on any part of the Ad',
+                        description: 'Description for URL input',
+                        id: 'mHYOpA',
+                      })}
+                      errorMessage={error?.message}
+                      label={intl.formatMessage({
+                        defaultMessage: 'Destination URL',
+                        description: 'Ad destination URL',
+                        id: 'DWvf03',
+                      })}
+                      placeholder="https://www.example.com"
+                      required={true}
+                      type="url"
+                    />
+                  )}
+                />
+              </div>
+              <div>
+                <div className="flex items-end justify-between gap-4">
+                  <Label
+                    description={intl.formatMessage({
+                      defaultMessage:
+                        'See how your ad looks like when it goes live',
+                      description: 'Description for preview',
+                      id: 'lHuGip',
+                    })}
+                    label={intl.formatMessage({
+                      defaultMessage: 'Preview',
+                      description: 'Label for preview',
+                      id: 'JAQf3o',
+                    })}
+                  />
+                  <NavColorSchemeDropdown includeSystem={false} size="xs" />
+                </div>
+                <div
+                  className={clsx(
+                    'mt-2 h-[200px] w-full',
+                    'flex items-center justify-center',
+                    'py-10',
+                    ['border-2', 'border-dashed', themeBorderEmphasizeColor],
+                    'rounded-md',
+                    themeBackgroundColor,
+                  )}>
+                  <div className="max-w-[260px]">
+                    <SponsorsAdFormatSpotlight
+                      adId="test-spotlight"
+                      external={true}
+                      imageUrl={imageUrl}
+                      sponsorName="Your product / company name"
+                      text={title || 'Your short form ad text here'}
+                      tracking={false}
+                      url="#"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
+        </>
+      )}
       <div className="flex justify-end gap-2">
         {onCancel && (
           <Button

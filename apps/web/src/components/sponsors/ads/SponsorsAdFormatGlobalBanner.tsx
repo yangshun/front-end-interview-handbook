@@ -1,13 +1,9 @@
-import clsx from 'clsx';
+import { RiArrowRightLine } from 'react-icons/ri';
 
 import GlobalBannerShell from '~/components/global/banners/GlobalBannerShell';
 import Anchor from '~/components/ui/Anchor';
 import { textVariants } from '~/components/ui/Text';
-import {
-  themeBackgroundColor,
-  themeBackgroundInvertColor,
-  themeTextColor,
-} from '~/components/ui/theme';
+import { themeBackgroundInvertColor } from '~/components/ui/theme';
 
 import { sponsorsAdTrackingHref } from './SponsorsAdHref';
 import useSponsorsAdImpressionLogging from './useSponsorsAdImpressionLogging';
@@ -45,18 +41,11 @@ export default function SponsorsAdFormatGlobalBanner({
         href={tracking ? sponsorsAdTrackingHref({ adId, url }) : url}
         target="_blank"
         variant="flat">
-        <span
-          className={clsx(
-            'inline-block',
-            themeBackgroundColor,
-            'px-1 py-0.5',
-            'rounded',
-            'text-2xs',
-            themeTextColor,
-          )}>
-          AD
-        </span>{' '}
         {text}
+        <RiArrowRightLine
+          aria-hidden={true}
+          className="size-3.5 -mt-0.5 ml-1 inline-flex shrink-0"
+        />
       </Anchor>
     </GlobalBannerShell>
   );

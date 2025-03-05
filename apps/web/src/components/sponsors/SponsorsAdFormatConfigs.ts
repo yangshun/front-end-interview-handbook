@@ -43,7 +43,7 @@ export const SponsorAdFormatConfigs: Record<
         height: 48,
         width: 96,
       },
-      text: 40,
+      text: 50,
     },
     pricePerWeekUSD: 1250,
   },

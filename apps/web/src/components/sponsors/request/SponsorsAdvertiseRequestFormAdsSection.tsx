@@ -265,6 +265,7 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
                 })}
               </div>
             </div>
+            <Divider className="mt-12" />
             <div className="mt-12">
               {selectedFormat === 'GLOBAL_BANNER' && (
                 <SponsorsAdvertiseRequestFormAdsSectionGlobalBanner

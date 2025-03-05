@@ -10,9 +10,12 @@ import InterviewsMarketingHeroBrowserWindowFrame from '~/components/interviews/m
 import { useIntl } from '~/components/intl';
 import { SponsorAdFormatConfigs } from '~/components/sponsors/SponsorsAdFormatConfigs';
 import Button from '~/components/ui/Button';
+import Divider from '~/components/ui/Divider';
 import Label from '~/components/ui/Label';
+import TextArea from '~/components/ui/TextArea';
 import TextInput from '~/components/ui/TextInput';
 
+import SponsorsAdvertiseRequestFormAdsSectionTitle from './SponsorsAdvertiseRequestFormAdsSectionTitle';
 import { useSponsorsGlobalBannerAdSchema } from '../schema/SponsorsAdvertiseRequestAdSchema';
 import SponsorsAdvertiseRequestFormAdsSectionAvailability from '../SponsorsAdvertiseRequestFormAdsSectionAvailability';
 import type { SponsorsAdFormatGlobalBannerItem } from '../types';
@@ -105,110 +108,109 @@ export default function SponsorsAdvertiseRequestFormAdsSectionGlobalBanner({
           )
         }
       />
-      <div>
-        <Label
-          description={intl.formatMessage({
-            defaultMessage:
-              'Configure your global banner and upload the required assets',
-            description: 'Description for global banner configuration',
-            id: 'n7SF/r',
-          })}
-          label={intl.formatMessage({
-            defaultMessage: 'Global banner configuration',
-            description: 'Label for global banner configuration',
-            id: 'zvqK99',
-          })}
-        />
-        <div className="mt-4 grid gap-4 md:grid-cols-2">
-          <Controller
-            control={control}
-            name="text"
-            render={({ field, fieldState: { error } }) => (
-              <TextInput
-                {...field}
-                description={intl.formatMessage(
-                  {
-                    defaultMessage: 'Maximum of {maxLength} characters',
-                    description: 'Description for title input',
-                    id: 'MpD3WU',
-                  },
-                  {
-                    maxLength:
+      {selectedWeeks.length > 0 && (
+        <>
+          <Divider />
+          <div>
+            <SponsorsAdvertiseRequestFormAdsSectionTitle format={AD_FORMAT} />
+            <div
+              className={clsx('mt-8', 'grid gap-x-4 gap-y-6 md:grid-cols-2')}>
+              <Controller
+                control={control}
+                name="text"
+                render={({ field, fieldState: { error } }) => (
+                  <TextArea
+                    {...field}
+                    description={intl.formatMessage(
+                      {
+                        defaultMessage: 'Maximum of {maxLength} characters',
+                        description: 'Description for title input',
+                        id: 'MpD3WU',
+                      },
+                      {
+                        maxLength:
+                          SponsorAdFormatConfigs[AD_FORMAT].placementConstraints
+                            .text,
+                      },
+                    )}
+                    errorMessage={error?.message}
+                    label={intl.formatMessage({
+                      defaultMessage: 'Banner text',
+                      description: 'Text within global banner',
+                      id: '05tlPb',
+                    })}
+                    maxLength={
                       SponsorAdFormatConfigs[AD_FORMAT].placementConstraints
-                        .text,
-                  },
+                        .text
+                    }
+                    required={true}
+                  />
                 )}
-                errorMessage={error?.message}
-                label={intl.formatMessage({
-                  defaultMessage: 'Title',
-                  description: 'Label for title input',
-                  id: 'hF+MYj',
-                })}
-                maxLength={
-                  SponsorAdFormatConfigs[AD_FORMAT].placementConstraints.text
-                }
-                required={true}
               />
-            )}
-          />
-          <Controller
-            control={control}
-            name="url"
-            render={({ field, fieldState: { error } }) => (
-              <TextInput
-                {...field}
-                description={intl.formatMessage({
-                  defaultMessage: 'Destination for banner clicks',
-                  description: 'Description for URL input',
-                  id: 'Es4JKW',
-                })}
-                errorMessage={error?.message}
-                label="URL"
-                placeholder="https://www.example.com"
-                required={true}
-                type="url"
-              />
-            )}
-          />
-        </div>
-      </div>
-      <div>
-        <div className="flex items-end justify-between gap-4">
-          <Label
-            description={intl.formatMessage({
-              defaultMessage: 'See how your ad looks like when it goes live',
-              description: 'Description for preview',
-              id: 'lHuGip',
-            })}
-            label={intl.formatMessage({
-              defaultMessage: 'Preview',
-              description: 'Label for preview',
-              id: 'JAQf3o',
-            })}
-          />
-          <NavColorSchemeDropdown includeSystem={false} size="xs" />
-        </div>
-        <div className="mt-4">
-          <InterviewsMarketingHeroBrowserWindowFrame>
-            <SponsorsAdFormatGlobalBanner
-              adId="test-global-banner"
-              isLoading={false}
-              text={title || 'Your ad text here'}
-              tracking={false}
-              url="https://greatfrontend.com"
-            />
-            <div className="flex h-[300px] w-full items-stretch justify-stretch p-3">
-              <div
-                className={clsx(
-                  'size-full rounded-md',
-                  'border-2 border-dashed border-neutral-500',
-                  'bg-neutral-200/25 dark:bg-neutral-700/25',
+              <Controller
+                control={control}
+                name="url"
+                render={({ field, fieldState: { error } }) => (
+                  <TextInput
+                    {...field}
+                    description={intl.formatMessage({
+                      defaultMessage:
+                        'The URL the user will be led to when they click on any part of the Ad',
+                      description: 'Description for URL input',
+                      id: 'mHYOpA',
+                    })}
+                    errorMessage={error?.message}
+                    label={intl.formatMessage({
+                      defaultMessage: 'Destination URL',
+                      description: 'Ad destination URL',
+                      id: 'DWvf03',
+                    })}
+                    placeholder="https://www.example.com"
+                    required={true}
+                    type="url"
+                  />
                 )}
               />
             </div>
-          </InterviewsMarketingHeroBrowserWindowFrame>
-        </div>
-      </div>
+            <div className="mt-4 flex items-end justify-between gap-4">
+              <Label
+                description={intl.formatMessage({
+                  defaultMessage:
+                    'See how your ad looks like when it goes live',
+                  description: 'Description for preview',
+                  id: 'lHuGip',
+                })}
+                label={intl.formatMessage({
+                  defaultMessage: 'Preview',
+                  description: 'Label for preview',
+                  id: 'JAQf3o',
+                })}
+              />
+              <NavColorSchemeDropdown includeSystem={false} size="xs" />
+            </div>
+            <div className="mt-4">
+              <InterviewsMarketingHeroBrowserWindowFrame>
+                <SponsorsAdFormatGlobalBanner
+                  adId="test-global-banner"
+                  isLoading={false}
+                  text={title || 'Your ad text here'}
+                  tracking={false}
+                  url="https://greatfrontend.com"
+                />
+                <div className="flex h-[300px] w-full items-stretch justify-stretch p-3">
+                  <div
+                    className={clsx(
+                      'size-full rounded-md',
+                      'border-2 border-dashed border-neutral-500',
+                      'bg-neutral-200/25 dark:bg-neutral-700/25',
+                    )}
+                  />
+                </div>
+              </InterviewsMarketingHeroBrowserWindowFrame>
+            </div>
+          </div>
+        </>
+      )}
       <div className="flex justify-end gap-2">
         {onCancel && (
           <Button

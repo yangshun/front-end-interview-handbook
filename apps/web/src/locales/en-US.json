@@ -259,6 +259,10 @@
     "defaultMessage": "Star",
     "description": "Label for github star button"
   },
+  "/QA/Vp": {
+    "defaultMessage": "Configure your {adFormat}",
+    "description": "Label for ad configuration"
+  },
   "/TtmMj": {
     "defaultMessage": "Official solutions",
     "description": "Title of 'Official solutions' sub-feature in Projects marketing page"
@@ -378,6 +382,10 @@
   "04Q6JH": {
     "defaultMessage": "TypeScript supported",
     "description": "JavaScript questions can be done in TypeScript"
+  },
+  "05tlPb": {
+    "defaultMessage": "Banner text",
+    "description": "Text within global banner"
   },
   "06WD6D": {
     "defaultMessage": "{count, plural, one {# week} other {# weeks}}",
@@ -2567,6 +2575,10 @@
     "defaultMessage": "Premium question",
     "description": "Paywall title for premium questions feature"
   },
+  "DWvf03": {
+    "defaultMessage": "Destination URL",
+    "description": "Ad destination URL"
+  },
   "DXjqwr": {
     "defaultMessage": "Progress imported successfully",
     "description": "Success message for import progress"
@@ -2794,10 +2806,6 @@
   "Eru4eL": {
     "defaultMessage": "Intro to quiz questions",
     "description": "Introduction to front end quiz questions"
-  },
-  "Es4JKW": {
-    "defaultMessage": "Destination for banner clicks",
-    "description": "Description for URL input"
   },
   "Et6OSf": {
     "defaultMessage": "Could not load the file from the repository. Select a different file to view.",
@@ -5383,10 +5391,6 @@
     "defaultMessage": "Bootcamp Grad",
     "description": "Label for \"Bootcamp Grad\" option in YOE replacement"
   },
-  "SqCCTt": {
-    "defaultMessage": "Spotlight ad configuration",
-    "description": "Label for ad configuration"
-  },
   "SsWL2T": {
     "defaultMessage": "Explore series",
     "description": "Sidebar label for explore series"
@@ -5482,10 +5486,6 @@
   "TO74hd": {
     "defaultMessage": "Join the community",
     "description": "Title of community page"
-  },
-  "TPtepX": {
-    "defaultMessage": "Configure your spotlight ad and upload the required assets",
-    "description": "Description for spotlight ad configuration"
   },
   "TQLJ/G": {
     "defaultMessage": "There is something to learn from GreatFrontEnd for engineers of all seniority levels. Junior engineers will be able to solidify their fundamentals and learn techniques they never knew about. Mid-level engineers will benefit from more advanced concepts like internationalization, accessibility, and performance. Senior engineers will benefit most from the system design questions which impart architectural concepts.",
@@ -5710,6 +5710,10 @@
   "Ui0v53": {
     "defaultMessage": "Our projects are designed to make for an <em>impressive</em> portfolio, even for seniors",
     "description": "Heading of the 'Portfolio features' marketing section on Projects home page"
+  },
+  "Ujn4Ms": {
+    "defaultMessage": "The URL the user will be led to when they click on the Ad image",
+    "description": "Description for URL input"
   },
   "UltF1J": {
     "defaultMessage": "Already an affiliate? <link>Access dashboard</link>",
@@ -7158,6 +7162,10 @@
   "cw35KA": {
     "defaultMessage": "Roadmap | GreatFrontEnd Interviews",
     "description": "Title of interview roadmap page"
+  },
+  "cwA43y": {
+    "defaultMessage": "Upload the required assets",
+    "description": "Upload required ad assets"
   },
   "cx8XeF": {
     "defaultMessage": "Invalid student email",
@@ -8811,6 +8819,10 @@
     "defaultMessage": "You are currently working on this skill",
     "description": "Description for projects skill in progress status"
   },
+  "mHYOpA": {
+    "defaultMessage": "The URL the user will be led to when they click on any part of the Ad",
+    "description": "Description for URL input"
+  },
   "mIhFbl": {
     "defaultMessage": "Legal name is required",
     "description": "Error message for legal name"
@@ -8978,10 +8990,6 @@
   "n7/w8e": {
     "defaultMessage": "{questionCount}+ most important Vue interview questions covering stores, bindings, reactivity, lifecycle, and building interactive components.",
     "description": "Subtitle for questions list page"
-  },
-  "n7SF/r": {
-    "defaultMessage": "Configure your global banner and upload the required assets",
-    "description": "Description for global banner configuration"
   },
   "nAHx0y": {
     "defaultMessage": "Leverage time-savers like study plans and focus areas to turbocharge your prep",
@@ -11174,10 +11182,6 @@
   "zul/L1": {
     "defaultMessage": "Earlier this month",
     "description": "Title for earlier this month list of comments"
-  },
-  "zvqK99": {
-    "defaultMessage": "Global banner configuration",
-    "description": "Label for global banner configuration"
   },
   "zw0Ov8": {
     "defaultMessage": "Hard",
