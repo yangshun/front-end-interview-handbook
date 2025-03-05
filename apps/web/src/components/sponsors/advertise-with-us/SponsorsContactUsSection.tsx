@@ -7,7 +7,10 @@ import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
-import { themeGradientHeading } from '~/components/ui/theme';
+import {
+  themeGradientHeading,
+  themeMarketingHeadingSize,
+} from '~/components/ui/theme';
 
 export default function SponsorsContactUsSection() {
   const intl = useIntl();
@@ -16,8 +19,12 @@ export default function SponsorsContactUsSection() {
     <div className={clsx('flex flex-col gap-y-12 lg:gap-y-16', 'py-16')}>
       <div className="flex flex-col gap-6">
         <Heading
-          className={clsx('max-w-3xl', themeGradientHeading)}
-          level="heading2"
+          className={clsx(
+            'max-w-3xl pb-1',
+            themeGradientHeading,
+            themeMarketingHeadingSize,
+          )}
+          level="custom"
           tag="p"
           weight="medium">
           <FormattedMessage

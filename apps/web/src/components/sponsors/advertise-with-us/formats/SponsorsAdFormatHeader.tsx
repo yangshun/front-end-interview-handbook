@@ -8,7 +8,7 @@ import { FormattedMessage, useIntl } from '~/components/intl';
 import { useSponsorsAdFormatData } from '~/components/sponsors/SponsorsAdFormatConfigs';
 import type { SponsorsAdFormat } from '~/components/sponsors/SponsorsTypes';
 import Button from '~/components/ui/Button';
-import Heading, { headingCVA } from '~/components/ui/Heading';
+import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 import { themeTextSubtitleColor } from '~/components/ui/theme';
 
@@ -32,9 +32,13 @@ export default function SponsorsAdFormatHeader({ format }: Props) {
     <div className="flex flex-col gap-8">
       <div className="flex flex-col justify-between gap-x-2 gap-y-6 sm:flex-row">
         <Heading
-          className={themeTextSubtitleColor}
+          className={clsx(
+            'md:-tracking-1 md:text-3xl',
+            'text-2xl',
+            themeTextSubtitleColor,
+          )}
           color="custom"
-          level="heading4"
+          level="custom"
           weight="medium">
           {name}
         </Heading>
@@ -43,9 +47,7 @@ export default function SponsorsAdFormatHeader({ format }: Props) {
           color="secondary"
           size="body2">
           <Text
-            className={headingCVA({
-              level: 'heading3',
-            })}
+            className="text-3xl"
             color="default"
             size="inherit"
             weight="bold">

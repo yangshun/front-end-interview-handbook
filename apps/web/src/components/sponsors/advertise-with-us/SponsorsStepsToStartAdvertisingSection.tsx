@@ -11,6 +11,7 @@ import Text from '~/components/ui/Text';
 import {
   themeBackgroundCardColor,
   themeGradientHeading,
+  themeMarketingHeadingSize,
   themeWhiteGlowCardBackground,
 } from '~/components/ui/theme';
 
@@ -81,8 +82,12 @@ export default function SponsorsStepsToStartAdvertisingSection() {
     <div
       className={clsx('flex flex-col gap-y-12 lg:gap-y-16', 'py-16 sm:py-20')}>
       <Heading
-        className={clsx('max-w-3xl', themeGradientHeading)}
-        level="heading2"
+        className={clsx(
+          'max-w-3xl pb-1',
+          themeGradientHeading,
+          themeMarketingHeadingSize,
+        )}
+        level="custom"
         tag="p"
         weight="medium">
         <FormattedMessage

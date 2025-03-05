@@ -37,8 +37,12 @@ export default function SponsorsHeroSection() {
     <div className="flex flex-col gap-x-4 gap-y-12 py-20 lg:flex-row xl:gap-x-6">
       <div className="flex flex-1 flex-col gap-8">
         <Heading
-          className={themeGradientHeading}
-          level="heading1"
+          className={clsx(
+            'pb-1',
+            themeGradientHeading,
+            '-tracking-4 text-5xl md:text-6xl md:leading-[4rem]',
+          )}
+          level="custom"
           weight="medium">
           <FormattedMessage
             defaultMessage="Reach {engineersCount}+ front end engineers per week for just ~${price} CPM"

@@ -2,7 +2,10 @@ import clsx from 'clsx';
 
 import { FormattedMessage } from '~/components/intl';
 import Heading from '~/components/ui/Heading';
-import { themeGradientHeading } from '~/components/ui/theme';
+import {
+  themeGradientHeading,
+  themeMarketingHeadingSize,
+} from '~/components/ui/theme';
 
 import SponsorsAdFormatGlobalBannerSection from './formats/SponsorsAdFormatGlobalBannerSection';
 import SponsorsAdFormatInContentSection from './formats/SponsorsAdFormatInContentSection';
@@ -14,8 +17,12 @@ export default function SponsorsOpportunitiesSection() {
       className={clsx('flex flex-col gap-y-12 lg:gap-y-16', 'py-16 sm:py-20')}
       id="pricing-and-availability">
       <Heading
-        className={clsx(themeGradientHeading, 'pb-1')}
-        level="heading2"
+        className={clsx(
+          themeGradientHeading,
+          themeMarketingHeadingSize,
+          'pb-1',
+        )}
+        level="custom"
         tag="p"
         weight="medium">
         <FormattedMessage

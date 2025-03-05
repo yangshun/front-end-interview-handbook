@@ -13,6 +13,7 @@ import {
   themeBackgroundColor,
   themeGlassyBorder,
   themeGradientHeading,
+  themeMarketingHeadingSize,
   themeTextColor,
   themeWhiteGlowCardBackground,
 } from '~/components/ui/theme';
@@ -23,8 +24,12 @@ export default function SponsorsSinglePlacementsSection() {
       className={clsx('flex flex-col gap-y-12 lg:gap-y-16', 'py-16 sm:py-20')}>
       <div className="flex flex-col gap-6">
         <Heading
-          className={clsx(themeGradientHeading, 'max-w-3xl pb-1')}
-          level="heading2"
+          className={clsx(
+            themeGradientHeading,
+            themeMarketingHeadingSize,
+            'max-w-3xl pb-1',
+          )}
+          level="custom"
           tag="p"
           weight="medium">
           <FormattedMessage

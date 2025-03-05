@@ -51,7 +51,7 @@ export default function SponsorsAdFormatInfo({
 
   return (
     <div className={className}>
-      <Heading className="font-semibold" level="heading4">
+      <Heading className="text-3xl font-semibold" level="custom">
         {title}
       </Heading>
       <Text className="mt-2.5 block" color="secondary" size="body2">
