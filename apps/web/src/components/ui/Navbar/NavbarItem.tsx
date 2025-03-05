@@ -21,12 +21,11 @@ import { anchorVariants } from '../Anchor/AnchorStyles';
 
 import * as PopoverPrimitive from '@radix-ui/react-popover';
 
-type Props = NavbarTopLevelItem &
-  Readonly<{
-    popoverTabsItemsAddOn?: React.ReactNode;
-  }>;
-
-export default function NavbarItem({ onClick, label, ...props }: Props) {
+export default function NavbarItem({
+  onClick,
+  label,
+  ...props
+}: NavbarTopLevelItem) {
   const [open, setOpen] = useState(false);
   // To debounce open state when quick hovering on and out
   const debouncedOpen = useDebounce(open, 100);
@@ -128,7 +127,6 @@ export default function NavbarItem({ onClick, label, ...props }: Props) {
                 return (
                   <NavbarPopoverTabs
                     items={props.items}
-                    itemsAddOn={props.popoverTabsItemsAddOn}
                     onClose={() => {
                       setOpen(false);
                     }}

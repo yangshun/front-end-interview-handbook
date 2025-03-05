@@ -28,7 +28,6 @@ import SidebarLinksSection from '~/components/global/sidebar/SidebarLinksSection
 import { useIntl } from '~/components/intl';
 import { SocialDiscountSidebarMention } from '~/components/promotions/social/SocialDiscountSidebarMention';
 import SponsorsAdFormatSpotlightContainerWrapper from '~/components/sponsors/ads/SponsorsAdFormatSpotlightContainer';
-import SponsorsAdSponsorUsCard from '~/components/sponsors/SponsorsAdSponsorUsCard';
 import SponsorsAdvertiseWithUsBadge from '~/components/sponsors/SponsorsAdvertiseWithUsBadge';
 import Anchor from '~/components/ui/Anchor';
 import Avatar from '~/components/ui/Avatar';
@@ -122,15 +121,7 @@ export default function InterviewsNavbar({
             />
             <nav className="hidden items-center gap-x-2 lg:ml-[68px] lg:flex lg:w-0 lg:flex-1">
               {leftLinks.map((navItem) => (
-                <NavbarItem
-                  key={navItem.id}
-                  {...navItem}
-                  popoverTabsItemsAddOn={
-                    <SponsorsAdSponsorUsCard
-                      className={clsx('h-full', 'mt-5 px-3')}
-                    />
-                  }
-                />
+                <NavbarItem key={navItem.id} {...navItem} />
               ))}
             </nav>
           </div>

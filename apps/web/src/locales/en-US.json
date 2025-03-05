@@ -4927,10 +4927,6 @@
     "defaultMessage": "Hard",
     "description": "Hard difficulty label for solved problems"
   },
-  "QpcLiL": {
-    "defaultMessage": "Sponsor us",
-    "description": "Label for sponsor us"
-  },
   "QqddKP": {
     "defaultMessage": "Quizzes",
     "description": "Tile for quiz question type"
@@ -8702,10 +8698,6 @@
   "lKKC9U": {
     "defaultMessage": "Core System Design techniques and in-depth solutions to common questions like building a social media feed, autocomplete component, e-commerce website.",
     "description": "Description for frontend system design guide"
-  },
-  "lMEBKr": {
-    "defaultMessage": "Got a dev product? <anchor>Reach 500K+ front end engineers! -></anchor>",
-    "description": "Description for sponsor us"
   },
   "lMWmct": {
     "defaultMessage": "An 'active day' is a day you completed at least 1 question",
