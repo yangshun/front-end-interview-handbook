@@ -3,14 +3,7 @@
 import clsx from 'clsx';
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
-import {
-  RiArrowRightSLine,
-  RiMenuFill,
-  RiMoreLine,
-  RiPhoneLine,
-  RiScales3Line,
-  RiStarSmileFill,
-} from 'react-icons/ri';
+import { RiArrowRightSLine, RiMenuFill, RiStarSmileFill } from 'react-icons/ri';
 
 import gtag from '~/lib/gtag';
 import useIsSticky from '~/hooks/useIsSticky';
@@ -18,12 +11,11 @@ import useUserProfile from '~/hooks/user/useUserProfile';
 
 import { SocialLinks } from '~/data/SocialLinks';
 
+import useCommonNavItems from '~/components/common/navigation/useCommonNavItems';
 import NavColorSchemeDropdown from '~/components/global/navbar/NavColorSchemeDropdown';
 import NavI18nDropdown from '~/components/global/navbar/NavI18nDropdown';
 import NavProductPopover from '~/components/global/navbar/NavProductPopover';
-import SidebarAuthDropdownItem from '~/components/global/sidebar/SidebarAuthDropdownItem';
-import SidebarColorSchemeSubMenu from '~/components/global/sidebar/SidebarColorSchemeSubMenu';
-import SidebarI18nSubMenu from '~/components/global/sidebar/SidebarI18nSubMenu';
+import { SidebarDropdownMenu } from '~/components/global/sidebar/Sidebar';
 import SidebarLinksSection from '~/components/global/sidebar/SidebarLinksSection';
 import { useIntl } from '~/components/intl';
 import { SocialDiscountSidebarMention } from '~/components/promotions/social/SocialDiscountSidebarMention';
@@ -75,6 +67,7 @@ export default function InterviewsNavbar({
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
 
   const navSlideOutItems = useInterviewsSidebarLinks(isLoggedIn);
+  const commonNavItems = useCommonNavItems();
 
   function closeMobileNav() {
     setIsMobileNavOpen(false);
@@ -260,75 +253,27 @@ export default function InterviewsNavbar({
                             }}
                           />
                         )}
-                        <DropdownMenu
-                          icon={RiMoreLine}
-                          isLabelHidden={true}
-                          label="More"
-                          showChevron={false}
-                          size="sm">
-                          <SidebarColorSchemeSubMenu />
-                          <SidebarI18nSubMenu type="submenu" />
-                          <Divider />
-                          <DropdownMenu.Item
-                            href="/contact"
-                            icon={RiPhoneLine}
-                            label={intl.formatMessage({
-                              defaultMessage: 'Contact us',
-                              description: 'Link to contact page',
-                              id: 'dRUyU9',
-                            })}
-                          />
-                          <DropdownMenu.Sub
-                            icon={RiScales3Line}
-                            label={intl.formatMessage({
-                              defaultMessage: 'Legal',
-                              description: 'Link to legal page',
-                              id: 'J7b0BM',
-                            })}>
-                            <DropdownMenu.Item
-                              href="/legal/privacy-policy"
-                              label={intl.formatMessage({
-                                defaultMessage: 'Privacy policy',
-                                description: 'Link to privacy policy page',
-                                id: 'RxU5TE',
-                              })}
-                            />
-                            <DropdownMenu.Item
-                              href="/legal/terms"
-                              label={intl.formatMessage({
-                                defaultMessage: 'Terms of service',
-                                description: 'Link to terms of service page',
-                                id: 'WYR3gj',
-                              })}
-                            />
-                          </DropdownMenu.Sub>
-                          <Divider />
-                          <DropdownMenu.Item
-                            href={SocialLinks.github.href}
-                            icon={SocialLinks.github.icon}
-                            label={SocialLinks.github.name}
-                          />
-                          <DropdownMenu.Item
-                            href={SocialLinks.linkedin.href}
-                            icon={SocialLinks.linkedin.icon}
-                            label={SocialLinks.linkedin.name}
-                          />
-                          {isPremium ? (
-                            <DropdownMenu.Item
-                              href={SocialLinks.discordPremium.href}
-                              icon={SocialLinks.discordPremium.icon}
-                              label={SocialLinks.discordPremium.name}
-                            />
-                          ) : (
-                            <DropdownMenu.Item
-                              href={SocialLinks.discord.href}
-                              icon={SocialLinks.discord.icon}
-                              label={SocialLinks.discord.name}
-                            />
-                          )}
-                          <Divider />
-                          <SidebarAuthDropdownItem />
-                        </DropdownMenu>
+                        <SidebarDropdownMenu
+                          moreMenuItems={
+                            userProfile ? (
+                              <>
+                                <Divider />
+                                <DropdownMenu.Item
+                                  href={commonNavItems.interviewsBilling.href}
+                                  icon={commonNavItems.interviewsBilling.icon}
+                                  label={commonNavItems.interviewsBilling.label}
+                                />
+                                <DropdownMenu.Item
+                                  href={commonNavItems.interviewsSettings.href}
+                                  icon={commonNavItems.interviewsSettings.icon}
+                                  label={
+                                    commonNavItems.interviewsSettings.label
+                                  }
+                                />
+                              </>
+                            ) : undefined
+                          }
+                        />
                       </div>
                       {isLoggedIn && (
                         <>

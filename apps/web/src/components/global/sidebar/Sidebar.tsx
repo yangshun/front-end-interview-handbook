@@ -29,12 +29,12 @@ import NavProductDropdownMenu, {
   NavProductPopoverLogoOnly,
 } from '../navbar/NavProductPopover';
 
-function SidebarDropdownMenu({
+export function SidebarDropdownMenu({
   moreMenuItems,
   moreEndMenuItems,
 }: Readonly<{
   moreEndMenuItems?: React.ReactElement | false | null | undefined;
-  moreMenuItems: React.ReactElement | false | null | undefined;
+  moreMenuItems?: React.ReactElement | false | null | undefined;
 }>) {
   const intl = useIntl();
 
