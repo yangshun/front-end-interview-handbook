@@ -2639,6 +2639,10 @@
     "defaultMessage": "Next question",
     "description": "Next question"
   },
+  "DqzUW4": {
+    "defaultMessage": "Meanwhile, if you have any questions, feel free to reach out to us at <link>{email}</link>.",
+    "description": "Advertise request success message"
+  },
   "Dt0MpD": {
     "defaultMessage": "This user has not started any projects matching those filters.",
     "description": "Subtitle for no projects yet on projects progress tab"
@@ -2702,6 +2706,10 @@
   "EDnI5H": {
     "defaultMessage": "Expand to view all guides",
     "description": "Tooltip for expanded guide button"
+  },
+  "EGDkQQ": {
+    "defaultMessage": "Your request has been received",
+    "description": "Title for advertise request page"
   },
   "EHK3Nn": {
     "defaultMessage": "Practice {questionCount}+ JavaScript Interview Questions on JavaScript Functions. Code in-browser, with quality solutions and test cases from Big Tech Ex-interviewers",
@@ -3190,10 +3198,6 @@
   "HEQbsp": {
     "defaultMessage": "Created: Oldest to Newest",
     "description": "Sorting option on question list page to sort by creation time, from oldest to newest"
-  },
-  "HERJCK": {
-    "defaultMessage": "Upon approval ({approvalDays} days), you will receive a confirmation email with the invoice and payment link.",
-    "description": "Advertise request success message"
   },
   "HEV8y4": {
     "defaultMessage": "Mentor others",
@@ -3907,6 +3911,10 @@
     "defaultMessage": "You have unlocked this project",
     "description": "Label for \"Start project\" button on Projects project page"
   },
+  "KtshU7": {
+    "defaultMessage": "Cancel",
+    "description": "Cancel label"
+  },
   "Ku3VdX": {
     "defaultMessage": "Uber",
     "description": "Company name for Uber"
@@ -4223,6 +4231,10 @@
     "defaultMessage": "Only foundational skills",
     "description": "Label for skill roadmap feature for month plan"
   },
+  "Mai1gI": {
+    "defaultMessage": "We will review your advertising request and get back to you with the confirmation and payment in {approvalDays} business days.",
+    "description": "Advertise request success message"
+  },
   "MaorIw": {
     "defaultMessage": "Sign in to save progress",
     "description": "Instructions for saving platform progress"
@@ -4434,6 +4446,10 @@
   "O2mFmn": {
     "defaultMessage": "The <anchor>recommended prep plan</anchor> is a straightforward strategy designed to help most users efficiently prepare for front-end interviews. It covers critical areas to ensure you are ready for the majority of challenges you'll face:",
     "description": "Paragraph 2 for \"What does GreatFrontEnd Interviews offer exactly?\" on Homepage FAQ sections"
+  },
+  "O2nyQ7": {
+    "defaultMessage": "I Accept",
+    "description": "Accept an agreement"
   },
   "O6pifk": {
     "defaultMessage": "Coding interviews",
@@ -7699,10 +7715,6 @@
     "defaultMessage": "Your edits have been successfully saved. Thank you for contributing to our community!",
     "description": "Update challenge success message"
   },
-  "fifLMg": {
-    "defaultMessage": "Please accept the agreement by selecting the checkbox at the end of the agreement",
-    "description": "Message for accept agreement checkbox"
-  },
   "fig6ds": {
     "defaultMessage": "Request success | Advertise with us",
     "description": "Title of advertise with us page"
@@ -7858,10 +7870,6 @@
   "gbjgjg": {
     "defaultMessage": "<authorProfileLink>{author}</authorProfileLink> left a question on their submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for someone asking question on their submission"
-  },
-  "gco77c": {
-    "defaultMessage": "Request submitted successfully!",
-    "description": "Subtitle for advertise request success page"
   },
   "gd8jkF": {
     "defaultMessage": "React Coding Interview Questions with Solutions | GreatFrontEnd",
@@ -8903,10 +8911,6 @@
     "defaultMessage": "You made a post on <recipientProfileLink>{recipient}</recipientProfileLink>'s submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for you making a post on others submission"
   },
-  "mgV3k+": {
-    "defaultMessage": "Agreement",
-    "description": "Label for Agreement"
-  },
   "mh0xHS": {
     "defaultMessage": "You can edit your submission and code anytime.",
     "description": "Description for Submit step in project submission checklist"
@@ -9374,6 +9378,10 @@
   "pJy0c+": {
     "defaultMessage": "Title: {characterLimit} characters maximum",
     "description": "Title placement constraints"
+  },
+  "pMtDow": {
+    "defaultMessage": "I represent and warrant that I am authorized to enter this Agreement on behalf of {companyName}, and by checking this box, I agree to the <link>Advertising Agreement</link>.",
+    "description": "Accept agreement checkbox"
   },
   "pN0mtf": {
     "defaultMessage": "Settings | Projects",
@@ -10498,10 +10506,6 @@
   "w3T2Ld": {
     "defaultMessage": "Editor shortcuts",
     "description": "Tooltip for button to open code editor shortcuts"
-  },
-  "w6p/Js": {
-    "defaultMessage": "Total",
-    "description": "Label for total ads amount"
   },
   "w85sKh": {
     "defaultMessage": "<authorLink>{author}</authorLink> replied to your question on the project discussions for <challengeLink>{entityTitle}</challengeLink> {timestamp}",

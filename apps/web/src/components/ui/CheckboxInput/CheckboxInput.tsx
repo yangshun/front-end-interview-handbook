@@ -22,6 +22,7 @@ type Attributes = Pick<
 >;
 
 type BaseProps = Readonly<{
+  className?: string;
   defaultValue?: boolean;
   description?: string;
   errorMessage?: string;
@@ -66,6 +67,7 @@ const topMarginVariants: Record<CheckboxSize, string> = {
 function CheckboxInput(
   {
     'aria-label': ariaLabel,
+    className,
     defaultValue,
     description,
     disabled = false,
@@ -93,81 +95,79 @@ function CheckboxInput(
   }, [selfRef, value]);
 
   return (
-    <div>
-      <div className={clsx('relative flex')}>
-        <div className="flex h-5 items-center">
-          <input
-            ref={mergedRef}
-            aria-describedby={description != null ? descriptionId : undefined}
-            aria-label={ariaLabel}
-            checked={value === true}
+    <div className={clsx('relative flex', className)}>
+      <div className="flex h-5 items-center">
+        <input
+          ref={mergedRef}
+          aria-describedby={description != null ? descriptionId : undefined}
+          aria-label={ariaLabel}
+          checked={value === true}
+          className={clsx(
+            'size-4',
+            'rounded',
+            'fill-neutral-300 dark:fill-neutral-700',
+            'text-neutral-900 dark:text-neutral-100',
+            'bg-transparent',
+            themeBorderElementColor,
+            // Important! needed to override hover styles.
+            [
+              'disabled:!bg-neutral-300 dark:disabled:!bg-neutral-700',
+              'disabled:cursor-not-allowed',
+            ],
+            [
+              'focus:ring-transparent focus:ring-offset-transparent',
+              'focus:outline-neutral-700 dark:focus:outline-neutral-300',
+            ],
+            !disabled && 'cursor-pointer',
+          )}
+          defaultChecked={defaultValue}
+          disabled={disabled}
+          id={id}
+          name={name}
+          type="checkbox"
+          onChange={(event) => {
+            if (!onChange) {
+              return;
+            }
+
+            onChange(event.target.checked, event);
+          }}
+        />
+      </div>
+      {!isLabelHidden && 'label' in props && (
+        <div
+          className={clsx(
+            'grid gap-1',
+            checkboxSizeClasses[size],
+            topMarginVariants[size],
+          )}>
+          <label
             className={clsx(
-              'size-4',
-              'rounded',
-              'fill-neutral-300 dark:fill-neutral-700',
-              'text-neutral-900 dark:text-neutral-100',
-              'bg-transparent',
-              themeBorderElementColor,
-              // Important! needed to override hover styles.
-              [
-                'disabled:!bg-neutral-300 dark:disabled:!bg-neutral-700',
-                'disabled:cursor-not-allowed',
-              ],
-              [
-                'focus:ring-transparent focus:ring-offset-transparent',
-                'focus:outline-neutral-700 dark:focus:outline-neutral-300',
-              ],
+              textVariants({
+                className: 'block',
+                color: disabled ? 'disabled' : 'secondary',
+                size: textSizeVariants[size],
+              }),
               !disabled && 'cursor-pointer',
             )}
-            defaultChecked={defaultValue}
-            disabled={disabled}
-            id={id}
-            name={name}
-            type="checkbox"
-            onChange={(event) => {
-              if (!onChange) {
-                return;
-              }
-
-              onChange(event.target.checked, event);
-            }}
-          />
+            htmlFor={id}>
+            {props.label}
+          </label>
+          {description && (
+            <Text
+              className="block"
+              color={disabled ? 'disabled' : 'secondary'}
+              size="body3">
+              {description}
+            </Text>
+          )}
+          {errorMessage && (
+            <Text className="block" color="error" id={errorId} size="body3">
+              {errorMessage}
+            </Text>
+          )}
         </div>
-        {!isLabelHidden && 'label' in props && (
-          <div
-            className={clsx(
-              'grid gap-1',
-              checkboxSizeClasses[size],
-              topMarginVariants[size],
-            )}>
-            <label
-              className={clsx(
-                textVariants({
-                  className: 'block',
-                  color: disabled ? 'disabled' : 'secondary',
-                  size: textSizeVariants[size],
-                }),
-                !disabled && 'cursor-pointer',
-              )}
-              htmlFor={id}>
-              {props.label}
-            </label>
-            {description && (
-              <Text
-                className="block"
-                color={disabled ? 'disabled' : 'secondary'}
-                size="body3">
-                {description}
-              </Text>
-            )}
-            {errorMessage && (
-              <Text className="block" color="error" id={errorId} size="body3">
-                {errorMessage}
-              </Text>
-            )}
-          </div>
-        )}
-      </div>
+      )}
     </div>
   );
 }

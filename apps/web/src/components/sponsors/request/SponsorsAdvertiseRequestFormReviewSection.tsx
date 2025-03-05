@@ -4,8 +4,10 @@ import { RiArrowLeftLine, RiArrowRightLine } from 'react-icons/ri';
 
 import type { StepsTabItemStatus } from '~/components/common/StepsTabs';
 import { FormattedMessage, useIntl } from '~/components/intl';
+import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import CheckboxInput from '~/components/ui/CheckboxInput';
+import Dialog from '~/components/ui/Dialog';
 import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -49,7 +51,10 @@ export default function SponsorsAdvertiseRequestFormReviewSection({
   const intl = useIntl();
   const agreementRef = useRef<HTMLDivElement>(null);
   const adsFormatData = useSponsorsAdFormatData();
+
+  const [agreementDialogShown, setAgreementDialogShown] = useState(false);
   const [signedAgreement, setSignedAgreement] = useState(false);
+
   const { emails, ads, company } = data;
   const {
     address,
@@ -88,6 +93,18 @@ export default function SponsorsAdvertiseRequestFormReviewSection({
     });
   }
 
+  const agreementEl = (
+    <SponsorsAdvertiseRequestAgreement
+      address={`${addressString}, ${address.country}`}
+      ads={ads}
+      advertiserFullLegalName={legalName}
+      authorizedSignatoryName={signatoryName}
+      authorizedSignatoryTitle={signatoryTitle}
+      contactEmails={emails}
+      totalAmount={totalAmount}
+    />
+  );
+
   return (
     <form className="mx-auto w-full max-w-xl" onSubmit={handleOnSubmit}>
       <Heading level="heading6">
@@ -98,14 +115,18 @@ export default function SponsorsAdvertiseRequestFormReviewSection({
         />
       </Heading>
       <Section>
-        <Text className="block" color="secondary">
+        <Text className="mt-1 block" color="secondary" size="body2">
           <FormattedMessage
             defaultMessage="Review everything and make sure they are in order"
             description="Subtitle for review section"
             id="BGKx/h"
           />
         </Text>
-        <div className="mt-8 flex flex-col gap-6">
+        <div
+          className={clsx('mt-8 flex flex-col gap-6', 'p-6', 'rounded', [
+            themeBorderColor,
+            'border',
+          ])}>
           <div>
             <Text className="block" size="body2" weight="medium">
               <FormattedMessage
@@ -138,12 +159,7 @@ export default function SponsorsAdvertiseRequestFormReviewSection({
                 id="aQYg46"
               />
             </Text>
-            <div
-              className={clsx(
-                'mt-2 rounded px-3 py-2',
-                themeBorderColor,
-                'border',
-              )}>
+            <div className={clsx('mt-2')}>
               {Object.values(adFormats).map((adFormat) => {
                 const numberOfWeeksForFormat = ads
                   .filter((ad) => ad.format === adFormat)
@@ -177,14 +193,7 @@ export default function SponsorsAdvertiseRequestFormReviewSection({
                 );
               })}
               <Divider className="my-2" />
-              <div className="flex justify-between">
-                <Text color="secondary" size="body2">
-                  <FormattedMessage
-                    defaultMessage="Total"
-                    description="Label for total ads amount"
-                    id="w6p/Js"
-                  />
-                </Text>
+              <div className="flex justify-end">
                 <Text color="secondary" size="body2" weight="medium">
                   ${totalAmount}
                 </Text>
@@ -236,41 +245,29 @@ export default function SponsorsAdvertiseRequestFormReviewSection({
             </Text>
           </div>
           <div>
-            <Text className="block" size="body2" weight="medium">
-              <FormattedMessage
-                defaultMessage="Agreement"
-                description="Label for Agreement"
-                id="mgV3k+"
-              />
-            </Text>
-            <Text className="block" color="error" size="body2">
-              <FormattedMessage
-                defaultMessage="Please accept the agreement by selecting the checkbox at the end of the agreement"
-                description="Message for accept agreement checkbox"
-                id="fifLMg"
-              />
-            </Text>
-            <div
-              ref={agreementRef}
-              className={clsx('mt-2 rounded p-5', themeBorderColor, 'border')}>
-              <SponsorsAdvertiseRequestAgreement
-                address={`${addressString}, ${address.country}`}
-                ads={ads}
-                advertiserFullLegalName={legalName}
-                authorizedSignatoryName={signatoryName}
-                authorizedSignatoryTitle={signatoryTitle}
-                contactEmails={emails}
-                totalAmount={totalAmount}
-              />
-            </div>
+            <CheckboxInput
+              className="block"
+              label={
+                <FormattedMessage
+                  defaultMessage="I represent and warrant that I am authorized to enter this Agreement on behalf of {companyName}, and by checking this box, I agree to the <link>Advertising Agreement</link>."
+                  description="Accept agreement checkbox"
+                  id="pMtDow"
+                  values={{
+                    companyName: data.company.legalName,
+                    link: (chunks) => (
+                      <Anchor onClick={() => setAgreementDialogShown(true)}>
+                        {chunks}
+                      </Anchor>
+                    ),
+                  }}
+                />
+              }
+              value={signedAgreement}
+              onChange={(value) => {
+                setSignedAgreement(value);
+              }}
+            />
           </div>
-          <CheckboxInput
-            label="I hereby acknowledge and sign the agreement(s)."
-            value={signedAgreement}
-            onChange={(value) => {
-              setSignedAgreement(value);
-            }}
-          />
         </div>
         <div className="mt-8 flex justify-between">
           <Button
@@ -300,6 +297,44 @@ export default function SponsorsAdvertiseRequestFormReviewSection({
             type="submit"
             variant="primary"
           />
+        </div>
+        <Dialog
+          isShown={agreementDialogShown}
+          primaryButton={
+            <Button
+              label={intl.formatMessage({
+                defaultMessage: 'I Accept',
+                description: 'Accept an agreement',
+                id: 'O2nyQ7',
+              })}
+              size="md"
+              variant="primary"
+              onClick={() => {
+                setSignedAgreement(true);
+                setAgreementDialogShown(false);
+              }}
+            />
+          }
+          scrollable={true}
+          secondaryButton={
+            <Button
+              label={intl.formatMessage({
+                defaultMessage: 'Cancel',
+                description: 'Cancel label',
+                id: 'KtshU7',
+              })}
+              size="md"
+              variant="secondary"
+              onClick={() => setAgreementDialogShown(false)}
+            />
+          }
+          title=" "
+          width="screen-lg"
+          onClose={() => setAgreementDialogShown(false)}>
+          {agreementEl}
+        </Dialog>
+        <div ref={agreementRef} className="hidden">
+          {agreementEl}
         </div>
       </Section>
     </form>

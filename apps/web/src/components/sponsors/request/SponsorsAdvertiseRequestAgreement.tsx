@@ -70,7 +70,7 @@ export default function SponsorsAdvertiseRequestAgreement({
           <strong>
             {authorizedSignatoryName}, {authorizedSignatoryTitle}
           </strong>
-          .
+          , an authorized signatory.
         </li>
       </ul>
       <p>
@@ -262,7 +262,7 @@ export default function SponsorsAdvertiseRequestAgreement({
         </li>
         <li>
           <strong>Payment Window</strong>. Advertiser shall pay the invoice{' '}
-          <strong>in full within {paymentDueDays} </strong>day(s) from the date
+          <strong>in full within {paymentDueDays} day(s)</strong> from the date
           of the invoice ("Payment Due Date").
         </li>
         <li>
@@ -292,9 +292,9 @@ export default function SponsorsAdvertiseRequestAgreement({
         <li>
           If there is a chargeback or other payment issue after the Ad Slot has
           gone live, Publisher may terminate the ad immediately unless
-          Advertiser resolves the payment issue within{' '}
-          <strong>{advertiserResolutionDays}</strong> day(s). No guarantees of
-          slot availability will be made in the interim.
+          Advertiser resolves the payment issue{' '}
+          <strong>within {advertiserResolutionDays} day(s)</strong>. No
+          guarantees of slot availability will be made in the interim.
         </li>
       </ul>
       <h3>5. Termination</h3>
@@ -316,8 +316,8 @@ export default function SponsorsAdvertiseRequestAgreement({
         <li>
           Publisher may terminate this Agreement immediately if Advertiser's ad
           content breaches Section 3 (Prohibited Content), or if payment is
-          invalidated (e.g., chargebacks) and is not remedied within{' '}
-          <strong>{advertiserResolutionDays}</strong> day(s).
+          invalidated (e.g., chargebacks) and is not remedied{' '}
+          <strong>within {advertiserResolutionDays} day(s)</strong>.
         </li>
       </ul>
       <p>
