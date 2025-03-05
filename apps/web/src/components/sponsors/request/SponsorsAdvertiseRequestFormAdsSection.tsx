@@ -74,7 +74,7 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
         />
       </Heading>
       <Section>
-        <Text className="block" color="secondary">
+        <Text className="mt-1 block" color="secondary" size="body2">
           <FormattedMessage
             defaultMessage="Choose your ad formats, go live schedule, and upload assets"
             description="Advertise request form ads section description"
@@ -82,27 +82,27 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
           />
         </Text>
         {ads.length > 0 && (
-          <div className="mt-12 flex flex-col items-start">
+          <div className="mt-8 flex flex-col items-start">
             <ul className="flex w-full flex-col gap-2">
               {ads.map((ad) => (
                 <li
                   key={ad.id}
                   className={clsx(
                     'flex items-center justify-between gap-2',
-                    'px-3 py-2',
+                    'px-3 py-3',
                     'rounded-md',
                     'border',
                     themeBorderElementColor,
                   )}>
-                  <div className="flex items-center gap-2">
+                  <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
                     <Badge
                       label={adFormatData[ad.format].name}
+                      size="sm"
                       variant="neutral-active"
                     />
-                    <Text className="truncate" size="body2" weight="medium">
+                    <Text className="md:truncate" size="body2" weight="medium">
                       {ad.text}
-                    </Text>{' '}
-                    &middot;
+                    </Text>
                     <Text color="secondary" size="body3">
                       <FormattedMessage
                         defaultMessage="{count, plural, one {# week} other {# weeks}}"
@@ -110,6 +110,13 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
                         id="06WD6D"
                         values={{ count: ad.weeks.length }}
                       />
+                    </Text>
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <Text size="body2" weight="bold">
+                      $
+                      {ad.weeks.length *
+                        SponsorAdFormatConfigs[ad.format].pricePerWeekUSD}
                     </Text>
                     <Button
                       icon={RiDeleteBinLine}
@@ -135,18 +142,11 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
                       }}
                     />
                   </div>
-                  <div className="flex items-center gap-4">
-                    <Text size="body2" weight="bold">
-                      $
-                      {ad.weeks.length *
-                        SponsorAdFormatConfigs[ad.format].pricePerWeekUSD}
-                    </Text>
-                  </div>
                 </li>
               ))}
             </ul>
             <div className="mt-4 flex w-full flex-row-reverse justify-between gap-4">
-              <Text className="mr-3" size="body2" weight="bold">
+              <Text size="body2" weight="bold">
                 <FormattedMessage
                   defaultMessage="Total: ${total}"
                   description="Total price label"

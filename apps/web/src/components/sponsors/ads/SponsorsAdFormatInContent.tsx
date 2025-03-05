@@ -58,7 +58,7 @@ export default function SponsorsAdFormatInContent({
   const isRichTextValue = isLexicalEditorValue(body);
 
   return (
-    <div ref={tracking ? ref : undefined}>
+    <div ref={tracking ? ref : undefined} className="w-full">
       <div>
         {imageUrl ? (
           <img

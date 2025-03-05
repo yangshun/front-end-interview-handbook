@@ -89,7 +89,7 @@ export default function SponsorsAdvertiseRequestFormCompanyDetailsSection({
         />
       </Heading>
       <Section>
-        <Text className="block" color="secondary">
+        <Text className="mt-1 block" color="secondary" size="body2">
           <FormattedMessage
             defaultMessage="Provide the company details for invoicing and agreement purposes"
             description="Company details section description"
@@ -120,7 +120,7 @@ export default function SponsorsAdvertiseRequestFormCompanyDetailsSection({
               />
             )}
           />
-          <div className="flex gap-2">
+          <div className="flex gap-x-2 gap-y-6 max-sm:flex-col">
             <div className="flex-1">
               <Controller
                 control={control}
@@ -323,7 +323,7 @@ export default function SponsorsAdvertiseRequestFormCompanyDetailsSection({
               </div>
             </div>
           </fieldset>
-          <div className="flex gap-2">
+          <div className="flex gap-x-2 gap-y-6 max-sm:flex-col">
             <div className="flex-1">
               <Controller
                 control={control}

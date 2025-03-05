@@ -105,7 +105,7 @@ export default function SponsorsAdvertiseRequestFormContactSection({
         />
       </Heading>
       <Section>
-        <Text className="block" color="secondary">
+        <Text className="mt-1 block" color="secondary" size="body2">
           <FormattedMessage
             defaultMessage="Provide the company email addresses we will use to contact you"
             description="Subtitle for contact details"

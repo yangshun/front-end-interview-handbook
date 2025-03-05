@@ -311,7 +311,7 @@ export default function SponsorsAdvertiseRequestFormAdsSectionInContent({
                     'rounded-md',
                     themeBackgroundColor,
                   )}>
-                  <div className="max-w-xl">
+                  <div className="w-full max-w-xl">
                     <SponsorsAdFormatInContent
                       adId="test-short-form"
                       body={
