@@ -6,7 +6,6 @@ import { SPONSORSHIPS_AVAILABLE } from '~/data/FeatureFlags';
 
 import {
   themeBackgroundCardColor,
-  themeBorderColor,
   themeGlassyBorder,
 } from '~/components/ui/theme';
 

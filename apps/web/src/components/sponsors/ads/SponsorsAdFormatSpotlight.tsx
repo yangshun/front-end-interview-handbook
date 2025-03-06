@@ -30,7 +30,7 @@ export default function SponsorsAdFormatSpotlight({
   url,
   imageUrl,
   tracking = true,
-  textWeight,
+  textWeight = 'normal',
 }: Props) {
   const ref = useSponsorsAdImpressionLogging<HTMLDivElement>(adId);
   const href = tracking ? sponsorsAdTrackingHref({ adId, url }) : url;
@@ -89,12 +89,12 @@ export default function SponsorsAdFormatSpotlight({
           'inline-block pb-px', // Underline gets cutoff on Firefox, so add a 1px bottom spacing
         )}
         color="subtitle"
-        size="body3"
-        weight={textWeight}>
+        size="body3">
         <Anchor
           className={clsx('relative z-[1]')}
           target="_blank"
-          variant="flat">
+          variant="flat"
+          weight={textWeight}>
           {text}
         </Anchor>{' '}
         <RiArrowRightLine

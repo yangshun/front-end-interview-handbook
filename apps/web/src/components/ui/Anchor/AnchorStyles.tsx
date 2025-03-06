@@ -13,7 +13,7 @@ export type AnchorVariant =
   | 'flatUnderline' // Light mode: same color as text + underline; Dark mode: underline on hover.
   | 'secondary' // Secondary color; emphasized color + underline on hover.
   | 'unstyled';
-export type AnchorWeight = 'bold' | 'medium' | 'normal';
+export type AnchorWeight = 'bold' | 'inherit' | 'medium' | 'normal';
 
 const anchorVariantClasses: Record<AnchorVariant, string> = {
   // Blend: themeTextBrandColor_Hover,
@@ -33,8 +33,9 @@ const anchorVariantClasses: Record<AnchorVariant, string> = {
 
 const anchorWeightClasses: Record<AnchorWeight, string> = {
   bold: 'font-semibold',
+  inherit: '',
   medium: 'font-medium',
-  normal: '',
+  normal: 'font-normal',
 };
 
 export const anchorVariants = cva(
