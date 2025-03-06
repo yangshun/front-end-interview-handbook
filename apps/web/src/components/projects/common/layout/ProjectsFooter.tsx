@@ -4,12 +4,16 @@ import url from 'url';
 
 import { SCROLL_HASH_PROJECTS_FEATURES } from '~/hooks/useScrollToHash';
 
+import { SPONSORSHIPS_AVAILABLE } from '~/data/FeatureFlags';
+
+import useCommonNavItems from '~/components/common/navigation/useCommonNavItems';
 import type { FooterNavigation } from '~/components/global/footers/Footer';
 import Footer from '~/components/global/footers/Footer';
 import { useIntl } from '~/components/intl';
 
 function useFooterNavigation() {
   const intl = useIntl();
+  const { advertise } = useCommonNavItems();
 
   const navigation: FooterNavigation = [
     {
@@ -158,6 +162,15 @@ function useFooterNavigation() {
             id: '5pRXcv',
           }),
         },
+        ...(SPONSORSHIPS_AVAILABLE
+          ? [
+              {
+                href: advertise.href!,
+                key: advertise.id,
+                name: advertise.label,
+              },
+            ]
+          : []),
         {
           href: '/affiliates',
           key: 'affiliates',

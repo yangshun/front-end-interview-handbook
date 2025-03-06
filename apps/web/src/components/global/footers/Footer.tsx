@@ -1,7 +1,6 @@
 'use client';
 
 import clsx from 'clsx';
-import type { ReactNode } from 'react';
 
 import { fbqGFE } from '~/lib/fbq';
 import gtag from '~/lib/gtag';
@@ -32,7 +31,6 @@ type FooterLink = Readonly<{
   icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
   key: string;
   name: string;
-  nameAddOn?: ReactNode;
 }>;
 type FooterLinks = ReadonlyArray<FooterLink>;
 type FooterLinkSection = {
@@ -78,7 +76,6 @@ function FooterSection({
                       {item.name}
                     </Anchor>
                   </Text>
-                  {item?.nameAddOn}
                 </li>
               );
             })}
