@@ -111,10 +111,6 @@
     "defaultMessage": "Post",
     "description": "Label for post reply button on project discussions page"
   },
-  "+g+A4p": {
-    "defaultMessage": "Simply email us at <anchor>sponsor@greatfrontend.com</anchor>.",
-    "description": "Advertise with us section subtitle"
-  },
   "+gMPfE": {
     "defaultMessage": "Search by challenge name / brief",
     "description": "Search placeholder for challenge listing"
@@ -1191,10 +1187,6 @@
     "defaultMessage": "Something went wrong. Try again later or contact <link>support@greatfrontend.com</link>!",
     "description": "Error toast for project"
   },
-  "5Gvh/t": {
-    "defaultMessage": "Contact us",
-    "description": "Button label for contact us"
-  },
   "5M4u9n": {
     "defaultMessage": "You have <bold>{amountLeft}</bold> premium credits remaining. Unlock this project to access all premium features for this challenge, including the Figma design files, official guides, and solutions.",
     "description": "Subtitle for project paywall"
@@ -1346,6 +1338,10 @@
   "64nz1e": {
     "defaultMessage": "Switching on focus mode collapses all sidebars to provide a better reading experience.",
     "description": "Label for turning focus mode on"
+  },
+  "65Bvm/": {
+    "defaultMessage": "Simply email us at <link>sponsor@greatfrontend.com</link> or leave us a message through the form. We will be happy to answer any questions you might have.",
+    "description": "Advertise with us section subtitle"
   },
   "68EuCT": {
     "defaultMessage": "Project challenges",
@@ -1626,10 +1622,6 @@
   "7ZjmR2": {
     "defaultMessage": "Implementation must contain at least {minLength} character(s).",
     "description": "Error message"
-  },
-  "7aiZNf": {
-    "defaultMessage": "We will be happy to answer any questions you might have.",
-    "description": "Advertise with us section subtitle"
   },
   "7b8bt1": {
     "defaultMessage": "Binary search tree",
@@ -7086,6 +7078,10 @@
   "cCQIST": {
     "defaultMessage": "Open in new tab",
     "description": "Indication that text has been copied"
+  },
+  "cCmpi4": {
+    "defaultMessage": "Message submitted successfully",
+    "description": "Success toast title for message sent"
   },
   "cIZicH": {
     "defaultMessage": "Our focus now is on expanding our challenge base. New challenges are added to the platform on a weekly basis.",

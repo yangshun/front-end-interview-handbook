@@ -3,6 +3,7 @@
 import clsx from 'clsx';
 import { useRef } from 'react';
 import { RiMoreLine, RiPhoneLine, RiScales3Line } from 'react-icons/ri';
+import url from 'url';
 
 import useIsSticky from '~/hooks/useIsSticky';
 
@@ -34,7 +35,10 @@ export default function SponsorsNavbar() {
         <div className="hidden items-center gap-6 lg:flex">
           <div className="flex items-center gap-3">
             <Button
-              href="mailto:sponsor@greatfrontend.com"
+              href={url.format({
+                hash: 'contact-section',
+                pathname: '/advertise-with-us',
+              })}
               label={intl.formatMessage({
                 defaultMessage: 'Contact us',
                 description: 'Contact us button label',
@@ -73,7 +77,10 @@ export default function SponsorsNavbar() {
         <div className={clsx('flex flex-col gap-6', 'h-full')}>
           <div className={clsx('flex flex-1 flex-col gap-2', 'px-6 pt-4')}>
             <Button
-              href="mailto:sponsor@greatfrontend.com"
+              href={url.format({
+                hash: 'contact-section',
+                pathname: '/advertise-with-us',
+              })}
               label={intl.formatMessage({
                 defaultMessage: 'Contact us',
                 description: 'Contact us button label',
