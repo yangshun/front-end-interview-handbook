@@ -3771,6 +3771,10 @@
     "defaultMessage": "Failed to submit request",
     "description": "Error title for request submission"
   },
+  "KLbE0F": {
+    "defaultMessage": "The URL must not be localhost or an IP address. Provide a valid, publicly accessible URL.",
+    "description": "Error message for URL"
+  },
   "KPn83+": {
     "defaultMessage": "Series Contents",
     "description": "Series contents navigation menu button label"
@@ -9646,10 +9650,6 @@
   "qsq4DL": {
     "defaultMessage": "Spotlight Ad",
     "description": "Ad format"
-  },
-  "quZZdV": {
-    "defaultMessage": "URL is required",
-    "description": "Error message for URL"
   },
   "qv5NJ8": {
     "defaultMessage": "Feedback submitted successfully",

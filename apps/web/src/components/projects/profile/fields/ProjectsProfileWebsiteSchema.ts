@@ -1,8 +1,9 @@
 import type { IntlShape } from 'react-intl';
 import { z } from 'zod';
 
+import { URL_REGEX } from '~/lib/urlValidation';
+
 import { useIntl } from '~/components/intl';
-import { URL_REGEX } from '~/components/projects/misc';
 
 function projectsProfileWebsiteSchema(options?: {
   required: boolean;

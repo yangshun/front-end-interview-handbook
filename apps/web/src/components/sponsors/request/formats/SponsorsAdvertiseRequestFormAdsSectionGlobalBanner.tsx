@@ -169,7 +169,6 @@ export default function SponsorsAdvertiseRequestFormAdsSectionGlobalBanner({
                     })}
                     placeholder="https://www.example.com"
                     required={true}
-                    type="url"
                   />
                 )}
               />

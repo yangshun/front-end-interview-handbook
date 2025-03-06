@@ -1,6 +1,8 @@
 import { $getRoot } from 'lexical';
 import { z } from 'zod';
 
+import { urlSchema } from '~/lib/urlValidation';
+
 import { useIntl } from '~/components/intl';
 import { SponsorAdFormatConfigs } from '~/components/sponsors/SponsorsAdFormatConfigs';
 import { RichTextEditorConfig } from '~/components/ui/RichTextEditor/RichTextEditorConfig';
@@ -80,7 +82,7 @@ function adBaseSchema(options?: {
   maxLength: number;
   maxTextMessage?: string;
   minTextMessage?: string;
-  urlRequiredMessage?: string;
+  urlLocalhostMessage?: string;
 }) {
   return z.object({
     text: z
@@ -90,10 +92,12 @@ function adBaseSchema(options?: {
         options?.maxLength ?? 100,
         options?.maxTextMessage ?? 'Title is too long',
       ),
-    url: z
-      .string()
-      .url(options?.invalidUrlMessage ?? 'Invalid URL')
-      .min(1, options?.urlRequiredMessage ?? 'URL is required'),
+    url: urlSchema({
+      urlMessage: options?.invalidUrlMessage || 'Invalid URL',
+      urlMessageLocalhost:
+        options?.urlLocalhostMessage ||
+        'The URL must not be localhost or an IP address. Provide a valid, publicly accessible URL.',
+    }),
   });
 }
 
@@ -120,10 +124,11 @@ function useSponsorsAdvertiseAdBaseSchema(textMaxLength: number) {
       description: 'Error message for title',
       id: 'bdirwv',
     }),
-    urlRequiredMessage: intl.formatMessage({
-      defaultMessage: 'URL is required',
+    urlLocalhostMessage: intl.formatMessage({
+      defaultMessage:
+        'The URL must not be localhost or an IP address. Provide a valid, publicly accessible URL.',
       description: 'Error message for URL',
-      id: 'quZZdV',
+      id: 'KLbE0F',
     }),
   });
 }
