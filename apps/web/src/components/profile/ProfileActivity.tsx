@@ -262,11 +262,11 @@ export default function ProfileActivity() {
                           size="body2"
                           weight="medium">
                           <Anchor href={metadata?.href} variant="flat">
-                            {metadata!.title}
+                            {metadata.title}
                           </Anchor>
                         </Text>
                         {metadata?.format && (
-                          <div className="w-1/4">
+                          <div className="flex w-1/4">
                             <QuestionFormatLabel
                               showIcon={true}
                               value={metadata.format}

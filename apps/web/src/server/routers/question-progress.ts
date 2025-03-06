@@ -372,16 +372,26 @@ export const questionProgressRouter = router({
       ]),
     );
 
-    return questionProgressList.map((progress) => ({
-      createdAt: progress.createdAt,
-      id: progress.id,
-      metadata: metadataMap.get(
-        hashQuestion({
-          format: progress.format as QuestionFormat,
-          slug: progress.slug,
-        }),
-      ),
-    }));
+    return questionProgressList
+      .map((progress) => {
+        const metadata = metadataMap.get(
+          hashQuestion({
+            format: progress.format as QuestionFormat,
+            slug: progress.slug,
+          }),
+        );
+
+        if (metadata == null) {
+          return null;
+        }
+
+        return {
+          createdAt: progress.createdAt,
+          id: progress.id,
+          metadata,
+        };
+      })
+      .flatMap((progress) => (progress == null ? [] : [progress]));
   }),
   getContributionsCount: userProcedure
     .input(
