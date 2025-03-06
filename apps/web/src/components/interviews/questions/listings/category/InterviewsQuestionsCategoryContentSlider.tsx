@@ -25,9 +25,9 @@ type Props = Readonly<{
 export default function InterviewsQuestionsCategoryContentSlider({
   frameworkOrLanguage,
 }: Props) {
+  const intl = useIntl();
   const user = useUser();
 
-  const intl = useIntl();
   const [index, setIndex] = useState(0);
   const timer = useRef<NodeJS.Timeout>();
 
@@ -147,7 +147,7 @@ export default function InterviewsQuestionsCategoryContentSlider({
       {data.map((item) => (
         <TabsPrimitive.Content
           key={item.value}
-          className={clsx('xl:h-[170px] min-[1326px]:h-[152px]')}
+          className={clsx('xl:h-[150px]')}
           value={item.value}>
           <InterviewsContentSliderCard
             className="h-auto"
@@ -160,22 +160,22 @@ export default function InterviewsQuestionsCategoryContentSlider({
         </TabsPrimitive.Content>
       ))}
       {data.length > 1 && (
-        <TabsPrimitive.List className="flex justify-center gap-4">
+        <TabsPrimitive.List className="flex justify-center gap-2 pb-1">
           {data.map((item) => (
             <TabsPrimitive.Trigger
               key={item.value}
               asChild={true}
               value={item.value}>
-              <button
-                aria-label={item.value}
-                className="w-12 py-1.5"
-                type="button">
+              <button aria-label={item.value} className="py-1.5" type="button">
                 <div
                   className={clsx(
-                    'h-1 w-full rounded',
+                    'size-2 rounded',
                     item.value === dataValue
                       ? 'bg-neutral-900 dark:bg-neutral-100'
-                      : 'bg-neutral-200/70 dark:bg-neutral-700',
+                      : clsx(
+                          'bg-neutral-200/70 dark:bg-neutral-700',
+                          'hover:bg-neutral-300/70 dark:hover:bg-neutral-600',
+                        ),
                     themeOutlineElement_FocusVisible,
                     themeOutlineElementBrandColor_FocusVisible,
                   )}

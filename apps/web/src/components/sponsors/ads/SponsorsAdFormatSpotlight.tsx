@@ -1,7 +1,12 @@
 import clsx from 'clsx';
-import { RiAdvertisementLine, RiMegaphoneLine } from 'react-icons/ri';
+import {
+  RiAdvertisementLine,
+  RiArrowRightLine,
+  RiMegaphoneLine,
+} from 'react-icons/ri';
 
 import Anchor from '~/components/ui/Anchor';
+import type { TextWeight } from '~/components/ui/Text';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundBrandColor,
@@ -16,7 +21,7 @@ import useSponsorsAdImpressionLogging from './useSponsorsAdImpressionLogging';
 import type { SponsorsAdFormatPayloadSpotlight } from '../SponsorsTypes';
 
 type Props = Omit<SponsorsAdFormatPayloadSpotlight, 'format'> &
-  Readonly<{ tracking?: boolean }>;
+  Readonly<{ textWeight?: TextWeight; tracking?: boolean }>;
 
 export default function SponsorsAdFormatSpotlight({
   adId,
@@ -25,27 +30,27 @@ export default function SponsorsAdFormatSpotlight({
   url,
   imageUrl,
   tracking = true,
+  textWeight,
 }: Props) {
-  const ref = useSponsorsAdImpressionLogging<HTMLAnchorElement>(adId);
+  const ref = useSponsorsAdImpressionLogging<HTMLDivElement>(adId);
+  const href = tracking ? sponsorsAdTrackingHref({ adId, url }) : url;
 
   return (
-    <Anchor
+    <div
       ref={tracking ? ref : undefined}
       className={clsx(
         'flex items-center gap-x-3',
         'w-full',
         'relative isolate',
-      )}
-      href={tracking ? sponsorsAdTrackingHref({ adId, url }) : url}
-      target="blank"
-      variant="flat">
+      )}>
       <div
         className={clsx(
           'relative shrink-0',
           'aspect-[2/1] h-12',
-          'rounded',
           'flex items-center justify-center',
+          'rounded-md',
           themeBackgroundBrandColor,
+          'overflow-hidden',
         )}>
         <Tooltip asChild={true} label={`Sponsor: ${sponsorName}`} side="bottom">
           <div
@@ -78,9 +83,31 @@ export default function SponsorsAdFormatSpotlight({
           />
         )}
       </div>
-      <Text className="line-clamp-3 grow" color="subtitle" size="body3">
-        {text}
+      <Text
+        className={clsx(
+          'line-clamp-3 grow',
+          'inline-block pb-px', // Underline gets cutoff on Firefox, so add a 1px bottom spacing
+        )}
+        color="subtitle"
+        size="body3"
+        weight={textWeight}>
+        <Anchor
+          className={clsx('relative z-[1]')}
+          target="_blank"
+          variant="flat">
+          {text}
+        </Anchor>{' '}
+        <RiArrowRightLine
+          aria-hidden={true}
+          className="size-3.5 inline-flex shrink-0"
+        />
       </Text>
-    </Anchor>
+      <Anchor
+        aria-label={text}
+        className="absolute inset-0"
+        href={href}
+        target="_blank"
+      />
+    </div>
   );
 }

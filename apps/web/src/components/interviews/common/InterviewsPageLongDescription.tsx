@@ -12,7 +12,7 @@ export default function InterviewsPageLongDescription({ children }: Props) {
     <div
       className={clsx(
         'flex flex-col gap-4',
-        'w-full lg:max-w-[75%]',
+        'w-full sm:max-w-[75%]',
         'text-sm xl:text-base',
         themeTextSecondaryColor,
         'text-pretty',

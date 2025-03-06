@@ -28,6 +28,7 @@ import InterviewsStudyListPageTitleSection from '~/components/interviews/questio
 import InterviewsStudyListQuestions from '~/components/interviews/questions/listings/study-list/InterviewsStudyListQuestions';
 import { useIntl } from '~/components/intl';
 import MDXContent from '~/components/mdx/MDXContent';
+import SponsorsAdFormatSpotlightCard from '~/components/sponsors/ads/SponsorsAdFormatSpotlightCard';
 import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -198,6 +199,7 @@ export default function InterviewsCompanyGuidePage({
               <InterviewsStudyListQuestions
                 overallProgress={questionsOverallProgress}
                 questions={questions}
+                sideColumnAddOn={<SponsorsAdFormatSpotlightCard />}
                 studyListKey={studyList.slug}
               />
             ) : (

@@ -110,7 +110,7 @@ export default function InterviewsStudyPlanBlind75Page({
           studyListKey="blind75"
           title={studyList.name}
         />
-        <div className="block xl:hidden">
+        <div className="max-w-md min-[1200px]:hidden">
           <SponsorsAdFormatSpotlightCard />
         </div>
       </div>
@@ -119,11 +119,7 @@ export default function InterviewsStudyPlanBlind75Page({
           <InterviewsStudyListQuestions
             overallProgress={questionsOverallProgress}
             questions={questions}
-            sideColumnAddOn={
-              <div className="hidden xl:block">
-                <SponsorsAdFormatSpotlightCard />
-              </div>
-            }
+            sideColumnAddOn={<SponsorsAdFormatSpotlightCard />}
             studyListKey={studyList.slug}
           />
           {bottomContent && (

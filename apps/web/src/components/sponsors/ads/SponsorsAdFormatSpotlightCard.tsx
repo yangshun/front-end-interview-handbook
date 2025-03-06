@@ -7,6 +7,7 @@ import { SPONSORSHIPS_AVAILABLE } from '~/data/FeatureFlags';
 import {
   themeBackgroundCardColor,
   themeBorderColor,
+  themeGlassyBorder,
 } from '~/components/ui/theme';
 
 import SponsorsAdFormatSpotlight from './SponsorsAdFormatSpotlight';
@@ -34,10 +35,10 @@ function SponsorsAdFormatSpotlightCardImpl() {
         'w-full lg:w-auto lg:max-w-[337px]',
         'p-5',
         themeBackgroundCardColor,
-        ['border', themeBorderColor],
+        themeGlassyBorder,
         'rounded-lg',
       )}>
-      <SponsorsAdFormatSpotlight {...data} />
+      <SponsorsAdFormatSpotlight {...data} textWeight="medium" />
     </div>
   );
 }

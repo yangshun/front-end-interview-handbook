@@ -75,7 +75,6 @@ export default function InterviewsQuestionsCategoryPage({
         description={description}
         features={features}
         icon={categoryItem?.icon}
-        sideElement={<SponsorsAdFormatSpotlightCard />}
         title={title}
       />
       {longDescription && (
@@ -119,12 +118,14 @@ export default function InterviewsQuestionsCategoryPage({
           questions={questionList}
           searchPlaceholder={searchPlaceholder}
           sideColumnAddOn={
-            frameworkOrLanguageValue && (
+            frameworkOrLanguageValue ? (
               <div className="hidden lg:block">
                 <InterviewsQuestionsCategoryContentSlider
                   frameworkOrLanguage={frameworkOrLanguageValue}
                 />
               </div>
+            ) : (
+              <SponsorsAdFormatSpotlightCard />
             )
           }
         />

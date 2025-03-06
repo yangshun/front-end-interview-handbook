@@ -14,9 +14,7 @@ import type {
   QuestionFormat,
   QuestionMetadata,
 } from '~/components/interviews/questions/common/QuestionsTypes';
-import { countQuestionsByAccess } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 import QuestionsUnifiedListWithFiltersAndProgress from '~/components/interviews/questions/listings/items/QuestionsUnifiedListWithFiltersAndProgress';
-import QuestionListingAccessSummary from '~/components/interviews/questions/listings/stats/QuestionListingAccessSummary';
 import { useIntl } from '~/components/intl';
 import MDXContent from '~/components/mdx/MDXContent';
 import SponsorsAdFormatSpotlightCard from '~/components/sponsors/ads/SponsorsAdFormatSpotlightCard';
@@ -107,7 +105,6 @@ export default function InterviewsQuestionFormatPage({
     useGuidesWithCompletionStatus(filteredGuides);
 
   const formatData = useQuestionFormatsData();
-  const questionsAccessCount = countQuestionsByAccess(questions);
 
   return (
     <div className={clsx('flex flex-col', 'gap-y-10')}>
@@ -115,7 +112,6 @@ export default function InterviewsQuestionFormatPage({
         description={description}
         features={features[format]}
         icon={formatData[format].icon}
-        sideElement={<SponsorsAdFormatSpotlightCard />}
         title={title}
       />
       <Section>
@@ -138,11 +134,7 @@ export default function InterviewsQuestionFormatPage({
           questionCompletionCount={questionCompletionCount}
           questions={questions}
           searchPlaceholder={formatData[format].searchPlaceholder}
-          sideColumnAddOn={
-            <div className="hidden flex-col gap-8 lg:flex">
-              <QuestionListingAccessSummary {...questionsAccessCount} />
-            </div>
-          }
+          sideColumnAddOn={<SponsorsAdFormatSpotlightCard />}
         />
         {bottomContent && (
           <>

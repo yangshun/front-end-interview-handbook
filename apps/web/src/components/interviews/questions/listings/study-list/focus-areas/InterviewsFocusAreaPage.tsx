@@ -22,6 +22,7 @@ import QuestionsList from '~/components/interviews/questions/listings/items/Ques
 import InterviewsStudyListPageTitleSection from '~/components/interviews/questions/listings/study-list/InterviewsStudyListPageTitleSection';
 import InterviewsStudyListQuestions from '~/components/interviews/questions/listings/study-list/InterviewsStudyListQuestions';
 import MDXContent from '~/components/mdx/MDXContent';
+import SponsorsAdFormatSpotlightCard from '~/components/sponsors/ads/SponsorsAdFormatSpotlightCard';
 import Divider from '~/components/ui/Divider';
 import Section from '~/components/ui/Heading/HeadingContext';
 import { themeTextSecondaryColor } from '~/components/ui/theme';
@@ -101,6 +102,7 @@ export default function InterviewsFocusAreaPage({
           <InterviewsStudyListQuestions
             overallProgress={questionsOverallProgress}
             questions={questions}
+            sideColumnAddOn={<SponsorsAdFormatSpotlightCard />}
             studyListKey={studyList.slug}
           />
         ) : (
