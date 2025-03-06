@@ -38,6 +38,7 @@ const labels: Record<
 };
 
 type Props = Readonly<{
+  label?: string;
   onClick?: () => void;
   product: ProductValue;
   triggerClassname?: string;
@@ -49,8 +50,9 @@ export default function NavProductPopover({
   product,
   triggerClassname,
   onClick,
+  label,
 }: Props) {
-  const { label } = labels[product];
+  const { label: productLabel } = labels[product];
   const [showUnseenIndicator] = useProductMenuUnseenIndicator();
   const [open, setOpen] = useState(false);
   // To debounce open state when quick hovering on and out
@@ -110,7 +112,7 @@ export default function NavProductPopover({
               color={variant === 'full' ? 'default' : 'secondary'}
               size={variant === 'full' ? 'body2' : 'body3'}
               weight="bold">
-              {label}
+              {label ?? productLabel}
             </Text>
             {showUnseenIndicator && (
               <span

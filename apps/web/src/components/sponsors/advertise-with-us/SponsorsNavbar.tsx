@@ -68,6 +68,11 @@ export default function SponsorsNavbar() {
       links={[]}
       logo={
         <NavProductPopover
+          label={intl.formatMessage({
+            defaultMessage: 'Advertise with us',
+            description: 'Link to advertise with us',
+            id: '9OVmVF',
+          })}
           product="interviews"
           triggerClassname="-ml-2"
           variant="full"
