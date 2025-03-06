@@ -48,7 +48,7 @@ export default function InterviewsMarketingHeroNew({ testimonials }: Props) {
   return (
     <Container
       className={clsx(
-        'pb-10 pt-20 md:pt-[88px] xl:pt-[108px]',
+        'pb-10 pt-[46px] lg:pt-[54px] xl:pt-[74px]',
         'flex flex-col gap-12',
       )}
       tag="section"

@@ -130,6 +130,7 @@ export default function InterviewsNavbar({
           <div className="-my-2 sm:-mr-2 lg:hidden">
             <SlideOut
               enterFrom="start"
+              headerClassName="pt-5 pb-3"
               isShown={isMobileNavOpen}
               padding={false}
               size="xs"
