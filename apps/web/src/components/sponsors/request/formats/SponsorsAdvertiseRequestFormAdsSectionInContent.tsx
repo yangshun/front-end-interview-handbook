@@ -40,6 +40,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { createHeadlessEditor } from '@lexical/headless';
 
 type Props = Readonly<{
+  defaultValues?: Omit<SponsorsAdFormatInContentItem, 'id'>;
   onCancel?: () => void;
   onSubmit: ({
     text,
@@ -61,12 +62,13 @@ export default function SponsorsAdvertiseRequestFormAdsSectionInContent({
   sessionId,
   updateStepStatus,
   unavailableWeeks,
+  defaultValues,
 }: Props) {
   const intl = useIntl();
   const uploadAsset = trpc.sponsorships.uploadAdAsset.useMutation();
   const adSchema = useSponsorsInContentAdSchema();
   const methods = useForm<z.infer<typeof adSchema>>({
-    defaultValues: {
+    defaultValues: defaultValues || {
       format: AD_FORMAT,
       text: '',
       url: '',
@@ -92,21 +94,29 @@ export default function SponsorsAdvertiseRequestFormAdsSectionInContent({
   const bodyText = editorState.read(() => $getRoot().getTextContent());
 
   async function handleOnSubmit(data: z.infer<typeof adSchema>) {
-    const base64 = await objectUrlToBase64(data.imageUrl);
-    const storageImageUrl = await uploadAsset.mutateAsync(
-      {
-        format: AD_FORMAT,
-        imageFile: base64,
-        sessionId,
-      },
-      {
-        onError: (error) => {
-          setError('imageUrl', {
-            message: error.message,
-          });
+    let storageImageUrl = null;
+
+    // If not blob url, don't reupload the asset
+    if (data.imageUrl.startsWith('blob:')) {
+      const base64 = await objectUrlToBase64(data.imageUrl);
+
+      storageImageUrl = await uploadAsset.mutateAsync(
+        {
+          format: AD_FORMAT,
+          imageFile: base64,
+          sessionId,
         },
-      },
-    );
+        {
+          onError: (error) => {
+            setError('imageUrl', {
+              message: error.message,
+            });
+          },
+        },
+      );
+    } else {
+      storageImageUrl = data.imageUrl;
+    }
 
     onSubmit({
       body: data.body,
@@ -355,11 +365,19 @@ export default function SponsorsAdvertiseRequestFormAdsSectionInContent({
           icon={RiArrowRightLine}
           isDisabled={!isValid || uploadAsset.isLoading}
           isLoading={uploadAsset.isLoading}
-          label={intl.formatMessage({
-            defaultMessage: 'Next',
-            description: 'Label for next button',
-            id: 'uSMCBJ',
-          })}
+          label={
+            defaultValues
+              ? intl.formatMessage({
+                  defaultMessage: 'Update',
+                  description: 'Label for update button',
+                  id: 'xw+bqB',
+                })
+              : intl.formatMessage({
+                  defaultMessage: 'Next',
+                  description: 'Label for next button',
+                  id: 'uSMCBJ',
+                })
+          }
           size="md"
           type="submit"
           variant="primary"

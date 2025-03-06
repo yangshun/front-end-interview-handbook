@@ -5,6 +5,7 @@ import {
   RiArrowLeftLine,
   RiArrowRightLine,
   RiDeleteBinLine,
+  RiPencilLine,
 } from 'react-icons/ri';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -58,11 +59,17 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
   const [selectedFormat, setSelectedFormat] = useState<SponsorsAdFormat | null>(
     ads.length > 0 ? null : 'GLOBAL_BANNER',
   );
+  const [editAdData, setEditAdData] = useState<SponsorsAdFormatFormItem | null>(
+    null,
+  );
   const adFormatData = useSponsorsAdFormatData();
 
   const selectedWeeks = ads
+    .filter((ad) => ad.id !== editAdData?.id)
     .flatMap((ad) => (ad.format === selectedFormat ? ad.weeks : []))
     .flat();
+
+  const isEditFlow = editAdData != null;
 
   return (
     <div>
@@ -119,10 +126,29 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
                         SponsorAdFormatConfigs[ad.format].pricePerWeekUSD}
                     </Text>
                     <Button
+                      icon={RiPencilLine}
+                      isLabelHidden={true}
+                      label="Edit ad"
+                      tooltip={intl.formatMessage({
+                        defaultMessage: 'Edit ad',
+                        description: 'Edit ad tooltip',
+                        id: 'IDhOlR',
+                      })}
+                      variant="tertiary"
+                      onClick={() => {
+                        setSelectedFormat(ad.format);
+                        setEditAdData(ad);
+                      }}
+                    />
+                    <Button
                       icon={RiDeleteBinLine}
                       isLabelHidden={true}
                       label="Delete ad"
-                      tooltip="Delete ad"
+                      tooltip={intl.formatMessage({
+                        defaultMessage: 'Delete ad',
+                        description: 'Delete ad tooltip',
+                        id: 'zzToik',
+                      })}
                       variant="tertiary"
                       onClick={() => {
                         const remainingAds = ads.filter(
@@ -269,6 +295,12 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
             <div className="mt-12">
               {selectedFormat === 'GLOBAL_BANNER' && (
                 <SponsorsAdvertiseRequestFormAdsSectionGlobalBanner
+                  key={editAdData?.id}
+                  defaultValues={
+                    editAdData?.format === 'GLOBAL_BANNER'
+                      ? editAdData
+                      : undefined
+                  }
                   unavailableWeeks={selectedWeeks}
                   updateStepStatus={updateStepStatus}
                   onCancel={
@@ -276,20 +308,46 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
                       ? () => {
                           setSelectedFormat(null);
                           updateStepStatus('completed');
+                          setEditAdData(null);
                         }
                       : undefined
                   }
                   onSubmit={({ text, url, weeks }) => {
-                    updateAds([
-                      ...ads,
-                      {
-                        format: 'GLOBAL_BANNER',
-                        id: uuidv4(),
-                        text,
-                        url,
-                        weeks,
-                      },
-                    ]);
+                    if (isEditFlow) {
+                      const updatedAds = ads.map((ad) => {
+                        if (ad.id === editAdData.id) {
+                          return {
+                            ...ad,
+                            format: selectedFormat,
+                            text,
+                            url,
+                            weeks,
+                          };
+                        }
+
+                        return ad;
+                      });
+
+                      // Remove uploaded ad asset if ad format change to global banner
+                      if ('imageUrl' in editAdData) {
+                        removeAdAssetMutation.mutate({
+                          imageUrl: editAdData.imageUrl,
+                        });
+                      }
+                      setEditAdData(null);
+                      updateAds(updatedAds);
+                    } else {
+                      updateAds([
+                        ...ads,
+                        {
+                          format: 'GLOBAL_BANNER',
+                          id: uuidv4(),
+                          text,
+                          url,
+                          weeks,
+                        },
+                      ]);
+                    }
                     updateStepStatus('completed');
                     setSelectedFormat(null);
                   }}
@@ -297,6 +355,10 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
               )}
               {selectedFormat === 'IN_CONTENT' && (
                 <SponsorsAdvertiseRequestFormAdsSectionInContent
+                  key={editAdData?.id}
+                  defaultValues={
+                    editAdData?.format === 'IN_CONTENT' ? editAdData : undefined
+                  }
                   sessionId={sessionId}
                   unavailableWeeks={selectedWeeks}
                   updateStepStatus={updateStepStatus}
@@ -305,22 +367,53 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
                       ? () => {
                           setSelectedFormat(null);
                           updateStepStatus('completed');
+                          setEditAdData(null);
                         }
                       : undefined
                   }
                   onSubmit={({ text, url, weeks, imageUrl, body }) => {
-                    updateAds([
-                      ...ads,
-                      {
-                        body,
-                        format: 'IN_CONTENT',
-                        id: uuidv4(),
-                        imageUrl,
-                        text,
-                        url,
-                        weeks,
-                      },
-                    ]);
+                    if (isEditFlow) {
+                      const updatedAds = ads.map((ad) => {
+                        if (ad.id === editAdData.id) {
+                          return {
+                            ...ad,
+                            body,
+                            format: selectedFormat,
+                            imageUrl,
+                            text,
+                            url,
+                            weeks,
+                          };
+                        }
+
+                        return ad;
+                      });
+
+                      // Remove old uploaded ad asset if url change
+                      if (
+                        'imageUrl' in editAdData &&
+                        imageUrl !== editAdData.imageUrl
+                      ) {
+                        removeAdAssetMutation.mutate({
+                          imageUrl: editAdData.imageUrl,
+                        });
+                      }
+                      setEditAdData(null);
+                      updateAds(updatedAds);
+                    } else {
+                      updateAds([
+                        ...ads,
+                        {
+                          body,
+                          format: 'IN_CONTENT',
+                          id: uuidv4(),
+                          imageUrl,
+                          text,
+                          url,
+                          weeks,
+                        },
+                      ]);
+                    }
                     updateStepStatus('completed');
                     setSelectedFormat(null);
                   }}
@@ -328,6 +421,10 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
               )}
               {selectedFormat === 'SPOTLIGHT' && (
                 <SponsorsAdvertiseRequestFormAdsSectionSpotlight
+                  key={editAdData?.id}
+                  defaultValues={
+                    editAdData?.format === 'SPOTLIGHT' ? editAdData : undefined
+                  }
                   sessionId={sessionId}
                   unavailableWeeks={selectedWeeks}
                   updateStepStatus={updateStepStatus}
@@ -336,21 +433,52 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
                       ? () => {
                           setSelectedFormat(null);
                           updateStepStatus('completed');
+                          setEditAdData(null);
                         }
                       : undefined
                   }
                   onSubmit={({ text, url, weeks, imageUrl }) => {
-                    updateAds([
-                      ...ads,
-                      {
-                        format: 'SPOTLIGHT',
-                        id: uuidv4(),
-                        imageUrl,
-                        text,
-                        url,
-                        weeks,
-                      },
-                    ]);
+                    if (isEditFlow) {
+                      const updatedAds = ads.map((ad) => {
+                        if (ad.id === editAdData.id) {
+                          return {
+                            ...ad,
+                            format: selectedFormat,
+                            imageUrl,
+                            text,
+                            url,
+                            weeks,
+                          };
+                        }
+
+                        return ad;
+                      });
+
+                      // Remove old uploaded ad asset if url change
+                      if (
+                        'imageUrl' in editAdData &&
+                        imageUrl !== editAdData.imageUrl
+                      ) {
+                        removeAdAssetMutation.mutate({
+                          imageUrl: editAdData.imageUrl,
+                        });
+                      }
+
+                      setEditAdData(null);
+                      updateAds(updatedAds);
+                    } else {
+                      updateAds([
+                        ...ads,
+                        {
+                          format: 'SPOTLIGHT',
+                          id: uuidv4(),
+                          imageUrl,
+                          text,
+                          url,
+                          weeks,
+                        },
+                      ]);
+                    }
                     updateStepStatus('completed');
                     setSelectedFormat(null);
                   }}

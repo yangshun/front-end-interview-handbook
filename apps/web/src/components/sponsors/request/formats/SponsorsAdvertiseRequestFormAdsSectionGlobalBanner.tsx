@@ -26,6 +26,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 const AD_FORMAT = 'GLOBAL_BANNER';
 
 type Props = Readonly<{
+  defaultValues?: Omit<SponsorsAdFormatGlobalBannerItem, 'id'>;
   onCancel?: () => void;
   onSubmit: ({
     text,
@@ -41,12 +42,13 @@ export default function SponsorsAdvertiseRequestFormAdsSectionGlobalBanner({
   onSubmit,
   updateStepStatus,
   unavailableWeeks,
+  defaultValues,
 }: Props) {
   const intl = useIntl();
   const adSchema = useSponsorsGlobalBannerAdSchema();
 
   const methods = useForm<z.infer<typeof adSchema>>({
-    defaultValues: {
+    defaultValues: defaultValues || {
       format: AD_FORMAT,
       text: '',
       url: '',
@@ -229,11 +231,19 @@ export default function SponsorsAdvertiseRequestFormAdsSectionGlobalBanner({
         <Button
           icon={RiArrowRightLine}
           isDisabled={!isValid}
-          label={intl.formatMessage({
-            defaultMessage: 'Next',
-            description: 'Label for next button',
-            id: 'uSMCBJ',
-          })}
+          label={
+            defaultValues
+              ? intl.formatMessage({
+                  defaultMessage: 'Update',
+                  description: 'Label for update button',
+                  id: 'xw+bqB',
+                })
+              : intl.formatMessage({
+                  defaultMessage: 'Next',
+                  description: 'Label for next button',
+                  id: 'uSMCBJ',
+                })
+          }
           size="md"
           type="submit"
           variant="primary"

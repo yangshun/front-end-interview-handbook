@@ -3355,6 +3355,10 @@
     "defaultMessage": "Unlock this premium challenge",
     "description": "Title for a premium project paywall"
   },
+  "IDhOlR": {
+    "defaultMessage": "Edit ad",
+    "description": "Edit ad tooltip"
+  },
   "IEnLEU": {
     "defaultMessage": "Stay on previous list",
     "description": "Stay on previous question list"
@@ -10771,6 +10775,10 @@
     "defaultMessage": "Company guides and tips",
     "description": "Marketing section title"
   },
+  "xw+bqB": {
+    "defaultMessage": "Update",
+    "description": "Label for update button"
+  },
   "xyPOJe": {
     "defaultMessage": "{points} Reputation",
     "description": "Label showing reputation count in profile header of Projects sidebar"
@@ -11190,5 +11198,9 @@
   "zyPeie": {
     "defaultMessage": "Email address",
     "description": "Label for email address input field"
+  },
+  "zzToik": {
+    "defaultMessage": "Delete ad",
+    "description": "Delete ad tooltip"
   }
 }
