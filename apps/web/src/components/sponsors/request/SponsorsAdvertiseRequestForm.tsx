@@ -1,5 +1,6 @@
 'use client';
 
+import { useQueryState } from 'nuqs';
 import { useEffect, useRef, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -12,6 +13,7 @@ import { useIntl } from '~/components/intl';
 
 import { useI18nRouter } from '~/next-i18nostic/src';
 
+import SponsorsAdvertiseEnquiryForm from './SponsorsAdvertiseEnquiryForm';
 import SponsorsAdvertiseRequestFormAdsSection from './SponsorsAdvertiseRequestFormAdsSection';
 import SponsorsAdvertiseRequestFormCompanyDetailsSection from './SponsorsAdvertiseRequestFormCompanyDetailsSection';
 import SponsorsAdvertiseRequestFormContactSection from './SponsorsAdvertiseRequestFormContactSection';
@@ -112,7 +114,16 @@ export default function SponsorsAdvertiseRequestForm() {
       }),
       { ttl: 7 * 24 * 60 * 60 },
     );
-  const [step, setStep] = useState<(typeof steps)[number]['value']>('contact');
+  const [step, setStep] = useQueryState<(typeof steps)[number]['value']>(
+    'step',
+    {
+      history: 'push',
+      parse: (value) =>
+        ['ads', 'company', 'contact', 'review'].includes(value)
+          ? (value as Step)
+          : 'contact',
+    },
+  );
   const firstMountRef = useRef<boolean>(false);
   const stepsContainerRef = useRef<HTMLDivElement>(null);
 
@@ -179,9 +190,23 @@ export default function SponsorsAdvertiseRequestForm() {
     );
   }
 
+  if (!step) {
+    return (
+      <SponsorsAdvertiseEnquiryForm
+        defaultValues={formData.emails}
+        sessionId={formData.sessionId}
+        onSubmit={(emails) => {
+          setStep('contact');
+          setFormData((prev) => ({ ...prev, emails }));
+          setStepsStatus((prev) => ({ ...prev, contact: 'completed' }));
+        }}
+      />
+    );
+  }
+
   return (
     <div ref={stepsContainerRef} className="flex flex-col gap-16">
-      {steps[0].status === 'completed' && (
+      {formData.emails.length > 0 && (
         <StepsTabs
           className="z-sticky sticky top-[var(--global-sticky-height)]"
           label={intl.formatMessage({
