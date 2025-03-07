@@ -30,7 +30,7 @@ export default function SponsorsAdFormatHeader({ format }: Props) {
 
   return (
     <div className="flex flex-col gap-8">
-      <div className="flex flex-col justify-between gap-x-2 gap-y-6 sm:flex-row">
+      <div className="flex flex-col justify-between gap-x-2 gap-y-6 sm:flex-row sm:items-center">
         <Heading
           className={clsx(
             'md:-tracking-1 md:text-3xl',
@@ -60,7 +60,11 @@ export default function SponsorsAdFormatHeader({ format }: Props) {
           />
         </Text>
       </div>
-      <div className="flex flex-col justify-between gap-x-4 gap-y-6 sm:flex-row md:gap-x-8">
+      <div
+        className={clsx(
+          'flex flex-col justify-between sm:items-center',
+          'gap-x-4 gap-y-6 sm:flex-row md:gap-x-8',
+        )}>
         <Text
           className={clsx('text-base lg:text-lg lg:font-medium', 'max-w-2xl')}
           color="secondary"
