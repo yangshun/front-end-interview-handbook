@@ -35,7 +35,7 @@ export default function SponsorsHeroSection() {
 
   return (
     <div className="flex flex-col gap-x-4 gap-y-12 py-20 lg:flex-row xl:gap-x-6">
-      <div className="flex flex-1 flex-col gap-8">
+      <div className="flex flex-1 flex-col gap-8 lg:min-w-[500px]">
         <Heading
           className={clsx(
             'pb-1',
@@ -112,7 +112,7 @@ export default function SponsorsHeroSection() {
       <div
         className={clsx(
           'flex flex-1 items-center justify-center lg:justify-end',
-          'px-2 sm:px-8 xl:px-0',
+          'px-2 sm:px-8 lg:pl-0 lg:pr-8 min-[1260px]:pr-0 xl:px-0',
         )}>
         <Asset />
       </div>

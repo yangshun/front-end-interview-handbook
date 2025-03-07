@@ -249,7 +249,7 @@ function Asset() {
     <div
       className={clsx(
         'relative',
-        'h-full w-full overflow-hidden sm:h-[155px] lg:h-[200px] xl:h-[240px]',
+        'h-full w-full overflow-hidden sm:h-[155px] md:h-[180px] lg:h-[220px] xl:h-[240px]',
         'rounded-[4px] sm:rounded-lg lg:rounded-xl',
       )}>
       <div
@@ -259,7 +259,7 @@ function Asset() {
           ['border', themeBorderElementColor],
         )}></div>
       {/* Light mode image */}
-      <picture className={clsx('block dark:hidden')}>
+      <picture className={clsx('block dark:hidden', 'h-full')}>
         <source
           media="(max-width: 640px)"
           srcSet="/img/sponsors/spotlight-ad-placement-mobile-light.png"
@@ -270,17 +270,14 @@ function Asset() {
         />
         <img
           alt="Spotlight ad placement preview"
-          className={clsx(
-            'h-full w-full sm:h-[155px] lg:h-[200px] xl:h-[240px]',
-            'object-cover object-left-top',
-          )}
+          className={clsx('size-full', 'object-cover object-left-top')}
           decoding="async"
           loading="lazy"
           src="/img/sponsors/spotlight-ad-placement-light.png"
         />
       </picture>
       {/* Dark mode image */}
-      <picture className={clsx('hidden dark:block')}>
+      <picture className={clsx('hidden dark:block', 'h-full')}>
         <source
           media="(max-width: 640px)"
           srcSet="/img/sponsors/spotlight-ad-placement-mobile-dark.png"
@@ -291,10 +288,7 @@ function Asset() {
         />
         <img
           alt="Spotlight ad placement preview"
-          className={clsx(
-            'h-full w-full sm:h-[155px] lg:h-[200px] xl:h-[240px]',
-            'object-cover object-left-top',
-          )}
+          className={clsx('size-full', 'object-cover object-left-top')}
           decoding="async"
           loading="lazy"
           src="/img/sponsors/spotlight-ad-placement-dark.png"

@@ -191,7 +191,7 @@ function Asset() {
           <div
             className={clsx(
               'flex flex-col items-end gap-[18px] lg:gap-5',
-              'flex-1 lg:w-60 lg:flex-none',
+              'flex-1',
             )}>
             <LogoComboMark className="shrink-0" height={isDesktop ? 31 : 24} />
             <Text className="text-xs lg:text-sm" color="subtle" size="inherit">
@@ -214,7 +214,11 @@ function Asset() {
               )}
             />
           </div>
-          <div className={clsx('flex flex-1 flex-col gap-2.5 lg:gap-2')}>
+          <div
+            className={clsx(
+              'flex flex-1 flex-col gap-2.5 lg:gap-2',
+              'min-[1200px]:min-w-[280px]',
+            )}>
             <Heading
               className="max-w-[300px] text-base lg:text-xl"
               level="custom">
@@ -243,8 +247,8 @@ function Asset() {
                 'flex flex-col items-center gap-1.5',
                 index < items.length - 1 && 'mb-1.5',
               )}>
-              <div className="flex w-full items-center gap-6 lg:gap-7">
-                <div className={clsx('flex-1 lg:w-60 lg:flex-none')}>
+              <div className="flex w-full gap-6 lg:gap-7">
+                <div className={clsx('flex-1', 'mt-2.5')}>
                   <Text
                     className="float-right text-lg lg:text-2xl"
                     color="active"
@@ -262,7 +266,7 @@ function Asset() {
                     className={clsx(
                       'relative overflow-hidden',
                       'w-full py-3 lg:py-4',
-                      'rounded-md shadow-sm',
+                      'rounded-md shadow-md',
                       themeBackgroundCardWhiteOnLightColor,
                       [
                         themeWhiteGlowCardBackground,
@@ -290,7 +294,11 @@ function Asset() {
                     />
                   )}
                 </div>
-                <div className={clsx('flex-1')}>
+                <div
+                  className={clsx(
+                    'flex-1 min-[1200px]:min-w-[280px]',
+                    'mt-2.5',
+                  )}>
                   <Text
                     className="text-lg lg:text-2xl"
                     color="subtle"

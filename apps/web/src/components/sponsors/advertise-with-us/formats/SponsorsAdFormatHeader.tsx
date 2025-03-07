@@ -47,7 +47,7 @@ export default function SponsorsAdFormatHeader({ format }: Props) {
           color="secondary"
           size="body2">
           <Text
-            className="text-3xl"
+            className="text-4xl"
             color="default"
             size="inherit"
             weight="bold">
