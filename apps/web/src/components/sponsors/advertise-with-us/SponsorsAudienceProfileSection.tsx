@@ -1,7 +1,6 @@
 'use client';
 
 import clsx from 'clsx';
-import { useMediaQuery } from 'usehooks-ts';
 
 import LogoComboMark from '~/components/global/logos/LogoComboMark';
 import { FormattedMessage } from '~/components/intl';
@@ -82,7 +81,6 @@ export default function SponsorsAudienceProfileSection() {
 }
 
 function Asset() {
-  const isDesktop = useMediaQuery('(min-width: 1025px)');
 
   const items = [
     {
@@ -194,7 +192,8 @@ function Asset() {
               'flex-1 md:flex-none',
               'md:min-w-[150px] md:max-w-[150px] lg:min-w-[200px] lg:max-w-[200px]',
             )}>
-            <LogoComboMark className="shrink-0" height={isDesktop ? 31 : 24} />
+            <LogoComboMark className="hidden shrink-0 lg:block" height={31} />
+            <LogoComboMark className="block shrink-0 lg:hidden" height={24} />
             <Text className="text-xs lg:text-sm" color="subtle" size="inherit">
               <FormattedMessage
                 defaultMessage="Average metrics per week"
@@ -269,7 +268,7 @@ function Asset() {
                     'flex flex-col items-center gap-1.5',
                     'w-full max-w-[240px] md:min-w-[240px] lg:min-w-[351px] lg:max-w-[351px]',
                   )}>
-                  <Text
+                  <div
                     className={clsx(
                       'relative overflow-hidden',
                       'w-full py-3 lg:py-4',
@@ -281,17 +280,21 @@ function Asset() {
                       ],
                       'text-sm lg:text-lg',
                       'text-center',
-                    )}
-                    size="inherit"
-                    weight="medium">
+                    )}>
                     <div
                       className={clsx(
                         '!absolute inset-0 rounded-[inherit] before:m-[-1px]',
                         themeGlassyBorder,
                       )}
                     />
-                    {title}
-                  </Text>
+                    <Text
+                      className="relative"
+                      color="default"
+                      size="inherit"
+                      weight="medium">
+                      {title}
+                    </Text>
+                  </div>
                   {index < items.length - 1 && (
                     <div
                       className={clsx(
