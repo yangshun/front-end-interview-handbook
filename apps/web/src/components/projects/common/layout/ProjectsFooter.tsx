@@ -10,6 +10,7 @@ import useCommonNavItems from '~/components/common/navigation/useCommonNavItems'
 import type { FooterNavigation } from '~/components/global/footers/Footer';
 import Footer from '~/components/global/footers/Footer';
 import { useIntl } from '~/components/intl';
+import Badge from '~/components/ui/Badge';
 
 function useFooterNavigation() {
   const intl = useIntl();
@@ -168,6 +169,17 @@ function useFooterNavigation() {
                 href: advertise.href!,
                 key: advertise.id,
                 name: advertise.label,
+                nameAddOn: (
+                  <Badge
+                    label={intl.formatMessage({
+                      defaultMessage: 'New',
+                      description: 'Badge label for new',
+                      id: 'Aem5n7',
+                    })}
+                    size="xs"
+                    variant="primary"
+                  />
+                ),
               },
             ]
           : []),
