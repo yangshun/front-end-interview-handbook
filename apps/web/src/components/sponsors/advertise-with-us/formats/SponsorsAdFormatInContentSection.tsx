@@ -3,10 +3,18 @@
 import clsx from 'clsx';
 import { RiCheckLine } from 'react-icons/ri';
 
+import { GuidesCount } from '~/components/interviews/guides/stats/GuidesCount';
+import {
+  QuestionCountCoding,
+  QuestionCountQuiz,
+  QuestionCountSystemDesign,
+} from '~/components/interviews/questions/listings/stats/QuestionCount';
 import { FormattedMessage, useIntl } from '~/components/intl';
 import { SponsorAdFormatConfigs } from '~/components/sponsors/SponsorsAdFormatConfigs';
 import Text from '~/components/ui/Text';
 import { themeTextSuccessColor } from '~/components/ui/theme';
+
+import { roundQuestionCountToNearestTen } from '~/db/QuestionsUtils';
 
 import SponsorsAdFormatAvailableSlotInfo from './SponsorsAdFormatAvailableSlotInfo';
 import SponsorsAdFormatHeader from './SponsorsAdFormatHeader';
@@ -126,7 +134,7 @@ export default function SponsorsAdFormatInContentSection() {
           description: 'Label for questions count',
           id: 'O9HLcY',
         },
-        { questionCount: 500 },
+        { questionCount: roundQuestionCountToNearestTen(QuestionCountCoding) },
       ),
       img: {
         alt: 'In Content Ad Placement in coding workspace',
@@ -147,7 +155,7 @@ export default function SponsorsAdFormatInContentSection() {
           description: 'Label for quizzes count',
           id: 'M++J8U',
         },
-        { questionCount: 300 },
+        { questionCount: roundQuestionCountToNearestTen(QuestionCountQuiz) },
       ),
       img: {
         alt: 'In Content Ad Placement in quiz questions',
@@ -168,7 +176,7 @@ export default function SponsorsAdFormatInContentSection() {
           description: 'Label for guides count',
           id: 'KgLyGJ',
         },
-        { guidesCount: 50 },
+        { guidesCount: roundQuestionCountToNearestTen(GuidesCount) },
       ),
       img: {
         alt: 'In Content Ad Placement in guides',
@@ -189,7 +197,11 @@ export default function SponsorsAdFormatInContentSection() {
           description: 'Label for questions count',
           id: 'O9HLcY',
         },
-        { questionCount: 10 },
+        {
+          questionCount: roundQuestionCountToNearestTen(
+            QuestionCountSystemDesign,
+          ),
+        },
       ),
       img: {
         alt: 'In Content Ad Placement in system design',
