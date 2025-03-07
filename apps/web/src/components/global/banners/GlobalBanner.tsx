@@ -1,6 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
+import { shuffle } from 'lodash-es';
 import { useEffect, useState } from 'react';
 import { RiArrowRightLine } from 'react-icons/ri';
 
@@ -9,17 +10,15 @@ import { trpc } from '~/hooks/trpc';
 import { PROMO_SOCIAL_DISCOUNT_PERCENTAGE } from '~/data/PromotionConfig';
 
 import { FormattedMessage } from '~/components/intl';
+import useUserProfileWithProjectsProfile from '~/components/projects/common/useUserProfileWithProjectsProfile';
 import SponsorsAdFormatGlobalBanner from '~/components/sponsors/ads/SponsorsAdFormatGlobalBanner';
 import Anchor from '~/components/ui/Anchor';
 import Text, { textVariants } from '~/components/ui/Text';
 import { themeBackgroundInvertColor } from '~/components/ui/theme';
 
-import { useI18nPathname } from '~/next-i18nostic/src';
-
 import GlobalBannerShell from './GlobalBannerShell';
 import SwagOverflowLogo from '../logos/SwagOverflowLogo';
 import { useUserPreferences } from '../UserPreferencesProvider';
-import { useUserProfile } from '../UserProfileProvider';
 
 const arrowEl = (
   <RiArrowRightLine
@@ -70,9 +69,9 @@ const projectsLaunchMessageEl = (
 type BannerType = 'ad' | 'projects' | 'social' | 'swag';
 
 function MarketingMessage() {
-  const { isUserProfileLoading, userProfile } = useUserProfile();
+  const { isLoading, userProfile } = useUserProfileWithProjectsProfile(false);
 
-  if (isUserProfileLoading) {
+  if (isLoading) {
     return (
       <GlobalBannerShell isLoading={true} theme="interviews">
         {null}
@@ -80,15 +79,21 @@ function MarketingMessage() {
     );
   }
 
-  const isInterviewsPremium = userProfile?.isInterviewsPremium ?? false;
+  const isInterviewsPremium = userProfile?.premium;
+  const isProjectsPremium = userProfile?.projectsProfile?.premium;
 
-  return <MarketingMessageImpl isInterviewsPremium={isInterviewsPremium} />;
+  return (
+    <MarketingMessageImpl
+      isInterviewsPremium={isInterviewsPremium}
+      isProjectsPremium={isProjectsPremium}
+    />
+  );
 }
 
 function MarketingMessageImpl({
-  isInterviewsPremium,
-}: Readonly<{ isInterviewsPremium: boolean }>) {
-  const { pathname } = useI18nPathname();
+  isInterviewsPremium = false,
+  isProjectsPremium = false,
+}: Readonly<{ isInterviewsPremium?: boolean; isProjectsPremium?: boolean }>) {
   const { setShowGlobalBanner } = useUserPreferences();
 
   const [bannerIndex, setBannerIndex] = useState(0);
@@ -104,10 +109,18 @@ function MarketingMessageImpl({
     },
     {
       onSuccess() {
+        const rotatedBanners: Array<BannerType> = ['ad', 'swag'];
+
+        if (!isProjectsPremium) {
+          rotatedBanners.push('projects');
+        }
+
+        const shuffledBanners = shuffle(rotatedBanners);
+
         setBanners(
-          pathname?.startsWith('/projects') || isInterviewsPremium
-            ? (['ad', 'projects', 'swag'] as const)
-            : (['social', 'ad', 'projects', 'swag'] as const),
+          isInterviewsPremium
+            ? shuffledBanners
+            : ['social', ...shuffledBanners],
         );
       },
     },

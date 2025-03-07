@@ -363,12 +363,26 @@ export const projectsProfileRouter = router({
 
       return profile != null && profile.id !== viewer.id;
     }),
-  viewer: publicProcedure.query(async ({ ctx: { viewer } }) => {
-    // Non-logged in
-    if (viewer == null) {
-      return null;
-    }
+  viewer: publicProcedure
+    .input(
+      z.object({
+        createProjectsProfileIfNotFound: z.boolean().default(true),
+      }),
+    )
+    .query(
+      async ({
+        ctx: { viewer },
+        input: { createProjectsProfileIfNotFound },
+      }) => {
+        // Non-logged in
+        if (viewer == null) {
+          return null;
+        }
 
-    return await getOrCreateUserProfileWithProjectsProfile(viewer);
-  }),
+        return await getOrCreateUserProfileWithProjectsProfile(
+          viewer,
+          createProjectsProfileIfNotFound,
+        );
+      },
+    ),
 });

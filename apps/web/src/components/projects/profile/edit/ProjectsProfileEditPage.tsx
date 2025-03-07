@@ -99,11 +99,11 @@ export default function ProjectsProfileEditPage({ userProfile }: Props) {
   const projectsProfileUpdateMutation =
     trpc.projects.profile.update.useMutation({
       onSuccess: (data) => {
-        trpcUtils.projects.profile.viewer.setData(undefined, data);
+        trpcUtils.projects.profile.viewer.setData({}, data);
       },
     });
   const { data: initialValues } = trpc.projects.profile.viewer.useQuery(
-    undefined,
+    {},
     {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore Because we extended projectsProfile model but generated types are not synced

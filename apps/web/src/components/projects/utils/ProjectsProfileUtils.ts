@@ -28,32 +28,35 @@ export async function redirectToProjectsOnboardingIfProjectsProfileIncomplete(
 
 export async function getOrCreateUserProfileWithProjectsProfile(
   viewer: Viewer,
+  createProjectsProfileIfNotFound = true,
 ) {
-  const viewerProfile = await prisma.profile.findUniqueOrThrow({
-    include: {
-      projectsProfile: true,
-    },
-    where: {
-      id: viewer?.id,
-    },
-  });
+  if (createProjectsProfileIfNotFound) {
+    const viewerProfile = await prisma.profile.findUniqueOrThrow({
+      include: {
+        projectsProfile: true,
+      },
+      where: {
+        id: viewer?.id,
+      },
+    });
 
-  // Logged in with a projects profile. All good
-  if (viewerProfile!.projectsProfile) {
-    return viewerProfile!;
+    // Logged in with a projects profile. All good
+    if (viewerProfile!.projectsProfile) {
+      return viewerProfile!;
+    }
+
+    // Logged in without a projects profile.
+    // Create a projects profile and return it
+    await prisma.projectsProfile.upsert({
+      create: {
+        userId: viewer?.id,
+      },
+      update: {},
+      where: {
+        id: viewer?.id,
+      },
+    });
   }
-
-  // Logged in without a projects profile.
-  // Create a projects profile and return it
-  await prisma.projectsProfile.upsert({
-    create: {
-      userId: viewer?.id,
-    },
-    update: {},
-    where: {
-      id: viewer?.id,
-    },
-  });
 
   return await prisma.profile.findUniqueOrThrow({
     include: {

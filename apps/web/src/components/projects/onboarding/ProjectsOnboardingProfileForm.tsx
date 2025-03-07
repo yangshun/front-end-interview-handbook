@@ -93,7 +93,7 @@ export default function ProjectsOnboardingProfileForm({
       });
     },
     onSuccess: (data) => {
-      trpcUtils.projects.profile.viewer.setData(undefined, data);
+      trpcUtils.projects.profile.viewer.setData({}, data);
     },
   });
   const [usernameExistsError, setUsernameExistsError] = useState(false);

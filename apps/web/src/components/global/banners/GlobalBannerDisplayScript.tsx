@@ -1,5 +1,5 @@
 // Increment when want to show to everyone again.
-export const GLOBAL_BANNER_STORAGE_KEY = 'gfe:global-banner-6';
+export const GLOBAL_BANNER_STORAGE_KEY = 'gfe:global-banner-7';
 
 export default function GlobalBannerDisplayScript() {
   return (
