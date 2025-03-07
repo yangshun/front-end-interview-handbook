@@ -185,13 +185,14 @@ function Asset() {
   ];
 
   return (
-    <>
-      <div className="hidden sm:block" inert="">
+    <div className="items-center justify-center md:flex">
+      <div className={clsx('hidden flex-col sm:flex')} inert="">
         <div className="flex items-end gap-6 lg:gap-7">
           <div
             className={clsx(
               'flex flex-col items-end gap-[18px] lg:gap-5',
-              'flex-1',
+              'flex-1 md:flex-none',
+              'md:min-w-[150px] md:max-w-[150px] lg:min-w-[200px] lg:max-w-[200px]',
             )}>
             <LogoComboMark className="shrink-0" height={isDesktop ? 31 : 24} />
             <Text className="text-xs lg:text-sm" color="subtle" size="inherit">
@@ -205,7 +206,7 @@ function Asset() {
           <div
             className={clsx(
               'flex flex-col items-center',
-              'w-full max-w-[240px] lg:max-w-[351px]',
+              'w-full max-w-[240px] lg:min-w-[351px]',
             )}>
             <div
               className={clsx(
@@ -216,8 +217,9 @@ function Asset() {
           </div>
           <div
             className={clsx(
-              'flex flex-1 flex-col gap-2.5 lg:gap-2',
-              'min-[1200px]:min-w-[280px]',
+              'flex flex-col gap-2.5 lg:gap-2',
+              'flex-1 md:flex-none',
+              'md:min-w-[250px] md:max-w-[250px] lg:min-w-[300px] lg:max-w-[300px]',
             )}>
             <Heading
               className="max-w-[300px] text-base lg:text-xl"
@@ -248,7 +250,12 @@ function Asset() {
                 index < items.length - 1 && 'mb-1.5',
               )}>
               <div className="flex w-full gap-6 lg:gap-7">
-                <div className={clsx('flex-1', 'mt-2.5')}>
+                <div
+                  className={clsx(
+                    'flex-1 md:flex-none',
+                    'md:min-w-[150px] md:max-w-[150px] lg:min-w-[200px] lg:max-w-[200px]',
+                    'mt-2.5',
+                  )}>
                   <Text
                     className="float-right text-lg lg:text-2xl"
                     color="active"
@@ -260,7 +267,7 @@ function Asset() {
                 <div
                   className={clsx(
                     'flex flex-col items-center gap-1.5',
-                    'w-full max-w-[240px] lg:max-w-[351px]',
+                    'w-full max-w-[240px] md:min-w-[240px] lg:min-w-[351px] lg:max-w-[351px]',
                   )}>
                   <Text
                     className={clsx(
@@ -296,7 +303,8 @@ function Asset() {
                 </div>
                 <div
                   className={clsx(
-                    'flex-1 min-[1200px]:min-w-[280px]',
+                    'flex-1 md:flex-none',
+                    'md:min-w-[250px] md:max-w-[250px] lg:min-w-[300px] lg:max-w-[300px]',
                     'mt-2.5',
                   )}>
                   <Text
@@ -445,6 +453,6 @@ function Asset() {
           />
         </Text>
       </div>
-    </>
+    </div>
   );
 }
