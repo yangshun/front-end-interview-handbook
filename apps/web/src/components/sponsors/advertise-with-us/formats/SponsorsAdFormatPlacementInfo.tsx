@@ -17,7 +17,11 @@ type Props = Readonly<{
     srcDark: string;
     srcLight: string;
   };
-  showSeeAll?: boolean;
+  placementPages?: ReadonlyArray<{
+    href: string;
+    key: string;
+    name: string;
+  }>;
   title: string;
 }>;
 
@@ -26,10 +30,12 @@ export default function SponsorsAdFormatPlacementInfo({
   className,
   img,
   title,
-  showSeeAll = false,
+  placementPages,
 }: Props) {
   const intl = useIntl();
   const [showPlacementList, setShowPlacementList] = useState(false);
+
+  const showSeeAll = placementPages && placementPages.length > 0;
 
   return (
     <div
@@ -82,6 +88,7 @@ export default function SponsorsAdFormatPlacementInfo({
       {showSeeAll && (
         <SponsorsAdFormatPlacementListDialog
           isShown={showPlacementList}
+          placementPages={placementPages}
           title={title}
           onClose={() => setShowPlacementList(false)}
         />

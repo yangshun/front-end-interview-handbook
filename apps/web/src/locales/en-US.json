@@ -3411,6 +3411,10 @@
     "defaultMessage": "Found a bug or have an improvement to suggest? We would prefer if you could create an issue on <link>GitHub</link>.",
     "description": "Reporting a bug on GitHub"
   },
+  "IPcfhY": {
+    "defaultMessage": "Appears on question detail pages",
+    "description": "Item 1 for placement pages info"
+  },
   "IQ9qW7": {
     "defaultMessage": "Get promo code",
     "description": "Button label for student discount"
@@ -5251,10 +5255,6 @@
     "defaultMessage": "Project brief",
     "description": "Title for Project Brief section on Projects project page"
   },
-  "SACEEk": {
-    "defaultMessage": "All Question Listing pages",
-    "description": "Label for spotlight ad placement in question listing"
-  },
   "SAjGy/": {
     "defaultMessage": "Review must not be generated or written with the assistance of artificial intelligence.",
     "description": "Condition for promotion"
@@ -6046,10 +6046,6 @@
   "WIHUwS": {
     "defaultMessage": "Quarterly plan",
     "description": "Title of quarterly pricing plan"
-  },
-  "WJitRq": {
-    "defaultMessage": "Showcase your brand or offer with a high visibility ad pinned on the application sidebar and pages",
-    "description": "Ad format description"
   },
   "WNERnb": {
     "defaultMessage": "End session",
@@ -8546,6 +8542,10 @@
   "kMKuAf": {
     "defaultMessage": "Global Banner",
     "description": "Ad format"
+  },
+  "kOJ5nj": {
+    "defaultMessage": "Showcase your brand or offer with a high visibility ad pinned on the application sidebar and question detail pages",
+    "description": "Ad format description"
   },
   "kPBwBR": {
     "defaultMessage": "Resume preparation",

@@ -111,9 +111,9 @@ export function useSponsorsAdFormatData(): Record<
       config: SponsorAdFormatConfigs.SPOTLIGHT,
       description: intl.formatMessage({
         defaultMessage:
-          'Showcase your brand or offer with a high visibility ad pinned on the application sidebar and pages',
+          'Showcase your brand or offer with a high visibility ad pinned on the application sidebar and question detail pages',
         description: 'Ad format description',
-        id: 'WJitRq',
+        id: 'kOJ5nj',
       }),
       format: 'SPOTLIGHT',
       name: intl.formatMessage({
