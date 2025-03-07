@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { RiMoonLine } from 'react-icons/ri';
 
 import useColorSchemeOptions from '~/components/global/color-scheme/useColorSchemeOptions';
@@ -18,16 +19,21 @@ export default function NavColorSchemeDropdown({
   const intl = useIntl();
   const { colorSchemePreference, colorScheme, setColorSchemePreference } =
     useColorSchemePreferences();
+  const [isMounted, setIsMounted] = useState(false);
 
   const colorSchemeOptions = useColorSchemeOptions();
   const Icon =
     colorSchemeOptions.filter((option) => option.value === colorScheme)?.[0]
       .icon ?? RiMoonLine;
 
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   return (
     <DropdownMenu
       align="end"
-      icon={Icon}
+      icon={isMounted ? Icon : undefined} // To make icon appears only on client-side
       isLabelHidden={true}
       label={intl.formatMessage({
         defaultMessage: 'Theme',
