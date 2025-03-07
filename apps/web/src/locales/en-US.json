@@ -7519,6 +7519,10 @@
     "defaultMessage": "Tackle your next interview with confidence using this focused, no-nonsense front end prep guide. Created by the author of the Front End Interview Handbook, it's filled with practical strategies and insider tips you won't find anywhere else.",
     "description": "Long description of frontend interview playbook page"
   },
+  "ekQcko": {
+    "defaultMessage": "Explore our Ad Opportunities",
+    "description": "Advertise with us section title"
+  },
   "emlXOt": {
     "defaultMessage": "You've just attained level {level} ✨ Congratulations!",
     "description": "Description for level up"

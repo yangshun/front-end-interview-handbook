@@ -25,11 +25,20 @@ export default function SponsorsOpportunitiesSection() {
         level="custom"
         tag="p"
         weight="medium">
-        <FormattedMessage
-          defaultMessage="Explore our Advertising Opportunities"
-          description="Advertise with us section title"
-          id="voGLL8"
-        />
+        <span className="hidden sm:block">
+          <FormattedMessage
+            defaultMessage="Explore our Advertising Opportunities"
+            description="Advertise with us section title"
+            id="voGLL8"
+          />
+        </span>
+        <span aria-hidden="true" className="block sm:hidden">
+          <FormattedMessage
+            defaultMessage="Explore our Ad Opportunities"
+            description="Advertise with us section title"
+            id="ekQcko"
+          />
+        </span>
       </Heading>
       <div className="flex flex-col gap-24 lg:gap-32">
         <SponsorsAdFormatGlobalBannerSection />
