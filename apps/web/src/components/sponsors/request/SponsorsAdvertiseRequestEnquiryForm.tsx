@@ -37,7 +37,7 @@ export default function SponsorsAdvertiseRequestEnquiryForm({
             }))
           : [{ value: '' }],
     },
-    mode: 'onTouched',
+    mode: 'onBlur',
     resolver: zodResolver(contactDetailsSchema),
   });
   const {
@@ -67,7 +67,8 @@ export default function SponsorsAdvertiseRequestEnquiryForm({
     <div className="flex flex-col items-center">
       <Heading
         className="sm:-tracking-3 -tracking-2 text-4xl sm:text-5xl"
-        level="custom">
+        level="custom"
+        weight="medium">
         <FormattedMessage
           defaultMessage="Advertising Enquiry"
           description="Title for advertising enquiry"
@@ -115,10 +116,9 @@ export default function SponsorsAdvertiseRequestEnquiryForm({
                     index < 1
                       ? 'john.doe@example.com'
                       : intl.formatMessage({
-                          defaultMessage:
-                            'Additional email addresses should you require',
+                          defaultMessage: 'Additional email address',
                           description: 'Placeholder for additional emails',
-                          id: 'k2vWyb',
+                          id: 'yRbhel',
                         })
                   }
                   required={index < 1}

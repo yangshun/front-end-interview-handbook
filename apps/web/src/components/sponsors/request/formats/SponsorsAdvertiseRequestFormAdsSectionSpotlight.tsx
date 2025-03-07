@@ -253,7 +253,6 @@ export default function SponsorsAdvertiseRequestFormAdsSectionSpotlight({
                       })}
                       placeholder="https://www.example.com"
                       required={true}
-                      type="url"
                     />
                   )}
                 />

@@ -235,7 +235,6 @@ export default function SponsorsAdvertiseRequestFormAdsSectionInContent({
                       })}
                       placeholder="https://www.example.com"
                       required={true}
-                      type="url"
                     />
                   )}
                 />

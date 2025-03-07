@@ -164,8 +164,13 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
                           updateAds(
                             ads.filter((adItem) => adItem.id !== ad.id),
                           );
+                          if (ad.id === editAdData?.id) {
+                            setEditAdData(null);
+                          }
                           if (remainingAds.length === 0) {
                             setSelectedFormat('GLOBAL_BANNER');
+                          } else {
+                            setSelectedFormat(null);
                           }
                         }}
                       />

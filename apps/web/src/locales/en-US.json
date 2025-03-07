@@ -2907,6 +2907,10 @@
     "defaultMessage": "Unverified email",
     "description": "Title of verify email page"
   },
+  "FavPnY": {
+    "defaultMessage": "Either product or company name",
+    "description": "Advertisement sponsor"
+  },
   "Fb1C2W": {
     "defaultMessage": "Pin",
     "description": "Pin button label"
@@ -3462,6 +3466,10 @@
   "Id0zS8": {
     "defaultMessage": "Sign up",
     "description": "Button label for a newsletter subscription section"
+  },
+  "IdOpAt": {
+    "defaultMessage": "Sponsor URL",
+    "description": "Ad sponsor URL"
   },
   "Ie6Nzu": {
     "defaultMessage": "Go back",
@@ -5742,10 +5750,6 @@
   "Ui0v53": {
     "defaultMessage": "Our projects are designed to make for an <em>impressive</em> portfolio, even for seniors",
     "description": "Heading of the 'Portfolio features' marketing section on Projects home page"
-  },
-  "Ujn4Ms": {
-    "defaultMessage": "The URL the user will be led to when they click on the Ad image",
-    "description": "Description for URL input"
   },
   "UltF1J": {
     "defaultMessage": "Already an affiliate? <link>Access dashboard</link>",
@@ -8399,6 +8403,10 @@
     "defaultMessage": "Password",
     "description": "Label of password field on Sign In/Up page"
   },
+  "jh37Pg": {
+    "defaultMessage": "Sponsor name",
+    "description": "Advertisement sponsor name"
+  },
   "jlTtgt": {
     "defaultMessage": "Please <link>leave us an email</link> if you have any other needs or wants. We would love to discuss them!",
     "description": "Question base section subtitle - third paragraph"
@@ -8470,10 +8478,6 @@
   "k2qYCS": {
     "defaultMessage": "Company guides",
     "description": "Title of company guides page"
-  },
-  "k2vWyb": {
-    "defaultMessage": "Additional email addresses should you require",
-    "description": "Placeholder for additional emails"
   },
   "k64L83": {
     "defaultMessage": "{discountPercentage}% off GreatFrontEnd Annual plan.",
@@ -9354,6 +9358,10 @@
   "p3mRa0": {
     "defaultMessage": "Job title is required.",
     "description": "Error message"
+  },
+  "p7t7FQ": {
+    "defaultMessage": "The URL the user will be led to when they click on the Ad image or sponsor",
+    "description": "Description for URL input"
   },
   "p8zMao": {
     "defaultMessage": "Insert inline code",
@@ -10886,6 +10894,10 @@
   "yQr+jJ": {
     "defaultMessage": "Click here to try out the actual workspace",
     "description": "Button label within embed"
+  },
+  "yRbhel": {
+    "defaultMessage": "Additional email address",
+    "description": "Placeholder for additional emails"
   },
   "yUfdpX": {
     "defaultMessage": "Mentor others",

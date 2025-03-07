@@ -45,7 +45,7 @@ export default function SponsorsAdvertiseRequestFormContactSection({
             ? [{ value: defaultValues[0] }, { value: '' }]
             : [{ value: '' }, { value: '' }],
     },
-    mode: 'onTouched',
+    mode: 'onBlur',
     resolver: zodResolver(contactDetailsSchema),
   });
   const {
@@ -128,10 +128,9 @@ export default function SponsorsAdvertiseRequestFormContactSection({
                     index < 1
                       ? 'john.doe@example.com'
                       : intl.formatMessage({
-                          defaultMessage:
-                            'Additional email addresses should you require',
+                          defaultMessage: 'Additional email address',
                           description: 'Placeholder for additional emails',
-                          id: 'k2vWyb',
+                          id: 'yRbhel',
                         })
                   }
                   required={index < 1}
