@@ -2,6 +2,7 @@
 
 import clsx from 'clsx';
 import { RiArrowRightLine, RiCheckboxCircleLine } from 'react-icons/ri';
+import { useEffectOnce } from 'usehooks-ts';
 
 import { FormattedMessage, useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
@@ -11,8 +12,16 @@ import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 import { themeTextSuccessColor } from '~/components/ui/theme';
 
+import useSponsorsAdvertiseRequestFormData from './useSponsorsAdvertiseRequestFormData';
+
 export default function SponsorsAdvertiseRequestSuccessPage() {
   const intl = useIntl();
+  const [, , removeFormData] = useSponsorsAdvertiseRequestFormData();
+
+  useEffectOnce(() => {
+    // Clear the saved data
+    removeFormData();
+  });
 
   return (
     <Container className="py-16" width="marketing">

@@ -427,6 +427,10 @@
     "defaultMessage": "We offer a few guidance options",
     "description": "FAQ answer for projects platform"
   },
+  "0M8wQ4": {
+    "defaultMessage": "Upload required assets",
+    "description": "Upload required ad assets"
+  },
   "0Nq65E": {
     "defaultMessage": "Billing",
     "description": "Screenreader text for subscription billing."
@@ -7194,10 +7198,6 @@
   "cw35KA": {
     "defaultMessage": "Roadmap | GreatFrontEnd Interviews",
     "description": "Title of interview roadmap page"
-  },
-  "cwA43y": {
-    "defaultMessage": "Upload the required assets",
-    "description": "Upload required ad assets"
   },
   "cx8XeF": {
     "defaultMessage": "Invalid student email",

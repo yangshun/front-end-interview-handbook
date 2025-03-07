@@ -30,9 +30,9 @@ export default function SponsorsAdvertiseRequestFormAdsSectionTitle({
       </Text>
       <Text className="mt-1 block" color="secondary" size="body3">
         {intl.formatMessage({
-          defaultMessage: 'Upload the required assets',
+          defaultMessage: 'Upload required assets',
           description: 'Upload required ad assets',
-          id: 'cwA43y',
+          id: '0M8wQ4',
         })}
       </Text>
     </div>

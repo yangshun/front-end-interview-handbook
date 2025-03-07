@@ -2,10 +2,8 @@
 
 import { useQueryState } from 'nuqs';
 import { useEffect, useRef, useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
 
 import { trpc } from '~/hooks/trpc';
-import { useGreatStorageLocal } from '~/hooks/useGreatStorageLocal';
 
 import StepsTabs from '~/components/common/StepsTabs';
 import { useToast } from '~/components/global/toasts/useToast';
@@ -13,19 +11,12 @@ import { useIntl } from '~/components/intl';
 
 import { useI18nRouter } from '~/next-i18nostic/src';
 
-import SponsorsAdvertiseEnquiryForm from './SponsorsAdvertiseEnquiryForm';
+import SponsorsAdvertiseRequestEnquiryForm from './SponsorsAdvertiseRequestEnquiryForm';
 import SponsorsAdvertiseRequestFormAdsSection from './SponsorsAdvertiseRequestFormAdsSection';
 import SponsorsAdvertiseRequestFormCompanyDetailsSection from './SponsorsAdvertiseRequestFormCompanyDetailsSection';
 import SponsorsAdvertiseRequestFormContactSection from './SponsorsAdvertiseRequestFormContactSection';
 import SponsorsAdvertiseRequestFormReviewSection from './SponsorsAdvertiseRequestFormReviewSection';
-import type { SponsorsAdFormatFormItem, SponsorsCompanyDetails } from './types';
-
-type AdvertiseRequestFormValues = Readonly<{
-  ads: Array<SponsorsAdFormatFormItem>;
-  company: SponsorsCompanyDetails | null;
-  emails: Array<string>;
-  sessionId: string;
-}>;
+import useSponsorsAdvertiseRequestFormData from './useSponsorsAdvertiseRequestFormData';
 
 type Step = 'ads' | 'company' | 'contact' | 'review';
 
@@ -103,17 +94,7 @@ export default function SponsorsAdvertiseRequestForm() {
     },
   ] as const;
 
-  const [formData, setFormData, removeFormData] =
-    useGreatStorageLocal<AdvertiseRequestFormValues>(
-      'sponsorships:advertise-request',
-      () => ({
-        ads: [],
-        company: null,
-        emails: [],
-        sessionId: uuidv4(),
-      }),
-      { ttl: 7 * 24 * 60 * 60 },
-    );
+  const [formData, setFormData] = useSponsorsAdvertiseRequestFormData();
   const [step, setStep] = useQueryState<(typeof steps)[number]['value']>(
     'step',
     {
@@ -183,7 +164,6 @@ export default function SponsorsAdvertiseRequestForm() {
             variant: 'success',
           });
 
-          removeFormData();
           router.push('/advertise-with-us/request/success');
         },
       },
@@ -192,11 +172,11 @@ export default function SponsorsAdvertiseRequestForm() {
 
   if (!step) {
     return (
-      <SponsorsAdvertiseEnquiryForm
+      <SponsorsAdvertiseRequestEnquiryForm
         defaultValues={formData.emails}
         sessionId={formData.sessionId}
         onSubmit={(emails) => {
-          setStep('contact');
+          setStep('ads');
           setFormData((prev) => ({ ...prev, emails }));
           setStepsStatus((prev) => ({ ...prev, contact: 'completed' }));
         }}

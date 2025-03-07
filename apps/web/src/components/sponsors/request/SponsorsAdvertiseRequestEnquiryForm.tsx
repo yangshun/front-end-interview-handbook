@@ -21,7 +21,7 @@ type Props = Readonly<{
   sessionId: string;
 }>;
 
-export default function SponsorsAdvertiseEnquiryForm({
+export default function SponsorsAdvertiseRequestEnquiryForm({
   onSubmit,
   defaultValues,
   sessionId,
