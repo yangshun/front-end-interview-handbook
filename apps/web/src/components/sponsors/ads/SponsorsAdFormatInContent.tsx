@@ -1,6 +1,8 @@
 import clsx from 'clsx';
 import { RiAdvertisementLine } from 'react-icons/ri';
 
+import gtag from '~/lib/gtag';
+
 import Anchor from '~/components/ui/Anchor';
 import type { TextSize } from '~/components/ui/Text';
 import Text, { textVariants } from '~/components/ui/Text';
@@ -52,6 +54,8 @@ type Props = Omit<SponsorsAdFormatPayloadInContent, 'format'> &
     tracking?: boolean;
   }>;
 
+const adFormat = 'IN_CONTENT';
+
 export default function SponsorsAdFormatInContent({
   adPlacement,
   adId,
@@ -64,7 +68,7 @@ export default function SponsorsAdFormatInContent({
   tracking = true,
 }: Props) {
   const ref = useSponsorsAdImpressionLogging<HTMLDivElement>(
-    'IN_CONTENT',
+    adFormat,
     adId,
     adPlacement,
   );
@@ -76,7 +80,19 @@ export default function SponsorsAdFormatInContent({
     <div ref={tracking ? ref : undefined} className="w-full">
       <div>
         {imageUrl ? (
-          <Anchor href={href} variant="unstyled">
+          <Anchor
+            href={href}
+            variant="unstyled"
+            onClick={() =>
+              gtag.event({
+                action: 'sponsors.ad.click',
+                extra: {
+                  adFormat,
+                  adId,
+                  adPlacement,
+                },
+              })
+            }>
             <img
               alt={title}
               className={clsx(
@@ -108,7 +124,17 @@ export default function SponsorsAdFormatInContent({
             href={href}
             target="_blank"
             variant="flatUnderline"
-            weight="medium">
+            weight="medium"
+            onClick={() =>
+              gtag.event({
+                action: 'sponsors.ad.click',
+                extra: {
+                  adFormat,
+                  adId,
+                  adPlacement,
+                },
+              })
+            }>
             {sponsorName}
           </Anchor>
         </Text>

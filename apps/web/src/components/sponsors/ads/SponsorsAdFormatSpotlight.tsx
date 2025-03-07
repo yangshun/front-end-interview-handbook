@@ -5,6 +5,8 @@ import {
   RiMegaphoneLine,
 } from 'react-icons/ri';
 
+import gtag from '~/lib/gtag';
+
 import Anchor from '~/components/ui/Anchor';
 import type { TextWeight } from '~/components/ui/Text';
 import Text from '~/components/ui/Text';
@@ -34,6 +36,8 @@ type Props = Omit<SponsorsAdFormatPayloadSpotlight, 'format'> &
     tracking?: boolean;
   }>;
 
+const adFormat = 'SPOTLIGHT';
+
 export default function SponsorsAdFormatSpotlight({
   adPlacement,
   adId,
@@ -45,7 +49,7 @@ export default function SponsorsAdFormatSpotlight({
   textWeight = 'normal',
 }: Props) {
   const ref = useSponsorsAdImpressionLogging<HTMLDivElement>(
-    'SPOTLIGHT',
+    adFormat,
     adId,
     adPlacement,
   );
@@ -110,7 +114,17 @@ export default function SponsorsAdFormatSpotlight({
           className={clsx('relative z-[1]')}
           target="_blank"
           variant="flat"
-          weight={textWeight}>
+          weight={textWeight}
+          onClick={() =>
+            gtag.event({
+              action: 'sponsors.ad.click',
+              extra: {
+                adFormat,
+                adId,
+                adPlacement,
+              },
+            })
+          }>
           {text}
         </Anchor>{' '}
         <RiArrowRightLine
@@ -123,6 +137,16 @@ export default function SponsorsAdFormatSpotlight({
         className="absolute inset-0"
         href={href}
         target="_blank"
+        onClick={() =>
+          gtag.event({
+            action: 'sponsors.ad.click',
+            extra: {
+              adFormat,
+              adId,
+              adPlacement,
+            },
+          })
+        }
       />
     </div>
   );

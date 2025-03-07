@@ -1,8 +1,14 @@
 import { useInView } from 'framer-motion';
 import { useEffect, useRef } from 'react';
 
+import gtag from '~/lib/gtag';
+
+import type { SponsorsAdFormat } from '@prisma/client';
+
 export default function useSponsorsAdImpressionLogging<T extends HTMLElement>(
+  adFormat: SponsorsAdFormat,
   adId: string,
+  adPlacement?: string | undefined,
 ) {
   const logged = useRef(false);
   const ref = useRef<T>(null);
@@ -14,6 +20,14 @@ export default function useSponsorsAdImpressionLogging<T extends HTMLElement>(
     }
 
     logged.current = true;
+    gtag.event({
+      action: 'sponsors.ad.impression',
+      extra: {
+        adFormat,
+        adId,
+        adPlacement,
+      },
+    });
     fetch(`/ads/impression`, {
       body: JSON.stringify({
         a: adId,
@@ -23,7 +37,7 @@ export default function useSponsorsAdImpressionLogging<T extends HTMLElement>(
       },
       method: 'POST',
     });
-  }, [adId, isInView]);
+  }, [adFormat, adId, adPlacement, isInView]);
 
   return ref;
 }

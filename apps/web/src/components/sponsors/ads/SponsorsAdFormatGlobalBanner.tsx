@@ -1,5 +1,7 @@
 import { RiArrowRightLine } from 'react-icons/ri';
 
+import gtag from '~/lib/gtag';
+
 import GlobalBannerShell from '~/components/global/banners/GlobalBannerShell';
 import Anchor from '~/components/ui/Anchor';
 import { textVariants } from '~/components/ui/Text';
@@ -17,6 +19,8 @@ type Props = Readonly<{
   url: string;
 }>;
 
+const adFormat = 'GLOBAL_BANNER';
+
 export default function SponsorsAdFormatGlobalBanner({
   adId,
   url,
@@ -25,10 +29,7 @@ export default function SponsorsAdFormatGlobalBanner({
   onHide,
   tracking = true,
 }: Props) {
-  const ref = useSponsorsAdImpressionLogging<HTMLAnchorElement>(
-    'GLOBAL_BANNER',
-    adId,
-  );
+  const ref = useSponsorsAdImpressionLogging<HTMLAnchorElement>(adFormat, adId);
 
   return (
     <GlobalBannerShell
@@ -43,7 +44,16 @@ export default function SponsorsAdFormatGlobalBanner({
         })}
         href={tracking ? sponsorsAdTrackingHref({ adId, url }) : url}
         target="_blank"
-        variant="flat">
+        variant="flat"
+        onClick={() => {
+          gtag.event({
+            action: 'sponsors.ad.click',
+            extra: {
+              adFormat,
+              adId,
+            },
+          });
+        }}>
         {text}
         <RiArrowRightLine
           aria-hidden={true}
