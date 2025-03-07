@@ -2,7 +2,7 @@ import { z } from 'zod';
 
 import { useIntl } from '~/components/intl';
 
-function sponsorNameSchema(options?: { minMessage: string }) {
+export function sponsorNameSchema(options?: { minMessage: string }) {
   const { minMessage = 'Sponsor name is required' } = options ?? {};
 
   return z.string().min(1, minMessage);

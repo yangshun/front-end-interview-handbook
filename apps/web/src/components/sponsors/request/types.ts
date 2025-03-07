@@ -1,6 +1,7 @@
 export type SponsorsAdFormatGlobalBannerItem = Readonly<{
   format: 'GLOBAL_BANNER';
   id: string;
+  sponsorName: string;
   text: string;
   url: string;
   weeks: Array<string>;
@@ -10,6 +11,7 @@ export type SponsorsAdFormatSpotlightItem = Readonly<{
   format: 'SPOTLIGHT';
   id: string;
   imageUrl: string;
+  sponsorName: string;
   text: string;
   url: string;
   weeks: Array<string>;
@@ -20,6 +22,7 @@ export type SponsorsAdFormatInContentItem = Readonly<{
   format: 'IN_CONTENT';
   id: string;
   imageUrl: string;
+  sponsorName: string;
   text: string;
   url: string;
   weeks: Array<string>;

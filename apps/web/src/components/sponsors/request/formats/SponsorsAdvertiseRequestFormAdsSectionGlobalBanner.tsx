@@ -69,6 +69,7 @@ export default function SponsorsAdvertiseRequestFormAdsSectionGlobalBanner({
 
   function handleOnSubmit(data: z.infer<typeof adSchema>) {
     onSubmit({
+      sponsorName: data.sponsorName,
       text: data.text,
       url: data.url,
       weeks: data.weeks,
@@ -168,6 +169,27 @@ export default function SponsorsAdvertiseRequestFormAdsSectionGlobalBanner({
                       id: 'DWvf03',
                     })}
                     placeholder="https://www.example.com"
+                    required={true}
+                  />
+                )}
+              />
+              <Controller
+                control={control}
+                name="sponsorName"
+                render={({ field, fieldState: { error } }) => (
+                  <TextInput
+                    {...field}
+                    description={intl.formatMessage({
+                      defaultMessage: 'Either product or company name',
+                      description: 'Advertisement sponsor',
+                      id: 'FavPnY',
+                    })}
+                    errorMessage={error?.message}
+                    label={intl.formatMessage({
+                      defaultMessage: 'Sponsor name',
+                      description: 'Advertisement sponsor name',
+                      id: 'jh37Pg',
+                    })}
                     required={true}
                   />
                 )}

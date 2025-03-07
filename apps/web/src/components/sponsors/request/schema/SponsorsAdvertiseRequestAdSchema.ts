@@ -7,6 +7,8 @@ import { useIntl } from '~/components/intl';
 import { SponsorAdFormatConfigs } from '~/components/sponsors/SponsorsAdFormatConfigs';
 import { RichTextEditorConfig } from '~/components/ui/RichTextEditor/RichTextEditorConfig';
 
+import { sponsorNameSchema } from './SponsorsAdvertiseRequestCompanySchema';
+
 import { createHeadlessEditor } from '@lexical/headless';
 
 const editor = createHeadlessEditor(RichTextEditorConfig);
@@ -85,6 +87,9 @@ function adBaseSchema(options?: {
   urlLocalhostMessage?: string;
 }) {
   return z.object({
+    sponsorName: sponsorNameSchema({
+      minMessage: 'Sponsor name is required',
+    }),
     text: z
       .string()
       .min(1, options?.minTextMessage ?? 'Title is required')

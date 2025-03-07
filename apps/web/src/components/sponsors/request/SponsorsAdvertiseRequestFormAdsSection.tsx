@@ -97,9 +97,8 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
                   className={clsx(
                     'flex items-center justify-between gap-2',
                     'px-3 py-3',
+                    ['border', themeBorderElementColor],
                     'rounded-md',
-                    'border',
-                    themeBorderElementColor,
                   )}>
                   <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
                     <Badge
@@ -125,48 +124,52 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
                       {ad.weeks.length *
                         SponsorAdFormatConfigs[ad.format].pricePerWeekUSD}
                     </Text>
-                    <Button
-                      icon={RiPencilLine}
-                      isLabelHidden={true}
-                      label="Edit ad"
-                      tooltip={intl.formatMessage({
-                        defaultMessage: 'Edit ad',
-                        description: 'Edit ad tooltip',
-                        id: 'IDhOlR',
-                      })}
-                      variant="tertiary"
-                      onClick={() => {
-                        setSelectedFormat(ad.format);
-                        setEditAdData(ad);
-                      }}
-                    />
-                    <Button
-                      icon={RiDeleteBinLine}
-                      isLabelHidden={true}
-                      label="Delete ad"
-                      tooltip={intl.formatMessage({
-                        defaultMessage: 'Delete ad',
-                        description: 'Delete ad tooltip',
-                        id: 'zzToik',
-                      })}
-                      variant="tertiary"
-                      onClick={() => {
-                        const remainingAds = ads.filter(
-                          (adItem) => adItem.id !== ad.id,
-                        );
+                    <div className="flex items-center">
+                      <Button
+                        icon={RiPencilLine}
+                        isLabelHidden={true}
+                        label="Edit ad"
+                        tooltip={intl.formatMessage({
+                          defaultMessage: 'Edit ad',
+                          description: 'Edit ad tooltip',
+                          id: 'IDhOlR',
+                        })}
+                        variant="tertiary"
+                        onClick={() => {
+                          setSelectedFormat(ad.format);
+                          setEditAdData(ad);
+                        }}
+                      />
+                      <Button
+                        icon={RiDeleteBinLine}
+                        isLabelHidden={true}
+                        label="Delete ad"
+                        tooltip={intl.formatMessage({
+                          defaultMessage: 'Delete ad',
+                          description: 'Delete ad tooltip',
+                          id: 'zzToik',
+                        })}
+                        variant="tertiary"
+                        onClick={() => {
+                          const remainingAds = ads.filter(
+                            (adItem) => adItem.id !== ad.id,
+                          );
 
-                        // Remove uploaded ad asset
-                        if ('imageUrl' in ad) {
-                          removeAdAssetMutation.mutate({
-                            imageUrl: ad.imageUrl,
-                          });
-                        }
-                        updateAds(ads.filter((adItem) => adItem.id !== ad.id));
-                        if (remainingAds.length === 0) {
-                          setSelectedFormat('GLOBAL_BANNER');
-                        }
-                      }}
-                    />
+                          // Remove uploaded ad asset
+                          if ('imageUrl' in ad) {
+                            removeAdAssetMutation.mutate({
+                              imageUrl: ad.imageUrl,
+                            });
+                          }
+                          updateAds(
+                            ads.filter((adItem) => adItem.id !== ad.id),
+                          );
+                          if (remainingAds.length === 0) {
+                            setSelectedFormat('GLOBAL_BANNER');
+                          }
+                        }}
+                      />
+                    </div>
                   </div>
                 </li>
               ))}
@@ -312,13 +315,14 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
                         }
                       : undefined
                   }
-                  onSubmit={({ text, url, weeks }) => {
+                  onSubmit={({ text, url, weeks, sponsorName }) => {
                     if (isEditFlow) {
                       const updatedAds = ads.map((ad) => {
                         if (ad.id === editAdData.id) {
                           return {
                             ...ad,
                             format: selectedFormat,
+                            sponsorName,
                             text,
                             url,
                             weeks,
@@ -342,6 +346,7 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
                         {
                           format: 'GLOBAL_BANNER',
                           id: uuidv4(),
+                          sponsorName,
                           text,
                           url,
                           weeks,
@@ -371,7 +376,14 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
                         }
                       : undefined
                   }
-                  onSubmit={({ text, url, weeks, imageUrl, body }) => {
+                  onSubmit={({
+                    text,
+                    url,
+                    weeks,
+                    imageUrl,
+                    body,
+                    sponsorName,
+                  }) => {
                     if (isEditFlow) {
                       const updatedAds = ads.map((ad) => {
                         if (ad.id === editAdData.id) {
@@ -380,6 +392,7 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
                             body,
                             format: selectedFormat,
                             imageUrl,
+                            sponsorName,
                             text,
                             url,
                             weeks,
@@ -408,6 +421,7 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
                           format: 'IN_CONTENT',
                           id: uuidv4(),
                           imageUrl,
+                          sponsorName,
                           text,
                           url,
                           weeks,
@@ -437,7 +451,7 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
                         }
                       : undefined
                   }
-                  onSubmit={({ text, url, weeks, imageUrl }) => {
+                  onSubmit={({ text, url, weeks, imageUrl, sponsorName }) => {
                     if (isEditFlow) {
                       const updatedAds = ads.map((ad) => {
                         if (ad.id === editAdData.id) {
@@ -445,6 +459,7 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
                             ...ad,
                             format: selectedFormat,
                             imageUrl,
+                            sponsorName,
                             text,
                             url,
                             weeks,
@@ -473,6 +488,7 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
                           format: 'SPOTLIGHT',
                           id: uuidv4(),
                           imageUrl,
+                          sponsorName,
                           text,
                           url,
                           weeks,

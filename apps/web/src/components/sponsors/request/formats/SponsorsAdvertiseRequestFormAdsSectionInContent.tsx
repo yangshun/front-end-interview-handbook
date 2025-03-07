@@ -89,6 +89,7 @@ export default function SponsorsAdvertiseRequestFormAdsSectionInContent({
   const title = watch('text');
   const body = watch('body');
   const imageUrl = watch('imageUrl');
+  const sponsorName = watch('sponsorName');
 
   const editorState = editor.parseEditorState(body);
   const bodyText = editorState.read(() => $getRoot().getTextContent());
@@ -121,6 +122,7 @@ export default function SponsorsAdvertiseRequestFormAdsSectionInContent({
     onSubmit({
       body: data.body,
       imageUrl: storageImageUrl,
+      sponsorName: data.sponsorName,
       text: data.text,
       url: data.url,
       weeks: data.weeks,
@@ -189,6 +191,51 @@ export default function SponsorsAdvertiseRequestFormAdsSectionInContent({
                         SponsorAdFormatConfigs[AD_FORMAT].placementConstraints
                           .image?.width ?? 1
                       }
+                    />
+                  )}
+                />
+                <Controller
+                  control={control}
+                  name="sponsorName"
+                  render={({ field, fieldState: { error } }) => (
+                    <TextInput
+                      {...field}
+                      description={intl.formatMessage({
+                        defaultMessage: 'Either product or company name',
+                        description: 'Advertisement sponsor',
+                        id: 'FavPnY',
+                      })}
+                      errorMessage={error?.message}
+                      label={intl.formatMessage({
+                        defaultMessage: 'Sponsor name',
+                        description: 'Advertisement sponsor name',
+                        id: 'jh37Pg',
+                      })}
+                      required={true}
+                    />
+                  )}
+                />
+                <Controller
+                  control={control}
+                  name="url"
+                  render={({ field, fieldState: { error } }) => (
+                    <TextInput
+                      {...field}
+                      description={intl.formatMessage({
+                        defaultMessage:
+                          'The URL the user will be led to when they click on the Ad image or sponsor',
+                        description: 'Description for URL input',
+                        id: 'p7t7FQ',
+                      })}
+                      errorMessage={error?.message}
+                      label={intl.formatMessage({
+                        defaultMessage: 'Sponsor URL',
+                        description: 'Ad sponsor URL',
+                        id: 'IdOpAt',
+                      })}
+                      placeholder="https://www.example.com"
+                      required={true}
+                      type="url"
                     />
                   )}
                 />
@@ -271,30 +318,6 @@ export default function SponsorsAdvertiseRequestFormAdsSectionInContent({
                     />
                   )}
                 />
-                <Controller
-                  control={control}
-                  name="url"
-                  render={({ field, fieldState: { error } }) => (
-                    <TextInput
-                      {...field}
-                      description={intl.formatMessage({
-                        defaultMessage:
-                          'The URL the user will be led to when they click on the Ad image',
-                        description: 'Description for URL input',
-                        id: 'Ujn4Ms',
-                      })}
-                      errorMessage={error?.message}
-                      label={intl.formatMessage({
-                        defaultMessage: 'Destination URL',
-                        description: 'Ad destination URL',
-                        id: 'DWvf03',
-                      })}
-                      placeholder="https://www.example.com"
-                      required={true}
-                      type="url"
-                    />
-                  )}
-                />
               </div>
               <div>
                 <div className="flex items-end justify-between gap-4">
@@ -333,7 +356,9 @@ export default function SponsorsAdvertiseRequestFormAdsSectionInContent({
                       external={true}
                       imageUrl={imageUrl}
                       size="md"
-                      sponsorName="Your product / company name"
+                      sponsorName={
+                        sponsorName || 'Your product or company name'
+                      }
                       title={
                         title || 'The quick brown fox jumped over the lazy fox'
                       }

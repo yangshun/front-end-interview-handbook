@@ -79,6 +79,7 @@ export default function SponsorsAdvertiseRequestFormAdsSectionSpotlight({
   const selectedWeeks = watch('weeks');
   const title = watch('text');
   const imageUrl = watch('imageUrl');
+  const sponsorName = watch('sponsorName');
 
   async function handleOnSubmit(data: z.infer<typeof adSchema>) {
     let storageImageUrl = null;
@@ -107,6 +108,7 @@ export default function SponsorsAdvertiseRequestFormAdsSectionSpotlight({
 
     onSubmit({
       imageUrl: storageImageUrl,
+      sponsorName: data.sponsorName,
       text: data.text,
       url: data.url,
       weeks: data.weeks,
@@ -175,6 +177,27 @@ export default function SponsorsAdvertiseRequestFormAdsSectionSpotlight({
                         SponsorAdFormatConfigs[AD_FORMAT].placementConstraints
                           .image?.width ?? 1
                       }
+                    />
+                  )}
+                />
+                <Controller
+                  control={control}
+                  name="sponsorName"
+                  render={({ field, fieldState: { error } }) => (
+                    <TextInput
+                      {...field}
+                      description={intl.formatMessage({
+                        defaultMessage: 'Either product or company name',
+                        description: 'Advertisement sponsor',
+                        id: 'FavPnY',
+                      })}
+                      errorMessage={error?.message}
+                      label={intl.formatMessage({
+                        defaultMessage: 'Sponsor name',
+                        description: 'Advertisement sponsor name',
+                        id: 'jh37Pg',
+                      })}
+                      required={true}
                     />
                   )}
                 />
@@ -267,7 +290,9 @@ export default function SponsorsAdvertiseRequestFormAdsSectionSpotlight({
                       adPlacement="preview"
                       external={true}
                       imageUrl={imageUrl}
-                      sponsorName="Your product / company name"
+                      sponsorName={
+                        sponsorName || 'Your product or company name'
+                      }
                       text={title || 'Your short form ad text here'}
                       tracking={false}
                       url="#"
