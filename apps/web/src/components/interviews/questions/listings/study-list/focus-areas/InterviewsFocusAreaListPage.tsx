@@ -78,7 +78,9 @@ export default function InterviewsRevampFocusAreaListPage({
         })}
         features={features}
         headingAddOnElement={<InterviewsPremiumBadge />}
-        sideElement={<SponsorsAdFormatSpotlightCard />}
+        sideElement={
+          <SponsorsAdFormatSpotlightCard adPlacement="page_header" />
+        }
         title={intl.formatMessage({
           defaultMessage: 'Focus areas',
           description: 'Title of focus areas page',

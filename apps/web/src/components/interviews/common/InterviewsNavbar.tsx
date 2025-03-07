@@ -205,7 +205,7 @@ export default function InterviewsNavbar({
                         ))}
                       <div className="flex flex-col gap-4 px-6">
                         <SocialDiscountSidebarMention />
-                        <SponsorsAdFormatSpotlightContainerWrapper />
+                        <SponsorsAdFormatSpotlightContainerWrapper adPlacement="nav_mobile" />
                       </div>
                       <div
                         className={clsx('flex justify-between gap-4', 'px-6')}>

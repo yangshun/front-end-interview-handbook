@@ -37,13 +37,23 @@ function isLexicalEditorValue(value: string) {
   }
 }
 
+export type SponsorsAdFormatInContentPlacement =
+  | 'guide'
+  | 'preview'
+  | 'questions_js'
+  | 'questions_quiz'
+  | 'questions_system_design'
+  | 'questions_ui';
+
 type Props = Omit<SponsorsAdFormatPayloadInContent, 'format'> &
   Readonly<{
+    adPlacement: SponsorsAdFormatInContentPlacement;
     size: SponsorsAdFormatInContentSize;
     tracking?: boolean;
   }>;
 
 export default function SponsorsAdFormatInContent({
+  adPlacement,
   adId,
   title,
   url,
@@ -53,7 +63,12 @@ export default function SponsorsAdFormatInContent({
   size,
   tracking = true,
 }: Props) {
-  const ref = useSponsorsAdImpressionLogging<HTMLDivElement>(adId);
+  const ref = useSponsorsAdImpressionLogging<HTMLDivElement>(
+    'IN_CONTENT',
+    adId,
+    adPlacement,
+  );
+  const href = tracking ? sponsorsAdTrackingHref({ adId, url }) : url;
 
   const isRichTextValue = isLexicalEditorValue(body);
 
@@ -61,16 +76,18 @@ export default function SponsorsAdFormatInContent({
     <div ref={tracking ? ref : undefined} className="w-full">
       <div>
         {imageUrl ? (
-          <img
-            alt={title}
-            className={clsx(
-              'aspect-[2/1] rounded-lg',
-              'object-cover',
-              'border',
-              themeBorderColor,
-            )}
-            src={imageUrl}
-          />
+          <Anchor href={href} variant="unstyled">
+            <img
+              alt={title}
+              className={clsx(
+                'aspect-[2/1] rounded-lg',
+                'object-cover',
+                'border',
+                themeBorderColor,
+              )}
+              src={imageUrl}
+            />
+          </Anchor>
         ) : (
           <div
             className={clsx(
@@ -88,9 +105,9 @@ export default function SponsorsAdFormatInContent({
           Sponsor:{' '}
           <Anchor
             className={textVariants({ color: 'active' })}
-            href={tracking ? sponsorsAdTrackingHref({ adId, url }) : url}
+            href={href}
             target="_blank"
-            variant="flat"
+            variant="flatUnderline"
             weight="medium">
             {sponsorName}
           </Anchor>

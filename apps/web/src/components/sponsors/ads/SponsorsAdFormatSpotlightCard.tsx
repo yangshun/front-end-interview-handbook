@@ -9,17 +9,26 @@ import {
   themeGlassyBorder,
 } from '~/components/ui/theme';
 
+import type { SponsorsAdFormatSpotlightPlacement } from './SponsorsAdFormatSpotlight';
 import SponsorsAdFormatSpotlight from './SponsorsAdFormatSpotlight';
 
-export default function SponsorsAdFormatSpotlightCard() {
+export default function SponsorsAdFormatSpotlightCard({
+  adPlacement,
+}: Readonly<{
+  adPlacement: SponsorsAdFormatSpotlightPlacement;
+}>) {
   if (!SPONSORSHIPS_AVAILABLE) {
     return null;
   }
 
-  return <SponsorsAdFormatSpotlightCardImpl />;
+  return <SponsorsAdFormatSpotlightCardImpl adPlacement={adPlacement} />;
 }
 
-function SponsorsAdFormatSpotlightCardImpl() {
+function SponsorsAdFormatSpotlightCardImpl({
+  adPlacement,
+}: Readonly<{
+  adPlacement: SponsorsAdFormatSpotlightPlacement;
+}>) {
   const { data, isLoading } = trpc.sponsorships.ad.useQuery({
     format: 'SPOTLIGHT',
   });
@@ -37,7 +46,11 @@ function SponsorsAdFormatSpotlightCardImpl() {
         themeGlassyBorder,
         'rounded-lg',
       )}>
-      <SponsorsAdFormatSpotlight {...data} textWeight="medium" />
+      <SponsorsAdFormatSpotlight
+        adPlacement={adPlacement}
+        textWeight="medium"
+        {...data}
+      />
     </div>
   );
 }

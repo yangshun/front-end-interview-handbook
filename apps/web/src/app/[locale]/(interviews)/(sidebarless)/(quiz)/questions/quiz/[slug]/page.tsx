@@ -66,7 +66,6 @@ export default async function Page({ params }: Props) {
       <QuestionQuizContents
         listIsShownInSidebarOnDesktop={true}
         question={question}
-        questionList={[]}
       />
     </>
   );

@@ -121,7 +121,7 @@ export function InterviewsSidebarExpanded({
       renderBottomAddonElements={() => (
         <div className="flex flex-col gap-4">
           <SocialDiscountSidebarMention />
-          <SponsorsAdFormatSpotlightContainerWrapper />
+          <SponsorsAdFormatSpotlightContainerWrapper adPlacement="nav_sidebar" />
         </div>
       )}
       sidebarItems={sidebarItems}

@@ -16,7 +16,7 @@ export default function GuidesMarkdown({ markdown: Markdown }: Props) {
         ...MDXComponents,
         Ad: () => (
           <div className="not-prose">
-            <SponsorsAdFormatInContentContainer size="md" />
+            <SponsorsAdFormatInContentContainer adPlacement="guide" size="md" />
           </div>
         ),
       }}

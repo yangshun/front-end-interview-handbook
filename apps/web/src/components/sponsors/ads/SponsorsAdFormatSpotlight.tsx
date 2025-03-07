@@ -20,10 +20,22 @@ import { sponsorsAdTrackingHref } from './SponsorsAdHref';
 import useSponsorsAdImpressionLogging from './useSponsorsAdImpressionLogging';
 import type { SponsorsAdFormatPayloadSpotlight } from '../SponsorsTypes';
 
+export type SponsorsAdFormatSpotlightPlacement =
+  | 'nav_mobile'
+  | 'nav_sidebar'
+  | 'page_header'
+  | 'preview'
+  | 'side_column';
+
 type Props = Omit<SponsorsAdFormatPayloadSpotlight, 'format'> &
-  Readonly<{ textWeight?: TextWeight; tracking?: boolean }>;
+  Readonly<{
+    adPlacement: SponsorsAdFormatSpotlightPlacement;
+    textWeight?: TextWeight;
+    tracking?: boolean;
+  }>;
 
 export default function SponsorsAdFormatSpotlight({
+  adPlacement,
   adId,
   text,
   sponsorName,
@@ -32,7 +44,11 @@ export default function SponsorsAdFormatSpotlight({
   tracking = true,
   textWeight = 'normal',
 }: Props) {
-  const ref = useSponsorsAdImpressionLogging<HTMLDivElement>(adId);
+  const ref = useSponsorsAdImpressionLogging<HTMLDivElement>(
+    'SPOTLIGHT',
+    adId,
+    adPlacement,
+  );
   const href = tracking ? sponsorsAdTrackingHref({ adId, url }) : url;
 
   return (
@@ -70,7 +86,7 @@ export default function SponsorsAdFormatSpotlight({
         {imageUrl ? (
           <img
             alt={text}
-            className={clsx('size-full', 'object-cover', [
+            className={clsx('size-full', 'object-cover', 'rounded-md', [
               'border',
               themeBorderColor,
             ])}

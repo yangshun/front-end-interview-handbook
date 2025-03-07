@@ -125,7 +125,7 @@ export default function InterviewsQuestionsCategoryPage({
                 />
               </div>
             ) : (
-              <SponsorsAdFormatSpotlightCard />
+              <SponsorsAdFormatSpotlightCard adPlacement="side_column" />
             )
           }
         />

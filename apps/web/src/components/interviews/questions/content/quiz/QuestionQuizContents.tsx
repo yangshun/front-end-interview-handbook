@@ -5,7 +5,6 @@ import { getMDXComponent } from 'mdx-bundler/client';
 import { useMemo } from 'react';
 import { RiEditBoxLine } from 'react-icons/ri';
 
-import ArticlePagination from '~/components/common/ArticlePagination';
 import QuestionMetadataSection from '~/components/interviews/questions/metadata/QuestionMetadataSection';
 import { FormattedMessage, useIntl } from '~/components/intl';
 import MDXCodeBlock from '~/components/mdx/MDXCodeBlock';
@@ -22,10 +21,7 @@ import Text from '~/components/ui/Text';
 import { hashQuestion } from '~/db/QuestionsUtils';
 
 import QuestionReportIssueButton from '../../common/QuestionReportIssueButton';
-import type {
-  QuestionMetadata,
-  QuestionQuiz,
-} from '../../common/QuestionsTypes';
+import type { QuestionQuiz } from '../../common/QuestionsTypes';
 import useQuestionLogEventCopyContents from '../../common/useQuestionLogEventCopyContents';
 import useQuestionsAutoMarkAsComplete from '../../common/useQuestionsAutoMarkAsComplete';
 import InterviewsStudyListBottomBar from '../../listings/study-list/InterviewsStudyListBottomBar';
@@ -33,7 +29,6 @@ import InterviewsStudyListBottomBar from '../../listings/study-list/InterviewsSt
 type Props = Readonly<{
   listIsShownInSidebarOnDesktop: boolean;
   question: QuestionQuiz;
-  questionList?: ReadonlyArray<QuestionMetadata>;
   studyListKey?: string;
 }>;
 
@@ -65,7 +60,6 @@ function GitHubEditButton({
 
 export default function QuestionQuizContents({
   question,
-  questionList,
   studyListKey,
   listIsShownInSidebarOnDesktop,
 }: Props) {
@@ -91,7 +85,7 @@ export default function QuestionQuizContents({
         'flex flex-col',
         'min-h-[calc(100vh_-_var(--global-sticky-height))]',
       )}>
-      <Container className="grow py-6 lg:py-8 xl:py-12" width="3xl">
+      <Container className={clsx('grow', 'py-6 lg:py-8 xl:py-12')} width="3xl">
         <div className="flex flex-col gap-y-6">
           <div className="overflow-auto">
             <Text className="mb-1 block" color="secondary" size="body2">
@@ -160,20 +154,12 @@ export default function QuestionQuizContents({
             />
             <GitHubEditButton question={question} />
           </div>
-          {questionList != null && (
-            <>
-              <Divider />
-              <ArticlePagination
-                activeItem={question.metadata.href}
-                items={questionList.map(({ title, href }) => ({
-                  href,
-                  label: title,
-                }))}
-              />
-            </>
-          )}
         </div>
-        <SponsorsAdFormatInContentContainer size="md" />
+        <Divider className="mb-12 mt-6" color="emphasized" />
+        <SponsorsAdFormatInContentContainer
+          adPlacement="questions_quiz"
+          size="md"
+        />
       </Container>
       <InterviewsStudyListBottomBar
         listIsShownInSidebarOnDesktop={listIsShownInSidebarOnDesktop}

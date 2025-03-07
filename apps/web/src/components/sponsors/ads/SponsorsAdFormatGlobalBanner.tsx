@@ -25,7 +25,10 @@ export default function SponsorsAdFormatGlobalBanner({
   onHide,
   tracking = true,
 }: Props) {
-  const ref = useSponsorsAdImpressionLogging<HTMLAnchorElement>(adId);
+  const ref = useSponsorsAdImpressionLogging<HTMLAnchorElement>(
+    'GLOBAL_BANNER',
+    adId,
+  );
 
   return (
     <GlobalBannerShell

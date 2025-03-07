@@ -46,7 +46,7 @@ export default function InterviewsStudyListPageTitleSection({
             studyListTitle={props.title}
           />
         ) : (
-          <SponsorsAdFormatSpotlightCard />
+          <SponsorsAdFormatSpotlightCard adPlacement="page_header" />
         )
       }
     />

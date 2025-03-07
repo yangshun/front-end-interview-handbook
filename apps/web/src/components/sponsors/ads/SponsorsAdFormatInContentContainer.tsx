@@ -4,12 +4,17 @@ import { trpc } from '~/hooks/trpc';
 
 import { SPONSORSHIPS_AVAILABLE } from '~/data/FeatureFlags';
 
-import type { SponsorsAdFormatInContentSize } from './SponsorsAdFormatInContent';
+import type {
+  SponsorsAdFormatInContentPlacement,
+  SponsorsAdFormatInContentSize,
+} from './SponsorsAdFormatInContent';
 import SponsorsAdFormatInContent from './SponsorsAdFormatInContent';
 
 function SponsorsAdFormatInContentContainer({
+  adPlacement,
   size,
 }: Readonly<{
+  adPlacement: SponsorsAdFormatInContentPlacement;
   size: SponsorsAdFormatInContentSize;
 }>) {
   const { data, isLoading } = trpc.sponsorships.ad.useQuery({
@@ -20,17 +25,27 @@ function SponsorsAdFormatInContentContainer({
     return null;
   }
 
-  return <SponsorsAdFormatInContent size={size} {...data} />;
+  return (
+    <SponsorsAdFormatInContent
+      adPlacement={adPlacement}
+      size={size}
+      {...data}
+    />
+  );
 }
 
 export default function SponsorsAdFormatInContentContainerWrapper({
+  adPlacement,
   size,
 }: Readonly<{
+  adPlacement: SponsorsAdFormatInContentPlacement;
   size: SponsorsAdFormatInContentSize;
 }>) {
   if (!SPONSORSHIPS_AVAILABLE) {
     return null;
   }
 
-  return <SponsorsAdFormatInContentContainer size={size} />;
+  return (
+    <SponsorsAdFormatInContentContainer adPlacement={adPlacement} size={size} />
+  );
 }

@@ -129,7 +129,7 @@ export default function InterviewsStudyPlanGFE75Page({
           title={studyList.name}
         />
         <div className="max-w-md min-[1200px]:hidden">
-          <SponsorsAdFormatSpotlightCard />
+          <SponsorsAdFormatSpotlightCard adPlacement="side_column" />
         </div>
       </div>
       <Section>
@@ -138,7 +138,9 @@ export default function InterviewsStudyPlanGFE75Page({
             overallProgress={questionsOverallProgress}
             questions={questions}
             showCount_TEMPORARY={false}
-            sideColumnAddOn={<SponsorsAdFormatSpotlightCard />}
+            sideColumnAddOn={
+              <SponsorsAdFormatSpotlightCard adPlacement="side_column" />
+            }
             studyListKey={studyList.slug}
           />
           {bottomContent && (

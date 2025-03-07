@@ -134,7 +134,9 @@ export default function InterviewsQuestionFormatPage({
           questionCompletionCount={questionCompletionCount}
           questions={questions}
           searchPlaceholder={formatData[format].searchPlaceholder}
-          sideColumnAddOn={<SponsorsAdFormatSpotlightCard />}
+          sideColumnAddOn={
+            <SponsorsAdFormatSpotlightCard adPlacement="side_column" />
+          }
         />
         {bottomContent && (
           <>

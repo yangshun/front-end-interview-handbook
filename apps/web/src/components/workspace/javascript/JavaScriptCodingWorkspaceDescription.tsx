@@ -9,6 +9,7 @@ import QuestionMetadataSection from '~/components/interviews/questions/metadata/
 import { useIntl } from '~/components/intl';
 import SponsorsAdFormatInContentContainer from '~/components/sponsors/ads/SponsorsAdFormatInContentContainer';
 import Badge from '~/components/ui/Badge';
+import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
 import ScrollArea from '~/components/ui/ScrollArea';
 
@@ -71,7 +72,11 @@ export default function JavaScriptCodingWorkspaceDescription({
             />
             <QuestionNextQuestions questions={nextQuestions} />
             <QuestionSimilarQuestions questions={similarQuestions} />
-            <SponsorsAdFormatInContentContainer size="sm" />
+            <Divider />
+            <SponsorsAdFormatInContentContainer
+              adPlacement="questions_js"
+              size="sm"
+            />
           </div>
         </div>
       </ScrollArea>

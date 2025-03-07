@@ -264,6 +264,7 @@ export default function SponsorsAdvertiseRequestFormAdsSectionSpotlight({
                   <div className="max-w-[260px]">
                     <SponsorsAdFormatSpotlight
                       adId="test-spotlight"
+                      adPlacement="preview"
                       external={true}
                       imageUrl={imageUrl}
                       sponsorName="Your product / company name"

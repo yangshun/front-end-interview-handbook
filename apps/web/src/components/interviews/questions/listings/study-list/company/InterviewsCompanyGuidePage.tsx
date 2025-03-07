@@ -199,7 +199,9 @@ export default function InterviewsCompanyGuidePage({
               <InterviewsStudyListQuestions
                 overallProgress={questionsOverallProgress}
                 questions={questions}
-                sideColumnAddOn={<SponsorsAdFormatSpotlightCard />}
+                sideColumnAddOn={
+                  <SponsorsAdFormatSpotlightCard adPlacement="side_column" />
+                }
                 studyListKey={studyList.slug}
               />
             ) : (

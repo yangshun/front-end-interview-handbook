@@ -22,6 +22,7 @@ import Alert from '~/components/ui/Alert';
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
+import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
 import ScrollArea from '~/components/ui/ScrollArea';
 import Select from '~/components/ui/Select';
@@ -196,7 +197,11 @@ export default function UserInterfaceCodingWorkspaceWriteup({
             )}
             <QuestionNextQuestions questions={nextQuestions} />
             <QuestionSimilarQuestions questions={similarQuestions} />
-            <SponsorsAdFormatInContentContainer size="sm" />
+            <Divider />
+            <SponsorsAdFormatInContentContainer
+              adPlacement="questions_ui"
+              size="sm"
+            />
           </div>
         </div>
       </ScrollArea>

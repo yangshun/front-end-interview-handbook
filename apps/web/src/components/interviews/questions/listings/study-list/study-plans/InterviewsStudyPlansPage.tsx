@@ -91,7 +91,9 @@ export default function InterviewsStudyPlansPage({
         })}
         features={features}
         headingAddOnElement={<InterviewsPremiumBadge />}
-        sideElement={<SponsorsAdFormatSpotlightCard />}
+        sideElement={
+          <SponsorsAdFormatSpotlightCard adPlacement="page_header" />
+        }
         title={intl.formatMessage({
           defaultMessage: 'Study plans',
           description: 'Title of study plans page',

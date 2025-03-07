@@ -4,9 +4,14 @@ import { trpc } from '~/hooks/trpc';
 
 import { SPONSORSHIPS_AVAILABLE } from '~/data/FeatureFlags';
 
+import type { SponsorsAdFormatSpotlightPlacement } from './SponsorsAdFormatSpotlight';
 import SponsorsAdFormatSpotlight from './SponsorsAdFormatSpotlight';
 
-function SponsorsAdFormatSpotlightContainer() {
+function SponsorsAdFormatSpotlightContainer({
+  adPlacement,
+}: Readonly<{
+  adPlacement: SponsorsAdFormatSpotlightPlacement;
+}>) {
   const { data, isLoading } = trpc.sponsorships.ad.useQuery({
     format: 'SPOTLIGHT',
   });
@@ -15,13 +20,17 @@ function SponsorsAdFormatSpotlightContainer() {
     return null;
   }
 
-  return <SponsorsAdFormatSpotlight {...data} />;
+  return <SponsorsAdFormatSpotlight adPlacement={adPlacement} {...data} />;
 }
 
-export default function SponsorsAdFormatSpotlightContainerWrapper() {
+export default function SponsorsAdFormatSpotlightContainerWrapper({
+  adPlacement,
+}: Readonly<{
+  adPlacement: SponsorsAdFormatSpotlightPlacement;
+}>) {
   if (!SPONSORSHIPS_AVAILABLE) {
     return null;
   }
 
-  return <SponsorsAdFormatSpotlightContainer />;
+  return <SponsorsAdFormatSpotlightContainer adPlacement={adPlacement} />;
 }

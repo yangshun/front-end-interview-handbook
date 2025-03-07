@@ -11,6 +11,7 @@ import GuidesPagination from '~/components/guides/GuidesPagination';
 import { useIntl } from '~/components/intl';
 import SponsorsAdFormatInContentContainer from '~/components/sponsors/ads/SponsorsAdFormatInContentContainer';
 import CheckboxInput from '~/components/ui/CheckboxInput';
+import Divider from '~/components/ui/Divider';
 import Section from '~/components/ui/Heading/HeadingContext';
 
 import { useI18nPathname } from '~/next-i18nostic/src';
@@ -131,6 +132,11 @@ export default function GuidesMainLayout<GuideSlug extends string>({
             )}>
             <div ref={articleContainerRef}>{children}</div>
             <Section>
+              <Divider />
+              <SponsorsAdFormatInContentContainer
+                adPlacement="guide"
+                size="sm"
+              />
               {showMarkAsComplete && guideMetadata && (
                 <div className={clsx('flex justify-end', 'transition-colors')}>
                   <div className="max-w-64 flex flex-col items-end gap-2">
@@ -165,7 +171,6 @@ export default function GuidesMainLayout<GuideSlug extends string>({
                   </div>
                 </div>
               )}
-              <SponsorsAdFormatInContentContainer size="sm" />
             </Section>
           </div>
           <Section>

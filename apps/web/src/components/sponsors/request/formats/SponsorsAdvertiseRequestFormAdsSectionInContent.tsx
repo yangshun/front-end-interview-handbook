@@ -324,6 +324,7 @@ export default function SponsorsAdvertiseRequestFormAdsSectionInContent({
                   <div className="w-full max-w-xl">
                     <SponsorsAdFormatInContent
                       adId="test-short-form"
+                      adPlacement="preview"
                       body={
                         bodyText.length > 0
                           ? body

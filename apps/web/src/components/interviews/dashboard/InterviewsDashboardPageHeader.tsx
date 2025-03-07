@@ -131,7 +131,7 @@ export default function InterviewsDashboardPageHeader({
             </Text>
           </div>
         </div>
-        <SponsorsAdFormatSpotlightCard />
+        <SponsorsAdFormatSpotlightCard adPlacement="page_header" />
       </div>
     );
   }

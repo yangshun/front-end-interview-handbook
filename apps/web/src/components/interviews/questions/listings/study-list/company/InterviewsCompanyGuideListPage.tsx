@@ -72,7 +72,9 @@ export default function InterviewsStudyListListPage({
         })}
         features={features}
         headingAddOnElement={<InterviewsPremiumBadge />}
-        sideElement={<SponsorsAdFormatSpotlightCard />}
+        sideElement={
+          <SponsorsAdFormatSpotlightCard adPlacement="page_header" />
+        }
         title={intl.formatMessage({
           defaultMessage: 'Company guides',
           description: 'Title of company guides page',

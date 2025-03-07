@@ -1,5 +1,4 @@
 import { createContext, useContext, useEffect, useState } from 'react';
-import { useLocalStorage } from 'usehooks-ts';
 
 import { useGreatStorageLocal } from '~/hooks/useGreatStorageLocal';
 
