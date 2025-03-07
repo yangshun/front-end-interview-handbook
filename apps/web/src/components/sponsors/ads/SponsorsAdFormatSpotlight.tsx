@@ -112,19 +112,20 @@ export default function SponsorsAdFormatSpotlight({
         size="body3">
         <Anchor
           className={clsx('relative z-[1]')}
+          href={href}
           target="_blank"
           variant="flat"
           weight={textWeight}
-          onClick={() =>
-            gtag.event({
+          onClick={() => {
+            return gtag.event({
               action: 'sponsors.ad.click',
               extra: {
-                adFormat,
-                adId,
-                adPlacement,
+                ad_format: adFormat,
+                ad_id: adId,
+                ad_placement: adPlacement,
               },
-            })
-          }>
+            });
+          }}>
           {text}
         </Anchor>{' '}
         <RiArrowRightLine
@@ -137,16 +138,16 @@ export default function SponsorsAdFormatSpotlight({
         className="absolute inset-0"
         href={href}
         target="_blank"
-        onClick={() =>
-          gtag.event({
+        onClick={() => {
+          return gtag.event({
             action: 'sponsors.ad.click',
             extra: {
-              adFormat,
-              adId,
-              adPlacement,
+              ad_format: adFormat,
+              ad_id: adId,
+              ad_placement: adPlacement,
             },
-          })
-        }
+          });
+        }}
       />
     </div>
   );

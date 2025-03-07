@@ -49,8 +49,8 @@ export default function SponsorsAdFormatGlobalBanner({
           gtag.event({
             action: 'sponsors.ad.click',
             extra: {
-              adFormat,
-              adId,
+              ad_format: adFormat,
+              ad_id: adId,
             },
           });
         }}>

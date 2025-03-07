@@ -87,9 +87,9 @@ export default function SponsorsAdFormatInContent({
               gtag.event({
                 action: 'sponsors.ad.click',
                 extra: {
-                  adFormat,
-                  adId,
-                  adPlacement,
+                  ad_format: adFormat,
+                  ad_id: adId,
+                  ad_placement: adPlacement,
                 },
               })
             }>
@@ -129,9 +129,9 @@ export default function SponsorsAdFormatInContent({
               gtag.event({
                 action: 'sponsors.ad.click',
                 extra: {
-                  adFormat,
-                  adId,
-                  adPlacement,
+                  ad_format: adFormat,
+                  ad_id: adId,
+                  ad_placement: adPlacement,
                 },
               })
             }>
