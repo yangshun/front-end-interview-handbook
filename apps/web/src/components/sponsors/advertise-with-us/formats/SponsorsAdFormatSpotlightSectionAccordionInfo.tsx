@@ -3,7 +3,8 @@
 import clsx from 'clsx';
 import { RiCheckLine } from 'react-icons/ri';
 
-import { useGuidesData } from '~/data/Guides';
+import { trpc } from '~/hooks/trpc';
+
 import {
   useQuestionFormatsData,
   useQuestionFrameworksData,
@@ -173,6 +174,7 @@ export default function SponsorsAdFormatSpotlightSectionAccordionInfo() {
 }
 
 function useSponsorsAdSpotlightQuestionListingPages() {
+  const { data } = trpc.sponsorships.spotlightPlacements.useQuery();
   const questionLanguagesData = useQuestionLanguagesData();
   const questionLanguagesPages = Object.keys(questionLanguagesData).map(
     (key) => {
@@ -198,29 +200,11 @@ function useSponsorsAdSpotlightQuestionListingPages() {
 
     return { href, key: value, name: listingName };
   });
-  const guidesData = useGuidesData();
-
-  const guidesPages = Object.keys(guidesData).map((guideItem) => {
-    const { href, name, key } =
-      guidesData[guideItem as keyof typeof guidesData];
-
-    return { href, key, name };
-  });
 
   return [
     ...questionLanguagesPages,
     ...questionFrameworkPages,
     ...questionFormatsPages,
-    {
-      href: '/interviews/gfe75',
-      key: 'gfe75',
-      name: 'GFE 75',
-    },
-    {
-      href: '/interviews/blind75',
-      key: 'blind75',
-      name: 'Blind 75',
-    },
-    ...guidesPages,
+    ...(data || []),
   ];
 }

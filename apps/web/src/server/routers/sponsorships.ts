@@ -14,6 +14,7 @@ import { sponsorsWeekDateRange } from '~/components/sponsors/SponsorsDatesUtils'
 import type { SponsorsAdFormatPayload } from '~/components/sponsors/SponsorsTypes';
 import { SponsorsAdFormatZodEnum } from '~/components/sponsors/SponsorsTypes';
 
+import { fetchInterviewsStudyLists } from '~/db/contentlayer/InterviewsStudyListReader';
 import prisma from '~/server/prisma';
 import { createSupabaseAdminClientGFE_SERVER_ONLY } from '~/supabase/SupabaseServerGFE';
 
@@ -425,6 +426,19 @@ Elevate your style, inspire your creativity, and represent your coding chops wit
         throw error;
       }
     }),
+  spotlightPlacements: publicProcedure.query(async () => {
+    const [focusAreas, companies, studyPlans] = await Promise.all([
+      fetchInterviewsStudyLists('focus-area'),
+      fetchInterviewsStudyLists('company'),
+      fetchInterviewsStudyLists('study-plan'),
+    ]);
+
+    return [...focusAreas, ...companies, ...studyPlans].map((item) => ({
+      href: item.href,
+      key: item.name,
+      name: item.longName,
+    }));
+  }),
   uploadAdAsset: publicProcedure
     .input(
       z.object({
