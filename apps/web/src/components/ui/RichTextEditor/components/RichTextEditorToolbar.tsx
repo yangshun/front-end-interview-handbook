@@ -1,11 +1,11 @@
 import clsx from 'clsx';
-import { memo, useState } from 'react';
+import { useState } from 'react';
 import { useMediaQuery } from 'usehooks-ts';
 
 import RichTextEditorBoldPlugin from '~/components/ui/RichTextEditor/plugin/RichTextEditorBoldPlugin';
 import RichTextEditorCodePlugin from '~/components/ui/RichTextEditor/plugin/RichTextEditorCodePlugin';
+import RichTextEditorHorizontalRulePlugin from '~/components/ui/RichTextEditor/plugin/RichTextEditorHorizontalRulePlugin';
 import RichTextEditorInlineCodePlugin from '~/components/ui/RichTextEditor/plugin/RichTextEditorInlineCodePlugin';
-import RichTextEditorInsertPlugin from '~/components/ui/RichTextEditor/plugin/RichTextEditorInsertPlugin';
 import RichTextEditorItalicPlugin from '~/components/ui/RichTextEditor/plugin/RichTextEditorItalicPlugin';
 import RichTextEditorOrderedListPlugin from '~/components/ui/RichTextEditor/plugin/RichTextEditorOrderedListPlugin';
 import RichTextEditorQuotePlugin from '~/components/ui/RichTextEditor/plugin/RichTextEditorQuotePlugin';
@@ -16,6 +16,8 @@ import RichTextEditorUnderlinePlugin from '~/components/ui/RichTextEditor/plugin
 import RichTextEditorUndoPlugin from '~/components/ui/RichTextEditor/plugin/RichTextEditorUndoPlugin';
 import RichTextEditorUnorderedListPlugin from '~/components/ui/RichTextEditor/plugin/RichTextEditorUnorderedListPlugin';
 import { themeBorderElementColor } from '~/components/ui/theme';
+
+import RichTextEditorLinkActionNode from '../plugin/RichTextEditorLinkActionNode';
 
 type Props = Readonly<{
   floatingAnchorElem: HTMLDivElement | null;
@@ -44,8 +46,6 @@ export default function RichTextEditorToolbar({ floatingAnchorElem }: Props) {
     />
   );
 
-  const MemoizedInsertPlugin = memo(RichTextEditorInsertPlugin);
-
   return (
     <div
       className={clsx(
@@ -67,6 +67,11 @@ export default function RichTextEditorToolbar({ floatingAnchorElem }: Props) {
           <RichTextEditorBoldPlugin />
           <RichTextEditorItalicPlugin />
           <RichTextEditorUnderlinePlugin />
+          <RichTextEditorLinkActionNode
+            floatingAnchorElem={floatingAnchorElem}
+          />
+          <Divider />
+          <RichTextEditorHorizontalRulePlugin />
           <RichTextEditorInlineCodePlugin />
           <RichTextEditorSpecialCasePlugin />
           {!isMobileAndBelow && (
@@ -75,7 +80,6 @@ export default function RichTextEditorToolbar({ floatingAnchorElem }: Props) {
               <RichTextEditorOrderedListPlugin />
               {codePlugin}
               <RichTextEditorQuotePlugin />
-              <MemoizedInsertPlugin floatingAnchorElem={floatingAnchorElem} />
             </>
           )}
         </>

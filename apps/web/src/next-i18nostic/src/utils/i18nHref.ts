@@ -30,7 +30,7 @@ export default function i18nHref(
     // Throw if not a relative URL.
     if (!pathname.startsWith('/')) {
       throw new Error(
-        `Only relative URLs supported. Pathnames must start with /, but received ${pathname}`,
+        `Only relative URLs supported. Pathnames must start with /, but received "${pathname}"`,
       );
     }
   }

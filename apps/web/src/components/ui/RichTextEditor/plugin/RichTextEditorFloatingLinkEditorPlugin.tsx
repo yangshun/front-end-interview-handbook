@@ -18,20 +18,24 @@ import * as React from 'react';
 import { createPortal } from 'react-dom';
 import {
   RiCheckboxCircleFill,
-  RiCloseCircleFill,
   RiDeleteBin6Line,
   RiPencilLine,
 } from 'react-icons/ri';
 import { useOnClickOutside } from 'usehooks-ts';
 
 import { useIntl } from '~/components/intl';
+import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import TextInput from '~/components/ui/TextInput';
-import { themeBackgroundLayerEmphasized } from '~/components/ui/theme';
+import {
+  themeBackgroundColor,
+  themeBorderElementColor,
+} from '~/components/ui/theme';
 
 import { getSelectedNode } from '../utils/getSelectedNode';
 import { setFloatingElemPositionForLinkEditor } from '../utils/setFloatingElemPositionForLinkEditor';
 import { sanitizeUrl, validateUrl } from '../utils/url';
+import { textVariants } from '../../Text';
 
 import {
   $createLinkNode,
@@ -219,80 +223,83 @@ function FloatingLinkEditor({
     }
   }, [isLinkEditMode, isOpenLinkEditor]);
 
-  const monitorInputInteraction = (
+  function monitorInputInteraction(
     event: React.KeyboardEvent<HTMLInputElement>,
-  ) => {
+  ) {
     if (event.key === 'Enter') {
       event.preventDefault();
       handleLinkSubmission();
     } else if (event.key === 'Escape') {
       event.preventDefault();
-      setIsLinkEditMode(false);
-    }
-  };
-
-  const handleLinkSubmission = () => {
-    if (lastSelection !== null) {
-      editor.update(() => {
-        const selection = $getSelection();
-
-        if ($isRangeSelection(selection)) {
-          const node = getSelectedNode(selection);
-          const parent = node.getParent();
-
-          if (!editedLinkUrl) {
-            if ($isLinkNode(parent) || $isLinkNode(node)) {
-              editor.dispatchCommand(TOGGLE_LINK_COMMAND, null);
-            }
-
-            return;
-          }
-
-          if ($isLinkNode(parent) || $isLinkNode(node)) {
-            // If link node already present
-            const format = node.getFormat();
-            const linkNode = $createLinkNode(
-              validateUrl(editedLinkUrl)
-                ? sanitizeUrl(editedLinkUrl)
-                : `https://${editedLinkUrl}`,
-            ).append(
-              $createTextNode(linkText || editedLinkUrl).setFormat(format),
-            );
-
-            node.replace(linkNode);
-            linkNode.select();
-          } else {
-            // If link node is not present
-            const { anchor, focus } = selection;
-
-            selection.insertText(linkText || editedLinkUrl);
-
-            anchor.offset -= linkText.length;
-            focus.offset = anchor.offset + linkText.length;
-            toggleLink(
-              validateUrl(editedLinkUrl)
-                ? sanitizeUrl(editedLinkUrl)
-                : `https://${editedLinkUrl}`,
-            );
-          }
-        }
-      });
       setEditedLinkUrl('');
       setLinkText('');
       setIsLinkEditMode(false);
     }
-  };
+  }
+
+  function handleLinkSubmission() {
+    if (lastSelection === null) {
+      return;
+    }
+
+    editor.update(() => {
+      const selection = $getSelection();
+
+      if ($isRangeSelection(selection)) {
+        const node = getSelectedNode(selection);
+        const parent = node.getParent();
+
+        if (!editedLinkUrl) {
+          if ($isLinkNode(parent) || $isLinkNode(node)) {
+            editor.dispatchCommand(TOGGLE_LINK_COMMAND, null);
+          }
+
+          return;
+        }
+
+        const finalUrl = validateUrl(editedLinkUrl)
+          ? sanitizeUrl(editedLinkUrl)
+          : `https://${editedLinkUrl}`;
+
+        if ($isLinkNode(parent) || $isLinkNode(node)) {
+          // If link node already present
+          const format = node.getFormat();
+          const linkNode = $createLinkNode(finalUrl).append(
+            $createTextNode(linkText || editedLinkUrl).setFormat(format),
+          );
+
+          node.replace(linkNode);
+          linkNode.select();
+        } else {
+          // If link node is not present
+          const { anchor, focus } = selection;
+
+          selection.insertText(linkText || editedLinkUrl);
+
+          anchor.offset -= linkText.length;
+          focus.offset = anchor.offset + linkText.length;
+          toggleLink(finalUrl);
+        }
+      }
+    });
+
+    setEditedLinkUrl('');
+    setLinkText('');
+    setIsLinkEditMode(false);
+  }
 
   return (
     <div ref={editorRef} className="absolute left-0 top-0">
       {!isOpenLinkEditor ? null : (
         <div
           className={clsx(
-            'flex items-center justify-between gap-4',
-            'w-full min-w-[250px] max-w-[400px]',
-            'rounded p-2',
+            'flex items-center',
+            isLinkEditMode ? 'gap-1 p-2' : 'gap-4 px-3 py-1',
+            'max-w-[400px]',
+            'rounded',
             'z-popover',
-            themeBackgroundLayerEmphasized,
+            themeBackgroundColor,
+            ['border', themeBorderElementColor],
           )}>
           {isLinkEditMode ? (
             <>
@@ -324,19 +331,12 @@ function FloatingLinkEditor({
                   })}
                   placeholder="https://example.com"
                   value={editedLinkUrl}
-                  onChange={(value) => setEditedLinkUrl(value)}
+                  onChange={(value) => {
+                    setEditedLinkUrl(value);
+                  }}
                 />
               </div>
               <div>
-                <Button
-                  icon={RiCloseCircleFill}
-                  isLabelHidden={true}
-                  label="Cancel edit"
-                  variant="tertiary"
-                  onClick={() => {
-                    setIsLinkEditMode(false);
-                  }}
-                />
                 <Button
                   icon={RiCheckboxCircleFill}
                   isLabelHidden={true}
@@ -348,18 +348,19 @@ function FloatingLinkEditor({
             </>
           ) : (
             <>
-              <a
-                className="text-brand-dark dark:text-brand hover:text-brand-dark dark:hover:text-brand truncate text-sm transition-colors hover:underline"
-                href={sanitizeUrl(linkUrl)}
+              <Anchor
+                className={textVariants({ color: 'inherit', size: 'body2' })}
+                href={linkUrl ? sanitizeUrl(linkUrl) : undefined}
                 rel="noopener noreferrer"
-                target="_blank">
+                target="_blank"
+                variant="flat">
                 {linkUrl}
-              </a>
-              <div className="flex gap-1">
+              </Anchor>
+              <div className="-mr-2">
                 <Button
                   icon={RiPencilLine}
                   isLabelHidden={true}
-                  label="Edit Link"
+                  label="Edit link"
                   variant="tertiary"
                   onClick={() => {
                     setEditedLinkUrl(linkUrl);
@@ -369,7 +370,7 @@ function FloatingLinkEditor({
                 <Button
                   icon={RiDeleteBin6Line}
                   isLabelHidden={true}
-                  label="Delete Link"
+                  label="Delete link"
                   variant="tertiary"
                   onClick={() => {
                     editor.dispatchCommand(TOGGLE_LINK_COMMAND, null);

@@ -23,32 +23,32 @@ export type RichTextEditorTextType = 'heading' | 'paragraph';
 export default function RichTextEditorTextTypePlugin() {
   const intl = useIntl();
   const [editor] = useLexicalComposerContext();
-  const [headingType, setHeadingType] = useState('normal');
+  const [textType, setTextType] = useState<RichTextEditorTextType>('paragraph');
+
+  const paragraphTypeOption = {
+    icon: RiFontSize2,
+    label: intl.formatMessage({
+      defaultMessage: 'Normal',
+      description: 'Label for Normal',
+      id: 'hYp7sF',
+    }),
+    value: 'paragraph',
+  } as const;
+  const headingTypeOption = {
+    icon: RiHeading,
+    label: intl.formatMessage({
+      defaultMessage: 'Heading',
+      description: 'Label for heading',
+      id: 'e5o4mU',
+    }),
+    value: 'heading',
+  } as const;
 
   const typeOptions: Array<{
     icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
     label: string;
     value: RichTextEditorTextType;
-  }> = [
-    {
-      icon: RiFontSize2,
-      label: intl.formatMessage({
-        defaultMessage: 'Paragraph',
-        description: 'Label for Normal',
-        id: 'GI36TV',
-      }),
-      value: 'paragraph',
-    },
-    {
-      icon: RiHeading,
-      label: intl.formatMessage({
-        defaultMessage: 'Heading',
-        description: 'Label for heading',
-        id: 'e5o4mU',
-      }),
-      value: 'heading',
-    },
-  ];
+  }> = [headingTypeOption, paragraphTypeOption];
 
   const $updateState = useCallback(() => {
     const selection = $getSelection();
@@ -69,9 +69,7 @@ export default function RichTextEditorTextTypePlugin() {
       return;
     }
 
-    const type = $isHeadingNode(element) ? element.getTag() : element.getType();
-
-    setHeadingType(type);
+    setTextType($isHeadingNode(element) ? 'heading' : 'paragraph');
   }, [editor]);
 
   useEffect(() => {
@@ -93,8 +91,6 @@ export default function RichTextEditorTextTypePlugin() {
     );
   }, [editor, $updateState]);
 
-  const selectedValue = typeOptions.find((type) => type.value === headingType);
-
   function onFormatHeading(type: RichTextEditorTextType) {
     editor.update(() => {
       const selection = $getSelection();
@@ -102,7 +98,7 @@ export default function RichTextEditorTextTypePlugin() {
       if ($isRangeSelection(selection)) {
         $setBlocksType(selection, () =>
           type === 'heading'
-            ? $createHeadingNode('h4')
+            ? $createHeadingNode('h3')
             : $createParagraphNode(),
         );
       }
@@ -112,22 +108,18 @@ export default function RichTextEditorTextTypePlugin() {
     }, 0);
   }
 
+  const selectedValue =
+    typeOptions.find((type) => type.value === textType) ?? paragraphTypeOption;
+
   return (
     <RichTextEditorDropdownMenu
-      icon={selectedValue?.icon ?? RiFontSize2}
-      label={
-        selectedValue?.label ??
-        intl.formatMessage({
-          defaultMessage: 'Normal',
-          description: 'Label for Normal',
-          id: 'hYp7sF',
-        })
-      }>
+      icon={selectedValue.icon}
+      label={selectedValue.label}>
       {typeOptions.map(({ label, value, icon }) => (
         <DropdownMenu.Item
           key={value}
           icon={icon}
-          isSelected={headingType === value}
+          isSelected={textType === value}
           label={label}
           onClick={() => onFormatHeading(value)}
         />
