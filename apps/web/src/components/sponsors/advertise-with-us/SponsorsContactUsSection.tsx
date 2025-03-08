@@ -115,6 +115,7 @@ export default function SponsorsContactUsSection() {
         <ContactForm
           ref={formRef}
           errorMessage={submitFailureReason?.message}
+          isEmailRequired={true}
           isSubmitting={isSubmitLoading}
           onSubmit={({ email, message }) =>
             submitFeedback({

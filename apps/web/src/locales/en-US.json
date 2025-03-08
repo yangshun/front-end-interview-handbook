@@ -563,6 +563,10 @@
     "defaultMessage": "Can't find the answer you are looking for? <link>Reach out to us!</link>",
     "description": "Subtitle of projects pricing's FAQ section"
   },
+  "14Jqfw": {
+    "defaultMessage": "Contact email (optional)",
+    "description": "Email address field label"
+  },
   "14LihX": {
     "defaultMessage": "Access to updates while subscription is active",
     "description": "Feature of monthly pricing plan"
@@ -1278,6 +1282,10 @@
   "5nqh7s": {
     "defaultMessage": "You may complete questions in any language or framework within our coding workspace.",
     "description": "Framework/language filter tooltip content"
+  },
+  "5oXh81": {
+    "defaultMessage": "Contact email",
+    "description": "Email address field label"
   },
   "5ozhak": {
     "defaultMessage": "Start the project to access guides, discussions and reference code",
@@ -4587,10 +4595,6 @@
     "defaultMessage": "{points} rep (in total)",
     "description": "Reputation points to be gained"
   },
-  "Ov/A49": {
-    "defaultMessage": "If you'd like a reply, please provide your email address.",
-    "description": "Description for email field for contact form"
-  },
   "Ow7Mov": {
     "defaultMessage": "Solutions & test from ex-interviewers",
     "description": "Features for dashboard"
@@ -4618,6 +4622,10 @@
   "P0i492": {
     "defaultMessage": "View less",
     "description": "Label of expanded guide button"
+  },
+  "P3N6BK": {
+    "defaultMessage": "We will contact you using this email address",
+    "description": "Email field description"
   },
   "P3l/Ce": {
     "defaultMessage": "Quiz interviews",
@@ -7443,6 +7451,10 @@
     "defaultMessage": "Forms",
     "description": "React forms"
   },
+  "eC3Zcy": {
+    "defaultMessage": "If you'd like a reply, please provide your email address",
+    "description": "Email field description"
+  },
   "eC4GRM": {
     "defaultMessage": "Filter user submissions by whether you have completed their corresponding challenges",
     "description": "Tooltip for Status filter for projects list"
@@ -8206,10 +8218,6 @@
   "iIQL6V": {
     "defaultMessage": "Completed",
     "description": "Label indicating that the question has been completed"
-  },
-  "iK49R5": {
-    "defaultMessage": "Email (optional)",
-    "description": "Label for email field for contact form"
   },
   "iLx/BQ": {
     "defaultMessage": "Amazon",

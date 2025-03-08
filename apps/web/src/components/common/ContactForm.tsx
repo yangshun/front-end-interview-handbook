@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { type ForwardedRef, forwardRef } from 'react';
 
-import { FormattedMessage, useIntl } from '~/components/intl';
+import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import TextArea from '~/components/ui/TextArea';
 import TextInput from '~/components/ui/TextInput';
@@ -9,8 +9,11 @@ import { themeGlassyBorder } from '~/components/ui/theme';
 
 import logMessage from '~/logging/logMessage';
 
+const MESSAGE_MIN_LENGTH = 10;
+
 type Props = Readonly<{
   errorMessage?: string;
+  isEmailRequired?: boolean;
   isSubmitting?: boolean;
   onSubmit: ({
     message,
@@ -19,7 +22,7 @@ type Props = Readonly<{
 }>;
 
 function ContactForm(
-  { onSubmit, errorMessage, isSubmitting }: Props,
+  { isEmailRequired, onSubmit, errorMessage, isSubmitting }: Props,
   ref: ForwardedRef<HTMLFormElement>,
 ) {
   const intl = useIntl();
@@ -42,7 +45,7 @@ function ContactForm(
         const email = (data.get('email') ?? '')?.toString();
 
         // Only log if the message contains something.
-        if (message.length > 10) {
+        if (message.length > MESSAGE_MIN_LENGTH) {
           logMessage({
             level: 'info',
             message: (data.get('message') ?? '')?.toString(),
@@ -65,27 +68,46 @@ function ContactForm(
             description: 'Label for message field for contact form',
             id: 'OqWIj+',
           })}
+          minLength={MESSAGE_MIN_LENGTH}
           name="message"
           placeholder="Write your message..."
+          required={true}
           rows={7}
         />
         <div>
           <TextInput
             autoComplete="email"
             description={
-              <FormattedMessage
-                defaultMessage="If you'd like a reply, please provide your email address."
-                description="Description for email field for contact form"
-                id="Ov/A49"
-              />
+              isEmailRequired
+                ? intl.formatMessage({
+                    defaultMessage:
+                      'We will contact you using this email address',
+                    description: 'Email field description',
+                    id: 'P3N6BK',
+                  })
+                : intl.formatMessage({
+                    defaultMessage:
+                      "If you'd like a reply, please provide your email address",
+                    description: 'Email field description',
+                    id: 'eC3Zcy',
+                  })
             }
-            label={intl.formatMessage({
-              defaultMessage: 'Email (optional)',
-              description: 'Label for email field for contact form',
-              id: 'iK49R5',
-            })}
+            label={
+              isEmailRequired
+                ? intl.formatMessage({
+                    defaultMessage: 'Contact email',
+                    description: 'Email address field label',
+                    id: '5oXh81',
+                  })
+                : intl.formatMessage({
+                    defaultMessage: 'Contact email (optional)',
+                    description: 'Email address field label',
+                    id: '14Jqfw',
+                  })
+            }
             name="email"
             placeholder="john@example.com"
+            required={isEmailRequired}
             type="email"
           />
         </div>
