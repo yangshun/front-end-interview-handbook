@@ -5015,6 +5015,10 @@
     "defaultMessage": "Resources provided",
     "description": "Title for Assets Provided section on Projects project page"
   },
+  "R0htzY": {
+    "defaultMessage": "Delete ad?",
+    "description": "Delete ad confirmation dialog title"
+  },
   "R0oH1n": {
     "defaultMessage": "As a premium platform tailored for front end engineers to upskill and advance their careers, we attracted over <highlight>{activeUsersCount} active users</highlight> last year.",
     "description": "Advertise with us section subtitle"
@@ -9518,6 +9522,10 @@
   "puP8B5": {
     "defaultMessage": "Collapse {replyCount, plural, =0 {none} one {# reply} other {# replies}}",
     "description": "Label for collapse replies button"
+  },
+  "puxZIs": {
+    "defaultMessage": "Are you sure you want to delete this ad?",
+    "description": "Confirmation text for deleting an ad"
   },
   "pyCMaw": {
     "defaultMessage": "To apply, you must:<ul><li>Have an established audience through at least 1 <strong>active</strong> channel that you own, such as a website, blog, video channel, courses or social media.</li><li>Create original content.</li></ul>",

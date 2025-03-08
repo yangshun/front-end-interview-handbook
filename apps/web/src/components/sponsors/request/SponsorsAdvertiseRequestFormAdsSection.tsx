@@ -11,6 +11,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 import { trpc } from '~/hooks/trpc';
 
+import ConfirmationDialog from '~/components/common/ConfirmationDialog';
 import type { StepsTabItemStatus } from '~/components/common/StepsTabs';
 import { FormattedMessage, useIntl } from '~/components/intl';
 import { useSponsorsAdFormatData } from '~/components/sponsors/SponsorsAdFormatConfigs';
@@ -62,6 +63,15 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
   const [editAdData, setEditAdData] = useState<SponsorsAdFormatFormItem | null>(
     null,
   );
+  const [deleteAdDialog, setDeleteAdDialog] = useState<
+    Readonly<{
+      data: SponsorsAdFormatFormItem | null;
+      show: boolean;
+    }>
+  >({
+    data: null,
+    show: false,
+  });
   const adFormatData = useSponsorsAdFormatData();
 
   const selectedWeeks = ads
@@ -70,6 +80,30 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
     .flat();
 
   const isEditFlow = editAdData != null;
+
+  function onDeleteAd(ad: SponsorsAdFormatFormItem) {
+    const remainingAds = ads.filter((adItem) => adItem.id !== ad.id);
+
+    // Remove uploaded ad asset
+    if ('imageUrl' in ad) {
+      removeAdAssetMutation.mutate({
+        imageUrl: ad.imageUrl,
+      });
+    }
+    updateAds(ads.filter((adItem) => adItem.id !== ad.id));
+    if (editAdData?.id === ad.id) {
+      setEditAdData(null);
+      setSelectedFormat(null);
+    }
+    if (remainingAds.length === 0) {
+      setSelectedFormat('GLOBAL_BANNER');
+    }
+
+    setDeleteAdDialog({
+      data: null,
+      show: false,
+    });
+  }
 
   return (
     <div>
@@ -151,26 +185,10 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
                         })}
                         variant="tertiary"
                         onClick={() => {
-                          const remainingAds = ads.filter(
-                            (adItem) => adItem.id !== ad.id,
-                          );
-
-                          // Remove uploaded ad asset
-                          if ('imageUrl' in ad) {
-                            removeAdAssetMutation.mutate({
-                              imageUrl: ad.imageUrl,
-                            });
-                          }
-                          updateAds(
-                            ads.filter((adItem) => adItem.id !== ad.id),
-                          );
-                          if (editAdData?.id === ad.id) {
-                            setEditAdData(null);
-                            setSelectedFormat(null);
-                          }
-                          if (remainingAds.length === 0) {
-                            setSelectedFormat('GLOBAL_BANNER');
-                          }
+                          setDeleteAdDialog({
+                            data: ad,
+                            show: true,
+                          });
                         }}
                       />
                     </div>
@@ -540,6 +558,33 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
           </div>
         )}
       </Section>
+
+      <ConfirmationDialog
+        confirmButtonLabel={intl.formatMessage({
+          defaultMessage: 'Delete',
+          description: 'Delete button label',
+          id: 'WodcPq',
+        })}
+        confirmButtonVariant="danger"
+        isShown={deleteAdDialog.show}
+        title={intl.formatMessage({
+          defaultMessage: 'Delete ad?',
+          description: 'Delete ad confirmation dialog title',
+          id: 'R0htzY',
+        })}
+        onCancel={() => {
+          setDeleteAdDialog({
+            data: null,
+            show: false,
+          });
+        }}
+        onConfirm={() => onDeleteAd(deleteAdDialog.data!)}>
+        <FormattedMessage
+          defaultMessage="Are you sure you want to delete this ad?"
+          description="Confirmation text for deleting an ad"
+          id="puxZIs"
+        />
+      </ConfirmationDialog>
     </div>
   );
 }
