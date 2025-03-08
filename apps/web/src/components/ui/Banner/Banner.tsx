@@ -2,11 +2,10 @@ import clsx from 'clsx';
 import React from 'react';
 import { RiCloseLine } from 'react-icons/ri';
 
-import Button from '~/components/ui/Button';
-
 import Text from '../Text';
+import { themeTextInvertColor } from '../theme';
 
-type BannerVariant = 'custom' | 'neutral' | 'primary';
+export type BannerVariant = 'custom' | 'neutral' | 'primary';
 
 type Props = React.HTMLAttributes<HTMLDivElement> &
   Readonly<{
@@ -30,8 +29,8 @@ const variantClasses: Record<
     textColorClass: '',
   },
   neutral: {
-    backgroundColorClass: 'bg-neutral-800',
-    textColorClass: 'text-white',
+    backgroundColorClass: 'bg-neutral-800 dark:bg-white',
+    textColorClass: themeTextInvertColor,
   },
   primary: {
     backgroundColorClass: 'bg-brand',
@@ -63,11 +62,7 @@ export default function Banner({
       )}
       {...props}>
       <div className={clsx('mx-auto w-full', 'px-6')}>
-        <div
-          className={clsx(
-            'flex items-center gap-4 md:justify-center',
-            onHide != null && 'max-md:pr-8',
-          )}>
+        <div className={clsx('flex items-center justify-center gap-4')}>
           <Text
             className={clsx(
               'flex gap-4',
@@ -85,23 +80,17 @@ export default function Banner({
         {onHide != null && (
           <div
             className={clsx(
-              'absolute inset-y-0 right-0 flex h-full items-center pr-2 sm:pt-0',
+              'absolute inset-y-0 right-0 flex h-full items-center pr-4 sm:pt-0',
             )}>
-            <Button
+            <button
+              aria-label="Close"
               className={clsx(
-                'border-transparent',
-                'hover:bg-neutral-700/50',
-                'active:bg-neutral-700/25',
-                // Force black text when primary.
-                variant === 'primary' ? '!text-neutral-900' : undefined,
+                'size-4',
+                'inline-flex items-center justify-center',
               )}
-              icon={RiCloseLine}
-              isLabelHidden={true}
-              label="Close"
-              size="xs"
-              variant="unstyled"
-              onClick={onHide}
-            />
+              type="button">
+              <RiCloseLine aria-hidden={true} className="size-4 shrink-0" />
+            </button>
           </div>
         )}
       </div>

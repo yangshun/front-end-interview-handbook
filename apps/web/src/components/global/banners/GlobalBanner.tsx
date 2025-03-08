@@ -73,7 +73,7 @@ function MarketingMessage() {
 
   if (isLoading) {
     return (
-      <GlobalBannerShell isLoading={true} theme="interviews">
+      <GlobalBannerShell isLoading={true} theme="interviews" variant="primary">
         {null}
       </GlobalBannerShell>
     );
@@ -129,7 +129,7 @@ function MarketingMessageImpl({
   useEffect(() => {
     const interval = setInterval(() => {
       setBannerIndex((value) => (value + 1) % banners.length);
-    }, 10000);
+    }, 15000);
 
     return () => clearInterval(interval);
   }, [banners.length]);
@@ -140,7 +140,10 @@ function MarketingMessageImpl({
 
   if (isLoading) {
     return (
-      <GlobalBannerShell isLoading={isLoading} theme="interviews">
+      <GlobalBannerShell
+        isLoading={isLoading}
+        theme="interviews"
+        variant="primary">
         {null}
       </GlobalBannerShell>
     );
@@ -151,6 +154,7 @@ function MarketingMessageImpl({
     <GlobalBannerShell
       isLoading={isLoading}
       theme="projects"
+      variant="primary"
       onHide={hideBanner}>
       {projectsLaunchMessageEl}
     </GlobalBannerShell>
@@ -176,6 +180,7 @@ function MarketingMessageImpl({
         <GlobalBannerShell
           isLoading={isLoading}
           theme="interviews"
+          variant="primary"
           onHide={hideBanner}>
           {socialMediaRewardMessageEl}
         </GlobalBannerShell>
@@ -189,6 +194,7 @@ function MarketingMessageImpl({
         <GlobalBannerShell
           className={themeBackgroundInvertColor}
           isLoading={isLoading}
+          variant="neutral"
           onHide={hideBanner}>
           <Anchor
             className={textVariants({

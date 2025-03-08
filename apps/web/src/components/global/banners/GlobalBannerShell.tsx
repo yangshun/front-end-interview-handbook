@@ -1,14 +1,15 @@
 import clsx from 'clsx';
 import type { ReactNode } from 'react';
 
+import type { BannerVariant } from '~/components/ui/Banner';
 import Banner from '~/components/ui/Banner';
-import { textVariants } from '~/components/ui/Text';
 
-export default function BannerShell({
+export default function GlobalBannerShell({
   children,
   className,
   isLoading,
   onHide,
+  variant,
   theme,
 }: Readonly<{
   children: ReactNode;
@@ -16,17 +17,17 @@ export default function BannerShell({
   isLoading: boolean;
   onHide?: () => void;
   theme?: 'interviews' | 'projects';
+  variant: BannerVariant;
 }>) {
   return (
     <Banner
       className={clsx(
         'h-6', // Sync with sticky.css.
-        textVariants({ color: 'light' }),
         className,
       )}
       data-theme={theme}
       size="xs"
-      variant="primary"
+      variant={variant}
       onHide={() => {
         onHide?.();
       }}>

@@ -35,6 +35,7 @@ export default function SponsorsAdFormatGlobalBanner({
     <GlobalBannerShell
       className={themeBackgroundInvertColor}
       isLoading={isLoading}
+      variant="neutral"
       onHide={onHide}>
       <Anchor
         ref={tracking ? ref : undefined}
