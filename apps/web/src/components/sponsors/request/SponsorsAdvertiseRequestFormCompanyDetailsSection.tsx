@@ -59,7 +59,6 @@ export default function SponsorsAdvertiseRequestFormCompanyDetailsSection({
       legalName: defaultValues?.legalName ?? '',
       signatoryName: defaultValues?.signatoryName ?? '',
       signatoryTitle: defaultValues?.signatoryTitle ?? '',
-      sponsorName: defaultValues?.sponsorName ?? '',
       taxNumber: defaultValues?.taxNumber ?? '',
     },
     mode: 'onTouched',
@@ -97,29 +96,6 @@ export default function SponsorsAdvertiseRequestFormCompanyDetailsSection({
           />
         </Text>
         <div className={clsx('mt-8 flex flex-col gap-6')}>
-          <Controller
-            control={control}
-            name="sponsorName"
-            render={({ field, fieldState: { error } }) => (
-              <TextInput
-                {...field}
-                autoFocus={true}
-                description={intl.formatMessage({
-                  defaultMessage: 'This will be displayed on the ad',
-                  description: 'Sponsor name input description',
-                  id: 'IJYd3w',
-                })}
-                errorMessage={error?.message}
-                label={intl.formatMessage({
-                  defaultMessage: 'Sponsor name',
-                  description: 'Sponsor name input label',
-                  id: 'iOm9a5',
-                })}
-                placeholder="E.g. ACME Inc"
-                required={true}
-              />
-            )}
-          />
           <div className="flex gap-x-2 gap-y-6 max-sm:flex-col">
             <div className="flex-1">
               <Controller
@@ -134,7 +110,7 @@ export default function SponsorsAdvertiseRequestFormCompanyDetailsSection({
                       description: 'Legal name input label',
                       id: 'CxiBL1',
                     })}
-                    placeholder="E.g. ACME Inc"
+                    placeholder="ACME Inc"
                     required={true}
                   />
                 )}

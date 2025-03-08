@@ -2,12 +2,6 @@ import { z } from 'zod';
 
 import { useIntl } from '~/components/intl';
 
-export function sponsorNameSchema(options?: { minMessage: string }) {
-  const { minMessage = 'Sponsor name is required' } = options ?? {};
-
-  return z.string().min(1, minMessage);
-}
-
 function legalNameSchema(options?: { minMessage: string }) {
   const { minMessage = 'Legal name is required' } = options ?? {};
 
@@ -93,13 +87,6 @@ export function useSponsorsCompanySchema() {
         id: 'H34NwF',
       }),
     }),
-    sponsorName: sponsorNameSchema({
-      minMessage: intl.formatMessage({
-        defaultMessage: 'Sponsor name is required',
-        description: 'Error message for sponsor name',
-        id: 'mWSkkL',
-      }),
-    }),
     taxNumber: taxNumberSchema(),
   });
 }
@@ -118,9 +105,6 @@ export const sponsorsCompanySchemaServer = z.object({
   }),
   signatoryTitle: signatoryTitleSchema({
     minMessage: 'Signatory title is required',
-  }),
-  sponsorName: sponsorNameSchema({
-    minMessage: 'Sponsor name is required',
   }),
   taxNumber: taxNumberSchema(),
 });

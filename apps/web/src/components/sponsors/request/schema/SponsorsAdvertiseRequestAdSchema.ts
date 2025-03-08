@@ -7,11 +7,15 @@ import { useIntl } from '~/components/intl';
 import { SponsorAdFormatConfigs } from '~/components/sponsors/SponsorsAdFormatConfigs';
 import { RichTextEditorConfig } from '~/components/ui/RichTextEditor/RichTextEditorConfig';
 
-import { sponsorNameSchema } from './SponsorsAdvertiseRequestCompanySchema';
-
 import { createHeadlessEditor } from '@lexical/headless';
 
 const editor = createHeadlessEditor(RichTextEditorConfig);
+
+function sponsorNameSchema(options?: { minMessage: string }) {
+  const { minMessage = 'Sponsor name is required' } = options ?? {};
+
+  return z.string().min(1, minMessage);
+}
 
 function bodySchema(options?: {
   maxLength: number;

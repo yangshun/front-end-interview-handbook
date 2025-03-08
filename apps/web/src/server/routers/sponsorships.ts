@@ -171,14 +171,8 @@ Elevate your style, inspire your creativity, and represent your coding chops wit
       }),
     )
     .mutation(async ({ input: { ads, company, emails, agreement } }) => {
-      const {
-        legalName,
-        taxNumber,
-        address,
-        signatoryName,
-        signatoryTitle,
-        sponsorName,
-      } = company;
+      const { legalName, taxNumber, address, signatoryName, signatoryTitle } =
+        company;
 
       return await prisma.sponsorsAdRequest.create({
         data: {
@@ -223,7 +217,6 @@ Elevate your style, inspire your creativity, and represent your coding chops wit
           legalName,
           signatoryName,
           signatoryTitle,
-          sponsorName,
           taxNumber,
         },
       });

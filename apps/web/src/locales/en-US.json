@@ -3407,10 +3407,6 @@
     "defaultMessage": "End project session?",
     "description": "Title for end project session dialog"
   },
-  "IJYd3w": {
-    "defaultMessage": "This will be displayed on the ad",
-    "description": "Sponsor name input description"
-  },
   "IK3TnA": {
     "defaultMessage": "Relevant techniques",
     "description": "Project guides category title"
@@ -8223,10 +8219,6 @@
     "defaultMessage": "Amazon",
     "description": "Company name for Amazon"
   },
-  "iOm9a5": {
-    "defaultMessage": "Sponsor name",
-    "description": "Sponsor name input label"
-  },
   "iSDQh3": {
     "defaultMessage": "Companies",
     "description": "Title for section on question that shows which companies asked the question"
@@ -8910,10 +8902,6 @@
   "mVFZ09": {
     "defaultMessage": "We've started tracking your progress for {studyListName}",
     "description": "Success message for starting a study plan"
-  },
-  "mWSkkL": {
-    "defaultMessage": "Sponsor name is required",
-    "description": "Error message for sponsor name"
   },
   "mYn2DH": {
     "defaultMessage": "Get started",

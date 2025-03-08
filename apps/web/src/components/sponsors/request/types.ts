@@ -45,6 +45,5 @@ export type SponsorsCompanyDetails = Readonly<{
   legalName: string;
   signatoryName: string;
   signatoryTitle: string;
-  sponsorName: string;
   taxNumber?: string;
 }>;

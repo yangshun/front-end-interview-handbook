@@ -56,14 +56,8 @@ export default function SponsorsAdvertiseRequestFormReviewSection({
   const [signedAgreement, setSignedAgreement] = useState(false);
 
   const { emails, ads, company } = data;
-  const {
-    address,
-    sponsorName,
-    legalName,
-    taxNumber,
-    signatoryName,
-    signatoryTitle,
-  } = company;
+  const { address, legalName, taxNumber, signatoryName, signatoryTitle } =
+    company;
   const addressString = [
     [address.line1, address.line2].filter(Boolean).join(', '),
     address.city,
@@ -137,18 +131,6 @@ export default function SponsorsAdvertiseRequestFormReviewSection({
             </Text>
             <Text className="block" color="secondary" size="body2">
               {emails.join('; ')}
-            </Text>
-          </div>
-          <div>
-            <Text className="block" size="body2" weight="medium">
-              <FormattedMessage
-                defaultMessage="Sponsor name"
-                description="Sponsor name input label"
-                id="iOm9a5"
-              />
-            </Text>
-            <Text className="block" color="secondary" size="body2">
-              {sponsorName}
             </Text>
           </div>
           <div>
