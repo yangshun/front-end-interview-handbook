@@ -15,14 +15,14 @@ import {
   themeOutlineElement_FocusVisible,
   themeOutlineElementBrandColor_FocusVisible,
 } from '~/components/ui/theme';
+import { themeBackgroundElementEmphasizedStateColor_Hover } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
-import { SponsorAdFormatConfigs } from '../SponsorsAdFormatConfigs';
+import { SponsorAdFormatConfigs } from '../../SponsorsAdFormatConfigs';
 import {
   sponsorsDateFormatterShort,
   sponsorsDateFormatterWithDayAndYear,
-} from '../SponsorsDatesUtils';
-import { themeBackgroundElementEmphasizedStateColor_Hover } from '../../ui/theme';
+} from '../../SponsorsDatesUtils';
 
 import type { SponsorsAdFormat } from '@prisma/client';
 

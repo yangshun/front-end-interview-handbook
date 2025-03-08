@@ -8,6 +8,7 @@ import type { StepsTabItemStatus } from '~/components/common/StepsTabs';
 import NavColorSchemeDropdown from '~/components/global/navbar/NavColorSchemeDropdown';
 import InterviewsMarketingHeroBrowserWindowFrame from '~/components/interviews/marketing/embed/InterviewsMarketingHeroBrowserWindowFrame';
 import { useIntl } from '~/components/intl';
+import SponsorsAdFormatGlobalBanner from '~/components/sponsors/ads/SponsorsAdFormatGlobalBanner';
 import { SponsorAdFormatConfigs } from '~/components/sponsors/SponsorsAdFormatConfigs';
 import Button from '~/components/ui/Button';
 import Divider from '~/components/ui/Divider';
@@ -16,10 +17,9 @@ import TextArea from '~/components/ui/TextArea';
 import TextInput from '~/components/ui/TextInput';
 
 import SponsorsAdvertiseRequestFormAdsSectionTitle from './SponsorsAdvertiseRequestFormAdsSectionTitle';
-import { useSponsorsGlobalBannerAdSchema } from '../schema/SponsorsAdvertiseRequestAdSchema';
+import { useSponsorsGlobalBannerAdSchema } from '../SponsorsAdvertiseRequestAdSchema';
 import SponsorsAdvertiseRequestFormAdsSectionAvailability from '../SponsorsAdvertiseRequestFormAdsSectionAvailability';
-import type { SponsorsAdFormatGlobalBannerItem } from '../types';
-import SponsorsAdFormatGlobalBanner from '../../ads/SponsorsAdFormatGlobalBanner';
+import type { SponsorsAdFormatGlobalBannerItem } from '../../types';
 
 import { zodResolver } from '@hookform/resolvers/zod';
 

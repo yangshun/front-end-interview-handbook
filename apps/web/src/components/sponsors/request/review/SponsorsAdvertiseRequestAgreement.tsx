@@ -2,14 +2,14 @@ import clsx from 'clsx';
 
 import { useSponsorsAdFormatData } from '~/components/sponsors/SponsorsAdFormatConfigs';
 import {
+  sponsorsDateFormatterFull,
   sponsorsDateFormatterWithDayAndYear,
   sponsorsWeekDateRange,
 } from '~/components/sponsors/SponsorsDatesUtils';
 import Heading from '~/components/ui/Heading';
 import { textVariants } from '~/components/ui/Text';
 
-import type { SponsorsAdFormatFormItem } from './types';
-import { sponsorsDateFormatterFull } from '../SponsorsDatesUtils';
+import type { SponsorsAdFormatFormItem } from '../types';
 
 type Props = Readonly<{
   address: string;

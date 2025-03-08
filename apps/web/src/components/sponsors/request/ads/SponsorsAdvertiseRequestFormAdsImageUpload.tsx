@@ -125,12 +125,10 @@ export default function SponsorsAdvertiseRequestFormAdsImageUpload({
           />
           <img
             alt="Uploaded image"
-            className={clsx(
-              'aspect-[2/1] rounded-lg',
-              'object-cover',
+            className={clsx('aspect-[2/1] w-full object-cover', 'rounded-lg', [
               'border',
               themeBorderColor,
-            )}
+            ])}
             src={imageUrl}
           />
         </div>

@@ -15,11 +15,14 @@ import Text from '~/components/ui/Text';
 import { themeBorderColor } from '~/components/ui/theme';
 
 import SponsorsAdvertiseRequestAgreement from './SponsorsAdvertiseRequestAgreement';
-import type { SponsorsAdFormatFormItem, SponsorsCompanyDetails } from './types';
+import type {
+  SponsorsAdFormatFormItem,
+  SponsorsCompanyDetails,
+} from '../types';
 import {
   SponsorAdFormatConfigs,
   useSponsorsAdFormatData,
-} from '../SponsorsAdFormatConfigs';
+} from '../../SponsorsAdFormatConfigs';
 
 import type { SponsorsAdFormat } from '@prisma/client';
 

@@ -32,9 +32,9 @@ import {
 import SponsorsAdvertiseRequestFormAdsSectionGlobalBanner from './formats/SponsorsAdvertiseRequestFormAdsSectionGlobalBanner';
 import SponsorsAdvertiseRequestFormAdsSectionInContent from './formats/SponsorsAdvertiseRequestFormAdsSectionInContent';
 import SponsorsAdvertiseRequestFormAdsSectionSpotlight from './formats/SponsorsAdvertiseRequestFormAdsSectionSpotlight';
-import type { SponsorsAdFormatFormItem } from './types';
-import { SponsorAdFormatConfigs } from '../SponsorsAdFormatConfigs';
-import { themeBackgroundElementEmphasizedStateColor_Hover } from '../../ui/theme';
+import type { SponsorsAdFormatFormItem } from '../types';
+import { SponsorAdFormatConfigs } from '../../SponsorsAdFormatConfigs';
+import { themeBackgroundElementEmphasizedStateColor_Hover } from '../../../ui/theme';
 
 import type { SponsorsAdFormat } from '@prisma/client';
 

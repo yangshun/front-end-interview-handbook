@@ -8,8 +8,8 @@ import {
   sponsorsGlobalBannerAdSchemaServer,
   sponsorsInContentAdSchemaServer,
   sponsorsSpotlightAdSchemaServer,
-} from '~/components/sponsors/request/schema/SponsorsAdvertiseRequestAdSchema';
-import { sponsorsCompanySchemaServer } from '~/components/sponsors/request/schema/SponsorsAdvertiseRequestCompanySchema';
+} from '~/components/sponsors/request/ads/SponsorsAdvertiseRequestAdSchema';
+import { sponsorsCompanySchemaServer } from '~/components/sponsors/request/company/SponsorsAdvertiseRequestCompanySchema';
 import { sponsorsWeekDateRange } from '~/components/sponsors/SponsorsDatesUtils';
 import type { SponsorsAdFormatPayload } from '~/components/sponsors/SponsorsTypes';
 import { SponsorsAdFormatZodEnum } from '~/components/sponsors/SponsorsTypes';

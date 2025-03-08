@@ -82,6 +82,7 @@ export default function SponsorsAdFormatInContent({
         {imageUrl ? (
           <Anchor
             href={href}
+            target="_blank"
             variant="unstyled"
             onClick={() =>
               gtag.event({
@@ -96,10 +97,9 @@ export default function SponsorsAdFormatInContent({
             <img
               alt={title}
               className={clsx(
-                'aspect-[2/1] rounded-lg',
-                'object-cover',
-                'border',
-                themeBorderColor,
+                'aspect-[2/1] w-full object-cover',
+                'rounded-lg',
+                ['border', themeBorderColor],
               )}
               src={imageUrl}
             />

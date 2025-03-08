@@ -11,11 +11,11 @@ import { useIntl } from '~/components/intl';
 
 import { useI18nRouter } from '~/next-i18nostic/src';
 
-import SponsorsAdvertiseRequestEnquiryForm from './SponsorsAdvertiseRequestEnquiryForm';
-import SponsorsAdvertiseRequestFormAdsSection from './SponsorsAdvertiseRequestFormAdsSection';
-import SponsorsAdvertiseRequestFormCompanyDetailsSection from './SponsorsAdvertiseRequestFormCompanyDetailsSection';
-import SponsorsAdvertiseRequestFormContactSection from './SponsorsAdvertiseRequestFormContactSection';
-import SponsorsAdvertiseRequestFormReviewSection from './SponsorsAdvertiseRequestFormReviewSection';
+import SponsorsAdvertiseRequestFormAdsSection from './ads/SponsorsAdvertiseRequestFormAdsSection';
+import SponsorsAdvertiseRequestFormCompanyDetailsSection from './company/SponsorsAdvertiseRequestFormCompanyDetailsSection';
+import SponsorsAdvertiseRequestEnquiryForm from './contact/SponsorsAdvertiseRequestEnquiryForm';
+import SponsorsAdvertiseRequestFormContactSection from './contact/SponsorsAdvertiseRequestFormContactSection';
+import SponsorsAdvertiseRequestFormReviewSection from './review/SponsorsAdvertiseRequestFormReviewSection';
 import useSponsorsAdvertiseRequestFormData from './useSponsorsAdvertiseRequestFormData';
 
 type Step = 'ads' | 'company' | 'contact' | 'review';

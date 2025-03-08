@@ -17,8 +17,8 @@ import Select from '~/components/ui/Select';
 import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
 
-import { useSponsorsCompanySchema } from './schema/SponsorsAdvertiseRequestCompanySchema';
-import type { SponsorsCompanyDetails } from './types';
+import { useSponsorsCompanySchema } from './SponsorsAdvertiseRequestCompanySchema';
+import type { SponsorsCompanyDetails } from '../types';
 
 import { zodResolver } from '@hookform/resolvers/zod';
 

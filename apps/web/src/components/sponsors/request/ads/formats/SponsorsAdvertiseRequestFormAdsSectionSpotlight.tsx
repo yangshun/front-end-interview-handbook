@@ -1,17 +1,20 @@
 import clsx from 'clsx';
-import { $getRoot } from 'lexical';
+import { useEffect } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { RiArrowRightLine } from 'react-icons/ri';
 import type { z } from 'zod';
 
+import { objectUrlToBase64 } from '~/lib/imageUtils';
+import { trpc } from '~/hooks/trpc';
+
+import type { StepsTabItemStatus } from '~/components/common/StepsTabs';
 import NavColorSchemeDropdown from '~/components/global/navbar/NavColorSchemeDropdown';
 import { useIntl } from '~/components/intl';
-import SponsorsAdFormatInContent from '~/components/sponsors/ads/SponsorsAdFormatInContent';
+import SponsorsAdFormatSpotlight from '~/components/sponsors/ads/SponsorsAdFormatSpotlight';
 import { SponsorAdFormatConfigs } from '~/components/sponsors/SponsorsAdFormatConfigs';
 import Button from '~/components/ui/Button';
+import Divider from '~/components/ui/Divider';
 import Label from '~/components/ui/Label';
-import RichTextEditor from '~/components/ui/RichTextEditor';
-import { RichTextEditorConfig } from '~/components/ui/RichTextEditor/RichTextEditorConfig';
 import TextArea from '~/components/ui/TextArea';
 import TextInput from '~/components/ui/TextInput';
 import {
@@ -19,44 +22,31 @@ import {
   themeBorderEmphasizeColor,
 } from '~/components/ui/theme';
 
-import { useSponsorsInContentAdSchema } from '../schema/SponsorsAdvertiseRequestAdSchema';
+import SponsorsAdvertiseRequestFormAdsSectionTitle from './SponsorsAdvertiseRequestFormAdsSectionTitle';
+import { useSponsorsSpotlightAdSchema } from '../SponsorsAdvertiseRequestAdSchema';
 import SponsorsAdvertiseRequestFormAdsImageUpload from '../SponsorsAdvertiseRequestFormAdsImageUpload';
 import SponsorsAdvertiseRequestFormAdsSectionAvailability from '../SponsorsAdvertiseRequestFormAdsSectionAvailability';
-
-const editor = createHeadlessEditor(RichTextEditorConfig);
-
-import { useEffect } from 'react';
-
-import { objectUrlToBase64 } from '~/lib/imageUtils';
-import { trpc } from '~/hooks/trpc';
-
-import type { StepsTabItemStatus } from '~/components/common/StepsTabs';
-import Divider from '~/components/ui/Divider';
-
-import SponsorsAdvertiseRequestFormAdsSectionTitle from './SponsorsAdvertiseRequestFormAdsSectionTitle';
-import type { SponsorsAdFormatInContentItem } from '../types';
+import type { SponsorsAdFormatSpotlightItem } from '../../types';
 
 import { zodResolver } from '@hookform/resolvers/zod';
-import { createHeadlessEditor } from '@lexical/headless';
 
 type Props = Readonly<{
-  defaultValues?: Omit<SponsorsAdFormatInContentItem, 'id'>;
+  defaultValues?: Omit<SponsorsAdFormatSpotlightItem, 'id'>;
   onCancel?: () => void;
   onSubmit: ({
     text,
     url,
     weeks,
     imageUrl,
-    body,
-  }: Omit<SponsorsAdFormatInContentItem, 'format' | 'id'>) => void;
+  }: Omit<SponsorsAdFormatSpotlightItem, 'format' | 'id'>) => void;
   sessionId: string;
   unavailableWeeks: ReadonlyArray<string>;
   updateStepStatus: (status: StepsTabItemStatus) => void;
 }>;
 
-const AD_FORMAT = 'IN_CONTENT';
+const AD_FORMAT = 'SPOTLIGHT';
 
-export default function SponsorsAdvertiseRequestFormAdsSectionInContent({
+export default function SponsorsAdvertiseRequestFormAdsSectionSpotlight({
   onCancel,
   onSubmit,
   sessionId,
@@ -66,7 +56,8 @@ export default function SponsorsAdvertiseRequestFormAdsSectionInContent({
 }: Props) {
   const intl = useIntl();
   const uploadAsset = trpc.sponsorships.uploadAdAsset.useMutation();
-  const adSchema = useSponsorsInContentAdSchema();
+  const adSchema = useSponsorsSpotlightAdSchema();
+
   const methods = useForm<z.infer<typeof adSchema>>({
     defaultValues: defaultValues || {
       format: AD_FORMAT,
@@ -81,18 +72,14 @@ export default function SponsorsAdvertiseRequestFormAdsSectionInContent({
     control,
     watch,
     setValue,
-    setError,
     formState: { isValid, isDirty },
+    setError,
   } = methods;
 
   const selectedWeeks = watch('weeks');
   const title = watch('text');
-  const body = watch('body');
   const imageUrl = watch('imageUrl');
   const sponsorName = watch('sponsorName');
-
-  const editorState = editor.parseEditorState(body);
-  const bodyText = editorState.read(() => $getRoot().getTextContent());
 
   async function handleOnSubmit(data: z.infer<typeof adSchema>) {
     let storageImageUrl = null;
@@ -120,7 +107,6 @@ export default function SponsorsAdvertiseRequestFormAdsSectionInContent({
     }
 
     onSubmit({
-      body: data.body,
       imageUrl: storageImageUrl,
       sponsorName: data.sponsorName,
       text: data.text,
@@ -217,29 +203,6 @@ export default function SponsorsAdvertiseRequestFormAdsSectionInContent({
                 />
                 <Controller
                   control={control}
-                  name="url"
-                  render={({ field, fieldState: { error } }) => (
-                    <TextInput
-                      {...field}
-                      description={intl.formatMessage({
-                        defaultMessage:
-                          'The URL the user will be led to when they click on the Ad image or sponsor',
-                        description: 'Description for URL input',
-                        id: 'p7t7FQ',
-                      })}
-                      errorMessage={error?.message}
-                      label={intl.formatMessage({
-                        defaultMessage: 'Sponsor URL',
-                        description: 'Ad sponsor URL',
-                        id: 'IdOpAt',
-                      })}
-                      placeholder="https://www.example.com"
-                      required={true}
-                    />
-                  )}
-                />
-                <Controller
-                  control={control}
                   name="text"
                   render={({ field, fieldState: { error } }) => (
                     <TextArea
@@ -272,48 +235,24 @@ export default function SponsorsAdvertiseRequestFormAdsSectionInContent({
                 />
                 <Controller
                   control={control}
-                  name="body"
+                  name="url"
                   render={({ field, fieldState: { error } }) => (
-                    <RichTextEditor
-                      description={intl.formatMessage(
-                        {
-                          defaultMessage: 'Maximum of {maxLinks} links allowed',
-                          description: 'Description for body input',
-                          id: 'RTTAsr',
-                        },
-                        {
-                          maxLinks:
-                            SponsorAdFormatConfigs[AD_FORMAT]
-                              .placementConstraints.body?.links,
-                        },
-                      )}
-                      editorConfig={RichTextEditorConfig}
+                    <TextInput
+                      {...field}
+                      description={intl.formatMessage({
+                        defaultMessage:
+                          'The URL the user will be led to when they click on any part of the Ad',
+                        description: 'Description for URL input',
+                        id: 'mHYOpA',
+                      })}
                       errorMessage={error?.message}
                       label={intl.formatMessage({
-                        defaultMessage: 'Body',
-                        description: 'Label for body input',
-                        id: 'qWP6XC',
+                        defaultMessage: 'Destination URL',
+                        description: 'Ad destination URL',
+                        id: 'DWvf03',
                       })}
-                      maxLength={
-                        SponsorAdFormatConfigs[AD_FORMAT].placementConstraints
-                          .body?.length
-                      }
-                      minHeight="200px"
-                      placeholder={intl.formatMessage({
-                        defaultMessage: 'Enter something here...',
-                        description: 'Placeholder for body input',
-                        id: 'xaoljh',
-                      })}
+                      placeholder="https://www.example.com"
                       required={true}
-                      {...field}
-                      value={field.value}
-                      onChange={(newValue) => {
-                        field.onChange({
-                          target: {
-                            value: newValue,
-                          },
-                        });
-                      }}
                     />
                   )}
                 />
@@ -337,30 +276,23 @@ export default function SponsorsAdvertiseRequestFormAdsSectionInContent({
                 </div>
                 <div
                   className={clsx(
-                    'mt-2 flex w-full items-center justify-center',
-                    'px-4 py-4',
+                    'mt-2 h-[200px] w-full',
+                    'flex items-center justify-center',
+                    'py-10',
                     ['border-2', 'border-dashed', themeBorderEmphasizeColor],
                     'rounded-md',
                     themeBackgroundColor,
                   )}>
-                  <div className="w-full max-w-xl">
-                    <SponsorsAdFormatInContent
-                      adId="test-short-form"
+                  <div className="max-w-[260px]">
+                    <SponsorsAdFormatSpotlight
+                      adId="test-spotlight"
                       adPlacement="preview"
-                      body={
-                        bodyText.length > 0
-                          ? body
-                          : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-                      }
                       external={true}
                       imageUrl={imageUrl}
-                      size="md"
                       sponsorName={
                         sponsorName || 'Your product or company name'
                       }
-                      title={
-                        title || 'The quick brown fox jumped over the lazy fox'
-                      }
+                      text={title || 'Your short form ad text here'}
                       tracking={false}
                       url="#"
                     />

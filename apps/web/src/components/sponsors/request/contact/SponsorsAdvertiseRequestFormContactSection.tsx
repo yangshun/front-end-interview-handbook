@@ -1,17 +1,20 @@
 import clsx from 'clsx';
-import { Controller, useFieldArray, useForm } from 'react-hook-form';
-import { RiAddLine, RiArrowRightLine } from 'react-icons/ri';
+import { useEffect } from 'react';
+import { Controller, useFieldArray, useForm, useWatch } from 'react-hook-form';
+import { RiArrowRightLine } from 'react-icons/ri';
 import type { z } from 'zod';
 
+import type { StepsTabItemStatus } from '~/components/common/StepsTabs';
 import { FormattedMessage, useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
+import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
 
 import logEvent from '~/logging/logEvent';
 
-import { useSponsorsAdvertiseRequestContactSchema } from './schema/SponsorsAdvertiseRequestContactSchema';
+import { useSponsorsAdvertiseRequestContactSchema } from './SponsorsAdvertiseRequestContactSchema';
 
 import { zodResolver } from '@hookform/resolvers/zod';
 
@@ -19,36 +22,58 @@ type Props = Readonly<{
   defaultValues: ReadonlyArray<string>;
   onSubmit: (emails: Array<string>) => void;
   sessionId: string;
+  updateStepStatus: (status: StepsTabItemStatus) => void;
 }>;
 
-export default function SponsorsAdvertiseRequestEnquiryForm({
+const emailRegex = /^\S+@\S+\.\S+$/;
+
+export default function SponsorsAdvertiseRequestFormContactSection({
   onSubmit,
   defaultValues,
+  updateStepStatus,
   sessionId,
 }: Props) {
-  const intl = useIntl();
   const contactDetailsSchema = useSponsorsAdvertiseRequestContactSchema();
   const methods = useForm<z.infer<typeof contactDetailsSchema>>({
     defaultValues: {
       emails:
-        defaultValues.length > 0
+        defaultValues.length >= 2
           ? defaultValues.map((email) => ({
               value: email,
             }))
-          : [{ value: '' }],
+          : defaultValues.length === 1
+            ? [{ value: defaultValues[0] }, { value: '' }]
+            : [{ value: '' }, { value: '' }],
     },
     mode: 'onBlur',
     resolver: zodResolver(contactDetailsSchema),
   });
   const {
     control,
-    formState: { isValid },
+    formState: { isValid, isDirty },
     handleSubmit,
   } = methods;
+  const intl = useIntl();
   const { fields, append } = useFieldArray({
     control,
     name: 'emails',
   });
+
+  const emails: ReadonlyArray<{ value: string }> = useWatch({
+    control,
+    name: 'emails',
+  });
+
+  // Add an empty field when all emails are filled
+  useEffect(() => {
+    const allValid =
+      emails.length >= 2 &&
+      emails.every((email) => emailRegex.test(email?.value?.trim()));
+
+    if (allValid) {
+      append({ value: '' }, { shouldFocus: false });
+    }
+  }, [emails, append]);
 
   function handleOnSubmit(data: z.infer<typeof contactDetailsSchema>) {
     const emailsData = data.emails
@@ -63,44 +88,31 @@ export default function SponsorsAdvertiseRequestEnquiryForm({
     });
   }
 
+  useEffect(() => {
+    if (isDirty) {
+      updateStepStatus('in_progress');
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isDirty]);
+
   return (
-    <div className="flex flex-col items-center">
-      <Heading
-        className="sm:-tracking-3 -tracking-2 text-4xl sm:text-5xl"
-        level="custom"
-        weight="medium">
+    <form className="w-full max-w-xl" onSubmit={handleSubmit(handleOnSubmit)}>
+      <Heading level="heading6">
         <FormattedMessage
-          defaultMessage="Advertising Enquiry"
-          description="Title for advertising enquiry"
-          id="znnuxh"
+          defaultMessage="Contact details"
+          description="Title for contact details"
+          id="a8I10Q"
         />
       </Heading>
-      <Text
-        className="mt-6 block max-w-[430px] text-center"
-        color="secondary"
-        size="body0"
-        weight="medium">
-        <FormattedMessage
-          defaultMessage="Start by simply filling in your contact information so that we know who to reach out to."
-          description="Subtitle for advertising enquiry"
-          id="S4qQSV"
-        />
-      </Text>
-      <form
-        className={clsx(
-          'mt-12 lg:mt-10',
-          'flex flex-col items-start',
-          'w-full max-w-xs',
-        )}
-        onSubmit={handleSubmit(handleOnSubmit)}>
-        <Text color="subtitle" size="body2" weight="medium">
+      <Section>
+        <Text className="mt-1 block" color="secondary" size="body2">
           <FormattedMessage
-            defaultMessage="Company Email(s)"
-            description="Company Email(s) label"
-            id="SfwW7v"
+            defaultMessage="Provide the company email addresses we will use to contact you"
+            description="Subtitle for contact details"
+            id="oBV4CX"
           />
         </Text>
-        <div className={clsx('mt-2 flex w-full flex-col gap-2')}>
+        <div className={clsx('mt-8 flex flex-col gap-2')}>
           {fields.map((fieldItem, index) => (
             <Controller
               key={fieldItem.id}
@@ -127,35 +139,21 @@ export default function SponsorsAdvertiseRequestEnquiryForm({
             />
           ))}
         </div>
-        <Button
-          addonPosition="start"
-          className="mt-4"
-          icon={RiAddLine}
-          label={intl.formatMessage({
-            defaultMessage: 'Add more emails',
-            description: 'Add more emails button label',
-            id: '0cz5LW',
-          })}
-          size="xs"
-          variant="tertiary"
-          onClick={() => {
-            append({ value: '' });
-          }}
-        />
-        <Button
-          className="mx-auto mt-8"
-          icon={RiArrowRightLine}
-          isDisabled={!isValid}
-          label={intl.formatMessage({
-            defaultMessage: 'Next',
-            description: 'Label for next button',
-            id: 'uSMCBJ',
-          })}
-          size="lg"
-          type="submit"
-          variant="primary"
-        />
-      </form>
-    </div>
+        <div className="mt-8 flex justify-end">
+          <Button
+            icon={RiArrowRightLine}
+            isDisabled={!isValid}
+            label={intl.formatMessage({
+              defaultMessage: 'Next',
+              description: 'Label for next button',
+              id: 'uSMCBJ',
+            })}
+            size="md"
+            type="submit"
+            variant="primary"
+          />
+        </div>
+      </Section>
+    </form>
   );
 }
