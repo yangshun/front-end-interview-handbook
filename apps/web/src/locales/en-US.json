@@ -3935,6 +3935,10 @@
     "defaultMessage": "Uber",
     "description": "Company name for Uber"
   },
+  "KuqaMi": {
+    "defaultMessage": "Sponsor: {sponsorName}",
+    "description": "Sponsor name"
+  },
   "L+jocg": {
     "defaultMessage": "View plans",
     "description": "View pricing plans"
@@ -4134,6 +4138,10 @@
   "Lwa7+3": {
     "defaultMessage": "Have any doubts or need help? Ask in the community and discuss with others.",
     "description": "Description for \"Ask any questions in community\" item in Expected Support section on Projects project page"
+  },
+  "Lyx7B0": {
+    "defaultMessage": "Sponsored",
+    "description": "Sponsored"
   },
   "LzrO5R": {
     "defaultMessage": "Other Media",

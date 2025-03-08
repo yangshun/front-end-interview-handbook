@@ -7,6 +7,7 @@ import {
 
 import gtag from '~/lib/gtag';
 
+import { useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import type { TextWeight } from '~/components/ui/Text';
 import Text from '~/components/ui/Text';
@@ -48,6 +49,8 @@ export default function SponsorsAdFormatSpotlight({
   tracking = true,
   textWeight = 'normal',
 }: Props) {
+  const intl = useIntl();
+
   const ref = useSponsorsAdImpressionLogging<HTMLDivElement>(
     adFormat,
     adId,
@@ -72,7 +75,19 @@ export default function SponsorsAdFormatSpotlight({
           themeBackgroundBrandColor,
           'overflow-hidden',
         )}>
-        <Tooltip asChild={true} label={`Sponsor: ${sponsorName}`} side="bottom">
+        <Tooltip
+          asChild={true}
+          label={intl.formatMessage(
+            {
+              defaultMessage: 'Sponsor: {sponsorName}',
+              description: 'Sponsor name',
+              id: 'KuqaMi',
+            },
+            {
+              sponsorName,
+            },
+          )}
+          side="bottom">
           <div
             className={clsx(
               'z-[1]',
@@ -103,36 +118,45 @@ export default function SponsorsAdFormatSpotlight({
           />
         )}
       </div>
-      <Text
-        className={clsx(
-          'line-clamp-3 grow',
-          'inline-block pb-px', // Underline gets cutoff on Firefox, so add a 1px bottom spacing
-        )}
-        color="subtitle"
-        size="body3">
-        <Anchor
-          className={clsx('relative z-[1]')}
-          href={href}
-          target="_blank"
-          variant="flat"
-          weight={textWeight}
-          onClick={() => {
-            return gtag.event({
-              action: 'sponsors.ad.click',
-              extra: {
-                ad_format: adFormat,
-                ad_id: adId,
-                ad_placement: adPlacement,
-              },
-            });
-          }}>
-          {text}
-        </Anchor>{' '}
-        <RiArrowRightLine
-          aria-hidden={true}
-          className="size-3.5 inline-flex shrink-0"
-        />
-      </Text>
+      <div className="flex grow flex-col gap-0.5">
+        <Text className={clsx('block')} color="secondary" size="body3">
+          {intl.formatMessage({
+            defaultMessage: 'Sponsored',
+            description: 'Sponsored',
+            id: 'Lyx7B0',
+          })}
+        </Text>
+        <Text
+          className={clsx(
+            'line-clamp-2',
+            'inline-block pb-px', // Underline gets cutoff on Firefox, so add a 1px bottom spacing
+          )}
+          color="subtitle"
+          size="body3">
+          <Anchor
+            className={clsx('relative z-[1]')}
+            href={href}
+            target="_blank"
+            variant="flat"
+            weight={textWeight}
+            onClick={() => {
+              return gtag.event({
+                action: 'sponsors.ad.click',
+                extra: {
+                  ad_format: adFormat,
+                  ad_id: adId,
+                  ad_placement: adPlacement,
+                },
+              });
+            }}>
+            {text}
+          </Anchor>{' '}
+          <RiArrowRightLine
+            aria-hidden={true}
+            className="size-3.5 inline-flex shrink-0"
+          />
+        </Text>
+      </div>
       <Anchor
         aria-label={text}
         className="absolute inset-0"
