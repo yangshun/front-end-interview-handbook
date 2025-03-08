@@ -15,16 +15,29 @@ model EmailSubscriber {
   createdAt DateTime? @default(now()) @db.Timestamp(6)
 }
 
+enum FeedbackMessageCategory {
+  GENERAL
+  BUG
+  FEATURE_REQUEST
+  QUESTION
+  GUIDE
+  INTERVIEWS
+  PROJECTS
+  SPONSORSHIP
+  PURCHASE
+}
+
 model FeedbackMessage {
-  id        String    @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
-  message   String    @db.VarChar
+  id        String                   @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  category  FeedbackMessageCategory?
+  message   String                   @db.VarChar
   email     String?
-  createdAt DateTime? @default(now()) @db.Timestamp(6)
-  resolved  Boolean   @default(false)
-  owner     String?   @default("yangshun")
+  createdAt DateTime?                @default(now()) @db.Timestamp(6)
+  resolved  Boolean                  @default(false)
+  owner     String?                  @default("yangshun")
   userEmail String?
-  comments  String?   @db.VarChar
-  metadata  Json?     @db.Json
+  comments  String?                  @db.VarChar
+  metadata  Json?                    @db.Json
 }
 
 model Profile {

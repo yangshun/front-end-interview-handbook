@@ -9,20 +9,34 @@ import { themeGlassyBorder } from '~/components/ui/theme';
 
 import logMessage from '~/logging/logMessage';
 
+import type { FeedbackMessageCategory } from '@prisma/client';
+
 const MESSAGE_MIN_LENGTH = 10;
 
 type Props = Readonly<{
+  defaultCategory?: FeedbackMessageCategory;
   errorMessage?: string;
   isEmailRequired?: boolean;
   isSubmitting?: boolean;
   onSubmit: ({
+    category,
     message,
     email,
-  }: Readonly<{ email?: string; message: string }>) => void;
+  }: Readonly<{
+    category?: FeedbackMessageCategory;
+    email?: string;
+    message: string;
+  }>) => void;
 }>;
 
 function ContactForm(
-  { isEmailRequired, onSubmit, errorMessage, isSubmitting }: Props,
+  {
+    defaultCategory,
+    isEmailRequired,
+    onSubmit,
+    errorMessage,
+    isSubmitting,
+  }: Props,
   ref: ForwardedRef<HTMLFormElement>,
 ) {
   const intl = useIntl();
@@ -55,6 +69,7 @@ function ContactForm(
         }
 
         onSubmit({
+          category: defaultCategory,
           email: email ? email : undefined,
           message,
         });

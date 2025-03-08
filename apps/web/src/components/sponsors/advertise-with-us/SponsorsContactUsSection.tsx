@@ -114,11 +114,13 @@ export default function SponsorsContactUsSection() {
       <div className="lg:col-span-6 lg:col-start-7">
         <ContactForm
           ref={formRef}
+          defaultCategory="SPONSORSHIP"
           errorMessage={submitFailureReason?.message}
           isEmailRequired={true}
           isSubmitting={isSubmitLoading}
-          onSubmit={({ email, message }) =>
+          onSubmit={({ category, email, message }) =>
             submitFeedback({
+              category,
               email,
               message,
             })
