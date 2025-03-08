@@ -95,9 +95,9 @@ export default function SponsorsAdvertiseRequestEnquiryForm({
         onSubmit={handleSubmit(handleOnSubmit)}>
         <Text color="subtitle" size="body2" weight="medium">
           <FormattedMessage
-            defaultMessage="Company Email(s)"
-            description="Company Email(s) label"
-            id="SfwW7v"
+            defaultMessage="Company email(s)"
+            description="Company emails label"
+            id="a9qEXk"
           />
         </Text>
         <div className={clsx('mt-2 flex w-full flex-col gap-2')}>

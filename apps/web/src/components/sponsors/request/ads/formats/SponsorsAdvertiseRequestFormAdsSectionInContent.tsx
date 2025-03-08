@@ -169,8 +169,11 @@ export default function SponsorsAdvertiseRequestFormAdsSectionInContent({
           <div>
             <SponsorsAdvertiseRequestFormAdsSectionTitle format={AD_FORMAT} />
             <div
-              className={clsx('mt-8', 'grid gap-x-4 gap-y-6 md:grid-cols-2')}>
-              <div className="flex flex-col gap-6">
+              className={clsx(
+                'mt-8',
+                'grid gap-x-6 gap-y-8 md:grid-cols-2 md:gap-y-6',
+              )}>
+              <div className="flex flex-col gap-y-8 md:gap-y-6">
                 <Controller
                   control={control}
                   name="imageUrl"

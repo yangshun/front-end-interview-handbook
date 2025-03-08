@@ -117,7 +117,10 @@ export default function SponsorsAdvertiseRequestFormAdsSectionGlobalBanner({
           <div>
             <SponsorsAdvertiseRequestFormAdsSectionTitle format={AD_FORMAT} />
             <div
-              className={clsx('mt-8', 'grid gap-x-4 gap-y-6 md:grid-cols-2')}>
+              className={clsx(
+                'mt-8',
+                'grid gap-x-6 gap-y-8 md:grid-cols-2 md:gap-y-6',
+              )}>
               <Controller
                 control={control}
                 name="text"
@@ -195,23 +198,23 @@ export default function SponsorsAdvertiseRequestFormAdsSectionGlobalBanner({
                 )}
               />
             </div>
-            <div className="mt-4 flex items-end justify-between gap-4">
-              <Label
-                description={intl.formatMessage({
-                  defaultMessage:
-                    'See how your ad looks like when it goes live',
-                  description: 'Description for preview',
-                  id: 'lHuGip',
-                })}
-                label={intl.formatMessage({
-                  defaultMessage: 'Preview',
-                  description: 'Label for preview',
-                  id: 'JAQf3o',
-                })}
-              />
-              <NavColorSchemeDropdown includeSystem={false} size="xs" />
-            </div>
-            <div className="mt-4">
+            <div className="mt-4 flex flex-col gap-4 md:mt-6">
+              <div className="mt-4 flex items-end justify-between gap-6">
+                <Label
+                  description={intl.formatMessage({
+                    defaultMessage:
+                      'See how your ad looks like when it goes live',
+                    description: 'Description for preview',
+                    id: 'lHuGip',
+                  })}
+                  label={intl.formatMessage({
+                    defaultMessage: 'Preview',
+                    description: 'Label for preview',
+                    id: 'JAQf3o',
+                  })}
+                />
+                <NavColorSchemeDropdown includeSystem={false} size="xs" />
+              </div>
               <InterviewsMarketingHeroBrowserWindowFrame>
                 <SponsorsAdFormatGlobalBanner
                   adId="test-global-banner"
