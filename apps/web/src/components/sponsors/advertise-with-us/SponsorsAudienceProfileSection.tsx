@@ -1,6 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
+import type { PropsWithChildren } from 'react';
 
 import { UsersCountLastYear } from '~/data/Stats';
 
@@ -77,6 +78,22 @@ export default function SponsorsAudienceProfileSection() {
         </div>
       </div>
       <Asset />
+    </div>
+  );
+}
+
+function AssetColumn({
+  className,
+  children,
+}: PropsWithChildren<{ className?: string }>) {
+  return (
+    <div
+      className={clsx(
+        'flex-1 md:flex-none',
+        'md:w-[250px] lg:w-[300px]',
+        className,
+      )}>
+      {children}
     </div>
   );
 }
@@ -184,14 +201,10 @@ function Asset() {
 
   return (
     <div className="items-center justify-center md:flex">
-      <div className={clsx('hidden flex-col sm:flex')} inert="">
+      <div className={clsx('hidden flex-col sm:flex')}>
         <div className="flex items-end gap-6 lg:gap-7">
-          <div
-            className={clsx(
-              'flex flex-col items-end gap-[18px] lg:gap-5',
-              'flex-1 md:flex-none',
-              'md:min-w-[150px] md:max-w-[150px] lg:min-w-[200px] lg:max-w-[200px]',
-            )}>
+          <AssetColumn
+            className={clsx('flex flex-col items-end gap-[18px] lg:gap-5')}>
             <LogoComboMark className="hidden shrink-0 lg:block" height={31} />
             <LogoComboMark className="block shrink-0 lg:hidden" height={24} />
             <Text className="text-xs lg:text-sm" color="subtle" size="inherit">
@@ -201,7 +214,7 @@ function Asset() {
                 id="B8kokj"
               />
             </Text>
-          </div>
+          </AssetColumn>
           <div
             className={clsx(
               'flex flex-col items-center',
@@ -214,12 +227,7 @@ function Asset() {
               )}
             />
           </div>
-          <div
-            className={clsx(
-              'flex flex-col gap-2.5 lg:gap-2',
-              'flex-1 md:flex-none',
-              'md:min-w-[250px] md:max-w-[250px] lg:min-w-[300px] lg:max-w-[300px]',
-            )}>
+          <AssetColumn className={clsx('flex flex-col gap-2.5 lg:gap-2')}>
             <Heading
               className="max-w-[300px] text-base lg:text-xl"
               level="custom">
@@ -236,89 +244,76 @@ function Asset() {
                 id="/ZYBru"
               />
             </Text>
-          </div>
+          </AssetColumn>
         </div>
-
-        <div className={clsx('mt-4 lg:mt-[22px]')}>
+        <div
+          className={clsx(
+            'mt-4 lg:mt-[22px]',
+            'flex flex-col gap-8 lg:gap-10',
+          )}>
           {items.map(({ key, title, values }, index) => (
-            <div
-              key={key}
-              className={clsx(
-                'w-full',
-                'flex flex-col items-center gap-1.5',
-                index < items.length - 1 && 'mb-1.5',
-              )}>
-              <div className="flex w-full gap-6 lg:gap-7">
+            <div key={key} className="flex w-full gap-6 lg:gap-7">
+              <AssetColumn className="flex items-center justify-end">
+                <Text
+                  className="float-right text-lg lg:text-2xl"
+                  color="active"
+                  size="inherit"
+                  weight="bold">
+                  {values.gfe.label}
+                </Text>
+              </AssetColumn>
+              <div
+                className={clsx(
+                  'flex flex-col items-center gap-1.5',
+                  'w-full max-w-[240px] md:min-w-[240px] lg:w-[351px] lg:max-w-[351px]',
+                  'relative',
+                )}>
                 <div
                   className={clsx(
-                    'flex-1 md:flex-none',
-                    'md:min-w-[150px] md:max-w-[150px] lg:min-w-[200px] lg:max-w-[200px]',
-                    'mt-2.5',
-                  )}>
-                  <Text
-                    className="float-right text-lg lg:text-2xl"
-                    color="active"
-                    size="inherit"
-                    weight="bold">
-                    {values.gfe.label}
-                  </Text>
-                </div>
-                <div
-                  className={clsx(
-                    'flex flex-col items-center gap-1.5',
-                    'w-full max-w-[240px] md:min-w-[240px] lg:min-w-[351px] lg:max-w-[351px]',
+                    'relative overflow-hidden',
+                    'w-full py-3 lg:py-4',
+                    'rounded-md shadow-md',
+                    themeBackgroundCardWhiteOnLightColor,
+                    [
+                      themeWhiteGlowCardBackground,
+                      'before:-left-5 before:-top-5 before:z-[1] before:h-[47px] before:w-[97px] before:blur-[22px]',
+                    ],
+                    'text-sm lg:text-lg',
+                    'text-center',
                   )}>
                   <div
                     className={clsx(
-                      'relative overflow-hidden',
-                      'w-full py-3 lg:py-4',
-                      'rounded-md shadow-md',
-                      themeBackgroundCardWhiteOnLightColor,
-                      [
-                        themeWhiteGlowCardBackground,
-                        'before:-left-5 before:-top-5 before:z-[1] before:h-[47px] before:w-[97px] before:blur-[22px]',
-                      ],
-                      'text-sm lg:text-lg',
-                      'text-center',
-                    )}>
-                    <div
-                      className={clsx(
-                        '!absolute inset-0 rounded-[inherit] before:m-[-1px]',
-                        themeGlassyBorder,
-                      )}
-                    />
-                    <Text
-                      className="relative"
-                      color="default"
-                      size="inherit"
-                      weight="medium">
-                      {title}
-                    </Text>
-                  </div>
-                  {index < items.length - 1 && (
-                    <div
-                      className={clsx(
-                        'h-[22px] w-[1px] lg:h-[29px]',
-                        themeBackgroundLineEmphasizedColor,
-                      )}
-                    />
-                  )}
-                </div>
-                <div
-                  className={clsx(
-                    'flex-1 md:flex-none',
-                    'md:min-w-[250px] md:max-w-[250px] lg:min-w-[300px] lg:max-w-[300px]',
-                    'mt-2.5',
-                  )}>
+                      '!absolute inset-0 rounded-[inherit] before:m-[-1px]',
+                      themeGlassyBorder,
+                    )}
+                  />
                   <Text
-                    className="text-lg lg:text-2xl"
-                    color="subtle"
+                    className="relative"
+                    color="default"
                     size="inherit"
-                    weight="bold">
-                    {values.other.label}
+                    weight="medium">
+                    {title}
                   </Text>
                 </div>
+                {index < items.length - 1 && (
+                  <div
+                    className={clsx(
+                      'absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-[26px] lg:translate-y-[34px]',
+                      'h-[22px] w-px lg:h-[29px]',
+                      themeBackgroundLineEmphasizedColor,
+                    )}
+                  />
+                )}
               </div>
+              <AssetColumn className="flex items-center">
+                <Text
+                  className="text-lg lg:text-2xl"
+                  color="subtle"
+                  size="inherit"
+                  weight="bold">
+                  {values.other.label}
+                </Text>
+              </AssetColumn>
             </div>
           ))}
         </div>
@@ -342,9 +337,9 @@ function Asset() {
           <div className={clsx('flex flex-1 flex-col items-center')}>
             <Text size="body2" weight="bold">
               <FormattedMessage
-                defaultMessage="Other Media"
+                defaultMessage="Other media"
                 description="Title for other media"
-                id="LzrO5R"
+                id="TSqbLd"
               />
             </Text>
             <Text className="text-[9px]" color="subtle" size="inherit">
