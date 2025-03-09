@@ -8219,10 +8219,6 @@
     "defaultMessage": "Amazon",
     "description": "Company name for Amazon"
   },
-  "iSDQh3": {
-    "defaultMessage": "Companies",
-    "description": "Title for section on question that shows which companies asked the question"
-  },
   "iSFCj/": {
     "defaultMessage": "Signing Out",
     "description": "Title of Logout page"
@@ -10570,6 +10566,10 @@
   "wGf7+G": {
     "defaultMessage": "Start the project and download starter code and assets",
     "description": "Instruction for projects"
+  },
+  "wI2SYk": {
+    "defaultMessage": "Asked at these companies",
+    "description": "Title for section on question that shows which companies asked the question"
   },
   "wIGIux": {
     "defaultMessage": "Build personalized projects, instead of the same as everyone else",

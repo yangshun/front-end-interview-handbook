@@ -13,7 +13,9 @@ import type { QuestionUserInterfaceMode } from '~/components/interviews/question
 import useQuestionsAutoMarkAsComplete from '~/components/interviews/questions/common/useQuestionsAutoMarkAsComplete';
 import { questionUserInterfaceSolutionPath } from '~/components/interviews/questions/content/user-interface/QuestionUserInterfaceRoutes';
 import { useQuestionsListTypeCurrent } from '~/components/interviews/questions/listings/utils/useQuestionsListDataForType';
+import SponsorsAdFormatInContentContainer from '~/components/sponsors/ads/SponsorsAdFormatInContentContainer';
 import Button from '~/components/ui/Button';
+import Divider from '~/components/ui/Divider';
 import EmptyState from '~/components/ui/EmptyState';
 import {
   deleteLocalUserInterfaceQuestionCode,
@@ -349,8 +351,12 @@ function UserInterfaceCodingWorkspaceImpl({
       }}>
       {/* Mobile version */}
       {!embed && (
-        <div className="size-full flex min-h-[calc(100vh_-_var(--global-sticky-height))] flex-col lg:hidden">
-          <div className="flex grow flex-col gap-y-4">
+        <div
+          className={clsx(
+            'flex flex-col',
+            'size-full min-h-[calc(100vh_-_var(--global-sticky-height))] lg:hidden',
+          )}>
+          <div className="flex grow flex-col gap-y-6">
             {mode === 'practice' && (
               <UserInterfaceCodingWorkspaceWriteup
                 canViewPremiumContent={canViewPremiumContent}
@@ -391,6 +397,13 @@ function UserInterfaceCodingWorkspaceImpl({
                 )
               }
             />
+            <Divider />
+            <div className={clsx('px-3.5', 'pb-6', 'mx-auto w-full max-w-3xl')}>
+              <SponsorsAdFormatInContentContainer
+                adPlacement="questions_ui"
+                size="sm"
+              />
+            </div>
           </div>
           <UserInterfaceCodingWorkspaceBottomBar
             framework={framework}

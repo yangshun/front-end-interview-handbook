@@ -10,7 +10,7 @@ import type {
 } from './SponsorsAdFormatInContent';
 import SponsorsAdFormatInContent from './SponsorsAdFormatInContent';
 
-function SponsorsAdFormatInContentContainer({
+function SponsorsAdFormatInContentContainerImpl({
   adPlacement,
   size,
 }: Readonly<{
@@ -34,7 +34,7 @@ function SponsorsAdFormatInContentContainer({
   );
 }
 
-export default function SponsorsAdFormatInContentContainerWrapper({
+export default function SponsorsAdFormatInContentContainer({
   adPlacement,
   size,
 }: Readonly<{
@@ -46,6 +46,9 @@ export default function SponsorsAdFormatInContentContainerWrapper({
   }
 
   return (
-    <SponsorsAdFormatInContentContainer adPlacement={adPlacement} size={size} />
+    <SponsorsAdFormatInContentContainerImpl
+      adPlacement={adPlacement}
+      size={size}
+    />
   );
 }

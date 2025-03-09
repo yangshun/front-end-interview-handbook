@@ -91,7 +91,8 @@ export default function QuestionContentsSystemDesign({
         </Section>
       </div>
       <Section>
-        <div className="flex flex-col gap-y-8">
+        <div className="flex flex-col gap-y-6">
+          <Divider />
           {!isQuestionLocked &&
             metadata.companies &&
             metadata.companies.length > 0 && (
@@ -104,30 +105,31 @@ export default function QuestionContentsSystemDesign({
           <QuestionContentProse contents={description} textSize="md" />
         </div>
         <Divider />
-        <div>
-          <QuestionContentProse
-            contents={solution}
-            isContentsHidden={isQuestionLocked}
-            textSize="md"
-          />
-        </div>
-        <div className="flex justify-between">
-          <QuestionReportIssueButton
-            entity="question"
-            format={question.metadata.format}
-            isLabelHidden={false}
-            showTooltip={false}
-            slug={question.metadata.slug}
-          />
-          <div
-            className={clsx(
-              'transition-colors',
-              isLoading && user != null ? 'opacity-0' : 'opacity-100',
-            )}>
-            <QuestionProgressAction
-              metadata={question.metadata}
-              studyListKey={studyListKey}
+        <QuestionContentProse
+          contents={solution}
+          isContentsHidden={isQuestionLocked}
+          textSize="md"
+        />
+        <div className="flex flex-col gap-y-6">
+          <Divider />
+          <div className="flex justify-between">
+            <QuestionReportIssueButton
+              entity="question"
+              format={question.metadata.format}
+              isLabelHidden={false}
+              showTooltip={false}
+              slug={question.metadata.slug}
             />
+            <div
+              className={clsx(
+                'transition-colors',
+                isLoading && user != null ? 'opacity-0' : 'opacity-100',
+              )}>
+              <QuestionProgressAction
+                metadata={question.metadata}
+                studyListKey={studyListKey}
+              />
+            </div>
           </div>
         </div>
       </Section>

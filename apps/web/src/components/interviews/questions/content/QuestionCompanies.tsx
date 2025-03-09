@@ -8,7 +8,7 @@ import type { QuestionCompany } from '~/components/interviews/questions/common/Q
 import { FormattedMessage, useIntl } from '~/components/intl';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
-import Text from '~/components/ui/Text';
+import Text, { textVariants } from '~/components/ui/Text';
 import { themeBorderColor } from '~/components/ui/theme';
 
 type Props = Readonly<{
@@ -32,11 +32,13 @@ export default function QuestionCompanies({
 
   return (
     <div className="flex flex-col gap-y-4">
-      <Heading className="text-base font-semibold" level="custom">
+      <Heading
+        className={clsx(textVariants({ size: 'body2', weight: 'medium' }))}
+        level="custom">
         <FormattedMessage
-          defaultMessage="Companies"
+          defaultMessage="Asked at these companies"
           description="Title for section on question that shows which companies asked the question"
-          id="iSDQh3"
+          id="wI2SYk"
         />
       </Heading>
       <Section>

@@ -127,16 +127,19 @@ export default function GuidesMainLayout<GuideSlug extends string>({
           )}>
           <div
             className={clsx(
-              'flex flex-col gap-12',
+              'flex flex-col gap-6',
               'mx-auto w-full max-w-[620px]',
             )}>
             <div ref={articleContainerRef}>{children}</div>
             <Section>
-              <Divider />
-              <SponsorsAdFormatInContentContainer
-                adPlacement="guide"
-                size="sm"
-              />
+              <div className="flex flex-col gap-6">
+                <Divider color="emphasized" />
+                <SponsorsAdFormatInContentContainer
+                  adPlacement="guide"
+                  size="sm"
+                />
+                <Divider color="emphasized" />
+              </div>
               {showMarkAsComplete && guideMetadata && (
                 <div className={clsx('flex justify-end', 'transition-colors')}>
                   <div className="max-w-64 flex flex-col items-end gap-2">

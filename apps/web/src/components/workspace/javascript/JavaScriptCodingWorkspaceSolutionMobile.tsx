@@ -17,7 +17,7 @@ export default function JavaScriptCodingWorkspaceSolutionMobile({
   const [showSolution, setShowSolution] = useState(false);
 
   return (
-    <div className="flex flex-col gap-y-4 pb-4">
+    <div className="flex flex-col gap-y-4">
       <div className="mx-auto flex w-full max-w-3xl flex-col gap-y-8 px-4">
         <Alert variant="warning">
           Coding and submission is not supported on mobile devices. Use a wider

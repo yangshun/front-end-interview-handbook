@@ -151,7 +151,7 @@ export default function SponsorsAdFormatInContent({
           value={body}
         />
       ) : (
-        <Text className="mt-3 block" color="secondary" size="body3">
+        <Text className="mt-3 block" color="secondary" size="body2">
           {body}
         </Text>
       )}

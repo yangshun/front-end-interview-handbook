@@ -10,6 +10,8 @@ import type {
   QuestionMetadata,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import useQuestionsAutoMarkAsComplete from '~/components/interviews/questions/common/useQuestionsAutoMarkAsComplete';
+import SponsorsAdFormatInContentContainer from '~/components/sponsors/ads/SponsorsAdFormatInContentContainer';
+import Divider from '~/components/ui/Divider';
 import { deleteLocalJavaScriptQuestionCode } from '~/components/workspace/javascript/JavaScriptCodingWorkspaceCodeStorage';
 import JavaScriptCodingWorkspaceTestsCode from '~/components/workspace/javascript/JavaScriptCodingWorkspaceTestsCode';
 
@@ -326,9 +328,10 @@ function JavaScriptCodingWorkspaceImpl({
         {!embed && (
           <div
             className={clsx(
-              'size-full flex min-h-[calc(100vh_-_var(--global-sticky-height))] flex-col lg:hidden',
+              'flex flex-col',
+              'size-full min-h-[calc(100vh_-_var(--global-sticky-height))] lg:hidden',
             )}>
-            <div className="flex grow flex-col gap-y-4">
+            <div className="flex grow flex-col gap-y-6">
               <JavaScriptCodingWorkspaceDescription
                 canViewPremiumContent={canViewPremiumContent}
                 description={description}
@@ -337,10 +340,19 @@ function JavaScriptCodingWorkspaceImpl({
                 similarQuestions={[]}
                 studyListKey={studyListKey}
               />
+              <Divider />
               <JavaScriptCodingWorkspaceSolutionMobile
                 canViewPremiumContent={canViewPremiumContent}
                 solution={solution}
               />
+              <Divider />
+              <div
+                className={clsx('px-3.5', 'pb-6', 'mx-auto w-full max-w-3xl')}>
+                <SponsorsAdFormatInContentContainer
+                  adPlacement="questions_js"
+                  size="sm"
+                />
+              </div>
             </div>
             <JavaScriptCodingWorkspaceBottomBar
               layout={embed ? 'minimal' : 'full'}

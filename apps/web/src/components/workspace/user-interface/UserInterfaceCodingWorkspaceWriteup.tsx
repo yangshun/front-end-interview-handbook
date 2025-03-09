@@ -24,9 +24,10 @@ import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
 import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
+import Section from '~/components/ui/Heading/HeadingContext';
 import ScrollArea from '~/components/ui/ScrollArea';
 import Select from '~/components/ui/Select';
-import Text from '~/components/ui/Text';
+import { themeBackgroundCardColor } from '~/components/ui/theme';
 
 import { useQueryQuestionProgress } from '~/db/QuestionsProgressClient';
 
@@ -81,128 +82,165 @@ export default function UserInterfaceCodingWorkspaceWriteup({
       {/* Override the display:table because the content like MDXCodeBlock
       where there is long code make this overflow and the horizontal scrollbar doesn't appear */}
       <ScrollArea viewportClass="[&>div]:!block">
-        <div
-          ref={copyRef}
-          className="mx-auto flex max-w-3xl flex-col gap-y-6 p-4">
+        <div ref={copyRef} className={clsx('mx-auto', 'flex flex-col gap-y-6')}>
           {contentType === 'description' && mode === 'solution' && (
-            <Alert variant="info">
-              <div className="flex flex-col items-start gap-2">
-                <Text className="block" size="body2">
-                  You are viewing the description from the solution page. To
-                  practice this question,{' '}
-                  <Anchor href={questionDescriptionHref}>go back</Anchor> to the
-                  workspace page or{' '}
-                  <Anchor
-                    onClick={() => {
-                      dispatch({
-                        payload: {
-                          tabId: 'versions',
-                        },
-                        type: 'tab-set-active',
-                      });
-                    }}>
-                    load a saved version
-                  </Anchor>
-                  .
-                </Text>
-              </div>
-            </Alert>
+            <div className={clsx('px-3.5', 'mx-auto w-full max-w-3xl')}>
+              <Alert bodySize="body3" variant="info">
+                You are viewing the description from the solution page. To
+                practice this question,{' '}
+                <Anchor href={questionDescriptionHref}>go back</Anchor> to the
+                workspace page or{' '}
+                <Anchor
+                  onClick={() => {
+                    dispatch({
+                      payload: {
+                        tabId: 'versions',
+                      },
+                      type: 'tab-set-active',
+                    });
+                  }}>
+                  load a saved version
+                </Anchor>
+                .
+              </Alert>
+            </div>
           )}
           {contentType === 'description' && save != null && (
-            <Alert variant="info">
-              <div className="flex flex-col items-start gap-2">
-                <Text className="block" size="body2">
-                  You are currently editing code from the saved version:{' '}
-                  <strong>"{save.name}"</strong>.
-                </Text>
-                <Button
-                  href={questionDescriptionHref}
-                  label="Start a new version"
-                  size="sm"
-                  variant="secondary"
-                />
-              </div>
-            </Alert>
-          )}
-          <div className="flex items-center justify-between gap-x-4">
-            <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-              <Heading level="heading5">
-                <span>
-                  {metadata.title} {contentType === 'solution' && ' Solution'}
-                </span>
-              </Heading>
-              {metadata.access === 'premium' && (
-                <Badge
-                  label={intl.formatMessage({
-                    defaultMessage: 'Premium',
-                    description: 'Premium content',
-                    id: 'gIeLON',
-                  })}
-                  size="sm"
-                  variant="special"
-                />
-              )}
-              <div>
-                {data?.questionProgress?.status === 'complete' && (
-                  <Badge
-                    label={intl.formatMessage({
-                      defaultMessage: 'Completed',
-                      description:
-                        'Label indicating that the question has been completed',
-                      id: 'iIQL6V',
-                    })}
+            <div className={clsx('px-3.5', 'mx-auto w-full max-w-3xl')}>
+              <Alert bodySize="body3" variant="info">
+                <div className="flex flex-col items-start gap-2">
+                  <div>
+                    You are currently editing code from the saved version:{' '}
+                    <strong>"{save.name}"</strong>.
+                  </div>
+                  <Button
+                    href={questionDescriptionHref}
+                    label="Start a new version"
                     size="sm"
-                    variant="success"
+                    variant="secondary"
                   />
-                )}
-              </div>
+                </div>
+              </Alert>
             </div>
-            <Select
-              isLabelHidden={true}
-              label={intl.formatMessage({
-                defaultMessage: 'Framework',
-                description:
-                  'Label for the selection dropdown used to select the framework to use for the question',
-                id: 'eeWLAW',
-              })}
-              options={metadata.frameworks.map((frameworkItem) => ({
-                label: frameworks[frameworkItem.framework].label,
-                value: frameworkItem.framework,
-              }))}
-              size="sm"
-              value={framework}
-              onChange={(value) => {
-                onFrameworkChange(value, contentType);
-              }}
-            />
+          )}
+          <div className={clsx(themeBackgroundCardColor, 'pb-5 pt-4')}>
+            <div
+              className={clsx(
+                'flex flex-col gap-y-3',
+                'px-3.5',
+                'mx-auto w-full max-w-3xl',
+              )}>
+              <div className="flex items-center justify-between gap-x-4">
+                <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+                  <Heading level="heading5">
+                    <span>
+                      {metadata.title}{' '}
+                      {contentType === 'solution' && ' Solution'}
+                    </span>
+                  </Heading>
+                  {metadata.access === 'premium' && (
+                    <Badge
+                      label={intl.formatMessage({
+                        defaultMessage: 'Premium',
+                        description: 'Premium content',
+                        id: 'gIeLON',
+                      })}
+                      size="sm"
+                      variant="special"
+                    />
+                  )}
+                  <div>
+                    {data?.questionProgress?.status === 'complete' && (
+                      <Badge
+                        label={intl.formatMessage({
+                          defaultMessage: 'Completed',
+                          description:
+                            'Label indicating that the question has been completed',
+                          id: 'iIQL6V',
+                        })}
+                        size="sm"
+                        variant="success"
+                      />
+                    )}
+                  </div>
+                </div>
+                <Select
+                  isLabelHidden={true}
+                  label={intl.formatMessage({
+                    defaultMessage: 'Framework',
+                    description:
+                      'Label for the selection dropdown used to select the framework to use for the question',
+                    id: 'eeWLAW',
+                  })}
+                  options={metadata.frameworks.map((frameworkItem) => ({
+                    label: frameworks[frameworkItem.framework].label,
+                    value: frameworkItem.framework,
+                  }))}
+                  size="sm"
+                  value={framework}
+                  onChange={(value) => {
+                    onFrameworkChange(value, contentType);
+                  }}
+                />
+              </div>
+              <QuestionMetadataSection metadata={metadata} />
+            </div>
           </div>
-          <QuestionMetadataSection metadata={metadata} />
-          <div className="flex flex-col gap-y-8">
-            <QuestionContentProse contents={writeup} />
+          <Section>
+            <div className={clsx('px-3.5', 'mx-auto w-full max-w-3xl')}>
+              <QuestionContentProse contents={writeup} />
+            </div>
             {contentType === 'description' && environment === 'workspace' && (
-              <div
-                className={clsx(
-                  'hidden lg:block',
-                  'rounded-md p-4 text-center',
-                  'bg-brand',
-                )}>
-                <SolutionPreviewButton />
+              <div className={clsx('px-3.5', 'mx-auto w-full max-w-3xl')}>
+                <div
+                  className={clsx(
+                    'hidden lg:block',
+                    'rounded-md p-4 text-center',
+                    'bg-brand',
+                  )}>
+                  <SolutionPreviewButton />
+                </div>
               </div>
             )}
-            {contentType === 'description' && (
-              <QuestionCompanies
-                canViewPremiumContent={canViewPremiumContent}
-                companies={metadata.companies}
-              />
+            {metadata.companies.length > 0 && contentType === 'description' && (
+              <>
+                <Divider />
+                <div className={clsx('px-3.5', 'mx-auto w-full max-w-3xl')}>
+                  <QuestionCompanies
+                    canViewPremiumContent={canViewPremiumContent}
+                    companies={metadata.companies}
+                  />
+                </div>
+              </>
             )}
-            <QuestionNextQuestions questions={nextQuestions} />
-            <QuestionSimilarQuestions questions={similarQuestions} />
+            {(nextQuestions.length > 0 || similarQuestions.length > 0) && (
+              <>
+                <Divider />
+                <div
+                  className={clsx(
+                    'flex flex-col gap-6',
+                    'px-3.5',
+                    'mx-auto w-full max-w-3xl',
+                  )}>
+                  <QuestionNextQuestions questions={nextQuestions} />
+                  <QuestionSimilarQuestions questions={similarQuestions} />
+                </div>
+              </>
+            )}
             <Divider />
-            <SponsorsAdFormatInContentContainer
-              adPlacement="questions_ui"
-              size="sm"
-            />
-          </div>
+            <div
+              className={clsx(
+                'max-lg:hidden',
+                'px-3.5',
+                'pb-6',
+                'mx-auto w-full max-w-3xl',
+              )}>
+              <SponsorsAdFormatInContentContainer
+                adPlacement="questions_ui"
+                size="sm"
+              />
+            </div>
+          </Section>
         </div>
       </ScrollArea>
     </>

@@ -144,6 +144,7 @@ export default function QuestionQuizContents({
               </article>
             </div>
           </div>
+          <Divider />
           <div className="flex justify-between">
             <QuestionReportIssueButton
               entity="question"
@@ -155,7 +156,7 @@ export default function QuestionQuizContents({
             <GitHubEditButton question={question} />
           </div>
         </div>
-        <Divider className="mb-12 mt-6" color="emphasized" />
+        <Divider className="my-6" color="emphasized" />
         <SponsorsAdFormatInContentContainer
           adPlacement="questions_quiz"
           size="md"
