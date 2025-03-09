@@ -67,9 +67,9 @@ export default function UserInterfaceCodingWorkspaceMobile({
   return (
     <div
       className={clsx(
-        'mx-auto w-full max-w-3xl',
         'flex flex-col gap-y-6',
-        'px-3.5',
+        'px-4',
+        'mx-auto w-full max-w-3xl',
       )}>
       {topAddOn}
       <SandpackLayout>

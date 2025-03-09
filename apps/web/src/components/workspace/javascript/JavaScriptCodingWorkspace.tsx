@@ -329,7 +329,8 @@ function JavaScriptCodingWorkspaceImpl({
           <div
             className={clsx(
               'flex flex-col',
-              'size-full min-h-[calc(100vh_-_var(--global-sticky-height))] lg:hidden',
+              'lg:hidden',
+              'size-full min-h-[calc(100vh_-_var(--global-sticky-height))]',
             )}>
             <div className="flex grow flex-col gap-y-6">
               <JavaScriptCodingWorkspaceDescription
@@ -340,14 +341,17 @@ function JavaScriptCodingWorkspaceImpl({
                 similarQuestions={[]}
                 studyListKey={studyListKey}
               />
-              <Divider />
               <JavaScriptCodingWorkspaceSolutionMobile
                 canViewPremiumContent={canViewPremiumContent}
                 solution={solution}
               />
-              <Divider />
               <div
-                className={clsx('px-3.5', 'pb-6', 'mx-auto w-full max-w-3xl')}>
+                className={clsx(
+                  'flex flex-col gap-y-6',
+                  'px-4 pb-6',
+                  'mx-auto w-full max-w-3xl',
+                )}>
+                <Divider />
                 <SponsorsAdFormatInContentContainer
                   adPlacement="questions_js"
                   size="sm"

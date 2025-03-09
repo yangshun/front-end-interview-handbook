@@ -5543,6 +5543,10 @@
     "defaultMessage": "Loading",
     "description": "Loading label"
   },
+  "TVrovv": {
+    "defaultMessage": "Similar questions",
+    "description": "Header for similar questions to the current question"
+  },
   "TW5R5d": {
     "defaultMessage": "Dashboard",
     "description": "Label for dashboard title for logged in user"
@@ -10534,10 +10538,6 @@
   "w9U/8b": {
     "defaultMessage": "Team",
     "description": "Link to company's team page"
-  },
-  "wAOHw9": {
-    "defaultMessage": "Similar Questions",
-    "description": "Header for similar questions to the current question"
   },
   "wAZkHT": {
     "defaultMessage": "Tags",

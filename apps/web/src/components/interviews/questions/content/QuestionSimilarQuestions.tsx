@@ -18,9 +18,9 @@ export default function QuestionSimilarQuestions({
     <div className="grid gap-y-4">
       <Heading className="font-semibold" level="custom">
         <FormattedMessage
-          defaultMessage="Similar Questions"
+          defaultMessage="Similar questions"
           description="Header for similar questions to the current question"
-          id="wAOHw9"
+          id="TVrovv"
         />
       </Heading>
       <Section>
