@@ -16,6 +16,7 @@ import { trpc } from '~/hooks/trpc';
 
 import VignetteOverlay from '~/components/common/VignetteOverlay';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
+import useInterviewsSidebarCollapsed from '~/components/interviews/common/useInterviewsSidebarCollapsed';
 import InterviewsPurchasePaywall from '~/components/interviews/purchase/InterviewsPurchasePaywall';
 import type {
   QuestionFormat,
@@ -58,6 +59,7 @@ export default function InterviewsCompanyGuidePage({
 }: Props) {
   const intl = useIntl();
   const { userProfile } = useUserProfile();
+  const [isSidebarCollapsed] = useInterviewsSidebarCollapsed();
   const user = useUser();
   const topicLabels = useQuestionTopicLabels();
   const canViewStudyPlans = userProfile?.isInterviewsPremium;
@@ -203,7 +205,9 @@ export default function InterviewsCompanyGuidePage({
                 overallProgress={questionsOverallProgress}
                 questions={questions}
                 sideColumnAddOn={
-                  <SponsorsAdFormatSpotlightCard adPlacement="side_column" />
+                  isSidebarCollapsed ? (
+                    <SponsorsAdFormatSpotlightCard adPlacement="side_column" />
+                  ) : null
                 }
                 studyListKey={studyList.slug}
               />

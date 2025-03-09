@@ -10,6 +10,7 @@ import { RiVerifiedBadgeLine } from 'react-icons/ri';
 import { trpc } from '~/hooks/trpc';
 
 import useInterviewsQuestionsFeatures from '~/components/interviews/common/useInterviewsQuestionsFeatures';
+import useInterviewsSidebarCollapsed from '~/components/interviews/common/useInterviewsSidebarCollapsed';
 import type {
   QuestionFormat,
   QuestionMetadata,
@@ -47,6 +48,7 @@ export default function InterviewsStudyPlanBlind75Page({
 }: Props) {
   const intl = useIntl();
   const user = useUser();
+  const [isSidebarCollapsed] = useInterviewsSidebarCollapsed();
   const questionFeatures = useInterviewsQuestionsFeatures();
 
   const { data: questionProgressParam } = trpc.questionProgress.getAll.useQuery(
@@ -120,7 +122,9 @@ export default function InterviewsStudyPlanBlind75Page({
             overallProgress={questionsOverallProgress}
             questions={questions}
             sideColumnAddOn={
-              <SponsorsAdFormatSpotlightCard adPlacement="side_column" />
+              isSidebarCollapsed ? (
+                <SponsorsAdFormatSpotlightCard adPlacement="side_column" />
+              ) : null
             }
             studyListKey={studyList.slug}
           />

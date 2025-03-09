@@ -9,6 +9,7 @@ import { SCROLL_HASH_INTERVIEWS_DASHBOARD_RECOMMENDED_PREPARATION } from '~/hook
 import InterviewsContentSliderCard from '~/components/interviews/common/InterviewsContentSliderCard';
 import type { QuestionFrameworkOrLanguage } from '~/components/interviews/questions/common/QuestionsTypes';
 import { FormattedMessage, useIntl } from '~/components/intl';
+import SponsorsAdFormatSpotlightCard from '~/components/sponsors/ads/SponsorsAdFormatSpotlightCard';
 import Anchor from '~/components/ui/Anchor';
 import {
   themeOutlineElement_FocusVisible,
@@ -47,78 +48,98 @@ export default function InterviewsQuestionsCategoryContentSlider({
   );
 
   const jsRepoData = {
-    count: starCountJS ?? null,
-    description: intl.formatMessage({
-      defaultMessage:
-        'Support us by starring our GitHub repo and consider contributing!',
-      description: 'Description for github star',
-      id: 'P4vm6j',
-    }),
-    href: 'https://github.com/yangshun/top-javascript-interview-questions',
-    title: intl.formatMessage({
-      defaultMessage: '⭐️ Star our JavaScript repo',
-      description: 'Title for github star CTA',
-      id: 'acvTMO',
-    }),
-    type: 'github-star',
+    element: (
+      <InterviewsContentSliderCard
+        className="h-auto"
+        count={starCountJS ?? null}
+        description={intl.formatMessage({
+          defaultMessage:
+            'Support us by starring our GitHub repo and consider contributing!',
+          description: 'Description for github star',
+          id: 'P4vm6j',
+        })}
+        href="https://github.com/yangshun/top-javascript-interview-questions"
+        title={intl.formatMessage({
+          defaultMessage: '⭐️ Star our JavaScript repo',
+          description: 'Title for github star CTA',
+          id: 'acvTMO',
+        })}
+        type="github-star"
+      />
+    ),
     value: 'js-repo',
   } as const;
 
   const reactRepoData = {
-    count: starCountReact ?? null,
-    description: intl.formatMessage({
-      defaultMessage:
-        'Support us by starring our GitHub repo and consider contributing!',
-      description: 'Description for github star',
-      id: 'P4vm6j',
-    }),
-    href: 'https://github.com/yangshun/top-reactjs-interview-questions',
-    title: intl.formatMessage({
-      defaultMessage: '⭐️ Star our React repo',
-      description: 'Title for github star CTA',
-      id: 'ahI9XV',
-    }),
-    type: 'github-star',
+    element: (
+      <InterviewsContentSliderCard
+        className="h-auto"
+        count={starCountReact ?? null}
+        description={intl.formatMessage({
+          defaultMessage:
+            'Support us by starring our GitHub repo and consider contributing!',
+          description: 'Description for github star',
+          id: 'P4vm6j',
+        })}
+        href="https://github.com/yangshun/top-reactjs-interview-questions"
+        title={intl.formatMessage({
+          defaultMessage: '⭐️ Star our React repo',
+          description: 'Title for github star CTA',
+          id: 'ahI9XV',
+        })}
+        type="github-star"
+      />
+    ),
     value: 'react-repo',
   } as const;
 
   const frontEndInterviewData = {
-    count: null,
-    description: (
-      <FormattedMessage
-        defaultMessage="Leverage our <anchor>front end interview roadmap</anchor> to prepare quickly and effectively."
-        description="Description for front end interview roadmap"
-        id="9Oyn4m"
-        values={{
-          anchor: (chunks) => (
-            <Anchor
-              href={url.format({
-                hash: SCROLL_HASH_INTERVIEWS_DASHBOARD_RECOMMENDED_PREPARATION,
-                pathname: user ? '/dashboard' : '/get-started',
-              })}>
-              {chunks}
-            </Anchor>
-          ),
-        }}
+    element: (
+      <InterviewsContentSliderCard
+        className="h-auto"
+        description={
+          <FormattedMessage
+            defaultMessage="Leverage our <anchor>front end interview roadmap</anchor> to prepare quickly and effectively."
+            description="Description for front end interview roadmap"
+            id="9Oyn4m"
+            values={{
+              anchor: (chunks) => (
+                <Anchor
+                  href={url.format({
+                    hash: SCROLL_HASH_INTERVIEWS_DASHBOARD_RECOMMENDED_PREPARATION,
+                    pathname: user ? '/dashboard' : '/get-started',
+                  })}>
+                  {chunks}
+                </Anchor>
+              ),
+            }}
+          />
+        }
+        href={url.format({
+          hash: SCROLL_HASH_INTERVIEWS_DASHBOARD_RECOMMENDED_PREPARATION,
+          pathname: user ? '/interviews/dashboard' : '/get-started',
+        })}
+        title={intl.formatMessage({
+          defaultMessage: "Don't waste time on mindless grinding",
+          description: 'Title for front end interview roadmap',
+          id: 'xF6ENX',
+        })}
+        type="link"
       />
     ),
-    href: url.format({
-      hash: SCROLL_HASH_INTERVIEWS_DASHBOARD_RECOMMENDED_PREPARATION,
-      pathname: user ? '/interviews/dashboard' : '/get-started',
-    }),
-    title: intl.formatMessage({
-      defaultMessage: "Don't waste time on mindless grinding",
-      description: 'Title for front end interview roadmap',
-      id: 'xF6ENX',
-    }),
-    type: 'link',
     value: 'frontend-interview',
+  } as const;
+
+  const adItem = {
+    element: <SponsorsAdFormatSpotlightCard adPlacement="side_column" />,
+    value: 'ad',
   } as const;
 
   const data = (
     [
       frameworkOrLanguage === 'js' ? jsRepoData : null,
       frameworkOrLanguage === 'react' ? reactRepoData : null,
+      adItem,
       frontEndInterviewData,
     ] as const
   ).flatMap((item) => (item != null ? [item] : []));
@@ -145,18 +166,10 @@ export default function InterviewsQuestionsCategoryContentSlider({
         setIndex(data.findIndex(({ value }) => value === newValue));
       }}>
       {data.map((item) => (
-        <TabsPrimitive.Content
-          key={item.value}
-          className={clsx('xl:h-[150px]')}
-          value={item.value}>
-          <InterviewsContentSliderCard
-            className="h-auto"
-            count={item.count}
-            description={item.description}
-            href={item.href}
-            title={item.title}
-            type={item.type}
-          />
+        <TabsPrimitive.Content key={item.value} value={item.value}>
+          <div className={clsx('flex items-center xl:h-[150px]')}>
+            {item.element}
+          </div>
         </TabsPrimitive.Content>
       ))}
       {data.length > 1 && (

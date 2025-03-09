@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useSessionStorage } from 'usehooks-ts';
 
 export default function useInterviewsSidebarCollapsed(
-  initialCollapsed: boolean,
+  initialCollapsed = false,
 ) {
   const [isMounted, setIsMounted] = useState(false);
   const [storedCollapsed, setStoredCollapsed] = useSessionStorage<boolean>(

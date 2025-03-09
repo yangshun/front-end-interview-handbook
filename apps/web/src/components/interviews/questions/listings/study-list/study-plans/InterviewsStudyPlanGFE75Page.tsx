@@ -13,6 +13,7 @@ import { trpc } from '~/hooks/trpc';
 import FeedbackDialog from '~/components/global/feedback/FeedbackDialog';
 import { useUserPreferences } from '~/components/global/UserPreferencesProvider';
 import useInterviewsQuestionsFeatures from '~/components/interviews/common/useInterviewsQuestionsFeatures';
+import useInterviewsSidebarCollapsed from '~/components/interviews/common/useInterviewsSidebarCollapsed';
 import type {
   QuestionFormat,
   QuestionMetadata,
@@ -54,6 +55,7 @@ export default function InterviewsStudyPlanGFE75Page({
   const isLaptopAndAbove = useMediaQuery('(min-width: 1280px)');
 
   const { setShowFeedbackWidget } = useUserPreferences();
+  const [isSidebarCollapsed] = useInterviewsSidebarCollapsed();
   const questionFeatures = useInterviewsQuestionsFeatures();
   const [isOpenFeedback, setIsOpenFeedback] = useState(false);
 
@@ -139,7 +141,9 @@ export default function InterviewsStudyPlanGFE75Page({
             questions={questions}
             showCount_TEMPORARY={false}
             sideColumnAddOn={
-              <SponsorsAdFormatSpotlightCard adPlacement="side_column" />
+              isSidebarCollapsed ? (
+                <SponsorsAdFormatSpotlightCard adPlacement="side_column" />
+              ) : null
             }
             studyListKey={studyList.slug}
           />

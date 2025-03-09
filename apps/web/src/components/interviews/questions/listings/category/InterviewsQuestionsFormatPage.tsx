@@ -10,6 +10,7 @@ import type { FrontEndSystemDesignPlaybookPathType } from '~/components/guides/b
 import type { GuideCardMetadata } from '~/components/guides/types';
 import useGuidesWithCompletionStatus from '~/components/guides/useGuidesWithCompletionStatus';
 import InterviewsPageHeader from '~/components/interviews/common/InterviewsPageHeader';
+import useInterviewsSidebarCollapsed from '~/components/interviews/common/useInterviewsSidebarCollapsed';
 import type {
   QuestionFormat,
   QuestionMetadata,
@@ -46,6 +47,7 @@ export default function InterviewsQuestionsFormatPage({
 }: Props) {
   const intl = useIntl();
   const features = useInterviewsQuestionFormatFeatures(questions.length);
+  const [isSidebarCollapsed] = useInterviewsSidebarCollapsed();
 
   const guidesSlugs: Record<
     QuestionFormat,
@@ -138,7 +140,9 @@ export default function InterviewsQuestionsFormatPage({
           questions={questions}
           searchPlaceholder={formatData[format].searchPlaceholder}
           sideColumnAddOn={
-            <SponsorsAdFormatSpotlightCard adPlacement="side_column" />
+            isSidebarCollapsed ? (
+              <SponsorsAdFormatSpotlightCard adPlacement="side_column" />
+            ) : null
           }
         />
         {bottomContent && (

@@ -12,6 +12,7 @@ import type { GuideCardMetadata } from '~/components/guides/types';
 import useGuidesWithCompletionStatus from '~/components/guides/useGuidesWithCompletionStatus';
 import InterviewsPageHeader from '~/components/interviews/common/InterviewsPageHeader';
 import InterviewsPageLongDescription from '~/components/interviews/common/InterviewsPageLongDescription';
+import useInterviewsSidebarCollapsed from '~/components/interviews/common/useInterviewsSidebarCollapsed';
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import InterviewsQuestionsCategoryContentSlider from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryContentSlider';
 import QuestionsUnifiedListWithFiltersAndProgress from '~/components/interviews/questions/listings/items/QuestionsUnifiedListWithFiltersAndProgress';
@@ -50,6 +51,7 @@ export default function InterviewsQuestionsCategoryPage({
   guides,
 }: Props) {
   const intl = useIntl();
+  const [isSidebarCollapsed] = useInterviewsSidebarCollapsed();
   const languages = useQuestionLanguagesData();
   const frameworks = useQuestionFrameworksData();
   const categoryItem =
@@ -125,9 +127,9 @@ export default function InterviewsQuestionsCategoryPage({
               <InterviewsQuestionsCategoryContentSlider
                 frameworkOrLanguage={frameworkOrLanguageValue}
               />
-            ) : (
+            ) : isSidebarCollapsed ? (
               <SponsorsAdFormatSpotlightCard adPlacement="side_column" />
-            )
+            ) : null
           }
         />
       </Section>

@@ -11,6 +11,7 @@ import { trpc } from '~/hooks/trpc';
 import VignetteOverlay from '~/components/common/VignetteOverlay';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import useInterviewsQuestionsFeatures from '~/components/interviews/common/useInterviewsQuestionsFeatures';
+import useInterviewsSidebarCollapsed from '~/components/interviews/common/useInterviewsSidebarCollapsed';
 import InterviewsPurchasePaywall from '~/components/interviews/purchase/InterviewsPurchasePaywall';
 import type {
   QuestionFormat,
@@ -49,6 +50,7 @@ export default function InterviewsFocusAreaPage({
 }: Props) {
   const user = useUser();
   const { userProfile } = useUserProfile();
+  const [isSidebarCollapsed] = useInterviewsSidebarCollapsed();
   const questionFeatures = useInterviewsQuestionsFeatures(questions.length);
   const canViewFocusAreas = userProfile?.isInterviewsPremium;
   const { data: questionProgressParam } = trpc.questionProgress.getAll.useQuery(
@@ -106,7 +108,9 @@ export default function InterviewsFocusAreaPage({
             overallProgress={questionsOverallProgress}
             questions={questions}
             sideColumnAddOn={
-              <SponsorsAdFormatSpotlightCard adPlacement="side_column" />
+              isSidebarCollapsed ? (
+                <SponsorsAdFormatSpotlightCard adPlacement="side_column" />
+              ) : null
             }
             studyListKey={studyList.slug}
           />
