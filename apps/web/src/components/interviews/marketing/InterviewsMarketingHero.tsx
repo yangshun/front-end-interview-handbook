@@ -5,6 +5,8 @@ import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { RiArrowRightLine } from 'react-icons/ri';
 
+import { UsersCountAllTimeShort } from '~/data/Stats';
+
 import FadeInSentence from '~/components/common/FadeInSentence';
 import GoogleAnalyticsLogo from '~/components/icons/GoogleAnalyticsLogo';
 import InterviewsMarketingTestimonialCard from '~/components/interviews/marketing/testimonials/InterviewsMarketingTestimonialCard';
@@ -205,11 +207,11 @@ export default function InterviewsMarketingHeroNew({ testimonials }: Props) {
             asChild={true}
             label={
               <FormattedMessage
-                defaultMessage="We've had {number} unique active users on our site. Verifiable by Google Analytics."
+                defaultMessage="We've had {number}+ unique active users on our site. Verifiable by Google Analytics."
                 description="Tooltip for used by engineers"
-                id="5kWNqG"
+                id="005lYK"
                 values={{
-                  number: '500k+',
+                  number: UsersCountAllTimeShort,
                 }}
               />
             }>
@@ -220,10 +222,10 @@ export default function InterviewsMarketingHeroNew({ testimonials }: Props) {
                 size="body3"
                 weight="medium">
                 <FormattedMessage
-                  defaultMessage="{number} engineers already on board"
+                  defaultMessage="{count}+ engineers already on board"
                   description="Number of engineers using"
-                  id="RJqMw1"
-                  values={{ number: '500k+' }}
+                  id="zjwVw1"
+                  values={{ count: UsersCountAllTimeShort }}
                 />
               </Text>
               <Text

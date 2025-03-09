@@ -2,6 +2,8 @@
 
 import clsx from 'clsx';
 
+import { UsersCountLastYear } from '~/data/Stats';
+
 import LogoComboMark from '~/components/global/logos/LogoComboMark';
 import { FormattedMessage } from '~/components/intl';
 import Divider from '~/components/ui/Divider';
@@ -56,14 +58,13 @@ export default function SponsorsAudienceProfileSection() {
               }}
             />
           </Text>
-
           <Text color="secondary" size="inherit" weight="medium">
             <FormattedMessage
-              defaultMessage="Last year, our average session duration was a whole <bold>{duration} minutes</bold> - across all {activeUsersCount} active users. "
+              defaultMessage="Last year, our average session duration was a whole <bold>{duration} minutes</bold> – across all {activeUsersCount} active users. "
               description="Advertise with us section subtitle"
-              id="nLjOlf"
+              id="2urqUB"
               values={{
-                activeUsersCount: '600,000',
+                activeUsersCount: UsersCountLastYear,
                 bold: (chunks) => (
                   <Text color="default" size="inherit" weight="bold">
                     {chunks}
@@ -81,7 +82,6 @@ export default function SponsorsAudienceProfileSection() {
 }
 
 function Asset() {
-
   const items = [
     {
       key: 'average-session',

@@ -2,6 +2,8 @@
 
 import clsx from 'clsx';
 
+import { UsersCountLastYear } from '~/data/Stats';
+
 import { FormattedMessage } from '~/components/intl';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
@@ -43,7 +45,7 @@ export default function SponsorsTechAudienceSection() {
             description="Advertise with us section subtitle"
             id="R0oH1n"
             values={{
-              activeUsersCount: '600,000',
+              activeUsersCount: UsersCountLastYear,
               highlight: (chunks) => (
                 <Text color="default" size="inherit" weight="inherit">
                   {chunks}

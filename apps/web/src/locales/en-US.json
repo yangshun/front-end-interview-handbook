@@ -355,6 +355,10 @@
     "defaultMessage": "Curated by ex-interviewers",
     "description": "Features for focus areas question listing"
   },
+  "005lYK": {
+    "defaultMessage": "We've had {number}+ unique active users on our site. Verifiable by Google Analytics.",
+    "description": "Tooltip for used by engineers"
+  },
   "01DH9a": {
     "defaultMessage": "JavaScript functions",
     "description": "Question format"
@@ -831,6 +835,10 @@
     "defaultMessage": "Collapse questions list",
     "description": "Collapse sidebar containing questions list"
   },
+  "2urqUB": {
+    "defaultMessage": "Last year, our average session duration was a whole <bold>{duration} minutes</bold> – across all {activeUsersCount} active users.",
+    "description": "Advertise with us section subtitle"
+  },
   "2vJhW9": {
     "defaultMessage": "We have questions in every critical topic, interview format and framework / language. Every question comes with solutions and test cases.",
     "description": "Subtitle for marketing page section"
@@ -1266,10 +1274,6 @@
   "5kU0WD": {
     "defaultMessage": "Does it cost anything to join?",
     "description": "FAQ about whether it costs anything to join as an affiliate"
-  },
-  "5kWNqG": {
-    "defaultMessage": "We've had {number} unique active users on our site. Verifiable by Google Analytics.",
-    "description": "Tooltip for used by engineers"
   },
   "5lRIfw": {
     "defaultMessage": "Question list",
@@ -5090,10 +5094,6 @@
   "RJ4spU": {
     "defaultMessage": "Worry about a shaky foundation? Harness curated tools from senior engineers at big tech and learn the best practices for practical development",
     "description": "Description for \"Get the right foundation for practical development\" feature marketing section on Projects home page"
-  },
-  "RJqMw1": {
-    "defaultMessage": "{number} engineers already on board",
-    "description": "Number of engineers using"
   },
   "RKER+g": {
     "defaultMessage": "Guides",
@@ -9047,10 +9047,6 @@
     "defaultMessage": "We offer bulk discounts at attractive rates for group trainings. Please send an email to <link>institutions@greatfrontend.com</link> with your company email and address, and we would be happy to assist.",
     "description": "Answer on projects pricing's FAQ section - institutions and organizations discounts"
   },
-  "nLjOlf": {
-    "defaultMessage": "Last year, our average session duration was a whole <bold>{duration} minutes</bold> - across all {activeUsersCount} active users.",
-    "description": "Advertise with us section subtitle"
-  },
   "nMbx46": {
     "defaultMessage": "Select all ({questionCount})",
     "description": "Label for select all in import progress dialog"
@@ -9367,10 +9363,6 @@
     "defaultMessage": "GitHub username",
     "description": "GitHub profile form label"
   },
-  "p9oMlL": {
-    "defaultMessage": "Used by {engineersCount}+ engineers",
-    "description": "Label for used by engineers"
-  },
   "pA6Utl": {
     "defaultMessage": "Task has not been completed! Please try again. Ensure that your profile activity is accessible to public",
     "description": "Error task label"
@@ -9390,6 +9382,10 @@
   "pI+b1R": {
     "defaultMessage": "The account linked to the card is invalid, possibly closed or inactivated.",
     "description": "Decline message for invalid account"
+  },
+  "pJ+l2i": {
+    "defaultMessage": "Used by {count}+ engineers",
+    "description": "Label for used by engineers"
   },
   "pJA5oJ": {
     "defaultMessage": "Code review",
@@ -11182,6 +11178,10 @@
   "zgj9Pd": {
     "defaultMessage": "Learn from others",
     "description": "Title for \"Learn from others\" feature on Projects home page"
+  },
+  "zjwVw1": {
+    "defaultMessage": "{count}+ engineers already on board",
+    "description": "Number of engineers using"
   },
   "zl/anP": {
     "defaultMessage": "{Title}: A list of the top 75 data structures and algorithms questions, adapted and solved in JavaScript and TypeScript to make them more accessible for front-end engineers. This ensures you're prepared for DSA questions, which are often a requirement at FAANG and similar companies.",

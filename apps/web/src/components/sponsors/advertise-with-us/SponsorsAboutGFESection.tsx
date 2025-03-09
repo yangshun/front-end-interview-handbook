@@ -3,6 +3,8 @@
 import clsx from 'clsx';
 import { RiArrowRightUpLine } from 'react-icons/ri';
 
+import { UsersCountAllTime } from '~/data/Stats';
+
 import LogoMark from '~/components/global/logos/LogoMark';
 import { InterviewsMarketingTestimonialsDict } from '~/components/interviews/marketing/testimonials/InterviewsMarketingTestimonials';
 import { FormattedMessage, useIntl } from '~/components/intl';
@@ -152,11 +154,11 @@ export default function SponsorsAboutGFESection() {
           <div className="flex flex-wrap items-center justify-center gap-2">
             <Text color="subtitle" size="body2" weight="medium">
               <FormattedMessage
-                defaultMessage="Used by {engineersCount}+ engineers"
+                defaultMessage="Used by {count}+ engineers"
                 description="Label for used by engineers"
-                id="p9oMlL"
+                id="pJ+l2i"
                 values={{
-                  engineersCount: '700,000',
+                  count: UsersCountAllTime,
                 }}
               />
             </Text>
