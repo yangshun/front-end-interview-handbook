@@ -349,14 +349,18 @@ function FloatingLinkEditor({
           ) : (
             <>
               <Anchor
-                className={textVariants({ color: 'inherit', size: 'body2' })}
+                className={textVariants({
+                  className: 'grow truncate',
+                  color: 'inherit',
+                  size: 'body2',
+                })}
                 href={linkUrl ? sanitizeUrl(linkUrl) : undefined}
                 rel="noopener noreferrer"
                 target="_blank"
                 variant="flat">
                 {linkUrl}
               </Anchor>
-              <div className="-mr-2">
+              <div className="-mr-2 shrink-0">
                 <Button
                   icon={RiPencilLine}
                   isLabelHidden={true}
