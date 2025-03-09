@@ -138,7 +138,7 @@ type Props = Readonly<{
   variant?: 'compact' | 'full';
 }>;
 
-export default function InterviewsQuestionFormatsSection({
+export default function InterviewsQuestionsFormatsSection({
   questions,
   questionsProgress,
   guidesProgress,

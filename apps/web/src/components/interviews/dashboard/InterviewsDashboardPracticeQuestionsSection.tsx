@@ -6,8 +6,8 @@ import type {
   QuestionMetadata,
   QuestionSlug,
 } from '~/components/interviews/questions/common/QuestionsTypes';
-import InterviewsFrameworkAndLanguageSection from '~/components/interviews/questions/listings/practice/InterviewsFrameworkAndLanguageSection';
-import InterviewsQuestionFormatsSection from '~/components/interviews/questions/listings/practice/InterviewsQuestionFormatsSection';
+import InterviewsQuestionsFormatsSection from '~/components/interviews/questions/listings/category/InterviewsQuestionsFormatsSection';
+import InterviewsQuestionsFrameworkAndLanguageSection from '~/components/interviews/questions/listings/category/InterviewsQuestionsFrameworkAndLanguageSection';
 import { FormattedMessage } from '~/components/intl';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -61,13 +61,13 @@ export default function InterviewsDashboardPracticeQuestionsSection({
       </div>
       <Section>
         <div className="flex flex-col gap-12">
-          <InterviewsQuestionFormatsSection
+          <InterviewsQuestionsFormatsSection
             guidesProgress={guidesProgress}
             questions={questions}
             questionsProgress={questionsProgress ?? []}
             variant="compact"
           />
-          <InterviewsFrameworkAndLanguageSection
+          <InterviewsQuestionsFrameworkAndLanguageSection
             questions={questions}
             questionsProgress={questionsProgress ?? []}
           />

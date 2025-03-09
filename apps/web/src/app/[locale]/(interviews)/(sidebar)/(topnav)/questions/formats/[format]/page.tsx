@@ -7,7 +7,7 @@ import {
   type QuestionFormat,
   type QuestionFormatSEO,
 } from '~/components/interviews/questions/common/QuestionsTypes';
-import InterviewsQuestionFormatPage from '~/components/interviews/questions/listings/practice/InterviewsQuestionFormatPage';
+import InterviewsQuestionsFormatPage from '~/components/interviews/questions/listings/category/InterviewsQuestionsFormatPage';
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
 import {
@@ -303,7 +303,7 @@ export default async function Page({ params }: Props) {
   ]);
 
   return (
-    <InterviewsQuestionFormatPage
+    <InterviewsQuestionsFormatPage
       bottomContent={bottomContent}
       description={description}
       format={questionFormat}

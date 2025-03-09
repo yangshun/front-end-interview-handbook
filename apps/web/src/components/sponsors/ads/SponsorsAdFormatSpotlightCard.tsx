@@ -40,7 +40,7 @@ function SponsorsAdFormatSpotlightCardImpl({
   return (
     <div
       className={clsx(
-        'w-full lg:w-auto lg:max-w-[337px]',
+        'w-full',
         'p-5',
         themeBackgroundCardColor,
         themeGlassyBorder,

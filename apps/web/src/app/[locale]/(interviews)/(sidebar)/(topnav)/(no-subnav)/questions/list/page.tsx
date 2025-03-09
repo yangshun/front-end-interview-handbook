@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
-import InterviewsPracticeQuestionsPage from '~/components/interviews/questions/listings/practice/InterviewsPracticeQuestionsPage';
+import InterviewsQuestionsPracticePage from '~/components/interviews/questions/listings/category/InterviewsQuestionsPracticePage';
 import { QuestionCountTotal } from '~/components/interviews/questions/listings/stats/QuestionCount';
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
@@ -83,7 +83,7 @@ export default async function Page({ params }: Props) {
   });
 
   return (
-    <InterviewsPracticeQuestionsPage
+    <InterviewsQuestionsPracticePage
       anchorSection="frameworks"
       bottomContent={bottomContent}
       questions={{

@@ -118,7 +118,7 @@ type Props = Readonly<{
   > | null;
 }>;
 
-export default function InterviewsFrameworkAndLanguageSection({
+export default function InterviewsQuestionsFrameworkAndLanguageSection({
   questions,
   questionsProgress,
 }: Props) {

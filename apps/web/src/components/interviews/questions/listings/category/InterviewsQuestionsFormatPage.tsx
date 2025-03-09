@@ -35,7 +35,7 @@ type Props = Readonly<{
   title: string;
 }>;
 
-export default function InterviewsQuestionFormatPage({
+export default function InterviewsQuestionsFormatPage({
   title,
   description,
   format,

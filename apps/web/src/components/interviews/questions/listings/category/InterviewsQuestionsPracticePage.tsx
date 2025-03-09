@@ -12,8 +12,8 @@ import type {
   QuestionLanguage,
   QuestionMetadata,
 } from '~/components/interviews/questions/common/QuestionsTypes';
-import InterviewsFrameworkAndLanguageSection from '~/components/interviews/questions/listings/practice/InterviewsFrameworkAndLanguageSection';
-import InterviewsQuestionFormatsSection from '~/components/interviews/questions/listings/practice/InterviewsQuestionFormatsSection';
+import InterviewsQuestionsFormatsSection from '~/components/interviews/questions/listings/category/InterviewsQuestionsFormatsSection';
+import InterviewsQuestionsFrameworkAndLanguageSection from '~/components/interviews/questions/listings/category/InterviewsQuestionsFrameworkAndLanguageSection';
 import { useIntl } from '~/components/intl';
 import MDXContent from '~/components/mdx/MDXContent';
 import Divider from '~/components/ui/Divider';
@@ -41,7 +41,7 @@ type Props = Readonly<{
   };
 }>;
 
-export default function InterviewsPracticeQuestionsPage({
+export default function InterviewsQuestionsPracticePage({
   questions,
   bottomContent,
 }: Props) {
@@ -86,12 +86,12 @@ export default function InterviewsPracticeQuestionsPage({
       />
       <Section>
         <div className="flex flex-col gap-12">
-          <InterviewsQuestionFormatsSection
+          <InterviewsQuestionsFormatsSection
             guidesProgress={guidesProgress ?? []}
             questions={questions}
             questionsProgress={questionsProgress ?? []}
           />
-          <InterviewsFrameworkAndLanguageSection
+          <InterviewsQuestionsFrameworkAndLanguageSection
             questions={questions}
             questionsProgress={questionsProgress ?? []}
           />
