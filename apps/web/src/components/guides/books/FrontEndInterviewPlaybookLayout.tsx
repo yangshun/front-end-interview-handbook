@@ -57,7 +57,6 @@ export default function FrontEndInterviewPlaybookLayout({
         guideProgress={guideProgress}
         isGuideProgressLoaded={isSuccess}
         navigation={navigation}
-        showMarkAsComplete={true}
         tableOfContents={tableOfContents}>
         <GuidesArticle
           description={description}

@@ -8,6 +8,8 @@ import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
 import useScrollToTop from '~/hooks/useScrollToTop';
 
 import GuidesPagination from '~/components/guides/GuidesPagination';
+import QuestionProgressAction from '~/components/interviews/questions/common/QuestionProgressAction';
+import QuestionReportIssueButton from '~/components/interviews/questions/common/QuestionReportIssueButton';
 import { useIntl } from '~/components/intl';
 import SponsorsAdFormatInContentContainer from '~/components/sponsors/ads/SponsorsAdFormatInContentContainer';
 import CheckboxInput from '~/components/ui/CheckboxInput';
@@ -34,11 +36,9 @@ type MarkAsCompleteProps = Readonly<
       guideMetadata: GuideMetadata;
       guideProgress?: GuideProgress | null;
       isGuideProgressLoaded: boolean;
-      showMarkAsComplete?: true;
     }
   | {
       guideMetadata?: GuideMetadata;
-      showMarkAsComplete?: false;
     }
 >;
 
@@ -65,7 +65,6 @@ export default function GuidesMainLayout<GuideSlug extends string>({
   questionMetadata,
   studyListKey,
   tableOfContents,
-  showMarkAsComplete = false,
   guideMetadata,
   ...props
 }: Props<GuideSlug>) {
@@ -132,16 +131,36 @@ export default function GuidesMainLayout<GuideSlug extends string>({
             )}>
             <div ref={articleContainerRef}>{children}</div>
             <Section>
-              <div className="flex flex-col gap-6">
-                <Divider color="emphasized" />
-                <SponsorsAdFormatInContentContainer
-                  adPlacement="guide"
-                  size="sm"
-                />
-                <Divider color="emphasized" />
-              </div>
-              {showMarkAsComplete && guideMetadata && (
-                <div className={clsx('flex justify-end', 'transition-colors')}>
+              <Divider color="emphasized" />
+              <SponsorsAdFormatInContentContainer
+                adPlacement="guide"
+                size="sm"
+              />
+              <Divider color="emphasized" />
+              {questionMetadata && (
+                <div className="flex justify-between gap-4">
+                  <QuestionReportIssueButton
+                    entity="question"
+                    format={questionMetadata.format}
+                    isLabelHidden={false}
+                    showTooltip={false}
+                    slug={questionMetadata.slug}
+                  />
+                  <QuestionProgressAction
+                    metadata={questionMetadata}
+                    studyListKey={studyListKey}
+                  />
+                </div>
+              )}
+              {guideMetadata && (
+                <div className="flex justify-between gap-4">
+                  <QuestionReportIssueButton
+                    book={guideMetadata.book}
+                    entity="article"
+                    isLabelHidden={false}
+                    showTooltip={false}
+                    slug={guideMetadata.id}
+                  />
                   <div className="max-w-64 flex flex-col items-end gap-2">
                     <GuidesProgressAction
                       guideName={currentItem.label}

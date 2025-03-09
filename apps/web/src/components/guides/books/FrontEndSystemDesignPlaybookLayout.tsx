@@ -61,7 +61,6 @@ export default function FrontEndSystemDesignPlaybookLayout({
         guideProgress={guideProgress}
         isGuideProgressLoaded={isSuccess}
         navigation={navigation}
-        showMarkAsComplete={true}
         tableOfContents={tableOfContents}>
         <SystemDesignPaywall isPremium={currentItem.premium}>
           <GuidesArticle

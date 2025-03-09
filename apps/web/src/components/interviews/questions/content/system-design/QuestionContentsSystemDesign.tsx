@@ -1,5 +1,3 @@
-import clsx from 'clsx';
-
 import QuestionReportIssueButton from '~/components/interviews/questions/common/QuestionReportIssueButton';
 import { FormattedMessage, useIntl } from '~/components/intl';
 import Badge from '~/components/ui/Badge';
@@ -12,14 +10,11 @@ import { useQueryQuestionProgress } from '~/db/QuestionsProgressClient';
 
 import QuestionCompanies from '../QuestionCompanies';
 import QuestionContentProse from '../QuestionContentProse';
-import QuestionProgressAction from '../../common/QuestionProgressAction';
 import type { QuestionBase } from '../../common/QuestionsTypes';
 import useQuestionLogEventCopyContents from '../../common/useQuestionLogEventCopyContents';
 import useQuestionsAutoMarkAsComplete from '../../common/useQuestionsAutoMarkAsComplete';
 import QuestionMetadataSection from '../../metadata/QuestionMetadataSection';
 import InterviewsPremiumBadge from '../../../common/InterviewsPremiumBadge';
-
-import { useUser } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
   canViewPremiumContent: boolean;
@@ -35,8 +30,7 @@ export default function QuestionContentsSystemDesign({
   question,
 }: Props) {
   const intl = useIntl();
-  const user = useUser();
-  const { data, isLoading } = useQueryQuestionProgress(
+  const { data } = useQueryQuestionProgress(
     question.metadata,
     studyListKey ?? null,
   );
@@ -110,28 +104,6 @@ export default function QuestionContentsSystemDesign({
           isContentsHidden={isQuestionLocked}
           textSize="md"
         />
-        <div className="flex flex-col gap-y-6">
-          <Divider />
-          <div className="flex justify-between">
-            <QuestionReportIssueButton
-              entity="question"
-              format={question.metadata.format}
-              isLabelHidden={false}
-              showTooltip={false}
-              slug={question.metadata.slug}
-            />
-            <div
-              className={clsx(
-                'transition-colors',
-                isLoading && user != null ? 'opacity-0' : 'opacity-100',
-              )}>
-              <QuestionProgressAction
-                metadata={question.metadata}
-                studyListKey={studyListKey}
-              />
-            </div>
-          </div>
-        </div>
       </Section>
     </article>
   );
