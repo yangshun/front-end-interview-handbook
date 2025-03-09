@@ -86,6 +86,9 @@ export default function InterviewsStudyPlanPage({
         />
       </div>
       <Section>
+        <div className="max-w-md min-[1200px]:hidden">
+          <SponsorsAdFormatSpotlightCard adPlacement="side_column" />
+        </div>
         <div>
           {canViewStudyPlans ? (
             <InterviewsStudyListQuestions

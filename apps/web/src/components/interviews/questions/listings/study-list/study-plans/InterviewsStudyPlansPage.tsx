@@ -20,7 +20,6 @@ import InterviewsStudyListCard from '~/components/interviews/questions/listings/
 import InterviewsStudyPlanTestimonialsSection from '~/components/interviews/questions/listings/study-list/study-plans/InterviewsStudyPlanTestimonialsSection';
 import { useIntl } from '~/components/intl';
 import MDXContent from '~/components/mdx/MDXContent';
-import SponsorsAdFormatSpotlightCard from '~/components/sponsors/ads/SponsorsAdFormatSpotlightCard';
 import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -91,9 +90,6 @@ export default function InterviewsStudyPlansPage({
         })}
         features={features}
         headingAddOnElement={<InterviewsPremiumBadge />}
-        sideElement={
-          <SponsorsAdFormatSpotlightCard adPlacement="page_header" />
-        }
         title={intl.formatMessage({
           defaultMessage: 'Study plans',
           description: 'Title of study plans page',

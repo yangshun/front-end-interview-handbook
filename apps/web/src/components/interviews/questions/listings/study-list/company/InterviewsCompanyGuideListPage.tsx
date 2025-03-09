@@ -15,7 +15,6 @@ import InterviewsPageHeader from '~/components/interviews/common/InterviewsPageH
 import InterviewsPremiumBadge from '~/components/interviews/common/InterviewsPremiumBadge';
 import { useIntl } from '~/components/intl';
 import MDXContent from '~/components/mdx/MDXContent';
-import SponsorsAdFormatSpotlightCard from '~/components/sponsors/ads/SponsorsAdFormatSpotlightCard';
 import Divider from '~/components/ui/Divider';
 import Section from '~/components/ui/Heading/HeadingContext';
 
@@ -72,9 +71,6 @@ export default function InterviewsStudyListListPage({
         })}
         features={features}
         headingAddOnElement={<InterviewsPremiumBadge />}
-        sideElement={
-          <SponsorsAdFormatSpotlightCard adPlacement="page_header" />
-        }
         title={intl.formatMessage({
           defaultMessage: 'Company guides',
           description: 'Title of company guides page',

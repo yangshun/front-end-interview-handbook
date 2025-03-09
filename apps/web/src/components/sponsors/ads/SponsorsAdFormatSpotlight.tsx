@@ -26,7 +26,6 @@ import type { SponsorsAdFormatPayloadSpotlight } from '../SponsorsTypes';
 export type SponsorsAdFormatSpotlightPlacement =
   | 'nav_mobile'
   | 'nav_sidebar'
-  | 'page_header'
   | 'preview'
   | 'side_column';
 

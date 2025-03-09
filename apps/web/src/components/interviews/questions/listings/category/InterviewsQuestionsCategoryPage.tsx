@@ -77,12 +77,15 @@ export default function InterviewsQuestionsCategoryPage({
         icon={categoryItem?.icon}
         title={title}
       />
-      {longDescription && (
-        <InterviewsPageLongDescription>
-          {longDescription}
-        </InterviewsPageLongDescription>
-      )}
       <Section>
+        {longDescription && (
+          <InterviewsPageLongDescription>
+            {longDescription}
+          </InterviewsPageLongDescription>
+        )}
+        <div className="max-md min-[1200px]:hidden">
+          <SponsorsAdFormatSpotlightCard adPlacement="side_column" />
+        </div>
         <QuestionsUnifiedListWithFiltersAndProgress
           categoryTabs={categoryTabs}
           guides={
@@ -119,11 +122,9 @@ export default function InterviewsQuestionsCategoryPage({
           searchPlaceholder={searchPlaceholder}
           sideColumnAddOn={
             frameworkOrLanguageValue ? (
-              <div className="hidden lg:block">
-                <InterviewsQuestionsCategoryContentSlider
-                  frameworkOrLanguage={frameworkOrLanguageValue}
-                />
-              </div>
+              <InterviewsQuestionsCategoryContentSlider
+                frameworkOrLanguage={frameworkOrLanguageValue}
+              />
             ) : (
               <SponsorsAdFormatSpotlightCard adPlacement="side_column" />
             )

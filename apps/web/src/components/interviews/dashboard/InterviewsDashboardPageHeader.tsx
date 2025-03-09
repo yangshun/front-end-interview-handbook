@@ -8,7 +8,6 @@ import {
 
 import { QuestionCountTotal } from '~/components/interviews/questions/listings/stats/QuestionCount';
 import { FormattedMessage, useIntl } from '~/components/intl';
-import SponsorsAdFormatSpotlightCard from '~/components/sponsors/ads/SponsorsAdFormatSpotlightCard';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 import { themeGlassyBorder, themeTextColor } from '~/components/ui/theme';
@@ -131,7 +130,6 @@ export default function InterviewsDashboardPageHeader({
             </Text>
           </div>
         </div>
-        <SponsorsAdFormatSpotlightCard adPlacement="page_header" />
       </div>
     );
   }

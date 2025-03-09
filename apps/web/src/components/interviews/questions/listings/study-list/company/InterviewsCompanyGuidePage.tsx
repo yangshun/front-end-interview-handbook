@@ -181,6 +181,9 @@ export default function InterviewsCompanyGuidePage({
             />
           </CardContainer> */}
           <div className="flex flex-col gap-8">
+            <div className="max-w-md min-[1200px]:hidden">
+              <SponsorsAdFormatSpotlightCard adPlacement="side_column" />
+            </div>
             <Heading level="heading6">
               {intl.formatMessage(
                 {

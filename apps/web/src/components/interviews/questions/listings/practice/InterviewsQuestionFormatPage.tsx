@@ -115,6 +115,9 @@ export default function InterviewsQuestionFormatPage({
         title={title}
       />
       <Section>
+        <div className="max-w-md min-[1200px]:hidden">
+          <SponsorsAdFormatSpotlightCard adPlacement="side_column" />
+        </div>
         <QuestionsUnifiedListWithFiltersAndProgress
           guides={
             guidesWithCompletionStatus.length > 0
