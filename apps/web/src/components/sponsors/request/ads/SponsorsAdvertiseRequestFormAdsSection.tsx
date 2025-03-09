@@ -129,37 +129,35 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
                 <li
                   key={ad.id}
                   className={clsx(
-                    'flex items-center justify-between gap-x-4 gap-y-2',
+                    'flex flex-wrap items-center gap-x-4 gap-y-1',
                     'px-3 py-3',
                     ['border', themeBorderElementColor],
                     'rounded-md',
                   )}>
-                  <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
-                    <Badge
-                      className="max-md:order-2"
-                      label={adFormatData[ad.format].name}
-                      size="sm"
-                      variant="neutral-active"
+                  <Badge
+                    className="max-md:order-2 max-md:-ml-1"
+                    label={adFormatData[ad.format].name}
+                    size="sm"
+                    variant="neutral-active"
+                  />
+                  <Text
+                    className="max-md:order-1 max-md:w-full md:truncate"
+                    size="body2"
+                    weight="medium">
+                    {ad.text}
+                  </Text>
+                  <Text
+                    className="grow max-md:order-3"
+                    color="secondary"
+                    size="body3">
+                    <FormattedMessage
+                      defaultMessage="{count, plural, one {# week} other {# weeks}}"
+                      description="Number of weeks"
+                      id="06WD6D"
+                      values={{ count: ad.weeks.length }}
                     />
-                    <Text
-                      className="max-md:order-1 max-md:w-full md:truncate"
-                      size="body2"
-                      weight="medium">
-                      {ad.text}
-                    </Text>
-                    <Text
-                      className="max-md:order-3"
-                      color="secondary"
-                      size="body3">
-                      <FormattedMessage
-                        defaultMessage="{count, plural, one {# week} other {# weeks}}"
-                        description="Number of weeks"
-                        id="06WD6D"
-                        values={{ count: ad.weeks.length }}
-                      />
-                    </Text>
-                  </div>
-                  <div className="flex items-center gap-2">
+                  </Text>
+                  <div className="flex items-center gap-2 max-md:order-4 max-md:-mb-0.5 max-md:-mr-1">
                     <Text size="body2" weight="bold">
                       $
                       {ad.weeks.length *
@@ -565,7 +563,6 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
           </div>
         )}
       </Section>
-
       <ConfirmationDialog
         confirmButtonLabel={intl.formatMessage({
           defaultMessage: 'Delete',
