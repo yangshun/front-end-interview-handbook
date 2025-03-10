@@ -8,7 +8,14 @@ import {
 } from '~/data/ads/SponsorsAdsSpotsProjects';
 import {
   SponsorsAdsSpotsSwagOverflowInContent,
+  SponsorsAdsSpotsSwagOverflowInContentComponentLibrary,
+  SponsorsAdsSpotsSwagOverflowInContentMobileFearFactor,
+  SponsorsAdsSpotsSwagOverflowInContentTsDenial,
+  SponsorsAdsSpotsSwagOverflowInContentTsIgnore,
   SponsorsAdsSpotsSwagOverflowInContentUndefinedIsNotAFunction,
+  SponsorsAdsSpotsSwagOverflowInContentUseEffect,
+  SponsorsAdsSpotsSwagOverflowInContentValueAny,
+  SponsorsAdsSpotsSwagOverflowInContentWhoWroteThis,
   SponsorsAdsSpotsSwagOverflowSpotlight,
 } from '~/data/ads/SponsorsAdsSpotsSwagOverflow';
 
@@ -69,6 +76,13 @@ export default function AdsPage() {
                   SponsorsAdsSpotsProjectsInContent,
                   SponsorsAdsSpotsSwagOverflowInContent,
                   SponsorsAdsSpotsSwagOverflowInContentUndefinedIsNotAFunction,
+                  SponsorsAdsSpotsSwagOverflowInContentTsIgnore,
+                  SponsorsAdsSpotsSwagOverflowInContentTsDenial,
+                  SponsorsAdsSpotsSwagOverflowInContentValueAny,
+                  SponsorsAdsSpotsSwagOverflowInContentComponentLibrary,
+                  SponsorsAdsSpotsSwagOverflowInContentUseEffect,
+                  SponsorsAdsSpotsSwagOverflowInContentWhoWroteThis,
+                  SponsorsAdsSpotsSwagOverflowInContentMobileFearFactor,
                 ].map((ad) => (
                   <SponsorsAdFormatInContent
                     key={ad.adId}

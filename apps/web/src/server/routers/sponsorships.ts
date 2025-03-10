@@ -10,7 +10,14 @@ import {
 } from '~/data/ads/SponsorsAdsSpotsProjects';
 import {
   SponsorsAdsSpotsSwagOverflowInContent,
+  SponsorsAdsSpotsSwagOverflowInContentComponentLibrary,
+  SponsorsAdsSpotsSwagOverflowInContentMobileFearFactor,
+  SponsorsAdsSpotsSwagOverflowInContentTsDenial,
+  SponsorsAdsSpotsSwagOverflowInContentTsIgnore,
   SponsorsAdsSpotsSwagOverflowInContentUndefinedIsNotAFunction,
+  SponsorsAdsSpotsSwagOverflowInContentUseEffect,
+  SponsorsAdsSpotsSwagOverflowInContentValueAny,
+  SponsorsAdsSpotsSwagOverflowInContentWhoWroteThis,
   SponsorsAdsSpotsSwagOverflowSpotlight,
 } from '~/data/ads/SponsorsAdsSpotsSwagOverflow';
 
@@ -96,6 +103,13 @@ export const sponsorshipsRouter = router({
             const swagOverflowAd = sample([
               SponsorsAdsSpotsSwagOverflowInContent,
               SponsorsAdsSpotsSwagOverflowInContentUndefinedIsNotAFunction,
+              SponsorsAdsSpotsSwagOverflowInContentTsIgnore,
+              SponsorsAdsSpotsSwagOverflowInContentTsDenial,
+              SponsorsAdsSpotsSwagOverflowInContentValueAny,
+              SponsorsAdsSpotsSwagOverflowInContentComponentLibrary,
+              SponsorsAdsSpotsSwagOverflowInContentUseEffect,
+              SponsorsAdsSpotsSwagOverflowInContentWhoWroteThis,
+              SponsorsAdsSpotsSwagOverflowInContentMobileFearFactor,
             ]);
 
             return sample([SponsorsAdsSpotsProjectsInContent, swagOverflowAd]);
