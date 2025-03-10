@@ -3,6 +3,8 @@ import type {
   SponsorsAdFormatPayloadSpotlight,
 } from '~/components/sponsors/SponsorsTypes';
 
+import { PROMO_PROJECTS_BETA_DISCOUNT_PERCENTAGE } from '../PromotionConfig';
+
 export const SponsorsAdsSpotsProjectsSpotlight: SponsorsAdFormatPayloadSpotlight =
   {
     adId: 'projects-spotlight',
@@ -10,7 +12,7 @@ export const SponsorsAdsSpotsProjectsSpotlight: SponsorsAdFormatPayloadSpotlight
     format: 'SPOTLIGHT',
     imageUrl: 'https://www.gfecdn.net/sponsors/ads/projects/spotlight.webp',
     sponsorName: 'GreatFrontEnd Projects',
-    text: 'Build case studies and showcase your front end skills',
+    text: `${PROMO_PROJECTS_BETA_DISCOUNT_PERCENTAGE}% off the fastest way to learn front end skills`,
     url: '/projects',
   };
 

@@ -7,7 +7,11 @@ import { RiArrowRightLine } from 'react-icons/ri';
 
 import { trpc } from '~/hooks/trpc';
 
-import { PROMO_SOCIAL_DISCOUNT_PERCENTAGE } from '~/data/PromotionConfig';
+import {
+  PROMO_PROJECTS_BETA_DISCOUNT_CODE,
+  PROMO_PROJECTS_BETA_DISCOUNT_PERCENTAGE,
+  PROMO_SOCIAL_DISCOUNT_PERCENTAGE,
+} from '~/data/PromotionConfig';
 
 import { FormattedMessage } from '~/components/intl';
 import useUserProfileWithProjectsProfile from '~/components/projects/common/useUserProfileWithProjectsProfile';
@@ -58,8 +62,8 @@ const projectsLaunchMessageEl = (
       description="Text on Promo Banner"
       id="7AiLO9"
       values={{
-        percentage: 30,
-        promoCode: 'BETA30',
+        percentage: PROMO_PROJECTS_BETA_DISCOUNT_PERCENTAGE,
+        promoCode: PROMO_PROJECTS_BETA_DISCOUNT_CODE,
       }}
     />
     {arrowEl}

@@ -4,7 +4,7 @@ import { RiFileCopyLine } from 'react-icons/ri';
 import useCopyToClipboardWithRevert from '~/hooks/useCopyToClipboardWithRevert';
 
 import {
-  PROMO_PERPETUAL_CODE,
+  PROMO_PERPETUAL_DISCOUNT_CODE,
   PROMO_PERPETUAL_DISCOUNT_PERCENTAGE,
 } from '~/data/PromotionConfig';
 
@@ -49,12 +49,12 @@ export function PromotionsSeasonalDiscountCard({ variant = 'full' }: Props) {
                     description: 'Indication that text has been copied',
                     id: 'EHngws',
                   })
-                : PROMO_PERPETUAL_CODE
+                : PROMO_PERPETUAL_DISCOUNT_CODE
             }
             size="md"
             variant="tertiary"
             onClick={() => {
-              onCopy(PROMO_PERPETUAL_CODE);
+              onCopy(PROMO_PERPETUAL_DISCOUNT_CODE);
             }}
           />
         }
@@ -135,13 +135,13 @@ export function PromotionsSeasonalDiscountCard({ variant = 'full' }: Props) {
                       description: 'Indication that text has been copied',
                       id: 'EHngws',
                     })
-                  : PROMO_PERPETUAL_CODE
+                  : PROMO_PERPETUAL_DISCOUNT_CODE
               }
               size="md"
               type="button"
               variant="primary"
               onClick={() => {
-                onCopy(PROMO_PERPETUAL_CODE);
+                onCopy(PROMO_PERPETUAL_DISCOUNT_CODE);
               }}
             />
           </div>

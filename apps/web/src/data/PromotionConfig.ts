@@ -1,4 +1,4 @@
-export const PROMO_PERPETUAL_CODE = 'FALL25';
+export const PROMO_PERPETUAL_DISCOUNT_CODE = 'SPRING25';
 export const PROMO_PERPETUAL_DISCOUNT_PERCENTAGE = 10;
 
 export const PROMO_SOCIAL_DISCOUNT_PERCENTAGE = 20;
@@ -13,6 +13,9 @@ export const PROMO_STUDENT_DISCOUNT_COUPON_ID_TEST = 'r1nhvjSn';
 export const PROMO_STUDENT_DISCOUNT_COUPON_ID_PROD = 'tgklHrfQ';
 export const PROMO_STUDENT_DISCOUNT_CAMPAIGN = 'STUDENT_DISCOUNT';
 
+export const PROMO_PROJECTS_BETA_DISCOUNT_PERCENTAGE = 30;
+export const PROMO_PROJECTS_BETA_DISCOUNT_CODE = 'BETA30';
+
 export const PROMO_INTERVIEWS_PREMIUM_PERK_PROJECTS_DISCOUNT_CAMPAIGN =
   'INTERVIEWS_PREMIUM_PERK_PROJECTS_DISCOUNT';
 export const PROMO_INTERVIEWS_PREMIUM_PERK_PROJECTS_DISCOUNT_COUPON_ID_TEST =
@@ -23,17 +26,3 @@ export const PROMO_INTERVIEWS_PREMIUM_PERK_PROJECTS_DISCOUNT_COUPON_ID_PROD =
 export const PROMO_REVIEW_CASHBACK_DISCOUNT_PERCENTAGE = 100;
 
 export const PROMO_FAANG_TECH_LEADS_MAX_PPP_ELIGIBLE = 0.7;
-
-export function hasProjectsBetaAccess(date: number) {
-  if (
-    process.env.NODE_ENV === 'development' ||
-    process.env.NEXT_PUBLIC_VERCEL_ENV !== 'production'
-  ) {
-    return true;
-  }
-
-  return (
-    date > new Date('2023-11-24').getTime() &&
-    date < new Date('2023-11-28').getTime()
-  );
-}
