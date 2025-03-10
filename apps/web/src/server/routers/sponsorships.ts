@@ -1,5 +1,5 @@
 import { getISOWeek, getYear } from 'date-fns';
-import { range, shuffle } from 'lodash-es';
+import { range, sample } from 'lodash-es';
 import { z } from 'zod';
 
 import { base64toBlob } from '~/lib/imageUtils';
@@ -9,6 +9,7 @@ import {
   SponsorsAdsSpotsProjectsSpotlight,
 } from '~/data/ads/SponsorsAdsSpotsProjects';
 import {
+  SponsorsAdsSpotsSwagOverflowInContent,
   SponsorsAdsSpotsSwagOverflowInContentUndefinedIsNotAFunction,
   SponsorsAdsSpotsSwagOverflowSpotlight,
 } from '~/data/ads/SponsorsAdsSpotsSwagOverflow';
@@ -92,12 +93,12 @@ export const sponsorshipsRouter = router({
               } as const;
             }
 
-            const ownAds = [
-              SponsorsAdsSpotsProjectsInContent,
+            const swagOverflowAd = sample([
+              SponsorsAdsSpotsSwagOverflowInContent,
               SponsorsAdsSpotsSwagOverflowInContentUndefinedIsNotAFunction,
-            ];
+            ]);
 
-            return shuffle(ownAds)[0];
+            return sample([SponsorsAdsSpotsProjectsInContent, swagOverflowAd]);
           }
           case 'SPOTLIGHT': {
             if (ads.length > 0) {
@@ -114,12 +115,10 @@ export const sponsorshipsRouter = router({
               } as const;
             }
 
-            const ownAds = [
+            return sample([
               SponsorsAdsSpotsProjectsSpotlight,
               SponsorsAdsSpotsSwagOverflowSpotlight,
-            ];
-
-            return shuffle(ownAds)[0];
+            ]);
           }
           case 'GLOBAL_BANNER': {
             if (ads.length === 0) {
