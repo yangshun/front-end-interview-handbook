@@ -20,13 +20,13 @@ const anchorVariantClasses: Record<AnchorVariant, string> = {
   default: clsx(
     themeTextBrandColor,
     'hover:text-neutral-800 dark:hover:text-brand-dark',
-    'underline dark:no-underline',
+    'underline dark:no-underline dark:hover:underline',
   ),
   flat: 'hover:underline',
   flatUnderline: 'underline dark:no-underline hover:dark:underline',
   secondary: clsx(
     [themeTextSecondaryColor, themeTextBrandColor_Hover],
-    'hover:underline dark:hover:no-underline',
+    'hover:underline',
   ),
   unstyled: '',
 };
