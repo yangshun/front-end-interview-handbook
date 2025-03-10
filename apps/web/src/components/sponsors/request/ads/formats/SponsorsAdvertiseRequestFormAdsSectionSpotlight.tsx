@@ -5,6 +5,7 @@ import { RiArrowRightLine } from 'react-icons/ri';
 import type { z } from 'zod';
 
 import { objectUrlToBase64 } from '~/lib/imageUtils';
+import { urlAddHttpsIfMissing } from '~/lib/urlValidation';
 import { trpc } from '~/hooks/trpc';
 
 import type { StepsTabItemStatus } from '~/components/common/StepsTabs';
@@ -78,6 +79,7 @@ export default function SponsorsAdvertiseRequestFormAdsSectionSpotlight({
 
   const selectedWeeks = watch('weeks');
   const title = watch('text');
+  const url = watch('url');
   const imageUrl = watch('imageUrl');
   const sponsorName = watch('sponsorName');
 
@@ -173,8 +175,8 @@ export default function SponsorsAdvertiseRequestFormAdsSectionSpotlight({
                       }
                       imageUrl={imageUrl}
                       setError={(message) => setError('imageUrl', { message })}
-                      setImageUrl={(url) => {
-                        field.onChange(url);
+                      setImageUrl={(newImageUrl) => {
+                        field.onChange(newImageUrl);
                       }}
                       widthConstraint={
                         SponsorAdFormatConfigs[AD_FORMAT].placementConstraints
@@ -297,7 +299,7 @@ export default function SponsorsAdvertiseRequestFormAdsSectionSpotlight({
                       }
                       text={title || 'Your short form ad text here'}
                       tracking={false}
-                      url="#"
+                      url={urlAddHttpsIfMissing(url) || '#'}
                     />
                   </div>
                 </div>

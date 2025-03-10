@@ -23,6 +23,8 @@ import {
 } from 'react-icons/ri';
 import { useOnClickOutside } from 'usehooks-ts';
 
+import { urlAddHttpsIfMissing } from '~/lib/urlValidation';
+
 import { useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
@@ -259,7 +261,7 @@ function FloatingLinkEditor({
 
         const finalUrl = validateUrl(editedLinkUrl)
           ? sanitizeUrl(editedLinkUrl)
-          : `https://${editedLinkUrl}`;
+          : urlAddHttpsIfMissing(editedLinkUrl);
 
         if ($isLinkNode(parent) || $isLinkNode(node)) {
           // If link node already present

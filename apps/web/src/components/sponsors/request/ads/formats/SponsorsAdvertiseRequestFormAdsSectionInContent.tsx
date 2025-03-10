@@ -24,6 +24,7 @@ const editor = createHeadlessEditor(RichTextEditorConfig);
 import { useEffect } from 'react';
 
 import { objectUrlToBase64 } from '~/lib/imageUtils';
+import { urlAddHttpsIfMissing } from '~/lib/urlValidation';
 import { trpc } from '~/hooks/trpc';
 
 import type { StepsTabItemStatus } from '~/components/common/StepsTabs';
@@ -89,6 +90,7 @@ export default function SponsorsAdvertiseRequestFormAdsSectionInContent({
   const body = watch('body');
   const imageUrl = watch('imageUrl');
   const sponsorName = watch('sponsorName');
+  const url = watch('url');
 
   const editorState = editor.parseEditorState(body);
   const bodyText = editorState.read(() => $getRoot().getTextContent());
@@ -186,8 +188,8 @@ export default function SponsorsAdvertiseRequestFormAdsSectionInContent({
                       }
                       imageUrl={imageUrl}
                       setError={(message) => setError('imageUrl', { message })}
-                      setImageUrl={(url) => {
-                        field.onChange(url);
+                      setImageUrl={(newImageUrl) => {
+                        field.onChange(newImageUrl);
                       }}
                       widthConstraint={
                         SponsorAdFormatConfigs[AD_FORMAT].placementConstraints
@@ -364,7 +366,7 @@ export default function SponsorsAdvertiseRequestFormAdsSectionInContent({
                         title || 'The quick brown fox jumped over the lazy fox'
                       }
                       tracking={false}
-                      url="#"
+                      url={urlAddHttpsIfMissing(url) || '#'}
                     />
                   </div>
                 </div>

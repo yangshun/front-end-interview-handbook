@@ -4,6 +4,8 @@ import { Controller, useForm } from 'react-hook-form';
 import { RiArrowRightLine } from 'react-icons/ri';
 import type { z } from 'zod';
 
+import { urlAddHttpsIfMissing } from '~/lib/urlValidation';
+
 import type { StepsTabItemStatus } from '~/components/common/StepsTabs';
 import NavColorSchemeDropdown from '~/components/global/navbar/NavColorSchemeDropdown';
 import InterviewsMarketingHeroBrowserWindowFrame from '~/components/interviews/marketing/embed/InterviewsMarketingHeroBrowserWindowFrame';
@@ -66,6 +68,7 @@ export default function SponsorsAdvertiseRequestFormAdsSectionGlobalBanner({
 
   const selectedWeeks = watch('weeks');
   const title = watch('text');
+  const url = watch('url');
 
   function handleOnSubmit(data: z.infer<typeof adSchema>) {
     onSubmit({
@@ -221,7 +224,7 @@ export default function SponsorsAdvertiseRequestFormAdsSectionGlobalBanner({
                   isLoading={false}
                   text={title || 'Your ad text here'}
                   tracking={false}
-                  url="https://greatfrontend.com"
+                  url={urlAddHttpsIfMissing(url) || '#'}
                 />
                 <div className="flex h-[300px] w-full items-stretch justify-stretch p-3">
                   <div

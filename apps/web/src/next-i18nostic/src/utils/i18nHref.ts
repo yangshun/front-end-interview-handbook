@@ -27,9 +27,9 @@ export default function i18nHref(
   }
 
   if (process.env.NODE_ENV === 'development') {
-    // Throw if not a relative URL.
+    // Warn if not a relative URL.
     if (!pathname.startsWith('/')) {
-      throw new Error(
+      console.warn(
         `Only relative URLs supported. Pathnames must start with /, but received "${pathname}"`,
       );
     }

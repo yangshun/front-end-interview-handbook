@@ -1,7 +1,7 @@
 import type { IntlShape } from 'react-intl';
 import { z } from 'zod';
 
-import { URL_REGEX } from '~/lib/urlValidation';
+import { URL_HTTPS_REGEX } from '~/lib/urlValidation';
 
 import { useIntl } from '~/components/intl';
 
@@ -14,7 +14,7 @@ function projectsProfileWebsiteSchema(options?: {
 
   const urlValidation = z
     .string()
-    .regex(URL_REGEX, urlMessage)
+    .regex(URL_HTTPS_REGEX, urlMessage)
     .refine(
       (value) => {
         if (required) {
@@ -28,7 +28,7 @@ function projectsProfileWebsiteSchema(options?: {
       },
     )
     .transform((url) => {
-      const match = url.match(URL_REGEX);
+      const match = url.match(URL_HTTPS_REGEX);
 
       // If no https present in the url, add https in the url
       if (match && !match[1]) {
