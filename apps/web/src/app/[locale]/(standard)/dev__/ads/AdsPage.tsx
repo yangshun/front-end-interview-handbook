@@ -1,31 +1,26 @@
 'use client';
 
-import QuestionsProgressPanel from '~/components/interviews/questions/listings/stats/QuestionsProgressPanel';
-import QuestionDifficultyLabel from '~/components/interviews/questions/metadata/QuestionDifficultyLabel';
-import Container from '~/components/ui/Container';
-import Divider from '~/components/ui/Divider';
-import Heading from '~/components/ui/Heading';
-import Section from '~/components/ui/Heading/HeadingContext';
-import UIExamplesGroup from '~/components/ui/misc/UIExamplesGroup';
-import {
-  themeGradientGreenYellow,
-  themeGradientPinkPurple,
-  themeGradientPurpleGreen,
-} from '~/components/ui/theme';
+import clsx from 'clsx';
+
 import {
   SponsorsAdsSpotsProjectsInContent,
   SponsorsAdsSpotsProjectsSpotlight,
 } from '~/data/ads/SponsorsAdsSpotsProjects';
-import SponsorsAdFormatSpotlight from '~/components/sponsors/ads/SponsorsAdFormatSpotlight';
-import SponsorsAdFormatSpotlightCard from '~/components/sponsors/ads/SponsorsAdFormatSpotlightCard';
-import { SponsorsAdFormatPayloadSpotlight } from '~/components/sponsors/SponsorsTypes';
 import {
   SponsorsAdsSpotsSwagOverflowInContent,
   SponsorsAdsSpotsSwagOverflowInContentUndefinedIsNotAFunction,
   SponsorsAdsSpotsSwagOverflowSpotlight,
 } from '~/data/ads/SponsorsAdsSpotsSwagOverflow';
+
 import SponsorsAdFormatInContent from '~/components/sponsors/ads/SponsorsAdFormatInContent';
-import clsx from 'clsx';
+import SponsorsAdFormatSpotlight from '~/components/sponsors/ads/SponsorsAdFormatSpotlight';
+import SponsorsAdFormatSpotlightCard from '~/components/sponsors/ads/SponsorsAdFormatSpotlightCard';
+import type { SponsorsAdFormatPayloadSpotlight } from '~/components/sponsors/SponsorsTypes';
+import Container from '~/components/ui/Container';
+import Divider from '~/components/ui/Divider';
+import Heading from '~/components/ui/Heading';
+import Section from '~/components/ui/Heading/HeadingContext';
+import UIExamplesGroup from '~/components/ui/misc/UIExamplesGroup';
 
 function SpotlightAd({
   ad,
@@ -33,12 +28,12 @@ function SpotlightAd({
   return (
     <div className="flex flex-col gap-6">
       <SponsorsAdFormatSpotlight
-        adPlacement={'preview'}
+        adPlacement="preview"
         tracking={false}
         {...ad}
       />
       <SponsorsAdFormatSpotlightCard
-        adPlacement={'preview'}
+        adPlacement="preview"
         tracking={false}
         {...ad}
       />
@@ -76,9 +71,9 @@ export default function AdsPage() {
                   SponsorsAdsSpotsSwagOverflowInContentUndefinedIsNotAFunction,
                 ].map((ad) => (
                   <SponsorsAdFormatInContent
-                    size={'md'}
                     key={ad.adId}
-                    adPlacement={'preview'}
+                    adPlacement="preview"
+                    size="md"
                     tracking={false}
                     {...ad}
                   />

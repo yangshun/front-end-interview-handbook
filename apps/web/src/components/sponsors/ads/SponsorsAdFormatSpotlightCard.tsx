@@ -1,10 +1,12 @@
 import clsx from 'clsx';
+import React from 'react';
+
 import {
   themeBackgroundCardColor,
   themeGlassyBorder,
 } from '~/components/ui/theme';
+
 import SponsorsAdFormatSpotlight from './SponsorsAdFormatSpotlight';
-import React from 'react';
 
 export default function SponsorsAdFormatSpotlightCard(
   props: Omit<
