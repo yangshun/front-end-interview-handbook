@@ -1,8 +1,17 @@
 import { getISOWeek, getYear } from 'date-fns';
-import { range } from 'lodash-es';
+import { range, shuffle } from 'lodash-es';
 import { z } from 'zod';
 
 import { base64toBlob } from '~/lib/imageUtils';
+
+import {
+  SponsorsAdsSpotsProjectsInContent,
+  SponsorsAdsSpotsProjectsSpotlight,
+} from '~/data/ads/SponsorsAdsSpotsProjects';
+import {
+  SponsorsAdsSpotsSwagOverflowInContentUndefinedIsNotAFunction,
+  SponsorsAdsSpotsSwagOverflowSpotlight,
+} from '~/data/ads/SponsorsAdsSpotsSwagOverflow';
 
 import {
   sponsorsGlobalBannerAdSchemaServer,
@@ -40,7 +49,7 @@ export const sponsorshipsRouter = router({
       const year = getYear(date);
       const week = getISOWeek(date);
 
-      const adPayload: SponsorsAdFormatPayload = await (async () => {
+      const adPayload: SponsorsAdFormatPayload | null = await (async () => {
         const ads = await prisma.sponsorsAd.findMany({
           select: {
             body: true,
@@ -83,23 +92,12 @@ export const sponsorshipsRouter = router({
               } as const;
             }
 
-            return {
-              adId: 'tih-in-content',
-              body: `Level up your coding style with SwagOverflow—the ultimate destination for front-end developer gear. Our high-quality merchandise lets you wear your passion on your sleeve, literally. Check out some of the highlights:
-	•	Eye-Catching Designs: Show off your front-end pride with sleek, creative prints that celebrate coding culture.
-	•	Premium Materials: Enjoy durable, comfortable apparel that can handle everyday wear as easily as you handle bug fixes.
-	•	Developer-Approved: Curated by coders, for coders—everything we offer is built with your front-end focus in mind.
-	•	Unique Accessories: From mugs to tote bags, deck out your workspace and wardrobe with must-have items you won’t find anywhere else.
+            const ownAds = [
+              SponsorsAdsSpotsProjectsInContent,
+              SponsorsAdsSpotsSwagOverflowInContentUndefinedIsNotAFunction,
+            ];
 
-Elevate your style, inspire your creativity, and represent your coding chops with every piece from SwagOverflow. Grab yours now and stand out in any crowd—on or off the keyboard!`,
-              external: true,
-              format: 'IN_CONTENT',
-              imageUrl:
-                'https://www.techinterviewhandbook.org/social/software-engineering-interview-guide.png',
-              sponsorName: 'Tech Interview Handbook',
-              title: 'Ace your technical interviews',
-              url: 'https://www.techinterviewhandbook.org',
-            } as const;
+            return shuffle(ownAds)[0];
           }
           case 'SPOTLIGHT': {
             if (ads.length > 0) {
@@ -116,38 +114,27 @@ Elevate your style, inspire your creativity, and represent your coding chops wit
               } as const;
             }
 
-            return {
-              adId: 'tih-spotlight',
-              external: true,
-              format: 'SPOTLIGHT',
-              imageUrl:
-                'https://www.techinterviewhandbook.org/social/software-engineering-interview-guide.png',
-              sponsorName: 'Tech Interview Handbook',
-              text: 'Tech Interview Handbook is the best handbook blah blah',
-              url: 'https://www.techinterviewhandbook.org',
-            } as const;
+            const ownAds = [
+              SponsorsAdsSpotsProjectsSpotlight,
+              SponsorsAdsSpotsSwagOverflowSpotlight,
+            ];
+
+            return shuffle(ownAds)[0];
           }
           case 'GLOBAL_BANNER': {
-            if (ads.length > 0) {
-              const ad = ads[0];
-
-              return {
-                adId: ad.id,
-                external: true,
-                format: 'GLOBAL_BANNER',
-                sponsorName: ad.sponsorName,
-                text: ad.title,
-                url: ad.url,
-              } as const;
+            if (ads.length === 0) {
+              return null;
             }
 
+            const ad = ads[0];
+
             return {
-              adId: 'tih-global-banner',
+              adId: ad.id,
               external: true,
               format: 'GLOBAL_BANNER',
-              sponsorName: 'Tech Interview Handbook',
-              text: 'Tech Interview Handbook global banner is the best handbook blah blah',
-              url: 'https://www.techinterviewhandbook.org',
+              sponsorName: ad.sponsorName,
+              text: ad.title,
+              url: ad.url,
             } as const;
           }
         }

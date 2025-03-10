@@ -3003,6 +3003,10 @@
     "defaultMessage": "Changes saved successfully!",
     "description": "Update challenge success message"
   },
+  "GC0CwH": {
+    "defaultMessage": "Sponsor: <link>{sponsorName}</link>",
+    "description": "Sponsor link"
+  },
   "GCr4nr": {
     "defaultMessage": "({discountPercentage}% off)",
     "description": "Usual price of the item and the discount off"

@@ -14,7 +14,7 @@ import Text from '~/components/ui/Text';
 import {
   themeBackgroundBrandColor,
   themeBackgroundCardNoAlphaColor,
-  themeBorderColor,
+  themeBackgroundColor,
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
@@ -41,6 +41,7 @@ const adFormat = 'SPOTLIGHT';
 export default function SponsorsAdFormatSpotlight({
   adPlacement,
   adId,
+  external,
   text,
   sponsorName,
   url,
@@ -55,7 +56,19 @@ export default function SponsorsAdFormatSpotlight({
     adId,
     adPlacement,
   );
-  const href = tracking ? sponsorsAdTrackingHref({ adId, url }) : url;
+  const href =
+    external && tracking ? sponsorsAdTrackingHref({ adId, url }) : url;
+
+  function linkClick() {
+    gtag.event({
+      action: 'sponsors.ad.click',
+      extra: {
+        ad_format: adFormat,
+        ad_id: adId,
+        ad_placement: adPlacement,
+      },
+    });
+  }
 
   return (
     <div
@@ -71,7 +84,7 @@ export default function SponsorsAdFormatSpotlight({
           'aspect-[2/1] h-12',
           'flex items-center justify-center',
           'rounded-md',
-          themeBackgroundBrandColor,
+          imageUrl ? themeBackgroundColor : themeBackgroundBrandColor,
           'overflow-hidden',
         )}>
         <Tooltip
@@ -104,10 +117,7 @@ export default function SponsorsAdFormatSpotlight({
         {imageUrl ? (
           <img
             alt={text}
-            className={clsx('size-full', 'object-cover', 'rounded-md', [
-              'border',
-              themeBorderColor,
-            ])}
+            className={clsx('size-full', 'object-cover', 'rounded-md')}
             src={imageUrl}
           />
         ) : (
@@ -138,16 +148,7 @@ export default function SponsorsAdFormatSpotlight({
             target="_blank"
             variant="flat"
             weight={textWeight}
-            onClick={() => {
-              return gtag.event({
-                action: 'sponsors.ad.click',
-                extra: {
-                  ad_format: adFormat,
-                  ad_id: adId,
-                  ad_placement: adPlacement,
-                },
-              });
-            }}>
+            onClick={linkClick}>
             {text}
           </Anchor>{' '}
           <RiArrowRightLine
@@ -161,16 +162,7 @@ export default function SponsorsAdFormatSpotlight({
         className="absolute inset-0"
         href={href}
         target="_blank"
-        onClick={() => {
-          return gtag.event({
-            action: 'sponsors.ad.click',
-            extra: {
-              ad_format: adFormat,
-              ad_id: adId,
-              ad_placement: adPlacement,
-            },
-          });
-        }}
+        onClick={linkClick}
       />
     </div>
   );

@@ -3,12 +3,13 @@ import { RiAdvertisementLine } from 'react-icons/ri';
 
 import gtag from '~/lib/gtag';
 
+import { FormattedMessage } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import type { TextSize } from '~/components/ui/Text';
 import Text, { textVariants } from '~/components/ui/Text';
 import {
   themeBackgroundBrandColor,
-  themeBorderColor,
+  themeBackgroundColor,
 } from '~/components/ui/theme';
 
 import SponsorsAdFormatInContentBodyRenderer from './SponsorsAdFormatInContentBodyRenderer';
@@ -59,6 +60,7 @@ const adFormat = 'IN_CONTENT';
 export default function SponsorsAdFormatInContent({
   adPlacement,
   adId,
+  external,
   title,
   url,
   body,
@@ -72,9 +74,21 @@ export default function SponsorsAdFormatInContent({
     adId,
     adPlacement,
   );
-  const href = tracking ? sponsorsAdTrackingHref({ adId, url }) : url;
+  const href =
+    external && tracking ? sponsorsAdTrackingHref({ adId, url }) : url;
 
   const isRichTextValue = isLexicalEditorValue(body);
+
+  function linkClick() {
+    gtag.event({
+      action: 'sponsors.ad.click',
+      extra: {
+        ad_format: adFormat,
+        ad_id: adId,
+        ad_placement: adPlacement,
+      },
+    });
+  }
 
   return (
     <div ref={tracking ? ref : undefined} className="w-full">
@@ -84,22 +98,13 @@ export default function SponsorsAdFormatInContent({
             href={href}
             target="_blank"
             variant="unstyled"
-            onClick={() =>
-              gtag.event({
-                action: 'sponsors.ad.click',
-                extra: {
-                  ad_format: adFormat,
-                  ad_id: adId,
-                  ad_placement: adPlacement,
-                },
-              })
-            }>
+            onClick={linkClick}>
             <img
               alt={title}
               className={clsx(
                 'aspect-[2/1] w-full object-cover',
+                themeBackgroundColor,
                 'rounded-lg',
-                ['border', themeBorderColor],
               )}
               src={imageUrl}
             />
@@ -118,43 +123,45 @@ export default function SponsorsAdFormatInContent({
           </div>
         )}
         <Text className="mt-2 block" color="secondary" size="body3">
-          Sponsor:{' '}
-          <Anchor
-            className={textVariants({ color: 'active' })}
-            href={href}
-            target="_blank"
-            variant="flatUnderline"
-            weight="medium"
-            onClick={() =>
-              gtag.event({
-                action: 'sponsors.ad.click',
-                extra: {
-                  ad_format: adFormat,
-                  ad_id: adId,
-                  ad_placement: adPlacement,
-                },
-              })
-            }>
-            {sponsorName}
-          </Anchor>
+          <FormattedMessage
+            defaultMessage="Sponsor: <link>{sponsorName}</link>"
+            description="Sponsor link"
+            id="GC0CwH"
+            values={{
+              link: (chunks) => (
+                <Anchor
+                  className={textVariants({ color: 'active' })}
+                  href={href}
+                  target="_blank"
+                  variant="flatUnderline"
+                  weight="medium"
+                  onClick={linkClick}>
+                  {chunks}
+                </Anchor>
+              ),
+              sponsorName,
+            }}
+          />
         </Text>
       </div>
       <Text className="mt-6 block" size={sizeToTitle[size]} weight="bold">
         {title}
       </Text>
-      {isRichTextValue ? (
-        <SponsorsAdFormatInContentBodyRenderer
-          key={body}
-          adId={adId}
-          size="sm"
-          tracking={tracking}
-          value={body}
-        />
-      ) : (
-        <Text className="mt-3 block" color="secondary" size="body2">
-          {body}
-        </Text>
-      )}
+      <div className="mt-3">
+        {isRichTextValue ? (
+          <SponsorsAdFormatInContentBodyRenderer
+            key={body}
+            adId={adId}
+            size="sm"
+            tracking={tracking}
+            value={body}
+          />
+        ) : (
+          <Text className="block" color="secondary" size="body2">
+            {body}
+          </Text>
+        )}
+      </div>
     </div>
   );
 }

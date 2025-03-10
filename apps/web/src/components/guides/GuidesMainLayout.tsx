@@ -134,7 +134,7 @@ export default function GuidesMainLayout<GuideSlug extends string>({
               <Divider color="emphasized" />
               <SponsorsAdFormatInContentContainer
                 adPlacement="guide"
-                size="sm"
+                size="md"
               />
               <Divider color="emphasized" />
               {questionMetadata && (
