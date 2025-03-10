@@ -1,42 +1,17 @@
 import clsx from 'clsx';
-
-import { trpc } from '~/hooks/trpc';
-
-import { SPONSORSHIPS_AVAILABLE } from '~/data/FeatureFlags';
-
 import {
   themeBackgroundCardColor,
   themeGlassyBorder,
 } from '~/components/ui/theme';
-
-import type { SponsorsAdFormatSpotlightPlacement } from './SponsorsAdFormatSpotlight';
 import SponsorsAdFormatSpotlight from './SponsorsAdFormatSpotlight';
+import React from 'react';
 
-export default function SponsorsAdFormatSpotlightCard({
-  adPlacement,
-}: Readonly<{
-  adPlacement: SponsorsAdFormatSpotlightPlacement;
-}>) {
-  if (!SPONSORSHIPS_AVAILABLE) {
-    return null;
-  }
-
-  return <SponsorsAdFormatSpotlightCardImpl adPlacement={adPlacement} />;
-}
-
-function SponsorsAdFormatSpotlightCardImpl({
-  adPlacement,
-}: Readonly<{
-  adPlacement: SponsorsAdFormatSpotlightPlacement;
-}>) {
-  const { data, isLoading } = trpc.sponsorships.ad.useQuery({
-    format: 'SPOTLIGHT',
-  });
-
-  if (isLoading || data?.format !== 'SPOTLIGHT') {
-    return null;
-  }
-
+export default function SponsorsAdFormatSpotlightCard(
+  props: Omit<
+    React.ComponentProps<typeof SponsorsAdFormatSpotlight>,
+    'textWeight'
+  >,
+) {
   return (
     <div
       className={clsx(
@@ -46,11 +21,7 @@ function SponsorsAdFormatSpotlightCardImpl({
         themeGlassyBorder,
         'rounded-lg',
       )}>
-      <SponsorsAdFormatSpotlight
-        adPlacement={adPlacement}
-        textWeight="medium"
-        {...data}
-      />
+      <SponsorsAdFormatSpotlight {...props} textWeight="medium" />
     </div>
   );
 }

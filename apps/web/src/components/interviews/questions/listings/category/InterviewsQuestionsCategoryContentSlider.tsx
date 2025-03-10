@@ -9,7 +9,7 @@ import { SCROLL_HASH_INTERVIEWS_DASHBOARD_RECOMMENDED_PREPARATION } from '~/hook
 import InterviewsContentSliderCard from '~/components/interviews/common/InterviewsContentSliderCard';
 import type { QuestionFrameworkOrLanguage } from '~/components/interviews/questions/common/QuestionsTypes';
 import { FormattedMessage, useIntl } from '~/components/intl';
-import SponsorsAdFormatSpotlightCard from '~/components/sponsors/ads/SponsorsAdFormatSpotlightCard';
+import SponsorsAdFormatSpotlightCardContainer from '~/components/sponsors/ads/SponsorsAdFormatSpotlightCardContainer';
 import Anchor from '~/components/ui/Anchor';
 import {
   themeOutlineElement_FocusVisible,
@@ -131,7 +131,9 @@ export default function InterviewsQuestionsCategoryContentSlider({
   } as const;
 
   const adItem = {
-    element: <SponsorsAdFormatSpotlightCard adPlacement="side_column" />,
+    element: (
+      <SponsorsAdFormatSpotlightCardContainer adPlacement="side_column" />
+    ),
     value: 'ad',
   } as const;
 

@@ -17,7 +17,7 @@ import type { QuestionMetadata } from '~/components/interviews/questions/common/
 import InterviewsQuestionsCategoryContentSlider from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryContentSlider';
 import QuestionsUnifiedListWithFiltersAndProgress from '~/components/interviews/questions/listings/items/QuestionsUnifiedListWithFiltersAndProgress';
 import { useIntl } from '~/components/intl';
-import SponsorsAdFormatSpotlightCard from '~/components/sponsors/ads/SponsorsAdFormatSpotlightCard';
+import SponsorsAdFormatSpotlightCardContainer from '~/components/sponsors/ads/SponsorsAdFormatSpotlightCardContainer';
 import Section from '~/components/ui/Heading/HeadingContext';
 
 import type { QuestionCompletionCount } from '~/db/QuestionsCount';
@@ -86,7 +86,7 @@ export default function InterviewsQuestionsCategoryPage({
           </InterviewsPageLongDescription>
         )}
         <div className="max-md min-[1200px]:hidden">
-          <SponsorsAdFormatSpotlightCard adPlacement="side_column" />
+          <SponsorsAdFormatSpotlightCardContainer adPlacement="side_column" />
         </div>
         <QuestionsUnifiedListWithFiltersAndProgress
           categoryTabs={categoryTabs}
@@ -128,7 +128,7 @@ export default function InterviewsQuestionsCategoryPage({
                 frameworkOrLanguage={frameworkOrLanguageValue}
               />
             ) : isSidebarCollapsed ? (
-              <SponsorsAdFormatSpotlightCard adPlacement="side_column" />
+              <SponsorsAdFormatSpotlightCardContainer adPlacement="side_column" />
             ) : null
           }
         />

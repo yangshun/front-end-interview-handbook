@@ -18,7 +18,7 @@ import type {
 import QuestionsUnifiedListWithFiltersAndProgress from '~/components/interviews/questions/listings/items/QuestionsUnifiedListWithFiltersAndProgress';
 import { useIntl } from '~/components/intl';
 import MDXContent from '~/components/mdx/MDXContent';
-import SponsorsAdFormatSpotlightCard from '~/components/sponsors/ads/SponsorsAdFormatSpotlightCard';
+import SponsorsAdFormatSpotlightCardContainer from '~/components/sponsors/ads/SponsorsAdFormatSpotlightCardContainer';
 import Divider from '~/components/ui/Divider';
 import Section from '~/components/ui/Heading/HeadingContext';
 
@@ -118,7 +118,7 @@ export default function InterviewsQuestionsFormatPage({
       />
       <Section>
         <div className="max-w-md min-[1200px]:hidden">
-          <SponsorsAdFormatSpotlightCard adPlacement="side_column" />
+          <SponsorsAdFormatSpotlightCardContainer adPlacement="side_column" />
         </div>
         <QuestionsUnifiedListWithFiltersAndProgress
           guides={
@@ -141,7 +141,7 @@ export default function InterviewsQuestionsFormatPage({
           searchPlaceholder={formatData[format].searchPlaceholder}
           sideColumnAddOn={
             isSidebarCollapsed ? (
-              <SponsorsAdFormatSpotlightCard adPlacement="side_column" />
+              <SponsorsAdFormatSpotlightCardContainer adPlacement="side_column" />
             ) : null
           }
         />
