@@ -242,6 +242,7 @@ function UserInterfaceCodingWorkspaceImpl({
           metadata={metadata}
           mode={mode}
           nextQuestions={nextQuestions}
+          showAd={!embed}
           similarQuestions={similarQuestions}
           studyListKey={studyListKey}
           writeup={description}
@@ -287,6 +288,7 @@ function UserInterfaceCodingWorkspaceImpl({
             metadata={metadata}
             mode={mode}
             nextQuestions={nextQuestions}
+            showAd={!embed}
             similarQuestions={similarQuestions}
             studyListKey={studyListKey}
             writeup={solution}
@@ -357,7 +359,7 @@ function UserInterfaceCodingWorkspaceImpl({
             'lg:hidden',
             'size-full min-h-[calc(100vh_-_var(--global-sticky-height))]',
           )}>
-          <div className="flex grow flex-col gap-y-6">
+          <div className="flex grow flex-col gap-y-4">
             {mode === 'practice' && (
               <UserInterfaceCodingWorkspaceWriteup
                 canViewPremiumContent={canViewPremiumContent}
@@ -366,6 +368,7 @@ function UserInterfaceCodingWorkspaceImpl({
                 metadata={metadata}
                 mode={mode}
                 nextQuestions={[]}
+                showAd={!embed}
                 similarQuestions={[]}
                 studyListKey={studyListKey}
                 writeup={description}
@@ -380,6 +383,7 @@ function UserInterfaceCodingWorkspaceImpl({
                 metadata={metadata}
                 mode={mode}
                 nextQuestions={[]}
+                showAd={!embed}
                 similarQuestions={[]}
                 studyListKey={studyListKey}
                 writeup={solution}

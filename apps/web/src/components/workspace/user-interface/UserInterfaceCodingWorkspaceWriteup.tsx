@@ -46,6 +46,7 @@ type Props = Readonly<{
     framework: QuestionFramework,
     contentType: 'description' | 'solution',
   ) => void;
+  showAd: boolean;
   similarQuestions: ReadonlyArray<QuestionMetadata>;
   studyListKey?: string;
   writeup: string | null;
@@ -60,6 +61,7 @@ export default function UserInterfaceCodingWorkspaceWriteup({
   metadata,
   nextQuestions,
   similarQuestions,
+  showAd,
   mode,
   studyListKey,
   writeup,
@@ -179,7 +181,7 @@ export default function UserInterfaceCodingWorkspaceWriteup({
           </div>
           <Section>
             <QuestionMetadataSection metadata={metadata} />
-            <div className="flex flex-col gap-y-6">
+            <div className="flex flex-col gap-y-8">
               <QuestionContentProse contents={writeup} />
               {contentType === 'description' && environment === 'workspace' && (
                 <div
@@ -199,15 +201,17 @@ export default function UserInterfaceCodingWorkspaceWriteup({
               )}
               <QuestionNextQuestions questions={nextQuestions} />
               <QuestionSimilarQuestions questions={similarQuestions} />
-              <div className={clsx('flex flex-col gap-y-6', 'max-lg:hidden')}>
-                <Divider />
-                <div className={clsx('pb-2')}>
-                  <SponsorsAdFormatInContentContainer
-                    adPlacement="questions_ui"
-                    size="sm"
-                  />
+              {showAd && (
+                <div className={clsx('flex flex-col gap-y-6', 'max-lg:hidden')}>
+                  <Divider />
+                  <div className={clsx('pb-2')}>
+                    <SponsorsAdFormatInContentContainer
+                      adPlacement="questions_ui"
+                      size="sm"
+                    />
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
           </Section>
         </div>

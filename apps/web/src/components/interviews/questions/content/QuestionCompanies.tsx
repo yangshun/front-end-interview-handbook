@@ -33,7 +33,7 @@ export default function QuestionCompanies({
   return (
     <div className="flex flex-col gap-y-4">
       <Heading
-        className={clsx(textVariants({ size: 'body2', weight: 'medium' }))}
+        className={clsx(textVariants({ size: 'body1', weight: 'medium' }))}
         level="custom">
         <FormattedMessage
           defaultMessage="Asked at these companies"

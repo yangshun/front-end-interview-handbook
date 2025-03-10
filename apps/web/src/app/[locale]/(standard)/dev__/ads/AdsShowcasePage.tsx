@@ -48,7 +48,7 @@ function SpotlightAd({
   );
 }
 
-export default function AdsPage() {
+export default function AdsShowcasePage() {
   return (
     <div className="flex flex-col gap-y-16">
       <Container className="flex flex-col gap-y-4">

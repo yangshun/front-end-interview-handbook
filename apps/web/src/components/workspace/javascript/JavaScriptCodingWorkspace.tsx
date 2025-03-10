@@ -212,6 +212,7 @@ function JavaScriptCodingWorkspaceImpl({
           description={description}
           metadata={metadata}
           nextQuestions={nextQuestions}
+          showAd={!embed}
           similarQuestions={similarQuestions}
           studyListKey={studyListKey}
         />
@@ -332,12 +333,13 @@ function JavaScriptCodingWorkspaceImpl({
               'lg:hidden',
               'size-full min-h-[calc(100vh_-_var(--global-sticky-height))]',
             )}>
-            <div className="flex grow flex-col gap-y-6">
+            <div className="flex grow flex-col gap-y-4">
               <JavaScriptCodingWorkspaceDescription
                 canViewPremiumContent={canViewPremiumContent}
                 description={description}
                 metadata={metadata}
                 nextQuestions={[]}
+                showAd={!embed}
                 similarQuestions={[]}
                 studyListKey={studyListKey}
               />

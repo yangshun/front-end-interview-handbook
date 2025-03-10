@@ -1,6 +1,9 @@
+import clsx from 'clsx';
+
 import { FormattedMessage } from '~/components/intl';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
+import { textVariants } from '~/components/ui/Text';
 
 import type { QuestionMetadata } from '../common/QuestionsTypes';
 import QuestionsCodingListBrief from '../listings/items/QuestionsCodingListBrief';
@@ -15,8 +18,10 @@ export default function QuestionNextQuestions({
   }
 
   return (
-    <div className="grid gap-y-4">
-      <Heading className="font-semibold" level="custom">
+    <div className="flex flex-col gap-y-4">
+      <Heading
+        className={clsx(textVariants({ size: 'body1', weight: 'medium' }))}
+        level="custom">
         <FormattedMessage
           defaultMessage="Try these questions next"
           description="Text above suggested questions to indicate to the user that they can try those questions next"

@@ -84,6 +84,7 @@ export default function InterviewsMarketingEmbedUIQuestion({
             metadata={question.metadata}
             mode="practice"
             nextQuestions={[]}
+            showAd={false}
             similarQuestions={[]}
             writeup={question.frameworks[framework].description}
             onFrameworkChange={setFramework}

@@ -62,6 +62,7 @@ export default function InterviewsMarketingEmbedJavaScriptQuestion({
             description={javaScriptEmbedExample.description}
             metadata={javaScriptEmbedExample.metadata}
             nextQuestions={[]}
+            showAd={false}
             similarQuestions={[]}
           />
         )}

@@ -23,6 +23,7 @@ type Props = Readonly<{
   description: string | null;
   metadata: QuestionMetadata;
   nextQuestions: ReadonlyArray<QuestionMetadata>;
+  showAd: boolean;
   similarQuestions: ReadonlyArray<QuestionMetadata>;
   studyListKey?: string;
 }>;
@@ -33,6 +34,7 @@ export default function JavaScriptCodingWorkspaceDescription({
   metadata,
   nextQuestions,
   similarQuestions,
+  showAd,
   studyListKey,
 }: Props) {
   const copyRef = useQuestionLogEventCopyContents<HTMLDivElement>();
@@ -80,13 +82,17 @@ export default function JavaScriptCodingWorkspaceDescription({
               />
               <QuestionNextQuestions questions={nextQuestions} />
               <QuestionSimilarQuestions questions={similarQuestions} />
-              <Divider className="max-lg:hidden" />
-              <div className={clsx('max-lg:hidden', 'pb-2')}>
-                <SponsorsAdFormatInContentContainer
-                  adPlacement="questions_js"
-                  size="sm"
-                />
-              </div>
+              {showAd && (
+                <div className={clsx('flex flex-col gap-y-6', 'max-lg:hidden')}>
+                  <Divider />
+                  <div className={clsx('pb-2')}>
+                    <SponsorsAdFormatInContentContainer
+                      adPlacement="questions_js"
+                      size="sm"
+                    />
+                  </div>
+                </div>
+              )}
             </div>
           </Section>
         </div>
