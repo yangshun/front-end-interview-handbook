@@ -131,43 +131,45 @@ export default async function Page({ searchParams }: Props) {
         weight="medium">
         Open Positions
       </Heading>
-      <Text
-        className={clsx(
-          'mt-6 block',
-          'text-base lg:text-lg',
-          'lg:font-medium',
-          'lg:max-w-3xl',
-          'text-pretty',
-        )}
-        color="secondary"
-        size="inherit"
-        weight="inherit">
-        Join us in building innovative products that are well-loved by Front End
-        Engineers.
-      </Text>
       <Section>
-        {filteredJobPostings.length > 0 ? (
-          <div className={clsx('grid gap-6 md:grid-cols-2', 'mt-12 lg:mt-16')}>
-            {filteredJobPostings.map((jobPosting) => (
-              <JobPostingItem
-                key={jobPosting.slug}
-                department={jobPosting.department}
-                href={jobPosting.href}
-                location="Remote"
-                title={jobPosting.title}
-              />
-            ))}
-          </div>
-        ) : (
-          <div
-            className={clsx(
-              'flex items-center justify-center',
-              themeBackgroundCardColor,
-              'h-80 rounded-xl',
-            )}>
-            <EmptyState title="There are no jobs available for your location" />
-          </div>
-        )}
+        <Text
+          className={clsx(
+            'mt-6 block',
+            'text-base lg:text-lg',
+            'lg:font-medium',
+            'lg:max-w-3xl',
+            'text-pretty',
+          )}
+          color="secondary"
+          size="inherit"
+          weight="inherit">
+          Join us in building innovative products that are well-loved by Front
+          End Engineers.
+        </Text>
+        <div className="mt-12">
+          {filteredJobPostings.length > 0 ? (
+            <div className={clsx('grid gap-6 md:grid-cols-2')}>
+              {filteredJobPostings.map((jobPosting) => (
+                <JobPostingItem
+                  key={jobPosting.slug}
+                  department={jobPosting.department}
+                  href={jobPosting.href}
+                  location="Remote"
+                  title={jobPosting.title}
+                />
+              ))}
+            </div>
+          ) : (
+            <div
+              className={clsx(
+                'flex items-center justify-center',
+                themeBackgroundCardColor,
+                'h-80 rounded-xl',
+              )}>
+              <EmptyState title="There are no jobs available for your location" />
+            </div>
+          )}
+        </div>
       </Section>
     </Container>
   );

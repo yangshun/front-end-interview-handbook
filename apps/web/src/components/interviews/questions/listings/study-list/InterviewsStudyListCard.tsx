@@ -112,7 +112,6 @@ export default function InterviewsStudyListCard({
               <Text size="body1" weight="bold">
                 {showLongName ? longName : name}
               </Text>
-
               {isStarted && (
                 <span>
                   <Badge
@@ -133,7 +132,7 @@ export default function InterviewsStudyListCard({
               </Text>
             )}
           </div>
-          <div className="z-[1] flex flex-wrap items-center gap-x-8 gap-y-2 md:gap-x-10">
+          <div className="z-[1] flex flex-wrap items-center gap-x-4 gap-y-2">
             <InterviewsEntityProgress
               completed={completionCount}
               entity="question"

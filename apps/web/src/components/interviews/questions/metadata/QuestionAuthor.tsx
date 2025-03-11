@@ -57,7 +57,7 @@ export default function QuestionAuthor({
             <Anchor
               className={textVariants({
                 className: 'block whitespace-nowrap',
-                color: 'subtitle',
+                color: 'default',
                 size,
                 weight: 'bold',
               })}

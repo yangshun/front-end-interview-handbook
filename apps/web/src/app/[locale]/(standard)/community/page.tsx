@@ -41,9 +41,5 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default function CommunityPage() {
-  return (
-    <div className="py-12 md:py-16 xl:py-24">
-      <MarketingCommunitySection />
-    </div>
-  );
+  return <MarketingCommunitySection />;
 }
