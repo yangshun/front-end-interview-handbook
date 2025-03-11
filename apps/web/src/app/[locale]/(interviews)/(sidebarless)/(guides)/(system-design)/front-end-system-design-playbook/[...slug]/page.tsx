@@ -2,12 +2,12 @@ import grayMatter from 'gray-matter';
 import { getMDXExport } from 'mdx-bundler/client';
 import type { Metadata } from 'next/types';
 
-import FrontEndSystemDesignPlaybookLayout from '~/components/guides/books/FrontEndSystemDesignPlaybookLayout';
-import type { FrontEndSystemDesignPlaybookPathType } from '~/components/guides/books/FrontEndSystemDesignPlaybookNavigation';
+import FrontEndSystemDesignPlaybookLayout from '~/components/guides/books/front-end-system-design/FrontEndSystemDesignPlaybookLayout';
+import type { FrontEndSystemDesignPlaybookPathType } from '~/components/guides/books/front-end-system-design/FrontEndSystemDesignPlaybookNavigation';
 import {
   basePath,
   FrontEndSystemDesignPlaybookPathToFile,
-} from '~/components/guides/books/FrontEndSystemDesignPlaybookNavigation';
+} from '~/components/guides/books/front-end-system-design/FrontEndSystemDesignPlaybookNavigation';
 import GuidesMarkdown from '~/components/guides/GuidesMarkdown';
 import MDXCodeBlock from '~/components/mdx/MDXCodeBlock';
 

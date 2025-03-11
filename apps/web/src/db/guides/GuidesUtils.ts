@@ -1,9 +1,9 @@
 import { keyBy, sumBy } from 'lodash-es';
 
-import { BehavioralInterviewPlaybookPaths } from '~/components/guides/books/BehavioralInterviewPlaybookNavigation';
-import { FrontEndInterviewPlaybookPaths } from '~/components/guides/books/FrontEndInterviewPlaybookNavigation';
-import { FrontEndSystemDesignPlaybookPaths } from '~/components/guides/books/FrontEndSystemDesignPlaybookNavigation';
-import { ReactInterviewPlaybookPaths } from '~/components/guides/books/ReactInterviewPlaybookNavigation';
+import { BehavioralInterviewPlaybookPaths } from '~/components/guides/books/behavioral-interview-playbook/BehavioralInterviewPlaybookNavigation';
+import { FrontEndInterviewPlaybookPaths } from '~/components/guides/books/front-end-interview-playbook/FrontEndInterviewPlaybookNavigation';
+import { FrontEndSystemDesignPlaybookPaths } from '~/components/guides/books/front-end-system-design/FrontEndSystemDesignPlaybookNavigation';
+import { ReactInterviewPlaybookPaths } from '~/components/guides/books/react-interview-playbook/ReactInterviewPlaybookNavigation';
 import type {
   GuideCardMetadata,
   GuideMetadata,

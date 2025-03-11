@@ -3,7 +3,7 @@
 import { getMDXExport } from 'mdx-bundler/client';
 import type { ReactNode } from 'react';
 
-import { useFrontEndSystemDesignPlaybookNavigation } from '~/components/guides/books/FrontEndSystemDesignPlaybookNavigation';
+import { useFrontEndSystemDesignPlaybookNavigation } from '~/components/guides/books/front-end-system-design/FrontEndSystemDesignPlaybookNavigation';
 import GuidesMainLayout from '~/components/guides/GuidesMainLayout';
 import type { TableOfContents } from '~/components/guides/GuidesTableOfContents';
 import InterviewsPurchasePaywall from '~/components/interviews/purchase/InterviewsPurchasePaywall';

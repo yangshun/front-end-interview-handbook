@@ -6,7 +6,7 @@ import {
   RiShiningLine,
 } from 'react-icons/ri';
 
-import { useBehavioralInterviewPlaybookNavigation } from '~/components/guides/books/BehavioralInterviewPlaybookNavigation';
+import { useBehavioralInterviewPlaybookNavigation } from '~/components/guides/books/behavioral-interview-playbook/BehavioralInterviewPlaybookNavigation';
 import GuidesCoverLayout from '~/components/guides/cover/GuidesCoverLayout';
 import GuidesListWithCategory from '~/components/guides/cover/GuidesListWithCategory';
 import type { GuideCardMetadata } from '~/components/guides/types';
@@ -18,13 +18,13 @@ import Text from '~/components/ui/Text';
 import { processForGuidesCover } from '~/db/guides/GuidesUtils';
 
 type Props = Readonly<{
-  guides: ReadonlyArray<GuideCardMetadata>;
+  allGuides: ReadonlyArray<GuideCardMetadata>;
 }>;
 
-export default function BehavioralInterviewPlaybookPage({ guides }: Props) {
+export default function BehavioralInterviewPlaybookPage({ allGuides }: Props) {
   const intl = useIntl();
 
-  const guidesWithCompletionStatus = useGuidesWithCompletionStatus(guides);
+  const guidesWithCompletionStatus = useGuidesWithCompletionStatus(allGuides);
   const navigation = useBehavioralInterviewPlaybookNavigation();
   const guideItems = processForGuidesCover(
     navigation,

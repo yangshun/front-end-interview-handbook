@@ -6,7 +6,7 @@ import { useQuestionFormatsData } from '~/data/QuestionCategories';
 import {
   basePath as behavioralInterviewPlaybookBasePath,
   useBehavioralInterviewPlaybookNavigation,
-} from '~/components/guides/books/BehavioralInterviewPlaybookNavigation';
+} from '~/components/guides/books/behavioral-interview-playbook/BehavioralInterviewPlaybookNavigation';
 import InterviewsEntityProgress from '~/components/interviews/common/InterviewsEntityProgress';
 import type {
   QuestionMetadata,

@@ -1,18 +1,20 @@
 'use client';
 
 import {
-  RiBookOpenLine,
   RiFlowChart,
   RiQuestionnaireLine,
+  RiReactjsFill,
   RiShiningLine,
 } from 'react-icons/ri';
 
-import { useFrontEndInterviewPlaybookNavigation } from '~/components/guides/books/FrontEndInterviewPlaybookNavigation';
+import { useGuidesData } from '~/data/Guides';
+
+import { useReactInterviewPlaybookNavigation } from '~/components/guides/books/react-interview-playbook/ReactInterviewPlaybookNavigation';
 import GuidesCoverLayout from '~/components/guides/cover/GuidesCoverLayout';
 import GuidesListWithCategory from '~/components/guides/cover/GuidesListWithCategory';
 import type { GuideCardMetadata } from '~/components/guides/types';
 import useGuidesWithCompletionStatus from '~/components/guides/useGuidesWithCompletionStatus';
-import { QuestionCountTotal } from '~/components/interviews/questions/listings/stats/QuestionCount';
+import { QuestionCountReact } from '~/components/interviews/questions/listings/stats/QuestionCount';
 import { useIntl } from '~/components/intl';
 import Section from '~/components/ui/Heading/HeadingContext';
 
@@ -20,41 +22,34 @@ import { processForGuidesCover } from '~/db/guides/GuidesUtils';
 
 type Props = Readonly<{
   allGuides: ReadonlyArray<GuideCardMetadata>;
-  metadata: {
-    description: string;
-    href: string;
-    title: string;
-  };
 }>;
 
-export default function FrontEndInterviewPlaybookPage({
-  allGuides,
-  metadata,
-}: Props) {
+export default function ReactInterviewPlaybookPage({ allGuides }: Props) {
   const intl = useIntl();
 
   const guidesWithCompletionStatus = useGuidesWithCompletionStatus(allGuides);
-  const navigation = useFrontEndInterviewPlaybookNavigation();
+  const navigation = useReactInterviewPlaybookNavigation();
   const guideItems = processForGuidesCover(
     navigation,
     guidesWithCompletionStatus,
   );
+  const guidesData = useGuidesData();
 
   const features = [
     {
       icon: RiFlowChart,
       label: intl.formatMessage({
         defaultMessage: 'End-to-end guide',
-        description: 'Features for frontend interviews playbook page',
-        id: 'nhMxxN',
+        description: 'Features for React interviews playbook page',
+        id: 'Y5Ba+S',
       }),
     },
     {
       icon: RiShiningLine,
       label: intl.formatMessage({
         defaultMessage: 'Tips for all questions types',
-        description: 'Features for frontend interviews playbook page',
-        id: 'OBxxHX',
+        description: 'Features for React interviews playbook page',
+        id: 'bTfNOy',
       }),
     },
     {
@@ -62,11 +57,11 @@ export default function FrontEndInterviewPlaybookPage({
       label: intl.formatMessage(
         {
           defaultMessage: '{questionCount}+ practice questions',
-          description: 'Features for frontend interviews playbook page',
-          id: '2NpESj',
+          description: 'Features for React interviews playbook page',
+          id: '8Ix7Fe',
         },
         {
-          questionCount: QuestionCountTotal,
+          questionCount: QuestionCountReact,
         },
       ),
     },
@@ -74,24 +69,19 @@ export default function FrontEndInterviewPlaybookPage({
 
   return (
     <GuidesCoverLayout
-      description={intl.formatMessage({
-        defaultMessage: 'The definitive guide to front end interviews.',
-        description: 'Description of frontend interview playbook page',
-        id: 'M1ncAS',
-      })}
+      description={guidesData.REACT_INTERVIEW_PLAYBOOK.description}
       features={features}
-      icon={RiBookOpenLine}
+      icon={RiReactjsFill}
       longDescription={intl.formatMessage({
         defaultMessage:
-          "Tackle your next interview with confidence using this focused, no-nonsense front end prep guide. Created by the author of the Front End Interview Handbook, it's filled with practical strategies and insider tips you won't find anywhere else.",
-        description: 'Long description of frontend interview playbook page',
-        id: 'ejhiw3',
+          'Ace your React interviews with confidence with this comprehensive guide. Created by the author of the Front End Interview Handbook, the guide emphasizes on the concepts that are important for interviews using plenty of code examples. For each concept, learn the best practices and practice a variety of questions to help you truly master it.',
+        description: 'Long description of React interview playbook page',
+        id: 'HI42cv',
       })}
-      metadata={metadata}
       title={intl.formatMessage({
-        defaultMessage: 'Front End Interview Playbook',
-        description: 'Title of frontend interview playbook page',
-        id: 'hclu+0',
+        defaultMessage: 'React Interview Playbook',
+        description: 'Title of React interview playbook page',
+        id: '9TEFrN',
       })}>
       <Section>
         <GuidesListWithCategory guideItems={guideItems} />

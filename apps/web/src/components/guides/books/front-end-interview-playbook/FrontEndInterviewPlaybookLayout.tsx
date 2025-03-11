@@ -3,13 +3,13 @@
 import { useQueryGuideProgress } from '~/db/guides/GuidesProgressClient';
 import { useI18nPathname } from '~/next-i18nostic/src';
 
-import { useBehavioralInterviewPlaybookNavigation } from './BehavioralInterviewPlaybookNavigation';
-import GuidesArticle from '../GuidesArticle';
-import GuidesArticleJsonLd from '../GuidesArticleJsonLd';
-import GuidesMainLayout from '../GuidesMainLayout';
-import type { TableOfContents } from '../GuidesTableOfContents';
-import type { GuideMetadata } from '../types';
-import useFlattenedNavigationItems from '../useFlattenedNavigationItems';
+import { useFrontEndInterviewPlaybookNavigation } from './FrontEndInterviewPlaybookNavigation';
+import GuidesArticle from '../../GuidesArticle';
+import GuidesArticleJsonLd from '../../GuidesArticleJsonLd';
+import GuidesMainLayout from '../../GuidesMainLayout';
+import type { TableOfContents } from '../../GuidesTableOfContents';
+import type { GuideMetadata } from '../../types';
+import useFlattenedNavigationItems from '../../useFlattenedNavigationItems';
 
 type Props = Readonly<{
   children?: React.ReactNode;
@@ -18,15 +18,15 @@ type Props = Readonly<{
   title: string;
 }>;
 
-const guide = 'BEHAVIORAL_INTERVIEW_PLAYBOOK';
+const guide = 'FRONT_END_INTERVIEW_PLAYBOOK';
 
-export default function BehavioralInterviewPlaybookLayout({
+export default function FrontEndInterviewPlaybookLayout({
   children,
   description,
-  title,
   tableOfContents,
+  title,
 }: Props) {
-  const navigation = useBehavioralInterviewPlaybookNavigation();
+  const navigation = useFrontEndInterviewPlaybookNavigation();
   const { pathname } = useI18nPathname();
 
   const flatNavigationItems = useFlattenedNavigationItems(navigation);

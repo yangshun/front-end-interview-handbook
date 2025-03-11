@@ -1,7 +1,7 @@
 import type { Metadata } from 'next/types';
 
-import { basePath } from '~/components/guides/books/BehavioralInterviewPlaybookNavigation';
-import ReactInterviewPlaybookPage from '~/components/guides/books/ReactInterviewPlaybookPage';
+import { basePath } from '~/components/guides/books/behavioral-interview-playbook/BehavioralInterviewPlaybookNavigation';
+import ReactInterviewPlaybookPage from '~/components/guides/books/react-interview-playbook/ReactInterviewPlaybookPage';
 
 import { readReactInterviewPlaybookGuides } from '~/db/guides/GuidesReader';
 import { getIntlServerOnly } from '~/i18n';
@@ -62,20 +62,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function Page({ params }: Props) {
   const { locale } = params;
-  const [allGuides, { title, description, socialTitle, href }] =
-    await Promise.all([
-      readReactInterviewPlaybookGuides({ locale }),
-      getPageSEOMetadata({ params }),
-    ]);
+  const [allGuides] = await Promise.all([
+    readReactInterviewPlaybookGuides({ locale }),
+  ]);
 
-  return (
-    <ReactInterviewPlaybookPage
-      allGuides={allGuides}
-      metadata={{
-        description,
-        href,
-        title: socialTitle || title,
-      }}
-    />
-  );
+  return <ReactInterviewPlaybookPage allGuides={allGuides} />;
 }

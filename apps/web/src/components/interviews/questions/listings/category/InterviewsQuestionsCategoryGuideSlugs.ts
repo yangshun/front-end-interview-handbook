@@ -1,5 +1,5 @@
-import type { FrontEndInterviewPlaybookPathType } from '~/components/guides/books/FrontEndInterviewPlaybookNavigation';
-import type { ReactInterviewPlaybookPathType } from '~/components/guides/books/ReactInterviewPlaybookNavigation';
+import type { FrontEndInterviewPlaybookPathType } from '~/components/guides/books/front-end-interview-playbook/FrontEndInterviewPlaybookNavigation';
+import type { ReactInterviewPlaybookPathType } from '~/components/guides/books/react-interview-playbook/ReactInterviewPlaybookNavigation';
 
 export const InterviewsQuestionsLanguageGuideSlugs: ReadonlyArray<FrontEndInterviewPlaybookPathType> =
   [

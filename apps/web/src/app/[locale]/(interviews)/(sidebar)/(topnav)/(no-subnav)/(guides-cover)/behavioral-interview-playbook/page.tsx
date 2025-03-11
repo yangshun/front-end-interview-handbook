@@ -1,7 +1,7 @@
 import type { Metadata } from 'next/types';
 
-import { basePath } from '~/components/guides/books/BehavioralInterviewPlaybookNavigation';
-import BehavioralInterviewPlaybookPage from '~/components/guides/books/BehavioralInterviewPlaybookPage';
+import { basePath } from '~/components/guides/books/behavioral-interview-playbook/BehavioralInterviewPlaybookNavigation';
+import BehavioralInterviewPlaybookPage from '~/components/guides/books/behavioral-interview-playbook/BehavioralInterviewPlaybookPage';
 
 import { readBehavioralInterviewPlaybookGuides } from '~/db/guides/GuidesReader';
 import { getIntlServerOnly } from '~/i18n';
@@ -63,7 +63,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Page({ params }: Props) {
-  const guides = await readBehavioralInterviewPlaybookGuides(params.locale);
+  const { locale } = params;
+  const allGuides = await readBehavioralInterviewPlaybookGuides(locale);
 
-  return <BehavioralInterviewPlaybookPage guides={guides} />;
+  return <BehavioralInterviewPlaybookPage allGuides={allGuides} />;
 }

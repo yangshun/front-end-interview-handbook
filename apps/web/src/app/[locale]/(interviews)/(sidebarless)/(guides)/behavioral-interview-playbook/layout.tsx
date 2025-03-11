@@ -2,7 +2,7 @@
 
 import type { ReactNode } from 'react';
 
-import { useBehavioralInterviewPlaybookNavigation } from '~/components/guides/books/BehavioralInterviewPlaybookNavigation';
+import { useBehavioralInterviewPlaybookNavigation } from '~/components/guides/books/behavioral-interview-playbook/BehavioralInterviewPlaybookNavigation';
 import GuidesLayout from '~/components/guides/GuidesLayout';
 
 export default function Layout({ children }: { children: ReactNode }) {

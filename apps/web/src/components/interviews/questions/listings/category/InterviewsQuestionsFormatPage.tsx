@@ -5,8 +5,8 @@ import type { InterviewsListingBottomContent } from 'contentlayer/generated';
 
 import { useQuestionFormatsData } from '~/data/QuestionCategories';
 
-import type { FrontEndInterviewPlaybookPathType } from '~/components/guides/books/FrontEndInterviewPlaybookNavigation';
-import type { FrontEndSystemDesignPlaybookPathType } from '~/components/guides/books/FrontEndSystemDesignPlaybookNavigation';
+import type { FrontEndInterviewPlaybookPathType } from '~/components/guides/books/front-end-interview-playbook/FrontEndInterviewPlaybookNavigation';
+import type { FrontEndSystemDesignPlaybookPathType } from '~/components/guides/books/front-end-system-design/FrontEndSystemDesignPlaybookNavigation';
 import type { GuideCardMetadata } from '~/components/guides/types';
 import useGuidesWithCompletionStatus from '~/components/guides/useGuidesWithCompletionStatus';
 import InterviewsPageHeader from '~/components/interviews/common/InterviewsPageHeader';

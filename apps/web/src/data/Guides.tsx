@@ -5,10 +5,10 @@ import {
   RiReactjsFill,
 } from 'react-icons/ri';
 
-import { basePath as behavioralInterviewPlaybookBasePath } from '~/components/guides/books/BehavioralInterviewPlaybookNavigation';
-import { basePath as frontEndInterviewPlaybookBasePath } from '~/components/guides/books/FrontEndInterviewPlaybookNavigation';
-import { basePath as frontEndSystemDesignPlaybookBasePath } from '~/components/guides/books/FrontEndSystemDesignPlaybookNavigation';
-import { basePath as reactInterviewPlaybookBasePath } from '~/components/guides/books/ReactInterviewPlaybookNavigation';
+import { basePath as behavioralInterviewPlaybookBasePath } from '~/components/guides/books/behavioral-interview-playbook/BehavioralInterviewPlaybookNavigation';
+import { basePath as frontEndInterviewPlaybookBasePath } from '~/components/guides/books/front-end-interview-playbook/FrontEndInterviewPlaybookNavigation';
+import { basePath as frontEndSystemDesignPlaybookBasePath } from '~/components/guides/books/front-end-system-design/FrontEndSystemDesignPlaybookNavigation';
+import { basePath as reactInterviewPlaybookBasePath } from '~/components/guides/books/react-interview-playbook/ReactInterviewPlaybookNavigation';
 import { useIntl } from '~/components/intl';
 
 import type { IntlShape } from '@formatjs/intl';

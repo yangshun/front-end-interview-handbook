@@ -3,7 +3,7 @@
 import type { ReactNode } from 'react';
 
 import SidebarPremiumChip from '~/components/global/sidebar/SidebarPremiumChip';
-import { useFrontEndSystemDesignPlaybookNavigation } from '~/components/guides/books/FrontEndSystemDesignPlaybookNavigation';
+import { useFrontEndSystemDesignPlaybookNavigation } from '~/components/guides/books/front-end-system-design/FrontEndSystemDesignPlaybookNavigation';
 import GuidesLayout from '~/components/guides/GuidesLayout';
 
 export default function Layout({ children }: { children: ReactNode }) {

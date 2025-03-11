@@ -1,7 +1,7 @@
 import type { Metadata } from 'next/types';
 
-import { basePath } from '~/components/guides/books/FrontEndSystemDesignPlaybookNavigation';
-import FrontEndSystemDesignPlaybookPage from '~/components/guides/books/FrontEndSystemDesignPlaybookPage';
+import { basePath } from '~/components/guides/books/front-end-system-design/FrontEndSystemDesignPlaybookNavigation';
+import FrontEndSystemDesignPlaybookPage from '~/components/guides/books/front-end-system-design/FrontEndSystemDesignPlaybookPage';
 import type { QuestionListTypeData } from '~/components/interviews/questions/common/QuestionsTypes';
 
 import { readFrontEndSystemDesignGuides } from '~/db/guides/GuidesReader';

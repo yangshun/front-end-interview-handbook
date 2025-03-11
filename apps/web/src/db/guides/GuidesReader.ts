@@ -7,24 +7,24 @@ import {
   basePath as behavioralInterviewPlaybookBasePath,
   BehavioralInterviewPlaybookPaths,
   BehavioralInterviewPlaybookPathToFile,
-} from '~/components/guides/books/BehavioralInterviewPlaybookNavigation';
-import type { FrontEndInterviewPlaybookPathType } from '~/components/guides/books/FrontEndInterviewPlaybookNavigation';
+} from '~/components/guides/books/behavioral-interview-playbook/BehavioralInterviewPlaybookNavigation';
+import type { FrontEndInterviewPlaybookPathType } from '~/components/guides/books/front-end-interview-playbook/FrontEndInterviewPlaybookNavigation';
 import {
   basePath as frontEndInterviewPlaybookBasePath,
   FrontEndInterviewPlaybookPaths,
   FrontEndInterviewPlaybookPathToFile,
-} from '~/components/guides/books/FrontEndInterviewPlaybookNavigation';
+} from '~/components/guides/books/front-end-interview-playbook/FrontEndInterviewPlaybookNavigation';
 import {
   basePath as frontEndSystemDesignPlaybookBasePath,
   FrontEndSystemDesignPlaybookPaths,
   FrontEndSystemDesignPlaybookPathToFile,
-} from '~/components/guides/books/FrontEndSystemDesignPlaybookNavigation';
-import type { ReactInterviewPlaybookPathType } from '~/components/guides/books/ReactInterviewPlaybookNavigation';
+} from '~/components/guides/books/front-end-system-design/FrontEndSystemDesignPlaybookNavigation';
+import type { ReactInterviewPlaybookPathType } from '~/components/guides/books/react-interview-playbook/ReactInterviewPlaybookNavigation';
 import {
   basePath as reactInterviewPlaybookBasePath,
   ReactInterviewPlaybookPaths,
   ReactInterviewPlaybookPathToFile,
-} from '~/components/guides/books/ReactInterviewPlaybookNavigation';
+} from '~/components/guides/books/react-interview-playbook/ReactInterviewPlaybookNavigation';
 import type { GuideCardMetadata } from '~/components/guides/types';
 
 import type { GuidebookItem } from '@prisma/client';

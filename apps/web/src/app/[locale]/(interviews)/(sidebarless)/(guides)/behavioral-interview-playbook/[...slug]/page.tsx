@@ -2,12 +2,12 @@ import grayMatter from 'gray-matter';
 import { getMDXExport } from 'mdx-bundler/client';
 import type { Metadata } from 'next/types';
 
-import BehavioralInterviewPlaybookLayout from '~/components/guides/books/BehavioralInterviewPlaybookLayout';
-import type { BehavioralInterviewPlaybookPathType } from '~/components/guides/books/BehavioralInterviewPlaybookNavigation';
+import BehavioralInterviewPlaybookLayout from '~/components/guides/books/behavioral-interview-playbook/BehavioralInterviewPlaybookLayout';
+import type { BehavioralInterviewPlaybookPathType } from '~/components/guides/books/behavioral-interview-playbook/BehavioralInterviewPlaybookNavigation';
 import {
   basePath,
   BehavioralInterviewPlaybookPathToFile,
-} from '~/components/guides/books/BehavioralInterviewPlaybookNavigation';
+} from '~/components/guides/books/behavioral-interview-playbook/BehavioralInterviewPlaybookNavigation';
 import GuidesMarkdown from '~/components/guides/GuidesMarkdown';
 import MDXCodeBlock from '~/components/mdx/MDXCodeBlock';
 

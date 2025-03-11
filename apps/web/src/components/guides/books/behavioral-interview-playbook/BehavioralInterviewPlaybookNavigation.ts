@@ -11,7 +11,7 @@ import {
 
 import { useIntl } from '~/components/intl';
 
-import type { GuideNavigation } from '../types';
+import type { GuideNavigation } from '../../types';
 
 export const basePath = '/behavioral-interview-playbook';
 

@@ -4,12 +4,12 @@ import { useQueryGuideProgress } from '~/db/guides/GuidesProgressClient';
 import { useI18nPathname } from '~/next-i18nostic/src';
 
 import { useReactInterviewPlaybookNavigation } from './ReactInterviewPlaybookNavigation';
-import GuidesArticle from '../GuidesArticle';
-import GuidesArticleJsonLd from '../GuidesArticleJsonLd';
-import GuidesMainLayout from '../GuidesMainLayout';
-import type { TableOfContents } from '../GuidesTableOfContents';
-import type { GuideMetadata } from '../types';
-import useFlattenedNavigationItems from '../useFlattenedNavigationItems';
+import GuidesArticle from '../../GuidesArticle';
+import GuidesArticleJsonLd from '../../GuidesArticleJsonLd';
+import GuidesMainLayout from '../../GuidesMainLayout';
+import type { TableOfContents } from '../../GuidesTableOfContents';
+import type { GuideMetadata } from '../../types';
+import useFlattenedNavigationItems from '../../useFlattenedNavigationItems';
 
 type Props = Readonly<{
   children?: React.ReactNode;
