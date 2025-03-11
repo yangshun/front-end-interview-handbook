@@ -16,7 +16,7 @@ import InterviewsStudyListPageTitleSection from '../questions/listings/study-lis
 import { useUser } from '@supabase/auth-helpers-react';
 
 type CommonProps = Readonly<{
-  beforeDivider?: ReactNode;
+  beforeDividerElement?: ReactNode;
   description: ReactNode;
   features: ReadonlyArray<{
     icon: (props: React.ComponentProps<'svg'>) => JSX.Element;

@@ -82,7 +82,7 @@ export default function InterviewsStudyPlanBlind75Page({
     <div className={clsx('flex flex-col', 'gap-y-10', 'relative')}>
       <div className="relative flex flex-col gap-y-6">
         <InterviewsRecommendedPrepStrategyPageTitleSection
-          beforeDivider={
+          beforeDividerElement={
             <div className="lg:hidden">
               <SponsorsAdFormatSpotlightCardContainer adPlacement="questions_side_column" />
             </div>
@@ -106,6 +106,11 @@ export default function InterviewsStudyPlanBlind75Page({
                   id="Wyg5gk"
                 />
               </Text>
+              {isSidebarCollapsed ? (
+                <div className="max-lg:hidden min-[1200px]:hidden">
+                  <SponsorsAdFormatSpotlightCardContainer adPlacement="questions_side_column" />
+                </div>
+              ) : null}
             </>
           }
           metadata={{

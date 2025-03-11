@@ -111,17 +111,19 @@ export default function InterviewsQuestionsFormatPage({
   return (
     <div className={clsx('flex flex-col gap-y-8')}>
       <InterviewsPageHeader
-        beforeDividerElement={
-          <div className="min-[1200px]:hidden">
-            <SponsorsAdFormatSpotlightCardContainer adPlacement="questions_below_header" />
-          </div>
-        }
         description={description}
         features={features[format]}
         icon={formatData[format].icon}
         title={title}
       />
       <Section>
+        <div
+          className={clsx(
+            'lg:max-w-md',
+            isSidebarCollapsed ? 'min-[1200px]:hidden' : 'lg:hidden',
+          )}>
+          <SponsorsAdFormatSpotlightCardContainer adPlacement="questions_below_header" />
+        </div>
         <QuestionsUnifiedListWithFiltersAndProgress
           guides={
             guidesWithCompletionStatus.length > 0
