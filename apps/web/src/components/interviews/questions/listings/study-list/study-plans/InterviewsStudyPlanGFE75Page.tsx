@@ -83,11 +83,6 @@ export default function InterviewsStudyPlanGFE75Page({
     <div className={clsx('flex flex-col', 'gap-y-10', 'relative')}>
       <div className="relative flex flex-col gap-y-6">
         <InterviewsRecommendedPrepStrategyPageTitleSection
-          beforeDividerElement={
-            <div className="lg:hidden">
-              <SponsorsAdFormatSpotlightCardContainer adPlacement="questions_below_header" />
-            </div>
-          }
           description={studyList.description}
           features={features}
           logo={
@@ -124,11 +119,6 @@ export default function InterviewsStudyPlanGFE75Page({
                   }}
                 />
               </Text>
-              {isSidebarCollapsed ? (
-                <div className="max-lg:hidden min-[1200px]:hidden">
-                  <SponsorsAdFormatSpotlightCardContainer adPlacement="questions_side_column" />
-                </div>
-              ) : null}
             </>
           }
           metadata={{

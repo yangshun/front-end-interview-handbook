@@ -85,13 +85,6 @@ export default function InterviewsQuestionsCategoryPage({
             {longDescription}
           </InterviewsPageLongDescription>
         )}
-        <div
-          className={clsx(
-            'lg:max-w-md',
-            isSidebarCollapsed ? 'min-[1200px]:hidden' : 'lg:hidden',
-          )}>
-          <SponsorsAdFormatSpotlightCardContainer adPlacement="questions_below_header" />
-        </div>
         <QuestionsUnifiedListWithFiltersAndProgress
           categoryTabs={categoryTabs}
           guides={
