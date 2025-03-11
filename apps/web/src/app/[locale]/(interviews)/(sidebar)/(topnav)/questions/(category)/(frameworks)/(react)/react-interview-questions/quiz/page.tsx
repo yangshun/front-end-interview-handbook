@@ -1,15 +1,17 @@
 import type { Metadata } from 'next/types';
 
+import { getGuidesData } from '~/data/Guides';
+
 import type {
   QuestionFramework,
   QuestionListTypeData,
   QuestionPracticeFormat,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import InterviewsQuestionsCategoryFrameworkPage from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryFrameworkPage';
-import { InterviewsQuestionsQuizGuideSlugs } from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryGuideSlugs';
+import { InterviewsQuestionsFrameworkReactGuideSlugs } from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryGuideSlugs';
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
-import { readFrontEndInterviewPlaybookGuides } from '~/db/guides/GuidesReader';
+import { readReactInterviewPlaybookGuides } from '~/db/guides/GuidesReader';
 import { fetchQuestionsCompletionCount } from '~/db/QuestionsCount';
 import { fetchQuestionsList } from '~/db/QuestionsListReader';
 import { roundQuestionCountToNearestTen } from '~/db/QuestionsUtils';
@@ -87,26 +89,31 @@ export default async function Page({ params }: Props) {
   const { locale } = params;
 
   const [
+    intl,
     { questions: questionsQuiz },
     { questions: questionsAll },
     questionCompletionCount,
     guides,
     bottomContent,
   ] = await Promise.all([
+    getIntlServerOnly(locale),
     fetchQuestionsList(listType, locale),
     fetchQuestionsList({ type: 'framework', value: framework }, locale),
     fetchQuestionsCompletionCount(['quiz']),
-    readFrontEndInterviewPlaybookGuides({
+    readReactInterviewPlaybookGuides({
       locale,
-      slugs: InterviewsQuestionsQuizGuideSlugs,
+      slugs: InterviewsQuestionsFrameworkReactGuideSlugs,
     }),
     fetchInterviewListingBottomContent('framework-react'),
   ]);
+  const guidesData = getGuidesData(intl);
 
   return (
     <InterviewsQuestionsCategoryFrameworkPage
       bottomContent={bottomContent}
       framework={framework}
+      guideCardDescription={guidesData.REACT_INTERVIEW_PLAYBOOK.description}
+      guideCardTitle={guidesData.REACT_INTERVIEW_PLAYBOOK.name}
       guides={guides}
       listType={listType}
       questionCompletionCount={questionCompletionCount}

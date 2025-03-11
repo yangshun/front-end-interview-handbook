@@ -11,7 +11,6 @@ import useUserProfile from '~/hooks/user/useUserProfile';
 
 import { SocialLinks } from '~/data/SocialLinks';
 
-import useCommonNavItems from '~/components/common/navigation/useCommonNavItems';
 import NavColorSchemeDropdown from '~/components/global/navbar/NavColorSchemeDropdown';
 import NavI18nDropdown from '~/components/global/navbar/NavI18nDropdown';
 import NavProductPopover from '~/components/global/navbar/NavProductPopover';
@@ -40,6 +39,7 @@ import {
 
 import InterviewsNavbarEndAddOnItems from './InterviewsNavbarEndAddOnItems';
 import useInterviewsLoggedInLinks from './useInterviewsLoggedInLinks';
+import useInterviewsNavItems from './useInterviewsNavItems';
 import useInterviewsNavLinks from './useInterviewsNavLinks';
 import useInterviewsSidebarLinks from './useInterviewsSidebarLinks';
 
@@ -60,14 +60,14 @@ export default function InterviewsNavbar({
   const intl = useIntl();
   const isPremium = userProfile?.premium ?? false;
   const navLinksFull = useInterviewsNavLinks(isLoggedIn, isPremium);
-  const loggedInLinks = useInterviewsLoggedInLinks();
+  const loggedInLinks = useInterviewsLoggedInLinks('nav');
   const navbarRef = useRef(null);
   const pathname = usePathname();
   const { isSticky } = useIsSticky(navbarRef);
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
 
+  const navItems = useInterviewsNavItems('nav');
   const navSlideOutItems = useInterviewsSidebarLinks(isLoggedIn);
-  const commonNavItems = useCommonNavItems();
 
   function closeMobileNav() {
     setIsMobileNavOpen(false);
@@ -260,16 +260,14 @@ export default function InterviewsNavbar({
                               <>
                                 <Divider />
                                 <DropdownMenu.Item
-                                  href={commonNavItems.interviewsBilling.href}
-                                  icon={commonNavItems.interviewsBilling.icon}
-                                  label={commonNavItems.interviewsBilling.label}
+                                  href={navItems.billing.href}
+                                  icon={navItems.billing.icon}
+                                  label={navItems.billing.label}
                                 />
                                 <DropdownMenu.Item
-                                  href={commonNavItems.interviewsSettings.href}
-                                  icon={commonNavItems.interviewsSettings.icon}
-                                  label={
-                                    commonNavItems.interviewsSettings.label
-                                  }
+                                  href={navItems.settings.href}
+                                  icon={navItems.settings.icon}
+                                  label={navItems.settings.label}
                                 />
                               </>
                             ) : undefined

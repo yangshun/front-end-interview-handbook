@@ -1479,10 +1479,6 @@
     "defaultMessage": "{category} Coding Interview Questions",
     "description": "Title for framework and language page"
   },
-  "6p31z/": {
-    "defaultMessage": "The only React interview guide written specifically for front end engineers.",
-    "description": "Guidebook description"
-  },
   "6pmA7h": {
     "defaultMessage": "How it works",
     "description": "Heading of the 'How it works' marketing section on Projects home page"
@@ -2739,6 +2735,10 @@
     "defaultMessage": "Recommended user submissions you can reference.",
     "description": "FAQ answer for projects platform"
   },
+  "ELtSzL": {
+    "defaultMessage": "A comprehensive React interview guide that covers core concepts and interview-specific React tips",
+    "description": "Guidebook description"
+  },
   "ENNKyg": {
     "defaultMessage": "View subscription plans",
     "description": "Button displayed on paywall on premium question pages, leading to our pricing plans"
@@ -3102,6 +3102,10 @@
   "Geiogi": {
     "defaultMessage": "View your submission",
     "description": "Label for View your submission button on project submit page"
+  },
+  "Ggbe98": {
+    "defaultMessage": "The most comprehensive guide to Front End System Design Interviews you can find",
+    "description": "Front end system design guidebook description"
   },
   "GhEwYP": {
     "defaultMessage": "Go to dashboard and start practicing",
@@ -3515,10 +3519,6 @@
     "defaultMessage": "User interface coding",
     "description": "Front end user interface questions"
   },
-  "IsJxd7": {
-    "defaultMessage": "The only behavioral interview guide written specifically for front end engineers.",
-    "description": "Guidebook description"
-  },
   "IuGYUN": {
     "defaultMessage": "Community | Dashboard",
     "description": "Title of community section on dashboard page"
@@ -3590,6 +3590,10 @@
   "JCAJF/": {
     "defaultMessage": "Practice Front End Algorithmic Coding Interview Questions",
     "description": "SEO title for algo coding question format page"
+  },
+  "JDYHn0": {
+    "defaultMessage": "The only behavioral interview guide written specifically for front end engineers",
+    "description": "Guidebook description"
   },
   "JEQ/x0": {
     "defaultMessage": "Send message",
@@ -6895,6 +6899,10 @@
     "defaultMessage": "Next",
     "description": "Label for button leading to the next page"
   },
+  "b5AaMm": {
+    "defaultMessage": "Core System Design techniques and in-depth solutions to common questions like building a social media feed, autocomplete component, e-commerce website.",
+    "description": "Description for front end system design guide"
+  },
   "b7LUKd": {
     "defaultMessage": "See all questions",
     "description": "Label for see all practice questions button"
@@ -8427,10 +8435,6 @@
     "defaultMessage": "Please <link>leave us an email</link> if you have any other needs or wants. We would love to discuss them!",
     "description": "Question base section subtitle - third paragraph"
   },
-  "jm+fR2": {
-    "defaultMessage": "The most comprehensive guide to Front End System Design Interviews you can find.",
-    "description": "Front end system design guidebook description"
-  },
   "jmGaKF": {
     "defaultMessage": "API design principles",
     "description": "User Interface components API design principles"
@@ -8750,10 +8754,6 @@
   "lJF2aI": {
     "defaultMessage": "See child skills ({count})",
     "description": "Label to show skills card"
-  },
-  "lKKC9U": {
-    "defaultMessage": "Core System Design techniques and in-depth solutions to common questions like building a social media feed, autocomplete component, e-commerce website.",
-    "description": "Description for frontend system design guide"
   },
   "lMWmct": {
     "defaultMessage": "An 'active day' is a day you completed at least 1 question",
@@ -9911,10 +9911,6 @@
     "defaultMessage": "Username already exists",
     "description": "Error for user already exists"
   },
-  "sYlXT3": {
-    "defaultMessage": "The definitive guide to preparing for Front End Interviews, written by the author of Front End Interview Handbook.",
-    "description": "Guidebook description"
-  },
   "saKoIy": {
     "defaultMessage": "Join Discord (public)",
     "description": "Label for join discord"
@@ -10226,6 +10222,10 @@
   "uGbcAo": {
     "defaultMessage": "Famed list of the 75 most important algorithm questions",
     "description": "Description of Blind 75"
+  },
+  "uGihtm": {
+    "defaultMessage": "The definitive guide to preparing for Front End Interviews, written by the author of Front End Interview Handbook",
+    "description": "Guidebook description"
   },
   "uK9SHL": {
     "defaultMessage": "You're about to visit an external website. Proceed with caution and keep your personal information safe!",

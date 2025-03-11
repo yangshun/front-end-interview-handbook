@@ -31,6 +31,8 @@ type Props = Omit<
     description?: string;
     features?: ReadonlyArray<QuestionListFeature>;
     framework: QuestionFramework;
+    guideCardDescription?: string;
+    guideCardTitle?: string;
     guides: ReadonlyArray<GuideCardMetadata>;
     listType: React.ComponentProps<
       typeof InterviewsQuestionsCategoryPage
@@ -53,6 +55,8 @@ export default function InterviewsQuestionsCategoryFrameworkPage({
   features = defaultFeatures,
   framework,
   questions,
+  guideCardTitle,
+  guideCardDescription,
   showCategoryTabs = true,
   bottomContent,
   totalQuestionsCount,
@@ -82,6 +86,8 @@ export default function InterviewsQuestionsCategoryFrameworkPage({
           frameworks[framework].getDescription(totalQuestionsCount)
         }
         features={featureItems}
+        guideCardDescription={guideCardDescription}
+        guideCardTitle={guideCardTitle}
         listType={listType}
         questionList={questions}
         searchPlaceholder={frameworks[framework].getSearchPlaceholder(

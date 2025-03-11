@@ -49,16 +49,14 @@ type Props = Readonly<{
     a: QuestionFormat,
     b: QuestionFormat,
   ) => number;
-  // Framework?: QuestionFramework;
-  guides?: {
+  guideCard?: Readonly<{
     description: string;
     items: ReadonlyArray<GuideCardMetadataWithCompletedStatus>;
     title: string;
-  };
+  }>;
   initialFormat?: QuestionFormat | null;
   listMode?: React.ComponentProps<typeof QuestionsList>['mode'];
   listType?: React.ComponentProps<typeof QuestionsList>['listType'];
-  // Mode?: 'default' | 'framework';
   onMarkAsCompleted?: (question: QuestionMetadata) => void;
   onMarkAsNotCompleted?: (question: QuestionMetadata) => void;
   questionCompletionCount?: QuestionCompletionCount;
@@ -83,7 +81,7 @@ export default function QuestionsUnifiedListWithFilters({
   searchPlaceholder,
   showCount_TEMPORARY = true,
   sideColumnAddOn,
-  guides,
+  guideCard,
 }: Props) {
   const intl = useIntl();
   const framework =
@@ -287,11 +285,8 @@ export default function QuestionsUnifiedListWithFilters({
               </Heading>
               <Section>
                 <div className="flex flex-col gap-4">
-                  {guides && (
-                    <InterviewsGuideCard
-                      key={guides.items.length}
-                      data={guides}
-                    />
+                  {guideCard && (
+                    <InterviewsGuideCard key={guideCard.title} {...guideCard} />
                   )}
                   <QuestionsList
                     checkIfCompletedQuestion={(question) =>

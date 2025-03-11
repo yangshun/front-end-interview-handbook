@@ -3,6 +3,7 @@ import { keyBy, sumBy } from 'lodash-es';
 import { BehavioralInterviewPlaybookPaths } from '~/components/guides/books/BehavioralInterviewPlaybookNavigation';
 import { FrontEndInterviewPlaybookPaths } from '~/components/guides/books/FrontEndInterviewPlaybookNavigation';
 import { FrontEndSystemDesignPlaybookPaths } from '~/components/guides/books/FrontEndSystemDesignPlaybookNavigation';
+import { ReactInterviewPlaybookPaths } from '~/components/guides/books/ReactInterviewPlaybookNavigation';
 import type {
   GuideCardMetadata,
   GuideMetadata,
@@ -54,7 +55,10 @@ export function processForGuidesCover<
 }
 
 export type GuidesProgressCount = Record<
-  'behavioralPlaybook' | 'frontendInterviewPlaybook' | 'systemDesignPlaybook',
+  | 'behavioralPlaybook'
+  | 'frontEndInterviewPlaybook'
+  | 'reactInterviewPlaybook'
+  | 'systemDesignPlaybook',
   {
     completed: number;
     total: number;
@@ -72,9 +76,14 @@ export function getGuideCompletionCount(
         total: BehavioralInterviewPlaybookPaths.length,
         updatedAt: null,
       },
-      frontendInterviewPlaybook: {
+      frontEndInterviewPlaybook: {
         completed: 0,
         total: FrontEndInterviewPlaybookPaths.length,
+        updatedAt: null,
+      },
+      reactInterviewPlaybook: {
+        completed: 0,
+        total: ReactInterviewPlaybookPaths.length,
         updatedAt: null,
       },
       systemDesignPlaybook: {
@@ -90,8 +99,10 @@ export function getGuideCompletionCount(
   );
 
   const {
-    frontendInterviewPlaybookCompletionCount,
-    frontendInterviewPlaybookLatestDate,
+    frontEndInterviewPlaybookCompletionCount,
+    frontEndInterviewPlaybookLatestDate,
+    reactInterviewPlaybookCompletionCount,
+    reactInterviewPlaybookLatestDate,
     systemDesignPlaybookCompletionCount,
     systemDesignPlaybookLatestDate,
     behavioralPlaybookCompletionCount,
@@ -104,9 +115,9 @@ export function getGuideCompletionCount(
       );
 
       if (book === 'FRONT_END_INTERVIEW_PLAYBOOK') {
-        counts.frontendInterviewPlaybookCompletionCount++;
-        counts.frontendInterviewPlaybookLatestDate = getLatestDate(
-          counts.frontendInterviewPlaybookLatestDate,
+        counts.frontEndInterviewPlaybookCompletionCount++;
+        counts.frontEndInterviewPlaybookLatestDate = getLatestDate(
+          counts.frontEndInterviewPlaybookLatestDate,
           guide?.createdAt,
         );
       }
@@ -115,6 +126,14 @@ export function getGuideCompletionCount(
         counts.systemDesignPlaybookCompletionCount++;
         counts.systemDesignPlaybookLatestDate = getLatestDate(
           counts.systemDesignPlaybookLatestDate,
+          guide?.createdAt,
+        );
+      }
+
+      if (book === 'REACT_INTERVIEW_PLAYBOOK') {
+        counts.reactInterviewPlaybookCompletionCount++;
+        counts.reactInterviewPlaybookLatestDate = getLatestDate(
+          counts.reactInterviewPlaybookLatestDate,
           guide?.createdAt,
         );
       }
@@ -132,8 +151,10 @@ export function getGuideCompletionCount(
     {
       behavioralPlaybookCompletionCount: 0,
       behavioralPlaybookLatestDate: null as Date | null,
-      frontendInterviewPlaybookCompletionCount: 0,
-      frontendInterviewPlaybookLatestDate: null as Date | null,
+      frontEndInterviewPlaybookCompletionCount: 0,
+      frontEndInterviewPlaybookLatestDate: null as Date | null,
+      reactInterviewPlaybookCompletionCount: 0,
+      reactInterviewPlaybookLatestDate: null as Date | null,
       systemDesignPlaybookCompletionCount: 0,
       systemDesignPlaybookLatestDate: null as Date | null,
     },
@@ -145,10 +166,15 @@ export function getGuideCompletionCount(
       total: BehavioralInterviewPlaybookPaths.length,
       updatedAt: behavioralPlaybookLatestDate,
     },
-    frontendInterviewPlaybook: {
-      completed: frontendInterviewPlaybookCompletionCount,
+    frontEndInterviewPlaybook: {
+      completed: frontEndInterviewPlaybookCompletionCount,
       total: FrontEndInterviewPlaybookPaths.length,
-      updatedAt: frontendInterviewPlaybookLatestDate,
+      updatedAt: frontEndInterviewPlaybookLatestDate,
+    },
+    reactInterviewPlaybook: {
+      completed: reactInterviewPlaybookCompletionCount,
+      total: ReactInterviewPlaybookPaths.length,
+      updatedAt: reactInterviewPlaybookLatestDate,
     },
     systemDesignPlaybook: {
       completed: systemDesignPlaybookCompletionCount,

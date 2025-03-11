@@ -29,7 +29,7 @@ type Props = Omit<
   'onMarkAsCompleted' | 'onMarkAsNotCompleted' | 'questions'
 > &
   Readonly<{
-    guides?: {
+    guideCard?: {
       description: string;
       items: ReadonlyArray<GuideCardMetadataWithCompletedStatus>;
       title: string;

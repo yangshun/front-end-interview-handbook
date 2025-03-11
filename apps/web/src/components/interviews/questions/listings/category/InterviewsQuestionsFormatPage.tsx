@@ -118,7 +118,7 @@ export default function InterviewsQuestionsFormatPage({
       />
       <Section>
         <QuestionsUnifiedListWithFiltersAndProgress
-          guides={
+          guideCard={
             guidesWithCompletionStatus.length > 0
               ? {
                   description: intl.formatMessage({

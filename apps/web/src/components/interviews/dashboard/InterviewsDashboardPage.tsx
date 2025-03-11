@@ -137,19 +137,19 @@ export default function InterviewsDashboardPage({
           },
         ]
       : []),
-    ...(guidesProgressCount.frontendInterviewPlaybook.completed > 0 &&
-    guidesProgressCount.frontendInterviewPlaybook.completed !==
-      guidesProgressCount.frontendInterviewPlaybook.total
+    ...(guidesProgressCount.frontEndInterviewPlaybook.completed > 0 &&
+    guidesProgressCount.frontEndInterviewPlaybook.completed !==
+      guidesProgressCount.frontEndInterviewPlaybook.total
       ? [
           {
             articleProgress: {
               completed:
-                guidesProgressCount.frontendInterviewPlaybook.completed,
-              total: guidesProgressCount.frontendInterviewPlaybook.total,
+                guidesProgressCount.frontEndInterviewPlaybook.completed,
+              total: guidesProgressCount.frontEndInterviewPlaybook.total,
             },
             href: guidesData.FRONT_END_INTERVIEW_PLAYBOOK.href,
             title: guidesData.FRONT_END_INTERVIEW_PLAYBOOK.name,
-            updatedAt: guidesProgressCount.frontendInterviewPlaybook.updatedAt,
+            updatedAt: guidesProgressCount.frontEndInterviewPlaybook.updatedAt,
           },
         ]
       : []),
@@ -173,7 +173,7 @@ export default function InterviewsDashboardPage({
             title: guidesData.FRONT_END_SYSTEM_DESIGN_PLAYBOOK.name,
             // Get the latest date from either article progress or question progress
             updatedAt: getLatestDate(
-              guidesProgressCount.frontendInterviewPlaybook.updatedAt,
+              guidesProgressCount.frontEndInterviewPlaybook.updatedAt,
               systemDesignQuestionLatestCreatedAt,
             ),
           },

@@ -56,8 +56,11 @@ function InterviewsRecommendedPrepStrategyPopoverContents({
       recommendedPrepData &&
       session.key === recommendedPrepData.blind75.studyListKey,
   );
-  const { frontendInterviewPlaybook, systemDesignPlaybook } =
-    getGuideCompletionCount(guideProgress);
+  const {
+    reactInterviewPlaybook,
+    frontEndInterviewPlaybook,
+    systemDesignPlaybook,
+  } = getGuideCompletionCount(guideProgress);
   const questionsProgressAll = categorizeQuestionsProgress(overallProgress);
 
   const guidesData = useGuidesData();
@@ -66,7 +69,7 @@ function InterviewsRecommendedPrepStrategyPopoverContents({
     {
       href: guidesData.FRONT_END_INTERVIEW_PLAYBOOK.href,
       isCompleted:
-        frontendInterviewPlaybook.total === frontendInterviewPlaybook.completed,
+        frontEndInterviewPlaybook.total === frontEndInterviewPlaybook.completed,
       label: guidesData.FRONT_END_INTERVIEW_PLAYBOOK.name,
     },
     {
@@ -94,6 +97,12 @@ function InterviewsRecommendedPrepStrategyPopoverContents({
           systemDesignPlaybook.total +
             recommendedPrepData.systemDesignQuestionCount,
       label: guidesData.FRONT_END_SYSTEM_DESIGN_PLAYBOOK.shortName,
+    },
+    {
+      href: guidesData.REACT_INTERVIEW_PLAYBOOK.href,
+      isCompleted:
+        reactInterviewPlaybook.total === reactInterviewPlaybook.completed,
+      label: guidesData.REACT_INTERVIEW_PLAYBOOK.name,
     },
   ];
 
@@ -210,7 +219,7 @@ export default function InterviewsRecommendedPrepStrategyPopover({
                   description="Trigger label for other items"
                   id="59u5/i"
                   values={{
-                    count: 3,
+                    count: 4,
                   }}
                 />
               </Text>

@@ -1,5 +1,7 @@
 import type { Metadata } from 'next/types';
 
+import { getGuidesData } from '~/data/Guides';
+
 import type { QuestionListTypeData } from '~/components/interviews/questions/common/QuestionsTypes';
 import {
   type QuestionFramework,
@@ -7,10 +9,10 @@ import {
   type QuestionPracticeFormat,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import InterviewsQuestionsCategoryFrameworkPage from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryFrameworkPage';
-import { InterviewsQuestionsFrameworkGuideSlugs } from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryGuideSlugs';
+import { InterviewsQuestionsFrameworkReactGuideSlugs } from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryGuideSlugs';
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
-import { readFrontEndInterviewPlaybookGuides } from '~/db/guides/GuidesReader';
+import { readReactInterviewPlaybookGuides } from '~/db/guides/GuidesReader';
 import { fetchQuestionsCompletionCount } from '~/db/QuestionsCount';
 import { fetchQuestionsList } from '~/db/QuestionsListReader';
 import { roundQuestionCountToNearestTen } from '~/db/QuestionsUtils';
@@ -92,9 +94,9 @@ export default async function Page({ params }: Props) {
       getIntlServerOnly(locale),
       fetchQuestionsList(listType, locale),
       fetchQuestionsCompletionCount(['user-interface']),
-      readFrontEndInterviewPlaybookGuides({
+      readReactInterviewPlaybookGuides({
         locale,
-        slugs: InterviewsQuestionsFrameworkGuideSlugs,
+        slugs: InterviewsQuestionsFrameworkReactGuideSlugs,
       }),
       fetchInterviewListingBottomContent('react-coding-interview-questions'),
     ]);
@@ -113,6 +115,7 @@ export default async function Page({ params }: Props) {
       },
     ),
   };
+  const guidesData = getGuidesData(intl);
 
   return (
     <InterviewsQuestionsCategoryFrameworkPage
@@ -129,6 +132,8 @@ export default async function Page({ params }: Props) {
         },
       )}
       framework={framework}
+      guideCardDescription={guidesData.REACT_INTERVIEW_PLAYBOOK.description}
+      guideCardTitle={guidesData.REACT_INTERVIEW_PLAYBOOK.name}
       guides={guides}
       listType={listTypeWithTitle}
       questionCompletionCount={questionCompletionCount}

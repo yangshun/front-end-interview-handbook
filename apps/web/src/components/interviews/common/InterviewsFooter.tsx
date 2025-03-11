@@ -71,6 +71,11 @@ function useFooterNavigation() {
           name: guidesData.FRONT_END_SYSTEM_DESIGN_PLAYBOOK.name,
         },
         {
+          href: guidesData.REACT_INTERVIEW_PLAYBOOK.href,
+          key: guidesData.REACT_INTERVIEW_PLAYBOOK.key,
+          name: guidesData.REACT_INTERVIEW_PLAYBOOK.name,
+        },
+        {
           href: guidesData.BEHAVIORAL_INTERVIEW_PLAYBOOK.href,
           key: guidesData.BEHAVIORAL_INTERVIEW_PLAYBOOK.key,
           name: guidesData.BEHAVIORAL_INTERVIEW_PLAYBOOK.name,

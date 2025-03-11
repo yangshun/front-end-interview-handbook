@@ -10,7 +10,6 @@ import {
 } from '~/data/QuestionCategories';
 import { SocialLinks } from '~/data/SocialLinks';
 
-import useCommonNavItems from '~/components/common/navigation/useCommonNavItems';
 import {
   SidebarCollapsed,
   SidebarExpanded,
@@ -33,6 +32,7 @@ import Tooltip from '~/components/ui/Tooltip';
 
 import { useI18nPathname } from '~/next-i18nostic/src';
 
+import useInterviewsNavItems from './useInterviewsNavItems';
 import useInterviewsSidebarLinks from './useInterviewsSidebarLinks';
 
 import { useUser } from '@supabase/auth-helpers-react';
@@ -47,7 +47,7 @@ export function InterviewsSidebarExpanded({
   const { isLoading, userProfile } = useUserProfile();
   const { pathname } = useI18nPathname();
   const isPremium = userProfile?.premium ?? false;
-  const commonNavItems = useCommonNavItems();
+  const interviewsNavItems = useInterviewsNavItems('sidebar');
 
   const shouldOpenPracticeQuestionsSectionByDefault = (() => {
     if (
@@ -105,14 +105,14 @@ export function InterviewsSidebarExpanded({
           <>
             <Divider />
             <DropdownMenu.Item
-              href={commonNavItems.interviewsBilling.href}
-              icon={commonNavItems.interviewsBilling.icon}
-              label={commonNavItems.interviewsBilling.label}
+              href={interviewsNavItems.billing.href}
+              icon={interviewsNavItems.billing.icon}
+              label={interviewsNavItems.billing.label}
             />
             <DropdownMenu.Item
-              href={commonNavItems.interviewsSettings.href}
-              icon={commonNavItems.interviewsSettings.icon}
-              label={commonNavItems.interviewsSettings.label}
+              href={interviewsNavItems.settings.href}
+              icon={interviewsNavItems.settings.icon}
+              label={interviewsNavItems.settings.label}
             />
           </>
         ) : undefined
@@ -139,7 +139,7 @@ function InterviewsSidebarCollapsed({
 }>) {
   const socialDiscountLabels = useSocialDiscountLabels();
   const { userProfile, isLoading } = useUserProfile();
-  const commonNavItems = useCommonNavItems();
+  const interviewsNavItems = useInterviewsNavItems('sidebar');
 
   return (
     <SidebarCollapsed
@@ -180,14 +180,14 @@ function InterviewsSidebarCollapsed({
           <>
             <Divider />
             <DropdownMenu.Item
-              href={commonNavItems.interviewsBilling.href}
-              icon={commonNavItems.interviewsBilling.icon}
-              label={commonNavItems.interviewsBilling.label}
+              href={interviewsNavItems.billing.href}
+              icon={interviewsNavItems.billing.icon}
+              label={interviewsNavItems.billing.label}
             />
             <DropdownMenu.Item
-              href={commonNavItems.interviewsSettings.href}
-              icon={commonNavItems.interviewsSettings.icon}
-              label={commonNavItems.interviewsSettings.label}
+              href={interviewsNavItems.settings.href}
+              icon={interviewsNavItems.settings.icon}
+              label={interviewsNavItems.settings.label}
             />
           </>
         ) : undefined

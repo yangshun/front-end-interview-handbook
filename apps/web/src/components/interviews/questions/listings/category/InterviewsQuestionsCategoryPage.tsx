@@ -26,6 +26,8 @@ type Props = Readonly<{
   categoryTabs?: ReactNode;
   description: string;
   features: React.ComponentProps<typeof InterviewsPageHeader>['features'];
+  guideCardDescription?: string;
+  guideCardTitle?: string;
   guides?: ReadonlyArray<GuideCardMetadata>;
   listType?: React.ComponentProps<
     typeof QuestionsUnifiedListWithFiltersAndProgress
@@ -41,6 +43,8 @@ type Props = Readonly<{
 export default function InterviewsQuestionsCategoryPage({
   categoryTabs,
   description,
+  guideCardTitle,
+  guideCardDescription,
   longDescription,
   features,
   questionCompletionCount,
@@ -87,31 +91,35 @@ export default function InterviewsQuestionsCategoryPage({
         )}
         <QuestionsUnifiedListWithFiltersAndProgress
           categoryTabs={categoryTabs}
-          guides={
+          guideCard={
             guidesWithCompletionStatus.length > 0
               ? {
-                  description: intl.formatMessage(
-                    {
-                      defaultMessage:
-                        'Explore our starter guides to get a solid grasp of {category} interview prep before jumping into practice.',
-                      description: 'Description for guide card',
-                      id: 'FtnCTh',
-                    },
-                    {
-                      category: categoryItem?.label,
-                    },
-                  ),
+                  description:
+                    guideCardDescription ??
+                    intl.formatMessage(
+                      {
+                        defaultMessage:
+                          'Explore our starter guides to get a solid grasp of {category} interview prep before jumping into practice.',
+                        description: 'Description for guide card',
+                        id: 'FtnCTh',
+                      },
+                      {
+                        category: categoryItem?.label,
+                      },
+                    ),
                   items: guidesWithCompletionStatus,
-                  title: intl.formatMessage(
-                    {
-                      defaultMessage: '{category} Interview Guides',
-                      description: 'Description for guide card',
-                      id: 'VYDUrI',
-                    },
-                    {
-                      category: categoryItem?.label,
-                    },
-                  ),
+                  title:
+                    guideCardTitle ??
+                    intl.formatMessage(
+                      {
+                        defaultMessage: '{category} Interview Guides',
+                        description: 'Description for guide card',
+                        id: 'VYDUrI',
+                      },
+                      {
+                        category: categoryItem?.label,
+                      },
+                    ),
                 }
               : undefined
           }

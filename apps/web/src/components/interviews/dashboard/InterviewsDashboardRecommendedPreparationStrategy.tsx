@@ -145,24 +145,24 @@ function PreparationStrategyCard({
           ) : (
             <div
               className={clsx(
-                'flex flex-col gap-x-8 gap-y-2 md:flex-row',
+                'flex flex-col gap-x-4 gap-y-2 md:flex-row',
                 'transition-colors',
                 isLoading && 'opacity-0',
               )}>
-              {article && (
-                <InterviewsEntityProgress
-                  completed={article.completed}
-                  entity="article"
-                  title={title}
-                  total={article.total}
-                />
-              )}
               {question && (
                 <InterviewsEntityProgress
                   completed={question.completed}
                   entity="question"
                   title={title}
                   total={question.total}
+                />
+              )}
+              {article && (
+                <InterviewsEntityProgress
+                  completed={article.completed}
+                  entity="article"
+                  title={title}
+                  total={article.total}
                 />
               )}
             </div>
@@ -208,14 +208,14 @@ export default function InterviewsDashboardRecommendedPreparationStrategy({
       recommendedPrepData &&
       session.key === recommendedPrepData.blind75.studyListKey,
   );
-  const { frontendInterviewPlaybook, systemDesignPlaybook } =
+  const { frontEndInterviewPlaybook, systemDesignPlaybook } =
     guidesProgressCount;
 
   const preparationStrategies: Array<PreparationStrategyItem> = [
     {
       article: {
-        completed: frontendInterviewPlaybook.completed,
-        total: frontendInterviewPlaybook.total,
+        completed: frontEndInterviewPlaybook.completed,
+        total: frontEndInterviewPlaybook.total,
       },
       description: intl.formatMessage({
         defaultMessage: 'A starter guide to preparing for front end interviews',
@@ -278,8 +278,8 @@ export default function InterviewsDashboardRecommendedPreparationStrategy({
       description: intl.formatMessage({
         defaultMessage:
           'Core System Design techniques and in-depth solutions to common questions like building a social media feed, autocomplete component, e-commerce website.',
-        description: 'Description for frontend system design guide',
-        id: 'lKKC9U',
+        description: 'Description for front end system design guide',
+        id: 'b5AaMm',
       }),
       href: guidesData.FRONT_END_SYSTEM_DESIGN_PLAYBOOK.href,
       icon: guidesData.FRONT_END_SYSTEM_DESIGN_PLAYBOOK.icon,

@@ -8,10 +8,12 @@ import {
   RiListCheck3,
   RiPriceTag3Line,
   RiReactjsFill,
+  RiSettings3Line,
   RiShiningLine,
   RiTerminalWindowLine,
   RiThumbUpLine,
   RiTimeLine,
+  RiWallet3Line,
 } from 'react-icons/ri';
 import url from 'url';
 
@@ -34,7 +36,11 @@ import type { NavbarTopLevelItem } from '~/components/ui/Navbar/NavTypes';
 import InterviewsPremiumBadge from './InterviewsPremiumBadge';
 import { QuestionCountTotal } from '../questions/listings/stats/QuestionCount';
 
-export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
+export type InterviewsNavPlacement = 'nav' | 'sidebar';
+
+export default function useInterviewsNavItems(
+  placement: InterviewsNavPlacement,
+) {
   const intl = useIntl();
 
   const guidesData = useGuidesData();
@@ -556,6 +562,32 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
         type: 'popover-link',
       },
       {
+        href: guidesData.REACT_INTERVIEW_PLAYBOOK.href,
+        icon: guidesData.REACT_INTERVIEW_PLAYBOOK.icon,
+        id: guidesData.REACT_INTERVIEW_PLAYBOOK.key,
+        label: guidesData.REACT_INTERVIEW_PLAYBOOK.name,
+        labelAddon: (
+          <Badge
+            label={intl.formatMessage({
+              defaultMessage: 'Free',
+              description: 'Free-of-charge label',
+              id: 'S+6OOS',
+            })}
+            size="xs"
+            variant="success"
+          />
+        ),
+        onClick: () => {
+          gtag.event({
+            action: `${placement}.prepare.guides.rig.click`,
+            category: 'engagement',
+            label: guidesData.REACT_INTERVIEW_PLAYBOOK.name,
+          });
+        },
+        sublabel: guidesData.REACT_INTERVIEW_PLAYBOOK.description,
+        type: 'popover-link',
+      },
+      {
         href: guidesData.BEHAVIORAL_INTERVIEW_PLAYBOOK.href,
         icon: guidesData.BEHAVIORAL_INTERVIEW_PLAYBOOK.icon,
         id: guidesData.BEHAVIORAL_INTERVIEW_PLAYBOOK.key,
@@ -621,8 +653,45 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
     position: 'end',
     type: 'link',
   } as const;
+  const settings = {
+    href: '/profile',
+    icon: RiSettings3Line,
+    id: 'profile',
+    label: intl.formatMessage({
+      defaultMessage: 'Settings',
+      description: 'Link label to the profile page',
+      id: 'SWnsuA',
+    }),
+    onClick: () => {
+      gtag.event({
+        action: `nav.profile.click`,
+        category: 'engagement',
+        label: 'Settings',
+      });
+    },
+    type: 'link',
+  } as const;
+  const billing = {
+    href: '/profile/billing',
+    icon: RiWallet3Line,
+    id: 'billing',
+    label: intl.formatMessage({
+      defaultMessage: 'Billing',
+      description: 'Link label to the billing page',
+      id: '45Wusd',
+    }),
+    onClick: () => {
+      gtag.event({
+        action: `nav.billing.click`,
+        category: 'engagement',
+        label: 'Billing',
+      });
+    },
+    type: 'link',
+  } as const;
 
   return {
+    billing,
     dashboard,
     features,
     getStarted,
@@ -631,6 +700,7 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
     practiceQuestions,
     pricing,
     recommendedPreparation,
+    settings,
     timeSavers,
   };
 }

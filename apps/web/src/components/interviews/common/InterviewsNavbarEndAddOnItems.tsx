@@ -17,7 +17,7 @@ export default function InterviewsNavbarEndAddOnItems() {
   const { userProfile } = useUserProfile();
   const intl = useIntl();
   const isPremium = userProfile?.premium ?? false;
-  const loggedInLinks = useInterviewsLoggedInLinks();
+  const loggedInLinks = useInterviewsLoggedInLinks('sidebar');
 
   return (
     <>

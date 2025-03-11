@@ -34,21 +34,21 @@ import { useUser } from '@supabase/auth-helpers-react';
 
 type GuidesListProps = Readonly<{
   className: string;
-  data: ReadonlyArray<GuideCardMetadataWithCompletedStatus>;
+  guideMetadataItems: ReadonlyArray<GuideCardMetadataWithCompletedStatus>;
   onMarkAsCompleted: (guide: GuideCardMetadata) => void;
   onMarkAsNotCompleted: (guide: GuideCardMetadata) => void;
 }>;
 
-function InterviewGuideList({
+function InterviewsGuideList({
   className,
-  data,
+  guideMetadataItems,
   onMarkAsCompleted,
   onMarkAsNotCompleted,
 }: GuidesListProps) {
   return (
     <ul className={clsx('isolate flex flex-col gap-2', className)}>
-      {data.map((guide) => {
-        const { title, description, isCompleted, href } = guide;
+      {guideMetadataItems.map((guideMetadata) => {
+        const { title, description, isCompleted, href } = guideMetadata;
 
         return (
           <li
@@ -64,14 +64,13 @@ function InterviewGuideList({
             )}>
             <GuidesListItemProgressChip
               className="z-[1]"
-              guide={guide}
+              guide={guideMetadata}
               hasCompleted={isCompleted}
               size="sm"
               onMarkAsCompleted={onMarkAsCompleted}
               onMarkAsNotCompleted={onMarkAsNotCompleted}
             />
-
-            <div className="flex flex-1 flex-col gap-1.5">
+            <div className="flex flex-1 flex-col gap-y-1">
               <Anchor
                 className="focus:outline-none"
                 href={href}
@@ -86,7 +85,6 @@ function InterviewGuideList({
                 {description}
               </Text>
             </div>
-
             <RiArrowRightLine
               aria-hidden="true"
               className={clsx(
@@ -103,14 +101,16 @@ function InterviewGuideList({
 }
 
 type Props = Readonly<{
-  data: {
-    description: string;
-    items: ReadonlyArray<GuideCardMetadataWithCompletedStatus>;
-    title: string;
-  };
+  description: string;
+  items: ReadonlyArray<GuideCardMetadataWithCompletedStatus>;
+  title: string;
 }>;
 
-export default function InterviewsGuideCard({ data }: Props) {
+export default function InterviewsGuideCard({
+  title,
+  description,
+  items,
+}: Props) {
   const intl = useIntl();
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
@@ -122,7 +122,6 @@ export default function InterviewsGuideCard({ data }: Props) {
 
   const DropdownIcon = isOpen ? RiArrowUpSLine : RiArrowDownSLine;
 
-  const { title, description, items } = data;
   const completionCount = items.filter((guide) => guide.isCompleted).length;
   const totalCount = items.length;
   const isGuideCompleted = totalCount === completionCount;
@@ -187,14 +186,14 @@ export default function InterviewsGuideCard({ data }: Props) {
             {hasMultipleGuides ? (
               <GuidesListItemProgressChip
                 className="z-[1]"
-                guide={data.items[0]}
+                guide={items[0]}
                 hasCompleted={isGuideCompleted}
               />
             ) : (
               <GuidesListItemProgressChip
                 className="z-[1]"
-                guide={data.items[0]}
-                hasCompleted={data.items[0].isCompleted}
+                guide={items[0]}
+                hasCompleted={items[0].isCompleted}
                 onMarkAsCompleted={onMarkGuideAsCompleted}
                 onMarkAsNotCompleted={markGuideAsNotCompleted}
               />
@@ -284,10 +283,10 @@ export default function InterviewsGuideCard({ data }: Props) {
             )}
           </div>
           {isOpen && (
-            <div className="px-6 pb-4">
-              <InterviewGuideList
+            <div className="px-6 pb-6">
+              <InterviewsGuideList
                 className="pl-14"
-                data={data.items}
+                guideMetadataItems={items}
                 onMarkAsCompleted={onMarkGuideAsCompleted}
                 onMarkAsNotCompleted={markGuideAsNotCompleted}
               />

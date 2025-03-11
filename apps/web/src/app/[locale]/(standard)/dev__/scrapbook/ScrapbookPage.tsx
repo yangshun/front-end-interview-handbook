@@ -131,33 +131,30 @@ export default function ScrapbookPage() {
             </UIExamplesGroup>
             <UIExamplesGroup darkMode="horizontal">
               <InterviewsGuideCard
-                data={{
-                  description:
-                    'Explore our starter guides to get a solid grasp of JavaScript interview prep before jumping into practice.',
-                  items: [
-                    {
-                      book: 'FRONT_END_INTERVIEW_PLAYBOOK',
-                      description:
-                        'Answering fundamental of JavaScript and related.',
-                      href: '#',
-                      id: 'intro',
-                      isCompleted: false,
-                      readingTime: 3,
-                      title: 'Foundation of JS',
-                    },
-                    {
-                      book: 'FRONT_END_SYSTEM_DESIGN_PLAYBOOK',
-                      description:
-                        'Answering fundamental of JavaScript and related.',
-                      href: '#',
-                      id: 'foundation',
-                      isCompleted: false,
-                      readingTime: 4,
-                      title: 'Object Oriented Programming',
-                    },
-                  ],
-                  title: 'JavaScript Interview guides',
-                }}
+                description="Explore our starter guides to get a solid grasp of JavaScript interview prep before jumping into practice."
+                items={[
+                  {
+                    book: 'FRONT_END_INTERVIEW_PLAYBOOK',
+                    description:
+                      'Answering fundamental of JavaScript and related.',
+                    href: '#',
+                    id: 'intro',
+                    isCompleted: false,
+                    readingTime: 3,
+                    title: 'Foundation of JS',
+                  },
+                  {
+                    book: 'FRONT_END_SYSTEM_DESIGN_PLAYBOOK',
+                    description:
+                      'Answering fundamental of JavaScript and related.',
+                    href: '#',
+                    id: 'foundation',
+                    isCompleted: false,
+                    readingTime: 4,
+                    title: 'Object Oriented Programming',
+                  },
+                ]}
+                title="JavaScript Interview guides"
               />
             </UIExamplesGroup>
           </div>

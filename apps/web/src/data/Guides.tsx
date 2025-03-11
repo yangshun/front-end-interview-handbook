@@ -11,6 +11,7 @@ import { basePath as frontEndSystemDesignPlaybookBasePath } from '~/components/g
 import { basePath as reactInterviewPlaybookBasePath } from '~/components/guides/books/ReactInterviewPlaybookNavigation';
 import { useIntl } from '~/components/intl';
 
+import type { IntlShape } from '@formatjs/intl';
 import type { GuidebookItem } from '@prisma/client';
 
 type GuideData = Readonly<{
@@ -26,13 +27,19 @@ type GuideData = Readonly<{
 export function useGuidesData() {
   const intl = useIntl();
 
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  return getGuidesData(intl);
+}
+
+export function getGuidesData(intl: IntlShape<string>) {
   const items: Record<GuidebookItem, GuideData> = {
     BEHAVIORAL_INTERVIEW_PLAYBOOK: {
       description: intl.formatMessage({
         defaultMessage:
-          'The only behavioral interview guide written specifically for front end engineers.',
+          'The only behavioral interview guide written specifically for front end engineers',
         description: 'Guidebook description',
-        id: 'IsJxd7',
+        id: 'JDYHn0',
       }),
       firstPageHref: `${behavioralInterviewPlaybookBasePath}/introduction`,
       href: behavioralInterviewPlaybookBasePath,
@@ -52,9 +59,9 @@ export function useGuidesData() {
     FRONT_END_INTERVIEW_PLAYBOOK: {
       description: intl.formatMessage({
         defaultMessage:
-          'The definitive guide to preparing for Front End Interviews, written by the author of Front End Interview Handbook.',
+          'The definitive guide to preparing for Front End Interviews, written by the author of Front End Interview Handbook',
         description: 'Guidebook description',
-        id: 'sYlXT3',
+        id: 'uGihtm',
       }),
       firstPageHref: `${frontEndInterviewPlaybookBasePath}/introduction`,
       href: frontEndInterviewPlaybookBasePath,
@@ -74,9 +81,9 @@ export function useGuidesData() {
     FRONT_END_SYSTEM_DESIGN_PLAYBOOK: {
       description: intl.formatMessage({
         defaultMessage:
-          'The most comprehensive guide to Front End System Design Interviews you can find.',
+          'The most comprehensive guide to Front End System Design Interviews you can find',
         description: 'Front end system design guidebook description',
-        id: 'jm+fR2',
+        id: 'Ggbe98',
       }),
       firstPageHref: `${frontEndSystemDesignPlaybookBasePath}/introduction`,
       href: frontEndSystemDesignPlaybookBasePath,
@@ -96,9 +103,9 @@ export function useGuidesData() {
     REACT_INTERVIEW_PLAYBOOK: {
       description: intl.formatMessage({
         defaultMessage:
-          'The only React interview guide written specifically for front end engineers.',
+          'A comprehensive React interview guide that covers core concepts and interview-specific React tips',
         description: 'Guidebook description',
-        id: '6p31z/',
+        id: 'ELtSzL',
       }),
       firstPageHref: `${reactInterviewPlaybookBasePath}/introduction`,
       href: reactInterviewPlaybookBasePath,

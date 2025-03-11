@@ -19,6 +19,7 @@ import {
   FrontEndSystemDesignPlaybookPaths,
   FrontEndSystemDesignPlaybookPathToFile,
 } from '~/components/guides/books/FrontEndSystemDesignPlaybookNavigation';
+import type { ReactInterviewPlaybookPathType } from '~/components/guides/books/ReactInterviewPlaybookNavigation';
 import {
   basePath as reactInterviewPlaybookBasePath,
   ReactInterviewPlaybookPaths,
@@ -139,11 +140,15 @@ export async function readFrontEndSystemDesignGuides(
 }
 
 export async function readReactInterviewPlaybookGuides(
-  locale: string,
+  options?: Readonly<{
+    locale?: string;
+    slugs?: ReadonlyArray<ReactInterviewPlaybookPathType>;
+  }>,
 ): Promise<ReadonlyArray<GuideCardMetadata>> {
+  const { slugs, locale } = options ?? {};
   const book = 'REACT_INTERVIEW_PLAYBOOK';
 
-  return ReactInterviewPlaybookPaths.map((slug) => {
+  return (slugs ?? ReactInterviewPlaybookPaths).map((slug) => {
     const directoryPath = guidesRequestToFilePath(book, slug);
     const mdxSource = readGuidesContents(directoryPath, locale);
 

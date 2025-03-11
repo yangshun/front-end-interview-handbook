@@ -200,7 +200,7 @@ export default function InterviewsDashboardContinueLearningSection({
                     <Text size="body1" weight="medium">
                       {title}
                     </Text>
-                    <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
+                    <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
                       {questionProgress && (
                         <InterviewsEntityProgress
                           completed={questionProgress.completed}

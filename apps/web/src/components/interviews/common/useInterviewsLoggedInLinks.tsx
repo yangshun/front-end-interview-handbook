@@ -1,12 +1,18 @@
 import useCommonNavItems from '~/components/common/navigation/useCommonNavItems';
 import type { NavLinkItem } from '~/components/ui/Navbar/NavTypes';
 
-export default function useInterviewsLoggedInLinks() {
+import type { InterviewsNavPlacement } from './useInterviewsNavItems';
+import useInterviewsNavItems from './useInterviewsNavItems';
+
+export default function useInterviewsLoggedInLinks(
+  placement: InterviewsNavPlacement,
+) {
   const commonNavItems = useCommonNavItems();
+  const interviewsNavItems = useInterviewsNavItems(placement);
 
   const userNavigation: ReadonlyArray<NavLinkItem> = [
-    commonNavItems.interviewsBilling,
-    commonNavItems.interviewsSettings,
+    interviewsNavItems.billing,
+    interviewsNavItems.settings,
     commonNavItems.logout,
   ];
 
