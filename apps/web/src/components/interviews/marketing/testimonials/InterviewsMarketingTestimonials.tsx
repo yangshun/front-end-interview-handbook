@@ -678,12 +678,54 @@ export function InterviewsMarketingTestimonialsDict() {
     companyLogoUrl: '/img/testimonials/company/amazon.svg',
     createdAt: '2024-09-22',
     featuredOffer: 'Amazon',
-    id: 'kiaancastillo',
+    id: 'kiaan-castillo',
     location: 'Seattle, WA, US',
     name: 'Kiaan Castillo',
     testimonial:
       "GreatFrontEnd is a literal gold mine and it's not just the incredible platform but also the Discord community for premium subscribers. Everyone on there is so helpful and informative! As for the platform itself, all of the questions on there are so relevant to what's being asked in frontend engineer interviews. I've gotten questions that were exactly what was on GreatFrontEnd. And the system design resources are so well structured and detailed. I am forever grateful I found GreatFrontEnd because I honestly would not have gotten my FAANG offer without it.",
     title: 'Frontend Engineer II',
+  };
+  const cliffordFung: InterviewsMarketingTestimonial = {
+    anonymous: false,
+    authorThumbnailUrl: '/img/testimonials/users/clifford-fung.jpg',
+    authorUrl: 'https://www.linkedin.com/in/clifford-fung/',
+    companyLogoUrl: '/img/testimonials/company/microsoft.svg',
+    createdAt: '2025-01-05',
+    featuredOffer: 'Microsoft',
+    id: 'clifford-fung',
+    location: 'Vancouver, BC, Canada',
+    name: 'Clifford Fung',
+    offers: ['Jane App'],
+    testimonial:
+      'GreatFrontEnd helped me increase my total compensation by a whopping 180%! It is literally a one-stop shop for preparing for front-end interviews. This website covers everything you would typically see an interview loop like building UI, applying CSS, trivia-style questions and front-end focused system design. I also really enjoy the GFE discord server, they create a highly inclusive community that enables their users to connect and share past experiences. I would highly recommend GFE to anyone who is seriously looking to improve their interviewing preparation!',
+    title: 'Software Engineer II ',
+  };
+  const kana: InterviewsMarketingTestimonial = {
+    anonymous: false,
+    authorThumbnailUrl: '/img/testimonials/users/kana.jpg',
+    authorUrl: 'https://x.com/Chana230128/status/1888704424375390431',
+    createdAt: '2025-02-10',
+    id: 'kana',
+    location: 'Vancouver, BC, Canada',
+    name: 'Kana Taguchi',
+    offers: [],
+    testimonial:
+      'GreatFrontEnd、去年は高いのとフルスタックも視野に入れてたので結局買わなかったけど、今回は大いに活用しようと思い購入した。就活以外でも定期的にやると勉強になりそう。LeetCodeやるよりフロントエンドに絞っているので、効率的なはず！',
+    title: 'Front End Engineer',
+  };
+  const revatiDamle: InterviewsMarketingTestimonial = {
+    anonymous: false,
+    companyLogoUrl: '/img/testimonials/company/snap.svg',
+    createdAt: '2025-02-19',
+    featuredOffer: 'Snap',
+    fromCompany: 'Meta',
+    id: 'revati-damle',
+    location: 'Los Angeles, US',
+    name: 'Revati Damle',
+    offers: ['CloudKitchens', 'Appfolio'],
+    testimonial:
+      'This was the first time I gave full stack / frontend interviews. Coming from Meta, working in frontend for 3 years, I still felt that I had a lot of loopholes in basics of JavaScript, HTML. The question bank of GFE covers almost everything that might ever be asked in frontend interviews for companies including startups and FAANG. Thanks to the amazing question bank and conversational language in the explanations, I was able to crack a senior role at Snap.',
+    title: 'Full Stack Engineer',
   };
 
   // Const template: InterviewsMarketingTestimonial = {
@@ -709,6 +751,7 @@ export function InterviewsMarketingTestimonialsDict() {
     anonNVIDIA,
     anonymousJake,
     chenweiZhang,
+    cliffordFung,
     curryspices,
     deannaTran,
     delhi,
@@ -721,6 +764,7 @@ export function InterviewsMarketingTestimonialsDict() {
     india,
     ismail,
     jacky,
+    kana,
     kevinGonzalez,
     kiaanCastillo,
     larry,
@@ -735,6 +779,7 @@ export function InterviewsMarketingTestimonialsDict() {
     prashanth,
     pratikMehta,
     purplePaisley,
+    revatiDamle,
     ryan,
     saiSrinivas,
     sanchitBhatnagar,

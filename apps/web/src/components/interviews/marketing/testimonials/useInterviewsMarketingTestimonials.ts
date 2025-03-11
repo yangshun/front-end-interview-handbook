@@ -18,11 +18,15 @@ export function useInterviewsMarketingTestimonials(
         return [...featuredItems, ...nonFeaturedItems];
       })()
     : [
+        testimonialsObjects.kiaanCastillo,
+        testimonialsObjects.yugantJoshi,
+        testimonialsObjects.shrinivasKangal,
+        testimonialsObjects.revatiDamle,
         testimonialsObjects.edWang,
         testimonialsObjects.deannaTran,
         testimonialsObjects.kevinGonzalez,
+        testimonialsObjects.kana,
         testimonialsObjects.yuhuiWang,
-        testimonialsObjects.yugantJoshi,
         testimonialsObjects.locChuong,
         testimonialsObjects.luca,
         testimonialsObjects.chenweiZhang,
@@ -41,8 +45,6 @@ export function useInterviewsMarketingTestimonials(
         testimonialsObjects.yuChienChan,
         testimonialsObjects.shellyPaul,
         testimonialsObjects.jacky,
-        testimonialsObjects.prashanth,
-        testimonialsObjects.gouseBasha,
       ];
 
   const testimonialColumns: ReadonlyArray<{

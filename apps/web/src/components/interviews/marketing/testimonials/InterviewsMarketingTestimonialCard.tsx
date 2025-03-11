@@ -1,5 +1,9 @@
 import clsx from 'clsx';
-import { RiLinkedinBoxFill } from 'react-icons/ri';
+import {
+  RiLinkedinBoxFill,
+  RiMediumFill,
+  RiTwitterXLine,
+} from 'react-icons/ri';
 
 import Anchor from '~/components/ui/Anchor';
 import Avatar from '~/components/ui/Avatar';
@@ -111,6 +115,22 @@ export default function InterviewsMarketingTestimonialCard({
                 );
               }
 
+              const Icon = (() => {
+                if (authorUrl.includes('linkedin.com')) {
+                  return RiLinkedinBoxFill;
+                }
+
+                if (authorUrl.includes('x.com')) {
+                  return RiTwitterXLine;
+                }
+
+                if (authorUrl.includes('medium.com')) {
+                  return RiMediumFill;
+                }
+
+                return null;
+              })();
+
               return (
                 <Anchor
                   className={textVariants({
@@ -121,14 +141,13 @@ export default function InterviewsMarketingTestimonialCard({
                   href={authorUrl}
                   variant="flat">
                   {name}
-                  <RiLinkedinBoxFill
-                    aria-hidden={true}
-                    className="size-4 shrink-0"
-                  />
+                  {Icon && (
+                    <Icon aria-hidden={true} className="size-4 shrink-0" />
+                  )}
                 </Anchor>
               );
             })()}
-          <Text className="mt-1 block" color="secondary" size="body3">
+          <Text className="block" color="secondary" size="body3">
             {[title, location].filter(Boolean).join(', ')}
           </Text>
           {offers != null && offers.length > 0 && (
