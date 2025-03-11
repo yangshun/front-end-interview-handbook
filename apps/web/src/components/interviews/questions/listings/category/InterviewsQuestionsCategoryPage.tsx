@@ -71,9 +71,14 @@ export default function InterviewsQuestionsCategoryPage({
   );
 
   return (
-    <div className={clsx('flex flex-col', 'gap-y-10')}>
+    <div className={clsx('flex flex-col gap-y-8')}>
       <InterviewsPageHeader
-        className="flex-col min-[1186px]:flex-row"
+        beforeDividerElement={
+          <div className="min-[1200px]:hidden">
+            <SponsorsAdFormatSpotlightCardContainer adPlacement="questions_below_header" />
+          </div>
+        }
+        className="min-[1186px]:flex-row"
         description={description}
         features={features}
         icon={categoryItem?.icon}
@@ -85,9 +90,6 @@ export default function InterviewsQuestionsCategoryPage({
             {longDescription}
           </InterviewsPageLongDescription>
         )}
-        <div className="max-md min-[1200px]:hidden">
-          <SponsorsAdFormatSpotlightCardContainer adPlacement="side_column" />
-        </div>
         <QuestionsUnifiedListWithFiltersAndProgress
           categoryTabs={categoryTabs}
           guides={
@@ -128,7 +130,7 @@ export default function InterviewsQuestionsCategoryPage({
                 frameworkOrLanguage={frameworkOrLanguageValue}
               />
             ) : isSidebarCollapsed ? (
-              <SponsorsAdFormatSpotlightCardContainer adPlacement="side_column" />
+              <SponsorsAdFormatSpotlightCardContainer adPlacement="questions_side_column" />
             ) : null
           }
         />

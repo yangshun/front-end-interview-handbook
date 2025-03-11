@@ -27,7 +27,8 @@ export type SponsorsAdFormatSpotlightPlacement =
   | 'nav_mobile'
   | 'nav_sidebar'
   | 'preview'
-  | 'side_column';
+  | 'questions_below_header'
+  | 'questions_side_column';
 
 type Props = Omit<SponsorsAdFormatPayloadSpotlight, 'format'> &
   Readonly<{

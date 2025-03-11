@@ -28,7 +28,7 @@ export default function InterviewsStudyListPageTitleSection({
 }: Props) {
   return (
     <InterviewsPageHeader
-      className="flex-col lg:flex-row"
+      className="lg:flex-row"
       {...props}
       sideElement={
         studyListKey ? (

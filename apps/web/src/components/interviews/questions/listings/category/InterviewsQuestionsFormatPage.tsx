@@ -109,17 +109,19 @@ export default function InterviewsQuestionsFormatPage({
   const formatData = useQuestionFormatsData();
 
   return (
-    <div className={clsx('flex flex-col', 'gap-y-10')}>
+    <div className={clsx('flex flex-col gap-y-8')}>
       <InterviewsPageHeader
+        beforeDividerElement={
+          <div className="min-[1200px]:hidden">
+            <SponsorsAdFormatSpotlightCardContainer adPlacement="questions_below_header" />
+          </div>
+        }
         description={description}
         features={features[format]}
         icon={formatData[format].icon}
         title={title}
       />
       <Section>
-        <div className="max-w-md min-[1200px]:hidden">
-          <SponsorsAdFormatSpotlightCardContainer adPlacement="side_column" />
-        </div>
         <QuestionsUnifiedListWithFiltersAndProgress
           guides={
             guidesWithCompletionStatus.length > 0
@@ -141,7 +143,7 @@ export default function InterviewsQuestionsFormatPage({
           searchPlaceholder={formatData[format].searchPlaceholder}
           sideColumnAddOn={
             isSidebarCollapsed ? (
-              <SponsorsAdFormatSpotlightCardContainer adPlacement="side_column" />
+              <SponsorsAdFormatSpotlightCardContainer adPlacement="questions_side_column" />
             ) : null
           }
         />

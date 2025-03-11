@@ -132,7 +132,7 @@ export default function InterviewsQuestionsCategoryContentSlider({
 
   const adItem = {
     element: (
-      <SponsorsAdFormatSpotlightCardContainer adPlacement="side_column" />
+      <SponsorsAdFormatSpotlightCardContainer adPlacement="questions_side_column" />
     ),
     value: 'ad',
   } as const;

@@ -16,7 +16,6 @@ import { trpc } from '~/hooks/trpc';
 
 import VignetteOverlay from '~/components/common/VignetteOverlay';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
-import useInterviewsSidebarCollapsed from '~/components/interviews/common/useInterviewsSidebarCollapsed';
 import InterviewsPurchasePaywall from '~/components/interviews/purchase/InterviewsPurchasePaywall';
 import type {
   QuestionFormat,
@@ -29,7 +28,6 @@ import InterviewsStudyListPageTitleSection from '~/components/interviews/questio
 import InterviewsStudyListQuestions from '~/components/interviews/questions/listings/study-list/InterviewsStudyListQuestions';
 import { useIntl } from '~/components/intl';
 import MDXContent from '~/components/mdx/MDXContent';
-import SponsorsAdFormatSpotlightCardContainer from '~/components/sponsors/ads/SponsorsAdFormatSpotlightCardContainer';
 import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -59,7 +57,6 @@ export default function InterviewsCompanyGuidePage({
 }: Props) {
   const intl = useIntl();
   const { userProfile } = useUserProfile();
-  const [isSidebarCollapsed] = useInterviewsSidebarCollapsed();
   const user = useUser();
   const topicLabels = useQuestionTopicLabels();
   const canViewStudyPlans = userProfile?.isInterviewsPremium;
@@ -183,9 +180,6 @@ export default function InterviewsCompanyGuidePage({
             />
           </CardContainer> */}
           <div className="flex flex-col gap-8">
-            <div className="max-w-md min-[1200px]:hidden">
-              <SponsorsAdFormatSpotlightCardContainer adPlacement="side_column" />
-            </div>
             <Heading level="heading6">
               {intl.formatMessage(
                 {
@@ -204,11 +198,6 @@ export default function InterviewsCompanyGuidePage({
               <InterviewsStudyListQuestions
                 overallProgress={questionsOverallProgress}
                 questions={questions}
-                sideColumnAddOn={
-                  isSidebarCollapsed ? (
-                    <SponsorsAdFormatSpotlightCardContainer adPlacement="side_column" />
-                  ) : null
-                }
                 studyListKey={studyList.slug}
               />
             ) : (

@@ -83,6 +83,11 @@ export default function InterviewsStudyPlanGFE75Page({
     <div className={clsx('flex flex-col', 'gap-y-10', 'relative')}>
       <div className="relative flex flex-col gap-y-6">
         <InterviewsRecommendedPrepStrategyPageTitleSection
+          beforeDivider={
+            <div className="lg:hidden">
+              <SponsorsAdFormatSpotlightCardContainer adPlacement="questions_below_header" />
+            </div>
+          }
           description={studyList.description}
           features={features}
           logo={
@@ -130,9 +135,6 @@ export default function InterviewsStudyPlanGFE75Page({
           studyListKey="gfe75"
           title={studyList.name}
         />
-        <div className="max-w-md min-[1200px]:hidden">
-          <SponsorsAdFormatSpotlightCardContainer adPlacement="side_column" />
-        </div>
       </div>
       <Section>
         <div className="flex flex-col gap-20">
@@ -142,7 +144,7 @@ export default function InterviewsStudyPlanGFE75Page({
             showCount_TEMPORARY={false}
             sideColumnAddOn={
               isSidebarCollapsed ? (
-                <SponsorsAdFormatSpotlightCardContainer adPlacement="side_column" />
+                <SponsorsAdFormatSpotlightCardContainer adPlacement="questions_side_column" />
               ) : null
             }
             studyListKey={studyList.slug}

@@ -10,6 +10,7 @@ import InterviewsPageFeatures from './InterviewsPageFeatures';
 import InterviewsPageHeaderActions from './InterviewsPageHeaderActions';
 
 type Props = Readonly<{
+  beforeDividerElement?: ReactNode;
   children?: ReactNode;
   className?: string;
   description: ReactNode;
@@ -31,6 +32,7 @@ type Props = Readonly<{
 }>;
 
 export default function InterviewsPageHeader({
+  beforeDividerElement,
   children,
   description,
   features,
@@ -102,7 +104,12 @@ export default function InterviewsPageHeader({
           {/* Features */}
           <InterviewsPageFeatures features={features} />
         </div>
-        {sideElement}
+        {(sideElement || beforeDividerElement) && (
+          <div className="flex flex-col gap-4 max-lg:w-full">
+            {sideElement}
+            {beforeDividerElement}
+          </div>
+        )}
       </div>
       <Divider />
       {children}

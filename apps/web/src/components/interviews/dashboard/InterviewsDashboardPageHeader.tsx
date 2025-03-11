@@ -136,7 +136,7 @@ export default function InterviewsDashboardPageHeader({
 
   return (
     <InterviewsPageHeader
-      className="flex-col lg:flex-row"
+      className="lg:flex-row"
       description={intl.formatMessage({
         defaultMessage:
           'The one-stop page to prepare fully for your front end interviews.',
