@@ -1,4 +1,3 @@
-export const GOOGLE_AUTH_AVAILABLE = true;
 export const SPONSORSHIPS_AVAILABLE =
   process.env.NEXT_PUBLIC_VERCEL_ENV !== 'production';
 

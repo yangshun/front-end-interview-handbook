@@ -1,7 +1,5 @@
 'use client';
 
-import { GOOGLE_AUTH_AVAILABLE } from '~/data/FeatureFlags';
-
 import { FormattedMessage } from '~/components/intl';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -31,9 +29,7 @@ export default function ProfileAccount({ user }: Props) {
         <ProfileAccountDisplayName />
         <ProfileAccountUsername />
         <ProfileAccountEmail user={user} />
-        {GOOGLE_AUTH_AVAILABLE && (
-          <ProfileAccountIdentities userIdentities={user.identities ?? []} />
-        )}
+        <ProfileAccountIdentities userIdentities={user.identities ?? []} />
       </Section>
     </div>
   );
