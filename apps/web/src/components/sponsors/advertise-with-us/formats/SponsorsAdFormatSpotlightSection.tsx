@@ -49,8 +49,18 @@ export default function SponsorsAdFormatSpotlightSection() {
       label: (
         <FormattedMessage
           defaultMessage="Appears on question detail pages"
-          description="Item 1 for placement pages info"
-          id="IPcfhY"
+          description="Description of ad placement"
+          id="TjBBcT"
+        />
+      ),
+    },
+    {
+      key: 'item2',
+      label: (
+        <FormattedMessage
+          defaultMessage="Pinned on application sidebar"
+          description="Description of ad placement"
+          id="HGCdKv"
         />
       ),
     },

@@ -3215,6 +3215,10 @@
     "defaultMessage": "Mentor others",
     "description": "Label for Mentor others sidebar item in Projects sidebar"
   },
+  "HGCdKv": {
+    "defaultMessage": "Pinned on application sidebar",
+    "description": "Description of ad placement"
+  },
   "HGXwui": {
     "defaultMessage": "Expand sidebar",
     "description": "Tooltip for expand sidebar"
@@ -3418,10 +3422,6 @@
   "IPWLLl": {
     "defaultMessage": "Found a bug or have an improvement to suggest? We would prefer if you could create an issue on <link>GitHub</link>.",
     "description": "Reporting a bug on GitHub"
-  },
-  "IPcfhY": {
-    "defaultMessage": "Appears on question detail pages",
-    "description": "Item 1 for placement pages info"
   },
   "IQ9qW7": {
     "defaultMessage": "Get promo code",
@@ -5630,6 +5630,10 @@
   "Ti1Gle": {
     "defaultMessage": "Premium is required to access company tags",
     "description": "Title for company tags feature"
+  },
+  "TjBBcT": {
+    "defaultMessage": "Appears on question detail pages",
+    "description": "Description of ad placement"
   },
   "Tjuk29": {
     "defaultMessage": "JavaScript Functions Interview Questions | With Answers",
