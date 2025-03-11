@@ -1,8 +1,6 @@
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next/types';
 
-import { INTERVIEWS_REVAMP_BOTTOM_CONTENT } from '~/data/FeatureFlags';
-
 import InterviewsStudyPlanBlind75Page from '~/components/interviews/questions/listings/study-list/study-plans/InterviewsStudyPlanBlind75Page';
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
@@ -75,9 +73,7 @@ export default async function Page({ params }: Props) {
 
   return (
     <InterviewsStudyPlanBlind75Page
-      bottomContent={
-        INTERVIEWS_REVAMP_BOTTOM_CONTENT ? bottomContent : undefined
-      }
+      bottomContent={bottomContent}
       questions={questions}
       questionsSlugs={questionsSlugs}
       studyList={blind75}

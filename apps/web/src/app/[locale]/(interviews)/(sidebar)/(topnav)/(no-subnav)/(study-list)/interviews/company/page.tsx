@@ -1,7 +1,5 @@
 import type { Metadata } from 'next/types';
 
-import { INTERVIEWS_REVAMP_BOTTOM_CONTENT } from '~/data/FeatureFlags';
-
 import InterviewsCompanyGuideListPage from '~/components/interviews/questions/listings/study-list/company/InterviewsCompanyGuideListPage';
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
@@ -112,9 +110,7 @@ export default async function Page({ params }: Props) {
 
   return (
     <InterviewsCompanyGuideListPage
-      bottomContent={
-        INTERVIEWS_REVAMP_BOTTOM_CONTENT ? bottomContent : undefined
-      }
+      bottomContent={bottomContent}
       companyGuides={sortedGuides}
     />
   );

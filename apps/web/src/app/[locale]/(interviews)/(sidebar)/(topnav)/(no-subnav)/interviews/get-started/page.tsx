@@ -1,8 +1,6 @@
 import { redirect } from 'next/navigation';
 import type { Metadata } from 'next/types';
 
-import { INTERVIEWS_REVAMP_BOTTOM_CONTENT } from '~/data/FeatureFlags';
-
 import InterviewsDashboardPage from '~/components/interviews/dashboard/InterviewsDashboardPage';
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
@@ -108,9 +106,7 @@ export default async function Page({ params }: Props) {
 
   return (
     <InterviewsDashboardPage
-      bottomContent={
-        INTERVIEWS_REVAMP_BOTTOM_CONTENT ? bottomContent : undefined
-      }
+      bottomContent={bottomContent}
       companyGuides={companyGuidesSorted}
       defaultLoggedIn={false}
       focusAreas={studyLists.focusAreas}

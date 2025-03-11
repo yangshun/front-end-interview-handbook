@@ -1,8 +1,6 @@
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next/types';
 
-import { INTERVIEWS_REVAMP_BOTTOM_CONTENT } from '~/data/FeatureFlags';
-
 import InterviewsFocusAreaPage from '~/components/interviews/questions/listings/study-list/focus-areas/InterviewsFocusAreaPage';
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
@@ -96,9 +94,7 @@ export default async function Page({ params }: Props) {
 
   return (
     <InterviewsFocusAreaPage
-      bottomContent={
-        INTERVIEWS_REVAMP_BOTTOM_CONTENT ? bottomContent : undefined
-      }
+      bottomContent={bottomContent}
       questions={questions}
       questionsSlugs={questionsSlugs}
       studyList={focusArea}
