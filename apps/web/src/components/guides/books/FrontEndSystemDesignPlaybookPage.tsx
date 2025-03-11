@@ -51,7 +51,7 @@ export default function FrontEndSystemDesignPlaybookPage({
   const guidesWithCompletionStatus = useGuidesWithCompletionStatus(allGuides);
   const questionsAccessCount = countQuestionsByAccess(questions);
 
-  const guidesData = [
+  const guideItems = [
     {
       articles: guidesWithCompletionStatus,
       title: intl.formatMessage({
@@ -120,7 +120,7 @@ export default function FrontEndSystemDesignPlaybookPage({
       })}>
       <Section>
         <div className="flex flex-col gap-10">
-          <GuidesListWithCategory guides={guidesData} />
+          <GuidesListWithCategory guideItems={guideItems} />
           <Divider />
           <Section>
             <div className="flex flex-col gap-6">

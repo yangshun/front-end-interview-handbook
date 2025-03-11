@@ -26,7 +26,7 @@ export default function BehavioralInterviewPlaybookPage({ guides }: Props) {
 
   const guidesWithCompletionStatus = useGuidesWithCompletionStatus(guides);
   const navigation = useBehavioralInterviewPlaybookNavigation();
-  const guidesData = processForGuidesCover(
+  const guideItems = processForGuidesCover(
     navigation,
     guidesWithCompletionStatus,
   );
@@ -88,7 +88,7 @@ export default function BehavioralInterviewPlaybookPage({ guides }: Props) {
         id: '8Eo8Y5',
       })}>
       <Section>
-        <GuidesListWithCategory guides={guidesData} />
+        <GuidesListWithCategory guideItems={guideItems} />
       </Section>
     </GuidesCoverLayout>
   );

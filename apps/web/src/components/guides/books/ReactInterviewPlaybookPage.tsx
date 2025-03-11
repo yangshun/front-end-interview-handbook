@@ -7,6 +7,8 @@ import {
   RiShiningLine,
 } from 'react-icons/ri';
 
+import { useGuidesData } from '~/data/Guides';
+
 import { useReactInterviewPlaybookNavigation } from '~/components/guides/books/ReactInterviewPlaybookNavigation';
 import GuidesCoverLayout from '~/components/guides/cover/GuidesCoverLayout';
 import GuidesListWithCategory from '~/components/guides/cover/GuidesListWithCategory';
@@ -35,10 +37,11 @@ export default function ReactInterviewPlaybookPage({
 
   const guidesWithCompletionStatus = useGuidesWithCompletionStatus(allGuides);
   const navigation = useReactInterviewPlaybookNavigation();
-  const guidesData = processForGuidesCover(
+  const guideItems = processForGuidesCover(
     navigation,
     guidesWithCompletionStatus,
   );
+  const guidesData = useGuidesData();
 
   const features = [
     {
@@ -74,18 +77,14 @@ export default function ReactInterviewPlaybookPage({
 
   return (
     <GuidesCoverLayout
-      description={intl.formatMessage({
-        defaultMessage: 'The definitive guide to React interviews.',
-        description: 'Description of React interview playbook page',
-        id: 'Td0UNU',
-      })}
+      description={guidesData.REACT_INTERVIEW_PLAYBOOK.description}
       features={features}
       icon={RiReactjsFill}
       longDescription={intl.formatMessage({
         defaultMessage:
-          "Tackle your next interview with confidence using this focused, no-nonsense front end prep guide. Created by the author of the Front End Interview Handbook, it's filled with practical strategies and insider tips you won't find anywhere else.",
+          'Ace your React interviews with confidence with this comprehensive guide. Created by the author of the Front End Interview Handbook, the guide emphasizes on the concepts that are important for interviews using plenty of code examples. For each concept, learn the best practices and practice a variety of questions to help you truly master it.',
         description: 'Long description of React interview playbook page',
-        id: 'y29cTt',
+        id: 'HI42cv',
       })}
       metadata={metadata}
       title={intl.formatMessage({
@@ -94,7 +93,7 @@ export default function ReactInterviewPlaybookPage({
         id: '9TEFrN',
       })}>
       <Section>
-        <GuidesListWithCategory guides={guidesData} />
+        <GuidesListWithCategory guideItems={guideItems} />
       </Section>
     </GuidesCoverLayout>
   );

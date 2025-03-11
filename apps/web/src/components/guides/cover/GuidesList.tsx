@@ -55,7 +55,7 @@ export default function GuidesList<Q extends GuideCardMetadata>({
               onMarkAsCompleted={onMarkAsCompleted}
               onMarkAsNotCompleted={onMarkAsNotCompleted}
             />
-            <div className="flex flex-1 flex-col items-start gap-2">
+            <div className="flex flex-1 flex-col items-start gap-1">
               <Text size="body1" weight="bold">
                 {guide.title}
               </Text>

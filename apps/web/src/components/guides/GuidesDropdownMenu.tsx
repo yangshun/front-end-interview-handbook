@@ -20,6 +20,7 @@ export default function GuidesDropdownMenu({
   const guides = [
     guidesData.FRONT_END_INTERVIEW_PLAYBOOK,
     guidesData.FRONT_END_SYSTEM_DESIGN_PLAYBOOK,
+    guidesData.REACT_INTERVIEW_PLAYBOOK,
     guidesData.BEHAVIORAL_INTERVIEW_PLAYBOOK,
   ];
 

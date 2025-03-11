@@ -569,12 +569,12 @@ export default function useInterviewsNavItems(
         labelAddon: (
           <Badge
             label={intl.formatMessage({
-              defaultMessage: 'Free',
-              description: 'Free-of-charge label',
-              id: 'S+6OOS',
+              defaultMessage: 'New',
+              description: 'New label',
+              id: 'ZXkE72',
             })}
             size="xs"
-            variant="success"
+            variant="info"
           />
         ),
         onClick: () => {

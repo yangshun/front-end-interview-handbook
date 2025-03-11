@@ -16,14 +16,14 @@ import useGuidesActions from '../hooks/useGuidesActions';
 import { useUser } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
-  guides: ReadonlyArray<{
+  guideItems: ReadonlyArray<{
     articles: ReadonlyArray<GuideCardMetadataWithCompletedStatus>;
     title: string;
     totalReadingTime: number;
   }>;
 }>;
 
-export default function GuidesListWithCategory({ guides }: Props) {
+export default function GuidesListWithCategory({ guideItems }: Props) {
   const router = useRouter();
   const pathname = usePathname();
   const user = useUser();
@@ -33,7 +33,7 @@ export default function GuidesListWithCategory({ guides }: Props) {
 
   // For the starting value of the guides list
   const cumulativeCounts = reduce(
-    guides,
+    guideItems,
     (result, item) => {
       const lastCount = last(result) || 0;
 
@@ -51,7 +51,7 @@ export default function GuidesListWithCategory({ guides }: Props) {
           'flex flex-col gap-10',
           'lg:col-span-10 xl:col-span-9',
         )}>
-        {guides.map(({ title, totalReadingTime, articles }, index) => (
+        {guideItems.map(({ title, totalReadingTime, articles }, index) => (
           <div key={title}>
             <Heading className={themeTextColor} color="custom" level="heading6">
               {title}

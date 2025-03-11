@@ -35,7 +35,7 @@ export default function FrontEndInterviewPlaybookPage({
 
   const guidesWithCompletionStatus = useGuidesWithCompletionStatus(allGuides);
   const navigation = useFrontEndInterviewPlaybookNavigation();
-  const guidesData = processForGuidesCover(
+  const guideItems = processForGuidesCover(
     navigation,
     guidesWithCompletionStatus,
   );
@@ -94,7 +94,7 @@ export default function FrontEndInterviewPlaybookPage({
         id: 'hclu+0',
       })}>
       <Section>
-        <GuidesListWithCategory guides={guidesData} />
+        <GuidesListWithCategory guideItems={guideItems} />
       </Section>
     </GuidesCoverLayout>
   );
