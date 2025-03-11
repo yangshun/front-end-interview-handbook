@@ -18,7 +18,7 @@ import { SidebarDropdownMenu } from '~/components/global/sidebar/Sidebar';
 import SidebarLinksSection from '~/components/global/sidebar/SidebarLinksSection';
 import { useIntl } from '~/components/intl';
 import { SocialDiscountSidebarMention } from '~/components/promotions/social/SocialDiscountSidebarMention';
-import SponsorsAdFormatSpotlightContainerWrapper from '~/components/sponsors/ads/SponsorsAdFormatSpotlightContainer';
+import SponsorsAdFormatSpotlightContainer from '~/components/sponsors/ads/SponsorsAdFormatSpotlightContainer';
 import SponsorsAdvertiseWithUsBadge from '~/components/sponsors/SponsorsAdvertiseWithUsBadge';
 import Anchor from '~/components/ui/Anchor';
 import Avatar from '~/components/ui/Avatar';
@@ -205,7 +205,7 @@ export default function InterviewsNavbar({
                         ))}
                       <div className="flex flex-col gap-4 px-6">
                         <SocialDiscountSidebarMention />
-                        <SponsorsAdFormatSpotlightContainerWrapper adPlacement="nav_mobile" />
+                        <SponsorsAdFormatSpotlightContainer adPlacement="nav_mobile" />
                       </div>
                       <div
                         className={clsx('flex justify-between gap-4', 'px-6')}>

@@ -7,7 +7,7 @@ import { SPONSORSHIPS_AVAILABLE } from '~/data/FeatureFlags';
 import type { SponsorsAdFormatSpotlightPlacement } from './SponsorsAdFormatSpotlight';
 import SponsorsAdFormatSpotlight from './SponsorsAdFormatSpotlight';
 
-function SponsorsAdFormatSpotlightContainer({
+function SponsorsAdFormatSpotlightContainerImpl({
   adPlacement,
 }: Readonly<{
   adPlacement: SponsorsAdFormatSpotlightPlacement;
@@ -23,7 +23,7 @@ function SponsorsAdFormatSpotlightContainer({
   return <SponsorsAdFormatSpotlight adPlacement={adPlacement} {...data} />;
 }
 
-export default function SponsorsAdFormatSpotlightContainerWrapper({
+export default function SponsorsAdFormatSpotlightContainer({
   adPlacement,
 }: Readonly<{
   adPlacement: SponsorsAdFormatSpotlightPlacement;
@@ -32,5 +32,5 @@ export default function SponsorsAdFormatSpotlightContainerWrapper({
     return null;
   }
 
-  return <SponsorsAdFormatSpotlightContainer adPlacement={adPlacement} />;
+  return <SponsorsAdFormatSpotlightContainerImpl adPlacement={adPlacement} />;
 }
