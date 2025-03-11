@@ -570,7 +570,8 @@ model SponsorsAd {
   request SponsorsAdRequest @relation(fields: [requestId], references: [id], onDelete: Cascade, onUpdate: NoAction)
   slots   SponsorsAdSlot[]
 
-  @@unique([format, requestId])
+  @@index([requestId])
+  @@index([format])
 }
 
 model SponsorsAdSlot {
