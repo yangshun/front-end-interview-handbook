@@ -1,7 +1,8 @@
 import url from 'node:url';
 
-import type { SponsorsAdFormatFormItem } from '~/components/sponsors/request/types';
 import { SPONSOR_MANAGER_EMAIL } from '~/data/SponsorsConfig';
+
+import type { SponsorsAdFormatFormItem } from '~/components/sponsors/request/types';
 
 import { getSiteOrigin } from '~/seo/siteUrl';
 

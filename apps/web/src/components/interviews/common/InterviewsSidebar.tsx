@@ -120,10 +120,10 @@ export function InterviewsSidebarExpanded({
       product="interviews"
       renderBottomAddonElements={() => (
         <div className="flex flex-col gap-4">
-          <SocialDiscountSidebarMention />
           <div className="max-xl:hidden">
             <SponsorsAdFormatSpotlightContainer adPlacement="nav_sidebar" />
           </div>
+          <SocialDiscountSidebarMention />
         </div>
       )}
       sidebarItems={sidebarItems}
