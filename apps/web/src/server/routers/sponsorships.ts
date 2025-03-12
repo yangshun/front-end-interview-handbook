@@ -32,6 +32,7 @@ import type { SponsorsAdFormatPayload } from '~/components/sponsors/SponsorsType
 import { SponsorsAdFormatZodEnum } from '~/components/sponsors/SponsorsTypes';
 
 import { fetchInterviewsStudyLists } from '~/db/contentlayer/InterviewsStudyListReader';
+import { sendSponsorsAdRequestSubmissionAdvertiserEmail } from '~/emails/items/sponsors/EmailsSenderSponsors';
 import prisma from '~/server/prisma';
 import { createSupabaseAdminClientGFE_SERVER_ONLY } from '~/supabase/SupabaseServerGFE';
 
@@ -174,7 +175,7 @@ export const sponsorshipsRouter = router({
       const { legalName, taxNumber, address, signatoryName, signatoryTitle } =
         company;
 
-      return await prisma.sponsorsAdRequest.create({
+      const result = await prisma.sponsorsAdRequest.create({
         data: {
           address,
           ads: {
@@ -219,6 +220,13 @@ export const sponsorshipsRouter = router({
           signatoryTitle,
           taxNumber,
         },
+      });
+
+      // Send email to advertiser
+      await sendSponsorsAdRequestSubmissionAdvertiserEmail({
+        adId: result.id,
+        email: emails[0],
+        signatoryName,
       });
     }),
   availability: publicProcedure
