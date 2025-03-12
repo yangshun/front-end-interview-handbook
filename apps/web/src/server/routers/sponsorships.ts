@@ -32,7 +32,10 @@ import type { SponsorsAdFormatPayload } from '~/components/sponsors/SponsorsType
 import { SponsorsAdFormatZodEnum } from '~/components/sponsors/SponsorsTypes';
 
 import { fetchInterviewsStudyLists } from '~/db/contentlayer/InterviewsStudyListReader';
-import { sendSponsorsAdRequestSubmissionAdvertiserEmail } from '~/emails/items/sponsors/EmailsSenderSponsors';
+import {
+  sendSponsorsAdRequestSubmissionAdvertiserEmail,
+  sendSponsorsAdRequestSubmissionReviewEmail,
+} from '~/emails/items/sponsors/EmailsSenderSponsors';
 import prisma from '~/server/prisma';
 import { createSupabaseAdminClientGFE_SERVER_ONLY } from '~/supabase/SupabaseServerGFE';
 
@@ -222,12 +225,24 @@ export const sponsorshipsRouter = router({
         },
       });
 
-      // Send email to advertiser
-      await sendSponsorsAdRequestSubmissionAdvertiserEmail({
-        adId: result.id,
-        email: emails[0],
-        signatoryName,
-      });
+      // Send email to advertiser and sponsor manager
+      await Promise.all([
+        sendSponsorsAdRequestSubmissionAdvertiserEmail({
+          adId: result.id,
+          email: emails[0],
+          signatoryName,
+        }),
+        sendSponsorsAdRequestSubmissionReviewEmail({
+          adId: result.id,
+          ads: ads.map((ad) => ({
+            ...ad,
+            id: new Date().toISOString(),
+          })),
+          legalName,
+          signatoryName,
+          signatoryTitle,
+        }),
+      ]);
     }),
   availability: publicProcedure
     .input(

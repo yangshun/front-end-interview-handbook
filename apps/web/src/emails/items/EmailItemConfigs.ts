@@ -5,6 +5,7 @@ import { EmailsItemConfigCheckoutMultipleTimes } from './checkout/EmailsItemConf
 import { EmailsItemConfigInterviewsProgress } from './interviews-progress/EmailsItemConfigInterviewsProgress';
 import { EmailsItemConfigPaymentFailed } from './payment-fail/EmailsItemConfigPaymentFailed';
 import { EmailsItemConfigSponsorsAdRequestSubmissionAdvertiser } from './sponsors/EmailsItemConfigSponsorsAdRequestSubmissionAdvertiser';
+import { EmailsItemConfigSponsorsAdRequestSubmissionReview } from './sponsors/EmailsItemConfigSponsorsAdRequestSubmissionReview';
 import { EmailsItemConfigWelcomeSeriesAfter24Hours } from './welcome/EmailsItemConfigWelcomeSeriesAfter24Hours';
 import { EmailsItemConfigWelcomeSeriesImmediate } from './welcome/EmailsItemConfigWelcomeSeriesImmediate';
 
@@ -18,8 +19,10 @@ export const EmailsItemConfigs = [
   EmailsItemConfigAuthPasswordReset,
   EmailsItemConfigAuthEmailVerify,
   EmailsItemConfigSponsorsAdRequestSubmissionAdvertiser,
+  EmailsItemConfigSponsorsAdRequestSubmissionReview,
 ] as const;
 
 export const EmailsItemSponsorsConfig = [
   EmailsItemConfigSponsorsAdRequestSubmissionAdvertiser,
+  EmailsItemConfigSponsorsAdRequestSubmissionReview,
 ] as const;
