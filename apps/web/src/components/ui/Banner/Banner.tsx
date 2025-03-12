@@ -88,7 +88,8 @@ export default function Banner({
                 'size-4',
                 'inline-flex items-center justify-center',
               )}
-              type="button">
+              type="button"
+              onClick={onHide}>
               <RiCloseLine aria-hidden={true} className="size-4 shrink-0" />
             </button>
           </div>
