@@ -133,7 +133,7 @@ export default function Alert({
           className={clsx('size-5 mt-0.5 shrink-0', iconClass)}
         />
       )}
-      <div className="grid gap-y-1">
+      <div className="grid w-full gap-y-1">
         {title && (
           <Heading
             className={textVariants({

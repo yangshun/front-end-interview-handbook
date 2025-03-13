@@ -27,6 +27,7 @@ import useSponsorsAdvertiseRequestFormData from './useSponsorsAdvertiseRequestFo
 import type {
   SponsorsAd,
   SponsorsAdRequest,
+  SponsorsAdRequestStatus,
   SponsorsAdSlot,
 } from '@prisma/client';
 
@@ -37,6 +38,9 @@ type Props = Readonly<{
         slots: ReadonlyArray<SponsorsAdSlot>;
       }
     >;
+    review: Readonly<{
+      comments: string | null;
+    }> | null;
   };
 }>;
 
@@ -111,77 +115,6 @@ export default function SponsorsAdvertiseRequestEditPage({ adRequest }: Props) {
           !emailVerified && 'flex flex-col items-center',
         )}
         width="marketing">
-        {adRequest.status === 'APPROVED' && emailVerified && !showEditMode && (
-          <Alert
-            className="mb-4 lg:mb-6"
-            title={intl.formatMessage({
-              defaultMessage: 'Request accepted',
-              description: 'Title for accepted request alert',
-              id: 'GUEj3Y',
-            })}
-            variant="success">
-            <FormattedMessage
-              defaultMessage="Your advertising request has been accepted. You can no longer make changes."
-              description="Accepted request alert message"
-              id="tK/YTk"
-            />
-          </Alert>
-        )}
-        {adRequest.status === 'REJECTED' && emailVerified && !showEditMode && (
-          <div
-            className={clsx(
-              'flex flex-col gap-x-4 gap-y-3 md:flex-row lg:gap-x-6',
-              'mb-4 flex-1 lg:mb-6',
-            )}>
-            <Alert
-              className="flex-1"
-              title={intl.formatMessage({
-                defaultMessage: 'Request rejected',
-                description: 'Title for rejected request alert',
-                id: 'KkezqJ',
-              })}
-              variant="danger">
-              <div>
-                <FormattedMessage
-                  defaultMessage="Your advertising request has been rejected. You can click edit your request and resubmit for approval."
-                  description="Rejected request alert message"
-                  id="TxVFaP"
-                />
-                <br />
-                {/* TODO(sponsors): Add actual rejection reason */}
-                <b>
-                  <FormattedMessage
-                    defaultMessage="Rejection reason"
-                    description="Rejected request alert message"
-                    id="JmBr/f"
-                  />
-                  :
-                </b>{' '}
-                Some reason.
-              </div>
-            </Alert>
-            <Button
-              className="mt-2"
-              label={intl.formatMessage({
-                defaultMessage: 'Modify and resubmit',
-                description: 'Edit button label',
-                id: '7Z0BWc',
-              })}
-              size="md"
-              variant="secondary"
-              onClick={() => {
-                // Store it in local storage so that the user can access it in the new creation flow
-                setFormData((prev) => ({
-                  ...prev,
-                  ads,
-                  company,
-                  emails: adRequest.emails,
-                }));
-                router.push('/advertise-with-us/request');
-              }}
-            />
-          </div>
-        )}
         {emailVerified && showEditMode && (
           <>
             <Heading level="heading4">
@@ -220,6 +153,22 @@ export default function SponsorsAdvertiseRequestEditPage({ adRequest }: Props) {
         )}
         {emailVerified && !showEditMode && (
           <SponsorsAdvertiseRequestReadonly
+            alertMessage={
+              <RequestAlertMessage
+                reviewComments={adRequest.review?.comments}
+                status={adRequest.status}
+                onModify={() => {
+                  // Store it in local storage so that the user can access it in the new creation flow
+                  setFormData((prev) => ({
+                    ...prev,
+                    ads,
+                    company,
+                    emails: adRequest.emails,
+                  }));
+                  router.push('/advertise-with-us/request');
+                }}
+              />
+            }
             data={{
               ads,
               agreement: adRequest.agreement,
@@ -285,5 +234,98 @@ export default function SponsorsAdvertiseRequestEditPage({ adRequest }: Props) {
         )}
       </Container>
     </div>
+  );
+}
+
+function RequestAlertMessage({
+  status,
+  onModify,
+  reviewComments,
+}: Readonly<{
+  onModify: () => void;
+  reviewComments?: string | null;
+  status: SponsorsAdRequestStatus;
+}>) {
+  const intl = useIntl();
+
+  return (
+    <>
+      {status === 'APPROVED' && (
+        <Alert
+          className="mb-4 lg:mb-6"
+          title={intl.formatMessage({
+            defaultMessage: 'Request approved',
+            description: 'Title for accepted request alert',
+            id: 'VoVHwh',
+          })}
+          variant="info">
+          <FormattedMessage
+            defaultMessage="Your advertising request has been approved. You can no longer make changes."
+            description="Accepted request alert message"
+            id="0YqU5d"
+          />
+        </Alert>
+      )}
+      {status === 'PUBLISHED' && (
+        <Alert
+          className="mb-4 lg:mb-6"
+          title={intl.formatMessage({
+            defaultMessage: 'Request confirmed',
+            description: 'Title for accepted request alert',
+            id: 'OZ9+0K',
+          })}
+          variant="success">
+          <FormattedMessage
+            defaultMessage="Your advertising request has been accepted, payment has been received, and your booking is confirmed. Please note that no further changes can be made."
+            description="Accepted confirmed alert message"
+            id="H+ByKq"
+          />
+        </Alert>
+      )}
+      {status === 'REJECTED' && (
+        <Alert
+          className="mb-4 flex-1 lg:mb-6"
+          title={intl.formatMessage({
+            defaultMessage: 'Request rejected',
+            description: 'Title for rejected request alert',
+            id: 'KkezqJ',
+          })}
+          variant="danger">
+          <div className="flex flex-col items-start gap-x-4 gap-y-2 md:flex-row lg:gap-x-6">
+            <div className="flex-1">
+              <FormattedMessage
+                defaultMessage="Your advertising request has been rejected. You can click edit your request and resubmit for approval."
+                description="Rejected request alert message"
+                id="TxVFaP"
+              />
+              {reviewComments && (
+                <>
+                  <br />
+                  <strong>
+                    <FormattedMessage
+                      defaultMessage="Rejection reason"
+                      description="Rejected request alert message"
+                      id="JmBr/f"
+                    />
+                    :
+                  </strong>{' '}
+                  {reviewComments}
+                </>
+              )}
+            </div>
+            <Button
+              label={intl.formatMessage({
+                defaultMessage: 'Modify and resubmit',
+                description: 'Edit button label',
+                id: '7Z0BWc',
+              })}
+              size="md"
+              variant="secondary"
+              onClick={onModify}
+            />
+          </div>
+        </Alert>
+      )}
+    </>
   );
 }

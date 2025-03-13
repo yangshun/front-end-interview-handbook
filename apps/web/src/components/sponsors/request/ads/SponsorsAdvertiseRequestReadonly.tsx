@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import type { ReactNode } from 'react';
 import { useState } from 'react';
 
 import { urlAddHttpsIfMissing } from '~/lib/urlValidation';
@@ -35,6 +36,7 @@ import {
 } from '~/components/ui/theme';
 
 type Props = Readonly<{
+  alertMessage?: ReactNode;
   data: Omit<AdvertiseRequestFormValues, 'removeAssets' | 'sessionId'> &
     Readonly<{
       agreement: string;
@@ -47,6 +49,7 @@ type Props = Readonly<{
 export default function SponsorsAdvertiseRequestReadonly({
   data,
   onEdit,
+  alertMessage,
 }: Props) {
   const intl = useIntl();
   const { ads, company, emails, agreement, createdAt, updatedAt } = data;
@@ -63,50 +66,53 @@ export default function SponsorsAdvertiseRequestReadonly({
 
   return (
     <div className="flex flex-col gap-10">
-      <div className="flex flex-wrap items-center justify-between gap-3">
-        <div className="flex flex-col gap-1.5">
-          <Heading level="heading4">
-            <FormattedMessage
-              defaultMessage="Advertisement Request"
-              description="Title for advertise request page"
-              id="4gasot"
-            />
-          </Heading>
-          <div className="flex gap-3">
-            <Text color="secondary" size="body3">
+      <div className="flex flex-col gap-6">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <div className="flex flex-col gap-1.5">
+            <Heading level="heading4">
               <FormattedMessage
-                defaultMessage="Created: {time}"
-                description="Label for created time"
-                id="1stWMb"
-                values={{
-                  time: <RelativeTimestamp timestamp={createdAt} />,
-                }}
+                defaultMessage="Advertisement Request"
+                description="Title for advertise request page"
+                id="4gasot"
               />
-            </Text>
-            <Text color="secondary" size="body3">
-              <FormattedMessage
-                defaultMessage="Updated: {time}"
-                description="Label for updated time"
-                id="+cwvdS"
-                values={{
-                  time: <RelativeTimestamp timestamp={updatedAt} />,
-                }}
-              />
-            </Text>
+            </Heading>
+            <div className="flex gap-3">
+              <Text color="secondary" size="body3">
+                <FormattedMessage
+                  defaultMessage="Created: {time}"
+                  description="Label for created time"
+                  id="1stWMb"
+                  values={{
+                    time: <RelativeTimestamp timestamp={createdAt} />,
+                  }}
+                />
+              </Text>
+              <Text color="secondary" size="body3">
+                <FormattedMessage
+                  defaultMessage="Updated: {time}"
+                  description="Label for updated time"
+                  id="+cwvdS"
+                  values={{
+                    time: <RelativeTimestamp timestamp={updatedAt} />,
+                  }}
+                />
+              </Text>
+            </div>
           </div>
+          {onEdit && (
+            <Button
+              label={intl.formatMessage({
+                defaultMessage: 'Edit request',
+                description: 'Edit button label',
+                id: 'daJxDM',
+              })}
+              size="md"
+              variant="secondary"
+              onClick={onEdit}
+            />
+          )}
         </div>
-        {onEdit && (
-          <Button
-            label={intl.formatMessage({
-              defaultMessage: 'Edit request',
-              description: 'Edit button label',
-              id: 'daJxDM',
-            })}
-            size="md"
-            variant="secondary"
-            onClick={onEdit}
-          />
-        )}
+        {alertMessage}
       </div>
       <div className="flex flex-col gap-6">
         <Section>
@@ -123,10 +129,10 @@ export default function SponsorsAdvertiseRequestReadonly({
                 {emails[0]}
               </Text>
             ) : (
-              <ol className="flex flex-col gap-1">
-                {emails.map((email, index) => (
+              <ol className="list-item list-inside list-decimal">
+                {emails.map((email) => (
                   <Text key={email} color="secondary" size="body2">
-                    {index + 1}. {email}
+                    {email}
                   </Text>
                 ))}
               </ol>

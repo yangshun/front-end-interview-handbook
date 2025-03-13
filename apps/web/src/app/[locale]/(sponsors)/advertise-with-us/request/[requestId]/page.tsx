@@ -1,4 +1,4 @@
-import { notFound, redirect } from 'next/navigation';
+import { notFound } from 'next/navigation';
 import type { Metadata } from 'next/types';
 
 import SponsorsAdvertiseRequestEditPage from '~/components/sponsors/request/SponsorsAdvertiseRequestEditPage';
@@ -9,9 +9,6 @@ import prisma from '~/server/prisma';
 
 type Props = Readonly<{
   params: Readonly<{ locale: string; requestId: string }>;
-  searchParams: Readonly<{
-    step: string;
-  }>;
 }>;
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -35,7 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   });
 }
 
-export default async function Page({ searchParams, params }: Props) {
+export default async function Page({ params }: Props) {
   const { requestId } = params;
 
   const sponsorAdRequest = await prisma.sponsorsAdRequest.findUnique({
@@ -43,6 +40,11 @@ export default async function Page({ searchParams, params }: Props) {
       ads: {
         include: {
           slots: true,
+        },
+      },
+      review: {
+        select: {
+          comments: true,
         },
       },
     },
@@ -53,10 +55,6 @@ export default async function Page({ searchParams, params }: Props) {
 
   if (sponsorAdRequest == null) {
     return notFound();
-  }
-  // On page reload take the user to the starting to make the user start from the beginning and revalidate the form again
-  if (searchParams.step) {
-    return redirect(`/advertise-with-us/request/${requestId}`);
   }
 
   return <SponsorsAdvertiseRequestEditPage adRequest={sponsorAdRequest} />;

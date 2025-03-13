@@ -467,6 +467,10 @@
     "defaultMessage": "Intermediate",
     "description": "Intermediate level blog"
   },
+  "0YqU5d": {
+    "defaultMessage": "Your advertising request has been approved. You can no longer make changes.",
+    "description": "Accepted request alert message"
+  },
   "0Z+Itx": {
     "defaultMessage": "Search over {questionCount} CSS interview questions",
     "description": "Search placeholder for CSS questions list page"
@@ -3087,10 +3091,6 @@
     "defaultMessage": "Label for \"Completed projects\" progress bar of a Projects component track",
     "description": "{completedCount} out of {totalCount} challenges"
   },
-  "GUEj3Y": {
-    "defaultMessage": "Request accepted",
-    "description": "Title for accepted request alert"
-  },
   "GUGImr": {
     "defaultMessage": "{offerCount, plural,=1 {1 offer} other {# offers}}",
     "description": "Testimonials overview"
@@ -3174,6 +3174,10 @@
   "H+BRfg": {
     "defaultMessage": "No completed questions",
     "description": "Text shown when no questions are completed."
+  },
+  "H+ByKq": {
+    "defaultMessage": "Your advertising request has been accepted, payment has been received, and your booking is confirmed. Please note that no further changes can be made.",
+    "description": "Accepted confirmed alert message"
   },
   "H/xTN5": {
     "defaultMessage": "Explore community submissions",
@@ -4578,6 +4582,10 @@
   "OYgvni": {
     "defaultMessage": "New here? <link>How it works</link>",
     "description": "Link to 'How it works' page on Projects project page"
+  },
+  "OZ9+0K": {
+    "defaultMessage": "Request confirmed",
+    "description": "Title for accepted request alert"
   },
   "OchGBW": {
     "defaultMessage": "Join Discord channel (public)",
@@ -5990,6 +5998,10 @@
   "VnPiXE": {
     "defaultMessage": "The card does not have enough funds available to complete the transaction.",
     "description": "Decline message for insufficient fund"
+  },
+  "VoVHwh": {
+    "defaultMessage": "Request approved",
+    "description": "Title for accepted request alert"
   },
   "Vp6BGE": {
     "defaultMessage": "At least {minLength} character(s).",
@@ -10126,10 +10138,6 @@
   "tJexBp": {
     "defaultMessage": "Practical guides",
     "description": "Title of 'Practical guides' sub-feature in Projects marketing page"
-  },
-  "tK/YTk": {
-    "defaultMessage": "Your advertising request has been accepted. You can no longer make changes.",
-    "description": "Accepted request alert message"
   },
   "tK6m9g": {
     "defaultMessage": "Build entire component libraries or design systems from scratch for your portfolio or as a toolkit for future projects.",
