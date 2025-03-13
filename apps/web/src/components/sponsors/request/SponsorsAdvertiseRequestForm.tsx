@@ -16,23 +16,43 @@ import SponsorsAdvertiseRequestFormCompanyDetailsSection from './company/Sponsor
 import SponsorsAdvertiseRequestEnquiryForm from './contact/SponsorsAdvertiseRequestEnquiryForm';
 import SponsorsAdvertiseRequestFormContactSection from './contact/SponsorsAdvertiseRequestFormContactSection';
 import SponsorsAdvertiseRequestFormReviewSection from './review/SponsorsAdvertiseRequestFormReviewSection';
+import type { AdvertiseRequestFormValues } from './useSponsorsAdvertiseRequestFormData';
 import useSponsorsAdvertiseRequestFormData from './useSponsorsAdvertiseRequestFormData';
 
 type Step = 'ads' | 'company' | 'contact' | 'review';
 
-export default function SponsorsAdvertiseRequestForm() {
+type Props =
+  | Readonly<{
+      defaultValues: Omit<AdvertiseRequestFormValues, 'sessionId'>;
+      mode: 'edit';
+      requestId: string;
+    }>
+  | Readonly<{
+      defaultValues?: Omit<AdvertiseRequestFormValues, 'sessionId'>;
+      mode: 'create' | 'readonly';
+    }>;
+
+export default function SponsorsAdvertiseRequestForm({
+  defaultValues,
+  mode = 'create',
+  ...props
+}: Props) {
   const intl = useIntl();
   const { showToast } = useToast();
   const router = useI18nRouter();
 
+  const isCreateMode = mode === 'create';
+
   const adRequestMutation = trpc.sponsorships.adRequest.useMutation();
+  const adRequestUpdateMutation =
+    trpc.sponsorships.adRequestUpdate.useMutation();
   const [stepsStatus, setStepsStatus] = useState<
     Record<Step, 'completed' | 'in_progress' | 'not_started'>
   >({
-    ads: 'not_started',
-    company: 'not_started',
-    contact: 'not_started',
-    review: 'not_started',
+    ads: isCreateMode ? 'not_started' : 'completed',
+    company: isCreateMode ? 'not_started' : 'completed',
+    contact: isCreateMode ? 'not_started' : 'completed',
+    review: isCreateMode ? 'not_started' : 'completed',
   });
 
   const steps = [
@@ -94,10 +114,12 @@ export default function SponsorsAdvertiseRequestForm() {
     },
   ] as const;
 
-  const [formData, setFormData] = useSponsorsAdvertiseRequestFormData();
-  const [step, setStep] = useQueryState<(typeof steps)[number]['value']>(
+  const [formData, setFormData] =
+    useSponsorsAdvertiseRequestFormData(defaultValues);
+  const [step, setStep] = useQueryState<(typeof steps)[number]['value'] | null>(
     'step',
     {
+      defaultValue: isCreateMode ? null : 'contact',
       history: 'push',
       parse: (value) =>
         ['ads', 'company', 'contact', 'review'].includes(value)
@@ -123,54 +145,97 @@ export default function SponsorsAdvertiseRequestForm() {
     }
   }, [step]);
 
-  async function handleCreateRequest({
+  async function handleSubmitRequest({
     agreement,
   }: Readonly<{
     agreement: string;
   }>) {
-    await adRequestMutation.mutateAsync(
-      {
-        ads: formData.ads,
-        agreement,
-        company: formData.company!,
-        emails: formData.emails,
-      },
-      {
-        onError: (error) => {
-          showToast({
-            description: error.message,
-            title:
-              error.message ||
-              intl.formatMessage({
-                defaultMessage: 'Failed to submit request',
-                description: 'Error title for request submission',
-                id: 'KJX/Um',
+    if (mode === 'edit' && 'requestId' in props) {
+      await adRequestUpdateMutation.mutateAsync(
+        {
+          ads: formData.ads,
+          agreement,
+          company: formData.company!,
+          emails: formData.emails,
+          id: props.requestId!,
+        },
+        {
+          onError: (error) => {
+            showToast({
+              description: error.message,
+              title:
+                error.message ||
+                intl.formatMessage({
+                  defaultMessage: 'Failed to edit request',
+                  description: 'Error title for request submission',
+                  id: 'PV4vcA',
+                }),
+              variant: 'danger',
+            });
+          },
+          onSuccess: () => {
+            showToast({
+              description: intl.formatMessage({
+                defaultMessage: 'Your request has been edited successfully',
+                description: 'Success message for request submission',
+                id: 'ngtxtp',
               }),
-            variant: 'danger',
-          });
+              title: intl.formatMessage({
+                defaultMessage: 'Request edited',
+                description: 'Success title for request submission',
+                id: 'wkTX0Z',
+              }),
+              variant: 'success',
+            });
+          },
         },
-        onSuccess: () => {
-          showToast({
-            description: intl.formatMessage({
-              defaultMessage: 'Your request has been submitted successfully',
-              description: 'Success message for request submission',
-              id: 'RyuIJe',
-            }),
-            title: intl.formatMessage({
-              defaultMessage: 'Request submitted',
-              description: 'Success title for request submission',
-              id: 'auTrf6',
-            }),
-            variant: 'success',
-          });
+      );
+      setStepsStatus((prev) => ({ ...prev, review: 'completed' }));
+    } else {
+      await adRequestMutation.mutateAsync(
+        {
+          ads: formData.ads,
+          agreement,
+          company: formData.company!,
+          emails: formData.emails,
+        },
+        {
+          onError: (error) => {
+            showToast({
+              description: error.message,
+              title:
+                error.message ||
+                intl.formatMessage({
+                  defaultMessage: 'Failed to submit request',
+                  description: 'Error title for request submission',
+                  id: 'KJX/Um',
+                }),
+              variant: 'danger',
+            });
+          },
+          onSuccess: () => {
+            showToast({
+              description: intl.formatMessage({
+                defaultMessage: 'Your request has been submitted successfully',
+                description: 'Success message for request submission',
+                id: 'RyuIJe',
+              }),
+              title: intl.formatMessage({
+                defaultMessage: 'Request submitted',
+                description: 'Success title for request submission',
+                id: 'auTrf6',
+              }),
+              variant: 'success',
+            });
 
-          router.push('/advertise-with-us/request/success');
+            router.push('/advertise-with-us/request/success');
+          },
         },
-      },
-    );
+      );
+    }
   }
 
-  if (!step) {
+  if (!step && isCreateMode) {
     return (
       <SponsorsAdvertiseRequestEnquiryForm
         defaultValues={formData.emails}
@@ -264,12 +329,15 @@ export default function SponsorsAdvertiseRequestForm() {
             company: formData.company!,
             emails: formData.emails,
           }}
-          isSubmitting={adRequestMutation.isLoading}
+          isSubmitting={
+            adRequestMutation.isLoading || adRequestUpdateMutation.isLoading
+          }
+          mode={isCreateMode ? 'create' : 'edit'}
           updateStepStatus={(status) =>
             setStepsStatus((prev) => ({ ...prev, review: status }))
           }
           onPrevious={() => setStep('company')}
-          onSubmit={handleCreateRequest}
+          onSubmit={handleSubmitRequest}
         />
       )}
     </div>

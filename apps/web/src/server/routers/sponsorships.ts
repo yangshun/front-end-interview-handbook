@@ -244,6 +244,71 @@ export const sponsorshipsRouter = router({
         }),
       ]);
     }),
+  adRequestUpdate: publicProcedure
+    .input(
+      z.object({
+        ads: z.array(
+          z.union([
+            sponsorsGlobalBannerAdSchemaServer,
+            sponsorsSpotlightAdSchemaServer,
+            sponsorsInContentAdSchemaServer,
+          ]),
+        ),
+        agreement: z.string(),
+        company: sponsorsCompanySchemaServer,
+        emails: z.array(z.string()),
+        id: z.string(),
+      }),
+    )
+    .mutation(async ({ input: { id, ads, company, emails, agreement } }) => {
+      const { legalName, taxNumber, address, signatoryName, signatoryTitle } =
+        company;
+
+      return await prisma.$transaction(async (tx) => {
+        await Promise.all([
+          tx.sponsorsAdRequest.update({
+            data: {
+              address,
+              agreement,
+              emails,
+              legalName,
+              signatoryName,
+              signatoryTitle,
+              taxNumber,
+            },
+            where: { id },
+          }),
+          // Delete earlier sponsor ads
+          tx.sponsorsAd.deleteMany({
+            where: { requestId: id },
+          }),
+        ]);
+        await Promise.all(
+          ads.map((ad) =>
+            tx.sponsorsAd.create({
+              data: {
+                format: ad.format,
+                requestId: id,
+                sponsorName: ad.sponsorName,
+                title: ad.text,
+                url: ad.url,
+                ...('body' in ad ? { body: ad.body } : {}),
+                ...('imageUrl' in ad ? { imageUrl: ad.imageUrl } : {}),
+                slots: {
+                  create: Array.from(ad.weeks).map((slot) => {
+                    const [year, week] = slot
+                      .split('/')
+                      .map((part) => Number(part));
+
+                    return { week, year };
+                  }),
+                },
+              },
+            }),
+          ),
+        );
+      });
+    }),
   availability: publicProcedure
     .input(
       z.object({

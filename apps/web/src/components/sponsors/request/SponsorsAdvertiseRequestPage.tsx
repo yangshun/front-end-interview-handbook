@@ -52,7 +52,7 @@ export default function SponsorsAdvertiseRequestPage() {
         )}
         <Section>
           <div className={clsx(step && 'mt-12')}>
-            <SponsorsAdvertiseRequestForm />
+            <SponsorsAdvertiseRequestForm mode="create" />
           </div>
         </Section>
       </Container>

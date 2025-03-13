@@ -4731,6 +4731,10 @@
     "defaultMessage": "Product",
     "description": "Section heading in footer"
   },
+  "PV4vcA": {
+    "defaultMessage": "Failed to edit request",
+    "description": "Error title for request submission"
+  },
   "PXcS/H": {
     "defaultMessage": "<authorLink>{author}</authorLink> replied to your code review on <submissionLink>{entityTitle}</submissionLink> {timestamp}",
     "description": "Notification for someone replied to your code review"
@@ -6075,6 +6079,10 @@
     "defaultMessage": "Quarterly plan",
     "description": "Title of quarterly pricing plan"
   },
+  "WJgAdh": {
+    "defaultMessage": "Edit Request form | Advertise with us",
+    "description": "Title of advertise with us page"
+  },
   "WNERnb": {
     "defaultMessage": "End session",
     "description": "Label for \"End session\" button on current project session card"
@@ -6198,6 +6206,10 @@
   "X/fzHZ": {
     "defaultMessage": "Skills is required.",
     "description": "Error message"
+  },
+  "X1OhvD": {
+    "defaultMessage": "Verify to Access Your Request",
+    "description": "Title for advertise request page"
   },
   "X1UVMv": {
     "defaultMessage": "We add more questions and guides from time to time, available for free to premium subscribers.",
@@ -6822,6 +6834,10 @@
   "anZw89": {
     "defaultMessage": "Please enter your status",
     "description": "Error message for empty other input for yoe status on projects profile page"
+  },
+  "apH5pY": {
+    "defaultMessage": "Email does not match any of the emails provided",
+    "description": "Error message for invalid email"
   },
   "apypGU": {
     "defaultMessage": "If you are logged in with OAuth (e.g. GitHub), you can set a password here to use email and password to log in instead.",
@@ -9131,6 +9147,10 @@
     "defaultMessage": "Reset selected ({selectedQnsCount})",
     "description": "Label for button to reset progress for selected questions"
   },
+  "ngtxtp": {
+    "defaultMessage": "Your request has been edited successfully",
+    "description": "Success message for request submission"
+  },
   "nhMxxN": {
     "defaultMessage": "End-to-end guide",
     "description": "Features for frontend interviews playbook page"
@@ -9746,6 +9766,10 @@
   "rBnWDc": {
     "defaultMessage": "No Projects profile",
     "description": "User does not have a profile for the Projects product"
+  },
+  "rFIHeM": {
+    "defaultMessage": "To access your advertising request on GreatFrontend, please enter any one of the emails you provided during the request creation. This helps us ensure secure and authorized modifications to your request.",
+    "description": "Subtitle for advertise request page"
   },
   "rGbEEY": {
     "defaultMessage": "Resources & discussions",
@@ -10638,6 +10662,10 @@
   "wdlzwm": {
     "defaultMessage": "Your Message",
     "description": "Feedback widget textarea title"
+  },
+  "wkTX0Z": {
+    "defaultMessage": "Request edited",
+    "description": "Success title for request submission"
   },
   "wkkRGq": {
     "defaultMessage": "GitHub repository or subdirectory URL",

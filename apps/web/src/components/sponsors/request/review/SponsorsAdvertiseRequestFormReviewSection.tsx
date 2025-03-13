@@ -33,6 +33,7 @@ type Props = Readonly<{
     emails: Array<string>;
   };
   isSubmitting?: boolean;
+  mode?: 'create' | 'edit';
   onPrevious: () => void;
   onSubmit: ({ agreement }: Readonly<{ agreement: string }>) => void;
   updateStepStatus: (status: StepsTabItemStatus) => void;
@@ -50,6 +51,7 @@ export default function SponsorsAdvertiseRequestFormReviewSection({
   data,
   onSubmit,
   isSubmitting,
+  mode = 'create',
 }: Props) {
   const intl = useIntl();
   const agreementRef = useRef<HTMLDivElement>(null);
@@ -273,11 +275,19 @@ export default function SponsorsAdvertiseRequestFormReviewSection({
             icon={RiArrowRightLine}
             isDisabled={!signedAgreement || isSubmitting}
             isLoading={isSubmitting}
-            label={intl.formatMessage({
-              defaultMessage: 'Submit',
-              description: 'Label for submit button',
-              id: 'K3opjL',
-            })}
+            label={
+              mode === 'edit'
+                ? intl.formatMessage({
+                    defaultMessage: 'Update',
+                    description: 'Label for update button',
+                    id: 'xw+bqB',
+                  })
+                : intl.formatMessage({
+                    defaultMessage: 'Submit',
+                    description: 'Label for submit button',
+                    id: 'K3opjL',
+                  })
+            }
             size="md"
             type="submit"
             variant="primary"

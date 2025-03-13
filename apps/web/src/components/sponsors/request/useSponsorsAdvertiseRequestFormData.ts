@@ -4,22 +4,27 @@ import { useGreatStorageLocal } from '~/hooks/useGreatStorageLocal';
 
 import type { SponsorsAdFormatFormItem, SponsorsCompanyDetails } from './types';
 
-type AdvertiseRequestFormValues = Readonly<{
+export type AdvertiseRequestFormValues = Readonly<{
   ads: Array<SponsorsAdFormatFormItem>;
   company: SponsorsCompanyDetails | null;
   emails: Array<string>;
   sessionId: string;
 }>;
 
-export default function useSponsorsAdvertiseRequestFormData() {
+export default function useSponsorsAdvertiseRequestFormData(
+  defaultValues?: Omit<AdvertiseRequestFormValues, 'sessionId'>,
+) {
   return useGreatStorageLocal<AdvertiseRequestFormValues>(
     'sponsorships:advertise-request',
-    () => ({
-      ads: [],
-      company: null,
-      emails: [],
-      sessionId: uuidv4(),
-    }),
+    () =>
+      defaultValues
+        ? { ...defaultValues, sessionId: uuidv4() }
+        : {
+            ads: [],
+            company: null,
+            emails: [],
+            sessionId: uuidv4(),
+          },
     { ttl: 7 * 24 * 60 * 60 },
   );
 }

@@ -33,15 +33,17 @@ export type SponsorsAdFormatFormItem =
   | SponsorsAdFormatInContentItem
   | SponsorsAdFormatSpotlightItem;
 
+export type SponsorCompanyAddress = Readonly<{
+  city?: string;
+  country: string;
+  line1: string;
+  line2?: string;
+  postalCode: string;
+  state?: string;
+}>;
+
 export type SponsorsCompanyDetails = Readonly<{
-  address: Readonly<{
-    city?: string;
-    country: string;
-    line1: string;
-    line2?: string;
-    postalCode: string;
-    state?: string;
-  }>;
+  address: SponsorCompanyAddress;
   legalName: string;
   signatoryName: string;
   signatoryTitle: string;
