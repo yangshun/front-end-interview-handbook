@@ -32,6 +32,7 @@ import RichTextEditorExamples from '~/components/ui/RichTextEditor/RichTextEdito
 import SelectExamples from '~/components/ui/Select/SelectExamples';
 import SlideOutExamples from '~/components/ui/SlideOut/SlideOutExamples';
 import SpinnerExamples from '~/components/ui/Spinner/SpinnerExamples';
+import TableExamples from '~/components/ui/Table/TableExamples';
 import TabsExamples from '~/components/ui/Tabs/TabsExamples';
 import TextExamples from '~/components/ui/Text/TextExamples';
 import TypographyExamples from '~/components/ui/Text/TypographyExamples';
@@ -71,6 +72,7 @@ export default function UILibraryPage() {
         <HeadingExamples />
         <TextExamples />
         <AnchorExamples />
+        <TableExamples />
         {/* Form */}
         <ButtonExamples />
         <FilterButtonExamples />

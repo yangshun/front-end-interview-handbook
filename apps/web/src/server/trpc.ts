@@ -9,6 +9,8 @@
  */
 import superjson from 'superjson';
 
+import { ADMIN_EMAILS } from '~/data/AdminConfig';
+
 import type { Context } from './context';
 
 import { initTRPC, TRPCError } from '@trpc/server';
@@ -42,4 +44,23 @@ export const isUser = middleware(async (opts) => {
   });
 });
 
+export const isAdmin = middleware(async (opts) => {
+  const { ctx } = opts;
+
+  if (ctx.viewer == null || !ADMIN_EMAILS.includes(ctx.viewer.email)) {
+    throw new TRPCError({
+      code: 'UNAUTHORIZED',
+      message: 'Admin account required.',
+    });
+  }
+
+  return opts.next({
+    ctx: {
+      ...ctx,
+      viewer: ctx.viewer,
+    },
+  });
+});
+
 export const userProcedure = publicProcedure.use(isUser);
+export const adminProcedure = userProcedure.use(isAdmin);

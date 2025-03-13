@@ -39,7 +39,9 @@ import {
 import prisma from '~/server/prisma';
 import { createSupabaseAdminClientGFE_SERVER_ONLY } from '~/supabase/SupabaseServerGFE';
 
-import { publicProcedure, router } from '../trpc';
+import { adminProcedure, publicProcedure, router } from '../trpc';
+
+import type { Prisma } from '@prisma/client';
 
 const availabilityMaxWeeksAhead = 12;
 
@@ -489,6 +491,70 @@ export const sponsorshipsRouter = router({
         }
       : null;
   }),
+  getAdRequests: adminProcedure
+    .input(
+      z.object({
+        filter: z.object({
+          query: z.string().nullable(),
+          status: z.array(
+            z.enum(['PENDING', 'APPROVED', 'REJECTED', 'PUBLISHED'] as const),
+          ),
+        }),
+        pagination: z.object({
+          limit: z
+            .number()
+            .int()
+            .positive()
+            .transform((val) => Math.min(30, val)),
+          page: z.number().int().positive(),
+        }),
+        sort: z.object({
+          field: z.enum(['createdAt', 'signatoryName']),
+          isAscendingOrder: z.boolean(),
+        }),
+      }),
+    )
+    .query(async ({ input: { pagination, filter, sort } }) => {
+      const { limit, page } = pagination;
+      const { query, status } = filter;
+
+      const orderBy = {
+        [sort.field]: sort.isAscendingOrder ? 'asc' : 'desc',
+      } as const;
+
+      const where: Prisma.SponsorsAdRequestWhereInput = {
+        OR: [
+          {
+            signatoryName: {
+              contains: query ?? '',
+              mode: 'insensitive', // Case-insensitive search
+            },
+          },
+          {
+            legalName: {
+              contains: query ?? '',
+              mode: 'insensitive',
+            },
+          },
+        ],
+        ...(status.length > 0 ? { status: { in: status } } : {}),
+      };
+
+      const [totalCount, requests] = await Promise.all([
+        prisma.sponsorsAdRequest.count({ where }),
+        prisma.sponsorsAdRequest.findMany({
+          orderBy,
+          skip: (page - 1) * limit,
+          take: limit,
+          where,
+        }),
+      ]);
+
+      return {
+        requests,
+        totalCount,
+      };
+    }),
   removeAdAsset: publicProcedure
     .input(
       z.object({
