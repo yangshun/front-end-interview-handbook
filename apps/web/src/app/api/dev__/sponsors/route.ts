@@ -54,12 +54,12 @@ export async function GET(request: NextRequest) {
       availabilityMaxWeeksAhead,
     );
 
-    const approvedAdFilter = {
+    const publishedAdsQuery = {
       ad: {
         format: (searchParams.get('format') ||
           'IN_CONTENT') as SponsorsAdFormat,
         request: {
-          status: 'APPROVED',
+          status: 'PUBLISHED',
         },
       },
     } as const;
@@ -68,7 +68,7 @@ export async function GET(request: NextRequest) {
       where:
         availabilityStartWeek < availabilityEndWeek
           ? {
-              ...approvedAdFilter,
+              ...publishedAdsQuery,
               week: {
                 gte: availabilityStartWeek,
                 lte: availabilityEndWeek,
@@ -79,7 +79,7 @@ export async function GET(request: NextRequest) {
               // Goes into next year
               OR: [
                 {
-                  ...approvedAdFilter,
+                  ...publishedAdsQuery,
                   week: {
                     gte: availabilityStartWeek,
                     lte: 52,
@@ -87,7 +87,7 @@ export async function GET(request: NextRequest) {
                   year: currentYear,
                 },
                 {
-                  ...approvedAdFilter,
+                  ...publishedAdsQuery,
                   week: {
                     lte: availabilityEndWeek,
                   },

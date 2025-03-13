@@ -62,7 +62,7 @@ export const sponsorshipsRouter = router({
       const week = getISOWeek(date);
 
       const adPayload: SponsorsAdFormatPayload | null = await (async () => {
-        const ads = await prisma.sponsorsAd.findMany({
+        const publishedAds = await prisma.sponsorsAd.findMany({
           select: {
             body: true,
             format: true,
@@ -76,7 +76,7 @@ export const sponsorshipsRouter = router({
           where: {
             format,
             request: {
-              status: 'APPROVED',
+              status: 'PUBLISHED',
             },
             slots: {
               some: {
@@ -89,8 +89,8 @@ export const sponsorshipsRouter = router({
 
         switch (format) {
           case 'IN_CONTENT': {
-            if (ads.length > 0) {
-              const ad = ads[0];
+            if (publishedAds.length > 0) {
+              const ad = publishedAds[0];
 
               return {
                 adId: ad.id,
@@ -119,8 +119,8 @@ export const sponsorshipsRouter = router({
             return sample([SponsorsAdsSpotsProjectsInContent, swagOverflowAd]);
           }
           case 'SPOTLIGHT': {
-            if (ads.length > 0) {
-              const ad = ads[0];
+            if (publishedAds.length > 0) {
+              const ad = publishedAds[0];
 
               return {
                 adId: ad.id,
@@ -139,11 +139,11 @@ export const sponsorshipsRouter = router({
             ]);
           }
           case 'GLOBAL_BANNER': {
-            if (ads.length === 0) {
+            if (publishedAds.length === 0) {
               return null;
             }
 
-            const ad = ads[0];
+            const ad = publishedAds[0];
 
             return {
               adId: ad.id,
@@ -326,11 +326,11 @@ export const sponsorshipsRouter = router({
         availabilityMaxWeeksAhead,
       );
 
-      const approvedAdFilter = {
+      const publishedAdsQuery = {
         ad: {
           format,
           request: {
-            status: 'APPROVED',
+            status: 'PUBLISHED',
           },
         },
       } as const;
@@ -339,7 +339,7 @@ export const sponsorshipsRouter = router({
         where:
           availabilityStartWeek < availabilityEndWeek
             ? {
-                ...approvedAdFilter,
+                ...publishedAdsQuery,
                 week: {
                   gte: availabilityStartWeek,
                   lte: availabilityEndWeek,
@@ -350,7 +350,7 @@ export const sponsorshipsRouter = router({
                 // Goes into next year
                 OR: [
                   {
-                    ...approvedAdFilter,
+                    ...publishedAdsQuery,
                     week: {
                       gte: availabilityStartWeek,
                       lte: 52,
@@ -358,7 +358,7 @@ export const sponsorshipsRouter = router({
                     year: currentYear,
                   },
                   {
-                    ...approvedAdFilter,
+                    ...publishedAdsQuery,
                     week: {
                       lte: availabilityEndWeek,
                     },
@@ -394,10 +394,10 @@ export const sponsorshipsRouter = router({
       availabilityMaxWeeksAhead,
     );
 
-    const approvedAdFilter = {
+    const publishedAdFilter = {
       ad: {
         request: {
-          status: 'APPROVED',
+          status: 'PUBLISHED',
         },
       },
     } as const;
@@ -413,7 +413,7 @@ export const sponsorshipsRouter = router({
       where:
         availabilityStartWeek < availabilityEndWeek
           ? {
-              ...approvedAdFilter,
+              ...publishedAdFilter,
               week: {
                 gte: availabilityStartWeek,
                 lte: availabilityEndWeek,
@@ -424,7 +424,7 @@ export const sponsorshipsRouter = router({
               // Goes into next year
               OR: [
                 {
-                  ...approvedAdFilter,
+                  ...publishedAdFilter,
                   week: {
                     gte: availabilityStartWeek,
                     lte: 52,
@@ -432,7 +432,7 @@ export const sponsorshipsRouter = router({
                   year: currentYear,
                 },
                 {
-                  ...approvedAdFilter,
+                  ...publishedAdFilter,
                   week: {
                     lte: availabilityEndWeek,
                   },

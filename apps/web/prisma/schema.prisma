@@ -536,6 +536,7 @@ enum SponsorsAdRequestStatus {
   PENDING
   REJECTED
   APPROVED
+  PUBLISHED
 }
 
 model SponsorsAdRequest {
