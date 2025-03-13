@@ -5,12 +5,15 @@ import { useState } from 'react';
 import { RiArrowRightLine } from 'react-icons/ri';
 
 import { FormattedMessage, useIntl } from '~/components/intl';
+import Alert from '~/components/ui/Alert';
 import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
+
+import { useI18nRouter } from '~/next-i18nostic/src';
 
 import SponsorsAdvertiseRequestReadonly from './ads/SponsorsAdvertiseRequestReadonly';
 import SponsorsAdvertiseRequestForm from './SponsorsAdvertiseRequestForm';
@@ -19,6 +22,7 @@ import type {
   SponsorsAdFormatFormItem,
   SponsorsCompanyDetails,
 } from './types';
+import useSponsorsAdvertiseRequestFormData from './useSponsorsAdvertiseRequestFormData';
 
 import type {
   SponsorsAd,
@@ -38,6 +42,7 @@ type Props = Readonly<{
 
 export default function SponsorsAdvertiseRequestEditPage({ adRequest }: Props) {
   const intl = useIntl();
+  const router = useI18nRouter();
   const company: SponsorsCompanyDetails = {
     address: adRequest.address as SponsorCompanyAddress,
     legalName: adRequest.legalName,
@@ -75,6 +80,7 @@ export default function SponsorsAdvertiseRequestEditPage({ adRequest }: Props) {
 
   const [emailVerified, setEmailVerified] = useState(!needEmailVerification);
   const [errorMessage, setErrorMessage] = useState('');
+  const [, setFormData] = useSponsorsAdvertiseRequestFormData('create');
   const [showEditMode, setShowEditMode] = useState(false);
 
   function onSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -105,6 +111,77 @@ export default function SponsorsAdvertiseRequestEditPage({ adRequest }: Props) {
           !emailVerified && 'flex flex-col items-center',
         )}
         width="marketing">
+        {adRequest.status === 'APPROVED' && emailVerified && !showEditMode && (
+          <Alert
+            className="mb-4 lg:mb-6"
+            title={intl.formatMessage({
+              defaultMessage: 'Request accepted',
+              description: 'Title for accepted request alert',
+              id: 'GUEj3Y',
+            })}
+            variant="success">
+            <FormattedMessage
+              defaultMessage="Your advertising request has been accepted. You can no longer make changes."
+              description="Accepted request alert message"
+              id="tK/YTk"
+            />
+          </Alert>
+        )}
+        {adRequest.status === 'REJECTED' && emailVerified && !showEditMode && (
+          <div
+            className={clsx(
+              'flex flex-col gap-x-4 gap-y-3 md:flex-row lg:gap-x-6',
+              'mb-4 flex-1 lg:mb-6',
+            )}>
+            <Alert
+              className="flex-1"
+              title={intl.formatMessage({
+                defaultMessage: 'Request rejected',
+                description: 'Title for rejected request alert',
+                id: 'KkezqJ',
+              })}
+              variant="danger">
+              <div>
+                <FormattedMessage
+                  defaultMessage="Your advertising request has been rejected. You can click edit your request and resubmit for approval."
+                  description="Rejected request alert message"
+                  id="TxVFaP"
+                />
+                <br />
+                {/* TODO(sponsors): Add actual rejection reason */}
+                <b>
+                  <FormattedMessage
+                    defaultMessage="Rejection reason"
+                    description="Rejected request alert message"
+                    id="JmBr/f"
+                  />
+                  :
+                </b>{' '}
+                Some reason.
+              </div>
+            </Alert>
+            <Button
+              className="mt-2"
+              label={intl.formatMessage({
+                defaultMessage: 'Modify and resubmit',
+                description: 'Edit button label',
+                id: '7Z0BWc',
+              })}
+              size="md"
+              variant="secondary"
+              onClick={() => {
+                // Store it in local storage so that the user can access it in the new creation flow
+                setFormData((prev) => ({
+                  ...prev,
+                  ads,
+                  company,
+                  emails: adRequest.emails,
+                }));
+                router.push('/advertise-with-us/request');
+              }}
+            />
+          </div>
+        )}
         {emailVerified && showEditMode && (
           <>
             <Heading level="heading4">
@@ -147,9 +224,15 @@ export default function SponsorsAdvertiseRequestEditPage({ adRequest }: Props) {
               ads,
               agreement: adRequest.agreement,
               company,
+              createdAt: adRequest.createdAt,
               emails: adRequest.emails,
+              updatedAt: adRequest.updatedAt,
             }}
-            onEdit={() => setShowEditMode(true)}
+            onEdit={
+              adRequest.status === 'PENDING'
+                ? () => setShowEditMode(true)
+                : undefined
+            }
           />
         )}
         {!emailVerified && (

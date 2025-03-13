@@ -1,3 +1,5 @@
+import type { Dispatch, SetStateAction } from 'react';
+import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 import { useGreatStorageLocal } from '~/hooks/useGreatStorageLocal';
@@ -8,23 +10,56 @@ export type AdvertiseRequestFormValues = Readonly<{
   ads: Array<SponsorsAdFormatFormItem>;
   company: SponsorsCompanyDetails | null;
   emails: Array<string>;
+  removeAssets: Array<string>;
   sessionId: string;
 }>;
 
 export default function useSponsorsAdvertiseRequestFormData(
-  defaultValues?: Omit<AdvertiseRequestFormValues, 'sessionId'>,
-) {
-  return useGreatStorageLocal<AdvertiseRequestFormValues>(
-    'sponsorships:advertise-request',
-    () =>
-      defaultValues
-        ? { ...defaultValues, sessionId: uuidv4() }
-        : {
-            ads: [],
-            company: null,
-            emails: [],
-            sessionId: uuidv4(),
-          },
-    { ttl: 7 * 24 * 60 * 60 },
+  mode: 'create' | 'edit' | 'readonly' = 'create',
+  defaultValues?: Omit<
+    AdvertiseRequestFormValues,
+    'removeAssets' | 'sessionId'
+  >,
+): [
+  AdvertiseRequestFormValues,
+  Dispatch<SetStateAction<Readonly<AdvertiseRequestFormValues>>>,
+  () => void,
+] {
+  const [storageValue, setStorageValue, removeStorageValue] =
+    useGreatStorageLocal<AdvertiseRequestFormValues>(
+      'sponsorships:advertise-request',
+      () => ({
+        ads: [],
+        company: null,
+        emails: [],
+        removeAssets: [],
+        sessionId: uuidv4(),
+      }),
+      { ttl: 7 * 24 * 60 * 60 },
+    );
+  const [value, setValue] = useState<AdvertiseRequestFormValues>(
+    defaultValues
+      ? { ...defaultValues, removeAssets: [], sessionId: uuidv4() }
+      : {
+          ads: [],
+          company: null,
+          emails: [],
+          removeAssets: [],
+          sessionId: uuidv4(),
+        },
   );
+
+  function removeValue() {
+    setValue((prev) => ({
+      ...prev,
+      ads: [],
+      company: null,
+      emails: [],
+      removeAssets: [],
+    }));
+  }
+
+  return mode === 'create'
+    ? [storageValue, setStorageValue, removeStorageValue]
+    : [value, setValue, removeValue];
 }

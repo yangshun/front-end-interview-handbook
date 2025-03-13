@@ -3,6 +3,7 @@ import { useState } from 'react';
 
 import { urlAddHttpsIfMissing } from '~/lib/urlValidation';
 
+import RelativeTimestamp from '~/components/common/datetime/RelativeTimestamp';
 import InterviewsMarketingHeroBrowserWindowFrame from '~/components/interviews/marketing/embed/InterviewsMarketingHeroBrowserWindowFrame';
 import { FormattedMessage, useIntl } from '~/components/intl';
 import SponsorsAdFormatGlobalBanner from '~/components/sponsors/ads/SponsorsAdFormatGlobalBanner';
@@ -34,9 +35,11 @@ import {
 } from '~/components/ui/theme';
 
 type Props = Readonly<{
-  data: Omit<AdvertiseRequestFormValues, 'sessionId'> &
+  data: Omit<AdvertiseRequestFormValues, 'removeAssets' | 'sessionId'> &
     Readonly<{
       agreement: string;
+      createdAt: Date;
+      updatedAt: Date;
     }>;
   onEdit?: () => void;
 }>;
@@ -46,7 +49,7 @@ export default function SponsorsAdvertiseRequestReadonly({
   onEdit,
 }: Props) {
   const intl = useIntl();
-  const { ads, company, emails, agreement } = data;
+  const { ads, company, emails, agreement, createdAt, updatedAt } = data;
   const { address, signatoryName, signatoryTitle } = company!;
   const addressString = [
     [address.line1, address.line2].filter(Boolean).join(', '),
@@ -60,14 +63,38 @@ export default function SponsorsAdvertiseRequestReadonly({
 
   return (
     <div className="flex flex-col gap-10">
-      <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-2">
-        <Heading level="heading4">
-          <FormattedMessage
-            defaultMessage="Advertise on GreatFrontEnd"
-            description="Title for advertise request page"
-            id="P4PHei"
-          />
-        </Heading>
+      <div className="flex flex-wrap items-center justify-between gap-3">
+        <div className="flex flex-col gap-1.5">
+          <Heading level="heading4">
+            <FormattedMessage
+              defaultMessage="Advertisement Request"
+              description="Title for advertise request page"
+              id="4gasot"
+            />
+          </Heading>
+          <div className="flex gap-3">
+            <Text color="secondary" size="body3">
+              <FormattedMessage
+                defaultMessage="Created: {time}"
+                description="Label for created time"
+                id="1stWMb"
+                values={{
+                  time: <RelativeTimestamp timestamp={createdAt} />,
+                }}
+              />
+            </Text>
+            <Text color="secondary" size="body3">
+              <FormattedMessage
+                defaultMessage="Updated: {time}"
+                description="Label for updated time"
+                id="+cwvdS"
+                values={{
+                  time: <RelativeTimestamp timestamp={updatedAt} />,
+                }}
+              />
+            </Text>
+          </div>
+        </div>
         {onEdit && (
           <Button
             label={intl.formatMessage({
@@ -91,13 +118,19 @@ export default function SponsorsAdvertiseRequestReadonly({
                 id: 'a8I10Q',
               })}
             </Heading>
-            <ul className="flex flex-col gap-1">
-              {emails.map((email, index) => (
-                <Text key={email} color="secondary" size="body2">
-                  {index + 1}. {email}
-                </Text>
-              ))}
-            </ul>
+            {emails.length === 1 ? (
+              <Text color="secondary" size="body2">
+                {emails[0]}
+              </Text>
+            ) : (
+              <ol className="flex flex-col gap-1">
+                {emails.map((email, index) => (
+                  <Text key={email} color="secondary" size="body2">
+                    {index + 1}. {email}
+                  </Text>
+                ))}
+              </ol>
+            )}
           </div>
         </Section>
         <Divider />
@@ -113,7 +146,7 @@ export default function SponsorsAdvertiseRequestReadonly({
             <div>
               {ads.length > 0 && (
                 <div className="flex flex-col items-start">
-                  <ul className="flex w-full flex-col gap-2">
+                  <ul className="flex w-full flex-col gap-4">
                     {ads.map((ad) => (
                       <AdFormatCard key={ad.id} ad={ad} />
                     ))}
@@ -230,7 +263,7 @@ function AdFormatCard({ ad }: Readonly<{ ad: SponsorsAdFormatFormItem }>) {
     <li
       className={clsx(
         'flex flex-col gap-3',
-        'px-3 py-3',
+        'p-4',
         ['border', themeBorderElementColor],
         'rounded-md',
       )}>

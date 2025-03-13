@@ -23,12 +23,18 @@ type Step = 'ads' | 'company' | 'contact' | 'review';
 
 type Props =
   | Readonly<{
-      defaultValues: Omit<AdvertiseRequestFormValues, 'sessionId'>;
+      defaultValues: Omit<
+        AdvertiseRequestFormValues,
+        'removeAssets' | 'sessionId'
+      >;
       mode: 'edit';
       requestId: string;
     }>
   | Readonly<{
-      defaultValues?: Omit<AdvertiseRequestFormValues, 'sessionId'>;
+      defaultValues?: Omit<
+        AdvertiseRequestFormValues,
+        'removeAssets' | 'sessionId'
+      >;
       mode: 'create' | 'readonly';
     }>;
 
@@ -45,6 +51,7 @@ export default function SponsorsAdvertiseRequestForm({
   const isReadonly = mode === 'readonly';
 
   const adRequestMutation = trpc.sponsorships.adRequest.useMutation();
+  const removeAdAssetMutation = trpc.sponsorships.removeAdAsset.useMutation();
   const adRequestUpdateMutation =
     trpc.sponsorships.adRequestUpdate.useMutation();
   const [stepsStatus, setStepsStatus] = useState<
@@ -115,8 +122,10 @@ export default function SponsorsAdvertiseRequestForm({
     },
   ] as const;
 
-  const [formData, setFormData] =
-    useSponsorsAdvertiseRequestFormData(defaultValues);
+  const [formData, setFormData] = useSponsorsAdvertiseRequestFormData(
+    mode,
+    defaultValues,
+  );
   const [step, setStep] = useQueryState<(typeof steps)[number]['value'] | null>(
     'step',
     {
@@ -151,6 +160,9 @@ export default function SponsorsAdvertiseRequestForm({
   }: Readonly<{
     agreement: string;
   }>) {
+    if (formData.removeAssets.length > 0) {
+      removeAdAssetMutation.mutate({ imageUrls: formData.removeAssets });
+    }
     if (mode === 'edit' && 'requestId' in props) {
       await adRequestUpdateMutation.mutateAsync(
         {
@@ -303,6 +315,12 @@ export default function SponsorsAdvertiseRequestForm({
           ads={formData.ads}
           mode={mode}
           sessionId={formData.sessionId}
+          setRemoveAssets={(value) =>
+            setFormData((prev) => ({
+              ...prev,
+              removeAssets: [...prev.removeAssets, value],
+            }))
+          }
           updateAds={(ads) => setFormData((prev) => ({ ...prev, ads }))}
           updateStepStatus={(status) =>
             setStepsStatus((prev) => ({ ...prev, ads: status }))

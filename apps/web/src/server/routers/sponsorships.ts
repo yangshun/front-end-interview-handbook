@@ -492,16 +492,18 @@ export const sponsorshipsRouter = router({
   removeAdAsset: publicProcedure
     .input(
       z.object({
-        imageUrl: z.string(),
+        imageUrls: z.array(z.string()),
       }),
     )
-    .mutation(async ({ input: { imageUrl } }) => {
+    .mutation(async ({ input: { imageUrls } }) => {
       const supabaseAdmin = createSupabaseAdminClientGFE_SERVER_ONLY();
-      const filePath = imageUrl.split('/').slice(-2).join('/'); // Get :sessionId/:fileName file path
+      const filePaths = imageUrls.map((imageUrl) =>
+        imageUrl.split('/').slice(-2).join('/'),
+      ); // Get :sessionId/:fileName file path
 
       const { error } = await supabaseAdmin.storage
         .from('ads')
-        .remove([filePath]);
+        .remove(filePaths);
 
       if (error) {
         throw error;

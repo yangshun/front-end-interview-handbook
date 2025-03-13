@@ -107,6 +107,10 @@
     "defaultMessage": "React Interview Questions",
     "description": "React questions category long title"
   },
+  "+cwvdS": {
+    "defaultMessage": "Updated: {time}",
+    "description": "Label for updated time"
+  },
   "+dUPPi": {
     "defaultMessage": "Post",
     "description": "Label for post reply button on project discussions page"
@@ -695,6 +699,10 @@
     "defaultMessage": "Try using a different card or payment method with enough balance.",
     "description": "Reason label for different card"
   },
+  "1stWMb": {
+    "defaultMessage": "Created: {time}",
+    "description": "Label for created time"
+  },
   "1w3zxf": {
     "defaultMessage": "Search questions",
     "description": "Placeholder for search input of question list"
@@ -1114,6 +1122,10 @@
   "4g6SOx": {
     "defaultMessage": "{upvoteCount, plural, =0 {No upvotes} one {# upvote} other {# upvotes}}",
     "description": "Number of upvotes for project submission"
+  },
+  "4gasot": {
+    "defaultMessage": "Advertisement Request",
+    "description": "Title for advertise request page"
   },
   "4gesVU": {
     "defaultMessage": "Premium challenge",
@@ -1638,6 +1650,10 @@
   "7YjBUE": {
     "defaultMessage": "Founder, CEO of GreatFrontEnd",
     "description": "Position of Yangshun"
+  },
+  "7Z0BWc": {
+    "defaultMessage": "Modify and resubmit",
+    "description": "Edit button label"
   },
   "7ZjmR2": {
     "defaultMessage": "Implementation must contain at least {minLength} character(s).",
@@ -3071,6 +3087,10 @@
     "defaultMessage": "Label for \"Completed projects\" progress bar of a Projects component track",
     "description": "{completedCount} out of {totalCount} challenges"
   },
+  "GUEj3Y": {
+    "defaultMessage": "Request accepted",
+    "description": "Title for accepted request alert"
+  },
   "GUGImr": {
     "defaultMessage": "{offerCount, plural,=1 {1 offer} other {# offers}}",
     "description": "Testimonials overview"
@@ -3695,6 +3715,10 @@
     "defaultMessage": "Completed",
     "description": "Completed task label"
   },
+  "JmBr/f": {
+    "defaultMessage": "Rejection reason",
+    "description": "Rejected request alert message"
+  },
   "Jn7AHE": {
     "defaultMessage": "This is an irreversible action. You will lose all progress. Are you sure?",
     "description": "Confirmation text for reseting study plan progress"
@@ -3910,6 +3934,10 @@
   "KjD2cI": {
     "defaultMessage": "Duration: High to Low",
     "description": "Sorting option for question list - sort by duration from high to low"
+  },
+  "KkezqJ": {
+    "defaultMessage": "Request rejected",
+    "description": "Title for rejected request alert"
   },
   "Kl+fdC": {
     "defaultMessage": "Select a project",
@@ -5670,6 +5698,10 @@
   "Tt86gs": {
     "defaultMessage": "Importance: High to Low",
     "description": "Sorting option for question list - sort by importance from high to low"
+  },
+  "TxVFaP": {
+    "defaultMessage": "Your advertising request has been rejected. You can click edit your request and resubmit for approval.",
+    "description": "Rejected request alert message"
   },
   "TyQdcx": {
     "defaultMessage": "Sort by",
@@ -10094,6 +10126,10 @@
   "tJexBp": {
     "defaultMessage": "Practical guides",
     "description": "Title of 'Practical guides' sub-feature in Projects marketing page"
+  },
+  "tK/YTk": {
+    "defaultMessage": "Your advertising request has been accepted. You can no longer make changes.",
+    "description": "Accepted request alert message"
   },
   "tK6m9g": {
     "defaultMessage": "Build entire component libraries or design systems from scratch for your portfolio or as a toolkit for future projects.",

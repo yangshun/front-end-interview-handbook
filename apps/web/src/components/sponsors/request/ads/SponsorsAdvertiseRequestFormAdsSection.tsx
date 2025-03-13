@@ -10,8 +10,6 @@ import {
 } from 'react-icons/ri';
 import { v4 as uuidv4 } from 'uuid';
 
-import { trpc } from '~/hooks/trpc';
-
 import ConfirmationDialog from '~/components/common/ConfirmationDialog';
 import type { StepsTabItemStatus } from '~/components/common/StepsTabs';
 import { FormattedMessage, useIntl } from '~/components/intl';
@@ -45,6 +43,7 @@ type Props = Readonly<{
   onPrevious: () => void;
   onSubmit: () => void;
   sessionId: string;
+  setRemoveAssets: (asset: string) => void;
   updateAds(ads: Array<SponsorsAdFormatFormItem>): void;
   updateStepStatus(status: StepsTabItemStatus): void;
 }>;
@@ -56,11 +55,11 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
   updateAds,
   sessionId,
   updateStepStatus,
+  setRemoveAssets,
   mode,
 }: Props) {
   const intl = useIntl();
   const isReadonly = mode === 'readonly';
-  const removeAdAssetMutation = trpc.sponsorships.removeAdAsset.useMutation();
   const [selectedFormat, setSelectedFormat] = useState<SponsorsAdFormat | null>(
     ads.length > 0 ? null : 'GLOBAL_BANNER',
   );
@@ -85,14 +84,24 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
 
   const isEditFlow = editAdData != null;
 
+  function removeAdAsset(imageUrl: string) {
+    const sessionIdFromImage = imageUrl.split('/').slice(-2)[0];
+
+    // This is to prevent removing the original assets when advertiser duplicate the rejected request
+    // to modify the request in the rejected request workflow
+    if (sessionId !== sessionIdFromImage) {
+      return;
+    }
+    // Save the assets to remove at the end of the form submission
+    setRemoveAssets(imageUrl);
+  }
+
   function onDeleteAd(ad: SponsorsAdFormatFormItem) {
     const remainingAds = ads.filter((adItem) => adItem.id !== ad.id);
 
     // Remove uploaded ad asset
     if ('imageUrl' in ad) {
-      removeAdAssetMutation.mutate({
-        imageUrl: ad.imageUrl,
-      });
+      removeAdAsset(ad.imageUrl);
     }
     updateAds(ads.filter((adItem) => adItem.id !== ad.id));
     if (editAdData?.id === ad.id) {
@@ -389,9 +398,7 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
 
                       // Remove uploaded ad asset if ad format change to global banner
                       if ('imageUrl' in editAdData) {
-                        removeAdAssetMutation.mutate({
-                          imageUrl: editAdData.imageUrl,
-                        });
+                        removeAdAsset(editAdData.imageUrl);
                       }
                       setEditAdData(null);
                       updateAds(updatedAds);
@@ -463,9 +470,7 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
                         'imageUrl' in editAdData &&
                         imageUrl !== editAdData.imageUrl
                       ) {
-                        removeAdAssetMutation.mutate({
-                          imageUrl: editAdData.imageUrl,
-                        });
+                        removeAdAsset(editAdData.imageUrl);
                       }
                       setEditAdData(null);
                       updateAds(updatedAds);
@@ -531,9 +536,7 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
                         'imageUrl' in editAdData &&
                         imageUrl !== editAdData.imageUrl
                       ) {
-                        removeAdAssetMutation.mutate({
-                          imageUrl: editAdData.imageUrl,
-                        });
+                        removeAdAsset(editAdData.imageUrl);
                       }
 
                       setEditAdData(null);
