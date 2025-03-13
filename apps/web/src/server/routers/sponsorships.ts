@@ -41,9 +41,14 @@ import { createSupabaseAdminClientGFE_SERVER_ONLY } from '~/supabase/SupabaseSer
 
 import { adminProcedure, publicProcedure, router } from '../trpc';
 
+import { Axiom } from '@axiomhq/js';
 import type { Prisma } from '@prisma/client';
 
 const availabilityMaxWeeksAhead = 12;
+
+const axiom = new Axiom({
+  token: process.env.AXIOM_TOKEN!,
+});
 
 function incrementISOWeek(week: number, delta = 1) {
   const newWeek = week + delta;
@@ -574,6 +579,24 @@ export const sponsorshipsRouter = router({
         },
       });
     }),
+  getAdRequestEnquiries: adminProcedure.query(async () => {
+    const aplQuery = `
+    ['events']
+    | where ['event.name'] == 'sponsorships.request'
+    | order by ['_time'] desc
+    | project emails=['event.payload.emails'], time=['_time']
+    `;
+
+    const response = await axiom.query(aplQuery);
+
+    // // Extract only email and timestamp
+    const logs = response.matches?.map((log) => ({
+      emails: log.data.emails,
+      time: new Date(log.data.time),
+    }));
+
+    return logs;
+  }),
   getAdRequests: adminProcedure
     .input(
       z.object({

@@ -50,7 +50,7 @@ const usePagination = <T>(opts: Options<T>): PaginatedList<T> => {
   const currentPageItems = totalList.slice(startIndex, endIndex);
 
   useEffect(() => {
-    if (isMounted.current && (deps || []).length > 1) {
+    if (isMounted.current && (deps || []).length >= 1) {
       setCurrentPage(1); // Reset current page when dependencies change
       if (updateSearchParamsRequired) {
         updateSearchParams('page', '1');
