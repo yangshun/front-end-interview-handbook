@@ -1,6 +1,7 @@
 import type { Metadata } from 'next/types';
 
-import { basePath } from '~/components/guides/books/behavioral-interview-playbook/BehavioralInterviewPlaybookNavigation';
+import { getGuidesData } from '~/data/Guides';
+
 import BehavioralInterviewPlaybookPage from '~/components/guides/books/behavioral-interview-playbook/BehavioralInterviewPlaybookPage';
 
 import { readBehavioralInterviewPlaybookGuides } from '~/db/guides/GuidesReader';
@@ -18,21 +19,12 @@ type Props = Readonly<{
 async function getPageSEOMetadata({ params }: Props) {
   const { locale } = params;
   const intl = await getIntlServerOnly(locale);
-  const socialTitle = intl.formatMessage({
-    defaultMessage: 'Behavioral Interview Playbook',
-    description: 'Social title for behavioral interview playbook cover page',
-    id: 'nkY9S8',
-  });
+  const guidesData = getGuidesData(intl);
+  const socialTitle = guidesData.BEHAVIORAL_INTERVIEW_PLAYBOOK.name;
 
   return {
-    description: intl.formatMessage({
-      defaultMessage:
-        'The definitive guide to behavioral interviews for front end engineers. Written by Ex-FAANG interviewers. Find out what to expect and how to prepare.',
-      description:
-        'Page description for behavioral interview playbook cover page',
-      id: 'zqIbYm',
-    }),
-    href: basePath,
+    description: guidesData.BEHAVIORAL_INTERVIEW_PLAYBOOK.description,
+    href: guidesData.BEHAVIORAL_INTERVIEW_PLAYBOOK.href,
     ogImageTitle: socialTitle,
     socialTitle: `${socialTitle} | GreatFrontEnd`,
     title: intl.formatMessage({

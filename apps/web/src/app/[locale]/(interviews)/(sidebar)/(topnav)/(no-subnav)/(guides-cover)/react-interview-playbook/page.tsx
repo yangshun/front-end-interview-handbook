@@ -1,6 +1,7 @@
 import type { Metadata } from 'next/types';
 
-import { basePath } from '~/components/guides/books/behavioral-interview-playbook/BehavioralInterviewPlaybookNavigation';
+import { getGuidesData } from '~/data/Guides';
+
 import ReactInterviewPlaybookPage from '~/components/guides/books/react-interview-playbook/ReactInterviewPlaybookPage';
 
 import { readReactInterviewPlaybookGuides } from '~/db/guides/GuidesReader';
@@ -18,22 +19,14 @@ type Props = Readonly<{
 async function getPageSEOMetadata({ params }: Props) {
   const { locale } = params;
   const intl = await getIntlServerOnly(locale);
-  const socialTitle = intl.formatMessage({
-    defaultMessage: 'React Interview Playbook',
-    description: 'Social title for React interview playbook cover page',
-    id: 'CnobOB',
-  });
+  const guidesData = getGuidesData(intl);
+  const socialTitle = guidesData.REACT_INTERVIEW_PLAYBOOK.name;
 
   return {
-    description: intl.formatMessage({
-      defaultMessage:
-        'The definitive guide to React interviews written by Ex-FAANG interviewers. Find out what to expect, the different types of questions and how to prepare.',
-      description: 'Page description for React interview playbook cover page',
-      id: 'VbwnB/',
-    }),
-    href: basePath,
+    description: guidesData.REACT_INTERVIEW_PLAYBOOK.description,
+    href: guidesData.REACT_INTERVIEW_PLAYBOOK.href,
     ogImageTitle: socialTitle,
-    socialTitle: `${socialTitle} | GreatReact`,
+    socialTitle: `${socialTitle} | GreatFrontEnd`,
     title: intl.formatMessage({
       defaultMessage: 'React Interview Playbook: Everything you need to excel',
       description: 'Page title for React interview playbook cover page',

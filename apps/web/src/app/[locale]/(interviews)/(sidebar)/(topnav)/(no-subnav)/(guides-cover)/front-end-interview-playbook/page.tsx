@@ -1,6 +1,7 @@
 import type { Metadata } from 'next/types';
 
-import { basePath } from '~/components/guides/books/behavioral-interview-playbook/BehavioralInterviewPlaybookNavigation';
+import { getGuidesData } from '~/data/Guides';
+
 import FrontEndInterviewPlaybookPage from '~/components/guides/books/front-end-interview-playbook/FrontEndInterviewPlaybookPage';
 
 import { readFrontEndInterviewPlaybookGuides } from '~/db/guides/GuidesReader';
@@ -18,21 +19,12 @@ type Props = Readonly<{
 async function getPageSEOMetadata({ params }: Props) {
   const { locale } = params;
   const intl = await getIntlServerOnly(locale);
-  const socialTitle = intl.formatMessage({
-    defaultMessage: 'Front End Interview Playbook',
-    description: 'Social title for frontend interview playbook cover page',
-    id: 'BO6Xxw',
-  });
+  const guidesData = getGuidesData(intl);
+  const socialTitle = guidesData.FRONT_END_INTERVIEW_PLAYBOOK.name;
 
   return {
-    description: intl.formatMessage({
-      defaultMessage:
-        'The definitive guide to front end interviews written by Ex-FAANG interviewers. Find out what to expect, the different types of questions and how to prepare.',
-      description:
-        'Page description for frontend interview playbook cover page',
-      id: 'qI3Dry',
-    }),
-    href: basePath,
+    description: guidesData.FRONT_END_INTERVIEW_PLAYBOOK.description,
+    href: guidesData.FRONT_END_INTERVIEW_PLAYBOOK.href,
     ogImageTitle: socialTitle,
     socialTitle: `${socialTitle} | GreatFrontEnd`,
     title: intl.formatMessage({

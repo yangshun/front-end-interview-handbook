@@ -1,6 +1,7 @@
 import type { Metadata } from 'next/types';
 
-import { basePath } from '~/components/guides/books/front-end-system-design/FrontEndSystemDesignPlaybookNavigation';
+import { getGuidesData } from '~/data/Guides';
+
 import FrontEndSystemDesignPlaybookPage from '~/components/guides/books/front-end-system-design/FrontEndSystemDesignPlaybookPage';
 import type { QuestionListTypeData } from '~/components/interviews/questions/common/QuestionsTypes';
 
@@ -26,21 +27,12 @@ type Props = Readonly<{
 async function getPageSEOMetadata({ params }: Props) {
   const { locale } = params;
   const intl = await getIntlServerOnly(locale);
-  const socialTitle = intl.formatMessage({
-    defaultMessage: 'Front End System Design Playbook',
-    description: 'Social title for frontend system design playbook cover page',
-    id: 'qpQlsV',
-  });
+  const guidesData = getGuidesData(intl);
+  const socialTitle = guidesData.FRONT_END_SYSTEM_DESIGN_PLAYBOOK.name;
 
   return {
-    description: intl.formatMessage({
-      defaultMessage:
-        'The definitive guide to Front End System Design interviews. Learn useful techniques and how to approach the most common questions. Written by Ex-FAANG interviewers.',
-      description:
-        'Page description for frontend system design playbook cover page',
-      id: 'O237FB',
-    }),
-    href: basePath,
+    description: guidesData.FRONT_END_SYSTEM_DESIGN_PLAYBOOK.description,
+    href: guidesData.FRONT_END_SYSTEM_DESIGN_PLAYBOOK.href,
     ogImageTitle: socialTitle,
     socialTitle: `${socialTitle} | GreatFrontEnd`,
     title: intl.formatMessage({

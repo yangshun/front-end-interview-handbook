@@ -2267,10 +2267,6 @@
     "defaultMessage": "paid once",
     "description": "Pay the price once"
   },
-  "BO6Xxw": {
-    "defaultMessage": "Front End Interview Playbook",
-    "description": "Social title for frontend interview playbook cover page"
-  },
   "BOh0kv": {
     "defaultMessage": "See {username}'s approach to building the {challengeName} on GreatFrontEnd. Engage with their work, share feedback, and gain new perspectives for your projects",
     "description": "Description of Projects submission page"
@@ -2474,10 +2470,6 @@
   "CmlQsV": {
     "defaultMessage": "Front End System Design Interview Questions",
     "description": "Social title for System design question format page"
-  },
-  "CnobOB": {
-    "defaultMessage": "React Interview Playbook",
-    "description": "Social title for React interview playbook cover page"
   },
   "Cqx/J0": {
     "defaultMessage": "The following challenges will be unlocked:",
@@ -4515,10 +4507,6 @@
     "defaultMessage": "Import the progress of <bold>{questionCount}</bold> previously completed {questionCount, plural, one {question} other {questions}}",
     "description": "Tooltip for import button on import progress dialog"
   },
-  "O237FB": {
-    "defaultMessage": "The definitive guide to Front End System Design interviews. Learn useful techniques and how to approach the most common questions. Written by Ex-FAANG interviewers.",
-    "description": "Page description for frontend system design playbook cover page"
-  },
   "O2h4/M": {
     "defaultMessage": "Project brief",
     "description": "Tab title for projects challenges"
@@ -5954,10 +5942,6 @@
   "VaPcOr": {
     "defaultMessage": "User Interface Coding Interview Questions",
     "description": "Social title for UI question format page"
-  },
-  "VbwnB/": {
-    "defaultMessage": "The definitive guide to React interviews written by Ex-FAANG interviewers. Find out what to expect, the different types of questions and how to prepare.",
-    "description": "Page description for React interview playbook cover page"
   },
   "VeRWF3": {
     "defaultMessage": "Challenge guide",
@@ -9239,10 +9223,6 @@
     "defaultMessage": "JavaScript DSA Interview Questions | GreatFrontEnd",
     "description": "Social title of front end interview questions page"
   },
-  "nkY9S8": {
-    "defaultMessage": "Behavioral Interview Playbook",
-    "description": "Social title for behavioral interview playbook cover page"
-  },
   "nkdi2x": {
     "defaultMessage": "Street address",
     "description": "Street address input label"
@@ -9687,10 +9667,6 @@
     "defaultMessage": "Level {level}",
     "description": "Title for level Up"
   },
-  "qI3Dry": {
-    "defaultMessage": "The definitive guide to front end interviews written by Ex-FAANG interviewers. Find out what to expect, the different types of questions and how to prepare.",
-    "description": "Page description for frontend interview playbook cover page"
-  },
   "qJhNva": {
     "defaultMessage": "Public roadmap",
     "description": "Title of Public roadmap page"
@@ -9774,10 +9750,6 @@
   "qoTBLI": {
     "defaultMessage": "Know where to find important info",
     "description": "Label for \"Know where to find important info\" step in dialog on Projects project page"
-  },
-  "qpQlsV": {
-    "defaultMessage": "Front End System Design Playbook",
-    "description": "Social title for frontend system design playbook cover page"
   },
   "qsq4DL": {
     "defaultMessage": "Spotlight Ad",
@@ -11318,10 +11290,6 @@
   "zpsjf3": {
     "defaultMessage": "Back to all tracks",
     "description": "Button label to go back to all projects tracks"
-  },
-  "zqIbYm": {
-    "defaultMessage": "The definitive guide to behavioral interviews for front end engineers. Written by Ex-FAANG interviewers. Find out what to expect and how to prepare.",
-    "description": "Page description for behavioral interview playbook cover page"
   },
   "zqNjnp": {
     "defaultMessage": "CSS",
