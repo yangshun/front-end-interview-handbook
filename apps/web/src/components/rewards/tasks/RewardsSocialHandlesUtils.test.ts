@@ -1,5 +1,6 @@
 import {
   cleanGitHubUserInput,
+  cleanInstagramUserInput,
   cleanLinkedInUserInput,
   cleanTwitterUserInput,
 } from './RewardsSocialHandlesUtils';
@@ -11,11 +12,30 @@ describe('cleanGitHubUserInput', () => {
     ['https://github.com/john-doe/', 'john-doe'],
     ['https://www.github.com/johndoe', 'johndoe'],
     ['http://github.com/johndoe', 'johndoe'],
+    ['http://github.com/johndoe?utm_source=mobile', 'johndoe'],
     ['johndoe', 'johndoe'],
     ['johnDoe', 'johnDoe'],
     ['john-doe', 'john-doe'],
   ])('cleanGitHubUserInput(%s)', (input, expected) => {
     expect(cleanGitHubUserInput(input)).toBe(expected);
+  });
+});
+
+describe('cleanInstagramUserInput', () => {
+  test.each([
+    ['https://instagram.com/johndoe', 'johndoe'],
+    ['https://instagram.com/john-doe', 'john-doe'],
+    ['https://instagram.com/john.doe', 'john.doe'],
+    ['https://instagram.com/john_doe', 'john_doe'],
+    ['https://instagram.com/john-doe/', 'john-doe'],
+    ['https://www.instagram.com/johndoe', 'johndoe'],
+    ['http://instagram.com/johndoe', 'johndoe'],
+    ['http://instagram.com/johndoe?utm_source=mobile', 'johndoe'],
+    ['johndoe', 'johndoe'],
+    ['johnDoe', 'johnDoe'],
+    ['john-doe', 'john-doe'],
+  ])('cleanInstagramUserInput(%s)', (input, expected) => {
+    expect(cleanInstagramUserInput(input)).toBe(expected);
   });
 });
 
@@ -26,6 +46,7 @@ describe('cleanLinkedInUserInput', () => {
     ['https://linkedin.com/in/john-doe/', 'john-doe'],
     ['https://www.linkedin.com/in/john-doe/', 'john-doe'],
     ['http://linkedin.com/in/johndoe', 'johndoe'],
+    ['http://linkedin.com/in/johndoe?utm_source=mobile', 'johndoe'],
     ['johndoe', 'johndoe'],
     ['johnDoe', 'johnDoe'],
     ['john-doe', 'john-doe'],

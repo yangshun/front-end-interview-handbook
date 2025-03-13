@@ -7,6 +7,7 @@ import {
   RiArrowLeftLine,
   RiArrowRightLine,
   RiGithubFill,
+  RiInstagramLine,
   RiLinkedinFill,
   RiTwitterXFill,
 } from 'react-icons/ri';
@@ -118,6 +119,11 @@ const handles: ReadonlyArray<{
     icon: RiTwitterXFill,
     type: 'twitter',
   },
+  {
+    field: 'instagramUsername',
+    icon: RiInstagramLine,
+    type: 'instagram',
+  },
 ];
 
 export default function RewardsTasksPage() {
@@ -129,12 +135,12 @@ export default function RewardsTasksPage() {
   const { data: completedTasks } = trpc.promotions.getTasksCompleted.useQuery();
   const checkGitHubStarMutation =
     trpc.promotions.checkGitHubStarred.useMutation();
-  const checkGitHubFollowMutation =
-    trpc.promotions.checkGitHubFollowing.useMutation();
   const checkLinkedInFollowMutation =
     trpc.promotions.checkLinkedInFollowing.useMutation();
   const checkTwitterFollowMutation =
     trpc.promotions.checkTwitterFollowing.useMutation();
+  const checkInstagramFollowMutation =
+    trpc.promotions.checkInstagramFollowing.useMutation();
   const generateSocialTasksPromoCodeMutation =
     trpc.promotions.generateOrGetSocialTasksPromoCode.useMutation({
       onSuccess: () => {
@@ -147,6 +153,7 @@ export default function RewardsTasksPage() {
     'gfe:rewards:social-handles',
     {
       gitHubUsername: '',
+      instagramUsername: '',
       linkedInUsername: '',
       twitterUsername: '',
     },
@@ -240,15 +247,6 @@ export default function RewardsTasksPage() {
         );
         break;
       }
-      case 'GITHUB_FOLLOW': {
-        checkGitHubFollowMutation.mutate(
-          {
-            username: handlesData.gitHubUsername,
-          },
-          verifyCallback('GITHUB_FOLLOW'),
-        );
-        break;
-      }
       case 'LINKEDIN_FOLLOW': {
         checkLinkedInFollowMutation.mutate(
           {
@@ -264,6 +262,15 @@ export default function RewardsTasksPage() {
             username: handlesData.twitterUsername,
           },
           verifyCallback('TWITTER_FOLLOW'),
+        );
+        break;
+      }
+      case 'INSTAGRAM_FOLLOW': {
+        checkInstagramFollowMutation.mutate(
+          {
+            username: handlesData.instagramUsername,
+          },
+          verifyCallback('INSTAGRAM_FOLLOW'),
         );
         break;
       }

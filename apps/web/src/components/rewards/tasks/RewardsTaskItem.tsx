@@ -21,6 +21,7 @@ export type RewardsTasksActionName =
   | typeof GITHUB_STAR_REACT_INTERVIEWS
   | typeof GITHUB_STAR_SYSTEM_DESIGN
   | 'GITHUB_FOLLOW'
+  | 'INSTAGRAM_FOLLOW'
   | 'LINKEDIN_FOLLOW'
   | 'TWITTER_FOLLOW';
 

@@ -30,6 +30,7 @@ import { publicProcedure, router, userProcedure } from '../trpc';
 const GITHUB_USERNAME_REGEX = /^[a-zA-Z0-9-]+$/;
 const LINKEDIN_USERNAME_REGEX = /^[a-zA-Z0-9-_]+$/;
 const TWITTER_USERNAME_REGEX = /^[a-zA-Z0-9-_]+$/;
+const INSTAGRAM_USERNAME_REGEX = /^[a-zA-Z0-9-_.]+$/;
 // GITHUB_REPO_ID_SYSTEM_DESIGN = 593048179; // https://github.com/greatfrontend/awesome-front-end-system-design
 const GITHUB_REPO_ID_JS_INTERVIEW = 812973427; // https://github.com/yangshun/top-javascript-interview-questions
 const GITHUB_REPO_ID_REACT_INTERVIEW = 815755359; // https://github.com/yangshun/top-reactjs-interview-questions
@@ -70,6 +71,14 @@ const twitterUsernameSchema = z
   .regex(TWITTER_USERNAME_REGEX, {
     message:
       'Contains invalid characters. Only alphanumeric characters, hyphens, and underscore allowed.',
+  });
+const instagramUsernameSchema = z
+  .string()
+  .trim()
+  .min(2, { message: 'Must be two characters or more' })
+  .regex(INSTAGRAM_USERNAME_REGEX, {
+    message:
+      'Contains invalid characters. Only alphanumeric characters, hyphens, periods, and underscore allowed.',
   });
 
 function delay(ms: number) {
@@ -219,6 +228,32 @@ export const promotionsRouter = router({
         },
       });
 
+      return true;
+    }),
+  checkInstagramFollowing: userProcedure
+    .input(
+      z.object({
+        username: instagramUsernameSchema,
+      }),
+    )
+    .mutation(async ({ input: { username }, ctx: { viewer } }) => {
+      await delay(1000);
+
+      const campaign = PROMO_SOCIAL_DISCOUNT_CAMPAIGN;
+      const action = 'INSTAGRAM_FOLLOW';
+      const userId = viewer.id;
+      const identifier = username;
+
+      await prisma.rewardsTaskCompletion.create({
+        data: {
+          action,
+          campaign,
+          identifier,
+          userId,
+        },
+      });
+
+      // No way to actually check, just assume its real
       return true;
     }),
   checkLinkedInFollowing: userProcedure
@@ -635,23 +670,29 @@ export const promotionsRouter = router({
   verifySocialHandles: userProcedure
     .input(
       z.object({
-        gitHubUsername: z.string(),
-        linkedInUsername: z.string(),
-        twitterUsername: z.string(),
+        gitHubUsername: z.string().trim(),
+        instagramUsername: z.string().trim(),
+        linkedInUsername: z.string().trim(),
+        twitterUsername: z.string().trim(),
       }),
     )
     .mutation(
       async ({
-        input: { gitHubUsername, linkedInUsername, twitterUsername },
+        input: {
+          gitHubUsername,
+          linkedInUsername,
+          twitterUsername,
+          instagramUsername,
+        },
       }) => {
         const results = await Promise.allSettled([
           (async () => {
-            if (!gitHubUsername.trim()) {
+            if (!gitHubUsername) {
               throw 'Empty GitHub username';
             }
 
             const res = await fetch(
-              `https://github.com/${encodeURIComponent(gitHubUsername.trim())}`,
+              `https://github.com/${encodeURIComponent(gitHubUsername)}`,
             );
 
             if (!res.ok) {
@@ -676,12 +717,22 @@ export const promotionsRouter = router({
               throw (error as ZodError).issues[0].message;
             }
           })(),
+          (async () => {
+            try {
+              // Validate inside here rather than at the query input so that
+              // we can provide granular errors.
+              instagramUsernameSchema.parse(instagramUsername);
+            } catch (error) {
+              throw (error as ZodError).issues[0].message;
+            }
+          })(),
         ]);
 
         return {
           allValid: results.every(({ status }) => status === 'fulfilled'),
           fields: {
             gitHub: results[0],
+            instagram: results[3],
             linkedIn: results[1],
             twitter: results[2],
           },

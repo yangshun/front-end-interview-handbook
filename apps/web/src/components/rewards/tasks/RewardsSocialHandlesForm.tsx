@@ -1,6 +1,11 @@
 import clsx from 'clsx';
 import { useState } from 'react';
-import { RiGithubFill, RiLinkedinFill, RiTwitterXFill } from 'react-icons/ri';
+import {
+  RiGithubFill,
+  RiInstagramLine,
+  RiLinkedinFill,
+  RiTwitterXFill,
+} from 'react-icons/ri';
 
 import { trpc } from '~/hooks/trpc';
 
@@ -22,12 +27,14 @@ import {
 
 export type RewardsHandlesData = Readonly<{
   gitHubUsername: string;
+  instagramUsername: string;
   linkedInUsername: string;
   twitterUsername: string;
 }>;
 
 type RewardsHandlesValidation = Readonly<{
   gitHub: PromiseSettledResult<void>;
+  instagram: PromiseSettledResult<void>;
   linkedIn: PromiseSettledResult<void>;
   twitter: PromiseSettledResult<void>;
 }>;
@@ -49,7 +56,7 @@ export default function RewardsSocialHandlesForm({
     useState<RewardsHandlesValidation | null>(null);
   const [hasError, setHasError] = useState(false);
   const [openTooltip, setOpenTooltip] = useState<
-    'github' | 'linkedin' | 'twitter' | null
+    'github' | 'instagram' | 'linkedin' | 'twitter' | null
   >(null);
 
   return (
@@ -62,6 +69,9 @@ export default function RewardsSocialHandlesForm({
         const data = {
           gitHubUsername: cleanGitHubUserInput(
             (formData.get('github') ?? '').toString(),
+          ),
+          instagramUsername: cleanTwitterUserInput(
+            (formData.get('instagram') ?? '').toString(),
           ),
           linkedInUsername: cleanLinkedInUserInput(
             (formData.get('linkedin') ?? '').toString(),
@@ -90,9 +100,9 @@ export default function RewardsSocialHandlesForm({
       }}>
       <Text className="block" color="secondary" size="body2">
         <FormattedMessage
-          defaultMessage="We will only use them to verify task completion. This information will not be stored on our servers."
+          defaultMessage="We will only use them to verify task completion"
           description="Rewards campaign help text"
-          id="yDVs1E"
+          id="b2XnyK"
         />
       </Text>
       <div className={clsx('w-full divide-y', themeDivideColor)}>
@@ -243,6 +253,57 @@ export default function RewardsSocialHandlesForm({
                     setOpenTooltip(null);
                   }}
                   onFocus={() => setOpenTooltip('twitter')}
+                />
+              </div>
+            </Tooltip>
+          </div>
+        </div>
+        <div className="flex items-center justify-between gap-4 py-4">
+          <Text size="body2">Instagram</Text>
+          <div className="flex w-full max-w-sm items-center gap-2">
+            <RiInstagramLine
+              className={clsx('size-5 shrink-0', themeTextSubtitleColor)}
+            />
+            <Tooltip
+              asChild={true}
+              label={
+                <FormattedMessage
+                  defaultMessage="For a profile URL like <bold>https://instagram.com/johndoe</bold>, your handle would be <bold>johndoe</bold>."
+                  description="Rewards campaign help text"
+                  id="gv2f4M"
+                  values={{
+                    bold: (chunks) => (
+                      <Text color="inherit" size="inherit" weight="bold">
+                        {chunks}
+                      </Text>
+                    ),
+                  }}
+                />
+              }
+              open={openTooltip === 'instagram'}>
+              <div className="w-full max-w-sm">
+                <TextInput
+                  className="w-full"
+                  errorMessage={
+                    validationErrors?.instagram.status === 'rejected'
+                      ? validationErrors?.instagram.reason
+                      : undefined
+                  }
+                  isDisabled={isLoading}
+                  isLabelHidden={true}
+                  label="Instagram"
+                  name="instagram"
+                  placeholder="john-doe"
+                  value={handlesData.instagramUsername}
+                  onBlur={() => setOpenTooltip(null)}
+                  onChange={(value) => {
+                    onHandlesDataChange({
+                      ...handlesData,
+                      instagramUsername: value,
+                    });
+                    setOpenTooltip(null);
+                  }}
+                  onFocus={() => setOpenTooltip('instagram')}
                 />
               </div>
             </Tooltip>

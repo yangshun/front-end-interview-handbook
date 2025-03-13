@@ -3147,6 +3147,10 @@
     "defaultMessage": "Design patterns",
     "description": "React design patterns"
   },
+  "GlZhmJ": {
+    "defaultMessage": "Follow us on Instagram",
+    "description": "Title for task"
+  },
   "GoDdwh": {
     "defaultMessage": "Marked \"{articleTitle}\" as complete",
     "description": "Success message for marking a question as complete"
@@ -6967,6 +6971,10 @@
     "defaultMessage": "Designs",
     "description": "Project assets category label"
   },
+  "b2XnyK": {
+    "defaultMessage": "We will only use them to verify task completion",
+    "description": "Rewards campaign help text"
+  },
   "b2csyI": {
     "defaultMessage": "Next",
     "description": "Label for button leading to the next page"
@@ -8046,6 +8054,10 @@
   "gtouN7": {
     "defaultMessage": "Medium",
     "description": "Medium question difficulty"
+  },
+  "gv2f4M": {
+    "defaultMessage": "For a profile URL like <bold>https://instagram.com/johndoe</bold>, your handle would be <bold>johndoe</bold>.",
+    "description": "Rewards campaign help text"
   },
   "gvLQbK": {
     "defaultMessage": "Premium Discord",
@@ -9334,10 +9346,6 @@
   "oRCEvl": {
     "defaultMessage": "Premium time-savers",
     "description": "Button title for leveraging time-savers on interviews payment success page"
-  },
-  "oS10TF": {
-    "defaultMessage": "Follow us on GitHub",
-    "description": "Title for task"
   },
   "oU0tf/": {
     "defaultMessage": "Weeks",
@@ -10974,10 +10982,6 @@
   "yCyxT4": {
     "defaultMessage": "All tracks",
     "description": "Label for component tracks feature for pricing plan"
-  },
-  "yDVs1E": {
-    "defaultMessage": "We will only use them to verify task completion. This information will not be stored on our servers.",
-    "description": "Rewards campaign help text"
   },
   "yDXWTO": {
     "defaultMessage": "Coding questions on JavaScript functions, covering concepts such as closures, event handling, async programming, and DOM manipulation.",
