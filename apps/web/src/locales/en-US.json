@@ -1555,6 +1555,10 @@
     "defaultMessage": "GreatFrontEnd Projects now in BETA! {percentage}% off with {promoCode}",
     "description": "Text on Promo Banner"
   },
+  "7DZuAL": {
+    "defaultMessage": "View ad",
+    "description": "View ad tooltip"
+  },
   "7ERPcF": {
     "defaultMessage": "User submissions | Mentor others",
     "description": "Page title of projects mentor page"
@@ -2062,6 +2066,10 @@
   "AKnqip": {
     "defaultMessage": "Name must contain at least {minLength} character(s).",
     "description": "Error message when display name is too short"
+  },
+  "AM2aM4": {
+    "defaultMessage": "Total",
+    "description": "Total price label"
   },
   "ANSxyW": {
     "defaultMessage": "Low",
@@ -7383,6 +7391,10 @@
     "defaultMessage": "Google logo",
     "description": "Google company logo"
   },
+  "daJxDM": {
+    "defaultMessage": "Edit request",
+    "description": "Edit button label"
+  },
   "dfAvc7": {
     "defaultMessage": "Footer",
     "description": "Footer section heading"
@@ -9207,6 +9219,10 @@
     "defaultMessage": "What's new",
     "description": "Latest blog articles page title"
   },
+  "nw9bBh": {
+    "defaultMessage": "Image",
+    "description": "Label for image"
+  },
   "nxJioH": {
     "defaultMessage": "Warnings",
     "description": "Select label for warning log level in console filter"
@@ -9278,6 +9294,10 @@
   "oS10TF": {
     "defaultMessage": "Follow us on GitHub",
     "description": "Title for task"
+  },
+  "oU0tf/": {
+    "defaultMessage": "Weeks",
+    "description": "Label for weeks"
   },
   "oW70kj": {
     "defaultMessage": "High visibility ad pinned on sidebars and pages",

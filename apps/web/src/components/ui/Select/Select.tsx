@@ -23,6 +23,7 @@ type SelectRounded = 'full' | 'normal';
 
 type Props<T> = Readonly<{
   display?: SelectDisplay;
+  isDisabled?: boolean;
   isLabelHidden?: boolean;
   label: string;
   name?: string;
@@ -73,6 +74,7 @@ function Select<T>(
     rounded = 'full',
     value,
     onChange,
+    isDisabled,
   }: Props<T>,
   ref?: ForwardedRef<HTMLSelectElement>,
 ) {
@@ -104,12 +106,18 @@ function Select<T>(
           themeBackgroundElementEmphasizedStateColor_Hover,
           themeBackgroundElementPressedStateColor_Active,
           [
+            'disabled:bg-neutral-200 dark:disabled:bg-neutral-800',
+            'disabled:text-neutral-300 dark:disabled:text-neutral-700',
+            'disabled:cursor-not-allowed',
+          ],
+          [
             'focus:ring-2 focus:ring-inset',
             'focus:ring-neutral-700 dark:focus:ring-neutral-300',
           ],
           heightClasses[size],
           textSizeClasses[size].option,
         )}
+        disabled={isDisabled}
         id={id}
         name={name ?? undefined}
         value={String(value)}

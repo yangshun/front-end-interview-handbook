@@ -20,6 +20,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 
 type Props = Readonly<{
   defaultValues: ReadonlyArray<string>;
+  mode: 'create' | 'edit' | 'readonly';
   onSubmit: (emails: Array<string>) => void;
   sessionId: string;
   updateStepStatus: (status: StepsTabItemStatus) => void;
@@ -32,12 +33,14 @@ export default function SponsorsAdvertiseRequestFormContactSection({
   defaultValues,
   updateStepStatus,
   sessionId,
+  mode,
 }: Props) {
+  const isReadonly = mode === 'readonly';
   const contactDetailsSchema = useSponsorsAdvertiseRequestContactSchema();
   const methods = useForm<z.infer<typeof contactDetailsSchema>>({
     defaultValues: {
       emails:
-        defaultValues.length >= 2
+        defaultValues.length >= 2 || isReadonly
           ? defaultValues.map((email) => ({
               value: email,
             }))
@@ -46,7 +49,7 @@ export default function SponsorsAdvertiseRequestFormContactSection({
             : [{ value: '' }, { value: '' }],
     },
     mode: 'onBlur',
-    resolver: zodResolver(contactDetailsSchema),
+    resolver: isReadonly ? undefined : zodResolver(contactDetailsSchema),
   });
   const {
     control,
@@ -117,6 +120,7 @@ export default function SponsorsAdvertiseRequestFormContactSection({
             <Controller
               key={fieldItem.id}
               control={control}
+              disabled={isReadonly}
               name={`emails.${index}.value`}
               render={({ field, fieldState: { error } }) => (
                 <TextInput
@@ -142,7 +146,7 @@ export default function SponsorsAdvertiseRequestFormContactSection({
         <div className="mt-8 flex justify-end">
           <Button
             icon={RiArrowRightLine}
-            isDisabled={!isValid}
+            isDisabled={!isValid && !isReadonly}
             label={intl.formatMessage({
               defaultMessage: 'Next',
               description: 'Label for next button',

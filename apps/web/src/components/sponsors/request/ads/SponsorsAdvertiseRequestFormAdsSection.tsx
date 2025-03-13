@@ -5,6 +5,7 @@ import {
   RiArrowLeftLine,
   RiArrowRightLine,
   RiDeleteBinLine,
+  RiEyeLine,
   RiPencilLine,
 } from 'react-icons/ri';
 import { v4 as uuidv4 } from 'uuid';
@@ -40,6 +41,7 @@ import type { SponsorsAdFormat } from '@prisma/client';
 
 type Props = Readonly<{
   ads: Array<SponsorsAdFormatFormItem>;
+  mode: 'create' | 'edit' | 'readonly';
   onPrevious: () => void;
   onSubmit: () => void;
   sessionId: string;
@@ -54,8 +56,10 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
   updateAds,
   sessionId,
   updateStepStatus,
+  mode,
 }: Props) {
   const intl = useIntl();
+  const isReadonly = mode === 'readonly';
   const removeAdAssetMutation = trpc.sponsorships.removeAdAsset.useMutation();
   const [selectedFormat, setSelectedFormat] = useState<SponsorsAdFormat | null>(
     ads.length > 0 ? null : 'GLOBAL_BANNER',
@@ -164,38 +168,58 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
                         SponsorAdFormatConfigs[ad.format].pricePerWeekUSD}
                     </Text>
                     <div className="flex items-center">
-                      <Button
-                        icon={RiPencilLine}
-                        isLabelHidden={true}
-                        label="Edit ad"
-                        tooltip={intl.formatMessage({
-                          defaultMessage: 'Edit ad',
-                          description: 'Edit ad tooltip',
-                          id: 'IDhOlR',
-                        })}
-                        variant="tertiary"
-                        onClick={() => {
-                          setSelectedFormat(ad.format);
-                          setEditAdData(ad);
-                        }}
-                      />
-                      <Button
-                        icon={RiDeleteBinLine}
-                        isLabelHidden={true}
-                        label="Delete ad"
-                        tooltip={intl.formatMessage({
-                          defaultMessage: 'Delete ad',
-                          description: 'Delete ad tooltip',
-                          id: 'zzToik',
-                        })}
-                        variant="tertiary"
-                        onClick={() => {
-                          setDeleteAdDialog({
-                            data: ad,
-                            show: true,
-                          });
-                        }}
-                      />
+                      {isReadonly ? (
+                        <Button
+                          icon={RiEyeLine}
+                          isLabelHidden={true}
+                          label="View ad"
+                          tooltip={intl.formatMessage({
+                            defaultMessage: 'View ad',
+                            description: 'View ad tooltip',
+                            id: '7DZuAL',
+                          })}
+                          variant="tertiary"
+                          onClick={() => {
+                            setSelectedFormat(ad.format);
+                            setEditAdData(ad);
+                          }}
+                        />
+                      ) : (
+                        <>
+                          <Button
+                            icon={RiPencilLine}
+                            isLabelHidden={true}
+                            label="Edit ad"
+                            tooltip={intl.formatMessage({
+                              defaultMessage: 'Edit ad',
+                              description: 'Edit ad tooltip',
+                              id: 'IDhOlR',
+                            })}
+                            variant="tertiary"
+                            onClick={() => {
+                              setSelectedFormat(ad.format);
+                              setEditAdData(ad);
+                            }}
+                          />
+                          <Button
+                            icon={RiDeleteBinLine}
+                            isLabelHidden={true}
+                            label="Delete ad"
+                            tooltip={intl.formatMessage({
+                              defaultMessage: 'Delete ad',
+                              description: 'Delete ad tooltip',
+                              id: 'zzToik',
+                            })}
+                            variant="tertiary"
+                            onClick={() => {
+                              setDeleteAdDialog({
+                                data: ad,
+                                show: true,
+                              });
+                            }}
+                          />
+                        </>
+                      )}
                     </div>
                   </div>
                 </li>
@@ -218,7 +242,7 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
                   }}
                 />
               </Text>
-              {selectedFormat == null && (
+              {selectedFormat == null && !isReadonly && (
                 <Button
                   addonPosition="start"
                   icon={RiAddLine}
@@ -299,7 +323,10 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
                         'transition-colors',
                         'px-4 py-4',
                         'text-left',
+                        'disabled:bg-neutral-300 dark:disabled:bg-neutral-700',
+                        'disabled:opacity-75',
                       )}
+                      disabled={isReadonly}
                       type="button"
                       onClick={() => setSelectedFormat(format)}>
                       <div className="flex w-full grow flex-col items-start">
@@ -331,6 +358,7 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
                       ? editAdData
                       : undefined
                   }
+                  mode={mode}
                   unavailableWeeks={selectedWeeks}
                   updateStepStatus={updateStepStatus}
                   onCancel={
@@ -391,6 +419,7 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
                   defaultValues={
                     editAdData?.format === 'IN_CONTENT' ? editAdData : undefined
                   }
+                  mode={mode}
                   sessionId={sessionId}
                   unavailableWeeks={selectedWeeks}
                   updateStepStatus={updateStepStatus}
@@ -466,6 +495,7 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
                   defaultValues={
                     editAdData?.format === 'SPOTLIGHT' ? editAdData : undefined
                   }
+                  mode={mode}
                   sessionId={sessionId}
                   unavailableWeeks={selectedWeeks}
                   updateStepStatus={updateStepStatus}

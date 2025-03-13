@@ -23,6 +23,7 @@ type Props = Readonly<{
   errorMessage?: string;
   heightConstraint: number;
   imageUrl: string;
+  mode?: 'create' | 'edit' | 'readonly';
   setError: (message: string | undefined) => void;
   setImageUrl: (url: string) => void;
   widthConstraint: number;
@@ -38,9 +39,11 @@ export default function SponsorsAdvertiseRequestFormAdsImageUpload({
   imageUrl,
   errorMessage,
   setError,
+  mode = 'create',
 }: Props) {
   const intl = useIntl();
   const messageId = useId();
+  const isReadonly = mode === 'readonly';
 
   function onDrop(acceptedFiles: Array<File>) {
     setError(undefined);
@@ -114,15 +117,17 @@ export default function SponsorsAdvertiseRequestFormAdsImageUpload({
       />
       {imageUrl ? (
         <div className="relative">
-          <Button
-            className="absolute -right-3 -top-3"
-            icon={RiCloseFill}
-            isLabelHidden={true}
-            label="Remove image"
-            tooltip="Remove image"
-            variant="secondary"
-            onClick={() => setImageUrl('')}
-          />
+          {!isReadonly && (
+            <Button
+              className="absolute -right-3 -top-3"
+              icon={RiCloseFill}
+              isLabelHidden={true}
+              label="Remove image"
+              tooltip="Remove image"
+              variant="secondary"
+              onClick={() => setImageUrl('')}
+            />
+          )}
           <img
             alt="Uploaded image"
             className={clsx('aspect-[2/1] w-full object-cover', 'rounded-lg', [

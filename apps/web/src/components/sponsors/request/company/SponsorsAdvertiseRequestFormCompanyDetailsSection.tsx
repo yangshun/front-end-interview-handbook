@@ -24,6 +24,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 
 type Props = Readonly<{
   defaultValues: SponsorsCompanyDetails | null;
+  mode: 'create' | 'edit' | 'readonly';
   onPrevious: () => void;
   onSubmit: (company: SponsorsCompanyDetails) => void;
   updateStepStatus(status: StepsTabItemStatus): void;
@@ -41,9 +42,11 @@ export default function SponsorsAdvertiseRequestFormCompanyDetailsSection({
   onPrevious,
   defaultValues,
   updateStepStatus,
+  mode = 'create',
 }: Props) {
   const intl = useIntl();
   const companySchema = useSponsorsCompanySchema();
+  const isReadonly = mode === 'readonly';
 
   const methods = useForm<z.infer<typeof companySchema>>({
     defaultValues: {
@@ -62,7 +65,7 @@ export default function SponsorsAdvertiseRequestFormCompanyDetailsSection({
       taxNumber: defaultValues?.taxNumber ?? '',
     },
     mode: 'onTouched',
-    resolver: zodResolver(companySchema),
+    resolver: isReadonly ? undefined : zodResolver(companySchema),
   });
   const {
     control,
@@ -100,6 +103,7 @@ export default function SponsorsAdvertiseRequestFormCompanyDetailsSection({
             <div className="flex-1">
               <Controller
                 control={control}
+                disabled={isReadonly}
                 name="legalName"
                 render={({ field, fieldState: { error } }) => (
                   <TextInput
@@ -119,6 +123,7 @@ export default function SponsorsAdvertiseRequestFormCompanyDetailsSection({
             <div className="flex-1">
               <Controller
                 control={control}
+                disabled={isReadonly}
                 name="taxNumber"
                 render={({ field, fieldState: { error } }) => (
                   <TextInput
@@ -154,11 +159,13 @@ export default function SponsorsAdvertiseRequestFormCompanyDetailsSection({
             </div>
             <Controller
               control={control}
+              disabled={isReadonly}
               name="address.country"
               render={({ field }) => (
                 <Select
                   {...field}
                   display="block"
+                  isDisabled={isReadonly}
                   isLabelHidden={true}
                   label={intl.formatMessage({
                     defaultMessage: 'Country',
@@ -172,6 +179,7 @@ export default function SponsorsAdvertiseRequestFormCompanyDetailsSection({
             />
             <Controller
               control={control}
+              disabled={isReadonly}
               name="address.line1"
               render={({ field, fieldState: { error } }) => (
                 <TextInput
@@ -197,6 +205,7 @@ export default function SponsorsAdvertiseRequestFormCompanyDetailsSection({
             />
             <Controller
               control={control}
+              disabled={isReadonly}
               name="address.line2"
               render={({ field, fieldState: { error } }) => (
                 <TextInput
@@ -221,6 +230,7 @@ export default function SponsorsAdvertiseRequestFormCompanyDetailsSection({
             />
             <Controller
               control={control}
+              disabled={isReadonly}
               name="address.city"
               render={({ field, fieldState: { error } }) => (
                 <TextInput
@@ -247,6 +257,7 @@ export default function SponsorsAdvertiseRequestFormCompanyDetailsSection({
               <div className="flex-1">
                 <Controller
                   control={control}
+                  disabled={isReadonly}
                   name="address.state"
                   render={({ field, fieldState: { error } }) => (
                     <TextInput
@@ -273,6 +284,7 @@ export default function SponsorsAdvertiseRequestFormCompanyDetailsSection({
               <div className="flex-1">
                 <Controller
                   control={control}
+                  disabled={isReadonly}
                   name="address.postalCode"
                   render={({ field, fieldState: { error } }) => (
                     <TextInput
@@ -303,6 +315,7 @@ export default function SponsorsAdvertiseRequestFormCompanyDetailsSection({
             <div className="flex-1">
               <Controller
                 control={control}
+                disabled={isReadonly}
                 name="signatoryName"
                 render={({ field, fieldState: { error } }) => (
                   <TextInput
@@ -322,6 +335,7 @@ export default function SponsorsAdvertiseRequestFormCompanyDetailsSection({
             <div className="flex-1">
               <Controller
                 control={control}
+                disabled={isReadonly}
                 name="signatoryTitle"
                 render={({ field, fieldState: { error } }) => (
                   <TextInput
@@ -358,7 +372,7 @@ export default function SponsorsAdvertiseRequestFormCompanyDetailsSection({
           />
           <Button
             icon={RiArrowRightLine}
-            isDisabled={!isValid}
+            isDisabled={!isValid && !isReadonly}
             label={intl.formatMessage({
               defaultMessage: 'Next',
               description: 'Label for next button',

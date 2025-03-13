@@ -1,0 +1,456 @@
+import clsx from 'clsx';
+import { useState } from 'react';
+
+import { urlAddHttpsIfMissing } from '~/lib/urlValidation';
+
+import InterviewsMarketingHeroBrowserWindowFrame from '~/components/interviews/marketing/embed/InterviewsMarketingHeroBrowserWindowFrame';
+import { FormattedMessage, useIntl } from '~/components/intl';
+import SponsorsAdFormatGlobalBanner from '~/components/sponsors/ads/SponsorsAdFormatGlobalBanner';
+import SponsorsAdFormatInContent from '~/components/sponsors/ads/SponsorsAdFormatInContent';
+import SponsorsAdFormatInContentBodyRenderer from '~/components/sponsors/ads/SponsorsAdFormatInContentBodyRenderer';
+import SponsorsAdFormatSpotlight from '~/components/sponsors/ads/SponsorsAdFormatSpotlight';
+import type { SponsorsAdFormatFormItem } from '~/components/sponsors/request/types';
+import type { AdvertiseRequestFormValues } from '~/components/sponsors/request/useSponsorsAdvertiseRequestFormData';
+import {
+  SponsorAdFormatConfigs,
+  useSponsorsAdFormatData,
+} from '~/components/sponsors/SponsorsAdFormatConfigs';
+import {
+  sponsorsDateFormatterWithDayAndYear,
+  sponsorsWeekDateRange,
+} from '~/components/sponsors/SponsorsDatesUtils';
+import Anchor from '~/components/ui/Anchor';
+import Button from '~/components/ui/Button';
+import Divider from '~/components/ui/Divider';
+import Heading from '~/components/ui/Heading';
+import Section from '~/components/ui/Heading/HeadingContext';
+import Label from '~/components/ui/Label';
+import Text, { textVariants } from '~/components/ui/Text';
+import {
+  themeBackgroundColor,
+  themeBorderElementColor,
+  themeBorderEmphasizeColor,
+  themeDivideColor,
+} from '~/components/ui/theme';
+
+type Props = Readonly<{
+  data: Omit<AdvertiseRequestFormValues, 'sessionId'> &
+    Readonly<{
+      agreement: string;
+    }>;
+  onEdit?: () => void;
+}>;
+
+export default function SponsorsAdvertiseRequestReadonly({
+  data,
+  onEdit,
+}: Props) {
+  const intl = useIntl();
+  const { ads, company, emails, agreement } = data;
+  const { address, signatoryName, signatoryTitle } = company!;
+  const addressString = [
+    [address.line1, address.line2].filter(Boolean).join(', '),
+    address.city,
+    [address.state, address.postalCode].filter(Boolean).join(' '),
+  ]
+    .flatMap((part) => (part ? [part] : []))
+    .map((part) => part.trim())
+    .filter(Boolean)
+    .join(', ');
+
+  return (
+    <div className="flex flex-col gap-10">
+      <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-2">
+        <Heading level="heading4">
+          <FormattedMessage
+            defaultMessage="Advertise on GreatFrontEnd"
+            description="Title for advertise request page"
+            id="P4PHei"
+          />
+        </Heading>
+        {onEdit && (
+          <Button
+            label={intl.formatMessage({
+              defaultMessage: 'Edit request',
+              description: 'Edit button label',
+              id: 'daJxDM',
+            })}
+            size="md"
+            variant="secondary"
+            onClick={onEdit}
+          />
+        )}
+      </div>
+      <div className="flex flex-col gap-6">
+        <Section>
+          <div className="flex flex-col gap-3">
+            <Heading level="heading5">
+              {intl.formatMessage({
+                defaultMessage: 'Contact details',
+                description: 'Title for contact details',
+                id: 'a8I10Q',
+              })}
+            </Heading>
+            <ul className="flex flex-col gap-1">
+              {emails.map((email, index) => (
+                <Text key={email} color="secondary" size="body2">
+                  {index + 1}. {email}
+                </Text>
+              ))}
+            </ul>
+          </div>
+        </Section>
+        <Divider />
+        <Section>
+          <div className="flex flex-col gap-3">
+            <Heading level="heading5">
+              {intl.formatMessage({
+                defaultMessage: 'Ads',
+                description: 'Label for ads',
+                id: 'aQYg46',
+              })}
+            </Heading>
+            <div>
+              {ads.length > 0 && (
+                <div className="flex flex-col items-start">
+                  <ul className="flex w-full flex-col gap-2">
+                    {ads.map((ad) => (
+                      <AdFormatCard key={ad.id} ad={ad} />
+                    ))}
+                  </ul>
+                  <div className="mt-4 flex w-full justify-between gap-4">
+                    <Text size="body1" weight="bold">
+                      <FormattedMessage
+                        defaultMessage="Total: ${total}"
+                        description="Total price label"
+                        id="0kDCAp"
+                        values={{
+                          total: ads.reduce(
+                            (acc, curr) =>
+                              acc +
+                              curr.weeks.length *
+                                SponsorAdFormatConfigs[curr.format]
+                                  .pricePerWeekUSD,
+                            0,
+                          ),
+                        }}
+                      />
+                    </Text>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        </Section>
+        <Divider />
+        <Section>
+          <div className="flex flex-col gap-3">
+            <Heading level="heading5">
+              {intl.formatMessage({
+                defaultMessage: 'Company details',
+                description: 'Company details section heading',
+                id: 'g6ZUKV',
+              })}
+            </Heading>
+            <div
+              className={clsx(
+                'grid grid-cols-1 gap-2 md:grid-cols-2 md:gap-3 lg:gap-6',
+              )}>
+              <div>
+                <Label
+                  label={intl.formatMessage({
+                    defaultMessage: 'Company full legal name',
+                    description: 'Legal name input label',
+                    id: 'CxiBL1',
+                  })}
+                />
+                <Text color="secondary" size="body2">
+                  {company?.legalName ?? '-'}
+                </Text>
+              </div>
+              <div>
+                <Label
+                  label={intl.formatMessage({
+                    defaultMessage: 'VAT / Tax number',
+                    description: 'Tax number input label',
+                    id: '49TDbW',
+                  })}
+                />
+                <Text color="secondary" size="body2">
+                  {company?.taxNumber ?? '-'}
+                </Text>
+              </div>
+              <div>
+                <Label
+                  label={intl.formatMessage({
+                    defaultMessage: 'Authorized signatory',
+                    description: 'Label for Authorized signatory',
+                    id: 'IaEOEI',
+                  })}
+                />
+                <Text className="block" color="secondary" size="body2">
+                  {signatoryName}, {signatoryTitle}
+                </Text>
+              </div>
+              <div>
+                <Label
+                  label={intl.formatMessage({
+                    defaultMessage: 'Address',
+                    description: 'Label for address',
+                    id: '0uKafI',
+                  })}
+                />
+                <div>
+                  <Text className="block" color="secondary" size="body2">
+                    {addressString}
+                  </Text>
+                  <Text className="block" color="secondary" size="body2">
+                    {address.country}
+                  </Text>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Section>
+        <Divider />
+        <Section>
+          <div dangerouslySetInnerHTML={{ __html: agreement }} />
+        </Section>
+      </div>
+    </div>
+  );
+}
+
+function AdFormatCard({ ad }: Readonly<{ ad: SponsorsAdFormatFormItem }>) {
+  const intl = useIntl();
+  const adFormatData = useSponsorsAdFormatData();
+  const [showPreview, setShowPreview] = useState(false);
+
+  return (
+    <li
+      className={clsx(
+        'flex flex-col gap-3',
+        'px-3 py-3',
+        ['border', themeBorderElementColor],
+        'rounded-md',
+      )}>
+      <div className={clsx('flex flex-wrap justify-between gap-x-2 gap-y-1')}>
+        <Heading level="heading6">{adFormatData[ad.format].name}</Heading>
+        <Button
+          label={intl.formatMessage({
+            defaultMessage: 'Preview',
+            description: 'Label for preview',
+            id: 'JAQf3o',
+          })}
+          size="xs"
+          variant="secondary"
+          onClick={() => setShowPreview(!showPreview)}
+        />
+      </div>
+      <div className={clsx('flex flex-col', 'divide-y', themeDivideColor)}>
+        <AdDetailRow
+          label={intl.formatMessage({
+            defaultMessage: 'Sponsor name',
+            description: 'Advertisement sponsor name',
+            id: 'jh37Pg',
+          })}>
+          <Text color="secondary" size="body2">
+            {ad.sponsorName}
+          </Text>
+        </AdDetailRow>
+        {'imageUrl' in ad && (
+          <AdDetailRow
+            label={intl.formatMessage({
+              defaultMessage: 'Image',
+              description: 'Label for image',
+              id: 'nw9bBh',
+            })}>
+            <img alt="Ad banner image" className="h-40" src={ad.imageUrl} />
+          </AdDetailRow>
+        )}
+        <AdDetailRow
+          label={intl.formatMessage({
+            defaultMessage: 'Title',
+            description: 'Label for title input',
+            id: 'hF+MYj',
+          })}>
+          <Text color="secondary" size="body2">
+            {ad.text}
+          </Text>
+        </AdDetailRow>
+        {'body' in ad && (
+          <AdDetailRow
+            label={intl.formatMessage({
+              defaultMessage: 'Body',
+              description: 'Label for body input',
+              id: 'qWP6XC',
+            })}>
+            <SponsorsAdFormatInContentBodyRenderer
+              adId={ad.id}
+              size="sm"
+              tracking={false}
+              value={ad.body}
+            />
+          </AdDetailRow>
+        )}
+        <AdDetailRow
+          label={intl.formatMessage({
+            defaultMessage: 'Destination URL',
+            description: 'Ad destination URL',
+            id: 'DWvf03',
+          })}>
+          <Anchor
+            className={textVariants({
+              color: 'inherit',
+              size: 'body2',
+            })}
+            href={ad.url}>
+            {ad.url}
+          </Anchor>
+        </AdDetailRow>
+        <AdDetailRow
+          label={intl.formatMessage({
+            defaultMessage: 'Weeks',
+            description: 'Label for weeks',
+            id: 'oU0tf/',
+          })}>
+          <Text color="secondary" size="body2">
+            <ul>
+              {ad.weeks.map((week) => {
+                const parts = week.split('/').map(Number);
+
+                const { start, end } = sponsorsWeekDateRange(
+                  parts[0],
+                  parts[1],
+                );
+
+                const startDate = sponsorsDateFormatterWithDayAndYear.format(
+                  new Date(start),
+                );
+                const endDate = sponsorsDateFormatterWithDayAndYear.format(
+                  new Date(end),
+                );
+
+                return <li key={week}>{[startDate, endDate].join(' – ')}</li>;
+              })}
+            </ul>
+          </Text>
+        </AdDetailRow>
+        <AdDetailRow
+          label={intl.formatMessage({
+            defaultMessage: 'Total',
+            description: 'Total price label',
+            id: 'AM2aM4',
+          })}>
+          <Text color="secondary" size="body2">
+            $
+            {ad.weeks.length *
+              SponsorAdFormatConfigs[ad.format].pricePerWeekUSD}
+          </Text>
+        </AdDetailRow>
+      </div>
+
+      {showPreview && (
+        <div className="flex flex-col gap-2">
+          <Text size="body2">
+            {intl.formatMessage({
+              defaultMessage: 'Preview',
+              description: 'Label for preview',
+              id: 'JAQf3o',
+            })}
+          </Text>
+          {ad.format === 'GLOBAL_BANNER' && (
+            <InterviewsMarketingHeroBrowserWindowFrame>
+              <SponsorsAdFormatGlobalBanner
+                adId="test-global-banner"
+                isLoading={false}
+                text={ad.text}
+                tracking={false}
+                url={urlAddHttpsIfMissing(ad.url)}
+              />
+              <div className="flex h-[300px] w-full items-stretch justify-stretch p-3">
+                <div
+                  className={clsx(
+                    'size-full rounded-md',
+                    'border-2 border-dashed border-neutral-500',
+                    'bg-neutral-200/25 dark:bg-neutral-700/25',
+                  )}
+                />
+              </div>
+            </InterviewsMarketingHeroBrowserWindowFrame>
+          )}
+          {ad.format === 'SPOTLIGHT' && (
+            <div
+              className={clsx(
+                'h-[150px] w-full',
+                'flex items-center justify-center',
+                'py-10',
+                ['border-2', 'border-dashed', themeBorderEmphasizeColor],
+                'rounded-md',
+                themeBackgroundColor,
+              )}>
+              <div className="max-w-[260px]">
+                <SponsorsAdFormatSpotlight
+                  adId="test-spotlight"
+                  adPlacement="preview"
+                  external={true}
+                  imageUrl={ad.imageUrl}
+                  sponsorName={ad.sponsorName}
+                  text={ad.text}
+                  tracking={false}
+                  url={urlAddHttpsIfMissing(ad.url)}
+                />
+              </div>
+            </div>
+          )}
+          {ad.format === 'IN_CONTENT' && (
+            <div
+              className={clsx(
+                'flex w-full items-center justify-center',
+                'px-4 py-4',
+                ['border-2', 'border-dashed', themeBorderEmphasizeColor],
+                'rounded-md',
+                themeBackgroundColor,
+              )}>
+              <div className="w-full max-w-xl">
+                <SponsorsAdFormatInContent
+                  adId="test-short-form"
+                  adPlacement="preview"
+                  body={ad.body}
+                  external={true}
+                  imageUrl={ad.imageUrl}
+                  size="md"
+                  sponsorName={ad.sponsorName}
+                  title={ad.text}
+                  tracking={false}
+                  url={urlAddHttpsIfMissing(ad.url)}
+                />
+              </div>
+            </div>
+          )}
+        </div>
+      )}
+    </li>
+  );
+}
+
+function AdDetailRow({
+  label,
+  children,
+}: {
+  children: React.ReactNode;
+  label: string;
+}) {
+  return (
+    <div
+      className={clsx(
+        'flex flex-col gap-x-6 gap-y-1.5 md:flex-row lg:gap-x-16',
+        'py-2',
+      )}>
+      <Text className="shrink-0 md:w-[150px]" size="body2" weight="medium">
+        {label}
+      </Text>
+      {children}
+    </div>
+  );
+}

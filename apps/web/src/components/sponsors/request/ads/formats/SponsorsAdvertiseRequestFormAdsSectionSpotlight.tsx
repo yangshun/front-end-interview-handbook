@@ -33,6 +33,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 
 type Props = Readonly<{
   defaultValues?: Omit<SponsorsAdFormatSpotlightItem, 'id'>;
+  mode: 'create' | 'edit' | 'readonly';
   onCancel?: () => void;
   onSubmit: ({
     text,
@@ -54,8 +55,10 @@ export default function SponsorsAdvertiseRequestFormAdsSectionSpotlight({
   updateStepStatus,
   unavailableWeeks,
   defaultValues,
+  mode,
 }: Props) {
   const intl = useIntl();
+  const isReadonly = mode === 'readonly';
   const uploadAsset = trpc.sponsorships.uploadAdAsset.useMutation();
   const adSchema = useSponsorsSpotlightAdSchema();
 
@@ -131,6 +134,7 @@ export default function SponsorsAdvertiseRequestFormAdsSectionSpotlight({
       onSubmit={methods.handleSubmit(handleOnSubmit)}>
       <SponsorsAdvertiseRequestFormAdsSectionAvailability
         adFormat={AD_FORMAT}
+        mode={mode}
         selectedWeeks={selectedWeeks}
         unavailableWeeks={unavailableWeeks}
         onAddWeek={(week: string) => {
@@ -174,6 +178,7 @@ export default function SponsorsAdvertiseRequestFormAdsSectionSpotlight({
                           .image?.height ?? 1
                       }
                       imageUrl={imageUrl}
+                      mode={mode}
                       setError={(message) => setError('imageUrl', { message })}
                       setImageUrl={(newImageUrl) => {
                         field.onChange(newImageUrl);
@@ -187,6 +192,7 @@ export default function SponsorsAdvertiseRequestFormAdsSectionSpotlight({
                 />
                 <Controller
                   control={control}
+                  disabled={isReadonly}
                   name="sponsorName"
                   render={({ field, fieldState: { error } }) => (
                     <TextInput
@@ -208,6 +214,7 @@ export default function SponsorsAdvertiseRequestFormAdsSectionSpotlight({
                 />
                 <Controller
                   control={control}
+                  disabled={isReadonly}
                   name="text"
                   render={({ field, fieldState: { error } }) => (
                     <TextArea
@@ -240,6 +247,7 @@ export default function SponsorsAdvertiseRequestFormAdsSectionSpotlight({
                 />
                 <Controller
                   control={control}
+                  disabled={isReadonly}
                   name="url"
                   render={({ field, fieldState: { error } }) => (
                     <TextInput
@@ -323,27 +331,29 @@ export default function SponsorsAdvertiseRequestFormAdsSectionSpotlight({
             }}
           />
         )}
-        <Button
-          icon={RiArrowRightLine}
-          isDisabled={!isValid || uploadAsset.isLoading}
-          isLoading={uploadAsset.isLoading}
-          label={
-            defaultValues
-              ? intl.formatMessage({
-                  defaultMessage: 'Update',
-                  description: 'Label for update button',
-                  id: 'xw+bqB',
-                })
-              : intl.formatMessage({
-                  defaultMessage: 'Next',
-                  description: 'Label for next button',
-                  id: 'uSMCBJ',
-                })
-          }
-          size="md"
-          type="submit"
-          variant="primary"
-        />
+        {!isReadonly && (
+          <Button
+            icon={RiArrowRightLine}
+            isDisabled={!isValid || uploadAsset.isLoading}
+            isLoading={uploadAsset.isLoading}
+            label={
+              defaultValues
+                ? intl.formatMessage({
+                    defaultMessage: 'Update',
+                    description: 'Label for update button',
+                    id: 'xw+bqB',
+                  })
+                : intl.formatMessage({
+                    defaultMessage: 'Next',
+                    description: 'Label for next button',
+                    id: 'uSMCBJ',
+                  })
+            }
+            size="md"
+            type="submit"
+            variant="primary"
+          />
+        )}
       </div>
     </form>
   );

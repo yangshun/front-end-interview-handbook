@@ -42,6 +42,7 @@ export default function SponsorsAdvertiseRequestForm({
   const router = useI18nRouter();
 
   const isCreateMode = mode === 'create';
+  const isReadonly = mode === 'readonly';
 
   const adRequestMutation = trpc.sponsorships.adRequest.useMutation();
   const adRequestUpdateMutation =
@@ -282,12 +283,16 @@ export default function SponsorsAdvertiseRequestForm({
       {step === 'contact' && (
         <SponsorsAdvertiseRequestFormContactSection
           defaultValues={formData.emails}
+          mode={mode}
           sessionId={formData.sessionId}
           updateStepStatus={(status) =>
             setStepsStatus((prev) => ({ ...prev, contact: status }))
           }
           onSubmit={(emails) => {
             setStep('ads');
+            if (isReadonly) {
+              return;
+            }
             setFormData((prev) => ({ ...prev, emails }));
             setStepsStatus((prev) => ({ ...prev, contact: 'completed' }));
           }}
@@ -296,6 +301,7 @@ export default function SponsorsAdvertiseRequestForm({
       {step === 'ads' && (
         <SponsorsAdvertiseRequestFormAdsSection
           ads={formData.ads}
+          mode={mode}
           sessionId={formData.sessionId}
           updateAds={(ads) => setFormData((prev) => ({ ...prev, ads }))}
           updateStepStatus={(status) =>
@@ -311,12 +317,16 @@ export default function SponsorsAdvertiseRequestForm({
       {step === 'company' && (
         <SponsorsAdvertiseRequestFormCompanyDetailsSection
           defaultValues={formData.company}
+          mode={mode}
           updateStepStatus={(status) =>
             setStepsStatus((prev) => ({ ...prev, company: status }))
           }
           onPrevious={() => setStep('ads')}
           onSubmit={(company) => {
             setStep('review');
+            if (isReadonly) {
+              return;
+            }
             setFormData((prev) => ({ ...prev, company }));
             setStepsStatus((prev) => ({ ...prev, company: 'completed' }));
           }}
@@ -332,7 +342,7 @@ export default function SponsorsAdvertiseRequestForm({
           isSubmitting={
             adRequestMutation.isLoading || adRequestUpdateMutation.isLoading
           }
-          mode={isCreateMode ? 'create' : 'edit'}
+          mode={mode}
           updateStepStatus={(status) =>
             setStepsStatus((prev) => ({ ...prev, review: status }))
           }

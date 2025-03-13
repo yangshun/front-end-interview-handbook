@@ -33,7 +33,7 @@ type Props = Readonly<{
     emails: Array<string>;
   };
   isSubmitting?: boolean;
-  mode?: 'create' | 'edit';
+  mode?: 'create' | 'edit' | 'readonly';
   onPrevious: () => void;
   onSubmit: ({ agreement }: Readonly<{ agreement: string }>) => void;
   updateStepStatus: (status: StepsTabItemStatus) => void;
@@ -56,9 +56,12 @@ export default function SponsorsAdvertiseRequestFormReviewSection({
   const intl = useIntl();
   const agreementRef = useRef<HTMLDivElement>(null);
   const adsFormatData = useSponsorsAdFormatData();
+  const isReadonly = mode === 'readonly';
 
   const [agreementDialogShown, setAgreementDialogShown] = useState(false);
-  const [signedAgreement, setSignedAgreement] = useState(false);
+  const [signedAgreement, setSignedAgreement] = useState(
+    mode === 'create' ? false : true,
+  );
 
   const { emails, ads, company } = data;
   const { address, legalName, taxNumber, signatoryName, signatoryTitle } =
@@ -80,6 +83,9 @@ export default function SponsorsAdvertiseRequestFormReviewSection({
   );
 
   useEffect(() => {
+    if (isReadonly) {
+      return;
+    }
     updateStepStatus(signedAgreement ? 'in_progress' : 'not_started');
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -234,6 +240,7 @@ export default function SponsorsAdvertiseRequestFormReviewSection({
           <div>
             <CheckboxInput
               className="block"
+              disabled={isReadonly}
               label={
                 <FormattedMessage
                   defaultMessage="I represent and warrant that I am authorized to enter this Agreement on behalf of {companyName}, and by checking this box, I agree to the <link>Advertising Agreement</link>."
@@ -271,57 +278,65 @@ export default function SponsorsAdvertiseRequestFormReviewSection({
               onPrevious();
             }}
           />
-          <Button
-            icon={RiArrowRightLine}
-            isDisabled={!signedAgreement || isSubmitting}
-            isLoading={isSubmitting}
-            label={
-              mode === 'edit'
-                ? intl.formatMessage({
-                    defaultMessage: 'Update',
-                    description: 'Label for update button',
-                    id: 'xw+bqB',
-                  })
-                : intl.formatMessage({
-                    defaultMessage: 'Submit',
-                    description: 'Label for submit button',
-                    id: 'K3opjL',
-                  })
-            }
-            size="md"
-            type="submit"
-            variant="primary"
-          />
+          {isReadonly ? (
+            <div />
+          ) : (
+            <Button
+              icon={RiArrowRightLine}
+              isDisabled={!signedAgreement || isSubmitting}
+              isLoading={isSubmitting}
+              label={
+                mode === 'edit'
+                  ? intl.formatMessage({
+                      defaultMessage: 'Update',
+                      description: 'Label for update button',
+                      id: 'xw+bqB',
+                    })
+                  : intl.formatMessage({
+                      defaultMessage: 'Submit',
+                      description: 'Label for submit button',
+                      id: 'K3opjL',
+                    })
+              }
+              size="md"
+              type="submit"
+              variant="primary"
+            />
+          )}
         </div>
         <Dialog
           isShown={agreementDialogShown}
           primaryButton={
-            <Button
-              label={intl.formatMessage({
-                defaultMessage: 'I Accept',
-                description: 'Accept an agreement',
-                id: 'O2nyQ7',
-              })}
-              size="md"
-              variant="primary"
-              onClick={() => {
-                setSignedAgreement(true);
-                setAgreementDialogShown(false);
-              }}
-            />
+            isReadonly ? undefined : (
+              <Button
+                label={intl.formatMessage({
+                  defaultMessage: 'I Accept',
+                  description: 'Accept an agreement',
+                  id: 'O2nyQ7',
+                })}
+                size="md"
+                variant="primary"
+                onClick={() => {
+                  setSignedAgreement(true);
+                  setAgreementDialogShown(false);
+                }}
+              />
+            )
           }
           scrollable={true}
           secondaryButton={
-            <Button
-              label={intl.formatMessage({
-                defaultMessage: 'Cancel',
-                description: 'Cancel label',
-                id: 'KtshU7',
-              })}
-              size="md"
-              variant="secondary"
-              onClick={() => setAgreementDialogShown(false)}
-            />
+            isReadonly ? undefined : (
+              <Button
+                label={intl.formatMessage({
+                  defaultMessage: 'Cancel',
+                  description: 'Cancel label',
+                  id: 'KtshU7',
+                })}
+                size="md"
+                variant="secondary"
+                onClick={() => setAgreementDialogShown(false)}
+              />
+            )
           }
           title=" "
           width="screen-lg"

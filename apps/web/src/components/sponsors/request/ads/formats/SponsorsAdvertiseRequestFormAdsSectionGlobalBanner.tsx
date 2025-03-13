@@ -29,6 +29,7 @@ const AD_FORMAT = 'GLOBAL_BANNER';
 
 type Props = Readonly<{
   defaultValues?: Omit<SponsorsAdFormatGlobalBannerItem, 'id'>;
+  mode: 'create' | 'edit' | 'readonly';
   onCancel?: () => void;
   onSubmit: ({
     text,
@@ -45,9 +46,11 @@ export default function SponsorsAdvertiseRequestFormAdsSectionGlobalBanner({
   updateStepStatus,
   unavailableWeeks,
   defaultValues,
+  mode,
 }: Props) {
   const intl = useIntl();
   const adSchema = useSponsorsGlobalBannerAdSchema();
+  const isReadonly = mode === 'readonly';
 
   const methods = useForm<z.infer<typeof adSchema>>({
     defaultValues: defaultValues || {
@@ -93,6 +96,7 @@ export default function SponsorsAdvertiseRequestFormAdsSectionGlobalBanner({
       onSubmit={methods.handleSubmit(handleOnSubmit)}>
       <SponsorsAdvertiseRequestFormAdsSectionAvailability
         adFormat={AD_FORMAT}
+        mode={mode}
         selectedWeeks={selectedWeeks}
         unavailableWeeks={unavailableWeeks}
         onAddWeek={(week: string) => {
@@ -126,6 +130,7 @@ export default function SponsorsAdvertiseRequestFormAdsSectionGlobalBanner({
               )}>
               <Controller
                 control={control}
+                disabled={isReadonly}
                 name="text"
                 render={({ field, fieldState: { error } }) => (
                   <TextArea
@@ -158,6 +163,7 @@ export default function SponsorsAdvertiseRequestFormAdsSectionGlobalBanner({
               />
               <Controller
                 control={control}
+                disabled={isReadonly}
                 name="url"
                 render={({ field, fieldState: { error } }) => (
                   <TextInput
@@ -181,6 +187,7 @@ export default function SponsorsAdvertiseRequestFormAdsSectionGlobalBanner({
               />
               <Controller
                 control={control}
+                disabled={isReadonly}
                 name="sponsorName"
                 render={({ field, fieldState: { error } }) => (
                   <TextInput
@@ -255,26 +262,28 @@ export default function SponsorsAdvertiseRequestFormAdsSectionGlobalBanner({
             }}
           />
         )}
-        <Button
-          icon={RiArrowRightLine}
-          isDisabled={!isValid}
-          label={
-            defaultValues
-              ? intl.formatMessage({
-                  defaultMessage: 'Update',
-                  description: 'Label for update button',
-                  id: 'xw+bqB',
-                })
-              : intl.formatMessage({
-                  defaultMessage: 'Next',
-                  description: 'Label for next button',
-                  id: 'uSMCBJ',
-                })
-          }
-          size="md"
-          type="submit"
-          variant="primary"
-        />
+        {!isReadonly && (
+          <Button
+            icon={RiArrowRightLine}
+            isDisabled={!isValid}
+            label={
+              defaultValues
+                ? intl.formatMessage({
+                    defaultMessage: 'Update',
+                    description: 'Label for update button',
+                    id: 'xw+bqB',
+                  })
+                : intl.formatMessage({
+                    defaultMessage: 'Next',
+                    description: 'Label for next button',
+                    id: 'uSMCBJ',
+                  })
+            }
+            size="md"
+            type="submit"
+            variant="primary"
+          />
+        )}
       </div>
     </form>
   );

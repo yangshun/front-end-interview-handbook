@@ -28,6 +28,7 @@ import type { SponsorsAdFormat } from '@prisma/client';
 
 type Props = Readonly<{
   adFormat: SponsorsAdFormat;
+  mode?: 'create' | 'edit' | 'readonly';
   onAddWeek: (value: string) => void;
   onRemoveWeek: (value: string) => void;
   selectedWeeks: ReadonlyArray<string>;
@@ -40,8 +41,10 @@ export default function SponsorsAdvertiseRequestFormAdsSectionAvailability({
   onAddWeek,
   onRemoveWeek,
   unavailableWeeks,
+  mode = 'create',
 }: Props) {
   const intl = useIntl();
+  const isReadonly = mode === 'readonly';
   const { isLoading, data } = trpc.sponsorships.availability.useQuery({
     format: adFormat,
   });
@@ -110,7 +113,7 @@ export default function SponsorsAdvertiseRequestFormAdsSectionAvailability({
                     'disabled:bg-neutral-300 dark:disabled:bg-neutral-700',
                     'disabled:opacity-75',
                   )}
-                  disabled={!available || isLoading}
+                  disabled={!available || isLoading || isReadonly}
                   type="button"
                   onClick={() =>
                     selected ? onRemoveWeek(weekHash) : onAddWeek(weekHash)

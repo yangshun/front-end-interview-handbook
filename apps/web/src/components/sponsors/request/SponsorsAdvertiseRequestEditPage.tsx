@@ -12,6 +12,7 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
 
+import SponsorsAdvertiseRequestReadonly from './ads/SponsorsAdvertiseRequestReadonly';
 import SponsorsAdvertiseRequestForm from './SponsorsAdvertiseRequestForm';
 import type {
   SponsorCompanyAddress,
@@ -70,8 +71,11 @@ export default function SponsorsAdvertiseRequestEditPage({ adRequest }: Props) {
     }
   });
 
-  const [emailVerified, setEmailVerified] = useState(false);
+  const needEmailVerification = adRequest.status === 'PENDING';
+
+  const [emailVerified, setEmailVerified] = useState(!needEmailVerification);
   const [errorMessage, setErrorMessage] = useState('');
+  const [showEditMode, setShowEditMode] = useState(false);
 
   function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -101,7 +105,7 @@ export default function SponsorsAdvertiseRequestEditPage({ adRequest }: Props) {
           !emailVerified && 'flex flex-col items-center',
         )}
         width="marketing">
-        {emailVerified ? (
+        {emailVerified && showEditMode && (
           <>
             <Heading level="heading4">
               <FormattedMessage
@@ -122,8 +126,33 @@ export default function SponsorsAdvertiseRequestEditPage({ adRequest }: Props) {
                 }}
               />
             </Text>
+            <Section>
+              <div className={clsx('mt-12 w-full')}>
+                <SponsorsAdvertiseRequestForm
+                  defaultValues={{
+                    ads,
+                    company,
+                    emails: adRequest.emails,
+                  }}
+                  mode={adRequest.status === 'PENDING' ? 'edit' : 'readonly'}
+                  requestId={adRequest.id}
+                />
+              </div>
+            </Section>
           </>
-        ) : (
+        )}
+        {emailVerified && !showEditMode && (
+          <SponsorsAdvertiseRequestReadonly
+            data={{
+              ads,
+              agreement: adRequest.agreement,
+              company,
+              emails: adRequest.emails,
+            }}
+            onEdit={() => setShowEditMode(true)}
+          />
+        )}
+        {!emailVerified && (
           <>
             <Heading className="text-center" level="heading4">
               <FormattedMessage
@@ -144,49 +173,33 @@ export default function SponsorsAdvertiseRequestEditPage({ adRequest }: Props) {
                 }}
               />
             </Text>
+            <Section>
+              <div
+                className={clsx('mt-12 w-full', 'flex flex-col items-center')}>
+                <form
+                  className="flex w-full max-w-sm flex-col items-center"
+                  onSubmit={(e) => onSubmit(e)}>
+                  <TextInput
+                    classNameOuter="w-full"
+                    errorMessage={errorMessage}
+                    isLabelHidden={true}
+                    label="Email"
+                    name="email"
+                    placeholder="john.doe@example.com"
+                  />
+                  <Button
+                    className="mt-8"
+                    icon={RiArrowRightLine}
+                    label="Verify"
+                    size="md"
+                    type="submit"
+                    variant="primary"
+                  />
+                </form>
+              </div>
+            </Section>
           </>
         )}
-
-        <Section>
-          <div
-            className={clsx(
-              'mt-12 w-full',
-              !emailVerified && 'flex flex-col items-center',
-            )}>
-            {emailVerified ? (
-              <SponsorsAdvertiseRequestForm
-                defaultValues={{
-                  ads,
-                  company,
-                  emails: adRequest.emails,
-                }}
-                mode="edit"
-                requestId={adRequest.id}
-              />
-            ) : (
-              <form
-                className="flex w-full max-w-sm flex-col items-center"
-                onSubmit={(e) => onSubmit(e)}>
-                <TextInput
-                  classNameOuter="w-full"
-                  errorMessage={errorMessage}
-                  isLabelHidden={true}
-                  label="Email"
-                  name="email"
-                  placeholder="john.doe@example.com"
-                />
-                <Button
-                  className="mt-8"
-                  icon={RiArrowRightLine}
-                  label="Verify"
-                  size="md"
-                  type="submit"
-                  variant="primary"
-                />
-              </form>
-            )}
-          </div>
-        </Section>
       </Container>
     </div>
   );
