@@ -246,6 +246,56 @@ export const sponsorshipsRouter = router({
         }),
       ]);
     }),
+  adRequestApprove: adminProcedure
+    .input(
+      z.object({
+        id: z.string(),
+      }),
+    )
+    .mutation(async ({ input: { id }, ctx: { viewer } }) => {
+      return await prisma.$transaction(async (tx) => {
+        await Promise.all([
+          tx.sponsorsAdRequest.update({
+            data: {
+              status: 'APPROVED',
+            },
+            where: { id },
+          }),
+          tx.sponsorsAdRequestReview.create({
+            data: {
+              requestId: id,
+              userId: viewer.id,
+            },
+          }),
+        ]);
+      });
+    }),
+  adRequestReject: adminProcedure
+    .input(
+      z.object({
+        comments: z.string(),
+        id: z.string(),
+      }),
+    )
+    .mutation(async ({ input: { id, comments }, ctx: { viewer } }) => {
+      return await prisma.$transaction(async (tx) => {
+        await Promise.all([
+          tx.sponsorsAdRequest.update({
+            data: {
+              status: 'REJECTED',
+            },
+            where: { id },
+          }),
+          tx.sponsorsAdRequestReview.create({
+            data: {
+              comments,
+              requestId: id,
+              userId: viewer.id,
+            },
+          }),
+        ]);
+      });
+    }),
   adRequestUpdate: publicProcedure
     .input(
       z.object({
@@ -491,6 +541,39 @@ export const sponsorshipsRouter = router({
         }
       : null;
   }),
+  getAdRequest: adminProcedure
+    .input(
+      z.object({
+        id: z.string(),
+      }),
+    )
+    .query(async ({ input: { id } }) => {
+      return await prisma.sponsorsAdRequest.findUnique({
+        include: {
+          ads: {
+            include: {
+              slots: true,
+            },
+          },
+          review: {
+            select: {
+              comments: true,
+              createdAt: true,
+              profile: {
+                select: {
+                  id: true,
+                  name: true,
+                  username: true,
+                },
+              },
+            },
+          },
+        },
+        where: {
+          id,
+        },
+      });
+    }),
   getAdRequests: adminProcedure
     .input(
       z.object({
