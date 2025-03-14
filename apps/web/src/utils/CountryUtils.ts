@@ -16,14 +16,20 @@ export function resolveCountryCode(req: NextRequest) {
   const country = req.geo?.country ?? null;
   const existingCountry = req.cookies.get('country')?.value;
 
-  if (existingCountry == null || country == null) {
+  // There are some countries not in the PPP, such as `XK` (Kosovo),
+  // hence we need to first check if the country is in the PPP
+  const countryFactor =
+    country != null && country in purchasingPowerParity
+      ? purchasingPowerParity[country as CountryCode].conversionFactor
+      : null;
+  const existingCountryFactor =
+    existingCountry != null && existingCountry in purchasingPowerParity
+      ? purchasingPowerParity[existingCountry as CountryCode]?.conversionFactor
+      : null;
+
+  if (countryFactor == null || existingCountryFactor == null) {
     return country;
   }
-
-  const countryFactor =
-    purchasingPowerParity[country as CountryCode].conversionFactor;
-  const existingCountryFactor =
-    purchasingPowerParity[existingCountry as CountryCode].conversionFactor;
 
   // Use the country with the higher factor
   return existingCountryFactor > countryFactor ? existingCountry : country;
