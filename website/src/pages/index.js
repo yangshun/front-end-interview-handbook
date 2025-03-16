@@ -93,14 +93,14 @@ function GreatFrontEndSection() {
                   style={{ fontSize: 'var(--ifm-h1-font-size)' }}>
                   <strong>
                     Looking for front end interview practice? <br />
-                    GreatFrontEnd has 300+ practice questions and reference
+                    GreatFrontEnd has 500+ practice questions and reference
                     solutions from ex-interviewers at FAANG
                   </strong>
                 </h2>
                 <div className="margin-vert--md">
                   <a
                     className="button button--secondary button--lg"
-                    href="https://www.greatfrontend.com/prepare?gnrs=frontendinterviewhandbook"
+                    href="https://www.greatfrontend.com/interviews/get-started?gnrs=frontendinterviewhandbook"
                     rel="noopener"
                     target="_blank"
                     onClick={() => {
@@ -136,7 +136,7 @@ function GreatFrontEndSection() {
               </div>
               <div className={clsx('col col--4', styles.flexContainer)}>
                 <RiStackLine className={styles.promoIcon} />
-                <p className={styles.whiteText}>Structured 4-stage process</p>
+                <p className={styles.whiteText}>Structured prep process</p>
               </div>
             </div>
           </div>

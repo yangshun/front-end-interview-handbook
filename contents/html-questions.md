@@ -5,7 +5,7 @@ sidebar_label: HTML questions
 
 :::info Page migrated to GreatFrontEnd
 
-Front End Interview Handbook is part of [GreatFrontEnd](https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)! We are working to migrate the content over and you may find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/questions/html/quiz?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook).
+Front End Interview Handbook is part of [GreatFrontEnd](https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)! We are working to migrate the content over and you may find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/questions/html-interview-questions/quiz?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook).
 
 :::
 

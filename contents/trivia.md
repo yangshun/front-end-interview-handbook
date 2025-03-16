@@ -5,7 +5,7 @@ sidebar_label: Overview
 
 :::info Page migrated to GreatFrontEnd
 
-Front End Interview Handbook is part of [GreatFrontEnd](https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)! Find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/front-end-interview-guidebook/quiz?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook).
+Front End Interview Handbook is part of [GreatFrontEnd](https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)! Find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/front-end-interview-playbook/quiz?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook).
 
 :::
 
@@ -35,7 +35,7 @@ The best and correct way to prepare for such questions is to really understand t
 
 ## Where to practice
 
-If you're looking for free questions to practice, try [GreatFrontEnd](https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook), which has a [huge bank of free questions](https://www.greatfrontend.com/prepare/quiz?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook). Each question also comes with a solution authored by me.
+If you're looking for free questions to practice, try [GreatFrontEnd](https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook), which has a [huge bank of free questions](https://www.greatfrontend.com/questions/quiz?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook). Each question also comes with a solution authored by me.
 
 ## Common questions
 

@@ -6,7 +6,7 @@ sidebar_label: JavaScript coding
 
 :::info Page migrated to GreatFrontEnd
 
-Front End Interview Handbook is part of [GreatFrontEnd](https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)! Find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/front-end-interview-guidebook/javascript?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook).
+Front End Interview Handbook is part of [GreatFrontEnd](https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)! Find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/front-end-interview-playbook/javascript?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook).
 
 :::
 
@@ -46,13 +46,19 @@ Advanced questions are usually given to more senior candidates and expect around
     </video>
 </div>
 
-- These questions and many others are available on [GreatFrontEnd](https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook). Apart from a [huge question bank of coding questions](https://www.greatfrontend.com/questions/js/coding/utilities?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) that you can access by frameworks, each question also comes with a solution authored by ex-FAANG engineers and automated test cases.
-- Here are some questions you can start with:
-  - [Debounce](https://www.greatfrontend.com/questions/javascript/debounce?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)
-  - [Promise.all()](https://www.greatfrontend.com/questions/javascript/promise-all?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)
-  - [Deep Clone](https://www.greatfrontend.com/questions/javascript/deep-clone?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)
-  - [Event Emitter](https://www.greatfrontend.com/questions/javascript/event-emitter?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)
-  - [Array.prototype.filter()](https://www.greatfrontend.com/questions/javascript/array-filter?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
+These questions and many others are available on [GreatFrontEnd](https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook). Apart from a [huge question bank of coding questions](https://www.greatfrontend.com/questions/javascript-functions-interview-questions?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) that you can access by frameworks, each question also comes with a solution authored by ex-FAANG engineers and automated test cases.
+
+Here are some questions you can start with:
+
+- [Debounce](https://www.greatfrontend.com/questions/javascript/debounce?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)
+- [Promise.all](https://www.greatfrontend.com/questions/javascript/promise-all?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)
+- [Flatten](https://www.greatfrontend.com/questions/javascript/flatten?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)
+- [Classnames](https://www.greatfrontend.com/questions/javascript/classnames?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)
+- [Deep Clone](https://www.greatfrontend.com/questions/javascript/deep-clone?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)
+- [Event Emitter](https://www.greatfrontend.com/questions/javascript/event-emitter?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)
+- [List Format](https://www.greatfrontend.com/questions/javascript/list-format?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)
+- [getElementsByClassName](https://www.greatfrontend.com/questions/javascript/get-elements-by-class-name?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)
+- [Array.prototype.filter()](https://www.greatfrontend.com/questions/javascript/array-filter?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)
 
 ## Tips
 

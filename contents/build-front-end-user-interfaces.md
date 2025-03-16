@@ -6,7 +6,7 @@ sidebar_label: User interface coding
 
 :::info Page migrated to GreatFrontEnd
 
-Front End Interview Handbook is part of [GreatFrontEnd](https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)! Find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/front-end-interview-guidebook/user-interface?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook).
+Front End Interview Handbook is part of [GreatFrontEnd](https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)! Find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/front-end-interview-playbook/user-interface?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook).
 
 :::
 
@@ -22,18 +22,22 @@ Companies that ask such questions usually ask candidates to code in one of these
 ## Examples
 
 - Components
-  - Tabs — [Practice](https://www.greatfrontend.com/questions/user-interface/tabs?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
-  - Accordion — [Practice](https://www.greatfrontend.com/questions/user-interface/accordion?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
-  - Photo Gallery
+  - Modal Dialog — [Practice](https://www.greatfrontend.com/questions/user-interface/modal-dialog?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)
+  - Tabs — [Practice](https://www.greatfrontend.com/questions/user-interface/tabs?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)
+  - Image Carousel - [Practice](https://www.greatfrontend.com/questions/user-interface/image-carousel?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)
+  - Accordion — [Practice](https://www.greatfrontend.com/questions/user-interface/accordion?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)
   - Other possible components - [Refer to Bootstrap's list](https://getbootstrap.com/docs/5.3/components/)
+- Widgets
+  - Traffic Light - [Practice](https://www.greatfrontend.com/questions/user-interface/traffic-light?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)
 - Apps
   - Todo list — [Practice](https://www.greatfrontend.com/questions/user-interface/todo-list?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)
-  - Sortable Data Table (with extensions for filtering)
+  - Data Table (with extensions for sorting and filtering) — [Practice](https://www.greatfrontend.com/questions/user-interface/data-table?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)
+  - File Explorer — [Practice](https://www.greatfrontend.com/questions/user-interface/file-explorer?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)
   - Kanban Board
 - Games
-  - Tic-tac-toe — [Practice](https://www.greatfrontend.com/questions/user-interface/tic-tac-toe?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
-  - Whack-a-mole — [Practice](https://www.greatfrontend.com/questions/user-interface/whack-a-mole?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
-  - Wordle — [Practice](https://www.greatfrontend.com/questions/user-interface/wordle?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
+  - Tic-tac-toe — [Practice](https://www.greatfrontend.com/questions/user-interface/tic-tac-toe?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)
+  - Whack-a-mole — [Practice](https://www.greatfrontend.com/questions/user-interface/whack-a-mole?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)
+  - Wordle — [Practice](https://www.greatfrontend.com/questions/user-interface/wordle?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)
   - Tetris (advanced)
   - Snake (advanced)
 

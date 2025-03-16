@@ -5,7 +5,7 @@ sidebar_label: Behavorial interviews
 
 :::info Page migrated to GreatFrontEnd
 
-Front End Interview Handbook is part of [GreatFrontEnd](https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)! Find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/behavioral-interview-guidebook?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook).
+Front End Interview Handbook is part of [GreatFrontEnd](https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)! Find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/behavioral-interview-playbook?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook).
 
 :::
 

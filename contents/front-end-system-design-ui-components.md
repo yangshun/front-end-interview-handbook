@@ -6,20 +6,21 @@ sidebar_label: UI components
 
 :::info Page migrated to GreatFrontEnd
 
-Front End Interview Handbook is part of [GreatFrontEnd](https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)! Find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/system-design/types-of-questions?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook).
+Front End Interview Handbook is part of [GreatFrontEnd](https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)! Find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/front-end-system-design-playbook/types-of-questions?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook).
 
 :::
 
 ## Examples
 
-- Autocomplete: [Read example solution](https://www.greatfrontend.com/questions/system-design/autocomplete?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)
-- Image carousel: [Read example solution](https://www.greatfrontend.com/questions/system-design/image-carousel?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
-- Dropdown menu: [Read example solution](https://www.greatfrontend.com/questions/system-design/dropdown-menu?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
-- Modal dialog: [Read example solution](https://www.greatfrontend.com/questions/system-design/modal-dialog?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
-- Poll widget: [Read example solution](https://www.greatfrontend.com/questions/system-design/poll-widget?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
+- Autocomplete: [Read solution](https://www.greatfrontend.com/questions/system-design/autocomplete?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)
+- Image carousel: [Read solution](https://www.greatfrontend.com/questions/system-design/image-carousel?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
+- Dropdown menu: [Read solution](https://www.greatfrontend.com/questions/system-design/dropdown-menu?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
+- Modal dialog: [Read solution](https://www.greatfrontend.com/questions/system-design/modal-dialog?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
+- Rich text editor: [Read solution](https://www.greatfrontend.com/questions/system-design/rich-text-editor?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
+- Poll widget: [Read solution](https://www.greatfrontend.com/questions/system-design/poll-widget?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
 - Selector which loads options over the network
 
-To find out more, check out [GreatFrontEnd](https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook), which shows you how to approach front end system design interviews with their [front end system design guide](https://www.greatfrontend.com/system-design?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) and case studies. There are also [blogs](https://www.greatfrontend.com/blog?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) that will cover some of the following topics in more detail.
+To find out more, check out [GreatFrontEnd](https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook), which shows you how to approach front end system design interviews with their [Front End System Design Playbook](https://www.greatfrontend.com/front-end-system-design-playbook?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) and case studies. There are also [blog posts](https://www.greatfrontend.com/blog?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) that will cover some of the following topics in more detail.
 
 ## Framework
 

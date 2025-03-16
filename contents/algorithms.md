@@ -6,7 +6,7 @@ sidebar_label: Algorithms coding
 
 :::info Page migrated to GreatFrontEnd
 
-Front End Interview Handbook is part of [GreatFrontEnd](https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)! Find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/front-end-interview-guidebook/algorithms?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook).
+Front End Interview Handbook is part of [GreatFrontEnd](https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)! Find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/front-end-interview-playbook/algorithms?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook).
 
 :::
 
@@ -22,17 +22,23 @@ The [Tech Interview Handbook](https://www.techinterviewhandbook.org/algorithms/s
 
 ### GreatFrontEnd
 
-[GreatFrontEnd](https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) provides **free** questions for you to practice implementing [Data Structures and Algorithms](https://www.greatfrontend.com/questions/js/coding/data-structures-algorithms?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) in JavaScript. You can practice implementing common data structures (e.g. [Stacks](https://www.greatfrontend.com/questions/algo/stack?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook), [Queues](https://www.greatfrontend.com/questions/algo/queue?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)) and algorithms (e.g. [Binary Search](https://www.greatfrontend.com/questions/algo/binary-search?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook), [Merge Sort](https://www.greatfrontend.com/questions/algo/merge-sort?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)). [**Check it out →**](https://www.greatfrontend.com/questions/js/coding/data-structures-algorithms?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)
+[GreatFrontEnd](https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) provides **free** questions for you to practice implementing [Data Structures and Algorithms](https://www.greatfrontend.com/questions/javascript-dsa-interview-questions?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) in JavaScript. You can practice implementing common data structures (e.g. [Stacks](https://www.greatfrontend.com/questions/algo/stack?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook), [Queues](https://www.greatfrontend.com/questions/algo/queue?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)) and algorithms (e.g. [Binary Search](https://www.greatfrontend.com/questions/algo/binary-search?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook), [Merge Sort](https://www.greatfrontend.com/questions/algo/merge-sort?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)).
+
+[**Check it out**](https://www.greatfrontend.com/questions/javascript-dsa-interview-questions?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)
 
 ## Algorithm courses
 
 ### [AlgoMonster](https://shareasale.com/r.cfm?b=1873647&u=3114753&m=114505&urllink=&afftrack=)
 
-AlgoMonster aims to help you ace the technical interview **in the shortest time possible**. By Google engineers, AlgoMonster uses a data-driven approach to teach you the most useful key question patterns and has contents to help you quickly revise basic data structures and algorithms. Best of all, AlgoMonster is not subscription-based - pay a one-time fee and get **lifetime access**. [**Check it out →**](https://shareasale.com/r.cfm?b=1873647&u=3114753&m=114505&urllink=&afftrack=)
+AlgoMonster aims to help you ace the technical interview **in the shortest time possible**. By Google engineers, AlgoMonster uses a data-driven approach to teach you the most useful key question patterns and has contents to help you quickly revise basic data structures and algorithms. Best of all, AlgoMonster is not subscription-based - pay a one-time fee and get **lifetime access**.
+
+[**Check it out**](https://shareasale.com/r.cfm?b=1873647&u=3114753&m=114505&urllink=&afftrack=)
 
 ### [Grokking the Coding Interview: Patterns for Coding Questions](https://designgurus.org/link/kJSIoU?url=https%3A%2F%2Fdesigngurus.org%2Fcourse%3Fcourseid%3Dgrokking-the-coding-interview)
 
-This course by Design Gurus expands upon the questions on the recommended practice questions but approaches the practicing from a questions pattern perspective, which is an approach I also agree with for learning and have personally used to get better at coding interviews. The course allows you to practice selected questions in Java, Python, C++, JavaScript and also provides sample solutions in those languages. **Learn and understand patterns, not memorize answers!** [**Check it out →**](https://designgurus.org/link/kJSIoU?url=https%3A%2F%2Fdesigngurus.org%2Fcourse%3Fcourseid%3Dgrokking-the-coding-interview)
+This course by Design Gurus expands upon the questions on the recommended practice questions but approaches the practicing from a questions pattern perspective, which is an approach I also agree with for learning and have personally used to get better at coding interviews. The course allows you to practice selected questions in Java, Python, C++, JavaScript and also provides sample solutions in those languages. **Learn and understand patterns, not memorize answers!**
+
+[**Check it out**](https://designgurus.org/link/kJSIoU?url=https%3A%2F%2Fdesigngurus.org%2Fcourse%3Fcourseid%3Dgrokking-the-coding-interview)
 
 ## JavaScript courses
 

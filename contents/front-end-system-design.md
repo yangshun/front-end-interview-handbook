@@ -5,7 +5,7 @@ sidebar_label: Overview
 
 :::info Page migrated to GreatFrontEnd
 
-Front End Interview Handbook is part of [GreatFrontEnd](https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)! Find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/system-design?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook).
+Front End Interview Handbook is part of [GreatFrontEnd](https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)! Find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/front-end-system-design-playbook?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook).
 
 :::
 
@@ -22,20 +22,22 @@ The two main kinds of front end system design interviews are UI components and a
 ## Front end system design examples
 
 - User interface components
-  - Autocomplete: [Read example solution](https://www.greatfrontend.com/questions/system-design/autocomplete?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)
-  - Image carousel: [Read example solution](https://www.greatfrontend.com/questions/system-design/image-carousel?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
-  - Dropdown menu: [Read example solution](https://www.greatfrontend.com/questions/system-design/dropdown-menu?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
-  - Modal dialog: [Read example solution](https://www.greatfrontend.com/questions/system-design/modal-dialog?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
+  - Autocomplete: [Read solution](https://www.greatfrontend.com/questions/system-design/autocomplete?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)
+  - Image carousel: [Read solution](https://www.greatfrontend.com/questions/system-design/image-carousel?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
+  - Dropdown menu: [Read solution](https://www.greatfrontend.com/questions/system-design/dropdown-menu?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
+  - Modal dialog: [Read solution](https://www.greatfrontend.com/questions/system-design/modal-dialog?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
+  - Rich text editor: [Read solution](https://www.greatfrontend.com/questions/system-design/rich-text-editor?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
 - Applications
-  - News feed (e.g. Facebook): [Read example solution](https://www.greatfrontend.com/questions/system-design/news-feed-facebook?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)
-  - E-commerce marketplace (e.g. Amazon): [Read example solution](https://www.greatfrontend.com/questions/system-design/e-commerce-amazon?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
-  - Chat application (e.g. Messenger): [Read example solution](https://www.greatfrontend.com/questions/system-design/chat-application-messenger?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
-  - Photo sharing application (e.g. Instagram): [Read example solution](https://www.greatfrontend.com/questions/system-design/photo-sharing-instagram?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
-  - Pinterest: [Read example solution](https://www.greatfrontend.com/questions/system-design/pinterest?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
-  - Travel booking website (e.g. Airbnb): [Read example solution](https://www.greatfrontend.com/questions/system-design/travel-booking-airbnb?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
-  - Video watching website
+  - News feed (e.g. Facebook): [Read solution](https://www.greatfrontend.com/questions/system-design/news-feed-facebook?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Free)
+  - E-commerce marketplace (e.g. Amazon): [Read solution](https://www.greatfrontend.com/questions/system-design/e-commerce-amazon?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
+  - Chat application (e.g. Messenger): [Read solution](https://www.greatfrontend.com/questions/system-design/chat-application-messenger?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
+  - Photo sharing application (e.g. Instagram): [Read solution](https://www.greatfrontend.com/questions/system-design/photo-sharing-instagram?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
+  - Pinterest: [Read solution](https://www.greatfrontend.com/questions/system-design/pinterest?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
+  - Google Docs: [Read solution](https://www.greatfrontend.com/questions/system-design/collaborative-editor-google-docs?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
+  - Travel booking website (e.g. Airbnb): [Read solution](https://www.greatfrontend.com/questions/system-design/travel-booking-airbnb?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
+  - Video streaming (e.g. Netflix): [Read solution](https://www.greatfrontend.com/questions/system-design/video-streaming-netflix?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) (Paid)
 
-If you are interested to find out more, [GreatFrontEnd](https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) shows you how to approach front end system design interviews with their [front end system design guide](https://www.greatfrontend.com/system-design?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) and case studies.
+If you are interested to find out more, [GreatFrontEnd](https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) shows you how to approach front end system design interviews with their [Front End System Design Playbook](https://www.greatfrontend.com/front-end-system-design-playbook?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) and case studies.
 
 ## RADIO Framework
 

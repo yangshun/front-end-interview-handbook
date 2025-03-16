@@ -4,7 +4,7 @@ title: Introduction
 
 :::info Page migrated to GreatFrontEnd
 
-Front End Interview Handbook is part of [GreatFrontEnd](https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)! Find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/front-end-interview-guidebook?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook).
+Front End Interview Handbook is part of [GreatFrontEnd](https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)! Find the latest version of this page on [GreatFrontEnd](https://www.greatfrontend.com/front-end-interview-playbook?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook).
 
 :::
 
@@ -50,7 +50,7 @@ Short questions which test your knowledge and have clear non-subjective answers.
 
 [**Read more about front end trivia questions →**](./trivia.md)
 
-[**Practice front end trivia questions**](https://www.greatfrontend.com/prepare/quiz?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)
+[**Practice front end trivia questions**](https://www.greatfrontend.com/questions/quiz?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)
 
 ### JavaScript coding
 
@@ -63,7 +63,7 @@ This is the front end version of LeetCode-style algorithm questions. Implement a
 
 [**Read more about JavaScript coding questions →**](./javascript-utility-function.md)
 
-[**Practice JavaScript coding questions**](https://www.greatfrontend.com/questions/js?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)
+[**Practice JavaScript coding questions**](https://www.greatfrontend.com/questions/javascript-interview-questions?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)
 
 ### User interface coding
 
@@ -81,7 +81,7 @@ Build user interfaces (can be a UI component, an app, or a game) using HTML, CSS
 
 [**Read more about user interface coding questions →**](./build-front-end-user-interfaces.md)
 
-[**Practice user interface coding questions**](https://www.greatfrontend.com/prepare/coding?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)
+[**Practice user interface coding questions**](https://www.greatfrontend.com/questions?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)
 
 ### Algorithmic coding
 
@@ -100,9 +100,9 @@ Describe and discuss how you would build a UI component/app/game and its archite
 
 [**Read more about front end system design →**](./front-end-system-design.md)
 
-[**Practice front end system design questions**](https://www.greatfrontend.com/prepare/system-design?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)
+[**Practice front end system design questions**](https://www.greatfrontend.com/questions/system-design?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook)
 
-You can also try out the above mentioned question types at [GreatFrontEnd](https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook). It has [over 200+ practice questions](https://www.greatfrontend.com/prepare?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) and all of them are provided with comprehensive answers written by ex-FAANG senior engineers.
+You can also try out the above mentioned question types at [GreatFrontEnd](https://www.greatfrontend.com?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook). It has [over 500+ practice questions](https://www.greatfrontend.com/questions?utm_source=frontendinterviewhandbook&utm_medium=referral&gnrs=frontendinterviewhandbook) and all of them are provided with comprehensive answers written by ex-FAANG senior engineers.
 
 ## Company interview formats
 
