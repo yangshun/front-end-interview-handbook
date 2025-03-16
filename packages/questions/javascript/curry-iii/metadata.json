@@ -2,7 +2,7 @@
   "slug": "curry-iii",
   "created": "2022-12-10T00:00:00.000Z",
   "languages": ["js", "ts"],
-  "companies": [],
+  "companies": ["qualcomm"],
   "author": "yangshun",
   "access": "premium",
   "duration": 20,

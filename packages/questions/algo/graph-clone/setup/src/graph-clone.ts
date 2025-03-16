@@ -13,9 +13,9 @@ export default function graphClone(node: GraphNode | null): GraphNode | null {
     return null;
   }
 
-  let visited = new Map<GraphNode, GraphNode>();
+  const visited = new Map<GraphNode, GraphNode>();
 
-  let dfs = (node: GraphNode): GraphNode => {
+  function dfs(node: GraphNode): GraphNode {
     // If the node was already visited before
     // Return the clone from the visited dictionary
     if (visited.has(node)) {
@@ -35,7 +35,7 @@ export default function graphClone(node: GraphNode | null): GraphNode | null {
     }
 
     return cloneNode;
-  };
+  }
 
   return dfs(node);
 }

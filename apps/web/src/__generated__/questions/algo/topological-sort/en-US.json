@@ -10,7 +10,9 @@
   "metadata": {
     "access": "free",
     "author": null,
-    "companies": [],
+    "companies": [
+      "snap"
+    ],
     "created": 1673395200,
     "difficulty": "medium",
     "duration": 20,

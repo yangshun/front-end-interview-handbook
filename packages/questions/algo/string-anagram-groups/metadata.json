@@ -3,7 +3,7 @@
   "created": "2024-08-09T00:00:00.000Z",
   "languages": ["js", "ts"],
   "author": "hiten",
-  "companies": [],
+  "companies": ["amazon"],
   "access": "standard",
   "duration": 40,
   "published": true,

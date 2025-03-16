@@ -9,6 +9,6 @@
   "importance": "medium",
   "difficulty": "medium",
   "featured": true,
-  "similar_questions": ["array-square", "array-map", "array-reduce"],
-  "next_questions": ["array-map", "array-reduce", "array-filter"]
+  "similar_questions": ["array-filter", "array-map", "array-reduce"],
+  "next_questions": []
 }

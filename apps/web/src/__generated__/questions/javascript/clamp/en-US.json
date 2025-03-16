@@ -25,9 +25,7 @@
       "js",
       "ts"
     ],
-    "nextQuestions": [
-      "in-range"
-    ],
+    "nextQuestions": [],
     "published": true,
     "ranking": 100,
     "similarQuestions": [

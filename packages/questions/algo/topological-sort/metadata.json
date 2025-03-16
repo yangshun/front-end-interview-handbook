@@ -2,7 +2,7 @@
   "slug": "topological-sort",
   "created": "2023-01-11T00:00:00.000Z",
   "languages": ["js", "ts"],
-  "companies": [],
+  "companies": ["snap"],
   "access": "free",
   "duration": 20,
   "published": true,

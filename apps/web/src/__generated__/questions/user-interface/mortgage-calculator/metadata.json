@@ -1,7 +1,10 @@
 {
   "access": "standard",
   "author": "dhillon",
-  "companies": [],
+  "companies": [
+    "openai",
+    "reddit"
+  ],
   "created": 1681430400,
   "difficulty": "easy",
   "duration": 20,

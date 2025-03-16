@@ -31,15 +31,13 @@
       "js",
       "ts"
     ],
-    "nextQuestions": [
-      "jquery-class-manipulation",
-      "backbone-model"
-    ],
+    "nextQuestions": [],
     "published": true,
     "ranking": 100,
     "similarQuestions": [
       "event-emitter",
-      "jquery-class-manipulation"
+      "jquery-class-manipulation",
+      "backbone-model"
     ],
     "slug": "event-emitter-ii",
     "subtitle": null,

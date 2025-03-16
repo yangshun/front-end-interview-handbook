@@ -252,15 +252,11 @@
       "js",
       "ts"
     ],
-    "nextQuestions": [
-      "array-map",
-      "array-reduce",
-      "array-filter"
-    ],
+    "nextQuestions": [],
     "published": true,
     "ranking": 100,
     "similarQuestions": [
-      "array-square",
+      "array-filter",
       "array-map",
       "array-reduce"
     ],
@@ -1106,9 +1102,7 @@
       "js",
       "ts"
     ],
-    "nextQuestions": [
-      "in-range"
-    ],
+    "nextQuestions": [],
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -1372,7 +1366,8 @@
     "companies": [
       "lyft",
       "amazon",
-      "openai"
+      "openai",
+      "reddit"
     ],
     "created": 1658880000,
     "difficulty": "easy",
@@ -1605,7 +1600,8 @@
     "author": "yangshun",
     "companies": [
       "intuit",
-      "amazon"
+      "amazon",
+      "qualcomm"
     ],
     "created": 1655510400,
     "difficulty": "medium",
@@ -1622,14 +1618,13 @@
       "ts"
     ],
     "nextQuestions": [
+      "curry-ii",
       "flatten",
-      "promise-all",
-      "todo-list"
+      "promise-all"
     ],
     "published": true,
     "ranking": 100,
     "similarQuestions": [
-      "curry-ii",
       "function-bind"
     ],
     "slug": "curry",
@@ -1640,7 +1635,9 @@
   {
     "access": "premium",
     "author": "yangshun",
-    "companies": [],
+    "companies": [
+      "qualcomm"
+    ],
     "created": 1655510400,
     "difficulty": "medium",
     "duration": 20,
@@ -1671,7 +1668,9 @@
   {
     "access": "premium",
     "author": "yangshun",
-    "companies": [],
+    "companies": [
+      "qualcomm"
+    ],
     "created": 1670630400,
     "difficulty": "hard",
     "duration": 20,
@@ -1731,7 +1730,8 @@
     "access": "standard",
     "author": null,
     "companies": [
-      "soundcloud"
+      "soundcloud",
+      "stripe"
     ],
     "created": 1690675200,
     "difficulty": "medium",
@@ -1765,7 +1765,8 @@
     "companies": [
       "soundcloud",
       "amazon",
-      "tiktok"
+      "tiktok",
+      "stripe"
     ],
     "created": 1655596800,
     "difficulty": "hard",
@@ -1796,7 +1797,9 @@
     "access": "free",
     "author": "yangshun",
     "companies": [
-      "palantir"
+      "palantir",
+      "amazon",
+      "stripe"
     ],
     "created": 1723766400,
     "difficulty": "medium",
@@ -1832,7 +1835,9 @@
     "access": "premium",
     "author": "yangshun",
     "companies": [
-      "palantir"
+      "palantir",
+      "amazon",
+      "stripe"
     ],
     "created": 1723766400,
     "difficulty": "medium",
@@ -1866,7 +1871,9 @@
     "access": "premium",
     "author": "yangshun",
     "companies": [
-      "palantir"
+      "palantir",
+      "amazon",
+      "stripe"
     ],
     "created": 1723766400,
     "difficulty": "hard",
@@ -1900,7 +1907,9 @@
     "access": "premium",
     "author": "yangshun",
     "companies": [
-      "palantir"
+      "palantir",
+      "amazon",
+      "stripe"
     ],
     "created": 1723766400,
     "difficulty": "hard",
@@ -1943,7 +1952,8 @@
       "bytedance",
       "microsoft",
       "linkedin",
-      "uber"
+      "uber",
+      "qualcomm"
     ],
     "created": 1649894400,
     "difficulty": "medium",
@@ -1960,7 +1970,6 @@
       "ts"
     ],
     "nextQuestions": [
-      "throttle",
       "debounce-ii",
       "holy-grail"
     ],
@@ -2654,15 +2663,13 @@
       "js",
       "ts"
     ],
-    "nextQuestions": [
-      "jquery-class-manipulation",
-      "backbone-model"
-    ],
+    "nextQuestions": [],
     "published": true,
     "ranking": 100,
     "similarQuestions": [
       "event-emitter",
-      "jquery-class-manipulation"
+      "jquery-class-manipulation",
+      "backbone-model"
     ],
     "slug": "event-emitter-ii",
     "subtitle": null,
@@ -3096,7 +3103,10 @@
       "meta",
       "rippling",
       "salesforce",
-      "google"
+      "google",
+      "roblox",
+      "bytedance",
+      "tiktok"
     ],
     "created": 1649894400,
     "difficulty": "medium",
@@ -3134,7 +3144,8 @@
     "access": "premium",
     "author": "yangshun",
     "companies": [
-      "openai"
+      "openai",
+      "reddit"
     ],
     "created": 1682121600,
     "difficulty": "easy",
@@ -3302,7 +3313,9 @@
     "companies": [
       "amazon",
       "rippling",
-      "atlassian"
+      "atlassian",
+      "tiktok",
+      "bytedance"
     ],
     "created": 1656201600,
     "difficulty": "easy",
@@ -3903,7 +3916,9 @@
       "dropbox",
       "microsoft",
       "snap",
-      "squarespace"
+      "squarespace",
+      "bytedance",
+      "tiktok"
     ],
     "created": 1723766400,
     "difficulty": "medium",
@@ -3949,7 +3964,9 @@
       "dropbox",
       "microsoft",
       "snap",
-      "squarespace"
+      "squarespace",
+      "bytedance",
+      "tiktok"
     ],
     "created": 1723766400,
     "difficulty": "medium",
@@ -3989,12 +4006,14 @@
     "author": "yangshun",
     "companies": [
       "amazon",
+      "bytedance",
       "google",
       "doordash",
       "dropbox",
       "microsoft",
       "snap",
-      "squarespace"
+      "squarespace",
+      "tiktok"
     ],
     "created": 1723766400,
     "difficulty": "hard",
@@ -4241,7 +4260,8 @@
       "microsoft",
       "tiktok",
       "atlassian",
-      "openai"
+      "openai",
+      "stripe"
     ],
     "created": 1683849600,
     "difficulty": "medium",
@@ -4364,7 +4384,9 @@
     "access": "standard",
     "author": null,
     "companies": [
-      "snap"
+      "snap",
+      "amazon",
+      "google"
     ],
     "created": 1653177600,
     "difficulty": "medium",
@@ -4399,7 +4421,9 @@
     "access": "premium",
     "author": "zhenghao",
     "companies": [
-      "snap"
+      "snap",
+      "amazon",
+      "google"
     ],
     "created": 1653177600,
     "difficulty": "hard",
@@ -4881,7 +4905,9 @@
       "google",
       "lyft",
       "uber",
-      "apple"
+      "apple",
+      "tiktok",
+      "bytedance"
     ],
     "created": 1699401600,
     "difficulty": "medium",
@@ -4919,7 +4945,9 @@
       "google",
       "lyft",
       "uber",
-      "apple"
+      "apple",
+      "tiktok",
+      "bytedance"
     ],
     "created": 1699401600,
     "difficulty": "medium",
@@ -5234,7 +5262,9 @@
       "js",
       "ts"
     ],
-    "nextQuestions": [],
+    "nextQuestions": [
+      "memoize-ii"
+    ],
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -5658,7 +5688,10 @@
   {
     "access": "standard",
     "author": "dhillon",
-    "companies": [],
+    "companies": [
+      "openai",
+      "reddit"
+    ],
     "created": 1681430400,
     "difficulty": "easy",
     "duration": 20,
@@ -6394,7 +6427,8 @@
       "google",
       "lyft",
       "tiktok",
-      "microsoft"
+      "microsoft",
+      "qualcomm"
     ],
     "created": 1655337600,
     "difficulty": "medium",
@@ -6557,7 +6591,8 @@
     "published": true,
     "ranking": 100,
     "similarQuestions": [
-      "promise-resolve"
+      "promise-resolve",
+      "promise-timeout"
     ],
     "slug": "promise-reject",
     "subtitle": null,
@@ -6593,7 +6628,8 @@
     "published": true,
     "ranking": 100,
     "similarQuestions": [
-      "promise-reject"
+      "promise-reject",
+      "promise-timeout"
     ],
     "slug": "promise-resolve",
     "subtitle": null,
@@ -7019,7 +7055,8 @@
       "lyft",
       "toptal",
       "amazon",
-      "openai"
+      "openai",
+      "reddit"
     ],
     "created": 1658707200,
     "difficulty": "medium",
@@ -7199,7 +7236,9 @@
   {
     "access": "free",
     "author": "yangshun",
-    "companies": [],
+    "companies": [
+      "amazon"
+    ],
     "created": 1670025600,
     "difficulty": "easy",
     "duration": 10,
@@ -7397,7 +7436,9 @@
   {
     "access": "standard",
     "author": "hiten",
-    "companies": [],
+    "companies": [
+      "amazon"
+    ],
     "created": 1723161600,
     "difficulty": "medium",
     "duration": 40,
@@ -7999,7 +8040,8 @@
     "companies": [
       "grab",
       "toptal",
-      "amazon"
+      "amazon",
+      "atlassian"
     ],
     "created": 1656460800,
     "difficulty": "medium",
@@ -8054,7 +8096,9 @@
   {
     "access": "free",
     "author": null,
-    "companies": [],
+    "companies": [
+      "snap"
+    ],
     "created": 1673395200,
     "difficulty": "medium",
     "duration": 20,

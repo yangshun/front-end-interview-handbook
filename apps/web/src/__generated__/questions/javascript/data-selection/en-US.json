@@ -13,7 +13,8 @@
     "companies": [
       "soundcloud",
       "amazon",
-      "tiktok"
+      "tiktok",
+      "stripe"
     ],
     "created": 1655596800,
     "difficulty": "hard",

@@ -34,7 +34,8 @@
     "published": true,
     "ranking": 100,
     "similarQuestions": [
-      "promise-reject"
+      "promise-reject",
+      "promise-timeout"
     ],
     "slug": "promise-resolve",
     "subtitle": null,

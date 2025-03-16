@@ -11,7 +11,9 @@
     "access": "standard",
     "author": null,
     "companies": [
-      "snap"
+      "snap",
+      "amazon",
+      "google"
     ],
     "created": 1653177600,
     "difficulty": "medium",

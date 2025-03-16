@@ -12,7 +12,9 @@
   "metadata": {
     "access": "standard",
     "author": "hiten",
-    "companies": [],
+    "companies": [
+      "amazon"
+    ],
     "created": 1723161600,
     "difficulty": "medium",
     "duration": 40,

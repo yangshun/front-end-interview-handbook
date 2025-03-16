@@ -2,7 +2,9 @@
   "access": "free",
   "author": "yangshun",
   "companies": [
-    "palantir"
+    "palantir",
+    "amazon",
+    "stripe"
   ],
   "created": 1723766400,
   "difficulty": "medium",

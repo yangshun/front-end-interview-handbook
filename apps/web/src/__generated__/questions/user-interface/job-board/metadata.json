@@ -5,7 +5,8 @@
     "microsoft",
     "tiktok",
     "atlassian",
-    "openai"
+    "openai",
+    "stripe"
   ],
   "created": 1683849600,
   "difficulty": "medium",

@@ -10,7 +10,9 @@
   "metadata": {
     "access": "premium",
     "author": "yangshun",
-    "companies": [],
+    "companies": [
+      "qualcomm"
+    ],
     "created": 1670630400,
     "difficulty": "hard",
     "duration": 20,

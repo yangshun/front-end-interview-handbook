@@ -11,7 +11,8 @@
     "access": "standard",
     "author": null,
     "companies": [
-      "soundcloud"
+      "soundcloud",
+      "stripe"
     ],
     "created": 1690675200,
     "difficulty": "medium",

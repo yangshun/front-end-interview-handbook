@@ -3,7 +3,15 @@
   "author": "yangshun",
   "created": "2022-06-16T00:00:00.000Z",
   "languages": ["js", "ts"],
-  "companies": ["amazon", "bytedance", "google", "lyft", "tiktok", "microsoft"],
+  "companies": [
+    "amazon",
+    "bytedance",
+    "google",
+    "lyft",
+    "tiktok",
+    "microsoft",
+    "qualcomm"
+  ],
   "access": "free",
   "duration": 20,
   "published": true,

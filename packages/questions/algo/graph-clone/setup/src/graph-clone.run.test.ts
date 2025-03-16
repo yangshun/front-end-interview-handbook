@@ -12,7 +12,9 @@ class GraphNode {
 }
 
 function createGraphFromAdjList(adjList: number[][]): GraphNode | null {
-  if (adjList.length === 0) return null;
+  if (adjList.length === 0) {
+    return null;
+  }
 
   const nodes = new Map<number, GraphNode>();
 
@@ -34,7 +36,9 @@ function createGraphFromAdjList(adjList: number[][]): GraphNode | null {
 }
 
 function createAdjListFromGraph(head: GraphNode | null): number[][] {
-  if (head === null) return [];
+  if (head === null) {
+    return [];
+  }
 
   const adjListMap = new Map<number, number[]>();
   const visited = new Set<GraphNode>();
@@ -73,7 +77,7 @@ describe('graphClone', () => {
       const clonedGraph = fn(originalGraph);
 
       // Additional check to ensure that the original graph and cloned graph are not the same instance
-      expect(clonedGraph).not.toBe(originalGraph);
+      expect(Object.is(clonedGraph, originalGraph)).toBe(false);
 
       expect(createAdjListFromGraph(clonedGraph)).toStrictEqual(example.output);
     });

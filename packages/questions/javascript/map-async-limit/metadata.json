@@ -2,7 +2,7 @@
   "slug": "map-async-limit",
   "created": "2023-11-08T00:00:00.000Z",
   "languages": ["js", "ts"],
-  "companies": ["google", "lyft", "uber", "apple"],
+  "companies": ["google", "lyft", "uber", "apple", "tiktok", "bytedance"],
   "access": "standard",
   "duration": 25,
   "published": true,

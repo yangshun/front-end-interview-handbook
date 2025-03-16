@@ -2,7 +2,7 @@
   "slug": "json-stringify",
   "created": "2022-05-22T00:00:00.000Z",
   "languages": ["js", "ts"],
-  "companies": ["snap"],
+  "companies": ["snap", "amazon", "google"],
   "access": "standard",
   "duration": 20,
   "published": true,

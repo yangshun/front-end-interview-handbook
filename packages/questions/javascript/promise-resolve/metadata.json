@@ -8,7 +8,7 @@
   "published": true,
   "importance": "low",
   "difficulty": "medium",
-  "similar_questions": ["promise-reject"],
+  "similar_questions": ["promise-reject", "promise-timeout"],
   "next_questions": ["promise-with-resolvers"],
   "topics": ["async"]
 }

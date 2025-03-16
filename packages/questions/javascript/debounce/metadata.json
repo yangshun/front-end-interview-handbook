@@ -13,7 +13,8 @@
     "bytedance",
     "microsoft",
     "linkedin",
-    "uber"
+    "uber",
+    "qualcomm"
   ],
   "access": "free",
   "duration": 15,
@@ -22,6 +23,6 @@
   "difficulty": "medium",
   "featured": true,
   "similar_questions": ["throttle"],
-  "next_questions": ["throttle", "debounce-ii", "holy-grail"],
+  "next_questions": ["debounce-ii", "holy-grail"],
   "topics": ["async"]
 }

@@ -11,7 +11,9 @@
     "access": "premium",
     "author": "zhenghao",
     "companies": [
-      "snap"
+      "snap",
+      "amazon",
+      "google"
     ],
     "created": 1653177600,
     "difficulty": "hard",

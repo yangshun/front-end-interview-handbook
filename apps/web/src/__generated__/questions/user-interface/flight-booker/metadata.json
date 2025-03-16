@@ -2,7 +2,8 @@
   "access": "premium",
   "author": "yangshun",
   "companies": [
-    "openai"
+    "openai",
+    "reddit"
   ],
   "created": 1682121600,
   "difficulty": "easy",

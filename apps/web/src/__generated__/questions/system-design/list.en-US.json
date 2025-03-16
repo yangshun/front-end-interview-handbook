@@ -381,7 +381,9 @@
   {
     "access": "premium",
     "author": null,
-    "companies": [],
+    "companies": [
+      "notion"
+    ],
     "created": 1630800000,
     "difficulty": "hard",
     "duration": 30,

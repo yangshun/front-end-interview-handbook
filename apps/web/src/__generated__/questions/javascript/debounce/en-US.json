@@ -20,7 +20,8 @@
       "bytedance",
       "microsoft",
       "linkedin",
-      "uber"
+      "uber",
+      "qualcomm"
     ],
     "created": 1649894400,
     "difficulty": "medium",
@@ -37,7 +38,6 @@
       "ts"
     ],
     "nextQuestions": [
-      "throttle",
       "debounce-ii",
       "holy-grail"
     ],

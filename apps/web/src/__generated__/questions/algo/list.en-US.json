@@ -2141,7 +2141,9 @@
   {
     "access": "free",
     "author": "yangshun",
-    "companies": [],
+    "companies": [
+      "amazon"
+    ],
     "created": 1670025600,
     "difficulty": "easy",
     "duration": 10,
@@ -2232,7 +2234,9 @@
   {
     "access": "standard",
     "author": "hiten",
-    "companies": [],
+    "companies": [
+      "amazon"
+    ],
     "created": 1723161600,
     "difficulty": "medium",
     "duration": 40,
@@ -2468,7 +2472,9 @@
   {
     "access": "free",
     "author": null,
-    "companies": [],
+    "companies": [
+      "snap"
+    ],
     "created": 1673395200,
     "difficulty": "medium",
     "duration": 20,

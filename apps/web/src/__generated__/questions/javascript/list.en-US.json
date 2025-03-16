@@ -46,15 +46,11 @@
       "js",
       "ts"
     ],
-    "nextQuestions": [
-      "array-map",
-      "array-reduce",
-      "array-filter"
-    ],
+    "nextQuestions": [],
     "published": true,
     "ranking": 100,
     "similarQuestions": [
-      "array-square",
+      "array-filter",
       "array-map",
       "array-reduce"
     ],
@@ -390,9 +386,7 @@
       "js",
       "ts"
     ],
-    "nextQuestions": [
-      "in-range"
-    ],
+    "nextQuestions": [],
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -610,7 +604,8 @@
     "author": "yangshun",
     "companies": [
       "intuit",
-      "amazon"
+      "amazon",
+      "qualcomm"
     ],
     "created": 1655510400,
     "difficulty": "medium",
@@ -627,14 +622,13 @@
       "ts"
     ],
     "nextQuestions": [
+      "curry-ii",
       "flatten",
-      "promise-all",
-      "todo-list"
+      "promise-all"
     ],
     "published": true,
     "ranking": 100,
     "similarQuestions": [
-      "curry-ii",
       "function-bind"
     ],
     "slug": "curry",
@@ -645,7 +639,9 @@
   {
     "access": "premium",
     "author": "yangshun",
-    "companies": [],
+    "companies": [
+      "qualcomm"
+    ],
     "created": 1655510400,
     "difficulty": "medium",
     "duration": 20,
@@ -676,7 +672,9 @@
   {
     "access": "premium",
     "author": "yangshun",
-    "companies": [],
+    "companies": [
+      "qualcomm"
+    ],
     "created": 1670630400,
     "difficulty": "hard",
     "duration": 20,
@@ -736,7 +734,8 @@
     "access": "standard",
     "author": null,
     "companies": [
-      "soundcloud"
+      "soundcloud",
+      "stripe"
     ],
     "created": 1690675200,
     "difficulty": "medium",
@@ -770,7 +769,8 @@
     "companies": [
       "soundcloud",
       "amazon",
-      "tiktok"
+      "tiktok",
+      "stripe"
     ],
     "created": 1655596800,
     "difficulty": "hard",
@@ -810,7 +810,8 @@
       "bytedance",
       "microsoft",
       "linkedin",
-      "uber"
+      "uber",
+      "qualcomm"
     ],
     "created": 1649894400,
     "difficulty": "medium",
@@ -827,7 +828,6 @@
       "ts"
     ],
     "nextQuestions": [
-      "throttle",
       "debounce-ii",
       "holy-grail"
     ],
@@ -1240,15 +1240,13 @@
       "js",
       "ts"
     ],
-    "nextQuestions": [
-      "jquery-class-manipulation",
-      "backbone-model"
-    ],
+    "nextQuestions": [],
     "published": true,
     "ranking": 100,
     "similarQuestions": [
       "event-emitter",
-      "jquery-class-manipulation"
+      "jquery-class-manipulation",
+      "backbone-model"
     ],
     "slug": "event-emitter-ii",
     "subtitle": null,
@@ -1352,7 +1350,10 @@
       "meta",
       "rippling",
       "salesforce",
-      "google"
+      "google",
+      "roblox",
+      "bytedance",
+      "tiktok"
     ],
     "created": 1649894400,
     "difficulty": "medium",
@@ -1449,7 +1450,9 @@
     "companies": [
       "amazon",
       "rippling",
-      "atlassian"
+      "atlassian",
+      "tiktok",
+      "bytedance"
     ],
     "created": 1656201600,
     "difficulty": "easy",
@@ -2041,7 +2044,9 @@
     "access": "standard",
     "author": null,
     "companies": [
-      "snap"
+      "snap",
+      "amazon",
+      "google"
     ],
     "created": 1653177600,
     "difficulty": "medium",
@@ -2076,7 +2081,9 @@
     "access": "premium",
     "author": "zhenghao",
     "companies": [
-      "snap"
+      "snap",
+      "amazon",
+      "google"
     ],
     "created": 1653177600,
     "difficulty": "hard",
@@ -2241,7 +2248,9 @@
       "google",
       "lyft",
       "uber",
-      "apple"
+      "apple",
+      "tiktok",
+      "bytedance"
     ],
     "created": 1699401600,
     "difficulty": "medium",
@@ -2279,7 +2288,9 @@
       "google",
       "lyft",
       "uber",
-      "apple"
+      "apple",
+      "tiktok",
+      "bytedance"
     ],
     "created": 1699401600,
     "difficulty": "medium",
@@ -2390,7 +2401,9 @@
       "js",
       "ts"
     ],
-    "nextQuestions": [],
+    "nextQuestions": [
+      "memoize-ii"
+    ],
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -2563,7 +2576,8 @@
       "google",
       "lyft",
       "tiktok",
-      "microsoft"
+      "microsoft",
+      "qualcomm"
     ],
     "created": 1655337600,
     "difficulty": "medium",
@@ -2760,7 +2774,8 @@
     "published": true,
     "ranking": 100,
     "similarQuestions": [
-      "promise-resolve"
+      "promise-resolve",
+      "promise-timeout"
     ],
     "slug": "promise-reject",
     "subtitle": null,
@@ -2796,7 +2811,8 @@
     "published": true,
     "ranking": 100,
     "similarQuestions": [
-      "promise-reject"
+      "promise-reject",
+      "promise-timeout"
     ],
     "slug": "promise-resolve",
     "subtitle": null,

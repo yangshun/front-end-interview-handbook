@@ -30,7 +30,9 @@
       "js",
       "ts"
     ],
-    "nextQuestions": [],
+    "nextQuestions": [
+      "memoize-ii"
+    ],
     "published": true,
     "ranking": 100,
     "similarQuestions": [],

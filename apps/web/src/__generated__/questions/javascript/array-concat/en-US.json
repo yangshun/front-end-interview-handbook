@@ -27,15 +27,11 @@
       "js",
       "ts"
     ],
-    "nextQuestions": [
-      "array-map",
-      "array-reduce",
-      "array-filter"
-    ],
+    "nextQuestions": [],
     "published": true,
     "ranking": 100,
     "similarQuestions": [
-      "array-square",
+      "array-filter",
       "array-map",
       "array-reduce"
     ],

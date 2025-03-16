@@ -12,7 +12,8 @@
     "author": "yangshun",
     "companies": [
       "intuit",
-      "amazon"
+      "amazon",
+      "qualcomm"
     ],
     "created": 1655510400,
     "difficulty": "medium",
@@ -29,14 +30,13 @@
       "ts"
     ],
     "nextQuestions": [
+      "curry-ii",
       "flatten",
-      "promise-all",
-      "todo-list"
+      "promise-all"
     ],
     "published": true,
     "ranking": 100,
     "similarQuestions": [
-      "curry-ii",
       "function-bind"
     ],
     "slug": "curry",

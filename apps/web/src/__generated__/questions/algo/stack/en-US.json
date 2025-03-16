@@ -10,7 +10,9 @@
   "metadata": {
     "access": "free",
     "author": "yangshun",
-    "companies": [],
+    "companies": [
+      "amazon"
+    ],
     "created": 1670025600,
     "difficulty": "easy",
     "duration": 10,

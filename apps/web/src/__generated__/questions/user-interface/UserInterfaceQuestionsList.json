@@ -307,7 +307,8 @@
     "companies": [
       "lyft",
       "amazon",
-      "openai"
+      "openai",
+      "reddit"
     ],
     "created": 1658880000,
     "difficulty": "easy",
@@ -420,7 +421,9 @@
     "access": "free",
     "author": "yangshun",
     "companies": [
-      "palantir"
+      "palantir",
+      "amazon",
+      "stripe"
     ],
     "created": 1723766400,
     "difficulty": "medium",
@@ -456,7 +459,9 @@
     "access": "premium",
     "author": "yangshun",
     "companies": [
-      "palantir"
+      "palantir",
+      "amazon",
+      "stripe"
     ],
     "created": 1723766400,
     "difficulty": "medium",
@@ -490,7 +495,9 @@
     "access": "premium",
     "author": "yangshun",
     "companies": [
-      "palantir"
+      "palantir",
+      "amazon",
+      "stripe"
     ],
     "created": 1723766400,
     "difficulty": "hard",
@@ -524,7 +531,9 @@
     "access": "premium",
     "author": "yangshun",
     "companies": [
-      "palantir"
+      "palantir",
+      "amazon",
+      "stripe"
     ],
     "created": 1723766400,
     "difficulty": "hard",
@@ -781,7 +790,8 @@
     "access": "premium",
     "author": "yangshun",
     "companies": [
-      "openai"
+      "openai",
+      "reddit"
     ],
     "created": 1682121600,
     "difficulty": "easy",
@@ -991,7 +1001,9 @@
       "dropbox",
       "microsoft",
       "snap",
-      "squarespace"
+      "squarespace",
+      "bytedance",
+      "tiktok"
     ],
     "created": 1723766400,
     "difficulty": "medium",
@@ -1037,7 +1049,9 @@
       "dropbox",
       "microsoft",
       "snap",
-      "squarespace"
+      "squarespace",
+      "bytedance",
+      "tiktok"
     ],
     "created": 1723766400,
     "difficulty": "medium",
@@ -1077,12 +1091,14 @@
     "author": "yangshun",
     "companies": [
       "amazon",
+      "bytedance",
       "google",
       "doordash",
       "dropbox",
       "microsoft",
       "snap",
-      "squarespace"
+      "squarespace",
+      "tiktok"
     ],
     "created": 1723766400,
     "difficulty": "hard",
@@ -1120,7 +1136,8 @@
       "microsoft",
       "tiktok",
       "atlassian",
-      "openai"
+      "openai",
+      "stripe"
     ],
     "created": 1683849600,
     "difficulty": "medium",
@@ -1424,7 +1441,10 @@
   {
     "access": "standard",
     "author": "dhillon",
-    "companies": [],
+    "companies": [
+      "openai",
+      "reddit"
+    ],
     "created": 1681430400,
     "difficulty": "easy",
     "duration": 20,
@@ -1794,7 +1814,8 @@
       "lyft",
       "toptal",
       "amazon",
-      "openai"
+      "openai",
+      "reddit"
     ],
     "created": 1658707200,
     "difficulty": "medium",
@@ -2250,7 +2271,8 @@
     "companies": [
       "grab",
       "toptal",
-      "amazon"
+      "amazon",
+      "atlassian"
     ],
     "created": 1656460800,
     "difficulty": "medium",
