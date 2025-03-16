@@ -1,0 +1,8 @@
+{
+  "run": "/src/use-media-query.run.test.ts",
+  "submit": "/src/use-media-query.submit.test.ts",
+  "skeleton": {
+    "js": "/src/use-media-query.skeleton.js",
+    "ts": "/src/use-media-query.skeleton.ts"
+  }
+}

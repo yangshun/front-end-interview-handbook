@@ -1,0 +1,11 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import useCountdown from '../setup/src/use-countdown';
+
+## Solution
+
+The `useCountdown` hook can be implemented using `useState` to store the current value of the countdown and `useEffect` to manage the countdown timer with `setInterval`.
+
+We just need to make sure we clear the interval with `clearInterval` when the component is unmounted, i.e., on the effect's clean-up.
+
+<MDXCodeBlock>{useCountdown}</MDXCodeBlock>

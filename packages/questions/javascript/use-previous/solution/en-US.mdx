@@ -1,0 +1,35 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import usePrevious from '../setup/src/use-previous';
+
+## Solution
+
+The `usePrevious` hook can be implemented using two `useState` states, one for the current state and another for the previous state. We then simply update the previous state whenever the current state changes.
+
+<MDXCodeBlock>{usePrevious}</MDXCodeBlock>
+
+Notice how we set the states _during_ render and not in another `useEffect`? This is so that we won't need to waste one render cycle to update the previous state.
+
+## Another implementation with `useRef`
+
+You might have seen another implementation of `usePrevious` using `useRef`. It looks something like this.
+
+```tsx
+import { useEffect, useRef } from 'react';
+
+export default function usePrevious<T>(state: T): T | undefined {
+  const ref = useRef<T>();
+
+  useEffect(() => {
+    ref.current = state;
+  });
+
+  return ref.current;
+}
+```
+
+This should work for the most part, and understanding why this works is left as a good exercise for the reader. Essentially, `ref.current` is lagging behind one render cycle, which is why this works. However, if the calling component re-rendered _not because of the related `useState` state_, then the return value of this `usePrevious` will catch up to the current state, giving the wrong _previous_ state. This behaviour is the same if you instead call some `useState`'s setter function in the clean-up function of some `useEffect`.
+
+The point is: anything that uses `useEffect` is wrong, naturally because `useEffect` is **never meant to be used this way to begin with**.
+
+Of course, there is also the argument that this implementation of `usePrevious` is actually correct because it returns the previous state, as in the value _at the last render cycle_. This is valid, but most definitely is not the behaviour that most people expect. Similar to how `useState` only changes the state (and invokes a re-render) if the new state is actually different, `usePrevious` should return the value that represents the _previous state of the state that it is tracking_. In other words, it should never catch up to it.

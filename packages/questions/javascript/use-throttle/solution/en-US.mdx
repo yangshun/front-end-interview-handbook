@@ -1,0 +1,9 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import useThrottle from '../setup/src/use-throttle';
+
+## Solution
+
+The `useThrottle` hook can be implemented by using `useRef` to store the last updated time, and `useEffect` to control when to update the state immediately or throttle it with `setTimeout`.
+
+<MDXCodeBlock>{useThrottle}</MDXCodeBlock>

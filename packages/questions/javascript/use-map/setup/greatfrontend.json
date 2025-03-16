@@ -1,0 +1,8 @@
+{
+  "run": "/src/use-map.run.test.ts",
+  "submit": "/src/use-map.submit.test.ts",
+  "skeleton": {
+    "js": "/src/use-map.skeleton.js",
+    "ts": "/src/use-map.skeleton.ts"
+  }
+}

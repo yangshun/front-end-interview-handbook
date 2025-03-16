@@ -1,0 +1,8 @@
+{
+  "run": "/src/use-hover.run.test.tsx",
+  "submit": "/src/use-hover.submit.test.tsx",
+  "skeleton": {
+    "js": "/src/use-hover.skeleton.js",
+    "ts": "/src/use-hover.skeleton.ts"
+  }
+}

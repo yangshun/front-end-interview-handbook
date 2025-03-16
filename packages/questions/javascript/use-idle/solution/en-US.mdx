@@ -1,0 +1,13 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import useIdle from '../setup/src/use-idle';
+
+## Solution
+
+The `useIdle` hook can be implemented using `useState` to store the idle state, and `useEffect` to set up the event listeners and the idle timeout. To detect if the user is currently on our tab, we can use either `document.hidden` or `document.visibilityState` when the `visibilitychange` event is triggered on the `document`.
+
+<MDXCodeBlock>{useIdle}</MDXCodeBlock>
+
+## Challenge
+
+In the solution above (and probably yours, too), we are watching the `mousemove` event. This means that every time the user moves the mouse, `handleEvent` will be called to reset the `idle` state! This behaviour also happens for frequently dispatched events like `resize` or `wheel`. Can you think of a way to optimize for this?

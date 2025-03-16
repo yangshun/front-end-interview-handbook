@@ -1,0 +1,24 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import useSet from '../setup/src/use-set';
+
+## Solution
+
+The `useSet` hook can be implemented by storing a `Set` in a `useState` state and defining the utility methods to manipulate the `Set` in terms of the state's setter function with JavaScript's built-in `Set` methods.
+
+Remember to wrap the utility methods in `useCallback` to prevent unnecessary re-renders of the calling component.
+
+<MDXCodeBlock>{useSet}</MDXCodeBlock>
+
+## Edge Cases
+
+Since `Set`s are mutable, when defining the utility methods, ensure that whatever mutations that happened will cause the calling component to re-render. This ensures that the component is always in sync with the current state of the `Set`.
+
+There are many ways to achieve this, including,
+
+- creating a new `Set` instance with the modified values,
+- doing a shallow copy of the `Set` before modifying it,
+- manually triggering a re-render after modifying the `Set` with some "throwaway" `useState` state, or
+- using a library like [Immer](https://immerjs.github.io/immer/) to mutate the set immutably for you.
+
+**Note**: We don't really need to deep copy the `Set` and care about the (im)mutability of the values in the `Set` since we are only concerned about the correctness of the component currently mounted in the DOM in terms of the `Set`.

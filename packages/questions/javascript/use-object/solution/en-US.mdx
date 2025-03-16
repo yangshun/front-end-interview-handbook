@@ -1,0 +1,25 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import useObject from '../setup/src/use-object';
+
+## Solution
+
+The `useObject` hook can be implemented using the `useState` hook and implementing the updater function to merge the current state object with the new incoming object. To merge objects, you can use the [spread (`...`) syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax).
+
+**Note**: [`Object.assign`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign) can also merge objects, but it is not recommended because it mutates the target object.
+
+<MDXCodeBlock>{useObject}</MDXCodeBlock>
+
+## Edge Cases
+
+Simply checking if an object is an `Object` by using [`typeof`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof) is not enough to ensure that the variable is a POJO. For example, the `typeof` operator returns `'object'` for arrays, `null`, and other objects like `Date`, `RegExp`, and `Error`.
+
+There are many ways to check if an object is a POJO. One example is defined in this solution.
+
+```ts
+function isPlainObject(value: unknown) {
+  return Object.prototype.toString.call(value) === '[object Object]';
+}
+```
+
+Another one is to reinstantiate the object in question with the [`Object()` constructor](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/Object). This method's definition is left as an exercise for the reader. Can you think of other reliable ways to check if an object is a POJO?

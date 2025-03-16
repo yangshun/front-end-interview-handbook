@@ -1,0 +1,15 @@
+{
+  "slug": "use-boolean",
+  "created": "2025-03-17T00:00:00.000Z",
+  "languages": ["js", "ts"],
+  "author": "phillmont",
+  "companies": [],
+  "access": "standard",
+  "duration": 10,
+  "published": true,
+  "importance": "medium",
+  "difficulty": "easy",
+  "featured": true,
+  "similar_questions": ["use-counter"],
+  "next_questions": ["use-boolean-ii", "use-cycle", "use-toggle"]
+}

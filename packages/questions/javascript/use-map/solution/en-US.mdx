@@ -1,0 +1,20 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import useMap from '../setup/src/use-map';
+
+## Solution
+
+The `useMap` hook can be implemented by storing a `Map` in a `useState` state and defining the utility methods to manipulate the `Map` in terms of the state's setter function with JavaScript's built-in `Map` methods.
+
+Remember to wrap the utility methods in `useCallback` to prevent unnecessary re-renders of the calling component.
+
+<MDXCodeBlock>{useMap}</MDXCodeBlock>
+
+## Edge Cases
+
+Since `Map`s are mutable, when defining the utility methods, ensure that whatever mutations that happened will cause the calling component to re-render. This ensures that the component is always in sync with the current state of the `Map`.
+
+There are many ways to achieve this, including:
+
+- Doing a shallow copy of the `Map` before modifying it
+- Using a library like [Immer](https://immerjs.github.io/immer/) to mutate the map immutably for you

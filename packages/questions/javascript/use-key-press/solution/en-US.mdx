@@ -1,0 +1,9 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import useKeyPress from '../setup/src/use-key-press';
+
+## Solution
+
+The `useKeyPress` hook can be implemented with `useEffect` to attach a `keydown` or `keyup` event listener to the `target` element. The effect will call `callback` if the `KeyboardEvent`'s `event.key` matches the provided `key`.
+
+<MDXCodeBlock>{useKeyPress}</MDXCodeBlock>

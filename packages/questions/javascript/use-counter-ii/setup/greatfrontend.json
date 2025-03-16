@@ -1,0 +1,8 @@
+{
+  "run": "/src/use-counter-ii.run.test.ts",
+  "submit": "/src/use-counter-ii.submit.test.ts",
+  "skeleton": {
+    "js": "/src/use-counter-ii.skeleton.js",
+    "ts": "/src/use-counter-ii.skeleton.ts"
+  }
+}

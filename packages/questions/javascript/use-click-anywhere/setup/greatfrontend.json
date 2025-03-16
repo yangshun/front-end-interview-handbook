@@ -1,0 +1,8 @@
+{
+  "run": "/src/use-click-anywhere.run.test.ts",
+  "submit": "/src/use-click-anywhere.submit.test.ts",
+  "skeleton": {
+    "js": "/src/use-click-anywhere.skeleton.js",
+    "ts": "/src/use-click-anywhere.skeleton.ts"
+  }
+}

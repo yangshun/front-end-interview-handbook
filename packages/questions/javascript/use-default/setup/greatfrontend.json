@@ -1,0 +1,8 @@
+{
+  "run": "/src/use-default.run.test.ts",
+  "submit": "/src/use-default.submit.test.ts",
+  "skeleton": {
+    "js": "/src/use-default.skeleton.js",
+    "ts": "/src/use-default.skeleton.ts"
+  }
+}

@@ -1,0 +1,30 @@
+---
+title: useWindowSize
+excerpt: Implement a hook that returns the current height and width of the window
+---
+
+Implement a `useWindowSize` hook that returns the current height and width of the window (`window.innerHeight` and `window.innerWidth`). It should re-render the component if the screen properties changes.
+
+```jsx
+export default function Component() {
+  const screen = useWindowSize();
+
+  return (
+    <div>
+      <p>The current window dimensions are:</p>
+      <code>{JSON.stringify(screen, null, 2)}</code>
+    </div>
+  );
+}
+```
+
+## Arguments
+
+Nothing.
+
+## Returns
+
+The hook returns an object with the following properties:
+
+- `height: number`: Current height of the screen
+- `width: number`: Current width of the screen

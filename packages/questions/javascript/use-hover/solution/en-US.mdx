@@ -1,0 +1,9 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import useHover from '../setup/src/use-hover';
+
+## Solution
+
+The `useHover` hook can be implemented by using `useState` to track the hover state, `useRef` to create the ref object, and defining the ref callback that attaches the `mouseenter` and `mouseleave` event listeners to the element referenced by the ref.
+
+<MDXCodeBlock>{useHover}</MDXCodeBlock>

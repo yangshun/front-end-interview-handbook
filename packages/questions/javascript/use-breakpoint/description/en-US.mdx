@@ -1,0 +1,34 @@
+---
+title: useBreakpoint
+excerpt: Implement a hook that returns the current breakpoint name based on the current window width
+---
+
+Implement a `createBreakpoint` function takes an object (where the keys are breakpoint names and values are the minimum width), and returns a `useBreakpoint` hook that returns the current breakpoint name based on the current window width.
+
+```jsx
+const useBreakpoint = createBreakpoint({
+  mobile: 0,
+  tablet: 768,
+  desktop: 1024,
+});
+
+export default function Component() {
+  const breakpoint = useBreakpoint();
+
+  return (
+    <div>
+      {breakpoint === 'mobile' && <p>Mobile</p>}
+      {breakpoint === 'tablet' && <p>Tablet</p>}
+      {breakpoint === 'desktop' && <p>Desktop</p>}
+    </div>
+  );
+}
+```
+
+## Arguments
+
+The `createBreakpoint` function takes a key-value pair object where the key is the breakpoint name (`string`) and the value is the minimum width (`number`) in pixels of the breakpoint.
+
+## Returns
+
+The `createBreakpoint` function returns a function that is the actual `useBreakpoint` hook. This hook takes no arguments and returns the current breakpoint name (`string`) that is the closest minimum width to the current window width. Resizing the window will cause the hook to re-run and potentially return a different value depending on the window size.

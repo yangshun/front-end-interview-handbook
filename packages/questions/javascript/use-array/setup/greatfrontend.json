@@ -1,0 +1,8 @@
+{
+  "run": "/src/use-array.run.test.ts",
+  "submit": "/src/use-array.submit.test.ts",
+  "skeleton": {
+    "js": "/src/use-array.skeleton.js",
+    "ts": "/src/use-array.skeleton.ts"
+  }
+}

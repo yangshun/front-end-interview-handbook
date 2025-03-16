@@ -1,0 +1,8 @@
+{
+  "run": "/src/use-throttle.run.test.ts",
+  "submit": "/src/use-throttle.submit.test.ts",
+  "skeleton": {
+    "js": "/src/use-throttle.skeleton.js",
+    "ts": "/src/use-throttle.skeleton.ts"
+  }
+}

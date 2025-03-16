@@ -1,0 +1,8 @@
+{
+  "run": "/src/use-input-control.run.test.tsx",
+  "submit": "/src/use-input-control.submit.test.tsx",
+  "skeleton": {
+    "js": "/src/use-input-control.skeleton.js",
+    "ts": "/src/use-input-control.skeleton.ts"
+  }
+}

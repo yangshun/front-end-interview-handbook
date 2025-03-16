@@ -1,0 +1,8 @@
+{
+  "run": "/src/use-focus.run.test.tsx",
+  "submit": "/src/use-focus.submit.test.tsx",
+  "skeleton": {
+    "js": "/src/use-focus.skeleton.js",
+    "ts": "/src/use-focus.skeleton.ts"
+  }
+}

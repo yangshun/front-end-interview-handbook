@@ -1,0 +1,8 @@
+{
+  "run": "/src/use-interval.run.test.ts",
+  "submit": "/src/use-interval.submit.test.ts",
+  "skeleton": {
+    "js": "/src/use-interval.skeleton.js",
+    "ts": "/src/use-interval.skeleton.ts"
+  }
+}

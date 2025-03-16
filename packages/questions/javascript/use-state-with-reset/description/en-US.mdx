@@ -1,0 +1,28 @@
+---
+title: useStateWithReset
+excerpt: Implement a hook that's similar to useState but with an additional reset function that resets the state to its initial value
+---
+
+Implement a `useStateWithReset` hook that's similar to `useState` but with an additional `reset` function that resets the state to its initial value.
+
+```jsx
+export default function Component() {
+  const [value, setValue, resetValue] = useStateWithReset(10);
+
+  return (
+    <div>
+      <div>Value: {value}</div>
+      <input onChange={(e) => setValue(e.target.value)} />
+      <button onClick={resetValue}>reset</button>
+    </div>
+  );
+}
+```
+
+## Arguments
+
+- `initialValue`: the initial value of the state. This argument should be the same as the first argument of the `useState` hook
+
+## Returns
+
+The `useStateWithReset` hook should have the same return values as the `useState` hook, plus an additional function that resets the state to `initialValue`

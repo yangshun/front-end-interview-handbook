@@ -1,0 +1,14 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import useStateWithResetJs from '../setup/src/use-state-with-reset.js';
+import useStateWithResetTs from '../setup/src/use-state-with-reset.ts';
+
+## Solution
+
+The `useStateWithReset` hook can be implemented using the `useState` hook. We then additionally define a `reset` function that resets the state to its initial value.
+
+The challenge is when we realize that `useState` can also accept an [initializer function](https://react.dev/reference/react/useState#parameters) to compute its initial value. If the user provides an initializer function, the `reset` function should reset the state to the value returned by this initializer _only when it was called_ during state initialization.
+
+<MDXCodeBlock
+  languages={{ jsx: useStateWithResetJs, tsx: useStateWithResetTs }}
+/>

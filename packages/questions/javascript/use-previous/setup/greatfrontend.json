@@ -1,0 +1,8 @@
+{
+  "run": "/src/use-previous.run.test.ts",
+  "submit": "/src/use-previous.submit.test.ts",
+  "skeleton": {
+    "js": "/src/use-previous.skeleton.js",
+    "ts": "/src/use-previous.skeleton.ts"
+  }
+}

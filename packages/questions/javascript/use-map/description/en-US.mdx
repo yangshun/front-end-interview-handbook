@@ -1,0 +1,56 @@
+---
+title: useMap
+excerpt: Implement a hook that manages a JavaScript map
+---
+
+Implement a `useMap` hook that manages a JavaScript [`Map`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) of items with additional convenient utility methods.
+
+It is more convenient to use `useMap` over plain `useState` because in the latter case, you would always have to create a new `Map`, mutate it, then set state to use the new map, which can be quite cumbersome.
+
+The hook should work generically with key and values of any types.
+
+```jsx
+export default function Component() {
+  const { map, set, setAll, reset, remove } = useMap([['key', '🆕']]);
+
+  return (
+    <div>
+      <button onClick={() => set(String(Date.now()), '📦')}>Add</button>
+      <button
+        onClick={() =>
+          setAll([
+            ['hello', '👋'],
+            ['data', '📦'],
+          ])
+        }>
+        Set new data
+      </button>
+      <button onClick={reset}>Reset</button>
+      <button onClick={remove('hello')} disabled={!map.get('hello')}>
+        Remove "hello"
+      </button>
+      <pre>
+        Map (
+        {Array.from(map.entries()).map(([key, value]) => (
+          <Fragment key={key}>{`\n  ${key}: ${value}`}</Fragment>
+        ))}
+        <br />)
+      </pre>
+    </div>
+  );
+}
+```
+
+## Arguments
+
+- `defaultValue`: The initial map of items. This can be either a `Map` instance or an array of key-value pairs
+
+## Returns
+
+The hook returns an object with the following properties:
+
+- `map`: The current map of items
+- `set: (key, value) => void`: A function that sets a `key` to `value` in the map
+- `setAll: (entries) => void`: A function that sets the multiple key-value pairs `entries` in the map
+- `remove: (key) => void`: A function that removes a key-value pair from the map by `key`
+- `reset: () => void`: A function that resets the map to an empty map

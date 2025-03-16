@@ -1,0 +1,33 @@
+---
+title: useEventListener
+excerpt: Implement a hook that subscribes to browser events
+---
+
+Implement a `useEventListener` hook that subscribes to browser events by attaching event listeners to DOM elements, the window, or media query lists.
+
+```jsx
+export default function Component() {
+  const buttonRef = useRef(null);
+
+  useEventListener('click', () => console.log('Button clicked'), buttonRef, {
+    once: true,
+  });
+
+  return (
+    <div>
+      <button ref={buttonRef}>Click me</button>
+    </div>
+  );
+}
+```
+
+## Arguments
+
+1. `type (string)`: The event type to listen for
+2. `handler (event) => void`: The event handler function
+3. `target (RefObject<T>)`: The ref object of the element to attach the event listener to. If not provided, it defaults to `window`
+4. `options (AddEventListenerOptions)`: The [`AddEventListenerOptions` options object](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#options) that specifies characteristics about the event listener. This is an optional argument
+
+## Returns
+
+Nothing.

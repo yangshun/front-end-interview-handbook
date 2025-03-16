@@ -1,0 +1,22 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import useCounterJs from '../setup/src/use-counter.js';
+import useCounterTs from '../setup/src/use-counter.ts';
+
+## Solution
+
+The `useCounter` hook uses `useState` to manage the `number` state. The setter functions can be implemented in terms of `setValue` from the `useState` hook.
+
+<MDXCodeBlock languages={{ jsx: useCounterJs, tsx: useCounterTs }} />
+
+To ensure consistency, the `increment` and `decrement` functions use an [updater function](https://react.dev/reference/react/useState#updating-state-based-on-the-previous-state) to calculate the new value based on the previous value.
+
+If you're using TypeScript, the tricky part is figuring out the right type for `setCount` since it can also accept an updater function. Simply hover the setter function from `useState` in your favourite IDE and you'll see the type signature in the form of `Dispatch<SetStateAction<...>>` where the type of the state is `...`. `Dispatch` and `SetStateAction` can be imported from `react`.
+
+If you prefer to be verbose, it essentially boils down to this.
+
+```ts
+type SetCount = (
+  valueOrUpdater: number | ((previousValue: number) => number),
+) => void;
+```

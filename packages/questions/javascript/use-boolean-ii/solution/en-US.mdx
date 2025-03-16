@@ -1,0 +1,25 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import useBoolean from '../setup/src/use-boolean-ii';
+
+## Solution
+
+The typical `useBoolean` hook uses `useState` to manage the boolean state. The setter functions can be implemented in terms of `setValue` from the `useState` hook, bound by `true` and `false`.
+
+```js
+import { useState } from 'react';
+
+export default function useBoolean(initialValue = false) {
+  const [value, setValue] = useState(initialValue);
+
+  return {
+    value,
+    setTrue: () => setValue(true),
+    setFalse: () => setValue(false),
+  };
+}
+```
+
+However, writing the hook this way means that components that rely on `setTrue` or `setFalse` will always be re-rendered since these functions are always freshly created on each render. To avoid this, we can use `useCallback` to memoize them.
+
+<MDXCodeBlock>{useBoolean}</MDXCodeBlock>

@@ -1,0 +1,8 @@
+{
+  "run": "/src/use-countdown.run.test.ts",
+  "submit": "/src/use-countdown.submit.test.ts",
+  "skeleton": {
+    "js": "/src/use-countdown.skeleton.js",
+    "ts": "/src/use-countdown.skeleton.ts"
+  }
+}

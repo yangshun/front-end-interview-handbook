@@ -1,0 +1,9 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import useDebounce from '../setup/src/use-debounce';
+
+## Solution
+
+The `useDebounce` hook can be implemented with `useState` to store the current debounced value and `useEffect` to update the debounced value after the specified `delay` with `setTimeout`. If `value` changes, it must mean that there's a state update, so we clear the timeout with `clearTimeout` on unmount and set a new timeout to update the current debounced value.
+
+<MDXCodeBlock>{useDebounce}</MDXCodeBlock>

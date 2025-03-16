@@ -1,0 +1,11 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import useClickOutside from '../setup/src/use-click-outside';
+
+## Solution
+
+The `useClickOutside` hook can be implemented with `useEffect` to attach and detach our outside click event listener to the document with `addEventListener` and `removeEventListener`, respectively.
+
+To detect if a click is outside of the target element, we can use the [`contains` method](https://developer.mozilla.org/en-US/docs/Web/API/Node/contains) on the `ref` element to check if `event.target` is a descendant of the target element.
+
+<MDXCodeBlock>{useClickOutside}</MDXCodeBlock>

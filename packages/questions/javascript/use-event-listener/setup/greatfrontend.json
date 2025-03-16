@@ -1,0 +1,8 @@
+{
+  "run": "/src/use-event-listener.run.test.ts",
+  "submit": "/src/use-event-listener.submit.test.tsx",
+  "skeleton": {
+    "js": "/src/use-event-listener.skeleton.js",
+    "ts": "/src/use-event-listener.skeleton.ts"
+  }
+}

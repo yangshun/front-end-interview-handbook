@@ -1,0 +1,11 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import useStep from '../setup/src/use-step';
+
+## Solution
+
+The `useStep` hook can be implemented by storing the step number in a `useState` state and defining the utility methods to manipulate the step number in terms of the state's setter function. We bound the step updates between `1` and `maxStep` to ensure the step number does not go out of bounds.
+
+Remember to wrap the utility methods in `useCallback` to prevent unnecessary re-renders of the calling component.
+
+<MDXCodeBlock>{useStep}</MDXCodeBlock>

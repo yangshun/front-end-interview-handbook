@@ -1,0 +1,44 @@
+---
+title: useSet
+excerpt: Implement a hook that manages a JavaScript set
+---
+
+Implement a `useSet` hook that manages a JavaScript [`Set`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set) of items with additional utility methods.
+
+It is more convenient to use `useSet` over plain `useState` because in the latter case, you would always have to create a new `Set`, mutate it, then set state to use the new set, which can be quite cumbersome.
+
+The hook should work generically with items of any types.
+
+```jsx
+export default function Component() {
+  const { set, add, remove, toggle, reset, clear } = useSet(new Set(['hello']));
+
+  return (
+    <div>
+      <button onClick={() => add(Date.now().toString())}>Add</button>
+      <button onClick={() => remove('hello')} disabled={!has('hello')}>
+        Remove 'hello'
+      </button>
+      <button onClick={() => toggle('hello')}>Toggle hello</button>
+      <button onClick={() => reset()}>Reset</button>
+      <button onClick={() => clear()}>Clear</button>
+      <pre>{JSON.stringify(Array.from(set), null, 2)}</pre>
+    </div>
+  );
+}
+```
+
+## Arguments
+
+- `initialState`: The initial `Set` of items
+
+## Returns
+
+The hook returns an object with the following properties:
+
+- `set`: The current set of items
+- `add: (item) => void`: A function that adds `item` to the set
+- `remove: (item) => void`: A function that removes `item` from the set
+- `toggle: (item) => void`: A function that toggles the presence of `item` in the set
+- `reset: () => void`: A function that resets the set to `initialState`
+- `clear: () => void`: A function that removes all items in the set

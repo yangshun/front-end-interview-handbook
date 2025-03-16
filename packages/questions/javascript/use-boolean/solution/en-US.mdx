@@ -1,0 +1,10 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import useBooleanJs from '../setup/src/use-boolean.js';
+import useBooleanTs from '../setup/src/use-boolean.ts';
+
+## Solution
+
+The `useBoolean` hook uses `useState` to manage the boolean state. The setter functions can be implemented in terms of `setValue` from the `useState` hook, bound by `true` and `false`.
+
+<MDXCodeBlock languages={{ jsx: useBooleanJs, tsx: useBooleanTs }} />

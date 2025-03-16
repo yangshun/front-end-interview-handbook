@@ -1,0 +1,11 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import useMediatedState from '../setup/src/use-mediated-state';
+
+## Solution
+
+The `useMediatedState` hook can be implemented with `useState` and a setter function that calls the `mediator` function before updating the state. To determine the number of arguments a `mediator` function receives, we can use `mediator.length`.
+
+To memoize the `mediator`, we can either use `useRef`, `useMemo`, or `useCallback` since we know for a fact that `mediator` is a function. The simplest way is to use `useRef` since there's no need to run any memoization function on the first render.
+
+<MDXCodeBlock>{useMediatedState}</MDXCodeBlock>

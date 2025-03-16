@@ -1,0 +1,9 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import useInterval from '../setup/src/use-interval';
+
+## Solution
+
+The `useInterval` hook can be implemented with `useEffect` to create an interval with `setInterval` every given `delay` milliseconds. The interval is cleared when the component is unmounted or when the `delay` is `null`.
+
+<MDXCodeBlock>{useInterval}</MDXCodeBlock>

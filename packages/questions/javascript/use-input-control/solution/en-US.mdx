@@ -1,0 +1,42 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import useInputControl from '../setup/src/use-input-control';
+
+## Solution
+
+To recap what fields are returned:
+
+- `value`: The current input value
+- `touched`: Whether the input has been focused then blurred
+- `dirty`: Whether the value has been changed before
+- `different`: Whether the value is different from the original
+
+Let's go through each field and how to implement them:
+
+### `value`
+
+`value` is a boolean value tracked using React state. An `handleChange` handler us used to to update the value state from the input's [`change` event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/change_event).
+
+### `touched`
+
+`touched` is a boolean value tracked using React state. It will be set to `true` when the input is blurred. As the hook does not know when the `<input>` element is blurred, we return a `handleBlur` function that sets the value to `true` and the user will call the `handleBlur` function in an `onBlur` event handler.
+
+### `dirty`
+
+`touched` is a boolean value tracked using React state. Since it is set to `true` when it has been changed before, `handleChange` is a good place to do that.
+
+### `different`
+
+This field does not require a state as it is derived state that can be computed by comparing the initial value and the current `value`. However, the comparison should not be done against the `initialValue` argument as the value might be different during re-renders!
+
+Instead, we track the first render's `initialValue` using `useRef`. Why not state? Because `initialValueRef` does not ever change after the hook is mounted.
+
+```js
+const different = initialValueRef.current !== value;
+```
+
+### `reset` function
+
+This function resets all the states within the hook. Simply call the various state setters with their initial values. The initial value to set to can be obtained from `initialValueRef`.
+
+<MDXCodeBlock>{useInputControl}</MDXCodeBlock>

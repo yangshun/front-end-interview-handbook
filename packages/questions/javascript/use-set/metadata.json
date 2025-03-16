@@ -1,0 +1,14 @@
+{
+  "slug": "use-set",
+  "created": "2025-03-17T00:00:00.000Z",
+  "languages": ["js", "ts"],
+  "author": "phillmont",
+  "companies": [],
+  "access": "standard",
+  "duration": 15,
+  "published": true,
+  "importance": "low",
+  "difficulty": "medium",
+  "similar_questions": ["use-array", "use-map", "use-object"],
+  "next_questions": []
+}

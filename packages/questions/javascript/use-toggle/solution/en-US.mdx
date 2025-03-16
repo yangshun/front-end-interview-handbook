@@ -1,0 +1,11 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import useToggle from '../setup/src/use-toggle';
+
+## Solution
+
+The `useToggle` hook can be implemented using the `useState` hook, but additionally returns a `toggle` function that sets the state with an updater function that negates the current state.
+
+<MDXCodeBlock>{useToggle}</MDXCodeBlock>
+
+We return a triplet, similar to the `useState` hook, so that the consumer can easily rename the variables when they destructure it.

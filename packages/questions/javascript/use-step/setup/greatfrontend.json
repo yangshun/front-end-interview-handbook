@@ -1,0 +1,8 @@
+{
+  "run": "/src/use-step.run.test.ts",
+  "submit": "/src/use-step.submit.test.ts",
+  "skeleton": {
+    "js": "/src/use-step.skeleton.js",
+    "ts": "/src/use-step.skeleton.ts"
+  }
+}

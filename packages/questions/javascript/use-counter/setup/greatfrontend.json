@@ -1,0 +1,12 @@
+{
+  "run": "/src/use-counter.run.test.ts",
+  "submit": "/src/use-counter.submit.test.ts",
+  "skeleton": {
+    "js": "/src/use-counter.skeleton.js",
+    "ts": "/src/use-counter.skeleton.ts"
+  },
+  "solution": {
+    "js": "/src/use-counter.js",
+    "ts": "/src/use-counter.ts"
+  }
+}

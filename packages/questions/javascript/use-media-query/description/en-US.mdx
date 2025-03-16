@@ -1,0 +1,24 @@
+---
+title: useMediaQuery
+excerpt: Implement a hook that subscribes and responds to media query changes (e.g. screen size, resolution, orientation, etc.)
+---
+
+Implement a `useMediaQuery` hook that subscribes and responds to media query changes (e.g. screen size, resolution, orientation, etc.).
+
+```jsx
+export default function Component() {
+  const isSmallDevice = useMediaQuery('only screen and (max-width: 768px)');
+
+  return <div>{isSmallDevice && <a href="#">Menu</a>}</div>;
+}
+```
+
+Hint: The [`window.matchMedia` API](https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia) would be helpful.
+
+## Arguments
+
+- `query: string`: The media query to match. It must be a [valid CSS media query string](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries)
+
+## Returns
+
+The hook returns a boolean value that indicates whether the media query is a match.

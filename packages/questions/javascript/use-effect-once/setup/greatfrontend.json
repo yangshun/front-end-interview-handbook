@@ -1,0 +1,8 @@
+{
+  "run": "/src/use-effect-once.run.test.ts",
+  "submit": "/src/use-effect-once.submit.test.ts",
+  "skeleton": {
+    "js": "/src/use-effect-once.skeleton.js",
+    "ts": "/src/use-effect-once.skeleton.ts"
+  }
+}

@@ -1,0 +1,15 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import useQuery from '../setup/src/use-query';
+
+## Solution
+
+The `useQuery` hook can be implemented with `useEffect` to begin the promise resolution and update the states accordingly.
+
+The challenge here is to realize that promise resolutions are asynchronous from React updates, so there is a possibility of race conditions when the dependencies change before a pending promise is resolved.
+
+To prevent this, we can use an `ignore` flag to ignore the promise resolution if it is no longer relevant (e.g. deps have changed, the component has been unmounted). The `ignore` is initialized within the function's closure; each time `useEffect` runs, the function has its own `ignore` instance variable and can refer to it when the promise is resolved and it has to decide whether to use the results.
+
+This approach is [well-documented in the React documentation](https://react.dev/reference/react/useEffect#fetching-data-with-effects).
+
+<MDXCodeBlock>{useQuery}</MDXCodeBlock>

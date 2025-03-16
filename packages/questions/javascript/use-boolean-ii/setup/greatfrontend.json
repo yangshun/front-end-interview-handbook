@@ -1,0 +1,8 @@
+{
+  "run": "/src/use-boolean-ii.run.test.ts",
+  "submit": "/src/use-boolean-ii.submit.test.ts",
+  "skeleton": {
+    "js": "/src/use-boolean-ii.skeleton.js",
+    "ts": "/src/use-boolean-ii.skeleton.ts"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "run": "/src/use-state-with-reset.run.test.ts",
+  "submit": "/src/use-state-with-reset.submit.test.ts",
+  "skeleton": {
+    "js": "/src/use-state-with-reset.skeleton.js",
+    "ts": "/src/use-state-with-reset.skeleton.ts"
+  },
+  "solution": {
+    "js": "/src/use-state-with-reset.js",
+    "ts": "/src/use-state-with-reset.ts"
+  }
+}

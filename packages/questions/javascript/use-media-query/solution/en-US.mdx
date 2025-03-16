@@ -1,0 +1,40 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import useMediaQuery from '../setup/src/use-media-query';
+import useMediaQuerySyncExternalStore from '../setup/src/use-media-query-sync-external-store';
+
+## Solution
+
+`window.matchMedia(query)` is a JavaScript method that checks if the document matches a given CSS media query. It returns a `MediaQueryList` object, which provides:
+
+1. `.matches` (boolean): Indicates whether the document currently matches the media query
+2. `.addEventListener("change", callback)`: Listens for changes in the media query’s match state
+3. `.removeEventListener("change", callback)`: Removes the event listener when it’s no longer needed
+
+Example:
+
+```js
+const mediaQuery = window.matchMedia('(max-width: 768px)');
+
+if (mediaQuery.matches) {
+  console.log('Viewport is 768px or smaller');
+}
+
+mediaQuery.addEventListener('change', (e) => {
+  console.log(e.matches ? 'Now small screen' : 'Now large screen');
+});
+```
+
+`useMediaQuery` is a hook that allows a React app to leverage this browser API and respond to media changes (e.g. screen size, resolution, orientation, and more).
+
+### Solution 1: `useEffect` and `useState`
+
+The `useMediaQuery` hook can be implemented using the `useState` hook to store the current media query match and the `useEffect` hook to update the match when the media query changes. We can attach a listener to the [`change` event](https://developer.mozilla.org/en-US/docs/Web/API/MediaQueryList/change_event) on the `MediaQueryList` object returned by `window.matchMedia(...)` to update the match state.
+
+<MDXCodeBlock>{useMediaQuery}</MDXCodeBlock>
+
+### Solution 2: `useSyncExternalStore`
+
+React's [`useSyncExternalStore`](https://react.dev/reference/react/useSyncExternalStore) hook is a better fit as it is meant for syncing React state with external systems, such as [subscribing to native browser APIs](https://react.dev/reference/react/useSyncExternalStore#subscribing-to-a-browser-api).
+
+<MDXCodeBlock>{useMediaQuerySyncExternalStore}</MDXCodeBlock>

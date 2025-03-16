@@ -1,0 +1,8 @@
+{
+  "run": "/src/use-breakpoint.run.test.ts",
+  "submit": "/src/use-breakpoint.submit.test.ts",
+  "skeleton": {
+    "js": "/src/use-breakpoint.skeleton.js",
+    "ts": "/src/use-breakpoint.skeleton.ts"
+  }
+}

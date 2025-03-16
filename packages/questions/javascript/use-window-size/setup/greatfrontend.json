@@ -1,0 +1,8 @@
+{
+  "run": "/src/use-window-size.run.test.ts",
+  "submit": "/src/use-window-size.submit.test.ts",
+  "skeleton": {
+    "js": "/src/use-window-size.skeleton.js",
+    "ts": "/src/use-window-size.skeleton.ts"
+  }
+}

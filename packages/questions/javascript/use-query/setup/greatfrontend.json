@@ -1,0 +1,8 @@
+{
+  "run": "/src/use-query.run.test.ts",
+  "submit": "/src/use-query.submit.test.ts",
+  "skeleton": {
+    "js": "/src/use-query.skeleton.js",
+    "ts": "/src/use-query.skeleton.ts"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "run": "/src/use-idle.run.test.ts",
+  "submit": "/src/use-idle.submit.test.ts",
+  "skeleton": {
+    "js": "/src/use-idle.skeleton.js",
+    "ts": "/src/use-idle.skeleton.ts"
+  }
+}

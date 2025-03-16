@@ -1,0 +1,11 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import useFocus from '../setup/src/use-focus';
+
+## Solution
+
+The `useFocus` hook can be implemented by using `useRef` to create the ref object and defining the function that calls the [`focus`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/focus) method on the element referenced by the ref.
+
+We can additionally wrap the focus function in [`requestAnimationFrame`](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame) to ensure that the focus is applied by the next DOM repaint.
+
+<MDXCodeBlock>{useFocus}</MDXCodeBlock>

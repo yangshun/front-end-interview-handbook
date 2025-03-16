@@ -1,0 +1,8 @@
+{
+  "run": "/src/use-mediated-state.run.test.ts",
+  "submit": "/src/use-mediated-state.submit.test.ts",
+  "skeleton": {
+    "js": "/src/use-mediated-state.skeleton.js",
+    "ts": "/src/use-mediated-state.skeleton.ts"
+  }
+}

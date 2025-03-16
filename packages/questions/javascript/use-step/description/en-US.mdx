@@ -1,0 +1,45 @@
+---
+title: useStep
+excerpt: Implement a hook that manages a step counter for a multi-step process
+---
+
+Implement a `useStep` hook that manages a step counter for a multi-step process.
+
+The hook should provide utility methods to go to the next and previous steps, and allow resetting of the step counter. The step number is 1-indexed and goes up at most to `maxStep`.
+
+```jsx
+export default function Component() {
+  const { step, next, previous, reset, setStep, hasNext, hasPrevious } =
+    useStep(3);
+
+  return (
+    <div>
+      <p>Step {step}</p>
+      <button onClick={previous} disabled={!hasPrevious}>
+        Previous
+      </button>
+      <button onClick={next} disabled={!hasNext}>
+        Next
+      </button>
+      <button onClick={reset}>Reset</button>
+      <button onClick={() => setStep(3)}>Go to step 3</button>
+    </div>
+  );
+}
+```
+
+## Arguments
+
+- `maxStep: number`: The maximum step number, i.e., the last step
+
+## Returns
+
+The hook returns an object with the following properties/methods:
+
+- `step`: The current step number. It is initialized to `1`
+- `next: () => void`: A function that increments the step number
+- `previous: () => void`: A function that decrements the step number
+- `hasNext: boolean`: A boolean that indicates if there is a next step
+- `hasPrevious: boolean`: A boolean that indicates if there is a previous step
+- `reset: () => void`: A function that resets the step number to `1`
+- `setStep`: A function that sets the step number to a specific step. This should accept both a `number` and an updater function `(currentStep: number) => void`, similar to what the setter function of `useState` accepts

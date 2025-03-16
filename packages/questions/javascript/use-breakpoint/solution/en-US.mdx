@@ -1,0 +1,13 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import useBreakpoint from '../setup/src/use-breakpoint';
+
+## Solution
+
+The `useBreakpoint` hook can be implemented in `createBreakpoint` using the `useState` hook to store the current window width and the `useEffect` hook to update the width when the window is resized.
+
+After which, sort the breakpoints by increasing values, then search for the last breakpoint whose minimum width is less than the current window width.
+
+If you're using TypeScript, you can make the `createBreakpoint` function generic so that the returned `useBreakpoint`'s return type is only the strings of the keys of the given `breakpoints` object, ensuring maximum typesafety.
+
+<MDXCodeBlock>{useBreakpoint}</MDXCodeBlock>
