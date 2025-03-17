@@ -69,6 +69,7 @@ export const themeIconColor = clsx('text-neutral-400 dark:text-neutral-500');
 
 // Background colors.
 export const themeBackgroundBrandColor = clsx('bg-brand-dark dark:bg-brand');
+export const themeBackgroundInfoColor = clsx('bg-info dark:bg-info-light');
 export const themeBackgroundDarkColor = clsx('bg-white dark:bg-neutral-950');
 export const themeBackgroundInputColor = clsx('bg-white dark:bg-neutral-950');
 export const themeBackgroundColor = clsx('bg-white dark:bg-neutral-900');

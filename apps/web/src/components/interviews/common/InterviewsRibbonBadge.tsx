@@ -3,11 +3,11 @@ import clsx from 'clsx';
 import { textVariants } from '~/components/ui/Text';
 import {
   themeBackgroundBrandColor,
-  themeBackgroundColor,
-  themeTextSubtitleColor,
+  themeBackgroundInfoColor,
+  themeTextInvertColor,
 } from '~/components/ui/theme';
 
-type RibbonTagVariant = 'neutral' | 'primary';
+type RibbonTagVariant = 'info' | 'primary';
 
 const classes: Record<
   RibbonTagVariant,
@@ -16,23 +16,19 @@ const classes: Record<
     svgClassName: string;
   }
 > = {
-  neutral: {
-    badgeClassName: clsx(
-      'border-[#cfcfd1] dark:border-neutral-800',
-      themeBackgroundColor,
-      themeTextSubtitleColor,
-    ),
-    svgClassName: clsx(
-      'fill-white stroke-[#cfcfd1] dark:fill-neutral-950 dark:stroke-neutral-800',
-    ),
+  info: {
+    badgeClassName: clsx(themeTextInvertColor, themeBackgroundInfoColor),
+    svgClassName: clsx('dark:fill-info fill-info-dark'),
   },
   primary: {
     badgeClassName: clsx(
-      'border-brand-lighter border',
+      'border border-brand-lighter dark:border-neutral-700',
       'text-neutral-700 dark:text-neutral-900',
       themeBackgroundBrandColor,
     ),
-    svgClassName: clsx('stroke-brand-lighter dark:fill-brand fill-brand-dark'),
+    svgClassName: clsx(
+      'stroke-brand-lighter dark:stroke-neutral-700 dark:fill-brand fill-brand-dark',
+    ),
   },
 };
 
@@ -44,7 +40,7 @@ type Props = Readonly<{
 
 export default function InterviewsRibbonBadge({
   label,
-  variant = 'neutral',
+  variant = 'info',
   className,
 }: Props) {
   const { badgeClassName, svgClassName } = classes[variant];
@@ -56,7 +52,6 @@ export default function InterviewsRibbonBadge({
           'relative z-[1]',
           'px-2 py-0.5',
           'rounded-l',
-          'border',
           badgeClassName,
           textVariants({
             color: 'inherit',
