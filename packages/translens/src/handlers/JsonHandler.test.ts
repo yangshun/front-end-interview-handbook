@@ -19,7 +19,6 @@ describe('JsonHandler', () => {
     mockFileRegistryManager = {
       load: vi.fn(),
       save: vi.fn(),
-      getRegistryPath: vi.fn(),
     };
 
     // Instantiate JsonHandler with mocks

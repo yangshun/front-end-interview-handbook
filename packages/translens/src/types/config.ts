@@ -21,10 +21,11 @@ export interface IPlugin {
 
 export interface IConfigGroup {
   name: string;
-  handler: 'json' | 'mdx' | 'string'; // Type of the file to be translated or a custom handler
+  handler: 'json' | 'mdx' | 'string'; // Type of default handler or a custom handler
   files: IConfigFile[];
-  localeConfig?: LocaleConfig; // Optional
+  localeConfig?: LocaleConfig; // Optional, group-specific locale config
 }
+
 export interface IConfig {
   localeConfig: LocaleConfig;
   groups: IConfigGroup[];

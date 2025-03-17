@@ -45,7 +45,6 @@ describe('TranslationManager', () => {
         translatedLocales: ['fr'],
       }),
       save: vi.fn().mockResolvedValue(undefined),
-      getRegistryPath: vi.fn(),
     };
 
     fileHandler = {

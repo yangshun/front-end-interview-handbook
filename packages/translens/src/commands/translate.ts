@@ -9,6 +9,7 @@ import ChangeDetector from '../core/ChangeDetector';
 import TranslationManager from '../core/TranslationManager';
 import { PluginManager } from '../core/PluginManager';
 import {
+  IChangeDetector,
   IFileHandler,
   IFileRegistryManager,
   IPluginManager,
@@ -19,20 +20,20 @@ import { IConfig, IConfigGroup } from '../types/config';
 
 export async function translate() {
   const config = new Config().getConfig();
-  const registryManager = new FileRegistryManager();
+  const fileRegistryManager = new FileRegistryManager();
   const changeDetector = new ChangeDetector();
-  const jsonHandler = new JsonHandler(changeDetector, registryManager);
-  const mdxHandler = new MDXHandler(changeDetector, registryManager);
+
   const translationService = new DeepSeekTranslationService();
   const translationManager = new TranslationManager(
     changeDetector,
-    registryManager,
+    fileRegistryManager,
     translationService,
   );
+
   const pluginManager = new PluginManager(
     config,
     changeDetector,
-    registryManager,
+    fileRegistryManager,
   );
   await pluginManager.registerFileHandlers();
 
@@ -40,12 +41,15 @@ export async function translate() {
   translationSpinner.start(chalk.blue('🔍 Searching for files...'));
 
   // Find all source files to translate
-  const filesToTranslate = await findFilesToTranslate(
-    config,
-    registryManager,
-    pluginManager,
+  const {
     jsonHandler,
     mdxHandler,
+    files: filesToTranslate,
+  } = await findFilesToTranslate(
+    config,
+    changeDetector,
+    fileRegistryManager,
+    pluginManager,
   );
 
   translationSpinner.stop(
@@ -54,9 +58,11 @@ export async function translate() {
       : chalk.green(`✅ Found ${filesToTranslate.length} file(s) to process.`),
   );
 
-  if (filesToTranslate.length === 0) return;
+  if (filesToTranslate.length === 0) {
+    return;
+  }
 
-  translationSpinner.start(`Translating ${filesToTranslate.length} files...`);
+  translationSpinner.start(`Translating ${filesToTranslate.length} file(s)...`);
   await translateFiles(
     filesToTranslate,
     pluginManager,
@@ -70,12 +76,15 @@ export async function translate() {
 
 async function findFilesToTranslate(
   config: IConfig,
-  registryManager: IFileRegistryManager,
+  changeDetector: IChangeDetector,
+  fileRegistryManager: IFileRegistryManager,
   pluginManager: IPluginManager,
-  jsonHandler: IFileHandler,
-  mdxHandler: IFileHandler,
 ) {
+  const jsonHandler = new JsonHandler(changeDetector, fileRegistryManager);
+  const mdxHandler = new MDXHandler(changeDetector, fileRegistryManager);
+
   const fileHandlers = pluginManager.getFileHandlers();
+
   const files = await Promise.all(
     config.groups.flatMap((group) => {
       const fileHandler = getFileHandler({
@@ -84,16 +93,23 @@ async function findFilesToTranslate(
         handler: group.handler,
         fileHandlers,
       });
-      if (!fileHandler) return []; //
+
+      if (!fileHandler) {
+        return [];
+      }
 
       return group.files.map(async (file) => {
         const { sourceLocale, targetLocales } = getLocaleConfig(group, config);
+
+        // For safety, filter out the source locale from the target locales
         const finalTargetLocales = targetLocales.filter(
           (locale) => locale !== sourceLocale,
-        ); // For safety, filter out the source locale from the target locales
+        );
+
+        // Replace {locale} placeholder with target locale
         const targetFilePaths = finalTargetLocales.map((targetLocale) =>
           file.target.replace('{locale}', targetLocale),
-        ); // replace {locale} placeholder with target locale
+        );
 
         // Find all files to translate excluding the ignore files from config and target files
         const fileEnumerator = new FileEnumerator(
@@ -106,7 +122,7 @@ async function findFilesToTranslate(
         const filteredFiles = await Promise.all(
           files.map(async (sourceFile) => {
             const [registry, hasFileChanged] = await Promise.all([
-              registryManager.load(sourceFile),
+              fileRegistryManager.load(sourceFile),
               fileHandler.hasFileChanged(sourceFile),
             ]);
 
@@ -137,7 +153,7 @@ async function findFilesToTranslate(
     }),
   );
 
-  return files.flat();
+  return { files: files.flat(), jsonHandler, mdxHandler };
 }
 
 function getLocaleConfig(group: IConfigGroup, config: IConfig) {
@@ -206,10 +222,15 @@ function getFileHandler({
 }) {
   if (handler === 'json') {
     return jsonHandler;
-  } else if (handler === 'mdx') {
+  }
+
+  if (handler === 'mdx') {
     return mdxHandler;
-  } else if (fileHandlers.has(handler)) {
+  }
+
+  if (fileHandlers.has(handler)) {
     return fileHandlers.get(handler);
   }
+
   return null;
 }

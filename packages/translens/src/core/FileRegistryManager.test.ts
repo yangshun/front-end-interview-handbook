@@ -19,11 +19,6 @@ beforeEach(() => {
 });
 
 describe('FileRegistryManager', () => {
-  it('should generate the correct registry path', () => {
-    const result = fileRegistryManager.getRegistryPath(mockFilePath);
-    expect(result).toBe(mockRegistryPath);
-  });
-
   it('should load the registry file correctly', async () => {
     vi.spyOn(fs, 'readFile').mockResolvedValue(
       JSON.stringify(mockRegistryData),

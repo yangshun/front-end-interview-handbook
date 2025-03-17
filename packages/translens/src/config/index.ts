@@ -17,7 +17,7 @@ export const DEFAULT_CONFIG: IConfig = {
       files: [
         {
           source: './src/locales/en-US.json',
-          target: './src/locales/example/{locale}.json',
+          target: './src/locales/{locale}.json',
         },
       ],
     },

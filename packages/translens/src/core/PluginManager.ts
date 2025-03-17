@@ -1,5 +1,4 @@
 import path from 'path';
-import { log } from '@clack/prompts';
 
 import {
   IChangeDetector,
@@ -26,6 +25,7 @@ export class PluginManager implements IPluginManager {
     if (!this.config.plugin?.handlers) {
       return;
     }
+
     for (const fileHandler of this.config.plugin.handlers) {
       try {
         const absolutePath = path.resolve(fileHandler.handlerFilePath);

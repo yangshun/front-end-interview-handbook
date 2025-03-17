@@ -33,7 +33,6 @@ describe('MDXHandler', () => {
   mockFileRegistryManager = {
     load: vi.fn(),
     save: vi.fn(),
-    getRegistryPath: vi.fn(),
   };
 
   beforeEach(() => {
