@@ -1,5 +1,7 @@
 import type { Metadata } from 'next/types';
 
+import type { QuestionTopicToDisplay } from '~/components/interviews/marketing/InterviewsMarketingDisplayTopics';
+import { InterviewsMarketingDisplayTopics } from '~/components/interviews/marketing/InterviewsMarketingDisplayTopics';
 import type { QuestionBankDataType } from '~/components/interviews/marketing/InterviewsMarketingPracticeQuestionBankSection';
 import { InterviewsMarketingTestimonialsDict } from '~/components/interviews/marketing/testimonials/InterviewsMarketingTestimonials';
 import type {
@@ -167,28 +169,16 @@ function getQuestionBankSectionData(
   };
 
   const topicQuestionsData: Partial<
-    Record<
-      QuestionTopic,
-      {
-        count: number;
-        duration: number;
-        questions: ReadonlyArray<QuestionMetadata>;
-      }
-    >
-  > = {
-    a11y: createQuestionData(topicQuestions.a11y),
-    async: createQuestionData(topicQuestions.async),
-    closure: createQuestionData(topicQuestions.closure),
-    css: createQuestionData(topicQuestions.css),
-    html: createQuestionData(topicQuestions.html),
-    i18n: createQuestionData(topicQuestions.i18n),
-    javascript: createQuestionData(topicQuestions.javascript),
-    networking: createQuestionData(topicQuestions.networking),
-    oop: createQuestionData(topicQuestions.oop),
-    performance: createQuestionData(topicQuestions.performance),
-    security: createQuestionData(topicQuestions.security),
-    'web-api': createQuestionData(topicQuestions['web-api']),
-  };
+    Record<QuestionTopic, ReturnType<typeof createQuestionData>>
+  > = {};
+
+  const topics: ReadonlyArray<QuestionTopic> = InterviewsMarketingDisplayTopics;
+
+  topics.forEach((topic) => {
+    if (topicQuestions[topic]) {
+      topicQuestionsData[topic] = createQuestionData(topicQuestions[topic]);
+    }
+  });
 
   const formatQuestionsData: Record<
     QuestionFormat,

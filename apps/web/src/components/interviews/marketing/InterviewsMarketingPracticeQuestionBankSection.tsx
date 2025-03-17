@@ -38,6 +38,11 @@ import {
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
 
+import type { QuestionTopicToDisplay } from './InterviewsMarketingDisplayTopics';
+import {
+  InterviewsMarketingDisplayTopics,
+  InterviewsMarketingDisplayTopicsHrefs,
+} from './InterviewsMarketingDisplayTopics';
 import useQuestionFormatFilter from '../questions/listings/filters/hooks/useQuestionFormatFilter';
 import useQuestionTopicLabels from '../questions/listings/items/useQuestionTopicLabels';
 
@@ -59,38 +64,6 @@ export type QuestionBankDataType = Readonly<{
 type Props = Readonly<{
   questions: QuestionBankDataType;
 }>;
-
-const selectedTopics = [
-  'a11y',
-  'async',
-  'css',
-  'closure',
-  'html',
-  'i18n',
-  'javascript',
-  'networking',
-  'oop',
-  'performance',
-  'security',
-  'web-api',
-] as const;
-
-type QuestionTopicToDisplay = (typeof selectedTopics)[number];
-
-const topicHrefs: Record<QuestionTopicToDisplay, string> = {
-  a11y: '/questions/formats/ui-coding',
-  async: '/questions/formats/javascript-functions',
-  closure: '/questions/formats/javascript-functions',
-  css: '/questions/css-interview-questions/quiz',
-  html: '/questions/html-interview-questions/quiz',
-  i18n: '/questions/formats/quiz',
-  javascript: '/questions/javascript-interview-questions/quiz',
-  networking: '/questions/formats/quiz',
-  oop: '/questions/javascript-interview-questions/quiz',
-  performance: '/questions/formats/quiz',
-  security: '/questions/formats/quiz',
-  'web-api': '/questions/formats/quiz',
-};
 
 const MAX_TO_SHOW = 4;
 
@@ -176,7 +149,7 @@ export default function InterviewsMarketingPracticeQuestionBankSection({
       value: selectedFramework || selectedLanguage,
     },
     topics: {
-      items: selectedTopics.map((topic) => ({
+      items: InterviewsMarketingDisplayTopics.map((topic) => ({
         label: topics[topic].label,
         value: topic,
       })),
@@ -197,7 +170,9 @@ export default function InterviewsMarketingPracticeQuestionBankSection({
     switch (selectedFilter) {
       case 'topics': {
         return (
-          topicHrefs[selectedTopic as QuestionTopicToDisplay] ?? '/questions'
+          InterviewsMarketingDisplayTopicsHrefs[
+            selectedTopic as QuestionTopicToDisplay
+          ] ?? '/questions'
         );
       }
       case 'framework': {

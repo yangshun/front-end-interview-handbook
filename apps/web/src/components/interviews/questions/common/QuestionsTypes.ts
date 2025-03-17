@@ -234,6 +234,7 @@ export type QuestionTopic =
   | 'oop'
   | 'performance'
   | 'queue'
+  | 'react-hooks'
   | 'react'
   | 'recursion'
   | 'security'

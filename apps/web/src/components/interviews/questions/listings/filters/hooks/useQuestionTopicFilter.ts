@@ -40,6 +40,7 @@ const topicRanks: Record<QuestionTopic, number> = {
   performance: 50,
   queue: 99,
   react: 0,
+  'react-hooks': 5,
   recursion: 99,
   security: 80,
   seo: 99,

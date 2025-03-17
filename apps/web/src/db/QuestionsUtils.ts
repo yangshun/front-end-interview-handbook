@@ -413,58 +413,20 @@ export function categorizeQuestionsByTopic(
     codingQuestions: ReadonlyArray<QuestionMetadata>;
     quizQuestions: ReadonlyArray<QuestionMetadata>;
   }>,
-): Record<QuestionTopic, ReadonlyArray<QuestionMetadata>> {
-  const categorizedQuestions: Record<QuestionTopic, Array<QuestionMetadata>> = {
-    a11y: [],
-    array: [],
-    async: [],
-    bfs: [],
-    binary: [],
-    'binary-search': [],
-    'binary-search-tree': [],
-    'binary-tree': [],
-    browser: [],
-    closure: [],
-    css: [],
-    dfs: [],
-    'dynamic-programming': [],
-    graph: [],
-    greedy: [],
-    heap: [],
-    html: [],
-    i18n: [],
-    intervals: [],
-    javascript: [],
-    'linked-list': [],
-    matrix: [],
-    networking: [],
-    oop: [],
-    performance: [],
-    queue: [],
-    react: [],
-    recursion: [],
-    security: [],
-    seo: [],
-    sorting: [],
-    stack: [],
-    string: [],
-    testing: [],
-    'topological-sort': [],
-    tree: [],
-    trie: [],
-    'ui-component': [],
-    'web-api': [],
-  };
+): Partial<Record<QuestionTopic, ReadonlyArray<QuestionMetadata>>> {
+  const categorizedQuestions: Partial<
+    Record<QuestionTopic, Array<QuestionMetadata>>
+  > = {};
   const { codingQuestions, quizQuestions } = questions;
 
   codingQuestions.forEach((question) => {
     question.topics.forEach((topic) => {
-      categorizedQuestions[topic]?.push(question);
+      (categorizedQuestions[topic] ??= []).push(question);
     });
   });
   quizQuestions.forEach((question) => {
     question.topics.forEach((topic) => {
-      categorizedQuestions[topic]?.push(question);
+      (categorizedQuestions[topic] ??= []).push(question);
     });
   });
 

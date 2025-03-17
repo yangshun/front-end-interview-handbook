@@ -188,6 +188,13 @@ export default function useQuestionTopicLabels() {
         id: 'J4hWfE',
       }),
     },
+    'react-hooks': {
+      label: intl.formatMessage({
+        defaultMessage: 'React Hooks',
+        description: 'Front end development topic',
+        id: '6jw6wS',
+      }),
+    },
     recursion: {
       label: intl.formatMessage({
         defaultMessage: 'Recursion',
