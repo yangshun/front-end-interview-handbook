@@ -1483,6 +1483,10 @@
     "defaultMessage": "Front End System Design Playbook: All-in-one Deep Dive",
     "description": "Page title for frontend system design playbook cover page"
   },
+  "6jw6wS": {
+    "defaultMessage": "React Hooks",
+    "description": "Front end development topic"
+  },
   "6kLEK7": {
     "defaultMessage": "Common mistakes you should avoid.",
     "description": "Comon mistakes to avoid during system design interviews"

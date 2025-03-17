@@ -7,6 +7,7 @@ import {
   RiFlashlightLine,
   RiFlowChart,
   RiJavascriptFill,
+  RiReactjsFill,
   RiRefreshLine,
   RiRocketLine,
   RiStarLine,
@@ -28,6 +29,7 @@ export const FocusAreaIcons: Record<
   forms: TbForms,
   'javascript-polyfills': RiJavascriptFill,
   lodash: SiLodash,
+  'react-hooks': RiReactjsFill,
   'state-management': RiFlowChart,
 };
 
@@ -78,9 +80,10 @@ export function categorizeFocusAreas(
       items: [
         mapFocusAreas['dom-manipulation'],
         mapFocusAreas.forms,
+        mapFocusAreas['react-hooks'],
         mapFocusAreas['design-system-components'],
-        mapFocusAreas.accessibility,
         mapFocusAreas['state-management'],
+        mapFocusAreas.accessibility,
       ],
       title: intl.formatMessage({
         defaultMessage: 'User Interface Development',

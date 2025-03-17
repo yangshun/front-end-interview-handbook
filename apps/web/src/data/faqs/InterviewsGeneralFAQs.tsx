@@ -339,6 +339,10 @@ export const generalBuying: FAQItem = {
                       name: 'JavaScript polyfills',
                     },
                     {
+                      href: '/interviews/focus-areas/react-hooks',
+                      name: 'React Hooks',
+                    },
+                    {
                       href: '/interviews/focus-areas/lodash',
                       name: 'Lodash functions',
                     },
