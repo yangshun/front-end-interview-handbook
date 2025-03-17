@@ -698,7 +698,7 @@ export function InterviewsMarketingTestimonialsDict() {
     offers: ['Jane App'],
     testimonial:
       'GreatFrontEnd helped me increase my total compensation by a whopping 180%! It is literally a one-stop shop for preparing for front-end interviews. This website covers everything you would typically see an interview loop like building UI, applying CSS, trivia-style questions and front-end focused system design. I also really enjoy the GFE discord server, they create a highly inclusive community that enables their users to connect and share past experiences. I would highly recommend GFE to anyone who is seriously looking to improve their interviewing preparation!',
-    title: 'Software Engineer II ',
+    title: 'Software Engineer II',
   };
   const kana: InterviewsMarketingTestimonial = {
     anonymous: false,
@@ -727,7 +727,52 @@ export function InterviewsMarketingTestimonialsDict() {
       'This was the first time I gave full stack / frontend interviews. Coming from Meta, working in frontend for 3 years, I still felt that I had a lot of loopholes in basics of JavaScript, HTML. The question bank of GFE covers almost everything that might ever be asked in frontend interviews for companies including startups and FAANG. Thanks to the amazing question bank and conversational language in the explanations, I was able to crack a senior role at Snap.',
     title: 'Full Stack Engineer',
   };
-
+  const davidZhou: InterviewsMarketingTestimonial = {
+    anonymous: false,
+    authorThumbnailUrl: '/img/testimonials/users/david-zhou.jpg',
+    authorUrl: 'https://www.linkedin.com/in/davidzhoutron/',
+    companyLogoUrl: '/img/testimonials/company/the-trade-desk.svg',
+    createdAt: '2025-03-13',
+    featuredOffer: 'The Trade Task',
+    fromCompany: 'Faire',
+    id: 'david-zhou',
+    location: 'Toronto, CA',
+    name: 'David Zhou',
+    offers: ['Lyft', 'PlayStation'],
+    testimonial:
+      'GreatFrontEnd is a great resource for front end interviews, for learning front end system design, has many questions to practice practical front end and general JavaScript questions. For some interviews I have gotten the exact question that I practiced on GFE!',
+    title: 'Front End Engineer',
+  };
+  const lamTran: InterviewsMarketingTestimonial = {
+    anonymous: false,
+    authorThumbnailUrl: '/img/testimonials/users/lam-tran.jpg',
+    authorUrl: 'https://www.linkedin.com/in/lamdtran2000/',
+    companyLogoUrl: '/img/testimonials/company/tiktok.svg',
+    createdAt: '2025-03-14',
+    featuredOffer: 'TikTok',
+    id: 'lam-tran',
+    location: 'San Jose, US',
+    name: 'Lam Tran',
+    offers: [],
+    testimonial:
+      'GreatFrontEnd really helps me brush up on Javascript + React coding questions. The questions are really easy to follow, and by doing them, I am able to really translate this into the coding questions during the interview. The really cool thing is that the questions might not match 100%, it can still be a really helpful tool to apply certain things from GFE into the actual problem.',
+    title: 'Software Engineer',
+  };
+  const edwinTorres: InterviewsMarketingTestimonial = {
+    anonymous: false,
+    authorThumbnailUrl: '/img/testimonials/users/edwin-torres.jpg',
+    authorUrl: 'https://www.linkedin.com/in/etcode/',
+    companyLogoUrl: '/img/testimonials/company/hellofresh.jpg',
+    createdAt: '2025-03-14',
+    featuredOffer: 'HelloFresh',
+    id: 'edwin-torres',
+    location: 'Toronto, CA',
+    name: 'Edwin Torres',
+    offers: [],
+    testimonial:
+      "GreatFrontend was a game-changer in my interview prep for different companies where I had process! 🚀 It provided structured system design guidance (my favourite one), frontend best practices, and hands-on coding challenges that strengthened my confidence. The detailed explanations and real-world scenarios made a huge difference. Also I love the engaging and supportive community! If you're preparing for frontend interviews, this platform is a must-try! 💡",
+    title: 'Senior Software Developer',
+  };
   // Const template: InterviewsMarketingTestimonial = {
   //   anonymous: false,
   //   authorThumbnailUrl: 'TO_BE_FILLED',
@@ -753,10 +798,12 @@ export function InterviewsMarketingTestimonialsDict() {
     chenweiZhang,
     cliffordFung,
     curryspices,
+    davidZhou,
     deannaTran,
     delhi,
     dustinLakin,
     edWang,
+    edwinTorres,
     faithKomlo,
     felipeSalazar,
     fernando,
@@ -767,6 +814,7 @@ export function InterviewsMarketingTestimonialsDict() {
     kana,
     kevinGonzalez,
     kiaanCastillo,
+    lamTran,
     larry,
     locChuong,
     luca,
