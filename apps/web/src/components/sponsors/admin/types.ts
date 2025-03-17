@@ -10,3 +10,5 @@ export type SponsorsAdminFilter<T extends string> = Readonly<{
 }>;
 
 export type AdminSponsorsAdRequestSortField = 'createdAt' | 'signatoryName';
+export type AdminSponsorsFeedbackSortField = 'createdAt' | 'email';
+export type FEEDBACK_STATUS = 'RESOLVED' | 'UNRESOLVED';

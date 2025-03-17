@@ -9,24 +9,23 @@ import Popover from '~/components/ui/Popover';
 import TextInput from '~/components/ui/TextInput';
 
 import type {
-  AdminSponsorsAdRequestSortField,
+  AdminSponsorsFeedbackSortField,
+  FEEDBACK_STATUS,
   SponsorsAdminFilter,
-} from './types';
-
-import type { SponsorsAdRequestStatus } from '@prisma/client';
+} from '../types';
 
 type Props = Readonly<{
   isAscendingOrder: boolean;
   query: string;
-  selectedStatus: Array<SponsorsAdRequestStatus>;
+  selectedStatus: Array<FEEDBACK_STATUS>;
   setIsAscendingOrder: (value: boolean) => void;
   setQuery: (value: string) => void;
-  setSortField: (value: AdminSponsorsAdRequestSortField) => void;
-  sortField: AdminSponsorsAdRequestSortField;
-  statusFilterOptions: SponsorsAdminFilter<SponsorsAdRequestStatus>;
+  setSortField: (value: AdminSponsorsFeedbackSortField) => void;
+  sortField: AdminSponsorsFeedbackSortField;
+  statusFilterOptions: SponsorsAdminFilter<FEEDBACK_STATUS>;
 }>;
 
-export default function SponsorsAdminAdRequestListFilters({
+export default function SponsorsAdminFeedbacksListFilters({
   query,
   setQuery,
   statusFilterOptions,
@@ -41,7 +40,7 @@ export default function SponsorsAdminAdRequestListFilters({
 
   function makeDropdownItemProps(
     label: string,
-    itemField: AdminSponsorsAdRequestSortField,
+    itemField: AdminSponsorsFeedbackSortField,
     isItemAscendingOrder: boolean,
   ) {
     return {
@@ -60,7 +59,7 @@ export default function SponsorsAdminAdRequestListFilters({
         <TextInput
           isLabelHidden={true}
           label="Search"
-          placeholder="Search by name/company name"
+          placeholder="Search by email"
           startIcon={RiSearchLine}
           type="text"
           value={searchQuery}
@@ -104,23 +103,23 @@ export default function SponsorsAdminAdRequestListFilters({
             icon={RiSortDesc}
             isLabelHidden={true}
             label="Sort by"
-            selected={!(sortField === 'createdAt' && isAscendingOrder)}
+            selected={!(sortField === 'createdAt' && !isAscendingOrder)}
             size="sm"
             tooltip="Sort by"
           />
         }>
         {[
-          makeDropdownItemProps('Name: A to Z', 'signatoryName', true),
-          makeDropdownItemProps('Name: Z to A', 'signatoryName', false),
+          makeDropdownItemProps('Email: A to Z', 'email', true),
+          makeDropdownItemProps('Email: Z to A', 'email', false),
           makeDropdownItemProps(
             'Created at: Newest to Oldest',
             'createdAt',
-            true,
+            false,
           ),
           makeDropdownItemProps(
             'Created at: Oldest to Newest',
             'createdAt',
-            false,
+            true,
           ),
         ]
           .flatMap((item) => (item ? [item] : []))

@@ -1,11 +1,12 @@
 'use client';
 
-import { capitalize } from 'lodash-es';
+import { RiMoreLine } from 'react-icons/ri';
 
 import { trpc } from '~/hooks/trpc';
 import usePagination from '~/hooks/usePagination';
 
-import Anchor from '~/components/ui/Anchor';
+import Button from '~/components/ui/Button';
+import DropdownMenu from '~/components/ui/DropdownMenu';
 import Heading from '~/components/ui/Heading';
 import Pagination from '~/components/ui/Pagination';
 import Spinner from '~/components/ui/Spinner';
@@ -20,27 +21,19 @@ import {
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundLayerEmphasized,
-  themeTextDangerColor,
-  themeTextInfoColor,
   themeTextSuccessColor,
   themeTextWarningColor,
 } from '~/components/ui/theme';
 
-import SponsorsAdminAdRequestListFilters from './filters/SponsorsAdminAdRequestListFilters';
-import useSponsorsAdminAdRequestFilters from './hooks/useSponsorsAdminAdRequestFilters';
-
-import type { SponsorsAdRequestStatus } from '@prisma/client';
+import SponsorsAdminFeedbacksListFilters from './filters/SponsorsAdminFeedbackListFilters';
+import useSponsorsAdminFeedbackListFilters from './hooks/useSponsorsAdminFeedbackListFilters';
 
 const ITEMS_PER_PAGE = 20;
 
-const StatusTextColor: Record<SponsorsAdRequestStatus, string> = {
-  APPROVED: themeTextInfoColor,
-  PENDING: themeTextWarningColor,
-  PUBLISHED: themeTextSuccessColor,
-  REJECTED: themeTextDangerColor,
-};
-
-export default function SponsorsAdminAdRequestListPage() {
+export default function SponsorsAdminFeedbackListPage() {
+  const trpcUtils = trpc.useUtils();
+  const markFeedbackStatusMutation =
+    trpc.feedback.markFeedbackStatus.useMutation();
   // Pagination
   const { setCurrentPage, currentPage } = usePagination({
     deps: [],
@@ -56,11 +49,12 @@ export default function SponsorsAdminAdRequestListPage() {
     sortField,
     isAscendingOrder,
     setIsAscendingOrder,
-  } = useSponsorsAdminAdRequestFilters();
-  const { data: { requests, totalCount } = {}, isLoading } =
-    trpc.sponsorships.getAdRequests.useQuery(
+  } = useSponsorsAdminFeedbackListFilters();
+  const { data: { feedbacks, totalCount } = {}, isLoading } =
+    trpc.feedback.getFeedbacks.useQuery(
       {
         filter: {
+          category: 'SPONSORSHIP',
           query,
           status: Array.from(selectedStatus),
         },
@@ -79,9 +73,9 @@ export default function SponsorsAdminAdRequestListPage() {
 
   return (
     <div className="relative flex flex-col gap-6">
-      <Heading level="heading3">Advertisement Requests</Heading>
+      <Heading level="heading3">Feedback Messages</Heading>
       <div className="flex flex-col gap-5">
-        <SponsorsAdminAdRequestListFilters
+        <SponsorsAdminFeedbacksListFilters
           isAscendingOrder={isAscendingOrder}
           query={query}
           selectedStatus={selectedStatus}
@@ -94,23 +88,20 @@ export default function SponsorsAdminAdRequestListPage() {
         <Table>
           <TableHeader>
             <TableRow className={themeBackgroundLayerEmphasized}>
-              <TableHead>
-                <Text size="body2">Name</Text>
+              <TableHead className="w-42">
+                <Text size="body2">Email</Text>
               </TableHead>
               <TableHead>
-                <Text size="body2">Role</Text>
+                <Text size="body2">Message</Text>
               </TableHead>
-              <TableHead>
-                <Text size="body2">Company</Text>
-              </TableHead>
-              <TableHead className="w-[120px]">
+              <TableHead className="w-30">
                 <Text size="body2">Status</Text>
               </TableHead>
-              <TableHead>
+              <TableHead className="w-40">
                 <Text size="body2">Created at</Text>
               </TableHead>
-              <TableHead className="w-[120px]">
-                <span className="sr-only">Action</span>
+              <TableHead className="w-30">
+                <span className="sr-only">Reply</span>
               </TableHead>
             </TableRow>
           </TableHeader>
@@ -123,43 +114,77 @@ export default function SponsorsAdminAdRequestListPage() {
                   </div>
                 </TableCell>
               </TableRow>
-            ) : requests?.length === 0 ? (
+            ) : feedbacks?.length === 0 ? (
               <TableRow>
                 <TableCell colSpan={5}>
                   <div className="flex h-[150px] items-center justify-center">
                     <Text color="secondary" size="body2">
-                      No request found!
+                      No feedback found!
                     </Text>
                   </div>
                 </TableCell>
               </TableRow>
             ) : (
-              requests?.map((request) => (
-                <TableRow key={request.id}>
+              feedbacks?.map((feedback) => (
+                <TableRow key={feedback.id}>
                   <TableCell className="font-medium">
-                    <Text size="body2">{request.signatoryName}</Text>
+                    <Text size="body2">{feedback.email}</Text>
                   </TableCell>
                   <TableCell>
-                    <Text size="body2">{request.signatoryTitle}</Text>
-                  </TableCell>
-                  <TableCell>
-                    <Text size="body2">{request.legalName}</Text>
+                    <Text size="body2">{feedback.message}</Text>
                   </TableCell>
                   <TableCell>
                     <Text
-                      className={StatusTextColor[request.status]}
+                      className={
+                        feedback.resolved
+                          ? themeTextSuccessColor
+                          : themeTextWarningColor
+                      }
                       color="inherit"
                       size="body2">
-                      {capitalize(request.status)}
+                      {feedback.resolved ? 'Resolved' : 'Unresolved'}
                     </Text>
                   </TableCell>
                   <TableCell>
-                    <Text size="body2">{request.createdAt.toDateString()}</Text>
+                    <Text size="body2">
+                      {(feedback.createdAt ?? new Date()).toDateString()}
+                    </Text>
                   </TableCell>
-                  <TableCell>
-                    <Anchor href={`/admin/sponsorships/request/${request.id}`}>
-                      View
-                    </Anchor>
+                  <TableCell className="text-center">
+                    {/* <Anchor href={`mailto:${feedback.email}`}>Reply</Anchor> */}
+                    <DropdownMenu
+                      align="end"
+                      icon={RiMoreLine}
+                      showChevron={true}
+                      size="sm"
+                      trigger={
+                        <Button
+                          icon={RiMoreLine}
+                          isLabelHidden={true}
+                          label="Action"
+                          size="sm"
+                          variant="tertiary"
+                        />
+                      }>
+                      <DropdownMenu.Item
+                        href={`mailto:${feedback.email}`}
+                        label="Reply"
+                      />
+                      <DropdownMenu.Item
+                        label={
+                          feedback.resolved
+                            ? 'Mark as unresolved'
+                            : 'Mark as resolved'
+                        }
+                        onClick={async () => {
+                          await markFeedbackStatusMutation.mutateAsync({
+                            feedbackId: feedback.id,
+                            resolved: feedback.resolved ? false : true,
+                          });
+                          trpcUtils.feedback.getFeedbacks.invalidate();
+                        }}
+                      />
+                    </DropdownMenu>
                   </TableCell>
                 </TableRow>
               ))
@@ -169,7 +194,7 @@ export default function SponsorsAdminAdRequestListPage() {
         {(totalCount ?? 0) > 0 && (
           <div className="flex items-center justify-between gap-2">
             <Text size="body2">
-              Showing {requests?.length ?? 0} of {totalCount ?? 0} requests
+              Showing {feedbacks?.length ?? 0} of {totalCount ?? 0} feedbacks
             </Text>
             {totalPages > 1 && (
               <Pagination

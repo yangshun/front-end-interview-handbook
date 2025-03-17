@@ -1,24 +1,21 @@
 import { useQueryState } from 'nuqs';
 
 import type {
-  AdminSponsorsAdRequestSortField,
+  AdminSponsorsFeedbackSortField,
+  FEEDBACK_STATUS,
   SponsorsAdminFilter,
 } from '../types';
 
-import type { SponsorsAdRequestStatus } from '@prisma/client';
-
-export default function useSponsorsAdminAdRequestFilters() {
+export default function useSponsorsAdminFeedbackListFilters() {
   const [query, setQuery] = useQueryState('query', { defaultValue: '' });
-
   const [selectedStatus, setSelectedStatus] = useQueryState<
-    Array<SponsorsAdRequestStatus>
-  >('status', {
+    Array<FEEDBACK_STATUS>
+  >('resolved', {
     defaultValue: [],
     parse: (value) =>
-      value ? (value.split(',') as Array<SponsorsAdRequestStatus>) : [],
-    serialize: (value) => value.join(','),
+      value ? (value.split(',') as Array<FEEDBACK_STATUS>) : [],
+    serialize: (value) => value.map((v) => String(v)).join(','),
   });
-
   const [isAscendingOrder, setIsAscendingOrder] = useQueryState('order', {
     defaultValue: false,
     parse: (value) => value === 'true',
@@ -26,15 +23,15 @@ export default function useSponsorsAdminAdRequestFilters() {
   });
 
   const [sortField, setSortField] =
-    useQueryState<AdminSponsorsAdRequestSortField>('sortField', {
+    useQueryState<AdminSponsorsFeedbackSortField>('sortField', {
       defaultValue: 'createdAt',
       parse: (value) =>
-        (value as AdminSponsorsAdRequestSortField) || 'createdAt',
+        (value as AdminSponsorsFeedbackSortField) || 'createdAt',
       serialize: (value) => value,
     });
 
-  const statusFilterOptions: SponsorsAdminFilter<SponsorsAdRequestStatus> = {
-    id: 'status',
+  const statusFilterOptions: SponsorsAdminFilter<FEEDBACK_STATUS> = {
+    id: 'resolved',
     name: 'Status',
     onChange: (value) => {
       const newStatuses = new Set(selectedStatus);
@@ -48,10 +45,8 @@ export default function useSponsorsAdminAdRequestFilters() {
       setSelectedStatus([]);
     },
     options: [
-      { label: 'Pending', value: 'PENDING' },
-      { label: 'Approved', value: 'APPROVED' },
-      { label: 'Rejected', value: 'REJECTED' },
-      { label: 'Published', value: 'PUBLISHED' },
+      { label: 'Resolved', value: 'RESOLVED' },
+      { label: 'Unresolved', value: 'UNRESOLVED' },
     ],
   };
 
