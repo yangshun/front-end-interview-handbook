@@ -8,6 +8,7 @@
   "published": true,
   "importance": "low",
   "difficulty": "medium",
+  "frameworks": [],
   "similar_questions": ["make-counter", "jquery-css"],
   "next_questions": ["jquery-css"],
   "topics": ["closure"]

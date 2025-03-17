@@ -9,6 +9,8 @@
   "published": true,
   "importance": "low",
   "difficulty": "medium",
-  "similar_questions": [],
+  "frameworks": ["react"],
+  "topics": ["react-hooks"],
+  "similar_questions": ["use-event-listener"],
   "next_questions": []
 }

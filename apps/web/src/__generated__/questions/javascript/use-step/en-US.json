@@ -16,8 +16,13 @@
     "excerpt": "Implement a hook that manages a step counter for a multi-step process",
     "featured": false,
     "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-step"
+      }
+    ],
     "href": "/questions/javascript/use-step",
     "importance": "low",
     "languages": [
@@ -31,7 +36,9 @@
     "slug": "use-step",
     "subtitle": null,
     "title": "useStep",
-    "topics": []
+    "topics": [
+      "react-hooks"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {number} maxStep\n */\nexport default function useStep(maxStep) {\n  throw 'Not implemented';\n}",

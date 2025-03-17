@@ -16,8 +16,13 @@
     "excerpt": "Implement a hook that manages an object value",
     "featured": false,
     "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-object"
+      }
+    ],
     "href": "/questions/javascript/use-object",
     "importance": "low",
     "languages": [
@@ -35,7 +40,9 @@
     "slug": "use-object",
     "subtitle": null,
     "title": "useObject",
-    "topics": []
+    "topics": [
+      "react-hooks"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @template T\n * @param {T} initialValue\n */\nexport default function useObject(initialValue) {\n  throw 'Not implemented';\n}",

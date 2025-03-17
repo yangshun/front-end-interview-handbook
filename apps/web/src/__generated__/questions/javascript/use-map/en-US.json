@@ -16,8 +16,13 @@
     "excerpt": "Implement a hook that manages a JavaScript map",
     "featured": false,
     "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-map"
+      }
+    ],
     "href": "/questions/javascript/use-map",
     "importance": "low",
     "languages": [
@@ -35,7 +40,9 @@
     "slug": "use-map",
     "subtitle": null,
     "title": "useMap",
-    "topics": []
+    "topics": [
+      "react-hooks"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @template K, V\n * @param {Map<K, V> | [K, V][]} initialState\n */\nexport default function useMap(initialState) {\n  throw 'Not implemented';\n}",

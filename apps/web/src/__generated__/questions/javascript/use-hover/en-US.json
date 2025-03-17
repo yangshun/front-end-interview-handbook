@@ -16,8 +16,13 @@
     "excerpt": "Implement a hook that tracks whether an element is being hovered",
     "featured": false,
     "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-hover"
+      }
+    ],
     "href": "/questions/javascript/use-hover",
     "importance": "low",
     "languages": [
@@ -31,7 +36,9 @@
     "slug": "use-hover",
     "subtitle": null,
     "title": "useHover",
-    "topics": []
+    "topics": [
+      "react-hooks"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @template T\n * @returns {[import(\"react\").RefCallback<T>, boolean]}\n */\nexport default function useHover() {\n  throw 'Not implemented';\n}",

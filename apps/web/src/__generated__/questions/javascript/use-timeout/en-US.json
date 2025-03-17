@@ -16,8 +16,13 @@
     "excerpt": "Implement a hook that invokes a callback function after a specified delay",
     "featured": false,
     "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-timeout"
+      }
+    ],
     "href": "/questions/javascript/use-timeout",
     "importance": "low",
     "languages": [
@@ -34,7 +39,9 @@
     "slug": "use-timeout",
     "subtitle": null,
     "title": "useTimeout",
-    "topics": []
+    "topics": [
+      "react-hooks"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {() => void} callback\n * @param {number | null} delay\n */\nexport default function useTimeout(callback, delay) {\n  throw 'Not implemented';\n}",

@@ -16,8 +16,13 @@
     "excerpt": "Implement a hook that manages a JavaScript set",
     "featured": false,
     "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-set"
+      }
+    ],
     "href": "/questions/javascript/use-set",
     "importance": "low",
     "languages": [
@@ -35,7 +40,9 @@
     "slug": "use-set",
     "subtitle": null,
     "title": "useSet",
-    "topics": []
+    "topics": [
+      "react-hooks"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @template T\n * @param {Set<T>} initialState\n */\nexport default function useSet(initialState = new Set()) {\n  throw 'Not implemented';\n}",

@@ -16,8 +16,13 @@
     "excerpt": "Implement a hook that subscribes and responds to media query changes (e.g. screen size, resolution, orientation, etc.)",
     "featured": false,
     "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-media-query"
+      }
+    ],
     "href": "/questions/javascript/use-media-query",
     "importance": "medium",
     "languages": [
@@ -34,7 +39,9 @@
     "slug": "use-media-query",
     "subtitle": null,
     "title": "useMediaQuery",
-    "topics": []
+    "topics": [
+      "react-hooks"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {string} query\n * @returns {boolean}\n */\nexport default function useMediaQuery(query) {\n  throw 'Not implemented';\n}",

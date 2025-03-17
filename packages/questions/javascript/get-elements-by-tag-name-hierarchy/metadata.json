@@ -10,6 +10,7 @@
   "importance": "low",
   "difficulty": "hard",
   "featured": false,
+  "frameworks": [],
   "similar_questions": [
     "get-elements-by-class-name",
     "get-elements-by-style",

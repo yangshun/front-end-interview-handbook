@@ -17,6 +17,7 @@
   "published": true,
   "importance": "high",
   "difficulty": "medium",
+  "frameworks": [],
   "similar_questions": ["debounce"],
   "topics": ["async"]
 }

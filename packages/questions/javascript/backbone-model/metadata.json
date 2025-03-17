@@ -8,6 +8,7 @@
   "published": true,
   "importance": "medium",
   "difficulty": "hard",
+  "frameworks": [],
   "similar_questions": ["event-emitter", "event-emitter-ii"],
   "next_questions": [],
   "topics": ["oop"]

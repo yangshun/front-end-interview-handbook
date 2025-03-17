@@ -8601,8 +8601,13 @@
     "excerpt": "Implement a hook that manages an array of items",
     "featured": false,
     "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-array"
+      }
+    ],
     "href": "/questions/javascript/use-array",
     "importance": "low",
     "languages": [
@@ -8620,7 +8625,9 @@
     "slug": "use-array",
     "subtitle": null,
     "title": "useArray",
-    "topics": []
+    "topics": [
+      "react-hooks"
+    ]
   },
   {
     "access": "standard",
@@ -8632,8 +8639,13 @@
     "excerpt": "Implement a hook that manages a boolean state, with additional convenience utility methods",
     "featured": true,
     "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-boolean"
+      }
+    ],
     "href": "/questions/javascript/use-boolean",
     "importance": "medium",
     "languages": [
@@ -8653,7 +8665,9 @@
     "slug": "use-boolean",
     "subtitle": null,
     "title": "useBoolean",
-    "topics": []
+    "topics": [
+      "react-hooks"
+    ]
   },
   {
     "access": "premium",
@@ -8665,8 +8679,13 @@
     "excerpt": "Implement an optimized version of the useBoolean hook",
     "featured": false,
     "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-boolean-ii"
+      }
+    ],
     "href": "/questions/javascript/use-boolean-ii",
     "importance": "low",
     "languages": [
@@ -8683,7 +8702,9 @@
     "slug": "use-boolean-ii",
     "subtitle": null,
     "title": "useBoolean II",
-    "topics": []
+    "topics": [
+      "react-hooks"
+    ]
   },
   {
     "access": "premium",
@@ -8695,8 +8716,13 @@
     "excerpt": "Implement a hook that returns the current breakpoint name based on the current window width",
     "featured": false,
     "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-breakpoint"
+      }
+    ],
     "href": "/questions/javascript/use-breakpoint",
     "importance": "low",
     "languages": [
@@ -8713,7 +8739,9 @@
     "slug": "use-breakpoint",
     "subtitle": null,
     "title": "useBreakpoint",
-    "topics": []
+    "topics": [
+      "react-hooks"
+    ]
   },
   {
     "access": "standard",
@@ -8725,8 +8753,13 @@
     "excerpt": "Implement a hook that handles click events anywhere on the document",
     "featured": false,
     "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-click-anywhere"
+      }
+    ],
     "href": "/questions/javascript/use-click-anywhere",
     "importance": "low",
     "languages": [
@@ -8742,7 +8775,9 @@
     "slug": "use-click-anywhere",
     "subtitle": null,
     "title": "useClickAnywhere",
-    "topics": []
+    "topics": [
+      "react-hooks"
+    ]
   },
   {
     "access": "premium",
@@ -8754,8 +8789,13 @@
     "excerpt": "Implement a hook that detects clicks outside of a specified element",
     "featured": false,
     "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-click-outside"
+      }
+    ],
     "href": "/questions/javascript/use-click-outside",
     "importance": "medium",
     "languages": [
@@ -8771,7 +8811,9 @@
     "slug": "use-click-outside",
     "subtitle": null,
     "title": "useClickOutside",
-    "topics": []
+    "topics": [
+      "react-hooks"
+    ]
   },
   {
     "access": "premium",
@@ -8783,8 +8825,13 @@
     "excerpt": "Implement a hook that manages a countdown",
     "featured": false,
     "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-countdown"
+      }
+    ],
     "href": "/questions/javascript/use-countdown",
     "importance": "low",
     "languages": [
@@ -8801,7 +8848,9 @@
     "slug": "use-countdown",
     "subtitle": null,
     "title": "useCountdown",
-    "topics": []
+    "topics": [
+      "react-hooks"
+    ]
   },
   {
     "access": "free",
@@ -8813,8 +8862,13 @@
     "excerpt": "Implement a hook that manages a counter state, with some additional convenience utility methods",
     "featured": true,
     "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-counter"
+      }
+    ],
     "href": "/questions/javascript/use-counter",
     "importance": "medium",
     "languages": [
@@ -8834,7 +8888,9 @@
     "slug": "use-counter",
     "subtitle": null,
     "title": "useCounter",
-    "topics": []
+    "topics": [
+      "react-hooks"
+    ]
   },
   {
     "access": "free",
@@ -8846,8 +8902,13 @@
     "excerpt": "Implement an optimized version of the useCounter hook",
     "featured": false,
     "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-counter-ii"
+      }
+    ],
     "href": "/questions/javascript/use-counter-ii",
     "importance": "low",
     "languages": [
@@ -8861,7 +8922,9 @@
     "slug": "use-counter-ii",
     "subtitle": null,
     "title": "useCounter II",
-    "topics": []
+    "topics": [
+      "react-hooks"
+    ]
   },
   {
     "access": "standard",
@@ -8873,8 +8936,13 @@
     "excerpt": "Implement a hook that cycles through a sequence of values",
     "featured": false,
     "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-cycle"
+      }
+    ],
     "href": "/questions/javascript/use-cycle",
     "importance": "low",
     "languages": [
@@ -8888,7 +8956,9 @@
     "slug": "use-cycle",
     "subtitle": null,
     "title": "useCycle",
-    "topics": []
+    "topics": [
+      "react-hooks"
+    ]
   },
   {
     "access": "standard",
@@ -8900,8 +8970,13 @@
     "excerpt": "Implement a hook that debounces a value",
     "featured": false,
     "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-debounce"
+      }
+    ],
     "href": "/questions/javascript/use-debounce",
     "importance": "low",
     "languages": [
@@ -8919,7 +8994,9 @@
     "slug": "use-debounce",
     "subtitle": null,
     "title": "useDebounce",
-    "topics": []
+    "topics": [
+      "react-hooks"
+    ]
   },
   {
     "access": "premium",
@@ -8931,8 +9008,13 @@
     "excerpt": "Implement a hook that returns the default value when state is null or undefined",
     "featured": false,
     "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-default"
+      }
+    ],
     "href": "/questions/javascript/use-default",
     "importance": "low",
     "languages": [
@@ -8946,7 +9028,9 @@
     "slug": "use-default",
     "subtitle": null,
     "title": "useDefault",
-    "topics": []
+    "topics": [
+      "react-hooks"
+    ]
   },
   {
     "access": "premium",
@@ -8958,8 +9042,13 @@
     "excerpt": "Implement a hook that runs an effect only once",
     "featured": false,
     "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-effect-once"
+      }
+    ],
     "href": "/questions/javascript/use-effect-once",
     "importance": "low",
     "languages": [
@@ -8973,7 +9062,9 @@
     "slug": "use-effect-once",
     "subtitle": null,
     "title": "useEffectOnce",
-    "topics": []
+    "topics": [
+      "react-hooks"
+    ]
   },
   {
     "access": "premium",
@@ -8985,8 +9076,13 @@
     "excerpt": "Implement a hook that subscribes to browser events",
     "featured": false,
     "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-event-listener"
+      }
+    ],
     "href": "/questions/javascript/use-event-listener",
     "importance": "medium",
     "languages": [
@@ -9000,7 +9096,9 @@
     "slug": "use-event-listener",
     "subtitle": null,
     "title": "useEventListener",
-    "topics": []
+    "topics": [
+      "react-hooks"
+    ]
   },
   {
     "access": "premium",
@@ -9012,8 +9110,13 @@
     "excerpt": "Implement a hook that enables programmatic focusing of an element",
     "featured": false,
     "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-focus"
+      }
+    ],
     "href": "/questions/javascript/use-focus",
     "importance": "low",
     "languages": [
@@ -9027,7 +9130,9 @@
     "slug": "use-focus",
     "subtitle": null,
     "title": "useFocus",
-    "topics": []
+    "topics": [
+      "react-hooks"
+    ]
   },
   {
     "access": "premium",
@@ -9039,8 +9144,13 @@
     "excerpt": "Implement a hook that tracks whether an element is being hovered",
     "featured": false,
     "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-hover"
+      }
+    ],
     "href": "/questions/javascript/use-hover",
     "importance": "low",
     "languages": [
@@ -9054,7 +9164,9 @@
     "slug": "use-hover",
     "subtitle": null,
     "title": "useHover",
-    "topics": []
+    "topics": [
+      "react-hooks"
+    ]
   },
   {
     "access": "premium",
@@ -9062,12 +9174,17 @@
     "companies": [],
     "created": 1742169600,
     "difficulty": "medium",
-    "duration": 15,
+    "duration": 20,
     "excerpt": "Implement a hook that detects user inactivity",
     "featured": false,
     "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-idle"
+      }
+    ],
     "href": "/questions/javascript/use-idle",
     "importance": "low",
     "languages": [
@@ -9081,7 +9198,9 @@
     "slug": "use-idle",
     "subtitle": null,
     "title": "useIdle",
-    "topics": []
+    "topics": [
+      "react-hooks"
+    ]
   },
   {
     "access": "free",
@@ -9093,8 +9212,13 @@
     "excerpt": "Implement a hook that manages a controlled input value and tracks its dirty & touched state",
     "featured": false,
     "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-input-control"
+      }
+    ],
     "href": "/questions/javascript/use-input-control",
     "importance": "medium",
     "languages": [
@@ -9108,7 +9232,9 @@
     "slug": "use-input-control",
     "subtitle": null,
     "title": "useInputControl",
-    "topics": []
+    "topics": [
+      "react-hooks"
+    ]
   },
   {
     "access": "premium",
@@ -9120,8 +9246,13 @@
     "excerpt": "Implement a hook that creates an interval that invokes a callback function at a specified delay",
     "featured": false,
     "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-interval"
+      }
+    ],
     "href": "/questions/javascript/use-interval",
     "importance": "low",
     "languages": [
@@ -9138,7 +9269,9 @@
     "slug": "use-interval",
     "subtitle": null,
     "title": "useInterval",
-    "topics": []
+    "topics": [
+      "react-hooks"
+    ]
   },
   {
     "access": "premium",
@@ -9150,8 +9283,13 @@
     "excerpt": "Implement a hook that subscribes to keyboard events",
     "featured": false,
     "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-key-press"
+      }
+    ],
     "href": "/questions/javascript/use-key-press",
     "importance": "low",
     "languages": [
@@ -9161,11 +9299,15 @@
     "nextQuestions": [],
     "published": true,
     "ranking": 100,
-    "similarQuestions": [],
+    "similarQuestions": [
+      "use-event-listener"
+    ],
     "slug": "use-key-press",
     "subtitle": null,
     "title": "useKeyPress",
-    "topics": []
+    "topics": [
+      "react-hooks"
+    ]
   },
   {
     "access": "premium",
@@ -9177,8 +9319,13 @@
     "excerpt": "Implement a hook that manages a JavaScript map",
     "featured": false,
     "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-map"
+      }
+    ],
     "href": "/questions/javascript/use-map",
     "importance": "low",
     "languages": [
@@ -9196,7 +9343,9 @@
     "slug": "use-map",
     "subtitle": null,
     "title": "useMap",
-    "topics": []
+    "topics": [
+      "react-hooks"
+    ]
   },
   {
     "access": "free",
@@ -9208,8 +9357,13 @@
     "excerpt": "Implement a hook that subscribes and responds to media query changes (e.g. screen size, resolution, orientation, etc.)",
     "featured": false,
     "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-media-query"
+      }
+    ],
     "href": "/questions/javascript/use-media-query",
     "importance": "medium",
     "languages": [
@@ -9226,7 +9380,9 @@
     "slug": "use-media-query",
     "subtitle": null,
     "title": "useMediaQuery",
-    "topics": []
+    "topics": [
+      "react-hooks"
+    ]
   },
   {
     "access": "standard",
@@ -9234,12 +9390,17 @@
     "companies": [],
     "created": 1742169600,
     "difficulty": "medium",
-    "duration": 15,
+    "duration": 20,
     "excerpt": "Implement a hook that is similar to useState, but supports a mediation process",
     "featured": false,
     "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-mediated-state"
+      }
+    ],
     "href": "/questions/javascript/use-mediated-state",
     "importance": "low",
     "languages": [
@@ -9255,7 +9416,9 @@
     "slug": "use-mediated-state",
     "subtitle": null,
     "title": "useMediatedState",
-    "topics": []
+    "topics": [
+      "react-hooks"
+    ]
   },
   {
     "access": "premium",
@@ -9267,8 +9430,13 @@
     "excerpt": "Implement a hook that manages an object value",
     "featured": false,
     "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-object"
+      }
+    ],
     "href": "/questions/javascript/use-object",
     "importance": "low",
     "languages": [
@@ -9286,7 +9454,9 @@
     "slug": "use-object",
     "subtitle": null,
     "title": "useObject",
-    "topics": []
+    "topics": [
+      "react-hooks"
+    ]
   },
   {
     "access": "premium",
@@ -9298,8 +9468,13 @@
     "excerpt": "Implement a hook that returns the previous value of a state",
     "featured": false,
     "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-previous"
+      }
+    ],
     "href": "/questions/javascript/use-previous",
     "importance": "low",
     "languages": [
@@ -9313,7 +9488,9 @@
     "slug": "use-previous",
     "subtitle": null,
     "title": "usePrevious",
-    "topics": []
+    "topics": [
+      "react-hooks"
+    ]
   },
   {
     "access": "free",
@@ -9325,8 +9502,13 @@
     "excerpt": "Implement a hook that manages a promise resolution",
     "featured": false,
     "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-query"
+      }
+    ],
     "href": "/questions/javascript/use-query",
     "importance": "high",
     "languages": [
@@ -9340,7 +9522,9 @@
     "slug": "use-query",
     "subtitle": null,
     "title": "useQuery",
-    "topics": []
+    "topics": [
+      "react-hooks"
+    ]
   },
   {
     "access": "premium",
@@ -9387,8 +9571,13 @@
     "excerpt": "Implement a hook that manages a JavaScript set",
     "featured": false,
     "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-set"
+      }
+    ],
     "href": "/questions/javascript/use-set",
     "importance": "low",
     "languages": [
@@ -9406,7 +9595,9 @@
     "slug": "use-set",
     "subtitle": null,
     "title": "useSet",
-    "topics": []
+    "topics": [
+      "react-hooks"
+    ]
   },
   {
     "access": "premium",
@@ -9418,8 +9609,13 @@
     "excerpt": "Implement a hook that's similar to useState but with an additional reset function that resets the state to its initial value",
     "featured": false,
     "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-state-with-reset"
+      }
+    ],
     "href": "/questions/javascript/use-state-with-reset",
     "importance": "low",
     "languages": [
@@ -9435,7 +9631,9 @@
     "slug": "use-state-with-reset",
     "subtitle": null,
     "title": "useStateWithReset",
-    "topics": []
+    "topics": [
+      "react-hooks"
+    ]
   },
   {
     "access": "premium",
@@ -9447,8 +9645,13 @@
     "excerpt": "Implement a hook that manages a step counter for a multi-step process",
     "featured": false,
     "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-step"
+      }
+    ],
     "href": "/questions/javascript/use-step",
     "importance": "low",
     "languages": [
@@ -9462,7 +9665,9 @@
     "slug": "use-step",
     "subtitle": null,
     "title": "useStep",
-    "topics": []
+    "topics": [
+      "react-hooks"
+    ]
   },
   {
     "access": "premium",
@@ -9474,17 +9679,20 @@
     "excerpt": "Implement a hook that throttles a value",
     "featured": false,
     "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-throttle"
+      }
+    ],
     "href": "/questions/javascript/use-throttle",
     "importance": "low",
     "languages": [
       "js",
       "ts"
     ],
-    "nextQuestions": [
-      "use-debounce"
-    ],
+    "nextQuestions": [],
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -9493,7 +9701,9 @@
     "slug": "use-throttle",
     "subtitle": null,
     "title": "useThrottle",
-    "topics": []
+    "topics": [
+      "react-hooks"
+    ]
   },
   {
     "access": "free",
@@ -9505,8 +9715,13 @@
     "excerpt": "Implement a hook that invokes a callback function after a specified delay",
     "featured": false,
     "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-timeout"
+      }
+    ],
     "href": "/questions/javascript/use-timeout",
     "importance": "low",
     "languages": [
@@ -9523,7 +9738,9 @@
     "slug": "use-timeout",
     "subtitle": null,
     "title": "useTimeout",
-    "topics": []
+    "topics": [
+      "react-hooks"
+    ]
   },
   {
     "access": "premium",
@@ -9535,8 +9752,13 @@
     "excerpt": "Implement a hook that manages a boolean toggle state",
     "featured": false,
     "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-toggle"
+      }
+    ],
     "href": "/questions/javascript/use-toggle",
     "importance": "low",
     "languages": [
@@ -9554,7 +9776,9 @@
     "slug": "use-toggle",
     "subtitle": null,
     "title": "useToggle",
-    "topics": []
+    "topics": [
+      "react-hooks"
+    ]
   },
   {
     "access": "free",
@@ -9566,8 +9790,13 @@
     "excerpt": "Implement a hook that returns the current height and width of the window",
     "featured": false,
     "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-window-size"
+      }
+    ],
     "href": "/questions/javascript/use-window-size",
     "importance": "low",
     "languages": [
@@ -9584,7 +9813,9 @@
     "slug": "use-window-size",
     "subtitle": null,
     "title": "useWindowSize",
-    "topics": []
+    "topics": [
+      "react-hooks"
+    ]
   },
   {
     "access": "standard",

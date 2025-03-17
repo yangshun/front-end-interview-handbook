@@ -9,5 +9,6 @@
   "published": true,
   "importance": "low",
   "difficulty": "easy",
+  "frameworks": [],
   "similar_questions": ["data-selection"]
 }

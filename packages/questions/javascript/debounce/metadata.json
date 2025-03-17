@@ -22,6 +22,7 @@
   "importance": "high",
   "difficulty": "medium",
   "featured": true,
+  "frameworks": [],
   "similar_questions": ["throttle"],
   "next_questions": ["debounce-ii", "holy-grail"],
   "topics": ["async"]

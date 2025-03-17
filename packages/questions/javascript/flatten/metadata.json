@@ -21,6 +21,7 @@
   "importance": "high",
   "featured": true,
   "difficulty": "medium",
+  "frameworks": [],
   "similar_questions": ["squash-object", "get"],
   "next_questions": ["todo-list", "holy-grail", "deep-equal"],
   "topics": ["recursion"]

@@ -8,5 +8,6 @@
   "published": true,
   "importance": "medium",
   "difficulty": "easy",
+  "frameworks": [],
   "similar_questions": ["function-bind", "function-call"]
 }

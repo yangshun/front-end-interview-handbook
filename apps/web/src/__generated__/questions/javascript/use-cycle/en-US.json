@@ -16,8 +16,13 @@
     "excerpt": "Implement a hook that cycles through a sequence of values",
     "featured": false,
     "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-cycle"
+      }
+    ],
     "href": "/questions/javascript/use-cycle",
     "importance": "low",
     "languages": [
@@ -31,7 +36,9 @@
     "slug": "use-cycle",
     "subtitle": null,
     "title": "useCycle",
-    "topics": []
+    "topics": [
+      "react-hooks"
+    ]
   },
   "skeleton": {
     "js": "export default function useCycle(...args) {\n  throw 'Not implemented';\n}",

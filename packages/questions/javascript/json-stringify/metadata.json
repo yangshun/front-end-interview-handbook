@@ -9,6 +9,7 @@
   "importance": "low",
   "difficulty": "medium",
   "featured": true,
+  "frameworks": [],
   "similar_questions": ["html-serializer"],
   "next_questions": ["json-stringify-ii"],
   "topics": ["recursion"]

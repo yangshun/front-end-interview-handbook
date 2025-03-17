@@ -16,8 +16,13 @@
     "excerpt": "Implement a hook that subscribes to browser events",
     "featured": false,
     "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-event-listener"
+      }
+    ],
     "href": "/questions/javascript/use-event-listener",
     "importance": "medium",
     "languages": [
@@ -31,7 +36,9 @@
     "slug": "use-event-listener",
     "subtitle": null,
     "title": "useEventListener",
-    "topics": []
+    "topics": [
+      "react-hooks"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @template T\n *\n * @param {string} eventName\n * @param {(event) => void} handler\n * @param {import(\"react\").RefObject<T> | undefined} [element]\n * @param {boolean | AddEventListenerOptions | undefined} [options]\n */\nexport default function useEventListener(eventName, handler, element, options) {\n  throw 'Not implemented';\n}",

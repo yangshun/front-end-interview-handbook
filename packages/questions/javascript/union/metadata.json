@@ -8,6 +8,7 @@
   "published": false,
   "importance": "low",
   "difficulty": "easy",
+  "frameworks": [],
   "similar_questions": ["intersection"],
   "next_questions": ["unique-array"]
 }

@@ -8,5 +8,6 @@
   "published": true,
   "importance": "medium",
   "difficulty": "hard",
+  "frameworks": [],
   "similar_questions": ["classnames"]
 }

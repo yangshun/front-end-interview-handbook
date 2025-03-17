@@ -8,6 +8,7 @@
   "published": false,
   "importance": "low",
   "difficulty": "medium",
+  "frameworks": [],
   "similar_questions": [],
   "next_questions": ["uniq-with", "union", "union-by"]
 }

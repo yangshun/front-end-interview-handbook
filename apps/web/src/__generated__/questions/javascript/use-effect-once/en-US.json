@@ -16,8 +16,13 @@
     "excerpt": "Implement a hook that runs an effect only once",
     "featured": false,
     "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-effect-once"
+      }
+    ],
     "href": "/questions/javascript/use-effect-once",
     "importance": "low",
     "languages": [
@@ -31,7 +36,9 @@
     "slug": "use-effect-once",
     "subtitle": null,
     "title": "useEffectOnce",
-    "topics": []
+    "topics": [
+      "react-hooks"
+    ]
   },
   "skeleton": {
     "js": "export default function useEffectOnce(effect) {\n  throw 'Not implemented';\n}",

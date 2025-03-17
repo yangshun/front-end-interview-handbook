@@ -9,6 +9,7 @@
   "published": true,
   "importance": "low",
   "difficulty": "medium",
+  "frameworks": [],
   "similar_questions": ["deep-equal"],
   "topics": ["recursion", "tree", "web-api"]
 }

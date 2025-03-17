@@ -16,8 +16,13 @@
     "excerpt": "Implement an optimized version of the useBoolean hook",
     "featured": false,
     "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-boolean-ii"
+      }
+    ],
     "href": "/questions/javascript/use-boolean-ii",
     "importance": "low",
     "languages": [
@@ -34,7 +39,9 @@
     "slug": "use-boolean-ii",
     "subtitle": null,
     "title": "useBoolean II",
-    "topics": []
+    "topics": [
+      "react-hooks"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param boolean initialValue\n * @return Object\n */\nexport default function useBoolean(initialValue) {\n  throw 'Not implemented!';\n}",

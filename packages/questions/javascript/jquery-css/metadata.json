@@ -9,6 +9,7 @@
   "published": true,
   "importance": "medium",
   "difficulty": "easy",
+  "frameworks": [],
   "similar_questions": ["jquery-class-manipulation"],
   "topics": ["oop", "web-api"]
 }

@@ -10,6 +10,7 @@
   "importance": "low",
   "difficulty": "hard",
   "featured": true,
+  "frameworks": [],
   "similar_questions": ["html-serializer"],
   "topics": ["recursion"]
 }

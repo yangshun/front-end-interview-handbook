@@ -8,5 +8,6 @@
   "published": false,
   "importance": "low",
   "difficulty": "medium",
+  "frameworks": [],
   "similar_questions": ["data-selection", "unique-array", "uniq-by"]
 }

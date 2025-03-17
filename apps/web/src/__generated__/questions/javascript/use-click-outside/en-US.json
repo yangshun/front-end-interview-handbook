@@ -16,8 +16,13 @@
     "excerpt": "Implement a hook that detects clicks outside of a specified element",
     "featured": false,
     "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-click-outside"
+      }
+    ],
     "href": "/questions/javascript/use-click-outside",
     "importance": "medium",
     "languages": [
@@ -33,7 +38,9 @@
     "slug": "use-click-outside",
     "subtitle": null,
     "title": "useClickOutside",
-    "topics": []
+    "topics": [
+      "react-hooks"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @template T\n * @param {import(\"react\").RefObject<T>} ref\n * @param {(event) => void} handler\n * @param {'mousedown' | 'touchstart' | undefined} eventType\n * @param {boolean | AddEventListenerOptions | undefined} eventListenerOptions\n */\nexport default function useClickOutside(\n  ref,\n  handler,\n  eventType = 'mousedown',\n  eventListenerOptions = {},\n) {\n  throw 'Not implemented';\n}",

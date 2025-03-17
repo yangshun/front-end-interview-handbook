@@ -16,8 +16,13 @@
     "excerpt": "Implement a hook that's similar to useState but with an additional reset function that resets the state to its initial value",
     "featured": false,
     "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-state-with-reset"
+      }
+    ],
     "href": "/questions/javascript/use-state-with-reset",
     "importance": "low",
     "languages": [
@@ -33,7 +38,9 @@
     "slug": "use-state-with-reset",
     "subtitle": null,
     "title": "useStateWithReset",
-    "topics": []
+    "topics": [
+      "react-hooks"
+    ]
   },
   "skeleton": {
     "js": "export default function useStateWithReset(initialStateOrInitializer) {\n  throw 'Not implemented';\n}",

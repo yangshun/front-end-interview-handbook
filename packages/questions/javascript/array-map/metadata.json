@@ -8,6 +8,7 @@
   "published": true,
   "importance": "medium",
   "difficulty": "easy",
+  "frameworks": [],
   "similar_questions": ["array-square", "array-filter", "array-reduce"],
   "next_questions": ["contact-form", "curry", "deep-map", "object-map"]
 }

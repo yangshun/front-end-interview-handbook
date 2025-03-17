@@ -16,8 +16,13 @@
     "excerpt": "Implement a hook that creates an interval that invokes a callback function at a specified delay",
     "featured": false,
     "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-interval"
+      }
+    ],
     "href": "/questions/javascript/use-interval",
     "importance": "low",
     "languages": [
@@ -34,7 +39,9 @@
     "slug": "use-interval",
     "subtitle": null,
     "title": "useInterval",
-    "topics": []
+    "topics": [
+      "react-hooks"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {() => void} callback\n * @param {number | null} delay\n */\nexport default function useInterval(callback, delay) {\n  throw 'Not implemented';\n}",

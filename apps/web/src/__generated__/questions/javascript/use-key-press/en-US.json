@@ -16,8 +16,13 @@
     "excerpt": "Implement a hook that subscribes to keyboard events",
     "featured": false,
     "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-key-press"
+      }
+    ],
     "href": "/questions/javascript/use-key-press",
     "importance": "low",
     "languages": [
@@ -27,11 +32,15 @@
     "nextQuestions": [],
     "published": true,
     "ranking": 100,
-    "similarQuestions": [],
+    "similarQuestions": [
+      "use-event-listener"
+    ],
     "slug": "use-key-press",
     "subtitle": null,
     "title": "useKeyPress",
-    "topics": []
+    "topics": [
+      "react-hooks"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @callback callback\n * @param {KeyboardEvent} e\n */\n\n/**\n * @typedef {Object} UseKeyPressOptions\n * @property {'keyup' | 'keydown'} event\n * @property {EventTarget} target\n */\n\n/**\n * @param {string} key\n * @param {callback} callback\n * @param {UseKeyPressOptions} options\n */\nexport default function useKeyPress(\n  key,\n  callback,\n  { event = 'keydown', target = window } = {\n    event: 'keydown',\n    target: window,\n  },\n) {\n  throw 'Not implemented';\n}",

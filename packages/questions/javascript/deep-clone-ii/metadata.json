@@ -9,6 +9,7 @@
   "published": true,
   "importance": "medium",
   "difficulty": "hard",
+  "frameworks": [],
   "similar_questions": ["deep-clone"],
   "topics": ["recursion"]
 }

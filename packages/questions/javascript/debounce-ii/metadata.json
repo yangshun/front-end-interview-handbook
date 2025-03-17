@@ -18,6 +18,7 @@
   "importance": "high",
   "difficulty": "medium",
   "featured": false,
+  "frameworks": [],
   "similar_questions": ["debounce", "throttle"],
   "next_questions": ["throttle"],
   "topics": ["async"]

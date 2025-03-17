@@ -8,6 +8,7 @@
   "published": true,
   "importance": "low",
   "difficulty": "medium",
+  "frameworks": [],
   "similar_questions": ["promise-reject", "promise-timeout"],
   "next_questions": ["promise-with-resolvers"],
   "topics": ["async"]

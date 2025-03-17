@@ -9,6 +9,8 @@
   "published": true,
   "importance": "low",
   "difficulty": "easy",
+  "frameworks": ["react"],
+  "topics": ["react-hooks"],
   "similar_questions": [],
   "next_questions": ["use-click-outside"]
 }

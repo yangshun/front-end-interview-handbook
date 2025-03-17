@@ -9,6 +9,7 @@
   "published": true,
   "importance": "medium",
   "difficulty": "medium",
+  "frameworks": [],
   "similar_questions": [
     "get-elements-by-tag-name",
     "get-elements-by-class-name"

@@ -16,8 +16,13 @@
     "excerpt": "Implement a hook that returns the current height and width of the window",
     "featured": false,
     "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-window-size"
+      }
+    ],
     "href": "/questions/javascript/use-window-size",
     "importance": "low",
     "languages": [
@@ -34,7 +39,9 @@
     "slug": "use-window-size",
     "subtitle": null,
     "title": "useWindowSize",
-    "topics": []
+    "topics": [
+      "react-hooks"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @typedef {Object} WindowSize\n * @property {number} height\n * @property {number} width\n */\n/**\n * @returns {WindowSize}\n */\nexport default function useWindowSize() {\n  throw 'Not implemented';\n}",

@@ -9,5 +9,6 @@
   "published": true,
   "importance": "low",
   "difficulty": "hard",
+  "frameworks": [],
   "similar_questions": ["curry", "curry-ii"]
 }

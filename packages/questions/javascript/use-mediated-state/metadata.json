@@ -5,10 +5,12 @@
   "author": "phillmont",
   "companies": [],
   "access": "standard",
-  "duration": 15,
+  "duration": 20,
   "published": true,
   "importance": "low",
   "difficulty": "medium",
+  "frameworks": ["react"],
+  "topics": ["react-hooks"],
   "similar_questions": ["use-state-with-reset"],
   "next_questions": []
 }

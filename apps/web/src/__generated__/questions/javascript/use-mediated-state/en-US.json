@@ -12,12 +12,17 @@
     "companies": [],
     "created": 1742169600,
     "difficulty": "medium",
-    "duration": 15,
+    "duration": 20,
     "excerpt": "Implement a hook that is similar to useState, but supports a mediation process",
     "featured": false,
     "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-mediated-state"
+      }
+    ],
     "href": "/questions/javascript/use-mediated-state",
     "importance": "low",
     "languages": [
@@ -33,7 +38,9 @@
     "slug": "use-mediated-state",
     "subtitle": null,
     "title": "useMediatedState",
-    "topics": []
+    "topics": [
+      "react-hooks"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @template T\n * @param {Function} mediator\n * @param {T | undefined} initialState\n */\nexport default function useMediatedState(mediator, initialState) {\n  throw 'Not implemented';\n}",

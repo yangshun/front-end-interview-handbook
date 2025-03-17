@@ -8,6 +8,7 @@
   "published": true,
   "importance": "medium",
   "difficulty": "easy",
+  "frameworks": [],
   "similar_questions": ["array-square", "array-map", "array-filter"],
   "next_questions": ["array-filter", "array-map"]
 }

@@ -9,6 +9,8 @@
   "published": true,
   "importance": "medium",
   "difficulty": "medium",
+  "frameworks": ["react"],
+  "topics": ["react-hooks"],
   "similar_questions": [],
   "next_questions": []
 }

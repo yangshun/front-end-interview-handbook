@@ -8,6 +8,7 @@
   "published": true,
   "importance": "low",
   "difficulty": "easy",
+  "frameworks": [],
   "similar_questions": ["in-range", "range-right"],
   "next_questions": ["range-right"]
 }

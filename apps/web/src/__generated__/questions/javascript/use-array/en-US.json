@@ -16,8 +16,13 @@
     "excerpt": "Implement a hook that manages an array of items",
     "featured": false,
     "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-array"
+      }
+    ],
     "href": "/questions/javascript/use-array",
     "importance": "low",
     "languages": [
@@ -35,7 +40,9 @@
     "slug": "use-array",
     "subtitle": null,
     "title": "useArray",
-    "topics": []
+    "topics": [
+      "react-hooks"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @template T\n * @param {T[]} defaultValue\n */\nexport default function useArray(defaultValue) {\n  throw 'Not implemented';\n}",

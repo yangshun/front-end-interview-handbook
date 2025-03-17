@@ -8,5 +8,6 @@
   "published": true,
   "importance": "high",
   "difficulty": "hard",
+  "frameworks": [],
   "similar_questions": ["unique-array"]
 }

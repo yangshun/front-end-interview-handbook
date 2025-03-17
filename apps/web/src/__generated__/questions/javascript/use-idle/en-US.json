@@ -12,12 +12,17 @@
     "companies": [],
     "created": 1742169600,
     "difficulty": "medium",
-    "duration": 15,
+    "duration": 20,
     "excerpt": "Implement a hook that detects user inactivity",
     "featured": false,
     "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-idle"
+      }
+    ],
     "href": "/questions/javascript/use-idle",
     "importance": "low",
     "languages": [
@@ -31,7 +36,9 @@
     "slug": "use-idle",
     "subtitle": null,
     "title": "useIdle",
-    "topics": []
+    "topics": [
+      "react-hooks"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @type {(keyof WindowEventMap)[]}\n */\nconst DEFAULT_EVENTS = [\n  'mousemove',\n  'mousedown',\n  'resize',\n  'keydown',\n  'touchstart',\n  'wheel',\n];\n\n/**\n *\n * @param {number} ms\n * @param {boolean} initialState\n * @param {(keyof WindowEventMap)[]} events\n * @returns {boolean}\n */\nexport default function useIdle(\n  ms = 60_000,\n  initialState = false,\n  events = DEFAULT_EVENTS,\n) {\n  throw 'Not implemented';\n}",

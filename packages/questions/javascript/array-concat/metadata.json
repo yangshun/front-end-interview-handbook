@@ -9,6 +9,7 @@
   "importance": "medium",
   "difficulty": "medium",
   "featured": true,
+  "frameworks": [],
   "similar_questions": ["array-filter", "array-map", "array-reduce"],
   "next_questions": []
 }

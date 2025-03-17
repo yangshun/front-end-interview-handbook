@@ -10,6 +10,8 @@
   "importance": "medium",
   "difficulty": "easy",
   "featured": true,
+  "frameworks": ["react"],
+  "topics": ["react-hooks"],
   "similar_questions": ["use-counter"],
   "next_questions": ["use-boolean-ii", "use-cycle", "use-toggle"]
 }

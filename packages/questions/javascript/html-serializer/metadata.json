@@ -9,6 +9,7 @@
   "published": true,
   "importance": "low",
   "difficulty": "medium",
+  "frameworks": [],
   "similar_questions": ["json-stringify"],
   "topics": ["recursion"]
 }

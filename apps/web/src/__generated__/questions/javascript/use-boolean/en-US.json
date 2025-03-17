@@ -17,8 +17,13 @@
     "excerpt": "Implement a hook that manages a boolean state, with additional convenience utility methods",
     "featured": true,
     "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-boolean"
+      }
+    ],
     "href": "/questions/javascript/use-boolean",
     "importance": "medium",
     "languages": [
@@ -38,7 +43,9 @@
     "slug": "use-boolean",
     "subtitle": null,
     "title": "useBoolean",
-    "topics": []
+    "topics": [
+      "react-hooks"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param boolean initialValue\n * @return Object\n */\nexport default function useBoolean(initialValue) {\n  throw 'Not implemented!';\n}",

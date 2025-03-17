@@ -9,6 +9,7 @@
   "published": true,
   "importance": "low",
   "difficulty": "easy",
+  "frameworks": [],
   "similar_questions": ["type-utilities"],
   "next_questions": ["is-empty", "deep-clone", "deep-equal"]
 }

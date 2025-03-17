@@ -16,8 +16,13 @@
     "excerpt": "Implement a hook that manages a countdown",
     "featured": false,
     "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-countdown"
+      }
+    ],
     "href": "/questions/javascript/use-countdown",
     "importance": "low",
     "languages": [
@@ -34,7 +39,9 @@
     "slug": "use-countdown",
     "subtitle": null,
     "title": "useCountdown",
-    "topics": []
+    "topics": [
+      "react-hooks"
+    ]
   },
   "skeleton": {
     "js": "/**\n * @param {Object} options\n * @param {number} options.countStart\n * @param {number} [options.countStop=0]\n * @param {number} [options.intervalMs=1000]\n * @param {boolean} [options.isIncrement=false]\n */\nexport default function useCountdown({\n  countStart,\n  countStop = 0,\n  intervalMs = 1000,\n  isIncrement = false,\n}) {\n  throw 'Not implemented';\n}",
