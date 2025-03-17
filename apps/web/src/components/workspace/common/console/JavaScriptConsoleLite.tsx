@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { Console } from 'console-feed';
-import type { Methods } from 'console-feed/lib/definitions/Methods';
+import type { ComponentProps } from 'react';
 
 import { useCodingPreferences } from '~/components/global/CodingPreferencesProvider';
 import { useColorSchemePreferences } from '~/components/global/color-scheme/ColorSchemePreferencesProvider';
@@ -8,14 +8,8 @@ import { useColorSchemePreferences } from '~/components/global/color-scheme/Colo
 import JavaScriptConsoleEmptyState from './JavaScriptConsoleEmptyState';
 import { getConsoleStyles } from './JavaScriptConsoleStyles';
 
-type LogMessage = Readonly<{
-  data: Array<unknown>;
-  id: string;
-  method: Methods;
-}>;
-
 type Props = Readonly<{
-  logs: Array<LogMessage>;
+  logs: ComponentProps<typeof Console>['logs'];
 }>;
 
 export default function JavaScriptConsoleLite({ logs }: Props) {
