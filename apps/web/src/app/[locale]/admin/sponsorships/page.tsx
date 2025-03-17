@@ -3,7 +3,7 @@ import Container from '~/components/ui/Container';
 
 export default function Page() {
   return (
-    <Container className="py-10" width="marketing">
+    <Container className="py-10" width="app">
       <SponsorsAdminAdRequestListPage />
     </Container>
   );

@@ -41,7 +41,7 @@ export default function SponsorsAdminAdRequestPage({ requestId }: Props) {
           'lg:py-20',
           'flex flex-col items-center justify-center',
         )}
-        width="marketing">
+        width="app">
         <Spinner />
       </Container>
     );
@@ -83,7 +83,7 @@ export default function SponsorsAdminAdRequestPage({ requestId }: Props) {
 
   return (
     <div>
-      <Container className={clsx('py-12', 'lg:py-20')} width="marketing">
+      <Container className={clsx('py-12', 'lg:py-20')} width="app">
         {showEditMode && (
           <>
             <Heading level="heading4">

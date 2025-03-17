@@ -55,7 +55,7 @@ export default function SponsorsAdminAdRequestListFilters({
   }
 
   return (
-    <div className="flex flex-row flex-wrap gap-3 md:flex-col lg:flex-row">
+    <div className="flex flex-row flex-wrap gap-3">
       <div className="w-full flex-1 lg:w-auto">
         <TextInput
           isLabelHidden={true}
