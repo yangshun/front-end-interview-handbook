@@ -54,6 +54,24 @@ const authors: Record<string, Author> = {
     role: 'Senior Front End Engineer, Ofair',
     subtitle: 'Senior Front End Engineer, Ofair',
   },
+  phillmont: {
+    bio: (
+      <>
+        Phillmont is a Software Engineer at the AI Centre for Educational
+        Technologies, a research centre at the National University of Singapore
+        (NUS).
+      </>
+    ),
+    imageUrl: '/img/team/phillmont.jpg',
+    links: {
+      github: 'https://github.com/purfectliterature',
+      linkedin: 'https://www.linkedin.com/in/phillmont/',
+      website: 'https://phillmont.dev/',
+    },
+    name: 'Phillmont Muktar',
+    role: 'AI Engineer',
+    subtitle: 'AI Engineer',
+  },
   tanhauhau: {
     bio: (
       <>
