@@ -45,3 +45,6 @@ crowdin.yml
 
 # angular
 .angular
+
+# env
+.env

@@ -1,0 +1,18 @@
+{
+  "localeConfig": {
+    "source": "en-US",
+    "target": ["zh-CN", "ja-JP"]
+  },
+  "groups": [
+    {
+      "name": "App JSON",
+      "handler": "json",
+      "files": [
+        {
+          "source": "./src/locales/en-US.json",
+          "target": "./src/locales/{locale}.json"
+        }
+      ]
+    }
+  ]
+}

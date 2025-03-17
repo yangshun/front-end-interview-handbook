@@ -1,0 +1,12 @@
+{
+  "hashes": {
+    "hello": "627b0c2c",
+    "bye": "48112765",
+    "smart": "553ab50e"
+  },
+  "hash": "c206299b",
+  "translatedLocales": [
+    "zh-CN",
+    "ja-JP"
+  ]
+}

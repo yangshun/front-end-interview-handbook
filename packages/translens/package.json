@@ -1,8 +1,7 @@
 {
-  "name": "@gfe/translens",
+  "name": "translens",
   "version": "0.0.0",
   "description": "Modern translation toolchain",
-  "author": "Nitesh Seram <niteshseram@gmail.com>",
   "license": "MIT",
   "type": "module",
   "main": "dist/index.js",
@@ -23,9 +22,9 @@
     "prepublishOnly": "npm run verify"
   },
   "dependencies": {
-    "@ai-sdk/openai": "^0.0.33",
+    "@ai-sdk/deepseek": "^0.1.15",
     "@clack/prompts": "^0.9.1",
-    "ai": "^3.2.8",
+    "ai": "^4.1.61",
     "chalk": "^5.2.0",
     "dotenv": "^16.3.1",
     "glob": "^11.0.1",

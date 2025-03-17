@@ -1,25 +1,15 @@
 import { ITranslationService } from '../interfaces';
 import { generateText } from 'ai';
 
-import { createOpenAI } from '@ai-sdk/openai';
+import { deepseek } from '@ai-sdk/deepseek';
 
 export default class DeepSeekTranslationService implements ITranslationService {
-  private openai;
-  constructor() {
-    const apiKey = process.env.DEEPSEEK_API_KEY;
-    if (!apiKey) {
-      throw new Error('DEEPSEEK_API_KEY is not added.');
-    }
-    this.openai = createOpenAI({
-      apiKey,
-    });
-  }
   private async translateAPI(prompt: string): Promise<any> {
-    const result = await generateText({
-      model: this.openai('gpt-4o-mini'),
-      prompt: prompt,
+    const { text } = await generateText({
+      model: deepseek('deepseek-chat'),
+      prompt,
     });
-    return JSON.parse(result.text);
+    return JSON.parse(text);
   }
 
   private constructPrompt(
@@ -28,9 +18,9 @@ export default class DeepSeekTranslationService implements ITranslationService {
   ): string {
     return `You are a professional translator. Translate the following text to ${targetLocale}.
 Maintain the original meaning, tone, and formatting. Only return the translated text, no explanations or additional content.
-It is  a JSON object, translate it values and return the translated content in the same format with its key and value.
+It is a JSON object, translate its values and return the translated content in the same format with its key and value.
 
-Text to translate:
+JSON to translate:
 ${JSON.stringify(content)}`;
   }
 
@@ -39,7 +29,7 @@ ${JSON.stringify(content)}`;
     targetLocale: string,
   ): Promise<Record<string, string>> {
     const prompt = this.constructPrompt(items, targetLocale);
-    const translation = await this.translateAPI(prompt);
-    return translation;
+
+    return await this.translateAPI(prompt);
   }
 }
