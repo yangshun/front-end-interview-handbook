@@ -82,18 +82,27 @@ function InterviewsQuestionFormatCard({
           themeBackgroundLayerEmphasized,
           themeGlassyBorder,
         )}>
-        <Icon className={clsx('size-5', themeTextSubtitleColor)} />
+        <Icon
+          className={clsx(
+            'size-5',
+            themeTextSubtitleColor,
+            themeTextBrandColor_GroupHover,
+            'transition-colors',
+          )}
+        />
       </div>
       <div className="flex flex-1 items-center gap-4">
         <div className="flex flex-grow items-center gap-4">
           <div
             className={clsx(
               'flex flex-1 flex-col',
-              isFull ? 'gap-4' : 'gap-2',
+              isFull ? 'gap-3' : 'gap-2',
             )}>
             <div className="flex flex-1 flex-col gap-2">
               <Text size="body1" weight="bold">
-                {title}
+                <Anchor className="relative z-[1]" href={href} variant="flat">
+                  {title}
+                </Anchor>
               </Text>
               {isFull && (
                 <Text color="secondary" size="body2">

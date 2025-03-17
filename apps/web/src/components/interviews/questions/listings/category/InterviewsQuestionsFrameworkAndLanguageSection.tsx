@@ -77,7 +77,9 @@ function FrameworkCard({
       <div className="flex flex-1 flex-col gap-2">
         <div className="flex flex-wrap gap-x-2.5 gap-y-1">
           <Text size="body1" weight="bold">
-            {title}
+            <Anchor className="relative z-[1]" href={href} variant="flat">
+              {title}
+            </Anchor>
           </Text>
           {titleAddOnText && (
             <Badge label={titleAddOnText} size="sm" variant="neutral-active" />

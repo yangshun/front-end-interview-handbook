@@ -97,7 +97,16 @@ export default function InterviewsStudyListCard({
               src={logoUrl}
             />
           ) : (
-            Icon && <Icon className={clsx('size-6', themeTextSubtitleColor)} />
+            Icon && (
+              <Icon
+                className={clsx(
+                  'size-6',
+                  themeTextSubtitleColor,
+                  themeTextBrandColor_GroupHover,
+                  'transition-colors',
+                )}
+              />
+            )
           )}
         </div>
       )}
@@ -105,12 +114,14 @@ export default function InterviewsStudyListCard({
         <div
           className={clsx(
             'flex flex-1 flex-col',
-            showDescription ? 'gap-4' : 'gap-2',
+            showDescription ? 'gap-3' : 'gap-2',
           )}>
           <div className="flex flex-col items-start gap-2">
             <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
               <Text size="body1" weight="bold">
-                {showLongName ? longName : name}
+                <Anchor className="relative z-[1]" href={href} variant="flat">
+                  {showLongName ? longName : name}
+                </Anchor>
               </Text>
               {isStarted && (
                 <span>

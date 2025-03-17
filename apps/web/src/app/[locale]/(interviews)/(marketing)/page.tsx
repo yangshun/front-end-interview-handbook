@@ -1,6 +1,5 @@
 import type { Metadata } from 'next/types';
 
-import type { QuestionTopicToDisplay } from '~/components/interviews/marketing/InterviewsMarketingDisplayTopics';
 import { InterviewsMarketingDisplayTopics } from '~/components/interviews/marketing/InterviewsMarketingDisplayTopics';
 import type { QuestionBankDataType } from '~/components/interviews/marketing/InterviewsMarketingPracticeQuestionBankSection';
 import { InterviewsMarketingTestimonialsDict } from '~/components/interviews/marketing/testimonials/InterviewsMarketingTestimonials';
