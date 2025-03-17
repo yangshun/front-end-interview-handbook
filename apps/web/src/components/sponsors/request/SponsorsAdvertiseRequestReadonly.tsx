@@ -43,6 +43,7 @@ type Props = Readonly<{
       createdAt: Date;
       updatedAt: Date;
     }>;
+  mode?: 'default' | 'review';
   onEdit?: () => void;
 }>;
 
@@ -50,6 +51,7 @@ export default function SponsorsAdvertiseRequestReadonly({
   data,
   onEdit,
   alertMessage,
+  mode = 'default',
 }: Props) {
   const intl = useIntl();
   const { ads, company, emails, agreement, createdAt, updatedAt } = data;
@@ -154,7 +156,7 @@ export default function SponsorsAdvertiseRequestReadonly({
                 <div className="flex flex-col items-start">
                   <ul className="flex w-full flex-col gap-4">
                     {ads.map((ad) => (
-                      <AdFormatCard key={ad.id} ad={ad} />
+                      <AdFormatCard key={ad.id} ad={ad} mode={mode} />
                     ))}
                   </ul>
                   <div className="mt-4 flex w-full justify-between gap-4">
@@ -260,10 +262,13 @@ export default function SponsorsAdvertiseRequestReadonly({
   );
 }
 
-function AdFormatCard({ ad }: Readonly<{ ad: SponsorsAdFormatFormItem }>) {
+function AdFormatCard({
+  ad,
+  mode,
+}: Readonly<{ ad: SponsorsAdFormatFormItem; mode: 'default' | 'review' }>) {
   const intl = useIntl();
   const adFormatData = useSponsorsAdFormatData();
-  const [showPreview, setShowPreview] = useState(false);
+  const [showPreview, setShowPreview] = useState(mode === 'review');
 
   return (
     <li
@@ -275,16 +280,18 @@ function AdFormatCard({ ad }: Readonly<{ ad: SponsorsAdFormatFormItem }>) {
       )}>
       <div className={clsx('flex flex-wrap justify-between gap-x-2 gap-y-1')}>
         <Heading level="heading6">{adFormatData[ad.format].name}</Heading>
-        <Button
-          label={intl.formatMessage({
-            defaultMessage: 'Preview',
-            description: 'Label for preview',
-            id: 'JAQf3o',
-          })}
-          size="xs"
-          variant="secondary"
-          onClick={() => setShowPreview(!showPreview)}
-        />
+        {mode !== 'review' && (
+          <Button
+            label={intl.formatMessage({
+              defaultMessage: 'Preview',
+              description: 'Label for preview',
+              id: 'JAQf3o',
+            })}
+            size="xs"
+            variant="secondary"
+            onClick={() => setShowPreview(!showPreview)}
+          />
+        )}
       </div>
       <div className={clsx('flex flex-col', 'divide-y', themeDivideColor)}>
         <AdDetailRow

@@ -18,8 +18,8 @@ import Spinner from '~/components/ui/Spinner';
 import Text from '~/components/ui/Text';
 
 import SponsorsAdminAdRequestMessage from './SponsorsAdminAdRequestMessage';
-import SponsorsAdvertiseRequestReadonly from '../request/ads/SponsorsAdvertiseRequestReadonly';
 import SponsorsAdvertiseRequestForm from '../request/SponsorsAdvertiseRequestForm';
+import SponsorsAdvertiseRequestReadonly from '../request/SponsorsAdvertiseRequestReadonly';
 
 type Props = Readonly<{
   requestId: string;
@@ -137,6 +137,7 @@ export default function SponsorsAdminAdRequestPage({ requestId }: Props) {
               emails: adRequest.emails,
               updatedAt: adRequest.updatedAt,
             }}
+            mode="review"
             onEdit={() => setShowEditMode(true)}
           />
         )}

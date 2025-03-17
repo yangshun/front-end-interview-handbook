@@ -15,8 +15,8 @@ import TextInput from '~/components/ui/TextInput';
 
 import { useI18nRouter } from '~/next-i18nostic/src';
 
-import SponsorsAdvertiseRequestReadonly from './ads/SponsorsAdvertiseRequestReadonly';
 import SponsorsAdvertiseRequestForm from './SponsorsAdvertiseRequestForm';
+import SponsorsAdvertiseRequestReadonly from './SponsorsAdvertiseRequestReadonly';
 import type {
   SponsorCompanyAddress,
   SponsorsAdFormatFormItem,
