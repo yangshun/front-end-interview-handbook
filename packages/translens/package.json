@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "@ai-sdk/deepseek": "^0.1.15",
+    "@ai-sdk/openai": "^1.2.5",
     "@clack/prompts": "^0.9.1",
     "ai": "^4.1.61",
     "chalk": "^5.2.0",

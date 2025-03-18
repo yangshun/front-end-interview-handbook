@@ -1,16 +1,11 @@
-import { IConfigPathItem, LocaleConfig } from '../config/types';
+import { ConfigGroupPathItem, LocaleConfig } from '../config/types';
 import { globby } from 'globby';
-import { TranslationFileItem } from './types';
+import { TranslationFileMetadata } from './types';
 import { generateTargetPaths } from './generate-target-paths';
-
-type TranslationFileMetadata = Readonly<{
-  source: TranslationFileItem;
-  targets: ReadonlyArray<TranslationFileItem>;
-}>;
 
 export async function expandTargetPaths(
   localeConfig: LocaleConfig,
-  pathItem: IConfigPathItem,
+  pathItem: ConfigGroupPathItem,
 ): Promise<ReadonlyArray<TranslationFileMetadata>> {
   const paths = await globby(pathItem.source);
 

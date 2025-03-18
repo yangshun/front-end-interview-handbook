@@ -1,12 +1,13 @@
 {
+  "provider": "deepseek",
   "localeConfig": {
     "source": "en-US",
     "target": ["zh-CN", "pt-BR"]
   },
   "groups": [
     {
-      "name": "App strings",
-      "handler": "json",
+      "name": "app-strings",
+      "plugin": "json",
       "paths": [
         {
           "source": "./src/locales/en-US.json",
@@ -15,8 +16,8 @@
       ]
     },
     {
-      "name": "Blog posts",
-      "handler": "mdx",
+      "name": "blog-posts",
+      "plugin": "mdx",
       "paths": [
         {
           "source": "./src/blog/**/en-US.mdx",
@@ -25,8 +26,8 @@
       ]
     },
     {
-      "name": "Docs",
-      "handler": "mdx",
+      "name": "docs",
+      "plugin": "mdx",
       "paths": [
         {
           "source": "./src/docs/en-US/*.mdx",

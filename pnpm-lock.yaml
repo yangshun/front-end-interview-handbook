@@ -781,7 +781,7 @@ importers:
     dependencies:
       ts-jest:
         specifier: ^29.0.5
-        version: 29.1.1(jest@29.7.0)(typescript@5.7.3)
+        version: 29.1.1(@babel/core@7.24.7)(jest@29.7.0)(typescript@5.7.3)
 
   packages/questions:
     devDependencies:
@@ -818,6 +818,9 @@ importers:
       '@ai-sdk/deepseek':
         specifier: ^0.1.15
         version: 0.1.15(zod@3.24.2)
+      '@ai-sdk/openai':
+        specifier: ^1.2.5
+        version: 1.2.5(zod@3.24.2)
       '@clack/prompts':
         specifier: ^0.9.1
         version: 0.9.1
@@ -899,6 +902,17 @@ packages:
       '@ai-sdk/provider': 0.0.10
       '@ai-sdk/provider-utils': 0.0.16(zod@3.22.4)
       zod: 3.22.4
+    dev: false
+
+  /@ai-sdk/openai@1.2.5(zod@3.24.2):
+    resolution: {integrity: sha512-COK7LzspgQQh5Yq070xfDdVMvp8WX592rXRaMaYNNqu1xpzahxDcM24aF9xgKYWuYH0UMoOw4UmWGwGxr6ygIg==}
+    engines: {node: '>=18'}
+    peerDependencies:
+      zod: ^3.0.0
+    dependencies:
+      '@ai-sdk/provider': 1.0.11
+      '@ai-sdk/provider-utils': 2.1.13(zod@3.24.2)
+      zod: 3.24.2
     dev: false
 
   /@ai-sdk/provider-utils@0.0.16(zod@3.22.4):
@@ -17416,7 +17430,7 @@ packages:
       yargs-parser: 21.1.1
     dev: true
 
-  /ts-jest@29.1.1(jest@29.7.0)(typescript@5.7.3):
+  /ts-jest@29.1.1(@babel/core@7.24.7)(jest@29.7.0)(typescript@5.7.3):
     resolution: {integrity: sha512-D6xjnnbP17cC85nliwGiL+tpoKN0StpgE0TeOjXQTU6MVCfsB4v7aW05CgQ/1OywGb0x/oy9hHFnN+sczTiRaA==}
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
     hasBin: true
@@ -17437,6 +17451,7 @@ packages:
       esbuild:
         optional: true
     dependencies:
+      '@babel/core': 7.24.7
       bs-logger: 0.2.6
       fast-json-stable-stringify: 2.1.0
       jest: 29.7.0(@types/node@18.19.2)(ts-node@10.9.2)

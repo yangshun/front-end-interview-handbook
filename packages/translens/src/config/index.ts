@@ -6,6 +6,7 @@ import { IConfig } from './types';
 export const CONFIG_PATH = path.join(process.cwd(), 'translens.config.json');
 
 export const DEFAULT_CONFIG: IConfig = {
+  provider: 'openai',
   localeConfig: {
     source: 'en-US',
     target: ['pt-BR', 'zh-CN'],
@@ -13,7 +14,7 @@ export const DEFAULT_CONFIG: IConfig = {
   groups: [
     {
       name: 'example',
-      handler: 'json',
+      plugin: 'json',
       paths: [
         {
           source: './src/locales/en-US.json',

@@ -22,10 +22,12 @@ export class PluginManager implements IPluginManager {
   }
 
   private async loadFileHandlers() {
+    // @ts-expect-error
     if (!this.config.plugin?.handlers) {
       return;
     }
 
+    // @ts-expect-error
     for (const fileHandler of this.config.plugin.handlers) {
       try {
         const absolutePath = path.resolve(fileHandler.handlerFilePath);

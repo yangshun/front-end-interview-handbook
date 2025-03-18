@@ -16,7 +16,7 @@ import {
   ITranslationManager,
 } from './interfaces';
 import DeepSeekTranslationService from './translation/DeepSeekTranslationService';
-import { IConfig, IConfigGroup } from '../config/types';
+import { IConfig, ConfigGroup } from '../config/types';
 
 export async function translate() {
   const config = new Config().getConfig();
@@ -90,7 +90,7 @@ async function findFilesToTranslate(
       const fileHandler = getFileHandler({
         jsonHandler,
         mdxHandler,
-        handler: group.handler,
+        handler: group.plugin,
         fileHandlers,
       });
 
@@ -147,7 +147,7 @@ async function findFilesToTranslate(
             targetLocales: finalTargetLocales,
             excludeKeys: file.excludeKeys,
             target: file.target,
-            handler: group.handler,
+            handler: group.plugin,
           }));
       });
     }),
@@ -156,7 +156,7 @@ async function findFilesToTranslate(
   return { files: files.flat(), jsonHandler, mdxHandler };
 }
 
-function getLocaleConfig(group: IConfigGroup, config: IConfig) {
+function getLocaleConfig(group: ConfigGroup, config: IConfig) {
   const sourceLocale = group.localeConfig?.source || config.localeConfig.source; // Override the default locale config if provided
   const targetLocales =
     group.localeConfig?.target || config.localeConfig.target; // Override the default locale config if provided
