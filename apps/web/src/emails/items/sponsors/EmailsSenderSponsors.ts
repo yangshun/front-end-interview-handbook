@@ -11,6 +11,7 @@ const apiEndpoint = url.format({
   pathname: '/api/emails',
   query: {
     api_route_secret: process.env.API_ROUTE_SECRET,
+    'x-vercel-protection-bypass': process.env.VERCEL_AUTOMATION_BYPASS_SECRET,
   },
 });
 
