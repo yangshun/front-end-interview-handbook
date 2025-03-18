@@ -1,3 +1,4 @@
+import url from 'node:url';
 import { z } from 'zod';
 
 import { projectsNotificationForSubmissionVote } from '~/components/projects/notifications/ProjectsNotificationUtils';
@@ -16,8 +17,8 @@ import { projectsChallengeSubmissionImplementationSchemaServer } from '~/compone
 import { projectsChallengeSubmissionRepositoryUrlSchemaServer } from '~/components/projects/submissions/form/fields/ProjectsChallengeSubmissionRepositoryUrlSchema';
 import { projectsChallengeSubmissionSummarySchemaServer } from '~/components/projects/submissions/form/fields/ProjectsChallengeSubmissionSummarySchema';
 import { projectsChallengeSubmissionTitleSchemaServer } from '~/components/projects/submissions/form/fields/ProjectsChallengeSubmissionTitleSchema';
-import { generateScreenshots } from '~/components/projects/utils/screenshotUtils';
 
+import { getSiteOrigin } from '~/seo/siteUrl';
 import prisma from '~/server/prisma';
 import { getErrorMessage } from '~/utils/getErrorMessage';
 
@@ -371,10 +372,27 @@ export const projectsChallengeSubmissionItemRouter = router({
         }
 
         try {
-          const deploymentUrlsWithScreenshots = await generateScreenshots(
-            submissionId,
-            submission.deploymentUrls,
+          const screenshotsResponse = await fetch(
+            url.format({
+              host: getSiteOrigin(),
+              pathname: '/api/screenshots',
+              query: {
+                api_route_secret: process.env.API_ROUTE_SECRET,
+              },
+            }),
+            {
+              body: JSON.stringify({
+                deploymentUrls: submission.deploymentUrls,
+                submissionId,
+              }),
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              method: 'POST',
+            },
           );
+          const deploymentUrlsWithScreenshots =
+            await screenshotsResponse.json();
 
           // TODO(projects): Delete old screenshots from bucket.
           return await prisma.projectsChallengeSubmission.update({
