@@ -24,6 +24,9 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json(deploymentUrlsWithScreenshots);
   } catch (error) {
-    return NextResponse.json({ err: getErrorMessage(error) }, { status: 500 });
+    return NextResponse.json(
+      { error: getErrorMessage(error) },
+      { status: 500 },
+    );
   }
 }

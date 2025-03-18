@@ -375,9 +375,11 @@ export const projectsChallengeSubmissionItemRouter = router({
           const screenshotsResponse = await fetch(
             url.format({
               host: getSiteOrigin(),
-              pathname: '/api/screenshots',
+              pathname: '/api/projects/screenshots',
               query: {
                 api_route_secret: process.env.API_ROUTE_SECRET,
+                'x-vercel-protection-bypass':
+                  process.env.VERCEL_AUTOMATION_BYPASS_SECRET,
               },
             }),
             {
@@ -393,6 +395,13 @@ export const projectsChallengeSubmissionItemRouter = router({
           );
           const deploymentUrlsWithScreenshots =
             await screenshotsResponse.json();
+
+          if (deploymentUrlsWithScreenshots.error) {
+            throw new TRPCError({
+              code: 'INTERNAL_SERVER_ERROR',
+              message: deploymentUrlsWithScreenshots.error,
+            });
+          }
 
           // TODO(projects): Delete old screenshots from bucket.
           return await prisma.projectsChallengeSubmission.update({
