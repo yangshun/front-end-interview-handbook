@@ -9,5 +9,5 @@ export default defineConfig({
   minify: !isDev,
   target: 'esnext',
   dts: true,
-  onSuccess: isDev ? 'node dist/cli.js' : undefined,
+  // onSuccess: isDev ? 'node dist/cli.js' : undefined,
 });

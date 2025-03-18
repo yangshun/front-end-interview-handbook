@@ -2,11 +2,12 @@
   "hashes": {
     "hello": "627b0c2c",
     "bye": "48112765",
-    "smart": "553ab50e"
+    "smart": "553ab50e",
+    "boo": "23b17bc3"
   },
-  "hash": "c206299b",
+  "hash": "a41a9ec8",
   "translatedLocales": [
-    "zh-CN",
-    "ja-JP"
+    "pt-BR",
+    "zh-CN"
   ]
 }
