@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { log } from '@clack/prompts';
-import { IConfig } from '../types/config';
+import { IConfig } from './types';
 
 export const CONFIG_PATH = path.join(process.cwd(), 'translens.config.json');
 
@@ -14,7 +14,7 @@ export const DEFAULT_CONFIG: IConfig = {
     {
       name: 'example',
       handler: 'json',
-      files: [
+      paths: [
         {
           source: './src/locales/en-US.json',
           target: './src/locales/{locale}.json',

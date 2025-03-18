@@ -1,9 +1,9 @@
-import { IConfigFile } from '../types/config';
+import { IConfigPathItem } from '../../config/types';
 import { IFileHandler } from './IFileHandler';
 
 export interface ITranslationManager {
   translate(
-    file: IConfigFile,
+    file: IConfigPathItem,
     targetLocales: string[],
     fileHandler: IFileHandler,
   ): Promise<void>;

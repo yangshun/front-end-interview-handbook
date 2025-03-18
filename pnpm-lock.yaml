@@ -781,7 +781,7 @@ importers:
     dependencies:
       ts-jest:
         specifier: ^29.0.5
-        version: 29.1.1(@babel/core@7.24.7)(jest@29.7.0)(typescript@5.7.3)
+        version: 29.1.1(jest@29.7.0)(typescript@5.7.3)
 
   packages/questions:
     devDependencies:
@@ -833,6 +833,9 @@ importers:
       glob:
         specifier: ^11.0.1
         version: 11.0.1
+      globby:
+        specifier: ^13.2.2
+        version: 13.2.2
       gray-matter:
         specifier: ^4.0.3
         version: 4.0.3
@@ -11376,7 +11379,6 @@ packages:
       ignore: 5.3.0
       merge2: 1.4.1
       slash: 4.0.0
-    dev: true
 
   /globby@14.0.1:
     resolution: {integrity: sha512-jOMLD2Z7MAhyG8aJpNOpmziMOP4rPLcc95oQPKXBazW82z+CEgPFBQvEpRUa1KeIMUJo4Wsm+q6uzO/Q/4BksQ==}
@@ -16422,7 +16424,6 @@ packages:
   /slash@4.0.0:
     resolution: {integrity: sha512-3dOsAHXXUkQTpOYcoAxLIorMTp4gIQr5IW3iVb7A7lFIp0VHhnynm9izx6TssdrIcVIESAlVjtnO2K8bg+Coew==}
     engines: {node: '>=12'}
-    dev: true
 
   /slash@5.1.0:
     resolution: {integrity: sha512-ZA6oR3T/pEyuqwMgAKT0/hAv8oAXckzbkmR0UkUosQ+Mc4RxGoJkRmwHgHufaenlyAgE1Mxgpdcrf75y6XcnDg==}
@@ -17415,7 +17416,7 @@ packages:
       yargs-parser: 21.1.1
     dev: true
 
-  /ts-jest@29.1.1(@babel/core@7.24.7)(jest@29.7.0)(typescript@5.7.3):
+  /ts-jest@29.1.1(jest@29.7.0)(typescript@5.7.3):
     resolution: {integrity: sha512-D6xjnnbP17cC85nliwGiL+tpoKN0StpgE0TeOjXQTU6MVCfsB4v7aW05CgQ/1OywGb0x/oy9hHFnN+sczTiRaA==}
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
     hasBin: true
@@ -17436,7 +17437,6 @@ packages:
       esbuild:
         optional: true
     dependencies:
-      '@babel/core': 7.24.7
       bs-logger: 0.2.6
       fast-json-stable-stringify: 2.1.0
       jest: 29.7.0(@types/node@18.19.2)(ts-node@10.9.2)

@@ -1,4 +1,4 @@
-import { MDXHandler } from '../handlers/MDXHandler';
+import { MDXHandler } from './MDXHandler';
 import matter from 'gray-matter';
 import { IChangeDetector, IFileRegistryManager } from '../interfaces';
 

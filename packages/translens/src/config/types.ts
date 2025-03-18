@@ -3,7 +3,7 @@ export interface LocaleConfig {
   target: string[]; // Target locales
 }
 
-export interface IConfigFile {
+export interface IConfigPathItem {
   source: string; // source location for the base source locale file
   target: string; // target location for the translated locale file
   excludeKeys?: string[]; // Keys to skip from the translation
@@ -22,7 +22,7 @@ export interface IPlugin {
 export interface IConfigGroup {
   name: string;
   handler: 'json' | 'mdx' | 'string'; // Type of default handler or a custom handler
-  files: IConfigFile[];
+  paths: IConfigPathItem[];
   localeConfig?: LocaleConfig; // Optional, group-specific locale config
 }
 

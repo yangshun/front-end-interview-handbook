@@ -7,7 +7,7 @@ import {
   IPluginManager,
 } from '../interfaces';
 import BaseFileHandler from './BaseFileHandler';
-import { IConfig } from '../types/config';
+import { IConfig } from '../../config/types';
 
 export class PluginManager implements IPluginManager {
   constructor(

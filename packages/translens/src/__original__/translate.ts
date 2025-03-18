@@ -2,21 +2,21 @@ import { spinner, log } from '@clack/prompts';
 import chalk from 'chalk';
 
 import Config from '../config';
-import { JsonHandler, MDXHandler } from '../handlers';
-import FileEnumerator from '../lib/FileEnumerator';
-import FileRegistryManager from '../core/FileRegistryManager';
-import ChangeDetector from '../core/ChangeDetector';
-import TranslationManager from '../core/TranslationManager';
-import { PluginManager } from '../core/PluginManager';
+import { JsonHandler, MDXHandler } from './handlers';
+import FileEnumerator from './lib/FileEnumerator';
+import FileRegistryManager from './core/FileRegistryManager';
+import ChangeDetector from './core/ChangeDetector';
+import TranslationManager from './core/TranslationManager';
+import { PluginManager } from './core/PluginManager';
 import {
   IChangeDetector,
   IFileHandler,
   IFileRegistryManager,
   IPluginManager,
   ITranslationManager,
-} from '../interfaces';
-import DeepSeekTranslationService from '../translation/DeepSeekTranslationService';
-import { IConfig, IConfigGroup } from '../types/config';
+} from './interfaces';
+import DeepSeekTranslationService from './translation/DeepSeekTranslationService';
+import { IConfig, IConfigGroup } from '../config/types';
 
 export async function translate() {
   const config = new Config().getConfig();
@@ -98,7 +98,7 @@ async function findFilesToTranslate(
         return [];
       }
 
-      return group.files.map(async (file) => {
+      return group.paths.map(async (file) => {
         const { sourceLocale, targetLocales } = getLocaleConfig(group, config);
 
         // For safety, filter out the source locale from the target locales

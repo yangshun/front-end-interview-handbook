@@ -5,9 +5,9 @@
   },
   "groups": [
     {
-      "name": "App JSON",
+      "name": "App strings",
       "handler": "json",
-      "files": [
+      "paths": [
         {
           "source": "./src/locales/en-US.json",
           "target": "./src/locales/{locale}.json"
@@ -17,10 +17,20 @@
     {
       "name": "Blog posts",
       "handler": "mdx",
-      "files": [
+      "paths": [
         {
           "source": "./src/blog/**/en-US.mdx",
           "target": "./src/blog/**/{locale}.mdx"
+        }
+      ]
+    },
+    {
+      "name": "Docs",
+      "handler": "mdx",
+      "paths": [
+        {
+          "source": "./src/docs/en-US/*.mdx",
+          "target": "./src/docs/{locale}/*.mdx"
         }
       ]
     }

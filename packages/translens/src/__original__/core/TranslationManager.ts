@@ -7,7 +7,7 @@ import {
   ITranslationManager,
   ITranslationService,
 } from '../interfaces';
-import { IConfigFile } from '../types/config';
+import { IConfigPathItem } from '../../config/types';
 
 export default class TranslationManager implements ITranslationManager {
   constructor(
@@ -19,7 +19,7 @@ export default class TranslationManager implements ITranslationManager {
    * Translate a JSON file to multiple locales
    */
   async translate(
-    file: IConfigFile,
+    file: IConfigPathItem,
     targetLocales: string[],
     fileHandler: IFileHandler,
   ): Promise<void> {

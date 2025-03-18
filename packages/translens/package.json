@@ -4,8 +4,8 @@
   "description": "Modern translation toolchain",
   "license": "MIT",
   "type": "module",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/cli.js",
+  "types": "dist/cli.d.ts",
   "bin": "dist/cli.js",
   "files": [
     "dist"
@@ -28,6 +28,7 @@
     "chalk": "^5.2.0",
     "dotenv": "^16.3.1",
     "glob": "^11.0.1",
+    "globby": "^13.2.2",
     "gray-matter": "^4.0.3",
     "murmurhash": "^2.0.1"
   },
