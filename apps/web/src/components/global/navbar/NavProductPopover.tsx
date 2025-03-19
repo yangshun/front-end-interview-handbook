@@ -133,6 +133,7 @@ export default function NavProductPopover({
         <PopoverPrimitive.Portal>
           <NavProductPopoverContent
             product={product}
+            onClose={() => setOpen(false)}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           />
@@ -203,6 +204,7 @@ export function NavProductPopoverLogoOnly({
       <PopoverPrimitive.Portal>
         <NavProductPopoverContent
           product={product}
+          onClose={() => setOpen(false)}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         />

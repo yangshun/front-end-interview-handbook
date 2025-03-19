@@ -3,6 +3,7 @@ import type { ReactNode } from 'react';
 import { PiPathBold } from 'react-icons/pi';
 import { RiAwardLine, RiBriefcaseLine } from 'react-icons/ri';
 
+import { useAnchorClickHandler } from '~/hooks/useAnchorClickHandler';
 import { SPONSORSHIPS_AVAILABLE } from '~/data/FeatureFlags';
 
 import useCommonNavItems from '~/components/common/navigation/useCommonNavItems';
@@ -98,6 +99,7 @@ function NavProductMenuItem({
 
 type Props = PopoverPrimitive.PopoverContentProps &
   Readonly<{
+    onClose: () => void;
     product: ProductValue;
   }>;
 
@@ -106,10 +108,16 @@ const roadmapLinks: Record<ProductValue, string> = {
   projects: '/projects/roadmap',
 };
 
-export default function NavProductPopoverContent({ product, ...props }: Props) {
+export default function NavProductPopoverContent({
+  product,
+  onClose,
+  ...props
+}: Props) {
   const intl = useIntl();
   const items = useCommonNavItems();
   const [showUnseenIndicator] = useProductMenuUnseenIndicator();
+
+  const { handleAnchorItemClick } = useAnchorClickHandler(onClose);
 
   return (
     <PopoverPrimitive.Content
@@ -123,7 +131,8 @@ export default function NavProductPopoverContent({ product, ...props }: Props) {
         'outline-none',
       )}
       sideOffset={8}
-      {...props}>
+      {...props}
+      onClick={handleAnchorItemClick}>
       <div className={clsx('flex flex-col gap-3', 'px-5 pb-3 pt-4')}>
         <Text color="secondary" size="body3">
           <FormattedMessage

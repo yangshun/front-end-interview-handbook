@@ -121,6 +121,7 @@ export default function NavProductPopover_DEPRECATED({
       <PopoverPrimitive.Portal>
         <NavProductPopoverContent
           product={product}
+          onClose={() => setOpen(false)}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         />
