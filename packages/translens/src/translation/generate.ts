@@ -1,50 +1,73 @@
 import { generateText } from 'ai';
 import { TranslationProvider } from '../config/types';
-import {
-  TranslationGroupName,
-  TranslationStringArg,
-  TranslationStringItem,
-} from '../core/types';
+import { TranslationStringArg, TranslationStringMetadata } from '../core/types';
 import { providerModel } from './providers';
 
-const prompt = `You are a professional translator. Maintain the original meaning, tone, and formatting. Only return the translated text, no explanations or additional content.
+const prompt = `You are a professional translator. Maintain the original meaning, tone, and formatting.
 
-You are given a JSON object, translate its values and return in the following format:
+- You are given a JSON object containing a list of strings and the target locales within <json> tags
+- Translate the source strings within the JSON object from the source locale to the target locales
+- The expected return format is provided within <format> tags
+- Respond with only the translated object, strictly adhering to the format, no need for additional explanations or context
 
-{
-  "abc": [
-      { "string: "Hello, World!", "locale": "en-US" },
+<format>
+[
+  {
+    "id": "abc",
+    "filePath": "path/to/file",
+    "translations": {
+      "zh-CN": "...",
+      "pt-BR": "...",
       // Other locales
-    ],
+    },
   },
   // Other items
-}
-
-JSON object:
-
-
+]
+</format>
+<json>
+[DATA]
+</json>
 `;
+
+function hashFileString(filePath: string, id: string): string {
+  return `${filePath}#${id}`;
+}
 
 export async function generate(
   provider: TranslationProvider,
   strings: ReadonlyArray<TranslationStringArg>,
-) {
+): Promise<ReadonlyArray<TranslationStringMetadata>> {
   const model = providerModel(provider);
 
   const { text } = await generateText({
     model,
-    prompt: prompt + JSON.stringify(strings),
+    prompt: prompt.replace('[DATA]', JSON.stringify(strings)),
   });
 
-  const translationIdToStringItems: Record<
-    string,
-    ReadonlyArray<TranslationStringItem>
+  const translationStringsArray: ReadonlyArray<
+    Readonly<{
+      id: string;
+      filePath: string;
+      translations: Record<Locale, string>;
+    }>
   > = JSON.parse(text);
+  const translationStringsMap = new Map<string, Record<Locale, string>>();
+
+  translationStringsArray.forEach((item) => {
+    translationStringsMap.set(
+      hashFileString(item.filePath, item.id),
+      item.translations,
+    );
+  });
 
   return strings.map((string) => ({
-    id: string.id,
-    filePath: string.filePath,
-    source: string.source,
-    targets: translationIdToStringItems[string.id],
+    ...string,
+    targets: Object.entries(
+      // TODO: report if there are missing results from the LLM
+      translationStringsMap.get(hashFileString(string.filePath, string.id))!,
+    ).map(([locale, translation]) => ({
+      locale,
+      string: translation,
+    })),
   }));
 }
