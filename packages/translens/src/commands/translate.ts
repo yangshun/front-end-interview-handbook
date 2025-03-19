@@ -86,11 +86,7 @@ export async function translate() {
     );
     group.status = 'translating';
 
-    const translatedStrings = await generate(
-      config.provider,
-      job.group,
-      job.strings,
-    );
+    const translatedStrings = await generate(config.provider, job.strings);
     await group.pluginInstance.translationComplete(translatedStrings);
 
     console.info(

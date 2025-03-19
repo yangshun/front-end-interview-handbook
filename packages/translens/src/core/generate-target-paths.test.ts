@@ -1,4 +1,4 @@
-import { generateTargetPaths } from './generate-target-paths';
+import { generateTargetPaths } from './';
 
 describe('generateTargetPaths', () => {
   test('same output directory', () => {

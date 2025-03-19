@@ -14,6 +14,7 @@ export default function jsonPlugin(): Plugin {
       return [
         {
           id: 'hero-title',
+          filePath: 'src/locales/en-US.json',
           source: {
             string: 'Navigate front end interviews with ease',
             description: 'Hero text',
@@ -23,13 +24,14 @@ export default function jsonPlugin(): Plugin {
         },
         {
           id: 'hero-subtitle',
+          filePath: 'src/locales/en-US.json',
           source: {
             string:
               'Meet the front end interview prep platform built to make your interviews much easier.',
             description: 'Hero subtitle',
             locale: 'en-US',
           },
-          targets: ['zh-CN', 'ja-JP '],
+          targets: ['zh-CN', 'ja-JP'],
         },
       ];
     },

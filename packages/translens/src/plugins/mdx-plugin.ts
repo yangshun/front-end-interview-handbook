@@ -14,6 +14,7 @@ export default function mdxPlugin(): Plugin {
       return [
         {
           id: 'title',
+          filePath: 'blog/concurrency/en-US.mdx',
           source: {
             string: 'Concurrency',
             locale: 'en-US',
@@ -22,6 +23,7 @@ export default function mdxPlugin(): Plugin {
         },
         {
           id: 'description',
+          filePath: 'blog/hello-world/en-US.mdx',
           source: {
             string:
               'This introduces the term "Hello world!" to non-programmers',

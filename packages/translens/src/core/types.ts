@@ -25,12 +25,14 @@ export type TranslationStringItem = Readonly<{
 
 export type TranslationStringMetadata = Readonly<{
   id: string;
+  filePath: string;
   source: TranslationStringItem;
   targets: ReadonlyArray<TranslationStringItem>;
 }>;
 
 export type TranslationStringArg = Readonly<{
   id: string;
+  filePath: string;
   source: TranslationStringItem &
     Readonly<{
       description?: string; // Optional context for the translation

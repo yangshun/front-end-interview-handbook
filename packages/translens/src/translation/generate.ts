@@ -27,7 +27,6 @@ JSON object:
 
 export async function generate(
   provider: TranslationProvider,
-  groupName: TranslationGroupName,
   strings: ReadonlyArray<TranslationStringArg>,
 ) {
   const model = providerModel(provider);
@@ -44,6 +43,7 @@ export async function generate(
 
   return strings.map((string) => ({
     id: string.id,
+    filePath: string.filePath,
     source: string.source,
     targets: translationIdToStringItems[string.id],
   }));
