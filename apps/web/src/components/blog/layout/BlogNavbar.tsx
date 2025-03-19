@@ -5,6 +5,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 import { RiListUnordered, RiMenu2Line } from 'react-icons/ri';
 
+import { useAnchorClickHandler } from '~/hooks/useAnchorClickHandler';
 import useIsSticky from '~/hooks/useIsSticky';
 
 import type { BlogArticleNavigationType } from '~/components/blog/BlogTypes';
@@ -34,6 +35,11 @@ export default function BlogNavbar({ seriesContents }: Props) {
     // Hide left sidebar when page changes.
     setIsLeftSidebarOpen(false);
   }, [pathname]);
+
+  const { handleAnchorItemClick: handleLeftSidebarAnchorItemClick } =
+    useAnchorClickHandler(() => setIsLeftSidebarOpen(false));
+  const { handleAnchorItemClick: handleRightSidebarAnchorItemClick } =
+    useAnchorClickHandler(() => setIsRightSidebarOpen(false));
 
   return (
     <div
@@ -72,7 +78,9 @@ export default function BlogNavbar({ seriesContents }: Props) {
             />
           }
           onClose={() => setIsLeftSidebarOpen(false)}>
-          <BlogSidebar />
+          <div onClick={handleLeftSidebarAnchorItemClick}>
+            <BlogSidebar />
+          </div>
         </SlideOut>
         {seriesContents && (
           <SlideOut
@@ -96,7 +104,7 @@ export default function BlogNavbar({ seriesContents }: Props) {
               />
             }
             onClose={() => setIsRightSidebarOpen(false)}>
-            <div>
+            <div onClick={handleRightSidebarAnchorItemClick}>
               {seriesContents.subseriesTitle && (
                 <Text color="secondary" size="body3" weight="bold">
                   {seriesContents.seriesTitle}
