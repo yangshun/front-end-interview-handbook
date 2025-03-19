@@ -203,4 +203,14 @@ export const teamUsers: ReadonlyArray<TeamUser> = [
     name: 'Tram Minh Man',
     title: 'Ex-Software Engineering Intern @ GreatFrontEnd',
   },
+  {
+    category: 'team',
+    companyLogos: [],
+    description:
+      'Taha is excited about building web apps with a focus on user-centric design. He is big on writing clean, maintainable code, and does his best working with collaborative teams where he has opportunities to grow.',
+    href: 'https://www.linkedin.com/in/tahacheema/',
+    image: '/img/team/taha1.jpg',
+    name: 'Taha Cheema',
+    title: 'Software Engineering Intern @ GreatFrontEnd',
+  },
 ];
