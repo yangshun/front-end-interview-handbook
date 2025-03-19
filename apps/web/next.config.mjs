@@ -39,6 +39,7 @@ const nextConfig = {
       '@react-email/components',
       '@react-email/render',
       '@react-email/tailwind',
+      '@sparticuz/chromium',
     ],
   },
   transpilePackages: ['next-i18nostic'],
