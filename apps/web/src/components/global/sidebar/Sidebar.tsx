@@ -265,11 +265,12 @@ export function SidebarExpanded({
   return (
     <nav className={clsx('flex flex-col', 'relative h-full')}>
       <div className="flex grow flex-col justify-between p-4">
-        <div className="flex justify-center pb-7 pl-2">
+        <div className="flex justify-center pb-3 pl-2">
           <NavProductDropdownMenu product={product} variant="compact" />
         </div>
         <div className="flex grow flex-col justify-between gap-4">
-          <div className="h-0 grow overflow-auto">
+          <div
+            className={clsx('h-0 grow overflow-auto', 'vignette-scroll pt-4')}>
             <ScrollArea>
               {renderTopAddonElements?.(fadeInClass)}
               <SidebarLinksSection

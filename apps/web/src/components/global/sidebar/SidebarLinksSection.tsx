@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { type ReactNode, useEffect, useState } from 'react';
+import { type ReactNode, useEffect, useRef, useState } from 'react';
 import { RiArrowRightSLine } from 'react-icons/ri';
 
 import Anchor from '~/components/ui/Anchor';
@@ -67,6 +67,7 @@ function SidebarLinkItem({
 }: Readonly<{ onItemClick?: () => void; size: SidebarSize }> & SidebarLink) {
   const { pathname } = useI18nPathname();
   const isActive = isItemActive({ currentMatchRegex, href }, pathname);
+  const ref = useRef<HTMLLIElement>(null);
 
   const activeClassName = clsx(
     themeTextColor,
@@ -78,8 +79,16 @@ function SidebarLinkItem({
     themeTextSubtitleColor_Hover,
   );
 
+  useEffect(() => {
+    if (isActive && ref.current) {
+      setTimeout(() => {
+        ref.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }, 1000);
+    }
+  }, [isActive]);
+
   return (
-    <li key={href} className="relative">
+    <li key={href} ref={ref} className="relative">
       <Anchor
         className={clsx(
           'group',
