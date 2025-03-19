@@ -5,6 +5,8 @@ import type { CSSProperties } from 'react';
 import { forwardRef, useState } from 'react';
 import { RiMenuFill } from 'react-icons/ri';
 
+import { useAnchorClickHandler } from '~/hooks/useAnchorClickHandler';
+
 import SlideOut from '~/components/ui/SlideOut';
 import {
   themeBackgroundBrandColor,
@@ -66,6 +68,8 @@ function Navbar(
     setIsMobileNavOpen(false);
   }
 
+  const { handleAnchorItemClick } = useAnchorClickHandler(closeMobileNav);
+
   return (
     <div
       ref={ref}
@@ -111,7 +115,13 @@ function Navbar(
               isShown={isMobileNavOpen}
               padding={false}
               size="sm"
-              title={<div className="flex shrink-0 items-center">{logo}</div>}
+              title={
+                <div
+                  className="flex shrink-0 items-center"
+                  onClick={handleAnchorItemClick}>
+                  {logo}
+                </div>
+              }
               trigger={
                 <div className="relative">
                   <Button
@@ -139,7 +149,7 @@ function Navbar(
                 setIsMobileNavOpen(false);
               }}>
               {renderMobileSidebarContent?.({ closeMobileNav }) ?? (
-                <div className="flex h-full flex-col">
+                <div className="flex h-full flex-col" onClick={handleAnchorItemClick}>
                   <div className="flex h-0 flex-1 flex-col pb-4">
                     <nav
                       aria-label="Sidebar"
