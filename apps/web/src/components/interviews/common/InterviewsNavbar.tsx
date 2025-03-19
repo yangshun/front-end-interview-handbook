@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from 'react';
 import { RiArrowRightSLine, RiMenuFill, RiStarSmileFill } from 'react-icons/ri';
 
 import gtag from '~/lib/gtag';
+import { useAnchorClickHandler } from '~/hooks/useAnchorClickHandler';
 import useIsSticky from '~/hooks/useIsSticky';
 import useUserProfile from '~/hooks/user/useUserProfile';
 
@@ -77,6 +78,8 @@ export default function InterviewsNavbar({
     // Hide mobile nav when page changes.
     closeMobileNav();
   }, [pathname]);
+
+  const { handleAnchorItemClick } = useAnchorClickHandler(closeMobileNav);
 
   const displayName = userProfile?.name ?? user?.email;
 
@@ -159,7 +162,8 @@ export default function InterviewsNavbar({
                 </div>
               }
               onClose={closeMobileNav}>
-              <div className="flex h-full flex-col gap-7">
+              <div className="flex h-full flex-col gap-7"
+                onClick={handleAnchorItemClick}>
                 <div className="px-6">
                   <SponsorsAdvertiseWithUsBadge />
                 </div>
