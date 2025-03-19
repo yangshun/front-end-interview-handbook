@@ -27,6 +27,7 @@ type Props = Readonly<{
   links: ReadonlyArray<NavbarTopLevelItem>;
   logo?: React.ReactNode;
   mobileSidebarBottomItems?: React.ReactNode;
+  mobileSidebarHeaderClassName?: string;
   renderMobileSidebarAddOnItems?: ({
     closeMobileNav,
   }: Readonly<{ closeMobileNav: () => void }>) => React.ReactNode;
@@ -52,6 +53,7 @@ function Navbar(
     unreadNotificationCount = 0,
     bottomBorder,
     renderMobileSidebarContent,
+    mobileSidebarHeaderClassName,
   }: Props,
   ref: React.Ref<HTMLDivElement>,
 ) {
@@ -105,6 +107,7 @@ function Navbar(
           <div className={clsx('-my-2 sm:-mr-2 lg:hidden')}>
             <SlideOut
               enterFrom="start"
+              headerClassName={mobileSidebarHeaderClassName}
               isShown={isMobileNavOpen}
               padding={false}
               size="sm"

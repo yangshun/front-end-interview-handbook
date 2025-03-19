@@ -78,6 +78,7 @@ export default function SponsorsNavbar() {
           variant="full"
         />
       }
+      mobileSidebarHeaderClassName="gap-x-0"
       renderMobileSidebarContent={({ closeMobileNav }) => (
         <div className={clsx('flex flex-col gap-6', 'h-full')}>
           <div className={clsx('flex flex-1 flex-col gap-2', 'px-6 pt-4')}>

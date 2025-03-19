@@ -11,7 +11,6 @@ import Button from '~/components/ui/Button';
 import SponsorsAdFormatAvailableSlotsDialog from './SponsorsAdFormatAvailableSlotsDialog';
 import SponsorsAdFormatInfo from './SponsorsAdFormatInfo';
 import {
-  sponsorsDateFormatter,
   sponsorsDateFormatterWithDayAndYear,
   sponsorsDateFormatterWithoutYear,
   sponsorsDateFormatterWithYear,
@@ -91,7 +90,8 @@ export default function SponsorsAdFormatAvailableSlotInfo({ format }: Props) {
               description: 'No available slots',
               id: 'YYJEeq',
             })
-          : sponsorsDateFormatter.format(new Date(availableSlots[0].start))
+          : `${sponsorsDateFormatterWithoutYear.format(new Date(availableSlots[0].start))}
+          - ${sponsorsDateFormatterWithoutYear.format(new Date(availableSlots[0].end))}`
       }
       type="slot"
     />
