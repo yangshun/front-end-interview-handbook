@@ -69,3 +69,12 @@ export type TranslationJob = Readonly<{
   group: TranslationGroupName;
   strings: ReadonlyArray<TranslationStringArg>;
 }>;
+
+export interface JsonChangeDetector {
+  /**
+   * Get the missing translation keys for each target locale
+   */
+  getMissingTranslationKeys(
+    file: TranslationFileMetadata,
+  ): Promise<Record<Locale, Array<string>>>;
+}
