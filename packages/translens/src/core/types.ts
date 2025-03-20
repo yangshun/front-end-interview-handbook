@@ -77,4 +77,11 @@ export interface JsonChangeDetector {
   getMissingTranslationKeys(
     file: TranslationFileMetadata,
   ): Promise<Record<Locale, Array<string>>>;
+  /**
+   * Get the removed translation keys for each target locale
+   * which are not present in the source file
+   */
+  getRemovedTranslationKeys(
+    file: TranslationFileMetadata,
+  ): Promise<Record<Locale, Array<string>>>;
 }

@@ -57,4 +57,50 @@ describe('jsonChangeDetector', () => {
       }
     `);
   });
+
+  test('detects removed keys from source files', async () => {
+    const sourceData = {
+      key1: 'value1',
+      key2: 'value2',
+    };
+    // For zh-CN, add an extra key not present in source
+    const targetDataZhCN = {
+      key1: 'value1',
+      key2: 'value2',
+      keyExtra: 'extraValue',
+    };
+    // For ja-JP, no extra keys are present
+    const targetDataJaJP = {
+      key1: 'value1',
+      key2: 'value2',
+    };
+
+    const sourcePath = path.join(tempDir, 'source-extra.json');
+    const targetPathZhCN = path.join(tempDir, 'target-extra-zh-CN.json');
+    const targetPathJaJP = path.join(tempDir, 'target-extra-ja-JP.json');
+
+    await fs.writeFile(sourcePath, JSON.stringify(sourceData), 'utf8');
+    await fs.writeFile(targetPathZhCN, JSON.stringify(targetDataZhCN), 'utf8');
+    await fs.writeFile(targetPathJaJP, JSON.stringify(targetDataJaJP), 'utf8');
+
+    const file: TranslationFileMetadata = {
+      source: { path: sourcePath, locale: 'en-US' },
+      targets: [
+        { path: targetPathZhCN, locale: 'zh-CN' },
+        { path: targetPathJaJP, locale: 'ja-JP' },
+      ],
+    };
+
+    const detector = jsonChangeDetector();
+    const extraKeys = await detector.getRemovedTranslationKeys(file);
+
+    expect(extraKeys).toMatchInlineSnapshot(`
+      {
+        "ja-JP": [],
+        "zh-CN": [
+          "keyExtra",
+        ],
+      }
+    `);
+  });
 });
