@@ -155,8 +155,22 @@ export default function JsonPlugin(): Plugin {
                   : translatedContent[key];
               });
 
+              // Sort the keys of targetJson before writing to the file
+              const sortedTargetJson = Object.keys(targetJson)
+                .sort()
+                .reduce(
+                  (acc, key) => {
+                    acc[key] = targetJson[key];
+                    return acc;
+                  },
+                  {} as Record<string, unknown>,
+                );
+
               // Write the updated JSON back to the target file.
-              await writeFile(target.path, JSON.stringify(targetJson, null, 2));
+              await writeFile(
+                target.path,
+                JSON.stringify(sortedTargetJson, null, 2),
+              );
             }),
           );
         }),
