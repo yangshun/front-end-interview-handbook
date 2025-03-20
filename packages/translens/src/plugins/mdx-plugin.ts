@@ -81,9 +81,10 @@ export default function mdxPlugin(): Plugin {
               // Read and parse the target JSON file.
               const targetContent = await readFile(target.path);
               const { data: targetFrontmatter } = matter(targetContent);
+              const updatedFrontmatter = { ...targetFrontmatter };
               // Remove keys that no longer exist in the source file.
               removedFrontmatterKeysFromSource.forEach((key) => {
-                delete targetFrontmatter[key];
+                delete updatedFrontmatter[key];
               });
 
               // Merge in the new translations from the targeted content map.
@@ -94,13 +95,13 @@ export default function mdxPlugin(): Plugin {
               const translatedContent =
                 targetedContentMap.get(targetHash) || {};
               Object.keys(translatedContent).forEach((key) => {
-                targetFrontmatter[key] = translatedContent[key];
+                updatedFrontmatter[key] = translatedContent[key];
               });
 
               // Combine frontmatter and content
               const targetFileContent = matter.stringify(
                 sourceMDXContent,
-                targetFrontmatter,
+                updatedFrontmatter,
               );
 
               await writeFile(target.path, targetFileContent);
