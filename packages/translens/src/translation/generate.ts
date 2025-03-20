@@ -37,6 +37,11 @@ export async function generate(
   provider: TranslationProvider,
   strings: ReadonlyArray<TranslationStringArg>,
 ): Promise<ReadonlyArray<TranslationStringMetadata>> {
+  if (strings.length === 0) {
+    console.info('No strings to translate');
+    return [];
+  }
+
   const model = providerModel(provider);
 
   const { text } = await generateText({
