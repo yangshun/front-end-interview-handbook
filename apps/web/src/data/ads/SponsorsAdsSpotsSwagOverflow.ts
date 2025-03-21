@@ -6,7 +6,6 @@ import type {
 export const SponsorsAdsSpotsSwagOverflowSpotlight: SponsorsAdFormatPayloadSpotlight =
   {
     adId: 'swag-overflow-spotlight',
-    external: false,
     format: 'SPOTLIGHT',
     imageUrl:
       'https://www.gfecdn.net/sponsors/ads/swag-overflow/spotlight.webp',
@@ -270,7 +269,6 @@ export const SponsorsAdsSpotsSwagOverflowInContent: SponsorsAdFormatPayloadInCon
         version: 1,
       },
     }),
-    external: false,
     format: 'IN_CONTENT',
     imageUrl:
       'https://www.gfecdn.net/sponsors/ads/swag-overflow/in-content.webp',
@@ -360,7 +358,6 @@ export const SponsorsAdsSpotsSwagOverflowInContentUndefinedIsNotAFunction: Spons
         version: 1,
       },
     }),
-    external: false,
     format: 'IN_CONTENT',
     imageUrl:
       'https://www.gfecdn.net/sponsors/ads/swag-overflow/undefined-is-not-a-function.webp',
@@ -432,7 +429,6 @@ export const SponsorsAdsSpotsSwagOverflowInContentTsIgnore: SponsorsAdFormatPayl
         version: 1,
       },
     }),
-    external: false,
     format: 'IN_CONTENT',
     imageUrl:
       'https://www.gfecdn.net/sponsors/ads/swag-overflow/ts-ignore.webp',
@@ -522,7 +518,6 @@ export const SponsorsAdsSpotsSwagOverflowInContentTsDenial: SponsorsAdFormatPayl
         version: 1,
       },
     }),
-    external: false,
     format: 'IN_CONTENT',
     imageUrl:
       'https://www.gfecdn.net/sponsors/ads/swag-overflow/ts-denial.webp',
@@ -612,7 +607,6 @@ export const SponsorsAdsSpotsSwagOverflowInContentValueAny: SponsorsAdFormatPayl
         version: 1,
       },
     }),
-    external: false,
     format: 'IN_CONTENT',
     imageUrl:
       'https://www.gfecdn.net/sponsors/ads/swag-overflow/value-any.webp',
@@ -684,7 +678,6 @@ export const SponsorsAdsSpotsSwagOverflowInContentComponentLibrary: SponsorsAdFo
         version: 1,
       },
     }),
-    external: false,
     format: 'IN_CONTENT',
     imageUrl:
       'https://www.gfecdn.net/sponsors/ads/swag-overflow/component-lib.webp',
@@ -757,7 +750,6 @@ export const SponsorsAdsSpotsSwagOverflowInContentUseEffect: SponsorsAdFormatPay
         version: 1,
       },
     }),
-    external: false,
     format: 'IN_CONTENT',
     imageUrl:
       'https://www.gfecdn.net/sponsors/ads/swag-overflow/useeffect.webp',
@@ -829,7 +821,6 @@ export const SponsorsAdsSpotsSwagOverflowInContentWhoWroteThis: SponsorsAdFormat
         version: 1,
       },
     }),
-    external: false,
     format: 'IN_CONTENT',
     imageUrl:
       'https://www.gfecdn.net/sponsors/ads/swag-overflow/who-wrote-this.webp',
@@ -901,7 +892,6 @@ export const SponsorsAdsSpotsSwagOverflowInContentMobileFearFactor: SponsorsAdFo
         version: 1,
       },
     }),
-    external: false,
     format: 'IN_CONTENT',
     imageUrl:
       'https://www.gfecdn.net/sponsors/ads/swag-overflow/mobile-fear-factor.webp',

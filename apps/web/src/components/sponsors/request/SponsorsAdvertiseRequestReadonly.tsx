@@ -439,7 +439,6 @@ function AdFormatCard({
                 <SponsorsAdFormatSpotlight
                   adId="test-spotlight"
                   adPlacement="preview"
-                  external={true}
                   imageUrl={ad.imageUrl}
                   sponsorName={ad.sponsorName}
                   text={ad.text}
@@ -463,7 +462,6 @@ function AdFormatCard({
                   adId="test-short-form"
                   adPlacement="preview"
                   body={ad.body}
-                  external={true}
                   imageUrl={ad.imageUrl}
                   size="md"
                   sponsorName={ad.sponsorName}

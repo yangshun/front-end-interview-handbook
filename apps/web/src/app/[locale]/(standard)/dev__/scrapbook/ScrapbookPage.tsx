@@ -177,7 +177,6 @@ export default function ScrapbookPage() {
 ✅ Real interview questions & solutions
 
 Don’t leave your success to chance—prepare smarter with the Tech Interview Handbook! Get your copy today! 💡🔥`}
-            external={false}
             imageUrl="https://www.techinterviewhandbook.org/social/software-engineering-interview-guide.png"
             size="sm"
             sponsorName="Tech Interview Handbook"
@@ -190,7 +189,6 @@ Don’t leave your success to chance—prepare smarter with the Tech Interview H
             <SponsorsAdFormatSpotlight
               adId="tih-spotlight"
               adPlacement="nav_mobile"
-              external={false}
               imageUrl="https://www.techinterviewhandbook.org/social/software-engineering-interview-guide.png"
               sponsorName="Tech Interview Handbook"
               text="Ace your next tech interview with confidence"

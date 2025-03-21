@@ -42,7 +42,6 @@ const adFormat = 'SPOTLIGHT';
 export default function SponsorsAdFormatSpotlight({
   adPlacement,
   adId,
-  external,
   text,
   sponsorName,
   url,
@@ -57,8 +56,7 @@ export default function SponsorsAdFormatSpotlight({
     adId,
     adPlacement,
   );
-  const href =
-    external && tracking ? sponsorsAdTrackingHref({ adId, url }) : url;
+  const href = tracking ? sponsorsAdTrackingHref({ adId, url }) : url;
 
   function linkClick() {
     gtag.event({

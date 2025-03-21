@@ -11,7 +11,6 @@ import {
 export const SponsorsAdsSpotsProjectsSpotlight: SponsorsAdFormatPayloadSpotlight =
   {
     adId: 'projects-spotlight',
-    external: false,
     format: 'SPOTLIGHT',
     imageUrl: 'https://www.gfecdn.net/sponsors/ads/projects/spotlight.webp',
     sponsorName: 'GreatFrontEnd Projects',
@@ -227,7 +226,6 @@ export const SponsorsAdsSpotsProjectsInContent: SponsorsAdFormatPayloadInContent
         version: 1,
       },
     }),
-    external: false,
     format: 'IN_CONTENT',
     imageUrl: 'https://www.gfecdn.net/sponsors/ads/projects/in-content.webp',
     sponsorName: 'GreatFrontEnd Projects',

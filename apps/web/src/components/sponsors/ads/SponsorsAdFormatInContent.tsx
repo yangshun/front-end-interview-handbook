@@ -60,7 +60,6 @@ const adFormat = 'IN_CONTENT';
 export default function SponsorsAdFormatInContent({
   adPlacement,
   adId,
-  external,
   title,
   url,
   body,
@@ -74,8 +73,7 @@ export default function SponsorsAdFormatInContent({
     adId,
     adPlacement,
   );
-  const href =
-    external && tracking ? sponsorsAdTrackingHref({ adId, url }) : url;
+  const href = tracking ? sponsorsAdTrackingHref({ adId, url }) : url;
 
   const isRichTextValue = isLexicalEditorValue(body);
 

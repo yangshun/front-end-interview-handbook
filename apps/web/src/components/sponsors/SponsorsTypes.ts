@@ -28,7 +28,6 @@ export type SponsorsAdFormatConfig = Readonly<{
 export type SponsorsAdFormatPayloadInContent = Readonly<{
   adId: string;
   body: string;
-  external: boolean;
   format: 'IN_CONTENT';
   imageUrl: string;
   sponsorName: string;
@@ -38,7 +37,6 @@ export type SponsorsAdFormatPayloadInContent = Readonly<{
 
 export type SponsorsAdFormatPayloadSpotlight = Readonly<{
   adId: string;
-  external: boolean;
   format: 'SPOTLIGHT';
   imageUrl: string;
   sponsorName: string;
@@ -48,7 +46,6 @@ export type SponsorsAdFormatPayloadSpotlight = Readonly<{
 
 export type SponsorsAdFormatPayloadGlobalBanner = Readonly<{
   adId: string;
-  external: boolean;
   format: 'GLOBAL_BANNER';
   sponsorName: string;
   text: string;

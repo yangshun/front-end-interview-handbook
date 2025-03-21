@@ -1,5 +1,5 @@
 import { getISOWeek, getYear } from 'date-fns';
-import { range, sample } from 'lodash-es';
+import { kebabCase, range, sample } from 'lodash-es';
 import { z } from 'zod';
 
 import { base64toBlob } from '~/lib/imageUtils';
@@ -105,7 +105,6 @@ export const sponsorsRouter = router({
               return {
                 adId: ad.id,
                 body: ad.body!,
-                external: true,
                 format: 'IN_CONTENT',
                 imageUrl: ad.imageUrl!,
                 sponsorName: ad.sponsorName,
@@ -134,7 +133,6 @@ export const sponsorsRouter = router({
 
               return {
                 adId: ad.id,
-                external: true,
                 format: 'SPOTLIGHT',
                 imageUrl: ad.imageUrl!,
                 sponsorName: ad.sponsorName!,
@@ -157,7 +155,6 @@ export const sponsorsRouter = router({
 
             return {
               adId: ad.id,
-              external: true,
               format: 'GLOBAL_BANNER',
               sponsorName: ad.sponsorName,
               text: ad.title,
@@ -202,12 +199,7 @@ export const sponsorsRouter = router({
 
       const blob = base64toBlob(imageFile);
 
-      const fileName =
-        format === 'SPOTLIGHT'
-          ? 'spotlight'
-          : format === 'IN_CONTENT'
-            ? 'in-content'
-            : 'global-banner';
+      const fileName = kebabCase(format);
       const storagePath =
         sessionId +
         '/' +
@@ -312,17 +304,23 @@ export const sponsorsRouter = router({
           address,
           ads: {
             create: ads.map((ad) => {
-              const adData =
-                ad.format === 'GLOBAL_BANNER'
-                  ? {}
-                  : ad.format === 'IN_CONTENT'
-                    ? {
-                        body: ad.body,
-                        imageUrl: ad.imageUrl,
-                      }
-                    : {
-                        imageUrl: ad.imageUrl,
-                      };
+              const adData = (() => {
+                switch (ad.format) {
+                  case 'GLOBAL_BANNER':
+                    return {};
+                  case 'IN_CONTENT':
+                    return {
+                      body: ad.body,
+                      imageUrl: ad.imageUrl,
+                    };
+                  case 'SPOTLIGHT':
+                    return {
+                      imageUrl: ad.imageUrl,
+                    };
+                  default:
+                    throw new Error('Invalid ad format');
+                }
+              })();
 
               return {
                 format: ad.format,

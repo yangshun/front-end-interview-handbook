@@ -300,7 +300,6 @@ export default function SponsorsAdvertiseRequestFormAdsSectionSpotlight({
                     <SponsorsAdFormatSpotlight
                       adId="test-spotlight"
                       adPlacement="preview"
-                      external={true}
                       imageUrl={imageUrl}
                       sponsorName={
                         sponsorName || 'Your product or company name'
