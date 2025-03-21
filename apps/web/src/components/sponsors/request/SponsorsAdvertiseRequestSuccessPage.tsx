@@ -59,13 +59,14 @@ export default function SponsorsAdvertiseRequestSuccessPage() {
           color="secondary"
           size="body1">
           <FormattedMessage
-            defaultMessage="Meanwhile, if you have any questions, feel free to reach out to us at <link/>."
+            defaultMessage="Meanwhile, if you have any questions, feel free to reach out to us at <link>{email}</link>."
             description="Advertise request success message"
-            id="Q4hqms"
+            id="DqzUW4"
             values={{
-              link: () => (
+              email: SPONSORS_SPONSOR_MANAGER_EMAIL,
+              link: (chunks) => (
                 <Anchor href={`mailto:${SPONSORS_SPONSOR_MANAGER_EMAIL}`}>
-                  {SPONSORS_SPONSOR_MANAGER_EMAIL}
+                  {chunks}
                 </Anchor>
               ),
             }}

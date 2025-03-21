@@ -23,6 +23,8 @@ export default function SponsorsContactUsSection() {
   const formRef = useRef<HTMLFormElement>(null);
   const { showToast } = useToast();
 
+  const contactMutation = trpc.sponsors.contact.useMutation();
+
   const {
     isLoading: isSubmitLoading,
     failureReason: submitFailureReason,
@@ -100,13 +102,14 @@ export default function SponsorsContactUsSection() {
           size="inherit"
           weight="medium">
           <FormattedMessage
-            defaultMessage="Simply email us at <link/> or leave us a message through the form. We will be happy to answer any questions you might have."
+            defaultMessage="Simply email us at <link>{email}</link> or leave us a message through the form. We will be happy to answer any questions you might have."
             description="Advertise with us section subtitle"
-            id="5KQgqK"
+            id="gvpXgL"
             values={{
-              link: () => (
+              email: SPONSORS_SPONSOR_MANAGER_EMAIL,
+              link: (chunks) => (
                 <Anchor href={`mailto:${SPONSORS_SPONSOR_MANAGER_EMAIL}`}>
-                  {SPONSORS_SPONSOR_MANAGER_EMAIL}
+                  {chunks}
                 </Anchor>
               ),
             }}
@@ -120,13 +123,17 @@ export default function SponsorsContactUsSection() {
           errorMessage={submitFailureReason?.message}
           isEmailRequired={true}
           isSubmitting={isSubmitLoading}
-          onSubmit={({ category, email, message }) =>
+          onSubmit={({ category, email, message }) => {
             submitFeedback({
               category,
               email,
               message,
-            })
-          }
+            });
+            contactMutation.mutate({
+              email: email!,
+              message,
+            });
+          }}
         />
       </div>
     </div>

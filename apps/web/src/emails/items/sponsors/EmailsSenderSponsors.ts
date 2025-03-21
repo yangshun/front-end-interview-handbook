@@ -23,11 +23,11 @@ const apiEndpoint = url.format({
 });
 
 export async function sendSponsorsAdRequestConfirmationEmail({
-  adId,
+  adRequestId,
   email,
   signatoryName,
 }: Readonly<{
-  adId: string;
+  adRequestId: string;
   email: string;
   signatoryName: string;
 }>) {
@@ -41,7 +41,7 @@ export async function sendSponsorsAdRequestConfirmationEmail({
       name: signatoryName,
       requestUrl: url.format({
         host: getSiteOrigin({ usePreviewForDev: true }),
-        pathname: `/advertise-with-us/request/${adId}`,
+        pathname: `/advertise-with-us/request/${adRequestId}`,
       }),
     },
   };
@@ -53,13 +53,13 @@ export async function sendSponsorsAdRequestConfirmationEmail({
 }
 
 export async function sendSponsorsAdRequestReviewEmail({
-  adId,
+  adRequestId,
   ads,
   legalName,
   signatoryName,
   signatoryTitle,
 }: Readonly<{
-  adId: string;
+  adRequestId: string;
   ads: Array<SponsorsAdFormatFormItem>;
   legalName: string;
   signatoryName: string;
@@ -77,7 +77,7 @@ export async function sendSponsorsAdRequestReviewEmail({
       legalName,
       requestUrl: url.format({
         host: getSiteOrigin({ usePreviewForDev: true }),
-        pathname: `/admin/sponsorships/request/${adId}`,
+        pathname: `/admin/sponsorships/request/${adRequestId}`,
       }),
       signatoryName,
       signatoryTitle,

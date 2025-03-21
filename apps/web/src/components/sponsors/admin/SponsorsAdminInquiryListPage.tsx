@@ -42,7 +42,7 @@ export default function SponsorsAdminInquiryListPage() {
 
   return (
     <div className="relative flex flex-col gap-6">
-      <Heading level="heading3">Advertisement Enquiries</Heading>
+      <Heading level="heading3">Ad Request Inquiries</Heading>
       <div className="flex flex-col gap-5">
         <TextInput
           isLabelHidden={true}

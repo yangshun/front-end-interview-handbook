@@ -30,7 +30,7 @@ import useSponsorsAdminFeedbackListFilters from './hooks/useSponsorsAdminFeedbac
 
 const ITEMS_PER_PAGE = 20;
 
-export default function SponsorsAdminFeedbackListPage() {
+export default function SponsorsAdminMessagesListPage() {
   const trpcUtils = trpc.useUtils();
   const markFeedbackStatusMutation =
     trpc.feedback.markFeedbackStatus.useMutation();
@@ -73,7 +73,7 @@ export default function SponsorsAdminFeedbackListPage() {
 
   return (
     <div className="relative flex flex-col gap-6">
-      <Heading level="heading3">Feedback Messages</Heading>
+      <Heading level="heading3">Contact Form Messages</Heading>
       <div className="flex flex-col gap-5">
         <SponsorsAdminFeedbacksListFilters
           isAscendingOrder={isAscendingOrder}
@@ -151,7 +151,6 @@ export default function SponsorsAdminFeedbackListPage() {
                     </Text>
                   </TableCell>
                   <TableCell className="text-center">
-                    {/* <Anchor href={`mailto:${feedback.email}`}>Reply</Anchor> */}
                     <DropdownMenu
                       align="end"
                       icon={RiMoreLine}

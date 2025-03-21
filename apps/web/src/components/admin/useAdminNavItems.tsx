@@ -1,8 +1,8 @@
 import {
   RiAdvertisementLine,
   RiHome3Line,
-  RiMessageLine,
-  RiSurveyLine,
+  RiMailLine,
+  RiQuestionLine,
 } from 'react-icons/ri';
 
 export type AdminNavPlacement = 'nav' | 'sidebar';
@@ -23,7 +23,8 @@ export default function useAdminNavItems() {
     id: 'sponsorships',
     items: [
       {
-        currentMatchRegex: /\/admin\/sponsorships/,
+        currentMatchRegex:
+          /^\/admin\/sponsorships$|^\/admin\/sponsorships\/request/,
         href: '/admin/sponsorships',
         icon: RiAdvertisementLine,
         id: 'sponsorships-request',
@@ -31,17 +32,15 @@ export default function useAdminNavItems() {
         type: 'popover-link',
       },
       {
-        currentMatchRegex: /\/admin\/sponsorships\/feedback$/,
-        href: '/admin/sponsorships/feedback',
-        icon: RiMessageLine,
+        href: '/admin/sponsorships/messages',
+        icon: RiMailLine,
         id: 'sponsorships-feedback',
-        label: 'Feedbacks',
+        label: 'Messages',
         type: 'popover-link',
       },
       {
-        currentMatchRegex: /\/admin\/sponsorships\/inquiry$/,
-        href: '/admin/sponsorships/inquiry',
-        icon: RiSurveyLine,
+        href: '/admin/sponsorships/inquiries',
+        icon: RiQuestionLine,
         id: 'sponsorships-inquiry',
         label: 'Inquiries',
         type: 'popover-link',

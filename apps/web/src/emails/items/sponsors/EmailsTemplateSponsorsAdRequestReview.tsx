@@ -1,3 +1,4 @@
+import { capitalize } from 'lodash-es';
 import React from 'react';
 
 import type { SponsorsAdFormatFormItem } from '~/components/sponsors/request/types';
@@ -12,6 +13,7 @@ import {
   EmailsHeader,
   EmailsLink,
   EmailsParagraph,
+  EmailsStrong,
 } from '~/emails/components/EmailsComponents';
 import { containerStyle, mainStyle } from '~/emails/components/EmailsStyles';
 
@@ -62,10 +64,18 @@ export default function EmailsTemplateSponsorsAdRequestReview({
             </EmailsParagraph>
             <EmailsParagraph defaultMargins={true}>
               <ul>
-                <li>Name: {signatoryName}</li>
-                <li>Role: {signatoryTitle}</li>
-                <li>Company: {legalName}</li>
-                <li>Signatory Name: {signatoryName}</li>
+                <li>
+                  <EmailsStrong>Name</EmailsStrong>: {signatoryName}
+                </li>
+                <li>
+                  <EmailsStrong>Role</EmailsStrong>: {signatoryTitle}
+                </li>
+                <li>
+                  <EmailsStrong>Company</EmailsStrong>: {legalName}
+                </li>
+                <li>
+                  <EmailsStrong>Signatory name</EmailsStrong>: {signatoryName}
+                </li>
                 <li>
                   Slot chosen:
                   <ul>
@@ -91,12 +101,7 @@ export default function EmailsTemplateSponsorsAdRequestReview({
 
                           return (
                             <li key={week}>
-                              Slot {totalSlot}:{' '}
-                              {ad.format === 'GLOBAL_BANNER'
-                                ? 'Global Banner'
-                                : ad.format === 'IN_CONTENT'
-                                  ? 'In-Content Display Ad'
-                                  : 'Spotlight Ad'}
+                              Slot {totalSlot}: {capitalize(ad.format)}
                               <ul>
                                 <li>Start Date: {startDate}</li>
                                 <li>End Date: {endDate}</li>

@@ -1,5 +1,6 @@
 import { getISOWeek, getYear } from 'date-fns';
 import { kebabCase, range, sample } from 'lodash-es';
+import url from 'node:url';
 import { z } from 'zod';
 
 import { base64toBlob } from '~/lib/imageUtils';
@@ -35,11 +36,13 @@ import { sponsorsWeekDateRange } from '~/components/sponsors/SponsorsDatesUtils'
 import type { SponsorsAdFormatPayload } from '~/components/sponsors/SponsorsTypes';
 
 import { fetchInterviewsStudyLists } from '~/db/contentlayer/InterviewsStudyListReader';
+import EmailsLink from '~/emails/components/EmailsLink';
 import {
   sendSponsorsAdRequestConfirmationEmail,
   sendSponsorsAdRequestReviewEmail,
 } from '~/emails/items/sponsors/EmailsSenderSponsors';
 import { sendReactEmail } from '~/emails/mailjet/EmailsMailjetUtils';
+import { getSiteOrigin } from '~/seo/siteUrl';
 import prisma from '~/server/prisma';
 import { createSupabaseAdminClientGFE_SERVER_ONLY } from '~/supabase/SupabaseServerGFE';
 
@@ -297,14 +300,14 @@ export const sponsorsRouter = router({
         ),
         agreement: z.string(),
         company: sponsorsCompanySchemaServer,
-        emails: z.array(z.string()),
+        emails: z.array(z.string().email()),
       }),
     )
     .mutation(async ({ input: { ads, company, emails, agreement } }) => {
       const { legalName, taxNumber, address, signatoryName, signatoryTitle } =
         company;
 
-      const result = await prisma.sponsorsAdRequest.create({
+      const adRequest = await prisma.sponsorsAdRequest.create({
         data: {
           address,
           ads: {
@@ -360,12 +363,12 @@ export const sponsorsRouter = router({
       // Send email to advertiser and sponsor manager
       await Promise.all([
         sendSponsorsAdRequestConfirmationEmail({
-          adId: result.id,
+          adRequestId: adRequest.id,
           email: emails[0],
           signatoryName,
         }),
         sendSponsorsAdRequestReviewEmail({
-          adId: result.id,
+          adRequestId: adRequest.id,
           ads: ads.map((ad) => ({
             ...ad,
             id: new Date().toISOString(),
@@ -397,7 +400,7 @@ export const sponsorsRouter = router({
   adRequestInquiry: publicProcedure
     .input(
       z.object({
-        emails: z.array(z.string()),
+        emails: z.array(z.string().email()),
       }),
     )
     .mutation(async ({ input: { emails } }) => {
@@ -405,19 +408,29 @@ export const sponsorsRouter = router({
         cc: [{ email: SPONSORS_GREATFRONTEND_ADMIN_EMAIL }],
         emailElement: (
           <div>
-            <p>Someone inquired about ads sponsorships:</p>
+            <p>Someone started inquiring about ads sponsorships:</p>
             <ul>
               {emails.map((email) => (
                 <li key={email}>{email}</li>
               ))}
             </ul>
+            <p>
+              See all inquiries{' '}
+              <EmailsLink
+                href={url.format({
+                  host: getSiteOrigin(),
+                  pathname: `/admin/sponsorships/inquiries`,
+                })}>
+                here
+              </EmailsLink>
+            </p>
           </div>
         ),
         from: {
           email: 'contact@greatfrontend.com',
           name: 'GreatFrontEnd Sponsorships',
         },
-        subject: `Advertising inquiry attempt – ${emails[0]}`,
+        subject: `Advertising inquiry started – ${emails[0]}`,
         to: {
           email: SPONSORS_SPONSOR_MANAGER_EMAIL,
           name: null,
@@ -652,6 +665,51 @@ export const sponsorsRouter = router({
           week,
           year,
         };
+      });
+    }),
+  contact: publicProcedure
+    .input(
+      z.object({
+        email: z.string().email(),
+        message: z.string(),
+      }),
+    )
+    .mutation(async ({ input: { email, message }, ctx: { req } }) => {
+      await sendReactEmail({
+        cc: [{ email: SPONSORS_GREATFRONTEND_ADMIN_EMAIL }],
+        emailElement: (
+          <div>
+            <p>Someone filled out the sponsorship contact form:</p>
+            <p>
+              <strong>Sender</strong>: {email}
+            </p>
+            <p>
+              <strong>Message</strong>: {message}
+            </p>
+            <p>
+              <strong>Country</strong>: {req.cookies.country}
+            </p>
+            <p>
+              See all requests{' '}
+              <EmailsLink
+                href={url.format({
+                  host: getSiteOrigin(),
+                  pathname: `/admin/sponsorships/messages`,
+                })}>
+                here
+              </EmailsLink>
+            </p>
+          </div>
+        ),
+        from: {
+          email: 'contact@greatfrontend.com',
+          name: 'GreatFrontEnd Sponsorships',
+        },
+        subject: `Sponsorship contact form submitted by ${email}`,
+        to: {
+          email: SPONSORS_SPONSOR_MANAGER_EMAIL,
+          name: null,
+        },
       });
     }),
   firstAvailabilityAcrossFormats: publicProcedure.query(async () => {
