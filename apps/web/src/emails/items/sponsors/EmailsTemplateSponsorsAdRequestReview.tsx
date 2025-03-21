@@ -31,7 +31,7 @@ type Props = Readonly<{
   signatoryTitle: string;
 }>;
 
-export default function EmailsTemplateSponsorsAdRequestSubmissionReview({
+export default function EmailsTemplateSponsorsAdRequestReview({
   requestUrl,
   legalName,
   signatoryName,

@@ -129,6 +129,7 @@ export async function sendReactEmail({
  */
 async function sendEmail_NO_CHECKS({
   to,
+  cc,
   from,
   subject,
   replyTo,
@@ -138,6 +139,10 @@ async function sendEmail_NO_CHECKS({
     html: string;
     text: string;
   };
+  cc?: ReadonlyArray<{
+    email: string;
+    name?: string;
+  }>;
   from: {
     email: string;
     name: string;
@@ -157,6 +162,13 @@ async function sendEmail_NO_CHECKS({
   const emailData: SendEmailV3_1.Body = {
     Messages: [
       {
+        Cc:
+          cc && cc.length > 0
+            ? cc.map((item) => ({
+                Email: item.email,
+                Name: item.name,
+              }))
+            : undefined,
         From: {
           Email: from.email,
           Name: from.name,

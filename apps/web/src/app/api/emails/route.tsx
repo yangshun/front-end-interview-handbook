@@ -1,6 +1,9 @@
 import { type NextRequest, NextResponse } from 'next/server';
 
+import type { EmailRouteInternalPayload } from '~/emails/EmailsTypes';
 import { EmailsItemSponsorsConfig } from '~/emails/items/EmailItemConfigs';
+import type EmailsTemplateSponsorsAdRequestConfirmation from '~/emails/items/sponsors/EmailsTemplateSponsorsAdRequestConfirmation';
+import type EmailsTemplateSponsorsAdRequestReview from '~/emails/items/sponsors/EmailsTemplateSponsorsAdRequestReview';
 import { sendReactEmail } from '~/emails/mailjet/EmailsMailjetUtils';
 import { getErrorMessage } from '~/utils/getErrorMessage';
 
@@ -19,8 +22,11 @@ export async function POST(req: NextRequest) {
   }
 
   try {
-    const request = await req.json();
-    const { emailKey, email, name, props } = request;
+    const request: EmailRouteInternalPayload<
+      | typeof EmailsTemplateSponsorsAdRequestConfirmation
+      | typeof EmailsTemplateSponsorsAdRequestReview
+    > = await req.json();
+    const { emailKey, email, name, props, cc } = request;
 
     const emailItemConfig = EmailsItemSponsorsConfig.find(
       (itemConfig) => itemConfig.id === emailKey,
@@ -33,19 +39,18 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const recipient = {
-      email,
-      name,
-    };
-
-    const Component = emailItemConfig.component;
+    const Component = emailItemConfig.component as any;
     const emailElement = <Component {...props} />;
 
     const result = await sendReactEmail({
+      cc,
       emailElement,
       from: emailItemConfig.from,
-      subject: emailItemConfig.subject(props),
-      to: recipient,
+      subject: emailItemConfig.subject(props as any),
+      to: {
+        email,
+        name,
+      },
     });
 
     return NextResponse.json(result);

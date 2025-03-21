@@ -10,6 +10,9 @@ import type { SponsorsAdFormatFormItem } from '~/components/sponsors/request/typ
 import type { EmailRouteInternalPayload } from '~/emails/EmailsTypes';
 import { getSiteOrigin } from '~/seo/siteUrl';
 
+import type EmailsTemplateSponsorsAdRequestConfirmation from './EmailsTemplateSponsorsAdRequestConfirmation';
+import type EmailsTemplateSponsorsAdRequestReview from './EmailsTemplateSponsorsAdRequestReview';
+
 const apiEndpoint = url.format({
   host: getSiteOrigin(),
   pathname: '/api/emails',
@@ -28,7 +31,9 @@ export async function sendSponsorsAdRequestConfirmationEmail({
   email: string;
   signatoryName: string;
 }>) {
-  const body: EmailRouteInternalPayload = {
+  const body: EmailRouteInternalPayload<
+    typeof EmailsTemplateSponsorsAdRequestConfirmation
+  > = {
     email,
     emailKey: 'SPONSORS_AD_REQUEST_CONFIRMATION',
     name: signatoryName,
@@ -60,7 +65,11 @@ export async function sendSponsorsAdRequestReviewEmail({
   signatoryName: string;
   signatoryTitle: string;
 }>) {
-  const baseBody = {
+  const body: EmailRouteInternalPayload<
+    typeof EmailsTemplateSponsorsAdRequestReview
+  > = {
+    cc: [{ email: GREATFRONTEND_ADMIN_EMAIL }],
+    email: SPONSOR_MANAGER_EMAIL,
     emailKey: 'SPONSORS_AD_REQUEST_REVIEW',
     name: 'GreatFrontEnd',
     props: {
@@ -74,23 +83,9 @@ export async function sendSponsorsAdRequestReviewEmail({
       signatoryTitle,
     },
   } as const;
-  const bodyAdmin: EmailRouteInternalPayload = {
-    ...baseBody,
-    email: GREATFRONTEND_ADMIN_EMAIL,
-  };
-  const bodyManager: EmailRouteInternalPayload = {
-    ...baseBody,
-    email: SPONSOR_MANAGER_EMAIL,
-  };
 
-  await Promise.all([
-    fetch(apiEndpoint, {
-      body: JSON.stringify(bodyAdmin),
-      method: 'POST',
-    }),
-    fetch(apiEndpoint, {
-      body: JSON.stringify(bodyManager),
-      method: 'POST',
-    }),
-  ]);
+  await fetch(apiEndpoint, {
+    body: JSON.stringify(body),
+    method: 'POST',
+  });
 }

@@ -47,9 +47,11 @@ export type EmailsUnsubscribeFields = Readonly<{
   list: EmailContactListKey;
 }>;
 
-export type EmailRouteInternalPayload = Readonly<{
-  email: string;
-  emailKey: EmailKey;
-  name: string;
-  props: Record<string, unknown>;
-}>;
+export type EmailRouteInternalPayload<Component extends React.FC<any>> =
+  Readonly<{
+    cc?: ReadonlyArray<{ email: string; name?: string }>;
+    email: string;
+    emailKey: EmailKey;
+    name: string;
+    props: Omit<React.ComponentProps<Component>, 'unsub'>;
+  }>;
