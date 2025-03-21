@@ -4,6 +4,8 @@ import clsx from 'clsx';
 import { RiArrowRightLine, RiCheckboxCircleLine } from 'react-icons/ri';
 import { useEffectOnce } from 'usehooks-ts';
 
+import { SPONSOR_MANAGER_EMAIL } from '~/data/SponsorsConfig';
+
 import { FormattedMessage, useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
@@ -57,14 +59,13 @@ export default function SponsorsAdvertiseRequestSuccessPage() {
           color="secondary"
           size="body1">
           <FormattedMessage
-            defaultMessage="Meanwhile, if you have any questions, feel free to reach out to us at <link>{email}</link>."
+            defaultMessage="Meanwhile, if you have any questions, feel free to reach out to us at <link/>."
             description="Advertise request success message"
-            id="DqzUW4"
+            id="Q4hqms"
             values={{
-              email: 'sponsor@greatfrontend.com',
-              link: (chunks) => (
-                <Anchor href="mailto:sponsor@greatfrontend.com">
-                  {chunks}
+              link: () => (
+                <Anchor href={`mailto:${SPONSOR_MANAGER_EMAIL}`}>
+                  {SPONSOR_MANAGER_EMAIL}
                 </Anchor>
               ),
             }}

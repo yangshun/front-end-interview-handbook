@@ -5,8 +5,8 @@ import { sendReactEmail } from '~/emails/mailjet/EmailsMailjetUtils';
 import { getErrorMessage } from '~/utils/getErrorMessage';
 
 /**
- * This route is for triggering email directly from trpc call
- * and not expose to public
+ * This route is for triggering email directly from tRPC
+ * calls and not exposed to public
  */
 export async function POST(req: NextRequest) {
   const { searchParams } = req.nextUrl;

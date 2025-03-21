@@ -5,6 +5,8 @@ import { useRef } from 'react';
 
 import { trpc } from '~/hooks/trpc';
 
+import { SPONSOR_MANAGER_EMAIL } from '~/data/SponsorsConfig';
+
 import ContactForm from '~/components/common/ContactForm';
 import { useToast } from '~/components/global/toasts/useToast';
 import { FormattedMessage, useIntl } from '~/components/intl';
@@ -98,13 +100,13 @@ export default function SponsorsContactUsSection() {
           size="inherit"
           weight="medium">
           <FormattedMessage
-            defaultMessage="Simply email us at <link>sponsor@greatfrontend.com</link> or leave us a message through the form. We will be happy to answer any questions you might have."
+            defaultMessage="Simply email us at <link/> or leave us a message through the form. We will be happy to answer any questions you might have."
             description="Advertise with us section subtitle"
-            id="65Bvm/"
+            id="5KQgqK"
             values={{
-              link: (chunks) => (
-                <Anchor href="mailto:sponsor@greatfrontend.com">
-                  {chunks}
+              link: () => (
+                <Anchor href={`mailto:${SPONSOR_MANAGER_EMAIL}`}>
+                  {SPONSOR_MANAGER_EMAIL}
                 </Anchor>
               ),
             }}

@@ -32,8 +32,8 @@ import type { SponsorsAdFormatPayload } from '~/components/sponsors/SponsorsType
 
 import { fetchInterviewsStudyLists } from '~/db/contentlayer/InterviewsStudyListReader';
 import {
-  sendSponsorsAdRequestSubmissionAdvertiserEmail,
-  sendSponsorsAdRequestSubmissionReviewEmail,
+  sendSponsorsAdRequestConfirmationEmail,
+  sendSponsorsAdRequestReviewEmail,
 } from '~/emails/items/sponsors/EmailsSenderSponsors';
 import prisma from '~/server/prisma';
 import { createSupabaseAdminClientGFE_SERVER_ONLY } from '~/supabase/SupabaseServerGFE';
@@ -356,12 +356,12 @@ export const sponsorsRouter = router({
 
       // Send email to advertiser and sponsor manager
       await Promise.all([
-        sendSponsorsAdRequestSubmissionAdvertiserEmail({
+        sendSponsorsAdRequestConfirmationEmail({
           adId: result.id,
           email: emails[0],
           signatoryName,
         }),
-        sendSponsorsAdRequestSubmissionReviewEmail({
+        sendSponsorsAdRequestReviewEmail({
           adId: result.id,
           ads: ads.map((ad) => ({
             ...ad,

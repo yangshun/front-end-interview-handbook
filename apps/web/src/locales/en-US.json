@@ -1235,6 +1235,10 @@
     "defaultMessage": "Something went wrong. Try again later or contact <link>support@greatfrontend.com</link>!",
     "description": "Error toast for project"
   },
+  "5KQgqK": {
+    "defaultMessage": "Simply email us at <link/> or leave us a message through the form. We will be happy to answer any questions you might have.",
+    "description": "Advertise with us section subtitle"
+  },
   "5M4u9n": {
     "defaultMessage": "You have <bold>{amountLeft}</bold> premium credits remaining. Unlock this project to access all premium features for this challenge, including the Figma design files, official guides, and solutions.",
     "description": "Subtitle for project paywall"
@@ -1386,10 +1390,6 @@
   "64nz1e": {
     "defaultMessage": "Switching on focus mode collapses all sidebars to provide a better reading experience.",
     "description": "Label for turning focus mode on"
-  },
-  "65Bvm/": {
-    "defaultMessage": "Simply email us at <link>sponsor@greatfrontend.com</link> or leave us a message through the form. We will be happy to answer any questions you might have.",
-    "description": "Advertise with us section subtitle"
   },
   "68EuCT": {
     "defaultMessage": "Project challenges",
@@ -2678,10 +2678,6 @@
   "DqvEKB": {
     "defaultMessage": "Next question",
     "description": "Next question"
-  },
-  "DqzUW4": {
-    "defaultMessage": "Meanwhile, if you have any questions, feel free to reach out to us at <link>{email}</link>.",
-    "description": "Advertise request success message"
   },
   "Dt0MpD": {
     "defaultMessage": "This user has not started any projects matching those filters.",
@@ -4914,6 +4910,10 @@
   "Q3mZ0W": {
     "defaultMessage": "Go to image {imgIndex}",
     "description": "Label for button to navigate carousel image"
+  },
+  "Q4hqms": {
+    "defaultMessage": "Meanwhile, if you have any questions, feel free to reach out to us at <link/>.",
+    "description": "Advertise request success message"
   },
   "Q7apLT": {
     "defaultMessage": "Blog | GreatFrontEnd",

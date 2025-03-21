@@ -1,11 +1,11 @@
 import type { EmailItemConfig } from '~/emails/EmailsTypes';
 
-import EmailsTemplateSponsorsAdRequestSubmissionReview from './EmailsTemplateSponsorsAdRequestSubmissionReview';
+import EmailsTemplateSponsorsAdRequestReview from './EmailsTemplateSponsorsAdRequestReview';
 
-export const EmailsItemConfigSponsorsAdRequestSubmissionReview: EmailItemConfig<
-  typeof EmailsTemplateSponsorsAdRequestSubmissionReview
+export const EmailsItemConfigSponsorsAdRequestReview: EmailItemConfig<
+  typeof EmailsTemplateSponsorsAdRequestReview
 > = {
-  component: EmailsTemplateSponsorsAdRequestSubmissionReview,
+  component: EmailsTemplateSponsorsAdRequestReview,
   defaultProps: {
     ads: [
       {
@@ -35,6 +35,6 @@ export const EmailsItemConfigSponsorsAdRequestSubmissionReview: EmailItemConfig<
     email: 'contact@greatfrontend.com',
     name: 'GreatFrontEnd',
   },
-  id: 'SPONSORS_AD_REQUEST_SUBMISSION_REVIEW',
+  id: 'SPONSORS_AD_REQUEST_REVIEW',
   subject: ({ legalName }) => ` Advertising inquiry submitted by ${legalName}`,
 };

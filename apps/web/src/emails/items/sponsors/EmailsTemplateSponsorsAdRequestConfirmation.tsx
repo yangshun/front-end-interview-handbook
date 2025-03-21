@@ -22,7 +22,7 @@ type Props = Readonly<{
   requestUrl: string;
 }>;
 
-export default function EmailsTemplateSponsorsAdRequestSubmissionAdvertiser({
+export default function EmailsTemplateSponsorsAdRequestConfirmation({
   name,
   requestUrl,
 }: Props) {

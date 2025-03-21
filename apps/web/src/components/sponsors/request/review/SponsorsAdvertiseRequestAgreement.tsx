@@ -1,5 +1,7 @@
 import clsx from 'clsx';
 
+import { SPONSOR_MANAGER_EMAIL } from '~/data/SponsorsConfig';
+
 import { useSponsorsAdFormatData } from '~/components/sponsors/SponsorsAdFormatConfigs';
 import {
   sponsorsDateFormatterFull,
@@ -560,7 +562,7 @@ export default function SponsorsAdvertiseRequestAgreement({
         </li>
         <ul>
           <li>
-            <strong>Publisher</strong>: sponsor@greatfrontend.com
+            <strong>Publisher</strong>: {SPONSOR_MANAGER_EMAIL}
           </li>
           <li>
             <strong>Advertiser</strong>: {contactEmails.join('; ')}

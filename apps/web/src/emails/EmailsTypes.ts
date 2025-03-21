@@ -10,8 +10,8 @@ export type EmailKey =
   | 'INTERVIEWS_WELCOME_EMAIL_24_HOURS'
   | 'INTERVIEWS_WELCOME_EMAIL_IMMEDIATE'
   | 'PAYMENT_FAILED'
-  | 'SPONSORS_AD_REQUEST_SUBMISSION_ADVERTISER'
-  | 'SPONSORS_AD_REQUEST_SUBMISSION_REVIEW';
+  | 'SPONSORS_AD_REQUEST_CONFIRMATION'
+  | 'SPONSORS_AD_REQUEST_REVIEW';
 
 export const EmailContactListKeyZodEnum = z.enum([
   'ANNOUNCEMENTS',
@@ -45,4 +45,11 @@ export type EmailsUnsubscribeFields = Readonly<{
   email: string;
   hash: string;
   list: EmailContactListKey;
+}>;
+
+export type EmailRouteInternalPayload = Readonly<{
+  email: string;
+  emailKey: EmailKey;
+  name: string;
+  props: Record<string, unknown>;
 }>;
