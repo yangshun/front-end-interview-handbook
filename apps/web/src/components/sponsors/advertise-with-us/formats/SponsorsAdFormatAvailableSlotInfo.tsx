@@ -24,7 +24,7 @@ const MAX_SLOTS_SHOWN__UPFRONT = 3;
 
 export default function SponsorsAdFormatAvailableSlotInfo({ format }: Props) {
   const intl = useIntl();
-  const { data, isLoading } = trpc.sponsorships.availability.useQuery({
+  const { data, isLoading } = trpc.sponsors.availability.useQuery({
     format,
   });
   const availableSlots = (data ?? [])?.filter((slot) => slot.available);

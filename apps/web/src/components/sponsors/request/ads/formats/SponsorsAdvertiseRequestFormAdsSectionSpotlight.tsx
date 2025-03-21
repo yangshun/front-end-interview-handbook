@@ -59,7 +59,7 @@ export default function SponsorsAdvertiseRequestFormAdsSectionSpotlight({
 }: Props) {
   const intl = useIntl();
   const isReadonly = mode === 'readonly';
-  const uploadAsset = trpc.sponsorships.uploadAdAsset.useMutation();
+  const uploadAsset = trpc.sponsors.adAssetUpload.useMutation();
   const adSchema = useSponsorsSpotlightAdSchema();
 
   const methods = useForm<z.infer<typeof adSchema>>({

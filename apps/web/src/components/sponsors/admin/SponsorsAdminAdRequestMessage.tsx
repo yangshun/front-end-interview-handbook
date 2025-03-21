@@ -32,9 +32,8 @@ export default function SponsorsAdminAdRequestMessage({
 }: Props) {
   const { showToast } = useToast();
   const trpcUtils = trpc.useUtils();
-  const requestApproveMutation =
-    trpc.sponsorships.adRequestApprove.useMutation();
-  const requestRejectMutation = trpc.sponsorships.adRequestReject.useMutation();
+  const adRequestApproveMutation = trpc.sponsors.adRequestApprove.useMutation();
+  const adRequestRejectMutation = trpc.sponsors.adRequestReject.useMutation();
   const [showApproveConfirmation, setShowApproveConfirmation] = useState(false);
   const [rejectConfirmation, setRejectConfirmation] = useState({
     reason: '',
@@ -42,7 +41,7 @@ export default function SponsorsAdminAdRequestMessage({
   });
 
   async function onApproveRequest() {
-    await requestApproveMutation.mutateAsync(
+    await adRequestApproveMutation.mutateAsync(
       { id: requestId },
       {
         onSuccess: () => {
@@ -50,7 +49,7 @@ export default function SponsorsAdminAdRequestMessage({
             title: 'Request has been approved!',
             variant: 'success',
           });
-          trpcUtils.sponsorships.getAdRequest.invalidate({ id: requestId });
+          trpcUtils.sponsors.adRequest.invalidate({ id: requestId });
           setShowApproveConfirmation(false);
         },
       },
@@ -58,7 +57,7 @@ export default function SponsorsAdminAdRequestMessage({
   }
 
   async function onRejectRequest() {
-    await requestRejectMutation.mutateAsync(
+    await adRequestRejectMutation.mutateAsync(
       { comments: rejectConfirmation.reason, id: requestId },
       {
         onSuccess: () => {
@@ -66,7 +65,7 @@ export default function SponsorsAdminAdRequestMessage({
             title: 'Request has been rejected!',
             variant: 'success',
           });
-          trpcUtils.sponsorships.getAdRequest.invalidate({ id: requestId });
+          trpcUtils.sponsors.adRequest.invalidate({ id: requestId });
           setRejectConfirmation({
             reason: '',
             show: false,
@@ -154,8 +153,8 @@ export default function SponsorsAdminAdRequestMessage({
       <ConfirmationDialog
         confirmButtonLabel="Approve"
         confirmButtonVariant="success"
-        isDisabled={requestApproveMutation.isLoading}
-        isLoading={requestApproveMutation.isLoading}
+        isDisabled={adRequestApproveMutation.isLoading}
+        isLoading={adRequestApproveMutation.isLoading}
         isShown={showApproveConfirmation}
         title="Approve ad request"
         onCancel={() => setShowApproveConfirmation(false)}
@@ -166,9 +165,9 @@ export default function SponsorsAdminAdRequestMessage({
         confirmButtonLabel="Reject"
         confirmButtonVariant="danger"
         isDisabled={
-          !rejectConfirmation.reason || requestRejectMutation.isLoading
+          !rejectConfirmation.reason || adRequestRejectMutation.isLoading
         }
-        isLoading={requestRejectMutation.isLoading}
+        isLoading={adRequestRejectMutation.isLoading}
         isShown={rejectConfirmation.show}
         title="Reject ad request"
         onCancel={() =>

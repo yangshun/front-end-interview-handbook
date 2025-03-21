@@ -17,7 +17,7 @@ function SponsorsAdFormatInContentContainerImpl({
   adPlacement: SponsorsAdFormatInContentPlacement;
   size: SponsorsAdFormatInContentSize;
 }>) {
-  const { data, isLoading } = trpc.sponsorships.ad.useQuery({
+  const { data, isLoading } = trpc.sponsors.ad.useQuery({
     format: 'IN_CONTENT',
   });
 

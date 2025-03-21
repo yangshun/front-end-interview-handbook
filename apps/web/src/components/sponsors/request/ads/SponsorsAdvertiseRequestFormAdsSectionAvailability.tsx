@@ -45,7 +45,7 @@ export default function SponsorsAdvertiseRequestFormAdsSectionAvailability({
 }: Props) {
   const intl = useIntl();
   const isReadonly = mode === 'readonly';
-  const { isLoading, data } = trpc.sponsorships.availability.useQuery({
+  const { isLoading, data } = trpc.sponsors.availability.useQuery({
     format: adFormat,
   });
 

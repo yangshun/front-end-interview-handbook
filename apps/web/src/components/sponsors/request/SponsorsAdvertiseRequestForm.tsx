@@ -50,10 +50,9 @@ export default function SponsorsAdvertiseRequestForm({
   const isCreateMode = mode === 'create';
   const isReadonly = mode === 'readonly';
 
-  const adRequestMutation = trpc.sponsorships.adRequest.useMutation();
-  const removeAdAssetMutation = trpc.sponsorships.removeAdAsset.useMutation();
-  const adRequestUpdateMutation =
-    trpc.sponsorships.adRequestUpdate.useMutation();
+  const adRequestCreateMutation = trpc.sponsors.adRequestCreate.useMutation();
+  const adRequestUpdateMutation = trpc.sponsors.adRequestUpdate.useMutation();
+  const adAssetRemoveMutation = trpc.sponsors.adAssetRemove.useMutation();
   const [stepsStatus, setStepsStatus] = useState<
     Record<Step, 'completed' | 'in_progress' | 'not_started'>
   >({
@@ -161,7 +160,7 @@ export default function SponsorsAdvertiseRequestForm({
     agreement: string;
   }>) {
     if (formData.removeAssets.length > 0) {
-      removeAdAssetMutation.mutate({ imageUrls: formData.removeAssets });
+      adAssetRemoveMutation.mutate({ imageUrls: formData.removeAssets });
     }
     if (mode === 'edit' && 'requestId' in props) {
       await adRequestUpdateMutation.mutateAsync(
@@ -205,7 +204,7 @@ export default function SponsorsAdvertiseRequestForm({
       );
       setStepsStatus((prev) => ({ ...prev, review: 'completed' }));
     } else {
-      await adRequestMutation.mutateAsync(
+      await adRequestCreateMutation.mutateAsync(
         {
           ads: formData.ads,
           agreement,
@@ -357,7 +356,8 @@ export default function SponsorsAdvertiseRequestForm({
             emails: formData.emails,
           }}
           isSubmitting={
-            adRequestMutation.isLoading || adRequestUpdateMutation.isLoading
+            adRequestCreateMutation.isLoading ||
+            adRequestUpdateMutation.isLoading
           }
           mode={mode}
           updateStepStatus={(status) =>

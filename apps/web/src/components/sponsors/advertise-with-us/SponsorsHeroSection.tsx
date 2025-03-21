@@ -31,7 +31,7 @@ import { sponsorsDateFormatter } from '../SponsorsDatesUtils';
 export default function SponsorsHeroSection() {
   const intl = useIntl();
 
-  const { data } = trpc.sponsorships.firstAvailabilityAcrossFormats.useQuery();
+  const { data } = trpc.sponsors.firstAvailabilityAcrossFormats.useQuery();
 
   return (
     <div className="flex flex-col gap-x-4 gap-y-12 py-20 lg:flex-row xl:gap-x-6">

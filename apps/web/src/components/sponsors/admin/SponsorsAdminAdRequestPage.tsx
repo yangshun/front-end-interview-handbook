@@ -26,10 +26,9 @@ type Props = Readonly<{
 }>;
 
 export default function SponsorsAdminAdRequestPage({ requestId }: Props) {
-  const { data: adRequest, isLoading } =
-    trpc.sponsorships.getAdRequest.useQuery({
-      id: requestId,
-    });
+  const { data: adRequest, isLoading } = trpc.sponsors.adRequest.useQuery({
+    id: requestId,
+  });
 
   const [showEditMode, setShowEditMode] = useState(false);
 

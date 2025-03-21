@@ -58,7 +58,7 @@ export default function SponsorsAdminAdRequestListPage() {
     setIsAscendingOrder,
   } = useSponsorsAdminAdRequestFilters();
   const { data: { requests, totalCount } = {}, isLoading } =
-    trpc.sponsorships.getAdRequests.useQuery(
+    trpc.sponsors.adRequests.useQuery(
       {
         filter: {
           query,

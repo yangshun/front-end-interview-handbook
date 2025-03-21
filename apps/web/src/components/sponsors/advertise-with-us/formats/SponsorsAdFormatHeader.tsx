@@ -23,7 +23,7 @@ export default function SponsorsAdFormatHeader({ format }: Props) {
   const placementData = useSponsorsAdFormatData();
   const { name, description, config } = placementData[format];
 
-  const { data } = trpc.sponsorships.availability.useQuery({
+  const { data } = trpc.sponsors.availability.useQuery({
     format,
   });
   const availableSlots = (data ?? [])?.filter((slot) => slot.available);

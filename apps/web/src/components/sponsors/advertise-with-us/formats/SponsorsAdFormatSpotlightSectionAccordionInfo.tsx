@@ -174,7 +174,7 @@ export default function SponsorsAdFormatSpotlightSectionAccordionInfo() {
 }
 
 function useSponsorsAdSpotlightQuestionListingPages() {
-  const { data } = trpc.sponsorships.spotlightPlacements.useQuery();
+  const { data } = trpc.sponsors.spotlightPlacements.useQuery();
   const questionLanguagesData = useQuestionLanguagesData();
   const questionLanguagesPages = Object.keys(questionLanguagesData).map(
     (key) => {

@@ -68,7 +68,7 @@ export default function SponsorsAdvertiseRequestFormAdsSectionInContent({
 }: Props) {
   const intl = useIntl();
   const isReadonly = mode === 'readonly';
-  const uploadAsset = trpc.sponsorships.uploadAdAsset.useMutation();
+  const uploadAsset = trpc.sponsors.adAssetUpload.useMutation();
   const adSchema = useSponsorsInContentAdSchema();
   const methods = useForm<z.infer<typeof adSchema>>({
     defaultValues: defaultValues || {

@@ -31,7 +31,7 @@ function SponsorsAdFormatSpotlightCardImpl({
   adPlacement: SponsorsAdFormatSpotlightPlacement;
   tracking?: boolean;
 }>) {
-  const { data, isLoading } = trpc.sponsorships.ad.useQuery({
+  const { data, isLoading } = trpc.sponsors.ad.useQuery({
     format: 'SPOTLIGHT',
   });
 

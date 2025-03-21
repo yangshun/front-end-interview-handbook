@@ -25,7 +25,7 @@ const ITEMS_PER_PAGE = 20;
 
 export default function SponsorsAdminInquiryListPage() {
   const [searchQuery, setSearchQuery] = useState('');
-  const { data, isLoading } = trpc.sponsorships.adRequestInquiries.useQuery();
+  const { data, isLoading } = trpc.sponsors.adRequestInquiries.useQuery();
 
   const filteredItems = data?.filter((inquiry) =>
     inquiry.emails.join(', ').toLowerCase().includes(searchQuery.toLowerCase()),

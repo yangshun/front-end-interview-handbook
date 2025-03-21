@@ -56,7 +56,7 @@ function incrementISOWeek(week: number, delta = 1) {
   return newWeek <= 52 ? newWeek : newWeek - 52;
 }
 
-export const sponsorshipsRouter = router({
+export const sponsorsRouter = router({
   ad: publicProcedure
     .input(
       z.object({
@@ -166,7 +166,126 @@ export const sponsorshipsRouter = router({
 
       return adPayload;
     }),
-  adRequest: publicProcedure
+  adAssetRemove: publicProcedure
+    .input(
+      z.object({
+        imageUrls: z.array(z.string()),
+      }),
+    )
+    .mutation(async ({ input: { imageUrls } }) => {
+      const supabaseAdmin = createSupabaseAdminClientGFE_SERVER_ONLY();
+      const filePaths = imageUrls.map((imageUrl) =>
+        imageUrl.split('/').slice(-2).join('/'),
+      ); // Get :sessionId/:fileName file path
+
+      const { error } = await supabaseAdmin.storage
+        .from('ads')
+        .remove(filePaths);
+
+      if (error) {
+        throw error;
+      }
+    }),
+  adAssetUpload: publicProcedure
+    .input(
+      z.object({
+        format: SponsorsAdFormatZodEnum,
+        imageFile: z.string(),
+        sessionId: z.string(),
+      }),
+    )
+    .mutation(async ({ input: { imageFile, sessionId, format } }) => {
+      const supabaseAdmin = createSupabaseAdminClientGFE_SERVER_ONLY();
+
+      const blob = base64toBlob(imageFile);
+
+      const fileName =
+        format === 'SPOTLIGHT'
+          ? 'spotlight'
+          : format === 'IN_CONTENT'
+            ? 'in-content'
+            : 'global-banner';
+      const storagePath =
+        sessionId +
+        '/' +
+        fileName +
+        '-' +
+        String(new Date().getTime()) +
+        '.jpg';
+      const { error } = await supabaseAdmin.storage
+        .from('ads')
+        .upload(storagePath, blob, {
+          upsert: true,
+        });
+
+      if (error) {
+        throw error;
+      }
+
+      const { data: imageUrl } = supabaseAdmin.storage
+        .from('ads')
+        .getPublicUrl(storagePath);
+
+      return imageUrl.publicUrl;
+    }),
+  adRequest: adminProcedure
+    .input(
+      z.object({
+        id: z.string(),
+      }),
+    )
+    .query(async ({ input: { id } }) => {
+      return await prisma.sponsorsAdRequest.findUnique({
+        include: {
+          ads: {
+            include: {
+              slots: true,
+            },
+          },
+          review: {
+            select: {
+              comments: true,
+              createdAt: true,
+              profile: {
+                select: {
+                  id: true,
+                  name: true,
+                  username: true,
+                },
+              },
+            },
+          },
+        },
+        where: {
+          id,
+        },
+      });
+    }),
+  adRequestApprove: adminProcedure
+    .input(
+      z.object({
+        id: z.string(),
+      }),
+    )
+    .mutation(async ({ input: { id }, ctx: { viewer } }) => {
+      return await prisma.$transaction(async (tx) => {
+        await Promise.all([
+          tx.sponsorsAdRequest.update({
+            data: {
+              status: 'APPROVED',
+            },
+            where: { id },
+          }),
+          tx.sponsorsAdRequestReview.create({
+            data: {
+              requestId: id,
+              userId: viewer.id,
+            },
+          }),
+        ]);
+      });
+    }),
+  adRequestCreate: publicProcedure
     .input(
       z.object({
         ads: z.array(
@@ -250,30 +369,6 @@ export const sponsorshipsRouter = router({
           signatoryTitle,
         }),
       ]);
-    }),
-  adRequestApprove: adminProcedure
-    .input(
-      z.object({
-        id: z.string(),
-      }),
-    )
-    .mutation(async ({ input: { id }, ctx: { viewer } }) => {
-      return await prisma.$transaction(async (tx) => {
-        await Promise.all([
-          tx.sponsorsAdRequest.update({
-            data: {
-              status: 'APPROVED',
-            },
-            where: { id },
-          }),
-          tx.sponsorsAdRequestReview.create({
-            data: {
-              requestId: id,
-              userId: viewer.id,
-            },
-          }),
-        ]);
-      });
     }),
   adRequestInquiries: adminProcedure.query(async () => {
     const aplQuery = `
@@ -383,6 +478,70 @@ export const sponsorshipsRouter = router({
           ),
         );
       });
+    }),
+  adRequests: adminProcedure
+    .input(
+      z.object({
+        filter: z.object({
+          query: z.string().nullable(),
+          status: z.array(
+            z.enum(['PENDING', 'APPROVED', 'REJECTED', 'PUBLISHED'] as const),
+          ),
+        }),
+        pagination: z.object({
+          limit: z
+            .number()
+            .int()
+            .positive()
+            .transform((val) => Math.min(30, val)),
+          page: z.number().int().positive(),
+        }),
+        sort: z.object({
+          field: z.enum(['createdAt', 'signatoryName']),
+          isAscendingOrder: z.boolean(),
+        }),
+      }),
+    )
+    .query(async ({ input: { pagination, filter, sort } }) => {
+      const { limit, page } = pagination;
+      const { query, status } = filter;
+
+      const orderBy = {
+        [sort.field]: sort.isAscendingOrder ? 'asc' : 'desc',
+      } as const;
+
+      const where: Prisma.SponsorsAdRequestWhereInput = {
+        OR: [
+          {
+            signatoryName: {
+              contains: query ?? '',
+              mode: 'insensitive', // Case-insensitive search
+            },
+          },
+          {
+            legalName: {
+              contains: query ?? '',
+              mode: 'insensitive',
+            },
+          },
+        ],
+        ...(status.length > 0 ? { status: { in: status } } : {}),
+      };
+
+      const [totalCount, requests] = await Promise.all([
+        prisma.sponsorsAdRequest.count({ where }),
+        prisma.sponsorsAdRequest.findMany({
+          orderBy,
+          skip: (page - 1) * limit,
+          take: limit,
+          where,
+        }),
+      ]);
+
+      return {
+        requests,
+        totalCount,
+      };
     }),
   availability: publicProcedure
     .input(
@@ -564,123 +723,6 @@ export const sponsorshipsRouter = router({
         }
       : null;
   }),
-  getAdRequest: adminProcedure
-    .input(
-      z.object({
-        id: z.string(),
-      }),
-    )
-    .query(async ({ input: { id } }) => {
-      return await prisma.sponsorsAdRequest.findUnique({
-        include: {
-          ads: {
-            include: {
-              slots: true,
-            },
-          },
-          review: {
-            select: {
-              comments: true,
-              createdAt: true,
-              profile: {
-                select: {
-                  id: true,
-                  name: true,
-                  username: true,
-                },
-              },
-            },
-          },
-        },
-        where: {
-          id,
-        },
-      });
-    }),
-  getAdRequests: adminProcedure
-    .input(
-      z.object({
-        filter: z.object({
-          query: z.string().nullable(),
-          status: z.array(
-            z.enum(['PENDING', 'APPROVED', 'REJECTED', 'PUBLISHED'] as const),
-          ),
-        }),
-        pagination: z.object({
-          limit: z
-            .number()
-            .int()
-            .positive()
-            .transform((val) => Math.min(30, val)),
-          page: z.number().int().positive(),
-        }),
-        sort: z.object({
-          field: z.enum(['createdAt', 'signatoryName']),
-          isAscendingOrder: z.boolean(),
-        }),
-      }),
-    )
-    .query(async ({ input: { pagination, filter, sort } }) => {
-      const { limit, page } = pagination;
-      const { query, status } = filter;
-
-      const orderBy = {
-        [sort.field]: sort.isAscendingOrder ? 'asc' : 'desc',
-      } as const;
-
-      const where: Prisma.SponsorsAdRequestWhereInput = {
-        OR: [
-          {
-            signatoryName: {
-              contains: query ?? '',
-              mode: 'insensitive', // Case-insensitive search
-            },
-          },
-          {
-            legalName: {
-              contains: query ?? '',
-              mode: 'insensitive',
-            },
-          },
-        ],
-        ...(status.length > 0 ? { status: { in: status } } : {}),
-      };
-
-      const [totalCount, requests] = await Promise.all([
-        prisma.sponsorsAdRequest.count({ where }),
-        prisma.sponsorsAdRequest.findMany({
-          orderBy,
-          skip: (page - 1) * limit,
-          take: limit,
-          where,
-        }),
-      ]);
-
-      return {
-        requests,
-        totalCount,
-      };
-    }),
-  removeAdAsset: publicProcedure
-    .input(
-      z.object({
-        imageUrls: z.array(z.string()),
-      }),
-    )
-    .mutation(async ({ input: { imageUrls } }) => {
-      const supabaseAdmin = createSupabaseAdminClientGFE_SERVER_ONLY();
-      const filePaths = imageUrls.map((imageUrl) =>
-        imageUrl.split('/').slice(-2).join('/'),
-      ); // Get :sessionId/:fileName file path
-
-      const { error } = await supabaseAdmin.storage
-        .from('ads')
-        .remove(filePaths);
-
-      if (error) {
-        throw error;
-      }
-    }),
   spotlightPlacements: publicProcedure.query(async () => {
     const [focusAreas, companies, studyPlans] = await Promise.all([
       fetchInterviewsStudyLists('focus-area'),
@@ -694,46 +736,4 @@ export const sponsorshipsRouter = router({
       name: item.longName,
     }));
   }),
-  uploadAdAsset: publicProcedure
-    .input(
-      z.object({
-        format: SponsorsAdFormatZodEnum,
-        imageFile: z.string(),
-        sessionId: z.string(),
-      }),
-    )
-    .mutation(async ({ input: { imageFile, sessionId, format } }) => {
-      const supabaseAdmin = createSupabaseAdminClientGFE_SERVER_ONLY();
-
-      const blob = base64toBlob(imageFile);
-
-      const fileName =
-        format === 'SPOTLIGHT'
-          ? 'spotlight'
-          : format === 'IN_CONTENT'
-            ? 'in-content'
-            : 'global-banner';
-      const storagePath =
-        sessionId +
-        '/' +
-        fileName +
-        '-' +
-        String(new Date().getTime()) +
-        '.jpg';
-      const { error } = await supabaseAdmin.storage
-        .from('ads')
-        .upload(storagePath, blob, {
-          upsert: true,
-        });
-
-      if (error) {
-        throw error;
-      }
-
-      const { data: imageUrl } = supabaseAdmin.storage
-        .from('ads')
-        .getPublicUrl(storagePath);
-
-      return imageUrl.publicUrl;
-    }),
 });
