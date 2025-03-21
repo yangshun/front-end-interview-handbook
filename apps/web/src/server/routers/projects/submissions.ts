@@ -3,7 +3,7 @@ import { z } from 'zod';
 import { yoeReplacementSchema } from '~/components/projects/misc';
 import type { ProjectsSkillKey } from '~/components/projects/skills/types';
 import { projectsChallengeSubmissionListAugmentChallengeWithCompletionStatus } from '~/components/projects/submissions/lists/ProjectsChallengeSubmissionListUtil';
-import type {
+import {
   ProjectsChallengeSubmissionSortField,
   ProjectsChallengeSubmissionTabType,
   ProjectsChallengeSubmissionYOEFilter,
@@ -15,7 +15,7 @@ import prisma from '~/server/prisma';
 import { projectsUserProcedure, publicProjectsProcedure } from './procedures';
 import { publicProcedure, router } from '../../trpc';
 
-import type { Prisma, ProjectsChallengeSessionStatus } from '@prisma/client';
+import { Prisma, ProjectsChallengeSessionStatus } from '@prisma/client';
 
 const projectsChallengeProcedure = projectsUserProcedure.input(
   z.object({
@@ -242,16 +242,19 @@ export const projectsChallengeSubmissionListRouter = router({
       z.object({
         filter: z.object({
           challengeSessionStatus: z.array(
-            z.enum(['IN_PROGRESS', 'COMPLETED', 'NOT_STARTED'] as const),
+            z.nativeEnum({
+              ...ProjectsChallengeSessionStatus,
+              NOT_STARTED: 'NOT_STARTED',
+            }),
           ),
           challenges: z.array(z.string()),
           hasClientFilterApplied: z.boolean(),
           profileStatus: z.array(yoeReplacementSchema),
           query: z.string().nullable(),
           roadmapSkills: z.array(z.string()),
-          submissionType: z.enum(['all', 'learn', 'mentor']),
+          submissionType: z.enum(ProjectsChallengeSubmissionTabType),
           techSkills: z.array(z.string()),
-          yoeExperience: z.array(z.enum(['junior', 'mid', 'senior'])),
+          yoeExperience: z.array(z.enum(ProjectsChallengeSubmissionYOEFilter)),
         }),
         pagination: z.object({
           limit: z
@@ -262,7 +265,7 @@ export const projectsChallengeSubmissionListRouter = router({
           page: z.number().int().positive(),
         }),
         sort: z.object({
-          field: z.enum(['createdAt', 'difficulty', 'votes', 'recommended']),
+          field: z.enum(ProjectsChallengeSubmissionSortField),
           isAscendingOrder: z.boolean(),
         }),
       }),
@@ -474,7 +477,7 @@ export const projectsChallengeSubmissionListRouter = router({
     .input(
       z.object({
         challengeSlug: z.string().optional(),
-        orderBy: z.enum(['asc', 'desc']).optional(),
+        orderBy: z.nativeEnum(Prisma.SortOrder).optional(),
         userId: z.string().optional(),
       }),
     )

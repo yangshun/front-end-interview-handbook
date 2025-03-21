@@ -16,6 +16,8 @@ import { projectsUserProcedure } from './procedures';
 import { publicProcedure } from '../../trpc';
 import { router } from '../../trpc';
 
+import { Prisma, ProjectsChallengeSessionStatus } from '@prisma/client';
+
 const projectsSessionProcedure = projectsUserProcedure.input(
   z.object({
     slug: z.string(),
@@ -52,9 +54,9 @@ export const projectsSessionsRouter = router({
   list: publicProcedure
     .input(
       z.object({
-        orderBy: z.enum(['asc', 'desc']).optional(),
+        orderBy: z.nativeEnum(Prisma.SortOrder).optional(),
         statuses: z
-          .array(z.enum(['COMPLETED', 'IN_PROGRESS', 'STOPPED']))
+          .array(z.nativeEnum(ProjectsChallengeSessionStatus))
           .nonempty()
           .optional(),
         userId: z.string().uuid().optional(),

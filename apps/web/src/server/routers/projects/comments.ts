@@ -21,19 +21,13 @@ import { publicProcedure, router, userProcedure } from '../../trpc';
 
 import { Prisma, ProjectsDiscussionCommentDomain } from '@prisma/client';
 
-// TODO(prisma): Read from Prisma directly.
-const domains = [
-  ProjectsDiscussionCommentDomain.PROJECTS_SUBMISSION,
-  ProjectsDiscussionCommentDomain.PROJECTS_CHALLENGE,
-] as const;
-
 export const projectsCommentsRouter = router({
   create: projectsUserProcedure
     .input(
       z.object({
         body: discussionsCommentBodySchemaServer,
         category: z.string().optional(),
-        domain: z.enum(domains),
+        domain: z.nativeEnum(ProjectsDiscussionCommentDomain),
         entityId: z.string(),
         entityOwnerId: z.string().uuid().optional(),
       }),
@@ -91,7 +85,7 @@ export const projectsCommentsRouter = router({
   liked: userProcedure
     .input(
       z.object({
-        domain: z.enum(domains),
+        domain: z.nativeEnum(ProjectsDiscussionCommentDomain),
         entityId: z.string(),
       }),
     )
@@ -118,10 +112,13 @@ export const projectsCommentsRouter = router({
   list: publicProcedure
     .input(
       z.object({
-        domain: z.enum(domains),
+        domain: z.nativeEnum(ProjectsDiscussionCommentDomain),
         entityId: z.string(),
         sort: z.object({
-          field: z.enum(['createdAt', 'votes']),
+          field: z.enum([
+            Prisma.ProjectsDiscussionCommentScalarFieldEnum.createdAt,
+            'votes',
+          ]),
           isAscendingOrder: z.boolean(),
         }),
       }),
@@ -190,7 +187,7 @@ export const projectsCommentsRouter = router({
       // to a submission and it can be very expensive for users with many comments.
       z.object({
         contributionType: z.array(z.string()),
-        domainList: z.array(z.enum(domains)),
+        domainList: z.array(z.nativeEnum(ProjectsDiscussionCommentDomain)),
         forumType: z.array(z.string()),
         userId: z.string().uuid().optional(),
       }),
@@ -362,7 +359,7 @@ export const projectsCommentsRouter = router({
     .input(
       z.object({
         body: discussionsCommentBodySchemaServer,
-        domain: z.enum(domains),
+        domain: z.nativeEnum(ProjectsDiscussionCommentDomain),
         entityId: z.string(),
         parentCommentId: z.string().uuid(),
       }),

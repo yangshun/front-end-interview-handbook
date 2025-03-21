@@ -14,11 +14,7 @@ export const questionCommunitySolutionRouter = router({
     .input(
       z.object({
         code: z.string(),
-        language: z.enum([
-          // TODO(prisma): Read from Prisma directly.
-          QuestionWorkingLanguage.JS,
-          QuestionWorkingLanguage.TS,
-        ]),
+        language: z.nativeEnum(QuestionWorkingLanguage),
         slug: z.string(),
         title: z.string(),
         writeup: z.string(),
@@ -81,14 +77,7 @@ export const questionCommunitySolutionRouter = router({
     .input(
       z.object({
         files: z.string(),
-        framework: z.enum([
-          // TODO(prisma): Read from Prisma directly.
-          QuestionUserInterfaceFramework.REACT,
-          QuestionUserInterfaceFramework.VANILLA,
-          QuestionUserInterfaceFramework.ANGULAR,
-          QuestionUserInterfaceFramework.VUE,
-          QuestionUserInterfaceFramework.SVELTE,
-        ]),
+        framework: z.nativeEnum(QuestionUserInterfaceFramework),
         slug: z.string(),
         title: z.string(),
         writeup: z.string(),

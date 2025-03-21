@@ -14,16 +14,8 @@ export const questionSubmissionRouter = router({
     .input(
       z.object({
         code: z.string(),
-        language: z.enum([
-          // TODO(prisma): Read from Prisma directly.
-          QuestionWorkingLanguage.JS,
-          QuestionWorkingLanguage.TS,
-        ]),
-        result: z.enum([
-          // TODO(prisma): Read from Prisma directly.
-          QuestionSubmissionResult.CORRECT,
-          QuestionSubmissionResult.WRONG,
-        ]),
+        language: z.nativeEnum(QuestionWorkingLanguage),
+        result: z.nativeEnum(QuestionSubmissionResult),
         slug: z.string(),
       }),
     )

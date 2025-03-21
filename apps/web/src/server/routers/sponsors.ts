@@ -41,7 +41,11 @@ import { createSupabaseAdminClientGFE_SERVER_ONLY } from '~/supabase/SupabaseSer
 import { adminProcedure, publicProcedure, router } from '../trpc';
 
 import { Axiom } from '@axiomhq/js';
-import { type Prisma, SponsorsAdFormat } from '@prisma/client';
+import {
+  Prisma,
+  SponsorsAdFormat,
+  SponsorsAdRequestStatus,
+} from '@prisma/client';
 
 const availabilityMaxWeeksAhead = 12;
 
@@ -483,9 +487,7 @@ export const sponsorsRouter = router({
       z.object({
         filter: z.object({
           query: z.string().nullable(),
-          status: z.array(
-            z.enum(['PENDING', 'APPROVED', 'REJECTED', 'PUBLISHED'] as const),
-          ),
+          status: z.array(z.nativeEnum(SponsorsAdRequestStatus)),
         }),
         pagination: z.object({
           limit: z
@@ -496,7 +498,10 @@ export const sponsorsRouter = router({
           page: z.number().int().positive(),
         }),
         sort: z.object({
-          field: z.enum(['createdAt', 'signatoryName']),
+          field: z.enum([
+            Prisma.SponsorsAdRequestScalarFieldEnum.createdAt,
+            Prisma.SponsorsAdRequestScalarFieldEnum.signatoryName,
+          ]),
           isAscendingOrder: z.boolean(),
         }),
       }),

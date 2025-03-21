@@ -11,14 +11,7 @@ export const questionSaveRouter = router({
     .input(
       z.object({
         files: z.string(),
-        framework: z.enum([
-          // TODO(prisma): Read from Prisma directly.
-          QuestionUserInterfaceFramework.REACT,
-          QuestionUserInterfaceFramework.VANILLA,
-          QuestionUserInterfaceFramework.ANGULAR,
-          QuestionUserInterfaceFramework.VUE,
-          QuestionUserInterfaceFramework.SVELTE,
-        ]),
+        framework: z.nativeEnum(QuestionUserInterfaceFramework),
         name: z.string(),
         slug: z.string(),
       }),

@@ -21,7 +21,7 @@ type Props = Readonly<{
   format: SponsorsAdFormat;
 }>;
 
-const MAX_SLOTS_SHOWN__UPFRONT = 3;
+const MAX_SLOTS_SHOWN_UPFRONT = 3;
 
 export default function SponsorsAdFormatAvailableSlotInfo({ format }: Props) {
   const intl = useIntl();
@@ -31,7 +31,7 @@ export default function SponsorsAdFormatAvailableSlotInfo({ format }: Props) {
   const availableSlots = (data ?? [])?.filter((slot) => slot.available);
 
   const nextAvailableSlots = availableSlots
-    .slice(1, MAX_SLOTS_SHOWN__UPFRONT)
+    .slice(1, MAX_SLOTS_SHOWN_UPFRONT)
     .map((slot) => {
       const startDate = sponsorsDateFormatterWithoutYear.format(
         new Date(slot.start),
@@ -60,7 +60,7 @@ export default function SponsorsAdFormatAvailableSlotInfo({ format }: Props) {
   return (
     <SponsorsAdFormatInfo
       addOnItem={
-        formattedAvailableSlots.length <= MAX_SLOTS_SHOWN__UPFRONT ? null : (
+        formattedAvailableSlots.length <= MAX_SLOTS_SHOWN_UPFRONT ? null : (
           <div className="-ml-1">
             <SponsorsAdFormatAvailableSlotsDialog
               format={format}

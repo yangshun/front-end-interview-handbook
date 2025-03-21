@@ -6,18 +6,13 @@ import prisma from '~/server/prisma';
 
 import { router, userProcedure } from '../trpc';
 
-const guidebookZodEnum = z.enum([
-  'BEHAVIORAL_INTERVIEW_PLAYBOOK',
-  'FRONT_END_INTERVIEW_PLAYBOOK',
-  'FRONT_END_SYSTEM_DESIGN_PLAYBOOK',
-  'REACT_INTERVIEW_PLAYBOOK',
-]);
+import { GuidebookItem } from '@prisma/client';
 
 export const guideProgressRouter = router({
   add: userProcedure
     .input(
       z.object({
-        book: guidebookZodEnum,
+        book: z.nativeEnum(GuidebookItem),
         slug: z.string(),
         studyListKey: z.string().optional(),
         // Only used by the client for showing within the response toast.
@@ -88,7 +83,7 @@ export const guideProgressRouter = router({
   delete: userProcedure
     .input(
       z.object({
-        book: guidebookZodEnum,
+        book: z.nativeEnum(GuidebookItem),
         slug: z.string(),
       }),
     )
@@ -112,7 +107,7 @@ export const guideProgressRouter = router({
     .input(
       z.object({
         guide: z.object({
-          book: guidebookZodEnum,
+          book: z.nativeEnum(GuidebookItem),
           slug: z.string(),
         }),
       }),

@@ -3,7 +3,7 @@ import { z } from 'zod';
 import prisma from '../prisma';
 import { adminProcedure, publicProcedure, router } from '../trpc';
 
-import type { Prisma } from '@prisma/client';
+import { Prisma } from '@prisma/client';
 import { FeedbackMessageCategory } from '@prisma/client';
 
 export const feedbackRouter = router({
@@ -24,7 +24,10 @@ export const feedbackRouter = router({
           page: z.number().int().positive(),
         }),
         sort: z.object({
-          field: z.enum(['createdAt', 'email']),
+          field: z.enum([
+            Prisma.FeedbackMessageScalarFieldEnum.createdAt,
+            Prisma.FeedbackMessageScalarFieldEnum.email,
+          ]),
           isAscendingOrder: z.boolean(),
         }),
       }),

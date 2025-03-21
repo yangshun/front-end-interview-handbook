@@ -8,10 +8,10 @@ import type { PrismaClientGFE } from '~/server/prisma';
 import type { ProjectsImageBreakpointCategory } from '../common/ProjectsImageBreakpoints';
 
 import type {
-  Prisma,
   ProjectsChallengeSessionStatus,
   ProjectsProfile,
 } from '@prisma/client';
+import { Prisma } from '@prisma/client';
 
 export type ProjectsChallengeSubmissionExtended = Prisma.Result<
   PrismaClientGFE['projectsChallengeSubmission'],
@@ -64,17 +64,33 @@ export type ProjectsChallengeSubmissionAugmented =
         | undefined;
     }>;
 
+export const ProjectsChallengeSubmissionSortField = [
+  Prisma.ProjectsChallengeSubmissionScalarFieldEnum.createdAt,
+  Prisma.ProjectsChallengeDetailsScalarFieldEnum.difficulty,
+  'recommended',
+  'votes',
+] as const;
+
 export type ProjectsChallengeSubmissionSortField =
-  | 'createdAt'
-  | 'difficulty'
-  | 'recommended'
-  | 'votes';
+  (typeof ProjectsChallengeSubmissionSortField)[number];
 
 export type ProjectsChallengeSubmissionStatusFilter =
   | 'COMPLETED'
   | 'IN_PROGRESS'
   | 'NOT_STARTED';
 
-export type ProjectsChallengeSubmissionYOEFilter = 'junior' | 'mid' | 'senior';
+export const ProjectsChallengeSubmissionYOEFilter = [
+  'junior',
+  'mid',
+  'senior',
+] as const;
+export type ProjectsChallengeSubmissionYOEFilter =
+  (typeof ProjectsChallengeSubmissionYOEFilter)[number];
 
-export type ProjectsChallengeSubmissionTabType = 'all' | 'learn' | 'mentor';
+export const ProjectsChallengeSubmissionTabType = [
+  'all',
+  'learn',
+  'mentor',
+] as const;
+export type ProjectsChallengeSubmissionTabType =
+  (typeof ProjectsChallengeSubmissionTabType)[number];
