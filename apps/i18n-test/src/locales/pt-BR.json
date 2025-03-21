@@ -1,6 +1,14 @@
 {
-  "hello": "Hello world!",
-  "bye": "Goodbye earth...",
-  "smart": "You're so smart, what a pancake!",
-  "boo": "Você não vai me assustar!"
+  "+1emCT": {
+    "defaultMessage": "Prefácio do fundador",
+    "description": "Marketing section title"
+  },
+  "+1woLQ": {
+    "defaultMessage": "+{points} reputação",
+    "description": "Rep gain for parent skill"
+  },
+  "+3r4Ek": {
+    "defaultMessage": "Selecione um formato de anúncio para exibir, você pode criar vários anúncios",
+    "description": "Ad format selection description"
+  }
 }

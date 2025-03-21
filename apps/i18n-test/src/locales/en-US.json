@@ -1,6 +1,14 @@
 {
-  "hello": "Hello world!",
-  "bye": "Goodbye earth...",
-  "smart": "You're so smart, what a pancake!",
-  "boo": "You will not scare me!"
+  "+1emCT": {
+    "defaultMessage": "Founder's foreword",
+    "description": "Marketing section title"
+  },
+  "+1woLQ": {
+    "defaultMessage": "+{points} rep",
+    "description": "Rep gain for parent skill"
+  },
+  "+3r4Ek": {
+    "defaultMessage": "Select an ad format to display, you can create multiple ads",
+    "description": "Ad format selection description"
+  }
 }
