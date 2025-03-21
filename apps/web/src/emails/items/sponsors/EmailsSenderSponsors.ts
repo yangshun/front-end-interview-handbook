@@ -1,8 +1,8 @@
 import url from 'node:url';
 
 import {
-  GREATFRONTEND_ADMIN_EMAIL,
-  SPONSOR_MANAGER_EMAIL,
+  SPONSORS_GREATFRONTEND_ADMIN_EMAIL,
+  SPONSORS_SPONSOR_MANAGER_EMAIL,
 } from '~/data/SponsorsConfig';
 
 import type { SponsorsAdFormatFormItem } from '~/components/sponsors/request/types';
@@ -68,8 +68,8 @@ export async function sendSponsorsAdRequestReviewEmail({
   const body: EmailRouteInternalPayload<
     typeof EmailsTemplateSponsorsAdRequestReview
   > = {
-    cc: [{ email: GREATFRONTEND_ADMIN_EMAIL }],
-    email: SPONSOR_MANAGER_EMAIL,
+    cc: [{ email: SPONSORS_GREATFRONTEND_ADMIN_EMAIL }],
+    email: SPONSORS_SPONSOR_MANAGER_EMAIL,
     emailKey: 'SPONSORS_AD_REQUEST_REVIEW',
     name: 'GreatFrontEnd',
     props: {

@@ -5,7 +5,7 @@ import { useRef } from 'react';
 
 import { trpc } from '~/hooks/trpc';
 
-import { SPONSOR_MANAGER_EMAIL } from '~/data/SponsorsConfig';
+import { SPONSORS_SPONSOR_MANAGER_EMAIL } from '~/data/SponsorsConfig';
 
 import ContactForm from '~/components/common/ContactForm';
 import { useToast } from '~/components/global/toasts/useToast';
@@ -105,8 +105,8 @@ export default function SponsorsContactUsSection() {
             id="5KQgqK"
             values={{
               link: () => (
-                <Anchor href={`mailto:${SPONSOR_MANAGER_EMAIL}`}>
-                  {SPONSOR_MANAGER_EMAIL}
+                <Anchor href={`mailto:${SPONSORS_SPONSOR_MANAGER_EMAIL}`}>
+                  {SPONSORS_SPONSOR_MANAGER_EMAIL}
                 </Anchor>
               ),
             }}

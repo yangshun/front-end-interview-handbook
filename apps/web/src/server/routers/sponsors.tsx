@@ -20,6 +20,10 @@ import {
   SponsorsAdsSpotsSwagOverflowInContentWhoWroteThis,
   SponsorsAdsSpotsSwagOverflowSpotlight,
 } from '~/data/ads/SponsorsAdsSpotsSwagOverflow';
+import {
+  SPONSORS_GREATFRONTEND_ADMIN_EMAIL,
+  SPONSORS_SPONSOR_MANAGER_EMAIL,
+} from '~/data/SponsorsConfig';
 
 import {
   sponsorsGlobalBannerAdSchemaServer,
@@ -35,6 +39,7 @@ import {
   sendSponsorsAdRequestConfirmationEmail,
   sendSponsorsAdRequestReviewEmail,
 } from '~/emails/items/sponsors/EmailsSenderSponsors';
+import { sendReactEmail } from '~/emails/mailjet/EmailsMailjetUtils';
 import prisma from '~/server/prisma';
 import { createSupabaseAdminClientGFE_SERVER_ONLY } from '~/supabase/SupabaseServerGFE';
 
@@ -389,6 +394,36 @@ export const sponsorsRouter = router({
 
     return logs;
   }),
+  adRequestInquiry: publicProcedure
+    .input(
+      z.object({
+        emails: z.array(z.string()),
+      }),
+    )
+    .mutation(async ({ input: { emails } }) => {
+      await sendReactEmail({
+        cc: [{ email: SPONSORS_GREATFRONTEND_ADMIN_EMAIL }],
+        emailElement: (
+          <div>
+            <p>Someone inquired about ads sponsorships:</p>
+            <ul>
+              {emails.map((email) => (
+                <li key={email}>{email}</li>
+              ))}
+            </ul>
+          </div>
+        ),
+        from: {
+          email: 'contact@greatfrontend.com',
+          name: 'GreatFrontEnd Sponsorships',
+        },
+        subject: `Advertising inquiry attempt – ${emails[0]}`,
+        to: {
+          email: SPONSORS_SPONSOR_MANAGER_EMAIL,
+          name: null,
+        },
+      });
+    }),
   adRequestReject: adminProcedure
     .input(
       z.object({

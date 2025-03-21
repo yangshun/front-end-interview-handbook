@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import { RiArrowRightLine, RiCheckboxCircleLine } from 'react-icons/ri';
 import { useEffectOnce } from 'usehooks-ts';
 
-import { SPONSOR_MANAGER_EMAIL } from '~/data/SponsorsConfig';
+import { SPONSORS_SPONSOR_MANAGER_EMAIL } from '~/data/SponsorsConfig';
 
 import { FormattedMessage, useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
@@ -64,8 +64,8 @@ export default function SponsorsAdvertiseRequestSuccessPage() {
             id="Q4hqms"
             values={{
               link: () => (
-                <Anchor href={`mailto:${SPONSOR_MANAGER_EMAIL}`}>
-                  {SPONSOR_MANAGER_EMAIL}
+                <Anchor href={`mailto:${SPONSORS_SPONSOR_MANAGER_EMAIL}`}>
+                  {SPONSORS_SPONSOR_MANAGER_EMAIL}
                 </Anchor>
               ),
             }}

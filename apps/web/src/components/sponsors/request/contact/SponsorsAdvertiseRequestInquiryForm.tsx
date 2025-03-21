@@ -3,6 +3,8 @@ import { Controller, useFieldArray, useForm } from 'react-hook-form';
 import { RiAddLine, RiArrowRightLine } from 'react-icons/ri';
 import type { z } from 'zod';
 
+import { trpc } from '~/hooks/trpc';
+
 import { FormattedMessage, useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
@@ -28,6 +30,8 @@ export default function SponsorsAdvertiseRequestInquiryForm({
 }: Props) {
   const intl = useIntl();
   const contactDetailsSchema = useSponsorsAdvertiseRequestContactSchema();
+  const adRequestInquiry = trpc.sponsors.adRequestInquiry.useMutation();
+
   const methods = useForm<z.infer<typeof contactDetailsSchema>>({
     defaultValues: {
       emails:
@@ -56,6 +60,10 @@ export default function SponsorsAdvertiseRequestInquiryForm({
       .filter((value) => value !== '');
 
     onSubmit(emailsData);
+    adRequestInquiry.mutate({
+      emails: emailsData,
+    });
+
     logEvent('sponsorships.inquiry', {
       emails: emailsData,
       namespace: 'sponsors',
