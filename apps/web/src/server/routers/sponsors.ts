@@ -29,7 +29,6 @@ import {
 import { sponsorsCompanySchemaServer } from '~/components/sponsors/request/company/SponsorsAdvertiseRequestCompanySchema';
 import { sponsorsWeekDateRange } from '~/components/sponsors/SponsorsDatesUtils';
 import type { SponsorsAdFormatPayload } from '~/components/sponsors/SponsorsTypes';
-import { SponsorsAdFormatZodEnum } from '~/components/sponsors/SponsorsTypes';
 
 import { fetchInterviewsStudyLists } from '~/db/contentlayer/InterviewsStudyListReader';
 import {
@@ -42,7 +41,7 @@ import { createSupabaseAdminClientGFE_SERVER_ONLY } from '~/supabase/SupabaseSer
 import { adminProcedure, publicProcedure, router } from '../trpc';
 
 import { Axiom } from '@axiomhq/js';
-import type { Prisma } from '@prisma/client';
+import { type Prisma, SponsorsAdFormat } from '@prisma/client';
 
 const availabilityMaxWeeksAhead = 12;
 
@@ -60,7 +59,7 @@ export const sponsorsRouter = router({
   ad: publicProcedure
     .input(
       z.object({
-        format: SponsorsAdFormatZodEnum,
+        format: z.nativeEnum(SponsorsAdFormat),
       }),
     )
     .query(async ({ input: { format } }) => {
@@ -189,7 +188,7 @@ export const sponsorsRouter = router({
   adAssetUpload: publicProcedure
     .input(
       z.object({
-        format: SponsorsAdFormatZodEnum,
+        format: z.nativeEnum(SponsorsAdFormat),
         imageFile: z.string(),
         sessionId: z.string(),
       }),
@@ -546,7 +545,7 @@ export const sponsorsRouter = router({
   availability: publicProcedure
     .input(
       z.object({
-        format: SponsorsAdFormatZodEnum,
+        format: z.nativeEnum(SponsorsAdFormat),
       }),
     )
     .query(async ({ input: { format } }) => {

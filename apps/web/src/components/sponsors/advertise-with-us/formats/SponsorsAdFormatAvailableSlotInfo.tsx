@@ -5,7 +5,6 @@ import { RiArrowRightLine } from 'react-icons/ri';
 import { trpc } from '~/hooks/trpc';
 
 import { useIntl } from '~/components/intl';
-import type { SponsorsAdFormat } from '~/components/sponsors/SponsorsTypes';
 import Button from '~/components/ui/Button';
 
 import SponsorsAdFormatAvailableSlotsDialog from './SponsorsAdFormatAvailableSlotsDialog';
@@ -15,6 +14,8 @@ import {
   sponsorsDateFormatterWithoutYear,
   sponsorsDateFormatterWithYear,
 } from '../../SponsorsDatesUtils';
+
+import type { SponsorsAdFormat } from '@prisma/client';
 
 type Props = Readonly<{
   format: SponsorsAdFormat;

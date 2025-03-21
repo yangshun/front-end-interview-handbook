@@ -1,12 +1,4 @@
-import { z } from 'zod';
-
-export const SponsorsAdFormatZodEnum = z.enum([
-  'GLOBAL_BANNER',
-  'IN_CONTENT',
-  'SPOTLIGHT',
-]);
-
-export type SponsorsAdFormat = z.infer<typeof SponsorsAdFormatZodEnum>;
+import type { SponsorsAdFormat } from '@prisma/client';
 
 export type SponsorsAdFormatDataType = Readonly<{
   config: SponsorsAdFormatConfig;

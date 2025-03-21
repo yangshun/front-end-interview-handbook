@@ -6,13 +6,14 @@ import { trpc } from '~/hooks/trpc';
 
 import { FormattedMessage, useIntl } from '~/components/intl';
 import { useSponsorsAdFormatData } from '~/components/sponsors/SponsorsAdFormatConfigs';
-import type { SponsorsAdFormat } from '~/components/sponsors/SponsorsTypes';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 import { themeTextSubtitleColor } from '~/components/ui/theme';
 
 import { sponsorsDateFormatter } from '../../SponsorsDatesUtils';
+
+import type { SponsorsAdFormat } from '@prisma/client';
 
 type Props = Readonly<{
   format: SponsorsAdFormat;
