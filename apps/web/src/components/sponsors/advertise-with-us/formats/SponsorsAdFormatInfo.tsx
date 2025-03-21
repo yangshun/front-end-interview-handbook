@@ -58,7 +58,7 @@ export default function SponsorsAdFormatInfo({
         {subtitle}
       </Text>
       {items.length > 0 && (
-        <div className="mt-6 flex flex-col gap-4">
+        <div className="mt-6 flex flex-col gap-4 lg:pr-4">
           <ul className="flex flex-col gap-4" role="list">
             {items.map((item) => (
               <li key={item.key} className="flex gap-x-2">

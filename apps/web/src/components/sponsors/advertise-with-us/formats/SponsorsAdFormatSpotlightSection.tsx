@@ -71,7 +71,11 @@ export default function SponsorsAdFormatSpotlightSection() {
       <SponsorsAdFormatHeader format={FORMAT} />
       <div className="flex flex-col gap-10">
         <Asset />
-        <div className="flex flex-col gap-x-6 gap-y-10 sm:gap-y-8 md:flex-row">
+        <div
+          className={clsx(
+            'flex flex-col min-[820px]:flex-row', // Custom breakpoint so that columns don't look squeeze
+            'gap-x-6 gap-y-10 sm:gap-y-8',
+          )}>
           <SponsorsAdFormatInfo
             className="flex-1"
             items={impressionsItems}

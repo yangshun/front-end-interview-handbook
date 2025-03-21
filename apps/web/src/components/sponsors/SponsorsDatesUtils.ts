@@ -6,23 +6,23 @@ import {
 } from 'date-fns';
 
 export const sponsorsDateFormatter = Intl.DateTimeFormat('en-US', {
-  day: '2-digit',
+  day: 'numeric',
   month: 'short',
   year: 'numeric',
 });
 
 export const sponsorsDateFormatterShort = Intl.DateTimeFormat('en-US', {
-  day: '2-digit',
+  day: 'numeric',
   month: 'short',
 });
 
 export const sponsorsDateFormatterWithoutYear = Intl.DateTimeFormat('en-US', {
-  day: '2-digit',
+  day: 'numeric',
   month: 'short',
 });
 
 export const sponsorsDateFormatterWithYear = Intl.DateTimeFormat('en-US', {
-  day: '2-digit',
+  day: 'numeric',
   month: 'short',
   year: 'numeric',
 });
@@ -30,7 +30,7 @@ export const sponsorsDateFormatterWithYear = Intl.DateTimeFormat('en-US', {
 export const sponsorsDateFormatterWithDayAndYear = Intl.DateTimeFormat(
   'en-US',
   {
-    day: '2-digit',
+    day: 'numeric',
     month: 'short',
     weekday: 'long',
     year: 'numeric',
@@ -38,7 +38,7 @@ export const sponsorsDateFormatterWithDayAndYear = Intl.DateTimeFormat(
 );
 
 export const sponsorsDateFormatterFull = new Intl.DateTimeFormat('en-US', {
-  day: '2-digit',
+  day: 'numeric',
   hour: '2-digit',
   minute: '2-digit',
   month: 'long',
