@@ -12,6 +12,7 @@ import useUserProfile from '~/hooks/user/useUserProfile';
 
 import { SocialLinks } from '~/data/SocialLinks';
 
+import NavbarEndWithAdvertiseWithUsBadge from '~/components/global/navbar/NavbarEndWithAdvertiseWithUsBadge';
 import NavColorSchemeDropdown from '~/components/global/navbar/NavColorSchemeDropdown';
 import NavI18nDropdown from '~/components/global/navbar/NavI18nDropdown';
 import NavProductPopover from '~/components/global/navbar/NavProductPopover';
@@ -27,7 +28,6 @@ import Button from '~/components/ui/Button';
 import Chip from '~/components/ui/Chip';
 import Divider from '~/components/ui/Divider';
 import DropdownMenu from '~/components/ui/DropdownMenu';
-import NavbarEnd from '~/components/ui/Navbar/NavbarEnd';
 import NavbarHeightStyles from '~/components/ui/Navbar/NavbarHeightStyles';
 import NavbarItem from '~/components/ui/Navbar/NavbarItem';
 import ScrollArea from '~/components/ui/ScrollArea';
@@ -48,12 +48,14 @@ import { useUser } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
   bottomBorder?: boolean;
+  hideAdvertiseWithUsBadge?: boolean;
   hideOnDesktop?: boolean;
 }>;
 
 export default function InterviewsNavbar({
   bottomBorder = true,
   hideOnDesktop = false,
+  hideAdvertiseWithUsBadge,
 }: Props) {
   const user = useUser();
   const isLoggedIn = user != null;
@@ -106,31 +108,33 @@ export default function InterviewsNavbar({
       <div className="max-w-8xl mx-auto px-6">
         <div
           className={clsx(
-            'flex items-center justify-between md:justify-start md:gap-4',
+            'flex items-center justify-between gap-6 md:justify-start',
             'h-[var(--navbar-height)]',
           )}>
           <div className="flex items-center justify-start lg:w-0 lg:grow">
             <NavProductPopover
               product="interviews"
-              triggerClassname="-ml-2"
-              variant="full"
+              triggerClassname="-ml-1 lg:-ml-2"
+              variant="nav"
             />
-            <nav className="hidden items-center gap-x-2 lg:ml-[68px] lg:flex lg:w-0 lg:flex-1">
+            <nav
+              className={clsx(
+                'hidden items-center gap-4 min-[460px]:flex md:gap-x-8 lg:w-0 lg:flex-1',
+                'ml-3 sm:ml-6 lg:ml-20',
+              )}>
               {leftLinks.map((navItem) => (
                 <NavbarItem key={navItem.id} {...navItem} />
               ))}
             </nav>
           </div>
-          <NavbarEnd
+          <NavbarEndWithAdvertiseWithUsBadge
             addOnItems={endAddOnItems}
-            className={clsx(
-              'hidden items-center justify-end gap-x-3',
-              'md:flex md:grow lg:w-0 lg:grow-0',
-            )}
+            hideAdvertiseWithUsBadge={hideAdvertiseWithUsBadge}
             isLoading={isUserProfileLoading}
+            isPremium={isPremium}
             links={rightLinks}
           />
-          <div className="-my-2 sm:-mr-2 lg:hidden">
+          <div className="-ml-3 lg:hidden">
             <SlideOut
               enterFrom="start"
               headerClassName="pt-5 pb-3"

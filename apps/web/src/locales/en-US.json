@@ -7627,6 +7627,10 @@
     "defaultMessage": "Event count /month",
     "description": "Label for event count/month"
   },
+  "ej7o90": {
+    "defaultMessage": "Challenges",
+    "description": "Sidebar navigation label"
+  },
   "ejhiw3": {
     "defaultMessage": "Tackle your next interview with confidence using this focused, no-nonsense front end prep guide. Created by the author of the Front End Interview Handbook, it's filled with practical strategies and insider tips you won't find anywhere else.",
     "description": "Long description of frontend interview playbook page"
@@ -10346,6 +10350,10 @@
   "uTqd3B": {
     "defaultMessage": "Add skills to grow in",
     "description": "Title for Add Skills To Grow In task on Projects dashboard page"
+  },
+  "uVAawC": {
+    "defaultMessage": "Submissions",
+    "description": "Sidebar navigation label"
   },
   "uViVdm": {
     "defaultMessage": "Details of rep gain across skills",

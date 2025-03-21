@@ -42,7 +42,7 @@ type Props = Readonly<{
   onClick?: () => void;
   product: ProductValue;
   triggerClassname?: string;
-  variant: 'compact' | 'full';
+  variant: 'compact' | 'full' | 'nav';
 }>;
 
 export default function NavProductPopover({
@@ -70,19 +70,32 @@ export default function NavProductPopover({
     <div
       className={clsx(
         'flex items-center',
-        variant === 'full' ? 'gap-2 md:gap-4' : 'gap-2',
+        variant === 'nav'
+          ? 'gap-1 lg:gap-4'
+          : variant === 'full'
+            ? 'gap-2 md:gap-4'
+            : 'gap-2',
       )}>
       <Anchor
         href={product === 'interviews' ? '/' : '/projects'}
         variant="unstyled"
         onClick={onClick}>
         <LogoComboMark
-          className="shrink-0"
-          height={variant === 'full' ? 20 : 17}
+          className={clsx(
+            'shrink-0',
+            variant === 'nav' ? 'hidden lg:block' : 'block',
+          )}
+          height={variant === 'full' || variant === 'nav' ? 20 : 17}
         />
+        <div className={clsx(variant === 'nav' ? 'block lg:hidden' : 'hidden')}>
+          <LogoMark height={20} width={27} />
+        </div>
       </Anchor>
       <Divider
-        className="h-3.5 shrink-0"
+        className={clsx(
+          'h-3.5 shrink-0',
+          variant === 'nav' ? 'hidden lg:block' : 'block',
+        )}
         color="emphasized"
         direction="vertical"
       />
@@ -91,44 +104,82 @@ export default function NavProductPopover({
           asChild={true}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}>
-          <button
-            className={clsx(
-              '-ml-2',
-              'relative flex items-center gap-2',
-              'px-2 py-2',
-              'rounded',
-              'border-transparent',
-              textVariants({
-                size: 'body2',
-                weight: 'bold',
-              }),
-              themeBackgroundElementEmphasizedStateColor_Hover,
-              themeBackgroundElementPressedStateColor_Active,
-              themeOutlineElementBrandColor_FocusVisible,
-              triggerClassname,
-            )}
-            type="button">
-            <Text
-              color={variant === 'full' ? 'default' : 'secondary'}
-              size={variant === 'full' ? 'body2' : 'body3'}
-              weight="bold">
-              {label ?? productLabel}
-            </Text>
-            {showUnseenIndicator && (
-              <span
+          <div>
+            <button
+              className={clsx(
+                '-ml-2',
+                'relative flex items-center gap-2',
+                'px-2 py-2',
+                'rounded',
+                'border-transparent',
+                textVariants({
+                  size: 'body2',
+                  weight: 'bold',
+                }),
+                themeBackgroundElementEmphasizedStateColor_Hover,
+                themeBackgroundElementPressedStateColor_Active,
+                themeOutlineElementBrandColor_FocusVisible,
+                triggerClassname,
+                variant === 'nav' ? 'hidden lg:flex' : 'flex',
+              )}
+              type="button">
+              <Text
+                color={
+                  variant === 'full' || variant === 'nav'
+                    ? 'default'
+                    : 'secondary'
+                }
+                size={
+                  variant === 'full' || variant === 'nav' ? 'body2' : 'body3'
+                }
+                weight="bold">
+                {label ?? productLabel}
+              </Text>
+              {showUnseenIndicator && (
+                <span
+                  aria-hidden={true}
+                  className={clsx(
+                    'size-1.5 inline-block',
+                    'bg-red rounded-full',
+                    'absolute right-7 top-2.5',
+                  )}
+                />
+              )}
+              <RiArrowDownSLine
                 aria-hidden={true}
-                className={clsx(
-                  'size-1.5 inline-block',
-                  'bg-red rounded-full',
-                  'absolute right-7 top-2.5',
-                )}
+                className={clsx('size-5 shrink-0', themeTextSubtleColor)}
               />
-            )}
-            <RiArrowDownSLine
-              aria-hidden={true}
-              className={clsx('size-5 shrink-0', themeTextSubtleColor)}
-            />
-          </button>
+            </button>
+            <button
+              className={clsx(
+                '-mx-1',
+                'relative flex items-center',
+                'p-1',
+                'rounded',
+                'border-transparent',
+                themeBackgroundElementEmphasizedStateColor_Hover,
+                themeBackgroundElementPressedStateColor_Active,
+                themeOutlineElementBrandColor_FocusVisible,
+                triggerClassname,
+                variant === 'nav' ? 'flex lg:hidden' : 'hidden',
+              )}
+              type="button">
+              {showUnseenIndicator && (
+                <span
+                  aria-hidden={true}
+                  className={clsx(
+                    'size-1.5 inline-block',
+                    'bg-red rounded-full',
+                    'absolute right-5 top-1',
+                  )}
+                />
+              )}
+              <RiArrowDownSLine
+                aria-hidden={true}
+                className={clsx('size-5 shrink-0', themeTextSubtleColor)}
+              />
+            </button>
+          </div>
         </PopoverPrimitive.Trigger>
         <PopoverPrimitive.Portal>
           <NavProductPopoverContent

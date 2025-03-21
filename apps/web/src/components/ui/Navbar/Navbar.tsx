@@ -30,12 +30,15 @@ type Props = Readonly<{
   logo?: React.ReactNode;
   mobileSidebarBottomItems?: React.ReactNode;
   mobileSidebarHeaderClassName?: string;
+  mobileSidebarTopItems?: React.ReactNode;
+  navbarEnd?: React.ReactNode;
   renderMobileSidebarAddOnItems?: ({
     closeMobileNav,
   }: Readonly<{ closeMobileNav: () => void }>) => React.ReactNode;
   renderMobileSidebarContent?: ({
     closeMobileNav,
   }: Readonly<{ closeMobileNav: () => void }>) => React.ReactNode;
+  sidebarLogo?: React.ReactNode;
   style?: CSSProperties;
   translucent?: boolean;
   unreadNotificationCount?: number;
@@ -55,6 +58,9 @@ function Navbar(
     unreadNotificationCount = 0,
     bottomBorder,
     renderMobileSidebarContent,
+    mobileSidebarTopItems,
+    navbarEnd,
+    sidebarLogo,
     mobileSidebarHeaderClassName,
   }: Props,
   ref: React.Ref<HTMLDivElement>,
@@ -88,38 +94,42 @@ function Navbar(
       <div className="max-w-8xl mx-auto px-6">
         <div
           className={clsx(
-            'flex items-center justify-between md:justify-start md:gap-4',
+            'flex items-center justify-between gap-6 md:justify-start',
             'h-[var(--navbar-height)]',
           )}>
           <div className="flex items-center justify-start lg:w-0 lg:grow">
             {logo}
-            <nav className="hidden items-center gap-x-2 lg:ml-[68px] lg:flex lg:w-0 lg:flex-1">
+            <nav
+              className={clsx(
+                'hidden items-center gap-4 min-[460px]:flex md:gap-x-8 lg:w-0 lg:flex-1',
+                'ml-3 sm:ml-6 lg:ml-20',
+              )}>
               {leftLinks.map((navItem) => (
                 <NavbarItem key={navItem.id} {...navItem} />
               ))}
             </nav>
           </div>
-          <NavbarEnd
-            addOnItems={endAddOnItems}
-            className={clsx(
-              'hidden items-center justify-end gap-x-3',
-              'md:flex md:grow lg:w-0 lg:grow-0',
-            )}
-            isLoading={isLoading}
-            links={rightLinks}
-          />
-          <div className={clsx('-my-2 sm:-mr-2 lg:hidden')}>
+          {navbarEnd ?? (
+            <NavbarEnd
+              addOnItems={endAddOnItems}
+              className={clsx(
+                'hidden items-center justify-end gap-x-8',
+                'md:flex md:grow lg:w-0 lg:grow-0',
+              )}
+              isLoading={isLoading}
+              links={rightLinks}
+            />
+          )}
+          <div className={clsx('-ml-3 lg:hidden')}>
             <SlideOut
               enterFrom="start"
-              headerClassName={mobileSidebarHeaderClassName}
+              headerClassName={clsx('pt-5 pb-3', mobileSidebarHeaderClassName)}
               isShown={isMobileNavOpen}
               padding={false}
               size="sm"
               title={
-                <div
-                  className="flex shrink-0 items-center"
-                  onClick={handleAnchorItemClick}>
-                  {logo}
+                <div className="flex shrink-0 items-center">
+                  {sidebarLogo ?? logo}
                 </div>
               }
               trigger={
@@ -149,7 +159,10 @@ function Navbar(
                 setIsMobileNavOpen(false);
               }}>
               {renderMobileSidebarContent?.({ closeMobileNav }) ?? (
-                <div className="flex h-full flex-col" onClick={handleAnchorItemClick}>
+                <div
+                  className="flex h-full flex-col"
+                  onClick={handleAnchorItemClick}>
+                  {mobileSidebarTopItems}
                   <div className="flex h-0 flex-1 flex-col pb-4">
                     <nav
                       aria-label="Sidebar"

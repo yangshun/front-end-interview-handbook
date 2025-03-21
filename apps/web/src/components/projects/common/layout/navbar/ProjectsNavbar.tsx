@@ -12,12 +12,15 @@ import { PROJECTS_NOTIFICATION_AVAILABLE } from '~/data/FeatureFlags';
 import useCommonNavItems from '~/components/common/navigation/useCommonNavItems';
 import { useColorSchemePreferences } from '~/components/global/color-scheme/ColorSchemePreferencesProvider';
 import ColorSchemeSelect from '~/components/global/color-scheme/ColorSchemeSelect';
+import NavbarEndWithAdvertiseWithUsBadge from '~/components/global/navbar/NavbarEndWithAdvertiseWithUsBadge';
 import NavColorSchemeDropdown from '~/components/global/navbar/NavColorSchemeDropdown';
+import NavI18nDropdown from '~/components/global/navbar/NavI18nDropdown';
 import NavProductPopover from '~/components/global/navbar/NavProductPopover';
 import NavProfileIcon from '~/components/global/navbar/NavProfileIcon';
 import { useIntl } from '~/components/intl';
 import useProjectsNotificationUnreadCount from '~/components/projects/notifications/hooks/useProjectsNotificationUnreadCount';
 import ProjectsNotificationMobile from '~/components/projects/notifications/ProjectsNotificationMobile';
+import SponsorsAdvertiseWithUsBadge from '~/components/sponsors/SponsorsAdvertiseWithUsBadge';
 import Anchor from '~/components/ui/Anchor';
 import Avatar from '~/components/ui/Avatar';
 import Button from '~/components/ui/Button';
@@ -147,12 +150,23 @@ export default function ProjectsNavbar({ hideOnDesktop = false }: Props) {
   const navLinks = useProjectsNavLinks(isLoggedIn, isPremium);
   const userNavigationLinks = useUserNavigationLinks();
 
+  const rightLinks = navLinks.filter(({ position }) => position === 'end');
+
   const navbarRef = useRef(null);
   const { isSticky } = useIsSticky(navbarRef);
 
   const endAddOnItems = (
-    <>
-      <NavColorSchemeDropdown size="xs" />
+    <div className="flex items-center gap-x-3">
+      <div
+        className={clsx(
+          'gap-x-3',
+          isLoggedIn && isPremium
+            ? 'hidden lg:flex'
+            : 'hidden min-[1280px]:flex',
+        )}>
+        <NavI18nDropdown size="xs" />
+        <NavColorSchemeDropdown size="xs" />
+      </div>
       {!isPremium && (
         <Button
           href="/projects/pricing"
@@ -174,14 +188,22 @@ export default function ProjectsNavbar({ hideOnDesktop = false }: Props) {
         />
       )}
       {isLoggedIn && (
-        <NavProfileIcon
-          avatarUrl={userProfile?.avatarUrl ?? user?.user_metadata?.avatar_url}
-          isPremium={isPremium}
-          navItems={userNavigationLinks}
-          userIdentifierString={userProfile?.name ?? user?.email}
-        />
+        <div
+          className={clsx(
+            'items-center',
+            isPremium ? 'flex' : 'hidden sm:flex',
+          )}>
+          <NavProfileIcon
+            avatarUrl={
+              userProfile?.avatarUrl ?? user?.user_metadata?.avatar_url
+            }
+            isPremium={isPremium}
+            navItems={userNavigationLinks}
+            userIdentifierString={userProfile?.name ?? user?.email}
+          />
+        </div>
       )}
-    </>
+    </div>
   );
 
   function renderMobileSidebarAddOnItems({
@@ -263,12 +285,32 @@ export default function ProjectsNavbar({ hideOnDesktop = false }: Props) {
       logo={
         <NavProductPopover
           product="projects"
+          triggerClassname="-ml-1 lg:-ml-2"
+          variant="nav"
+        />
+      }
+      mobileSidebarBottomItems={mobileSidebarBottomItems}
+      mobileSidebarTopItems={
+        <div className="mb-7 px-4">
+          <SponsorsAdvertiseWithUsBadge />
+        </div>
+      }
+      navbarEnd={
+        <NavbarEndWithAdvertiseWithUsBadge
+          addOnItems={endAddOnItems}
+          isLoading={isUserProfileLoading}
+          isPremium={isPremium}
+          links={rightLinks}
+        />
+      }
+      renderMobileSidebarAddOnItems={renderMobileSidebarAddOnItems}
+      sidebarLogo={
+        <NavProductPopover
+          product="projects"
           triggerClassname="-ml-2"
           variant="full"
         />
       }
-      mobileSidebarBottomItems={mobileSidebarBottomItems}
-      renderMobileSidebarAddOnItems={renderMobileSidebarAddOnItems}
       translucent={!isSticky}
       unreadNotificationCount={unreadNotificationCount}
     />

@@ -1,3 +1,5 @@
+import clsx from 'clsx';
+
 import gtag from '~/lib/gtag';
 import useUserProfile from '~/hooks/user/useUserProfile';
 
@@ -20,9 +22,15 @@ export default function InterviewsNavbarEndAddOnItems() {
   const loggedInLinks = useInterviewsLoggedInLinks('sidebar');
 
   return (
-    <>
+    <div className="flex items-center gap-x-3">
       {/* This custom breakpoint is set to avoid overlapping of elements on near tab breakpoint */}
-      <div className="hidden gap-x-3 min-[1150px]:flex">
+      <div
+        className={clsx(
+          'gap-x-3',
+          isLoggedIn && isPremium
+            ? 'hidden lg:flex'
+            : 'hidden min-[1280px]:flex',
+        )}>
         <NavI18nDropdown size="xs" />
         <NavColorSchemeDropdown size="xs" />
       </div>
@@ -47,13 +55,21 @@ export default function InterviewsNavbarEndAddOnItems() {
         />
       )}
       {isLoggedIn && (
-        <NavProfileIcon
-          avatarUrl={userProfile?.avatarUrl ?? user?.user_metadata?.avatar_url}
-          isPremium={isPremium}
-          navItems={loggedInLinks}
-          userIdentifierString={userProfile?.name ?? user?.email}
-        />
+        <div
+          className={clsx(
+            'items-center',
+            isPremium ? 'flex' : 'hidden sm:flex',
+          )}>
+          <NavProfileIcon
+            avatarUrl={
+              userProfile?.avatarUrl ?? user?.user_metadata?.avatar_url
+            }
+            isPremium={isPremium}
+            navItems={loggedInLinks}
+            userIdentifierString={userProfile?.name ?? user?.email}
+          />
+        </div>
       )}
-    </>
+    </div>
   );
 }

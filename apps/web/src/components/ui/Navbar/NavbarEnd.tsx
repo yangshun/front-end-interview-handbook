@@ -23,11 +23,13 @@ export default function NavbarEnd({
         'transition-opacity duration-500',
         isLoading ? 'opacity-0' : 'opacity-100',
       )}>
-      <div className="flex items-center gap-x-3">
-        {links.map((navItem) => (
-          <NavbarItem key={navItem.id} {...navItem} />
-        ))}
-      </div>
+      {links.length > 0 && (
+        <div className="hidden items-center gap-x-4 sm:flex md:gap-x-8">
+          {links.map((navItem) => (
+            <NavbarItem key={navItem.id} {...navItem} />
+          ))}
+        </div>
+      )}
       {addOnItems}
     </div>
   );

@@ -45,11 +45,18 @@ export default function useProjectsNavItems(placement: 'nav' | 'sidebar') {
     href: '/projects/challenges',
     icon: RiRocketLine,
     id: 'challenges',
-    label: intl.formatMessage({
-      defaultMessage: 'Project challenges',
-      description: 'Sidebar navigation label',
-      id: 'OelRg0',
-    }),
+    label:
+      placement === 'nav'
+        ? intl.formatMessage({
+            defaultMessage: 'Challenges',
+            description: 'Sidebar navigation label',
+            id: 'ej7o90',
+          })
+        : intl.formatMessage({
+            defaultMessage: 'Project challenges',
+            description: 'Sidebar navigation label',
+            id: 'OelRg0',
+          }),
     onClick: () => {
       gtag.event({
         action: `${placement}.challenges.click`,
@@ -64,11 +71,18 @@ export default function useProjectsNavItems(placement: 'nav' | 'sidebar') {
     href: '/projects/submissions',
     icon: RiCodeSSlashLine,
     id: 'all-submissions',
-    label: intl.formatMessage({
-      defaultMessage: 'User submissions',
-      description: 'Sidebar navigation label',
-      id: 'e2P6am',
-    }),
+    label:
+      placement === 'nav'
+        ? intl.formatMessage({
+            defaultMessage: 'Submissions',
+            description: 'Sidebar navigation label',
+            id: 'uVAawC',
+          })
+        : intl.formatMessage({
+            defaultMessage: 'User submissions',
+            description: 'Sidebar navigation label',
+            id: 'e2P6am',
+          }),
     onClick: () => {
       gtag.event({
         action: `${placement}.submissions.click`,

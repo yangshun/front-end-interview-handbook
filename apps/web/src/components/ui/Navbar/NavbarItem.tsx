@@ -42,9 +42,9 @@ export default function NavbarItem({
   const commonStyles = clsx(
     'group',
     'inline-flex items-center gap-2',
-    'px-3 py-1',
+    'py-1',
     'rounded-full',
-    'text-[0.8125rem] font-medium whitespace-nowrap',
+    'text-sm font-medium whitespace-nowrap',
     'cursor-pointer',
     [
       themeOutlineElement_FocusVisible,

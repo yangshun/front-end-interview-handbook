@@ -15,7 +15,10 @@ export default function InterviewsMarketingLayout({ children }: Props) {
       <FeedbackWidget />
       <GlobalBannerInterviews />
       <div className="flex min-h-screen flex-col">
-        <InterviewsNavbar bottomBorder={false} />
+        <InterviewsNavbar
+          bottomBorder={false}
+          hideAdvertiseWithUsBadge={true}
+        />
         <div className="grow">{children}</div>
         <Section>
           <InterviewsFooter />

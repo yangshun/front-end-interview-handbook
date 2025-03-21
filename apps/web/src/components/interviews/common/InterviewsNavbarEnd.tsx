@@ -36,7 +36,7 @@ export default function InterviewsNavbarEnd() {
         themeBackgroundColor,
       )}>
       <NavbarHeightStyles borderHeight={0} />
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-8">
         <div className={clsx('w-full', 'flex items-center justify-end')}>
           <SponsorsAdvertiseWithUsBadge />
         </div>
