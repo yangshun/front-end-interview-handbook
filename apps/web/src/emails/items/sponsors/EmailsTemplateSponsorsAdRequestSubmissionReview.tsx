@@ -57,7 +57,7 @@ export default function EmailsTemplateSponsorsAdRequestSubmissionReview({
           <EmailsHeader />
           <Section style={{ marginTop: 40 }}>
             <EmailsParagraph defaultMargins={true}>
-              An advertising enquiry has been received with the following
+              An advertising inquiry has been received with the following
               details:
             </EmailsParagraph>
             <EmailsParagraph defaultMargins={true}>
@@ -112,7 +112,7 @@ export default function EmailsTemplateSponsorsAdRequestSubmissionReview({
               </ul>
             </EmailsParagraph>
             <EmailsParagraph defaultMargins={true}>
-              Approve or reject this enquiry through this link:{' '}
+              Approve or reject this inquiry through this link:{' '}
               <EmailsLink href={requestUrl}>View request</EmailsLink>
             </EmailsParagraph>
           </Section>

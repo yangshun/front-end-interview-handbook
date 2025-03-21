@@ -4,6 +4,7 @@ import { PiPathBold } from 'react-icons/pi';
 import { RiAwardLine, RiBriefcaseLine } from 'react-icons/ri';
 
 import { useAnchorClickHandler } from '~/hooks/useAnchorClickHandler';
+
 import { SPONSORSHIPS_AVAILABLE } from '~/data/FeatureFlags';
 
 import useCommonNavItems from '~/components/common/navigation/useCommonNavItems';

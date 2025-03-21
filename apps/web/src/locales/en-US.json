@@ -411,6 +411,10 @@
     "defaultMessage": "Algo concepts to cover and tips to succeed",
     "description": "Algorithm concepts needed in front end coding interviews"
   },
+  "0DSuvQ": {
+    "defaultMessage": "Advertising Inquiry",
+    "description": "Title for advertising inquiry"
+  },
   "0GT0SI": {
     "defaultMessage": "Cancel",
     "description": "Cancel button label"
@@ -791,6 +795,10 @@
     "defaultMessage": "{questionCount}+ practice questions",
     "description": "Features for frontend interviews playbook page"
   },
+  "2OIgHU": {
+    "defaultMessage": "Submit your Ad inquiry",
+    "description": "Title for 1st step of advertising"
+  },
   "2QyluM": {
     "defaultMessage": "Add proficient skills",
     "description": "Title for Add Proficient Skills task on Projects dashboard page"
@@ -1078,6 +1086,10 @@
   "4Bt00L": {
     "defaultMessage": "Don't have an account? <link>Sign up for free</link>",
     "description": "Prompt for account creation on Email Sign In page"
+  },
+  "4CZi8P": {
+    "defaultMessage": "Fill out our <anchor>advertising inquiry form</anchor> and upload your assets.",
+    "description": "Description for 1st step of advertising"
   },
   "4EqfQx": {
     "defaultMessage": "Use a different card to make the payment.",
@@ -5307,10 +5319,6 @@
     "defaultMessage": "{trackName} Track",
     "description": "Title for track in Continue tracks and skills section on Projects dashboard page"
   },
-  "S4qQSV": {
-    "defaultMessage": "Start by simply filling in your contact information so that we know who to reach out to.",
-    "description": "Subtitle for advertising enquiry"
-  },
   "S57dW3": {
     "defaultMessage": "Choose ad formats and upload assets",
     "description": "Subtitle for ads"
@@ -8391,6 +8399,10 @@
     "defaultMessage": "{category} Quiz Interview Questions",
     "description": "Title for front end interview questions page"
   },
+  "jACcNE": {
+    "defaultMessage": "Start by simply filling in your contact information so that we know who to reach out to.",
+    "description": "Subtitle for advertising inquiry"
+  },
   "jCBp3Z": {
     "defaultMessage": "Recommended prep strategy",
     "description": "Recommended interview preparation strategy"
@@ -10775,10 +10787,6 @@
     "defaultMessage": "GreatFrontEnd",
     "description": "Social title of GreatFrontEnd standard page"
   },
-  "xAJOvM": {
-    "defaultMessage": "Fill out our <anchor>advertising enquiry form</anchor> and upload your assets.",
-    "description": "Description for 1st step of advertising"
-  },
   "xBNYLl": {
     "defaultMessage": "Behavioral Interview",
     "description": "Short title for behavioral interview playbook"
@@ -10946,10 +10954,6 @@
   "yBb1/v": {
     "defaultMessage": "JavaScript functions",
     "description": "Title of questions list"
-  },
-  "yBkrw8": {
-    "defaultMessage": "Submit Your Ad Enquiry",
-    "description": "Title for 1st step of advertising"
   },
   "yCEIJF": {
     "defaultMessage": "Practice {questionCount}+ React Quiz Interview Questions. Learn in-browser, with high quality answers written by Big Tech Ex-interviewers",
@@ -11282,10 +11286,6 @@
   "zn3iWx": {
     "defaultMessage": "Repeat Password",
     "description": "Label of confirm password field on Change Password page"
-  },
-  "znnuxh": {
-    "defaultMessage": "Advertising Enquiry",
-    "description": "Title for advertising enquiry"
   },
   "zo65Ck": {
     "defaultMessage": "All Practice Questions",

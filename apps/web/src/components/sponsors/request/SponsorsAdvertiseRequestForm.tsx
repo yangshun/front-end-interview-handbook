@@ -13,8 +13,8 @@ import { useI18nRouter } from '~/next-i18nostic/src';
 
 import SponsorsAdvertiseRequestFormAdsSection from './ads/SponsorsAdvertiseRequestFormAdsSection';
 import SponsorsAdvertiseRequestFormCompanyDetailsSection from './company/SponsorsAdvertiseRequestFormCompanyDetailsSection';
-import SponsorsAdvertiseRequestEnquiryForm from './contact/SponsorsAdvertiseRequestEnquiryForm';
 import SponsorsAdvertiseRequestFormContactSection from './contact/SponsorsAdvertiseRequestFormContactSection';
+import SponsorsAdvertiseRequestInquiryForm from './contact/SponsorsAdvertiseRequestInquiryForm';
 import SponsorsAdvertiseRequestFormReviewSection from './review/SponsorsAdvertiseRequestFormReviewSection';
 import type { AdvertiseRequestFormValues } from './useSponsorsAdvertiseRequestFormData';
 import useSponsorsAdvertiseRequestFormData from './useSponsorsAdvertiseRequestFormData';
@@ -250,7 +250,7 @@ export default function SponsorsAdvertiseRequestForm({
 
   if (!step && isCreateMode) {
     return (
-      <SponsorsAdvertiseRequestEnquiryForm
+      <SponsorsAdvertiseRequestInquiryForm
         defaultValues={formData.emails}
         sessionId={formData.sessionId}
         onSubmit={(emails) => {

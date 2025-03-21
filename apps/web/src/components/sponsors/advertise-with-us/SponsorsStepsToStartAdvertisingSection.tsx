@@ -20,9 +20,9 @@ export default function SponsorsStepsToStartAdvertisingSection() {
     {
       description: (
         <FormattedMessage
-          defaultMessage="Fill out our <anchor>advertising enquiry form</anchor> and upload your assets."
+          defaultMessage="Fill out our <anchor>advertising inquiry form</anchor> and upload your assets."
           description="Description for 1st step of advertising"
-          id="xAJOvM"
+          id="4CZi8P"
           values={{
             anchor: (chunks) => (
               <Anchor href="/advertise-with-us/request">{chunks}</Anchor>
@@ -34,9 +34,9 @@ export default function SponsorsStepsToStartAdvertisingSection() {
       key: 'step1',
       title: (
         <FormattedMessage
-          defaultMessage="Submit Your Ad Enquiry"
+          defaultMessage="Submit your Ad inquiry"
           description="Title for 1st step of advertising"
-          id="yBkrw8"
+          id="2OIgHU"
         />
       ),
     },

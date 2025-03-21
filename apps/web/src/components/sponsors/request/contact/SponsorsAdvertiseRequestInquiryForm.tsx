@@ -21,7 +21,7 @@ type Props = Readonly<{
   sessionId: string;
 }>;
 
-export default function SponsorsAdvertiseRequestEnquiryForm({
+export default function SponsorsAdvertiseRequestInquiryForm({
   onSubmit,
   defaultValues,
   sessionId,
@@ -56,9 +56,9 @@ export default function SponsorsAdvertiseRequestEnquiryForm({
       .filter((value) => value !== '');
 
     onSubmit(emailsData);
-    logEvent('sponsorships.request', {
+    logEvent('sponsorships.inquiry', {
       emails: emailsData,
-      namespace: 'marketing',
+      namespace: 'sponsors',
       sessionId,
     });
   }
@@ -70,9 +70,9 @@ export default function SponsorsAdvertiseRequestEnquiryForm({
         level="custom"
         weight="medium">
         <FormattedMessage
-          defaultMessage="Advertising Enquiry"
-          description="Title for advertising enquiry"
-          id="znnuxh"
+          defaultMessage="Advertising Inquiry"
+          description="Title for advertising inquiry"
+          id="0DSuvQ"
         />
       </Heading>
       <Text
@@ -82,8 +82,8 @@ export default function SponsorsAdvertiseRequestEnquiryForm({
         weight="medium">
         <FormattedMessage
           defaultMessage="Start by simply filling in your contact information so that we know who to reach out to."
-          description="Subtitle for advertising enquiry"
-          id="S4qQSV"
+          description="Subtitle for advertising inquiry"
+          id="jACcNE"
         />
       </Text>
       <form

@@ -36,7 +36,7 @@ type LoggingAction =
   | 'sandpack.reachable'
   | 'sandpack.timeout'
   | 'sandpack.unreachable'
-  | 'sponsorships.request'
+  | 'sponsorships.inquiry'
   | 'web_vitals'
   | 'window.blur'
   | 'window.focus';
@@ -50,6 +50,7 @@ type LoggingPayload = Readonly<{
     | 'marketing'
     | 'performance'
     | 'projects'
+    | 'sponsors'
     | 'workspace';
 }> &
   Record<string, unknown>;

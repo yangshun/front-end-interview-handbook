@@ -36,5 +36,5 @@ export const EmailsItemConfigSponsorsAdRequestSubmissionReview: EmailItemConfig<
     name: 'GreatFrontEnd',
   },
   id: 'SPONSORS_AD_REQUEST_SUBMISSION_REVIEW',
-  subject: ({ legalName }) => ` Advertising enquiry submitted by ${legalName}`,
+  subject: ({ legalName }) => ` Advertising inquiry submitted by ${legalName}`,
 };

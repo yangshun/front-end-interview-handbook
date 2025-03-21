@@ -23,13 +23,12 @@ import { themeBackgroundLayerEmphasized } from '~/components/ui/theme';
 
 const ITEMS_PER_PAGE = 20;
 
-export default function SponsorsAdminEnquiryListPage() {
+export default function SponsorsAdminInquiryListPage() {
   const [searchQuery, setSearchQuery] = useState('');
-  const { data, isLoading } =
-    trpc.sponsorships.getAdRequestEnquiries.useQuery();
+  const { data, isLoading } = trpc.sponsorships.adRequestInquiries.useQuery();
 
-  const filteredItems = data?.filter((enquiry) =>
-    enquiry.emails.join(', ').toLowerCase().includes(searchQuery.toLowerCase()),
+  const filteredItems = data?.filter((inquiry) =>
+    inquiry.emails.join(', ').toLowerCase().includes(searchQuery.toLowerCase()),
   );
   // Pagination
   const { setCurrentPage, currentPage, totalPages, currentPageItems } =
@@ -87,13 +86,13 @@ export default function SponsorsAdminEnquiryListPage() {
                 </TableCell>
               </TableRow>
             ) : (
-              currentPageItems?.map((enquiry) => (
-                <TableRow key={enquiry.time.toString()}>
+              currentPageItems?.map((inquiry) => (
+                <TableRow key={inquiry.time.toString()}>
                   <TableCell className="font-medium">
-                    <Text size="body2">{enquiry.emails.join(', ')}</Text>
+                    <Text size="body2">{inquiry.emails.join(', ')}</Text>
                   </TableCell>
                   <TableCell>
-                    <Text size="body2">{enquiry.time.toDateString()}</Text>
+                    <Text size="body2">{inquiry.time.toDateString()}</Text>
                   </TableCell>
                 </TableRow>
               ))

@@ -275,6 +275,24 @@ export const sponsorshipsRouter = router({
         ]);
       });
     }),
+  adRequestInquiries: adminProcedure.query(async () => {
+    const aplQuery = `
+    ['events']
+    | where ['event.name'] == 'sponsorships.inquiry'
+    | order by ['_time'] desc
+    | project emails=['event.payload.emails'], time=['_time']
+    `;
+
+    const response = await axiom.query(aplQuery);
+
+    // // Extract only email and timestamp
+    const logs = response.matches?.map((log) => ({
+      emails: log.data.emails,
+      time: new Date(log.data.time),
+    }));
+
+    return logs;
+  }),
   adRequestReject: adminProcedure
     .input(
       z.object({
@@ -579,24 +597,6 @@ export const sponsorshipsRouter = router({
         },
       });
     }),
-  getAdRequestEnquiries: adminProcedure.query(async () => {
-    const aplQuery = `
-    ['events']
-    | where ['event.name'] == 'sponsorships.request'
-    | order by ['_time'] desc
-    | project emails=['event.payload.emails'], time=['_time']
-    `;
-
-    const response = await axiom.query(aplQuery);
-
-    // // Extract only email and timestamp
-    const logs = response.matches?.map((log) => ({
-      emails: log.data.emails,
-      time: new Date(log.data.time),
-    }));
-
-    return logs;
-  }),
   getAdRequests: adminProcedure
     .input(
       z.object({
