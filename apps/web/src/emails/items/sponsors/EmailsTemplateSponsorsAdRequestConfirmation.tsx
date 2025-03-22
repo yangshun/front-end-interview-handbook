@@ -37,17 +37,20 @@ export default function EmailsTemplateSponsorsAdRequestConfirmation({
           <EmailsHeader />
           <Section style={{ marginTop: 40 }}>
             <EmailsParagraph color="subtitle" defaultMargins={true}>
-              Hi {name ? name.split(/\s+/)[0] : 'there'},
+              Dear {name ? name.split(/\s+/)[0] : 'there'},
             </EmailsParagraph>
             <EmailsParagraph defaultMargins={true}>
               Thanks for considering <EmailsStrong>GreatFrontEnd</EmailsStrong>{' '}
-              for your advertising needs. We're reviewing your details and will
-              respond within the next 24 - 48 hours. Meanwhile, feel free to
-              modify your response using the link below.
+              for your advertising needs.
+            </EmailsParagraph>
+            <EmailsParagraph defaultMargins={true}>
+              We're reviewing your details and will respond within the next 24 -
+              48 hours. Meanwhile, feel free to modify your response using the
+              link below.
             </EmailsParagraph>
             <EmailsParagraph defaultMargins={true}>
               <EmailsButton href={requestUrl} variant="primary">
-                Edit submission
+                Edit your submission
               </EmailsButton>
             </EmailsParagraph>
           </Section>

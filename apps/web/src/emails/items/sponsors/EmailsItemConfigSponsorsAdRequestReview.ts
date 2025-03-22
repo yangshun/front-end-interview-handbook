@@ -1,3 +1,5 @@
+import { SPONSORS_SPONSOR_MANAGER_EMAIL } from '~/data/SponsorsConfig';
+
 import type { EmailItemConfig } from '~/emails/EmailsTypes';
 
 import EmailsTemplateSponsorsAdRequestReview from './EmailsTemplateSponsorsAdRequestReview';
@@ -32,9 +34,9 @@ export const EmailsItemConfigSponsorsAdRequestReview: EmailItemConfig<
     signatoryTitle: 'CEO',
   },
   from: {
-    email: 'contact@greatfrontend.com',
+    email: SPONSORS_SPONSOR_MANAGER_EMAIL,
     name: 'GreatFrontEnd',
   },
   id: 'SPONSORS_AD_REQUEST_REVIEW',
-  subject: ({ legalName }) => ` Advertising inquiry submitted by ${legalName}`,
+  subject: ({ legalName }) => ` Advertising request submitted by ${legalName}`,
 };

@@ -28,7 +28,7 @@ export default function useAdminNavItems() {
         href: '/admin/sponsorships',
         icon: RiAdvertisementLine,
         id: 'sponsorships-request',
-        label: 'Requests',
+        label: 'Ad requests',
         type: 'popover-link',
       },
       {
@@ -42,7 +42,7 @@ export default function useAdminNavItems() {
         href: '/admin/sponsorships/inquiries',
         icon: RiQuestionLine,
         id: 'sponsorships-inquiry',
-        label: 'Inquiries',
+        label: 'Incomplete inquiries',
         type: 'popover-link',
       },
     ],

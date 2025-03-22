@@ -611,7 +611,7 @@ export function InterviewsMarketingTestimonialsDict() {
     name: 'Kevin Gonzalez',
     offers: ['HubSpot'],
     testimonial:
-      'GreatFrontend has been instrumental to keep my interviewing skills up-to-date. Standard frontend prep did not really exist until GFE came along and provided a good way to keep sharp on coding, system design, UI, and frontend trivia. Throughout my career, I have used GFE to nail startup interviews, and even nail FAANG. Would highly recommend to any Front End Engineer.',
+      'GreatFrontEnd has been instrumental to keep my interviewing skills up-to-date. Standard frontend prep did not really exist until GFE came along and provided a good way to keep sharp on coding, system design, UI, and frontend trivia. Throughout my career, I have used GFE to nail startup interviews, and even nail FAANG. Would highly recommend to any Front End Engineer.',
     title: 'Senior Software Engineer',
   };
 
@@ -770,7 +770,7 @@ export function InterviewsMarketingTestimonialsDict() {
     name: 'Edwin Torres',
     offers: [],
     testimonial:
-      "GreatFrontend was a game-changer in my interview prep for different companies where I had process! 🚀 It provided structured system design guidance (my favourite one), frontend best practices, and hands-on coding challenges that strengthened my confidence. The detailed explanations and real-world scenarios made a huge difference. Also I love the engaging and supportive community! If you're preparing for frontend interviews, this platform is a must-try! 💡",
+      "GreatFrontEnd was a game-changer in my interview prep for different companies where I had process! 🚀 It provided structured system design guidance (my favourite one), frontend best practices, and hands-on coding challenges that strengthened my confidence. The detailed explanations and real-world scenarios made a huge difference. Also I love the engaging and supportive community! If you're preparing for frontend interviews, this platform is a must-try! 💡",
     title: 'Senior Software Developer',
   };
   // Const template: InterviewsMarketingTestimonial = {

@@ -17,17 +17,17 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import Spinner from '~/components/ui/Spinner';
 import Text from '~/components/ui/Text';
 
-import SponsorsAdminAdRequestMessage from './SponsorsAdminAdRequestMessage';
+import SponsorsAdminAdRequestStatus from './SponsorsAdminAdRequestStatus';
 import SponsorsAdvertiseRequestForm from '../request/SponsorsAdvertiseRequestForm';
 import SponsorsAdvertiseRequestReadonly from '../request/SponsorsAdvertiseRequestReadonly';
 
 type Props = Readonly<{
-  requestId: string;
+  adRequestId: string;
 }>;
 
-export default function SponsorsAdminAdRequestPage({ requestId }: Props) {
+export default function SponsorsAdminAdRequestPage({ adRequestId }: Props) {
   const { data: adRequest, isLoading } = trpc.sponsors.adRequest.useQuery({
-    id: requestId,
+    id: adRequestId,
   });
 
   const [showEditMode, setShowEditMode] = useState(false);
@@ -122,8 +122,8 @@ export default function SponsorsAdminAdRequestPage({ requestId }: Props) {
         {!showEditMode && (
           <SponsorsAdvertiseRequestReadonly
             alertMessage={
-              <SponsorsAdminAdRequestMessage
-                requestId={requestId}
+              <SponsorsAdminAdRequestStatus
+                adRequestId={adRequestId}
                 review={review}
                 status={adRequest.status}
               />
@@ -134,10 +134,14 @@ export default function SponsorsAdminAdRequestPage({ requestId }: Props) {
               company,
               createdAt: adRequest.createdAt,
               emails: adRequest.emails,
+              review,
               updatedAt: adRequest.updatedAt,
             }}
-            mode="review"
-            onEdit={() => setShowEditMode(true)}
+            onEdit={
+              adRequest.status !== 'REJECTED'
+                ? () => setShowEditMode(true)
+                : undefined
+            }
           />
         )}
       </Container>

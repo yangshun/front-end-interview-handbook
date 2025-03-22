@@ -3,17 +3,15 @@ import { useState } from 'react';
 import { trpc } from '~/hooks/trpc';
 
 import ConfirmationDialog from '~/components/common/ConfirmationDialog';
-import RelativeTimestamp from '~/components/common/datetime/RelativeTimestamp';
 import { useToast } from '~/components/global/toasts/useToast';
 import Alert from '~/components/ui/Alert';
 import Button from '~/components/ui/Button';
-import Text from '~/components/ui/Text';
 import TextArea from '~/components/ui/TextArea';
 
 import type { SponsorsAdRequestStatus } from '@prisma/client';
 
 type Props = Readonly<{
-  requestId: string;
+  adRequestId: string;
   review: Readonly<{
     comments: string | null;
     createdAt: Date;
@@ -25,10 +23,10 @@ type Props = Readonly<{
   status: SponsorsAdRequestStatus;
 }>;
 
-export default function SponsorsAdminAdRequestMessage({
+export default function SponsorsAdminAdRequestStatus({
   status,
   review,
-  requestId,
+  adRequestId,
 }: Props) {
   const { showToast } = useToast();
   const trpcUtils = trpc.useUtils();
@@ -42,14 +40,14 @@ export default function SponsorsAdminAdRequestMessage({
 
   async function onApproveRequest() {
     await adRequestApproveMutation.mutateAsync(
-      { id: requestId },
+      { id: adRequestId },
       {
         onSuccess: () => {
           showToast({
             title: 'Request has been approved!',
             variant: 'success',
           });
-          trpcUtils.sponsors.adRequest.invalidate({ id: requestId });
+          trpcUtils.sponsors.adRequest.invalidate({ id: adRequestId });
           setShowApproveConfirmation(false);
         },
       },
@@ -58,14 +56,14 @@ export default function SponsorsAdminAdRequestMessage({
 
   async function onRejectRequest() {
     await adRequestRejectMutation.mutateAsync(
-      { comments: rejectConfirmation.reason, id: requestId },
+      { comments: rejectConfirmation.reason, id: adRequestId },
       {
         onSuccess: () => {
           showToast({
             title: 'Request has been rejected!',
             variant: 'success',
           });
-          trpcUtils.sponsors.adRequest.invalidate({ id: requestId });
+          trpcUtils.sponsors.adRequest.invalidate({ id: adRequestId });
           setRejectConfirmation({
             reason: '',
             show: false,
@@ -76,52 +74,30 @@ export default function SponsorsAdminAdRequestMessage({
   }
 
   return (
-    <>
+    <div className="flex flex-col gap-1.5">
       {status === 'APPROVED' && (
-        <Alert className="mb-4 lg:mb-6" title="Request approved" variant="info">
-          <div className="flex flex-col gap-2.5">
-            <div>Advertising request has been approved.</div>
-            <ReviewDetail review={review} />
-          </div>
+        <Alert title="Request approved" variant="info">
+          Advertising request has been approved.
         </Alert>
       )}
       {status === 'PUBLISHED' && (
-        <Alert
-          className="mb-4 lg:mb-6"
-          title="Request confirmed"
-          variant="info">
-          <div className="flex flex-col gap-2.5">
-            <div>
-              Advertising request has been approved, paid and confirmed.
-            </div>
-            <ReviewDetail review={review} />
-          </div>
+        <Alert title="Request confirmed" variant="success">
+          Advertising request has been approved, paid and confirmed.
         </Alert>
       )}
       {status === 'REJECTED' && (
-        <Alert
-          className="lg:mb-6, mb-4 flex-1"
-          title="Request rejected"
-          variant="danger">
-          <div className="flex flex-col gap-2.5">
-            <div>
-              Advertising request has been rejected.
-              <br />
-              {review?.comments && (
-                <>
-                  <strong>Rejection reason :</strong> {review?.comments}
-                </>
-              )}
-            </div>
-            <ReviewDetail review={review} />
-          </div>
+        <Alert title="Request rejected" variant="danger">
+          Advertising request has been rejected.
+          <br />
+          {review?.comments && (
+            <>
+              <strong>Rejection reason:</strong> {review?.comments}
+            </>
+          )}
         </Alert>
       )}
       {status === 'PENDING' && (
-        <Alert
-          className="mb-4lg:mb-6"
-          title="Request pending"
-          variant="warning">
+        <Alert title="Request pending" variant="warning">
           <div className="flex flex-col gap-x-4 gap-y-3 md:flex-row lg:gap-x-10">
             <div className="flex-1">
               Advertising request is pending approval. Please review the
@@ -130,7 +106,7 @@ export default function SponsorsAdminAdRequestMessage({
             <div className="flex gap-2">
               <Button
                 label="Reject"
-                size="md"
+                size="sm"
                 variant="danger"
                 onClick={() =>
                   setRejectConfirmation({
@@ -141,15 +117,14 @@ export default function SponsorsAdminAdRequestMessage({
               />
               <Button
                 label="Approve"
-                size="md"
-                variant="primary"
+                size="sm"
+                variant="success"
                 onClick={() => setShowApproveConfirmation(true)}
               />
             </div>
           </div>
         </Alert>
       )}
-
       <ConfirmationDialog
         confirmButtonLabel="Approve"
         confirmButtonVariant="success"
@@ -189,21 +164,6 @@ export default function SponsorsAdminAdRequestMessage({
           }
         />
       </ConfirmationDialog>
-    </>
-  );
-}
-
-function ReviewDetail({ review }: Readonly<{ review: Props['review'] }>) {
-  return (
-    <div className="flex gap-3">
-      <Text color="subtitle" size="body2">
-        Reviewed by: {review?.profile.name || review?.profile.username}
-      </Text>
-      {review?.createdAt && (
-        <Text color="subtitle" size="body2">
-          Reviewed at: <RelativeTimestamp timestamp={review.createdAt} />
-        </Text>
-      )}
     </div>
   );
 }

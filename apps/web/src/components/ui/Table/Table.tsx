@@ -14,7 +14,12 @@ const Table = forwardRef<
 >(({ className, ...props }, ref) => (
   <table
     ref={ref}
-    className={clsx('w-full text-sm', themeTextColor, className)}
+    className={clsx(
+      'w-full text-sm',
+      themeTextColor,
+      ['border', themeBorderEmphasizeColor],
+      className,
+    )}
     {...props}
   />
 ));

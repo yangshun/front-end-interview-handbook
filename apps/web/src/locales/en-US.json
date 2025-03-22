@@ -107,10 +107,6 @@
     "defaultMessage": "React Interview Questions",
     "description": "React questions category long title"
   },
-  "+cwvdS": {
-    "defaultMessage": "Updated: {time}",
-    "description": "Label for updated time"
-  },
   "+dUPPi": {
     "defaultMessage": "Post",
     "description": "Label for post reply button on project discussions page"
@@ -707,10 +703,6 @@
     "defaultMessage": "Try using a different card or payment method with enough balance.",
     "description": "Reason label for different card"
   },
-  "1stWMb": {
-    "defaultMessage": "Created: {time}",
-    "description": "Label for created time"
-  },
   "1w3zxf": {
     "defaultMessage": "Search questions",
     "description": "Placeholder for search input of question list"
@@ -1266,6 +1258,10 @@
   "5cEMDJ": {
     "defaultMessage": "Front End Interview Practice Questions | GreatFrontEnd",
     "description": "Social title for all practice questions page"
+  },
+  "5euXel": {
+    "defaultMessage": "Verify to access your request",
+    "description": "Title for advertise request page"
   },
   "5fJI7m": {
     "defaultMessage": "Core maintainers of well-known open source projects",
@@ -2943,6 +2939,10 @@
     "defaultMessage": "Premium is required to access focus areas",
     "description": "Title for company guides feature"
   },
+  "FXRzYm": {
+    "defaultMessage": "Ad request | Advertise with us",
+    "description": "Title of advertise with us page"
+  },
   "FXfZQF": {
     "defaultMessage": "Unverified email",
     "description": "Title of verify email page"
@@ -3306,6 +3306,10 @@
   "HYUdzA": {
     "defaultMessage": "Sorting",
     "description": "Computer science algorithm"
+  },
+  "HZh7Wb": {
+    "defaultMessage": "Request updated",
+    "description": "Success title for request submission"
   },
   "HaIAzk": {
     "defaultMessage": "Light",
@@ -4563,6 +4567,10 @@
     "defaultMessage": "Login successful",
     "description": "Title of login successful page"
   },
+  "OMYreh": {
+    "defaultMessage": "Agreement",
+    "description": "Agreement section heading"
+  },
   "OOT9uz": {
     "defaultMessage": "<authorProfileLink>{author}</authorProfileLink> left a code review on their submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for someone reviewing their submission"
@@ -4746,6 +4754,10 @@
   "PJcH+M": {
     "defaultMessage": "If the payment still doesn't succeed, go to the <link>Stripe Customer Portal</link>, delete any cards that have been added, then try paying again.",
     "description": "Reason label for other reason"
+  },
+  "PKpZA5": {
+    "defaultMessage": "Created {time}",
+    "description": "Label for created time"
   },
   "PLPXbS": {
     "defaultMessage": "Multi-page & fully-functional apps",
@@ -5855,6 +5867,10 @@
     "defaultMessage": "Use code at checkout. Code expires on {expiryDate}.",
     "description": "Instruction to apply discount"
   },
+  "V+8Zql": {
+    "defaultMessage": "You have agreed to GreatFrontEnd's advertising agreement.",
+    "description": "Agreement section subtitle"
+  },
   "V0hPhI": {
     "defaultMessage": "Sign Up",
     "description": "Title of Sign Up page"
@@ -6127,10 +6143,6 @@
     "defaultMessage": "Quarterly plan",
     "description": "Title of quarterly pricing plan"
   },
-  "WJgAdh": {
-    "defaultMessage": "Edit Request form | Advertise with us",
-    "description": "Title of advertise with us page"
-  },
   "WNERnb": {
     "defaultMessage": "End session",
     "description": "Label for \"End session\" button on current project session card"
@@ -6254,10 +6266,6 @@
   "X/fzHZ": {
     "defaultMessage": "Skills is required.",
     "description": "Error message"
-  },
-  "X1OhvD": {
-    "defaultMessage": "Verify to Access Your Request",
-    "description": "Title for advertise request page"
   },
   "X1UVMv": {
     "defaultMessage": "We add more questions and guides from time to time, available for free to premium subscribers.",
@@ -7378,6 +7386,10 @@
   "dCMrlg": {
     "defaultMessage": "Select the weeks you would like to advertise",
     "description": "Label description for schedule"
+  },
+  "dE5S0I": {
+    "defaultMessage": "Updated {time}",
+    "description": "Label for updated time"
   },
   "dFjMzR": {
     "defaultMessage": "Copy link",
@@ -8554,6 +8566,10 @@
   "jwZwsD": {
     "defaultMessage": "Mobile ({width}px x {height}px)",
     "description": "Responsive breakpoint category"
+  },
+  "jxT+kI": {
+    "defaultMessage": "To access your advertising request on GreatFrontEnd, please enter any one of the emails you provided during the request creation. This helps us ensure secure and authorized modifications to your request.",
+    "description": "Subtitle for advertise request page"
   },
   "jxXMtj": {
     "defaultMessage": "Prices shown are in {currency}.",
@@ -9831,10 +9847,6 @@
     "defaultMessage": "No Projects profile",
     "description": "User does not have a profile for the Projects product"
   },
-  "rFIHeM": {
-    "defaultMessage": "To access your advertising request on GreatFrontend, please enter any one of the emails you provided during the request creation. This helps us ensure secure and authorized modifications to your request.",
-    "description": "Subtitle for advertise request page"
-  },
   "rGbEEY": {
     "defaultMessage": "Resources & discussions",
     "description": "Subtitle for \"Tips, Resources and Discussions\" tab on Projects project page"
@@ -10730,10 +10742,6 @@
   "wdlzwm": {
     "defaultMessage": "Your Message",
     "description": "Feedback widget textarea title"
-  },
-  "wkTX0Z": {
-    "defaultMessage": "Request edited",
-    "description": "Success title for request submission"
   },
   "wkkRGq": {
     "defaultMessage": "GitHub repository or subdirectory URL",

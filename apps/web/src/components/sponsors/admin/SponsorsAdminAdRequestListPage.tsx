@@ -6,6 +6,8 @@ import { trpc } from '~/hooks/trpc';
 import usePagination from '~/hooks/usePagination';
 
 import Anchor from '~/components/ui/Anchor';
+import type { BadgeVariant } from '~/components/ui/Badge';
+import Badge from '~/components/ui/Badge';
 import Heading from '~/components/ui/Heading';
 import Pagination from '~/components/ui/Pagination';
 import Spinner from '~/components/ui/Spinner';
@@ -18,13 +20,7 @@ import {
   TableRow,
 } from '~/components/ui/Table';
 import Text from '~/components/ui/Text';
-import {
-  themeBackgroundLayerEmphasized,
-  themeTextDangerColor,
-  themeTextInfoColor,
-  themeTextSuccessColor,
-  themeTextWarningColor,
-} from '~/components/ui/theme';
+import { themeBackgroundLayerEmphasized } from '~/components/ui/theme';
 
 import SponsorsAdminAdRequestListFilters from './filters/SponsorsAdminAdRequestListFilters';
 import useSponsorsAdminAdRequestFilters from './hooks/useSponsorsAdminAdRequestFilters';
@@ -33,12 +29,20 @@ import type { SponsorsAdRequestStatus } from '@prisma/client';
 
 const ITEMS_PER_PAGE = 20;
 
-const StatusTextColor: Record<SponsorsAdRequestStatus, string> = {
-  APPROVED: themeTextInfoColor,
-  PENDING: themeTextWarningColor,
-  PUBLISHED: themeTextSuccessColor,
-  REJECTED: themeTextDangerColor,
+const StatusBadgeVariant: Record<SponsorsAdRequestStatus, BadgeVariant> = {
+  APPROVED: 'info',
+  PENDING: 'warning',
+  PUBLISHED: 'success',
+  REJECTED: 'danger',
 };
+
+const formatter = new Intl.DateTimeFormat(undefined, {
+  day: 'numeric',
+  hour: '2-digit',
+  minute: '2-digit',
+  month: 'short',
+  year: 'numeric',
+});
 
 export default function SponsorsAdminAdRequestListPage() {
   // Pagination
@@ -107,7 +111,7 @@ export default function SponsorsAdminAdRequestListPage() {
                 <Text size="body2">Status</Text>
               </TableHead>
               <TableHead>
-                <Text size="body2">Created at</Text>
+                <Text size="body2">Created</Text>
               </TableHead>
               <TableHead className="w-[120px]">
                 <span className="sr-only">Action</span>
@@ -128,7 +132,7 @@ export default function SponsorsAdminAdRequestListPage() {
                 <TableCell colSpan={5}>
                   <div className="flex h-[150px] items-center justify-center">
                     <Text color="secondary" size="body2">
-                      No request found!
+                      No requests found
                     </Text>
                   </div>
                 </TableCell>
@@ -146,15 +150,16 @@ export default function SponsorsAdminAdRequestListPage() {
                     <Text size="body2">{request.legalName}</Text>
                   </TableCell>
                   <TableCell>
-                    <Text
-                      className={StatusTextColor[request.status]}
-                      color="inherit"
-                      size="body2">
-                      {capitalize(request.status)}
-                    </Text>
+                    <Badge
+                      label={capitalize(request.status)}
+                      size="sm"
+                      variant={StatusBadgeVariant[request.status]}
+                    />
                   </TableCell>
                   <TableCell>
-                    <Text size="body2">{request.createdAt.toDateString()}</Text>
+                    <Text size="body2">
+                      {formatter.format(request.createdAt)}
+                    </Text>
                   </TableCell>
                   <TableCell>
                     <Anchor href={`/admin/sponsorships/request/${request.id}`}>

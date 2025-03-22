@@ -285,19 +285,11 @@ export default function SponsorsAdvertiseRequestFormReviewSection({
               icon={RiArrowRightLine}
               isDisabled={!signedAgreement || isSubmitting}
               isLoading={isSubmitting}
-              label={
-                mode === 'edit'
-                  ? intl.formatMessage({
-                      defaultMessage: 'Update',
-                      description: 'Label for update button',
-                      id: 'xw+bqB',
-                    })
-                  : intl.formatMessage({
-                      defaultMessage: 'Submit',
-                      description: 'Label for submit button',
-                      id: 'K3opjL',
-                    })
-              }
+              label={intl.formatMessage({
+                defaultMessage: 'Submit',
+                description: 'Label for submit button',
+                id: 'K3opjL',
+              })}
               size="md"
               type="submit"
               variant="primary"

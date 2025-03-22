@@ -1,4 +1,4 @@
-import { capitalize } from 'lodash-es';
+import { lowerCase, startCase } from 'lodash-es';
 import React from 'react';
 
 import type { SponsorsAdFormatFormItem } from '~/components/sponsors/request/types';
@@ -9,9 +9,9 @@ import {
 } from '~/components/sponsors/SponsorsDatesUtils';
 
 import {
+  EmailsButton,
   EmailsFooter,
   EmailsHeader,
-  EmailsLink,
   EmailsParagraph,
   EmailsStrong,
 } from '~/emails/components/EmailsComponents';
@@ -40,7 +40,6 @@ export default function EmailsTemplateSponsorsAdRequestReview({
   signatoryTitle,
   ads,
 }: Props) {
-  let totalSlot = 0;
   const totalAmount = ads.reduce(
     (acc, curr) =>
       acc +
@@ -50,40 +49,37 @@ export default function EmailsTemplateSponsorsAdRequestReview({
 
   return (
     <Html lang="en">
-      <Preview>
-        Thanks for considering GreatFrontEnd for your advertising needs. We're
-        reviewing your details and will respond within the next 24 - 48 hours.
-      </Preview>
+      <Preview>An advertising request has been received</Preview>
       <Body style={mainStyle}>
         <Container style={containerStyle}>
           <EmailsHeader />
           <Section style={{ marginTop: 40 }}>
             <EmailsParagraph defaultMargins={true}>
-              An advertising inquiry has been received with the following
+              An advertising request has been submitted with the following
               details:
             </EmailsParagraph>
             <EmailsParagraph defaultMargins={true}>
-              <ul>
-                <li>
-                  <EmailsStrong>Name</EmailsStrong>: {signatoryName}
-                </li>
-                <li>
-                  <EmailsStrong>Role</EmailsStrong>: {signatoryTitle}
-                </li>
-                <li>
-                  <EmailsStrong>Company</EmailsStrong>: {legalName}
-                </li>
-                <li>
-                  <EmailsStrong>Signatory name</EmailsStrong>: {signatoryName}
-                </li>
-                <li>
-                  Slot chosen:
-                  <ul>
-                    {ads.map((ad) => (
-                      <div key={ad.id}>
+              <div style={{ marginBottom: 10, marginTop: 10 }}>
+                <EmailsStrong>Name</EmailsStrong>: {signatoryName}
+              </div>
+              <div style={{ marginBottom: 10, marginTop: 10 }}>
+                <EmailsStrong>Role</EmailsStrong>: {signatoryTitle}
+              </div>
+              <div style={{ marginBottom: 10, marginTop: 10 }}>
+                <EmailsStrong>Company</EmailsStrong>: {legalName}
+              </div>
+              <div style={{ marginBottom: 10, marginTop: 10 }}>
+                <EmailsStrong>Signatory name</EmailsStrong>: {signatoryName}
+              </div>
+              <div style={{ marginBottom: 10, marginTop: 10 }}>
+                <EmailsStrong>Ad slot(s)</EmailsStrong>:
+                <ol style={{ paddingLeft: 30 }}>
+                  {ads.map((ad) => (
+                    <li key={ad.id} style={{ marginBottom: 10, marginTop: 10 }}>
+                      {startCase(lowerCase(ad.format))} &times;{' '}
+                      {ad.weeks.length} week(s)
+                      <ul>
                         {ad.weeks.map((week) => {
-                          totalSlot += 1;
-
                           const parts = week.split('/').map(Number);
 
                           const { start, end } = sponsorsWeekDateRange(
@@ -100,25 +96,26 @@ export default function EmailsTemplateSponsorsAdRequestReview({
                             );
 
                           return (
-                            <li key={week}>
-                              Slot {totalSlot}: {capitalize(ad.format)}
-                              <ul>
-                                <li>Start Date: {startDate}</li>
-                                <li>End Date: {endDate}</li>
-                              </ul>
+                            <li
+                              key={week}
+                              style={{ marginBottom: 5, marginTop: 5 }}>
+                              {startDate} - {endDate}
                             </li>
                           );
                         })}
-                      </div>
-                    ))}
-                  </ul>
-                </li>
-                <li>Total amount to be paid: ${totalAmount}</li>
-              </ul>
+                      </ul>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+              <div>
+                <EmailsStrong>Total amount</EmailsStrong>: ${totalAmount}
+              </div>
             </EmailsParagraph>
             <EmailsParagraph defaultMargins={true}>
-              Approve or reject this inquiry through this link:{' '}
-              <EmailsLink href={requestUrl}>View request</EmailsLink>
+              <EmailsButton href={requestUrl} variant="primary">
+                Review request
+              </EmailsButton>
             </EmailsParagraph>
           </Section>
           <EmailsFooter />

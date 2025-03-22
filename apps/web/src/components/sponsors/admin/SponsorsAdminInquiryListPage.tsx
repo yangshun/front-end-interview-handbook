@@ -6,6 +6,7 @@ import { RiSearchLine } from 'react-icons/ri';
 import { trpc } from '~/hooks/trpc';
 import usePagination from '~/hooks/usePagination';
 
+import EmptyState from '~/components/ui/EmptyState';
 import Heading from '~/components/ui/Heading';
 import Pagination from '~/components/ui/Pagination';
 import Spinner from '~/components/ui/Spinner';
@@ -42,7 +43,7 @@ export default function SponsorsAdminInquiryListPage() {
 
   return (
     <div className="relative flex flex-col gap-6">
-      <Heading level="heading3">Ad Request Inquiries</Heading>
+      <Heading level="heading3">Incomplete Request Inquiries</Heading>
       <div className="flex flex-col gap-5">
         <TextInput
           isLabelHidden={true}
@@ -62,7 +63,7 @@ export default function SponsorsAdminInquiryListPage() {
                 <Text size="body2">Email</Text>
               </TableHead>
               <TableHead className="w-40">
-                <Text size="body2">Created at</Text>
+                <Text size="body2">Created</Text>
               </TableHead>
             </TableRow>
           </TableHeader>
@@ -70,7 +71,7 @@ export default function SponsorsAdminInquiryListPage() {
             {isLoading ? (
               <TableRow>
                 <TableCell colSpan={5}>
-                  <div className="flex h-[150px] items-center justify-center">
+                  <div className="flex h-[250px] items-center justify-center">
                     <Spinner />
                   </div>
                 </TableCell>
@@ -78,10 +79,8 @@ export default function SponsorsAdminInquiryListPage() {
             ) : currentPageItems?.length === 0 ? (
               <TableRow>
                 <TableCell colSpan={5}>
-                  <div className="flex h-[150px] items-center justify-center">
-                    <Text color="secondary" size="body2">
-                      No request found!
-                    </Text>
+                  <div className="flex h-[250px] items-center justify-center">
+                    <EmptyState title="No inquiries found" />
                   </div>
                 </TableCell>
               </TableRow>

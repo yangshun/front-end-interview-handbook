@@ -98,7 +98,7 @@ export default function SponsorsAdminMessagesListPage() {
                 <Text size="body2">Status</Text>
               </TableHead>
               <TableHead className="w-40">
-                <Text size="body2">Created at</Text>
+                <Text size="body2">Created</Text>
               </TableHead>
               <TableHead className="w-30">
                 <span className="sr-only">Reply</span>
@@ -119,7 +119,7 @@ export default function SponsorsAdminMessagesListPage() {
                 <TableCell colSpan={5}>
                   <div className="flex h-[150px] items-center justify-center">
                     <Text color="secondary" size="body2">
-                      No feedback found!
+                      No feedback found
                     </Text>
                   </div>
                 </TableCell>

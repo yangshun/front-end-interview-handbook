@@ -23,9 +23,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     }),
     pathname: `/advertise-with-us/request/${requestId}`,
     title: intl.formatMessage({
-      defaultMessage: 'Edit Request form | Advertise with us',
+      defaultMessage: 'Ad request | Advertise with us',
       description: 'Title of advertise with us page',
-      id: 'WJgAdh',
+      id: 'FXRzYm',
     }),
   });
 }
@@ -33,5 +33,5 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Page({ params }: Props) {
   const { requestId } = params;
 
-  return <SponsorsAdminAdRequestPage requestId={requestId} />;
+  return <SponsorsAdminAdRequestPage adRequestId={requestId} />;
 }

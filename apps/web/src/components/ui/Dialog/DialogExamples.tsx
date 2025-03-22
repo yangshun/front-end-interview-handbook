@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 import type { DialogWidth } from './Dialog';
 import Dialog from './Dialog';
+import Anchor from '../Anchor';
 import Button from '../Button';
 import UIExamplesGroup from '../misc/UIExamplesGroup';
 import Text from '../Text';
@@ -223,6 +224,17 @@ export default function DialogExamples() {
         <Dialog
           title="Modal title"
           trigger={<Button label="Uncontrolled" variant="primary" />}>
+          <div>
+            One morning, when Gregor Samsa woke from troubled dreams, he found
+            himself transformed in his bed into a horrible vermin. He lay on his
+            armour-like back, and if he lifted his head a little he could see
+            his brown belly, slightly domed and divided by arches into stiff
+            sections.
+          </div>
+        </Dialog>
+        <Dialog
+          title="Modal title"
+          trigger={<Anchor>Uncontrolled link</Anchor>}>
           <div>
             One morning, when Gregor Samsa woke from troubled dreams, he found
             himself transformed in his bed into a horrible vermin. He lay on his

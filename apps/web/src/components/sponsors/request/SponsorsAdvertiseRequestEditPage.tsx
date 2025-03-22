@@ -175,6 +175,7 @@ export default function SponsorsAdvertiseRequestEditPage({ adRequest }: Props) {
               company,
               createdAt: adRequest.createdAt,
               emails: adRequest.emails,
+              review: null,
               updatedAt: adRequest.updatedAt,
             }}
             onEdit={
@@ -188,18 +189,18 @@ export default function SponsorsAdvertiseRequestEditPage({ adRequest }: Props) {
           <>
             <Heading className="text-center" level="heading4">
               <FormattedMessage
-                defaultMessage="Verify to Access Your Request"
+                defaultMessage="Verify to access your request"
                 description="Title for advertise request page"
-                id="X1OhvD"
+                id="5euXel"
               />
             </Heading>
             <Text
               className="mt-4 block max-w-prose text-center"
               color="subtitle">
               <FormattedMessage
-                defaultMessage="To access your advertising request on GreatFrontend, please enter any one of the emails you provided during the request creation. This helps us ensure secure and authorized modifications to your request."
+                defaultMessage="To access your advertising request on GreatFrontEnd, please enter any one of the emails you provided during the request creation. This helps us ensure secure and authorized modifications to your request."
                 description="Subtitle for advertise request page"
-                id="rFIHeM"
+                id="jxT+kI"
                 values={{
                   approvalDays: '1-2',
                 }}

@@ -193,12 +193,14 @@ export default function SponsorsAdvertiseRequestForm({
                 id: 'ngtxtp',
               }),
               title: intl.formatMessage({
-                defaultMessage: 'Request edited',
+                defaultMessage: 'Request updated',
                 description: 'Success title for request submission',
-                id: 'wkTX0Z',
+                id: 'HZh7Wb',
               }),
               variant: 'success',
             });
+
+            router.push('/advertise-with-us/request/success');
           },
         },
       );

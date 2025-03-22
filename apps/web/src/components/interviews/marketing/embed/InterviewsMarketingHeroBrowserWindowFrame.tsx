@@ -24,7 +24,7 @@ export default function InterviewsMarketingHeroBrowserWindowFrame({
       )}>
       <div
         className={clsx(
-          'grid grid-cols-[3rem_1fr_3rem] md:grid-cols-[4rem_1fr_4rem]',
+          'grid grid-cols-[3rem_1fr_3rem] md:grid-cols-[3rem_1fr_3rem]',
           'items-center gap-6 px-4 py-2',
         )}>
         <div className="flex items-center gap-x-2">
@@ -50,7 +50,7 @@ export default function InterviewsMarketingHeroBrowserWindowFrame({
         <div>
           <div
             className={clsx(
-              'mx-auto flex items-center justify-center gap-1 py-0.5 md:w-[30%]',
+              'mx-auto flex items-center justify-center gap-1 py-0.5 md:w-[50%]',
               'bg-[#2D3039]/10 dark:bg-white/10',
               'rounded-lg',
               'text-xs font-medium leading-6',

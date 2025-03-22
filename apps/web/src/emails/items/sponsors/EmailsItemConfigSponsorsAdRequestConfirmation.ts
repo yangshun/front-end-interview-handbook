@@ -1,3 +1,5 @@
+import { SPONSORS_SPONSOR_MANAGER_EMAIL } from '~/data/SponsorsConfig';
+
 import type { EmailItemConfig } from '~/emails/EmailsTypes';
 
 import EmailsTemplateSponsorsAdRequestConfirmation from './EmailsTemplateSponsorsAdRequestConfirmation';
@@ -11,7 +13,7 @@ export const EmailsItemConfigSponsorsAdRequestConfirmation: EmailItemConfig<
     requestUrl: '/advertise-with-us/request',
   },
   from: {
-    email: 'contact@greatfrontend.com',
+    email: SPONSORS_SPONSOR_MANAGER_EMAIL,
     name: 'GreatFrontEnd',
   },
   id: 'SPONSORS_AD_REQUEST_CONFIRMATION',

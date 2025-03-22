@@ -36,7 +36,7 @@ import { sponsorsWeekDateRange } from '~/components/sponsors/SponsorsDatesUtils'
 import type { SponsorsAdFormatPayload } from '~/components/sponsors/SponsorsTypes';
 
 import { fetchInterviewsStudyLists } from '~/db/contentlayer/InterviewsStudyListReader';
-import EmailsLink from '~/emails/components/EmailsLink';
+import EmailsButton from '~/emails/components/EmailsButton';
 import {
   sendSponsorsAdRequestConfirmationEmail,
   sendSponsorsAdRequestReviewEmail,
@@ -415,14 +415,14 @@ export const sponsorsRouter = router({
               ))}
             </ul>
             <p>
-              See all inquiries{' '}
-              <EmailsLink
+              <EmailsButton
                 href={url.format({
                   host: getSiteOrigin(),
                   pathname: `/admin/sponsorships/inquiries`,
-                })}>
-                here
-              </EmailsLink>
+                })}
+                variant="primary">
+                See all inquiries
+              </EmailsButton>
             </p>
           </div>
         ),
@@ -679,7 +679,10 @@ export const sponsorsRouter = router({
         cc: [{ email: SPONSORS_GREATFRONTEND_ADMIN_EMAIL }],
         emailElement: (
           <div>
-            <p>Someone filled out the sponsorship contact form:</p>
+            <p>
+              A submission on the sponsorship contact form has been received
+              with the following details:
+            </p>
             <p>
               <strong>Sender</strong>: {email}
             </p>
@@ -690,14 +693,14 @@ export const sponsorsRouter = router({
               <strong>Country</strong>: {req.cookies.country}
             </p>
             <p>
-              See all requests{' '}
-              <EmailsLink
+              <EmailsButton
                 href={url.format({
                   host: getSiteOrigin(),
                   pathname: `/admin/sponsorships/messages`,
-                })}>
-                here
-              </EmailsLink>
+                })}
+                variant="primary">
+                View other submissions
+              </EmailsButton>
             </p>
           </div>
         ),
