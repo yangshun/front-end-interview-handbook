@@ -180,7 +180,10 @@ async function sendEmail_NO_CHECKS({
               Name: replyTo.name,
             }
           : undefined,
-        Subject: subject,
+        Subject:
+          process.env.NEXT_PUBLIC_VERCEL_ENV === 'production'
+            ? subject
+            : `[${process.env.NEXT_PUBLIC_VERCEL_ENV}] ${subject}`,
         TextPart: body.text,
         To: [
           {
