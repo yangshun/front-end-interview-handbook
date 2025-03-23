@@ -1,3 +1,4 @@
+import type { ComponentProps } from 'react';
 import { RiArrowRightLine } from 'react-icons/ri';
 
 import gtag from '~/lib/gtag';
@@ -10,33 +11,58 @@ import { themeBackgroundInvertColor } from '~/components/ui/theme';
 import { sponsorsAdTrackingHref } from './SponsorsAdHref';
 import useSponsorsAdImpressionLogging from './useSponsorsAdImpressionLogging';
 
-type Props = Readonly<{
+type BaseProps = Readonly<{
   adId: string;
+  className?: string | null;
   isLoading: boolean;
   onHide?: () => void;
-  text: string;
+  theme?: ComponentProps<typeof GlobalBannerShell>['theme'];
   tracking?: boolean;
   url: string;
+  variant?: ComponentProps<typeof GlobalBannerShell>['variant'];
 }>;
+
+type Props =
+  | (BaseProps &
+      Readonly<{
+        children: React.ReactNode;
+      }>)
+  | (BaseProps &
+      Readonly<{
+        text: string;
+      }>);
 
 const adFormat = 'GLOBAL_BANNER';
 
 export default function SponsorsAdFormatGlobalBanner({
   adId,
+  className = themeBackgroundInvertColor,
   url,
-  text,
+  theme,
   isLoading,
   onHide,
   tracking = true,
+  variant = 'neutral',
+  ...props
 }: Props) {
   const ref = useSponsorsAdImpressionLogging<HTMLAnchorElement>(adFormat, adId);
 
   return (
     <GlobalBannerShell
-      className={themeBackgroundInvertColor}
+      className={className ?? undefined}
       isLoading={isLoading}
-      variant="neutral"
-      onHide={onHide}>
+      theme={theme}
+      variant={variant}
+      onHide={() => {
+        gtag.event({
+          action: 'global_banner.hide',
+          extra: {
+            adFormat,
+            adId,
+          },
+        });
+        onHide?.();
+      }}>
       <Anchor
         ref={tracking ? ref : undefined}
         className={textVariants({
@@ -55,7 +81,7 @@ export default function SponsorsAdFormatGlobalBanner({
             },
           });
         }}>
-        {text}
+        {'text' in props ? props.text : props.children}
         <RiArrowRightLine
           aria-hidden={true}
           className="size-3.5 -mt-0.5 ml-1 inline-flex shrink-0"
