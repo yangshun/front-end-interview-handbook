@@ -65,10 +65,6 @@ export default function SponsorsAdFormatGlobalBanner({
       }}>
       <Anchor
         ref={tracking ? ref : undefined}
-        className={textVariants({
-          color: 'invert',
-          weight: 'medium',
-        })}
         href={tracking ? sponsorsAdTrackingHref({ adId, url }) : url}
         target="_blank"
         variant="flat"
