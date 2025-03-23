@@ -79,14 +79,6 @@ function SidebarLinkItem({
     themeTextSubtitleColor_Hover,
   );
 
-  useEffect(() => {
-    if (isActive && ref.current) {
-      setTimeout(() => {
-        ref.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      }, 1000);
-    }
-  }, [isActive]);
-
   return (
     <li key={href} ref={ref} className="relative">
       <Anchor
@@ -130,16 +122,28 @@ function SidebarLinkItem({
 }
 
 function SidebarLinks({
+  comeIntoFocus,
   item,
   onToggle,
   size,
   onItemClick,
 }: Readonly<{
+  comeIntoFocus?: boolean;
   item: SidebarLinkEntity;
   onItemClick?: () => void;
   onToggle: () => void;
   size: SidebarSize;
 }>) {
+  const ref = useRef<HTMLUListElement>(null);
+
+  useEffect(() => {
+    if (comeIntoFocus) {
+      setTimeout(() => {
+        ref.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }, 1000);
+    }
+  }, [comeIntoFocus]);
+
   if (!('items' in item)) {
     return (
       <SidebarLinkItem
@@ -200,7 +204,10 @@ function SidebarLinks({
           'data-[state=open]:animate-accordion-down',
           'data-[state=closed]:animate-accordion-up overflow-hidden',
         )}>
-        <ul className={clsx('flex flex-col gap-y-1', 'py-1 pl-3')} role="list">
+        <ul
+          ref={ref}
+          className={clsx('flex flex-col gap-y-1', 'py-1 pl-3')}
+          role="list">
           {item.items.map((linkItem) => (
             <SidebarLinkItem
               key={linkItem.href}
@@ -235,16 +242,19 @@ export default function SidebarLinksSection({
   const [openSection, setOpenSection] = useState<string | null>(
     defaultOpenSections.length > 0 ? defaultOpenSections[0] : null,
   );
-
   // `multiple` type
   const [manuallyOpenSections, setManuallyOpenSections] =
     useState<ReadonlyArray<string>>(defaultOpenSections);
+
   const [automaticOpenSections, setAutomaticOpenSections] = useState<
     ReadonlyArray<string>
   >([]);
+  const [latestInteractedSection, setLatestInteractedSection] = useState<
+    string | null
+  >(null);
 
   useEffect(() => {
-    const activeValue = (() => {
+    const openSectionForCurrentPathname = (() => {
       for (const item of items) {
         if (!('items' in item)) {
           continue;
@@ -256,12 +266,14 @@ export default function SidebarLinksSection({
       }
     })();
 
-    if (activeValue) {
+    if (openSectionForCurrentPathname) {
       if (type === 'single') {
-        setOpenSection(activeValue);
+        setOpenSection(openSectionForCurrentPathname);
       } else {
-        setAutomaticOpenSections([activeValue]);
+        setAutomaticOpenSections([openSectionForCurrentPathname]);
       }
+
+      setLatestInteractedSection(openSectionForCurrentPathname);
     }
   }, [items, pathname, type]);
 
@@ -271,10 +283,12 @@ export default function SidebarLinksSection({
       {items.map((item) => (
         <SidebarLinks
           key={item.id}
+          comeIntoFocus={latestInteractedSection === item.id}
           item={item}
           size={size}
           onItemClick={onItemClick}
           onToggle={() => {
+            setLatestInteractedSection(item.id);
             if (type === 'single') {
               setOpenSection(openSection === item.id ? null : item.id);
             } else {
