@@ -5,7 +5,6 @@ import gtag from '~/lib/gtag';
 
 import GlobalBannerShell from '~/components/global/banners/GlobalBannerShell';
 import Anchor from '~/components/ui/Anchor';
-import { textVariants } from '~/components/ui/Text';
 import { themeBackgroundInvertColor } from '~/components/ui/theme';
 
 import { sponsorsAdTrackingHref } from './SponsorsAdHref';

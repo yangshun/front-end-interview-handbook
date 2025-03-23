@@ -14,6 +14,7 @@ import {
   SidebarCollapsed,
   SidebarExpanded,
 } from '~/components/global/sidebar/Sidebar';
+import { SocialDiscountSidebarBanner } from '~/components/promotions/social/SocialDiscountSidebarBanner';
 import { SocialDiscountSidebarMention } from '~/components/promotions/social/SocialDiscountSidebarMention';
 import { useSocialDiscountLabels } from '~/components/promotions/social/useSocialDiscountLabels';
 import SponsorsAdFormatSpotlightContainer from '~/components/sponsors/ads/SponsorsAdFormatSpotlightContainer';
@@ -126,6 +127,9 @@ export function InterviewsSidebarExpanded({
           />
           <div className="max-[1280px]:hidden">
             <SocialDiscountSidebarMention />
+          </div>
+          <div className="-mx-2 min-[1280px]:hidden">
+            <SocialDiscountSidebarBanner />
           </div>
         </div>
       )}

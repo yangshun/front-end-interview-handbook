@@ -44,7 +44,7 @@ function SocialDiscountSidebarMentionImpl({
           {socialDiscountLabels.existingPromoTitle}
         </Text>
         <div className="flex flex-1 items-center gap-3">
-          <Ticket padding="none" ratio="wide" variant="normal" width={96}>
+          <Ticket padding="none" ratio="wide" variant="normal" width={64}>
             <div
               className={clsx(
                 'flex h-full flex-col items-center justify-center',
@@ -84,11 +84,11 @@ function SocialDiscountSidebarMentionImpl({
               className="flex items-center gap-1"
               href="/interviews/pricing"
               variant="flat">
-              <Text size="body3" weight="medium">
-                {socialDiscountLabels.existingPromoCtaLabel}
+              <Text className="text-balance" size="body3" weight="medium">
+                {socialDiscountLabels.existingPromoCtaLabel}{' '}
                 <RiArrowRightLine
                   aria-hidden={true}
-                  className={clsx('size-4 ml-1 inline shrink-0')}
+                  className={clsx('size-3.5 inline shrink-0')}
                 />
               </Text>
             </Anchor>
@@ -108,28 +108,28 @@ function SocialDiscountSidebarMentionImpl({
       href="/rewards/social"
       variant="flat"
       weight="normal">
-      <Ticket padding="none" ratio="wide" variant="normal" width={96}>
+      <Ticket padding="none" ratio="wide" variant="normal" width={64}>
         <div
           className={clsx(
             'flex h-full flex-col items-center justify-center',
             'overflow-hidden',
             [themeWhiteGlowTicketBackground, 'before:-top-3 before:left-4'],
           )}>
-          <Text size="body1" weight="bold">
+          <Text size="body3" weight="bold">
             {socialDiscountLabels.ticketTitle}
           </Text>
         </div>
       </Ticket>
       <span className="inline-flex">
-        <Text color="subtitle" size="body3">
+        <Text className="text-balance" color="subtitle" size="body3">
           <FormattedMessage
             defaultMessage="Complete simple social tasks"
             description="Instructions to get a discount"
             id="Hq/krL"
-          />
+          />{' '}
           <RiArrowRightLine
             aria-hidden={true}
-            className={clsx('size-3.5 -mt-0.5 ml-1 inline-flex shrink-0')}
+            className={clsx('size-3.5 -mt-0.5 inline-flex shrink-0')}
           />
         </Text>
       </span>

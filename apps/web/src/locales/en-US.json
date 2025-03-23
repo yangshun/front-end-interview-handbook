@@ -339,6 +339,10 @@
     "defaultMessage": "This is the name that will be shown on your profile. Use a maximum of {maxLength} character(s).",
     "description": "Name field description"
   },
+  "/tR4KB": {
+    "defaultMessage": "{discountPercentage}% off expiring soon",
+    "description": "Button label"
+  },
   "/vo5j8": {
     "defaultMessage": "Collapse sidebar",
     "description": "Tooltip for collapse sidebar"
@@ -9874,6 +9878,10 @@
   "rSr8Ph": {
     "defaultMessage": "All Question Detail pages",
     "description": "Label Label for spotlight ad placement in question detail pages"
+  },
+  "rSrKWk": {
+    "defaultMessage": "Get {discountPercentage}% off",
+    "description": "Instructions to get a discount"
   },
   "rUKlWg": {
     "defaultMessage": "Build projects to learn any front end skill using our <link>Skills roadmap</link>",
