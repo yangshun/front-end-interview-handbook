@@ -166,7 +166,8 @@ export default function InterviewsNavbar({
                 </div>
               }
               onClose={closeMobileNav}>
-              <div className="flex h-full flex-col gap-7"
+              <div
+                className="flex h-full flex-col gap-7"
                 onClick={handleAnchorItemClick}>
                 <div className="px-6">
                   <SponsorsAdvertiseWithUsBadge />
@@ -212,8 +213,11 @@ export default function InterviewsNavbar({
                           </div>
                         ))}
                       <div className="flex flex-col gap-4 px-6">
+                        <SponsorsAdFormatSpotlightContainer
+                          adPlacement="nav_mobile"
+                          size="sm"
+                        />
                         <SocialDiscountSidebarMention />
-                        <SponsorsAdFormatSpotlightContainer adPlacement="nav_mobile" />
                       </div>
                       <div
                         className={clsx('flex justify-between gap-4', 'px-6')}>

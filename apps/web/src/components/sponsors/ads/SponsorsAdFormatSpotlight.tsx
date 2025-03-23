@@ -30,19 +30,28 @@ export type SponsorsAdFormatSpotlightPlacement =
   | 'questions_below_header'
   | 'questions_side_column';
 
+export type SponsorsAdFormatSpotlightSize = 'md' | 'sm';
+
 type Props = Omit<SponsorsAdFormatPayloadSpotlight, 'format'> &
   Readonly<{
     adPlacement: SponsorsAdFormatSpotlightPlacement;
+    size?: SponsorsAdFormatSpotlightSize;
     textWeight?: TextWeight;
     tracking?: boolean;
   }>;
 
 const adFormat = 'SPOTLIGHT';
 
+const sizeClassNames: Record<SponsorsAdFormatSpotlightSize, string> = {
+  md: 'h-12',
+  sm: 'h-8',
+};
+
 export default function SponsorsAdFormatSpotlight({
   adPlacement,
   adId,
   text,
+  size = 'md',
   sponsorName,
   url,
   imageUrl,
@@ -80,7 +89,8 @@ export default function SponsorsAdFormatSpotlight({
       <div
         className={clsx(
           'relative shrink-0',
-          'aspect-[2/1] h-12',
+          'aspect-[2/1]',
+          sizeClassNames[size],
           'flex items-center justify-center',
           'rounded-md',
           imageUrl ? themeBackgroundColor : themeBackgroundBrandColor,
@@ -137,6 +147,7 @@ export default function SponsorsAdFormatSpotlight({
         <Text
           className={clsx(
             'line-clamp-2',
+            'text-balance',
             'inline-block pb-px', // Underline gets cutoff on Firefox, so add a 1px bottom spacing
           )}
           color="subtitle"

@@ -119,11 +119,14 @@ export function InterviewsSidebarExpanded({
       }
       product="interviews"
       renderBottomAddonElements={() => (
-        <div className="flex flex-col gap-4">
-          <div className="max-xl:hidden">
-            <SponsorsAdFormatSpotlightContainer adPlacement="nav_sidebar" />
+        <div className="flex flex-col gap-3">
+          <SponsorsAdFormatSpotlightContainer
+            adPlacement="nav_sidebar"
+            size="sm"
+          />
+          <div className="max-[1280px]:hidden">
+            <SocialDiscountSidebarMention />
           </div>
-          <SocialDiscountSidebarMention />
         </div>
       )}
       sidebarItems={sidebarItems}

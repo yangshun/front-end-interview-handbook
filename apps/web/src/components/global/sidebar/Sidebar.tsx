@@ -262,36 +262,41 @@ export function SidebarExpanded({
   const startItems = sidebarItems.filter((item) => item.position === 'start');
   const endItems = sidebarItems.filter((item) => item.position === 'end');
 
+  const bottomAddonElements = renderBottomAddonElements?.(fadeInClass);
+
   return (
     <nav className={clsx('flex flex-col', 'relative h-full')}>
-      <div className="flex grow flex-col justify-between p-4">
+      <div className="flex grow flex-col justify-between px-4 pt-4">
         <div className="flex justify-center pb-3 pl-2">
           <NavProductDropdownMenu product={product} variant="compact" />
         </div>
         <div className="flex grow flex-col justify-between gap-4">
-          <div
-            className={clsx('h-0 grow overflow-auto', 'vignette-scroll pt-4')}>
-            <ScrollArea>
+          <div className={clsx('h-0 grow overflow-auto')}>
+            <ScrollArea className="vignette-scroll">
               {renderTopAddonElements?.(fadeInClass)}
-              <SidebarLinksSection
-                defaultOpenSections={defaultOpenSections}
-                items={startItems}
-                type="single"
-              />
+              <div className="pt-2">
+                <SidebarLinksSection
+                  defaultOpenSections={defaultOpenSections}
+                  items={startItems}
+                  type="single"
+                />
+              </div>
             </ScrollArea>
           </div>
-          <div className={clsx('flex flex-col gap-y-4', fadeInClass)}>
-            {endItems.length > 0 && (
-              <>
-                <Divider />
-                <SidebarLinksSection items={endItems} type="single" />
-              </>
-            )}
-            {renderBottomAddonElements?.(fadeInClass)}
-          </div>
+          {endItems.length > 0 && (
+            <div className={clsx('flex flex-col gap-y-4', fadeInClass)}>
+              <Divider />
+              <SidebarLinksSection items={endItems} type="single" />
+            </div>
+          )}
         </div>
       </div>
-      <Divider />
+      {bottomAddonElements && (
+        <>
+          <Divider />
+          <div className="px-4 pt-2">{bottomAddonElements}</div>
+        </>
+      )}
       <div className={clsx('flex justify-between gap-4', 'p-4')}>
         <div className="flex gap-4">
           {notificationItem}
