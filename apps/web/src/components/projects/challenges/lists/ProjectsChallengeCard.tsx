@@ -18,7 +18,6 @@ import ProjectsStatusBadge from '../../common/status/ProjectsStatusBadge';
 import ProjectsPremiumBadge from '../../purchase/ProjectsPremiumBadge';
 import { projectsSkillExtractParents } from '../../skills/data/ProjectsSkillUtils';
 import ProjectsSkillParentSkillList from '../../skills/metadata/ProjectsSkillParentSkillList';
-import ProjectsStartedUsersTag from '../../stats/ProjectsStartedUsersTag';
 
 type BaseProps = Readonly<{
   challenge: ProjectsChallengeItem;
@@ -42,15 +41,7 @@ export default function ProjectsChallengeCard({
   ...props
 }: Props) {
   const intl = useIntl();
-  const {
-    startedProfiles: completedProfiles,
-    startedCount: completedCount,
-    metadata,
-    status,
-    track,
-    userUnlocked,
-    info,
-  } = challenge;
+  const { metadata, status, track, userUnlocked, info } = challenge;
   const {
     difficulty,
     skills,
@@ -143,11 +134,6 @@ export default function ProjectsChallengeCard({
               variant="primary"
             />
           )}
-          <ProjectsStartedUsersTag
-            avatarBorderClassName="border-white dark:border-neutral-800/70"
-            count={completedCount}
-            profiles={completedProfiles}
-          />
         </div>
       </div>
       <Anchor aria-label={title} className="absolute inset-0" href={href} />
