@@ -202,7 +202,7 @@ export default function SponsorsAdvertiseRequestForm({
               variant: 'success',
             });
 
-            router.push('/advertise-with-us/request/success');
+            router.push('/advertise-with-us/request/update-success');
           },
         },
       );

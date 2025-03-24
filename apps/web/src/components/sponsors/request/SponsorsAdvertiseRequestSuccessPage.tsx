@@ -16,7 +16,11 @@ import { themeTextSuccessColor } from '~/components/ui/theme';
 
 import useSponsorsAdvertiseRequestFormData from './useSponsorsAdvertiseRequestFormData';
 
-export default function SponsorsAdvertiseRequestSuccessPage() {
+type Props = Readonly<{
+  mode: 'create' | 'update';
+}>;
+
+export default function SponsorsAdvertiseRequestSuccessPage({ mode }: Props) {
   const intl = useIntl();
   const [, , removeFormData] = useSponsorsAdvertiseRequestFormData();
 
@@ -34,11 +38,20 @@ export default function SponsorsAdvertiseRequestSuccessPage() {
         />
         <div className="flex flex-col gap-y-2">
           <Heading level="heading4">
-            <FormattedMessage
-              defaultMessage="Your request has been received"
-              description="Title for advertise request page"
-              id="EGDkQQ"
-            />
+            {mode === 'create' && (
+              <FormattedMessage
+                defaultMessage="Your request has been received"
+                description="Title for advertise request page"
+                id="EGDkQQ"
+              />
+            )}
+            {mode === 'update' && (
+              <FormattedMessage
+                defaultMessage="Your changes have been saved"
+                description="Title for advertise request page"
+                id="/qIzgw"
+              />
+            )}
           </Heading>
         </div>
         <Text

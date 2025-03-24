@@ -1,5 +1,3 @@
-import { SPONSORS_SPONSOR_MANAGER_EMAIL } from '~/data/SponsorsConfig';
-
 import type { EmailItemConfig } from '~/emails/EmailsTypes';
 
 import EmailsTemplateSponsorsAdRequestReview from './EmailsTemplateSponsorsAdRequestReview';
@@ -12,7 +10,7 @@ export const EmailsItemConfigSponsorsAdRequestReview: EmailItemConfig<
     ads: [
       {
         format: 'GLOBAL_BANNER',
-        id: 'f35d89c8-7570-420d-b0b6-67873a6219f7',
+        id: 'global-banner',
         sponsorName: 'GreatFrontEnd',
         text: 'GFE',
         url: 'https://dev.greatfrontend.com/questions#framework-language',
@@ -20,7 +18,7 @@ export const EmailsItemConfigSponsorsAdRequestReview: EmailItemConfig<
       },
       {
         format: 'SPOTLIGHT',
-        id: '9a334614-6e20-4fe5-9e06-cb8ecec45301',
+        id: 'spotlight',
         imageUrl: 'google.com',
         sponsorName: 'GreatFrontEnd',
         text: 'GFE',
@@ -34,8 +32,8 @@ export const EmailsItemConfigSponsorsAdRequestReview: EmailItemConfig<
     signatoryTitle: 'CEO',
   },
   from: {
-    email: SPONSORS_SPONSOR_MANAGER_EMAIL,
-    name: 'GreatFrontEnd',
+    email: 'hello@greatfrontend',
+    name: 'GreatFrontEnd Sponsorships',
   },
   id: 'SPONSORS_AD_REQUEST_REVIEW',
   subject: ({ legalName }) => ` Advertising request submitted by ${legalName}`,

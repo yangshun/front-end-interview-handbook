@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: 'Title of advertisement request success page',
       id: '7YO/82',
     }),
-    pathname: '/advertise-with-us/request/success',
+    pathname: '/advertise-with-us/request/update-success',
     title: intl.formatMessage({
       defaultMessage: 'Request success | Advertise with us',
       description: 'Title of advertise with us page',
@@ -31,5 +31,5 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Page() {
-  return <SponsorsAdvertiseRequestSuccessPage mode="create" />;
+  return <SponsorsAdvertiseRequestSuccessPage mode="update" />;
 }

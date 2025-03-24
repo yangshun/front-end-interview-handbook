@@ -40,8 +40,9 @@ export default function EmailsTemplateSponsorsAdRequestConfirmation({
               Dear {name ? name.split(/\s+/)[0] : 'there'},
             </EmailsParagraph>
             <EmailsParagraph defaultMargins={true}>
-              Thanks for considering <EmailsStrong>GreatFrontEnd</EmailsStrong>{' '}
-              for your advertising needs.
+              Thank you for considering{' '}
+              <EmailsStrong>GreatFrontEnd</EmailsStrong> for your advertising
+              needs.
             </EmailsParagraph>
             <EmailsParagraph defaultMargins={true}>
               We're reviewing your details and will respond within the next 24 -

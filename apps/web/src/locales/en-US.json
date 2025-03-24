@@ -339,6 +339,10 @@
     "defaultMessage": "This is the name that will be shown on your profile. Use a maximum of {maxLength} character(s).",
     "description": "Name field description"
   },
+  "/qIzgw": {
+    "defaultMessage": "Your changes have been saved",
+    "description": "Title for advertise request page"
+  },
   "/tR4KB": {
     "defaultMessage": "{discountPercentage}% off expiring soon",
     "description": "Button label"
@@ -4026,10 +4030,6 @@
   "L1Wgz6": {
     "defaultMessage": "Tracks | Progress | Dashboard",
     "description": "Title of tracks section on dashboard page"
-  },
-  "L1cfzu": {
-    "defaultMessage": "{startedCount} started",
-    "description": "Label for number of users who have started the challenge"
   },
   "L2l9WA": {
     "defaultMessage": "Quiz",

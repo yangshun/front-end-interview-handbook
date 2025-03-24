@@ -1,5 +1,3 @@
-import { SPONSORS_SPONSOR_MANAGER_EMAIL } from '~/data/SponsorsConfig';
-
 import type { EmailItemConfig } from '~/emails/EmailsTypes';
 
 import EmailsTemplateSponsorsAdRequestConfirmation from './EmailsTemplateSponsorsAdRequestConfirmation';
@@ -13,8 +11,8 @@ export const EmailsItemConfigSponsorsAdRequestConfirmation: EmailItemConfig<
     requestUrl: '/advertise-with-us/request',
   },
   from: {
-    email: SPONSORS_SPONSOR_MANAGER_EMAIL,
-    name: 'GreatFrontEnd',
+    email: 'hello@greatfrontend.com',
+    name: 'GreatFrontEnd Sponsorships',
   },
   id: 'SPONSORS_AD_REQUEST_CONFIRMATION',
   subject: () => 'GreatFrontEnd: Your Ad Request Received!',
