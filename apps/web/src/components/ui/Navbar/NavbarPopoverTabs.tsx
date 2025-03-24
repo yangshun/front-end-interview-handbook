@@ -88,7 +88,7 @@ export default function NavbarPopoverTabs({
                   'border-b',
                   themeBorderElementColor,
                 ])}>
-                <div className={clsx('-mb-px flex', 'gap-6')}>
+                <div className={clsx('flex', 'gap-6')}>
                   {items.map(({ id, label }) => (
                     <TabsPrimitive.Trigger
                       key={id}
@@ -104,7 +104,10 @@ export default function NavbarPopoverTabs({
                           weight: 'medium',
                         }),
                       )}
-                      value={id}>
+                      value={id}
+                      onMouseEnter={() => {
+                        setValue(id);
+                      }}>
                       {label}
                     </TabsPrimitive.Trigger>
                   ))}
@@ -113,7 +116,7 @@ export default function NavbarPopoverTabs({
             </ScrollArea>
           </div>
         </div>
-        <div className="flex w-full grow items-center px-2 sm:px-0 sm:py-4 sm:pe-4">
+        <div className="flex w-full grow items-center px-2 pb-4 sm:px-0 sm:py-4 sm:pe-4">
           {items.map((item) => (
             <TabsPrimitive.Content
               key={item.id}

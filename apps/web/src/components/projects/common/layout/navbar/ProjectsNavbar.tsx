@@ -281,6 +281,9 @@ export default function ProjectsNavbar({ hideOnDesktop = false }: Props) {
       endAddOnItems={endAddOnItems}
       hideOnDesktop={hideOnDesktop}
       isLoading={isUserProfileLoading}
+      leftItemsWrapperClassname={
+        isPremium ? 'hidden min-[390px]:flex' : 'hidden min-[460px]:flex'
+      }
       links={navLinks}
       logo={
         <NavProductPopover

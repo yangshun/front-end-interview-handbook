@@ -26,6 +26,7 @@ type Props = Readonly<{
   endAddOnItems?: React.ReactNode;
   hideOnDesktop?: boolean;
   isLoading: boolean;
+  leftItemsWrapperClassname?: string;
   links: ReadonlyArray<NavbarTopLevelItem>;
   logo?: React.ReactNode;
   mobileSidebarBottomItems?: React.ReactNode;
@@ -62,6 +63,7 @@ function Navbar(
     navbarEnd,
     sidebarLogo,
     mobileSidebarHeaderClassName,
+    leftItemsWrapperClassname,
   }: Props,
   ref: React.Ref<HTMLDivElement>,
 ) {
@@ -101,8 +103,9 @@ function Navbar(
             {logo}
             <nav
               className={clsx(
-                'hidden items-center gap-4 min-[460px]:flex md:gap-x-8 lg:w-0 lg:flex-1',
+                'flex items-center gap-4 md:gap-x-8 lg:w-0 lg:flex-1',
                 'ml-3 sm:ml-6 lg:ml-20',
+                leftItemsWrapperClassname,
               )}>
               {leftLinks.map((navItem) => (
                 <NavbarItem key={navItem.id} {...navItem} />

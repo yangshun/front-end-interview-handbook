@@ -24,7 +24,7 @@ export default function NavbarEnd({
         isLoading ? 'opacity-0' : 'opacity-100',
       )}>
       {links.length > 0 && (
-        <div className="hidden items-center gap-x-4 sm:flex md:gap-x-8">
+        <div className="hidden items-center gap-x-4 md:flex md:gap-x-8">
           {links.map((navItem) => (
             <NavbarItem key={navItem.id} {...navItem} />
           ))}

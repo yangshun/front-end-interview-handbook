@@ -119,8 +119,11 @@ export default function InterviewsNavbar({
             />
             <nav
               className={clsx(
-                'hidden items-center gap-4 min-[460px]:flex md:gap-x-8 lg:w-0 lg:flex-1',
+                'items-center gap-4 md:gap-x-8 lg:w-0 lg:flex-1',
                 'ml-3 sm:ml-6 lg:ml-20',
+                isPremium
+                  ? 'hidden min-[390px]:flex'
+                  : 'hidden min-[460px]:flex',
               )}>
               {leftLinks.map((navItem) => (
                 <NavbarItem key={navItem.id} {...navItem} />

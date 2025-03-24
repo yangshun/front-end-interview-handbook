@@ -34,15 +34,22 @@ export default function InterviewsNavbarEnd() {
       className={clsx(
         'z-fixed sticky top-[var(--banner-height)] max-lg:hidden',
         themeBackgroundColor,
+        'pr-6',
       )}>
       <NavbarHeightStyles borderHeight={0} />
       <div className="flex items-center gap-8">
-        <div className={clsx('w-full', 'flex items-center justify-end')}>
+        <div
+          className={clsx(
+            'w-full',
+            'flex items-center justify-end',
+            'transition-opacity duration-500',
+            isUserProfileLoading ? 'opacity-0' : 'opacity-100',
+          )}>
           <SponsorsAdvertiseWithUsBadge />
         </div>
         <NavbarEnd
-          addOnItems={<InterviewsNavbarEndAddOnItems />}
-          className={clsx('flex items-center justify-end gap-x-3 pr-6', 'h-12')}
+          addOnItems={<InterviewsNavbarEndAddOnItems variant="app" />}
+          className={clsx('flex items-center justify-end gap-x-8', 'h-12')}
           isLoading={isUserProfileLoading}
           links={links}
         />

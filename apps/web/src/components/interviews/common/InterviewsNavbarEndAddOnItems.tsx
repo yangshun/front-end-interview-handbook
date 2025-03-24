@@ -13,7 +13,13 @@ import useInterviewsLoggedInLinks from './useInterviewsLoggedInLinks';
 
 import { useUser } from '@supabase/auth-helpers-react';
 
-export default function InterviewsNavbarEndAddOnItems() {
+type Props = Readonly<{
+  variant?: 'app' | 'default';
+}>;
+
+export default function InterviewsNavbarEndAddOnItems({
+  variant = 'default',
+}: Props) {
   const user = useUser();
   const isLoggedIn = user != null;
   const { userProfile } = useUserProfile();
@@ -27,9 +33,11 @@ export default function InterviewsNavbarEndAddOnItems() {
       <div
         className={clsx(
           'gap-x-3',
-          isLoggedIn && isPremium
-            ? 'hidden lg:flex'
-            : 'hidden min-[1280px]:flex',
+          variant === 'app'
+            ? 'flex'
+            : isLoggedIn && isPremium
+              ? 'hidden lg:flex'
+              : 'hidden min-[1280px]:flex',
         )}>
         <NavI18nDropdown size="xs" />
         <NavColorSchemeDropdown size="xs" />
