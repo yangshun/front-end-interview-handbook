@@ -19,8 +19,6 @@ export function base64toBlob(dataURI: string) {
   return new Blob([ab], { type: 'image/jpg' });
 }
 
-export function objectUrlToBase64(url: string): Promise<string> {
-  return fetch(url)
-    .then((res) => res.blob())
-    .then(blobToBase64);
+export function objectUrlToFile(url: string): Promise<Blob> {
+  return fetch(url).then((res) => res.blob());
 }

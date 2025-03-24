@@ -2039,6 +2039,10 @@
     "defaultMessage": "Practice front end interview questions requiring you to build UI with HTML, CSS, JavaScript/TypeScript, or React, Angular, and Vue. Solutions and tests from ex-interviewers.",
     "description": "SEO description for UI question format page"
   },
+  "9xAfBQ": {
+    "defaultMessage": "Failed to upload image",
+    "description": "Error message for image upload"
+  },
   "9xFHNn": {
     "defaultMessage": "{questionTitle} | Front End System Design Question",
     "description": "Title of system design question page"

@@ -3,8 +3,6 @@ import { kebabCase, range, sample } from 'lodash-es';
 import url from 'node:url';
 import { z } from 'zod';
 
-import { base64toBlob } from '~/lib/imageUtils';
-
 import { ADMIN_EMAILS } from '~/data/AdminConfig';
 import {
   SponsorsAdsSpotsProjectsInContent,
@@ -176,18 +174,15 @@ export const sponsorsRouter = router({
 
       return adPayload;
     }),
-  adAssetUpload: publicProcedure
+  adAssetUploadUrl: publicProcedure
     .input(
       z.object({
         format: z.nativeEnum(SponsorsAdFormat),
-        imageFile: z.string(),
         sessionId: z.string(),
       }),
     )
-    .mutation(async ({ input: { imageFile, sessionId, format } }) => {
+    .mutation(async ({ input: { sessionId, format } }) => {
       const supabaseAdmin = createSupabaseAdminClientGFE_SERVER_ONLY();
-
-      const blob = base64toBlob(imageFile);
 
       const fileName = kebabCase(format);
       const storagePath =
@@ -197,21 +192,20 @@ export const sponsorsRouter = router({
         '-' +
         String(new Date().getTime()) +
         '.jpg';
-      const { error } = await supabaseAdmin.storage
+      // Generate a signed upload URL
+      const { data, error } = await supabaseAdmin.storage
         .from('ads')
-        .upload(storagePath, blob, {
-          upsert: true,
-        });
+        .createSignedUploadUrl(storagePath);
 
       if (error) {
-        throw error;
+        throw new Error(error.message);
       }
 
-      const { data: imageUrl } = supabaseAdmin.storage
-        .from('ads')
-        .getPublicUrl(storagePath);
-
-      return imageUrl.publicUrl;
+      return {
+        path: `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/ads/${data.path}`,
+        success: true,
+        url: data.signedUrl,
+      };
     }),
   adRequest: adminProcedure
     .input(

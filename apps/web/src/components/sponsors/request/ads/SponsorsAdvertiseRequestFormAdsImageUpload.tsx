@@ -136,6 +136,15 @@ export default function SponsorsAdvertiseRequestFormAdsImageUpload({
             ])}
             src={imageUrl}
           />
+          {errorMessage && (
+            <Text
+              className="mt-2 block"
+              color="error"
+              id={messageId}
+              size="body3">
+              {errorMessage}
+            </Text>
+          )}
         </div>
       ) : (
         <>

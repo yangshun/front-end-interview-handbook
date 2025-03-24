@@ -23,7 +23,7 @@ const editor = createHeadlessEditor(RichTextEditorConfig);
 
 import { useEffect } from 'react';
 
-import { objectUrlToBase64 } from '~/lib/imageUtils';
+import { objectUrlToFile } from '~/lib/imageUtils';
 import { urlAddHttpsIfMissing } from '~/lib/urlValidation';
 import { trpc } from '~/hooks/trpc';
 
@@ -68,7 +68,7 @@ export default function SponsorsAdvertiseRequestFormAdsSectionInContent({
 }: Props) {
   const intl = useIntl();
   const isReadonly = mode === 'readonly';
-  const uploadAsset = trpc.sponsors.adAssetUpload.useMutation();
+  const uploadAssetUrl = trpc.sponsors.adAssetUploadUrl.useMutation();
   const adSchema = useSponsorsInContentAdSchema();
   const methods = useForm<z.infer<typeof adSchema>>({
     defaultValues: defaultValues || {
@@ -103,12 +103,15 @@ export default function SponsorsAdvertiseRequestFormAdsSectionInContent({
 
     // If not blob url, don't reupload the asset
     if (data.imageUrl.startsWith('blob:')) {
-      const base64 = await objectUrlToBase64(data.imageUrl);
+      const blob = await objectUrlToFile(data.imageUrl);
 
-      storageImageUrl = await uploadAsset.mutateAsync(
+      const {
+        url: signedUrl,
+        path: imagePath,
+        success,
+      } = await uploadAssetUrl.mutateAsync(
         {
           format: AD_FORMAT,
-          imageFile: base64,
           sessionId,
         },
         {
@@ -119,6 +122,29 @@ export default function SponsorsAdvertiseRequestFormAdsSectionInContent({
           },
         },
       );
+
+      if (!success) {
+        return;
+      }
+
+      const uploadImage = await fetch(signedUrl, {
+        body: blob,
+        headers: { 'Content-Type': blob.type },
+        method: 'PUT',
+      });
+
+      if (!uploadImage.ok) {
+        setError('imageUrl', {
+          message: intl.formatMessage({
+            defaultMessage: 'Failed to upload image',
+            description: 'Error message for image upload',
+            id: '9xAfBQ',
+          }),
+        });
+
+        return;
+      }
+      storageImageUrl = imagePath;
     } else {
       storageImageUrl = data.imageUrl;
     }
@@ -404,8 +430,8 @@ export default function SponsorsAdvertiseRequestFormAdsSectionInContent({
         {!isReadonly && (
           <Button
             icon={RiArrowRightLine}
-            isDisabled={!isValid || uploadAsset.isLoading}
-            isLoading={uploadAsset.isLoading}
+            isDisabled={!isValid || uploadAssetUrl.isLoading}
+            isLoading={uploadAssetUrl.isLoading}
             label={
               defaultValues
                 ? intl.formatMessage({
