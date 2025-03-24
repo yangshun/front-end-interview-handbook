@@ -176,26 +176,6 @@ export const sponsorsRouter = router({
 
       return adPayload;
     }),
-  adAssetRemove: publicProcedure
-    .input(
-      z.object({
-        imageUrls: z.array(z.string()),
-      }),
-    )
-    .mutation(async ({ input: { imageUrls } }) => {
-      const supabaseAdmin = createSupabaseAdminClientGFE_SERVER_ONLY();
-      const filePaths = imageUrls.map((imageUrl) =>
-        imageUrl.split('/').slice(-2).join('/'),
-      ); // Get :sessionId/:fileName file path
-
-      const { error } = await supabaseAdmin.storage
-        .from('ads')
-        .remove(filePaths);
-
-      if (error) {
-        throw error;
-      }
-    }),
   adAssetUpload: publicProcedure
     .input(
       z.object({

@@ -43,7 +43,6 @@ type Props = Readonly<{
   onPrevious: () => void;
   onSubmit: () => void;
   sessionId: string;
-  setRemoveAssets: (asset: string) => void;
   updateAds(ads: Array<SponsorsAdFormatFormItem>): void;
   updateStepStatus(status: StepsTabItemStatus): void;
 }>;
@@ -55,7 +54,6 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
   updateAds,
   sessionId,
   updateStepStatus,
-  setRemoveAssets,
   mode,
 }: Props) {
   const intl = useIntl();
@@ -84,25 +82,9 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
 
   const isEditFlow = editAdData != null;
 
-  function removeAdAsset(imageUrl: string) {
-    const sessionIdFromImage = imageUrl.split('/').slice(-2)[0];
-
-    // This is to prevent removing the original assets when advertiser duplicate the rejected request
-    // to modify the request in the rejected request workflow
-    if (sessionId !== sessionIdFromImage) {
-      return;
-    }
-    // Save the assets to remove at the end of the form submission
-    setRemoveAssets(imageUrl);
-  }
-
   function onDeleteAd(ad: SponsorsAdFormatFormItem) {
     const remainingAds = ads.filter((adItem) => adItem.id !== ad.id);
 
-    // Remove uploaded ad asset
-    if ('imageUrl' in ad) {
-      removeAdAsset(ad.imageUrl);
-    }
     updateAds(ads.filter((adItem) => adItem.id !== ad.id));
     if (editAdData?.id === ad.id) {
       setEditAdData(null);
@@ -396,10 +378,6 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
                         return ad;
                       });
 
-                      // Remove uploaded ad asset if ad format change to global banner
-                      if ('imageUrl' in editAdData) {
-                        removeAdAsset(editAdData.imageUrl);
-                      }
                       setEditAdData(null);
                       updateAds(updatedAds);
                     } else {
@@ -465,13 +443,6 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
                         return ad;
                       });
 
-                      // Remove old uploaded ad asset if url change
-                      if (
-                        'imageUrl' in editAdData &&
-                        imageUrl !== editAdData.imageUrl
-                      ) {
-                        removeAdAsset(editAdData.imageUrl);
-                      }
                       setEditAdData(null);
                       updateAds(updatedAds);
                     } else {
@@ -530,14 +501,6 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
 
                         return ad;
                       });
-
-                      // Remove old uploaded ad asset if url change
-                      if (
-                        'imageUrl' in editAdData &&
-                        imageUrl !== editAdData.imageUrl
-                      ) {
-                        removeAdAsset(editAdData.imageUrl);
-                      }
 
                       setEditAdData(null);
                       updateAds(updatedAds);

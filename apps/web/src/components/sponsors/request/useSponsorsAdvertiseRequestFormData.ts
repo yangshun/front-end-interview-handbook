@@ -10,16 +10,12 @@ export type AdvertiseRequestFormValues = Readonly<{
   ads: Array<SponsorsAdFormatFormItem>;
   company: SponsorsCompanyDetails | null;
   emails: Array<string>;
-  removeAssets: Array<string>;
   sessionId: string;
 }>;
 
 export default function useSponsorsAdvertiseRequestFormData(
   mode: 'create' | 'edit' | 'readonly' = 'create',
-  defaultValues?: Omit<
-    AdvertiseRequestFormValues,
-    'removeAssets' | 'sessionId'
-  >,
+  defaultValues?: Omit<AdvertiseRequestFormValues, 'sessionId'>,
 ): [
   AdvertiseRequestFormValues,
   Dispatch<SetStateAction<Readonly<AdvertiseRequestFormValues>>>,
@@ -32,19 +28,17 @@ export default function useSponsorsAdvertiseRequestFormData(
         ads: [],
         company: null,
         emails: [],
-        removeAssets: [],
         sessionId: uuidv4(),
       }),
       { ttl: 7 * 24 * 60 * 60 },
     );
   const [value, setValue] = useState<AdvertiseRequestFormValues>(
     defaultValues
-      ? { ...defaultValues, removeAssets: [], sessionId: uuidv4() }
+      ? { ...defaultValues, sessionId: uuidv4() }
       : {
           ads: [],
           company: null,
           emails: [],
-          removeAssets: [],
           sessionId: uuidv4(),
         },
   );
@@ -55,7 +49,6 @@ export default function useSponsorsAdvertiseRequestFormData(
       ads: [],
       company: null,
       emails: [],
-      removeAssets: [],
     }));
   }
 

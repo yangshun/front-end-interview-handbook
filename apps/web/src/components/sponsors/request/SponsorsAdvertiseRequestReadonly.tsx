@@ -36,7 +36,7 @@ import {
 
 type Props = Readonly<{
   alertMessage?: ReactNode;
-  data: Omit<AdvertiseRequestFormValues, 'removeAssets' | 'sessionId'> &
+  data: Omit<AdvertiseRequestFormValues, 'sessionId'> &
     Readonly<{
       agreement: string;
       createdAt: Date;

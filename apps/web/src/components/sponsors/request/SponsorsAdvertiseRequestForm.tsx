@@ -24,18 +24,12 @@ type Step = 'ads' | 'company' | 'contact' | 'review';
 type Props =
   | Readonly<{
       advertiserEmail?: string;
-      defaultValues: Omit<
-        AdvertiseRequestFormValues,
-        'removeAssets' | 'sessionId'
-      >;
+      defaultValues: Omit<AdvertiseRequestFormValues, 'sessionId'>;
       mode: 'edit';
       requestId: string;
     }>
   | Readonly<{
-      defaultValues?: Omit<
-        AdvertiseRequestFormValues,
-        'removeAssets' | 'sessionId'
-      >;
+      defaultValues?: Omit<AdvertiseRequestFormValues, 'sessionId'>;
       mode: 'create' | 'readonly';
     }>;
 
@@ -53,7 +47,6 @@ export default function SponsorsAdvertiseRequestForm({
 
   const adRequestCreateMutation = trpc.sponsors.adRequestCreate.useMutation();
   const adRequestUpdateMutation = trpc.sponsors.adRequestUpdate.useMutation();
-  const adAssetRemoveMutation = trpc.sponsors.adAssetRemove.useMutation();
   const [stepsStatus, setStepsStatus] = useState<
     Record<Step, 'completed' | 'in_progress' | 'not_started'>
   >({
@@ -160,9 +153,6 @@ export default function SponsorsAdvertiseRequestForm({
   }: Readonly<{
     agreement: string;
   }>) {
-    if (formData.removeAssets.length > 0) {
-      adAssetRemoveMutation.mutate({ imageUrls: formData.removeAssets });
-    }
     if (mode === 'edit' && 'requestId' in props) {
       await adRequestUpdateMutation.mutateAsync(
         {
@@ -317,12 +307,6 @@ export default function SponsorsAdvertiseRequestForm({
           ads={formData.ads}
           mode={mode}
           sessionId={formData.sessionId}
-          setRemoveAssets={(value) =>
-            setFormData((prev) => ({
-              ...prev,
-              removeAssets: [...prev.removeAssets, value],
-            }))
-          }
           updateAds={(ads) => setFormData((prev) => ({ ...prev, ads }))}
           updateStepStatus={(status) =>
             setStepsStatus((prev) => ({ ...prev, ads: status }))
