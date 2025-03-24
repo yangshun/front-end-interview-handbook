@@ -135,6 +135,7 @@ export default function SupabaseAuthUpdatePassword({
                 description: 'Label of password field on Change Password page',
                 id: 'VVf84T',
               })}
+              required={true}
               type="password"
               onChange={setPassword}
             />
@@ -148,6 +149,7 @@ export default function SupabaseAuthUpdatePassword({
                   'Label of confirm password field on Change Password page',
                 id: 'zn3iWx',
               })}
+              required={true}
               type="password"
               onChange={setConfirmPassword}
             />

@@ -160,6 +160,7 @@ export default function SupabaseAuthEmailSignUp({
           description: 'Label of email field on Sign In/Up page',
           id: '9LT8eh',
         })}
+        required={true}
         type="email"
         onChange={setEmail}
       />
@@ -170,6 +171,7 @@ export default function SupabaseAuthEmailSignUp({
           description: 'Label of password field on Sign In/Up page',
           id: 'jgIdRC',
         })}
+        required={true}
         type="password"
         onChange={setPassword}
       />

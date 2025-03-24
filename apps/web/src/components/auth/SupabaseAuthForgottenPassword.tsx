@@ -117,6 +117,7 @@ export default function SupabaseAuthForgottenPassword({
               description: 'Label of email field on Password Reset page',
               id: 'vx/nPL',
             })}
+            required={true}
             type="email"
             onChange={setEmail}
           />
