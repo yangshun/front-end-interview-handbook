@@ -44,7 +44,7 @@ function SocialDiscountSidebarMentionImpl({
           {socialDiscountLabels.existingPromoTitle}
         </Text>
         <div className="flex flex-1 items-center gap-3">
-          <Ticket padding="none" ratio="wide" variant="normal" width={64}>
+          <Ticket padding="none" ratio="wide" variant="normal" width={96}>
             <div
               className={clsx(
                 'flex h-full flex-col items-center justify-center',
@@ -108,7 +108,7 @@ function SocialDiscountSidebarMentionImpl({
       href="/rewards/social"
       variant="flat"
       weight="normal">
-      <Ticket padding="none" ratio="wide" variant="normal" width={64}>
+      <Ticket padding="none" ratio="wide" variant="normal" width={96}>
         <div
           className={clsx(
             'flex h-full flex-col items-center justify-center',

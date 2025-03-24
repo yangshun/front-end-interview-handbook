@@ -44,7 +44,7 @@ const adFormat = 'SPOTLIGHT';
 
 const sizeClassNames: Record<SponsorsAdFormatSpotlightSize, string> = {
   md: 'h-12',
-  sm: 'h-8',
+  sm: 'max-[1280px]:h-8 min-[1281px]:h-12',
 };
 
 export default function SponsorsAdFormatSpotlight({

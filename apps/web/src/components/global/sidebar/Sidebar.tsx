@@ -272,7 +272,7 @@ export function SidebarExpanded({
         </div>
         <div className="flex grow flex-col justify-between gap-4">
           <div className={clsx('h-0 grow overflow-auto')}>
-            <ScrollArea className="vignette-scroll">
+            <ScrollArea className="vignette-scroll py-4">
               {renderTopAddonElements?.(fadeInClass)}
               <div className="pt-2">
                 <SidebarLinksSection
@@ -292,11 +292,9 @@ export function SidebarExpanded({
         </div>
       </div>
       {bottomAddonElements && (
-        <>
-          <Divider />
-          <div className="px-4 pt-2">{bottomAddonElements}</div>
-        </>
+        <div className="px-4 pb-4 pt-2">{bottomAddonElements}</div>
       )}
+      <Divider />
       <div className={clsx('flex justify-between gap-4', 'p-4')}>
         <div className="flex gap-4">
           {notificationItem}

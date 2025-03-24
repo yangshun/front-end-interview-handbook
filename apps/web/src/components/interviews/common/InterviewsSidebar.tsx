@@ -128,7 +128,7 @@ export function InterviewsSidebarExpanded({
           <div className="max-[1280px]:hidden">
             <SocialDiscountSidebarMention />
           </div>
-          <div className="-mx-2 min-[1280px]:hidden">
+          <div className="-mx-2 -mb-2 min-[1281px]:hidden">
             <SocialDiscountSidebarBanner />
           </div>
         </div>

@@ -178,14 +178,19 @@ export default function InterviewsNavbar({
                 <div className="flex h-0 flex-1 flex-col">
                   <nav
                     aria-label="Sidebar"
-                    className="flex flex-1 flex-col justify-between overflow-hidden">
-                    <ScrollArea className="px-4">
-                      <SidebarLinksSection
-                        items={navSlideOutItems}
-                        size="md"
-                        type="single"
-                        onItemClick={closeMobileNav}
-                      />
+                    className={clsx(
+                      'flex flex-1 flex-col justify-between overflow-hidden',
+                      '-mt-4',
+                    )}>
+                    <ScrollArea className="vignette-scroll">
+                      <div className="p-4">
+                        <SidebarLinksSection
+                          items={navSlideOutItems}
+                          size="md"
+                          type="single"
+                          onItemClick={closeMobileNav}
+                        />
+                      </div>
                     </ScrollArea>
                     <Divider />
                     <div className={clsx('flex flex-col gap-y-4', 'py-4')}>

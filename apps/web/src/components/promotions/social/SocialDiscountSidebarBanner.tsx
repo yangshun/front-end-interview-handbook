@@ -43,64 +43,12 @@ function SocialDiscountSidebarBannerImpl({
     themeBackgroundCardColor,
   );
 
-  if (promoCodes != null && promoCodes.data.length > 0) {
-    const promoCode = promoCodes?.data[0];
-
-    return (
-      <Anchor
-        className={clsx(bannerClassName, className)}
-        href="/interviews/pricing"
-        variant="flat">
-        <Ticket padding="none" ratio="wide" variant="normal" width={64}>
-          <div
-            className={clsx(
-              'flex h-full flex-col items-center justify-center',
-              'overflow-hidden',
-              [themeWhiteGlowTicketBackground, 'before:-top-3 before:left-4'],
-            )}>
-            <Text size="body3" weight="bold">
-              {promoCode?.code}
-            </Text>
-            {promoCode.coupon.percent_off && (
-              <Text color="secondary" size="body3" weight="medium">
-                {intl.formatMessage(
-                  {
-                    defaultMessage: '{discountPercentage}% off',
-                    description: 'Rewards discount message',
-                    id: 'T4ajXP',
-                  },
-                  {
-                    discountPercentage: promoCode.coupon.percent_off,
-                  },
-                )}
-              </Text>
-            )}
-          </div>
-        </Ticket>
-        <Text className="text-balance" size="body3" weight="medium">
-          {intl.formatMessage(
-            {
-              defaultMessage: '{discountPercentage}% off expiring soon',
-              description: 'Button label',
-              id: '/tR4KB',
-            },
-            {
-              discountPercentage: PROMO_SOCIAL_DISCOUNT_PERCENTAGE,
-            },
-          )}
-          <RiArrowRightLine
-            aria-hidden={true}
-            className={clsx('size-3.5 inline shrink-0')}
-          />
-        </Text>
-      </Anchor>
-    );
-  }
+  const hasPromoCode = (promoCodes?.data?.length ?? 0) > 0;
 
   return (
     <Anchor
       className={clsx(bannerClassName, className)}
-      href="/rewards/social"
+      href={hasPromoCode ? '/interviews/pricing' : '/rewards/social'}
       variant="flat">
       <Ticket padding="none" ratio="wide" variant="normal" width={64}>
         <div
@@ -115,14 +63,27 @@ function SocialDiscountSidebarBannerImpl({
         </div>
       </Ticket>
       <Text className="text-balance" color="default" size="body3" weight="bold">
-        <FormattedMessage
-          defaultMessage="Get {discountPercentage}% off"
-          description="Instructions to get a discount"
-          id="rSrKWk"
-          values={{
-            discountPercentage: PROMO_SOCIAL_DISCOUNT_PERCENTAGE,
-          }}
-        />{' '}
+        {hasPromoCode ? (
+          intl.formatMessage(
+            {
+              defaultMessage: '{discountPercentage}% off expiring soon',
+              description: 'Button label',
+              id: '/tR4KB',
+            },
+            {
+              discountPercentage: PROMO_SOCIAL_DISCOUNT_PERCENTAGE,
+            },
+          )
+        ) : (
+          <FormattedMessage
+            defaultMessage="Get {discountPercentage}% off"
+            description="Instructions to get a discount"
+            id="rSrKWk"
+            values={{
+              discountPercentage: PROMO_SOCIAL_DISCOUNT_PERCENTAGE,
+            }}
+          />
+        )}
         <RiArrowRightLine
           aria-hidden={true}
           className={clsx('size-3.5 -mt-0.5 inline-flex shrink-0')}
