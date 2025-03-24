@@ -1,6 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
+import { useQueryState } from 'nuqs';
 import { useState } from 'react';
 import { RiArrowRightLine } from 'react-icons/ri';
 
@@ -80,20 +81,20 @@ export default function SponsorsAdvertiseRequestEditPage({ adRequest }: Props) {
     }
   });
 
-  const needEmailVerification = adRequest.status === 'PENDING';
-
-  const [emailVerified, setEmailVerified] = useState(!needEmailVerification);
+  const [emailVerified, setEmailVerified] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [, setFormData] = useSponsorsAdvertiseRequestFormData('create');
-  const [showEditMode, setShowEditMode] = useState(false);
+  const [showEditMode, setShowEditMode] = useQueryState<boolean>('edit', {
+    defaultValue: false,
+    history: 'push',
+    parse: (value) => value === 'true',
+  });
+  const [advertiserEmail, setAdvertiserEmail] = useState('');
 
   function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    const data = new FormData(e.currentTarget);
-    const email = data.get('email') as string;
-
-    if (adRequest.emails.includes(email)) {
+    if (adRequest.emails.includes(advertiserEmail)) {
       setEmailVerified(true);
     } else {
       setErrorMessage(
@@ -139,6 +140,7 @@ export default function SponsorsAdvertiseRequestEditPage({ adRequest }: Props) {
             <Section>
               <div className={clsx('mt-12 w-full')}>
                 <SponsorsAdvertiseRequestForm
+                  advertiserEmail={advertiserEmail}
                   defaultValues={{
                     ads,
                     company,
@@ -151,7 +153,7 @@ export default function SponsorsAdvertiseRequestEditPage({ adRequest }: Props) {
             </Section>
           </>
         )}
-        {emailVerified && !showEditMode && (
+        {!showEditMode && (
           <SponsorsAdvertiseRequestReadonly
             alertMessage={
               <RequestAlertMessage
@@ -185,7 +187,7 @@ export default function SponsorsAdvertiseRequestEditPage({ adRequest }: Props) {
             }
           />
         )}
-        {!emailVerified && (
+        {!emailVerified && showEditMode && (
           <>
             <Heading className="text-center" level="heading4">
               <FormattedMessage
@@ -219,6 +221,8 @@ export default function SponsorsAdvertiseRequestEditPage({ adRequest }: Props) {
                     label="Email"
                     name="email"
                     placeholder="john.doe@example.com"
+                    value={advertiserEmail}
+                    onChange={setAdvertiserEmail}
                   />
                   <Button
                     className="mt-8"

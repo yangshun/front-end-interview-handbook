@@ -5,6 +5,7 @@ import { z } from 'zod';
 
 import { base64toBlob } from '~/lib/imageUtils';
 
+import { ADMIN_EMAILS } from '~/data/AdminConfig';
 import {
   SponsorsAdsSpotsProjectsInContent,
   SponsorsAdsSpotsProjectsSpotlight,
@@ -54,6 +55,7 @@ import {
   SponsorsAdFormat,
   SponsorsAdRequestStatus,
 } from '@prisma/client';
+import { TRPCError } from '@trpc/server';
 
 const availabilityMaxWeeksAhead = 12;
 
@@ -473,61 +475,84 @@ export const sponsorsRouter = router({
             sponsorsInContentAdSchemaServer,
           ]),
         ),
+        advertiserEmail: z.string().email().optional(),
         agreement: z.string(),
         company: sponsorsCompanySchemaServer,
         emails: z.array(z.string()),
         id: z.string(),
       }),
     )
-    .mutation(async ({ input: { id, ads, company, emails, agreement } }) => {
-      const { legalName, taxNumber, address, signatoryName, signatoryTitle } =
-        company;
-
-      return await prisma.$transaction(async (tx) => {
-        await Promise.all([
-          tx.sponsorsAdRequest.update({
-            data: {
-              address,
-              agreement,
-              emails,
-              legalName,
-              signatoryName,
-              signatoryTitle,
-              taxNumber,
+    .mutation(
+      async ({
+        input: { id, ads, company, emails, agreement, advertiserEmail },
+        ctx: { viewer },
+      }) => {
+        // If not admin, check if the user is authorized to update the request
+        if (!(viewer && ADMIN_EMAILS.includes(viewer.email))) {
+          const adRequest = await prisma.sponsorsAdRequest.findUnique({
+            select: {
+              emails: true,
             },
             where: { id },
-          }),
-          // Delete earlier sponsor ads
-          tx.sponsorsAd.deleteMany({
-            where: { requestId: id },
-          }),
-        ]);
-        await Promise.all(
-          ads.map((ad) =>
-            tx.sponsorsAd.create({
-              data: {
-                format: ad.format,
-                requestId: id,
-                sponsorName: ad.sponsorName,
-                title: ad.text,
-                url: ad.url,
-                ...('body' in ad ? { body: ad.body } : {}),
-                ...('imageUrl' in ad ? { imageUrl: ad.imageUrl } : {}),
-                slots: {
-                  create: Array.from(ad.weeks).map((slot) => {
-                    const [year, week] = slot
-                      .split('/')
-                      .map((part) => Number(part));
+          });
 
-                    return { week, year };
-                  }),
-                },
+          if (!adRequest?.emails.includes(advertiserEmail ?? '')) {
+            throw new TRPCError({
+              code: 'UNAUTHORIZED',
+              message: 'You are not authorized!',
+            });
+          }
+        }
+
+        const { legalName, taxNumber, address, signatoryName, signatoryTitle } =
+          company;
+
+        return await prisma.$transaction(async (tx) => {
+          await Promise.all([
+            tx.sponsorsAdRequest.update({
+              data: {
+                address,
+                agreement,
+                emails,
+                legalName,
+                signatoryName,
+                signatoryTitle,
+                taxNumber,
               },
+              where: { id },
             }),
-          ),
-        );
-      });
-    }),
+            // Delete earlier sponsor ads
+            tx.sponsorsAd.deleteMany({
+              where: { requestId: id },
+            }),
+          ]);
+          await Promise.all(
+            ads.map((ad) =>
+              tx.sponsorsAd.create({
+                data: {
+                  format: ad.format,
+                  requestId: id,
+                  sponsorName: ad.sponsorName,
+                  title: ad.text,
+                  url: ad.url,
+                  ...('body' in ad ? { body: ad.body } : {}),
+                  ...('imageUrl' in ad ? { imageUrl: ad.imageUrl } : {}),
+                  slots: {
+                    create: Array.from(ad.weeks).map((slot) => {
+                      const [year, week] = slot
+                        .split('/')
+                        .map((part) => Number(part));
+
+                      return { week, year };
+                    }),
+                  },
+                },
+              }),
+            ),
+          );
+        });
+      },
+    ),
   adRequests: adminProcedure
     .input(
       z.object({

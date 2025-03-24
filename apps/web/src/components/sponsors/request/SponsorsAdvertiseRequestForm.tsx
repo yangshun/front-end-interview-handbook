@@ -23,6 +23,7 @@ type Step = 'ads' | 'company' | 'contact' | 'review';
 
 type Props =
   | Readonly<{
+      advertiserEmail?: string;
       defaultValues: Omit<
         AdvertiseRequestFormValues,
         'removeAssets' | 'sessionId'
@@ -166,6 +167,7 @@ export default function SponsorsAdvertiseRequestForm({
       await adRequestUpdateMutation.mutateAsync(
         {
           ads: formData.ads,
+          advertiserEmail: props.advertiserEmail,
           agreement,
           company: formData.company!,
           emails: formData.emails,
