@@ -101,11 +101,10 @@ export default function NavbarItem({
             'z-popover',
             'rounded-lg',
             'shadow-lg',
-            'w-[calc(100vw_-_20px)] sm:w-screen sm:max-w-[95%] md:max-w-[720px]',
+            'w-[calc(100vw_-_32px)] sm:w-screen sm:max-w-[95%] md:max-w-[720px]',
           )}
           collisionPadding={{
-            left: 10,
-            right: 10,
+            left: 16,
           }}
           sideOffset={16}
           onCloseAutoFocus={(event) => {
