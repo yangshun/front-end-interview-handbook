@@ -183,7 +183,7 @@ async function sendEmail_NO_CHECKS({
         Subject:
           process.env.NEXT_PUBLIC_VERCEL_ENV === 'production'
             ? subject
-            : `[${process.env.NEXT_PUBLIC_VERCEL_ENV}] ${subject}`,
+            : `[${process.env.NEXT_PUBLIC_VERCEL_ENV || 'dev'}] ${subject}`,
         TextPart: body.text,
         To: [
           {
