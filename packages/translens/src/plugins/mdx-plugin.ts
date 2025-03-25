@@ -10,7 +10,13 @@ import {
   writeFile,
 } from '../lib/file-service';
 import mdxChangeDetector from './mdx-change-detector';
-import { buildTargetedContentMap, hashFilePathLocale } from './lib';
+import {
+  buildTargetMDXContent,
+  buildTargetedContentMap,
+  generateMDXContentHashList,
+  generateSourceMDXContentHashMap,
+  hashFilePathLocale,
+} from './lib';
 import registryManager from './registry-manager';
 
 export default function mdxPlugin(): Plugin {
@@ -30,9 +36,12 @@ export default function mdxPlugin(): Plugin {
         // Run the change detector to get missing keys for each target locale
         const missingKeysByTarget =
           await detector.getMissingFrontmatterTranslationKeys(file);
+        const missingContentKeysByTarget =
+          await detector.getMissingContentTranslationKeys(file);
 
         const sourceContent = await readFile(file.source.path);
-        const { data: sourceFrontmatter } = matter(sourceContent);
+        const { data: sourceFrontmatter, content } = matter(sourceContent);
+        const sourceHashMap = generateSourceMDXContentHashMap(content);
 
         for (const key of Object.keys(sourceFrontmatter)) {
           const missingInTargets = file.targets
@@ -48,7 +57,26 @@ export default function mdxPlugin(): Plugin {
               filePath: file.source.path,
               source: {
                 string: sourceFrontmatter[key],
-                description: '',
+                locale: file.source.locale,
+              },
+              targets: missingInTargets,
+            });
+          }
+        }
+        for (const key of Object.keys(sourceHashMap)) {
+          const missingInTargets = file.targets
+            .filter((target) => {
+              const missingKeys = missingContentKeysByTarget[target.locale];
+              return missingKeys && missingKeys.includes(key);
+            })
+            .map((target) => target.locale);
+
+          if (missingInTargets.length > 0) {
+            translationStrings.push({
+              id: key,
+              filePath: file.source.path,
+              source: {
+                string: sourceHashMap[key],
                 locale: file.source.locale,
               },
               targets: missingInTargets,
@@ -56,6 +84,7 @@ export default function mdxPlugin(): Plugin {
           }
         }
       }
+      console.log(translationStrings);
       return translationStrings;
     },
     async translationComplete(translatedStrings) {
@@ -63,14 +92,10 @@ export default function mdxPlugin(): Plugin {
       const targetedContentMap = buildTargetedContentMap(translatedStrings);
       await Promise.all(
         files.map(async (file) => {
-          // Get keys that have been removed from the source file.
-          const removedFrontmatterKeysFromSource =
-            await detector.getRemovedFrontmatterTranslationKeys(
-              file.source.path,
-            );
-
           const sourceContent = await readFile(file.source.path);
-          const { content: sourceMDXContent } = matter(sourceContent);
+          const registryData = await registry.load(file.source.path);
+          const { content: sourceMDXContent, data: sourceFrontmatter } =
+            matter(sourceContent);
 
           // Process each target for the current file concurrently.
           await Promise.all(
@@ -80,34 +105,45 @@ export default function mdxPlugin(): Plugin {
 
               // Read and parse the target JSON file.
               const targetContent = await readFile(target.path);
-              const { data: targetFrontmatter } = matter(targetContent);
-              const updatedFrontmatter = { ...targetFrontmatter };
-              // Remove keys that no longer exist in the source file.
-              removedFrontmatterKeysFromSource.forEach((key) => {
-                delete updatedFrontmatter[key];
-              });
+              const { data: targetFrontmatter, content: targetMDXContent } =
+                matter(targetContent);
+              const updatedFrontmatter: Record<string, string> = {};
 
-              // Merge in the new translations from the targeted content map.
               const targetHash = hashFilePathLocale(
                 file.source.path,
                 target.locale,
               );
               const translatedContent =
                 targetedContentMap.get(targetHash) || {};
-              Object.keys(translatedContent).forEach((key) => {
-                updatedFrontmatter[key] = translatedContent[key];
+
+              // Update frontmatter with translated content
+              Object.keys(sourceFrontmatter).forEach((key) => {
+                updatedFrontmatter[key] = translatedContent[key]
+                  ? translatedContent[key]
+                  : targetFrontmatter[key]
+                    ? targetFrontmatter[key]
+                    : sourceFrontmatter[key];
               });
+
+              const targetHashList =
+                registryData?.content?.targets?.[target.locale] || [];
+              const updatedMDXContent = buildTargetMDXContent(
+                sourceMDXContent,
+                targetMDXContent,
+                translatedContent,
+                targetHashList,
+              );
 
               // Combine frontmatter and content
               const targetFileContent = matter.stringify(
-                sourceMDXContent,
+                updatedMDXContent,
                 updatedFrontmatter,
               );
 
               await writeFile(target.path, targetFileContent);
             }),
           );
-          await registry.updateFileRegistry(file.source.path);
+          await registry.updateFileRegistry(file);
         }),
       );
     },

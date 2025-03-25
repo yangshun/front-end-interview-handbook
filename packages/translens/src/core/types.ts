@@ -88,6 +88,13 @@ export interface JsonChangeDetector {
 
 export interface Registry {
   frontmatter: Record<string, string>;
+  content: {
+    source: {
+      locale: Locale;
+      hashes: Array<string>;
+    };
+    targets: Record<Locale, Array<string>>;
+  };
 }
 
 export interface MDXChangeDetector {
@@ -97,10 +104,7 @@ export interface MDXChangeDetector {
   getMissingFrontmatterTranslationKeys(
     file: TranslationFileMetadata,
   ): Promise<Record<Locale, Array<string>>>;
-  /**
-   * Get the removed translation keys from source file
-   */
-  getRemovedFrontmatterTranslationKeys(
-    sourceFilePath: string,
-  ): Promise<Array<string>>;
+  getMissingContentTranslationKeys(
+    file: TranslationFileMetadata,
+  ): Promise<Record<Locale, Array<string>>>;
 }

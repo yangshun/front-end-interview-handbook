@@ -34,3 +34,60 @@ export function buildTargetedContentMap(
 export function generateHash(content: string): string {
   return murmur.v3(content).toString(16);
 }
+
+export function generateMDXContentSegments(content: String) {
+  return content.split(/\n\s*\n/).filter((para) => para.trim() !== '');
+}
+
+/**
+ * Generates a map of hash values for each content segment
+ */
+export function generateSourceMDXContentHashMap(content: string) {
+  const segments = generateMDXContentSegments(content);
+  return segments.reduce(
+    (acc, segment) => {
+      const hashValue = generateHash(segment);
+      acc[hashValue] = segment;
+      return acc;
+    },
+    {} as Record<string, string>,
+  );
+}
+
+/**
+ * Generates a list of hash values for each content segment
+ */
+export function generateMDXContentHashList(content: string) {
+  const segments = generateMDXContentSegments(content);
+  return segments.map((segment) => generateHash(segment));
+}
+
+export function buildTargetMDXContent(
+  sourceMDXContent: string,
+  targetMDXContent: string,
+  translatedContentMap: Record<string, string>,
+  registryTargetHashList: Array<string>,
+) {
+  const sourceHashList = generateMDXContentHashList(sourceMDXContent);
+  const targetHashList = generateMDXContentHashList(targetMDXContent);
+  const targetContentSegments = generateMDXContentSegments(targetMDXContent);
+  const targetHashMap =
+    registryTargetHashList.length !== targetHashList.length
+      ? {}
+      : registryTargetHashList.reduce(
+          (acc, hash, index) => {
+            acc[hash] = targetContentSegments[index];
+            return acc;
+          },
+          {} as Record<string, string>,
+        );
+
+  const newContent = sourceHashList.map((hash) => {
+    if (targetHashMap[hash]) {
+      return targetHashMap[hash];
+    }
+    return translatedContentMap[hash] || '';
+  });
+
+  return newContent.join('\n\n');
+}

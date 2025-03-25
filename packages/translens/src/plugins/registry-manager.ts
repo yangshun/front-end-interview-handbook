@@ -1,13 +1,17 @@
 import path from 'path';
 import { readFile, writeFile } from '../lib/file-service';
-import { Registry, TranslationStringMetadata } from '../core/types';
+import { Registry, TranslationFileMetadata } from '../core/types';
 import matter from 'gray-matter';
-import { generateHash } from './lib';
+import { generateHash, generateMDXContentHashList } from './lib';
 
 export default function registryManager() {
   function getRegistryPath(sourceFilePath: string): string {
     const dir = path.dirname(sourceFilePath);
-    return path.join(dir, '.translens.json');
+    const filename = path.basename(
+      sourceFilePath,
+      path.extname(sourceFilePath),
+    );
+    return path.join(dir, `${filename}.translens.json`);
   }
   return {
     async load(sourceFilePath: string): Promise<Registry | null> {
@@ -25,9 +29,11 @@ export default function registryManager() {
       const data = JSON.stringify(registry, null, 2);
       await writeFile(registryPath, data);
     },
-    async updateFileRegistry(sourceFilePath: string) {
-      const sourceContent = await readFile(sourceFilePath);
-      const { data: sourceFrontmatter } = matter(sourceContent);
+    async updateFileRegistry(file: TranslationFileMetadata) {
+      const oldRegistryData = await this.load(file.source.path);
+
+      const sourceContent = await readFile(file.source.path);
+      const { data: sourceFrontmatter, content } = matter(sourceContent);
       const frontmatterHashValues = Object.keys(sourceFrontmatter).reduce(
         (acc, key) => {
           acc[key] = generateHash(sourceFrontmatter[key]);
@@ -36,8 +42,26 @@ export default function registryManager() {
         {} as Record<string, string>,
       );
 
-      this.save(sourceFilePath, {
+      const sourceContentHashList = generateMDXContentHashList(content);
+
+      this.save(file.source.path, {
         frontmatter: frontmatterHashValues,
+        content: {
+          source: {
+            locale: file.source.locale,
+            hashes: sourceContentHashList,
+          },
+          targets: {
+            ...(oldRegistryData?.content?.targets ?? {}),
+            ...file.targets.reduce(
+              (acc, target) => {
+                acc[target.locale] = sourceContentHashList;
+                return acc;
+              },
+              {} as Record<string, Array<string>>,
+            ),
+          },
+        },
       });
     },
   };
