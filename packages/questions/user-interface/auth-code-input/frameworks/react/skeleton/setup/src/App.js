@@ -5,7 +5,7 @@ export default function App() {
     <AuthCodeInput
       onSubmit={() => {
         fetch(
-          'https://www.greatfrontend.com/api/questions/auth-code-input',
+          'https://questions.greatfrontend.com/api/questions/auth-code-input',
           {
             method: 'POST',
             body: JSON.stringify({ otp: '123456' }),

@@ -1,5 +1,5 @@
 const SUBMIT_URL =
-  'https://www.greatfrontend.com/api/questions/contact-form';
+  'https://questions.greatfrontend.com/api/questions/contact-form';
 
 export default async function submitForm(event: any) {
   event.preventDefault();

@@ -8,7 +8,7 @@ function App() {
   function onSubmit(code: string) {
     setIsSubmitting(true);
     fetch(
-      'https://www.greatfrontend.com/api/questions/auth-code-input',
+      'https://questions.greatfrontend.com/api/questions/auth-code-input',
       {
         method: 'POST',
         body: JSON.stringify({ otp: code }),

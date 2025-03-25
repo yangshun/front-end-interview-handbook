@@ -6,7 +6,7 @@ export default function App() {
       // Ignore the onSubmit prop, it's used by GFE to
       // intercept the form submit event to check your solution.
       onSubmit={submitForm}
-      action="https://www.greatfrontend.com/api/questions/contact-form"
+      action="https://questions.greatfrontend.com/api/questions/contact-form"
       method="post">
       <div>
         <label htmlFor="name-input">Name</label>

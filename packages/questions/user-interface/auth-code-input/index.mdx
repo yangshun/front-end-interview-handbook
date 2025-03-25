@@ -30,7 +30,7 @@ Build an auth code input component that allows users to enter a 6-digit authoriz
 - Buttons
   - "Submit" button submits the OTP. It is disabled until all the input fields are filled.
   - "Reset" button clears all the fields. It is disabled if all the input fields are empty.
-- Submitting the form should make a `POST` request to https://www.greatfrontend.com/api/questions/auth-code-input with a body of `{ otp: '6_DIGIT_OTP' }`.
+- Submitting the form should make a `POST` request to `https://questions.greatfrontend.com/api/questions/auth-code-input` with a body of `{ otp: '6_DIGIT_OTP' }`.
   - HTTP 204 is returned if the OTP is `'123456'` (the API is hardcoded to only accept this value).
   - HTTP 403 is returned otherwise.
   - Display a success/failure message depending on the response (you can use `alert()`).

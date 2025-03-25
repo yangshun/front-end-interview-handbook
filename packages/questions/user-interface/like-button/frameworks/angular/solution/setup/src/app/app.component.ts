@@ -21,7 +21,7 @@ export class AppComponent {
     this.errorMessage = null;
     this.http
       .post(
-        'https://www.greatfrontend.com/api/questions/like-button',
+        'https://questions.greatfrontend.com/api/questions/like-button',
         {
           action: this.liked ? 'unlike' : 'like',
         },

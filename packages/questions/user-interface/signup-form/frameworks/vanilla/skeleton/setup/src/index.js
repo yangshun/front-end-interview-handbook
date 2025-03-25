@@ -14,7 +14,7 @@ async function submitForm(
 ) {
   try {
     const response = await fetch(
-      'https://www.greatfrontend.com/api/questions/sign-up',
+      'https://questions.greatfrontend.com/api/questions/sign-up',
       {
         method: 'POST',
         headers: {

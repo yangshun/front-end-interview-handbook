@@ -4,7 +4,7 @@
 
 <form
   on:submit={submitForm}
-  action="https://www.greatfrontend.com/api/questions/contact-form"
+  action="https://questions.greatfrontend.com/api/questions/contact-form"
   method="post">
   <div>
     <label for="name-input">Name</label>

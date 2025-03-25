@@ -16,7 +16,7 @@ async function likeUnlikeAction() {
     errorMessage.value = null;
 
     const response = await fetch(
-      'https://www.greatfrontend.com/api/questions/like-button',
+      'https://questions.greatfrontend.com/api/questions/like-button',
       {
         method: 'POST',
         headers: {

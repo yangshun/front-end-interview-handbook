@@ -2,7 +2,7 @@ import './styles.css';
 
 (() => {
   const SUBMIT_URL =
-    'https://www.greatfrontend.com/api/questions/contact-form';
+    'https://questions.greatfrontend.com/api/questions/contact-form';
 
   const $form = document.querySelector('form');
   $form.addEventListener('submit', async (event) => {
