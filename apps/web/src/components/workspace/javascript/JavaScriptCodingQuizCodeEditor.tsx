@@ -45,7 +45,7 @@ const srcDoc = `
           }
         }
       } catch (err) {
-        console.error("Execution Error:", err);
+        console.error(err);
       }
     });
   </script>
