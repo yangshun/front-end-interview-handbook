@@ -102,12 +102,27 @@ const nextConfig = {
       },
       // Formats
       {
+        source: '/questions/coding',
+        destination: '/questions',
+        permanent: false,
+      },
+      {
+        source: '/questions/js',
+        destination: '/questions/formats/javascript-functions',
+        permanent: false,
+      },
+      {
         source: '/questions/javascript',
         destination: '/questions/formats/javascript-functions',
         permanent: false,
       },
       {
         source: '/questions/user-interface',
+        destination: '/questions/formats/ui-coding',
+        permanent: false,
+      },
+      {
+        source: '/questions/ui-coding',
         destination: '/questions/formats/ui-coding',
         permanent: false,
       },
@@ -124,6 +139,11 @@ const nextConfig = {
       {
         source: '/questions/js/coding',
         destination: '/questions/javascript-interview-questions',
+        permanent: false,
+      },
+      {
+        source: '/questions/js/quiz',
+        destination: '/questions/javascript-interview-questions/quiz',
         permanent: false,
       },
       {
@@ -153,6 +173,11 @@ const nextConfig = {
         permanent: false,
       },
       {
+        source: '/questions/html/quiz',
+        destination: '/questions/html-interview-questions/quiz',
+        permanent: false,
+      },
+      {
         source: '/questions/css',
         destination: '/questions/css-interview-questions',
         permanent: false,
@@ -160,6 +185,11 @@ const nextConfig = {
       {
         source: '/questions/css/coding',
         destination: '/questions/css-interview-questions',
+        permanent: false,
+      },
+      {
+        source: '/questions/css/quiz',
+        destination: '/questions/css-interview-questions/quiz',
         permanent: false,
       },
       {
