@@ -4,9 +4,7 @@ import { Controller, useForm } from 'react-hook-form';
 import { RiArrowRightLine } from 'react-icons/ri';
 import type { z } from 'zod';
 
-import { objectUrlToFile } from '~/lib/imageUtils';
 import { urlAddHttpsIfMissing } from '~/lib/urlValidation';
-import { trpc } from '~/hooks/trpc';
 
 import type { StepsTabItemStatus } from '~/components/common/StepsTabs';
 import NavColorSchemeDropdown from '~/components/global/navbar/NavColorSchemeDropdown';
@@ -27,6 +25,7 @@ import SponsorsAdvertiseRequestFormAdsSectionTitle from './SponsorsAdvertiseRequ
 import { useSponsorsSpotlightAdSchema } from '../SponsorsAdvertiseRequestAdSchema';
 import SponsorsAdvertiseRequestFormAdsImageUpload from '../SponsorsAdvertiseRequestFormAdsImageUpload';
 import SponsorsAdvertiseRequestFormAdsSectionAvailability from '../SponsorsAdvertiseRequestFormAdsSectionAvailability';
+import useSponsorsAdvertiseRequestAdsImageUploader from '../useSponsorsAdvertiseRequestAdsImageUploader';
 import type { SponsorsAdFormatSpotlightItem } from '../../types';
 
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -59,8 +58,12 @@ export default function SponsorsAdvertiseRequestFormAdsSectionSpotlight({
 }: Props) {
   const intl = useIntl();
   const isReadonly = mode === 'readonly';
-  const uploadAssetUrl = trpc.sponsors.adAssetUploadUrl.useMutation();
   const adSchema = useSponsorsSpotlightAdSchema();
+  const { uploadAdAsset, loading: uploadingAsset } =
+    useSponsorsAdvertiseRequestAdsImageUploader({
+      format: AD_FORMAT,
+      sessionId,
+    });
 
   const methods = useForm<z.infer<typeof adSchema>>({
     defaultValues: defaultValues || {
@@ -91,48 +94,24 @@ export default function SponsorsAdvertiseRequestFormAdsSectionSpotlight({
 
     // If not blob url, don't reupload the asset
     if (data.imageUrl.startsWith('blob:')) {
-      const blob = await objectUrlToFile(data.imageUrl);
-
-      const {
-        url: signedUrl,
-        path: imagePath,
-        success,
-      } = await uploadAssetUrl.mutateAsync(
-        {
-          format: AD_FORMAT,
-          sessionId,
-        },
-        {
-          onError: (error) => {
-            setError('imageUrl', {
-              message: error.message,
-            });
-          },
-        },
+      const { imageUrl: storageImagePath, error } = await uploadAdAsset(
+        data.imageUrl,
       );
 
-      if (!success) {
-        return;
-      }
-
-      const uploadImage = await fetch(signedUrl, {
-        body: blob,
-        headers: { 'Content-Type': blob.type },
-        method: 'PUT',
-      });
-
-      if (!uploadImage.ok) {
+      if (error || !storageImagePath) {
         setError('imageUrl', {
-          message: intl.formatMessage({
-            defaultMessage: 'Failed to upload image',
-            description: 'Error message for image upload',
-            id: '9xAfBQ',
-          }),
+          message:
+            error ??
+            intl.formatMessage({
+              defaultMessage: 'Failed to upload image',
+              description: 'Error message for image upload',
+              id: '9xAfBQ',
+            }),
         });
 
         return;
       }
-      storageImageUrl = imagePath;
+      storageImageUrl = storageImagePath;
     } else {
       storageImageUrl = data.imageUrl;
     }
@@ -359,8 +338,8 @@ export default function SponsorsAdvertiseRequestFormAdsSectionSpotlight({
         {!isReadonly && (
           <Button
             icon={RiArrowRightLine}
-            isDisabled={!isValid || uploadAssetUrl.isLoading}
-            isLoading={uploadAssetUrl.isLoading}
+            isDisabled={!isValid || uploadingAsset}
+            isLoading={uploadingAsset}
             label={
               defaultValues
                 ? intl.formatMessage({
