@@ -1,4 +1,3 @@
-import Fuse from 'fuse.js';
 import { notFound, redirect } from 'next/navigation';
 import type { Metadata } from 'next/types';
 
@@ -11,32 +10,6 @@ import { getIntlServerOnly } from '~/i18n';
 import { generateStaticParamsWithLocale } from '~/next-i18nostic/src';
 import defaultMetadata from '~/seo/defaultMetadata';
 
-async function findSimilarQuestion(slug: string, locale: string) {
-  const { questions: quizQuestions } = await fetchQuestionsList(
-    { type: 'format', value: 'quiz' },
-    locale,
-  );
-
-  const quizQuestionSlugs = quizQuestions.map((qn) => ({
-    searchable: qn.slug.replace(/-/g, ' '),
-    slug: qn.slug,
-  }));
-
-  const fuse = new Fuse(quizQuestionSlugs, {
-    keys: ['searchable'],
-    threshold: 0.3,
-  });
-
-  const query = slug.replace(/-/g, ' ');
-  const result = fuse.search(query);
-
-  if (result.length > 0) {
-    return result[0].item.slug;
-  }
-
-  return null;
-}
-
 type Props = Readonly<{
   params: Readonly<{
     locale: string;
@@ -44,20 +17,21 @@ type Props = Readonly<{
   }>;
 }>;
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: Props): Promise<Metadata | void> {
   const { locale, slug } = params;
 
-  const intl = await getIntlServerOnly(locale);
-  const { question } = readQuestionQuizContents(slug, locale);
+  const [intl, quizQuestionContents] = await Promise.all([
+    getIntlServerOnly(locale),
+    readQuestionQuizContents(slug, locale),
+  ]);
 
-  if (!question) {
-    const bestMatchingQnSlug = await findSimilarQuestion(slug, locale);
-
-    if (bestMatchingQnSlug) {
-      redirect(`/questions/quiz/${bestMatchingQnSlug}`);
-    }
+  if (quizQuestionContents == null) {
     notFound();
   }
+
+  const { question } = quizQuestionContents;
 
   return defaultMetadata({
     description: question.metadata.excerpt ?? '',
@@ -95,15 +69,16 @@ export async function generateStaticParams({ params }: Props) {
 
 export default async function Page({ params }: Props) {
   const { locale, slug } = params;
-  const { question } = readQuestionQuizContents(slug, locale);
+  const quizQuestion = await readQuestionQuizContents(slug, locale);
 
-  if (!question) {
-    const bestMatchingQnSlug = await findSimilarQuestion(slug, locale);
+  if (quizQuestion == null) {
+    return notFound();
+  }
 
-    if (bestMatchingQnSlug) {
-      redirect(`/questions/quiz/${bestMatchingQnSlug}`);
-    }
-    notFound();
+  const { exactMatch, question } = quizQuestion;
+
+  if (!exactMatch) {
+    redirect(quizQuestion.question.metadata.slug);
   }
 
   return (

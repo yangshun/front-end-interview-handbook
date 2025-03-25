@@ -1,4 +1,4 @@
-import { notFound } from 'next/navigation';
+import { notFound, redirect } from 'next/navigation';
 import type { Metadata } from 'next/types';
 
 import InterviewsPurchaseStudyListPaywallPage from '~/components/interviews/purchase/InterviewsPurchaseStudyListPaywallPage';
@@ -24,8 +24,16 @@ type Props = Readonly<{
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = params;
 
-  const intl = await getIntlServerOnly(locale);
-  const { question } = readQuestionQuizContents(slug, locale);
+  const [intl, quizQuestionContents] = await Promise.all([
+    getIntlServerOnly(locale),
+    readQuestionQuizContents(slug, locale),
+  ]);
+
+  if (quizQuestionContents == null) {
+    notFound();
+  }
+
+  const { question } = quizQuestionContents;
 
   return defaultMetadata({
     description: question.metadata.excerpt ?? '',
@@ -82,7 +90,17 @@ export default async function Page({ params }: Props) {
   const isStudyListLockedForViewer =
     studyList.access === 'premium' && !isViewerPremium;
 
-  const { question } = readQuestionQuizContents(slug, locale);
+  const quizQuestion = await readQuestionQuizContents(slug, locale);
+
+  if (quizQuestion == null) {
+    return notFound();
+  }
+
+  const { exactMatch, question } = quizQuestion;
+
+  if (!exactMatch) {
+    redirect(quizQuestion.question.metadata.slug);
+  }
 
   return isStudyListLockedForViewer ? (
     <InterviewsPurchaseStudyListPaywallPage

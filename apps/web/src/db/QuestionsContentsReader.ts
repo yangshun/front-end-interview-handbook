@@ -3,6 +3,7 @@ import 'server-only';
 import fs from 'fs';
 import path from 'path';
 
+import { questionsFindClosestToSlug } from '~/components/interviews/questions/common/QuestionsClosestSlug';
 import type {
   QuestionFramework,
   QuestionJavaScript,
@@ -18,6 +19,7 @@ import { getQuestionOutPathJavaScript } from './questions-bundlers/QuestionsBund
 import { getQuestionOutPathQuiz } from './questions-bundlers/QuestionsBundlerQuizConfig';
 import { getQuestionOutPathSystemDesign } from './questions-bundlers/QuestionsBundlerSystemDesignConfig';
 import { getQuestionOutPathUserInterface } from './questions-bundlers/QuestionsBundlerUserInterfaceConfig';
+import { fetchQuestionsList } from './QuestionsListReader';
 
 // Add functions which read from the generated content files.
 
@@ -118,34 +120,60 @@ export function readQuestionJavaScriptContents(
   };
 }
 
-export function readQuestionQuizContents(
+export async function readQuestionQuizContents(
   slug: string,
   requestedLocale = 'en-US',
-): Readonly<{
+): Promise<Readonly<{
+  exactMatch: boolean;
   loadedLocale: string;
   question: QuestionQuiz;
-}> {
+}> | null> {
   let loadedLocale = requestedLocale;
-  const response = (() => {
-    try {
-      try {
-        return fs.readFileSync(
-          path.join(getQuestionOutPathQuiz(slug), `${requestedLocale}.json`),
-        );
-      } catch {
-        loadedLocale = 'en-US';
+  let response = null;
 
-        // Fallback to English.
-        return fs.readFileSync(
-          path.join(getQuestionOutPathQuiz(slug), `${loadedLocale}.json`),
-        );
-      }
+  try {
+    response = fs.readFileSync(
+      path.join(getQuestionOutPathQuiz(slug), `${requestedLocale}.json`),
+    );
+  } catch {
+    loadedLocale = 'en-US';
+
+    try {
+      // Fall back to English
+      response = fs.readFileSync(
+        path.join(getQuestionOutPathQuiz(slug), `${loadedLocale}.json`),
+      );
     } catch {
-      return null;
+      // Fall back to finding the closest question
+      const quizQuestions = await fetchQuestionsList(
+        { type: 'format', value: 'quiz' },
+        requestedLocale,
+      );
+
+      const question = await questionsFindClosestToSlug(
+        quizQuestions.questions,
+        slug,
+      );
+
+      if (question == null) {
+        return null;
+      }
+
+      const closestQuestion = await readQuestionQuizContents(
+        question.slug,
+        loadedLocale,
+      );
+
+      if (closestQuestion == null) {
+        return null;
+      }
+
+      return { ...closestQuestion, exactMatch: false };
     }
-  })();
+  }
 
   return {
+    exactMatch: true,
     loadedLocale,
     question: JSON.parse(String(response)) as QuestionQuiz,
   };

@@ -123,7 +123,7 @@ export default function QuestionQuizContents({
                   </header>
                   <Divider className="my-8" />
                   <Section>
-                    {/* Contents section*/}
+                    {/* Contents section */}
                     <div ref={copyRef}>
                       {Solution == null ? (
                         <div>
