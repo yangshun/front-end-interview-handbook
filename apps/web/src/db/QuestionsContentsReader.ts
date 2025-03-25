@@ -128,16 +128,20 @@ export function readQuestionQuizContents(
   let loadedLocale = requestedLocale;
   const response = (() => {
     try {
-      return fs.readFileSync(
-        path.join(getQuestionOutPathQuiz(slug), `${requestedLocale}.json`),
-      );
-    } catch {
-      loadedLocale = 'en-US';
+      try {
+        return fs.readFileSync(
+          path.join(getQuestionOutPathQuiz(slug), `${requestedLocale}.json`),
+        );
+      } catch {
+        loadedLocale = 'en-US';
 
-      // Fallback to English.
-      return fs.readFileSync(
-        path.join(getQuestionOutPathQuiz(slug), `${loadedLocale}.json`),
-      );
+        // Fallback to English.
+        return fs.readFileSync(
+          path.join(getQuestionOutPathQuiz(slug), `${loadedLocale}.json`),
+        );
+      }
+    } catch {
+      return null;
     }
   })();
 

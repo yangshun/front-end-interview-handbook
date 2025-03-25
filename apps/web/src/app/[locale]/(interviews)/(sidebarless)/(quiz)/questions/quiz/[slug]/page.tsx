@@ -1,3 +1,5 @@
+import Fuse from 'fuse.js';
+import { notFound, redirect } from 'next/navigation';
 import type { Metadata } from 'next/types';
 
 import QuestionJsonLd from '~/components/interviews/questions/common/QuestionJsonLd';
@@ -8,6 +10,32 @@ import { fetchQuestionsList } from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';
 import { generateStaticParamsWithLocale } from '~/next-i18nostic/src';
 import defaultMetadata from '~/seo/defaultMetadata';
+
+async function findSimilarQuestion(slug: string, locale: string) {
+  const { questions: quizQuestions } = await fetchQuestionsList(
+    { type: 'format', value: 'quiz' },
+    locale,
+  );
+
+  const quizQuestionSlugs = quizQuestions.map((qn) => ({
+    searchable: qn.slug.replace(/-/g, ' '),
+    slug: qn.slug,
+  }));
+
+  const fuse = new Fuse(quizQuestionSlugs, {
+    keys: ['searchable'],
+    threshold: 0.3,
+  });
+
+  const query = slug.replace(/-/g, ' ');
+  const result = fuse.search(query);
+
+  if (result.length > 0) {
+    return result[0].item.slug;
+  }
+
+  return null;
+}
 
 type Props = Readonly<{
   params: Readonly<{
@@ -21,6 +49,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const intl = await getIntlServerOnly(locale);
   const { question } = readQuestionQuizContents(slug, locale);
+
+  if (!question) {
+    const bestMatchingQnSlug = await findSimilarQuestion(slug, locale);
+
+    if (bestMatchingQnSlug) {
+      redirect(`/questions/quiz/${bestMatchingQnSlug}`);
+    }
+    notFound();
+  }
 
   return defaultMetadata({
     description: question.metadata.excerpt ?? '',
@@ -59,6 +96,15 @@ export async function generateStaticParams({ params }: Props) {
 export default async function Page({ params }: Props) {
   const { locale, slug } = params;
   const { question } = readQuestionQuizContents(slug, locale);
+
+  if (!question) {
+    const bestMatchingQnSlug = await findSimilarQuestion(slug, locale);
+
+    if (bestMatchingQnSlug) {
+      redirect(`/questions/quiz/${bestMatchingQnSlug}`);
+    }
+    notFound();
+  }
 
   return (
     <>

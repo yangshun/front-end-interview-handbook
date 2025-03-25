@@ -91,6 +91,7 @@
     "date-fns": "^2.30.0",
     "esbuild": "^0.17.8",
     "framer-motion": "^9.0.4",
+    "fuse.js": "^7.1.0",
     "gray-matter": "^4.0.3",
     "jose": "^5.2.0",
     "js-cookie": "^3.0.1",
