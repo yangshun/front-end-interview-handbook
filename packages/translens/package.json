@@ -32,6 +32,7 @@
     "glob": "^11.0.1",
     "globby": "^13.2.2",
     "gray-matter": "^4.0.3",
+    "json5": "^2.2.3",
     "murmurhash": "^2.0.1"
   },
   "devDependencies": {

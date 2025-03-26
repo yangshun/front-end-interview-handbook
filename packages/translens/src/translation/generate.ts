@@ -1,3 +1,4 @@
+import JSON5 from 'json5';
 import { generateText } from 'ai';
 import { TranslationProvider } from '../config/types';
 import { TranslationStringArg, TranslationStringMetadata } from '../core/types';
@@ -75,7 +76,7 @@ export async function generate(
       filePath: string;
       translations: Record<Locale, string>;
     }>
-  > = JSON.parse(results);
+  > = JSON5.parse(results); // Use JSON5 since sometimes the response has extra commas
   const translationStringsMap = new Map<string, Record<Locale, string>>();
 
   translationStringsArray.forEach((item) => {
