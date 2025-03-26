@@ -33,6 +33,9 @@ export default function mdxPlugin(): Plugin {
       const translationStrings: Array<TranslationStringArg> = [];
 
       for (const file of files) {
+        // Preprocess changes to check for removal of content or reorder of content without content update
+        await detector.preprocessChanges(file);
+
         // Run the change detector to get missing keys for each target locale
         const missingKeysByTarget =
           await detector.getMissingFrontmatterTranslationKeys(file);

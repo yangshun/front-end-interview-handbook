@@ -107,4 +107,8 @@ export interface MDXChangeDetector {
   getMissingContentTranslationKeys(
     file: TranslationFileMetadata,
   ): Promise<Record<Locale, Array<string>>>;
+  /**
+   * Preprocess changes to check for removal of content or reorder of content without content update for translation
+   */
+  preprocessChanges(file: TranslationFileMetadata): Promise<void>;
 }

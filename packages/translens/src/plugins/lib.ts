@@ -36,7 +36,10 @@ export function generateHash(content: string): string {
 }
 
 export function generateMDXContentSegments(content: String) {
-  return content.split(/\n\s*\n/).filter((para) => para.trim() !== '');
+  return content
+    .split(/\n\s*\n/)
+    .map((para) => para.trim())
+    .filter(Boolean);
 }
 
 /**
