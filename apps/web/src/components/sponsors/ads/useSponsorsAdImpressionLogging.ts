@@ -23,9 +23,9 @@ export default function useSponsorsAdImpressionLogging<T extends HTMLElement>(
     gtag.event({
       action: 'sponsors.ad.impression',
       extra: {
-        adFormat,
-        adId,
-        adPlacement,
+        ad_format: adFormat,
+        ad_id: adId,
+        ad_placement: adPlacement,
       },
     });
     fetch(`/ads/impression`, {
