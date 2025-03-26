@@ -3,14 +3,14 @@ import {
   TranslationFileMetadata,
   TranslationStringArg,
   TranslationStringMetadata,
-} from '../core/types';
+} from '../../core/types';
 import jsonChangeDetector from './json-change-detector';
 import {
   ensureFileAndDirExists,
   readFile,
   writeFile,
-} from '../lib/file-service';
-import { buildTargetedContentMap, hashFilePathLocale } from './lib';
+} from '../../lib/file-service';
+import { buildTargetedContentMap, hashFilePathLocale } from '../lib';
 
 export default function JsonPlugin(): Plugin {
   const files: Array<TranslationFileMetadata> = [];

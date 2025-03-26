@@ -3,8 +3,8 @@ import * as path from 'path';
 import murmur from 'murmurhash';
 import os from 'os';
 import mdxChangeDetector from './mdx-change-detector';
-import { TranslationFileMetadata } from '../core/types';
-import { generateHash } from './lib';
+import { TranslationFileMetadata } from '../../core/types';
+import { generateHash } from '../lib';
 
 describe('mdxChangeDetector', () => {
   let tempDir: string;

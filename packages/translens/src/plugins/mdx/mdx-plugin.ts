@@ -3,12 +3,12 @@ import {
   Plugin,
   TranslationFileMetadata,
   TranslationStringArg,
-} from '../core/types';
+} from '../../core/types';
 import {
   ensureFileAndDirExists,
   readFile,
   writeFile,
-} from '../lib/file-service';
+} from '../../lib/file-service';
 import mdxChangeDetector from './mdx-change-detector';
 import {
   buildTargetMDXContent,
@@ -16,8 +16,8 @@ import {
   generateMDXContentHashList,
   generateSourceMDXContentHashMap,
   hashFilePathLocale,
-} from './lib';
-import registryManager from './registry-manager';
+} from '../lib';
+import registryManager from '../registry-manager';
 
 export default function mdxPlugin(): Plugin {
   const files: Array<TranslationFileMetadata> = [];

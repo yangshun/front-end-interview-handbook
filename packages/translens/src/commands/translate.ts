@@ -8,8 +8,8 @@ import {
   TranslationJob,
   TranslationStringArg,
 } from '../core/types';
-import jsonPlugin from '../plugins/json-plugin';
-import mdxPlugin from '../plugins/mdx-plugin';
+import jsonPlugin from '../plugins/json/json-plugin';
+import mdxPlugin from '../plugins/mdx/mdx-plugin';
 import { generate } from '../translation/generate';
 
 const DEFAULTS_PLUGINS: Record<string, () => Plugin> = {

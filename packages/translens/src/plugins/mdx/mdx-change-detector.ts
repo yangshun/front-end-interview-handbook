@@ -1,8 +1,8 @@
 import matter from 'gray-matter';
-import { MDXChangeDetector, Registry } from '../core/types';
-import { fileExists, readFile } from '../lib/file-service';
-import registryManager from './registry-manager';
-import { generateHash, generateMDXContentHashList } from './lib';
+import { MDXChangeDetector, Registry } from '../../core/types';
+import { fileExists, readFile } from '../../lib/file-service';
+import registryManager from '../registry-manager';
+import { generateHash, generateMDXContentHashList } from '../lib';
 
 export default function mdxChangeDetector(): MDXChangeDetector {
   const registry = registryManager();

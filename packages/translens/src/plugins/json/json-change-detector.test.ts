@@ -2,7 +2,7 @@ import * as fs from 'fs/promises';
 import * as path from 'path';
 import os from 'os';
 import jsonChangeDetector from './json-change-detector';
-import { TranslationFileMetadata } from '../core/types';
+import { TranslationFileMetadata } from '../../core/types';
 
 describe('jsonChangeDetector', () => {
   let tempDir: string;

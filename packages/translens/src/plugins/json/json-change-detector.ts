@@ -1,6 +1,6 @@
 import fs from 'fs/promises';
-import { JsonChangeDetector } from '../core/types';
-import { fileExists } from '../lib/file-service';
+import { JsonChangeDetector } from '../../core/types';
+import { fileExists } from '../../lib/file-service';
 
 export default function jsonChangeDetector(): JsonChangeDetector {
   return {
