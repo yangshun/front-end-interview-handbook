@@ -2,7 +2,6 @@ import {
   Plugin,
   TranslationFileMetadata,
   TranslationStringArg,
-  TranslationStringMetadata,
 } from '../../core/types';
 import jsonChangeDetector from './json-change-detector';
 import {
@@ -10,7 +9,7 @@ import {
   readFile,
   writeFile,
 } from '../../lib/file-service';
-import { buildTargetedContentMap, hashFilePathLocale } from '../lib';
+import { buildTargetedContentMap, hashFilePathLocale } from '../../lib/plugins';
 
 export default function JsonPlugin(): Plugin {
   const files: Array<TranslationFileMetadata> = [];
@@ -98,7 +97,10 @@ export default function JsonPlugin(): Plugin {
           await Promise.all(
             file.targets.map(async (target) => {
               // Ensure target file and its directory exist.
-              await ensureFileAndDirExists(target.path);
+              await ensureFileAndDirExists(
+                target.path,
+                JSON.stringify({}, null, 2),
+              );
 
               // Read and parse the target JSON file.
               const targetContent = await readFile(target.path);

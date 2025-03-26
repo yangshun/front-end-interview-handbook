@@ -1,10 +1,63 @@
 ---
-title: Concurrency
-description: Learn concurrency with our great explanations
+title: 'Advanced Components'
+author: 'Dev Team'
 ---
 
-In the world of software development, the ability to handle multiple tasks seemingly simultaneously is a crucial skill for building responsive and efficient applications. This is where concurrency comes into play. -> A
+import Button from '../components/Button';
 
-Concurrency, at its core, is the art of structuring a program so that multiple tasks can make progress even if they aren't literally executing at the very same instant. It's a powerful paradigm that allows us to build software that's more responsive to user interactions, more efficient in utilizing system resources, and capable of tackling complex problems that involve parallelism. Hello Nitesh -> D
+# {props.title}
 
-In this article, we'll delve into the fundamental concepts of concurrency in programming, exploring its benefits, challenges, and common techniques. Whether you're a seasoned developer or just starting your coding journey, understanding concurrency is essential for crafting modern, high-performing applications. -> C
+## Component Demonstration
+
+<Button primary size="large" onClick={() => console.log('Clicked!')} {...props}>
+  Interactive Element
+</Button>
+
+Here's some **bold text** with a [link](https://example.com).
+
+```jsx
+function Counter() {
+  const [count, setCount] = useState(0);
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={() => setCount((c) => c + 1)}>Increment</button>
+    </div>
+  );
+}
+```
+
+| Feature    | Support |
+| ---------- | ------- |
+| SSR        | Yes     |
+| TypeScript | Partial |
+
+> Important note: This is a beta feature
+
+<ul>
+  {readySystemDesignQuestions.map((question) => (
+    <li key={question.href}>
+      <a href={question.href}>{question.title} system design</a>
+    </li>
+  ))}
+</ul>
+
+<div className="legacy-wrapper">
+  <h3>Migration Notice</h3>
+  <p>Old content preserved</p>
+</div>
+
+![How JSX works](/img/blog/react-article/babel-to-react.jpg)
+
+[Read more about it here](/questions/quiz/what-is-react-describe-the-benefits-of-react)
+
+The `useCallback` hook memoizes functions to prevent their recreation on every render. This is especially beneficial when passing callbacks to optimized child components that depend on reference equality to avoid unnecessary renders. Use it when a function is passed as a prop to a child component.
+
+- If it's empty, the effect runs only once after the initial render.
+- If it contains variables, the effect re-runs whenever any of those variables change.
+- If omitted, the effect runs after every render.
+
+1. Recalculating the JSX returned by the component.
+2. Comparing the new JSX with the previous one (using the Virtual DOM).
+3. Updating the real DOM with only the differences (efficient rendering).
+4. Re-rendering ensures that the UI stays in sync with the component's state and props.

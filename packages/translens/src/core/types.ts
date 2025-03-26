@@ -96,19 +96,3 @@ export interface Registry {
     targets: Record<Locale, Array<string>>;
   };
 }
-
-export interface MDXChangeDetector {
-  /**
-   * Get the missing translation keys for each target locale
-   */
-  getMissingFrontmatterTranslationKeys(
-    file: TranslationFileMetadata,
-  ): Promise<Record<Locale, Array<string>>>;
-  getMissingContentTranslationKeys(
-    file: TranslationFileMetadata,
-  ): Promise<Record<Locale, Array<string>>>;
-  /**
-   * Preprocess changes to check for removal of content or reorder of content without content update for translation
-   */
-  preprocessChanges(file: TranslationFileMetadata): Promise<void>;
-}

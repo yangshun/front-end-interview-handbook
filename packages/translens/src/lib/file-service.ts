@@ -27,12 +27,15 @@ export async function fileExists(filePath: string): Promise<boolean> {
  * Ensures that the directory for the given file path exists.
  * If the file does not exist, creates an empty JSON file.
  */
-export async function ensureFileAndDirExists(filePath: string): Promise<void> {
+export async function ensureFileAndDirExists(
+  filePath: string,
+  defaultContent: string = '',
+): Promise<void> {
   const dir = path.dirname(filePath);
   await fs.mkdir(dir, { recursive: true });
 
   const exists = await fileExists(filePath);
   if (!exists) {
-    await writeFile(filePath, JSON.stringify({}, null, 2));
+    await writeFile(filePath, defaultContent);
   }
 }

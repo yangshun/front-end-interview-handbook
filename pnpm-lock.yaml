@@ -854,6 +854,9 @@ importers:
       gray-matter:
         specifier: ^4.0.3
         version: 4.0.3
+      json5:
+        specifier: ^2.2.3
+        version: 2.2.3
       murmurhash:
         specifier: ^2.0.1
         version: 2.0.1

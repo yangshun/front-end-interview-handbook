@@ -13,6 +13,8 @@ const promptTemplate = `You are a professional translator. Maintain the original
 - Translate the source strings within the JSON object from the source locale to the target locales
 - The expected return format is provided within <format> tags
 - Respond with only the translated object, strictly adhering to the format, no need for additional explanations or context
+- Return all the translated object for all the strings
+- If the string to be translated is a react import state, return the same object without translation
 
 <format>
 [
@@ -77,6 +79,7 @@ export async function generate(
       translations: Record<Locale, string>;
     }>
   > = JSON5.parse(results); // Use JSON5 since sometimes the response has extra commas
+
   const translationStringsMap = new Map<string, Record<Locale, string>>();
 
   translationStringsArray.forEach((item) => {

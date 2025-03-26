@@ -2,7 +2,7 @@ import path from 'path';
 import { readFile, writeFile } from '../lib/file-service';
 import { Registry, TranslationFileMetadata } from '../core/types';
 import matter from 'gray-matter';
-import { generateHash, generateMDXContentHashList } from './lib';
+import { generateHash, generateMDXContentHashList } from '../lib/mdx-file';
 
 export default function registryManager() {
   function getRegistryPath(sourceFilePath: string): string {
@@ -14,14 +14,23 @@ export default function registryManager() {
     return path.join(dir, `${filename}.translens.json`);
   }
   return {
-    async load(sourceFilePath: string): Promise<Registry | null> {
+    async load(sourceFilePath: string): Promise<Registry> {
       try {
         const registryPath = getRegistryPath(sourceFilePath);
         const data = await readFile(registryPath);
         return JSON.parse(data) as Registry;
       } catch (error) {
         // If file doesn't exist, return empty registry
-        return null;
+        return {
+          frontmatter: {},
+          content: {
+            source: {
+              locale: '',
+              hashes: [],
+            },
+            targets: {},
+          },
+        };
       }
     },
     async save(sourceFilePath: string, registry: Registry): Promise<void> {
