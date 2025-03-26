@@ -19,7 +19,7 @@ export interface ConfigGroup {
   localeConfig?: LocaleConfig; // Optional, group-specific locale config
 }
 
-export type TranslationProvider = 'openai' | 'deepseek';
+export type TranslationProvider = 'openai' | 'deepseek' | 'google';
 
 export interface IConfig {
   provider: TranslationProvider;

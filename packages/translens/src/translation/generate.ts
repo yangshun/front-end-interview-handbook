@@ -48,16 +48,26 @@ export async function generate(
   const model = providerModel(provider);
   const prompt = promptTemplate.replace('[DATA]', JSON.stringify(strings));
 
-  const promptsFilePath = path.join(
-    PROMPTS_PATH,
-    `${Date.now().toString()}.txt`,
-  );
+  const now = Date.now();
+  const promptsFilePath = path.join(PROMPTS_PATH, now.toString(), 'prompt.txt');
   await writeFile(promptsFilePath, prompt);
 
-  const { text } = await generateText({
+  const { text: rawResults } = await generateText({
     model,
     prompt,
   });
+
+  const responseFilePath = path.join(
+    PROMPTS_PATH,
+    now.toString(),
+    'response.txt',
+  );
+  await writeFile(responseFilePath, rawResults);
+  // Some providers such as Gemini return the results as JSON
+  const results = rawResults
+    .replace(/^```[\s\S]*?\n/g, '') // Remove backticks and language specifier from the front
+    .replace(/\n```\n?$/g, '') // Remove backticks from the end
+    .trim();
 
   const translationStringsArray: ReadonlyArray<
     Readonly<{
@@ -65,7 +75,7 @@ export async function generate(
       filePath: string;
       translations: Record<Locale, string>;
     }>
-  > = JSON.parse(text);
+  > = JSON.parse(results);
   const translationStringsMap = new Map<string, Record<Locale, string>>();
 
   translationStringsArray.forEach((item) => {

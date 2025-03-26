@@ -1,5 +1,5 @@
 {
-  "provider": "deepseek",
+  "provider": "google",
   "localeConfig": {
     "source": "en-US",
     "target": ["zh-CN", "pt-BR"]

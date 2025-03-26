@@ -74,8 +74,6 @@ export async function translate() {
     });
   }
 
-  // Create directory to write prompts used
-  await fs.mkdir(PROMPTS_PATH, { recursive: true });
   // Translate the strings
   // TODO: parallelize with concurrency limit
   for (const job of translationJobQueue) {
