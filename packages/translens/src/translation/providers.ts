@@ -7,7 +7,7 @@ import { TranslationProvider } from '../config/types';
 export function providerModel(provider: TranslationProvider): LanguageModel {
   switch (provider) {
     case 'openai': {
-      return openai('gpt-4-turbo');
+      return openai('gpt-4o-mini');
     }
     case 'deepseek': {
       return deepseek('deepseek-chat');

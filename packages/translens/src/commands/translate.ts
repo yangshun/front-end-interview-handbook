@@ -1,6 +1,5 @@
 import Config from '../config';
 import { expandTargetPaths } from '../core';
-import { providerModel } from '../translation/providers';
 import {
   Plugin,
   TranslationGroup,
@@ -11,6 +10,8 @@ import {
 import jsonPlugin from '../plugins/json/json-plugin';
 import mdxPlugin from '../plugins/mdx/mdx-plugin';
 import { generate } from '../translation/generate';
+import fs from 'fs/promises';
+import { PROMPTS_PATH } from '../core/constants';
 
 const DEFAULTS_PLUGINS: Record<string, () => Plugin> = {
   json: jsonPlugin,
@@ -73,6 +74,8 @@ export async function translate() {
     });
   }
 
+  // Create directory to write prompts used
+  await fs.mkdir(PROMPTS_PATH, { recursive: true });
   // Translate the strings
   // TODO: parallelize with concurrency limit
   for (const job of translationJobQueue) {

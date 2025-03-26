@@ -2,8 +2,11 @@ import { generateText } from 'ai';
 import { TranslationProvider } from '../config/types';
 import { TranslationStringArg, TranslationStringMetadata } from '../core/types';
 import { providerModel } from './providers';
+import path from 'path';
+import { writeFile } from '../lib/file-service';
+import { PROMPTS_PATH } from '../core/constants';
 
-const prompt = `You are a professional translator. Maintain the original meaning, tone, and formatting.
+const promptTemplate = `You are a professional translator. Maintain the original meaning, tone, and formatting.
 
 - You are given a JSON object containing a list of strings and the target locales within <json> tags
 - Translate the source strings within the JSON object from the source locale to the target locales
@@ -43,10 +46,17 @@ export async function generate(
   }
 
   const model = providerModel(provider);
+  const prompt = promptTemplate.replace('[DATA]', JSON.stringify(strings));
+
+  const promptsFilePath = path.join(
+    PROMPTS_PATH,
+    `${Date.now().toString()}.txt`,
+  );
+  await writeFile(promptsFilePath, prompt);
 
   const { text } = await generateText({
     model,
-    prompt: prompt.replace('[DATA]', JSON.stringify(strings)),
+    prompt,
   });
 
   const translationStringsArray: ReadonlyArray<
