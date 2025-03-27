@@ -34,11 +34,12 @@
     "gray-matter": "^4.0.3",
     "json5": "^2.2.3",
     "lodash-es": "^4.17.21",
+    "log-update": "^6.1.0",
     "murmurhash": "^2.0.1"
   },
   "devDependencies": {
-    "@types/node": "^22.12.0",
     "@types/lodash-es": "^4.17.6",
+    "@types/node": "^22.12.0",
     "rimraf": "^6.0.1",
     "tsup": "^8.3.6",
     "typescript": "^5.7.3",

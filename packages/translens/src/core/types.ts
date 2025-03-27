@@ -11,12 +11,28 @@ export type TranslationFileMetadata = Readonly<{
 }>;
 
 export type TranslationGroupName = string;
-
+export type TranslationGroupBatchId = string;
 export interface TranslationGroup extends ConfigGroup {
-  status: 'idle' | 'pending_translations' | 'translating';
   pluginInstance: Plugin;
-  strings: ReadonlyArray<TranslationStringArg>;
+  batches: Map<TranslationGroupBatchId, TranslationGroupBatch>;
 }
+
+export type TranslationGroups = Map<TranslationGroupName, TranslationGroup>;
+export type TranslationGroupBatchStatus =
+  | 'pending'
+  | 'translating'
+  | 'success'
+  | 'failed';
+
+export type TranslationGroupBatch = {
+  batchId: TranslationGroupBatchId;
+  status: TranslationGroupBatchStatus;
+  time: {
+    start: null | number;
+    end: null | number;
+  };
+  strings: ReadonlyArray<TranslationStringArg>;
+};
 
 export type TranslationStringItem = Readonly<{
   string: string;
@@ -72,6 +88,7 @@ export interface Plugin {
 
 export type TranslationJob = Readonly<{
   group: TranslationGroupName;
+  batch: TranslationGroupBatchId;
   strings: ReadonlyArray<TranslationStringArg>;
 }>;
 

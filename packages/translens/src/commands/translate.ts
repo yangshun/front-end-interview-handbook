@@ -5,21 +5,20 @@ import {
   TranslationGroup,
   TranslationGroupName,
   TranslationJob,
-  TranslationStringArg,
 } from '../core/types';
 import jsonPlugin from '../plugins/json/json-plugin';
 import mdxPlugin from '../plugins/mdx/mdx-plugin';
 import { generate } from '../translation/generate';
 import { groupBy } from 'lodash-es';
 import mapAsync from '../utils/map-async';
-import chalk from 'chalk';
+import { printGroupStatus } from '../core/output/print';
 
 const DEFAULTS_PLUGINS: Record<string, () => Plugin> = {
   json: jsonPlugin,
   mdx: mdxPlugin,
 };
-
 const CONCURRENCY_LIMIT = 5;
+const REFRESH_INTERVAL = 1000 / 16;
 
 export async function translate() {
   const config = new Config().getConfig();
@@ -43,21 +42,11 @@ export async function translate() {
 
       groups.set(group.name, {
         ...group,
-        status: 'idle',
         pluginInstance,
-        strings: [],
+        batches: new Map(),
       });
     }),
   );
-
-  const longestGroupNameLength = Math.max(
-    ...Array.from(groups.keys()).map((name) => name.length),
-  );
-
-  const groupStrings: Map<
-    TranslationGroupName,
-    ReadonlyArray<TranslationStringArg>
-  > = new Map();
 
   // Gather translation strings
   await Promise.all(
@@ -65,7 +54,16 @@ export async function translate() {
       const translationStrings =
         await group.pluginInstance.getTranslationStrings();
 
-      groupStrings.set(group.name, translationStrings);
+      const batchIds = groupBy(translationStrings, (string) => string.batch);
+
+      Object.keys(batchIds).forEach((batchId) => {
+        group.batches.set(batchId, {
+          batchId,
+          status: 'pending',
+          strings: batchIds[batchId],
+          time: { start: null, end: null },
+        });
+      });
     }),
   );
 
@@ -74,16 +72,15 @@ export async function translate() {
   // like MDX, we should split it up into multiple jobs
   const translationJobQueue: Array<TranslationJob> = [];
 
-  for (const [groupName, strings] of groupStrings.entries()) {
-    const batchStrings = groupBy(strings, (string) => string.batch);
-
-    Object.keys(batchStrings).forEach((batch) => {
+  for (const group of groups.values()) {
+    for (const batch of group.batches.values()) {
       // Potentially split up into multiple jobs if a batch is too big
       translationJobQueue.push({
-        group: groupName,
-        strings: batchStrings[batch],
+        group: group.name,
+        batch: batch.batchId,
+        strings: batch.strings,
       });
-    });
+    }
   }
 
   if (translationJobQueue.length === 0) {
@@ -91,8 +88,11 @@ export async function translate() {
     return;
   }
 
-  console.info(`⌛ Translating ${translationJobQueue.length} batch(es)`);
-  console.info();
+  function print() {
+    printGroupStatus(groups);
+  }
+
+  const intervalId = setInterval(print, REFRESH_INTERVAL);
 
   // Translate the strings
   await mapAsync(
@@ -108,29 +108,33 @@ export async function translate() {
         return;
       }
 
-      const batchPrefix =
-        chalk.dim(`[${job.group}]`.padStart(longestGroupNameLength + 2)) +
-        ` ${chalk.visible(job.strings[0].batch.replace(/^\.\//, ''))}`;
-      console.info(
-        `${batchPrefix} ${chalk.dim(`(${job.strings.length} ${job.strings.length === 1 ? 'string' : 'strings'})`)} ⌛`,
-      );
-      group.status = 'translating';
+      const batch = groups.get(job.group)!.batches.get(job.batch)!;
+      try {
+        batch.status = 'translating';
+        batch.time.start = Date.now();
 
-      const instructions =
-        (await group.pluginInstance.getInstructions?.()) || '';
-      const translatedStrings = await generate(job.strings, {
-        provider: config.provider,
-        instructions,
-      });
+        const instructions =
+          (await group.pluginInstance.getInstructions?.()) || '';
+        const translatedStrings = await generate(job.strings, {
+          provider: config.provider,
+          instructions,
+        });
 
-      await group.pluginInstance.onTranslationBatchComplete(translatedStrings);
+        await group.pluginInstance.onTranslationBatchComplete(
+          translatedStrings,
+        );
 
-      console.info(`${batchPrefix} Completed ✅`);
-      group.status = 'idle';
+        batch.status = 'success';
+      } catch {
+        batch.status = 'failed';
+      }
+      batch.time.end = Date.now();
     },
     CONCURRENCY_LIMIT,
   );
 
-  console.info();
-  console.info(`✅ Translated ${translationJobQueue.length} batch(es)`);
+  print();
+
+  clearInterval(intervalId);
+  process.exit(0);
 }

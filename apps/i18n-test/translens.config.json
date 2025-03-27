@@ -6,7 +6,7 @@
   },
   "groups": [
     {
-      "name": "app-strings",
+      "name": "app",
       "plugin": "json",
       "paths": [
         {
@@ -16,7 +16,7 @@
       ]
     },
     {
-      "name": "blog-posts",
+      "name": "blog",
       "plugin": "mdx",
       "paths": [
         {
