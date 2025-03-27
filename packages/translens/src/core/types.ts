@@ -48,19 +48,23 @@ export interface Plugin {
    */
   identifier: string;
   /**
-   * The plugin that should start tracking the file
+   * The plugin that should start tracking these files
    */
   trackFiles: (
     filesMetadata: ReadonlyArray<TranslationFileMetadata>,
   ) => Promise<void>;
   /**
-   * The plugin that should start tracking the file
+   * Plugin-specific prompt
+   */
+  getInstructions?: () => Promise<string>;
+  /**
+   * Return a list of strings to be translated and their target locales
    */
   getTranslationStrings: () => Promise<ReadonlyArray<TranslationStringArg>>;
   /**
    * Called when the runner completes translating all the strings
    */
-  translationComplete: (
+  onTranslationComplete: (
     translatedStrings: ReadonlyArray<TranslationStringMetadata>,
   ) => Promise<void>;
 }

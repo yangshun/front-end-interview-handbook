@@ -10,8 +10,6 @@ import {
 import jsonPlugin from '../plugins/json/json-plugin';
 import mdxPlugin from '../plugins/mdx/mdx-plugin';
 import { generate } from '../translation/generate';
-import fs from 'fs/promises';
-import { PROMPTS_PATH } from '../core/constants';
 
 const DEFAULTS_PLUGINS: Record<string, () => Plugin> = {
   json: jsonPlugin,
@@ -62,7 +60,7 @@ export async function translate() {
     }),
   );
 
-  // Convert strings into job queue.
+  // Convert strings into job queue
   // TODO: Each group creates one job for now, but for long content
   // like MDX, we should split it up into multiple jobs
   const translationJobQueue: Array<TranslationJob> = [];
@@ -87,8 +85,13 @@ export async function translate() {
     );
     group.status = 'translating';
 
-    const translatedStrings = await generate(config.provider, job.strings);
-    await group.pluginInstance.translationComplete(translatedStrings);
+    const instructions = (await group.pluginInstance.getInstructions?.()) || '';
+    const translatedStrings = await generate(job.strings, {
+      provider: config.provider,
+      instructions,
+    });
+
+    await group.pluginInstance.onTranslationComplete(translatedStrings);
 
     console.info(
       `Done translating group: ${job.group} (${job.strings.length} strings)`,

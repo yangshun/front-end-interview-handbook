@@ -30,6 +30,12 @@ export default function mdxPlugin(): Plugin {
       // Start tracking files
       files.push(...filesMetadata);
     },
+    async getInstructions() {
+      return [
+        'These strings are part of an MDX file, which can contain JSX and markdown.',
+        'If a string is a code statement with no UI strings, return as-is, do not translate it.',
+      ].join('\n');
+    },
     async getTranslationStrings() {
       const translationStrings: Array<TranslationStringArg> = [];
 
@@ -58,7 +64,7 @@ export default function mdxPlugin(): Plugin {
       }
       return translationStrings;
     },
-    async translationComplete(translatedStrings) {
+    async onTranslationComplete(translatedStrings) {
       if (translatedStrings.length === 0) {
         return;
       }

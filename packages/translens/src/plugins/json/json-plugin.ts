@@ -21,6 +21,9 @@ export default function JsonPlugin(): Plugin {
       // Start tracking files
       files.push(...filesMetadata);
     },
+    async getInstructions() {
+      return 'The strings are in ICU syntax';
+    },
     async getTranslationStrings() {
       // Load files and determine which strings need to be translated
       const translationStrings: Array<TranslationStringArg> = [];
@@ -72,7 +75,7 @@ export default function JsonPlugin(): Plugin {
      *  - Merges in new translations.
      *  - Writes the updated JSON back to the file.
      */
-    async translationComplete(translatedStrings) {
+    async onTranslationComplete(translatedStrings) {
       // Build a map of target file hash (using file path and locale) to its translation content.
       const targetedContentMap = buildTargetedContentMap(translatedStrings);
 
