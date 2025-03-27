@@ -62,12 +62,14 @@ export default function mdxPlugin(): Plugin {
         translationStrings.push(...frontmatterTranslationStrings);
         translationStrings.push(...mdxContentTranslationStrings);
       }
+
       return translationStrings;
     },
-    async onTranslationComplete(translatedStrings) {
+    async onTranslationBatchComplete(translatedStrings) {
       if (translatedStrings.length === 0) {
         return;
       }
+
       // Build a map of target file hash (using file path and locale) to its translation content.
       const targetedContentMap = buildTargetedContentMap(translatedStrings);
       await Promise.all(
@@ -105,6 +107,7 @@ export default function mdxPlugin(): Plugin {
               await writeFile(target.path, targetFileContent);
             }),
           );
+
           await registry.updateFileRegistry(file);
         }),
       );

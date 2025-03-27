@@ -48,7 +48,7 @@ export default function JsonPlugin(): Plugin {
           if (missingInTargets.length > 0) {
             translationStrings.push({
               id: key,
-              filePath: file.source.path,
+              batch: file.source.path,
               source: {
                 string:
                   typeof sourceJson[key] === 'object' &&
@@ -75,7 +75,7 @@ export default function JsonPlugin(): Plugin {
      *  - Merges in new translations.
      *  - Writes the updated JSON back to the file.
      */
-    async onTranslationComplete(translatedStrings) {
+    async onTranslationBatchComplete(translatedStrings) {
       // Build a map of target file hash (using file path and locale) to its translation content.
       const targetedContentMap = buildTargetedContentMap(translatedStrings);
 

@@ -25,14 +25,14 @@ export type TranslationStringItem = Readonly<{
 
 export type TranslationStringMetadata = Readonly<{
   id: string;
-  filePath: string;
+  batch: string;
   source: TranslationStringItem;
   targets: ReadonlyArray<TranslationStringItem>;
 }>;
 
 export type TranslationStringArg = Readonly<{
   id: string;
-  filePath: string;
+  batch: string;
   source: TranslationStringItem &
     Readonly<{
       description?: string; // Optional context for the translation
@@ -62,11 +62,12 @@ export interface Plugin {
    */
   getTranslationStrings: () => Promise<ReadonlyArray<TranslationStringArg>>;
   /**
-   * Called when the runner completes translating all the strings
+   * Called when the runner completes translating strings in an entire batch
    */
-  onTranslationComplete: (
+  onTranslationBatchComplete: (
     translatedStrings: ReadonlyArray<TranslationStringMetadata>,
   ) => Promise<void>;
+  onTranslationComplete?: () => Promise<void>;
 }
 
 export type TranslationJob = Readonly<{

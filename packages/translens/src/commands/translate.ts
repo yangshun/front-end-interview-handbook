@@ -91,7 +91,7 @@ export async function translate() {
       instructions,
     });
 
-    await group.pluginInstance.onTranslationComplete(translatedStrings);
+    await group.pluginInstance.onTranslationBatchComplete(translatedStrings);
 
     console.info(
       `Done translating group: ${job.group} (${job.strings.length} strings)`,

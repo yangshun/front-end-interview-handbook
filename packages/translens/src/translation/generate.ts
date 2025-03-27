@@ -72,7 +72,7 @@ export async function generate(
     ...string,
     targets: Object.entries(
       // TODO: report if there are missing results from the LLM
-      translationStringsMap.get(hashFileString(string.filePath, string.id))!,
+      translationStringsMap.get(hashFileString(string.batch, string.id))!,
     ).map(([locale, translation]) => ({
       locale,
       string: translation,

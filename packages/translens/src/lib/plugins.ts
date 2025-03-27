@@ -18,10 +18,11 @@ export function buildTargetedContentMap(
   translatedStrings: ReadonlyArray<TranslationStringMetadata>,
 ): Map<string, Record<string, string>> {
   const targetedContentMap = new Map<string, Record<string, string>>();
+
   for (const translatedString of translatedStrings) {
     for (const target of translatedString.targets) {
       const targetPath = hashFilePathLocale(
-        translatedString.filePath,
+        translatedString.batch,
         target.locale,
       );
       if (!targetedContentMap.has(targetPath)) {
@@ -31,6 +32,7 @@ export function buildTargetedContentMap(
       translationEntry[translatedString.id] = target.string;
     }
   }
+
   return targetedContentMap;
 }
 
@@ -40,6 +42,7 @@ export function buildTranslationStrings(
   file: TranslationFileMetadata,
 ): Array<TranslationStringArg> {
   const translationStrings: Array<TranslationStringArg> = [];
+
   for (const key of Object.keys(content)) {
     const missingInTargets = file.targets
       .filter((target) => {
@@ -51,7 +54,7 @@ export function buildTranslationStrings(
     if (missingInTargets.length > 0) {
       translationStrings.push({
         id: key,
-        filePath: file.source.path,
+        batch: file.source.path,
         source: {
           string: content[key],
           locale: file.source.locale,
