@@ -75,22 +75,6 @@ export type TranslationJob = Readonly<{
   strings: ReadonlyArray<TranslationStringArg>;
 }>;
 
-export interface JsonChangeDetector {
-  /**
-   * Get the missing translation keys for each target locale
-   */
-  getMissingTranslationKeys(
-    file: TranslationFileMetadata,
-  ): Promise<Record<Locale, Array<string>>>;
-  /**
-   * Get the removed translation keys for each target locale
-   * which are not present in the source file
-   */
-  getRemovedTranslationKeys(
-    file: TranslationFileMetadata,
-  ): Promise<Record<Locale, Array<string>>>;
-}
-
 export interface Registry {
   frontmatter: Record<string, string>;
   content: {

@@ -1,106 +1,59 @@
 import * as fs from 'fs/promises';
 import * as path from 'path';
 import os from 'os';
-import jsonChangeDetector from './json-change-detector';
 import { TranslationFileMetadata } from '../../core/types';
+import { __test__ } from './json-change-detector';
 
 describe('jsonChangeDetector', () => {
-  let tempDir: string;
+  const { compareJsonData } = __test__;
 
-  beforeAll(async () => {
-    tempDir = await fs.mkdtemp(path.join(os.tmpdir(), 'json-change-detector-'));
-  });
-
-  afterAll(async () => {
-    await fs.rm(tempDir, { recursive: true, force: true });
-  });
-
-  test('detects missing keys in target files', async () => {
-    const sourceData = {
+  test('detects new keys in source file', async () => {
+    const sourceJson = {
       key1: 'value1',
       key2: 'value2',
       key3: 'value3',
     };
-    const targetDataZhCN = {
+    const targetJson = {
       key1: 'value1',
-      key3: 'value3', // missing key2
+      key3: 'value3',
     };
 
-    const sourcePath = path.join(tempDir, 'source.json');
-    const targetPathZhCN = path.join(tempDir, 'target-zh-CN.json');
-    const targetPathJaJP = path.join(tempDir, 'target-ja-JP.json');
+    const changes = compareJsonData(sourceJson, targetJson);
 
-    await fs.writeFile(sourcePath, JSON.stringify(sourceData), 'utf8');
-    await fs.writeFile(targetPathZhCN, JSON.stringify(targetDataZhCN), 'utf8');
-
-    const file: TranslationFileMetadata = {
-      source: { path: sourcePath, locale: 'en-US' },
-      targets: [
-        { path: targetPathZhCN, locale: 'zh-CN' },
-        { path: targetPathJaJP, locale: 'ja-JP' },
-      ],
-    };
-
-    const detector = jsonChangeDetector();
-    const changedKeys = await detector.getMissingTranslationKeys(file);
-
-    expect(changedKeys).toMatchInlineSnapshot(`
-      {
-        "ja-JP": [
-          "key1",
-          "key2",
-          "key3",
-        ],
-        "zh-CN": [
-          "key2",
-        ],
-      }
-    `);
+    expect(changes.keysToTranslate).toEqual(['key2']);
+    expect(changes.removedKeys).toEqual([]);
   });
 
   test('detects removed keys from source files', async () => {
-    const sourceData = {
+    const sourceJson = {
       key1: 'value1',
       key2: 'value2',
     };
-    // For zh-CN, add an extra key not present in source
-    const targetDataZhCN = {
+    const targetJson = {
       key1: 'value1',
       key2: 'value2',
-      keyExtra: 'extraValue',
+      key3: 'value3',
     };
-    // For ja-JP, no extra keys are present
-    const targetDataJaJP = {
+
+    const changes = compareJsonData(sourceJson, targetJson);
+
+    expect(changes.keysToTranslate).toEqual([]);
+    expect(changes.removedKeys).toEqual(['key3']);
+  });
+
+  test('detects new and removed keys from source files', async () => {
+    const sourceJson = {
+      key1: 'value1',
+      key3: 'value3',
+    };
+    const targetJson = {
       key1: 'value1',
       key2: 'value2',
     };
 
-    const sourcePath = path.join(tempDir, 'source-extra.json');
-    const targetPathZhCN = path.join(tempDir, 'target-extra-zh-CN.json');
-    const targetPathJaJP = path.join(tempDir, 'target-extra-ja-JP.json');
+    const changes = compareJsonData(sourceJson, targetJson);
 
-    await fs.writeFile(sourcePath, JSON.stringify(sourceData), 'utf8');
-    await fs.writeFile(targetPathZhCN, JSON.stringify(targetDataZhCN), 'utf8');
-    await fs.writeFile(targetPathJaJP, JSON.stringify(targetDataJaJP), 'utf8');
-
-    const file: TranslationFileMetadata = {
-      source: { path: sourcePath, locale: 'en-US' },
-      targets: [
-        { path: targetPathZhCN, locale: 'zh-CN' },
-        { path: targetPathJaJP, locale: 'ja-JP' },
-      ],
-    };
-
-    const detector = jsonChangeDetector();
-    const extraKeys = await detector.getRemovedTranslationKeys(file);
-
-    expect(extraKeys).toMatchInlineSnapshot(`
-      {
-        "ja-JP": [],
-        "zh-CN": [
-          "keyExtra",
-        ],
-      }
-    `);
+    expect(changes.keysToTranslate).toEqual(['key3']);
+    expect(changes.removedKeys).toEqual(['key2']);
   });
 });

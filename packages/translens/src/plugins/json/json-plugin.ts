@@ -3,17 +3,16 @@ import {
   TranslationFileMetadata,
   TranslationStringArg,
 } from '../../core/types';
-import jsonChangeDetector from './json-change-detector';
 import {
   ensureFileAndDirExists,
   readFile,
   writeFile,
 } from '../../lib/file-service';
 import { buildTargetedContentMap, hashFilePathLocale } from '../../lib/plugins';
+import { processFileForChanges } from './json-change-detector';
 
 export default function JsonPlugin(): Plugin {
   const files: Array<TranslationFileMetadata> = [];
-  const detector = jsonChangeDetector();
 
   return {
     identifier: 'json',
@@ -29,9 +28,8 @@ export default function JsonPlugin(): Plugin {
       const translationStrings: Array<TranslationStringArg> = [];
 
       for (const file of files) {
-        // Run the change detector to get missing keys for each target locale
-        const missingKeysByTarget =
-          await detector.getMissingTranslationKeys(file);
+        // Run the change detector to get keys to translate for each target locale
+        const keysToTranslate = await processFileForChanges(file);
 
         const sourceContent = await readFile(file.source.path);
         const sourceJson = JSON.parse(sourceContent);
@@ -40,7 +38,7 @@ export default function JsonPlugin(): Plugin {
           // Build an array of target locales that are missing this key
           const missingInTargets = file.targets
             .filter((target) => {
-              const missingKeys = missingKeysByTarget[target.locale];
+              const missingKeys = keysToTranslate[target.locale];
               return missingKeys && missingKeys.includes(key);
             })
             .map((target) => target.locale);
@@ -84,10 +82,6 @@ export default function JsonPlugin(): Plugin {
       // Process each file concurrently to update its target files.
       await Promise.all(
         files.map(async (file) => {
-          // Get keys that have been removed from the source file.
-          const removedKeysFromSource =
-            await detector.getRemovedTranslationKeys(file);
-
           // Read and parse the source JSON file.
           const sourceContent = await readFile(file.source.path);
           const sourceJson = JSON.parse(sourceContent);
@@ -108,12 +102,6 @@ export default function JsonPlugin(): Plugin {
               // Read and parse the target JSON file.
               const targetContent = await readFile(target.path);
               const targetJson = JSON.parse(targetContent);
-
-              // Remove keys that no longer exist in the source file.
-              const removedKeys = removedKeysFromSource[target.locale];
-              removedKeys.forEach((key) => {
-                delete targetJson[key];
-              });
 
               // Merge in the new translations from the targeted content map.
               const targetHash = hashFilePathLocale(

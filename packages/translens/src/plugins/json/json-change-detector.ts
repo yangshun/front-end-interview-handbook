@@ -1,57 +1,58 @@
-import fs from 'fs/promises';
-import { JsonChangeDetector } from '../../core/types';
-import { fileExists } from '../../lib/file-service';
+import { TranslationFileMetadata } from '../../core/types';
+import { fileExists, readFile, writeFile } from '../../lib/file-service';
 
-export default function jsonChangeDetector(): JsonChangeDetector {
+function compareJsonData(
+  sourceJson: Record<string, string>,
+  targetJson: Record<string, string> | null,
+): Readonly<{
+  keysToTranslate: string[];
+  removedKeys: string[];
+}> {
+  if (!targetJson) {
+    return {
+      keysToTranslate: Object.keys(sourceJson),
+      removedKeys: [],
+    };
+  }
   return {
-    async getMissingTranslationKeys(file) {
-      // Read and parse the source JSON file
-      const sourceContent = await fs.readFile(file.source.path, 'utf8');
-      const sourceJson = JSON.parse(sourceContent);
-      const sourceKeys = Object.keys(sourceJson);
-      const result: Record<Locale, Array<string>> = {};
-
-      // Process each target file
-      for (const target of file.targets) {
-        const isFileExists = await fileExists(target.path);
-        if (!isFileExists) {
-          result[target.locale] = sourceKeys;
-        } else {
-          // Read and parse the target JSON file
-          const targetContent = await fs.readFile(target.path, 'utf8');
-          const targetJson = JSON.parse(targetContent);
-          const missingKeys = sourceKeys.filter((key) => !(key in targetJson));
-          result[target.locale] = missingKeys;
-        }
-      }
-
-      return result;
-    },
-    async getRemovedTranslationKeys(file) {
-      const sourceContent = await fs.readFile(file.source.path, 'utf8');
-      const sourceJson = JSON.parse(sourceContent);
-      const sourceKeys = Object.keys(sourceJson);
-      const result: Record<Locale, Array<string>> = {};
-
-      // Process each target file to find keys that are extra (present in target but not in source)
-      for (const target of file.targets) {
-        const exists = await fileExists(target.path);
-        if (!exists) {
-          // If target file does not exist, there are no extra keys.
-          result[target.locale] = [];
-        } else {
-          const targetContent = await fs.readFile(target.path, 'utf8');
-          const targetJson = JSON.parse(targetContent);
-          const targetKeys = Object.keys(targetJson);
-          // Extra keys: keys present in target but not in the source file.
-          const extraKeys = targetKeys.filter(
-            (key) => !sourceKeys.includes(key),
-          );
-          result[target.locale] = extraKeys;
-        }
-      }
-
-      return result;
-    },
+    keysToTranslate: Object.keys(sourceJson).filter(
+      (key) => !(key in targetJson),
+    ),
+    removedKeys: Object.keys(targetJson).filter((key) => !(key in sourceJson)),
   };
 }
+
+export async function processFileForChanges(
+  file: TranslationFileMetadata,
+): Promise<Record<Locale, Array<string>>> {
+  const sourceContent = await readFile(file.source.path);
+  const sourceJson = JSON.parse(sourceContent);
+  const result: Record<Locale, Array<string>> = {};
+
+  // Process each target file
+  for (const target of file.targets) {
+    const isFileExists = await fileExists(target.path);
+    const targetContent = isFileExists ? await readFile(target.path) : null;
+    const targetJson = targetContent ? JSON.parse(targetContent) : null;
+    const { keysToTranslate, removedKeys } = compareJsonData(
+      sourceJson,
+      targetJson,
+    );
+    result[target.locale] = keysToTranslate;
+
+    // Remove keys that are no longer present in the source JSON from the target file
+    if (removedKeys.length > 0) {
+      removedKeys.forEach((key) => {
+        delete targetJson[key];
+      });
+      await writeFile(target.path, JSON.stringify(targetJson, null, 2));
+    }
+  }
+
+  return result;
+}
+
+// Only export for testing
+export const __test__ = {
+  compareJsonData,
+};
