@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { log } from '@clack/prompts';
 import { IConfig } from './types';
+import JSON5 from 'json5';
 
 export const CONFIG_PATH = path.join(process.cwd(), 'translens.config.json');
 
@@ -33,6 +34,7 @@ export default class Config {
     this.configPath = configPath;
     this.loadConfig();
   }
+
   private loadConfig() {
     if (!fs.existsSync(this.configPath)) {
       throw new Error(
@@ -41,7 +43,7 @@ export default class Config {
     }
 
     const configFile = fs.readFileSync(this.configPath, 'utf-8');
-    this.config = JSON.parse(configFile) as IConfig;
+    this.config = JSON5.parse(configFile) as IConfig;
   }
 
   public getConfig() {
