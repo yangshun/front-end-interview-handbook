@@ -13,6 +13,28 @@ import {
   generateMDXContentHashList,
 } from '../../lib/mdx-file';
 
+type DiffInput = Readonly<{
+  source: {
+    frontmatter: Record<string, string>;
+    contentHashList: string[];
+  };
+  target?: {
+    frontmatter: Record<string, string>;
+    contentHashList: string[];
+  };
+  registry: {
+    frontmatter: Record<string, string>;
+    targetContentHashList: string[];
+  };
+}>;
+
+type DiffResult = Readonly<{
+  frontmatterKeysToTranslate: string[];
+  contentKeysToTranslate: string[];
+  updatedFrontmatterHashes: Record<string, string>;
+  updatedContentHashList: string[];
+}>;
+
 function isSubset(source: Array<string>, target: Array<string>) {
   const targetSet = new Set(target);
   return source.every((item) => targetSet.has(item));
@@ -55,51 +77,36 @@ function findMissingOrUpdatedContentKeys(
   return sourceHashList.filter((key) => !registryTargetHashList.includes(key));
 }
 
-async function detectFileDiff(
-  sourceContent: string,
-  target: TranslationFileItem,
-  registryData: Registry,
-  locale: Locale,
-): Promise<
-  Readonly<{
-    contentKeysForTranslation: Array<string>;
-    frontmatterKeysForTranslation: Array<string>;
-    updatedContentHashList: Array<string>;
-    updatedFrontmatterHashes: Record<string, string>;
-  }>
-> {
-  const { content: sourceMDXContent, data: sourceFrontmatter } =
-    matter(sourceContent);
-  const sourceHashList = generateMDXContentHashList(sourceMDXContent);
-  const { frontmatter: registryFrontmatter, content: registryContent } =
-    registryData;
-
-  const isFileExists = await fileExists(target.path);
+function detectDiff(input: DiffInput): DiffResult {
+  const { source, target, registry } = input;
 
   // If target file does not exist, all keys need to be translated
-  if (!isFileExists) {
+  if (!target) {
     return {
-      contentKeysForTranslation: sourceHashList,
-      frontmatterKeysForTranslation: Object.keys(sourceFrontmatter),
+      contentKeysToTranslate: source.contentHashList,
+      frontmatterKeysToTranslate: Object.keys(source.frontmatter),
       updatedContentHashList: [],
       updatedFrontmatterHashes: {},
     };
   }
 
-  const targetContent = await readFile(target.path);
-  const { content: targetMDXContent, data: targetFrontmatter } =
-    matter(targetContent);
-  const registryTargetHashList = registryContent.targets?.[locale] || [];
-  const targetHashList = generateMDXContentHashList(targetMDXContent);
-  const missingOrUpdatedFrontmatterKeys = findMissingOrUpdatedFrontmatterKeys(
-    sourceFrontmatter,
-    targetFrontmatter,
-    registryFrontmatter,
+  // Detect frontmatter changes
+  const frontmatterKeysToTranslate = findMissingOrUpdatedFrontmatterKeys(
+    source.frontmatter,
+    target.frontmatter,
+    registry.frontmatter,
+  );
+
+  // Detect content changes
+  const contentKeysToTranslate = findMissingOrUpdatedContentKeys(
+    source.contentHashList,
+    target.contentHashList,
+    registry.targetContentHashList,
   );
 
   const isSourceFrontmatterSubset = isSubset(
-    Object.values(sourceFrontmatter).map(generateHash),
-    Object.values(registryFrontmatter),
+    Object.values(source.frontmatter).map(generateHash),
+    Object.values(registry.frontmatter),
   );
 
   // If the source frontmatter is a subset of the registry frontmatter and no missing or updated keys
@@ -107,12 +114,14 @@ async function detectFileDiff(
   // This is to ensure that the registry frontmatter is always up to date when a key is removed from the source frontmatter
   const updatedFrontmatterHashes =
     isSourceFrontmatterSubset &&
-    missingOrUpdatedFrontmatterKeys.length === 0 &&
-    Object.keys(sourceFrontmatter).length <
-      Object.keys(registryFrontmatter).length
-      ? Object.keys(sourceFrontmatter).reduce(
+    frontmatterKeysToTranslate.length === 0 &&
+    Object.keys(source.frontmatter).length <
+      Object.keys(registry.frontmatter).length
+      ? Object.keys(source.frontmatter).reduce(
           (acc, key) => {
-            if (registryFrontmatter[key]) acc[key] = registryFrontmatter[key];
+            if (registry.frontmatter[key]) {
+              acc[key] = registry.frontmatter[key];
+            }
             return acc;
           },
           {} as Record<string, string>,
@@ -120,8 +129,8 @@ async function detectFileDiff(
       : {};
 
   const isSourceContentSubset = isSubset(
-    sourceHashList,
-    registryTargetHashList,
+    source.contentHashList,
+    registry.targetContentHashList,
   );
 
   // If the source hash list is a subset of the target registry hash list and but the hash list are not equal
@@ -129,42 +138,19 @@ async function detectFileDiff(
   // We will update the target content
   if (
     isSourceContentSubset &&
-    !areArraysEqual(sourceHashList, registryTargetHashList)
+    !areArraysEqual(source.contentHashList, registry.targetContentHashList)
   ) {
-    const updatedTargetMDXContent = buildTargetMDXContent(
-      sourceMDXContent,
-      targetMDXContent,
-      registryTargetHashList,
-    );
-    const updatedTargetFrontmatter = buildTargetMDXFrontmatter(
-      sourceFrontmatter,
-      targetFrontmatter,
-    );
-
-    const updatedTargetFileContent = matter.stringify(
-      updatedTargetMDXContent,
-      Object.keys(updatedFrontmatterHashes).length > 0
-        ? updatedTargetFrontmatter
-        : targetFrontmatter,
-    );
-
-    await writeFile(target.path, updatedTargetFileContent);
-
     return {
-      contentKeysForTranslation: [],
-      frontmatterKeysForTranslation: [],
-      updatedContentHashList: sourceHashList,
+      contentKeysToTranslate: [],
+      frontmatterKeysToTranslate: [],
+      updatedContentHashList: source.contentHashList,
       updatedFrontmatterHashes,
     };
   }
 
   return {
-    contentKeysForTranslation: findMissingOrUpdatedContentKeys(
-      sourceHashList,
-      targetHashList,
-      registryTargetHashList,
-    ),
-    frontmatterKeysForTranslation: missingOrUpdatedFrontmatterKeys,
+    frontmatterKeysToTranslate,
+    contentKeysToTranslate,
     updatedFrontmatterHashes,
     updatedContentHashList: [],
   };
@@ -192,30 +178,75 @@ export async function processFileForChanges(
   let frontmatter: Record<string, string> = {};
 
   const sourceContent = await readFile(file.source.path);
-  const { content: sourceMDXContent } = matter(sourceContent);
+  const { content: sourceMDXContent, data: sourceFrontmatter } =
+    matter(sourceContent);
   const sourceHashList = generateMDXContentHashList(sourceMDXContent);
 
   for (const target of file.targets) {
+    const isFileExists = await fileExists(target.path);
+    const targetContent = isFileExists ? await readFile(target.path) : null;
+
+    const { content: targetMDXContent, data: targetFrontmatter } = targetContent
+      ? matter(targetContent)
+      : {
+          data: {},
+          content: '',
+        };
+
+    const diffInput: DiffInput = {
+      source: {
+        frontmatter: sourceFrontmatter,
+        contentHashList: generateMDXContentHashList(sourceMDXContent),
+      },
+      target: targetContent
+        ? {
+            frontmatter: targetFrontmatter,
+            contentHashList: generateMDXContentHashList(targetMDXContent),
+          }
+        : undefined,
+      registry: {
+        frontmatter: registryData.frontmatter,
+        targetContentHashList:
+          registryData.content.targets?.[target.locale] ?? [],
+      },
+    };
     const {
-      contentKeysForTranslation,
-      frontmatterKeysForTranslation,
+      contentKeysToTranslate,
+      frontmatterKeysToTranslate,
       updatedContentHashList,
       updatedFrontmatterHashes,
-    } = await detectFileDiff(
-      sourceContent,
-      target,
-      registryData,
-      target.locale,
-    );
+    } = await detectDiff(diffInput);
 
+    // Update the target MDX file if there is reorder or removal of content without content to translate
+    if (updatedContentHashList.length > 0) {
+      const updatedTargetMDXContent = buildTargetMDXContent(
+        sourceMDXContent,
+        targetMDXContent,
+        registryData.content.targets[target.locale],
+      );
+      const updatedTargetFrontmatter = buildTargetMDXFrontmatter(
+        sourceFrontmatter,
+        targetFrontmatter,
+      );
+
+      const updatedTargetContent = matter.stringify(
+        updatedTargetMDXContent,
+        Object.keys(updatedFrontmatterHashes).length > 0
+          ? updatedTargetFrontmatter
+          : targetFrontmatter,
+      );
+      await writeFile(target.path, updatedTargetContent);
+    }
+
+    // Update the frontmatter if there is removal of frontmatter without frontmatter keys to translate
     if (Object.keys(updatedFrontmatterHashes).length > 0) {
       frontmatter = updatedFrontmatterHashes;
     }
     if (updatedContentHashList.length > 0) {
       mdxContentHashMap[target.locale] = updatedContentHashList;
     }
-    result.frontmatter[target.locale] = frontmatterKeysForTranslation;
-    result.content[target.locale] = contentKeysForTranslation;
+    result.frontmatter[target.locale] = frontmatterKeysToTranslate;
+    result.content[target.locale] = contentKeysToTranslate;
   }
 
   // Update the registry with the updated frontmatter and content hash list
@@ -256,5 +287,5 @@ export const __test__ = {
   areArraysEqual,
   findMissingOrUpdatedFrontmatterKeys,
   findMissingOrUpdatedContentKeys,
-  detectFileDiff,
+  detectDiff,
 };

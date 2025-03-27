@@ -1,10 +1,8 @@
 import { __test__ } from './mdx-change-detector';
 import * as fs from 'fs/promises';
 import * as path from 'path';
-import matter from 'gray-matter';
 import os from 'os';
 import { generateHash, generateMDXContentHashList } from '../../lib/mdx-file';
-import { writeFile } from '../../lib/file-service';
 
 describe('isSubset()', () => {
   const { isSubset } = __test__;
@@ -126,293 +124,291 @@ describe('findMissingOrUpdatedContentKeys', () => {
   });
 });
 
-const {
-  detectFileDiff,
-  findMissingOrUpdatedFrontmatterKeys,
-  findMissingOrUpdatedContentKeys,
-} = __test__;
-
-describe('detectFileDiff', () => {
-  let tempDir: string;
-
-  beforeAll(async () => {
-    tempDir = await fs.mkdtemp(path.join(os.tmpdir(), 'detect-file-diff-'));
-  });
-
-  afterAll(async () => {
-    await fs.rm(tempDir, { recursive: true, force: true });
-  });
-
-  function createPath(filePath: string) {
-    return path.join(tempDir, filePath);
-  }
+describe('detectDiff', () => {
+  const { detectDiff } = __test__;
 
   test('flags all keys for new translation when target file missing', async () => {
-    const sourceContent = `---\ntitle: Hello\ndescription: World\n---\nContent`;
-    const registryData = {
-      frontmatter: {},
-      content: { source: { hashes: [], locale: '' }, targets: {} },
+    const diffInput = {
+      source: {
+        frontmatter: {
+          title: 'Hello',
+          description: 'World',
+        },
+        contentHashList: generateMDXContentHashList('Content'),
+      },
+      target: undefined,
+      registry: {
+        frontmatter: {},
+        targetContentHashList: [],
+      },
     };
+    const result = await detectDiff(diffInput);
 
-    const result = await detectFileDiff(
-      sourceContent,
-      { path: 'missing.mdx', locale: 'zh-CN' },
-      registryData,
-      'zh-CN',
-    );
-
-    expect(result.contentKeysForTranslation).toHaveLength(1);
-    expect(result.contentKeysForTranslation).toEqual(
+    expect(result.contentKeysToTranslate).toHaveLength(1);
+    expect(result.contentKeysToTranslate).toEqual(
       generateMDXContentHashList('Content'),
     );
-    expect(result.frontmatterKeysForTranslation).toEqual([
-      'title',
-      'description',
-    ]);
+    expect(result.frontmatterKeysToTranslate).toEqual(['title', 'description']);
     expect(result.updatedContentHashList).toEqual([]);
     expect(result.updatedFrontmatterHashes).toEqual({});
   });
 
   test('new frontmatter values', async () => {
-    const targetPath = createPath('target.mdx');
-    await writeFile(targetPath, `---\ntitle: Title\n---\nContent`);
-    const sourceContent = `---\ntitle: Title\ndescription: Description\n---\nContent`;
-    const registryData = {
-      frontmatter: { title: generateHash('Title') },
-      content: {
-        source: {
-          hashes: generateMDXContentHashList('Content'),
-          locale: 'en-US',
+    const diffInput = {
+      source: {
+        frontmatter: {
+          title: 'Hello',
+          description: 'Description',
         },
-        targets: { 'zh-CN': generateMDXContentHashList('Content') },
+        contentHashList: generateMDXContentHashList('Content'),
+      },
+      target: {
+        frontmatter: {
+          title: 'Hello',
+        },
+        contentHashList: generateMDXContentHashList('Content'),
+      },
+      registry: {
+        frontmatter: {
+          title: generateHash('Hello'),
+        },
+        targetContentHashList: generateMDXContentHashList('Content'),
       },
     };
+    const result = await detectDiff(diffInput);
 
-    const result = await detectFileDiff(
-      sourceContent,
-      { path: targetPath, locale: 'zh-CN' },
-      registryData,
-      'zh-CN',
-    );
-
-    expect(result.frontmatterKeysForTranslation).toEqual(['description']);
-    expect(result.contentKeysForTranslation).toEqual([]);
+    expect(result.frontmatterKeysToTranslate).toEqual(['description']);
+    expect(result.contentKeysToTranslate).toEqual([]);
     expect(result.updatedContentHashList).toEqual([]);
     expect(result.updatedFrontmatterHashes).toEqual({});
   });
 
   test('removed frontmatter keys', async () => {
-    const targetPath = createPath('target.mdx');
-    await writeFile(targetPath, `---\ntitle: Hi\ndescription: Old\n---\n`);
-    const sourceContent = `---\ntitle: Hi\n---\n`;
-    const registryData = {
-      frontmatter: {
-        title: generateHash('Hi'),
-        description: generateHash('Old'),
+    const diffInput = {
+      source: {
+        frontmatter: {
+          title: 'Hello',
+        },
+        contentHashList: [],
       },
-      content: {
-        source: { hashes: [], locale: '' },
-        targets: { 'zh-CN': [] },
+      target: {
+        frontmatter: {
+          title: 'Hello',
+          description: 'Description',
+        },
+        contentHashList: [],
+      },
+      registry: {
+        frontmatter: {
+          title: generateHash('Hello'),
+          description: generateHash('Description'),
+        },
+        targetContentHashList: [],
       },
     };
 
-    const result = await detectFileDiff(
-      sourceContent,
-      { path: targetPath, locale: 'zh-CN' },
-      registryData,
-      'zh-CN',
-    );
+    const result = await detectDiff(diffInput);
 
     expect(result.updatedFrontmatterHashes).toEqual({
-      title: generateHash('Hi'),
+      title: generateHash('Hello'),
     });
-    expect(result.frontmatterKeysForTranslation).toEqual([]);
-    expect(result.frontmatterKeysForTranslation).toEqual([]);
+    expect(result.frontmatterKeysToTranslate).toEqual([]);
+    expect(result.frontmatterKeysToTranslate).toEqual([]);
     expect(result.updatedContentHashList).toEqual([]);
   });
 
   test('changed frontmatter values', async () => {
-    const targetPath = createPath('target.mdx');
-    await writeFile(targetPath, `---\ntitle: Old Title\n---\nContent`);
-    const sourceContent = `---\ntitle: New Title\n---\nContent`;
-    const registryData = {
-      frontmatter: { title: generateHash('Old Title') },
-      content: {
-        source: {
-          hashes: generateMDXContentHashList('Content'),
-          locale: 'en-US',
+    const diffInput = {
+      source: {
+        frontmatter: {
+          title: 'Updated Hello',
         },
-        targets: { 'zh-CN': generateMDXContentHashList('Content') },
+        contentHashList: [],
+      },
+      target: {
+        frontmatter: {
+          title: 'Hello',
+          description: 'Description',
+        },
+        contentHashList: [],
+      },
+      registry: {
+        frontmatter: {
+          title: generateHash('Hello'),
+          description: generateHash('Description'),
+        },
+        targetContentHashList: [],
       },
     };
 
-    const result = await detectFileDiff(
-      sourceContent,
-      { path: targetPath, locale: 'zh-CN' },
-      registryData,
-      'zh-CN',
-    );
+    const result = await detectDiff(diffInput);
 
-    expect(result.frontmatterKeysForTranslation).toEqual(['title']);
-    expect(result.contentKeysForTranslation).toEqual([]);
+    expect(result.frontmatterKeysToTranslate).toEqual(['title']);
+    expect(result.contentKeysToTranslate).toEqual([]);
     expect(result.updatedContentHashList).toEqual([]);
     expect(result.updatedFrontmatterHashes).toEqual({});
   });
 
   test('new untranslated content', async () => {
-    const targetPath = createPath('target.mdx');
-    await writeFile(targetPath, `---\ntitle: Hi\n---\nTranslated`);
-    const sourceContent = `---\ntitle: Hi\n---\nTranslated\n\nUntranslated1\n\nUntranslated2`;
-    const registryData = {
-      frontmatter: { title: generateHash('Hi') },
-      content: {
-        source: {
-          hashes: generateMDXContentHashList('Translated'),
-          locale: 'en-US',
+    const diffInput = {
+      source: {
+        frontmatter: {
+          title: 'Hello',
         },
-        targets: {
-          'zh-CN': generateMDXContentHashList('Translated'),
+        contentHashList: generateMDXContentHashList(
+          'Translated\n\nUntranslated1\n\nUntranslated2',
+        ),
+      },
+      target: {
+        frontmatter: {
+          title: 'Hello',
         },
+        contentHashList: generateMDXContentHashList('Translated'),
+      },
+      registry: {
+        frontmatter: {
+          title: generateHash('Hello'),
+        },
+        targetContentHashList: generateMDXContentHashList('Translated'),
       },
     };
 
-    const result = await detectFileDiff(
-      sourceContent,
-      { path: targetPath, locale: 'zh-CN' },
-      registryData,
-      'zh-CN',
-    );
+    const result = await detectDiff(diffInput);
 
-    expect(result.contentKeysForTranslation).toEqual(
+    expect(result.contentKeysToTranslate).toEqual(
       generateMDXContentHashList('Untranslated1\n\nUntranslated2'),
     );
-    expect(result.frontmatterKeysForTranslation).toEqual([]);
+    expect(result.frontmatterKeysToTranslate).toEqual([]);
     expect(result.updatedContentHashList).toEqual([]);
     expect(result.updatedFrontmatterHashes).toEqual({});
   });
 
   test('changed mdx content', async () => {
-    const targetPath = createPath('target.mdx');
-    await writeFile(targetPath, `---\ntitle: Hi\n---\nTranslated`);
-    const sourceContent = `---\ntitle: Hi\n---\nUpdated Translated`;
-    const registryData = {
-      frontmatter: { title: generateHash('Hi') },
-      content: {
-        source: {
-          hashes: generateMDXContentHashList('Translated'),
-          locale: 'en-US',
+    const diffInput = {
+      source: {
+        frontmatter: {
+          title: 'Hello',
         },
-        targets: {
-          'zh-CN': generateMDXContentHashList('Translated'),
+        contentHashList: generateMDXContentHashList('Updated content'),
+      },
+      target: {
+        frontmatter: {
+          title: 'Hello',
         },
+        contentHashList: generateMDXContentHashList('Content'),
+      },
+      registry: {
+        frontmatter: {
+          title: generateHash('Hello'),
+        },
+        targetContentHashList: generateMDXContentHashList('Content'),
       },
     };
 
-    const result = await detectFileDiff(
-      sourceContent,
-      { path: targetPath, locale: 'zh-CN' },
-      registryData,
-      'zh-CN',
-    );
+    const result = await detectDiff(diffInput);
 
-    expect(result.contentKeysForTranslation).toEqual(
-      generateMDXContentHashList('Updated Translated'),
+    expect(result.contentKeysToTranslate).toEqual(
+      generateMDXContentHashList('Updated content'),
     );
-    expect(result.frontmatterKeysForTranslation).toEqual([]);
+    expect(result.frontmatterKeysToTranslate).toEqual([]);
     expect(result.updatedContentHashList).toEqual([]);
     expect(result.updatedFrontmatterHashes).toEqual({});
   });
 
   test('content reordering without translation', async () => {
-    const targetPath = createPath('target.mdx');
-    await writeFile(targetPath, `---\ntitle: Hi\n---\nB\n\nA`);
-    const sourceContent = `---\ntitle: Hi\n---\nA\n\nB`;
-    const registryData = {
-      frontmatter: { title: generateHash('Hi') },
-      content: {
-        source: {
-          hashes: generateMDXContentHashList('B\n\nA'),
-          locale: 'en-US',
+    const diffInput = {
+      source: {
+        frontmatter: {
+          title: 'Hello',
         },
-        targets: { 'zh-CN': generateMDXContentHashList('B\n\nA') },
+        contentHashList: generateMDXContentHashList('B\n\nA'),
+      },
+      target: {
+        frontmatter: {
+          title: 'Hello',
+        },
+        contentHashList: generateMDXContentHashList('A\n\nB'),
+      },
+      registry: {
+        frontmatter: {
+          title: generateHash('Hello'),
+        },
+        targetContentHashList: generateMDXContentHashList('A\n\nB'),
       },
     };
 
-    const result = await detectFileDiff(
-      sourceContent,
-      { path: targetPath, locale: 'zh-CN' },
-      registryData,
-      'zh-CN',
-    );
+    const result = await detectDiff(diffInput);
 
     expect(result.updatedContentHashList).toEqual(
-      generateMDXContentHashList('A\n\nB'),
+      generateMDXContentHashList('B\n\nA'),
     );
-    expect(result.frontmatterKeysForTranslation).toEqual([]);
-    expect(result.contentKeysForTranslation).toEqual([]);
+    expect(result.frontmatterKeysToTranslate).toEqual([]);
+    expect(result.contentKeysToTranslate).toEqual([]);
     expect(result.updatedFrontmatterHashes).toEqual({});
   });
 
   test('frontmatter and content changes', async () => {
-    const targetPath = createPath('target.mdx');
-    await writeFile(targetPath, `---\ntitle: Old\n---\nContent`);
-    const sourceContent = `---\ntitle: New\ndescription: Added\n---\nNew Content`;
-    const registryData = {
-      frontmatter: { title: generateHash('Old') },
-      content: {
-        source: {
-          hashes: generateMDXContentHashList('Content'),
-          locale: 'en-US',
+    const diffInput = {
+      source: {
+        frontmatter: {
+          title: 'Updated title',
+          description: 'Description',
         },
-        targets: { 'zh-CN': generateMDXContentHashList('Content') },
+        contentHashList: generateMDXContentHashList('Updated Content'),
+      },
+      target: {
+        frontmatter: {
+          title: 'Title',
+        },
+        contentHashList: generateMDXContentHashList('Content'),
+      },
+      registry: {
+        frontmatter: {
+          title: generateHash('Title'),
+        },
+        targetContentHashList: generateMDXContentHashList('Content'),
       },
     };
 
-    const result = await detectFileDiff(
-      sourceContent,
-      { path: targetPath, locale: 'zh-CN' },
-      registryData,
-      'zh-CN',
-    );
+    const result = await detectDiff(diffInput);
 
-    expect(result.frontmatterKeysForTranslation).toEqual([
-      'title',
-      'description',
-    ]);
+    expect(result.frontmatterKeysToTranslate).toEqual(['title', 'description']);
     expect(result.updatedContentHashList).toEqual([]);
-    expect(result.contentKeysForTranslation).toEqual(
-      generateMDXContentHashList('New Content'),
+    expect(result.contentKeysToTranslate).toEqual(
+      generateMDXContentHashList('Updated Content'),
     );
     expect(result.updatedFrontmatterHashes).toEqual({});
   });
 
   test('removal and reorder of mdx content without translation', async () => {
-    const targetPath = createPath('target.mdx');
-    await writeFile(targetPath, `---\ntitle: Hi\n---\nA\n\nB\n\nC`);
-    const sourceContent = `---\ntitle: Hi\n---\nA\n\nC`;
-    const registryData = {
-      frontmatter: { title: generateHash('Hi') },
-      content: {
-        source: {
-          hashes: generateMDXContentHashList('A\n\nB\n\nC'),
-          locale: 'en-US',
+    const diffInput = {
+      source: {
+        frontmatter: {
+          title: 'Title',
         },
-        targets: { 'zh-CN': generateMDXContentHashList('A\n\nB\n\nC') },
+        contentHashList: generateMDXContentHashList('C\n\nA'),
+      },
+      target: {
+        frontmatter: {
+          title: 'Title',
+        },
+        contentHashList: generateMDXContentHashList('A\n\nB\n\nC'),
+      },
+      registry: {
+        frontmatter: {
+          title: generateHash('Title'),
+        },
+        targetContentHashList: generateMDXContentHashList('A\n\nB\n\nC'),
       },
     };
 
-    const result = await detectFileDiff(
-      sourceContent,
-      { path: targetPath, locale: 'zh-CN' },
-      registryData,
-      'zh-CN',
-    );
+    const result = await detectDiff(diffInput);
 
     expect(result.updatedContentHashList).toEqual(
-      generateMDXContentHashList('A\n\nC'),
+      generateMDXContentHashList('C\n\nA'),
     );
-    expect(result.frontmatterKeysForTranslation).toEqual([]);
-    expect(result.contentKeysForTranslation).toEqual([]);
+    expect(result.frontmatterKeysToTranslate).toEqual([]);
+    expect(result.contentKeysToTranslate).toEqual([]);
     expect(result.updatedFrontmatterHashes).toEqual({});
   });
 });
