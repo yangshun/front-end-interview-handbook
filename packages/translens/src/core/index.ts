@@ -1,5 +1,6 @@
-import { ConfigGroupPathItem, LocaleConfig } from '../config/types';
 import { globby } from 'globby';
+
+import { ConfigGroupPathItem, LocaleConfig } from '../config/types';
 import { TranslationFileItem, TranslationFileMetadata } from './types';
 
 // Helper: escape RegExp special characters in a literal string.

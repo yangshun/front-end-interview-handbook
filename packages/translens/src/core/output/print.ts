@@ -1,5 +1,6 @@
 import chalk from 'chalk';
 import logUpdate from 'log-update';
+
 import { TranslationGroupId, TranslationGroups } from '../types';
 import { batchStatusSymbol } from './spinner-frames';
 

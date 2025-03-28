@@ -16,7 +16,10 @@ export interface ConfigGroupPathItem {
 
 type ConfigPluginType = 'json' | 'mdx' | 'string';
 type ConfigPluginOptions = Record<string, any>;
-type ConfigPlugin = ConfigPluginType | [ConfigPluginType, ConfigPluginOptions]; // Either just the type or the type and options
+type ConfigPlugin =
+  | ConfigPluginType
+  | [ConfigPluginType]
+  | [ConfigPluginType, ConfigPluginOptions]; // Either just the type or the type and options
 
 export interface ConfigGroup {
   localeConfig?: LocaleConfig; // Optional, group-specific locale config

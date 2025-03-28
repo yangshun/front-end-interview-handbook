@@ -1,7 +1,8 @@
+import grayMatter from 'gray-matter';
 import path from 'path';
+
 import { readFile, writeFile } from '../lib/file-service';
 import { Registry, TranslationFileMetadata } from '../core/types';
-import matter from 'gray-matter';
 import { generateHash, generateMDXContentHashList } from '../lib/mdx-file';
 
 export default function registryManager() {
@@ -18,6 +19,7 @@ export default function registryManager() {
       try {
         const registryPath = getRegistryPath(sourceFilePath);
         const data = await readFile(registryPath);
+
         return JSON.parse(data) as Registry;
       } catch (error) {
         // If file doesn't exist, return empty registry
@@ -42,7 +44,7 @@ export default function registryManager() {
       const oldRegistryData = await this.load(file.source.path);
 
       const sourceContent = await readFile(file.source.path);
-      const { data: sourceFrontmatter, content } = matter(sourceContent);
+      const { data: sourceFrontmatter, content } = grayMatter(sourceContent);
       const frontmatterHashValues = Object.keys(sourceFrontmatter).reduce(
         (acc, key) => {
           acc[key] = generateHash(sourceFrontmatter[key]);

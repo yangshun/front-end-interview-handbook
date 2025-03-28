@@ -1,4 +1,4 @@
-import matter from 'gray-matter';
+import grayMatter from 'gray-matter';
 import {
   Plugin,
   TranslationFileMetadata,
@@ -50,7 +50,7 @@ export default function mdxPlugin(options: PluginOptions): Plugin {
         const changes = await processFileForChanges(file);
 
         const sourceContent = await readFile(file.source.path);
-        const { data: sourceFrontmatter, content } = matter(sourceContent);
+        const { data: sourceFrontmatter, content } = grayMatter(sourceContent);
         const sourceHashMap = generateSourceMDXContentHashMap(content);
 
         const frontmatterTranslationStrings = buildTranslationStrings(

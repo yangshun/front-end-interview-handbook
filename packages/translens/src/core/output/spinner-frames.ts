@@ -1,4 +1,5 @@
 import chalk from 'chalk';
+
 import { TranslationGroupBatchStatus } from '../types';
 
 const spinnerFrames = ['⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏'];

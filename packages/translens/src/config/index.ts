@@ -1,10 +1,9 @@
 import fs from 'fs';
-import path from 'path';
 import { log } from '@clack/prompts';
-import { ConfigType } from './types';
 import JSON5 from 'json5';
 
-export const CONFIG_PATH = path.join(process.cwd(), 'translens.config.json');
+import { ConfigType } from './types';
+import { CONFIG_PATH } from '../core/constants';
 
 export const DEFAULT_CONFIG: ConfigType = {
   provider: 'openai',

@@ -54,13 +54,17 @@ export default function JsonPlugin(): Plugin {
       const file = files.find(
         (file) => file.source.path === translatedStrings[0].batchId,
       );
-      if (!file) {
+
+      if (file == null) {
         return;
       }
 
       const translatedContentMap = buildTranslatedContentMap(translatedStrings);
       const sourceJson = await readJson(file.source.path);
-      if (!sourceJson) return;
+
+      if (sourceJson == null) {
+        return;
+      }
 
       // Write to each target file concurrently
       await Promise.all(

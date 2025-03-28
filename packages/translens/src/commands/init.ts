@@ -2,7 +2,8 @@ import { intro, outro, spinner, log } from '@clack/prompts';
 import chalk from 'chalk';
 import fs from 'fs';
 
-import Config, { CONFIG_PATH } from '../config';
+import Config from '../config';
+import { CONFIG_PATH } from '../core/constants';
 
 export async function init() {
   console.clear();
