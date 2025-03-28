@@ -20,11 +20,16 @@ import {
 } from '../../lib/plugins';
 import { processFileForChanges } from './mdx-change-detector';
 
-export default function mdxPlugin(): Plugin {
+type PluginOptions = Readonly<{
+  frontmatterExcludedKeys?: string[];
+}>;
+
+export default function mdxPlugin(options: PluginOptions): Plugin {
   const files: Array<TranslationFileMetadata> = [];
   const registry = registryManager();
+
   return {
-    identifier: 'mdx',
+    type: 'mdx',
     async trackFiles(filesMetadata) {
       // Start tracking files
       files.push(...filesMetadata);
@@ -67,16 +72,18 @@ export default function mdxPlugin(): Plugin {
       return translationStrings;
     },
     async onTranslationBatchComplete(translatedStrings) {
-      if (!translatedStrings.length) {
+      if (translatedStrings.length === 0) {
         return;
       }
 
       const file = files.find(
         (file) => file.source.path === translatedStrings[0].batchId,
       );
-      if (!file) {
+
+      if (file == null) {
         return;
       }
+
       const translatedContentMap = buildTranslatedContentMap(translatedStrings);
       const sourceContent = await readFile(file.source.path);
       const registryData = await registry.load(file.source.path);

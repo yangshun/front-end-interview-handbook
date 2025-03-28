@@ -63,10 +63,10 @@ export async function generate(
     > = JSON5.parse(results); // Use JSON5 since sometimes the response has extra commas
 
     const translationStringsMap = new Map<string, Record<Locale, string>>();
-    translationStringsArray.forEach((item) => {
+    translationStringsArray.forEach((result) => {
       translationStringsMap.set(
-        hashStringItem(item.batchId, item.id),
-        item.translations,
+        hashStringItem(result.batchId, result.id),
+        result.translations,
       );
     });
 

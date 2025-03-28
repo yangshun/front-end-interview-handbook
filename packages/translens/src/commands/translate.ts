@@ -13,7 +13,7 @@ import { chunk, groupBy } from 'lodash-es';
 import mapAsync from '../utils/map-async';
 import { printGroupStatus } from '../core/output/print';
 
-const DEFAULTS_PLUGINS: Record<string, () => Plugin> = {
+const DEFAULTS_PLUGINS: Record<string, (options?: any) => Plugin> = {
   json: jsonPlugin,
   mdx: mdxPlugin,
 };
@@ -30,17 +30,22 @@ export async function translate() {
   await Promise.all(
     config.groups.map(async (group) => {
       const groupFiles = await Promise.all(
-        group.paths.map(async (groupPath) => {
-          return await expandTargetPaths(
-            group.localeConfig ?? config.localeConfig,
-            groupPath,
-          );
-        }),
+        group.paths.map(
+          async (groupPath) =>
+            await expandTargetPaths(
+              group.localeConfig ?? config.localeConfig,
+              groupPath,
+            ),
+        ),
       );
 
-      const groupFilesFlattened = groupFiles.flat();
-      const pluginInstance = DEFAULTS_PLUGINS[group.plugin]();
-      await pluginInstance.trackFiles(groupFilesFlattened);
+      const { plugin } = group;
+      const pluginInstance =
+        typeof plugin === 'string'
+          ? DEFAULTS_PLUGINS[plugin]()
+          : DEFAULTS_PLUGINS[plugin[0]](plugin[1]);
+
+      await pluginInstance.trackFiles(groupFiles.flat());
 
       groups.set(group.name, {
         groupId: group.name,
@@ -71,8 +76,6 @@ export async function translate() {
   );
 
   // Convert strings into job queue
-  // TODO: Each group creates one job for now, but for long content
-  // like MDX, we should split it up into multiple jobs
   const translationJobQueue: Array<TranslationJob> = [];
 
   for (const group of groups.values()) {
@@ -82,9 +85,11 @@ export async function translate() {
       chunks.forEach((chunk, chunkIndex) => {
         translationJobQueue.push({
           runId,
-          jobId: `${group.groupId}-${batch.batchId
-            .replace(/^\.\//, '')
-            .replace(/\//g, '#')}-${chunkIndex}`,
+          jobId: [
+            group.groupId,
+            batch.batchId.replace(/^\.\//, '').replace(/\//g, '#'),
+            chunkIndex,
+          ].join('-'),
           group: group.groupId,
           batch: batch.batchId,
           strings: chunk,

@@ -22,7 +22,7 @@ export default function JsonPlugin(): Plugin {
   const files: Array<TranslationFileMetadata> = [];
 
   return {
-    identifier: 'json',
+    type: 'json',
     async trackFiles(filesMetadata) {
       // Start tracking files
       files.push(...filesMetadata);

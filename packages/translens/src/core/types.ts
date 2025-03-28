@@ -66,9 +66,9 @@ export type TranslationStringArg = Readonly<{
 
 export interface Plugin {
   /**
-   * Unique identifier for the plugin
+   * Unique identifier for the plugin type
    */
-  identifier: string;
+  type: string;
   /**
    * The plugin that should start tracking these files
    */
@@ -89,7 +89,6 @@ export interface Plugin {
   onTranslationBatchComplete: (
     translatedStrings: ReadonlyArray<TranslationStringResult>,
   ) => Promise<void>;
-  onTranslationComplete?: () => Promise<void>;
 }
 
 export type TranslationJob = Readonly<{
