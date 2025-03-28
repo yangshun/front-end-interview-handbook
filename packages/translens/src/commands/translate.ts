@@ -12,6 +12,7 @@ import { generate } from '../translation/generate';
 import { chunk, groupBy } from 'lodash-es';
 import mapAsync from '../utils/map-async';
 import { printGroupStatus } from '../core/output/print';
+import { TranslationGroupBatch } from '../core/runner/TranslationGroupBatch';
 
 const DEFAULTS_PLUGINS: Record<string, (options?: any) => Plugin> = {
   json: jsonPlugin,
@@ -63,14 +64,10 @@ export async function translate() {
       const batchIds = groupBy(translationStrings, (string) => string.batchId);
 
       Object.keys(batchIds).forEach((batchId) => {
-        group.batches.set(batchId, {
+        group.batches.set(
           batchId,
-          status: 'pending',
-          errors: [],
-          translations: [],
-          strings: batchIds[batchId],
-          time: { start: null, end: null },
-        });
+          new TranslationGroupBatch(batchId, batchIds[batchId]),
+        );
       });
     }),
   );
@@ -124,10 +121,7 @@ export async function translate() {
       }
 
       const batch = groups.get(job.group)!.batches.get(job.batch)!;
-      if (batch.status === 'pending') {
-        batch.status = 'translating';
-        batch.time.start = Date.now();
-      }
+      batch.startTranslating();
 
       try {
         const instructions = (await group.plugin.getInstructions?.()) || '';
@@ -136,18 +130,13 @@ export async function translate() {
           instructions,
         });
 
-        batch.translations.push(...translatedStrings);
+        batch.addTranslations(translatedStrings);
 
-        if (batch.translations.length === batch.strings.length) {
-          batch.status = 'success';
-          batch.time.end = Date.now();
-
+        if (batch.status === 'success') {
           await group.plugin.onTranslationBatchComplete(batch.translations);
         }
       } catch (err) {
-        batch.errors.push(err as Error);
-        batch.status = 'error';
-        batch.time.end = Date.now();
+        batch.addError(err as Error);
       }
     },
     DEFAULT_CONCURRENCY_LIMIT,

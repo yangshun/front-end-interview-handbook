@@ -1,4 +1,4 @@
-import { ConfigGroup } from '../config/types';
+import { TranslationGroupBatch } from './runner/TranslationGroupBatch';
 
 export type TranslationFileItem = Readonly<{
   path: string;
@@ -23,22 +23,10 @@ export interface TranslationGroup {
 
 export type TranslationGroups = Map<TranslationGroupId, TranslationGroup>;
 export type TranslationGroupBatchStatus =
-  | 'pending'
+  | 'queued'
   | 'translating'
   | 'success'
   | 'error';
-
-export type TranslationGroupBatch = {
-  batchId: TranslationGroupBatchId;
-  status: TranslationGroupBatchStatus;
-  errors: Array<Error>;
-  time: {
-    start: null | number;
-    end: null | number;
-  };
-  translations: Array<TranslationStringResult>;
-  strings: ReadonlyArray<TranslationStringArg>;
-};
 
 export type TranslationString = Readonly<{
   string: string;

@@ -6,9 +6,7 @@ import { batchStatusSymbol } from './spinner-frames';
 
 let timeStart = Date.now();
 
-export function formatDuration(start: number | null, end: number | null) {
-  const duration = start ? (end ?? Date.now()) - start : null;
-
+export function formatDuration(duration: number | null) {
   return duration == null ? '' : `${(duration / 1000).toFixed(1)}s`;
 }
 
@@ -45,7 +43,7 @@ export function printGroupStatus(groups: TranslationGroups) {
               batch.strings.length === 1 ? 'string' : 'strings'
             })`,
           ),
-          chalk.dim(formatDuration(batch.time.start, batch.time.end)),
+          chalk.dim(formatDuration(batch.duration)),
         ].join(' '),
       );
     }
@@ -58,7 +56,7 @@ export function printGroupStatus(groups: TranslationGroups) {
       chalk.bold.green(`${completedBatches} successful`) + ',',
       `${totalBatches} total`,
     ].join(' '),
-    `${chalk.bold('Duration:')} ${formatDuration(timeStart, Date.now())}`,
+    `${chalk.bold('Duration:')} ${formatDuration(Date.now() - timeStart)}`,
   );
 
   logUpdate(results.join('\n'));
