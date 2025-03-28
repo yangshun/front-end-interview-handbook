@@ -20,7 +20,7 @@ import {
 } from '../../lib/plugins';
 import { processFileForChanges } from './mdx-change-detector';
 
-type PluginOptions = Readonly<{
+export type PluginOptions = Readonly<{
   frontmatterExcludedKeys?: string[];
 }>;
 
@@ -47,7 +47,7 @@ export default function mdxPlugin(options: PluginOptions): Plugin {
 
       for (const file of files) {
         // Process file for changes
-        const changes = await processFileForChanges(file);
+        const changes = await processFileForChanges(file, options);
 
         const sourceContent = await readFile(file.source.path);
         const { data: sourceFrontmatter, content } = grayMatter(sourceContent);
@@ -113,7 +113,7 @@ export default function mdxPlugin(options: PluginOptions): Plugin {
         }),
       );
 
-      await registry.updateFileRegistry(file);
+      await registry.updateFileRegistry(file, options);
     },
   };
 }

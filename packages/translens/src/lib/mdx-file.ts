@@ -1,4 +1,5 @@
 import matter from 'gray-matter';
+import { omit } from 'lodash-es';
 import murmur from 'murmurhash';
 
 export function generateHash(content: string): string {
@@ -53,12 +54,13 @@ export function buildTargetMDXFrontmatter(
   sourceFrontmatter: Record<string, string>,
   targetFrontmatter: Record<string, string>,
   translatedContent?: Record<string, string>,
+  excludedKeys?: ReadonlyArray<string>,
 ) {
   const updatedFrontmatter: Record<string, string> = {};
   Object.keys(sourceFrontmatter).forEach((key) => {
     updatedFrontmatter[key] = translatedContent?.[key]
       ? translatedContent[key]
-      : targetFrontmatter[key]
+      : !excludedKeys?.includes(key) && targetFrontmatter[key]
         ? targetFrontmatter[key]
         : sourceFrontmatter[key];
   });
@@ -117,4 +119,11 @@ export function buildTargetMDX(
   );
 
   return matter.stringify(updatedMDXContent, updatedFrontmatter);
+}
+
+export function getFrontmatterWithoutExcludedKeys(
+  frontmatter: Record<string, string>,
+  excludedKeys: Array<string>,
+): Record<string, string> {
+  return omit(frontmatter, excludedKeys);
 }

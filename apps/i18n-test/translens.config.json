@@ -17,7 +17,12 @@
     },
     {
       "name": "blog",
-      "plugin": "mdx",
+      "plugin": [
+        "mdx",
+        {
+          "frontmatterExcludedKeys": ["author", "published"]
+        }
+      ],
       "paths": [
         {
           "source": "./src/blog/**/en-US.mdx",

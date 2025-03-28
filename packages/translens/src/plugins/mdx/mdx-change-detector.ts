@@ -1,4 +1,4 @@
-import matter from 'gray-matter';
+import grayMatter from 'gray-matter';
 import {
   Registry,
   TranslationFileItem,
@@ -11,7 +11,9 @@ import {
   buildTargetMDXFrontmatter,
   generateHash,
   generateMDXContentHashList,
+  getFrontmatterWithoutExcludedKeys,
 } from '../../lib/mdx-file';
+import { PluginOptions } from './mdx-plugin';
 
 type DiffInput = Readonly<{
   source: {
@@ -64,6 +66,18 @@ function findMissingOrUpdatedFrontmatterKeys(
     return false;
   });
 }
+
+const findFrontmatterExcludedKeysToUpdate = (
+  excludeKeys: ReadonlyArray<string>,
+  sourceFrontmatter: Record<string, string>,
+  targetFrontmatter: Record<string, string>,
+): string[] =>
+  excludeKeys.filter(
+    (key) =>
+      (key in targetFrontmatter && !(key in sourceFrontmatter)) ||
+      (!(key in targetFrontmatter) && key in sourceFrontmatter) ||
+      sourceFrontmatter[key] !== targetFrontmatter[key],
+  );
 
 function findMissingOrUpdatedContentKeys(
   sourceHashList: Array<string>,
@@ -158,12 +172,14 @@ function detectDiff(input: DiffInput): DiffResult {
 
 export async function processFileForChanges(
   file: TranslationFileMetadata,
+  options?: PluginOptions,
 ): Promise<
   Readonly<{
     frontmatter: Record<Locale, Array<string>>;
     content: Record<Locale, Array<string>>;
   }>
 > {
+  const { frontmatterExcludedKeys } = options || {};
   const registry = registryManager();
   const registryData = await registry.load(file.source.path);
 
@@ -179,7 +195,7 @@ export async function processFileForChanges(
 
   const sourceContent = await readFile(file.source.path);
   const { content: sourceMDXContent, data: sourceFrontmatter } =
-    matter(sourceContent);
+    grayMatter(sourceContent);
   const sourceHashList = generateMDXContentHashList(sourceMDXContent);
 
   for (const target of file.targets) {
@@ -187,15 +203,24 @@ export async function processFileForChanges(
     const targetContent = isFileExists ? await readFile(target.path) : null;
 
     const { content: targetMDXContent, data: targetFrontmatter } = targetContent
-      ? matter(targetContent)
+      ? grayMatter(targetContent)
       : {
           data: {},
           content: '',
         };
 
+    // Get source frontmatter without excluded keys because we don't want to consider them for translation
+    const sourceFrontmatterWithoutExcludedKeys =
+      frontmatterExcludedKeys && frontmatterExcludedKeys.length > 0
+        ? getFrontmatterWithoutExcludedKeys(
+            sourceFrontmatter,
+            frontmatterExcludedKeys,
+          )
+        : sourceFrontmatter;
+
     const diffInput: DiffInput = {
       source: {
-        frontmatter: sourceFrontmatter,
+        frontmatter: sourceFrontmatterWithoutExcludedKeys,
         contentHashList: generateMDXContentHashList(sourceMDXContent),
       },
       target: targetContent
@@ -217,26 +242,15 @@ export async function processFileForChanges(
       updatedFrontmatterHashes,
     } = await detectDiff(diffInput);
 
-    // Update the target MDX file if there is reorder or removal of content without content to translate
-    if (updatedContentHashList.length > 0) {
-      const updatedTargetMDXContent = buildTargetMDXContent(
-        sourceMDXContent,
-        targetMDXContent,
-        registryData.content.targets[target.locale],
-      );
-      const updatedTargetFrontmatter = buildTargetMDXFrontmatter(
-        sourceFrontmatter,
-        targetFrontmatter,
-      );
-
-      const updatedTargetContent = matter.stringify(
-        updatedTargetMDXContent,
-        Object.keys(updatedFrontmatterHashes).length > 0
-          ? updatedTargetFrontmatter
-          : targetFrontmatter,
-      );
-      await writeFile(target.path, updatedTargetContent);
-    }
+    await rebuildTargetContent({
+      sourceContent,
+      targetContent,
+      registryData,
+      target,
+      updatedContentHashList,
+      updatedFrontmatterHashes,
+      frontmatterExcludedKeys,
+    });
 
     // Update the frontmatter if there is removal of frontmatter without frontmatter keys to translate
     if (Object.keys(updatedFrontmatterHashes).length > 0) {
@@ -281,11 +295,85 @@ export async function processFileForChanges(
   return result;
 }
 
+/**
+ * Updates the target MDX file when certain conditions are met:
+ * 1. Content removal or reorder without new translation keys
+ * 2. Frontmatter removals without translation keys
+ * 3. Changes to excluded frontmatter keys.
+ */
+async function rebuildTargetContent({
+  sourceContent,
+  targetContent,
+  registryData,
+  target,
+  updatedContentHashList,
+  updatedFrontmatterHashes,
+  frontmatterExcludedKeys,
+}: {
+  sourceContent: string;
+  targetContent: string | null;
+  registryData: Registry;
+  target: TranslationFileItem;
+  updatedContentHashList: string[];
+  updatedFrontmatterHashes: Record<string, string>;
+  frontmatterExcludedKeys?: ReadonlyArray<string>;
+}) {
+  const { content: sourceMDXContent, data: sourceFrontmatter } =
+    grayMatter(sourceContent);
+  const { content: targetMDXContent, data: targetFrontmatter } = targetContent
+    ? grayMatter(targetContent)
+    : {
+        data: {},
+        content: '',
+      };
+  const excludedFrontmatterKeysToUpdate = findFrontmatterExcludedKeysToUpdate(
+    frontmatterExcludedKeys ?? [],
+    sourceFrontmatter,
+    targetFrontmatter,
+  );
+  if (
+    updatedContentHashList.length === 0 &&
+    Object.keys(updatedFrontmatterHashes).length === 0 &&
+    excludedFrontmatterKeysToUpdate.length === 0
+  ) {
+    return;
+  }
+
+  const frontmatterUpdated =
+    Object.keys(updatedFrontmatterHashes).length > 0 ||
+    excludedFrontmatterKeysToUpdate.length > 0;
+
+  const updatedTargetMDXContent =
+    updatedContentHashList.length > 0
+      ? buildTargetMDXContent(
+          sourceMDXContent,
+          targetMDXContent,
+          registryData.content.targets[target.locale],
+        )
+      : targetMDXContent;
+
+  const updatedTargetFrontmatter = frontmatterUpdated
+    ? buildTargetMDXFrontmatter(
+        sourceFrontmatter,
+        targetFrontmatter,
+        {},
+        frontmatterExcludedKeys,
+      )
+    : targetFrontmatter;
+
+  const updatedTargetContent = grayMatter.stringify(
+    updatedTargetMDXContent,
+    frontmatterUpdated ? updatedTargetFrontmatter : targetFrontmatter,
+  );
+  await writeFile(target.path, updatedTargetContent);
+}
+
 // Only export for testing
 export const __test__ = {
   isSubset,
   areArraysEqual,
   findMissingOrUpdatedFrontmatterKeys,
   findMissingOrUpdatedContentKeys,
+  findFrontmatterExcludedKeysToUpdate,
   detectDiff,
 };

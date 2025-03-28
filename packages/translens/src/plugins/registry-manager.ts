@@ -3,7 +3,12 @@ import path from 'path';
 
 import { readFile, writeFile } from '../lib/file-service';
 import { Registry, TranslationFileMetadata } from '../core/types';
-import { generateHash, generateMDXContentHashList } from '../lib/mdx-file';
+import {
+  generateHash,
+  generateMDXContentHashList,
+  getFrontmatterWithoutExcludedKeys,
+} from '../lib/mdx-file';
+import { PluginOptions } from './mdx/mdx-plugin';
 
 export default function registryManager() {
   function getRegistryPath(sourceFilePath: string): string {
@@ -40,12 +45,28 @@ export default function registryManager() {
       const data = JSON.stringify(registry, null, 2);
       await writeFile(registryPath, data);
     },
-    async updateFileRegistry(file: TranslationFileMetadata) {
+    async updateFileRegistry(
+      file: TranslationFileMetadata,
+      options?: PluginOptions,
+    ) {
+      const { frontmatterExcludedKeys } = options || {};
       const oldRegistryData = await this.load(file.source.path);
 
       const sourceContent = await readFile(file.source.path);
       const { data: sourceFrontmatter, content } = grayMatter(sourceContent);
-      const frontmatterHashValues = Object.keys(sourceFrontmatter).reduce(
+
+      // Get source frontmatter without excluded keys because we don't want to consider them for translation
+      const sourceFrontmatterWithoutExcludedKeys =
+        frontmatterExcludedKeys && frontmatterExcludedKeys.length > 0
+          ? getFrontmatterWithoutExcludedKeys(
+              sourceFrontmatter,
+              frontmatterExcludedKeys,
+            )
+          : sourceFrontmatter;
+
+      const frontmatterHashValues = Object.keys(
+        sourceFrontmatterWithoutExcludedKeys,
+      ).reduce(
         (acc, key) => {
           acc[key] = generateHash(sourceFrontmatter[key]);
           return acc;

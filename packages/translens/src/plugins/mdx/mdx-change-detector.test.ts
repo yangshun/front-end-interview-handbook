@@ -1,7 +1,4 @@
 import { __test__ } from './mdx-change-detector';
-import * as fs from 'fs/promises';
-import * as path from 'path';
-import os from 'os';
 import { generateHash, generateMDXContentHashList } from '../../lib/mdx-file';
 
 describe('isSubset()', () => {
@@ -121,6 +118,90 @@ describe('findMissingOrUpdatedContentKeys', () => {
       registryHashes,
     );
     expect(result).toEqual([]);
+  });
+});
+
+describe('findFrontmatterExcludedKeysToUpdate', () => {
+  const { findFrontmatterExcludedKeysToUpdate } = __test__;
+
+  test('excluded keys is empty', () => {
+    const sourceFrontmatter = { title: 'Hello', description: 'World' };
+    const targetFrontmatter = { title: 'Hello', description: 'World' };
+    const excludedFrontmatterKeysToUpdate = findFrontmatterExcludedKeysToUpdate(
+      [],
+      sourceFrontmatter,
+      targetFrontmatter,
+    );
+    expect(excludedFrontmatterKeysToUpdate).toEqual([]);
+  });
+  test('excluded keys is not empty and is missing in target frontmatter', () => {
+    const excludedKeys = ['author'];
+    const sourceFrontmatter = {
+      title: 'Hello',
+      description: 'World',
+      author: 'John',
+    };
+    const targetFrontmatter = { title: 'Hello', description: 'World' };
+    const excludedFrontmatterKeysToUpdate = findFrontmatterExcludedKeysToUpdate(
+      excludedKeys,
+      sourceFrontmatter,
+      targetFrontmatter,
+    );
+    expect(excludedFrontmatterKeysToUpdate).toEqual(['author']);
+  });
+  test('excluded keys is not empty and present in both source and target frontmatter and is same', () => {
+    const excludedKeys = ['author'];
+    const sourceFrontmatter = {
+      title: 'Hello',
+      description: 'World',
+      author: 'John',
+    };
+    const targetFrontmatter = {
+      title: 'Hello',
+      description: 'World',
+      author: 'John',
+    };
+    const excludedFrontmatterKeysToUpdate = findFrontmatterExcludedKeysToUpdate(
+      excludedKeys,
+      sourceFrontmatter,
+      targetFrontmatter,
+    );
+    expect(excludedFrontmatterKeysToUpdate).toEqual([]);
+  });
+  test('excluded keys is not empty and but missing in source', () => {
+    const excludedKeys = ['published'];
+    const sourceFrontmatter = {
+      title: 'Hello',
+      description: 'World',
+    };
+    const targetFrontmatter = {
+      title: 'Hello',
+      description: 'World',
+    };
+    const excludedFrontmatterKeysToUpdate = findFrontmatterExcludedKeysToUpdate(
+      excludedKeys,
+      sourceFrontmatter,
+      targetFrontmatter,
+    );
+    expect(excludedFrontmatterKeysToUpdate).toEqual([]);
+  });
+  test('excluded keys is not empty and but missing in source but present in target', () => {
+    const excludedKeys = ['published'];
+    const sourceFrontmatter = {
+      title: 'Hello',
+      description: 'World',
+    };
+    const targetFrontmatter = {
+      title: 'Hello',
+      description: 'World',
+      published: 'true',
+    };
+    const excludedFrontmatterKeysToUpdate = findFrontmatterExcludedKeysToUpdate(
+      excludedKeys,
+      sourceFrontmatter,
+      targetFrontmatter,
+    );
+    expect(excludedFrontmatterKeysToUpdate).toEqual(['published']);
   });
 });
 
