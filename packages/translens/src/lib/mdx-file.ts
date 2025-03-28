@@ -52,12 +52,12 @@ export function generateTargetMDXContentHashMap(
 export function buildTargetMDXFrontmatter(
   sourceFrontmatter: Record<string, string>,
   targetFrontmatter: Record<string, string>,
-  translatedContentMap?: Record<string, string>,
+  translatedContent?: Record<string, string>,
 ) {
   const updatedFrontmatter: Record<string, string> = {};
   Object.keys(sourceFrontmatter).forEach((key) => {
-    updatedFrontmatter[key] = translatedContentMap?.[key]
-      ? translatedContentMap[key]
+    updatedFrontmatter[key] = translatedContent?.[key]
+      ? translatedContent[key]
       : targetFrontmatter[key]
         ? targetFrontmatter[key]
         : sourceFrontmatter[key];
@@ -70,7 +70,7 @@ export function buildTargetMDXContent(
   sourceMDXContent: string,
   targetMDXContent: string,
   registryTargetHashList: Array<string>,
-  translatedContentMap?: Record<string, string>,
+  translatedContent?: Record<string, string>,
 ) {
   const sourceHashList = generateMDXContentHashList(sourceMDXContent);
   const targetHashList = generateMDXContentHashList(targetMDXContent);
@@ -87,7 +87,7 @@ export function buildTargetMDXContent(
     if (targetHashMap[hash]) {
       return targetHashMap[hash];
     }
-    return translatedContentMap?.[hash] || '';
+    return translatedContent?.[hash] || '';
   });
 
   return '\n' + newContent.join('\n\n');
@@ -97,7 +97,7 @@ export function buildTargetMDX(
   sourceContent: string,
   targetContent: string,
   registryTargetHashList: Array<string>,
-  translatedContentMap?: Record<string, string>,
+  translatedContent?: Record<string, string>,
 ) {
   const { data: sourceFrontmatter, content: sourceMDXContent } =
     matter(sourceContent);
@@ -107,13 +107,13 @@ export function buildTargetMDX(
   const updatedFrontmatter = buildTargetMDXFrontmatter(
     sourceFrontmatter,
     targetFrontmatter,
-    translatedContentMap,
+    translatedContent,
   );
   const updatedMDXContent = buildTargetMDXContent(
     sourceMDXContent,
     targetMDXContent,
     registryTargetHashList,
-    translatedContentMap,
+    translatedContent,
   );
 
   return matter.stringify(updatedMDXContent, updatedFrontmatter);

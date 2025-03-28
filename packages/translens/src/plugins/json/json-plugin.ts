@@ -8,8 +8,15 @@ import {
   readFile,
   writeFile,
 } from '../../lib/file-service';
-import { buildTargetedContentMap, hashFilePathLocale } from '../../lib/plugins';
+import {
+  buildTranslatedContentMap,
+  buildTranslationStrings,
+} from '../../lib/plugins';
 import { processFileForChanges } from './json-change-detector';
+
+type TranslationEntry =
+  | Readonly<{ defaultMessage: string; description: string }>
+  | string;
 
 export default function JsonPlugin(): Plugin {
   const files: Array<TranslationFileMetadata> = [];
@@ -24,121 +31,103 @@ export default function JsonPlugin(): Plugin {
       return 'The strings are in ICU syntax';
     },
     async getTranslationStrings() {
-      // Load files and determine which strings need to be translated
       const translationStrings: Array<TranslationStringArg> = [];
-
       for (const file of files) {
-        // Run the change detector to get keys to translate for each target locale
+        // Process file to get keys that need to be translated
         const keysToTranslate = await processFileForChanges(file);
 
-        const sourceContent = await readFile(file.source.path);
-        const sourceJson = JSON.parse(sourceContent);
+        const sourceJson = await readJson(file.source.path);
 
-        for (const key of Object.keys(sourceJson)) {
-          // Build an array of target locales that are missing this key
-          const missingInTargets = file.targets
-            .filter((target) => {
-              const missingKeys = keysToTranslate[target.locale];
-              return missingKeys && missingKeys.includes(key);
-            })
-            .map((target) => target.locale);
+        if (!sourceJson) continue;
 
-          if (missingInTargets.length > 0) {
-            translationStrings.push({
-              id: key,
-              batchId: file.source.path,
-              source: {
-                string:
-                  typeof sourceJson[key] === 'object' &&
-                  'defaultMessage' in sourceJson[key]
-                    ? sourceJson[key].defaultMessage
-                    : sourceJson[key],
-                description:
-                  typeof sourceJson[key] === 'object' &&
-                  'description' in sourceJson[key]
-                    ? sourceJson[key].description
-                    : '',
-                locale: file.source.locale,
-              },
-              targets: missingInTargets,
-            });
-          }
-        }
+        translationStrings.push(
+          ...buildTranslationStrings(sourceJson, keysToTranslate, file),
+        );
       }
       return translationStrings;
     },
-    /**
-     * Write translated strings back to filesystem. For each target file it:
-     *  - Removes keys that have been removed from the source.
-     *  - Merges in new translations.
-     *  - Writes the updated JSON back to the file.
-     */
     async onTranslationBatchComplete(translatedStrings) {
-      // Build a map of target file hash (using file path and locale) to its translation content.
-      const targetedContentMap = buildTargetedContentMap(translatedStrings);
+      if (!translatedStrings.length) {
+        return;
+      }
 
-      // TODO: Handle concurrent file write operations and add concurrency limit
-      // TODO: Handle incremental translation of translated string.
-      // Process each file concurrently to update its target files.
+      const file = files.find(
+        (file) => file.source.path === translatedStrings[0].batchId,
+      );
+      if (!file) {
+        return;
+      }
+
+      const translatedContentMap = buildTranslatedContentMap(translatedStrings);
+      const sourceJson = await readJson(file.source.path);
+      if (!sourceJson) return;
+
+      // Write to each target file concurrently
       await Promise.all(
-        files.map(async (file) => {
-          // Read and parse the source JSON file.
-          const sourceContent = await readFile(file.source.path);
-          const sourceJson = JSON.parse(sourceContent);
-          const sourceKeys = Object.keys(sourceJson);
-          const sourceItem = sourceJson[sourceKeys[0]];
-          const hasDescription =
-            typeof sourceItem === 'object' && 'description' in sourceItem;
-
-          // Process each target for the current file concurrently.
-          await Promise.all(
-            file.targets.map(async (target) => {
-              // Ensure target file and its directory exist.
-              await ensureFileAndDirExists(
-                target.path,
-                JSON.stringify({}, null, 2),
-              );
-
-              // Read and parse the target JSON file.
-              const targetContent = await readFile(target.path);
-              const targetJson = JSON.parse(targetContent);
-
-              // Merge in the new translations from the targeted content map.
-              const targetHash = hashFilePathLocale(
-                file.source.path,
-                target.locale,
-              );
-              const translatedContent =
-                targetedContentMap.get(targetHash) || {};
-              Object.keys(translatedContent).forEach((key) => {
-                targetJson[key] = hasDescription
-                  ? {
-                      defaultMessage: translatedContent[key],
-                      description: sourceJson[key]?.description ?? '',
-                    }
-                  : translatedContent[key];
-              });
-
-              // Sort the keys of targetJson before writing to the file
-              const sortedTargetJson = Object.keys(targetJson)
-                .sort()
-                .reduce(
-                  (acc, key) => {
-                    acc[key] = targetJson[key];
-                    return acc;
-                  },
-                  {} as Record<string, unknown>,
-                );
-
-              // Write the updated JSON back to the target file.
-              await writeFile(
-                target.path,
-                JSON.stringify(sortedTargetJson, null, 2),
-              );
-            }),
-          );
-        }),
+        file.targets.map((target) =>
+          processTargetFile(target, translatedContentMap, sourceJson),
+        ),
       );
     },
   };
+}
+
+function mergeTranslations(
+  targetJson: Record<string, TranslationEntry>,
+  translatedContent: Record<string, string>,
+  sourceJson: Record<string, TranslationEntry>,
+): Record<string, TranslationEntry> {
+  Object.entries(translatedContent).forEach(([key, value]) => {
+    targetJson[key] =
+      typeof sourceJson[key] === 'object'
+        ? {
+            defaultMessage: value,
+            description: sourceJson[key].description,
+          }
+        : value;
+  });
+
+  return sortKeys(targetJson);
+}
+
+function sortKeys(
+  obj: Record<string, TranslationEntry>,
+): Record<string, TranslationEntry> {
+  return Object.keys(obj)
+    .sort()
+    .reduce((acc, key) => ({ ...acc, [key]: obj[key] }), {});
+}
+
+async function readJson(
+  path: string,
+): Promise<Record<string, TranslationEntry> | null> {
+  try {
+    const content = await readFile(path);
+    return JSON.parse(content);
+  } catch {
+    return null;
+  }
+}
+
+async function writeJson(path: string, data: Record<string, TranslationEntry>) {
+  await writeFile(path, JSON.stringify(sortKeys(data), null, 2));
+}
+
+async function processTargetFile(
+  target: { path: string; locale: string },
+  translatedContentMap: Map<string, Record<string, string>>,
+  sourceJson: Record<string, TranslationEntry>,
+) {
+  // Ensure target file and its directory exist
+  await ensureFileAndDirExists(target.path, JSON.stringify({}, null, 2));
+
+  const targetJson = (await readJson(target.path)) || {};
+  const translatedContent = translatedContentMap.get(target.locale) || {};
+
+  const mergedContent = mergeTranslations(
+    targetJson,
+    translatedContent,
+    sourceJson,
+  );
+  await writeJson(target.path, mergedContent);
 }

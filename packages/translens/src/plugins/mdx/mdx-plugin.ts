@@ -15,9 +15,8 @@ import {
 } from '../../lib/mdx-file';
 import registryManager from '../registry-manager';
 import {
-  buildTargetedContentMap,
+  buildTranslatedContentMap,
   buildTranslationStrings,
-  hashFilePathLocale,
 } from '../../lib/plugins';
 import { processFileForChanges } from './mdx-change-detector';
 
@@ -35,7 +34,7 @@ export default function mdxPlugin(): Plugin {
         'These strings are part of an MDX file, which can contain JSX and markdown.',
         'If a string is a code statement with no UI strings, return as-is, do not translate it.',
         'Make sure to return all the translated object for all the strings',
-        'If the source string is a code snippet that already contains formatting markers (e.g., code fences), output the snippet exactly as provided—do not add, remove, or modify any characters or formatting markers. For example, if the snippet has an opening code fence without a closing one, do not append a closing fence.',
+        'If the source string includes a code block fence (e.g., ``` or other delimiters), return it exactly as provided—do not add, modify, or complete missing code fences. Maintain the input as-is, even if the code block appears incomplete.',
       ].join('\n');
     },
     async getTranslationStrings() {
@@ -68,51 +67,46 @@ export default function mdxPlugin(): Plugin {
       return translationStrings;
     },
     async onTranslationBatchComplete(translatedStrings) {
-      if (translatedStrings.length === 0) {
+      if (!translatedStrings.length) {
         return;
       }
 
-      // Build a map of target file hash (using file path and locale) to its translation content.
-      const targetedContentMap = buildTargetedContentMap(translatedStrings);
+      const file = files.find(
+        (file) => file.source.path === translatedStrings[0].batchId,
+      );
+      if (!file) {
+        return;
+      }
+      const translatedContentMap = buildTranslatedContentMap(translatedStrings);
+      const sourceContent = await readFile(file.source.path);
+      const registryData = await registry.load(file.source.path);
+
+      // Write to each target file concurrently
       await Promise.all(
-        files.map(async (file) => {
-          const sourceContent = await readFile(file.source.path);
-          const registryData = await registry.load(file.source.path);
+        file.targets.map(async (target) => {
+          // Ensure target file and its directory exist
+          await ensureFileAndDirExists(target.path);
 
-          // Process each target for the current file concurrently.
-          await Promise.all(
-            file.targets.map(async (target) => {
-              // Ensure target file and its directory exist.
-              await ensureFileAndDirExists(target.path);
+          const targetContent = await readFile(target.path);
+          const translatedContent =
+            translatedContentMap.get(target.locale) || {};
 
-              // Read and parse the target JSON file.
-              const targetContent = await readFile(target.path);
+          const targetHashList =
+            registryData?.content?.targets?.[target.locale] || [];
 
-              const targetHash = hashFilePathLocale(
-                file.source.path,
-                target.locale,
-              );
-              const translatedContent =
-                targetedContentMap.get(targetHash) || {};
-
-              const targetHashList =
-                registryData?.content?.targets?.[target.locale] || [];
-
-              // Build target MDX file content
-              const targetFileContent = buildTargetMDX(
-                sourceContent,
-                targetContent,
-                targetHashList,
-                translatedContent,
-              );
-
-              await writeFile(target.path, targetFileContent);
-            }),
+          // Build target MDX file content
+          const targetFileContent = buildTargetMDX(
+            sourceContent,
+            targetContent,
+            targetHashList,
+            translatedContent,
           );
 
-          await registry.updateFileRegistry(file);
+          await writeFile(target.path, targetFileContent);
         }),
       );
+
+      await registry.updateFileRegistry(file);
     },
   };
 }

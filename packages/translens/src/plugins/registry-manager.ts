@@ -53,7 +53,7 @@ export default function registryManager() {
 
       const sourceContentHashList = generateMDXContentHashList(content);
 
-      this.save(file.source.path, {
+      await this.save(file.source.path, {
         frontmatter: frontmatterHashValues,
         content: {
           source: {

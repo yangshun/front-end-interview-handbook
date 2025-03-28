@@ -1,3 +1,4 @@
+import { groupBy, mapValues } from 'lodash-es';
 import {
   TranslationStringArg,
   TranslationFileMetadata,
@@ -5,64 +6,64 @@ import {
 } from '../core/types';
 
 /**
- * Returns a unique key for a given file path and locale.
+ * Build a map of translated content for each target locale.
  */
-export function hashFilePathLocale(filePath: string, locale: string): string {
-  return `${filePath}#${locale}`;
-}
-
-/**
- * Builds a map of target file hash keys to their new translation content.
- */
-export function buildTargetedContentMap(
+export function buildTranslatedContentMap(
   translatedStrings: ReadonlyArray<TranslationStringResult>,
-): Map<string, Record<string, string>> {
-  const targetedContentMap = new Map<string, Record<string, string>>();
-
-  for (const translatedString of translatedStrings) {
-    for (const target of translatedString.targets) {
-      const targetPath = hashFilePathLocale(
-        translatedString.batchId,
-        target.locale,
-      );
-      if (!targetedContentMap.has(targetPath)) {
-        targetedContentMap.set(targetPath, {});
-      }
-      const translationEntry = targetedContentMap.get(targetPath)!;
-      translationEntry[translatedString.id] = target.string;
-    }
-  }
-
-  return targetedContentMap;
+): Map<Locale, Record<string, string>> {
+  const grouped = groupBy(
+    translatedStrings.flatMap(({ id, targets }) =>
+      targets.map(({ locale, string }) => ({ locale, id, string })),
+    ),
+    'locale',
+  );
+  const contentMap = new Map<Locale, Record<string, string>>(
+    Object.entries(
+      mapValues(grouped, (translations) =>
+        Object.fromEntries(translations.map(({ id, string }) => [id, string])),
+      ),
+    ),
+  );
+  return contentMap;
 }
 
 export function buildTranslationStrings(
-  content: Record<string, string>,
+  content: Record<
+    string,
+    | string
+    | {
+        defaultMessage: string;
+        description: string;
+      }
+  >,
   changes: Record<Locale, Array<string>>,
   file: TranslationFileMetadata,
 ): Array<TranslationStringArg> {
-  const translationStrings: Array<TranslationStringArg> = [];
+  return Object.entries(content).reduce<TranslationStringArg[]>(
+    (acc, [key, value]) => {
+      const missingInTargets = file.targets
+        .filter((target) => changes[target.locale]?.includes(key))
+        .map((target) => target.locale);
 
-  for (const key of Object.keys(content)) {
-    const missingInTargets = file.targets
-      .filter((target) => {
-        const missingKeys = changes[target.locale];
-        return missingKeys && missingKeys.includes(key);
-      })
-      .map((target) => target.locale);
+      if (missingInTargets.length > 0) {
+        acc.push({
+          id: key,
+          batchId: file.source.path,
+          source: getTranslationSource(value, file.source.locale),
+          targets: missingInTargets,
+        });
+      }
+      return acc;
+    },
+    [],
+  );
+}
 
-    if (missingInTargets.length > 0) {
-      translationStrings.push({
-        id: key,
-        batchId: file.source.path,
-        source: {
-          string: content[key],
-          locale: file.source.locale,
-        },
-        targets: missingInTargets,
-      });
-    }
-  }
-
-  return translationStrings;
+function getTranslationSource(
+  value: string | { defaultMessage: string; description: string },
+  locale: Locale,
+): { string: string; locale: Locale; description?: string } {
+  return typeof value === 'object'
+    ? { string: value.defaultMessage, description: value.description, locale }
+    : { string: value, locale };
 }

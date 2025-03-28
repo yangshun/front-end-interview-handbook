@@ -1,7 +1,3 @@
-import * as fs from 'fs/promises';
-import * as path from 'path';
-import os from 'os';
-import { TranslationFileMetadata } from '../../core/types';
 import { __test__ } from './json-change-detector';
 
 describe('jsonChangeDetector', () => {
