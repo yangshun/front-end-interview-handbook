@@ -3,13 +3,13 @@ import { expandTargetPaths } from '../core';
 import {
   Plugin,
   TranslationGroup,
-  TranslationGroupName,
+  TranslationGroupId,
   TranslationJob,
 } from '../core/types';
 import jsonPlugin from '../plugins/json/json-plugin';
 import mdxPlugin from '../plugins/mdx/mdx-plugin';
 import { generate } from '../translation/generate';
-import { groupBy } from 'lodash-es';
+import { chunk, groupBy } from 'lodash-es';
 import mapAsync from '../utils/map-async';
 import { printGroupStatus } from '../core/output/print';
 
@@ -17,12 +17,14 @@ const DEFAULTS_PLUGINS: Record<string, () => Plugin> = {
   json: jsonPlugin,
   mdx: mdxPlugin,
 };
-const CONCURRENCY_LIMIT = 5;
+const DEFAULT_CONCURRENCY_LIMIT = 5;
+const DEFAULT_BATCH_CHUNK_SIZE = 5;
 const REFRESH_INTERVAL = 1000 / 16;
 
 export async function translate() {
   const config = new Config().getConfig();
-  const groups = new Map<TranslationGroupName, TranslationGroup>();
+  const groups = new Map<TranslationGroupId, TranslationGroup>();
+  const runId = new Date().toISOString();
 
   // Discover files to translate
   await Promise.all(
@@ -41,8 +43,8 @@ export async function translate() {
       await pluginInstance.trackFiles(groupFilesFlattened);
 
       groups.set(group.name, {
-        ...group,
-        pluginInstance,
+        groupId: group.name,
+        plugin: pluginInstance,
         batches: new Map(),
       });
     }),
@@ -51,15 +53,16 @@ export async function translate() {
   // Gather translation strings
   await Promise.all(
     Array.from(groups.values()).map(async (group) => {
-      const translationStrings =
-        await group.pluginInstance.getTranslationStrings();
+      const translationStrings = await group.plugin.getTranslationStrings();
 
-      const batchIds = groupBy(translationStrings, (string) => string.batch);
+      const batchIds = groupBy(translationStrings, (string) => string.batchId);
 
       Object.keys(batchIds).forEach((batchId) => {
         group.batches.set(batchId, {
           batchId,
           status: 'pending',
+          errors: [],
+          translations: [],
           strings: batchIds[batchId],
           time: { start: null, end: null },
         });
@@ -74,18 +77,25 @@ export async function translate() {
 
   for (const group of groups.values()) {
     for (const batch of group.batches.values()) {
-      // Potentially split up into multiple jobs if a batch is too big
-      translationJobQueue.push({
-        group: group.name,
-        batch: batch.batchId,
-        strings: batch.strings,
+      // Split up into multiple jobs based on chunk size
+      const chunks = chunk(batch.strings, DEFAULT_BATCH_CHUNK_SIZE);
+      chunks.forEach((chunk, chunkIndex) => {
+        translationJobQueue.push({
+          runId,
+          jobId: `${group.groupId}-${batch.batchId
+            .replace(/^\.\//, '')
+            .replace(/\//g, '#')}-${chunkIndex}`,
+          group: group.groupId,
+          batch: batch.batchId,
+          strings: chunk,
+        });
       });
     }
   }
 
   if (translationJobQueue.length === 0) {
-    console.info(`Nothing to translate. Terminating.`);
-    return;
+    console.info('Nothing to translate. Terminating.');
+    process.exit(0);
   }
 
   function print() {
@@ -109,31 +119,36 @@ export async function translate() {
       }
 
       const batch = groups.get(job.group)!.batches.get(job.batch)!;
-      try {
+      if (batch.status === 'pending') {
         batch.status = 'translating';
         batch.time.start = Date.now();
+      }
 
-        const instructions =
-          (await group.pluginInstance.getInstructions?.()) || '';
-        const translatedStrings = await generate(job.strings, {
+      try {
+        const instructions = (await group.plugin.getInstructions?.()) || '';
+        const translatedStrings = await generate(job, {
           provider: config.provider,
           instructions,
         });
 
-        await group.pluginInstance.onTranslationBatchComplete(
-          translatedStrings,
-        );
+        batch.translations.push(...translatedStrings);
 
-        batch.status = 'success';
-      } catch {
-        batch.status = 'failed';
+        if (batch.translations.length === batch.strings.length) {
+          batch.status = 'success';
+          batch.time.end = Date.now();
+
+          await group.plugin.onTranslationBatchComplete(batch.translations);
+        }
+      } catch (err) {
+        batch.errors.push(err as Error);
+        batch.status = 'error';
+        batch.time.end = Date.now();
       }
-      batch.time.end = Date.now();
     },
-    CONCURRENCY_LIMIT,
+    DEFAULT_CONCURRENCY_LIMIT,
   );
 
-  print();
+  printGroupStatus(groups);
 
   clearInterval(intervalId);
   process.exit(0);

@@ -1,6 +1,6 @@
 import chalk from 'chalk';
 import logUpdate from 'log-update';
-import { TranslationGroups } from '../types';
+import { TranslationGroupId, TranslationGroups } from '../types';
 import { batchStatusSymbol } from './spinner-frames';
 
 let timeStart = Date.now();
@@ -11,9 +11,13 @@ export function formatDuration(start: number | null, end: number | null) {
   return duration == null ? '' : `${(duration / 1000).toFixed(1)}s`;
 }
 
+function formatGroupId(groupId: TranslationGroupId) {
+  return `[${groupId}]`;
+}
+
 export function printGroupStatus(groups: TranslationGroups) {
-  const longestGroupNameLength = Math.max(
-    ...Array.from(groups.keys()).map((name) => name.length),
+  const longestGroupIdLength = Math.max(
+    ...Array.from(groups.keys()).map((name) => formatGroupId(name).length),
   );
 
   const results: Array<string> = [];
@@ -23,7 +27,7 @@ export function printGroupStatus(groups: TranslationGroups) {
   for (const group of groups.values()) {
     for (const batch of group.batches.values()) {
       const batchPrefix =
-        chalk.dim(`[${group.name}]`.padStart(longestGroupNameLength + 2)) +
+        chalk.dim(formatGroupId(group.groupId).padStart(longestGroupIdLength)) +
         ` ${chalk.visible(batch.batchId.replace(/^\.\//, ''))}`;
 
       if (batch.status === 'success') {
@@ -36,7 +40,9 @@ export function printGroupStatus(groups: TranslationGroups) {
           batchStatusSymbol(batch.status),
           batchPrefix,
           chalk.dim(
-            `(${batch.strings.length} ${batch.strings.length === 1 ? 'string' : 'strings'})`,
+            `(${batch.strings.length} ${
+              batch.strings.length === 1 ? 'string' : 'strings'
+            })`,
           ),
           chalk.dim(formatDuration(batch.time.start, batch.time.end)),
         ].join(' '),

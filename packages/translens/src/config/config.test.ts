@@ -1,11 +1,11 @@
 import fs from 'fs';
 import path from 'path';
 import Config, { DEFAULT_CONFIG } from '.';
-import { IConfig } from './types';
+import { ConfigType } from './types';
 
 const TEST_CONFIG_PATH = path.join(process.cwd(), 'test-translens.config.json');
 
-const mockConfig: IConfig = DEFAULT_CONFIG;
+const mockConfig: ConfigType = DEFAULT_CONFIG;
 
 describe('Config Class', () => {
   beforeEach(() => {

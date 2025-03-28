@@ -46,7 +46,7 @@ export default function JsonPlugin(): Plugin {
           if (missingInTargets.length > 0) {
             translationStrings.push({
               id: key,
-              batch: file.source.path,
+              batchId: file.source.path,
               source: {
                 string:
                   typeof sourceJson[key] === 'object' &&

@@ -19,7 +19,7 @@ ${promptVariables.instructions}
 [
   {
     "id": "abc",
-    "filePath": "path/to/file",
+    "batchId": "some-batch-id",
     "translations": {
       "zh-CN": "...",
       "pt-BR": "...",

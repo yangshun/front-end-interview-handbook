@@ -10,46 +10,52 @@ export type TranslationFileMetadata = Readonly<{
   targets: ReadonlyArray<TranslationFileItem>;
 }>;
 
-export type TranslationGroupName = string;
+export type TranslationGroupId = string;
 export type TranslationGroupBatchId = string;
-export interface TranslationGroup extends ConfigGroup {
-  pluginInstance: Plugin;
+export type TranslationJobId = string;
+export type TranslationRunId = string;
+
+export interface TranslationGroup {
+  groupId: TranslationGroupId;
+  plugin: Plugin;
   batches: Map<TranslationGroupBatchId, TranslationGroupBatch>;
 }
 
-export type TranslationGroups = Map<TranslationGroupName, TranslationGroup>;
+export type TranslationGroups = Map<TranslationGroupId, TranslationGroup>;
 export type TranslationGroupBatchStatus =
   | 'pending'
   | 'translating'
   | 'success'
-  | 'failed';
+  | 'error';
 
 export type TranslationGroupBatch = {
   batchId: TranslationGroupBatchId;
   status: TranslationGroupBatchStatus;
+  errors: Array<Error>;
   time: {
     start: null | number;
     end: null | number;
   };
+  translations: Array<TranslationStringResult>;
   strings: ReadonlyArray<TranslationStringArg>;
 };
 
-export type TranslationStringItem = Readonly<{
+export type TranslationString = Readonly<{
   string: string;
   locale: Locale;
 }>;
 
-export type TranslationStringMetadata = Readonly<{
+export type TranslationStringResult = Readonly<{
   id: string;
-  batch: string;
-  source: TranslationStringItem;
-  targets: ReadonlyArray<TranslationStringItem>;
+  batchId: TranslationGroupBatchId;
+  source: TranslationString;
+  targets: ReadonlyArray<TranslationString>;
 }>;
 
 export type TranslationStringArg = Readonly<{
   id: string;
-  batch: string;
-  source: TranslationStringItem &
+  batchId: TranslationGroupBatchId;
+  source: TranslationString &
     Readonly<{
       description?: string; // Optional context for the translation
     }>;
@@ -81,13 +87,15 @@ export interface Plugin {
    * Called when the runner completes translating strings in an entire batch
    */
   onTranslationBatchComplete: (
-    translatedStrings: ReadonlyArray<TranslationStringMetadata>,
+    translatedStrings: ReadonlyArray<TranslationStringResult>,
   ) => Promise<void>;
   onTranslationComplete?: () => Promise<void>;
 }
 
 export type TranslationJob = Readonly<{
-  group: TranslationGroupName;
+  runId: TranslationRunId;
+  jobId: TranslationJobId;
+  group: TranslationGroupId;
   batch: TranslationGroupBatchId;
   strings: ReadonlyArray<TranslationStringArg>;
 }>;

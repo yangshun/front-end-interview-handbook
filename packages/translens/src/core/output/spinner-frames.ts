@@ -17,10 +17,10 @@ export function batchStatusSymbol(status: TranslationGroupBatchStatus) {
       return spinnerFrames[index];
     }
     case 'success': {
-      return chalk.greenBright('✔');
+      return chalk.green('✔');
     }
-    case 'failed': {
-      return chalk.redBright('✖️');
+    case 'error': {
+      return chalk.redBright('✕');
     }
   }
 }

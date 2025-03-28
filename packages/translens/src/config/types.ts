@@ -1,5 +1,3 @@
-import { TranslationGroupName } from '../core/types';
-
 export interface LocaleConfig {
   source: string; // Source locale
   target: string[]; // Target locales
@@ -13,7 +11,7 @@ export interface ConfigGroupPathItem {
 }
 
 export interface ConfigGroup {
-  name: TranslationGroupName;
+  name: string;
   plugin: 'json' | 'mdx' | 'string'; // Type of default handler or a custom handler
   paths: ConfigGroupPathItem[];
   localeConfig?: LocaleConfig; // Optional, group-specific locale config
@@ -21,7 +19,7 @@ export interface ConfigGroup {
 
 export type TranslationProvider = 'openai' | 'deepseek' | 'google';
 
-export interface IConfig {
+export interface ConfigType {
   provider: TranslationProvider;
   localeConfig: LocaleConfig;
   groups: ConfigGroup[];

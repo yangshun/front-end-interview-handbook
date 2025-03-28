@@ -1,7 +1,7 @@
 import {
   TranslationStringArg,
   TranslationFileMetadata,
-  TranslationStringMetadata,
+  TranslationStringResult,
 } from '../core/types';
 
 /**
@@ -15,14 +15,14 @@ export function hashFilePathLocale(filePath: string, locale: string): string {
  * Builds a map of target file hash keys to their new translation content.
  */
 export function buildTargetedContentMap(
-  translatedStrings: ReadonlyArray<TranslationStringMetadata>,
+  translatedStrings: ReadonlyArray<TranslationStringResult>,
 ): Map<string, Record<string, string>> {
   const targetedContentMap = new Map<string, Record<string, string>>();
 
   for (const translatedString of translatedStrings) {
     for (const target of translatedString.targets) {
       const targetPath = hashFilePathLocale(
-        translatedString.batch,
+        translatedString.batchId,
         target.locale,
       );
       if (!targetedContentMap.has(targetPath)) {
@@ -54,7 +54,7 @@ export function buildTranslationStrings(
     if (missingInTargets.length > 0) {
       translationStrings.push({
         id: key,
-        batch: file.source.path,
+        batchId: file.source.path,
         source: {
           string: content[key],
           locale: file.source.locale,
