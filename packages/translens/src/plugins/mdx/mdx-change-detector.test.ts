@@ -1,5 +1,5 @@
 import { __test__ } from './mdx-change-detector';
-import { generateHash, generateMDXContentHashList } from '../../lib/mdx-file';
+import { generateHash } from '../../lib/mdx-file';
 
 describe('isSubset()', () => {
   const { isSubset } = __test__;
@@ -205,291 +205,74 @@ describe('findFrontmatterExcludedKeysToUpdate', () => {
   });
 });
 
-describe('detectDiff', () => {
-  const { detectDiff } = __test__;
-
-  test('flags all keys for new translation when target file missing', async () => {
-    const diffInput = {
-      source: {
-        frontmatter: {
-          title: 'Hello',
-          description: 'World',
-        },
-        contentHashList: generateMDXContentHashList('Content'),
-      },
-      target: undefined,
-      registry: {
-        frontmatter: {},
-        targetContentHashList: [],
-      },
-    };
-    const result = await detectDiff(diffInput);
-
-    expect(result.contentKeysToTranslate).toHaveLength(1);
-    expect(result.contentKeysToTranslate).toEqual(
-      generateMDXContentHashList('Content'),
-    );
-    expect(result.frontmatterKeysToTranslate).toEqual(['title', 'description']);
-    expect(result.updatedContentHashList).toEqual([]);
-    expect(result.updatedFrontmatterHashes).toEqual({});
+describe('detectFrontmatterDiff', () => {
+  const { detectFrontmatterDiff } = __test__;
+  test('target is missing', () => {
+    const source = { title: 'Hello', desc: 'World' };
+    const result = detectFrontmatterDiff(source, undefined, {});
+    expect(result.keysToTranslate).toEqual(['title', 'desc']);
+    expect(result.isReorderOrRemoval).toBe(false);
   });
-
-  test('new frontmatter values', async () => {
-    const diffInput = {
-      source: {
-        frontmatter: {
-          title: 'Hello',
-          description: 'Description',
-        },
-        contentHashList: generateMDXContentHashList('Content'),
-      },
-      target: {
-        frontmatter: {
-          title: 'Hello',
-        },
-        contentHashList: generateMDXContentHashList('Content'),
-      },
-      registry: {
-        frontmatter: {
-          title: generateHash('Hello'),
-        },
-        targetContentHashList: generateMDXContentHashList('Content'),
-      },
-    };
-    const result = await detectDiff(diffInput);
-
-    expect(result.frontmatterKeysToTranslate).toEqual(['description']);
-    expect(result.contentKeysToTranslate).toEqual([]);
-    expect(result.updatedContentHashList).toEqual([]);
-    expect(result.updatedFrontmatterHashes).toEqual({});
+  test('new and updated frontmatter to translate', () => {
+    const source = { title: 'New', desc: 'Updated' };
+    const target = { title: 'Old' };
+    const registry = { title: generateHash('Old') };
+    const result = detectFrontmatterDiff(source, target, registry);
+    expect(result.keysToTranslate).toEqual(['title', 'desc']);
   });
-
-  test('removed frontmatter keys', async () => {
-    const diffInput = {
-      source: {
-        frontmatter: {
-          title: 'Hello',
-        },
-        contentHashList: [],
-      },
-      target: {
-        frontmatter: {
-          title: 'Hello',
-          description: 'Description',
-        },
-        contentHashList: [],
-      },
-      registry: {
-        frontmatter: {
-          title: generateHash('Hello'),
-          description: generateHash('Description'),
-        },
-        targetContentHashList: [],
-      },
-    };
-
-    const result = await detectDiff(diffInput);
-
-    expect(result.updatedFrontmatterHashes).toEqual({
+  test('frontmatter removed from source', () => {
+    const source = { title: 'Hello' };
+    const target = { title: 'Hello', desc: 'World' };
+    const registry = {
       title: generateHash('Hello'),
-    });
-    expect(result.frontmatterKeysToTranslate).toEqual([]);
-    expect(result.frontmatterKeysToTranslate).toEqual([]);
-    expect(result.updatedContentHashList).toEqual([]);
-  });
-
-  test('changed frontmatter values', async () => {
-    const diffInput = {
-      source: {
-        frontmatter: {
-          title: 'Updated Hello',
-        },
-        contentHashList: [],
-      },
-      target: {
-        frontmatter: {
-          title: 'Hello',
-          description: 'Description',
-        },
-        contentHashList: [],
-      },
-      registry: {
-        frontmatter: {
-          title: generateHash('Hello'),
-          description: generateHash('Description'),
-        },
-        targetContentHashList: [],
-      },
+      desc: generateHash('World'),
     };
-
-    const result = await detectDiff(diffInput);
-
-    expect(result.frontmatterKeysToTranslate).toEqual(['title']);
-    expect(result.contentKeysToTranslate).toEqual([]);
-    expect(result.updatedContentHashList).toEqual([]);
-    expect(result.updatedFrontmatterHashes).toEqual({});
+    const result = detectFrontmatterDiff(source, target, registry);
+    expect(result.isReorderOrRemoval).toBe(true);
+    expect(result.keysToTranslate).toEqual([]);
   });
-
-  test('new untranslated content', async () => {
-    const diffInput = {
-      source: {
-        frontmatter: {
-          title: 'Hello',
-        },
-        contentHashList: generateMDXContentHashList(
-          'Translated\n\nUntranslated1\n\nUntranslated2',
-        ),
-      },
-      target: {
-        frontmatter: {
-          title: 'Hello',
-        },
-        contentHashList: generateMDXContentHashList('Translated'),
-      },
-      registry: {
-        frontmatter: {
-          title: generateHash('Hello'),
-        },
-        targetContentHashList: generateMDXContentHashList('Translated'),
-      },
+  test('source and target is exactly same', () => {
+    const source = { title: 'Hello' };
+    const target = { title: 'Hello' };
+    const registry = {
+      title: generateHash('Hello'),
     };
-
-    const result = await detectDiff(diffInput);
-
-    expect(result.contentKeysToTranslate).toEqual(
-      generateMDXContentHashList('Untranslated1\n\nUntranslated2'),
-    );
-    expect(result.frontmatterKeysToTranslate).toEqual([]);
-    expect(result.updatedContentHashList).toEqual([]);
-    expect(result.updatedFrontmatterHashes).toEqual({});
+    const result = detectFrontmatterDiff(source, target, registry);
+    expect(result.isReorderOrRemoval).toBe(false);
+    expect(result.keysToTranslate).toEqual([]);
   });
+});
 
-  test('changed mdx content', async () => {
-    const diffInput = {
-      source: {
-        frontmatter: {
-          title: 'Hello',
-        },
-        contentHashList: generateMDXContentHashList('Updated content'),
-      },
-      target: {
-        frontmatter: {
-          title: 'Hello',
-        },
-        contentHashList: generateMDXContentHashList('Content'),
-      },
-      registry: {
-        frontmatter: {
-          title: generateHash('Hello'),
-        },
-        targetContentHashList: generateMDXContentHashList('Content'),
-      },
-    };
+describe('detectContentDiff', () => {
+  const { detectContentDiff } = __test__;
 
-    const result = await detectDiff(diffInput);
-
-    expect(result.contentKeysToTranslate).toEqual(
-      generateMDXContentHashList('Updated content'),
-    );
-    expect(result.frontmatterKeysToTranslate).toEqual([]);
-    expect(result.updatedContentHashList).toEqual([]);
-    expect(result.updatedFrontmatterHashes).toEqual({});
+  test('target is missing', () => {
+    const sourceHashes = ['hash1', 'hash2'];
+    const result = detectContentDiff(sourceHashes, undefined, []);
+    expect(result.keysToTranslate).toEqual(sourceHashes);
+    expect(result.isReorderOrRemoval).toBe(false);
   });
-
-  test('content reordering without translation', async () => {
-    const diffInput = {
-      source: {
-        frontmatter: {
-          title: 'Hello',
-        },
-        contentHashList: generateMDXContentHashList('B\n\nA'),
-      },
-      target: {
-        frontmatter: {
-          title: 'Hello',
-        },
-        contentHashList: generateMDXContentHashList('A\n\nB'),
-      },
-      registry: {
-        frontmatter: {
-          title: generateHash('Hello'),
-        },
-        targetContentHashList: generateMDXContentHashList('A\n\nB'),
-      },
-    };
-
-    const result = await detectDiff(diffInput);
-
-    expect(result.updatedContentHashList).toEqual(
-      generateMDXContentHashList('B\n\nA'),
-    );
-    expect(result.frontmatterKeysToTranslate).toEqual([]);
-    expect(result.contentKeysToTranslate).toEqual([]);
-    expect(result.updatedFrontmatterHashes).toEqual({});
+  test('new content changes', () => {
+    const source = ['hash1', 'hash2'];
+    const target = ['hash1'];
+    const registry = ['hash1'];
+    const result = detectContentDiff(source, target, registry);
+    expect(result.keysToTranslate).toEqual(['hash2']);
   });
-
-  test('frontmatter and content changes', async () => {
-    const diffInput = {
-      source: {
-        frontmatter: {
-          title: 'Updated title',
-          description: 'Description',
-        },
-        contentHashList: generateMDXContentHashList('Updated Content'),
-      },
-      target: {
-        frontmatter: {
-          title: 'Title',
-        },
-        contentHashList: generateMDXContentHashList('Content'),
-      },
-      registry: {
-        frontmatter: {
-          title: generateHash('Title'),
-        },
-        targetContentHashList: generateMDXContentHashList('Content'),
-      },
-    };
-
-    const result = await detectDiff(diffInput);
-
-    expect(result.frontmatterKeysToTranslate).toEqual(['title', 'description']);
-    expect(result.updatedContentHashList).toEqual([]);
-    expect(result.contentKeysToTranslate).toEqual(
-      generateMDXContentHashList('Updated Content'),
-    );
-    expect(result.updatedFrontmatterHashes).toEqual({});
+  test('content removed from source', () => {
+    const source = ['hash1', 'hash2'];
+    const target = ['hash1', 'hash2', 'hash3'];
+    const registry = ['hash1', 'hash2', 'hash3'];
+    const result = detectContentDiff(source, target, registry);
+    expect(result.isReorderOrRemoval).toBe(true);
+    expect(result.keysToTranslate).toEqual([]);
   });
-
-  test('removal and reorder of mdx content without translation', async () => {
-    const diffInput = {
-      source: {
-        frontmatter: {
-          title: 'Title',
-        },
-        contentHashList: generateMDXContentHashList('C\n\nA'),
-      },
-      target: {
-        frontmatter: {
-          title: 'Title',
-        },
-        contentHashList: generateMDXContentHashList('A\n\nB\n\nC'),
-      },
-      registry: {
-        frontmatter: {
-          title: generateHash('Title'),
-        },
-        targetContentHashList: generateMDXContentHashList('A\n\nB\n\nC'),
-      },
-    };
-
-    const result = await detectDiff(diffInput);
-
-    expect(result.updatedContentHashList).toEqual(
-      generateMDXContentHashList('C\n\nA'),
-    );
-    expect(result.frontmatterKeysToTranslate).toEqual([]);
-    expect(result.contentKeysToTranslate).toEqual([]);
-    expect(result.updatedFrontmatterHashes).toEqual({});
+  test('content reordering', () => {
+    const source = ['hash2', 'hash1'];
+    const target = ['hash1', 'hash2'];
+    const registry = ['hash1', 'hash2'];
+    const result = detectContentDiff(source, target, registry);
+    expect(result.isReorderOrRemoval).toBe(true);
+    expect(result.keysToTranslate).toEqual([]);
   });
 });

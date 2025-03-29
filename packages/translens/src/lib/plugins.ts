@@ -36,9 +36,9 @@ export function buildTranslationStrings(
         description: string;
       }
   >,
-  changes: Record<Locale, Array<string>>,
+  changes: Record<Locale, ReadonlyArray<string>>,
   file: TranslationFileMetadata,
-): Array<TranslationStringArg> {
+): ReadonlyArray<TranslationStringArg> {
   return Object.entries(content).reduce<TranslationStringArg[]>(
     (acc, [key, value]) => {
       const missingInTargets = file.targets
