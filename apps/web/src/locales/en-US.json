@@ -899,10 +899,6 @@
     "defaultMessage": "NEW",
     "description": "Label for new questions ribbon"
   },
-  "3Hh9Vd": {
-    "defaultMessage": "Reach {engineersCount}+ front end engineers per week for just ~${price} CPM",
-    "description": "Title of advertise with us page"
-  },
   "3I6rHR": {
     "defaultMessage": "These resources help you prepare effectively while saving time by focusing on high-impact areas:",
     "description": "Paragraph 3 for \"What does GreatFrontEnd Interviews offer exactly?\" on Homepage FAQ sections"
@@ -2934,6 +2930,10 @@
   "FJQZpc": {
     "defaultMessage": "{numberOfQuestions, plural, =1 {<number>#</number> question} other {<number>#</number> questions}}",
     "description": "Number of applied filters"
+  },
+  "FKqEn/": {
+    "defaultMessage": "Advertise to {engineersCount}+ Front End Engineers with high ROI placements",
+    "description": "Title of advertise with us page"
   },
   "FLKG3X": {
     "defaultMessage": "Cut line (empty selection)",

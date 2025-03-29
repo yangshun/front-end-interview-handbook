@@ -45,12 +45,11 @@ export default function SponsorsHeroSection() {
           level="custom"
           weight="medium">
           <FormattedMessage
-            defaultMessage="Reach {engineersCount}+ front end engineers per week for just ~${price} CPM"
+            defaultMessage="Advertise to {engineersCount}+ Front End Engineers with high ROI placements"
             description="Title of advertise with us page"
-            id="3Hh9Vd"
+            id="FKqEn/"
             values={{
-              engineersCount: '20,000',
-              price: 12,
+              engineersCount: '600k',
             }}
           />
         </Heading>
