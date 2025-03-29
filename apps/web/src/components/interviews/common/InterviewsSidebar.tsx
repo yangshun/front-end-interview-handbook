@@ -120,7 +120,7 @@ export function InterviewsSidebarExpanded({
       }
       product="interviews"
       renderBottomAddonElements={() => (
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-4">
           <SponsorsAdFormatSpotlightContainer
             adPlacement="nav_sidebar"
             size="sm"

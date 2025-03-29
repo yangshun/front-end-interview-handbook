@@ -221,10 +221,7 @@ export default function InterviewsNavbar({
                           </div>
                         ))}
                       <div className="flex flex-col gap-4 px-6">
-                        <SponsorsAdFormatSpotlightContainer
-                          adPlacement="nav_mobile"
-                          size="sm"
-                        />
+                        <SponsorsAdFormatSpotlightContainer adPlacement="nav_mobile" />
                         <SocialDiscountSidebarMention />
                       </div>
                       <div

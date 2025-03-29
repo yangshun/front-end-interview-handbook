@@ -115,7 +115,7 @@ function SocialDiscountSidebarMentionImpl({
             'overflow-hidden',
             [themeWhiteGlowTicketBackground, 'before:-top-3 before:left-4'],
           )}>
-          <Text size="body3" weight="bold">
+          <Text size="body1" weight="bold">
             {socialDiscountLabels.ticketTitle}
           </Text>
         </div>

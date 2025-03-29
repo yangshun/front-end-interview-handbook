@@ -272,9 +272,9 @@ export function SidebarExpanded({
         </div>
         <div className="flex grow flex-col justify-between gap-4">
           <div className={clsx('h-0 grow overflow-auto')}>
-            <ScrollArea className="vignette-scroll py-4">
+            <ScrollArea className="vignette-scroll">
               {renderTopAddonElements?.(fadeInClass)}
-              <div className="pt-2">
+              <div className="pt-4">
                 <SidebarLinksSection
                   defaultOpenSections={defaultOpenSections}
                   items={startItems}
