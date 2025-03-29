@@ -4,10 +4,7 @@ import type {
 } from 'contentlayer/generated';
 
 import type { ProjectsSkillKey } from '../skills/types';
-import type {
-  ProjectsDeviceImages,
-  ProjectsProfileAvatarDataSlim,
-} from '../types';
+import type { ProjectsDeviceImages } from '../types';
 
 import type {
   SandboxEnvironment,
@@ -72,7 +69,6 @@ export type ProjectsChallengeItem = Readonly<{
   info: ProjectsChallengeInfo;
   metadata: ProjectsChallengeMetadata;
   startedCount: number | null;
-  startedProfiles: ReadonlyArray<ProjectsProfileAvatarDataSlim>;
   status: ProjectsChallengeSessionStatus | null;
   track: ProjectsChallengeTrackPayload;
   userUnlocked: boolean | null;

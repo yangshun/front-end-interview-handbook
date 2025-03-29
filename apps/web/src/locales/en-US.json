@@ -2827,10 +2827,6 @@
     "defaultMessage": "Started: {daysSinceStarted} days",
     "description": "Days since started for Continue projects section on Projects dashboard page"
   },
-  "EfwT/A": {
-    "defaultMessage": "{startedCount, plural, one {A user} other {# users}} started working on this challenge",
-    "description": "Number of users who have started the challenge"
-  },
   "EjbpUe": {
     "defaultMessage": "Open navigation profile menu",
     "description": "Screenreader text to open the profile menu"

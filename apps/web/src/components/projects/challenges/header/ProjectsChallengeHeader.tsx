@@ -9,7 +9,6 @@ import ProjectsChallengeDifficultyTag from '~/components/projects/challenges/met
 import ProjectsChallengeReputationTag from '~/components/projects/challenges/metadata/ProjectsChallengeReputationTag';
 import ProjectsChallengeTrackTag from '~/components/projects/challenges/metadata/ProjectsChallengeTrackTag';
 import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
-import ProjectsStartedUsersTag from '~/components/projects/stats/ProjectsStartedUsersTag';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
@@ -47,7 +46,7 @@ function ProjectsChallengeHeaderImpl({
   const intl = useIntl();
   const isMounted = useIsMounted();
   const tabs = useProjectDetailsStepsTabs(challenge);
-  const { startedCount, startedProfiles, metadata, info, track } = challenge;
+  const { metadata, info, track } = challenge;
   const { access, difficulty, points, skills, submitHref } = metadata;
   const { title, description } = info;
 
@@ -234,11 +233,6 @@ function ProjectsChallengeHeaderImpl({
             ) : (
               <div className="flex items-center gap-4 lg:flex-col lg:items-end">
                 {startButton}
-                <ProjectsStartedUsersTag
-                  avatarBorderClassName="border-white dark:border-neutral-900"
-                  count={startedCount}
-                  profiles={startedProfiles}
-                />
               </div>
             )}
           </div>

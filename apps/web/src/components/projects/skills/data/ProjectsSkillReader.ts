@@ -210,7 +210,6 @@ export async function readProjectsChallengeItemsForSkill(
             info: challengeInfoDict[challengeMetadata.slug],
             metadata: challengeMetadata,
             startedCount: null,
-            startedProfiles: [],
             status: challengeStatuses?.[challengeMetadata.slug] ?? null,
             userUnlocked:
               challengeAccessSet?.has(challengeMetadata.slug) ?? null,

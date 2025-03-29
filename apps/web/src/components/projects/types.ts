@@ -78,11 +78,6 @@ export type ProjectsRecommendedAction = {
   title: string;
 };
 
-export type ProjectsProfileAvatarData = ProjectsProfileAvatarDataSlim &
-  Readonly<{
-    points: number;
-  }>;
-
 export type ProjectsViewerProjectsProfile = Readonly<{
   credits: number;
   creditsAtStartOfCycle: number;
@@ -90,10 +85,11 @@ export type ProjectsViewerProjectsProfile = Readonly<{
   points: number;
   premium: boolean;
 }>;
-export type ProjectsProfileAvatarDataSlim = Readonly<{
+export type ProjectsProfileAvatarData = Readonly<{
   avatarUrl: string | null;
   id: string;
   name: string | null;
+  points: number;
   username: string;
 }>;
 
