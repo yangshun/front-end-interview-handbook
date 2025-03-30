@@ -1,6 +1,5 @@
 import clsx from 'clsx';
-import { useEffect, useState } from 'react';
-import { useMediaQuery } from 'usehooks-ts';
+import { useState } from 'react';
 
 import { popoverContentClassName } from '~/components/ui/Popover/popoverStyles';
 import {
@@ -26,18 +25,15 @@ export default function NavbarPopoverTabs({
   onClose: (event?: React.MouseEvent<HTMLElement>) => void;
 }>) {
   const [value, setValue] = useState(items[0].id);
-  const mobileAndAbove = useMediaQuery('(min-width: 461px)');
-
-  useEffect(() => {
-    // Automatically close when popover is still open and
-    // screen has been resized to be below laptop.
-    if (!mobileAndAbove) {
-      onClose();
-    }
-  }, [onClose, mobileAndAbove]);
 
   return (
-    <div className={clsx('flex gap-4', popoverContentClassName, '!p-0')}>
+    <div
+      className={clsx(
+        'flex gap-4',
+        popoverContentClassName,
+        '!p-0',
+        'overflow-hidden',
+      )}>
       <TabsPrimitive.Root
         className="flex w-full flex-col gap-4 sm:flex-row"
         orientation="vertical"
@@ -78,16 +74,19 @@ export default function NavbarPopoverTabs({
               </TabsPrimitive.Trigger>
             ))}
           </TabsPrimitive.List>
-          <div className="block sm:hidden">
+          <div className={clsx('block sm:hidden')}>
             <ScrollArea
               className="-mb-2"
               scrollbars="horizontal"
               viewportClass="pb-2">
               <TabsPrimitive.List
-                className={clsx('overflow-y-hidden', 'block', 'px-4', [
-                  'border-b',
-                  themeBorderElementColor,
-                ])}>
+                className={clsx(
+                  'overflow-hidden',
+                  'block',
+                  'px-4',
+                  ['border-b', themeBorderElementColor],
+                  themeBackgroundCardColor,
+                )}>
                 <div className={clsx('flex', 'gap-6')}>
                   {items.map(({ id, label }) => (
                     <TabsPrimitive.Trigger
@@ -116,7 +115,11 @@ export default function NavbarPopoverTabs({
             </ScrollArea>
           </div>
         </div>
-        <div className="flex w-full grow items-center px-2 pb-4 sm:px-0 sm:py-4 sm:pe-4">
+        <div
+          className={clsx(
+            'flex w-full grow items-center',
+            'px-4 pb-4 sm:px-0 sm:py-4 sm:pe-4',
+          )}>
           {items.map((item) => (
             <TabsPrimitive.Content
               key={item.id}
