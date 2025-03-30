@@ -37,11 +37,12 @@ export type TextColor =
 export type TextSize = 'body0' | 'body1' | 'body2' | 'body3' | 'inherit';
 export type TextWeight = 'bold' | 'inherit' | 'medium' | 'normal';
 
+// If you need responsive versions of text size, use the class directly
 const sizeClasses: Record<TextSize, string> = {
-  body0: 'text-lg',
-  body1: 'text-base',
-  body2: 'text-sm',
-  body3: 'text-xs',
+  body0: 'text-body0',
+  body1: 'text-body1',
+  body2: 'text-body2',
+  body3: 'text-body3',
   inherit: '',
 };
 

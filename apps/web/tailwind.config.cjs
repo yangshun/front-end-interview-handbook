@@ -122,6 +122,10 @@ module.exports = {
         },
       },
       fontSize: {
+        body0: defaultTheme.fontSize.lg,
+        body1: defaultTheme.fontSize.base,
+        body2: defaultTheme.fontSize.sm,
+        body3: defaultTheme.fontSize.xs,
         '2xs': ['0.625rem', { lineHeight: '0.875rem' }],
         '3xs': ['0.5rem', { lineHeight: '0.594rem' }],
       },
