@@ -180,16 +180,6 @@ export function SidebarCollapsed({
             moreEndMenuItems={
               <>
                 <Divider />
-                <DropdownMenu.Item
-                  href={SocialLinks.github.href}
-                  icon={SocialLinks.github.icon}
-                  label={SocialLinks.github.name}
-                />
-                <DropdownMenu.Item
-                  href={SocialLinks.linkedin.href}
-                  icon={RiLinkedinFill}
-                  label={SocialLinks.linkedin.name}
-                />
                 {showPremiumDiscord ? (
                   <DropdownMenu.Item
                     href={SocialLinks.discordPremium.href}
@@ -203,6 +193,21 @@ export function SidebarCollapsed({
                     label={SocialLinks.discord.name}
                   />
                 )}
+                <DropdownMenu.Item
+                  href={SocialLinks.linkedin.href}
+                  icon={RiLinkedinFill}
+                  label={SocialLinks.linkedin.name}
+                />
+                <DropdownMenu.Item
+                  href={SocialLinks.github.href}
+                  icon={SocialLinks.github.icon}
+                  label={SocialLinks.github.name}
+                />
+                <DropdownMenu.Item
+                  href={SocialLinks.x.href}
+                  icon={SocialLinks.x.icon}
+                  label={SocialLinks.x.name}
+                />
               </>
             }
             moreMenuItems={moreMenuItems}

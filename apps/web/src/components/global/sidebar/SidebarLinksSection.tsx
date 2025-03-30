@@ -3,7 +3,6 @@ import { type ReactNode, useEffect, useRef, useState } from 'react';
 import { RiArrowRightSLine } from 'react-icons/ri';
 
 import Anchor from '~/components/ui/Anchor';
-import { textVariants } from '~/components/ui/Text';
 import {
   themeBackgroundElementEmphasizedStateColor_Hover,
   themeOutlineElement_FocusVisible,
@@ -55,6 +54,13 @@ function isItemActive(
   );
 }
 
+function itemTextSizeClass(size: SidebarSize) {
+  return clsx(
+    'font-medium',
+    size === 'sm' ? 'text-body3 min-[1281px]:text-body2' : 'body2',
+  );
+}
+
 function SidebarLinkItem({
   addOnElement,
   href,
@@ -71,9 +77,9 @@ function SidebarLinkItem({
 
   const activeClassName = clsx(
     themeTextColor,
-    'font-medium',
     'bg-neutral-200/40 dark:bg-neutral-800/40',
   );
+
   const defaultClassName = clsx(
     themeTextSecondaryColor,
     themeTextSubtitleColor_Hover,
@@ -87,9 +93,6 @@ function SidebarLinkItem({
           'flex items-center gap-x-2.5',
           'w-full p-2',
           'rounded-md',
-          size === 'sm'
-            ? 'text-[0.8125rem] leading-4'
-            : textVariants({ color: 'inherit', size: 'body2' }),
           'select-none outline-none',
           'transition-colors',
           'hover:bg-neutral-200/40 dark:hover:bg-neutral-800/40',
@@ -112,7 +115,9 @@ function SidebarLinkItem({
         )}
         <div className="flex w-full items-center gap-x-2">
           <Tooltip asChild={true} label={label} side="right">
-            <span className="line-clamp-2">{label}</span>
+            <span className={clsx('line-clamp-2', itemTextSizeClass(size))}>
+              {label}
+            </span>
           </Tooltip>
           {addOnElement}
         </div>
@@ -178,10 +183,7 @@ function SidebarLinks({
         <span
           className={clsx(
             'text-left',
-            size === 'sm'
-              ? 'text-[0.8125rem] leading-4'
-              : textVariants({ color: 'inherit', size: 'body2' }),
-            'font-medium',
+            itemTextSizeClass(size),
             themeTextSecondaryColor,
             'group-hover:text-neutral-700 dark:group-hover:text-neutral-300',
             'transition-colors',
@@ -206,7 +208,7 @@ function SidebarLinks({
         )}>
         <ul
           ref={ref}
-          className={clsx('flex flex-col gap-y-1', 'py-1 pl-3')}
+          className={clsx('flex flex-col', 'gap-y-0.5', 'py-1 pl-3')}
           role="list">
           {item.items.map((linkItem) => (
             <SidebarLinkItem
@@ -277,7 +279,7 @@ export default function SidebarLinksSection({
     }
   }, [items, pathname, type]);
 
-  const className = clsx('flex flex-col gap-y-2');
+  const className = clsx('flex flex-col min-[1281px]:gap-y-2 gap-y-1');
   const contents = (
     <ul>
       {items.map((item) => (
