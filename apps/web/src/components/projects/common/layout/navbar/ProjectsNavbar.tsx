@@ -162,7 +162,7 @@ export default function ProjectsNavbar({ hideOnDesktop = false }: Props) {
           'gap-x-3',
           isLoggedIn && isPremium
             ? 'hidden lg:flex'
-            : 'hidden min-[1280px]:flex',
+            : 'hidden min-[1281px]:flex',
         )}>
         <NavI18nDropdown size="xs" />
         <NavColorSchemeDropdown size="xs" />

@@ -80,18 +80,16 @@ export function InterviewsSidebarExpanded({
     <SidebarExpanded
       bottomBarItems={
         <>
-          {[SocialLinks.github, SocialLinks.linkedin].map(
-            ({ href, icon, name, key }) => (
-              <Button
-                key={key}
-                href={href}
-                icon={icon}
-                isLabelHidden={true}
-                label={name}
-                variant="secondary"
-              />
-            ),
-          )}
+          {[SocialLinks.linkedin].map(({ href, icon, name, key }) => (
+            <Button
+              key={key}
+              href={href}
+              icon={icon}
+              isLabelHidden={true}
+              label={name}
+              variant="secondary"
+            />
+          ))}
         </>
       }
       defaultOpenSections={

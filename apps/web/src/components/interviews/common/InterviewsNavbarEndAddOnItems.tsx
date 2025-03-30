@@ -37,7 +37,7 @@ export default function InterviewsNavbarEndAddOnItems({
             ? 'flex'
             : isLoggedIn && isPremium
               ? 'hidden lg:flex'
-              : 'hidden min-[1280px]:flex',
+              : 'hidden min-[1281px]:flex',
         )}>
         <NavI18nDropdown size="xs" />
         <NavColorSchemeDropdown size="xs" />
