@@ -44,6 +44,17 @@ type Props = Readonly<{
   studyList: InterviewsStudyList;
 }>;
 
+function GFE75Logo() {
+  const isTabletAndAbove = useMediaQuery('(min-width: 640px)');
+  const isLaptopAndAbove = useMediaQuery('(min-width: 1280px)');
+
+  return (
+    <PreparationGFE75Logo
+      size={isLaptopAndAbove ? 'xl' : isTabletAndAbove ? 'lg' : 'md'}
+    />
+  );
+}
+
 export default function InterviewsStudyPlanGFE75Page({
   bottomContent,
   studyList,
@@ -51,8 +62,6 @@ export default function InterviewsStudyPlanGFE75Page({
   questionsSlugs,
 }: Props) {
   const user = useUser();
-  const isTabletAndAbove = useMediaQuery('(min-width: 640px)');
-  const isLaptopAndAbove = useMediaQuery('(min-width: 1280px)');
 
   const { setShowFeedbackWidget } = useUserPreferences();
   const [isSidebarCollapsed] = useInterviewsSidebarCollapsed();
@@ -85,11 +94,7 @@ export default function InterviewsStudyPlanGFE75Page({
         <InterviewsRecommendedPrepStrategyPageTitleSection
           description={studyList.description}
           features={features}
-          logo={
-            <PreparationGFE75Logo
-              size={isLaptopAndAbove ? 'xl' : isTabletAndAbove ? 'lg' : 'md'}
-            />
-          }
+          logo={<GFE75Logo />}
           longDescription={
             <>
               <Text color="inherit" size="inherit">
