@@ -121,13 +121,19 @@ export default function InterviewsNavbar({
               className={clsx(
                 'items-center gap-4 md:gap-x-8 lg:w-0 lg:flex-1',
                 'ml-3 sm:ml-6 lg:ml-20',
-                isPremium
-                  ? 'hidden min-[390px]:flex'
-                  : 'hidden min-[460px]:flex',
+                'flex',
               )}>
-              {leftLinks.map((navItem) => (
-                <NavbarItem key={navItem.id} {...navItem} />
-              ))}
+              <span className={clsx('hidden min-[460px]:contents')}>
+                {leftLinks.map((navItem) => (
+                  <NavbarItem key={navItem.id} {...navItem} />
+                ))}
+              </span>
+              {/* Only show first item on small screen */}
+              {leftLinks.length > 0 && (
+                <span className={clsx('contents min-[460px]:hidden')}>
+                  <NavbarItem key={leftLinks[0].id} {...leftLinks[0]} />
+                </span>
+              )}
             </nav>
           </div>
           <NavbarEndWithAdvertiseWithUsBadge
