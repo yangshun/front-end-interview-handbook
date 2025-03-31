@@ -58,7 +58,7 @@ function itemTextSizeClass(size: SidebarSize) {
   return clsx(
     'font-medium',
     size === 'sm'
-      ? 'text-body3 min-[1281px]:text-[0.8125rem] min-[1281px]:leading-4'
+      ? 'text-body3 min-[1367px]:text-[0.8125rem] min-[1367px]:leading-4'
       : 'text-body2',
   );
 }
@@ -212,7 +212,7 @@ function SidebarLinks({
           ref={ref}
           className={clsx(
             'flex flex-col',
-            'gap-y-0.5 min-[1281px]:gap-y-1',
+            'gap-y-0.5 min-[1367px]:gap-y-1',
             'py-1 pl-3',
           )}
           role="list">
@@ -287,7 +287,7 @@ export default function SidebarLinksSection({
 
   const className = clsx(
     'flex flex-col',
-    size === 'sm' ? 'gap-y-1 min-[1281px]:gap-y-2' : 'gap-y-2',
+    size === 'sm' ? 'gap-y-1 min-[1367px]:gap-y-2' : 'gap-y-2',
   );
   const contents = (
     <ul>

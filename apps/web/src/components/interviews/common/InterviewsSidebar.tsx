@@ -123,10 +123,10 @@ export function InterviewsSidebarExpanded({
             adPlacement="nav_sidebar"
             size="sm"
           />
-          <div className="max-[1280px]:hidden">
+          <div className="max-[1366px]:hidden">
             <SocialDiscountSidebarMention />
           </div>
-          <div className="-mx-2 -mb-2 min-[1281px]:hidden">
+          <div className="-mx-2 -mb-2 min-[1367px]:hidden">
             <SocialDiscountSidebarBanner />
           </div>
         </div>

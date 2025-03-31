@@ -30,7 +30,7 @@ export default function InterviewsSidebarContainer({
         'sticky top-[var(--banner-height)] h-[calc(100vh_-_var(--banner-height))]',
         'shrink-0 overflow-y-hidden',
         ['border-e', themeBorderColor],
-        isSidebarCollapsed ? 'w-[78px]' : 'w-[244px] min-[1281px]:w-[260px]',
+        isSidebarCollapsed ? 'w-[78px]' : 'w-[244px] min-[1367px]:w-[260px]',
       )}>
       <InterviewsSidebar
         isCollapsed={isSidebarCollapsed}

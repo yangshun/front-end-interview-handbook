@@ -46,7 +46,7 @@ type Props = Readonly<{
 
 function GFE75Logo() {
   const isTabletAndAbove = useMediaQuery('(min-width: 640px)');
-  const isLaptopAndAbove = useMediaQuery('(min-width: 1281px)');
+  const isLaptopAndAbove = useMediaQuery('(min-width: 1367px)');
 
   return (
     <PreparationGFE75Logo
