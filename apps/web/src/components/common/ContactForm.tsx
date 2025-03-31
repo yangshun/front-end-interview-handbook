@@ -85,7 +85,11 @@ function ContactForm(
           })}
           minLength={MESSAGE_MIN_LENGTH}
           name="message"
-          placeholder="Write your message..."
+          placeholder={intl.formatMessage({
+            defaultMessage: 'Write your message...',
+            description: 'Message field placeholder',
+            id: 'aUrYFI',
+          })}
           required={true}
           rows={7}
         />

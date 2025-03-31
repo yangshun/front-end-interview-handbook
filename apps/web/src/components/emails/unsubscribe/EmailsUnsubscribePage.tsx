@@ -6,6 +6,7 @@ import { RiMailLine } from 'react-icons/ri';
 
 import { trpc } from '~/hooks/trpc';
 
+import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
 import EmptyState from '~/components/ui/EmptyState';
@@ -22,6 +23,7 @@ export default function EmailsUnsubscribePage({
   Readonly<{
     listName: string;
   }>) {
+  const intl = useIntl();
   const [status, setStatus] = useState<
     | { errorMessage?: string; type: 'subscribed' }
     | { errorMessage?: string; type: 'unsubscribed' }
@@ -40,7 +42,11 @@ export default function EmailsUnsubscribePage({
               <Button
                 isDisabled={emailUnsubscribeMutation.isLoading}
                 isLoading={emailUnsubscribeMutation.isLoading}
-                label="Unsubscribe"
+                label={intl.formatMessage({
+                  defaultMessage: 'Unsubscribe',
+                  description: 'Subscribe button',
+                  id: '1yrEHk',
+                })}
                 size="md"
                 variant="primary"
                 onClick={() => {
@@ -68,7 +74,15 @@ export default function EmailsUnsubscribePage({
               />
             }
             icon={RiMailLine}
-            subtitle={`By clicking "Unsubscribe", you will no longer receive "${listName}" emails. You can resubscribe at anytime`}
+            subtitle={intl.formatMessage(
+              {
+                defaultMessage:
+                  'By clicking "Unsubscribe", you will no longer receive "{listName}" emails. You can resubscribe at anytime',
+                description: 'Unsubscribe email message',
+                id: 'WzTvaM',
+              },
+              { listName },
+            )}
             title={`Unsubscribe from "${listName}" emails?`}
           />
         )}
@@ -78,7 +92,11 @@ export default function EmailsUnsubscribePage({
               <Button
                 isDisabled={emailResubscribeMutation.isLoading}
                 isLoading={emailResubscribeMutation.isLoading}
-                label="Resubscribe"
+                label={intl.formatMessage({
+                  defaultMessage: 'Resubscribe',
+                  description: 'Resubscribe button',
+                  id: 'fUhxFj',
+                })}
                 size="md"
                 variant="primary"
                 onClick={() => {
@@ -114,7 +132,11 @@ export default function EmailsUnsubscribePage({
           <EmptyState
             icon={RiMailLine}
             subtitle={`You have been resubscribed to "${listName}" emails`}
-            title="You've resubscribed"
+            title={intl.formatMessage({
+              defaultMessage: "You've resubscribed",
+              description: 'Resubscribed email message',
+              id: 'x8U8S9',
+            })}
           />
         )}
       </div>

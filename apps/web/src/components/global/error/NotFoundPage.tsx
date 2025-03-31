@@ -7,6 +7,7 @@ import { RiArrowRightSLine } from 'react-icons/ri';
 
 import gtag from '~/lib/gtag';
 
+import { useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -32,6 +33,7 @@ type Props = Readonly<{
 }>;
 
 export default function NotFoundPage({ links, returnHref }: Props) {
+  const intl = useIntl();
   const pathname = usePathname();
 
   useEffect(() => {
@@ -54,7 +56,11 @@ export default function NotFoundPage({ links, returnHref }: Props) {
     <main className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-xl py-12 sm:py-16">
         <Heading className="text-center" level="heading4">
-          This page does not exist
+          {intl.formatMessage({
+            defaultMessage: 'This page does not exist',
+            description: 'Not found page title',
+            id: 'tbjYz4',
+          })}
         </Heading>
         <Section>
           <div className="mt-4 md:mt-8">
@@ -62,10 +68,19 @@ export default function NotFoundPage({ links, returnHref }: Props) {
               className="text-pretty block text-center"
               color="secondary"
               size="body1">
-              The page has been removed or there is a mistake in the URL.
+              {intl.formatMessage({
+                defaultMessage:
+                  'The page has been removed or there is a mistake in the URL.',
+                description: 'Not found page description',
+                id: '8S9LzK',
+              })}
             </Text>
             <Text className="mb-2 mt-8 block" color="secondary" size="body2">
-              In the meantime, check out these pages:
+              {intl.formatMessage({
+                defaultMessage: 'In the meantime, check out these pages:',
+                description: 'Not found page suggestion',
+                id: 'vZx+Xb',
+              })}
             </Text>
             <Section>
               <ul
@@ -136,7 +151,12 @@ export default function NotFoundPage({ links, returnHref }: Props) {
                 <Anchor
                   className={textVariants({ color: 'inherit', size: 'body2' })}
                   href={returnHref}>
-                  Go back <span aria-hidden="true"> &rarr;</span>
+                  {intl.formatMessage({
+                    defaultMessage: 'Go back',
+                    description: 'Go back label',
+                    id: 'rviSvL',
+                  })}
+                  <span aria-hidden="true"> &rarr;</span>
                 </Anchor>
               </div>
             </Section>

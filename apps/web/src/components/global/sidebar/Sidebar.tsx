@@ -43,7 +43,11 @@ export function SidebarDropdownMenu({
       align="end"
       icon={RiMoreLine}
       isLabelHidden={true}
-      label="More"
+      label={intl.formatMessage({
+        defaultMessage: 'More',
+        description: 'More button label',
+        id: 'biFSa7',
+      })}
       showChevron={false}
       side="right"
       size="sm">
@@ -216,12 +220,16 @@ export function SidebarCollapsed({
         <Button
           icon={RiContractRightLine}
           isLabelHidden={true}
-          label="Expand sidebar"
+          label={intl.formatMessage({
+            defaultMessage: 'Expand sidebar',
+            description: 'Expand sidebar label',
+            id: '3U95FQ',
+          })}
           size="sm"
           tooltip={intl.formatMessage({
             defaultMessage: 'Expand sidebar',
-            description: 'Tooltip for expand sidebar',
-            id: 'HGXwui',
+            description: 'Expand sidebar label',
+            id: '3U95FQ',
           })}
           tooltipSide="right"
           variant="secondary"
@@ -339,12 +347,16 @@ export function SidebarExpanded({
           <Button
             icon={RiContractLeftLine}
             isLabelHidden={true}
-            label="Collapse"
+            label={intl.formatMessage({
+              defaultMessage: 'Collapse sidebar',
+              description: 'Collapse sidebar label',
+              id: 'ohLJdT',
+            })}
             size="sm"
             tooltip={intl.formatMessage({
               defaultMessage: 'Collapse sidebar',
-              description: 'Tooltip for collapse sidebar',
-              id: '/vo5j8',
+              description: 'Collapse sidebar label',
+              id: 'ohLJdT',
             })}
             variant="secondary"
             onClick={onCollapseClick}

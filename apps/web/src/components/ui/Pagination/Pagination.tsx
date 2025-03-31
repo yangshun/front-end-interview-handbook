@@ -126,8 +126,8 @@ export default function Pagination({ page, count, onPageChange }: Props) {
             pageNumber.value?.toString() ??
             intl.formatMessage({
               defaultMessage: 'More',
-              description: 'Label for "More" button in pagination',
-              id: 'XD52zM',
+              description: 'More button label',
+              id: 'biFSa7',
             })
           }
           variant={pageNumber.value === page ? 'secondary' : 'tertiary'}

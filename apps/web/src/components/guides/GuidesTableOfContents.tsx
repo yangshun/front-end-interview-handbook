@@ -11,7 +11,7 @@ import {
 import useScrollIntoView from '~/hooks/useScrollIntoView';
 import useScrollParent from '~/hooks/useScrollParent';
 
-import { FormattedMessage } from '~/components/intl';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -55,6 +55,7 @@ export default function GuidesTableOfContents({
   isCollapsible,
   setCollapsedToC,
 }: Props) {
+  const intl = useIntl();
   const titleId = useId();
   const activeId = useActiveHeadingId();
 
@@ -92,9 +93,17 @@ export default function GuidesTableOfContents({
               iconClassName={themeTextSecondaryColor}
               iconSecondary_USE_SPARINGLY={RiArrowLeftSLine}
               isLabelHidden={true}
-              label="Show table of contents"
+              label={intl.formatMessage({
+                defaultMessage: 'Show table of contents',
+                description: 'Expand table of contents',
+                id: 'H1JxYU',
+              })}
               size="xs"
-              tooltip="Expand"
+              tooltip={intl.formatMessage({
+                defaultMessage: 'Expand',
+                description: 'Expand label',
+                id: 'LhuPX+',
+              })}
               variant="tertiary"
               onClick={() => setCollapsedToC?.(false)}
             />
@@ -126,9 +135,17 @@ export default function GuidesTableOfContents({
                     icon={RiArrowRightSLine}
                     iconClassName={themeTextSecondaryColor}
                     isLabelHidden={true}
-                    label="Collapse"
+                    label={intl.formatMessage({
+                      defaultMessage: 'Collapse',
+                      description: 'Collapse label',
+                      id: 'LlNbSg',
+                    })}
                     size="xs"
-                    tooltip="Hide table of contents"
+                    tooltip={intl.formatMessage({
+                      defaultMessage: 'Hide table of contents',
+                      description: 'Hide table of contents',
+                      id: 'iKGGvM',
+                    })}
                     variant="tertiary"
                     onClick={() => setCollapsedToC?.(true)}
                   />

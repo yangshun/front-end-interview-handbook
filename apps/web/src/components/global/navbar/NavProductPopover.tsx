@@ -5,6 +5,7 @@ import { useDebounce } from 'usehooks-ts';
 
 import LogoMark from '~/components/global/logos/LogoMark';
 import NavProductPopoverContent from '~/components/global/navbar/NavProductPopoverContent';
+import { useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Divider from '~/components/ui/Divider';
 import Text, { textVariants } from '~/components/ui/Text';
@@ -201,6 +202,7 @@ export function NavProductPopoverLogoOnly({
   product: ProductValue;
   triggerClassname?: string;
 }>) {
+  const intl = useIntl();
   const [showUnseenIndicator] = useProductMenuUnseenIndicator();
   const [open, setOpen] = useState(false);
   // To debounce open state when quick hovering on and out
@@ -221,7 +223,11 @@ export function NavProductPopoverLogoOnly({
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}>
         <Anchor
-          aria-label="Select product"
+          aria-label={intl.formatMessage({
+            defaultMessage: 'Select product',
+            description: 'Select product label',
+            id: 'yuMfLH',
+          })}
           className={clsx(
             'group',
             'flex shrink-0 items-center justify-center',

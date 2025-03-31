@@ -1,3 +1,5 @@
+'use client';
+
 import clsx from 'clsx';
 import {
   RiDeleteBinLine,
@@ -6,6 +8,7 @@ import {
   RiWindowLine,
 } from 'react-icons/ri';
 
+import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
@@ -16,46 +19,31 @@ import {
   themeTextBrandColor,
 } from '~/components/ui/theme';
 
-const links = [
-  {
-    description:
-      "Please check if there's a typo in the URL, such as extra or missing characters.",
-    icon: RiErrorWarningLine,
-    name: 'Invalid URL',
-  },
-  {
-    description: 'The page does not exist or has been removed.',
-    icon: RiDeleteBinLine,
-    name: 'No such page',
-  },
-  {
-    description:
-      'Please update your browser to the latest version or try using another browser.',
-    icon: RiWindowLine,
-    name: 'Outdated browser',
-  },
-  {
-    description:
-      'You are using a browser extension that is incompatible with the page, e.g. extensions that modify code blocks.',
-    icon: RiToolsLine,
-    name: 'Incompatible extensions',
-  },
-];
-
 type Props = Readonly<{
   returnHref: string;
 }>;
 
 export default function ErrorMessageBlock({ returnHref }: Props) {
+  const intl = useIntl();
+  const links = useLinks();
+
   return (
     <Container className="flex flex-col gap-y-8 py-12">
       <div className="mx-auto flex max-w-prose flex-col gap-y-4 md:gap-y-8">
         <Heading className="text-center" level="heading4">
-          Oops! An error has occurred
+          {intl.formatMessage({
+            defaultMessage: 'Oops! An error has occurred',
+            description: 'Error message title',
+            id: 'lFbX7p',
+          })}
         </Heading>
         <div>
           <Text className="block text-center" color="secondary" size="body1">
-            Some common reasons include:
+            {intl.formatMessage({
+              defaultMessage: 'Some common reasons include:',
+              description: 'Error message description',
+              id: 'fxZ0zk',
+            })}
           </Text>
           <ul
             className={clsx(
@@ -91,11 +79,20 @@ export default function ErrorMessageBlock({ returnHref }: Props) {
       </div>
       <div className="flex flex-col items-center gap-6">
         <Text size="body2">
-          The error has been logged and we will be looking into it.
+          {intl.formatMessage({
+            defaultMessage:
+              'The error has been logged and we will be looking into it.',
+            description: 'Error message log description',
+            id: '+I+Xtv',
+          })}
         </Text>
         <Button
           href={returnHref}
-          label="Return"
+          label={intl.formatMessage({
+            defaultMessage: 'Return',
+            description: 'Return label',
+            id: 'D+Qa8G',
+          })}
           size="lg"
           type="button"
           variant="primary"
@@ -103,4 +100,74 @@ export default function ErrorMessageBlock({ returnHref }: Props) {
       </div>
     </Container>
   );
+}
+
+function useLinks() {
+  const intl = useIntl();
+
+  return [
+    {
+      description: intl.formatMessage({
+        defaultMessage:
+          "Please check if there's a typo in the URL, such as extra or missing characters.",
+        description: 'Invalid URL error message',
+        id: 'LjTVFe',
+      }),
+
+      icon: RiErrorWarningLine,
+
+      name: intl.formatMessage({
+        defaultMessage: 'Invalid URL',
+        description: 'Invalid URL error',
+        id: 'YeWPOG',
+      }),
+    },
+    {
+      description: intl.formatMessage({
+        defaultMessage: 'The page does not exist or has been removed.',
+        description: 'No such page error message',
+        id: 'v8kErk',
+      }),
+
+      icon: RiDeleteBinLine,
+
+      name: intl.formatMessage({
+        defaultMessage: 'No such page',
+        description: 'No such page error',
+        id: 'Nvn+wO',
+      }),
+    },
+    {
+      description: intl.formatMessage({
+        defaultMessage:
+          'Please update your browser to the latest version or try using another browser.',
+        description: 'Outdated browser error message',
+        id: 'GTUCVC',
+      }),
+
+      icon: RiWindowLine,
+
+      name: intl.formatMessage({
+        defaultMessage: 'Outdated browser',
+        description: 'Outdated browser error',
+        id: '4d1N0P',
+      }),
+    },
+    {
+      description: intl.formatMessage({
+        defaultMessage:
+          'You are using a browser extension that is incompatible with the page, e.g. extensions that modify code blocks.',
+        description: 'Incompatible extensions error message',
+        id: 'oPauc5',
+      }),
+
+      icon: RiToolsLine,
+
+      name: intl.formatMessage({
+        defaultMessage: 'Incompatible extensions',
+        description: 'Incompatible extensions error',
+        id: 'aaJtz1',
+      }),
+    },
+  ];
 }

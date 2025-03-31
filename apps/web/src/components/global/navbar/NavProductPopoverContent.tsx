@@ -47,6 +47,8 @@ function NavProductMenuItem({
   product: string;
   showNewIndicator: boolean;
 }>) {
+  const intl = useIntl();
+
   return (
     <Anchor
       aria-label={product}
@@ -90,7 +92,15 @@ function NavProductMenuItem({
         </div>
         {beta && (
           <span className="flex">
-            <Badge label="Beta" size="xs" variant="primary" />
+            <Badge
+              label={intl.formatMessage({
+                defaultMessage: 'Beta',
+                description: 'Beta product',
+                id: 't1TqnN',
+              })}
+              size="xs"
+              variant="primary"
+            />
           </span>
         )}
       </div>

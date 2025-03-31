@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 
+import { useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 
 import LogoComboMark from './LogoComboMark';
@@ -11,9 +12,15 @@ type Props = Readonly<{
 }>;
 
 export default function LogoLink({ height = 20, href = '/' }: Props) {
+  const intl = useIntl();
+
   return (
     <Anchor
-      aria-label="Go to the homepage"
+      aria-label={intl.formatMessage({
+        defaultMessage: 'Go to the homepage',
+        description: 'Back to homepage link',
+        id: 'GkZlVc',
+      })}
       className={clsx('inline-block', themeTextColor)}
       href={href}
       variant="unstyled">

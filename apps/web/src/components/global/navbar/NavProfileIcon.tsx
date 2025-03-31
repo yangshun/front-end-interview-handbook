@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { RiStarSmileFill } from 'react-icons/ri';
 
-import { FormattedMessage } from '~/components/intl';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Avatar from '~/components/ui/Avatar';
 import Chip from '~/components/ui/Chip';
 import Divider from '~/components/ui/Divider';
@@ -33,6 +33,8 @@ export default function NavProfileIcon({
   navItems,
   isPremium,
 }: Props) {
+  const intl = useIntl();
+
   return (
     <DropdownMenuPrimitive.Root>
       <DropdownMenuPrimitive.Trigger
@@ -77,7 +79,11 @@ export default function NavProfileIcon({
                 icon={RiStarSmileFill}
                 iconClassName="size-[14px]"
                 isLabelHidden={true}
-                label="Premium user badge"
+                label={intl.formatMessage({
+                  defaultMessage: 'Premium user badge',
+                  description: 'Premium user badge',
+                  id: 'ofoywG',
+                })}
                 variant="primary"
               />
             )}

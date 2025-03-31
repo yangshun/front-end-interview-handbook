@@ -67,15 +67,13 @@ export default function ProjectsChallengeCurrentProjectSessionCard({
         isExpanded
           ? intl.formatMessage({
               defaultMessage: 'Collapse',
-              description:
-                'Label for "Collapse" button on current project session card',
-              id: 'n2UNgq',
+              description: 'Collapse label',
+              id: 'LlNbSg',
             })
           : intl.formatMessage({
               defaultMessage: 'More',
-              description:
-                'Label for "More" button on current project session card',
-              id: 'dgTN/f',
+              description: 'More button label',
+              id: 'biFSa7',
             })
       }
       size="xs"

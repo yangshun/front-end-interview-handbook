@@ -6,6 +6,7 @@ import { useDebounce } from 'usehooks-ts';
 import LogoMark from '~/components/global/logos/LogoMark';
 import ProjectsLogo from '~/components/global/logos/ProjectsLogo';
 import NavProductPopoverContent from '~/components/global/navbar/NavProductPopoverContent';
+import { useIntl } from '~/components/intl';
 import {
   themeBackgroundElementEmphasizedStateColor_Hover,
   themeBackgroundElementPressedStateColor_Active,
@@ -40,6 +41,8 @@ export default function NavProductPopover_DEPRECATED({
   variant,
   product,
 }: Props) {
+  const intl = useIntl();
+
   if (product === 'interviews') {
     throw 'Interviews unsupported';
   }
@@ -65,7 +68,11 @@ export default function NavProductPopover_DEPRECATED({
         onMouseLeave={handleMouseLeave}>
         {variant === 'full' ? (
           <button
-            aria-label="Select product"
+            aria-label={intl.formatMessage({
+              defaultMessage: 'Select product',
+              description: 'Select product label',
+              id: 'yuMfLH',
+            })}
             className={clsx(
               'group',
               'flex items-center justify-between',
@@ -95,7 +102,11 @@ export default function NavProductPopover_DEPRECATED({
           </button>
         ) : (
           <button
-            aria-label="Select product"
+            aria-label={intl.formatMessage({
+              defaultMessage: 'Select product',
+              description: 'Select product label',
+              id: 'yuMfLH',
+            })}
             className={clsx(
               'grid place-content-center',
               'relative',

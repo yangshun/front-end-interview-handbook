@@ -11,6 +11,7 @@ import { formatBigNumber } from '~/components/common/formatBigNumber';
 import { useUserPreferences } from '~/components/global/UserPreferencesProvider';
 import { FormattedMessage, useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
+import Text from '~/components/ui/Text';
 import {
   themeBackgroundElementPressedStateColor_Active,
   themeBorderColor,
@@ -21,7 +22,6 @@ import {
 import Tooltip from '~/components/ui/Tooltip';
 
 import FeedbackDialog from './FeedbackDialog';
-import Text from '../../ui/Text';
 
 function OnlineUsers({ count }: Readonly<{ count: number }>) {
   const intl = useIntl();
@@ -131,9 +131,17 @@ export default function FeedbackWidget({
             icon={RiCloseLine}
             iconClassName="!size-4 !shrink-0"
             isLabelHidden={true}
-            label="Hide feedback widget"
+            label={intl.formatMessage({
+              defaultMessage: 'Hide feedback widget',
+              description: 'Hide feedback widget',
+              id: 'ePtSLU',
+            })}
             size="xs"
-            tooltip="Hide feedback widget"
+            tooltip={intl.formatMessage({
+              defaultMessage: 'Hide feedback widget',
+              description: 'Hide feedback widget',
+              id: 'ePtSLU',
+            })}
             variant="tertiary"
             onClick={() => setShowFeedbackWidget(false)}
           />

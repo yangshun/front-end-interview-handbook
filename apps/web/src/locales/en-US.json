@@ -59,6 +59,10 @@
     "defaultMessage": "{focusAreaName} Interview Questions",
     "description": "OG image page type for focus areas"
   },
+  "+I+Xtv": {
+    "defaultMessage": "The error has been logged and we will be looking into it.",
+    "description": "Error message log description"
+  },
   "+JhlMu": {
     "defaultMessage": "Congratulations on completing the question! Sign into your account or sign up for free to save your progress!",
     "description": "Message shown when user completes a question"
@@ -251,6 +255,10 @@
     "defaultMessage": "Increase in total compensation",
     "description": "Total compensation label"
   },
+  "/Huda4": {
+    "defaultMessage": "At GreatFrontEnd, we look for people with intense passion in the front end domain. You're encouraged to apply even if your background does not exactly align with the job requirements.",
+    "description": "Job posting description"
+  },
   "/KVfm1": {
     "defaultMessage": "Star",
     "description": "Label for github star button"
@@ -346,10 +354,6 @@
   "/tR4KB": {
     "defaultMessage": "{discountPercentage}% off expiring soon",
     "description": "Button label"
-  },
-  "/vo5j8": {
-    "defaultMessage": "Collapse sidebar",
-    "description": "Tooltip for collapse sidebar"
   },
   "/zdDbr": {
     "defaultMessage": "React Interview Questions with Solutions | GreatFrontEnd",
@@ -719,6 +723,10 @@
     "defaultMessage": "Edit on GitHub",
     "description": "Edit on GitHub button"
   },
+  "1yrEHk": {
+    "defaultMessage": "Unsubscribe",
+    "description": "Subscribe button"
+  },
   "2+sEvv": {
     "defaultMessage": "Challenge: {challengeName} | Assets",
     "description": "Title of Projects challenge assets page"
@@ -943,6 +951,10 @@
     "defaultMessage": "Back to all submissions",
     "description": "Label to go back to submissions page"
   },
+  "3U95FQ": {
+    "defaultMessage": "Expand sidebar",
+    "description": "Expand sidebar label"
+  },
   "3UtpZS": {
     "defaultMessage": "Submission deleted!",
     "description": "Delete challenge success message"
@@ -1131,6 +1143,10 @@
     "defaultMessage": "Info",
     "description": "Select label for info log level in console filter"
   },
+  "4d1N0P": {
+    "defaultMessage": "Outdated browser",
+    "description": "Outdated browser error"
+  },
   "4elzbc": {
     "defaultMessage": "Challenge: {challengeName} | Reference submissions",
     "description": "Title of Projects challenge resources submissions page"
@@ -1150,6 +1166,10 @@
   "4kQ6Kr": {
     "defaultMessage": "Exclusive to currently enrolled students at accredited educational institutions.",
     "description": "Condition for promotion"
+  },
+  "4lxFH6": {
+    "defaultMessage": "Employment Type",
+    "description": "Employment type"
   },
   "4pEeq1": {
     "defaultMessage": "Number of questions completed",
@@ -1802,6 +1822,10 @@
   "8Nm9WZ": {
     "defaultMessage": "Walmart",
     "description": "Company name for Walmart"
+  },
+  "8S9LzK": {
+    "defaultMessage": "The page has been removed or there is a mistake in the URL.",
+    "description": "Not found page description"
   },
   "8SsXE6": {
     "defaultMessage": "{Title}: Optimized for those with limited time, focusing on the most important concepts through coding and quiz-style questions.",
@@ -2523,6 +2547,10 @@
     "defaultMessage": "Company full legal name",
     "description": "Legal name input label"
   },
+  "D+Qa8G": {
+    "defaultMessage": "Return",
+    "description": "Return label"
+  },
   "D0xOX8": {
     "defaultMessage": "Framework / language",
     "description": "Label for framework/language filter"
@@ -3111,6 +3139,10 @@
     "defaultMessage": "Label for \"Completed projects\" progress bar of a Projects component track",
     "description": "{completedCount} out of {totalCount} challenges"
   },
+  "GTUCVC": {
+    "defaultMessage": "Please update your browser to the latest version or try using another browser.",
+    "description": "Outdated browser error message"
+  },
   "GUGImr": {
     "defaultMessage": "{offerCount, plural,=1 {1 offer} other {# offers}}",
     "description": "Testimonials overview"
@@ -3163,6 +3195,10 @@
     "defaultMessage": "Medium",
     "description": "Medium difficulty question"
   },
+  "GkZlVc": {
+    "defaultMessage": "Go to the homepage",
+    "description": "Back to homepage link"
+  },
   "GkiGfX": {
     "defaultMessage": "Design patterns",
     "description": "React design patterns"
@@ -3210,6 +3246,10 @@
   "H/xTN5": {
     "defaultMessage": "Explore community submissions",
     "description": "Recommended action for new projects platform user"
+  },
+  "H1JxYU": {
+    "defaultMessage": "Show table of contents",
+    "description": "Expand table of contents"
   },
   "H1aK4/": {
     "defaultMessage": "Style guide",
@@ -3282,10 +3322,6 @@
   "HGCdKv": {
     "defaultMessage": "Pinned on application sidebar",
     "description": "Description of ad placement"
-  },
-  "HGXwui": {
-    "defaultMessage": "Expand sidebar",
-    "description": "Tooltip for expand sidebar"
   },
   "HI42cv": {
     "defaultMessage": "Ace your React interviews with confidence with this comprehensive guide. Created by the author of the Front End Interview Handbook, the guide emphasizes on the concepts that are important for interviews using plenty of code examples. For each concept, learn the best practices and practice a variety of questions to help you truly master it.",
@@ -4187,13 +4223,25 @@
     "defaultMessage": "Create a free account to track your progress",
     "description": "CTA to create a free account for non-logged in users"
   },
+  "LhuPX+": {
+    "defaultMessage": "Expand",
+    "description": "Expand label"
+  },
   "LiRxEy": {
     "defaultMessage": "URL to the root or a subdirectory of your GitHub repository. We will use it to pull files onto the platform for code reviews.",
     "description": "Form description"
   },
+  "LjTVFe": {
+    "defaultMessage": "Please check if there's a typo in the URL, such as extra or missing characters.",
+    "description": "Invalid URL error message"
+  },
   "LkjqcQ": {
     "defaultMessage": "Practice {questionCount}+ curated Svelte Interview Questions in-browser, with solutions and test cases from big tech ex-interviewers",
     "description": "Description of Interview Questions page"
+  },
+  "LlNbSg": {
+    "defaultMessage": "Collapse",
+    "description": "Collapse label"
   },
   "LlhHTu": {
     "defaultMessage": "Unlock challenge",
@@ -4523,6 +4571,10 @@
     "defaultMessage": "See all questions",
     "description": "Label for see all questions button"
   },
+  "Nvn+wO": {
+    "defaultMessage": "No such page",
+    "description": "No such page error"
+  },
   "Nz7W/0": {
     "defaultMessage": "Oops something went wrong",
     "description": "Error message"
@@ -4770,6 +4822,10 @@
   "PI4FQX": {
     "defaultMessage": "Join our vibrant community of builders",
     "description": "Title for Projects newsletter sign up section"
+  },
+  "PJ4Kme": {
+    "defaultMessage": "Your abilities and enthusiasm will be recognized and distinguished, especially if your career has taken a unique path. We value diverse viewpoints and individuals who think critically and are unafraid to question preconceptions. Come join us.",
+    "description": "Job posting description"
   },
   "PJcH+M": {
     "defaultMessage": "If the payment still doesn't succeed, go to the <link>Stripe Customer Portal</link>, delete any cards that have been added, then try paying again.",
@@ -6267,6 +6323,10 @@
     "defaultMessage": "You have no premium credits left for this cycle.",
     "description": "Subtitle for project paywall"
   },
+  "WriAja": {
+    "defaultMessage": "Apply now",
+    "description": "Apply now button label"
+  },
   "Wtrj0o": {
     "defaultMessage": "Take the structured route to front end learning by building projects according to our skills roadmap. Learn any front end core skill you may need.",
     "description": "Description of Projects skills roadmap page"
@@ -6286,6 +6346,10 @@
   "Wyg5gk": {
     "defaultMessage": "Many candidates use this list as a guide, focusing on each problem to grasp core concepts and techniques. We've solved these questions in JavaScript/TypeScript to make them accessible to front end engineers.",
     "description": "Description for Blind 75 page"
+  },
+  "WzTvaM": {
+    "defaultMessage": "By clicking \"Unsubscribe\", you will no longer receive \"{listName}\" emails. You can resubscribe at anytime",
+    "description": "Unsubscribe email message"
   },
   "X/O+1P": {
     "defaultMessage": "Code in browser",
@@ -6326,10 +6390,6 @@
   "XB1qXx": {
     "defaultMessage": "Body: {characterLimit} characters maximum, not more than {maxLinkCount} links",
     "description": "Body placement constraints"
-  },
-  "XD52zM": {
-    "defaultMessage": "More",
-    "description": "Label for \"More\" button in pagination"
   },
   "XG1Wfg": {
     "defaultMessage": "Join Discord (premium)",
@@ -6599,6 +6659,10 @@
     "defaultMessage": "Preparation plans for all kinds of preparation timelines — <owlink>1 week</owlink>, <omlink>1 month</omlink>, <tmlink>3 months</tmlink>.",
     "description": "Subtitle for proven preparation plans feature"
   },
+  "YeWPOG": {
+    "defaultMessage": "Invalid URL",
+    "description": "Invalid URL error"
+  },
   "Yezbh0": {
     "defaultMessage": "Level up in your skills or complete component track",
     "description": "Description for \"Level up in your skills or complete component track\" feature on Projects home page"
@@ -6859,6 +6923,10 @@
     "defaultMessage": "Every project challenge was designed by senior UI/UX designers with perfect spacing units and design rules, so that your portfolio projects will always look professional.",
     "description": "Description of 'Beautiful designs made by high-end designers' feature in Projects marketing page"
   },
+  "aUrYFI": {
+    "defaultMessage": "Write your message...",
+    "description": "Message field placeholder"
+  },
   "aVhVoX": {
     "defaultMessage": "RADIO framework",
     "description": "RADIO (acroynm) framework name for front end system design interviews. Don't translate RADIO"
@@ -6874,6 +6942,10 @@
   "aZ648A": {
     "defaultMessage": "Are you intending to use <bold>\"{childSkill}\"</bold> for this challenge? We will add it to the skills used so your progress for its skill plan will be tracked.",
     "description": "Message about adding a skill to a challenge session"
+  },
+  "aaJtz1": {
+    "defaultMessage": "Incompatible extensions",
+    "description": "Incompatible extensions error"
   },
   "aadNm4": {
     "defaultMessage": "Tablet ({width}px x {height}px)",
@@ -7147,6 +7219,10 @@
     "defaultMessage": "{count} pages",
     "description": "Pages per active user"
   },
+  "biFSa7": {
+    "defaultMessage": "More",
+    "description": "More button label"
+  },
   "bj5dJV": {
     "defaultMessage": "Upvote",
     "description": "Vote button label"
@@ -7250,6 +7326,10 @@
   "cCmpi4": {
     "defaultMessage": "Message submitted successfully",
     "description": "Success toast title for message sent"
+  },
+  "cHRu7b": {
+    "defaultMessage": "Pay Range",
+    "description": "Job pay range"
   },
   "cIZicH": {
     "defaultMessage": "Our focus now is on expanding our challenge base. New challenges are added to the platform on a weekly basis.",
@@ -7491,10 +7571,6 @@
     "defaultMessage": "and",
     "description": "Label in divider between Join Discord and Sign Up in Projects Newsletter section"
   },
-  "dgTN/f": {
-    "defaultMessage": "More",
-    "description": "Label for \"More\" button on current project session card"
-  },
   "dhbnY3": {
     "defaultMessage": "Challenge: {challengeName} | Official solutions",
     "description": "Title of Projects challenge resources solutions page"
@@ -7626,6 +7702,10 @@
   "ePTKHr": {
     "defaultMessage": "GreatFrontEnd Blog - News and insights for Front End Engineers",
     "description": "Title of GreatFrontEnd blog homepage"
+  },
+  "ePtSLU": {
+    "defaultMessage": "Hide feedback widget",
+    "description": "Hide feedback widget"
   },
   "eQwU0l": {
     "defaultMessage": "Copy line up",
@@ -7847,6 +7927,10 @@
     "defaultMessage": "Choose your ad formats, go live schedule, and upload assets",
     "description": "Advertise request form ads section description"
   },
+  "fUhxFj": {
+    "defaultMessage": "Resubscribe",
+    "description": "Resubscribe button"
+  },
   "fXNw/d": {
     "defaultMessage": "Your Email",
     "description": "Feedback widget email input field label"
@@ -7934,6 +8018,10 @@
   "fx7H3x": {
     "defaultMessage": "You've also earned an exclusive promo code:",
     "description": "Marketing rewards message"
+  },
+  "fxZ0zk": {
+    "defaultMessage": "Some common reasons include:",
+    "description": "Error message description"
   },
   "fxfae3": {
     "defaultMessage": "If you're stuck, clarify any doubts within the discussion forums in Step 3's. If you need answers urgently for a critical issue, email as at <link>support@greatfrontend.com</link>.",
@@ -8370,6 +8458,10 @@
   "iIQL6V": {
     "defaultMessage": "Completed",
     "description": "Label indicating that the question has been completed"
+  },
+  "iKGGvM": {
+    "defaultMessage": "Hide table of contents",
+    "description": "Hide table of contents"
   },
   "iLx/BQ": {
     "defaultMessage": "Amazon",
@@ -8883,6 +8975,10 @@
     "defaultMessage": "<percent>{percentage}</percent>%",
     "description": "Progress percentage in Continue Learning section in preparation dashboard"
   },
+  "lFbX7p": {
+    "defaultMessage": "Oops! An error has occurred",
+    "description": "Error message title"
+  },
   "lGVunh": {
     "defaultMessage": "Review the final details and sign the agreement",
     "description": "Subtitle for Review and sign"
@@ -9155,10 +9251,6 @@
     "defaultMessage": "First, set up your public profile to help the community know you better (and assist you better!)",
     "description": "Subtitle for Projects profile onboarding page"
   },
-  "n2UNgq": {
-    "defaultMessage": "Collapse",
-    "description": "Label for \"Collapse\" button on current project session card"
-  },
   "n3eIzi": {
     "defaultMessage": "See all",
     "description": "See all new posts"
@@ -9383,6 +9475,10 @@
     "defaultMessage": "Difficulty: Easy to Hard",
     "description": "Sorting option for question list - sort by difficulty from easy to hard"
   },
+  "oPauc5": {
+    "defaultMessage": "You are using a browser extension that is incompatible with the page, e.g. extensions that modify code blocks.",
+    "description": "Incompatible extensions error message"
+  },
   "oQYa8+": {
     "defaultMessage": "You have unlocked this Figma file",
     "description": "Tooltip for premium Figma file download button"
@@ -9431,9 +9527,17 @@
     "defaultMessage": "Challenge status",
     "description": "Label for Status filter for submissions list"
   },
+  "ofoywG": {
+    "defaultMessage": "Premium user badge",
+    "description": "Premium user badge"
+  },
   "ogPUIe": {
     "defaultMessage": "<authorProfileLink>{author}</authorProfileLink> replied to <bold>themselves</bold> on the challenge forum for <link>{challengeTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for someone replying to someone on the challenge forum"
+  },
+  "ohLJdT": {
+    "defaultMessage": "Collapse sidebar",
+    "description": "Collapse sidebar label"
   },
   "oiMKy3": {
     "defaultMessage": "Here are the tasks for this campaign:",
@@ -9987,6 +10091,10 @@
     "defaultMessage": "Time-savers",
     "description": "Section title for study plans"
   },
+  "rviSvL": {
+    "defaultMessage": "Go back",
+    "description": "Go back label"
+  },
   "rzOz2q": {
     "defaultMessage": "We're still growing our challenge base",
     "description": "Challenge base section title"
@@ -10103,6 +10211,10 @@
     "defaultMessage": "Testimonials",
     "description": "Title of testimonials page"
   },
+  "stA35Q": {
+    "defaultMessage": "Back to jobs",
+    "description": "Back to jobs page"
+  },
   "swjkuF": {
     "defaultMessage": "Study plans",
     "description": "Title of study plans page"
@@ -10138,6 +10250,10 @@
   "t+sX0U": {
     "defaultMessage": "The only guide you need for Front End System Design interviews",
     "description": "Description for frontend system design playbook page"
+  },
+  "t1TqnN": {
+    "defaultMessage": "Beta",
+    "description": "Beta product"
   },
   "t2Ll2e": {
     "defaultMessage": "Run your code with <button>custom test cases</button> before submitting.",
@@ -10231,6 +10347,10 @@
     "defaultMessage": "OOP",
     "description": "Computer science topic"
   },
+  "tXDJDH": {
+    "defaultMessage": "Blog Series",
+    "description": "Blog series dropdown label"
+  },
   "tYSCae": {
     "defaultMessage": "Views",
     "description": "Label for views"
@@ -10242,6 +10362,10 @@
   "tbIHno": {
     "defaultMessage": "Work start date cannot be in the future. Please recheck your selections",
     "description": "Error message for invalid \"Month and year you started work as a Front End Engineer\" input on Projects profile onboarding page"
+  },
+  "tbjYz4": {
+    "defaultMessage": "This page does not exist",
+    "description": "Not found page title"
   },
   "tdR9Fm": {
     "defaultMessage": "Automatically mark as complete when moving to the next article",
@@ -10527,6 +10651,10 @@
     "defaultMessage": "Stripe",
     "description": "Company name for Stripe"
   },
+  "v8kErk": {
+    "defaultMessage": "The page does not exist or has been removed.",
+    "description": "No such page error message"
+  },
   "v9//lW": {
     "defaultMessage": "Targeted practice in specific front end frameworks and languages.",
     "description": "Description for framework and language section"
@@ -10586,6 +10714,10 @@
   "vWzLH8": {
     "defaultMessage": "Full access to tracks & skills. Unlimited <tooltip>premium credits</tooltip>",
     "description": "Subtitle of premium plan CTA card"
+  },
+  "vZx+Xb": {
+    "defaultMessage": "In the meantime, check out these pages:",
+    "description": "Not found page suggestion"
   },
   "vbWLam": {
     "defaultMessage": "Practice {questionCount}+ Quiz-style JavaScript Interview Questions. Learn in-browser, with high quality answers written by Big Tech Ex-interviewers",
@@ -10843,6 +10975,10 @@
     "defaultMessage": "GreatFrontEnd",
     "description": "Social title of GreatFrontEnd standard page"
   },
+  "x8U8S9": {
+    "defaultMessage": "You've resubscribed",
+    "description": "Resubscribed email message"
+  },
   "xBNYLl": {
     "defaultMessage": "Behavioral Interview",
     "description": "Short title for behavioral interview playbook"
@@ -10878,6 +11014,10 @@
   "xRyx1X": {
     "defaultMessage": "<bold>{duration}</bold> minutes",
     "description": "Label for session duration"
+  },
+  "xSJcDV": {
+    "defaultMessage": "We are excited to hear from you",
+    "description": "Job posting title"
   },
   "xWAt8Q": {
     "defaultMessage": "The ultimate Front End Interview preparation platform.",
@@ -11142,6 +11282,10 @@
   "ysth0B": {
     "defaultMessage": "Search company guides",
     "description": "Placeholder for search input of company guides"
+  },
+  "yuMfLH": {
+    "defaultMessage": "Select product",
+    "description": "Select product label"
   },
   "yv1wII": {
     "defaultMessage": "Implementation must contain at most {maxLength} character(s).",

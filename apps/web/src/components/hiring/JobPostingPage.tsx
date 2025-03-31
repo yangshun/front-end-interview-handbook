@@ -1,7 +1,10 @@
+'use client';
+
 import clsx from 'clsx';
 import type { JobsPosting } from 'contentlayer/generated';
 import { startCase } from 'lodash-es';
 
+import { useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
@@ -30,13 +33,22 @@ export default function JobPostingPage({
   payRange,
   title,
 }: Props) {
+  const intl = useIntl();
+
   return (
     <Container
       className="my-10 grid gap-y-8 md:my-20 md:gap-y-16"
       width="marketing">
       <div className="flex flex-col gap-y-6">
         <div>
-          <Anchor href="/jobs">← Back to jobs</Anchor>
+          <Anchor href="/jobs">
+            ←{' '}
+            {intl.formatMessage({
+              defaultMessage: 'Back to jobs',
+              description: 'Back to jobs page',
+              id: 'stA35Q',
+            })}
+          </Anchor>
         </div>
         <Heading level="heading3">{title}</Heading>
       </div>
@@ -51,7 +63,11 @@ export default function JobPostingPage({
               )}>
               <div className="grid gap-y-2 p-4">
                 <Text className="block" size="body2" weight="medium">
-                  Employment Type
+                  {intl.formatMessage({
+                    defaultMessage: 'Employment Type',
+                    description: 'Employment type',
+                    id: '4lxFH6',
+                  })}
                 </Text>
                 <Text
                   className="block"
@@ -63,7 +79,11 @@ export default function JobPostingPage({
               </div>
               <div className="grid gap-y-2 p-4">
                 <Text className="block" size="body2" weight="medium">
-                  Pay Range
+                  {intl.formatMessage({
+                    defaultMessage: 'Pay Range',
+                    description: 'Job pay range',
+                    id: 'cHRu7b',
+                  })}
                 </Text>
                 <Text
                   className="block"
@@ -77,7 +97,11 @@ export default function JobPostingPage({
                 <Button
                   display="block"
                   href={href}
-                  label="Apply now"
+                  label={intl.formatMessage({
+                    defaultMessage: 'Apply now',
+                    description: 'Apply now button label',
+                    id: 'WriAja',
+                  })}
                   variant="primary"
                 />
               </div>
@@ -92,26 +116,38 @@ export default function JobPostingPage({
                 themeBorderColor,
               )}>
               <Heading level="heading5">
-                We are excited to hear from you
+                {intl.formatMessage({
+                  defaultMessage: 'We are excited to hear from you',
+                  description: 'Job posting title',
+                  id: 'xSJcDV',
+                })}
               </Heading>
               <Prose>
                 <p>
-                  At GreatFrontEnd, we look for people with intense passion in
-                  the front end domain. You're encouraged to apply even if your
-                  background does not exactly align with the job requirements.
+                  {intl.formatMessage({
+                    defaultMessage:
+                      "At GreatFrontEnd, we look for people with intense passion in the front end domain. You're encouraged to apply even if your background does not exactly align with the job requirements.",
+                    description: 'Job posting description',
+                    id: '/Huda4',
+                  })}
                 </p>
                 <p>
-                  Your abilities and enthusiasm will be recognized and
-                  distinguished, especially if your career has taken a unique
-                  path. We value diverse viewpoints and individuals who think
-                  critically and are unafraid to question preconceptions. Come
-                  join us.
+                  {intl.formatMessage({
+                    defaultMessage:
+                      'Your abilities and enthusiasm will be recognized and distinguished, especially if your career has taken a unique path. We value diverse viewpoints and individuals who think critically and are unafraid to question preconceptions. Come join us.',
+                    description: 'Job posting description',
+                    id: 'PJ4Kme',
+                  })}
                 </p>
               </Prose>
               <div className="mt-4">
                 <Button
                   href={href}
-                  label="Apply now"
+                  label={intl.formatMessage({
+                    defaultMessage: 'Apply now',
+                    description: 'Apply now button label',
+                    id: 'WriAja',
+                  })}
                   size="md"
                   variant="primary"
                 />
