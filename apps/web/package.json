@@ -14,7 +14,7 @@
     "lint": "next lint --fix",
     "test": "jest",
     "tsc": "tsc",
-    "transform": "jscodeshift -t ./transforms/transform.ts src --parser=tsx",
+    "transform": "jscodeshift -t ./transforms/transform.ts --parser=tsx",
     "db:projects-sync": "ts-node --esm --experimentalSpecifierResolution node ./src/scripts/projects-challenges-sync.ts",
     "gen": "cross-env NODE_ENV=production tsx ./src/scripts/questions-gen-cli.ts",
     "gen:watch": "npm run gen:all && NODE_ENV=production tsx ./src/scripts/questions-watcher.ts",

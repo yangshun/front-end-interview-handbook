@@ -4,6 +4,7 @@ import clsx from 'clsx';
 
 import { useAuthResendSignInConfirmation } from '~/hooks/user/useAuthResendSignInConfirmation';
 
+import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
@@ -18,6 +19,7 @@ type Props = Readonly<{
 }>;
 
 export default function AuthUnverifiedEmailPage({ email, redirectTo }: Props) {
+  const intl = useIntl();
   const resendSignupConfirmationMutation = useAuthResendSignInConfirmation();
 
   return (
@@ -33,7 +35,12 @@ export default function AuthUnverifiedEmailPage({ email, redirectTo }: Props) {
         )}
         width="xl">
         <Heading className="text-center" level="heading4">
-          Looks like you haven't verified your email address
+          {intl.formatMessage({
+            defaultMessage:
+              "Looks like you haven't verified your email address",
+            description: 'Unverified email message',
+            id: 'Laxim6',
+          })}
         </Heading>
         <div>
           <Text
@@ -43,14 +50,22 @@ export default function AuthUnverifiedEmailPage({ email, redirectTo }: Props) {
             )}
             color="secondary"
             size="inherit">
-            Click the button below to receive an email containing a verification
-            link.
+            {intl.formatMessage({
+              defaultMessage:
+                'Click the button below to receive an email containing a verification link.',
+              description: 'Receive verification link instruction',
+              id: 'UOebIi',
+            })}
           </Text>
           <div className="mt-4 text-center">
             <Button
               isDisabled={resendSignupConfirmationMutation.isLoading}
               isLoading={resendSignupConfirmationMutation.isLoading}
-              label="Send verification email"
+              label={intl.formatMessage({
+                defaultMessage: 'Send verification email',
+                description: 'Send verification email',
+                id: 'zBphCE',
+              })}
               variant="primary"
               onClick={() => {
                 resendSignupConfirmationMutation.mutate({

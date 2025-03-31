@@ -5,6 +5,7 @@ import { FaCheck } from 'react-icons/fa6';
 
 import { useAuthResendSignInConfirmation } from '~/hooks/user/useAuthResendSignInConfirmation';
 
+import { useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
@@ -19,6 +20,7 @@ type Props = Readonly<{
 }>;
 
 export default function AuthVerificationSentPage({ email, redirectTo }: Props) {
+  const intl = useIntl();
   const resendSignupConfirmationMutation = useAuthResendSignInConfirmation();
 
   return (
@@ -48,7 +50,16 @@ export default function AuthVerificationSentPage({ email, redirectTo }: Props) {
         </div>
         <div>
           <Heading className="text-center" level="heading4">
-            We have sent a verification link to {email}
+            {intl.formatMessage(
+              {
+                defaultMessage: 'We have sent a verification link to {email}',
+                description: 'Email verification link sent',
+                id: 'GxG3/D',
+              },
+              {
+                email,
+              },
+            )}
           </Heading>
           <Text
             className={clsx(
@@ -57,7 +68,11 @@ export default function AuthVerificationSentPage({ email, redirectTo }: Props) {
             )}
             color="secondary"
             size="inherit">
-            Didn't receive it?{' '}
+            {intl.formatMessage({
+              defaultMessage: "Didn't receive it?",
+              description: 'Email verification link not received',
+              id: '8KrahL',
+            })}{' '}
             <Anchor
               className="whitespace-nowrap"
               href="#"
@@ -67,7 +82,11 @@ export default function AuthVerificationSentPage({ email, redirectTo }: Props) {
                   redirectTo,
                 });
               }}>
-              Send another verification email
+              {intl.formatMessage({
+                defaultMessage: 'Send another verification email',
+                description: 'Send another verification email',
+                id: 'pz6Yny',
+              })}
             </Anchor>
             .
           </Text>

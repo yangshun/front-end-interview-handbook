@@ -1,6 +1,8 @@
-import type { API, FileInfo, Transform } from 'jscodeshift';
+import type { API, FileInfo } from 'jscodeshift';
 
-const transform: Transform = (file: FileInfo, api: API) => {
+const intlDescription = 'TODO_i18n_REPLACE_ME';
+
+export default function transform(file: FileInfo, api: API) {
   const j = api.jscodeshift;
   const root = j(file.source);
   let hasModifications = false;
@@ -171,6 +173,35 @@ const transform: Transform = (file: FileInfo, api: API) => {
   function isWithinIntlFormatMessageCall(node): boolean {
     return isPartOfObjectMethod(node, 'intl', 'formatMessage');
   }
+  function isWithinFormattedMessage(node): boolean {
+    let parent = node.parentPath;
+
+    while (parent) {
+      if (
+        parent.value.type === 'JSXElement' &&
+        parent.value.openingElement &&
+        parent.value.openingElement.name &&
+        parent.value.openingElement.name.name === 'FormattedMessage'
+      ) {
+        return true;
+      }
+
+      // Also check if it's part of a FormattedMessage prop
+      if (
+        parent.value.type === 'JSXAttribute' &&
+        parent.parentPath &&
+        parent.parentPath.value.type === 'JSXOpeningElement' &&
+        parent.parentPath.value.name &&
+        parent.parentPath.value.name.name === 'FormattedMessage'
+      ) {
+        return true;
+      }
+
+      parent = parent.parentPath;
+    }
+
+    return false;
+  }
 
   function isWithinGtagEventCall(node) {
     return isPartOfObjectMethod(node, 'gtag', 'event');
@@ -289,11 +320,9 @@ const transform: Transform = (file: FileInfo, api: API) => {
       return;
     }
 
-    const description = 'Translation for JSXText content';
-
     j(path).replaceWith(
       j.jsxExpressionContainer(
-        createIntlFormatMessageExpression(text, description),
+        createIntlFormatMessageExpression(text, intlDescription),
       ),
     );
     hasModifications = true;
@@ -306,16 +335,14 @@ const transform: Transform = (file: FileInfo, api: API) => {
       isObjectValue(path) &&
       isReactComponentOrHook(path) &&
       isTranslatableString(path.value.value) &&
+      !isWithinFormattedMessage(path) &&
       !isWithinIntlFormatMessageCall(path) &&
       !isWithinFunctionCall(path, 'logEvent') &&
       !isWithinFunctionCall(path, 'logMessage') &&
       !isWithinGtagEventCall(path)
     ) {
       j(path).replaceWith(
-        createIntlFormatMessageExpression(
-          path.value.value,
-          'Translation for string literal',
-        ),
+        createIntlFormatMessageExpression(path.value.value, intlDescription),
       );
       hasModifications = true;
     }
@@ -327,9 +354,10 @@ const transform: Transform = (file: FileInfo, api: API) => {
       path.node.name.type === 'JSXIdentifier' &&
       path.node.value?.type === 'StringLiteral' &&
       isTranslatableString(path.node.value.value) &&
-      isInsideComponent(path)
+      isInsideComponent(path) &&
+      !isWithinIntlFormatMessageCall(path) &&
+      !isWithinFormattedMessage(path)
     ) {
-      const description = `Translation for JSX attribute string literal`;
       const attributeName = path.node.name.name;
 
       j(path).replaceWith(
@@ -338,7 +366,7 @@ const transform: Transform = (file: FileInfo, api: API) => {
           j.jsxExpressionContainer(
             createIntlFormatMessageExpression(
               path.node.value.value,
-              description,
+              intlDescription,
             ),
           ),
         ),
@@ -408,7 +436,7 @@ const transform: Transform = (file: FileInfo, api: API) => {
                               prop.key,
                               createIntlFormatMessageExpression(
                                 prop.value.value,
-                                `Translation for ${prop.key.name} in ${variableName}`,
+                                intlDescription,
                               ),
                             );
                           }
@@ -431,7 +459,7 @@ const transform: Transform = (file: FileInfo, api: API) => {
                         prop.key,
                         createIntlFormatMessageExpression(
                           prop.value.value,
-                          `Translation for ${prop.key.name} in ${variableName}`,
+                          intlDescription,
                         ),
                       );
                     }
@@ -579,6 +607,4 @@ const transform: Transform = (file: FileInfo, api: API) => {
   }
 
   return hasModifications ? root.toSource() : null;
-};
-
-export default transform;
+}

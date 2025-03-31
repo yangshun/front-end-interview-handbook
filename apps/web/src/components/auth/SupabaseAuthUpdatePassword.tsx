@@ -109,7 +109,15 @@ export default function SupabaseAuthUpdatePassword({
       )}
       <Section>
         {isUserLoading ? (
-          <Spinner display="block" label="Loading" size="lg" />
+          <Spinner
+            display="block"
+            label={intl.formatMessage({
+              defaultMessage: 'Loading',
+              description: 'Loading',
+              id: 'Roh1pc',
+            })}
+            size="lg"
+          />
         ) : (
           <form
             className="flex flex-col gap-y-6"

@@ -57,7 +57,11 @@ export default function AuthLoginRedirectPage({ next }: Props) {
             color="secondary"
             size="body1"
             weight="medium">
-            Redirecting you...
+            {intl.formatMessage({
+              defaultMessage: 'Redirecting you...',
+              description: 'Auth redirect message',
+              id: 'RJMyW6',
+            })}
           </Text>
         </div>
       </Container>

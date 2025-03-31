@@ -46,7 +46,11 @@ export default function AuthPasswordResetSentPage({ next }: Props) {
                 next,
               })}
               prefetch={null}>
-              Go back to sign in
+              {intl.formatMessage({
+                defaultMessage: 'Go back to sign in',
+                description: 'Back to sign in page',
+                id: '3qk61r',
+              })}
             </Anchor>
           </Text>
         </div>

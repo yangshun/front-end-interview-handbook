@@ -1019,6 +1019,10 @@
     "defaultMessage": "{questionCount}+ most important Svelte interview questions covering stores, bindings, reactivity, lifecycle, and building interactive components.",
     "description": "Subtitle for questions list page"
   },
+  "3qk61r": {
+    "defaultMessage": "Go back to sign in",
+    "description": "Back to sign in page"
+  },
   "3tY8mQ": {
     "defaultMessage": "Verifiable by Google Analytics",
     "description": "Number of engineers using can be verified by Google Analytics"
@@ -1782,6 +1786,10 @@
   "8JoIUN": {
     "defaultMessage": "Coming soon",
     "description": "Tooltip for Coming Soon questions label"
+  },
+  "8KrahL": {
+    "defaultMessage": "Didn't receive it?",
+    "description": "Email verification link not received"
   },
   "8MF8Uf": {
     "defaultMessage": "<strong>Comprehensive solutions and tests:</strong> We provide official solutions and test cases for every question, crafted by ex-FAANG engineers. Our solutions are in-depth and provide explanations of the approach, not just the code.",
@@ -3179,6 +3187,10 @@
     "defaultMessage": "Woohoo! You completed the question!",
     "description": "Toast congratulating user once they mark a question as complete"
   },
+  "GxG3/D": {
+    "defaultMessage": "We have sent a verification link to {email}",
+    "description": "Email verification link sent"
+  },
   "GyDKzV": {
     "defaultMessage": "Filters",
     "description": "Screenreader text indicating the filters component on question list pages"
@@ -4150,6 +4162,10 @@
   "LXcvcX": {
     "defaultMessage": "Ok",
     "description": "Ok label"
+  },
+  "Laxim6": {
+    "defaultMessage": "Looks like you haven't verified your email address",
+    "description": "Unverified email message"
   },
   "Lc/pH5": {
     "defaultMessage": "We will begin tracking your progress on this study list.",
@@ -5175,6 +5191,10 @@
     "defaultMessage": "Worry about a shaky foundation? Harness curated tools from senior engineers at big tech and learn the best practices for practical development",
     "description": "Description for \"Get the right foundation for practical development\" feature marketing section on Projects home page"
   },
+  "RJMyW6": {
+    "defaultMessage": "Redirecting you...",
+    "description": "Auth redirect message"
+  },
   "RKER+g": {
     "defaultMessage": "Guides",
     "description": "Guidebooks category"
@@ -5282,6 +5302,10 @@
   "RnHcaK": {
     "defaultMessage": "An account is required to purchase premium",
     "description": "Title of alert requesting user to create an account to purchase premium plans"
+  },
+  "Roh1pc": {
+    "defaultMessage": "Loading",
+    "description": "Loading"
   },
   "Rr7G89": {
     "defaultMessage": "Join our Discord community for GreatFrontEnd Projects",
@@ -5786,6 +5810,10 @@
   "ULuy8I": {
     "defaultMessage": "Difficulty",
     "description": "Question difficulty"
+  },
+  "UOebIi": {
+    "defaultMessage": "Click the button below to receive an email containing a verification link.",
+    "description": "Receive verification link instruction"
   },
   "UPf7Yu": {
     "defaultMessage": "Premium users also gain access to <bold>company tags</bold>, enabling them to filter questions by specific companies known to ask them, making it easier to tailor their preparation.",
@@ -9655,6 +9683,10 @@
     "defaultMessage": "Next",
     "description": "Next button label"
   },
+  "pz6Yny": {
+    "defaultMessage": "Send another verification email",
+    "description": "Send another verification email"
+  },
   "q0J0CA": {
     "defaultMessage": "Continue with {authProviderLabel}",
     "description": "Label of social media sign in button on Social Sign In page"
@@ -11182,6 +11214,10 @@
   "zBgQ/Y": {
     "defaultMessage": "Invalid LinkedIn username or URL",
     "description": "Error message when linkedin username or url is invalid"
+  },
+  "zBphCE": {
+    "defaultMessage": "Send verification email",
+    "description": "Send verification email"
   },
   "zDt/bH": {
     "defaultMessage": "Next",
