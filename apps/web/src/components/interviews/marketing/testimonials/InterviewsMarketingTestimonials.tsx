@@ -773,6 +773,21 @@ export function InterviewsMarketingTestimonialsDict() {
       "GreatFrontEnd was a game-changer in my interview prep for different companies where I had process! 🚀 It provided structured system design guidance (my favourite one), frontend best practices, and hands-on coding challenges that strengthened my confidence. The detailed explanations and real-world scenarios made a huge difference. Also I love the engaging and supportive community! If you're preparing for frontend interviews, this platform is a must-try! 💡",
     title: 'Senior Software Developer',
   };
+  const leanneZhang: InterviewsMarketingTestimonial = {
+    anonymous: false,
+    authorThumbnailUrl: '/img/testimonials/users/leanne-zhang.jpg',
+    authorUrl: 'https://www.youtube.com/@codingbff',
+    companyLogoUrl: '/img/testimonials/company/meta.svg',
+    createdAt: '2025-03-23',
+    featuredOffer: 'Meta',
+    id: 'leanne-zhang',
+    location: 'San Francisco, US',
+    name: 'Leanne (CodingBff)',
+    offers: ['Intuit'],
+    testimonial:
+      'GreatFrontEnd helped me bridge the skills gap and transitioned from EM to IC. After 3 months of deep dive into ReactJS UI problems, JavaScript fundamentals, and system designs from GFE, I was able to land a Senior Software Engineer offer. It solidifies my fundamentals and give me a roadmap how to prepare. The community in GFE is amazing and helpful as well.',
+    title: 'Senior Software Engineer',
+  };
   // Const template: InterviewsMarketingTestimonial = {
   //   anonymous: false,
   //   authorThumbnailUrl: 'TO_BE_FILLED',
@@ -816,6 +831,7 @@ export function InterviewsMarketingTestimonialsDict() {
     kiaanCastillo,
     lamTran,
     larry,
+    leanneZhang,
     locChuong,
     luca,
     luke: lukeFiji,

@@ -39,7 +39,7 @@ type Props = Readonly<{
 const DELAY_SECOND = 'delay-700';
 const DELAY_THIRD = 'delay-1000';
 
-export default function InterviewsMarketingHeroNew({ testimonials }: Props) {
+export default function InterviewsMarketingHero({ testimonials }: Props) {
   const intl = useIntl();
   const titleRef = useRef(null);
   const isTitleVisible = useInView(titleRef, {

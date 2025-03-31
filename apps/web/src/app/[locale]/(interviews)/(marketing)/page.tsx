@@ -287,11 +287,11 @@ export default async function Page({ params }: Props) {
       }}
       questions={questionBankData}
       testimonials={[
-        testimonials.locChuong,
+        testimonials.lamTran,
+        testimonials.leanneZhang,
+        testimonials.cliffordFung,
         testimonials.deannaTran,
-        testimonials.yugantJoshi,
-        testimonials.chenweiZhang,
-        testimonials.edWang,
+        testimonials.kiaanCastillo,
       ]}
       uiCodingQuestion={{
         frameworks: {
