@@ -9439,10 +9439,6 @@
     "defaultMessage": "Start on a project",
     "description": "Button title for starting a project on projects payment success page"
   },
-  "orU8ES": {
-    "defaultMessage": "React {engineersCount}+ Front End Engineers with high ROI placements",
-    "description": "Title of advertise with us page"
-  },
   "ouJSar": {
     "defaultMessage": "{name} completed",
     "description": "User has completed on this challenge"

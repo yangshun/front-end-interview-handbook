@@ -21,9 +21,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const description = intl.formatMessage(
     {
       defaultMessage:
-        'React {engineersCount}+ Front End Engineers with high ROI placements',
+        'Reach {engineersCount}+ Front End Engineers with high ROI placements',
       description: 'Title of advertise with us page',
-      id: 'orU8ES',
+      id: 'J9zndO',
     },
     {
       engineersCount: '600k',
