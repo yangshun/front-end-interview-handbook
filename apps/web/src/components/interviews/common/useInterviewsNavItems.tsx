@@ -621,7 +621,7 @@ export default function useInterviewsNavItems(
     }),
     type: 'popover-list',
   } as const;
-  const practice: NavbarTopLevelItem = {
+  const prepare: NavbarTopLevelItem = {
     align: 'center',
     icon: RiTerminalWindowLine,
     id: 'practice-questions',
@@ -696,8 +696,8 @@ export default function useInterviewsNavItems(
     features,
     getStarted,
     guides,
-    practice,
     practiceQuestions,
+    prepare,
     pricing,
     recommendedPreparation,
     settings,

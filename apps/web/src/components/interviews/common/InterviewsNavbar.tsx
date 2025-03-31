@@ -128,12 +128,9 @@ export default function InterviewsNavbar({
                   <NavbarItem key={navItem.id} {...navItem} />
                 ))}
               </span>
-              {/* Only show first item on small screen */}
-              {leftLinks.length > 0 && (
-                <span className={clsx('contents min-[460px]:hidden')}>
-                  <NavbarItem key={leftLinks[0].id} {...leftLinks[0]} />
-                </span>
-              )}
+              <span className={clsx('contents min-[460px]:hidden')}>
+                <NavbarItem key={navItems.prepare.id} {...navItems.prepare} />
+              </span>
             </nav>
           </div>
           <NavbarEndWithAdvertiseWithUsBadge
