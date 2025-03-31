@@ -100,9 +100,9 @@ export const institutionsOrgDiscounts: FAQItem = {
 export const offerRefunds: FAQItem = {
   answer: (
     <FormattedMessage
-      defaultMessage={`We provide a refund policy based on the principle of "fair use" during the initial 14-day period of your first subscription. The concept of fair use implies that if you download a couple of premium assets such as designs or premium challenges and realize that our service isn't suitable for you, we are more than happy to process a refund. However, if you download three or more premium assets and then request a refund, we retain the right to decline your request. To initiate a refund, please send an email to <link>projects@greatfrontend.com</link> within 14 days of commencing your subscription.`}
+      defaultMessage={`We provide a refund policy based on the principle of "fair use" during the initial 14-day period of your first subscription. The concept of fair use implies that if you download a couple of premium assets such as designs or premium challenges and realize that our service isn't suitable for you, we are more than happy to process a refund. However, if you download three or more premium assets and then request a refund, we retain the right to decline your request. To initiate a refund, please send an email to <link>projects@greatfrontend.com</link> within {refundDays} days of commencing your subscription.`}
       description="Answer on projects pricing's FAQ section - offer refunds"
-      id="MVgsuv"
+      id="6xUaXK"
       values={{
         link: (chunks) => (
           <Anchor
@@ -112,6 +112,7 @@ export const offerRefunds: FAQItem = {
             {chunks}
           </Anchor>
         ),
+        refundDays: 7,
       }}
     />
   ),

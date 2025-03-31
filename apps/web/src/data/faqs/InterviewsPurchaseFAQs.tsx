@@ -94,12 +94,11 @@ export const purchaseDiscounts: FAQItem = {
 export const purchaseRefund: FAQItem = {
   answer: (
     <>
-      We have a "fair use" refund policy within 14 days of starting your first
+      We have a "fair use" refund policy within 7 days of starting your first
       subscription. "Fair use" means that if you have accessed a significant
-      amount of premium interview content (more than 10 premium interview
-      questions/solutions), we reserve the right to reject the request for a
-      refund. To request a refund, send an email to
-      contact[at]greatfrontend.com.
+      amount of premium interview content (more than 5 premium content pieces),
+      we reserve the right to reject the request for a refund. To request a
+      refund, send an email to contact[at]greatfrontend.com.
     </>
   ),
   key: 'purchase-refund',

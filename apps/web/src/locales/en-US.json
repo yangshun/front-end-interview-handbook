@@ -1527,6 +1527,10 @@
     "defaultMessage": "Some companies still test data structures and algorithms questions for their front end engineers. Practice the following if you expect these types of questions.",
     "description": "Tooltip for the tag"
   },
+  "6xUaXK": {
+    "defaultMessage": "We provide a refund policy based on the principle of \"fair use\" during the initial 14-day period of your first subscription. The concept of fair use implies that if you download a couple of premium assets such as designs or premium challenges and realize that our service isn't suitable for you, we are more than happy to process a refund. However, if you download three or more premium assets and then request a refund, we retain the right to decline your request. To initiate a refund, please send an email to <link>projects@greatfrontend.com</link> within {refundDays} days of commencing your subscription.",
+    "description": "Answer on projects pricing's FAQ section - offer refunds"
+  },
   "6zZ5vj": {
     "defaultMessage": "{commentsCount, plural, =0 {No comments} one {# comment} other {# comments}}",
     "description": "Number of comments for project submission"
@@ -4318,10 +4322,6 @@
   "MV3NI4": {
     "defaultMessage": "You posted on the challenge forum for <link>{challengeTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for you making a post on the challenge forum"
-  },
-  "MVgsuv": {
-    "defaultMessage": "We provide a refund policy based on the principle of \"fair use\" during the initial 14-day period of your first subscription. The concept of fair use implies that if you download a couple of premium assets such as designs or premium challenges and realize that our service isn't suitable for you, we are more than happy to process a refund. However, if you download three or more premium assets and then request a refund, we retain the right to decline your request. To initiate a refund, please send an email to <link>projects@greatfrontend.com</link> within 14 days of commencing your subscription.",
-    "description": "Answer on projects pricing's FAQ section - offer refunds"
   },
   "MWe9uf": {
     "defaultMessage": "Tips for answering questions on your motivation to join the role",
