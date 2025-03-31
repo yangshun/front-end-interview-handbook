@@ -3,6 +3,7 @@
 import clsx from 'clsx';
 import { useRef } from 'react';
 import { RiSettings3Line, RiUserLine, RiWallet3Line } from 'react-icons/ri';
+import { useMediaQuery } from 'usehooks-ts';
 
 import gtag from '~/lib/gtag';
 import useIsSticky from '~/hooks/useIsSticky';
@@ -18,6 +19,7 @@ import NavI18nDropdown from '~/components/global/navbar/NavI18nDropdown';
 import NavProductPopover from '~/components/global/navbar/NavProductPopover';
 import NavProfileIcon from '~/components/global/navbar/NavProfileIcon';
 import { useIntl } from '~/components/intl';
+import useProjectsNavItems from '~/components/projects/common/layout/useProjectsNavItems';
 import useProjectsNotificationUnreadCount from '~/components/projects/notifications/hooks/useProjectsNotificationUnreadCount';
 import ProjectsNotificationMobile from '~/components/projects/notifications/ProjectsNotificationMobile';
 import SponsorsAdvertiseWithUsBadge from '~/components/sponsors/SponsorsAdvertiseWithUsBadge';
@@ -147,7 +149,9 @@ export default function ProjectsNavbar({ hideOnDesktop = false }: Props) {
   const intl = useIntl();
   const isLoggedIn = user != null;
   const isPremium = userProfile?.projectsProfile?.premium ?? false;
+  const isMobile = useMediaQuery('(max-width: 460px)');
   const navLinks = useProjectsNavLinks(isLoggedIn, isPremium);
+  const projectsNavItems = useProjectsNavItems('nav');
   const userNavigationLinks = useUserNavigationLinks();
 
   const rightLinks = navLinks.filter(({ position }) => position === 'end');
@@ -284,7 +288,7 @@ export default function ProjectsNavbar({ hideOnDesktop = false }: Props) {
       leftItemsWrapperClassname={
         isPremium ? 'hidden min-[390px]:flex' : 'hidden min-[460px]:flex'
       }
-      links={navLinks}
+      links={isMobile ? [projectsNavItems.challenges] : navLinks}
       logo={
         <NavProductPopover
           product="projects"
