@@ -268,8 +268,8 @@ export default function SponsorsAdvertiseRequestForm({
           tabs={steps}
           value={step}
           onSelect={(newStep) => {
-            // If the current step status is in progress, prevent step navigation
-            if (stepsStatus[step] === 'in_progress') {
+            // Prevent navigation only for the ads step when the ads step is in progress
+            if (stepsStatus[step] === 'in_progress' && step === 'ads') {
               return;
             }
             if (newStep === 'ads' && stepsStatus.contact !== 'completed') {

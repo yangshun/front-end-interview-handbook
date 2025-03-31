@@ -358,7 +358,6 @@ export default function SponsorsAdvertiseRequestFormCompanyDetailsSection({
           <Button
             addonPosition="start"
             icon={RiArrowLeftLine}
-            isDisabled={isDirty}
             label={intl.formatMessage({
               defaultMessage: 'Previous',
               description: 'Label for previous button',
