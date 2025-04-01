@@ -1,3 +1,5 @@
+'use client';
+
 import clsx from 'clsx';
 import { useCallback, useState } from 'react';
 import { RiCodeLine } from 'react-icons/ri';
@@ -10,6 +12,7 @@ import type {
   QuestionMetadata,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import useQuestionsAutoMarkAsComplete from '~/components/interviews/questions/common/useQuestionsAutoMarkAsComplete';
+import { useIntl } from '~/components/intl';
 import SponsorsAdFormatInContentContainer from '~/components/sponsors/ads/SponsorsAdFormatInContentContainer';
 import Divider from '~/components/ui/Divider';
 import { deleteLocalJavaScriptQuestionCode } from '~/components/workspace/javascript/JavaScriptCodingWorkspaceCodeStorage';
@@ -95,6 +98,7 @@ function JavaScriptCodingWorkspaceImpl({
   studyListKey?: string;
   workspace: QuestionJavaScriptWorkspace;
 }>) {
+  const intl = useIntl();
   const { description, metadata, solution } = question;
   const { dispatch } = useJavaScriptCodingWorkspaceTilesContext();
 
@@ -142,7 +146,11 @@ function JavaScriptCodingWorkspaceImpl({
           />
         ),
         icon: RiCodeLine,
-        label: 'Submission',
+        label: intl.formatMessage({
+          defaultMessage: 'Submission',
+          description: 'Coding workspace submission tab label',
+          id: 'aPrOAu',
+        }),
       },
     });
 
@@ -169,7 +177,11 @@ function JavaScriptCodingWorkspaceImpl({
           />
         ),
         icon: CodingWorkspaceTabIcons.community_solution.icon,
-        label: 'Community solution',
+        label: intl.formatMessage({
+          defaultMessage: 'Community solution',
+          description: 'Coding workspace community solution tab label',
+          id: 'RbINSF',
+        }),
       },
     });
 
@@ -191,19 +203,31 @@ function JavaScriptCodingWorkspaceImpl({
         />
       ),
       icon: CodingWorkspaceTabIcons.community_solution_create.icon,
-      label: 'Post solution',
+      label: intl.formatMessage({
+        defaultMessage: 'Post solution',
+        description: 'Coding workspace post solution tab label',
+        id: 'q91wY2',
+      }),
     },
     community_solutions: {
       contents: (
         <JavaScriptCodingWorkspaceCommunitySolutionList metadata={metadata} />
       ),
       icon: CodingWorkspaceTabIcons.community_solutions.icon,
-      label: 'Community',
+      label: intl.formatMessage({
+        defaultMessage: 'Community',
+        description: 'Coding workspace community solutions tab label',
+        id: 'qDIWna',
+      }),
     },
     console: {
       contents: <CodingWorkspaceConsole />,
       icon: CodingWorkspaceTabIcons.console.icon,
-      label: 'Console',
+      label: intl.formatMessage({
+        defaultMessage: 'Console',
+        description: 'Coding workspace console tab label',
+        id: 'hWpv5f',
+      }),
     },
     description: {
       contents: (
@@ -218,14 +242,22 @@ function JavaScriptCodingWorkspaceImpl({
         />
       ),
       icon: CodingWorkspaceTabIcons.description.icon,
-      label: 'Description',
+      label: intl.formatMessage({
+        defaultMessage: 'Description',
+        description: 'Coding workspace description tab label',
+        id: '60Qm8N',
+      }),
     },
     run_tests: {
       contents: (
         <JavaScriptCodingWorkspaceTestsRunTab specPath={workspace.run} />
       ),
       icon: CodingWorkspaceTabIcons.run.icon,
-      label: 'Run tests',
+      label: intl.formatMessage({
+        defaultMessage: 'Run tests',
+        description: 'Coding workspace run tests tab label',
+        id: 'i+1FrX',
+      }),
     },
     solution: {
       contents: (
@@ -238,7 +270,11 @@ function JavaScriptCodingWorkspaceImpl({
         question.metadata.access !== 'free'
           ? () => <InterviewsPremiumBadge iconOnly={true} />
           : CodingWorkspaceTabIcons.solution.icon,
-      label: 'Solution',
+      label: intl.formatMessage({
+        defaultMessage: 'Solution',
+        description: 'Coding workspace solution tab label',
+        id: 'ZquLVV',
+      }),
     },
     submission_test_cases: {
       contents: (
@@ -252,12 +288,20 @@ function JavaScriptCodingWorkspaceImpl({
         </div>
       ),
       icon: CodingWorkspaceTabIcons.test_cases_all.icon,
-      label: 'Submission tests',
+      label: intl.formatMessage({
+        defaultMessage: 'Submission tests',
+        description: 'Coding workspace submission tests tab label',
+        id: 'VArueU',
+      }),
     },
     submissions: {
       contents: <JavaScriptCodingWorkspaceSubmissionList metadata={metadata} />,
       icon: CodingWorkspaceTabIcons.submissions.icon,
-      label: 'Submissions',
+      label: intl.formatMessage({
+        defaultMessage: 'Submissions',
+        description: 'Coding workspace submissions tab label',
+        id: 'H3ninu',
+      }),
     },
     submit: {
       contents: (
@@ -269,7 +313,11 @@ function JavaScriptCodingWorkspaceImpl({
         />
       ),
       icon: CodingWorkspaceTabIcons.submit.icon,
-      label: 'Submit',
+      label: intl.formatMessage({
+        defaultMessage: 'Submit',
+        description: 'Coding workspace submit tab label',
+        id: 'DeIlcK',
+      }),
     },
   };
 
@@ -282,14 +330,22 @@ function JavaScriptCodingWorkspaceImpl({
         <JavaScriptCodingWorkspaceCodeEditor filePath={workspace.main} />
       ),
       icon: CodingWorkspaceTabIcons.code.icon,
-      label: 'Code',
+      label: intl.formatMessage({
+        defaultMessage: 'Code',
+        description: 'Coding workspace code tab label',
+        id: '4m+sME',
+      }),
     },
     [codingWorkspaceTabFileId(workspace.run)]: {
       contents: (
         <JavaScriptCodingWorkspaceTestsEditor specPath={workspace.run} />
       ),
       icon: CodingWorkspaceTabIcons.test_cases.icon,
-      label: 'Test cases',
+      label: intl.formatMessage({
+        defaultMessage: 'Test cases',
+        description: 'Coding workspace test cases tab label',
+        id: '/dPmoS',
+      }),
     },
   });
 

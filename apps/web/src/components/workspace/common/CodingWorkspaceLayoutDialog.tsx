@@ -1,6 +1,9 @@
+'use client';
+
 import clsx from 'clsx';
 import type { ReactNode } from 'react';
 
+import { useIntl } from '~/components/intl';
 import Dialog from '~/components/ui/Dialog';
 import Text from '~/components/ui/Text';
 import {
@@ -30,11 +33,24 @@ export default function CodingWorkspaceLayoutDialog({
   onClose,
   layouts,
 }: Props) {
+  const intl = useIntl();
+
   return (
-    <Dialog isShown={isShown} title="Change workspace layout" onClose={onClose}>
+    <Dialog
+      isShown={isShown}
+      title={intl.formatMessage({
+        defaultMessage: 'Change workspace layout',
+        description: 'Change coding workspace layout title',
+        id: '2SM6li',
+      })}
+      onClose={onClose}>
       <div className="flex flex-col gap-y-4">
         <Text className="block" color="secondary" size="body2">
-          Choose a layout that best suits your needs.
+          {intl.formatMessage({
+            defaultMessage: 'Choose a layout that best suits your needs.',
+            description: 'Change coding workspace layout description',
+            id: 'AGnFjn',
+          })}
         </Text>
         <div
           className={clsx(

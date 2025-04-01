@@ -1,3 +1,5 @@
+'use client';
+
 import clsx from 'clsx';
 import { Decode, Hook } from 'console-feed';
 import type { Message } from 'console-feed/lib/definitions/Component';
@@ -7,6 +9,7 @@ import { useEffect, useRef, useState } from 'react';
 import { RiArrowGoBackLine, RiCloseLine, RiPlayLine } from 'react-icons/ri';
 import { Panel, PanelGroup, PanelResizeHandle } from 'react-resizable-panels';
 
+import { useIntl } from '~/components/intl';
 import MDXCodeBlock, {
   convertContentToCode,
 } from '~/components/mdx/MDXCodeBlock';
@@ -53,6 +56,7 @@ const srcDoc = `
 `;
 
 export default function JavaScriptCodingQuizCodeEditor(props: Props) {
+  const intl = useIntl();
   const codeBlockRef = useRef<HTMLDivElement>(null);
   const codeBlockHeight = useRef(100);
   const editorRef = useRef<editor.IStandaloneCodeEditor | null>(null);
@@ -159,9 +163,17 @@ export default function JavaScriptCodingQuizCodeEditor(props: Props) {
                 addonPosition="start"
                 icon={RiCloseLine}
                 isDisabled={false}
-                label="Close"
+                label={intl.formatMessage({
+                  defaultMessage: 'Close',
+                  description: 'Close coding editor button label',
+                  id: 'RXjrrm',
+                })}
                 size="xs"
-                tooltip="Close editor"
+                tooltip={intl.formatMessage({
+                  defaultMessage: 'Close editor',
+                  description: 'Close coding editor tooltip',
+                  id: '2gyjKy',
+                })}
                 variant="tertiary"
                 onClick={() => {
                   setIsExecutionMode(false);
@@ -172,9 +184,17 @@ export default function JavaScriptCodingQuizCodeEditor(props: Props) {
                 className="mr-1"
                 icon={RiArrowGoBackLine}
                 isDisabled={false}
-                label="Reset"
+                label={intl.formatMessage({
+                  defaultMessage: 'Reset',
+                  description: 'Reset code in editor button label',
+                  id: 'xIQuhQ',
+                })}
                 size="xs"
-                tooltip="Reset code"
+                tooltip={intl.formatMessage({
+                  defaultMessage: 'Reset code',
+                  description: 'Reset code in editor tooltip',
+                  id: '0o3mWI',
+                })}
                 variant="tertiary"
                 onClick={() => {
                   resetCode();
@@ -184,9 +204,17 @@ export default function JavaScriptCodingQuizCodeEditor(props: Props) {
                 addonPosition="start"
                 icon={RiPlayLine}
                 isDisabled={false}
-                label="Run"
+                label={intl.formatMessage({
+                  defaultMessage: 'Run',
+                  description: 'Run code button label',
+                  id: 'Yaff9b',
+                })}
                 size="xs"
-                tooltip="Execute code"
+                tooltip={intl.formatMessage({
+                  defaultMessage: 'Execute code',
+                  description: 'Execute code in editor tooltip',
+                  id: 'gLTvN4',
+                })}
                 variant="secondary"
                 onClick={() => {
                   runCode(); // If the user clicks run when isExecutionMode is already true, runCode() must be called explicitly
@@ -220,7 +248,11 @@ export default function JavaScriptCodingQuizCodeEditor(props: Props) {
             addonPosition="start"
             className="absolute bottom-3 right-3"
             icon={RiPlayLine}
-            label="Run"
+            label={intl.formatMessage({
+              defaultMessage: 'Run',
+              description: 'Run code button label',
+              id: 'Yaff9b',
+            })}
             size="xs"
             variant="secondary"
             onClick={() => {

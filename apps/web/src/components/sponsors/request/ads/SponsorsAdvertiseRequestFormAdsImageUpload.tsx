@@ -122,14 +122,26 @@ export default function SponsorsAdvertiseRequestFormAdsImageUpload({
               className="absolute -right-3 -top-3"
               icon={RiCloseFill}
               isLabelHidden={true}
-              label="Remove image"
-              tooltip="Remove image"
+              label={intl.formatMessage({
+                defaultMessage: 'Remove image',
+                description: 'Remove ad image label',
+                id: 'KbAioB',
+              })}
+              tooltip={intl.formatMessage({
+                defaultMessage: 'Remove image',
+                description: 'Remove ad image label',
+                id: 'KbAioB',
+              })}
               variant="secondary"
               onClick={() => setImageUrl('')}
             />
           )}
           <img
-            alt="Uploaded image"
+            alt={intl.formatMessage({
+              defaultMessage: 'Uploaded image',
+              description: 'Uploaded ad image label',
+              id: 'kgmayF',
+            })}
             className={clsx('aspect-[2/1] w-full object-cover', 'rounded-lg', [
               'border',
               themeBorderColor,

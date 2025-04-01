@@ -1,6 +1,9 @@
+'use client';
+
 import clsx from 'clsx';
 import * as React from 'react';
 
+import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 import { themeBackgroundColor, themeDivideColor } from '~/components/ui/theme';
@@ -34,6 +37,8 @@ export default function SpecsInline({
   onFocusConsole,
   onShowTestCase,
 }: Props) {
+  const intl = useIntl();
+
   return (
     <div className="flex flex-col gap-y-6">
       {specs
@@ -48,7 +53,11 @@ export default function SpecsInline({
                 <div className="flex items-center">
                   <SpecLabel
                     className={clsx('rounded', failBackgroundClassName)}>
-                    Error
+                    {intl.formatMessage({
+                      defaultMessage: 'Error',
+                      description: 'Workspace test spec error label',
+                      id: 'PRsCOw',
+                    })}
                   </SpecLabel>
                   <FilePath
                     path={spec.name}
@@ -58,7 +67,11 @@ export default function SpecsInline({
                 <FormattedError error={spec.error} path={spec.name} />
                 <div>
                   <Button
-                    label="Check the console for more information"
+                    label={intl.formatMessage({
+                      defaultMessage: 'Check the console for more information',
+                      description: 'Workspace test spec error button label',
+                      id: 'A3ftCj',
+                    })}
                     size="xs"
                     variant="secondary"
                     onClick={() => onFocusConsole()}
@@ -80,16 +93,28 @@ export default function SpecsInline({
                   {runStatus === 'complete' ? (
                     stats.fail > 0 ? (
                       <SpecLabel className={clsx(failBackgroundClassName)}>
-                        Fail
+                        {intl.formatMessage({
+                          defaultMessage: 'Fail',
+                          description: 'Workspace test spec fail label',
+                          id: 'zRCowZ',
+                        })}
                       </SpecLabel>
                     ) : (
                       <SpecLabel className={clsx(passBackgroundClassName)}>
-                        Pass
+                        {intl.formatMessage({
+                          defaultMessage: 'Pass',
+                          description: 'Workspace test spec pass label',
+                          id: '4YniIl',
+                        })}
                       </SpecLabel>
                     )
                   ) : (
                     <SpecLabel className={clsx(runBackgroundClassName)}>
-                      Run
+                      {intl.formatMessage({
+                        defaultMessage: 'Run',
+                        description: 'Workspace test spec run label',
+                        id: 'lOmxE1',
+                      })}
                     </SpecLabel>
                   )}
                   <FilePath

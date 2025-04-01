@@ -73,13 +73,21 @@ export default function UserInterfaceCodingWorkspaceSavesListItemActions({
         align="end"
         icon={RiMoreLine}
         isLabelHidden={true}
-        label="More actions"
+        label={intl.formatMessage({
+          defaultMessage: 'More actions',
+          description: 'Menu for saved code in coding workspace',
+          id: 'JtkXij',
+        })}
         showChevron={false}
         size="xs"
         variant="tertiary">
         <DropdownMenu.Item
           icon={RiEditLine}
-          label="Rename"
+          label={intl.formatMessage({
+            defaultMessage: 'Rename',
+            description: 'Rename saved code',
+            id: 'Jo4hU0',
+          })}
           onClick={() => {
             setIsEditing(true);
             setTimeout(() => {
@@ -90,7 +98,11 @@ export default function UserInterfaceCodingWorkspaceSavesListItemActions({
         <DropdownMenu.Item
           color="error"
           icon={RiDeleteBinLine}
-          label="Delete"
+          label={intl.formatMessage({
+            defaultMessage: 'Delete',
+            description: 'Delete saved code',
+            id: 'ehiDSr',
+          })}
           onClick={() => {
             setIsDeleting(true);
           }}
@@ -101,7 +113,14 @@ export default function UserInterfaceCodingWorkspaceSavesListItemActions({
         isDisabled={userInterfaceSaveDeleteMutation.isLoading}
         isLoading={userInterfaceSaveDeleteMutation.isLoading}
         isShown={isDeleting}
-        title={`Delete "${saveName}"`}
+        title={intl.formatMessage(
+          {
+            defaultMessage: 'Delete "{saveName}"',
+            description: 'Dialog title for deleting a saved code',
+            id: 'J4q56n',
+          },
+          { saveName },
+        )}
         onCancel={() => {
           setIsDeleting(false);
         }}
@@ -114,14 +133,25 @@ export default function UserInterfaceCodingWorkspaceSavesListItemActions({
               onSuccess: (data) => {
                 setIsDeleting(false);
                 showToast({
-                  title: `Deleted "${data?.name}"`,
+                  title: intl.formatMessage(
+                    {
+                      defaultMessage: 'Deleted "{saveName}"',
+                      description: 'Toast message for deleting a saved code',
+                      id: 'cIKXz6',
+                    },
+                    { saveName: data?.name },
+                  ),
                   variant: 'info',
                 });
               },
             },
           );
         }}>
-        This is an irreversible action. Are you sure?
+        {intl.formatMessage({
+          defaultMessage: 'This is an irreversible action. Are you sure?',
+          description: 'Dialog content for deleting a saved code',
+          id: 'fjMzDi',
+        })}
       </ConfirmationDialog>
       <Dialog
         isShown={isEditing}
@@ -129,7 +159,11 @@ export default function UserInterfaceCodingWorkspaceSavesListItemActions({
           <Button
             isDisabled={userInterfaceSaveUpdateMutation.isLoading}
             isLoading={userInterfaceSaveUpdateMutation.isLoading}
-            label="OK"
+            label={intl.formatMessage({
+              defaultMessage: 'OK',
+              description: 'OK button label',
+              id: 'sfX/GD',
+            })}
             size="md"
             variant="primary"
             onClick={() => saveEdits()}
@@ -148,7 +182,11 @@ export default function UserInterfaceCodingWorkspaceSavesListItemActions({
             onClick={() => setIsEditing(false)}
           />
         }
-        title="Rename"
+        title={intl.formatMessage({
+          defaultMessage: 'Rename',
+          description: 'Dialog title for renaming a saved code',
+          id: 'ajZbV3',
+        })}
         onClose={() => setIsEditing(false)}>
         <form
           onSubmit={(event) => {
@@ -159,7 +197,11 @@ export default function UserInterfaceCodingWorkspaceSavesListItemActions({
             ref={inputRef}
             isDisabled={userInterfaceSaveUpdateMutation.isLoading}
             isLabelHidden={true}
-            label="Name"
+            label={intl.formatMessage({
+              defaultMessage: 'Name',
+              description: 'Name input label for saved code',
+              id: '9UIHXW',
+            })}
             value={newSaveName}
             onChange={setNewSaveName}
           />

@@ -2,7 +2,7 @@
 
 import clsx from 'clsx';
 
-import { FormattedMessage } from '~/components/intl';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import { SponsorAdFormatConfigs } from '~/components/sponsors/SponsorsAdFormatConfigs';
 import { themeBorderElementColor } from '~/components/ui/theme';
 
@@ -97,6 +97,8 @@ export default function SponsorsAdFormatSpotlightSection() {
 }
 
 function Asset() {
+  const intl = useIntl();
+
   return (
     <div
       className={clsx(
@@ -121,7 +123,11 @@ function Asset() {
           srcSet="/img/sponsors/spotlight-ad-placement-light.png"
         />
         <img
-          alt="Spotlight ad placement preview"
+          alt={intl.formatMessage({
+            defaultMessage: 'Spotlight ad placement preview',
+            description: 'Alt text for spotlight ad placement preview',
+            id: 'Cae478',
+          })}
           className={clsx('size-full', 'object-cover object-left-top')}
           decoding="async"
           loading="lazy"
@@ -139,7 +145,11 @@ function Asset() {
           srcSet="/img/sponsors/spotlight-ad-placement-dark.png"
         />
         <img
-          alt="Spotlight ad placement preview"
+          alt={intl.formatMessage({
+            defaultMessage: 'Spotlight ad placement preview',
+            description: 'Alt text for spotlight ad placement preview',
+            id: 'Cae478',
+          })}
           className={clsx('size-full', 'object-cover object-left-top')}
           decoding="async"
           loading="lazy"

@@ -119,7 +119,11 @@ export default function SponsorsAdvertiseRequestInquiryForm({
                   {...field}
                   errorMessage={error ? error.message : undefined}
                   isLabelHidden={true}
-                  label="Email"
+                  label={intl.formatMessage({
+                    defaultMessage: 'Email',
+                    description: 'Label for email field',
+                    id: 'bGKAyO',
+                  })}
                   placeholder={
                     index < 1
                       ? 'john.doe@example.com'

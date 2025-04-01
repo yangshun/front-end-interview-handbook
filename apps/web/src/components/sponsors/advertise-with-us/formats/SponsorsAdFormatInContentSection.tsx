@@ -137,7 +137,11 @@ export default function SponsorsAdFormatInContentSection() {
         { questionCount: roundQuestionCountToNearestTen(QuestionCountCoding) },
       ),
       img: {
-        alt: 'In Content Ad Placement in coding workspace',
+        alt: intl.formatMessage({
+          defaultMessage: 'In Content Ad Placement in coding workspace',
+          description: 'Alt text for ads in content placement preview',
+          id: 'ovidiq',
+        }),
         srcDark: '/img/sponsors/in-content-placement-workspace-dark.png',
         srcLight: '/img/sponsors/in-content-placement-workspace-light.png',
       },
@@ -158,7 +162,11 @@ export default function SponsorsAdFormatInContentSection() {
         { questionCount: roundQuestionCountToNearestTen(QuestionCountQuiz) },
       ),
       img: {
-        alt: 'In Content Ad Placement in quiz questions',
+        alt: intl.formatMessage({
+          defaultMessage: 'In Content Ad Placement in quiz questions',
+          description: 'Alt text for ads in content placement preview',
+          id: 'BcCcsC',
+        }),
         srcDark: '/img/sponsors/in-content-placement-quiz-dark.png',
         srcLight: '/img/sponsors/in-content-placement-quiz-light.png',
       },
@@ -179,7 +187,11 @@ export default function SponsorsAdFormatInContentSection() {
         { guidesCount: roundQuestionCountToNearestTen(GuidesCount) },
       ),
       img: {
-        alt: 'In Content Ad Placement in guides',
+        alt: intl.formatMessage({
+          defaultMessage: 'In Content Ad Placement in guides',
+          description: 'Alt text for ads in content placement preview',
+          id: 'mLTQN6',
+        }),
         srcDark: '/img/sponsors/in-content-placement-guides-dark.png',
         srcLight: '/img/sponsors/in-content-placement-guides-light.png',
       },
@@ -204,7 +216,11 @@ export default function SponsorsAdFormatInContentSection() {
         },
       ),
       img: {
-        alt: 'In Content Ad Placement in system design',
+        alt: intl.formatMessage({
+          defaultMessage: 'In Content Ad Placement in system design',
+          description: 'Alt text for ads in content placement preview',
+          id: 'imokHr',
+        }),
         srcDark: '/img/sponsors/in-content-placement-system-design-dark.png',
         srcLight: '/img/sponsors/in-content-placement-system-design-light.png',
       },
@@ -299,18 +315,27 @@ export default function SponsorsAdFormatInContentSection() {
 }
 
 function Asset() {
+  const intl = useIntl();
+
   return (
     <>
       {/* Light mode image */}
       <img
-        alt="In content ad placement preview"
+        alt={intl.formatMessage({
+          defaultMessage: 'In content ad placement preview',
+          description: 'Alt text for ads in content placement preview',
+          id: '1ovS6Y',
+        })}
         className={clsx('h-auto w-full object-cover', 'block dark:hidden')}
         src="/img/sponsors/in-content-ad-placement-light.png"
       />
-
       {/* Dark mode image */}
       <img
-        alt="In content ad placement preview"
+        alt={intl.formatMessage({
+          defaultMessage: 'In content ad placement preview',
+          description: 'Alt text for ads in content placement preview',
+          id: '1ovS6Y',
+        })}
         className={clsx('h-auto w-full object-cover', 'hidden dark:block')}
         src="/img/sponsors/in-content-ad-placement-dark.png"
       />

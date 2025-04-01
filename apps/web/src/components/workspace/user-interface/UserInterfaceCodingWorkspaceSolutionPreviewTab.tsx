@@ -1,7 +1,10 @@
+'use client';
+
 import clsx from 'clsx';
 
 import { useColorSchemePreferences } from '~/components/global/color-scheme/ColorSchemePreferencesProvider';
 import type { QuestionUserInterfaceBundle } from '~/components/interviews/questions/common/QuestionsTypes';
+import { useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Banner from '~/components/ui/Banner';
 
@@ -18,6 +21,7 @@ type Props = Readonly<{
 export default function UserInterfaceCodingWorkspaceSolutionPreviewTab({
   bundle,
 }: Props) {
+  const intl = useIntl();
   const { colorScheme } = useColorSchemePreferences();
   const { workspace, files } = bundle;
   const { dispatch, getTabById } =
@@ -26,7 +30,11 @@ export default function UserInterfaceCodingWorkspaceSolutionPreviewTab({
   return (
     <div className="size-full flex flex-col">
       <Banner size="xs" variant="primary">
-        This is a preview of the solution.{' '}
+        {intl.formatMessage({
+          defaultMessage: 'This is a preview of the solution.',
+          description: 'Coding workspace solution preview banner',
+          id: 'GyoQO7',
+        })}{' '}
         <Anchor
           className="underline"
           href="#"
@@ -46,7 +54,11 @@ export default function UserInterfaceCodingWorkspaceSolutionPreviewTab({
               type: 'tab-set-active',
             });
           }}>
-          Close and return to description
+          {intl.formatMessage({
+            defaultMessage: 'Close and return to description',
+            description: 'Coding workspace solution preview close button',
+            id: 'Ee50Lt',
+          })}
         </Anchor>
       </Banner>
       <div className="flex h-0 grow">

@@ -1,3 +1,5 @@
+'use client';
+
 import { getMDXComponent } from 'mdx-bundler/client';
 import { useMemo } from 'react';
 
@@ -5,6 +7,7 @@ import { trpc } from '~/hooks/trpc';
 
 import Timestamp from '~/components/common/datetime/Timestamp';
 import QuestionLanguages from '~/components/interviews/questions/metadata/QuestionLanguages';
+import { useIntl } from '~/components/intl';
 import MDXCodeBlock from '~/components/mdx/MDXCodeBlock';
 import MDXComponents from '~/components/mdx/MDXComponents';
 import Divider from '~/components/ui/Divider';
@@ -24,6 +27,7 @@ type Props = Readonly<{
 export default function JavaScriptCodingWorkspaceCommunitySolutionTab({
   solutionId,
 }: Props) {
+  const intl = useIntl();
   const { data: solution, isLoading } =
     trpc.questionCommunitySolution.javaScriptGet.useQuery({
       solutionId,
@@ -43,7 +47,14 @@ export default function JavaScriptCodingWorkspaceCommunitySolutionTab({
     <div className="w-full">
       {isLoading && (
         <div className="flex items-center justify-center p-4">
-          <Spinner label="Loading submission" size="md" />
+          <Spinner
+            label={intl.formatMessage({
+              defaultMessage: 'Loading submission',
+              description: 'Workspace community submission loading',
+              id: 'wS3TuG',
+            })}
+            size="md"
+          />
         </div>
       )}
       {solution && (
@@ -61,10 +72,21 @@ export default function JavaScriptCodingWorkspaceCommunitySolutionTab({
             color="secondary"
             size="body2"
             weight="medium">
-            Submitted at <Timestamp date={solution.createdAt} />
+            {intl.formatMessage({
+              defaultMessage: 'Submitted at',
+              description: 'Workspace community submission submitted at label',
+              id: 'DlxhUm',
+            })}
+            <Timestamp date={solution.createdAt} />
           </Text>
           <Prose textSize="sm">
-            <Heading level="heading5">Solution code</Heading>
+            <Heading level="heading5">
+              {intl.formatMessage({
+                defaultMessage: 'Solution code',
+                description: 'Workspace community solution code label',
+                id: 'qpyquW',
+              })}
+            </Heading>
             <MDXCodeBlock
               renderExtraButtons={() => (
                 <JavaScriptCodingWorkspacePushCodeToEditorButton
@@ -77,7 +99,13 @@ export default function JavaScriptCodingWorkspaceCommunitySolutionTab({
           <Divider />
           {Contents && (
             <Prose textSize="sm">
-              <Heading level="heading5">Write up</Heading>
+              <Heading level="heading5">
+                {intl.formatMessage({
+                  defaultMessage: 'Write up',
+                  description: 'Workspace community solution write up label',
+                  id: '9bKvzQ',
+                })}
+              </Heading>
               <Contents components={MDXComponents} />
             </Prose>
           )}

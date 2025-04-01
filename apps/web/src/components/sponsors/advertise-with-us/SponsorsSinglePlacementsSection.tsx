@@ -98,6 +98,8 @@ function Asset() {
 }
 
 function GlobalBannerPlacement() {
+  const intl = useIntl();
+
   return (
     <div
       className={clsx(
@@ -119,13 +121,16 @@ function GlobalBannerPlacement() {
           srcSet="/img/sponsors/global-banner-placement-light.png"
         />
         <img
-          alt="Global banner placement"
+          alt={intl.formatMessage({
+            defaultMessage: 'Global banner placement',
+            description: 'Alt text for ads global banner placement',
+            id: '6RIklb',
+          })}
           decoding="async"
           loading="lazy"
           src="/img/sponsors/global-banner-placement-light.png"
         />
       </picture>
-
       {/* Dark mode image */}
       <picture
         className={clsx(
@@ -141,7 +146,11 @@ function GlobalBannerPlacement() {
           srcSet="/img/sponsors/global-banner-placement-dark.png"
         />
         <img
-          alt="Global banner placement"
+          alt={intl.formatMessage({
+            defaultMessage: 'Global banner placement',
+            description: 'Alt text for ads global banner placement',
+            id: '6RIklb',
+          })}
           decoding="async"
           loading="lazy"
           src="/img/sponsors/global-banner-placement-dark.png"
@@ -153,6 +162,8 @@ function GlobalBannerPlacement() {
 }
 
 function InContentPlacementAsset() {
+  const intl = useIntl();
+
   return (
     <div className={clsx('relative', 'w-full')}>
       {/* Light mode image */}
@@ -170,13 +181,16 @@ function InContentPlacementAsset() {
           srcSet="/img/sponsors/in-content-placement-light.png"
         />
         <img
-          alt="In content placement"
+          alt={intl.formatMessage({
+            defaultMessage: 'In content placement',
+            description: 'Alt text ads for in content placement',
+            id: '0UhyNO',
+          })}
           decoding="async"
           loading="lazy"
           src="/img/sponsors/in-content-placement-light.png"
         />
       </picture>
-
       {/* Dark mode image */}
       <picture
         className={clsx(
@@ -192,7 +206,11 @@ function InContentPlacementAsset() {
           srcSet="/img/sponsors/in-content-placement-dark.png"
         />
         <img
-          alt="In content placement"
+          alt={intl.formatMessage({
+            defaultMessage: 'In content placement',
+            description: 'Alt text ads for in content placement',
+            id: '0UhyNO',
+          })}
           decoding="async"
           loading="lazy"
           src="/img/sponsors/in-content-placement-dark.png"
@@ -204,6 +222,8 @@ function InContentPlacementAsset() {
 }
 
 function SpotlightPlacementAsset() {
+  const intl = useIntl();
+
   return (
     <div className={clsx('relative', 'w-full')}>
       {/* Light mode image */}
@@ -221,13 +241,16 @@ function SpotlightPlacementAsset() {
           srcSet="/img/sponsors/spotlight-placement-light.png"
         />
         <img
-          alt="Spotlight placement"
+          alt={intl.formatMessage({
+            defaultMessage: 'Spotlight placement',
+            description: 'Alt text ads for spotlight placement',
+            id: 'b1p8O6',
+          })}
           decoding="async"
           loading="lazy"
           src="/img/sponsors/spotlight-placement-light.png"
         />
       </picture>
-
       {/* Dark mode image */}
       <picture
         className={clsx(
@@ -243,13 +266,16 @@ function SpotlightPlacementAsset() {
           srcSet="/img/sponsors/spotlight-placement-dark.png"
         />
         <img
-          alt="Spotlight placement"
+          alt={intl.formatMessage({
+            defaultMessage: 'Spotlight placement',
+            description: 'Alt text ads for spotlight placement',
+            id: 'b1p8O6',
+          })}
           decoding="async"
           loading="lazy"
           src="/img/sponsors/spotlight-placement-dark.png"
         />
       </picture>
-
       <PagesCountBadge count={SponsorAdFormatConfigs.SPOTLIGHT.pages} />
     </div>
   );

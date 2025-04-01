@@ -1,3 +1,5 @@
+'use client';
+
 import clsx from 'clsx';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { RiArrowGoBackLine } from 'react-icons/ri';
@@ -6,6 +8,7 @@ import { RxPause, RxPlay, RxStopwatch } from 'react-icons/rx';
 import { useGreatStorageLocal } from '~/hooks/useGreatStorageLocal';
 
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
+import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import {
   themeBackgroundColor,
@@ -25,6 +28,7 @@ type Props = Readonly<{
 }>;
 
 export default function CodingWorkspaceTimer({ qnMetadata }: Props) {
+  const intl = useIntl();
   const qnHash = hashQuestion(qnMetadata);
   const [storedTime, setStoredTime] = useGreatStorageLocal<number>(
     `questions:${qnHash}:timer:value`,
@@ -93,9 +97,17 @@ export default function CodingWorkspaceTimer({ qnMetadata }: Props) {
       <Button
         icon={RxStopwatch}
         isLabelHidden={true}
-        label="Start timer"
+        label={intl.formatMessage({
+          defaultMessage: 'Start timer',
+          description: 'Start coding workspace timer label',
+          id: '49NIXE',
+        })}
         size="xs"
-        tooltip="Start timer"
+        tooltip={intl.formatMessage({
+          defaultMessage: 'Start timer',
+          description: 'Start coding workspace timer label',
+          id: '49NIXE',
+        })}
         variant="secondary"
         onClick={startTimer}
       />
@@ -161,7 +173,11 @@ export default function CodingWorkspaceTimer({ qnMetadata }: Props) {
           timePassedInSeconds === 0 && 'opacity-25',
         )}
         disabled={timePassedInSeconds === 0}
-        title="Reset"
+        title={intl.formatMessage({
+          defaultMessage: 'Reset',
+          description: 'Reset coding workspace timer button label',
+          id: 'Tbgxbk',
+        })}
         type="button"
         onClick={() => {
           setTimePassedInSeconds(0);

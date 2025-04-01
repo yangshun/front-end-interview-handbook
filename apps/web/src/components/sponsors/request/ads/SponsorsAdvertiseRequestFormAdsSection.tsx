@@ -163,7 +163,11 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
                         <Button
                           icon={RiEyeLine}
                           isLabelHidden={true}
-                          label="View ad"
+                          label={intl.formatMessage({
+                            defaultMessage: 'View ad',
+                            description: 'View ad button label',
+                            id: '0yYlhT',
+                          })}
                           tooltip={intl.formatMessage({
                             defaultMessage: 'View ad',
                             description: 'View ad tooltip',
@@ -180,7 +184,11 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
                           <Button
                             icon={RiPencilLine}
                             isLabelHidden={true}
-                            label="Edit ad"
+                            label={intl.formatMessage({
+                              defaultMessage: 'Edit ad',
+                              description: 'Edit ad button label',
+                              id: 't9eK65',
+                            })}
                             tooltip={intl.formatMessage({
                               defaultMessage: 'Edit ad',
                               description: 'Edit ad tooltip',
@@ -195,7 +203,11 @@ export default function SponsorsAdvertiseRequestFormAdsSection({
                           <Button
                             icon={RiDeleteBinLine}
                             isLabelHidden={true}
-                            label="Delete ad"
+                            label={intl.formatMessage({
+                              defaultMessage: 'Delete ad',
+                              description: 'Delete ad button label',
+                              id: 'vWBoAX',
+                            })}
                             tooltip={intl.formatMessage({
                               defaultMessage: 'Delete ad',
                               description: 'Delete ad tooltip',

@@ -1,3 +1,5 @@
+'use client';
+
 import { useEffect, useRef, useState } from 'react';
 
 import { trpc } from '~/hooks/trpc';
@@ -5,6 +7,7 @@ import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
 
 import { useToast } from '~/components/global/toasts/useToast';
 import type { QuestionUserInterface } from '~/components/interviews/questions/common/QuestionsTypes';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import Dialog from '~/components/ui/Dialog';
 import Divider from '~/components/ui/Divider';
@@ -25,6 +28,7 @@ function UpdateSaveButton({
 }: Readonly<{
   save: QuestionUserInterfaceSave;
 }>) {
+  const intl = useIntl();
   const trpcUtils = trpc.useUtils();
 
   const { showToast } = useToast();
@@ -46,7 +50,11 @@ function UpdateSaveButton({
     <Button
       isDisabled={userInterfaceUpdateSubmissionMutation.isLoading}
       isLoading={userInterfaceUpdateSubmissionMutation.isLoading}
-      label="Save"
+      label={intl.formatMessage({
+        defaultMessage: 'Save',
+        description: 'Coding workspace save code button label',
+        id: 'LIW1bo',
+      })}
       size="xs"
       variant="primary"
       onClick={() => {
@@ -65,6 +73,7 @@ function NewSaveButton({
   question: QuestionUserInterface;
   studyListKey?: string; // TODO(interviews): make save URLs study list-specific
 }>) {
+  const intl = useIntl();
   const user = useUser();
   const trpcUtils = trpc.useUtils();
   const router = useI18nRouter();
@@ -86,7 +95,14 @@ function NewSaveButton({
       onSuccess: (data) => {
         setIsDialogOpen(false);
         showToast({
-          title: `Saved as "${saveName}"`,
+          title: intl.formatMessage(
+            {
+              defaultMessage: '`Saved as "{saveName}"`',
+              description: 'Coding workspace save code toast title',
+              id: 'rx8kx8',
+            },
+            { saveName },
+          ),
           variant: 'success',
         });
         // TODO(workspace): Add study list parameter if exists.
@@ -118,7 +134,11 @@ function NewSaveButton({
         href={user == null ? signInUpHref() : undefined}
         isDisabled={userInterfaceAddSubmissionMutation.isLoading}
         isLoading={userInterfaceAddSubmissionMutation.isLoading}
-        label="Save to cloud"
+        label={intl.formatMessage({
+          defaultMessage: 'Save to cloud',
+          description: 'Coding workspace save code label',
+          id: 'VnCFSy',
+        })}
         size="xs"
         variant="primary"
         onClick={
@@ -138,7 +158,11 @@ function NewSaveButton({
           <Button
             isDisabled={userInterfaceAddSubmissionMutation.isLoading}
             isLoading={userInterfaceAddSubmissionMutation.isLoading}
-            label="Save"
+            label={intl.formatMessage({
+              defaultMessage: 'Save',
+              description: 'Coding workspace save code button label',
+              id: 'LIW1bo',
+            })}
             variant="primary"
             onClick={() => {
               saveToServer();
@@ -148,25 +172,35 @@ function NewSaveButton({
         secondaryButton={
           <Button
             isDisabled={userInterfaceAddSubmissionMutation.isLoading}
-            label="Cancel"
+            label={intl.formatMessage({
+              defaultMessage: 'Cancel',
+              description: 'Cancel button label',
+              id: '0GT0SI',
+            })}
             variant="secondary"
             onClick={() => {
               setIsDialogOpen(false);
             }}
           />
         }
-        title="Save to cloud"
+        title={intl.formatMessage({
+          defaultMessage: 'Save to cloud',
+          description: 'Coding workspace save code label',
+          id: 'VnCFSy',
+        })}
         onClose={() => {
           setIsDialogOpen(false);
         }}>
         <div className="flex flex-col gap-y-3">
           <Text className="block" color="secondary" size="inherit">
-            Your code will be saved into the database and can be retrieved from
-            the{' '}
-            <Text size="inherit" weight="medium">
-              "Saved versions"
-            </Text>{' '}
-            tab.
+            <FormattedMessage
+              defaultMessage='Your code will be saved into the database and can be retrieved from the <bold>"{Saved versions}"</bold> tab.'
+              description="Coding workspace save code dialog description"
+              id="4zR7Wh"
+              values={{
+                bold: (chunks) => <Text weight="medium">{chunks}</Text>,
+              }}
+            />
           </Text>
           <Divider />
           <form
@@ -177,8 +211,16 @@ function NewSaveButton({
             <TextInput
               ref={inputRef}
               isDisabled={userInterfaceAddSubmissionMutation.isLoading}
-              label="Name your save"
-              placeholder="My awesome code"
+              label={intl.formatMessage({
+                defaultMessage: 'Name your save',
+                description: 'Coding workspace save code input label',
+                id: 'CHR6u9',
+              })}
+              placeholder={intl.formatMessage({
+                defaultMessage: 'My awesome code',
+                description: 'Coding workspace save code input placeholder',
+                id: 'nqTJbI',
+              })}
               value={saveName}
               onChange={setSaveName}
             />

@@ -132,7 +132,11 @@ export default function SponsorsNavbar() {
             <DropdownMenu
               icon={RiMoreLine}
               isLabelHidden={true}
-              label="More"
+              label={intl.formatMessage({
+                defaultMessage: 'More',
+                description: 'More options label',
+                id: 'L1kUyL',
+              })}
               showChevron={false}
               size="sm">
               <SidebarColorSchemeSubMenu />

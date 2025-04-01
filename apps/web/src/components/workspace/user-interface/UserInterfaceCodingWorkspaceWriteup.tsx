@@ -16,7 +16,7 @@ import QuestionNextQuestions from '~/components/interviews/questions/content/Que
 import QuestionSimilarQuestions from '~/components/interviews/questions/content/QuestionSimilarQuestions';
 import { useQuestionsListTypeCurrent } from '~/components/interviews/questions/listings/utils/useQuestionsListDataForType';
 import QuestionMetadataSection from '~/components/interviews/questions/metadata/QuestionMetadataSection';
-import { useIntl } from '~/components/intl';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import SponsorsAdFormatInContentContainer from '~/components/sponsors/ads/SponsorsAdFormatInContentContainer';
 import Alert from '~/components/ui/Alert';
 import Anchor from '~/components/ui/Anchor';
@@ -82,7 +82,7 @@ export default function UserInterfaceCodingWorkspaceWriteup({
   return (
     <>
       {/* Override the display:table because the content like MDXCodeBlock
-      where there is long code make this overflow and the horizontal scrollbar doesn't appear */}
+    where there is long code make this overflow and the horizontal scrollbar doesn't appear */}
       <ScrollArea viewportClass="[&>div]:!block">
         <div
           ref={copyRef}
@@ -91,22 +91,30 @@ export default function UserInterfaceCodingWorkspaceWriteup({
             <Alert variant="info">
               <div className="flex flex-col items-start gap-2">
                 <Text className="block" size="body2">
-                  You are viewing the description from the solution page. To
-                  practice this question,{' '}
-                  <Anchor href={questionDescriptionHref}>go back</Anchor> to the
-                  workspace page or{' '}
-                  <Anchor
-                    onClick={() => {
-                      dispatch({
-                        payload: {
-                          tabId: 'versions',
-                        },
-                        type: 'tab-set-active',
-                      });
-                    }}>
-                    load a saved version
-                  </Anchor>
-                  .
+                  <FormattedMessage
+                    defaultMessage="You are viewing the description from the solution page. To
+                  practice this question, <backLink>go back</backLink> to the workspace page or <savedLink>load a saved version</savedLink>."
+                    description="Description from solution page alert"
+                    id="3+Q/U6"
+                    values={{
+                      backLink: (chunk) => (
+                        <Anchor href={questionDescriptionHref}>{chunk}</Anchor>
+                      ),
+                      savedLink: (chunk) => (
+                        <Anchor
+                          onClick={() => {
+                            dispatch({
+                              payload: {
+                                tabId: 'versions',
+                              },
+                              type: 'tab-set-active',
+                            });
+                          }}>
+                          {chunk}
+                        </Anchor>
+                      ),
+                    }}
+                  />
                 </Text>
               </div>
             </Alert>
@@ -115,12 +123,23 @@ export default function UserInterfaceCodingWorkspaceWriteup({
             <Alert variant="info">
               <div className="flex flex-col items-start gap-2">
                 <Text className="block" size="body2">
-                  You are currently editing code from the saved version:{' '}
-                  <strong>"{save.name}"</strong>.
+                  <FormattedMessage
+                    defaultMessage='You are currently editing code from the saved version: <strong>"{saveName}"</strong>.'
+                    description="Viewing saved version alert message"
+                    id="QrHNsv"
+                    values={{
+                      saveName: save.name,
+                    }}
+                  />
                 </Text>
                 <Button
                   href={questionDescriptionHref}
-                  label="Start a new version"
+                  label={intl.formatMessage({
+                    defaultMessage: 'Start a new version',
+                    description:
+                      'Start a new version of the question button label',
+                    id: '4gshRJ',
+                  })}
                   size="sm"
                   variant="secondary"
                 />
@@ -221,6 +240,7 @@ export default function UserInterfaceCodingWorkspaceWriteup({
 }
 
 function SolutionPreviewButton() {
+  const intl = useIntl();
   const { dispatch, getTabById } =
     useUserInterfaceCodingWorkspaceTilesContext();
 
@@ -284,7 +304,11 @@ function SolutionPreviewButton() {
   return (
     <Button
       icon={RiArrowRightUpLine}
-      label="Preview what you need to build"
+      label={intl.formatMessage({
+        defaultMessage: 'Preview what you need to build',
+        description: 'Solution preview button label',
+        id: 'JiKm6K',
+      })}
       size="sm"
       variant="secondary"
       onClick={onClick}

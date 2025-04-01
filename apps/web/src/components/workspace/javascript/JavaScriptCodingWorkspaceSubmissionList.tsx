@@ -1,3 +1,5 @@
+'use client';
+
 import clsx from 'clsx';
 
 import { trpc } from '~/hooks/trpc';
@@ -6,6 +8,7 @@ import Timestamp from '~/components/common/datetime/Timestamp';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import QuestionLanguages from '~/components/interviews/questions/metadata/QuestionLanguages';
+import { useIntl } from '~/components/intl';
 import Badge from '~/components/ui/Badge';
 import EmptyState from '~/components/ui/EmptyState';
 import Text from '~/components/ui/Text';
@@ -26,6 +29,7 @@ type Props = Readonly<{
 export default function JavaScriptCodingWorkspaceSubmissionList({
   metadata,
 }: Props) {
+  const intl = useIntl();
   const { userProfile } = useUserProfile();
 
   if (userProfile == null) {
@@ -34,7 +38,12 @@ export default function JavaScriptCodingWorkspaceSubmissionList({
         <div className="flex h-full flex-col p-4">
           <div className="flex grow items-center justify-center">
             <EmptyState
-              title="You must be signed in to view your submissions"
+              title={intl.formatMessage({
+                defaultMessage:
+                  'You must be signed in to view your submissions',
+                description: 'Coding workspace sign in to view submissions',
+                id: 'qzrGfv',
+              })}
               variant="empty"
             />
           </div>
@@ -47,6 +56,7 @@ export default function JavaScriptCodingWorkspaceSubmissionList({
 }
 
 function JavaScriptCodingWorkspaceSubmissionListImpl({ metadata }: Props) {
+  const intl = useIntl();
   const { openSubmission } = useCodingWorkspaceContext();
   const { data: submissions } =
     trpc.questionSubmission.javaScriptGetAll.useQuery({
@@ -58,7 +68,14 @@ function JavaScriptCodingWorkspaceSubmissionListImpl({ metadata }: Props) {
       {submissions == null || submissions?.length === 0 ? (
         <div className="flex h-full flex-col p-4">
           <div className="flex grow items-center justify-center">
-            <EmptyState title="No submissions" variant="empty" />
+            <EmptyState
+              title={intl.formatMessage({
+                defaultMessage: 'No submissions',
+                description: 'No submissions in coding workspace',
+                id: 'hz7oG3',
+              })}
+              variant="empty"
+            />
           </div>
         </div>
       ) : (
@@ -97,10 +114,26 @@ function JavaScriptCodingWorkspaceSubmissionListImpl({ metadata }: Props) {
                 </div>
                 <div>
                   {result === 'CORRECT' && (
-                    <Badge label="Correct" size="sm" variant="success" />
+                    <Badge
+                      label={intl.formatMessage({
+                        defaultMessage: 'Correct',
+                        description: 'Correct submission in coding workspace',
+                        id: 'OlFjm9',
+                      })}
+                      size="sm"
+                      variant="success"
+                    />
                   )}
                   {result === 'WRONG' && (
-                    <Badge label="Wrong" size="sm" variant="danger" />
+                    <Badge
+                      label={intl.formatMessage({
+                        defaultMessage: 'Wrong',
+                        description: 'Wrong submission in coding workspace',
+                        id: 'y+NJ/O',
+                      })}
+                      size="sm"
+                      variant="danger"
+                    />
                   )}
                 </div>
               </div>

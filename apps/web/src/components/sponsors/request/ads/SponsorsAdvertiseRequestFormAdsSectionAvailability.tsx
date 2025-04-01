@@ -130,13 +130,25 @@ export default function SponsorsAdvertiseRequestFormAdsSectionAvailability({
                       <Chip
                         icon={FaCheck}
                         isLabelHidden={true}
-                        label="Selected"
+                        label={intl.formatMessage({
+                          defaultMessage: 'Selected',
+                          description: 'Label for selected week for an ad',
+                          id: 'w54c/f',
+                        })}
                         size="xs"
                         variant="neutral-active"
                       />
                     )}
                     {!available && (
-                      <Badge label="Unavailable" size="xs" variant="neutral" />
+                      <Badge
+                        label={intl.formatMessage({
+                          defaultMessage: 'Unavailable',
+                          description: 'Label for unavailable week for an ad',
+                          id: 'TJr5sF',
+                        })}
+                        size="xs"
+                        variant="neutral"
+                      />
                     )}
                   </div>
                 </button>

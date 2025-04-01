@@ -1,7 +1,10 @@
+'use client';
+
 import { TbColumns3 } from 'react-icons/tb';
 import { VscDebugConsole } from 'react-icons/vsc';
 
 import type { QuestionUserInterfaceMode } from '~/components/interviews/questions/common/QuestionUserInterfacePath';
+import { useIntl } from '~/components/intl';
 
 import {
   getUserInterfaceCodingWorkspaceLayout,
@@ -26,6 +29,7 @@ export default function UserInterfaceCodingWorkspaceLayoutButton({
   isOpen,
   onClose,
 }: Props) {
+  const intl = useIntl();
   const { sandpack } = useSandpack();
   const { activeFile, visibleFiles } = sandpack;
   const { dispatch } = useUserInterfaceCodingWorkspaceTilesContext();
@@ -34,13 +38,21 @@ export default function UserInterfaceCodingWorkspaceLayoutButton({
     {
       description: (
         <>
-          Three-column layout showing the basic essentials for user interface
-          questions.
+          {intl.formatMessage({
+            defaultMessage:
+              'Three-column layout showing the basic essentials for user interface questions.',
+            description: 'Coding workspace layout description',
+            id: 'Tvygkb',
+          })}
         </>
       ),
       icon: TbColumns3,
       id: 'three-column',
-      name: 'Three-column layout (default)',
+      name: intl.formatMessage({
+        defaultMessage: 'Three-column layout (default)',
+        description: 'Coding workspace layout name',
+        id: 'vhHkbS',
+      }),
       onClick: () => {
         dispatch({
           payload: {
@@ -59,14 +71,21 @@ export default function UserInterfaceCodingWorkspaceLayoutButton({
     {
       description: (
         <>
-          Additional tabs shown by default. Suitable for large displays and
-          users who are already familiar with the question. Great for questions
-          involving multiple files.
+          {intl.formatMessage({
+            defaultMessage:
+              'Additional tabs shown by default. Suitable for large displays and users who are already familiar with the question. Great for questions involving multiple files.',
+            description: 'Coding workspace layout description',
+            id: '0Dz3oU',
+          })}
         </>
       ),
       icon: VscDebugConsole,
       id: 'coding-focused',
-      name: 'Coding-focused',
+      name: intl.formatMessage({
+        defaultMessage: 'Coding-focused',
+        description: 'Coding workspace layout name',
+        id: '38b6CQ',
+      }),
       onClick: () => {
         dispatch({
           payload: {

@@ -199,6 +199,10 @@
     "defaultMessage": "Company-tagged questions",
     "description": "Title for company-tagged questions feature"
   },
+  "/08n88": {
+    "defaultMessage": "View solution",
+    "description": "Coding workspace view solution button label"
+  },
   "/17ryO": {
     "defaultMessage": "Are you preparing for a front end engineering interview and feeling overwhelmed by the behavioral round? You're not alone. While coding skills are essential, companies are equally interested in how you think, communicate, and collaborate.",
     "description": "Long description of behavioral interview playbook page"
@@ -299,6 +303,10 @@
     "defaultMessage": "We use this to calculate your YOE and keep it updated",
     "description": "Description for \"When did you start work\" input on Projects profile onboarding page"
   },
+  "/dPmoS": {
+    "defaultMessage": "Test cases",
+    "description": "Coding workspace test cases tab label"
+  },
   "/fHWzJ": {
     "defaultMessage": "{matchScore}% match with the design for selected device breakpoint",
     "description": "Tooltip for match score"
@@ -346,6 +354,10 @@
   "/nidaR": {
     "defaultMessage": "Create your developer profile on GreatFrontEnd. Showcase your skills, experiences and connect with the community.",
     "description": "Description of projects onboarding profile page"
+  },
+  "/p5g3I": {
+    "defaultMessage": "Settings",
+    "description": "Coding workspace settings dropdown label"
   },
   "/pokLY": {
     "defaultMessage": "This is the name that will be shown on your profile. Use a maximum of {maxLength} character(s).",
@@ -403,6 +415,10 @@
     "defaultMessage": "TypeScript supported",
     "description": "JavaScript questions can be done in TypeScript"
   },
+  "05Sh88": {
+    "defaultMessage": "Submit",
+    "description": "Workspace submit code button label"
+  },
   "05tlPb": {
     "defaultMessage": "Banner text",
     "description": "Text within global banner"
@@ -431,6 +447,10 @@
     "defaultMessage": "Advertising Inquiry",
     "description": "Title for advertising inquiry"
   },
+  "0Dz3oU": {
+    "defaultMessage": "Additional tabs shown by default. Suitable for large displays and users who are already familiar with the question. Great for questions involving multiple files.",
+    "description": "Coding workspace layout description"
+  },
   "0GT0SI": {
     "defaultMessage": "Cancel",
     "description": "Cancel button label"
@@ -454,6 +474,10 @@
   "0K1Xot": {
     "defaultMessage": "We offer a few guidance options",
     "description": "FAQ answer for projects platform"
+  },
+  "0LdACb": {
+    "defaultMessage": "Cyber Monday Special",
+    "description": "Cyber Monday Special title"
   },
   "0M8wQ4": {
     "defaultMessage": "Upload required assets",
@@ -482,6 +506,10 @@
   "0UEoo1": {
     "defaultMessage": "JavaScript UI",
     "description": "Question list"
+  },
+  "0UhyNO": {
+    "defaultMessage": "In content placement",
+    "description": "Alt text ads for in content placement"
   },
   "0WJfoT": {
     "defaultMessage": "Intermediate",
@@ -543,6 +571,10 @@
     "defaultMessage": "JavaScript Interview Guides",
     "description": "Title for guide card"
   },
+  "0o3mWI": {
+    "defaultMessage": "Reset code",
+    "description": "Reset code in editor tooltip"
+  },
   "0qQNkH": {
     "defaultMessage": "You've also earned:",
     "description": "Marketing rewards message"
@@ -578,6 +610,10 @@
   "0ySzlP": {
     "defaultMessage": "It is a <strong>one-time purchase, with no recurring subscription</strong>. You get access to all the content on the GreatFrontEnd Interviews platform forever, along with any future updates. This will be useful and relevant for all future job hunts.",
     "description": "Answer to 'What does lifetime access mean?' on Homepage's FAQ sections"
+  },
+  "0yYlhT": {
+    "defaultMessage": "View ad",
+    "description": "View ad button label"
   },
   "0z/V+d": {
     "defaultMessage": "Since annual users have unlimited credits, we will roll over credits for projects that remain locked at the end of their subscription cycle.",
@@ -699,6 +735,10 @@
     "defaultMessage": "Practice in an environment that simulates real interviews",
     "description": "Title for the simulate real interviews section"
   },
+  "1ovS6Y": {
+    "defaultMessage": "In content ad placement preview",
+    "description": "Alt text for ads in content placement preview"
+  },
   "1p5F3G": {
     "defaultMessage": "Interview Guides",
     "description": "Label for in content placement in guides"
@@ -722,6 +762,10 @@
   "1sLCIj": {
     "defaultMessage": "Try using a different card or payment method with enough balance.",
     "description": "Reason label for different card"
+  },
+  "1tXKW/": {
+    "defaultMessage": "Loading submission",
+    "description": "Coding workspace submission loading"
   },
   "1w3zxf": {
     "defaultMessage": "Search questions",
@@ -758,6 +802,10 @@
   "23bxK1": {
     "defaultMessage": "Blogs List",
     "description": "Screen reader text indicating the blog list component on blog homepage"
+  },
+  "23pktm": {
+    "defaultMessage": "Solution",
+    "description": "Coding workspace view solution title"
   },
   "23zW1O": {
     "defaultMessage": "{totalCount, plural, one {<bold>{completedCount}</bold>/# challenge} other {<bold>{completedCount}</bold>/# challenges}}",
@@ -827,6 +875,10 @@
     "defaultMessage": "Support",
     "description": "Title for FAQ section"
   },
+  "2SM6li": {
+    "defaultMessage": "Change workspace layout",
+    "description": "Change coding workspace layout title"
+  },
   "2T4Rg2": {
     "defaultMessage": "Algorithmic Coding Interview Questions",
     "description": "Social title for algo coding question format page"
@@ -834,6 +886,10 @@
   "2a6qgD": {
     "defaultMessage": "Your code was restored from client storage. <link>Reset to default</link>",
     "description": "Message that appears under the coding workspace when user has previously worked on this problem and we restored their code"
+  },
+  "2eBsGO": {
+    "defaultMessage": "Reset all changes made to this question?",
+    "description": "Coding workspace reset question confirmation"
   },
   "2eIa8j": {
     "defaultMessage": "Basic general development guides, such as how to download and use an IDE, how to use tools like GitHub and Figma.",
@@ -855,6 +911,10 @@
     "defaultMessage": "Online assets",
     "description": "Title for Online Assets section on Projects project assets page"
   },
+  "2gyjKy": {
+    "defaultMessage": "Close editor",
+    "description": "Close coding editor tooltip"
+  },
   "2rcoOT": {
     "defaultMessage": "Edit",
     "description": "Edit button label"
@@ -866,6 +926,10 @@
   "2sBv9j": {
     "defaultMessage": "Popularity: Most to least upvotes",
     "description": "Sorting option for submissions list - popularity"
+  },
+  "2ttaph": {
+    "defaultMessage": "You are viewing the solution code. Changes will not be saved.",
+    "description": "Coding workspace viewing solution code message"
   },
   "2u88E/": {
     "defaultMessage": "Collapse questions list",
@@ -891,6 +955,14 @@
     "defaultMessage": "Unlocking this challenge requires a total of {count, plural, one {<bold>1 premium credit</bold>} other {<bold># premium credits</bold>}}.",
     "description": "Confirmation text for unlocking a premium challenge"
   },
+  "3+4IFI": {
+    "defaultMessage": "Edit test cases",
+    "description": "Workspace edit test cases button label"
+  },
+  "3+Q/U6": {
+    "defaultMessage": "You are viewing the description from the solution page. To practice this question, <backLink>go back</backLink> to the workspace page or <savedLink>load a saved version</savedLink>.",
+    "description": "Description from solution page alert"
+  },
   "3+YLNZ": {
     "defaultMessage": "You replied to <recipientProfileLink>{recipient}</recipientProfileLink> on the challenge forum for <link>{challengeTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for you replying to someone on the challenge forum"
@@ -903,6 +975,10 @@
     "defaultMessage": "Security",
     "description": "Title for Security section on profile page"
   },
+  "38b6CQ": {
+    "defaultMessage": "Coding-focused",
+    "description": "Coding workspace layout name"
+  },
   "3C1g+S": {
     "defaultMessage": "Don't settle for single placements - we'll give you repeated ad exposure",
     "description": "Advertise with us section title"
@@ -914,6 +990,10 @@
   "3FeosO": {
     "defaultMessage": "NEW",
     "description": "Label for new questions ribbon"
+  },
+  "3HrE7g": {
+    "defaultMessage": "View submission test cases.",
+    "description": "Coding workspace view submission test cases link"
   },
   "3I6rHR": {
     "defaultMessage": "These resources help you prepare effectively while saving time by focusing on high-impact areas:",
@@ -1099,6 +1179,10 @@
     "defaultMessage": "{count, plural, one {1 credit} other {# credits}}",
     "description": "Number of credits"
   },
+  "49NIXE": {
+    "defaultMessage": "Start timer",
+    "description": "Start coding workspace timer label"
+  },
   "49TDbW": {
     "defaultMessage": "VAT / Tax number",
     "description": "Tax number input label"
@@ -1159,6 +1243,10 @@
     "defaultMessage": "A starter guide to preparing for front end interviews",
     "description": "Description for front end interview guide"
   },
+  "4YniIl": {
+    "defaultMessage": "Pass",
+    "description": "Workspace test spec pass label"
+  },
   "4cjRbk": {
     "defaultMessage": "Info",
     "description": "Select label for info log level in console filter"
@@ -1183,6 +1271,14 @@
     "defaultMessage": "Premium challenge",
     "description": "Title for a premium project paywall"
   },
+  "4gshRJ": {
+    "defaultMessage": "Start a new version",
+    "description": "Start a new version of the question button label"
+  },
+  "4jymHU": {
+    "defaultMessage": "{skipCount} skipped",
+    "description": "Workspace test outcome skipped label"
+  },
   "4kQ6Kr": {
     "defaultMessage": "Exclusive to currently enrolled students at accredited educational institutions.",
     "description": "Condition for promotion"
@@ -1190,6 +1286,10 @@
   "4lxFH6": {
     "defaultMessage": "Employment Type",
     "description": "Employment type"
+  },
+  "4m+sME": {
+    "defaultMessage": "Code",
+    "description": "Coding workspace code tab label"
   },
   "4pEeq1": {
     "defaultMessage": "Number of questions completed",
@@ -1218,6 +1318,10 @@
   "4uyrtd": {
     "defaultMessage": "Guides & solutions from Sr. Engineers and code reviews from <link>community</link>",
     "description": "Caption for Projects marketing hero section community feature"
+  },
+  "4zR7Wh": {
+    "defaultMessage": "Your code will be saved into the database and can be retrieved from the <bold>\"{Saved versions}\"</bold> tab.",
+    "description": "Coding workspace save code dialog description"
   },
   "50kzzq": {
     "defaultMessage": "Select question format",
@@ -1355,6 +1459,10 @@
     "defaultMessage": "Question list",
     "description": "Questions list"
   },
+  "5mnKpn": {
+    "defaultMessage": "Post",
+    "description": "Community solution post button label"
+  },
   "5n/TXe": {
     "defaultMessage": "System design",
     "description": "Front end system design questions"
@@ -1399,6 +1507,10 @@
     "defaultMessage": "{questionTitle} in {questionFramework}",
     "description": "Title of Front End Interview UI Coding Questions practice page"
   },
+  "5udMqb": {
+    "defaultMessage": "Verify",
+    "description": "Verify button label"
+  },
   "5xaR91": {
     "defaultMessage": "After review, we'll email you a confirmation along with the payment link.",
     "description": "Description for 2nd step of advertising"
@@ -1418,6 +1530,10 @@
   "6/Qdew": {
     "defaultMessage": "Start project",
     "description": "Label for \"Start project\" button on Projects project page"
+  },
+  "60Qm8N": {
+    "defaultMessage": "Description",
+    "description": "Coding workspace description tab label"
   },
   "60XjnL": {
     "defaultMessage": "Get started",
@@ -1467,6 +1583,10 @@
     "defaultMessage": "As this is a composite challenge, you may choose to unlock the dependent challenges first.",
     "description": "Confirmation text for unlocking a premium challenge"
   },
+  "6NG4Ep": {
+    "defaultMessage": "Idle",
+    "description": "Workspace test idle label"
+  },
   "6O2Mng": {
     "defaultMessage": "Show as submissions",
     "description": "Checkbox label for showing as submissions"
@@ -1483,6 +1603,10 @@
     "defaultMessage": "Build the project guided by us - refer to official guides, solutions, reference other user's submissions, and discuss with the community",
     "description": "Step 3 of the \"How it works\" section on the Projects home page"
   },
+  "6RIklb": {
+    "defaultMessage": "Global banner placement",
+    "description": "Alt text for ads global banner placement"
+  },
   "6RhqF3": {
     "defaultMessage": "Number of articles",
     "description": "Total number of articles in a list"
@@ -1494,6 +1618,10 @@
   "6SEbWz": {
     "defaultMessage": "Annual plan",
     "description": "Title of annual pricing plan"
+  },
+  "6TjXww": {
+    "defaultMessage": "Submit",
+    "description": "Coding workspace submit code button label"
   },
   "6U52IB": {
     "defaultMessage": "FAQ",
@@ -1751,6 +1879,10 @@
     "defaultMessage": "Will I have to code within the platform, or use my own IDE?",
     "description": "FAQ question for projects platform"
   },
+  "7hMBWU": {
+    "defaultMessage": "File explorer",
+    "description": "Coding workspace file explorer label"
+  },
   "7jRY6z": {
     "defaultMessage": "Run your code against tests and instantly preview your output",
     "description": "Label for item 1 for simulate real interviews section"
@@ -1923,6 +2055,10 @@
     "defaultMessage": "Create",
     "description": "Create label"
   },
+  "8nTsZn": {
+    "defaultMessage": "Saved code",
+    "description": "Coding workspace saved code tab label"
+  },
   "8tTY7b": {
     "defaultMessage": "Loading submissions",
     "description": "Loading historical project submissions"
@@ -2087,6 +2223,14 @@
     "defaultMessage": "React Interview Playbook",
     "description": "Title of React interview playbook page"
   },
+  "9UIHXW": {
+    "defaultMessage": "Name",
+    "description": "Name input label for saved code"
+  },
+  "9bKvzQ": {
+    "defaultMessage": "Write up",
+    "description": "Workspace community solution write up label"
+  },
   "9dQ21j": {
     "defaultMessage": "Set new profile photo",
     "description": "Label for new profile photo button"
@@ -2118,6 +2262,10 @@
   "9qO5Il": {
     "defaultMessage": "Pricing",
     "description": "Sidebar navigation label"
+  },
+  "9tiGzA": {
+    "defaultMessage": "Three-column layout showing the basic essentials for JavaScript questions.",
+    "description": "Coding workspace layout description"
   },
   "9uTTIS": {
     "defaultMessage": "Practice front end interview questions requiring you to build UI with HTML, CSS, JavaScript/TypeScript, or React, Angular, and Vue. Solutions and tests from ex-interviewers.",
@@ -2151,6 +2299,10 @@
     "defaultMessage": "Front End System Design Playbook",
     "description": "Title of frontend system design playbook page"
   },
+  "A3ftCj": {
+    "defaultMessage": "Check the console for more information",
+    "description": "Workspace test spec error button label"
+  },
   "A5COe1": {
     "defaultMessage": "Cancel",
     "description": "Label for cancel button on import progress dialog"
@@ -2183,6 +2335,14 @@
     "defaultMessage": "Enjoy {discountPercentage}% off all plans by following our social accounts! <strong>Check it out</strong>",
     "description": "Text on Promo Banner appearing almost on all application pages to inform user of a discount"
   },
+  "AFsv0q": {
+    "defaultMessage": "Loading editor",
+    "description": "Loading code editor"
+  },
+  "AGnFjn": {
+    "defaultMessage": "Choose a layout that best suits your needs.",
+    "description": "Change coding workspace layout description"
+  },
   "AIKOQQ": {
     "defaultMessage": "Answers by ex-interviewers",
     "description": "Features for question format page"
@@ -2190,6 +2350,10 @@
   "AJuXmH": {
     "defaultMessage": "Add profile photo",
     "description": "Label for add profile photo button on projects profile"
+  },
+  "AKgBO+": {
+    "defaultMessage": "Hide solution",
+    "description": "Coding workspace hide solution button"
   },
   "AKnqip": {
     "defaultMessage": "Name must contain at least {minLength} character(s).",
@@ -2206,6 +2370,10 @@
   "ANnHJ7": {
     "defaultMessage": "Exclusive private Discord channel with real-time support from the team",
     "description": "Feature of annual pricing plan"
+  },
+  "AQTvh2": {
+    "defaultMessage": "Run test cases (customizable)",
+    "description": "Coding workspace run test cases tooltip"
   },
   "ATjflV": {
     "defaultMessage": "Choose up to 2 reasons so that we can improve your experience",
@@ -2282,6 +2450,10 @@
   "AmBMf9": {
     "defaultMessage": "No questions",
     "description": "Title for empty state when application of filters return no results"
+  },
+  "Aphr+S": {
+    "defaultMessage": "No community solutions",
+    "description": "No community solutions in coding workspace"
   },
   "Aqyo8Q": {
     "defaultMessage": "Coding questions focused on testing your understanding of JavaScript, including concepts like closures, event handling, asynchronous programming, and manipulating the DOM",
@@ -2423,6 +2595,10 @@
     "defaultMessage": "{totalCount, plural, =0 {No challenges} one {1 challenge} other {# challenges}}",
     "description": "Total number of challenges"
   },
+  "BcCcsC": {
+    "defaultMessage": "In Content Ad Placement in quiz questions",
+    "description": "Alt text for ads in content placement preview"
+  },
   "BfCWYl": {
     "defaultMessage": "Select at least 1 skill that was used",
     "description": "Error message"
@@ -2430,6 +2606,10 @@
   "BfJL2V": {
     "defaultMessage": "Challenge difficulty",
     "description": "Label for Difficulty filter for submissions list"
+  },
+  "Bhd/Mm": {
+    "defaultMessage": "Classic layout that prioritizes readability of question description and solution.",
+    "description": "Coding workspace layout description"
   },
   "BhmpD2": {
     "defaultMessage": "A structured way to approach system design questions",
@@ -2519,6 +2699,10 @@
     "defaultMessage": "We recommend well-rated submissions using the same stack for your reference",
     "description": "Description for \"Learn from good code\" item in Expected Support section on Projects project page"
   },
+  "CHR6u9": {
+    "defaultMessage": "Name your save",
+    "description": "Coding workspace save code input label"
+  },
   "CILeO3": {
     "defaultMessage": "Fill this super quick form to start advertising! Upon approval ({approvalDays} days), you will receive a confirmation email with the invoice and payment link.",
     "description": "Subtitle for advertise request page"
@@ -2531,9 +2715,17 @@
     "defaultMessage": "Not written for this question.",
     "description": "Text that apppears if a solution has not been written for the question"
   },
+  "CONsK1": {
+    "defaultMessage": "{totalCount} total",
+    "description": "Workspace test outcome total count label"
+  },
   "CPBDLd": {
     "defaultMessage": "Deep-dive into topical focus areas critical for front end interviews.",
     "description": "Description for focus areas page"
+  },
+  "CPWDPx": {
+    "defaultMessage": "You've reached the attempt limit!",
+    "description": "Attempt limit reached alert title"
   },
   "CQ3Vef": {
     "defaultMessage": "Importance",
@@ -2563,6 +2755,10 @@
     "defaultMessage": "Essential topics",
     "description": "React essential topics"
   },
+  "Cae478": {
+    "defaultMessage": "Spotlight ad placement preview",
+    "description": "Alt text for spotlight ad placement preview"
+  },
   "CbIPy4": {
     "defaultMessage": "Vanilla JavaScript UI Interview Questions with Solutions | GreatFrontEnd",
     "description": "Title of React Interview Questions page"
@@ -2578,6 +2774,14 @@
   "CfSKv4": {
     "defaultMessage": "Other skills you are using which are not within the skills roadmap. Also helps community members understand more about the tech stack. If you don't see the tag you need, email us.",
     "description": "Description for \"Other tech stack used\" text input"
+  },
+  "CgF99H": {
+    "defaultMessage": "\"2 months free exclusive beta access to our new mystery product dropping in Jan – Feb 2024\"",
+    "description": "Exclusive ticket tooltip"
+  },
+  "Chxk4J": {
+    "defaultMessage": "With every purchase",
+    "description": "Label for with every purchase for Black Friday special"
   },
   "Cl4Ghp": {
     "defaultMessage": "On this page",
@@ -2751,6 +2955,10 @@
     "defaultMessage": "Filters",
     "description": "Title of Projects project filter slide-out"
   },
+  "DeIlcK": {
+    "defaultMessage": "Submit",
+    "description": "Coding workspace submit tab label"
+  },
   "DfuYnf": {
     "defaultMessage": "Select submission list category",
     "description": "Tab label to select another submission page"
@@ -2775,6 +2983,10 @@
     "defaultMessage": "Motivations for joining",
     "description": "Title of motivation for joining section of projects profile edit page"
   },
+  "DlxhUm": {
+    "defaultMessage": "Submitted at",
+    "description": "Workspace community submission submitted at label"
+  },
   "DmLCt5": {
     "defaultMessage": "{questionCount}+ solved questions",
     "description": "Features for frontend system design playbook page"
@@ -2782,6 +2994,10 @@
   "DmiRUe": {
     "defaultMessage": "User Interface Coding Guides",
     "description": "Title for guide card"
+  },
+  "Dnrwi9": {
+    "defaultMessage": "Spotlight Ad Placement in app sidebar",
+    "description": "Alt text for spotlight ad placement preview"
   },
   "Dpfbeq": {
     "defaultMessage": "Purchase premium to unlock company guides and all the best materials we have to offer.",
@@ -2930,6 +3146,10 @@
   "EbMRMy": {
     "defaultMessage": "Specialized questions covering critical front-end topics such as:",
     "description": "Paragraph 3 for \"What does GreatFrontEnd Interviews offer exactly?\" on Homepage FAQ sections"
+  },
+  "Ee50Lt": {
+    "defaultMessage": "Close and return to description",
+    "description": "Coding workspace solution preview close button"
   },
   "Eel+ez": {
     "defaultMessage": "Meet the <strong>front end interview prep platform</strong> built to make your interviews much easier. By Big Tech ex-interviewers at",
@@ -3315,6 +3535,10 @@
     "defaultMessage": "Filters",
     "description": "Screenreader text indicating the filters component on question list pages"
   },
+  "GyoQO7": {
+    "defaultMessage": "This is a preview of the solution.",
+    "description": "Coding workspace solution preview banner"
+  },
   "H+BRfg": {
     "defaultMessage": "No completed questions",
     "description": "Text shown when no questions are completed."
@@ -3346,6 +3570,10 @@
   "H39M2g": {
     "defaultMessage": "What to expect for Front End System Design interviews",
     "description": "Sidebar link title for front end system design interviews"
+  },
+  "H3ninu": {
+    "defaultMessage": "Submissions",
+    "description": "Coding workspace submissions tab label"
   },
   "H5rbVW": {
     "defaultMessage": "React hooks",
@@ -3442,6 +3670,10 @@
   "HYUdzA": {
     "defaultMessage": "Sorting",
     "description": "Computer science algorithm"
+  },
+  "HYkgJI": {
+    "defaultMessage": "Version",
+    "description": "Coding workspace saved code version"
   },
   "HZh7Wb": {
     "defaultMessage": "Request updated",
@@ -3615,6 +3847,10 @@
     "defaultMessage": "Get promo code",
     "description": "Button label for student discount"
   },
+  "ITigYA": {
+    "defaultMessage": "Correct",
+    "description": "Workspace test outcome correct label"
+  },
   "ITq0p4": {
     "defaultMessage": "Privacy Policy",
     "description": "Link to privacy policy page"
@@ -3650,6 +3886,10 @@
   "IaEOEI": {
     "defaultMessage": "Authorized signatory",
     "description": "Label for Authorized signatory"
+  },
+  "Ib0ZgM": {
+    "defaultMessage": "Title",
+    "description": "Community solution title label"
   },
   "IbMc1j": {
     "defaultMessage": "Submission summary must contain at most {maxLength} character(s).",
@@ -3755,6 +3995,10 @@
     "defaultMessage": "React",
     "description": "Front end development topic"
   },
+  "J4q56n": {
+    "defaultMessage": "Delete \"{saveName}\"",
+    "description": "Dialog title for deleting a saved code"
+  },
   "J6Yt0F": {
     "defaultMessage": "Atlassian",
     "description": "Company name for Atlassian"
@@ -3831,6 +4075,10 @@
     "defaultMessage": "Careers",
     "description": "Link to careers page"
   },
+  "JNG61K": {
+    "defaultMessage": "Go to solution",
+    "description": "Coding workspace go to solution button label"
+  },
   "JPr1gs": {
     "defaultMessage": "Collaboration questions",
     "description": "Title for sidebar on collaboration situation questions in behavioral interviews"
@@ -3871,9 +4119,17 @@
     "defaultMessage": "Back to home",
     "description": "Link text to navigate to blog home page"
   },
+  "Jb6oWn": {
+    "defaultMessage": "Wrong answer",
+    "description": "Workspace test outcome wrong label"
+  },
   "Jbo+rf": {
     "defaultMessage": "Reset",
     "description": "Label for reset button for projects profile edit page"
+  },
+  "JiKm6K": {
+    "defaultMessage": "Preview what you need to build",
+    "description": "Solution preview button label"
   },
   "JinTBm": {
     "defaultMessage": "Upvotes received",
@@ -3895,6 +4151,10 @@
     "defaultMessage": "Study Plans for Front End Interviews",
     "description": "OG page type for study plans"
   },
+  "Jo4hU0": {
+    "defaultMessage": "Rename",
+    "description": "Rename saved code"
+  },
   "JrYZqa": {
     "defaultMessage": "All the resources to help you build a {challengeName}, including how-to-guides, official solutions, references and user discussions",
     "description": "Description of Projects challenge resources page"
@@ -3906,6 +4166,10 @@
   "JsjM2e": {
     "defaultMessage": "Marked \"{articleName}\" as incomplete",
     "description": "Success message shown when an article was marked as not completed"
+  },
+  "JtkXij": {
+    "defaultMessage": "More actions",
+    "description": "Menu for saved code in coding workspace"
   },
   "Ju61WC": {
     "defaultMessage": "To download",
@@ -3934,6 +4198,10 @@
   "K2TQiz": {
     "defaultMessage": "Behavioral Interview Playbook | Made For Front End Engineers",
     "description": "Page title for behavioral interview playbook cover page"
+  },
+  "K2gA7K": {
+    "defaultMessage": "Submission for \"{title}\"",
+    "description": "Coding workspace submission title"
   },
   "K366Ff": {
     "defaultMessage": "Start completing simple tasks to unlock {discount}% off with GreatFrontEnd.",
@@ -4059,6 +4327,10 @@
     "defaultMessage": "Try changing your search terms",
     "description": "Subtitle for empty state for company guides list"
   },
+  "KbAioB": {
+    "defaultMessage": "Remove image",
+    "description": "Remove ad image label"
+  },
   "KbLzJO": {
     "defaultMessage": "Bullet list",
     "description": "Bullet list tooltip for Richtext toolbar"
@@ -4114,6 +4386,10 @@
   "KmiBbk": {
     "defaultMessage": "I would like to sign up for GreatFrontEnd's newsletter to receive interview tips and question updates",
     "description": "Label of checkbox to sign up for newsletter on Email Sign Up page"
+  },
+  "KmjUuX": {
+    "defaultMessage": "Your active plan",
+    "description": "Current subscription plan"
   },
   "Kne0pQ": {
     "defaultMessage": "Save changes",
@@ -4175,6 +4451,10 @@
     "defaultMessage": "Tracks | Progress | Dashboard",
     "description": "Title of tracks section on dashboard page"
   },
+  "L1kUyL": {
+    "defaultMessage": "More",
+    "description": "More options label"
+  },
   "L2l9WA": {
     "defaultMessage": "Quiz",
     "description": "Front end quiz questions"
@@ -4194,6 +4474,10 @@
   "L4W5rT": {
     "defaultMessage": "You can choose to end a project session if you choose not to work on it anymore. We will stop prompting you to continue the project in the dashboard",
     "description": "Tooltip for \"End session\" button on current project session card"
+  },
+  "L515WN": {
+    "defaultMessage": "View page",
+    "description": "View page button label"
   },
   "L7w0Ka": {
     "defaultMessage": "Computer Science Foundations",
@@ -4234,6 +4518,10 @@
   "LGiJGy": {
     "defaultMessage": "Try changing your search filters",
     "description": "Subtitle for empty state when no questions are returned from application of filters on profile activity page"
+  },
+  "LIW1bo": {
+    "defaultMessage": "Save",
+    "description": "Coding workspace save code button label"
   },
   "LJFQaW": {
     "defaultMessage": "Coming soon",
@@ -4346,6 +4634,10 @@
   "LlNbSg": {
     "defaultMessage": "Collapse",
     "description": "Collapse label"
+  },
+  "LlY5Uv": {
+    "defaultMessage": "With every purchase",
+    "description": "With every purchase label"
   },
   "LlhHTu": {
     "defaultMessage": "Unlock challenge",
@@ -4554,6 +4846,10 @@
   "N5Cp1r": {
     "defaultMessage": "While offer lasts",
     "description": "Label to indicate offer is a limited time deal"
+  },
+  "N5d7zE": {
+    "defaultMessage": "Writeup",
+    "description": "Community solution writeup label"
   },
   "NA1S3Z": {
     "defaultMessage": "Discussion post comment",
@@ -4819,6 +5115,14 @@
     "defaultMessage": "View GitHub profile",
     "description": "Link to GitHub profile"
   },
+  "OlFjm9": {
+    "defaultMessage": "Correct",
+    "description": "Correct submission in coding workspace"
+  },
+  "OmFm8C": {
+    "defaultMessage": "Post",
+    "description": "Coding workspace post solution button label"
+  },
   "Omqpux": {
     "defaultMessage": "You have <bold>unlimited premium credits</bold>. Unlock this project to access all premium features for this challenge, including the Figma design files, official guides, and solutions.",
     "description": "Subtitle for project paywall"
@@ -4979,6 +5283,10 @@
     "defaultMessage": "Product",
     "description": "Section heading in footer"
   },
+  "PRsCOw": {
+    "defaultMessage": "Error",
+    "description": "Workspace test spec error label"
+  },
   "PV4vcA": {
     "defaultMessage": "Failed to edit request",
     "description": "Error title for request submission"
@@ -5054,6 +5362,10 @@
   "PrexEG": {
     "defaultMessage": "Notifications",
     "description": "Label for notifications"
+  },
+  "PtJfRZ": {
+    "defaultMessage": "Title cannot be empty",
+    "description": "Community solution title required error message"
   },
   "Ptmnjq": {
     "defaultMessage": "Free continuous updates",
@@ -5267,6 +5579,10 @@
     "defaultMessage": "Company Guides:",
     "description": "Paragraph 3 for \"What does GreatFrontEnd Interviews offer exactly?\" on Homepage FAQ sections"
   },
+  "QrHNsv": {
+    "defaultMessage": "You are currently editing code from the saved version: <strong>\"{saveName}\"</strong>.",
+    "description": "Viewing saved version alert message"
+  },
   "QrikGf": {
     "defaultMessage": "Copy to clipboard",
     "description": "Button label for copy button"
@@ -5326,6 +5642,10 @@
   "R9G9bY": {
     "defaultMessage": "Dashboard",
     "description": "Sidebar navigation label"
+  },
+  "R9kAtY": {
+    "defaultMessage": "Cyber Monday Sale",
+    "description": "Cyber Monday Sale label"
   },
   "RBApo9": {
     "defaultMessage": "Promotions",
@@ -5435,6 +5755,10 @@
     "defaultMessage": "We provide a roadmap of all the core skills needed to be a great front end engineer, from beginner to advanced. For each skill, we suggest good resources for you to study and projects you can build on our platform to learn the skill. This roadmap is curated by senior engineers with extensive experience in the industry, ensuring the quality and trustworthiness of the content.",
     "description": "Description for skill roadmap feature"
   },
+  "RXjrrm": {
+    "defaultMessage": "Close",
+    "description": "Close coding editor button label"
+  },
   "RY1Vtk": {
     "defaultMessage": "Ready to submit?",
     "description": "Title for Submit step in project submission checklist"
@@ -5454,6 +5778,10 @@
   "Ra8aIf": {
     "defaultMessage": "{category} coding",
     "description": "Question list"
+  },
+  "RbINSF": {
+    "defaultMessage": "Community solution",
+    "description": "Coding workspace community solution tab label"
   },
   "Rbwncn": {
     "defaultMessage": "{seconds} seconds - {minutes} minutes",
@@ -5803,6 +6131,10 @@
     "defaultMessage": "Project steps",
     "description": "Label for Project steps tabs"
   },
+  "TJr5sF": {
+    "defaultMessage": "Unavailable",
+    "description": "Label for unavailable week for an ad"
+  },
   "TL822E": {
     "defaultMessage": "JavaScript Console",
     "description": "Title of JavaScript console panel"
@@ -5867,6 +6199,10 @@
     "defaultMessage": "Accessibility",
     "description": "Front end development topic"
   },
+  "Tbgxbk": {
+    "defaultMessage": "Reset",
+    "description": "Reset coding workspace timer button label"
+  },
   "TczmTT": {
     "defaultMessage": "At least one week is required",
     "description": "Error message for ads booking"
@@ -5923,6 +6259,10 @@
     "defaultMessage": "This URL is invalid. Check if you've typed it correctly.",
     "description": "Error message"
   },
+  "TngZLb": {
+    "defaultMessage": "Your solution has been posted",
+    "description": "Community solution posted toast message"
+  },
   "TriOQe": {
     "defaultMessage": "Company",
     "description": "Label for company"
@@ -5930,6 +6270,10 @@
   "Tt86gs": {
     "defaultMessage": "Importance: High to Low",
     "description": "Sorting option for question list - sort by importance from high to low"
+  },
+  "Tvygkb": {
+    "defaultMessage": "Three-column layout showing the basic essentials for user interface questions.",
+    "description": "Coding workspace layout description"
   },
   "TxVFaP": {
     "defaultMessage": "Your advertising request has been rejected. You can click edit your request and resubmit for approval.",
@@ -5963,6 +6307,10 @@
     "defaultMessage": "Real world specs",
     "description": "Title for \"Real world specs\" feature on Projects home page"
   },
+  "U5VBHX": {
+    "defaultMessage": "We noticed you're in {countryName}. We support Purchasing Power Parity, so a <bold>{discount}% discount</bold> has been automatically applied! 🎉",
+    "description": "Purchase PPP discount alert description"
+  },
   "U9XHwD": {
     "defaultMessage": "Learn to ask insightful questions at the end of the interview",
     "description": "How to ask insightful questions during behavioral interviews"
@@ -5986,6 +6334,10 @@
   "UCJ7hl": {
     "defaultMessage": "Step 1",
     "description": "Step N of multiple steps when completing a project"
+  },
+  "UENPxG": {
+    "defaultMessage": "No test files found.",
+    "description": "Workspace no test files found"
   },
   "UISwUX": {
     "defaultMessage": "Explore {topicsCount} critical topics for front end interviews. Master them with targeted practice questions—each with detailed solutions and tests to learn from.",
@@ -6127,6 +6479,10 @@
     "defaultMessage": "1-2 lines on what the project is about, to be displayed on the Submission cards to attract the community to comment on your project",
     "description": "Form label tooltip"
   },
+  "VArueU": {
+    "defaultMessage": "Submission tests",
+    "description": "Coding workspace submission tests tab label"
+  },
   "VBLk5q": {
     "defaultMessage": "With our study plans, many users have secured multiple offers at leading companies with substantial TC gains. You could be next.",
     "description": "Testimonials section description of study plans page"
@@ -6183,6 +6539,10 @@
     "defaultMessage": "{category} Interview Guides",
     "description": "Description for guide card"
   },
+  "VYJBxW": {
+    "defaultMessage": "Runs submission test cases and marks complete",
+    "description": "Coding workspace run test cases tooltip"
+  },
   "VYwrk6": {
     "defaultMessage": "Get access to some of our best real-world project challenges and resources with Premium.",
     "description": "Description of Pricing page"
@@ -6235,6 +6595,10 @@
     "defaultMessage": "Screenshot-taking success!",
     "description": "Success message for screenshot generation"
   },
+  "VnCFSy": {
+    "defaultMessage": "Save to cloud",
+    "description": "Coding workspace save code label"
+  },
   "VnPiXE": {
     "defaultMessage": "The card does not have enough funds available to complete the transaction.",
     "description": "Decline message for insufficient fund"
@@ -6258,6 +6622,10 @@
   "Vqbpp7": {
     "defaultMessage": "Level up!",
     "description": "label of Level bage"
+  },
+  "Vr0DK1": {
+    "defaultMessage": "Spotlight Ad Placement in question detail page",
+    "description": "Alt text for spotlight ad placement preview"
   },
   "Vtp5JU": {
     "defaultMessage": "A long time ago",
@@ -6370,6 +6738,10 @@
   "WIHUwS": {
     "defaultMessage": "Quarterly plan",
     "description": "Title of quarterly pricing plan"
+  },
+  "WM9+ww": {
+    "defaultMessage": "Initializing",
+    "description": "Workspace test initializing label"
   },
   "WNERnb": {
     "defaultMessage": "End session",
@@ -6515,6 +6887,10 @@
     "defaultMessage": "{questionTitle} in {questionFramework} | UI Interview Question",
     "description": "Title of Front End Interview UI Coding Questions practice page"
   },
+  "X614ft": {
+    "defaultMessage": "Writeup cannot be empty",
+    "description": "Community solution writeup required error message"
+  },
   "X6Eh8S": {
     "defaultMessage": "Email us",
     "description": "Label for email us"
@@ -6562,6 +6938,10 @@
   "XMHcvt": {
     "defaultMessage": "We recommend quality submissions from more senior engineers using a similar tech stack to you, or tech stack you expressed interest in learning",
     "description": "Tooltip label for Trending submissions section on Projects dashboard page"
+  },
+  "XMXhLh": {
+    "defaultMessage": "Exclusive beta access to new product",
+    "description": "Exclusive ticket title"
   },
   "XMbtCr": {
     "defaultMessage": "Explore",
@@ -6727,6 +7107,10 @@
     "defaultMessage": "Expires",
     "description": "Expiration date"
   },
+  "YGMPkH": {
+    "defaultMessage": "Reviewed by",
+    "description": "Ad request reviewed by"
+  },
   "YIry1B": {
     "defaultMessage": "Pricing plans",
     "description": "Title for projects pricing plans"
@@ -6802,6 +7186,10 @@
   "YZa0RE": {
     "defaultMessage": "Start building from our large repository of real-world front end project challenges. Hone core front end skills and build an impressive project portfolio.",
     "description": "Description of Challenges page"
+  },
+  "Yaff9b": {
+    "defaultMessage": "Run",
+    "description": "Run code button label"
   },
   "YdQTiq": {
     "defaultMessage": "Preparation plans for all kinds of preparation timelines — <owlink>1 week</owlink>, <omlink>1 month</omlink>, <tmlink>3 months</tmlink>.",
@@ -6911,6 +7299,10 @@
     "defaultMessage": "Completed",
     "description": "Completed status for a question"
   },
+  "ZNFWBy": {
+    "defaultMessage": "Browser",
+    "description": "Coding workspace browser tab label"
+  },
   "ZO6Axb": {
     "defaultMessage": "Advertise with us steps",
     "description": "Label for advertise request steps"
@@ -6947,6 +7339,10 @@
     "defaultMessage": "Internationalization",
     "description": "Front end topic"
   },
+  "ZYk9jl": {
+    "defaultMessage": "No saved versions",
+    "description": "No saved versions in coding workspace"
+  },
   "ZZIJ0i": {
     "defaultMessage": "Since {date}",
     "description": "Since date for current project session card"
@@ -6954,6 +7350,10 @@
   "Zdojj9": {
     "defaultMessage": "Other",
     "description": "Label for \"Other\" onboarding option in Projects"
+  },
+  "ZeoQdS": {
+    "defaultMessage": "Reset question",
+    "description": "Coding workspace reset question"
   },
   "ZfPNnW": {
     "defaultMessage": "Yes. Every challenge you start creates a \"session\" of the challenge, which you can end. You can start a new session anytime.",
@@ -6986,6 +7386,10 @@
   "ZqUgX5": {
     "defaultMessage": "No progress to reset",
     "description": "Label for no progress to reset"
+  },
+  "ZquLVV": {
+    "defaultMessage": "Solution",
+    "description": "Coding workspace solution tab label"
   },
   "ZrKGWV": {
     "defaultMessage": "At most {maxLength} character(s).",
@@ -7071,6 +7475,10 @@
     "defaultMessage": "Reset password",
     "description": "Title of Password Reset page"
   },
+  "aPrOAu": {
+    "defaultMessage": "Submission",
+    "description": "Coding workspace submission tab label"
+  },
   "aQYg46": {
     "defaultMessage": "Ads",
     "description": "Label for ads"
@@ -7131,6 +7539,10 @@
     "defaultMessage": "⭐️ Star our React repo",
     "description": "Title for github star CTA"
   },
+  "ajZbV3": {
+    "defaultMessage": "Rename",
+    "description": "Dialog title for renaming a saved code"
+  },
   "akHBWv": {
     "defaultMessage": "Outdent line",
     "description": "Text describing outdent line command in the coding workspace shortcuts menu"
@@ -7154,6 +7566,10 @@
   "anZw89": {
     "defaultMessage": "Please enter your status",
     "description": "Error message for empty other input for yoe status on projects profile page"
+  },
+  "apFngj": {
+    "defaultMessage": "Error",
+    "description": "Workspace test error label"
   },
   "apH5pY": {
     "defaultMessage": "Email does not match any of the emails provided",
@@ -7187,6 +7603,10 @@
     "defaultMessage": "GreatFrontEnd Projects",
     "description": "GreatFrontEnd product vertical"
   },
+  "at5XtU": {
+    "defaultMessage": "You've reached the attempt limit of {maxGenerationLimit} for this campaign. Once this code expires, you cannot participate again.",
+    "description": "Alert message for promo code generation limit reached"
+  },
   "atvqCE": {
     "defaultMessage": "Recommended strategy",
     "description": "Recommended interview preparation resources"
@@ -7219,9 +7639,17 @@
     "defaultMessage": "Free",
     "description": "Free question"
   },
+  "b+5e56": {
+    "defaultMessage": "Purchasing power parity for {countryName}",
+    "description": "Purchase PPP discount alert title"
+  },
   "b+T14M": {
     "defaultMessage": "Completions include both questions and articles across the interviews platform",
     "description": "Label for completions tooltip"
+  },
+  "b/3jGp": {
+    "defaultMessage": "Submitted at",
+    "description": "Coding workspace submission submitted at label"
   },
   "b/4l5Z": {
     "defaultMessage": "Subscriptions are automatically renewed and you will be charged again then. You may cancel your subscription anytime via the Stripe billing portal.",
@@ -7230,6 +7658,10 @@
   "b/dKUR": {
     "defaultMessage": "This subset of test cases are used when \"Run\"-ning your code.",
     "description": "Message to explain the custom tests cases"
+  },
+  "b1p8O6": {
+    "defaultMessage": "Spotlight placement",
+    "description": "Alt text ads for spotlight placement"
   },
   "b28Bb0": {
     "defaultMessage": "Designs",
@@ -7282,6 +7714,10 @@
   "bFDEGM": {
     "defaultMessage": "Professional designs in 3 breakpoints",
     "description": "Label for breakpoints feature"
+  },
+  "bGKAyO": {
+    "defaultMessage": "Email",
+    "description": "Label for email field"
   },
   "bGbV1l": {
     "defaultMessage": "Search over {questionCount} TypeScript interview questions",
@@ -7491,6 +7927,10 @@
     "defaultMessage": "Pay Range",
     "description": "Job pay range"
   },
+  "cIKXz6": {
+    "defaultMessage": "Deleted \"{saveName}\"",
+    "description": "Toast message for deleting a saved code"
+  },
   "cIZicH": {
     "defaultMessage": "Our focus now is on expanding our challenge base. New challenges are added to the platform on a weekly basis.",
     "description": "Question base section subtitle - first paragraph"
@@ -7570,6 +8010,10 @@
   "cotxax": {
     "defaultMessage": "Component track",
     "description": "Label for Component Track filter for submissions list"
+  },
+  "cqP2g7": {
+    "defaultMessage": "Files",
+    "description": "Coding workspace files"
   },
   "ctKiBc": {
     "defaultMessage": "User submissions",
@@ -7702,6 +8146,10 @@
   "dS8dPa": {
     "defaultMessage": "3 simple steps to start advertising",
     "description": "Advertise with us section title"
+  },
+  "dU7KZb": {
+    "defaultMessage": "Run completed",
+    "description": "Workspace test run completed label"
   },
   "dVkXTc": {
     "defaultMessage": "While other advertising options only provide a single placement—like a one-time newsletter mention—our solution <highlight>places your ad across multiple pages</highlight>, ensuring repeated, high-impact visibility on every visit.",
@@ -7915,9 +8363,17 @@
     "defaultMessage": "Example solutions",
     "description": "Example code solutions"
   },
+  "ehiDSr": {
+    "defaultMessage": "Delete",
+    "description": "Delete saved code"
+  },
   "eixmPm": {
     "defaultMessage": "Event count /month",
     "description": "Label for event count/month"
+  },
+  "eiyEx8": {
+    "defaultMessage": "{percent}% off",
+    "description": "Promo code discount percentage"
   },
   "ej7o90": {
     "defaultMessage": "Challenges",
@@ -8151,6 +8607,10 @@
     "defaultMessage": "Request success | Advertise with us",
     "description": "Title of advertise with us page"
   },
+  "fjMzDi": {
+    "defaultMessage": "This is an irreversible action. Are you sure?",
+    "description": "Dialog content for deleting a saved code"
+  },
   "fjj5BL": {
     "defaultMessage": "Profile saved!",
     "description": "Toast for project profile saved"
@@ -8186,6 +8646,10 @@
   "fx7H3x": {
     "defaultMessage": "You've also earned an exclusive promo code:",
     "description": "Marketing rewards message"
+  },
+  "fxQRHJ": {
+    "defaultMessage": "For now, files cannot be created or renamed. It's acceptable to write multiple components within a single file during interviews.",
+    "description": "File creation or removal warning message for coding workspace"
   },
   "fxZ0zk": {
     "defaultMessage": "Some common reasons include:",
@@ -8231,6 +8695,10 @@
     "defaultMessage": "Follow on LinkedIn",
     "description": "Link to the LinkedIn page"
   },
+  "gAjn9I": {
+    "defaultMessage": "Attempt limit reached",
+    "description": "Alert title for promo code generation limit reached"
+  },
   "gAvT0O": {
     "defaultMessage": "Quiz",
     "description": "Title for quiz questions"
@@ -8274,6 +8742,14 @@
   "gKCetv": {
     "defaultMessage": "Avg. session duration across all users",
     "description": "Label for average session duration"
+  },
+  "gLTvN4": {
+    "defaultMessage": "Execute code",
+    "description": "Execute code in editor tooltip"
+  },
+  "gLY3I/": {
+    "defaultMessage": "View the solution",
+    "description": "Coding workspace show solution button"
   },
   "gRN6GJ": {
     "defaultMessage": "Assets provided",
@@ -8346,6 +8822,10 @@
   "grLe+N": {
     "defaultMessage": "Number of series",
     "description": "Total number of series in a list"
+  },
+  "gsNMIS": {
+    "defaultMessage": "Tabs",
+    "description": "Coding workspace tabs"
   },
   "gtouN7": {
     "defaultMessage": "Medium",
@@ -8479,6 +8959,10 @@
     "defaultMessage": "Angular Interview Questions",
     "description": "Angular questions category long title"
   },
+  "hWpv5f": {
+    "defaultMessage": "Console",
+    "description": "Coding workspace console tab label"
+  },
   "hY6aRS": {
     "defaultMessage": "Practice {questionCount}+ curated {languageLabel} Interview Questions in-browser, with solutions and test cases from big tech ex-interviewers",
     "description": "Description of interviews questions page"
@@ -8498,6 +8982,10 @@
   "heJjBk": {
     "defaultMessage": "See all promotions",
     "description": "Button label for see all promotions"
+  },
+  "heqlAj": {
+    "defaultMessage": "You've used all your attempts for generating a promo code, and your last code has now expired. If you need help or have questions, feel free to <link>contact us</link>.",
+    "description": "Attempt limit reached alert message"
   },
   "hfba4L": {
     "defaultMessage": "{completedCount}/{totalCount} completed",
@@ -8554,6 +9042,14 @@
   "hz5dJR": {
     "defaultMessage": "No notification yet!",
     "description": "Label for no notification"
+  },
+  "hz7oG3": {
+    "defaultMessage": "No submissions",
+    "description": "No submissions in coding workspace"
+  },
+  "i+1FrX": {
+    "defaultMessage": "Run tests",
+    "description": "Coding workspace run tests tab label"
   },
   "i+5/Aq": {
     "defaultMessage": "Failed to mark article as not complete. Please try again",
@@ -8635,6 +9131,10 @@
     "defaultMessage": "Hide table of contents",
     "description": "Hide table of contents"
   },
+  "iKwzQ1": {
+    "defaultMessage": "{failCount} failed",
+    "description": "Workspace test outcome failed label"
+  },
   "iLx/BQ": {
     "defaultMessage": "Amazon",
     "description": "Company name for Amazon"
@@ -8662,6 +9162,10 @@
   "ih/GUI": {
     "defaultMessage": "Practice {questionCount}+ curated Vue Interview Questions in-browser, with solutions and test cases from big tech ex-interviewers",
     "description": "Description of Interview Questions page"
+  },
+  "imokHr": {
+    "defaultMessage": "In Content Ad Placement in system design",
+    "description": "Alt text for ads in content placement preview"
   },
   "iqz/fo": {
     "defaultMessage": "Types of JS questions, concepts to cover and rubrics",
@@ -8711,6 +9215,10 @@
     "defaultMessage": "{category} Quiz Interview Questions",
     "description": "Title for front end interview questions page"
   },
+  "j8tACI": {
+    "defaultMessage": "View submission tests",
+    "description": "Coding workspace view submission tests button label"
+  },
   "jACcNE": {
     "defaultMessage": "Start by simply filling in your contact information so that we know who to reach out to.",
     "description": "Subtitle for advertising inquiry"
@@ -8730,6 +9238,10 @@
   "jIpLwU": {
     "defaultMessage": "Resume",
     "description": "Button label for resume"
+  },
+  "jK0/93": {
+    "defaultMessage": "Ad banner image",
+    "description": "Alt text for ad banner image"
   },
   "jLHxac": {
     "defaultMessage": "Coming Soon",
@@ -9007,6 +9519,10 @@
     "defaultMessage": "Step 3",
     "description": "Step N of multiple steps when completing a project"
   },
+  "kUfggU": {
+    "defaultMessage": "Live",
+    "description": "Sale live label"
+  },
   "kaQWYn": {
     "defaultMessage": "Add Bio",
     "description": "Title for Add Bio task on Projects dashboard page"
@@ -9018,6 +9534,10 @@
   "kfKz/1": {
     "defaultMessage": "Delete submission",
     "description": "Delete challenge submission"
+  },
+  "kgmayF": {
+    "defaultMessage": "Uploaded image",
+    "description": "Uploaded ad image label"
   },
   "kgoB9+": {
     "defaultMessage": "edited {editedAtTime}",
@@ -9046,6 +9566,10 @@
   "knzfbW": {
     "defaultMessage": "Choose and start a project",
     "description": "Step 1 of the \"How it works\" section on the Projects home page"
+  },
+  "koARxB": {
+    "defaultMessage": "Two-column layout (default)",
+    "description": "Coding workspace layout name"
   },
   "koTXam": {
     "defaultMessage": "In-browser coding workspace",
@@ -9195,9 +9719,21 @@
     "defaultMessage": "Share this page",
     "description": "Tooltip for share button"
   },
+  "lOmxE1": {
+    "defaultMessage": "Run",
+    "description": "Workspace test spec run label"
+  },
+  "lSpJvZ": {
+    "defaultMessage": "View test cases",
+    "description": "Workspace view test cases button label"
+  },
   "lWQA1A": {
     "defaultMessage": "Challenges completed",
     "description": "Number of project challenges completed"
+  },
+  "lXY6ap": {
+    "defaultMessage": "You must be signed in to view your saved versions",
+    "description": "Sign in to view saved versions in coding workspace"
   },
   "lXYENq": {
     "defaultMessage": "React Interview Playbook",
@@ -9314,6 +9850,10 @@
   "mL9M8v": {
     "defaultMessage": "JavaScript Functions Interview Questions",
     "description": "Title of interview questions page"
+  },
+  "mLTQN6": {
+    "defaultMessage": "In Content Ad Placement in guides",
+    "description": "Alt text for ads in content placement preview"
   },
   "mNb3b2": {
     "defaultMessage": "Hard",
@@ -9447,6 +9987,10 @@
     "defaultMessage": "See all",
     "description": "See all new posts"
   },
+  "n4ZC2Q": {
+    "defaultMessage": "Grid layout",
+    "description": "Coding workspace layout name"
+  },
   "n4aKYo": {
     "defaultMessage": "Theme",
     "description": "Change site theme button label"
@@ -9527,6 +10071,10 @@
     "defaultMessage": "Enter your social media handles",
     "description": "Rewards step label"
   },
+  "nW39pS": {
+    "defaultMessage": "Claim promo code",
+    "description": "Claim promo code button label"
+  },
   "nYa2H9": {
     "defaultMessage": "Algorithmic Coding Interview Guides",
     "description": "Title for guide card"
@@ -9598,6 +10146,10 @@
   "nqRMgW": {
     "defaultMessage": "The offers don't lie",
     "description": "Title for the offers don't lie section"
+  },
+  "nqTJbI": {
+    "defaultMessage": "My awesome code",
+    "description": "Coding workspace save code input placeholder"
   },
   "nsk8M8": {
     "defaultMessage": "In progress",
@@ -9759,6 +10311,10 @@
     "defaultMessage": "Optimized preparation for target companies, leveraging insider tips and expertise.",
     "description": "Description for company guides page"
   },
+  "oo/YC7": {
+    "defaultMessage": "Back",
+    "description": "Back button label"
+  },
   "ooGnHf": {
     "defaultMessage": "Popularity: Most to least upvotes",
     "description": "Sorting option for discussions comment - popularity"
@@ -9766,6 +10322,10 @@
   "ooXTuY": {
     "defaultMessage": "Start on a project",
     "description": "Button title for starting a project on projects payment success page"
+  },
+  "osP1GZ": {
+    "defaultMessage": "You must be signed in to post a solution",
+    "description": "Community solution sign in required title"
   },
   "ouJSar": {
     "defaultMessage": "{name} completed",
@@ -9778,6 +10338,10 @@
   "ouzs0n": {
     "defaultMessage": "Page name must contain at most {maxLength} character(s).",
     "description": "Error message"
+  },
+  "ovidiq": {
+    "defaultMessage": "In Content Ad Placement in coding workspace",
+    "description": "Alt text for ads in content placement preview"
   },
   "owQqZY": {
     "defaultMessage": "Front End System Design",
@@ -9831,9 +10395,17 @@
     "defaultMessage": "Task has not been completed! Please try again. Ensure that your profile activity is accessible to public",
     "description": "Error task label"
   },
+  "pAIUYI": {
+    "defaultMessage": "Loading tests",
+    "description": "Workspace test loading"
+  },
   "pBR3LI": {
     "defaultMessage": "Blog",
     "description": "Link to blog"
+  },
+  "pC7+Px": {
+    "defaultMessage": "Three-column layout",
+    "description": "Coding workspace layout name"
   },
   "pDlGO7": {
     "defaultMessage": "Explore articles related to \"{tagName}\".",
@@ -10011,6 +10583,10 @@
     "defaultMessage": "General guides",
     "description": "Project guides category title"
   },
+  "q91wY2": {
+    "defaultMessage": "Post solution",
+    "description": "Coding workspace post solution tab label"
+  },
   "q9FxEg": {
     "defaultMessage": "Language",
     "description": "Question programming language"
@@ -10018,6 +10594,10 @@
   "q9Y+cd": {
     "defaultMessage": "Bio",
     "description": "Project profile bio section title"
+  },
+  "q9omKc": {
+    "defaultMessage": "with code",
+    "description": "Promo code label"
   },
   "qBD+e/": {
     "defaultMessage": "at",
@@ -10030,6 +10610,14 @@
   "qBPU/e": {
     "defaultMessage": "Other skills you are using which are not within the skills roadmap. Also helps community members understand more about the tech stack. If you don't see the tag you need, email us.",
     "description": "Description for tech stack input on project submit page"
+  },
+  "qBtGwR": {
+    "defaultMessage": "View the full solution on a new page",
+    "description": "Coding workspace view solution subtitle"
+  },
+  "qDIWna": {
+    "defaultMessage": "Community",
+    "description": "Coding workspace community solutions tab label"
   },
   "qDiloP": {
     "defaultMessage": "Import ({questionCount})",
@@ -10119,6 +10707,10 @@
     "defaultMessage": "If you are using a debit card, ensure that there are sufficient funds in your card.",
     "description": "Reason label for insufficient balance"
   },
+  "qn8hx+": {
+    "defaultMessage": "Current",
+    "description": "Current saved code version badge"
+  },
   "qnBYb6": {
     "defaultMessage": "Premium component track",
     "description": "Premium projects component track"
@@ -10126,6 +10718,10 @@
   "qoTBLI": {
     "defaultMessage": "Know where to find important info",
     "description": "Label for \"Know where to find important info\" step in dialog on Projects project page"
+  },
+  "qpyquW": {
+    "defaultMessage": "Solution code",
+    "description": "Workspace community solution code label"
   },
   "qsq4DL": {
     "defaultMessage": "Spotlight Ad",
@@ -10146,6 +10742,10 @@
   "qwP4CA": {
     "defaultMessage": "Huge question bank",
     "description": "Title for huge question bank feature"
+  },
+  "qzrGfv": {
+    "defaultMessage": "You must be signed in to view your submissions",
+    "description": "Coding workspace sign in to view submissions"
   },
   "r+ed50": {
     "defaultMessage": "Practice {questionCount}+ front end quiz interview questions, each with high quality reference answers written by big tech ex-interviewers.",
@@ -10171,6 +10771,10 @@
     "defaultMessage": "Go to project",
     "description": "Label for \"Go to project\" button in Project card"
   },
+  "r2sftL": {
+    "defaultMessage": "{passCount} passed",
+    "description": "Workspace test outcome passed label"
+  },
   "r5tcl0": {
     "defaultMessage": "Topics",
     "description": "Technical topics relevant to the question"
@@ -10186,6 +10790,10 @@
   "r9Az7V": {
     "defaultMessage": "Great start!",
     "description": "Toast title for project session started"
+  },
+  "rAQNYk": {
+    "defaultMessage": "Running tests",
+    "description": "Workspace test running label"
   },
   "rBnWDc": {
     "defaultMessage": "No Projects profile",
@@ -10299,6 +10907,10 @@
     "defaultMessage": "Go back",
     "description": "Go back label"
   },
+  "rx8kx8": {
+    "defaultMessage": "`Saved as \"{saveName}\"`",
+    "description": "Coding workspace save code toast title"
+  },
   "rzOz2q": {
     "defaultMessage": "We're still growing our challenge base",
     "description": "Challenge base section title"
@@ -10355,9 +10967,17 @@
     "defaultMessage": "Learn new skills, improve your techniques and stay updated on latest front end trends and developments.",
     "description": "Blog home page description"
   },
+  "sV/LsP": {
+    "defaultMessage": "Solution preview",
+    "description": "Coding workspace solution preview tab label"
+  },
   "sV/OUK": {
     "defaultMessage": "Next image",
     "description": "Label for next image"
+  },
+  "sWharh": {
+    "defaultMessage": "Code cannot be empty",
+    "description": "Community solution code required error message"
   },
   "sWyGax": {
     "defaultMessage": "Features",
@@ -10386,6 +11006,10 @@
   "sfJ1Oa": {
     "defaultMessage": "Purchase premium to get access to all component tracks as well as exclusive skills, official how-to guides and production-ready Figma files.",
     "description": "Subtitle for premium projects component track"
+  },
+  "sfX/GD": {
+    "defaultMessage": "OK",
+    "description": "OK button label"
   },
   "sh0mp6": {
     "defaultMessage": "Share our offerings",
@@ -10422,6 +11046,10 @@
   "stA35Q": {
     "defaultMessage": "Back to jobs",
     "description": "Back to jobs page"
+  },
+  "sv1dLw": {
+    "defaultMessage": "Coding and submission is not supported on mobile devices. Use a wider screen to practice solving this question within the editor.",
+    "description": "Coding workspace not supported on mobile warning"
   },
   "swjkuF": {
     "defaultMessage": "Study plans",
@@ -10478,6 +11106,10 @@
   "t6SUbS": {
     "defaultMessage": "Angular Interview Questions with Solutions | GreatFrontEnd",
     "description": "Title of React Interview Questions page"
+  },
+  "t9eK65": {
+    "defaultMessage": "Edit ad",
+    "description": "Edit ad button label"
   },
   "tBeimS": {
     "defaultMessage": "Challenges activity",
@@ -10815,6 +11447,10 @@
     "defaultMessage": "Core front end system design techniques and in-depth solutions",
     "description": "Description of front end system design playbook"
   },
+  "uvLNHA": {
+    "defaultMessage": "Run",
+    "description": "Run code button label in workspace"
+  },
   "uvoNYz": {
     "defaultMessage": "You have solved or marked as complete {completed} out of {total} problems across Coding, Quiz, and System Design.",
     "description": "Tooltip for solved problems progress"
@@ -10919,6 +11555,10 @@
     "defaultMessage": "Official solutions for all questions, authored by former FAANG interviewers",
     "description": "Tooltip label for unlock all premium interviews content"
   },
+  "vWBoAX": {
+    "defaultMessage": "Delete ad",
+    "description": "Delete ad button label"
+  },
   "vWzLH8": {
     "defaultMessage": "Full access to tracks & skills. Unlimited <tooltip>premium credits</tooltip>",
     "description": "Subtitle of premium plan CTA card"
@@ -10946,6 +11586,10 @@
   "vg2xht": {
     "defaultMessage": "Follow us on LinkedIn",
     "description": "Title for task"
+  },
+  "vhHkbS": {
+    "defaultMessage": "Three-column layout (default)",
+    "description": "Coding workspace layout name"
   },
   "vhvbP/": {
     "defaultMessage": "Practice {questionCount}+ Front End Quiz Interview Questions with Answers",
@@ -11031,6 +11675,14 @@
     "defaultMessage": "Editor shortcuts",
     "description": "Tooltip for button to open code editor shortcuts"
   },
+  "w54c/f": {
+    "defaultMessage": "Selected",
+    "description": "Label for selected week for an ad"
+  },
+  "w5AUKD": {
+    "defaultMessage": "View advertising agreement",
+    "description": "View ad agreement button label"
+  },
   "w85sKh": {
     "defaultMessage": "<authorLink>{author}</authorLink> replied to your question on the project discussions for <challengeLink>{entityTitle}</challengeLink> {timestamp}",
     "description": "Notification for someone replied to your question"
@@ -11098,6 +11750,10 @@
   "wRV8PN": {
     "defaultMessage": "Settings",
     "description": "Settings page title"
+  },
+  "wS3TuG": {
+    "defaultMessage": "Loading submission",
+    "description": "Workspace community submission loading"
   },
   "wTdDt/": {
     "defaultMessage": "{questionTitle} | Quiz Interview Questions with Solutions",
@@ -11179,6 +11835,10 @@
     "defaultMessage": "Edit profile",
     "description": "Title of Projects edit profile page"
   },
+  "x8JeGI": {
+    "defaultMessage": "Replace editor with code",
+    "description": "Coding workspace replace editor with code label"
+  },
   "x8SJHC": {
     "defaultMessage": "GreatFrontEnd",
     "description": "Social title of GreatFrontEnd standard page"
@@ -11198,6 +11858,10 @@
   "xF6ENX": {
     "defaultMessage": "Don't waste time on mindless grinding",
     "description": "Title for front end interview roadmap"
+  },
+  "xIQuhQ": {
+    "defaultMessage": "Reset",
+    "description": "Reset code in editor button label"
   },
   "xJ0BqY": {
     "defaultMessage": "{Title}: The complete all-in-one preparation roadmap, covering over 140 questions for deep and comprehensive preparation.",
@@ -11287,6 +11951,10 @@
     "defaultMessage": "Build the foundation from ground up for reuse",
     "description": "Short description for \"Design systems\" feature on Projects home page"
   },
+  "xpm/Le": {
+    "defaultMessage": "Additional tabs shown by default. Suitable for large displays.",
+    "description": "Coding workspace layout description"
+  },
   "xsLz0P": {
     "defaultMessage": "Security",
     "description": "Profile security tab title"
@@ -11310,6 +11978,10 @@
   "xyPOJe": {
     "defaultMessage": "{points} Reputation",
     "description": "Label showing reputation count in profile header of Projects sidebar"
+  },
+  "y+NJ/O": {
+    "defaultMessage": "Wrong",
+    "description": "Wrong submission in coding workspace"
   },
   "y/r8Q+": {
     "defaultMessage": "Roadmap | GreatFrontEnd Projects",
@@ -11378,6 +12050,10 @@
   "yM3vbW": {
     "defaultMessage": "Editor Shortcuts",
     "description": "Label for slideout for code editor shortcuts"
+  },
+  "yMnCy6": {
+    "defaultMessage": "Layout",
+    "description": "Coding workspace layout"
   },
   "yPG5Kr": {
     "defaultMessage": "Languages",
@@ -11634,6 +12310,10 @@
   "zQFib0": {
     "defaultMessage": "Progress",
     "description": "Label for progress bar for learning progress"
+  },
+  "zRCowZ": {
+    "defaultMessage": "Fail",
+    "description": "Workspace test spec fail label"
   },
   "zTKtX7": {
     "defaultMessage": "Double-check the CVC code (3-digit number on the back of your card) and re-enter it.",

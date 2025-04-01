@@ -1,5 +1,8 @@
+'use client';
+
 import { RiArrowRightLine } from 'react-icons/ri';
 
+import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 
 import { useJavaScriptCodingWorkspaceContext } from './JavaScriptCodingWorkspaceContext';
@@ -7,6 +10,7 @@ import { useJavaScriptCodingWorkspaceContext } from './JavaScriptCodingWorkspace
 export default function JavaScriptCodingWorkspacePushCodeToEditorButton({
   contents,
 }: Readonly<{ contents: string }>) {
+  const intl = useIntl();
   const { replaceMainEditorContents } = useJavaScriptCodingWorkspaceContext();
 
   if (replaceMainEditorContents == null) {
@@ -17,9 +21,17 @@ export default function JavaScriptCodingWorkspacePushCodeToEditorButton({
     <Button
       icon={RiArrowRightLine}
       isLabelHidden={true}
-      label="Replace editor with code"
+      label={intl.formatMessage({
+        defaultMessage: 'Replace editor with code',
+        description: 'Coding workspace replace editor with code label',
+        id: 'x8JeGI',
+      })}
       size="xs"
-      tooltip="Replace editor with code"
+      tooltip={intl.formatMessage({
+        defaultMessage: 'Replace editor with code',
+        description: 'Coding workspace replace editor with code label',
+        id: 'x8JeGI',
+      })}
       variant="secondary"
       onClick={() => {
         replaceMainEditorContents(contents);

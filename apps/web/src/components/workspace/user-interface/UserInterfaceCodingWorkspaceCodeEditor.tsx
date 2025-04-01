@@ -75,9 +75,17 @@ export default function UserInterfaceCodingWorkspaceCodeEditor({
             <Button
               icon={RiFolder3Line}
               isLabelHidden={true}
-              label="File explorer"
+              label={intl.formatMessage({
+                defaultMessage: 'File explorer',
+                description: 'Coding workspace file explorer label',
+                id: '7hMBWU',
+              })}
               size="xs"
-              tooltip="File explorer"
+              tooltip={intl.formatMessage({
+                defaultMessage: 'File explorer',
+                description: 'Coding workspace file explorer label',
+                id: '7hMBWU',
+              })}
               variant="tertiary"
               onClick={() => {
                 dispatch({
@@ -93,7 +101,12 @@ export default function UserInterfaceCodingWorkspaceCodeEditor({
           <Text className="flex gap-x-1" color="subtle" size="body3">
             <span className="flex items-center gap-x-1">
               <CodingWorkspaceTabIcons.versions.icon className="size-4" />{' '}
-              Version:{' '}
+              {intl.formatMessage({
+                defaultMessage: 'Version',
+                description: 'Coding workspace saved code version',
+                id: 'HYkgJI',
+              })}
+              {': '}
             </span>
             <Text color="active" size="body3" weight="medium">
               <button
@@ -152,7 +165,12 @@ export default function UserInterfaceCodingWorkspaceCodeEditor({
       </div>
       {showNotSavedBanner && (
         <Banner size="xs" truncate={true} variant="primary">
-          You are viewing the solution code. Changes will not be saved.
+          {intl.formatMessage({
+            defaultMessage:
+              'You are viewing the solution code. Changes will not be saved.',
+            description: 'Coding workspace viewing solution code message',
+            id: '2ttaph',
+          })}
         </Banner>
       )}
       {showLoadedFilesFromLocalStorageMessage && isMounted() && (

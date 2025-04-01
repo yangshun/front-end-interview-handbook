@@ -1,8 +1,11 @@
+'use client';
+
 import clsx from 'clsx';
 
 import Timestamp from '~/components/common/datetime/Timestamp';
 import QuestionFrameworkIcon from '~/components/interviews/questions/metadata/QuestionFrameworkIcon';
 import QuestionLanguages from '~/components/interviews/questions/metadata/QuestionLanguages';
+import { useIntl } from '~/components/intl';
 import EmptyState from '~/components/ui/EmptyState';
 import Text from '~/components/ui/Text';
 import {
@@ -34,6 +37,7 @@ export default function CodingWorkspaceCommunitySolutionList({
   questionType,
   solutions,
 }: Props) {
+  const intl = useIntl();
   const { openCommunitySolution } = useCodingWorkspaceContext();
 
   const isJavaScript = (
@@ -49,7 +53,14 @@ export default function CodingWorkspaceCommunitySolutionList({
       {solutions == null || solutions?.length === 0 ? (
         <div className="flex h-full flex-col p-4">
           <div className="flex grow items-center justify-center">
-            <EmptyState title="No community solutions" variant="empty" />
+            <EmptyState
+              title={intl.formatMessage({
+                defaultMessage: 'No community solutions',
+                description: 'No community solutions in coding workspace',
+                id: 'Aphr+S',
+              })}
+              variant="empty"
+            />
           </div>
         </div>
       ) : (

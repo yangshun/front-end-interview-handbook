@@ -76,7 +76,12 @@ export default function JavaScriptCodingWorkspaceCodeEditor({
           )}
           {isRunFile && (
             <Button
-              label="View submission tests"
+              label={intl.formatMessage({
+                defaultMessage: 'View submission tests',
+                description:
+                  'Coding workspace view submission tests button label',
+                id: 'j8tACI',
+              })}
               size="xs"
               variant="secondary"
               onClick={() => {

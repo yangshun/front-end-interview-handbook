@@ -1,5 +1,9 @@
+'use client';
+
 import { RiLayout2Line, RiLayoutGridLine } from 'react-icons/ri';
 import { TbColumns3 } from 'react-icons/tb';
+
+import { useIntl } from '~/components/intl';
 
 import { useJavaScriptCodingWorkspaceContext } from './JavaScriptCodingWorkspaceContext';
 import {
@@ -22,6 +26,7 @@ export default function JavaScriptCodingWorkspaceLayoutButton({
   isOpen,
   onClose,
 }: Props) {
+  const intl = useIntl();
   const { sandpack } = useSandpack();
   const { activeFile, visibleFiles } = sandpack;
   const { dispatch } = useJavaScriptCodingWorkspaceTilesContext();
@@ -31,13 +36,21 @@ export default function JavaScriptCodingWorkspaceLayoutButton({
     {
       description: (
         <>
-          Classic layout that prioritizes readability of question description
-          and solution.
+          {intl.formatMessage({
+            defaultMessage:
+              'Classic layout that prioritizes readability of question description and solution.',
+            description: 'Coding workspace layout description',
+            id: 'Bhd/Mm',
+          })}
         </>
       ),
       icon: RiLayout2Line,
       id: 'two-column',
-      name: 'Two-column layout (default)',
+      name: intl.formatMessage({
+        defaultMessage: 'Two-column layout (default)',
+        description: 'Coding workspace layout name',
+        id: 'koARxB',
+      }),
       onClick: () => {
         dispatch({
           payload: {
@@ -54,13 +67,21 @@ export default function JavaScriptCodingWorkspaceLayoutButton({
     {
       description: (
         <>
-          Three-column layout showing the basic essentials for JavaScript
-          questions.
+          {intl.formatMessage({
+            defaultMessage:
+              'Three-column layout showing the basic essentials for JavaScript questions.',
+            description: 'Coding workspace layout description',
+            id: '9tiGzA',
+          })}
         </>
       ),
       icon: TbColumns3,
       id: 'three-column',
-      name: 'Three-column layout',
+      name: intl.formatMessage({
+        defaultMessage: 'Three-column layout',
+        description: 'Coding workspace layout name',
+        id: 'pC7+Px',
+      }),
       onClick: () => {
         dispatch({
           payload: {
@@ -76,11 +97,22 @@ export default function JavaScriptCodingWorkspaceLayoutButton({
     },
     {
       description: (
-        <>Additional tabs shown by default. Suitable for large displays.</>
+        <>
+          {intl.formatMessage({
+            defaultMessage:
+              'Additional tabs shown by default. Suitable for large displays.',
+            description: 'Coding workspace layout description',
+            id: 'xpm/Le',
+          })}
+        </>
       ),
       icon: RiLayoutGridLine,
       id: 'grid',
-      name: 'Grid layout',
+      name: intl.formatMessage({
+        defaultMessage: 'Grid layout',
+        description: 'Coding workspace layout name',
+        id: 'n4ZC2Q',
+      }),
       onClick: () => {
         dispatch({
           payload: {

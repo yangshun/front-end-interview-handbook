@@ -138,10 +138,26 @@ export default function RewardsCompletePromoCode({
           />
         </div>
         {!canStillGenerate && (
-          <Alert title="Attempt limit reached" variant="warning">
-            You've reached the attempt limit of{' '}
-            {PROMO_SOCIAL_DISCOUNT_CODE_MAX_GENERATIONS} for this campaign. Once
-            this code expires, you cannot participate again.
+          <Alert
+            title={intl.formatMessage({
+              defaultMessage: 'Attempt limit reached',
+              description:
+                'Alert title for promo code generation limit reached',
+              id: 'gAjn9I',
+            })}
+            variant="warning">
+            {intl.formatMessage(
+              {
+                defaultMessage:
+                  "You've reached the attempt limit of {maxGenerationLimit} for this campaign. Once this code expires, you cannot participate again.",
+                description:
+                  'Alert message for promo code generation limit reached',
+                id: 'at5XtU',
+              },
+              {
+                maxGenerationLimit: PROMO_SOCIAL_DISCOUNT_CODE_MAX_GENERATIONS,
+              },
+            )}
           </Alert>
         )}
       </div>
@@ -149,10 +165,24 @@ export default function RewardsCompletePromoCode({
   }
 
   return (
-    <Alert title="You've reached the attempt limit!" variant="danger">
-      You've used all your attempts for generating a promo code, and your last
-      code has now expired. If you need help or have questions, feel free to{' '}
-      <Anchor href="mailto:contact@greatfrontend.com">contact us</Anchor>.
+    <Alert
+      title={intl.formatMessage({
+        defaultMessage: "You've reached the attempt limit!",
+        description: 'Attempt limit reached alert title',
+        id: 'CPWDPx',
+      })}
+      variant="danger">
+      <FormattedMessage
+        defaultMessage="You've used all your attempts for generating a promo code, and your last
+      code has now expired. If you need help or have questions, feel free to <link>contact us</link>."
+        description="Attempt limit reached alert message"
+        id="heqlAj"
+        values={{
+          link: (chunk) => (
+            <Anchor href="mailto:contact@greatfrontend.com">{chunk}</Anchor>
+          ),
+        }}
+      />
     </Alert>
   );
 }

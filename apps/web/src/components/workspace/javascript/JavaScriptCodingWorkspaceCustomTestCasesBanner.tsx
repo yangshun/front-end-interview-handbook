@@ -1,6 +1,6 @@
 import { useLocalStorage } from 'usehooks-ts';
 
-import { FormattedMessage } from '~/components/intl';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Banner from '~/components/ui/Banner';
 
@@ -9,6 +9,7 @@ import useJavaScriptCodingWorkspaceTilesContext from './useJavaScriptCodingWorks
 import { codingWorkspaceTabFileId } from '../common/tabs/codingWorkspaceTabId';
 
 export default function JavaScriptCodingWorkspaceCustomTestCasesBanner() {
+  const intl = useIntl();
   const { dispatch } = useJavaScriptCodingWorkspaceTilesContext();
   const { workspace } = useJavaScriptCodingWorkspaceContext();
   const [showCustomTestCasesMessage, setShowCustomTestCasesMessage] =
@@ -46,7 +47,11 @@ export default function JavaScriptCodingWorkspaceCustomTestCasesBanner() {
             type: 'tab-set-active-otherwise-open',
           });
         }}>
-        View submission test cases.
+        {intl.formatMessage({
+          defaultMessage: 'View submission test cases.',
+          description: 'Coding workspace view submission test cases link',
+          id: '3HrE7g',
+        })}
       </Anchor>
     </Banner>
   );

@@ -1,3 +1,6 @@
+'use client';
+
+import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 
@@ -16,10 +19,16 @@ export default function JavaScriptCodingWorkspaceNewTab({
   ) => void;
   predefinedTabs: JavaScriptCodingWorkspacePredefinedTabsContents;
 }>) {
+  const intl = useIntl();
+
   return (
     <div className="flex flex-col gap-2 p-4">
       <Text className="block" size="body2" weight="medium">
-        Tabs
+        {intl.formatMessage({
+          defaultMessage: 'Tabs',
+          description: 'Coding workspace tabs',
+          id: 'gsNMIS',
+        })}
       </Text>
       <div className="flex flex-wrap gap-2">
         {Object.entries(predefinedTabs)

@@ -1,8 +1,11 @@
+'use client';
+
 import { trpc } from '~/hooks/trpc';
 
 import Timestamp from '~/components/common/datetime/Timestamp';
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import QuestionLanguages from '~/components/interviews/questions/metadata/QuestionLanguages';
+import { useIntl } from '~/components/intl';
 import MDXCodeBlock from '~/components/mdx/MDXCodeBlock';
 import Badge from '~/components/ui/Badge';
 import Heading from '~/components/ui/Heading';
@@ -23,6 +26,7 @@ export default function JavaScriptCodingWorkspaceSubmissionTab({
   metadata,
   submissionId,
 }: Props) {
+  const intl = useIntl();
   const { data: submission, isLoading } =
     trpc.questionSubmission.javaScriptGet.useQuery({
       submissionId,
@@ -32,7 +36,14 @@ export default function JavaScriptCodingWorkspaceSubmissionTab({
     <div className="w-full">
       {isLoading && (
         <div className="flex items-center justify-center p-4">
-          <Spinner label="Loading submission" size="md" />
+          <Spinner
+            label={intl.formatMessage({
+              defaultMessage: 'Loading submission',
+              description: 'Coding workspace submission loading',
+              id: '1tXKW/',
+            })}
+            size="md"
+          />
         </div>
       )}
       {submission && (
@@ -40,17 +51,38 @@ export default function JavaScriptCodingWorkspaceSubmissionTab({
           <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
             <div className="flex items-center gap-x-4">
               <Heading level="heading5">
-                Submission for "{metadata.title}"
+                {intl.formatMessage(
+                  {
+                    defaultMessage: 'Submission for "{title}"',
+                    description: 'Coding workspace submission title',
+                    id: 'K2gA7K',
+                  },
+                  { title: metadata.title },
+                )}
               </Heading>
               <QuestionLanguages
                 languages={[staticLowerCase(submission.language)]}
               />
             </div>
             {submission.result === 'CORRECT' && (
-              <Badge label="Correct" variant="success" />
+              <Badge
+                label={intl.formatMessage({
+                  defaultMessage: 'Correct',
+                  description: 'Correct submission in coding workspace',
+                  id: 'OlFjm9',
+                })}
+                variant="success"
+              />
             )}
             {submission.result === 'WRONG' && (
-              <Badge label="Wrong" variant="danger" />
+              <Badge
+                label={intl.formatMessage({
+                  defaultMessage: 'Wrong',
+                  description: 'Wrong submission in coding workspace',
+                  id: 'y+NJ/O',
+                })}
+                variant="danger"
+              />
             )}
           </div>
           <div className="flex items-center gap-x-4">
@@ -59,7 +91,12 @@ export default function JavaScriptCodingWorkspaceSubmissionTab({
               color="secondary"
               size="body2"
               weight="medium">
-              Submitted at <Timestamp date={submission.createdAt} />
+              {intl.formatMessage({
+                defaultMessage: 'Submitted at',
+                description: 'Coding workspace submission submitted at label',
+                id: 'b/3jGp',
+              })}
+              <Timestamp date={submission.createdAt} />
             </Text>
           </div>
           <Prose textSize="sm">

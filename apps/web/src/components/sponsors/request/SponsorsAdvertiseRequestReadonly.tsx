@@ -114,7 +114,11 @@ export default function SponsorsAdvertiseRequestReadonly({
                 <>
                   &middot;
                   <Text className="block" color="secondary" size="body3">
-                    Reviewed by{' '}
+                    {intl.formatMessage({
+                      defaultMessage: 'Reviewed by',
+                      description: 'Ad request reviewed by',
+                      id: 'YGMPkH',
+                    })}{' '}
                     {review?.profile.name || review?.profile.username}
                     {review?.createdAt && (
                       <>
@@ -304,7 +308,11 @@ export default function SponsorsAdvertiseRequestReadonly({
                 title=" "
                 trigger={
                   <Button
-                    label="View advertising agreement"
+                    label={intl.formatMessage({
+                      defaultMessage: 'View advertising agreement',
+                      description: 'View ad agreement button label',
+                      id: 'w5AUKD',
+                    })}
                     variant="secondary"
                   />
                 }
@@ -352,7 +360,11 @@ function AdFormatCard({ ad }: Readonly<{ ad: SponsorsAdFormatFormItem }>) {
                 id: 'nw9bBh',
               })}>
               <img
-                alt="Ad banner image"
+                alt={intl.formatMessage({
+                  defaultMessage: 'Ad banner image',
+                  description: 'Alt text for ad banner image',
+                  id: 'jK0/93',
+                })}
                 className="mt-1 h-40"
                 src={ad.imageUrl}
               />

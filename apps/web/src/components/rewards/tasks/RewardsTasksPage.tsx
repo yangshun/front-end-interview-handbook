@@ -352,7 +352,11 @@ export default function RewardsTasksPage() {
                 addonPosition="start"
                 icon={RiArrowLeftLine}
                 isDisabled={!taskWithError && currentVerifyingTasks.size > 0}
-                label="Back"
+                label={intl.formatMessage({
+                  defaultMessage: 'Back',
+                  description: 'Back button label',
+                  id: 'oo/YC7',
+                })}
                 size="sm"
                 variant="secondary"
                 onClick={() => {
@@ -365,7 +369,11 @@ export default function RewardsTasksPage() {
                 icon={RiArrowRightLine}
                 isDisabled={generateSocialTasksPromoCodeMutation.isLoading}
                 isLoading={generateSocialTasksPromoCodeMutation.isLoading}
-                label="Claim promo code"
+                label={intl.formatMessage({
+                  defaultMessage: 'Claim promo code',
+                  description: 'Claim promo code button label',
+                  id: 'nW39pS',
+                })}
                 size="sm"
                 variant="primary"
                 onClick={() => {
@@ -393,7 +401,11 @@ export default function RewardsTasksPage() {
                   (!taskWithError && currentVerifyingTasks.size > 0) ||
                   !isLastStep
                 }
-                label="Verify"
+                label={intl.formatMessage({
+                  defaultMessage: 'Verify',
+                  description: 'Verify button label',
+                  id: '5udMqb',
+                })}
                 size="sm"
                 variant="primary"
                 onClick={() => {

@@ -1,7 +1,10 @@
+'use client';
+
 import { RiCodeLine } from 'react-icons/ri';
 
 import { INTERVIEWS_UI_COMMUNITY_SOLUTIONS_IS_LIVE } from '~/data/FeatureFlags';
 
+import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 
@@ -35,6 +38,7 @@ export default function UserInterfaceCodingWorkspaceNewTab({
   onSelectTabType: (data: UserInterfaceCodingNewTabTypeData) => void;
   predefinedTabs: UserInterfaceCodingWorkspacePredefinedTabsContents;
 }>) {
+  const intl = useIntl();
   const { sandpack } = useSandpack();
   const { files } = sandpack;
   const { queryTabByPattern } = useUserInterfaceCodingWorkspaceTilesContext();
@@ -49,7 +53,11 @@ export default function UserInterfaceCodingWorkspaceNewTab({
     <div className="flex flex-col gap-4 p-4">
       <div className="flex flex-col gap-2">
         <Text className="block" size="body2" weight="medium">
-          Tabs
+          {intl.formatMessage({
+            defaultMessage: 'Tabs',
+            description: 'Coding workspace tabs',
+            id: 'gsNMIS',
+          })}
         </Text>
         <div className="flex flex-wrap gap-2">
           {Object.entries(predefinedTabs)
@@ -79,7 +87,11 @@ export default function UserInterfaceCodingWorkspaceNewTab({
       {unopenedFiles.length > 0 && (
         <div className="flex flex-col gap-2">
           <Text className="block" size="body2" weight="medium">
-            Files
+            {intl.formatMessage({
+              defaultMessage: 'Files',
+              description: 'Coding workspace files',
+              id: 'cqP2g7',
+            })}
           </Text>
           <div className="flex flex-wrap gap-2">
             {unopenedFiles

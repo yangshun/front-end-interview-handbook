@@ -1,3 +1,5 @@
+'use client';
+
 import clsx from 'clsx';
 import { useCallback, useEffect, useState } from 'react';
 import { RiCodeLine } from 'react-icons/ri';
@@ -13,6 +15,7 @@ import type { QuestionUserInterfaceMode } from '~/components/interviews/question
 import useQuestionsAutoMarkAsComplete from '~/components/interviews/questions/common/useQuestionsAutoMarkAsComplete';
 import { questionUserInterfaceSolutionPath } from '~/components/interviews/questions/content/user-interface/QuestionUserInterfaceRoutes';
 import { useQuestionsListTypeCurrent } from '~/components/interviews/questions/listings/utils/useQuestionsListDataForType';
+import { useIntl } from '~/components/intl';
 import SponsorsAdFormatInContentContainer from '~/components/sponsors/ads/SponsorsAdFormatInContentContainer';
 import Button from '~/components/ui/Button';
 import Divider from '~/components/ui/Divider';
@@ -101,6 +104,7 @@ function UserInterfaceCodingWorkspaceImpl({
   similarQuestions: ReadonlyArray<QuestionMetadata>;
   studyListKey?: string;
 }>) {
+  const intl = useIntl();
   const { framework, metadata: rawMetadata, description, solution } = question;
 
   const metadata = {
@@ -217,7 +221,11 @@ function UserInterfaceCodingWorkspaceImpl({
         />
       ),
       icon: CodingWorkspaceTabIcons.community_solution_create.icon,
-      label: 'Post solution',
+      label: intl.formatMessage({
+        defaultMessage: 'Post solution',
+        description: 'Coding workspace post solution tab label',
+        id: 'q91wY2',
+      }),
     },
     community_solutions: {
       contents: (
@@ -226,12 +234,20 @@ function UserInterfaceCodingWorkspaceImpl({
         />
       ),
       icon: CodingWorkspaceTabIcons.community_solutions.icon,
-      label: 'Community',
+      label: intl.formatMessage({
+        defaultMessage: 'Community',
+        description: 'Coding workspace community solutions tab label',
+        id: 'qDIWna',
+      }),
     },
     console: {
       contents: <CodingWorkspaceConsole />,
       icon: CodingWorkspaceTabIcons.console.icon,
-      label: 'Console',
+      label: intl.formatMessage({
+        defaultMessage: 'Console',
+        description: 'Coding workspace console tab label',
+        id: 'hWpv5f',
+      }),
     },
     description: {
       contents: (
@@ -250,17 +266,29 @@ function UserInterfaceCodingWorkspaceImpl({
         />
       ),
       icon: CodingWorkspaceTabIcons.description.icon,
-      label: 'Description',
+      label: intl.formatMessage({
+        defaultMessage: 'Description',
+        description: 'Coding workspace description tab label',
+        id: '60Qm8N',
+      }),
     },
     file_explorer: {
       contents: <UserInterfaceCodingWorkspaceExplorer />,
       icon: CodingWorkspaceTabIcons.explorer.icon,
-      label: 'File explorer',
+      label: intl.formatMessage({
+        defaultMessage: 'File explorer',
+        description: 'Coding workspace file explorer label',
+        id: '7hMBWU',
+      }),
     },
     preview: {
       contents: <UserInterfaceCodingWorkspacePreview embed={embed} />,
       icon: CodingWorkspaceTabIcons.browser.icon,
-      label: 'Browser',
+      label: intl.formatMessage({
+        defaultMessage: 'Browser',
+        description: 'Coding workspace browser tab label',
+        id: 'ZNFWBy',
+      }),
     },
     solution: {
       contents:
@@ -270,14 +298,26 @@ function UserInterfaceCodingWorkspaceImpl({
               action={
                 <Button
                   href={frameworkSolutionPath}
-                  label="Go to solution"
+                  label={intl.formatMessage({
+                    defaultMessage: 'Go to solution',
+                    description: 'Coding workspace go to solution button label',
+                    id: 'JNG61K',
+                  })}
                   variant="secondary"
                 />
               }
               icon={CodingWorkspaceTabIcons.solution.icon}
               size="sm"
-              subtitle="View the full solution on a new page"
-              title="Solution"
+              subtitle={intl.formatMessage({
+                defaultMessage: 'View the full solution on a new page',
+                description: 'Coding workspace view solution subtitle',
+                id: 'qBtGwR',
+              })}
+              title={intl.formatMessage({
+                defaultMessage: 'Solution',
+                description: 'Coding workspace view solution title',
+                id: '23pktm',
+              })}
             />
           </div>
         ) : (
@@ -299,7 +339,11 @@ function UserInterfaceCodingWorkspaceImpl({
         question.metadata.access !== 'free'
           ? () => <InterviewsPremiumBadge iconOnly={true} />
           : CodingWorkspaceTabIcons.solution.icon,
-      label: 'Solution',
+      label: intl.formatMessage({
+        defaultMessage: 'Solution',
+        description: 'Coding workspace solution tab label',
+        id: 'ZquLVV',
+      }),
     },
     solution_preview: {
       contents: (
@@ -308,12 +352,20 @@ function UserInterfaceCodingWorkspaceImpl({
         />
       ),
       icon: CodingWorkspaceTabIcons.browser.icon,
-      label: 'Solution preview',
+      label: intl.formatMessage({
+        defaultMessage: 'Solution preview',
+        description: 'Coding workspace solution preview tab label',
+        id: 'sV/LsP',
+      }),
     },
     versions: {
       contents: <UserInterfaceCodingWorkspaceSavesList metadata={metadata} />,
       icon: CodingWorkspaceTabIcons.versions.icon,
-      label: 'Saved code',
+      label: intl.formatMessage({
+        defaultMessage: 'Saved code',
+        description: 'Coding workspace saved code tab label',
+        id: '8nTsZn',
+      }),
     },
   };
 
@@ -396,7 +448,12 @@ function UserInterfaceCodingWorkspaceImpl({
                   <Button
                     display="block"
                     href={frameworkSolutionPath}
-                    label="View solution"
+                    label={intl.formatMessage({
+                      defaultMessage: 'View solution',
+                      description:
+                        'Coding workspace view solution button label',
+                      id: '/08n88',
+                    })}
                     variant="secondary"
                   />
                 )

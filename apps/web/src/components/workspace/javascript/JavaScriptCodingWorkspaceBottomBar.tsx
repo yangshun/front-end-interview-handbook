@@ -1,3 +1,5 @@
+'use client';
+
 import { useState } from 'react';
 import { RiArrowGoBackLine, RiPlayLine, RiSettings2Line } from 'react-icons/ri';
 import { VscLayout } from 'react-icons/vsc';
@@ -6,6 +8,7 @@ import QuestionProgressAction from '~/components/interviews/questions/common/Que
 import QuestionReportIssueButton from '~/components/interviews/questions/common/QuestionReportIssueButton';
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import QuestionNextQuestions from '~/components/interviews/questions/content/QuestionNextQuestions';
+import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import Divider from '~/components/ui/Divider';
 import DropdownMenu from '~/components/ui/DropdownMenu';
@@ -32,6 +35,7 @@ export default function JavaScriptCodingWorkspaceBottomBar({
   studyListKey,
   slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE,
 }: Props) {
+  const intl = useIntl();
   const { status, runTests, submit, resetToDefaultCode } =
     useCodingWorkspaceContext();
   const [isLayoutDialogOpen, setIsLayoutDialogOpen] = useState(false);
@@ -43,9 +47,17 @@ export default function JavaScriptCodingWorkspaceBottomBar({
           addonPosition="start"
           icon={RiPlayLine}
           isDisabled={status !== 'idle'}
-          label="Run"
+          label={intl.formatMessage({
+            defaultMessage: 'Run',
+            description: 'Run code button label',
+            id: 'Yaff9b',
+          })}
           size="xs"
-          tooltip="Run test cases (customizable)"
+          tooltip={intl.formatMessage({
+            defaultMessage: 'Run test cases (customizable)',
+            description: 'Coding workspace run test cases tooltip',
+            id: 'AQTvh2',
+          })}
           variant="secondary"
           onClick={() => {
             logEvent('question.run', {
@@ -61,9 +73,17 @@ export default function JavaScriptCodingWorkspaceBottomBar({
         <Button
           addonPosition="start"
           isDisabled={status !== 'idle'}
-          label="Submit"
+          label={intl.formatMessage({
+            defaultMessage: 'Submit',
+            description: 'Coding workspace submit code button label',
+            id: '6TjXww',
+          })}
           size="xs"
-          tooltip="Runs submission test cases and marks complete"
+          tooltip={intl.formatMessage({
+            defaultMessage: 'Runs submission test cases and marks complete',
+            description: 'Coding workspace run test cases tooltip',
+            id: 'VYJBxW',
+          })}
           variant="primary"
           onClick={() => {
             logEvent('question.submit', {
@@ -128,14 +148,22 @@ export default function JavaScriptCodingWorkspaceBottomBar({
             <DropdownMenu
               icon={RiSettings2Line}
               isLabelHidden={true}
-              label="Settings"
+              label={intl.formatMessage({
+                defaultMessage: 'Settings',
+                description: 'Coding workspace settings dropdown label',
+                id: '/p5g3I',
+              })}
               showChevron={false}
               side="top"
               size="xs">
               {[
                 {
                   icon: VscLayout,
-                  label: 'Layout',
+                  label: intl.formatMessage({
+                    defaultMessage: 'Layout',
+                    description: 'Coding workspace layout',
+                    id: 'yMnCy6',
+                  }),
                   onClick: () => {
                     setIsLayoutDialogOpen(true);
                   },
@@ -143,9 +171,23 @@ export default function JavaScriptCodingWorkspaceBottomBar({
                 },
                 {
                   icon: RiArrowGoBackLine,
-                  label: 'Reset question',
+                  label: intl.formatMessage({
+                    defaultMessage: 'Reset question',
+                    description: 'Coding workspace reset question',
+                    id: 'ZeoQdS',
+                  }),
                   onClick: () => {
-                    if (confirm('Reset all changes made to this question?')) {
+                    if (
+                      confirm(
+                        intl.formatMessage({
+                          defaultMessage:
+                            'Reset all changes made to this question?',
+                          description:
+                            'Coding workspace reset question confirmation',
+                          id: '2eBsGO',
+                        }),
+                      )
+                    ) {
                       resetToDefaultCode();
                     }
                   },

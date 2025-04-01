@@ -9,7 +9,7 @@ import {
 
 import { trpc } from '~/hooks/trpc';
 
-import { FormattedMessage } from '~/components/intl';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
@@ -50,6 +50,7 @@ export default function RewardsSocialHandlesForm({
   onHandlesDataChange,
   onNextStage,
 }: Props) {
+  const intl = useIntl();
   const { mutate: verifySocialHandles, isLoading } =
     trpc.promotions.verifySocialHandles.useMutation();
   const [validationErrors, setValidationErrors] =
@@ -323,7 +324,11 @@ export default function RewardsSocialHandlesForm({
         <Button
           isDisabled={isLoading}
           isLoading={isLoading}
-          label="Next"
+          label={intl.formatMessage({
+            defaultMessage: 'Next',
+            description: 'Next button label',
+            id: 'pz1v44',
+          })}
           size="sm"
           type="submit"
           variant="primary"

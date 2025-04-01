@@ -218,7 +218,11 @@ export default function SponsorsAdvertiseRequestEditPage({ adRequest }: Props) {
                     classNameOuter="w-full"
                     errorMessage={errorMessage}
                     isLabelHidden={true}
-                    label="Email"
+                    label={intl.formatMessage({
+                      defaultMessage: 'Email',
+                      description: 'Label for email field',
+                      id: 'bGKAyO',
+                    })}
                     name="email"
                     placeholder="john.doe@example.com"
                     value={advertiserEmail}
@@ -227,7 +231,11 @@ export default function SponsorsAdvertiseRequestEditPage({ adRequest }: Props) {
                   <Button
                     className="mt-8"
                     icon={RiArrowRightLine}
-                    label="Verify"
+                    label={intl.formatMessage({
+                      defaultMessage: 'Verify',
+                      description: 'Verify button label',
+                      id: '5udMqb',
+                    })}
                     size="md"
                     type="submit"
                     variant="primary"

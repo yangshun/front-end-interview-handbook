@@ -1,3 +1,5 @@
+'use client';
+
 import { useState } from 'react';
 import { RiArrowGoBackLine, RiSettings2Line } from 'react-icons/ri';
 import { VscLayout } from 'react-icons/vsc';
@@ -11,6 +13,7 @@ import type {
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import type { QuestionUserInterfaceMode } from '~/components/interviews/questions/common/QuestionUserInterfacePath';
 import QuestionNextQuestions from '~/components/interviews/questions/content/QuestionNextQuestions';
+import { useIntl } from '~/components/intl';
 import Divider from '~/components/ui/Divider';
 import DropdownMenu from '~/components/ui/DropdownMenu';
 
@@ -42,6 +45,7 @@ export default function UserInterfaceCodingWorkspaceBottomBar({
   studyListKey,
   slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE,
 }: Props) {
+  const intl = useIntl();
   const [isLayoutDialogOpen, setIsLayoutDialogOpen] = useState(false);
 
   const leftElements = (
@@ -54,14 +58,22 @@ export default function UserInterfaceCodingWorkspaceBottomBar({
       <DropdownMenu
         icon={RiSettings2Line}
         isLabelHidden={true}
-        label="Settings"
+        label={intl.formatMessage({
+          defaultMessage: 'Settings',
+          description: 'Coding workspace settings dropdown label',
+          id: '/p5g3I',
+        })}
         showChevron={false}
         side="top"
         size="xs">
         {[
           {
             icon: VscLayout,
-            label: 'Layout',
+            label: intl.formatMessage({
+              defaultMessage: 'Layout',
+              description: 'Coding workspace layout',
+              id: 'yMnCy6',
+            }),
             onClick: () => {
               setIsLayoutDialogOpen(true);
             },
@@ -69,9 +81,21 @@ export default function UserInterfaceCodingWorkspaceBottomBar({
           },
           {
             icon: RiArrowGoBackLine,
-            label: 'Reset question',
+            label: intl.formatMessage({
+              defaultMessage: 'Reset question',
+              description: 'Coding workspace reset question',
+              id: 'ZeoQdS',
+            }),
             onClick: () => {
-              if (confirm('Reset all changes made to this question?')) {
+              if (
+                confirm(
+                  intl.formatMessage({
+                    defaultMessage: 'Reset all changes made to this question?',
+                    description: 'Coding workspace reset question confirmation',
+                    id: '2eBsGO',
+                  }),
+                )
+              ) {
                 resetToDefaultCode();
               }
             },

@@ -1,3 +1,5 @@
+'use client';
+
 import clsx from 'clsx';
 
 import { trpc } from '~/hooks/trpc';
@@ -6,6 +8,7 @@ import Timestamp from '~/components/common/datetime/Timestamp';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import QuestionFrameworkIcon from '~/components/interviews/questions/metadata/QuestionFrameworkIcon';
+import { useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
 import EmptyState from '~/components/ui/EmptyState';
@@ -28,6 +31,7 @@ type Props = Readonly<{
 export default function UserInterfaceCodingWorkspaceSavesList({
   metadata,
 }: Props) {
+  const intl = useIntl();
   const { userProfile } = useUserProfile();
 
   if (userProfile == null) {
@@ -36,7 +40,13 @@ export default function UserInterfaceCodingWorkspaceSavesList({
         <div className="flex h-full flex-col p-4">
           <div className="flex grow items-center justify-center">
             <EmptyState
-              title="You must be signed in to view your saved versions"
+              title={intl.formatMessage({
+                defaultMessage:
+                  'You must be signed in to view your saved versions',
+                description:
+                  'Sign in to view saved versions in coding workspace',
+                id: 'lXY6ap',
+              })}
               variant="empty"
             />
           </div>
@@ -49,6 +59,7 @@ export default function UserInterfaceCodingWorkspaceSavesList({
 }
 
 function UserInterfaceCodingWorkspaceSavesListImpl({ metadata }: Props) {
+  const intl = useIntl();
   const { data: saves } = trpc.questionSave.userInterfaceGetAll.useQuery({
     slug: metadata.slug,
   });
@@ -60,7 +71,14 @@ function UserInterfaceCodingWorkspaceSavesListImpl({ metadata }: Props) {
       {saves == null || saves?.length === 0 ? (
         <div className="flex h-full flex-col p-4">
           <div className="flex grow items-center justify-center">
-            <EmptyState title="No saved versions" variant="empty" />
+            <EmptyState
+              title={intl.formatMessage({
+                defaultMessage: 'No saved versions',
+                description: 'No saved versions in coding workspace',
+                id: 'ZYk9jl',
+              })}
+              variant="empty"
+            />
           </div>
         </div>
       ) : (
@@ -101,7 +119,15 @@ function UserInterfaceCodingWorkspaceSavesListImpl({ metadata }: Props) {
                       <span className="absolute inset-0" />
                     </Anchor>
                     {save?.id === savedItem.id && (
-                      <Badge label="Current" size="sm" variant="info" />
+                      <Badge
+                        label={intl.formatMessage({
+                          defaultMessage: 'Current',
+                          description: 'Current saved code version badge',
+                          id: 'qn8hx+',
+                        })}
+                        size="sm"
+                        variant="info"
+                      />
                     )}
                   </div>
                   <Text

@@ -8,7 +8,7 @@ import {
   RiPlayLine,
 } from 'react-icons/ri';
 
-import { FormattedMessage } from '~/components/intl';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import EmptyState from '~/components/ui/EmptyState';
@@ -66,6 +66,7 @@ export default function TestsSection({
   onShowTestsCases,
   onShowTestCase,
 }: Props) {
+  const intl = useIntl();
   const { status, executionComplete, runTests, submit } =
     useCodingWorkspaceContext();
   const { getClient, iframe, listen, sandpack } = useSandpackClient();
@@ -418,7 +419,11 @@ export default function TestsSection({
                   <EmptyState
                     iconClassName="animate-bounce"
                     size="sm"
-                    title="Loading tests"
+                    title={intl.formatMessage({
+                      defaultMessage: 'Loading tests',
+                      description: 'Workspace test loading',
+                      id: 'pAIUYI',
+                    })}
                     variant="tests_loading"
                   />
                 </div>
@@ -442,7 +447,12 @@ export default function TestsSection({
                                         addonPosition="start"
                                         icon={RiPlayLine}
                                         isDisabled={status !== 'idle'}
-                                        label="Run"
+                                        label={intl.formatMessage({
+                                          defaultMessage: 'Run',
+                                          description:
+                                            'Run code button label in workspace',
+                                          id: 'uvLNHA',
+                                        })}
                                         variant="secondary"
                                         onClick={runTests}
                                       />
@@ -488,7 +498,12 @@ export default function TestsSection({
                                     action={
                                       <Button
                                         isDisabled={status !== 'idle'}
-                                        label="Submit"
+                                        label={intl.formatMessage({
+                                          defaultMessage: 'Submit',
+                                          description:
+                                            'Workspace submit code button label',
+                                          id: '05Sh88',
+                                        })}
                                         variant="primary"
                                         onClick={submit}
                                       />
@@ -536,7 +551,13 @@ export default function TestsSection({
                   if (state.status === 'complete' && specs.length === 0) {
                     return (
                       <div className="flex grow items-center justify-center">
-                        <p>No test files found.</p>
+                        <p>
+                          {intl.formatMessage({
+                            defaultMessage: 'No test files found.',
+                            description: 'Workspace no test files found',
+                            id: 'UENPxG',
+                          })}
+                        </p>
                       </div>
                     );
                   }
@@ -580,7 +601,11 @@ export default function TestsSection({
                   addonPosition="start"
                   className="-mr-1"
                   icon={RiPencilLine}
-                  label="Edit test cases"
+                  label={intl.formatMessage({
+                    defaultMessage: 'Edit test cases',
+                    description: 'Workspace edit test cases button label',
+                    id: '3+4IFI',
+                  })}
                   size="xs"
                   variant="tertiary"
                   onClick={() => onShowTestsCases?.(specMode)}
@@ -590,7 +615,11 @@ export default function TestsSection({
                   addonPosition="start"
                   className="-mr-1"
                   icon={RiListCheck3}
-                  label="View test cases"
+                  label={intl.formatMessage({
+                    defaultMessage: 'View test cases',
+                    description: 'Workspace view test cases button label',
+                    id: 'lSpJvZ',
+                  })}
                   size="xs"
                   variant="tertiary"
                   onClick={() => onShowTestsCases?.(specMode)}

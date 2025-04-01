@@ -76,7 +76,11 @@ export default function SponsorsAdFormatSpotlightSectionAccordionInfo() {
         },
       ),
       img: {
-        alt: 'Spotlight Ad Placement in app sidebar',
+        alt: intl.formatMessage({
+          defaultMessage: 'Spotlight Ad Placement in app sidebar',
+          description: 'Alt text for spotlight ad placement preview',
+          id: 'Dnrwi9',
+        }),
         srcDark: '/img/sponsors/spotlight-placement-sidebar-dark.png',
         srcLight: '/img/sponsors/spotlight-placement-sidebar-light.png',
       },
@@ -101,7 +105,11 @@ export default function SponsorsAdFormatSpotlightSectionAccordionInfo() {
         },
       ),
       img: {
-        alt: 'Spotlight Ad Placement in question detail page',
+        alt: intl.formatMessage({
+          defaultMessage: 'Spotlight Ad Placement in question detail page',
+          description: 'Alt text for spotlight ad placement preview',
+          id: 'Vr0DK1',
+        }),
         srcDark: '/img/sponsors/spotlight-placement-question-detail-dark.png',
         srcLight: '/img/sponsors/spotlight-placement-question-detail-light.png',
       },

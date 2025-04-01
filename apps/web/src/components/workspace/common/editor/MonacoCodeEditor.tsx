@@ -1,7 +1,10 @@
+'use client';
+
 import clsx from 'clsx';
 import type { editor } from 'monaco-editor';
 import React, { useEffect, useRef } from 'react';
 
+import { useIntl } from '~/components/intl';
 import EmptyState from '~/components/ui/EmptyState';
 
 import logEvent from '~/logging/logEvent';
@@ -91,6 +94,7 @@ export default function MonacoCodeEditor({
   keepCurrentModel = true,
   options,
 }: Props) {
+  const intl = useIntl();
   const monaco = useMonaco();
   const editorRef = useRef<editor.IStandaloneCodeEditor | null>(null);
   const editorContainerRef = useRef<HTMLDivElement | null>(null);
@@ -124,7 +128,11 @@ export default function MonacoCodeEditor({
           <EmptyState
             iconClassName="animate-bounce"
             size="sm"
-            title="Loading editor"
+            title={intl.formatMessage({
+              defaultMessage: 'Loading editor',
+              description: 'Loading code editor',
+              id: 'AFsv0q',
+            })}
             variant="editor_loading"
           />
         }

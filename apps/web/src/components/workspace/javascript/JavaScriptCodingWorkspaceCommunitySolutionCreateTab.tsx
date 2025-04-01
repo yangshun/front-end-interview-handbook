@@ -1,3 +1,5 @@
+'use client';
+
 import { Controller } from 'react-hook-form';
 import { useForm } from 'react-hook-form';
 
@@ -8,6 +10,7 @@ import type {
   QuestionCodingWorkingLanguage,
   QuestionMetadata,
 } from '~/components/interviews/questions/common/QuestionsTypes';
+import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import EmptyState from '~/components/ui/EmptyState';
 import Text from '~/components/ui/Text';
@@ -31,6 +34,7 @@ type CommunitySolutionDraft = Readonly<{
 function JavaScriptCodingWorkspaceCommunitySolutionCreateTabImpl({
   metadata: { slug },
 }: Props) {
+  const intl = useIntl();
   const trpcUtils = trpc.useUtils();
 
   const { isLoading, mutateAsync: addSolution } =
@@ -67,7 +71,11 @@ function JavaScriptCodingWorkspaceCommunitySolutionCreateTabImpl({
         <Button
           className="mt-0.5 shrink-0"
           isDisabled={!formState.isDirty || isLoading}
-          label="Post"
+          label={intl.formatMessage({
+            defaultMessage: 'Post',
+            description: 'Coding workspace post solution button label',
+            id: 'OmFm8C',
+          })}
           type="submit"
           variant="primary"
         />
@@ -83,13 +91,27 @@ function JavaScriptCodingWorkspaceCommunitySolutionCreateTabImpl({
                     : undefined
                 }
                 isLabelHidden={true}
-                label="Title"
-                placeholder="Title"
+                label={intl.formatMessage({
+                  defaultMessage: 'Title',
+                  description: 'Community solution title label',
+                  id: 'Ib0ZgM',
+                })}
+                placeholder={intl.formatMessage({
+                  defaultMessage: 'Title',
+                  description: 'Community solution title label',
+                  id: 'Ib0ZgM',
+                })}
                 {...field}
               />
             </div>
           )}
-          rules={{ required: 'Title cannot be empty' }}
+          rules={{
+            required: intl.formatMessage({
+              defaultMessage: 'Title cannot be empty',
+              description: 'Community solution title required error message',
+              id: 'PtJfRZ',
+            }),
+          }}
         />
       </div>
       <Controller
@@ -103,12 +125,26 @@ function JavaScriptCodingWorkspaceCommunitySolutionCreateTabImpl({
                 : undefined
             }
             isLabelHidden={true}
-            label="Writeup"
-            placeholder="Writeup"
+            label={intl.formatMessage({
+              defaultMessage: 'Writeup',
+              description: 'Community solution writeup label',
+              id: 'N5d7zE',
+            })}
+            placeholder={intl.formatMessage({
+              defaultMessage: 'Writeup',
+              description: 'Community solution writeup label',
+              id: 'N5d7zE',
+            })}
             {...field}
           />
         )}
-        rules={{ required: 'Writeup cannot be empty' }}
+        rules={{
+          required: intl.formatMessage({
+            defaultMessage: 'Writeup cannot be empty',
+            description: 'Community solution writeup required error message',
+            id: 'X614ft',
+          }),
+        }}
       />
       <Controller
         control={control}
@@ -130,7 +166,13 @@ function JavaScriptCodingWorkspaceCommunitySolutionCreateTabImpl({
             )}
           </div>
         )}
-        rules={{ required: 'Code cannot be empty' }}
+        rules={{
+          required: intl.formatMessage({
+            defaultMessage: 'Code cannot be empty',
+            description: 'Community solution code required error message',
+            id: 'sWharh',
+          }),
+        }}
       />
     </form>
   );
@@ -139,6 +181,7 @@ function JavaScriptCodingWorkspaceCommunitySolutionCreateTabImpl({
 export default function JavaScriptCodingWorkspaceCommunitySolutionCreateTab({
   metadata,
 }: Props) {
+  const intl = useIntl();
   const { userProfile } = useUserProfile();
 
   if (userProfile == null) {
@@ -147,7 +190,11 @@ export default function JavaScriptCodingWorkspaceCommunitySolutionCreateTab({
         <div className="flex h-full flex-col p-4">
           <div className="flex grow items-center justify-center">
             <EmptyState
-              title="You must be signed in to post a solution"
+              title={intl.formatMessage({
+                defaultMessage: 'You must be signed in to post a solution',
+                description: 'Community solution sign in required title',
+                id: 'osP1GZ',
+              })}
               variant="login"
             />
           </div>

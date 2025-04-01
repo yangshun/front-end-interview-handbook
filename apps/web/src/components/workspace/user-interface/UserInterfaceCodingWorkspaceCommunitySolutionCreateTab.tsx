@@ -1,3 +1,5 @@
+'use client';
+
 import { Controller, useForm } from 'react-hook-form';
 
 import { trpc } from '~/hooks/trpc';
@@ -8,6 +10,7 @@ import type {
   QuestionFramework,
   QuestionMetadata,
 } from '~/components/interviews/questions/common/QuestionsTypes';
+import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import EmptyState from '~/components/ui/EmptyState';
 import TextArea from '~/components/ui/TextArea';
@@ -31,6 +34,7 @@ function UserInterfaceCodingWorkspaceCommunitySolutionCreateTabImpl({
   metadata: { slug },
   framework,
 }: Props) {
+  const intl = useIntl();
   const { showToast } = useToast();
   const trpcUtils = trpc.useUtils();
 
@@ -55,7 +59,11 @@ function UserInterfaceCodingWorkspaceCommunitySolutionCreateTabImpl({
         }
 
         showToast({
-          description: 'Your solution has been posted',
+          description: intl.formatMessage({
+            defaultMessage: 'Your solution has been posted',
+            description: 'Community solution posted toast message',
+            id: 'TngZLb',
+          }),
           title: `Solution posted: ${data.title}`,
           variant: 'success',
         });
@@ -80,7 +88,11 @@ function UserInterfaceCodingWorkspaceCommunitySolutionCreateTabImpl({
         <Button
           className="mt-0.5 shrink-0"
           isDisabled={!formState.isDirty || isLoading}
-          label="Post"
+          label={intl.formatMessage({
+            defaultMessage: 'Post',
+            description: 'Community solution post button label',
+            id: '5mnKpn',
+          })}
           type="submit"
           variant="primary"
         />
@@ -96,13 +108,27 @@ function UserInterfaceCodingWorkspaceCommunitySolutionCreateTabImpl({
                     : undefined
                 }
                 isLabelHidden={true}
-                label="Title"
-                placeholder="Title"
+                label={intl.formatMessage({
+                  defaultMessage: 'Title',
+                  description: 'Community solution title label',
+                  id: 'Ib0ZgM',
+                })}
+                placeholder={intl.formatMessage({
+                  defaultMessage: 'Title',
+                  description: 'Community solution title label',
+                  id: 'Ib0ZgM',
+                })}
                 {...field}
               />
             </div>
           )}
-          rules={{ required: 'Title cannot be empty' }}
+          rules={{
+            required: intl.formatMessage({
+              defaultMessage: 'Title cannot be empty',
+              description: 'Community solution title required error message',
+              id: 'PtJfRZ',
+            }),
+          }}
         />
       </div>
       <Controller
@@ -116,12 +142,26 @@ function UserInterfaceCodingWorkspaceCommunitySolutionCreateTabImpl({
                 : undefined
             }
             isLabelHidden={true}
-            label="Writeup"
-            placeholder="Writeup"
+            label={intl.formatMessage({
+              defaultMessage: 'Writeup',
+              description: 'Community solution writeup label',
+              id: 'N5d7zE',
+            })}
+            placeholder={intl.formatMessage({
+              defaultMessage: 'Writeup',
+              description: 'Community solution writeup label',
+              id: 'N5d7zE',
+            })}
             {...field}
           />
         )}
-        rules={{ required: 'Writeup cannot be empty' }}
+        rules={{
+          required: intl.formatMessage({
+            defaultMessage: 'Writeup cannot be empty',
+            description: 'Community solution writeup required error message',
+            id: 'X614ft',
+          }),
+        }}
       />
     </form>
   );
@@ -131,6 +171,7 @@ export default function UserInterfaceCodingWorkspaceCommunitySolutionCreateTab({
   metadata,
   framework,
 }: Props) {
+  const intl = useIntl();
   const { userProfile } = useUserProfile();
 
   if (userProfile == null) {
@@ -139,7 +180,11 @@ export default function UserInterfaceCodingWorkspaceCommunitySolutionCreateTab({
         <div className="flex h-full flex-col p-4">
           <div className="flex grow items-center justify-center">
             <EmptyState
-              title="You must be signed in to post a solution"
+              title={intl.formatMessage({
+                defaultMessage: 'You must be signed in to post a solution',
+                description: 'Community solution sign in required title',
+                id: 'osP1GZ',
+              })}
               variant="login"
             />
           </div>

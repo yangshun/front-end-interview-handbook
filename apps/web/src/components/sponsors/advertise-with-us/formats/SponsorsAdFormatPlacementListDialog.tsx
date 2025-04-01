@@ -1,6 +1,9 @@
+'use client';
+
 import clsx from 'clsx';
 import { RiArrowRightUpLine } from 'react-icons/ri';
 
+import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import Dialog from '~/components/ui/Dialog';
 import ScrollArea from '~/components/ui/ScrollArea';
@@ -24,6 +27,8 @@ export default function SponsorsAdFormatPlacementListDialog({
   onClose,
   placementPages,
 }: Props) {
+  const intl = useIntl();
+
   return (
     <Dialog
       isShown={isShown}
@@ -51,7 +56,11 @@ export default function SponsorsAdFormatPlacementListDialog({
                 href={href}
                 icon={RiArrowRightUpLine}
                 isLabelHidden={true}
-                label="View page"
+                label={intl.formatMessage({
+                  defaultMessage: 'View page',
+                  description: 'View page button label',
+                  id: 'L515WN',
+                })}
                 size="xs"
                 variant="secondary"
               />
