@@ -1,7 +1,10 @@
+'use client';
+
 import clsx from 'clsx';
 import { Controller, useFormContext } from 'react-hook-form';
 import { RiCheckboxCircleFill } from 'react-icons/ri';
 
+import { useIntl } from '~/components/intl';
 import type {
   FieldView,
   ProjectsMotivationReasonFormValues,
@@ -34,6 +37,7 @@ export default function ProjectsProfileMotivationsField({
 }: {
   view: FieldView;
 }) {
+  const intl = useIntl();
   const reasonOptions = useProjectsMotivationReasonOptions((chunks) => (
     <Text weight="bold">{chunks}</Text>
   ));
@@ -166,9 +170,17 @@ export default function ProjectsProfileMotivationsField({
               autoFocus={true}
               errorMessage={errors.motivations?.[otherFieldIndex]?.message}
               isLabelHidden={true}
-              label="Your motivations"
+              label={intl.formatMessage({
+                defaultMessage: 'Your motivations',
+                description: 'Motivations field label',
+                id: 'cgwd5J',
+              })}
               maxLength={MOTIVATION_OTHER_REASON_CHAR_LIMIT}
-              placeholder="Tell us about your motivations"
+              placeholder={intl.formatMessage({
+                defaultMessage: 'Tell us about your motivations',
+                description: 'Motivations field placeholder',
+                id: '/cOJC4',
+              })}
               rows={3}
               value={choice.value === 'other' ? choice.otherValue : undefined}
               onBlur={field.onBlur}

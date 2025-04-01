@@ -62,9 +62,8 @@ export default function JavaScriptCodingWorkspaceDescription({
                 <Badge
                   label={intl.formatMessage({
                     defaultMessage: 'Completed',
-                    description:
-                      'Label indicating that the question has been completed',
-                    id: 'iIQL6V',
+                    description: 'Question completion label',
+                    id: 'TY7Aig',
                   })}
                   size="sm"
                   variant="success"

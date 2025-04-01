@@ -1,5 +1,8 @@
+'use client';
+
 import { RiCodeLine } from 'react-icons/ri';
 
+import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 import { codingWorkspaceExtractFileNameFromPath } from '~/components/workspace/common/codingWorkspaceExtractFileNameFromPath';
@@ -33,6 +36,7 @@ export default function ProjectsChallengeSolutionWorkspaceNewTab({
   onSelectTabType: (data: NewTabTypeData) => void;
   predefinedTabs: ProjectsChallengeSolutionWorkspacePredefinedTabsContents;
 }>) {
+  const intl = useIntl();
   const { sandpack } = useSandpack();
   const { files } = sandpack;
   const { queryTabByPattern } = useUserInterfaceCodingWorkspaceTilesContext();
@@ -47,7 +51,11 @@ export default function ProjectsChallengeSolutionWorkspaceNewTab({
     <div className="flex flex-col gap-4 p-4">
       <div className="flex flex-col gap-2">
         <Text className="block" size="body2" weight="medium">
-          Tabs
+          {intl.formatMessage({
+            defaultMessage: 'Tabs',
+            description: 'Workspace tabs',
+            id: 'QWBKmB',
+          })}
         </Text>
         <div className="flex flex-wrap gap-2">
           {Object.entries(predefinedTabs).map(([tabType, tabDetails]) => (
@@ -69,7 +77,11 @@ export default function ProjectsChallengeSolutionWorkspaceNewTab({
       {unopenedFiles.length > 0 && (
         <div className="flex flex-col gap-2">
           <Text className="block" size="body2" weight="medium">
-            Files
+            {intl.formatMessage({
+              defaultMessage: 'Files',
+              description: 'Workspace files',
+              id: 'zvC4ng',
+            })}
           </Text>
           <div className="flex flex-wrap gap-2">
             {unopenedFiles

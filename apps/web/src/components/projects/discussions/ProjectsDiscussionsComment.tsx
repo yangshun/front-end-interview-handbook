@@ -241,9 +241,8 @@ export default function ProjectsDiscussionsComment({
                 iconClassName={themeTextSubtleColor}
                 label={intl.formatMessage({
                   defaultMessage: 'Edit',
-                  description:
-                    'Label for edit button on project discussions page',
-                  id: 'g2Nt5j',
+                  description: 'Edit button label',
+                  id: '2rcoOT',
                 })}
                 variant="tertiary"
                 onClick={() => setMode(mode === 'edit' ? null : 'edit')}

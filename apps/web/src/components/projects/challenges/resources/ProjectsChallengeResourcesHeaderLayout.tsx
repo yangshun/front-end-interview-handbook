@@ -184,8 +184,16 @@ export default function ProjectsChallengeResourcesHeaderLayout({
                 themeBorderColor,
               )}>
               <EmptyState
-                subtitle="Be the first to leave a comment"
-                title="No comments yet"
+                subtitle={intl.formatMessage({
+                  defaultMessage: 'Be the first to leave a comment',
+                  description: 'No comment subtitle',
+                  id: 'on59cP',
+                })}
+                title={intl.formatMessage({
+                  defaultMessage: 'No comments yet',
+                  description: 'No comment title',
+                  id: '9QBgga',
+                })}
               />
             </div>
           )}

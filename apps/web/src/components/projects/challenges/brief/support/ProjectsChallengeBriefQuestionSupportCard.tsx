@@ -120,9 +120,8 @@ export default function ProjectsChallengeBriefQuestionSupportCard() {
                 icon={RiPencilFill}
                 label={intl.formatMessage({
                   defaultMessage: 'Edit',
-                  description:
-                    'Label for edit button on project discussions page',
-                  id: 'g2Nt5j',
+                  description: 'Edit button label',
+                  id: '2rcoOT',
                 })}
                 variant="tertiary"
               />

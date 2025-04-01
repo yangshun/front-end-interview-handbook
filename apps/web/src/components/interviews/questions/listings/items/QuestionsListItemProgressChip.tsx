@@ -82,8 +82,8 @@ export function CompletedChip({
   });
   const statusLabel = intl.formatMessage({
     defaultMessage: 'Completed',
-    description: 'Completed question',
-    id: 'yVJzTk',
+    description: 'Question completion label',
+    id: 'TY7Aig',
   });
   const label = onClick ? actionLabel : statusLabel;
   const progressChipSize = progressChipSizeClass[size];

@@ -21,8 +21,8 @@ export function useProjectDetailsStepsTabs(challenge: ProjectsChallengeItem) {
     {
       hint: intl.formatMessage({
         defaultMessage: 'Get started',
-        description: 'Tab title for projects challenges',
-        id: 'k8LRFw',
+        description: 'Get started label',
+        id: 'yawjvQ',
       }),
       href: metadata.href,
       subtitle: intl.formatMessage({
@@ -40,8 +40,8 @@ export function useProjectDetailsStepsTabs(challenge: ProjectsChallengeItem) {
     {
       hint: intl.formatMessage({
         defaultMessage: 'Get started',
-        description: 'Tab title for projects challenges',
-        id: 'k8LRFw',
+        description: 'Get started label',
+        id: 'yawjvQ',
       }),
       href: metadata.assetsHref,
       subtitle: intl.formatMessage({

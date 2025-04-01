@@ -1,3 +1,5 @@
+'use client';
+
 import {
   createContext,
   useCallback,
@@ -108,8 +110,8 @@ function useFilterOptions(tracks: ReadonlyArray<ProjectsTrackItem>) {
         id: 'difficulty',
         label: intl.formatMessage({
           defaultMessage: 'Difficulty',
-          description: 'Label for Difficulty filter for projects list',
-          id: 'qRBY3O',
+          description: 'Difficulty label',
+          id: 'yizEDq',
         }),
         longLabel: intl.formatMessage({
           defaultMessage: 'Challenge difficulty',
@@ -118,19 +120,35 @@ function useFilterOptions(tracks: ReadonlyArray<ProjectsTrackItem>) {
         }),
         options: [
           {
-            label: 'Starter',
+            label: intl.formatMessage({
+              defaultMessage: 'Starter',
+              description: 'Challenge difficulty label',
+              id: 'hxe/Fj',
+            }),
             value: 'starter',
           },
           {
-            label: 'Mid-level',
+            label: intl.formatMessage({
+              defaultMessage: 'Mid-level',
+              description: 'Challenge difficulty label',
+              id: 'fEXu1+',
+            }),
             value: 'mid',
           },
           {
-            label: 'Senior',
+            label: intl.formatMessage({
+              defaultMessage: 'Senior',
+              description: 'Challenge difficulty label',
+              id: 'm5UJIt',
+            }),
             value: 'senior',
           },
           {
-            label: 'Nightmare',
+            label: intl.formatMessage({
+              defaultMessage: 'Nightmare',
+              description: 'Challenge difficulty label',
+              id: 'z+mEGf',
+            }),
             value: 'nightmare',
           },
         ],
@@ -157,15 +175,27 @@ function useFilterOptions(tracks: ReadonlyArray<ProjectsTrackItem>) {
         }),
         options: [
           {
-            label: 'Completed',
+            label: intl.formatMessage({
+              defaultMessage: 'Completed',
+              description: 'Challenge completion label',
+              id: 'RO7rPV',
+            }),
             value: 'COMPLETED',
           },
           {
-            label: 'In progress',
+            label: intl.formatMessage({
+              defaultMessage: 'In progress',
+              description: 'Challenge completion label',
+              id: 'GZLfaL',
+            }),
             value: 'IN_PROGRESS',
           },
           {
-            label: 'Not started',
+            label: intl.formatMessage({
+              defaultMessage: 'Not started',
+              description: 'Challenge completion label',
+              id: 'gBOX72',
+            }),
             value: 'NOT_STARTED',
           },
         ],

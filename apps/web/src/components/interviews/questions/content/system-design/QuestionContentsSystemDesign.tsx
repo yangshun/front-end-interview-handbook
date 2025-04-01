@@ -62,9 +62,8 @@ export default function QuestionContentsSystemDesign({
                 <Badge
                   label={intl.formatMessage({
                     defaultMessage: 'Completed',
-                    description:
-                      'Label to indicate that a question has been completed',
-                    id: 'LPfKTO',
+                    description: 'Question completion label',
+                    id: 'TY7Aig',
                   })}
                   variant="success"
                 />

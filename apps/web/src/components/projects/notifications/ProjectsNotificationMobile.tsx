@@ -35,8 +35,8 @@ export default function ProjectsNotificationMobile({ closeMobileNav }: Props) {
       size="sm"
       title={intl.formatMessage({
         defaultMessage: 'Notifications',
-        description: 'Label for notifications',
-        id: 'PrexEG',
+        description: 'Notifications label',
+        id: 'sY9s8P',
       })}
       trigger={
         <button

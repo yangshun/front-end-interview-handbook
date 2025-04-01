@@ -16,9 +16,8 @@ export default function ProjectsChallengeGetStartedImportantInfoGuideBanner() {
     {
       hint: intl.formatMessage({
         defaultMessage: 'Get started',
-        description:
-          'Hint for "Project Brief" and "Assets" tab on Projects project page',
-        id: '01jNoZ',
+        description: 'Get started label',
+        id: 'yawjvQ',
       }),
       href: '#',
       subtitle: intl.formatMessage({

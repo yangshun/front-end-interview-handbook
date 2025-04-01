@@ -51,8 +51,8 @@ export default function ProjectsStatusBadgeInProgress({
 
   const label = intl.formatMessage({
     defaultMessage: 'In progress',
-    description: 'Project in progress label',
-    id: 'nsk8M8',
+    description: 'Challenge completion label',
+    id: 'GZLfaL',
   });
 
   return (

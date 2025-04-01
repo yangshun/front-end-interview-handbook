@@ -101,7 +101,11 @@ export default function ProjectsChallengeSubmissionImageMatchScore({
       />
       <ProgressBar
         heightClass="h-1.5 sm:min-w-[100px]"
-        label="Match score"
+        label={intl.formatMessage({
+          defaultMessage: 'Match score',
+          description: 'Image comparison match score',
+          id: 'Q/FIIG',
+        })}
         progressClass={themeGradientYellowGreen.className}
         total={100}
         value={matchScore ?? 0}

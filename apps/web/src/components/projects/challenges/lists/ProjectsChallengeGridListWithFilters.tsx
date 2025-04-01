@@ -212,7 +212,11 @@ function ProjectsChallengeGridListWithFiltersImpl({
         <div className="w-full flex-1 lg:w-auto">
           <TextInput
             isLabelHidden={true}
-            label="Search"
+            label={intl.formatMessage({
+              defaultMessage: 'Search',
+              description: 'Search input label',
+              id: 'Z30bjj',
+            })}
             placeholder={intl.formatMessage({
               defaultMessage: 'Search by challenge name / brief',
               description: 'Search placeholder for challenge listing',

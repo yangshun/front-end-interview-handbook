@@ -1,6 +1,9 @@
+'use client';
+
 import clsx from 'clsx';
 import { RiLock2Fill, RiLockUnlockLine } from 'react-icons/ri';
 
+import { useIntl } from '~/components/intl';
 import Chip from '~/components/ui/Chip';
 
 import ProjectsChallengeStatusChip from '../challenges/metadata/ProjectsChallengeStatusChip';
@@ -26,6 +29,7 @@ export default function ProjectsTrackChallengeChip({
   view = 'tracks',
   challenge,
 }: Props) {
+  const intl = useIntl();
   const isSubmissionView = view === 'submission';
 
   if (isSubmissionView) {
@@ -38,7 +42,11 @@ export default function ProjectsTrackChallengeChip({
         <Chip
           icon={challenge.userUnlocked ? RiLockUnlockLine : RiLock2Fill}
           isLabelHidden={true}
-          label="Premium"
+          label={intl.formatMessage({
+            defaultMessage: 'Premium',
+            description: 'Label for premium',
+            id: 'ymmDf7',
+          })}
           size="sm"
           variant="special"
         />

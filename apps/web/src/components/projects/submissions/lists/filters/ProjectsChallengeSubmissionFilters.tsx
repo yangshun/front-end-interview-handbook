@@ -154,8 +154,16 @@ export default function ProjectsChallengeSubmissionFilters({
       <div className="w-full flex-1 lg:w-auto">
         <TextInput
           isLabelHidden={true}
-          label="Search"
-          placeholder="Search by name/project brief"
+          label={intl.formatMessage({
+            defaultMessage: 'Search',
+            description: 'Search input label',
+            id: 'Z30bjj',
+          })}
+          placeholder={intl.formatMessage({
+            defaultMessage: 'Search by name/project brief',
+            description: 'Challenge search placeholder',
+            id: '8+eqIW',
+          })}
           startIcon={RiSearchLine}
           type="text"
           value={searchQuery}

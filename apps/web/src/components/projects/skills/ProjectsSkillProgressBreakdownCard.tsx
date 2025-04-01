@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 
-import { FormattedMessage } from '~/components/intl';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Text from '~/components/ui/Text';
 import { themeBackgroundChipColor } from '~/components/ui/theme';
 
@@ -44,6 +44,7 @@ export default function ProjectsSkillProgressBreakdownCard({
   borderColor,
   subSkills,
 }: Props) {
+  const intl = useIntl();
   const first4SubSkills = subSkills.slice(0, MAX_SUBSKILLS_TO_SHOW);
   const othersSubSkillsTotalPoints = subSkills
     .slice(MAX_SUBSKILLS_TO_SHOW)
@@ -73,7 +74,6 @@ export default function ProjectsSkillProgressBreakdownCard({
           />
         </Text>
       </div>
-
       <div className="mt-4 flex flex-col gap-1">
         {first4SubSkills.map((subSkill) => (
           <SubSkillItem key={subSkill.key} subSkill={subSkill} />
@@ -81,7 +81,11 @@ export default function ProjectsSkillProgressBreakdownCard({
         {subSkills.length > MAX_SUBSKILLS_TO_SHOW && (
           <SubSkillItem
             subSkill={{
-              key: 'Others',
+              key: intl.formatMessage({
+                defaultMessage: 'Others',
+                description: 'Others label',
+                id: 'CGkwJv',
+              }),
               points: othersSubSkillsTotalPoints,
             }}
           />

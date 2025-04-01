@@ -1,9 +1,12 @@
+'use client';
+
 import clsx from 'clsx';
 import { clamp } from 'lodash-es';
 import { useEffect, useRef, useState } from 'react';
 import { RiLayoutGridLine, RiZoomInLine, RiZoomOutLine } from 'react-icons/ri';
 import { useToggle, useWindowSize } from 'usehooks-ts';
 
+import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 
 import { useWheel } from '@use-gesture/react';
@@ -33,6 +36,7 @@ export default function ProjectsImageViewer({
   width,
   grid,
 }: Props) {
+  const intl = useIntl();
   const wrapperRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
   const [zoomLevel, setZoomLevel] = useState(50);
@@ -91,7 +95,11 @@ export default function ProjectsImageViewer({
           <Button
             icon={RiLayoutGridLine}
             isLabelHidden={true}
-            label="Toggle grid"
+            label={intl.formatMessage({
+              defaultMessage: 'Toggle grid',
+              description: 'Image viewer toggle grid button label',
+              id: 'FGbXVo',
+            })}
             variant="secondary"
             onClick={() => toggleGrid()}
           />
@@ -99,14 +107,22 @@ export default function ProjectsImageViewer({
         <Button
           icon={RiZoomInLine}
           isLabelHidden={true}
-          label="Zoom in"
+          label={intl.formatMessage({
+            defaultMessage: 'Zoom in',
+            description: 'Image viewer zoom in button label',
+            id: 'S7OvQG',
+          })}
           variant="secondary"
           onClick={() => setZoomLevelWithClamp(zoomLevel + 10)}
         />
         <Button
           icon={RiZoomOutLine}
           isLabelHidden={true}
-          label="Zoom out"
+          label={intl.formatMessage({
+            defaultMessage: 'Zoom out',
+            description: 'Image viewer zoom out button label',
+            id: 'C19ZkT',
+          })}
           variant="secondary"
           onClick={() => setZoomLevelWithClamp(zoomLevel - 10)}
         />

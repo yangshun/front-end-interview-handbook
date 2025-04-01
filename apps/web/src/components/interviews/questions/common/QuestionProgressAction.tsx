@@ -135,8 +135,8 @@ export default function QuestionProgressAction({
         isLoading={deleteProgressMutation.isLoading}
         label={intl.formatMessage({
           defaultMessage: 'Completed',
-          description: 'The question has been completed',
-          id: 'RhV5e8',
+          description: 'Question completion label',
+          id: 'TY7Aig',
         })}
         size="xs"
         tooltip={intl.formatMessage({

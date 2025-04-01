@@ -4,7 +4,7 @@ import { RiQuestionnaireLine } from 'react-icons/ri';
 
 import { trpc } from '~/hooks/trpc';
 
-import { FormattedMessage } from '~/components/intl';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import EmptyState from '~/components/ui/EmptyState';
 import Spinner from '~/components/ui/Spinner';
 import Text from '~/components/ui/Text';
@@ -30,6 +30,7 @@ export default function ProjectsDiscussionsCommentList({
   domain,
   viewer,
 }: Props) {
+  const intl = useIntl();
   const [isAscendingOrder, setIsAscendingOrder] = useState(false);
   const [sortField, setSortField] =
     useState<ProjectsDiscussionsCommentSortField>('createdAt');
@@ -57,8 +58,16 @@ export default function ProjectsDiscussionsCommentList({
       <div
         className={clsx('w-full rounded-lg py-10', 'border', themeBorderColor)}>
         <EmptyState
-          subtitle="Be the first to leave a comment"
-          title="No comments yet"
+          subtitle={intl.formatMessage({
+            defaultMessage: 'Be the first to leave a comment',
+            description: 'No comment subtitle',
+            id: 'on59cP',
+          })}
+          title={intl.formatMessage({
+            defaultMessage: 'No comments yet',
+            description: 'No comment title',
+            id: '9QBgga',
+          })}
         />
       </div>
     );

@@ -1,6 +1,9 @@
+'use client';
+
 import { RiAddLine } from 'react-icons/ri';
 import url from 'url';
 
+import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 
 import { useI18nPathname } from '~/next-i18nostic/src';
@@ -12,6 +15,7 @@ export default function ProjectsDiscussionsCommentCompleteProfileButton({
 }: Readonly<{
   scrollHash: string;
 }>) {
+  const intl = useIntl();
   const { pathname } = useI18nPathname();
   const { handleActionRequiringCompletedProjectsProfile } =
     useProjectsOnboardingContext();
@@ -20,7 +24,11 @@ export default function ProjectsDiscussionsCommentCompleteProfileButton({
     <Button
       addonPosition="start"
       icon={RiAddLine}
-      label="Add a comment"
+      label={intl.formatMessage({
+        defaultMessage: 'Add a comment',
+        description: 'Add a comment button label',
+        id: 'qTmzvl',
+      })}
       variant="primary"
       onClick={() =>
         handleActionRequiringCompletedProjectsProfile({

@@ -113,7 +113,11 @@ export default function ProjectsChallengeSubmissionDeploymentUrlItemFormDialog({
                   ? formState.errors.label?.message
                   : undefined
               }
-              label="Page name"
+              label={intl.formatMessage({
+                defaultMessage: 'Page name',
+                description: 'Label for page name input',
+                id: '8mha7a',
+              })}
               placeholder={attrs.namePlaceholder}
               required={true}
               {...field}

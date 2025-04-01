@@ -58,7 +58,12 @@ export default function ProjectsChallengeSubmissionDeploymentUrlsField({
               required={true}
             />
             <Text className="block" color="secondary" size="body3">
-              Provide at least 1 URL where you hosted your solution
+              {intl.formatMessage({
+                defaultMessage:
+                  'Provide at least 1 URL where you hosted your solution',
+                description: 'Helper text for the deployment URLs field',
+                id: '/2+ppr',
+              })}
             </Text>
           </div>
           <div className="-me-3">
@@ -103,7 +108,11 @@ export default function ProjectsChallengeSubmissionDeploymentUrlsField({
                     className="ms-2"
                     icon={RiPencilLine}
                     isLabelHidden={true}
-                    label="Edit"
+                    label={intl.formatMessage({
+                      defaultMessage: 'Edit',
+                      description: 'Edit button label',
+                      id: '2rcoOT',
+                    })}
                     size="md"
                     variant="tertiary"
                     onClick={() => {
@@ -121,7 +130,11 @@ export default function ProjectsChallengeSubmissionDeploymentUrlsField({
                       className="ms-2"
                       icon={RiCloseLine}
                       isLabelHidden={true}
-                      label="Delete"
+                      label={intl.formatMessage({
+                        defaultMessage: 'Delete',
+                        description: 'Delete button label',
+                        id: 'WodcPq',
+                      })}
                       size="md"
                       variant="tertiary"
                       onClick={() => {

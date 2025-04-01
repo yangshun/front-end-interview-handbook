@@ -1,3 +1,5 @@
+'use client';
+
 import clsx from 'clsx';
 import { useEffect, useRef, useState } from 'react';
 import {
@@ -6,6 +8,7 @@ import {
   RiQuillPenLine,
 } from 'react-icons/ri';
 
+import { useIntl } from '~/components/intl';
 import usePromotionsReviewCashbackLabels from '~/components/promotions/review/usePromotionsReviewCashbackLabels';
 import useStudentDiscountLabels from '~/components/promotions/student/usePromotionsStudentDiscountLabels';
 import Alert from '~/components/ui/Alert';
@@ -22,6 +25,8 @@ import {
 import * as TabsPrimitive from '@radix-ui/react-tabs';
 
 function LimitedRibbon() {
+  const intl = useIntl();
+
   return (
     <span
       className="size-14 absolute -right-0.5 -top-0.5 overflow-hidden"
@@ -40,13 +45,18 @@ function LimitedRibbon() {
           'text-2xs font-medium uppercase',
           themeTextInvertColor,
         )}>
-        Limited
+        {intl.formatMessage({
+          defaultMessage: 'Limited',
+          description: 'Label for limited time promotion',
+          id: '+f18YC',
+        })}
       </span>
     </span>
   );
 }
 
 export default function ProjectsPricingPromotions() {
+  const intl = useIntl();
   const [index, setIndex] = useState(0);
   const studentDiscountLabels = useStudentDiscountLabels();
   const reviewCashbackDiscountLabels = usePromotionsReviewCashbackLabels();
@@ -102,7 +112,11 @@ export default function ProjectsPricingPromotions() {
                   <Button
                     href="/promotions"
                     icon={RiArrowRightLine}
-                    label="Check it out"
+                    label={intl.formatMessage({
+                      defaultMessage: 'Check it out',
+                      description: 'Check it out button label',
+                      id: 'g7IcyE',
+                    })}
                     variant="secondary"
                   />
                 </div>

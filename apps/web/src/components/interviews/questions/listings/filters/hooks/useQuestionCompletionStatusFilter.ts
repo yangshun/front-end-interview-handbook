@@ -31,8 +31,8 @@ export default function useQuestionCompletionStatusFilter({
     {
       label: intl.formatMessage({
         defaultMessage: 'Completed',
-        description: 'Completed status for a question',
-        id: 'ZN/wJM',
+        description: 'Question completion label',
+        id: 'TY7Aig',
       }),
       value: 'completed',
     },

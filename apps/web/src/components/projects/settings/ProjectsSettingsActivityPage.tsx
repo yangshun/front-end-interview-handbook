@@ -124,32 +124,74 @@ function ProjectsSettingsActivitySection() {
               {session.status === 'IN_PROGRESS' && (
                 <span>
                   <Text color="warning" weight="medium">
-                    In progress
+                    {intl.formatMessage({
+                      defaultMessage: 'In progress',
+                      description: 'In progress label',
+                      id: '8S8X9F',
+                    })}
                   </Text>{' '}
-                  &middot; Started at <Timestamp date={session.createdAt} />
+                  &middot;{' '}
+                  {intl.formatMessage({
+                    defaultMessage: 'Started at',
+                    description: 'Started at label',
+                    id: 'HpRJcG',
+                  })}{' '}
+                  <Timestamp date={session.createdAt} />
                 </span>
               )}
               {session.status === 'COMPLETED' &&
                 (session.stoppedAt ? (
                   <span>
                     <Text color="success" weight="medium">
-                      Completed
+                      {intl.formatMessage({
+                        defaultMessage: 'Completed',
+                        description: 'Completed a challenge',
+                        id: 'a0kDGg',
+                      })}
                     </Text>{' '}
-                    &middot; Completed at <Timestamp date={session.stoppedAt} />
+                    &middot;{' '}
+                    {intl.formatMessage({
+                      defaultMessage: 'Completed at',
+                      description: 'Completed at',
+                      id: '3VsNAt',
+                    })}{' '}
+                    <Timestamp date={session.stoppedAt} />
                   </span>
                 ) : (
-                  <span className={themeTextSuccessColor}>Completed</span>
+                  <span className={themeTextSuccessColor}>
+                    {intl.formatMessage({
+                      defaultMessage: 'Completed',
+                      description: 'Completed a challenge',
+                      id: 'a0kDGg',
+                    })}
+                  </span>
                 ))}
               {session.status === 'STOPPED' &&
                 (session.stoppedAt ? (
                   <span>
                     <Text color="error" weight="medium">
-                      Stopped
+                      {intl.formatMessage({
+                        defaultMessage: 'Stopped',
+                        description: 'Stopped a challenge',
+                        id: '1y0w+K',
+                      })}
                     </Text>{' '}
-                    &middot; Stopped at <Timestamp date={session.stoppedAt} />
+                    &middot;{' '}
+                    {intl.formatMessage({
+                      defaultMessage: 'Stopped at',
+                      description: 'Stopped at label',
+                      id: 'jKbWY+',
+                    })}{' '}
+                    <Timestamp date={session.stoppedAt} />
                   </span>
                 ) : (
-                  <span>Stopped</span>
+                  <span>
+                    {intl.formatMessage({
+                      defaultMessage: 'Stopped',
+                      description: 'Stopped a challenge',
+                      id: '1y0w+K',
+                    })}
+                  </span>
                 ))}
             </Text>
           </div>

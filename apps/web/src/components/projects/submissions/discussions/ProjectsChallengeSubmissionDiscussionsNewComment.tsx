@@ -121,7 +121,11 @@ export default function ProjectsChallengeSubmissionDiscussionsNewComment({
       </div>
       <div className="mt-2 flex flex-wrap items-center gap-2">
         <Text size="body3" weight="medium">
-          Mark post as (optional):
+          {intl.formatMessage({
+            defaultMessage: 'Mark post as (optional):',
+            description: 'Mark post as optional label',
+            id: 'u6wB20',
+          })}
         </Text>
         <Controller
           control={control}
@@ -130,11 +134,19 @@ export default function ProjectsChallengeSubmissionDiscussionsNewComment({
             <div className="flex flex-wrap gap-2">
               {[
                 {
-                  label: 'Code review',
+                  label: intl.formatMessage({
+                    defaultMessage: 'Code review',
+                    description: 'Discussions comment category label',
+                    id: 'v4mi2Z',
+                  }),
                   value: 'CODE_REVIEW',
                 },
                 {
-                  label: 'Question',
+                  label: intl.formatMessage({
+                    defaultMessage: 'Question',
+                    description: 'Discussions comment category label',
+                    id: 'kdX5r2',
+                  }),
                   value: 'QUESTION',
                 },
               ].map(({ value, label }) => (

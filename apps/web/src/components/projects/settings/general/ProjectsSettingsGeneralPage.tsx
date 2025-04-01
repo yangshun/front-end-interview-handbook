@@ -6,7 +6,7 @@ import useUserProfile from '~/hooks/user/useUserProfile';
 
 import SupabaseAuthUpdatePassword from '~/components/auth/SupabaseAuthUpdatePassword';
 import Timestamp from '~/components/common/datetime/Timestamp';
-import { FormattedMessage } from '~/components/intl';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import ProfileAccountEmail from '~/components/profile/fields/ProfileAccountEmail';
 import Heading from '~/components/ui/Heading';
 import Spinner from '~/components/ui/Spinner';
@@ -16,6 +16,7 @@ import { themeBorderColor } from '~/components/ui/theme';
 import { useUser } from '@supabase/auth-helpers-react';
 
 export default function ProjectsSettingsGeneralPage() {
+  const intl = useIntl();
   const { userProfile } = useUserProfile();
   const user = useUser();
 
@@ -31,9 +32,20 @@ export default function ProjectsSettingsGeneralPage() {
     <div className="flex flex-col gap-6">
       <div className="flex flex-col gap-3">
         <div className="flex items-center justify-between gap-4">
-          <Heading level="heading5">Account settings</Heading>
+          <Heading level="heading5">
+            {intl.formatMessage({
+              defaultMessage: 'Account settings',
+              description: 'Account settings label',
+              id: 's1ib7q',
+            })}
+          </Heading>
           <Text color="secondary" size="body2">
-            Joined on <Timestamp date={userProfile.createdAt} />
+            {intl.formatMessage({
+              defaultMessage: 'Joined on',
+              description: 'Joined on label',
+              id: '4W9OGS',
+            })}
+            <Timestamp date={userProfile.createdAt} />
           </Text>
         </div>
         <Text color="secondary" size="body2">

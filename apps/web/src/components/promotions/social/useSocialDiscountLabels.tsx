@@ -13,8 +13,8 @@ export function useSocialDiscountLabels() {
   return {
     ctaLabel: intl.formatMessage({
       defaultMessage: 'Check it out',
-      description: 'Button label',
-      id: 'SUmtwn',
+      description: 'Check it out button label',
+      id: 'g7IcyE',
     }),
     existingPromoCtaLabel: intl.formatMessage({
       defaultMessage: 'Use now',

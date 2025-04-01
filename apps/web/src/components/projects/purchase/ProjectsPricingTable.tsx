@@ -564,6 +564,7 @@ export default function ProjectsPricingTable({
   showPPPMessage,
   useCurrentPageAsCancelUrl,
 }: Props) {
+  const intl = useIntl();
   const planList = useProjectsPricingPlansList(plansPaymentConfig);
   const features = useProjectsPricingPlanFeatures({
     ANNUAL: annualPlanFeatures,
@@ -588,7 +589,13 @@ export default function ProjectsPricingTable({
           tableClassName,
         )}>
         <table className="w-full table-fixed border-separate border-spacing-x-4">
-          <caption className="sr-only">Pricing plan comparison</caption>
+          <caption className="sr-only">
+            {intl.formatMessage({
+              defaultMessage: 'Pricing plan comparison',
+              description: 'Pricing plan comparison table caption',
+              id: 'V8gZjU',
+            })}
+          </caption>
           <colgroup>
             <col className="w-1/4 2xl:w-2/5" />
             <col className="w-1/4 2xl:w-1/5" />
@@ -610,7 +617,13 @@ export default function ProjectsPricingTable({
           <tbody>
             <tr>
               <th scope="row">
-                <span className="sr-only">Price</span>
+                <span className="sr-only">
+                  {intl.formatMessage({
+                    defaultMessage: 'Price',
+                    description: 'Pricing page price',
+                    id: 'CYr24j',
+                  })}
+                </span>
               </th>
               {planList.map(({ name, paymentConfig, numberOfMonths, type }) => (
                 <td key={name} className="px-4 py-5 align-top">

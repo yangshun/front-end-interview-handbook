@@ -67,8 +67,8 @@ export default function ProjectsProfileCommunityCommentList({
                       className="h-6 w-min"
                       label={intl.formatMessage({
                         defaultMessage: 'Question',
-                        description: 'Label for question badge',
-                        id: '6+IMdW',
+                        description: 'Discussions comment category label',
+                        id: 'kdX5r2',
                       })}
                       size="sm"
                       variant="primary"
@@ -79,8 +79,8 @@ export default function ProjectsProfileCommunityCommentList({
                       className="h-6 w-min"
                       label={intl.formatMessage({
                         defaultMessage: 'Code review',
-                        description: 'Label for question badge',
-                        id: 'pJA5oJ',
+                        description: 'Discussions comment category label',
+                        id: 'v4mi2Z',
                       })}
                       size="sm"
                       variant="info"

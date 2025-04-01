@@ -52,8 +52,8 @@ export default function ProjectsStatusBadgeCompleted({
 
   const label = intl.formatMessage({
     defaultMessage: 'Completed',
-    description: 'Project completed label',
-    id: 'YY7lXv',
+    description: 'Challenge completion label',
+    id: 'RO7rPV',
   });
 
   return (

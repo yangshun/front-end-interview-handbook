@@ -4,6 +4,7 @@ import { createContext, type ReactNode, useContext, useState } from 'react';
 
 import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
 
+import { useIntl } from '~/components/intl';
 import Text from '~/components/ui/Text';
 
 import { useI18nPathname, useI18nRouter } from '~/next-i18nostic/src';
@@ -38,6 +39,7 @@ export function useProjectsOnboardingContext() {
 }
 
 export default function ProjectsOnboardingContextProvider({ children }: Props) {
+  const intl = useIntl();
   const router = useI18nRouter();
   const { pathname } = useI18nPathname();
   const [showOnboardingDialog, setShowOnboardingDialog] = useState<{
@@ -116,10 +118,18 @@ export default function ProjectsOnboardingContextProvider({ children }: Props) {
       }}>
       {children}
       <ConfirmationDialog
-        confirmButtonLabel="Get started"
+        confirmButtonLabel={intl.formatMessage({
+          defaultMessage: 'Get started',
+          description: 'Get started label',
+          id: 'yawjvQ',
+        })}
         isShown={showOnboardingDialog.shown}
         showCancelButton={false}
-        title="Set up your profile first (it's quick!)"
+        title={intl.formatMessage({
+          defaultMessage: "Set up your profile first (it's quick!)",
+          description: 'Projects onboarding dialog title',
+          id: 'W7K4ko',
+        })}
         onCancel={() => {
           setShowOnboardingDialog({
             onboardingNextHref: null,
@@ -134,12 +144,20 @@ export default function ProjectsOnboardingContextProvider({ children }: Props) {
         }}>
         <div className="flex flex-col gap-y-4">
           <Text className="block" color="subtitle">
-            Before proceeding, fill out your name and YOE. This helps the
-            community provide more relevant support.
+            {intl.formatMessage({
+              defaultMessage:
+                'Before proceeding, fill out your name and YOE. This helps the community provide more relevant support.',
+              description: 'Projects onboarding dialog description',
+              id: 'cfvE2F',
+            })}
           </Text>
           <Text className="block" color="subtitle">
-            PS: This profile is only for Projects – it won't be linked to your
-            Interviews account.
+            {intl.formatMessage({
+              defaultMessage:
+                "PS: This profile is only for Projects - it won't be linked to your Interviews account.",
+              description: 'Projects onboarding dialog description',
+              id: 'tk49aL',
+            })}
           </Text>
         </div>
       </ConfirmationDialog>

@@ -17,8 +17,8 @@ export default function useProjectsAllChallengesFilterOptions() {
       icon: RiLoader2Line,
       label: intl.formatMessage({
         defaultMessage: 'In progress',
-        description: 'Projects challenge in progress',
-        id: '0ZZ4Vl',
+        description: 'Challenge completion label',
+        id: 'GZLfaL',
       }),
       tooltip: intl.formatMessage({
         defaultMessage: 'Show in progress challenges',
@@ -31,8 +31,8 @@ export default function useProjectsAllChallengesFilterOptions() {
       icon: RiCodeSSlashFill,
       label: intl.formatMessage({
         defaultMessage: 'Completed',
-        description: 'Projects challenge completed',
-        id: 'wDKscz',
+        description: 'Challenge completion label',
+        id: 'RO7rPV',
       }),
       tooltip: intl.formatMessage({
         defaultMessage: 'Show completed challenges',

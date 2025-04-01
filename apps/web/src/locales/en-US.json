@@ -115,6 +115,14 @@
     "defaultMessage": "Post",
     "description": "Label for post reply button on project discussions page"
   },
+  "+f18YC": {
+    "defaultMessage": "Limited",
+    "description": "Label for limited time promotion"
+  },
+  "+fT/kg": {
+    "defaultMessage": "Turn Figma into Code",
+    "description": "Figma to code plugin title"
+  },
   "+gMPfE": {
     "defaultMessage": "Search by challenge name / brief",
     "description": "Search placeholder for challenge listing"
@@ -206,6 +214,10 @@
   "/17ryO": {
     "defaultMessage": "Are you preparing for a front end engineering interview and feeling overwhelmed by the behavioral round? You're not alone. While coding skills are essential, companies are equally interested in how you think, communicate, and collaborate.",
     "description": "Long description of behavioral interview playbook page"
+  },
+  "/2+ppr": {
+    "defaultMessage": "Provide at least 1 URL where you hosted your solution",
+    "description": "Helper text for the deployment URLs field"
   },
   "/3fbsW": {
     "defaultMessage": "Intervals",
@@ -303,6 +315,10 @@
     "defaultMessage": "We use this to calculate your YOE and keep it updated",
     "description": "Description for \"When did you start work\" input on Projects profile onboarding page"
   },
+  "/cOJC4": {
+    "defaultMessage": "Tell us about your motivations",
+    "description": "Motivations field placeholder"
+  },
   "/dPmoS": {
     "defaultMessage": "Test cases",
     "description": "Coding workspace test cases tab label"
@@ -394,10 +410,6 @@
   "01DH9a": {
     "defaultMessage": "JavaScript functions",
     "description": "Question format"
-  },
-  "01jNoZ": {
-    "defaultMessage": "Get started",
-    "description": "Hint for \"Project Brief\" and \"Assets\" tab on Projects project page"
   },
   "032cio": {
     "defaultMessage": "Move line up",
@@ -535,10 +547,6 @@
     "defaultMessage": "Array",
     "description": "Computer science topic"
   },
-  "0ZZ4Vl": {
-    "defaultMessage": "In progress",
-    "description": "Projects challenge in progress"
-  },
   "0azrZ0": {
     "defaultMessage": "Take care not to upload any premium Figma or guide files. Doing so will cause an immediate membership termination. <link>View terms</link>",
     "description": "Warning message for GitHub repo step in project submission checklist"
@@ -626,6 +634,10 @@
   "1/mHuG": {
     "defaultMessage": "Tech stack",
     "description": "Section title for tech stack"
+  },
+  "11MN+F": {
+    "defaultMessage": "Difficulty",
+    "description": "Challenge difficulty"
   },
   "11Z2Fw": {
     "defaultMessage": "Can't find the answer you are looking for? <link>Reach out to us!</link>",
@@ -774,6 +786,10 @@
   "1wrVTx": {
     "defaultMessage": "Edit on GitHub",
     "description": "Edit on GitHub button"
+  },
+  "1y0w+K": {
+    "defaultMessage": "Stopped",
+    "description": "Stopped a challenge"
   },
   "1yrEHk": {
     "defaultMessage": "Unsubscribe",
@@ -971,6 +987,10 @@
     "defaultMessage": "Country is required",
     "description": "Error message for country"
   },
+  "36Ei20": {
+    "defaultMessage": "Key Features",
+    "description": "Key features label"
+  },
   "37Ttml": {
     "defaultMessage": "Security",
     "description": "Title for Security section on profile page"
@@ -1019,6 +1039,10 @@
     "defaultMessage": "Never waste your time building one-off projects",
     "description": "Title for \"Never waste your time building one-off projects\" feature marketing section on Projects home page"
   },
+  "3M5CDz": {
+    "defaultMessage": "In Progress",
+    "description": "Challenge completion label"
+  },
   "3OlyG+": {
     "defaultMessage": "Filters",
     "description": "Title of Projects contribution filter slide-out"
@@ -1046,6 +1070,10 @@
   "3UtpZS": {
     "defaultMessage": "Submission deleted!",
     "description": "Delete challenge success message"
+  },
+  "3VsNAt": {
+    "defaultMessage": "Completed at",
+    "description": "Completed at"
   },
   "3W2LB+": {
     "defaultMessage": "Request form | Advertise with us",
@@ -1163,6 +1191,10 @@
     "defaultMessage": "Open menu",
     "description": "Open menu button label"
   },
+  "40LE98": {
+    "defaultMessage": "User submission discussion",
+    "description": "Forum type label"
+  },
   "41uq3N": {
     "defaultMessage": "Theme",
     "description": "Tooltip for theme selector"
@@ -1242,6 +1274,10 @@
   "4PQzx7": {
     "defaultMessage": "A starter guide to preparing for front end interviews",
     "description": "Description for front end interview guide"
+  },
+  "4W9OGS": {
+    "defaultMessage": "Joined on",
+    "description": "Joined on label"
   },
   "4YniIl": {
     "defaultMessage": "Pass",
@@ -1522,10 +1558,6 @@
   "5ykFzo": {
     "defaultMessage": "You replied to <bold>yourself</bold> on the submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for you replying to yourself on a submission"
-  },
-  "6+IMdW": {
-    "defaultMessage": "Question",
-    "description": "Label for question badge"
   },
   "6/Qdew": {
     "defaultMessage": "Start project",
@@ -1923,6 +1955,10 @@
     "defaultMessage": "Your Google Auth account has been successfully connected.",
     "description": "Success toast message for connected successfully"
   },
+  "8+eqIW": {
+    "defaultMessage": "Search by name/project brief",
+    "description": "Challenge search placeholder"
+  },
   "81fBRO": {
     "defaultMessage": "Contact your bank to request an increase in the number of allowed transactions.",
     "description": "Reason label for increase transactions"
@@ -1995,6 +2031,10 @@
     "defaultMessage": "Walmart",
     "description": "Company name for Walmart"
   },
+  "8S8X9F": {
+    "defaultMessage": "In progress",
+    "description": "In progress label"
+  },
   "8S9LzK": {
     "defaultMessage": "The page has been removed or there is a mistake in the URL.",
     "description": "Not found page description"
@@ -2031,6 +2071,10 @@
     "defaultMessage": "Your existing code will be discarded, are you sure?",
     "description": "Text on browser confirmation pop-up when user attempts to use the reset button to reset their code"
   },
+  "8aakua": {
+    "defaultMessage": "Completed",
+    "description": "Guide completion label"
+  },
   "8bcHtK": {
     "defaultMessage": "Progress | Dashboard",
     "description": "Title of progress section on dashboard page"
@@ -2039,9 +2083,9 @@
     "defaultMessage": "Clarify doubts in forums",
     "description": "Title of 'Clarify doubts in forums' sub-feature in Projects marketing page"
   },
-  "8hrzCT": {
-    "defaultMessage": "Edit",
-    "description": "Tooltip for Edit button"
+  "8dh4cI": {
+    "defaultMessage": "These guides help you get started on the trickier portions of the challenge and are not meant to be exhaustive. However, do let us know what other guidance you'd benefit from and we can add it in.",
+    "description": "Challenge guide info alert message"
   },
   "8jSm6h": {
     "defaultMessage": "Binary search",
@@ -2055,9 +2099,17 @@
     "defaultMessage": "Create",
     "description": "Create label"
   },
+  "8mha7a": {
+    "defaultMessage": "Page name",
+    "description": "Label for page name input"
+  },
   "8nTsZn": {
     "defaultMessage": "Saved code",
     "description": "Coding workspace saved code tab label"
+  },
+  "8ojfuD": {
+    "defaultMessage": "Responsive solution built with React",
+    "description": "Submission support card title"
   },
   "8tTY7b": {
     "defaultMessage": "Loading submissions",
@@ -2210,6 +2262,10 @@
   "9Oyn4m": {
     "defaultMessage": "Leverage our <anchor>front end interview roadmap</anchor> to prepare quickly and effectively.",
     "description": "Description for front end interview roadmap"
+  },
+  "9QBgga": {
+    "defaultMessage": "No comments yet",
+    "description": "No comment title"
   },
   "9R/+sv": {
     "defaultMessage": "Offer from",
@@ -2555,6 +2611,10 @@
     "defaultMessage": "paid once",
     "description": "Pay the price once"
   },
+  "BNjIa/": {
+    "defaultMessage": "Project Brief",
+    "description": "Projects brief"
+  },
   "BOh0kv": {
     "defaultMessage": "See {username}'s approach to building the {challengeName} on GreatFrontEnd. Engage with their work, share feedback, and gain new perspectives for your projects",
     "description": "Description of Projects submission page"
@@ -2663,6 +2723,10 @@
     "defaultMessage": "Question demo",
     "description": "Marketing section title"
   },
+  "C19ZkT": {
+    "defaultMessage": "Zoom out",
+    "description": "Image viewer zoom out button label"
+  },
   "C34sRh": {
     "defaultMessage": "Account Settings",
     "description": "Screenreader text for account settings."
@@ -2698,6 +2762,10 @@
   "CCiMOz": {
     "defaultMessage": "We recommend well-rated submissions using the same stack for your reference",
     "description": "Description for \"Learn from good code\" item in Expected Support section on Projects project page"
+  },
+  "CGkwJv": {
+    "defaultMessage": "Others",
+    "description": "Others label"
   },
   "CHR6u9": {
     "defaultMessage": "Name your save",
@@ -2751,6 +2819,10 @@
     "defaultMessage": "Your subscription renews on <bold>{date}</bold>",
     "description": "Information about subscription"
   },
+  "CYr24j": {
+    "defaultMessage": "Price",
+    "description": "Pricing page price"
+  },
   "CZl1aD": {
     "defaultMessage": "Essential topics",
     "description": "React essential topics"
@@ -2778,10 +2850,6 @@
   "CgF99H": {
     "defaultMessage": "\"2 months free exclusive beta access to our new mystery product dropping in Jan – Feb 2024\"",
     "description": "Exclusive ticket tooltip"
-  },
-  "Chxk4J": {
-    "defaultMessage": "With every purchase",
-    "description": "Label for with every purchase for Black Friday special"
   },
   "Cl4Ghp": {
     "defaultMessage": "On this page",
@@ -3251,6 +3319,10 @@
     "defaultMessage": "Submit a comment",
     "description": "Label for discussion input textarea"
   },
+  "FGbXVo": {
+    "defaultMessage": "Toggle grid",
+    "description": "Image viewer toggle grid button label"
+  },
   "FIHdOw": {
     "defaultMessage": "Get remunerated",
     "description": "Affiliate program step"
@@ -3306,6 +3378,10 @@
   "Fgr6w/": {
     "defaultMessage": "See all",
     "description": "Link to see all submissions"
+  },
+  "FhsVf8": {
+    "defaultMessage": "Start building any project you can dream of to train your front end.",
+    "description": "Projects challenge description"
   },
   "FixyP6": {
     "defaultMessage": "Tip: Many users have reimbursed GreatFrontEnd Interviews Premium as part of their company's flexible benefits or learning and training budget.",
@@ -3458,6 +3534,10 @@
   "GXlJqk": {
     "defaultMessage": "Data structures & algorithms",
     "description": "Front end topic"
+  },
+  "GZLfaL": {
+    "defaultMessage": "In progress",
+    "description": "Challenge completion label"
   },
   "GZnl60": {
     "defaultMessage": "Tips for making a strong first impression in your self introduction",
@@ -3739,6 +3819,10 @@
     "defaultMessage": "Start coding!",
     "description": "Label for \"Start coding!\" button on Projects project page"
   },
+  "HpRJcG": {
+    "defaultMessage": "Started at",
+    "description": "Started at label"
+  },
   "Hph7Vz": {
     "defaultMessage": "LeetCode-style algorithmic coding questions which evaluate your core data structures and algorithms skills.",
     "description": "Description for ui coding questions"
@@ -3754,6 +3838,10 @@
   "HtFDkf": {
     "defaultMessage": "Official guides",
     "description": "Title for \"Official guides\" feature on Projects home page"
+  },
+  "Hu5E0P": {
+    "defaultMessage": "As mentioned, there are many ways to host your site. Our recommended hosts are:",
+    "description": "Recommended hosts to deploy project"
   },
   "I+Qcp7": {
     "defaultMessage": "An eye-catching name to describe your solution. Will be displayed under the original Project's name and help other users identify your submission.",
@@ -4303,6 +4391,10 @@
     "defaultMessage": "Previous",
     "description": "Previous step button label"
   },
+  "KU6GCH": {
+    "defaultMessage": "The Newsletter Section aims to seamlessly capture user interest and encourage them to subscribe to our newsletters. This section serves as the initial point of interaction, requiring an intuitive and engaging design to maximize conversions.",
+    "description": "Objective description"
+  },
   "KU6vxj": {
     "defaultMessage": "Pages the ad will be shown",
     "description": "Label for pages"
@@ -4483,6 +4575,10 @@
     "defaultMessage": "Computer Science Foundations",
     "description": "Title for focus area type"
   },
+  "LAlNm0": {
+    "defaultMessage": "Premium",
+    "description": "Premium feature"
+  },
   "LC6VcF": {
     "defaultMessage": "{discount}% Off - GreatFrontEnd Social Rewards Campaign",
     "description": "Social title of Rewards page"
@@ -4550,10 +4646,6 @@
   "LNxxS2": {
     "defaultMessage": "Select tip type",
     "description": "Label for tabs to select tip type"
-  },
-  "LPfKTO": {
-    "defaultMessage": "Completed",
-    "description": "Label to indicate that a question has been completed"
   },
   "LQa3R3": {
     "defaultMessage": "User submissions | Learn from others",
@@ -4634,10 +4726,6 @@
   "LlNbSg": {
     "defaultMessage": "Collapse",
     "description": "Collapse label"
-  },
-  "LlY5Uv": {
-    "defaultMessage": "With every purchase",
-    "description": "With every purchase label"
   },
   "LlhHTu": {
     "defaultMessage": "Unlock challenge",
@@ -4799,6 +4887,10 @@
     "defaultMessage": "Sign in to save progress",
     "description": "Instructions for saving platform progress"
   },
+  "MdIpF6": {
+    "defaultMessage": "Browse project solutions from our community.",
+    "description": "Projects solutions description"
+  },
   "MeV/ww": {
     "defaultMessage": "Microsoft",
     "description": "Company name for Microsoft"
@@ -4915,6 +5007,10 @@
     "defaultMessage": "Completed",
     "description": "Entity completion status"
   },
+  "NZo35j": {
+    "defaultMessage": "Browser",
+    "description": "Browser tab label"
+  },
   "NbNtxn": {
     "defaultMessage": "GreatFrontEnd: The great way to prepare for Front End Interviews",
     "description": "Title of GreatFrontEnd standard page"
@@ -5019,6 +5115,10 @@
     "defaultMessage": "I Accept",
     "description": "Accept an agreement"
   },
+  "O4M0bE": {
+    "defaultMessage": "We have provided this Figma file free to help you get started and as an example of the quality you may expect from our Figma files.",
+    "description": "Challenge free Figma file message"
+  },
   "O6pifk": {
     "defaultMessage": "Coding interviews",
     "description": "Preparing by front end interview question format"
@@ -5066,6 +5166,10 @@
   "OWKf+S": {
     "defaultMessage": "Overview",
     "description": "Overview of behavioral interview"
+  },
+  "OWrvC0": {
+    "defaultMessage": "While our challenges are free to access, Figma files, challenge-specific guides and official solutions are usually premium features.",
+    "description": "Challenge premium features message"
   },
   "OY0i/0": {
     "defaultMessage": "Company details",
@@ -5295,10 +5399,6 @@
     "defaultMessage": "<authorLink>{author}</authorLink> replied to your code review on <submissionLink>{entityTitle}</submissionLink> {timestamp}",
     "description": "Notification for someone replied to your code review"
   },
-  "PYCLry": {
-    "defaultMessage": "Completed",
-    "description": "The guide has been completed"
-  },
   "PaucmE": {
     "defaultMessage": "Practice {questionCount}+ JavaScript Interview Questions on Data Structures and Algorithms. Code in-browser, with solutions and test cases from Big Tech Ex-interviewers",
     "description": "Description of interviews questions page"
@@ -5395,6 +5495,10 @@
     "defaultMessage": "Reference submissions",
     "description": "Reference code for projects"
   },
+  "Q/FIIG": {
+    "defaultMessage": "Match score",
+    "description": "Image comparison match score"
+  },
   "Q/Tw/6": {
     "defaultMessage": "Save time, ace interviews, and secure high-paying roles",
     "description": "Title for pricing section"
@@ -5482,6 +5586,10 @@
   "QVh3mt": {
     "defaultMessage": "Dropbox",
     "description": "Company name for Dropbox"
+  },
+  "QWBKmB": {
+    "defaultMessage": "Tabs",
+    "description": "Workspace tabs"
   },
   "QWwKE4": {
     "defaultMessage": "If these steps do not resolve the issue, please contact our support team at <link>support@greatfrontend.com</link> or through the <feedback>feedback widget</feedback>.",
@@ -5615,6 +5723,10 @@
     "defaultMessage": "Resources provided",
     "description": "Title for Assets Provided section on Projects project page"
   },
+  "R/tHnD": {
+    "defaultMessage": "Not Started",
+    "description": "Challenge completion label"
+  },
   "R0htzY": {
     "defaultMessage": "Delete ad?",
     "description": "Delete ad confirmation dialog title"
@@ -5715,6 +5827,10 @@
     "defaultMessage": "We've automatically applied a {discountPercentage}% discount on all prices to account for purchasing power in {countryName}",
     "description": "Tooltip for purchasing power parity"
   },
+  "RO7rPV": {
+    "defaultMessage": "Completed",
+    "description": "Challenge completion label"
+  },
   "RQRPBv": {
     "defaultMessage": "Top 20+ common behavioral interview questions for SWE",
     "description": "Most common behavioral interview questions for software engineers"
@@ -5799,10 +5915,6 @@
     "defaultMessage": "Use now",
     "description": "Button label for use now button"
   },
-  "RhV5e8": {
-    "defaultMessage": "Completed",
-    "description": "The question has been completed"
-  },
   "RjpadL": {
     "defaultMessage": "Reference practical guides, learn from other's submissions and ask any questions in the",
     "description": "Instruction for projects"
@@ -5871,6 +5983,10 @@
     "defaultMessage": "Free plan",
     "description": "Title of free pricing plan"
   },
+  "S7OvQG": {
+    "defaultMessage": "Zoom in",
+    "description": "Image viewer zoom in button label"
+  },
   "S8SLzJ": {
     "defaultMessage": "You asked a question on the challenge forum for <link>{challengeTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for you asking a question on the challenge forum"
@@ -5915,6 +6031,10 @@
     "defaultMessage": "Premium Content",
     "description": "Premium system design questions content"
   },
+  "SL8E2q": {
+    "defaultMessage": "Recommended projects to do to advance this skill progressively.",
+    "description": "Description for skill plan section"
+  },
   "SLpcOX": {
     "defaultMessage": "Change password",
     "description": "Title of Change Password page"
@@ -5955,10 +6075,6 @@
     "defaultMessage": "In the past year, you have been active for {days, plural, =0 {0 days} =1 {1 day} other {# days}}, completing at least one question each day.",
     "description": "Tooltip for max completion streak"
   },
-  "SUmtwn": {
-    "defaultMessage": "Check it out",
-    "description": "Button label"
-  },
   "SWdU2x": {
     "defaultMessage": "Next",
     "description": "Next step button label"
@@ -5966,10 +6082,6 @@
   "SWnsuA": {
     "defaultMessage": "Settings",
     "description": "Link label to the profile page"
-  },
-  "SZ26iB": {
-    "defaultMessage": "Search",
-    "description": "Placeholder for search input of blog list"
   },
   "SaUyXa": {
     "defaultMessage": "{company} Front End Interview Guide",
@@ -6174,6 +6286,10 @@
   "TWF/3l": {
     "defaultMessage": "Unlock all premium interviews content",
     "description": "Feature of pricing plan"
+  },
+  "TY7Aig": {
+    "defaultMessage": "Completed",
+    "description": "Question completion label"
   },
   "TaIXVz": {
     "defaultMessage": "Purchase premium to unlock full access to exclusive System Design content including high quality solutions and companies which ask this question.",
@@ -6475,6 +6591,10 @@
     "defaultMessage": "Level up!",
     "description": "Title for level up"
   },
+  "V8gZjU": {
+    "defaultMessage": "Pricing plan comparison",
+    "description": "Pricing plan comparison table caption"
+  },
   "VA0CqT": {
     "defaultMessage": "1-2 lines on what the project is about, to be displayed on the Submission cards to attract the community to comment on your project",
     "description": "Form label tooltip"
@@ -6490,6 +6610,10 @@
   "VHG62y": {
     "defaultMessage": "Create profile",
     "description": "Create a user profile"
+  },
+  "VIU+CM": {
+    "defaultMessage": "Features",
+    "description": "Features label"
   },
   "VJ7bP6": {
     "defaultMessage": "Products",
@@ -6670,6 +6794,10 @@
   "W4Akuo": {
     "defaultMessage": "Unlock premium",
     "description": "Purchase button label"
+  },
+  "W7K4ko": {
+    "defaultMessage": "Set up your profile first (it's quick!)",
+    "description": "Projects onboarding dialog title"
   },
   "W7aHCG": {
     "defaultMessage": "<authorProfileLink>{author}</authorProfileLink> asked <recipientProfileLink>{recipient}</recipientProfileLink> a question on their submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
@@ -6911,6 +7039,10 @@
     "defaultMessage": "Body: {characterLimit} characters maximum, not more than {maxLinkCount} links",
     "description": "Body placement constraints"
   },
+  "XCmhpD": {
+    "defaultMessage": "How to use Figma for development",
+    "description": "Figma guide link"
+  },
   "XG1Wfg": {
     "defaultMessage": "Join Discord (premium)",
     "description": "Tooltip for join premium discord"
@@ -7087,6 +7219,10 @@
     "defaultMessage": "Unpin",
     "description": "Unpin button label"
   },
+  "Y3lOgn": {
+    "defaultMessage": "Console",
+    "description": "Console tab label"
+  },
   "Y4hby8": {
     "defaultMessage": "Easy: {numberOfEasy}, Medium: {numberOfMedium}, Hard: {numberOfHard}",
     "description": "Difficulty breakdown tooltip displayed on question cards found on question lists"
@@ -7175,10 +7311,6 @@
     "defaultMessage": "Cancel",
     "description": "Cancel and close the sign in modal"
   },
-  "YY7lXv": {
-    "defaultMessage": "Completed",
-    "description": "Project completed label"
-  },
   "YYJEeq": {
     "defaultMessage": "None",
     "description": "No available slots"
@@ -7251,6 +7383,10 @@
     "defaultMessage": "{questionCount}+ Front End System Design Interview Questions",
     "description": "Page title for practice questions page"
   },
+  "Z30bjj": {
+    "defaultMessage": "Search",
+    "description": "Search input label"
+  },
   "Z3Z5Fp": {
     "defaultMessage": "Review other's project code and help them improve",
     "description": "Description for recommended action for new projects platform user"
@@ -7294,10 +7430,6 @@
   "ZMFRjh": {
     "defaultMessage": "Nightmare",
     "description": "Nightmare level blog"
-  },
-  "ZN/wJM": {
-    "defaultMessage": "Completed",
-    "description": "Completed status for a question"
   },
   "ZNFWBy": {
     "defaultMessage": "Browser",
@@ -7383,6 +7515,10 @@
     "defaultMessage": "Subscript",
     "description": "Label for subscript"
   },
+  "ZqUEtA": {
+    "defaultMessage": "No submissions",
+    "description": "No challenge submissions"
+  },
   "ZqUgX5": {
     "defaultMessage": "No progress to reset",
     "description": "Label for no progress to reset"
@@ -7411,9 +7547,17 @@
     "defaultMessage": "Focus areas",
     "description": "Title of focus areas page"
   },
+  "ZwXhsm": {
+    "defaultMessage": "With every purchase",
+    "description": "Label for with every purchase for Black Friday sale"
+  },
   "a0Osa7": {
     "defaultMessage": "Challenge: {challengeName} | Completion steps",
     "description": "Title of Projects challenge completion page"
+  },
+  "a0kDGg": {
+    "defaultMessage": "Completed",
+    "description": "Completed a challenge"
   },
   "a1RZkG": {
     "defaultMessage": "Web APIs",
@@ -7639,6 +7783,10 @@
     "defaultMessage": "Free",
     "description": "Free question"
   },
+  "azLXDh": {
+    "defaultMessage": "Deploying your project",
+    "description": "Deploying your project"
+  },
   "b+5e56": {
     "defaultMessage": "Purchasing power parity for {countryName}",
     "description": "Purchase PPP discount alert title"
@@ -7674,6 +7822,10 @@
   "b2csyI": {
     "defaultMessage": "Next",
     "description": "Label for button leading to the next page"
+  },
+  "b59DYW": {
+    "defaultMessage": "Senior (>6)",
+    "description": "Job experience label"
   },
   "b5AaMm": {
     "defaultMessage": "Core System Design techniques and in-depth solutions to common questions like building a social media feed, autocomplete component, e-commerce website.",
@@ -7947,6 +8099,10 @@
     "defaultMessage": "Prepare for front end interviews with a vast question bank covering every format and popular frameworks/languages. Includes solutions and tests from ex-interviewers.",
     "description": "Page description for focus areas listing"
   },
+  "cOS90R": {
+    "defaultMessage": "Junior (1-2)",
+    "description": "Job experience label"
+  },
   "cOyhbp": {
     "defaultMessage": "Your commonly asked questions, answered",
     "description": "Title for marketing page section"
@@ -7983,6 +8139,10 @@
     "defaultMessage": "Roadmap - Upcoming features and updates on Projects",
     "description": "OG title of Roadmap page"
   },
+  "cfvE2F": {
+    "defaultMessage": "Before proceeding, fill out your name and YOE. This helps the community provide more relevant support.",
+    "description": "Projects onboarding dialog description"
+  },
   "cgIBe4": {
     "defaultMessage": "Review must be at least {wordCount} words long or a video of at least {videoDurationInSeconds}s.",
     "description": "Condition for promotion"
@@ -7990,6 +8150,10 @@
   "cgTXiW": {
     "defaultMessage": "Design a News Feed (e.g. Facebook)",
     "description": "System design question title"
+  },
+  "cgwd5J": {
+    "defaultMessage": "Your motivations",
+    "description": "Motivations field label"
   },
   "ch9+CI": {
     "defaultMessage": "Other offers",
@@ -8175,6 +8339,10 @@
     "defaultMessage": "Edit request",
     "description": "Edit button label"
   },
+  "davD6g": {
+    "defaultMessage": "Submission support card image",
+    "description": "Submission support card image alt"
+  },
   "dfAvc7": {
     "defaultMessage": "Footer",
     "description": "Footer section heading"
@@ -8270,6 +8438,10 @@
   "e2P6am": {
     "defaultMessage": "User submissions",
     "description": "Sidebar navigation label"
+  },
+  "e30UXy": {
+    "defaultMessage": "Projects Premium",
+    "description": "Projects Premium label"
   },
   "e5o4mU": {
     "defaultMessage": "Heading",
@@ -8395,6 +8567,10 @@
     "defaultMessage": "See all {questionCount} practice questions",
     "description": "Label for see all practice questions button"
   },
+  "eob+FL": {
+    "defaultMessage": "Code reviews",
+    "description": "Contribution type label"
+  },
   "epwmlp": {
     "defaultMessage": "Visit the ultimate swag store for Front End Engineers! <strong>Check it out</strong>",
     "description": "Text on SwagStore Banner"
@@ -8486,6 +8662,10 @@
   "fDOayR": {
     "defaultMessage": "Specialized study plans for different interview objectives",
     "description": "Tooltip label for unlock all premium interviews content"
+  },
+  "fEXu1+": {
+    "defaultMessage": "Mid-level",
+    "description": "Challenge difficulty label"
   },
   "fEoTGW": {
     "defaultMessage": "Start a project",
@@ -8671,9 +8851,9 @@
     "defaultMessage": "Post the review on your personal blog, social media or other channels. Please email us to check on channel eligibility before posting.",
     "description": "Condition for promotion"
   },
-  "g2Nt5j": {
-    "defaultMessage": "Edit",
-    "description": "Label for edit button on project discussions page"
+  "g1dT8k": {
+    "defaultMessage": "Challenge guides are in-progress and we aim to complete guides on a rolling basis.",
+    "description": "Challenge guides coming soon subtitle"
   },
   "g2WgPq": {
     "defaultMessage": "Provide company details for invoicing and agreements",
@@ -8686,6 +8866,10 @@
   "g6ZUKV": {
     "defaultMessage": "Company details",
     "description": "Company details section heading"
+  },
+  "g7IcyE": {
+    "defaultMessage": "Check it out",
+    "description": "Check it out button label"
   },
   "g9OX0J": {
     "defaultMessage": "{replyCount, plural, one {Show # reply} other {Show # replies}}",
@@ -8702,6 +8886,14 @@
   "gAvT0O": {
     "defaultMessage": "Quiz",
     "description": "Title for quiz questions"
+  },
+  "gBOX72": {
+    "defaultMessage": "Not started",
+    "description": "Challenge completion label"
+  },
+  "gDATT/": {
+    "defaultMessage": "How to use DevTools for developments",
+    "description": "DevTools guide link"
   },
   "gDAVYm": {
     "defaultMessage": "Report an issue",
@@ -8951,6 +9143,10 @@
     "defaultMessage": "{questionCount}+ most important Angular interview questions on services, directives, RxJS, forms, state management, and dynamic component building.",
     "description": "Subtitle for questions list page"
   },
+  "hV0vxY": {
+    "defaultMessage": "Official guides",
+    "description": "Official guides label"
+  },
   "hW0hdr": {
     "defaultMessage": "Earn a generous {percent}% commission on every purchase within {days} days of using your affiliate link. Earn as much as you refer - no limits to payouts, no frills.",
     "description": "Affiliate program commission section subtitle"
@@ -9039,6 +9235,14 @@
     "defaultMessage": "<p>Once accepted into the affiliate program, you will receive a unique reference handle and affiliate link which will be used to track all your referrals.</p>",
     "description": "Answer to the FAQ about how referrals are tracked"
   },
+  "hxe/Fj": {
+    "defaultMessage": "Starter",
+    "description": "Challenge difficulty label"
+  },
+  "hyxFHs": {
+    "defaultMessage": "Join the Premium club and get access to project challenges Figma designs and guides.",
+    "description": "Projects Premium description"
+  },
   "hz5dJR": {
     "defaultMessage": "No notification yet!",
     "description": "Label for no notification"
@@ -9091,10 +9295,6 @@
     "defaultMessage": "All filters",
     "description": "Label for All Filters button for projects list"
   },
-  "iCm44V": {
-    "defaultMessage": "Get started",
-    "description": "Label for Get started button on Projects dashboard page"
-  },
   "iElBQT": {
     "defaultMessage": "Pricing Plans",
     "description": "Screen reader text referring to the Pricing Plan cards"
@@ -9122,10 +9322,6 @@
   "iHPzK0": {
     "defaultMessage": "By proceeding, you agree to the <link>campaign's terms</link>.",
     "description": "Campaign terms agreement prompt"
-  },
-  "iIQL6V": {
-    "defaultMessage": "Completed",
-    "description": "Label indicating that the question has been completed"
   },
   "iKGGvM": {
     "defaultMessage": "Hide table of contents",
@@ -9242,6 +9438,10 @@
   "jK0/93": {
     "defaultMessage": "Ad banner image",
     "description": "Alt text for ad banner image"
+  },
+  "jKbWY+": {
+    "defaultMessage": "Stopped at",
+    "description": "Stopped at label"
   },
   "jLHxac": {
     "defaultMessage": "Coming Soon",
@@ -9443,10 +9643,6 @@
     "defaultMessage": "Get the right foundation for practical development",
     "description": "Title for \"Get the right foundation for practical development\" feature marketing section on Projects home page"
   },
-  "k8LRFw": {
-    "defaultMessage": "Get started",
-    "description": "Tab title for projects challenges"
-  },
   "k8STTf": {
     "defaultMessage": "{questionTitle} | JavaScript Interview Questions with Solutions",
     "description": "Title of JavaScript Front End interview questions page"
@@ -9530,6 +9726,10 @@
   "kdO5C4": {
     "defaultMessage": "Join Discord",
     "description": "Link to the Discord server"
+  },
+  "kdX5r2": {
+    "defaultMessage": "Question",
+    "description": "Discussions comment category label"
   },
   "kfKz/1": {
     "defaultMessage": "Delete submission",
@@ -9634,6 +9834,10 @@
   "l27vTV": {
     "defaultMessage": "Back to all challenges",
     "description": "Back button label"
+  },
+  "l3/UIe": {
+    "defaultMessage": "Mid-level (3-5)",
+    "description": "Job experience label"
   },
   "l5U3bQ": {
     "defaultMessage": "Unlock premium challenges and premium features on free challenges",
@@ -9806,6 +10010,10 @@
   "m2WYh/": {
     "defaultMessage": "Insert code block",
     "description": "Insert code block tooltip for Richtext toolbar"
+  },
+  "m5UJIt": {
+    "defaultMessage": "Senior",
+    "description": "Challenge difficulty label"
   },
   "m9Ai9P": {
     "defaultMessage": "Ensure that your account has sufficient funds for the payment.",
@@ -9987,6 +10195,10 @@
     "defaultMessage": "See all",
     "description": "See all new posts"
   },
+  "n4RUhu": {
+    "defaultMessage": "Connecting to various Cloud services",
+    "description": "Cloud services guide link"
+  },
   "n4ZC2Q": {
     "defaultMessage": "Grid layout",
     "description": "Coding workspace layout name"
@@ -10151,10 +10363,6 @@
     "defaultMessage": "My awesome code",
     "description": "Coding workspace save code input placeholder"
   },
-  "nsk8M8": {
-    "defaultMessage": "In progress",
-    "description": "Project in progress label"
-  },
   "ntAmll": {
     "defaultMessage": "Every project belongs to 1 of 7 tracks comprising of common components used in the industry / use case",
     "description": "Description for \"Component libraries\" feature on Projects home page"
@@ -10311,6 +10519,10 @@
     "defaultMessage": "Optimized preparation for target companies, leveraging insider tips and expertise.",
     "description": "Description for company guides page"
   },
+  "on59cP": {
+    "defaultMessage": "Be the first to leave a comment",
+    "description": "No comment subtitle"
+  },
   "oo/YC7": {
     "defaultMessage": "Back",
     "description": "Back button label"
@@ -10422,10 +10634,6 @@
   "pJ+l2i": {
     "defaultMessage": "Used by {count}+ engineers",
     "description": "Label for used by engineers"
-  },
-  "pJA5oJ": {
-    "defaultMessage": "Code review",
-    "description": "Label for question badge"
   },
   "pJja0T": {
     "defaultMessage": "Add website",
@@ -10651,10 +10859,6 @@
     "defaultMessage": "Assets",
     "description": "Subtitle for \"Assets\" tab on Projects project page"
   },
-  "qRBY3O": {
-    "defaultMessage": "Difficulty",
-    "description": "Label for Difficulty filter for projects list"
-  },
   "qRa0sV": {
     "defaultMessage": "Copied!",
     "description": "Button label for copy button"
@@ -10666,6 +10870,10 @@
   "qTHHNG": {
     "defaultMessage": "More on <link>Rewards Terms and Conditions</link>",
     "description": "Link for discount terms and conditions"
+  },
+  "qTmzvl": {
+    "defaultMessage": "Add a comment",
+    "description": "Add a comment button label"
   },
   "qTr5bi": {
     "defaultMessage": "Question formats",
@@ -10923,9 +11131,13 @@
     "defaultMessage": "Nothing at all! Just click \"Start project\", and we will take care of everything else and guide you along the way.",
     "description": "FAQ answer for projects platform"
   },
-  "s0MeXj": {
-    "defaultMessage": "Check it out",
-    "description": "Button label for check it out"
+  "s12zD2": {
+    "defaultMessage": "Objective",
+    "description": "Objective label"
+  },
+  "s1ib7q": {
+    "defaultMessage": "Account settings",
+    "description": "Account settings label"
   },
   "s7lhuQ": {
     "defaultMessage": "Explore study plans that help you prepare for your front end interviews regardless of time left. Efficiently focus on topics that give you the most mileage for time.",
@@ -10982,6 +11194,10 @@
   "sWyGax": {
     "defaultMessage": "Features",
     "description": "Title of the 'The fastest way to learn and build something useful' marketing section on Projects home page"
+  },
+  "sY9s8P": {
+    "defaultMessage": "Notifications",
+    "description": "Notifications label"
   },
   "sYQ9YX": {
     "defaultMessage": "Username already exists",
@@ -11067,10 +11283,6 @@
     "defaultMessage": "Add GitHub",
     "description": "Title for Add GitHub task on Projects dashboard page"
   },
-  "szBcoh": {
-    "defaultMessage": "Premium",
-    "description": "Label for premium project tag"
-  },
   "szsYwJ": {
     "defaultMessage": "MM/YYYY",
     "description": "Placeholder for \"When did you start work\" input on Projects profile onboarding page"
@@ -11114,6 +11326,10 @@
   "tBeimS": {
     "defaultMessage": "Challenges activity",
     "description": "Title for challenge activity page"
+  },
+  "tC+XRF": {
+    "defaultMessage": "Figma files are a premium feature",
+    "description": "Figma files are a premium feature"
   },
   "tCiU5O": {
     "defaultMessage": "No series",
@@ -11231,6 +11447,10 @@
     "defaultMessage": "Completed questions",
     "description": "Heading for list of completed questions."
   },
+  "tk49aL": {
+    "defaultMessage": "PS: This profile is only for Projects - it won't be linked to your Interviews account.",
+    "description": "Projects onboarding dialog description"
+  },
   "tk7bcb": {
     "defaultMessage": "Targeted practice in specific front end frameworks and languages",
     "description": "Description for interviews practice by frameworks and languages"
@@ -11303,6 +11523,10 @@
     "defaultMessage": "Targeted practice in specific question formats for front end interviews",
     "description": "Description for interview practice by question format"
   },
+  "u6wB20": {
+    "defaultMessage": "Mark post as (optional):",
+    "description": "Mark post as optional label"
+  },
   "uA9EBK": {
     "defaultMessage": "Prepare for specific companies by learning insider tips and practicing known questions.",
     "description": "Description for prepare by company"
@@ -11343,6 +11567,10 @@
     "defaultMessage": "Official guides & resources",
     "description": "Label for \"Official guides & resources\" item in Expected Support section on Projects project page"
   },
+  "uLd16i": {
+    "defaultMessage": "Challenge discussion",
+    "description": "Forum type label"
+  },
   "uM5kA8": {
     "defaultMessage": "Toggle line comment",
     "description": "Text describing command to toggle line comment in the coding workspace shortcuts menu"
@@ -11354,6 +11582,10 @@
   "uQG7Ed": {
     "defaultMessage": "JavaScript Quiz Interview Questions",
     "description": "Title of interview questions page"
+  },
+  "uQa1AB": {
+    "defaultMessage": "Skill plan",
+    "description": "Skill plan label"
   },
   "uSGeKw": {
     "defaultMessage": "Frameworks and languages",
@@ -11490,6 +11722,14 @@
   "v2g4rl": {
     "defaultMessage": "Edit Profile",
     "description": "Title of projects profile edit page"
+  },
+  "v3rFli": {
+    "defaultMessage": "File explorer",
+    "description": "File explorer tab label"
+  },
+  "v4mi2Z": {
+    "defaultMessage": "Code review",
+    "description": "Discussions comment category label"
   },
   "v7xpbV": {
     "defaultMessage": "Stripe",
@@ -11707,10 +11947,6 @@
     "defaultMessage": "(e.g. Newsletter, Website)",
     "description": "Medium for other media"
   },
-  "wDKscz": {
-    "defaultMessage": "Completed",
-    "description": "Projects challenge completed"
-  },
   "wGf7+G": {
     "defaultMessage": "Start the project and download starter code and assets",
     "description": "Instruction for projects"
@@ -11822,6 +12058,10 @@
   "wzeI1v": {
     "defaultMessage": "High quality solutions",
     "description": "Paywall tags"
+  },
+  "x+cs7m": {
+    "defaultMessage": "An error occurred",
+    "description": "Error message"
   },
   "x2h9Vn": {
     "defaultMessage": "User testimonials",
@@ -12075,10 +12315,6 @@
     "defaultMessage": "Mentor others",
     "description": "Page title for mentoring others in their projects"
   },
-  "yVJzTk": {
-    "defaultMessage": "Completed",
-    "description": "Completed question"
-  },
   "yWnRZS": {
     "defaultMessage": "Can't find the answer you are looking for? View all <link>frequently-asked questions</link>.",
     "description": "Subtitle of Homepage's FAQ section, encouraging users to contact us if none of the FAQs resolve their problems"
@@ -12086,6 +12322,10 @@
   "yZkY1S": {
     "defaultMessage": "Tell us about the skills you will be using",
     "description": "Label for \"Tell us about the skills you will be using\" step in dialog on Projects project page"
+  },
+  "yawjvQ": {
+    "defaultMessage": "Get started",
+    "description": "Get started label"
   },
   "ycp+Vk": {
     "defaultMessage": "Out of {total} hard-level problems, you have solved or marked as complete {completed} across Coding, Quiz, and System Design.",
@@ -12123,6 +12363,10 @@
     "defaultMessage": "{count, plural, one {# completion on {date}} other {# completions on {date}}}",
     "description": "Tooltip label for completion count"
   },
+  "yizEDq": {
+    "defaultMessage": "Difficulty",
+    "description": "Difficulty label"
+  },
   "yjbqSs": {
     "defaultMessage": "Contact your bank to verify the account linked to your card is active.",
     "description": "Reason label for recheck cvc"
@@ -12130,6 +12374,10 @@
   "yjjdMB": {
     "defaultMessage": "Marked \"{articleTitle}\" as not completed",
     "description": "Success message for marking a question as not completed"
+  },
+  "yjtkxM": {
+    "defaultMessage": "Questions",
+    "description": "Contribution type label"
   },
   "ykwubP": {
     "defaultMessage": "You are on the <bold>Quarterly</bold> plan.",
@@ -12190,6 +12438,10 @@
   "yyYVov": {
     "defaultMessage": "Roadmap - Upcoming features and updates on GreatFrontEnd Interviews",
     "description": "Title of interview roadmap page"
+  },
+  "z+mEGf": {
+    "defaultMessage": "Nightmare",
+    "description": "Challenge difficulty label"
   },
   "z06VRE": {
     "defaultMessage": "To bridge <keywords>skill gaps</keywords>",
@@ -12406,6 +12658,10 @@
   "zul/L1": {
     "defaultMessage": "Earlier this month",
     "description": "Title for earlier this month list of comments"
+  },
+  "zvC4ng": {
+    "defaultMessage": "Files",
+    "description": "Workspace files"
   },
   "zw0Ov8": {
     "defaultMessage": "Hard",

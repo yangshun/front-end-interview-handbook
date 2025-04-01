@@ -97,8 +97,8 @@ function RoadmapItemCard({
             icon={RiArrowRightLine}
             label={intl.formatMessage({
               defaultMessage: 'Check it out',
-              description: 'Button label for check it out',
-              id: 's0MeXj',
+              description: 'Check it out button label',
+              id: 'g7IcyE',
             })}
             variant="secondary"
           />

@@ -1,8 +1,11 @@
+'use client';
+
 import clsx from 'clsx';
 import { useEffect, useState } from 'react';
 import { RiCodeLine } from 'react-icons/ri';
 
 import useQuestionLogEventCopyContents from '~/components/interviews/questions/common/useQuestionLogEventCopyContents';
+import { useIntl } from '~/components/intl';
 import { codingFilesShouldUseTypeScript } from '~/components/workspace/common/codingFilesShouldUseTypeScript';
 import type { CodingWorkspaceTabContents } from '~/components/workspace/common/CodingWorkspaceContext';
 import { CodingWorkspaceProvider } from '~/components/workspace/common/CodingWorkspaceContext';
@@ -52,6 +55,7 @@ function ProjectsChallengeSolutionWorkspaceImpl({
 }: Readonly<{
   defaultFiles: SandpackFiles;
 }>) {
+  const intl = useIntl();
   const copyRef = useQuestionLogEventCopyContents<HTMLDivElement>();
   const { dispatch } = useUserInterfaceCodingWorkspaceTilesContext();
   const { sandpack } = useSandpack();
@@ -141,7 +145,11 @@ function ProjectsChallengeSolutionWorkspaceImpl({
       console: {
         contents: <CodingWorkspaceConsole />,
         icon: CodingWorkspaceTabIcons.console.icon,
-        label: 'Console',
+        label: intl.formatMessage({
+          defaultMessage: 'Console',
+          description: 'Console tab label',
+          id: 'Y3lOgn',
+        }),
       },
       file_explorer: {
         contents: (
@@ -150,12 +158,20 @@ function ProjectsChallengeSolutionWorkspaceImpl({
           </div>
         ),
         icon: CodingWorkspaceTabIcons.explorer.icon,
-        label: 'File explorer',
+        label: intl.formatMessage({
+          defaultMessage: 'File explorer',
+          description: 'File explorer tab label',
+          id: 'v3rFli',
+        }),
       },
       preview: {
         contents: <UserInterfaceCodingWorkspacePreview />,
         icon: CodingWorkspaceTabIcons.browser.icon,
-        label: 'Browser',
+        label: intl.formatMessage({
+          defaultMessage: 'Browser',
+          description: 'Browser tab label',
+          id: 'NZo35j',
+        }),
       },
     };
 

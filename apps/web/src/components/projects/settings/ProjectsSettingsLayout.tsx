@@ -97,7 +97,11 @@ export default function ProjectsSettingsLayout({ children }: Props) {
       <Section>
         <div className="flex items-center">
           <Tabs
-            label="Select navigation item"
+            label={intl.formatMessage({
+              defaultMessage: 'Select navigation item',
+              description: 'Select navigation item label',
+              id: '94sK60',
+            })}
             size="sm"
             tabs={tabsList}
             value={segment}

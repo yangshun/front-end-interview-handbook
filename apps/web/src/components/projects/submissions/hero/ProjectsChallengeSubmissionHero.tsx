@@ -74,8 +74,8 @@ export default function ProjectsChallengeSubmissionHero({
       size="sm"
       tooltip={intl.formatMessage({
         defaultMessage: 'Edit',
-        description: 'Tooltip for Edit button',
-        id: '8hrzCT',
+        description: 'Edit button label',
+        id: '2rcoOT',
       })}
       variant="secondary"
     />

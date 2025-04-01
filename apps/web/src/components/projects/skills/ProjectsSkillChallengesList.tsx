@@ -94,7 +94,11 @@ export default function ProjectsSkillChallengesList({
                         <Chip
                           icon={RiStarSmileFill}
                           isLabelHidden={true}
-                          label="Premium"
+                          label={intl.formatMessage({
+                            defaultMessage: 'Premium',
+                            description: 'Premium feature',
+                            id: 'LAlNm0',
+                          })}
                           size="xs"
                           variant="special"
                         />

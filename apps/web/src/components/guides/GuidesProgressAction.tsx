@@ -115,8 +115,8 @@ export default function GuidesProgressAction({
         isLoading={deleteGuideProgressMutation.isLoading}
         label={intl.formatMessage({
           defaultMessage: 'Completed',
-          description: 'The guide has been completed',
-          id: 'PYCLry',
+          description: 'Guide completion label',
+          id: '8aakua',
         })}
         size="xs"
         tooltip={intl.formatMessage({

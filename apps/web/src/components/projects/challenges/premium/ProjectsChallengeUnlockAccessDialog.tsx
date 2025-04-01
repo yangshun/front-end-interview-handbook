@@ -170,7 +170,16 @@ export default function ProjectsChallengeUnlockAccessDialog({
         }
 
         if (data == null) {
-          return <EmptyState title="An error occurred" variant="error" />;
+          return (
+            <EmptyState
+              title={intl.formatMessage({
+                defaultMessage: 'An error occurred',
+                description: 'Error message',
+                id: 'x+cs7m',
+              })}
+              variant="error"
+            />
+          );
         }
 
         if (data?.creditsRequired === 0) {

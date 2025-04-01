@@ -7,7 +7,7 @@ import {
   RiNodeTree,
 } from 'react-icons/ri';
 
-import { FormattedMessage } from '~/components/intl';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
@@ -23,6 +23,7 @@ type ProjectMarketingHeroFeature = {
 };
 
 export default function ProjectsMarketingFeaturesRow() {
+  const intl = useIntl();
   const heroFeatures: Array<ProjectMarketingHeroFeature> = useMemo(
     () => [
       {
@@ -86,7 +87,11 @@ export default function ProjectsMarketingFeaturesRow() {
   return (
     <Container className="py-24">
       <Heading className="sr-only" level="custom">
-        Features
+        {intl.formatMessage({
+          defaultMessage: 'Features',
+          description: 'Features label',
+          id: 'VIU+CM',
+        })}
       </Heading>
       <Section>
         <div className="grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-3">

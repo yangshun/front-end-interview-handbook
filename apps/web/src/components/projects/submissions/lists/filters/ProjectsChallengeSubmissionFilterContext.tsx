@@ -57,15 +57,27 @@ function useFilterOptions(tracks: ReadonlyArray<ProjectsTrackItem>) {
         }),
         options: [
           {
-            label: 'Completed',
+            label: intl.formatMessage({
+              defaultMessage: 'Completed',
+              description: 'Challenge completion label',
+              id: 'RO7rPV',
+            }),
             value: 'COMPLETED',
           },
           {
-            label: 'In Progress',
+            label: intl.formatMessage({
+              defaultMessage: 'In Progress',
+              description: 'Challenge completion label',
+              id: '3M5CDz',
+            }),
             value: 'IN_PROGRESS',
           },
           {
-            label: 'Not Started',
+            label: intl.formatMessage({
+              defaultMessage: 'Not Started',
+              description: 'Challenge completion label',
+              id: 'R/tHnD',
+            }),
             value: 'NOT_STARTED',
           },
         ],
@@ -109,19 +121,35 @@ function useFilterOptions(tracks: ReadonlyArray<ProjectsTrackItem>) {
         }),
         options: [
           {
-            label: 'Starter',
+            label: intl.formatMessage({
+              defaultMessage: 'Starter',
+              description: 'Challenge difficulty label',
+              id: 'hxe/Fj',
+            }),
             value: 'starter',
           },
           {
-            label: 'Mid-level',
+            label: intl.formatMessage({
+              defaultMessage: 'Mid-level',
+              description: 'Challenge difficulty label',
+              id: 'fEXu1+',
+            }),
             value: 'mid',
           },
           {
-            label: 'Senior',
+            label: intl.formatMessage({
+              defaultMessage: 'Senior',
+              description: 'Challenge difficulty label',
+              id: 'm5UJIt',
+            }),
             value: 'senior',
           },
           {
-            label: 'Nightmare',
+            label: intl.formatMessage({
+              defaultMessage: 'Nightmare',
+              description: 'Challenge difficulty label',
+              id: 'z+mEGf',
+            }),
             value: 'nightmare',
           },
         ],
@@ -182,15 +210,27 @@ function useFilterOptions(tracks: ReadonlyArray<ProjectsTrackItem>) {
         }),
         options: [
           {
-            label: 'Junior (1-2)',
+            label: intl.formatMessage({
+              defaultMessage: 'Junior (1-2)',
+              description: 'Job experience label',
+              id: 'cOS90R',
+            }),
             value: 'junior',
           },
           {
-            label: 'Mid-level (3-5)',
+            label: intl.formatMessage({
+              defaultMessage: 'Mid-level (3-5)',
+              description: 'Job experience label',
+              id: 'l3/UIe',
+            }),
             value: 'mid',
           },
           {
-            label: 'Senior (>6)',
+            label: intl.formatMessage({
+              defaultMessage: 'Senior (>6)',
+              description: 'Job experience label',
+              id: 'b59DYW',
+            }),
             value: 'senior',
           },
           ...experienceOptions,

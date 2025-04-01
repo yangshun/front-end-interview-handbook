@@ -123,7 +123,11 @@ function DownloadSection({
             bodySize="body3"
             borderClass={clsx('border', themeBorderElementColor)}
             icon={RxFigmaLogo}
-            title="Turn Figma into Code"
+            title={intl.formatMessage({
+              defaultMessage: 'Turn Figma into Code',
+              description: 'Figma to code plugin title',
+              id: '+fT/kg',
+            })}
             variant="neutral">
             <FormattedMessage
               defaultMessage="Quickly convert challenge designs into
@@ -186,7 +190,11 @@ function DownloadSection({
         isDisabled={downloadDesignFilesMutation.isLoading}
         isLoading={downloadDesignFilesMutation.isLoading}
         isShown={showFreeFigmaDialog}
-        title="Figma files are a premium feature"
+        title={intl.formatMessage({
+          defaultMessage: 'Figma files are a premium feature',
+          description: 'Figma files are a premium feature',
+          id: 'tC+XRF',
+        })}
         onCancel={() => {
           setShowFreeFigmaDialog(false);
         }}
@@ -197,13 +205,20 @@ function DownloadSection({
         }}>
         <div className="flex flex-col gap-2">
           <Text className="block" size="body2">
-            While our challenges are free to access, Figma files,
-            challenge-specific guides and official solutions are usually premium
-            features.
+            {intl.formatMessage({
+              defaultMessage:
+                'While our challenges are free to access, Figma files, challenge-specific guides and official solutions are usually premium features.',
+              description: 'Challenge premium features message',
+              id: 'OWrvC0',
+            })}
           </Text>
           <Text className="block" size="body2">
-            We have provided this Figma file free to help you get started and as
-            an example of the quality you may expect from our Figma files.
+            {intl.formatMessage({
+              defaultMessage:
+                'We have provided this Figma file free to help you get started and as an example of the quality you may expect from our Figma files.',
+              description: 'Challenge free Figma file message',
+              id: 'O4M0bE',
+            })}
           </Text>
         </div>
       </ConfirmationDialog>

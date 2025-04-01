@@ -40,15 +40,27 @@ function useFilters() {
         }),
         options: [
           {
-            label: 'Code reviews',
+            label: intl.formatMessage({
+              defaultMessage: 'Code reviews',
+              description: 'Contribution type label',
+              id: 'eob+FL',
+            }),
             value: 'CODE_REVIEW',
           },
           {
-            label: 'Questions',
+            label: intl.formatMessage({
+              defaultMessage: 'Questions',
+              description: 'Contribution type label',
+              id: 'yjtkxM',
+            }),
             value: 'QUESTION',
           },
           {
-            label: 'Others',
+            label: intl.formatMessage({
+              defaultMessage: 'Others',
+              description: 'Others label',
+              id: 'CGkwJv',
+            }),
             value: 'OTHER',
           },
         ],
@@ -68,11 +80,19 @@ function useFilters() {
         }),
         options: [
           {
-            label: 'Challenge discussion',
+            label: intl.formatMessage({
+              defaultMessage: 'Challenge discussion',
+              description: 'Forum type label',
+              id: 'uLd16i',
+            }),
             value: 'PROJECTS_CHALLENGE',
           },
           {
-            label: 'User submission discussion',
+            label: intl.formatMessage({
+              defaultMessage: 'User submission discussion',
+              description: 'Forum type label',
+              id: '40LE98',
+            }),
             value: 'PROJECTS_SUBMISSION',
           },
         ],

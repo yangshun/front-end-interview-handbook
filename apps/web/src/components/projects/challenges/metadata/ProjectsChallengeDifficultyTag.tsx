@@ -1,7 +1,10 @@
+'use client';
+
 import clsx from 'clsx';
 import { startCase } from 'lodash-es';
 import { RiFlashlightLine } from 'react-icons/ri';
 
+import { useIntl } from '~/components/intl';
 import type { BadgeSize, BadgeVariant } from '~/components/ui/Badge';
 import Badge from '~/components/ui/Badge';
 import Text from '~/components/ui/Text';
@@ -39,6 +42,7 @@ export default function ProjectsChallengeDifficultyTag({
   difficulty,
   ...props
 }: Props) {
+  const intl = useIntl();
   const Icon = RiFlashlightLine;
   const label = startCase(difficulty);
   const { badgeVariant, textColor } = difficultyColors[difficulty];
@@ -55,7 +59,12 @@ export default function ProjectsChallengeDifficultyTag({
   }
 
   return (
-    <Tooltip label="Difficulty">
+    <Tooltip
+      label={intl.formatMessage({
+        defaultMessage: 'Difficulty',
+        description: 'Challenge difficulty',
+        id: '11MN+F',
+      })}>
       <div className="flex items-center gap-1">
         <Icon className={clsx('size-4', themeTextSubtleColor)} />
         <Text

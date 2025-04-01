@@ -119,9 +119,20 @@ export default function ProjectsSkillRoadmapItemDetails({
         </Prose>
         <Divider color="emphasized" />
         <div className="flex flex-col gap-y-4">
-          <Heading level="heading6">Skill plan</Heading>
+          <Heading level="heading6">
+            {intl.formatMessage({
+              defaultMessage: 'Skill plan',
+              description: 'Skill plan label',
+              id: 'uQa1AB',
+            })}
+          </Heading>
           <Text className="block" color="secondary" size="body3">
-            Recommended projects to do to advance this skill progressively.
+            {intl.formatMessage({
+              defaultMessage:
+                'Recommended projects to do to advance this skill progressively.',
+              description: 'Description for skill plan section',
+              id: 'SL8E2q',
+            })}
           </Text>
           <div className="flex flex-wrap gap-x-6">
             {totalRoadmapPoints != null && (

@@ -169,13 +169,13 @@ export default function BlogListingWithFilters({
           isLabelHidden={true}
           label={intl.formatMessage({
             defaultMessage: 'Search',
-            description: 'Placeholder for search input of blog list',
-            id: 'SZ26iB',
+            description: 'Search input label',
+            id: 'Z30bjj',
           })}
           placeholder={intl.formatMessage({
             defaultMessage: 'Search',
-            description: 'Placeholder for search input of blog list',
-            id: 'SZ26iB',
+            description: 'Search input label',
+            id: 'Z30bjj',
           })}
           size="sm"
           startIcon={RiSearchLine}

@@ -93,9 +93,8 @@ export default function ProjectsDashboardLayout({ children, viewer }: Props) {
             icon={RiArrowRightLine}
             label={intl.formatMessage({
               defaultMessage: 'Get started',
-              description:
-                'Label for Get started button on Projects dashboard page',
-              id: 'iCm44V',
+              description: 'Get started label',
+              id: 'yawjvQ',
             })}
             size="lg"
             suppressHydrationWarning={true}

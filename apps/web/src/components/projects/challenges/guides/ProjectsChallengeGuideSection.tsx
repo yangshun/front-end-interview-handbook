@@ -219,8 +219,17 @@ export default function ProjectsChallengeGuideSection({
               themeBorderColor,
             ])}>
             <EmptyState
-              subtitle="Challenge guides are in-progress and we aim to complete guides on a rolling basis."
-              title="Coming soon"
+              subtitle={intl.formatMessage({
+                defaultMessage:
+                  'Challenge guides are in-progress and we aim to complete guides on a rolling basis.',
+                description: 'Challenge guides coming soon subtitle',
+                id: 'g1dT8k',
+              })}
+              title={intl.formatMessage({
+                defaultMessage: 'Coming soon',
+                description: 'Coming soon label',
+                id: 'LJFQaW',
+              })}
               variant="under_construction"
             />
           </div>
@@ -228,10 +237,12 @@ export default function ProjectsChallengeGuideSection({
           <>
             {activeGuideSlug === CHALLENGE_GUIDE_SLUG && (
               <Alert variant="info">
-                These guides help you get started on the trickier portions of
-                the challenge and are not meant to be exhaustive. However, do
-                let us know what other guidance you'd benefit from and we can
-                add it in.
+                {intl.formatMessage({
+                  defaultMessage:
+                    "These guides help you get started on the trickier portions of the challenge and are not meant to be exhaustive. However, do let us know what other guidance you'd benefit from and we can add it in.",
+                  description: 'Challenge guide info alert message',
+                  id: '8dh4cI',
+                })}
               </Alert>
             )}
             <MDXContent mdxCode={projectGuide.body.code} />

@@ -16,8 +16,8 @@ export default function ProjectsPremiumBadge({ unlocked, size }: Props) {
       icon={unlocked ? RiLockUnlockLine : RiLock2Line}
       label={intl.formatMessage({
         defaultMessage: 'Premium',
-        description: 'Label for premium project tag',
-        id: 'szBcoh',
+        description: 'Label for premium',
+        id: 'ymmDf7',
       })}
       size={size}
       variant="special"
