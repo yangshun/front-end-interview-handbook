@@ -79,7 +79,7 @@ importers:
   apps/i18n-test:
     devDependencies:
       langnostic:
-        specifier: workspace:0.0.2
+        specifier: workspace:^
         version: link:../../packages/langnostic
 
   apps/socialmon:
@@ -705,7 +705,7 @@ importers:
         specifier: ^29.5.0
         version: 29.7.0(@types/node@18.19.2)(ts-node@10.9.2)
       langnostic:
-        specifier: workspace:0.0.2
+        specifier: workspace:^
         version: link:../../packages/langnostic
       next-sitemap:
         specifier: ^3.1.52

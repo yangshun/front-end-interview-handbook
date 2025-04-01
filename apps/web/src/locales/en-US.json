@@ -59,6 +59,10 @@
     "defaultMessage": "{focusAreaName} Interview Questions",
     "description": "OG image page type for focus areas"
   },
+  "+H0jN0": {
+    "defaultMessage": "⭐️ Star our React repo",
+    "description": "Star the GitHub repository"
+  },
   "+I+Xtv": {
     "defaultMessage": "The error has been logged and we will be looking into it.",
     "description": "Error message log description"
@@ -279,9 +283,9 @@
     "defaultMessage": "At GreatFrontEnd, we look for people with intense passion in the front end domain. You're encouraged to apply even if your background does not exactly align with the job requirements.",
     "description": "Job posting description"
   },
-  "/KVfm1": {
-    "defaultMessage": "Star",
-    "description": "Label for github star button"
+  "/IBuox": {
+    "defaultMessage": "Star our \"React.js Interview Questions\" repo",
+    "description": "Star the GitHub repository"
   },
   "/QA/Vp": {
     "defaultMessage": "Configure your {adFormat}",
@@ -302,10 +306,6 @@
   "/ZYBru": {
     "defaultMessage": "Industry benchmarks from SimilarWeb",
     "description": "Subtitle for other media"
-  },
-  "/aaSHm": {
-    "defaultMessage": "Star our \"JavaScript Interview Questions\" repo",
-    "description": "Title for task"
   },
   "/arZkH": {
     "defaultMessage": "We are giving away an exclusive <strong>{discountPercentage}% off all purchases</strong> for completing simple tasks!",
@@ -1082,6 +1082,10 @@
   "3WHiQS": {
     "defaultMessage": "Cheatsheet",
     "description": "One-page summary sheet for front end system design interviews"
+  },
+  "3WZA6F": {
+    "defaultMessage": "Star",
+    "description": "Star a GitHub repository"
   },
   "3Z408Q": {
     "defaultMessage": "Schedule",
@@ -4047,6 +4051,10 @@
     "defaultMessage": "{category} quiz",
     "description": "Question list"
   },
+  "IxURvm": {
+    "defaultMessage": "Follow",
+    "description": "Follow a GitHub repository"
+  },
   "IxYmig": {
     "defaultMessage": "Contact us",
     "description": "Contact us button label"
@@ -4834,10 +4842,6 @@
   "MMLnqG": {
     "defaultMessage": "Closure",
     "description": "Front end development topic"
-  },
-  "MMflpy": {
-    "defaultMessage": "Follow",
-    "description": "Label for github follow button"
   },
   "MNAkQc": {
     "defaultMessage": "To build <keywords>side projects</keywords>",
@@ -7667,10 +7671,6 @@
     "defaultMessage": "Development guides written & curated by Sr engineers at Big tech, such as:",
     "description": "Description for \"Official guides & resources\" item in Expected Support section on Projects project page"
   },
-  "acvTMO": {
-    "defaultMessage": "⭐️ Star our JavaScript repo",
-    "description": "Title for github star CTA"
-  },
   "aeeTOy": {
     "defaultMessage": "Font size",
     "description": "Select label to choose console font size"
@@ -7678,10 +7678,6 @@
   "agUqSZ": {
     "defaultMessage": "Efficient ways to prepare when you're short on time.",
     "description": "Description for time savers"
-  },
-  "ahI9XV": {
-    "defaultMessage": "⭐️ Star our React repo",
-    "description": "Title for github star CTA"
   },
   "ajZbV3": {
     "defaultMessage": "Rename",
@@ -8478,6 +8474,10 @@
   "eJU0PN": {
     "defaultMessage": "Coding",
     "description": "Question format"
+  },
+  "eKCjGR": {
+    "defaultMessage": "Star our \"JavaScript Interview Questions\" repo",
+    "description": "Star the GitHub repository"
   },
   "eNCfLw": {
     "defaultMessage": "When your site URL was submitted, we automatically take screenshots of your pages. You can manually trigger retake with this button if your site has been updated",
@@ -10299,6 +10299,10 @@
     "defaultMessage": "Amazon logo",
     "description": "Amazon company logo"
   },
+  "nbVWkk": {
+    "defaultMessage": "⭐️ Star our JavaScript repo",
+    "description": "Star the GitHub repository"
+  },
   "ncfJNb": {
     "defaultMessage": "Contact Us | GreatFrontEnd",
     "description": "Social title of Contact Us page"
@@ -11390,10 +11394,6 @@
   "tPpYwO": {
     "defaultMessage": "Starter",
     "description": "Starter blog"
-  },
-  "tPzONL": {
-    "defaultMessage": "Star our \"React.js Interview Questions\" repo",
-    "description": "Title for task"
   },
   "tV+VAr": {
     "defaultMessage": "{questionCount}+ Front End Interview Practice Questions",

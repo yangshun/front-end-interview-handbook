@@ -46,15 +46,15 @@ export default function InterviewsContentSliderCard({
           {type === 'github-star' && (
             <FormattedMessage
               defaultMessage="Star"
-              description="Label for github star button"
-              id="/KVfm1"
+              description="Star a GitHub repository"
+              id="3WZA6F"
             />
           )}
           {type === 'github-follow' && (
             <FormattedMessage
               defaultMessage="Follow"
-              description="Label for github follow button"
-              id="MMflpy"
+              description="Follow a GitHub repository"
+              id="IxURvm"
             />
           )}
         </Text>

@@ -61,8 +61,8 @@ export default function InterviewsQuestionsCategoryContentSlider({
         href="https://github.com/yangshun/top-javascript-interview-questions"
         title={intl.formatMessage({
           defaultMessage: '⭐️ Star our JavaScript repo',
-          description: 'Title for github star CTA',
-          id: 'acvTMO',
+          description: 'Star the GitHub repository',
+          id: 'nbVWkk',
         })}
         type="github-star"
       />
@@ -84,8 +84,8 @@ export default function InterviewsQuestionsCategoryContentSlider({
         href="https://github.com/yangshun/top-reactjs-interview-questions"
         title={intl.formatMessage({
           defaultMessage: '⭐️ Star our React repo',
-          description: 'Title for github star CTA',
-          id: 'ahI9XV',
+          description: 'Star the GitHub repository',
+          id: '+H0jN0',
         })}
         type="github-star"
       />

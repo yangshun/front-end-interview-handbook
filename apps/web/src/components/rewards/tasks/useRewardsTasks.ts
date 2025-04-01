@@ -25,8 +25,8 @@ export function useRewardsTasks() {
       icon: RiGithubFill,
       label: intl.formatMessage({
         defaultMessage: 'Star our "JavaScript Interview Questions" repo',
-        description: 'Title for task',
-        id: '/aaSHm',
+        description: 'Star the GitHub repository',
+        id: 'eKCjGR',
       }),
       taskHref:
         'https://github.com/yangshun/top-javascript-interview-questions',
@@ -36,8 +36,8 @@ export function useRewardsTasks() {
       icon: RiGithubFill,
       label: intl.formatMessage({
         defaultMessage: 'Star our "React.js Interview Questions" repo',
-        description: 'Title for task',
-        id: 'tPzONL',
+        description: 'Star the GitHub repository',
+        id: '/IBuox',
       }),
       taskHref: 'https://github.com/yangshun/top-reactjs-interview-questions',
     },
