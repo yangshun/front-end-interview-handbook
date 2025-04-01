@@ -16,7 +16,7 @@
       ]
     },
     {
-      "name": "blog",
+      "name": "quiz",
       "plugin": [
         "mdx",
         {
@@ -25,18 +25,8 @@
       ],
       "paths": [
         {
-          "source": "./src/blog/**/en-US.mdx",
-          "target": "./src/blog/**/{locale}.mdx"
-        }
-      ]
-    },
-    {
-      "name": "docs",
-      "plugin": "mdx",
-      "paths": [
-        {
-          "source": "./src/docs/en-US/*.mdx",
-          "target": "./src/docs/{locale}/*.mdx"
+          "source": "./src/quiz/**/en-US.mdx",
+          "target": "./src/quiz/**/{locale}.mdx"
         }
       ]
     }

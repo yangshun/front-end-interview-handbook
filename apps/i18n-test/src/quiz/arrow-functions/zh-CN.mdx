@@ -1,0 +1,85 @@
+---
+title: 你能提供一个新的箭头 => 函数语法的用例吗？
+subtitle: 这种新语法与其他函数有何不同？
+---
+
+## TL;DR
+
+箭头函数提供了一种简洁的语法来在 JavaScript 中编写函数。它们特别适用于在方法和回调中维护 `this` 上下文。例如，在事件处理程序或 `map` 等数组方法中，箭头函数可以简化代码并避免 `this` 绑定问题。
+
+```js live
+const numbers = [1, 2, 3];
+const doubled = numbers.map((n) => n * 2);
+console.log(doubled); // [2, 4, 6]
+```
+
+---
+
+## 使用新的箭头 => 函数语法的情况
+
+### 简化语法
+
+箭头函数提供了一种更简洁的方式来编写函数。这对于短函数或回调函数尤其有用。
+
+```js live
+// 传统函数
+const add = function (a, b) {
+  return a + b;
+};
+
+[object Object]
+
+[object Object]
+
+[object Object]
+
+[object Object]
+
+[object Object]
+
+[object Object]
+
+[object Object]
+
+[object Object]
+
+[object Object]
+
+[object Object]
+
+[object Object]
+
+[object Object]
+
+[object Object]
+
+[object Object]
+
+[object Object]
+
+```js live
+class Button {
+  constructor() {
+    this.count = 0;
+    this.button = document.createElement('button');
+    this.button.innerText = '点击我';
+    this.button.addEventListener('click', () => {
+      this.count++;
+      console.log('计数：', this.count);
+    });
+    document.body.appendChild(this.button);
+  }
+}
+
+
+```
+const myButton = new Button();
+myButton.button.click(); // 计数：1
+myButton.button.click(); // 计数：2
+```
+
+## 进一步阅读
+
+- [MDN Web 文档：箭头函数](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
+- [JavaScript.info：箭头函数再探](https://javascript.info/arrow-functions)
+- [Eloquent JavaScript：函数](https://eloquentjavascript.net/03_functions.html)

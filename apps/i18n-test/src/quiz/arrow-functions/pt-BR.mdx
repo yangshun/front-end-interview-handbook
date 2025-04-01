@@ -1,0 +1,84 @@
+---
+title: Você pode oferecer um caso de uso para a nova sintaxe de função arrow =>?
+subtitle: Como essa nova sintaxe difere de outras funções?
+---
+
+## TL;DR
+
+As funções arrow fornecem uma sintaxe concisa para escrever funções em JavaScript. Elas são particularmente úteis para manter o contexto `this` dentro de métodos e callbacks. Por exemplo, em um manipulador de eventos ou método de array como `map`, as funções arrow podem simplificar o código e evitar problemas com a ligação de `this`.
+
+```js live
+const numbers = [1, 2, 3];
+const doubled = numbers.map((n) => n * 2);
+console.log(doubled); // [2, 4, 6]
+```
+
+---
+
+## Caso de uso para a nova sintaxe de função arrow =>
+
+### Simplificando a sintaxe
+
+Funções arrow fornecem uma maneira mais concisa de escrever funções. Isso é especialmente útil para funções ou callbacks curtas.
+
+```js live
+// Função tradicional
+const add = function (a, b) {
+  return a + b;
+};
+
+[object Object]
+
+[object Object]
+
+[object Object]
+
+[object Object]
+
+[object Object]
+
+[object Object]
+
+[object Object]
+
+[object Object]
+
+[object Object]
+
+[object Object]
+
+[object Object]
+
+[object Object]
+
+[object Object]
+
+[object Object]
+
+[object Object]
+
+```js live
+class Button {
+  constructor() {
+    this.count = 0;
+    this.button = document.createElement('button');
+    this.button.innerText = 'Clique aqui';
+    this.button.addEventListener('click', () => {
+      this.count++;
+      console.log('contagem:', this.count);
+    });
+    document.body.appendChild(this.button);
+  }
+}
+
+```
+const myButton = new Button();
+myButton.button.click(); // contagem: 1
+myButton.button.click(); // contagem: 2
+```
+
+## Leitura adicional
+
+- [MDN Web Docs: Funções de seta](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
+- [JavaScript.info: Funções de seta revisadas](https://javascript.info/arrow-functions)
+- [Eloquent JavaScript: Funções](https://eloquentjavascript.net/03_functions.html)
