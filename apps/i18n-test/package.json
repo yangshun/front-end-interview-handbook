@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "translens": "translens"
+    "translate": "langnostic translate"
   },
   "keywords": [],
   "devDependencies": {
-    "translens": "workspace:0.0.0"
+    "langnostic": "workspace:^"
   }
 }

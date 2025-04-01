@@ -1,7 +1,7 @@
 {
-  "name": "translens",
-  "version": "0.0.0",
-  "description": "Modern translation toolchain",
+  "name": "langnostic",
+  "version": "0.0.2",
+  "description": "Modern translation toolchain using AI",
   "license": "MIT",
   "type": "module",
   "main": "dist/cli.js",

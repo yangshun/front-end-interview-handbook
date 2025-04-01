@@ -7,7 +7,7 @@ import { CONFIG_PATH } from '../core/constants';
 
 export async function init() {
   console.clear();
-  intro(`${chalk.blue.bold('Translens Config Setup')}`);
+  intro(`${chalk.blue.bold('Langnostic Config Setup')}`);
 
   if (fs.existsSync(CONFIG_PATH)) {
     log.info(chalk.yellow('⚠ Configuration file already exists.'));

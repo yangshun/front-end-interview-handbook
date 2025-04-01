@@ -17,7 +17,7 @@ export default function registryManager() {
       sourceFilePath,
       path.extname(sourceFilePath),
     );
-    return path.join(dir, `${filename}.translens.json`);
+    return path.join(dir, `${filename}.langnostic.json`);
   }
   return {
     async load(sourceFilePath: string): Promise<Registry> {

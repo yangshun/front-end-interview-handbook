@@ -3,7 +3,10 @@ import path from 'path';
 import Config, { DEFAULT_CONFIG } from '.';
 import { ConfigType } from './types';
 
-const TEST_CONFIG_PATH = path.join(process.cwd(), 'test-translens.config.json');
+const TEST_CONFIG_PATH = path.join(
+  process.cwd(),
+  'test-langnostic.config.json',
+);
 
 const mockConfig: ConfigType = DEFAULT_CONFIG;
 
@@ -24,7 +27,7 @@ describe('Config Class', () => {
 
   test('should throw an error if config file does not exist', () => {
     expect(() => new Config(TEST_CONFIG_PATH)).toThrowError(
-      'Configuration file not found. Run `translens init` to create one.',
+      'Configuration file not found. Run `langnostic init` to create one.',
     );
   });
 

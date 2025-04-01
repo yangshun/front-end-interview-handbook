@@ -11,7 +11,7 @@ setInterval(() => {
 
 export function batchStatusSymbol(status: TranslationGroupBatchStatus) {
   switch (status) {
-    case 'pending': {
+    case 'queued': {
       return chalk.grey('.');
     }
     case 'translating': {

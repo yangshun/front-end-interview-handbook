@@ -23,7 +23,7 @@ async function main() {
     default:
       log.error(
         chalk.red(
-          'Unknown command. Use `translens init` or `translens translate`.',
+          'Unknown command. Use `langnostic init` or `langnostic translate`.',
         ),
       );
   }

@@ -37,7 +37,7 @@ export default class Config {
   private loadConfig() {
     if (!fs.existsSync(this.configPath)) {
       throw new Error(
-        'Configuration file not found. Run `translens init` to create one.',
+        'Configuration file not found. Run `langnostic init` to create one.',
       );
     }
 
