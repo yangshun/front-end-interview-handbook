@@ -293,7 +293,11 @@ export default function InterviewsMarketingPracticeQuestionBankSection({
             <div className="md:col-span-2 lg:col-span-3">
               <div className="md:hidden">
                 <TabsUnderline
-                  label="Select navigation item"
+                  label={intl.formatMessage({
+                    defaultMessage: 'Select navigation item',
+                    description: 'Select navigation item label',
+                    id: '94sK60',
+                  })}
                   size="sm"
                   tabs={filterNavigation.items}
                   value={filterNavigation.value}

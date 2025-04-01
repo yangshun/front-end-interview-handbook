@@ -52,7 +52,11 @@ export default function InterviewsQuestionsCategoryPreparePage({
         listType={listType}
         longDescription={`Save the trouble of searching the web for front end interview questions. We have ${roundQuestionCountToNearestTen(totalQuestionCount)}+ practice questions in every framework, format, and topic, each with high quality answers and tests from big tech senior / staff engineers.`}
         questionList={questions}
-        searchPlaceholder="Search within this list of questions"
+        searchPlaceholder={intl.formatMessage({
+          defaultMessage: 'Search within this list of questions',
+          description: 'Search questions placeholder',
+          id: '/yPyGR',
+        })}
         title={intl.formatMessage({
           defaultMessage: 'All Practice Questions',
           description: 'Page title for all practice questions page',

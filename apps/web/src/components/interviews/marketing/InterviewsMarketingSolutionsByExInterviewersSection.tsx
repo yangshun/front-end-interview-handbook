@@ -6,7 +6,7 @@ import { RiAmazonFill, RiMetaFill } from 'react-icons/ri';
 
 import SideNavigation from '~/components/common/SideNavigation';
 import TypingString from '~/components/common/TypingString';
-import { FormattedMessage } from '~/components/intl';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import MDXCodeBlock from '~/components/mdx/MDXCodeBlock';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
@@ -329,6 +329,7 @@ function CodeAnnotation({
 }
 
 export default function InterviewsMarketingSolutionsByExInterviewersSection() {
+  const intl = useIntl();
   const codeBlockRef = useRef(null);
   const showAnnotations = useInView(codeBlockRef, {
     amount: 'all',
@@ -413,7 +414,11 @@ export default function InterviewsMarketingSolutionsByExInterviewersSection() {
               <div className="block sm:hidden">
                 <TabsUnderline
                   alignment="stretch"
-                  label="Select navigation item"
+                  label={intl.formatMessage({
+                    defaultMessage: 'Select navigation item',
+                    description: 'Select navigation item label',
+                    id: '94sK60',
+                  })}
                   size="sm"
                   tabs={questions}
                   value={selectedQuestion}

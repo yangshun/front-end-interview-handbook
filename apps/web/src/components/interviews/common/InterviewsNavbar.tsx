@@ -162,7 +162,11 @@ export default function InterviewsNavbar({
                   <Button
                     icon={RiMenuFill}
                     isLabelHidden={true}
-                    label="Open menu"
+                    label={intl.formatMessage({
+                      defaultMessage: 'Open menu',
+                      description: 'Open menu button label',
+                      id: '4/kn+m',
+                    })}
                     size="xs"
                     variant="secondary"
                     onClick={() => {
@@ -180,7 +184,11 @@ export default function InterviewsNavbar({
                 </div>
                 <div className="flex h-0 flex-1 flex-col">
                   <nav
-                    aria-label="Sidebar"
+                    aria-label={intl.formatMessage({
+                      defaultMessage: 'Sidebar',
+                      description: 'Sidebar',
+                      id: 'X8zPQu',
+                    })}
                     className={clsx(
                       'flex flex-1 flex-col justify-between overflow-hidden',
                       '-mt-4',
@@ -329,7 +337,11 @@ export default function InterviewsNavbar({
                                       icon={RiStarSmileFill}
                                       iconClassName="size-[14px]"
                                       isLabelHidden={true}
-                                      label="Premium user badge"
+                                      label={intl.formatMessage({
+                                        defaultMessage: 'Premium user badge',
+                                        description: 'Premium user badge',
+                                        id: 'ofoywG',
+                                      })}
                                       variant="primary"
                                     />
                                   )}

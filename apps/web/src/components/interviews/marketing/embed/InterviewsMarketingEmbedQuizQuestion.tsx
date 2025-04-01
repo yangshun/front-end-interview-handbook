@@ -1,8 +1,11 @@
+'use client';
+
 import clsx from 'clsx';
 
 import gtag from '~/lib/gtag';
 
 import QuestionTopicLabel from '~/components/interviews/questions/metadata/QuestionTopicLabel';
+import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import Divider from '~/components/ui/Divider';
 import Prose from '~/components/ui/Prose';
@@ -14,6 +17,8 @@ import {
 } from '~/components/ui/theme';
 
 export default function InterviewsMarketingEmbedQuizQuestion() {
+  const intl = useIntl();
+
   return (
     <div className="size-full relative">
       <div className="h-full sm:overflow-y-scroll">
@@ -100,7 +105,11 @@ export default function InterviewsMarketingEmbedQuizQuestion() {
       <div className="absolute inset-x-0 bottom-0 flex justify-center bg-gradient-to-t from-white pb-8 pt-32 dark:from-neutral-950">
         <Button
           href="/questions/quiz/describe-the-difference-between-script-async-and-script-defer"
-          label="Show full question"
+          label={intl.formatMessage({
+            defaultMessage: 'Show full question',
+            description: 'Show full question button label',
+            id: 'zc3dbu',
+          })}
           target="_blank"
           variant="primary"
           onClick={() => {

@@ -1,39 +1,20 @@
+'use client';
+
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Chip from '~/components/ui/Chip';
 import Text from '~/components/ui/Text';
 
-const steps = [
-  {
-    imageUrl: '/img/affiliate/share_link.svg',
-    status: 'complete',
-    subtitle:
-      'Apply to our affiliate program and obtain your unique affiliate link upon acceptance.',
-    title: 'Generate your links',
-  },
-  {
-    imageUrl: '/img/affiliate/social_influence.svg',
-    status: 'complete',
-    subtitle:
-      'Share about GreatFrontEnd on your social media, YouTube channel, blog, etc., using your affiliate links.',
-    title: 'Share our offerings',
-  },
-  {
-    imageUrl: '/img/affiliate/get_remunerated.svg',
-    status: 'complete',
-    subtitle: (
-      <>
-        A unique browser cookie will be created when users use your link to
-        access our site which attributes any of their purchases to you. If they
-        purchase within 7 days, we pay you{' '}
-        <strong className="font-medium">15%</strong> of their first order.
-      </>
-    ),
-    title: 'Get remunerated',
-  },
-];
-
 export default function MarketingAffiliateSteps() {
+  const intl = useIntl();
+  const steps = useSteps();
+
   return (
-    <div aria-label="Steps">
+    <div
+      aria-label={intl.formatMessage({
+        defaultMessage: 'Steps',
+        description: 'Affiliate steps',
+        id: 'CdvNz+',
+      })}>
       <ol
         className="grid grow grid-cols-1 content-start gap-8 align-top md:grid-cols-2 md:gap-12 lg:grid-cols-3"
         role="list">
@@ -64,4 +45,72 @@ export default function MarketingAffiliateSteps() {
       </ol>
     </div>
   );
+}
+
+function useSteps() {
+  const intl = useIntl();
+
+  return [
+    {
+      imageUrl: '/img/affiliate/share_link.svg',
+      status: 'complete',
+
+      subtitle: intl.formatMessage({
+        defaultMessage:
+          'Apply to our affiliate program and obtain your unique affiliate link upon acceptance.',
+        description: 'Affiliate program step subtitle',
+        id: 'IZal7v',
+      }),
+
+      title: intl.formatMessage({
+        defaultMessage: 'Generate your links',
+        description: 'Affiliate program step',
+        id: '5HkUT3',
+      }),
+    },
+    {
+      imageUrl: '/img/affiliate/social_influence.svg',
+      status: 'complete',
+
+      subtitle: intl.formatMessage({
+        defaultMessage:
+          'Share about GreatFrontEnd on your social media, YouTube channel, blog, etc., using your affiliate links.',
+        description: 'Affiliate program step subtitle',
+        id: '8zZVob',
+      }),
+
+      title: intl.formatMessage({
+        defaultMessage: 'Share our offerings',
+        description: 'Affiliate program step',
+        id: 'sh0mp6',
+      }),
+    },
+    {
+      imageUrl: '/img/affiliate/get_remunerated.svg',
+      status: 'complete',
+
+      subtitle: (
+        <FormattedMessage
+          defaultMessage="A unique browser cookie will be created when users use your link to
+          access our site which attributes any of their purchases to you. If
+          they purchase within {days} days, we pay you <strong>{percent}%</strong> of their first order."
+          description="Affiliate program step subtitle"
+          id="ZrXDlv"
+          values={{
+            days: 7,
+            percent: 15,
+            strong: (chunks) => (
+              <strong className="font-medium">{chunks}</strong>
+            ),
+          }}
+        />
+      ),
+
+      title: intl.formatMessage({
+        defaultMessage: 'Get remunerated',
+        description: 'Affiliate program step',
+        id: 'FIHdOw',
+      }),
+    },
+  ];
 }

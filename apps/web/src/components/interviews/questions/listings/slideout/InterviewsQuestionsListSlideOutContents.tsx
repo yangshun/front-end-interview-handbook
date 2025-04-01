@@ -336,7 +336,11 @@ export default function InterviewsQuestionsListSlideOutContents({
             id: 'lmhAqm',
           })}
           size="sm"
-          tooltip="Close filters"
+          tooltip={intl.formatMessage({
+            defaultMessage: 'Close filters',
+            description: 'Close filters',
+            id: 'UoDVzC',
+          })}
           variant="tertiary"
           onClick={() => setShowFilters(false)}
         />

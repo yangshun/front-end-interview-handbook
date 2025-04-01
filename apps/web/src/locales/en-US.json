@@ -123,6 +123,10 @@
     "defaultMessage": "Copied",
     "description": "Copied state button label"
   },
+  "+hHAg7": {
+    "defaultMessage": "JavaScript Questions",
+    "description": "JavaScript Questions feature"
+  },
   "+hNsjW": {
     "defaultMessage": "Сoncise step by step practical guides",
     "description": "Short description for \"Skills roadmap\" feature on Projects home page"
@@ -355,6 +359,10 @@
     "defaultMessage": "{discountPercentage}% off expiring soon",
     "description": "Button label"
   },
+  "/yPyGR": {
+    "defaultMessage": "Search within this list of questions",
+    "description": "Search questions placeholder"
+  },
   "/zdDbr": {
     "defaultMessage": "React Interview Questions with Solutions | GreatFrontEnd",
     "description": "Title of React Interview Questions page"
@@ -479,6 +487,10 @@
     "defaultMessage": "Intermediate",
     "description": "Intermediate level blog"
   },
+  "0Yf0st": {
+    "defaultMessage": "Discount",
+    "description": "Discount"
+  },
   "0YqU5d": {
     "defaultMessage": "Your advertising request has been approved. You can no longer make changes.",
     "description": "Accepted request alert message"
@@ -526,10 +538,6 @@
   "0kDCAp": {
     "defaultMessage": "Total: ${total}",
     "description": "Total price label"
-  },
-  "0krNBp": {
-    "defaultMessage": "Coming soon",
-    "description": "Front end system design questions that are coming soon"
   },
   "0ljSJ7": {
     "defaultMessage": "JavaScript Interview Guides",
@@ -1043,6 +1051,10 @@
     "defaultMessage": "Get started in minutes",
     "description": "Text on Button on Call to action banner found at the bottom of the 'Become an Affiliate' page"
   },
+  "3wchxl": {
+    "defaultMessage": "Vanilla JavaScript",
+    "description": "Vanilla JavaScript feature"
+  },
   "3wygra": {
     "defaultMessage": "Current guide",
     "description": "Label for current guide title"
@@ -1059,9 +1071,17 @@
     "defaultMessage": "React Interview Questions | Solutions by Ex-FAANG interviewers",
     "description": "Title of React Interview Questions page"
   },
+  "4+KbJS": {
+    "defaultMessage": "Try the product",
+    "description": "Try the product button label"
+  },
   "4/SGqe": {
     "defaultMessage": "Earlier",
     "description": "Title for earlier list of comments"
+  },
+  "4/kn+m": {
+    "defaultMessage": "Open menu",
+    "description": "Open menu button label"
   },
   "41uq3N": {
     "defaultMessage": "Theme",
@@ -1255,6 +1275,10 @@
     "defaultMessage": "Something went wrong. Try again later or contact <link>support@greatfrontend.com</link>!",
     "description": "Error toast for project"
   },
+  "5HkUT3": {
+    "defaultMessage": "Generate your links",
+    "description": "Affiliate program step"
+  },
   "5M4u9n": {
     "defaultMessage": "You have <bold>{amountLeft}</bold> premium credits remaining. Unlock this project to access all premium features for this challenge, including the Figma design files, official guides, and solutions.",
     "description": "Subtitle for project paywall"
@@ -1355,6 +1379,10 @@
     "defaultMessage": "Deep-dives into real world applications",
     "description": "Features for question format page"
   },
+  "5r2tdW": {
+    "defaultMessage": "Large Question Pool",
+    "description": "Large Question Pool feature"
+  },
   "5rd3TN": {
     "defaultMessage": "Companies",
     "description": "Companies section label"
@@ -1406,6 +1434,10 @@
   "62sNHV": {
     "defaultMessage": "Try changing your search terms or filters",
     "description": "Subtitle for empty state when no questions are returned from application of filters on quiz questions list"
+  },
+  "643qfd": {
+    "defaultMessage": "GreatFrontEnd Interviews FAQs",
+    "description": "Title for the Interviews FAQ page"
   },
   "64nz1e": {
     "defaultMessage": "Switching on focus mode collapses all sidebars to provide a better reading experience.",
@@ -1595,6 +1627,10 @@
     "defaultMessage": "Showing {currentPageCount} out of {totalCount} challenges",
     "description": "Projects challenge pagination label"
   },
+  "76fgBs": {
+    "defaultMessage": "{completed} <bold>/{total} completed</bold>",
+    "description": "Question completion count summary"
+  },
   "78MOQL": {
     "defaultMessage": "No articles",
     "description": "Title for empty state when application of filters return no results"
@@ -1726,6 +1762,10 @@
   "7lppmr": {
     "defaultMessage": "Blog",
     "description": "Link to blog page"
+  },
+  "7lvAEP": {
+    "defaultMessage": "GreatFrontEnd Projects Premium",
+    "description": "GreatFrontEnd Projects premium"
   },
   "7o0DXO": {
     "defaultMessage": "All our challenges come with at least 1 official solution (coming soon) and step-by-step guide from senior big tech engineers. Learn best practices as early as possible.",
@@ -1907,6 +1947,10 @@
     "defaultMessage": "Coding workspace",
     "description": "Label for in content placement in workspace"
   },
+  "8zZVob": {
+    "defaultMessage": "Share about GreatFrontEnd on your social media, YouTube channel, blog, etc., using your affiliate links.",
+    "description": "Affiliate program step subtitle"
+  },
   "9//mtm": {
     "defaultMessage": "You may be interested",
     "description": "Title for you may be interested section on Projects challenge submission page"
@@ -1942,6 +1986,10 @@
   "94O2yv": {
     "defaultMessage": "Front end interviews are even broader in scope than traditional software engineering interviews. On top of the wide range of front end topics that could be asked, some companies still include standard DSA questions for front end roles.",
     "description": "Subtitle for marketing page study plans section"
+  },
+  "94sK60": {
+    "defaultMessage": "Select navigation item",
+    "description": "Select navigation item label"
   },
   "95Is5V": {
     "defaultMessage": "Quickly convert challenge designs into HTML, CSS, and Tailwind code by using our <link>Figma to Code plugin</link>.",
@@ -2026,6 +2074,10 @@
   "9Oyn4m": {
     "defaultMessage": "Leverage our <anchor>front end interview roadmap</anchor> to prepare quickly and effectively.",
     "description": "Description for front end interview roadmap"
+  },
+  "9R/+sv": {
+    "defaultMessage": "Offer from",
+    "description": "Offer from companies"
   },
   "9RYs96": {
     "defaultMessage": "Review community submissions",
@@ -2115,6 +2167,10 @@
     "defaultMessage": "Get additional <bold>{discountPercentage}% discount</bold> off by following our social accounts",
     "description": "Rewards discount message"
   },
+  "AA5pTU": {
+    "defaultMessage": "User Interface Questions",
+    "description": "User Interface Questions feature"
+  },
   "ABJ7ip": {
     "defaultMessage": "<bold>{completedQuestions}</bold>/{totalQuestions} completed",
     "description": "Line describing the number of questions completed by user over the total number of questions"
@@ -2154,6 +2210,10 @@
   "ATjflV": {
     "defaultMessage": "Choose up to 2 reasons so that we can improve your experience",
     "description": "Subtitle of motivation for joining section of projects profile edit page"
+  },
+  "AUlFaP": {
+    "defaultMessage": "Promotion",
+    "description": "Promotion"
   },
   "AVk8pE": {
     "defaultMessage": "Name",
@@ -2258,6 +2318,10 @@
   "B8kokj": {
     "defaultMessage": "Average metrics per week",
     "description": "Subtitle for GreatFrontEnd"
+  },
+  "B8l5F0": {
+    "defaultMessage": "Upgrade to lifetime plan",
+    "description": "Upgrade to lifetime plan"
   },
   "B8uTwW": {
     "defaultMessage": "No contributions in the community matching those filters",
@@ -2503,6 +2567,10 @@
     "defaultMessage": "Vanilla JavaScript UI Interview Questions with Solutions | GreatFrontEnd",
     "description": "Title of React Interview Questions page"
   },
+  "CdvNz+": {
+    "defaultMessage": "Steps",
+    "description": "Affiliate steps"
+  },
   "CfLpPw": {
     "defaultMessage": "<authorProfileLink>{author}</authorProfileLink> posted on the challenge forum for <link>{challengeTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for someone making a post on the challenge forum"
@@ -2547,6 +2615,10 @@
     "defaultMessage": "Company full legal name",
     "description": "Legal name input label"
   },
+  "CzttCA": {
+    "defaultMessage": "Coding Questions",
+    "description": "Coding Questions feature"
+  },
   "D+Qa8G": {
     "defaultMessage": "Return",
     "description": "Return label"
@@ -2582,6 +2654,10 @@
   "D9oArH": {
     "defaultMessage": "A confirmation email has been sent to the new email address. The email change will not take effect until the confirmation link in the new email address has been clicked and signing out",
     "description": "Message shown after an email change request is successful."
+  },
+  "D9w0Np": {
+    "defaultMessage": "System Design Questions",
+    "description": "System Design Questions feature"
   },
   "DAQ8QM": {
     "defaultMessage": "Difficulty: Easy to Hard",
@@ -2954,6 +3030,10 @@
   "FEamkQ": {
     "defaultMessage": "Submit a comment",
     "description": "Label for discussion input textarea"
+  },
+  "FIHdOw": {
+    "defaultMessage": "Get remunerated",
+    "description": "Affiliate program step"
   },
   "FIKuOh": {
     "defaultMessage": "Explore Front End Series | GreatFrontEnd",
@@ -3559,6 +3639,10 @@
     "defaultMessage": "Become an affiliate",
     "description": "Link to affiliate marketing program page"
   },
+  "IZal7v": {
+    "defaultMessage": "Apply to our affiliate program and obtain your unique affiliate link upon acceptance.",
+    "description": "Affiliate program step subtitle"
+  },
   "Ia88Vb": {
     "defaultMessage": "Related articles",
     "description": "Blog related articles section"
@@ -3643,6 +3727,10 @@
     "defaultMessage": "Are there student discounts available for GreatFrontEnd Projects?",
     "description": "Question on projects pricing's FAQ section - student discounts"
   },
+  "IzjiBy": {
+    "defaultMessage": "React",
+    "description": "React feature"
+  },
   "J/UPQZ": {
     "defaultMessage": "For learning",
     "description": "Title of the 'We help you learn through building - without tutorial hell' marketing section on Projects home page"
@@ -3686,6 +3774,10 @@
   "J7mnO8": {
     "defaultMessage": "Binary tree",
     "description": "Computer science data structure"
+  },
+  "J91SLD": {
+    "defaultMessage": "Company Tags",
+    "description": "Company Tags feature"
   },
   "J9zndO": {
     "defaultMessage": "Reach {engineersCount}+ Front End Engineers with high ROI placements",
@@ -4143,6 +4235,10 @@
     "defaultMessage": "Try changing your search filters",
     "description": "Subtitle for empty state when no questions are returned from application of filters on profile activity page"
   },
+  "LJFQaW": {
+    "defaultMessage": "Coming soon",
+    "description": "Coming soon label"
+  },
   "LKILl5": {
     "defaultMessage": "Submission successfully unpinned!",
     "description": "Submission unpin toaster"
@@ -4190,6 +4286,14 @@
   "LSdhYS": {
     "defaultMessage": "Series",
     "description": "Label for Blog Series"
+  },
+  "LSqaK2": {
+    "defaultMessage": "Interviews Premium",
+    "description": "Interviews premium"
+  },
+  "LTio0D": {
+    "defaultMessage": "{sales} sales",
+    "description": "Sales count"
   },
   "LTreFY": {
     "defaultMessage": "Reset password",
@@ -4318,6 +4422,10 @@
   "M7RwUF": {
     "defaultMessage": "You left a question on your submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for you asking question on your submission"
+  },
+  "M87zrX": {
+    "defaultMessage": "Simple {percent}% commission, no limit",
+    "description": "Affiliate program commission section title"
   },
   "M9z02W": {
     "defaultMessage": "Airbnb",
@@ -4506,6 +4614,10 @@
   "NZKztk": {
     "defaultMessage": "Breadth-first search",
     "description": "Computer science topic"
+  },
+  "NZntPO": {
+    "defaultMessage": "Completed",
+    "description": "Entity completion status"
   },
   "NbNtxn": {
     "defaultMessage": "GreatFrontEnd: The great way to prepare for Front End Interviews",
@@ -4999,6 +5111,10 @@
     "defaultMessage": "Go to image {imgIndex}",
     "description": "Label for button to navigate carousel image"
   },
+  "Q44acV": {
+    "defaultMessage": "Easily get paid with PayPal at the end of every month.",
+    "description": "Affiliate program payout section subtitle"
+  },
   "Q7apLT": {
     "defaultMessage": "Blog | GreatFrontEnd",
     "description": "Title of GreatFrontEnd blog homepage"
@@ -5010,6 +5126,10 @@
   "QB8XoS": {
     "defaultMessage": "View",
     "description": "Link to a submission page"
+  },
+  "QBq/oI": {
+    "defaultMessage": "Coding Workspace",
+    "description": "Coding Workspace feature"
   },
   "QCyCcO": {
     "defaultMessage": "Body is required",
@@ -5122,6 +5242,10 @@
   "Qkj3kc": {
     "defaultMessage": "You have previously unlocked this challenge. Resubscribe to premium to regain access to this challenge and all of its premium features, including the the Figma design files, official guides, and solutions.",
     "description": "Subtitle for project paywall"
+  },
+  "QmArZ9": {
+    "defaultMessage": "This page answers questions related to GreatFrontEnd Interviews.",
+    "description": "Description for the Interviews FAQ page"
   },
   "QokfmI": {
     "defaultMessage": "{skillsCount, plural, =0 {No skills used} one {1 skill used} other {# skills used}}",
@@ -5591,6 +5715,10 @@
     "defaultMessage": "Bootcamp Grad",
     "description": "Label for \"Bootcamp Grad\" option in YOE replacement"
   },
+  "SpQduM": {
+    "defaultMessage": "Based on average order value",
+    "description": "Affiliate program commission section note"
+  },
   "SsWL2T": {
     "defaultMessage": "Explore series",
     "description": "Sidebar label for explore series"
@@ -5931,6 +6059,10 @@
     "defaultMessage": "Already an affiliate? <link>Access dashboard</link>",
     "description": "Button to access dashboard above the Title of the 'Become An Affiliate' page's Hero section"
   },
+  "UoDVzC": {
+    "defaultMessage": "Close filters",
+    "description": "Close filters"
+  },
   "UotwsL": {
     "defaultMessage": "Logging you in...",
     "description": "Subtitle of AuthPage when logged in"
@@ -5978,6 +6110,10 @@
   "V6uY86": {
     "defaultMessage": "Unlimited premium credits",
     "description": "Label for unlocks feature for annual plan"
+  },
+  "V76JJ8": {
+    "defaultMessage": "Code",
+    "description": "Coupon code"
   },
   "V7Ifp8": {
     "defaultMessage": "Find user submissions suggested for your review, based on your completed challenges, skills, and experience.",
@@ -6030,6 +6166,10 @@
   "VVf84T": {
     "defaultMessage": "Password",
     "description": "Label of password field on Change Password page"
+  },
+  "VVq82g": {
+    "defaultMessage": "View all features",
+    "description": "View all features button label"
   },
   "VWGWik": {
     "defaultMessage": "Learn to work with specifications mimicking projects you will encounter as a full-time engineer",
@@ -6387,6 +6527,10 @@
     "defaultMessage": "Explore series",
     "description": "Explore series page title"
   },
+  "X8zPQu": {
+    "defaultMessage": "Sidebar",
+    "description": "Sidebar"
+  },
   "XB1qXx": {
     "defaultMessage": "Body: {characterLimit} characters maximum, not more than {maxLinkCount} links",
     "description": "Body placement constraints"
@@ -6579,6 +6723,10 @@
     "defaultMessage": "As mentioned above, there are many ways to host your project for free. Our recommend hosts are:",
     "description": "Text for Deployment Info in Projects"
   },
+  "YFKKP4": {
+    "defaultMessage": "Expires",
+    "description": "Expiration date"
+  },
   "YIry1B": {
     "defaultMessage": "Pricing plans",
     "description": "Title for projects pricing plans"
@@ -6694,6 +6842,10 @@
   "Yx+36F": {
     "defaultMessage": "Challenge: {challengeName} | Guides",
     "description": "Title of Projects challenge resources guides age"
+  },
+  "YxAmJ+": {
+    "defaultMessage": "Join the Premium Interviews club and get access to all questions and solutions",
+    "description": "Premium Interviews description"
   },
   "YzW/Zb": {
     "defaultMessage": "Expires on {expiryDate}",
@@ -6839,9 +6991,17 @@
     "defaultMessage": "At most {maxLength} character(s).",
     "description": "Error message"
   },
+  "ZrXDlv": {
+    "defaultMessage": "A unique browser cookie will be created when users use your link to access our site which attributes any of their purchases to you. If they purchase within {days} days, we pay you <strong>{percent}%</strong> of their first order.",
+    "description": "Affiliate program step subtitle"
+  },
   "ZsOMcv": {
     "defaultMessage": "Select online asset type",
     "description": "Label for tabs to select online asset type"
+  },
+  "Zt9KyW": {
+    "defaultMessage": "Quality Solutions",
+    "description": "Quality Solutions feature"
   },
   "Zui1cu": {
     "defaultMessage": "Focus areas",
@@ -7391,6 +7551,10 @@
     "defaultMessage": "Design a News Feed (e.g. Facebook)",
     "description": "System design question title"
   },
+  "ch9+CI": {
+    "defaultMessage": "Other offers",
+    "description": "Other offers from companies"
+  },
   "chadI5": {
     "defaultMessage": "Status",
     "description": "Label for \"Years of experience replacement status\" choices on Projects profile onboarding page"
@@ -7586,6 +7750,10 @@
   "dlRik2": {
     "defaultMessage": "Accounting for rotations with {bannerCount} other banners",
     "description": "Item 1 for global banner placement impressions info"
+  },
+  "do4njS": {
+    "defaultMessage": "System Design content will be released on a rolling basis. Prices will be increased after System Design content is complete. Subscribe to lifetime today and secure the better deal!",
+    "description": "Question coming soon subtitle"
   },
   "doY6Fg": {
     "defaultMessage": "Quiz",
@@ -8303,6 +8471,10 @@
     "defaultMessage": "{questionCount}+ most important Angular interview questions on services, directives, RxJS, forms, state management, and dynamic component building.",
     "description": "Subtitle for questions list page"
   },
+  "hW0hdr": {
+    "defaultMessage": "Earn a generous {percent}% commission on every purchase within {days} days of using your affiliate link. Earn as much as you refer - no limits to payouts, no frills.",
+    "description": "Affiliate program commission section subtitle"
+  },
   "hW1w8e": {
     "defaultMessage": "Angular Interview Questions",
     "description": "Angular questions category long title"
@@ -8559,6 +8731,10 @@
     "defaultMessage": "Resume",
     "description": "Button label for resume"
   },
+  "jLHxac": {
+    "defaultMessage": "Coming Soon",
+    "description": "Coming soon label"
+  },
   "jLJBBH": {
     "defaultMessage": "<authorProfileLink>{author}</authorProfileLink> replied to <bold>themselves</bold> on the submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for someone replying to themselves on a submission"
@@ -8667,9 +8843,17 @@
     "defaultMessage": "API design principles",
     "description": "User Interface components API design principles"
   },
+  "joVUiA": {
+    "defaultMessage": "GreatFrontEnd Interviews Premium",
+    "description": "GreatFrontEnd Interviews premium"
+  },
   "jp2HuK": {
     "defaultMessage": "Recommended",
     "description": "Sorting option for projects list - recommended"
+  },
+  "jqfqCr": {
+    "defaultMessage": "Regular payouts through PayPal",
+    "description": "Affiliate program payout section title"
   },
   "jtnskJ": {
     "defaultMessage": "Creator's YOE",
@@ -9003,6 +9187,10 @@
     "defaultMessage": "Project completion",
     "description": "Subtitle for \"Project Deployment & Completion\" tab on Projects project page"
   },
+  "lN+yNL": {
+    "defaultMessage": "Back to dashboard",
+    "description": "Back to dashboard button label"
+  },
   "lNb6DV": {
     "defaultMessage": "Share this page",
     "description": "Tooltip for share button"
@@ -9038,6 +9226,10 @@
   "li6epc": {
     "defaultMessage": "Made by experienced senior engineers",
     "description": "Marketing section title"
+  },
+  "lkiyFB": {
+    "defaultMessage": "Algorithms",
+    "description": "Algorithms feature"
   },
   "lmhAqm": {
     "defaultMessage": "Hide",
@@ -9274,6 +9466,10 @@
   "nAvA8M": {
     "defaultMessage": "Progress | {name}",
     "description": "Title of user profile progress page"
+  },
+  "nHJcbV": {
+    "defaultMessage": "Quiz Questions",
+    "description": "Quiz Questions feature"
   },
   "nHYQlP": {
     "defaultMessage": "{questionCount}+ Front End Interview Questions and Answers",
@@ -9574,6 +9770,10 @@
   "ouJSar": {
     "defaultMessage": "{name} completed",
     "description": "User has completed on this challenge"
+  },
+  "ouuGkB": {
+    "defaultMessage": "Difficulty Levels",
+    "description": "Difficulty Levels feature"
   },
   "ouzs0n": {
     "defaultMessage": "Page name must contain at most {maxLength} character(s).",
@@ -9931,6 +10131,10 @@
     "defaultMessage": "Spotlight Ad",
     "description": "Ad format"
   },
+  "qt9prY": {
+    "defaultMessage": "A great product worth recommending",
+    "description": "Affiliate program why section title"
+  },
   "qv5NJ8": {
     "defaultMessage": "Feedback submitted successfully",
     "description": "Success toast title for message sent"
@@ -10182,6 +10386,10 @@
   "sfJ1Oa": {
     "defaultMessage": "Purchase premium to get access to all component tracks as well as exclusive skills, official how-to guides and production-ready Figma files.",
     "description": "Subtitle for premium projects component track"
+  },
+  "sh0mp6": {
+    "defaultMessage": "Share our offerings",
+    "description": "Affiliate program step"
   },
   "sjLtW1": {
     "defaultMessage": "Manage subscription",
@@ -11147,6 +11355,10 @@
     "defaultMessage": "Reading time",
     "description": "Reading time of the article"
   },
+  "yAxqQL": {
+    "defaultMessage": "Our platform has many unique advantages, making it easily recommendable to users looking for front end interview preparation.",
+    "description": "Affiliate program why section subtitle"
+  },
   "yBb1/v": {
     "defaultMessage": "JavaScript functions",
     "description": "Title of questions list"
@@ -11458,6 +11670,10 @@
   "zbigrn": {
     "defaultMessage": "Search over {questionCount} HTML interview questions",
     "description": "Search placeholder for HTML questions list page"
+  },
+  "zc3dbu": {
+    "defaultMessage": "Show full question",
+    "description": "Show full question button label"
   },
   "zeK111": {
     "defaultMessage": "E.g. \"Responsive solution with React and Tailwind CSS\"",

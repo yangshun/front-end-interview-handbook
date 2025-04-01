@@ -8,7 +8,7 @@ import { useLocalStorage, useMediaQuery } from 'usehooks-ts';
 import { trpc } from '~/hooks/trpc';
 
 import { useToast } from '~/components/global/toasts/useToast';
-import { FormattedMessage } from '~/components/intl';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Chip from '~/components/ui/Chip';
 import Text from '~/components/ui/Text';
@@ -29,6 +29,8 @@ function RecentPurchaseToastComponent({
   onClose,
   country,
 }: Readonly<{ country: string; onClose: () => void }>) {
+  const intl = useIntl();
+
   return (
     <div
       className={clsx(
@@ -55,7 +57,11 @@ function RecentPurchaseToastComponent({
             icon={RiStarSmileFill}
             iconClassName="!text-neutral-950 size-4"
             isLabelHidden={true}
-            label="Premium"
+            label={intl.formatMessage({
+              defaultMessage: 'Premium',
+              description: 'Label for premium',
+              id: 'ymmDf7',
+            })}
             size="sm"
             variant="primary"
           />

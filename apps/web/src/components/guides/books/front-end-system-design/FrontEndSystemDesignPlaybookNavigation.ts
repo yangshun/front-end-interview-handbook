@@ -288,9 +288,8 @@ export function useFrontEndSystemDesignPlaybookNavigation() {
             })),
           label: intl.formatMessage({
             defaultMessage: 'Coming soon',
-            description:
-              'Front end system design questions that are coming soon',
-            id: '0krNBp',
+            description: 'Coming soon label',
+            id: 'LJFQaW',
           }),
           type: 'list',
         },

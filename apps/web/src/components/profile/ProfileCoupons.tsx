@@ -110,22 +110,38 @@ export default function ProfileCoupons() {
                 <tr>
                   <th className="py-3 pl-4 pr-3 text-left">
                     <Text size="body2" weight="medium">
-                      Promotion
+                      {intl.formatMessage({
+                        defaultMessage: 'Promotion',
+                        description: 'Promotion',
+                        id: 'AUlFaP',
+                      })}
                     </Text>
                   </th>
                   <th className="py-3 pl-4 pr-3 text-left">
                     <Text size="body2" weight="medium">
-                      Discount
+                      {intl.formatMessage({
+                        defaultMessage: 'Discount',
+                        description: 'Discount',
+                        id: '0Yf0st',
+                      })}
                     </Text>
                   </th>
                   <th className="py-3 pl-4 pr-3 text-left">
                     <Text size="body2" weight="medium">
-                      Code
+                      {intl.formatMessage({
+                        defaultMessage: 'Code',
+                        description: 'Coupon code',
+                        id: 'V76JJ8',
+                      })}
                     </Text>
                   </th>
                   <th className="py-3 pl-4 pr-3 text-left">
                     <Text size="body2" weight="medium">
-                      Expires
+                      {intl.formatMessage({
+                        defaultMessage: 'Expires',
+                        description: 'Expiration date',
+                        id: 'YFKKP4',
+                      })}
                     </Text>
                   </th>
                 </tr>

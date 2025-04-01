@@ -4,9 +4,12 @@ import { RiStarSmileFill } from 'react-icons/ri';
 
 import { useQuestionFormatsData } from '~/data/QuestionCategories';
 
+import { useIntl } from '~/components/intl';
+
 import NotFoundPage from '../../global/error/NotFoundPage';
 
 export default function InterviewsNotFoundPage() {
+  const intl = useIntl();
   const formats = useQuestionFormatsData();
   const links = [
     {
@@ -28,11 +31,19 @@ export default function InterviewsNotFoundPage() {
       title: formats.quiz.label,
     },
     {
-      description:
-        'Join the Premium Interviews club and get access to all questions and solutions',
+      description: intl.formatMessage({
+        defaultMessage:
+          'Join the Premium Interviews club and get access to all questions and solutions',
+        description: 'Premium Interviews description',
+        id: 'YxAmJ+',
+      }),
       href: '/interviews/pricing',
       icon: RiStarSmileFill,
-      title: 'Interviews Premium',
+      title: intl.formatMessage({
+        defaultMessage: 'Interviews Premium',
+        description: 'Interviews premium',
+        id: 'LSqaK2',
+      }),
     },
   ];
 

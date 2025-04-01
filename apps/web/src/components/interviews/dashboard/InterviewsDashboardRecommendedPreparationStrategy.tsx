@@ -337,7 +337,11 @@ export default function InterviewsDashboardRecommendedPreparationStrategy({
                     icon={FaCheck}
                     iconClassName="size-5"
                     isLabelHidden={true}
-                    label="Completed"
+                    label={intl.formatMessage({
+                      defaultMessage: 'Completed',
+                      description: 'Entity completion status',
+                      id: 'NZntPO',
+                    })}
                     variant="success"
                   />
                 ) : (

@@ -63,11 +63,20 @@ export default function InterviewsFAQPage() {
   return (
     <Container className="my-20 flex flex-col gap-y-8" width="marketing">
       <Heading level="heading2" weight="medium">
-        GreatFrontEnd Interviews FAQs
+        {intl.formatMessage({
+          defaultMessage: 'GreatFrontEnd Interviews FAQs',
+          description: 'Title for the Interviews FAQ page',
+          id: '643qfd',
+        })}
       </Heading>
       <Section>
         <Text color="secondary">
-          This page answers questions related to GreatFrontEnd Interviews.
+          {intl.formatMessage({
+            defaultMessage:
+              'This page answers questions related to GreatFrontEnd Interviews.',
+            description: 'Description for the Interviews FAQ page',
+            id: 'QmArZ9',
+          })}
         </Text>
         <Divider />
         <MarketingFAQSection

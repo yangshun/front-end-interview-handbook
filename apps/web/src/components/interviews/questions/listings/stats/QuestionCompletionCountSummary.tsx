@@ -1,5 +1,8 @@
+'use client';
+
 import clsx from 'clsx';
 
+import { FormattedMessage } from '~/components/intl';
 import Text from '~/components/ui/Text';
 
 type Props = Readonly<{
@@ -23,13 +26,23 @@ export default function QuestionCompletionCountSummary({
       ])}
       color={hasCompletedAll ? 'inherit' : 'secondary'}
       size="body2">
-      {completed}
-      <Text
-        className="text-neutral-400 dark:text-neutral-500"
-        color="inherit"
-        size="body3">
-        /{total} completed
-      </Text>
+      <FormattedMessage
+        defaultMessage="{completed} <bold>/{total} completed</bold>"
+        description="Question completion count summary"
+        id="76fgBs"
+        values={{
+          bold: (chunk) => (
+            <Text
+              className="text-neutral-400 dark:text-neutral-500"
+              color="inherit"
+              size="body3">
+              {chunk}
+            </Text>
+          ),
+          completed,
+          total,
+        }}
+      />
     </Text>
   );
 }

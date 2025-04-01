@@ -1,3 +1,5 @@
+'use client';
+
 import clsx from 'clsx';
 import { useState } from 'react';
 import { FaCheck } from 'react-icons/fa6';
@@ -8,6 +10,7 @@ import {
   RiThumbUpLine,
 } from 'react-icons/ri';
 
+import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -20,23 +23,81 @@ import {
 
 import * as SliderPrimitive from '@radix-ui/react-slider';
 
-const features = [
-  'Coding Questions',
-  'JavaScript Questions',
-  'User Interface Questions',
-  'System Design Questions',
-  'Quiz Questions',
-  'Quality Solutions',
-  'React',
-  'Vanilla JavaScript',
-  'Large Question Pool',
-  'Company Tags',
-  'Algorithms',
-  'Coding Workspace',
-  'Difficulty Levels',
-];
+function useFeatures() {
+  const intl = useIntl();
+
+  return [
+    intl.formatMessage({
+      defaultMessage: 'Coding Questions',
+      description: 'Coding Questions feature',
+      id: 'CzttCA',
+    }),
+    intl.formatMessage({
+      defaultMessage: 'JavaScript Questions',
+      description: 'JavaScript Questions feature',
+      id: '+hHAg7',
+    }),
+    intl.formatMessage({
+      defaultMessage: 'User Interface Questions',
+      description: 'User Interface Questions feature',
+      id: 'AA5pTU',
+    }),
+    intl.formatMessage({
+      defaultMessage: 'System Design Questions',
+      description: 'System Design Questions feature',
+      id: 'D9w0Np',
+    }),
+    intl.formatMessage({
+      defaultMessage: 'Quiz Questions',
+      description: 'Quiz Questions feature',
+      id: 'nHJcbV',
+    }),
+    intl.formatMessage({
+      defaultMessage: 'Quality Solutions',
+      description: 'Quality Solutions feature',
+      id: 'Zt9KyW',
+    }),
+    intl.formatMessage({
+      defaultMessage: 'React',
+      description: 'React feature',
+      id: 'IzjiBy',
+    }),
+    intl.formatMessage({
+      defaultMessage: 'Vanilla JavaScript',
+      description: 'Vanilla JavaScript feature',
+      id: '3wchxl',
+    }),
+    intl.formatMessage({
+      defaultMessage: 'Large Question Pool',
+      description: 'Large Question Pool feature',
+      id: '5r2tdW',
+    }),
+    intl.formatMessage({
+      defaultMessage: 'Company Tags',
+      description: 'Company Tags feature',
+      id: 'J91SLD',
+    }),
+    intl.formatMessage({
+      defaultMessage: 'Algorithms',
+      description: 'Algorithms feature',
+      id: 'lkiyFB',
+    }),
+    intl.formatMessage({
+      defaultMessage: 'Coding Workspace',
+      description: 'Coding Workspace feature',
+      id: 'QBq/oI',
+    }),
+    intl.formatMessage({
+      defaultMessage: 'Difficulty Levels',
+      description: 'Difficulty Levels feature',
+      id: 'ouuGkB',
+    }),
+  ];
+}
 
 function ProductSection() {
+  const features = useFeatures();
+
   return (
     <div className="flex flex-wrap gap-4">
       {features.map((feature) => (
@@ -57,6 +118,7 @@ function ProductSection() {
 }
 
 function SliderSection() {
+  const intl = useIntl();
   const [sales, setSales] = useState(30);
 
   return (
@@ -71,7 +133,12 @@ function SliderSection() {
           <span className="self-end text-lg font-medium">USD</span>
         </Text>
         <Text className="block italic" color="secondary" size="body2">
-          * Based on average order value
+          *{' '}
+          {intl.formatMessage({
+            defaultMessage: 'Based on average order value',
+            description: 'Affiliate program commission section note',
+            id: 'SpQduM',
+          })}
         </Text>
       </div>
       <SliderPrimitive.Root
@@ -96,50 +163,22 @@ function SliderSection() {
         color="secondary"
         size="inherit"
         weight="medium">
-        {sales} sales
+        {intl.formatMessage(
+          {
+            defaultMessage: '{sales} sales',
+            description: 'Sales count',
+            id: 'LTio0D',
+          },
+          { sales },
+        )}
       </Text>
     </div>
   );
 }
 
-const reasons = [
-  {
-    action: {
-      href: '/',
-      label: 'View all features',
-    },
-    icon: RiThumbUpLine,
-    media: <ProductSection />,
-    secondaryAction: {
-      href: '/get-started',
-      label: 'Try the product',
-    },
-    subtitle:
-      'Our platform has many unique advantages, making it easily recommendable to users looking for front end interview preparation.',
-    title: 'A great product worth recommending',
-  },
-  {
-    icon: RiHandCoinLine,
-    media: <SliderSection />,
-    subtitle:
-      'Earn a generous 15% commission on every purchase within 7 days of using your affiliate link. Earn as much as you refer - no limits to payouts, no frills.',
-    title: 'Simple 15% commission, no limit',
-  },
-  {
-    icon: RiMoneyDollarBoxLine,
-    media: (
-      <img
-        alt="PayPal logo"
-        className="mx-auto max-w-[400px]"
-        src="/img/affiliate/paypal-logo.png"
-      />
-    ),
-    subtitle: 'Easily get paid with PayPal at the end of every month.',
-    title: 'Regular payouts through PayPal',
-  },
-];
-
 export default function MarketingAffiliateWhySections() {
+  const reasons = useReasons();
+
   return (
     <div className="relative space-y-16 overflow-hidden">
       {reasons.map((reason) => (
@@ -163,6 +202,7 @@ export default function MarketingAffiliateWhySections() {
                 />
               </span>
             </div>
+
             <div className="mt-6">
               <Heading level="heading4">{reason.title}</Heading>
               <Section>
@@ -200,4 +240,93 @@ export default function MarketingAffiliateWhySections() {
       ))}
     </div>
   );
+}
+
+function useReasons() {
+  const intl = useIntl();
+
+  return [
+    {
+      action: {
+        href: '/',
+        label: intl.formatMessage({
+          defaultMessage: 'View all features',
+          description: 'View all features button label',
+          id: 'VVq82g',
+        }),
+      },
+
+      icon: RiThumbUpLine,
+      media: <ProductSection />,
+
+      secondaryAction: {
+        href: '/get-started',
+        label: intl.formatMessage({
+          defaultMessage: 'Try the product',
+          description: 'Try the product button label',
+          id: '4+KbJS',
+        }),
+      },
+
+      subtitle: intl.formatMessage({
+        defaultMessage:
+          'Our platform has many unique advantages, making it easily recommendable to users looking for front end interview preparation.',
+        description: 'Affiliate program why section subtitle',
+        id: 'yAxqQL',
+      }),
+
+      title: intl.formatMessage({
+        defaultMessage: 'A great product worth recommending',
+        description: 'Affiliate program why section title',
+        id: 'qt9prY',
+      }),
+    },
+    {
+      icon: RiHandCoinLine,
+      media: <SliderSection />,
+
+      subtitle: intl.formatMessage(
+        {
+          defaultMessage:
+            'Earn a generous {percent}% commission on every purchase within {days} days of using your affiliate link. Earn as much as you refer - no limits to payouts, no frills.',
+          description: 'Affiliate program commission section subtitle',
+          id: 'hW0hdr',
+        },
+        { days: 7, percent: 15 },
+      ),
+
+      title: intl.formatMessage(
+        {
+          defaultMessage: 'Simple {percent}% commission, no limit',
+          description: 'Affiliate program commission section title',
+          id: 'M87zrX',
+        },
+        { percent: 15 },
+      ),
+    },
+    {
+      icon: RiMoneyDollarBoxLine,
+
+      media: (
+        <img
+          alt="PayPal logo"
+          className="mx-auto max-w-[400px]"
+          src="/img/affiliate/paypal-logo.png"
+        />
+      ),
+
+      subtitle: intl.formatMessage({
+        defaultMessage:
+          'Easily get paid with PayPal at the end of every month.',
+        description: 'Affiliate program payout section subtitle',
+        id: 'Q44acV',
+      }),
+
+      title: intl.formatMessage({
+        defaultMessage: 'Regular payouts through PayPal',
+        description: 'Affiliate program payout section title',
+        id: 'jqfqCr',
+      }),
+    },
+  ];
 }

@@ -1,7 +1,10 @@
+'use client';
+
 import clsx from 'clsx';
 
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import QuestionListingFilterItem from '~/components/interviews/questions/listings/filters/QuestionListingFilterItem';
+import { useIntl } from '~/components/intl';
 import {
   Accordion,
   AccordionContent,
@@ -75,6 +78,7 @@ export default function QuestionListingUnifiedFilters({
   topicFilterOptions,
   topicFilters,
 }: Props) {
+  const intl = useIntl();
   const { userProfile } = useUserProfile();
 
   return (
@@ -148,7 +152,12 @@ export default function QuestionListingUnifiedFilters({
               label={<QuestionFrameworkLanguageTooltipLabel />}>
               <AccordionTrigger>
                 <QuestionListingFilterItemLabel
-                  label="Framework / Language"
+                  label={intl.formatMessage({
+                    defaultMessage: 'Framework / Language',
+                    description:
+                      'Label for frameworks and programming language button',
+                    id: 'XhL9G7',
+                  })}
                   showInfoIcon={true}
                 />
               </AccordionTrigger>

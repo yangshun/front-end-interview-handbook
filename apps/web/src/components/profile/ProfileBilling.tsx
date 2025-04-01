@@ -27,6 +27,7 @@ function InterviewsPlanLabel({
 }: Readonly<{
   plan?: InterviewsProfileSubscriptionPlan | null;
 }>): JSX.Element | null {
+  const intl = useIntl();
   const autoRenewal = (
     <FormattedMessage
       defaultMessage="Subscriptions are automatically renewed and you will be charged again then. You may cancel your subscription anytime via the Stripe billing portal."
@@ -65,7 +66,11 @@ function InterviewsPlanLabel({
           <Alert
             bodySize="body3"
             icon={RiBriefcaseLine}
-            title="GreatFrontEnd Interviews Premium"
+            title={intl.formatMessage({
+              defaultMessage: 'GreatFrontEnd Interviews Premium',
+              description: 'GreatFrontEnd Interviews premium',
+              id: 'joVUiA',
+            })}
             variant="primary">
             <FormattedMessage
               defaultMessage="Purchase premium to get access to all {questionCount}+ interview questions, official solutions, study plans, and company tags."
@@ -150,6 +155,7 @@ function ProjectsPlanLabel({
 }: Readonly<{
   viewerProjectsProfile?: ProjectsViewerProjectsProfile | null;
 }>): JSX.Element | null {
+  const intl = useIntl();
   const subtitle = useProjectsChallengePaywallSubtitle(
     'SUBSCRIBE',
     viewerProjectsProfile,
@@ -200,7 +206,11 @@ function ProjectsPlanLabel({
                 {...props}
               />
             )}
-            title="GreatFrontEnd Projects Premium"
+            title={intl.formatMessage({
+              defaultMessage: 'GreatFrontEnd Projects Premium',
+              description: 'GreatFrontEnd Projects premium',
+              id: '7lvAEP',
+            })}
             variant="primary">
             {subtitle}
           </Alert>
@@ -308,6 +318,7 @@ function ManageSubscriptionSection(): JSX.Element | null {
 }
 
 function InterviewsSubscriptionSection() {
+  const intl = useIntl();
   const { userProfile } = useUserProfileWithProjectsProfile();
 
   return (
@@ -336,7 +347,11 @@ function InterviewsSubscriptionSection() {
             userProfile?.plan === 'quarter') && (
             <Alert
               bodySize="body3"
-              title="Upgrade to lifetime plan"
+              title={intl.formatMessage({
+                defaultMessage: 'Upgrade to lifetime plan',
+                description: 'Upgrade to lifetime plan',
+                id: 'B8l5F0',
+              })}
               variant="success">
               <FormattedMessage
                 defaultMessage="Existing subscribers can upgrade to the lifetime plan at a discount, send an email to <link>contact@greatfrontend</link> to find out more."

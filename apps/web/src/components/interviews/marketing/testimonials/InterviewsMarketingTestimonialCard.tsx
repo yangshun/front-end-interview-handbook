@@ -1,3 +1,5 @@
+'use client';
+
 import clsx from 'clsx';
 import {
   RiLinkedinBoxFill,
@@ -5,6 +7,7 @@ import {
   RiTwitterXLine,
 } from 'react-icons/ri';
 
+import { useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Avatar from '~/components/ui/Avatar';
 import Card from '~/components/ui/Card';
@@ -53,6 +56,8 @@ export default function InterviewsMarketingTestimonialCard({
   title,
   disableSpotlight = false,
 }: InterviewsMarketingTestimonial & Readonly<{ disableSpotlight?: boolean }>) {
+  const intl = useIntl();
+
   return (
     <Card
       brandColorSpotlight={false}
@@ -77,7 +82,11 @@ export default function InterviewsMarketingTestimonialCard({
               </div>
             )}
             <Text color="secondary" size="body3">
-              Offer from{' '}
+              {intl.formatMessage({
+                defaultMessage: 'Offer from',
+                description: 'Offer from companies',
+                id: '9R/+sv',
+              })}{' '}
               <Text color="subtitle" weight="medium">
                 {featuredOffer}
               </Text>
@@ -152,7 +161,13 @@ export default function InterviewsMarketingTestimonialCard({
           </Text>
           {offers != null && offers.length > 0 && (
             <Text className="block italic" color="secondary" size="body3">
-              Other offers: {offers.join(', ')}
+              {intl.formatMessage({
+                defaultMessage: 'Other offers',
+                description: 'Other offers from companies',
+                id: 'ch9+CI',
+              })}
+              {': '}
+              {offers.join(', ')}
             </Text>
           )}
         </div>

@@ -7,7 +7,7 @@ import { trpc } from '~/hooks/trpc';
 
 import { useGuidesData } from '~/data/Guides';
 
-import { FormattedMessage } from '~/components/intl';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Chip from '~/components/ui/Chip';
 import Popover from '~/components/ui/Popover';
@@ -31,6 +31,7 @@ function InterviewsRecommendedPrepStrategyPopoverContents({
 }: Readonly<{
   overallProgress: ReadonlyArray<QuestionProgress>;
 }>) {
+  const intl = useIntl();
   const user = useUser();
   const { data: questionListSessions } =
     trpc.questionSessions.getActive.useQuery(undefined, {
@@ -123,7 +124,11 @@ function InterviewsRecommendedPrepStrategyPopoverContents({
                     icon={FaCheck}
                     iconClassName="size-4"
                     isLabelHidden={true}
-                    label="Completed"
+                    label={intl.formatMessage({
+                      defaultMessage: 'Completed',
+                      description: 'Entity completion status',
+                      id: 'NZntPO',
+                    })}
                     size="sm"
                     variant="success"
                   />

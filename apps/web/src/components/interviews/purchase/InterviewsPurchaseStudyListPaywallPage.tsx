@@ -4,6 +4,7 @@ import clsx from 'clsx';
 import { RiArrowLeftLine } from 'react-icons/ri';
 
 import InterviewsPurchasePaywall from '~/components/interviews/purchase/InterviewsPurchasePaywall';
+import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 
 import type { InterviewsPurchasePremiumFeature } from './InterviewsPurchaseTypes';
@@ -27,6 +28,8 @@ const studyListCategoryToFeature: Record<
 export default function InterviewsPurchaseStudyListPaywallPage({
   studyListCategory,
 }: Props) {
+  const intl = useIntl();
+
   return (
     <div
       className={clsx(
@@ -47,7 +50,11 @@ export default function InterviewsPurchaseStudyListPaywallPage({
           addonPosition="start"
           href="/interviews/dashboard"
           icon={RiArrowLeftLine}
-          label="Back to dashboard"
+          label={intl.formatMessage({
+            defaultMessage: 'Back to dashboard',
+            description: 'Back to dashboard button label',
+            id: 'lN+yNL',
+          })}
           variant="secondary"
         />
       </div>

@@ -10,6 +10,7 @@ import InterviewsPurchasePaywall from '~/components/interviews/purchase/Intervie
 import type { QuestionSystemDesign } from '~/components/interviews/questions/common/QuestionsTypes';
 import QuestionContentsSystemDesign from '~/components/interviews/questions/content/system-design/QuestionContentsSystemDesign';
 import { ReadyQuestions } from '~/components/interviews/questions/content/system-design/SystemDesignConfig';
+import { useIntl } from '~/components/intl';
 
 import { hashQuestion } from '~/db/QuestionsUtils';
 
@@ -30,6 +31,7 @@ export default function InterviewsQuestionsSystemDesignPage({
   question,
   studyListKey,
 }: Props) {
+  const intl = useIntl();
   const isAvailable = ReadyQuestions.includes(question.metadata.slug);
 
   const tableOfContents =
@@ -53,8 +55,17 @@ export default function InterviewsQuestionsSystemDesignPage({
       tableOfContents={tableOfContents}>
       {!isAvailable ? (
         <InterviewsPurchasePaywall
-          subtitle="System Design content will be released on a rolling basis. Prices will be increased after System Design content is complete. Subscribe to lifetime today and secure the better deal!"
-          title="Coming Soon"
+          subtitle={intl.formatMessage({
+            defaultMessage:
+              'System Design content will be released on a rolling basis. Prices will be increased after System Design content is complete. Subscribe to lifetime today and secure the better deal!',
+            description: 'Question coming soon subtitle',
+            id: 'do4njS',
+          })}
+          title={intl.formatMessage({
+            defaultMessage: 'Coming Soon',
+            description: 'Coming soon label',
+            id: 'jLHxac',
+          })}
           variant="under_construction"
         />
       ) : (
