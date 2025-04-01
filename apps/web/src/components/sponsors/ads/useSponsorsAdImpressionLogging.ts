@@ -1,4 +1,5 @@
 import { useInView } from 'framer-motion';
+import { usePathname } from 'next/navigation';
 import { useEffect, useRef } from 'react';
 
 import gtag from '~/lib/gtag';
@@ -10,16 +11,15 @@ export default function useSponsorsAdImpressionLogging<T extends HTMLElement>(
   adId: string,
   adPlacement?: string | undefined,
 ) {
-  const logged = useRef(false);
   const ref = useRef<T>(null);
   const isInView = useInView(ref);
+  const pathname = usePathname();
 
   useEffect(() => {
-    if (!isInView || logged.current) {
+    if (!isInView) {
       return;
     }
 
-    logged.current = true;
     gtag.event({
       action: 'sponsors.ad.impression',
       extra: {
@@ -37,7 +37,7 @@ export default function useSponsorsAdImpressionLogging<T extends HTMLElement>(
       },
       method: 'POST',
     });
-  }, [adFormat, adId, adPlacement, isInView]);
+  }, [adFormat, adId, adPlacement, isInView, pathname]);
 
   return ref;
 }
