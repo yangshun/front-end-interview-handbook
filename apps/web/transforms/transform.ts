@@ -7,6 +7,7 @@ export default function transform(file: FileInfo, api: API) {
   const root = j(file.source);
   let hasModifications = false;
   let importFormattedMessage = false;
+  let needUseClientImport = false;
   const variablesToTransform: Array<any> = [];
 
   function isTranslatableString(text: string): boolean {
@@ -498,8 +499,9 @@ export default function transform(file: FileInfo, api: API) {
   if (hasModifications) {
     // Add useIntl and FormattedMessage import
     const importDeclaration = findReactIntlImportDeclaration(root);
+    const hasIntlImportAlready = importDeclaration.size() > 0;
 
-    if (importDeclaration.size() > 0) {
+    if (hasIntlImportAlready) {
       importDeclaration.forEach((path) => {
         importFormattedMessage =
           importFormattedMessage ||
@@ -509,6 +511,15 @@ export default function transform(file: FileInfo, api: API) {
       });
 
       importDeclaration.remove();
+    } else {
+      // Need to import "use client" if the file doesn't already have intl import
+      const firstNode = root.get().node.program.body[0];
+      if (
+        firstNode.type !== 'ExpressionStatement' ||
+        firstNode.expression.value !== 'use client'
+      ) {
+        needUseClientImport = true;
+      }
     }
 
     const newImport = j.importDeclaration(
@@ -522,6 +533,13 @@ export default function transform(file: FileInfo, api: API) {
     );
 
     root.get().node.program.body.unshift(newImport);
+    if (needUseClientImport) {
+      root
+        .get()
+        .node.program.body.unshift(
+          j.expressionStatement(j.stringLiteral('use client')),
+        );
+    }
 
     // Add intl declaration in components that need it
     root.find(j.FunctionDeclaration).forEach((path) => {

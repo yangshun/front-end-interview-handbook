@@ -1,3 +1,5 @@
+'use client';
+
 import { RiMoonLine } from 'react-icons/ri';
 
 import { useIntl } from '~/components/intl';
