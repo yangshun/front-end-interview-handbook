@@ -3,6 +3,7 @@ import { useInView } from 'framer-motion';
 import type { ReactNode } from 'react';
 import { useEffect, useRef, useState } from 'react';
 import { RiAmazonFill, RiMetaFill } from 'react-icons/ri';
+import type { IntlShape } from 'react-intl';
 
 import SideNavigation from '~/components/common/SideNavigation';
 import TypingString from '~/components/common/TypingString';
@@ -98,7 +99,10 @@ export default function deepClone(value) {
   },
 ] as const;
 
-function getAnnotationData(highlightId: string | null):
+function getAnnotationData(
+  intl: IntlShape,
+  highlightId: string | null,
+):
   | Readonly<{
       alignment: 'end' | 'start';
       className: string;
@@ -132,7 +136,12 @@ function getAnnotationData(highlightId: string | null):
         contents: (
           <CodeAnnotationContents
             className="w-[200px]"
-            contents="Reduce can be used since we want to iterate through every element and consolidate them"
+            contents={intl.formatMessage({
+              defaultMessage:
+                'Reduce can be used since we want to iterate through every element and consolidate them',
+              description: 'Code annotation for flatten-i function',
+              id: '6DuRnz',
+            })}
             icon={RiMetaFill}
             jobTitle="Ex-Meta Engineer"
             name="Yangshun"
@@ -148,7 +157,11 @@ function getAnnotationData(highlightId: string | null):
         contents: (
           <CodeAnnotationContents
             className="w-[200px]"
-            contents="Recursively call flatten() on nested arrays"
+            contents={intl.formatMessage({
+              defaultMessage: 'Recursively call flatten() on nested arrays',
+              description: 'Code annotation for flatten-ii function',
+              id: 'oEhQit',
+            })}
             icon={RiAmazonFill}
             jobTitle="Ex-Amazon Engineer"
             name="Zhenghao"
@@ -165,7 +178,12 @@ function getAnnotationData(highlightId: string | null):
         contents: (
           <CodeAnnotationContents
             className="w-[300px]"
-            contents="Handle primitive and null-ish values first by returning directly"
+            contents={intl.formatMessage({
+              defaultMessage:
+                'Handle primitive and null-ish values first by returning directly',
+              description: 'Code annotation for deepclone-i function',
+              id: 'FGf1M1',
+            })}
             icon={RiMetaFill}
             jobTitle="Ex-Meta Engineer"
             name="Yangshun"
@@ -181,7 +199,12 @@ function getAnnotationData(highlightId: string | null):
         contents: (
           <CodeAnnotationContents
             className="w-[300px]"
-            contents="Recursively handle arrays by calling deepClone() on each item into a new array"
+            contents={intl.formatMessage({
+              defaultMessage:
+                'Recursively handle arrays by calling deepClone() on each item into a new array',
+              description: 'Code annotation for deepclone-ii function',
+              id: '9ieIKK',
+            })}
             icon={RiAmazonFill}
             jobTitle="Ex-Amazon Engineer"
             name="Zhenghao"
@@ -197,7 +220,12 @@ function getAnnotationData(highlightId: string | null):
         contents: (
           <CodeAnnotationContents
             className="w-[300px]"
-            contents="Recursively handle objects by calling deepClone() on each entry into a new object"
+            contents={intl.formatMessage({
+              defaultMessage:
+                'Recursively handle objects by calling deepClone() on each entry into a new object',
+              description: 'Code annotation for deepclone-iii function',
+              id: 'atoXPf',
+            })}
             icon={RiMetaFill}
             jobTitle="Ex-Meta Engineer"
             name="Yangshun"
@@ -214,7 +242,11 @@ function getAnnotationData(highlightId: string | null):
         contents: (
           <CodeAnnotationContents
             className="w-[300px]"
-            contents="Conditionally use the appropriate classname"
+            contents={intl.formatMessage({
+              defaultMessage: 'Conditionally use the appropriate classname',
+              description: 'Code annotation for like-button-i function',
+              id: 'AnCQmx',
+            })}
             icon={RiMetaFill}
             jobTitle="Ex-Meta Engineer"
             name="Yangshun"
@@ -230,7 +262,12 @@ function getAnnotationData(highlightId: string | null):
         contents: (
           <CodeAnnotationContents
             className="w-[300px]"
-            contents="Be sure to add aria-hidden to hide icons from screen readers"
+            contents={intl.formatMessage({
+              defaultMessage:
+                'Be sure to add aria-hidden to hide icons from screen readers',
+              description: 'Code annotation for like-button-ii function',
+              id: 'xH+Wrx',
+            })}
             icon={RiAmazonFill}
             jobTitle="Ex-Amazon Engineer"
             name="Zhenghao"
@@ -503,7 +540,10 @@ export default function InterviewsMarketingSolutionsByExInterviewersSection() {
                           highlightedToken = line[index_];
                         }
 
-                        const annotationData = getAnnotationData(highlightId);
+                        const annotationData = getAnnotationData(
+                          intl,
+                          highlightId,
+                        );
 
                         tokenEl = (
                           <span

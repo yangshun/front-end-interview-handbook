@@ -1643,6 +1643,10 @@
     "defaultMessage": "Months",
     "description": "Label for  Months filter button"
   },
+  "6DuRnz": {
+    "defaultMessage": "Reduce can be used since we want to iterate through every element and consolidate them",
+    "description": "Code annotation for flatten-i function"
+  },
   "6E6+pG": {
     "defaultMessage": "Billed yearly <priceText>({price})</priceText>",
     "description": "Description of billing frequency for annual plan"
@@ -2367,6 +2371,10 @@
     "defaultMessage": "Partner",
     "description": "Label for partner"
   },
+  "9ieIKK": {
+    "defaultMessage": "Recursively handle arrays by calling deepClone() on each item into a new array",
+    "description": "Code annotation for deepclone-ii function"
+  },
   "9kkbE6": {
     "defaultMessage": "A simple yet comprehensive plan to follow",
     "description": "Title for marketing page study plans section"
@@ -2578,6 +2586,10 @@
   "AmBMf9": {
     "defaultMessage": "No questions",
     "description": "Title for empty state when application of filters return no results"
+  },
+  "AnCQmx": {
+    "defaultMessage": "Conditionally use the appropriate classname",
+    "description": "Code annotation for like-button-i function"
   },
   "Aphr+S": {
     "defaultMessage": "No community solutions",
@@ -3410,6 +3422,10 @@
   "FGbXVo": {
     "defaultMessage": "Toggle grid",
     "description": "Image viewer toggle grid button label"
+  },
+  "FGf1M1": {
+    "defaultMessage": "Handle primitive and null-ish values first by returning directly",
+    "description": "Code annotation for deepclone-i function"
   },
   "FIHdOw": {
     "defaultMessage": "Get remunerated",
@@ -7983,6 +7999,10 @@
     "defaultMessage": "You've reached the attempt limit of {maxGenerationLimit} for this campaign. Once this code expires, you cannot participate again.",
     "description": "Alert message for promo code generation limit reached"
   },
+  "atoXPf": {
+    "defaultMessage": "Recursively handle objects by calling deepClone() on each entry into a new object",
+    "description": "Code annotation for deepclone-iii function"
+  },
   "atvqCE": {
     "defaultMessage": "Recommended strategy",
     "description": "Recommended interview preparation resources"
@@ -10751,6 +10771,10 @@
     "defaultMessage": "Views on submissions",
     "description": "Number of views on the project submissions"
   },
+  "oEhQit": {
+    "defaultMessage": "Recursively call flatten() on nested arrays",
+    "description": "Code annotation for flatten-ii function"
+  },
   "oDrXRD": {
     "defaultMessage": "Extensive learning resources while building",
     "description": "Answer to 'I'm a complete beginner. Will this platform be useful for me?' on projects FAQs"
@@ -12494,6 +12518,10 @@
   "xF6ENX": {
     "defaultMessage": "Don't waste time on mindless grinding",
     "description": "Title for front end interview roadmap"
+  },
+  "xH+Wrx": {
+    "defaultMessage": "Be sure to add aria-hidden to hide icons from screen readers",
+    "description": "Code annotation for like-button-ii function"
   },
   "xIQuhQ": {
     "defaultMessage": "Reset",
