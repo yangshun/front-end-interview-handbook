@@ -28,7 +28,10 @@ export default function JsonPlugin(): Plugin {
       files.push(...filesMetadata);
     },
     async getInstructions() {
-      return 'The strings are in ICU syntax';
+      return [
+        'The strings are in ICU syntax which can contain HTML/XML tags and template values (wrapped in curly braces).',
+        'Strictly DO NOT translate these HTML/XML tags and template values.',
+      ].join('\n');
     },
     async getTranslationStrings() {
       const translationStrings: Array<TranslationStringArg> = [];
@@ -38,7 +41,9 @@ export default function JsonPlugin(): Plugin {
 
         const sourceJson = await readJson(file.source.path);
 
-        if (!sourceJson) continue;
+        if (!sourceJson) {
+          continue;
+        }
 
         translationStrings.push(
           ...buildTranslationStrings(sourceJson, keysToTranslate, file),

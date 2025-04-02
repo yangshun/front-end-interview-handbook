@@ -26,4 +26,6 @@ export async function init() {
     s.stop(chalk.red('❌ Failed to create configuration.'));
     log.error(error.message);
   }
+
+  process.exit(0);
 }
