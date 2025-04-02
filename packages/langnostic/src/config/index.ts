@@ -1,57 +1,49 @@
 import fs from 'fs';
 import { log } from '@clack/prompts';
-import JSON5 from 'json5';
+import { cosmiconfigSync } from 'cosmiconfig';
 
 import { ConfigType } from './types';
-import { CONFIG_PATH } from '../core/constants';
+import { configDefault } from './config-default';
+import path from 'path';
 
-export const DEFAULT_CONFIG: ConfigType = {
-  provider: 'openai',
-  localeConfig: {
-    source: 'en-US',
-    target: ['pt-BR', 'zh-CN'],
-  },
-  groups: [
-    {
-      name: 'app-strings',
-      plugin: 'json',
-      paths: [
-        {
-          source: './src/locales/en-US.json',
-          target: './src/locales/{locale}.json',
-        },
-      ],
-    },
+const moduleName = 'langnostic';
+const configExplorerSync = cosmiconfigSync(moduleName, {
+  searchPlaces: [
+    `${moduleName}.config.json`,
+    `${moduleName}.config.ts`,
+    `${moduleName}.config.js`,
   ],
-};
+  searchStrategy: 'project',
+});
 
 export default class Config {
-  private configPath: string;
-  private config = DEFAULT_CONFIG;
+  #config: ConfigType;
 
-  constructor(configPath = CONFIG_PATH) {
-    this.configPath = configPath;
-    this.loadConfig();
-  }
+  constructor(searchFrom?: string) {
+    const result = configExplorerSync.search(searchFrom);
 
-  private loadConfig() {
-    if (!fs.existsSync(this.configPath)) {
+    if (result == null) {
       throw new Error(
         'Configuration file not found. Run `langnostic init` to create one.',
       );
     }
 
-    const configFile = fs.readFileSync(this.configPath, 'utf-8');
-    this.config = JSON5.parse(configFile) as ConfigType;
+    this.#config = result.config as ConfigType;
   }
 
-  public getConfig() {
-    return this.config;
+  get config(): ConfigType {
+    return this.#config;
   }
 
-  public static initializeConfig(configPath = CONFIG_PATH) {
-    if (!fs.existsSync(configPath)) {
-      fs.writeFileSync(configPath, JSON.stringify(DEFAULT_CONFIG, null, 2));
+  public static initializeConfig(searchPath?: string): void {
+    const result = configExplorerSync.search(searchPath);
+
+    if (result == null) {
+      const configPath = path.join(
+        searchPath ?? process.cwd(),
+        'langnostic.config.json',
+      );
+      fs.writeFileSync(configPath, JSON.stringify(configDefault, null, 2));
       log.info(`Default configuration created at ${configPath}`);
     } else {
       log.info('Configuration file already exists.');

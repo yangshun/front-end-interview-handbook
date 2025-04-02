@@ -1,57 +1,87 @@
 import fs from 'fs';
 import path from 'path';
-import Config, { DEFAULT_CONFIG } from '.';
+
+import Config from '.';
 import { ConfigType } from './types';
+import { configDefault } from './config-default';
 
-const TEST_CONFIG_PATH = path.join(
-  process.cwd(),
-  'test-langnostic.config.json',
-);
+const FIXTURE_PATH = path.join(process.cwd(), '__fixture__');
 
-const mockConfig: ConfigType = DEFAULT_CONFIG;
+const mockConfig: ConfigType = {
+  provider: 'openai',
+  localeConfig: {
+    source: 'en-US',
+    target: ['zh-CN'],
+  },
+  groups: [
+    {
+      name: 'app-strings',
+      plugin: 'json',
+      paths: [
+        {
+          source: './src/en-US.json',
+          target: './src/{locale}.json',
+        },
+      ],
+    },
+  ],
+};
 
-describe('Config Class', () => {
-  beforeEach(() => {
-    // Cleanup any previous test config
-    if (fs.existsSync(TEST_CONFIG_PATH)) {
-      fs.unlinkSync(TEST_CONFIG_PATH);
-    }
-  });
-
+describe('Config', () => {
   afterAll(() => {
-    // Cleanup after tests
-    if (fs.existsSync(TEST_CONFIG_PATH)) {
-      fs.unlinkSync(TEST_CONFIG_PATH);
-    }
+    fs.rmSync(path.join(process.cwd(), '__fixture__'), { recursive: true });
   });
 
-  test('should throw an error if config file does not exist', () => {
-    expect(() => new Config(TEST_CONFIG_PATH)).toThrowError(
-      'Configuration file not found. Run `langnostic init` to create one.',
-    );
+  describe('constructor', () => {
+    test('should throw an error if config file does not exist', () => {
+      expect(() => new Config()).toThrowError(
+        'Configuration file not found. Run `langnostic init` to create one.',
+      );
+    });
+
+    test('should load existing config file', () => {
+      const dir = path.join(FIXTURE_PATH, 'loading');
+      fs.mkdirSync(dir, {
+        recursive: true,
+      });
+      fs.writeFileSync(
+        path.join(dir, 'langnostic.config.json'),
+        JSON.stringify(mockConfig, null, 2),
+      );
+
+      const configInstance = new Config(dir);
+      expect(configInstance.config).toEqual(mockConfig);
+    });
   });
 
-  test('should load existing config file', () => {
-    fs.writeFileSync(TEST_CONFIG_PATH, JSON.stringify(mockConfig, null, 2));
+  describe('initializeConfig', () => {
+    test('should initialize default config', () => {
+      const dir = path.join(FIXTURE_PATH, 'init');
+      fs.mkdirSync(dir, {
+        recursive: true,
+      });
+      const configPath = path.join(dir, 'langnostic.config.json');
 
-    const configInstance = new Config(TEST_CONFIG_PATH);
-    expect(configInstance.getConfig()).toEqual(mockConfig);
-  });
+      Config.initializeConfig(dir);
+      expect(fs.existsSync(configPath)).toBe(true);
 
-  test('should initialize default config using initializeConfig()', () => {
-    Config.initializeConfig(TEST_CONFIG_PATH);
-    expect(fs.existsSync(TEST_CONFIG_PATH)).toBe(true);
+      const loadedConfig = JSON.parse(fs.readFileSync(configPath, 'utf-8'));
+      expect(loadedConfig).toEqual(configDefault);
+    });
 
-    const loadedConfig = JSON.parse(fs.readFileSync(TEST_CONFIG_PATH, 'utf-8'));
-    expect(loadedConfig).toEqual(mockConfig);
-  });
+    test('should not overwrite an existing config file when initializing', () => {
+      const dir = path.join(FIXTURE_PATH, 'overwrite');
+      fs.mkdirSync(dir, {
+        recursive: true,
+      });
+      const configPath = path.join(dir, 'langnostic.config.json');
 
-  test('should not overwrite an existing config file when initializing', () => {
-    fs.writeFileSync(TEST_CONFIG_PATH, JSON.stringify(mockConfig, null, 2));
+      fs.writeFileSync(configPath, JSON.stringify(mockConfig, null, 2));
 
-    Config.initializeConfig(TEST_CONFIG_PATH);
+      Config.initializeConfig(dir);
 
-    const configFile = JSON.parse(fs.readFileSync(TEST_CONFIG_PATH, 'utf-8'));
-    expect(configFile).toEqual(mockConfig);
+      const configFile = JSON.parse(fs.readFileSync(configPath, 'utf-8'));
+      expect(configFile).toEqual(mockConfig);
+    });
   });
 });

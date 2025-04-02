@@ -22,7 +22,7 @@ const DEFAULT_CONCURRENCY_LIMIT = 5;
 const REFRESH_INTERVAL = 1000 / 16;
 
 export async function translate() {
-  const config = new Config().getConfig();
+  const config = new Config().config;
   const groups = new Map<TranslationGroupId, TranslationGroup>();
   const runId = new Date().toISOString();
 

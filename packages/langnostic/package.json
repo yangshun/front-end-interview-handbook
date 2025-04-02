@@ -28,6 +28,7 @@
     "@clack/prompts": "^0.9.1",
     "ai": "^4.2.5",
     "chalk": "^5.2.0",
+    "cosmiconfig": "^9.0.0",
     "dotenv": "^16.3.1",
     "glob": "^11.0.1",
     "globby": "^13.2.2",
