@@ -13,7 +13,7 @@ export const DEFAULT_CONFIG: ConfigType = {
   },
   groups: [
     {
-      name: 'example',
+      name: 'app-strings',
       plugin: 'json',
       paths: [
         {

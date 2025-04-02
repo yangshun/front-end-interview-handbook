@@ -18,6 +18,7 @@ export type TranslationRunId = string;
 export interface TranslationGroup {
   groupId: TranslationGroupId;
   plugin: Plugin;
+  stringsPerRequest: number;
   batches: Map<TranslationGroupBatchId, TranslationGroupBatch>;
 }
 
@@ -58,6 +59,10 @@ export interface Plugin {
    */
   type: string;
   /**
+   * Strings per request
+   */
+  stringsPerRequest: number;
+  /**
    * The plugin that should start tracking these files
    */
   trackFiles: (
@@ -79,7 +84,7 @@ export interface Plugin {
   ) => Promise<void>;
 }
 
-export type TranslationJob = Readonly<{
+export type TranslationRequestJob = Readonly<{
   runId: TranslationRunId;
   jobId: TranslationJobId;
   group: TranslationGroupId;

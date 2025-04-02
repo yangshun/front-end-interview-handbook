@@ -5,7 +5,7 @@ import path from 'path';
 import { TranslationProvider } from '../config/types';
 import {
   TranslationGroupBatchId,
-  TranslationJob,
+  TranslationRequestJob,
   TranslationStringResult,
 } from '../core/types';
 import { providerModel } from './providers';
@@ -18,7 +18,7 @@ function hashStringItem(batchId: TranslationGroupBatchId, id: string): string {
 }
 
 export async function generate(
-  job: TranslationJob,
+  job: TranslationRequestJob,
   options: Readonly<{
     provider: TranslationProvider;
     instructions?: string;

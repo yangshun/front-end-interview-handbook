@@ -30,6 +30,7 @@ export default function mdxPlugin(options: PluginOptions): Plugin {
 
   return {
     type: 'mdx',
+    stringsPerRequest: 20,
     async trackFiles(filesMetadata) {
       // Start tracking files
       files.push(...filesMetadata);

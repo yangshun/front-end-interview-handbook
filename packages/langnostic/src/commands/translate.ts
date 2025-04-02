@@ -4,7 +4,7 @@ import {
   Plugin,
   TranslationGroup,
   TranslationGroupId,
-  TranslationJob,
+  TranslationRequestJob,
 } from '../core/types';
 import jsonPlugin from '../plugins/json/json-plugin';
 import mdxPlugin from '../plugins/mdx/mdx-plugin';
@@ -19,7 +19,6 @@ const DEFAULTS_PLUGINS: Record<string, (options?: any) => Plugin> = {
   mdx: mdxPlugin,
 };
 const DEFAULT_CONCURRENCY_LIMIT = 5;
-const DEFAULT_BATCH_CHUNK_SIZE = 5;
 const REFRESH_INTERVAL = 1000 / 16;
 
 export async function translate() {
@@ -51,6 +50,8 @@ export async function translate() {
       groups.set(group.name, {
         groupId: group.name,
         plugin: pluginInstance,
+        stringsPerRequest:
+          group.stringsPerRequest ?? pluginInstance.stringsPerRequest,
         batches: new Map(),
       });
     }),
@@ -73,14 +74,14 @@ export async function translate() {
   );
 
   // Convert strings into job queue
-  const translationJobQueue: Array<TranslationJob> = [];
+  const jobQueue: Array<TranslationRequestJob> = [];
 
   for (const group of groups.values()) {
     for (const batch of group.batches.values()) {
-      // Split up into multiple jobs based on chunk size
-      const chunks = chunk(batch.strings, DEFAULT_BATCH_CHUNK_SIZE);
+      // Split up into multiple jobs
+      const chunks = chunk(batch.strings, group.stringsPerRequest);
       chunks.forEach((chunk, chunkIndex) => {
-        translationJobQueue.push({
+        jobQueue.push({
           runId,
           jobId: [
             group.groupId,
@@ -95,7 +96,7 @@ export async function translate() {
     }
   }
 
-  if (translationJobQueue.length === 0) {
+  if (jobQueue.length === 0) {
     console.info('Nothing to translate. Terminating.');
     process.exit(0);
   }
@@ -108,7 +109,7 @@ export async function translate() {
 
   // Translate the strings
   await mapAsync(
-    translationJobQueue,
+    jobQueue,
     async (job) => {
       const group = groups.get(job.group);
       if (!group) {
@@ -139,7 +140,7 @@ export async function translate() {
         batch.addError(err as Error);
       }
     },
-    DEFAULT_CONCURRENCY_LIMIT,
+    config.concurrencyLimit ?? DEFAULT_CONCURRENCY_LIMIT,
   );
 
   printGroupStatus(groups);

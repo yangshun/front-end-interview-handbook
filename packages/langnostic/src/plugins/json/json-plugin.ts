@@ -23,6 +23,7 @@ export default function JsonPlugin(): Plugin {
 
   return {
     type: 'json',
+    stringsPerRequest: 50,
     async trackFiles(filesMetadata) {
       // Start tracking files
       files.push(...filesMetadata);

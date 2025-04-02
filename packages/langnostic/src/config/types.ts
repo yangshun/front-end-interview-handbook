@@ -2,6 +2,7 @@ export interface ConfigType {
   provider: TranslationProvider;
   localeConfig: LocaleConfig;
   groups: ConfigGroup[];
+  concurrencyLimit?: number;
 }
 
 export interface LocaleConfig {
@@ -26,6 +27,7 @@ export interface ConfigGroup {
   name: string; // Unique identifier for a group
   plugin: ConfigPlugin; // Plugin to use for the group
   paths: ConfigGroupPathItem[];
+  stringsPerRequest?: number; // Optional, maximum number of strings per request
 }
 
 export type TranslationProvider = 'openai' | 'deepseek' | 'google';
