@@ -12,6 +12,7 @@ import AmazonLogo from '~/components/icons/AmazonLogo';
 import GoogleLogo from '~/components/icons/GoogleLogo';
 import MetaLogo from '~/components/icons/MetaLogo';
 import InterviewsMarketingFeaturesRow from '~/components/interviews/marketing/InterviewsMarketingFeaturesRow';
+import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
 
@@ -38,36 +39,11 @@ const summaryFeatures = [
     name: 'High success rate',
   },
 ];
-const featuredReviews = [
-  {
-    designation: 'Now Software Engineer at Meta',
-    pic: (
-      <img
-        alt="Meta logo mark"
-        className="size-6 flex-none rounded-full"
-        src="/img/company-logos/meta-logomark.png"
-      />
-    ),
-    review:
-      'This service was super helpful and well worth the investment! Not only did it help me address glaring issues with my old resume, but they also gave me comprehensive suggestions on how to improve my overall profile and land more FAANG interviews. My application-to-interview rate has never been higher!',
-    reviewerName: '',
-  },
-  {
-    designation: 'Now Senior Software Engineer at Credit Karma',
-    pic: (
-      <img
-        alt="Credit karma logo mark"
-        className="size-6 flex-none rounded-full"
-        src="/img/company-logos/creditkarma-logomark.png"
-      />
-    ),
-    review:
-      'This service was instrumental in improving my resume to better highlight my significant work experience. It has come a long way from my previous version. The reviewer was very friendly and helpful from the moment we first started communicating and even gave valuable career advice on Software Engineering.',
-    reviewerName: '',
-  },
-];
 
 export default function ResumeReviewHero() {
+  const intl = useIntl();
+  const featuredReviews = useFeaturedReviews();
+
   return (
     <div className="relative isolate overflow-hidden bg-neutral-950">
       <Container>
@@ -122,14 +98,29 @@ export default function ResumeReviewHero() {
                       'bg-brand/20 hover:bg-brand/30 transition-colors',
                       'shiny shadow-sm',
                     )}>
-                    Front end portfolio review
+                    {intl.formatMessage({
+                      defaultMessage: 'Front end portfolio review',
+                      description: 'Resume review hero badge label',
+                      id: 'zAq9ZW',
+                    })}
                   </span>
                 </div>
                 <h1 className="mt-10 text-4xl font-bold tracking-tight text-white sm:text-5xl">
-                  Take your front end portfolio to the next level
+                  {intl.formatMessage({
+                    defaultMessage:
+                      'Take your front end portfolio to the next level',
+                    description: 'Resume review hero title',
+                    id: 'VdCQVS',
+                  })}
                 </h1>
                 <div className="space-y-4 py-8 pb-6 text-left text-sm font-medium text-neutral-400 sm:text-base ">
-                  <p>By ex-interviewers at</p>
+                  <p>
+                    {intl.formatMessage({
+                      defaultMessage: 'By ex-interviewers at',
+                      description: 'Label for resume review by ex-interviewers',
+                      id: 'VWe5VR',
+                    })}
+                  </p>
                   <span className="justify-left flex items-center gap-x-6 opacity-75">
                     <GoogleLogo
                       className="h-[1.5rem] text-white"
@@ -143,22 +134,37 @@ export default function ResumeReviewHero() {
                   </span>
                 </div>
                 <p className="mt-2 text-lg leading-8 text-neutral-300">
-                  Having reviewed over 100+ candidates (each) at various big
-                  tech companies, we know what to look out for and how to
-                  improve your chances at getting shortlisted.
+                  {intl.formatMessage(
+                    {
+                      defaultMessage:
+                        'Having reviewed over {candidatesCount}+ candidates (each) at various big tech companies, we know what to look out for and how to improve your chances at getting shortlisted.',
+                      description: 'Resume review hero description',
+                      id: 'mj0u34',
+                    },
+                    { candidatesCount: 100 },
+                  )}
                 </p>
                 <div className="mt-10 flex items-center gap-x-2">
                   <Button
                     href="#whats-included"
                     icon={RiArrowRightLine}
-                    label="What is included"
+                    label={intl.formatMessage({
+                      defaultMessage: 'What is included',
+                      description:
+                        'Label for what is included on resume review',
+                      id: 'WEVyoa',
+                    })}
                     size="lg"
                     variant="primary"
                   />
                   <Button
                     href="#pricing"
                     icon={RiArrowRightLine}
-                    label="Pricing"
+                    label={intl.formatMessage({
+                      defaultMessage: 'Pricing',
+                      description: 'Label for pricing button on resume review',
+                      id: 'mG+FF+',
+                    })}
                     size="lg"
                     variant="tertiary"
                   />
@@ -188,10 +194,61 @@ export default function ResumeReviewHero() {
           </div>
           <InterviewsMarketingFeaturesRow
             features={summaryFeatures}
-            title="Features"
+            title={intl.formatMessage({
+              defaultMessage: 'Features',
+              description: 'Resume review features',
+              id: 'IKuJP0',
+            })}
           />
         </div>
       </Container>
     </div>
   );
+}
+
+function useFeaturedReviews() {
+  const intl = useIntl();
+
+  return [
+    {
+      designation: 'Now Software Engineer at Meta',
+
+      pic: (
+        <img
+          alt="Meta logo mark"
+          className="size-6 flex-none rounded-full"
+          src="/img/company-logos/meta-logomark.png"
+        />
+      ),
+
+      review: intl.formatMessage({
+        defaultMessage:
+          'This service was super helpful and well worth the investment! Not only did it help me address glaring issues with my old resume, but they also gave me comprehensive suggestions on how to improve my overall profile and land more FAANG interviews. My application-to-interview rate has never been higher!',
+        description: 'Testimonial from a user for resume review',
+        id: 'VgF5JV',
+      }),
+
+      reviewerName: '',
+    },
+    {
+      designation: 'Now Senior Software Engineer at Credit Karma',
+
+      pic: (
+        <img
+          alt="Credit karma logo mark"
+          className="size-6 flex-none rounded-full"
+          src="/img/company-logos/creditkarma-logomark.png"
+        />
+      ),
+
+      review: intl.formatMessage({
+        defaultMessage:
+          'This service was instrumental in improving my resume to better highlight my significant work experience. It has come a long way from my previous version. The reviewer was very friendly and helpful from the moment we first started communicating and even gave valuable career advice on Software Engineering.',
+        description: 'Testimonial from a user for resume review',
+        id: '3i/5VW',
+      }),
+
+      reviewerName: '',
+    },
+  ];
 }

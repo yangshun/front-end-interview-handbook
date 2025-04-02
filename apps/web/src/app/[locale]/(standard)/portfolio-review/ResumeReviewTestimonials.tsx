@@ -1,3 +1,6 @@
+'use client';
+
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Container from '~/components/ui/Container';
 
@@ -18,13 +21,15 @@ const testimonials = [
       </Anchor>
     ),
     quote: (
-      <>
-        GFE helped me take my resume from good to great. Improvements that could
+      <FormattedMessage
+        defaultMessage="GFE helped me take my resume from good to great. Improvements that could
         make the difference between a shortlist or otherwise were brought to my
         notice. The thing I loved the most, was the active effort they took to
         understand my professional experience and goals and tailor my resume
-        accordingly. Highly recommended.
-      </>
+        accordingly. Highly recommended."
+        description="Testimonial from a user for resume review"
+        id="sOuiCb"
+      />
     ),
     title: <>Now Software Engineer Intern at BharatX</>,
   },
@@ -44,11 +49,13 @@ const testimonials = [
       </Anchor>
     ),
     quote: (
-      <>
-        I learnt a lot while revising my resume and I now have a more explicit
+      <FormattedMessage
+        defaultMessage="I learnt a lot while revising my resume and I now have a more explicit
         goal for my career and what I should do to get there. I will recommend
-        this service to my friends!
-      </>
+        this service to my friends!"
+        description="Testimonial from a user for resume review"
+        id="M1DMl/"
+      />
     ),
     title: <>Now Senior Front End Engineer at Koda Web</>,
   },
@@ -63,16 +70,18 @@ const testimonials = [
       />
     ),
     quote: (
-      <>
-        I enjoyed working with GFE to give my resume the boost it desperately
+      <FormattedMessage
+        defaultMessage="I enjoyed working with GFE to give my resume the boost it desperately
         needed. Through the process, I learned what makes a resume stand out
         when targeting FAANG companies, which was very helpful. I was very
         impressed with how thorough the review was and how they even gave me
         some advice to make my resume much stronger. As an aspiring Android
         Engineer, it was great to have those tips on how to improve my skills
         through side projects. GFE does more than just resume review, they
-        really care about your career growth and development!
-      </>
+        really care about your career growth and development!"
+        description="Testimonial from a user for resume review"
+        id="UX9+m9"
+      />
     ),
     title: <>Now Software Engineer at Microsoft</>,
   },
@@ -87,15 +96,19 @@ const testimonials = [
       />
     ),
     quote: (
-      <>
-        GFE clarified a lot of misconceptions I had about the internship search
+      <FormattedMessage
+        defaultMessage="GFE clarified a lot of misconceptions I had about the internship search
         & hiring process. They also provided invaluable insights of what FAANG
         hiring managers look for when considering promising candidates. Their
         rapid response times, combined with their concise answers, helped me
-        perfect my resume in mere days and land a SDE internship at{' '}
-        <strong className="font-medium">Amazon</strong>. Their service certainly
-        stands out among the rest!
-      </>
+        perfect my resume in mere days and land a SDE internship at <strong>Amazon</strong>. Their service certainly
+        stands out among the rest!"
+        description="Testimonial from a user for resume review"
+        id="r0nKuy"
+        values={{
+          strong: (chunks) => <strong className="font-medium">{chunks}</strong>,
+        }}
+      />
     ),
     title: <>Now Software Engineer Intern at Amazon</>,
   },
@@ -110,13 +123,15 @@ const testimonials = [
       />
     ),
     quote: (
-      <>
-        This service was super helpful and well worth the investment! Not only
+      <FormattedMessage
+        defaultMessage="This service was super helpful and well worth the investment! Not only
         did GFE help me address glaring issues with my old resume, but they also
         gave me comprehensive suggestions on how to improve my overall profile
         and land more FAANG interviews. My application-to-interview rate has
-        never been higher!
-      </>
+        never been higher!"
+        description="Testimonial from a user for resume review"
+        id="B7ai7F"
+      />
     ),
     title: <>Now Software Engineer at Meta</>,
   },
@@ -131,14 +146,16 @@ const testimonials = [
       />
     ),
     quote: (
-      <>
-        This service was instrumental in improving my resume to better highlight
+      <FormattedMessage
+        defaultMessage="This service was instrumental in improving my resume to better highlight
         my significant work experience. It has come a long way from my previous
         version. The reviewer was very friendly and helpful from the moment we
         first started communicating and even gave valuable career advice on
         Software Engineering. In short, I recommend the service. Thanks for your
-        help, GFE!
-      </>
+        help, GFE!"
+        description="Testimonial from a user for resume review"
+        id="yf8eww"
+      />
     ),
     title: <>Now Senior Software Engineer at Credit Karma</>,
   },
@@ -153,11 +170,11 @@ const testimonials = [
       />
     ),
     quote: (
-      <>
-        GFE made my resume a lot clearer and more detailed, they also explained
-        the ideas behind each section of my resume. Prompt revision, excellent
-        service, super worthy!
-      </>
+      <FormattedMessage
+        defaultMessage="GFE made my resume a lot clearer and more detailed, they also explained the ideas behind each section of my resume. Prompt revision, excellent service, super worthy!"
+        description="Testimonial from a user for resume review"
+        id="lcCybI"
+      />
     ),
     title: <>Now Software Engineer Intern at JPMorgan Chase & Co</>,
   },
@@ -165,27 +182,40 @@ const testimonials = [
     id: 'toronto-ca',
     location: <>Toronto, Canada</>,
     quote: (
-      <>
-        GFE transformed my previously lacklustre resume into a well-structured
+      <FormattedMessage
+        defaultMessage="GFE transformed my previously lacklustre resume into a well-structured
         one with impactful skill showcases. His tailored advice, practical
         strategies and tips, brought a new level of appeal to my resume. I've
         learned a lot from their approach to resume review, and I believe it
-        will continue to benefit me in my future job search.
-      </>
+        will continue to benefit me in my future job search."
+        description="Testimonial from a user for resume review"
+        id="Hz9Ok0"
+      />
     ),
     title: <>Software Engineer Intern</>,
   },
 ];
 
 export default function ResumeReviewTestimonials() {
+  const intl = useIntl();
+
   return (
     <div className="bg-neutral-950 py-16 lg:py-24 xl:py-32">
       <Container width="marketing">
         <p className="text-brand pb-6 text-base font-semibold leading-7">
-          Testimonials
+          {intl.formatMessage({
+            defaultMessage: 'Testimonials',
+            description: 'Label for testimonials for the resume review page',
+            id: '+78w2N',
+          })}
         </p>
         <h2 className="mt-1 text-3xl font-bold text-white sm:text-4xl sm:leading-none sm:tracking-tight">
-          Hear from our users
+          {intl.formatMessage({
+            defaultMessage: 'Hear from our users',
+            description:
+              'Section title for testimonials for resume review page',
+            id: 'NEEHt6',
+          })}
         </h2>
         <div className="mt-16 space-y-16 md:grid-cols-2 lg:grid lg:gap-x-12 lg:gap-y-16 lg:space-y-0">
           {testimonials.map((testimonial) => (

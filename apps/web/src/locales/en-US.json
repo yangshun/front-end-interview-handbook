@@ -31,6 +31,10 @@
     "defaultMessage": "Practice {questionCount}+ curated Vanilla JavaScript UI Interview Questions in-browser, with solutions and test cases from big tech ex-interviewers",
     "description": "Description of Interview Questions page"
   },
+  "+78w2N": {
+    "defaultMessage": "Testimonials",
+    "description": "Label for testimonials for the resume review page"
+  },
   "+8ca0t": {
     "defaultMessage": "JavaScript Data Structures and Algorithms Interview Questions",
     "description": "Title of interview questions page"
@@ -247,6 +251,10 @@
     "defaultMessage": "Explore other items from our recommended preparation strategy.",
     "description": "Tooltip for other recommended preparation strategy"
   },
+  "/8jOEO": {
+    "defaultMessage": "We will conduct a detailed review of your resume and help you present your profile in the best way possible",
+    "description": "Resume review feature description"
+  },
   "/95uM9": {
     "defaultMessage": "Username should begin and end with an alphanumeric character, and only contain alphanumeric characters or dashes.",
     "description": "Error message when username contains invalid characters"
@@ -302,6 +310,10 @@
   "/JUzhw": {
     "defaultMessage": "We provide a roadmap of all the core skills needed to be a great front end engineer, from beginner to advanced. For each skill, we suggest good resources for you to study and projects you can build on our platform to learn the skill. This roadmap is curated by senior engineers with extensive experience in the industry, ensuring the quality and trustworthiness of the content.",
     "description": "Answer to 'What is unique about GreatFrontEnd Projects vs other challenge platforms?' on projects FAQs"
+  },
+  "/NjISj": {
+    "defaultMessage": "Up to {revisionsCount} revisions",
+    "description": "Resume review feature"
   },
   "/QA/Vp": {
     "defaultMessage": "Configure your {adFormat}",
@@ -571,6 +583,10 @@
     "defaultMessage": "Add more emails",
     "description": "Add more emails button label"
   },
+  "0dAHAW": {
+    "defaultMessage": "Examples of good portfolio websites",
+    "description": "Sub features for \"Portfolio website review\" feature of resume review"
+  },
   "0dpOm/": {
     "defaultMessage": "Get full access",
     "description": "Get full access button on the top right corner of the navigation bar to allow users to start evaluating plans and make a purchase"
@@ -695,6 +711,10 @@
     "defaultMessage": "Select dashboard category",
     "description": "Tab label to select another dashboard category"
   },
+  "1OO9Du": {
+    "defaultMessage": "Suggestions customized to industry and experience level",
+    "description": "Sub features for \"Portfolio website review\" feature of resume review"
+  },
   "1Q18c8": {
     "defaultMessage": "Quick start guide to front end interviews",
     "description": "Description of front end interview playbook"
@@ -810,6 +830,10 @@
   "1yrEHk": {
     "defaultMessage": "Unsubscribe",
     "description": "Subscribe button"
+  },
+  "2+ZTZX": {
+    "defaultMessage": "Up to {revisionsCount} revisions for each review",
+    "description": "Resume review feature"
   },
   "2+sEvv": {
     "defaultMessage": "Challenge: {challengeName} | Assets",
@@ -1039,6 +1063,10 @@
     "defaultMessage": "View submission test cases.",
     "description": "Coding workspace view submission test cases link"
   },
+  "3I2UJ4": {
+    "defaultMessage": "Starter",
+    "description": "Resume review starter pricing tier name"
+  },
   "3I6rHR": {
     "defaultMessage": "These resources help you prepare effectively while saving time by focusing on high-impact areas:",
     "description": "Paragraph 3 for \"What does GreatFrontEnd Interviews offer exactly?\" on Homepage FAQ sections"
@@ -1054,6 +1082,10 @@
   "3J1qTY": {
     "defaultMessage": "Company-specific guides for targeted interview preparation",
     "description": "Tooltip label for unlock all premium interviews content"
+  },
+  "3J7i+K": {
+    "defaultMessage": "Why should I buy this?",
+    "description": "Question on the portfolio review FAQ page"
   },
   "3JSDTC": {
     "defaultMessage": "Personal website",
@@ -1111,6 +1143,10 @@
     "defaultMessage": "Star",
     "description": "Star a GitHub repository"
   },
+  "3Xfii+": {
+    "defaultMessage": "Upon purchase, you will be sent an email with a preliminary questionnaire on your career goals, ideal company profile, background and roles.",
+    "description": "Answer to 'How does the portfolio review process work?' on the portfolio review FAQ page"
+  },
   "3Z408Q": {
     "defaultMessage": "Schedule",
     "description": "Label for schedule"
@@ -1158,6 +1194,10 @@
   "3hQg9K": {
     "defaultMessage": "Vanilla JS Interview Questions",
     "description": "Vanilla JS questions category long title"
+  },
+  "3i/5VW": {
+    "defaultMessage": "This service was instrumental in improving my resume to better highlight my significant work experience. It has come a long way from my previous version. The reviewer was very friendly and helpful from the moment we first started communicating and even gave valuable career advice on Software Engineering.",
+    "description": "Testimonial from a user for resume review"
   },
   "3n0B1m": {
     "defaultMessage": "You currently have {count, plural, =0 {no premium credits} one {<bold>1 premium credit</bold>} other {<bold># premium credits</bold>}}. Proceed to unlock?",
@@ -1314,6 +1354,10 @@
   "4W9OGS": {
     "defaultMessage": "Joined on",
     "description": "Joined on label"
+  },
+  "4YVG6h": {
+    "defaultMessage": "Our feedback is tailored for career progression, not just 1 one-time job search. We combine years of experience screening candidates with a detailed understanding of your skillsets and goals to derive impactful recommendations.",
+    "description": "Section description for what is included for the resume review page"
   },
   "4YniIl": {
     "defaultMessage": "Pass",
@@ -1638,6 +1682,10 @@
   "68EuCT": {
     "defaultMessage": "Project challenges",
     "description": "Title of Projects challenges page"
+  },
+  "68jUza": {
+    "defaultMessage": "GitHub profile review",
+    "description": "Resume review feature"
   },
   "6CQPs9": {
     "defaultMessage": "Months",
@@ -2098,6 +2146,10 @@
   "8Nm9WZ": {
     "defaultMessage": "Walmart",
     "description": "Company name for Walmart"
+  },
+  "8Nn1vL": {
+    "defaultMessage": "Which medium will the portfolio review be conducted?",
+    "description": "Question on the portfolio review FAQ page"
   },
   "8S8X9F": {
     "defaultMessage": "In progress",
@@ -2627,6 +2679,10 @@
     "defaultMessage": "Are you sure you want to disconnect your Google Auth account? This action can be reversed at any time.",
     "description": "Label to disconnect social"
   },
+  "B7ai7F": {
+    "defaultMessage": "This service was super helpful and well worth the investment! Not only did GFE help me address glaring issues with my old resume, but they also gave me comprehensive suggestions on how to improve my overall profile and land more FAANG interviews. My application-to-interview rate has never been higher!",
+    "description": "Testimonial from a user for resume review"
+  },
   "B8kokj": {
     "defaultMessage": "Average metrics per week",
     "description": "Subtitle for GreatFrontEnd"
@@ -2847,6 +2903,10 @@
     "defaultMessage": "1 Month Plan",
     "description": "Link to one month study plan"
   },
+  "CCT97r": {
+    "defaultMessage": "Assessment of website presentation and code quality",
+    "description": "Sub features for \"Portfolio website review\" feature of resume review"
+  },
   "CCiMOz": {
     "defaultMessage": "We recommend well-rated submissions using the same stack for your reference",
     "description": "Description for \"Learn from good code\" item in Expected Support section on Projects project page"
@@ -2866,6 +2926,10 @@
   "CJmMgh": {
     "defaultMessage": "Practice JavaScript Coding Interview Questions with Solutions",
     "description": "SEO title for JavaScript coding question format page"
+  },
+  "CLotAN": {
+    "defaultMessage": "Detection of ATS readability issues",
+    "description": "Sub features for \"Resume review\" feature of resume review"
   },
   "CMq4u3": {
     "defaultMessage": "Beginner-friendly challenges",
@@ -3003,6 +3067,10 @@
     "defaultMessage": "Existing subscribers can upgrade to the lifetime plan at a discount, send an email to <link>contact@greatfrontend</link> to find out more.",
     "description": "Call to action text to upgrade plan."
   },
+  "D5HhwJ": {
+    "defaultMessage": "Join us in building innovative products that are well-loved by Front End Engineers.",
+    "description": "Description for the jobs page"
+  },
   "D7z/wQ": {
     "defaultMessage": "Keep your reason to under {characterLimit} characters",
     "description": "String validation message"
@@ -3082,6 +3150,10 @@
   "DQayC1": {
     "defaultMessage": "The email address you want to use to log in.",
     "description": "Email field description"
+  },
+  "DRZ4Z6": {
+    "defaultMessage": "GitHub Review",
+    "description": "Resume review feature"
   },
   "DSAK89": {
     "defaultMessage": "Premium feature",
@@ -3387,6 +3459,10 @@
     "defaultMessage": "Our projects are never one-off - they always fit into some component library or design system which can be composed into your very own toolset to build future projects",
     "description": "Description for \"Never waste your time building one-off projects\" feature marketing section on Projects home page"
   },
+  "F5eadI": {
+    "defaultMessage": "If you have a portfolio website, we will review the presentation and code quality of it",
+    "description": "Resume review feature description"
+  },
   "F5oV3L": {
     "defaultMessage": "Delete line",
     "description": "Text describing command to delete line(s) in the coding workspace shortcuts menu"
@@ -3475,6 +3551,10 @@
     "defaultMessage": "Pin",
     "description": "Pin button label"
   },
+  "FdWaB1": {
+    "defaultMessage": "Tailored to your current skills, experiences and goals",
+    "description": "Sub features for \"In-depth profile assessment\" feature of resume review"
+  },
   "Fg3V0y": {
     "defaultMessage": "Manage subscription on Stripe",
     "description": "Label for button to manage subscription"
@@ -3539,6 +3619,10 @@
     "defaultMessage": "High resolution image assets",
     "description": "Provided resource for project"
   },
+  "G2nvbp": {
+    "defaultMessage": "Suggestions customized to industry and experience level",
+    "description": "Sub features for \"Resume review\" feature of resume review"
+  },
   "G2tdz+": {
     "defaultMessage": "The card does not support transactions in the currency used.",
     "description": "Decline message for currency not supported"
@@ -3590,6 +3674,10 @@
   "GKha2+": {
     "defaultMessage": "As mentioned, there are many ways to host your site. Our recommended hosts are:",
     "description": "Description for Deployment step in project submission checklist"
+  },
+  "GLg9RL": {
+    "defaultMessage": "We go beyond your portfolio to help you grow",
+    "description": "Section title for what is included for the resume review page"
   },
   "GM9dpG": {
     "defaultMessage": "Failed to reset progress. Please try again.",
@@ -3666,6 +3754,10 @@
   "Geiogi": {
     "defaultMessage": "View your submission",
     "description": "Label for View your submission button on project submit page"
+  },
+  "GgPkMZ": {
+    "defaultMessage": "Portfolio Website Review",
+    "description": "Resume review feature"
   },
   "Ggbe98": {
     "defaultMessage": "The most comprehensive guide to Front End System Design Interviews you can find",
@@ -3959,6 +4051,10 @@
     "defaultMessage": "As mentioned, there are many ways to host your site. Our recommended hosts are:",
     "description": "Recommended hosts to deploy project"
   },
+  "Hz9Ok0": {
+    "defaultMessage": "GFE transformed my previously lacklustre resume into a well-structured one with impactful skill showcases. His tailored advice, practical strategies and tips, brought a new level of appeal to my resume. I've learned a lot from their approach to resume review, and I believe it will continue to benefit me in my future job search.",
+    "description": "Testimonial from a user for resume review"
+  },
   "I+Qcp7": {
     "defaultMessage": "An eye-catching name to describe your solution. Will be displayed under the original Project's name and help other users identify your submission.",
     "description": "Description for submission title input on project submit page"
@@ -4039,6 +4135,10 @@
     "defaultMessage": "Relevant techniques",
     "description": "Project guides category title"
   },
+  "IKuJP0": {
+    "defaultMessage": "Features",
+    "description": "Resume review features"
+  },
   "INrnLA": {
     "defaultMessage": "Search over {questionCount} JavaScript interview questions",
     "description": "Search placeholder for JavaScript questions list page"
@@ -4110,6 +4210,10 @@
   "Id0zS8": {
     "defaultMessage": "Sign up",
     "description": "Button label for a newsletter subscription section"
+  },
+  "IdIQQw": {
+    "defaultMessage": "Examples of good GitHub profiles",
+    "description": "Sub features for \"GitHub review\" feature of resume review"
   },
   "IdOpAt": {
     "defaultMessage": "Sponsor URL",
@@ -4891,6 +4995,10 @@
     "defaultMessage": "Front End System Design",
     "description": "Page title for System design question format page"
   },
+  "LnUWek": {
+    "defaultMessage": "There are no jobs available for your location",
+    "description": "Empty state title for no jobs"
+  },
   "Lnj3bs": {
     "defaultMessage": "One-time use; only applicable to GreatFrontEnd Annual plan.",
     "description": "Condition for promotion"
@@ -4931,6 +5039,10 @@
     "defaultMessage": "Reviews meeting eligibility and terms will be rewarded regardless of whether it was positive or negative.",
     "description": "Condition for promotion"
   },
+  "M1DMl/": {
+    "defaultMessage": "I learnt a lot while revising my resume and I now have a more explicit goal for my career and what I should do to get there. I will recommend this service to my friends!",
+    "description": "Testimonial from a user for resume review"
+  },
   "M1iUIY": {
     "defaultMessage": "Hoping to grow in",
     "description": "Projects profile tech stack I am hoping to grow section title"
@@ -4938,6 +5050,10 @@
   "M1ncAS": {
     "defaultMessage": "The definitive guide to front end interviews.",
     "description": "Description of frontend interview playbook page"
+  },
+  "M1rA+K": {
+    "defaultMessage": "All-inclusive",
+    "description": "Resume review pro pricing tier name"
   },
   "M33LzY": {
     "defaultMessage": "Confirm",
@@ -5071,6 +5187,10 @@
     "defaultMessage": "Maximum of {maxLength} characters",
     "description": "Description for title input"
   },
+  "Mvs/7B": {
+    "defaultMessage": "In-depth Profile Assessment",
+    "description": "Resume review feature"
+  },
   "MwvhTF": {
     "defaultMessage": "See whole component track",
     "description": "Label for \"See whole component track\" button in Component track accordion"
@@ -5122,6 +5242,10 @@
   "NE6GPR": {
     "defaultMessage": "Platform",
     "description": "Section heading in Projects footer for links practice-related pages"
+  },
+  "NEEHt6": {
+    "defaultMessage": "Hear from our users",
+    "description": "Section title for testimonials for resume review page"
   },
   "NEkaZ4": {
     "defaultMessage": "Starter",
@@ -5178,6 +5302,10 @@
   "NeDKXb": {
     "defaultMessage": "Q&A Quiz-style JavaScript Interview Questions",
     "description": "Description of interview questions page"
+  },
+  "NfOJAX": {
+    "defaultMessage": "Buy Now",
+    "description": "Buy now button label"
   },
   "NgG1HQ": {
     "defaultMessage": "Solving common questions",
@@ -5354,6 +5482,10 @@
   "Od0Qjl": {
     "defaultMessage": "Skills used",
     "description": "Label for \"Skills used\" text input"
+  },
+  "OdhcdZ": {
+    "defaultMessage": "I'm an aspiring front end engineer. Will this still be relevant to me?",
+    "description": "Question on the portfolio review FAQ page"
   },
   "OelRg0": {
     "defaultMessage": "Project challenges",
@@ -5887,6 +6019,10 @@
     "defaultMessage": "Monthly plan",
     "description": "Subscription plan type"
   },
+  "QvSn+W": {
+    "defaultMessage": "First impressions from experienced interviewers",
+    "description": "Sub features for \"Portfolio website review\" feature of resume review"
+  },
   "Qw+A0/": {
     "defaultMessage": "Add skills",
     "description": "Add skills used for challenge"
@@ -5966,6 +6102,10 @@
   "RDQ253": {
     "defaultMessage": "Sign in to save progress",
     "description": "Message shown when user completes a question without signing in"
+  },
+  "RFAHTi": {
+    "defaultMessage": "Choose a plan based on what you need.",
+    "description": "Resume review pricing plans description"
   },
   "RGdxr7": {
     "defaultMessage": "Figma design file",
@@ -6102,6 +6242,10 @@
   "RjpadL": {
     "defaultMessage": "Reference practical guides, learn from other's submissions and ask any questions in the",
     "description": "Instruction for projects"
+  },
+  "Rk/qsi": {
+    "defaultMessage": "Remote",
+    "description": "Job location"
   },
   "RnHcaK": {
     "defaultMessage": "An account is required to purchase premium",
@@ -6703,6 +6847,10 @@
     "defaultMessage": "Homepage",
     "description": "Placeholder for name field of the deployment url"
   },
+  "UX9+m9": {
+    "defaultMessage": "I enjoyed working with GFE to give my resume the boost it desperately needed. Through the process, I learned what makes a resume stand out when targeting FAANG companies, which was very helpful. I was very impressed with how thorough the review was and how they even gave me some advice to make my resume much stronger. As an aspiring Android Engineer, it was great to have those tips on how to improve my skills through side projects. GFE does more than just resume review, they really care about your career growth and development!",
+    "description": "Testimonial from a user for resume review"
+  },
   "UbCsf6": {
     "defaultMessage": "Stack",
     "description": "Label for tech stack used in project"
@@ -6742,6 +6890,14 @@
   "Up/FZA": {
     "defaultMessage": "No result",
     "description": "Title for empty state when application of filters return no results"
+  },
+  "Upm5La": {
+    "defaultMessage": "Pricing",
+    "description": "Resume review pricing section title"
+  },
+  "Uq6/Lx": {
+    "defaultMessage": "Suggestions customized to industry and experience level",
+    "description": "Sub features for \"GitHub review\" feature of resume review"
   },
   "UrDgFx": {
     "defaultMessage": "No other platforms offer a lifetime membership and you have to pay every time you are job hunting. Consider the number of times you need to job hunt in the span of your career. Your lifetime membership will be worth it because you can use it for all your future job hunts. If you divide the cost by the number of months you will be using it for, the monthly cost is very very low.",
@@ -6875,6 +7031,10 @@
     "defaultMessage": "Learn to work with specifications mimicking projects you will encounter as a full-time engineer",
     "description": "Description for \"Real world specs\" feature on Projects home page"
   },
+  "VWe5VR": {
+    "defaultMessage": "By ex-interviewers at",
+    "description": "Label for resume review by ex-interviewers"
+  },
   "VWlSLh": {
     "defaultMessage": "{count} more",
     "description": "Label for more challenges count"
@@ -6899,6 +7059,10 @@
     "defaultMessage": "User Interface Coding Interview Questions",
     "description": "Social title for UI question format page"
   },
+  "VdCQVS": {
+    "defaultMessage": "Take your front end portfolio to the next level",
+    "description": "Resume review hero title"
+  },
   "VeRWF3": {
     "defaultMessage": "Challenge guide",
     "description": "Project guides category title"
@@ -6910,6 +7074,10 @@
   "VfNkH+": {
     "defaultMessage": "CASHBACK",
     "description": "Amount cashback/discount"
+  },
+  "VgF5JV": {
+    "defaultMessage": "This service was super helpful and well worth the investment! Not only did it help me address glaring issues with my old resume, but they also gave me comprehensive suggestions on how to improve my overall profile and land more FAANG interviews. My application-to-interview rate has never been higher!",
+    "description": "Testimonial from a user for resume review"
   },
   "Vh9mwM": {
     "defaultMessage": "Years",
@@ -7015,6 +7183,10 @@
     "defaultMessage": "Unlock premium",
     "description": "Purchase button label"
   },
+  "W5WbWT": {
+    "defaultMessage": "Suitable for long-term career progression.",
+    "description": "Resume review pro pricing tier description"
+  },
   "W7K4ko": {
     "defaultMessage": "Set up your profile first (it's quick!)",
     "description": "Projects onboarding dialog title"
@@ -7062,6 +7234,10 @@
   "WETxAT": {
     "defaultMessage": "Challenge difficulty",
     "description": "Label for Difficulty filter for projects list"
+  },
+  "WEVyoa": {
+    "defaultMessage": "What is included",
+    "description": "Label for what is included on resume review"
   },
   "WEj+Ko": {
     "defaultMessage": "Generating screenshots for the submission, it might take a while",
@@ -7451,6 +7627,10 @@
     "defaultMessage": "Unpin",
     "description": "Unpin button label"
   },
+  "Y2WgdA": {
+    "defaultMessage": "We will conduct a review of your GitHub profile and conduct a critique of your top 3 pinned projects",
+    "description": "Resume review feature description"
+  },
   "Y3lOgn": {
     "defaultMessage": "Console",
     "description": "Console tab label"
@@ -7466,6 +7646,10 @@
   "Y6CFPM": {
     "defaultMessage": "By proceeding, you agree to GreatFrontEnd's <tos>Terms of Service</tos> and <pp>Privacy Policy</pp>.",
     "description": "Disclaimer of agreement to terms of service and privacy policy on Email Sign Up page"
+  },
+  "Y7zgiT": {
+    "defaultMessage": "What's Included",
+    "description": "Label for what is included for the resume review page"
   },
   "YBlo/J": {
     "defaultMessage": "As mentioned above, there are many ways to host your project for free. Our recommend hosts are:",
@@ -7650,6 +7834,10 @@
   "ZCmkG3": {
     "defaultMessage": "Can't find the answer you are looking for? <link>Reach out to us!</link>",
     "description": "Subtitle under the Title of the FAQ section on the 'Become An Affiliate' page"
+  },
+  "ZDOKnm": {
+    "defaultMessage": "We will start with an overarching understanding of your current front end skills, experiences and career aspirations to recommend steps you can take to progress your career",
+    "description": "Resume review feature description"
   },
   "ZE/21F": {
     "defaultMessage": "Written by ex-FAANG senior devs",
@@ -7958,6 +8146,10 @@
   "anZw89": {
     "defaultMessage": "Please enter your status",
     "description": "Error message for empty other input for yoe status on projects profile page"
+  },
+  "ao1v0H": {
+    "defaultMessage": "Resume review",
+    "description": "Resume review feature"
   },
   "apFngj": {
     "defaultMessage": "Error",
@@ -8287,6 +8479,10 @@
     "defaultMessage": "The Global banner appears on all pages on our website",
     "description": "Item 1 for global banner placement pages info"
   },
+  "c+UYdY": {
+    "defaultMessage": "Most popular",
+    "description": "Label for most popular pricing tier"
+  },
   "c23MPV": {
     "defaultMessage": "Robust framework",
     "description": "Features for question format page"
@@ -8575,6 +8771,10 @@
     "defaultMessage": "Component tracks",
     "description": "Projects component tracks item label"
   },
+  "dPbAai": {
+    "defaultMessage": "Actionable next steps with specific how-to's and examples",
+    "description": "Sub features for \"In-depth profile assessment\" feature of resume review"
+  },
   "dRUyU9": {
     "defaultMessage": "Contact us",
     "description": "Link to contact page"
@@ -8726,6 +8926,10 @@
   "e7JLna": {
     "defaultMessage": "Forms",
     "description": "React forms"
+  },
+  "eA+jmb": {
+    "defaultMessage": "This is probably the only service out there where you can get a personalized review of your portfolio (and entire career trajectory) from senior engineers at big tech. Moreover, we are operating specifically in the front end domain, which makes our advice all the more specific to what is needed to succeed in this field. This service also costs less than 10% of the monthly salary of an entry level front end engineer, whilst the recommendations you receive can help you for the rest of your career - not just the initial job hunt.",
+    "description": "Answer to 'Why should I buy this?' on the portfolio review FAQ page"
   },
   "eC3Zcy": {
     "defaultMessage": "If you'd like a reply, please provide your email address",
@@ -9083,6 +9287,10 @@
     "defaultMessage": "Profile saved!",
     "description": "Toast for project profile saved"
   },
+  "fk+HBC": {
+    "defaultMessage": "Yes; we have provided mentorship to help individuals transition from other fields into the front end domain.",
+    "description": "Answer to 'Is this relevant to me?' on the portfolio review FAQ page"
+  },
   "fklQmL": {
     "defaultMessage": "Discussions",
     "description": "Challenge submission discussion section title"
@@ -9090,6 +9298,10 @@
   "fmPah2": {
     "defaultMessage": "on your first order amount",
     "description": "GFE discount"
+  },
+  "fq+Cpl": {
+    "defaultMessage": "Open Positions",
+    "description": "Title for the jobs page"
   },
   "fr4Vl4": {
     "defaultMessage": "Polish your answers with a comprehensive test suite that covers all the important edge cases that interviewers will look out for.",
@@ -9110,6 +9322,10 @@
   "ftr2lo": {
     "defaultMessage": "No tagged companies",
     "description": "Text that appears if the question does not have any tagged comppanies (where the question was known to be asked)"
+  },
+  "fuKeE5": {
+    "defaultMessage": "Imparting of industry-specific tips and know-how",
+    "description": "Sub features for \"In-depth profile assessment\" feature of resume review"
   },
   "fwJtUV": {
     "defaultMessage": "Do you offer discounts for GreatFrontEnd Interviews?",
@@ -9350,6 +9566,10 @@
   "h+CFG8": {
     "defaultMessage": "All tasks completed! Enjoy your exclusive promo code",
     "description": "Title for rewards complete page"
+  },
+  "h0Xc3E": {
+    "defaultMessage": "First impressions from experienced interviewers",
+    "description": "Sub features for \"Resume review\" feature of resume review"
   },
   "h1iPiG": {
     "defaultMessage": "If the issue persists, shoot us a email at {contactEmail}.",
@@ -9863,6 +10083,10 @@
     "defaultMessage": "Title: Z to A",
     "description": "Sorting option for question list - sort titles from Z to A"
   },
+  "jgGtvR": {
+    "defaultMessage": "Portfolio website review",
+    "description": "Resume review feature"
+  },
   "jgIdRC": {
     "defaultMessage": "Password",
     "description": "Label of password field on Sign In/Up page"
@@ -9870,6 +10094,10 @@
   "jh37Pg": {
     "defaultMessage": "Sponsor name",
     "description": "Advertisement sponsor name"
+  },
+  "jhV+k9": {
+    "defaultMessage": "Suitable to get your foot in the door.",
+    "description": "Resume review starter pricing tier description"
   },
   "jlTtgt": {
     "defaultMessage": "Please <link>leave us an email</link> if you have any other needs or wants. We would love to discuss them!",
@@ -9943,6 +10171,10 @@
     "defaultMessage": "Latest first",
     "description": "Sorting option for blog list"
   },
+  "k1rvru": {
+    "defaultMessage": "Resume Review",
+    "description": "Resume review feature"
+  },
   "k2Oi+j": {
     "defaultMessage": "Filters",
     "description": "Label for filters button"
@@ -9950,6 +10182,10 @@
   "k2qYCS": {
     "defaultMessage": "Company guides",
     "description": "Title of company guides page"
+  },
+  "k3StnS": {
+    "defaultMessage": "First impressions from experienced interviewers",
+    "description": "Sub features for \"GitHub review\" feature of resume review"
   },
   "k64L83": {
     "defaultMessage": "{discountPercentage}% off GreatFrontEnd Annual plan.",
@@ -10147,6 +10383,10 @@
     "defaultMessage": "UI component",
     "description": "Front end development topic"
   },
+  "kyUg36": {
+    "defaultMessage": "No such save.",
+    "description": "Saved solution not found"
+  },
   "kzklH3": {
     "defaultMessage": "From beginner to advanced",
     "description": "Label for skill roadmap feature for month plan"
@@ -10287,9 +10527,17 @@
     "defaultMessage": "React Interview Playbook",
     "description": "Title for react interview guide"
   },
+  "lXbWnZ": {
+    "defaultMessage": "Assessment of top 3 projects' presentation and code quality",
+    "description": "Sub features for \"GitHub review\" feature of resume review"
+  },
   "ladXww": {
     "defaultMessage": "Company-specific preparation for interviews at top companies like <bold>Google</bold>, <bold>Amazon</bold>, <bold>Microsoft</bold>, <bold>TikTok</bold>, <bold>Apple</bold>, and <bold>more</bold>. These guides include insider tips and practice questions tailored to the company's interview style.",
     "description": "Paragraph 3 for \"What does GreatFrontEnd Interviews offer exactly?\" on Homepage FAQ sections"
+  },
+  "lcCybI": {
+    "defaultMessage": "GFE made my resume a lot clearer and more detailed, they also explained the ideas behind each section of my resume. Prompt revision, excellent service, super worthy!",
+    "description": "Testimonial from a user for resume review"
   },
   "ldOgfx": {
     "defaultMessage": "Easy",
@@ -10310,6 +10558,10 @@
   "li6epc": {
     "defaultMessage": "Made by experienced senior engineers",
     "description": "Marketing section title"
+  },
+  "lkCgRa": {
+    "defaultMessage": "Simple pricing based on your needs",
+    "description": "Resume review pricig section subtitle"
   },
   "lkiyFB": {
     "defaultMessage": "Algorithms",
@@ -10378,6 +10630,10 @@
   "mFyOK6": {
     "defaultMessage": "Failed to mark question as complete",
     "description": "Error message shown when a question has failed to mark as complete"
+  },
+  "mG+FF+": {
+    "defaultMessage": "Pricing",
+    "description": "Label for pricing button on resume review"
   },
   "mGYl8O": {
     "defaultMessage": "Upvoted successfully!",
@@ -10478,6 +10734,10 @@
   "mhZ4FL": {
     "defaultMessage": "{name} in progress",
     "description": "User is working on this challenge"
+  },
+  "mj0u34": {
+    "defaultMessage": "Having reviewed over {candidatesCount}+ candidates (each) at various big tech companies, we know what to look out for and how to improve your chances at getting shortlisted.",
+    "description": "Resume review hero description"
   },
   "mjEvFf": {
     "defaultMessage": "Step 2",
@@ -10671,6 +10931,10 @@
     "defaultMessage": "Reset selected ({selectedQnsCount})",
     "description": "Label for button to reset progress for selected questions"
   },
+  "nf8QTa": {
+    "defaultMessage": "Frequently Asked Questions",
+    "description": "Title of the FAQ section"
+  },
   "ngtxtp": {
     "defaultMessage": "Your request has been edited successfully",
     "description": "Success message for request submission"
@@ -10682,6 +10946,10 @@
   "nhNfxq": {
     "defaultMessage": "Notify me",
     "description": "Label for notify me button for subscribe newsletter"
+  },
+  "nhpd2+": {
+    "defaultMessage": "Please answer them and send a copy of your resume and relevant links (GitHub, portfolio website) as appropriate",
+    "description": "Answer to 'How does the portfolio review process work?' on the portfolio review FAQ page"
   },
   "nivf5h": {
     "defaultMessage": "General",
@@ -10771,13 +11039,13 @@
     "defaultMessage": "Views on submissions",
     "description": "Number of views on the project submissions"
   },
-  "oEhQit": {
-    "defaultMessage": "Recursively call flatten() on nested arrays",
-    "description": "Code annotation for flatten-ii function"
-  },
   "oDrXRD": {
     "defaultMessage": "Extensive learning resources while building",
     "description": "Answer to 'I'm a complete beginner. Will this platform be useful for me?' on projects FAQs"
+  },
+  "oEhQit": {
+    "defaultMessage": "Recursively call flatten() on nested arrays",
+    "description": "Code annotation for flatten-ii function"
   },
   "oFz9cs": {
     "defaultMessage": "{commentCount, plural, =0 {No comments} one {# comment} other {# comments}}",
@@ -11135,6 +11403,14 @@
     "defaultMessage": "Search over {questionCount} Svelte interview questions",
     "description": "Search placeholder for Svelte questions list page"
   },
+  "ppF07g": {
+    "defaultMessage": "The portfolio review will occur over email as well as collaborative software like Google Docs, up to the number of revisions as per your plan.",
+    "description": "Answer to 'How does the portfolio review process work?' on the portfolio review FAQ page"
+  },
+  "prOmOv": {
+    "defaultMessage": "Career and profile assessment",
+    "description": "Resume review feature"
+  },
   "pt2zl3": {
     "defaultMessage": "Navigate front end interviews with ease",
     "description": "Homepage title"
@@ -11371,6 +11647,10 @@
     "defaultMessage": "No questions match the current filters",
     "description": "Title for empty state when application of filters return no results on profile activity page"
   },
+  "r0nKuy": {
+    "defaultMessage": "GFE clarified a lot of misconceptions I had about the internship search & hiring process. They also provided invaluable insights of what FAANG hiring managers look for when considering promising candidates. Their rapid response times, combined with their concise answers, helped me perfect my resume in mere days and land a SDE internship at <strong>Amazon</strong>. Their service certainly stands out among the rest!",
+    "description": "Testimonial from a user for resume review"
+  },
   "r0smyz": {
     "defaultMessage": "Search system design questions",
     "description": "Search placeholder"
@@ -11570,6 +11850,10 @@
   "sM1Ppu": {
     "defaultMessage": "{discountPercentage}% off all plans",
     "description": "Subtext for rewards complete page"
+  },
+  "sOuiCb": {
+    "defaultMessage": "GFE helped me take my resume from good to great. Improvements that could make the difference between a shortlist or otherwise were brought to my notice. The thing I loved the most, was the active effort they took to understand my professional experience and goals and tailor my resume accordingly. Highly recommended.",
+    "description": "Testimonial from a user for resume review"
   },
   "sP54y8": {
     "defaultMessage": "Easy",
@@ -12487,6 +12771,10 @@
     "defaultMessage": "User testimonials",
     "description": "Marketing section title"
   },
+  "x3R5oi": {
+    "defaultMessage": "Examples of good front end resumes",
+    "description": "Sub features for \"Resume review\" feature of resume review"
+  },
   "x5QZI9": {
     "defaultMessage": "Seamlessly integrated into all {questionCount}+ questions and guide pages",
     "description": "Ad format description"
@@ -12775,6 +13063,10 @@
     "defaultMessage": "ByteDance",
     "description": "Company name for ByteDance"
   },
+  "yf8eww": {
+    "defaultMessage": "This service was instrumental in improving my resume to better highlight my significant work experience. It has come a long way from my previous version. The reviewer was very friendly and helpful from the moment we first started communicating and even gave valuable career advice on Software Engineering. In short, I recommend the service. Thanks for your help, GFE!",
+    "description": "Testimonial from a user for resume review"
+  },
   "yg17Hv": {
     "defaultMessage": "Thinking declaratively",
     "description": "Thinking declaratively in React"
@@ -12822,6 +13114,10 @@
   "ymIkds": {
     "defaultMessage": "State / Province / Region",
     "description": "State / Province / Region input label"
+  },
+  "ymhecl": {
+    "defaultMessage": "Front-end specific recommendations from seniors",
+    "description": "Sub features for \"In-depth profile assessment\" feature of resume review"
   },
   "ymmDf7": {
     "defaultMessage": "Premium",
@@ -12922,6 +13218,10 @@
   "zAl/H8": {
     "defaultMessage": "General account settings. Shared across all GreatFrontEnd products.",
     "description": "Description for general account settings"
+  },
+  "zAq9ZW": {
+    "defaultMessage": "Front end portfolio review",
+    "description": "Resume review hero badge label"
   },
   "zAyLSU": {
     "defaultMessage": "Please enter a valid date in the format MM/YYYY",

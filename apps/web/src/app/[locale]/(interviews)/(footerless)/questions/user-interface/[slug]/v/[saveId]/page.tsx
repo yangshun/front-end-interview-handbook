@@ -7,6 +7,7 @@ import UserInterfaceCodingWorkspaceSavesPage from '~/components/workspace/user-i
 
 import { readQuestionUserInterface } from '~/db/QuestionsContentsReader';
 import { fetchQuestionsList } from '~/db/QuestionsListReader';
+import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 import prisma from '~/server/prisma';
 import {
@@ -56,7 +57,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Page({ params }: Props) {
   const { locale, slug, saveId } = params;
 
-  const [viewer, save] = await Promise.all([
+  const [intl, viewer, save] = await Promise.all([
+    getIntlServerOnly(locale),
     readViewerFromToken(),
     prisma.questionUserInterfaceSave.findFirst({
       where: {
@@ -67,7 +69,15 @@ export default async function Page({ params }: Props) {
 
   if (save == null) {
     // TODO(interviews): show error page for not found save.
-    return <div className="p-4 text-center">No such save.</div>;
+    return (
+      <div className="p-4 text-center">
+        {intl.formatMessage({
+          defaultMessage: 'No such save.',
+          description: 'Saved solution not found',
+          id: 'kyUg36',
+        })}
+      </div>
+    );
   }
 
   const isViewerPremium: boolean = await (async () => {

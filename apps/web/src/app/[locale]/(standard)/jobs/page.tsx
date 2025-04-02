@@ -20,6 +20,7 @@ import {
 } from '~/components/ui/theme';
 
 import { fetchJobPostings } from '~/db/contentlayer/JobPostingReader';
+import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
 type Props = Readonly<{
@@ -94,7 +95,7 @@ function JobPostingItem({
   );
 }
 
-export default async function Page({ searchParams }: Props) {
+export default async function Page({ searchParams, params }: Props) {
   const cookieStore = cookies();
   // 1. Read from query param (for overrides, useful for testing).
   // 2. Read from cookie set during middleware.
@@ -102,7 +103,10 @@ export default async function Page({ searchParams }: Props) {
   const countryCode: string =
     searchParams?.cty ?? cookieStore.get('country')?.value ?? 'US';
 
-  const jobPostings = await fetchJobPostings();
+  const [intl, jobPostings] = await Promise.all([
+    getIntlServerOnly(params.locale),
+    fetchJobPostings(),
+  ]);
 
   const filteredJobPostings = jobPostings.filter((jobPosting) => {
     // If there's a location requirement,
@@ -129,7 +133,11 @@ export default async function Page({ searchParams }: Props) {
         level="custom"
         tag="h1"
         weight="medium">
-        Open Positions
+        {intl.formatMessage({
+          defaultMessage: 'Open Positions',
+          description: 'Title for the jobs page',
+          id: 'fq+Cpl',
+        })}
       </Heading>
       <Section>
         <Text
@@ -143,8 +151,12 @@ export default async function Page({ searchParams }: Props) {
           color="secondary"
           size="inherit"
           weight="inherit">
-          Join us in building innovative products that are well-loved by Front
-          End Engineers.
+          {intl.formatMessage({
+            defaultMessage:
+              'Join us in building innovative products that are well-loved by Front End Engineers.',
+            description: 'Description for the jobs page',
+            id: 'D5HhwJ',
+          })}
         </Text>
         <div className="mt-12">
           {filteredJobPostings.length > 0 ? (
@@ -154,7 +166,11 @@ export default async function Page({ searchParams }: Props) {
                   key={jobPosting.slug}
                   department={jobPosting.department}
                   href={jobPosting.href}
-                  location="Remote"
+                  location={intl.formatMessage({
+                    defaultMessage: 'Remote',
+                    description: 'Job location',
+                    id: 'Rk/qsi',
+                  })}
                   title={jobPosting.title}
                 />
               ))}
@@ -166,7 +182,14 @@ export default async function Page({ searchParams }: Props) {
                 themeBackgroundCardColor,
                 'h-80 rounded-xl',
               )}>
-              <EmptyState title="There are no jobs available for your location" />
+              <EmptyState
+                title={intl.formatMessage({
+                  defaultMessage:
+                    'There are no jobs available for your location',
+                  description: 'Empty state title for no jobs',
+                  id: 'LnUWek',
+                })}
+              />
             </div>
           )}
         </div>

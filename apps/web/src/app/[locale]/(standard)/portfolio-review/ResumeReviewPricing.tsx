@@ -3,38 +3,15 @@
 import clsx from 'clsx';
 import { FaCheck } from 'react-icons/fa6';
 
+import { useIntl } from '~/components/intl';
 import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
 
-const tiers = [
-  {
-    description: 'Suitable to get your foot in the door.',
-    features: ['Resume review', 'Up to 3 revisions'],
-    href: 'https://buy.stripe.com/eVa8Ax6jR6IZfuM6oq',
-    id: 'tier-starter',
-    mostPopular: false,
-    name: 'Starter',
-    price: <>$350</>,
-  },
-  {
-    description: 'Suitable for long-term career progression.',
-    features: [
-      'Career and profile assessment',
-      'Resume review',
-      'GitHub profile review',
-      'Portfolio website review',
-      'Up to 3 revisions for each review',
-    ],
-    href: 'https://book.stripe.com/7sIbMJ9w39VbgyQeUX',
-    id: 'tier-pro',
-    mostPopular: true,
-    name: 'All-inclusive',
-    price: <>$400</>,
-  },
-];
-
 export default function ResumeReviewPricing() {
+  const intl = useIntl();
+  const tiers = useTiers();
+
   return (
     <div className="bg-neutral-950" id="pricing">
       <Container className="relative isolate" width="marketing">
@@ -52,13 +29,25 @@ export default function ResumeReviewPricing() {
         <div className="mx-auto max-w-2xl py-16 lg:max-w-none lg:py-24">
           <div className="mx-auto text-center">
             <p className="text-brand pb-6 text-base font-semibold leading-7">
-              Pricing
+              {intl.formatMessage({
+                defaultMessage: 'Pricing',
+                description: 'Resume review pricing section title',
+                id: 'Upm5La',
+              })}
             </p>
             <h2 className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
-              Simple pricing based on your needs
+              {intl.formatMessage({
+                defaultMessage: 'Simple pricing based on your needs',
+                description: 'Resume review pricig section subtitle',
+                id: 'lkCgRa',
+              })}
             </h2>
             <p className="mx-auto mt-6 text-lg leading-8 text-neutral-300">
-              Choose a plan based on what you need.
+              {intl.formatMessage({
+                defaultMessage: 'Choose a plan based on what you need.',
+                description: 'Resume review pricing plans description',
+                id: 'RFAHTi',
+              })}
             </p>
           </div>
           <div className="mt-10 flex justify-center">
@@ -79,7 +68,14 @@ export default function ResumeReviewPricing() {
                       {tier.name}
                     </h3>
                     {tier.mostPopular && (
-                      <Badge label="Most popular" variant="special" />
+                      <Badge
+                        label={intl.formatMessage({
+                          defaultMessage: 'Most popular',
+                          description: 'Label for most popular pricing tier',
+                          id: 'c+UYdY',
+                        })}
+                        variant="special"
+                      />
                     )}
                   </div>
                   <p className="mt-4 text-sm leading-6 text-neutral-300">
@@ -95,7 +91,11 @@ export default function ResumeReviewPricing() {
                       aria-describedby={tier.id}
                       display="block"
                       href={tier.href}
-                      label="Buy Now"
+                      label={intl.formatMessage({
+                        defaultMessage: 'Buy Now',
+                        description: 'Buy now button label',
+                        id: 'NfOJAX',
+                      })}
                       size="lg"
                       variant={tier.mostPopular ? 'primary' : 'secondary'}
                     />
@@ -121,4 +121,95 @@ export default function ResumeReviewPricing() {
       </Container>
     </div>
   );
+}
+
+function useTiers() {
+  const intl = useIntl();
+
+  return [
+    {
+      description: intl.formatMessage({
+        defaultMessage: 'Suitable to get your foot in the door.',
+        description: 'Resume review starter pricing tier description',
+        id: 'jhV+k9',
+      }),
+
+      features: [
+        intl.formatMessage({
+          defaultMessage: 'Resume review',
+          description: 'Resume review feature',
+          id: 'ao1v0H',
+        }),
+        intl.formatMessage(
+          {
+            defaultMessage: 'Up to {revisionsCount} revisions',
+            description: 'Resume review feature',
+            id: '/NjISj',
+          },
+          { revisionsCount: 3 },
+        ),
+      ],
+      href: 'https://buy.stripe.com/eVa8Ax6jR6IZfuM6oq',
+      id: 'tier-starter',
+      mostPopular: false,
+
+      name: intl.formatMessage({
+        defaultMessage: 'Starter',
+        description: 'Resume review starter pricing tier name',
+        id: '3I2UJ4',
+      }),
+
+      price: <>$350</>,
+    },
+    {
+      description: intl.formatMessage({
+        defaultMessage: 'Suitable for long-term career progression.',
+        description: 'Resume review pro pricing tier description',
+        id: 'W5WbWT',
+      }),
+
+      features: [
+        intl.formatMessage({
+          defaultMessage: 'Career and profile assessment',
+          description: 'Resume review feature',
+          id: 'prOmOv',
+        }),
+        intl.formatMessage({
+          defaultMessage: 'Resume review',
+          description: 'Resume review feature',
+          id: 'ao1v0H',
+        }),
+        intl.formatMessage({
+          defaultMessage: 'GitHub profile review',
+          description: 'Resume review feature',
+          id: '68jUza',
+        }),
+        intl.formatMessage({
+          defaultMessage: 'Portfolio website review',
+          description: 'Resume review feature',
+          id: 'jgGtvR',
+        }),
+        intl.formatMessage(
+          {
+            defaultMessage: 'Up to {revisionsCount} revisions for each review',
+            description: 'Resume review feature',
+            id: '2+ZTZX',
+          },
+          { revisionsCount: 3 },
+        ),
+      ],
+
+      href: 'https://book.stripe.com/7sIbMJ9w39VbgyQeUX',
+      id: 'tier-pro',
+      mostPopular: true,
+
+      name: intl.formatMessage({
+        defaultMessage: 'All-inclusive',
+        description: 'Resume review pro pricing tier name',
+        id: 'M1rA+K',
+      }),
+
+      price: <>$400</>,
+    },
+  ];
 }

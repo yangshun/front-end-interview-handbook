@@ -9,6 +9,7 @@ import {
   RiSurveyLine,
 } from 'react-icons/ri';
 
+import { useIntl } from '~/components/intl';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
@@ -18,58 +19,10 @@ import {
   themeTextSubtitleColor,
 } from '~/components/ui/theme';
 
-const features = [
-  {
-    description:
-      'We will start with an overarching understanding of your current front end skills, experiences and career aspirations to recommend steps you can take to progress your career',
-    icon: RiAccountBoxLine,
-    name: 'In-depth Profile Assessment',
-    subfeatures: [
-      'Front-end specific recommendations from seniors',
-      'Tailored to your current skills, experiences and goals',
-      "Actionable next steps with specific how-to's and examples",
-      'Imparting of industry-specific tips and know-how',
-    ],
-  },
-  {
-    description:
-      'We will conduct a detailed review of your resume and help you present your profile in the best way possible',
-    icon: RiSurveyLine,
-    name: 'Resume Review',
-    subfeatures: [
-      'First impressions from experienced interviewers',
-      'Suggestions customized to industry and experience level',
-      'Detection of ATS readability issues',
-      'Examples of good front end resumes',
-    ],
-  },
-  {
-    description:
-      'We will conduct a review of your GitHub profile and conduct a critique of your top 3 pinned projects',
-    icon: RiGithubFill,
-    name: 'GitHub Review',
-    subfeatures: [
-      'First impressions from experienced interviewers',
-      'Suggestions customized to industry and experience level',
-      'Examples of good GitHub profiles',
-      "Assessment of top 3 projects' presentation and code quality",
-    ],
-  },
-  {
-    description:
-      'If you have a portfolio website, we will review the presentation and code quality of it',
-    icon: RiComputerLine,
-    name: 'Portfolio Website Review',
-    subfeatures: [
-      'First impressions from experienced interviewers',
-      'Suggestions customized to industry and experience level',
-      'Examples of good portfolio websites',
-      'Assessment of website presentation and code quality',
-    ],
-  },
-];
-
 export default function ResumeReviewProcess() {
+  const intl = useIntl();
+  const features = useFeatures();
+
   return (
     <div
       className="relative isolate overflow-hidden bg-neutral-950 py-16 lg:py-24 xl:py-32"
@@ -89,16 +42,29 @@ export default function ResumeReviewProcess() {
         <Container width="6xl">
           <div className="mx-auto text-left">
             <p className="text-brand pb-6 text-base font-semibold leading-7">
-              What's Included
+              {intl.formatMessage({
+                defaultMessage: "What's Included",
+                description:
+                  'Label for what is included for the resume review page',
+                id: 'Y7zgiT',
+              })}
             </p>
             <h2 className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
-              We go beyond your portfolio to help you grow
+              {intl.formatMessage({
+                defaultMessage: 'We go beyond your portfolio to help you grow',
+                description:
+                  'Section title for what is included for the resume review page',
+                id: 'GLg9RL',
+              })}
             </h2>
             <p className="mt-6 text-lg leading-8 text-neutral-300">
-              Our feedback is tailored for career progression, not just 1
-              one-time job search. We combine years of experience screening
-              candidates with a detailed understanding of your skillsets and
-              goals to derive impactful recommendations.
+              {intl.formatMessage({
+                defaultMessage:
+                  'Our feedback is tailored for career progression, not just 1 one-time job search. We combine years of experience screening candidates with a detailed understanding of your skillsets and goals to derive impactful recommendations.',
+                description:
+                  'Section description for what is included for the resume review page',
+                id: '4YVG6h',
+              })}
             </p>
           </div>
           <div>
@@ -150,4 +116,189 @@ export default function ResumeReviewProcess() {
       </div>
     </div>
   );
+}
+
+function useFeatures() {
+  const intl = useIntl();
+
+  return [
+    {
+      description: intl.formatMessage({
+        defaultMessage:
+          'We will start with an overarching understanding of your current front end skills, experiences and career aspirations to recommend steps you can take to progress your career',
+        description: 'Resume review feature description',
+        id: 'ZDOKnm',
+      }),
+
+      icon: RiAccountBoxLine,
+
+      name: intl.formatMessage({
+        defaultMessage: 'In-depth Profile Assessment',
+        description: 'Resume review feature',
+        id: 'Mvs/7B',
+      }),
+
+      subfeatures: [
+        intl.formatMessage({
+          defaultMessage: 'Front-end specific recommendations from seniors',
+          description:
+            'Sub features for "In-depth profile assessment" feature of resume review',
+          id: 'ymhecl',
+        }),
+        intl.formatMessage({
+          defaultMessage:
+            'Tailored to your current skills, experiences and goals',
+          description:
+            'Sub features for "In-depth profile assessment" feature of resume review',
+          id: 'FdWaB1',
+        }),
+        intl.formatMessage({
+          defaultMessage:
+            "Actionable next steps with specific how-to's and examples",
+          description:
+            'Sub features for "In-depth profile assessment" feature of resume review',
+          id: 'dPbAai',
+        }),
+        intl.formatMessage({
+          defaultMessage: 'Imparting of industry-specific tips and know-how',
+          description:
+            'Sub features for "In-depth profile assessment" feature of resume review',
+          id: 'fuKeE5',
+        }),
+      ],
+    },
+    {
+      description: intl.formatMessage({
+        defaultMessage:
+          'We will conduct a detailed review of your resume and help you present your profile in the best way possible',
+        description: 'Resume review feature description',
+        id: '/8jOEO',
+      }),
+
+      icon: RiSurveyLine,
+
+      name: intl.formatMessage({
+        defaultMessage: 'Resume Review',
+        description: 'Resume review feature',
+        id: 'k1rvru',
+      }),
+
+      subfeatures: [
+        intl.formatMessage({
+          defaultMessage: 'First impressions from experienced interviewers',
+          description:
+            'Sub features for "Resume review" feature of resume review',
+          id: 'h0Xc3E',
+        }),
+        intl.formatMessage({
+          defaultMessage:
+            'Suggestions customized to industry and experience level',
+          description:
+            'Sub features for "Resume review" feature of resume review',
+          id: 'G2nvbp',
+        }),
+        intl.formatMessage({
+          defaultMessage: 'Detection of ATS readability issues',
+          description:
+            'Sub features for "Resume review" feature of resume review',
+          id: 'CLotAN',
+        }),
+        intl.formatMessage({
+          defaultMessage: 'Examples of good front end resumes',
+          description:
+            'Sub features for "Resume review" feature of resume review',
+          id: 'x3R5oi',
+        }),
+      ],
+    },
+    {
+      description: intl.formatMessage({
+        defaultMessage:
+          'We will conduct a review of your GitHub profile and conduct a critique of your top 3 pinned projects',
+        description: 'Resume review feature description',
+        id: 'Y2WgdA',
+      }),
+
+      icon: RiGithubFill,
+
+      name: intl.formatMessage({
+        defaultMessage: 'GitHub Review',
+        description: 'Resume review feature',
+        id: 'DRZ4Z6',
+      }),
+
+      subfeatures: [
+        intl.formatMessage({
+          defaultMessage: 'First impressions from experienced interviewers',
+          description:
+            'Sub features for "GitHub review" feature of resume review',
+          id: 'k3StnS',
+        }),
+        intl.formatMessage({
+          defaultMessage:
+            'Suggestions customized to industry and experience level',
+          description:
+            'Sub features for "GitHub review" feature of resume review',
+          id: 'Uq6/Lx',
+        }),
+        intl.formatMessage({
+          defaultMessage: 'Examples of good GitHub profiles',
+          description:
+            'Sub features for "GitHub review" feature of resume review',
+          id: 'IdIQQw',
+        }),
+        intl.formatMessage({
+          defaultMessage:
+            "Assessment of top 3 projects' presentation and code quality",
+          description:
+            'Sub features for "GitHub review" feature of resume review',
+          id: 'lXbWnZ',
+        }),
+      ],
+    },
+    {
+      description: intl.formatMessage({
+        defaultMessage:
+          'If you have a portfolio website, we will review the presentation and code quality of it',
+        description: 'Resume review feature description',
+        id: 'F5eadI',
+      }),
+
+      icon: RiComputerLine,
+
+      name: intl.formatMessage({
+        defaultMessage: 'Portfolio Website Review',
+        description: 'Resume review feature',
+        id: 'GgPkMZ',
+      }),
+
+      subfeatures: [
+        intl.formatMessage({
+          defaultMessage: 'First impressions from experienced interviewers',
+          description:
+            'Sub features for "Portfolio website review" feature of resume review',
+          id: 'QvSn+W',
+        }),
+        intl.formatMessage({
+          defaultMessage:
+            'Suggestions customized to industry and experience level',
+          description:
+            'Sub features for "Portfolio website review" feature of resume review',
+          id: '1OO9Du',
+        }),
+        intl.formatMessage({
+          defaultMessage: 'Examples of good portfolio websites',
+          description:
+            'Sub features for "Portfolio website review" feature of resume review',
+          id: '0dAHAW',
+        }),
+        intl.formatMessage({
+          defaultMessage: 'Assessment of website presentation and code quality',
+          description:
+            'Sub features for "Portfolio website review" feature of resume review',
+          id: 'CCT97r',
+        }),
+      ],
+    },
+  ];
 }
