@@ -1,11 +1,11 @@
 ---
-title: Você pode oferecer um caso de uso para a nova sintaxe de função arrow =>?
+title: Você pode oferecer um caso de uso para a nova sintaxe de função => arrow?
 subtitle: Como essa nova sintaxe difere de outras funções?
 ---
 
 ## TL;DR
 
-As funções arrow fornecem uma sintaxe concisa para escrever funções em JavaScript. Elas são particularmente úteis para manter o contexto `this` dentro de métodos e callbacks. Por exemplo, em um manipulador de eventos ou método de array como `map`, as funções arrow podem simplificar o código e evitar problemas com a ligação de `this`.
+As funções arrow fornecem uma sintaxe concisa para escrever funções em JavaScript. Elas são particularmente úteis para manter o contexto de `this` dentro de métodos e callbacks. Por exemplo, em um manipulador de eventos ou método de array como `map`, as funções arrow podem simplificar o código e evitar problemas com a vinculação de `this`.
 
 ```js live
 const numbers = [1, 2, 3];
@@ -15,11 +15,11 @@ console.log(doubled); // [2, 4, 6]
 
 ---
 
-## Caso de uso para a nova sintaxe de função arrow =>
+## Caso de uso para a nova sintaxe de função => arrow
 
 ### Simplificando a sintaxe
 
-Funções arrow fornecem uma maneira mais concisa de escrever funções. Isso é especialmente útil para funções ou callbacks curtas.
+As funções arrow fornecem uma maneira mais concisa de escrever funções. Isso é especialmente útil para funções curtas ou callbacks.
 
 ```js live
 // Função tradicional
@@ -27,58 +27,76 @@ const add = function (a, b) {
   return a + b;
 };
 
-[object Object]
+// Função de seta
+const anotherAdd = (a, b) => a + b;
 
-[object Object]
+console.log(add(2, 3)); // Saída: 5
+console.log(anotherAdd(2, 3)); // Saída: 5
+```
 
-[object Object]
+### Ligação lexical de `this`
 
-[object Object]
+Funções de seta não têm seu próprio contexto `this`. Em vez disso, elas herdam `this` do escopo circundante. Isso é particularmente útil em métodos e callbacks onde o contexto `this` pode ser complicado.
 
-[object Object]
+```js live
+function Timer() {
+  this.seconds = 0;
+  this.increment = () => {
+    this.seconds++; // 'this.seconds' é herdado do escopo externo
+    console.log(this.seconds);
+  };
+}
 
-[object Object]
+const timer = new Timer();
+timer.increment(); // 1
+timer.increment(); // 2
+```
 
-[object Object]
+No exemplo acima, usar uma função tradicional dentro de `setInterval` exigiria etapas adicionais para manter o contexto correto de `this`.
 
-[object Object]
+### Usando funções de seta em métodos de array
 
-[object Object]
+As funções de seta são frequentemente usadas em métodos de array como `map`, `filter` e `reduce` para um código mais limpo e legível.
 
-[object Object]
+```js live
+const numbers = [1, 2, 3, 4, 5];
 
-[object Object]
+// Função tradicional
+const doubledTraditional = numbers.map(function (n) {
+  return n * 2;
+});
 
-[object Object]
+// Função de seta
+const doubled = numbers.map((n) => n * 2);
 
-[object Object]
+console.log(doubled); // [2, 4, 6, 8, 10]
+```
 
-[object Object]
+### Manipuladores de eventos
 
-[object Object]
+Funções de seta podem ser usadas em manipuladores de eventos para manter o contexto `this` da classe ou objeto.
 
 ```js live
 class Button {
   constructor() {
     this.count = 0;
     this.button = document.createElement('button');
-    this.button.innerText = 'Clique aqui';
+    this.button.innerText = 'Clique em mim';
     this.button.addEventListener('click', () => {
       this.count++;
-      console.log('contagem:', this.count);
+      console.log('count:', this.count);
     });
     document.body.appendChild(this.button);
   }
 }
 
-```
 const myButton = new Button();
-myButton.button.click(); // contagem: 1
-myButton.button.click(); // contagem: 2
+myButton.button.click(); // count: 1
+myButton.button.click(); // count: 2
 ```
 
 ## Leitura adicional
 
-- [MDN Web Docs: Funções de seta](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
-- [JavaScript.info: Funções de seta revisadas](https://javascript.info/arrow-functions)
+- [MDN Web Docs: Funções de seta](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
+- [JavaScript.info: Funções de seta revisitadas](https://javascript.info/arrow-functions)
 - [Eloquent JavaScript: Funções](https://eloquentjavascript.net/03_functions.html)

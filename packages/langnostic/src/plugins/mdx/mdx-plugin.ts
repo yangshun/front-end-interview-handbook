@@ -38,8 +38,13 @@ export default function mdxPlugin(options: PluginOptions): Plugin {
       return [
         'These strings are part of an MDX file, which can contain JSX and markdown.',
         'If a string is a code statement with no UI strings, return as-is, do not translate it.',
-        'Make sure to return all the translated object for all the strings',
-        'If the source string includes a code block fence (e.g., ``` or other delimiters), return it exactly as provided—do not add, modify, or complete missing code fences. Maintain the input as-is, even if the code block appears incomplete.',
+        'Make sure to return all the translated object for all the strings.',
+        'If a string includes a code block fence (e.g., ``` or other delimiters), and if the corresponding opening or closing code block fence is missing, do NOT add the missing code block fence to the start or end of the translated string.',
+        'Preserve the structure of code blocks exactly as in the original input string—even if malformed or incomplete.',
+        'Do NOT auto-correct or complete code fences under any circumstance.',
+        'Examples:',
+        "✅ Allowed: Input: ```jsx\\nimport PropTypes from 'prop-types'; Output: ```jsx\\nimport PropTypes from 'prop-types';",
+        "❌ Not Allowed: Input: ```jsx\\nimport PropTypes from 'prop-types'; Output: ```jsx\\nimport PropTypes from 'prop-types';\\n```",
       ].join('\n');
     },
     async getTranslationStrings() {
