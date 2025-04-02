@@ -848,6 +848,9 @@ importers:
       unified:
         specifier: 10.1.2
         version: 10.1.2
+      zod:
+        specifier: ^3.21.4
+        version: 3.24.2
     devDependencies:
       '@types/lodash-es':
         specifier: ^4.17.6
@@ -3138,7 +3141,7 @@ packages:
       ts-pattern: 4.3.0
       unified: 10.1.2
       yaml: 2.3.4
-      zod: 3.22.4
+      zod: 3.24.2
     transitivePeerDependencies:
       - '@effect-ts/otel-node'
       - esbuild

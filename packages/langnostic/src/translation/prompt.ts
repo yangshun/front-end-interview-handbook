@@ -7,28 +7,11 @@ export const promptTemplate = `You are a professional translator. Maintain the o
 
 - You are given a JSON object containing a list of strings and the target locales within <json> tags
 - Translate the source strings within the JSON object from the source locale to the target locales
-- The expected return format is provided within <format> tags
-- Respond with only the translated object, strictly adhering to the format, no need for additional explanations or context
 - Additional instructions are provided within <instructions> tags
 
 <instructions>
 ${promptVariables.instructions}
 </instructions>
-
-<format>
-[
-  {
-    "id": "abc",
-    "batchId": "some-batch-id",
-    "translations": {
-      "zh-CN": "...",
-      "pt-BR": "...",
-      // Other locales
-    },
-  },
-  // Other items
-]
-</format>
 
 <json>
 ${promptVariables.translationPayload}

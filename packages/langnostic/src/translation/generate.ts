@@ -1,6 +1,6 @@
-import { generateText } from 'ai';
-import JSON5 from 'json5';
+import { generateObject } from 'ai';
 import path from 'path';
+import { z } from 'zod';
 
 import { TranslationProvider } from '../config/types';
 import {
@@ -11,7 +11,7 @@ import {
 import { providerModel } from './providers';
 import { writeFile } from '../lib/file-service';
 import { RUNS_PATH } from '../core/constants';
-import { promptTemplate, promptVariables } from './prompt-template';
+import { promptTemplate, promptVariables } from './prompt';
 
 function hashStringItem(batchId: TranslationGroupBatchId, id: string): string {
   return `${batchId}#${id}`;
@@ -42,32 +42,39 @@ export async function generate(
 
     await writeFile(path.join(...filePathPrefix, 'prompt.txt'), prompt);
 
-    const { text: rawResults } = await generateText({
+    const result = await generateObject({
       model,
+      schema: z.array(
+        z.object({
+          id: z.string(),
+          batchId: z.string(),
+          translations: z.array(
+            z.object({
+              locale: z.string(),
+              string: z.string(),
+            }),
+          ),
+        }),
+      ),
       prompt,
     });
 
-    await writeFile(path.join(...filePathPrefix, 'response.txt'), rawResults);
-
-    // Some providers such as Gemini return the results as Markdown code blocks
-    const results = rawResults
-      .replace(/^```[\s\S]*?\n/g, '') // Remove backticks and language specifier from the front
-      .replace(/\n```\n?$/g, '') // Remove backticks from the end
-      .trim();
-
-    const translationStringsArray: ReadonlyArray<
-      Readonly<{
-        id: string;
-        batchId: string;
-        translations: Record<Locale, string>;
-      }>
-    > = JSON5.parse(results); // Use JSON5 since sometimes the response has extra commas
+    await writeFile(
+      path.join(...filePathPrefix, 'response.json'),
+      JSON.stringify(result, null, 2),
+    );
 
     const translationStringsMap = new Map<string, Record<Locale, string>>();
-    translationStringsArray.forEach((result) => {
+    result.object.forEach((result) => {
       translationStringsMap.set(
         hashStringItem(result.batchId, result.id),
-        result.translations,
+        result.translations.reduce(
+          (acc, { locale, string }) => ({
+            ...acc,
+            [locale]: string,
+          }),
+          {},
+        ),
       );
     });
 
