@@ -1,16 +1,31 @@
 import matter from 'gray-matter';
 import { omit } from 'lodash-es';
 import murmur from 'murmurhash';
+import remarkMdx from 'remark-mdx';
+import remarkParse from 'remark-parse';
+import remarkStringify from 'remark-stringify';
+import { unified } from 'unified';
 
 export function generateHash(content: string): string {
   return murmur.v3(content).toString(16);
 }
 
-export function generateMDXContentSegments(content: String) {
-  return content
-    .split(/\n\s*\n/)
-    .map((para) => para.trim())
-    .filter(Boolean);
+export function generateMDXContentSegments(content: string) {
+  const processor = unified().use(remarkParse).use(remarkMdx);
+
+  const tree = processor.parse(content);
+
+  // Get top-level nodes (blocks)
+  const blocks = tree.children;
+
+  // Convert each node back to string (MDX block)
+  const stringifiedBlocks = blocks.map((node) =>
+    unified()
+      .use(remarkStringify)
+      .use(remarkMdx)
+      .stringify({ type: 'root', children: [node] }),
+  );
+  return stringifiedBlocks;
 }
 
 /**
@@ -92,7 +107,7 @@ export function buildTargetMDXContent(
     return translatedContent?.[hash] || '';
   });
 
-  return '\n' + newContent.join('\n\n');
+  return '\n' + newContent.join('\n');
 }
 
 export function buildTargetMDX(
