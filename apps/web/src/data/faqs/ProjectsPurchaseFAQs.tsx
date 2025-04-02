@@ -128,49 +128,68 @@ export const offerRefunds: FAQItem = {
 
 export const subscriptionCancel: FAQItem = {
   answer: (
-    <>
-      You can cancel your GreatFrontEnd Projects subscription anytime by
-      visiting the{' '}
-      <Anchor href="/projects/settings/billing">Settings &gt; Billing</Anchor>{' '}
-      page. Your subscription will remain active until the end of your current
-      subscription period and will not be renewed after it ends.
-    </>
+    <FormattedMessage
+      defaultMessage="You can cancel your GreatFrontEnd Projects subscription anytime by
+      visiting the <link>Settings &gt; Billing</link>page. Your subscription will remain active until the end of your current
+      subscription period and will not be renewed after it ends."
+      description="Answer on projects pricing's FAQ section - subscription cancel"
+      id="+/cPHY"
+      values={{
+        link: (chunks) => (
+          <Anchor href="/projects/settings/billing">{chunks}</Anchor>
+        ),
+      }}
+    />
   ),
   key: 'purchase-subscription-cancel',
   question: (
-    <>Where and how do I cancel my GreatFrontEnd Projects subscription?</>
+    <FormattedMessage
+      defaultMessage="Where and how do I cancel my GreatFrontEnd Projects subscription?"
+      description="Question on projects pricing's FAQ section - subscription cancel"
+      id="45+Yl5"
+    />
   ),
 };
 
 export const purchaseSubscriptionRenew: FAQItem = {
   answer: (
-    <>
-      Yes, the recurring subscriptions are automatically renewed at the end of
+    <FormattedMessage
+      defaultMessage="Yes, the recurring subscriptions are automatically renewed at the end of
       its period for the convenience of subscribers. Monthly plans are renewed
       every month and annual plans are renewed every year. An email reminder
       will be sent days before the subscription is renewed to give you ample
-      time to cancel if you do not intend to renew.
-    </>
+      time to cancel if you do not intend to renew."
+      description="Answer on projects pricing's FAQ section - purchase subscription renew"
+      id="a1/rqD"
+    />
   ),
   key: 'purchase-subscription-renew',
   question: (
-    <>Are GreatFrontEnd Projects subscriptions automatically renewed?</>
+    <FormattedMessage
+      defaultMessage="Are GreatFrontEnd Projects subscriptions automatically renewed?"
+      description="Question on projects pricing's FAQ section - purchase subscription renew"
+      id="jRCPO5"
+    />
   ),
 };
 
 export const interviewsAccess: FAQItem = {
   answer: (
-    <>
-      GreatFrontEnd Interviews is a separate product targeted at a different
+    <FormattedMessage
+      defaultMessage="GreatFrontEnd Interviews is a separate product targeted at a different
       audience. The memberships and access for these two products are
-      independent.
-    </>
+      independent."
+      description="Answer on projects pricing's FAQ section - interviews access"
+      id="aVOuuw"
+    />
   ),
   key: 'interviews-access',
   question: (
-    <>
-      Do I get access to GreatFrontEnd Interviews' premium features by
-      purchasing GreatFrontEnd Projects premium?
-    </>
+    <FormattedMessage
+      defaultMessage="Do I get access to GreatFrontEnd Interviews' premium features by
+      purchasing GreatFrontEnd Projects premium?"
+      description="Question on projects pricing's FAQ section - interviews access"
+      id="sdWUQM"
+    />
   ),
 };

@@ -1,4 +1,8 @@
 {
+  "+/cPHY": {
+    "defaultMessage": "You can cancel your GreatFrontEnd Projects subscription anytime by visiting the <link>Settings &gt; Billing</link>page. Your subscription will remain active until the end of your current subscription period and will not be renewed after it ends.",
+    "description": "Answer on projects pricing's FAQ section - subscription cancel"
+  },
   "+1emCT": {
     "defaultMessage": "Founder's foreword",
     "description": "Marketing section title"
@@ -42,6 +46,10 @@
   "+9bM81": {
     "defaultMessage": "Official solutions",
     "description": "Reference code for projects"
+  },
+  "+Awm01": {
+    "defaultMessage": "GreatFrontEnd projects is a platform where you can build real-world projects to learn and showcase in your portfolio. You'd be able to start <strong> building immediately</strong> - we provide everything from production-ready product specs written by product managers, designs by high-end designers and API specs for each project.",
+    "description": "Answer to 'What does GreatFrontEnd Projects offer?' on projects FAQs"
   },
   "+B60u6": {
     "defaultMessage": "{totalCount} submissions",
@@ -142,6 +150,10 @@
   "+hNsjW": {
     "defaultMessage": "Сoncise step by step practical guides",
     "description": "Short description for \"Skills roadmap\" feature on Projects home page"
+  },
+  "+jq6fA": {
+    "defaultMessage": "Is GreatFrontEnd Projects free?",
+    "description": "Question on projects FAQ section - on the pricing model of GreatFrontEnd Projects"
   },
   "+kyQ/i": {
     "defaultMessage": "To help <keywords>mentor others</keywords>",
@@ -286,6 +298,10 @@
   "/IBuox": {
     "defaultMessage": "Star our \"React.js Interview Questions\" repo",
     "description": "Star the GitHub repository"
+  },
+  "/JUzhw": {
+    "defaultMessage": "We provide a roadmap of all the core skills needed to be a great front end engineer, from beginner to advanced. For each skill, we suggest good resources for you to study and projects you can build on our platform to learn the skill. This roadmap is curated by senior engineers with extensive experience in the industry, ensuring the quality and trustworthiness of the content.",
+    "description": "Answer to 'What is unique about GreatFrontEnd Projects vs other challenge platforms?' on projects FAQs"
   },
   "/QA/Vp": {
     "defaultMessage": "Configure your {adFormat}",
@@ -615,10 +631,6 @@
     "defaultMessage": "Stay updated with the latest trends, tips, and resources for front-end engineers. Explore expert advice, tutorials, and guides to level up your skills and career.",
     "description": "Description of GreatFrontEnd blog homepage"
   },
-  "0ySzlP": {
-    "defaultMessage": "It is a <strong>one-time purchase, with no recurring subscription</strong>. You get access to all the content on the GreatFrontEnd Interviews platform forever, along with any future updates. This will be useful and relevant for all future job hunts.",
-    "description": "Answer to 'What does lifetime access mean?' on Homepage's FAQ sections"
-  },
   "0yYlhT": {
     "defaultMessage": "View ad",
     "description": "View ad button label"
@@ -690,6 +702,10 @@
   "1Ry887": {
     "defaultMessage": "Image dimensions: {width}px x {height}px ({ratio}:1 ratio)",
     "description": "Description for ad asset"
+  },
+  "1SL96K": {
+    "defaultMessage": "Moreover, we are constantly adding content and prices will increase as the amount of content increases. You can lock in access to all premium interviews content by purchasing the lifetime plan today.",
+    "description": "Answer to 'GreatFrontEnd Interviews' lifetime plan seems expensive!' on Purchase's FAQ sections"
   },
   "1VQd95": {
     "defaultMessage": "Official solutions and tests",
@@ -843,6 +859,10 @@
     "defaultMessage": "Title",
     "description": "Label for \"Job Title\" input on Projects profile onboarding page"
   },
+  "2FNNVk": {
+    "defaultMessage": "Gamification and progress tracking",
+    "description": "Answer to 'What is unique about GreatFrontEnd Projects vs other challenge platforms?' on projects FAQs"
+  },
   "2Hqklu": {
     "defaultMessage": "You contributed a code review for <recipientProfileLink>{recipient}</recipientProfileLink> on their submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for you reviewing others submission"
@@ -986,6 +1006,10 @@
   "3/KJgr": {
     "defaultMessage": "Country is required",
     "description": "Error message for country"
+  },
+  "34f5c1": {
+    "defaultMessage": "If you prefer real-time communication and interaction, we also have a Discord channel available for your convenience. You can engage with the community, ask questions, and share your experiences.",
+    "description": "Answer to 'How do I get support when I'm stuck on a challenge?' on projects FAQs"
   },
   "36Ei20": {
     "defaultMessage": "Key Features",
@@ -1207,6 +1231,10 @@
     "defaultMessage": "GreatFrontEnd uses Monaco Editor, the same code editor used in Visual Studio Code (VS Code). Most editor shortcuts in VS Code should work here as well. Here's a list of common shortcuts for your reference:",
     "description": "Description within code editor shortcuts"
   },
+  "45+Yl5": {
+    "defaultMessage": "Where and how do I cancel my GreatFrontEnd Projects subscription?",
+    "description": "Question on projects pricing's FAQ section - subscription cancel"
+  },
   "45Wusd": {
     "defaultMessage": "Billing",
     "description": "Link label to the billing page"
@@ -1246,6 +1274,10 @@
   "4EqfQx": {
     "defaultMessage": "Use a different card to make the payment.",
     "description": "Reason label for different card"
+  },
+  "4F2QPV": {
+    "defaultMessage": "What's the refund policy for GreatFrontEnd Interviews?",
+    "description": "Question on Purchase's FAQ section - on the refund policy on the interview platform"
   },
   "4FirvF": {
     "defaultMessage": "Reset progress",
@@ -1415,6 +1447,10 @@
     "defaultMessage": "Front End Interview",
     "description": "Short title for Front End Interview Playbook"
   },
+  "5G8Oxo": {
+    "defaultMessage": "Component tracks are collections of components which make up component libraries for specific practical use cases e.g. Marketing, E-Commerce, or even design systems. Building component tracks can leave a strong impression on potential employers and recruiters, showcasing your expertise and versatility in building a variety of components for common use cases, which is much more impressive than building individual projects.",
+    "description": "Answer to 'What is unique about GreatFrontEnd Projects vs other challenge platforms?' on projects FAQs"
+  },
   "5Gjt4J": {
     "defaultMessage": "Something went wrong. Try again later or contact <link>support@greatfrontend.com</link>!",
     "description": "Error toast for project"
@@ -1470,6 +1506,10 @@
   "5gqGca": {
     "defaultMessage": "Someone from {country} subscribed to <link>Premium</link> recently",
     "description": "Marketing toast to show that someone has subscribed"
+  },
+  "5h6fqG": {
+    "defaultMessage": "Our platform is <strong>primarily free</strong>, allowing users to access a large selection of project challenges without the need to subscribe. You'd be able to <strong>start building immediately</strong>{' '} - we provide everything from production-ready product specs written by product managers, designs by high-end designers and API specs for each project. You'll also get support from our community, where you can discuss project approaches, see how others have built similar projects, and get feedback on your code to help you improve.",
+    "description": "Answer to 'Is GreatFrontEnd Projects free?' on projects FAQs"
   },
   "5hTR16": {
     "defaultMessage": "Profile",
@@ -1631,6 +1671,10 @@
     "defaultMessage": "Challenge: {challengeName}",
     "description": "Title of Projects challenge page"
   },
+  "6Q/4BV": {
+    "defaultMessage": "We offer support if you face issues with using the website or need help with account management or payment related concerns. Technical questions regarding concepts or code can be asked in our public and private Discord servers where our active community members are happy to help.",
+    "description": "Answer to 'Do you offer technical support?' on support FAQs"
+  },
   "6QxW+/": {
     "defaultMessage": "Medium",
     "description": "Medium difficulty label for solved problems"
@@ -1674,6 +1718,10 @@
   "6VId29": {
     "defaultMessage": "{noOfOnlineUsers} online",
     "description": "Text describing online users"
+  },
+  "6VmHj1": {
+    "defaultMessage": "GreatFrontEnd Interviews' lifetime plan seems expensive!",
+    "description": "Question on Purchase's FAQ section - on the pricing of the lifetime access plan on the interview platform"
   },
   "6WpcdM": {
     "defaultMessage": "CS student at MIT",
@@ -1750,6 +1798,10 @@
   "6zZ5vj": {
     "defaultMessage": "{commentsCount, plural, =0 {No comments} one {# comment} other {# comments}}",
     "description": "Number of comments for project submission"
+  },
+  "7++x1w": {
+    "defaultMessage": "Guidance from big tech senior engineers",
+    "description": "Answer to 'What is unique about GreatFrontEnd Projects vs other challenge platforms?' on projects FAQs"
   },
   "7/se2x": {
     "defaultMessage": "{count}+ questions are free to do",
@@ -1947,6 +1999,10 @@
     "defaultMessage": "Underline",
     "description": "Underline tooltip for Richtext toolbar"
   },
+  "7vhGuK": {
+    "defaultMessage": "What do you mean when you say your projects are \"modular\"?",
+    "description": "Question on projects FAQ section - on the modularity of projects"
+  },
   "7wfbGH": {
     "defaultMessage": "Premium is required to access premium questions",
     "description": "Title for premium questions feature"
@@ -1982,6 +2038,10 @@
   "83GIBc": {
     "defaultMessage": "Introduction",
     "description": "Introduction to front end system design"
+  },
+  "85GzkF": {
+    "defaultMessage": "Without knowing the domain well, it's hard to know which projects you should build in order to train different aspects of a skill. Our skills roadmap solves that problem by providing a structured roadmap of projects to build to train all the core skills required for front end engineers, all the way from beginner to advanced. While the free plan lets you access only the foundational skills in the skills roadmap, you will get full access to all nodes in the skills roadmap once you purchase any premium plan. This helps you learn skills efficiently without the guesswork.",
+    "description": "Answer to 'Why is it worth it to buy Premium?' on projects FAQs"
   },
   "869F+x": {
     "defaultMessage": "{numberOfHours} hours daily",
@@ -2082,6 +2142,10 @@
   "8bcHtK": {
     "defaultMessage": "Progress | Dashboard",
     "description": "Title of progress section on dashboard page"
+  },
+  "8bvYir": {
+    "defaultMessage": "What does \"lifetime access\" to GreatFrontEnd Interviews mean?",
+    "description": "Question on Purchase's FAQ section - on the scope of the lifetime access pricing plan on the interview platform"
   },
   "8cguZA": {
     "defaultMessage": "Clarify doubts in forums",
@@ -2387,6 +2451,10 @@
     "defaultMessage": "<bold>{completedQuestions}</bold>/{totalQuestions} completed",
     "description": "Line describing the number of questions completed by user over the total number of questions"
   },
+  "ADlE7s": {
+    "defaultMessage": "Learning how to use design tools like Figma is an important skill for any professional front end developer. Moreover, using the design file helps you in building a more precise solution using design details like font sizes, spacing and colors, eliminating the time that would otherwise be spent on guesswork.",
+    "description": "Answer to 'Why is it worth it to buy Premium?' on projects FAQs"
+  },
   "AEDpDO": {
     "defaultMessage": "The company you currently work at. This information can be made private on more sensitive products like interviews.",
     "description": "Description for \"Company\" input on Projects profile onboarding page"
@@ -2647,6 +2715,10 @@
     "defaultMessage": "Tree",
     "description": "Computer science data structure"
   },
+  "BV5zYu": {
+    "defaultMessage": "This is a common issue faced by customers from India and Indonesia because some card providers block overseas transactions. If you are sure your payment details are valid, you might want to call your bank and check if they are the ones blocking the payment. Many of our users have resolved the issue by calling up their bank and allowing international transactions.",
+    "description": "Answer to 'I am facing issues (e.g. payment declined) when checking out' on Purchase's FAQ sections"
+  },
   "BVZEeY": {
     "defaultMessage": "<authorProfileLink>{author}</authorProfileLink> replied to <recipientProfileLink>{recipient}</recipientProfileLink> on the challenge forum for <link>{challengeTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for someone replying to someone on the challenge forum"
@@ -2782,6 +2854,10 @@
   "CJmMgh": {
     "defaultMessage": "Practice JavaScript Coding Interview Questions with Solutions",
     "description": "SEO title for JavaScript coding question format page"
+  },
+  "CMq4u3": {
+    "defaultMessage": "Beginner-friendly challenges",
+    "description": "Answer to 'I'm a complete beginner. Will this platform be useful for me?' on projects FAQs"
   },
   "CNjnh0": {
     "defaultMessage": "Not written for this question.",
@@ -2958,6 +3034,10 @@
   "DEhOz5": {
     "defaultMessage": "Users completed",
     "description": "Number of users who completed the question"
+  },
+  "DFNDlQ": {
+    "defaultMessage": "You can cancel your GreatFrontEnd Interviews subscription anytime by visiting the <link>Profile &gt; Billing</link> page. Your subscription will remain active until the end of your current subscription period and will not be renewed after it ends.",
+    "description": "Answer to 'Where and how do I cancel my GreatFrontEnd Interviews subscription?' on Purchase's FAQ sections"
   },
   "DHQOPk": {
     "defaultMessage": "No contributions in the community so far",
@@ -3178,6 +3258,10 @@
   "ELtSzL": {
     "defaultMessage": "A comprehensive React interview guide that covers core concepts and interview-specific React tips",
     "description": "Guidebook description"
+  },
+  "EM+wT5": {
+    "defaultMessage": "Structured learning with skills roadmap",
+    "description": "Answer to 'I'm a complete beginner. Will this platform be useful for me?' on projects FAQs"
   },
   "ENNKyg": {
     "defaultMessage": "View subscription plans",
@@ -3723,6 +3807,10 @@
     "defaultMessage": "We've started tracking your progress",
     "description": "Success message for starting a study plan"
   },
+  "HOI3TB": {
+    "defaultMessage": "Some of our most impressive projects were designed to teach you (and allow you to showcase) complex and / or modern techniques like full stack or artificial intelligence skills. These are the projects you'd want to reference when building your portfolio to stand out from the crowd of applications.",
+    "description": "Answer to 'Why is it worth it to buy Premium?' on projects FAQs"
+  },
   "HP/djb": {
     "defaultMessage": "Experience | Settings",
     "description": "Title of experience (theme) settngs page"
@@ -3819,6 +3907,10 @@
     "defaultMessage": "High quality solutions",
     "description": "Title for high quality solutions feature"
   },
+  "HlcGFL": {
+    "defaultMessage": "That said, even if you are not interviewing, or not officially a Front End Engineer, software engineers who develop for the web will still benefit from the high quality content and questions authored by our senior team of ex-FAANG engineers and interviewers.",
+    "description": "Answer to 'Who is GreatFrontEnd Interviews for?' on Homepage's FAQ sections"
+  },
   "HloN+i": {
     "defaultMessage": "Start coding!",
     "description": "Label for \"Start coding!\" button on Projects project page"
@@ -3826,6 +3918,10 @@
   "HpRJcG": {
     "defaultMessage": "Started at",
     "description": "Started at label"
+  },
+  "HpWXN+": {
+    "defaultMessage": "The lifetime plan costs the most but we can assure you it is worth the money if you are serious about improving your interview skills and landing the job. With a GreatFrontEnd Interviews lifetime membership, your premium status will never expire and you retain access to all premium interviews content, including future updates.",
+    "description": "Answer to 'GreatFrontEnd Interviews' lifetime plan seems expensive!' on Purchase's FAQ sections"
   },
   "Hph7Vz": {
     "defaultMessage": "LeetCode-style algorithmic coding questions which evaluate your core data structures and algorithms skills.",
@@ -3938,6 +4034,10 @@
   "IQ9qW7": {
     "defaultMessage": "Get promo code",
     "description": "Button label for student discount"
+  },
+  "IQy519": {
+    "defaultMessage": "Additionally, our Premium plan offers priority support, access to practical development guides, official solutions, and even professionally designed Figma files, all of which can assist you in overcoming challenges efficiently.",
+    "description": "Answer to 'How do I get support when I'm stuck on a challenge?' on projects FAQs"
   },
   "ITigYA": {
     "defaultMessage": "Correct",
@@ -4175,6 +4275,14 @@
     "defaultMessage": "Go to solution",
     "description": "Coding workspace go to solution button label"
   },
+  "JNe0+O": {
+    "defaultMessage": "Convenient code reviews",
+    "description": "Answer to 'What is unique about GreatFrontEnd Projects vs other challenge platforms?' on projects FAQs"
+  },
+  "JNqp7O": {
+    "defaultMessage": "You can ask your question in our Discord community servers or send an email to {email}",
+    "description": "Answer to 'How do I get support?' on support FAQs"
+  },
   "JPr1gs": {
     "defaultMessage": "Collaboration questions",
     "description": "Title for sidebar on collaboration situation questions in behavioral interviews"
@@ -4231,9 +4339,17 @@
     "defaultMessage": "Upvotes received",
     "description": "Number of upvotes received"
   },
+  "JjXEfg": {
+    "defaultMessage": "Access to our most impressive projects",
+    "description": "Answer to 'Why is it worth it to buy Premium?' on projects FAQs"
+  },
   "Jkhbjw": {
     "defaultMessage": "Completed",
     "description": "Completed task label"
+  },
+  "JkoTGu": {
+    "defaultMessage": "Indeed, the components you craft on our platform are designed with reusability in mind. You're encouraged to integrate them into your personal projects. This practice not only simplifies your development process but also enhances the quality and sophistication of your projects.",
+    "description": "Answer to 'Can I use the components I build in my side projects?' on projects FAQs"
   },
   "JmBr/f": {
     "defaultMessage": "Rejection reason",
@@ -4263,6 +4379,10 @@
     "defaultMessage": "Marked \"{articleName}\" as incomplete",
     "description": "Success message shown when an article was marked as not completed"
   },
+  "JslLVT": {
+    "defaultMessage": "Our platform includes a gamification system that encourages you to track your progress and take on more challenges. This feature motivates you to stay engaged and make steady progress in your learning journey.",
+    "description": "Answer to 'What is unique about GreatFrontEnd Projects vs other challenge platforms?' on projects FAQs"
+  },
   "JtkXij": {
     "defaultMessage": "More actions",
     "description": "Menu for saved code in coding workspace"
@@ -4282,6 +4402,10 @@
   "K/j0Zl": {
     "defaultMessage": "Curated learning resources",
     "description": "Title of 'Curated learning resources' sub-feature in Projects marketing page"
+  },
+  "K0yqDh": {
+    "defaultMessage": "What does GreatFrontEnd Projects offer?",
+    "description": "Question on projects FAQ section - on the offerings of GreatFrontEnd Projects"
   },
   "K2D5dy": {
     "defaultMessage": "Guide Menu",
@@ -4635,6 +4759,10 @@
     "defaultMessage": "Submission successfully unpinned!",
     "description": "Submission unpin toaster"
   },
+  "LKWnEZ": {
+    "defaultMessage": "Free essentials",
+    "description": "Answer to 'What is unique about GreatFrontEnd Projects vs other challenge platforms?' on projects FAQs"
+  },
   "LL5UA7": {
     "defaultMessage": "Purchase premium to get access to all {questionCount}+ interview questions, official solutions, study plans, and company tags.",
     "description": "Text describing user's subscription plan."
@@ -4839,6 +4967,10 @@
     "defaultMessage": "{readingTime} minutes",
     "description": "Reading time of the article"
   },
+  "MMFfyO": {
+    "defaultMessage": "Every project is modular and reusable",
+    "description": "Answer to 'What is unique about GreatFrontEnd Projects vs other challenge platforms?' on projects FAQs"
+  },
   "MMLnqG": {
     "defaultMessage": "Closure",
     "description": "Front end development topic"
@@ -4939,6 +5071,10 @@
     "defaultMessage": "Most important 75 questions for front end interviews",
     "description": "Description of GreatFrontEnd 75"
   },
+  "N1DHSj": {
+    "defaultMessage": "GreatFrontEnd Projects has a unique feature set which stands out in important ways",
+    "description": "Answer to 'What is unique about GreatFrontEnd Projects vs other challenge platforms?' on projects FAQs"
+  },
   "N5Cp1r": {
     "defaultMessage": "While offer lasts",
     "description": "Label to indicate offer is a limited time deal"
@@ -4982,6 +5118,10 @@
   "NLQRm+": {
     "defaultMessage": "View placement constraints",
     "description": "Accordion trigger label"
+  },
+  "NMHMq3": {
+    "defaultMessage": "How do I get support when I'm stuck on a challenge?",
+    "description": "Question on projects FAQ section - on the support available when stuck on a challenge"
   },
   "NS3jrc": {
     "defaultMessage": "Frameworks",
@@ -5146,6 +5286,10 @@
   "ODRVQi": {
     "defaultMessage": "Learn by building real world projects for professionals",
     "description": "Title of 'Learn by building real world projects for professionals' feature in Projects marketing page"
+  },
+  "OIHF83": {
+    "defaultMessage": "Access to practical development guides and official solutions",
+    "description": "Answer to 'Why is it worth it to buy Premium?' on projects FAQs"
   },
   "OKKVCO": {
     "defaultMessage": "Login successful",
@@ -5331,6 +5475,10 @@
     "defaultMessage": "Free project challenges",
     "description": "Label for free challenges feature"
   },
+  "PEPK2l": {
+    "defaultMessage": "We make code reviews easy by displaying your code directly on our platform, eliminating the need for community members to go elsewhere to review your work. This convenience encourages more feedback and collaboration, which means you can expect to receive more feedback for your work.",
+    "description": "Answer to 'What is unique about GreatFrontEnd Projects vs other challenge platforms?' on projects FAQs"
+  },
   "PFtRJf": {
     "defaultMessage": "Guide",
     "description": "Interview guide"
@@ -5391,6 +5539,10 @@
     "defaultMessage": "Product",
     "description": "Section heading in footer"
   },
+  "PRUWqm": {
+    "defaultMessage": "Feedback and code reviews",
+    "description": "Answer to 'I'm a complete beginner. Will this platform be useful for me?' on projects FAQs"
+  },
   "PRsCOw": {
     "defaultMessage": "Error",
     "description": "Workspace test spec error label"
@@ -5418,6 +5570,14 @@
   "PeXK7/": {
     "defaultMessage": "Pricing",
     "description": "Title of Pricing page"
+  },
+  "PepuJK": {
+    "defaultMessage": "I'm a complete beginner. Will this platform be useful for me?",
+    "description": "Question on projects FAQ section - on the usefulness of the platform for complete beginners"
+  },
+  "PgdEdE": {
+    "defaultMessage": "For learners, GreatFrontEnd projects allows you to learn front end development through <strong>actively constructing real-world projects</strong> instead of being stuck in tutorial hell. As you take on each challenge, you'll have access to comprehensive <strong>guides, solutions, user-generated references, and community forums</strong> , all designed to facilitate your learning and professional growth. Additionally, we provide a <strong>structured skills roadmap</strong> that outlines the specific projects to complete to learn core front end skills from beginner to advanced proficiency.",
+    "description": "Answer to 'What does GreatFrontEnd Projects offer?' on projects FAQs"
   },
   "PhPw02": {
     "defaultMessage": "Subscribe early to lock in this earlybird price.",
@@ -5546,6 +5706,10 @@
   "QB8XoS": {
     "defaultMessage": "View",
     "description": "Link to a submission page"
+  },
+  "QBDWkR": {
+    "defaultMessage": "Additionally, we offer Component Tracks, which are collections of projects that form component libraries or design systems. This can leave a strong impression on potential employers and recruiters, <strong>showcasing your expertise and versatility</strong> in building a variety of components for common use cases, which is much more impressive than building individual projects.",
+    "description": "Answer to 'What does GreatFrontEnd Projects offer?' on projects FAQs"
   },
   "QBq/oI": {
     "defaultMessage": "Coding Workspace",
@@ -5943,6 +6107,10 @@
     "defaultMessage": "Horizontal rule",
     "description": "Label for horizontal rule"
   },
+  "RwXzSa": {
+    "defaultMessage": "Even if you're not focused on learning a specific skill, our platform has plenty to offer. You can use the professionally designed components and projects you create to enhance your portfolio or contribute to your side projects. It's a valuable resource for building and showcasing your work.",
+    "description": "Answer to 'I'm not trying to learn any particular skill. How will this platform be useful to me?' on projects FAQs"
+  },
   "RxU5TE": {
     "defaultMessage": "Privacy policy",
     "description": "Link to privacy policy page"
@@ -5954,6 +6122,10 @@
   "Rz6MDM": {
     "defaultMessage": "System design questions in front-end interviews evaluate a candidate's ability to architect large-scale, maintainable, and scalable web applications. Unlike backend system design, these questions focus more on designing the client-side architecture, managing state, ensuring performance, and integrating with APIs or backend services. Candidates may be asked to design complex UI systems, plan for accessibility, or discuss strategies for handling large volumes of user interactions or data. Asked in mid-level to senior level interviews",
     "description": "Description of data structures and algorithm questions"
+  },
+  "RzicB4": {
+    "defaultMessage": "Do I get access to GreatFrontEnd Projects' premium features by purchasing GreatFrontEnd Interviews premium?",
+    "description": "Question on Purchase's FAQ section - on the access to other products by purchasing the interview platform"
   },
   "S+6OOS": {
     "defaultMessage": "Free",
@@ -6227,6 +6399,10 @@
     "defaultMessage": "Check your email for the activation steps",
     "description": "Label for activation steps"
   },
+  "TDRxOj": {
+    "defaultMessage": "We believe in providing the basics for free, including multi-page apps and breakpoint management. You won't be charged for essential features like taking screenshots. Our premium charges only apply to advanced features that go beyond the basics.",
+    "description": "Answer to 'What is unique about GreatFrontEnd Projects vs other challenge platforms?' on projects FAQs"
+  },
   "TDZuZW": {
     "defaultMessage": "Use now",
     "description": "Button label"
@@ -6330,6 +6506,10 @@
   "Tdn+OY": {
     "defaultMessage": "Starting is as easy as clicking a Start project button, and we will take you through every step of the way.",
     "description": "Ready to start section subtitle"
+  },
+  "Tdz722": {
+    "defaultMessage": "GreatFrontEnd Projects is a separate product targeted at a different audience. The memberships and access for these two products are independent. There is also currently no lifetime premium membership for GreatFrontEnd Projects.",
+    "description": "Answer to 'Do I get access to GreatFrontEnd Projects' premium features by purchasing GreatFrontEnd Interviews premium?' on Purchase's FAQ sections"
   },
   "TfBpeT": {
     "defaultMessage": "Here are some highly-rated submissions you can reference while doing your project. We prioritize submissions by their ratings, the similarity of their tech stack to yours, and the seniority level of the commenter.",
@@ -6535,6 +6715,10 @@
     "defaultMessage": "Close filters",
     "description": "Close filters"
   },
+  "UoQm4H": {
+    "defaultMessage": "However, it's crucial to be aware of certain restrictions specified in our terms of service. For instance, our designs should not be employed in the creation of templates, content management platforms, or shared for external use beyond your own projects. We recommend a thorough review of our terms of service to ensure full compliance and prevent any inadvertent violations while utilizing our platform.",
+    "description": "Answer to 'Can I use the components I build in my side projects?' on projects FAQs"
+  },
   "UotwsL": {
     "defaultMessage": "Logging you in...",
     "description": "Subtitle of AuthPage when logged in"
@@ -6543,6 +6727,10 @@
     "defaultMessage": "No result",
     "description": "Title for empty state when application of filters return no results"
   },
+  "UrDgFx": {
+    "defaultMessage": "No other platforms offer a lifetime membership and you have to pay every time you are job hunting. Consider the number of times you need to job hunt in the span of your career. Your lifetime membership will be worth it because you can use it for all your future job hunts. If you divide the cost by the number of months you will be using it for, the monthly cost is very very low.",
+    "description": "Answer to 'GreatFrontEnd Interviews' lifetime plan seems expensive!' on Purchase's FAQ sections"
+  },
   "Us7Uly": {
     "defaultMessage": "Ask us about it",
     "description": "Button that opens up mail for user to send us an email about their question about the Affiliate program"
@@ -6550,6 +6738,14 @@
   "UsEDlN": {
     "defaultMessage": "Practice front end interview questions in the format of quizzes on topics like JavaScript, CSS, Accessibility, Performance, and more. Solutions by ex-interviewers.",
     "description": "SEO description for quiz question format page"
+  },
+  "UtyzhD": {
+    "defaultMessage": "We also offer a skills roadmap on our platform, which serves as a step-by-step guide to acquire all the fundamental skills required for front-end development, from the very basics to advanced topics. For each skill, it provides you with a list of curated suggested resources, as well as a recommended order of projects to build",
+    "description": "Answer to 'I'm a complete beginner. Will this platform be useful for me?' on projects FAQs"
+  },
+  "UueWpG": {
+    "defaultMessage": "With a premium membership, you will get access to every new question and any guide we add in future. As new technologies and trends emerge, we update our questions and potentially add new questions/formats to keep up with the trends and you will get access to all of them.",
+    "description": "Answer to 'What does 'free updates' for GreatFrontEnd Interviews include?' on Homepage's FAQ sections"
   },
   "UwT84H": {
     "defaultMessage": "Get the right foundation",
@@ -6570,6 +6766,10 @@
   "V4qTW5": {
     "defaultMessage": "Submission checklist",
     "description": "Title for the project submission checklist section"
+  },
+  "V5DoLK": {
+    "defaultMessage": "Do you offer technical support?",
+    "description": "Questions on support FAQ section - on the offering of technical support"
   },
   "V5oBr9": {
     "defaultMessage": "Can only be redeemed once per eligible user; duplicate accounts prohibited.",
@@ -6923,6 +7123,10 @@
     "defaultMessage": "Table of Contents",
     "description": "Guides table of contents menu button label"
   },
+  "WbuLAv": {
+    "defaultMessage": "I'm not trying to learn any particular skill. How will this platform be useful to me?",
+    "description": "Question on projects FAQ section - on the usefulness of the platform for those not focused on learning a specific skill"
+  },
   "WctnWS": {
     "defaultMessage": "Generating screenshots",
     "description": "Title for project submission screenshot generation"
@@ -7063,6 +7267,10 @@
     "defaultMessage": "Complete | Rewards",
     "description": "Title of Rewards Complete page"
   },
+  "XIZkef": {
+    "defaultMessage": "With premium, you get access to some of our most valuable resources designed to facilitate your learning and development",
+    "description": "Answer to 'Why is it worth it to buy Premium?' on projects FAQs"
+  },
   "XK5qY6": {
     "defaultMessage": "You will submit the link to your public GitHub repo on the submission page.",
     "description": "Description for GitHub repo step in project submission checklist"
@@ -7110,6 +7318,10 @@
   "Xcw/lL": {
     "defaultMessage": "Explore user submissions handpicked for your growth - based on your profile, skills you're keen to learn, and the projects you've completed.",
     "description": "Page subtitle"
+  },
+  "XdEDHU": {
+    "defaultMessage": "Yes, with the exception of the lifetime plan, all recurring subscriptions are automatically renewed at the end of its period for the convenience of subscribers. Monthly plans are renewed every month, quarterly plans renewed every 3 months, annual plans are renewed every year. An email reminder will be sent days before the subscription is renewed to give you ample time to cancel if you do not intend to renew.",
+    "description": "Answer to 'Are GreatFrontEnd Interviews subscriptions automatically renewed?' on Purchase's FAQ sections"
   },
   "XdTpL0": {
     "defaultMessage": "Real world projects platform",
@@ -7347,6 +7559,10 @@
     "defaultMessage": "User Interface Coding",
     "description": "Title for ui coding questions"
   },
+  "YitCY3": {
+    "defaultMessage": "For developers seeking to build their portfolios or embark on side projects, our platform allows you to build stunning portfolio projects that were <strong>professionally designed by high-end designers</strong> . Design is hard - and you'd be able to focus solely on the technical execution. Furthermore, unlike other challenge platforms, you'd be able to easily construct <strong>personalized portfolio projects</strong> instead of building the same thing as everyone else. Each project within our platform is made up of reusable components which adhere to the same design system, making them inherently modular and compatible with one another. This means you can seamlessly combine components from various projects to construct unique and customized applications for your portfolio. These components cover a diverse range of applications, including Marketing, E-Commerce, Web Apps, Games, and even Portfolios, which means you'd be able to compose a wide variety of apps from them.",
+    "description": "Answer to 'What does GreatFrontEnd Projects offer?' on projects FAQs"
+  },
   "YpJ3q8": {
     "defaultMessage": "Reply to comment",
     "description": "Label for discussion post reply input"
@@ -7406,6 +7622,14 @@
   "Z5P0Gp": {
     "defaultMessage": "What to expect in the coding round and tips to succeed",
     "description": "What to expect in front end coding interviews"
+  },
+  "Z6PMaJ": {
+    "defaultMessage": "Access to all component tracks",
+    "description": "Answer to 'Why is it worth it to buy Premium?' on projects FAQs"
+  },
+  "Z7vm1S": {
+    "defaultMessage": "Structured roadmap for learning",
+    "description": "Answer to 'What is unique about GreatFrontEnd Projects vs other challenge platforms?' on projects FAQs"
   },
   "ZCmkG3": {
     "defaultMessage": "Can't find the answer you are looking for? <link>Reach out to us!</link>",
@@ -7563,6 +7787,10 @@
     "defaultMessage": "Completed",
     "description": "Completed a challenge"
   },
+  "a1/rqD": {
+    "defaultMessage": "Yes, the recurring subscriptions are automatically renewed at the end of its period for the convenience of subscribers. Monthly plans are renewed every month and annual plans are renewed every year. An email reminder will be sent days before the subscription is renewed to give you ample time to cancel if you do not intend to renew.",
+    "description": "Answer on projects pricing's FAQ section - purchase subscription renew"
+  },
   "a1RZkG": {
     "defaultMessage": "Web APIs",
     "description": "Front end development topic"
@@ -7582,6 +7810,10 @@
   "a9qEXk": {
     "defaultMessage": "Company email(s)",
     "description": "Company emails label"
+  },
+  "aCS7aj": {
+    "defaultMessage": "<strong>Subscription</strong>: You will be billed a fixed amount at the start of every period according to your selected plan. You can choose to cancel anytime.",
+    "description": "Answer to 'What are the various options to purchase GreatFrontEnd Interviews premium?' on Purchase's FAQ sections"
   },
   "aCjI8I": {
     "defaultMessage": "Track completed",
@@ -7642,6 +7874,10 @@
   "aUrYFI": {
     "defaultMessage": "Write your message...",
     "description": "Message field placeholder"
+  },
+  "aVOuuw": {
+    "defaultMessage": "GreatFrontEnd Interviews is a separate product targeted at a different audience. The memberships and access for these two products are independent.",
+    "description": "Answer on projects pricing's FAQ section - interviews access"
   },
   "aVhVoX": {
     "defaultMessage": "RADIO framework",
@@ -7835,6 +8071,10 @@
     "defaultMessage": "Stripe",
     "description": "Placeholder for \"Company\" input on Projects profile onboarding page"
   },
+  "b8Et6n": {
+    "defaultMessage": "What is unique about GreatFrontEnd Projects vs other challenge platforms?",
+    "description": "Question on projects FAQ section - on the unique features of GreatFrontEnd Projects"
+  },
   "b8crUg": {
     "defaultMessage": "Limited time offer",
     "description": "Label for rewards campaign"
@@ -7943,6 +8183,10 @@
     "defaultMessage": "Title is required.",
     "description": "Error message"
   },
+  "bbW5hi": {
+    "defaultMessage": "After completing a project, you'll have the opportunity to receive feedback and code reviews from the community. This feedback is invaluable for your growth as it helps you identify areas for improvement and refine your coding skills.",
+    "description": "Answer to 'I'm a complete beginner. Will this platform be useful for me?' on projects FAQs"
+  },
   "bdirwv": {
     "defaultMessage": "Title is required",
     "description": "Error message for title"
@@ -7990,6 +8234,10 @@
   "bq/h99": {
     "defaultMessage": "14-day money back guarantee",
     "description": "Pricing plan policy"
+  },
+  "brT+kn": {
+    "defaultMessage": "I am facing issues (e.g. payment declined) when checking out",
+    "description": "Question on Purchase's FAQ section - on the common issues faced during the purchase process on the interview platform"
   },
   "bsCmcK": {
     "defaultMessage": "Email Us",
@@ -8182,6 +8430,14 @@
   "ctbPZV": {
     "defaultMessage": "GreatFrontEnd Projects",
     "description": "Title of Projects product"
+  },
+  "ctnT/Z": {
+    "defaultMessage": "Access to professionally designed figma files",
+    "description": "Answer to 'Why is it worth it to buy Premium?' on projects FAQs"
+  },
+  "cvJ+qb": {
+    "defaultMessage": "Our projects are \"modular,\" meaning that each project within our platform is made up of reusable components which adhere to the same design system, making them inherently modular and compatible with one another. This means you can seamlessly combine components from various projects to construct unique and customized applications for your portfolio.",
+    "description": "Answer to 'What do you mean when you say your projects are \"modular\"?' on projects FAQs"
   },
   "cvjpKx": {
     "defaultMessage": "There are many ways to host your site. Our recommended hosts are:",
@@ -8471,6 +8727,10 @@
     "defaultMessage": "The URL where your solution is hosted. Click 'Deployment instructions' to get suggestions on recommended free hosting providers.",
     "description": "Form description"
   },
+  "eI+uaS": {
+    "defaultMessage": "What are the various options to purchase GreatFrontEnd Interviews premium?",
+    "description": "Question on Purchase's FAQ section - on the various pricing plans available on the interview platform"
+  },
   "eJU0PN": {
     "defaultMessage": "Coding",
     "description": "Question format"
@@ -8518,6 +8778,10 @@
   "eWwVqI": {
     "defaultMessage": "Premium is required to unlock this project",
     "description": "Unlock premium access for a project"
+  },
+  "eYWGwB": {
+    "defaultMessage": "With these premium features, you'll save considerable time and effort towards building accurate designs and becoming a highly skilled front-end developer.",
+    "description": "Answer to 'Why is it worth it to buy Premium?' on projects FAQs"
   },
   "eZ7okb": {
     "defaultMessage": "Use a different card or payment method to complete the payment.",
@@ -8695,6 +8959,10 @@
     "defaultMessage": "Account | Profile",
     "description": "Title of Profile Account page"
   },
+  "fHUHPj": {
+    "defaultMessage": "While other platforms might leave you relying solely on community feedback, our premium plan provides you with practical development guides and solutions written by experienced senior engineers from top tech companies. You'll learn best practices and supercharge your learning by referencing professionally-written code derived from years of experience.",
+    "description": "Answer to 'What is unique about GreatFrontEnd Projects vs other challenge platforms?' on projects FAQs"
+  },
   "fHpn67": {
     "defaultMessage": "Google",
     "description": "Company name for Google"
@@ -8823,6 +9091,10 @@
     "defaultMessage": "No tagged companies",
     "description": "Text that appears if the question does not have any tagged comppanies (where the question was known to be asked)"
   },
+  "fwJtUV": {
+    "defaultMessage": "Do you offer discounts for GreatFrontEnd Interviews?",
+    "description": "Question on Purchase's FAQ section - on the availability of discounts on the interview platform"
+  },
   "fx7H3x": {
     "defaultMessage": "You've also earned an exclusive promo code:",
     "description": "Marketing rewards message"
@@ -8862,6 +9134,10 @@
   "g3PJQr": {
     "defaultMessage": "LinkedIn",
     "description": "Company name for LinkedIn"
+  },
+  "g5FqmW": {
+    "defaultMessage": "We offer a range of starter level challenges that are specifically designed for beginners. You can begin with these and gradually progress to more advanced challenges as you gain confidence and experience.",
+    "description": "Answer to 'I'm a complete beginner. Will this platform be useful for me?' on projects FAQs"
   },
   "g6ZUKV": {
     "defaultMessage": "Company details",
@@ -9055,6 +9331,10 @@
     "defaultMessage": "All tasks completed! Enjoy your exclusive promo code",
     "description": "Title for rewards complete page"
   },
+  "h1iPiG": {
+    "defaultMessage": "If the issue persists, shoot us a email at {contactEmail}.",
+    "description": "Answer to 'I am facing issues (e.g. payment declined) when checking out' on Purchase's FAQ sections"
+  },
   "h2eWtB": {
     "defaultMessage": "Build dynamic user interfaces using HTML, CSS, JavaScript, or popular UI frameworks like React, Angular, or Vue.",
     "description": "Description for UI question format page"
@@ -9078,6 +9358,10 @@
   "hBwVFF": {
     "defaultMessage": "Theme preferences",
     "description": "Title for Theme preferences in projects settings page"
+  },
+  "hCSwYG": {
+    "defaultMessage": "Who is GreatFrontEnd Interviews for?",
+    "description": "Question on Homepage's FAQ section - on the target audience of GreatFrontEnd Interviews"
   },
   "hESyRg": {
     "defaultMessage": "What to expect and how to prepare most efficiently",
@@ -9147,6 +9431,14 @@
     "defaultMessage": "Official guides",
     "description": "Official guides label"
   },
+  "hVXgt2": {
+    "defaultMessage": "What happens when my GreatFrontEnd Interviews subscription is cancelled?",
+    "description": "Question on Purchase's FAQ section - on the consequences of cancelling the subscription on the interview platform"
+  },
+  "hVdKww": {
+    "defaultMessage": "Premium provides additional benefits for{' '} <strong>serious learners and builders</strong>. This includes access to underlying Figma files, official guides and solutions, as well as complete access to all nodes on our skill roadmap and all available component tracks.",
+    "description": "Answer to 'Is GreatFrontEnd Projects free?' on projects FAQs"
+  },
   "hW0hdr": {
     "defaultMessage": "Earn a generous {percent}% commission on every purchase within {days} days of using your affiliate link. Earn as much as you refer - no limits to payouts, no frills.",
     "description": "Affiliate program commission section subtitle"
@@ -9206,6 +9498,10 @@
   "hm0ODb": {
     "defaultMessage": "Delete comment?",
     "description": "Delete comment confirmation dialog title"
+  },
+  "hmLtry": {
+    "defaultMessage": "How do I get support?",
+    "description": "Question on support FAQ section - on how to get support"
   },
   "hoMrsO": {
     "defaultMessage": "Pricing",
@@ -9310,6 +9606,10 @@
   "iFjPS9": {
     "defaultMessage": "Disconnect",
     "description": "Label for disconnect button"
+  },
+  "iGdqEi": {
+    "defaultMessage": "It is a <strong>one-time purchase, with no recurring subscription</strong>. You get access to all the content on the GreatFrontEnd Interviews platform forever, along with any future updates. This will be useful and relevant for all future job hunts.",
+    "description": "Answer to 'What does lifetime access mean?' on Purchase's FAQ sections"
   },
   "iGkYh3": {
     "defaultMessage": "Track your progress",
@@ -9478,6 +9778,10 @@
   "jQ6uOU": {
     "defaultMessage": "Practice questions",
     "description": "Title for questions section for frontend system design playbook page"
+  },
+  "jRCPO5": {
+    "defaultMessage": "Are GreatFrontEnd Projects subscriptions automatically renewed?",
+    "description": "Question on projects pricing's FAQ section - purchase subscription renew"
   },
   "jROOlG": {
     "defaultMessage": "Our users now work in these companies",
@@ -9711,6 +10015,10 @@
     "defaultMessage": "Settings",
     "description": "Link label to the settings page"
   },
+  "kTlghR": {
+    "defaultMessage": "Each guide and solution was written by big tech senior engineers with best practices derived from years of experience, allowing you to learn techniques and patterns early on in your learning, setting up for a strong foundation.",
+    "description": "Answer to 'Why is it worth it to buy Premium?' on projects FAQs"
+  },
   "kTyRGU": {
     "defaultMessage": "Step 3",
     "description": "Step N of multiple steps when completing a project"
@@ -9751,6 +10059,10 @@
     "defaultMessage": "Premium study plans",
     "description": "Paywall title for study plans feature"
   },
+  "kjQ3Ap": {
+    "defaultMessage": "You can build advanced projects in those skills or use our skills roadmap to guide you in picking the right projects to train those skills.",
+    "description": "Answer to 'I'm a senior engineer trying to learn modern front end stacks. Will this platform be useful?' on projects FAQs"
+  },
   "kmXWNc": {
     "defaultMessage": "{category} UI Interview Questions | With Answers",
     "description": "Title of interview questions page"
@@ -9782,6 +10094,10 @@
   "kpV4fu": {
     "defaultMessage": "Recommended preparation",
     "description": "OG category for Recommended preparation"
+  },
+  "kpVv84": {
+    "defaultMessage": "What does GreatFrontEnd Interviews offer exactly?",
+    "description": "Question on Homepage's FAQ section - on the offerings of GreatFrontEnd Interviews"
   },
   "kpdNBu": {
     "defaultMessage": "No starter files and design files required because it is an integration of other challenges.",
@@ -9891,6 +10207,10 @@
     "defaultMessage": "Oops! An error has occurred",
     "description": "Error message title"
   },
+  "lG5qGr": {
+    "defaultMessage": "Unlike other platforms where every challenge is one-off and has a different look and feel, all our challenges are constructed out of the same design system. This means that you'd never have to waste time building one-off challenges - every challenge that you build adds to your permanent repertoire of professionally designed, reusable components, which you can compose into your future projects. Moreover, our components cover a wide variety of the most important uses like marketing, e-commerce, and web apps. For portfolio builders, this is important as you can use these professionally designed components to build a unique app for your portfolio, instead of building the same thing as everyone else, which is a problem faced on other portfolio platforms.",
+    "description": "Answer to 'What is unique about GreatFrontEnd Projects vs other challenge platforms?' on projects FAQs"
+  },
   "lGVunh": {
     "defaultMessage": "Review the final details and sign the agreement",
     "description": "Subtitle for Review and sign"
@@ -9918,6 +10238,10 @@
   "lN+yNL": {
     "defaultMessage": "Back to dashboard",
     "description": "Back to dashboard button label"
+  },
+  "lN1wl5": {
+    "defaultMessage": "We provide multiple avenues for support. You can join our community discussions and forums, where you can seek help from fellow members and receive feedback on your work. You can also explore User Submissions related to the same challenge to learn from their approaches and code.",
+    "description": "Answer to 'How do I get support when I'm stuck on a challenge?' on projects FAQs"
   },
   "lNb6DV": {
     "defaultMessage": "Share this page",
@@ -10014,6 +10338,10 @@
   "m5UJIt": {
     "defaultMessage": "Senior",
     "description": "Challenge difficulty label"
+  },
+  "m7X1Nu": {
+    "defaultMessage": "Why is it worth it to buy Premium?",
+    "description": "Question on projects FAQ section - on the worthiness of buying Premium"
   },
   "m9Ai9P": {
     "defaultMessage": "Ensure that your account has sufficient funds for the payment.",
@@ -10299,6 +10627,10 @@
     "defaultMessage": "Amazon logo",
     "description": "Amazon company logo"
   },
+  "napWnv": {
+    "defaultMessage": "Can I use the components I build in my side projects?",
+    "description": "Question on projects FAQ section - on the usage of components in side projects"
+  },
   "nbVWkk": {
     "defaultMessage": "⭐️ Star our JavaScript repo",
     "description": "Star the GitHub repository"
@@ -10351,9 +10683,9 @@
     "defaultMessage": "Browse curated content series on front end development. Explore structured guides, tutorials, and expert insights to deepen your knowledge and boost your skills.",
     "description": "Description of GreatFrontEnd blog explore series page"
   },
-  "nll//D": {
-    "defaultMessage": "What does \"lifetime access\" to GreatFrontEnd Interviews mean?",
-    "description": "Question on Homepage's FAQ section - on the scope of the lifetime access pricing plan on the interview platform"
+  "nmG3eE": {
+    "defaultMessage": "We have a \"fair use\" refund policy within 7 days of starting your first subscription. \"Fair use\" means that if you have accessed a significant amount of premium interview content (more than 5 premium content pieces), we reserve the right to reject the request for a refund. To request a refund, send an email to {contactEmail}.",
+    "description": "Answer to 'What's the refund policy for GreatFrontEnd Interviews?' on Purchase's FAQ sections"
   },
   "nodFHk": {
     "defaultMessage": "Go to this submission's GitHub repository",
@@ -10395,6 +10727,10 @@
     "defaultMessage": "Clear Console",
     "description": "Button label to clear the console in the coding workspace"
   },
+  "o2C827": {
+    "defaultMessage": "GreatFrontEnd Interviews is excellent for engineers who are preparing for front end-focused interviews. Front end interviews have a different focus from traditional software engineering interviews as there is more emphasis on front end technologies, such as browser technologies, solving JavaScript-specific coding problems, building user interfaces using frameworks like React, Vue, and Angular, and front end client architecture.",
+    "description": "Answer to 'Who is GreatFrontEnd Interviews for?' on Homepage's FAQ sections"
+  },
   "o3nhZ8": {
     "defaultMessage": "Session status",
     "description": "Completed and in progress challenges"
@@ -10414,6 +10750,10 @@
   "oC86Nx": {
     "defaultMessage": "Views on submissions",
     "description": "Number of views on the project submissions"
+  },
+  "oDrXRD": {
+    "defaultMessage": "Extensive learning resources while building",
+    "description": "Answer to 'I'm a complete beginner. Will this platform be useful for me?' on projects FAQs"
   },
   "oFz9cs": {
     "defaultMessage": "{commentCount, plural, =0 {No comments} one {# comment} other {# comments}}",
@@ -10438,6 +10778,10 @@
   "oPauc5": {
     "defaultMessage": "You are using a browser extension that is incompatible with the page, e.g. extensions that modify code blocks.",
     "description": "Incompatible extensions error message"
+  },
+  "oQOZBb": {
+    "defaultMessage": "Where and how do I cancel my GreatFrontEnd Interviews subscription?",
+    "description": "Question on Purchase's FAQ section - on the process of cancelling the subscription on the interview platform"
   },
   "oQYa8+": {
     "defaultMessage": "You have unlocked this Figma file",
@@ -10474,6 +10818,10 @@
   "ocVZsr": {
     "defaultMessage": "Users success stories",
     "description": "Marketing section title"
+  },
+  "ochhSA": {
+    "defaultMessage": "It's never too early to start. Many of our users are students who have leveraged our ongoing <link>student discount</link> for the annual plan.",
+    "description": "Answer to 'Is GreatFrontEnd targeted at engineers of specific seniority?' on Homepage's FAQ sections"
   },
   "of3jrc": {
     "defaultMessage": "System design",
@@ -10559,6 +10907,10 @@
     "defaultMessage": "In Content Ad Placement in coding workspace",
     "description": "Alt text for ads in content placement preview"
   },
+  "owD/gH": {
+    "defaultMessage": "Absolutely! Our platform is an ideal choice for complete beginners. Here's how we support newcomers",
+    "description": "Answer to 'I'm a complete beginner. Will this platform be useful for me?' on projects FAQs"
+  },
   "owQqZY": {
     "defaultMessage": "Front End System Design",
     "description": "Short title of front end system design playbook"
@@ -10603,6 +10955,10 @@
     "defaultMessage": "Insert inline code",
     "description": "Inline code tooltip for Richtext toolbar"
   },
+  "p97qkQ": {
+    "defaultMessage": "I'm a senior engineer trying to learn modern front end stacks. Will this platform be useful?",
+    "description": "Question on projects FAQ section - on the usefulness of the platform for senior engineers"
+  },
   "p9IQRJ": {
     "defaultMessage": "GitHub username",
     "description": "GitHub profile form label"
@@ -10630,6 +10986,10 @@
   "pHQFA0": {
     "defaultMessage": "Frameworks / languages",
     "description": "Front end frameworks or language"
+  },
+  "pHyeeT": {
+    "defaultMessage": "<strong>Lifetime</strong>: A one-time payment, with no recurring subscription fees. You get access to all the content in GreatFrontEnd's Interviews platform forever, along with any future updates. This will be useful and relevant for your current and future job hunts.",
+    "description": "Answer to 'What are the various options to purchase GreatFrontEnd Interviews premium?' on Purchase's FAQ sections"
   },
   "pI+b1R": {
     "defaultMessage": "The account linked to the card is invalid, possibly closed or inactivated.",
@@ -10899,6 +11259,10 @@
     "defaultMessage": "Practice questions",
     "description": "Section title"
   },
+  "qdZOmb": {
+    "defaultMessage": "Can I use the projects I build in my portfolio?",
+    "description": "Question on projects FAQ section - on the usage of projects in portfolios"
+  },
   "qh0zg0": {
     "defaultMessage": "For your reference, these are the tests used when your code is submitted. They cannot be modified.",
     "description": "Text indicating to users that the below section are test cases that their code will be tested against"
@@ -10931,9 +11295,17 @@
     "defaultMessage": "Know where to find important info",
     "description": "Label for \"Know where to find important info\" step in dialog on Projects project page"
   },
+  "qpRTv8": {
+    "defaultMessage": "Our component tracks are a unique feature where each track is a collection of projects that form a component library or even design system. By building entire component tracks, you showcase your abilities and versatility in building a variety of components for common use cases, which is much more impressive than building individual projects. Moreover, one of our component tracks is a design system, which means you get to build the underlying design system behind all of the projects on our platform, serving as a good foundation for your toolkit of reusable components.",
+    "description": "Answer to 'Why is it worth it to buy Premium?' on projects FAQs"
+  },
   "qpyquW": {
     "defaultMessage": "Solution code",
     "description": "Workspace community solution code label"
+  },
+  "qqoId0": {
+    "defaultMessage": "Access to the entire skills roadmap",
+    "description": "Answer to 'Why is it worth it to buy Premium?' on projects FAQs"
   },
   "qsq4DL": {
     "defaultMessage": "Spotlight Ad",
@@ -10995,6 +11367,10 @@
     "defaultMessage": "<authorProfileLink>{author}</authorProfileLink> made a post on <recipientProfileLink>{recipient}</recipientProfileLink>'s submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for someone making a post on others submission"
   },
+  "r6ulGL": {
+    "defaultMessage": "Absolutely! We encourage you to showcase the projects you build on our platform in your portfolio. It's an excellent way to demonstrate your skills to potential employers or clients and highlight the diversity of your work.",
+    "description": "Answer to 'Can I use the projects I build in my portfolio?' on projects FAQs"
+  },
   "r8JR1/": {
     "defaultMessage": "Read less",
     "description": "Read less"
@@ -11002,6 +11378,10 @@
   "r9Az7V": {
     "defaultMessage": "Great start!",
     "description": "Toast title for project session started"
+  },
+  "rA5e0l": {
+    "defaultMessage": "Certainly! GreatFrontEnd Projects was also designed to accommodate experienced developers like you who want to fill skill gaps in modern front-end stacks or even branch out into ancillary full-stack or AI skills.",
+    "description": "Answer to 'I'm a senior engineer trying to learn modern front end stacks. Will this platform be useful?' on projects FAQs"
   },
   "rAQNYk": {
     "defaultMessage": "Running tests",
@@ -11218,6 +11598,10 @@
   "scZfxP": {
     "defaultMessage": "A practice question bank with everything you'd ever need",
     "description": "Title for marketing page section"
+  },
+  "sdWUQM": {
+    "defaultMessage": "Do I get access to GreatFrontEnd Interviews' premium features by purchasing GreatFrontEnd Projects premium?",
+    "description": "Question on projects pricing's FAQ section - interviews access"
   },
   "se7YSg": {
     "defaultMessage": "Engagement rate",
@@ -11663,6 +12047,10 @@
     "defaultMessage": "All submissions",
     "description": "Label for All submissions sidebar item in Projects sidebar"
   },
+  "uoeVHT": {
+    "defaultMessage": "When your GreatFrontEnd Interviews subscription ends, you will not be able to access premium interview content on the platform.",
+    "description": "Answer to 'What happens when my GreatFrontEnd Interviews subscription is cancelled?' on Purchase's FAQ sections"
+  },
   "uqu1l4": {
     "defaultMessage": "Browse all challenges",
     "description": "Title of Projects challenges page"
@@ -11891,6 +12279,10 @@
     "defaultMessage": "Email",
     "description": "Label of email field on Password Reset page"
   },
+  "vxgmoC": {
+    "defaultMessage": "As you embark on each challenge, you'll have access to a wealth of resources to support your learning journey. These include detailed guides, solutions, references from fellow users, and community forums. These resources are carefully curated to assist you in understanding and mastering the concepts behind each challenge",
+    "description": "Answer to 'I'm a complete beginner. Will this platform be useful for me?' on projects FAQs"
+  },
   "vy4bM7": {
     "defaultMessage": "Billed monthly",
     "description": "Description of billing frequency for monthly plan"
@@ -11930,6 +12322,10 @@
   "w9U/8b": {
     "defaultMessage": "Team",
     "description": "Link to company's team page"
+  },
+  "wAQCRd": {
+    "defaultMessage": "What is included in the premium plan?",
+    "description": "Question on Homepage's FAQ section - on the inclusions of the premium plan"
   },
   "wAZkHT": {
     "defaultMessage": "Tags",
@@ -12131,6 +12527,14 @@
     "defaultMessage": "We are excited to hear from you",
     "description": "Job posting title"
   },
+  "xTtoUJ": {
+    "defaultMessage": "Are GreatFrontEnd Interviews subscriptions automatically renewed?",
+    "description": "Question on Purchase's FAQ section - on the automatic renewal of the subscription on the interview platform"
+  },
+  "xUn/8r": {
+    "defaultMessage": "What is unique about GreatFrontEnd Interviews?",
+    "description": "Question on Homepage's FAQ section - on the unique aspects of GreatFrontEnd Interviews"
+  },
   "xWAt8Q": {
     "defaultMessage": "The ultimate Front End Interview preparation platform.",
     "description": "Description of GreatFrontEnd page"
@@ -12170,6 +12574,10 @@
   "xcLT+y": {
     "defaultMessage": "Generating screenshots, please check back later.",
     "description": "Message for screenshot in progress"
+  },
+  "xcvQd9": {
+    "defaultMessage": "What does \"free updates\" for GreatFrontEnd Interviews include?",
+    "description": "Question on Homepage's FAQ section - on the inclusions of 'free updates' for GreatFrontEnd Interviews"
   },
   "xiEHQ1": {
     "defaultMessage": "Job title",
@@ -12619,6 +13027,10 @@
     "defaultMessage": "Learn from others",
     "description": "Title for \"Learn from others\" feature on Projects home page"
   },
+  "zhQt1x": {
+    "defaultMessage": "We have seasonal discounts and all-year long student discounts which you can find on the <link>promotions</link> page. Additionally, we offer a 100% cashback reward if you post an honest public review about the platform. Find more details about the <link>cashback program</link>.",
+    "description": "Answer to 'Do you offer discounts for GreatFrontEnd Interviews?' on Purchase's FAQ sections"
+  },
   "zjwVw1": {
     "defaultMessage": "{count}+ engineers already on board",
     "description": "Number of engineers using"
@@ -12642,6 +13054,10 @@
   "zo65Ck": {
     "defaultMessage": "All Practice Questions",
     "description": "Header for all practice questions section in study plans"
+  },
+  "zpD+zt": {
+    "defaultMessage": "Build impressive component kits and design systems",
+    "description": "Answer to 'What is unique about GreatFrontEnd Projects vs other challenge platforms?' on projects FAQs"
   },
   "zpsjf3": {
     "defaultMessage": "Back to all tracks",
