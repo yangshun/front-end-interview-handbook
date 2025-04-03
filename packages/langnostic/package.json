@@ -4,8 +4,8 @@
   "description": "Modern translation toolchain using AI",
   "license": "MIT",
   "type": "module",
-  "main": "dist/cli.js",
-  "types": "dist/cli.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "bin": "dist/cli.js",
   "files": [
     "dist"

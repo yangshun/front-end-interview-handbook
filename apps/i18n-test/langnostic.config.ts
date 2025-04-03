@@ -1,4 +1,6 @@
-module.exports = {
+import { ConfigType } from 'langnostic';
+
+const config: ConfigType = {
   provider: 'google',
   localeConfig: {
     source: 'en-US',
@@ -42,3 +44,5 @@ module.exports = {
     // }
   ],
 };
+
+export default config;
