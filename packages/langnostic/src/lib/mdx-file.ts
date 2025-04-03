@@ -83,6 +83,17 @@ export function buildTargetMDXFrontmatter(
   return updatedFrontmatter;
 }
 
+function joinSegmentedMDXContent(contents: ReadonlyArray<string>) {
+  return contents.reduce((acc, curr, index) => {
+    if (index === 0) {
+      return curr;
+    }
+    const prev = contents[index - 1];
+    const separator = prev.endsWith('\n') ? '\n' : '\n\n';
+    return acc + separator + curr;
+  }, '');
+}
+
 export function buildTargetMDXContent(
   sourceMDXContent: string,
   targetMDXContent: string,
@@ -106,16 +117,7 @@ export function buildTargetMDXContent(
     }
     return translatedContent?.[hash] || '';
   });
-
-  const adjustedJoin = (arr: string[]) => {
-    return arr.reduce((acc, curr, index) => {
-      if (index === 0) return curr;
-      const prev = arr[index - 1];
-      const separator = prev.endsWith('\n') ? '\n' : '\n\n';
-      return acc + separator + curr;
-    }, '');
-  };
-  return '\n' + adjustedJoin(newContent);
+  return '\n' + joinSegmentedMDXContent(newContent);
 }
 
 export function buildTargetMDX(
