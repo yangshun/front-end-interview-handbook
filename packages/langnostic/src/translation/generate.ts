@@ -44,18 +44,20 @@ export async function generate(
 
     const result = await generateObject({
       model,
-      schema: z.array(
-        z.object({
-          id: z.string(),
-          batchId: z.string(),
-          translations: z.array(
-            z.object({
-              locale: z.string(),
-              string: z.string(),
-            }),
-          ),
-        }),
-      ),
+      schema: z.object({
+        data: z.array(
+          z.object({
+            id: z.string(),
+            batchId: z.string(),
+            translations: z.array(
+              z.object({
+                locale: z.string(),
+                string: z.string(),
+              }),
+            ),
+          }),
+        ),
+      }),
       prompt,
     });
 
@@ -65,7 +67,7 @@ export async function generate(
     );
 
     const translationStringsMap = new Map<string, Record<Locale, string>>();
-    result.object.forEach((result) => {
+    result.object.data.forEach((result) => {
       translationStringsMap.set(
         hashStringItem(result.batchId, result.id),
         result.translations.reduce(

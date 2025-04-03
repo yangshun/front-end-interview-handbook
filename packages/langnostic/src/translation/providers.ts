@@ -11,7 +11,7 @@ export function providerModel(provider: TranslationProvider): LanguageModelV1 {
       return deepseek('deepseek-chat');
     }
     case 'google': {
-      return google('gemini-1.5-flash-8b-latest');
+      return google('gemini-2.0-flash-lite');
     }
     case 'openai': {
       return openai('gpt-4o-mini');

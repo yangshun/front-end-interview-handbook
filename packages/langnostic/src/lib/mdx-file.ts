@@ -107,7 +107,15 @@ export function buildTargetMDXContent(
     return translatedContent?.[hash] || '';
   });
 
-  return '\n' + newContent.join('\n');
+  const adjustedJoin = (arr: string[]) => {
+    return arr.reduce((acc, curr, index) => {
+      if (index === 0) return curr;
+      const prev = arr[index - 1];
+      const separator = prev.endsWith('\n') ? '\n' : '\n\n';
+      return acc + separator + curr;
+    }, '');
+  };
+  return '\n' + adjustedJoin(newContent);
 }
 
 export function buildTargetMDX(
