@@ -4,7 +4,7 @@ export const configDefault: ConfigType = {
   provider: 'openai',
   localeConfig: {
     source: 'en-US',
-    target: ['pt-BR', 'zh-CN'],
+    target: ['zh-CN'],
   },
   groups: [
     {

@@ -3,7 +3,6 @@ import path from 'path';
 
 import Config from '.';
 import { ConfigType } from './types';
-import { configDefault } from './config-default';
 
 const FIXTURE_PATH = path.join(process.cwd(), '__fixture__');
 
@@ -60,13 +59,12 @@ describe('Config', () => {
       fs.mkdirSync(dir, {
         recursive: true,
       });
-      const configPath = path.join(dir, 'langnostic.config.json');
 
-      Config.initializeConfig(dir);
+      const { result } = Config.initializeConfig(dir);
+      expect(result).toEqual('created');
+
+      const configPath = path.join(dir, 'langnostic.config.cjs');
       expect(fs.existsSync(configPath)).toBe(true);
-
-      const loadedConfig = JSON.parse(fs.readFileSync(configPath, 'utf-8'));
-      expect(loadedConfig).toEqual(configDefault);
     });
 
     test('should not overwrite an existing config file when initializing', () => {
@@ -74,11 +72,12 @@ describe('Config', () => {
       fs.mkdirSync(dir, {
         recursive: true,
       });
-      const configPath = path.join(dir, 'langnostic.config.json');
 
+      const configPath = path.join(dir, 'langnostic.config.json');
       fs.writeFileSync(configPath, JSON.stringify(mockConfig, null, 2));
 
-      Config.initializeConfig(dir);
+      const { result } = Config.initializeConfig(dir);
+      expect(result).toEqual('exists');
 
       const configFile = JSON.parse(fs.readFileSync(configPath, 'utf-8'));
       expect(configFile).toEqual(mockConfig);

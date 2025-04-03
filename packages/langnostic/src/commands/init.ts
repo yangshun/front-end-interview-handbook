@@ -1,30 +1,37 @@
-import { intro, outro, spinner, log } from '@clack/prompts';
+import { intro, outro, spinner } from '@clack/prompts';
 import chalk from 'chalk';
-import fs from 'fs';
+import path from 'path';
 
 import Config from '../config';
-import { CONFIG_PATH } from '../core/constants';
 
 export async function init() {
-  console.clear();
   intro(`${chalk.blue.bold('Langnostic Config Setup')}`);
-
-  if (fs.existsSync(CONFIG_PATH)) {
-    log.info(chalk.yellow('⚠ Configuration file already exists.'));
-    outro('No changes were made.');
-    return;
-  }
 
   const s = spinner();
   s.start('Creating default configuration...');
 
-  try {
-    Config.initializeConfig(CONFIG_PATH);
-    s.stop(chalk.green('✅ Configuration file created successfully!'));
-    outro('You can now edit the configuration in ' + chalk.blue(CONFIG_PATH));
-  } catch (error: any) {
-    s.stop(chalk.red('❌ Failed to create configuration.'));
-    log.error(error.message);
+  const initResult = Config.initializeConfig();
+
+  switch (initResult.result) {
+    case 'created': {
+      s.stop(chalk.green('Configuration file created successfully!'));
+      outro(
+        'You can now edit the configuration in ' +
+          chalk.blue(path.relative(process.cwd(), initResult.filepath)),
+      );
+      break;
+    }
+    case 'exists': {
+      s.stop(
+        'Config file already exists at ' +
+          chalk.blue(path.relative(process.cwd(), initResult.filepath)),
+      );
+      break;
+    }
+    case 'error': {
+      s.stop('Error occurred');
+      break;
+    }
   }
 
   process.exit(0);
