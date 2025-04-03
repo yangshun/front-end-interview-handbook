@@ -2,13 +2,12 @@ import { generateObject } from 'ai';
 import path from 'path';
 import { z } from 'zod';
 
-import { TranslationProvider } from '../config/types';
 import {
   TranslationGroupBatchId,
   TranslationRequestJob,
   TranslationStringResult,
 } from '../core/types';
-import { providerModel } from './providers';
+import { providerModel, TranslationAI } from './providers';
 import { writeFile } from '../lib/file-service';
 import { RUNS_PATH } from '../core/constants';
 import { promptTemplate, promptVariables } from './prompt';
@@ -20,7 +19,7 @@ function hashStringItem(batchId: TranslationGroupBatchId, id: string): string {
 export async function generate(
   job: TranslationRequestJob,
   options: Readonly<{
-    provider: TranslationProvider;
+    ai: TranslationAI;
     instructions?: string;
   }>,
 ): Promise<ReadonlyArray<TranslationStringResult>> {
@@ -33,9 +32,9 @@ export async function generate(
       return [];
     }
 
-    const { instructions, provider } = options;
+    const { instructions, ai } = options;
 
-    const model = providerModel(provider);
+    const model = providerModel(ai);
     const prompt = promptTemplate
       .replace(promptVariables.instructions, instructions || '')
       .replace(promptVariables.translationPayload, JSON.stringify(strings));

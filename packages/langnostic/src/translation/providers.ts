@@ -3,21 +3,34 @@ import { google } from '@ai-sdk/google';
 import { openai } from '@ai-sdk/openai';
 import { LanguageModelV1 } from 'ai';
 
-import { TranslationProvider } from '../config/types';
+export type TranslationAI =
+  | Readonly<{
+      provider: 'openai';
+      model?: Parameters<typeof openai>[0];
+    }>
+  | Readonly<{
+      provider: 'google';
+      model?: Parameters<typeof google>[0];
+    }>
+  | Readonly<{
+      provider: 'deepseek';
+      model?: Parameters<typeof deepseek>[0];
+    }>;
 
-export function providerModel(provider: TranslationProvider): LanguageModelV1 {
-  switch (provider) {
+export function providerModel(ai: TranslationAI): LanguageModelV1 {
+  switch (ai.provider) {
     case 'deepseek': {
-      return deepseek('deepseek-chat');
+      return deepseek(ai.model ?? 'deepseek-chat');
     }
     case 'google': {
-      return google('gemini-2.0-flash-lite');
+      return google(ai.model ?? 'gemini-2.0-flash-lite');
     }
     case 'openai': {
-      return openai('gpt-4o-mini');
+      return openai(ai.model ?? 'gpt-4o-mini');
     }
     default: {
-      throw new Error(`Unsupported provider: ${provider}`);
+      // @ts-expect-error
+      throw new Error(`Unsupported provider: ${ai.provider}`);
     }
   }
 }

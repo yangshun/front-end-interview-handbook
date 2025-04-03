@@ -1,3 +1,5 @@
+import { chunk, groupBy } from 'lodash-es';
+
 import Config from '../config';
 import { expandTargetPaths } from '../core';
 import {
@@ -9,7 +11,6 @@ import {
 import jsonPlugin from '../plugins/json/json-plugin';
 import mdxPlugin from '../plugins/mdx/mdx-plugin';
 import { generate } from '../translation/generate';
-import { chunk, groupBy } from 'lodash-es';
 import mapAsync from '../utils/map-async';
 import { printGroupStatus } from '../core/output/print';
 import { TranslationGroupBatch } from '../core/runner/TranslationGroupBatch';
@@ -127,7 +128,7 @@ export async function translate() {
       try {
         const instructions = (await group.plugin.getInstructions?.()) || '';
         const translatedStrings = await generate(job, {
-          provider: config.provider,
+          ai: config.ai,
           instructions,
         });
 

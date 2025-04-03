@@ -1,5 +1,7 @@
+import { TranslationAI } from '../translation/providers';
+
 export interface ConfigType {
-  provider: TranslationProvider;
+  ai: TranslationAI;
   localeConfig: LocaleConfig;
   groups: ConfigGroup[];
   concurrencyLimit?: number;
@@ -29,5 +31,3 @@ export interface ConfigGroup {
   paths: ConfigGroupPathItem[];
   stringsPerRequest?: number; // Optional, maximum number of strings per request
 }
-
-export type TranslationProvider = 'openai' | 'deepseek' | 'google';

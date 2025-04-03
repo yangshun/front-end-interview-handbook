@@ -7,7 +7,9 @@ import { ConfigType } from './types';
 const FIXTURE_PATH = path.join(process.cwd(), '__fixture__');
 
 const mockConfig: ConfigType = {
-  provider: 'openai',
+  ai: {
+    provider: 'openai',
+  },
   localeConfig: {
     source: 'en-US',
     target: ['zh-CN'],

@@ -1,7 +1,9 @@
 import { ConfigType } from 'langnostic';
 
 const config: ConfigType = {
-  provider: 'google',
+  ai: {
+    provider: 'google',
+  },
   localeConfig: {
     source: 'en-US',
     target: ['zh-CN', 'pt-BR'],

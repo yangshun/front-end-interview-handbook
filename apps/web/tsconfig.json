@@ -18,6 +18,7 @@
     "next-env.d.ts",
     "src",
     ".next/types/**/*.ts",
-    ".contentlayer/generated"
+    ".contentlayer/generated",
+    "langnostic.config.ts"
   ]
 }

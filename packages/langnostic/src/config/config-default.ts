@@ -1,7 +1,9 @@
 import { ConfigType } from './types';
 
 export const configDefault: ConfigType = {
-  provider: 'openai',
+  ai: {
+    provider: 'openai',
+  },
   localeConfig: {
     source: 'en-US',
     target: ['zh-CN'],
