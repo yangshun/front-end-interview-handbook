@@ -3,7 +3,7 @@ import { google } from '@ai-sdk/google';
 import { openai } from '@ai-sdk/openai';
 import { LanguageModelV1 } from 'ai';
 
-export type TranslationAI =
+type TranslationModel =
   | Readonly<{
       provider: 'openai';
       model?: Parameters<typeof openai>[0];
@@ -16,6 +16,8 @@ export type TranslationAI =
       provider: 'deepseek';
       model?: Parameters<typeof deepseek>[0];
     }>;
+export type TranslationAI = Readonly<{ temperature?: number }> &
+  TranslationModel;
 
 export function providerModel(ai: TranslationAI): LanguageModelV1 {
   switch (ai.provider) {

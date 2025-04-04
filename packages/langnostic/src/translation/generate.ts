@@ -45,6 +45,7 @@ export async function generate(
 
     const result = await generateObject({
       model,
+      temperature: ai.temperature || 0,
       schema: z.object({
         data: z.array(
           z.object({
