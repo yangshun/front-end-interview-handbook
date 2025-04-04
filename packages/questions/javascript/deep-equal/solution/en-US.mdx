@@ -22,7 +22,7 @@ There are two main ways to go about solving this question:
 1. Handling arrays/objects first, primitives last.
 1. Handling primitives first, arrays/objects last.
 
-### Solution 1: Handling arrays/objects first
+### Approach 1: Handling arrays/objects first
 
 The tricky part of the question about deep-comparing objects and arrays. Firstly, we need to know how to detect their data types. The `typeof` operator is probably the first solution that comes to mind but it is not enough for our use case here.
 
@@ -63,7 +63,7 @@ Here is the complete solution:
 
 <MDXCodeBlock languages={{ jsx: deepEqualJs, tsx: deepEqualTs }} />
 
-### Solution 2: Handling primitives first
+### Approach 2: Handling primitives first
 
 We can also get primitives out of the way by handling them with `Object.is()` first. If they fail the primitive equality check, then we can check if they're both arrays or objects. If it also fails that check, it means there's a mismatch between the type of values and we can `return false`.
 
@@ -76,7 +76,7 @@ The next part is to check if both arrays/objects have the same entries (keys/val
 
 <MDXCodeBlock>{deepEqualAlt}</MDXCodeBlock>
 
-## Edge Cases
+## Edge cases
 
 - Comparing `null`s, `Object`s, `Array`s.
 - Equality of +0 and -0.

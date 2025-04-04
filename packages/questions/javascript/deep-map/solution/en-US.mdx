@@ -3,7 +3,7 @@ import MDXCodeBlock from 'MDXCodeBlock';
 import deepMapJs from '../setup/src/deep-map.js';
 import deepMapTs from '../setup/src/deep-map.ts';
 
-## Clarification Questions
+## Clarification questions
 
 - Should we recurse into `Map`s and `Set`s?
   - To keep the question simple, no. There are no tests cases containing `Map`s and `Set`s but you are free to add support if you wish.
@@ -24,7 +24,7 @@ The next tricky part of the question is to provide the value of `this` for the `
 
 <MDXCodeBlock languages={{ jsx: deepMapJs, tsx: deepMapTs }} />
 
-## Edge Cases
+## Edge cases
 
 - Accessing `this` within the callback function.
 - Values with `null`, `Date`, `Symbol`, etc.

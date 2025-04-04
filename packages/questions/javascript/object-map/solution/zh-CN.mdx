@@ -1,0 +1,28 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import objectMapJs from '../setup/src/object-map.js';
+import objectMapTs from '../setup/src/object-map.ts';
+import objectMapEntries from '../setup/src/object-map-entries';
+
+## 澄清问题
+
+* 该函数是否应用于嵌套对象中的值？
+  * 该函数仅对对象的顶层键/值起作用。
+* 回调函数中 `this` 的值应该是什么？
+  * 输入对象。
+
+## 解决方案
+
+这个问题唯一的难点在于通过 `Function.prototype.call()`/`Function.prototype.apply()` 为 `fn` 提供 `this` 的值。在 `Array.prototype.map()` 中，`thisArg` 值可以作为第二个参数提供给 `.map()` 函数，并且回调函数将使用 `thisArg` 作为 `this` 值来调用。在我们的例子中，回调函数中的 `this` 值没有明确指定，但一个合理的假设是使用 `obj` 输入作为 `this`。
+
+<MDXCodeBlock languages={{ jsx: objectMapJs, tsx: objectMapTs }} />
+
+一个使用更函数式方法的更短的解决方案：
+
+<MDXCodeBlock>
+  {objectMapEntries}
+</MDXCodeBlock>
+
+## 边缘情况
+
+* 在回调函数中访问 `this`。

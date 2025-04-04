@@ -1,0 +1,45 @@
+---
+title: useObject
+excerpt: 实现一个管理对象值的 Hook
+---
+
+实现一个 `useObject` hook，用于管理 JavaScript [`Object`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object) 的状态，也称为 POJO（Plain Old JavaScript Object），它是一个使用 [`{}`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer) 初始化的键值对存储。
+
+当使用对象调用 set state 函数时，它将与现有对象合并。
+
+使用 `useObject` 比普通的 `useState` 更方便，因为在后一种情况下，你总是需要创建一个新对象，修改它，然后设置状态以使用新对象（或通过对象展开创建新对象），这可能非常麻烦。
+
+```jsx
+export default function Component() {
+  const [record, setRecord] = useObject({ a: 1, b: 2 });
+
+  return (
+    <div>
+      <pre>{JSON.stringify(record, null, 2)}</pre>
+      <button onClick={() => setRecord((prev) => ({ a: prev.a + 1 }))}>
+        增加 a
+      </button>
+      <button onClick={() => setRecord((prev) => ({ b: prev.b + 1 }))}>
+        增加 b
+      </button>
+      <button onClick={() => setRecord(() => ({ c: 3 }))}>添加 c</button>
+    </div>
+  );
+}
+```
+
+## 参数
+
+* `initialValue`: 对象的初始值
+
+## 返回值
+
+该 hook 返回一个包含两个元素的数组：
+
+1. 当前对象状态
+2. 一个可以更新对象状态的更新函数
+
+更新函数可以接收以下任一参数：
+
+1. 一个将与当前状态对象合并的对象
+2. 一个接收当前状态对象并返回一个将与当前状态对象合并的对象的更新函数

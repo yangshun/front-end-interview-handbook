@@ -1,0 +1,49 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import makeCounterJs from '../setup/src/make-counter.js';
+import makeCounterTs from '../setup/src/make-counter.ts';
+import makeCounterPostfixIncrementJs from '../setup/src/make-counter-postfix-increment.js';
+import makeCounterPostfixIncrementTs from '../setup/src/make-counter-postfix-increment.ts';
+import makeCounterMutateParameterJs from '../setup/src/make-counter-mutate-parameter.js';
+import makeCounterMutateParameterTs from '../setup/src/make-counter-mutate-parameter.ts';
+
+## 解决方案
+
+这个问题评估你对闭包和高阶函数的了解。
+
+### 方法 1：递减然后后缀递增
+
+1. `makeCounter` 函数接受一个可选参数 `initialValue`，默认设置为 0。
+2. 在 `makeCounter` 函数内部，我们声明一个变量 `count` 并将其初始化为 `initialValue` - 1。我们必须使用 `let` 声明，因为我们需要递增它。
+3. 我们返回一个匿名函数（一个闭包），它捕获外部作用域中的 `count` 变量。
+4. 每当调用返回的函数时，我们递增 `count` 然后返回它。
+
+将 `count` 初始化为比 `initialValue` 小 1 是必要的，因为在返回的函数中，我们在返回之前递增。这样做将允许第一次调用返回的函数返回 `initialValue`。
+
+<MDXCodeBlock languages={{ jsx: makeCounterJs, tsx: makeCounterTs }} />
+
+### 方法 2：后缀递增
+
+在之前的解决方案中，将 `initialValue` 递减 1 并在稍后递增它有点笨拙。值得庆幸的是，我们可以使用后缀递增运算符在返回值**之后**递增一个变量。
+
+<MDXCodeBlock
+  languages={{
+  jsx: makeCounterPostfixIncrementJs,
+  tsx: makeCounterPostfixIncrementTs,
+}}
+/>
+
+### 方法 3：单行代码
+
+我们可以通过不初始化 `count` 变量并递增 `defaultValue` 来使解决方案更短。由于导致副作用，通常不建议修改函数的参数。但是，在这种情况下，`initialValue` 是一个原始值，递增它不会引起任何副作用。
+
+<MDXCodeBlock
+  languages={{
+  jsx: makeCounterMutateParameterJs,
+  tsx: makeCounterMutateParameterTs,
+}}
+/>
+
+## 资源
+
+* [递增 (++) | MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Increment)

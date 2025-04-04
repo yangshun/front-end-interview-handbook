@@ -1,0 +1,44 @@
+---
+title: Promise.resolve
+excerpt: 实现一个函数，将给定值解析为 Promise
+---
+
+静态方法 `Promise.resolve()` 将给定值“解析”为 `Promise`。如果该值是：
+
+*   一个原生 promise，返回该 promise。
+*   一个非 thenable，返回一个已经用该值实现的 promise。
+*   一个 thenable，`Promise.resolve()` 将调用 `then()` 方法，并传递一对解析函数作为参数。返回一个与 thenable 具有相同状态的 promise。
+
+*来源：[Promise.resolve() - JavaScript | MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise/resolve)*
+
+“thenable”是一个实现 `.then()` 方法的接口，该方法使用两个回调函数调用：一个用于 promise 已实现，一个用于 promise 已拒绝。Promise 也是 thenable。
+
+将 `Promise.resolve()` 函数实现为 `promiseResolve`。您可以忽略在已实现函数中引用 `this` 的情况。
+
+## 示例
+
+解析非 promise。
+
+```js
+const p = promiseResolve(42);
+await p; // 42
+```
+
+解析一个 `Promise`。
+
+```js
+const original = new Promise((resolve) => resolve(42));
+const cast = promiseResolve(original);
+await cast; // 42
+```
+
+解析一个 thenable。
+
+```js
+const resolvedThenable = promiseResolve({
+  then(resolve, reject) {
+    resolve(42);
+  },
+});
+await resolvedThenable; // 42
+```

@@ -1,0 +1,39 @@
+---
+title: Without
+excerpt: 实现一个创建数组的函数，该数组排除所有给定的值。
+---
+
+实现一个函数 `without(array, values)`，该函数创建一个数组，该数组包含 `array` 中不包含在 `values` 中的值，使用 [`SameValueZero`](http://ecma-international.org/ecma-262/7.0/#sec-samevaluezero) 进行相等性比较。结果值的顺序和引用由第一个数组决定。
+
+```js
+without(array, ...values);
+```
+
+## 参数
+
+1. `array` *(Array)*：要检查的数组。
+2. `values` *(Array)*：要排除的值。
+
+## 返回值
+
+*`(Array)`*：返回过滤后的新数组。
+
+## 示例
+
+```js
+without([1, 2, 3], 2, 3); // => [1]
+
+without([1, 2, 3], 2, 3, 1, 4); // => []
+
+without(['a', 'b', 'c', 'a'], 'a', 'b'); // => ['c']
+```
+
+如果未指定 `values`，则该函数应返回原始 `array` 值。
+
+```js
+without([1, 2, 3]); // => [1, 2, 3]
+```
+
+## 资源
+
+* [Lodash `_.without`](https://lodash.com/docs/#without)

@@ -7,13 +7,13 @@ import rangeRightReverseTs from '../setup/src/range-right-reverse.ts';
 
 ## Solution
 
-### Solution 1: Use `unshift()` to push elements from the front of the `result` array
+### Approach 1: Use `unshift()` to push elements from the front of the `result` array
 
 Here is a solution that generates the range of sequence from `start` to (but not including) `end` with `step` as increment using `unshift()` instead of `push()`. Overloaded functions are required in TypeScript as `start` and `step` are optional.
 
 <MDXCodeBlock languages={{ jsx: rangeRightJs, tsx: rangeRightTs }} />
 
-### Solution 2: Insert elements from the back normally, but reverse the final `result` array
+### Approach 2: Insert elements from the back normally, but reverse the final `result` array
 
 However, since `unshift()` has a time complexity of O(N), here is a more efficient solution that reverses the result array after pushing the values into the array normally.
 
@@ -21,7 +21,7 @@ However, since `unshift()` has a time complexity of O(N), here is a more efficie
   languages={{ jsx: rangeRightReverseJs, tsx: rangeRightReverseTs }}
 />
 
-## Edge Cases
+## Edge cases
 
 To handle cases where `start` and `step` are not specified but `end` is negative, we can add an if statement to change the value of `step` to -1.
 

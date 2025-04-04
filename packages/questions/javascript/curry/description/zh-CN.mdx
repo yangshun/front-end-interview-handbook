@@ -1,0 +1,35 @@
+---
+title: 柯里化
+excerpt: 实现一个函数，该函数将接受多个参数的函数转换为一个可以重复调用，每次只接受一个参数的函数。
+---
+
+柯里化是将接受多个参数的函数转换为一系列函数的技术，每个函数只接受一个参数。
+
+实现 `curry` 函数，该函数接受一个函数作为唯一参数，并返回一个接受单个参数的函数，该函数可以重复调用，直到至少提供了最少数量的参数（由原始函数接受的参数数量决定）。然后使用提供的参数调用初始函数参数。
+
+## 例子
+
+```js
+function add(a, b) {
+  return a + b;
+}
+
+const curriedAdd = curry(add);
+curriedAdd(3)(4); // 7
+
+const alreadyAddedThree = curriedAdd(3);
+alreadyAddedThree(4); // 7
+```
+
+```js
+function multiplyThreeNumbers(a, b, c) {
+  return a * b * c;
+}
+
+const curriedMultiplyThreeNumbers = curry(multiplyThreeNumbers);
+curriedMultiplyThreeNumbers(4)(5)(6); // 120
+
+const containsFour = curriedMultiplyThreeNumbers(4);
+const containsFourMulFive = containsFour(5);
+containsFourMulFive(6); // 120
+```

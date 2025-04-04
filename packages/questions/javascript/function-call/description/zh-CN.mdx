@@ -1,0 +1,29 @@
+---
+title: Function.prototype.call
+excerpt: 实现 Function.prototype.call() 函数，该函数使用给定的 `this` 值和提供的参数调用该函数
+---
+
+> `Function.prototype.call()` 方法使用给定的 `this` 值和单独提供的参数调用该函数。
+
+*来源：[Function.prototype.call() - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Function/call)*
+
+在不调用原生 `call` 方法的情况下实现您自己的 `Function.prototype.call`。为了避免覆盖实际的 `Function.prototype.call`，将该函数实现为 `Function.prototype.myCall`。
+
+## 例子
+
+```js
+function multiplyAge(multiplier = 1) {
+  return this.age * multiplier;
+}
+
+const mary = {
+  age: 21,
+};
+
+const john = {
+  age: 42,
+};
+
+multiplyAge.myCall(mary); // 21
+multiplyAge.myCall(john, 2); // 84
+```

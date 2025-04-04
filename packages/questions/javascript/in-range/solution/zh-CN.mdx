@@ -1,0 +1,36 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import inRangeJs from '../setup/src/in-range.js';
+import inRangeTs from '../setup/src/in-range.ts';
+import inRangeShort from '../setup/src/in-range-short';
+import inRangeOneLiner from '../setup/src/in-range-one-liner';
+
+## 解决方案
+
+### 方法 1：冗长
+
+在本解决方案中，使用 `end === undefined` 检查 `end` 参数是否被传入函数。在正确定义 `start` 和 `end` 值后，我们可以继续检查该值是否在范围内。
+
+<MDXCodeBlock languages={{ jsx: inRangeJs, tsx: inRangeTs }} />
+
+### 方法 2：更短
+
+这是一个更短的解决方案，它更简洁，但可读性稍差。我们可以使用三元表达式来确定 `start` 和 `end`。
+
+要检查该值是否在范围内，我们可以使用 `Math.min(start, end)` 来确定下限，使用 `Math.max(start, end)` 来确定上限。
+
+<MDXCodeBlock>
+  {inRangeShort}
+</MDXCodeBlock>
+
+### 方法 3：单行
+
+这个更短的解决方案依赖于将 `end` 的默认值设置为 0。之所以有效，是因为如果用户省略了 `end` 参数，则范围变为 `[start, 0]`，但会被 `Math.min()` 和 `Math.max()` 翻转。
+
+<MDXCodeBlock>
+  {inRangeOneLiner}
+</MDXCodeBlock>
+
+## 资源
+
+* [Lodash `_.inRange`](https://lodash.com/docs/#inRange)

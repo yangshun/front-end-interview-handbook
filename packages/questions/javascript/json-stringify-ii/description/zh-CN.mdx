@@ -1,0 +1,40 @@
+---
+title: JSON.stringify II
+excerpt: 实现一个将 JavaScript 值转换为 JSON 字符串的函数
+---
+
+实现你的 `jsonStringify` 函数，将 JavaScript 值转换为 JSON 字符串，类似于 [`JSON.stringify`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify)。
+
+* 你可以忽略原始 API 中的 [第二个和第三个](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify#parameters) 可选参数。
+* 该函数的行为应与任何数据类型的 `JSON.stringify()` 完全相同。请参考下面的例子。
+* 其他情况：
+  * 循环引用：抛出 `TypeError('Converting circular structure to JSON')`。
+  * `BigInt`：抛出 `TypeError('Do not know how to serialize a BigInt')`。
+
+## 例子
+
+```js
+jsonStringify({ foo: 'bar' }); // '{"foo":"bar"}'
+jsonStringify({ foo: 'bar', bar: [1, 2, 3] }); // '{"foo":"bar",bar:[1,2,3]}'
+```
+
+其他类型及其预期行为：
+
+```js
+jsonStringify(); // undefined
+jsonStringify(undefined); // undefined
+jsonStringify(null); // 'null'
+jsonStringify(true); // 'true'
+jsonStringify(false); // 'false'
+jsonStringify(1); // '1'
+jsonStringify(Infinity); // 'null'
+jsonStringify(NaN); // 'null'
+jsonStringify('foo'); // '"foo"'
+jsonStringify('"foo"') === '"\\"foo\\""'; // 原始输入中存在的双引号使用反斜杠转义
+jsonStringify(Symbol('foo')); // undefined
+jsonStringify(() => {}); // undefined
+jsonStringify(['foo', 'bar']); // '["foo","bar"]'
+jsonStringify(/foo/); // '{}'
+jsonStringify(new Map()); // '{}'
+jsonStringify(new Set()); // '{}'
+```

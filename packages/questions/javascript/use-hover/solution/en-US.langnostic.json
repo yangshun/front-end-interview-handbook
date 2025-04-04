@@ -1,0 +1,24 @@
+{
+  "frontmatter": {},
+  "content": {
+    "source": {
+      "locale": "en-US",
+      "hashes": [
+        "c340c67a",
+        "ab1c32fb",
+        "26e3ffe5",
+        "de2d7652",
+        "3d351cbe"
+      ]
+    },
+    "targets": {
+      "zh-CN": [
+        "c340c67a",
+        "ab1c32fb",
+        "26e3ffe5",
+        "de2d7652",
+        "3d351cbe"
+      ]
+    }
+  }
+}

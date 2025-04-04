@@ -1,0 +1,34 @@
+---
+title: getElementsByTagName
+excerpt: 实现一个函数，获取所有匹配标签的 DOM 元素
+---
+
+`getElementsByTagName()` 是 [`Document`](https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementsByTagName) 和 [`Element`](https://developer.mozilla.org/en-US/docs/Web/API/Element/getElementsByTagName) 对象上存在的一个方法，它返回一个 `HTMLCollection`，其中包含给定标签名称的 `Document`/`Element` 的后代元素。
+
+让我们实现我们自己的 [`Element.getElementsByTagName()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/getElementsByTagName)，它类似但略有不同：
+
+* 它是一个纯函数，它接受一个元素和一个标签名称字符串。例如 `getElementsByTagName(document.body, 'div')`。
+* 与 `Element.getElementsByTagName()` 类似，只搜索元素参数的后代，而不是元素本身。
+* 返回一个 `Element` 数组，而不是 `Element` 的 `HTMLCollection`。
+
+不要使用 `document.querySelectorAll()`，否则会使问题变得微不足道。
+
+## 例子
+
+```js
+const doc = new DOMParser().parseFromString(
+  `<div id="foo">
+    <span>Span</span>
+    <p>Paragraph</p>
+    <div id="bar">Div</div>
+  </div>`,
+  'text/html',
+);
+
+getElementsByTagName(doc.body, 'div');
+// [div#foo, div#bar] <-- 这是一个元素数组。
+```
+
+## 资源
+
+* [Element: getElementsByTagName() method - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Element/getElementsByTagName)

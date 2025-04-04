@@ -1,0 +1,61 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import throttleJs from '../setup/src/throttle.js';
+import throttleTs from '../setup/src/throttle.ts';
+
+Throttle 与 [debounce](/questions/javascript/debounce) 一起，是最常见的前端面试问题之一；它相当于前端的二叉树反转。因此，您应该确保您非常熟悉这两个问题。
+
+## 解决方案
+
+一个被节流的函数可以处于两种状态：它要么是：
+
+* **空闲**：在过去的 `wait` 持续时间内，没有调用节流函数。调用节流函数将立即执行回调函数，而无需任何节流。发生这种情况后，该函数进入“活动”状态。
+* **活动**：节流函数在过去的 `wait` 持续时间内被调用。后续调用不应执行回调函数，直到 `wait` 结束。
+
+鉴于在函数可以再次被调用之前有一个 `wait` 持续时间，我们知道我们需要一个计时器，而 `setTimeout` 是首先想到的。由于只有两种状态，我们可以使用一个 `boolean` 变量来模拟状态。
+
+我们还需要返回一个包含何时调用 `func` 的逻辑的函数。这个函数需要做几件事：
+
+### 1. 节流调用
+
+回调函数立即被调用，并且在 `wait` 持续时间过去之前不允许再次调用。如前所述，我们可以使用一个布尔变量 `shouldThrottle` 来模拟状态。
+
+当函数在“空闲”状态下被调用时，会做几件事：
+
+1. `shouldThrottle` 设置为 `true`。该函数现在处于“活动”状态。
+2. 使用适当的参数调用 `func`。
+3. 使用 `setTimeout` 安排在 `wait` 持续时间后释放锁 (`shouldThrottle = false`)。
+
+当锁处于活动状态时，对节流函数的调用将不会调用 `func`，因为在函数顶部有 `shouldThrottle` 检查。
+
+### 2. 使用适当的参数调用 `func`
+
+节流函数的使用方式与原始函数相同，因此在调用原始回调函数时，我们应该转发 `this` 的值和函数参数。
+
+调用原始回调函数 `func` 必须保留对 `this` 的引用。因此：
+
+* 由于 `this` 的词法绑定，不能使用箭头函数来声明内部函数。
+* 通过 `func(...args)` 调用原始回调函数将不会转发正确的 `this` 引用，并且不能使用。
+
+因此，我们必须使用 `Function.prototype.apply()`/`Function.prototype.call()`，这允许我们将 `this` 指定为第一个参数：
+
+* `func.apply(thisArg, args)`
+* `func.call(thisArg, ...args)`
+
+<MDXCodeBlock languages={{ jsx: throttleJs, tsx: throttleTs }} />
+
+请注意，`throttle` 有很多变体，此实现仅涵盖最常见的行为。其他一些变体：
+
+1. 具有 `leading` 和 `trailing` 选项，包括 `flush` 和 `cancel` 延迟 `func` 调用的方法，例如 [Lodash 的 `_.throttle`](https://lodash.com/docs/4.17.15#throttle)。
+2. 收集所有节流的调用，并通过在未来的每个 `wait` 间隔执行它们来分散它们，遵守每 `wait` 持续时间最多只能有一个调用的规则。相比之下，此当前实现会在锁处于活动状态时忽略所有节流的函数调用。
+
+## 技术
+
+* 使用 `setTimeout`。
+* 闭包。
+* `this` 的工作原理。
+* 通过 `Function.prototype.apply()`/`Function.prototype.call()` 调用函数。
+
+## 资源
+
+* [通过示例解释防抖和节流](https://css-tricks.com/debouncing-throttling-explained-examples/)

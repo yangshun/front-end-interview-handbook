@@ -1,0 +1,37 @@
+---
+title: useCounter II
+excerpt: 实现 useCounter hook 的优化版本
+---
+
+实现 `useCounter` hook 的优化版本。返回的方法应该被记忆化，在重新渲染时返回相同的函数实例。
+
+```jsx
+export default function Component() {
+  const { count, increment, decrement, reset, setCount } = useCounter();
+
+  return (
+    <div>
+      <p>Counter: {count}</p>
+      <button onClick={increment}>Increment</button>
+      <button onClick={decrement}>Decrement</button>
+      <button onClick={reset}>Reset</button>
+    </div>
+  );
+}
+```
+
+## 参数
+
+* `initialValue: number`: 计数器状态的初始值。如果未提供，则应默认为 `0`。
+
+## 返回值
+
+`useCounter` hook 返回一个具有以下属性的 `object`:
+
+* `count: number`: 当前计数器值
+* `increment: () => void`: 增加计数器值的函数
+* `decrement: () => void`: 减少计数器值的函数
+* `reset: () => void`: 将计数器值重置为 `initialValue` 的函数，如果未提供则为 `0`
+* `setCount: (value: number) => void`: 将计数器值设置为 `value` 的函数，它与 `setState` 具有相同的签名
+
+`increment`、`decrement`、`reset` 和 `setCount` 在重新渲染时必须是相同的函数实例。

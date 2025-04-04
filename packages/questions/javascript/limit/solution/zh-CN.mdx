@@ -1,0 +1,31 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import limitJs from '../setup/src/limit.js';
+import limitTs from '../setup/src/limit.ts';
+
+## 解决方案
+
+我们可以使用闭包来捕获返回函数所需的状态。返回函数的闭包可以访问以下变量：
+
+* `func`：`limit()` 的第一个参数，要调用的回调函数。
+* `n`：`limit()` 的第二个参数，回调函数可以被调用的最大次数。
+* `count`：一个布尔变量，指示该函数已被调用的次数。仅当 `count < n` 时，才会调用 `func`。
+* `value`：由于我们需要返回最后一次调用的值，以便后续调用超过 `n` 次，因此我们必须保存最后一次调用的结果，并在这些情况下直接返回它。
+
+<MDXCodeBlock languages={{ jsx: limitJs, tsx: limitTs }} />
+
+请注意，回调函数使用 `this` 绑定和创建函数的参数调用，因此如果希望 `this` 的值引用调用创建函数的对象，我们不能返回箭头函数。
+
+## 边缘情况
+
+* 访问 `this` 的函数
+
+## 技术
+
+* 闭包
+* `this` 的工作原理
+* 通过 `Function.prototype.apply()`/`Function.prototype.call()` 调用函数
+
+## 资源
+
+* [Lodash `_.before`](https://lodash.com/docs/4.17.15#before)

@@ -1,0 +1,136 @@
+---
+title: Backbone Model
+excerpt: 实现一个类似于 Backbone.Model 的类，该类允许存储属性/值并响应特定属性值的更改
+---
+
+在 React、Angular 和 Vue 等现代 UI 库出现之前，Backbone.js 是用于构建 Web 应用程序的流行库。Backbone.js 是一个轻量级的 JavaScript 库，它通过提供模型、视图、集合和路由器来为开发 Web 应用程序提供结构。它遵循模型-视图-控制器 (MVC) 架构模式的原则，帮助开发人员以模块化和可维护的方式组织他们的代码。
+
+在本问题中，我们将重点实现 [`Backbone.Model`](https://backbonejs.org/#Model) 类功能的一个子集，该功能允许存储属性/值并响应特定属性值的更改。
+
+## `BackboneModel` API
+
+在 `BackboneModel` 上实现以下 API：
+
+### `new BackboneModel([initialValues])`
+
+创建一个 `BackboneModel` 类的实例，该实例接受一个可选的属性/值对对象。属性和事件回调在它们被添加到的 `BackboneModel` 实例中是隔离的，也就是说，回调不应该对其他 `BackboneModel` 实例中的更改做出反应。
+
+| 参数 | 类型 | 描述 |
+| --- | --- | --- |
+| `initialValues` | `Object` | 模型的属性的初始值。默认为一个空对象。 |
+
+```js
+const person1 = new BackboneModel();
+const person2 = new BackboneModel({ name: 'John', age: 32 });
+```
+
+### `model.get(attribute)`
+
+获取特定属性的值。
+
+| 参数   | 类型     | 描述         |
+| ----------- | -------- | ------------------- |
+| `attribute` | `string` | 属性名称。 |
+
+如果未设置该属性，则返回指定属性的值或 `undefined`。
+
+### `model.set(attribute, value)`
+
+设置特定属性的值。为该属性触发 `"change"` 事件。
+
+| 参数   | 类型      | 描述                         |
+| ----------- | --------- | ----------------------------------- |
+| `attribute` | `string`  | 属性名称。                 |
+| `value`     | `unknown` | 要为该属性设置的值。 |
+
+### `model.has(attribute)`
+
+检查模型是否包含特定属性。
+
+| 参数   | 类型     | 描述         |
+| ----------- | -------- | ------------------- |
+| `attribute` | `string` | 属性名称。 |
+
+如果模型具有指定的属性，则返回 `true`，否则返回 `false`。
+
+### `model.unset(attribute)`
+
+从模型中删除属性。为该属性触发 `"unset"` 事件。
+
+| 参数   | 类型     | 描述                  |
+| ----------- | -------- | ---------------------------- |
+| `attribute` | `string` | 要取消设置的属性名称。 |
+
+### `model.on(event, attribute, callback, context)`
+
+为特定属性的更改注册一个事件监听器。
+
+| 参数 | 类型 | 描述 |
+| --- | --- | --- |
+| `event` | `string` | 事件名称，可以是 `'change'` 或 `'unset'`。 |
+| `attribute` | `string` | 要监听更改的属性名称。 |
+| `callback` | `Function` | 在事件上执行的回调函数。 |
+| `context` | `any` | （可选）执行回调的上下文。 |
+
+* 每个事件 `callback` 根据事件使用不同的参数调用：
+  * `change`：当属性的值发生变化时触发（通过 `model.set()`）。回调函数按顺序使用属性名称、新值和旧值调用。
+  * `unset`：当属性被取消设置时触发（通过 `model.unset()`）。回调函数使用属性名称调用。
+* `context` 参数是可选的，用于指定执行回调函数的上下文（`this` 值）。
+
+### `model.off(event, attribute, callback)`
+
+删除特定属性更改的事件监听器。
+
+| 参数   | 类型       | 描述                                       |
+| ----------- | ---------- | ------------------------------------------------- |
+| `event`     | `string`   | 事件名称，可以是 `'change'` 或 `'unset'`。   |
+| `attribute` | `string`   | 停止监听更改的属性名称。 |
+| `callback`  | `Function` | 要删除的回调函数。                  |
+
+## 例子
+
+```js
+// 实例化 BackboneModel。
+const person = new BackboneModel({ name: 'John', age: 30 });
+
+// 记录初始值。
+console.log(person.get('name')); // "John"
+console.log(person.get('age')); // 30
+
+// 设置新值。
+person.set('name', 'Jane');
+person.set('age', 25);
+
+// 记录更新后的值。
+console.log(person.get('name')); // "Jane"
+console.log(person.get('age')); // 25
+
+// 检查模型是否具有特定属性。
+console.log(person.has('name')); // true
+console.log(person.has('gender')); // false
+
+// 取消设置属性。
+person.unset('age');
+console.log(person.get('age')); // undefined
+
+function nameChangeCallback(attribute, newName, oldName) {
+  console.log(`'${attribute}' changed from '${newName}' to '${oldName}'`);
+}
+// 注册一个事件监听器，用于更改 `name` 字段。
+person.on('change', 'name', nameChangeCallback);
+
+// 触发 'name' 属性的 'change' 事件。
+person.set('name', 'Bob');
+// > "'name' changed from 'Jane' to 'Bob'"
+
+// 移除 'name' 属性的事件监听器。
+person.off('name', nameChangeCallback);
+
+// 再次触发 'change' 事件。
+person.set('name', 'Alice');
+// 没有输出，因为监听器已被移除。
+```
+
+## 更新日志
+
+* **2024/06/08**：将 `on` 回调参数顺序更改为 `(attribute, newValue, oldValue)`。

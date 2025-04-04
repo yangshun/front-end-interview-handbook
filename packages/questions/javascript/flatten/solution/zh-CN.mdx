@@ -1,0 +1,121 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import flattenJs from '../setup/src/flatten.js';
+import flattenTs from '../setup/src/flatten.ts';
+import flattenFlatMap from '../setup/src/flattenFlatMap';
+import flattenGenerator from '../setup/src/flattenGenerator';
+import flattenInPlace from '../setup/src/flattenInPlace';
+import flattenIter from '../setup/src/flattenIter';
+import flattenIterSome from '../setup/src/flattenIterSome';
+import flattenJSONStringify from '../setup/src/flattenJSONStringify';
+
+这是一个常见的 JavaScript 面试问题。 它测试人们对检查数组类型、循环遍历数组、各种原生方法（例如 `Array.prototype.concat`）和递归的了解。
+
+## 澄清问题
+
+1. 数组包含什么类型的数据？ 某些方法仅适用于某些数据类型。
+2. 这个数组可以有多少层嵌套？ 如果有数千层嵌套，考虑到其巨大的前期内存占用，递归可能不是一个好主意。
+3. 我们应该返回一个新数组还是改变现有数组？
+4. 我们可以假设有效的输入，即一个数组。 通常答案是“是”，所以你不必浪费时间做防御性编程。
+5. 代码运行的环境是否支持 ES6+？ 环境决定了你可以访问哪些方法/原生 API。
+
+## 解决方案
+
+### 方法 1：迭代
+
+首先，让我们思考一下我们应该如何检查给定的值是否为数组。 我们可以使用 `Array.isArray` 或 `instanceof Array` 来实现这一点。 这两者之间存在一些细微差别。 如果您有兴趣，可以查看 Jake Archibald 撰写的[这篇文章](https://jakearchibald.com/2017/arrays-symbols-realms/)。
+
+然后，我们不想改变原始输入数组，这通常是一个好习惯，所以我们将复制输入数组并返回一个新数组，其中包含从输入数组中提取的所有项目。
+
+这是解决方案。 我们使用 while 循环遍历数组，一次从数组中取出一个项目，以检查该项目是否为数组。 如果该项目不是数组，我们将其放入 `res` 数组中。 如果它是一个数组，我们使用扩展运算符 `...` 从中取出所有项目并将它们放回数组中。
+
+<MDXCodeBlock>
+  {flattenIter}
+</MDXCodeBlock>
+
+### 方法 2：使用 `Array.prototype.some` 进行迭代
+
+与前一个方法相比，更简洁的方法是使用 `Array.prototype.some`。
+
+<MDXCodeBlock>
+  {flattenIterSome}
+</MDXCodeBlock>
+
+### 方法 3：使用 `Array.prototype.reduce` 进行递归
+
+考虑到这个问题的递归和嵌套性质，递归方法非常适合这里。 它将大大简化我们的代码。
+
+<MDXCodeBlock languages={{ jsx: flattenJs, tsx: flattenTs }} />
+
+尽管递归方法总是有溢出调用堆栈的风险，但在撰写本文时，在 chrome 中，您可以进行的递归调用次数约为 10,000 次，在 Firefox 中为 50,000 次，因此这在实践中不应该成为问题。 但是，当递归的成本成为一个问题时，我们可以使用[生成器](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator)从数组中惰性地提取扁平化的项目。 我们将在稍后看到该解决方案。
+
+### 方法 4：就地扁平化数组
+
+到目前为止，我们看到的所有解决方案都返回一个新的扁平化数组，而不会改变原始输入数组。同样，这通常是您想要的。
+
+但是，面试官可能会要求您实现一个不分配额外内存的就地解决方案。也就是说，一个具有恒定 `O(1)` 空间复杂度的解决方案。
+
+在这种情况下，您将需要利用*改变*的数组方法。总共有 9 种改变数组的方法：`pop`、`push`、`reverse`、`shift`、`sort`、`splice`、`unshift`、`copyWithin` 和 `fill`。
+
+这是一个使用 `splice` 改变输入数组的可能解决方案：
+
+<MDXCodeBlock>
+  {flattenInPlace}
+</MDXCodeBlock>
+
+### 方法 5：使用 `flatMap` 的递归方法
+
+`flatMap` 函数方法返回一个新数组，该数组是通过将给定的回调函数应用于数组的每个元素，然后将结果展平一级而形成的。通过递归调用它，我们可以展平整个数组，直到它只有一级深度。
+
+<MDXCodeBlock>
+  {flattenFlatMap}
+</MDXCodeBlock>
+
+***
+
+## 奖励解决方案
+
+以下解决方案仅在某些情况下有效，因此不应在面试中使用。
+
+### 奖励方法 1：生成器
+
+正如我们之前讨论的那样，如果数组有数千个嵌套级别，递归方法可能会导致堆栈溢出。我们可以利用生成器单独产生数组项。由于生成器本质上是惰性的，与递归方法相比，这不会有那么大的前期成本。
+
+但是，这会导致不同的函数签名，并且我们的测试用例不支持。
+
+<MDXCodeBlock>
+  {flattenGenerator}
+</MDXCodeBlock>
+
+### 奖励方法 2：正则表达式和 `JSON.stringify`
+
+这是一个可能被认为是非正统的解决方案：我们首先通过 `JSON.stringify` 将数组编码成一个 JSON 字符串，并使用正则表达式 `/(\[|\])/g` 过滤掉括号，然后使用 `JSON.parse` 将其解码回数组。由于所有括号都使用正则表达式被删除，我们最终得到一个只有一级深度的数组。
+
+<MDXCodeBlock>
+  {flattenJSONStringify}
+</MDXCodeBlock>
+
+### 奖励方法 3：当数组仅包含数字时使用 `toString`
+
+还记得我们问过关于数据类型的问题作为澄清问题之一吗？如果数组仅包含数字，这是一个非常简单的解决方案：
+
+```js
+function flattenOnlyNumbers(array) {
+  return array
+    .toString()
+    .split(',')
+    .map((numStr) => Number(numStr));
+}
+```
+
+请注意，这仅适用于数组仅包含数字的情况，并且这种使用 `toString` 的方法可能被认为是“晦涩难懂”的。
+
+## 使用 `Array.prototype.flat` 的单行解决方案
+
+JavaScript 语言最近添加了一个新的 [`flat` 数组方法](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flat)。 显然，在面试中你不能使用它，但了解语言中有一个原生的扁平化函数仍然很好。
+
+```js
+export default function flatten(arr) {
+  return arr.flat(Infinity);
+}
+```

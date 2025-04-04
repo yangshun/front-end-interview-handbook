@@ -1,0 +1,30 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import promisifyJs from '../setup/src/promisify.js';
+import promisifyTs from '../setup/src/promisify.ts';
+
+## 解决方案
+
+1. `promisify` 函数接受一个参数 `func`，这是您想要 promisify 的基于回调的函数。
+2. `return` 语句返回一个包装 `func` 的新函数。这个新函数是 promisified 版本。
+3. 在返回的函数内部，我们使用扩展运算符 `...args` 来捕获传递给 promisified 函数的任何参数。
+4. 我们创建一个新的 `Promise` 来包装原始的基于回调的函数。Promise 构造函数接受一个带有两个参数的函数：`resolve` 和 `reject`。这些是根据异步操作的结果调用的函数。
+5. 在 Promise 的函数内部，我们使用提供的参数 `(...args)` 调用 `func`，并将回调函数作为其最后一个参数传递，因为这是 `func` 期望的。
+6. 回调函数接受两个参数：`err`（错误）和 `result`（成功值）。如果 `err` 为真，我们使用 `err` 拒绝 `Promise`。否则，我们使用 `result` 解决 `Promise`。
+
+使用 `promisify` 函数，您可以将任何基于回调的函数转换为基于 `Promise` 的函数，从而更轻松地使用现代 Promise 语法处理异步操作。
+
+为了保留 `this` 值，返回的函数不应使用箭头函数定义，并且 `func` 应使用 `call`/`apply` 和正确的 `thisArg` 值调用。
+
+<MDXCodeBlock languages={{ jsx: promisifyJs, tsx: promisifyTs }} />
+
+### 笔记
+
+`promisify` 函数假定回调是最后一个参数，并且回调使用错误优先格式。如果您尝试 promisify 的函数不是最后一个参数或具有不同的格式，则无法使用此方法。Node.js 提供了一个自定义的 promisify 函数 [`util.promisify.custom`](https://nodejs.org/api/util.html#util_custom_promisified_functions)，您可以将其用于此类情况。
+
+并非每个接受回调的函数都可以/应该被 promisified！一个 promise 只能有一个结果，但一个回调可以被调用很多次（例如 `setInterval`）。因此，promisification 仅适用于调用回调一次的函数，因为进一步的调用将被忽略。
+
+## 资源
+
+* [Node.js `util.promisify`](https://nodejs.org/api/util.html#utilpromisifyoriginal)
+* [Promisification](https://javascript.info/promisify)

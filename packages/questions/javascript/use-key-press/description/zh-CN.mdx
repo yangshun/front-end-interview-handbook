@@ -1,0 +1,31 @@
+---
+title: useKeyPress
+excerpt: 实现一个订阅键盘事件的 Hook
+---
+
+实现一个 `useKeyPress` Hook，用于检测键盘事件并执行操作
+
+```jsx
+export default function Component() {
+  useKeyPress('a', (e) => {
+    e.preventDefault();
+    console.log('The "a" key was pressed');
+  });
+
+  return null;
+}
+```
+
+**注意**：尽管该 Hook 被命名为 `useKeyPress`，但 `keypress` 浏览器事件已[弃用](https://developer.mozilla.org/en-US/docs/Web/API/Element/keypress_event)，不应使用。
+
+## 参数
+
+1. `key: string`：要检测的键。它必须是[有效的键值](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values)，通常从 `KeyboardEvent.key` 获取
+2. `callback: (event: KeyboardEvent) => void`：按下由 `key` 标识的键时调用的函数
+3. `options`：一个可选对象，具有以下属性：
+   * `target: EventTarget`：监听按键的目标元素。默认为 `window`
+   * `event: 'keydown' | 'keyup'`：要监听的事件，默认为 `'keydown'`
+
+## 返回值
+
+无。

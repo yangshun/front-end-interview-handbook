@@ -532,7 +532,9 @@
       "js",
       "ts"
     ],
-    "nextQuestions": [],
+    "nextQuestions": [
+      "middlewares"
+    ],
     "published": true,
     "ranking": 100,
     "similarQuestions": [],
@@ -2306,7 +2308,9 @@
       "js",
       "ts"
     ],
-    "nextQuestions": [],
+    "nextQuestions": [
+      "middlewares"
+    ],
     "published": true,
     "ranking": 100,
     "similarQuestions": [
@@ -2440,6 +2444,41 @@
     "subtitle": null,
     "title": "Memoize II",
     "topics": []
+  },
+  {
+    "access": "standard",
+    "author": "yangshun",
+    "companies": [
+      "bytedance",
+      "tiktok"
+    ],
+    "created": 1743206400,
+    "difficulty": "medium",
+    "duration": 20,
+    "excerpt": "Implement a function that composes asynchronous middleware functions like in Koa.js",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/middlewares",
+    "importance": "high",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "compose"
+    ],
+    "slug": "middlewares",
+    "subtitle": null,
+    "title": "Middlewares",
+    "topics": [
+      "recursion",
+      "async"
+    ]
   },
   {
     "access": "standard",

@@ -1,0 +1,30 @@
+---
+title: useFocus
+excerpt: 实现一个可以对元素进行程序化聚焦的 Hook
+---
+
+实现一个 `useFocus` Hook，它可以对元素进行程序化聚焦。
+
+```jsx
+export default function Component() {
+  const [ref, focus] = useFocus();
+
+  return (
+    <div>
+      <input ref={ref} type="text" />
+      <button onClick={focus}>Focus input</button>
+    </div>
+  );
+}
+```
+
+## 参数
+
+无。
+
+## 返回值
+
+该 Hook 返回一个包含两个元素的数组：
+
+1. 一个 ref 对象，它将被附加到要聚焦的元素的 `ref` 属性。它的类型是 `RefObject<T>`，其中 `T` 扩展自 `HTMLElement`
+2. 一个函数 `() => void`，可以被调用以编程方式聚焦元素

@@ -1,0 +1,25 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import cycleJs from '../setup/src/cycle.js';
+import cycleTs from '../setup/src/cycle.ts';
+import cycleAlt from '../setup/src/cycle-alt';
+
+## 解决方案
+
+在此实现中，我们使用闭包来跟踪 values 数组中的当前索引。 每次调用返回的函数时，它都会返回当前值并递增 `index`，在到达末尾时通过取模运算符循环到数组的开头。
+
+<MDXCodeBlock languages={{ jsx: cycleJs, tsx: cycleTs }} />
+
+一个更短的替代解决方案，在返回该值之前递增：
+
+<MDXCodeBlock>
+  {cycleAlt}
+</MDXCodeBlock>
+
+## 边缘情况
+
+* 不应在没有任何参数的情况下调用该函数。
+
+## 资源
+
+* [JavaScript 代码挑战](https://jscodechallenges.vercel.app/challenges/functions#11-design-a-function-with-cycle-functionality-for-given-list-of-inputs-where-cycle-function-accepts-list-of-values-to-be-cycled-upon)

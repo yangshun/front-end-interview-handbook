@@ -1,0 +1,41 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import useCounter from '../setup/src/use-counter-ii';
+
+## 解决方案
+
+`useCounter` 钩子使用 `useState` 来管理 `number` 状态。 setter 函数可以根据 `useState` 钩子的 `setValue` 来实现。
+
+```js
+import { useState } from 'react';
+
+export default function useCounter(initialValue = 0) {
+  const [count, setCount] = useState(initialValue);
+
+  return {
+    count,
+    increment: () => setCount((x) => x + 1),
+    decrement: () => setCount((x) => x - 1),
+    reset: () => setCount(initialValue),
+    setCount,
+  };
+}
+```
+
+但是，这样编写钩子意味着依赖于实用函数的组件将始终被重新渲染，因为这些函数总是在每次渲染时被重新创建。 为了避免这种情况，我们可以使用 `useCallback` 来记忆它们。
+
+<MDXCodeBlock>
+  {useCounter}
+</MDXCodeBlock>
+
+为了确保一致性，`increment` 和 `decrement` 函数使用 [更新器函数](https://react.dev/reference/react/useState#updating-state-based-on-the-previous-state) 来根据先前的值计算新值。 另外，如果您将它们包装在 `useCallback` 中，则不必将 `initialValue` 添加到依赖项数组中，并且 `increment` 和 `decrement` 将始终被记忆一次。
+
+如果您使用 TypeScript，棘手的部分是确定 `setCount` 的正确类型，因为它也可以接受更新器函数。 只需将您最喜欢的 IDE 中的 setter 函数从 `useState` 悬停，您将看到类型签名，形式为 `Dispatch<SetStateAction<...>>`，其中状态的类型为 `...`。 `Dispatch` 和 `SetStateAction` 可以从 `react` 导入。
+
+如果您更喜欢冗长，它本质上可以归结为这样。
+
+```ts
+type SetCount = (
+  valueOrUpdater: number | ((previousValue: number) => number),
+) => void;
+```

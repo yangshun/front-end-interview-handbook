@@ -1,0 +1,47 @@
+---
+title: useMediatedState
+excerpt: 实现一个类似于 useState 的 hook，但支持一个中介过程
+---
+
+实现一个类似于 `useState` 的 `useMediatedState` hook，但支持一个中介函数，该函数在每次状态设置时运行。此中介函数可用于转换或拦截状态更新。
+
+```jsx
+const replaceMultipleSpaces = (s) => s.replace(/[\s]+/g, ' ');
+
+export default function Component() {
+  const [state, setState] = useMediatedState(replaceMultipleSpaces, '');
+
+  return (
+    <div>
+      <div>您将无法输入多个空格</div>
+      <input
+        type="text"
+        min="0"
+        max="10"
+        value={state}
+        onChange={(e) => setState(e.target.value)}
+      />
+    </div>
+  );
+}
+```
+
+## 参数
+
+1. `mediator`：一个接收新状态并返回转换后状态的函数。此函数可以有两种形式：
+
+   1. `(newState: T) => T` 接收 1 个参数：由 `setState` 调用的新状态，并返回最终状态，或者
+   2. `(newState: T, dispatch) => void` 接收 2 个参数：由 `setState` 调用的新状态，以及一个将实际运行状态更新的函数 `dispatch`。它不返回任何内容。
+
+2. `initialState`：初始状态值
+
+**注意**：即使 `mediator` 更改为新的和/或不同的函数，也应保持不变。
+
+## 返回值
+
+该 hook 返回一个包含两个元素的数组：
+
+1. 当前状态
+2. 函数 `setState` 用于更新状态。它必须与 `useState` 返回的数组的第二个元素相同
+
+本质上，该 hook 返回与 `useState` 相同的值。

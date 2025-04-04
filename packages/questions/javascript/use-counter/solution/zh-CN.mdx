@@ -1,0 +1,22 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import useCounterJs from '../setup/src/use-counter.js';
+import useCounterTs from '../setup/src/use-counter.ts';
+
+## 解决方案
+
+`useCounter` 钩子使用 `useState` 来管理 `number` 状态。 setter 函数可以根据 `useState` 钩子的 `setValue` 来实现。
+
+<MDXCodeBlock languages={{ jsx: useCounterJs, tsx: useCounterTs }} />
+
+为了确保一致性，`increment` 和 `decrement` 函数使用 [updater function](https://react.dev/reference/react/useState#updating-state-based-on-the-previous-state) 来根据先前的值计算新值。
+
+如果你正在使用 TypeScript，棘手的部分是确定 `setCount` 的正确类型，因为它也可以接受一个更新器函数。 简单地将 setter 函数从你最喜欢的 IDE 中的 `useState` 悬停，你将看到 `Dispatch<SetStateAction<...>>` 形式的类型签名，其中状态的类型是 `...`。 `Dispatch` 和 `SetStateAction` 可以从 `react` 导入。
+
+如果你倾向于冗长，它本质上可以归结为这个。
+
+```ts
+type SetCount = (
+  valueOrUpdater: number | ((previousValue: number) => number),
+) => void;
+```

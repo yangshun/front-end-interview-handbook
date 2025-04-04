@@ -14,7 +14,7 @@ There are a few aspects to this question we need to bear in mind and handle:
 1. If the input array is empty, the returned `Promise` will be forever pending.
 1. The input array can contain non-`Promise`s.
 
-### Solution 1: Using `await`
+### Approach 1: Using `await`
 
 We'll return a `Promise` at the top level of the function. First check if the input array is empty, if so we need to return a forever-pending promise. That can be done by `return`-ing without calling `resolve()` or `reject()`.
 
@@ -29,7 +29,7 @@ One thing to note here is that because the input array can contain non-`Promise`
 
 <MDXCodeBlock languages={{ jsx: promiseRaceJs, tsx: promiseRaceTs }} />
 
-### Solution 2: Using `Promise.then()`
+### Approach 2: Using `Promise.then()`
 
 Here's an alternative version which uses `Promise.then()` if you prefer not to use `async`/`await`, which is much shorter.
 
@@ -56,7 +56,7 @@ export default function promiseRace(iterable) {
 }
 ```
 
-## Edge Cases
+## Edge cases
 
 - Empty input array. A forever-pending promise should be returned.
 - If the array contains non-`Promise` values, `Promise.race()` will resolve to the first of these values found in the iterable.

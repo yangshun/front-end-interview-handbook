@@ -1,0 +1,8 @@
+{
+  "run": "/src/middlewares.run.test.ts",
+  "submit": "/src/middlewares.submit.test.ts",
+  "skeleton": {
+    "js": "/src/middlewares.skeleton.js",
+    "ts": "/src/middlewares.skeleton.ts"
+  }
+}

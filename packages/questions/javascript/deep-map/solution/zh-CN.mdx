@@ -1,0 +1,30 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import deepMapJs from '../setup/src/deep-map.js';
+import deepMapTs from '../setup/src/deep-map.ts';
+
+## 澄清问题
+
+* 我们应该递归到 `Map` 和 `Set` 吗？
+  * 为了简化问题，不。没有包含 `Map` 和 `Set` 的测试用例，但如果您愿意，可以自由添加支持。
+* 回调函数中 `this` 的值应该是什么？
+  * 输入 `value`。
+
+## 解决方案
+
+由于输入 `value` 可以是一个深度嵌套的结构，递归解决方案将有助于遍历嵌套值。 我们的想法是递归地访问 `value` 中的所有元素，并使用 `fn` 函数转换每个元素，除非该元素是 `Array` 或 `Object`，否则需要进行递归。
+
+由于数组和对象需要特殊处理，我们需要处理三种类型的值：
+
+1. **数组**：使用 `Array.isArray()` 检查此类型。 遍历数组并返回每个映射元素的新数组。 但是，我们不应该直接在数组元素上调用 `fn`，而是应该递归到每个元素中。 这是因为数组元素也可以是非原语，并且可能需要更多递归。
+2. **对象**：辅助函数 `isPlainObject()`（来自 [Type Utilities II](/questions/javascript/type-utilities-ii)）用于检查纯对象类型。 执行 `typeof element === 'object' && element !== null` 将不起作用，因为还有其他值类型，如 `Date` 和 `Set`，它们将通过检查。 遍历对象的条目并递归到每个对象值中，类似于数组元素。
+3. **原语**：这是递归的基本情况，我们可以在使用 `fn` 映射后返回值。
+
+问题的下一个棘手部分是通过 `Function.prototype.call()`/`Function.prototype.apply()` 为 `fn` 提供 `this` 的值。 在 `Array.prototype.map()` 中，`thisArg` 值可以作为第二个参数提供给 `.map()` 函数，并且回调函数将使用 `thisArg` 作为 `this` 值调用。 在我们的例子中，回调函数中的 `this` 值没有明确指定，但一个合理的假设是使用 `value` 输入作为 `this`。 我们需要在递归调用中传递原始的 `value` 对象，因此我们创建一个 `mapHelper()` 辅助函数，该函数接受一个额外的参数 `original`，以便所有递归调用都可以访问当前元素和 `original` 值。
+
+<MDXCodeBlock languages={{ jsx: deepMapJs, tsx: deepMapTs }} />
+
+## 边缘情况
+
+* 在回调函数中访问 `this`。
+* 具有 `null`、`Date`、`Symbol` 等值。

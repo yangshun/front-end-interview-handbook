@@ -1,0 +1,13 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import useClickOutside from '../setup/src/use-click-outside';
+
+## 解决方案
+
+`useClickOutside` 钩子可以使用 `useEffect` 实现，以分别使用 `addEventListener` 和 `removeEventListener` 将我们的外部点击事件侦听器附加和分离到文档。
+
+要检测点击是否在目标元素之外，我们可以在 `ref` 元素上使用 [`contains` 方法](https://developer.mozilla.org/en-US/docs/Web/API/Node/contains) 来检查 `event.target` 是否是目标元素的后代。
+
+<MDXCodeBlock>
+  {useClickOutside}
+</MDXCodeBlock>

@@ -1,0 +1,12 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import promiseRejectJs from '../setup/src/promise-reject.js';
+import promiseRejectTs from '../setup/src/promise-reject.ts';
+
+## 解决方案
+
+`Promise.reject` 返回一个被拒绝的 `Promise`。它本质上是 `new Promise((resolve, reject) => reject(reason))` 的简写。
+
+我们唯一需要注意的是，即使 `reason` 已经是 `Promise`，也要将 `reason` 值包装在一个新的 `Promise` 对象中。
+
+<MDXCodeBlock languages={{ jsx: promiseRejectJs, tsx: promiseRejectTs }} />

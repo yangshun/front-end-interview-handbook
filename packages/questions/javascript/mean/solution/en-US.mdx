@@ -9,19 +9,19 @@ import meanReduceJS from '../setup/src/mean-reduce.js';
 
 This question is a simple one that involve two parts, summing up the numbers in the array then dividing by the number of items in the array.
 
-### Solution 1: Sum using for loop
+### Approach 1: Sum using for loop
 
 This solution uses a for loop to sum up all the numbers.
 
 <MDXCodeBlock languages={{ jsx: meanJs, tsx: meanTS }} />
 
-### Solution 2: Sum using `Array.prototype.reduce()`
+### Approach 2: Sum using `Array.prototype.reduce()`
 
 A shorter version is to use `Array.prototype.reduce()` to perform the summation.
 
 <MDXCodeBlock languages={{ jsx: meanReduceJS, tsx: meanReduceTS }} />
 
-## Edge Cases
+## Edge cases
 
 Surprisingly enough, an empty array does not require special handling. Division by zero in JavaScript gives `Infinity` if the numerator is non-zero, and `NaN when the numerator is zero, which is exactly what is required.
 

@@ -1,0 +1,100 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import getElementsByTagNameHierarchyJs from '../setup/src/get-elements-by-tag-name-hierarchy.js';
+import getElementsByTagNameHierarchyTs from '../setup/src/get-elements-by-tag-name-hierarchy.ts';
+import getElementsByTagNameHierarchyBottomUpJs from '../setup/src/get-elements-by-tag-name-hierarchy-bottom-up.js';
+import getElementsByTagNameHierarchyBottomUpTs from '../setup/src/get-elements-by-tag-name-hierarchy-bottom-up.ts';
+
+此解决方案假设您已完成 [getElementsByTagName](/questions/javascript/get-elements-by-tag-name) 问题，并完全理解其解决方案。
+
+[getElementsByTagName](/questions/javascript/get-elements-by-tag-name) 问题评估您对基本 DOM 遍历 API 和递归的掌握程度。 这个问题是一个高级版本，可以指定多个标签。
+
+## 解决方案
+
+首先，我们需要注意以下几点，类似于 [getElementsByTagName](/questions/javascript/get-elements-by-tag-name)：
+
+* `Element.tagName` 返回元素标签名称的**大写**字符串（例如 `'DIV'`、`'SPAN'`），因此在比较之前必须将标签名称参数转换为相同的大小写。
+* `Element.children` 返回子元素的实时 `HTMLCollection`。 我们使用它而不是 `Node.childNodes`，后者返回子 `Node` 的实时 `NodeList`，因为 `childNodes` 将包括非元素节点，如文本和注释节点，这与此问题无关。
+  * 但是 `HTMLCollection` 没有 `.forEach`，所以我们必须使用传统的 `for` 循环遍历它。
+
+### 方法 1：自顶向下
+
+该解决方案方法可以分解为两个部分：
+
+1. 将 `tagNames` 分成一个标签名称标记数组。
+2. 遍历 `document` 参数并找到与指定的 `tagNames` 层次结构匹配的元素。
+
+#### 分割 `tagNames`（标记化）
+
+对于这个问题，`tagNames` 参数非常灵活。 它可以：
+
+1. 包含前导和尾随空格。
+2. 包含任何大小写的标签 - 小写、大写、混合大小写。 `document.querySelectorAll()` 不区分大小写。
+
+为了标记 `tagNames` 字符串（准确识别标签名称列表），我们可以：
+
+1. 通过 `.toUpperCase()` 将字符串转换为大写，以处理任何大小写差异。 选择大写是因为 `Element.tagName` 返回一个大写字符串。
+2. 通过 `.trim()` 修剪字符串以删除前导和尾随空格。
+3. 通过 `.split(/\s+/ )` 分割字符串以按空格分割，也可以按连续的空格分割。
+
+#### 遍历 `document` 以查找匹配的元素
+
+这个问题最棘手的部分是识别匹配的元素。 列表中最后一个标签是要匹配的元素。 最后一个标签之前的所有标签都用于指定层次结构。
+
+```js
+// 例如 tagNames = 'div SPAN sPaN'
+// 标记化后，tagTokens：
+[
+  'div', // 层次结构标签
+  'span', // 层次结构标签
+  'span', // 元素标签（要匹配）
+];
+```
+
+此处使用深度优先搜索 (DFS)，因为在 DFS 中，对于每个节点，祖先将在其递归堆栈中。 通过利用这一事实，我们可以保留一个指向 `tagTokens` 内位置的指针，如果当前元素的标签与 `tagTokens[tagTokenIndex]` 匹配，则增加下一个遍历的索引。 增加索引意味着在元素的后代中，我们只需要匹配剩余的标记。 但是，我们不应该超过最后一个索引，因为最后一个索引是一个特殊的索引 - 最后一个标签是要匹配的标签名称。
+
+当 `tagTokenIndex` 是 `tagTokens` 的最后一个索引时，任何与该标签匹配的元素都被视为匹配，并且可以添加到 `results` 中。
+
+可以通过使用 `<body>` 元素（通过 `document.body`）和起始索引 0 来启动遍历。
+
+<MDXCodeBlock
+  languages={{
+  jsx: getElementsByTagNameHierarchyJs,
+  tsx: getElementsByTagNameHierarchyTs,
+}}
+/>
+
+### 方法 2. 自底向上
+
+另一种解决方案是使用与浏览器匹配选择器相同的方法，即自底向上匹配。浏览器通常从右向左匹配选择器。这更有效，因为它允许浏览器快速消除大量元素。例如，在选择器 `div p` 中，浏览器首先找到所有 `<p>` 元素，然后检查它们是否具有作为 `<div>` 的父元素或祖先元素。
+
+第一步是找到所有匹配的标签（列表中的最后一个标签）。这本质上是 [getElementsByTagName](/questions/javascript/get-elements-by-tag-name) 问题。对于这些标签中的每一个，使用 `element.parentNode` 遍历节点的父链并检查祖先层次结构。这种方法更容易理解，但实现起来更长。
+
+<MDXCodeBlock
+  languages={{
+  jsx: getElementsByTagNameHierarchyBottomUpJs,
+  tsx: getElementsByTagNameHierarchyBottomUpTs,
+}}
+/>
+
+## 边缘情况
+
+* 标签名称字符串中的前导/尾随空格。
+* 标签名称之间的额外空格。
+* 非小写标签名称项。
+
+## 技术
+
+* 递归
+* DOM API
+  * 如何检查 `Element` 的标签名称
+  * 如何遍历 `Element` 的子元素
+
+## 笔记
+
+* `Element.tagName` 为大写（例如 `'DIV'`、`'SPAN'`），因此请务必使用不区分大小写的字符串比较。
+
+## 资源
+
+* [Document: querySelectorAll() method - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll)
+* [Element: getElementsByTagName() method - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Element/getElementsByTagName)

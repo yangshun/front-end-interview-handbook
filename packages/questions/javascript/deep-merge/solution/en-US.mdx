@@ -3,7 +3,7 @@ import MDXCodeBlock from 'MDXCodeBlock';
 import deepMergeJs from '../setup/src/deep-merge.js';
 import deepMergeTs from '../setup/src/deep-merge.ts';
 
-## Clarification Questions
+## Clarification questions
 
 - Can non-primitives values in the merged object reference the original objects?
   - Yes, as long as the original objects are not modified.
@@ -22,6 +22,6 @@ Based on the rules, we only need to combine overlapping values that are arrays o
 
 Note that the merged object can contain references to values in the original objects. This happens in the case where arrays contains objects and these objects aren't directly processed with `deepMerge`. If a full copy of the objects is desired, you can deep clone both objects first before merging or deep clone the resulting object.
 
-## Edge Cases
+## Edge cases
 
 - Non-plain JavaScript object values like `null`, `Date`, `Symbol` should be treated as non-objects.

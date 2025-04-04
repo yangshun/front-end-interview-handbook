@@ -1,0 +1,11 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import useHover from '../setup/src/use-hover';
+
+## 解决方案
+
+`useHover` 钩子可以通过使用 `useState` 跟踪悬停状态、使用 `useRef` 创建 ref 对象以及定义 ref 回调来实现，该回调将 `mouseenter` 和 `mouseleave` 事件侦听器附加到 ref 引用的元素。
+
+<MDXCodeBlock>
+  {useHover}
+</MDXCodeBlock>

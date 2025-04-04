@@ -1,0 +1,34 @@
+---
+title: getElementsByClassName
+excerpt: 实现一个函数，获取包含指定类的所有 DOM 元素
+---
+
+`getElementsByClassName()` 是 HTML `Document` 和 `Element` 上存在的一个方法，用于返回 `Document`/`Element` 中具有指定类名的后代元素的 `HTMLCollection`。
+
+让我们实现我们自己的 [`Element.getElementsByClassName()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/getElementsByClassName)，它与此类似，但略有不同：
+
+* 它是一个纯函数，它接受一个元素和一个 `classNames` 字符串，一个包含一个或多个要匹配的类名的字符串，用空格分隔。 例如 `getElementsByClassName(document.body, 'foo bar')`。
+* 与 `Element.getElementsByClassName()` 类似，只搜索元素参数的后代，而不是元素本身。
+* 返回一个 `Element` 数组，而不是 `Element` 的 `HTMLCollection`。
+
+不要使用 `document.querySelectorAll()`，否则会使问题变得微不足道。 在实际面试中，您将不允许使用它。
+
+## 例子
+
+```js
+const doc = new DOMParser().parseFromString(
+  `<div class="foo bar baz">
+    <span class="bar baz">Span</span>
+    <p class="foo baz">Paragraph</p>
+    <div class="foo bar"></div>
+  </div>`,
+  'text/html',
+);
+
+getElementsByClassName(doc.body, 'foo bar');
+// [div.foo.bar.baz, div.foo.bar] <-- 这是一个元素数组。
+```
+
+## 资源
+
+* [Element: getElementsByClassName() method - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Element/getElementsByClassName)

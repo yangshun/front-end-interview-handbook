@@ -1,0 +1,11 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import useEventListener from '../setup/src/use-event-listener';
+
+## 解决方案
+
+`useEventListener` 钩子可以使用 `useEffect` 实现，以分别使用 `addEventListener` 和 `removeEventListener` 将事件侦听器附加到目标元素并从中分离。
+
+<MDXCodeBlock>
+  {useEventListener}
+</MDXCodeBlock>

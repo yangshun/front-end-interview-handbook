@@ -1,0 +1,73 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import promiseRaceJs from '../setup/src/promise-race.js';
+import promiseRaceTs from '../setup/src/promise-race.ts';
+import promiseRaceThen from '../setup/src/promiseRaceThen';
+
+在面试中经常会测试异步编程。了解 `Promise.race` 的工作原理将帮助你理解类似 `Promise` 相关函数（如 `Promise.any`、`Promise.all`、`Promise.allSettled` 等）背后的机制。
+
+## 解决方案
+
+关于这个问题，我们需要记住并处理几个方面：
+
+1. `Promise` 旨在被链接，因此该函数需要返回一个 `Promise`。
+2. 如果输入数组为空，则返回的 `Promise` 将永远处于挂起状态。
+3. 输入数组可以包含非 `Promise`。
+
+### 方法 1：使用 `await`
+
+我们将在该函数的顶层返回一个 `Promise`。首先检查输入数组是否为空，如果是，我们需要返回一个永远挂起的 promise。这可以通过 `return` 而不调用 `resolve()` 或 `reject()` 来完成。
+
+然后我们需要尝试解析输入数组中的每个项目。这可以使用 `Array.prototype.forEach` 或 `Array.prototype.map` 来实现。
+
+* 如果一个项目被解析，则使用结果 `resolve()`。
+* 如果一个项目被拒绝，则使用原因 `reject()`。
+
+由于这是一场比赛，我们不必像在 `Promise.all` 中那样做太多的协调。无论哪个项目先解析/拒绝，都会赢得比赛，并分别调用 `resolve`/`reject` 函数来确定返回的 `Promise` 的最终状态和值/原因。
+
+这里需要注意的一点是，由于输入数组可以包含非 `Promise` 值，如果我们不 `await` 它们，我们需要使用 `Promise.resolve()` 包装每个值，这允许我们在每个值上使用 `.then()`，这样我们就不必区分 `Promise` 和非 `Promise` 值以及它们是否需要被解析。
+
+<MDXCodeBlock languages={{ jsx: promiseRaceJs, tsx: promiseRaceTs }} />
+
+### 方法 2：使用 `Promise.then()`
+
+如果你不喜欢使用 `async`/`await`，这里有一个使用 `Promise.then()` 的替代版本，它短得多。
+
+请注意，被拒绝的 promise 也会调用 `.then()`，而 `.then()` 的第二个参数是处理被拒绝的 promise 的回调。
+
+<MDXCodeBlock>
+  {promiseRaceThen}
+</MDXCodeBlock>
+
+在 `.then()` 调用中（通过第二个回调参数）`reject()` 被拒绝的 promise 非常重要，而不是在 `catch()` 中。下面的方法看起来类似，但对于 `iterable` 包含立即解析和拒绝的 promise（例如 `[Promise.reject(42), Promise.resolve(2)]`）的情况，它不起作用。
+
+`.catch()` 被调度，并且不会在 `.then()` 之后立即运行。对于立即解决的 promise，`then()` 在任何 `.catch()` 之前运行，因此整体 `Promise` 以 2 而不是 42 被拒绝。
+
+```js
+export default function promiseRace(iterable) {
+  return new Promise((resolve, reject) => {
+    if (iterable.length === 0) {
+      return;
+    }
+
+    iterable.forEach((item) =>
+      // 错误使用 `catch()`，在 `then()` 中使用 onReject。
+      Promise.resolve(item).then(resolve).catch(reject),
+    );
+  });
+}
+```
+
+## 边缘情况
+
+* 空输入数组。应返回一个永远待定的 Promise。
+* 如果数组包含非 `Promise` 值，`Promise.race()` 将解析为在可迭代对象中找到的第一个这些值。
+
+## 技术
+
+* 了解 `Promise`，如何构造一个，如何使用它们。
+* 异步编程。
+
+## 资源
+
+* [Promise.race() - JavaScript | MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise/race)

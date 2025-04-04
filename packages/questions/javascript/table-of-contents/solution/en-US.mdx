@@ -5,7 +5,7 @@ import tableOfContentsTs from '../setup/src/table-of-contents.ts';
 
 This is a practical question which is used in many content-heavy sites such as blogs, documentation websites, Google Docs, and as mentioned in the question, screen readers.
 
-## Clarification Questions
+## Clarification questions
 
 - What should be returned if there are no headings on the page?
   - Return an empty string.
@@ -47,7 +47,7 @@ Again, we'll make use of recursion here. We'll define two helper functions, one 
 
 <MDXCodeBlock languages={{ jsx: tableOfContentsJs, tsx: tableOfContentsTs }} />
 
-## Edge Cases
+## Edge cases
 
 - Ignore irrelevant nodes in the DOM tree such as comment nodes and text nodes.
 - DOM trees which have deep levels of nesting.

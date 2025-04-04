@@ -1,0 +1,101 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import classnamesJs from '../setup/src/classnames.js';
+import classnamesTs from '../setup/src/classnames.ts';
+import classnamesModifyArg from '../setup/src/classnames-modify-arg.ts';
+import classnamesModifyExternal from '../setup/src/classnames-modify-external.ts';
+import classnamesLib from '../setup/src/classnamesLib';
+
+## 澄清问题
+
+以下是向面试官提问以展示您周全思考的好问题。根据他们的回答，您可能需要相应地调整实现。
+
+> 输入中可以有重复的类吗？输出应该包含重复的类吗？
+
+是的，可以有。在这种情况下，输出将包含重复的类。但是，我们不会测试这种情况。
+
+> 如果一个类被添加然后被关闭了怎么办？例如 `classNames('foo', { foo: false })`？
+
+在库的实现中，最终结果将是 `'foo'`。但是，我们不会测试这种情况。
+
+## 解决方案
+
+此解决方案的棘手部分是函数的递归性质。因此，我们可以将解决方案分成两部分：
+
+1. 处理每种数据类型。
+2. 递归处理数组类型。
+
+我们需要一个数据结构 `classes` 来收集递归调用可以访问的函数生命周期内的所有类。在我们的解决方案中，我们使用 `Array` 作为集合，但您也可以使用 `Set`。
+
+为了递归地处理每个参数并收集类，我想到了几种方法：
+
+1. **纯递归函数**：递归调用不依赖于外部值，也不修改参数。
+2. **修改外部值的内部递归辅助函数**：集合在函数的最顶层定义。内部递归函数通过添加到该集合来修改外部顶层集合。
+3. **修改参数的内部递归辅助函数**：集合在函数的最顶层定义，作为参数传递给递归调用，递归调用添加到参数中。
+
+以下是我们如何处理每种数据类型：
+
+* **Falsey 值**：忽略。
+* **字符串**：将其添加到 `classes` 集合中。
+* **数字**：将其添加到 `classes` 集合中。
+* **数组**：递归调用 `classNames` 函数或内部递归函数。
+* **对象**：循环遍历键/值对，并将具有真值的键添加到 `classes` 集合中。
+
+### 方法 1：纯递归函数
+
+在这种方法中，`classNames` 函数调用自身，其返回值是一个字符串，可以由父递归调用组成。
+
+<MDXCodeBlock languages={{ jsx: classnamesJs, tsx: classnamesTs }} />
+
+### 方法 2：修改外部值的内部递归辅助函数
+
+在这种方法中，定义了一个内部的 `classNamesImpl` 辅助函数，它在递归调用中访问顶层的 `classes` 集合。辅助函数不返回任何内容，它的主要目的是处理每个参数并将其添加到 `classes`。
+
+<MDXCodeBlock>
+  {classnamesModifyExternal}
+</MDXCodeBlock>
+
+### 方法 3：修改参数的内部递归辅助函数
+
+在这种方法中，定义了一个内部的 `classNamesImpl` 辅助函数，它接受一个 `classesArr` 参数。`classesArr` 在递归调用中被修改并传递，并且所有 `classNamesImpl` 调用都引用相同的 `classesArr` 实例。辅助函数不返回任何内容，它的主要目的是处理每个参数并将其添加到 `classesArr` 参数。
+
+<MDXCodeBlock>
+  {classnamesModifyArg}
+</MDXCodeBlock>
+
+## 后续：去重类名
+
+提供的解决方案没有处理类名的去重，这是一个很好的优化。如果没有去重，`classNames('foo', 'foo')` 将给你 `'foo foo'`，这对于浏览器结果来说是不必要的。
+
+在某些情况下，去重也会影响结果，例如在 `classNames('foo', { foo: false })` 的情况下，`{ foo: false }` 出现在参数的后面，所以用户可能并不希望 `'foo'` 出现在最终结果中。
+
+这可以通过使用 `Set` 从一开始就收集类名，并在必要时添加或删除类名来处理。
+
+类名去重通常不在面试的范围之内，但可能是一个后续问题。你可以在 [Classnames II](/questions/javascript/classnames-ii) 中练习去重功能。
+
+## 技术
+
+* 熟悉 JavaScript 值类型以及如何检查它们
+* 递归
+* 从 `Array` 转换为 `Set`，反之亦然（用于唯一的类名后续问题）
+* 处理可变参数
+
+## 笔记
+
+* `typeof []` 给出 `'object'`，所以你需要在对象之前处理数组。
+* 你可能不必处理这些情况，但你应该提及它们：
+  * 堆栈溢出的可能性。这适用于任何递归解决方案。
+  * 数组和对象的循环引用的可能性。这适用于任何具有任意深度的输入。
+
+## 库实现
+
+供你参考，这是 [`classnames` npm 包](https://github.com/JedWatson/classnames) 的实现方式：
+
+<MDXCodeBlock>
+  {classnamesLib}
+</MDXCodeBlock>
+
+## 资源
+
+* [`classnames` 库在 GitHub 上](https://github.com/JedWatson/classnames)
+* [`clsx` 库在 GitHub 上](https://github.com/lukeed/clsx)：一个更新的版本，作为 `classnames` 的更快更小的直接替代品。

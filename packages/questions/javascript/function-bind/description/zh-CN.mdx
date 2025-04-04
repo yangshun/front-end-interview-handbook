@@ -1,0 +1,27 @@
+---
+title: Function.prototype.bind
+excerpt: 实现 Function.prototype.bind() 函数，该函数创建一个新函数，并将 `this` 关键字设置为提供的值
+---
+
+> `Function.prototype.bind()` 方法创建一个新函数，当调用该函数时，其 `this` 关键字被设置为提供的值，并且在调用新函数时，会预先提供一系列参数。
+
+*来源：[Function.prototype.bind() - JavaScript | MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_objects/Function/bind)*
+
+在不调用原生 `bind` 方法的情况下，实现你自己的 `Function.prototype.bind`。为了避免覆盖实际的 `Function.prototype.bind`，将该函数实现为 `Function.prototype.myBind`。
+
+## 例子
+
+```js
+const john = {
+  age: 42,
+  getAge: function () {
+    return this.age;
+  },
+};
+
+const unboundGetAge = john.getAge;
+console.log(unboundGetAge()); // undefined
+
+const boundGetAge = john.getAge.myBind(john);
+console.log(boundGetAge()); // 42
+```

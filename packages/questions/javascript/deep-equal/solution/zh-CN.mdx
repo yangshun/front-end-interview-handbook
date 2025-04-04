@@ -1,0 +1,87 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import deepEqualJs from '../setup/src/deep-equal.js';
+import deepEqualTs from '../setup/src/deep-equal.ts';
+import deepEqualAlt from '../setup/src/deep-equal-alt';
+
+## 解决方案
+
+JavaScript 中的值比较可能非常简单。通常，三重等于 `===`，即严格相等，可以完成这项工作：对于原始值，它比较实际值；对于对象，它比较它们的标识/引用，而不是它们的“内容”。例如，`const a = {id: 1}; const b = {id: 1}` 被 `===` 认为是不同的对象，即使它们包含完全相同的 `id` 属性。大多数时候，这正是我们想要的。但是对于这个问题，我们将实现一个可以深度比较对象的函数。因此，我们不能仅仅依靠 `===` 进行比较。
+
+除了它的引用检查性质之外，严格相等 `===` 确实有一些它没有涵盖的边缘情况：
+
+1. 两个 `NaN` 值被认为是不同的 `NaN === NaN // false`。
+2. 数值 `-0` 和 `+0` 被认为是相等的。
+
+这里更好的选择是使用 `Object.is`。这也是 React 在其协调阶段用于检测给定组件的 props 更改的方式。如果您想了解更多关于它的信息，并了解它与 `===` 的区别，请查看 [`Object.is` on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is)。
+
+我们没有测试上述情况，但您可能需要在解释为什么使用 `Object.is` 时指出这一点。
+
+解决这个问题主要有两种方法：
+
+1. 先处理数组/对象，最后处理原始类型。
+2. 先处理原始类型，最后处理数组/对象。
+
+### 方法 1：先处理数组/对象
+
+关于深度比较对象和数组的问题的棘手部分。首先，我们需要知道如何检测它们的数据类型。`typeof` 运算符可能是您想到的第一个解决方案，但它对于我们在这里的用例来说是不够的。
+
+`typeof null` 给你 `object`，所以我们不能使用 `typeof` 来区分对象、数组和 `null`。更重要的是，它不能将其他内置对象（如 `Date` 和 `Regex`）与普通对象和数组区分开来。也就是说，它为所有内置对象（函数除外）返回 `object`。这没有用，因为我们只能明智地遍历和深度比较对象和数组，而其他所有内容都应该通过引用通过 `Object.is` 进行比较。
+
+为了解决这个问题，您可以结合使用 `instanceof` 运算符来检查给定对象的构造函数。但是，检测数据类型的一种更简单、更清晰的方法是使用 `Object.prototype.toString`。如果您想深入研究这个主题，请查看 [Zhenghao 的这篇文章](https://www.zhenghao.io/posts/js-data-type)。
+
+一个实用函数 `shouldDeepCompare` 将有助于确定我们是否应该根据 `getType` 检索到的数据类型遍历输入对象的当前属性。当当前属性*不是*对象或数组时，我们可以继续通过 `Object.is` 比较它们的类型和值。
+
+```js
+// 警告：不完整的解决方案。请参考下方。
+function shouldDeepCompare(type) {
+  return type === '[object Object]' || type === '[object Array]';
+}
+
+function getType(value) {
+  return Object.prototype.toString.call(value);
+}
+
+export default function deepEqual(value1, value2) {
+  const type1 = getType(value1);
+  const type2 = getType(value2);
+
+  if (type1 === type2 && shouldDeepCompare(type1) && shouldDeepCompare(type2)) {
+    // 当两个 props 都是对象或数组时，我们通过再次调用 `isEqual` 来遍历它们。
+  }
+
+  return Object.is(value1, value2);
+}
+```
+
+现在让我们处理两个输入值都是对象或数组的情况。因为我们需要递归到我们在输入中找到的任何对象/数组中。如果它是一个数组，我们可以遍历这些项目。但是，如果它是一个对象，我们可以使用 `for ... in` 语句遍历所有键（自有键*和*继承键），或者我们可以使用 `Object.entries` 将其自己的可枚举的、非符号键控属性转换为键值对数组，然后我们可以遍历该数组。第二种方法的好处是：
+
+1. 我们只获取其自身的属性，而不是继承的属性。
+2. 如果两个数组的长度不同，我们可以退出比较。也就是说，两个对象/数组具有不同数量的属性/项目。
+
+这是完整的解决方案：
+
+<MDXCodeBlock languages={{ jsx: deepEqualJs, tsx: deepEqualTs }} />
+
+### 方法 2：首先处理基本类型
+
+我们也可以通过首先使用 `Object.is()` 来处理基本类型。如果它们未通过基本类型相等性检查，那么我们可以检查它们是否都是数组或对象。如果它也未通过该检查，则意味着值的类型之间存在不匹配，我们可以 `return false`。
+
+下一部分是检查两个数组/对象是否具有相同的条目（键/值）。这里提供的方法是早期解决方案的替代方案，但想法是一样的：
+
+1. 检查两个对象是否具有相同的键：
+   1. 两个对象具有相同数量的键。
+   2. 第一个对象的所有键都存在于另一个对象中。
+2. 递归地检查每个键的值是否相同。
+
+<MDXCodeBlock>
+  {deepEqualAlt}
+</MDXCodeBlock>
+
+## 边缘情况
+
+* 比较 `null`、`Object`、`Array`。
+* +0 和 -0 的相等性。
+* 循环对象，即具有循环引用的对象未处理。
+* 比较属性时，不考虑 [属性描述符](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptors)。
+* 不比较不可枚举的属性和符号键的属性。

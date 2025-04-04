@@ -1,0 +1,26 @@
+---
+title: useClickAnywhere
+excerpt: 实现一个处理文档任何位置的点击事件的 Hook
+---
+
+实现一个 `useClickAnywhere` Hook，用于处理文档任何位置的点击事件。
+
+```jsx
+export default function Component() {
+  const [count, setCount] = useState(0);
+
+  useClickAnyWhere(() => {
+    setCount((prev) => prev + 1);
+  });
+
+  return <p>Click count: {count}</p>;
+}
+```
+
+## 参数
+
+* `handler: (event: MouseEvent) => void`: 在文档任何位置检测到点击事件时要调用的函数
+
+## 返回值
+
+无。

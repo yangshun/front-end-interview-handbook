@@ -1,0 +1,30 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import deepOmitJs from '../setup/src/deep-omit.js';
+import deepOmitTs from '../setup/src/deep-omit.ts';
+import deepOmitTerse from '../setup/src/deep-omit-terse';
+
+## 澄清问题
+
+* 对象中可以有 `Date`、`Symbol`、`RegExp` 这样的值吗？
+  * 可以。
+* 我们应该递归到 `Map` 和 `Set` 吗？
+  * 为了使问题简单，不。没有包含 `Map` 和 `Set` 的测试用例，但如果您愿意，可以添加支持。
+
+## 解决方案
+
+由于输入值可以深度嵌套，递归解决方案将有助于遍历嵌套值。 我们的想法是递归地访问输入中的所有值，遍历数组项和对象条目，过滤掉 `keys` 参数中包含键的对象条目。
+
+由于数组和对象需要特殊处理，我们需要处理三种类型的值：
+
+1. **数组**：使用 `Array.isArray()` 检查此类型。 遍历数组并返回一个新数组，该数组包含使用 `deepOmit()` 映射后的每个元素。
+2. **对象**：辅助函数 `isPlainObject()`（来自 [Type Utilities II](/questions/javascript/type-utilities-ii)）用于检查纯对象类型。 执行 `typeof element === 'object' && element !== null` 将不起作用，因为还有其他值（如 `Date` 和 `Set`）将通过检查。 遍历对象的键，过滤掉 `keys` 中的键，递归地对值调用 `deepOmit`，对于未省略的键，将返回值添加到 `newObj`。
+3. **其他**：这是递归的基本情况，我们可以直接返回值，因为我们不需要递归到它。
+
+<MDXCodeBlock languages={{ jsx: deepOmitJs, tsx: deepOmitTs }} />
+
+可以使用 `for...in` 循环遍历数组和对象。 较短的版本如下所示。 这是安全的，因为 `keys` 输入是字符串，不会与作为整数的数组键匹配。 但是，不建议以这种方式编写，因为代码变得更难理解。 如果您使用 TypeScript，编写类型安全版本也变得更具挑战性。
+
+<MDXCodeBlock>
+  {deepOmitTerse}
+</MDXCodeBlock>

@@ -1,0 +1,25 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import conformsToJs from '../setup/src/conforms-to.js';
+import conformsToTs from '../setup/src/conforms-to.ts';
+import conformsToAltJs from '../setup/src/conforms-to-alt.js';
+import conformsToAltTs from '../setup/src/conforms-to-alt.ts';
+
+## 解决方案
+
+### 方法 1：遍历所有谓词，一旦任何谓词未满足则返回 `false`
+
+1. 遍历 `source` 对象中的谓词，并确保 `key` 未被 `source` 继承。
+2. 如果谓词未满足则返回 `false`，并且仅在检查所有谓词都为 `true` 后才返回 `true`。
+
+<MDXCodeBlock languages={{ jsx: conformsToJs, tsx: conformsToTs }} />
+
+### 方法 2：使用 `.every()` 确保所有谓词都已满足
+
+通过使用 `Object.keys(source).every(...)`，它确保当每个谓词在其对应的 `object` 值上进行评估时，返回 `true`，每个谓词都必须评估为 `true`。
+
+<MDXCodeBlock languages={{ jsx: conformsToAltJs, tsx: conformsToAltTs }} />
+
+## 资源
+
+* [Lodash `_.conformsTo`](https://lodash.com/docs/#conformsTo)

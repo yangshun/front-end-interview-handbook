@@ -1,0 +1,24 @@
+---
+title: Map Async
+excerpt: 实现一个函数，该函数使用异步映射函数映射一个项目数组
+---
+
+到目前为止，您应该已经熟悉数组中元素的映射。如果您不熟悉，请先做 [Array.prototype.map](/questions/javascript/array-map) 问题。
+
+如果映射函数不是同步函数，即它返回一个 promise 怎么办？ `Array.prototype.map` 假定映射函数是同步的，并且无法正常工作。
+
+实现一个函数 `mapAsync`，它接受一个项目数组，并使用异步映射函数映射每个元素。该函数应返回一个 `Promise`，该 `Promise` 解析为映射结果。
+
+## 例子
+
+```js
+const asyncDouble = (x: number) =>
+  new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(x * 2);
+    }, 10);
+  });
+
+const doubled = await mapAsync([1, 2], asyncDouble);
+console.log(doubled); // [2, 4]
+```

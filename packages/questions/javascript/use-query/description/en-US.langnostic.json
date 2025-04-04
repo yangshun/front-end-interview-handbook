@@ -1,0 +1,31 @@
+{
+  "frontmatter": {
+    "title": "cba493d7",
+    "excerpt": "aeb8edc0"
+  },
+  "content": {
+    "source": {
+      "locale": "en-US",
+      "hashes": [
+        "17d9f6e1",
+        "f5fe9e68",
+        "e2937d9a",
+        "aa7c188d",
+        "197430fb",
+        "ec277360",
+        "964fe53d"
+      ]
+    },
+    "targets": {
+      "zh-CN": [
+        "17d9f6e1",
+        "f5fe9e68",
+        "e2937d9a",
+        "aa7c188d",
+        "197430fb",
+        "ec277360",
+        "964fe53d"
+      ]
+    }
+  }
+}

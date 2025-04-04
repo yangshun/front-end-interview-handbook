@@ -1,0 +1,34 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import meanJs from '../setup/src/mean.js';
+import meanTS from '../setup/src/mean.ts';
+import meanReduceTS from '../setup/src/mean-reduce.ts';
+import meanReduceJS from '../setup/src/mean-reduce.js';
+
+## Solution
+
+This question is a simple one that involve two parts, summing up the numbers in the array then dividing by the number of items in the array.
+
+### Approach 1: Sum using for loop
+
+This solution uses a for loop to sum up all the numbers.
+
+<MDXCodeBlock languages={{ jsx: meanJs, tsx: meanTS }} />
+
+### Approach 2: Sum using `Array.prototype.reduce()`
+
+A shorter version is to use `Array.prototype.reduce()` to perform the summation.
+
+<MDXCodeBlock languages={{ jsx: meanReduceJS, tsx: meanReduceTS }} />
+
+## Edge cases
+
+Surprisingly enough, an empty array does not require special handling. Division by zero in JavaScript gives `Infinity` if the numerator is non-zero, and \`NaN when the numerator is zero, which is exactly what is required.
+
+It is possible that the sum of the numbers in the array becomes too big that it "overflows". Strictly speaking, overflowing doesn't occur in JavaScript, values larger than `Number.MAX_VALUE` are represented as `Infinity` and will lose their actual value.
+
+To handle large value cases, we can split the array into smaller equal chunks and calculate the average for each chunk. The final average can be determined by taking the average of each chunk's averages. Not all array lengths can be divided into equal chunks, so the key idea here is to divide as small as possible, then take a weighted average of the chunks that depends on the size of each chunk.
+
+## Resources
+
+* [Lodash `_.mean`](https://lodash.com/docs/#mean)

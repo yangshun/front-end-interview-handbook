@@ -1,0 +1,59 @@
+---
+title: 获取
+excerpt: 实现一个函数，用于安全地访问 JavaScript 对象中深层嵌套的属性
+---
+
+在可选链操作符 (`?.`) 存在之前，当某些中间属性可能不存在时，访问大型 JavaScript 对象中深层嵌套的属性有时会很麻烦。
+
+```js
+const john = {
+  profile: {
+    name: { firstName: 'John', lastName: 'Doe' },
+    age: 20,
+    gender: 'Male',
+  },
+};
+
+const jane = {
+  profile: {
+    age: 19,
+    gender: 'Female',
+  },
+};
+
+function getFirstName(user) {
+  return user.profile.name.firstName;
+}
+```
+
+执行 `getFirstName(john)` 可以正常工作，但 `getFirstName(jane)` 会报错，因为 `jane.profile` 不存在 `name` 属性。
+
+## Lodash 的 `_.get` 方法
+
+Lodash 的 `_.get` 方法是针对此类用例而创建的解决方案。
+
+让我们编写自己的版本作为 `get` 函数。该函数获取 `object` 在 `path` 处的值。如果解析后的值为 `undefined`，则返回 `defaultValue`。函数签名如下所示：
+
+```js
+get(object, path, [defaultValue]);
+```
+
+* `object`：要查询的对象。
+* `path`：要获取的属性的路径。它可以是一个字符串，字段之间用 `.` 分隔，或者是一个路径字符串数组。
+* `defaultValue`：可选参数。如果解析后的值为 `undefined`，则返回该值。
+
+## 示例
+
+```js
+get(john, 'profile.name.firstName'); // 'John'
+get(john, 'profile.gender'); // 'Male'
+get(jane, 'profile.name.firstName'); // undefined
+```
+
+如果提供了数字索引，也可以访问数组。
+
+```js
+get({ a: [{ b: { c: 3 } }] }, 'a.0.b.c'); // 3
+```
+
+无需支持类似于 `get(object, 'a[0].b.c')` 的语法。

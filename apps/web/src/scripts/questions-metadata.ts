@@ -66,34 +66,39 @@ async function generateQuizMetadata() {
   );
 }
 
-export async function generateAllMetadata() {
-  const locale = 'en-US';
+const sourceLocale = 'en-US';
+const locales = [sourceLocale, 'zh-CN'];
 
+export async function generateAllMetadata() {
   return await Promise.all([
     generateQuizMetadata(),
     generateQuestionsMetadata(
       readQuestionListMetadataSystemDesign,
-      getQuestionsListOutFilenameSystemDesign(locale),
-      locale,
+      getQuestionsListOutFilenameSystemDesign(sourceLocale),
+      sourceLocale,
     ),
     generateQuestionsMetadata(
       readQuestionListMetadataAlgo,
-      getQuestionsListOutFilenameAlgo(locale),
-      locale,
+      getQuestionsListOutFilenameAlgo(sourceLocale),
+      sourceLocale,
     ),
-    generateQuestionsMetadata(
-      readQuestionListMetadataJavaScript,
-      getQuestionsListOutFilenameJavaScript(locale),
-      locale,
+    ...locales.map((locale) =>
+      generateQuestionsMetadata(
+        readQuestionListMetadataJavaScript,
+        getQuestionsListOutFilenameJavaScript(locale),
+        locale,
+      ),
     ),
     generateQuestionsMetadata(
       readQuestionListMetadataUserInterface,
-      getQuestionsListOutFilenameUserInterface(locale),
-      locale,
+      getQuestionsListOutFilenameUserInterface(sourceLocale),
+      sourceLocale,
     ),
-    codingQuestionsMetadata(
-      path.join(getQuestionsListOutFilenameCoding(locale)),
-      locale,
+    ...locales.map((locale) =>
+      codingQuestionsMetadata(
+        path.join(getQuestionsListOutFilenameCoding(locale)),
+        locale,
+      ),
     ),
   ]);
 }

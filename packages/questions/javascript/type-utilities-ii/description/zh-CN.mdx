@@ -1,0 +1,14 @@
+---
+title: 类型工具 II
+excerpt: 实现实用程序以确定 JavaScript 中非原始变量类型
+---
+
+JavaScript 是一种动态类型语言，这意味着变量类型的类型可以在运行时更改。许多面试问题都涉及可以保存不同类型值的对象的递归，以及如何根据类型处理每个值类型的差异（例如，需要不同的代码来迭代数组与对象）。掌握 JavaScript 类型的知识对于解决诸如 [深拷贝](/questions/javascript/deep-clone) 和 [深比较](/questions/javascript/deep-equal) 等问题至关重要。
+
+在 [类型工具](/questions/javascript/type-utilities) 中，我们已经实现了实用函数来确定原始值的类型。在本问题中，我们将实现以下实用函数来确定非原始值的类型。
+
+* `isArray(value)`: 如果 `value` 是一个数组，则返回 `true`，否则返回 `false`。
+* `isFunction(value)`: 如果 `value` 是一个函数，则返回 `true`，否则返回 `false`。
+* `isObject(value)`: 如果 `value` 是一个对象（例如数组、函数、对象等，但不包括 `null` 和 `undefined`），则返回 `true`，否则返回 `false`。
+* `isPlainObject(value)`: 如果 `value` 是一个纯对象，则返回 `true`，否则返回 `false`（对于数组、函数等）。
+  * 纯对象，或通常称为普通旧 JavaScript 对象 (POJO)，是其原型为 `Object.prototype` 或通过 `Object.create(null)` 创建的任何对象。

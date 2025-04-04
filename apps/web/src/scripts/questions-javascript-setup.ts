@@ -11,12 +11,12 @@ import {
 
 async function generateSetupForQuestion(slug: string) {
   const questionPath = getQuestionSrcPathJavaScript(slug);
-  // This assumes that if the locale file is present for the description
-  // it's also present for the solution.
 
   const globPattern = path.posix.join(
-    // Globby only supports forward slashes.
+    // Globby only supports forward slashes
     questionPath.replaceAll(path.sep, path.posix.sep),
+    // Assume that if the locale file is present for the description
+    // it's also present for the solution
     'description',
     '*.mdx',
   );
@@ -31,7 +31,7 @@ async function generateSetupForQuestion(slug: string) {
 
   await Promise.all(
     locales.map(async (locale) => {
-      const content = await readQuestionJavaScript(slug);
+      const content = await readQuestionJavaScript(slug, locale);
       const outPath = path.join(outDir, `${locale}.json`);
 
       fs.writeFileSync(outPath, JSON.stringify(content, null, 2));

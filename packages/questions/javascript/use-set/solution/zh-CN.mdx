@@ -1,0 +1,26 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import useSet from '../setup/src/use-set';
+
+## 解决方案
+
+`useSet` hook 可以通过在 `useState` 状态中存储一个 `Set` 并根据状态的 setter 函数定义用于操作 `Set` 的实用方法来实现，使用 JavaScript 内置的 `Set` 方法。
+
+请记住将实用方法包装在 `useCallback` 中，以防止调用组件不必要的重新渲染。
+
+<MDXCodeBlock>
+  {useSet}
+</MDXCodeBlock>
+
+## 边缘情况
+
+由于 `Set` 是可变的，在定义实用方法时，请确保发生的任何更改都会导致调用组件重新渲染。这确保了组件始终与 `Set` 的当前状态同步。
+
+有很多方法可以实现这一点，包括，
+
+* 使用修改后的值创建一个新的 `Set` 实例，
+* 在修改 `Set` 之前对其进行浅拷贝，
+* 在使用一些“一次性” `useState` 状态修改 `Set` 后手动触发重新渲染，或者
+* 使用像 [Immer](https://immerjs.github.io/immer/) 这样的库来不可变地改变你的集合。
+
+**注意**：我们实际上不需要深度复制 `Set`，也不需要关心 `Set` 中值的（不可）变性，因为我们只关心当前在 DOM 中挂载的组件在 `Set` 方面的正确性。

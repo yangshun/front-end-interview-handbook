@@ -17,7 +17,7 @@ The set can also be omitted by using `Array.prototype.includes` instead.
 
 <MDXCodeBlock>{differenceFilter}</MDXCodeBlock>
 
-## Edge Cases
+## Edge cases
 
 To handle sparse arrays such as `[1, ,3]`, the `in` operator is used check if the index `i` is present in the `array` before checking if the value at index `i` is undefined. This ensures that sparse arrays are handled correctly.
 

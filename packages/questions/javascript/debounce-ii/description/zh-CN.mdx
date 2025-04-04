@@ -1,0 +1,61 @@
+---
+title: Debounce II
+excerpt: 实现一个带有取消方法以取消延迟调用和立即调用它们的 flush 方法的 debounce 函数
+---
+
+**注意：** 这是 [Debounce](/questions/javascript/debounce) 的高级版本，在尝试此问题之前，您应该先完成该问题。
+
+Debouncing 是一种用于控制我们允许一个函数在一段时间内执行多少次的技术。当一个 JavaScript 函数被 debounced 且等待时间为 X 毫秒时，它必须等待自上次调用 debounced 函数以来经过 X 毫秒。
+
+您几乎肯定在日常生活中遇到过 debouncing（例如，在进入电梯时）。只有在 X 持续时间没有按下“开门”按钮（未调用 debounced 函数）后，电梯门才会真正关闭（回调函数被执行）。
+
+实现一个 `debounce` 函数，该函数接受一个回调函数和一个 `wait` 持续时间。调用 `debounce()` 返回一个函数，该函数具有按照上述行为的 debounced 回调函数的调用。
+
+此外，debounce-ed 函数还附带了两个额外的方法：
+
+1. `cancel()` 方法取消挂起的调用
+2. `flush()` 方法立即调用任何延迟的调用
+
+## 示例
+
+```js
+let i = 0;
+function increment() {
+  i++;
+}
+const debouncedIncrement = debounce(increment, 100);
+
+// t = 0: 调用 debouncedIncrement()。
+debouncedIncrement(); // i = 0
+
+// t = 50: 取消延迟的增量。
+debouncedIncrement.cancel();
+
+// t = 100: increment() 未被调用，i 仍然是 0。
+```
+
+刷新以立即调用 debounced 函数。
+
+```js
+let i = 0;
+function increment() {
+  i++;
+}
+const debouncedIncrement = debounce(increment, 100);
+
+// t = 0: 调用 debouncedIncrement()。
+debouncedIncrement(); // i = 0
+
+// t = 50: i 仍然是 0，因为 100 毫秒尚未过去。
+// t = 51:
+debouncedIncrement.flush(); // i 现在是 1，因为 flush 导致() 回调被立即调用。
+
+// t = 100: i 已经是 1。回调已经被调用过
+// 并且不会再次被调用。
+```
+
+**注意：** 由于在此问题的测试中使用延迟，测试可能需要一段时间才能完成执行。
+
+## 阅读
+
+* [Lodash 文档中的 Debounce](https://lodash.com/docs/4.17.15#debounce)

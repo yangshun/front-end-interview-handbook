@@ -7,7 +7,7 @@ import unionBySetTS from '../setup/src/union-by-set.ts';
 
 ## Solution
 
-### Solution 1: Using array to store unique key values
+### Approach 1: Using array to store unique key values
 
 1. Create an empty `compare` array to store the unique keys.
 1. Iterate through `array` and determine the key for each element by calling `iteratee(element)`. If the key does not exist within `compare`, insert the key into `compare`. Next, append the element into `result`.
@@ -19,13 +19,13 @@ Two variables are used:
 
 <MDXCodeBlock languages={{ jsx: unionByJs, tsx: unionByTS }} />
 
-### Solution 2: Use `Set` for `compare`
+### Approach 2: Use `Set` for `compare`
 
 Another solution will be using a set instead of array for `compare` as sets can check for existence of items efficiently.
 
 <MDXCodeBlock languages={{ jsx: unionBySetJs, tsx: unionBySetTS }} />
 
-## Edge Cases
+## Edge cases
 
 If the input arrays are sparse, the function might include undefined in the output for the missing indices. To solve this, we can pre-process arrays to remove or fill sparse elements as appropriate.
 

@@ -1,0 +1,11 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import useKeyPress from '../setup/src/use-key-press';
+
+## 解决方案
+
+`useKeyPress` hook 可以使用 `useEffect` 实现，以将 `keydown` 或 `keyup` 事件侦听器附加到 `target` 元素。如果 `KeyboardEvent` 的 `event.key` 与提供的 `key` 匹配，则该 effect 将调用 `callback`。
+
+<MDXCodeBlock>
+  {useKeyPress}
+</MDXCodeBlock>

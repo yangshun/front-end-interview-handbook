@@ -1,0 +1,40 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import singleton from '../setup/src/singleton';
+import singletonLazy from '../setup/src/singleton-lazy';
+import singletonIife from '../setup/src/singleton-iife';
+
+## 解决方案
+
+### 方法 1：ES6 模块
+
+由于编码工作区中的每个文件都是一个模块，并且 ES6 模块是模块的单个实例，因此我们可以使用它轻松实现单例模式。此模块导出一个具有单个方法 `getInstance` 的对象。`getInstance` 方法负责提供对 `globalMap` 实例的访问。当应用程序的其他部分导入此模块并调用 `getInstance` 时，它们会收到对同一 `globalMap` 实例的引用。
+
+<MDXCodeBlock>
+  {singleton}
+</MDXCodeBlock>
+
+### 方法 2：具有延迟实例化的 ES6 模块
+
+在第一个解决方案中，`Map` 实例从一开始就被实例化。但是，在某些情况下，实例化成本很高，而且您很可能根本不需要使用该实例，那么延迟实例化方法更好。
+
+在此修改后的版本中，`getInstance` 方法在创建新实例之前检查是否已实例化 `globalMap`。如果 `globalMap` 已经实例化，它只是返回现有实例。这样，仅当第一次调用 `getInstance` 方法时才创建 map，从而实现延迟实例化。用法保持不变。
+
+<MDXCodeBlock>
+  {singletonLazy}
+</MDXCodeBlock>
+
+### 方法 3：立即调用函数表达式 (IIFE)
+
+在 ES6 模块出现之前，立即调用函数表达式 (IIFE) 可用于封装数据以获取模块。在此版本中，整个单例模式被包装在 IIFE 中，创建了一个封装 `globalMap` 变量的闭包。`getInstance` 方法通过返回的对象公开，允许访问共享的 map 实例。
+
+<MDXCodeBlock>
+  {singletonIife}
+</MDXCodeBlock>
+
+一般来说，ES6 模块版本是首选，因为它是未来。但是，如果您在不支持 ES6 模块的环境中工作（旧版浏览器、Node.js 没有模块支持等），那么使用 IIFE 是封装和构建代码的常用方法。
+
+## 资源
+
+* [单例模式 | patterns.dev](https://www.patterns.dev/vanilla/singleton-pattern)
+* [如何在 JavaScript 中使用单例](https://www.digitalocean.com/community/tutorials/js-js-singletons)

@@ -1,0 +1,61 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import debounceJs from '../setup/src/debounce.js';
+import debounceTs from '../setup/src/debounce.ts';
+import debounceArrowFunction from '../setup/src/debounceArrowFunction';
+
+Debounce, along with [throttle](/questions/javascript/throttle), are among the most common front end interview questions; it's the front end equivalent of inverting a binary tree. Hence you should make sure that you are very familiar with the question.
+
+## Solution
+
+Given that there's a `wait` duration before the function can be invoked, we know that we will need a timer, and `setTimeout` is the first thing that comes to mind.
+
+We will also need to return a function which wraps around the callback function parameter. This function needs to do a few things:
+
+### 1. Debounce invocation
+
+* It invokes the callback function only after a delay of `wait`. This is performed using `setTimeout`. Since we might need to clear the timer if the debounced function is called again while there's a pending invocation, we need to retain a reference to a `timeoutID`, which is the returned value of `setTimeout`.
+* If the function is called again while there's a pending invocation, we should cancel existing timers and schedule a new timer for the delayed invocation with the full `wait` duration. We can cancel the timer via `clearTimeout(timeoutID)`.
+
+### 2. Calls the callback function with the right parameters
+
+Debounced functions are used like the original functions, so we should forward the value of `this` and function arguments when invoking the original callback functions.
+
+You may be tempted to use `func(...args)` but `this` will be lost if callback functions are invoked that way. Hence we have use `Function.prototype.apply()`/`Function.prototype.call()` which allows us to specify `this` as the first argument.
+
+* `func.apply(thisArg, args)`
+* `func.call(thisArg, ...args)`
+
+<MDXCodeBlock languages={{ jsx: debounceJs, tsx: debounceTs }} />
+
+## Edge cases
+
+The main pitfall in this question is invoking the callback function with the correct `this`, the value of `this` when the debounced function was called. Since the callback function will be invoked in a timeout, we need to ensure that the first argument to `func.apply()`/`func.call()` is the right value. There are two ways to achieve this:
+
+1. Use another variable to keep a reference to `this` and access `this` via that variable from within the `setTimeout` callback. This is the traditional way of preserving `this` before arrow functions existed.
+2. Use an arrow function to declare the `setTimeout` callback where the `this` value within it has lexical scope. The value of `this` within arrow functions is bound to the context in which the function is created, not to the environment in which the function is called.
+
+<MDXCodeBlock>
+  {debounceArrowFunction}
+</MDXCodeBlock>
+
+Also, we should not implement the returned function using an arrow function for reasons mentioned above. The `this` value of the returned function needs to be dynamically determined when executed.
+
+Read this [article](https://medium.com/@griffinmichl/implementing-debounce-in-javascript-eab51a12311e) for a more in-depth explanation.
+
+## Techniques
+
+* 使用 `setTimeout`
+* 闭包
+* `this` 的工作原理
+* 通过 `Function.prototype.apply()`/`Function.prototype.call()` 调用函数
+
+## 笔记
+
+`clearTimeout()` 是一个宽容的函数，将无效的 ID 传递给 `clearTimeout()` 会默默地什么也不做；不会抛出异常。因此，在使用 `clearTimeout()` 之前，我们不必检查 `timeoutID === null`。
+
+## 资源
+
+* [通过示例解释防抖和节流](https://css-tricks.com/debouncing-throttling-explained-examples/)
+* [在 JavaScript 中实现防抖](https://medium.com/@griffinmichl/implementing-debounce-in-javascript-eab51a12311e)
+* [clearTimeout() - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/clearTimeout)

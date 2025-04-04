@@ -19,7 +19,7 @@ arr['1'] === 20; // true
 
 <MDXCodeBlock languages={{ jsx: getJs, tsx: getTs }} />
 
-## Edge Cases
+## Edge cases
 
 - Bad path inputs like `get(obj, 'a.b..c')` and `get(obj, '')` are unresolved and the `defaultValue` should be returned.
 - The solution only works for simple objects. It doesn't work with objects with

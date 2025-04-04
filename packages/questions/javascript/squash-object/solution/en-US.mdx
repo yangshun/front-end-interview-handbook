@@ -5,7 +5,9 @@ import squashObjectTs from '../setup/src/squash-object.ts';
 
 This is a pretty tricky question, because not only do we need to traverse the object using recursion, but we also have to change the shape of the object, i.e. glueing all keys of a given path when we reach a primitive value. This also requires we keep track of the keys while traversing down the tree (the object).
 
-There are generally two ways we can explore an object:
+## Solution
+
+There are generally two ways we can traverse an object:
 
 1. Loop through the keys with the old school `for ... in` statement.
 1. Converting the object into an array of keys with `Object.keys()`, or an array of a key-value tuple with `Object.entries()`.
@@ -34,7 +36,7 @@ Here is the solution that defines an inner recursive helper function that accept
 
 If this still looks confusing to you, no worries because most people find recursion to be hard to follow and comprehend. The thinking involves holding in your head multiple levels of the call stack at the same time and it takes time and practice to get used to.
 
-## Alternative Solution
+### Alternative approach
 
 This question is interesting in the sense that it asks you to make a new object based on the current object with a different shape. In the previous solution, we achieved that by recursively passing down the `output` object and assigning the new key directly to the output `object` when the value is a primitive.
 
@@ -82,7 +84,7 @@ export default function squashObject(object) {
 }
 ```
 
-## Edge Cases
+## Edge cases
 
 - The input has to be an object, not a primitive value.
 - Symbol-keyed properties and non-enumerable properties are ignored.

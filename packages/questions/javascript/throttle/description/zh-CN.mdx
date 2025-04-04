@@ -1,0 +1,38 @@
+---
+title: 节流
+excerpt: 实现一个函数，通过限制其在一段时间内可以执行的次数来控制函数的执行。
+---
+
+节流是一种用于控制我们允许函数在一段时间内执行次数的技术。当一个 JavaScript 函数被节流，且等待时间为 X 毫秒时，它最多只能每 X 毫秒被调用一次。回调函数会立即被调用，并且在剩余的 `wait` 持续时间内不能再次被调用。
+
+实现一个 `throttle` 函数，该函数接受一个回调函数和一个 `wait` 持续时间。调用 `throttle()` 会返回一个函数，该函数会按照上述行为对回调函数的调用进行节流。
+
+## 例子
+
+```js
+let i = 0;
+function increment() {
+  i++;
+}
+const throttledIncrement = throttle(increment, 100);
+
+// t = 0: 调用 throttledIncrement()。现在 i 是 1。
+throttledIncrement(); // i = 1
+
+// t = 50: 再次调用 throttledIncrement()。
+//  i 仍然是 1，因为 100ms 还没有过去。
+throttledIncrement(); // i = 1
+
+// t = 101: 再次调用 throttledIncrement()。现在 i 是 2。
+//  i 可以被增加，因为自 t = 0 以来已经超过了 100ms
+//  自上次调用 throttledIncrement() 以来。
+throttledIncrement(); // i = 2
+```
+
+## 后续
+
+* 带有取消和 leading/trailing 选项的节流。
+
+## 延伸阅读
+
+* [Lodash 文档中的节流](https://lodash.com/docs/4.17.15#throttle)

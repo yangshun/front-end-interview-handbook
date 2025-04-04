@@ -1,0 +1,47 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import uniqueArrayJs from '../setup/src/unique-array.js';
+import uniqueArrayTs from '../setup/src/unique-array.ts';
+import uniqueArrayQuadraticJs from '../setup/src/uniqueArrayQuadratic.js';
+import uniqueArrayQuadraticTs from '../setup/src/uniqueArrayQuadratic.ts';
+import uniqueArraySetJs from '../setup/src/uniqueArraySet.js';
+import uniqueArraySetTs from '../setup/src/uniqueArraySet.ts';
+
+这个问题很简单，预计在面试中用作热身问题。但是，这个问题中存在一些陷阱，我们将一一介绍。
+
+## 澄清问题
+
+*  我们如何比较非原始值（如数组和对象）的相等性？
+  *  为了本次面试的目的，我们可以使用 `===` 进行比较。Lodash 的 `uniq` 函数使用 [`SameValueZero`](https://262.ecma-international.org/7.0/#sec-samevaluezero)，它更加复杂。
+*  数组是否只包含相同类型的值？
+  *  我们不能这样假设。
+
+## 解决方案
+
+### 暴力破解方法
+
+我们可以使用一个新数组来存储 `result`。通过遍历输入数组，我们使用 `Array.prototype.includes()` 检查当前元素是否在 `result` 数组中，如果不存在，则将其添加到 `results` 数组中。
+
+但是，此解决方案是 O(n<sup>2</sup>)，因为 `Array.prototype.includes()` 是一个 O(n) 操作，并且我们对输入数组中的每个元素执行一次。
+
+<MDXCodeBlock languages={{ jsx: uniqueArrayQuadraticJs, tsx: uniqueArrayQuadraticTs }} />
+
+### 使用 `Set` 跟踪现有元素
+
+如上所示，`Array.prototype.includes()` 效率不高。我们可以使用正确的数据结构在 O(1) 时间内检查元素是否存在。`Set` 是实现此目的的完美数据结构。我们可以使用 `Set.prototype.has()` 在 O(1) 时间内查询元素是否存在，而不是使用 `Array.prototype.includes()`。该结构类似于上面的暴力破解方法。此解决方案的时间复杂度为 O(n)。
+
+<MDXCodeBlock languages={{ jsx: uniqueArraySetJs, tsx: uniqueArraySetTs }} />
+
+### 转换为 `Set` 然后返回
+
+最简单的单行答案是将数组转换为 `Set`，然后再转换回数组。如果你的面试官不允许你这样做，你可以使用前面的方法。此解决方案的时间复杂度也为 O(n)。
+
+<MDXCodeBlock languages={{ jsx: uniqueArrayJs, tsx: uniqueArrayTs }} />
+
+## 笔记
+
+*  `Object` 不能用作 `Set` 的替代品来跟踪已查看的值，因为对象键是字符串，并且将失去区分类型与其字符串化版本的能力（例如 `2` 与 `'2'` 和 `true` 与 `'true'`）。我们有一个测试来检查这一点。
+
+## 资源
+
+*  [Lodash `_.uniq`](https://lodash.com/docs/4.17.15#uniq)

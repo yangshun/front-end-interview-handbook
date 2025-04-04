@@ -12,7 +12,7 @@ Initialize a new array to store the mapped results. As we loop through the array
 
 <MDXCodeBlock languages={{ jsx: arrayMapJs, tsx: arrayMapTs }} />
 
-## Edge Cases
+## Edge cases
 
 - Passing the `index` and `array` to the map callback.
 - Calling the map callback with the correct `this` if `thisArg` is specified.
@@ -29,7 +29,7 @@ Mutating the array in the map callback is a bad idea and can cause unintended co
 
 The `thisArg` doesn't do anything if the callback is defined as an arrow function as arrow functions don't have their own bindings to `this`.
 
-## One-liner Solution
+## One-liner solution
 
 You can cheat the autograder by doing this:
 
@@ -37,7 +37,7 @@ You can cheat the autograder by doing this:
 Array.prototype.myMap = Array.prototype.map;
 ```
 
-## Spec Solution
+## Spec solution
 
 Here's a solution that is based off the [`Array.prototype.map` ECMAScript specification](https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.prototype.map).
 

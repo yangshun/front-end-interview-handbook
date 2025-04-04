@@ -1,0 +1,4712 @@
+[
+  {
+    "access": "premium",
+    "author": null,
+    "companies": [],
+    "created": 1658102400,
+    "difficulty": "easy",
+    "duration": 15,
+    "excerpt": "实现 Array.prototype.at() 方法",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/array-at",
+    "importance": "medium",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "array-at",
+    "subtitle": null,
+    "title": "Array.prototype.at",
+    "topics": []
+  },
+  {
+    "access": "premium",
+    "author": null,
+    "companies": [
+      "apple"
+    ],
+    "created": 1699574400,
+    "difficulty": "medium",
+    "duration": 15,
+    "excerpt": "实现 Array.prototype.concat() 方法",
+    "featured": true,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/array-concat",
+    "importance": "medium",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "array-filter",
+      "array-map",
+      "array-reduce"
+    ],
+    "slug": "array-concat",
+    "subtitle": null,
+    "title": "Array.prototype.concat",
+    "topics": []
+  },
+  {
+    "access": "premium",
+    "author": null,
+    "companies": [
+      "amazon",
+      "apple"
+    ],
+    "created": 1656201600,
+    "difficulty": "easy",
+    "duration": 15,
+    "excerpt": "实现 Array.prototype.filter() 方法",
+    "featured": true,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/array-filter",
+    "importance": "medium",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [
+      "array-map",
+      "array-reduce"
+    ],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "array-square",
+      "array-map",
+      "array-reduce"
+    ],
+    "slug": "array-filter",
+    "subtitle": null,
+    "title": "Array.prototype.filter",
+    "topics": []
+  },
+  {
+    "access": "premium",
+    "author": null,
+    "companies": [
+      "amazon",
+      "apple",
+      "bytedance"
+    ],
+    "created": 1652918400,
+    "difficulty": "easy",
+    "duration": 15,
+    "excerpt": "实现 Array.prototype.map() 方法",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/array-map",
+    "importance": "medium",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [
+      "contact-form",
+      "curry",
+      "deep-map",
+      "object-map"
+    ],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "array-square",
+      "array-filter",
+      "array-reduce"
+    ],
+    "slug": "array-map",
+    "subtitle": null,
+    "title": "Array.prototype.map",
+    "topics": []
+  },
+  {
+    "access": "standard",
+    "author": null,
+    "companies": [
+      "adobe",
+      "amazon",
+      "apple",
+      "sprinklr",
+      "bytedance"
+    ],
+    "created": 1652659200,
+    "difficulty": "easy",
+    "duration": 15,
+    "excerpt": "实现 Array.prototype.reduce() 方法",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/array-reduce",
+    "importance": "medium",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [
+      "array-filter",
+      "array-map"
+    ],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "array-square",
+      "array-map",
+      "array-filter"
+    ],
+    "slug": "array-reduce",
+    "subtitle": null,
+    "title": "Array.prototype.reduce",
+    "topics": []
+  },
+  {
+    "access": "premium",
+    "author": null,
+    "companies": [
+      "bytedance",
+      "linkedin",
+      "bytedance"
+    ],
+    "created": 1652832000,
+    "difficulty": "easy",
+    "duration": 10,
+    "excerpt": "实现一个自定义的 Array.prototype.square() 方法，该方法将数组中的值平方。",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/array-square",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "array-filter",
+      "array-map",
+      "array-reduce"
+    ],
+    "slug": "array-square",
+    "subtitle": null,
+    "title": "Array.prototype.square",
+    "topics": []
+  },
+  {
+    "access": "premium",
+    "author": null,
+    "companies": [
+      "airbnb"
+    ],
+    "created": 1699660800,
+    "difficulty": "hard",
+    "duration": 30,
+    "excerpt": "实现一个类似于 Backbone.Model 的类，该类允许存储属性/值并响应特定属性值的更改",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/backbone-model",
+    "importance": "medium",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "event-emitter",
+      "event-emitter-ii"
+    ],
+    "slug": "backbone-model",
+    "subtitle": null,
+    "title": "Backbone Model",
+    "topics": [
+      "oop"
+    ]
+  },
+  {
+    "access": "premium",
+    "author": "zhenghao",
+    "companies": [],
+    "created": 1656460800,
+    "difficulty": "medium",
+    "duration": 20,
+    "excerpt": "实现一个函数，将对象中的所有键转换为驼峰命名。",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/camel-case-keys",
+    "importance": "medium",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "deep-equal",
+      "squash-object"
+    ],
+    "slug": "camel-case-keys",
+    "subtitle": null,
+    "title": "驼峰命名转换",
+    "topics": [
+      "recursion"
+    ]
+  },
+  {
+    "access": "premium",
+    "author": null,
+    "companies": [],
+    "created": 1689552000,
+    "difficulty": "easy",
+    "duration": 10,
+    "excerpt": "实现一个类似于 setInterval 的函数，但返回一个用于取消间隔的函数",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/cancellable-interval",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "cancellable-timeout"
+    ],
+    "slug": "cancellable-interval",
+    "subtitle": null,
+    "title": "可取消的间隔",
+    "topics": [
+      "async"
+    ]
+  },
+  {
+    "access": "premium",
+    "author": null,
+    "companies": [],
+    "created": 1689552000,
+    "difficulty": "easy",
+    "duration": 10,
+    "excerpt": "实现一个类似于 setTimeout 的函数，但返回一个用于取消待处理回调的函数",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/cancellable-timeout",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "cancellable-interval"
+    ],
+    "slug": "cancellable-timeout",
+    "subtitle": null,
+    "title": "可取消的超时",
+    "topics": [
+      "async"
+    ]
+  },
+  {
+    "access": "premium",
+    "author": null,
+    "companies": [],
+    "created": 1682553600,
+    "difficulty": "easy",
+    "duration": 10,
+    "excerpt": "实现一个函数，该函数将元素数组拆分成指定大小的较小组。",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/chunk",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "get"
+    ],
+    "slug": "chunk",
+    "subtitle": null,
+    "title": "分块",
+    "topics": []
+  },
+  {
+    "access": "premium",
+    "author": null,
+    "companies": [],
+    "created": 1683331200,
+    "difficulty": "easy",
+    "duration": 5,
+    "excerpt": "实现一个函数，将一个数字限制在包含下限和上限的范围内",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/clamp",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "in-range"
+    ],
+    "slug": "clamp",
+    "subtitle": null,
+    "title": "Clamp",
+    "topics": []
+  },
+  {
+    "access": "free",
+    "author": null,
+    "companies": [],
+    "created": 1651449600,
+    "difficulty": "medium",
+    "duration": 20,
+    "excerpt": "实现一个有条件地将 CSS 类名连接在一起的函数",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/classnames",
+    "importance": "medium",
+    "languages": [
+      "css",
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "classnames",
+    "subtitle": null,
+    "title": "Classnames",
+    "topics": []
+  },
+  {
+    "access": "premium",
+    "author": null,
+    "companies": [],
+    "created": 1701302400,
+    "difficulty": "hard",
+    "duration": 25,
+    "excerpt": "实现一个有条件地将 CSS 类名连接在一起的函数，并处理去重和函数值",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/classnames-ii",
+    "importance": "medium",
+    "languages": [
+      "css",
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "classnames"
+    ],
+    "slug": "classnames-ii",
+    "subtitle": null,
+    "title": "Classnames II",
+    "topics": []
+  },
+  {
+    "access": "premium",
+    "author": null,
+    "companies": [],
+    "created": 1682553600,
+    "difficulty": "easy",
+    "duration": 10,
+    "excerpt": "实现一个函数，该函数创建一个数组，其中移除了所有假值",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/compact",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "get",
+      "chunk"
+    ],
+    "slug": "compact",
+    "subtitle": null,
+    "title": "Compact",
+    "topics": []
+  },
+  {
+    "access": "premium",
+    "author": null,
+    "companies": [],
+    "created": 1690761600,
+    "difficulty": "medium",
+    "duration": 20,
+    "excerpt": "实现一个函数，该函数返回一个对象，其中删除了所有假值",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/compact-ii",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "compact"
+    ],
+    "slug": "compact-ii",
+    "subtitle": null,
+    "title": "Compact II",
+    "topics": []
+  },
+  {
+    "access": "premium",
+    "author": null,
+    "companies": [],
+    "created": 1689552000,
+    "difficulty": "easy",
+    "duration": 15,
+    "excerpt": "实现一个函数，该函数将多个函数作为参数，并返回一个新函数，该函数以相反的顺序应用这些函数",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/compose",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [
+      "middlewares"
+    ],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "compose",
+    "subtitle": null,
+    "title": "Compose",
+    "topics": []
+  },
+  {
+    "access": "premium",
+    "author": null,
+    "companies": [],
+    "created": 1712102400,
+    "difficulty": "medium",
+    "duration": 20,
+    "excerpt": "实现一个函数，用于检查对象是否符合源对象",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/conforms-to",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "count-by"
+    ],
+    "slug": "conforms-to",
+    "subtitle": null,
+    "title": "符合条件",
+    "topics": []
+  },
+  {
+    "access": "standard",
+    "author": null,
+    "companies": [],
+    "created": 1690416000,
+    "difficulty": "medium",
+    "duration": 15,
+    "excerpt": "实现一个函数，该函数根据函数或属性名称计算值在数组中出现的次数。",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/count-by",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "group-by"
+    ],
+    "slug": "count-by",
+    "subtitle": null,
+    "title": "按…计数",
+    "topics": []
+  },
+  {
+    "access": "standard",
+    "author": "yangshun",
+    "companies": [
+      "intuit",
+      "amazon",
+      "qualcomm"
+    ],
+    "created": 1655510400,
+    "difficulty": "medium",
+    "duration": 15,
+    "excerpt": "实现一个函数，该函数将接受多个参数的函数转换为一个可以重复调用，每次只接受一个参数的函数。",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/curry",
+    "importance": "medium",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [
+      "curry-ii",
+      "flatten",
+      "promise-all"
+    ],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "function-bind"
+    ],
+    "slug": "curry",
+    "subtitle": null,
+    "title": "柯里化",
+    "topics": []
+  },
+  {
+    "access": "premium",
+    "author": "yangshun",
+    "companies": [
+      "qualcomm"
+    ],
+    "created": 1655510400,
+    "difficulty": "medium",
+    "duration": 20,
+    "excerpt": "实现一个函数，将接受多个参数的函数转换为可以重复调用任意数量参数的函数",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/curry-ii",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [
+      "curry-iii"
+    ],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "curry"
+    ],
+    "slug": "curry-ii",
+    "subtitle": null,
+    "title": "柯里化 II",
+    "topics": []
+  },
+  {
+    "access": "premium",
+    "author": "yangshun",
+    "companies": [
+      "qualcomm"
+    ],
+    "created": 1670630400,
+    "difficulty": "hard",
+    "duration": 20,
+    "excerpt": "实现一个函数，将接受可变参数的函数转换为可以重复调用任意数量参数的函数",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/curry-iii",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "curry",
+      "curry-ii"
+    ],
+    "slug": "curry-iii",
+    "subtitle": null,
+    "title": "柯里化 III",
+    "topics": []
+  },
+  {
+    "access": "standard",
+    "author": null,
+    "companies": [],
+    "created": 1699488000,
+    "difficulty": "easy",
+    "duration": 15,
+    "excerpt": "实现一个函数，该函数接受一个或多个值，并返回一个函数，该函数在每次调用时循环遍历这些值",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/cycle",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "cycle",
+    "subtitle": null,
+    "title": "循环",
+    "topics": [
+      "closure"
+    ]
+  },
+  {
+    "access": "standard",
+    "author": null,
+    "companies": [
+      "soundcloud",
+      "stripe"
+    ],
+    "created": 1690675200,
+    "difficulty": "medium",
+    "duration": 20,
+    "excerpt": "实现一个函数，用于合并来自同一用户的数据行",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/data-merging",
+    "importance": "high",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "unique-array",
+      "data-selection"
+    ],
+    "slug": "data-merging",
+    "subtitle": null,
+    "title": "数据合并",
+    "topics": []
+  },
+  {
+    "access": "premium",
+    "author": null,
+    "companies": [
+      "soundcloud",
+      "amazon",
+      "tiktok",
+      "stripe"
+    ],
+    "created": 1655596800,
+    "difficulty": "hard",
+    "duration": 30,
+    "excerpt": "实现一个函数来过滤与指定要求匹配的数据行",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/data-selection",
+    "importance": "high",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "unique-array"
+    ],
+    "slug": "data-selection",
+    "subtitle": null,
+    "title": "数据选择",
+    "topics": []
+  },
+  {
+    "access": "free",
+    "author": "yangshun",
+    "companies": [
+      "flipkart",
+      "google",
+      "lyft",
+      "walmart",
+      "yelp",
+      "tiktok",
+      "bytedance",
+      "microsoft",
+      "linkedin",
+      "uber",
+      "qualcomm"
+    ],
+    "created": 1649894400,
+    "difficulty": "medium",
+    "duration": 15,
+    "excerpt": "实现一个函数，通过延迟函数执行，直到其最后一次执行尝试后经过指定时间，来限制函数可以执行的次数。",
+    "featured": true,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/debounce",
+    "importance": "high",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [
+      "debounce-ii",
+      "holy-grail"
+    ],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "throttle"
+    ],
+    "slug": "debounce",
+    "subtitle": null,
+    "title": "防抖",
+    "topics": [
+      "async"
+    ]
+  },
+  {
+    "access": "premium",
+    "author": "yangshun",
+    "companies": [
+      "flipkart",
+      "google",
+      "lyft",
+      "walmart",
+      "yelp",
+      "microsoft",
+      "linkedin"
+    ],
+    "created": 1670630400,
+    "difficulty": "medium",
+    "duration": 20,
+    "excerpt": "实现一个带有取消方法以取消延迟调用和立即调用它们的 flush 方法的 debounce 函数",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/debounce-ii",
+    "importance": "high",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [
+      "throttle"
+    ],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "debounce",
+      "throttle"
+    ],
+    "slug": "debounce-ii",
+    "subtitle": null,
+    "title": "Debounce II",
+    "topics": [
+      "async"
+    ]
+  },
+  {
+    "access": "free",
+    "author": "zhenghao",
+    "companies": [
+      "bytedance",
+      "amazon",
+      "tiktok"
+    ],
+    "created": 1653091200,
+    "difficulty": "medium",
+    "duration": 25,
+    "excerpt": "实现一个对值进行深拷贝的函数",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/deep-clone",
+    "importance": "high",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [
+      "todo-list",
+      "deep-equal",
+      "deep-clone-ii"
+    ],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "deep-equal",
+      "deep-clone-ii"
+    ],
+    "slug": "deep-clone",
+    "subtitle": null,
+    "title": "深拷贝",
+    "topics": [
+      "recursion"
+    ]
+  },
+  {
+    "access": "premium",
+    "author": "zhenghao",
+    "companies": [
+      "bytedance"
+    ],
+    "created": 1653177600,
+    "difficulty": "hard",
+    "duration": 45,
+    "excerpt": "实现一个对值进行深拷贝的函数，但也要处理循环引用",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/deep-clone-ii",
+    "importance": "medium",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "deep-clone"
+    ],
+    "slug": "deep-clone-ii",
+    "subtitle": null,
+    "title": "深度克隆 II",
+    "topics": [
+      "recursion"
+    ]
+  },
+  {
+    "access": "standard",
+    "author": "zhenghao",
+    "companies": [
+      "google"
+    ],
+    "created": 1659916800,
+    "difficulty": "medium",
+    "duration": 25,
+    "excerpt": "实现一个确定两个值是否相等的函数",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/deep-equal",
+    "importance": "medium",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "deep-clone",
+      "deep-clone-ii"
+    ],
+    "slug": "deep-equal",
+    "subtitle": null,
+    "title": "深度相等",
+    "topics": [
+      "recursion"
+    ]
+  },
+  {
+    "access": "premium",
+    "author": null,
+    "companies": [],
+    "created": 1690761600,
+    "difficulty": "medium",
+    "duration": 25,
+    "excerpt": "实现一个递归转换值的函数",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/deep-map",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "array-map",
+      "object-map"
+    ],
+    "slug": "deep-map",
+    "subtitle": null,
+    "title": "深度映射",
+    "topics": [
+      "recursion"
+    ]
+  },
+  {
+    "access": "premium",
+    "author": null,
+    "companies": [],
+    "created": 1690848000,
+    "difficulty": "medium",
+    "duration": 30,
+    "excerpt": "实现一个将两个对象合并在一起的函数",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/deep-merge",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "deep-clone"
+    ],
+    "slug": "deep-merge",
+    "subtitle": null,
+    "title": "深度合并",
+    "topics": [
+      "recursion"
+    ]
+  },
+  {
+    "access": "standard",
+    "author": null,
+    "companies": [],
+    "created": 1690761600,
+    "difficulty": "medium",
+    "duration": 30,
+    "excerpt": "实现一个函数，该函数从对象中删除指定的键及其对应的值，包括嵌套对象或数组。",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/deep-omit",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "deep-map"
+    ],
+    "slug": "deep-omit",
+    "subtitle": null,
+    "title": "深度 Omit",
+    "topics": [
+      "recursion"
+    ]
+  },
+  {
+    "access": "premium",
+    "author": null,
+    "companies": [],
+    "created": 1682553600,
+    "difficulty": "easy",
+    "duration": 10,
+    "excerpt": "实现一个函数，该函数查找数组之间值的差异。",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/difference",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "get",
+      "compact",
+      "chunk"
+    ],
+    "slug": "difference",
+    "subtitle": null,
+    "title": "差异",
+    "topics": []
+  },
+  {
+    "access": "premium",
+    "author": null,
+    "companies": [],
+    "created": 1682553600,
+    "difficulty": "easy",
+    "duration": 10,
+    "excerpt": "实现一个函数，该函数从数组末尾排除元素，直到谓词返回 false",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/drop-right-while",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "drop-while"
+    ],
+    "slug": "drop-right-while",
+    "subtitle": null,
+    "title": "Drop Right While",
+    "topics": []
+  },
+  {
+    "access": "premium",
+    "author": null,
+    "companies": [],
+    "created": 1682553600,
+    "difficulty": "easy",
+    "duration": 10,
+    "excerpt": "实现一个函数，该函数从数组的开头排除元素，直到谓词返回 false",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/drop-while",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [
+      "drop-right-while"
+    ],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "drop-while",
+    "subtitle": null,
+    "title": "Drop While",
+    "topics": []
+  },
+  {
+    "access": "free",
+    "author": null,
+    "companies": [
+      "google",
+      "lyft",
+      "rippling",
+      "tiktok",
+      "bytedance",
+      "microsoft"
+    ],
+    "created": 1669420800,
+    "difficulty": "medium",
+    "duration": 20,
+    "excerpt": "实现一个可以订阅和发出事件的类，这些事件会触发附加的回调函数",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/event-emitter",
+    "importance": "medium",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [
+      "event-emitter-ii"
+    ],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "event-emitter-ii",
+      "jquery-class-manipulation"
+    ],
+    "slug": "event-emitter",
+    "subtitle": null,
+    "title": "事件发射器",
+    "topics": [
+      "oop"
+    ]
+  },
+  {
+    "access": "premium",
+    "author": null,
+    "companies": [
+      "google",
+      "lyft",
+      "tiktok",
+      "bytedance",
+      "microsoft"
+    ],
+    "created": 1669939200,
+    "difficulty": "medium",
+    "duration": 20,
+    "excerpt": "实现一个可以订阅和发出事件的类，这些事件会触发附加的回调函数。返回订阅对象，并且可以取消订阅。",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/event-emitter-ii",
+    "importance": "medium",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "event-emitter",
+      "jquery-class-manipulation",
+      "backbone-model"
+    ],
+    "slug": "event-emitter-ii",
+    "subtitle": null,
+    "title": "事件发射器 II",
+    "topics": [
+      "oop"
+    ]
+  },
+  {
+    "access": "premium",
+    "author": null,
+    "companies": [],
+    "created": 1682553600,
+    "difficulty": "easy",
+    "duration": 10,
+    "excerpt": "实现一个用指定值填充数组指定索引范围的函数",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/fill",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "fill",
+    "subtitle": null,
+    "title": "填充",
+    "topics": []
+  },
+  {
+    "access": "premium",
+    "author": null,
+    "companies": [],
+    "created": 1682726400,
+    "difficulty": "easy",
+    "duration": 10,
+    "excerpt": "实现一个函数，该函数返回数组中满足提供的测试函数的第一个元素的索引",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/find-index",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "find-last-index"
+    ],
+    "slug": "find-index",
+    "subtitle": null,
+    "title": "查找索引",
+    "topics": []
+  },
+  {
+    "access": "premium",
+    "author": null,
+    "companies": [],
+    "created": 1682726400,
+    "difficulty": "easy",
+    "duration": 10,
+    "excerpt": "实现一个函数，该函数返回数组中满足提供的测试函数的最后一个元素的索引",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/find-last-index",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "find-index"
+    ],
+    "slug": "find-last-index",
+    "subtitle": null,
+    "title": "查找最后一个索引",
+    "topics": []
+  },
+  {
+    "access": "free",
+    "author": "zhenghao",
+    "companies": [
+      "amazon",
+      "apple",
+      "lyft",
+      "meta",
+      "rippling",
+      "salesforce",
+      "google",
+      "roblox",
+      "bytedance",
+      "tiktok"
+    ],
+    "created": 1649894400,
+    "difficulty": "medium",
+    "duration": 20,
+    "excerpt": "实现一个函数，该函数将数组递归地扁平化为单层深度。",
+    "featured": true,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/flatten",
+    "importance": "high",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [
+      "todo-list",
+      "holy-grail",
+      "deep-equal"
+    ],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "squash-object",
+      "get"
+    ],
+    "slug": "flatten",
+    "subtitle": null,
+    "title": "扁平化",
+    "topics": [
+      "recursion"
+    ]
+  },
+  {
+    "access": "premium",
+    "author": null,
+    "companies": [],
+    "created": 1687651200,
+    "difficulty": "easy",
+    "duration": 10,
+    "excerpt": "实现一个从键值对创建对象的函数",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/from-pairs",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "from-pairs",
+    "subtitle": null,
+    "title": "从键值对",
+    "topics": []
+  },
+  {
+    "access": "premium",
+    "author": null,
+    "companies": [],
+    "created": 1690329600,
+    "difficulty": "easy",
+    "duration": 10,
+    "excerpt": "实现 Function.prototype.apply() 函数，该函数使用给定的 `this` 值和作为数组的参数调用该函数",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/function-apply",
+    "importance": "medium",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "function-bind",
+      "function-call"
+    ],
+    "slug": "function-apply",
+    "subtitle": null,
+    "title": "Function.prototype.apply",
+    "topics": []
+  },
+  {
+    "access": "premium",
+    "author": "zhenghao",
+    "companies": [
+      "amazon",
+      "rippling",
+      "atlassian",
+      "tiktok",
+      "bytedance"
+    ],
+    "created": 1656201600,
+    "difficulty": "easy",
+    "duration": 15,
+    "excerpt": "实现 Function.prototype.bind() 函数，该函数创建一个新函数，并将 `this` 关键字设置为提供的值",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/function-bind",
+    "importance": "medium",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [
+      "curry"
+    ],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "function-call",
+      "function-apply"
+    ],
+    "slug": "function-bind",
+    "subtitle": null,
+    "title": "Function.prototype.bind",
+    "topics": []
+  },
+  {
+    "access": "standard",
+    "author": null,
+    "companies": [],
+    "created": 1690329600,
+    "difficulty": "easy",
+    "duration": 10,
+    "excerpt": "实现 Function.prototype.call() 函数，该函数使用给定的 `this` 值和提供的参数调用该函数",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/function-call",
+    "importance": "medium",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "function-bind",
+      "function-apply"
+    ],
+    "slug": "function-call",
+    "subtitle": null,
+    "title": "Function.prototype.call",
+    "topics": []
+  },
+  {
+    "access": "premium",
+    "author": null,
+    "companies": [],
+    "created": 1683331200,
+    "difficulty": "easy",
+    "duration": 5,
+    "excerpt": "实现一个函数，该函数返回函数期望的参数数量",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/function-length",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [
+      "curry"
+    ],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "number-of-arguments"
+    ],
+    "slug": "function-length",
+    "subtitle": null,
+    "title": "函数长度",
+    "topics": []
+  },
+  {
+    "access": "premium",
+    "author": "yangshun",
+    "companies": [
+      "tiktok",
+      "amazon",
+      "tiktok"
+    ],
+    "created": 1649894400,
+    "difficulty": "easy",
+    "duration": 10,
+    "excerpt": "实现一个函数，用于安全地访问 JavaScript 对象中深层嵌套的属性",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/get",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "squash-object"
+    ],
+    "slug": "get",
+    "subtitle": null,
+    "title": "获取",
+    "topics": [
+      "recursion"
+    ]
+  },
+  {
+    "access": "standard",
+    "author": "yangshun",
+    "companies": [
+      "dropbox",
+      "google",
+      "linkedin",
+      "amazon"
+    ],
+    "created": 1655337600,
+    "difficulty": "medium",
+    "duration": 25,
+    "excerpt": "实现一个函数，获取包含指定类的所有 DOM 元素",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/get-elements-by-class-name",
+    "importance": "medium",
+    "languages": [
+      "html",
+      "css",
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "get-elements-by-tag-name",
+      "get-elements-by-style"
+    ],
+    "slug": "get-elements-by-class-name",
+    "subtitle": null,
+    "title": "getElementsByClassName",
+    "topics": [
+      "web-api"
+    ]
+  },
+  {
+    "access": "standard",
+    "author": "yangshun",
+    "companies": [
+      "amazon"
+    ],
+    "created": 1723766400,
+    "difficulty": "medium",
+    "duration": 20,
+    "excerpt": "实现一个函数，以获取使用指定样式呈现的所有 DOM 元素",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/get-elements-by-style",
+    "importance": "medium",
+    "languages": [
+      "html",
+      "css",
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "get-elements-by-tag-name",
+      "get-elements-by-class-name"
+    ],
+    "slug": "get-elements-by-style",
+    "subtitle": null,
+    "title": "getElementsByStyle",
+    "topics": [
+      "web-api"
+    ]
+  },
+  {
+    "access": "premium",
+    "author": "yangshun",
+    "companies": [
+      "google",
+      "dropbox"
+    ],
+    "created": 1655251200,
+    "difficulty": "medium",
+    "duration": 20,
+    "excerpt": "实现一个函数，获取所有匹配标签的 DOM 元素",
+    "featured": true,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/get-elements-by-tag-name",
+    "importance": "low",
+    "languages": [
+      "html",
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "get-elements-by-class-name",
+      "get-elements-by-style"
+    ],
+    "slug": "get-elements-by-tag-name",
+    "subtitle": null,
+    "title": "getElementsByTagName",
+    "topics": [
+      "web-api"
+    ]
+  },
+  {
+    "access": "premium",
+    "author": "yangshun",
+    "companies": [
+      "dropbox"
+    ],
+    "created": 1723766400,
+    "difficulty": "hard",
+    "duration": 30,
+    "excerpt": "实现一个函数，获取所有匹配标签层级的 DOM 元素",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/get-elements-by-tag-name-hierarchy",
+    "importance": "low",
+    "languages": [
+      "html",
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "get-elements-by-class-name",
+      "get-elements-by-style",
+      "get-elements-by-tag-name"
+    ],
+    "slug": "get-elements-by-tag-name-hierarchy",
+    "subtitle": null,
+    "title": "getElementsByTagNameHierarchy",
+    "topics": [
+      "web-api"
+    ]
+  },
+  {
+    "access": "premium",
+    "author": null,
+    "companies": [
+      "linkedin"
+    ],
+    "created": 1690502400,
+    "difficulty": "medium",
+    "duration": 15,
+    "excerpt": "实现一个函数，该函数根据函数或属性名称对数组中的值进行分组",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/group-by",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "count-by"
+    ],
+    "slug": "group-by",
+    "subtitle": null,
+    "title": "分组",
+    "topics": []
+  },
+  {
+    "access": "standard",
+    "author": "zhenghao",
+    "companies": [
+      "tiktok"
+    ],
+    "created": 1654992000,
+    "difficulty": "medium",
+    "duration": 20,
+    "excerpt": "实现一个将对象序列化为带有缩进的 HTML 字符串的函数",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/html-serializer",
+    "importance": "low",
+    "languages": [
+      "html",
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "json-stringify"
+    ],
+    "slug": "html-serializer",
+    "subtitle": null,
+    "title": "HTML 序列化器",
+    "topics": [
+      "recursion"
+    ]
+  },
+  {
+    "access": "premium",
+    "author": "zhenghao",
+    "companies": [],
+    "created": 1649894400,
+    "difficulty": "medium",
+    "duration": 20,
+    "excerpt": "实现一个函数来确定两棵 DOM 树是否相同",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/identical-dom-trees",
+    "importance": "low",
+    "languages": [
+      "html",
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "deep-equal"
+    ],
+    "slug": "identical-dom-trees",
+    "subtitle": null,
+    "title": "相同的 DOM 树",
+    "topics": [
+      "recursion",
+      "tree",
+      "web-api"
+    ]
+  },
+  {
+    "access": "premium",
+    "author": null,
+    "companies": [],
+    "created": 1683331200,
+    "difficulty": "easy",
+    "duration": 10,
+    "excerpt": "实现一个函数来检查一个数字是否在两个数字之间",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/in-range",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "clamp"
+    ],
+    "slug": "in-range",
+    "subtitle": null,
+    "title": "在范围内",
+    "topics": []
+  },
+  {
+    "access": "premium",
+    "author": null,
+    "companies": [],
+    "created": 1687651200,
+    "difficulty": "easy",
+    "duration": 10,
+    "excerpt": "实现一个计算数组交集的函数，返回一个新数组，其中包含所有给定数组中存在的唯一值。",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/intersection",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [
+      "intersection-by",
+      "intersection-with"
+    ],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "intersection",
+    "subtitle": null,
+    "title": "交集",
+    "topics": []
+  },
+  {
+    "access": "premium",
+    "author": null,
+    "companies": [],
+    "created": 1687651200,
+    "difficulty": "medium",
+    "duration": 15,
+    "excerpt": "实现一个函数，该函数根据提供的迭代函数返回一个包含所有给定数组中包含的唯一值的数组。",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/intersection-by",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "intersection",
+      "intersection-with"
+    ],
+    "slug": "intersection-by",
+    "subtitle": null,
+    "title": "Intersection By",
+    "topics": []
+  },
+  {
+    "access": "premium",
+    "author": null,
+    "companies": [],
+    "created": 1687651200,
+    "difficulty": "medium",
+    "duration": 15,
+    "excerpt": "使用自定义比较器函数计算数组的交集，以确定元素之间的相等性",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/intersection-with",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "intersection",
+      "intersection-with"
+    ],
+    "slug": "intersection-with",
+    "subtitle": null,
+    "title": "交集运算",
+    "topics": []
+  },
+  {
+    "access": "premium",
+    "author": null,
+    "companies": [],
+    "created": 1683331200,
+    "difficulty": "medium",
+    "duration": 15,
+    "excerpt": "实现一个函数来检查一个值是否为空对象、集合、映射或集合",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/is-empty",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "is-empty",
+    "subtitle": null,
+    "title": "是否为空",
+    "topics": []
+  },
+  {
+    "access": "premium",
+    "author": "yangshun",
+    "companies": [],
+    "created": 1655510400,
+    "difficulty": "medium",
+    "duration": 20,
+    "excerpt": "实现一组类似 jQuery 的函数，用于操作 DOM 元素的类",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/jquery-class-manipulation",
+    "importance": "low",
+    "languages": [
+      "html",
+      "css",
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "jquery-css"
+    ],
+    "slug": "jquery-class-manipulation",
+    "subtitle": null,
+    "title": "jQuery 类操作",
+    "topics": [
+      "oop",
+      "web-api"
+    ]
+  },
+  {
+    "access": "premium",
+    "author": "yangshun",
+    "companies": [
+      "linkedin"
+    ],
+    "created": 1654992000,
+    "difficulty": "easy",
+    "duration": 15,
+    "excerpt": "实现一个类似 jQuery 的函数，用于设置 DOM 元素的样式",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/jquery-css",
+    "importance": "medium",
+    "languages": [
+      "html",
+      "css",
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "jquery-class-manipulation"
+    ],
+    "slug": "jquery-css",
+    "subtitle": null,
+    "title": "jQuery.css",
+    "topics": [
+      "oop",
+      "web-api"
+    ]
+  },
+  {
+    "access": "standard",
+    "author": null,
+    "companies": [
+      "snap",
+      "amazon",
+      "google"
+    ],
+    "created": 1653177600,
+    "difficulty": "medium",
+    "duration": 20,
+    "excerpt": "实现一个将 JavaScript 值转换为 JSON 字符串的函数",
+    "featured": true,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/json-stringify",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [
+      "json-stringify-ii"
+    ],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "html-serializer"
+    ],
+    "slug": "json-stringify",
+    "subtitle": null,
+    "title": "JSON.stringify",
+    "topics": [
+      "recursion"
+    ]
+  },
+  {
+    "access": "premium",
+    "author": "zhenghao",
+    "companies": [
+      "snap",
+      "amazon",
+      "google"
+    ],
+    "created": 1653177600,
+    "difficulty": "hard",
+    "duration": 45,
+    "excerpt": "实现一个将 JavaScript 值转换为 JSON 字符串的函数",
+    "featured": true,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/json-stringify-ii",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "html-serializer"
+    ],
+    "slug": "json-stringify-ii",
+    "subtitle": null,
+    "title": "JSON.stringify II",
+    "topics": [
+      "recursion"
+    ]
+  },
+  {
+    "access": "premium",
+    "author": "yangshun",
+    "companies": [],
+    "created": 1670803200,
+    "difficulty": "medium",
+    "duration": 15,
+    "excerpt": "实现一个接受回调函数并将其调用限制为最多 N 次的函数",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/limit",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "once"
+    ],
+    "slug": "limit",
+    "subtitle": null,
+    "title": "限制",
+    "topics": []
+  },
+  {
+    "access": "standard",
+    "author": "yangshun",
+    "companies": [
+      "dropbox"
+    ],
+    "created": 1652832000,
+    "difficulty": "medium",
+    "duration": 20,
+    "excerpt": "实现一个函数，将项目列表格式化为单个可读字符串",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/list-format",
+    "importance": "medium",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "list-format",
+    "subtitle": null,
+    "title": "列表格式",
+    "topics": []
+  },
+  {
+    "access": "standard",
+    "author": null,
+    "companies": [
+      "amazon"
+    ],
+    "created": 1683331200,
+    "difficulty": "easy",
+    "duration": 5,
+    "excerpt": "实现一个接受整数值的函数，并返回一个可以重复调用的函数，以返回递增的值",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/make-counter",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [
+      "make-counter-ii"
+    ],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "counter"
+    ],
+    "slug": "make-counter",
+    "subtitle": null,
+    "title": "制作计数器",
+    "topics": [
+      "closure"
+    ]
+  },
+  {
+    "access": "premium",
+    "author": null,
+    "companies": [
+      "amazon"
+    ],
+    "created": 1683331200,
+    "difficulty": "medium",
+    "duration": 10,
+    "excerpt": "实现一个函数，该函数返回一个计数器对象，该对象具有用于检索和操作值的各种方法",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/make-counter-ii",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [
+      "jquery-css"
+    ],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "make-counter",
+      "jquery-css"
+    ],
+    "slug": "make-counter-ii",
+    "subtitle": null,
+    "title": "创建计数器 II",
+    "topics": [
+      "closure"
+    ]
+  },
+  {
+    "access": "premium",
+    "author": null,
+    "companies": [
+      "google",
+      "lyft",
+      "uber",
+      "apple",
+      "tiktok",
+      "bytedance"
+    ],
+    "created": 1699401600,
+    "difficulty": "medium",
+    "duration": 20,
+    "excerpt": "实现一个函数，该函数使用异步映射函数映射一个项目数组",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/map-async",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [
+      "map-async-limit"
+    ],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "promise-all"
+    ],
+    "slug": "map-async",
+    "subtitle": null,
+    "title": "Map Async",
+    "topics": [
+      "async"
+    ]
+  },
+  {
+    "access": "standard",
+    "author": null,
+    "companies": [
+      "google",
+      "lyft",
+      "uber",
+      "apple",
+      "tiktok",
+      "bytedance"
+    ],
+    "created": 1699401600,
+    "difficulty": "medium",
+    "duration": 25,
+    "excerpt": "实现一个函数，该函数使用异步映射函数映射一个项目数组，同时不超过并发限制",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/map-async-limit",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [
+      "middlewares"
+    ],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "promise-all"
+    ],
+    "slug": "map-async-limit",
+    "subtitle": null,
+    "title": "Map Async Limit",
+    "topics": [
+      "async"
+    ]
+  },
+  {
+    "access": "premium",
+    "author": null,
+    "companies": [],
+    "created": 1710720000,
+    "difficulty": "easy",
+    "duration": 10,
+    "excerpt": "实现一个基于指定条件查找最大元素的函数",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/max-by",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "group-by",
+      "min-by"
+    ],
+    "slug": "max-by",
+    "subtitle": null,
+    "title": "最大值依据",
+    "topics": []
+  },
+  {
+    "access": "free",
+    "author": null,
+    "companies": [],
+    "created": 1710633600,
+    "difficulty": "easy",
+    "duration": 5,
+    "excerpt": "实现一个可以找到数组内数值均值的函数",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/mean",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [
+      "array-reduce"
+    ],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "mean",
+    "subtitle": null,
+    "title": "均值",
+    "topics": []
+  },
+  {
+    "access": "standard",
+    "author": null,
+    "companies": [
+      "intuit",
+      "linkedin",
+      "atlassian",
+      "uber"
+    ],
+    "created": 1690848000,
+    "difficulty": "medium",
+    "duration": 20,
+    "excerpt": "实现一个函数，该函数返回一个函数的记忆化版本，该函数接受单个参数",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/memoize",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [
+      "memoize-ii"
+    ],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "memoize",
+    "subtitle": null,
+    "title": "Memoize",
+    "topics": []
+  },
+  {
+    "access": "premium",
+    "author": null,
+    "companies": [
+      "linkedin"
+    ],
+    "created": 1690848000,
+    "difficulty": "medium",
+    "duration": 30,
+    "excerpt": "实现一个函数，该函数返回一个函数的 memoized 版本，该函数接受任意数量的参数",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/memoize-ii",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "memoize-ii",
+    "subtitle": null,
+    "title": "Memoize II",
+    "topics": []
+  },
+  {
+    "access": "standard",
+    "author": "yangshun",
+    "companies": [
+      "bytedance",
+      "tiktok"
+    ],
+    "created": 1743206400,
+    "difficulty": "medium",
+    "duration": 20,
+    "excerpt": "实现一个类似于 Koa.js 中间件函数的异步中间件函数组合。",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/middlewares",
+    "importance": "high",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "compose"
+    ],
+    "slug": "middlewares",
+    "subtitle": null,
+    "title": "中间件",
+    "topics": [
+      "recursion",
+      "async"
+    ]
+  },
+  {
+    "access": "standard",
+    "author": null,
+    "companies": [],
+    "created": 1710720000,
+    "difficulty": "easy",
+    "duration": 10,
+    "excerpt": "实现一个基于指定条件的查找最小元素的函数",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/min-by",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "group-by",
+      "max-by"
+    ],
+    "slug": "min-by",
+    "subtitle": null,
+    "title": "Min By",
+    "topics": []
+  },
+  {
+    "access": "premium",
+    "author": null,
+    "companies": [],
+    "created": 1683331200,
+    "difficulty": "easy",
+    "duration": 5,
+    "excerpt": "实现一个函数，该函数返回它被调用时所带的参数个数",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/number-of-arguments",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [
+      "classnames",
+      "curry"
+    ],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "function-length"
+    ],
+    "slug": "number-of-arguments",
+    "subtitle": null,
+    "title": "参数个数",
+    "topics": []
+  },
+  {
+    "access": "premium",
+    "author": null,
+    "companies": [],
+    "created": 1690761600,
+    "difficulty": "easy",
+    "duration": 10,
+    "excerpt": "实现一个函数来转换对象中的值",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/object-map",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [
+      "deep-map"
+    ],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "array-map"
+    ],
+    "slug": "object-map",
+    "subtitle": null,
+    "title": "对象映射",
+    "topics": []
+  },
+  {
+    "access": "premium",
+    "author": "yangshun",
+    "companies": [
+      "amazon"
+    ],
+    "created": 1670803200,
+    "difficulty": "easy",
+    "duration": 10,
+    "excerpt": "实现一个接受回调函数并将其调用限制为最多一次的函数",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/once",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [
+      "limit"
+    ],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "once",
+    "subtitle": null,
+    "title": "Once",
+    "topics": [
+      "closure"
+    ]
+  },
+  {
+    "access": "free",
+    "author": "yangshun",
+    "companies": [
+      "amazon",
+      "bytedance",
+      "google",
+      "lyft",
+      "tiktok",
+      "microsoft",
+      "qualcomm"
+    ],
+    "created": 1655337600,
+    "difficulty": "medium",
+    "duration": 20,
+    "excerpt": "实现 Promise.all() 函数，如果所有输入元素都已解决，则解析为结果数组，否则拒绝。",
+    "featured": true,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/promise-all",
+    "importance": "high",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [
+      "flatten",
+      "promise-any",
+      "todo-list"
+    ],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "promise-all-settled",
+      "promise-any",
+      "promise-race"
+    ],
+    "slug": "promise-all",
+    "subtitle": null,
+    "title": "Promise.all",
+    "topics": [
+      "async"
+    ]
+  },
+  {
+    "access": "premium",
+    "author": "yangshun",
+    "companies": [],
+    "created": 1655337600,
+    "difficulty": "medium",
+    "duration": 20,
+    "excerpt": "实现 Promise.allSettled() 函数，当所有输入元素都已解决或已拒绝时，该函数将解析为一个结果数组。",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/promise-all-settled",
+    "importance": "medium",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "promise-all",
+      "promise-any",
+      "promise-race"
+    ],
+    "slug": "promise-all-settled",
+    "subtitle": null,
+    "title": "Promise.allSettled",
+    "topics": [
+      "async"
+    ]
+  },
+  {
+    "access": "standard",
+    "author": "yangshun",
+    "companies": [],
+    "created": 1655596800,
+    "difficulty": "medium",
+    "duration": 20,
+    "excerpt": "实现 Promise.any() 函数，当任何一个输入元素被解决时，它就会被解决",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/promise-any",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "promise-all",
+      "promise-all-settled",
+      "promise-race"
+    ],
+    "slug": "promise-any",
+    "subtitle": null,
+    "title": "Promise.any",
+    "topics": [
+      "async"
+    ]
+  },
+  {
+    "access": "premium",
+    "author": null,
+    "companies": [],
+    "created": 1683331200,
+    "difficulty": "medium",
+    "duration": 15,
+    "excerpt": "实现一个函数，将两个 Promise 的结果合并成一个单一的值",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/promise-merge",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [
+      "promise-all"
+    ],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "promise-all",
+      "promise-all-settled"
+    ],
+    "slug": "promise-merge",
+    "subtitle": null,
+    "title": "Promise 合并",
+    "topics": [
+      "async"
+    ]
+  },
+  {
+    "access": "premium",
+    "author": "yangshun",
+    "companies": [
+      "google"
+    ],
+    "created": 1655596800,
+    "difficulty": "easy",
+    "duration": 15,
+    "excerpt": "实现 Promise.race() 函数，当任何一个输入元素被解决或拒绝时，它就会被解决或拒绝。",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/promise-race",
+    "importance": "medium",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "promise-all",
+      "promise-all-settled",
+      "promise-any"
+    ],
+    "slug": "promise-race",
+    "subtitle": null,
+    "title": "Promise.race",
+    "topics": [
+      "async"
+    ]
+  },
+  {
+    "access": "premium",
+    "author": null,
+    "companies": [
+      "google",
+      "bytedance"
+    ],
+    "created": 1690329600,
+    "difficulty": "easy",
+    "duration": 10,
+    "excerpt": "实现一个函数，返回一个被拒绝的 Promise 对象，并附带一个原因",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/promise-reject",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [
+      "promise-with-resolvers"
+    ],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "promise-resolve",
+      "promise-timeout"
+    ],
+    "slug": "promise-reject",
+    "subtitle": null,
+    "title": "Promise.reject",
+    "topics": [
+      "async"
+    ]
+  },
+  {
+    "access": "premium",
+    "author": null,
+    "companies": [
+      "google",
+      "bytedance"
+    ],
+    "created": 1690329600,
+    "difficulty": "medium",
+    "duration": 15,
+    "excerpt": "实现一个函数，将给定值解析为 Promise",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/promise-resolve",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [
+      "promise-with-resolvers"
+    ],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "promise-reject",
+      "promise-timeout"
+    ],
+    "slug": "promise-resolve",
+    "subtitle": null,
+    "title": "Promise.resolve",
+    "topics": [
+      "async"
+    ]
+  },
+  {
+    "access": "premium",
+    "author": null,
+    "companies": [],
+    "created": 1689552000,
+    "difficulty": "medium",
+    "duration": 15,
+    "excerpt": "实现一个函数，如果 promise 在超时期限内被 fulfilled，则解析该 promise，否则拒绝。",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/promise-timeout",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "promise-timeout",
+    "subtitle": null,
+    "title": "Promise 超时",
+    "topics": [
+      "async"
+    ]
+  },
+  {
+    "access": "premium",
+    "author": "yangshun",
+    "companies": [],
+    "created": 1723766400,
+    "difficulty": "medium",
+    "duration": 15,
+    "excerpt": "实现一个函数，该函数返回一个包含新的 `Promise` 对象和两个用于解决或拒绝它的函数的对象",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/promise-with-resolvers",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "promise-resolve",
+      "promise-reject"
+    ],
+    "slug": "promise-with-resolvers",
+    "subtitle": null,
+    "title": "Promise.withResolvers",
+    "topics": [
+      "async"
+    ]
+  },
+  {
+    "access": "standard",
+    "author": null,
+    "companies": [
+      "amazon",
+      "microsoft"
+    ],
+    "created": 1690070400,
+    "difficulty": "medium",
+    "duration": 15,
+    "excerpt": "实现一个函数，该函数接受一个遵循常见错误优先回调风格的函数，并返回一个返回 Promise 的版本",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/promisify",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [
+      "promisify-ii"
+    ],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "promisify",
+    "subtitle": null,
+    "title": "Promisify",
+    "topics": [
+      "async"
+    ]
+  },
+  {
+    "access": "premium",
+    "author": null,
+    "companies": [
+      "amazon"
+    ],
+    "created": 1690070400,
+    "difficulty": "medium",
+    "duration": 15,
+    "excerpt": "实现一个 promisify 函数，允许原始函数覆盖返回值",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/promisify-ii",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "promisify-ii",
+    "subtitle": null,
+    "title": "Promisify II",
+    "topics": [
+      "async"
+    ]
+  },
+  {
+    "access": "premium",
+    "author": null,
+    "companies": [],
+    "created": 1710633600,
+    "difficulty": "easy",
+    "duration": 10,
+    "excerpt": "实现一个函数，该函数以升序返回一系列数字",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/range",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [
+      "range-right"
+    ],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "in-range",
+      "range-right"
+    ],
+    "slug": "range",
+    "subtitle": null,
+    "title": "范围",
+    "topics": []
+  },
+  {
+    "access": "premium",
+    "author": null,
+    "companies": [],
+    "created": 1710633600,
+    "difficulty": "easy",
+    "duration": 10,
+    "excerpt": "实现一个按降序返回数字序列的函数",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/range-right",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [
+      "range"
+    ],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "in-range",
+      "range"
+    ],
+    "slug": "range-right",
+    "subtitle": null,
+    "title": "Range Right",
+    "topics": []
+  },
+  {
+    "access": "premium",
+    "author": null,
+    "companies": [],
+    "created": 1689552000,
+    "difficulty": "medium",
+    "duration": 20,
+    "excerpt": "实现一个创建可恢复 interval 对象的函数",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/resumable-interval",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "resumable-timeout"
+    ],
+    "slug": "resumable-interval",
+    "subtitle": null,
+    "title": "可恢复的 Interval",
+    "topics": [
+      "async",
+      "closure"
+    ]
+  },
+  {
+    "access": "premium",
+    "author": null,
+    "companies": [],
+    "created": 1699747200,
+    "difficulty": "easy",
+    "duration": 10,
+    "excerpt": "实现一个单例类，确保一个类只有一个实例，同时提供对该实例的全局访问点",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/singleton",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "singleton",
+    "subtitle": null,
+    "title": "单例模式",
+    "topics": []
+  },
+  {
+    "access": "premium",
+    "author": null,
+    "companies": [],
+    "created": 1690502400,
+    "difficulty": "easy",
+    "duration": 15,
+    "excerpt": "实现一个返回集合大小的函数",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/size",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "size",
+    "subtitle": null,
+    "title": "大小",
+    "topics": []
+  },
+  {
+    "access": "premium",
+    "author": null,
+    "companies": [],
+    "created": 1683331200,
+    "difficulty": "easy",
+    "duration": 5,
+    "excerpt": "实现一个在恢复执行之前暂停指定时长的函数",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/sleep",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "sleep",
+    "subtitle": null,
+    "title": "Sleep",
+    "topics": [
+      "async"
+    ]
+  },
+  {
+    "access": "standard",
+    "author": "zhenghao",
+    "companies": [],
+    "created": 1654992000,
+    "difficulty": "medium",
+    "duration": 20,
+    "excerpt": "实现一个函数，在将输入对象压扁成单层深度后，返回一个新对象",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/squash-object",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "flatten",
+      "get"
+    ],
+    "slug": "squash-object",
+    "subtitle": null,
+    "title": "Squash Object",
+    "topics": [
+      "recursion"
+    ]
+  },
+  {
+    "access": "premium",
+    "author": "yangshun",
+    "companies": [
+      "amazon"
+    ],
+    "created": 1655251200,
+    "difficulty": "easy",
+    "duration": 15,
+    "excerpt": "实现一个函数，该函数通过接受一个数字进行求和，并允许重复调用，传入更多数字，直到不传入任何数字为止。",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/sum",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "curry",
+      "curry-ii"
+    ],
+    "slug": "sum",
+    "subtitle": null,
+    "title": "求和",
+    "topics": [
+      "closure"
+    ]
+  },
+  {
+    "access": "premium",
+    "author": "yangshun",
+    "companies": [
+      "google"
+    ],
+    "created": 1649894400,
+    "difficulty": "hard",
+    "duration": 30,
+    "excerpt": "实现一个从 HTML 文档构建目录的函数",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/table-of-contents",
+    "importance": "medium",
+    "languages": [
+      "html",
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "table-of-contents",
+    "subtitle": null,
+    "title": "目录",
+    "topics": [
+      "recursion",
+      "tree",
+      "web-api"
+    ]
+  },
+  {
+    "access": "premium",
+    "author": "zhenghao",
+    "companies": [],
+    "created": 1656288000,
+    "difficulty": "medium",
+    "duration": 20,
+    "excerpt": "实现一个函数，如果搜索词出现在文本中，则突出显示该文本",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/text-search",
+    "importance": "medium",
+    "languages": [
+      "html",
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [
+      "flatten",
+      "promise-all",
+      "todo-list"
+    ],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "text-search-ii"
+    ],
+    "slug": "text-search",
+    "subtitle": null,
+    "title": "文本搜索",
+    "topics": []
+  },
+  {
+    "access": "premium",
+    "author": "zhenghao",
+    "companies": [],
+    "created": 1656288000,
+    "difficulty": "medium",
+    "duration": 25,
+    "excerpt": "实现一个函数，如果搜索词出现在文本中，则突出显示文本",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/text-search-ii",
+    "importance": "low",
+    "languages": [
+      "html",
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "text-search"
+    ],
+    "slug": "text-search-ii",
+    "subtitle": null,
+    "title": "文本搜索 II",
+    "topics": []
+  },
+  {
+    "access": "standard",
+    "author": "yangshun",
+    "companies": [
+      "google",
+      "tiktok",
+      "walmart",
+      "yelp",
+      "tiktok",
+      "atlassian",
+      "uber"
+    ],
+    "created": 1649894400,
+    "difficulty": "medium",
+    "duration": 15,
+    "excerpt": "实现一个函数，通过限制其在一段时间内可以执行的次数来控制函数的执行。",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/throttle",
+    "importance": "high",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "debounce"
+    ],
+    "slug": "throttle",
+    "subtitle": null,
+    "title": "节流",
+    "topics": [
+      "async"
+    ]
+  },
+  {
+    "access": "premium",
+    "author": null,
+    "companies": [],
+    "created": 1689638400,
+    "difficulty": "medium",
+    "duration": 15,
+    "excerpt": "实现一个在二维平面上移动海龟的 Turtle 类",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/turtle",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "turtle",
+    "subtitle": null,
+    "title": "海龟",
+    "topics": [
+      "oop"
+    ]
+  },
+  {
+    "access": "free",
+    "author": "yangshun",
+    "companies": [],
+    "created": 1649894400,
+    "difficulty": "easy",
+    "duration": 10,
+    "excerpt": "实现实用程序以确定 JavaScript 中的基本变量类型",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/type-utilities",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [
+      "type-utilities-ii"
+    ],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "type-utilities",
+    "subtitle": null,
+    "title": "类型实用程序",
+    "topics": []
+  },
+  {
+    "access": "standard",
+    "author": "yangshun",
+    "companies": [],
+    "created": 1649894400,
+    "difficulty": "easy",
+    "duration": 15,
+    "excerpt": "实现实用程序以确定 JavaScript 中非原始变量类型",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/type-utilities-ii",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [
+      "is-empty",
+      "deep-clone",
+      "deep-equal"
+    ],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "type-utilities"
+    ],
+    "slug": "type-utilities-ii",
+    "subtitle": null,
+    "title": "类型工具 II",
+    "topics": []
+  },
+  {
+    "access": "premium",
+    "author": null,
+    "companies": [],
+    "created": 1711929600,
+    "difficulty": "medium",
+    "duration": 15,
+    "excerpt": "实现一个函数，该函数从所有给定数组中创建一个按顺序排列的唯一值数组。",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/union-by",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [
+      "unique-array",
+      "union"
+    ],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "union-by",
+    "subtitle": null,
+    "title": "Union By",
+    "topics": []
+  },
+  {
+    "access": "premium",
+    "author": "yangshun",
+    "companies": [],
+    "created": 1655164800,
+    "difficulty": "easy",
+    "duration": 10,
+    "excerpt": "实现一个函数，从数组中删除所有重复的值",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/unique-array",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "data-selection"
+    ],
+    "slug": "unique-array",
+    "subtitle": null,
+    "title": "唯一数组",
+    "topics": []
+  },
+  {
+    "access": "free",
+    "author": "phillmont",
+    "companies": [],
+    "created": 1742169600,
+    "difficulty": "medium",
+    "duration": 15,
+    "excerpt": "实现一个管理项目数组的 Hook",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-array"
+      }
+    ],
+    "href": "/questions/javascript/use-array",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "use-map",
+      "use-set",
+      "use-object"
+    ],
+    "slug": "use-array",
+    "subtitle": null,
+    "title": "useArray",
+    "topics": [
+      "react-hooks"
+    ]
+  },
+  {
+    "access": "standard",
+    "author": "phillmont",
+    "companies": [],
+    "created": 1742169600,
+    "difficulty": "easy",
+    "duration": 10,
+    "excerpt": "实现一个管理布尔状态的 Hook，并提供额外的便捷实用方法",
+    "featured": true,
+    "format": "javascript",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-boolean"
+      }
+    ],
+    "href": "/questions/javascript/use-boolean",
+    "importance": "medium",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [
+      "use-boolean-ii",
+      "use-cycle",
+      "use-toggle"
+    ],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "use-counter"
+    ],
+    "slug": "use-boolean",
+    "subtitle": null,
+    "title": "useBoolean",
+    "topics": [
+      "react-hooks"
+    ]
+  },
+  {
+    "access": "premium",
+    "author": "phillmont",
+    "companies": [],
+    "created": 1742169600,
+    "difficulty": "easy",
+    "duration": 15,
+    "excerpt": "实现 useBoolean hook 的优化版本",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-boolean-ii"
+      }
+    ],
+    "href": "/questions/javascript/use-boolean-ii",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "use-cycle",
+      "use-toggle"
+    ],
+    "slug": "use-boolean-ii",
+    "subtitle": null,
+    "title": "useBoolean II",
+    "topics": [
+      "react-hooks"
+    ]
+  },
+  {
+    "access": "premium",
+    "author": "phillmont",
+    "companies": [],
+    "created": 1742169600,
+    "difficulty": "medium",
+    "duration": 15,
+    "excerpt": "实现一个基于当前窗口宽度返回当前断点名称的 Hook",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-breakpoint"
+      }
+    ],
+    "href": "/questions/javascript/use-breakpoint",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "use-media-query",
+      "use-window-size"
+    ],
+    "slug": "use-breakpoint",
+    "subtitle": null,
+    "title": "useBreakpoint",
+    "topics": [
+      "react-hooks"
+    ]
+  },
+  {
+    "access": "standard",
+    "author": "phillmont",
+    "companies": [],
+    "created": 1742169600,
+    "difficulty": "easy",
+    "duration": 15,
+    "excerpt": "实现一个处理文档任何位置的点击事件的 Hook",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-click-anywhere"
+      }
+    ],
+    "href": "/questions/javascript/use-click-anywhere",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [
+      "use-click-outside"
+    ],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "use-click-anywhere",
+    "subtitle": null,
+    "title": "useClickAnywhere",
+    "topics": [
+      "react-hooks"
+    ]
+  },
+  {
+    "access": "premium",
+    "author": "phillmont",
+    "companies": [],
+    "created": 1742169600,
+    "difficulty": "medium",
+    "duration": 15,
+    "excerpt": "实现一个检测指定元素外部点击的 Hook",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-click-outside"
+      }
+    ],
+    "href": "/questions/javascript/use-click-outside",
+    "importance": "medium",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "use-click-anywhere"
+    ],
+    "slug": "use-click-outside",
+    "subtitle": null,
+    "title": "useClickOutside",
+    "topics": [
+      "react-hooks"
+    ]
+  },
+  {
+    "access": "premium",
+    "author": "phillmont",
+    "companies": [],
+    "created": 1742169600,
+    "difficulty": "medium",
+    "duration": 15,
+    "excerpt": "实现一个管理倒计时的 Hook",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-countdown"
+      }
+    ],
+    "href": "/questions/javascript/use-countdown",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "use-interval",
+      "use-timeout"
+    ],
+    "slug": "use-countdown",
+    "subtitle": null,
+    "title": "useCountdown",
+    "topics": [
+      "react-hooks"
+    ]
+  },
+  {
+    "access": "free",
+    "author": "phillmont",
+    "companies": [],
+    "created": 1742169600,
+    "difficulty": "easy",
+    "duration": 10,
+    "excerpt": "实现一个管理计数器状态的 Hook，并提供一些额外的便捷实用方法",
+    "featured": true,
+    "format": "javascript",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-counter"
+      }
+    ],
+    "href": "/questions/javascript/use-counter",
+    "importance": "medium",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [
+      "use-counter-ii",
+      "use-cycle",
+      "use-array"
+    ],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "use-boolean"
+    ],
+    "slug": "use-counter",
+    "subtitle": null,
+    "title": "useCounter",
+    "topics": [
+      "react-hooks"
+    ]
+  },
+  {
+    "access": "free",
+    "author": "phillmont",
+    "companies": [],
+    "created": 1742169600,
+    "difficulty": "easy",
+    "duration": 15,
+    "excerpt": "实现 useCounter hook 的优化版本",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-counter-ii"
+      }
+    ],
+    "href": "/questions/javascript/use-counter-ii",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "use-counter-ii",
+    "subtitle": null,
+    "title": "useCounter II",
+    "topics": [
+      "react-hooks"
+    ]
+  },
+  {
+    "access": "standard",
+    "author": "phillmont",
+    "companies": [],
+    "created": 1742169600,
+    "difficulty": "easy",
+    "duration": 15,
+    "excerpt": "实现一个循环遍历一系列值的 hook",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-cycle"
+      }
+    ],
+    "href": "/questions/javascript/use-cycle",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "use-cycle",
+    "subtitle": null,
+    "title": "useCycle",
+    "topics": [
+      "react-hooks"
+    ]
+  },
+  {
+    "access": "standard",
+    "author": "phillmont",
+    "companies": [],
+    "created": 1742169600,
+    "difficulty": "medium",
+    "duration": 15,
+    "excerpt": "实现一个对值进行防抖的 Hook",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-debounce"
+      }
+    ],
+    "href": "/questions/javascript/use-debounce",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [
+      "use-throttle"
+    ],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "use-throttle"
+    ],
+    "slug": "use-debounce",
+    "subtitle": null,
+    "title": "useDebounce",
+    "topics": [
+      "react-hooks"
+    ]
+  },
+  {
+    "access": "premium",
+    "author": "phillmont",
+    "companies": [],
+    "created": 1742169600,
+    "difficulty": "easy",
+    "duration": 15,
+    "excerpt": "实现一个在状态为 null 或 undefined 时返回默认值的 hook",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-default"
+      }
+    ],
+    "href": "/questions/javascript/use-default",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "use-default",
+    "subtitle": null,
+    "title": "useDefault",
+    "topics": [
+      "react-hooks"
+    ]
+  },
+  {
+    "access": "premium",
+    "author": "phillmont",
+    "companies": [],
+    "created": 1742169600,
+    "difficulty": "easy",
+    "duration": 15,
+    "excerpt": "实现一个只运行一次 effect 的 hook",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-effect-once"
+      }
+    ],
+    "href": "/questions/javascript/use-effect-once",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "use-effect-once",
+    "subtitle": null,
+    "title": "useEffectOnce",
+    "topics": [
+      "react-hooks"
+    ]
+  },
+  {
+    "access": "premium",
+    "author": "phillmont",
+    "companies": [],
+    "created": 1742169600,
+    "difficulty": "medium",
+    "duration": 15,
+    "excerpt": "实现一个订阅浏览器事件的 Hook",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-event-listener"
+      }
+    ],
+    "href": "/questions/javascript/use-event-listener",
+    "importance": "medium",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "use-event-listener",
+    "subtitle": null,
+    "title": "useEventListener",
+    "topics": [
+      "react-hooks"
+    ]
+  },
+  {
+    "access": "premium",
+    "author": "phillmont",
+    "companies": [],
+    "created": 1742169600,
+    "difficulty": "easy",
+    "duration": 15,
+    "excerpt": "实现一个可以对元素进行程序化聚焦的 Hook",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-focus"
+      }
+    ],
+    "href": "/questions/javascript/use-focus",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "use-focus",
+    "subtitle": null,
+    "title": "useFocus",
+    "topics": [
+      "react-hooks"
+    ]
+  },
+  {
+    "access": "premium",
+    "author": "phillmont",
+    "companies": [],
+    "created": 1742169600,
+    "difficulty": "medium",
+    "duration": 15,
+    "excerpt": "实现一个跟踪元素是否被悬停的 Hook",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-hover"
+      }
+    ],
+    "href": "/questions/javascript/use-hover",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "use-hover",
+    "subtitle": null,
+    "title": "useHover",
+    "topics": [
+      "react-hooks"
+    ]
+  },
+  {
+    "access": "premium",
+    "author": "phillmont",
+    "companies": [],
+    "created": 1742169600,
+    "difficulty": "medium",
+    "duration": 20,
+    "excerpt": "实现一个检测用户不活动状态的 Hook",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-idle"
+      }
+    ],
+    "href": "/questions/javascript/use-idle",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "use-idle",
+    "subtitle": null,
+    "title": "useIdle",
+    "topics": [
+      "react-hooks"
+    ]
+  },
+  {
+    "access": "free",
+    "author": "phillmont",
+    "companies": [],
+    "created": 1742169600,
+    "difficulty": "medium",
+    "duration": 20,
+    "excerpt": "实现一个管理受控输入值并跟踪其脏和已触及状态的 hook",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-input-control"
+      }
+    ],
+    "href": "/questions/javascript/use-input-control",
+    "importance": "medium",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "use-input-control",
+    "subtitle": null,
+    "title": "useInputControl",
+    "topics": [
+      "react-hooks"
+    ]
+  },
+  {
+    "access": "premium",
+    "author": "phillmont",
+    "companies": [],
+    "created": 1742169600,
+    "difficulty": "medium",
+    "duration": 15,
+    "excerpt": "实现一个创建间隔的 hook，该间隔在指定的延迟后调用回调函数",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-interval"
+      }
+    ],
+    "href": "/questions/javascript/use-interval",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "use-countdown",
+      "use-timeout"
+    ],
+    "slug": "use-interval",
+    "subtitle": null,
+    "title": "useInterval",
+    "topics": [
+      "react-hooks"
+    ]
+  },
+  {
+    "access": "premium",
+    "author": "phillmont",
+    "companies": [],
+    "created": 1742169600,
+    "difficulty": "medium",
+    "duration": 15,
+    "excerpt": "实现一个订阅键盘事件的 Hook",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-key-press"
+      }
+    ],
+    "href": "/questions/javascript/use-key-press",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "use-event-listener"
+    ],
+    "slug": "use-key-press",
+    "subtitle": null,
+    "title": "useKeyPress",
+    "topics": [
+      "react-hooks"
+    ]
+  },
+  {
+    "access": "premium",
+    "author": "phillmont",
+    "companies": [],
+    "created": 1742169600,
+    "difficulty": "medium",
+    "duration": 15,
+    "excerpt": "实现一个管理 JavaScript map 的 Hook",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-map"
+      }
+    ],
+    "href": "/questions/javascript/use-map",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "use-array",
+      "use-set",
+      "use-object"
+    ],
+    "slug": "use-map",
+    "subtitle": null,
+    "title": "useMap",
+    "topics": [
+      "react-hooks"
+    ]
+  },
+  {
+    "access": "free",
+    "author": "phillmont",
+    "companies": [],
+    "created": 1742169600,
+    "difficulty": "medium",
+    "duration": 20,
+    "excerpt": "实现一个订阅并响应媒体查询变化的 Hook（例如屏幕大小、分辨率、方向等）",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-media-query"
+      }
+    ],
+    "href": "/questions/javascript/use-media-query",
+    "importance": "medium",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "use-breakpoint",
+      "use-window-size"
+    ],
+    "slug": "use-media-query",
+    "subtitle": null,
+    "title": "useMediaQuery",
+    "topics": [
+      "react-hooks"
+    ]
+  },
+  {
+    "access": "standard",
+    "author": "phillmont",
+    "companies": [],
+    "created": 1742169600,
+    "difficulty": "medium",
+    "duration": 20,
+    "excerpt": "实现一个类似于 useState 的 hook，但支持一个中介过程",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-mediated-state"
+      }
+    ],
+    "href": "/questions/javascript/use-mediated-state",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "use-state-with-reset"
+    ],
+    "slug": "use-mediated-state",
+    "subtitle": null,
+    "title": "useMediatedState",
+    "topics": [
+      "react-hooks"
+    ]
+  },
+  {
+    "access": "premium",
+    "author": "phillmont",
+    "companies": [],
+    "created": 1742169600,
+    "difficulty": "medium",
+    "duration": 15,
+    "excerpt": "实现一个管理对象值的 Hook",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-object"
+      }
+    ],
+    "href": "/questions/javascript/use-object",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "use-array",
+      "use-set",
+      "use-map"
+    ],
+    "slug": "use-object",
+    "subtitle": null,
+    "title": "useObject",
+    "topics": [
+      "react-hooks"
+    ]
+  },
+  {
+    "access": "premium",
+    "author": "phillmont",
+    "companies": [],
+    "created": 1742169600,
+    "difficulty": "easy",
+    "duration": 15,
+    "excerpt": "实现一个返回状态前一个值的 Hook",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-previous"
+      }
+    ],
+    "href": "/questions/javascript/use-previous",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "use-previous",
+    "subtitle": null,
+    "title": "usePrevious",
+    "topics": [
+      "react-hooks"
+    ]
+  },
+  {
+    "access": "free",
+    "author": "phillmont",
+    "companies": [],
+    "created": 1742169600,
+    "difficulty": "medium",
+    "duration": 20,
+    "excerpt": "实现一个管理 promise 结果的 hook",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-query"
+      }
+    ],
+    "href": "/questions/javascript/use-query",
+    "importance": "high",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "use-query",
+    "subtitle": null,
+    "title": "useQuery",
+    "topics": [
+      "react-hooks"
+    ]
+  },
+  {
+    "access": "standard",
+    "author": "phillmont",
+    "companies": [],
+    "created": 1742169600,
+    "difficulty": "medium",
+    "duration": 15,
+    "excerpt": "实现一个管理 JavaScript Set 的 Hook",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-set"
+      }
+    ],
+    "href": "/questions/javascript/use-set",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "use-array",
+      "use-map",
+      "use-object"
+    ],
+    "slug": "use-set",
+    "subtitle": null,
+    "title": "useSet",
+    "topics": [
+      "react-hooks"
+    ]
+  },
+  {
+    "access": "premium",
+    "author": "phillmont",
+    "companies": [],
+    "created": 1742169600,
+    "difficulty": "easy",
+    "duration": 15,
+    "excerpt": "实现一个类似于 useState 的 hook，但它有一个额外的 reset 函数，可以将状态重置为其初始值",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-state-with-reset"
+      }
+    ],
+    "href": "/questions/javascript/use-state-with-reset",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "use-mediated-state"
+    ],
+    "slug": "use-state-with-reset",
+    "subtitle": null,
+    "title": "useStateWithReset",
+    "topics": [
+      "react-hooks"
+    ]
+  },
+  {
+    "access": "premium",
+    "author": "phillmont",
+    "companies": [],
+    "created": 1742169600,
+    "difficulty": "medium",
+    "duration": 15,
+    "excerpt": "实现一个管理多步骤流程的步骤计数器的 hook",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-step"
+      }
+    ],
+    "href": "/questions/javascript/use-step",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "use-step",
+    "subtitle": null,
+    "title": "useStep",
+    "topics": [
+      "react-hooks"
+    ]
+  },
+  {
+    "access": "premium",
+    "author": "phillmont",
+    "companies": [],
+    "created": 1742169600,
+    "difficulty": "medium",
+    "duration": 15,
+    "excerpt": "实现一个节流值的 Hook",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-throttle"
+      }
+    ],
+    "href": "/questions/javascript/use-throttle",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "use-debounce"
+    ],
+    "slug": "use-throttle",
+    "subtitle": null,
+    "title": "useThrottle",
+    "topics": [
+      "react-hooks"
+    ]
+  },
+  {
+    "access": "free",
+    "author": "phillmont",
+    "companies": [],
+    "created": 1742169600,
+    "difficulty": "medium",
+    "duration": 15,
+    "excerpt": "实现一个在指定延迟后调用回调函数的 Hook",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-timeout"
+      }
+    ],
+    "href": "/questions/javascript/use-timeout",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "use-countdown",
+      "use-interval"
+    ],
+    "slug": "use-timeout",
+    "subtitle": null,
+    "title": "useTimeout",
+    "topics": [
+      "react-hooks"
+    ]
+  },
+  {
+    "access": "premium",
+    "author": "phillmont",
+    "companies": [],
+    "created": 1742169600,
+    "difficulty": "easy",
+    "duration": 15,
+    "excerpt": "实现一个管理布尔切换状态的 Hook",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-toggle"
+      }
+    ],
+    "href": "/questions/javascript/use-toggle",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [
+      "use-cycle"
+    ],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "use-cycle"
+    ],
+    "slug": "use-toggle",
+    "subtitle": null,
+    "title": "useToggle",
+    "topics": [
+      "react-hooks"
+    ]
+  },
+  {
+    "access": "free",
+    "author": "phillmont",
+    "companies": [],
+    "created": 1742169600,
+    "difficulty": "medium",
+    "duration": 15,
+    "excerpt": "实现一个返回窗口当前高度和宽度的 Hook",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-window-size"
+      }
+    ],
+    "href": "/questions/javascript/use-window-size",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "use-media-query",
+      "use-breakpoint"
+    ],
+    "slug": "use-window-size",
+    "subtitle": null,
+    "title": "useWindowSize",
+    "topics": [
+      "react-hooks"
+    ]
+  }
+]

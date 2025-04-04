@@ -7,7 +7,7 @@ import chunkPushTs from '../setup/src/chunk-push.ts';
 
 ## Solution
 
-### Solution 1: Using `push()`
+### Approach 1: Using `push()`
 
 1. The `chunk` function takes two parameters: `array` (the input array to be chunked) and `size` (the desired size of each chunk).
 1. It performs the same initial checks to ensure `array` is a valid array and `size` is positive. If not, it returns an empty array `[]`.
@@ -20,7 +20,7 @@ import chunkPushTs from '../setup/src/chunk-push.ts';
 
 <MDXCodeBlock languages={{ jsx: chunkPushJs, tsx: chunkPushTs }} />
 
-### Solution 2: Using `slice()`
+### Approach 2: Using `slice()`
 
 A more elegant solution that is shorter and requires fewer variables is to extract out the exact slice of the elements from the array.
 

@@ -7,7 +7,7 @@ import makeCounterClassTs from '../setup/src/make-counter-ii-class.ts';
 
 ## Solution
 
-### Solution 1: Directly return an object
+### Approach 1: Directly return an object
 
 1. The `makeCounter` function accepts an optional parameter `initialValue`, which is set to 0 by default.
 1. Inside the `makeCounter` function, we declare a variable `count` and initialize it with the provided `initialValue`.
@@ -19,7 +19,7 @@ import makeCounterClassTs from '../setup/src/make-counter-ii-class.ts';
 
 <MDXCodeBlock languages={{ jsx: makeCounterJs, tsx: makeCounterTs }} />
 
-### Solution 2: Return a `Counter` class
+### Approach 2: Return a `Counter` class
 
 We can also create a separate `Counter` class that contains the 4 required methods. The `makeCounter` function will simply be a wrapper than returns an instance of `Counter` initialized with the `initialValue`. The main difference here is that we need to use instance variables to keep track of the current value and the `initialValue` since we cannot rely on closures.
 

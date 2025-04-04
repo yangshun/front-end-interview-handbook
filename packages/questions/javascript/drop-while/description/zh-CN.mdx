@@ -1,0 +1,28 @@
+---
+title: Drop While
+excerpt: 实现一个函数，该函数从数组的开头排除元素，直到谓词返回 false
+---
+
+实现一个函数 `dropWhile(array, predicate)`，该函数创建一个 `array` 的切片，排除从开头删除的元素。元素被删除，直到 `predicate` 返回 falsey。 您的函数不应修改原始数组。
+
+#### 参数
+
+1. `array` *(Array)*: 要查询的数组。
+2. `predicate` *(Function)*: 每次迭代调用的函数。该函数使用三个参数调用：*(value, index, array)*。
+
+#### 返回
+
+*(Array)*: 返回 `array` 的切片。
+
+## 例子
+
+```js
+dropWhile([1, 2, 3, 4, 5], (value) => value < 3); // => [3, 4, 5]
+dropWhile([1, 2, 3], (value) => value < 6); // => []
+```
+
+请注意，Lodash 的 `dropWhile` 实用程序还允许您传递一个可选的 `thisArg` 参数来绑定谓词函数中的 `this`，但对于此练习，您可以忽略该参数。
+
+## 资源
+
+* [Lodash `_.dropWhile`](https://lodash.com/docs/#dropWhile)

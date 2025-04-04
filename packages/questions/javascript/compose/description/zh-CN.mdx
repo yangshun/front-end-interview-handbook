@@ -1,0 +1,21 @@
+---
+title: Compose
+excerpt: 实现一个函数，该函数将多个函数作为参数，并返回一个新函数，该函数以相反的顺序应用这些函数
+---
+
+实现一个 `compose` 函数，该函数将多个函数作为参数，并返回一个新函数，该函数以相反的顺序应用这些函数。一个函数的输出成为下一个函数的输入，从而创建一个函数组合链。
+
+如果未向 `compose` 函数传递任何函数，则默认行为是返回一个新函数，该函数仅返回其接收的输入。换句话说，没有函数的 `compose` 的默认行为会产生一个简单的恒等函数。
+
+您可以假设所有函数都接受单个参数。
+
+## 示例
+
+```js
+const add1 = (num) => num + 1;
+const double = (num) => num * 2;
+const subtract10 = (num) => num - 10;
+
+const composedFn = compose(subtract10, double, add1);
+composedFn(3); // (3 + 1) * 2 - 10 => -2
+```

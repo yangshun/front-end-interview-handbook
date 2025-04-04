@@ -1,0 +1,22 @@
+---
+title: Promise.reject
+excerpt: 实现一个函数，返回一个被拒绝的 Promise 对象，并附带一个原因
+---
+
+> `Promise.reject()` 静态方法返回一个被给定原因拒绝的 `Promise` 对象。
+
+*来源：[Promise.reject() - JavaScript | MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise/reject)*
+
+与 `Promise.resolve()` 不同，`Promise.reject()` 总是将 `reason` 包装在一个新的 `Promise` 对象中，即使 `reason` 已经是 `Promise`。
+
+将 `Promise.reject()` 函数实现为 `promiseReject`。您可以忽略在已实现函数中引用 `this` 的情况。
+
+## 例子
+
+```js
+try {
+  promiseReject('Mayday!');
+} catch (err) {
+  console.log(err); // Mayday!
+}
+```

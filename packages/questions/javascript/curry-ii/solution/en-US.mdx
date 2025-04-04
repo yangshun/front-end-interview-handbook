@@ -7,7 +7,7 @@ import curryCall from '../setup/src/curry-ii-call';
 
 Currying is not commonly used in real-world development but is a moderately common question for interviews as it tests the candidate's understanding of certain JavaScript fundamentals like arity and closures.
 
-## Clarification Questions
+## Clarification questions
 
 - What value types will `curry` expect?
 - Should the function expect values of different types?
@@ -38,7 +38,7 @@ Since the innermost function is essentially meant for preserving the `this` scop
 
 <MDXCodeBlock>{curryBind}</MDXCodeBlock>
 
-## Edge Cases
+## Edge cases
 
 - Calling the function without any arguments should not have any effect, unless the function does not take in any arguments.
 - Functions which access `this`. Do test this case for curried functions that are meant to receive multiple arguments as well.

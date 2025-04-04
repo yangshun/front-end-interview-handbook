@@ -1,0 +1,50 @@
+---
+title: useArray
+excerpt: 实现一个管理项目数组的 Hook
+---
+
+实现一个 `useArray` Hook，它管理一个带有附加实用方法的项目数组。
+
+使用 `useArray` 比使用普通的 `useState` 更方便，因为在后一种情况下，你总是需要创建一个新数组，改变它，然后设置状态来使用新数组，这可能非常麻烦。
+
+该 Hook 应该可以通用地处理任何类型的数组。
+
+```jsx
+const defaultValue = ['apple', 'banana'];
+
+export default function Component() {
+  const { array, push, update, remove, filter, set, clear } = useArray();
+
+  return (
+    <div>
+      <p>Fruits: {array.join(', ')}</p>
+      <button onClick={() => push('orange')}>Add orange</button>
+      <button onClick={() => update(1, 'grape')}>
+        Change second item to grape
+      </button>
+      <button onClick={() => remove(0)}>Remove first</button>
+      <button onClick={() => filter((fruit) => fruit.includes('a'))}>
+        Keep fruits containing 'a'
+      </button>
+      <button onClick={() => set(defaultValue)}>Reset</button>
+      <button onClick={clear}>Clear list</button>
+    </div>
+  );
+}
+```
+
+## 参数
+
+* `defaultValue`: 项目的初始数组
+
+## 返回值
+
+该 Hook 返回一个具有以下属性的对象：
+
+* `array`: 当前的项目数组
+* `set: (newArray) => void`: 一个设置项目数组的函数。这必须与 `useState` 的 setter 函数的类型相同
+* `push: (item) => void`: 一个将项目添加到数组末尾的函数
+* `remove: (index: number) => void`: 一个通过 `index` 从数组中删除项目的函数
+* `filter: (predicate) => void`: 一个基于谓词函数过滤数组的函数。`predicate` 必须与 `Array.prototype.filter` 的参数类型相同
+* `update: (index: number, newItem) => void`: 一个替换数组中 `index` 处的项目的函数
+* `clear: () => void`: 一个清除数组的函数

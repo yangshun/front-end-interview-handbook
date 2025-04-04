@@ -1,0 +1,17 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import useQuery from '../setup/src/use-query';
+
+## 解决方案
+
+`useQuery` 钩子可以使用 `useEffect` 实现，以开始 promise 解析并相应地更新状态。
+
+这里的挑战在于意识到 promise 解析与 React 更新是异步的，因此当依赖项在待处理的 promise 解析之前发生更改时，存在竞争条件的可能性。
+
+为了防止这种情况，我们可以使用 `ignore` 标志来忽略 promise 解析（如果它不再相关，例如依赖项已更改，组件已被卸载）。`ignore` 在函数的闭包内初始化；每次 `useEffect` 运行时，该函数都有其自己的 `ignore` 实例变量，并且可以在 promise 解析时引用它，并且它必须决定是否使用结果。
+
+这种方法在 [React 文档中得到了很好的记录](https://react.dev/reference/react/useEffect#fetching-data-with-effects)。
+
+<MDXCodeBlock>
+  {useQuery}
+</MDXCodeBlock>

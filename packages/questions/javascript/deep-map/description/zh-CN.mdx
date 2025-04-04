@@ -1,0 +1,24 @@
+---
+title: 深度映射
+excerpt: 实现一个递归转换值的函数
+---
+
+实现一个函数 `deepMap(value, fn)`，返回一个新值，其中包含对 `value` 输入中每个非 `Array` 和非 `Object` 元素调用所提供函数的结果，包括嵌套的 `Array` 和 `Object` 中的元素。 函数 `fn` 使用单个参数调用，即正在映射/转换的元素。
+
+## 例子
+
+```js
+const double = (x) => x * 2;
+
+deepMap(2, double); // 4
+deepMap([1, 2, 3], double); // [4, 5, 6]
+deepMap({ a: 1, b: 2, c: 3 }, double); // { a: 2, b: 4, c: 6 }
+deepMap(
+  {
+    foo: 1,
+    bar: [2, 3, 4],
+    qux: { a: 5, b: 6 },
+  },
+  double,
+); // => { foo: 2, bar: [4, 6, 8], qux: { a: 10, b: 12 } }
+```

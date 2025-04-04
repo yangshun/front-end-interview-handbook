@@ -1,0 +1,26 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import promiseWithResolversJs from '../setup/src/promise-with-resolvers.js';
+import promiseWithResolversTs from '../setup/src/promise-with-resolvers.ts';
+
+## 解决方案
+
+在大多数情况下，`Promise.withResolvers()` 只是语法糖。 获得 `resolve` 和 `reject` 函数的唯一方法是 `Promise` 构造函数的参数。 因此，我们可以在创建 `Promise` 之前创建 `resolve` 和 `reject` 函数，然后从构造函数中公开它。
+
+`Promise` 构造函数参数同步运行，因此我们可以确保在 `return` 语句之前将 `resolve` 和 `reject` 变量分配给正确的值。
+
+<MDXCodeBlock languages={{ jsx: promiseWithResolversJs, tsx: promiseWithResolversTs }} />
+
+事实上，MDN 甚至提到 `Promise.withResolvers()` [完全等同于以下代码](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/withResolvers#description):
+
+```js
+let resolve, reject;
+const promise = new Promise((res, rej) => {
+  resolve = res;
+  reject = rej;
+});
+```
+
+## 资源
+
+* [Promise.withResolvers() - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/withResolvers)

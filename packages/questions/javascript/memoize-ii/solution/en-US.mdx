@@ -8,7 +8,7 @@ import memoizeTrie from '../setup/src/memoize-ii-trie';
 
 The key to solving this question is to use a cache that stores the results for an input argument. If a cache entry exists for the input argument, return the cached result. Otherwise, call the function as per normal, put the result into the cache with the input argument as the key so that subsequent calls to the function with the same parameter will be a cache hit and return the value directly without calling the original function.
 
-### Solution 1: `Map`-based cache and serialized arguments as cache key
+### Approach 1: `Map`-based cache and serialized arguments as cache key
 
 This question can be broken down into three parts:
 
@@ -38,13 +38,13 @@ Before invoking the original function `func`, the memoized function first checks
 
 <MDXCodeBlock languages={{ jsx: memoizeJs, tsx: memoizeTs }} />
 
-### Solution 2: Trie-based cache
+### Approach 2: Trie-based cache
 
 Instead of constructing a single string key out of the arguments, we can use individual argument item as nodes within a trie data structure. Here we implement a `Trie` and `TrieNode` class with the same relevant `set`, `has`, `get` APIs as `Map` and can just change the cache initialization step and have the rest of the code remain the same. The benefit of using a trie as the cache is lesser memory space needed, but lookup time complexity is around the same as the `JSON.stringify` version.
 
 <MDXCodeBlock>{memoizeTrie}</MDXCodeBlock>
 
-## Edge Cases
+## Edge cases
 
 - In practice, functions can take in arguments of varying types beyond strings and numbers, so the current `memoize` implementation wouldn't be sufficient for those cases.
 - While `this` can be accessed without issues, the results are memoized solely on the input arguments, the same memoized result is returned for the same input arguments even if the `this` value is different between calls.

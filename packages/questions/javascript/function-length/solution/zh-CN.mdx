@@ -1,0 +1,29 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import functionLengthJs from '../setup/src/function-length.js';
+import functionLengthTs from '../setup/src/function-length.ts';
+
+## Solution
+
+All function instances have a `length` property which indicates the number of parameters expected by the function.
+
+<MDXCodeBlock languages={{ jsx: functionLengthJs, tsx: functionLengthTs }} />
+
+## Notes
+
+The `length` property excludes the rest parameter and only includes parameters before the first one with a default value.
+
+```js
+function foo(a, b = 2) {}
+foo.length; // 1
+
+function bar(a = 1, b = 2) {}
+bar.length; // 0
+
+function baz(...args) {}
+baz.length; // 0
+```
+
+## Resources
+
+* [Function: length | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/length)

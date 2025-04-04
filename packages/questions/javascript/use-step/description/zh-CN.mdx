@@ -1,0 +1,45 @@
+---
+title: useStep
+excerpt: 实现一个管理多步骤流程的步骤计数器的 hook
+---
+
+实现一个 `useStep` hook，用于管理多步骤流程的步骤计数器。
+
+该 hook 应提供实用方法来转到下一步和上一步，并允许重置步骤计数器。 步骤号从 1 开始，最多增加到 `maxStep`。
+
+```jsx
+export default function Component() {
+  const { step, next, previous, reset, setStep, hasNext, hasPrevious } =
+    useStep(3);
+
+  return (
+    <div>
+      <p>Step {step}</p>
+      <button onClick={previous} disabled={!hasPrevious}>
+        Previous
+      </button>
+      <button onClick={next} disabled={!hasNext}>
+        Next
+      </button>
+      <button onClick={reset}>Reset</button>
+      <button onClick={() => setStep(3)}>Go to step 3</button>
+    </div>
+  );
+}
+```
+
+## 参数
+
+* `maxStep: number`: 最大步骤数，即最后一步
+
+## 返回值
+
+该 hook 返回一个具有以下属性/方法的对象：
+
+* `step`: 当前步骤数。它被初始化为 `1`
+* `next: () => void`: 一个递增步骤数的函数
+* `previous: () => void`: 一个递减步骤数的函数
+* `hasNext: boolean`: 一个指示是否存在下一步的布尔值
+* `hasPrevious: boolean`: 一个指示是否存在上一步的布尔值
+* `reset: () => void`: 一个将步骤数重置为 `1` 的函数
+* `setStep`: 一个将步骤数设置为特定步骤的函数。 这应该接受一个 `number` 和一个更新器函数 `(currentStep: number) => void`，类似于 `useState` 的 setter 函数接受的内容

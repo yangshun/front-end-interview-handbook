@@ -1,0 +1,36 @@
+---
+title: getElementsByStyle
+excerpt: 实现一个函数，以获取使用指定样式呈现的所有 DOM 元素
+---
+
+实现一个方法 `getElementsByStyle()`，该方法查找浏览器使用指定样式呈现的 DOM 元素。它类似于 [`Element.getElementsByClassName()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/getElementsByClassName)，但有一些区别：
+
+* 这是一个纯函数，它接受一个元素、一个属性字符串和一个值字符串，表示要在元素的后代上匹配的样式的属性/值对。例如 `getElementsByStyle(document.body, 'font-size', '12px')`。
+* 类似于 `Element.getElementsByClassName()`，仅搜索元素参数的后代，而不是元素本身。
+* 返回一个 `Element` 数组，而不是 `Element` 的 `HTMLCollection`。
+
+不要使用 `document.querySelectorAll()`，否则会使问题变得微不足道。在实际面试中，您将不允许使用它。
+
+## 示例
+
+```js
+const doc = new DOMParser().parseFromString(
+  `<div>
+    <span style="font-size: 12px">Span</span>
+    <p style="font-size: 12px">Paragraph</p>
+    <blockquote style="font-size: 14px">Blockquote</blockquote>
+  </div>`,
+  'text/html',
+);
+
+getElementsByStyle(doc.body, 'font-size', '12px');
+// [span, p] <-- 这是一个元素数组。
+```
+
+## 提示
+
+您可能会发现 [`Window.getComputedStyle()`](https://developer.mozilla.org/en-US/docs/Web/API/Window/getComputedStyle) 方法很有用。
+
+## 资源
+
+* [Window: getComputedStyle() method - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Window/getComputedStyle)

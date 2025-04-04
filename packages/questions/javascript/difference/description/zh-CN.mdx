@@ -1,0 +1,34 @@
+---
+title: 差异
+excerpt: 实现一个函数，该函数查找数组之间值的差异。
+---
+
+实现一个函数 `difference(array, values)`，该函数创建一个数组，其中包含不包含在其他给定数组中的 `array` 值，使用 [`SameValueZero`](http://ecma-international.org/ecma-262/7.0/#sec-samevaluezero) 进行相等性比较。 结果值的顺序和引用由第一个数组决定。
+
+## 参数
+
+1. `array` *(Array)*: 要检查的数组。
+2. `values` *(Array)*: 要排除的值。
+
+## 返回值
+
+*(Array)*: 返回过滤后的新值数组。
+
+## 例子
+
+```js
+difference([1, 2, 3], [2, 3]); // => [1]
+difference([1, 2, 3, 4], [2, 3, 1]); // => [4]
+difference([1, 2, 3], [2, 3, 1, 4]); // => []
+difference([1, , 3], [1]); // => [3]
+```
+
+如果 `values` 为空，则该函数应返回原始数组值。
+
+```js
+difference([1, 2, 3], []); // => [1, 2, 3]
+```
+
+## 资源
+
+* [Lodash `_.difference`](https://lodash.com/docs/#difference)

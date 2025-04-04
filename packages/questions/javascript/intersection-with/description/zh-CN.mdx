@@ -1,0 +1,49 @@
+---
+title: 交集运算
+excerpt: 使用自定义比较器函数计算数组的交集，以确定元素之间的相等性
+---
+
+`intersectionWith` 函数接受一个自定义的 `comparator` 函数和多个数组作为参数。它使用 `comparator` 函数比较数组的元素以确定相等性。该函数返回一个新数组，其中包含存在于所有给定数组中的元素。
+
+```ts
+intersectionWith(comparator, ...arrays);
+```
+
+## 参数
+
+1. `comparator` *(Function)*: 用于确定元素之间相等性的比较器函数。该函数将使用两个参数 `(arrVal, othVal)` 调用，表示要比较的两个元素。如果元素被认为是相等的，则应返回 `true`，否则返回 `false`。
+2. `arrays` *(...Array)*: 要检查的数组。
+
+## 返回值
+
+*(Array)*: 返回数组的交集。
+
+## 例子
+
+```js
+const arr1 = [
+  { x: 1, y: 2 },
+  { x: 2, y: 3 },
+];
+const arr2 = [
+  { y: 2, x: 1 },
+  { x: 3, y: 4 },
+];
+
+const result = intersectionWith(
+  (a, b) => a.x === b.x && a.y === b.y,
+  arr1,
+  arr2,
+); // => [{ x: 1, y: 2 }]
+```
+
+## 注意事项
+
+* 在 Lodash 中，`comparator` 是可选的，并且是最后一个参数，但在本问题中，为了简单起见，它是一个必需的参数。
+* 结果数组中元素的顺序由它们在第一个数组中出现的顺序决定。
+* 如果未提供任何数组，则该函数将返回一个空数组。
+* 如果任何数组为空，则该函数将返回一个空数组。
+
+## 资源
+
+* [Lodash `_.intersectionWith`](https://lodash.com/docs/#intersectionWith)

@@ -1,0 +1,18 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import typeUtilitiesJs from '../setup/src/type-utilities.js';
+import typeUtilitiesTs from '../setup/src/type-utilities.ts';
+
+## 解决方案
+
+实现这些实用函数本身不会成为一个完整的面试问题，但您可能需要实现其中一些实用函数，作为解决更复杂的面试问题的一部分。
+
+大多数函数只涉及一行，您甚至可能不需要为一行逻辑编写一个单独的函数。这里更重要的是要知道如何检查每种数据类型。
+
+同样重要的是要注意 `null` 和 `undefined` 之间的区别。`null == undefined` 为 `true`，因此如果目的是检查确切的 `null` 和 `undefined` 值，我们需要使用 `===`。
+
+<MDXCodeBlock languages={{ jsx: typeUtilitiesJs, tsx: typeUtilitiesTs }} />
+
+## 技术
+
+* 熟悉 JavaScript 类型。

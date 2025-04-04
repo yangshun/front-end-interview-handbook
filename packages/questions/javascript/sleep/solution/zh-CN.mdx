@@ -1,0 +1,83 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import sleepJs from '../setup/src/sleep.js';
+import sleepTs from '../setup/src/sleep.ts';
+
+## 解决方案
+
+### 方法 1：使用 `setTimeout` 的非阻塞方式
+
+1. sleep 函数接受一个 `duration` 参数，表示应暂停执行的毫秒数。
+2. 它返回一个 `Promise`，该 Promise 将在指定的 `duration` 之后解析。
+3. 在 `Promise` 构造函数中，使用 `setTimeout` 延迟 `resolve` 函数的执行，从而有效地暂停执行指定的时间。
+
+<MDXCodeBlock languages={{ jsx: sleepJs, tsx: sleepTs }} />
+
+### 方法 2：`sleep()` 的阻塞版本
+
+可以这样实现 `sleep` 的同步阻塞函数，其中 CPU 除了重复检查自函数开始运行以来 `duration` 是否已过之外，什么也不做。因此，它将暂停主线程上的所有执行，通常不希望这样做。
+
+```js
+function sleep(duration) {
+  let now = new Date().getTime();
+  while (new Date().getTime() < now + duration) {
+    // 什么也不做。
+  }
+  // 当 `duration` 自 `now` 以来已过时，继续。
+}
+```
+
+这里有一个例子来说明 `sleep` 的两个版本之间的区别：
+
+异步 `sleep`：
+
+```js
+async function greeting() {
+  console.log('Hello!');
+  await sleep(2000);
+  console.log('Bye.');
+}
+
+setInterval(() => {
+  console.log('Tick');
+}, 500);
+
+greeting();
+// t = 0: Hello!
+// t = 500: Tick
+// t = 1000: Tick
+// t = 1500: Tick
+// t = 2000: Tick
+// t = 2000: Bye.
+// t = 2500: Tick
+// t = 3000: Tick
+// ...
+```
+
+同步/阻塞 `sleep`：
+
+```js
+async function greeting() {
+  console.log('Hello!');
+  sleep(2000);
+  console.log('Bye.');
+}
+
+setInterval(() => {
+  console.log('Tick');
+}, 500);
+
+greeting();
+// t = 0: Hello!
+// t = 2000: Bye.
+// t = 2000: Tick
+// t = 2500: Tick
+// t = 3000: Tick
+// ...
+```
+
+请注意，在此示例中，仅打印第一个“Tick”，因为 `sleep()` 函数一直在执行（检查 `while` 条件的整个持续时间）。
+
+## 资源
+
+* [如何让 JavaScript 睡眠或等待](https://builtin.com/software-engineering-perspectives/javascript-sleep)

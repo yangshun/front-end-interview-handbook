@@ -1,0 +1,32 @@
+---
+title: Memoize
+excerpt: 实现一个函数，该函数返回一个函数的记忆化版本，该函数接受单个参数
+---
+
+记忆化函数是一个高阶函数，它接受一个函数并返回该函数的记忆化版本。记忆化函数缓存昂贵函数调用的结果，并在再次收到相同的输入时返回缓存的结果。这可以显著提高涉及复杂处理/显著延迟且反复使用相同参数调用的函数的性能。
+
+实现一个函数 `memoize(func)`，它接受一个函数参数 `func` 并返回该函数的记忆化版本。您可以假设 `func` 仅接受字符串或数字作为其唯一参数。
+
+## 例子
+
+```js
+function expensiveFunction(n) {
+  console.log('Computing...');
+  return n * 2;
+}
+
+// 创建该函数的记忆化版本。
+const memoizedExpensiveFunction = memoize(expensiveFunction);
+
+// 第一次调用（计算并缓存结果）。
+console.log(memoizedExpensiveFunction(5)); // 输出：Computing... 10
+
+// 第二次调用，使用相同的参数（返回缓存的结果）。
+console.log(memoizedExpensiveFunction(5)); // 输出：10
+
+// 第三次调用，使用不同的参数（计算并缓存新结果）。
+console.log(memoizedExpensiveFunction(10)); // 输出：Computing... 20
+
+// 第四次调用，使用与第三次调用相同的参数（返回缓存的结果）。
+console.log(memoizedExpensiveFunction(10)); // 输出：20
+```

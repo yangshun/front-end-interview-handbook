@@ -10,7 +10,7 @@ Remember to wrap the utility methods in `useCallback` to prevent unnecessary re-
 
 <MDXCodeBlock>{useMap}</MDXCodeBlock>
 
-## Edge Cases
+## Edge cases
 
 Since `Map`s are mutable, when defining the utility methods, ensure that whatever mutations that happened will cause the calling component to re-render. This ensures that the component is always in sync with the current state of the `Map`.
 

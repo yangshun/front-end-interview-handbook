@@ -1,0 +1,58 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import debounceJs from '../setup/src/debounce-ii.js';
+import debounceTs from '../setup/src/debounce-ii.ts';
+
+**注意：** 这是 [Debounce](/questions/javascript/debounce) 的高级版本，在尝试此问题之前，您应该先完成该问题。
+
+## 解决方案
+
+请注意，由于我们必须实现另外两种方法 `cancel` 和 `flush`，因此该函数现在变得更加复杂。这里也有重复的功能：
+
+| 流程 | 取消现有计时器 | 调用原始函数 |
+| --- | --- | --- |
+| 在 `wait` 结束之前调用防抖函数 | ✅ | ✅ |
+| `cancel()` | ✅ |  |
+| `flush()` | ✅ | ✅ |
+
+我们可以创建两个辅助函数：
+
+1. `invoke` 使用最新提供的参数调用原始函数。
+2. `clearTimer` 取消现有的计时器/超时。
+
+### `invoke`
+
+与第一个 Debounce 问题不同，回调可以通过 `flush()` 提前调用。一旦延迟的回调被 `flush()`，进一步的 `flush()` 不应该做任何事情。因此，我们需要跟踪是否存在要调用的现有待处理回调，我们可以使用 `timeoutId` 来执行此操作。如果 `timeoutId` 为 `null`，则没有待处理的回调。如果它是一个数字（从 `setTimeout` 返回的值），则有一个待处理的回调。
+
+因此，在继续调用之前，我们应该检查 `timeoutId == null`。我们还应该清除任何现有的计时器。
+
+由于 `invoke` 可以从两个地方调用（在延迟后的 `setTimeout` 中以及通过 `flush` 手动调用），我们需要通过创建两个新的函数级变量 `context` 和 `argsToInvoke` 来保存对原始函数所需的参数（`this` 和参数）的引用。当调用防抖函数时，它们会被写入，当调用 `invoke` 时，将使用它们的值，然后使用 `func.apply`/`func.call` 调用原始函数。
+
+### `clearTimer`
+
+`clearTimer` 的实现很简单，我们可以执行 `clearTimeout(timeoutId)` 并将 `timeoutId` 设置为 `null`。
+
+<MDXCodeBlock languages={{ jsx: debounceJs, tsx: debounceTs }} />
+
+## 边缘情况
+
+此问题的主要陷阱是以正确的 `this` 和参数调用回调函数。由于回调函数将由其他对象调用，因此 `this` 的值将会丢失。我们在 `setTimeout` 之外保留对 `this` 的引用（通过将其保存在名为 `context` 的函数级变量中），并将其作为第一个参数传递给 `func.apply()`/`func.call()`。对函数期望的参数也执行相同的操作。
+
+我们不应该使用箭头函数实现 `fn`，因为箭头函数中的 `this` 的值具有词法作用域，即它绑定到创建函数的上下文，而不是绑定到调用函数的环境。对于其他函数，我们使用函数声明还是箭头函数无关紧要。
+
+## 技术
+
+* 使用 `setTimeout`。
+* 闭包。
+* `this` 的工作原理。
+* 通过 `Function.prototype.apply()`/`Function.prototype.call()` 调用函数。
+
+## 注意事项
+
+`clearTimeout()` 是一个宽容的函数，将无效的 ID 传递给 `clearTimeout()` 会默默地什么也不做；不会抛出异常。因此，在使用 `clearTimeout()` 之前，我们不必检查 `timeoutID == null`。
+
+## 资源
+
+* [通过示例解释防抖和节流](https://css-tricks.com/debouncing-throttling-explained-examples/)
+* [在 JavaScript 中实现防抖](https://medium.com/@griffinmichl/implementing-debounce-in-javascript-eab51a12311e)
+* [clearTimeout() - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/clearTimeout)

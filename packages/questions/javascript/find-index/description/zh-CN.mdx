@@ -1,0 +1,62 @@
+---
+title: 查找索引
+excerpt: 实现一个函数，该函数返回数组中满足提供的测试函数的第一个元素的索引
+---
+
+实现一个函数 `findIndex(array, predicate, [fromIndex=0])`，它接受一个值数组、一个函数 `predicate` 和一个可选的 `fromIndex` 数字参数，并返回数组中满足提供的测试函数 `predicate` 的第一个元素的索引。
+
+```js
+findIndex(array, predicate, [(fromIndex = 0)]);
+```
+
+## 参数
+
+1. `array` *(Array)*: 要检查的数组。
+2. `predicate` *(Function)*: 每次迭代调用的函数。该函数使用三个参数调用：*(value, index, array)*。
+3. `[fromIndex=0]` *(number)*: 开始搜索的索引。
+
+## 返回值
+
+*(number)*: 返回找到的元素的索引，否则返回 `-1`。
+
+## 例子
+
+```js
+const arr = [1, 2, 3, 4, 5];
+
+// 搜索数组中第一个大于 3 的值。
+findIndex(arr, (num) => num > 3); // => 3
+
+// 从索引 4（包括）开始搜索。
+findIndex(arr, (num) => num > 3, 4); // => 4
+
+// 不存在这样的元素。
+findIndex(arr, (num) => num > 10, 3); // => -1
+```
+
+## 边缘情况
+
+您的函数应处理负索引和超出范围的索引。
+
+* 负数：负整数从数组的最后一个项目开始倒数。`-1` 表示数组中的最后一个元素，`-2` 表示倒数第二个元素，依此类推。
+* 超出范围：如果 `index < -array.length`，则从索引 0 开始搜索。
+
+```js
+const arr = [1, 2, 3, 4, 5];
+
+// 从索引 2（包括）开始搜索。
+findIndex(arr, (num) => num > 2, -3); // => 2
+
+findIndex(arr, (num) => num % 2 === 0, -3); // => 3
+
+// 如果 fromIndex < -(array.length)，则从 0 开始
+findIndex(arr, (num) => num > 2, -10); // => 2
+
+// 从已经超出范围的索引向右搜索，
+// 这将始终导致 -1。
+findIndex(arr, (num) => num > 2, 10); // => -1
+```
+
+## 资源
+
+* [Lodash `_.findIndex`](https://lodash.com/docs/#findIndex)

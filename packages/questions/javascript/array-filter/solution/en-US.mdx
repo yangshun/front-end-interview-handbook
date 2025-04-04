@@ -14,7 +14,7 @@ If the callback evaluates to `true`, push the element into the `results`.
 
 <MDXCodeBlock languages={{ jsx: filterJs, tsx: filterTs }} />
 
-## Edge Cases
+## Edge cases
 
 - Passing the `index` and `array` to the filter callback.
 - Invoking the filter callback with the correct `this` if `thisArg` is specified.
@@ -31,7 +31,7 @@ Mutating the array in the filter callback is a bad idea and can cause unintended
 
 The `thisArg` doesn't do anything if the callback is defined as an arrow function as arrow functions don't have their own bindings to `this`.
 
-## One-liner Solution
+## One-liner solution
 
 You can cheat the autograder by doing this:
 
@@ -39,7 +39,7 @@ You can cheat the autograder by doing this:
 Array.prototype.myFilter = Array.prototype.filter;
 ```
 
-## Spec Solution
+## Spec solution
 
 Here's a solution that is based off the [`Array.prototype.filter` ECMAScript specification](https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.prototype.filter).
 

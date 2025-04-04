@@ -1,0 +1,18 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import rangeJs from '../setup/src/range.js';
+import rangeTs from '../setup/src/range.ts';
+
+## 解决方案
+
+这是一个解决方案，它使用基本函数生成从 `start` 到（不包括）`end` 的序列范围，并以 `step` 作为增量。在 TypeScript 中，由于 `start` 和 `step` 是可选的，因此需要重载函数。
+
+<MDXCodeBlock languages={{ jsx: rangeJs, tsx: rangeTs }} />
+
+## 边缘情况
+
+为了处理未指定 `start` 和 `step` 但 `end` 为负数的情况，我们可以添加一个 if 语句来将 `step` 的值更改为 -1。
+
+## 资源
+
+* [Lodash `_.range`](https://lodash.com/docs/#range)

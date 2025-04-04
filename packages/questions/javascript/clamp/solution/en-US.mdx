@@ -9,19 +9,19 @@ import clampAltTs from '../setup/src/clamp-alt.ts';
 
 Solutions will involve checking the passed in `value` whether it is smaller than the `lower` and bigger than the `upper` and returns the right number accordingly.
 
-### Solution 1: Sequential bound checks
+### Approach 1: Sequential bound checks
 
 We can first check if `value` is lower than `lower`. If so, the value is out of range and we can return the lower bound. Next check if `value` is higher than `upper`. If so, the value is out of range and we can return the upper bound. If none of the previous checks were true, then we can return the original `value`, which is within the specified range.
 
 <MDXCodeBlock languages={{ jsx: clampJs, tsx: clampTs }} />
 
-### Solution 2: Using `Math.max` / `Math.min`
+### Approach 2: Using `Math.max` / `Math.min`
 
 The previous solution can be succinctly expressed in a line using `Math.max()` and `Math.min()`.
 
 <MDXCodeBlock languages={{ jsx: clampAltJs, tsx: clampAltTs }} />
 
-## Edge Cases
+## Edge cases
 
 - `upper` is smaller than `lower`. We can assume we aren't given this case.
 

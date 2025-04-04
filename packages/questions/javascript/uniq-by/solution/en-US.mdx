@@ -7,7 +7,7 @@ import uniqBySetTs from '../setup/src/uniqBySet.ts';
 
 ## Solution
 
-### Solution 1: Using array to store unique key values
+### Approach 1: Using array to store unique key values
 
 1. Create an empty `compare` array to store the unique keys.
 1. Iterate through `array` and determine the key for each element by calling `iteratee(element)`. If the key does not exist within `compare`, insert the key into `compare`. Next, append the element into `result`.
@@ -19,13 +19,13 @@ Two variables are used:
 
 <MDXCodeBlock languages={{ jsx: uniqByJs, tsx: uniqByTs }} />
 
-### Solution 2: Using Set instead of array for `compare`
+### Approach 2: Using Set instead of array for `compare`
 
 Alternatively, we can use a `Set` to replace the `compare` array to check for unique elements. A `Set` can help in tracking uniqueness which ensures faster lookups (constant time complexity) for large datasets, making it more efficient than the previous code which uses an array (`compare.includes`) for tracking, resulting in slower (linear time complexity) lookups as the dataset grows.
 
 <MDXCodeBlock languages={{ jsx: uniqBySetJs, tsx: uniqBySetTs }} />
 
-## Edge Cases
+## Edge cases
 
 To handle mixed data types, the `iteratee` function must be able to process them by either converting the elements to a common type or process them separately.
 

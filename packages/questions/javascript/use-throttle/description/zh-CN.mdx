@@ -1,0 +1,33 @@
+---
+title: useThrottle
+excerpt: 实现一个节流值的 Hook
+---
+
+实现一个 `useThrottle` Hook，该 Hook 将延迟 `value` 状态更新，使其最多每 `interval` 毫秒更新一次。
+
+```jsx
+export default function Component() {
+  const [position, setPosition] = useState([0, 0]);
+  const throttledPosition = useThrottle(position, 1000);
+
+  return (
+    <div
+      style={{
+        position: 'fixed',
+        top: throttledPosition[0],
+        left: throttledPosition[1],
+      }}
+      onMouseMove={(e) => setPosition([e.clientY, e.clientX])}
+    />
+  );
+}
+```
+
+## 参数
+
+1. `value`：要节流的值
+2. `interval: number`：以毫秒为单位的间隔。默认为 500 毫秒
+
+## 返回值
+
+该 Hook 返回节流后的值。

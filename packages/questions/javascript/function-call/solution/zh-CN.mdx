@@ -1,0 +1,50 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import functionCallJs from '../setup/src/function-call.js';
+import functionCallTs from '../setup/src/function-call.ts';
+import functionCallAlt from '../setup/src/function-call-alt';
+import functionCallApply from '../setup/src/function-call-apply';
+import functionCallSymbol from '../setup/src/function-call-symbol';
+
+ `Function.prototype.call()`  函数是 JavaScript 中的一个内置方法，它允许您使用指定的 this 值和一组单独传递的参数（不是像  `Function.prototype.apply`  那样作为数组传递）来调用函数。它允许您显式定义将执行函数的上下文（ `this`  值）。
+
+## 解决方案
+
+### 方法 1：使用 `bind`
+
+ `bind` 、 `apply` 和 `call` 可以被视为同级函数。它们在函数签名和用法方面非常相似。在  `Function.prototype`  方法中，  `this`  指的是  `Function`  对象本身。如果根本不使用  `this`  上下文，则以下内容将起作用：
+
+```js
+Function.prototype.myCall = function (thisArg, ...argArray) {
+  return this(...argArray);
+};
+```
+
+但是，  `thisArg`  在现代代码中仍然被广泛使用，因此我们需要另一种方法来做到这一点。  `Function.prototype.bind`  创建一个具有指定  `this`  值和初始参数的新函数，而无需立即执行原始函数。它允许您将特定的上下文（ `this`  值）永久绑定到该函数，并在需要时部分应用参数。这正是我们需要弥合上述解决方案中的差距的地方。
+
+<MDXCodeBlock languages={{ jsx: functionCallJs, tsx: functionCallTs }} />
+
+或者您也可以在执行  `bind()`  之前将  `argArray`  传递给它。
+
+<MDXCodeBlock>
+  {functionCallAlt}
+</MDXCodeBlock>
+
+### 方法 2：使用 `apply`
+
+ `Function.prototype.call`  和  `Function.prototype.apply`  非常相似。这里有一个简单的方法来记住每个函数的签名：
+
+*  `Function.prototype.call`  接受逗号分隔的参数列表。
+*  `Function.prototype.apply`  接受一个参数数组。
+
+<MDXCodeBlock>
+  {functionCallApply}
+</MDXCodeBlock>
+
+### 方法 3：使用 `Symbol`
+
+另一种方法是创建一个  `Symbol`  并将其作为属性添加到新创建的  `Object`  中，并将  `thisArg`  绑定到它。这与  [`Function.prototype.bind`](/questions/javascript/function-bind)  问题的解决方案之一非常相似。
+
+<MDXCodeBlock>
+  {functionCallSymbol}
+</MDXCodeBlock>

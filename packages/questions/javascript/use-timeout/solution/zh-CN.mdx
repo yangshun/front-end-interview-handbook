@@ -1,0 +1,13 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import useTimeout from '../setup/src/use-timeout';
+
+## 解决方案
+
+`useTimeout` 钩子可以使用 `useEffect` 实现，以使用 `setTimeout` 创建一个持续 `delay` 毫秒的超时。当组件卸载或 `delay` 为 `null` 时，超时将被清除。
+
+`callback` 使用 `useRef` 存储，以便待处理的计时器可以引用最新的回调。
+
+<MDXCodeBlock>
+  {useTimeout}
+</MDXCodeBlock>

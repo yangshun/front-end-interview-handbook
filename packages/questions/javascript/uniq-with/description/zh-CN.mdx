@@ -1,0 +1,39 @@
+---
+title: Unique With
+excerpt: 实现一个函数，根据特定的比较标准从数组中删除所有重复值
+---
+
+实现一个函数 `uniqWith`，它接受一个数组并返回该数组的无重复版本，其中只保留第一个与 `comparator` 相互比较的每个元素。结果值的顺序由它们在数组中出现的顺序决定。
+
+```js
+uniqWith(array, iteratee);
+```
+
+## 参数
+
+1. `array` *(Array)*: 要迭代的数组。
+2. `comparator` *(Function)*: 每次元素调用的比较器。该函数使用两个参数调用。
+
+## 返回值
+
+*`(Array)`*: 返回唯一数组。
+
+## 例子
+
+```js
+uniqWith([2.1, 1.2, 2.3], (a, b) => Math.floor(a) === Math.floor(b)); // => [2.1, 1.2]
+
+uniqWith([{ x: 1 }, { x: 2 }, { x: 1 }], (a, b) => a.x === b.x); // => [{ x: 1 }, { x: 2 }]
+```
+
+如果 `array` 为空，则该函数应返回一个空数组。
+
+```js
+uniqWith([], (a, b) => a === b); // => []
+
+uniqWith([false, null, undefined, null], (a, b) => a === b); // => [false, null, undefined]
+```
+
+## 资源
+
+* [Lodash `_.uniqWith`](https://lodash.com/docs/#uniqWith)

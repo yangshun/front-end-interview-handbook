@@ -1,0 +1,32 @@
+---
+title: HTML 序列化器
+excerpt: 实现一个将对象序列化为带有缩进的 HTML 字符串的函数
+---
+
+给定一个类似于 DOM 树的对象，实现一个函数，将该对象序列化为一个格式化的字符串，该字符串具有适当的缩进（每层嵌套一个制表符 (`\t` 字符）），并且每行一个标签。
+
+## 例子
+
+```js
+const tree = {
+  tag: 'body',
+  children: [
+    { tag: 'div', children: [{ tag: 'span', children: ['foo', 'bar'] }] },
+    { tag: 'div', children: ['baz'] },
+  ],
+};
+
+serializeHTML(tree);
+// Output:
+`<body>
+  <div>
+    <span>
+      foo
+      bar
+    </span>
+  </div>
+  <div>
+    baz
+  </div>
+</body>`;
+```

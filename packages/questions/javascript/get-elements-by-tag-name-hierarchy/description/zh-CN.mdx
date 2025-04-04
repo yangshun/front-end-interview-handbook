@@ -1,0 +1,43 @@
+---
+title: getElementsByTagNameHierarchy
+excerpt: 实现一个函数，获取所有匹配标签层级的 DOM 元素
+---
+
+[`Document`](https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementsByTagName) 和 [`Element`](https://developer.mozilla.org/en-US/docs/Web/API/Element/getElementsByTagName) 对象上存在 `getElementsByTagName()` 方法，该方法返回一个 `HTMLCollection`，其中包含给定标签名称的 `Document`/`Element` 中的后代元素。
+
+查找遵循特定祖先层级的标签将非常有用。这已经可以通过使用 `document.querySelectorAll()` 来实现，例如 `document.querySelectorAll('div span')`，它会查找 `document` 中作为 `<div>` 后代（不一定是直接后代）的所有 `<span>`。
+
+实现一个函数 `getElementsByTagNameHierarchy()`，它具有类似的功能，但有一些区别：
+
+* 一个纯函数，它接受两个参数：
+  1. 要在其中搜索的 `document` 对象。
+  2. 一个由空格分隔的标签列表组成的字符串。请注意，标签的数量可以是任意的。如果只指定了一个标签，则该函数的行为类似于 `getElementByTagName()`。
+* 返回一个 `Element` 数组，而不是 `Element` 的 `HTMLCollection`。
+
+例如 `getElementsByTagNameHierarchy(document, 'div span')`，并返回与 `document` 中该选择器匹配的元素数组。
+
+不要使用 `document.querySelectorAll()`，否则会使问题变得微不足道。在实际面试中，您将不允许使用它。
+
+## 示例
+
+```js
+const doc = new DOMParser().parseFromString(
+  `<div>
+    <span id="foo">
+      <span id="bar">Bar</span>
+      Foo
+    </span>
+    <p>Paragraph</p>
+    <span id="baz">Baz</span>
+  </div>`,
+  'text/html',
+);
+
+getElementsByTagNameHierarchy(doc, 'div span');
+// [span#foo, span#bar, span#baz] <-- 这是一个元素数组。
+```
+
+## 资源
+
+* [Document: querySelectorAll() method - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll)
+* [Element: getElementsByTagName() method - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Element/getElementsByTagName)

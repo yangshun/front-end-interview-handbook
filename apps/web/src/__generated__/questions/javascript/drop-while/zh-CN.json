@@ -1,0 +1,49 @@
+{
+  "description": "var Component=(()=>{var s=Object.create;var d=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var u=Object.getPrototypeOf,x=Object.prototype.hasOwnProperty;var y=(r,e)=>()=>(e||r((e={exports:{}}).exports,e),e.exports),f=(r,e)=>{for(var c in e)d(r,c,{get:e[c],enumerable:!0})},h=(r,e,c,i)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let l of m(e))!x.call(r,l)&&l!==c&&d(r,l,{get:()=>e[l],enumerable:!(i=p(e,l))||i.enumerable});return r};var j=(r,e,c)=>(c=r!=null?s(u(r)):{},h(e||!r||!r.__esModule?d(c,\"default\",{value:r,enumerable:!0}):c,r)),_=r=>h(d({},\"__esModule\",{value:!0}),r);var a=y((F,o)=>{o.exports=_jsx_runtime});var A={};f(A,{default:()=>v,frontmatter:()=>g});var n=j(a()),g={title:\"Drop While\",excerpt:\"\\u5B9E\\u73B0\\u4E00\\u4E2A\\u51FD\\u6570\\uFF0C\\u8BE5\\u51FD\\u6570\\u4ECE\\u6570\\u7EC4\\u7684\\u5F00\\u5934\\u6392\\u9664\\u5143\\u7D20\\uFF0C\\u76F4\\u5230\\u8C13\\u8BCD\\u8FD4\\u56DE false\"};function t(r){let e=Object.assign({p:\"p\",code:\"code\",h4:\"h4\",ol:\"ol\",li:\"li\",em:\"em\",h2:\"h2\",pre:\"pre\",ul:\"ul\",a:\"a\"},r.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsxs)(e.p,{children:[\"\\u5B9E\\u73B0\\u4E00\\u4E2A\\u51FD\\u6570 \",(0,n.jsx)(e.code,{children:\"dropWhile(array, predicate)\"}),\"\\uFF0C\\u8BE5\\u51FD\\u6570\\u521B\\u5EFA\\u4E00\\u4E2A \",(0,n.jsx)(e.code,{children:\"array\"}),\" \\u7684\\u5207\\u7247\\uFF0C\\u6392\\u9664\\u4ECE\\u5F00\\u5934\\u5220\\u9664\\u7684\\u5143\\u7D20\\u3002\\u5143\\u7D20\\u88AB\\u5220\\u9664\\uFF0C\\u76F4\\u5230 \",(0,n.jsx)(e.code,{children:\"predicate\"}),\" \\u8FD4\\u56DE falsey\\u3002 \\u60A8\\u7684\\u51FD\\u6570\\u4E0D\\u5E94\\u4FEE\\u6539\\u539F\\u59CB\\u6570\\u7EC4\\u3002\"]}),`\n`,(0,n.jsx)(e.h4,{children:\"\\u53C2\\u6570\"}),`\n`,(0,n.jsxs)(e.ol,{children:[`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.code,{children:\"array\"}),\" \",(0,n.jsx)(e.em,{children:\"(Array)\"}),\": \\u8981\\u67E5\\u8BE2\\u7684\\u6570\\u7EC4\\u3002\"]}),`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.code,{children:\"predicate\"}),\" \",(0,n.jsx)(e.em,{children:\"(Function)\"}),\": \\u6BCF\\u6B21\\u8FED\\u4EE3\\u8C03\\u7528\\u7684\\u51FD\\u6570\\u3002\\u8BE5\\u51FD\\u6570\\u4F7F\\u7528\\u4E09\\u4E2A\\u53C2\\u6570\\u8C03\\u7528\\uFF1A\",(0,n.jsx)(e.em,{children:\"(value, index, array)\"}),\"\\u3002\"]}),`\n`]}),`\n`,(0,n.jsx)(e.h4,{children:\"\\u8FD4\\u56DE\"}),`\n`,(0,n.jsxs)(e.p,{children:[(0,n.jsx)(e.em,{children:\"(Array)\"}),\": \\u8FD4\\u56DE \",(0,n.jsx)(e.code,{children:\"array\"}),\" \\u7684\\u5207\\u7247\\u3002\"]}),`\n`,(0,n.jsx)(e.h2,{children:\"\\u4F8B\\u5B50\"}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-js\",children:`dropWhile([1, 2, 3, 4, 5], (value) => value < 3); // => [3, 4, 5]\ndropWhile([1, 2, 3], (value) => value < 6); // => []\n`})}),`\n`,(0,n.jsxs)(e.p,{children:[\"\\u8BF7\\u6CE8\\u610F\\uFF0CLodash \\u7684 \",(0,n.jsx)(e.code,{children:\"dropWhile\"}),\" \\u5B9E\\u7528\\u7A0B\\u5E8F\\u8FD8\\u5141\\u8BB8\\u60A8\\u4F20\\u9012\\u4E00\\u4E2A\\u53EF\\u9009\\u7684 \",(0,n.jsx)(e.code,{children:\"thisArg\"}),\" \\u53C2\\u6570\\u6765\\u7ED1\\u5B9A\\u8C13\\u8BCD\\u51FD\\u6570\\u4E2D\\u7684 \",(0,n.jsx)(e.code,{children:\"this\"}),\"\\uFF0C\\u4F46\\u5BF9\\u4E8E\\u6B64\\u7EC3\\u4E60\\uFF0C\\u60A8\\u53EF\\u4EE5\\u5FFD\\u7565\\u8BE5\\u53C2\\u6570\\u3002\"]}),`\n`,(0,n.jsx)(e.h2,{children:\"\\u8D44\\u6E90\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:(0,n.jsxs)(e.a,{href:\"https://lodash.com/docs/#dropWhile\",children:[\"Lodash \",(0,n.jsx)(e.code,{children:\"_.dropWhile\"})]})}),`\n`]})]})}function W(r={}){let{wrapper:e}=r.components||{};return e?(0,n.jsx)(e,Object.assign({},r,{children:(0,n.jsx)(t,r)})):t(r)}var v=W;return _(A);})();\n;return Component;",
+  "files": {
+    "/package.json": "{\n  \"name\": \"@gfe-questions/drop-while\",\n  \"version\": \"0.0.1\",\n  \"main\": \"/src/drop-while.ts\",\n  \"devDependencies\": {\n    \"@types/jest\": \"29.5.0\",\n    \"typescript\": \"5.0.2\"\n  }\n}\n",
+    "/tsconfig.json": "{\n  \"include\": [\"./**/*\"],\n  \"compilerOptions\": {\n    \"strict\": true,\n    \"esModuleInterop\": true,\n    \"lib\": [\"dom\", \"esnext\"],\n    \"jsx\": \"react-jsx\"\n  }\n}\n",
+    "/src/drop-while.run.test.ts": "import dropWhile from './drop-while';\n\ndescribe('dropWhile', () => {\n  test('empty array', () => {\n    expect(dropWhile([], (value) => value < 3)).toEqual([]);\n  });\n\n  test('drop some elements', () => {\n    expect(dropWhile([1, 2, 3, 4, 5], (value) => value < 3)).toEqual([3, 4, 5]);\n  });\n\n  test('drop everything', () => {\n    expect(dropWhile([1, 2, 3, 4, 5], () => true)).toEqual([]);\n  });\n});\n",
+    "/src/drop-while.submit.test.ts": "import dropWhile from './drop-while';\n\ndescribe('dropWhile', () => {\n  test('empty array', () => {\n    expect(dropWhile([], (value) => value < 3)).toEqual([]);\n  });\n\n  test('drop elements until predicate returns false', () => {\n    expect(dropWhile([1, 2, 3, 4, 5], (value) => value < 3)).toEqual([3, 4, 5]);\n  });\n\n  test('predicate always returns true', () => {\n    expect(dropWhile([1, 2, 3, 4, 5], () => true)).toEqual([]);\n  });\n\n  test('predicate always returns false', () => {\n    expect(dropWhile([1, 2, 3, 4, 5], () => false)).toEqual([1, 2, 3, 4, 5]);\n  });\n\n  test('sparse arrays', () => {\n    expect(dropWhile([1, , 3, 4, 5], (value) => value === undefined)).toEqual([\n      1,\n      ,\n      3,\n      4,\n      5,\n    ]);\n  });\n\n  describe('required arguments are passed', () => {\n    test('index is passed', () => {\n      const array = [1, 2, 3, 4, 5];\n      expect(dropWhile(array, (_, index) => index < 3)).toEqual([4, 5]);\n    });\n\n    test('array is passed', () => {\n      const array = [20, 30, 40, 5, 6];\n      expect(dropWhile(array, (value, _, arr) => value > arr.length)).toEqual([\n        5, 6,\n      ]);\n    });\n  });\n\n  test('should not modify the original input array', () => {\n    const array = [1, 2, 3, 4, 5];\n    dropWhile(array, (value) => value > 3);\n    expect(array).toEqual([1, 2, 3, 4, 5]);\n  });\n});\n",
+    "/src/drop-while.ts": "export default function dropWhile<T>(\n  array: Array<T>,\n  predicate: (value: T, index: number, array: Array<T>) => boolean,\n): Array<T> {\n  let index = 0;\n\n  while (index < array.length && predicate(array[index], index, array)) {\n    index++;\n  }\n\n  return array.slice(index);\n}\n"
+  },
+  "metadata": {
+    "access": "premium",
+    "author": null,
+    "companies": [],
+    "created": 1682553600,
+    "difficulty": "easy",
+    "duration": 10,
+    "excerpt": "实现一个函数，该函数从数组的开头排除元素，直到谓词返回 false",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/drop-while",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [
+      "drop-right-while"
+    ],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "drop-while",
+    "subtitle": null,
+    "title": "Drop While",
+    "topics": []
+  },
+  "skeleton": {
+    "js": "/**\n * @param {Array} array - The array to iterate over.\n * @param {Function} predicate - The function invoked per iteration.\n * @return {Array} Returns the slice of `array`.\n */\nexport default function dropWhile(array, predicate) {\n  throw 'Not implemented!';\n}",
+    "ts": "export default function dropWhile<T>(\n  array: Array<T>,\n  predicate: (value: T, index: number, array: Array<T>) => boolean,\n): Array<T> {\n  throw 'Not implemented!';\n}"
+  },
+  "solution": "var Component=(()=>{var p=Object.create;var i=Object.defineProperty;var y=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var f=Object.getPrototypeOf,g=Object.prototype.hasOwnProperty;var j=(r,e)=>()=>(e||r((e={exports:{}}).exports,e),e.exports),T=(r,e)=>{for(var a in e)i(r,a,{get:e[a],enumerable:!0})},d=(r,e,a,o)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let t of m(e))!g.call(r,t)&&t!==a&&i(r,t,{get:()=>e[t],enumerable:!(o=y(e,t))||o.enumerable});return r};var _=(r,e,a)=>(a=r!=null?p(f(r)):{},d(e||!r||!r.__esModule?i(a,\"default\",{value:r,enumerable:!0}):a,r)),W=r=>d(i({},\"__esModule\",{value:!0}),r);var c=j((k,l)=>{l.exports=_jsx_runtime});var D={};T(D,{default:()=>C});var n=_(c());var s=MDXCodeBlock;var h=`/**\n * @param {Array} array - The array to iterate over.\n * @param {Function} predicate - The function invoked per iteration.\n * @return {Array} Returns the slice of \\`array\\`.\n */\nexport default function dropWhile(array, predicate) {\n  let index = 0;\n\n  while (index < array.length && predicate(array[index], index, array)) {\n    index++;\n  }\n\n  return array.slice(index);\n}\n`;var x=`export default function dropWhile<T>(\n  array: Array<T>,\n  predicate: (value: T, index: number, array: Array<T>) => boolean,\n): Array<T> {\n  let index = 0;\n\n  while (index < array.length && predicate(array[index], index, array)) {\n    index++;\n  }\n\n  return array.slice(index);\n}\n`;function u(r){let e=Object.assign({h2:\"h2\",ul:\"ul\",li:\"li\",a:\"a\",code:\"code\"},r.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.h2,{children:\"\\u89E3\\u51B3\\u65B9\\u6848\"}),`\n`,(0,n.jsx)(s,{languages:{jsx:h,tsx:x}}),`\n`,(0,n.jsx)(e.h2,{children:\"\\u8D44\\u6E90\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:(0,n.jsxs)(e.a,{href:\"https://lodash.com/docs/#dropWhile\",children:[\"Lodash \",(0,n.jsx)(e.code,{children:\"_.dropWhile\"})]})}),`\n`]})]})}function b(r={}){let{wrapper:e}=r.components||{};return e?(0,n.jsx)(e,Object.assign({},r,{children:(0,n.jsx)(u,r)})):u(r)}var C=b;return W(D);})();\n;return Component;",
+  "workspace": {
+    "main": "/src/drop-while.ts",
+    "run": "/src/drop-while.run.test.ts",
+    "submit": "/src/drop-while.submit.test.ts"
+  }
+}

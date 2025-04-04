@@ -1,0 +1,69 @@
+---
+title: 事件发射器 II
+excerpt: 实现一个可以订阅和发出事件的类，这些事件会触发附加的回调函数。返回订阅对象，并且可以取消订阅。
+---
+
+在 [**观察者模式**](https://www.patterns.dev/posts/observer-pattern/)（也常被称为发布-订阅模型）中，我们可以观察/订阅由发布者发出的事件，并在事件发生时执行代码。
+
+实现一个类似于 [Node.js](https://nodejs.org/api/events.html) 中的 [`EventEmitter` 类](https://nodejs.org/api/events.html#class-eventemitter)，它遵循这样的观察者模式。这个问题和第一个 [事件发射器](/questions/javascript/event-emitter) 问题的区别在于取消订阅监听器的方式。在这个版本中，`EventEmitter` 实例上没有 `emitter.off()` 方法。相反，`emitter.on()` 返回一个具有 `off()` 方法的对象。
+
+## `EventEmitter` API
+
+实现以下类和 API：
+
+### `new EventEmitter()`
+
+创建一个 `EventEmitter` 类的实例。事件和监听器在它们被添加到的 `EventEmitter` 实例中是隔离的，也就是说，监听器不应该对其他 `EventEmitter` 实例发出的事件做出反应。
+
+### `emitter.on(eventName, listener)`
+
+添加一个回调函数 (`listener`)，当发出名为 `eventName` 的事件时，将调用该函数。
+
+| 参数 | 类型 | 描述 |
+| --- | --- | --- |
+| `eventName` | `string` | 事件的名称。 |
+| `listener` | `Function` | 发生事件时要调用的回调函数。 |
+
+返回一个订阅对象，该对象具有一个 `off()` 方法，该方法将此监听器从事件中取消订阅。更多细节如下。
+
+### `emitter.emit(eventName[, ...args])`
+
+按顺序调用每个监听 `eventName` 的监听器，并提供提供的参数。
+
+| 参数 | 类型 | 描述 |
+| --- | --- | --- |
+| `eventName` | `string` | 事件的名称。 |
+| `...args` | `any` | 用于调用监听器函数列表的参数。 |
+
+如果事件有监听器，则返回 `true`，否则返回 `false`。
+
+### `sub.off()`
+
+此对象从 `emitter.on()` 返回。调用 `sub.off()` 将相应的监听器从事件中取消订阅。
+
+## 例子
+
+```js
+const emitter = new EventEmitter();
+
+function addTwoNumbers(a, b) {
+  console.log(`The sum is ${a + b}`);
+}
+
+// 返回一个具有 .off() 方法的订阅对象。
+const sub = emitter.on('foo', addTwoNumbers);
+emitter.emit('foo', 2, 5);
+// > "The sum is 7"
+
+emitter.on('foo', (a, b) => {
+  console.log(`The product is ${a * b}`);
+});
+emitter.emit('foo', 4, 5);
+// > "The sum is 9"
+// > "The product is 20"
+
+sub.off(); // 这将取消订阅记录数字总和的回调。
+emitter.emit('foo', -3, 9);
+// > "The product is -27"
+// (只触发乘法回调，第一个被取消订阅。)
+```

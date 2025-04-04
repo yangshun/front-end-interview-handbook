@@ -1,0 +1,73 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import mapAsyncLimitSequential from '../setup/src/map-async-limit-sequential';
+import mapAsyncLimitJs from '../setup/src/map-async-limit.js';
+import mapAsyncLimitTs from '../setup/src/map-async-limit.ts';
+import mapAsyncLimitAsync from '../setup/src/map-async-limit-async.ts';
+import mapAsyncLimitChunkless from '../setup/src/map-async-limit-chunkless.ts';
+import mapAsyncLimitChunklessAsync from '../setup/src/map-async-limit-chunkless-async.ts';
+
+## 解决方案
+
+一般的想法是将输入数组切成 `size` 元素的块，并一次处理一个块。这里介绍的解决方案使用 `Promise.all`，但如果它不允许，你可以使用在 [`Promise.all` 问题](/questions/javascript/promise-all) 中介绍的自实现版本。
+
+### 方法 1：顺序（不好！）
+
+这种方法忽略了 `size` 参数，并逐个处理每个项目。这完全在并发限制之内，但违背了问题的目的。
+
+<MDXCodeBlock>
+  {mapAsyncLimitSequential}
+</MDXCodeBlock>
+
+### 方法 2：带递归的块
+
+将一个项目数组分成块可以分解成更小的子问题，并通过递归解决：
+
+1. 通过 `Promise.all` 并发处理当前块中的项目。
+2. 递归地对剩余项目调用 `mapAsyncLimit`。
+3. 基本情况是当没有更多项目要处理时，返回一个空数组。
+4. 最后，合并步骤 1 的结果和步骤 2 中剩余项目的映射结果并返回。
+
+我们必须注意只在步骤 1 结束后才进行对 `mapAsyncLimit` 的递归调用，否则我们将超过所需的并发限制，并且与 `mapAsync` 没有任何区别。
+
+<MDXCodeBlock languages={{ jsx: mapAsyncLimitJs, tsx: mapAsyncLimitTs }} />
+
+这种解决方案的缺点（与所有递归方法一样）是递归堆栈的限制。但是，使用 `async`/`await` 有一个更现代和更简洁的解决方案。
+
+### 方法 3：带 `async`/`await` 的块
+
+使用 `async`/`await`，想法保持不变，但是通过将数组切成 `size` 块并在 for 循环中 `await` 每个块，更容易编写顺序 `async` 代码。
+
+<MDXCodeBlock>
+  {mapAsyncLimitAsync}
+</MDXCodeBlock>
+
+### 方法 4：无块（最大并发）
+
+之前的方案有一个巨大的缺点，即存在一些空闲时间，并且可用的上限并发限制并不总是被充分利用。
+
+想象一下，有 7 个项目要映射，每个项目都需要不同的持续时间。下图显示了根据所采用的映射方法的持续时间的相对差异。
+
+![Map async limit](/img/questions/map-async-limit/map-async-limit.png)
+
+* **顺序**: 顺序（一次一个）方法肯定会保持在并发限制内，但速度极慢，并且没有利用我们可以进行并发异步任务的事实。
+* **块**: 块方法提高了并发性，但它会等待当前块中的所有项目完成后再移至下一个。 如果有一个任务比其他任务慢得多，则会出现空闲周期，并且无法充分利用可用限制。
+* **无块**: 最有效的方法是当一个项目完成后立即开始处理下一个项目。 这确保了总是有 `size` 个正在进行的异步任务（当有未处理的项目时），并且充分利用了可用限制。
+
+就像在 `Promise.all` 的自定义实现中一样，我们可以跟踪已解析项目的数量，并在每个项目都已处理完毕后使用映射结果 `resolve()`。
+
+这里的想法是定义一个函数 `processItem`，该函数接受一个索引并处理该索引处的项目，并在该项目完成后将结果添加到最终映射的 `results` 数组中。 `processItem` 是一个递归函数，它将使用要处理的下一个项目的索引来调用自身。
+
+为此，我们需要跟踪要处理的下一个项目的索引作为 `nextIndex`。 每当一个项目开始处理时，`nextIndex` 就会递增。 当一个项目被处理后，我们可以将 `nextIndex` 处的项目作为下一步处理。 这确保了总是有 `size` 个正在进行的异步任务（当有剩余的未处理项目时），并且它始终处于限制状态。
+
+这种情况一直持续到所有项目都已处理完毕或其中一个项目被拒绝/出错。
+
+<MDXCodeBlock>
+  {mapAsyncLimitChunkless}
+</MDXCodeBlock>
+
+以下方法对内部递归函数使用 `async`/`await`：
+
+<MDXCodeBlock>
+  {mapAsyncLimitChunklessAsync}
+</MDXCodeBlock>

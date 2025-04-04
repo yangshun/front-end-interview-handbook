@@ -1,0 +1,60 @@
+---
+title: 防抖
+excerpt: 实现一个函数，通过延迟函数执行，直到其最后一次执行尝试后经过指定时间，来限制函数可以执行的次数。
+---
+
+防抖是一种用于控制我们允许函数随时间执行次数的技术。当一个 JavaScript 函数被防抖，且等待时间为 X 毫秒时，它必须等待，直到自上次调用防抖函数以来经过 X 毫秒。
+
+您几乎肯定在日常生活中遇到过防抖（例如，当进入电梯时）。只有在 X 时间内没有按下“开门”按钮（未调用防抖函数）后，电梯门才会真正关闭（回调函数被执行）。
+
+实现一个 `debounce` 函数，该函数接受一个回调函数和一个 `wait` 持续时间。调用 `debounce()` 返回一个函数，该函数具有防抖上述行为的回调函数的调用。
+
+## 例子
+
+```js
+let i = 0;
+function increment() {
+  i++;
+}
+const debouncedIncrement = debounce(increment, 100);
+
+// t = 0: 调用 debouncedIncrement()。
+debouncedIncrement(); // i = 0
+
+// t = 50: i 仍然是 0，因为 100ms 还没有过去。
+
+// t = 100: increment() 被调用，现在 i 是 1。
+```
+
+`debouncedIncrement()` 被多次调用。
+
+```js
+let i = 0;
+function increment() {
+  i++;
+}
+const debouncedIncrement = debounce(increment, 100);
+
+// t = 0: 调用 debouncedIncrement()。
+debouncedIncrement(); // i = 0
+
+// t = 50: i 仍然是 0，因为 100ms 还没有过去。
+//  再次调用 debouncedIncrement()。
+debouncedIncrement(); // i = 0
+
+// t = 100: i 仍然是 0，因为它只有
+//  自 t = 50 以来经过了 50ms 的时间。
+
+// t = 150: 因为自
+//  t = 50 以来已经过去了 100ms，
+//  increment 被调用，现在 i 是 1 。
+```
+
+## 后续
+
+* 使用 `cancel()` 方法取消延迟调用，并使用 `flush()` 方法立即调用它们。
+* 实现 [throttle](/questions/javascript/throttle)，它类似于防抖，但略有不同。
+
+## 延伸阅读
+
+* [Lodash 文档中的防抖](https://lodash.com/docs/4.17.15#debounce)

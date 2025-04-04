@@ -1,0 +1,52 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import numberOfArgumentsJs from '../setup/src/number-of-arguments.js';
+import numberOfArgumentsTs from '../setup/src/number-of-arguments.ts';
+import numberOfArgumentsRestJs from '../setup/src/number-of-arguments-rest.js';
+import numberOfArgumentsRestTs from '../setup/src/number-of-arguments-rest.ts';
+
+## 解决方案
+
+### 方法 1：使用 `arguments` 对象
+
+`arguments` 对象是一个类似数组的对象，可以在函数内部访问，它包含传递给该函数的值或参数。因此，我们可以使用 `arguments.length` 来确定传递的参数数量。
+
+<MDXCodeBlock languages={{ jsx: numberOfArgumentsJs, tsx: numberOfArgumentsTs }} />
+
+### 方法 2：使用 rest 参数
+
+rest 参数语法允许函数将可变数量的参数作为数组接受。它可以与它之前的命名参数一起使用，但通过仅将其用作函数的参数（就像在骨架代码中一样），它会捕获传递给函数的所有参数。
+
+<MDXCodeBlock languages={{ jsx: numberOfArgumentsRestJs, tsx: numberOfArgumentsRestTs }} />
+
+## 边缘情况
+
+使用 `undefined` 调用函数。 `undefined` 仍然被算作一个参数。如果未传递任何值或 `undefined`，则默认函数参数将使用默认值进行初始化。
+
+```js
+function foo(a = 1) {
+  return a;
+}
+
+foo(undefined); // 1
+foo(); // 1
+```
+
+## 笔记
+
+对于具有默认参数的函数会发生什么？答案是它们的行为完全相同。
+
+```js
+function foo(a = 1, b = 2) {
+  return arguments.length;
+}
+
+foo(); // 0
+foo(3); // 1
+foo(undefined); // 1
+```
+
+## 资源
+
+* [arguments 对象 | MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/arguments)
+* [Rest 参数 | MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/rest_parameters)

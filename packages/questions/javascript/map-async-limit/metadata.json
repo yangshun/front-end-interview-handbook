@@ -10,6 +10,6 @@
   "difficulty": "medium",
   "frameworks": [],
   "similar_questions": ["promise-all"],
-  "next_questions": [],
+  "next_questions": ["middlewares"],
   "topics": ["async"]
 }

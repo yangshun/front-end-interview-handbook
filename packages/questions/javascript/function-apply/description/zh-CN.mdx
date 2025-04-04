@@ -1,0 +1,29 @@
+---
+title: Function.prototype.apply
+excerpt: 实现 Function.prototype.apply() 函数，该函数使用给定的 `this` 值和作为数组的参数调用该函数
+---
+
+> `Function.prototype.apply()` 方法使用给定的 `this` 值和作为数组（或类似数组的对象）提供的 `arguments` 调用指定的函数。
+
+*来源：[Function.prototype.apply() - JavaScript | MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_objects/Function/apply)*
+
+实现你自己的 `Function.prototype.apply`，而无需调用原生的 `apply` 方法。为了避免覆盖实际的 `Function.prototype.apply`，将该函数实现为 `Function.prototype.myApply`。
+
+## 例子
+
+```js
+function multiplyAge(multiplier = 1) {
+  return this.age * multiplier;
+}
+
+const mary = {
+  age: 21,
+};
+
+const john = {
+  age: 42,
+};
+
+multiplyAge.myApply(mary); // 21
+multiplyAge.myApply(john, [2]); // 84
+```

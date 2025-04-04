@@ -1,0 +1,160 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import eventEmitterJs from '../setup/src/event-emitter-ii.js';
+import eventEmitterTs from '../setup/src/event-emitter-ii.ts';
+import eventEmitterFunctionPrototype from '../setup/src/eventEmitterFunctionPrototype';
+
+基于事件的交互模型是构建用户界面的最常见方式。DOM 也是围绕此模型构建的，使用 `document.addEventListener()` 和 `document.removeEventListener()` API 来允许响应 `click`、`hover`、`input` 等事件。
+
+## 澄清问题
+
+以下是向面试官提问以展示您的周全考虑的好问题。根据他们的回答，您可能需要相应地调整实现。
+
+1. 除了 `eventName` 之外，可以不带任何参数调用 `emitter.emit()` 吗？
+   * 是的，可以。
+2. 可以使用相同的 `eventName` 多次添加相同的监听器吗？
+   * 是的，可以。当 `eventName` 以添加的顺序发出时，它将为每次添加调用一次。
+3. 可以发出不存在的事件吗？
+   * 是的，但是不应该发生任何事情，并且代码不应该出错或崩溃。
+4. 监听器的 `this` 值应该是什么？
+   * 它可以是 `null`。
+5. 可以多次调用 `sub.off()` 吗？
+   * 是的，可以，第二次调用应该是一个空操作。
+6. 监听器是否可以包含在 emitter 实例上调用方法的代码？
+   * 是的，但是对于这个问题，我们可以忽略这种情况。
+7. 如果监听器回调在 `emitter.emit()` 期间抛出错误怎么办？
+   * 应该捕获该错误，并且不应停止其余的执行。但是，我们不会测试这种情况。
+
+我们将处理上述所有情况，除了最后两种情况。
+
+## 解决方案
+
+### 数据结构
+
+首先，我们必须确定用于存储事件和监听器的数据结构。
+
+我们需要能够唯一地标识每个监听器函数，以便在调用 `sub.off()` 时，我们知道要删除哪个监听器。这可以通过让 `EventEmitter` 实例保留一个整数计数器来实现，该计数器在添加每个新监听器时递增，并且每个监听器都被分配计数器的当前值。
+
+我们可以使用：
+
+#### 1. `eventName` 的 Map，监听器函数的 Map。
+
+```js
+events = {
+  foo: { 1: Function1, 3: Function3 },
+  bar: { 2: Function2 },
+};
+```
+
+* 优点：
+  * 给定 `eventName` 和监听器 ID，可以快速查找监听器。
+* 缺点：
+  * 由于 `eventName` 由用户提供，它可以是任何值，并且可能与 `Object.prototype` 上的现有键（例如 `.toString`）冲突。我们将处理这种情况。
+
+#### 2. `eventName` 和监听器对的扁平数组。
+
+```js
+events = [
+  { eventName: 'foo', listener: Function1, key: 1 },
+  { eventName: 'bar', listener: Function2, key: 2 },
+  { eventName: 'foo', listener: Function3, key: 3 },
+];
+```
+
+* 优点：
+  * 简单、扁平的结构。
+* 缺点：
+  * 需要 O(n) 时间来查找事件的监听器，因为您必须查看整个事件列表。
+  * `emit()` 和 `sub.off()` 操作将需要遍历数组，您无法立即确定事件是否存在并忽略非现有事件的发出。
+  * 由于重复的对象字段和 `eventName` 字符串，可能需要更多空间来存储数据。
+
+方法 #1 显然更好，所以我们将使用它。为了缓解用户提供的 `eventName` 与 `Object.prototype` 上的键冲突的问题，我们可以使用 `Object.create(null)` 实例化 `_events` 对象或使用 ES6 `Map` 类。
+
+### 实现 `emitter.on()`
+
+实现 `emitter.on()` 非常简单。首先检查 `eventName` 是否作为 `_events` 对象的键存在，如果这是第一次遇到此 `eventName`，则将该值设为空对象（用于将 `listenerId` 映射到其监听器）。然后将 `listener` 推入数组。
+
+### 实现 `sub.off()`
+
+`emitter.on()` 需要返回一个具有 `off()` 方法的对象。使用一个带有 `off()` 方法的普通对象就足够了。`off()` 方法包含对 `listener` 的唯一 ID (`listenerId`) 和 `eventName` 的引用，这要归功于闭包。但是，为了让 `off()` 方法能够访问 emitter 实例的 `this` 值，应该使用箭头函数定义它，或者使用单独的 `that` 变量来保留对 `this` 的引用。
+
+要从 emitter 中删除监听器，只需从 `this.events[eventName]` 中 `delete` 键即可。如果多次调用 `sub.off()`，此方法也有效，因为对不存在的键进行 `delete` 操作是无操作。
+
+```js
+function on(eventName, listener) {
+  // 为了简洁起见，省略了其余的实现。
+  return {
+    // 使用箭头函数来保留 `this`。
+    off: () => {
+      delete this.events[eventName][listenerId];
+    },
+  };
+}
+```
+
+```js
+function on(eventName, listener) {
+  // 为了简洁起见，省略了其余的实现。
+  // 定义一个单独的 `that` 变量来保留对 `this` 的引用。
+  const that = this;
+  return {
+    off() {
+      delete that.events[eventName][listenerId];
+    },
+  };
+}
+```
+
+我们可以创建一个新的类 `EventSubscription`，它带有一个 `.off()` 方法，用于实例化为从 `emitter.off()` 返回的对象，这样做的好处是可以在实例之间共享方法实现。但是，内存占用可以忽略不计，而且实际上没有必要。
+
+### 实现 `EventEmitter.emit()`
+
+检查 `eventName` 是否存在或是否有任何事件，如果 `eventName` 不存在或 `eventName` 没有任何监听器（对象为空），我们可以终止并返回 `false`。
+
+为了将其余的参数传递给每个监听器，我们必须在方法签名中使用 `...args` 来捕获所有其他参数作为变量 `args`。可以使用 `args` 通过 `Function.prototype.apply()` 或 `Function.prototype.call()` 调用监听器。
+
+### 内置对象属性与用户提供的 `eventName` 冲突
+
+如上所述，如果您使用普通的 JavaScript 对象将 `eventName` 映射到回调，一个潜在的问题是使用与 JavaScript 对象上存在的属性（如 `valueOf` 和 `toString`）冲突的 `eventName`。
+
+```js
+const emitter = new EventEmitter();
+emitter.emit('toString'); // 可能会崩溃，因为该属性确实存在于对象上。
+```
+
+两种处理方法：
+
+* 使用 `Map` 而不是对象。这是现代方法。
+* 使用 `Object.create(null)` 创建您的普通 JavaScript 对象，这样对象就没有原型，也没有其他属性。
+
+### 基于类的解决方案
+
+<MDXCodeBlock languages={{ jsx: eventEmitterJs, tsx: eventEmitterTs }} />
+
+### 基于函数原型的解决方案
+
+<MDXCodeBlock>
+  {eventEmitterFunctionPrototype}
+</MDXCodeBlock>
+
+## 边缘情况
+
+* 相同的监听器函数可以为同一事件添加多次。调用 `sub.off()` 应该删除相应的监听器，因为调用的顺序很重要。
+* `emitter.emit()` 在没有任何参数的情况下被调用。
+* 方法使用不存在的 `eventName` 调用。
+* `sub.off()` 被多次调用，不应该崩溃。
+
+## 技术
+
+* 面向对象编程。
+* 使用正确的数据结构。
+* 闭包。
+* 处理可变参数。
+
+## 笔记
+
+* Node.js 的 `EventEmitter` 的实现允许 `eventName` 为符号，而我们在这里不允许。
+
+## 资源
+
+* [EventEmitter | Node.js](https://nodejs.org/api/events.html#class-eventemitter)

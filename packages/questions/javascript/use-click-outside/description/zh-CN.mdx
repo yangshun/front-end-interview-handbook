@@ -1,0 +1,31 @@
+---
+title: useClickOutside
+excerpt: 实现一个检测指定元素外部点击的 Hook
+---
+
+实现一个 `useClickOutside` Hook，用于检测指定元素外部的点击。
+
+```jsx
+export default function Component() {
+  const target = useRef(null);
+  useClickOutside(target, () => console.log('Clicked outside'));
+
+  return (
+    <div>
+      <div ref={target}>Click outside me</div>
+      <div>Maybe here?</div>
+    </div>
+  );
+}
+```
+
+## 参数
+
+1. `ref: RefObject<T>`: 要检测其外部点击的元素的 ref 对象
+2. `handler: (event) => void`: 当检测到外部点击时要调用的事件处理函数
+3. `eventType: 'mousedown' | 'touchstart'`: 要监听的事件类型。默认为 `'mousedown'`
+4. `eventOptions: boolean | AddEventListenerOptions`:  [`AddEventListenerOptions` 选项对象](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#options)，用于指定关于事件监听器的特性。这是一个可选参数
+
+## 返回值
+
+无。

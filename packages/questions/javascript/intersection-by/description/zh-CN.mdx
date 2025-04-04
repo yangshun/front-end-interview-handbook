@@ -1,0 +1,46 @@
+---
+title: Intersection By
+excerpt: 实现一个函数，该函数根据提供的迭代函数返回一个包含所有给定数组中包含的唯一值的数组。
+---
+
+ `intersectionBy` 函数接受一个 `iteratee` 函数和多个数组作为参数。它创建一个唯一值的数组，这些值包含在所有给定的数组中，基于将 `iteratee` 函数应用于每个值的结果。结果值的顺序和引用由第一个数组决定。请注意，返回的值是*在*应用 `iteratee` 函数*之前*的值，而比较是基于*在*应用 `iteratee` 函数*之后*的值。
+
+iteratee 函数使用一个参数调用：`value`，其中 value 是当前正在迭代的值。
+
+```js
+intersectionBy(iteratee, ...arrays);
+```
+
+## 参数
+
+1. `iteratee` *(Function)*: 每次迭代调用的函数。
+2. `arrays` *(Array)*: 要检查的数组。
+
+## 返回值
+
+*(Array)*: 返回包含交集值的新数组。
+
+## 例子
+
+```js
+// 根据每个数字的向下取整值获取交集
+const result = intersectionBy(Math.floor, [1.2, 2.4], [2.5, 3.6]); // => [2.4]
+
+// 根据每个字符串的小写值获取交集
+const result2 = intersectionBy(
+  (str) => str.toLowerCase(),
+  ['apple', 'banana', 'ORANGE', 'orange'],
+  ['Apple', 'Banana', 'Orange'],
+);
+// => ['apple', 'banana', 'ORANGE']
+```
+
+## 注意事项
+
+* 在 Lodash 中，`iteratee` 是可选的，并且是最后一个参数，但在本问题中，为了简单起见，它是一个必需的参数。
+* 如果未提供任何数组，则该函数将返回一个空数组。
+* 如果任何数组为空，则该函数将返回一个空数组。
+
+## 资源
+
+* [Lodash `_.intersectionBy`](https://lodash.com/docs/#intersectionBy)

@@ -1,0 +1,53 @@
+---
+title: Classnames
+excerpt: 实现一个有条件地将 CSS 类名连接在一起的函数
+---
+
+[`classnames`](https://github.com/JedWatson/classnames) 是现代前端应用程序中常用的实用程序，用于有条件地将 CSS 类名连接在一起。 如果您编写过 React 应用程序，您可能已经使用过类似的库。
+
+实现 `classnames` 函数。
+
+## 例子
+
+```js
+classNames('foo', 'bar'); // 'foo bar'
+classNames('foo', { bar: true }); // 'foo bar'
+classNames({ 'foo-bar': true }); // 'foo-bar'
+classNames({ 'foo-bar': false }); // ''
+classNames({ foo: true }, { bar: true }); // 'foo bar'
+classNames({ foo: true, bar: true }); // 'foo bar'
+classNames({ foo: true, bar: false, qux: true }); // 'foo qux'
+```
+
+数组将根据上述规则递归地展平。
+
+```js
+classNames('a', ['b', { c: true, d: false }]); // 'a b c'
+```
+
+值可以混合。
+
+```js
+classNames(
+  'foo',
+  {
+    bar: true,
+    duck: false,
+  },
+  'baz',
+  { quux: true },
+); // 'foo bar baz quux'
+```
+
+Falsey 值将被忽略。
+
+```js
+classNames(null, false, 'bar', undefined, { baz: null }, ''); // 'bar'
+```
+
+此外，返回的字符串不应有任何前导或尾随空格。
+
+## 资源
+
+* [`classnames` 库在 GitHub 上](https://github.com/JedWatson/classnames)
+* [`clsx` 库在 GitHub 上](https://github.com/lukeed/clsx)：一个较新的版本，用作 `classnames` 的更快、更小的直接替代品。

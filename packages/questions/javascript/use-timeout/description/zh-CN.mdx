@@ -1,0 +1,36 @@
+---
+title: useTimeout
+excerpt: 实现一个在指定延迟后调用回调函数的 Hook
+---
+
+实现一个 `useTimeout` Hook，该 Hook 在指定的延迟后调用回调函数。
+
+请注意，由于初始调用，Hook 可以使用不同的值再次调用：
+
+* **不同的回调**：待处理的计时器应调用最新的回调。如果计时器已过期，则不执行回调，也不会设置新的计时器
+* **不同的延迟**：如果计时器尚未过期，则应取消先前的超时，并使用新的延迟值设置新的计时器
+
+`useTimeout` 的主要好处是，如果组件在计时器过期之前卸载，则不必手动清除调用 `clearTimeout()`。
+
+```jsx
+export default function Component() {
+  const [loading, setLoading] = useState(true);
+
+  useTimeout(() => setLoading(false), 1000);
+
+  return (
+    <div>
+      <p>{loading ? 'Loading' : 'Ready'}</p>
+    </div>
+  );
+}
+```
+
+## 参数
+
+1. `callback: () => void`：在指定的延迟后要调用的函数
+2. `delay: number | null`：在调用回调函数之前的延迟时间（以毫秒为单位）。如果为 `null`，则清除超时
+
+## 返回值
+
+无。

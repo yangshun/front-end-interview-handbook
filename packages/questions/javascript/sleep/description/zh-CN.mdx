@@ -1,0 +1,38 @@
+---
+title: Sleep
+excerpt: 实现一个在恢复执行之前暂停指定时长的函数
+---
+
+在 JavaScript 中，`setTimeout` 函数可用于在延迟后执行回调。但是，它会在代码中引入一层嵌套，这可能不是我们想要的。如果能以这种方式使用 `setTimeout` 就好了：
+
+```js
+// 注意：以下代码包含无效语法，无法运行。
+console.log('Hello!');
+setTimeout(1000);
+console.log('Bye.');
+```
+
+在 Java 和 Python 等语言中，可以使用 `sleep` 函数来暂停调用线程的执行。但是，与其他语言不同的是，JavaScript 是单线程的，阻塞主线程不是一个好主意。因此，让我们实现一个 `sleep` 函数的**异步**版本，它的工作方式类似，但不会阻塞主线程。
+
+## 例子
+
+```js
+async function greeting() {
+  console.log('Hello!');
+  await sleep(2000);
+  console.log('Bye.'); // 仅在 2000 毫秒（2 秒）后记录
+}
+
+greeting();
+// t = 0: Hello!
+// t = 2000: Bye.
+```
+
+`sleep` 函数也应该能够在没有 `await` 的情况下使用：
+
+```js
+console.log('Hello!');
+sleep(2000).then(() => {
+  console.log('Bye.'); // 仅在 2000 毫秒（2 秒）后记录
+});
+```

@@ -6,7 +6,7 @@ import eventEmitterFunctionPrototype from '../setup/src/eventEmitterFunctionProt
 
 An event-based interaction model is the most common way of building user interfaces. The DOM is also built around this model with the `document.addEventListener()` and `document.removeEventListener()` APIs to allow responding to events like `click`, `hover`, `input`, etc.
 
-## Clarification Questions
+## Clarification questions
 
 The following are good questions to ask the interviewer to demonstrate your thoughtfulness. Depending on their response, you might need to adjust the implementation accordingly.
 
@@ -27,9 +27,9 @@ The following are good questions to ask the interviewer to demonstrate your thou
 
 We will handle all the above cases except for the last two cases.
 
-## Solutions
+## Solution
 
-### Data Structure
+### Data structure
 
 Firstly, we have to decide on the data structure to store the events and the listeners.
 
@@ -127,15 +127,15 @@ Two ways to handle this:
 - Use a `Map` instead of an object. This is the modern approach.
 - Create your plain JavaScript object with `Object.create(null)` so that the object does not have a prototype and no additional properties.
 
-### Class-based Solution
+### Class-based solution
 
 <MDXCodeBlock languages={{ jsx: eventEmitterJs, tsx: eventEmitterTs }} />
 
-### Function prototype-based Solution
+### Function prototype-based solution
 
 <MDXCodeBlock>{eventEmitterFunctionPrototype}</MDXCodeBlock>
 
-## Edge Cases
+## Edge cases
 
 - The same listener function can be added more than once for the same event. Calling `sub.off()` should remove the respective listener because the order of invocation matters.
 - `emitter.emit()` is called without any arguments.

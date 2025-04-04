@@ -1,0 +1,17 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import useDefault from '../setup/src/use-default';
+
+## 解决方案
+
+此 hook 与 `useState` hook 非常相似，但当当前状态 `value` 为 `null` 或 `undefined` 时，它会条件性地返回 `defaultValue` 作为返回元组的第一个元素。
+
+<MDXCodeBlock>
+  {useDefault}
+</MDXCodeBlock>
+
+如果您正在使用 TypeScript，这应该是一个热身，让您开始编写泛型函数！为了确保推断的返回类型是一个元组，而不仅仅是联合类型的数组，请使用 `as const` 或在函数签名中提供显式返回类型。
+
+## 边缘情况
+
+您只需要小心不要简单地检查 `!value`，因为 `0` 或 `false` 也是状态的有效值。

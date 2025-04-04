@@ -1,0 +1,33 @@
+---
+title: Min By
+excerpt: 实现一个基于指定条件的查找最小元素的函数
+---
+
+实现一个函数 `minBy(array, iteratee)`，该函数在遍历 `array` 后，根据 `iteratee` 的返回值找到最小值的元素。
+
+## 参数
+
+1. `array` *(Array)*: 要迭代的数组。
+2. `iteratee` *(Function)*: 每次迭代调用的函数，该函数接受一个参数：*(value)*。
+
+## 返回值
+
+*`(*)`*: 返回最小值。
+
+## 例子
+
+```js
+minBy([2, 3, 1, 4], (num) => num); // => 1
+
+minBy([{ n: 1 }, { n: 2 }], (o) => o.n); // => { n: 1 }
+```
+
+该函数应忽略 `iteratee` 产生 `null` 或 `undefined` 的元素。
+
+```js
+minBy([{ n: 1 }, { n: 2 }], (o) => o.m); // => undefined
+```
+
+## 资源
+
+* [Lodash `_.minBy`](https://lodash.com/docs/#minBy)

@@ -1,0 +1,27 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import arraySquareJs from '../setup/src/array-square.js';
+import arraySquareTs from '../setup/src/array-square.ts';
+import squareMap from '../setup/src/squareMap';
+
+## 解决方案
+
+这个问题非常简单，只是测试你是否知道如何使用 `Array.prototype` 方法（使用 `this`）访问数组值。
+
+可以使用 `new Array(length)` 创建一个新数组，或者创建一个空数组并将其推入。
+
+可以通过 `this[index]` 访问数组的元素。
+
+<MDXCodeBlock languages={{ jsx: arraySquareJs, tsx: arraySquareTs }} />
+
+使用 `Array.prototype.map()` 的更简单版本。
+
+<MDXCodeBlock>
+  {squareMap}
+</MDXCodeBlock>
+
+## 边缘情况
+
+* 空数组。
+* 单值数组。
+* 多值数组。

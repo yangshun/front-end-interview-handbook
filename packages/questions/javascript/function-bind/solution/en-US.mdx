@@ -9,7 +9,7 @@ This question asks us to implement the `Function.prototype.bind` method, which s
 
 However, writing polyfills that are faithful to the specification and fully compatible with legacy browsers is not an easy task. It is unrealistic to be expected to write one in interview settings. For this question, the interviewers are typically more interested in your familiarity with the native `bind` method and the `this` keyword.
 
-## Clarification Questions
+## Clarification questions
 
 - Can I use other related native methods such `Function.prototype.apply` and `Function.prototype.call`?
   - Yes, you may.
@@ -65,7 +65,7 @@ Now that we understand how `bind` works and its use case, let's try to implement
 
 ## Solution
 
-### Solution 1: Using `call`/`apply`
+### Approach 1: Using `call`/`apply`
 
 Firstly, since the native `bind` is on `Function.prototype`, our `bind` also has to be on it. We'll implement it as `Function.prototype.myBind`.
 
@@ -89,7 +89,7 @@ Lastly, we can use [`Function.prototype.call`](https://developer.mozilla.org/en-
 
 <MDXCodeBlock languages={{ jsx: functionBindJs, tsx: functionBindTs }} />
 
-### Solution 2: Using `Reflect`
+### Approach 2: Using `Reflect`
 
 Another thing we need to watch out for: we invoke `apply` directly on `originalFunc`. While this is fine most of the time but it does impose a reliability hazard in rare cases. Because of how the property resolution mechanism works in JavaScript, if `originalFunc` contains a user-defined method/property with the same name `call`, that shadows `Function.prototype.call`. As a result, it is the user-defined `apply` that (if it exists on `originalFunc`) gets called.
 
@@ -102,13 +102,13 @@ Here is the robust solution:
 
 <MDXCodeBlock>{functionBindReflect}</MDXCodeBlock>
 
-### Solution 3: Using `Symbol`
+### Approach 3: Using `Symbol`
 
 Another approach is to create a `Symbol` and add it as a property to a newly-created `Object` with `thisArg` bound to it.
 
 <MDXCodeBlock>{functionBindSymbol}</MDXCodeBlock>
 
-## Edge Cases
+## Edge cases
 
 There are still some edge cases with this current solution if we dig deep enough:
 

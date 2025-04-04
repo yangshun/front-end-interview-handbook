@@ -1,0 +1,19 @@
+---
+title: Array.prototype.map
+excerpt: 实现 Array.prototype.map() 方法
+---
+
+`Array.prototype.map` 创建一个新数组，其中充满对调用数组中每个元素执行提供的函数的结果。
+
+实现 `Array.prototype.map`。为了避免覆盖自动评分器正在使用的实际 `Array.prototype.map`，我们将把它实现为 `Array.prototype.myMap`。
+
+## 示例
+
+```js
+[1, 2, 3, 4].myMap((i) => i); // [1, 2, 3, 4]
+[1, 2, 3, 4].myMap((i) => i * i); // [1, 4, 9, 16]
+```
+
+## 注意事项
+
+map 回调函数不仅仅接受元素！`Array.prototype.map` 也有第二个参数。建议您在尝试之前阅读 [MDN 文档](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/map) 上关于 `Array.prototype.map` 的规范。

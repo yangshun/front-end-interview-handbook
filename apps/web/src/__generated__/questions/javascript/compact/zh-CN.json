@@ -1,0 +1,50 @@
+{
+  "description": "var Component=(()=>{var s=Object.create;var o=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var u=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var x=(c,e)=>()=>(e||c((e={exports:{}}).exports,e),e.exports),j=(c,e)=>{for(var r in e)o(c,r,{get:e[r],enumerable:!0})},t=(c,e,r,d)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let l of p(e))!f.call(c,l)&&l!==r&&o(c,l,{get:()=>e[l],enumerable:!(d=m(e,l))||d.enumerable});return c};var _=(c,e,r)=>(r=c!=null?s(u(c)):{},t(e||!c||!c.__esModule?o(r,\"default\",{value:c,enumerable:!0}):r,c)),g=c=>t(o({},\"__esModule\",{value:!0}),c);var h=x((A,i)=>{i.exports=_jsx_runtime});var N={};j(N,{default:()=>M,frontmatter:()=>y});var n=_(h()),y={title:\"Compact\",excerpt:\"\\u5B9E\\u73B0\\u4E00\\u4E2A\\u51FD\\u6570\\uFF0C\\u8BE5\\u51FD\\u6570\\u521B\\u5EFA\\u4E00\\u4E2A\\u6570\\u7EC4\\uFF0C\\u5176\\u4E2D\\u79FB\\u9664\\u4E86\\u6240\\u6709\\u5047\\u503C\"};function a(c){let e=Object.assign({p:\"p\",code:\"code\",h2:\"h2\",ol:\"ol\",li:\"li\",em:\"em\",pre:\"pre\",ul:\"ul\",a:\"a\"},c.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsxs)(e.p,{children:[\"\\u5B9E\\u73B0\\u4E00\\u4E2A\\u51FD\\u6570 \",(0,n.jsx)(e.code,{children:\"compact(array)\"}),\"\\uFF0C\\u8BE5\\u51FD\\u6570\\u521B\\u5EFA\\u4E00\\u4E2A\\u6570\\u7EC4\\uFF0C\\u5176\\u4E2D\\u79FB\\u9664\\u4E86\\u6240\\u6709\\u5047\\u503C\\u3002\\u503C \",(0,n.jsx)(e.code,{children:\"false\"}),\"\\u3001\",(0,n.jsx)(e.code,{children:\"null\"}),\"\\u3001\",(0,n.jsx)(e.code,{children:\"0\"}),\"\\u3001\",(0,n.jsx)(e.code,{children:\"''\"}),\"\\u3001\",(0,n.jsx)(e.code,{children:\"undefined\"}),\" \\u548C \",(0,n.jsx)(e.code,{children:\"NaN\"}),\" \\u4E3A\\u5047\\u503C\\uFF08\\u4F60\\u5E94\\u8BE5\\u7262\\u8BB0\\u4E8E\\u5FC3\\uFF01\\uFF09\\u3002\"]}),`\n`,(0,n.jsx)(e.h2,{children:\"\\u53C2\\u6570\"}),`\n`,(0,n.jsxs)(e.ol,{children:[`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.code,{children:\"array\"}),\" \",(0,n.jsx)(e.em,{children:\"(Array)\"}),\": \\u8981\\u538B\\u7F29\\u7684\\u6570\\u7EC4\\u3002\"]}),`\n`]}),`\n`,(0,n.jsx)(e.h2,{children:\"\\u8FD4\\u56DE\\u503C\"}),`\n`,(0,n.jsxs)(e.p,{children:[(0,n.jsx)(e.em,{children:\"(Array)\"}),\": \\u8FD4\\u56DE\\u8FC7\\u6EE4\\u540E\\u7684\\u65B0\\u6570\\u7EC4\\u3002\"]}),`\n`,(0,n.jsx)(e.h2,{children:\"\\u4F8B\\u5B50\"}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-js\",children:`compact([0, 1, false, 2, '', 3, null]); // => [1, 2, 3]\ncompact(['hello', 123, [], {}, function () {}]); // => ['hello', 123, [], {}, function() {}]\n`})}),`\n`,(0,n.jsx)(e.h2,{children:\"\\u8D44\\u6E90\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:(0,n.jsxs)(e.a,{href:\"https://lodash.com/docs/#compact\",children:[\"Lodash \",(0,n.jsx)(e.code,{children:\"_.compact\"})]})}),`\n`]})]})}function C(c={}){let{wrapper:e}=c.components||{};return e?(0,n.jsx)(e,Object.assign({},c,{children:(0,n.jsx)(a,c)})):a(c)}var M=C;return g(N);})();\n;return Component;",
+  "files": {
+    "/package.json": "{\n  \"name\": \"@gfe-questions/compact\",\n  \"version\": \"0.0.1\",\n  \"main\": \"/src/compact.ts\",\n  \"devDependencies\": {\n    \"@types/jest\": \"29.5.0\",\n    \"typescript\": \"5.0.2\"\n  }\n}\n",
+    "/tsconfig.json": "{\n  \"include\": [\"./**/*\"],\n  \"compilerOptions\": {\n    \"strict\": true,\n    \"esModuleInterop\": true,\n    \"lib\": [\"dom\", \"esnext\"],\n    \"jsx\": \"react-jsx\"\n  }\n}\n",
+    "/src/compact.run.test.ts": "import compact from './compact';\n\ndescribe('compact', () => {\n  test('empty array', () => {\n    expect(compact([])).toEqual([]);\n  });\n\n  test('single-element array', () => {\n    expect(compact([1])).toEqual([1]);\n    expect(compact([null])).toEqual([]);\n  });\n\n  test('two-element array', () => {\n    expect(compact([1, 2])).toEqual([1, 2]);\n    expect(compact([null, 1])).toEqual([1]);\n    expect(compact([1, null])).toEqual([1]);\n    expect(compact([false, null])).toEqual([]);\n  });\n});\n",
+    "/src/compact.submit.test.ts": "import compact from './compact';\n\ndescribe('compact', () => {\n  test('empty array', () => {\n    expect(compact([])).toEqual([]);\n  });\n\n  test('single-element array', () => {\n    expect(compact([1])).toEqual([1]);\n    expect(compact([null])).toEqual([]);\n  });\n\n  test('two-element array', () => {\n    expect(compact([1, 2])).toEqual([1, 2]);\n    expect(compact([null, 1])).toEqual([1]);\n    expect(compact([1, null])).toEqual([1]);\n    expect(compact([false, null])).toEqual([]);\n  });\n\n  test('remove all falsey values from the input array', () => {\n    expect(compact([0, 1, false, 2, '', 3])).toEqual([1, 2, 3]);\n  });\n\n  test('only falsey values', () => {\n    expect(compact([null, undefined, NaN, 0, false, '', ''])).toEqual([]);\n  });\n\n  test('no falsey values', () => {\n    expect(compact(['hello', true, 123, [], {}])).toEqual([\n      'hello',\n      true,\n      123,\n      [],\n      {},\n    ]);\n  });\n\n  test('sparse arrays', () => {\n    expect(compact([1, , 2, , 3])).toEqual([1, 2, 3]);\n    expect(compact([1, , null, 2, , 3])).toEqual([1, 2, 3]);\n  });\n\n  test('should not modify the original input array', () => {\n    const input = [0, 1, false, 2, '', 3];\n    compact(input);\n    expect(input).toEqual([0, 1, false, 2, '', 3]);\n  });\n});\n",
+    "/src/compact.ts": "export default function compact<T>(\n  array: Array<T | null | undefined | false | 0 | ''>,\n): Array<T> {\n  const result = [];\n\n  for (let i = 0; i < array.length; i++) {\n    const value = array[i];\n\n    // Skip falsey values\n    if (value) {\n      result.push(value);\n    }\n  }\n\n  return result;\n}\n"
+  },
+  "metadata": {
+    "access": "premium",
+    "author": null,
+    "companies": [],
+    "created": 1682553600,
+    "difficulty": "easy",
+    "duration": 10,
+    "excerpt": "实现一个函数，该函数创建一个数组，其中移除了所有假值",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/compact",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "get",
+      "chunk"
+    ],
+    "slug": "compact",
+    "subtitle": null,
+    "title": "Compact",
+    "topics": []
+  },
+  "skeleton": {
+    "js": "/**\n * @param {Array} array: The array to compact.\n * @return {Array} Returns the new array of filtered values.\n */\nexport default function compact(array) {\n  throw 'Not implemented!';\n}",
+    "ts": "export default function compact<T>(\n  array: Array<T | null | undefined | false | 0 | ''>,\n): Array<T> {\n  throw 'Not implemented!';\n}"
+  },
+  "solution": "var Component=(()=>{var m=Object.create;var o=Object.defineProperty;var y=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var v=Object.getPrototypeOf,g=Object.prototype.hasOwnProperty;var j=(e,r)=>()=>(r||e((r={exports:{}}).exports,r),r.exports),_=(e,r)=>{for(var t in r)o(e,t,{get:r[t],enumerable:!0})},i=(e,r,t,c)=>{if(r&&typeof r==\"object\"||typeof r==\"function\")for(let n of x(r))!g.call(e,n)&&n!==t&&o(e,n,{get:()=>r[n],enumerable:!(c=y(r,n))||c.enumerable});return e};var A=(e,r,t)=>(t=e!=null?m(v(e)):{},i(r||!e||!e.__esModule?o(t,\"default\",{value:e,enumerable:!0}):t,e)),T=e=>i(o({},\"__esModule\",{value:!0}),e);var u=j((F,s)=>{s.exports=_jsx_runtime});var w={};_(w,{default:()=>X});var a=A(u());var l=MDXCodeBlock;var d=`/**\n * @param {Array} array: The array to compact.\n * @return {Array} Returns the new array of filtered values.\n */\nexport default function compact(array) {\n  const result = [];\n\n  for (let i = 0; i < array.length; i++) {\n    const value = array[i];\n\n    // Skip falsey values\n    if (value) {\n      result.push(value);\n    }\n  }\n\n  return result;\n}\n`;var p=`export default function compact<T>(\n  array: Array<T | null | undefined | false | 0 | ''>,\n): Array<T> {\n  const result = [];\n\n  for (let i = 0; i < array.length; i++) {\n    const value = array[i];\n\n    // Skip falsey values\n    if (value) {\n      result.push(value);\n    }\n  }\n\n  return result;\n}\n`;var f=`/**\n * @param {Array} array: The array to compact.\n * @return {Array} Returns the new array of filtered values.\n */\nexport default function compact(array) {\n  return array.filter(Boolean);\n}\n`;function h(e){let r=Object.assign({h2:\"h2\",p:\"p\",code:\"code\",ul:\"ul\",li:\"li\",a:\"a\"},e.components);return(0,a.jsxs)(a.Fragment,{children:[(0,a.jsx)(r.h2,{children:\"\\u89E3\\u51B3\\u65B9\\u6848\"}),`\n`,(0,a.jsx)(l,{languages:{jsx:d,tsx:p}}),`\n`,(0,a.jsxs)(r.p,{children:[\"\\u8FD9\\u662F\\u4E00\\u4E2A\\u66F4\\u7B80\\u5355\\u7684\\u89E3\\u51B3\\u65B9\\u6848\\uFF0C\\u5B83\\u5229\\u7528\\u4E86 \",(0,a.jsx)(r.code,{children:\"Array.prototype.filter\"}),\"\\u3002\"]}),`\n`,(0,a.jsx)(l,{children:f}),`\n`,(0,a.jsx)(r.h2,{children:\"\\u8FB9\\u7F18\\u60C5\\u51B5\"}),`\n`,(0,a.jsxs)(r.ul,{children:[`\n`,(0,a.jsx)(r.li,{children:\"\\u7A7A\\u6570\\u7EC4\\u548C\\u5BF9\\u8C61\\u4E0D\\u88AB\\u8BA4\\u4E3A\\u662F falsey\\u3002\"}),`\n`]}),`\n`,(0,a.jsx)(r.h2,{children:\"\\u8D44\\u6E90\"}),`\n`,(0,a.jsxs)(r.ul,{children:[`\n`,(0,a.jsx)(r.li,{children:(0,a.jsxs)(r.a,{href:\"https://lodash.com/docs/#compact\",children:[\"Lodash \",(0,a.jsx)(r.code,{children:\"_.compact\"})]})}),`\n`]})]})}function D(e={}){let{wrapper:r}=e.components||{};return r?(0,a.jsx)(r,Object.assign({},e,{children:(0,a.jsx)(h,e)})):h(e)}var X=D;return T(w);})();\n;return Component;",
+  "workspace": {
+    "main": "/src/compact.ts",
+    "run": "/src/compact.run.test.ts",
+    "submit": "/src/compact.submit.test.ts"
+  }
+}

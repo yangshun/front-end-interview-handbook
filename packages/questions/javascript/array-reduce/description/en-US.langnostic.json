@@ -1,0 +1,29 @@
+{
+  "frontmatter": {
+    "title": "65f93080",
+    "excerpt": "698be52c"
+  },
+  "content": {
+    "source": {
+      "locale": "en-US",
+      "hashes": [
+        "3ed1ea12",
+        "bb402b65",
+        "493e8bd0",
+        "1eaa27e5",
+        "add698fb",
+        "4c88cf71"
+      ]
+    },
+    "targets": {
+      "zh-CN": [
+        "3ed1ea12",
+        "bb402b65",
+        "493e8bd0",
+        "1eaa27e5",
+        "add698fb",
+        "4c88cf71"
+      ]
+    }
+  }
+}

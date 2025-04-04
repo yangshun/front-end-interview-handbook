@@ -1,0 +1,38 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import typeUtilitesIIJs from '../setup/src/type-utilities-ii.js';
+import typeUtilitesIITs from '../setup/src/type-utilities-ii.ts';
+
+## 解决方案
+
+### `isArray`
+
+自 ES5 以来，就存在一个 `Array.isArray()` 函数，它完全满足了我们在这里的需求。
+
+但是，如果我们不允许使用它或需要支持旧版浏览器，我们可以检查对象的构造函数。但是，某些值（如 `null` 和 `undefined`）必须进行特殊处理。
+
+### `isFunction`
+
+我们可以简单地使用 `typeof value === 'function'` 来检查。
+
+### `isObject`
+
+`null` 和 `undefined` 被认为是 `Object`，因此我们也需要对它们进行特殊处理。`Function` 也是对象。
+
+### `isPlainObject`
+
+有两种类型的普通对象：
+
+1. 没有原型的对象，使用 `Object.create(null)` 创建。
+2. 使用字面量定义的对象（例如 `let a = {}`）。
+
+要检查第一种情况，`Object.getPrototypeOf(value)` 将完全是 `null`。要检查第二种情况，我们可以使用其原型的构造函数，类似于我们如何检查一个对象是否为 `Array`。
+
+Lodash 的 `isPlainObject` 实现遍历对象的原型链，但如果我们检查构造函数，这是不必要的。
+
+<MDXCodeBlock languages={{ jsx: typeUtilitesIIJs, tsx: typeUtilitesIITs }} />
+
+## 技术
+
+* 熟悉 JavaScript 类型。
+* 对象和原型。

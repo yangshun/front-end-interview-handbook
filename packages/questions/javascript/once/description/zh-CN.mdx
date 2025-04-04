@@ -1,0 +1,29 @@
+---
+title: Once
+excerpt: 实现一个接受回调函数并将其调用限制为最多一次的函数
+---
+
+有时，确保一个函数在网站的生命周期中只运行一次很有帮助，例如用于设置日志记录、初始化环境等。
+
+实现一个接受回调函数并将其调用限制为最多一次的函数。对该函数的后续调用将返回回调函数第一次调用的结果。回调函数使用创建函数的 `this` 绑定和参数进行调用。
+
+## 例子
+
+```js
+let i = 1;
+
+function incrementBy(value) {
+  i += value;
+  return i;
+}
+
+const incrementByOnce = once(incrementBy);
+incrementByOnce(2); // i is now 3; The function returns 3.
+incrementByOnce(3); // i is still 3; The function returns the result of the first invocation, which is 3.
+i = 4;
+incrementByOnce(2); // i is still 4 as it is not modified. The function returns the result of the first invocation, which is 3.
+```
+
+## 资源
+
+* [Lodash `_.once`](https://lodash.com/docs/4.17.15#once)

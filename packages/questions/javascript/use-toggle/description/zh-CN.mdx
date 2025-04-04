@@ -1,0 +1,33 @@
+---
+title: useToggle
+excerpt: 实现一个管理布尔切换状态的 Hook
+---
+
+实现一个 `useToggle` Hook，用于管理 React 组件中的布尔切换状态。
+
+```jsx
+export default function Component() {
+  const [value, toggle, setValue] = useToggle();
+
+  return (
+    <div>
+      <p>Enabled: {enabled ? 'On' : 'Off'}</p>
+      <button onClick={toggle}>Toggle</button>
+      <button onClick={() => setValue(true)}>Enable</button>
+      <button onClick={() => setValue(false)}>Disable</button>
+    </div>
+  );
+}
+```
+
+## 参数
+
+* `defaultValue: boolean` (可选): 切换状态的初始值。如果未提供，则应默认为 `false`
+
+## 返回值
+
+一个包含以下元素的元组：
+
+1. `value: boolean`: 当前状态
+2. `toggle: () => void`: 在 `true` 和 `false` 之间切换状态的函数
+3. `setValue`: 将状态设置为提供的 `value` 的函数。它与 `useState` Hook 的第二个参数具有相同的签名

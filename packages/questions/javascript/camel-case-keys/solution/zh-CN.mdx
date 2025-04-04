@@ -1,0 +1,46 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import camelCaseKeysJs from '../setup/src/camel-case-keys.js';
+import camelCaseKeysTs from '../setup/src/camel-case-keys.ts';
+
+这个问题类似于 [Squash Object](/questions/javascript/squash-object)，我们需要一个函数来对对象的键进行一些更改。
+
+## 澄清问题
+
+*  每个键都将使用蛇形命名法吗？如果存在使用其他命名约定的键怎么办？
+  *  忽略这些键并跳过此类键的处理。
+*  我们只关心可枚举的、非继承的字符串键吗？我们是否有兴趣转换继承的键？
+  *  可以忽略它们。
+*  对象可以包含循环引用吗？
+  *  我们可以忽略这种情况。
+
+## 解决方案
+
+该解决方案可以分解为两个主要部分：
+
+1. 遍历对象并对每个键应用更改（即蛇形命名法到驼峰命名法）。
+2. 返回一个应用了更改的新对象，而不修改现有的输入对象。
+
+通常有两种方法可以探索一个对象：
+
+*  使用旧式的 `for ... in` 语句循环遍历键。这种方法会显示继承的、可枚举的属性，这通常不是我们想要的。相反，我们应该使用 `hasOwnProperty` 或 `Object.hasOwn` 添加一个额外的检查，以确保属性不是来自原型继承。
+*  使用 `Object.keys` 将对象转换为键的数组，或使用 `Object.entries` 转换为键值对的数组。如果我们不关心 Symbol 键和不可枚举的键，这种方法是有效的。通常，情况确实如此。
+
+另请注意，如果发现当前属性的值也是一个对象，我们需要递归遍历。递归也有其自身的警告和开销，我们需要意识到：
+
+*  如果对象嵌套的层数太多，那么递归堆栈会变得太深吗？在这种情况下，我们要么面临堆栈溢出错误，要么冒着 UI 保持长时间无响应的风险。
+*  如果对象是循环的，即它有循环引用，那么朴素的递归实现将永远不会退出。
+
+现在我们已经弄清楚了如何遍历对象，接下来我们需要检查当前输入的类型并以不同的方式处理每种类型：
+
+*  如果输入是一个对象，我们使用上述方法遍历该对象。我们可以使用 `typeof` 运算符来检查其类型。小心 `null`，因为 `typeof null` 的结果是 `'object'`，这是 JavaScript 中的一个 [已知问题](https://2ality.com/2013/10/typeof-null.html)。
+*  如果输入是一个数组，我们使用 `Array.prototype.map()` 方法遍历该数组，这给了我们一个新数组，并对数组的每个项目递归调用该函数。我们可以使用 `Array.isArray()` 来检查输入是否为数组。
+*  对于其他任何内容，我们原样返回它。
+
+接下来要讨论的是我们应该如何识别蛇形命名的键并将它们转换为驼峰命名法。实现这一目标的一种简单方法是使用 `String.prototype.split()` 将键分成由 `_` 分隔的子字符串，并将它们连接回一个新字符串，其中子字符串被大写（第一个除外）。另一种方法是使用正则表达式，如果我们想支持其他命名约定（例如 Pascal case），可以轻松扩展它。
+
+<MDXCodeBlock languages={{ jsx: camelCaseKeysJs, tsx: camelCaseKeysTs }} />
+
+## 资源
+
+*  [`camelcase-keys` 库 on GitHub](https://github.com/sindresorhus/camelcase-keys)

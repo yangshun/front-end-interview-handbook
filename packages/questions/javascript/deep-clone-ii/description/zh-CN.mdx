@@ -1,0 +1,43 @@
+---
+title: 深度克隆 II
+excerpt: 实现一个对值进行深拷贝的函数，但也要处理循环引用
+---
+
+**注意：** 这是 [深度克隆](/questions/javascript/deep-clone) 问题的进阶版本，在尝试此问题之前，您应该先完成该问题。
+
+期望候选人在典型的面试环境中产生一个完整的深拷贝解决方案是不现实的，尽管面试官可能会问你一个类似 [深度克隆](/questions/javascript/deep-clone) 的简单版本，并与你讨论关于边缘情况以及你将如何处理它们。
+
+实现一个 `deepClone` 函数，尽可能彻底地执行深拷贝，同时还要处理以下情况：
+
+* 输入对象可以包含任何数据类型。
+* 处理输入对象是循环引用的边缘情况，即循环引用也应该被克隆。
+
+## 例子
+
+```js
+const obj1 = {
+  num: 0,
+  str: '',
+  boolean: true,
+  unf: undefined,
+  nul: null,
+  obj: { name: 'foo', id: 1 },
+  arr: [0, 1, 2],
+  date: new Date(),
+  reg: new RegExp('/bar/ig'),
+  [Symbol('s')]: 'baz',
+};
+
+const clonedObj1 = deepClone(obj1);
+clonedObj1.arr.push(3);
+obj1.arr; // 仍然应该是 [0, 1, 2]
+
+const obj2 = { a: {} };
+obj2.a.b = obj2; // 循环引用
+
+const clonedObj2 = deepClone(obj2); // 不应该通过递归进入无限循环而导致堆栈溢出。
+
+clonedObj2.a.b = 'something new';
+
+obj2.a.b === obj2; // 这应该仍然是 true
+```

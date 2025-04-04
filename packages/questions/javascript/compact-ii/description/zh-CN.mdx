@@ -1,0 +1,23 @@
+---
+title: Compact II
+excerpt: 实现一个函数，该函数返回一个对象，其中删除了所有假值
+---
+
+实现一个函数 `compact(value)`，该函数返回一个新对象，其中删除了所有假值，包括深度嵌套的假值。您可以假设 `value` 仅包含 JSON 可序列化的值（`null`、`boolean`、`number`、`string`、`Array`、`Object`），并且不包含任何其他对象，如 `Date`、`Regex`、`Map` 或 `Set`。
+
+值 `false`、`null`、`0`、`''`、`undefined` 和 `NaN` 为假值（您应该牢记于心！）。
+
+## 参数
+
+1. `value` *(Array|Object)*: 要压缩的数组/对象。
+
+## 返回值
+
+*(Array|Object)*: 返回新的压缩数组/对象。
+
+## 例子
+
+```js
+compact([0, 1, false, 2, '', 3, null]); // => [1, 2, 3]
+compact({ foo: true, bar: null }); // => { foo: true }
+```

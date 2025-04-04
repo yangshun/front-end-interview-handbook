@@ -7,20 +7,20 @@ import negateAltTs from '../setup/src/negate-alt.ts';
 
 ## Solution
 
-### Solution 1: Uses `...args` to allow for unknown number of parameters
+### Approach 1: Uses `...args` to allow for unknown number of parameters
 
 1. The `predicate.apply(this, args)` part is where the original `predicate` function is invoked.
 1. The `apply` method is used to call the `predicate` with a specific `this` context and an array of arguments. In this case, `this` refers to the `this` context of the anonymous function at the time it is called, and `args` is an array of the arguments passed to the anonymous function. This ensures that the predicate function is executed in the correct context and with the same arguments that were passed to the negated function. Additionally, due to the need of using the right `this` context, the outermost function should not be declared using arrow functions.
 
 <MDXCodeBlock languages={{ jsx: negateJs, tsx: negateTs }} />
 
-### Solution 2: Uses `arguments` as the arguments passed into the negated predicate
+### Approach 2: Uses `arguments` as the arguments passed into the negated predicate
 
 Uses `arguments` to pass all received arguments to the predicate, offering flexibility in handling an indefinite number of parameters without explicitly listing them, suitable for functions where parameter types and numbers are variable or unknown.
 
 <MDXCodeBlock languages={{ jsx: negateAltJs, tsx: negateAltTs }} />
 
-## Edge Cases
+## Edge cases
 
 When using `negate` with `predicate` functions that depend on their `this` context, such as object methods, unexpected behavior may occur due to context loss. To preserve context, we can bind the `predicate` to its original context using `predicate.bind(object)` before passing it to `negate`, ensuring `this` remains correctly bound.
 

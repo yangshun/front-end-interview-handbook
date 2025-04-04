@@ -1,0 +1,15 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import useBreakpoint from '../setup/src/use-breakpoint';
+
+## 解决方案
+
+`useBreakpoint` 钩子可以在 `createBreakpoint` 中使用 `useState` 钩子来实现，以存储当前的窗口宽度，并使用 `useEffect` 钩子在调整窗口大小时更新宽度。
+
+之后，按递增值对断点进行排序，然后搜索最小宽度小于当前窗口宽度的最后一个断点。
+
+如果您使用 TypeScript，您可以使 `createBreakpoint` 函数泛型，以便返回的 `useBreakpoint` 的返回类型仅为给定 `breakpoints` 对象的键的字符串，从而确保最大的类型安全。
+
+<MDXCodeBlock>
+  {useBreakpoint}
+</MDXCodeBlock>

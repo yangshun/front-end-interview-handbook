@@ -1,0 +1,27 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import useBoolean from '../setup/src/use-boolean-ii';
+
+## 解决方案
+
+典型的 `useBoolean` hook 使用 `useState` 来管理布尔状态。 setter 函数可以根据 `useState` hook 中的 `setValue` 来实现，并绑定 `true` 和 `false`。
+
+```js
+import { useState } from 'react';
+
+export default function useBoolean(initialValue = false) {
+  const [value, setValue] = useState(initialValue);
+
+  return {
+    value,
+    setTrue: () => setValue(true),
+    setFalse: () => setValue(false),
+  };
+}
+```
+
+但是，以这种方式编写 hook 意味着依赖于 `setTrue` 或 `setFalse` 的组件将始终被重新渲染，因为这些函数总是在每次渲染时被重新创建。 为了避免这种情况，我们可以使用 `useCallback` 来记忆它们。
+
+<MDXCodeBlock>
+  {useBoolean}
+</MDXCodeBlock>

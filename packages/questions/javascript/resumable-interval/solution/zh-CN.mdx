@@ -1,0 +1,58 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import resumableIntervalJs from '../setup/src/resumable-interval.js';
+import resumableIntervalTs from '../setup/src/resumable-interval.ts';
+import resumableIntervalStateMachineJs from '../setup/src/resumable-interval-state-machine.js';
+import resumableIntervalStateMachineTs from '../setup/src/resumable-interval-state-machine.ts';
+
+**注意：** 建议在尝试此问题之前完成 [可取消的间隔](/questions/javascript/cancellable-interval) 问题。
+
+## 解决方案
+
+此问题的复杂性在于对间隔的内部状态进行建模，例如它是否已暂停、正在运行或已停止（这是一个终止状态），以及如何根据这些方法正确修改状态。
+
+### 方法 1：使用 `stopped` 布尔标志
+
+我们可以使用变量 `timerId` 和 `stopped` 来模拟所有可能的状态：
+
+* 如果 `timerId` 为 `null`，则间隔已暂停。
+* 如果 `timerId` 不为 `null`，则间隔正在运行，并且该值是计时器的 ID。
+* 如果 `stopped` 为 `true`，则间隔已停止，并且无法重新启动，无论 `timerId` 的值如何。
+
+在我们的 `start` 和 `pause` 函数中，我们首先必须检查 `stopped` 是否为 `true`，如果是，则终止。
+
+在 `start` 函数中，我们首先必须检查 `timerId != null`，并且也要尽早终止，否则我们将同时运行两个间隔。
+
+在 `pause` 函数中，一旦我们确定间隔未处于 `stopped` 状态，请调用 `clearInterval(timerId)` 以停止间隔回调。
+
+在 `stop` 函数中，将 `stopped` 设置为 `true` 并调用 `clearInterval(timerId)` 以停止间隔回调。 间隔是否仍在运行无关紧要，因为 `clearInterval(null)` 是一个空操作。
+
+<MDXCodeBlock languages={{ jsx: resumableIntervalJs, tsx: resumableIntervalTs }} />
+
+我们不必担心回调函数中的 `this`，因为与 `Array.prototype.forEach()`/`Array.prototype.reduce()` 不同，没有选项可以将 `thisArg` 传递给 `setInterval`。 了解有关 [MDN 上的 this](https://developer.mozilla.org/en-US/docs/Web/API/setInterval#the_this_problem) 的更多信息。
+
+## 方法 2：状态机
+
+使用 3 个状态和 3 个可能的动作，使用命令式逻辑对状态和动作进行建模已经开始变得复杂。 状态机是一种声明式方式，用于对状态和相关的交互进行建模。 状态机接受当前状态和一个动作，并返回下一个状态。 然后，我们可以根据新状态调用必要的逻辑。
+
+对于这个问题，我们有以下状态和动作：
+
+* 状态：`'paused'`、`'stopped'`、`'running'`
+* 动作：`start()`、`pause()`、`stop()`
+
+我们可以定义一个 `stateMachine` 对象，其中顶层键是当前状态，值是键是动作而值是新状态的对象。 派生新状态很简单 `const newState = stateMachine[state][action]`。
+
+如果 `newState` 和当前 `state` 相同，则无需执行任何操作。 否则，我们可以根据 `newState` 执行必要的逻辑，以停止或启动间隔。 公开的方法只需使用相应的动作调用 `nextState` 函数。
+
+虽然键的值有一些重复，但可以一目了然地确定状态转换是否正确。与另一种方法相比，这种状态机方法需要的条件语句和状态赋值语句要少得多！
+
+<MDXCodeBlock
+  languages={{
+  jsx: resumableIntervalStateMachineJs,
+  tsx: resumableIntervalStateMachineTs,
+}}
+/>
+
+## 资源
+
+* [`setInterval()` | MDN](https://developer.mozilla.org/en-US/docs/Web/API/setInterval)

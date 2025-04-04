@@ -1,0 +1,13 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import useFocus from '../setup/src/use-focus';
+
+## 解决方案
+
+`useFocus` hook 可以通过使用 `useRef` 创建 ref 对象并定义在 ref 引用的元素上调用 [`focus`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/focus) 方法的函数来实现。
+
+我们可以另外将 focus 函数包装在 [`requestAnimationFrame`](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame) 中，以确保焦点由下一个 DOM 重新绘制应用。
+
+<MDXCodeBlock>
+  {useFocus}
+</MDXCodeBlock>

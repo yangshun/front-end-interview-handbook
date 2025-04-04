@@ -1,0 +1,58 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import textSearchJs from '../setup/src/text-search-ii.js';
+import textSearchTs from '../setup/src/text-search-ii.ts';
+
+这个问题评估了人们在 JavaScript 中操作数组和字符串的能力，这无疑是前端开发的一项基本技能。
+
+## 澄清问题
+
+你的面试官可能不一定会提前为你详细说明所有要求。理想情况下，你应该从考虑所有可能的情况和边缘情况开始。
+
+* 如果 `queries` 数组是一个空数组怎么办？或者输入字符串 `text` 是一个空字符串？
+  * 原样返回字符串。
+* 如果 `queries` 数组中的任何 `query` 是一个空字符串怎么办？
+  * 跳过该查询。
+
+## 解决方案
+
+有人可能会想到利用正则表达式 (regex)，通过 `RegExp`。在这里使用正则表达式非常困难，因为字符串中的字符可以匹配多个查询。有一些方法可以解决这个问题，但并不简单。
+
+一种想法是每次处理一个查询，为当前查询添加 `<b>` 标签，但这会破坏后续查询的字符串。想象一下这种情况：
+
+```js
+textSearch('aaabc', ['aaa', 'abc']);
+```
+
+在处理完 `'aaa'` 之后，字符串现在是 `<b>aaa</b>bc`，它将不匹配 `'abc'`。因此，这种方法也是不可行的。
+
+### 逆向工作
+
+让我们尝试从期望的输出逆向思考：我们希望输出一个字符串，其中包含存在于 `queries` 数组中的子字符串，并用 `<b>` 标签包裹。因此，我们需要确切地知道在哪里插入开头的 `<b>` 标签和结尾的 `</b>` 标签。我们可以创建一个布尔数组，其长度与 `text` 相同，每个值默认为 `false`。`boldChars[index]` 的值指示原始字符串中该索引处的字符是否需要加粗。
+
+```js
+// #1: 基本情况。
+// text: "aaabcaa", queries: ['abc']
+// boldChars: [false, false, true, true, true, false, false]
+// result: "aa<b>abc</b>aa"
+
+// #2: 非重叠情况。
+// text: "aaabcaabc", queries: ['abc']
+// boldChars: [false, false, true, true, true, false, true, true, true]
+// result: "aa<b>abc</b>a<b>abc</b>"
+
+// #3: 重叠情况。
+// text: "baabcaa", queries: ['abc', 'aa']
+// boldChars: [false, true, true, true, true, true true]
+// result: "a<b>aabcaa</b>"
+```
+
+连续的 `true` 块的开始是我们插入开始标签 `<b>` 的地方，结束是我们添加结束标签 `</b>` 的地方。
+
+为了确定哪些字符需要加粗，我们对 `text` 中的每个字符针对每个查询进行朴素的子字符串匹配。将每个匹配字符的索引处的布尔值翻转为 `true`。但是，由于“一个字符只能匹配同一个查询一次”的条件，当有匹配时，我们必须递增 `i` 以跳过当前查询。
+
+<MDXCodeBlock languages={{ jsx: textSearchJs, tsx: textSearchTs }} />
+
+## 笔记
+
+* 当我们找到子字符串匹配时，我们使用 `Array.prototype.fill()` 方便地改变布尔数组。方法 `fill` 是少数几个改变数组的方法之一。截至撰写本文时，总共有 9 种改变数组的方法：`pop`、`push`、`reverse`、`shift`、`sort`、`splice`、`unshift`、`copyWithin` 和 `fill`。查看 [Does it mutate](https://doesitmutate.xyz)，其中有一个很好的列表，列出了改变数组的方法以及更多细节。

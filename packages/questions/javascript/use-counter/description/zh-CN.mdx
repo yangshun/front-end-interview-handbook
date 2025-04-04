@@ -1,0 +1,35 @@
+---
+title: useCounter
+excerpt: 实现一个管理计数器状态的 Hook，并提供一些额外的便捷实用方法
+---
+
+实现一个 `useCounter` Hook，用于管理计数器状态，并提供一些额外的便捷实用方法。
+
+```jsx
+export default function Component() {
+  const { count, increment, decrement, reset, setCount } = useCounter();
+
+  return (
+    <div>
+      <p>Counter: {count}</p>
+      <button onClick={increment}>Increment</button>
+      <button onClick={decrement}>Decrement</button>
+      <button onClick={reset}>Reset</button>
+    </div>
+  );
+}
+```
+
+## 参数
+
+* `initialValue: number`: 计数器状态的初始值。如果未提供，则应默认为 `0`。
+
+## 返回值
+
+`useCounter` Hook 返回一个具有以下属性的 `object`：
+
+* `count: number`: 当前计数器的值
+* `increment: () => void`: 增加计数器值的函数
+* `decrement: () => void`: 减少计数器值的函数
+* `reset: () => void`: 将计数器值重置为 `initialValue`，如果未提供则重置为 `0`
+* `setCount: (value: number) => void`: 将计数器值设置为 `value` 的函数，它与 `setState` 具有相同的签名

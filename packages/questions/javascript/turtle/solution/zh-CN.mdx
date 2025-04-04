@@ -1,0 +1,31 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import turtleJs from '../setup/src/turtle.js';
+import turtleTs from '../setup/src/turtle.ts';
+
+## 解决方案
+
+### 状态
+
+为了模拟海龟的状态，我们只需要坐标和方向。坐标是存储在 `x` 和 `y` 字段中的数字。由于操作只允许海龟旋转 90 度，这本质上是基本方向：北、南、东、西，因此 `direction` 属性可以用枚举表示。对于这种特殊情况，0-3 之间的整数（分别对应于北、南、东、西）是最佳表示。原因将在下面详细解释。
+
+### 方法
+
+#### 通过 `left()` 和 `right()` 旋转
+
+当海龟朝北 (0) 时，向左转将使海龟朝西 (3)。总共有 4 个基本方向。通过使用模运算符，我们可以方便地计算海龟将要面对的新方向，方法是减去 1（向左转）或加上 1（向右转），然后对新值取模 4。使用 0-3 的整数表示 `direction`，这使得实现旋转逻辑变得很方便。为了提高可读性，我们为这些方向定义了 `const`。
+
+#### 移动 `forward()` 和 `backward()`
+
+向前/向后移动的逻辑有很大的重叠，`backward(distance)` 本质上是移动 `forward(-distance)`。因此，我们可以创建一个私有辅助函数，根据海龟当前 facing 的方向计算新的 x/y 坐标：
+
+* 面向北/南时，向前/向后移动将分别增加/减少 `y` 坐标。
+* 面向东/西时，向前/向后移动将分别增加/减少 `x` 坐标。
+
+`_move()` 辅助方法是可选的，您可以简单地将 `backward()` 实现为 `return this.forward(-distance)`。
+
+### 方法链
+
+方法链是一种常见的语法，用于在同一实例上调用多个方法，而无需使用变量来存储中间结果。这可以通过在需要链接的方法中返回 `this` 来实现。
+
+<MDXCodeBlock languages={{ jsx: turtleJs, tsx: turtleTs }} />

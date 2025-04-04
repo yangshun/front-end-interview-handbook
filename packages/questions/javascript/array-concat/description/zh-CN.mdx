@@ -1,0 +1,20 @@
+---
+title: Array.prototype.concat
+excerpt: 实现 Array.prototype.concat() 方法
+---
+
+JavaScript 数组上的 `Array.prototype.concat` 方法用于合并两个或多个数组。此方法不会更改现有数组，而是返回一个新数组。
+
+实现 `Array.prototype.concat`。为了避免覆盖自动评分器正在使用的实际 `Array.prototype.concat`，我们将把它实现为 `Array.prototype.myConcat`。
+
+## 示例
+
+```js
+[1, 2, 3].myConcat([4, 5, 6]); // [1, 2, 3, 4, 5, 6]
+[1, 2, 3].myConcat(4, 5, 6); // [1, 2, 3, 4, 5, 6]
+[1, 2, 3].myConcat(4, [5, 6]); // [1, 2, 3, 4, 5, 6]
+```
+
+## 注意事项
+
+从示例中可以看出，`Array.prototype.concat` 接受可变数量的参数，并且根据参数是原始类型还是数组/类数组对象，它们被区别处理。您不需要处理设置了属性 `Symbol.isConcatSpreadable` 的参数，但建议您在尝试之前阅读 [MDN 文档](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/concat) 上关于 `Array.prototype.concat` 的规范。

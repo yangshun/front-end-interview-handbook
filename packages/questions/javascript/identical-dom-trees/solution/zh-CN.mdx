@@ -1,0 +1,52 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import identicalDOMTreesJs from '../setup/src/identical-dom-trees.js';
+import identicalDOMTreesTs from '../setup/src/identical-dom-trees.ts';
+
+这个问题是 LeetCode 上 [Same Tree](https://leetcode.com/problems/same-tree/) 问题的前端版本。它测试你对递归/树遍历和文档对象模型 (DOM) 的了解。
+
+让我们看一个 DOM 树的最小示例。
+
+```html
+<span>foo</span>
+```
+
+在 DOM 中，每个 HTML 标签都是一个对象。嵌套标签或文本是封闭标签的子级。在这个例子中，文本 `foo` 是 `span` 标签的子级，可以通过 `childNodes` 属性访问。
+
+## 解决方案
+
+我们的函数需要确定两棵树是否相同。我们可以通过同时遍历两个根节点并比较它们来做到这一点，看看它们是否相同，递归到它们的子节点并重复此过程，直到我们发现不匹配或我们已经访问了其中一棵树中的所有节点。
+
+因此，我们的任务可以分为两个子任务：
+
+1. 遍历 DOM 树。
+2. 比较当前的 DOM 节点。
+
+如果你做过 [deep equal](/questions/javascript/deep-equal) 这个问题，你会意识到上面描述的方法正是我们用于 [deep equal](/questions/javascript/deep-equal) 这个问题的方法。事实上，它是一种常见的技术，适用于大多数与对象/树相关的问题：
+
+1. 我们希望有效地访问一个对象（一棵树）。
+2. 当我们处理该对象的每个属性（树中的一个节点）时，我们需要做一些事情。
+
+这是解决方案：
+
+<MDXCodeBlock languages={{ jsx: identicalDOMTreesJs, tsx: identicalDOMTreesTs }} />
+
+## 关于原生 DOM API 的说明
+
+你将不得不使用相当多的 DOM 特定的 API 来实现这样的函数。如果你不熟悉它们，也没关系。在实践中，你通常不再需要编写低级 DOM 操作代码。
+
+以下是我们在本解决方案中涵盖的 DOM API：
+
+1. 我们在检查节点类型时使用 `nodeType`。有一个类似的 API 叫做 `tagName`，它只适用于 HTML 元素，不适用于文本节点和注释节点。如果你想了解更多关于它们的区别，请查看 [本教程](https://javascript.info/basic-dom-node-properties#summary)。
+2. 我们使用 `childNodes` 属性——而不是 `children` 属性——来获取子节点列表。原因是，`children` 仅返回元素，而 `childNodes` 返回所有节点，包括文本节点和注释节点。如果你想了解更多关于它们的区别，请查看 [此 MDN 页面](https://developer.mozilla.org/en-US/docs/Web/API/Node/childNodes)。
+3. 我们通过 `Array.prototype.every.call(treeA.childNodes)` 从 `Array.prototype` “借用”了 `every` 方法，而不是只在 `childNodes` 上调用 `every`。这是因为 `childNodes` 返回的不是一个 JavaScript 数组，而是一个类似数组的数据结构，称为 `NodeList`，它没有附带所有开箱即用的数组方法。在其上调用数组方法（如 `every`）会抛出错误。在 `NodeList` 上使用数组方法的另一种方法是首先通过 `Array.from` 将其转换为数组。即 `Array.from(treeA.childNodes).every(...)`。
+
+## 单行解决方案
+
+有一个新的 API 叫做 `isEqualNode`，它测试两个节点是否相等。查看 [MDN 上的 `Node.isEqualNode()` API](https://developer.mozilla.org/en-US/docs/Web/API/Node/isEqualNode)。
+
+```js
+function identicalDOMTrees(treeA, treeB) {
+  return treeA.isEqualNode(treeB);
+}
+```

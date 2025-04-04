@@ -1,0 +1,32 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import listFormatJs from '../setup/src/list-format.js';
+import listFormatTs from '../setup/src/list-format.ts';
+
+这个问题受到 JavaScript API `Intl.ListFormat.prototype.format()` 函数的启发。
+
+## 解决方案
+
+通过查看示例，我们可以将解决方案分成两部分：
+
+1. 处理输入列表 - 移除空值、排序、去重。
+2. 将项目格式化为第二个字符串。
+
+第一部分非常简单，我们可以只维护一个 `items` 数组，根据 `options` 对其进行修改。
+
+第二部分稍微复杂一些，但我们可以观察到以下几点：
+
+* `length` 选项将数组分成两部分。
+* 第一部分将用 `, ` 连接，第二部分将用 `and` 连接。 - 是否显示 `X other(s)` 取决于 `length` 值是否在 `[0, items.length]` 范围内。
+
+<MDXCodeBlock languages={{ jsx: listFormatJs, tsx: listFormatTs }} />
+
+## 笔记
+
+此函数不如 `Intl.ListFormat.prototype.format()` API 可用，因为分隔符被硬编码为英语。 `Intl` API 旨在用于国际化 (i18n)，并且还允许自定义分隔符（逗号和 `and`），因此如果此函数用于生产环境，则不应硬编码任何分隔符！
+
+为了使此函数更好，我们可以允许自定义列表分隔符和“其他”分隔符。
+
+## 资源
+
+* [`Intl.ListFormat` MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/ListFormat)

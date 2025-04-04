@@ -1,0 +1,23 @@
+---
+title: 循环
+excerpt: 实现一个函数，该函数接受一个或多个值，并返回一个函数，该函数在每次调用时循环遍历这些值
+---
+
+实现一个函数，该函数接受一个或多个值，并返回一个函数，该函数在每次调用时循环遍历这些值。
+
+## 例子
+
+```js
+const helloFn = cycle('hello');
+console.log(helloFn()); // "hello"
+console.log(helloFn()); // "hello"
+
+const onOffFn = cycle('on', 'off');
+console.log(onOffFn()); // "on"
+console.log(onOffFn()); // "off"
+console.log(onOffFn()); // "on"
+```
+
+## 源码
+
+* [JavaScript 代码挑战](https://jscodechallenges.vercel.app/challenges/functions#11-design-a-function-with-cycle-functionality-for-given-list-of-inputs-where-cycle-function-accepts-list-of-values-to-be-cycled-upon)

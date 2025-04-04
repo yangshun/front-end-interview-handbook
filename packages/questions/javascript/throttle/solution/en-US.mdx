@@ -16,7 +16,7 @@ Given that there's a `wait` duration before the function can be invoked again, w
 
 We will also need to return a function which contains logic surrounding when to invoke the `func`. This function needs to do a few things:
 
-### 1) Throttle invocation
+### 1. Throttle invocation
 
 The callback function is invoked immediately and doesn't allow only invocations again until a duration of `wait` has passed. As mentioned earlier, we can use a boolean variable `shouldThrottle` to model the states.
 
@@ -28,7 +28,7 @@ When the function is called in the "Idle" state, a few things are done:
 
 While the lock is active, calls to the throttled function will not invoke `func` because of the `shouldThrottle` check at the top of the function.
 
-### 2) Invoke `func` with the appropriate arguments
+### 2. Invoke `func` with the appropriate arguments
 
 Throttled functions are used like the original functions, so we should forward the value of `this` and function arguments when invoking the original callback functions.
 

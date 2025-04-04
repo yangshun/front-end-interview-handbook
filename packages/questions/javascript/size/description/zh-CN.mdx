@@ -1,0 +1,48 @@
+---
+title: 大小
+excerpt: 实现一个返回集合大小的函数
+---
+
+实现一个函数 `size(collection)`，它接受一个集合（数组、对象、字符串、`Map`、`Set`）并返回其大小，该大小表示集合中的元素数量。
+
+```js
+size(collection);
+```
+
+如果 `collection` 类型不是支持的类型之一，则返回 0。
+
+## 参数
+
+1. `collection` *(Array|Object)*: 要检查的集合。
+
+## 返回值
+
+*(number)*: 返回集合大小。
+
+## 例子
+
+```js
+// 数组。
+size([1, 2, 3, 4, 5]); // => 5
+// 对象。
+size({ a: 1, b: 2 }); // => 2
+// 字符串。
+size('peanut'); // => 6
+// Sets。
+size(new Set([1, 2, 3])); // => 3
+// Maps。
+size(
+  new Map([
+    [1, 2],
+    [3, 4],
+  ]),
+); // => 2
+```
+
+## 边缘情况
+
+您的函数应该处理 `null` 和 `undefined` 输入。 在这种情况下，它应该返回 0。
+
+## 资源
+
+* [Lodash `_.size`](https://lodash.com/docs/#size)

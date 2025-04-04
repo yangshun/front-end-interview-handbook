@@ -1,0 +1,39 @@
+---
+title: 符合条件
+excerpt: 实现一个函数，用于检查对象是否符合源对象
+---
+
+实现一个函数 `conformsTo(object, source)`，通过使用源对象的谓词属性和对象对应的属性值来检查对象是否符合源对象
+
+```js
+conformsTo(object, source);
+```
+
+## 参数
+
+1. `object` *(Object)*: 要检查的对象。
+2. `source` *(Object)*: 要符合的属性谓词对象。
+
+## 返回值
+
+*`(boolean)`*: 如果对象符合条件，则返回 true，否则返回 false。
+
+## 例子
+
+```js
+conformsTo({ a: 1, b: 2 }, { b: (n) => n > 1 });
+// => true
+
+conformsTo({ a: 1, b: 2 }, { b: (n) => n > 2 });
+// => false
+```
+
+当 `object` 为空时，该函数应返回 `false`。
+
+```js
+conformsTo({}, { b: (n) => n > 1 }); // => false
+```
+
+## 资源
+
+* [Lodash `_.conformsTo`](https://lodash.com/docs/#conformsTo)

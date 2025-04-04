@@ -1,0 +1,15 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import useWindowSize from '../setup/src/use-window-size';
+
+## 解决方案
+
+可以使用 `useState` 钩子实现 `useWindowSize` 钩子，以存储当前的屏幕属性，并使用 [`useLayoutEffect`](https://react.dev/reference/react/useLayoutEffect) 钩子在调整屏幕大小时更新属性。 我们可以将事件侦听器附加到 `window` 对象上的 [`resize` 事件](https://developer.mozilla.org/en-US/docs/Web/API/Window/resize_event) 以更新属性状态。
+
+使用 `useLayoutEffect` 而不是 `useEffect` 以确保在浏览器绘制后同步更新大小。 这对于依赖于窗口大小的动画和其他视觉效果非常重要。
+
+我们重新创建 `windowSize` 对象，这样用户就不会意外地改变原始对象。
+
+<MDXCodeBlock>
+  {useWindowSize}
+</MDXCodeBlock>

@@ -1,0 +1,34 @@
+---
+title: useBreakpoint
+excerpt: 实现一个基于当前窗口宽度返回当前断点名称的 Hook
+---
+
+实现一个 `createBreakpoint` 函数，该函数接受一个对象（其中键是断点名称，值是最小宽度），并返回一个 `useBreakpoint` Hook，该 Hook 基于当前窗口宽度返回当前的断点名称。
+
+```jsx
+const useBreakpoint = createBreakpoint({
+  mobile: 0,
+  tablet: 768,
+  desktop: 1024,
+});
+
+export default function Component() {
+  const breakpoint = useBreakpoint();
+
+  return (
+    <div>
+      {breakpoint === 'mobile' && <p>Mobile</p>}
+      {breakpoint === 'tablet' && <p>Tablet</p>}
+      {breakpoint === 'desktop' && <p>Desktop</p>}
+    </div>
+  );
+}
+```
+
+## 参数
+
+`createBreakpoint` 函数接受一个键值对对象，其中键是断点名称（`string`），值是断点的最小宽度（`number`），以像素为单位。
+
+## 返回值
+
+`createBreakpoint` 函数返回一个函数，该函数是实际的 `useBreakpoint` Hook。此 Hook 不接受任何参数，并返回最接近当前窗口宽度的当前断点名称（`string`）。调整窗口大小将导致 Hook 重新运行，并可能根据窗口大小返回不同的值。

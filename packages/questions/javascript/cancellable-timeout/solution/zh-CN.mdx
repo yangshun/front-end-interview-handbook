@@ -1,0 +1,36 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import cancellableTimeoutJs from '../setup/src/cancellable-timeout.js';
+import cancellableTimeoutTs from '../setup/src/cancellable-timeout.ts';
+import cancellableTimeoutAlt from '../setup/src/cancellable-timeout-alt';
+import cancellableTimeoutBoolean from '../setup/src/cancellable-timeout-boolean';
+
+## 解决方案
+
+返回取消函数而不是 `timerId` 的好处是延迟机制被抽象出来，可以被替换成其他东西。但实际上，在 JavaScript 中没有其他方法可以实现延迟执行，这就是为什么你可能在面试之外看不到它的原因。
+
+### 方法 1：返回一个调用 `clearTimeout` 的函数
+
+`setTimeout` 返回一个计时器 ID。要取消计时器，我们可以调用 `clearTimeout(timerId)`。解决这个问题的一个简单方法是返回一个完全相同的函数。我们可以将所有参数转发给 `setTimeout`。
+
+<MDXCodeBlock languages={{ jsx: cancellableTimeoutJs, tsx: cancellableTimeoutTs }} />
+
+我们可以稍微简化代码，并将所有参数转发给 `setTimeout`。
+
+<MDXCodeBlock>
+  {cancellableTimeoutAlt}
+</MDXCodeBlock>
+
+我们不必担心回调函数中的 `this`，因为没有选项可以将 `thisArg` 传递给 `setTimeout`，这与 `Array.prototype.forEach()`/`Array.prototype.reduce()` 不同。阅读更多关于 [MDN 上的 this](https://developer.mozilla.org/en-US/docs/Web/API/setTimeout#the_this_problem)。
+
+### 方法 2：维护一个 `cancelled` 标志（非最佳）
+
+另一种方法是维护一个 `cancelled` 标志，当调用返回的函数时，该标志将设置为 `true`。在调用 `setTimeout` 回调之前，检查 `cancelled` 的值，然后再执行 `callback`。这并非最佳，因为 `setTimeout` 回调仍然被不必要地调用，最终什么也没做。
+
+<MDXCodeBlock>
+  {cancellableTimeoutBoolean}
+</MDXCodeBlock>
+
+## 资源
+
+* [`setTimeout()` | MDN](https://developer.mozilla.org/en-US/docs/Web/API/setTimeout)

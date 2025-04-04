@@ -1,0 +1,11 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import useThrottle from '../setup/src/use-throttle';
+
+## 解决方案
+
+可以通过使用 `useRef` 存储上次更新时间，并使用 `useEffect` 来控制何时立即更新状态或使用 `setTimeout` 进行节流来实现 `useThrottle` hook。
+
+<MDXCodeBlock>
+  {useThrottle}
+</MDXCodeBlock>

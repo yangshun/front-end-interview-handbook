@@ -1,0 +1,30 @@
+---
+title: useCycle
+excerpt: 实现一个循环遍历一系列值的 hook
+---
+
+实现一个 `useCycle` hook，每次调用其函数时，循环遍历一系列值。
+
+```jsx
+export default function Component() {
+  const [mode, cycle] = useCycle('low', 'medium', 'high');
+
+  return (
+    <div>
+      <p>State: {mode}</p>
+      <button onClick={cycle}>Cycle</button>
+    </div>
+  );
+}
+```
+
+## 参数
+
+`useCycle` hook 应该接受不定数量的参数，每个参数代表要循环遍历的序列中的一个值。
+
+## 返回值
+
+一个包含以下元素的元组：
+
+1. `value`：当前值
+2. `cycle`：一个将当前值更改为序列中下一个值的函数，如果当前值是序列中的最后一个值，则更改为第一个值

@@ -1,0 +1,53 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import sumJs from '../setup/src/sum.js';
+import sumTs from '../setup/src/sum.ts';
+import sumArrowFunction from '../setup/src/sumArrowFunction';
+
+这个问题评估你对闭包和一等函数的理解——JavaScript 中的函数是可以返回并作为参数传递给其他函数的变量。
+
+## 澄清问题
+
+* 如果我们在开始时没有参数就调用 `sum()` 怎么办？
+  * 我们不会测试这种情况。但我们建议抛出一个 `Error`。
+
+## 解决方案
+
+`sum` 函数返回函数，直到它在没有任何参数的情况下被调用，然后它将返回到目前为止的总和。由于我们需要保留到目前为止添加的值的运行总和，我们可以使用一个变量来实现。我们如何在没有类的情况下实现这一点？答案是闭包。
+
+闭包是将函数与其词法环境（周围状态）捆绑在一起的组合。我们可以利用闭包来保留对运行总数的引用。
+
+我们声明一个内部函数，该函数将为后续对该函数的调用返回。该函数将确定是否传入了值。如果是，我们将其添加到运行总数并返回自身，以便可以进行后续调用，否则我们返回运行总数。
+
+我们可以通过使用 `argument === undefined` 来检查是否存在参数。请注意，我们不应该在这里使用 `==`，因为 `null == undefined` 为 `true`。
+
+<MDXCodeBlock languages={{ jsx: sumJs, tsx: sumTs }} />
+
+### 替代方法：使用箭头函数的一行代码
+
+使用箭头函数，此函数可以用一行代码编写。
+
+<MDXCodeBlock>
+  {sumArrowFunction}
+</MDXCodeBlock>
+
+## 边缘情况
+
+中间结果应该能够再次用于单独的评估。
+
+```js
+const addTwo = sum(2);
+addTwo(3)(); // 5
+addTwo(4)(); // 6
+addTwo(3)(4)(); // 9
+```
+
+## 技术
+
+* 闭包
+* 一等函数
+* `null` vs `undefined`
+
+## 笔记
+
+* 不要使用 `==` 来检查参数是否存在，因为 `null == undefined` 为 `true`。

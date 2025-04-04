@@ -1,0 +1,46 @@
+---
+title: 中间件
+excerpt: 实现一个类似于 Koa.js 中间件函数的异步中间件函数组合。
+---
+
+实现一个 `middlewares` 函数，该函数接受任意数量的中间件函数，并将它们组合成一个可调用的函数。这个组合函数接受一个 `context`，返回一个 `Promise`，并按顺序调用每个中间件。
+
+每个中间件都是一个接收两个参数的函数：
+
+* `context`：所有中间件共享的对象
+* `next`：一个调用链中下一个中间件的函数
+
+当调用 `next()` 时，应该运行下一个中间件。如果一个中间件没有调用 `next`，则链停止。
+
+执行应该**异步且顺序**，类似于中间件在 [Koa](https://koajs.com/) 等框架中的工作方式。
+
+## 例子
+
+```js
+async function fn1(ctx, next) {
+  ctx.stack.push('fn1-start');
+  await next();
+  ctx.stack.push('fn1-end');
+}
+
+async function fn2(ctx, next) {
+  ctx.stack.push('fn2-start');
+  await new Promise((resolve) => setTimeout(resolve, 1000));
+  await next();
+  ctx.stack.push('fn2-end');
+}
+
+function fn3(ctx, next) {
+  ctx.stack.push('fn3-start');
+  next();
+  ctx.stack.push('fn3-end');
+}
+
+const composedFn = middlewares(fn1, fn2, fn3);
+
+const context = { stack: [] };
+await composedFn(context);
+
+console.log(context.stack);
+// ['fn1-start', 'fn2-start', 'fn3-start', 'fn3-end', 'fn2-end', 'fn1-end']
+```

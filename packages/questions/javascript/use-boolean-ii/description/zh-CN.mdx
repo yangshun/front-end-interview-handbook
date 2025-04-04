@@ -1,0 +1,33 @@
+---
+title: useBoolean II
+excerpt: 实现 useBoolean hook 的优化版本
+---
+
+实现 `useBoolean` hook 的优化版本。返回的方法应该被记忆化，在重新渲染时返回相同的函数实例。
+
+```jsx
+export default function Component() {
+  const { value, setTrue, setFalse } = useBoolean();
+
+  return (
+    <div>
+      <p>{value ? 'enabled' : 'disabled'}</p>
+      <button onClick={toggle}>Toggle</button>
+    </div>
+  );
+}
+```
+
+## 参数
+
+* `initialValue: boolean`: 布尔状态的初始值。如果未提供，则应默认为 `false`。
+
+## 返回值
+
+`useBoolean` hook 返回一个具有以下属性的 `object`。
+
+* `value: boolean`: 当前布尔状态
+* `setTrue: () => void`: 将布尔状态设置为 `true` 的函数
+* `setFalse: () => void`: 将布尔状态设置为 `false` 的函数
+
+`setTrue` 和 `setFalse` 必须是跨重新渲染的相同函数实例。

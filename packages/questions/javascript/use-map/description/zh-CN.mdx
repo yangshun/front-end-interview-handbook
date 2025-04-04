@@ -1,0 +1,56 @@
+---
+title: useMap
+excerpt: 实现一个管理 JavaScript map 的 Hook
+---
+
+实现一个 `useMap` Hook，用于管理具有附加便捷实用方法的 JavaScript [`Map`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) 项目。
+
+使用 `useMap` 比使用普通的 `useState` 更方便，因为在后一种情况下，您将始终必须创建一个新的 `Map`，对其进行更改，然后设置状态以使用新的 map，这可能非常麻烦。
+
+该 Hook 应该可以通用地处理任何类型的键和值。
+
+```jsx
+export default function Component() {
+  const { map, set, setAll, reset, remove } = useMap([['key', '🆕']]);
+
+  return (
+    <div>
+      <button onClick={() => set(String(Date.now()), '📦')}>添加</button>
+      <button
+        onClick={() =>
+          setAll([
+            ['hello', '👋'],
+            ['data', '📦'],
+          ])
+        }>
+        设置新数据
+      </button>
+      <button onClick={reset}>重置</button>
+      <button onClick={remove('hello')} disabled={!map.get('hello')}>
+        删除 "hello"
+      </button>
+      <pre>
+        Map (
+        {Array.from(map.entries()).map(([key, value]) => (
+          <Fragment key={key}>{`\n  ${key}: ${value}`}</Fragment>
+        ))}
+        <br />)
+      </pre>
+    </div>
+  );
+}
+```
+
+## 参数
+
+* `defaultValue`：项目的初始 map。这可以是 `Map` 实例或键值对数组
+
+## 返回值
+
+该 Hook 返回一个具有以下属性的对象：
+
+* `map`：当前的项目 map
+* `set: (key, value) => void`：一个将 `key` 设置为 map 中 `value` 的函数
+* `setAll: (entries) => void`：一个设置 map 中多个键值对 `entries` 的函数
+* `remove: (key) => void`：一个通过 `key` 从 map 中删除键值对的函数
+* `reset: () => void`：一个将 map 重置为空 map 的函数

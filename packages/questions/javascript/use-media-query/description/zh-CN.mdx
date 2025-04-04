@@ -1,0 +1,24 @@
+---
+title: useMediaQuery
+excerpt: 实现一个订阅并响应媒体查询变化的 Hook（例如屏幕大小、分辨率、方向等）
+---
+
+实现一个 `useMediaQuery` Hook，用于订阅并响应媒体查询的变化（例如屏幕大小、分辨率、方向等）。
+
+```jsx
+export default function Component() {
+  const isSmallDevice = useMediaQuery('only screen and (max-width: 768px)');
+
+  return <div>{isSmallDevice && <a href="#">Menu</a>}</div>;
+}
+```
+
+提示：[`window.matchMedia` API](https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia) 可能会有所帮助。
+
+## 参数
+
+* `query: string`：要匹配的媒体查询。它必须是[有效的 CSS 媒体查询字符串](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries)
+
+## 返回值
+
+该 Hook 返回一个布尔值，指示媒体查询是否匹配。

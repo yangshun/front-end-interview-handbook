@@ -1,0 +1,59 @@
+---
+title: useInputControl
+excerpt: 实现一个管理受控输入值并跟踪其脏和已触及状态的 hook
+---
+
+实现一个 `useInputControl` hook，用于管理受控输入值并跟踪其他表单输入状态，例如：
+
+| 属性 | 跟踪 | 变为 `true` 的时间 | 变为 `false` 的时间 |
+| --- | --- | --- | --- |
+| 已触及 | 如果输入已获得焦点然后失焦 | 当用户使输入失焦（焦点 -> 失焦） | 永不自动重置 |
+| 脏 | 如果值之前已更改 | 当用户输入内容时 永不自动重置 |
+| 不同 | 如果值与原始值不同 | 当值与初始值不同 | 当值与初始值相同时 |
+
+该 hook 返回的 `handleX` 函数旨在在 `<input>` 的相关事件处理程序上调用，以便 hook 按预期工作。
+
+```jsx
+export default function Component() {
+  const nameInput = useInputControl('Oliver');
+
+  return (
+    <form>
+      <div>
+        <label htmlFor="name">Name</label>
+        <input
+          id="name"
+          value={nameInput.value}
+          onChange={nameInput.handleChange}
+          onBlur={nameInput.handleBlur}
+        />
+      </div>
+      <p>Touched: {nameInput.touched.toString()}</p>
+      <p>Dirty: {nameInput.dirty.toString()}</p>
+      <p>Different: {nameInput.different.toString()}</p>
+      <button type="submit" disabled={!nameInput.different}>
+        Submit
+      </button>
+      <button type="button" onClick={nameInput.reset}>
+        Reset
+      </button>
+    <form>
+  );
+}
+```
+
+## 参数
+
+* `initialValue: string`: 输入的初始值
+
+## 返回值
+
+该 hook 返回一个具有以下属性的对象：
+
+* `value: string`: 输入的当前值
+* `dirty: boolean`: 用户是否至少修改过一次
+* `touched: boolean`: 输入是否已获得焦点并失焦
+* `different: boolean`: 值是否与初始值不同
+* `handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void`: 一个更新输入值的函数
+* `handleBlur: (event: React.FocusEvent<HTMLInputElement>) => void`: 在输入失焦时调用的函数
+* `reset: () => void`: 一个将所有状态重置为初始值的函数

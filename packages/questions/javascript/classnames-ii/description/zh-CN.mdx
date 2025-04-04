@@ -1,0 +1,29 @@
+---
+title: Classnames II
+excerpt: 实现一个有条件地将 CSS 类名连接在一起的函数，并处理去重和函数值
+---
+
+在 [classnames](/questions/javascript/classnames) 中，我们实现了 [`classnames`](https://github.com/JedWatson/classnames)，这是一个在现代前端应用程序中常用的实用程序，用于有条件地将 CSS 类名连接在一起。但是，该库在某些情况下无法做到：
+
+| 情况 | 示例 | 原始 | 改进 |
+| --- | --- | --- | --- |
+| 去重类名 | `classNames('foo', 'foo)` | `'foo foo'` | `'foo'` |
+| 关闭类名 | `classNames('foo', 'bar', { foo: false })` | `'foo bar'` | `'bar'` |
+| 函数值 | `classNames(() => 'foo')` | 不支持 | `'foo'` |
+
+实现一个改进版的 `classnames` 函数，以处理上述情况。
+
+## 示例
+
+```js
+classNames('foo', 'foo'); // 'foo'
+classNames({ foo: true }, { foo: true }); // 'foo'
+classNames({ foo: true, bar: true }, { foo: false }); // 'bar'
+classNames('foo', () => 'bar'); // 'foo bar'
+classNames('foo', () => 'foo'); // 'foo'
+```
+
+## 资源
+
+* [`classnames` 库在 GitHub 上](https://github.com/JedWatson/classnames)
+* [`clsx` 库在 GitHub 上](https://github.com/lukeed/clsx)：一个更新的版本，作为 `classnames` 的更快更小的直接替代品。

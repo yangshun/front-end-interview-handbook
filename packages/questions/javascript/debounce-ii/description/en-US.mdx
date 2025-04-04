@@ -5,14 +5,16 @@ excerpt: Implement a debounce function that comes with a cancel method to cancel
 
 **Note:** This is an advanced version of [Debounce](/questions/javascript/debounce), you should complete that first before attempting this question.
 
-Debouncing is a technique used to control how many times we allow a function to be executed over time. When a JavaScript function is debounced with a wait time of X milliseconds, it must wait until after X milliseconds have elapsed since the debounced function was last called. You almost certainly have encountered debouncing in your daily lives before — when entering an elevator. Only after X duration of not pressing the "Door open" button (the debounced function not being called) will the elevator door actually close (the callback function is executed).
+Debouncing is a technique used to control how many times we allow a function to be executed over time. When a JavaScript function is debounced with a wait time of X milliseconds, it must wait until after X milliseconds have elapsed since the debounced function was last called.
 
-Implement a `debounce` function which accepts a callback function and a `wait` duration. Calling `debounce()` returns a function which has debounce invocations of the callback function following the behavior described above.
+You almost certainly have encountered debouncing in your daily lives before (e.g. when entering an elevator). Only after X duration of not pressing the "Door open" button (the debounced function not being called) will the elevator door actually close (the callback function is executed).
 
-Additionally, the `debounce` function comes with two extra methods:
+Implement a `debounce` function which accepts a callback function and a `wait` duration. Calling `debounce()` returns a function which has debounced invocations of the callback function following the behavior described above.
 
-1. `cancel()` method to cancel pending invocations.
-1. `flush()` method to immediately invoke any delayed invocations.
+Additionally, the debounce-ed function comes with two extra methods:
+
+1. `cancel()` method to cancel pending invocations
+2. `flush()` method to immediately invoke any delayed invocations
 
 ## Examples
 

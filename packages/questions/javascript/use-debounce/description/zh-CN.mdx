@@ -1,0 +1,31 @@
+---
+title: useDebounce
+excerpt: 实现一个对值进行防抖的 Hook
+---
+
+实现一个 `useDebounce` Hook，它会延迟状态更新，直到指定的 `delay` 时间过去，并且提供的 `value` 没有进一步变化。
+
+```jsx
+export default function Component() {
+  const [keyword, setKeyword] = useState('');
+  const debouncedKeyword = useDebounce(keyword, 1000);
+
+  return (
+    <div>
+      <input value={keyword} onChange={(e) => setKeyword(e.target.value)} />
+      <p>Debounced keyword: {debouncedKeyword}</p>
+    </div>
+  );
+}
+```
+
+`useDebounce` 的可观察结果与 React 的 [`useDeferredValue`](https://react.dev/reference/react/useDeferredValue) 非常相似，前者在固定持续时间后返回更新后的值，而后者总是返回更新后的值，但对 DOM 的更新依赖于 React 的优先级系统。
+
+## 参数
+
+1. `value`：要防抖的值
+2. `delay: number`：以毫秒为单位的延迟时间
+
+## 返回值
+
+该 Hook 返回防抖后的值。

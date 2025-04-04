@@ -1,0 +1,13 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import useCountdown from '../setup/src/use-countdown';
+
+## 解决方案
+
+可以使用 `useState` 存储倒计时的当前值，并使用 `useEffect` 通过 `setInterval` 管理倒计时计时器来实现 `useCountdown` hook。
+
+我们只需要确保在组件卸载时使用 `clearInterval` 清除间隔，即在 effect 的清理中。
+
+<MDXCodeBlock>
+  {useCountdown}
+</MDXCodeBlock>

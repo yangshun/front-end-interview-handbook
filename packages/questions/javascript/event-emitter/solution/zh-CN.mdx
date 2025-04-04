@@ -1,0 +1,134 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import eventEmitterJs from '../setup/src/event-emitter.js';
+import eventEmitterTs from '../setup/src/event-emitter.ts';
+import eventEmitterFunctionPrototype from '../setup/src/eventEmitterFunctionPrototype';
+
+基于事件的交互模型是构建用户界面的最常见方式。 DOM 也是围绕此模型构建的，使用 `document.addEventListener()` 和 `document.removeEventListener()` API 来允许响应 `click`、`hover`、`input` 等事件。
+
+## 澄清问题
+
+以下是向面试官提问以展示您的周全考虑的好问题。 根据他们的回答，您可能需要相应地调整实现。
+
+1. 除了 `eventName` 之外，可以不带任何参数调用 `emitter.emit()` 吗？
+   * 是的，可以。
+2. 可以使用相同的 `eventName` 多次添加同一个监听器吗？
+   * 是的，可以。 当 `eventName` 被触发时，它将被调用一次，对于每次添加它的顺序。
+3. 紧接着上面的问题，如果一个监听器被多次添加，并且 `emitter.off()` 被调用一次，那么会发生什么？
+   * 监听器将只被移除一次。
+4. 可以触发不存在的事件吗？
+   * 是的，但是不应该发生任何事情，代码也不应该出错或崩溃。
+5. 监听器的 `this` 值应该是什么？
+   * 它可以是 `null`。
+6. 监听器是否可以包含调用 emitter 实例上的方法的代码？
+   * 是的，但我们可以忽略此问题。
+7. 如果监听器回调在 `emitter.emit()` 期间抛出错误怎么办？
+   * 应该捕获该错误，并且不应停止其余的执行。 但是，我们不会测试这种情况。
+
+我们将处理以上所有情况，除了最后两种情况。
+
+## 解决方案
+
+### 数据结构
+
+首先，我们必须确定用于存储事件和监听器的数据结构。 我们可以使用：
+
+#### 1. 将 `eventName` 映射到监听器函数数组。
+
+```js
+events = {
+  foo: [Function1, Function3],
+  bar: [Function2],
+};
+```
+
+* 优点：
+  * 快速查找 `eventName` 的监听器列表。
+* 缺点：
+  * 由于 `eventName` 由用户提供，它可以是任何值，并且可能与 `Object.prototype` 上的现有键（例如 `toString`）冲突。 我们将处理这种情况。
+
+#### 2. `eventName` 和监听器对的扁平数组。
+
+```js
+events = [
+  { eventName: 'foo', listener: Function1 },
+  { eventName: 'bar', listener: Function2 },
+  { eventName: 'foo', listener: Function3 },
+];
+```
+
+* 优点：
+  * 简单，扁平的结构。
+* 缺点：
+  * 需要 O(n) 时间来查找事件的监听器，因为你必须查看整个事件列表。
+  * `emit()` 和 `off()` 操作将需要遍历数组，你无法立即确定事件是否存在并忽略不存在的事件的触发。
+  * 由于重复的对象字段和 `eventName` 字符串，可能需要更多空间来存储数据。
+
+方法 #1 显然更好，所以我们将使用它。 为了缓解用户提供的 `eventName` 与 `Object.prototype` 上的键冲突的问题，我们可以使用 `Object.create(null)` 实例化 `_events` 对象或使用 ES6 `Map` 类。
+
+### 实现 `EventEmitter.on()`
+
+实现 `EventEmitter.on()` 非常简单。 首先检查 `eventName` 是否作为 `_events` 对象的键存在，如果这是第一次遇到此 `eventName`，则将该值设为空数组（用于该事件的监听器列表）。 然后将 `listener` 推入数组。
+
+返回 `this`，以便可以链接该方法。
+
+### 实现 `EventEmitter.off()`
+
+首先检查 `eventName` 是否作为 `_events` 对象的键存在。如果不存在任何带有 `eventName` 的事件，我们不需要继续进行，可以直接 `return`。
+
+由于我们只想删除任何匹配 `listener` 的第一个实例，我们将使用 `listeners.findIndex()` 并通过 `.splice()` 仅删除*一个*实例，而不是使用类似 `.filter()` 的方法，后者将删除所有匹配的实例。
+
+返回 `this`，以便可以链接该方法。
+
+### 实现 `EventEmitter.emit()`
+
+检查 `eventName` 是否存在或是否有任何事件，如果 `eventName` 不存在或没有 `eventName` 的监听器，我们可以终止并返回 `false`。
+
+为了将剩余的参数传递给每个监听器，我们必须在方法签名中使用 `...args` 来捕获所有其他参数作为变量 `args`。监听器可以使用 `args` 通过 `Function.prototype.apply()` 或 `Function.prototype.call()` 调用。
+
+### 内置对象属性与用户提供的 `eventName` 冲突
+
+如上所述，如果您使用普通的 JavaScript 对象将 `eventName` 映射到回调，一个潜在的问题是使用与 JavaScript 对象上存在的属性（如 `valueOf` 和 `toString`）冲突的 `eventName`。
+
+```js
+const emitter = new EventEmitter();
+emitter.emit('toString'); // 可能会崩溃，因为该属性确实存在于对象上。
+```
+
+两种处理方法：
+
+* 使用 `Map` 而不是对象。这是现代方法。
+* 使用 `Object.create(null)` 创建您的普通 JavaScript 对象，这样对象就没有原型，也没有其他属性。
+
+### 基于类的解决方案
+
+<MDXCodeBlock languages={{ jsx: eventEmitterJs, tsx: eventEmitterTs }} />
+
+### 基于函数原型的解决方案
+
+<MDXCodeBlock>
+  {eventEmitterFunctionPrototype}
+</MDXCodeBlock>
+
+## 边缘情况
+
+* 相同的监听器函数可以为同一事件添加多次。删除应按添加的顺序进行。
+* `emitter.emit()` 在没有任何参数的情况下被调用。
+* 方法使用不存在的 `eventName` 调用。
+* `eventName` 是内置对象属性，如 `valueOf`、`toString`。
+
+## 技术
+
+* 面向对象编程。
+* 使用正确的数据结构。
+* 处理可变参数。
+* 对象链。
+
+## 笔记
+
+* 箭头函数具有对 `this` 上下文的词法作用域，因此它们不应该用作对象的方法，因为 `this` 不会引用该对象。 因此，如果返回值是 `this` 对象，则 `emitter.on()` 和 `emitter.off()` 方法不能定义为箭头函数。
+* Node.js 的 `EventEmitter` 的实现允许 `eventName` 为符号，而我们在这里不允许。
+
+## 资源
+
+* [EventEmitter | Node.js](https://nodejs.org/api/events.html#class-eventemitter)

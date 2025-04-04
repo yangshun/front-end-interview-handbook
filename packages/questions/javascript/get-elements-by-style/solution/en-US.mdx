@@ -13,7 +13,7 @@ Firstly, we should know the following APIs and what they do:
 - [`Element.children`](https://developer.mozilla.org/en-US/docs/Web/API/Element/children) which returns a live `HTMLCollection` of the child elements. We use this over `Node.childNodes` which returns a live `NodeList` of child `Node`s because `childNodes` will include non-element nodes like text and comment nodes, which are not relevant in this question.
   - However `HTMLCollection` does not have `.forEach`, so we have to iterate through it using traditional `for` loops.
 
-## `Window.getComputedStyle()` vs `element.style`
+## `Window.getComputedStyle()` vs `Element.style`
 
 While both APIs return `CSSStyleDeclaration`s, `getComputedStyle()` returns an object that represents the final resolved styles of an element after all styles have been applied, including styles from CSS files, inline styles, and browser defaults. The `style` property on elements allows you to access and modify inline styles directly on the element. If an element is not styled using inline styles, the values of all the keys on the `style` property is empty.
 
@@ -63,7 +63,7 @@ Maintain an `elements` array to collect the matching elements while recursively 
   languages={{ jsx: getElementsByStyleJs, tsx: getElementsByStyleTs }}
 />
 
-## Edge Cases
+## Edge cases
 
 - Element argument is not included in the results even if it matches the specified style.
 - Value arguments have to be in the format of the resolved styles, e.g. colors have to be in `rgb()`/`rgba()` format in order to match.

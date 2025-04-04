@@ -1,0 +1,25 @@
+---
+title: Array.prototype.at
+excerpt: 实现 Array.prototype.at() 方法
+---
+
+`Array.prototype.at` 接受一个整数值，并返回该索引处的项目，允许正数和负数。负整数从数组的最后一个项目开始倒数。
+
+实现 `Array.prototype.at`。为了避免覆盖实际的 `Array.prototype.at`，我们将其实现为 `Array.prototype.myAt`。
+
+## 示例
+
+```js
+const arr = [42, 79];
+arr.myAt(0); // 42
+arr.myAt(1); // 79
+arr.myAt(2); // undefined
+
+arr.myAt(-1); // 79
+arr.myAt(-2); // 42
+arr.myAt(-3); // undefined
+```
+
+## 注意事项
+
+有一些棘手的情况需要处理。建议在尝试之前阅读 [MDN 文档](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/at) 上关于 `Array.prototype.at` 的规范。

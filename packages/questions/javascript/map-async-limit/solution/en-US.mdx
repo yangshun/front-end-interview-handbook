@@ -11,13 +11,13 @@ import mapAsyncLimitChunklessAsync from '../setup/src/map-async-limit-chunkless-
 
 The general idea is to slice the input array into chunks of `size` elements and processing one chunk at a time. The solutions presented here use `Promise.all` but if it's not allowed, you can use the self-implemented versions presented in the [`Promise.all` question](/questions/javascript/promise-all).
 
-### Solution 1: Sequential (Bad!)
+### Approach 1: Sequential (Bad!)
 
 This approach ignores the `size` parameter and processes each item one-by-one. This is well within the concurrency limit, but defeats the purpose of the question.
 
 <MDXCodeBlock>{mapAsyncLimitSequential}</MDXCodeBlock>
 
-### Solution 2: Chunks with recursion
+### Approach 2: Chunks with recursion
 
 Mapping an array of items in chunks can be broken down into smaller sub-problems and solved recursively:
 
@@ -32,13 +32,13 @@ We have to take note of making the recursive call to `mapAsyncLimit` only after 
 
 The downside of this solution (as with all recursive approaches) is that there's a limit to the recursion stack. However, there's a more modern and cleaner solution using `async`/`await`.
 
-### Solution 3: Chunks with `async`/`await`
+### Approach 3: Chunks with `async`/`await`
 
 With `async`/`await`, the idea stays the same, but it's easier to write sequential `async` code by slicing the array into chunks of `size` and `await`-ing each chunk within a for-loop.
 
 <MDXCodeBlock>{mapAsyncLimitAsync}</MDXCodeBlock>
 
-### Solution 4: Chunkless (max concurrency)
+### Approach 4: Chunkless (max concurrency)
 
 The previous approaches have a huge downside, that is there is some idleness and the available upper concurrency limit is not always fully-utilized.
 

@@ -23,6 +23,6 @@ The `setTimeout` is also an async operation and hence be wrapped in a `Promise`.
   languages={{ jsx: promiseTimeoutRaceJs, tsx: promiseTimeoutRaceTs }}
 />
 
-## Edge Cases
+## Edge cases
 
 - If the `promise` argument resolves immediately, the overall result should be resolved regardless of the timeout duration, even if it is 0.

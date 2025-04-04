@@ -9,19 +9,19 @@ import withoutFilterSetTS from '../setup/src/without-filter-set.ts';
 
 ## Solution
 
-### Solution 1: Uses Set to filter the values
+### Approach 1: Uses Set to filter the values
 
 This solution employs a Set to efficiently store and look up the values to be excluded, then iterates over `array` and builds `result` with only those elements not present in the Set, effectively filtering out the specified values.
 
 <MDXCodeBlock languages={{ jsx: withoutJs, tsx: withoutTs }} />
 
-### Solution 2: Uses `Array.prototype.filter`
+### Approach 2: Uses `Array.prototype.filter`
 
 Here's a simpler solution that leverages `Array.prototype.filter`.
 
 <MDXCodeBlock languages={{ jsx: withoutFilterJS, tsx: withoutFilterTS }} />
 
-### Solution 3: Uses `Array.prototype.filter` to filter the Set instead of manually checking the values
+### Approach 3: Uses `Array.prototype.filter` to filter the Set instead of manually checking the values
 
 Alternatively, we can use Set to make it more efficient.
 
@@ -29,7 +29,7 @@ Alternatively, we can use Set to make it more efficient.
   languages={{ jsx: withoutFilterSetJS, tsx: withoutFilterSetTS }}
 />
 
-## Edge Cases
+## Edge cases
 
 A possible edge case is when the function is used with arrays containing objects or arrays as elements; since these are reference types, direct comparison using a Set may not work as expected. To address this, you could implement a deep comparison function for objects/arrays or ensure the function is used with primitive data types only for reliable results.
 

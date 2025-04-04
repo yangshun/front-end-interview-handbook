@@ -1,0 +1,46 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import jQueryJs from '../setup/src/jquery-css.js';
+import jQueryTs from '../setup/src/jquery-css.ts';
+import jQueryClass from '../setup/src/jQueryClass';
+
+## 澄清问题
+
+* 如果没有元素与选择器匹配，应该发生什么？在 jQuery 中，如果没有匹配的元素，则什么也不会发生，因此我们可以遵循这一点。
+* 如果我们尝试获取未在元素上设置的 CSS 属性的值，应该返回什么？我们应该像 jQuery 一样返回 `undefined`。
+
+## 解决方案
+
+### 方法 1：对象实例
+
+这个问题最难的部分是如何在对象上实现方法链。我们必须维护对元素的引用，这可以通过闭包或使用类属性来完成。在这里使用类是多余的，所以我们将使用闭包方法。我们只需要返回一个具有单个 `css()` 方法的对象即可。为了允许方法链，该方法必须在最后返回 `this`。
+
+使用 [`HTMLElement.style`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/style) 属性可以轻松获取和设置 CSS 属性。
+
+<MDXCodeBlock languages={{ jsx: jQueryJs, tsx: jQueryTs }} />
+
+### 方法 2：类
+
+这里的另一种解决方案是使用类来保留对所选元素的引用。`css()` 方法的实现大致相似。
+
+<MDXCodeBlock>
+  {jQueryClass}
+</MDXCodeBlock>
+
+## 边缘情况
+
+* 没有元素与选择器匹配。我们应该优雅地处理，而不是出错。
+* 如果 CSS 属性在元素上不存在，则返回 `undefined` 而不是空字符串。
+
+## 技术
+
+* 闭包。
+* 对象链。
+
+## 笔记
+
+* 箭头函数对 `this` 上下文具有词法作用域，因此它们不应被用作对象上的方法，因为 `this` 将不会引用该对象。因此，如果返回值是 `this` 对象，则 `css` 方法不能定义为箭头函数。
+
+## 资源
+
+* [jQuery.css() | jQuery API 文档](https://api.jquery.com/css/)

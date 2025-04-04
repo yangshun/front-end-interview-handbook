@@ -1,0 +1,43 @@
+---
+title: 可恢复的 Interval
+excerpt: 实现一个创建可恢复 interval 对象的函数
+---
+
+**注意：** 建议在尝试此问题之前完成 [可取消的 Interval](/questions/javascript/cancellable-interval) 问题。
+
+实现一个函数 `createResumableInterval`，其行为类似于 `setInterval` 并且具有完全相同的签名。但是，它不返回计时器 ID，而是返回一个包含三个方法的对象：
+
+1. `start`：**立即**运行回调函数，并且每隔 `delay` 毫秒运行一次。
+2. `pause`：暂停 interval，使其停止运行。可以通过再次调用 `start()` 来恢复执行。
+3. `stop`：永久停止 interval，无法重新启动。
+
+```js
+createResumableInterval(callback);
+createResumableInterval(callback, delay);
+createResumableInterval(callback, delay, param1);
+createResumableInterval(callback, delay, param1, param2);
+createResumableInterval(callback, delay, param1, param2, /* … ,*/ paramN);
+```
+
+如果您不熟悉，建议您阅读 [MDN 文档](https://developer.mozilla.org/en-US/docs/Web/API/setInterval) 上的 `setInterval`。
+
+## 示例
+
+```js
+let i = 0;
+// t = 0:
+const interval = createResumableInterval(() => {
+  i++;
+}, 10);
+// t = 10:
+interval.start(); // i is now 1.
+// t = 20: callback executes and i is now 2.
+// t = 25:
+interval.pause();
+// t = 30: i remains at 2 because interval.pause() was called.
+// t = 35:
+interval.start(); // i is now 3.
+// t = 45: callback executes and i is now 4.
+// t = 50:
+interval.stop(); // i remains at 4.
+```

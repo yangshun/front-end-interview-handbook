@@ -1,0 +1,30 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import isMatchJs from '../setup/src/is-match.js';
+import isMatchTs from '../setup/src/is-match.ts';
+import isMatchAltJs from '../setup/src/is-match-alt.js';
+import isMatchAltTs from '../setup/src/is-match-alt.ts';
+
+## 解决方案
+
+### 方法 1：遍历 `source`，一旦其任何部分未满足，则返回 `false`
+
+1. 遍历 `source` 对象中的键，并与 `object` 中的相应值进行比较。
+2. 如果 `source` 是一个嵌套的数组/对象，通过再次调用 `isMatch()` 来递归地进行深度比较，以匹配 `source` 和 `object` 中的特定键。
+3. 如果不匹配则返回 `false`，并且只有在所有检查都匹配后才返回 `true`。
+
+<MDXCodeBlock languages={{ jsx: isMatchJs, tsx: isMatchTs }} />
+
+### 方法 2：使用 `.every()` 确保 `source` 中的所有键
+
+通过使用 `Object.keys(source).every(...)`，它确保要返回 `true`，`source` 中的每个键都必须与 `object` 匹配。
+
+<MDXCodeBlock languages={{ jsx: isMatchAltJs, tsx: isMatchAltTs }} />
+
+## 边缘情况
+
+当 `object` 或 `source` 具有循环引用时，由于递归的性质，它可能导致无限循环。为了解决这个问题，我们可以在递归期间使用 `WeakMap` 等数据结构来跟踪已访问的对象，如果遇到已访问过的对象，您可以停止递归或适当地处理它以防止无限循环。
+
+## 资源
+
+* [Lodash `_.isMatch`](https://lodash.com/docs/#isMatch)

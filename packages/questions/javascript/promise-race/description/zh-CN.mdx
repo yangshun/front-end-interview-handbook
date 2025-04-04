@@ -1,0 +1,61 @@
+---
+title: Promise.race
+excerpt: 实现 Promise.race() 函数，当任何一个输入元素被解决或拒绝时，它就会被解决或拒绝。
+---
+
+> `Promise.race()` 方法返回一个 promise，该 promise 在可迭代对象中的一个 promise 解决或拒绝时就解决或拒绝，并带有该 promise 的值或原因。
+
+> 如果传递的可迭代对象为空，则返回的 promise 将永远处于待定状态。
+
+> 如果可迭代对象包含一个或多个非 promise 值和/或一个已确定的 promise，那么 `Promise.race()` 将解析为在可迭代对象中找到的第一个这些值。
+
+*来源：[Promise.race() - JavaScript | MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise/race)*
+
+让我们实现我们自己的 `Promise.race()` 版本，一个 `promiseRace` 函数，不同之处在于该函数接受一个数组而不是一个可迭代对象。请务必仔细阅读描述并相应地实现！
+
+## 例子
+
+```js
+const p0 = new Promise((resolve) => {
+  setTimeout(() => {
+    resolve(42);
+  }, 100);
+});
+const p1 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    reject('Err!');
+  }, 400);
+});
+
+await promiseRace([p0, p1]); // 42
+```
+
+```js
+const p0 = Promise.resolve(42);
+const p1 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve(21);
+  }, 100);
+});
+
+await promiseRace([p0, p1]); // 42
+```
+
+```js
+const p0 = new Promise((resolve) => {
+  setTimeout(() => {
+    resolve(42);
+  }, 400);
+});
+const p1 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    reject('Err!');
+  }, 100);
+});
+
+try {
+  await promiseRace([p0, p1]);
+} catch (err) {
+  console.log(err); // 'Err!'
+}
+```

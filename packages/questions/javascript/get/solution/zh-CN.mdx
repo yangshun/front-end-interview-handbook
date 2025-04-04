@@ -1,0 +1,37 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import getJs from '../setup/src/get.js';
+import getTs from '../setup/src/get.ts';
+
+问题的难点在于，要看到必须对对象进行某种形式的迭代/递归，才能访问嵌套字段。
+
+## 解决方案
+
+第一步是按分隔符（即句点）拆分路径。然后我们必须递归地遍历给定路径中每个标记的对象，这可以通过 `while`/`for` 循环或递归来完成。当遇到 `null`-ish 值时，循环应该停止。
+
+数组索引访问不需要特殊处理，可以像访问基于字符串的对象字段一样处理。
+
+```js
+const arr = [10, 20, 30];
+arr[1] === 20; // true
+arr['1'] === 20; // true
+```
+
+<MDXCodeBlock languages={{ jsx: getJs, tsx: getTs }} />
+
+## 边缘情况
+
+* 像 `get(obj, 'a.b..c')` 和 `get(obj, '')` 这样的错误路径输入未解决，应该返回 `defaultValue`。
+* 解决方案仅适用于简单对象。它不适用于具有以下特征的对象：
+  * `Symbol` 作为键。
+  * `Map` 和 `Set` 作为值。
+
+对于这些情况，您可以（并且应该）向面试官澄清预期的行为。
+
+## 笔记
+
+* `null` 应该与 `undefined` 区分开来。因此，我们不应该使用 `value != undefined`（当 `value = null` 时为 `false`）来检查是否返回 `defaultValue`。
+
+## 资源
+
+* [Lodash `_.get`](https://lodash.com/docs/#get)

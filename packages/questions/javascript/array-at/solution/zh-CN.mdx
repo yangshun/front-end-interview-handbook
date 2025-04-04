@@ -1,0 +1,40 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import arrayAtJs from '../setup/src/array-at.js';
+import arrayAtTs from '../setup/src/array-at.ts';
+import arrayAtSpec from '../setup/src/array-at-spec';
+
+## 解决方案
+
+`Array.prototype.at` 方法允许使用正数或负数索引访问数组的元素，类似于 Python 的列表索引的工作方式，这在从后面访问项目时很方便。 传统上，要访问最后一个项目，你会这样做 `arr[arr.length - 1]`，但使用此方法，你可以这样做 `arr.at(-1)`。
+
+对于超出范围的索引（定义为 `index < -array.length || index >= array.length`），将返回 `undefined`。 为了安全地访问索引，我们可以通过将 `array.length` 添加到索引来允许索引“环绕”，这样负索引将变为正对应。 但是，对于正值，这将导致索引超出数组范围。 因此，我们对 `array.length` 取模以使索引回到范围内。
+
+请注意，规范规定首先将 `index` 转换为整数，因此 `Array.prototype.at` 即使对于索引的字符串版本也有效。
+
+<MDXCodeBlock languages={{ jsx: arrayAtJs, tsx: arrayAtTs }} />
+
+## 边缘情况
+
+* 使用非整数索引，例如 `[42, 79].at('1')`。
+
+## 单行解决方案
+
+你可以通过这样做来欺骗自动评分器：
+
+```js
+Array.prototype.myAt = Array.prototype.at;
+```
+
+## 规范解决方案
+
+这是一个基于 [`Array.prototype.at` ECMAScript 规范](https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.prototype.at) 的解决方案。
+
+<MDXCodeBlock>
+  {arrayAtSpec}
+</MDXCodeBlock>
+
+## 资源
+
+* [`Array.prototype.at` | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/at)
+* [`Array.prototype.at` ECMAScript 规范](https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.prototype.at)

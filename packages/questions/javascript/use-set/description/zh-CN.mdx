@@ -1,0 +1,44 @@
+---
+title: useSet
+excerpt: 实现一个管理 JavaScript Set 的 Hook
+---
+
+实现一个 `useSet` Hook，用于管理一个 JavaScript [`Set`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set) 集合，并提供额外的实用方法。
+
+使用 `useSet` 比直接使用 `useState` 更方便，因为在后一种情况下，你总是需要创建一个新的 `Set`，修改它，然后设置状态来使用新的集合，这可能会很麻烦。
+
+该 Hook 应该可以通用地处理任何类型的项目。
+
+```jsx
+export default function Component() {
+  const { set, add, remove, toggle, reset, clear } = useSet(new Set(['hello']));
+
+  return (
+    <div>
+      <button onClick={() => add(Date.now().toString())}>Add</button>
+      <button onClick={() => remove('hello')} disabled={!has('hello')}>
+        Remove 'hello'
+      </button>
+      <button onClick={() => toggle('hello')}>Toggle hello</button>
+      <button onClick={() => reset()}>Reset</button>
+      <button onClick={() => clear()}>Clear</button>
+      <pre>{JSON.stringify(Array.from(set), null, 2)}</pre>
+    </div>
+  );
+}
+```
+
+## 参数
+
+* `initialState`: 初始的 `Set` 集合
+
+## 返回值
+
+该 Hook 返回一个具有以下属性的对象：
+
+* `set`: 当前的集合
+* `add: (item) => void`: 将 `item` 添加到集合的函数
+* `remove: (item) => void`: 从集合中移除 `item` 的函数
+* `toggle: (item) => void`: 切换 `item` 在集合中存在状态的函数
+* `reset: () => void`: 将集合重置为 `initialState` 的函数
+* `clear: () => void`: 移除集合中所有项目的函数

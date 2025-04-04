@@ -1,0 +1,13 @@
+---
+title: 对象映射
+excerpt: 实现一个函数来转换对象中的值
+---
+
+实现一个函数 `objectMap(obj, fn)`，返回一个新对象，该对象包含在对象中的每个值上调用提供的函数的结果。函数 `fn` 使用单个参数调用，即正在映射/转换的 `value`。
+
+## 例子
+
+```js
+const double = (x) => x * 2;
+objectMap({ foo: 1, bar: 2 }, double); // => { foo: 2, bar: 4}
+```

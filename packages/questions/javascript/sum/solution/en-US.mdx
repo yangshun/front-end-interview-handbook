@@ -6,7 +6,7 @@ import sumArrowFunction from '../setup/src/sumArrowFunction';
 
 This question evaluates your understanding of closures and first-class functions - functions in JavaScript are variables that can be returned and passed into other functions as arguments.
 
-## Clarification Questions
+## Clarification questions
 
 - What if we call `sum()` at the start without any arguments?
   - We won't test this case. But we recommend throwing an `Error`.
@@ -23,13 +23,13 @@ We can check for the presence of an argument by using `argument === undefined`. 
 
 <MDXCodeBlock languages={{ jsx: sumJs, tsx: sumTs }} />
 
-### One-liner using Arrow Functions
+### Alternative approach: One-liner using arrow functions
 
 Using arrow functions, this function can be written in a single line.
 
 <MDXCodeBlock>{sumArrowFunction}</MDXCodeBlock>
 
-## Edge Cases
+## Edge cases
 
 Intermediate results should be able to be used again for separate evaluations.
 

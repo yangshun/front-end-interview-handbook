@@ -5,7 +5,7 @@ import backboneModelTs from '../setup/src/backbone-model.ts';
 
 **Note:** This question is an extension of [Event Emitter II](/questions/javascript/event-emitter-ii), you are recommended to complete that question first.
 
-## Clarification Questions
+## Clarification questions
 
 The following are good questions to ask the interviewer to demonstrate your thoughtfulness. Depending on their response, you might need to adjust the implementation accordingly.
 
@@ -26,9 +26,9 @@ The following are good questions to ask the interviewer to demonstrate your thou
 
 We will handle all the above cases except for the last two cases.
 
-## Solutions
+## Solution
 
-### Data Structure
+### Data structure
 
 Firstly, we have to decide on the data structure to store the events and the callbacks.
 
@@ -110,11 +110,11 @@ The `on` method adds a callback function to the list of callbacks for a specific
 
 The `off` method removes a callback function from the list of callbacks for a specific event (`'change'` or `'unset'`) on a given attribute. If the attribute does not exist, the method does nothing.
 
-### Class-based Solution
+### Class-based solution
 
 <MDXCodeBlock languages={{ jsx: backboneModelJs, tsx: backboneModelTs }} />
 
-## Edge Cases
+## Edge cases
 
 - The same callback function can be added more than once for the same event. Calling `model.off()` should remove all matching callbacks from that attribute's event callbacks.
 - Methods called with non-existing attributes should be no-op.

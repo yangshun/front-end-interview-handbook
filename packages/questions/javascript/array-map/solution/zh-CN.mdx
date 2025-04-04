@@ -1,0 +1,51 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import arrayMapJs from '../setup/src/array-map.js';
+import arrayMapTs from '../setup/src/array-map.ts';
+import mapSpec from '../setup/src/mapSpec';
+
+这个问题非常简单，只是测试你是否知道如何在 `Array.prototype` 方法（使用 `this`）中访问数组值。
+
+## 解决方案
+
+初始化一个新数组来存储映射结果。 当我们遍历数组（通过 `this`）时，对每个数组元素调用回调，并使用以下参数：`element`、`index`、`array` 和 `this`。 这可以通过使用 `Function.prototype.call` 或 `Function.prototype.apply` 来完成。
+
+<MDXCodeBlock languages={{ jsx: arrayMapJs, tsx: arrayMapTs }} />
+
+## 边缘情况
+
+* 将 `index` 和 `array` 传递给 map 回调。
+* 如果指定了 `thisArg`，则使用正确的 `this` 调用 map 回调。
+* 稀疏数组（例如 `[1, 2, , 4]`）。 在遍历数组时应忽略空值。
+
+## 笔记
+
+在 map 回调中修改数组是一个坏主意，可能会导致意想不到的后果。 提及在回调中修改数组是可能的，这是一个积极的信号。 提供的解决方案遵循 TC39 规范的数组修改方案：
+
+* `map` 处理的元素范围在调用第一个回调之前设置。
+* 在调用 `map` 之后添加到数组中的元素将不会被回调访问。
+* 如果更改了数组的现有元素，则传递给回调的值将是 `map` 访问它们时该元素的值。
+* 在调用 `map` 之后但在访问之前删除的元素不会被访问。
+
+如果回调定义为箭头函数，则 `thisArg` 不起作用，因为箭头函数没有自己的 `this` 绑定。
+
+## 单行解决方案
+
+你可以通过这样做来欺骗自动评分器：
+
+```js
+Array.prototype.myMap = Array.prototype.map;
+```
+
+## 规范解决方案
+
+这是一个基于 [`Array.prototype.map` ECMAScript 规范](https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.prototype.map) 的解决方案。
+
+<MDXCodeBlock>
+  {mapSpec}
+</MDXCodeBlock>
+
+## 资源
+
+* [`Array.prototype.map` | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
+* [`Array.prototype.map` ECMAScript 规范](https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.prototype.map)

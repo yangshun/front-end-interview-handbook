@@ -12,12 +12,12 @@ Given that there's a `wait` duration before the function can be invoked, we know
 
 We will also need to return a function which wraps around the callback function parameter. This function needs to do a few things:
 
-### 1) Debounce invocation
+### 1. Debounce invocation
 
 - It invokes the callback function only after a delay of `wait`. This is performed using `setTimeout`. Since we might need to clear the timer if the debounced function is called again while there's a pending invocation, we need to retain a reference to a `timeoutID`, which is the returned value of `setTimeout`.
 - If the function is called again while there's a pending invocation, we should cancel existing timers and schedule a new timer for the delayed invocation with the full `wait` duration. We can cancel the timer via `clearTimeout(timeoutID)`.
 
-### 2) Calls the callback function with the right parameters
+### 2. Calls the callback function with the right parameters
 
 Debounced functions are used like the original functions, so we should forward the value of `this` and function arguments when invoking the original callback functions.
 
@@ -28,7 +28,7 @@ You may be tempted to use `func(...args)` but `this` will be lost if callback fu
 
 <MDXCodeBlock languages={{ jsx: debounceJs, tsx: debounceTs }} />
 
-## Edge Cases
+## Edge cases
 
 The main pitfall in this question is invoking the callback function with the correct `this`, the value of `this` when the debounced function was called. Since the callback function will be invoked in a timeout, we need to ensure that the first argument to `func.apply()`/`func.call()` is the right value. There are two ways to achieve this:
 
@@ -43,10 +43,10 @@ Read this [article](https://medium.com/@griffinmichl/implementing-debounce-in-ja
 
 ## Techniques
 
-- Using `setTimeout`.
-- Closures.
-- How `this` works.
-- Invoking functions via `Function.prototype.apply()`/`Function.prototype.call()`.
+- Using `setTimeout`
+- Closures
+- How `this` works
+- Invoking functions via `Function.prototype.apply()`/`Function.prototype.call()`
 
 ## Notes
 

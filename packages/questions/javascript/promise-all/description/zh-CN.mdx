@@ -1,0 +1,51 @@
+---
+title: Promise.all
+excerpt: 实现 Promise.all() 函数，如果所有输入元素都已解决，则解析为结果数组，否则拒绝。
+---
+
+> `Promise.all()` 是一种方法，它接受一个可迭代的元素（通常是 `Promises`）作为输入，并返回一个 `Promise`，该 `Promise` 解析为输入 promise 的结果数组。当所有输入的 promise 都已解决时，或者如果输入可迭代对象不包含任何 promise 时，此返回的 promise 将被解析。它会在任何输入 promise 拒绝或非 promise 抛出错误时立即拒绝，并将使用第一个拒绝消息/错误拒绝。
+
+*来源：[Promise.all() - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all)*
+
+`Promise.all()` 经常用于有多个并发 API 请求，并且我们希望等待所有请求完成才能继续执行代码，通常是因为我们依赖于两个响应的数据。
+
+```js
+const [userData, postsData, tagsData] = await Promise.all([
+  fetch('/api/user'),
+  fetch('/api/posts'),
+  fetch('/api/tags'),
+]);
+```
+
+让我们实现我们自己的 `Promise.all()` 版本，一个 `promiseAll` 函数，不同之处在于该函数接受一个数组而不是一个可迭代对象。请务必仔细阅读说明并相应地实现！
+
+## 示例
+
+```js
+// 已解决的示例。
+const p0 = Promise.resolve(3);
+const p1 = 42;
+const p2 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve('foo');
+  }, 100);
+});
+
+await promiseAll([p0, p1, p2]); // [3, 42, 'foo']
+```
+
+```js
+// 拒绝示例。
+const p0 = Promise.resolve(30);
+const p1 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    reject('发生错误！');
+  }, 100);
+});
+
+try {
+  await promiseAll([p0, p1]);
+} catch (err) {
+  console.log(err); // '发生错误！'
+}
+```

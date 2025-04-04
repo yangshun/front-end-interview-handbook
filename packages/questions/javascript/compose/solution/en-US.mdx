@@ -7,7 +7,7 @@ import composeRecursion from '../setup/src/compose-recursion';
 
 ## Solution
 
-### Solution 1: Using `reduceRight`
+### Approach 1: Using `reduceRight`
 
 1. The `compose` function takes multiple functions as arguments using the rest parameter syntax `...fns`. This allows us to pass any number of functions.
 1. It returns a new function that takes a single argument `x`.
@@ -19,13 +19,13 @@ import composeRecursion from '../setup/src/compose-recursion';
 
 <MDXCodeBlock languages={{ jsx: composeJs, tsx: composeTs }} />
 
-### Solution 2: Using `for` loops
+### Approach 2: Using `for` loops
 
 If you're not familiar with `reduceRight`, it can also be written as a `for` loop that traverses the array from the back.
 
 <MDXCodeBlock>{composeForLoop}</MDXCodeBlock>
 
-### Solution 3: Recursion
+### Approach 3: Recursion
 
 If iteration is not your thing, here's a recursive solution. Note that it's less memory efficient due to the recursion stack using up memory space (potentially even causing a stack overflow).
 

@@ -12,7 +12,7 @@ The `Function.prototype.apply()` function is a built-in method in JavaScript tha
 
 As `Function.prototype.apply()` takes in an array of arguments, we have to define a default empty array parameter for `argArray` if we are to spread it, because we can only spread iterables.
 
-### Solution 1: Using `bind`
+### Approach 1: Using `bind`
 
 `bind`, `apply`, and `call` can be viewed as sibling functions. They're highly similar in terms of function signature and usage. Within `Function.prototype` methods, `this` refers to the `Function` object itself. If the `this` context is not used at all, the following will work:
 
@@ -30,7 +30,7 @@ Or you can also pass the `argArray` into `bind()` before executing it.
 
 <MDXCodeBlock>{functionApplyAlt}</MDXCodeBlock>
 
-### Solution 2: Using `call`
+### Approach 2: Using `call`
 
 `Function.prototype.call` and `Function.prototype.apply` are very similar. Here's an easy way to remember each function's signature:
 
@@ -39,7 +39,7 @@ Or you can also pass the `argArray` into `bind()` before executing it.
 
 <MDXCodeBlock>{functionApplyCall}</MDXCodeBlock>
 
-### Solution 3: Using `Symbol`
+### Approach 3: Using `Symbol`
 
 Another approach is to create a `Symbol` and add it as a property to a newly-created `Object` with `thisArg` bound to it. This is very similar to one of the solutions to the [`Function.prototype.bind`](/questions/javascript/function-bind) question.
 

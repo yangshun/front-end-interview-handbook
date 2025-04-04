@@ -1,0 +1,55 @@
+---
+title: jQuery 类操作
+excerpt: 实现一组类似 jQuery 的函数，用于操作 DOM 元素的类
+---
+
+**注意：** 如果您尚未完成 [`jQuery.css`](/questions/javascript/jquery-css) 问题，您应该先尝试该问题。
+
+在 [`Element.classList`](https://developer.mozilla.org/en-US/docs/Web/API/Element/classList) 和 [`DOMTokenList`](https://developer.mozilla.org/en-US/docs/Web/API/DOMTokenList) 成为浏览器标准的一部分之前，操作 DOM 元素上的类是一件麻烦事。
+
+[jQuery](https://jquery.com/) 是一个简化 DOM 操作（以及其他操作）的库。jQuery（使用 `$` 别名函数）提供了方便的 API，可以通过 `.toggleClass()`、`.addClass()` 和 `.removeClass()` 来切换、添加和删除元素的类。
+
+```js
+// <button class="foo bar">Click me</button>
+$('button').toggleClass('bar'); // <button class="foo">Click me</button>
+$('button').addClass('baz'); // <button class="foo baz">Click me</button>
+$('button').removeClass('foo'); // <button class="baz">Click me</button>
+$('button').toggleClass('bar'); // <button class="baz bar">Click me</button>
+```
+
+大多数 jQuery 操作 API 的返回值是 jQuery 对象本身，因此可以链接方法调用。 上面的内容可以再次简化：
+
+```js
+// <button class="foo bar">Click me</button>
+$('button')
+  .toggleClass('bar')
+  .addClass('baz')
+  .removeClass('foo')
+  .toggleClass('bar');
+// <button class="baz bar">Click me</button>
+```
+
+根据以下规范实现 `toggleClass()`、`addClass()` 和 `removeClass()` 方法。 不要使用 `Element.classList` 和操作 `DOMTokenList` 的方法，否则问题会变得微不足道。
+
+**注意**：官方 jQuery 库会选择所有匹配的元素并修改所有匹配的元素。 但是，对于这个问题，我们可以假设最多只有一个元素与选择器匹配。
+
+## `toggleClass(className, state)`
+
+根据类的存在与否或状态参数的值，从匹配的元素添加或删除一个或多个类。
+
+| 参数        | 类型      | 描述                                               |
+| ----------- | --------- | -------------------------------------------------- |
+| `className` | `string`  | 要在匹配的元素上切换的一个或多个类（用空格分隔）。 |
+| `state`     | `boolean` | 一个可选的布尔值，用于确定是否应添加或删除类。     |
+
+## `addClass(className)`
+
+| 参数        | 类型     | 描述                                           |
+| ----------- | -------- | ---------------------------------------------- |
+| `className` | `string` | 要添加到匹配元素的一个或多个类（用空格分隔）。 |
+
+## `removeClass(className)`
+
+| 参数        | 类型     | 描述                                             |
+| ----------- | -------- | ------------------------------------------------ |
+| `className` | `string` | 要从匹配元素中删除的一个或多个类（用空格分隔）。 |

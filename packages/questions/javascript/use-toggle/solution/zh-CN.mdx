@@ -1,0 +1,13 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import useToggle from '../setup/src/use-toggle';
+
+## 解决方案
+
+`useToggle` hook 可以使用 `useState` hook 实现，但此外，它还返回一个 `toggle` 函数，该函数使用一个更新程序函数来设置状态，该函数否定当前状态。
+
+<MDXCodeBlock>
+  {useToggle}
+</MDXCodeBlock>
+
+我们返回一个三元组，类似于 `useState` hook，以便使用者在解构时可以轻松地重命名变量。

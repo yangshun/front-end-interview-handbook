@@ -1,0 +1,30 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import clampJs from '../setup/src/clamp.js';
+import clampTs from '../setup/src/clamp.ts';
+import clampAltJs from '../setup/src/clamp-alt.js';
+import clampAltTs from '../setup/src/clamp-alt.ts';
+
+## 解决方案
+
+解决方案将涉及检查传入的 `value` 是否小于 `lower` 且大于 `upper`，并相应地返回正确的数字。
+
+### 方法 1：顺序边界检查
+
+我们可以首先检查 `value` 是否小于 `lower`。如果是，则该值超出范围，我们可以返回下限。接下来检查 `value` 是否大于 `upper`。如果是，则该值超出范围，我们可以返回上限。如果之前的检查都不为真，那么我们可以返回原始 `value`，它在指定的范围内。
+
+<MDXCodeBlock languages={{ jsx: clampJs, tsx: clampTs }} />
+
+### 方法 2：使用 `Math.max` / `Math.min`
+
+之前的解决方案可以使用 `Math.max()` 和 `Math.min()` 在一行中简洁地表达。
+
+<MDXCodeBlock languages={{ jsx: clampAltJs, tsx: clampAltTs }} />
+
+## 边缘情况
+
+* `upper` 小于 `lower`。我们可以假设我们没有遇到这种情况。
+
+## 资源
+
+* [Lodash `_.clamp`](https://lodash.com/docs/#clamp)

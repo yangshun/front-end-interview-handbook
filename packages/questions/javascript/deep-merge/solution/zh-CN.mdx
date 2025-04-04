@@ -1,0 +1,27 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import deepMergeJs from '../setup/src/deep-merge.js';
+import deepMergeTs from '../setup/src/deep-merge.ts';
+
+## 澄清问题
+
+* 合并对象中的非原始值可以引用原始对象吗？
+  * 可以，只要不修改原始对象。
+
+## 解决方案
+
+由于输入对象可以是深度嵌套的结构，可以使用递归解决方案同时遍历这两个值。 想法是递归地访问所有对象值，并根据对象中相同位置的值的类型组合内容。
+
+根据规则，我们只需要组合作为数组或对象的重叠值。 因此，我们需要处理三种情况：
+
+1. 两个值都是数组：通过从两个数组的内容构建一个新数组来组合这些值。
+2. 两个值都是对象：创建 `objA` 的克隆，然后遍历 `objB` 中的键，对两个对象中都存在的键的值调用 `deepMerge`。 返回值是应该存在于合并对象中的值。 我们需要对对象是否是纯 JavaScript 对象进行严格检查，因为输入中可能存在类似对象的 value，例如 `null`、`Date`、`RegExp`，其中 `typeof value` 将为这些值返回 `'object'`。
+3. 值既不是数组也不是对象：返回 `objB`，因为它靠后，应该覆盖 `objA` 中相同位置的值。
+
+<MDXCodeBlock languages={{ jsx: deepMergeJs, tsx: deepMergeTs }} />
+
+请注意，合并后的对象可以包含对原始对象中值的引用。 这发生在数组包含对象并且这些对象没有使用 `deepMerge` 直接处理的情况下。 如果需要对象的完整副本，您可以在合并之前先深度克隆这两个对象，或者深度克隆结果对象。
+
+## 边缘情况
+
+* 像 `null`、`Date`、`Symbol` 这样的非纯 JavaScript 对象值应该被视为非对象。

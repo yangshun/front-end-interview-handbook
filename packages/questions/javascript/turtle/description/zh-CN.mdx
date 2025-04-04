@@ -1,0 +1,32 @@
+---
+title: 海龟
+excerpt: 实现一个在二维平面上移动海龟的 Turtle 类
+---
+
+Python 自带一个 `turtle` 模块，这是一个很好的图形化方式，可以向孩子们介绍编程。 海龟从 x-y 平面的 (0, 0) 开始，你可以在海龟周围移动并改变它的朝向。 当海龟移动时，它会在画布上留下一个线条轨迹。 通过这些移动 API，用户可以绘制形状，甚至可以通过利用循环来绘制复杂的形状。
+
+在 JavaScript 中实现一个 `Turtle` 类，模拟海龟的移动。 海龟从 (0, 0) 开始，面向北方，并具有以下方法：
+
+* `forward(distance)`: 使海龟向前移动 `distance` 个单位，朝向它所面对的方向。
+* `backward(distance)`: 使海龟向后移动 `distance` 个单位，同时保持相同的方向。
+* `left()`: 使海龟原地向左旋转 90 度，仅改变其朝向。
+* `right()`: 使海龟原地向右旋转 90 度，仅改变其朝向。
+* `position()`: 以 `[x, y]` 的形式返回海龟的坐标。
+
+## 例子
+
+```js
+const turtle = new Turtle();
+turtle.position(); // [0, 0]
+turtle.forward(1); // Position: [0, 1]
+turtle.backward(1); // Position: [0, 0]
+turtle.right(); // Position remains unchanged
+turtle.forward(2); // Position: [2, 0] because it moved 2 units to the right.
+
+// Methods can also be chained.
+turtle.right().right().forward(5); // Position: [-3, 0] because it turned 180 degrees and moved 5 units forward (towards the left).
+```
+
+## 资源
+
+* [Python Turtle graphics](https://docs.python.org/3/library/turtle.html)

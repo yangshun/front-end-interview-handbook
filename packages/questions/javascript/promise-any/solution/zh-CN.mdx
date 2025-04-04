@@ -1,0 +1,71 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import promiseAnyJs from '../setup/src/promise-any.js';
+import promiseAnyTs from '../setup/src/promise-any.ts';
+import promiseAnyThen from '../setup/src/promiseAnyThen';
+
+**注意：** 如果您尚未完成 [`Promise.all`](/questions/javascript/promise-all) 问题，您应该先尝试该问题。
+
+在面试中经常会测试异步编程。了解 `Promise.any` 在幕后的工作原理将帮助您理解类似 `Promise` 相关函数（如 `Promise.race`、`Promise.all`、`Promise.allSettled` 等）背后的机制。
+
+## 解决方案
+
+`Promise.any` 与 `Promise.all` 非常相似，但 resolve 和 reject 的顺序颠倒了。
+
+关于这个问题，我们需要记住并处理几个方面：
+
+1. `Promise` 旨在被链接，因此该函数需要返回一个 `Promise`。
+2. 如果输入数组为空，则返回一个 `AggregateError`，其 `errors` 设置为空数组。
+3. 返回的 `Promise` 会立即使用第一个已 resolve 的输入值进行 resolve。
+4. 如果所有输入值都被 reject，则返回的 `Promise` 会使用一个 `AggregateError` 进行 reject，其中包含一个与输入数组顺序相同的错误值数组。
+5. 输入数组可以包含非 `Promise` 值。
+
+我们将在该函数的顶层返回一个 `Promise`。我们首先检查输入数组是否为空，如果是，则使用空的 `AggregateError` (`new AggregateError([])`) 进行 reject。
+
+然后我们需要尝试解析输入数组中的每个项目。这可以使用 `Array.prototype.forEach` 或 `Array.prototype.map` 来实现。
+
+如果任何项目被 fulfilled，我们立即使用该值 resolve 顶层的 `Promise`，而无需等待任何其他待处理的 promise。
+
+当我们遇到 rejections 时，我们需要将它们保存在一个错误数组中，以防所有 promise 都被 reject。由于返回的错误需要保留输入数组的顺序，我们创建一个 `errors` 数组，并使用其在输入数组中的 `index` 将值放入正确的位置。
+
+为了知道何时所有输入数组值不再处于 pending 状态，我们通过初始化一个 pending 值的计数器并在每次值被 reject 时递减它来跟踪有多少个 pending promise。当计数器达到 0 时，我们可以使用 `errors` reject 一个 `AggregateError`。当一个值被 resolve 时，不需要修改 pending 计数器，因为整体 promise 将被 resolve。
+
+这里需要注意的一点是，由于输入数组可以包含非 `Promise` 值，如果我们没有 `await` 它们，我们需要使用 `Promise.resolve()` 包装每个值，这允许我们在它们中的每一个上使用 `.then()`，并且我们不必区分 `Promise` 与非 `Promise` 值以及它们是否需要被 resolve。
+
+<MDXCodeBlock languages={{ jsx: promiseAnyJs, tsx: promiseAnyTs }} />
+
+pending 计数器对于确保正确的行为至关重要。例如，一种看似有效（但实际上无效）的替代方法是检查 `errors` 数组的长度是否等于 `iterable` 的长度：
+
+```js
+errors[index] = await error;
+if (errors.length == iterable.length) {
+  reject(new AggregateError(errors));
+}
+```
+
+假设我们传入了一个包含 3 个 promise 的数组，并且最后一个 promise 首先被 reject，导致 `errors[2]` 被赋值。当这种情况发生时，`errors` 数组的长度现在为 3，并且 `reject()` 将使用不完整的 `errors` 数组被调用，因为其他 2 个 promise 仍在 pending；我们不应该立即调用 `reject()`。
+
+pending 值计数器通过确保我们仅在所有 promise 都被 reject 且不再 pending 时才调用 `reject()` 来避免此问题。
+
+如果您不想使用 `async`/`await`，这里有一个使用 `Promise.then()` 的替代版本。
+
+<MDXCodeBlock>
+  {promiseAnyThen}
+</MDXCodeBlock>
+
+## 边缘情况
+
+* 空输入数组。 Promise 应该使用 `AggregateError` 拒绝。
+
+## 技术
+
+* 了解 `Promise`，如何构建一个，如何使用它们。
+* 异步编程。
+
+## 笔记
+
+* 评估器不会验证您的输入数组是并发解析的，而不是顺序解析的。
+
+## 资源
+
+* [Promise.any() - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/any)

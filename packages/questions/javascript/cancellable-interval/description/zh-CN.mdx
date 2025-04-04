@@ -1,0 +1,30 @@
+---
+title: 可取消的间隔
+excerpt: 实现一个类似于 setInterval 的函数，但返回一个用于取消间隔的函数
+---
+
+实现一个函数 `setCancellableInterval`，它的行为类似于 `setInterval`，但它不返回计时器 ID，而是返回一个函数，当调用该函数时，会取消间隔。 `setCancellableInterval` 函数应该与 `setInterval` 具有完全相同的签名：
+
+```js
+setCancellableInterval(callback);
+setCancellableInterval(callback, delay);
+setCancellableInterval(callback, delay, param1);
+setCancellableInterval(callback, delay, param1, param2);
+setCancellableInterval(callback, delay, param1, param2, /* … ,*/ paramN);
+```
+
+如果您不熟悉 `setInterval`，建议您阅读 [MDN 文档](https://developer.mozilla.org/zh-CN/docs/Web/API/setInterval)。
+
+## 例子
+
+```js
+let i = 0;
+// t = 0:
+const cancel = setCancellableInterval(() => {
+  i++;
+}, 10);
+// t = 10: i is 1
+// t = 20: i is 2
+cancel(); // 在 t = 25 时调用
+// t = 30: i 仍然是 2，因为 cancel() 被调用，并且间隔回调已停止运行。
+```

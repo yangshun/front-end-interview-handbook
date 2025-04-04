@@ -1,0 +1,30 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import unionJs from '../setup/src/union.js';
+import unionTS from '../setup/src/union.ts';
+import unionSetJs from '../setup/src/union-set.js';
+import unionSetTS from '../setup/src/union-set.ts';
+
+## 解决方案
+
+### 方法 1：使用 `array` 存储并集值
+
+此解决方案遍历所有数组元素，检查 `result` 中是否存在相同的值，如果不存在则推入。
+
+<MDXCodeBlock languages={{ jsx: unionJs, tsx: unionTS }} />
+
+### 方法 2：使用 `Set` 而不是数组
+
+另一种解决方案是使用 set 而不是数组来存储 `result`，因为 set 可以有效地检查项目的存在。
+
+<MDXCodeBlock languages={{ jsx: unionSetJs, tsx: unionSetTS }} />
+
+## 边缘情况
+
+如果使用非数组参数调用该函数，它将抛出错误，因为非数组类型没有该函数所依赖的 forEach 方法。
+
+要解决此问题，我们可以在尝试迭代每个参数之前使用 `Array.isArray` 检查每个参数是否为数组。如果参数不是数组，您可以选择跳过它或添加代码以单独处理这些项目。
+
+## 资源
+
+* [Lodash `_.union`](https://lodash.com/docs/#union)

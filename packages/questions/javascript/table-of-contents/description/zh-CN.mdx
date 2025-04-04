@@ -1,0 +1,55 @@
+---
+title: 目录
+excerpt: 实现一个从 HTML 文档构建目录的函数
+---
+
+在网站上，标题标签为页面提供了层次结构，用户代理（包括屏幕阅读器）可以使用标题信息自动构建文档的目录。
+
+给定一个 `document` 节点，编写一个函数 `tableOfContents`，该函数生成一个 HTML 字符串，表示基于 `document` 中的标题 (`<h1>`, `<h2>`, ..., `<h6>`) 的目录。 遵循最佳实践，标题级别不会被跳过，即 `<h1>` 之后将是 `<h2>`，依此类推。
+
+返回的字符串不需要包含任何缩进。
+
+## 例子
+
+下面的例子显示了缩进，以使输出更容易理解。
+
+```js
+const doc = new DOMParser().parseFromString(
+  `<!DOCTYPE html>
+  <body>
+    <h1>Heading1</h1>
+    <h2>Heading2a</h2>
+    <h2>Heading2b</h2>
+    <h3>Heading3a</h3>
+    <h3>Heading3b</h3>
+    <h4>Heading4</h4>
+    <h2>Heading2c</h2>
+  </body>`,
+  'text/html',
+);
+
+const htmlString = tableOfContents(doc);
+console.log(htmlString);
+// 为了便于阅读，进行了美化。
+`<ul>
+  <li>
+    Heading1
+    <ul>
+      <li>Heading2a</li>
+      <li>
+        Heading2b
+        <ul>
+          <li>Heading3a</li>
+          <li>
+            Heading3b
+            <ul>
+              <li>Heading4</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>Heading2c</li>
+    </ul>
+  </li>
+</ul>`;
+```

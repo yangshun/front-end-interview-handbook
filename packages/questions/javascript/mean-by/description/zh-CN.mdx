@@ -1,0 +1,37 @@
+---
+title: Mean By
+excerpt: 实现一个基于指定条件的求平均值的函数
+---
+
+实现一个函数 `meanBy(array, iteratee)`，该函数计算 `array` 中经过 `iteratee` 处理后或在 `iteratee` 下有效的元素的平均值。
+
+## 参数
+
+1. `array` *(Array)*: 要迭代的数组。
+2. `iteratee` *(Function)*: 每次元素调用的 iteratee，它是一个接受一个参数的函数：*(value)*。
+
+## 返回值
+
+*`(Number)`*: 返回平均值。
+
+## 例子
+
+```js
+meanBy([{ n: 1 }, { n: 3 }], (o) => o.n); // => 2
+
+meanBy([2, 3, 1, 4], (num) => num); // => 2.5
+```
+
+该函数应忽略 `iteratee` 产生 `null` 或 `undefined` 的元素，并且当 `array` 为空或没有匹配值时返回 `NaN`。
+
+```js
+meanBy([], (o) => o); // => NaN
+
+meanBy([{ n: 1 }, { n: 2 }], (o) => o.m); // => NaN
+
+meanBy([{ n: 1 }, { m: 2 }], (o) => o.m); // => 1
+```
+
+## 资源
+
+* [Lodash `_.meanBy`](https://lodash.com/docs/#meanBy)

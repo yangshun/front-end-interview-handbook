@@ -1,0 +1,60 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import promiseAllJs from '../setup/src/promise-all.js';
+import promiseAllTs from '../setup/src/promise-all.ts';
+import promiseAllThen from '../setup/src/promiseAllThen';
+
+这是一个非常重要的问题，需要在面试中进行练习，因为异步编程经常在面试中被考察。了解 `Promise.all` 的工作原理将帮助你理解类似 `Promise` 相关函数（如 `Promise.race`、`Promise.any`、`Promise.allSettled` 等）背后的机制。
+
+## 解决方案
+
+关于这个问题，我们需要牢记并处理以下几个方面：
+
+1. `Promise` 旨在被链式调用，因此该函数需要返回一个 `Promise`。
+2. 如果输入数组为空，则返回的 `Promise` 将使用一个空数组进行解析。
+3. 如果所有输入值都已实现，则返回的 `Promise` 包含一个已解析值的数组，其顺序与输入相同。
+4. 如果任何输入值被拒绝或抛出错误，则返回的 `Promise` 将立即被拒绝。
+5. 输入数组可以包含非 `Promise`。
+
+### 方法 1：使用 `async` 统计未解析的 promise
+
+由于该函数需要返回一个 `Promise`，我们可以在该函数的顶层构造一个 `Promise` 并返回它。大部分代码将写在构造函数参数中。
+
+我们首先检查输入数组是否为空，如果是，则使用一个空数组进行解析。
+
+然后我们需要尝试解析输入数组中的每个项目。这可以使用 `Array.prototype.forEach` 或 `Array.prototype.map` 来实现。由于返回值需要保留输入数组的顺序，我们创建一个 `results` 数组，并使用其在输入数组中的 `index` 将值放入正确的位置。为了知道何时解析了所有输入数组值，我们通过初始化一个未解析值的计数器并在每次解析一个值时将其递减来跟踪未解析的 promise 的数量。当计数器达到 0 时，我们可以返回 `results` 数组。
+
+这里需要注意的一点是，由于输入数组可以包含非 `Promise` 值，如果我们没有 `await` 它们，我们需要使用 `Promise.resolve()` 包装每个值，这允许我们在它们上面使用 `.then()`，并且我们不必区分 `Promise` 与非 `Promise` 值以及它们是否需要被解析。
+
+最后，如果任何值被拒绝，我们将立即拒绝顶层 `Promise`，而无需等待任何其他待处理的 promise。
+
+<MDXCodeBlock languages={{ jsx: promiseAllJs, tsx: promiseAllTs }} />
+
+### 方法 2：使用 `Promise.then` 统计未解析的 promise
+
+如果你不喜欢使用 `async`/`await`，这里有一个使用 `Promise.then()` 的替代版本。
+
+<MDXCodeBlock>
+  {promiseAllThen}
+</MDXCodeBlock>
+
+一旦其中一个 `Promise` 的解析函数（`resolve` 或 `reject`）被调用，promise 就处于“已确定”状态，并且对任一函数的后续调用既不能更改实现值或拒绝原因，也不能将最终状态从“已实现”更改为“已拒绝”，反之亦然。
+
+## 边缘情况
+
+* 空输入数组。应返回一个空数组。
+* 如果数组包含非 `Promise` 值，如果所有输入值都已实现，它们仍将是返回数组的一部分。
+* 如果结果是拒绝，则应返回第一个拒绝的值。
+
+## 技术
+
+* 了解 `Promise`，如何构建和使用它们。
+* 异步编程。
+
+## 注意事项
+
+* 评估器不会验证您的输入数组是并发解析还是顺序解析。
+
+## 资源
+
+* [Promise.all() - JavaScript | MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise/all)

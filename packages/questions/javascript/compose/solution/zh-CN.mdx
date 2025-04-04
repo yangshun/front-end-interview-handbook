@@ -1,0 +1,36 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import composeJs from '../setup/src/compose.js';
+import composeTs from '../setup/src/compose.ts';
+import composeForLoop from '../setup/src/compose-for-loop';
+import composeRecursion from '../setup/src/compose-recursion';
+
+## 解决方案
+
+### 方法 1：使用 `reduceRight`
+
+1. `compose` 函数使用 rest 参数语法 `...fns` 接受多个函数作为参数。这允许我们传递任意数量的函数。
+2. 它返回一个接受单个参数 `x` 的新函数。
+3. 在返回的函数内部，使用 `reduceRight` 方法以相反的顺序应用这些函数。
+4. `reduceRight` 方法从 `fns` 数组中的最后一个函数开始，从右向左遍历数组。
+5. 在每次迭代中，它将当前函数 (`func`) 应用于从前一次迭代或第一次迭代中的原始 `input` 获得的中间结果。
+6. 每个函数的结果成为链中下一个函数的输入，有效地以相反的顺序组合这些函数。
+7. 返回组合函数的最终结果。
+
+<MDXCodeBlock languages={{ jsx: composeJs, tsx: composeTs }} />
+
+### 方法 2：使用 `for` 循环
+
+如果您不熟悉 `reduceRight`，它也可以写成一个从后向前遍历数组的 `for` 循环。
+
+<MDXCodeBlock>
+  {composeForLoop}
+</MDXCodeBlock>
+
+### 方法 3：递归
+
+如果迭代不是您喜欢的，这里有一个递归解决方案。请注意，由于递归堆栈占用了内存空间（甚至可能导致堆栈溢出），因此它的内存效率较低。
+
+<MDXCodeBlock>
+  {composeRecursion}
+</MDXCodeBlock>

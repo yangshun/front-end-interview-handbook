@@ -1,0 +1,18 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import isEmptyJs from '../setup/src/is-empty.js';
+import isEmptyTs from '../setup/src/is-empty.ts';
+
+## 解决方案
+
+这个问题的重点是要知道如何检查每种类型的数据，以及如何确定它是否为空。
+
+检查的顺序不是太重要，但是 `Object` 是许多 JavaScript 值（`null`、`Array` 都是对象）的基本类型，因此最好在最后检查普通对象。
+
+请注意，Lodash 的 `isEmpty` 的实现也检查了不太常见的数据类型，如 `arguments` 对象和 DOM 集合，但我们已将其从解决方案中排除。
+
+<MDXCodeBlock languages={{ jsx: isEmptyJs, tsx: isEmptyTs }} />
+
+## 资源
+
+* [Lodash `_.isEmpty`](https://lodash.com/docs/#isEmpty)

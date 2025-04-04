@@ -1,0 +1,41 @@
+---
+title: Union By
+excerpt: 实现一个函数，该函数从所有给定数组中创建一个按顺序排列的唯一值数组。
+---
+
+实现一个函数 `unionBy(array)`，该函数从所有给定数组中创建一个按顺序排列的唯一值数组，并接受 `iteratee`，该函数将为每个数组的每个元素调用，以生成计算唯一性的标准。
+
+```js
+unionBy(iteratee, arrays);
+```
+
+## 参数
+
+1. `iteratee` *(Function)*: 每次元素调用的 iteratee。该函数使用一个参数调用：(value)。
+2. `[arrays]` *(...Array)*: 要检查的数组
+
+## 返回值
+
+*`(Array)`*: 返回合并值的新数组。
+
+## 例子
+
+```js
+unionBy((value: any) => value, [2], [1, 2]); // => [2, 1]
+
+unionBy(Math.floor, [2.1], [1.2, 2.3]); // => [2.1, 1.2]
+
+unionBy((o) => o.x, [{ x: 1 }], [{ x: 2 }, { x: 1 }]); // => [{ 'x': 1 }, { 'x': 2 }]
+```
+
+如果 `array` 为空，则该函数应返回一个空数组，并将 false 值原样处理。
+
+```js
+unionBy((o) => o.m, []); // => []
+
+unionBy((o) => o.m, [{ n: 1 }], [{ m: 2 }]); // => [{ n: 1 }, { m: 2 }]
+```
+
+## 资源
+
+* [Lodash `_.unionBy`](https://lodash.com/docs/#unionBy)

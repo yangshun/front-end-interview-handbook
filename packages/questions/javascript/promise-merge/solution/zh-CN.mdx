@@ -1,0 +1,39 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import promiseMergeJs from '../setup/src/promise-merge.js';
+import promiseMergeTs from '../setup/src/promise-merge.ts';
+import promiseMergeAll from '../setup/src/promise-merge-all';
+import promiseMergeSeries from '../setup/src/promise-merge-series';
+
+## 澄清问题
+
+* 如果要合并的对象有重叠的属性会发生什么？
+  * 它们可以简单地被覆盖，不需要执行深层合并。
+
+## 解决方案
+
+### 方法 1：手动协调
+
+我们可以通过跟踪未解决的 promise 的数量并存储已解决的 promise 的值来跟踪 promise 的状态。 如果没有未解决的 promise，我们可以继续合并结果，并使用该结果 `resolve()` 返回的 promise。
+
+如果您知道如何检查常见数据类型，合并结果非常简单，我们已经在 [类型实用程序](/questions/javascript/type-utilities) 和 [类型实用程序 II](/questions/javascript/type-utilities-ii) 中介绍了这些内容。 由于仅支持纯对象的合并，我们需要区分纯对象和其他对象，如 `Set` 和 `Map`。
+
+<MDXCodeBlock languages={{ jsx: promiseMergeJs, tsx: promiseMergeTs }} />
+
+请注意，跟踪已解决的 promise 结果的逻辑可能会变得重复，如果该函数支持 2 个以上的 promise，情况会变得更糟。 值得庆幸的是，实际上有一个内置的结构可以帮助管理多个 promise 的状态：`Promise.all`，我们可以使用它来简化代码。
+
+### 方法 2：使用 `Promise.all()`
+
+使用 `Promise.all()` 将大大简化代码。 但是，面试时可能不允许您使用它，因此了解如何手动跟踪 promise 的状态仍然很有用。
+
+<MDXCodeBlock>
+  {promiseMergeAll}
+</MDXCodeBlock>
+
+### 方法 3：使用串行 `await`（非最佳）
+
+此解决方案非常简单，但并非最佳，因为 promise 是串行而不是并行解决的。
+
+<MDXCodeBlock>
+  {promiseMergeSeries}
+</MDXCodeBlock>

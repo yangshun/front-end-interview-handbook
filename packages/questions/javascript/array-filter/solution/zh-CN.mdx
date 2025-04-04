@@ -1,0 +1,53 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import filterJs from '../setup/src/array-filter.js';
+import filterTs from '../setup/src/array-filter.ts';
+import filterSpec from '../setup/src/filterSpec';
+
+这个问题非常简单，只是测试你是否知道如何使用 `Array.prototype` 方法（使用 `this`）访问数组值。
+
+## 解决方案
+
+初始化一个新数组来存储过滤后的结果。 当我们循环遍历数组（通过 `this`）时，对每个数组元素调用回调，并使用以下参数：`element`、`index`、`array` 和 `this`。 这可以通过使用 `Function.prototype.call` 或 `Function.prototype.apply` 来完成。
+
+如果回调的计算结果为 `true`，则将该元素推入 `results`。
+
+<MDXCodeBlock languages={{ jsx: filterJs, tsx: filterTs }} />
+
+## 边缘情况
+
+* 将 `index` 和 `array` 传递给 filter 回调。
+* 如果指定了 `thisArg`，则使用正确的 `this` 调用 filter 回调。
+* 稀疏数组，例如 `[1, 2, , 4]`。 在遍历数组时应忽略空值。
+
+## 笔记
+
+在 filter 回调中修改数组是一个坏主意，可能会导致意想不到的后果。 提及在回调中修改数组是可能的，这是一个积极的信号。 提供的解决方案遵循 TC39 规范，用于数组修改场景：
+
+* `filter` 处理的元素范围在调用第一个回调之前设置。
+* 在调用 `filter` 之后添加到数组中的元素将不会被回调访问。
+* 如果更改了数组的现有元素，则传递给回调的值将是 `filter` 访问它们时该元素的值。
+* 在调用 `filter` 之后但在访问之前删除的元素不会被访问。
+
+如果回调定义为箭头函数，则 `thisArg` 没有任何作用，因为箭头函数没有自己的 `this` 绑定。
+
+## 一行解决方案
+
+你可以通过这样做来欺骗自动评分器：
+
+```js
+Array.prototype.myFilter = Array.prototype.filter;
+```
+
+## 规范解决方案
+
+这是一个基于 [`Array.prototype.filter` ECMAScript 规范](https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.prototype.filter) 的解决方案。
+
+<MDXCodeBlock>
+  {filterSpec}
+</MDXCodeBlock>
+
+## 资源
+
+* [`Array.prototype.filter` | MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
+* [`Array.prototype.filter` ECMAScript specification](https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.prototype.filter)

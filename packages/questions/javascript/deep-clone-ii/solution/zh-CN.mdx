@@ -1,0 +1,35 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import deepCloneJs from '../setup/src/deep-clone-ii.js';
+import deepCloneTs from '../setup/src/deep-clone-ii.ts';
+
+**注意：** 这是 [Deep Clone](/questions/javascript/deep-clone) 问题的进阶版本，在尝试此问题之前，您应该先完成该问题。
+
+这是一个基于 Deep Clone 的后续问题，涵盖了 JavaScript 语言中更深层次和晦涩的角落。
+
+在典型的面试环境中，期望任何人都能提出一个完整的深拷贝解决方案是不现实的。但是，这个问题是一个很好的工具，可以测试您对各种数据类型、对象属性的检查、利用各种内置 API 和 `Object` 方法来遍历给定对象以及编写库代码时可能遇到的各种边缘情况的知识。
+
+## 解决方案
+
+在编写深拷贝函数之前，我们需要一种方法来识别给定 JavaScript 值的的数据类型。使用 `typeof` 和 `instanceof` 没问题，但您必须意识到它们的局限性。在本解决方案中，我们利用 `Object.prototype.toString`。如果您想确切地了解其工作原理，请查看 Zhenghao 的文章 ["JavaScript 中检查数据类型的完整指南"](https://www.zhenghao.io/posts/js-data-type)。
+
+由于我们希望尽可能彻底地实现它，这里有几件事需要考虑：
+
+* 这种高级的 `deepClone` 应该适用于具有 symbol 键属性的对象。也就是说，symbol 键属性也会被复制。最重要的是，不可枚举的属性也应该被复制。`for ... in` 语句或 `Object.entries()`/`Object.keys()` 都不会显示它们，因此我们需要利用一个鲜为人知的 API `Reflect.ownKeys()`。查看 [此 MDN 页面](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect/ownKeys) 了解更多信息。
+* 输入对象的属性描述符也应该被复制。为此，我们可以使用方法 `Object.getOwnPropertyDescriptors()`。
+* 输入对象的原型在复制后不应丢失。我们可以使用 `Object.getPrototypeOf()` 来获取对给定对象的原型的引用。
+* 我们应该考虑输入对象中的循环引用并避免出错。我们可以通过使用一个 `cache`（底层是一个 `Map`）作为缓存来存储访问过的属性来实现这一点。在克隆一个对象后，我们可以将克隆的对象放入 `cache` 中，并将原始对象作为键。如果我们在克隆时再次遇到原始对象中的相同值，我们可以从 `cache` 中检索克隆的值。
+
+<MDXCodeBlock languages={{ jsx: deepCloneJs, tsx: deepCloneTs }} />
+
+## 单行解决方案
+
+在撰写本文时，所有主要浏览器都原生支持通过 `structuredClone` API 执行深拷贝。如果您想了解更多关于 `structuredClone` 的特性和限制，请查看 [web.dev 上的“使用 structuredClone 在 JavaScript 中进行深拷贝”](https://web.dev/structured-clone/)
+
+```js
+const clonedObj = structuredClone(obj);
+```
+
+## 边缘情况
+
+* [属性描述符](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptors) 未被复制。

@@ -1,0 +1,18 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import fillJs from '../setup/src/fill.js';
+import fillTs from '../setup/src/fill.ts';
+
+## 解决方案
+
+<MDXCodeBlock languages={{ jsx: fillJs, tsx: fillTs }} />
+
+## 边缘情况
+
+* 空数组、单元素数组、双元素数组。
+* 负索引。
+* `end` 小于 `start`。
+
+## 资源
+
+* [Lodash `_.fill`](https://lodash.com/docs/#fill)

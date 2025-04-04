@@ -1,0 +1,23 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import sumByJs from '../setup/src/sum-by.js';
+import sumByTs from '../setup/src/sum-by.ts';
+
+## 解决方案
+
+这是一个基于给定的 `iteratee` 查找 `array` 中元素总和的解决方案。它遍历 `array`，使用数组元素调用 `iteratee` 函数，并跟踪值的总和。
+
+使用了两个变量：
+
+* `sum`：跟踪要返回的总和。
+* `found`：跟踪是否找到要添加到 `sum` 的有效数字，否则它将导致函数返回 `NaN`。
+
+<MDXCodeBlock languages={{ jsx: sumByJs, tsx: sumByTs }} />
+
+## 边缘情况
+
+因为 `iteratee` 是用户提供的，并且可以返回任何类型的值，所以我们必须特别注意忽略无法比较的计算值，例如 `null` 和 `undefined`。对于此类计算值，应完全忽略它们。
+
+## 资源
+
+* [Lodash `_.sumBy`](https://lodash.com/docs/#sumBy)

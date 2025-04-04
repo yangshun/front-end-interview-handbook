@@ -1,0 +1,35 @@
+---
+title: 文本搜索
+excerpt: 实现一个函数，如果搜索词出现在文本中，则突出显示该文本
+---
+
+在浏览器中，我们可以通过使用 <kbd>Ctrl</kbd> + <kbd>F</kbd> (Windows, Linux) 或 <kbd>⌘</kbd> + <kbd>F</kbd> (Mac) 并输入搜索词来查找网页中的特定单词或短语。 出现的匹配项将以黄色突出显示。
+
+让我们实现一个浏览器内网页搜索的简单版本，不同之处在于我们得到一个字符串（而不是 HTML），搜索匹配项以 **粗体** 显示。
+
+给定一个内容字符串和一个查询字符串，实现一个函数 `textSearch`，该函数查找与 `query` 字符串的所有不区分大小写的匹配项，并将匹配项包装在 `<b>...</b>` 标签中。
+
+## 例子
+
+```js
+textSearch('The Quick Brown Fox Jumps Over The Lazy Dog', 'fox');
+// 'The Quick Brown <b>Fox</b> Jumps Over The Lazy Dog'
+textSearch('The hardworking Dog overtakes the lazy dog', 'dog');
+// 'The hardworking <b>Dog</b> overtakes the lazy <b>dog</b>'
+```
+
+一个字符不会多次匹配同一个查询，先出现的字母具有优先权。
+
+```js
+textSearch('aaa', 'aa');
+// '<b>aa</b>a'
+// 这是因为第二个字符不能再次用作匹配项。
+```
+
+连续匹配应合并到单个 `<b>` 标签中。
+
+```js
+textSearch('aaaa', 'aa');
+// 正确: '<b>aaaa</b>'
+// 错误: '<b>aa</b><b>aa</b>'
+```

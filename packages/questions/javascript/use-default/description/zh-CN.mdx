@@ -1,0 +1,31 @@
+---
+title: useDefault
+excerpt: 实现一个在状态为 null 或 undefined 时返回默认值的 hook
+---
+
+实现一个 `useDefault` hook，当状态为 `null` 或 `undefined` 时返回默认值。
+
+```jsx
+export default function Component() {
+  const initialUser = { name: 'Marshall' };
+  const defaultUser = { name: 'Mathers' };
+  const [user, setUser] = useDefault(defaultUser, initialUser);
+
+  return (
+    <div>
+      <div>User: {user.name}</div>
+      <input onChange={(e) => setUser({ name: e.target.value })} />
+      <button onClick={() => setUser(null)}>reset</button>
+    </div>
+  );
+}
+```
+
+## 参数
+
+* `defaultValue`: 当状态为 `null` 或 `undefined` 时要返回的默认值
+* `initialValue`: 状态的初始值。此参数应与 `useState` hook 的第一个参数相同
+
+## 返回值
+
+`useDefault` hook 返回与 `useState` hook 相同的值。

@@ -1,0 +1,33 @@
+---
+title: Clamp
+excerpt: 实现一个函数，将一个数字限制在包含下限和上限的范围内
+---
+
+实现一个函数 `clamp(number, lower, upper)`，将一个数字限制在包含 `lower` 和 `upper` 的范围内。
+
+## 参数
+
+1. `value` *(number)*: 要限制的数字。
+2. `lower` *(number)*: 下限。
+3. `upper` *(number)*: 上限。
+
+## 返回值
+
+*(number)*: 返回被限制的数字。
+
+## 例子
+
+```js
+// 在范围内，原样返回。
+clamp(3, 0, 5); // => 3
+
+// 小于下限。
+clamp(-10, -3, 5); // => -3
+
+// 大于上限。
+clamp(10, -5, 5); // => 5
+```
+
+## 资源
+
+* [Lodash `_.clamp`](https://lodash.com/docs/#clamp)

@@ -1,0 +1,16 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import sizeJs from '../setup/src/size.js';
+import sizeTs from '../setup/src/size.ts';
+
+## 解决方案
+
+这个问题评估了人们对不同 JavaScript 类型以及如何检查内容大小的知识。
+
+区分不同的对象类型至关重要。 `typeof collection` 为 `Array`、`Map`、`Set`、`Object` 甚至 `null` 提供了 `'object'`！ 因此，有必要在代码中较早地检查更具体的类型，并使用适当的 API 来获取集合长度。
+
+<MDXCodeBlock languages={{ jsx: sizeJs, tsx: sizeTs }} />
+
+## 资源
+
+* [Lodash `_.size`](https://lodash.com/docs/#size)

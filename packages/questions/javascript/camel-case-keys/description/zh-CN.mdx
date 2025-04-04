@@ -1,0 +1,34 @@
+---
+title: 驼峰命名转换
+excerpt: 实现一个函数，将对象中的所有键转换为驼峰命名。
+---
+
+实现一个函数 `camelCaseKeys`，它接受一个对象并返回一个新对象，其中所有键都转换为驼峰命名。
+
+驼峰命名是一种格式，其中单词用单个大写字母分隔，并且单词的第一个字母将是小写。一些例子：
+
+| 字符串    | camelCase |
+| --------- | --------- |
+| `foo`     | 是       |
+| `fooBar`  | 是       |
+| `Foo_Bar` | 否        |
+| `foo_bar` | 否        |
+
+为简单起见，我们只需要考虑以上 4 种字符串格式，不会有包含空格、连字符或 PascalCase 的键。
+
+## 例子
+
+```js
+camelCaseKeys({ foo_bar: true });
+// { fooBar: true }
+
+camelCaseKeys({ foo_bar: true, bar_baz: { baz_qux: '1' } });
+// { fooBar: true, barBaz: { bazQux: '1' } }
+
+camelCaseKeys([{ baz_qux: true }, { foo: true, bar: [{ foo_bar: 'hello' }] }]);
+// [{ bazQux: true }, { foo: true, bar: [{ fooBar: 'hello' }] }]
+```
+
+## 注意事项
+
+您可以假设输入始终是有效的、普通的 JavaScript 对象或数组。

@@ -1,0 +1,11 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import useInterval from '../setup/src/use-interval';
+
+## 解决方案
+
+可以使用 `useEffect` 和 `setInterval` 每隔给定的 `delay` 毫秒创建一个间隔来实现 `useInterval` hook。当组件卸载或 `delay` 为 `null` 时，该间隔将被清除。
+
+<MDXCodeBlock>
+  {useInterval}
+</MDXCodeBlock>

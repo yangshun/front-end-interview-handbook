@@ -1,0 +1,29 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import negateJs from '../setup/src/negate.js';
+import negateTs from '../setup/src/negate.ts';
+import negateAltJs from '../setup/src/negate-alt.js';
+import negateAltTs from '../setup/src/negate-alt.ts';
+
+## 解决方案
+
+### 方法 1：使用 `...args` 允许未知数量的参数
+
+1. `predicate.apply(this, args)` 部分是调用原始 `predicate` 函数的地方。
+2. `apply` 方法用于使用特定的 `this` 上下文和参数数组调用 `predicate`。在这种情况下，`this` 指的是匿名函数在被调用时的 `this` 上下文，而 `args` 是传递给匿名函数的参数数组。这确保了 predicate 函数在正确的上下文中执行，并使用传递给否定函数的相同参数。此外，由于需要使用正确的 `this` 上下文，最外层的函数不应使用箭头函数声明。
+
+<MDXCodeBlock languages={{ jsx: negateJs, tsx: negateTs }} />
+
+### 方法 2：使用 `arguments` 作为传递给否定谓词的参数
+
+使用 `arguments` 将所有接收到的参数传递给谓词，在处理不确定数量的参数时提供灵活性，而无需显式列出它们，适用于参数类型和数量可变或未知的函数。
+
+<MDXCodeBlock languages={{ jsx: negateAltJs, tsx: negateAltTs }} />
+
+## 边缘情况
+
+当将 `negate` 与依赖于其 `this` 上下文的 `predicate` 函数（例如对象方法）一起使用时，由于上下文丢失，可能会发生意外行为。为了保留上下文，我们可以在将 `predicate` 传递给 `negate` 之前，使用 `predicate.bind(object)` 将 `predicate` 绑定到其原始上下文，确保 `this` 保持正确绑定。
+
+## 资源
+
+* [Lodash `_.negate`](https://lodash.com/docs/#negate)

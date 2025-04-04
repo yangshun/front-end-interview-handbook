@@ -1,0 +1,130 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import backboneModelJs from '../setup/src/backbone-model.js';
+import backboneModelTs from '../setup/src/backbone-model.ts';
+
+**注意：** 这个问题是 [Event Emitter II](/questions/javascript/event-emitter-ii) 的扩展，建议您先完成那个问题。
+
+## 澄清问题
+
+以下是向面试官提问以展示您的周全考虑的好问题。根据他们的回答，您可能需要相应地调整实现。
+
+1.  对于 `'change'` 事件，应该如何比较值？
+    *   可以使用严格相等。
+2.  对于同一个属性和事件，可以多次添加同一个回调吗？
+    *   是的，可以。当事件发出时，它将被调用一次，每次添加时，按照添加回调的顺序。
+3.  可以发出不存在的事件吗？
+    *   是的，但是不应该发生任何事情，代码也不应该出错或崩溃。
+4.  如果未指定，回调的 `this` 值应该是什么？
+    *   它可以是 `null`。
+5.  可以多次调用 `model.off()` 吗？
+    *   是的，可以，它应该忽略未添加的回调。
+6.  回调是否可以包含在 emitter 实例上调用方法的代码？
+    *   是的，但对于这个问题，我们可以忽略这种情况。
+7.  如果添加的回调在触发事件时抛出错误怎么办？
+    *   应该捕获错误，并且不应该停止其余的执行。但是，我们不会测试这种情况。
+
+我们将处理上述所有情况，除了最后两种情况。
+
+## 解决方案
+
+### 数据结构
+
+首先，我们必须确定用于存储事件和回调的数据结构。
+
+这里有几个属性 > 事件 (`'change'`，`'unset'`) > 回调的层次结构，并且我们的数据的形状可以反映这种层次结构。在 [Event Emitter II](/questions/javascript/event-emitter-ii) 中已经讨论了事件回调的数据结构之间的权衡，一种合理的选择是使用 `Map` 将属性字符串映射到对象，其中键是事件名称，值是回调和上下文的数组。
+
+```ts
+type CallbackData = { fn: Function; context: any };
+type AttributeData = {
+  value: unknown;
+  events: {
+    change: Array<CallbackData>;
+    unset: Array<CallbackData>;
+  };
+};
+
+export default class BackboneModel {
+  _attributes: Map<string, AttributeData>;
+}
+```
+
+一个具体的例子：
+
+```js
+Map(2) {
+  name: {
+    change: [
+      { fn: Function1, context: Object },
+      { fn: Function2, context: Object },
+    ],
+    unset: [
+      { fn: Function3, context: Object },
+    ],
+  },
+  age: {
+    change: [],
+    unset: [{ fn: Function4, context: Object }]
+  },
+};
+```
+
+* 优点：
+  * 给定属性和事件，可以快速查找回调。
+* 缺点：
+  * 如果回调被多次添加，则无法删除特定事件的回调。但是，这不是问题的要求。
+
+### 实现
+
+以下是 `BackboneModel` 类的构造函数和每个方法的说明：
+
+#### 构造函数
+
+构造函数初始化 `BackboneModel` 类的新实例。它接受一个可选的 `initialValues` 参数，该参数是模型初始属性值的记录。构造函数设置内部 `_attributes` 映射，其中每个属性都与一个对象相关联，该对象包含其当前值以及 'change' 和 'unset' 事件的回调。如果提供了 `initialValues`，它将遍历每个条目并设置初始属性值。
+
+#### `model.get()`
+
+``get`` 方法检索指定属性的当前值。如果该属性存在于模型中，则返回其当前值；否则，返回 `undefined`。
+
+#### `model.set()`
+
+``set`` 方法设置指定属性的值。它检查该属性是否已存在于模型中。如果存在，则仅当新值与当前值不同时，才会触发 `'change'` 回调。然后，它更新属性的值并将其存储在内部 `_attributes` 映射中。
+
+如果是在 `model.on('change', ...)` 期间指定的，则应使用各自的 `this` 调用回调。
+
+#### `model.has()`
+
+``has`` 方法检查模型是否具有特定属性。如果该属性存在于模型中，则返回 `true`，否则返回 `false`。
+
+#### `model.unset()`
+
+``unset`` 方法从模型中删除特定属性。它会触发 'unset' 回调，然后从内部 `_attributes` 映射中删除该属性。
+
+如果是在 `model.on('unset', ...)` 期间指定的，则应使用各自的 `this` 调用回调。
+
+#### `model.on()`
+
+``on`` 方法将回调函数添加到给定属性的特定事件（`'change'` 或 `'unset'`）的回调列表中。如果该属性不存在，则该方法不执行任何操作。
+
+#### `model.off()`
+
+``off`` 方法从给定属性的特定事件（`'change'` 或 `'unset'`）的回调列表中删除回调函数。如果该属性不存在，则该方法不执行任何操作。
+
+### 基于类的解决方案
+
+<MDXCodeBlock languages={{ jsx: backboneModelJs, tsx: backboneModelTs }} />
+
+## 边缘情况
+
+* 相同的回调函数可以为同一事件添加多次。调用 `model.off()` 应从该属性的事件回调中删除所有匹配的回调。
+* 使用不存在的属性调用的方法应为 no-op。
+
+## 技术
+
+* 面向对象编程
+* 使用正确的数据结构
+* 闭包
+
+## 资源
+
+* [Backbone.Model](https://backbonejs.org/#Model)

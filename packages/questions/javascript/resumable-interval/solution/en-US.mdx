@@ -11,7 +11,7 @@ import resumableIntervalStateMachineTs from '../setup/src/resumable-interval-sta
 
 The complexity of this question lies in modelling the inner state of the interval, whether it's paused, running, or stopped (which is a terminal state) and how to modify the state correctly based on the methods.
 
-### Solution 1: Using a `stopped` boolean flag
+### Approach 1: Using a `stopped` boolean flag
 
 We can have use variables, `timerId` and `stopped` to model all possible states:
 
@@ -33,7 +33,7 @@ In the `stop` function, set `stopped` to `true` and call `clearInterval(timerId)
 
 We don't have to worry about `this` within the callback function because there's no option to pass a `thisArg` to `setInterval` unlike `Array.prototype.forEach()`/`Array.prototype.reduce()`. Read more about [this on MDN](https://developer.mozilla.org/en-US/docs/Web/API/setInterval#the_this_problem).
 
-## Solution 2: State machine
+## Approach 2: State machine
 
 With 3 states and 3 possible actions, modeling the state and actions with imperative logic is already starting to feel complicated. State machines are a declarative way to model state and the associated interactions. A state machine takes the current state and an action and returns the next state. We can then call the necessary logic based on the new state.
 

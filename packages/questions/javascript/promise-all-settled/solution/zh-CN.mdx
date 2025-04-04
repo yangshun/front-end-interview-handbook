@@ -1,0 +1,55 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import promiseAllSettledJs from '../setup/src/promise-all-settled.js';
+import promiseAllSettledTs from '../setup/src/promise-all-settled.ts';
+import promiseAllSettledThen from '../setup/src/promiseAllSettledThen';
+
+**注意：** 如果您尚未完成 [`Promise.all`](/questions/javascript/promise-all) 问题，您应该先尝试该问题。
+
+在面试中经常会测试异步编程。了解 `Promise.allSettled` 在幕后的工作原理将帮助您理解类似 `Promise` 相关函数（如 [`Promise.race`](/questions/javascript/promise-race)、[`Promise.any`](/questions/javascript/promise-any)、[`Promise.all`](/questions/javascript/promise-all) 等）背后的机制。
+
+## 解决方案
+
+关于这个问题，我们需要记住并处理几个方面：
+
+1. `Promise` 旨在被链接，因此该函数需要返回一个 `Promise`。
+2. 如果输入数组为空，则返回的 `Promise` 将使用一个空数组进行解析。
+3. 返回的 `Promise` 包含一个**与输入相同的顺序**的 outcome 对象数组。
+4. 输入数组可以包含非 `Promise`。
+
+我们将在该函数的顶层返回一个 `Promise`。首先检查输入数组是否为空，如果是，则使用一个空数组进行解析。
+
+然后，我们尝试解析输入数组中的每个项目。这可以使用 `Array.prototype.forEach` 或 `Array.prototype.map` 来实现。由于返回值需要保留输入数组的顺序，因此创建一个 `results` 数组，并使用其在输入数组中的 `index` 将值放入正确的位置。
+
+* 如果一个值被解析，则 outcome 对象的形状为 `{ status: 'fulfilled', value }`。
+* 如果一个值被拒绝，则 outcome 对象的形状为 `{ status: 'rejected', reason }`。
+
+要知道何时所有输入数组值都有一个结果，请跟踪待处理的 promise 的数量，方法是初始化一个待处理值的计数器，并在每次解析或拒绝一个值时将其递减。当 `pending` 计数器达到 0 时，返回 `results` 数组。
+
+这里需要注意的一点是，由于输入数组可以包含非 `Promise` 值，如果我们不 `await` 它们，我们需要使用 `Promise.resolve()` 包装每个值，这允许我们在它们上使用 `.then()`，并且我们不必区分 `Promise` 与非 `Promise` 值以及它们是否需要被解析。
+
+<MDXCodeBlock languages={{ jsx: promiseAllSettledJs, tsx: promiseAllSettledTs }} />
+
+如果您不喜欢使用 `async`/`await`，这里有一个使用 `Promise.then()` 的替代版本。
+
+<MDXCodeBlock>
+  {promiseAllSettledThen}
+</MDXCodeBlock>
+
+## 边缘情况
+
+* 空输入数组。应返回一个空数组。
+* 如果数组包含非 `Promise` 值，如果所有输入值都已完成，它们仍将是返回数组的一部分。
+
+## 技术
+
+* 了解 `Promise`，如何构造一个，如何使用它们。
+* 异步编程。
+
+## 笔记
+
+* 评估器不会验证您的输入数组是并发解析的，而不是顺序解析的。
+
+## 资源
+
+* [Promise.allSettled() - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/allSettled)

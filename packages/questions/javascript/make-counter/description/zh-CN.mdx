@@ -1,0 +1,24 @@
+---
+title: 制作计数器
+excerpt: 实现一个接受整数值的函数，并返回一个可以重复调用的函数，以返回递增的值
+---
+
+实现一个函数 `makeCounter`，它接受一个可选的整数值并返回一个函数。当最初调用返回的函数时，如果提供了初始值，则返回初始值，否则返回 0。可以重复调用返回的函数以返回比前一次调用返回值多 1 的值。
+
+## 例子
+
+```js
+const counter = makeCounter();
+counter(); // 0
+counter(); // 1
+counter(); // 2
+```
+
+使用自定义初始值：
+
+```js
+const counter = makeCounter(5);
+counter(); // 5
+counter(); // 6
+counter(); // 7
+```

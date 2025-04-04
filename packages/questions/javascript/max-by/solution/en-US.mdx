@@ -14,7 +14,7 @@ Two variables are used:
 
 <MDXCodeBlock languages={{ jsx: maxByJs, tsx: maxByTs }} />
 
-## Edge Cases
+## Edge cases
 
 Because `iteratee` is user-provided and can return a value of any type, we have to pay special attention to ignore computed values that cannot be compared, like `null` and `undefined`. For such computed values, they should be ignored entirely.
 

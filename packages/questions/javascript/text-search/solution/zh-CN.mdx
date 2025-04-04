@@ -1,0 +1,53 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import textSearchJs from '../setup/src/text-search.js';
+import textSearchTs from '../setup/src/text-search.ts';
+
+这个问题评估了一个人在 JavaScript 中操作数组和字符串的能力，这无疑是前端开发的一项基本技能。
+
+## 澄清问题
+
+你的面试官可能不一定会提前为你详细说明所有要求。理想情况下，你应该从考虑所有可能的情况和边缘情况开始。
+
+* 如果 `query` 字符串是空字符串，或者输入字符串 `text` 是空字符串怎么办？
+  * 原样返回字符串。
+
+## 解决方案
+
+人们可能会想到利用正则表达式 (regex)，通过 `RegExp`。在这里使用正则表达式并不容易，因为我们需要组合连续匹配的标签。
+
+让我们尝试从期望的输出向后思考：我们希望输出一个字符串，其中包含存在于 `query` 字符串中的子字符串，并用 `<b>` 标签包裹。因此，我们需要确切地知道在哪里插入开始 `<b>` 标签和结束 `</b>` 标签。我们可以创建一个布尔数组，其长度与 `text` 相同，每个值默认为 `false`。`boldChars[index]` 的值指示原始字符串中该索引处的字符是否需要加粗。
+
+```js
+// #1: 基本情况。
+// text: "aaabcaa", query: 'abc'
+// boldChars: [false, false, true, true, true, false, false]
+// result: "aa<b>abc</b>aa"
+
+// #2: 多次匹配情况。
+// text: "aaabcaabc", query: 'abc'
+// boldChars: [false, false, true, true, true, false, true, true, true]
+// result: "aa<b>abc</b>a<b>abc</b>"
+
+// #2: 连续情况。
+// text: "aababcac", query: 'ab'
+// boldChars: [false, true, true, true, true, false, false, false]
+// result: "a<b>abab</b>cac"
+```
+
+连续的 `true` 块的开始位置是我们插入开始标签 `<b>` 的位置，结束位置是我们添加结束标签 `</b>` 的位置。
+
+为了确定哪些字符需要加粗，我们在 `text` 中的每个字符处对每个查询进行朴素的子字符串匹配。将每个匹配字符的索引处的布尔值翻转为 `true`。但是，由于“一个字符只能匹配同一个查询一次”的条件，当有匹配时，我们必须递增 `i` 以跳过当前查询。在这里要小心出现一处错误。
+
+因为我们将函数分成了两个步骤：（1）识别粗体字符，（2）渲染 `<b>` 标签，所以我们不会遇到为连续匹配组合标签的问题。
+
+<MDXCodeBlock languages={{ jsx: textSearchJs, tsx: textSearchTs }} />
+
+## 边缘情况
+
+* 空字符串
+* 空查询
+
+## 笔记
+
+* 当我们找到子字符串匹配时，我们使用 `Array.prototype.fill()` 方便地改变布尔数组。方法 `fill` 是少数几个改变数组的方法之一。截至撰写本文时，总共有 9 种改变数组的方法：`pop`、`push`、`reverse`、`shift`、`sort`、`splice`、`unshift`、`copyWithin` 和 `fill`。查看 [Does it mutate](https://doesitmutate.xyz)，其中有一个很好的列表，列出了改变数组的方法以及更多详细信息。

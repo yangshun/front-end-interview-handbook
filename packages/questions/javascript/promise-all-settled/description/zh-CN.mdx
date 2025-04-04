@@ -1,0 +1,37 @@
+---
+title: Promise.allSettled
+excerpt: 实现 Promise.allSettled() 函数，当所有输入元素都已解决或已拒绝时，该函数将解析为一个结果数组。
+---
+
+**注意：** 如果您尚未完成 [`Promise.all`](/questions/javascript/promise-all) 问题，您应该先尝试该问题。
+
+> `Promise.allSettled()` 方法返回一个 promise，该 promise 在所有给定的 promise 都已完成或已拒绝后解析，并带有一个对象数组，每个对象描述每个 promise 的结果。
+
+> 但是，如果且仅当将一个空的可迭代对象作为参数传递时，`Promise.allSettled()` 将返回一个 `Promise` 对象，该对象已被解析为一个空数组。
+
+> 对于每个结果对象，都存在一个 `status` 字符串。如果状态为 `'fulfilled'`，则存在一个 `value`。如果状态为 `'rejected'`，则存在一个 `reason`。值（或原因）反映了每个 promise 完成（或拒绝）的值。
+
+*来源：[Promise.allSettled() - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/allSettled)*
+
+`Promise.allSettled()` 经常用于存在多个独立的异步任务，并且我们希望知道每个 promise 的结果，而不管它们是否已完成或被拒绝。
+
+让我们实现我们自己的 `Promise.allSettled()` 版本，一个 `promiseAllSettled` 函数，区别在于该函数接受一个数组而不是一个可迭代对象。请务必仔细阅读描述并相应地实现！
+
+## 示例
+
+```js
+const p0 = Promise.resolve(3);
+const p1 = 42;
+const p2 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    reject('foo');
+  }, 100);
+});
+
+await promiseAllSettled([p0, p1, p2]);
+// [
+//   { status: 'fulfilled', value: 3 },
+//   { status: 'fulfilled', value: 42 },
+//   { status: 'rejected', reason: 'foo' },
+// ];
+```

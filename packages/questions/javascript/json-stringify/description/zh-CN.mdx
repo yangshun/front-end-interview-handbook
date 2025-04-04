@@ -1,0 +1,27 @@
+---
+title: JSON.stringify
+excerpt: 实现一个将 JavaScript 值转换为 JSON 字符串的函数
+---
+
+实现一个类似于 [`JSON.stringify`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) 的 `jsonStringify` 函数，它将 JavaScript 值转换为 JSON 字符串。
+
+* 输入值中将仅包含 JSON 可序列化的值（即布尔值、数字、`null`、数组、对象）。
+* 忽略原始 API 中的 [第二个和第三个](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify#parameters) 可选参数。
+
+## 例子
+
+```js
+jsonStringify({ foo: 'bar' }); // '{"foo":"bar"}'
+jsonStringify({ foo: 'bar', bar: [1, 2, 3] }); // '{"foo":"bar","bar":[1,2,3]}'
+jsonStringify({ foo: true, bar: false }); // '{"foo":true,"bar":false}'
+```
+
+其他类型
+
+```js
+jsonStringify(null); // 'null'
+jsonStringify(true); // 'true'
+jsonStringify(false); // 'false'
+jsonStringify(1); // '1'
+jsonStringify('foo'); // '"foo"'
+```

@@ -1,0 +1,39 @@
+---
+title: Unique By
+excerpt: 实现一个函数，根据特定条件从数组中删除所有重复值
+---
+
+实现一个函数 `uniqBy`，它接受一个数组并返回 `array` 的无重复版本，其中仅保留基于函数 `iteratee` 的每个元素的第一次出现。 结果值的顺序由它们在 `array` 中出现的顺序决定。
+
+```js
+uniqBy(array, iteratee);
+```
+
+## 参数
+
+1. `array` *(Array)*: 要迭代的数组。
+2. `iteratee` *(Function)*: 每次元素调用的 iteratee。该函数使用一个参数调用：(value)。
+
+## 返回值
+
+*`(Array)`*: 返回唯一数组。
+
+## 例子
+
+```js
+uniqBy([2.1, 1.2, 2.3], Math.floor); // => [2.1, 1.2]
+
+uniqBy([{ x: 1 }, { x: 2 }, { x: 1 }], (o) => o.x); // => [{ x: 1 }, { x: 2 }]
+```
+
+如果 `array` 为空，则该函数应返回一个空数组，并将 false 值原样处理。
+
+```js
+uniqBy([], (o) => o.m); // => []
+
+uniqBy([{ n: 1 }, { m: 2 }], (o) => o.m); // => [{ n: 1 }, { m: 2 }]
+```
+
+## 资源
+
+* [Lodash `_.uniqBy`](https://lodash.com/docs/#uniqBy)

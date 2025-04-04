@@ -1,0 +1,55 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import curryJs from '../setup/src/curry-iii.js';
+import curryTs from '../setup/src/curry-iii.ts';
+
+此解决方案假设您已完成 [Curry II](/questions/javascript/curry-ii) 问题并完全理解其解决方案。
+
+## 解决方案
+
+隐式类型转换是我们需要在这里注意的基本概念。当变量用于类型不匹配的场景时，会发生隐式类型转换，以尝试使操作成功。以下是来自 [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures) 关于类型转换的一些示例：
+
+```js
+const foo = 42; // foo 是一个数字
+const result = foo + '1'; // JavaScript 将 foo 强制转换为字符串，以便它可以与其他操作数连接。
+console.log(result); // 421
+
+const bar = '42'; // bar 是一个字符串
+const result2 = 2 * bar; // JavaScript 将 bar 强制转换为数字，以便它可以与其他操作数相乘。
+console.log(result2); // 84
+```
+
+`curry` 返回的函数（我们称之为 `curried`）是一个函数，它是一个 JavaScript 对象。在通常情况下，当一个函数被强制转换为字符串时，函数的代码被用作字符串值：
+
+```js
+function foo(a, b) {
+  return a + b;
+}
+console.log('hey ' + foo); // hey function foo(a, b) { return a + b }
+```
+
+这不是我们想要的。我们希望在函数用作原始值时调用任意逻辑。为了使对象用作原始值（在 `console.log()` 或表达式中使用时），我们可以在对象上覆盖 [`Symbol.toPrimitive`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toPrimitive) 属性，它是一个接受首选类型并返回对象原始表示形式的方法。
+
+因此，可以通过稍微修改 Curry II 的解决方案并在 `Symbol.toPrimitive` 的方法中调用 `func.apply(this, args)` 来获得此问题的解决方案。
+
+<MDXCodeBlock languages={{ jsx: curryJs, tsx: curryTs }} />
+
+## 边缘情况
+
+* 访问 `this` 的函数。
+
+## 技术
+
+* 闭包。
+* 通过 `Function.prototype.apply()`/`Function.prototype.call()` 调用函数。
+* 类型转换。
+
+## 笔记
+
+* 在调用原始函数时应保留 `this`，这可以通过使用箭头函数来实现。
+* 覆盖 `Object.prototype.valueOf` 和 `Object.prototype.toString` 也可以，但为 `Symbol.toPrimitive` 定义一个实现更可靠。
+
+## 资源
+
+* [Lodash curry](https://lodash.com/docs/4.17.15#curry)
+* [`Symbol.toPrimitive`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toPrimitive)

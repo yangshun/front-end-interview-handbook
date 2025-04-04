@@ -1,0 +1,18 @@
+---
+title: 深度相等
+excerpt: 实现一个确定两个值是否相等的函数
+---
+
+实现一个 `deepEqual` 函数，该函数对两个值进行深度比较。如果两个输入值被认为是相等的，则返回 `true`，否则返回 `false`。
+
+* 您可以假设只有 JSON 可序列化的值（数字、字符串、布尔值、`null`、对象、数组）。
+* 不会有循环对象，即具有循环引用的对象。
+
+## 例子
+
+```js
+deepEqual('foo', 'foo'); // true
+deepEqual({ id: 1 }, { id: 1 }); // true
+deepEqual([1, 2, 3], [1, 2, 3]); // true
+deepEqual([{ id: '1' }], [{ id: '2' }]); // false
+```

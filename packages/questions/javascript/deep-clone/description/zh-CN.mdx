@@ -1,0 +1,26 @@
+---
+title: 深拷贝
+excerpt: 实现一个对值进行深拷贝的函数
+---
+
+术语“深拷贝”在 JavaScript 的语言规范中没有正式定义，但在社区中通常被很好地理解。深拷贝会复制 JavaScript 值，从而产生一个完全新的值，该值没有任何引用指向原始对象中的属性（如果它是一个对象）。对深拷贝对象所做的任何更改都不会影响原始对象。
+
+实现一个 `deepClone` 函数，该函数对 JavaScript 对象执行深拷贝操作。您可以假设输入只包含 JSON 可序列化的值（`null`、`boolean`、`number`、`string`、`Array`、`Object`），并且不包含任何其他对象，如 `Date`、`Regex`、`Map` 或 `Set`。
+
+## 例子
+
+```js
+const obj1 = { user: { role: 'admin' } };
+const clonedObj1 = deepClone(obj1);
+
+clonedObj1.user.role = 'guest'; // 将克隆的用户角色更改为 'guest'。
+clonedObj1.user.role; // 'guest'
+obj1.user.role; // 应该仍然是 'admin'。
+
+const obj2 = { foo: [{ bar: 'baz' }] };
+const clonedObj2 = deepClone(obj2);
+
+obj2.foo[0].bar = 'bax'; // 修改原始对象。
+obj2.foo[0].bar; // 'bax'
+clonedObj2.foo[0].bar; // 应该仍然是 'baz'。
+```

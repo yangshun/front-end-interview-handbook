@@ -1,0 +1,44 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import useInputControl from '../setup/src/use-input-control';
+
+## 解决方案
+
+总结一下返回的字段：
+
+* `value`：当前的输入值
+* `touched`：输入是否已获得焦点然后失去焦点
+* `dirty`：该值之前是否已更改
+* `different`：该值是否与原始值不同
+
+让我们了解每个字段以及如何实现它们：
+
+### `value`
+
+`value` 是一个使用 React 状态跟踪的布尔值。一个 `handleChange` 处理程序用于从输入的 [`change` 事件](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/change_event) 更新 value 状态。
+
+### `touched`
+
+`touched` 是一个使用 React 状态跟踪的布尔值。当输入失去焦点时，它将被设置为 `true`。由于 hook 不知道 `<input>` 元素何时失去焦点，我们返回一个 `handleBlur` 函数，该函数将值设置为 `true`，用户将在 `onBlur` 事件处理程序中调用 `handleBlur` 函数。
+
+### `dirty`
+
+`touched` 是一个使用 React 状态跟踪的布尔值。由于它在之前被更改时设置为 `true`，因此 `handleChange` 是一个不错的选择。
+
+### `different`
+
+此字段不需要状态，因为它是一个派生状态，可以通过比较初始值和当前 `value` 来计算。但是，不应针对 `initialValue` 参数进行比较，因为该值在重新渲染期间可能会有所不同！
+
+相反，我们使用 `useRef` 跟踪第一个渲染的 `initialValue`。为什么不是状态？因为 `initialValueRef` 在 hook 挂载后永远不会改变。
+
+```js
+const different = initialValueRef.current !== value;
+```
+
+### `reset` 函数
+
+此函数重置 hook 中的所有状态。只需使用其初始值调用各种状态设置器即可。要设置的初始值可以从 `initialValueRef` 获取。
+
+<MDXCodeBlock>
+  {useInputControl}
+</MDXCodeBlock>

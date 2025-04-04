@@ -1,0 +1,36 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import cancellableIntervalJs from '../setup/src/cancellable-interval.js';
+import cancellableIntervalTs from '../setup/src/cancellable-interval.ts';
+import cancellableIntervalAlt from '../setup/src/cancellable-interval-alt';
+import cancellableIntervalBoolean from '../setup/src/cancellable-interval-boolean';
+
+## 解决方案
+
+返回取消函数而不是 `timerId` 的好处是，间隔机制被抽象出来，可以被其他东西替换。但实际上，在 JavaScript 中没有其他很好的方法来实现间隔执行，这就是为什么你可能在面试之外看不到它的原因。
+
+### 方法 1：返回一个调用 `clearInterval` 的函数
+
+`setInterval` 返回一个计时器 ID。要取消计时器，我们可以调用 `clearInterval(timerId)`。解决这个问题的一个简单方法是返回一个完全执行此操作的函数。我们可以将所有参数转发给 `setInterval`。
+
+<MDXCodeBlock languages={{ jsx: cancellableIntervalJs, tsx: cancellableIntervalTs }} />
+
+我们可以稍微简化代码，并将所有参数转发给 `setInterval`。
+
+<MDXCodeBlock>
+  {cancellableIntervalAlt}
+</MDXCodeBlock>
+
+我们不必担心回调函数中的 `this`，因为没有选项可以将 `thisArg` 传递给 `setInterval`，这与 `Array.prototype.forEach()`/`Array.prototype.reduce()` 不同。阅读更多关于 [MDN 上的 this](https://developer.mozilla.org/en-US/docs/Web/API/setInterval#the_this_problem)。
+
+### 方法 2：维护一个 `cancelled` 标志（非最佳）
+
+另一种方法是维护一个 `cancelled` 标志，当调用返回的函数时，该标志将设置为 `true`。在调用 `setInterval` 回调之前，检查 `cancelled` 的值，然后再执行 `callback`。这并非最佳，因为 `setInterval` 回调将永远运行，什么也不做！
+
+<MDXCodeBlock>
+  {cancellableIntervalBoolean}
+</MDXCodeBlock>
+
+## 资源
+
+* [`setInterval()` | MDN](https://developer.mozilla.org/en-US/docs/Web/API/setInterval)

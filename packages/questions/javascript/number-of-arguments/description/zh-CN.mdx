@@ -1,0 +1,19 @@
+---
+title: 参数个数
+excerpt: 实现一个函数，该函数返回它被调用时所带的参数个数
+---
+
+实现一个函数 `numberOfArguments`，返回它被调用时所带的参数个数。请注意，这个值是实际的参数个数，可以多于或少于定义的参数计数（由 `Function.prototype.length` 决定）。
+
+附注：这个函数没有实际用途。但是，了解如何确定参数个数很有用，这对于需要编写可变函数的问题很有用，例如 [Classnames](/questions/javascript/classnames) 和 [Curry II](/questions/javascript/curry-ii)。
+
+```js
+numberOfArguments(); // 0
+numberOfArguments(1); // 1
+numberOfArguments(2, 3); // 2
+numberOfArguments('a', 'b', 'c'); // 3
+```
+
+## 资源
+
+[arguments.length | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments/length)

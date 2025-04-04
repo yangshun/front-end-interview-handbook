@@ -1,0 +1,55 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import jQueryClassManipulationJs from '../setup/src/jquery-class-manipulation.js';
+import jQueryClassManipulationTs from '../setup/src/jquery-class-manipulation.ts';
+import jQueryClassManipulationClass from '../setup/src/jQueryClassManipulationClass';
+
+**注意：** 如果您尚未完成 [`jQuery.css`](/questions/javascript/jquery-css) 问题，您应该先尝试该问题。
+
+## 澄清问题
+
+* 如果没有元素与选择器匹配，会发生什么？
+  * 在 jQuery 中，如果没有匹配的元素，则什么也不会发生，因此我们可以遵循这一点。
+* 参数中和元素上是否可以有重复的类？
+  * 是的，可以有。
+
+## 解决方案
+
+方法链不是问题的重点，因为您只需要在骨架中每个方法的末尾返回 `this`，该骨架已经包含基于对象的方法的结构。因此，首先完成 [`jQuery.css`](/questions/javascript/jquery-css) 问题非常重要。
+
+大部分复杂性在于 `toggleClass` 方法。我们首先需要将 `className` 参数和元素的 `className` 属性解析为一组类字符串。然后，根据 `className` 输入操作元素的类集。我们遍历 `className` 输入中的类，并根据是否明确定义了 `state` 以及元素的类是否包含输入类，从集合中添加/删除该类。
+
+最后，我们通过将类连接回单个字符串来修改元素的 `className`。
+
+`addClass` 和 `removeClass` 可以通过分别使用 `toggleClass` 并将 `state` 设置为 `true` 和 `false` 来轻松实现。
+
+<MDXCodeBlock languages={{ jsx: jQueryClassManipulationJs, tsx: jQueryClassManipulationTs }} />
+
+## 替代解决方案
+
+下面可以找到一种基于类的替代方法，该方法稍微长一些，并且有点过分。
+
+<MDXCodeBlock>
+  {jQueryClassManipulationClass}
+</MDXCodeBlock>
+
+## 边缘情况
+
+* 没有元素与选择器匹配。我们应该优雅地处理，而不是出错。
+* `className` 字符串可以包含重复的类。
+* `className` 字符串可以包含前导/尾随空格，以及类之间的一个以上的空格字符。
+* 元素的 `className` 可以包含大写类，这些类不应在 [浏览器标准模式](https://developer.mozilla.org/en-US/docs/Web/HTML/Quirks_Mode_and_Standards_Mode) 中匹配。
+
+## 技术
+
+* CSS 基础知识。
+
+## 笔记
+
+* 箭头函数具有对 `this` 上下文的词法作用域，不应作为对象的方法使用，因为 `this` 将不会引用该对象。因此，如果返回值是对象，则方法不能定义为箭头函数。
+
+## 资源
+
+* [.toggleClass() | jQuery API 文档](https://api.jquery.com/toggleClass/)
+* [.addClass() | jQuery API 文档](https://api.jquery.com/addClass/)
+* [.removeClass() | jQuery API 文档](https://api.jquery.com/removeClass/)

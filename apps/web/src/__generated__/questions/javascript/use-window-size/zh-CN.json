@@ -1,0 +1,56 @@
+{
+  "description": "var Component=(()=>{var u=Object.create;var o=Object.defineProperty;var a=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var m=Object.getPrototypeOf,x=Object.prototype.hasOwnProperty;var w=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),g=(e,n)=>{for(var r in n)o(e,r,{get:n[r],enumerable:!0})},d=(e,n,r,t)=>{if(n&&typeof n==\"object\"||typeof n==\"function\")for(let c of p(n))!x.call(e,c)&&c!==r&&o(e,c,{get:()=>n[c],enumerable:!(t=a(n,c))||t.enumerable});return e};var f=(e,n,r)=>(r=e!=null?u(m(e)):{},d(n||!e||!e.__esModule?o(r,\"default\",{value:e,enumerable:!0}):r,e)),j=e=>d(o({},\"__esModule\",{value:!0}),e);var s=w((k,l)=>{l.exports=_jsx_runtime});var S={};g(S,{default:()=>H,frontmatter:()=>_});var i=f(s()),_={title:\"useWindowSize\",excerpt:\"\\u5B9E\\u73B0\\u4E00\\u4E2A\\u8FD4\\u56DE\\u7A97\\u53E3\\u5F53\\u524D\\u9AD8\\u5EA6\\u548C\\u5BBD\\u5EA6\\u7684 Hook\"};function h(e){let n=Object.assign({p:\"p\",code:\"code\",pre:\"pre\",h2:\"h2\",ul:\"ul\",li:\"li\"},e.components);return(0,i.jsxs)(i.Fragment,{children:[(0,i.jsxs)(n.p,{children:[\"\\u5B9E\\u73B0\\u4E00\\u4E2A \",(0,i.jsx)(n.code,{children:\"useWindowSize\"}),\" Hook\\uFF0C\\u5B83\\u8FD4\\u56DE\\u7A97\\u53E3\\u7684\\u5F53\\u524D\\u9AD8\\u5EA6\\u548C\\u5BBD\\u5EA6\\uFF08\",(0,i.jsx)(n.code,{children:\"window.innerHeight\"}),\" \\u548C \",(0,i.jsx)(n.code,{children:\"window.innerWidth\"}),\"\\uFF09\\u3002\\u5982\\u679C\\u5C4F\\u5E55\\u5C5E\\u6027\\u53D1\\u751F\\u53D8\\u5316\\uFF0C\\u5B83\\u5E94\\u8BE5\\u91CD\\u65B0\\u6E32\\u67D3\\u7EC4\\u4EF6\\u3002\"]}),`\n`,(0,i.jsx)(n.pre,{children:(0,i.jsx)(n.code,{className:\"language-jsx\",children:`export default function Component() {\n  const screen = useWindowSize();\n\n  return (\n    <div>\n      <p>The current window dimensions are:</p>\n      <code>{JSON.stringify(screen, null, 2)}</code>\n    </div>\n  );\n}\n`})}),`\n`,(0,i.jsx)(n.h2,{children:\"\\u53C2\\u6570\"}),`\n`,(0,i.jsx)(n.p,{children:\"\\u65E0\\u3002\"}),`\n`,(0,i.jsx)(n.h2,{children:\"\\u8FD4\\u56DE\\u503C\"}),`\n`,(0,i.jsx)(n.p,{children:\"\\u8BE5 Hook \\u8FD4\\u56DE\\u4E00\\u4E2A\\u5177\\u6709\\u4EE5\\u4E0B\\u5C5E\\u6027\\u7684\\u5BF9\\u8C61\\uFF1A\"}),`\n`,(0,i.jsxs)(n.ul,{children:[`\n`,(0,i.jsxs)(n.li,{children:[(0,i.jsx)(n.code,{children:\"height: number\"}),\"\\uFF1A\\u5C4F\\u5E55\\u7684\\u5F53\\u524D\\u9AD8\\u5EA6\"]}),`\n`,(0,i.jsxs)(n.li,{children:[(0,i.jsx)(n.code,{children:\"width: number\"}),\"\\uFF1A\\u5C4F\\u5E55\\u7684\\u5F53\\u524D\\u5BBD\\u5EA6\"]}),`\n`]})]})}function b(e={}){let{wrapper:n}=e.components||{};return n?(0,i.jsx)(n,Object.assign({},e,{children:(0,i.jsx)(h,e)})):h(e)}var H=b;return j(S);})();\n;return Component;",
+  "files": {
+    "/package.json": "{\n  \"name\": \"@gfe-questions/use-window-size\",\n  \"version\": \"0.0.1\",\n  \"main\": \"/src/use-window-size.ts\",\n  \"dependencies\": {\n    \"@testing-library/react\": \"14.0.0\",\n    \"react\": \"18.2.0\",\n    \"react-dom\": \"18.2.0\"\n  },\n  \"devDependencies\": {\n    \"@types/jest\": \"29.5.0\",\n    \"@types/react\": \"18.2.25\",\n    \"@types/react-dom\": \"18.2.10\",\n    \"typescript\": \"5.0.2\"\n  }\n}\n",
+    "/src/use-window-size.run.test.ts": "import { renderHook } from '@testing-library/react';\n\nimport useWindowSize from './use-window-size';\n\ndescribe('useWindowSize', () => {\n  test('return values', () => {\n    const { result } = renderHook(() => useWindowSize());\n\n    expect(typeof result.current).toBe('object');\n    expect(typeof result.current.width).toBe('number');\n    expect(typeof result.current.height).toBe('number');\n  });\n\n  test('initial value', () => {\n    const { result } = renderHook(() => useWindowSize());\n\n    expect(result.current.width).toBe(window.innerWidth);\n    expect(result.current.height).toBe(window.innerHeight);\n  });\n});\n",
+    "/src/use-window-size.submit.test.ts": "import { act, fireEvent, renderHook } from '@testing-library/react';\n\nimport useWindowSize from './use-window-size';\n\ndescribe('useWindowSize', () => {\n  test('return values', () => {\n    const { result } = renderHook(() => useWindowSize());\n\n    expect(typeof result.current).toBe('object');\n    expect(typeof result.current.width).toBe('number');\n    expect(typeof result.current.height).toBe('number');\n  });\n\n  test('initial value', () => {\n    const { result } = renderHook(() => useWindowSize());\n\n    expect(result.current.width).toBe(window.innerWidth);\n    expect(result.current.height).toBe(window.innerHeight);\n  });\n\n  test('resize', () => {\n    const { result } = renderHook(() => useWindowSize());\n\n    act(() => {\n      window.innerWidth = 100;\n      window.innerHeight = 200;\n      fireEvent.resize(window);\n    });\n\n    expect(result.current.width).toBe(100);\n    expect(result.current.height).toBe(200);\n  });\n});\n",
+    "/src/use-window-size.ts": "import { useState, useLayoutEffect } from 'react';\n\ninterface WindowSize {\n  height: number;\n  width: number;\n}\n\nexport default function useWindowSize(): WindowSize {\n  const [windowSize, setWindowSize] = useState<WindowSize>({\n    height: 0,\n    width: 0,\n  });\n\n  useLayoutEffect(() => {\n    const resize = () =>\n      setWindowSize({\n        height: window.innerHeight,\n        width: window.innerWidth,\n      });\n\n    resize();\n    window.addEventListener('resize', resize);\n\n    return () => {\n      window.removeEventListener('resize', resize);\n    };\n  }, []);\n\n  return windowSize;\n}\n"
+  },
+  "metadata": {
+    "access": "free",
+    "author": "phillmont",
+    "companies": [],
+    "created": 1742169600,
+    "difficulty": "medium",
+    "duration": 15,
+    "excerpt": "实现一个返回窗口当前高度和宽度的 Hook",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/javascript/use-window-size"
+      }
+    ],
+    "href": "/questions/javascript/use-window-size",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "use-media-query",
+      "use-breakpoint"
+    ],
+    "slug": "use-window-size",
+    "subtitle": null,
+    "title": "useWindowSize",
+    "topics": [
+      "react-hooks"
+    ]
+  },
+  "skeleton": {
+    "js": "/**\n * @typedef {Object} WindowSize\n * @property {number} height\n * @property {number} width\n */\n/**\n * @returns {WindowSize}\n */\nexport default function useWindowSize() {\n  throw 'Not implemented';\n}",
+    "ts": "interface WindowSize {\n  height: number;\n  width: number;\n}\n\nexport default function useWindowSize(): WindowSize {\n  throw 'Not implemented';\n}"
+  },
+  "solution": "var Component=(()=>{var f=Object.create;var r=Object.defineProperty;var l=Object.getOwnPropertyDescriptor;var z=Object.getOwnPropertyNames;var m=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var S=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),W=(n,e)=>{for(var t in e)r(n,t,{get:e[t],enumerable:!0})},c=(n,e,t,d)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let o of z(e))!p.call(n,o)&&o!==t&&r(n,o,{get:()=>e[o],enumerable:!(d=l(e,o))||d.enumerable});return n};var x=(n,e,t)=>(t=n!=null?f(m(n)):{},c(e||!n||!n.__esModule?r(t,\"default\",{value:n,enumerable:!0}):t,n)),g=n=>c(r({},\"__esModule\",{value:!0}),n);var h=S((y,s)=>{s.exports=_jsx_runtime});var j={};W(j,{default:()=>_});var i=x(h());var a=MDXCodeBlock;var u=`import { useState, useLayoutEffect } from 'react';\n\ninterface WindowSize {\n  height: number;\n  width: number;\n}\n\nexport default function useWindowSize(): WindowSize {\n  const [windowSize, setWindowSize] = useState<WindowSize>({\n    height: 0,\n    width: 0,\n  });\n\n  useLayoutEffect(() => {\n    const resize = () =>\n      setWindowSize({\n        height: window.innerHeight,\n        width: window.innerWidth,\n      });\n\n    resize();\n    window.addEventListener('resize', resize);\n\n    return () => {\n      window.removeEventListener('resize', resize);\n    };\n  }, []);\n\n  return windowSize;\n}\n`;function w(n){let e=Object.assign({h2:\"h2\",p:\"p\",code:\"code\",a:\"a\"},n.components);return(0,i.jsxs)(i.Fragment,{children:[(0,i.jsx)(e.h2,{children:\"\\u89E3\\u51B3\\u65B9\\u6848\"}),`\n`,(0,i.jsxs)(e.p,{children:[\"\\u53EF\\u4EE5\\u4F7F\\u7528 \",(0,i.jsx)(e.code,{children:\"useState\"}),\" \\u94A9\\u5B50\\u5B9E\\u73B0 \",(0,i.jsx)(e.code,{children:\"useWindowSize\"}),\" \\u94A9\\u5B50\\uFF0C\\u4EE5\\u5B58\\u50A8\\u5F53\\u524D\\u7684\\u5C4F\\u5E55\\u5C5E\\u6027\\uFF0C\\u5E76\\u4F7F\\u7528 \",(0,i.jsx)(e.a,{href:\"https://react.dev/reference/react/useLayoutEffect\",children:(0,i.jsx)(e.code,{children:\"useLayoutEffect\"})}),\" \\u94A9\\u5B50\\u5728\\u8C03\\u6574\\u5C4F\\u5E55\\u5927\\u5C0F\\u65F6\\u66F4\\u65B0\\u5C5E\\u6027\\u3002 \\u6211\\u4EEC\\u53EF\\u4EE5\\u5C06\\u4E8B\\u4EF6\\u4FA6\\u542C\\u5668\\u9644\\u52A0\\u5230 \",(0,i.jsx)(e.code,{children:\"window\"}),\" \\u5BF9\\u8C61\\u4E0A\\u7684 \",(0,i.jsxs)(e.a,{href:\"https://developer.mozilla.org/en-US/docs/Web/API/Window/resize_event\",children:[(0,i.jsx)(e.code,{children:\"resize\"}),\" \\u4E8B\\u4EF6\"]}),\" \\u4EE5\\u66F4\\u65B0\\u5C5E\\u6027\\u72B6\\u6001\\u3002\"]}),`\n`,(0,i.jsxs)(e.p,{children:[\"\\u4F7F\\u7528 \",(0,i.jsx)(e.code,{children:\"useLayoutEffect\"}),\" \\u800C\\u4E0D\\u662F \",(0,i.jsx)(e.code,{children:\"useEffect\"}),\" \\u4EE5\\u786E\\u4FDD\\u5728\\u6D4F\\u89C8\\u5668\\u7ED8\\u5236\\u540E\\u540C\\u6B65\\u66F4\\u65B0\\u5927\\u5C0F\\u3002 \\u8FD9\\u5BF9\\u4E8E\\u4F9D\\u8D56\\u4E8E\\u7A97\\u53E3\\u5927\\u5C0F\\u7684\\u52A8\\u753B\\u548C\\u5176\\u4ED6\\u89C6\\u89C9\\u6548\\u679C\\u975E\\u5E38\\u91CD\\u8981\\u3002\"]}),`\n`,(0,i.jsxs)(e.p,{children:[\"\\u6211\\u4EEC\\u91CD\\u65B0\\u521B\\u5EFA \",(0,i.jsx)(e.code,{children:\"windowSize\"}),\" \\u5BF9\\u8C61\\uFF0C\\u8FD9\\u6837\\u7528\\u6237\\u5C31\\u4E0D\\u4F1A\\u610F\\u5916\\u5730\\u6539\\u53D8\\u539F\\u59CB\\u5BF9\\u8C61\\u3002\"]}),`\n`,(0,i.jsx)(a,{children:u})]})}function L(n={}){let{wrapper:e}=n.components||{};return e?(0,i.jsx)(e,Object.assign({},n,{children:(0,i.jsx)(w,n)})):w(n)}var _=L;return g(j);})();\n;return Component;",
+  "workspace": {
+    "main": "/src/use-window-size.ts",
+    "run": "/src/use-window-size.run.test.ts",
+    "submit": "/src/use-window-size.submit.test.ts"
+  }
+}

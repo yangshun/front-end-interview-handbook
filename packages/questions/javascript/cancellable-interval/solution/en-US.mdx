@@ -9,7 +9,7 @@ import cancellableIntervalBoolean from '../setup/src/cancellable-interval-boolea
 
 The benefit of returning a cancel function as opposed to a `timerId` is that the interval mechanism is abstracted away, and can be swapped for something else. Realistically though, there aren't many other good ways to achieved interval execution in JavaScript and that's why you probably don't see this outside of interviews.
 
-### Solution 1: Return a function that calls `clearInterval`
+### Approach 1: Return a function that calls `clearInterval`
 
 `setInterval` returns a timer ID. To cancel the timer, we can call `clearInterval(timerId)`. One simple way to solve this question is to return a function that does exactly that. We can forward all the parameters to `setInterval`.
 
@@ -23,7 +23,7 @@ We can simplify the code a little and forward all the parameters to `setInterval
 
 We don't have to worry about `this` within the callback function because there's no option to pass a `thisArg` to `setInterval` unlike `Array.prototype.forEach()`/`Array.prototype.reduce()`. Read more about [this on MDN](https://developer.mozilla.org/en-US/docs/Web/API/setInterval#the_this_problem).
 
-### Solution 2: Maintain a `cancelled` flag (non-optimal)
+### Approach 2: Maintain a `cancelled` flag (non-optimal)
 
 Another way is to maintain a `cancelled` flag that the returned function will set to `true` when called. Before the `setInterval` callback is called, check the value of `cancelled` before executing the `callback`. This is non-optimal because the `setInterval` callback will run forever without doing nothing!
 

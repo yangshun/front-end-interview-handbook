@@ -1,0 +1,32 @@
+---
+title: 在范围内
+excerpt: 实现一个函数来检查一个数字是否在两个数字之间
+---
+
+实现一个函数 `inRange(value, [start=0], end)` 来检查数字 `value` 是否在 `start` 和 `end` 之间（不包括 `end`）。如果只指定了 2 个参数，则第二个参数变为 `end`，`start` 设置为 `0`。如果 `start` 大于 `end`，则交换参数以支持负范围。
+
+## 参数
+
+1. `value` *(number)*: 要检查的数字。
+2. `[start=0]` *(number)*: 范围的开始。
+3. `end` *(number)*: 范围的结束（不包括）。
+
+## 返回值
+
+*(boolean)*: 如果 `value` 在范围内，则返回 `true`，否则返回 `false`。
+
+## 例子
+
+```js
+inRange(3, 2, 4); // => true
+inRange(4, 8); // => true
+inRange(4, 2); // => false
+inRange(2, 2); // => false
+inRange(1.2, 2); // => true
+inRange(5.2, 4); // => false
+inRange(-3, -2, -6); // => true
+```
+
+## 资源
+
+* [Lodash `_.inRange`](https://lodash.com/docs/#inRange)

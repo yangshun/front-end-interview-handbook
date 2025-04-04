@@ -1,0 +1,27 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import useObject from '../setup/src/use-object';
+
+## 解决方案
+
+可以使用 `useState` 钩子实现 `useObject` 钩子，并实现更新器函数以将当前状态对象与新的传入对象合并。要合并对象，可以使用 [spread (`...`) 语法](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)。
+
+**注意**：[`Object.assign`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign) 也可以合并对象，但不建议这样做，因为它会改变目标对象。
+
+<MDXCodeBlock>
+  {useObject}
+</MDXCodeBlock>
+
+## 边缘情况
+
+仅通过使用 [`typeof`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof) 检查对象是否为 `Object` 并不足以确保变量是 POJO。例如，`typeof` 运算符对数组、`null` 和其他对象（如 `Date`、`RegExp` 和 `Error`）返回 `'object'`。
+
+有很多方法可以检查一个对象是否为 POJO。本解决方案中定义了一个示例。
+
+```ts
+function isPlainObject(value: unknown) {
+  return Object.prototype.toString.call(value) === '[object Object]';
+}
+```
+
+另一种方法是使用 [`Object()` 构造函数](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/Object) 重新实例化有问题的对象。此方法的定义留给读者作为练习。您能想到其他可靠的方法来检查一个对象是否为 POJO 吗？

@@ -1,0 +1,33 @@
+---
+title: useEventListener
+excerpt: 实现一个订阅浏览器事件的 Hook
+---
+
+实现一个 `useEventListener` Hook，它通过将事件监听器附加到 DOM 元素、窗口或媒体查询列表来订阅浏览器事件。
+
+```jsx
+export default function Component() {
+  const buttonRef = useRef(null);
+
+  useEventListener('click', () => console.log('Button clicked'), buttonRef, {
+    once: true,
+  });
+
+  return (
+    <div>
+      <button ref={buttonRef}>Click me</button>
+    </div>
+  );
+}
+```
+
+## 参数
+
+1. `type (string)`: 要监听的事件类型
+2. `handler (event) => void`: 事件处理函数
+3. `target (RefObject<T>)`: 要将事件监听器附加到的元素的 ref 对象。如果未提供，则默认为 `window`
+4. `options (AddEventListenerOptions)`:  [`AddEventListenerOptions` 选项对象](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#options)，它指定有关事件监听器的特征。这是一个可选参数
+
+## 返回值
+
+无。

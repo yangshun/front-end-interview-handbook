@@ -1,0 +1,23 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import mergeDataJs from '../setup/src/data-merging.js';
+import mergeDataTs from '../setup/src/data-merging.ts';
+
+## 解决方案
+
+我们必须合并具有相同 `user` 字段的会话数据，并保留顺序。请注意以下要求：
+
+> 在合并具有重复用户的会话的情况下，该行应取代该用户的最早出现。输入对象不应被修改。
+
+我们可以初始化一个新数组 `results`，并将用户会话添加到其中。在添加之前，我们需要检查 `results` 中是否已经存在该用户的会话，并更新该对象而不是添加到新数组中。有两种方法可以做到这一点：
+
+1. 对于每个会话项，遍历 `results` 数组并检查现有用户。遍历 `results` 数组将导致 O(n<exp>2</exp>) 的时间复杂度。
+2. 维护一个哈希映射 `sessionsForUser`（通过 JavaScript 中的 `Object` 或 `Map`），并使用它来保留对特定用户的会话的引用，方法是将用户 ID 作为键。这将允许 O(1) 的用户查找复杂度，但代价是 O(n) 的内存空间。总的时间复杂度将是 O(n)。
+
+`results` 和 `sessionsForUser` 中的值指向相同的对象实例，因此更新对象实例将更新两个容器的内容。为了有效地组合 `equipment` 字段，我们可以在处理时使用 `Set`，并在返回之前将其转换回数组。合并 `equipment` 字段所需的排序时间复杂度被认为是恒定的，因为只有 5 种不同的设备。
+
+<MDXCodeBlock languages={{ jsx: mergeDataJs, tsx: mergeDataTs }} />
+
+## 技术
+
+* 熟悉 JavaScript 数据结构，如 `Array`、`Map` 和 `Set`。

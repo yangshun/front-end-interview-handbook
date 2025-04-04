@@ -34,7 +34,7 @@ The implementation of `clearTimer` is simple, we can do `clearTimeout(timeoutId)
 
 <MDXCodeBlock languages={{ jsx: debounceJs, tsx: debounceTs }} />
 
-## Edge Cases
+## Edge cases
 
 The main pitfall in this question is invoking the callback function with the correct `this` and the arguments. Since the callback function will be invoked by other objects, the value of `this` will be lost. We retain a reference to `this` outside the `setTimeout` (by saving it in a function-level variable called `context`) and pass it into `func.apply()`/`func.call()` as the first argument. The same is done for the arguments the function expects.
 

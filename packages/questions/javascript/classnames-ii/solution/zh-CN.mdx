@@ -1,0 +1,55 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import classnamesJs from '../setup/src/classnames-ii.js';
+import classnamesTs from '../setup/src/classnames-ii.ts';
+
+此解决方案假设您已完成 [Classnames](/questions/javascript/classnames) 问题并完全理解其解决方案。
+
+## 澄清问题
+
+以下是向面试官提出的好问题，以展示您的深思熟虑。根据他们的回答，您可能需要相应地调整实现。
+
+> 如果嵌套数组中的一个类被关闭，它会在整体上被关闭吗？
+
+这取决于输入中类的位置，无论嵌套级别如何。 后面出现的类将优先。
+
+## 解决方案
+
+此解决方案的棘手部分是函数的递归性质。 因此，我们可以将解决方案分成两部分：
+
+1. 处理每种数据类型。
+2. 递归处理数组类型。
+
+因为最终结果应该只包含唯一的类名，并且我们需要在处理每个参数时打开/关闭类，所以我们需要一个处理唯一性的数据结构； `Set` 出现了。
+
+后面出现的类将优先，无论嵌套级别如何。 这意味着纯递归方法将不起作用，因为我们需要知道到目前为止已处理的类中存在哪些类。 我们将使用一个内部递归助手修改外部 `classes` 集的方法。 内部递归助手不返回任何内容，它的主要目的是处理每个参数并将它们添加到 `classes`。
+
+以下是我们如何处理每种数据类型：
+
+* **Falsey 值**：忽略。
+* **字符串**：将其添加到 `classes` 集。
+* **数字**：将其添加到 `classes` 集。
+* **数组**：递归调用 `classNames` 函数或内部递归函数。
+* **函数**：如果值为真值，则调用该值并将其添加到 `classes`。
+* **对象**：循环遍历键/值对。 如果该值为真值，则将其添加到 `classes` 集。 否则，将其从 `classes` 集删除。
+
+<MDXCodeBlock languages={{ jsx: classnamesJs, tsx: classnamesTs }} />
+
+## 技术
+
+* 熟悉 JavaScript 值类型以及如何检查它们
+* 递归
+* 将 `Set` 转换为 `Array`
+* 处理可变参数
+
+## 笔记
+
+* `typeof []` 给出 `'object'`，因此您需要在对象之前处理数组。
+* 您可能不希望处理这些情况，但您应该提及它们：
+  * 堆栈溢出的可能性。 这适用于任何递归解决方案。
+  * 数组和对象的循环引用的可能性。 这适用于任何具有任意深度的输入。
+
+## 资源
+
+* [`classnames` 库在 GitHub 上](https://github.com/JedWatson/classnames)
+* [`clsx` 库在 GitHub 上](https://github.com/lukeed/clsx)：一个较新的版本，可以作为 `classnames` 的更快更小的直接替代品。

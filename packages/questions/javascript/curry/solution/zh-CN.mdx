@@ -1,0 +1,62 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import curryJs from '../setup/src/curry.js';
+import curryTs from '../setup/src/curry.ts';
+import curryBind from '../setup/src/curry-bind';
+import curryCall from '../setup/src/curry-call';
+
+柯里化在实际开发中并不常用，但对于面试来说是一个比较常见的问题，因为它考察了候选人对某些 JavaScript 基础知识的理解，例如元数和闭包。
+
+## 澄清问题
+
+* `curry` 期望什么类型的值？
+* 函数应该期望不同类型的值吗？
+
+## 解决方案
+
+我们首先需要了解几个术语：
+
+* **元数**：函数接受的参数或操作数的数量。
+* **闭包**：闭包是将函数与其词法环境（周围状态）捆绑在一起的组合。
+
+柯里化函数将在传递给柯里化函数的参数数量等于原始函数的元数后停止接受参数。
+
+我们可以通过闭包记录到目前为止的柯里化函数参数。每次调用柯里化函数时，我们都会将到目前为止的参数数量与原始函数的元数进行比较。
+
+* 如果它们相同，我们使用这些参数调用原始函数。
+* 如果需要更多参数，我们将返回一个接受更多参数的函数，并使用新参数调用柯里化函数。
+
+请注意，内部函数需要使用箭头函数来保留相同的词法 `this`，或者像在 [Debounce](/questions/javascript/debounce) 中那样使用单独的变量手动跟踪。
+
+<MDXCodeBlock languages={{ jsx: curryJs, tsx: curryTs }} />
+
+使用 `Function.prototype.call` 的替代解决方案：
+
+<MDXCodeBlock>
+  {curryCall}
+</MDXCodeBlock>
+
+由于最内层函数本质上是为了保留 `this` 作用域并传递参数，因此可以使用 `Function.prototype.bind` 来实现。此解决方案也更灵活，因为它接受多个参数：
+
+<MDXCodeBlock>
+  {curryBind}
+</MDXCodeBlock>
+
+## 边缘情况
+
+* 在没有任何参数的情况下调用该函数不应产生任何影响，除非该函数不接受任何参数。
+* 访问 `this` 的函数。 也要测试这种用于旨在接收多个参数的柯里化函数的情况。
+
+## 技术
+
+* 闭包。
+* 通过 `Function.prototype.apply()`/`Function.prototype.call()` 调用函数。
+
+## 笔记
+
+* 中间函数应该可以重用，正如问题描述中的例子所示。
+
+## 资源
+
+* [理解 JavaScript 柯里化](https://blog.logrocket.com/understanding-javascript-currying)
+* [Lodash 柯里化](https://lodash.com/docs/4.17.15#curry)

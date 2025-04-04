@@ -1,0 +1,59 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import tableOfContentsJs from '../setup/src/table-of-contents.js';
+import tableOfContentsTs from '../setup/src/table-of-contents.ts';
+
+这是一个实用的问题，它被用于许多内容丰富的网站，如博客、文档网站、谷歌文档，以及问题中提到的屏幕阅读器。
+
+## 澄清问题
+
+* 如果页面上没有标题，应该返回什么？
+  * 返回一个空字符串。
+
+## 解决方案
+
+该解决方案可以分为两个部分：
+
+1. 遍历 `document`，识别标题标签并创建层次结构树。
+2. 将层次结构树字符串化为 HTML 字符串。
+
+### 遍历 `document` 并创建标题层次结构树
+
+由于 DOM 是一棵树，我们必须以深度优先的方式遍历它，递归在这里非常有效。从根元素（`<body>`）开始，我们可以处理当前元素，然后以深度优先的方式遍历其子元素。
+
+使用 `Element.tagName` 来识别一个元素是否是标题元素。请记住，`tagName` 都是大写的。
+
+标题层次结构也类似于一棵树。层次结构树中的每个节点都包含两个属性：
+
+1. `text`：节点的标签。
+2. `children`：一个节点数组。
+
+一个正确的 HTML 文档的标题层次结构树将遵循一个规则，即节点的 `children`（如果存在）将始终比其自身 **低一个标题级别**。
+
+我们将使用一个 `stack` 来引用我们已经遍历过的最近的标题元素，以及 `currentLevel`，一个整数变量，用于跟踪最近的标题元素的级别。级别很重要，因为它会影响我们如何将元素推入标题层次结构。
+
+当我们遍历树时，如果当前元素不是标题标签，我们可以忽略它。否则，我们创建一个层次结构节点，其文本为元素的 `textContent`，`children` 为一个空数组。然后我们查看当前元素的级别：
+
+1. 如果级别大于 `currentLevel`，我们将此节点添加为最近的标题节点（堆栈的顶部节点）的子节点。
+2. 如果级别与 `currentLevel` 相同，我们需要将此节点添加为最近的标题节点的兄弟节点。我们可以通过从堆栈中弹出以访问最近的标题节点的父节点来实现这一点。然后将节点 `.push()` 到父节点的 `children` 中。
+3. 如果级别小于 `currentLevel`，根据级别差异，我们可能需要 `.pop()` 多次。标题级别在增加时不会被跳过，但 `<h4>` 后面跟着 `<h2>` 是完全有效的。由于标题层次结构树的规则，我们需要弹出的次数是级别差 + 1。在弹出了那么多次之后，我们将可以访问正确的父节点，并且可以将当前节点推入父节点的子节点中。
+
+### 将层次结构树字符串化为 HTML 字符串
+
+同样，我们在这里将使用递归。我们将定义两个辅助函数，一个用于将节点字符串化，另一个用于将 `children` 字符串化。
+
+* `stringifyNode`：每个节点都将呈现为 `<li>` 元素。我们呈现 `text` 和 `children`（如果存在）。
+* `stringifyChildren`：每个 `children` 都是一个数组，它被呈现为 `<ul>`。我们可以在 `children` 中的每个节点上调用 `stringifyNode`。我们不应该呈现空的 `<ul>`，因此在创建字符串之前，我们应该检查 `children.length` 是否大于 0。
+
+<MDXCodeBlock languages={{ jsx: tableOfContentsJs, tsx: tableOfContentsTs }} />
+
+## 边缘情况
+
+* 忽略 DOM 树中不相关的节点，例如注释节点和文本节点。
+* 具有深层嵌套的 DOM 树。
+* 根本没有任何标题的 DOM 树。
+
+## 技术
+
+* 递归。
+* DOM 遍历基础 - `Element.textContent`、`Element.tagName`。

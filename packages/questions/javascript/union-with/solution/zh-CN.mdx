@@ -1,0 +1,18 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import unionWithJs from '../setup/src/union-with.js';
+import unionWithTs from '../setup/src/union-with.ts';
+
+## 解决方案
+
+我们可以使用数组函数 `findIndex` 遍历 `result` 数组中的每个元素，以检查是否存在与 `comparator` 比较时相同的值。
+
+<MDXCodeBlock languages={{ jsx: unionWithJs, tsx: unionWithTs }} />
+
+## 边缘情况
+
+为了处理混合数据类型，`comparator` 函数必须能够通过将元素转换为通用类型来处理它们。
+
+## 资源
+
+* [Lodash `_.unionWith`](https://lodash.com/docs/#unionWith)

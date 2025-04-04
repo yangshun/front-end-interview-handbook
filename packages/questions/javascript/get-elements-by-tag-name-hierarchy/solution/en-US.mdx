@@ -17,14 +17,14 @@ Firstly, we need to note the following points, similar to [getElementsByTagName]
 - `Element.children` which returns a live `HTMLCollection` of the child elements. We use this over `Node.childNodes` which returns a live `NodeList` of child `Node`s because `childNodes` will include non-element nodes like text and comment nodes, which are not relevant in this question.
   - However `HTMLCollection` does not have `.forEach`, so we have to iterate through it using traditional `for` loops.
 
-### Approach
+### Approach 1: Top-down
 
 The solution approach can be broken down into two parts:
 
 1. Splitting `tagNames` into an array of tag name tokens.
 1. Traversing the `document` argument and finding elements that match the specified `tagNames` hierarchy.
 
-### 1. Splitting `tagNames` (tokenization)
+#### Splitting `tagNames` (tokenization)
 
 For this question, the `tagNames` argument is quite flexible. It can:
 
@@ -37,7 +37,7 @@ To tokenize the `tagNames` string (identify the list of tag names accurately), w
 1. Trimming the string via `.trim()` to remove leading and trailing spaces.
 1. Splitting the string via `.split(/\s+/)` to split by whitespace, which can also split by consecutive whitespaces.
 
-### 2. Traversing the `document` to find matching elements
+#### Traversing the `document` to find matching elements
 
 The trickiest part of the problem is identifying the matching elements. The last tag in the list is the elements to be matched. All the tags before the last tag are for specifying the hierarchy.
 
@@ -64,7 +64,7 @@ The traversal can be kicked off by using the `<body>` element (via `document.bod
   }}
 />
 
-## Bottom-up solution
+### Approach 2. Bottom-up
 
 An alternative solution is to use the same approach as how browsers match selectors, by matching from the bottom-up. Browsers usually match selectors from right to left. This is more efficient because it allows the browser to quickly eliminate large sets of elements. For example, in the selector `div p`, the browser first finds all `<p>` elements, then checks if they have a parent or ancestor that's a `<div>`.
 

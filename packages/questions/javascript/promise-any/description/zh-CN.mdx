@@ -1,0 +1,64 @@
+---
+title: Promise.any
+excerpt: 实现 Promise.any() 函数，当任何一个输入元素被解决时，它就会被解决
+---
+
+**注意：** 如果你还没有完成 [`Promise.all`](/questions/javascript/promise-all) 问题，你应该先尝试那个问题。
+
+> `Promise.any()` 接受一个可迭代的元素（通常是 `Promises`）。它返回一个单一的 promise，只要可迭代对象中的任何一个元素被实现，它就会被实现，并带有已实现 promise 的值。如果可迭代对象中没有 promise 被实现（如果所有给定的元素都被拒绝），那么返回的 promise 将被拒绝，并带有一个 [`AggregateError`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/AggregateError)，这是一个新的 Error 子类，它将各个错误组合在一起。
+
+> 如果传递一个空的迭代器，那么此方法返回的 promise 将被同步拒绝。被拒绝的原因是一个 `AggregateError` 对象，其 errors 属性是一个空数组。
+
+*来源：[Promise.any() - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/any)*
+
+让我们实现我们自己的 `Promise.any()` 版本，一个 `promiseAny` 函数，不同之处在于该函数接受一个数组而不是一个可迭代对象，并且返回的 `AggregateError` 只需要返回一个错误原因数组，不需要设置消息。请参考 `AggregateError` 构造函数 [MDN 上的示例](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/AggregateError/AggregateError)。
+
+请务必仔细阅读说明并相应地实现！
+
+## 示例
+
+```js
+const p0 = Promise.resolve(42);
+const p1 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve(21);
+  }, 100);
+});
+
+await promiseAny([p0, p1]); // 42
+```
+
+```js
+const p0 = new Promise((resolve) => {
+  setTimeout(() => {
+    resolve(42);
+  }, 100);
+});
+const p1 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    reject('Err!');
+  }, 400);
+});
+
+await promiseAny([p0, p1]); // 42
+```
+
+```js
+const p0 = new Promise((resolve) => {
+  setTimeout(() => {
+    reject(42);
+  }, 400);
+});
+const p1 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    reject('Err!');
+  }, 100);
+});
+
+try {
+  await promiseAny([p0, p1]);
+} catch (err) {
+  console.log(e instanceof AggregateError); // true
+  console.log(e.errors); // [ 42, "Err!" ]
+}
+```

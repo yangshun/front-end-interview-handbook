@@ -1,0 +1,14 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import intersectionByJs from '../setup/src/intersection-by.js';
+import intersectionByTs from '../setup/src/intersection-by.ts';
+
+## 解决方案
+
+<MDXCodeBlock languages={{ jsx: intersectionByJs, tsx: intersectionByTs }} />
+
+该解决方案首先使用 iteratee 函数映射每个数组以转换值。然后，它从第一个映射数组中过滤存在于所有其他映射数组中的值。最后，它将相交的值映射回第一个数组中的原始值。
+
+## 资源
+
+* [Lodash `_.intersectionBy`](https://lodash.com/docs/#intersectionBy)

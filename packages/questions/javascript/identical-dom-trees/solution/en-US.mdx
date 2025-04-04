@@ -43,7 +43,7 @@ Here are the DOM APIs we have covered in this solution:
 1. We use the `childNodes` property - as opposed to the `children` property - to get the list of children nodes. The reason is, again, `children` only returns elements while `childNodes` returns all nodes, including text nodes and comment nodes. Check out [this MDN page](https://developer.mozilla.org/en-US/docs/Web/API/Node/childNodes) if you want to learn more about their differences.
 1. We "borrowed" the `every` method from `Array.prototype` via `Array.prototype.every.call(treeA.childNodes)` as opposed to just calling `every` on `childNodes`. This is because what `childNodes` returns is not a JavaScript array, rather an array-like data structure called `NodeList`, which doesn't come with all the array methods right out of box. Calling array methods such as `every` on it would throw an error. The other way to use array methods on a `NodeList` is to convert it to an array first via `Array.from`. i.e. `Array.from(treeA.childNodes).every(...)`.
 
-## One-liner Solution
+## One-liner solution
 
 There is a new API called `isEqualNode` that tests whether two nodes are equal. Check out [`Node.isEqualNode()` API on MDN](https://developer.mozilla.org/en-US/docs/Web/API/Node/isEqualNode).
 

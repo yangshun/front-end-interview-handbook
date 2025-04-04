@@ -1,0 +1,32 @@
+---
+title: 是否为空
+excerpt: 实现一个函数来检查一个值是否为空对象、集合、映射或集合
+---
+
+实现一个函数 `isEmpty(value)` 来检查一个值是否为空对象、集合、映射或集合。
+
+类似数组的值，例如 `arguments` 对象、数组、字符串或类似 jQuery 的集合，如果它们的 `length` 为 `0`，则被认为是空的。 同样，如果映射和集合的 `size` 为 `0`，则被认为是空的。
+
+但是对于这个问题，我们不会考虑类似 jQuery 的集合。
+
+## 参数
+
+1. `value` *(\*)*: 要检查的值。
+
+## 返回值
+
+*(boolean)*: 如果 `value` 为空，则返回 `true`，否则返回 `false`。
+
+## 例子
+
+```js
+isEmpty(null); // => true
+isEmpty(true); // => true
+isEmpty(1); // => true
+isEmpty([1, 2, 3]); // => false
+isEmpty({ a: 1 }); // => false
+```
+
+## 资源
+
+* [Lodash `_.isEmpty`](https://lodash.com/docs/#isEmpty)

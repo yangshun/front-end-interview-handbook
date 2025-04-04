@@ -1,0 +1,28 @@
+---
+title: useEffectOnce
+excerpt: 实现一个只运行一次 effect 的 hook
+---
+
+实现一个只运行一次 effect 的 `useEffectOnce` hook。
+
+```jsx
+export default function Component() {
+  useEffectOnce(() => {
+    console.log('Running effect once on mount');
+
+    return () => {
+      console.log('Running clean-up of effect on unmount');
+    };
+  });
+
+  return null;
+}
+```
+
+## 参数
+
+* `effect`：将执行一次的函数。此函数具有与 `useEffect` 的第一个参数相同的参数和行为
+
+## 返回值
+
+与 `useEffect` 一样，什么也没有。

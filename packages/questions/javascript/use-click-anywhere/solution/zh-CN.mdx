@@ -1,0 +1,13 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import useClickAnywhere from '../setup/src/use-click-anywhere';
+
+## 解决方案
+
+`useClickAnywhere` 钩子可以通过在组件挂载时将提供的处理程序函数设置为 `window` 对象上的 `click` 事件侦听器来实现。
+
+`useEffect` 是这里要使用的 React 钩子，并且在调用钩子时添加事件侦听器。添加事件侦听器时，必须记住在卸载组件时删除事件侦听器。这可以通过在 `useEffect` 回调中返回一个取消订阅事件的函数来实现。当组件卸载时，将调用此返回的函数。
+
+<MDXCodeBlock>
+  {useClickAnywhere}
+</MDXCodeBlock>

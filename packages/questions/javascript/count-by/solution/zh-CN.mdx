@@ -1,0 +1,25 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import countByJs from '../setup/src/count-by.js';
+import countByTs from '../setup/src/count-by.ts';
+import countByAltJs from '../setup/src/count-by-alt.js';
+import countByAltTs from '../setup/src/count-by-alt.ts';
+
+## 解决方案
+
+### 方法 1：基本函数的标准方法
+
+1. 创建一个空的 `result` 对象，用于存储每个键的出现次数。
+2. 遍历数组，通过调用 `iteratee(element)` 确定每个元素的键。如果该键在 `result` 对象中不存在，则将该键的值设置为 0。接下来，我们可以增加该键的值。
+
+<MDXCodeBlock languages={{ jsx: countByJs, tsx: countByTs }} />
+
+### 方法 2：使用空值合并赋值运算符
+
+另一种增加 `result` 计数器的方法是使用 [空值合并赋值运算符](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_assignment) ，如果 `key` 在 `result` 中不存在，则将其值设置为 0。请注意，使用空值合并赋值运算符意味着您可能正在访问继承的属性，这是不希望的，但由于该对象是通过 `Object.create(null)` 创建的，因此不会有继承的属性，可以安全使用。
+
+<MDXCodeBlock languages={{ jsx: countByAltJs, tsx: countByAltTs }} />
+
+## 资源
+
+* [Lodash `_.countBy`](https://lodash.com/docs/#countBy)

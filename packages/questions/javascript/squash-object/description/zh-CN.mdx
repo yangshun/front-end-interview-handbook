@@ -1,0 +1,51 @@
+---
+title: Squash Object
+excerpt: 实现一个函数，在将输入对象压扁成单层深度后，返回一个新对象
+---
+
+实现一个函数，在将输入对象压扁成单层深度后，返回一个新对象，其中嵌套的键通过句点分隔符（`.`）"压扁"在一起。
+
+## 例子
+
+```js
+const object = {
+  a: 5,
+  b: 6,
+  c: {
+    f: 9,
+    g: {
+      m: 17,
+      n: 3,
+    },
+  },
+};
+
+squashObject(object); // { a: 5, b: 6, 'c.f': 9, 'c.g.m': 17, 'c.g.n': 3 }
+```
+
+任何具有空值（`null` 和 `undefined`）的键仍然包含在返回的对象中。
+
+```js
+const object = {
+  a: { b: null, c: undefined },
+};
+squashObject(object); // { 'a.b': null, 'a.c': undefined }
+```
+
+它也应该适用于值是数组的属性：
+
+```js
+const object = { a: { b: [1, 2, 3], c: ['foo'] } };
+squashObject(object); // { 'a.b.0': 1, 'a.b.1': 2, 'a.b.2': 3, 'a.c.0': 'foo' }
+```
+
+空键应被视为该“层”不存在。
+
+```js
+const object = {
+  foo: {
+    '': { '': 1, bar: 2 },
+  },
+};
+squashObject(object); // { foo: 1, 'foo.bar': 2 }
+```

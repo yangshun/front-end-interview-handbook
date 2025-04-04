@@ -27,13 +27,13 @@ mediaQuery.addEventListener('change', (e) => {
 
 `useMediaQuery` is a hook that allows a React app to leverage this browser API and respond to media changes (e.g. screen size, resolution, orientation, and more).
 
-### Solution 1: `useEffect` and `useState`
+### Approach 1: `useEffect` and `useState`
 
 The `useMediaQuery` hook can be implemented using the `useState` hook to store the current media query match and the `useEffect` hook to update the match when the media query changes. We can attach a listener to the [`change` event](https://developer.mozilla.org/en-US/docs/Web/API/MediaQueryList/change_event) on the `MediaQueryList` object returned by `window.matchMedia(...)` to update the match state.
 
 <MDXCodeBlock>{useMediaQuery}</MDXCodeBlock>
 
-### Solution 2: `useSyncExternalStore`
+### Approach 2: `useSyncExternalStore`
 
 React's [`useSyncExternalStore`](https://react.dev/reference/react/useSyncExternalStore) hook is a better fit as it is meant for syncing React state with external systems, such as [subscribing to native browser APIs](https://react.dev/reference/react/useSyncExternalStore#subscribing-to-a-browser-api).
 

@@ -6,13 +6,13 @@ import singletonIife from '../setup/src/singleton-iife';
 
 ## Solution
 
-### Solution 1: ES6 Modules
+### Approach 1: ES6 modules
 
 Since each file in the coding workspace is a module, and ES6 modules are single instances of a module, we can use this to easily implement the Singleton pattern. This module exports an object with a single method, `getInstance`. The `getInstance` method is responsible for providing access to the `globalMap` instance. When other parts of the application import this module and call `getInstance`, they receive a reference to the same `globalMap` instance.
 
 <MDXCodeBlock>{singleton}</MDXCodeBlock>
 
-### Solution 2: ES6 Modules with lazy instantiation
+### Approach 2: ES6 modules with lazy instantiation
 
 In the first solution, the `Map` instance was instantiated from the start. However, in some cases where instantiation is expensive and there's a good chance you might never even need to use the instance at all, then a lazy instantiation approach is better.
 
@@ -20,7 +20,7 @@ In this modified version, the `getInstance` method checks if `globalMap` has bee
 
 <MDXCodeBlock>{singletonLazy}</MDXCodeBlock>
 
-### Solution 3: Immediately-invoked Function Expression (IIFE)
+### Approach 3: Immediately-invoked Function Expression (IIFE)
 
 Before ES6 modules were a thing, Immediately-invoked Function Expressions (IIFEs) could be used to encapsulate data to get a module. In this version, the entire Singleton pattern is wrapped in an IIFE, creating a closure that encapsulates the `globalMap` variable. The `getInstance` method is exposed through the returned object, allowing access to the shared map instance.
 

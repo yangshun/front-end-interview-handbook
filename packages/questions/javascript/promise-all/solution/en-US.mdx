@@ -16,7 +16,7 @@ There are a few aspects to this question we need to bear in mind and handle:
 1. The returned `Promise` rejects immediately if any of the input values are rejected or throw an error.
 1. The input array can contain non-`Promise`s.
 
-### Solution 1: Count unresolved promises using `async`
+### Approach 1: Count unresolved promises using `async`
 
 Since the function needs to return a `Promise`, we can construct a `Promise` at the top level of the function and return it. The bulk of the code will be written within the constructor parameter.
 
@@ -30,7 +30,7 @@ Lastly, if any of the values are rejected, we reject the top-level `Promise` imm
 
 <MDXCodeBlock languages={{ jsx: promiseAllJs, tsx: promiseAllTs }} />
 
-### Solution 2: Count unresolved promises using `Promise.then`
+### Approach 2: Count unresolved promises using `Promise.then`
 
 Here's an alternative version which uses `Promise.then()` if you prefer not to use `async`/`await`.
 
@@ -38,7 +38,7 @@ Here's an alternative version which uses `Promise.then()` if you prefer not to u
 
 Once one of the `Promise`'s resolving functions (`resolve` or `reject`) is called, the promise is in the "settled" state, and subsequent calls to either function can neither change the fulfillment value or rejection reason nor change the eventual state from "fulfilled" to "rejected" or vice versa.
 
-## Edge Cases
+## Edge cases
 
 - Empty input array. An empty array should be returned.
 - If the array contains non-`Promise` values, they will still be part of the returned array if all the input values are fulfilled.

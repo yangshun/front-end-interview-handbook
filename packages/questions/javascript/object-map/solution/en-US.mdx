@@ -4,7 +4,7 @@ import objectMapJs from '../setup/src/object-map.js';
 import objectMapTs from '../setup/src/object-map.ts';
 import objectMapEntries from '../setup/src/object-map-entries';
 
-## Clarification Questions
+## Clarification questions
 
 - Is the function being applied to values within nested objects?
   - The function only operates on the top level keys/values of the object.
@@ -21,6 +21,6 @@ A shorter solution that uses a more functional approach:
 
 <MDXCodeBlock>{objectMapEntries}</MDXCodeBlock>
 
-## Edge Cases
+## Edge cases
 
 - Accessing `this` within the callback function.

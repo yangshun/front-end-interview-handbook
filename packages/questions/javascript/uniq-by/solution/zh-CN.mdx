@@ -1,0 +1,34 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import uniqByJs from '../setup/src/uniq-by.js';
+import uniqByTs from '../setup/src/uniq-by.ts';
+import uniqBySetJs from '../setup/src/uniqBySet.js';
+import uniqBySetTs from '../setup/src/uniqBySet.ts';
+
+## 解决方案
+
+### 方法 1：使用数组存储唯一的键值
+
+1. 创建一个空的 `compare` 数组来存储唯一的键。
+2. 遍历 `array` 并通过调用 `iteratee(element)` 确定每个元素的键。如果该键在 `compare` 中不存在，则将该键插入到 `compare` 中。接下来，将该元素追加到 `result` 中。
+
+使用了两个变量：
+
+* `result`：跟踪 `array` 中的唯一元素。
+* `compare`：通过 `iteratee` 跟踪元素的唯一计算值，用于比较。
+
+<MDXCodeBlock languages={{ jsx: uniqByJs, tsx: uniqByTs }} />
+
+### 方法 2：使用 Set 代替数组进行 `compare`
+
+或者，我们可以使用 `Set` 替换 `compare` 数组来检查唯一元素。`Set` 可以帮助跟踪唯一性，这确保了大型数据集的更快查找（恒定时间复杂度），使其比之前的代码更有效，之前的代码使用数组 (`compare.includes`) 进行跟踪，导致查找速度变慢（线性时间复杂度），因为数据集的增长。
+
+<MDXCodeBlock languages={{ jsx: uniqBySetJs, tsx: uniqBySetTs }} />
+
+## 边缘情况
+
+为了处理混合数据类型，`iteratee` 函数必须能够通过将元素转换为通用类型或单独处理它们来处理它们。
+
+## 资源
+
+* [Lodash `_.uniqBy`](https://lodash.com/docs/4.17.15#uniqBy)

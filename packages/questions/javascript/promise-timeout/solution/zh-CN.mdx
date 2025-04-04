@@ -1,0 +1,26 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import promiseTimeoutJs from '../setup/src/promise-timeout.js';
+import promiseTimeoutTs from '../setup/src/promise-timeout.ts';
+import promiseTimeoutRaceJs from '../setup/src/promise-timeout-race.js';
+import promiseTimeoutRaceTs from '../setup/src/promise-timeout-race.ts';
+
+## 解决方案
+
+1. `promiseTimeout` 函数接受两个参数：原始的 `promise` 和以毫秒为单位的超时 `duration`。
+2. 在函数内部，创建一个新的 `Promise` 并返回，该 `Promise` 将在指定的 `duration` 之后使用自定义错误 `reject()`。
+3. 如果在 `duration` 结束之前满足 `promise` 参数，我们可以使用已满足的值 `resolve()` 该 promise。如果它被拒绝，我们可以使用被拒绝的原因 `reject()`。
+4. 我们使用 `setTimeout` 来设置超时机制。当达到超时时间时，返回的 promise 将使用自定义错误消息 `reject()`。
+5. 如果 promise 在超时之前被解决，我们应该清除计时器。我们可以保留从 `setTimeout` 返回的 id 的引用，并在 `.finally()` 方法中使用 `clearTimeout` 清除超时，这样超时内的 `reject()` 就不会被不必要地调用。
+
+<MDXCodeBlock languages={{ jsx: promiseTimeoutJs, tsx: promiseTimeoutTs }} />
+
+### 使用 `Promise.race()`
+
+`setTimeout` 也是一个异步操作，因此被包装在一个 `Promise` 中。我们可以通过使用 `Promise.race()` 来简化执行逻辑；首先解决的任何 promise 都将决定返回的 `Promise` 的结果。
+
+<MDXCodeBlock languages={{ jsx: promiseTimeoutRaceJs, tsx: promiseTimeoutRaceTs }} />
+
+## 边缘情况
+
+* 如果 `promise` 参数立即解析，则总结果应被解析，而与超时持续时间无关，即使为 0。

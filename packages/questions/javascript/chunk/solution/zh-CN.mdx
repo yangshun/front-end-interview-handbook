@@ -1,0 +1,48 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import chunkJs from '../setup/src/chunk.js';
+import chunkTs from '../setup/src/chunk.ts';
+import chunkPushJs from '../setup/src/chunk-push.js';
+import chunkPushTs from '../setup/src/chunk-push.ts';
+
+## 解决方案
+
+### 方法 1：使用 `push()`
+
+1. `chunk` 函数接受两个参数：`array`（要分块的输入数组）和 `size`（每个块的所需大小）。
+2. 它执行相同的初始检查，以确保 `array` 是一个有效的数组，并且 `size` 是正数。如果不是，它将返回一个空数组 `[]`。
+3. 初始化两个变量：`result` 用于存储块，`chunk` 用于构建每个单独的块。
+4. 一个 `for` 循环遍历 `array`。在每次迭代中，将当前元素添加到 `chunk` 数组中。
+5. 将元素添加到 `chunk` 后，它会检查 `chunk` 是否已达到所需 `size` 或是否已到达 `array` 的末尾。如果任一条件为真，则表示一个块已完成，并将其添加到 `result` 数组中。
+6. 如果块已完成，则创建一个新的空 `chunk` 数组以开始构建下一个块。
+7. 循环继续，直到处理完 `array` 的所有元素。
+8. 最后，该函数返回包含块的 `result` 数组。
+
+<MDXCodeBlock languages={{ jsx: chunkPushJs, tsx: chunkPushTs }} />
+
+### 方法 2：使用 `slice()`
+
+一种更优雅的解决方案，它更短，需要的变量更少，即提取数组中元素的精确切片。
+
+<MDXCodeBlock languages={{ jsx: chunkJs, tsx: chunkTs }} />
+
+## 注意
+
+关于在迭代数组时修改数组的边缘情况，Lodash 将对数组的浅层副本进行操作，以避免在迭代时修改原始数组。
+
+如果您想在迭代数组时修改它：
+
+```js
+for (let i = 0; i < array.length; i += size) {
+  const chunk = array.slice(i, i + size);
+  result.push(chunk);
+
+  // 制作当前块的浅层副本，并将其用作循环下一次迭代的下一个起点
+  array = array.slice();
+  array.splice(i, size, ...chunk);
+}
+```
+
+## 资源
+
+* [Lodash `_.chunk`](https://lodash.com/docs/#chunk)

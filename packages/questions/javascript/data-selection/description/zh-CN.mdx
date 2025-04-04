@@ -1,0 +1,92 @@
+---
+title: 数据选择
+excerpt: 实现一个函数来过滤与指定要求匹配的数据行
+---
+
+一组健身课程的数据集如下所示：
+
+```js
+[
+  { user: 8, duration: 50, equipment: ['bench'] },
+  { user: 7, duration: 150, equipment: ['dumbbell', 'kettlebell'] },
+  { user: 1, duration: 10, equipment: ['barbell'] },
+  { user: 7, duration: 100, equipment: ['bike', 'kettlebell'] },
+  { user: 7, duration: 200, equipment: ['bike'] },
+  { user: 2, duration: 200, equipment: ['treadmill'] },
+  { user: 2, duration: 200, equipment: ['bike'] },
+];
+```
+
+每个课程都有以下字段：
+
+* `user`：课程用户的用户 ID。
+* `duration`：课程的持续时间，以分钟为单位。
+* `equipment`：课程期间使用的设备数组，按字母顺序排列。只有 5 种不同的设备。
+
+实现一个方法 `selectData`，用于从数据中返回课程。它具有接口 `selectData(sessions [, options])`。可用的选项应包括：
+
+* `user`：仅选择具有此 `id` 的课程。如果未指定，则包括所有用户（受其他过滤器约束）。
+* `minDuration`：仅选择 `duration` 等于或大于此值的课程。如果未指定，则包括所有课程，无论持续时间如何（受其他过滤器约束）。
+* `equipment`：仅选择使用了至少一种指定设备的课程。如果未指定，则包括所有课程，无论使用了什么设备（受其他过滤器约束）。
+* `merge`：如果设置为 `true`
+  * 来自同一 `user` 的课程应合并为一个对象。合并时：
+    * 将 `duration` 字段相加。
+    * 组合所有使用的 `equipment`，对值进行去重并按字母顺序排序。
+  * 其他筛选器选项应应用于合并后的数据。
+
+结果的顺序应始终与原始集合保持不变，并且在合并用户课程的情况下，该行应取代该 `user` 的**最新**出现。输入对象不应被修改。
+
+## 示例
+
+以下示例使用上述数据集：
+
+```js
+selectData(sessions);
+// [
+//   { user: 8, duration: 50, equipment: ['bench'] },
+//   { user: 7, duration: 150, equipment: ['dumbbell', 'kettlebell'] },
+//   { user: 1, duration: 10, equipment: ['barbell'] },
+//   { user: 7, duration: 100, equipment: ['bike', 'kettlebell'] },
+//   { user: 7, duration: 200, equipment: ['bike'] },
+//   { user: 2, duration: 200, equipment: ['treadmill'] },
+//   { user: 2, duration: 200, equipment: ['bike'] },
+// ];
+
+selectData(sessions, { user: 2 });
+// [
+//   { user: 2, duration: 200, equipment: ['treadmill'] },
+//   { user: 2, duration: 200, equipment: ['bike'] },
+// ];
+
+selectData(sessions, { minDuration: 200 });
+// [
+//   { user: 7, duration: 200, equipment: ['bike'] },
+//   { user: 2, duration: 200, equipment: ['treadmill'] },
+//   { user: 2, duration: 200, equipment: ['bike'] },
+// ];
+
+selectData(sessions, { minDuration: 400 });
+// [];
+
+selectData(sessions, { equipment: ['bike', 'dumbbell'] });
+// [
+//   { user: 7, duration: 150, equipment: ['dumbbell', 'kettlebell'] },
+//   { user: 7, duration: 100, equipment: ['bike', 'kettlebell'] },
+//   { user: 7, duration: 200, equipment: ['bike'] },
+//   { user: 2, duration: 200, equipment: ['bike'] },
+// ];
+
+selectData(sessions, { merge: true });
+// [
+//   { user: 8, duration: 50, equipment: ['bench'] },
+//   { user: 1, duration: 10, equipment: ['barbell'] },
+//   { user: 7, duration: 450, equipment: ['bike', 'dumbbell', 'kettlebell'] },
+//   { user: 2, duration: 400, equipment: ['bike', 'treadmill'] },
+// ];
+
+selectData(sessions, { merge: true, minDuration: 400 });
+// [
+//   { user: 7, duration: 450, equipment: ['bike', 'dumbbell', 'kettlebell'] },
+//   { user: 2, duration: 400, equipment: ['bike', 'treadmill'] },
+// ];
+```

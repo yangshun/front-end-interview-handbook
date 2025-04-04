@@ -1,0 +1,47 @@
+---
+title: jQuery.css
+excerpt: 实现一个类似 jQuery 的函数，用于设置 DOM 元素的样式
+---
+
+在 Vanilla JavaScript 中，设置元素样式的方式如下：
+
+```js
+const buttonEl = document.querySelector('button');
+buttonEl.style.color = 'red';
+buttonEl.style.backgroundColor = 'tomato';
+buttonEl.style.fontSize = '16px';
+```
+
+[jQuery](https://jquery.com/) 是一个简化 DOM 操作（以及其他操作）的库。使用 jQuery（使用 `$` 别名函数），上述内容可以简化为：
+
+```js
+const buttonEl = $('button');
+buttonEl.css('color', 'red');
+buttonEl.css('backgroundColor', 'tomato');
+buttonEl.css('fontSize', '16px');
+```
+
+大多数 jQuery 操作 API 的返回值返回 jQuery 对象本身，因此可以链接方法调用。 上述内容可以再次简化：
+
+```js
+$('button')
+  .css('color', 'red')
+  .css('backgroundColor', 'tomato')
+  .css('fontSize', '16px');
+```
+
+此外，如果省略第二个参数，则返回该样式属性的值。
+
+```js
+// <button style="color: red">Submit</button>
+$('button').css('color'); // 'red'
+```
+
+实现 jQuery 单字符函数，它只需要支持 `css()` 方法，该方法可以获取计算样式属性的值或设置匹配元素的 CSS 属性。
+
+## 注意事项
+
+与官方的 `jQuery.css()` 实现有一些区别：
+
+- 官方库会选择所有匹配的元素并修改所有匹配的元素。但是，对于这个问题，我们可以假设最多只有一个元素与选择器匹配。
+- jQuery 理解并返回 `.css('background-color')` 和 `.css('backgroundColor')` 的正确值，但我们只需要支持后一种语法。

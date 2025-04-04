@@ -1,0 +1,55 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import deepCloneJs from '../setup/src/deep-clone.js';
+import deepCloneTs from '../setup/src/deep-clone.ts';
+
+在典型的面试约束下，从头开始编写一个完整的深拷贝解决方案几乎是不可能的。在典型的面试环境中，范围相当有限，面试官更感兴趣的是您将如何检测不同的数据类型以及您利用各种内置 API 和 `Object` 方法遍历给定对象的能力。
+
+## 解决方案
+
+### 方法 1：`JSON.stringify`
+
+在 JavaScript 中深度复制对象的最简单（但有缺陷）的方法是首先对其进行序列化，然后通过 `JSON.stringify` 和 `JSON.parse` 将其反序列化。
+
+```js
+export default function deepClone(value) {
+  return JSON.parse(JSON.stringify(value));
+}
+```
+
+尽管这种方法在给定的输入对象仅包含 `null`、`boolean`、`number`、`string` 时是可以接受的，但您应该意识到这种方法的缺点：
+
+* 我们只能复制其值受 JSON 支持的非符号键控属性。不支持的数据类型将被简单地忽略。
+* `JSON.stringify` 还有一些令人惊讶的行为，例如将 `Date` 对象转换为 ISO 时间戳字符串，`NaN` 和 `Infinity` 变为 `null` 等。
+
+显然，您的面试官不会允许您使用它。
+
+### 方法 2：递归
+
+这是一个不依赖于 `JSON.stringify` 和 `JSON.parse` 的解决方案。
+
+<MDXCodeBlock languages={{ jsx: deepCloneJs, tsx: deepCloneTs }} />
+
+通常有两种方法可以遍历一个对象：
+
+* 使用古老的 `for ... in` 语句循环遍历键。
+* 使用 `Object.keys()` 将对象转换为键数组，或使用 `Object.entries()` 转换为键值元组数组。
+
+使用 `for ... in` 语句，也会处理继承的可枚举属性。另一方面，`Object.keys()` 和 `Object.entries()` 只关心直接在对象上定义的属性，这通常是我们想要的。
+
+## 边缘情况
+
+* [不可枚举](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty#description) 和 [符号键控](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol) 属性被忽略。
+* [属性描述符](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptors) 不被尊重，也不会复制到克隆对象中。
+* 如果对象具有循环引用，则当前解决方案将中断，并通过递归进入无限循环而导致堆栈溢出。
+* 原型未被复制。
+
+我们将在 [Deep Clone II](/questions/javascript/deep-clone-ii) 中解决这些边缘情况。
+
+## 单行解决方案
+
+截至撰写本文时，所有主流浏览器都原生支持通过 `structuredClone` API 执行深拷贝。如果您想了解更多关于 `structuredClone` 的特性和限制，请查看 [web.dev 上的“使用 structuredClone 在 JavaScript 中进行深拷贝”](https://web.dev/structured-clone/)。
+
+```js
+const clonedObj = structuredClone(obj);
+```

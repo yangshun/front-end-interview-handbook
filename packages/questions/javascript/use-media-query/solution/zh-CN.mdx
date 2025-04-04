@@ -1,0 +1,44 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import useMediaQuery from '../setup/src/use-media-query';
+import useMediaQuerySyncExternalStore from '../setup/src/use-media-query-sync-external-store';
+
+## 解决方案
+
+`window.matchMedia(query)` 是一个 JavaScript 方法，用于检查文档是否与给定的 CSS 媒体查询匹配。它返回一个 `MediaQueryList` 对象，该对象提供：
+
+1. `.matches` (布尔值)：指示文档当前是否与媒体查询匹配
+2. `.addEventListener("change", callback)`：侦听媒体查询匹配状态的变化
+3. `.removeEventListener("change", callback)`：在不再需要时删除事件侦听器
+
+例子：
+
+```js
+const mediaQuery = window.matchMedia('(max-width: 768px)');
+
+if (mediaQuery.matches) {
+  console.log('视口为 768px 或更小');
+}
+
+mediaQuery.addEventListener('change', (e) => {
+  console.log(e.matches ? '现在是小屏幕' : '现在是大屏幕');
+});
+```
+
+`useMediaQuery` 是一个 hook，它允许 React 应用程序利用此浏览器 API 并响应媒体变化（例如屏幕大小、分辨率、方向等）。
+
+### 方法 1：`useEffect` 和 `useState`
+
+可以使用 `useState` hook 存储当前的媒体查询匹配项，并使用 `useEffect` hook 在媒体查询更改时更新匹配项来实现 `useMediaQuery` hook。我们可以将侦听器附加到 `window.matchMedia(...)` 返回的 `MediaQueryList` 对象上的 [`change` 事件](https://developer.mozilla.org/en-US/docs/Web/API/MediaQueryList/change_event) 以更新匹配状态。
+
+<MDXCodeBlock>
+  {useMediaQuery}
+</MDXCodeBlock>
+
+### 方法 2：`useSyncExternalStore`
+
+React 的 [`useSyncExternalStore`](https://react.dev/reference/react/useSyncExternalStore) hook 更好，因为它旨在将 React 状态与外部系统同步，例如[订阅原生浏览器 API](https://react.dev/reference/react/useSyncExternalStore#subscribing-to-a-browser-api)。
+
+<MDXCodeBlock>
+  {useMediaQuerySyncExternalStore}
+</MDXCodeBlock>

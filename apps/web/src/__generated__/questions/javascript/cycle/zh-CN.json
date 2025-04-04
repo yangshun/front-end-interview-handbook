@@ -1,0 +1,49 @@
+{
+  "description": "var Component=(()=>{var f=Object.create;var t=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,g=Object.prototype.hasOwnProperty;var m=(e,n)=>()=>(n||e((n={exports:{}}).exports,n),n.exports),x=(e,n)=>{for(var l in n)t(e,l,{get:n[l],enumerable:!0})},r=(e,n,l,s)=>{if(n&&typeof n==\"object\"||typeof n==\"function\")for(let c of u(n))!g.call(e,c)&&c!==l&&t(e,c,{get:()=>n[c],enumerable:!(s=d(n,c))||s.enumerable});return e};var j=(e,n,l)=>(l=e!=null?f(p(e)):{},r(n||!e||!e.__esModule?t(l,\"default\",{value:e,enumerable:!0}):l,e)),F=e=>r(t({},\"__esModule\",{value:!0}),e);var a=m((w,i)=>{i.exports=_jsx_runtime});var v={};x(v,{default:()=>O,frontmatter:()=>y});var o=j(a()),y={title:\"\\u5FAA\\u73AF\",excerpt:\"\\u5B9E\\u73B0\\u4E00\\u4E2A\\u51FD\\u6570\\uFF0C\\u8BE5\\u51FD\\u6570\\u63A5\\u53D7\\u4E00\\u4E2A\\u6216\\u591A\\u4E2A\\u503C\\uFF0C\\u5E76\\u8FD4\\u56DE\\u4E00\\u4E2A\\u51FD\\u6570\\uFF0C\\u8BE5\\u51FD\\u6570\\u5728\\u6BCF\\u6B21\\u8C03\\u7528\\u65F6\\u5FAA\\u73AF\\u904D\\u5386\\u8FD9\\u4E9B\\u503C\"};function h(e){let n=Object.assign({p:\"p\",h2:\"h2\",pre:\"pre\",code:\"code\",ul:\"ul\",li:\"li\",a:\"a\"},e.components);return(0,o.jsxs)(o.Fragment,{children:[(0,o.jsx)(n.p,{children:\"\\u5B9E\\u73B0\\u4E00\\u4E2A\\u51FD\\u6570\\uFF0C\\u8BE5\\u51FD\\u6570\\u63A5\\u53D7\\u4E00\\u4E2A\\u6216\\u591A\\u4E2A\\u503C\\uFF0C\\u5E76\\u8FD4\\u56DE\\u4E00\\u4E2A\\u51FD\\u6570\\uFF0C\\u8BE5\\u51FD\\u6570\\u5728\\u6BCF\\u6B21\\u8C03\\u7528\\u65F6\\u5FAA\\u73AF\\u904D\\u5386\\u8FD9\\u4E9B\\u503C\\u3002\"}),`\n`,(0,o.jsx)(n.h2,{children:\"\\u4F8B\\u5B50\"}),`\n`,(0,o.jsx)(n.pre,{children:(0,o.jsx)(n.code,{className:\"language-js\",children:`const helloFn = cycle('hello');\nconsole.log(helloFn()); // \"hello\"\nconsole.log(helloFn()); // \"hello\"\n\nconst onOffFn = cycle('on', 'off');\nconsole.log(onOffFn()); // \"on\"\nconsole.log(onOffFn()); // \"off\"\nconsole.log(onOffFn()); // \"on\"\n`})}),`\n`,(0,o.jsx)(n.h2,{children:\"\\u6E90\\u7801\"}),`\n`,(0,o.jsxs)(n.ul,{children:[`\n`,(0,o.jsx)(n.li,{children:(0,o.jsx)(n.a,{href:\"https://jscodechallenges.vercel.app/challenges/functions#11-design-a-function-with-cycle-functionality-for-given-list-of-inputs-where-cycle-function-accepts-list-of-values-to-be-cycled-upon\",children:\"JavaScript \\u4EE3\\u7801\\u6311\\u6218\"})}),`\n`]})]})}function _(e={}){let{wrapper:n}=e.components||{};return n?(0,o.jsx)(n,Object.assign({},e,{children:(0,o.jsx)(h,e)})):h(e)}var O=_;return F(v);})();\n;return Component;",
+  "files": {
+    "/package.json": "{\n  \"name\": \"@gfe-questions/cycle\",\n  \"version\": \"0.0.1\",\n  \"main\": \"/src/cycle.ts\",\n  \"devDependencies\": {\n    \"@types/jest\": \"29.5.0\",\n    \"typescript\": \"5.0.2\"\n  }\n}\n",
+    "/tsconfig.json": "{\n  \"include\": [\"./**/*\"],\n  \"compilerOptions\": {\n    \"strict\": true,\n    \"esModuleInterop\": true,\n    \"lib\": [\"dom\", \"esnext\"],\n    \"jsx\": \"react-jsx\"\n  }\n}\n",
+    "/src/cycle.run.test.ts": "import cycle from './cycle';\n\ndescribe('cycle', () => {\n  test('returns function', () => {\n    const fooFn = cycle('foo');\n    expect(fooFn).toBeInstanceOf(Function);\n  });\n\n  test('single item', () => {\n    const helloFn = cycle('hello');\n    expect(helloFn()).toBe('hello');\n  });\n\n  test('two values', () => {\n    const onOffFn = cycle('on', 'off');\n    expect(onOffFn()).toBe('on');\n    expect(onOffFn()).toBe('off');\n  });\n});\n",
+    "/src/cycle.submit.test.ts": "import cycle from './cycle';\n\ndescribe('cycle', () => {\n  test('returns function', () => {\n    const fooFn = cycle('foo');\n    expect(fooFn).toBeInstanceOf(Function);\n  });\n\n  test('single item', () => {\n    const helloFn = cycle('hello');\n    expect(helloFn()).toBe('hello');\n  });\n\n  test('two values', () => {\n    const onOffFn = cycle('on', 'off');\n    expect(onOffFn()).toBe('on');\n    expect(onOffFn()).toBe('off');\n  });\n\n  test('three values', () => {\n    const speedFn = cycle('slow', 'medium', 'fast');\n    expect(speedFn()).toBe('slow');\n    expect(speedFn()).toBe('medium');\n    expect(speedFn()).toBe('fast');\n  });\n\n  test('wraps around', () => {\n    const speedFn = cycle('slow', 'medium', 'fast');\n    expect(speedFn()).toBe('slow');\n    expect(speedFn()).toBe('medium');\n    expect(speedFn()).toBe('fast');\n    expect(speedFn()).toBe('slow');\n    expect(speedFn()).toBe('medium');\n    expect(speedFn()).toBe('fast');\n  });\n});\n",
+    "/src/cycle.ts": "export default function cycle<T>(...values: Array<T>): () => T {\n  let index = 0;\n\n  return () => {\n    const currentValue = values[index];\n    index = (index + 1) % values.length;\n    return currentValue;\n  };\n}\n"
+  },
+  "metadata": {
+    "access": "standard",
+    "author": null,
+    "companies": [],
+    "created": 1699488000,
+    "difficulty": "easy",
+    "duration": 15,
+    "excerpt": "实现一个函数，该函数接受一个或多个值，并返回一个函数，该函数在每次调用时循环遍历这些值",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/cycle",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "cycle",
+    "subtitle": null,
+    "title": "循环",
+    "topics": [
+      "closure"
+    ]
+  },
+  "skeleton": {
+    "js": "/**\n * @template T\n * @param  {...T} values\n *\n * @returns () => T\n */\nexport default function cycle(...values) {\n  throw 'Not implemented';\n}",
+    "ts": "export default function cycle<T>(...values: Array<T>): () => T {\n  throw 'Not implemented';\n}"
+  },
+  "solution": "var Component=(()=>{var p=Object.create;var c=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var v=Object.getOwnPropertyNames;var g=Object.getPrototypeOf,y=Object.prototype.hasOwnProperty;var T=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),j=(n,e)=>{for(var l in e)c(n,l,{get:e[l],enumerable:!0})},a=(n,e,l,u)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let r of v(e))!y.call(n,r)&&r!==l&&c(n,r,{get:()=>e[r],enumerable:!(u=m(e,r))||u.enumerable});return n};var _=(n,e,l)=>(l=n!=null?p(g(n)):{},a(e||!n||!n.__esModule?c(l,\"default\",{value:n,enumerable:!0}):l,n)),M=n=>a(c({},\"__esModule\",{value:!0}),n);var s=T((k,o)=>{o.exports=_jsx_runtime});var w={};j(w,{default:()=>b});var t=_(s());var i=MDXCodeBlock;var d=`/**\n * @template T\n * @param  {...T} values\n *\n * @returns () => T\n */\nexport default function cycle(...values) {\n  let index = 0;\n\n  return () => {\n    const currentValue = values[index];\n    index = (index + 1) % values.length;\n    return currentValue;\n  };\n}\n`;var h=`export default function cycle<T>(...values: Array<T>): () => T {\n  let index = 0;\n\n  return () => {\n    const currentValue = values[index];\n    index = (index + 1) % values.length;\n    return currentValue;\n  };\n}\n`;var x=`export default function cycle<T>(...values: Array<T>): () => T {\n  let index = -1;\n\n  return () => {\n    index = (index + 1) % values.length;\n    return values[index];\n  };\n}\n`;function f(n){let e=Object.assign({h2:\"h2\",p:\"p\",code:\"code\",ul:\"ul\",li:\"li\",a:\"a\"},n.components);return(0,t.jsxs)(t.Fragment,{children:[(0,t.jsx)(e.h2,{children:\"\\u89E3\\u51B3\\u65B9\\u6848\"}),`\n`,(0,t.jsxs)(e.p,{children:[\"\\u5728\\u6B64\\u5B9E\\u73B0\\u4E2D\\uFF0C\\u6211\\u4EEC\\u4F7F\\u7528\\u95ED\\u5305\\u6765\\u8DDF\\u8E2A values \\u6570\\u7EC4\\u4E2D\\u7684\\u5F53\\u524D\\u7D22\\u5F15\\u3002 \\u6BCF\\u6B21\\u8C03\\u7528\\u8FD4\\u56DE\\u7684\\u51FD\\u6570\\u65F6\\uFF0C\\u5B83\\u90FD\\u4F1A\\u8FD4\\u56DE\\u5F53\\u524D\\u503C\\u5E76\\u9012\\u589E \",(0,t.jsx)(e.code,{children:\"index\"}),\"\\uFF0C\\u5728\\u5230\\u8FBE\\u672B\\u5C3E\\u65F6\\u901A\\u8FC7\\u53D6\\u6A21\\u8FD0\\u7B97\\u7B26\\u5FAA\\u73AF\\u5230\\u6570\\u7EC4\\u7684\\u5F00\\u5934\\u3002\"]}),`\n`,(0,t.jsx)(i,{languages:{jsx:d,tsx:h}}),`\n`,(0,t.jsx)(e.p,{children:\"\\u4E00\\u4E2A\\u66F4\\u77ED\\u7684\\u66FF\\u4EE3\\u89E3\\u51B3\\u65B9\\u6848\\uFF0C\\u5728\\u8FD4\\u56DE\\u8BE5\\u503C\\u4E4B\\u524D\\u9012\\u589E\\uFF1A\"}),`\n`,(0,t.jsx)(i,{children:x}),`\n`,(0,t.jsx)(e.h2,{children:\"\\u8FB9\\u7F18\\u60C5\\u51B5\"}),`\n`,(0,t.jsxs)(e.ul,{children:[`\n`,(0,t.jsx)(e.li,{children:\"\\u4E0D\\u5E94\\u5728\\u6CA1\\u6709\\u4EFB\\u4F55\\u53C2\\u6570\\u7684\\u60C5\\u51B5\\u4E0B\\u8C03\\u7528\\u8BE5\\u51FD\\u6570\\u3002\"}),`\n`]}),`\n`,(0,t.jsx)(e.h2,{children:\"\\u8D44\\u6E90\"}),`\n`,(0,t.jsxs)(e.ul,{children:[`\n`,(0,t.jsx)(e.li,{children:(0,t.jsx)(e.a,{href:\"https://jscodechallenges.vercel.app/challenges/functions#11-design-a-function-with-cycle-functionality-for-given-list-of-inputs-where-cycle-function-accepts-list-of-values-to-be-cycled-upon\",children:\"JavaScript \\u4EE3\\u7801\\u6311\\u6218\"})}),`\n`]})]})}function X(n={}){let{wrapper:e}=n.components||{};return e?(0,t.jsx)(e,Object.assign({},n,{children:(0,t.jsx)(f,n)})):f(n)}var b=X;return M(w);})();\n;return Component;",
+  "workspace": {
+    "main": "/src/cycle.ts",
+    "run": "/src/cycle.run.test.ts",
+    "submit": "/src/cycle.submit.test.ts"
+  }
+}

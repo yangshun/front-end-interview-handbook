@@ -1,0 +1,49 @@
+---
+title: 列表格式
+excerpt: 实现一个函数，将项目列表格式化为单个可读字符串
+---
+
+给定一个字符串列表，实现一个函数 `listFormat`，该函数返回连接成单个字符串的项目。一个常见的用例是总结社交媒体帖子的反应。
+
+该函数应支持几个选项作为第二个参数：
+
+* `sorted`：按字母顺序对项目进行排序。
+* `length`：仅显示前 `length` 个项目，其余项目使用“还有 X 个”。忽略无效值（负数、0 等）。
+* `unique`：删除重复的项目。
+
+## 例子
+
+```js
+listFormat([]); // ''
+
+listFormat(['Bob']); // 'Bob'
+listFormat(['Bob', 'Alice']); // 'Bob and Alice'
+
+listFormat(['Bob', 'Ben', 'Tim', 'Jane', 'John']);
+// 'Bob, Ben, Tim, Jane and John'
+
+listFormat(['Bob', 'Ben', 'Tim', 'Jane', 'John'], {
+  length: 3,
+}); // 'Bob, Ben, Tim and 2 others'
+
+listFormat(['Bob', 'Ben', 'Tim', 'Jane', 'John'], {
+  length: 4,
+}); // 'Bob, Ben, Tim, Jane and 1 other'
+
+listFormat(['Bob', 'Ben', 'Tim', 'Jane', 'John'], {
+  length: 3,
+  sorted: true,
+}); // 'Ben, Bob, Jane and 2 others'
+
+listFormat(['Bob', 'Ben', 'Tim', 'Jane', 'John', 'Bob'], {
+  length: 3,
+  unique: true,
+}); // 'Bob, Ben, Tim and 2 others'
+
+listFormat(['Bob', 'Ben', 'Tim', 'Jane', 'John'], {
+  length: 3,
+  unique: true,
+}); // 'Bob, Ben, Tim and 2 others'
+
+listFormat(['Bob', 'Ben', '', '', 'John']); // 'Bob, Ben and John'
+```

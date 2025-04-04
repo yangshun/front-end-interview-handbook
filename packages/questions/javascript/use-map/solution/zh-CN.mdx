@@ -1,0 +1,22 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import useMap from '../setup/src/use-map';
+
+## 解决方案
+
+可以通过在 `useState` 状态中存储一个 `Map`，并根据状态的 setter 函数定义用于操作 `Map` 的实用方法，使用 JavaScript 内置的 `Map` 方法来实现 `useMap` hook。
+
+请记住将实用方法包装在 `useCallback` 中，以防止调用组件不必要的重新渲染。
+
+<MDXCodeBlock>
+  {useMap}
+</MDXCodeBlock>
+
+## 边缘情况
+
+由于 `Map` 是可变的，因此在定义实用方法时，请确保发生的任何更改都会导致调用组件重新渲染。这可确保组件始终与 `Map` 的当前状态同步。
+
+有很多方法可以实现这一点，包括：
+
+* 在修改 `Map` 之前对其进行浅拷贝
+* 使用像 [Immer](https://immerjs.github.io/immer/) 这样的库来不可变地改变你的 map

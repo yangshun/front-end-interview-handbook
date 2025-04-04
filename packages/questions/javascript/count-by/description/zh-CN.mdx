@@ -1,0 +1,41 @@
+---
+title: 按…计数
+excerpt: 实现一个函数，该函数根据函数或属性名称计算值在数组中出现的次数。
+---
+
+实现一个函数 `countBy(array, iteratee)`，该函数创建一个对象，该对象的键由通过 `iteratee` 运行 `array` 的每个元素的结果生成。每个键的对应值是 `iteratee` 返回该键的次数。
+
+```js
+countBy(array, iteratee);
+```
+
+## 参数
+
+1. `array` *(Array)*: 要迭代的数组。
+2. `iteratee` *(Function)*: 用于转换元素的 iteratee 函数。该函数使用一个参数调用：*(value)*。
+
+## 返回值
+
+*`(Object)`*: 返回组成的聚合对象。
+
+## 例子
+
+```js
+countBy([6.1, 4.2, 6.3], Math.floor);
+// => { '4': 1, '6': 2 }
+
+countBy([{ n: 3 }, { n: 5 }, { n: 3 }], (o) => o.n);
+// => { '3': 2, '5': 1 }
+```
+
+当 `array` 为空时，该函数应返回 {}，并将 null / undefined 键在通过 iteratee 后进行处理。
+
+```js
+countBy([], (o) => o); // => {}
+
+countBy([{ n: 1 }, { n: 2 }], (o) => o.m); // => { undefined: 2 }
+```
+
+## 资源
+
+* [Lodash `_.countBy`](https://lodash.com/docs/#countBy)

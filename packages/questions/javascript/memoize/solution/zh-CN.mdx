@@ -1,0 +1,32 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import memoizeJs from '../setup/src/memoize.js';
+import memoizeTs from '../setup/src/memoize.ts';
+
+## 解决方案
+
+解决此问题的关键是使用一个缓存，用于存储输入参数的结果。如果输入参数存在缓存条目，则返回缓存的结果。否则，像往常一样调用该函数，将结果放入缓存中，并将输入参数作为键，以便后续使用相同参数调用该函数时，将命中缓存并直接返回值，而无需调用原始函数。这个问题可以分解为三个部分：
+
+### 确定缓存键
+
+缓存键是一个与 `func` 可以调用的参数具有一一对应关系的数值。由于对输入类型有限制，并且 `func` 只有一个输入参数，我们可以直接使用该参数作为键。
+
+### 确定缓存的结构
+
+缓存查找必须快速，理想情况下具有 O(1) 的时间复杂度。在 JavaScript 中，对象和 `Map` 能够满足快速查找键及其对应值的目的。但是，我们不能在这里使用 JavaScript 对象，因为它只允许字符串键，当数字用作对象的键时，它们将被转换为字符串。但是，我们可以使用 `Map`，它区分相同值的字符串键和数字键（例如 `1` 与 `'1'`）。
+
+返回的函数可以通过闭包访问缓存。通过闭包，每个唯一的 memoized 函数实例都将拥有自己的缓存。
+
+### 使用缓存
+
+在调用原始函数 `func` 之前，memoized 函数首先检查 `cache` 是否已经包含当前 `arg` 的条目。这将导致以下两种情况之一：
+
+1. 缓存包含 `arg` 的条目。存在缓存结果，这意味着该函数之前已使用相同的参数调用，并且无需重新计算结果。在这种情况下，memoized 函数只需使用 `cache.get(arg)` 返回缓存结果。
+2. 缓存不包含 `arg` 的条目。如果缓存不包含当前 `arg` 的结果，则意味着该函数使用新参数调用。然后，memoized 函数使用 `Function.prototype.call()` 方法调用原始函数 func。也可以使用 `Function.prototype.apply()`，但考虑到只有一个参数，`Function.prototype.call()` 更易于使用。`Function.prototype.call()` 方法用于确保在从 memoized 函数调用时保留原始函数的上下文（`this`）。参数 `arg` 将传递给原始函数 `func`。在使用原始函数计算结果后，memoized 函数通过将结果与对应的 `arg` 键关联起来，使用 `cache.set(arg, result)` 将结果存储在缓存中。最后，memoized 函数返回计算结果。
+
+<MDXCodeBlock languages={{ jsx: memoizeJs, tsx: memoizeTs }} />
+
+## 边缘情况
+
+* 在实践中，函数可以接受多个不同类型的参数，而不仅仅是字符串和数字，因此当前的 `memoize` 实现对于这些情况来说是不够的。
+* 虽然可以毫无问题地访问 `this`，但结果仅基于输入参数进行 memoized，即使在调用之间 `this` 的值不同，对于相同的输入参数也会返回相同的 memoized 结果。

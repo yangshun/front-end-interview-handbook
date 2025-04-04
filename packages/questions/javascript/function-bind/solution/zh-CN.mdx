@@ -1,0 +1,120 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import functionBindJs from '../setup/src/function-bind.js';
+import functionBindTs from '../setup/src/function-bind.ts';
+import functionBindReflect from '../setup/src/function-bind-reflect';
+import functionBindSymbol from '../setup/src/function-bind-symbol';
+
+这个问题要求我们实现 `Function.prototype.bind` 方法，该方法的行为应与原生方法完全相同。使用较旧的、更成熟的语言特性来实现对 JavaScript 的现代、闪亮的新增功能是一种常见的做法，这样这些 API 仍然可以在旧的浏览器上使用。这种做法被称为 [polyfill](https://developer.mozilla.org/en-US/docs/Glossary/Polyfill)。
+
+然而，编写忠于规范并与旧版浏览器完全兼容的 polyfill 并非易事。期望在面试环境中编写一个是不现实的。对于这个问题，面试官通常更感兴趣的是你对原生 `bind` 方法和 `this` 关键字的熟悉程度。
+
+## 澄清问题
+
+* 我可以使用其他相关的原生方法，例如 `Function.prototype.apply` 和 `Function.prototype.call` 吗？
+  * 是的，你可以。
+* 我可以使用其他现代 JavaScript 功能吗？
+  * 是的，只要你不使用 `Function.prototype.bind`。
+
+## 重新了解 `Function.prototype.bind` 和 `this`
+
+原生的 `bind` 是 `Function.prototype` 上的一个方法，因此你在程序中声明的每个函数都会自动从原型链继承该方法。
+
+ `bind` 的一个常见用例是在作为函数调用时保留方法绑定。方法调用是在对象上调用的函数。例如：
+
+```jsx
+const person = {
+  name: 'John',
+  getName() {
+    return this.name;
+  },
+};
+
+person.getName(); // 'John'
+```
+
+在方法调用中，`this` 隐式绑定到调用它的对象。这里的对象通常指的是一个普通的旧 JavaScript 对象或一个函数（我们稍后会看到）。
+
+```jsx
+person.getName(); // 在这种情况下，绑定到方法调用 `getName()` 的 `this` 是 `person`。
+```
+
+然而，对于函数调用来说并非如此。函数调用不同于它没有在对象上调用。
+
+例如，我们可以将 `person.getName` 分配给另一个变量，这样它就包含对与 `person.getName` 相同的函数的引用：
+
+```jsx
+const getName = person.getName;
+const name = getName(); // 在严格模式下，这会引发 TypeError：无法读取未定义的属性（读取 'name'）
+```
+
+当同一个方法作为函数调用时，没有隐式绑定，因此导致 `this` 绑定到全局对象（在非严格模式下）或抛出错误（在严格模式下）。
+
+这就是 `bind` 派上用场的地方 - 我们可以通过 `person.getName.bind(person)` 保留方法调用到 `person` 的上下文：
+
+```jsx
+const getName = person.getName.bind(person);
+const name = getName(); // 'John'
+```
+
+如果你觉得这很令人困惑，这是正常的。`this` 可能是 JavaScript 中不好的部分之一，因为与其他所有静态绑定的东西不同，只有 `this` 是动态绑定的，这意味着函数的调用者，而不是函数的创建者，决定了它的绑定。这种偏差是混乱的根源。
+
+`bind` 的另一个用例是使用预先指定的初始参数创建部分应用的函数。如果您需要复习，请查看 [MDN 的“部分应用函数”部分](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind#partially_applied_functions)。
+
+现在我们了解了 `bind` 的工作原理及其用例，让我们尝试实现它。
+
+## 解决方案
+
+### 方法 1：使用 `call`/`apply`
+
+首先，由于原生 `bind` 在 `Function.prototype` 上，因此我们的 `bind` 也必须在其上。我们将把它实现为 `Function.prototype.myBind`。
+
+```jsx
+Function.prototype.myBind = function () {
+  // 实现代码在这里...
+};
+```
+
+其次，`Function.prototype.myBind` 接受的参数应与原生参数相同，其中第一个参数是目标函数绑定到的 `this` 关键字，之后它接受一个可变参数列表，以添加到绑定函数的参数中。
+
+接下来，它返回一个新函数，其 `this` 绑定到传递给 `Function.prototype.myBind` 方法的先前上下文。当调用返回的函数时，它也会获取从 `Function.prototype.myBind` 传递的预先添加的参数。
+
+我们如何在新返回的函数中引用 `bind` 所调用的原始方法？事实证明，我们可以在 `Function.prototype.myBind` 内部通过 `this` 访问它，因为 `Function.prototype.myBind` 被调用为方法调用，因此导致其 `this` 隐式绑定到方法 `foo`。
+
+```jsx
+person.getAge.myBind(person); // myBind 是一个方法调用，它的 `this` 隐式绑定到方法 `getAge`
+```
+
+最后，我们可以在返回的函数中使用 [`Function.prototype.call`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call) 或 [`Function.prototype.apply`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply) 来使用传递给 `myBind` 方法的 `thisArg` 调用原始方法。
+
+<MDXCodeBlock languages={{ jsx: functionBindJs, tsx: functionBindTs }} />
+
+### 方法 2：使用 `Reflect`
+
+我们需要注意的另一件事是：我们直接在 `originalFunc` 上调用 `apply`。虽然这在大多数情况下都可以，但它确实会在极少数情况下造成可靠性隐患。由于 JavaScript 中属性解析机制的工作方式，如果 `originalFunc` 包含一个同名的用户定义方法/属性 `call`，则会遮蔽 `Function.prototype.call`。因此，如果用户定义的 `apply` 存在于 `originalFunc` 上，则会调用它。
+
+为了使我们的代码更健壮，我们需要在这里更加明确。我们可以
+
+* 通过 `Function.prototype.call` 调用 `apply`：[`Function.prototype.apply.call`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply)，如 `Function.prototype.apply.call(originalFunc, context, [...argArray, ...args])`。
+* 使用 [`Reflect.apply()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect/apply#description)：ES6 中添加到 JavaScript 中一个鲜为人知的 API，用于使用指定的参数调用目标函数。
+
+这是健壮的解决方案：
+
+<MDXCodeBlock>
+  {functionBindReflect}
+</MDXCodeBlock>
+
+### 方法 3：使用 `Symbol`
+
+另一种方法是创建一个 `Symbol` 并将其作为属性添加到新创建的 `Object` 中，并将其绑定到 `thisArg`。
+
+<MDXCodeBlock>
+  {functionBindSymbol}
+</MDXCodeBlock>
+
+## 边缘情况
+
+如果我们深入研究，这个当前的解决方案仍然存在一些边缘情况：
+
+* 我们没有涵盖绑定函数可以用作带有 new 运算符的构造函数的情况。这种用法在现代 Web 开发中很少出现，应该被认为是该语言的一个晦涩的角落。如果您对 `bind` 的这种特殊行为感兴趣，请查看 [此 MDN 页面](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind#bound_functions_used_as_constructors)。
+* 请注意，`bind` 是一个 ES5 特性。实际上，如果我们要编写一个 bind polyfill，我们不能使用 ES4 之后引入的任何特性；否则它会适得其反，因为我们的带有 ES5+ 特性的 polyfill 无论如何都会在旧版浏览器上中断。但是，我们的解决方案使用了 `const` 关键字、rest 运算符 `...` 和 `Reflect`，它们都是 ES6 特性。如果您有兴趣查看 `bind` 的 polyfill 是如何实现的，请参考 `core-js` 的 [此实现](https://github.com/zloirock/core-js/blob/master/packages/core-js/internals/function-bind.js)。

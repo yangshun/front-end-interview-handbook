@@ -1,0 +1,69 @@
+---
+title: 事件发射器
+excerpt: 实现一个可以订阅和发出事件的类，这些事件会触发附加的回调函数
+---
+
+在 [**观察者模式**](https://www.patterns.dev/posts/observer-pattern/)（也常被称为发布-订阅模型）中，我们可以观察/订阅由发布者发出的事件，并在发生事件时执行代码。
+
+实现一个类似于 [Node.js](https://nodejs.org/api/events.html) 中的 [`EventEmitter` 类](https://nodejs.org/api/events.html#class-eventemitter)，该类遵循这种观察者模式。
+
+`EventEmitter` 类的使用示例：
+
+```js
+const emitter = new EventEmitter();
+
+function addTwoNumbers(a, b) {
+  console.log(`The sum is ${a + b}`);
+}
+emitter.on('foo', addTwoNumbers);
+emitter.emit('foo', 2, 5);
+// > "The sum is 7"
+
+emitter.on('foo', (a, b) => console.log(`The product is ${a * b}`));
+emitter.emit('foo', 4, 5);
+// > "The sum is 9"
+// > "The product is 20"
+
+emitter.off('foo', addTwoNumbers);
+emitter.emit('foo', -3, 9);
+// > "The product is -27"
+```
+
+实现以下 API：
+
+## `new EventEmitter()`
+
+创建 `EventEmitter` 类的实例。事件和侦听器在它们被添加到的 `EventEmitter` 实例中是隔离的，即侦听器不应该对其他 `EventEmitter` 实例发出的事件做出反应。
+
+## `emitter.on(eventName, listener)`
+
+添加一个回调函数 (`listener`)，当发出名称为 `eventName` 的事件时，将调用该函数。
+
+| 参数 | 类型 | 描述 |
+| --- | --- | --- |
+| `eventName` | `string` | 事件的名称。 |
+| `listener` | `Function` | 发生事件时要调用的回调函数。 |
+
+返回 `EventEmitter` 实例，以便可以链接调用。
+
+## `emitter.off(eventName, listener)`
+
+从名称为 `eventName` 的事件的侦听器列表中删除指定的 `listener`。
+
+| 参数 | 类型 | 描述 |
+| --- | --- | --- |
+| `eventName` | `string` | 事件的名称。 |
+| `listener` | `Function` | 要从事件的侦听器列表中删除的回调函数。 |
+
+返回 `EventEmitter` 实例，以便可以链接调用。
+
+## `emitter.emit(eventName[, ...args])`
+
+按顺序调用每个侦听 `eventName` 的侦听器，并提供提供的参数。
+
+| 参数 | 类型 | 描述 |
+| --- | --- | --- |
+| `eventName` | `string` | 事件的名称。 |
+| `...args` | `any` | 用于调用侦听器函数列表的参数。 |
+
+如果事件有侦听器，则返回 `true`，否则返回 `false`。

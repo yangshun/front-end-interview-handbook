@@ -1,0 +1,36 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import withoutJs from '../setup/src/without.js';
+import withoutTs from '../setup/src/without.ts';
+import withoutFilterJS from '../setup/src/without-filter.js';
+import withoutFilterTS from '../setup/src/without-filter.ts';
+import withoutFilterSetJS from '../setup/src/without-filter-set.js';
+import withoutFilterSetTS from '../setup/src/without-filter-set.ts';
+
+## 解决方案
+
+### 方法 1：使用 Set 过滤值
+
+此解决方案使用 Set 来高效地存储和查找要排除的值，然后遍历 `array` 并使用仅存在于 Set 中的元素构建 `result`，从而有效地过滤掉指定的值。
+
+<MDXCodeBlock languages={{ jsx: withoutJs, tsx: withoutTs }} />
+
+### 方法 2：使用 `Array.prototype.filter`
+
+这是一个更简单的解决方案，它利用了 `Array.prototype.filter`。
+
+<MDXCodeBlock languages={{ jsx: withoutFilterJS, tsx: withoutFilterTS }} />
+
+### 方法 3：使用 `Array.prototype.filter` 过滤 Set 而不是手动检查值
+
+或者，我们可以使用 Set 使其更有效。
+
+<MDXCodeBlock languages={{ jsx: withoutFilterSetJS, tsx: withoutFilterSetTS }} />
+
+## 边缘情况
+
+一个可能的边缘情况是当该函数与包含对象或数组作为元素的数组一起使用时；由于这些是引用类型，使用 Set 进行直接比较可能无法按预期工作。为了解决这个问题，您可以为对象/数组实现深度比较函数，或者确保该函数仅与基本数据类型一起使用以获得可靠的结果。
+
+## 资源
+
+* [Lodash `_.without`](https://lodash.com/docs/#without)

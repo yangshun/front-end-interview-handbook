@@ -15,7 +15,7 @@ The rest of the implementation is straightforward with these nuances taken into 
 
 <MDXCodeBlock languages={{ jsx: arrayReduceJs, tsx: arrayReduceTs }} />
 
-## Edge Cases
+## Edge cases
 
 - Empty array, with and without the `initialValue` argument.
 - Single-value array, with and without the `initialValue` argument.
@@ -31,7 +31,7 @@ Mutating the array in the reduce callback is a bad idea and can cause unintended
 - If existing elements of the array are changed, their value as passed to the callback will be the value at the time `reduce` visits them.
 - Elements that are deleted after the call to `reduce` begins and before being visited are not visited.
 
-## One-liner Solution
+## One-liner solution
 
 You can cheat the autograder by doing this:
 
@@ -39,7 +39,7 @@ You can cheat the autograder by doing this:
 Array.prototype.myReduce = Array.prototype.reduce;
 ```
 
-## Spec Solution
+## Spec solution
 
 Here's a solution that is based off the [`Array.prototype.reduce` ECMAScript specification](https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.prototype.reduce).
 

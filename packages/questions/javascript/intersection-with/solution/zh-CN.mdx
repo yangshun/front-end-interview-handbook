@@ -1,0 +1,14 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import intersectionWithJs from '../setup/src/intersection-with.js';
+import intersectionWithTs from '../setup/src/intersection-with.ts';
+
+## 解决方案
+
+<MDXCodeBlock languages={{ jsx: intersectionWithJs, tsx: intersectionWithTs }} />
+
+该解决方案使用 `.filter` 遍历第一个数组的值。对于每个值，它检查在每个其他数组中是否存在某个值，使得比较器函数返回 true。如果是，则该值通过过滤器并包含在返回的数组中。
+
+## 资源
+
+* [Lodash `_.intersectionWith`](https://lodash.com/docs/#intersectionWith)

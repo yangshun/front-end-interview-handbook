@@ -1,0 +1,15 @@
+---
+title: 类型实用程序
+excerpt: 实现实用程序以确定 JavaScript 中的基本变量类型
+---
+
+JavaScript 是一种动态类型语言，这意味着变量的类型可以在运行时更改。许多面试问题都涉及包含不同类型值的递归值以及如何处理每种值类型（例如，需要不同的代码来迭代数组与对象）。掌握 JavaScript 类型的知识对于解决 [深拷贝](/questions/javascript/deep-clone) 和 [深层相等](/questions/javascript/deep-equal) 等问题至关重要。
+
+在本问题中，我们将实现以下实用程序函数来确定基本值的类型。
+
+* `isBoolean(value)`: 如果 `value` 是布尔值，则返回 `true`，否则返回 `false`。
+* `isNumber(value)`: 如果 `value` 是数字，则返回 `true`，否则返回 `false`。请注意，`NaN` 被视为数字。
+* `isNull(value)`: 如果 `value` 是 `null`，则返回 `true`，否则返回 `false`。
+* `isString(value)`: 如果 `value` 是 `String`，则返回 `true`，否则返回 `false`。
+* `isSymbol(value)`: 如果 `value` 是 `Symbol` 原语，则返回 `true`，否则返回 `false`。
+* `isUndefined(value)`: 如果 `value` 是 `undefined`，则返回 `true`，否则返回 `false`。

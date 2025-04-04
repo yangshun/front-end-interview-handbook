@@ -1,0 +1,26 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import fromPairsJs from '../setup/src/from-pairs.js';
+import fromPairsTs from '../setup/src/from-pairs.ts';
+import fromPairsFromEntries from '../setup/src/from-pairs-from-entries';
+
+## 解决方案
+
+### 方法 1：循环遍历 `pairs` 数组
+
+可以使用 for-of 循环遍历 `pairs` 并在 `result` 对象上设置键和值。
+
+<MDXCodeBlock languages={{ jsx: fromPairsJs, tsx: fromPairsTs }} />
+
+### 方法 2：使用 `Object.fromEntries()`
+
+在 `Object` 上有一个内置的静态方法可以完全做到这一点——它将键值对列表转换为一个对象。
+
+<MDXCodeBlock>
+  {fromPairsFromEntries}
+</MDXCodeBlock>
+
+## 资源
+
+* [Lodash `_.fromPairs`](https://lodash.com/docs/#fromPairs)
+* [Object.fromEntries() - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/fromEntries)

@@ -1,0 +1,27 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import compactJs from '../setup/src/compact-ii.js';
+import compactTs from '../setup/src/compact-ii.ts';
+import compactFunctional from '../setup/src/compact-ii-functional';
+
+## Solution
+
+由于输入值可以深度嵌套，递归解决方案将有助于遍历嵌套值。 我们的想法是递归地访问输入中的所有值，遍历数组项和对象条目，过滤掉假值，只保留非假值。
+
+由于此问题只有原始类型、数组和对象，因此我们需要处理三种类型的值：
+
+1. **原始类型**：这是递归的基本情况，我们可以直接返回值。 鉴于此问题中可用的数据类型，要检查一个值是否为原始类型，我们可以使用 `typeof value !== 'object'`，并包含 `value == null` 的特殊情况，因为 `typeof null` 是 `'object'`。
+2. **数组**：遍历数组，如果该项为非假值，则对该项递归调用 `compact`，将返回的压缩项添加到新数组中。 最后返回新的压缩数组。
+3. **对象**：遍历对象的条目，如果对象值为非假值，则对对象递归调用 `compact`，将返回的压缩值放入一个新对象中。 最后返回新的压缩对象。
+
+<MDXCodeBlock languages={{ jsx: compactJs, tsx: compactTs }} />
+
+这是一个采用更具函数式方法更短的解决方案：
+
+<MDXCodeBlock>
+  {compactFunctional}
+</MDXCodeBlock>
+
+## Edge cases
+
+* 空数组和对象不被认为是假值。

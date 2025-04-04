@@ -1,0 +1,30 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import differenceJs from '../setup/src/difference.js';
+import differenceTs from '../setup/src/difference.ts';
+import differenceFilter from '../setup/src/difference-filter';
+import differenceFilterSet from '../setup/src/difference-filter-set';
+
+## 解决方案
+
+<MDXCodeBlock languages={{ jsx: differenceJs, tsx: differenceTs }} />
+
+这是一个更简单的解决方案，它利用了 `Array.prototype.filter` 并检查了集合。
+
+<MDXCodeBlock>
+  {differenceFilterSet}
+</MDXCodeBlock>
+
+也可以通过使用 `Array.prototype.includes` 来省略集合。
+
+<MDXCodeBlock>
+  {differenceFilter}
+</MDXCodeBlock>
+
+## 边缘情况
+
+为了处理稀疏数组，例如 `[1, ,3]`，使用 `in` 运算符检查索引 `i` 是否存在于 `array` 中，然后再检查索引 `i` 处的值是否未定义。这确保了稀疏数组得到正确处理。
+
+## 资源
+
+* [Lodash `_.difference`](https://lodash.com/docs/#difference)

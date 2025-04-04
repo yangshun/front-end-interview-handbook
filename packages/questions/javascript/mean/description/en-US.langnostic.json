@@ -1,0 +1,39 @@
+{
+  "frontmatter": {
+    "title": "dab35760",
+    "excerpt": "cc791da6"
+  },
+  "content": {
+    "source": {
+      "locale": "en-US",
+      "hashes": [
+        "f332652",
+        "e2937d9a",
+        "cb71dca7",
+        "197430fb",
+        "7d73b08e",
+        "493e8bd0",
+        "c6c633c9",
+        "e9550086",
+        "ea71257e",
+        "dae7e089",
+        "d57fe237"
+      ]
+    },
+    "targets": {
+      "zh-CN": [
+        "f332652",
+        "e2937d9a",
+        "cb71dca7",
+        "197430fb",
+        "7d73b08e",
+        "493e8bd0",
+        "c6c633c9",
+        "e9550086",
+        "ea71257e",
+        "dae7e089",
+        "d57fe237"
+      ]
+    }
+  }
+}

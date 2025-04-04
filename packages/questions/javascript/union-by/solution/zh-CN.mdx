@@ -1,0 +1,34 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import unionByJs from '../setup/src/union-by.js';
+import unionByTS from '../setup/src/union-by.ts';
+import unionBySetJs from '../setup/src/union-by-set.js';
+import unionBySetTS from '../setup/src/union-by-set.ts';
+
+## Solution
+
+### Approach 1: Using array to store unique key values
+
+1. Create an empty `compare` array to store the unique keys.
+2. Iterate through `array` and determine the key for each element by calling `iteratee(element)`. If the key does not exist within `compare`, insert the key into `compare`. Next, append the element into `result`.
+
+Two variables are used:
+
+* `result`: Tracks the unique elements from `array`.
+* `compare`: Tracks the unique computed value of the elements through `iteratee` to be used for comparison.
+
+<MDXCodeBlock languages={{ jsx: unionByJs, tsx: unionByTS }} />
+
+### Approach 2: Use `Set` for `compare`
+
+Another solution will be using a set instead of array for `compare` as sets can check for existence of items efficiently.
+
+<MDXCodeBlock languages={{ jsx: unionBySetJs, tsx: unionBySetTS }} />
+
+## Edge cases
+
+If the input arrays are sparse, the function might include undefined in the output for the missing indices. To solve this, we can pre-process arrays to remove or fill sparse elements as appropriate.
+
+## Resources
+
+* [Lodash `_.unionBy`](https://lodash.com/docs/#unionBy)

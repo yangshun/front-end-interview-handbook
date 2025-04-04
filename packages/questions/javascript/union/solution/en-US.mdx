@@ -7,19 +7,19 @@ import unionSetTS from '../setup/src/union-set.ts';
 
 ## Solution
 
-### Solution 1: Using `array` to store the union values
+### Approach 1: Using `array` to store the union values
 
 This solution iterates through all the array elements, checks if there is any same value in `result` and push if there isn't.
 
 <MDXCodeBlock languages={{ jsx: unionJs, tsx: unionTS }} />
 
-### Solution 2: Use `Set` instead of array
+### Approach 2: Use `Set` instead of array
 
 Another solution will be using a set instead of array for `result` as sets can check for existence of items efficiently.
 
 <MDXCodeBlock languages={{ jsx: unionSetJs, tsx: unionSetTS }} />
 
-## Edge Cases
+## Edge cases
 
 If the function is called with non-array arguments, it will throw an error because non-array types do not have the forEach method that the function relies on.
 

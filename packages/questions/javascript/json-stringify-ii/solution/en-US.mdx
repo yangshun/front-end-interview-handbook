@@ -3,9 +3,11 @@ import MDXCodeBlock from 'MDXCodeBlock';
 import jsonStringifyJs from '../setup/src/json-stringify-ii.js';
 import jsonStringifyTs from '../setup/src/json-stringify-ii.ts';
 
-This is a hard problem, not necessarily because the logic or the algorithm is hard to understand (although there are certain complexities), but more because you have to be very familiar with the `JSON.stringify` API and know all the intricacies when data types that are not supported by JSON are passed to the function, e.g. functions, `regex`, and `Date` object. It's extremely unlikely to be asked to implement a solution that handles that many data types during interviews.
+This is a hard problem, not necessarily because the logic or the algorithm is hard to understand (although there are certain complexities), but more because you have to be very familiar with the `JSON.stringify` API and know all the intricacies when data types that are not supported by JSON are passed to the function (e.g. functions, `regex`, and `Date` object). It's extremely unlikely to be asked to implement a solution that handles that many data types during interviews.
 
-## Handling Data Types
+## Solution
+
+### Handling data types
 
 When passed directly with unsupported type `undefined`, `Symbol`, and `Function`, JSON.stringify outputs `undefined` (not the string `'undefined'`):
 
@@ -25,7 +27,7 @@ JSON.stringify(new Set()); //'{}'
 
 `NaN` and `Infinity` are converted into `null`, and `Date` objects are encoded into ISO strings by `JSON.stringify` because of `Date.prototype.toJSON`. And yes, we will have to take care of a custom `toJSON` method present in the input value.
 
-## Cyclic References
+### Cyclic references
 
 Finally, `JSON.stringify` can detect a cyclic object i.e. objects with circular references and bail out from the stringification by throwing an error. We will have to account for that as well.
 

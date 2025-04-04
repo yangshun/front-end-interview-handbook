@@ -1,0 +1,33 @@
+---
+title: 填充
+excerpt: 实现一个用指定值填充数组指定索引范围的函数
+---
+
+实现一个函数 `fill(array, value, [start=0], [end=array.length])`，该函数用 `value` 填充数组，从 `start` 开始，但不包括 `end`。
+
+**注意**：此方法会改变 `array`。
+
+## 参数
+
+1. `array` *(Array)*: 要填充的数组。
+2. `value` *(\*)*: 用来填充 `array` 的值。
+3. `[start=0]` *(number)*: 开始位置。
+4. `[end=array.length]` *(number)*: 结束位置。
+
+## 返回值
+
+*(Array)*: 返回 `array`。
+
+## 例子
+
+```js
+fill([1, 2, 3], 'a'); // ['a', 'a', 'a']
+fill([4, 6, 8, 10], '*', 1, 3); // [4, '*', '*', 10]
+fill([4, 6, 8, 10, 12], '*', -3, -1); // [4, 6, '*', '*', 12]
+```
+
+确保处理负索引和超出范围的索引。
+
+## 资源
+
+* [Lodash `_.fill`](https://lodash.com/docs/#fill)

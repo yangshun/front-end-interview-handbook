@@ -1,0 +1,41 @@
+{
+  "frontmatter": {
+    "title": "9516d9e",
+    "excerpt": "cea538b5"
+  },
+  "content": {
+    "source": {
+      "locale": "en-US",
+      "hashes": [
+        "4d847b07",
+        "9b884cc1",
+        "e2937d9a",
+        "7e64e81e",
+        "197430fb",
+        "3d94a925",
+        "493e8bd0",
+        "46ed46b9",
+        "53e587ad",
+        "d20a0ba2",
+        "dae7e089",
+        "bc74500a"
+      ]
+    },
+    "targets": {
+      "zh-CN": [
+        "4d847b07",
+        "9b884cc1",
+        "e2937d9a",
+        "7e64e81e",
+        "197430fb",
+        "3d94a925",
+        "493e8bd0",
+        "46ed46b9",
+        "53e587ad",
+        "d20a0ba2",
+        "dae7e089",
+        "bc74500a"
+      ]
+    }
+  }
+}

@@ -1,0 +1,17 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import useArray from '../setup/src/use-array';
+
+## 解决方案
+
+`useArray` hook 可以通过将数组存储在 `useState` 状态中来实现，并根据状态的 setter 函数定义实用程序方法，使用 JavaScript 的内置数组方法来操作数组。
+
+请记住将实用程序方法包装在 `useCallback` 中，以防止调用组件不必要的重新渲染。
+
+<MDXCodeBlock>
+  {useArray}
+</MDXCodeBlock>
+
+## 边缘情况
+
+确保您实现的实用程序方法以不可变的方式修改数组，因为 React 中的状态不应被更改。

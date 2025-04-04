@@ -1,0 +1,25 @@
+---
+title: Compact
+excerpt: 实现一个函数，该函数创建一个数组，其中移除了所有假值
+---
+
+实现一个函数 `compact(array)`，该函数创建一个数组，其中移除了所有假值。值 `false`、`null`、`0`、`''`、`undefined` 和 `NaN` 为假值（你应该牢记于心！）。
+
+## 参数
+
+1. `array` *(Array)*: 要压缩的数组。
+
+## 返回值
+
+*(Array)*: 返回过滤后的新数组。
+
+## 例子
+
+```js
+compact([0, 1, false, 2, '', 3, null]); // => [1, 2, 3]
+compact(['hello', 123, [], {}, function () {}]); // => ['hello', 123, [], {}, function() {}]
+```
+
+## 资源
+
+* [Lodash `_.compact`](https://lodash.com/docs/#compact)

@@ -1,0 +1,21 @@
+---
+title: Array.prototype.filter
+excerpt: 实现 Array.prototype.filter() 方法
+---
+
+`Array.prototype.filter` 创建一个新数组，其中包含对调用数组中每个元素提供的函数的结果。
+
+对于稀疏数组（例如 `[1, 2, , 4]`），在遍历数组时应忽略空值（即它们不应出现在结果数组中）。
+
+实现 `Array.prototype.filter`。为了避免覆盖自动评分器正在使用的实际 `Array.prototype.filter`，我们将把它实现为 `Array.prototype.myFilter`。
+
+## 示例
+
+```js
+[1, 2, 3, 4].myFilter((value) => value % 2 == 0); // [2, 4]
+[1, 2, 3, 4].myFilter((value) => value < 3); // [1, 2]
+```
+
+## 注意事项
+
+filter 回调函数不仅仅接受元素！`Array.prototype.filter` 也有第二个参数。建议您在尝试之前阅读 [MDN 文档](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) 上关于 `Array.prototype.filter` 的规范。

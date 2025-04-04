@@ -1,0 +1,44 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import selectDataJs from '../setup/src/data-selection.js';
+import selectDataTs from '../setup/src/data-selection.ts';
+
+这个问题评估了人们对 JavaScript 语言的熟悉程度。
+
+## 澄清问题
+
+* 如果 `options` 包含 `equipment: []`，预期的行为是什么？
+  * 它应该将其视为根本没有指定 `equipment`，但我们不会测试这种情况。
+
+## 解决方案
+
+让我们将问题分解为两部分：
+
+1. 根据选项过滤会话。
+2. 如果 `options` 中存在 `merge: true`，则按 `user` 字段合并会话。
+
+### 根据选项过滤会话
+
+根据 `user` 和 `minDuration` 过滤非常简单。 我们可以使用基本运算符来检查 `user` 字段是否匹配以及 `duration > minDuration`。
+
+为了匹配设备，我们必须确定 `options` 和每个会话之间的 `equipment` 是否有重叠。 一种方法是将两个 `equipment` 字段转换为 `Set`，以便我们可以在 O(1) 时间内进行查找。 我们实现了一个 `setHasOverlap` 函数来实现这一点。
+
+### 按 `user` 字段合并会话
+
+这是问题的棘手部分。 我们必须合并具有相同 `user` 字段的会话，并且还要保留顺序。 请注意以下要求：
+
+> 在合并具有重复用户的会话的情况下，该行应占据该用户最新出现的位置。 输入对象不应被修改。
+
+如果问题要求该用户的第一次出现，那会更容易，因为我们可以将会话推入数组，并且该位置将是正确的最终位置。 如果我们再次遇到同一用户的会话，我们可以在不更改其在数组中的位置的情况下更新该较早的会话。 值得庆幸的是，一个巧妙的技巧是首先反转输入数组作为 `reversedSessions`，我们可以将其视为问题要求维护用户第一次出现的顺序。
+
+我们使用一个新数组 `sessionsProcessed`，它最终将包含正确顺序的会话和合并的用户会话。 该数组将是我们在根据选项进行过滤时操作的数组。
+
+当我们遍历 `reversedSessions` 时，对于每个会话，我们查看是否之前遇到过 `user`。 如果是第一次，我们向 `sessionsProcessed` 添加一个新条目。 否则，我们使用当前会话数据更新合并的会话。
+
+要修改用户的合并会话，我们创建一个 `Map` (`sessionsForUser`)，其中键是用户 ID，值是合并的会话对象。 可以通过使用用户 ID 查找 `sessionsForUser` 并修改该值（如果存在）来修改合并的会话对象。 `sessionsProcessed` 中的对象也将被更新，因为它们是同一个对象。
+
+<MDXCodeBlock languages={{ jsx: selectDataJs, tsx: selectDataTs }} />
+
+## 技术
+
+* 熟悉 JavaScript 数据结构，如 `Array` 和 `Set`。

@@ -1,0 +1,34 @@
+---
+title: 从键值对
+excerpt: 实现一个从键值对创建对象的函数
+---
+
+实现一个函数 `fromPairs(pairs)`，它将键值对列表转换为一个对象。
+
+```js
+fromPairs(pairs);
+```
+
+## 参数
+
+1. `pairs` *(Array)*: 键值对数组。
+
+## 返回值
+
+*(Object)*: 返回由键值对组成的对象。
+
+## 例子
+
+```js
+const pairs = [
+  ['a', 1],
+  ['b', 2],
+  ['c', 3],
+];
+
+fromPairs(pairs); // => { a: 1, b: 2, c: 3 }
+```
+
+## 资源
+
+* [Lodash `_.fromPairs`](https://lodash.com/docs/#fromPairs)

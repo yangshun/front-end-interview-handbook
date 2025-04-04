@@ -1,0 +1,26 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import promiseResolveJs from '../setup/src/promise-resolve.js';
+import promiseResolveTs from '../setup/src/promise-resolve.ts';
+import promiseResolveSimpleJs from '../setup/src/promise-resolve-simple.js';
+import promiseResolveSimpleTs from '../setup/src/promise-resolve-simple.ts';
+
+## 解决方案
+
+`Promise.resolve` 的目的是为任何值添加一个安全的包装器，以便可以与 `then()` 或 `await` 一起使用。
+
+在静态 `Promise.resolve` 函数中需要处理三种情况：
+
+1. 如果 `value` 是一个原生 `Promise`，则直接返回它，而无需**创建新实例**。 我们可以使用 `value instance of Promise` 来检查这种情况。
+2. 如果 `value` 不是 thenable，则返回一个用该值实现的 promise。 我们可以使用一个 `Promise` 构造函数，该构造函数使用该值调用 `resolve`。
+3. 如果该值是 thenable，则将调用 `then()` 方法。 `then()` 方法与 `Promise` 构造函数具有相同的签名。
+
+前两种情况很简单。 让我们来谈谈最后一种情况。 由于 `Promise` 构造函数和 `then()` 具有相同的参数，因此可能有人想将 `value.then` 传递给 `new Promise`，例如 `new Promise(value.then)`，然后就此结束。 但是，`then()` 将失去 `this` 的值。 因此，我们需要改为传入 `value.then.bind(value)`。
+
+嵌套的 thenable 和 promise 也应该被展平。 这已经由 `Promise` 构造函数的 `resolve` 回调处理，因此我们不必手动尝试展平。
+
+<MDXCodeBlock languages={{ jsx: promiseResolveJs, tsx: promiseResolveTs }} />
+
+事实上，`resolve` 函数也可以处理 thenable。 所以我们可以进一步简化代码。
+
+<MDXCodeBlock languages={{ jsx: promiseResolveSimpleJs, tsx: promiseResolveSimpleTs }} />

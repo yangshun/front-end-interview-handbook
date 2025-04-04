@@ -1,0 +1,41 @@
+---
+title: useQuery
+excerpt: 实现一个管理 promise 结果的 hook
+---
+
+实现一个 `useQuery` hook，用于管理 promise 结果，可用于获取数据。
+
+```jsx
+export default function Component({ param }) {
+  const request = useQuery(async () => {
+    const response = await getDataFromServer(param);
+    return response.data;
+  }, [param]);
+
+  return (
+    <div>
+      {request.loading && <p>Loading...</p>}
+      {request.error && <p>Error: {request.error.message}</p>}
+      {request.data && <p>Data: {request.data}</p>}
+    </div>
+  );
+}
+```
+
+## 参数
+
+1. `fn: () => Promise`: 返回一个 promise 的函数
+2. `deps: DependencyList`: 依赖项数组，类似于 `useEffect` 的第二个参数。与 `useEffect` 不同的是，它默认为 `[]`
+
+## 返回值
+
+该 hook 返回一个对象，该对象具有不同的属性，具体取决于 promise 的状态。
+
+* 待定:
+  * `status: 'loading'`: promise 仍在待定中
+* 已拒绝:
+  * `status: 'error'`: promise 被拒绝
+  * `error: Error`: 导致 promise 被拒绝的错误
+* 已实现:
+  * `status: 'success'`: promise 已解决
+  * `data`: 由 `fn` 返回的 promise 解决的数据

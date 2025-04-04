@@ -1,0 +1,39 @@
+---
+title: useCountdown
+excerpt: 实现一个管理倒计时的 Hook
+---
+
+实现一个管理倒计时的 `useCountdown` Hook。
+
+```jsx
+export default function Component() {
+  const { count, start, stop, reset } = useCountdown({ countStart: 10 });
+
+  return (
+    <div>
+      <p>倒计时: {count}</p>
+      <button onClick={start}>开始</button>
+      <button onClick={stop}>停止</button>
+      <button onClick={reset}>重置</button>
+    </div>
+  );
+}
+```
+
+## 参数
+
+该 Hook 接受一个包含以下属性的对象：
+
+* `countStart: number`: 倒计时的初始值
+* `countStop: number`: 倒计时应该停止的值。默认为 `0`
+* `intervalMs: number`: 倒计时应该减少的间隔（以毫秒为单位）。默认为 `1000`
+* `isIncrement: boolean`: 一个标志，指示倒计时是应该递增而不是递减，默认为 `false`
+
+## 返回值
+
+该 Hook 返回一个包含以下属性的对象：
+
+* `count: number`: 倒计时的当前值
+* `start: () => void`: 一个启动倒计时的函数
+* `stop: () => void`: 一个停止倒计时的函数
+* `reset: () => void`: 一个将倒计时重置为 `countStart` 的函数

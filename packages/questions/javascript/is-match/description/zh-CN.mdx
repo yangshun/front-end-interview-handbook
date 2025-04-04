@@ -1,0 +1,43 @@
+---
+title: 是否匹配
+excerpt: 实现一个函数，比较 object 和 source，以确定它们是否包含等效的属性值
+---
+
+实现一个函数 `isMatch(object, source)`，它在 object 和 source 之间执行部分深度比较，以确定 object 是否包含等效的属性值。
+
+```js
+isMatch(object, source);
+```
+
+## 参数
+
+1. `object` *(Object)*: 要检查的对象。
+2. `source` *(Object)*: 要匹配的属性对象。
+
+## 返回值
+
+*`(boolean)`*: 如果 object 匹配，则返回 true，否则返回 false。
+
+## 例子
+
+```js
+isMatch({ a: 1, b: 2 }, { b: 2 });
+// => true
+
+isMatch({ a: 1, b: 2 }, { b: 1 });
+// => false
+```
+
+部分比较将分别针对任何数组或对象值匹配空数组和空对象源值。
+
+```js
+const object = { a: 1, b: ['x', 'y'], c: { key: 'value' } };
+
+isMatch(object, { b: [] }); // => true
+
+isMatch(object, { c: {} }); // => true
+```
+
+## 资源
+
+* [Lodash `_.isMatch`](https://lodash.com/docs/#isMatch)

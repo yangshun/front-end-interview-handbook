@@ -1,0 +1,29 @@
+---
+title: useHover
+excerpt: 实现一个跟踪元素是否被悬停的 Hook
+---
+
+实现一个 `useHover` Hook，用于跟踪元素是否被悬停。
+
+```jsx
+export default function Component() {
+  const [ref, hovered] = useHover();
+
+  return (
+    <div>
+      <div ref={ref}>{hovered ? '悬停' : '未悬停'}</div>
+    </div>
+  );
+}
+```
+
+## 参数
+
+无。
+
+## 返回值
+
+该 Hook 返回一个包含两个元素的数组：
+
+1. 一个 ref 回调函数，它将附加到要跟踪的元素的 `ref` 属性。它的类型是 `(element: T | null) => void`，其中 `T` 扩展自 `Element`
+2. 一个 `boolean` 值，指示该元素当前是否被悬停

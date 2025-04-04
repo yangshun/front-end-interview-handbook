@@ -1,0 +1,39 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import usePrevious from '../setup/src/use-previous';
+
+## 解决方案
+
+### 方法 1：`useState`
+
+`usePrevious` hook 可以使用两个 `useState` 状态来实现，一个用于当前状态，另一个用于前一个状态。然后，我们只需在当前状态更改时更新前一个状态。
+
+<MDXCodeBlock>
+  {usePrevious}
+</MDXCodeBlock>
+
+请注意，我们是如何在渲染*期间*设置状态，而不是在另一个 `useEffect` 中？这样我们就不需要浪费一个渲染周期来更新前一个状态。
+
+### 方法 2：`useRef`
+
+您可能已经看到使用 `useRef` 的另一个 `usePrevious` 实现。它看起来像这样。
+
+```tsx
+import { useEffect, useRef } from 'react';
+
+export default function usePrevious<T>(state: T): T | undefined {
+  const ref = useRef<T>();
+
+  useEffect(() => {
+    ref.current = state;
+  });
+
+  return ref.current;
+}
+```
+
+这应该在大多数情况下有效，理解为什么它有效留给读者作为一项很好的练习。本质上，`ref.current` 落后一个渲染周期，这就是它有效的原因。但是，如果调用组件重新渲染*不是因为相关的 `useState` 状态*，那么这个 `usePrevious` 的返回值将赶上当前状态，给出错误的*前一个*状态。如果您改为在某些 `useEffect` 的清理函数中调用某些 `useState` 的 setter 函数，则此行为相同。
+
+关键是：任何使用 `useEffect` 的东西都是错误的，自然是因为 `useEffect` **从一开始就不是这样使用的**。
+
+当然，也有人认为这种 `usePrevious` 的实现实际上是正确的，因为它返回前一个状态，就像*在上一个渲染周期*的值一样。这是有效的，但绝对不是大多数人期望的行为。类似于 `useState` 仅在新状态实际不同时才更改状态（并调用重新渲染），`usePrevious` 应该返回代表*它正在跟踪的状态的前一个状态*的值。换句话说，它永远不应该赶上它。

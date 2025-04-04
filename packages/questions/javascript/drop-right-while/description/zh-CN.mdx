@@ -1,0 +1,27 @@
+---
+title: Drop Right While
+excerpt: 实现一个函数，该函数从数组末尾排除元素，直到谓词返回 false
+---
+
+实现一个函数 `dropRightWhile(array, predicate)`，该函数创建一个 `array` 的切片，排除从末尾删除的元素。 元素被删除，直到 `predicate` 返回 falsey。 您的函数不应修改原始数组。
+
+#### 参数
+
+1. `array` *(Array)*: 要查询的数组。
+2. `predicate` *(Function)*: 每次迭代调用的函数。 该函数使用三个参数调用：*(value, index, array)*。 请注意，传入的 *array* 是原始的 `array`。
+
+#### 返回
+
+*(Array)*: 返回 `array` 的切片。
+
+## 例子
+
+```js
+dropRightWhile([1, 2, 3, 4, 5], (value) => value > 3); // => [1, 2, 3]
+dropRightWhile([1, 2, 3], (value) => value < 6); // => []
+dropRightWhile([1, 2, 3, 4, 5], (value) => value > 6); // => [1, 2, 3, 4, 5]
+```
+
+## 资源
+
+* [Lodash `_.dropRightWhile`](https://lodash.com/docs/#dropRightWhile)

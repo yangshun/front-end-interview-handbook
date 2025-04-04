@@ -1,0 +1,37 @@
+---
+title: 柯里化 III
+excerpt: 实现一个函数，将接受可变参数的函数转换为可以重复调用任意数量参数的函数
+---
+
+**注意：** 这是 [柯里化 II](/questions/javascript/curry-ii) 的高级版本，在尝试此问题之前，您应该先完成该问题。此外，这是一个难题，更像是一个脑筋急转弯，而不是期望候选人解决的实际问题。但是，解决这个问题是有益的，并且肯定会提高您对 JavaScript 的了解。
+
+柯里化是将接受多个参数的函数转换为一系列每个接受单个参数的函数的技术。
+
+实现 `curry` 函数，该函数接受一个函数作为唯一参数，并返回一个接受可变数量参数的函数（与 [柯里化](/questions/javascript/curry) 中的一次只接受一个参数和 [柯里化 II](/questions/javascript/curry-ii) 中的固定数量的参数相反），并返回一个可以重复调用的函数。
+
+## 预期输出行为
+
+当返回的函数位于一个表明该值应该是一个字符串或数字的表达式中时，初始函数参数将使用提供的参数调用，结果将用作该值。
+
+## 例子
+
+```js
+function multiply(...numbers) {
+  return numbers.reduce((a, b) => a * b, 1);
+}
+const curriedMultiply = curry(multiply);
+const multiplyByThree = curriedMultiply(3);
+console.log(multiplyByThree); // 3
+console.log(multiplyByThree(4)); // 12
+
+const multiplyByFifteen = multiplyByThree(5);
+console.log(multiplyByFifteen); // 15
+console.log(multiplyByFifteen(2)); // 30
+
+console.log(curriedMultiply(1)(2)(3)(4)); // 24
+console.log(curriedMultiply(1, 2, 3, 4)); // 24
+```
+
+## 提示
+
+查找 [`Symbol.toPrimitive`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toPrimitive)、[`Object.prototype.toString()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/toString) 和 [`Object.prototype.valueOf()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/valueOf) 函数。

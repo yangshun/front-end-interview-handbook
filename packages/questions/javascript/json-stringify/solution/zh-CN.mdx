@@ -1,0 +1,46 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import jsonStringifyJs from '../setup/src/json-stringify.js';
+import jsonStringifyTs from '../setup/src/json-stringify.ts';
+import jsonStringifySwitch from '../setup/src/json-stringify-switch';
+
+## 解决方案
+
+由于非原始值可以同时包含原始值和非原始值，因此我们必须使用递归解决方案。
+
+我们可以将 `value` 视为一棵树。原始值是不包含子节点的节点，而数组/对象类型是具有任何值类型子节点的节点。我们可以通过将每个子节点转换为字符串来将每个节点转换为树。我们可以从“叶”节点（在本例中为原始值，因为它们不能包含任何子节点）向上构建，并从叶节点一直到根节点构建字符串。
+
+让我们定义如何将每个值类型字符串化：
+
+* `null`：直接将其转换为字符串 `null`。
+* `boolean`：通过 `String()` 直接将 `true`/`false` 转换为字符串。
+* `number`：通过 `String()` 直接转换为字符串。
+* `string`：我们必须用双引号将该值括起来，因为 JSON 需要它。
+* 数组：递归地将每个子项字符串化，然后用逗号连接它们，并将它们括在方括号中：`[` 和 `]`。
+* 对象：通过递归地将值字符串化，将每个键/值对（也称为条目）转换为 `"key":{stringifiedValue}` 格式，用逗号连接它们，并将它们括在大括号中：`{` 和 `}`。
+
+现在我们知道了如何将每个值字符串化，我们只需要知道如何确定值的类型。由于 `null`、`boolean`、`number` 仅通过使用 `String()` 就可以生成所需的字符串，因此我们可以将它们一起作为默认情况处理。要确定类型：
+
+* 数组：使用 `Array.isArray()`。
+* 对象：使用 `typeof value === 'object' && value !== null`。检查 `!== null` 非常重要，因为 `typeof null` 是 `'object'`，但我们必须以不同于对象的方式处理 `null`。
+* 字符串：使用 `typeof value === 'string'`。
+
+这是确定值类型并适当地将每个值类型字符串化的代码。
+
+<MDXCodeBlock languages={{ jsx: jsonStringifyJs, tsx: jsonStringifyTs }} />
+
+这是一个通过使用 `switch` 语句以更简洁的方式进行类型检查的替代方案：
+
+<MDXCodeBlock>
+  {jsonStringifySwitch}
+</MDXCodeBlock>
+
+## 局限性
+
+上面的代码是 `JSON.stringify` 的简化版本，并且无法处理 JavaScript 中提供的许多其他类型，也不支持 API 的替换器和格式化选项。其他一些情况：
+
+* 对象内的循环引用。
+* 无法处理 `undefined`、`Function`、`Map`、`Set`、`Symbol`、`RegExp`、`Date` 等其他类型。
+* 字符串中的双引号和其他特殊字符（如反斜杠、制表符）应进行转义。
+
+要练习处理此类情况，请尝试 [`JSON.stringify` II](/questions/javascript/json-stringify-ii)。

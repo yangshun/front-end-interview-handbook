@@ -1,0 +1,38 @@
+---
+title: 单例模式
+excerpt: 实现一个单例类，确保一个类只有一个实例，同时提供对该实例的全局访问点
+---
+
+当您希望确保一个类只有一个实例并提供对该实例的全局访问点时，将使用单例模式。单例模式适用于：
+
+* **单一控制点：** 当您需要一个单一的控制点来执行操作时，例如管理配置对象、日志记录或控制对共享资源的访问。
+* **全局状态：** 当您希望维护一个应该可以从应用程序的不同部分访问的全局状态时。这在跨各种组件共享公共数据时特别有用。
+* **防止重复初始化：** 确保只创建一个类的实例，防止重复初始化并避免与多个实例相关的潜在问题。
+* **缓存：** 用于实现缓存机制，您希望在整个应用程序中维护一个单一的缓存实例。
+
+使用单例模式在 JavaScript 中实现 `GlobalMap` 模块。`GlobalMap` 模块导出一个对象，该对象具有一个单一的 `getInstance()` 方法，该方法返回一个 `Map` 对象，该对象可用作全局缓存/记忆化的键/值存储。
+
+## 示例
+
+```js
+// fileA.js
+import GlobalMap from './GlobalMap';
+
+const gbMap = GlobalMap.getInstance();
+gbMap.set('count', 42);
+```
+
+在另一个文件中，在第一个文件之后执行：
+
+```js
+// fileB.js
+import GlobalMap from './GlobalMap';
+
+const gbMap = GlobalMap.getInstance();
+console.log(gbMap.get('count')); // 42
+```
+
+## 资源
+
+* [单例模式 | patterns.dev](https://www.patterns.dev/vanilla/singleton-pattern)
+* [如何在 JavaScript 中使用单例](https://www.digitalocean.com/community/tutorials/js-js-singletons)

@@ -1,0 +1,40 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import concatJs from '../setup/src/array-concat.js';
+import concatTs from '../setup/src/array-concat.ts';
+import concatSpec from '../setup/src/array-concat-spec';
+
+## 解决方案
+
+首先，使用展开运算符 (`[...this]`) 创建原始数组 (`this`) 的副本。这确保了 polyfill 在数组的副本上运行，而原始数组保持不变。
+
+遍历传递给 `Array.prototype.myConcat` 方法的参数。对于每个参数，使用 `Array.isArray()` 检查它是否为数组。如果它是一个数组，则将其元素展开到 `newArray` 中。如果它不是数组，则只需将该元素推入 `newArray` 中。
+
+最后，返回 `newArray`，其中包含原始数组中的所有元素以及传递给 `Array.prototype.myConcat` 的参数。这模仿了原生 `Array.prototype.concat` 方法的行为。
+
+<MDXCodeBlock languages={{ jsx: concatJs, tsx: concatTs }} />
+
+## 边缘情况
+
+* 稀疏数组，例如 `[1, 2, , 4]`。在遍历数组时，应忽略空值。
+
+## 单行解决方案
+
+你可以通过这样做来欺骗自动评分器：
+
+```js
+Array.prototype.myConcat = Array.prototype.concat;
+```
+
+## 规范解决方案
+
+这是一个基于 [`Array.prototype.concat` ECMAScript 规范](https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.prototype.concat) 的解决方案，但未使用 `Symbol.isConcatSpreadable` 属性。
+
+<MDXCodeBlock>
+  {concatSpec}
+</MDXCodeBlock>
+
+## 资源
+
+* [`Array.prototype.concat` | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat)
+* [`Array.prototype.concat` ECMAScript specification](https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.prototype.concat)

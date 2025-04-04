@@ -1,0 +1,29 @@
+---
+title: useInterval
+excerpt: 实现一个创建间隔的 hook，该间隔在指定的延迟后调用回调函数
+---
+
+实现一个 `useInterval` hook，它创建一个间隔，该间隔在指定的延迟后调用回调函数。
+
+```jsx
+export default function Component() {
+  const [count, setCount] = useState(0);
+
+  useInterval(() => setCount(count + 1), 1000);
+
+  return (
+    <div>
+      <p>{count}</p>
+    </div>
+  );
+}
+```
+
+## 参数
+
+1. `callback: () => void`: 在指定间隔调用的函数
+2. `delay: number | null`: 每次调用回调函数之间的延迟（以毫秒为单位）。如果为 `null`，则清除间隔
+
+## 返回值
+
+无。

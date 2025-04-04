@@ -10,6 +10,6 @@ This hook is very similar to the `useState` hook, but it conditionally returns `
 
 If you're using TypeScript, this should be a warm up for you to start writing generic functions! To ensure that the inferred return type is a tuple and not just an array of unioned types, use `as const` or provide the explicit return type in the function signature.
 
-## Edge Cases
+## Edge cases
 
 You just have to be careful to not simply check for `!value` since `0` or `false` are also valid values for the state.

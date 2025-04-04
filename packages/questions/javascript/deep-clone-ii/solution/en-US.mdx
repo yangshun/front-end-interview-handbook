@@ -22,7 +22,7 @@ Since we want to implement it as thoroughly as possible, here are a few things t
 
 <MDXCodeBlock languages={{ jsx: deepCloneJs, tsx: deepCloneTs }} />
 
-## One-liner Solution
+## One-liner solution
 
 As of writing, all major browsers have native support for performing deep clone via the `structuredClone` API. Check out ["Deep-copying in JavaScript using structuredClone" on web.dev](https://web.dev/structured-clone/) if you want to learn more about `structuredClone`'s features and limitations.
 
@@ -30,6 +30,6 @@ As of writing, all major browsers have native support for performing deep clone 
 const clonedObj = structuredClone(obj);
 ```
 
-## Edge Cases
+## Edge cases
 
 - [Property descriptors](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptors) are not copied.

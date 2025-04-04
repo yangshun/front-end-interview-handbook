@@ -1,0 +1,29 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import rangeRightJs from '../setup/src/range-right.js';
+import rangeRightTs from '../setup/src/range-right.ts';
+import rangeRightReverseJs from '../setup/src/range-right-reverse.js';
+import rangeRightReverseTs from '../setup/src/range-right-reverse.ts';
+
+## 解决方案
+
+### 方法 1：使用 `unshift()` 从 `result` 数组的前面推送元素
+
+这是一个解决方案，它使用 `unshift()` 而不是 `push()` 生成从 `start` 到（但不包括）`end` 的序列范围，步长为 `step`。 在 TypeScript 中，由于 `start` 和 `step` 是可选的，因此需要重载函数。
+
+<MDXCodeBlock languages={{ jsx: rangeRightJs, tsx: rangeRightTs }} />
+
+### 方法 2：正常从后面插入元素，但反转最终的 `result` 数组
+
+但是，由于 `unshift()` 的时间复杂度为 O(N)，这里有一个更有效的解决方案，它在将值正常推入数组后反转结果数组。
+
+<MDXCodeBlock languages={{ jsx: rangeRightReverseJs, tsx: rangeRightReverseTs }} />
+
+## 边缘情况
+
+为了处理未指定 `start` 和 `step` 但 `end` 为负数的情况，我们可以添加一个 if 语句将 `step` 的值更改为 -1。
+
+## 资源
+
+* [Lodash `_.range`](https://lodash.com/docs/#range)
+* [Lodash `_.rangeRight`](https://lodash.com/docs/#rangeRight)

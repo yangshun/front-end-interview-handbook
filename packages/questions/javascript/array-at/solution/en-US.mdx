@@ -14,11 +14,11 @@ Note that the specifications state that the `index` is converted to an integer f
 
 <MDXCodeBlock languages={{ jsx: arrayAtJs, tsx: arrayAtTs }} />
 
-## Edge Cases
+## Edge cases
 
 - Using non-integer index such as `[42, 79].at('1')`.
 
-## One-liner Solution
+## One-liner solution
 
 You can cheat the autograder by doing this:
 
@@ -26,7 +26,7 @@ You can cheat the autograder by doing this:
 Array.prototype.myAt = Array.prototype.at;
 ```
 
-## Spec Solution
+## Spec solution
 
 Here's a solution that is based off the [`Array.prototype.at` ECMAScript specification](https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.prototype.at).
 

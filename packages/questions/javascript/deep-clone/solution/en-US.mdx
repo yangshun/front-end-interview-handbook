@@ -7,7 +7,7 @@ Writing out a complete deep clone solution from scratch is almost impossible und
 
 ## Solution
 
-### Solution 1: `JSON.stringify`
+### Approach 1: `JSON.stringify`
 
 The easiest (but flawed) way to deep copy an object in JavaScript is to first serialize it and then deserialize it back via `JSON.stringify` and `JSON.parse`.
 
@@ -24,7 +24,7 @@ Although this approach is acceptable given the input object only contains `null`
 
 Obviously, your interviewer will not allow you to use this.
 
-### Solution 2: Recursion
+### Approach 2: Recursion
 
 Here is a solution that doesn't rely on `JSON.stringify` and `JSON.parse`.
 
@@ -37,7 +37,7 @@ There are generally two ways we can traverse an object:
 
 With the `for ... in` statement, inherited enumerable properties are processed as well. On the other hand, `Object.keys()` and `Object.entries()` only care about the properties directly defined on the object, and this is usually what we want.
 
-## Edge Cases
+## Edge cases
 
 - [Non-enumerable](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty#description) and [symbol-keyed](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol) properties are ignored.
 - [Property descriptors](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptors) are not respected and copied into the cloned object.
@@ -46,7 +46,7 @@ With the `for ... in` statement, inherited enumerable properties are processed a
 
 We will address these edge cases in [Deep Clone II](/questions/javascript/deep-clone-ii).
 
-## One-liner Solution
+## One-liner solution
 
 As of writing, all major browsers have native support for performing deep clone via the `structuredClone` API. Check out ["Deep-copying in JavaScript using structuredClone" on web.dev](https://web.dev/structured-clone/) if you want to learn more about `structuredClone`'s features and limitations.
 

@@ -1,0 +1,21 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import uniqueWithJs from '../setup/src/uniq-with.js';
+import uniqueWithTs from '../setup/src/uniq-with.ts';
+
+## 解决方案
+
+这是一个基于 `comparator` 过滤唯一元素的解决方案。它遍历 `array`，调用 `findIndex` 基于 `comparator` 检查唯一性。
+
+1. 创建一个空的 `result` 数组来存储唯一项。
+2. 遍历 `array` 并使用 `findIndex` 检查当前元素是否基于 `comparator` 与 `result` 中的项唯一。如果 `findIndex` 返回 -1，表示该值是唯一的，将该元素追加到 `result` 中。
+
+<MDXCodeBlock languages={{ jsx: uniqueWithJs, tsx: uniqueWithTs }} />
+
+## 边缘情况
+
+为了处理混合数据类型，`comparator` 函数必须能够通过将元素转换为通用类型来处理它们。
+
+## 资源
+
+* [Lodash `_.uniqWith`](https://lodash.com/docs/4.17.15#uniqWith)

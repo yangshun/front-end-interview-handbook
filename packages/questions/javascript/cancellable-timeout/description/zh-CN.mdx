@@ -1,0 +1,29 @@
+---
+title: 可取消的超时
+excerpt: 实现一个类似于 setTimeout 的函数，但返回一个用于取消待处理回调的函数
+---
+
+实现一个函数 `setCancellableTimeout`，它的行为类似于 `setTimeout`，但它不返回计时器 ID，而是返回一个函数，当调用该函数时，会取消待处理的回调函数。 `setCancellableTimeout` 函数的签名应与 `setTimeout` 完全相同：
+
+```js
+setCancellableTimeout(callback);
+setCancellableTimeout(callback, delay);
+setCancellableTimeout(callback, delay, param1);
+setCancellableTimeout(callback, delay, param1, param2);
+setCancellableTimeout(callback, delay, param1, param2, /* … ,*/ paramN);
+```
+
+如果您不熟悉 `setTimeout`，建议您阅读 [MDN 文档](https://developer.mozilla.org/zh-CN/docs/Web/API/setTimeout)。
+
+## 例子
+
+```js
+let i = 0;
+// t = 0:
+const cancel = setCancellableTimeout(() => {
+  i++;
+}, 100);
+// t = 50:
+cancel();
+// t = 100: i 仍然是 0，因为调用了 cancel()。
+```

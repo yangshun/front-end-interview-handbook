@@ -1,0 +1,63 @@
+---
+title: Promisify II
+excerpt: 实现一个 promisify 函数，允许原始函数覆盖返回值
+---
+
+**注意：** 这是 [Promisify](/questions/javascript/promisify) 的高级版本，在尝试此问题之前，您应该先完成它。
+
+在 [Promisify](/questions/javascript/promisify) 中，`promisify` 函数为遵循常见的 callback-last error-first 回调风格的函数返回一个 promise，即以 `(err, value) => ...` 回调作为最后一个参数。但是，`promisify` 不适用于不遵循该确切签名的函数。
+
+在 Node.js 中，使用 `util.promisify.custom` 符号，可以覆盖 `util.promisify()` 的返回值，这对于原始函数不遵循将 error-first 回调作为最后一个参数的标准格式的情况非常有用。这对于具有与 `util.promisify` 的 callback-last 约定不兼容的旧格式的函数尤其有用。
+
+```js
+// Node.js 中的用法示例。
+const util = require('node:util');
+
+function doSomething(callback, foo) {
+  // ...
+}
+
+doSomething[util.promisify.custom] = (foo) => {
+  return getPromiseSomehow();
+};
+
+const promisified = util.promisify(doSomething);
+console.log(promisified === doSomething[util.promisify.custom]);
+// 打印 'true'
+```
+
+实现一个 `promisify` 函数，该函数支持自定义返回值。使用符号 `Symbol.for('util.promisify.custom')` 作为覆盖值的键。
+
+## 示例
+
+```js
+// 回调作为第一个参数的示例函数。
+// 回调的签名是 `(err, value) => any`。
+function foo(callback, url, options) {
+  apiCall(url, options)
+    .then((data) => callback(null, data))
+    .catch((err) => callback(err));
+}
+
+foo[Symbol.for('util.promisify.custom')] = (url, options) => {
+  return new Promise((resolve, reject) => {
+    foo(
+      (err, data) => {
+        if (err) {
+          reject(err);
+        }
+        resolve(data);
+      },
+      url,
+      options,
+    );
+  });
+};
+
+const promisifiedFoo = foo[Symbol.for('util.promisify.custom')]; // true
+const data = await promisifiedFoo('example.com', { foo: 1 });
+```
+
+## 资源
+
+* [自定义 promisified 函数 | Node.js](https://nodejs.org/api/util.html#custom-promisified-functions)

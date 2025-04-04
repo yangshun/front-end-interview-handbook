@@ -7,7 +7,7 @@ import isMatchAltTs from '../setup/src/is-match-alt.ts';
 
 ## Solution
 
-### Solution 1: Iterate through `source` and return `false` once any part of it is not fulfilled
+### Approach 1: Iterate through `source` and return `false` once any part of it is not fulfilled
 
 1. Iterates over the keys in `source` object and compare with the corresponding value in `object`.
 1. If `source` is a nested array/object, do a deep comparison recursively by calling `isMatch()` again to match specific keys in `source` and `object`.
@@ -15,13 +15,13 @@ import isMatchAltTs from '../setup/src/is-match-alt.ts';
 
 <MDXCodeBlock languages={{ jsx: isMatchJs, tsx: isMatchTs }} />
 
-### Solution 2: Uses `.every()` to ensure all keys in `source`
+### Approach 2: Uses `.every()` to ensure all keys in `source`
 
 By using `Object.keys(source).every(...)`, it ensures that to return `true`, every key in `source` must match with `object`.
 
 <MDXCodeBlock languages={{ jsx: isMatchAltJs, tsx: isMatchAltTs }} />
 
-## Edge Cases
+## Edge cases
 
 When `object` or `source` has circular references, it can cause infinite loops in due to the recursive nature. To solve this, we can keep track of visited objects using a data structure like `WeakMap` during the recursion, and if an object is encountered that has already been visited, you can either stop the recursion or handle it appropriately to prevent infinite loops.
 

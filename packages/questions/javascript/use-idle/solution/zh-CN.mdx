@@ -1,0 +1,15 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import useIdle from '../setup/src/use-idle';
+
+## 解决方案
+
+`useIdle` 钩子可以使用 `useState` 来存储空闲状态，并使用 `useEffect` 来设置事件侦听器和空闲超时。要检测用户当前是否在我们的选项卡上，我们可以在 `document` 上触发 `visibilitychange` 事件时使用 `document.hidden` 或 `document.visibilityState`。
+
+<MDXCodeBlock>
+  {useIdle}
+</MDXCodeBlock>
+
+## 挑战
+
+在上面的解决方案（也可能在你的解决方案中）中，我们正在监视 `mousemove` 事件。这意味着每次用户移动鼠标时，都会调用 `handleEvent` 来重置 `idle` 状态！这种行为也发生在经常调度的事件中，例如 `resize` 或 `wheel`。你能想到一种优化方法吗？

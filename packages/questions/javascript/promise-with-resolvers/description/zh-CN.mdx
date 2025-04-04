@@ -1,0 +1,70 @@
+---
+title: Promise.withResolvers
+excerpt: 实现一个函数，该函数返回一个包含新的 `Promise` 对象和两个用于解决或拒绝它的函数的对象
+---
+
+静态方法 `Promise.withResolvers()` 返回一个包含新的 `Promise` 对象和两个用于解决或拒绝它的函数的对象，这两个函数对应于传递给 `Promise()` 构造函数的执行器的两个参数。
+
+*来源：[Promise.withResolvers() - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/withResolvers)*
+
+这种用法可以提高代码可读性，并使其更容易管理异步操作，尤其是在您需要从代码的不同部分解决或拒绝 `Promise` 时。
+
+以下是它如何使用的一个示例：
+
+```js
+function delayedGreeting(name) {
+  const { promise, resolve, reject } = Promise.withResolvers();
+
+  setTimeout(() => {
+    if (name) {
+      resolve(`Hello, ${name}!`);
+    } else {
+      reject(new Error('Name is required.'));
+    }
+  }, 1000);
+
+  return promise;
+}
+
+delayedGreeting('Alice')
+  .then((message) => console.log(message)) // Output: Hello, Alice!
+  .catch((error) => console.error(error));
+
+delayedGreeting()
+  .then((message) => console.log(message))
+  .catch((error) => console.error(error)); // Output: Error: Name is required.
+```
+
+## 要求
+
+将 `Promise.withResolvers` 函数实现为 `promiseWithResolvers`，一个独立的实用函数。
+
+## 示例
+
+成功案例：
+
+```js
+const { promise, resolve, reject } = promiseWithResolvers();
+
+// 稍后在您的代码中
+resolve('Success!');
+promise.then((result) => console.log(result)); // Output: Success!
+```
+
+实现超时：
+
+```js
+function timeoutPromise(duration) {
+  const { promise, resolve, reject } = promiseWithResolvers();
+
+  setTimeout(() => reject(new Error('Timeout')), duration);
+
+  return promise;
+}
+
+timeoutPromise(2000).catch((error) => console.error(error.message)); // Output after 2 seconds: Timeout
+```
+
+## 资源
+
+* [Promise.withResolvers() - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/withResolvers)

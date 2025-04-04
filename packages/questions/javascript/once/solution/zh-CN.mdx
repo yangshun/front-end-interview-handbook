@@ -1,0 +1,30 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import onceJs from '../setup/src/once.js';
+import onceTs from '../setup/src/once.ts';
+
+## 解决方案
+
+我们可以使用闭包来捕获返回函数所需的状态。返回函数的闭包可以访问以下变量：
+
+* `func`：`once()` 的参数，要调用的回调函数。
+* `ranOnce`：一个布尔变量，指示是否已调用回调函数。如果值为 `true`，则不会再次调用 `func`。
+* `value`：由于我们需要返回第一次调用的值以供后续调用，因此我们必须保存第一次调用的结果，并在后续调用中直接返回它。
+
+<MDXCodeBlock languages={{ jsx: onceJs, tsx: onceTs }} />
+
+请注意，回调函数是使用创建函数的 `this` 绑定和参数调用的，因此如果希望 `this` 的值引用调用创建函数的对象，则不能返回箭头函数。
+
+## 边缘情况
+
+* 访问 `this` 的函数。
+
+## 技术
+
+* 闭包。
+* `this` 的工作原理。
+* 通过 `Function.prototype.apply()`/`Function.prototype.call()` 调用函数。
+
+## 资源
+
+* [Lodash `_.once`](https://lodash.com/docs/4.17.15#once)

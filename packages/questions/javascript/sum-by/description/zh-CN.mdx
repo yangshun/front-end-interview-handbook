@@ -1,0 +1,37 @@
+---
+title: Sum By
+excerpt: 实现一个基于指定条件的求和函数
+---
+
+实现一个函数 `sumBy(array, iteratee)`，该函数在遍历 `array` 后，计算 `iteratee` 的返回值之和。
+
+## 参数
+
+1. `array` *(Array)*: 要迭代的数组。
+2. `iteratee` *(Function)*: 每次迭代调用的函数，该函数接受一个参数：*(value)*。
+
+## 返回值
+
+*`(Number)`*: 返回总和。
+
+## 例子
+
+```js
+sumBy([{ n: 1 }, { n: 3 }], (o) => o.n;); // => 4
+
+sumBy([2, 3, 1, 4], (num) => num); // => 10
+```
+
+该函数应忽略 `iteratee` 产生 `null` 或 `undefined` 的元素，并且当 `array` 为空时返回 0。
+
+```js
+sumBy([], (o) => o); // => 0
+
+sumBy([{ n: 1 }, { n: 2 }], (o) => o.m); // => undefined
+
+sumBy([{ n: 1 }, { m: 2 }], (o) => o.m); // => 2
+```
+
+## 资源
+
+* [Lodash `_.sumBy`](https://lodash.com/docs/#sumBy)

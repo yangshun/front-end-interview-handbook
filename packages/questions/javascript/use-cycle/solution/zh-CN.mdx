@@ -1,0 +1,13 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import useCycle from '../setup/src/use-cycle';
+
+## Solution
+
+可以使用 `useState` 钩子实现 `useCycle` 钩子，该钩子存储表示当前值的序列中的当前索引。`cycle` 函数可以通过将索引递增 1 模序列的长度来实现，以便在达到序列的长度时循环回到 0。
+
+可以使用 [rest parameter syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters) 实现不定数量的参数。
+
+<MDXCodeBlock>
+  {useCycle}
+</MDXCodeBlock>

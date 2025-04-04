@@ -1,0 +1,42 @@
+---
+title: Range Right
+excerpt: 实现一个按降序返回数字序列的函数
+---
+
+实现一个函数 `rangeRight([start=0], end, [step=1])`，它创建一个从 `start` 递增到（但不包括）`end` 的数字数组，步长为指定的 `step`，类似于 [`range`](/questions/javascript/range)，但按降序排列。
+
+## 参数
+
+1. `start` *(Number)*: 范围的开始。
+2. `end` *(Number)*: 范围的结束。
+3. `step` *(Number)*: 递增或递减的值。
+
+## 返回值
+
+*`(Array)`*: 返回数字的范围。
+
+## 例子
+
+```js
+rangeRight(4); // => [3, 2, 1, 0]
+
+rangeRight(-4); // => [-3, -2, -1, 0]
+
+rangeRight(1, 5); // => [4, 3, 2, 1]
+
+rangeRight(0, 20, 5); // => [15, 10, 5, 0]
+
+rangeRight(0, -4, -1); // => [-3, -2, -1, 0]
+
+rangeRight(1, 4, 0); // => [1, 1, 1]
+```
+
+如果 `start` 等于 `end`，则该函数应返回一个空数组。
+
+```js
+rangeRight(0); // => []
+```
+
+## 资源
+
+* [Lodash `_.rangeRight`](https://lodash.com/docs/#rangeRight)

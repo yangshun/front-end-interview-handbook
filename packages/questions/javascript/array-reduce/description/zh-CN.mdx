@@ -1,0 +1,19 @@
+---
+title: Array.prototype.reduce
+excerpt: 实现 Array.prototype.reduce() 方法
+---
+
+`Array.prototype.reduce` 是一种通过在数组的每个元素上调用“reducer”回调函数来“减少”数组中元素的方法，该回调函数按顺序执行，并传入前一个元素计算的返回值。在数组的所有元素上运行 reducer 的最终结果是一个单一的值。
+
+实现 `Array.prototype.reduce`。为了避免覆盖自动评分器正在使用的实际 `Array.prototype.reduce`，我们将把它实现为 `Array.prototype.myReduce`。
+
+## 例子
+
+```js
+[1, 2, 3].myReduce((prev, curr) => prev + curr, 0); // 6
+[1, 2, 3].myReduce((prev, curr) => prev + curr, 4); // 10
+```
+
+## 注意事项
+
+关于 `Array.prototype.reduce` 函数的工作方式以及传递给 reducer 回调的值，有一些细微差别。建议您在尝试之前阅读 [MDN 文档](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce) 上关于 `Array.prototype.reduce` 的规范。

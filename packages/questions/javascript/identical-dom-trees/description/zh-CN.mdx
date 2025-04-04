@@ -1,0 +1,34 @@
+---
+title: 相同的 DOM 树
+excerpt: 实现一个函数来确定两棵 DOM 树是否相同
+---
+
+实现一个函数 `identicalDOMTrees`，用于检查两棵 DOM 树是否相同。该函数接受两个 DOM 节点作为两棵 DOM 树的根节点，并返回一个布尔值结果。
+
+如果两棵 DOM 树在结构上相似，并且一棵树上的 DOM 节点与另一棵树上相同相对位置的节点具有完全相同的属性，则认为这两棵 DOM 树是相同的。
+
+## 例子
+
+树 A 和树 B 被认为是相同的。
+
+```html
+<!-- 树 A -->
+<div>Hello World</div>
+
+<!-- 树 B -->
+<div>Hello World</div>
+```
+
+树 C 和树 D 被认为是不相同的。
+
+```html
+<!-- 树 C -->
+<div class="header">Hello World</div>
+
+<!-- 树 D -->
+<div id="foo">Hello World</div>
+```
+
+## 注意事项
+
+* 树中存在的唯一 `Node` 类型是 `Element` 节点和 `Text` 节点。

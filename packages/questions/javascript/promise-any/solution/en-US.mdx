@@ -39,7 +39,7 @@ The pending counter is essential in ensuring correct behavior. For example, an a
 ```js
 errors[index] = await error;
 if (errors.length == iterable.length) {
-  reject(new AggregateError(errors))
+  reject(new AggregateError(errors));
 }
 ```
 
@@ -51,7 +51,7 @@ Here's an alternative version which uses `Promise.then()` if you prefer not to u
 
 <MDXCodeBlock>{promiseAnyThen}</MDXCodeBlock>
 
-## Edge Cases
+## Edge cases
 
 - Empty input array. The promise should reject with an `AggregateError`.
 

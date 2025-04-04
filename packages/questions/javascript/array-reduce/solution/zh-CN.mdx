@@ -1,0 +1,53 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import arrayReduceJs from '../setup/src/array-reduce.js';
+import arrayReduceTs from '../setup/src/array-reduce.ts';
+import reduceSpec from '../setup/src/reduceSpec';
+
+这个问题乍一看可能很简单，但其中的细微差别使得这个问题比表面上看起来更棘手。了解这些细微差别可以区分资深候选人，并为你加分。你是否知道：
+
+* 归约器回调函数分别将 `currentIndex` 和 `array` 作为第三个和第四个参数传递？
+* 如果没有向 reduce 函数提供初始值，则使用索引 0 处的数组元素，并且迭代从下一个元素（索引 1 而不是索引 0）开始。
+
+## 解决方案
+
+考虑到这些细微差别，其余的实现非常简单。当我们在数组（通过 `this`）中循环时，对每个数组元素调用回调函数，并使用以下参数：`acc`、`element`、`index` 和 `this`。返回的值将成为新的 `acc`，传递给 `callbackFn` 的下一次调用。
+
+<MDXCodeBlock languages={{ jsx: arrayReduceJs, tsx: arrayReduceTs }} />
+
+## 边缘情况
+
+* 空数组，有和没有 `initialValue` 参数。
+* 单值数组，有和没有 `initialValue` 参数。
+* 将 `index` 和 `array` 传递给归约器回调函数。
+* 稀疏数组，例如 `[1, 2, , 4]`。在遍历数组时应忽略空值。
+
+## 笔记
+
+在 reduce 回调中修改数组是一个坏主意，可能会导致意想不到的后果。提到在回调中修改数组是可能的，这是一个积极的信号。提供的解决方案遵循 TC39 规范，用于数组修改场景：
+
+* `reduce` 处理的元素范围在调用第一个回调函数之前设置。
+* 在调用 `reduce` 开始后添加到数组中的元素将不会被回调访问。
+* 如果更改了数组的现有元素，则传递给回调的值将是 `reduce` 访问它们时的值。
+* 在调用 `reduce` 开始后但在被访问之前删除的元素不会被访问。
+
+## 单行解决方案
+
+你可以通过这样做来欺骗自动评分程序：
+
+```js
+Array.prototype.myReduce = Array.prototype.reduce;
+```
+
+## 规范解决方案
+
+这是一个基于 [`Array.prototype.reduce` ECMAScript 规范](https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.prototype.reduce) 的解决方案。
+
+<MDXCodeBlock>
+  {reduceSpec}
+</MDXCodeBlock>
+
+## 资源
+
+* [`Array.prototype.reduce` | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce)
+* [`Array.prototype.reduce` ECMAScript 规范](https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.prototype.reduce)

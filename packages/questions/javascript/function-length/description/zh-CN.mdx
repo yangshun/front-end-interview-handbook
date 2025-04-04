@@ -1,0 +1,22 @@
+---
+title: 函数长度
+excerpt: 实现一个函数，该函数返回函数期望的参数数量
+---
+
+实现一个函数 `functionLength`，以返回函数期望的参数数量。请注意，这是一个由函数定义的静态值，而不是函数被调用时使用的参数数量（由 `arguments.length` 确定）
+
+附注：实际上，由于它是一个简单的包装器，因此不需要此函数。但是，了解如何确定函数期望的参数数量很有用，这对于 [Curry II](/questions/javascript/curry-ii) 等问题很有用。
+
+```js
+function foo() {}
+function bar(a) {}
+function baz(a, b) {}
+
+functionLength(foo); // 0
+functionLength(bar); // 1
+functionLength(baz); // 2
+```
+
+## 资源
+
+* [Function: length | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/length)

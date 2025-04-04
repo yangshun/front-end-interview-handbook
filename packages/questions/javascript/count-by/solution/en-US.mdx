@@ -7,14 +7,14 @@ import countByAltTs from '../setup/src/count-by-alt.ts';
 
 ## Solution
 
-### Solution 1: Standard method of basic functions
+### Approach 1: Standard method of basic functions
 
 1. Create an empty `result` object to store the count of occurrences of each key.
 1. Iterate through the array and determine the key for each element by calling `iteratee(element)`. If the key does not exist within the `result` object, set the value for that key to 0. Next we can increment the value for that key.
 
 <MDXCodeBlock languages={{ jsx: countByJs, tsx: countByTs }} />
 
-### Solution 2: Using nullish coalescing assignment operator
+### Approach 2: Using nullish coalescing assignment operator
 
 An alternative way to increment the `result` counter is to use the [nullish coalescing assignment operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_assignment) to set the value to 0 if `key` doesn't exist within `result`. Note that using nullish coalescing assignment operator means you might be accessing inherited properties, which is not desired, but since the object is created via `Object.create(null)`, there will not be inherited properties and is safe to use.
 

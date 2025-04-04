@@ -1,0 +1,25 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import minByJs from '../setup/src/min-by.js';
+import minByTs from '../setup/src/min-by.ts';
+
+## 解决方案
+
+这是一个基于给定的 `iteratee` 在 `array` 中找到最小元素的解决方案。它遍历 `array`，使用数组元素调用 `iteratee` 函数，并跟踪产生最小值的元素。
+
+使用了两个变量：
+
+* `result`：跟踪要返回的最小元素。
+* `computed`：跟踪当前最小元素的计算值，该值将用于与后续元素的计算值进行比较。
+
+<MDXCodeBlock languages={{ jsx: minByJs, tsx: minByTs }} />
+
+## 边缘情况
+
+由于 `iteratee` 是用户提供的，并且可以返回任何类型的值，因此我们必须特别注意忽略无法比较的计算值，例如 `null` 和 `undefined`。对于此类计算值，应完全忽略它们。
+
+该函数还应返回产生最小计算值的元素的第一次出现，即使数组中的许多元素可以产生相同的最小计算值。
+
+## 资源
+
+* [Lodash `_.minBy`](https://lodash.com/docs/#minBy)

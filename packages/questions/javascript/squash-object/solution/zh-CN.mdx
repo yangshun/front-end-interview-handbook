@@ -1,0 +1,94 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import squashObjectJs from '../setup/src/squash-object.js';
+import squashObjectTs from '../setup/src/squash-object.ts';
+
+这是一个非常棘手的问题，因为我们不仅需要使用递归遍历对象，而且还必须更改对象的形状，即当到达基本值时，将给定路径的所有键粘合在一起。 这也要求我们在遍历树（对象）时跟踪键。
+
+## 解决方案
+
+通常有两种方法可以遍历一个对象：
+
+1. 使用旧式的 `for ... in` 语句循环遍历键。
+2. 使用 `Object.keys()` 将对象转换为键的数组，或使用 `Object.entries()` 转换为键值元组的数组。
+
+使用 `for ... in` 语句，也会处理继承的可枚举属性。 因此，通常您会添加一个 `Object.hasOwn()` 检查，以确保该属性不是从其原型继承的。 另一方面，`Object.keys()` 和 `Object.entries()` 只关心直接在对象上定义的属性，这通常是我们想要的。
+
+以下是我们访问每个属性的方式。 当给定属性的值是一个对象时，我们将不得不使用递归重复该过程。
+
+```js
+function squashObject(object) {
+  for (const [key, value] of Object.entries(object)) {
+    if (typeof value !== 'object' || value !== null) {
+      // Add props with glued/squashed keys.
+    } else {
+      // Recursion by calling squashObject.
+    }
+  }
+}
+```
+
+我们还需要跟踪当前值路径上的键，以便我们可以将它们压缩以形成输出对象的新键。 为此，我们需要将键传递给递归调用。 我们添加一个新的参数调用 `path`，它是一个字符串数组，用于存储在给定路径上探索的键。 当当前值是一个基本值时，即我们是对象的结尾时，我们将 `path` 连接在一起以形成键并为其赋值。
+
+这是定义了一个内部递归辅助函数的解决方案，该函数接受 `path` 和 `output` 参数。
+
+<MDXCodeBlock languages={{ jsx: squashObjectJs, tsx: squashObjectTs }} />
+
+如果这看起来仍然让您感到困惑，请不要担心，因为大多数人发现递归很难理解和理解。 这种思维方式涉及同时在您的脑海中保留多个级别的调用堆栈，并且需要时间和练习才能习惯。
+
+### 替代方法
+
+这个问题很有趣，因为它要求您根据当前对象创建一个具有不同形状的新对象。 在之前的解决方案中，我们通过递归传递 `output` 对象并在值是基本类型时直接将新键分配给输出 `object` 来实现这一点。
+
+我们可以用来处理对象的另一种技术是使用 `Object.entries` 将对象转换为键值元组的数组，并使用数组方法（例如 `Array.prototype.map`）转换这些元组，然后通过 `Object.fromEntries` 将其转换回对象。
+
+假设我们有以下对象：
+
+```js
+const object = {
+  a: 5,
+  c: {
+    f: 9,
+  },
+};
+```
+
+`Object.entries(object)` 将为我们提供 `[['a', 5], ['c', { f: 9 }]]`。 要获得具有压缩键的对象，即 `{ a: 5, 'c.f': 9 }`，我们需要将数组 `[['a', 5], ['c', { f: 9 }]]` 转换为 `[['a', 5], ['c.f', 9]]` 并将其传递给 `Object.fromEntries`。
+
+这是第二个解决方案，您可能会发现它比之前的解决方案更容易理解。
+
+```js
+function chunk(array, size = 2) {
+  // Helper function that groups two adjacent items in an array into one subarray.
+  const chunkedArray = [];
+  while (array.length) {
+    chunkedArray.push(array.splice(0, size));
+  }
+  return chunkedArray;
+}
+
+function traverse(object, path = []) {
+  if (typeof object !== 'object' || object === null) {
+    return [path.join('.'), object];
+  }
+
+  return Object.entries(object).flatMap(([key, value]) => {
+    const newPath = key === '' ? [...path] : [...path, key];
+    return traverse(value, newPath);
+  });
+}
+
+export default function squashObject(object) {
+  const flattened = traverse(object);
+  return Object.fromEntries(chunk(flattened));
+}
+```
+
+## 边缘情况
+
+* 输入必须是一个对象，而不是原始值。
+* 忽略以 Symbol 为键的属性和不可枚举的属性。
+* 循环对象没有得到妥善处理。
+* 具有不同值的冲突键。JavaScript 键也可以包含 `.`，并且包含 `.` 的现有键可能与结果键冲突。例如 `{ a: { b: 1 }, 'a.b': 2 }`。
+  * 你应该在面试中指出这种情况，但可能不必处理它。
+* 空字符串的键。

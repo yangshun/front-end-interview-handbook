@@ -1,0 +1,30 @@
+---
+title: 取反
+excerpt: 实现一个函数，该函数创建一个函数，该函数否定谓词函数的结果
+---
+
+实现一个函数 `negate(predicate)`，该函数创建一个函数，该函数否定谓词函数的结果。 谓词使用创建函数的 `this` 绑定和参数调用。
+
+```js
+negate(predicate);
+```
+
+## 参数
+
+1. `predicate` *(Function)*: 要取反的谓词。
+
+## 返回值
+
+*`(Function)`*: 返回新的取反函数。
+
+## 例子
+
+```js
+const isOdd = negate(isEven);
+isOdd(1); // => true
+isOdd(2); // => false
+```
+
+## 资源
+
+* [Lodash `_.negate`](https://lodash.com/docs/#negate)

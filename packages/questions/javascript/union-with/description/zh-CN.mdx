@@ -1,0 +1,41 @@
+---
+title: Union With
+excerpt: 实现一个函数，该函数根据特定的比较标准，从所有给定数组中创建一个按顺序排列的唯一值数组。
+---
+
+实现一个函数 `unionWith(array)`，该函数从所有给定数组中创建一个按顺序排列的唯一值数组，并接受 `comparator`，该函数将为每对元素调用以检查其唯一性。
+
+```js
+unionWith(comparator, arrays);
+```
+
+## 参数
+
+1. `comparator` *(Function)*: 每个元素调用的比较器。该函数使用两个参数调用。
+2. `[arrays]` *(...Array)*: 要检查的数组
+
+## 返回值
+
+*`(Array)`*: 返回合并值的的新数组。
+
+## 例子
+
+```js
+unionWith((a, b) => a === b, [2], [1, 2]); // => [2, 1]
+
+unionWith((a, b) => Math.floor(a) === Math.floor(b), [2.1], [1.2, 2.3]); // => [2.1, 1.2]
+
+unionWith((a, b) => a.x === b.x, [{ x: 1 }], [{ x: 2 }, { x: 1 }]); // => [{ 'x': 1 }, { 'x': 2 }]
+```
+
+如果 `array` 为空，则该函数应返回一个空数组，并将 false 值原样处理。
+
+```js
+unionWith((a, b) => a === b, []); // => []
+
+unionWith((a, b) => a.m === b.m, [{ n: 1 }], [{ m: 2 }]); // => [{ n: 1 }, { m: 2 }]
+```
+
+## 资源
+
+* [Lodash `_.unionWith`](https://lodash.com/docs/#unionWith)

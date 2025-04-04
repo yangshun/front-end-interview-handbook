@@ -1,0 +1,30 @@
+---
+title: useWindowSize
+excerpt: 实现一个返回窗口当前高度和宽度的 Hook
+---
+
+实现一个 `useWindowSize` Hook，它返回窗口的当前高度和宽度（`window.innerHeight` 和 `window.innerWidth`）。如果屏幕属性发生变化，它应该重新渲染组件。
+
+```jsx
+export default function Component() {
+  const screen = useWindowSize();
+
+  return (
+    <div>
+      <p>The current window dimensions are:</p>
+      <code>{JSON.stringify(screen, null, 2)}</code>
+    </div>
+  );
+}
+```
+
+## 参数
+
+无。
+
+## 返回值
+
+该 Hook 返回一个具有以下属性的对象：
+
+* `height: number`：屏幕的当前高度
+* `width: number`：屏幕的当前宽度

@@ -1,0 +1,29 @@
+---
+title: Promise 合并
+excerpt: 实现一个函数，将两个 Promise 的结果合并成一个单一的值
+---
+
+实现一个接受两个 Promise 并返回单个 `Promise` 的函数。当两个输入 Promise 都被兑现时，此返回的 Promise 将被兑现，并根据兑现值的顺序和类型提供一个单一的值：
+
+* 数字应该相加。
+* 字符串应该连接。
+* 数组应该合并成一个单一的数组。
+* 纯对象应该合并成一个单一的对象。
+* 不支持其他类型。
+
+如果发生以下情况之一，则返回的 Promise 也可以被拒绝：
+
+* 兑现结果的类型不匹配，则拒绝并显示字符串 `'不支持的数据类型'`。
+* 其中一个 Promise 失败，则拒绝并显示被拒绝的 Promise 的原因。
+
+## 例子
+
+```js
+await promiseMerge(Promise.resolve(1), Promise.resolve(2)); // 3
+await promiseMerge(Promise.resolve('abc'), Promise.resolve('def')); // 'abcdef'
+await promiseMerge(Promise.resolve([1, 2, 3]), Promise.resolve([4, 5, 6])); // [1, 2, 3, 4, 5, 6]
+await promiseMerge(Promise.resolve({ foo: 1 }), Promise.resolve({ bar: 2 })); // { foo: 1, bar: 2}
+
+await promiseMerge(Promise.resolve(1), Promise.resolve([])); // Rejected with 'Unsupported data types'
+await promiseMerge(Promise.reject(1), Promise.resolve(2)); // Rejected with 1
+```

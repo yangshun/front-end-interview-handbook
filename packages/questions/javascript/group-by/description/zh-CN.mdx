@@ -1,0 +1,41 @@
+---
+title: 分组
+excerpt: 实现一个函数，该函数根据函数或属性名称对数组中的值进行分组
+---
+
+实现一个函数 `groupBy(array, iteratee)`，它接受一个数组和一个 `iteratee` 函数，并根据 `iteratee` 对数组中的值进行分组。
+
+```js
+groupBy(array, iteratee);
+```
+
+## 参数
+
+1. `array` *(Array)*: 要迭代的数组。
+2. `iteratee` *(Function)*: 用于转换元素的 iteratee。该函数使用一个参数调用：(value)。
+
+## 返回值
+
+*`(Object)`*: 返回组合的聚合对象。
+
+## 例子
+
+```js
+groupBy([6.1, 4.2, 6.3], Math.floor);
+// => { '4': [4.2], '6': [6.1, 6.3] }
+
+groupBy([{ n: 3 }, { n: 5 }, { n: 3 }], (o) => o.n);
+// => { '3': [{ n: 3 }, { n: 3 }], '5': { n: 5 } }
+```
+
+当 `array` 为空时，该函数应返回 `{}`，并在通过 `iteratee` 后将 `null` / `undefined` 键视为其本身。
+
+```js
+groupBy([], (o) => o); // => {}
+
+groupBy([{ n: 1 }, { n: 2 }], (o) => o.m); // => { undefined: [{ n: 1 }, { n: 2 }] }
+```
+
+## 资源
+
+* [Lodash `_.groupBy`](https://lodash.com/docs/#groupBy)

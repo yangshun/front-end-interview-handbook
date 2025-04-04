@@ -1,0 +1,12 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import useStateWithResetJs from '../setup/src/use-state-with-reset.js';
+import useStateWithResetTs from '../setup/src/use-state-with-reset.ts';
+
+## 解决方案
+
+`useStateWithReset` 钩子可以使用 `useState` 钩子来实现。然后，我们另外定义一个 `reset` 函数，该函数将状态重置为其初始值。
+
+挑战在于，当我们意识到 `useState` 也可以接受一个 [初始化函数](https://react.dev/reference/react/useState#parameters) 来计算其初始值。如果用户提供了初始化函数，则 `reset` 函数应仅在状态初始化期间*被调用时*将状态重置为该初始化函数返回的值。
+
+<MDXCodeBlock languages={{ jsx: useStateWithResetJs, tsx: useStateWithResetTs }} />

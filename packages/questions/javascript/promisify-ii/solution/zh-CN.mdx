@@ -1,0 +1,16 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import promisifyJs from '../setup/src/promisify-ii.js';
+import promisifyTs from '../setup/src/promisify-ii.ts';
+
+**注意：**这是[Promisify](/questions/javascript/promisify)的高级版本，在尝试此问题之前，您应该先完成它。
+
+## 解决方案
+
+您唯一需要做的就是检查 `func` 参数是否定义了自定义的 `Symbol.for('util.promisify.custom')`，如果是，则返回相应的值。
+
+<MDXCodeBlock languages={{ jsx: promisifyJs, tsx: promisifyTs }} />
+
+## 资源
+
+* [自定义 promisified 函数 | Node.js](https://nodejs.org/api/util.html#custom-promisified-functions)

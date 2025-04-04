@@ -1,0 +1,27 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import useEffectOnce from '../setup/src/use-effect-once';
+
+## 解决方案
+
+可以使用 `useRef` 实现 `useEffectOnce` 钩子，以跟踪效果是否已运行。如果此 ref 的值已更改，则意味着该效果已运行一次，我们不应再次运行它。我们在这里使用 `useRef`，因为它在值更改时不会触发重新渲染，并且在渲染之间是稳定的。
+
+<MDXCodeBlock>
+  {useEffectOnce}
+</MDXCodeBlock>
+
+## 边缘情况
+
+您可能想用一个空的依赖项数组只用 `useEffect` 来实现 `useEffectOnce`。
+
+```tsx
+import { EffectCallback, useEffect, useRef } from 'react';
+
+export default function useEffectOnce(effect: EffectCallback) {
+  useEffect(effect, []);
+}
+```
+
+此实现将适用于大多数情况，但在开发模式下与 [`<StrictMode>`](https://react.dev/reference/react/StrictMode) 配合使用时会引起问题，[`<StrictMode>`](https://react.dev/reference/react/StrictMode) 是每个 React 项目中的默认设置。此实现仅在重新渲染时运行一次效果，但不会在*卸载*时运行。这意味着如果组件被卸载并再次挂载，该效果将再次运行。`<StrictMode>` 应该捕获此类错误，并且使用此实现，该效果将在开发模式下至少运行两次；它将仅在生产模式下运行一次。
+
+当钩子说“一次”时，它应该意味着*实际上*一次，并且在整个应用程序的生命周期中永远不会再次运行，除非刷新浏览器。如果开发人员希望让效果每次挂载时运行一次，他们已经使用了带有空依赖项数组的 `useEffect`。

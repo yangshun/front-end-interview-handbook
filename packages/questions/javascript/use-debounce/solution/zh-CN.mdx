@@ -1,0 +1,11 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import useDebounce from '../setup/src/use-debounce';
+
+## 解决方案
+
+`useDebounce` 钩子可以使用 `useState` 存储当前的防抖值，并使用 `useEffect` 在指定的 `delay` 后使用 `setTimeout` 更新防抖值来实现。如果 `value` 发生变化，则意味着状态已更新，因此我们使用 `clearTimeout` 在卸载时清除超时，并设置一个新的超时以更新当前的防抖值。
+
+<MDXCodeBlock>
+  {useDebounce}
+</MDXCodeBlock>

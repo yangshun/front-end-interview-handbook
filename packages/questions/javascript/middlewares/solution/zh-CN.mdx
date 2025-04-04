@@ -1,0 +1,147 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+import middlewares from '../setup/src/middlewares.ts';
+import middlewaresPromises from '../setup/src/middlewares-promises.ts';
+
+## 解决方案
+
+这个问题是关于通过 `next()` 回调函数传递控制权的**函数组合**。 关键思想是**递归**：
+
+* 每个中间件都使用 `next()` 函数调用
+* 当调用 `next()` 时，它应该移动到链中的*下一个中间件*
+* 这种递归需要是**异步的**，以支持每个中间件内的 `await` 语句
+
+不能使用 `for` 循环，因为我们需要在继续之前 `await` 每一层的完成。 只有递归或受控的 `next` 链才能模拟这种控制流。
+
+### 步骤 1：包装函数
+
+定义一个函数 `middlewares(...fns)`，它接受任意数量的中间件函数并返回一个组合的可调用函数。 此函数接受上下文。
+
+```js
+function middlewares(...fns) {
+  return async function(context = {}) {
+    ...
+  };
+}
+```
+
+### 步骤 2：递归执行
+
+此递归函数负责按顺序执行每个中间件。
+
+```js
+async function execute(index) {
+  if (index === fns.length) {
+    return;
+  }
+
+  const fn = fns[index];
+  await fn(context, () => execute(index + 1));
+}
+```
+
+* `index` 跟踪中间件链中的位置
+* 当我们到达链的末尾时停止
+* 每个 `fn` 都使用当前的 `context` 和一个 `next()` 函数调用，该函数调用 `execute(index + 1)`
+
+这允许 `await next()` 暂停当前中间件的执行，直到所有下游中间件完成。
+
+### 步骤 3：启动链
+
+通过在返回的函数中调用 `execute(0)` 来启动中间件链。
+
+```js
+await execute(0);
+```
+
+### 示例演练
+
+```js
+// stack = []
+
+fn1 => push "fn1-start"
+       await next()
+         ↳ fn2 => push "fn2-start"
+                  await delay
+                  await next()
+                    ↳ fn3 => push "fn3-start"
+                             next()
+                             push "fn3-end"
+                  push "fn2-end"
+       push "fn1-end"
+
+// Final stack:
+['fn1-start', 'fn2-start', 'fn3-start', 'fn3-end', 'fn2-end', 'fn1-end']
+```
+
+这是完整的解决方案：
+
+<MDXCodeBlock>
+  {middlewares}
+</MDXCodeBlock>
+
+**注意**：`index` 不应在返回的函数之外定义为变量，否则对返回函数的调用将引用相同的 `index` 值，并且该函数只能被调用一次。
+
+以下代码使用共享的 `index`，并且无法通过某些测试用例：
+
+```ts
+type MiddlewareFn =
+  | ((context: any, next: () => Promise<void>) => Promise<void>)
+  | ((context: any, next: () => Promise<void>) => void);
+
+export default function middlewares(
+  ...fns: Array<MiddlewareFn>
+): (context?: any) => Promise<void> {
+  let index = 0; // 错误：所有函数调用都共享此索引
+
+  return async function (context = {}) {
+    async function execute(): Promise<void> {
+      if (index === fns.length) {
+        return;
+      }
+
+      const fn = fns[index];
+      await fn(context, () => {
+        index++;
+        execute();
+      });
+    }
+
+    await execute();
+  };
+}
+```
+
+### 替代方法：仅使用 Promise
+
+以下解决方案不使用 `async`/`await`。
+
+<MDXCodeBlock>
+  {middlewaresPromises}
+</MDXCodeBlock>
+
+## 边缘情况
+
+### 未提供中间件
+
+```js
+const composed = middlewares();
+await composed(); // 应该什么都不做，不崩溃
+```
+
+### 同步中间件
+
+您的代码仍然必须处理同步调用且未被等待的 `next()`。递归结构确保这仍然可以正常工作。
+
+### 不调用 `next()` 的中间件
+
+这将提前停止链。这是预期的行为：
+
+```js
+function fn(ctx, next) {
+  console.log("不调用 next");
+}
+```
+
+### 中间件抛出异常
+
+您可以选择将每个中间件调用包装在 `try`/`catch` 中以优雅地处理此问题，但除非另有说明，否则并非严格要求。

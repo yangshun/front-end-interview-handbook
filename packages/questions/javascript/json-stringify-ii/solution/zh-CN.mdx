@@ -1,0 +1,51 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import jsonStringifyJs from '../setup/src/json-stringify-ii.js';
+import jsonStringifyTs from '../setup/src/json-stringify-ii.ts';
+
+这是一个难题，这不一定是因为逻辑或算法难以理解（尽管存在某些复杂性），更多的是因为您必须非常熟悉 `JSON.stringify` API，并且了解当传递给该函数的不是 JSON 支持的数据类型（例如函数、`regex` 和 `Date` 对象）时的所有复杂性。在面试中被要求实现一个处理这么多数据类型的解决方案的可能性极低。
+
+## 解决方案
+
+### 处理数据类型
+
+当直接传递不支持的类型 `undefined`、`Symbol` 和 `Function` 时，JSON.stringify 输出 `undefined`（不是字符串 `'undefined'`）：
+
+```js
+JSON.stringify(undefined); // undefined
+JSON.stringify(Symbol('foo')); // undefined
+JSON.stringify(() => {}); // undefined
+```
+
+对于其他内置对象类型（除了 `Function` 和 `Date`）例如 `Map`、`Set`、`WeakMap`、`WeakSet`、`Regex` 等，`JSON.stringify` 将返回一个空对象字面量的字符串，即 `{}`：
+
+```js
+JSON.stringify(/foo/); // '{}'
+JSON.stringify(new Map()); // '{}'
+JSON.stringify(new Set()); //'{}'
+```
+
+`NaN` 和 `Infinity` 被转换为 `null`，并且 `Date` 对象被 `JSON.stringify` 编码为 ISO 字符串，因为 `Date.prototype.toJSON`。是的，我们将不得不处理输入值中存在的自定义 `toJSON` 方法。
+
+### 循环引用
+
+最后，`JSON.stringify` 可以检测循环对象，即具有循环引用的对象，并通过抛出错误来停止字符串化。我们也将不得不考虑这一点。
+
+```js
+const foo = {};
+foo.a = foo;
+
+JSON.stringify(foo); // ❌ Uncaught TypeError: Converting circular structure to JSON
+```
+
+为了检测对象中的循环引用，我们可以使用 `Set` 来跟踪我们在遍历对象时访问过的属性值。一旦我们找到集合中已存在的值，我们就知道该对象具有循环引用。
+
+以下是我们编写它的方式：
+
+<MDXCodeBlock languages={{ jsx: jsonStringifyJs, tsx: jsonStringifyTs }} />
+
+## 笔记
+
+* 当前的实现仍然存在未涵盖的边缘情况。如果您有兴趣了解更多信息，请查看 [规范](https://262.ecma-international.org/5.1/#sec-15.12.3)。
+  * 特别是，像 `\n`、`\t` 这样的特殊字符需要分别转换为 `\\n`、`\\t`。
+* 一个可能的后续问题可能是让它更快。当前的实现涉及频繁的运行时类型检查，这是由于 JavaScript 语言的动态类型特性。我们可以使上述 `JSON.stringify` 的实现更快的一种方法是让用户提供对象的模式（例如，使用 [JSON Schema](https://json-schema.org/)），这样我们就可以在序列化之前知道对象的结构。这可以为我们节省大量猜测。事实上，许多 `JSON.stringify` 替代库都是以这种方式实现的，以使序列化更快。一个例子是 [fast-json-stringify](https://github.com/fastify/fast-json-stringify)。

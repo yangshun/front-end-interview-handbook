@@ -4,13 +4,15 @@ import usePrevious from '../setup/src/use-previous';
 
 ## Solution
 
+### Approach 1: `useState`
+
 The `usePrevious` hook can be implemented using two `useState` states, one for the current state and another for the previous state. We then simply update the previous state whenever the current state changes.
 
 <MDXCodeBlock>{usePrevious}</MDXCodeBlock>
 
 Notice how we set the states _during_ render and not in another `useEffect`? This is so that we won't need to waste one render cycle to update the previous state.
 
-## Another implementation with `useRef`
+### Approach 2: `useRef`
 
 You might have seen another implementation of `usePrevious` using `useRef`. It looks something like this.
 

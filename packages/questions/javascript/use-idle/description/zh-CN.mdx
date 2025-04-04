@@ -1,0 +1,30 @@
+---
+title: useIdle
+excerpt: 实现一个检测用户不活动状态的 Hook
+---
+
+实现一个 `useIdle` Hook，用于检测用户在指定时间内是否处于不活动状态。它会监听用户的交互，例如鼠标移动、键盘按下和触摸事件，并在检测到活动时重置计时器。
+
+如果用户在 `ms` 毫秒内没有触发 `events` 类型的事件，则认为用户处于不活动状态。此外，如果用户刚从另一个标签页切换到我们的标签页（提示：`visibilitychange` 事件），则不应认为用户处于不活动状态。
+
+```jsx
+export default function Component() {
+  const idle = useIdle();
+
+  return (
+    <div>
+      <p>状态：{idle ? '空闲' : '活动'}</p>
+    </div>
+  );
+}
+```
+
+## 参数
+
+1. `ms: number`: 在认为用户空闲之前要等待的毫秒数。默认为 `60_000`（1 分钟）
+2. `initialState: boolean`: 初始 `idle` 状态。默认为 `false`
+3. `events: (keyof WindowEventMap)[]`: 计为用户活动的一系列事件类型。默认值作为 `DEFAULT_EVENTS` 常量提供
+
+## 返回值
+
+该 Hook 返回一个 `boolean` 值，指示用户是否处于空闲状态。

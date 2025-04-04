@@ -1,0 +1,27 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import mapAsyncJs from '../setup/src/map-async.js';
+import mapAsyncTs from '../setup/src/map-async.ts';
+import mapAsyncPromiseAll from '../setup/src/map-async-promise-all.ts';
+
+## 解决方案
+
+这个问题与 [`Promise.all`](/questions/javascript/promise-all) 问题非常相似，由于这个问题可以简化为 [`Promise.all`](/questions/javascript/promise-all)，因此可以使用相同的方法。
+
+### 方法 1：计算未解决的 Promise
+
+唯一的区别是，您不必仅仅使用可迭代对象的数组，而是必须使用映射函数自己映射该数组，然后解析映射结果。
+
+<MDXCodeBlock languages={{ jsx: mapAsyncJs, tsx: mapAsyncTs }} />
+
+### 方法 2：`Promise.all`
+
+我们也可以使用 `Promise.all`，因为使用映射函数映射每个项目将生成一个要解析的 `Promise` 数组。
+
+<MDXCodeBlock>
+  {mapAsyncPromiseAll}
+</MDXCodeBlock>
+
+## 边缘情况
+
+我们没有指定将传递哪些参数给异步映射函数，因此由您与面试官澄清映射回调函数是否会像在 `Array.prototype.map` 中一样传递其他参数。

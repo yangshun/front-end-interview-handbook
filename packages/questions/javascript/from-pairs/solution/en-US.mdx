@@ -6,13 +6,13 @@ import fromPairsFromEntries from '../setup/src/from-pairs-from-entries';
 
 ## Solution
 
-### Solution 1: Loop through the `pairs` array
+### Approach 1: Loop through the `pairs` array
 
 A for-of loop can be used to iterate through `pairs` and set the key and value on a `result` object.
 
 <MDXCodeBlock languages={{ jsx: fromPairsJs, tsx: fromPairsTs }} />
 
-### Solution 2: Use `Object.fromEntries()`
+### Approach 2: Use `Object.fromEntries()`
 
 There's a built-in static method on `Object` to do exactly this -- it transforms a list of key-value pairs into an object.
 

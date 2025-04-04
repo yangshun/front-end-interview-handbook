@@ -1,0 +1,35 @@
+---
+title: 创建计数器 II
+excerpt: 实现一个函数，该函数返回一个计数器对象，该对象具有用于检索和操作值的各种方法
+---
+
+实现一个函数 `makeCounter`，它接受一个可选的整数值（默认为 0），并返回一个包含以下方法的对象：
+
+* `get()`：返回当前值。
+* `increment()`：增加当前值并返回它。
+* `decrement()`：减少当前值并返回它。
+* `reset()`：将当前值重置为初始值。
+
+## 例子
+
+```js
+const counter = makeCounter();
+counter.get(); // 0
+counter.increment(); // 1
+counter.increment(); // 2
+counter.get(); // 2
+counter.reset(); // 0
+counter.decrement(); // -1
+```
+
+使用自定义初始值：
+
+```js
+const counter = makeCounter(5);
+counter.get(); // 5
+counter.decrement(); // 4
+counter.decrement(); // 3
+counter.get(); // 3
+counter.reset(); // 5
+counter.increment(); // 6
+```

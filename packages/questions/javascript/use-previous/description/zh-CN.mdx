@@ -1,0 +1,30 @@
+---
+title: usePrevious
+excerpt: 实现一个返回状态前一个值的 Hook
+---
+
+实现一个 `usePrevious` Hook，它返回状态的前一个值。
+
+```jsx
+export default function Component() {
+  const [count, setCount] = useState(0);
+  const previousCount = usePrevious(count);
+
+  return (
+    <div>
+      <p>current: {count}</p>
+      <p>previous: {previousCount}</p>
+      <button onClick={() => setCount((count) => count + 1)}>Increase</button>
+      <button onClick={() => setCount((count) => count - 1)}>Decrease</button>
+    </div>
+  );
+}
+```
+
+## 参数
+
+* `state`：要跟踪的状态。这应该是一个任何类型的泛型值
+
+## 返回值
+
+`usePrevious` Hook 应该返回 `state` 参数的前一个状态。

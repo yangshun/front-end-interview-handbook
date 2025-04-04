@@ -1,0 +1,23 @@
+---
+title: Promisify
+excerpt: 实现一个函数，该函数接受一个遵循常见错误优先回调风格的函数，并返回一个返回 Promise 的版本
+---
+
+在 Promise/`async`/`await` 成为标准之前，JavaScript 中异步 API 接受回调作为最后一个参数是一种约定。 许多 Node.js API 的异步版本（例如 [`fs.readFile`](https://nodejs.org/api/fs.html#fsreadfilepath-options-callback) 和 [`fs.rm`](https://nodejs.org/api/fs.html#fsrmpath-options-callback)）都具有此类签名。 Node.js 的 [`util.promisify`](https://nodejs.org/api/util.html#util_util_promisify_original) 函数被创建用于包装基于回调的函数，通过返回 `Promise`，以便它们可以与 `async`/`await` 一起使用。
+
+实现一个函数 `promisify`，该函数接受一个遵循常见的回调最后错误优先风格的函数，即接受一个 `(err, value) => ...` 回调作为最后一个参数，并返回一个返回 Promise 的版本。
+
+## 示例
+
+```js
+// 带有回调作为最后一个参数的示例函数
+// 回调的签名是 `(err, value) => any`
+function foo(url, options, callback) {
+  apiCall(url, options)
+    .then((data) => callback(null, data))
+    .catch((err) => callback(err));
+}
+
+const promisifiedFoo = promisify(foo);
+const data = await promisifiedFoo('example.com', { foo: 1 });
+```

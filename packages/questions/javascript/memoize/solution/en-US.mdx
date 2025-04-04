@@ -26,7 +26,7 @@ Before invoking the original function `func`, the memoized function first checks
 
 <MDXCodeBlock languages={{ jsx: memoizeJs, tsx: memoizeTs }} />
 
-## Edge Cases
+## Edge cases
 
 - In practice, functions can take in multiple arguments of varying types beyond strings and numbers, so the current `memoize` implementation wouldn't be sufficient for those cases.
 - While `this` can be accessed without issues, the results are memoized solely on the input arguments, the same memoized result is returned for the same input arguments even if the `this` value is different between calls.

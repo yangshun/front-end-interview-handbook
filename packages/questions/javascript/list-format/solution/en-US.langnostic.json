@@ -1,0 +1,44 @@
+{
+  "frontmatter": {},
+  "content": {
+    "source": {
+      "locale": "en-US",
+      "hashes": [
+        "c340c67a",
+        "38287cc3",
+        "ef3b52fb",
+        "26e3ffe5",
+        "c680ca8e",
+        "43bf968a",
+        "801cea24",
+        "d5bb92ee",
+        "6bd08da0",
+        "4ef58664",
+        "add698fb",
+        "64af6940",
+        "76c55c43",
+        "dae7e089",
+        "a7ba62df"
+      ]
+    },
+    "targets": {
+      "zh-CN": [
+        "c340c67a",
+        "38287cc3",
+        "ef3b52fb",
+        "26e3ffe5",
+        "c680ca8e",
+        "43bf968a",
+        "801cea24",
+        "d5bb92ee",
+        "6bd08da0",
+        "4ef58664",
+        "add698fb",
+        "64af6940",
+        "76c55c43",
+        "dae7e089",
+        "a7ba62df"
+      ]
+    }
+  }
+}

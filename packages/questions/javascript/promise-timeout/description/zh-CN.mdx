@@ -1,0 +1,25 @@
+---
+title: Promise 超时
+excerpt: 实现一个函数，如果 promise 在超时期限内被 fulfilled，则解析该 promise，否则拒绝。
+---
+
+在获取数据或执行其他异步操作时，有时设置超时持续时间很有用，即强制在超时之前收到响应，否则将请求视为失败。
+
+实现一个 `promiseTimeout` 函数，该函数接受一个 promise 和一个超时持续时间（以毫秒为单位），并返回一个 `Promise`。如果 promise 参数在超时期限内被 settled，则返回的 promise 将使用 promise 参数的 settled 值进行 settled，该值可以是已解析/已拒绝的值。否则，返回的 promise 将被拒绝，并显示字符串“Promise timeout”。
+
+```js
+function fakeFetch(latency) {
+  return new Promise((resolve, reject) => {
+    // 模拟一个在 `latency` 之后解析的异步操作。
+    setTimeout(() => {
+      resolve('数据获取成功！');
+    }, latency);
+  });
+}
+
+const response = await promiseTimeout(fakeFetch(1000), 2000);
+console.log(response); // 数据获取成功！
+
+await promiseTimeout(fakeFetch(5000), 2000);
+// 抛出“Promise timeout”。
+```

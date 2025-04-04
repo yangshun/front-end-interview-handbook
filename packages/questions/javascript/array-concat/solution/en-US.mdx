@@ -14,11 +14,11 @@ Finally, return the `newArray`, which contains all the elements from the origina
 
 <MDXCodeBlock languages={{ jsx: concatJs, tsx: concatTs }} />
 
-## Edge Cases
+## Edge cases
 
 - Sparse arrays, e.g. `[1, 2, , 4]`. The empty values should be ignored while traversing the array.
 
-## One-liner Solution
+## One-liner solution
 
 You can cheat the autograder by doing this:
 
@@ -26,7 +26,7 @@ You can cheat the autograder by doing this:
 Array.prototype.myConcat = Array.prototype.concat;
 ```
 
-## Spec Solution
+## Spec solution
 
 Here's a solution that is based off the [`Array.prototype.concat` ECMAScript specification](https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.prototype.concat) but does not use the `Symbol.isConcatSpreadable` property.
 

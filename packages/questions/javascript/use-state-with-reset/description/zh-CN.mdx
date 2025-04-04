@@ -1,0 +1,28 @@
+---
+title: useStateWithReset
+excerpt: 实现一个类似于 useState 的 hook，但它有一个额外的 reset 函数，可以将状态重置为其初始值
+---
+
+实现一个类似于 `useState` 的 `useStateWithReset` hook，但它有一个额外的 `reset` 函数，可以将状态重置为其初始值。
+
+```jsx
+export default function Component() {
+  const [value, setValue, resetValue] = useStateWithReset(10);
+
+  return (
+    <div>
+      <div>Value: {value}</div>
+      <input onChange={(e) => setValue(e.target.value)} />
+      <button onClick={resetValue}>reset</button>
+    </div>
+  );
+}
+```
+
+## 参数
+
+* `initialValue`：状态的初始值。此参数应与 `useState` hook 的第一个参数相同
+
+## 返回值
+
+`useStateWithReset` hook 应该具有与 `useState` hook 相同的返回值，外加一个将状态重置为 `initialValue` 的附加函数
