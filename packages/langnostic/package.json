@@ -30,7 +30,6 @@
     "chalk": "^5.2.0",
     "cosmiconfig": "^9.0.0",
     "dotenv": "^16.3.1",
-    "glob": "^11.0.1",
     "globby": "^13.2.2",
     "gray-matter": "^4.0.3",
     "json5": "^2.2.3",
@@ -41,11 +40,13 @@
     "remark-parse": "^11.0.0",
     "remark-stringify": "^11.0.0",
     "unified": "^11.0.5",
+    "yargs": "^17.7.2",
     "zod": "^3.21.4"
   },
   "devDependencies": {
     "@types/lodash-es": "^4.17.6",
     "@types/node": "^22.12.0",
+    "@types/yargs": "^17.0.33",
     "rimraf": "^6.0.1",
     "tsup": "^8.3.6",
     "typescript": "^5.7.3",
