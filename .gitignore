@@ -1,4 +1,53 @@
-.DS_Store
-.vscode
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
 node_modules
+.pnp
+.pnp.js
+.yarn
+
+# testing
+coverage
+
+# parcel-bundler cache (https://parceljs.org/)
+.cache
+
+# next.js
+.next/
+out/
+build
+
+# misc
+.DS_Store
+*.pem
+tmp
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# local env files
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# turbo
+.turbo
+
+# build
+dist
+
+# i18n
 crowdin.yml
+
+# angular
+.angular
+
+# env
+.env
+
+# langnostic
+.langnostic

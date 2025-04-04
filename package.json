@@ -1,12 +1,13 @@
 {
   "scripts": {
     "format-mdx": "prettier --write \"packages/**/en-US.{md,mdx}\"",
-    "i18n": "npm run i18n:download && npm run i18n:fix",
-    "i18n:download": "crowdin download",
-    "i18n:upload": "crowdin upload",
-    "i18n:fix": "find packages -type f -name '*.mdx' -exec sed -i '' -e 's/{\\/_/{\\/*/g' -e 's/_\\/}/\\*\\/}/g' {} +"
+    "i18n": "langnostic translate"
+  },
+  "dependencies": {
+    "langnostic": "^0.0.5"
   },
   "devDependencies": {
-    "prettier": "^2.7.1"
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.2"
   }
 }
