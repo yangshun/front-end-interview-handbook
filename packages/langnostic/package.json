@@ -1,6 +1,6 @@
 {
   "name": "langnostic",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Modern translation toolchain using AI",
   "license": "MIT",
   "type": "module",
