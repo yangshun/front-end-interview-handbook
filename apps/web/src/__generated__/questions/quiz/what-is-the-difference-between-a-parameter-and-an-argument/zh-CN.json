@@ -1,0 +1,31 @@
+{
+  "description": null,
+  "metadata": {
+    "access": "free",
+    "author": null,
+    "companies": [],
+    "created": 1630800000,
+    "difficulty": "easy",
+    "duration": 5,
+    "excerpt": null,
+    "featured": false,
+    "format": "quiz",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/quiz/what-is-the-difference-between-a-parameter-and-an-argument",
+    "importance": "low",
+    "languages": [],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 999,
+    "similarQuestions": [],
+    "slug": "what-is-the-difference-between-a-parameter-and-an-argument",
+    "subtitle": null,
+    "title": "参数和参数的区别是什么？",
+    "topics": [
+      "javascript"
+    ],
+    "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-the-difference-between-a-parameter-and-an-argument/zh-CN.mdx"
+  },
+  "solution": "var Component=(()=>{var s=Object.create;var i=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var m=Object.getPrototypeOf,g=Object.prototype.hasOwnProperty;var f=(c,n)=>()=>(n||c((n={exports:{}}).exports,n),n.exports),j=(c,n)=>{for(var r in n)i(c,r,{get:n[r],enumerable:!0})},d=(c,n,r,t)=>{if(n&&typeof n==\"object\"||typeof n==\"function\")for(let l of p(n))!g.call(c,l)&&l!==r&&i(c,l,{get:()=>n[l],enumerable:!(t=u(n,l))||t.enumerable});return c};var b=(c,n,r)=>(r=c!=null?s(m(c)):{},d(n||!c||!c.__esModule?i(r,\"default\",{value:c,enumerable:!0}):r,c)),x=c=>d(i({},\"__esModule\",{value:!0}),c);var o=f((S,a)=>{a.exports=_jsx_runtime});var w={};j(w,{default:()=>F,frontmatter:()=>_});var e=b(o()),_={title:\"\\u53C2\\u6570\\u548C\\u53C2\\u6570\\u7684\\u533A\\u522B\\u662F\\u4EC0\\u4E48\\uFF1F\"};function h(c){let n=Object.assign({h2:\"h2\",p:\"p\",code:\"code\",hr:\"hr\",h3:\"h3\",pre:\"pre\",ul:\"ul\",li:\"li\",a:\"a\"},c.components);return(0,e.jsxs)(e.Fragment,{children:[(0,e.jsx)(n.h2,{children:\"TL;DR\"}),`\n`,(0,e.jsxs)(n.p,{children:[\"\\u53C2\\u6570\\u662F\\u51FD\\u6570\\u58F0\\u660E\\u4E2D\\u7684\\u53D8\\u91CF\\uFF0C\\u800C\\u53C2\\u6570\\u662F\\u8C03\\u7528\\u51FD\\u6570\\u65F6\\u4F20\\u9012\\u7ED9\\u51FD\\u6570\\u7684\\u5B9E\\u9645\\u503C\\u3002\\u4F8B\\u5982\\uFF0C\\u5728\\u51FD\\u6570 \",(0,e.jsx)(n.code,{children:\"function add(a, b) { return a + b; }\"}),\" \\u4E2D\\uFF0C\",(0,e.jsx)(n.code,{children:\"a\"}),\" \\u548C \",(0,e.jsx)(n.code,{children:\"b\"}),\" \\u662F\\u53C2\\u6570\\u3002\\u5F53\\u60A8\\u8C03\\u7528 \",(0,e.jsx)(n.code,{children:\"add(2, 3)\"}),\" \\u65F6\\uFF0C\",(0,e.jsx)(n.code,{children:\"2\"}),\" \\u548C \",(0,e.jsx)(n.code,{children:\"3\"}),\" \\u662F\\u53C2\\u6570\\u3002\"]}),`\n`,(0,e.jsx)(n.hr,{}),`\n`,(0,e.jsx)(n.h2,{children:\"\\u53C2\\u6570\\u548C\\u53C2\\u6570\\u7684\\u533A\\u522B\"}),`\n`,(0,e.jsx)(n.h3,{children:\"\\u53C2\\u6570\"}),`\n`,(0,e.jsx)(n.p,{children:\"\\u53C2\\u6570\\u662F\\u4F5C\\u4E3A\\u51FD\\u6570\\u5B9A\\u4E49\\u7684\\u4E00\\u90E8\\u5206\\u5217\\u51FA\\u7684\\u53D8\\u91CF\\u3002\\u5B83\\u4EEC\\u5145\\u5F53\\u5728\\u8C03\\u7528\\u51FD\\u6570\\u65F6\\u5C06\\u4F20\\u9012\\u7ED9\\u51FD\\u6570\\u7684\\u503C\\u7684\\u5360\\u4F4D\\u7B26\\u3002\"}),`\n`,(0,e.jsx)(n.p,{children:\"\\u793A\\u4F8B\\uFF1A\"}),`\n`,(0,e.jsx)(n.pre,{children:(0,e.jsx)(n.code,{className:\"language-js\",children:`function greet(name) {\n  console.log('Hello, ' + name);\n}\n`})}),`\n`,(0,e.jsxs)(n.p,{children:[\"\\u5728\\u6B64\\u793A\\u4F8B\\u4E2D\\uFF0C\",(0,e.jsx)(n.code,{children:\"name\"}),\" \\u662F\\u4E00\\u4E2A\\u53C2\\u6570\\u3002\"]}),`\n`,(0,e.jsx)(n.h3,{children:\"\\u53C2\\u6570\"}),`\n`,(0,e.jsx)(n.p,{children:\"\\u53C2\\u6570\\u662F\\u8C03\\u7528\\u51FD\\u6570\\u65F6\\u4F20\\u9012\\u7ED9\\u51FD\\u6570\\u7684\\u5B9E\\u9645\\u503C\\u3002\\u8FD9\\u4E9B\\u503C\\u88AB\\u5206\\u914D\\u7ED9\\u51FD\\u6570\\u5B9A\\u4E49\\u4E2D\\u76F8\\u5E94\\u7684\\u53C2\\u6570\\u3002\"}),`\n`,(0,e.jsx)(n.p,{children:\"\\u793A\\u4F8B\\uFF1A\"}),`\n`,(0,e.jsx)(n.pre,{live:!0,children:(0,e.jsx)(n.code,{className:\"language-js\",children:`function greet(name) {\n  console.log('Hello, ' + name);\n}\ngreet('Alice'); // Output: \"Hello, Alice\"\n`})}),`\n`,(0,e.jsxs)(n.p,{children:[\"\\u5728\\u6B64\\u793A\\u4F8B\\u4E2D\\uFF0C\",(0,e.jsx)(n.code,{children:'\"Alice\"'}),\" \\u662F\\u4E00\\u4E2A\\u53C2\\u6570\\u3002\"]}),`\n`,(0,e.jsx)(n.h3,{children:\"\\u4E3B\\u8981\\u533A\\u522B\"}),`\n`,(0,e.jsxs)(n.ul,{children:[`\n`,(0,e.jsx)(n.li,{children:\"\\u53C2\\u6570\\u662F\\u51FD\\u6570\\u7B7E\\u540D\\u7684\\u4E00\\u90E8\\u5206\\uFF0C\\u800C\\u53C2\\u6570\\u662F\\u63D0\\u4F9B\\u7ED9\\u51FD\\u6570\\u7684\\u5B9E\\u9645\\u503C\\u3002\"}),`\n`,(0,e.jsx)(n.li,{children:\"\\u53C2\\u6570\\u7528\\u4E8E\\u5B9A\\u4E49\\u51FD\\u6570\\uFF0C\\u800C\\u53C2\\u6570\\u7528\\u4E8E\\u8C03\\u7528\\u51FD\\u6570\\u3002\"}),`\n`]}),`\n`,(0,e.jsx)(n.h3,{children:\"\\u7ED3\\u5408\\u4E24\\u8005\\u7684\\u4F8B\\u5B50\"}),`\n`,(0,e.jsx)(n.pre,{live:!0,children:(0,e.jsx)(n.code,{className:\"language-js\",children:`function add(a, b) {\n  // a and b are parameters\n  return a + b;\n}\n\nconst result = add(2, 3); // 2 and 3 are arguments\nconsole.log(result); // Output: 5\n`})}),`\n`,(0,e.jsx)(n.h2,{children:\"\\u5EF6\\u4F38\\u9605\\u8BFB\"}),`\n`,(0,e.jsxs)(n.ul,{children:[`\n`,(0,e.jsx)(n.li,{children:(0,e.jsx)(n.a,{href:\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions\",children:\"MDN Web Docs: Functions\"})}),`\n`,(0,e.jsx)(n.li,{children:(0,e.jsx)(n.a,{href:\"https://javascript.info/function-basics\",children:\"JavaScript.info: Function basics\"})}),`\n`,(0,e.jsx)(n.li,{children:(0,e.jsx)(n.a,{href:\"https://www.w3schools.com/js/js_function_parameters.asp\",children:\"W3Schools: JavaScript Function Parameters\"})}),`\n`]})]})}function v(c={}){let{wrapper:n}=c.components||{};return n?(0,e.jsx)(n,Object.assign({},c,{children:(0,e.jsx)(h,c)})):h(c)}var F=v;return x(w);})();\n;return Component;"
+}
