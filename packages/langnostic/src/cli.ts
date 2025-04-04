@@ -25,10 +25,17 @@ yargs(hideBin(process.argv))
     'Translate untranslated strings',
     {
       'dry-run': {
+        alias: 'r',
         describe:
           'Whether to execute translations. Shows changed files otherwise',
         default: false,
         type: 'boolean',
+      },
+      debug: {
+        alias: 'd',
+        default: false,
+        type: 'boolean',
+        description: 'Enable debug mode, logs prompts and responses',
       },
     },
     (argv) => {

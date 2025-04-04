@@ -23,8 +23,10 @@ const DEFAULT_CONCURRENCY_LIMIT = 5;
 const REFRESH_INTERVAL = 1000 / 16;
 
 export async function translate({
+  debug = false,
   dryRun = false,
 }: Readonly<{
+  debug?: boolean;
   dryRun?: boolean;
 }>) {
   const config = new Config().config;
@@ -111,7 +113,7 @@ export async function translate({
   }
 
   if (dryRun) {
-    console.info('The following are pending translations:\n');
+    console.info('[DRY RUN] Pending translations:\n');
     printGroupStatus(groups, { showSummary: false });
     process.exit(0);
   }
@@ -140,6 +142,7 @@ export async function translate({
         const translatedStrings = await generate(job, {
           ai: config.ai,
           instructions,
+          debug,
         });
 
         batch.addTranslations(translatedStrings);

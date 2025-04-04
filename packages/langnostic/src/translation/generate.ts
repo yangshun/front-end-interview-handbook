@@ -20,10 +20,12 @@ export async function generate(
   job: TranslationRequestJob,
   options: Readonly<{
     ai: TranslationAI;
+    debug?: boolean;
     instructions?: string;
   }>,
 ): Promise<ReadonlyArray<TranslationStringResult>> {
   const { runId, jobId, strings } = job;
+  const { ai, debug, instructions } = options;
   const filePathPrefix = [RUNS_PATH, runId, jobId];
 
   try {
@@ -32,14 +34,14 @@ export async function generate(
       return [];
     }
 
-    const { instructions, ai } = options;
-
     const model = providerModel(ai);
     const prompt = promptTemplate
       .replace(promptVariables.instructions, instructions || '')
       .replace(promptVariables.translationPayload, JSON.stringify(strings));
 
-    await writeFile(path.join(...filePathPrefix, 'prompt.txt'), prompt);
+    if (debug) {
+      await writeFile(path.join(...filePathPrefix, 'prompt.txt'), prompt);
+    }
 
     const result = await generateObject({
       model,
@@ -60,10 +62,12 @@ export async function generate(
       prompt,
     });
 
-    await writeFile(
-      path.join(...filePathPrefix, 'response.json'),
-      JSON.stringify(result, null, 2),
-    );
+    if (debug) {
+      await writeFile(
+        path.join(...filePathPrefix, 'response.json'),
+        JSON.stringify(result, null, 2),
+      );
+    }
 
     const translationStringsMap = new Map<string, Record<Locale, string>>();
     result.object.data.forEach((result) => {
@@ -90,10 +94,12 @@ export async function generate(
       })),
     }));
   } catch (err) {
-    await writeFile(
-      path.join(...filePathPrefix, 'error.log'),
-      (err as Error).toString(),
-    );
+    if (debug) {
+      await writeFile(
+        path.join(...filePathPrefix, 'error.log'),
+        (err as Error).toString(),
+      );
+    }
     throw err;
   }
 }
