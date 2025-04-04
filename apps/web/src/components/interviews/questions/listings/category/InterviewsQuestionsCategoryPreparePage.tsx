@@ -5,11 +5,10 @@ import type { InterviewsListingBottomContent } from 'contentlayer/generated';
 import useInterviewsQuestionsFeatures from '~/components/interviews/common/useInterviewsQuestionsFeatures';
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import InterviewsQuestionsCategoryPage from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryPage';
+import { QuestionCountTotal } from '~/components/interviews/questions/listings/stats/QuestionCount';
 import { useIntl } from '~/components/intl';
 import MDXContent from '~/components/mdx/MDXContent';
 import Divider from '~/components/ui/Divider';
-
-import { roundQuestionCountToNearestTen } from '~/db/QuestionsUtils';
 
 import InterviewsQuestionsCategoryPracticeFormatTabs from './InterviewsQuestionsCategoryPracticeFormatTabs';
 
@@ -19,14 +18,12 @@ type Props = Readonly<{
     typeof InterviewsQuestionsCategoryPage
   >['listType'];
   questions: ReadonlyArray<QuestionMetadata>;
-  totalQuestionCount: number;
 }>;
 
 export default function InterviewsQuestionsCategoryPreparePage({
   bottomContent,
   questions,
   listType,
-  totalQuestionCount,
 }: Props) {
   const intl = useIntl();
   const questionFeatures = useInterviewsQuestionsFeatures();
@@ -47,10 +44,32 @@ export default function InterviewsQuestionsCategoryPreparePage({
     <div className="flex flex-col gap-20">
       <InterviewsQuestionsCategoryPage
         categoryTabs={categoryTabs}
-        description={`The largest bank of ${roundQuestionCountToNearestTen(totalQuestionCount)}+ practice questions for front end interviews.`}
+        description={intl.formatMessage(
+          {
+            defaultMessage:
+              'The largest question bank of {questionCount}+ practice questions for front end interviews',
+            description:
+              'Description for interview practice by question format',
+            id: '8/uZ94',
+          },
+          {
+            questionCount: QuestionCountTotal,
+          },
+        )}
         features={features}
         listType={listType}
-        longDescription={`Save the trouble of searching the web for front end interview questions. We have ${roundQuestionCountToNearestTen(totalQuestionCount)}+ practice questions in every framework, format, and topic, each with high quality answers and tests from big tech senior / staff engineers.`}
+        longDescription={intl.formatMessage(
+          {
+            defaultMessage:
+              'Save the trouble of searching the web for front end interview questions. We have {questionCount}+ practice questions in every framework, format, and topic, each with high quality answers and tests from big tech senior / staff engineers.',
+            description:
+              'Description for interview practice by question format',
+            id: 'e4A6u7',
+          },
+          {
+            questionCount: QuestionCountTotal,
+          },
+        )}
         questionList={questions}
         searchPlaceholder={intl.formatMessage({
           defaultMessage: 'Search within this list of questions',
@@ -68,11 +87,7 @@ export default function InterviewsQuestionsCategoryPreparePage({
           <Divider />
           <MDXContent
             components={{
-              QuestionsCount: () => (
-                <span>
-                  {roundQuestionCountToNearestTen(totalQuestionCount)}
-                </span>
-              ),
+              QuestionsCount: () => <span>{QuestionCountTotal}</span>,
             }}
             mdxCode={bottomContent.body.code}
           />

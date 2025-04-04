@@ -2071,6 +2071,10 @@
     "defaultMessage": "Search by name/project brief",
     "description": "Challenge search placeholder"
   },
+  "8/uZ94": {
+    "defaultMessage": "The largest question bank of {questionCount}+ practice questions for front end interviews",
+    "description": "Description for interview practice by question format"
+  },
   "81fBRO": {
     "defaultMessage": "Contact your bank to request an increase in the number of allowed transactions.",
     "description": "Reason label for increase transactions"
@@ -5279,6 +5283,10 @@
     "defaultMessage": "Are you intending to use <bold>\"{parentSkill} - {childSkill}\"</bold> for this challenge? We will add it to the skills used so your progress for its skill plan will be tracked.",
     "description": "Message about adding a skill to a challenge session"
   },
+  "NXVaMh": {
+    "defaultMessage": "The largest question bank of {questionCount}+ practice questions for front end interviews.",
+    "description": "Description for practice questions section"
+  },
   "NXw886": {
     "defaultMessage": "Other",
     "description": "Label for other input for yoe replacement status on projects profile page"
@@ -5318,10 +5326,6 @@
   "NgyZKR": {
     "defaultMessage": "Purchase premium to unlock study plans and all the best materials we have to offer.",
     "description": "Paywall subtitle for study plans feature"
-  },
-  "NioKQ5": {
-    "defaultMessage": "The largest bank of {questionCount}+ practice questions for front end interviews.",
-    "description": "Description for practice questions section"
   },
   "NjnYqU": {
     "defaultMessage": "Sort by",
@@ -8914,6 +8918,10 @@
   "e30UXy": {
     "defaultMessage": "Projects Premium",
     "description": "Projects Premium label"
+  },
+  "e4A6u7": {
+    "defaultMessage": "Save the trouble of searching the web for front end interview questions. We have {questionCount}+ practice questions in every framework, format, and topic, each with high quality answers and tests from big tech senior / staff engineers.",
+    "description": "Description for interview practice by question format"
   },
   "e5o4mU": {
     "defaultMessage": "Heading",
@@ -12566,10 +12574,6 @@
   "vqL6fD": {
     "defaultMessage": "Start earning passive commissions with a great product",
     "description": "Title of Call to action banner found at the bottom of the 'Become an Affiliate' page."
-  },
-  "vqaDA5": {
-    "defaultMessage": "The largest bank of {questionCount}+ practice questions for front end interviews",
-    "description": "Description for interview practice by question format"
   },
   "vsgUOt": {
     "defaultMessage": "Copy the link to this page",

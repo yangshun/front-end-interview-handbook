@@ -49,9 +49,9 @@ export default function InterviewsDashboardPracticeQuestionsPreviewSection({
             </Heading>
             <Text className="mb-8 mt-3 block" color="secondary" size="body2">
               <FormattedMessage
-                defaultMessage="The largest bank of {questionCount}+ practice questions for front end interviews."
+                defaultMessage="The largest question bank of {questionCount}+ practice questions for front end interviews."
                 description="Description for practice questions section"
-                id="NioKQ5"
+                id="NXVaMh"
                 values={{
                   questionCount: QuestionCountTotal,
                 }}

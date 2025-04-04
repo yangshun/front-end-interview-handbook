@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 
 import type { QuestionListTypeData } from '~/components/interviews/questions/common/QuestionsTypes';
 import InterviewsQuestionsCategoryPreparePage from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryPreparePage';
-import { QuestionCountTotal } from '~/components/interviews/questions/listings/stats/QuestionCount';
 
 import { fetchInterviewListingBottomContent } from '~/db/contentlayer/InterviewsListingBottomContentReader';
 import { fetchQuestionsList } from '~/db/QuestionsListReader';
@@ -81,7 +80,6 @@ export default async function Page({ params }: Props) {
       bottomContent={bottomContent}
       listType={listType}
       questions={systemDesignQuestions}
-      totalQuestionCount={QuestionCountTotal}
     />
   );
 }

@@ -2071,6 +2071,10 @@
     "defaultMessage": "按名称/项目简要搜索",
     "description": "Challenge search placeholder"
   },
+  "8/uZ94": {
+    "defaultMessage": "前端面试的 {questionCount}+ 题库，题目数量最多。",
+    "description": "Description for interview practice by question format"
+  },
   "81fBRO": {
     "defaultMessage": "联系您的银行以请求增加允许的交易数量。",
     "description": "Reason label for increase transactions"
@@ -3516,7 +3520,7 @@
     "description": "FAQ about requirements for applying as an affiliate"
   },
   "FJQZpc": {
-    "defaultMessage": "{numberOfQuestions, plural, =1 {<number>个问题} other {<number>个问题}}",
+    "defaultMessage": "{numberOfQuestions, plural, =1 {<number>#</number>个问题} other {<number>#</number>个问题}}",
     "description": "Number of applied filters"
   },
   "FLKG3X": {
@@ -5279,6 +5283,10 @@
     "defaultMessage": "您是否打算将<strong style=\"font-weight:bold;\">{parentSkill} - {childSkill}</strong style=\"font-weight:bold;\">用于此挑战？我们将将其添加到已使用的技能中，以便跟踪其技能计划的进度。",
     "description": "Message about adding a skill to a challenge session"
   },
+  "NXVaMh": {
+    "defaultMessage": "前端面试的 {questionCount}+ 题库。",
+    "description": "Description for practice questions section"
+  },
   "NXw886": {
     "defaultMessage": "其他",
     "description": "Label for other input for yoe replacement status on projects profile page"
@@ -5318,10 +5326,6 @@
   "NgyZKR": {
     "defaultMessage": "购买高级版，解锁学习计划及我们提供的最佳学习资料。",
     "description": "Paywall subtitle for study plans feature"
-  },
-  "NioKQ5": {
-    "defaultMessage": "前端面试练习题库，包含 {questionCount}+ 道练习题。",
-    "description": "Description for practice questions section"
   },
   "NjnYqU": {
     "defaultMessage": "排序",
@@ -8915,6 +8919,10 @@
     "defaultMessage": "项目高级版",
     "description": "Projects Premium label"
   },
+  "e4A6u7": {
+    "defaultMessage": "省去在网络上搜索前端面试题的麻烦。我们有 {questionCount}+ 道练习题，涵盖各种框架、格式和主题，每道题都配有来自大厂高级/资深工程师的高质量答案和测试。",
+    "description": "Description for interview practice by question format"
+  },
   "e5o4mU": {
     "defaultMessage": "标题",
     "description": "Label for heading"
@@ -11060,7 +11068,7 @@
     "description": "Condition for promotion"
   },
   "oMKaYH": {
-    "defaultMessage": "{numberOfHours, plural, =1 {<number>小时总计} other {<number>小时总计}}",
+    "defaultMessage": "{numberOfHours, plural, =1 {<number>#</number>小时总计} other {<number>#</number>小时总计}}",
     "description": "Number of applied filters"
   },
   "oNMAi3": {
@@ -12566,10 +12574,6 @@
   "vqL6fD": {
     "defaultMessage": "开始使用优秀产品赚取被动佣金",
     "description": "Title of Call to action banner found at the bottom of the 'Become an Affiliate' page."
-  },
-  "vqaDA5": {
-    "defaultMessage": "前端面试{questionCount}+道练习题最大银行",
-    "description": "Description for interview practice by question format"
   },
   "vsgUOt": {
     "defaultMessage": "复制此页面的链接",

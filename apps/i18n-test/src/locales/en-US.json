@@ -10,5 +10,17 @@
   "+3r4Ek": {
     "defaultMessage": "Select an ad format to display, you can create multiple ads",
     "description": "Ad format selection description"
+  },
+  "FJQZpc": {
+    "defaultMessage": "{numberOfQuestions, plural, =1 {<number>#</number> question} other {<number>#</number> questions}}",
+    "description": "Number of applied filters"
+  },
+  "GUGImr": {
+    "defaultMessage": "{offerCount, plural,=1 {1 offer} other {# offers}}",
+    "description": "Testimonials overview"
+  },
+  "O0WPJA": {
+    "defaultMessage": "Import the progress of <bold>{questionCount}</bold> previously completed {questionCount, plural, one {question} other {questions}}",
+    "description": "Tooltip for import button on import progress dialog"
   }
 }

@@ -73,7 +73,6 @@ export default async function Page({ params }: Props) {
       bottomContent={bottomContent}
       listType={listType}
       questions={codingQuestions}
-      totalQuestionCount={QuestionCountTotal}
     />
   );
 }
