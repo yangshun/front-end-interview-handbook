@@ -5,7 +5,7 @@ subtitle: Como essa nova sintaxe difere de outras funções?
 
 ## TL;DR
 
-As funções arrow fornecem uma sintaxe concisa para escrever funções em JavaScript. Elas são particularmente úteis para manter o contexto de `this` dentro de métodos e callbacks. Por exemplo, em um manipulador de eventos ou método de array como `map`, as funções arrow podem simplificar o código e evitar problemas com a vinculação de `this`.
+Funções de seta fornecem uma sintaxe concisa para escrever funções em JavaScript. Elas são particularmente úteis para manter o contexto `this` dentro de métodos e callbacks. Por exemplo, em um manipulador de eventos ou método de array como `map`, funções de seta podem simplificar o código e evitar problemas com a ligação de `this`.
 
 ```js live
 const numbers = [1, 2, 3];
@@ -13,13 +13,13 @@ const doubled = numbers.map((n) => n * 2);
 console.log(doubled); // [2, 4, 6]
 ```
 
----
+***
 
-## Caso de uso para a nova sintaxe de função => arrow
+## Caso de uso para a nova sintaxe de função de seta =>
 
 ### Simplificando a sintaxe
 
-As funções arrow fornecem uma maneira mais concisa de escrever funções. Isso é especialmente útil para funções curtas ou callbacks.
+Funções de seta fornecem uma maneira mais concisa de escrever funções. Isso é especialmente útil para funções curtas ou callbacks.
 
 ```js live
 // Função tradicional
@@ -30,11 +30,11 @@ const add = function (a, b) {
 // Função de seta
 const anotherAdd = (a, b) => a + b;
 
-console.log(add(2, 3)); // Saída: 5
-console.log(anotherAdd(2, 3)); // Saída: 5
+console.log(add(2, 3)); // Output: 5
+console.log(anotherAdd(2, 3)); // Output: 5
 ```
 
-### Ligação lexical de `this`
+### Ligação léxica `this`
 
 Funções de seta não têm seu próprio contexto `this`. Em vez disso, elas herdam `this` do escopo circundante. Isso é particularmente útil em métodos e callbacks onde o contexto `this` pode ser complicado.
 
@@ -42,7 +42,7 @@ Funções de seta não têm seu próprio contexto `this`. Em vez disso, elas her
 function Timer() {
   this.seconds = 0;
   this.increment = () => {
-    this.seconds++; // 'this.seconds' é herdado do escopo externo
+    this.seconds++; // 'this.seconds' is inherited from the outer scope
     console.log(this.seconds);
   };
 }
@@ -52,11 +52,11 @@ timer.increment(); // 1
 timer.increment(); // 2
 ```
 
-No exemplo acima, usar uma função tradicional dentro de `setInterval` exigiria etapas adicionais para manter o contexto correto de `this`.
+No exemplo acima, usar uma função tradicional dentro de `setInterval` exigiria etapas adicionais para manter o contexto `this` correto.
 
 ### Usando funções de seta em métodos de array
 
-As funções de seta são frequentemente usadas em métodos de array como `map`, `filter` e `reduce` para um código mais limpo e legível.
+Funções de seta são frequentemente usadas em métodos de array como `map`, `filter` e `reduce` para um código mais limpo e legível.
 
 ```js live
 const numbers = [1, 2, 3, 4, 5];
@@ -81,7 +81,7 @@ class Button {
   constructor() {
     this.count = 0;
     this.button = document.createElement('button');
-    this.button.innerText = 'Clique em mim';
+    this.button.innerText = 'Click me';
     this.button.addEventListener('click', () => {
       this.count++;
       console.log('count:', this.count);
@@ -97,6 +97,6 @@ myButton.button.click(); // count: 2
 
 ## Leitura adicional
 
-- [MDN Web Docs: Funções de seta](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
-- [JavaScript.info: Funções de seta revisitadas](https://javascript.info/arrow-functions)
-- [Eloquent JavaScript: Funções](https://eloquentjavascript.net/03_functions.html)
+* [MDN Web Docs: Funções de seta](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
+* [JavaScript.info: Funções de seta revisadas](https://javascript.info/arrow-functions)
+* [JavaScript Eloquente: Funções](https://eloquentjavascript.net/03_functions.html)

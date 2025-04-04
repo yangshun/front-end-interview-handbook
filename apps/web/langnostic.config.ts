@@ -1,6 +1,6 @@
 import type { ConfigType } from 'langnostic';
 
-const config: ConfigType = {
+export default {
   ai: {
     provider: 'google',
   },
@@ -20,6 +20,4 @@ const config: ConfigType = {
     source: 'en-US',
     target: ['zh-CN'],
   },
-};
-
-export default config;
+} satisfies ConfigType;

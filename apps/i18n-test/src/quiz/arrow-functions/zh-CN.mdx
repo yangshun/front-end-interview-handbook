@@ -5,7 +5,7 @@ subtitle: 这种新语法与其他函数有什么不同？
 
 ## TL;DR
 
-箭头函数提供了一种简洁的语法来编写 JavaScript 函数。它们特别适用于在方法和回调中维护 `this` 上下文。例如，在事件处理程序或像 `map` 这样的数组方法中，箭头函数可以简化代码并避免 `this` 绑定的问题。
+箭头函数为编写 JavaScript 函数提供了一种简洁的语法。它们对于在方法和回调中维护 `this` 上下文特别有用。例如，在事件处理程序或像 `map` 这样的数组方法中，箭头函数可以简化代码并避免 `this` 绑定问题。
 
 ```js live
 const numbers = [1, 2, 3];
@@ -13,13 +13,13 @@ const doubled = numbers.map((n) => n * 2);
 console.log(doubled); // [2, 4, 6]
 ```
 
----
+***
 
-## 新的箭头 => 函数语法的使用案例
+## 新的箭头 => 函数语法的用例
 
 ### 简化语法
 
-箭头函数提供了一种更简洁的方式来编写函数。这对于短函数或回调尤其有用。
+箭头函数提供了一种更简洁的编写函数的方式。这对于短函数或回调函数特别有用。
 
 ```js live
 // 传统函数
@@ -30,19 +30,19 @@ const add = function (a, b) {
 // 箭头函数
 const anotherAdd = (a, b) => a + b;
 
-console.log(add(2, 3)); // 输出: 5
-console.log(anotherAdd(2, 3)); // 输出: 5
+console.log(add(2, 3)); // Output: 5
+console.log(anotherAdd(2, 3)); // Output: 5
 ```
 
 ### 词法 `this` 绑定
 
-箭头函数没有自己的 `this` 上下文。相反，它们从周围的作用域继承 `this`。这在方法和回调中尤其有用，因为 `this` 上下文可能会很棘手。
+箭头函数没有自己的 `this` 上下文。相反，它们从周围的作用域继承 `this`。这在 `this` 上下文可能很棘手的方法和回调中特别有用。
 
 ```js live
 function Timer() {
   this.seconds = 0;
   this.increment = () => {
-    this.seconds++; // 'this.seconds' 从外部作用域继承
+    this.seconds++; // 'this.seconds' is inherited from the outer scope
     console.log(this.seconds);
   };
 }
@@ -52,11 +52,11 @@ timer.increment(); // 1
 timer.increment(); // 2
 ```
 
-在上面的例子中，在 `setInterval` 中使用传统函数将需要额外的步骤来维护正确的 `this` 上下文。
+在上面的例子中，在 `setInterval` 中使用传统函数需要额外的步骤来维护正确的 `this` 上下文。
 
 ### 在数组方法中使用箭头函数
 
-箭头函数通常用于 `map`、`filter` 和 `reduce` 等数组方法，以实现更简洁和可读的代码。
+箭头函数通常用于 `map`、`filter` 和 `reduce` 等数组方法中，以获得更简洁、更易读的代码。
 
 ```js live
 const numbers = [1, 2, 3, 4, 5];
@@ -74,14 +74,14 @@ console.log(doubled); // [2, 4, 6, 8, 10]
 
 ### 事件处理程序
 
-箭头函数可以在事件处理程序中使用，以保持类或对象的 `this` 上下文。
+箭头函数可用于事件处理程序，以维护类或对象的 `this` 上下文。
 
 ```js live
 class Button {
   constructor() {
     this.count = 0;
     this.button = document.createElement('button');
-    this.button.innerText = '点击我';
+    this.button.innerText = 'Click me';
     this.button.addEventListener('click', () => {
       this.count++;
       console.log('count:', this.count);
@@ -95,8 +95,8 @@ myButton.button.click(); // count: 1
 myButton.button.click(); // count: 2
 ```
 
-## 进一步阅读
+## 延伸阅读
 
-- [MDN Web Docs: 箭头函数](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
-- [JavaScript.info: 再次审视箭头函数](https://javascript.info/arrow-functions)
-- [Eloquent JavaScript: 函数](https://eloquentjavascript.net/03_functions.html)
+* [MDN Web Docs: 箭头函数](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
+* [JavaScript.info: 箭头函数再探](https://zh.javascript.info/arrow-functions)
+* [Eloquent JavaScript: 函数](https://eloquentjavascript.net/03_functions.html)

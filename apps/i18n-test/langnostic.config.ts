@@ -1,6 +1,6 @@
 import { ConfigType } from 'langnostic';
 
-const config: ConfigType = {
+export default {
   ai: {
     provider: 'google',
   },
@@ -19,6 +19,21 @@ const config: ConfigType = {
         },
       ],
     },
+    {
+      name: 'quiz',
+      plugin: [
+        'mdx',
+        {
+          frontmatterExcludedKeys: ['author', 'published'],
+        },
+      ],
+      paths: [
+        {
+          source: './src/quiz/*/en-US.mdx',
+          target: './src/quiz/*/{locale}.mdx',
+        },
+      ],
+    },
     // {
     //   "name": "blog",
     //   "plugin": "mdx",
@@ -29,22 +44,5 @@ const config: ConfigType = {
     //     }
     //   ]
     // },
-    // {
-    //   "name": "quiz",
-    //   "plugin": [
-    //     "mdx",
-    //     {
-    //       "frontmatterExcludedKeys": ["author", "published"]
-    //     }
-    //   ],
-    //   "paths": [
-    //     {
-    //       "source": "./src/quiz/**/en-US.mdx",
-    //       "target": "./src/quiz/**/{locale}.mdx"
-    //     }
-    //   ]
-    // }
   ],
-};
-
-export default config;
+} satisfies ConfigType;
