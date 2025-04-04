@@ -1,0 +1,238 @@
+---
+title: React 基础概念面试
+description: 熟悉 React 的核心概念 – 组件、JSX、props、state 和渲染
+---
+
+在本页中，我们将分解 React 的基本主题 – 组件、props、state 和渲染周期。
+
+## 组件
+
+React 的核心是围绕**组件**构建的。 组件是现代 UI 开发的基础，因为它们使界面模块化、可重用和可扩展。
+
+组件是构建用户界面的关键原因如下：
+
+* **可重用性**：组件封装了 UI 逻辑和样式，使其易于在应用程序的不同部分重用。 这减少了冗余并提高了可维护性。
+* **模块化**：组件鼓励将复杂的 UI 分解为更小、更易于管理的部分。 每个组件都应侧重于特定功能，从而使调试和更新更容易。
+* **可维护性**：对组件的更改仅影响该组件及其子组件，从而减少了意外的副作用。 代码更易于阅读和理解，从而提高了长期可维护性。
+* **声明式 UI**：React 和类似的框架使用声明式方法，其中 UI 反映了当前的应用程序状态。 与命令式方法相比，这使得 UI 开发更具可预测性，并且更易于调试。
+* **封装**：组件封装了它们的样式、逻辑和结构，防止冲突并使 UI 更加模块化。 组件管理它们自己的状态，从而更容易推断 UI 行为。 虽然样式不是 React 关注的问题，但 React 与封装样式（例如，CSS 模块、样式组件）结合使用可以防止意外覆盖。 这导致了基于组件的架构，该架构通过鼓励关注点分离，在大应用程序中运行良好。 团队可以独立地处理不同的组件，而不会破坏整个应用程序。
+* **组合**：组件可以组合在一起，以从较小的构建块构建复杂的 UI。
+* **更轻松的测试**：组件的封装特性使它们可以使用单元和集成测试轻松地进行隔离测试。 这使得在不依赖整个应用程序的情况下验证 UI 行为变得更容易。
+
+组件彻底改变了 UI 开发，使其更具可扩展性、可维护性、可预测性和效率。 每个现代 JavaScript 框架都建立在组件、props 和 state 的概念之上。
+
+就像程序由函数调用堆栈构建一样，现代应用程序使用嵌套在组件中的组件构建，其深度取决于应用程序的需求。
+
+事实上，组件的概念是如此之棒，以至于移动开发生态系统也加入了组件大潮。 iOS 和 Android 分别开发了自己的“React”——Swift UI 和 Jetpack Compose。
+
+## 编写 React 组件的方式
+
+有两种编写 React 组件的方式：
+
+### 函数组件（现代标准）
+
+现代推荐的方式是编写返回 JSX 的 JavaScript 函数。 React hooks（例如 `useState`、`useEffect` 等）是在 React 16.8 中引入的，用于状态和副作用。 在引入 hooks 之前，函数组件只能用于不包含任何状态的组件。
+
+函数组件需要更少的样板代码，并且优于类组件。
+
+```jsx
+function Greeting({ name }) {
+  return <h1>Hello, {name}!</h1>;
+}
+```
+
+### 类组件（旧版）
+
+编写组件的旧方法使用扩展 `React.Component` 的 ES6 类。 这些类组件使用生命周期方法（例如 `componentDidMount()`、`componentDidUpdate()`）而不是 hooks。 这是 React 首次发布时采用的方法，仍然出现在较旧的代码库中。
+
+在最新的 React 版本中仍然可以使用类组件。
+
+```jsx
+class Greeting extends React.Component {
+  render() {
+    return <h1>Hello, {this.props.name}!</h1>;
+  }
+}
+```
+
+尽管在面试中仍然会被问到类组件，但你不应该因为没有类组件的经验而被责备，因为函数组件已经成为编写组件的事实上的方式已经超过五年了。如果你以前没有使用过类组件，则无需了解它，你只需要告诉你的面试官即可。
+
+## JSX
+
+组件中的类似 HTML 的语法 (`<h1>`) 看起来像 HTML，但实际上不是 HTML，而是 JSX。JSX（JavaScript XML）是 JavaScript 的语法扩展，允许你在 JavaScript 中编写类似 HTML 的代码。它不是 React 的必需品，但被广泛使用，因为它使 UI 代码更具可读性和表现力。
+
+JSX 通过在视觉上构建 UI 提供了一种更直观和符合人体工程学的方式来定义 React 组件。浏览器实际上不识别 JSX 语法，因此需要像 [Babel](https://babeljs.io/) 或 [TypeScript Compiler](https://www.typescriptlang.org/tsconfig/#jsx) 这样的编译器将 JSX 语法转换为浏览器可以识别的内容，然后浏览器才能运行代码。在幕后，JSX 被转换为 `React.createElement()` 函数调用（确切的函数可以通过编译器配置）。
+
+要生成以下 HTML：
+
+```html
+<div>
+  <h1>Hello world!</h1>
+  <p>Goodbye earth!</p>
+</div>
+```
+
+如果没有 JSX，使用 `React.createElement()` 函数调用：
+
+```jsx
+const element = React.createElement('div', null, [
+  React.createElement('h1', null, 'Hello world!'),
+  React.createElement('p', null, 'Goodbye earth!'),
+]);
+```
+
+使用 JSX，更容易阅读和编写标记：
+
+```jsx
+const element = (
+  <div>
+    <h1>Hello world!</h1>
+    <p>Goodbye earth!</p>
+  </div>
+);
+```
+
+这看起来几乎与它要生成的 HTML 完全一样！JSX 允许你以更简单的方式编写组件，而不是编写复杂的 `React.createElement()` 调用。
+
+在幕后，`React.createElement()` 创建了 UI 的轻量级表示，并使用 DOM API（如 `document.createElement()`、`document.appendChild()`）将其显示在浏览器中。此过程将在 [渲染部分](#rendering) 中进行更详细的介绍。
+
+请注意以下要点：
+
+* JSX 是 `React.createElement()` 的语法糖，并在浏览器中运行之前进行转换
+* 组件必须返回单个根元素
+* 可以在 JSX 中使用大括号 (`{}`) 编写 JavaScript
+* 了解 JSX 和 HTML 之间的区别（className、style、自闭合标签等）
+
+## Props vs State
+
+Props 和 state 是组件在渲染时使用的数据。
+
+### Props
+
+Props 是 "properties" 的缩写，表示组件从其父组件接收的数据。Props 类似于函数的参数。
+
+* 从父组件传递给子组件
+* 不可变（不能被接收它们的组件修改）
+* 用于配置和数据共享
+
+```jsx
+function Welcome({ name }) {
+  return <h1>Hello, {name}!</h1>;
+}
+```
+
+在 react.dev 上进一步阅读：[将 Props 传递给组件](https://react.dev/learn/passing-props-to-a-component)
+
+### 状态
+
+状态可以被看作是组件实例的“记忆”。每个组件实例的状态都是隔离的，不能从外部直接修改。
+
+* 在组件内管理
+* 更新时触发重新渲染
+
+```jsx
+function Counter() {
+  const [count, setCount] = useState(0);
+  return (
+    <button onClick={() => setCount(count + 1)}>Clicked {count} times</button>
+  );
+}
+```
+
+在 react.dev 上进一步阅读：[状态：组件的记忆](https://react.dev/learn/state-a-components-memory)
+
+## 渲染
+
+传统上，在浏览器的上下文中，渲染是指 Web 浏览器获取网页的原始代码（主要是 HTML、CSS 和 JavaScript），并将其转换为您在屏幕上看到的视觉、交互式页面。然而，在 React 中，也使用术语“渲染”来描述 React 如何将组件转换为实际的 DOM 元素，以便在屏幕上显示。
+
+为了避免混淆，在本指南中，“渲染”将指 React 的定义，而“浏览器渲染”将被称为“浏览器绘制”。
+
+在 React 中渲染一个组件涉及几个步骤，从编写 JSX 到更新 DOM。以下是 React 如何渲染组件的**详细分解**，包括内部流程和优化。
+
+### 1. JSX 转换为 JavaScript
+
+React 组件使用 **JSX (JavaScript XML)** 编写，它是 `React.createElement` 的语法糖。JSX 不能被浏览器直接理解，因此 JSX 必须使用 Babel 或 TypeScript 编译器等编译器编译成 JavaScript。
+
+```jsx
+function Greeting({ name }) {
+  return <h1>Hello, {name}!</h1>;
+}
+```
+
+JSX 被转换为 `React.createElement` 调用：
+
+```js
+function Greeting({ name }) {
+  return React.createElement('h1', null, `Hello, ${name}!`);
+}
+```
+
+### 2. `React.createElement()` 生成一个虚拟 DOM 对象
+
+一旦 JSX 被转换，`React.createElement` 就会生成一个轻量级的组件内存表示，称为 **虚拟 DOM**。
+
+```js
+const vdom = {
+  type: 'h1',
+  props: { children: 'Hello, John!' },
+};
+```
+
+### 3. React 协调虚拟 DOM
+
+当一个组件第一次渲染时：
+
+1. React 创建初始虚拟 DOM
+2. 然后，React 使用 `document.createElement()` 和 `document.appendChild()` 等 DOM 方法将组件挂载到实际 DOM 中
+
+当组件的 props 或 state 发生变化时，组件会重新渲染：
+
+1. React 创建一个新的虚拟 DOM 树
+2. React 将新的虚拟 DOM 树与之前的虚拟 DOM 进行比较
+3. 只有更改的元素（添加、删除、不同的 HTML 属性）才会在真实的 DOM 中更新。 这称为协调
+
+### 回顾
+
+React 组件不会直接修改 DOM。 而是：
+
+1. JSX 被编译成 `React.createElement()` 调用
+2. 虚拟 DOM 被生成为轻量级表示
+3. 在更新期间，React 将新的虚拟 DOM 与之前的虚拟 DOM 进行协调
+4. 只有对真实 DOM 进行最少且必要的更新
+
+在 react.dev 上进一步阅读：[渲染和提交](https://react.dev/learn/render-and-commit)
+
+## 面试需要了解的内容
+
+* **组件**：编写函数式组件，从 props 中读取数据，并添加 state
+* **JSX**：什么是 JSX
+* **渲染**：React 如何渲染组件
+* **虚拟 DOM**：什么是虚拟 DOM 以及它的作用
+* **协调**：能够解释协调过程
+
+## 练习题
+
+**测验**：
+
+* [什么是 React？ 描述 React 的优点](/questions/quiz/what-is-react-describe-the-benefits-of-react?framework=react\&tab=quiz)
+* [React 中 state 和 props 的区别是什么？](/questions/quiz/what-is-the-difference-between-state-and-props-in-react?framework=react\&tab=quiz)
+* [React Node、React Element 和 React Component 之间有什么区别？](/questions/quiz/what-is-the-difference-between-react-node-react-element-and-a-react-component?framework=react\&tab=quiz)
+* [什么是 JSX 以及它是如何工作的？](/questions/quiz/what-is-jsx-and-how-does-it-work?framework=react\&tab=quiz)
+* [React 中 `key` prop 的作用是什么？](/questions/quiz/what-is-the-purpose-of-the-key-prop-in-react?framework=react\&tab=quiz)
+* [在 React 中使用数组索引作为 `key` 的值会产生什么后果？](/questions/quiz/what-is-the-consequence-of-using-array-indices-as-the-value-for-key-s-in-react?framework=react\&tab=quiz)
+* [React Fragments 用于什么？](/questions/quiz/what-are-react-fragments-used-for?framework=react\&tab=quiz)
+* [什么是 React strict mode 以及它的好处是什么？](/questions/quiz/what-is-react-strict-mode-and-what-are-its-benefits?framework=react\&tab=quiz)
+* [解释 React 的单向数据流及其优点](/questions/quiz/explain-one-way-data-flow-of-react-and-its-benefits?framework=react\&tab=quiz)
+* [解释在 React 中调用 `setState` 时会发生什么](/questions/quiz/explain-what-happens-when-setstate-is-called-in-react?framework=react\&tab=quiz)
+* [为什么 React 建议不要改变 state？](/questions/quiz/why-does-react-recommend-against-mutating-state?framework=react\&tab=quiz)
+* [在 React 中重新渲染是什么意思？](/questions/quiz/what-does-re-rendering-mean-in-react?framework=react\&tab=quiz)
+* [React 中的虚拟 DOM 是什么？](/questions/quiz/what-is-virtual-dom-in-react?framework=react\&tab=quiz)
+* [React 中的虚拟 DOM 如何工作？ 它的优点和缺点是什么？](/questions/quiz/how-does-virtual-dom-in-react-work-what-are-its-benefits-and-downsides?framework=react\&tab=quiz)
+* [什么是 React Fiber 以及它如何改进了之前的方法？](/questions/quiz/what-is-react-fiber-and-how-is-it-an-improvement-over-the-previous-approach?framework=react\&tab=quiz)
+* [React 中的协调是什么？](/questions/quiz/what-is-reconciliation-in-react?framework=react\&tab=quiz)
+* [一些 React 反模式是什么？](/questions/quiz/what-are-some-react-anti-patterns?framework=react\&tab=quiz)
+
+**编码**：
+
+* [计数器](/questions/user-interface/counter/react?framework=react\&tab=coding)
+* [圣杯](/questions/user-interface/holy-grail/react?framework=react\&tab=coding)

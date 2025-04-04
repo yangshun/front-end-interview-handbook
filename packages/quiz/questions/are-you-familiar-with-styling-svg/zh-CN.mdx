@@ -1,10 +1,10 @@
 ---
-title: 您是否熟悉SVG样式？
+title: 你熟悉 SVG 的样式设置吗？
 ---
 
-有这么几种方法可以为形状（Shapes）着色（包括在对象上指定属性），使用内联的 CSS、嵌入的 CSS 部分或外部 CSS 文件。 您在网页上找到的大多数 SVG 都使用内联 CSS，但是每种类型都有优劣之处。
+有几种方法可以为形状着色（包括在对象上指定属性），可以使用内联 CSS、嵌入式 CSS 部分或外部 CSS 文件。 您在网络上找到的大多数 SVG 都使用内联 CSS，但每种类型都有其优点和缺点。
 
-可以通过在节点上设置两个属性来做基本着色：`fill` 和 `stroke` 。 `fill`设置对象内的颜色，`stroke`设置对象周围绘制的线的颜色。 你可以使用在 HTML 中的 CSS 颜色命名方案定义它们的颜色，比如说颜色名（像 red 这种）、rgb 值（像 rgb(255,0,0) 这种）、十六进制值、rgba 值，等等。
+可以通过在节点上设置两个属性来完成基本着色：`fill` 和 `stroke`。 `fill` 设置对象内部的颜色，`stroke` 设置绘制在对象周围的线条的颜色。 您可以使用在 HTML 中使用的相同 CSS 颜色命名方案，无论是颜色名称（即 `red`）、RGB 值（即 `rgb(255,0,0)`）、十六进制值、RGBA 值等。
 
 ```html
 <rect
@@ -18,4 +18,4 @@ title: 您是否熟悉SVG样式？
   stroke-opacity="0.8" />
 ```
 
-上述`fill="purple"`是一个 _呈现属性_ 的示例。 有趣的是，与内部样式不同的是，像`style="fill: purple"` (它恰巧也是一个属性)，呈现属性可以被[样式表中定义的 CSS 样式](https://css-tricks.com/presentation-attributes-vs-inline-styles/)所覆盖。 因此，如果你做了类似于`svg { fill: blue; }`的事情，它将覆盖已定义的紫色填充。
+上面的 `fill="purple"` 是*表现属性*的一个例子。 有趣的是，与 `style="fill: purple"` 这样的内联样式（它也恰好是一个属性）不同，表现属性可以被样式表中定义的 [CSS 样式覆盖](https://css-tricks.com/presentation-attributes-vs-inline-styles/)。 因此，如果您执行类似 `svg { fill: blue; }` 的操作，它将覆盖已定义的紫色填充。

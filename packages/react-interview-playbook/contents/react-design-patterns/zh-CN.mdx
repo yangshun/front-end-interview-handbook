@@ -1,0 +1,154 @@
+---
+title: React 面试设计模式
+description: 探索 React 设计模式，包括高阶组件、渲染道具和容器/展示模式，帮助您构建干净、可重用和可扩展的应用程序
+---
+
+React 鼓励基于组件的架构，但随着应用程序的增长，维护干净、可重用和可扩展的代码至关重要。以下是 React 中一些最常见的设计模式以及何时使用它们。
+
+## 高阶组件 (HOC)
+
+高阶组件 (HOC) 是一个接受组件并返回一个增强组件的函数，该组件具有额外的 props 或逻辑。它促进了跨多个组件的代码重用。
+
+```jsx
+function withAuth(Component) {
+  return function WrappedComponent(props) {
+    const isAuthenticated = localStorage.getItem('token'); // 检查身份验证状态
+    return isAuthenticated ? <Component {...props} /> : <p>访问被拒绝</p>;
+  };
+}
+
+function Dashboard() {
+  return <h1>Dashboard</h1>;
+}
+
+const ProtectedDashboard = withAuth(Dashboard);
+```
+
+HOC 适用于：
+
+* 在多个组件之间重用逻辑（例如，身份验证、分析、日志记录、获取数据）
+* 在不修改原始组件的情况下添加行为
+* 无法使用钩子的情况，例如类组件
+
+高阶组件在 pre-hooks 时代对于向组件添加功能更有用。现在我们有了 React 钩子以及创建自定义钩子的能力，HOC 已经不再那么普遍。
+
+在 react.dev 上进一步阅读：[高阶组件 – React](https://legacy.reactjs.org/docs/higher-order-components.html)
+
+## 渲染道具
+
+渲染道具涉及将一个渲染元素的函数作为 prop 传递给一个组件。该组件使用某些参数（通常是其自身的状态）调用该 prop。
+
+这允许组件的父级根据组件状态进行渲染，同时仍然允许父级从外部自定义行为/外观。
+
+```jsx
+function MouseTracker({ render }) {
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const handleMouseMove = (event) => {
+      setPosition({ x: event.clientX, y: event.clientY });
+    };
+    window.addEventListener('mousemove', handleMouseMove);
+
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
+  return render(position);
+}
+
+function App() {
+  return (
+    <MouseTracker
+      render={(position) => (
+        <p>
+          Mouse: {position.x}, {position.y}
+        </p>
+      )}
+    />
+  );
+}
+```
+
+渲染道具适用于：
+
+* 在组件之间共享逻辑，同时保持 UI 灵活性
+* 无法使用钩子的情况，例如类组件
+* 提供逻辑和行为的无头组件，同时允许自定义外观
+
+在 react.dev 上进一步阅读：[渲染道具 - React](https://legacy.reactjs.org/docs/render-props.html)
+
+## 容器/展示模式
+
+容器/展示模式是 React 中使用的一种设计模式，用于将状态管理（逻辑）与 UI 渲染（展示）分开。它通过确保关注点的明确分离，有助于使组件可重用、可维护和可测试。
+
+在客户端，数据可以来自用户的输入、从 API 获取、`localStorage`、WebSockets 等。不假设数据来自哪里是构建组件的好方法。
+
+**展示组件：**
+
+* 仅专注于渲染 UI
+* 不包含状态（除了本地 UI 状态，如切换）
+* 通过 props 接收所有数据并使用事件处理程序（例如 `onClick`、`onChange`）
+* 可重用且易于测试，因为它们独立于业务逻辑
+* 不假定如何获取数据
+
+```jsx
+function UserList({ users }) {
+  return (
+    <ul>
+      {users.map((user) => (
+        <li key={user.id}>
+          {user.name} - {user.email}
+        </li>
+      ))}
+    </ul>
+  );
+}
+```
+
+**容器组件：**
+
+* 管理状态、API 调用和业务逻辑
+* 将数据和函数作为 props 传递给展示组件
+* 不包含 UI 代码（最小 JSX，除了包装展示组件）
+
+```jsx
+function UserListContainer() {
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    fetch('https://jsonplaceholder.typicode.com/users')
+      .then((res) => res.json())
+      .then((data) => setUsers(data));
+  }, []);
+
+  return <UserList users={users} />;
+}
+```
+
+这种模式允许：
+
+* 使用不同的数据源重用 UI 组件
+* UI 和状态逻辑之间的清晰分离
+* 使 UI 组件更易于测试
+
+### 替代方法
+
+* **自定义钩子（例如，用于获取用户的 `useUser` 钩子）**：一种更现代的方法，可在多个组件中保持逻辑的可重用性
+* **状态管理库（Redux、Zustand）**：单独处理全局状态，无需显式容器组件
+
+在 react.dev 上进一步阅读：[容器/展示模式](https://www.patterns.dev/react/presentational-container-pattern)
+
+## 面试需要了解的内容
+
+* **首先使用钩子**：虽然 HOC 和 render props 曾经是 React 中代码重用的流行模式，但它们已被钩子取代。但是，它们在某些情况下仍然有用，在某些情况下，仅靠钩子可能不够用或不可用，例如在仍在使用类组件的旧代码库中。
+* **容器/展示超越前端**：容器/展示模式背后的关键思想是将展示与数据源分离。将数据获取与展示分离是一个强大的概念，在前端工程之外也很有用。在构建后端系统时，可以从其他服务获取数据，从数据库加载数据，从文件系统读取数据等。通过进行这种分离，代码将更容易重用和测试。
+
+## 练习题
+
+**测验：**
+
+* [React 中的高阶组件是什么？](/questions/quiz/what-are-higher-order-components-in-react?framework=react\&tab=quiz)
+* [Flux 模式是什么，它有什么好处？](/questions/quiz/what-is-the-flux-pattern-and-what-are-its-benefits?framework=react\&tab=quiz)
+* [解释 React 中的展示组件与容器组件模式](/questions/quiz/explain-the-presentational-vs-container-component-pattern-in-react?framework=react\&tab=quiz)
+* [React 中的 render props 是什么，它们是做什么的？](/questions/quiz/what-are-render-props-in-react-and-what-are-they-for?framework=react\&tab=quiz)
+* [解释 React 中的组合模式](/questions/quiz/explain-the-composition-pattern-in-react?framework=react\&tab=quiz)

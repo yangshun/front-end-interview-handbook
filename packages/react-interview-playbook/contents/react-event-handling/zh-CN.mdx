@@ -1,0 +1,358 @@
+---
+title: React 采访中的事件处理
+description: React 合成事件系统的指南，涵盖处理、拦截和优化鼠标、输入、表单、焦点和键盘事件以在面试中取得成功的最佳实践
+---
+
+React 使用一个**合成事件系统**来提供一种在不同浏览器中处理事件的一致方式。与原生 JavaScript 事件不同，React 将原生事件包装到一个名为 `SyntheticEvent` 的标准化对象中，这提高了性能并确保了跨浏览器兼容性。
+
+## React 如何处理事件
+
+React 的**合成事件系统**在不同浏览器之间提供了一致性，并针对性能进行了优化。
+
+在原生 JavaScript 中，事件监听器的添加方式如下：
+
+```js
+document.getElementById('btn').addEventListener('click', (event) => {
+  console.log('Clicked!');
+});
+```
+
+在 React 中，事件附加到元素的方式如下：
+
+```tsx
+<button onClick={() => console.log('Clicked!')}>点击我</button>
+```
+
+但是，由于 React 使用事件委托，并且事件附加到 React 应用程序的根目录（而不是文档根目录），而不是单个元素，以提高性能。
+
+React 将原生事件包装到 `SyntheticEvent` 中，以提高效率和兼容性。
+
+与原生 JavaScript 中的事件监听器类似，React 的 `SyntheticEvent` 作为第一个参数传递给事件处理程序回调。在大多数情况下，它们可以被视为原始浏览器 `Event` 对象，并且也可以在 `SyntheticEvent` 上访问 [`Event` 属性和方法](https://developer.mozilla.org/en-US/docs/Web/API/Event)。
+
+```jsx
+function handleClick(event) {
+  console.log(event); // React SyntheticEvent
+  console.log(event.nativeEvent); // 原生浏览器事件
+  console.log(event.target); // <button>...</button>
+}
+
+<button onClick={handleClick}>点击我</button>;
+```
+
+在 react.dev 上进一步阅读：[响应事件](https://react.dev/learn/responding-to-events)
+
+## React 中的事件处理程序
+
+React 中的事件处理程序是响应用户交互的函数，例如点击、按键、表单提交或鼠标移动。
+
+### 鼠标事件
+
+当用户与鼠标交互（点击、悬停等）时，鼠标事件处理程序会触发。鼠标事件可以添加到大多数元素，但出于可访问性目的，某些处理程序（如 `onClick`）应仅添加到交互式元素，例如 `<button>`、`<a>`、`<input>`，否则屏幕阅读器用户将无法触发这些交互。
+
+鼠标事件处理程序接收 [`MouseEvent`](https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent) 参数。
+
+```jsx
+function ClickButton() {
+  function handleClick() {
+    alert('Button clicked!');
+  }
+
+  return <button onClick={handleClick}>Click me</button>;
+}
+```
+
+您应该了解以下鼠标事件：
+
+* `onClick`：当元素被点击时触发（鼠标按下 + 鼠标抬起）。常用于面试
+* `onMouseEnter`：当鼠标进入元素时触发。不冒泡（用于悬停交互）。有时用于面试
+* `onMouseLeave`：当鼠标离开元素时触发。不冒泡。有时用于面试
+* `onMouseOver`：当鼠标进入元素或其子元素时触发。会冒泡。有时用于面试
+* `onMouseOut`：当鼠标离开元素或其子元素时触发。会冒泡。有时用于面试
+* `onMouseDown`：当鼠标按钮被按下时触发。很少用于面试，在大多数情况下，您应该使用 `onClick`
+* `onMouseUp`：当鼠标按钮被释放时触发。很少用于面试，在大多数情况下，您应该使用 `onClick`
+* `onDoubleClick`：当元素被双击时触发。很少用于面试
+
+如果您被提问，您应该能够解释 `onMouseEnter`/`onMouseLeave` 和 `onMouseOver`/`onMouseOut` 之间的区别——前者不[冒泡 DOM](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting/Event_bubbling)，而后者会。
+
+出于可访问性目的，请记住不要将 `onClick` 处理程序添加到非交互式（不可点击和不可聚焦）元素。
+
+90% 的情况下，你只会对 `<button>` 使用 `onClick`。`<a href="#" onClick={...}>` 也是一种反模式，只需使用 `<button onClick={...}>` 并相应地修改样式。
+
+`onMouseEnter`/`onMouseLeave` 和 `onMouseOver`/`onMouseOut` 可用于添加悬停样式，最好使用 CSS 的 `:hover` 伪类。当 CSS 能够完成这项工作时，无需使用 JavaScript。
+
+### 输入事件
+
+当用户输入发生变化（打字、粘贴等）时，会触发输入事件处理程序，并且可以附加到 `<input>` 和 `<textarea>` 元素上。
+
+输入事件处理程序接收 [`InputEvent`](https://developer.mozilla.org/en-US/docs/Web/API/InputEvent) 作为参数。
+
+```jsx
+function Foo() {
+  const [value, setValue] = useState('');
+
+  return (
+    <input
+      onChange={(event) => setValue(event.target.value)}
+      value={value}
+      placeholder="Type here"
+    />
+  );
+}
+```
+
+您应该了解以下输入事件：
+
+* `onChange`：当输入的值发生变化时触发
+* `onInput`：当用户输入数据时触发（类似于 `onChange`）。大多数情况下，请使用 `onChange` 代替
+
+#### `'change'` 和 `'input'` 事件有什么区别？
+
+对于 React 中的大多数事件处理程序，`onEventName` 属性与在浏览器中执行 `element.addEventListener('eventname', ...)` 相同。但对于 `onChange` 和 `onInput` 却并非如此！
+
+当输入字段的值发生变化时，`'change'` 和 `'input'` 事件都会检测到，但它们在行为和触发时间上存在关键差异。
+
+在浏览器中，对于某些元素，包括 `<input type="text">`，change 事件只有在控件失去焦点时才会触发。React 的 `onChange` 行为更像 DOM 的 `'input'` 事件，它会在每次按键时触发。
+
+当值被提交时（例如失去焦点），浏览器 `'change'` 事件被触发：
+
+* 在大多数情况下，它不会在每次按键时触发
+* 适用于 `<input>`、`<textarea>`、`<select>` 等
+
+浏览器 `'input'` 事件在每次输入更改时触发，包括打字、粘贴和语音输入：
+
+* 在 React 和 vanilla JS 中均有效
+* 立即在每次字符输入时触发（类似于 React 的 `onChange`）
+* 即使在使用语音输入、拖放和粘贴时也会触发
+
+**关键区别**
+
+| 特性 | `onChange` | `onInput` |
+| --- | --- | --- |
+| 每次按键触发？ | ✅（仅限 React） | ✅ |
+| 复制粘贴时触发？ | ✅ | ✅ |
+| 在 IME（中文、日文、韩文）上触发？ | ❌（仅在提交时） | ✅（在每个字符上） |
+| 在语音转文本输入时触发？ | ❌（仅在提交时） | ✅（在每个发音词上） |
+| 适用于 `contenteditable`？ | ❌ | ✅ |
+| 检测程序化值更新？ | ❌ | ✅ |
+
+在面试期间，很难知道何时使用 `onChange` 与 `onInput`，如有疑问，请使用 `onChange`。
+
+### 表单事件
+
+表单事件处理程序（`onSubmit` 和 `onReset`）仅适用于 `<form>` 元素。
+
+`onSubmit` 接收 [`SubmitEvent`](https://developer.mozilla.org/en-US/docs/Web/API/SubmitEvent) 参数，而 `onReset` 处理程序接收通用 [`Event`](https://developer.mozilla.org/en-US/docs/Web/API/Event) 参数。
+
+```jsx
+function SimpleForm() {
+  const [input, setInput] = useState('');
+
+  function handleSubmit(event) {
+    event.preventDefault(); // 阻止页面重新加载
+    alert(`表单提交内容：${input}`);
+  }
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
+        placeholder="输入内容"
+      />
+      <button type="submit">提交</button>
+    </form>
+  );
+}
+```
+
+您应该了解以下表单事件：
+
+* `onSubmit`：在提交表单时触发。仅在由 `<form>` 中的 `<button type="submit">` 或 `<input type="submit">` 触发时触发
+* `onReset`：在重置表单时触发。仅在由 `<form>` 中的 `<button type="reset">` 或 `<input type="reset">` 触发时触发
+
+由于大多数时候你都在处理单页应用程序并且没有服务器，你可能需要在 `onSubmit` 处理程序中执行 `event.preventDefault()` 以防止整页刷新。
+
+### 焦点事件
+
+焦点事件处理程序适用于可以接收焦点的元素，例如表单元素和交互式元素，例如 `<input>`、`<textarea>`、`<select>`、`<button>`。
+
+焦点事件处理程序接收 [`FocusEvent`](https://developer.mozilla.org/en-US/docs/Web/API/FocusEvent) 参数。
+
+```jsx
+function FocusBlurExample() {
+  const [focused, setFocused] = useState(false);
+
+  return (
+    <div>
+      <input
+        type="text"
+        placeholder="点击以聚焦..."
+        onFocus={() => setFocused(true)}
+        onBlur={() => setFocused(false)}
+        style={{
+          border: focused ? '2px solid blue' : '2px solid gray',
+          outline: 'none',
+          padding: '5px',
+        }}
+      />
+      <p>{focused ? '输入已聚焦' : '输入已失焦'}</p>
+    </div>
+  );
+}
+```
+
+您应该了解以下表单事件：
+
+* `onFocus`：当元素获得焦点时触发
+* `onBlur`：当元素失去焦点时触发
+
+虽然上面的示例使用 `onFocus`/`onBlur` 来添加焦点样式，但最好使用 CSS 的 `:focus` 伪类。当 CSS 能够完成这项工作时，无需使用 JavaScript。
+
+请注意，`onFocus` 和 `onBlur` 可以在任何元素上触发，只要它们可以接收焦点，即使它们默认情况下无法接收焦点。向元素添加 `tabIndex` 将允许它接收焦点并变得可点击。这主要用于自定义设计系统 UI 组件，用于构建自定义表单组件，以便完全控制它们的外观。
+
+在面试期间，您可能不需要这样做，并且大多数情况下您应该只使用默认的焦点元素集。
+
+| 元素类型 | 支持 `onFocus` | 支持 `onBlur` | 备注 |
+| --- | --- | --- | --- |
+| 表单输入（`<input>`、`<textarea>`、`<select>`） | ✅ 是 | ✅ 是 | 标准用法 |
+| 交互式元素（`<button>`、`<a href="...">`、`<details>`） | ✅ 是 | ✅ 是 | 自动可聚焦 |
+| 定义了 `tabIndex` 的元素 | ✅ 是 | ✅ 是 | 变得可聚焦 |
+| 不可聚焦的元素（`<div>`、`<span>`、`<p>`） | ❌ 否 | ❌ 否 | 需要 `tabindex` |
+
+焦点处理是一个重要的可访问性主题，超出了本指南的范围。
+
+### 键盘事件
+
+键盘事件处理程序用于检测输入字段、按钮或任何可聚焦元素内的键盘交互。
+
+键盘事件处理程序接收 [`KeyboardEvent`](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent) 参数。
+
+```jsx
+function handleKeyPress(event) {
+  if (event.key === 'Enter') {
+    alert('Enter key pressed!');
+  }
+}
+
+<input type="text" onKeyPress={handleKeyPress} />;
+```
+
+您应该了解以下键盘事件：
+
+* `onKeyDown`：按下某个键时触发。如果按住该键，则持续触发
+* `onKeyUp`：在按下某个键后释放时触发。用于检测输入后的最终按键输入
+* `onKeyPress`：（已弃用）类似于 `onKeyDown`，但不会检测特殊键
+
+键盘事件处理程序接收 `KeyboardEvent`，它具有一些属性，这些是您应该知道的：
+
+| 属性 | 描述 | 示例输出 (<kbd>A</kbd> 键) |
+| --- | --- | --- |
+| `event.key` | 键作为字符串 | `"a"` 或 `"A"` |
+| `event.code` | 键盘上的物理键 | `"KeyA"` |
+| `event.which` (已弃用) | 系统和实现相关的数值代码 | `65` (对于 `A`) |
+| `event.keyCode` (已弃用) | 系统和实现相关的数值代码 | `65` (对于 `A`) |
+| `event.shiftKey` | 如果按住 `Shift` 键，则为 `true` | `true / false` |
+| `event.ctrlKey` | 如果按住 `Ctrl` 键，则为 `true` | `true / false` |
+
+这只是一个简短的列表，请在 [MDN 上查找 `KeyboardEvent` 属性的完整列表](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent#instance_properties)。
+
+`event.key`、`event.code`、`event.which` 和 `event.keyCode` 看起来非常相似。对于面试，只需知道您应该使用 `event.key`。
+
+**在 React 中处理键盘事件的最佳实践**
+
+* 使用 `onKeyDown` 而不是 `onKeyPress`（因为 `onKeyPress` 已弃用）
+* 使用 `event.key` 而不是 `event.which` 或 `event.keyCode`（它们已弃用）
+* 在需要时使用 `event.preventDefault()`（例如，阻止 `Enter` 提交表单）
+* 为不可聚焦的元素添加 `tabIndex`（例如，`<div>` 需要它来接收键盘事件）
+* 妥善处理可访问性（键盘导航应保持一致）
+
+在大多数情况下，您在面试期间不需要使用键盘事件。使用 `onChange`/`onInput` 检测 `<input>` 中的文本更改更好，使用 `<form>` 上的 `onSubmit` 检测 <kbd>Enter</kbd> 键以提交表单更好。
+
+## 事件拦截
+
+React 中的事件拦截是指在事件到达其最终目标之前捕获、修改或停止事件行为的能力。
+
+### 停止事件传播
+
+在 React 中拦截事件的一种方法是使用 `event.stopPropagation()`，它阻止事件冒泡到父组件。默认情况下，React 中的事件遵循冒泡阶段，这意味着它们从目标元素向上传播到其祖先。
+
+但是，在某些情况下，这种行为是不可取的，例如，当单击下拉列表内部时，不应关闭整个菜单，因为单击事件会冒泡到父侦听器。
+
+```jsx
+function Dropdown() {
+  function handleParentClick() {
+    console.log('Parent div clicked!');
+  }
+
+  function handleChildClick(event: React.MouseEvent<HTMLDivElement>) {
+    event.stopPropagation(); // Prevents bubbling to the parent
+    console.log('Dropdown item clicked!');
+  }
+
+  return (
+    <div
+      onClick={handleParentClick}
+      style={{ padding: '20px', border: '2px solid black' }}>
+      <div
+        onClick={handleChildClick}
+        style={{ padding: '10px', border: '1px solid blue' }}>
+        Click inside dropdown
+      </div>
+    </div>
+  );
+}
+```
+
+在面试中，不应该有很多需要嵌套 `onClick` 处理程序的情况。如果这样做，请考虑是否需要在内部事件处理程序中使用 `event.stopPropagation()`。
+
+在 react.dev 上进一步阅读：[事件传播](https://react.dev/learn/responding-to-events#event-propagation)
+
+### 阻止默认行为
+
+另一种形式的事件拦截是使用 `event.preventDefault()` 阻止默认的浏览器行为。某些 HTML 元素，例如 `<form>`、`<a>` 和 `<input>`，具有内置行为（例如，表单提交、链接导航）。如果你想使用 React 中的自定义逻辑处理这些交互，你必须阻止它们的默认行为。
+
+```jsx
+function PreventFormSubmit() {
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault(); // 阻止全页面重新加载
+    console.log('表单提交，没有重新加载！');
+  }
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input type="text" placeholder="输入内容" />
+      <button type="submit">提交</button>
+    </form>
+  );
+}
+```
+
+如果没有 `event.preventDefault()`，点击“提交”按钮将导致页面刷新，从而中断 React 应用程序。通过拦截事件，我们可以在不影响用户体验的情况下以编程方式处理表单提交。
+
+在 react.dev 上进一步阅读：[阻止默认行为](https://react.dev/learn/responding-to-events#preventing-default-behavior)
+
+## 面试的最佳实践
+
+* 如果存在过度重新渲染的性能问题，请避免内联事件处理程序并使用 `useCallback` 进行记忆化
+* 对表单输入使用 `onChange` 而不是 `onInput`
+* 使用 `onMouseEnter`/`onMouseLeave` 而不是 `onMouseOver`/`onMouseOut` 以防止冒泡问题
+* 对于对性能敏感的事件，如 `onScroll`，对事件处理程序进行去抖动或节流
+
+## 面试你需要知道的
+
+* **事件系统**：解释 React 中的事件系统如何工作以及它与浏览器事件系统的区别
+* **常见事件**：常见的鼠标事件（`onClick`、`onMouseEnter`、`onMouseLeave`）、输入事件（`onChange`）、表单事件（`onSubmit`）和键盘事件（`onKeyDown`）
+* **事件拦截**：何时以及如何使用事件拦截
+
+## 练习题
+
+**编码**：
+
+* [温度转换器](/questions/user-interface/temperature-converter/react?framework=react\&tab=coding)
+* [骰子滚动器](/questions/user-interface/dice-roller/react?framework=react\&tab=coding)
+* [网格灯](/questions/user-interface/grid-lights/react?framework=react\&tab=coding)
+* [星级评分](/questions/user-interface/star-rating/react?framework=react\&tab=coding)
+* [秒表](/questions/user-interface/stopwatch/react?framework=react\&tab=coding)
+* [验证码输入](/questions/user-interface/auth-code-input/react?framework=react\&tab=coding)
+* [可选择的单元格](/questions/user-interface/selectable-cells/react?framework=react\&tab=coding)

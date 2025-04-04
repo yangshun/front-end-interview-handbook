@@ -1,35 +1,35 @@
 ---
-title: 解释您对盒模型的理解，以及您如何告诉浏览器在 CSS 中渲染您在不同盒模型中的布局。
+title: 解释你对盒子模型的理解，以及你将如何在 CSS 中告诉浏览器以不同的盒子模型渲染你的布局。
 ---
 
-CSS 盒模型描述了为文档树中的元素生成的矩形方形盒，并根据视觉格式模型显示。 每个盒都有一个内容区域(例如文本、图片等) 和可选的 `padding`、`border`和`margin `区域。
+CSS 盒子模型描述了为文档树中的元素生成的矩形框，并根据视觉格式化模型进行布局。每个框都有一个内容区域（例如文本、图像等）和可选的周围 `padding`、`border` 和 `margin` 区域。
 
-CSS 盒模型负责计算：
+CSS 盒子模型负责计算：
 
-- 一个块级元素占用多少空间。
-- 边框和/或外边距是否重叠，或折叠。
-- 盒子的尺寸
+* 块级元素占据多少空间。
+* 边框和/或边距是否重叠或折叠。
+* 盒子的尺寸。
 
-## 盒模型规则
+## 盒子模型规则
 
-- 块级元素的尺寸用`width`、`height `、`padding`和`border`来计算。
-- 如果没有指定 `height` ，块元素将会像它所包含的内容那么高，加上`padding` (除非有浮点，见[描述浮点及其工作方式]\(/questions/quiz/design-floats-and-how -they-work))。
-- 如果没有指定`width`，则非`float` 块级元素将展开以适应其父元素缩减`padding`的宽度， 除非它有一个 `max-width` 属性设置，在这种情况下，它不会大于指定的最大宽度。
-  - 某些块级元素 (例如“table”、“figure”和“input”)具有内在或默认的宽限值，不能扩展到填充其母容器的全宽。
-  - 注意：`span` 是一个内联元素，没有默认宽度，所以它不会扩展到合适的宽度。
-- 元素的`height `是由内容的`height `计算的。
-- 元素的 `width` 是由内容的 `width` 计算的。
-- 默认情况(`box-sizing: content-box`), `padding` 和 `border` 都不是元素`width`和`height`的一部分。
+* 块级元素的尺寸由 `width`、`height`、`padding` 和 `border` 计算。
+* 如果未指定 `height`，则块级元素的高度将与其包含的内容一样高，再加上 `padding`（除非有浮动，对于浮动，请参阅 [描述浮动及其工作原理](/questions/quiz/describe-floats-and-how-they-work)）。
+* 如果未指定 `width`，则非 `float`-ed 块级元素将扩展以适合其父元素的宽度减去 `padding`，除非它设置了 `max-width` 属性，在这种情况下，它将不超过指定的最大宽度。
+  * 某些块级元素（例如 `table`、`figure` 和 `input`）具有固有的或默认的宽度值，并且可能不会扩展以填充其父容器的整个宽度。
+  * 注意：`span` 是一个内联级元素，没有默认宽度，因此它不会扩展以适应。
+* 元素的 `height` 由内容的 `height` 计算。
+* 元素的 `width` 由内容的 `width` 计算。
+* 默认情况下 (`box-sizing: content-box`)，`padding` 和 `border` 不属于元素的 `width` 和 `height`。
 
-请注意，`margin`不算在盒子的实际尺寸中。 它影响盒子在页面上所占的总空间，但只影响盒子外的空间。 盒子的区域止于 `border`，它不延伸到`margin`。
+请注意，`margin` 不计入盒子的实际大小。它会影响盒子在页面上占用的总空间，但仅限于盒子外部的空间。盒子的区域在 `border` 处停止——它不会延伸到 `margin` 中。
 
-## 其他
+## 额外
 
-查找`box-sizing`属性，它会影响元素的总高度和宽度。
+查找 `box-sizing` 属性，该属性会影响元素的总高度和宽度的计算方式。
 
-- `box-sizing: content-box`：这是`box-sizing`的默认值，并遵守上面的规则。
-- `box-sizing: border-box`: `width` 和 `height` 将包括内容、内边距和边框，但不包括外边距。 这是一种更直观的思考盒子的方式，因此许多 CSS 框架（例如 Bootstrap、Tailwind、Bulma）在全局范围内设置`* { box-sizing: border-box; }`，以便所有元素默认使用这种盒子模型。 请参阅[关于`box-sizing: border-box`的问题](/questions/quiz/what-does-box-sizing-border-box-do-what-are-its-advantages) 了解更多信息。
+* `box-sizing: content-box`：这是 `box-sizing` 的默认值，并遵守上述规则。
+* `box-sizing: border-box`：`width` 和 `height` 将包括内容、填充和边框，但不包括边距。这是一种更直观的思考盒子模型的方式，因此许多 CSS 框架（例如 Bootstrap、Tailwind、Bulma）全局设置 `* { box-sizing: border-box; }`，以便所有元素默认使用这种盒子模型。有关更多信息，请参阅 [关于 `box-sizing: border-box` 的问题](/questions/quiz/what-does-box-sizing-border-box-do-what-are-its-advantages)。
 
-## 参考资料
+## 参考
 
-- [盒模型 | MDN](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model#the_standard_css_box_model)
+* [盒子模型 | MDN](https://developer.mozilla.org/zh-CN/docs/Learn/CSS/Building_blocks/The_box_model#the_standard_css_box_model)

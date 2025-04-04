@@ -1,13 +1,13 @@
 ---
-title: 描述 `z-index` 和堆叠上下文是如何形成的。
+title: 描述 `z-index` 以及如何形成堆叠上下文。
 ---
 
-CSS 中的`z-index`属性可以控制重叠元素的垂直堆叠顺序。 `z-index`只影响定位元素(`position`值不是`static`的元素) 及其后代或 flex item。
+CSS 中的 `z-index` 属性控制重叠元素的垂直堆叠顺序。`z-index` 仅影响已定位的元素（具有 `position` 值不为 `static` 的元素）及其后代或 flex 项目。
 
-在没有任何`z-index`值的情况下，元素按照它们在 DOM 中出现的顺序堆叠（同一层次中最低的一个出现在上面）。 具有非`static`定位(及其子位置) 的元素总是会出现在默认`static`位置的元素之上，不论 HTML 层次结构如何。
+在没有任何 `z-index` 值的情况下，元素按照它们在 DOM 中出现的顺序堆叠（在同一层级中，最下面的元素出现在最上面）。具有非静态定位的元素（及其子元素）将始终出现在具有默认静态定位的元素之上，而不管 HTML 层次结构如何。
 
-堆叠上下文是一个包含一组图层的元素。 在一个局部堆叠环境中，其子元素的`z-index`值是相对于该元素而不是根 document 设置的。 该上下文之外的层--即局部堆叠上下文的同级元素--不能位于它的层之间。 如果一个元素 B 位于元素 A 的上面，元素 A 的一个子元素 C 永远不会高于元素 B，即使元素 C 的`z-index`比元素 B 高。
+堆叠上下文是包含一组层的元素。在局部堆叠上下文中，其子元素的 `z-index` 值是相对于该元素设置的，而不是相对于文档根元素。该上下文之外的层——即局部堆叠上下文的同级元素——不能位于其内的层之间。如果元素 B 位于元素 A 的顶部，而元素 A 的子元素 C 永远不能高于元素 B，即使元素 C 的 `z-index` 比元素 B 高。
 
-每个堆叠上下文都是自成一体的--在元素的内容被堆叠后，整个元素被认为是按照父堆叠上下文的堆叠顺序。 少数 CSS 属性会触发一个新的堆叠上下文，如小于 1 的 `opacity` 、`filter` 不是 `none` 和 `transform` 不是 `none` 。
+每个堆叠上下文都是自包含的 - 在元素的content堆叠后，整个元素被认为在父堆叠上下文的堆叠顺序中。少数 CSS 属性会触发新的堆叠上下文，例如 `opacity` 小于 1、不是 `none` 的 `filter` 以及不是 `none` 的 `transform`。
 
-_**注意**：究竟是什么让一个元素有资格创建一个堆叠上下文，在这一长串[规则](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context#The_stacking_context)中列出。_
+***注意**：确切地说，什么使一个元素能够创建堆叠上下文列在这个长长的 [规则](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context#The_stacking_context) 集中。*

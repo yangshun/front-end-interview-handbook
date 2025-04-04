@@ -1,0 +1,793 @@
+---
+title: React 访谈中的表单
+description: 构建交互式 React 表单的指南，涵盖受控与非受控组件、各种输入类型、复杂的状态管理以及强大的错误处理和验证策略
+---
+
+React 中的表单是构建交互式应用程序的关键部分，允许用户输入和提交数据。在 React 中，使用状态控制表单元素很常见，这使得它们既动态又可预测。
+
+## 受控与非受控表单组件
+
+在 React 中，表单输入可以通过两种方式管理：**受控**和**非受控**。主要区别在于表单数据的处理方式。
+
+### 受控表单组件
+
+在**受控表单组件**中，React 管理表单元素的状态。输入的 value 存储在状态变量中，并通过 `onChange` 处理程序进行更新。
+
+```jsx
+import { useState } from 'react';
+
+function ControlledForm() {
+  const [name, setName] = useState('');
+
+  function handleChange(event) {
+    setName(event.target.value);
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    alert(`Submitted Name: ${name}`);
+  }
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <label>
+        Name:
+        <input type="text" value={name} onChange={handleChange} />
+      </label>
+      <button type="submit">Submit</button>
+    </form>
+  );
+}
+```
+
+在受控组件中，输入值存储在 React 状态 (`name`) 中。`onChange` 处理程序在用户输入时更新状态。这确保了该值始终由 React 控制。
+
+### 非受控表单组件
+
+在**非受控表单组件**中，表单元素的值由 DOM 本身管理，而不是 React 状态。
+
+```jsx
+import { useRef } from 'react';
+
+function UncontrolledForm() {
+  const nameRef = useRef();
+
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    // Access form values using `FormData`
+    const formData = new FormData(event.target);
+    console.log('Name:', formData.get('name'));
+
+    // Alternatively, access the <input> via a ref
+    console.log('Name:', nameRef.current.value);
+  }
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <label>
+        Name:
+        <input type="text" name="name" ref={nameRef} />
+      </label>
+      <button type="submit">Submit</button>
+    </form>
+  );
+}
+```
+
+在非受控组件中，输入值未存储在 React 状态中。要访问提交时的表单数据，我们可以：
+
+1. **使用 `FormData`**：直接从 `event.target` 访问表单元素，从表单创建 `FormData` 实例，并使用 `formData.get('name')` 检索值（对应于 `<input>` 上的 `name` 属性）
+2. **使用 refs**：使用 `useRef()` 直接引用 `<input>` 字段。可以通过 `nameRef.current.value` 访问输入值
+
+### 何时使用哪个？
+
+| 特性 | 受控表单 | 非受控表单 |
+| --- | --- | --- |
+| **存储状态的位置** | React 状态 (`useState`) | 原生 DOM |
+| **性能** | 需要在更新时重新渲染，可能导致大型表单出现问题 | 对于简单用例更有效率 |
+| **验证** | 易于实现 | 需要手动验证 |
+| **表单重置** | 容易 (`setState("")`) | 需要 `ref.current.value = ""` 或触发 `'reset'` 事件 |
+| **用例** | 动态表单、验证、实时更新 | 简单表单、文件上传或集成非 React 代码 |
+
+* 当您需要动态验证、操作或跟踪用户输入（例如，根据先前的响应切换某些表单字段的可见性）或嵌套表单状态时，请使用**受控表单组件**
+* 当使用大型表单、与非 React 代码集成或优化性能时，请使用**非受控表单组件**
+
+在面试中，考虑到表单通常没有很多字段，受控组件和非受控方法都是可行的。就我个人而言，我们倾向于使用受控组件，因为您可能会被要求重置值、添加输入时验证等，并且它更容易实现。
+
+## 处理不同的输入类型
+
+以下是使用受控方法的各种输入类型的代码示例，这意味着它们的值存储在状态中，并通过 `onChange` 处理程序进行更新。
+
+### 文本输入
+
+受控文本输入会在用户输入时更新其在状态中的值。
+
+```jsx
+import { useState } from 'react';
+
+function TextInputExample() {
+  const [text, setText] = useState('');
+
+  return (
+    <div>
+      <label htmlFor="name-input">Name</label>
+      <input
+        id="name-input"
+        type="text"
+        value={text}
+        onChange={(event) => setText(event.target.value)}
+      />
+      <p>Entered Text: {text}</p>
+    </div>
+  );
+}
+```
+
+* 输入字段的值由 React 状态 (`text`) 控制
+* `onChange` 事件使用 `setText(event.target.value)` 更新状态
+* 这确保了 React 动态管理输入值
+
+`type` 属性有许多其他基于文本的值，每个值都有不同的用途：
+
+| `type` | 用途 | 内置验证 |
+| --- | --- | --- |
+| `text` | 常规文本输入 | 否 |
+| `number` | 数字文本输入 | 是，仅允许数字。通过 `min`/`max` 属性进行其他验证 |
+| `email` | 电子邮件地址 | 是，必须包含 `@` |
+| `password` | 安全密码输入 | 否，但输入被屏蔽 |
+| `search` | 带有清除按钮的搜索字段 | 否 |
+| `tel` | 电话号码 | 否。通过 `pattern` 属性进行其他验证 |
+| `url` | URL | 是，必须以 `http://` 或 `https://` 开头 |
+| `datetime-local` | 日期和时间选择 | 是 |
+| `color` | 颜色选择器 | 是 |
+
+**建议：**
+
+* 将 **`text`** 用于通用输入字段
+* 当您只需要数值和数字的内置验证时，使用 **`number`**
+* 使用 **`email`**、**`url`** 和 **`tel`** 来利用内置验证
+* 使用 **`password`** 进行安全文本输入
+* 使用 **`search`** 进行针对搜索优化的字段
+* 当需要日期和时间选择时，使用 **`datetime-local`**
+* 使用 **`color`** 进行颜色选择
+
+### 复选框输入
+
+复选框是一个**布尔值**（选中或未选中）。
+
+```jsx
+import { useState } from 'react';
+
+function CheckboxExample() {
+  const [isChecked, setIsChecked] = useState(false);
+
+  return (
+    <div>
+      <input
+        id="checkbox-input"
+        type="checkbox"
+        checked={isChecked}
+        onChange={(event) => setIsChecked(event.target.checked)}
+      />
+      <label htmlFor="checkbox-input">Agree to terms and conditions</label>
+      <p>Checkbox is {isChecked ? 'checked' : 'unchecked'}</p>
+    </div>
+  );
+}
+```
+
+* `checked` 属性绑定到 `isChecked` 状态
+* `onChange` 事件使用 `setIsChecked(event.target.checked)` 更新状态
+* 这允许 React 跟踪复选框的选中状态
+
+### 单选组
+
+当从**多个选项中选择一个选项**时，使用单选按钮。
+
+```jsx
+import { useState } from 'react';
+
+function RadioGroupExample() {
+  const [gender, setGender] = useState('');
+
+  return (
+    <div>
+      <div>
+        <input
+          id="radio-male"
+          type="radio"
+          name="gender"
+          value="male"
+          checked={gender === 'male'}
+          onChange={(event) => setGender(event.target.value)}
+        />
+        <label htmlFor="radio-male">Male</label>
+      </div>
+      <div>
+        <input
+          id="radio-female"
+          type="radio"
+          name="gender"
+          value="female"
+          checked={gender === 'female'}
+          onChange={(event) => setGender(event.target.value)}
+        />
+        <label htmlFor="radio-female">Female</label>
+      </div>
+      <p>Selected gender: {gender}</p>
+    </div>
+  );
+}
+```
+
+* `name="gender"` 确保只能选择一个选项
+* `checked` 属性检查当前值是否与状态匹配 (`gender === "male"` 或 `"female"`)
+* `onChange` 使用选定值更新状态
+
+### 文本区域
+
+`textarea` 用于多行文本输入。
+
+```jsx
+import { useState } from 'react';
+
+function TextAreaExample() {
+  const [bio, setBio] = useState('');
+
+  return (
+    <div>
+      <label htmlFor="bio-input">Bio:</label>
+      <textarea
+        id="bio-input"
+        value={bio}
+        onChange={(event) => setBio(event.target.value)}
+      />
+      <p>Bio Preview: {bio}</p>
+    </div>
+  );
+}
+```
+
+* 与 HTML 不同，React 使用 `value` 而不是在 `<textarea>` 中设置文本
+* `onChange` 使用 `setBio(event.target.value)` 更新状态，确保 React 控制输入
+
+### 选择下拉菜单
+
+`<select>` 下拉菜单允许用户选择一个选项。
+
+```jsx
+import { useState } from 'react';
+
+function SelectExample() {
+  const [fruit, setFruit] = useState('apple');
+
+  return (
+    <div>
+      <label htmlFor="favorite-fruit">Favorite fruit</label>
+      <select
+        id="favorite-fruit"
+        value={fruit}
+        onChange={(event) => setFruit(event.target.value)}>
+        <option value="apple">Apple</option>
+        <option value="banana">Banana</option>
+        <option value="orange">Orange</option>
+      </select>
+      <p>Selected fruit: {fruit}</p>
+    </div>
+  );
+}
+```
+
+* `value` 属性绑定到状态 (`fruit`)
+* 当用户选择一个选项时，`onChange` 更新状态
+* 这确保了下拉菜单的值由 React 控制
+
+### 总结
+
+| 输入类型 | 关键元素 | 关键值属性 | 状态更新 |
+| --- | --- | --- | --- |
+| 文本输入 | `<input>` | `value` | `setState(event.target.value)` |
+| 复选框输入 | `<input>` | `checked` | `setState(event.target.checked)` |
+| 单选组 | `<input>` | `checked` | `setState(event.target.value)` |
+| 文本区域 | `<textarea>` | `value` | `setState(event.target.value)` |
+| 选择下拉菜单 | `<select>` | `value` | `setState(event.target.value)` |
+
+## 处理复杂的表单状态
+
+在 React 中使用复杂表单时，有效地管理状态对于确保良好的性能和可维护性至关重要。当表单包含多个输入字段、动态字段添加、嵌套结构或高级验证时，表单会变得复杂。以下是一些有效处理复杂表单状态的策略。
+
+### 使用 `useReducer` 处理复杂表单
+
+对于具有多个字段和状态依赖关系的表单，`useReducer` 提供了一种结构化的方式来管理状态更新。
+
+```jsx
+import { useReducer } from 'react';
+
+// Define reducer function
+function formReducer(state, action) {
+  switch (action.type) {
+    case 'UPDATE_FIELD':
+      return { ...state, [action.field]: action.value };
+    case 'RESET':
+      return initialState;
+    default:
+      return state;
+  }
+}
+
+// Initial form state
+const initialState = {
+  name: '',
+  email: '',
+  age: '',
+};
+
+function ComplexFormWithReducer() {
+  const [state, dispatch] = useReducer(formReducer, initialState);
+
+  function handleChange(event) {
+    dispatch({
+      type: 'UPDATE_FIELD',
+      field: event.target.name,
+      value: event.target.value,
+    });
+  }
+
+  function handleReset() {
+    return dispatch({ type: 'RESET' });
+  }
+
+  return (
+    <form>
+      <input
+        type="text"
+        name="name"
+        value={state.name}
+        onChange={handleChange}
+        placeholder="Name"
+      />
+      <input
+        type="email"
+        name="email"
+        value={state.email}
+        onChange={handleChange}
+        placeholder="Email"
+      />
+      <input
+        type="number"
+        name="age"
+        value={state.age}
+        onChange={handleChange}
+        placeholder="Age"
+      />
+      <button type="button" onClick={handleReset}>
+        Reset
+      </button>
+    </form>
+  );
+}
+```
+
+* 保持状态更新可预测且集中
+* 适用于具有条件逻辑和依赖关系的表单
+* 与 `useState` 相比，可防止不必要的重新渲染
+
+### 处理动态字段
+
+当表单允许用户**动态添加或删除字段**（例如，多个电子邮件输入）时，状态应该是一个数组
+
+```jsx
+import { useState } from 'react';
+
+function DynamicForm() {
+  const [fields, setFields] = useState([{ id: 1, value: '' }]);
+
+  function addField() {
+    setFields([...fields, { id: fields.length + 1, value: '' }]);
+  }
+
+  function removeField(id) {
+    setFields(fields.filter((field) => field.id !== id));
+  }
+
+  function handleChange(id, event) {
+    const newFields = fields.map((field) =>
+      field.id === id ? { ...field, value: event.target.value } : field,
+    );
+    setFields(newFields);
+  }
+
+  return (
+    <form>
+      {fields.map((field) => (
+        <div key={field.id}>
+          <input
+            type="text"
+            value={field.value}
+            onChange={(event) => handleChange(field.id, event)}
+            placeholder="Enter value"
+          />
+          <button type="button" onClick={() => removeField(field.id)}>
+            Remove
+          </button>
+        </div>
+      ))}
+      <button type="button" onClick={addField}>
+        Add Field
+      </button>
+    </form>
+  );
+}
+```
+
+* 适用于用户**可以添加多个条目**的表单（例如，多个电子邮件地址）
+* 保持 UI 灵活，无需预定义的字段
+
+### 使用表单库处理复杂表单
+
+除了手动管理所有内容之外，像 [React Hook Form](https://react-hook-form.com/) 和 [Formik](https://formik.org/)（未维护）这样的库简化了复杂的表单状态处理。
+
+```jsx
+import { useForm, useFieldArray } from 'react-hook-form';
+
+function FormWithReactHookForm() {
+  const { register, handleSubmit, control } = useForm({
+    defaultValues: { emails: [{ value: '' }] },
+  });
+
+  const { fields, append, remove } = useFieldArray({ control, name: 'emails' });
+
+  function onSubmit(data) {
+    console.log(data);
+  }
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      {fields.map((field, index) => (
+        <div key={field.id}>
+          <input {...register(`emails.${index}.value`)} placeholder="Email" />
+          <button type="button" onClick={() => remove(index)}>
+            Remove
+          </button>
+        </div>
+      ))}
+      <button type="button" onClick={() => append({ value: '' })}>
+        Add Email
+      </button>
+      <button type="submit">Submit</button>
+    </form>
+  );
+}
+```
+
+* **减少重新渲染**，使用引用而不是状态
+* **轻松验证**，内置支持 Zod、Yup 和 Joi 等验证库
+* **高效处理动态字段**，使用 `useFieldArray`
+
+### 处理嵌套表单结构
+
+有时，表单具有嵌套对象（例如，包含街道、城市和邮政编码的地址）。
+
+```jsx
+import { useState } from 'react';
+
+function NestedForm() {
+  const [form, setForm] = useState({
+    name: '',
+    address: { street: '', city: '', zip: '' },
+  });
+
+  function handleChange(event) {
+    const { name, value } = event.target;
+    setForm((prev) => ({
+      ...prev,
+      address: { ...prev.address, [name]: value },
+    }));
+  }
+
+  return (
+    <form>
+      <input
+        type="text"
+        name="name"
+        placeholder="Name"
+        value={form.name}
+        onChange={(event) => setForm({ ...form, name: event.target.value })}
+      />
+      <input
+        type="text"
+        name="street"
+        placeholder="Street"
+        value={form.address.street}
+        onChange={handleChange}
+      />
+      <input
+        type="text"
+        name="city"
+        placeholder="City"
+        value={form.address.city}
+        onChange={handleChange}
+      />
+      <input
+        type="text"
+        name="zip"
+        placeholder="ZIP Code"
+        value={form.address.zip}
+        onChange={handleChange}
+      />
+    </form>
+  );
+}
+```
+
+* 帮助在一个对象中**干净地**管理相关数据
+* 适用于**地址、个人资料或嵌套表单部分**
+
+### 复杂表单状态的最佳实践
+
+* 使用 `useReducer` 进行结构化状态更新
+* 使用动态字段进行灵活的输入处理
+* 利用 React Hook Form 或 Formik 等表单库来简化验证和状态管理
+* 处理分组表单数据时使用嵌套对象
+
+## 错误处理和验证策略
+
+处理错误和验证用户输入对于在 React 表单中创建流畅的用户体验至关重要。验证可确保用户在提交前输入正确的数据，从而防止无效条目并减少后端错误。以下是有效处理验证和错误的各种策略。
+
+### 使用 `useState` 进行基本的客户端验证
+
+对于简单的表单，您可以使用**基于状态的验证**来在提交前检查用户输入。
+
+```jsx
+import { useState } from 'react';
+
+function BasicValidationForm() {
+  const [email, setEmail] = useState('');
+  const [error, setError] = useState('');
+
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    if (!email) {
+      setError('Email is required');
+      return;
+    }
+
+    setError(''); // Clear error if validation passes
+    alert(`Submitted: ${email}`);
+  }
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <label>
+        Email:
+        <input
+          type="email"
+          value={email}
+          onChange={(event) => setEmail(event.target.value)}
+        />
+      </label>
+      {error && <p style={{ color: 'red' }}>{error}</p>}
+      <button type="submit">Submit</button>
+    </form>
+  );
+}
+```
+
+* 使用本地状态来跟踪错误
+* 在验证失败时显示错误消息
+* 简单但足以满足基本的验证需求
+
+### 使用正则表达式验证输入字段
+
+对于**结构化输入字段**（如电子邮件、电话号码或密码），**基于正则表达式的验证**很有用。
+
+```jsx
+function EmailValidationForm() {
+  const [email, setEmail] = useState('');
+  const [error, setError] = useState('');
+
+  const validateEmail = (email) => {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  };
+
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    if (!validateEmail(email)) {
+      setError('Please enter a valid email address');
+      return;
+    }
+
+    setError('');
+    alert(`Valid Email: ${email}`);
+  }
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <label>
+        Email:
+        <input
+          type="email"
+          value={email}
+          onChange={(event) => setEmail(event.target.value)}
+        />
+      </label>
+      {error && <p style={{ color: 'red' }}>{error}</p>}
+      <button type="submit">Submit</button>
+    </form>
+  );
+}
+```
+
+* 使用正则表达式检查电子邮件是否遵循有效格式
+* 为用户提供实时反馈
+
+### 浏览器内置的 HTML5 验证
+
+现代浏览器为某些输入类型提供了内置验证。
+
+```jsx
+function HTML5ValidationForm() {
+  return (
+    <form>
+      <label>
+        Email:
+        <input type="email" required />
+      </label>
+      <br />
+      <label>
+        Password (Min 6 characters):
+        <input type="password" minLength="6" required />
+      </label>
+      <br />
+      <label>
+        Phone (Numbers only):
+        <input type="tel" pattern="[0-9]{10}" required />
+      </label>
+      <br />
+      <button type="submit">Submit</button>
+    </form>
+  );
+}
+```
+
+* `required`：确保字段已填写
+* `minLength`：限制输入长度
+* `pattern`：直接在 HTML 中使用正则表达式
+* **无需 JavaScript** 即可工作，提高性能
+
+### 用于高效验证的 React Hook Form
+
+对于复杂的表单，\**React Hook Form* 提供了优化的验证，并最大限度地减少了重新渲染。
+
+```jsx
+import { useForm } from 'React Hook Form;
+
+function HookFormValidation() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data) => alert(JSON.stringify(data));
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <label>
+        Email:
+        <input
+          type="email"
+          {...register('email', { required: 'Email is required' })}
+        />
+      </label>
+      {errors.email && <p style={{ color: 'red' }}>{errors.email.message}</p>}
+      <label>
+        Password:
+        <input
+          type="password"
+          {...register('password', {
+            required: 'Password is required',
+            minLength: {
+              value: 6,
+              message: 'Password must be at least 6 characters',
+            },
+          })}
+        />
+      </label>
+      {errors.password && (
+        <p style={{ color: 'red' }}>{errors.password.message}</p>
+      )}
+      <button type="submit">Submit</button>
+    </form>
+  );
+}
+```
+
+* **使用 refs 而不是 state**，最大限度地减少重新渲染
+* **更好的性能**，适用于大型表单
+* **内置错误处理**，使用 `formState.errors`
+
+### 处理服务器端验证
+
+即使使用客户端验证，后端验证也是必要的。您需要知道如何显示来自 API 响应的错误消息。
+
+```jsx
+import { useState } from 'react';
+
+function ServerErrorHandlingForm() {
+  const [email, setEmail] = useState('');
+  const [error, setError] = useState('');
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+
+    try {
+      setError(null);
+
+      const response = await fetch('/api/validate-email', {
+        method: 'POST',
+        body: JSON.stringify({ email }),
+        headers: { 'Content-Type': 'application/json' },
+      });
+
+      const data = await response.json();
+      if (!response.ok) {
+        throw new Error(data.message || 'Something went wrong');
+      }
+
+      alert('Submission successful!');
+    } catch (err) {
+      setError(err.message);
+    }
+  }
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <label>
+        Email:
+        <input
+          type="email"
+          value={email}
+          onChange={(event) => setEmail(event.target.value)}
+        />
+      </label>
+      {error && <p style={{ color: 'red' }}>{error}</p>}
+      <button type="submit">Submit</button>
+    </form>
+  );
+}
+```
+
+* 使用 `fetch()` 在服务器端验证电子邮件
+* 如果验证失败，则显示 API 错误消息
+* 防止安全风险（例如，黑客绕过客户端验证）
+
+## 面试的最佳实践
+
+* 对于简单的表单，受控输入和非受控输入都是可行的
+* 包装在 `<form>` 中并利用浏览器表单提交事件
+* 尽可能使用 HTML5 验证，以减少重新渲染，从而获得更好的性能
+* 显示清晰的错误消息，指导用户如何修复其输入
+* 仅仅客户端验证是不够的。还需要服务器端验证以防止安全漏洞
+* 如果允许使用第三方库（例如，在家庭作业中），React Hook Form 是一个很好的补充，它提供了许多有用的功能，可以帮助您同时实现更好的性能
+
+## 面试中您需要知道的内容
+
+* **非受控和受控表单**：有什么区别，如何使用，以及何时使用
+* **表单控件**：能够构建使用各种输入类型的表单
+* **复杂表单**：如何构建复杂表单和最佳实践
+* **错误处理和验证**：如何使用原生浏览器方法和 React 方法验证表单并显示错误
+
+## 练习题
+
+**编码**：
+
+* [生成表格](/questions/user-interface/generate-table/react?framework=react\&tab=coding)
+* [联系表单](/questions/user-interface/contact-form/react?framework=react\&tab=coding)
+* [抵押贷款计算器](/questions/user-interface/mortgage-calculator/react?framework=react\&tab=coding)
+* [温度转换器](/questions/user-interface/temperature-converter/react?framework=react\&tab=coding)
+* [航班预订器](/questions/user-interface/flight-booker/react?framework=react\&tab=coding)
+* [身份验证代码输入](/questions/user-interface/auth-code-input/react?framework=react\&tab=coding)

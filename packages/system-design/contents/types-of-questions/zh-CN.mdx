@@ -1,55 +1,57 @@
 ---
-title: 前端系统设计问题类型
-description: 前端系统设计面试的提问形式。
-seo_title: 前端系统设计面试中的问题类型
-seo_description: 了解两种类型的前端系统设计问题，以及如何以不同的方式解决这些问题。
+title: 前端系统设计问题的类型
+description: 您可以在前端系统设计面试中期望的问题格式。
+seo_title: 期望的问题类型 | 前端系统设计手册
+social_title: 期望的前端系统设计问题类型 | GreatFrontEnd
+seo_description: 了解可以提出的前端系统设计面试问题的主要类型。
 ---
 
-前端系统设计问题主要有两种：(1)应用和(2)用户界面组件。
+前端系统设计问题主要有两种：(1) 应用程序和 (2) UI 组件。
 
-## 应用
+## 应用程序
 
-如上所述，为前端系统设计面试设计应用软件与一般的软件工程系统设计面试感觉类似，事实上，问题也高度相似。 然而，与其谈论分布式系统，不如关注客户端，讨论应用架构和客户端实现细节。
+如上所述，为前端系统设计面试设计应用程序将类似于一般的软件工程系统设计面试，事实上，这些问题非常相似。但是，您应该专注于客户端，讨论应用程序架构和客户端实现细节，而不是讨论分布式系统。
 
-在当今时代，许多网站都是交互式的丰富应用程序，几乎可以实现许多桌面应用程序所能实现的功能。 如果您在网页上使用 Gmail、Facebook、YouTube、Google Calender，您已经使用了 Web 应用程序。 Web 应用往往是动态的，Web 应用中的导航通常不需要刷新整个页面，而是使用 JavaScript 获取下一页的远程数据，并动态更改内容和 URL。 由于 Web 应用是涉及多个模块的复杂软件，我们在软件工程课程中学到的常见应用架构，如模型-视图-控制器（MVC）、模型-视图-视图模型（MVVM），在构建 Web 应用时也同样适用。 React 是 Facebook 最流行的 JavaScript 库之一，用于构建交互式 Web 应用程序，许多 React Web 应用程序采用基于 Flux/Redux 的单向架构。
+在当今时代，许多网站都是交互式和丰富的应用程序，几乎可以做许多桌面应用程序可以做的事情。如果您在网络上使用过 Gmail、Facebook、YouTube、Google Calender，您就会使用过一个 Web 应用程序。Web 应用程序往往是动态的，Web 应用程序中的导航通常不需要完全刷新页面，而是使用 JavaScript 获取下一页的远程数据，并动态更改内容和 URL。由于 Web 应用程序是涉及多个模块的复杂软件，我们在软件工程课程中学习的常见应用程序架构，如模型-视图-控制器 (MVC)、模型-视图-视图模型 (MVVM) 也适用于构建 Web 应用程序。React 是 Facebook 用于构建交互式 Web 应用程序的最流行的 JavaScript 库之一，许多 React Web 应用程序都采用了基于单向 Flux/Redux 的架构。
 
-不同的应用有其独特的方面和谈话要点。 您必须将重点放在申请材料的独特之处，而不要花太多时间谈论适用于所有问题的一般性内容。 首先，设计高层架构，确定系统中的组件以及组件之间的 API。 然后深入研究与问题相关的几个方面，以及如何实施或优化这些方面。
+不同的应用程序有其独特的方面和讨论要点。您必须专注于应用程序特有的部分，而不是花太多时间讨论适用于所有问题的一般内容。首先，设计高级架构，确定系统中的组件以及组件之间的 API。然后深入研究几个对问题感兴趣的领域，以及如何实现或优化它们。
 
-### 实例
+### 示例
 
-以下是前端系统设计面试中常见的应用问题列表，以及您应重点关注的领域：
+以下是前端系统设计面试中常问的应用程序问题列表以及您应该关注的领域：
 
-| 应用 | 示例 | 重要领域 |
+| 应用程序 | 示例 | 重要领域 |
 | --- | --- | --- |
-| [信息流](/questions/system-design/news-feed-facebook) | Facebook, Twitter | 按钮交互， 动态内容分页方法， 消息/帖子编辑器 |
-| [消息/聊天](/questions/system-design/chat-application-messenger) | Messenger, Slack, Discord | 消息同步、实时聊天、消息列表、聊天列表 |
-| [电子商务市场](/questions/system-design/e-commerce-amazon) | Amazon, eBay | 产品列表页, 产品详情页, 购物车, 结账 |
-| [照片共享](/questions/system-design/photo-sharing-instagram) | Instagram, Flickr, Google Photos | 照片浏览，照片编辑，照片上传 |
-| [旅行预订](/questions/system-design/travel-booking-airbnb) | Airbnb, Skyscanner | 搜索用户界面, 搜索结果, 预订用户界面 |
-| [电子邮件客户端](/questions/system-design/email-client-outlook) | Outlook, Apple Mail, Gmail | 邮箱同步、邮箱 UI、邮件编辑器、 |
-| 视频流媒体 | YouTube, Netflix, TikTok | 视频播放器, 视频流, 视频详情页, 推荐视频 |
-| 协作应用 | 谷歌文档，谷歌表单，谷歌幻灯片，Notion | 实时协作，状态同步 |
-| 作图 | Figma, Lucidchart | 渲染方法，客户端状态/数据模型 |
-| 地图 | 谷歌/苹果地图，Foursquare City Guide | 地图渲染，显示位置 |
-| 文件存储 | Google Drive, Dropbox | 文件上传，文件下载，文件浏览器 |
-| 视频会议 | Zoom, Google Meet | 视频流，多种观看模式 |
-| 拼车服务 | Uber, Lyft | 行程预订, 司机位置 |
-| 音乐流媒体 | Spotify, Apple Music | 音乐播放器用户界面，播放列表用户界面 |
-| 游戏 | Tetris, Snake | 游戏状态, 游戏循环, 游戏逻辑 |
+| [新闻提要](/questions/system-design/news-feed-facebook) | Facebook、Twitter | Feed 交互、Feed 分页方法、消息/帖子撰写器 |
+| [消息/聊天](/questions/system-design/chat-application-messenger) | Messenger、Slack、Discord | 消息同步、实时聊天、消息列表、聊天列表 |
+| [电子商务市场](/questions/system-design/e-commerce-amazon) | 亚马逊、eBay | 产品列表页面、产品详细信息页面、购物车、结账 |
+| [照片共享](/questions/system-design/photo-sharing-instagram) | Instagram、Flickr、Google Photos | 照片浏览、照片编辑、照片上传 |
+| [旅行预订](/questions/system-design/travel-booking-airbnb) | Airbnb、Skyscanner | 搜索 UI、搜索结果、预订 UI |
+| [视频流](/questions/system-design/video-streaming-netflix) | Netflix、YouTube | 视频播放器、视频流、推荐视频 |
+| [Pinterest](/questions/system-design/pinterest) | Pinterest | Masonry 布局实现和媒体 feed 优化 |
+| [协作应用程序](/questions/system-design/collaborative-editor-google-docs) | Google Docs、Google Sheets、Google Slides、Notion | 实时协作协议、冲突解决、状态同步 |
+| [电子邮件客户端](/questions/system-design/email-client-outlook) | Outlook、Apple Mail、Gmail | 邮箱同步、邮箱 UI、电子邮件撰写器 |
+| 绘图 | Figma、Excalidraw、Canva | 渲染方法、客户端状态/数据模型 |
+| 地图 | Google/Apple Maps、Foursquare City Guide | 地图渲染、显示位置 |
+| 文件存储 | Google Drive、Dropbox | 文件上传、文件下载、文件资源管理器 |
+| 视频会议 | Zoom、Google Meet | 视频流、各种观看模式 |
+| 乘车共享 | Uber、Lyft | 行程预订、司机位置 |
+| 音乐流 | Spotify、Apple Music | 音乐播放器 UI、播放列表 UI |
+| 游戏 | 俄罗斯方块、贪吃蛇 | 游戏状态、游戏循环、游戏逻辑 |
 
-## 用户界面组件
+## UI 组件
 
-在现代前端开发中，通常使用组件库来构建应用程序。 一些流行的组件库您可能已经使用过，包括 jQuery UI（多么老派！）、Bootstrap、Material UI、Chakra UI 等。
+在现代前端开发中，使用组件库来构建应用程序是很常见的。您可能以前使用过的一些流行的组件库包括 jQuery UI（多么老派！）、Bootstrap、Material UI、Chakra UI 等。
 
-前端工程师需要能够构建应用程序所需的各种用户界面组件。 有些用户界面组件很容易构建（例如文本、按钮、徽章等），而其他组件则可能要复杂得多（自动完成、下拉、模态等）。 大多数情况下，如果您被要求设计一个用户界面组件，它将属于后一类。
+前端工程师应该能够构建应用程序所需的各种 UI 组件。一些 UI 组件可能很容易构建（例如文本、按钮、徽章等），而另一些则可能更复杂（自动完成、下拉菜单、模态框等）。大多数情况下，如果您被要求设计一个 UI 组件，它将来自后一类。
 
-首先确定组件的子组件（例如，对于一个图片传送带，有图片、分页按钮、缩略图），定义组件的对外 API（组件应该接受哪些选项/道具），描述组件的内部状态、子组件之间的 API（如果相关），然后深入到性能、可访问性、用户体验、安全性等相关的优化和考虑。
+首先确定组件的子组件（例如，对于图像轮播，有图像、分页按钮、缩略图），定义组件的面向外部的 API（组件应该接受哪些选项/属性），描述内部组件状态，子组件之间的 API（如果相关），然后深入研究性能、可访问性、用户体验、安全性等方面的优化和考虑。
 
 您可能需要为以下一个或多个目的编写少量代码：
 
-1.  描述组件层次结构。
-2.  描述组件状态的形状。
-3.  解释一些组件中的非平凡逻辑。
+1. 描述组件层次结构
+2. 描述组件状态的形状
+3. 解释组件内的一些非平凡逻辑
 
 ```jsx
 <ImageCarousel
@@ -64,21 +66,22 @@ seo_description: 了解两种类型的前端系统设计问题，以及如何以
 
 ### 自定义主题
 
-您肯定需要为组件的用户（开发人员）设计一种自定义组件外观的方法。 请参阅[前端面试指导手册的用户界面组件 API 设计原则部分](/front-end-interview-guidebook/user-interface-components-api-design-principles)，了解不同方法的概述和比较。
+您肯定会被期望设计一种方式，让组件的用户（开发人员）自定义组件的外观。请参阅 [前端面试指南的 UI 组件 API 设计原则部分](/front-end-interview-guidebook/user-interface-components-api-design-principles)，以了解不同方法的概述和比较。
 
 ### 示例
 
-在前端系统设计访谈中提出的用户界面组件示例：
+前端系统设计面试中会问到的 UI 组件示例：
 
-- 设计一个[自动完成组件](/questions/system-design/autocomplete)
-- 设计一个[下拉菜单组件](/questions/system-design/dropdown-menu)
-- 设计一个[可嵌入的投票小部件](/questions/system-design/poll-widget)
-- 设计一个[图片轮播](/questions/system-design/image-carousel)
-- 设计一个[模态组件](/questions/system-design/modal-dialog)
-- 设计一个带排序和分页功能的数据表
-- 设计一个日期选择器
-- 设计一个多选组件
+* 设计一个 [自动完成组件](/questions/system-design/autocomplete)
+* 设计一个 [下拉菜单组件](/questions/system-design/dropdown-menu)
+* 设计一个 [可嵌入的轮询小部件](/questions/system-design/poll-widget)
+* 设计一个 [图片轮播](/questions/system-design/image-carousel)
+* 设计一个 [模态组件](/questions/system-design/modal-dialog)
+* 设计一个 [富文本编辑器](/questions/system-design/rich-text-editor)
+* 设计一个带有排序和分页的数据表
+* 设计一个日期选择器
+* 设计一个多选组件
 
-## 面试时该做什么？
+## 面试期间该做什么？
 
-既然您已经了解了前端系统设计面试中可能会问到的问题类型，那么该如何回答这些问题呢？ 我们提出了[RADIO 框架](/system-design/framework)，这是一种易于记忆的结构化方法，您可以用它来应对系统设计面试问题。
+既然您已经了解了在前端系统设计面试中可能被问到的问题，那么您应该如何回答呢？我们提出了 [RADIO 框架](/system-design/framework)，这是一种易于记忆的结构化方法，您可以使用它来应对前端系统设计面试问题。

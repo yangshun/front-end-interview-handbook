@@ -1,0 +1,289 @@
+---
+title: 在 React 中进行声明式思考
+description: 关于在 React 中使用声明式和状态驱动方法的指南，其中包含实际示例，如待办事项列表，以说明构建动态、可维护的 UI
+---
+
+React 的核心原则之一是其声明性。React 允许你定义 UI 应该根据当前状态呈现的样子，而不是手动逐步更新 DOM（命令式编程），它会为你处理更新。这种方法使 UI 开发更具可预测性、可扩展性，并且更容易推理。
+
+## 声明式 UI 与命令式 UI
+
+在命令式编程中，你给出关于事情应该如何发生的明确指令。DOM API 本质上是命令式的。当操作 DOM 时，这通常意味着选择元素并手动修改它们。
+
+```js
+const button = document.createElement('button');
+button.textContent = 'Click me';
+button.style.backgroundColor = 'blue';
+document.body.appendChild(button);
+
+button.addEventListener('click', () => {
+  button.style.backgroundColor = 'red';
+  alert('Button clicked!');
+});
+```
+
+请注意，每个操作都被明确定义：创建按钮、设置样式、将其附加到 DOM 以及响应事件更改属性。
+
+另一方面，声明式编程侧重于描述期望的结果，而不是详细说明如何实现它。React 组件允许我们声明 UI 应该是什么样子，当状态改变时，React 会负责更新它。
+
+```jsx
+function App() {
+  const [color, setColor] = React.useState('blue');
+
+  return (
+    <button style={{ backgroundColor: color }} onClick={() => setColor('red')}>
+      Click me
+    </button>
+  );
+}
+```
+
+在这个例子中，我们根据 `color` 状态定义了按钮的 UI。当状态改变时，React 会自动更新 DOM，而无需我们手动管理它。
+
+### 类比：命令式与声明式
+
+想想制作一杯咖啡：
+
+* **命令式：**“拿一个马克杯，倒入热水，加入咖啡，搅拌，然后享用”
+* **声明式：**“我想要一杯咖啡”
+
+在声明式方法中，执行的细节被抽象掉了。你描述最终结果，然后一个系统（例如咖啡机、咖啡师或 React）确保它正确发生。
+
+声明式编程的好处在上面的按钮示例中可能不太明显，因为它很小。
+
+让我们使用一个稍微复杂一点的待办事项列表示例，该列表允许添加、删除和完成任务。UI 应该显示任务列表和任务总数以及已完成的任务。
+
+使用命令式方法（例如，使用原始 JavaScript 和 DOM API），每次交互都需要手动查找、更新和重新渲染元素。
+
+以下用户操作将需要这些 DOM 操作：
+
+1. **添加任务**：
+   1. 将新任务追加到现有列表中
+   2. 清空输入内容
+   3. 为新添加的任务添加任务完成事件监听器
+   4. 增加总任务数
+2. **完成任务**：
+   1. 更新任务以显示已完成状态
+   2. 修改已完成任务的数量
+3. **删除任务**：
+   1. 从列表中删除任务
+   2. 减少总任务数
+   3. 如果任务已完成，则减少已完成任务的数量
+
+使用命令式方法，要使 UI 与状态保持同步要困难得多，因为您必须记住要修改的相关区域。当引入新功能时，用命令式编写的逻辑会变得更难阅读和跟踪。这对可维护性不利！
+
+使用声明式方法（如 React），您可以简单地描述应根据更新后的任务状态显示的 UI，React 将计算出必要的命令式 DOM 操作，以将当前 UI 演变为预期的 UI。
+
+可能存在无数个可能的当前 UI – React 如何计算出要进行的正确命令式 DOM 操作？ 这就是 React 的虚拟 DOM 和协调过程发挥作用的地方。 React 比较/区分当前 UI 表示和新的 UI 表示，并生成必要的 DOM 操作列表。
+
+声明式 UI 是几乎所有现代 UI 框架都采用的方法，因为它相对于命令式方法具有压倒性的优势。
+
+在 react.dev 上进一步阅读：[声明式 UI 与命令式 UI 的比较](https://react.dev/learn/reacting-to-input-with-state#how-declarative-ui-compares-to-imperative)
+
+## 如何以声明方式思考 UI
+
+以声明方式思考需要将您的重点从如何更新 UI 转移到 UI 在任何给定时刻应该是什么。
+
+让我们使用与上面相同的待办事项列表示例，并演示声明式编程如何更好。 我们不手动操作 DOM（命令式编程），而是根据状态定义 UI 应该如何显示，并让 React 负责渲染。
+
+为了使事情更复杂一些，待办事项列表支持过滤（全部、已完成、未完成）。
+
+### 1. 识别组件中的视觉状态
+
+待办事项列表有几种可能的 UI 状态：
+
+* 输入字段，可以接受用户的文本输入
+* 任务列表，可以为空或非空
+* 每个任务可以完成或未完成
+* 任务筛选器的选择器和所选选项
+* 任务列表可以被过滤（全部、活动、已完成）
+
+### 2. 确定触发状态更改的操作
+
+接下来，我们定义影响状态的操作：
+
+* 添加任务
+* 完成任务
+* 删除任务
+* 过滤任务（显示全部、活动或已完成）
+
+这些操作将修改状态，React 将相应地自动重新渲染 UI。
+
+### 3. 设计一个最小结构来表示状态
+
+接下来，我们需要设计一个结构来捕获 UI 中的状态数据。
+
+这是一个可能的方案：
+
+```js
+const [tasks, setTasks] = useState([
+  { id: 1, title: '学习 React' },
+  { id: 2, title: '构建一个项目' },
+]);
+const [completedTasks, setCompletedTasks] = useState([
+  { id: 1, title: '学习 React' },
+]);
+const [incompleteTasks, setIncompleteTasks] = useState([
+  { id: 2, title: '构建一个项目' },
+]);
+const [filter, setFilter] = useState('all'); // all | active | completed
+```
+
+然而，在这种设计中，存在一些数据重复。任务是 `tasks` 和 `completedTasks` 或 `incompleteTasks` 的一部分，添加/删除任务将涉及修改多个任务数组。这种状态设计不太好。
+
+一些改进方法：
+
+1. `incompleteTasks` 状态是多余的，因为如果一个任务不在 `completedTasks` 中，那么它就是未完成的。但是，当线性扫描 `completedTasks` 数组以检查每个任务是否已完成时，效率会很低
+2. 我们可以对 `completedTasks` 使用一个 `Set`，它只存储任务 ID。这样，任务标题就不必重复，并且查找任务的完成状态也很有效。但是，当已完成的任务被删除时，我们仍然需要记住修改两个地方。
+
+我们可以跟踪任务本身的完成状态，而不是存储需要同步的多个独立状态片段。这是一个最小且结构化的状态表示：
+
+```js
+const [tasks, setTasks] = useState([
+  { id: 1, title: 'Learn React', completed: false },
+  { id: 2, title: 'Build a project', completed: true },
+]);
+
+const [filter, setFilter] = useState('all'); // all | active | completed
+```
+
+使用此结构：
+
+* `tasks` 是一个数组，其中每个任务都有一个 `id`、`title` 和 `completed` 状态
+* `filter` 确定要显示的任务
+
+为了避免状态冗余，我们可以从 `tasks` 派生已完成的任务，而不是保留一个单独的 `completedTasks` 数组。
+
+这里需要考虑权衡。虽然状态现在已合并，但切换任务完成状态现在将需要克隆整个 `tasks` 数组，而如果我们对 `completedTasks` 使用 `Set`，则不需要这样做。
+
+### 4. 在事件处理程序中调用操作
+
+操作是响应两种事件而触发的：
+
+* **用户事件**：用户直接执行的操作，例如单击按钮、在输入字段中键入或从下拉列表中选择一个选项
+* **后台事件**：在没有直接用户交互的情况下触发的操作，例如 API 响应、计时器和间隔、WebSocket 实时更新
+
+对于手头的待办事项列表，我们只需要关心用户事件。
+
+但是，建议为每个操作编写一个函数，并在每个操作函数中调用状态设置器。这是因为相同的操作可以从 UI 上的许多地方甚至在后台触发。一个例子是视频播放器，用户可以按“暂停”按钮或按空格键来暂停视频。
+
+在这些操作函数中集中状态更新逻辑将有助于保持代码的可维护性。
+
+### 完整示例
+
+现在，让我们实现上面学到的内容。
+
+```jsx
+import { useState } from 'react';
+
+function TodoApp() {
+  const [tasks, setTasks] = useState([]);
+  const [filter, setFilter] = useState('all');
+  const [taskInput, setTaskInput] = useState('');
+
+  // Add a task
+  function addTask() {
+    if (taskInput.trim() === '') {
+      return;
+    }
+    const newTask = { id: Date.now(), text: taskInput, completed: false };
+    setTasks([...tasks, newTask]);
+    setTaskInput('');
+  }
+
+  // Toggle task completion
+  function toggleTask(id) {
+    setTasks(
+      tasks.map((task) =>
+        task.id === id ? { ...task, completed: !task.completed } : task,
+      ),
+    );
+  }
+
+  // Delete a task
+  function deleteTask(id) {
+    setTasks(tasks.filter((task) => task.id !== id));
+  }
+
+  // Get tasks based on filter
+  const filteredTasks = tasks.filter((task) => {
+    if (filter === 'active') {
+      return !task.completed;
+    }
+
+    if (filter === 'completed') {
+      return task.completed;
+    }
+
+    return true; // "all" case
+  });
+
+  return (
+    <div>
+      <h2>Todo List</h2>
+      <input
+        value={taskInput}
+        onChange={(e) => setTaskInput(e.target.value)}
+        placeholder="Add a new task..."
+      />
+      <button onClick={addTask}>Add</button>
+      <div>
+        <button onClick={() => setFilter('all')}>All</button>
+        <button onClick={() => setFilter('active')}>Active</button>
+        <button onClick={() => setFilter('completed')}>Completed</button>
+      </div>
+      <ul>
+        {filteredTasks.map((task) => (
+          <li
+            key={task.id}
+            style={{
+              textDecoration: task.completed ? 'line-through' : 'none',
+            }}>
+            {task.text}
+            <button onClick={() => toggleTask(task.id)}>
+              {task.completed ? 'Undo' : 'Complete'}
+            </button>
+            <button onClick={() => deleteTask(task.id)}>❌</button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+export default TodoApp;
+```
+
+这个待办事项列表是声明式的，因为：
+
+* **UI 自动更新**：当 `tasks` 或 `filter` 更改时，React 会相应地重新渲染 UI
+* **没有手动 DOM 操作**：无需选择元素、手动删除任务或通过 `document.querySelector` 更新样式。
+* **最小且结构化的状态**：UI 源自**单一事实来源** (`tasks` 和 `filter`)
+* **事件处理程序更新状态，而不是 DOM**：函数 `addTask`、`toggleTask` 和 `deleteTask` 仅更新状态，React 处理重新渲染。
+
+此示例展示了声明式思维如何简化 React 中的 UI 开发：
+
+1. 识别 **UI 状态**
+2. 确定 **状态更改操作/操作**
+3. 设计一个 **最小状态结构**
+4. 使用 **事件处理程序** 更新状态
+
+我们让 React **响应** 状态变化，而不是微观管理 DOM 更新，这使得我们的代码更简洁、更具可扩展性，并且更易于维护。
+
+在 React 中以声明式方式思考意味着从一步一步的、命令驱动的思维模式转变为状态驱动的方法。 通过专注于根据状态定义 UI 应该是什么，您可以创建更具可读性、可预测性和可维护性的组件。
+
+拥抱这种范式可以更容易地管理复杂的 UI，并让 React 承担起确定如何有效地更新 DOM 的繁重工作。
+
+## 面试需要了解的内容
+
+* **以声明方式思考并设计组件**：给定一个 UI 和需求，您应该能够以声明式方式思考，以定义各种必要的组件、道具、状态、更改状态的操作，并将它们全部连接在一起。
+
+## 练习题
+
+**编码**：
+
+* [Tweet](/questions/user-interface/tweet/react?framework=react\&tab=coding)
+* [进度条](/questions/user-interface/progress-bar/react?framework=react\&tab=coding)
+* [进度条](/questions/user-interface/progress-bars/react?framework=react\&tab=coding)
+* [文件资源管理器](/questions/user-interface/file-explorer/react?framework=react\&tab=coding)
+* [文件资源管理器 II](/questions/user-interface/file-explorer-ii/react?framework=react\&tab=coding)
+* [文件资源管理器 III](/questions/user-interface/file-explorer-iii/react?framework=react\&tab=coding)

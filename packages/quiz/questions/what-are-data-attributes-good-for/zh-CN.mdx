@@ -1,19 +1,19 @@
 ---
-title: '`data-`属性有什么用？'
+title: data- 属性有什么用？
 ---
 
-在 JavaScript 框架流行之前，开发者使用`data-`属性在 DOM 本身中存储额外的数据，没有其他的技巧，如非标准属性，DOM上的额外属性。 它是为了在没有更合适的属性或元素时将自定义数据私密存储到页面或应用中。
+在 JavaScript 框架流行之前，开发人员使用 `data-` 属性在 DOM 本身中存储额外的数据，而无需其他技巧，例如非标准属性、DOM 上的额外属性。它旨在存储页面或应用程序专用的自定义数据，当没有更合适的属性或元素时。
 
-“data-”属性的另一个常用例子是存储第三方库或框架使用的信息。 例如，Bootstrap 库使用数据属性使`<button>`s 在页面的其他地方触发 modal 的动作（[example](https://getbootstrap.com/docs/5.2/components/modal/#via-data-attributes)）。
+ `data-` 属性的另一个常见用例是存储第三方库或框架使用的信息。例如，Bootstrap 库使用数据属性使 `<button>` 在页面上的其他位置触发模态操作 ([示例](https://getbootstrap.com/docs/5.2/components/modal/#via-data-attributes))。
 
 ```html
 <button type="button" data-bs-toggle="modal" data-bs-target="#myModal">
-  启动弹窗
+  Launch modal
 </button>
 ...
-<div class="modal fade" id="myModal">弹窗内容</div>
+<div class="modal fade" id="myModal">Modal contents</div>
 ```
 
-如今，一般不鼓励使用`data-`属性。 一个原因是用户可以轻松地通过在浏览器中使用“检查元素”来修改数据属性。 数据模型最好存储在 JavaScript 环境中，并通过虚拟 DOM 调和或双向数据绑定（可能通过一个库或一个框架）让它们与 DOM 保持同步。
+如今，通常不鼓励使用 `data-` 属性。原因之一是用户可以通过在浏览器中使用“检查元素”来轻松修改数据属性。数据模型最好存储在 JavaScript 环境中，并通过虚拟 DOM 协调或双向数据绑定（可能通过库或框架）使它们与 DOM 保持同步。
 
-然而，数据属性的一个完全有效的用途，是为**端到端**的测试框架（如 Playwright、Puppeteer、Selenium）添加一个标识符，而不是为主要用于其他目的的测试添加类或 ID 属性。 该元素需要一种被选择的方式，而像`data-test-id="my-element"`这样的东西是一种有效的方式，而不至于扭曲语义标记。
+但是，数据属性的一个完全有效的用途是为 **端到端** 测试框架（例如 Playwright、Puppeteer、Selenium）添加一个标识符，而无需仅为主要用于其他目的的测试添加类或 ID 属性。该元素需要一种被选择的方式，而类似 `data-test-id="my-element"` 的方式是一种有效的方式，可以在不使语义标记复杂化的前提下实现。

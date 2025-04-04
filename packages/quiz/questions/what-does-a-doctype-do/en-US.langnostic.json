@@ -1,0 +1,24 @@
+{
+  "frontmatter": {
+    "title": "b084da42"
+  },
+  "content": {
+    "source": {
+      "locale": "en-US",
+      "hashes": [
+        "230b5001",
+        "3816d33f",
+        "f27cf58a",
+        "7a77f514"
+      ]
+    },
+    "targets": {
+      "zh-CN": [
+        "230b5001",
+        "3816d33f",
+        "f27cf58a",
+        "7a77f514"
+      ]
+    }
+  }
+}

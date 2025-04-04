@@ -1,0 +1,314 @@
+---
+title: React 面试中的数据获取
+description: React 中高效获取数据的综合指南，涵盖客户端和服务器端技术、动态查询、错误处理、缓存以及使用查询库的高级优化
+---
+
+获取数据是构建 Web 应用程序的基本部分。 在 React 中，有效地管理数据获取对于创建响应迅速且性能良好的应用程序至关重要。 无论是从 API、数据库还是其他来源检索数据，React 都提供了多种有效处理数据获取的方法。
+
+数据可以在服务器端（服务器端渲染）或通过 `fetch` 在客户端获取，然后在浏览器中渲染（客户端渲染）。
+
+## 客户端数据获取
+
+内置的 `fetch` API 是在 JavaScript 中发出 HTTP 请求的直接方法。 这是一个使用 `useEffect` 钩子从 API 获取数据的简单示例：
+
+```jsx
+import { useState, useEffect } from 'react';
+
+function Page() {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    fetch('https://jsonplaceholder.typicode.com/posts')
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Error response');
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setData(data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        setError(error);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
+  if (error) {
+    return <p>Error: {error.message}</p>;
+  }
+
+  return (
+    <ul>
+      {data.map((post) => (
+        <li key={post.id}>{post.title}</li>
+      ))}
+    </ul>
+  );
+}
+```
+
+此组件在挂载时调用 API，获取数据，并将其渲染到屏幕上。 如果遇到错误，它还会显示加载消息和错误消息。 这些都非常适合用户体验。
+
+## 动态客户端数据获取
+
+但是，您通常需要根据动态参数（例如博客文章 slug 或自动完成搜索查询）获取数据。
+
+以下“实时搜索”示例根据用户提供的搜索词（在您键入时）获取数据：
+
+```jsx
+import { useState } from 'react';
+import axios from 'axios';
+
+function SearchResults() {
+  const [query, setQuery] = useState('');
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  async function fetchData(query) {
+    if (!query) {
+      return;
+    }
+
+    setLoading(true);
+    setError(null);
+
+    try {
+      const response = await fetch(
+        `https://jsonplaceholder.typicode.com/posts?q=${encodeURIComponent(
+          query,
+        )}`,
+      );
+
+      if (!response.ok) {
+        throw new Error('Error response');
+      }
+      const data = await response.json();
+      setData(data);
+    } catch (err) {
+      setError(err);
+    }
+    setLoading(false);
+  }
+
+  useEffect(() => {
+    fetchData(query);
+  }, [query]);
+
+  return (
+    <div>
+      <input
+        type="text"
+        value={query}
+        onChange={(event) => setQuery(event.target.value)}
+        placeholder="Enter search term"
+      />
+      {loading && <p>Loading...</p>}
+      {error && <p>Error: {error.message}</p>}
+      {data && (
+        <ul>
+          {data.map((result) => (
+            <li key={result.id}>{result.title}</li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+}
+```
+
+注意上面示例中的任何问题吗？ 乍一看，它可能看起来不错，但实际上存在许多问题和改进领域：
+
+### 每次按键都会发出一个 `fetch` 请求
+
+由于没有提交按钮，因此在 `<input>` 中每次更改时都会调用 `fetchData()` 函数。 如果用户输入 `'tomato'`，总共将发出 6 个 HTTP 请求！ 考虑到用户可能只关心 `'tomato'` 的结果，这非常多余。
+
+解决此问题的一种方法是防抖动查询，以便仅在用户停止键入特定持续时间后才发出 API 请求。
+
+### 竞态条件
+
+除了多次请求的浪费之外，一个更严重的问题是显示的结果甚至不是针对当前的搜索词。 可能会发生竞态条件，因为当发出多个请求时，服务器可以按任何顺序返回结果。 术语 `'toma'` 的响应可能晚于术语 `'tomato'` 的响应，但代码只是显示最新请求的结果，而不一定是当前搜索词的请求。
+
+这个问题可以通过多种方式修复/改进：
+
+1. **防抖**: 防抖确保仅在一段时间不活动后才发送请求，这降低了出现竞态条件的可能性。但是，如果请求延迟长于防抖持续时间，则仍然可能发生竞态条件。防抖并不是万无一失的方法。
+2. **取消之前的请求**: 使用 `AbortController` 在发出新请求时取消正在进行的 API 请求。
+3. **忽略/丢弃过时的响应**: 在显示数据之前，确定响应是否针对当前查询，并忽略/丢弃不相关的响应。
+
+### 在卸载后设置状态
+
+如果用户从页面导航离开并且返回了响应，代码将尝试调用 `setData`，即使组件已不再存在于 DOM 中，React 也会记录警告“无法在未挂载的组件上执行 React 状态更新”。这可以通过确保在更新状态之前组件仍然已挂载来修复，方法是在 `useEffect` 中使用清理函数将 `isMounted` 标志设置为 `false`，或者使用 `AbortController` 进行 fetch 请求。
+
+```jsx
+useEffect(() => {
+  let isMounted = true;
+
+  fetch('https://jsonplaceholder.typicode.com/posts/1')
+    .then((response) => response.json())
+    .then((data) => {
+      if (isMounted) {
+        setData(data);
+      }
+    });
+
+  return () => {
+    isMounted = false;
+  };
+}, []);
+```
+
+### 冗余的重复请求
+
+当用户输入查询、收到结果，然后重新输入相同的查询时，就会发生这种情况，从而在数据已经可用时触发另一个 API 请求。
+
+示例：如果用户输入 `'tomato'`，将其删除，然后再次输入 `'tomato'`，则 API 会被查询两次，尽管已经有了结果。
+
+缓存是解决此问题的方法。一个例子是使用 `Map<query, results>` 作为缓存。在进行 API 调用之前，检查结果是否已存在于缓存中。如果存在，则使用它们而不是再次获取。
+
+## 数据变动
+
+数据获取不仅限于查询，还包括变动。数据变动是指修改服务器上数据的任何操作，例如通过 API 在数据库中创建、更新或删除记录。
+
+### 乐观更新
+
+数据变动中的典型步骤以及任何优化：
+
+1. 触发 API 请求 (POST, PUT, DELETE)
+2. 在请求进行时显示加载状态
+3. 等待服务器的响应
+4. 在成功的情况下，处理响应并更新相关 UI
+5. 适当地处理错误（例如，显示错误消息）
+
+此流程很慢，因为用户必须等待服务器响应才能看到更改。这就是乐观更新可以提供帮助的地方。
+
+乐观更新是一种用于数据变动的技术，其中 UI 在收到服务器的响应之前更新。这通过假设变动将成功，使应用程序感觉更快、响应更灵敏。
+
+1. 立即使用假设的成功更改更新 UI
+2. 在后台发送 API 请求
+3. 如果请求成功，保持 UI 不变
+4. 如果请求失败，将 UI 回滚到之前的状态并显示错误消息
+
+乐观更新减少了感知到的延迟并改善了用户体验。
+
+```jsx
+const handleLike = async () => {
+  setLike((count) => count + 1); // 乐观地更新 UI
+
+  try {
+    await fetch('/api/posts/4/like', {
+      method: 'POST',
+    });
+  } catch (error) {
+    setLike((count) => count - 1); // 失败时回滚
+  }
+};
+```
+
+乐观更新可用于事先已知成功场景的变动，例如点赞帖子、将商品添加到购物车或编辑评论。
+
+### 使缓存失效
+
+如果 UI 依赖于缓存数据，则应通过重新获取数据或将变动响应与缓存数据合并来使缓存失效（某些变动无法实现）。
+
+## 查询库
+
+到目前为止，你可能同意我的观点，即正确实现数据获取是如此痛苦。但不用担心，查询库来救援！
+
+查询库专门设计用于处理前端应用程序中的数据获取、缓存、同步和状态管理。它们简化了 API 请求，同时优化了性能和用户体验。 常见的例子包括 [TanStack Query](https://tanstack.com/query/latest)、[useSWR](https://swr.vercel.app/) 和 [Apollo Client](https://www.apollographql.com/) (用于 GraphQL)。
+
+下面的例子使用了 TanStack Query。看看它们以声明方式编写时获取数据是多么容易！
+
+```jsx
+import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
+
+function DataFetchingComponent() {
+  const { data, isLoading, error } = useQuery({
+    queryKey: ['posts'],
+    queryFn: async () => {
+      const response = await axios.get('/api/posts');
+      return response.data;
+    },
+    staleTime: 5000, // 缓存数据 5 秒
+  });
+
+  if (isLoading) {
+    return <p>加载中...</p>;
+  }
+  if (error) {
+    return <p>错误: {error.message}</p>;
+  }
+
+  return (
+    <ul>
+      {data.map((post) => (
+        <li key={post.id}>{post.title}</li>
+      ))}
+    </ul>
+  );
+}
+```
+
+优点
+
+| 特性 | `useEffect` + `fetch` | 查询库 |
+| --- | --- | --- |
+| 缓存 | 无缓存 | 自动缓存 |
+| 错误处理 | 需要 `try`/`catch` | 内置重试 |
+| 乐观更新 | 需要手动回滚 | 失败时自动回滚 |
+| 分页 | 需要额外的逻辑 | 内置支持 |
+| 后台更新 | 需要手动轮询 | 在后台处理更新 |
+| 重新获取 | 手动 | 自动 |
+
+## 服务器端数据获取和服务器端渲染 (SSR)
+
+服务器端数据获取是一种在服务器上呈现页面 (SSR) 之前从数据库或 API 检索数据的技术，而不是在初始加载后在客户端获取数据。 SSR 通过向客户端提供预渲染的、填充数据的页面来提高性能、SEO 和用户体验。
+
+像 Next.js 这样的元框架使用 `getServerSideProps` / 服务器组件等函数使服务器端数据获取变得容易，这些函数在将 HTML 发送到浏览器之前在服务器上运行。 与客户端获取（在等待数据时会显示加载状态）不同，服务器端获取可确保用户立即看到完全呈现的页面。
+
+这对于性能敏感的页面、SEO 敏感的页面、个性化仪表板以及依赖于特定于请求的数据（例如身份验证或地理位置）的动态内容特别有用。
+
+除了家庭作业之外，大多数 React 编码面试问题将使用客户端数据获取而不是服务器端数据获取。
+
+然而，CSR 与 SSR 是系统设计环节中一个常见的讨论话题，你应该知道每个的优点以及何时使用哪个。
+
+## 面试你需要知道的
+
+* **基本数据获取**：
+  * 使用 `useEffect` 和 `useState` 在函数组件中获取数据
+  * 处理加载和错误状态
+  * 理解依赖数组 (`[]` 用于挂载时获取，`[query]` 用于更改时获取)
+  * 避免由于缺少依赖项而导致的无限循环
+  * 清理副作用（例如，中止获取请求以防止在卸载时设置状态）
+* **基本数据获取的问题**：虽然你可能不会被要求实现优化的数据获取方法，但你应该知道问题是什么以及如何在高级别上修复它们
+
+## 关键面试问题
+
+1. 你如何在 React 中获取数据？
+2. 使用 TanStack Query 而不是 `useState` 和 `useEffect` 有什么好处？
+3. 如何在实时搜索中防止冗余的 API 请求？
+4. 什么是乐观更新，它们如何提高性能？
+5. 如何处理 API 调用中的错误和重试？
+6. 如果组件卸载，如何取消 API 请求？
+
+## 练习题
+
+**测验**：
+
+* [你如何在 React 应用程序中处理异步数据加载？](/questions/quiz/how-do-you-handle-asynchronous-data-loading-in-react-applications?framework=react\&tab=quiz)
+* [解释 React 应用程序的服务器端渲染及其好处？](/questions/quiz/explain-server-side-rendering-of-react-applications-and-its-benefits?framework=react\&tab=quiz)
+* [在 React 中进行数据获取时，有哪些常见的陷阱？](/questions/quiz/what-are-some-common-pitfalls-when-doing-data-fetching-in-react?framework=react\&tab=quiz)
+
+**编码**:
+
+* [点赞按钮](/questions/user-interface/like-button/react?framework=react\&tab=coding)
+* [出生年份直方图](/questions/user-interface/birth-year-histogram/react?framework=react\&tab=coding)
+* [招聘版块](/questions/user-interface/job-board/react?framework=react\&tab=coding)

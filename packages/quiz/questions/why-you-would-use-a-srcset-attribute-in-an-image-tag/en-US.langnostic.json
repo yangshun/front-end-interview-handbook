@@ -1,0 +1,27 @@
+{
+  "frontmatter": {
+    "title": "381a021a",
+    "subtitle": "db68b88d"
+  },
+  "content": {
+    "source": {
+      "locale": "en-US",
+      "hashes": [
+        "82f48bc8",
+        "8a8c1807",
+        "6d101dee",
+        "57c0053a",
+        "ee94df1d"
+      ]
+    },
+    "targets": {
+      "zh-CN": [
+        "82f48bc8",
+        "8a8c1807",
+        "6d101dee",
+        "57c0053a",
+        "ee94df1d"
+      ]
+    }
+  }
+}

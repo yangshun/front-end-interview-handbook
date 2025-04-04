@@ -1,0 +1,254 @@
+---
+title: React 中的注册表单示例
+description: 一个逐步指南，用于使用不受控输入、适当的标签、浏览器验证和客户端提交来构建可访问的 React 注册表单
+---
+
+构建具有出色用户体验和可访问性的表单并非易事 - 但一旦您知道需要注意的事项，它也不会那么难。
+
+在本页中，我们将演示使用不受控输入构建一个好的、可访问的简单注册表单的基础知识。由于输入是未受控的，因此大多数点都不是 React 特有的。
+
+## 1. 输入字段
+
+首先，从一个 `<input>` 字段开始。 `<input>` 是 HTML 表单的支柱，根据 `type` 属性值，浏览器会以不同的方式呈现这些控件，以帮助用户填写表单。 常见值包括 `text`、`email`、`number`、`url`、`checkbox`、`file` 等。
+
+```jsx
+<input type="email" />
+```
+
+## 2. 将标签添加到输入字段
+
+出于可访问性目的，所有 `<input>` 标签都应具有关联的 `<label>`。 这是必要的，以便辅助技术用户可以知道输入的目的。 单击或触摸标签也会将焦点放在标签的关联表单控件上。
+
+`<label>` 和 `<input>` 分别使用 `for`（React 中的 `htmlFor`）和 `id` 属性进行链接。
+
+```jsx
+<label htmlFor="email-input">Email</label>
+<input id="email-input" type="email" />
+```
+
+另一种方法是在 `<input>` 上使用 `aria-label`，但最好使用 `<label>` 具有可见标签。
+
+## 3. 包装在表单中
+
+接下来，这些元素应该包装在 `<form>` 中。 这将启用浏览器的 enter-to-submit 行为，也就是用户可以点击 <kbd>Enter</kbd> 提交表单。
+
+```jsx
+<form>
+  <label htmlFor="email-input">Email</label>
+  <input id="email-input" type="email" />
+</form>
+```
+
+## 4. 表单属性
+
+`<form>` 标签接受这些属性：
+
+* `action`：指定将接收提交的表单数据的服务器的 URL。
+* `method`：定义用于发送表单数据的 HTTP 方法。 常见值有：
+  * `POST` 表单数据作为请求正文的一部分发送。
+  * `GET`：表单数据作为搜索/查询参数附加到 URL。
+* `enctype`：指定将表单数据提交到服务器时应如何编码。 当您上传文件时，这一点尤其重要。
+
+```jsx
+<form method="POST" action="/users/signup">
+  <label htmlFor="email-input">邮箱</label>
+  <input id="email-input" type="email" />
+</form>
+```
+
+## 5. 提交按钮
+
+虽然并非所有用户都知道他们可以按 <kbd>Enter</kbd> 提交表单，但提交按钮是普遍理解的表单提交机制。如果未指定 `<button>` 的 `type` 属性，则使用的默认值为 `<button type="submit">`。
+
+当此类 `<button>` 在 `<form>` 中使用时，触发它们将导致表单提交。
+
+```jsx
+<form method="POST" action="/users/signup">
+  <label htmlFor="email-input">邮箱</label>
+  <input id="email-input" type="email" />
+  <button>注册</button>
+</form>
+```
+
+创建提交按钮的另一种方法是使用带有 `type="submit` 的 `<input>` 标签。
+
+```jsx
+<form method="POST" action="/users/signup">
+  <label htmlFor="email-input">邮箱</label>
+  <input id="email-input" type="email" />
+  <input type="submit" value="注册">
+</form>
+```
+
+## 6. 输入字段 `name` 属性
+
+定义了 `name` 属性的 `<input>` 元素将作为名称/值对的一部分包含在表单提交数据中。
+
+```jsx
+<form method="POST" action="/users/signup">
+  <label htmlFor="email-input">邮箱</label>
+  <input id="email-input" name="userEmail" type="email" />
+  <button>注册</button>
+</form>
+```
+
+指定 `name` 属性后，提交表单时：
+
+* 对于 `<form method="GET">`，将向 `/users/signup?userEmail=john.doe@gmail.com` 发出 HTTP `GET` 请求。
+* 对于 `<form method="POST">`，将向 `/users/signup` 发出 HTTP `POST` 请求，并且正文为 `userEmail=john.doe@gmail.com`。
+
+如果还有更多表单字段，则键值对将使用 `&` 作为分隔符连接起来。例如 `userEmail=john.doe@gmail.com&password=securepassword123`。
+
+不带 `name` 属性的 `<input>` 元素的值不包含在提交到服务器的数据中。`name` 属性充当表单数据的键，将其与输入元素的 `value` 属性配对。如果缺少 `name` 属性，则与该输入关联的表单数据将不会成为提交表单时 HTTP 请求的一部分。
+
+因此，所有表单控件输入元素都应指定 `name` 属性。
+
+## 7. 输入字段的其他属性（例如 `autocomplete`）
+
+通过添加 `autocomplete` 属性，浏览器将根据该值和用户的自动填充数据（例如地址和付款方式）提供建议。
+
+```jsx
+<form method="POST" action="/users/signup">
+  <label htmlFor="email-input">邮箱</label>
+  <input autocomplete="email" id="email-input" name="userEmail" type="email" />
+  <button>注册</button>
+</form>
+```
+
+可能的值包括 `email`、`family-name`、`new-password`、`street-address` 等。请参阅 [MDN 上的完整值列表](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete#values)。指定 `autocomplete` 属性对于结帐页面上的送货和账单地址表单特别有用。
+
+## 8. 浏览器验证
+
+使用 `<input type="password" />` 添加密码字段。
+
+通过在 `<input>` 上指定 `required`、`minlength`、`pattern` 等属性，浏览器可以在表单提交到服务器之前帮助验证用户的输入是否符合这些要求。
+
+```jsx
+<form method="POST" action="/users/signup">
+  <label htmlFor="email-input">电子邮件</label>
+  <input
+    autocomplete="email"
+    id="email-input"
+    name="userEmail"
+    required
+    type="email"
+  />
+  <label htmlFor="password-input">密码</label>
+  <input
+    autocomplete="new-password"
+    id="password-input"
+    minlength="8"
+    name="userPassword"
+    required
+    type="password"
+  />
+  <button>注册</button>
+</form>
+```
+
+请注意，仅靠浏览器验证是不够的！恶意人员可以直接访问您的服务器端点，而无需使用您的 HTML 表单。您仍然应该在服务器上验证和清理所有用户输入。
+
+## 9. 使用 `aria-describedby` 链接表单控件描述
+
+对于需要额外描述/提示文本的 `<input>`，它们可以与包含描述性文本的元素关联，该元素可以是 `<span>`、`<div>` 或任何其他合适的 HTML 元素。
+
+```jsx
+<form method="POST" action="/users/signup">
+  <label htmlFor="email-input">电子邮件</label>
+  <input
+    autocomplete="email"
+    id="email-input"
+    name="userEmail"
+    required
+    type="email"
+  />
+  <label htmlFor="password-input">密码</label>
+  <input
+    aria-describedby="password-hint"
+    autocomplete="new-password"
+    id="password-input"
+    minlength="8"
+    name="userPassword"
+    required
+    type="password"
+  />
+  <div id="password-hint">
+    您的密码必须至少包含 8 个字符。
+  </div>
+  <button>注册</button>
+</form>
+```
+
+当用户聚焦于密码输入字段时，屏幕阅读器等辅助技术将读取输入标签以及 `<div>` 中提供的附加说明。这有助于用户更清楚地了解密码字段的要求。
+
+## 10. 通过 `fetch()` 提交
+
+当前表单将在提交时向 `/users/signup` 发送 HTTP `POST` 请求，这会导致整页导航，这可能并不总是理想的。
+
+我们可以修改表单，通过 `fetch()` 发出客户端 HTTP `POST` 请求。需要进行的主要更改是：
+
+* 调用 `event.preventDefault()` 以防止浏览器导航离开
+* 使用 `new FormData(formElement)` 从表单元素获取输入字段数据
+* 通过 `fetch()` 将数据发送到服务器 API 端点
+
+```jsx
+function SignupForm() {
+  async function handleSubmit(event) {
+    // 阻止默认行为，即导航
+    event.preventDefault();
+
+    const formElement = event.target;
+    const formData = new FormData(formElement);
+
+    const response = await fetch('/users/signup', {
+      method: 'POST',
+      body: JSON.stringify({
+        email: formData.get('userEmail'),
+        password: formData.get('userPassword'),
+      }),
+      headers: { 'Content-Type': 'application/json' },
+    });
+
+    const data = await response.json();
+    if (!response.ok) {
+      // 处理错误响应
+      return;
+    }
+
+    // 处理成功流程
+  }
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <label htmlFor="email-input">电子邮件</label>
+      <input
+        autocomplete="email"
+        id="email-input"
+        name="userEmail"
+        required
+        type="email"
+      />
+      <label htmlFor="password-input">密码</label>
+      <input
+        aria-describedby="password-hint"
+        autocomplete="new-password"
+        id="password-input"
+        minlength="8"
+        name="userPassword"
+        required
+        type="password"
+      />
+      <div id="password-hint">
+        您的密码必须至少包含 8 个字符。
+      </div>
+      <button>注册</button>
+    </form>
+  );
+}
+```
+
+您已经拥有了，一个完全可访问的 React 注册表单。
+
+## 面试时您需要知道的内容
+
+如何在 React 中独立构建一个具有验证和提交功能的可访问表单。

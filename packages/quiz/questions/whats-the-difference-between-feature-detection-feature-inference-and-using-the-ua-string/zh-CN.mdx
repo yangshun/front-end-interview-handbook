@@ -1,24 +1,24 @@
 ---
-title: 功能检测、功能推断和使用UA字符串之间有什么区别？
+title: 特性检测、特性推断和使用 UA 字符串有什么区别？
 ---
 
-## 功能检测
+## 特性检测
 
-功能检测包括找出一个浏览器是否支持某个代码块，并根据它是否支持（或不支持）运行不同的代码，从而使浏览器能够始终提供一个良好的体验，而不是在某些浏览器中崩溃/出错。 例如：
+特性检测涉及确定浏览器是否支持某段代码，并根据是否支持运行不同的代码（或不支持），以便浏览器始终提供工作体验，而不是在某些浏览器中崩溃/出错。例如：
 
 ```js
 if ('geolocation' in navigator) {
-  // Can use navigator.geolocation
+  // 可以使用 navigator.geolocation
 } else {
-  // Handle lack of feature
+  // 处理缺少的功能
 }
 ```
 
-[Modernizr](https://modernizr.com/) 是一个处理功能检测的优秀库。
+[Modernizr](https://modernizr.com/) 是一个处理特性检测的好库。
 
-## 功能推断
+## 特性推断
 
-功能推断就像功能检测一样检查一个功能，但使用另一个函数，因为它假设它也会存在，例如：
+特性推断像特性检测一样检查特性，但使用另一个函数，因为它假定它也将存在，例如：
 
 ```js
 if (document.getElementsByTagName) {
@@ -26,8 +26,8 @@ if (document.getElementsByTagName) {
 }
 ```
 
-真不推荐这样做。 功能检测才是万无一失的。
+这真的不推荐。特性检测更万无一失。
 
 ## UA 字符串
 
-这是一个浏览器报告的字符串，允许网络协议对等者识别请求软件用户代理的应用程序类型、操作系统、软件供应商或软件版本。 它可以通过 `navigator.userAgent` 访问。 然而，该字符串解析起来很棘手，可以被欺骗。 例如，Chrome 同时报告为 Chrome 和 Safari。 所以要检测 Safari，你必须检查 Safari 字符串和 Chrome 字符串的缺失。 避免使用此方法。
+这是一个浏览器报告的字符串，它允许网络协议对等方识别请求软件用户代理的应用程序类型、操作系统、软件供应商或软件版本。可以通过 `navigator.userAgent` 访问它。但是，该字符串很难解析，并且可以被欺骗。例如，Chrome 报告为 Chrome 和 Safari。因此，要检测 Safari，您必须检查 Safari 字符串以及 Chrome 字符串的缺失。避免使用此方法。

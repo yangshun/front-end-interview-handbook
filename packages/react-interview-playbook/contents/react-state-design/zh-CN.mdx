@@ -1,0 +1,408 @@
+---
+title: 在 React 访谈中设计状态
+description: 如何思考 React 中的状态，详细介绍用于构建高效、可维护和高性能应用程序的结构化、重置和更新状态的最佳实践
+---
+
+状态是任何 React 应用程序的支柱，它决定了组件随时间的行为和渲染方式。与静态数据不同，状态支持动态更新、用户交互和实时更改，而无需完全重新加载页面。
+
+结构良好的状态可提高代码可维护性、增强性能并防止不必要的重新渲染。另一方面，糟糕的状态管理可能导致错误的代码、应用程序运行缓慢和不可预测的行为。
+
+## 如何构建状态
+
+创建有状态组件时，您需要决定使用多少个状态变量以及如何构建它们的数据。虽然次优的状态设计仍然可以生成一个功能正常的应用程序，但遵循这些关键原则可以帮助您做出更好的决策并提高可维护性。
+
+### 尽可能保持状态本地化
+
+❌ **错误**：当状态仅在一个组件中使用时，不必要地提升状态。
+
+```jsx
+function App() {
+  const [count, setCount] = useState(0);
+
+  return <Child count={count} setCount={setCount} />;
+}
+
+function Child({ count, setCount }) {
+  return <button onClick={() => setCount(count + 1)}>Count: {count}</button>;
+}
+```
+
+✅ **正确**：将状态保留在使用它的组件内部。当计数更改时，只需要重新渲染 `Child`。
+
+```jsx
+function App() {
+  return <Child />;
+}
+
+function Child() {
+  const [count, setCount] = useState(0);
+  return <button onClick={() => setCount(count + 1)}>Count: {count}</button>;
+}
+```
+
+### 将相关状态组合在一起
+
+❌ **错误**：对相关值使用单独的 `useState` 调用。
+
+在这种情况下，`x` 和 `y` 代表一个单点，这意味着它们应该一起管理。使用单独的状态变量会使更新更加麻烦。
+
+```jsx
+function App() {
+  const [x, setX] = useState(0);
+  const [y, setY] = useState(0);
+
+  return (
+    <div
+      onPointerMove={(e) => {
+        setX(e.clientX);
+        setY(e.clientY);
+      }}>
+      <p>
+        点：({x}，{y})
+      </p>
+    </div>
+  );
+}
+```
+
+✅ **正确**：使用对象对相关状态进行分组。由于 `x` 和 `y` 共同定义一个单点，因此它们应该作为一个单元进行管理。
+
+```jsx
+function App() {
+  const [point, setPoint] = useState({ x: 0, y: 0 });
+
+  return (
+    <div
+      onPointerMove={(e) => {
+        setPoint({ x: e.clientX, y: e.clientY });
+      }}>
+      <p>
+        点：({x}，{y})
+      </p>
+    </div>
+  );
+}
+```
+
+### 避免状态中可能出现的矛盾
+
+❌ **不好：分离 `isSubmitting` 和 `isSubmitted` 状态**
+
+```jsx
+function ContactForm() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isError, setIsError] = useState(false);
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setIsError(false);
+
+    fetch('/api/submit', { method: 'POST' })
+      .then(() => {
+        setIsSubmitting(false);
+        setIsSubmitted(true);
+      })
+      .catch(() => {
+        setIsSubmitting(false);
+        setIsError(true);
+      });
+  }
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <button type="submit" disabled={isSubmitting}>
+        提交
+      </button>
+      {isSubmitted && <p>表单提交成功！</p>}
+    </form>
+  );
+}
+```
+
+在这个例子中，考虑到有 3 个状态值用于表示表单的状态，因此可能会出现矛盾的状态。如果新代码不小心执行了 `setIsSubmitting(true); setIsSubmitted(true);`，那么组件既在提交又已提交，这没有任何意义。
+
+✅ **好：使用单个 `status` 状态**
+
+```jsx
+function ContactForm() {
+  const [status, setStatus] = useState('idle'); // "idle", "submitting", "success", "error"
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    setStatus('submitting');
+
+    fetch('/api/submit', { method: 'POST' })
+      .then(() => setStatus('success'))
+      .catch(() => setStatus('error'));
+  }
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <button type="submit" disabled={status === 'submitting'}>
+        提交
+      </button>
+      {status === 'success' && <p>表单提交成功！</p>}
+      {status === 'error' && <p>提交失败。请重试。</p>}
+    </form>
+  );
+}
+```
+
+**为什么这更好？**
+
+* **防止矛盾**：表单一次只能处于一种状态
+* **正确处理错误**：UI 可以对错误做出反应，而不会错误地将表单标记为“已提交”
+* **更简单的逻辑**：无需手动同步多个布尔状态
+
+### 派生状态而不是存储冗余值
+
+❌ **不好**：存储列表和计数，而计数可以派生。
+
+```jsx
+const [todos, setTodos] = useState(['任务 1', '任务 2']);
+const [count, setCount] = useState(2); // 需要同步的不必要的状态
+
+useEffect(() => {
+  setCount(todos.length);
+}, [todos]);
+```
+
+✅ **好**：从 `todos` 数组派生计数。
+
+```jsx
+const [todos, setTodos] = useState(['任务 1', '任务 2']);
+
+const count = todos.length; // 无需单独存储
+```
+
+还有其他[用于构建状态的良好原则](https://react.dev/learn/choosing-the-state-structure#principles-for-structuring-state)，例如["避免状态中的重复"](https://react.dev/learn/choosing-the-state-structure#avoid-duplication-in-state)和["避免深度嵌套状态"](https://react.dev/learn/choosing-the-state-structure#avoid-deeply-nested-state)，但它们与面试关系不大。
+
+## 重置状态
+
+重置状态的最简单方法是将其设置回其初始值。但是，当有多个状态值时，必须调用多个 setter 才能重置为初始状态可能会很麻烦。您可能会遗漏某些状态字段。这就是分组状态以及为每个可能的操作定义函数很重要的原因。
+
+对组件进行完全重置的一种方法是在渲染时更改 `key` 属性。当 `key` 更改时，React 将丢弃该元素并从头开始重新创建它。`key` 不仅在渲染列表中很有用。
+
+```jsx
+function Form() {
+  return (
+    <form>
+      <input type="text" placeholder="John Doe"/>
+      <button >提交</button>
+    </div>
+  );
+}
+
+function App() {
+  const [key, setKey] = useState(0);
+
+  return (
+    <div>
+      <Form key={key} />
+      <button onClick={() => setKey((prev) => prev + 1)}>重置表单</button>
+    </div>
+  );
+}
+```
+
+**它是如何工作的：**
+
+* 更改 `key` 会强制 React **卸载并重新挂载** `Form` 组件
+* `<form>` 具有内置的方式来重置其状态（例如 `formElement.reset()`），但 `key` 方法适用于任何组件
+
+在 react.dev 上进一步阅读：[保留和重置状态](https://react.dev/learn/preserving-and-resetting-state)
+
+## 受控组件与非受控组件
+
+在 React 中，一个组件可以被描述为受控或非受控，这取决于其状态的管理方式。这些术语不是严格的技术定义，而是一种理解组件如何与其父组件交互的方式。
+
+**注意**：非受控组件的传统定义仅限于表单 `<input>` 元素，以及状态是存在于 DOM 中还是由 React 控制。 [现代定义](https://react.dev/learn/sharing-state-between-components#controlled-and-uncontrolled-components) 将非受控的定义扩展到不仅仅是表单 `<input>` 元素。
+
+| **类型** | **谁控制状态？** | **优点** | **缺点** |
+| --- | --- | --- | --- |
+| **受控** | 父组件通过 props | 灵活，易于与其他组件协调 | 需要更多 props/配置 |
+| **非受控** | 组件本身通过本地状态 | 更易于使用，所需 props 较少 | 灵活性较低，更难协调 |
+
+一个**受控组件**是指其行为完全由其 props 决定，而不是由其自身的本地状态决定。这允许父组件完全控制组件的行为。
+
+一个**非受控组件**在其内部管理自己的状态，使其独立于父组件。父组件不能直接修改非受控组件的状态。
+
+大多数组件并非严格受控或非受控，它们通常混合使用两者。一个好的做法是先从本地状态（非受控）开始，并在需要时提升状态。
+
+**示例**：一个常见组件的示例，其中受控或非受控都是可行的，就是手风琴。在营销页面上，手风琴倾向于用于常见问题解答部分，非受控版本就足够了。在仪表板和详细信息页面上，手风琴项目可能会根据用户操作展开或折叠，并且这些手风琴需要被控制。
+
+## 上下文
+
+React 上下文用于管理需要被其后代访问的全局或共享数据，而无需通过组件树的每一层手动传递 props。
+
+上下文通常与状态配对，并在应用程序的顶部使用，以使应用程序级数据可用于整个应用程序，例如主题和身份验证。每当上下文提供程序的值更改时，所有使用上下文的后代 (`useContext(...)`) 都将重新渲染。
+
+```jsx
+const ThemeContext = React.createContext();
+
+function App() {
+  const [theme, setTheme] = useState('light');
+
+  return (
+    <ThemeContext.Provider value={{ theme, setTheme }}>
+      <Child />
+    </ThemeContext.Provider>
+  );
+}
+
+function Child() {
+  const { theme, setTheme } = useContext(ThemeContext);
+  return (
+    <div>
+      <p>Current theme: {theme}</p>
+      <button onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}>
+        Toggle Theme
+      </button>
+    </div>
+  );
+}
+```
+
+### 上下文的陷阱
+
+由于以下陷阱，上下文是一种更容易（但不一定是最佳）的方式，可以使数据可用于多个组件：
+
+* **不可静态分析**：与显式传递给组件的 props 不同，上下文是在运行时动态提供的。这意味着您无法在构建时轻松确定组件是否可以访问必要的上下文，从而导致仅在应用程序运行时才会出现的潜在错误
+* **可能导致不必要的重新渲染**：当上下文值更新时，所有使用组件都会重新渲染，即使它们不使用上下文的更改部分。这可能导致性能问题，尤其是在提供程序包含大型对象或频繁更新时。拆分上下文或记忆值可以帮助缓解此问题
+* **易于添加但难以删除**：上下文对于管理全局状态很方便，但一旦添加，删除或重构它可能很困难，尤其是在大型应用程序中。子组件可能依赖于已删除的上下文提供程序，但静态分析将无法标记该问题
+* **不应用于频繁更新**：上下文未针对频繁更新的状态进行优化，例如表单输入、动画或快速变化的数据（例如，在搜索栏中键入）。相反，请在本地使用 `useState` 或 `useReducer`，并且仅在必要时更新上下文，以避免不必要的渲染
+* **不要将太多数据放入单个提供程序中**：如果将太多不相关的数据存储在一个上下文提供程序中，则会增加不必要的重新渲染的可能性，并使状态更难管理。相反，将上下文拆分为多个提供程序，每个提供程序处理一个特定的问题（例如，用于身份验证、主题和通知的单独提供程序）
+
+### 上下文的用例
+
+* **主题**：如果您的应用程序允许用户切换主题（例如，深色模式、高对比度模式），您可以在顶层放置一个上下文提供程序，并在需要调整其样式的组件中使用该上下文。这避免了 prop 钻取，并确保了整个应用程序的一致外观。
+* **当前用户（身份验证）**：许多组件可能需要访问当前登录的用户的信息。将其存储在上下文中可以轻松地在应用程序中的任何位置读取和更新。如果您的应用程序支持多个活动用户会话（例如，以不同用户的身份发表评论），您可以在具有不同用户值的嵌套提供程序中包装 UI 的一部分。
+* **语言和本地化**：如果您的应用程序支持多种语言，上下文提供程序可以存储当前选择的语言，并向组件提供翻译，而无需手动向下传递语言设置。这使得构建完全本地化的体验变得容易。
+* **路由**：大多数路由库在内部使用上下文来跟踪当前路由。这允许导航链接等组件确定它们是否处于活动状态。如果您正在构建自定义路由器，使用上下文可以帮助管理和传播整个应用程序的导航状态。
+* **通知和警报**：Toast、成功消息和错误警报通常需要从应用程序的不同部分触发。通知上下文可以集中显示和关闭警报的逻辑，从而使其易于管理和一致地显示消息。
+* **全局模态和对话框**：如果您有可以从多个位置触发的模态对话框（例如，确认对话框或设置模态），将它们打开/关闭状态存储在上下文中允许任何组件显示或隐藏它们，而无需手动传递处理程序。
+* **保存用户偏好**：如果您的应用程序需要存储 UI 偏好（例如，侧边栏打开/关闭状态、默认排序选项），将它们放置在上下文中允许 UI 的不同部分保持同步，同时保持逻辑集中。
+* **使用 reducers 管理复杂状态**：随着您的应用程序的增长，您可能会在顶层积累大量状态。许多深度嵌套的组件可能需要更新此状态。将 `useReducer` 与上下文一起使用允许组件调度操作以修改全局状态，而无需复杂的 prop 钻取。
+
+在 react.dev 上进一步阅读：[使用上下文深入传递数据](https://react.dev/learn/passing-data-deeply-with-context)
+
+## Reducers
+
+随着应用程序的增长，应用程序中的状态量会增加，并且会发生以下情况：
+
+* **复杂的状态转换**：状态可以更改的方式数量成比例增加，甚至呈指数级增长
+* **转换的多个来源**：状态更新可以从多个地方触发（例如，UI 中的各个地方、后台事件、命令面板等）
+* **不一致的状态转换**：一目了然地查看组件状态可以更新的所有不同方式变得更加困难。因此，某些状态值应该一起修改（例如，请求状态和错误消息），但逻辑在 UI 的各个部分可能不一致
+
+在更大范围内管理状态的一种方法是将可能的更改合并为“操作”，并将用于响应这些操作的状态应如何更改的逻辑合并起来。
+
+React 中的 reducer 是一个函数，它通过获取当前状态和一个操作来管理复杂的状态逻辑，然后根据该操作返回一个新状态。它遵循 Redux 模式，通常与 `useReducer` 钩子一起使用，这使得状态更新更具可预测性，并且更易于调试。对状态的所有更改都必须通过一个操作来完成，不应直接修改状态。
+
+```js
+const newState = reducer(currentState, action);
+```
+
+reducer 函数遵循此结构：
+
+```jsx
+function reducer(state, action) {
+  switch (action.type) {
+    case 'INCREMENT':
+      return { count: state.count + 1 };
+    case 'DECREMENT':
+      return { count: state.count - 1 };
+    default:
+      return state; // 如果操作未知，则返回当前状态
+  }
+}
+```
+
+* `state`：表示当前状态
+* `action`：描述更新的对象（例如，`{ type: "INCREMENT" }`，带有一个可选的 payload 字段）
+* `reducer`：纯函数，它接受当前的 `state` 和 `action`，并根据 action 返回一个新状态
+
+以下是使用 reducer 实现的计数器示例：
+
+```jsx
+function Counter() {
+  const [state, dispatch] = useReducer(reducer, { count: 0 });
+
+  return (
+    <div>
+      <p>Count: {state.count}</p>
+      <button
+        aria-label="Increment"
+        onClick={() => dispatch({ type: 'INCREMENT' })}>
+        +
+      </button>
+      <button
+        aria-label="Decrement"
+        onClick={() => dispatch({ type: 'DECREMENT' })}>
+        -
+      </button>
+      <button onClick={() => dispatch({ type: 'RESET' })}>Reset</button>
+    </div>
+  );
+}
+```
+
+1. `useReducer(reducer, initialState)` 使用 `reducer` 函数初始化状态
+2. `dispatch({ type: "INCREMENT" })` 触发 reducer，相应地更新状态
+3. 状态更新**不会改变**以前的状态，而是返回一个新对象
+
+### reducer 的用例
+
+`useReducer` 适用于管理复杂的状态更新，其中多个操作以结构化的方式修改状态。以下是 reducer 在不同用例中的帮助：
+
+1. **复杂的、多步骤的表单**：具有多个步骤或相关字段的表单可能难以使用 useState 管理。 Reducer 通过集中表单逻辑来帮助减少重复的状态更新。保持表单提交、验证和步骤导航逻辑的清晰
+2. **状态驱动的 UI（例如，处理模态框、通知、下拉菜单）**：仅使用 `useState` 管理模态框、通知、下拉菜单可能会变得混乱。 多个 UI 元素（例如，打开模态框、关闭通知）共享状态，这使得跟踪更加困难
+3. **需要转换的有限状态机和流程**：具有明确定义的行为的流程（例如，身份验证、多步骤流程）遵循有限数量的状态。 对每个身份验证步骤使用 `useState` 会导致太多独立的状态变量。 `useReducer` 有助于构建状态转换，使其具有可预测性
+
+### reducer 的好处
+
+* **可读性**：Reducer 集中状态逻辑更改，这种操作与 reducer 的分离提高了可读性
+* **调试**：使用 `useReducer` 更容易调试，因为您可以在顶部添加一个 `console.log` 来查看每个状态更新以及导致它的操作
+* **复杂的状态更改**：当状态更改涉及多个步骤或依赖项时，请使用 reducer
+* **状态管理**：Reducer 适用于 React Context 进行非本地状态管理。 但是，有更好的替代方案，例如 Redux、Zustand 和 Jotai
+* **纯粹**：Reducer 不应有副作用，对相同的输入返回相同的输出，并且始终返回一个新状态对象，因为 React 依赖于不变性进行重新渲染
+* **测试**：Reducer 不依赖于 UI，并且是纯函数，它们不需要 React 环境或太多设置即可进行测试
+
+在 react.dev 上进一步阅读：[将状态逻辑提取到 Reducer 中](https://react.dev/learn/extracting-state-logic-into-a-reducer)
+
+## 面试需要了解的内容
+
+鉴于面试期间 UI 编码问题的封闭性和局限性，请记住以下几点：
+
+* **状态设计至关重要**：由于问题很小，通常不需要很多字段，因此在状态的结构方式上受到限制。 您绝对必须为该问题提出最有效和最少的状态。 记住建议的实践 – 在可能的情况下派生状态，避免状态中可能存在的矛盾，并适当地对状态字段进行分组。
+* **状态位于顶层**：鉴于大多数问题都很小，状态很可能位于顶层/应用程序级别，并且大多数子级应该是无状态的，作为 props 接收数据。 状态应存在于子级中的少数情况是表单输入中的临时状态或整个应用程序中不需要的状态。
+* **您可能不需要上下文**：大多数面试问题都很小，并且 prop 传递可能不会比最坏情况下的两到三层更深。 坚持使用 prop 传递，因为它更简单。
+* **您可能不需要 reducer**：大多数 UI 编码问题都很小，不需要那么多不同的状态更改。 您可以在操作函数中整合状态更新，而无需使用 `useReducer`。 例外情况是游戏，因为游戏逻辑可能会变得非常复杂。
+
+## 练习题
+
+**测验**：
+
+* [受控和非受控 React 组件有什么区别？](/questions/quiz/what-is-the-difference-between-controlled-and-uncontrolled-react-components?framework=react\&tab=quiz)
+* [在 React 中使用上下文有哪些陷阱？](/questions/quiz/what-are-some-pitfalls-about-using-context-in-react?framework=react\&tab=quiz)
+* [如何在 React 中重置组件的状态？](/questions/quiz/how-do-you-reset-a-components-state-in-react?framework=react\&tab=quiz)
+* [如何决定使用 React 状态、上下文和外部状态管理器？](/questions/quiz/how-do-you-decide-between-using-react-state-context-and-external-state-managers?framework=react\&tab=quiz)
+
+**编码**:
+
+* [数据表](/questions/user-interface/data-table/react?framework=react\&tab=coding)
+* [数据表 II](/questions/user-interface/data-table-ii/react?framework=react\&tab=coding)
+* [待办事项列表](/questions/user-interface/todo-list/react?framework=react\&tab=coding)
+* [交通灯](/questions/user-interface/traffic-light/react?framework=react\&tab=coding)
+* [井字棋](/questions/user-interface/tic-tac-toe/react?framework=react\&tab=coding)
+* [四子棋](/questions/user-interface/connect-four/react?framework=react\&tab=coding)
+* [图片轮播](/questions/user-interface/image-carousel/react?framework=react\&tab=coding)
+* [像素艺术](/questions/user-interface/pixel-art/react?framework=react\&tab=coding)
+* [转移列表](/questions/user-interface/transfer-list/react?framework=react\&tab=coding)
+* [可撤销计数器](/questions/user-interface/undoable-counter/react?framework=react\&tab=coding)
+* [用户数据库](/questions/user-interface/users-database/react?framework=react\&tab=coding)
+* [打地鼠](/questions/user-interface/whack-a-mole/react?framework=react\&tab=coding)
+* [记忆游戏](/questions/user-interface/memory-game/react?framework=react\&tab=coding)
+* [嵌套复选框](/questions/user-interface/nested-checkboxes/react?framework=react\&tab=coding)
+* [Wordle](/questions/user-interface/wordle/react?framework=react\&tab=coding)

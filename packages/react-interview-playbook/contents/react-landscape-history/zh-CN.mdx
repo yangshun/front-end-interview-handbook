@@ -1,0 +1,127 @@
+---
+title: React 的发展历程和历史
+description: React 的演变概述，从其 Facebook 起源到目前作为一种多功能、经过实战考验的库，拥有庞大的工具和创新生态系统。
+---
+
+## 为什么选择 React？
+
+为什么 React 在前端生态系统中长期保持主导地位？这有几个关键原因：
+
+* **企业支持和企业采用**：React 创建于 Facebook，并为他们的所有产品用户界面提供支持。它受到全球主要公司和企业的信赖，用于构建各种规模的应用程序。
+* **巨大的社区支持**：有大量用于学习 React 的资源，包括 React 的官方文档，以及无数的教程、课程和 GitHub 项目。
+* **庞大的开源生态系统**：从状态管理库（Redux、Zustand、Recoil）到 UI 组件框架（Material UI、Chakra UI），React 的生态系统非常庞大，并且不断发展。
+* **服务器端和全栈功能**：React 不再仅仅用于前端。通过 Next.js 和 React Server Components，它现在已深入集成到后端，支持全栈 React 应用程序。
+* **支持和稳定性**：React 一直在不断发展，同时保持良好的向后兼容性。
+
+React 的广泛采用、强大的社区和持续创新使其成为当今前端开发的理想选择。
+
+## React 的历史和演变
+
+React 并非一夜之间成为使用最广泛的前端框架。它通过多年的迭代和问题解决而发展。要真正了解 React 今天的地位，回顾它的开始和发展历程会很有帮助。
+
+**2011 – React 的诞生：** React 最初是 Facebook 的一个内部项目。工程师们在渲染动态 UI（如 Facebook 的新闻提要）时遇到了性能问题。Jordan Walke 创建了 React 的早期版本，名为“FaxJS”，后来变成了 React。
+
+**2013 – React 开源：** React 于 2013 年 5 月在 [JSConf US 上正式开源](https://www.youtube.com/watch?v=GW0rj4sNH2w)。起初，它受到了质疑——尤其是 JSX，它将 JavaScript 与 HTML 混合在一起。然而，开发人员很快意识到 React 的 Virtual DOM 方法带来了更好的性能。
+
+**2015 – Flux 和状态管理：** React 中的状态管理是一个日益增长的挑战，尤其是在具有复杂数据流的大型应用程序中。为了解决这个问题，Facebook 引入了 Flux，这是一种强制执行单向数据流的架构模式，使状态更改更可预测且更易于调试。Flux 启发了 Redux 的创建，由于其集中式存储、不变性原则和时间旅行调试功能，Redux 很快成为 React 的事实上的状态管理解决方案。
+
+**2016 – 函数式组件和 Fiber 架构：** React 引入了函数式组件作为类组件的替代方案，使组件逻辑更清晰、更可重用。大约在同一时间，[React Fiber](https://github.com/acdlite/react-fiber-architecture) 的工作开始，这是对 React 核心架构和协调算法的完全重写，提高了性能，并为并发模式和 Suspense 等功能铺平了道路。
+
+**2018 – React Hooks：** 在 Hooks 出现之前，开发人员依赖类组件来管理状态和生命周期方法。在 React Conf 2018 上发布，React 16.8 引入了 Hooks（`useState`、`useEffect` 等），将 React 的开发风格转向函数式编程。
+
+**2020 – 并发模式和 Suspense：** React 17 为并发模式奠定了基础，允许 React 优先处理渲染工作，并使应用程序感觉更灵敏。React Suspense 使数据获取更容易。
+
+**2021 - React Forget：** [React Forget](https://www.youtube.com/watch?v=lGEMwh32soc) 的早期预览版在 React Conf 2021 上展示。它是一个编译器，可自动生成等效于 `useMemo` 和 `useCallback` 的调用，以最大限度地减少重新渲染的成本。
+
+**2022 – React 18 和服务器组件：** React 18 引入了自动批处理、新的 hooks（`useId`、`useTransition`）和 [React 服务器组件](https://react.dev/reference/rsc/use-server)，允许开发人员将渲染工作卸载到服务器。
+
+**2023 – 新的官方网站：** React 推出了 [react.dev](https://react.dev/) 作为 React 文档和资源的新官方网站，为开发人员提供了更全面、用户友好的体验，其中包括嵌入式编码练习。
+
+**2024 – React 19：** 最新 React 版本进一步优化了服务器组件并改进了静态站点生成。Actions 的引入简化了状态更新，使 React 应用程序更易于管理。React Compiler 的实验性版本在 React Conf 2024 上[发布](https://react.dev/blog/2024/10/21/react-compiler-beta-release)。
+
+## React 生态系统
+
+React 生态系统非常庞大，由几个官方和社区驱动的项目组成，这些项目扩展了 React 的功能。这些项目帮助开发人员构建可扩展、高性能和可维护的应用程序。
+
+目标是熟悉并获得每个类别中至少一项技术的经验。
+
+### 状态管理
+
+React 具有内置的状态管理（`useState`、`useReducer` 和 Context API），但外部解决方案通常用于管理全局状态。
+
+* [Redux](https://redux.js.org): 一种可预测的状态容器，常用于大型应用程序
+* [Zustand](https://zustand-demo.pmnd.rs): Redux 的轻量级替代方案，具有简单的 API
+* [Jotai](https://jotai.pmnd.rs): React 的最小原子状态库
+
+### UI 组件
+
+许多 UI 库为 React 应用程序提供样式化和可主题化的组件。
+
+* [MUI (Material UI)](https://mui.com): 一种流行的、可主题化的组件库，最初基于 Material Design
+* [Mantine](https://mantine.dev): 一个现代的、功能齐全的 React 组件库，具有内置的可访问性、暗模式支持和灵活的样式 API
+* [Ant Design](https://ant.design): 一个流行的、以企业为中心的 UI 组件库
+
+同时，无头 UI 库提供非样式化的、完全可访问的组件，使开发人员可以完全控制样式，同时保持功能和可访问性最佳实践。
+
+* [Headless UI](https://headlessui.com): 由 Tailwind 团队开发，它提供了完全可访问的、非样式化的组件，如模态框、下拉菜单和手风琴
+* [Radix UI](https://radix-ui.com): 一组高度可组合的、可访问的组件，专为低级 UI 构建而设计，具有完全的样式灵活性
+* [Base UI](https://base-ui.com/): 来自 Radix UI 和 Material UI 团队的无头、非样式化组件库
+* [React Aria](https://react-spectrum.adobe.com/react-aria/): Adobe 提供的一组高度可访问的钩子，用于构建完全可定制的 UI 组件
+* [Ariakit](https://ariakit.org/): 具有非样式化、原始组件的开源库，以及您可以复制并粘贴到您的应用程序中的一组样式化示例
+
+### 数据获取
+
+React 应用程序经常从 HTTP API 获取数据，并且已经构建了库来简化数据获取，其中包含缓存、重试和分页等有用功能。
+
+* [React Query (TanStack Query)](https://tanstack.com/query): React 的流行服务器状态管理工具。它优化了缓存、后台同步和分页
+* [SWR](https://swr.vercel.app): Vercel 提供的轻量级数据获取库，针对性能进行了优化
+* [Apollo Client](https://www.apollographql.com): React 最广泛使用的 GraphQL 客户端
+* [Relay](https://relay.dev): Meta 提供的 GraphQL 客户端，针对性能进行了优化
+
+### 表单验证
+
+用于在 React 中构建的表单的客户端验证的库。
+
+* [React Hook Form](https://react-hook-form.com/): 一个轻量级、高性能的库，完全使用 React 钩子构建。最大限度地减少重新渲染，并支持内置验证规则和基于模式的验证（使用 Yup、Zod 等），使其成为小型和复杂表单的理想选择
+* [Formik](https://formik.org/): 尽管不再维护，但它曾经是最流行的表单库之一，它提供了一种声明式方式来管理表单状态、验证和错误处理。Formik 经常与 Yup 配对进行模式验证，但与 React Hook Form 相比，往往更具主观性，并且略重
+
+### 路由和元框架
+
+一些框架通过添加路由、服务器端渲染和全栈功能来扩展 React（称为元框架）。
+
+* [Next.js](https://nextjs.org): Vercel 提供的全栈 React 框架，支持各种渲染方法（例如服务器端渲染 (SSR)、静态站点生成 (SSG)）和嵌套路由
+* [Remix](https://remix.run) & [React Router](https://reactrouter.com): 一个全栈 React 框架，强调渐进式增强和嵌套路由，来自 React Router 的创建者。Remix 团队[将 Remix 的功能合并到 React Router v7 中](https://remix.run/blog/merging-remix-and-react-router)
+* [TanStack Start](https://tanstack.com/start): 由 TanStack Router 提供支持的全栈 React 框架
+
+### 测试和调试
+
+React 应用程序通常需要单元测试、集成测试和端到端测试。
+
+* [Jest](https://jestjs.io): 一个流行的用于单元和集成测试的测试框架
+* [Vitest](https://vitest.dev): 一个使用 Vite 打包和配置的测试框架
+* [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/): 一个以用户为中心的测试库，模拟真实的用户交互
+* [Storybook](https://storybook.js.org): 用于开发和测试独立 UI 组件的工具
+* [Cypress](https://www.cypress.io): 一个流行的用于网站的端到端 (E2E) 测试工具
+* [React DevTools](https://react.dev/tools): 用于调试 React 组件的官方浏览器扩展
+
+### 打包器
+
+打包器帮助将您的模块化代码（包含导入、JSX、CSS、图像等）转换为优化的包，这些包可以在开发和生产中高效地提供。
+
+* [Vite](https://vitejs.dev): 一个非常快的 Web 应用程序开发服务器和打包器，对 React 有很好的支持
+* [Parcel](https://parceljs.org): 一个用于 JavaScript 应用程序（包括 React）的零配置打包器
+* [webpack](https://webpack.js.org): 高度可配置的模块打包器，多年来一直是行业标准。由 [Turbopack](https://turbo.build/pack/docs) 继承
+
+### 动画和效果
+
+传统上，在 React 中构建动画非常困难。 值得庆幸的是，创建了各种动画和过渡库，使动画更容易。
+
+* [Motion](https://motion.dev/): 一个流行的、功能强大的动画库，具有声明式 API。 以前是 Framer Motion
+* [React Spring](https://react-spring.dev): 提供流畅的、基于物理的动画
+* [GSAP (GreenSock)](https://greensock.com/gsap/): 与 React 兼容的高性能 JavaScript 动画库
+
+***
+
+React 从 Meta 的早期内部库发展至今。 如今，它是一个成熟的、经过实战考验的库/框架，并不断发展。 了解其历史和生态系统，可以帮助您了解某些模式存在的原因以及 React 如何解决现实世界中的问题。
+
+在我们浏览本指南时，请记住，公司正在寻找了解 React 核心原则、性能优化和实际应用的工程师。 在您完成本指南时，您不仅能够回答 React 面试问题，而且会更擅长使用 React。

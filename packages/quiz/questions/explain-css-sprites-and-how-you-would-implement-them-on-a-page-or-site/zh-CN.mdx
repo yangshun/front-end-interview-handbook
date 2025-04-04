@@ -1,23 +1,23 @@
 ---
-title: 解释CSS 图片精灵（雪碧图），以及您如何在页面或网站上实现它们。
+title: 解释 CSS 精灵，以及如何在页面或网站上实现它们。
 ---
 
-CSS 图片精灵将多个图片合并为一个更大的图片文件，并使用 CSS `background-image`, `background-position` 和 `background-size` 来选择更大图片的特定部分作为所需图片。
+CSS 精灵将多个图像组合成一个更大的图像文件，并使用 CSS `background-image`、`background-position` 和 `background-size` 的组合来选择更大图像的特定部分作为所需的图像。
 
-它曾经是用于图标的一种常用技术(例如，Gmail 使用图片精灵作为其所有图片)。
+它曾经是一种常用的图标技术（例如 Gmail 对其所有图像都使用精灵图）。
 
 ## 优点
 
-- 减少多个图片的 HTTP 请求数量 (每张 spritesheet 只需要一个请求)。 但是使用 HTTP2 加载多个图片已不再是一个问题。
-- 预先下载在需要之前不会下载的资产，如只会出现在 `:hover` 伪状态上的图片。 闪烁不会被看到。
+* 减少多个图像的 HTTP 请求数量（每个精灵表只需要一个请求）。但使用 HTTP2，加载多个图像不再是一个大问题。
+* 预先下载在需要之前不会下载的资产，例如仅在 `:hover` 伪状态下出现的图像。不会看到闪烁。
 
-## 实现方式
+## 如何实现
 
-1.  使用图片精灵生成器将多个图片包装成一个图片并生成相应的 CSS
-2.  每个图片都有一个对应的 CSS 类，定义了 `background-image` 和 `background-position` 属性。
-3.  要使用此图片，请将相应的类添加到您的元素中。
+1. 使用精灵图生成器将多个图像打包成一个，并为其生成相应的 CSS。
+2. 每个图像都将有一个对应的 CSS 类，其中定义了 `background-image` 和 `background-position` 属性。
+3. 要使用该图像，请将相应的类添加到您的元素中。
 
-生成的样式表看起来可能像这样：
+生成的样式表可能如下所示：
 
 ```css
 .icon {
@@ -35,7 +35,7 @@ CSS 图片精灵将多个图片合并为一个更大的图片文件，并使用 
 }
 ```
 
-并且可以像这样用在 HTML 中：
+并且可以在 HTML 中这样使用：
 
 ```html
 <span class="icon icon-cart"></span>
@@ -43,6 +43,6 @@ CSS 图片精灵将多个图片合并为一个更大的图片文件，并使用 
 <span class="icon icon-arrow"></span>
 ```
 
-## 参考资料
+## 参考
 
-- [在 CSS 中实现图片精灵 - CSS | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Images/Implementing_image_sprites_in_CSS)
+* [在 CSS 中实现图像精灵 - CSS：层叠样式表 | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Images/Implementing_image_sprites_in_CSS)

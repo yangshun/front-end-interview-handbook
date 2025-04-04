@@ -1,22 +1,27 @@
 ---
-title: 用户界面组件API设计原则
-description: 设计开发者界面组件API的最佳实践，对UI组件编码和系统设计面试很有用
+title: UI 组件的 API 设计原则
+description: 设计开发者界面组件 API 的最佳实践，适用于 UI 组件编码和系统设计面试
+seo_title: API 设计原则 | 前端面试手册
+seo_description: 设计开发者界面组件 API 的最佳实践，适用于 UI 组件编码和系统设计面试
+social_title: UI 组件的 API 设计原则 | 前端面试手册
 ---
 
-像[Bootstrap](https://getbootstrap.com/)和[Material UI](https://mui.com/)这样的用户界面组件库，通过提供常用的组件，如按钮、标签、模版等，帮助开发者更快地构建用户界面，从而使开发者在开始一个新项目时不必重新发明轮子，从头构建这些组件。
+像 [Bootstrap](https://getbootstrap.com/) 和 [Material UI](https://mui.com/) 这样的用户界面组件库通过提供常用组件（如按钮、选项卡、模态框等）来帮助开发人员更快地构建 UI，这样开发人员就不必在开始新项目时从头开始构建这些组件，从而不必重复造轮子。
 
-通常在前端面试中，你会被要求建立 UI 组件并设计一个 API 来初始化它们。 设计好的组件 API 是前端工程师的面包和黄油。 本页涵盖了设计 UI 组件 API 的一些顶级技巧和最佳实践。 其中一些提示可能是针对框架的，但也可以推广到其他基于组件的 UI 框架。
+在前端面试中，经常会被要求构建 UI 组件并设计一个 API 来初始化它们。设计好的组件 API 是前端工程师的基本功。本页介绍了一些设计 UI 组件 API 的顶级技巧和最佳实践。其中一些技巧可能是特定于框架的，但可以推广到其他基于组件的 UI 框架。
 
 ## 初始化
 
+有多种方法可以初始化 UI 组件：
+
 ### jQuery 风格
 
-在[React](https://reactjs.org/)、[Angular](https://angular.io/)和[Vue](https://vuejs.org/)等现代 JavaScript UI 库/框架出现之前，[jQuery](https://jquery.com/)（和[jQuery UI](https://jqueryui.com/)）是构建 UI 的最流行方式。jQuery UI 推广了通过涉及两个参数的 "构造函数 "初始化 UI 组件的想法：
+在像 [React](https://reactjs.org/)、[Angular](https://angular.io/) 和 [Vue](https://vuejs.org/) 这样的现代 JavaScript UI 库/框架出现之前，[jQuery](https://jquery.com/)（和 [jQuery UI](https://jqueryui.com/)）是构建 UI 最流行的方式。 jQuery UI 推广了通过“构造函数”初始化 UI 组件的想法，其中涉及两个参数：
 
-1.  **根元素**：一个根 DOM 元素，用来渲染内容。
-2.  **定制选项**：可选的、额外的、自定义的选项，通常以普通 JavaScript 对象的形式出现。
+1. **根元素**：用于渲染内容的根 DOM 元素
+2. **自定义选项**：可选的、额外的、自定义选项，通常以纯 JavaScript 对象的形式
 
-使用 jQuery UI，人们可以用一行代码将一个 DOM 元素变成一个[slider](https://api.jqueryui.com/slider/)（以及许多其他 UI 组件）：
+使用 jQuery UI，可以用一行代码将 DOM 元素变成 [滑块](https://api.jqueryui.com/slider/)（以及许多其他 UI 组件）：
 
 ```html
 <div id="gfe-slider"></div>
@@ -25,9 +30,9 @@ description: 设计开发者界面组件API的最佳实践，对UI组件编码�
 </script>
 ```
 
-**jQuery refresher**：jQuery UI 的`slider()`方法（构造函数）接收了一个 JavaScript 对象，作为定制选项。 执行`$('#slider')`选择`<div id="slider">`元素并返回一个 jQuery 对象，其中包含方便的方法来对该元素 "做一些事情"，如`addClass`，`removeClass`等和其他 DOM 操作方法。 在 jQuery 方法中，选定的元素可以通过`this`关键字访问。 jQuery 的 API 是围绕这个 "选择一个元素并对其进行处理 "的方法而建立的，因此`slider()`方法不需要一个根 DOM 元素的参数。
+**jQuery 补充**：jQuery UI 的 `slider()` 方法（构造函数）接受一个 JavaScript 对象作为自定义选项。执行 `$('#slider')` 会选择 `<div id="slider">` 元素，并返回一个 jQuery 对象，该对象包含用于“对元素执行某些操作”的便捷方法，例如 `addClass`、`removeClass` 等以及其他 DOM 操作方法。在 jQuery 方法中，可以通过 `this` 关键字访问所选元素。 jQuery API 围绕这种“选择一个元素并对其执行某些操作”的方法构建，因此 `slider()` 方法不需要根 DOM 元素的参数。
 
-slider 可以通过传入一个普通的 JavaScript 对象的选项来进行定制：
+可以通过传入一个纯 JavaScript 选项对象来定制滑块：
 
 ```html
 <div id="gfe-slider"></div>
@@ -36,56 +41,60 @@ slider 可以通过传入一个普通的 JavaScript 对象的选项来进行定�
     animate: true,
     max: 50,
     min: 10,
-    // See other options here: https://api.jqueryui.com/slider/
+    // 在这里查看其他选项：https://api.jqueryui.com/slider/
   });
 </script>
 ```
 
 ### Vanilla JavaScript 风格
 
-在初始化组件方面没有 vanilla JavaScript 风格，因为 vanilla JavaScript 不是一个标准或框架。 但如果你读够了 GreatFrontEnd 对我们的 vanilla JavaScript [UI 编码问题](/questions/formats/ui-coding)的解决方案，你会发现我们推荐的 API 与 jQuery 的类似，构造函数接收一个根元素和选项：
+由于 vanilla JavaScript 不是标准或框架，因此没有用于初始化组件的 vanilla JavaScript 风格。但是，如果您阅读了足够多的 GreatFrontEnd 的 vanilla JavaScript [UI 编码问题](/questions/formats/ui-coding) 的解决方案，您会发现我们推荐的 API 与 jQuery 的 API 类似，构造函数接受一个根元素和选项：
 
 ```js
 function slider(rootEl, options) {
-  // Do something with rootEl and options.
+  // 对 rootEl 和 options 做一些事情。
 }
 ```
 
-### React
+### React（或类似的基于组件的库）
 
-React 迫使你把 UI 写成包含其自身逻辑和外观的组件。 React 组件是返回标记的 JavaScript 函数（关于如何呈现自身的描述）。 React 组件可以接受 "props"，它本质上是对组件选项的定制。
+React 迫使你将 UI 编写为组件，其中包含逻辑和结构。React 组件是返回标记的 JavaScript 函数，是对其自身如何呈现的描述。
+
+React 组件可以接收 `props`，它们本质上是组件的自定义选项。
 
 ```js
 function Slider({ min, max }) {
-  // 使用 props 来呈现自定义组件。
+  // 使用 props 渲染自定义组件。
   return <div>...</div>;
 }
 
 <Slider max={50} min={10} />;
 ```
 
-组件不会在 root 元素中。 为了将该元素渲染到页面中，需要使用一个单独的 API。
+组件不接受根元素。要将元素渲染到页面中，需要使用单独的 API。
 
 ```jsx
 import { createRoot } from 'react-dom/client';
 import Slider from './Slider';
 
 const domNode = document.getElementById('#gfe-slider');
-// React 将管理此元素内的 DOM。
+// React 将管理此元素中的 DOM。
 const root = createRoot(domNode);
-// 在元素内显示 Slider 组件。
+// 在元素中显示 Slider 组件。
 root.render(<Slider max={50} min={10} />);
 ```
 
-如果整个页面是 React 应用，你通常不需要自己调用`createRoot()`，因为根/页级组件只有一个`createRoot`调用。
+如果整个页面是一个 React 应用程序，你通常不需要自己调用 `createRoot()`，因为在根/页面级别只有一个 `createRoot()` 调用。
 
-## 定制外观
+## 自定义外观
 
-尽管 UI 库中的 UI 组件提供了默认的样式，但开发者通常希望用他们公司/产品的品牌和主题颜色来定制它们。 因此，所有的用户界面组件将允许通过一些方法来定制外观：
+即使 UI 库中的 UI 组件提供默认样式，开发人员通常也希望使用其公司/产品的品牌和主题颜色对其进行自定义。
+
+因此，大多数 UI 组件（尤其是那些构建为第三方库的组件）将允许通过以下几种方法自定义外观：
 
 ### 类注入
 
-这里的想法很简单，组件接受一个 prop/option，允许开发者提供他们自己的类，这些类被添加到实际的 DOM 元素中。 这种方法不是很稳健，因为如果组件也通过类来添加自己的样式，那么在组件的类和开发者提供的类中可能会有冲突的属性。
+这里的想法很简单，组件接受一个 prop/选项，允许开发人员提供他们自己的类，并且这些类被添加到实际的 DOM 元素中。这种方法不是很健壮，因为如果组件也通过类添加自己的样式，则组件的类和开发人员提供的类中可能存在冲突的属性。
 
 #### React
 
@@ -104,22 +113,22 @@ function Slider({ className, value }) {
 ```
 
 ```css
-/* UI library default stylesheet */
+/* UI 库默认样式表 */
 .gfe-slider {
   height: 12px;
 }
 ```
 
 ```css
-/* Developer's custom stylesheet */
+/* 开发人员的自定义样式表 */
 .my-custom-slider {
   color: red;
 }
 ```
 
-通过类注入，开发者可以将组件的文本`color`改为`red`。
+通过类注入，开发人员可以将组件的文本 `color` 更改为 `red`。
 
-如果组件内有许多 DOM 元素，一个`className` prop 是不够的，你也可以为不同元素的`className` 设置多个不同名称的 prop：
+如果组件中有许多要定位的 DOM 元素，并且一个 `className` prop 不够用，你还可以为不同元素的 `className` 拥有多个不同命名的 prop：
 
 ```jsx
 import { useId } from 'react';
@@ -149,13 +158,13 @@ function Slider({ label, value, className, classNameLabel, classNameTrack }) {
 
 ```js
 $('#gfe-slider').slider({
-  // 在现实中，jQuery UI 在 'class' 字段中使用
+  // 实际上，jQuery UI 接受一个 `classes` 字段
   // 因为有多个元素。
   class: 'my-custom-slider',
 });
 ```
 
-在现实中，所有 jQuery UI 的组件初始化器都接受`classes`字段，以允许添加额外的类到单个元素。 下面的例子取自[jQuery UI Slider](https://api.jqueryui.com/slider/#option-classes)：
+实际上，所有 jQuery UI 的组件初始化器都接受 `classes` 字段，以允许向各个元素添加额外的类。以下示例取自 [jQuery UI Slider](https://api.jqueryui.com/slider/#option-classes)：
 
 ```js
 $('#gfe-slider').slider({
@@ -167,9 +176,9 @@ $('#gfe-slider').slider({
 });
 ```
 
-#### 非确定性风格
+#### 缺点：非确定性样式
 
-类注入有一个不明显的缺点--最终的视觉结果是不确定的，可能不是预期的那样。 以下面的代码为例：
+类注入有一个不明显的缺点——最终的视觉结果是不确定的，可能不是预期的结果。以下面的代码为例：
 
 ```jsx
 import clsx from 'clsx';
@@ -186,7 +195,7 @@ function Slider({ className, value }) {
 ```
 
 ```css
-/* UI library 默认样式表 */
+/* UI 库默认样式表 */
 .gfe-slider {
   height: 12px;
   color: black;
@@ -194,30 +203,32 @@ function Slider({ className, value }) {
 ```
 
 ```css
-/* 开发者的自定义样式表 */
+/* 开发人员的自定义样式表 */
 .my-custom-slider {
-  color: red; /* .gfe-slider 也定义了一个颜色的值。*/
+  color: red; /* .gfe-slider 也定义了 color 的值。 */
 }
 ```
 
-在上面的例子中，`.gfe-slider`和`.my-custom-slider`类都指定了`color`，由于这两个选择器具有相同的特殊性，获胜的样式实际上是后来出现在 HTML 页面上的类。 如果样式表的加载顺序没有保证（例如，如果样式表是懒惰地加载的），那么视觉结果将不是确定的。 这时，开发者开始使用`！important`或`.my-custom-slider.my-custom-slider`等黑客手段，让他们的选择器赢得特异性战争，CSS 代码开始变得不可维护。
+在上面的例子中，`.gfe-slider` 和 `.my-custom-slider` 类都指定了 `color`，并且由于这两个选择器具有相同的特异性，因此获胜的样式实际上是出现在 HTML 页面后面的类。
 
-在 jQuery UI 中，如果一个自定义类被添加，现有的默认值不会被使用。 这消除了 "获胜风格 "的模糊性，但用户现在必须重新实现原类中存在的所有必要风格。 这种方法也可以应用于 React 组件，以解决模糊不清的问题。
+如果样式表的加载顺序无法保证（例如，如果样式表是延迟加载的），则视觉结果将是不确定的。结果是开发人员开始使用 `!important` 或 `.my-custom-slider.my-custom-slider` 等黑客手段来让他们的选择器赢得特异性之战。有了所有这些黑客手段，CSS 代码开始变得难以维护。
 
-尽管它可能存在缺陷，但类注入仍然是一个非常受欢迎的选择。
+在 jQuery UI 中，如果添加了自定义类，则不使用现有的默认值。这消除了“获胜样式”的歧义，但用户现在必须重新实现原始类中存在的所有必要样式。这种方法也可以应用于 React 组件以解决歧义。
+
+尽管存在缺陷，但类注入仍然是一个非常受欢迎的选项。
 
 ### CSS 选择器钩子
 
-从技术上讲，如果开发者阅读组件的源代码，并通过使用相同的类来定义他们的自定义样式，就可以实现定制。 然而，这样做是很危险的，因为依赖组件的内部结构，而且不能保证类名在将来不会改变。
+从技术上讲，如果开发人员阅读组件的源代码并通过使用相同的类来定义他们的自定义样式，他们可以实现自定义。但是，这样做很危险，因为它依赖于组件的内部结构，并且不能保证类名将来不会改变。
 
-如果 UI 库的作者能够将这些类/属性作为他们的 API 的一部分，这就有了这些保证：
+如果 UI 库作者可以将这些类/属性作为其 API 的一部分，并提供以下保证：
 
-1.  选择器列表已发布，供外部参考。
-2.  已发布的选择器将不会被更改。 如果它们被改变，这将是一个破坏性的变化，需要按照 semver 的要求进行版本升级。
+1. 选择器列表已发布以供外部参考
+2. 现有的已发布选择器将不会更改。如果它们被更改，这将是一个重大更改，并且需要根据 semver 进行版本更新
 
-然后，这是一种可接受的做法，开发者可以通过在他们的样式表中使用这些选择器来 "钩住 "它们（针对它们）。
+那么这是一个可以接受的做法，开发人员可以通过在他们的样式表中使用这些选择器来“钩住”它们（定位它们）。
 
-钩住一个组件的选择器的一个例子：
+一个钩住组件选择器的例子：
 
 ```jsx
 import { useId } from 'react';
@@ -237,18 +248,21 @@ function Slider({ label, value }) {
 ```
 
 ```css
-/* UI library 默认样式表 */
+/* UI 库默认样式表 */
 .gfe-slider {
   font-size: 12px;
 }
 
-/* 在这个样式表中没有定义其他的类，gfe-slider-label和gfe-slider-range被添加到组件中，只是为了让开发者获得对底层元素的访问。 */
+/* 此样式表中未定义其他类，
+gfe-slider-label 和 gfe-slider-range 被添加
+到组件中，只是为了让开发人员能够访问
+底层元素。 */
 ```
 
 ```css
-/* Developer's 默认样式表 */
+/* 开发者自定义样式表 */
 .gfe-slider {
-  font-size: 16px; /* 与默认的.gfe-slider冲突 */
+  font-size: 16px; /* 与默认的 .gfe-slider 冲突 */
   padding: 10px 20px;
 }
 
@@ -261,7 +275,7 @@ function Slider({ label, value }) {
 }
 ```
 
-这种方法为开发者省去了在组件中传递类的麻烦，因为他们只需要编写 CSS 来定制样式。 [Reach UI](https://reach.tech/styling)是 React 的一个无头 UI 组件库，使用元素选择器。 每个组件在底层 DOM 元素上都有一个`data-reach-*`属性。
+这种方法使开发人员免于将类传递到组件的麻烦，因为他们只需要编写 CSS 来定制样式。 [Reach UI](https://reach.tech/styling) 是一个用于 React 的无头 UI 组件库，它使用元素选择器。 每个组件在底层 DOM 元素上都有一个 `data-reach-*` 属性。
 
 ```css
 [data-reach-menu-item] {
@@ -269,17 +283,17 @@ function Slider({ label, value }) {
 }
 ```
 
-然而，这种方法仍然受到 "类注入 "的非确定性风格问题的影响，并且不容易允许按实例进行样式设计。 如果需要每个实例的样式，这种方法可以与类的注入方法相结合。
+然而，这种方法仍然受到“类注入”带来的不确定性样式问题的影响，并且不容易实现每个实例的样式。 如果需要每个实例的样式，可以将此方法与类注入方法结合使用。
 
 ### 主题对象
 
-该组件不是接收类，而是接收一个用于样式的键/值的对象。 如果只有一个严格的属性子集需要定制，或者你想把样式限制在几个属性上，这就很有用。
+组件不接收类，而是接收一个用于样式的键/值对象。 如果只有一小部分属性需要自定义，或者您只想将样式限制为少数属性，这将非常有用。
 
 ```jsx
 const defaultTheme = { color: 'black', height: 12 };
 
 function Slider({ value, label, theme }) {
-  // Combine with default.
+  // 与默认值合并。
   const mergedTheme = { ...defaultTheme, ...theme };
 
   return (
@@ -306,19 +320,19 @@ function Slider({ value, label, theme }) {
 <Slider theme={{ color: 'red', height: 24 }} {...props} />;
 ```
 
-然而，由于没有使用有冲突的样式的类，而且内联样式的特异性比类高，所以没有特异性冲突，内联样式将获胜。 然而，需要支持的选项数量可能真的会迅速增长。 内联样式也存在于每个组件实例的 DOM 中，如果这个组件在一个页面中被渲染了数百/数千次，这可能对性能不利。
+但是，由于没有使用具有冲突样式的类，并且内联样式的特异性高于类，因此没有特异性冲突，内联样式将胜出。 但是，需要支持的选项数量可能会增长得非常快。 内联样式也存在于每个组件实例的 DOM 中，如果此组件在页面中呈现数百/数千次，这可能会对性能不利。
 
-主题对象只是一种将造型限制在某些属性和可选的一组值上的方法，这些值不需要作为内联样式使用，而是可以与其他造型方法相结合。
+主题对象只是一种将样式限制为某些属性的方法，并且可以选择一组可接受的值，这些值不需要用作内联样式，而是可以与其他样式方法结合使用。
 
-### CSS 预处理程序的编译
+### CSS 预处理器编译
 
-UI 库通常用 CSS 预处理器编写，如[Sass](https://sass-lang.com/)和[Less](https://lesscss.org/)。 [Bootstrap](https://getbootstrap.com/)是用 Sass 编写的，他们提供了一种方法来[自定义所使用的 Sass 变量](https://getbootstrap.com/docs/5.3/customize/sass/)，以便开发者可以生成一个自定义的 UI 库样式表。
+UI 库通常使用 CSS 预处理器编写，例如 [Sass](https://sass-lang.com/) 和 [Less](https://lesscss.org/)。 [Bootstrap](https://getbootstrap.com/) 使用 Sass 编写，它们提供了一种 [自定义 Sass 变量](https://getbootstrap.com/docs/5.3/customize/sass/) 的方法，以便开发人员可以生成自定义 UI 库样式表。
 
-这种方法很好，因为它不依赖覆盖 CSS 选择器来实现定制。 此外，产生的 CSS 数量也较少，没有多余的重写样式。 缺点是需要一个编译的步骤。
+这种方法很棒，因为它不依赖于覆盖 CSS 选择器来实现自定义。 产生的 CSS 数量也更少，并且没有多余的被覆盖样式。 缺点是需要一个编译步骤。
 
 ### CSS 变量 / 自定义属性
 
-[CSS 变量](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties)（或更正式地称为 CSS 自定义属性）是由 CSS 作者定义的实体，它包含特定的值以便在整个文档中重复使用。 `var()`函数，如果给定的变量未被设置，它接受回退值。
+[CSS 变量](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties)（或更正式地称为 CSS 自定义属性）是由 CSS 作者定义的实体，其中包含要在整个文档中重复使用的特定值。 `var()` 函数，如果给定的变量未设置，它接受回退值。
 
 ```jsx
 function Slider({ value, label }) {
@@ -332,40 +346,40 @@ function Slider({ value, label }) {
 ```
 
 ```css
-/* UI library default stylesheet */
+/* UI 库默认样式表 */
 .gfe-slider {
-  /* 如果没有设置，则回调为12px。 */
+  /* 如果未设置，则回退为 12px。 */
   font-size: var(--gfe-slider-font-size, 12px);
 }
 ```
 
 ```css
-/* Developer's custom stylesheet */
+/* 开发者自定义样式表 */
 :root {
   --gfe-slider-font-size: 15px;
 }
 ```
 
-开发者可以通过`:root`选择器为`--gfe-slider-font-size`全局定义一个值，并为`.gfe-slider`类设置字体大小为 15px。 这种方法的好处是它不需要 JavaScript，然而，每个组件的定制将更加麻烦（但仍有可能）。
+开发人员可以通过 `:root` 选择器全局定义 `--gfe-slider-font-size` 的值，并将 `.gfe-slider` 类的字体大小设置为 15px。 这种方法的好处是不需要 JavaScript，但是，每个组件的自定义会更加麻烦（但仍然是可能的）。
 
-### Render Props
+### Render props
 
-在 React 中，render props 是一个组件用来知道要渲染什么的函数 prop。 它对于将行为和表现形式分开是很有用的。 许多行为/无头 UI 库，如[Radix](https://www.radix-ui.com/)、[Headless UI](https://headlessui.com/)和[Reach UI](https://reach.tech/menu-button)大量使用了 render props。
+在 React 中，render props 是组件用来知道要呈现什么的函数 props。 它对于将行为与表示分开很有用。 许多行为/无头 UI 库，如 [Radix](https://www.radix-ui.com/)、[Headless UI](https://headlessui.com/) 和 [Reach UI](https://reach.tech/menu-button) 大量使用 render props。
 
-{/* TODO: Section on manipulation of component after initialization */}
+{/* TODO: 关于初始化后组件操作的部分 */}
 
 ## 国际化 (i18n)
 
-你的用户界面是否适用于多种语言？ 增加对更多语言的支持有多容易？
+您的 UI 是否支持多种语言？添加对更多语言的支持有多容易？
 
-### 避免用某种语言对标签进行硬编码
+### 避免用某种语言硬编码标签
 
-一些 UI 组件内有标签字符串（例如，图片轮播有上一个/下一个按钮的标签）。 如果能让这些标签字符串成为组件 props/options 的一部分，允许自定义这些标签字符串就更好了。
+一些 UI 组件在其内部有标签字符串（例如，图片轮播有 prev/next 按钮的标签）。最好允许通过将这些标签字符串作为组件 props/options 的一部分来自定义它们。
 
 ### 从右到左的语言
 
-有些语言（如阿拉伯语、希伯来语）是从右向左阅读的，用户界面必须水平翻转。 该组件可以接受一个 "方向 "props/options，并改变元素的渲染顺序。 例如，在 RTL 语言中，上一页和下一页的按钮将分别在右边和左边。
+一些语言（例如阿拉伯语、希伯来语）是从右向左阅读的，UI 必须水平翻转。组件可以接收一个 `direction` prop/option 并更改元素的渲染顺序。例如，在 RTL 语言中，prev 和 next 按钮将分别位于右侧和左侧。
 
-使用[CSS 逻辑属性](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties)来为你的风格做准备，让你的布局适用于不同的[书写模式](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Writing_Modes)。
+使用 [CSS 逻辑属性](https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Logical_Properties) 来使您的样式具有前瞻性，并让您的布局适用于不同的 [书写模式](https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Writing_Modes)。
 
-{/* TODO: Give examples of how to implement RTL. */}
+{/* TODO: 给出如何实现 RTL 的例子。 */}

@@ -1,9 +1,9 @@
 ---
-title: 有哪些不同的清浮动技术，哪些适合什么情况？
+title: 有哪些清除浮动的方法？在什么情况下使用哪种方法？
 ---
 
-- 空 `div` 法: `<div style="clear:both;"></div>`.
-- Clearfix 法：参考上面的`.clearfix` 类。
-- `overflow: auto` 或 `overflow: hidden` 方法: 父级将创建一个新的块格式化上下文并扩展到包含其浮动子项。
+* 空 `div` 方法：`<div style="clear:both;"></div>`。
+* Clearfix 方法：参考上面的 `.clearfix` 类。
+* `overflow: auto` 或 `overflow: hidden` 方法：父元素将建立一个新的块级格式化上下文，并扩展以包含其浮动的子元素。
 
-在大型项目中，具有实用的`.clearfix`类将非常有用。 如果子元素比父元素的更高，`overflow: hidden` 可能会剪切子元素，不是很理想。
+在大型项目中，拥有一个实用程序 `.clearfix` 类将非常有帮助。如果子元素比父元素高并且不太理想，`overflow: hidden` 可能会剪切子元素。

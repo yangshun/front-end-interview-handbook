@@ -1,0 +1,608 @@
+---
+title: React Hooks 面试
+description: >-
+  掌握 React Hooks 面试，涵盖关键 Hooks，如
+  useState、useEffect、useContext，常见的陷阱以及构建可重用逻辑的最佳实践
+---
+
+React Hooks 是以 `use` 开头的特殊函数。在 React 16.8 中引入，它们允许开发人员在函数组件中使用状态和生命周期特性。这简化了代码组织，减少了样板代码，并实现了更好的逻辑重用。本指南将帮助您解决 React Hooks 面试问题。
+
+熟悉常见的 Hooks：`useState`、`useEffect`、`useContext`、`useRef`、`useId`，您可能需要在面试中使用其中的一些。
+
+## `useState`
+
+`useState` 允许函数组件在组件实例中跟踪状态。状态是隔离和私有的。当组件需要包含在组件实例中且不打算与兄弟/父组件共享的本地状态时，请使用 `useState`。如果您在两个不同的地方渲染一个组件，则每个实例都会获得自己的状态。
+
+```jsx
+const [state, setState] = useState(initialState);
+```
+
+**参数**
+
+* **`initialState` (必需)**：状态的初始值。如果它是一个函数，将调用该函数来延迟初始化状态。
+
+当基于之前的状态进行更新时，请使用 `setState` 的函数版本：
+
+```jsx
+import { useState } from 'react';
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <button onClick={() => setCount((prevCount) => prevCount + 1)}>
+      Count: {count}
+    </button>
+  );
+}
+```
+
+**陷阱**：
+
+* 直接改变状态而不是使用 setter 函数 (`setState`) 或不向 setter 函数传递新对象
+* 在闭包中引用过时的值并使用过时的值进行更新；如果可能，请使用 `setState` 的函数版本
+* 当一个值不影响渲染时使用 `useState`；改为使用 [`useRef`](#useref)
+
+在 react.dev 上进一步阅读：[useState - React](https://react.dev/reference/react/useState)
+
+### 常见错误：直接改变状态
+
+```jsx
+const [user, setUser] = useState({ name: 'Alice', age: 25 });
+user.age = 26; // ❌ 这不会触发重新渲染
+```
+
+重用状态对象也不是一个好习惯：
+
+```jsx
+function onClick() {
+  user.age = 26;
+  setUser(user); // ❌ 使用相同的对象调用 setter
+}
+```
+
+相反，创建一个新对象：
+
+```jsx
+setUser((prevUser) => ({ ...prevUser, age: 26 }));
+```
+
+### 常见错误：在没有考虑先前状态的情况下更新状态
+
+```jsx
+setCount(count + 1); // 如果在间隔或异步函数中使用，可能会出现过时状态问题
+```
+
+解决此问题的一种方法是使用 setter 的函数式版本，如果你的新状态依赖于先前状态。
+
+```jsx
+setCount((prevCount) => prevCount + 1);
+```
+
+## `useEffect`
+
+`useEffect` 主要是一个用于将组件与外部系统同步的 hook。它可以用于执行副作用，例如获取数据、订阅事件或与 DOM 交互。
+
+```jsx
+useEffect(effectFunction, dependencyArray);
+```
+
+**参数**
+
+1. **`effectFunction` (必需):** 包含副作用逻辑的函数
+2. **`dependencies` (可选):** 确定 effect 运行时间的数值数组
+
+根据 effect 应该运行的时间，相应地定义 `dependencies` 数组：
+
+| 什么时候应该运行 effect？ | 依赖数组 | 例子 |
+| --- | --- | --- |
+| 每次渲染后 | 无 | `useEffect(() => {...});` |
+| 仅在挂载时 | `[]` (空) | `useEffect(() => {...}, []);` |
+| 当任何依赖项更改时 | `[var1, var2]` | `useEffect(() => {...}, [var1, var2]);` |
+| 清理（在卸载或 effect 重新运行之前运行） | 变化 | `useEffect(() => { return () => {...}; }, []);` |
+
+`useEffect` 主要用于副作用/与外部服务的交互，这在面试中并不常见。 如果你发现在你的解决方案中使用 `useEffect`，请考虑是否有其他选择。
+
+```jsx
+import { useState, useEffect } from 'react';
+
+function DataFetcher() {
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    fetch('/api/data')
+      .then((response) => response.json())
+      .then(setData);
+  }, []);
+
+  return <div>{data ? JSON.stringify(data) : 'Loading...'}</div>;
+}
+```
+
+**陷阱**：
+
+* 未在依赖项数组中添加依赖项，导致陈旧的闭包
+* 在 `useEffect` 内部更新状态导致无限循环，而没有适当的依赖项管理
+* 由于在依赖项数组中使用对象/数组而导致不必要的重新渲染
+* 未清理副作用，例如清除计时器和取消订阅事件
+
+在 `useEffect`、`useCallback` 和 `useMemo` 中提供依赖项数组是一个好习惯，以避免意外行为。 然而，将来 [React 编译器](https://react.dev/learn/react-compiler) 旨在消除手动编写 `useCallback` 和 `useMemo` 的需要。
+
+### 阅读手册
+
+不幸的真相是，`useEffect` 充满了陷阱，即使对于经验丰富的工程师来说也很难使用。
+
+`useEffect` hook 尤其难以正确使用，即使对于经验丰富的开发人员也是如此。 我们的建议是在面试中避免使用 `useEffect`，如果有其他选择的话。
+
+鉴于面试问题大多是自包含的，因此不太需要 `useEffect`。 因此，你会发现 GreatFrontEnd 的 React 用户界面问题的官方解决方案并没有太多 `useEffect` 的使用。 如果你在代码中使用 `useEffect`，请与官方解决方案进行比较，看看你如何可能避免使用它。
+
+无论如何，最好阅读 React 文档的以下页面以更好地理解 `useEffect`：
+
+1. [与 Effects 同步](https://react.dev/learn/synchronizing-with-effects)
+2. [你可能不需要 Effect](https://react.dev/learn/you-might-not-need-an-effect)
+3. [响应式 Effects 的生命周期](https://react.dev/learn/lifecycle-of-reactive-effects)
+4. [将事件与 Effects 分开](https://react.dev/learn/separating-events-from-effects)
+5. [删除 Effect 依赖项](https://react.dev/learn/removing-effect-dependencies)
+
+在 react.dev 上进一步阅读：[useEffect - React](https://react.dev/reference/react/useEffect)
+
+### 常见错误：缺少依赖项导致陈旧的闭包
+
+```jsx
+useEffect(() => {
+  fetchData();
+}, []); // 如果 fetchData 依赖于 props 怎么办？
+```
+
+确保依赖项正确，或在 `useEffect` 中使用回调：
+
+```jsx
+useEffect(() => {
+  fetchData(someProp);
+}, [someProp]);
+```
+
+### 常见错误：由于 `useEffect` 中对象/数组的依赖关系导致不必要的 effect 调用
+
+在下面的例子中，effect 应该只在 `filteredTodos` 改变时运行，但是当触发“强制重新渲染”按钮时，effect 仍然会运行。这是因为每次渲染都会重新创建新的 `filteredTodos` 数组，导致 `useEffect` 不必要地运行。
+
+```jsx
+function TodoList({ todos }) {
+  const [count, setCount] = useState(0);
+  const [status, setStatus] = useState('in_progress');
+  const filteredTodos = todos.filter((todo) => todo.status === status);
+
+  useEffect(() => {
+    console.log('filteredTodos have changed');
+  }, [filteredTodos]);
+
+  return (
+    <div>
+      <button onClick={() => setCount(count + 1)}>强制重新渲染</button>
+      <button onClick={() => setStatus('complete')}>更改状态</button>
+    </div>
+  );
+}
+```
+
+使用 `useMemo` 来记忆对象，确保 `filteredTodos` 保持相同的引用，除非 `todos` 或 `status` 发生变化。即使 `todos` 是一个数组，它也是从父组件接收的 prop，并且在 `TodoList` 重新渲染时仍然是相同的对象引用。
+
+在下面的例子中，触发“强制重新渲染”按钮不会导致 effect 重新运行。
+
+```jsx
+function TodoList({ todos }) {
+  const [count, setCount] = useState(0);
+  const [status, setStatus] = useState('in_progress');
+  const filteredTodos = useMemo(
+    () => todos.filter((todo) => todo.status === status),
+    [todos, status],
+  );
+
+  useEffect(() => {
+    console.log('filteredTodos have changed');
+  }, [filteredTodos]);
+
+  return (
+    <div>
+      <button onClick={() => setCount(count + 1)}>强制重新渲染</button>
+      <button onClick={() => setStatus('complete')}>更改状态</button>
+    </div>
+  );
+}
+```
+
+### 常见错误：由于缺少清理而导致的内存泄漏
+
+```jsx
+useEffect(() => {
+  const interval = setInterval(() => {
+    console.log('Running...');
+  }, 1000);
+}, []); // 没有清理
+```
+
+在需要时返回一个清理函数：
+
+```jsx
+useEffect(() => {
+  const interval = setInterval(() => {
+    console.log('Running...');
+  }, 1000);
+
+  return () => clearInterval(interval);
+}, []);
+```
+
+## `useContext`
+
+`useContext` 提供了一种在组件之间共享状态而无需 prop 传递的方法。它对于主题、身份验证或用户设置等全局状态很有用。
+
+```jsx
+import { createContext, useContext, useState } from 'react';
+
+const ThemeContext = createContext('light');
+
+function App() {
+  const [theme, setTheme] = useState('light');
+
+  return (
+    <ThemeContext.Provider value={theme}>
+      <button
+        onClick={() => {
+          setTheme(theme === 'light' ? 'dark' : 'light');
+        }}>
+        切换主题
+      </button>
+      <ThemeComponent />
+    </ThemeContext.Provider>
+  );
+}
+
+function ThemedComponent() {
+  const theme = useContext(ThemeContext);
+
+  return (
+    <div style={{ backgroundColor: theme === 'dark' ? '#000' : '#fff' }}>
+      主题：{theme}
+    </div>
+  );
+}
+```
+
+请注意，在 React 19 中，Context 提供程序可以直接使用 `<ThemeContext>`，而无需使用 `<ThemeContext.Provider>`。
+
+React 会自动重新渲染所有使用特定 context 的子组件，从接收不同值的提供程序开始。
+
+**陷阱**：
+
+* 使用对象/函数作为上下文值而不进行记忆，导致不必要的重新渲染
+* 过度使用 `useContext` 来处理可能最好使用状态管理库管理的深层嵌套状态
+
+在 react.dev 上进一步阅读：[useContext - React](https://react.dev/reference/react/useContext)
+
+### 常见错误：使用对象/函数作为上下文值而不进行记忆
+
+这里上下文的值是待办事项列表。每当 `TodoListContainer` 重新渲染（例如，在路由更新时），这将是一个新的数组，这要归功于过滤，因此 React 也将不得不重新渲染调用 `useContext(TodoListContext)` 的树中所有深层组件。
+
+`filteredTodos` 在每次渲染时都会重新计算并创建一个新的数组实例，即使 `todos` 或 `status` 尚未更改。这可能导致不必要的重新渲染。
+
+```jsx
+function TodoListContainer() {
+  const [todos, setTodos] = useState([
+    { title: '修复错误', status: 'in_progress' },
+    { title: '添加按钮', status: 'completed' },
+  ]);
+  const [status, setStatus] = useState('in_progress');
+  const filteredTodos = todos.filter((todo) => todo.status === status);
+
+  return (
+    <TodoListContext.Provider value={filteredTodos}>
+      <TodoList />
+    </TodoListContext.Provider>
+  );
+}
+```
+
+我们可以使用 `useMemo` 来记忆 `filteredTodos`，因此它仅在 `todos` 或 `status` 更改时重新计算。对于大型列表，此优化可能非常重要。
+
+```jsx
+function TodoListContainer() {
+  const [todos, setTodos] = useState([
+    { title: '修复错误', status: 'in_progress' },
+    { title: '添加按钮', status: 'completed' },
+  ]);
+  const [status, setStatus] = useState('in_progress');
+  const filteredTodos = useMemo(
+    () => todos.filter((todo) => todo.status === status),
+    [todos, status],
+  );
+
+  return (
+    <TodoListContext.Provider value={filteredTodos}>
+      <TodoList />
+    </TodoListContext.Provider>
+  );
+}
+```
+
+## `useRef`
+
+`useRef` 存储一个在渲染之间保持不变的可变引用，通常用于：
+
+* 引用特定于组件实例的数据
+* 存储对 DOM 的引用
+* 存储不影响组件 UI 的数据（例如超时或间隔 ID）。更改 ref 值不会导致重新渲染
+
+```jsx
+import { useRef } from 'react';
+
+function FocusInput() {
+  const inputRef = useRef(null);
+
+  return (
+    <div>
+      <input ref={inputRef} />
+      <button onClick={() => inputRef.current.focus()}>Focus Input</button>
+    </div>
+  );
+}
+```
+
+**陷阱**：
+
+* 过度使用 `useRef` 来代替 [`useState`](#usestate) 的状态
+
+在 react.dev 上进一步阅读：[useRef - React](https://react.dev/reference/react/useRef)
+
+## `useId`
+
+`useId` 是 React 18 中引入的一个 hook，用于为辅助功能属性和表单元素生成唯一的 ID。它确保 ID 在组件树中是唯一的，即使在服务器端渲染时也是如此。
+
+```jsx
+import { useId } from 'react';
+
+function Form() {
+  const id = useId();
+
+  return (
+    <div>
+      <label htmlFor={id}>名称：</label>
+      <input id={id} type="text" />
+    </div>
+  );
+}
+```
+
+* 主要设计系统组件，其中 ID 用于辅助功能属性（如 `aria-labelledby`），但它们需要具有唯一值，因为页面上可能有多个组件实例
+* 为表单输入生成唯一 ID，尤其是在服务器端渲染的应用程序中
+* 避免必须使用库或全局计数器手动生成唯一 ID
+
+**陷阱**：
+
+* 不要将 `useId` 用于列表中的键。使用稳定的值，例如数据库 ID
+* 它仅用于生成静态 ID，不应用于跟踪动态状态
+
+在 react.dev 上进一步阅读：[useId - React](https://react.dev/reference/react/useId)
+
+## Hooks 的规则
+
+React Hooks 遵循一套严格的规则，以确保它们能够正常工作，并在渲染之间保持状态一致性。违反这些规则可能会导致错误、意外行为或组件损坏。
+
+1. **仅在顶层调用 Hooks**：不要在循环、条件、嵌套函数或 `try`/`catch`/`finally` 块内调用 Hooks
+2. **仅从 React 函数组件或自定义 Hooks 调用 Hooks**：避免在常规 JavaScript 函数中使用 Hooks
+
+***
+
+不正确和正确使用 Hooks 的示例：
+
+### 不要 在条件语句中调用 Hooks
+
+❌ **错误：在条件语句中调用 Hooks**
+
+```jsx
+if (someCondition) {
+  // ❌ 错误：Hook 在条件语句中
+  const [count, setCount] = useState(0);
+}
+```
+
+✅ **正确：在顶层调用 Hooks**
+
+```jsx
+const [count, setCount] = useState(0);
+
+if (someCondition) {
+  console.log(count);
+}
+```
+
+Hooks 必须在每次渲染时以相同的顺序调用。条件 Hooks 可能会导致 React 错位状态更新。
+
+### 仅在 React 组件或自定义 Hooks 中调用 Hooks
+
+❌ **错误：在组件外部调用 Hook**
+
+```jsx
+// ❌ 错误：在组件外部
+const count = useState(0);
+
+function App() {
+  // ...
+}
+```
+
+✅ **正确：在函数组件或自定义 Hooks 中调用 Hooks**
+
+```jsx
+function App() {
+  const [count, setCount] = useState(0);
+  return <p>{count}</p>;
+}
+
+function useCounter() {
+  const [count, setCount] = useState(0);
+
+  return [count, () => setCount((x) => x + 1)];
+}
+```
+
+Hooks 依赖于 React 的渲染周期和组件状态。在组件外部调用 Hooks 会阻止 React 跟踪状态。
+
+### 不要 在条件 `return` 之后调用 Hooks
+
+❌ **错误：有条件地调用 Hooks**
+
+```jsx
+function Counter({ hidden }) {
+  if (hidden) {
+    return;
+  }
+
+  // ❌ 错误：在条件 return 之后
+  const [count, setCount] = useState(0);
+  // ...
+}
+```
+
+✅ **正确：在没有条件的情况下调用 Hook**
+
+```jsx
+function Counter({ hidden }) {
+  const [count, setCount] = useState(0);
+
+  if (hidden) {
+    return;
+  }
+  // ...
+}
+```
+
+### 不要将 Hook 放在循环中调用
+
+❌ **错误：在循环内调用 Hook**
+
+```jsx
+for (let i = 0; i < 2; i++) {
+  // ❌ 错误：Hook 在循环内
+  const [count, setCount] = useState(0);
+}
+```
+
+✅ **正确：在没有循环的情况下调用 Hook**
+
+```jsx
+const [count1, setCount1] = useState(0);
+const [count2, setCount2] = useState(0);
+```
+
+React 假定 Hook 在每次渲染时以相同的顺序调用。以不同的顺序调用它们或调用不同的次数可能会破坏 React 的内部状态跟踪。
+
+### 不要放在事件处理程序中调用
+
+❌ **错误：在事件处理程序内调用 Hook**
+
+```jsx
+function Counter() {
+  function handleClick() {
+    // ❌ 错误：在事件处理程序内
+    const theme = useContext(ThemeContext);
+  }
+  // ...
+}
+```
+
+✅ **正确：在事件处理程序外部调用 Hook**
+
+```jsx
+function Counter() {
+  const theme = useContext(ThemeContext);
+
+  function handleClick() {
+    // ...
+  }
+  // ...
+}
+```
+
+在 react.dev 上阅读更多内容：[Hook 规则](https://react.dev/reference/rules/rules-of-hooks)
+
+## 自定义 Hook
+
+React 中的自定义 Hook 允许您从组件中提取可重用的逻辑，同时使用内置的 Hook（如 `useState`、`useEffect`、`useMemo` 等）维护状态和副作用。
+
+它们遵循与 React Hook 相同的规则，但可以更好地重用代码、抽象和以干净且可维护的方式分离关注点。
+
+1. **代码可重用性**：自定义 Hook 封装了逻辑并使其可重用，而不是在组件之间复制逻辑
+2. **关注点分离**：组件应侧重于 UI 渲染，而自定义 Hook 处理逻辑（状态管理、获取数据、事件侦听器等）
+3. **更简洁、更易读的组件**：将逻辑提取到 Hook 中使组件不那么混乱，并且更专注于呈现
+4. **封装副作用**：自定义 Hook 允许单独管理副作用（如 API 调用），从而使调试和测试更容易
+
+一个自定义 Hook：
+
+* 是一个以 `use` 开头的 JavaScript 函数（例如，`useCounter`、`useFetch`）
+* 必须调用其他 React Hook（例如，`useState`、`useEffect`）。如果自定义 Hook 没有调用任何 React Hook，则它不需要是一个 Hook
+* 保持专注 – 每个 Hook 都有一个目的
+* （可选）返回组件可以使用的状态或函数
+
+这是一个 `useCounter` 自定义 Hook 的示例。 这种 Hook 的价值在于它不暴露 `setCount` 函数，并且 Hook 的使用者仅限于已公开的操作，他们只能增加、减少或重置该值。
+
+```jsx
+import { useState } from 'react';
+
+function useCounter(initialValue = 0) {
+  const [count, setCount] = useState(initialValue);
+
+  const increment = () => setCount(count + 1);
+  const decrement = () => setCount(count - 1);
+  const reset = () => setCount(initialValue);
+
+  return { count, increment, decrement, reset };
+}
+
+function CounterComponent() {
+  const { count, increment, decrement, reset } = useCounter(10);
+
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={increment}>+</button>
+      <button onClick={decrement}>-</button>
+      <button onClick={reset}>Reset</button>
+    </div>
+  );
+}
+```
+
+在 react.dev 上进一步阅读：[使用自定义 Hook 重用逻辑](https://react.dev/learn/reusing-logic-with-custom-hooks)
+
+## 面试中你需要知道的
+
+1. **解释 Hook 的目的**：为什么 React 引入了 Hook 以及它们如何取代类组件生命周期方法
+2. **了解常见的 Hook**：了解何时以及为何使用 `useState`、`useEffect`、`useContext` 和 `useRef`。
+   * `useState`：当状态依赖于之前的状态时，使用 `setState` 的函数式更新形式，例如 `setCount((prevCount) => prevCount + 1)`。 这也消除了事件处理程序中陈旧闭包的问题
+3. **了解重新渲染问题**：识别依赖数组如何影响性能以及 `useMemo`/`useCallback` 如何优化渲染
+4. **实现自定义 Hook**：能够在面试中编写和解释可重用的自定义 Hook
+5. **调试常见的 Hook 陷阱**：识别和修复常见的错误，例如 `useEffect` 中缺少依赖项或不必要的导致重新渲染的状态更新
+
+## 练习题
+
+**测验**：
+
+* [在 React 中使用 Hook 有什么好处？](/questions/quiz/what-are-the-benefits-of-using-hooks-in-react?framework=react\&tab=quiz)
+* [React Hook 的规则是什么？](/questions/quiz/what-are-the-rules-of-react-hooks?framework=react\&tab=quiz)
+* [React 中 `useEffect` 和 `useLayoutEffect` 的区别是什么？](/questions/quiz/what-is-the-difference-between-useeffect-and-uselayouteffect-in-react?framework=react\&tab=quiz)
+* [React 中 `setState()` 的回调函数参数格式的目的是什么？应该在什么时候使用它？](/questions/quiz/what-is-the-purpose-of-callback-function-argument-format-of-setstate-in-react-and-when-should-it-be-used?framework=react\&tab=quiz)
+* [`useEffect` 的依赖项数组会影响什么？](/questions/quiz/what-does-the-dependency-array-of-useeffect-affect?framework=react\&tab=quiz)
+* [React 中的 `useRef` Hook 是什么？应该在什么时候使用它？](/questions/quiz/what-is-the-useref-hook-in-react-and-when-should-it-be-used?framework=react\&tab=quiz)
+* [React 中的 `useCallback` Hook 是什么？应该在什么时候使用它？](/questions/quiz/what-is-the-usecallback-hook-in-react-and-when-should-it-be-used?framework=react\&tab=quiz)
+* [React 中的 `useMemo` Hook 是什么？应该在什么时候使用它？](/questions/quiz/what-is-the-usememo-hook-in-react-and-when-should-it-be-used?framework=react\&tab=quiz)
+* [React 中的 `useReducer` Hook 是什么？应该在什么时候使用它？](/questions/quiz/what-is-the-usereducer-hook-in-react-and-when-should-it-be-used?framework=react\&tab=quiz)
+* [React 中的 `useId` Hook 是什么？应该在什么时候使用它？](/questions/quiz/what-is-the-useid-hook-in-react-and-when-should-it-be-used?framework=react\&tab=quiz)
+* [React 中的 `forwardRef()` 是用来做什么的？](/questions/quiz/what-is-forwardref-in-react-used-for?framework=react\&tab=quiz)
+
+**编码**：
+
+* [进度条](/questions/user-interface/progress-bars/react?framework=react\&tab=coding)
+* [标签页](/questions/user-interface/tabs/react?framework=react\&tab=coding)
+* [模拟时钟](/questions/user-interface/analog-clock/react?framework=react\&tab=coding)
+* [数字时钟](/questions/user-interface/digital-clock/react?framework=react\&tab=coding)

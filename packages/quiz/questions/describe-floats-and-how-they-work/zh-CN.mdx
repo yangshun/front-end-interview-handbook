@@ -1,16 +1,16 @@
 ---
-title: 描述“浮动”及其工作方式。
+title: 描述 `float` 及其工作原理。
 ---
 
-Float 是一个 CSS 定位属性。 浮动元素仍然是文档流的一部分，将影响到其他元素的定位（如： 文本将环绕在浮动元素周围）。不同于`position: absolute` 元素，它们将从文档流中删除。
+Float 是一个 CSS 定位属性。浮动元素仍然是页面流程的一部分，并将影响其他元素的位置（例如，文本将环绕浮动元素），这与 `position: absolute` 元素不同，后者将从页面流程中移除。
 
-CSS `clear` 属性可以放置在 `left`/`right`/`both` 浮动元素之下。
+CSS `clear` 属性可用于定位在 `left`/`right`/`both` 浮动元素下方。
 
-如果父元素只包含浮动元素，它的高度将被折叠为零。 可以通过在容器中的浮动元素之后但在关闭容器之前清除浮动来解决。
+如果父元素只包含浮动元素，则其高度将折叠为零。可以通过在容器中浮动元素之后但在容器关闭之前清除浮动来修复它。
 
-## 清浮动技巧
+## Clearfix hack
 
-`.clearfix` 用一个聪明的 CSS [伪元素]\(/questions/quiz/sign-pseudo-elements-and-discussions-what they-are-used-for) (`::after `) 来清除浮动。 不要在父级设置溢出，而是对它应用一个额外的类 `clearfix` 。 然后应用此 CSS ：
+`.clearfix` hack 使用巧妙的 CSS [伪元素](/questions/quiz/describe-pseudo-elements-and-discuss-what-they-are-used-for) (`::after`) 来清除浮动。与其在父元素上设置 overflow，不如为其应用一个额外的类 `clearfix`。然后应用此 CSS：
 
 ```css
 .clearfix::after {
@@ -22,12 +22,12 @@ CSS `clear` 属性可以放置在 `left`/`right`/`both` 浮动元素之下。
 }
 ```
 
-或者，， 给`overflow: auto` 或 `overflow: hidden` 属性到父元素, 它将在子元素中建立一个新的块格式化环境, 它将扩展到包含它的子元素.
+或者，给父元素 `overflow: auto` 或 `overflow: hidden` 属性，它将在子元素内建立一个新的块格式化上下文，它将扩展以包含其子元素。
 
 ## 琐事
 
-在过去的好日子里，Bootstrap 2 等 CSS 框架使用`float`属性来实现其网格系统。 然而，随着这些日子的 CSS Flexbox 和 Grid，已不再需要使用 `float` 属性。
+在过去的日子里，CSS 框架（如 Bootstrap 2）使用 `float` 属性来实现其网格系统。然而，如今有了 CSS Flexbox 和 Grid，不再需要使用 `float` 属性。
 
-## 参考资料
+## 参考
 
-- [清浮动: 网页开发的演变课程](https://css-tricks.com/clearfix-a-lesson-in-web-development-evolution/)
+* [Clearfix: A Lesson In Web Development Evolution](https://css-tricks.com/clearfix-a-lesson-in-web-development-evolution/)

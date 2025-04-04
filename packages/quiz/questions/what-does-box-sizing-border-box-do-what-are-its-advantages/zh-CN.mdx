@@ -1,27 +1,27 @@
 ---
-title: '`* { box-sizing: border-box; }` 是干什么的？'
-subtitle: 它有什么好处？
+title: '`* { box-sizing: border-box; }` 是什么作用？'
+subtitle: 它有什么优点？
 ---
 
-`* { box-sizing: border-box; }`使页面上的每个元素都使用 `box-sizing: border-box` 方法来计算元素`height` 和 `width`。
+`* { box-sizing: border-box; }` 使页面上的每个元素都使用 `box-sizing: border-box` 方法来计算元素的 `height` 和 `width`。
 
 ## 有什么区别？
 
-默认情况下，元素应用了 `box-sizing: content-box`，如果一个元素指定了 `height` 和 `width`，那么只有内容尺寸被考虑在内。 `box-sizing: border-box` 会改变计算元素的 `width` 和 `higit`的计算方式，`border` 和 `padding` 也会被包括在计算中。 一个元素的`height`现在是按照内容的`height`+垂直`padding`+垂直`border`宽度计算的。 元素的 `width` 现在是按照内容的 `width` + 水平`padding` + 水平`border` 来计算的。
+默认情况下，元素应用了 `box-sizing: content-box`，如果一个元素指定了 `height` 和 `width`，则只计算内容大小。`box-sizing: border-box` 改变了元素的 `width` 和 `height` 的计算方式，`border` 和 `padding` 也被包含在计算中。现在，一个元素的高度由内容的 `height` + 垂直 `padding` + 垂直 `border` 宽度计算。一个元素的宽度现在由内容的 `width` + 水平 `padding` + 水平 `border` 宽度计算。
 
-下表显示当属性具有相应的 `box-sizing`时，是否计算包含在元素的高度和宽度：
+下表指示了当属性具有各自的 `box-sizing` 时，该属性是否包含在元素的 height 和 width 的计算中：
 
-| 属性      | `box-sizing: content-box` (默认) | `box-sizing: border-box` |
-| --------- | -------------------------------- | ------------------------ |
-| 内容      | 是                               | 是                       |
-| `padding` | 否                               | 是                       |
-| `border`  | 否                               | 是                       |
-| `margin`  | 否                               | 否                       |
+| 属性  | `box-sizing: content-box` (默认) | `box-sizing: border-box` |
+| --------- | ----------------------------------- | ------------------------ |
+| content   | 是                                 | 是                      |
+| `padding` | 否                                  | 是                      |
+| `border`  | 否                                  | 是                      |
+| `margin`  | 否                                  | 否                       |
 
 ## 优点
 
-将 `padding` 和 `border` 作为盒子模型的一部分来考虑，更符合设计师对网格中内容的实际想象。 这是一种更直观的思考盒子的方式，因此许多 CSS 框架（例如 Bootstrap、Tailwind、Bulma）在全局范围内设置`* { box-sizing: border-box; }`，以便所有元素默认使用这种盒子模型。
+将 `padding` 和 `border` 考虑为盒子模型的一部分，这与设计师在网格中实际想象内容的方式更吻合。这是一种更直观的思考盒子的方式，因此许多 CSS 框架全局设置 `* { box-sizing: border-box; }`，以便所有元素默认使用这种盒子模型。
 
-## 参考资料
+## 参考
 
-- [Box Sizing | CSS-Tricks](https://css-tricks.com/box-sizing/)
+* [Box Sizing | CSS-Tricks](https://css-tricks.com/box-sizing/)

@@ -1,17 +1,17 @@
 ---
-title: 使用CSS 预处理器的优点/缺点是什么？
+title: 使用 CSS 预处理器的优缺点是什么？
 ---
 
 ## 优点
 
-- CSS 更易维护。
-- 更容易写入嵌套选择器。
-- 具有一致性主题的变量。 可以在不同项目之间共享主题文件。 这不一定适用于 CSS 自定义属性(通常称为 CSS 变量)。
-- 用于生成重复的 CSS 的 Mixins
-- Sass 和 Less 的功能，如循环、List 和 Map 可以使配置变得更加容易和更加详细。
-- 在开发过程中将你的代码分割成多个文件。 CSS 文件也可以拆分，但这样做将需要一个 HTTP 请求下载每个 CSS 文件。
+* CSS 更易于维护。
+* 更容易编写嵌套选择器。
+* 用于一致主题的变量。可以在不同的项目之间共享主题文件。这不一定对 CSS 自定义属性（通常称为 CSS 变量）有用。
+* Mixins 用于生成重复的 CSS。
+* Sass 和 Less 具有循环、列表和映射等功能，可以使配置更容易且更简洁。
+* 在开发过程中将代码拆分为多个文件。CSS 文件也可以拆分，但这样做需要 HTTP 请求来下载每个 CSS 文件。
 
 ## 缺点
 
-- 需要预处理工具。 重新编译时间可能较慢。
-- 无法写入当前可用的 CSS 例如，通过使用 [postcss-loader](https://github.com/postcss/postcss-loader) 与 [webpack](https://github.com/postcss/postcss-loader) 你可以写入潜在的未来兼容的 CSS, 允许你使用诸如 CSS 变量而不是 Sass 变量。 因此，你正在学习新的语法，如果/当它们成为标准化的时候，可能会得到回报。
+* 需要用于预处理的工具。重新编译时间可能很慢。
+* 没有编写当前和潜在可用的 CSS。例如，通过将 [postcss-loader](https://github.com/postcss/postcss-loader) 与 [webpack](https://webpack.js.org/) 结合使用，您可以编写潜在的未来兼容的 CSS，允许您使用 CSS 变量而不是 Sass 变量。因此，您正在学习新的语法，如果/当它们标准化时，可能会有所回报。
