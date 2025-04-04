@@ -38,7 +38,6 @@ export default function mdxPlugin(options: PluginOptions): Plugin {
     async getInstructions() {
       return [
         'These strings are part of an MDX file, which can contain JSX and markdown.',
-        'If a string is a code statement with no UI strings, return as-is, do not translate it.',
         'Make sure to return all the translated object for all the strings.',
       ].join('\n');
     },
