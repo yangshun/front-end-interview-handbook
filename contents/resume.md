@@ -30,7 +30,7 @@ They also offer resume examples/references from candidates who have received mul
 
 ### 2. Test readability with industry-standard ATS
 
-Test the readability and formatting of your resume using [Resume Worded's free ATS resume scan](https://a.paddle.com/v2/click/29828/144522?link=1861). Most big companies use such resume scanners.
+Test the readability and formatting of your resume using [Resume Worded's free ATS resume scan](https://nodeflair.com/resume-checker). Most big companies use such resume scanners.
 
 ### 3. The plain text file test
 
