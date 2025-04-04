@@ -14,7 +14,10 @@ function formatGroupId(groupId: TranslationGroupId) {
   return `[${groupId}]`;
 }
 
-export function printGroupStatus(groups: TranslationGroups) {
+export function printGroupStatus(
+  groups: TranslationGroups,
+  { showSummary = true } = {},
+) {
   const longestGroupIdLength = Math.max(
     ...Array.from(groups.keys()).map((name) => formatGroupId(name).length),
   );
@@ -49,15 +52,17 @@ export function printGroupStatus(groups: TranslationGroups) {
     }
   }
 
-  results.push(
-    '',
-    [
-      `${chalk.bold('Batches:')} `,
-      chalk.bold.green(`${completedBatches} successful`) + ',',
-      `${totalBatches} total`,
-    ].join(' '),
-    `${chalk.bold('Duration:')} ${formatDuration(Date.now() - timeStart)}`,
-  );
+  if (showSummary) {
+    results.push(
+      '',
+      [
+        `${chalk.bold('Batches:')} `,
+        chalk.bold.green(`${completedBatches} successful`) + ',',
+        `${totalBatches} total`,
+      ].join(' '),
+      `${chalk.bold('Duration:')} ${formatDuration(Date.now() - timeStart)}`,
+    );
+  }
 
   logUpdate(results.join('\n'));
 }

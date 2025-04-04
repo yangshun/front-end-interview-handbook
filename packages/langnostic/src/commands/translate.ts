@@ -22,7 +22,11 @@ const DEFAULTS_PLUGINS: Record<string, (options?: any) => Plugin> = {
 const DEFAULT_CONCURRENCY_LIMIT = 5;
 const REFRESH_INTERVAL = 1000 / 16;
 
-export async function translate() {
+export async function translate({
+  dryRun = false,
+}: Readonly<{
+  dryRun?: boolean;
+}>) {
   const config = new Config().config;
   const groups = new Map<TranslationGroupId, TranslationGroup>();
   const runId = new Date().toISOString();
@@ -104,6 +108,12 @@ export async function translate() {
 
   function print() {
     printGroupStatus(groups);
+  }
+
+  if (dryRun) {
+    console.info('The following are pending translations:\n');
+    printGroupStatus(groups, { showSummary: false });
+    process.exit(0);
   }
 
   const intervalId = setInterval(print, REFRESH_INTERVAL);

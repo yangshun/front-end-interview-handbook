@@ -23,9 +23,16 @@ yargs(hideBin(process.argv))
   .command(
     'translate',
     'Translate untranslated strings',
-    () => {},
-    () => {
-      translate();
+    {
+      'dry-run': {
+        describe:
+          'Whether to execute translations. Shows changed files otherwise',
+        default: false,
+        type: 'boolean',
+      },
+    },
+    (argv) => {
+      translate(argv);
     },
   )
   .demandCommand(1)
