@@ -25,7 +25,7 @@ import CodingWorkspaceDivider, {
 type Props = React.ComponentProps<typeof MDXCodeBlock>;
 
 const srcDoc = `
-<body>
+<head>
   <script>
     window.addEventListener('message', (event) => {
       try {
@@ -52,7 +52,7 @@ const srcDoc = `
       }
     });
   </script>
-</body>
+</head>
 `;
 
 export default function JavaScriptCodingQuizCodeEditor(props: Props) {
