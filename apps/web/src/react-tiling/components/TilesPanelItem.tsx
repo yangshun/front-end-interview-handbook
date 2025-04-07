@@ -263,8 +263,8 @@ export default function TilesPanelItem<TabType extends string>({
               )}
               <TilesPanelTabsSection
                 activeTabId={activeTabId}
+                collapsed={collapsed}
                 getTabLabel={getTabLabel}
-                mode={collapsed ? 'readonly' : 'interactive'}
                 panelId={panelId}
                 tabs={tabs}
               />

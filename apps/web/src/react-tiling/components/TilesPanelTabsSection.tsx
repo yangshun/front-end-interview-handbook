@@ -18,12 +18,12 @@ import isDragTab from '../utils/isDragTab';
 
 type Props<TabType> = Readonly<{
   activeTabId: TabType | null;
+  collapsed: boolean;
   getTabLabel: (tabId: TabType) => Readonly<{
     icon?: (iconProps: React.ComponentProps<'svg'>) => JSX.Element;
     iconSecondary?: (iconProps: React.ComponentProps<'svg'>) => JSX.Element;
     label: string;
   }>;
-  mode?: 'interactive' | 'readonly';
   panelId: string;
   tabs: ReadonlyArray<TilesPanelItemTab<TabType>>;
 }>;
@@ -32,9 +32,10 @@ export default function TilesPanelTabsSection<TabType extends string>({
   activeTabId,
   tabs,
   panelId,
-  mode = 'interactive',
+  collapsed,
   getTabLabel,
 }: Props<TabType>) {
+  const mode = collapsed ? 'readonly' : 'interactive';
   const { dispatch } = useTilesContext();
   const { parentRect, setPosition, draggedItemId, setDraggedItemId } =
     useDragHighlightContext();
@@ -243,6 +244,15 @@ export default function TilesPanelTabsSection<TabType extends string>({
       <div
         ref={tabRightEmptySpaceRef}
         className="h-full grow hover:cursor-pointer"
+        onDoubleClick={() => {
+          dispatch({
+            payload: {
+              collapsed: !collapsed,
+              panelId,
+            },
+            type: 'panel-collapse',
+          });
+        }}
       />
     </div>
   );
