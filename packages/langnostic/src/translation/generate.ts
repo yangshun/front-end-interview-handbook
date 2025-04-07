@@ -10,7 +10,7 @@ import {
 import { providerModel, TranslationAI } from './providers';
 import { writeFile } from '../lib/file-service';
 import { RUNS_PATH } from '../core/constants';
-import { promptTemplate, promptVariables } from './prompt';
+import { getPromptTemplate } from './prompt';
 
 function hashStringItem(batchId: TranslationGroupBatchId, id: string): string {
   return `${batchId}#${id}`;
@@ -35,9 +35,10 @@ export async function generate(
     }
 
     const model = providerModel(ai);
-    const prompt = promptTemplate
-      .replace(promptVariables.instructions, instructions || '')
-      .replace(promptVariables.translationPayload, JSON.stringify(strings));
+    const prompt = getPromptTemplate(
+      instructions || '',
+      JSON.stringify(strings),
+    );
 
     if (debug) {
       await writeFile(path.join(...filePathPrefix, 'prompt.txt'), prompt);
