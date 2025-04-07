@@ -32,7 +32,7 @@ function highlightElement(
   for (let i = 0; i < tokens.length; i++) {
     const currentPath = specParts[currentIndex];
 
-    if (tokens[i].textContent === `'${currentPath}'`) {
+    if (tokens[i].textContent?.includes(`'${currentPath}'`)) {
       tokenContainingPath = tokens[i];
       currentIndex++;
     }
@@ -123,7 +123,11 @@ export default function JavaScriptCodingWorkspaceTestsCode({
       </Alert>
       <Prose textSize="sm">
         <div ref={codeRef}>
-          <MDXCodeBlock showCopyButton={false}>{contents}</MDXCodeBlock>
+          <MDXCodeBlock
+            language={specPath.endsWith('.tsx') ? 'tsx' : 'typescript'}
+            showCopyButton={false}>
+            {contents}
+          </MDXCodeBlock>
         </div>
       </Prose>
     </div>
