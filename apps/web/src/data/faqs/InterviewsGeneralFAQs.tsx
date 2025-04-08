@@ -551,10 +551,10 @@ export const generalWorthIt: FAQItem = {
       </p>
       <p>
         <FormattedMessage
-          defaultMessage="With over 500,000 engineers using our platform, there is a high likelihood that candidates <bold>competing for the same roles</bold> are already leveraging our resources. Additionally, countless users have reported encountering <bold>questions from our platform in their actual interviews</bold>, making the practice you gain on the platform directly relevant to the challenges you'll face in actual interviews."
+          defaultMessage="With over {count} engineers using our platform, there is a high likelihood that candidates <bold>competing for the same roles</bold> are already leveraging our resources. Additionally, countless users have reported encountering <bold>questions from our platform in their actual interviews</bold>, making the practice you gain on the platform directly relevant to the challenges you'll face in actual interviews."
           description="Paragraph 2 answer to 'Is it really worth it to buy GreatFrontEnd?' on Homepage's FAQ sections"
-          id="WjGVYh"
-          values={{ bold }}
+          id="xkOxp2"
+          values={{ bold, count: '500,000' }}
         />
       </p>
     </>

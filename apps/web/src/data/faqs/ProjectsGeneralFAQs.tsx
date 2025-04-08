@@ -9,14 +9,13 @@ export const projectPricingModel: FAQItem = {
         <FormattedMessage
           defaultMessage="Our platform is <strong>primarily free</strong>, allowing users to
         access a large selection of project challenges without the need to
-        subscribe. You'd be able to <strong>start building immediately</strong>{' '}
-        - we provide everything from production-ready product specs written by
+        subscribe. You'd be able to <strong>start building immediately</strong> - we provide everything from production-ready product specs written by
         product managers, designs by high-end designers and API specs for each
         project. You'll also get support from our community, where you can
         discuss project approaches, see how others have built similar projects,
         and get feedback on your code to help you improve."
           description="Answer to 'Is GreatFrontEnd Projects free?' on projects FAQs"
-          id="5h6fqG"
+          id="0g+OQ+"
           values={{
             strong: (chunks) => <strong>{chunks}</strong>,
           }}

@@ -1,6 +1,6 @@
 {
   "+/cPHY": {
-    "defaultMessage": "You can cancel your GreatFrontEnd Projects subscription anytime by visiting the <link>Settings &gt; Billing</link>page. Your subscription will remain active until the end of your current subscription period and will not be renewed after it ends.",
+    "defaultMessage": "You can cancel your GreatFrontEnd Projects subscription anytime by visiting the <link>Settings > Billing</link>page. Your subscription will remain active until the end of your current subscription period and will not be renewed after it ends.",
     "description": "Answer on projects pricing's FAQ section - subscription cancel"
   },
   "+1emCT": {
@@ -590,6 +590,10 @@
   "0dpOm/": {
     "defaultMessage": "Get full access",
     "description": "Get full access button on the top right corner of the navigation bar to allow users to start evaluating plans and make a purchase"
+  },
+  "0g+OQ+": {
+    "defaultMessage": "Our platform is <strong>primarily free</strong>, allowing users to access a large selection of project challenges without the need to subscribe. You'd be able to <strong>start building immediately</strong> - we provide everything from production-ready product specs written by product managers, designs by high-end designers and API specs for each project. You'll also get support from our community, where you can discuss project approaches, see how others have built similar projects, and get feedback on your code to help you improve.",
+    "description": "Answer to 'Is GreatFrontEnd Projects free?' on projects FAQs"
   },
   "0gmEji": {
     "defaultMessage": "Browse series",
@@ -1550,10 +1554,6 @@
   "5gqGca": {
     "defaultMessage": "Someone from {country} subscribed to <link>Premium</link> recently",
     "description": "Marketing toast to show that someone has subscribed"
-  },
-  "5h6fqG": {
-    "defaultMessage": "Our platform is <strong>primarily free</strong>, allowing users to access a large selection of project challenges without the need to subscribe. You'd be able to <strong>start building immediately</strong>{' '} - we provide everything from production-ready product specs written by product managers, designs by high-end designers and API specs for each project. You'll also get support from our community, where you can discuss project approaches, see how others have built similar projects, and get feedback on your code to help you improve.",
-    "description": "Answer to 'Is GreatFrontEnd Projects free?' on projects FAQs"
   },
   "5hTR16": {
     "defaultMessage": "Profile",
@@ -3120,7 +3120,7 @@
     "description": "Number of users who completed the question"
   },
   "DFNDlQ": {
-    "defaultMessage": "You can cancel your GreatFrontEnd Interviews subscription anytime by visiting the <link>Profile &gt; Billing</link> page. Your subscription will remain active until the end of your current subscription period and will not be renewed after it ends.",
+    "defaultMessage": "You can cancel your GreatFrontEnd Interviews subscription anytime by visiting the <link>Profile > Billing</link> page. Your subscription will remain active until the end of your current subscription period and will not be renewed after it ends.",
     "description": "Answer to 'Where and how do I cancel my GreatFrontEnd Interviews subscription?' on Purchase's FAQ sections"
   },
   "DHQOPk": {
@@ -7338,10 +7338,6 @@
   "WiZAwx": {
     "defaultMessage": "I want to use React for this challenge, but it's not listed as one of the skills. Can I still use it?",
     "description": "FAQ question for projects platform"
-  },
-  "WjGVYh": {
-    "defaultMessage": "With over 500,000 engineers using our platform, there is a high likelihood that candidates <bold>competing for the same roles</bold> are already leveraging our resources. Additionally, countless users have reported encountering <bold>questions from our platform in their actual interviews</bold>, making the practice you gain on the platform directly relevant to the challenges you'll face in actual interviews.",
-    "description": "Paragraph 2 answer to 'Is it really worth it to buy GreatFrontEnd?' on Homepage's FAQ sections"
   },
   "WjyQOy": {
     "defaultMessage": "DOM manipulation",
@@ -12910,6 +12906,10 @@
   "xjHSyF": {
     "defaultMessage": "All log levels",
     "description": "Select label for all log levels in console filter"
+  },
+  "xkOxp2": {
+    "defaultMessage": "With over {count} engineers using our platform, there is a high likelihood that candidates <bold>competing for the same roles</bold> are already leveraging our resources. Additionally, countless users have reported encountering <bold>questions from our platform in their actual interviews</bold>, making the practice you gain on the platform directly relevant to the challenges you'll face in actual interviews.",
+    "description": "Paragraph 2 answer to 'Is it really worth it to buy GreatFrontEnd?' on Homepage's FAQ sections"
   },
   "xleg5b": {
     "defaultMessage": "Even when you are not actively subscribed, unspent premium credits will roll over to the next cycle. For annual users, we will roll over credits for projects that remain locked at the end of your subscription cycle. However, credits can only be spent when you are an active premium member.",

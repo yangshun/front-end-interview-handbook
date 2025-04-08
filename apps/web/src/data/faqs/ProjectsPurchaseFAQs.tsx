@@ -130,7 +130,7 @@ export const subscriptionCancel: FAQItem = {
   answer: (
     <FormattedMessage
       defaultMessage="You can cancel your GreatFrontEnd Projects subscription anytime by
-      visiting the <link>Settings &gt; Billing</link>page. Your subscription will remain active until the end of your current
+      visiting the <link>Settings > Billing</link>page. Your subscription will remain active until the end of your current
       subscription period and will not be renewed after it ends."
       description="Answer on projects pricing's FAQ section - subscription cancel"
       id="+/cPHY"

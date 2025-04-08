@@ -1,6 +1,6 @@
 {
   "+/cPHY": {
-    "defaultMessage": "您可以通过访问<link>设置 &gt; 账单</link>页面随时取消您的 GreatFrontEnd Projects 订阅。您的订阅将保持有效，直到当前订阅期结束，并且在订阅期结束后将不会续订。",
+    "defaultMessage": "您可以通过访问<link>设置 > 账单</link>页面随时取消您的GreatFrontEnd Projects订阅。您的订阅将保持有效，直到您当前订阅期结束，并且在订阅期结束后将不会续订。",
     "description": "Answer on projects pricing's FAQ section - subscription cancel"
   },
   "+1emCT": {
@@ -336,7 +336,7 @@
     "description": "Subtitle for other media"
   },
   "/arZkH": {
-    "defaultMessage": "完成简单的任务即可享受所有购买商品的独家**{discountPercentage}% 折扣**！",
+    "defaultMessage": "我们正在赠送独家<strong>{discountPercentage}%的折扣</strong>，用于完成简单的任务！",
     "description": "Title for rewards page"
   },
   "/c/hHN": {
@@ -591,6 +591,10 @@
     "defaultMessage": "获得完整访问权限",
     "description": "Get full access button on the top right corner of the navigation bar to allow users to start evaluating plans and make a purchase"
   },
+  "0g+OQ+": {
+    "defaultMessage": "我们的平台<strong>主要免费</strong>，允许用户访问大量项目挑战，而无需订阅。您可以<strong>立即开始构建</strong> - 我们提供从产品经理编写的生产就绪产品规范、高端设计师的设计以及每个项目的API规范等一切内容。您还将获得来自我们社区的支持，在那里您可以讨论项目方法、查看其他人如何构建类似项目，并获得对您的代码的反馈以帮助您改进。",
+    "description": "Answer to 'Is GreatFrontEnd Projects free?' on projects FAQs"
+  },
   "0gmEji": {
     "defaultMessage": "浏览系列",
     "description": "Browse series section title in blog homepage"
@@ -640,7 +644,7 @@
     "description": "Label for address"
   },
   "0vBaIF": {
-    "defaultMessage": "您还有 {amountLeft, plural, =0 {没有高级积分} one {<strong style=\"font-weight: bold;\">1</strong> 个高级积分} other {<strong style=\"font-weight: bold;\">#</strong> 个高级积分}} 剩余。 订阅高级版以解锁此挑战并访问所有高级功能，包括 Figma 设计文件、官方指南和解决方案。",
+    "defaultMessage": "您剩余{amountLeft, plural, =0 {没有高级积分} one {<bold>1</bold>高级积分} other {<bold>#</bold>高级积分}}。重新订阅高级版以解锁此挑战并访问其所有高级功能，包括Figma设计文件、官方指南和解决方案。",
     "description": "Subtitle for project paywall"
   },
   "0vJviS": {
@@ -748,11 +752,11 @@
     "description": "Project marketing hero Read more section badge"
   },
   "1c9cCj": {
-    "defaultMessage": "<authorLink>{作者}</authorLink> 回复了您在 <challengeLink>{实体标题}</challengeLink> 项目讨论中的评论 {时间戳}",
+    "defaultMessage": "<authorLink>{author}</authorLink>回复了您在<challengeLink>{entityTitle}</challengeLink> {timestamp}的项目讨论中的评论",
     "description": "Notification for someone replied to your question"
   },
   "1fjGWk": {
-    "defaultMessage": "{问题数量}+ 个关于库 API、实用类型、算法以及构建强大类型化组件的最重要的 TypeScript 面试问题。",
+    "defaultMessage": "{questionCount}+关于库API、实用程序类型、算法以及构建强大、类型化组件的最重要的TypeScript面试问题。",
     "description": "Subtitle for questions list page"
   },
   "1gk5Pf": {
@@ -864,7 +868,7 @@
     "description": "Coding workspace view solution title"
   },
   "23zW1O": {
-    "defaultMessage": "{totalCount, plural, one {{completedCount} 个挑战} other {{completedCount} 个挑战}}",
+    "defaultMessage": "{totalCount, plural, one {<bold>{completedCount}</bold>/# 挑战} other {<bold>{completedCount}</bold>/# 挑战}}",
     "description": "Rep count label in Projects"
   },
   "24jiGp": {
@@ -1012,7 +1016,7 @@
     "description": "Projects profile tech stack proficient section title"
   },
   "2zikko": {
-    "defaultMessage": "解锁此挑战需要总共 {count, plural, one {#个高级积分} other {#个高级积分}}。",
+    "defaultMessage": "解锁此挑战总共需要{count, plural, one {<bold>1个高级积分</bold>} other {<bold>#个高级积分</bold>}}。",
     "description": "Confirmation text for unlocking a premium challenge"
   },
   "3+4IFI": {
@@ -1550,10 +1554,6 @@
   "5gqGca": {
     "defaultMessage": "来自{country}的顾客最近购买了<link>高级版</link> ",
     "description": "Marketing toast to show that someone has subscribed"
-  },
-  "5h6fqG": {
-    "defaultMessage": "我们的平台<strong>主要免费</strong>，允许用户访问大量项目挑战，而无需订阅。您将能够<strong>立即开始构建</strong> - 我们提供从产品经理编写的生产就绪的产品规范、高端设计师的设计以及每个项目的 API 规范等所有内容。您还将获得来自我们社区的支持，您可以在其中讨论项目方法、查看其他人如何构建类似项目，并获得对您的代码的反馈以帮助您改进。",
-    "description": "Answer to 'Is GreatFrontEnd Projects free?' on projects FAQs"
   },
   "5hTR16": {
     "defaultMessage": "个人资料",
@@ -2284,7 +2284,7 @@
     "description": "Title for marketing page section"
   },
   "9115HX": {
-    "defaultMessage": "{已完成的问题}/{总问题} 个问题",
+    "defaultMessage": "<bold>{completedQuestions}</bold>/{totalQuestions} 个问题",
     "description": "Line describing the number of questions completed by user over the total number of questions"
   },
   "918wg5": {
@@ -2496,15 +2496,15 @@
     "description": "Label for cancel button on import progress dialog"
   },
   "A7IkHe": {
-    "defaultMessage": "<bold>{已完成的文章数}</bold>/ {总文章数} 篇文章",
+    "defaultMessage": "<bold>{completedArticles}</bold>/{totalArticles} 篇文章",
     "description": "Line describing the number of articles completed by user over the total number of articles"
   },
   "A7OrXR": {
-    "defaultMessage": "技能 | 进度 | {名称}",
+    "defaultMessage": "技能 | 进度 | {name}",
     "description": "Title of user profile skills page"
   },
   "A9b+nP": {
-    "defaultMessage": "关注我们的社交账号，额外获得 <bold>{折扣百分比}% 折扣</bold>",
+    "defaultMessage": "通过关注我们的社交帐户，获得额外的<bold>{discountPercentage}%折扣</bold>",
     "description": "Rewards discount message"
   },
   "AA5pTU": {
@@ -2512,7 +2512,7 @@
     "description": "User Interface Questions feature"
   },
   "ABJ7ip": {
-    "defaultMessage": "{已完成的问题}/{总问题数} 已完成",
+    "defaultMessage": "<bold>{completedQuestions}</bold>/{totalQuestions} 已完成",
     "description": "Line describing the number of questions completed by user over the total number of questions"
   },
   "ADlE7s": {
@@ -2976,7 +2976,7 @@
     "description": "Description of community page"
   },
   "CUkv2F": {
-    "defaultMessage": "您的订阅将于 <strong style=\"font-weight:bold;\">{date}</strong> 续订",
+    "defaultMessage": "您的订阅在<bold>{date}</bold>续订",
     "description": "Information about subscription"
   },
   "CYr24j": {
@@ -3120,7 +3120,7 @@
     "description": "Number of users who completed the question"
   },
   "DFNDlQ": {
-    "defaultMessage": "您可以通过访问<link>个人资料 &gt; 账单</link>页面随时取消您的 GreatFrontEnd Interviews 订阅。您的订阅将保持有效，直到当前订阅期结束，并且在订阅期结束后将不会续订。",
+    "defaultMessage": "您可以通过访问<link>个人资料 > 账单</link>页面随时取消您的GreatFrontEnd Interviews订阅。您的订阅将保持有效，直到您当前订阅期结束，并且在订阅期结束后将不会续订。",
     "description": "Answer to 'Where and how do I cancel my GreatFrontEnd Interviews subscription?' on Purchase's FAQ sections"
   },
   "DHQOPk": {
@@ -3396,7 +3396,7 @@
     "description": "Coding workspace solution preview close button"
   },
   "Eel+ez": {
-    "defaultMessage": "会见由大型科技公司前面试官打造的**前端面试准备平台**，让您的面试更加轻松。",
+    "defaultMessage": "认识专为让您的面试更轻松而构建的<strong>前端面试准备平台</strong>。由来自Big Tech的前面试官在",
     "description": "Subtitle for hero"
   },
   "EfUaYk": {
@@ -4272,7 +4272,7 @@
     "description": "Sidebar navigation label"
   },
   "IxMQSr": {
-    "defaultMessage": "{类别} 测验",
+    "defaultMessage": "{category} 测验",
     "description": "Question list"
   },
   "IxURvm": {
@@ -4932,7 +4932,7 @@
     "description": "Interviews premium"
   },
   "LTio0D": {
-    "defaultMessage": "{销售} 销售额",
+    "defaultMessage": "{sales} 销售额",
     "description": "Sales count"
   },
   "LTreFY": {
@@ -4960,7 +4960,7 @@
     "description": "How to answer growth mindset collaboration questions"
   },
   "LgMYXR": {
-    "defaultMessage": "<authorLink>{作者}</authorLink> 在 <submissionLink>{实体标题}</submissionLink> 上留下了一份代码审查 {时间戳}",
+    "defaultMessage": "<authorLink>{author}</authorLink>在<submissionLink>{entityTitle}</submissionLink> {timestamp}上留下了代码审查",
     "description": "Notification for code review left on your submission"
   },
   "Lh00HQ": {
@@ -5100,7 +5100,7 @@
     "description": "Description of Payment Success page"
   },
   "MJYzca": {
-    "defaultMessage": "{阅读时间} 分钟",
+    "defaultMessage": "{readingTime} 分钟",
     "description": "Reading time of the article"
   },
   "MMFfyO": {
@@ -5280,7 +5280,7 @@
     "description": "Button to close menu"
   },
   "NX+p0K": {
-    "defaultMessage": "您是否打算将<strong style=\"font-weight:bold;\">{parentSkill} - {childSkill}</strong style=\"font-weight:bold;\">用于此挑战？我们将将其添加到已使用的技能中，以便跟踪其技能计划的进度。",
+    "defaultMessage": "您是否打算将<bold>\"{parentSkill} - {childSkill}\"</bold>用于此挑战？ 我们将把它添加到使用的技能中，以便跟踪其技能计划的进度。",
     "description": "Message about adding a skill to a challenge session"
   },
   "NXVaMh": {
@@ -5704,11 +5704,11 @@
     "description": "Error title for request submission"
   },
   "PXcS/H": {
-    "defaultMessage": "<authorLink>{作者}</authorLink> 回复了您在 <submissionLink>{实体标题}</submissionLink> 上的代码审查 {时间戳}",
+    "defaultMessage": "<authorLink>{author}</authorLink>回复了您在<submissionLink>{entityTitle}</submissionLink> {timestamp}上的代码审查",
     "description": "Notification for someone replied to your code review"
   },
   "PaucmE": {
-    "defaultMessage": "练习 {问题数量}+ 个 JavaScript 面试问题，涵盖数据结构和算法。在浏览器中编码，并提供来自大型科技公司前面试官的解决方案和测试用例。",
+    "defaultMessage": "练习{questionCount}+ JavaScript面试问题，涉及数据结构和算法。在浏览器中编写代码，并提供来自Big Tech前面试官的解决方案和测试用例",
     "description": "Description of interviews questions page"
   },
   "PbcB1O": {
@@ -6424,11 +6424,11 @@
     "description": "Link label to the profile page"
   },
   "SaUyXa": {
-    "defaultMessage": "{公司} 前端面试指南",
+    "defaultMessage": "{company} 前端面试指南",
     "description": "Title for company guides detail page"
   },
   "SaptIB": {
-    "defaultMessage": "{积分} 声誉",
+    "defaultMessage": "{points} 声誉",
     "description": "Tooltip for User reputation in project"
   },
   "SbE8XR": {
@@ -6452,7 +6452,7 @@
     "description": "Title for front end interview questions page"
   },
   "SgTflO": {
-    "defaultMessage": "+{声望}",
+    "defaultMessage": "+{reputation}",
     "description": "Title for level Up"
   },
   "SgdFJp": {
@@ -7300,7 +7300,7 @@
     "description": "Placeholder for search input of question list"
   },
   "WUv05Y": {
-    "defaultMessage": "挑战：<hover>{标题}</hover>",
+    "defaultMessage": "挑战：<hover>{title}</hover>",
     "description": "Link to project submission's original challenge"
   },
   "WUvwrX": {
@@ -7338,10 +7338,6 @@
   "WiZAwx": {
     "defaultMessage": "我想在这个挑战中使用 React，但它并未列为技能之一。我仍然可以使用它吗？",
     "description": "FAQ question for projects platform"
-  },
-  "WjGVYh": {
-    "defaultMessage": "超过 50 万工程师使用我们的平台，这意味着候选人很有可能正在利用我们的资源来 <strong >竞争相同的职位</strong>。此外，无数用户报告称在实际面试中遇到了来自我们平台的 <strong >问题</strong>，这使得您在平台上获得的实践经验与实际面试中面临的挑战直接相关。",
-    "description": "Paragraph 2 answer to 'Is it really worth it to buy GreatFrontEnd?' on Homepage's FAQ sections"
   },
   "WjyQOy": {
     "defaultMessage": "DOM 操作",
@@ -7968,7 +7964,7 @@
     "description": "Error message"
   },
   "ZrXDlv": {
-    "defaultMessage": "当用户使用您的链接访问我们的网站时，将创建一个唯一的浏览器 cookie，该 cookie 将其任何购买归因于您。如果他们在 {days} 天内进行购买，我们将向您支付其首笔订单的 **{percent}%**。",
+    "defaultMessage": "当用户使用您的链接访问我们的网站时，将创建一个唯一的浏览器cookie，该cookie会将他们的任何购买归因于您。如果他们在{days}天内购买，我们将向您支付其首笔订单的<strong>{percent}%</strong>。",
     "description": "Affiliate program step subtitle"
   },
   "ZsOMcv": {
@@ -8856,7 +8852,7 @@
     "description": "Richtext placeholder"
   },
   "dpBKYx": {
-    "defaultMessage": "总活跃天数：<strong style=\"font-weight: bold;\">{count}</strong>",
+    "defaultMessage": "总活跃天数：<bold>{count}</bold>",
     "description": "Label for active days"
   },
   "dq3W2/": {
@@ -9480,7 +9476,7 @@
     "description": "Label for view all testimonials button in homepage"
   },
   "gXbjAw": {
-    "defaultMessage": "<authorLink>{作者}</authorLink> 在 <submissionLink>{实体标题}</submissionLink> 上留下了一个问题 {时间戳}",
+    "defaultMessage": "<authorLink>{author}</authorLink>在<submissionLink>{entityTitle}</submissionLink> {timestamp}上留下了一个问题",
     "description": "Notification for question left on your submission"
   },
   "gZ3W0t": {
@@ -9492,7 +9488,7 @@
     "description": "Title of Change Password page"
   },
   "gbjgjg": {
-    "defaultMessage": "<authorProfileLink>{作者}</authorProfileLink> 在他们的提交 <link>{提交标题}</link> 上留下了一个问题：<comment>\"{描述}\"</comment>",
+    "defaultMessage": "<authorProfileLink>{author}</authorProfileLink>在他们的提交<link>{submissionTitle}</link>上留下了一个问题：<comment>\"{description}\"</comment>",
     "description": "Log message for someone asking question on their submission"
   },
   "gd8jkF": {
@@ -9724,7 +9720,7 @@
     "description": "Attempt limit reached alert message"
   },
   "hfba4L": {
-    "defaultMessage": "{已完成数量}/{总数量} 已完成",
+    "defaultMessage": "{completedCount}/{totalCount} 已完成",
     "description": "Label for completed count"
   },
   "hhuG8E": {
@@ -9808,7 +9804,7 @@
     "description": "Subtitle for other media"
   },
   "i/1i64": {
-    "defaultMessage": "您先前已完成此列表中的 {questionCount, plural, =0 {<strong style=\"font-weight: bold;\">0</strong> 题} one {<strong style=\"font-weight: bold;\">1</strong> 题} other {<strong style=\"font-weight: bold;\">#</strong> 题}",
+    "defaultMessage": "您之前已从该列表中完成了{questionCount, plural, =0 {<bold>0</bold> 个问题} one {<bold>1</bold> 个问题} other {<bold>#</bold> 个问题}}。",
     "description": "Description for import progress"
   },
   "i0RFBu": {
@@ -9828,7 +9824,7 @@
     "description": "Link to one week study plan"
   },
   "i7VsUe": {
-    "defaultMessage": "您正在使用 <strong style=\"font-weight: bold;\">每月</strong> 计划。",
+    "defaultMessage": "您使用的是<bold>月度</bold>计划。",
     "description": "Text describing user's subscription plan."
   },
   "i7u7fD": {
@@ -9996,7 +9992,7 @@
     "description": "Coming soon label"
   },
   "jLJBBH": {
-    "defaultMessage": "<authorProfileLink>{作者}</authorProfileLink> 在提交 <link>{提交标题}</link> 上回复了 <bold>自己</bold>：<comment>\"{描述}\"</comment>",
+    "defaultMessage": "<authorProfileLink>{author}</authorProfileLink>在提交<link>{submissionTitle}</link>上回复了<bold>他们自己</bold>：<comment>\"{description}\"</comment>",
     "description": "Log message for someone replying to themselves on a submission"
   },
   "jMHsyQ": {
@@ -10020,7 +10016,7 @@
     "description": "Label for spotlight ad placement in app sidebar"
   },
   "jOyFXD": {
-    "defaultMessage": "{count, plural, =0 {0 个完成} one {<strong style=\"font-weight: bold;\">{value}</strong> 个完成} other {<strong style=\"font-weight: bold;\">{value}</strong> 个完成}}",
+    "defaultMessage": "在过去一年中，{count, plural, =0 {0 次完成} one {<bold>{value}</bold> 次完成} other {<bold>{value}</bold> 次完成}}",
     "description": "Label for completions count"
   },
   "jQ6uOU": {
@@ -10172,7 +10168,7 @@
     "description": "Button label for see all"
   },
   "k18teo": {
-    "defaultMessage": "此为专属您账户的一次性促销代码，且仅能生成一次。",
+    "defaultMessage": "这是一个一次性使用的促销代码，仅限您的帐户使用，并且<strong>只能生成一次</strong>。",
     "description": "Subtext for rewards complete page"
   },
   "k1dcHz": {
@@ -10632,7 +10628,7 @@
     "description": "Title of skills section on dashboard page"
   },
   "mDcqlX": {
-    "defaultMessage": "{questionCount, plural, =0 {0 个问题} =1 {1 个问题} other {# 个问题}}",
+    "defaultMessage": "<count>{questionCount}</count> <questions>问题</questions>",
     "description": "Number of questions"
   },
   "mFyOK6": {
@@ -10664,7 +10660,7 @@
     "description": "Label for study plans study list"
   },
   "mKaP8w": {
-    "defaultMessage": "我们的计划成本低于平均前端工程师一小时薪资。 相比之下，出色的面试表现可以获得具有数百万美元总薪资增长的有竞争力的报价。众所周知，许多公司根据面试表现来制定报价，在面试中表现出色甚至可以晋升到更高的职位，进一步提高您的收入潜力。",
+    "defaultMessage": "我们的计划费用<bold>低于一名普通前端工程师一小时的工资</bold>。相比之下，出色的面试表现可以带来具有竞争力的offer，总薪酬<bold>增加数十万美元</bold>。众所周知，许多公司根据面试表现来构建他们的offer，并且在面试中表现出色甚至可以导致<bold>晋升到更高的职位</bold>，从而进一步增加您的收入潜力。",
     "description": "Paragraph 1 answer to 'Is it really worth it to buy GreatFrontEnd?' on Homepage's FAQ sections"
   },
   "mL9M8v": {
@@ -11112,7 +11108,7 @@
     "description": "Description for study list"
   },
   "oafz//": {
-    "defaultMessage": "{count, plural, =0 {<strong/>#</strong> 个过滤器} =1 {<strong/>#</strong> 个过滤器} other {<strong/>#</strong> 个过滤器} 已应用",
+    "defaultMessage": "已应用{count, plural, =0 {<bold>#</bold> 个筛选器} =1 {<bold>#</bold> 个筛选器} other {<bold>#</bold> 个筛选器}}",
     "description": "Number of applied filters"
   },
   "ocVZsr": {
@@ -11348,7 +11344,7 @@
     "description": "Label for \"Download starter files\" button on Projects project page"
   },
   "pZpSXp": {
-    "defaultMessage": "{completionCount}/{totalCount} {totalCount, plural, one {指南} other {指南}}",
+    "defaultMessage": "<bold>{completionCount}</bold>/{totalCount} {totalCount, plural, one {指南} other {指南}}",
     "description": "Label for completed guides"
   },
   "pZq6+F": {
@@ -11400,7 +11396,7 @@
     "description": "Description for \"Username\" input on Projects profile onboarding page"
   },
   "pnwnko": {
-    "defaultMessage": "与快速电子邮件扫描或简短横幅浏览带来的短暂关注不同，用户会在我们的平台上停留更长时间——积极学习和编码。",
+    "defaultMessage": "与快速扫描电子邮件或简短的横幅浏览所带来的短暂关注不同，用户<bold>在我们的平台上停留的时间更长</bold> - 积极学习和编码。",
     "description": "Advertise with us section subtitle"
   },
   "pp1TOt": {
@@ -11424,7 +11420,7 @@
     "description": "Homepage title"
   },
   "puP8B5": {
-    "defaultMessage": "确定要删除此广告吗？",
+    "defaultMessage": "折叠{replyCount, plural, =0 {无} one {# 条回复} other {# 条回复}}",
     "description": "Label for collapse replies button"
   },
   "puxZIs": {
@@ -12911,6 +12907,10 @@
     "defaultMessage": "所有日志级别",
     "description": "Select label for all log levels in console filter"
   },
+  "xkOxp2": {
+    "defaultMessage": "我们的平台有超过 {count} 位工程师在使用，因此候选人<bold>竞争相同职位</bold>的可能性很高，他们已经在利用我们的资源。此外，无数用户报告说在他们的实际面试中遇到了<bold>我们平台上的问题</bold>，这使得你在平台上获得的练习与你在实际面试中将要面临的挑战直接相关。",
+    "description": "Paragraph 2 answer to 'Is it really worth it to buy GreatFrontEnd?' on Homepage's FAQ sections"
+  },
   "xleg5b": {
     "defaultMessage": "即使您未处于活跃订阅状态，未使用的高级积分也会滚动到下一个周期。对于年度用户，我们将滚动到订阅周期结束时仍处于锁定状态的项目的积分。但是，积分只能在您成为活跃高级会员时使用。",
     "description": "Description of premium feature"
@@ -13112,7 +13112,7 @@
     "description": "Contribution type label"
   },
   "ykwubP": {
-    "defaultMessage": "您正在使用<strong >季度</strong>计划。",
+    "defaultMessage": "您使用的是<bold>季度</bold>计划。",
     "description": "Text describing user's subscription plan."
   },
   "ymIkds": {

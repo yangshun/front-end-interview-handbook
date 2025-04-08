@@ -187,7 +187,7 @@ export const purchaseSubscriptionCancel: FAQItem = {
   answer: (
     <FormattedMessage
       defaultMessage="You can cancel your GreatFrontEnd Interviews subscription anytime by
-      visiting the <link>Profile &gt; Billing</link> page. Your subscription will remain active until the end of your current
+      visiting the <link>Profile > Billing</link> page. Your subscription will remain active until the end of your current
       subscription period and will not be renewed after it ends."
       description="Answer to 'Where and how do I cancel my GreatFrontEnd Interviews subscription?' on Purchase's FAQ sections"
       id="DFNDlQ"
