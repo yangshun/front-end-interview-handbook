@@ -105,7 +105,7 @@ Cons:
 
 Pros:
 
-- Image upload stage can be done in a an async fashion. Images can be uploaded after the image editing stage in the background while the user is drafting the post caption.
+- Image upload stage can be done in an async fashion. Images can be uploaded after the image editing stage in the background while the user is drafting the post caption.
 - Images can be uploaded in parallel across multiple HTTP requests which is faster than uploading all the images in a single HTTP request which will take longer.
 - Can leverage existing general image uploading APIs, if any.
 
@@ -113,7 +113,12 @@ Cons:
 
 - More coordination needed in the client. The client needs to wait for all the images to be uploaded and get a reference to the uploaded images and use them when creating the post.
 
-Comparing the two approaches, approach #2 of separate APIs would be better. The image uploading API can be a general one that is used across the entire website and not just for the post creation flow.
+### Which approach is better?
+
+Comparing the two approaches, the approach of separate APIs would be better.
+
+- **Reusable**: The image uploading API can be a general one that is used across the entire website and not just for the post creation flow, (e.g. profile image upload).
+- **Reduced bandwidth**: Practically, blob storage solutions like Amazon S3 and Cloudflare R2 are used for storing static assets like images. Clients can request for a presigned URL and upload directly to the storage buckets without going through the app servers, which reduces bandwidth, leading to lower server costs.
 
 ## Optimizations and deep dive
 
@@ -228,8 +233,6 @@ The following images are enhanced right within your browser using these CSS filt
     </tr>
   </tbody>
 </table>
-
----
 
 Ultimately, the final image still has to be converted into an image blob before sending to the server and this conversion can be done with libraries like [html2canvas](https://github.com/niklasvh/html2canvas).
 

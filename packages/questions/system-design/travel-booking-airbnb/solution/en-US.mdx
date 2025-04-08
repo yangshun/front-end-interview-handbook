@@ -96,13 +96,13 @@ We have omitted the entities related to payments and addresses since they are co
 
 We will need the following HTTP APIs:
 
-1. Search: Fetch accommodation listings given some search/filter parameters. The results are rendered on the map and/or a list view.
-1. Listing details: Fetch the details for an accommodation listing.
-1. Reserve: Make a reservation for an accommodation.
+1. **Search**: Fetch accommodation listings given some search/filter parameters. The results are rendered on the map and/or a list view
+1. **Listing details**: Fetch the details for an accommodation listing
+1. **Reserve**: Make a reservation for an accommodation
 
 ### Search accommodations
 
-| Field | Value |
+| Property | Value |
 | --- | --- |
 | HTTP Method | `GET` |
 | Path | `/search` |
@@ -112,27 +112,27 @@ We will need the following HTTP APIs:
 
 | Parameter | Type | Description |
 | --- | --- | --- |
-| `size` | number | Number of results per page |
-| `page` | number | Page number to fetch |
-| `guests` | number | Number of staying guests |
-| `country` | string | Country for the user, determines the currency |
+| Size | number | Number of results per page |
+| Page | number | Page number to fetch |
+| Guests | number | Number of staying guests |
+| Country | string | Country for the user, determines the currency |
 | Location | mixed (see below) | Location of the search |
-| Date Range | mixed (see below) | Date range to occupy the accommodation |
+| Date range | mixed (see below) | Date range to occupy the accommodation |
 | Amenities | mixed (see below) | Amenities criteria |
 
 **Location**: The exact format of the `location` field depends on the business requirements. But in general, we need to tell the server the desired boundary so that results within the boundary will be shown. There are two common ways to represent boundaries: (1) Center position + radius, (2) Boundary coordinates.
 
-1. **Center position + radius**. The radius can be in miles/km and the center position can be either of:
+1. **Center position + radius**: The radius can be in miles/km and the center position can be either of:
    - **Free text search**: This is any string containing a location e.g. "San Francisco", "New York City". An external location service will be needed to convert the string into geographic coordinates (via geocoding). Geocoding is preferably done on the server to prevent API abuse.
    - **Geolocation/Coordinates**: This format is useful for map-based UIs where users can pan/zoom the map to search for listings within the area or when users allow the app to access current location to search around them.
-2. **Boundary coordinates**. For map-based UIs, we can use the coordinates of the 4 corners of the presented map as the boundary area.
+2. **Boundary coordinates**: For map-based UIs, we can use the coordinates of the 4 corners of the presented map as the boundary area.
 
 It's likely that the search API will have to support both formats if the website has different search UIs:
 
 - Landing pages for travel sites usually have a search bar with the compulsory parameters like date range and number of guests. Such UI will need the free text search location format.
 - Results pages with maps will use the geolocation/boundary coordinates format.
 
-**Date Range**: There are several date range formats to choose from and neither are clear winners:
+**Date range**: There are several date range formats to choose from and neither are clear winners:
 
 | Format | Example | Pros | Cons |
 | --- | --- | --- | --- |
@@ -205,7 +205,7 @@ If infinite scroll is desired, then a cursor-based pagination approach might be 
 
 Strictly speaking, if the accommodation details page is always opened in a new tab, then the details data will only ever be needed to be fetched on the server to create the initial HTML; it will not be fetched from the client, so a standalone HTTP API is not needed.
 
-| Field       | Value                                            |
+| Property    | Value                                            |
 | ----------- | ------------------------------------------------ |
 | HTTP Method | `GET`                                            |
 | Path        | `/accommodation/{accommodationId}`               |
@@ -252,7 +252,7 @@ Strictly speaking, if the accommodation details page is always opened in a new t
 
 ### Make reservation
 
-| Field       | Value                     |
+| Property    | Value                     |
 | ----------- | ------------------------- |
 | HTTP Method | `POST`                    |
 | Path        | `/reserve`                |
@@ -314,23 +314,21 @@ To recap, the most important aspects of a travel booking website are: **search e
 
 When searching on these travel sites, notice that the search query and filter will be reflected in the URL. If you load the URL in a new window, the same results and search query are shown. Syncing the search query with the URL is an important feature because:
 
-1. Allows the particular search to be bookmarked, which is a common action users do when doing research for travel.
-1. Other sites like travel blogs to link to the results page of specific search filters (e.g. vacations rentals in San Francisco). This helps to improve the site's SEO and discoverability.
+1. **Bookmarking**: Allows the particular search to be bookmarked, which is a common action users do when doing research for travel.
+1. **Deep linking**: Other sites like travel blogs to link to the results page of specific search filters (e.g. vacations rentals in San Francisco). This helps to improve the site's SEO and discoverability.
 
 #### Pre-generate pages for popular searches
 
 When you search for "Vacation in San Francisco" in a search engine, you will most likely see results from popular travel sites like Expedia, Airbnb, TripAdvisor, among many others. These pages aren't content articles; they're the site's search results page with some pre-filled filters. How is this accomplished?
 
-To improve SEO by appearing relevant to what users are searching, travel sites generate tons of pages for the popular search terms that shows relevant listings for these terms. For example, Airbnb generated dedicated pages for ["Vacation rental apartments in San Francisco"](https://www.airbnb.com/san-francisco-ca/stays) and ["Vacation rental apartments in New York](https://www.airbnb.com/new-york-ny/stays). To let search engines know about these dedicated pages, [Airbnb has a sitemap page](https://www.airbnb.com/sitemaps/v2) just for listing links to their dedicated listing pages. There are thousands or more listings.
+To improve SEO by appearing relevant to what users are searching, travel sites generate tons of pages for the popular search terms that shows relevant listings for these terms. For example, Airbnb generated dedicated pages for ["Vacation rental apartments in San Francisco"](https://www.airbnb.com/san-francisco-ca/stays) and ["Vacation rental apartments in New York](https://www.airbnb.com/new-york-ny/stays). To let search engines know about these dedicated pages, [Airbnb has a sitemap page](https://www.airbnb.com/sitemaps/v2) just for listing links to their dedicated listing pages. There are thousands or more listing pages.
 
-Notice that the URLs of these dedicated pages are readable:
+URLS are commonly implemented in one of the two ways:
 
-- Readable URLs: https://www.airbnb.com/san-francisco-ca/stays
-- "Ugly" URLs: https://www.airbnb.com/search?location=123 (where 123 is an internal ID mapping to San Francisco city)
+- **Readable URLs**: https://www.airbnb.com/san-francisco-ca/stays
+- **"Ugly" URLs**: https://www.airbnb.com/search?location=123 (where 123 is an internal ID mapping to San Francisco city)
 
-Having readable URLs helps with SEO rankings, especially if the URL contains the search term itself.
-
-With this technique, search engines will think that travel sites have many different content pages when in reality they are all rendering the same results page but with different listings. It's great for SEO.
+Airbnb uses readable URLs because having readable URLs helps with SEO rankings, especially if the URL contains the search term itself. Using this technique, search engines will think that travel sites have many different content pages when in reality they are all rendering the same results page but with different listings. It's great for SEO.
 
 #### Dynamic rendering – serve crawlers different pages
 

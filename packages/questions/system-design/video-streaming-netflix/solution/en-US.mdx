@@ -323,33 +323,34 @@ These events are essential for creating a detailed control interface for media e
 
 #### Drawbacks of using `<video>`
 
-Using "vanilla" `<video>` elements also comes with some drawbacks.
+Using "vanilla" `<video>` elements also comes with some drawbacks:
 
-**Limited adaptive streaming support**: The `<video>` element doesn't natively support adaptive streaming protocols like DASH or HLS in all browsers. These protocols dynamically adjust video quality based on the user's internet speed, ensuring a smooth streaming experience. Without this, users may experience buffering or low-quality video. The `<video>` element might not be optimized for scenarios where low latency is crucial, such as live streaming events.
+- **Limited adaptive streaming support**: The `<video>` element doesn't natively support adaptive streaming protocols like DASH or HLS in all browsers. These protocols dynamically adjust video quality based on the user's internet speed, ensuring a smooth streaming experience. Without this, users may experience buffering or low-quality video. The `<video>` element might not be optimized for scenarios where low latency is crucial, such as live streaming events.
+- **Restricted customization and control**: `<video>` elements also contain playback controls, but like most native elements, each browser renders them differently. If you want a consistent and branded user interface across browsers you will have to build your own playback controls. However, styling these controls isn't straightforward unlike other HTML elements like `<button>`s and `<input>`s. You will have to build your own components.
 
-**Restricted customization and control**: `<video>` elements also contain playback controls, but like most native elements, each browser renders them differently. If you want a consistent and branded user interface across browsers you will have to build your own playback controls. However, styling these controls isn't straightforward unlike other HTML elements like `<button>`s and `<input>`s. You will have to build your own components.
+  Note that `<video>` elements also contain their own state as mentioned in the attributes/properties above. If you are using a JavaScript framework/library (e.g. React, Vue) and have built your own `Video` component that renders the `<video>` elements along with custom controls, you will need to do a two-way sync between your React component state and the `<video>`/`HTMLVideoElement` state as there can be native controls that directly affect the `HTMLVideoElement` like the play/pause/volume buttons (also known as media keys) on some keyboards.
 
-Note that `<video>` elements also contain their own state as mentioned in the attributes/properties above. If you are using a JavaScript framework/library (e.g. React, Vue) and have built your own `Video` component that renders the `<video>` elements along with custom controls, you will need to do a two-way sync between your React component state and the `<video>`/`HTMLVideoElement` state as there can be native controls that directly affect the `HTMLVideoElement` like the play/pause/volume buttons (also known as media keys) on some keyboards.
+  In the following example, the React component state is synced with the DOM video state. Try playing the video using either "Play" buttons and see that the playback and custom UI states are synced properly.
 
-In the following example, the React component state is synced with the DOM video state. Try playing the video using either "Play" buttons and see that the playback and custom UI states are synced properly.
+  ```html
+  <iframe
+    src="https://codesandbox.io/embed/f6h325?fontsize=14&hidenavigation=1&theme=dark&module=/src/App.tsx&view=split"
+    style={{
+      width: '100%',
+      height: 500,
+      border: 0,
+      borderRadius: 4,
+      overflow: 'hidden',
+    }}
+    title="React video component state sync"
+    allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+    sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+  />
+  ```
 
-    <iframe
-          src="https://codesandbox.io/embed/f6h325?fontsize=14&hidenavigation=1&theme=dark&module=/src/App.tsx&view=split"
-          style={{
-            width: '100%',
-            height: 500,
-            border: 0,
-            borderRadius: 4,
-            overflow: 'hidden',
-          }}
-          title="React video component state sync"
-          allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-          sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-        />
+  Also ensure that custom-built video controls meet the accessibility requirements and standards provided by the native video controls.
 
-Also ensure that custom-built video controls meet the accessibility requirements and standards provided by the native video controls.
-
-**No support for advanced features**: Features like video previews, thumbnails on seek, multi-bitrate streaming, and live streaming are not natively supported or are limited in the `<video>` element.
+- **No support for advanced features**: Features like video previews, thumbnails on seek, multi-bitrate streaming, and live streaming are not natively supported or are limited in the `<video>` element.
 
 Because of these drawbacks, it's clear that to create a world-class video streaming experience, a custom video player UI is the way to go.
 
@@ -612,7 +613,7 @@ In addition to spoken dialog, subtitles and transcripts should also identify mus
 [whispering] What's that off in the distance?
 ```
 
-#### Multiple language support
+#### Multilingual support
 
 To cater to a global audience, video players typically allow users to select from multiple languages and subtitle tracks, making it possible to switch between different languages or caption styles.
 
@@ -707,7 +708,7 @@ Accessibility for subtitles have been covered in the ["Subtitles"](#subtitles--c
 - **Readability**: Ensure subtitles are easy to read, with clear fonts, appropriate sizes, and high contrast against the video in the background. Common choices are white text with a drop shadow or white text highlighted in a dark color.
 - **Inclusion of non-speech elements**: Capture not just dialogue but also significant sounds and audio cues in the subtitles to provide a fuller understanding of the content.
 - **Customization options**: Support the display and customization of captions, including font size, color, and background.
-- **Multi-lingual support**: Subtitles should be offered in multiple languages to cater to a diverse audience with different linguistic backgrounds.
+- **Multilingual support**: Subtitles should be offered in multiple languages to cater to a diverse audience with different linguistic backgrounds.
 
 #### Visual assistance
 

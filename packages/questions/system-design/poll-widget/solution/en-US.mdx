@@ -302,7 +302,7 @@ What format should the API return the results in?
   - Server has to do the processing, but likely better because server can cache/memoize the results especially for popular polls and return the cached results for different users.
   - The server will need to update the tabulation every now and then. This is a good use case for in-memory key/value stores like Redis/Memcached.
 
-\*_2. Raw list of poll responses_: The server returns something like:
+**2. Raw list of poll responses**: The server returns something like:
 
 ```json
 {
