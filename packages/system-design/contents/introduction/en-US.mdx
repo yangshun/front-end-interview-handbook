@@ -16,27 +16,27 @@ GreatFrontEnd's front end system design resources are perhaps the most comprehen
 
 {/* TODO: Add some testimonials regarding front end system design */}
 
-## Front end vs Back end system design
+## Front end vs Back end / Full stack system design
 
-In traditional Software Engineer system design interviews, candidates will be asked to describe the architecture of a distributed system, usually involving web servers, load balancers, caches, databases, microservices, task queues, etc.
+In traditional Software Engineer system design interviews, candidates will be asked to describe the architecture of a distributed system, usually involving web servers, API gateways, load balancers, caches, databases, microservices, message queues, streams, etc.
 
 For Front End Engineers, system design interviews are slightly different – there's more emphasis on what goes on in the client and API design between the client and the server, as opposed to what goes on in the back end.
 
-| Aspect | Back End | Front End |
+| Area | Back end / Full stack | Front end |
 | --- | --- | --- |
 | Gather requirements | Required | Required |
 | Architecture / High-level design entities | Distributed cloud services | Application/Component |
 | Back-of-the-envelope estimation | May be required | Not required |
-| Components of the system | Cloud services (e.g. Load balancer, Application server, Database, File storage, Caches, Message queues, CDN) | Application modules (Model, View, Controller) |
+| Components of the system | Cloud services (e.g. Load balancer, Application server, Database, File storage, Caches, Message queues, CDN, Full-text search) | Application modules (Model, View, Controller) |
 | Data model | Database schema | Application state |
 | Type of APIs between components | Network (Any protocol) | Network (HTTP, WebSocket), JavaScript functions |
-| Focus areas | Scalability, Reliability, Availability | Performance, User Experience, Accessibility, Internationalization |
+| Deep dives / focus areas | Scalability, Reliability, Consistency, Availability | Performance, User Experience, Accessibility, Internationalization |
 | Less important (Can treat as a black box) | Client | Server |
 
-For example, a classic question is to ask about designing a Twitter feed UI which can be asked during both back end and front end system interviews.
+For example, a classic question is to ask about designing a Facebook news feed which can be asked during both back end and front end system interviews.
 
-- **Back end**: Capacity estimation, designing the database schemas, how to ensure the services can scale with the traffic, how to generate a user's Twitter feed.
-- **Front end**: API for the feed, how to implement feed pagination, how to implement interactions with tweets, how new tweets can be created.
+- **Back end / Full stack**: Capacity estimation, designing the database schema, APIs between microservices, how to ensure the services can scale with the traffic, how to generate a user's news feed in a scalable fashion, what happens when a post is created by a typical user (hundreds of followers) vs celebrities (millions of followers)
+- **Front end**: HTTP API for the feed, how to implement feed pagination, how to implement interactions with posts, how new posts can be created, user experience and accessibility considerations
 
 As you can see, the focus of front end system design interviews can be very different from back end, and answering them well requires a different approach.
 
@@ -44,7 +44,7 @@ As you can see, the focus of front end system design interviews can be very diff
 
 Our Front End System Design guide is structured into two parts, you will first gain a deeper understanding system design interviews are about, then dive into some front end system design case studies that use the RADIO framework.
 
-- [Types of questions](/system-design/types-of-questions): Types of Front End System Design interview questions and examples.
-- [RADIO framework](/system-design/framework): A framework for answering Front End System Design interview questions.
-- [Evaluation axes](/system-design/evaluation-axes): How you are being evaluated and what interviewers are looking out for.
-- [Common mistakes](/system-design/common-mistakes): Common mistakes to avoid during Front End System Design interviews.
+- [Types of questions](/system-design/types-of-questions): Types of Front End System Design interview questions and examples
+- [RADIO framework](/system-design/framework): A framework for answering Front End System Design interview questions
+- [Evaluation axes](/system-design/evaluation-axes): How you are being evaluated and what interviewers are looking out for
+- [Common mistakes](/system-design/common-mistakes): Common mistakes to avoid during Front End System Design interviews

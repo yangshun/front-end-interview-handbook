@@ -12,11 +12,11 @@ In the context of front end system design interviews, the systems you are asked 
 
 ## What is RADIO about?
 
-1. **Requirements exploration**: Understand the problem thoroughly and determine the scope by asking a number of clarifying questions.
-1. **Architecture / High-level design**: Identify the key components of the product and how they are related to each other.
-1. **Data model**: Describe the various data entities, the fields they contain and which component(s) they belong to.
-1. **Interface definition (API)**: Define the interface (API) between components in the product, functionality of each API, their parameters and responses.
-1. **Optimizations and deep dive**: Discuss about possible optimization opportunities and specific areas of interest when building the product.
+1. **Requirements exploration**: Understand the problem thoroughly and determine the scope by asking a number of clarifying questions
+1. **Architecture / High-level design**: Identify the key components of the product and how they are related to each other
+1. **Data model / Core entities**: Describe the core entities and its data – the fields each entity contains and which component(s) they belong to
+1. **Interface definition (API)**: Define the interface (API) between components in the product, functionality of each API, their parameters and responses
+1. **Optimizations and deep dive**: Discuss possible optimization opportunities and specific areas of interest when building the product
 
 ## Requirements exploration
 
@@ -26,24 +26,24 @@ In the context of front end system design interviews, the systems you are asked 
 
 System design interview questions are open-ended in nature and are usually vague and under-specified on purpose. **You are required to dig deeper and clarify ambiguities in the problem by asking useful questions.** Treat your interviewer as a product manager you are working with on a new project, ask enough questions so that you know what problems you are trying to solve and what you need to build. In reality, some problems can be solved without any engineering at all!
 
-No two system design interview experiences are the same even though you can be asked the same question. Interviewers have different backgrounds and might prioritize different aspects of the system. Take this chance to find out what they are most interested in and plan your answers accordingly.
+No two system design interview experiences will be the same even if you have been asked the same question before. Interviewers have different backgrounds and might prioritize different aspects of the system. Take this chance to find out what they are most interested in and plan your answers accordingly.
 
 Some general questions you should get answers to before moving on to the next part of the interview:
 
 ### What are the main use cases we should be focusing on?
 
-Imagine you were asked to "Design Facebook". Facebook is a huge platform, there's news feed, profiles, friends, groups, stories, and more. Which parts of Facebook should you focus on? The interviewer has the answer in mind but wants you to find out by asking questions. Typically you should focus on the most unique aspects of the product, the features which define it. For Facebook, it would be the news feed, pagination of the feed, and creating new posts. For YouTube, it would be the video-watching experience. The important areas for other type of products be found in the [types of questions](/system-design/types-of-questions).
+Imagine you were asked to "Design Facebook". Facebook is a huge platform, there's news feed, profiles, friends, groups, stories, and more. Which parts of Facebook should you focus on? The interviewer has the answer in mind but wants you to find out by asking questions. Typically you should focus on the most unique aspects of the product, the features which define it. For Facebook, it would be the news feed, pagination of the feed, and creating new posts. For YouTube, it would be the video-watching experience. The important areas for other type of products be found in the [types of questions](/system-design/types-of-questions#examples).
 
 For the rest of this page, we'll be using "Design Facebook" as the problem and apply the framework to it.
 
-Let's assume you didn't clarify which parts of the product to focus on, assumed you should talk about the befriending flow and started talking about it. In the best case, good interviewers will steer you back in the direction the question was meant to proceed, but they will make a mental note that you didn't clarify the question. In the worst case, inexperienced interviewers will let you keep talking and politely try to find an opportunity to correct you, but you would have already wasted some precious minutes discussing an unimportant topic.
+Let's assume you didn't clarify which parts of the product to focus on and you assumed you should talk about the befriending flow and started talking about it. In the best case, good interviewers will steer you back in the direction the question was meant to proceed, but they will make a mental note that you didn't clarify the question. In the worst case, inexperienced interviewers will let you keep talking and politely try to find an opportunity to correct you, but you would have already wasted some precious minutes discussing an unimportant topic.
 
 ### What are the functional requirements and non-functional requirements?
 
 Firstly, what are functional and non-functional requirements?
 
 - **Functional requirements**: Basic requirements of the product such that the product cannot function without them. This is usually whether a user can complete the core flows correctly.
-- **Non-functional requirements**: Requirements that are viewed as improvements to the product, but not strictly required for the product to be usable, i.e. the product can still be used without these. These include performance (how fast the page loads, how fast the interaction takes), scalability (how many items can be present on the page), good user experience, etc.
+- **Non-functional requirements**: Requirements that are viewed as improvements to the product, but not strictly required for the product to be usable, i.e. the product can still be used without these. These include performance (how fast the page loads, how fast an interaction takes), scalability (how many items can be present on the page before the page slows to a crawl), good user experience, etc.
 
 There are two ways you can get the answer to this question:
 
@@ -63,9 +63,9 @@ You should clarify the core features beforehand and design for them before movin
 - What devices/platforms (desktop/tablet/mobile) need to be supported?
 - Is offline support necessary?
 - Who are the main users of the product?
-- What are the performance requirements, if any? (Performance requirements typically fall under non-functional requirements.)
+- What are the performance requirements, if any? Performance requirements typically fall under non-functional requirements
 
-The list above should give you a good starting list of questions but it is not an exhaustive list! Different problems will require you to ask domain-specific questions, which we will talk about in the case studies.
+The questions above should give you a good starting list but it is by no means an exhaustive list! Different problems will require you to ask domain-specific questions, which we will talk about in the case studies.
 
 You are recommended to write down the agreed requirements somewhere so that you can refer to them throughout the interview and ensure that you've covered them.
 
@@ -86,14 +86,14 @@ Examples of components/modules which are commonly found in a high-level front en
 - **Server**: In front end system design interviews, we can treat the server as a black box and assume it exposes some APIs you can call via HTTP/WebSockets.
 - **View**: This represents what the user sees, and it usually contains smaller subviews within it. Can contain client-side only state.
 - **Controller**: The module which responds to user interactions and processes the data from the store/model in a format the view expects. This module is not always needed if the application is small and there's not much passing of data between modules.
-- **Model/Client store**: Where the data lives. Stores contain data which will be presented to the user via views and stores tend to be app-wide for an interview context. In reality, you can have multiple stores within an application and stores can contain other stores.
+- **Model/Client store**: Where the data lives. Stores contain data which will be presented to the user via views and stores tend to be app-wide in an interview context. In reality, you can have multiple stores within an application and stores can contain other stores.
 
 Other things to consider when defining the responsibilities of components:
 
 - **Separation of concerns**: Components are meant to be modular and serve to encapsulate a set of functionality and data. Consider the purpose/functionality of each component, what data it should contain and how it can service the rest of the system (what it can do for the other components).
-- **Where computation should occur**: If some amount of computation is needed (e.g. filtering of results given a search term, calculating the total amount for a cart), should the work be done on the server or the client? There are tradeoffs to each approach and the decision is both question-dependent and context-dependent.
+- **Where computation should occur**: If some amount of computation is needed (e.g. filtering of results given a search term, calculating the total amount for a cart), should the work be done on the server or the client? There are tradeoffs to each approach and the decision is both product-dependent and context-dependent.
 
-It is important to realize that not every common component mentioned above will be relevant and needed for every question, it depends on the product.
+It is important to realize that not every common component mentioned above will be relevant and necessary for every product, it depends on the unique aspects of the product.
 
 After drawing out the architecture diagram, verbally describe the responsibilities of each component (box in the diagram).
 
@@ -133,7 +133,7 @@ Data that originates from the server, usually from a database and meant to be se
 Client-only data, also commonly known as state, is data that only needs to live on the client and does not have to be sent to the server for writing into the database. Client data can be further broken down into two:
 
 - **Data to be persisted**: Usually user input such as data entered into form fields. These data usually has to be sent to the server and saved into a database for it to be useful.
-- **Ephemeral data**: Temporary state that lasts for a short time. Common examples include form validation state, the current tab, whether a section is expanded, etc. It's usually acceptable to lose these data when the browser tab is closed.
+- **Ephemeral data**: Temporary state that lasts for a short time. Common examples include form validation state, current navigation tab, whether a section is expanded, etc. It's usually acceptable to lose these data when the browser tab is closed.
 
 When listing the data fields, it'd be useful to identify what kind of data that field is, whether it's server-originated data or client-only data.
 
@@ -223,7 +223,7 @@ The client-client API can be written in a similar fashion as the server-client A
 
 ### API for UI component system design
 
-If you're asked to design a UI component, for the "Interface" section, discuss about the customization options for the component, similar to the props for React components.
+If you're asked to design a UI component, for the "Interface" section, discuss the customization options for the component, similar to the props of a React component.
 
 ---
 
@@ -235,12 +235,12 @@ If you're asked to design a UI component, for the "Interface" section, discuss a
 
 There's no fixed way to go about the optimization and deep dive section and you are free to focus on different areas of the product. There will not be sufficient time to cover every area, so select how you want to spend your time carefully according to these guidelines:
 
-- **Focus on the important areas of the product.** For e-commerce websites, performance is crucial and you'd want to spend the bulk of your time diving into the various performance optimizations that can be done. For collaborative editors, the complexity is in how to handle race conditions and concurrent modifications, so you'd want to focus on explaining that.
-- **Focus on your strengths.** Showcase your domain knowledge. If you are well-versed in accessibility, talk about the various accessibility pitfalls that can occur in the product and how to address them. Impress the interviewer with your knowledge. If you are a performance guru, explain the various performance optimization opportunities that can provide a buttery smooth user experience.
+- **Focus on the important areas of the product**: For e-commerce websites, performance is crucial and you'd want to spend the bulk of your time diving into the various performance optimizations that can be done. For collaborative editors, the complexity is in how to handle race conditions and concurrent modifications, so you'd want to focus on explaining that.
+- **Focus on your strengths**: Showcase your domain knowledge. If you are well-versed in accessibility, talk about the various accessibility pitfalls that can occur in the product and how to address them. Impress the interviewer with your knowledge. If you are a performance guru, explain the various performance optimization opportunities that can provide a buttery smooth user experience.
 
 ### General optimization / Deep dive areas
 
-Here's a list of topics you can talk about for this section. Bear in mind that the importance of a topic depends on the question and some topics are entirely irrelevant to certain questions (possible but unlikely).
+Here's a list of topics you can talk about for this section. Bear in mind that the importance of a topic depends on the product and some topics are entirely irrelevant to certain products (possible but unlikely).
 
 - Performance
 - User Experience

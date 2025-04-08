@@ -12,9 +12,11 @@ seo_description: 了解可以提出的前端系统设计面试问题的主要类
 
 如上所述，为前端系统设计面试设计应用程序将类似于一般的软件工程系统设计面试，事实上，这些问题非常相似。但是，您应该专注于客户端，讨论应用程序架构和客户端实现细节，而不是讨论分布式系统。
 
-在当今时代，许多网站都是交互式和丰富的应用程序，几乎可以做许多桌面应用程序可以做的事情。如果您在网络上使用过 Gmail、Facebook、YouTube、Google Calender，您就会使用过一个 Web 应用程序。Web 应用程序往往是动态的，Web 应用程序中的导航通常不需要完全刷新页面，而是使用 JavaScript 获取下一页的远程数据，并动态更改内容和 URL。由于 Web 应用程序是涉及多个模块的复杂软件，我们在软件工程课程中学习的常见应用程序架构，如模型-视图-控制器 (MVC)、模型-视图-视图模型 (MVVM) 也适用于构建 Web 应用程序。React 是 Facebook 用于构建交互式 Web 应用程序的最流行的 JavaScript 库之一，许多 React Web 应用程序都采用了基于单向 Flux/Redux 的架构。
+当今时代，许多网站都是交互式和丰富的应用程序，几乎可以做许多桌面应用程序可以做的事情。 如果您在网络上使用过 Gmail、Facebook、YouTube、ChatGPT 或 Google 日历，那么您就使用过 Web 应用程序。 Web 应用程序往往具有交互性和动态性（页面上的内容经常变化），并且 Web 应用程序中的页面导航通常不需要完全刷新页面； 应用程序使用 JavaScript 获取下一页的远程数据，并动态更改内容和 URL。
 
-不同的应用程序有其独特的方面和讨论要点。您必须专注于应用程序特有的部分，而不是花太多时间讨论适用于所有问题的一般内容。首先，设计高级架构，确定系统中的组件以及组件之间的 API。然后深入研究几个对问题感兴趣的领域，以及如何实现或优化它们。
+由于 Web 应用程序是涉及多个模块的复杂软件，因此在软件工程课程中学习的常见应用程序架构（如模型-视图-控制器 (MVC)、模型-视图-视图模型 (MVVM)）也适用于构建 Web 应用程序。 React 是 Facebook 用于构建交互式 Web 应用程序的最流行的 JavaScript 库之一，许多 React Web 应用程序都采用基于单向 Flux/Redux 的架构。
+
+不同的应用程序有其独特的方面和讨论要点。 重要的是，您要专注于应用程序特有的部分，而不是花太多时间讨论适用于所有问题的通用内容。 首先，设计高级架构，确定系统中的组件以及组件之间的 API。 然后深入研究几个对问题有趣/独特且如何实现或优化它们的领域。
 
 ### 示例
 
@@ -22,21 +24,21 @@ seo_description: 了解可以提出的前端系统设计面试问题的主要类
 
 | 应用程序 | 示例 | 重要领域 |
 | --- | --- | --- |
-| [新闻提要](/questions/system-design/news-feed-facebook) | Facebook、Twitter | Feed 交互、Feed 分页方法、消息/帖子撰写器 |
-| [消息/聊天](/questions/system-design/chat-application-messenger) | Messenger、Slack、Discord | 消息同步、实时聊天、消息列表、聊天列表 |
-| [电子商务市场](/questions/system-design/e-commerce-amazon) | 亚马逊、eBay | 产品列表页面、产品详细信息页面、购物车、结账 |
+| [新闻提要](/questions/system-design/news-feed-facebook) | Facebook、Twitter | 提要交互、提要分页方法、帖子撰写器 |
+| [消息/聊天](/questions/system-design/chat-application-messenger) | Messenger、Slack、Discord | 实时聊天、消息同步、消息列表、聊天列表 |
+| [电子商务市场](/questions/system-design/e-commerce-amazon) | 亚马逊、eBay | 产品列表页面、产品详细信息页面、购物车、结帐 |
 | [照片共享](/questions/system-design/photo-sharing-instagram) | Instagram、Flickr、Google Photos | 照片浏览、照片编辑、照片上传 |
 | [旅行预订](/questions/system-design/travel-booking-airbnb) | Airbnb、Skyscanner | 搜索 UI、搜索结果、预订 UI |
 | [视频流](/questions/system-design/video-streaming-netflix) | Netflix、YouTube | 视频播放器、视频流、推荐视频 |
-| [Pinterest](/questions/system-design/pinterest) | Pinterest | Masonry 布局实现和媒体 feed 优化 |
+| [Pinterest](/questions/system-design/pinterest) | Pinterest | Masonry 布局实现和媒体提要优化 |
 | [协作应用程序](/questions/system-design/collaborative-editor-google-docs) | Google Docs、Google Sheets、Google Slides、Notion | 实时协作协议、冲突解决、状态同步 |
 | [电子邮件客户端](/questions/system-design/email-client-outlook) | Outlook、Apple Mail、Gmail | 邮箱同步、邮箱 UI、电子邮件撰写器 |
-| 绘图 | Figma、Excalidraw、Canva | 渲染方法、客户端状态/数据模型 |
+| 绘图 | Figma、Excalidraw、Canva | 渲染方法、客户端状态/数据模型、状态管理 |
 | 地图 | Google/Apple Maps、Foursquare City Guide | 地图渲染、显示位置 |
 | 文件存储 | Google Drive、Dropbox | 文件上传、文件下载、文件资源管理器 |
 | 视频会议 | Zoom、Google Meet | 视频流、各种观看模式 |
-| 乘车共享 | Uber、Lyft | 行程预订、司机位置 |
-| 音乐流 | Spotify、Apple Music | 音乐播放器 UI、播放列表 UI |
+| 乘车共享 | Uber、Lyft | 行程预订、司机位置、应用程序状态 |
+| 音乐流 | Spotify、Apple Music | 音频流、音乐播放器 UI、播放列表 UI |
 | 游戏 | 俄罗斯方块、贪吃蛇 | 游戏状态、游戏循环、游戏逻辑 |
 
 ## UI 组件
