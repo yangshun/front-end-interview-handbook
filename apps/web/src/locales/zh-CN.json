@@ -79,6 +79,10 @@
     "defaultMessage": "错误已记录，我们将在调查。",
     "description": "Error message log description"
   },
+  "+IH8p7": {
+    "defaultMessage": "这个网站上的材料简直就是一座金矿。在使用 GreatFrontEnd 之前，我一直在电话面试中屡屡失败。我甚至从未接近过现场面试。在学习了 GFE 上的材料后，我能够获得几次现场面试，并通过了我的第一次现场面试！在亚马逊学习 GFE 大约 2.5 个月后，我才找到了一份工作！GFE 上的材料特别容易理解，我个人被问到 GFE 的问题无数次。此外，GFE 的 Discord 频道和社区在分享他们之前的面试经验方面非常有帮助。它非常活跃，每个人都非常乐于助人！",
+    "description": "User testimonial for GreatFrontEnd Interviews"
+  },
   "+JhlMu": {
     "defaultMessage": "恭喜您完成了这个题目！登录您的帐户或免费注册以保存您的进度！",
     "description": "Message shown when user completes a question"
@@ -318,6 +322,10 @@
   "/QA/Vp": {
     "defaultMessage": "配置您的 {adFormat}",
     "description": "Label for ad configuration"
+  },
+  "/Roxip": {
+    "defaultMessage": "GreatFrontEnd 对我的求职至关重要。它为我提供了知识，最重要的是，它让我对自己的能力充满信心。它也是我唯一能够找到专注于前端的系统设计示例的地方。现在，我只是向任何正在寻找工作或试图转行并且从事前端开发领域的人推荐它。这个网站是金子。",
+    "description": "User testimonial for GreatFrontEnd Interviews"
   },
   "/TtmMj": {
     "defaultMessage": "官方解决方案",
@@ -927,6 +935,10 @@
     "defaultMessage": "提交您的广告咨询",
     "description": "Title for 1st step of advertising"
   },
+  "2P2tWo": {
+    "defaultMessage": "如果您是一位希望在前端世界中脱颖而出的开发人员或工程师，GreatFrontEnd 是一个极好的资源。在工程领域，练习 LeetCode 风格的问题很常见，但很少有人谈论系统设计和行为问题。这也是我加入的最大原因之一！它具有挑战性，而且很有趣，还有一个社区在照顾你！",
+    "description": "User testimonial for GreatFrontEnd Interviews"
+  },
   "2QyluM": {
     "defaultMessage": "添加专业技能",
     "description": "Title for Add Proficient Skills task on Projects dashboard page"
@@ -1327,6 +1339,10 @@
     "defaultMessage": "重置进度",
     "description": "Label to reset study plan progress"
   },
+  "4Iumke": {
+    "defaultMessage": "GreatFrontEnd 对于保持我的面试技能与时俱进至关重要。在 GFE 出现并提供了一种很好的方法来保持编码、系统设计、UI 和前端琐事的敏锐度之前，标准的前端准备工作实际上并不存在。在我的职业生涯中，我使用 GFE 来通过初创公司的面试，甚至通过 FAANG 的面试。强烈推荐给任何前端工程师。",
+    "description": "User testimonial for GreatFrontEnd Interviews"
+  },
   "4JANuX": {
     "defaultMessage": "{focusAreasCount} 个关键主题焦点领域，进行深入研究",
     "description": "Tooltip label for unlock all premium interviews content"
@@ -1503,6 +1519,10 @@
     "defaultMessage": "发生错误。请稍后再试，或联系 <link>support@greatfrontend.com</link>！",
     "description": "Error toast for project"
   },
+  "5HNQLS": {
+    "defaultMessage": "GFE 在我五个月的求职过程中发挥了重要作用，这是我去年最好的投资，帮助我找到了一份工作，赚了比我以前多 4 倍的钱！会推荐给每个想准备前端面试的人。",
+    "description": "User testimonial for GreatFrontEnd Interviews"
+  },
   "5HkUT3": {
     "defaultMessage": "生成您的链接",
     "description": "Affiliate program step"
@@ -1546,6 +1566,14 @@
   "5fJI7m": {
     "defaultMessage": "知名开源项目的核心维护者",
     "description": "Prep resources open source projects"
+  },
+  "5fSp+q": {
+    "defaultMessage": "GreatFrontEnd 是我最喜欢的前端资源平台，因为它涵盖了基本的 Web 开发方面，如 DOM 操作、设计系统、异步操作、数据结构和可访问性。它以专注于开发 UI 模式而脱颖而出，使其成为增强 UI 工程技能的宝贵工具。我强烈推荐给任何希望在这方面有所提高的人。",
+    "description": "User testimonial for GreatFrontEnd Interviews"
+  },
+  "5fuMPD": {
+    "defaultMessage": "刚刚签署了 HubSpot 的前端技术主管职位，如果没有 @GreatFrontEnd，我就无法通过系统设计 + 编码面试。我去年在 Uber 系统设计中失败后，就有了购买订阅的动力，并且确实注意到了改进 - 所有系统设计都通过了。总的来说，原始的 JS 问题 + 系统设计问题帮助解决了所有面试问题，如果我没有用 GFE 准备，我不认为我肯定会得到这份工作。所以谢谢！+ 社区的所有帮助和见解。",
+    "description": "User testimonial for GreatFrontEnd Interviews"
   },
   "5gYLMr": {
     "defaultMessage": "完成后，请使用<tooltip>我们推荐的主机</tooltip>托管您的项目，并提交您的项目 URL 以进行代码审查。",
@@ -1803,6 +1831,10 @@
     "defaultMessage": "标记文章为已完成失败。请重试。",
     "description": "Error message shown when a guide has failed to mark as complete"
   },
+  "6eXZn2": {
+    "defaultMessage": "我接受了一个 offer 🥳。非常感谢 GFE 团队和为这个平台做出贡献的每个人，它非常有帮助。",
+    "description": "User testimonial for GreatFrontEnd Interviews"
+  },
   "6fcExT": {
     "defaultMessage": "您目前正在此轨道上工作",
     "description": "Description for projects track in progress status"
@@ -1983,6 +2015,10 @@
     "defaultMessage": "评估轴",
     "description": "Evaluation axes in front end system design interviews"
   },
+  "7UPVZ9": {
+    "defaultMessage": "GreatFrontEnd 对我准备前端面试非常有帮助。重点关注 JavaScript 实用程序和 React/Vanilla 实现。面试中提出的系统设计问题在前台面试中略有不同，GreatFrontEnd 在这里确实大放异彩。我将继续使用这个惊人的平台！",
+    "description": "User testimonial for GreatFrontEnd Interviews"
+  },
   "7UW/T/": {
     "defaultMessage": "利用来自领先公司的内部提示",
     "description": "Title for marketing page section"
@@ -2010,6 +2046,10 @@
   "7b8bt1": {
     "defaultMessage": "二叉搜索树",
     "description": "Computer science data structure"
+  },
+  "7crH2y": {
+    "defaultMessage": "GreatFrontEnd 帮助我组织了我的系统设计知识，不仅提供了实际的例子，还提供了一种思考方式。这种结构化的方法使我能够更自信、更清晰地回答面试问题，最终帮助我获得了工作机会。强烈推荐！",
+    "description": "User testimonial for GreatFrontEnd Interviews"
   },
   "7f9BoF": {
     "defaultMessage": "技术面试准备平台",
@@ -2054,6 +2094,10 @@
   "7vhGuK": {
     "defaultMessage": "当您说您的项目是“模块化”时，您是什么意思？",
     "description": "Question on projects FAQ section - on the modularity of projects"
+  },
+  "7w6jXW": {
+    "defaultMessage": "GreatFrontEnd 一直是我的前端面试的主要资源，并且帮助我重新磨练了算法、测验、常见组件，最重要的是系统设计。它已被证明是一个非常棒的一站式平台，专门用于 TypeScript。它给了我信心和指导，让我获得了多个 offer。感谢团队的辛勤工作。",
+    "description": "User testimonial for GreatFrontEnd Interviews"
   },
   "7wfbGH": {
     "defaultMessage": "访问高级问题需要高级版",
@@ -2154,6 +2198,10 @@
   "8Nn1vL": {
     "defaultMessage": "作品集审核将在哪个媒介上进行？",
     "description": "Question on the portfolio review FAQ page"
+  },
+  "8Pzyar": {
+    "defaultMessage": "在离开就业市场十多年后，我发现自己不确定从哪里开始。虽然像 LeetCode 这样的平台非常适合 DSA，但前端面试准备资源却很缺乏。那时我发现了 GreatFrontEnd，订阅他们的终身计划是毋庸置疑的。这种结构化的方法帮助我有效地准备面试，每天练习成为我日常生活的一部分。系统设计部分非常宝贵，为面试提供了全面的准备。此外，支持性的 Discord 社区也提供了难以置信的帮助。我对注册的决定感到非常兴奋，并将继续使用这个很棒的资源来保持面试准备就绪。",
+    "description": "User testimonial for GreatFrontEnd Interviews"
   },
   "8S8X9F": {
     "defaultMessage": "进行中",
@@ -2358,6 +2406,10 @@
   "9Ftt1s": {
     "defaultMessage": "按原始项目简报的组件跟踪筛选",
     "description": "Tooltip for Component track filter for submissions list"
+  },
+  "9HZWHE": {
+    "defaultMessage": "我收到了 ByteDance 的 offer，想说我 100% 无法做到这一点，这要归功于这个惊人的网站的所有培训。不骗你，这个网站在准备前端面试方面简直是炸弹，希望你们继续改进这个网站。再次感谢，非常爱 ❤️",
+    "description": "User testimonial for GreatFrontEnd Interviews"
   },
   "9I1J4a": {
     "defaultMessage": "将与来自其他 1 个赞助商的广告单元轮播",
@@ -2983,6 +3035,10 @@
     "defaultMessage": "价格",
     "description": "Pricing page price"
   },
+  "CZdr/f": {
+    "defaultMessage": "我可以花时间在互联网上搜索资源。相反，我选择明智地投资我的钱。GreatFrontEnd 结果证明是一个很棒的资源，它提供了精心策划的学习计划、交互式练习题和指南，涵盖了您所有典型的大型科技公司面试需求。他们的测验问题帮助我在面试前几天复习了我的知识。我特别欣赏系统设计指南，其中包含涵盖一系列前端设计问题的解决方案，以及易于记忆并适用于任何问题类型的框架。我得到了这份工作，并且获得了很高的投资回报！",
+    "description": "User testimonial for GreatFrontEnd Interviews"
+  },
   "CZl1aD": {
     "defaultMessage": "核心主题",
     "description": "React essential topics"
@@ -3018,6 +3074,10 @@
   "ClNAgn": {
     "defaultMessage": "登录以跟踪您的进度",
     "description": "Subtitle of Sign In page"
+  },
+  "CmcaFh": {
+    "defaultMessage": "GreatFrontEnd 是前端面试准备的变革者！该平台全面的资源、有组织的內容和真实的练习帮助我进入了亚马逊的最终面试轮，并在 Loblaw Digital 获得了一份很棒的工作！我尝试过其他资源，但 GreatFrontEnd 提供了结果。它物超所值。如果您认真想提升您的技能并找到您梦想的工作，那就别无所求了。强烈推荐！",
+    "description": "User testimonial for GreatFrontEnd Interviews"
   },
   "CmlQsV": {
     "defaultMessage": "前端系统设计面试问题",
@@ -3407,6 +3467,10 @@
     "defaultMessage": "已启动：{daysSinceStarted} 天",
     "description": "Days since started for Continue projects section on Projects dashboard page"
   },
+  "EhnYKG": {
+    "defaultMessage": "GreatFrontEnd 确实帮助我复习了 Javascript + React 编码问题。这些问题真的很容易理解，通过做这些问题，我能够真正地将它们转化为面试中的编码问题。真正酷的事情是，这些问题可能不会 100% 匹配，但它仍然可以成为一个非常有用的工具，可以将 GFE 中的某些东西应用到实际问题中。",
+    "description": "User testimonial for GreatFrontEnd Interviews"
+  },
   "EjbpUe": {
     "defaultMessage": "打开导航资料菜单",
     "description": "Screenreader text to open the profile menu"
@@ -3418,6 +3482,10 @@
   "EkxQWy": {
     "defaultMessage": "其他",
     "description": "Others"
+  },
+  "Emmt0a": {
+    "defaultMessage": "作为一名前端工程师，我很难找到专门针对前端面试问题、数据结构和算法等的资源，在我找到 GreatFrontEnd 之后，我的生活变得非常轻松，因为我找到了所有问题的答案。该程序和问题经过精心构建和分类。如果您希望提高您的前端面试技能，我强烈推荐他们的高级功能，因为它使您可以访问不仅是数据结构和算法问题，还有前端系统设计问题以及详细的答案。不仅如此，他们还有一个充满活力和乐于助人的 Discord 社区。这绝对值得。",
+    "description": "User testimonial for GreatFrontEnd Interviews"
   },
   "EpJ74A": {
     "defaultMessage": "尝试更改筛选器",
@@ -3482,6 +3550,10 @@
   "FAArTO": {
     "defaultMessage": "当其他人通过你购买GreatFontEnd 时，赚取被动佣金。",
     "description": "Subtitle of the Hero section of the 'Become An Affiliate' page"
+  },
+  "FAyCrW": {
+    "defaultMessage": "感谢上帝，感谢 GFE，在荷兰的一家名为 Monday Merch 的初创公司获得了 Vue 前端工程师的远程职位 🎉",
+    "description": "User testimonial for GreatFrontEnd Interviews"
   },
   "FCFcH2": {
     "defaultMessage": "开始任务",
@@ -3774,6 +3846,10 @@
   "GiSp0E": {
     "defaultMessage": "中等",
     "description": "Medium difficulty question"
+  },
+  "GkN6tf": {
+    "defaultMessage": "GreatFrontEnd 的产品和社区对于我在被解雇后找到新工作至关重要。GFE 为我提供了应该如何专注于学习的指导方针，我学到了很多东西，这些东西我将在我的职业生涯中使用，而不仅仅是用于面试。在他们的帮助下，我在 Cloudflare 获得了 17% 的基本工资增长和 46% 的总薪酬增长！感谢 GreatFrontEnd！",
+    "description": "User testimonial for GreatFrontEnd Interviews"
   },
   "GkZlVc": {
     "defaultMessage": "前往主页",
@@ -4719,6 +4795,10 @@
     "defaultMessage": "公司指南",
     "description": "Company interview guides"
   },
+  "Kj6umm": {
+    "defaultMessage": "最初在平台上练习了一些免费问题，喜欢 UI 并购买了终身订阅。它包含面试级别的 JS 和 React，可供练习，而且也是 Leetcode 风格。没有在任何地方看到这么多高质量的问题。他们处理系统设计内容的方式使它成为面试准备和提升开发人员技能的一站式资源。感谢 @greatfrontend。",
+    "description": "User testimonial for GreatFrontEnd Interviews"
+  },
   "KjD2cI": {
     "defaultMessage": "持续时间：从高到低",
     "description": "Sorting option for question list - sort by duration from high to low"
@@ -5087,6 +5167,10 @@
     "defaultMessage": "Next.js、Nuxt、SvelteKit",
     "description": "Placeholder for tech stack field"
   },
+  "MCTXuR": {
+    "defaultMessage": "我收到了 Brex 的高级软件工程师（前端）的 offer！我非常高兴，因为 Brex 是我的目标公司，准备这次面试过程是我加入 GFE 的原因。我想特别感谢社区在整个过程中提供的模拟面试和技巧。我将从巴西远程工作！",
+    "description": "User testimonial for GreatFrontEnd Interviews"
+  },
   "MFgHcw": {
     "defaultMessage": "广告图片",
     "description": "Label for ad image"
@@ -5326,6 +5410,10 @@
   "NgyZKR": {
     "defaultMessage": "购买高级版，解锁学习计划及我们提供的最佳学习资料。",
     "description": "Paywall subtitle for study plans feature"
+  },
+  "NgyuL4": {
+    "defaultMessage": "感谢您创建了令人难以置信的资源 GreatFrontend。它对于帮助我准备面试和获得工作机会至关重要。最近作为 Twitter 的 Staff UI/UX 工程师和 X 的技术主管经理，我意识到我需要刷新我的技术技能。在我看来，与 Leetcode 或 HackerRank 或 CodeSignal 等替代方案相比，GreatFrontend 提供了更出色的前端面试准备内容。我非常感谢您的团队为这项资源所做的辛勤工作。它是互联网上为数不多的证明订阅费用合理，并提供巨大投资回报的产品之一。",
+    "description": "User testimonial for GreatFrontEnd Interviews"
   },
   "NjnYqU": {
     "defaultMessage": "排序",
@@ -5738,6 +5826,10 @@
   "PjWWze": {
     "defaultMessage": "准备开始了吗？",
     "description": "Description for start tasks prompt"
+  },
+  "PlSLy0": {
+    "defaultMessage": "{percent}% 增长",
+    "description": "Compensation increase"
   },
   "Pn/2xP": {
     "defaultMessage": "您已锁定超过 3 个提交内容",
@@ -6347,6 +6439,10 @@
     "defaultMessage": "我们的<link>技能路线图</link>会告诉您，为了训练所需的技能（无论您是完全的初学者还是需要填补技能差距的高级工程师），需要构建的确切项目。",
     "description": "Description of 'Train any front end skill' feature in Projects marketing page"
   },
+  "SFakfv": {
+    "defaultMessage": "星期五快乐！我非常幸运地能够在几家公司（一家大型非 FAANG 公司，一家初创公司）之间选择高级前端工程师的职位。我只想分享 GFE 系统设计和行为指南对我的帮助有多大，它们帮助我正确准备并获得了我的工作机会！即使今年早些时候我被拒绝了，我仍然能够接受反馈，将我的行为与 GFE 指南进行比较，并了解我可以改进的地方。非常感谢您构建了这个资源！我将 1000% 推荐给其他希望找到工作的 FEE！",
+    "description": "User testimonial for GreatFrontEnd Interviews"
+  },
   "SG08/K": {
     "defaultMessage": "挑战已成功解锁",
     "description": "Label to unlock a premium project"
@@ -6398,6 +6494,10 @@
   "SRdJCV": {
     "defaultMessage": "您已获得：",
     "description": "Marketing rewards message"
+  },
+  "SSKxjU": {
+    "defaultMessage": "在当今竞争激烈且充满挑战的就业市场中，GreatFrontEnd 是我在前端面试中取得成功的关键，这使我获得了 4 个高级职位的工作机会，所有这些都在大型科技公司。在我看来，该网站上的系统设计内容比任何其他可用于前端的在线系统设计内容都要好。在加入 GFE 之前，我对我的前端系统设计面试没有任何结构，但在学习了这些材料并遵循他们推荐的框架后，我通过了我的每一个系统设计环节。GFE 很好地涵盖了前端知识以及前端编码，他们的问题出现在我的几个面试环节中，这不仅帮助我为所有面试做好了充分准备，而且帮助我在面试中脱颖而出。对于希望通过面试表现来在当今就业市场中脱颖而出的前端开发人员来说，GreatFrontEnd 是必备的。",
+    "description": "User testimonial for GreatFrontEnd Interviews"
   },
   "SSiHbz": {
     "defaultMessage": "添加 LinkedIn",
@@ -6595,6 +6695,10 @@
     "defaultMessage": "JavaScript 控制台",
     "description": "Title of JavaScript console panel"
   },
+  "TLRzU5": {
+    "defaultMessage": "大家好。我能够获得 HubSpot 的高级软件工程师 II 的额外 offer。我还在 Airbnb 完成了流程，感觉很好。非常感谢 GreatFrontEnd 的人们。系统设计内容改变了我的生活。期待更深入地探索系统设计内容。",
+    "description": "User testimonial for GreatFrontEnd Interviews"
+  },
   "TNt++l": {
     "defaultMessage": "一个学习前端开发的平台，通过构建真实的项目，从入门到精通。",
     "description": "Description for projects product"
@@ -6618,6 +6722,10 @@
   "TV3jir": {
     "defaultMessage": "加载中",
     "description": "Loading label"
+  },
+  "TVQlH7": {
+    "defaultMessage": "我希望 GreatFrontEnd 在我职业生涯的早期就存在，当时我正在准备面试。它使面试准备过程变得不那么痛苦，效率更高。对于任何希望提高其前端开发技能并在面试中取得成功的人来说，该平台都是一个变革者。",
+    "description": "User testimonial for GreatFrontEnd Interviews"
   },
   "TVrovv": {
     "defaultMessage": "类似问题",
@@ -6827,6 +6935,10 @@
     "defaultMessage": "按日志级别筛选",
     "description": "Select label to filter console log by level"
   },
+  "UQuwT/": {
+    "defaultMessage": "GreatFrontEnd 确实帮助我为我的许多前端实习面试做好了准备 - 他们的前端系统设计指南非常出色，它帮助我提高了在时间紧迫的面试中更快地编写前端组件的信心。谢谢你，GFE！",
+    "description": "User testimonial for GreatFrontEnd Interviews"
+  },
   "UQxm8e": {
     "defaultMessage": "再享受 {percentOff}% 折扣",
     "description": "Tooltip for used by engineers"
@@ -6838,6 +6950,10 @@
   "UTPE3y": {
     "defaultMessage": "仪表盘",
     "description": "Title of Projects dashboard page"
+  },
+  "UUxgPk": {
+    "defaultMessage": "只想说谢谢！我被谷歌解雇了，我的面试与之前的面试周期非常不同，因为它们测试了大量的前端知识，而不是我习惯的典型 LeetCode。这个平台为我提供了一种全面的方式来学习所有基础知识，并真正巩固我的前端基础知识。我发现系统设计问题特别有帮助，因为我无法在任何地方找到任何其他前端系统设计资源，其质量接近该平台提供的质量。由于这个平台，我能够在 TikTok 找到一个前端工程职位。我真的很高兴我决定为这个平台付费。",
+    "description": "User testimonial for GreatFrontEnd Interviews"
   },
   "UWjXUO": {
     "defaultMessage": "类别",
@@ -7006,6 +7122,10 @@
   "VLBIk4": {
     "defaultMessage": "{category} 面试问题及答案",
     "description": "Title of interview questions page"
+  },
+  "VLDJyV": {
+    "defaultMessage": "收到了一些好消息，上周收到了我的第一个 offer。这里的一些问题对于获得 offer 绝对至关重要（其中一轮有一个去抖动/节流/记忆化风格的问题）。行为准备也很有帮助，因为我总共有 3 轮。总的来说，我非常高兴我在这里注册了。不错的 TC 提升",
+    "description": "User testimonial for GreatFrontEnd Interviews"
   },
   "VMcSLx": {
     "defaultMessage": "我们的网页编码工作区允许您模拟真实的访谈环境，无需任何设置。",
@@ -7218,6 +7338,10 @@
   "WBKQzA": {
     "defaultMessage": "暗模式",
     "description": "Select label for dark console theme in console settings"
+  },
+  "WCgRIY": {
+    "defaultMessage": "GreatFrontEnd 一直是准备和继续在不断变化的前端世界中的一个很好的资源。它使我能够复习基础知识，磨练新概念和实践，以在技术能力和信心方面做到最好，从而能够获得面试和 offer。",
+    "description": "User testimonial for GreatFrontEnd Interviews"
   },
   "WClrFo": {
     "defaultMessage": "由来自的资深工程师构建",
@@ -7823,6 +7947,10 @@
     "defaultMessage": "在编程和提示中期望什么会成功",
     "description": "What to expect in front end coding interviews"
   },
+  "Z6NhrQ": {
+    "defaultMessage": "GreatFrontEnd 帮助我弥合了技能差距，并从 EM 转型为 IC。在深入研究了 GFE 的 ReactJS UI 问题、JavaScript 基础知识和系统设计 3 个月后，我能够获得高级软件工程师的 offer。它巩固了我的基础知识，并为我提供了如何准备的路线图。GFE 中的社区也很棒，并且乐于助人。",
+    "description": "User testimonial for GreatFrontEnd Interviews"
+  },
   "Z6PMaJ": {
     "defaultMessage": "访问所有组件轨道",
     "description": "Answer to 'Why is it worth it to buy Premium?' on projects FAQs"
@@ -8143,6 +8271,10 @@
     "defaultMessage": "要继续技能计划，您必须在完成挑战时将技能添加到 <bold>\"已使用技能\"</bold> 字段。",
     "description": "Warning message for skill plan section"
   },
+  "an1i6s": {
+    "defaultMessage": "嘿！我只是想私下感谢您在 GreatFrontEnd 上的所有资源，由于 GFE，我能够获得 NVIDIA 的 offer！这个网站的润色对于面试准备资源来说非常罕见。每个解决方案的编写都非常清晰，单元测试套件非常强大，而且做这些问题实际上很有趣",
+    "description": "User testimonial for GreatFrontEnd Interviews"
+  },
   "anZw89": {
     "defaultMessage": "请输入您的状态",
     "description": "Error message for empty other input for yoe status on projects profile page"
@@ -8150,6 +8282,10 @@
   "ao1v0H": {
     "defaultMessage": "简历审查",
     "description": "Resume review feature"
+  },
+  "aoA5TH": {
+    "defaultMessage": "当我开始面试前端职位时，我发现很难找到高质量的面试内容，而后端面试似乎有无穷无尽的问题，从 leetcode 风格到系统设计。GreatFrontEnd 提供了一个很棒的平台，可以磨练您的前端面试技能及其他方面。它帮助我弥合了我在核心基础知识方面的知识差距，并为系统设计提供了一个很棒的框架，真正深入研究了我选择的设计决策的权衡。GreatFrontEnd 确实改变了我的面试技巧，我将来一定会再来。",
+    "description": "User testimonial for GreatFrontEnd Interviews"
   },
   "apFngj": {
     "defaultMessage": "错误",
@@ -8250,6 +8386,10 @@
   "b/dKUR": {
     "defaultMessage": "此测试用例子集用于运行您的代码。",
     "description": "Message to explain the custom tests cases"
+  },
+  "b/zX4C": {
+    "defaultMessage": "作为既参加过又参加过很多面试的人，我可以肯定地说 GreatFrontEnd 是一个金矿。我强烈推荐 GreatFrontEnd 给任何正在准备前端面试的人或任何只想学习一些新概念的人。内容组织良好，有一些很棒的实际编码挑战，系统设计部分简直太棒了！！！",
+    "description": "User testimonial for GreatFrontEnd Interviews"
   },
   "b1p8O6": {
     "defaultMessage": "聚光灯位置",
@@ -8499,6 +8639,10 @@
     "defaultMessage": "未登录",
     "description": "Label indicating user is not signed in"
   },
+  "c5Bk/4": {
+    "defaultMessage": "作为一名仍处于软件开发职业生涯早期的人，我缺乏一些细节知识，虽然在理论上，我知道一些东西，但我缺乏的是实际的实现和可视化，GFE 帮助我连接了这些点，让我意识到还有很多东西要学，即使对于一个精通 Reacjs 和其他 JS 框架的人来说，Vanilla JS 仍然有一些技巧。听说过很多关于 GFE 的系统设计问题，亲身体验了它们，它们真的很有帮助！",
+    "description": "User testimonial for GreatFrontEnd Interviews"
+  },
   "c7eREh": {
     "defaultMessage": "状态",
     "description": "Label for Status filter for projects list"
@@ -8731,6 +8875,10 @@
     "defaultMessage": "下一场：{date}",
     "description": "Next slot date"
   },
+  "dBxvs7": {
+    "defaultMessage": "我于今年年初加入了 GreatFrontEnd，当时我正准备面试。互联网上有很多关于系统设计的资源，但它们更多是针对分布式系统，而不是针对前端工程师。GFE 上的系统设计材料绝对是瑰宝。它通过使用 RADIO 框架打开了我的思维，让我了解如何处理系统设计问题。更重要的是，它背后的团队反应迅速，支持到位。他们不仅及时提供面试指导，还在必要时为您提供职业发展建议。总而言之，我非常感谢从 GFE 获得的帮助！",
+    "description": "User testimonial for GreatFrontEnd Interviews"
+  },
   "dCKqPL": {
     "defaultMessage": "练习 {questionCount}+ 个前端系统设计面试题，涵盖组件、应用和游戏架构。参考大厂前面试官的答案。",
     "description": "Page description for interview questions listing"
@@ -8795,6 +8943,10 @@
     "defaultMessage": "成功！",
     "description": "Success toast message title for disconnect social"
   },
+  "dYaoBg": {
+    "defaultMessage": "GreatFrontEnd 帮助我将我的总薪酬提高了 180%！它实际上是准备前端面试的一站式商店。该网站涵盖了您通常会在面试环节中看到的所有内容，例如构建 UI、应用 CSS、琐事风格的问题以及以前端为中心的系统设计。我也非常喜欢 GFE 的 Discord 服务器，他们创建了一个高度包容的社区，使他们的用户能够联系并分享过去的经验。我强烈推荐 GFE 给任何认真希望提高面试准备的人！",
+    "description": "User testimonial for GreatFrontEnd Interviews"
+  },
   "dYbcKz": {
     "defaultMessage": "社交",
     "description": "Badge label for social promotion"
@@ -8822,6 +8974,10 @@
   "dg2G3r": {
     "defaultMessage": "和",
     "description": "Label in divider between Join Discord and Sign Up in Projects Newsletter section"
+  },
+  "dgl3Fz": {
+    "defaultMessage": "我从之前的公司被解雇了，决定休长假。当我准备好面试时，我意识到我不知道前端面试会发生什么。GreatFrontEnd 帮助我通过了多次前端面试。在此过程中，我看到了很多类似的问题。我最终获得了 2 个 offer，并通过了第 3 家公司的最后一轮。",
+    "description": "User testimonial for GreatFrontEnd Interviews"
   },
   "dhbnY3": {
     "defaultMessage": "挑战：{challengeName} | 官方解决方案",
@@ -8998,6 +9154,10 @@
   "eT2mrq": {
     "defaultMessage": "查看完整的解决方案和其他系统设计指南。",
     "description": "Button label within embed"
+  },
+  "eVBhnB": {
+    "defaultMessage": "GreatFrontEnd 简直就是一座金矿，这不仅是因为令人难以置信的平台，还因为高级订阅者的 Discord 社区。那里每个人都非常乐于助人，信息量很大！至于平台本身，上面的所有问题都与前端工程师面试中提出的问题非常相关。我收到了与 GreatFrontEnd 上完全相同的问题。系统设计资源结构合理，内容详尽。我永远感谢我找到了 GreatFrontEnd，因为老实说，如果没有它，我就不会获得我的 FAANG offer。",
+    "description": "User testimonial for GreatFrontEnd Interviews"
   },
   "eWWazl": {
     "defaultMessage": "行为面试指南",
@@ -9723,6 +9883,10 @@
     "defaultMessage": "{completedCount}/{totalCount} 已完成",
     "description": "Label for completed count"
   },
+  "hgKFx4": {
+    "defaultMessage": "如果您正在经历前端面试过程，GreatFrontEnd 是您可以做的最佳投资。市场上有很多针对后端角色的不同准备资源，但令人惊讶的是，前端材料的选择并不那么好。前端编码练习涵盖了您可以想到的所有内容。最好的部分是，它们中的每一个都有一个编辑/解决方案部分，逐步解释如何解决问题以及您可以采取的多种方法解决方案；与您只能找到随机人编写的解决方案的其他产品相反。GFE 真正闪耀的地方在于前端系统设计部分，即使在大型科技公司工作了 10 年之后，我也从未遇到过如此多样化和全面的材料。我甚至会向那些只想成为更好的前端工程师的人推荐 GFE，仅用于系统设计部分。",
+    "description": "User testimonial for GreatFrontEnd Interviews"
+  },
   "hhuG8E": {
     "defaultMessage": "您的帐户电子邮件包含 \".edu\", \".ac\" 或其他机构二级域名。如果您认为您的学校应该符合条件，请与我们联系。",
     "description": "Condition for promotion"
@@ -10051,6 +10215,10 @@
     "defaultMessage": "购买高级版以解锁题目的全部访问权限。",
     "description": "Subtitle on question paywall appearing on the question pages of premium questions"
   },
+  "jXSpw6": {
+    "defaultMessage": "终于在我这边传来好消息了。我在 GitLab 获得了一个前端工程师的职位。这是一段非常疯狂的旅程。我最初进入了一个团队的最后阶段，但没有得到这份工作。但招聘人员把我匹配到了另一个团队，并且奏效了 😱。我很高兴再次专注于前端，而不是全栈。基本工资上涨了 34%。总薪酬增加了约 52%，这主要是因为我离开了加拿大的初创公司。GFE 在建立我解决前端问题的信心方面非常有帮助。而且社区也很棒。你们都在做上帝的工作。",
+    "description": "User testimonial for GreatFrontEnd Interviews"
+  },
   "jXX7Jw": {
     "defaultMessage": "无效的电子邮件地址",
     "description": "Error message for invalid email address"
@@ -10238,6 +10406,10 @@
   "kEx00C": {
     "defaultMessage": "{count, plural, one {您的提交 <bold>{title}</bold> 获得了第一个赞 {timestamp}} other {您的提交 <bold>{title}</bold> 获得了 # 个赞 {timestamp}}}",
     "description": "Number of comments for project submission"
+  },
+  "kH/nSq": {
+    "defaultMessage": "在失业 6 个月后，我刚刚在纽约的一家金融科技初创公司签了一份全栈（前端倾斜）职位！另外还获得了一个超出范围的 offer。如果没有在 GFE 上努力工作，我不可能做到这一点",
+    "description": "User testimonial for GreatFrontEnd Interviews"
   },
   "kJOJ4u": {
     "defaultMessage": "购买 GreatFrontEnd 面试真的值得吗？",
@@ -10466,6 +10638,10 @@
   "lDlJyX": {
     "defaultMessage": "<percent>{percentage}</percent>%",
     "description": "Progress percentage in Continue Learning section in preparation dashboard"
+  },
+  "lE3rWX": {
+    "defaultMessage": "来自大部分后端工程经验，并希望过渡到前端/全栈角色，GreatFrontEnd 在我的面试学习中非常有帮助。这是我发现的用于前端面试准备的最集中、最有条理和最周到的资源，它帮助我获得了 2 个工作机会！它也帮助我提高了作为一名开发人员的整体知识。下次我找工作时，我一定会回来的。",
+    "description": "User testimonial for GreatFrontEnd Interviews"
   },
   "lFbX7p": {
     "defaultMessage": "哎呀！发生错误了",
@@ -11807,6 +11983,10 @@
     "defaultMessage": "返回",
     "description": "Go back label"
   },
+  "rvt7cN": {
+    "defaultMessage": "如果您正在寻找前端面试，GreatFrontEnd 适合您。它有各种各样的编码问题，从 HTML、CSS、JavaScript 到 React。它还涵盖了函数、算法、用户界面、测验等格式。如果您想进入顶级科技公司担任前端职位，GreatFrontEnd 是您的最佳选择。",
+    "description": "User testimonial for GreatFrontEnd Interviews"
+  },
   "rx8kx8": {
     "defaultMessage": "已保存为“{saveName}”",
     "description": "Coding workspace save code toast title"
@@ -11834,6 +12014,10 @@
   "s7lhuQ": {
     "defaultMessage": "探索学习计划，帮助您为前端面试做准备，无论剩余时间多少。有效地专注于在时间上能为您带来最大收益的主题。",
     "description": "Page description for study plans listing"
+  },
+  "s8vNZi": {
+    "defaultMessage": "在失业一年后（一半是自己选择的，另一半是想找工作哈哈）终于收到了 offer，并与 TikTok 签约！！这绝对是一场艰苦的战斗。最终获得了之前 TC 的将近 2 倍。如果没有这个 Discord 社区的支持和人们，我不可能做到这一点，谢谢大家！",
+    "description": "User testimonial for GreatFrontEnd Interviews"
   },
   "s9Oi92": {
     "defaultMessage": "服务条款 | GreatFrontEnd",
@@ -12431,6 +12615,10 @@
     "defaultMessage": "代码审查",
     "description": "Discussions comment category label"
   },
+  "v5eSxm": {
+    "defaultMessage": "GreatFrontEnd 在我为不同公司准备面试的过程中改变了游戏规则！🚀 它提供了结构化的系统设计指导（我最喜欢的一个）、前端最佳实践和实践编码挑战，增强了我的信心。详细的解释和真实的场景带来了巨大的改变。我也喜欢引人入胜且支持性的社区！如果您正在准备前端面试，那么这个平台是必试的！💡",
+    "description": "User testimonial for GreatFrontEnd Interviews"
+  },
   "v7xpbV": {
     "defaultMessage": "Stripe",
     "description": "Company name for Stripe"
@@ -12506,6 +12694,10 @@
   "vZx+Xb": {
     "defaultMessage": "与此同时，请查看以下页面：",
     "description": "Not found page suggestion"
+  },
+  "vafuyq": {
+    "defaultMessage": "很高兴看到如此全面的前端开发面试资源。来自更传统的后端角色，我发现这个网站是一个知识宝库，它确实带您从初学者到高级水平。",
+    "description": "User testimonial for GreatFrontEnd Interviews"
   },
   "vbWLam": {
     "defaultMessage": "练习 {questionCount}+ 题型 JavaScript 面试问题。在浏览器中学习，由大型科技公司前面试官撰写高质量的答案",
@@ -12638,6 +12830,10 @@
   "wAZkHT": {
     "defaultMessage": "标签",
     "description": "Screenreader text indicating component for blog tags"
+  },
+  "wAsLhX": {
+    "defaultMessage": "最近接受了一个 offer 🥳 非常感谢 GFE 团队和为这个平台做出贡献的每个人，它对我的准备非常有帮助。特别是系统设计（和设计系统哈哈）问题非常棒。",
+    "description": "User testimonial for GreatFrontEnd Interviews"
   },
   "wAv4o0": {
     "defaultMessage": "输入 1-2 行提交摘要",
@@ -13051,6 +13247,10 @@
     "defaultMessage": "告诉我们您将要使用的技能",
     "description": "Label for \"Tell us about the skills you will be using\" step in dialog on Projects project page"
   },
+  "ya+6iu": {
+    "defaultMessage": "我收到了 Atlassian 招聘委员会的“强烈推荐 - P50”推荐。他们问我是否想在通过另外两次面试的条件下升级到 P60 - 另一次系统设计面试和另一次领导力技能面试。我已经选择了加入，因为我没有什么可失去的。感谢 GreatFrontEnd 提供的所有系统设计资源。",
+    "description": "User testimonial for GreatFrontEnd Interviews"
+  },
   "yawjvQ": {
     "defaultMessage": "开始",
     "description": "Get started label"
@@ -13174,6 +13374,10 @@
   "yyYVov": {
     "defaultMessage": "路线图 - GreatFrontEnd 面试的即将推出的功能和更新",
     "description": "Title of interview roadmap page"
+  },
+  "yymAi9": {
+    "defaultMessage": "GreatFrontEnd 是一个很棒的前端面试资源，用于学习前端系统设计，有很多问题可以练习实际的前端和通用 JavaScript 问题。对于一些面试，我得到了我在 GFE 上练习过的确切问题！",
+    "description": "User testimonial for GreatFrontEnd Interviews"
   },
   "z+mEGf": {
     "defaultMessage": "噩梦",
@@ -13339,6 +13543,10 @@
     "defaultMessage": "80% 的挑战是 <bold>免费</bold> 的",
     "description": "Caption for Explore projects button in Projects marketing hero section"
   },
+  "zbflow": {
+    "defaultMessage": "大家好，我收到了来自一家大型科技公司（非 FAANG）的 offer，部分归功于 GreatFrontEnd 上的资源。我希望我早点了解这个产品，这样我就不会在这么多面试中失败了。分享一个有趣的故事：我收到了一个 IC2 职位（中级）的 offer，但薪水对我的需求来说很低，所以我要求选择被定级为 IC3（高级），他们同意进行一次额外的面试，一切发生得非常快，在几天之内，所以我没有时间问面试是关于什么的，以便我可以准备。结果这是一次系统设计面试，我有 45 分钟的时间来构建 Google Photos（相册和分享）。感谢上帝，我不久前在 GFE 上复习了一些案例，尤其是新闻提要，这让我完全通过了面试，并被定级为 IC3！",
+    "description": "User testimonial for GreatFrontEnd Interviews"
+  },
   "zbigrn": {
     "defaultMessage": "搜索超过 {questionCount} 个 HTML 面试问题",
     "description": "Search placeholder for HTML questions list page"
@@ -13379,6 +13587,10 @@
     "defaultMessage": "学生",
     "description": "Badge label for student promotion"
   },
+  "zmckRD": {
+    "defaultMessage": "我一直在寻找可以帮助我提升作为前端工程师技能的资源，我可以自信地说 GreatFrontEnd 在这方面有所作为。到目前为止，它是我遇到的最全面的以前端为中心的面试准备平台。他们帮助加强了我的基础知识，并给了我成功求职所需的信心。此外，该平台背后的人们非常平易近人，并且对反馈做出了回应 - 我非常感谢他们！",
+    "description": "User testimonial for GreatFrontEnd Interviews"
+  },
   "zn3iWx": {
     "defaultMessage": "重复密码",
     "description": "Label of confirm password field on Change Password page"
@@ -13402,6 +13614,10 @@
   "zs/Ius": {
     "defaultMessage": "{category} 测验面试问题",
     "description": "OG image title of framework and language page"
+  },
+  "zskRVQ": {
+    "defaultMessage": "这是我第一次参加全栈/前端面试。来自 Meta，从事前端工作 3 年，我仍然觉得我在 JavaScript、HTML 的基础知识方面有很多漏洞。GFE 的题库涵盖了几乎所有可能在包括初创公司和 FAANG 在内的公司前端面试中被问到的问题。感谢题库和解释中使用的会话语言，我能够在 Snap 获得一个高级职位。",
+    "description": "User testimonial for GreatFrontEnd Interviews"
   },
   "zul/L1": {
     "defaultMessage": "本月初",
