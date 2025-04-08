@@ -31,7 +31,7 @@ export default function JsonPlugin(): Plugin {
     async getInstructions() {
       return [
         'The strings are in ICU syntax which can contain HTML/XML tags and template values (wrapped in curly braces).',
-        'Strictly DO NOT translate these HTML/XML tags and template values.',
+        'Strictly DO NOT translate these HTML/XML tags and template values and just translate the UI strings around it.',
       ].join('\n');
     },
     async getTranslationStrings() {
