@@ -16,7 +16,7 @@ export default function useSponsorsAdImpressionLogging<T extends HTMLElement>(
   const pathname = usePathname();
 
   useEffect(() => {
-    if (!isInView) {
+    if (!isInView || !document.hasFocus()) {
       return;
     }
 
