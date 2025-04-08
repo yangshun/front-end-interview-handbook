@@ -1,9 +1,9 @@
 {
   "visibleFiles": [
-    "/src/App.js",
-    "/src/ImageCarousel.js",
+    "/src/App.tsx",
+    "/src/ImageCarousel.tsx",
     "/src/styles.css"
   ],
-  "activeFile": "/src/App.js",
+  "activeFile": "/src/App.tsx",
   "environment": "create-react-app"
 }

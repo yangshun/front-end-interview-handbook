@@ -1,6 +1,6 @@
 // You are free to use alternative approaches of
 // instantiating the EventEmitter as long as the
-// default export is correct.
+// default export has the same interface.
 
 export default class EventEmitter {
   constructor() {

@@ -12,18 +12,18 @@ import jsonStringifySwitch from '../setup/src/json-stringify-switch';
 
 让我们定义如何将每个值类型字符串化：
 
-* `null`：直接将其转换为字符串 `null`。
-* `boolean`：通过 `String()` 直接将 `true`/`false` 转换为字符串。
-* `number`：通过 `String()` 直接转换为字符串。
-* `string`：我们必须用双引号将该值括起来，因为 JSON 需要它。
-* 数组：递归地将每个子项字符串化，然后用逗号连接它们，并将它们括在方括号中：`[` 和 `]`。
-* 对象：通过递归地将值字符串化，将每个键/值对（也称为条目）转换为 `"key":{stringifiedValue}` 格式，用逗号连接它们，并将它们括在大括号中：`{` 和 `}`。
+* **`null`**: 直接将其转换为字符串 `null`
+* **布尔值**: 通过 `String()` 将 `true`/`false` 直接转换为字符串
+* **数字**: 通过 `String()` 直接转换为字符串
+* **字符串**: 我们必须用双引号将值括起来，因为字符串使用双引号
+* **数组**: 递归地将每个子项字符串化，然后用逗号连接它们，并将它们用方括号括起来：`[` 和 `]`
+* **对象**: 通过递归地将值字符串化，将每个键/值对（也称为条目）转换为 `"key":{stringifiedValue}` 格式，用逗号连接它们，并用大括号括起来：`{` 和 `}`
 
 现在我们知道了如何将每个值字符串化，我们只需要知道如何确定值的类型。由于 `null`、`boolean`、`number` 仅通过使用 `String()` 就可以生成所需的字符串，因此我们可以将它们一起作为默认情况处理。要确定类型：
 
-* 数组：使用 `Array.isArray()`。
-* 对象：使用 `typeof value === 'object' && value !== null`。检查 `!== null` 非常重要，因为 `typeof null` 是 `'object'`，但我们必须以不同于对象的方式处理 `null`。
-* 字符串：使用 `typeof value === 'string'`。
+* **数组**: 使用 `Array.isArray()`
+* **对象**: 使用 `typeof value === 'object' && value !== null`。 检查 `!== null` 非常重要，因为 `typeof null` 是 `'object'`，但我们必须以不同于对象的方式处理 `null`
+* **字符串**: 使用 `typeof value === 'string'`
 
 这是确定值类型并适当地将每个值类型字符串化的代码。
 

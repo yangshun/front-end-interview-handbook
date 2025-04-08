@@ -9,8 +9,8 @@ import squashObjectTs from '../setup/src/squash-object.ts';
 
 通常有两种方法可以遍历一个对象：
 
-1. 使用旧式的 `for ... in` 语句循环遍历键。
-2. 使用 `Object.keys()` 将对象转换为键的数组，或使用 `Object.entries()` 转换为键值元组的数组。
+1. 使用经典的 `for ... in` 语句循环遍历键
+2. 使用 `Object.keys()` 将对象转换为键数组，或使用 `Object.entries()` 将对象转换为键值对数组
 
 使用 `for ... in` 语句，也会处理继承的可枚举属性。 因此，通常您会添加一个 `Object.hasOwn()` 检查，以确保该属性不是从其原型继承的。 另一方面，`Object.keys()` 和 `Object.entries()` 只关心直接在对象上定义的属性，这通常是我们想要的。
 

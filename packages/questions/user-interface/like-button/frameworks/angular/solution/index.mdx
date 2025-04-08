@@ -5,7 +5,7 @@ import Notes from '../../../notes.mdx';
 
 The focus of this question is in the handling of the various states when there's a pending request.
 
-With every click, we run the `likeUnlikeAction`, which changes our state: it sets `pending` value to `true`, indicating that it is waiting for a response from the subsequent HTTP request. We use the `HttpClient` service with the provided url to establish a new value for our button—either `unlike` or `like` — and we include this in the second argument as payload. By subscribing to this call, we will receive either a response or an error. If we receive a response, we change our `isPending` state to `false` because the call is finished and we no longer need to display a pending animation. We also set our `liked` value to the opposite because in request response we have only 'success response'. If we encounter an error, we set `isPending` to false and assign an error message from the error response.
+With every click, we run the `likeUnlikeAction`, which changes our state: it sets `pending` value to `true`, indicating that it is waiting for a response from the subsequent HTTP request. We use the `HttpClient` service with the provided url to establish a new value for our button (either `unlike` or `like`) and we include this in the second argument as payload. By subscribing to this call, we will receive either a response or an error. If we receive a response, we change our `isPending` state to `false` because the call is finished and we no longer need to display a pending animation. We also set our `liked` value to the opposite because in request response we have only 'success response'. If we encounter an error, we set `isPending` to false and assign an error message from the error response.
 
 ### State
 

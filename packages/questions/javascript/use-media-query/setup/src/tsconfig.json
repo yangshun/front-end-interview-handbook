@@ -1,9 +1,0 @@
-{
-  "include": ["./**/*"],
-  "compilerOptions": {
-    "strict": true,
-    "esModuleInterop": true,
-    "lib": ["dom", "esnext"],
-    "jsx": "react-jsx"
-  }
-}

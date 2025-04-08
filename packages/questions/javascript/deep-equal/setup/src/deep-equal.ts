@@ -22,9 +22,9 @@ export default function deepEqual(valueA: unknown, valueB: unknown): boolean {
 
     return entriesA.every(
       // Make sure the other object has the same properties defined.
-      ([k, v]) =>
-        Object.hasOwn(valueB as Array<unknown> | Object, k) &&
-        deepEqual(v, (valueB as any)[k]),
+      ([key, value]) =>
+        Object.hasOwn(valueB as Array<unknown> | Object, key) &&
+        deepEqual(value, (valueB as any)[key]),
     );
   }
 

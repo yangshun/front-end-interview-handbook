@@ -1,0 +1,10 @@
+{
+  "include": ["./**/*"],
+  "compilerOptions": {
+    "strict": true,
+    "target": "es2020",
+    "esModuleInterop": true,
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "jsx": "react-jsx"
+  }
+}

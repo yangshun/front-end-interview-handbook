@@ -23,7 +23,7 @@
       "code": "* {\n  box-sizing: border-box;\n  margin: 0;\n}\n\n.wrapper {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n\n  height: 100vh;\n  width: 100vw;\n}\n\n.container {\n  display: flex;\n  flex-direction: column;\n  gap: 2rem;\n}\n\n.flex-container {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  gap: 0.5rem;\n}\n\n.input-box {\n  --size: 3rem;\n  height: var(--size);\n  width: var(--size);\n  text-align: center;\n  border: none;\n  outline: none;\n  background: #eee;\n  font-weight: 600;\n  font-size: 1.5rem;\n}\n\n.input-box::selection {\n  background-color: #000;\n  color: #fff;\n}\n\n.input-box:focus {\n  color: #000;\n  outline: 2px solid #000;\n}\n\n.input-box:disabled {\n  cursor: not-allowed;\n}\n\n.button {\n  border: 2px solid black;\n  outline: none;\n  padding: 0.5rem 1.5rem;\n  font-size: 1rem;\n  cursor: pointer;\n}\n\n.button:focus {\n  outline: 2px solid #000;\n  outline-offset: 1px;\n}\n\n.button:disabled {\n  opacity: 0.25;\n  cursor: not-allowed;\n  transition: all 0.3s linear;\n}\n\n.button--primary {\n  background-color: #000;\n  color: #fff;\n}\n\n.button--secondary {\n  background-color: transparent;\n  color: black;\n}\n"
     },
     "/tsconfig.json": {
-      "code": "{\n  \"include\": [\"./**/*\"],\n  \"compilerOptions\": {\n    \"strict\": true,\n    \"esModuleInterop\": true,\n    \"lib\": [\"dom\", \"esnext\"],\n    \"jsx\": \"react-jsx\"\n  }\n}\n"
+      "code": "{\n  \"include\": [\"./**/*\"],\n  \"compilerOptions\": {\n    \"strict\": true,\n    \"esModuleInterop\": true,\n    \"lib\": [\"dom\", \"dom.iterable\", \"esnext\"],\n    \"jsx\": \"react-jsx\",\n    \"target\": \"es2020\"\n  }\n}\n"
     }
   },
   "workspace": {

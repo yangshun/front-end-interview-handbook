@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import CheckboxList, { CheckboxItem } from './CheckboxList';
-import { CheckboxValue } from './CheckboxInput';
 
 /**
  * Recursively set descendants of the modified checkbox

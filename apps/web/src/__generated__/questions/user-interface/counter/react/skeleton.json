@@ -2,27 +2,30 @@
   "author": "yangshun",
   "files": {
     "/package.json": {
-      "code": "{\n  \"name\": \"@gfe-questions/counter-react-skeleton\",\n  \"author\": \"yangshun\",\n  \"version\": \"0.0.1\",\n  \"private\": true,\n  \"dependencies\": {\n    \"react\": \"18.2.0\",\n    \"react-dom\": \"18.2.0\",\n    \"react-scripts\": \"5.0.1\"\n  },\n  \"scripts\": {\n    \"start\": \"react-scripts start\",\n    \"build\": \"react-scripts build\",\n    \"test\": \"react-scripts test\",\n    \"eject\": \"react-scripts eject\"\n  }\n}\n"
+      "code": "{\n  \"name\": \"@gfe-questions/counter-react-skeleton\",\n  \"author\": \"yangshun\",\n  \"version\": \"0.0.1\",\n  \"private\": true,\n  \"dependencies\": {\n    \"react\": \"18.2.0\",\n    \"react-dom\": \"18.2.0\",\n    \"react-scripts\": \"5.0.1\"\n  },\n  \"devDependencies\": {\n    \"@types/react\": \"18.2.0\",\n    \"@types/react-dom\": \"18.2.0\",\n    \"typescript\": \"5.0.2\"\n  },\n  \"scripts\": {\n    \"start\": \"react-scripts start\",\n    \"build\": \"react-scripts build\",\n    \"test\": \"react-scripts test\",\n    \"eject\": \"react-scripts eject\"\n  }\n}\n"
     },
     "/public/index.html": {
       "code": "<!doctype html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta\n      name=\"viewport\"\n      content=\"width=device-width, initial-scale=1.0\" />\n  </head>\n  <body>\n    <div id=\"root\"></div>\n  </body>\n</html>\n"
     },
-    "/src/App.js": {
+    "/src/App.tsx": {
       "code": "import { useState } from 'react';\n\n// This is a warm up question to help you\n// get familiar with the editor.\n// Most of the code has been filled in for you.\nexport default function App() {\n  const [count, setCount] = useState(0);\n\n  return (\n    <div>\n      <button\n        onClick={() => {\n          // Fix the bug in the next line\n          // to complete the question.\n          setCount(count - 1);\n        }}>\n        Clicks: {count}\n      </button>\n    </div>\n  );\n}\n"
     },
-    "/src/index.js": {
+    "/src/index.tsx": {
       "code": "import React, { StrictMode } from 'react';\nimport { createRoot } from 'react-dom/client';\n\nimport App from './App';\n\nimport './styles.css';\n\nconst root = createRoot(document.getElementById('root'));\nroot.render(\n  <StrictMode>\n    <App />\n  </StrictMode>,\n);\n"
     },
     "/src/styles.css": {
       "code": "body {\n  font-family: sans-serif;\n}\n"
+    },
+    "/tsconfig.json": {
+      "code": "{\n  \"include\": [\"./**/*\"],\n  \"compilerOptions\": {\n    \"strict\": true,\n    \"esModuleInterop\": true,\n    \"lib\": [\"dom\", \"dom.iterable\", \"esnext\"],\n    \"jsx\": \"react-jsx\",\n    \"target\": \"es2020\"\n  }\n}\n"
     }
   },
   "workspace": {
     "visibleFiles": [
-      "/src/App.js",
+      "/src/App.tsx",
       "/src/styles.css"
     ],
-    "activeFile": "/src/App.js",
+    "activeFile": "/src/App.tsx",
     "environment": "create-react-app"
   },
   "writeup": "var Component=(()=>{var f=Object.create;var i=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var g=Object.getOwnPropertyNames;var w=Object.getPrototypeOf,j=Object.prototype.hasOwnProperty;var _=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),b=(t,e)=>{for(var o in e)i(t,o,{get:e[o],enumerable:!0})},u=(t,e,o,c)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let r of g(e))!j.call(t,r)&&r!==o&&i(t,r,{get:()=>e[r],enumerable:!(c=x(e,r))||c.enumerable});return t};var l=(t,e,o)=>(o=t!=null?f(w(t)):{},u(e||!t||!t.__esModule?i(o,\"default\",{value:t,enumerable:!0}):o,t)),y=t=>u(i({},\"__esModule\",{value:!0}),t);var a=_((C,m)=>{m.exports=_jsx_runtime});var k={};b(k,{default:()=>D});var s=l(a());var n=l(a());function h(t){let e=Object.assign({p:\"p\",strong:\"strong\",h2:\"h2\"},t.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsxs)(e.p,{children:[(0,n.jsx)(e.strong,{children:\"Note:\"}),\" This is a short warm up question meant to help you familiarize with the coding workspace. Actual UI coding interview questions will be more complicated.\"]}),`\n`,(0,n.jsx)(e.h2,{children:\"Requirements\"}),`\n`,(0,n.jsx)(e.p,{children:\"Make the text within the button display the number of times the button has been clicked.\"})]})}function M(t={}){let{wrapper:e}=t.components||{};return e?(0,n.jsx)(e,Object.assign({},t,{children:(0,n.jsx)(h,t)})):h(t)}var d=M;function p(t){return(0,s.jsx)(d,{})}function v(t={}){let{wrapper:e}=t.components||{};return e?(0,s.jsx)(e,Object.assign({},t,{children:(0,s.jsx)(p,t)})):p(t)}var D=v;return y(k);})();\n;return Component;"

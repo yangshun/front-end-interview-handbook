@@ -8,7 +8,7 @@ To close the dialog, we simply have to call the `onClose` callback, so it's a ma
 
 ### 1. Hitting the <kbd>Escape</kbd> key
 
-We can create a generic hook called `useOnKeyDown` that takes in a string key representing the keyboard key to respond to, and a callback to trigger when the key is pressed.
+We create a generic hook called `useOnKeyDown` that takes in a string key representing the keyboard key to respond to, and a callback to trigger when the key is pressed.
 
 The hook adds an event listener for the `keydown` event to `document`. Within the event listener callback, check if `event.key` corresponds to the `key` argument, and trigger the callback argument if so.
 
@@ -18,8 +18,30 @@ To use the hook, call it with the following argument: `useOnKeyDown('Escape', on
 
 The tricky part of implementing this logic is to determine whether the click happened inside or outside the dialog contents body. Thankfully, the [`Node.contains()` method](https://developer.mozilla.org/en-US/docs/Web/API/Node/contains) is a convenient method that can be used to determine if a node is a descendant of a given node, or the node itself. When a `mousedown` or `touchstart` event occurs, check if the `event.target` is a descendant of the modal dialog contents, e.g. `dialogEl.contains(event.target)`.
 
-We need to obtain a reference to the modal dialog body. In React this is achieved using the `useRef()` hook.
+You may have tried using a `click` event as opposed to `mousedown`, but that does not work and the modal dialog cannot be opened. An explanation as to why can be found below.
 
-This functionality can be encapsulated as a `useOnClickOutside` hook that takes in the element ref and the callback function. "On click outside" is in fact a common utility hook and a more robust implementation of the hook can be found on [`usehooks-ts`](https://usehooks-ts.com/react-hook/use-on-click-outside#hook).
+It is necessary to obtain a reference to the modal dialog body. In React, this is achieved using the `useRef()` hook.
 
-To use the hook, call it with the following arguments: `useOnClickOutside(dialogRef, onClose)`.
+This functionality can be encapsulated as a `useOnClickOutside` hook that takes in the element ref and the callback function. "On click outside" is in fact a common utility hook and a more robust implementation of the hook can be found on [`usehooks-ts`](https://usehooks-ts.com/react-hook/use-on-click-outside#hook) (despite its name, the default event is actually `mousedown`). To use the hook, call it with the following arguments: `useOnClickOutside(dialogRef, onClose)`.
+
+#### Why using a `click` event does not work
+
+Events bubble up the DOM and event handlers on DOM elements are fired during the bubbling phase of the event by default. When the button is clicked:
+
+1. When users click on a button, a click event is created and travels down from the document root to the element (capturing phase) that the user clicked on, in this case, the button
+2. When it reaches the button, the event bubbles back up to the document root
+3. The button which has a `click` event handler, responds to the event by mounting the dialog
+4. The dialog is rendered and adds `click` event handlers on the `document` to close the dialog when an element outside it is clicked
+5. The `click` event travels up to the `document` and fires the event handler added by the dialog. The button is indeed outside the dialog, so the dialog is closed
+
+The `mousedown` event works for clicking-outside interaction because `click` events are fired after `mousedown` and `mouseup` events have completed. The `mousedown` event caused by the click on the button would have completed even before the dialog is rendered.
+
+#### Can we still use `click` events?
+
+The alternative is to add a `click` event handler that only responds during the capturing phase:
+
+```
+document.addEventListener('click', onClickOutside, true); // Called during the capturing phase instead of bubbling phase
+```
+
+Although it works, the `mousedown` event is still preferred as it does not require the mouse button to be lifted before firing and provides a more snappy experience.

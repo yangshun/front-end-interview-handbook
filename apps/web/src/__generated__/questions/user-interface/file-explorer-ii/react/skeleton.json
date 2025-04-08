@@ -23,7 +23,7 @@
       "code": "body {\n  font-family: sans-serif;\n}\n\n.file-list {\n  list-style: none;\n  margin: 0;\n  padding-left: 16px;\n}\n\n.file-item {\n  padding: 0;\n}\n\n.file-item-button {\n  background-color: transparent;\n  border: none;\n  line-height: 1.5;\n  cursor: pointer;\n  font-size: 16px;\n  padding: 0;\n}\n\n.file-item-button--directory {\n  display: flex;\n  gap: 4px;\n  font-weight: bold;\n}\n"
     },
     "/tsconfig.json": {
-      "code": "{\n  \"include\": [\"./**/*\"],\n  \"compilerOptions\": {\n    \"strict\": true,\n    \"esModuleInterop\": true,\n    \"lib\": [\"dom\", \"esnext\"],\n    \"jsx\": \"react-jsx\"\n  }\n}\n"
+      "code": "{\n  \"include\": [\"./**/*\"],\n  \"compilerOptions\": {\n    \"strict\": true,\n    \"esModuleInterop\": true,\n    \"lib\": [\"dom\", \"dom.iterable\", \"esnext\"],\n    \"jsx\": \"react-jsx\",\n    \"target\": \"es2020\"\n  }\n}\n"
     }
   },
   "workspace": {

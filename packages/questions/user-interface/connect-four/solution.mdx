@@ -80,7 +80,7 @@ Remember that if we cannot find an empty cell in column `i`, we should not allow
 
 The naive way is to go through every cell in `grid` and check that for every cell `cell`, if it is a part of any one of the valid winning segments.
 
-A more optimal approach is to only check the cell `cell` where the player dropped their disc. We can do this because the fact that we are able to drop a disc means there mustn't be a winner yet—so the game continues. This means if a player wins now, it is specifically caused by this one mutation: the placement at `cell`. So, it suffices to only check around `cell`.
+A more optimal approach is to only check the cell `cell` where the player dropped their disc. We can do this because the fact that we are able to drop a disc means there mustn't be a winner yet, so the game continues. This means if a player wins now, it is specifically caused by this one mutation: the placement at `cell`. So, it suffices to only check around `cell`.
 
 At `cell`, we check if it is a part of any one of the valid winning segments. We check the four directions: ─, │, ╲, and ╱ that crosses `cell`. Each direction is a 7 elements-long array of coordinates relative to `cell`.
 

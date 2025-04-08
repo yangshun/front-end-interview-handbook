@@ -5,6 +5,6 @@
     "esModuleInterop": true,
     "lib": ["dom", "dom.iterable", "esnext"],
     "jsx": "react-jsx",
-    "target": "esnext"
+    "target": "es2020"
   }
 }

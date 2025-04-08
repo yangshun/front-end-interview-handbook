@@ -25,12 +25,13 @@ export default function deepEqual(valueA, valueB) {
   if (Object.keys(valueA).length !== Object.keys(valueB).length) {
     return false;
   }
+
   for (const key in valueA) {
     if (!deepEqual(valueA[key], valueB[key])) {
       return false;
     }
   }
 
-  // All checked have passed, the arrays/objects are equal.
+  // All checks passed, the arrays/objects are equal.
   return true;
 }

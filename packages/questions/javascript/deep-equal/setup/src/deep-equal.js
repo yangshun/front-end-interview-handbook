@@ -13,11 +13,11 @@ function getType(value) {
  */
 export default function deepEqual(valueA, valueB) {
   // Check for arrays/objects equality.
-  const type1 = getType(valueA);
-  const type2 = getType(valueB);
+  const typeA = getType(valueA);
+  const typeB = getType(valueB);
 
   // Only compare the contents if they're both arrays or both objects.
-  if (type1 === type2 && shouldDeepCompare(type1) && shouldDeepCompare(type2)) {
+  if (typeA === typeB && shouldDeepCompare(typeA) && shouldDeepCompare(typeB)) {
     const entriesA = Object.entries(valueA);
     const entriesB = Object.entries(valueB);
 

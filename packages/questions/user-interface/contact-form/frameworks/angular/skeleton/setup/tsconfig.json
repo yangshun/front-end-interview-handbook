@@ -14,9 +14,9 @@
     "downlevelIteration": true,
     "experimentalDecorators": true,
     "moduleResolution": "node",
-    "target": "esnext",
+    "target": "es2020",
     "module": "esnext",
-    "lib": ["esnext", "dom"]
+    "lib": ["dom", "dom.iterable", "esnext"]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

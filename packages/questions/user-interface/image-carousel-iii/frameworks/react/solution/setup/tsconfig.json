@@ -3,7 +3,8 @@
   "compilerOptions": {
     "strict": true,
     "esModuleInterop": true,
-    "lib": ["dom", "esnext"],
-    "jsx": "react-jsx"
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "jsx": "react-jsx",
+    "target": "es2020"
   }
 }

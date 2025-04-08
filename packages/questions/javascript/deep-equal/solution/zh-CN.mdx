@@ -42,15 +42,15 @@ function getType(value) {
   return Object.prototype.toString.call(value);
 }
 
-export default function deepEqual(value1, value2) {
-  const type1 = getType(value1);
-  const type2 = getType(value2);
+export default function deepEqual(valueA, valueB) {
+  const typeA = getType(valueA);
+  const typeB = getType(valueB);
 
-  if (type1 === type2 && shouldDeepCompare(type1) && shouldDeepCompare(type2)) {
-    // 当两个 props 都是对象或数组时，我们通过再次调用 `isEqual` 来遍历它们。
+  if (typeA === typeB && shouldDeepCompare(typeA) && shouldDeepCompare(typeB)) {
+    // 当两个属性都是对象或数组时，我们通过再次调用 `isEqual` 来遍历它们。
   }
 
-  return Object.is(value1, value2);
+  return Object.is(valueA, valueB);
 }
 ```
 

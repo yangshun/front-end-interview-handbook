@@ -20,7 +20,7 @@
       "code": "body {\n  font-family: sans-serif;\n}\n\ninput,\ntextarea {\n  display: block;\n  font-family: sans-serif;\n  padding: 8px;\n}\n\ninput:focus,\ntextarea:focus,\nbutton:focus {\n  outline: 2px solid red;\n  outline-offset: 1px;\n}\n\n.modal-overlay {\n  background-color: rgba(0, 0, 0, 0.7);\n  inset: 0;\n  position: fixed;\n\n  align-items: center;\n  display: flex;\n  justify-content: center;\n\n  padding: 20px;\n}\n\n.modal {\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  align-items: center;\n  gap: 16px;\n\n  background-color: white;\n  padding: 24px;\n}\n\n.modal-title {\n  margin: 0;\n}\n\n.contents {\n  display: flex;\n  flex-direction: column;\n  gap: 16px;\n}\n"
     },
     "/tsconfig.json": {
-      "code": "{\n  \"include\": [\"./**/*\"],\n  \"compilerOptions\": {\n    \"strict\": true,\n    \"esModuleInterop\": true,\n    \"lib\": [\"dom\", \"esnext\"],\n    \"jsx\": \"react-jsx\"\n  }\n}\n"
+      "code": "{\n  \"include\": [\"./**/*\"],\n  \"compilerOptions\": {\n    \"strict\": true,\n    \"esModuleInterop\": true,\n    \"lib\": [\"dom\", \"dom.iterable\", \"esnext\"],\n    \"jsx\": \"react-jsx\",\n    \"target\": \"es2020\"\n  }\n}\n"
     }
   },
   "workspace": {

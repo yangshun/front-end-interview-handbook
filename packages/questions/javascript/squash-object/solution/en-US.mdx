@@ -9,8 +9,8 @@ This is a pretty tricky question, because not only do we need to traverse the ob
 
 There are generally two ways we can traverse an object:
 
-1. Loop through the keys with the old school `for ... in` statement.
-1. Converting the object into an array of keys with `Object.keys()`, or an array of a key-value tuple with `Object.entries()`.
+1. Loop through the keys with the good old `for ... in` statement
+1. Converting the object into an array of keys with `Object.keys()`, or an array of key-value pairs with `Object.entries()`
 
 With the `for ... in` statement, inherited enumerable properties are be processed as well. So normally you'd add a `Object.hasOwn()` check to make sure the property is not inherited from its prototype. On the other hand, `Object.keys()` and `Object.entries()` only care about the properties directly defined on the object, and this is usually what we want.
 
@@ -55,7 +55,7 @@ const object = {
 
 `Object.entries(object)` would give us `[['a', 5], ['c', { f: 9 }]]`. To get the object with the squashed keys, i.e. `{ a: 5, 'c.f': 9 }`, we need to transform array `[['a', 5], ['c', { f: 9 }]]` into `[['a', 5], ['c.f', 9]]` and pass it to `Object.fromEntries`.
 
-Here is the second solution and you might find it easier to understand than the previous solution.
+Here is the second solution and you might find easier to understand than the previous solution.
 
 ```js
 function chunk(array, size = 2) {

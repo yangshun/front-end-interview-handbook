@@ -12,18 +12,18 @@ We can think of the `value`s like a tree. Primitive values are nodes that do not
 
 Let's define how to stringify each value type:
 
-- `null`: Directly convert it into the string `null`.
-- `boolean`: Directly convert `true`/`false` into a string via `String()`.
-- `number`s: Directly convert into a string via `String()`.
-- `string`s: We have to wrap the value with double quotes as it's required by JSON.
-- Arrays: Recursively stringify each child item, then concatenate them with a comma, and wrap them in square brackets: `[` and `]`.
-- Objects: Convert each key/value pair (also called an entry) into a `"key":{stringifiedValue}` format by recursively stringifying the values, concatenate them with a comma, and wrap them in braces: `{` and `}`.
+- **`null`**: Directly convert it into the string `null`
+- **Boolean**: Directly convert `true`/`false` into a string via `String()`
+- **Numbers**: Directly convert into a string via `String()`
+- **Strings**: We have to wrap the value with double quotes as strings use double quotes
+- **Arrays**: Recursively stringify each child item, then concatenate them with a comma, and wrap them in square brackets: `[` and `]`
+- **Objects**: Convert each key/value pair (also called an entry) into a `"key":{stringifiedValue}` format by recursively stringifying the values, concatenate them with a comma, and wrap them in braces: `{` and `}`
 
 Now that we know how to stringify each value, we just have to know how to determine the type of value. Since `null`, `boolean`, `number`s can produce the desired string just by using `String()`, we can handle them together as the default case at the bottom. To determine the types:
 
-- Arrays: Use `Array.isArray()`.
-- Objects: Use `typeof value === 'object' && value !== null`. The check for `!== null` is important because `typeof null` is `'object'` but we have to handle `null`s differently from objects.
-- Strings: Use `typeof value === 'string'`.
+- **Arrays**: Use `Array.isArray()`
+- **Objects**: Use `typeof value === 'object' && value !== null`. The check for `!== null` is important because `typeof null` is `'object'` but we have to handle `null`s differently from objects
+- **Strings**: Use `typeof value === 'string'`
 
 Here's the code that determines the type of a value and stringify each value type appropriately.
 
