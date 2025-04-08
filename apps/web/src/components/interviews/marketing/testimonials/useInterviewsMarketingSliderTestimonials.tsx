@@ -1,8 +1,9 @@
 import { InterviewsMarketingTestimonialsDict } from '~/components/interviews/marketing/testimonials/InterviewsMarketingTestimonials';
-import { FormattedMessage } from '~/components/intl';
+import { FormattedMessage, useIntl } from '~/components/intl';
 
 export default function useInterviewsMarketingSliderTestimonials() {
-  const testimonials = InterviewsMarketingTestimonialsDict();
+  const intl = useIntl();
+  const testimonials = InterviewsMarketingTestimonialsDict(intl);
 
   return [
     {
@@ -25,7 +26,14 @@ export default function useInterviewsMarketingSliderTestimonials() {
     },
     {
       ...testimonials.luca,
-      compensationMultiplier: '40% increase',
+      compensationMultiplier: intl.formatMessage(
+        {
+          defaultMessage: '{percent}% increase',
+          description: 'Compensation increase',
+          id: 'PlSLy0',
+        },
+        { percent: 40 },
+      ),
       offers: [
         {
           logoUrl: '/img/testimonials/company/atlassian.svg',
@@ -92,7 +100,14 @@ export default function useInterviewsMarketingSliderTestimonials() {
     },
     {
       ...testimonials.fernando,
-      compensationMultiplier: '36% increase',
+      compensationMultiplier: intl.formatMessage(
+        {
+          defaultMessage: '{percent}% increase',
+          description: 'Compensation increase',
+          id: 'PlSLy0',
+        },
+        { percent: 36 },
+      ),
       offers: [
         {
           logoUrl: '/img/testimonials/company/meta.svg',
@@ -106,7 +121,14 @@ export default function useInterviewsMarketingSliderTestimonials() {
     },
     {
       ...testimonials.chenweiZhang,
-      compensationMultiplier: '30% increase',
+      compensationMultiplier: intl.formatMessage(
+        {
+          defaultMessage: '{percent}% increase',
+          description: 'Compensation increase',
+          id: 'PlSLy0',
+        },
+        { percent: 30 },
+      ),
       offers: [
         {
           logoUrl: '/img/testimonials/company/meta.svg',

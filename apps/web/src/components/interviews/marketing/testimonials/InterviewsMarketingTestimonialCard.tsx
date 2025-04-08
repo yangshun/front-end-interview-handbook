@@ -28,6 +28,7 @@ export type InterviewsMarketingTestimonial = Readonly<{
   offers?: ReadonlyArray<string>;
   testimonial: string;
   title?: string | null;
+  translated?: boolean;
 }>;
 
 function formatDate(

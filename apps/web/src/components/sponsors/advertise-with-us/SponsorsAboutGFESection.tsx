@@ -23,7 +23,7 @@ import Tooltip from '~/components/ui/Tooltip';
 
 export default function SponsorsAboutGFESection() {
   const intl = useIntl();
-  const testimonialsObjects = InterviewsMarketingTestimonialsDict();
+  const testimonialsObjects = InterviewsMarketingTestimonialsDict(intl);
 
   const users = [
     {

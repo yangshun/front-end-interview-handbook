@@ -1,3 +1,5 @@
+import { useIntl } from '~/components/intl';
+
 import type { InterviewsMarketingTestimonial } from './InterviewsMarketingTestimonialCard';
 import { InterviewsMarketingTestimonialsDict } from './InterviewsMarketingTestimonials';
 
@@ -5,7 +7,8 @@ export function useInterviewsMarketingTestimonials(
   showAll = false,
   columns = 3,
 ) {
-  const testimonialsObjects = InterviewsMarketingTestimonialsDict();
+  const intl = useIntl();
+  const testimonialsObjects = InterviewsMarketingTestimonialsDict(intl);
 
   const testimonials: ReadonlyArray<InterviewsMarketingTestimonial> = showAll
     ? (() => {

@@ -79,6 +79,10 @@
     "defaultMessage": "The error has been logged and we will be looking into it.",
     "description": "Error message log description"
   },
+  "+IH8p7": {
+    "defaultMessage": "The material on this site is a literal gold mine. Before using GreatFrontEnd, I was failing phone screening rounds left and right. I never even came close to making it to the onsite round. After going through the material on GFE, I was able to land several onsites and passed my very first one! I was able to secure a job only after ~2.5 months of studying GFE at Amazon! The material on GFE is especially easy to understand and I have personally been asked questions from GFE NUMEROUS times. Additionally, GFE's Discord channel and community are so very helpful when it comes to sharing their previous interview experiences. It is very active and everyone is very open to helping!",
+    "description": "User testimonial for GreatFrontEnd Interviews"
+  },
   "+JhlMu": {
     "defaultMessage": "Congratulations on completing the question! Sign into your account or sign up for free to save your progress!",
     "description": "Message shown when user completes a question"
@@ -318,6 +322,10 @@
   "/QA/Vp": {
     "defaultMessage": "Configure your {adFormat}",
     "description": "Label for ad configuration"
+  },
+  "/Roxip": {
+    "defaultMessage": "GreatFrontEnd was crucial for my job hunt. It provided me with knowledge and most importantly, the confidence that I know things. It is also the only place where I was able to find system design examples focused on frontend. Now I just recommend it to anyone who is looking for job or trying to switch and is in Frontend development domain. This site is gold.",
+    "description": "User testimonial for GreatFrontEnd Interviews"
   },
   "/TtmMj": {
     "defaultMessage": "Official solutions",
@@ -927,6 +935,10 @@
     "defaultMessage": "Submit your Ad inquiry",
     "description": "Title for 1st step of advertising"
   },
+  "2P2tWo": {
+    "defaultMessage": "If you are a developer or engineer looking to excel in the front end world, GreatFrontEnd is an excellent resource to have. It's very common to practice LeetCode style questions in the world of engineering, but rarely does anyone talk about system designs and behavioral questions. This is one of the biggest reasons why I joined! It's challenging, fun, and there's also a community that looks out for you!",
+    "description": "User testimonial for GreatFrontEnd Interviews"
+  },
   "2QyluM": {
     "defaultMessage": "Add proficient skills",
     "description": "Title for Add Proficient Skills task on Projects dashboard page"
@@ -1327,6 +1339,10 @@
     "defaultMessage": "Reset progress",
     "description": "Label to reset study plan progress"
   },
+  "4Iumke": {
+    "defaultMessage": "GreatFrontEnd has been instrumental to keep my interviewing skills up-to-date. Standard frontend prep did not really exist until GFE came along and provided a good way to keep sharp on coding, system design, UI, and frontend trivia. Throughout my career, I have used GFE to nail startup interviews, and even nail FAANG. Would highly recommend to any Front End Engineer.",
+    "description": "User testimonial for GreatFrontEnd Interviews"
+  },
   "4JANuX": {
     "defaultMessage": "{focusAreasCount} critical topical focus areas for deep dives",
     "description": "Tooltip label for unlock all premium interviews content"
@@ -1503,6 +1519,10 @@
     "defaultMessage": "Something went wrong. Try again later or contact <link>support@greatfrontend.com</link>!",
     "description": "Error toast for project"
   },
+  "5HNQLS": {
+    "defaultMessage": "GFE played a significant role at my five month job hunting journey, the best investment for me last year, and help me land a job to earn 4 times money then my previous one! Will recommend it to everyone who wants to prepare for FE interview.",
+    "description": "User testimonial for GreatFrontEnd Interviews"
+  },
   "5HkUT3": {
     "defaultMessage": "Generate your links",
     "description": "Affiliate program step"
@@ -1546,6 +1566,14 @@
   "5fJI7m": {
     "defaultMessage": "Core maintainers of well-known open source projects",
     "description": "Prep resources open source projects"
+  },
+  "5fSp+q": {
+    "defaultMessage": "GreatFrontEnd is my top pick among platforms for frontend resources because it covers essential web development aspects like DOM manipulation, design systems, async operations, data structures, and accessibility. It stands out for its focus on developing UI patterns, making it a valuable tool for enhancing UI engineering skills. I highly recommend it to anyone looking to improve in this area.",
+    "description": "User testimonial for GreatFrontEnd Interviews"
+  },
+  "5fuMPD": {
+    "defaultMessage": "Just signed an offer for a Frontend Technical Lead Role at HubSpot, I would not have passed the system design + coding interviews without the @GreatFrontEnd. I was motivated to buy the subscription since I failed the Uber system design last year and definitely noticed the improvement - all system designs were pass. Overall the raw JS problems + system design ones helped with all the interview questions across the board, if I didn't prep with GFE - don't think I would have got the offer for sure. So thank you! + all the help from the community for insights.",
+    "description": "User testimonial for GreatFrontEnd Interviews"
   },
   "5gYLMr": {
     "defaultMessage": "Once you're done, host your project with <tooltip>our recommended hosts</tooltip> and submit your project URL for code reviews.",
@@ -1803,6 +1831,10 @@
     "defaultMessage": "Failed to mark article as complete. Please try again",
     "description": "Error message shown when a guide has failed to mark as complete"
   },
+  "6eXZn2": {
+    "defaultMessage": "I accepted an offer 🥳 . Thanks so much to the GFE team and everyone who contributed to this platform, it was super helpful.",
+    "description": "User testimonial for GreatFrontEnd Interviews"
+  },
   "6fcExT": {
     "defaultMessage": "You are currently working on this track",
     "description": "Description for projects track in progress status"
@@ -1983,6 +2015,10 @@
     "defaultMessage": "Evaluation axes",
     "description": "Evaluation axes in front end system design interviews"
   },
+  "7UPVZ9": {
+    "defaultMessage": "GreatFrontEnd has been a great help to me for prepping front end focussed interviews. Lot of focus on JavaScript utility and React/Vanilla implementations. The system design questions asked in interviews are slightly different in front end interviews and GreatFrontEnd really shines here. I will continue to use this amazing platform!",
+    "description": "User testimonial for GreatFrontEnd Interviews"
+  },
   "7UW/T/": {
     "defaultMessage": "Leverage insider tips from leading companies",
     "description": "Title for marketing page section"
@@ -2010,6 +2046,10 @@
   "7b8bt1": {
     "defaultMessage": "Binary search tree",
     "description": "Computer science data structure"
+  },
+  "7crH2y": {
+    "defaultMessage": "GreatFrontEnd helped me organize my System Design knowledge, providing not just practical examples but also a way of thinking. This structured approach allowed me to answer interview questions more confidently and clearly, ultimately helping me secure a job offer. Highly recommended!",
+    "description": "User testimonial for GreatFrontEnd Interviews"
   },
   "7f9BoF": {
     "defaultMessage": "Technical interview preparation platform",
@@ -2054,6 +2094,10 @@
   "7vhGuK": {
     "defaultMessage": "What do you mean when you say your projects are \"modular\"?",
     "description": "Question on projects FAQ section - on the modularity of projects"
+  },
+  "7w6jXW": {
+    "defaultMessage": "GreatFrontEnd has been my main resource for front end interviews and has helped re-sharpen algorithms, quiz, common components and best of all the system design. It has proven to be a great all-in-one place that is specifically in TypeScript. It has given me confidence and guidance to multiple offers. Thanks to the team for all the hard work.",
+    "description": "User testimonial for GreatFrontEnd Interviews"
   },
   "7wfbGH": {
     "defaultMessage": "Premium is required to access premium questions",
@@ -2154,6 +2198,10 @@
   "8Nn1vL": {
     "defaultMessage": "Which medium will the portfolio review be conducted?",
     "description": "Question on the portfolio review FAQ page"
+  },
+  "8Pzyar": {
+    "defaultMessage": "After being out of the job market for over a decade, I found myself uncertain about where to start. While platforms like LeetCode are great for DSA, the Frontend interview prep resources were lacking. That's when I discovered GreatFrontEnd, and subscribing to their lifetime plan was a no-brainer. The structured approach helped me prepare effectively for interviews, with daily practice becoming a part of my routine. The system design section is invaluable, offering comprehensive preparation for interviews. Additionally, the supportive Discord community has been incredibly helpful. I'm thrilled with my decision to sign up and will continue using this fantastic resource to stay interview-ready.",
+    "description": "User testimonial for GreatFrontEnd Interviews"
   },
   "8S8X9F": {
     "defaultMessage": "In progress",
@@ -2358,6 +2406,10 @@
   "9Ftt1s": {
     "defaultMessage": "Filter by component track of original project brief",
     "description": "Tooltip for Component track filter for submissions list"
+  },
+  "9HZWHE": {
+    "defaultMessage": "I got an offer from ByteDance and wanted to say I 100% couldn't have done it from all the training of this amazing website. No seriously this website is the bomb in terms of preparing for Frontend interviews and hope y'all continue to improve on this website. Again many thanks and much love ❤️",
+    "description": "User testimonial for GreatFrontEnd Interviews"
   },
   "9I1J4a": {
     "defaultMessage": "Will be rotated with an ad unit from 1 other sponsor",
@@ -2983,6 +3035,10 @@
     "defaultMessage": "Price",
     "description": "Pricing page price"
   },
+  "CZdr/f": {
+    "defaultMessage": "I could have spent my time scouring the internet for resources. Instead I choose to invest my money wisely. GreatFrontEnd turned out to be a fantastic resource with its curated Study Plans, interactive Practice Questions and Guides that cover all your typical big tech interview needs. Their quiz questions helped me to recap my knowledge on the days before my interview. I especially appreciated the System Design Guide with solutions that cover a range of front end design problems along with frameworks that are easy to remember and apply to any problem type. I got the job and a great ROI!",
+    "description": "User testimonial for GreatFrontEnd Interviews"
+  },
   "CZl1aD": {
     "defaultMessage": "Essential topics",
     "description": "React essential topics"
@@ -3018,6 +3074,10 @@
   "ClNAgn": {
     "defaultMessage": "Sign in to track your progress",
     "description": "Subtitle of Sign In page"
+  },
+  "CmcaFh": {
+    "defaultMessage": "GreatFrontEnd is a game-changer for frontend interview prep! The platform's comprehensive resources, organized content, and realistic practice exercises helped me make it to Amazon's final interview rounds and land an amazing job at Loblaw Digital! I've tried other resources, but GreatFrontEnd delivers results. It's worth every penny and more. If you're serious about leveling up your skills and landing your dream job, look no further. Highly recommended!",
+    "description": "User testimonial for GreatFrontEnd Interviews"
   },
   "CmlQsV": {
     "defaultMessage": "Front End System Design Interview Questions",
@@ -3407,6 +3467,10 @@
     "defaultMessage": "Started: {daysSinceStarted} days",
     "description": "Days since started for Continue projects section on Projects dashboard page"
   },
+  "EhnYKG": {
+    "defaultMessage": "GreatFrontEnd really helps me brush up on Javascript + React coding questions. The questions are really easy to follow, and by doing them, I am able to really translate this into the coding questions during the interview. The really cool thing is that the questions might not match 100%, it can still be a really helpful tool to apply certain things from GFE into the actual problem.",
+    "description": "User testimonial for GreatFrontEnd Interviews"
+  },
   "EjbpUe": {
     "defaultMessage": "Open navigation profile menu",
     "description": "Screenreader text to open the profile menu"
@@ -3418,6 +3482,10 @@
   "EkxQWy": {
     "defaultMessage": "Others",
     "description": "Others"
+  },
+  "Emmt0a": {
+    "defaultMessage": "As a Frontend Engineer I had a hard time finding resources that focused specifically on Frontend interview questions, Data Structures & Algorithms etc., After I found GreatFrontEnd it made my life very easy because I found answers to all my questions. The program and questions are structured and categorized meticulously. If you are looking to improve your frontend interview skills I highly recommend their premium feature as it gives you access to not only data structures & algo questions but also front end system design questions with detailed answers. Not only that, they also have a vibrant and helpful Discord community. It's totally worth it.",
+    "description": "User testimonial for GreatFrontEnd Interviews"
   },
   "EpJ74A": {
     "defaultMessage": "Try changing the filters",
@@ -3482,6 +3550,10 @@
   "FAArTO": {
     "defaultMessage": "Earn passive commissions when others purchase GreatFrontEnd through you.",
     "description": "Subtitle of the Hero section of the 'Become An Affiliate' page"
+  },
+  "FAyCrW": {
+    "defaultMessage": "thanks to GOD and thanks for GFE, Got a remote position as a Vue Front-end Engineer at a startup called Monday Merch in the Netherlands 🎉",
+    "description": "User testimonial for GreatFrontEnd Interviews"
   },
   "FCFcH2": {
     "defaultMessage": "Start tasks",
@@ -3774,6 +3846,10 @@
   "GiSp0E": {
     "defaultMessage": "Medium",
     "description": "Medium difficulty question"
+  },
+  "GkN6tf": {
+    "defaultMessage": "GreatFrontEnd's product and community were crucial to my success in finding a new job after being laid off. GFE gave me guardrails around how I should focus my studying, I learned so much that I'll use in my career, not just for interviews. With their help, I achieved a 17% increase in base pay and 46% increase in total compensation at Cloudflare! Thank the universe for GreatFrontEnd!",
+    "description": "User testimonial for GreatFrontEnd Interviews"
   },
   "GkZlVc": {
     "defaultMessage": "Go to the homepage",
@@ -4719,6 +4795,10 @@
     "defaultMessage": "Company guides",
     "description": "Company interview guides"
   },
+  "Kj6umm": {
+    "defaultMessage": "Initially practised few free questions on the platform, loved the UI and bought a lifetime subscription. It contains interview-level JS and React ready for practice that too in a Leetcode style. Didn't see this much quality of questions anywhere. And the way they handled system design content makes this a one stop resource for interview preparation and also for upskilling as a developer. Thanks @greatfrontend.",
+    "description": "User testimonial for GreatFrontEnd Interviews"
+  },
   "KjD2cI": {
     "defaultMessage": "Duration: High to Low",
     "description": "Sorting option for question list - sort by duration from high to low"
@@ -5087,6 +5167,10 @@
     "defaultMessage": "Next.js, Nuxt, SvelteKit",
     "description": "Placeholder for tech stack field"
   },
+  "MCTXuR": {
+    "defaultMessage": "I got an offer from Brex for Senior Software Engineer (Frontend)! I am very happy because Brex was my target company and preparing for this interview process was the reason I joined GFE. I'd like to specially thank the community for the mock interviews and tips along the journey. I will work remotely from Brazil!",
+    "description": "User testimonial for GreatFrontEnd Interviews"
+  },
   "MFgHcw": {
     "defaultMessage": "Ad image",
     "description": "Label for ad image"
@@ -5326,6 +5410,10 @@
   "NgyZKR": {
     "defaultMessage": "Purchase premium to unlock study plans and all the best materials we have to offer.",
     "description": "Paywall subtitle for study plans feature"
+  },
+  "NgyuL4": {
+    "defaultMessage": "Thank you for creating the incredible resource, GreatFrontend. It was crucial in helping me prepare for interviews and secure job offers. Having focused on strategy and management recently as a Staff UI/UX Engineer at Twitter and Tech Lead Manager at X, I realized I needed to refresh my technical skills. In my opinion, GreatFrontend offers far superior content for frontend interview preparation compared to alternatives like Leetcode or HackerRank or CodeSignal. I truly appreciate the hard work your team has put into this resource. It's one of the few offerings on the internet that justifies the subscription cost, providing tremendous returns on investment.",
+    "description": "User testimonial for GreatFrontEnd Interviews"
   },
   "NjnYqU": {
     "defaultMessage": "Sort by",
@@ -5738,6 +5826,10 @@
   "PjWWze": {
     "defaultMessage": "Ready to begin?",
     "description": "Description for start tasks prompt"
+  },
+  "PlSLy0": {
+    "defaultMessage": "{percent}% increase",
+    "description": "Compensation increase"
   },
   "Pn/2xP": {
     "defaultMessage": "You have more than 3 pinned submissions",
@@ -6347,6 +6439,10 @@
     "defaultMessage": "Our <link>Skills Roadmap</link> tells you the exact projects to build to train the skill you need - whether you are a complete beginner or senior engineer filling a skill gap.",
     "description": "Description of 'Train any front end skill' feature in Projects marketing page"
   },
+  "SFakfv": {
+    "defaultMessage": "Happy Friday! I'm extremely fortunate to be choosing between Senior Frontend Engineer offers at a couple companies (one big non-FAANG, one startup). I just wanted to share how much help the GFE System Design and Behavioral guides were for me to prepare properly and secure my job offers! Even with the rejections I got earlier this year, I was able to take feedback, compare my behaviors to the GFE guides and see where I could improve. Thanks so much for building this resource! I'll 1000% recommend it to other FEEs looking to get a job!",
+    "description": "User testimonial for GreatFrontEnd Interviews"
+  },
   "SG08/K": {
     "defaultMessage": "Challenge unlocked successfully",
     "description": "Label to unlock a premium project"
@@ -6398,6 +6494,10 @@
   "SRdJCV": {
     "defaultMessage": "You've earned:",
     "description": "Marketing rewards message"
+  },
+  "SSKxjU": {
+    "defaultMessage": "In today's extremely competitive and challenging job market, GreatFrontEnd was key to my success in frontend interviews, which led to me landing 4 senior level job offers, all at large tech companies. The system design content on the site is in my opinion better than any other system design content available online for frontend. Prior to joining GFE, I had no structure to my frontend system design interviews, but after going through the material and following their recommended framework, I passed every single one of my system design rounds. GFE covers frontend knowledge as well as frontend coding very well, their questions appeared in several of my interview loops which helped me not only be fully prepared for all of my interviews, but helped me excel in them. For frontend developers looking to stand out in today's job market via interview performance, GreatFrontEnd is a must have.",
+    "description": "User testimonial for GreatFrontEnd Interviews"
   },
   "SSiHbz": {
     "defaultMessage": "Add LinkedIn",
@@ -6595,6 +6695,10 @@
     "defaultMessage": "JavaScript Console",
     "description": "Title of JavaScript console panel"
   },
+  "TLRzU5": {
+    "defaultMessage": "Hey, all. I was able to get an out of band offer for Senior Software Engineer II at HubSpot. I’m also wrapping up the process at Airbnb and feel pretty good about it. Huge thanks to the folks at GreatFrontEnd. The system design content was life changing. Looking forward to exploring the system design content even deeper.",
+    "description": "User testimonial for GreatFrontEnd Interviews"
+  },
   "TNt++l": {
     "defaultMessage": "A platform to learn front-end development the practical way—by building real-world projects from beginner to pro.",
     "description": "Description for projects product"
@@ -6618,6 +6722,10 @@
   "TV3jir": {
     "defaultMessage": "Loading",
     "description": "Loading label"
+  },
+  "TVQlH7": {
+    "defaultMessage": "I wish GreatFrontEnd existed earlier in my career when I was preparing for interviews. It has made the process of interview preparation significantly less painful and more efficient. The platform is a game-changer for anyone seeking to enhance their frontend development skills and succeed in interviews.",
+    "description": "User testimonial for GreatFrontEnd Interviews"
   },
   "TVrovv": {
     "defaultMessage": "Similar questions",
@@ -6827,6 +6935,10 @@
     "defaultMessage": "Filter by log level",
     "description": "Select label to filter console log by level"
   },
+  "UQuwT/": {
+    "defaultMessage": "GreatFrontEnd has really helped prepare me for many of my frontend internship interviews - their front end system design guidebook is stellar and it helped boost my confidence to write front end components faster during time paced interviews. Thank you, GFE!",
+    "description": "User testimonial for GreatFrontEnd Interviews"
+  },
   "UQxm8e": {
     "defaultMessage": "Get another {percentOff}% off",
     "description": "Tooltip for used by engineers"
@@ -6838,6 +6950,10 @@
   "UTPE3y": {
     "defaultMessage": "Dashboard",
     "description": "Title of Projects dashboard page"
+  },
+  "UUxgPk": {
+    "defaultMessage": "Just want to say THANK YOU! I was laid off from Google and my interviews were really different from previous interview cycles in that they tested heavy frontend knowledge as opposed to typical LeetCode like I was used to. This platform provided a comprehensive way for me to study all the basics and really solidify my frontend fundamentals. I found the system design questions especially helpful, as I wasn't able to find any other front end system design resources anywhere near the quality provided on this platform. I was able to land a front end engineering role at TikTok thanks in huge part to this platform. I am really glad I decided to pay for this platform.",
+    "description": "User testimonial for GreatFrontEnd Interviews"
   },
   "UWjXUO": {
     "defaultMessage": "Category",
@@ -7006,6 +7122,10 @@
   "VLBIk4": {
     "defaultMessage": "{category} Quiz Interview Questions | With Answers",
     "description": "Title of interview questions page"
+  },
+  "VLDJyV": {
+    "defaultMessage": "Got some good news, received my first offer last week. A couple of the questions on here were definitely vital in getting the offer (had a debounce/throttle/memoize style question in one of the rounds). Behavioral prep was also very helpful as I had 3 rounds of that in total. Overall SUPER glad I signed up here. Nice TC bump",
+    "description": "User testimonial for GreatFrontEnd Interviews"
   },
   "VMcSLx": {
     "defaultMessage": "Our in-browser coding workspace allows you to simulate a real interview environment with no set up required.",
@@ -7218,6 +7338,10 @@
   "WBKQzA": {
     "defaultMessage": "Dark",
     "description": "Select label for dark console theme in console settings"
+  },
+  "WCgRIY": {
+    "defaultMessage": "GreatFrontEnd has been a great resource for preparing and continuing in the ever-shifting front end world. Allowing me to brush up on fundamentals, hone new concepts and practices to put my best foot forward in technical ability and confidence to be able to get interviews AND offers.",
+    "description": "User testimonial for GreatFrontEnd Interviews"
   },
   "WClrFo": {
     "defaultMessage": "Built by ex-senior engineers from",
@@ -7823,6 +7947,10 @@
     "defaultMessage": "What to expect in the coding round and tips to succeed",
     "description": "What to expect in front end coding interviews"
   },
+  "Z6NhrQ": {
+    "defaultMessage": "GreatFrontEnd helped me bridge the skills gap and transitioned from EM to IC. After 3 months of deep dive into ReactJS UI problems, JavaScript fundamentals, and system designs from GFE, I was able to land a Senior Software Engineer offer. It solidifies my fundamentals and give me a roadmap how to prepare. The community in GFE is amazing and helpful as well.",
+    "description": "User testimonial for GreatFrontEnd Interviews"
+  },
   "Z6PMaJ": {
     "defaultMessage": "Access to all component tracks",
     "description": "Answer to 'Why is it worth it to buy Premium?' on projects FAQs"
@@ -8143,6 +8271,10 @@
     "defaultMessage": "To progress in the skill plan, you must add the skill to the <bold>\"Skills used\"</bold> field when completing a challenge.",
     "description": "Warning message for skill plan section"
   },
+  "an1i6s": {
+    "defaultMessage": "Hey there! I just wanted to thank you in private for all the resources on GreatFrontEnd I was able to get an NVIDIA offer thanks to GFE! The polish of the website is so rare for interview preparation resources. Every solution writeup is crystal clear, the unit test suites are robust, and it was actually fun doing the problems",
+    "description": "User testimonial for GreatFrontEnd Interviews"
+  },
   "anZw89": {
     "defaultMessage": "Please enter your status",
     "description": "Error message for empty other input for yoe status on projects profile page"
@@ -8150,6 +8282,10 @@
   "ao1v0H": {
     "defaultMessage": "Resume review",
     "description": "Resume review feature"
+  },
+  "aoA5TH": {
+    "defaultMessage": "When I started interviewing for frontend positions, I found it really hard to find quality content for the interviews whereas backend interviews seemed to have an endless supply of questions ranging from leetcode-style to system design. GreatFrontEnd provides an amazing platform to hone your frontend skills for interviews and beyond. It helped me bridge the gaps in my knowledge of the core fundamentals and provided an awesome framework for system design that really dove into the tradeoffs of the design decisions I choose. GreatFrontEnd was truly a game changer for my interviews skills and I will definitely be coming back to it in the future.",
+    "description": "User testimonial for GreatFrontEnd Interviews"
   },
   "apFngj": {
     "defaultMessage": "Error",
@@ -8250,6 +8386,10 @@
   "b/dKUR": {
     "defaultMessage": "This subset of test cases are used when \"Run\"-ning your code.",
     "description": "Message to explain the custom tests cases"
+  },
+  "b/zX4C": {
+    "defaultMessage": "As someone who has given as well as taken a lot of interviews, I can say GreatFrontEnd is a f'king goldmine. I would highly recommend GreatFrontEnd to anyone who is preparing for front end interviews or anyone who just wants to learn some new concepts. The content is well-organized, has some great practical coding challenges, and the system design part is just amazing!!!",
+    "description": "User testimonial for GreatFrontEnd Interviews"
   },
   "b1p8O6": {
     "defaultMessage": "Spotlight placement",
@@ -8499,6 +8639,10 @@
     "defaultMessage": "Not signed in",
     "description": "Label indicating user is not signed in"
   },
+  "c5Bk/4": {
+    "defaultMessage": "As someone who is still in early stages of my Software Development Career, There were some nitty gritty knowledge that I lacked, while in theory, i knew stuff, but the practical implementation and visualization is what I lacked, GFE helped me connect those dots and made me realise there is alot to learn, even for a person who is pretty proficient in Reacjs and other JS Framework, Vanilla JS still have some tricks up its sleeves. Have heard alot about the System Design Questions of GFE, tried them first hand, and it really helps!",
+    "description": "User testimonial for GreatFrontEnd Interviews"
+  },
   "c7eREh": {
     "defaultMessage": "Status",
     "description": "Label for Status filter for projects list"
@@ -8731,6 +8875,10 @@
     "defaultMessage": "Next slot: {date}",
     "description": "Next slot date"
   },
+  "dBxvs7": {
+    "defaultMessage": "I joined GreatFrontEnd at the beginning of this year when I was trying to prepare my interviews. There are many resources about system design out there on the Internet but they are more for distributed systems and not meant for front end engineers. The system design materials on GFE are definitely gems. It opens up my mind about how to approach a system design question by using the RADIO framework. More importantly, the team behind it is super responsive and supportive. They not only provide interview guidance in a timely manner but also give you advice about career growth whenever necessary. All in all, I really appreciate the help I get from GFE!",
+    "description": "User testimonial for GreatFrontEnd Interviews"
+  },
   "dCKqPL": {
     "defaultMessage": "Practice {questionCount}+ front end system design interview questions on the architecture of components, apps, games. Reference answers by big tech ex-interviewers.",
     "description": "Page description for interview questions listing"
@@ -8795,6 +8943,10 @@
     "defaultMessage": "Success!",
     "description": "Success toast message title for disconnect social"
   },
+  "dYaoBg": {
+    "defaultMessage": "GreatFrontEnd helped me increase my total compensation by a whopping 180%! It is literally a one-stop shop for preparing for front-end interviews. This website covers everything you would typically see an interview loop like building UI, applying CSS, trivia-style questions and front-end focused system design. I also really enjoy the GFE discord server, they create a highly inclusive community that enables their users to connect and share past experiences. I would highly recommend GFE to anyone who is seriously looking to improve their interviewing preparation!",
+    "description": "User testimonial for GreatFrontEnd Interviews"
+  },
   "dYbcKz": {
     "defaultMessage": "Social",
     "description": "Badge label for social promotion"
@@ -8822,6 +8974,10 @@
   "dg2G3r": {
     "defaultMessage": "and",
     "description": "Label in divider between Join Discord and Sign Up in Projects Newsletter section"
+  },
+  "dgl3Fz": {
+    "defaultMessage": "I was laid-off from my previous company and decided to take a long break. When I was ready to interview, I realized I didn't know what to expect from frontend interviews. GreatFrontEnd has helped me pass multiple frontend interviews. I saw a lot of similar questions during the process. I ended up getting 2 offers and passing the final round of a 3rd company.",
+    "description": "User testimonial for GreatFrontEnd Interviews"
   },
   "dhbnY3": {
     "defaultMessage": "Challenge: {challengeName} | Official solutions",
@@ -8998,6 +9154,10 @@
   "eT2mrq": {
     "defaultMessage": "View the full solution and other System Design guides.",
     "description": "Button label within embed"
+  },
+  "eVBhnB": {
+    "defaultMessage": "GreatFrontEnd is a literal gold mine and it's not just the incredible platform but also the Discord community for premium subscribers. Everyone on there is so helpful and informative! As for the platform itself, all of the questions on there are so relevant to what's being asked in frontend engineer interviews. I've gotten questions that were exactly what was on GreatFrontEnd. And the system design resources are so well structured and detailed. I am forever grateful I found GreatFrontEnd because I honestly would not have gotten my FAANG offer without it.",
+    "description": "User testimonial for GreatFrontEnd Interviews"
   },
   "eWWazl": {
     "defaultMessage": "Behavioral Interview Playbook",
@@ -9723,6 +9883,10 @@
     "defaultMessage": "{completedCount}/{totalCount} completed",
     "description": "Label for completed count"
   },
+  "hgKFx4": {
+    "defaultMessage": "GreatFrontEnd is the best investment you can make if you are going through a frontend interview process. There are a bunch of different prepping resources for backend roles in the market, but surprisingly, the selection for frontend material is not that great. The frontend coding exercises cover everything you could think of. The best part is that each of them has an editorial/solution section that explains step by step how to tackle the problem and multiple approaches solutions you could take; opposed to other products where you can only find solutions written by random people. Where GFE really shines is on the frontend system design section, even after being 10 years in big tech I’ve never came across such diverse and comprehensive material. I would even recommend GFE to people just trying to become better frontend engineers just for the system design section alone.",
+    "description": "User testimonial for GreatFrontEnd Interviews"
+  },
   "hhuG8E": {
     "defaultMessage": "Your account email contains \".edu\", \".ac\", or other institutional second-level domains. Reach out to us if you believe your school should qualify.",
     "description": "Condition for promotion"
@@ -10051,6 +10215,10 @@
     "defaultMessage": "Purchase premium to unlock full access to the question.",
     "description": "Subtitle on question paywall appearing on the question pages of premium questions"
   },
+  "jXSpw6": {
+    "defaultMessage": "Finally some good news on my side. I got a frontend engineer role at GitLab. It's been a pretty wild ride. I initially got to the final stage with one team and didn't get the job. But the recruiter matched me to another team and it worked 😱. I'm so glad to be focusing on front end again, not fullstack. 34% rise in base salary. Total comp is about a 52% increase, mainly because I'm leaving a Canadian startup. GFE was so helpful in building my confidence in solving frontend problems. And the community has been amazing. You all are doing the lord's work.",
+    "description": "User testimonial for GreatFrontEnd Interviews"
+  },
   "jXX7Jw": {
     "defaultMessage": "Invalid email address",
     "description": "Error message for invalid email address"
@@ -10238,6 +10406,10 @@
   "kEx00C": {
     "defaultMessage": "{count, plural, one {Your submission <bold>{title}</bold> has received its 1st upvote {timestamp}} other {Your submission <bold>{title}</bold> has received # upvotes {timestamp}}}",
     "description": "Number of comments for project submission"
+  },
+  "kH/nSq": {
+    "defaultMessage": "After 6 months of unemployment I just signed for a fintech startup in nyc for a full stack (FE leaning) role! plus got an above range offer. couldn’t have done it without grinding on GFE",
+    "description": "User testimonial for GreatFrontEnd Interviews"
   },
   "kJOJ4u": {
     "defaultMessage": "Is it really worth it to buy GreatFrontEnd Interviews?",
@@ -10466,6 +10638,10 @@
   "lDlJyX": {
     "defaultMessage": "<percent>{percentage}</percent>%",
     "description": "Progress percentage in Continue Learning section in preparation dashboard"
+  },
+  "lE3rWX": {
+    "defaultMessage": "Coming from mostly backend engineering experience and wanting to transition to a frontend/fullstack role, GreatFrontEnd was really helpful in my interview studying. It's the most centralized, organized and thoughtful resource for front end interview prep I found and helped me to land 2 job offers! It also helped me to grow in my knowledge as a developer in general. I'll definitely be back the next time I'm job hunting.",
+    "description": "User testimonial for GreatFrontEnd Interviews"
   },
   "lFbX7p": {
     "defaultMessage": "Oops! An error has occurred",
@@ -11807,6 +11983,10 @@
     "defaultMessage": "Go back",
     "description": "Go back label"
   },
+  "rvt7cN": {
+    "defaultMessage": "If you are looking for front end interviews, GreatFrontEnd is for you. It has a wide variety of coding questions ranging from HTML, CSS, JavaScript, to React. It also covers formats like functions, algorithms, user interface, quiz etc. If you want to get into top tech companies for front end roles, GreatFrontEnd is best for you.",
+    "description": "User testimonial for GreatFrontEnd Interviews"
+  },
   "rx8kx8": {
     "defaultMessage": "`Saved as \"{saveName}\"`",
     "description": "Coding workspace save code toast title"
@@ -11834,6 +12014,10 @@
   "s7lhuQ": {
     "defaultMessage": "Explore study plans that help you prepare for your front end interviews regardless of time left. Efficiently focus on topics that give you the most mileage for time.",
     "description": "Page description for study plans listing"
+  },
+  "s8vNZi": {
+    "defaultMessage": "After a year of being unemployed (half by choice the other half trying to get a job lol) finally received an offer and signed with TikTok!! It was definitely an uphill battle. Ended up almost 2x my previous TC. Couldn't have done it without the support and people of this discord community, thank you all!",
+    "description": "User testimonial for GreatFrontEnd Interviews"
   },
   "s9Oi92": {
     "defaultMessage": "Terms of Service | GreatFrontEnd",
@@ -12431,6 +12615,10 @@
     "defaultMessage": "Code review",
     "description": "Discussions comment category label"
   },
+  "v5eSxm": {
+    "defaultMessage": "GreatFrontEnd was a game-changer in my interview prep for different companies where I had process! 🚀 It provided structured system design guidance (my favourite one), frontend best practices, and hands-on coding challenges that strengthened my confidence. The detailed explanations and real-world scenarios made a huge difference. Also I love the engaging and supportive community! If you're preparing for frontend interviews, this platform is a must-try! 💡",
+    "description": "User testimonial for GreatFrontEnd Interviews"
+  },
   "v7xpbV": {
     "defaultMessage": "Stripe",
     "description": "Company name for Stripe"
@@ -12506,6 +12694,10 @@
   "vZx+Xb": {
     "defaultMessage": "In the meantime, check out these pages:",
     "description": "Not found page suggestion"
+  },
+  "vafuyq": {
+    "defaultMessage": "Amazing to see such a comprehensive resource for front end dev interviews. Coming from a more traditional backend role I found this website to be a treasure trove of knowledge and it really takes you from a beginner to advanced level.",
+    "description": "User testimonial for GreatFrontEnd Interviews"
   },
   "vbWLam": {
     "defaultMessage": "Practice {questionCount}+ Quiz-style JavaScript Interview Questions. Learn in-browser, with high quality answers written by Big Tech Ex-interviewers",
@@ -12638,6 +12830,10 @@
   "wAZkHT": {
     "defaultMessage": "Tags",
     "description": "Screenreader text indicating component for blog tags"
+  },
+  "wAsLhX": {
+    "defaultMessage": "Recently accepted an offer 🥳 Thanks so much to the GFE team and everyone who contributed to this platform, it was super helpful in my prep. The system design (and the design systems lol) questions in particular were amazing.",
+    "description": "User testimonial for GreatFrontEnd Interviews"
   },
   "wAv4o0": {
     "defaultMessage": "Enter 1-2 lines summary of your submission",
@@ -13051,6 +13247,10 @@
     "defaultMessage": "Tell us about the skills you will be using",
     "description": "Label for \"Tell us about the skills you will be using\" step in dialog on Projects project page"
   },
+  "ya+6iu": {
+    "defaultMessage": "I have received \"Strong Hire - P50\" recommendation from Atlassian hiring committee. I was asked if I want to level up for P60 on condition that I pass two more interviews - one more for system design and another for leadership crafts. I have opted in since I have nothing to lose. Thanks to GreatFrontEnd for all the system design resources.",
+    "description": "User testimonial for GreatFrontEnd Interviews"
+  },
   "yawjvQ": {
     "defaultMessage": "Get started",
     "description": "Get started label"
@@ -13174,6 +13374,10 @@
   "yyYVov": {
     "defaultMessage": "Roadmap - Upcoming features and updates on GreatFrontEnd Interviews",
     "description": "Title of interview roadmap page"
+  },
+  "yymAi9": {
+    "defaultMessage": "GreatFrontEnd is a great resource for front end interviews, for learning front end system design, has many questions to practice practical front end and general JavaScript questions. For some interviews I have gotten the exact question that I practiced on GFE!",
+    "description": "User testimonial for GreatFrontEnd Interviews"
   },
   "z+mEGf": {
     "defaultMessage": "Nightmare",
@@ -13339,6 +13543,10 @@
     "defaultMessage": "80% of challenges are <bold>free to do</bold>",
     "description": "Caption for Explore projects button in Projects marketing hero section"
   },
+  "zbflow": {
+    "defaultMessage": "Hi everyone, I got one offer from a big tech company (non-FAANG) and in parts thanks to the resources on GreatFrontEnd. I wish I had learned about this product way before so I had not bombed so many interviews. One fun story to share: I got a job offer for an IC2 role (mid-level) but the salary was low for my needs, so I requested the option to be leveled at IC3 (Senior) and they accepted to make an extra interview, everything happened very quickly, in a couple of days, so I didn't have time to ask what was the interview about so I could prepare. It ended up being a system-design interview, I had 45 mins to build Google Photos (albums and sharing). Thank God, I had reviewed some cases in GFE not long ago, especially the News Feed, which allowed me to completely ace the interview and be leveled as IC3!.",
+    "description": "User testimonial for GreatFrontEnd Interviews"
+  },
   "zbigrn": {
     "defaultMessage": "Search over {questionCount} HTML interview questions",
     "description": "Search placeholder for HTML questions list page"
@@ -13379,6 +13587,10 @@
     "defaultMessage": "Student",
     "description": "Badge label for student promotion"
   },
+  "zmckRD": {
+    "defaultMessage": "I'm always on the lookout for resources that can help me level up my skills as a frontend engineer, and I can confidently say that GreatFrontEnd delivers in that regard. It is by far the most comprehensive frontend-focused interview prep platform I have come across. They've helped strengthen my fundamentals and given me the confidence I need to succeed in my job search. Additionally, the people behind the platform have been incredibly approachable and responsive to feedback - and I can't thank them enough!",
+    "description": "User testimonial for GreatFrontEnd Interviews"
+  },
   "zn3iWx": {
     "defaultMessage": "Repeat Password",
     "description": "Label of confirm password field on Change Password page"
@@ -13402,6 +13614,10 @@
   "zs/Ius": {
     "defaultMessage": "{category} Quiz Interview Questions",
     "description": "OG image title of framework and language page"
+  },
+  "zskRVQ": {
+    "defaultMessage": "This was the first time I gave full stack / frontend interviews. Coming from Meta, working in frontend for 3 years, I still felt that I had a lot of loopholes in basics of JavaScript, HTML. The question bank of GFE covers almost everything that might ever be asked in frontend interviews for companies including startups and FAANG. Thanks to the amazing question bank and conversational language in the explanations, I was able to crack a senior role at Snap.",
+    "description": "User testimonial for GreatFrontEnd Interviews"
   },
   "zul/L1": {
     "defaultMessage": "Earlier this month",

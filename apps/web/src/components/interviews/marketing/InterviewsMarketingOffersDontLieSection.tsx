@@ -1,3 +1,5 @@
+'use client';
+
 import clsx from 'clsx';
 
 import InterviewsTestimonialsSlider from '~/components/interviews/common/InterviewsTestimonialsSlider';

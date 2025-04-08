@@ -26,26 +26,31 @@ import Text from '~/components/ui/Text';
 import { themeTextColor } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
-import type { InterviewsMarketingTestimonial } from './testimonials/InterviewsMarketingTestimonialCard';
+import { InterviewsMarketingTestimonialsDict } from './testimonials/InterviewsMarketingTestimonials';
 import { QuestionCountFree } from '../questions/listings/stats/QuestionCount';
 import AmazonLogo from '../../icons/AmazonLogo';
 import GoogleLogo from '../../icons/GoogleLogo';
 import MetaLogo from '../../icons/MetaLogo';
 
-type Props = Readonly<{
-  testimonials: ReadonlyArray<InterviewsMarketingTestimonial>;
-}>;
-
 const DELAY_SECOND = 'delay-700';
 const DELAY_THIRD = 'delay-1000';
 
-export default function InterviewsMarketingHero({ testimonials }: Props) {
+export default function InterviewsMarketingHero() {
   const intl = useIntl();
+  const marketingTestimonials = InterviewsMarketingTestimonialsDict(intl);
   const titleRef = useRef(null);
   const isTitleVisible = useInView(titleRef, {
     amount: 'some',
     once: true,
   });
+
+  const testimonials = [
+    marketingTestimonials.lamTran,
+    marketingTestimonials.leanneZhang,
+    marketingTestimonials.cliffordFung,
+    marketingTestimonials.deannaTran,
+    marketingTestimonials.kiaanCastillo,
+  ];
 
   return (
     <Container

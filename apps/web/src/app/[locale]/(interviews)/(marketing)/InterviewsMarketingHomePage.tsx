@@ -7,7 +7,6 @@ import InterviewsMarketingHero from '~/components/interviews/marketing/Interview
 import InterviewsMarketingOffersDontLieSection from '~/components/interviews/marketing/InterviewsMarketingOffersDontLieSection';
 import type { QuestionBankDataType } from '~/components/interviews/marketing/InterviewsMarketingPracticeQuestionBankSection';
 import InterviewsMarketingPrepResourcesByBigTechEngineers from '~/components/interviews/marketing/InterviewsMarketingPrepResourcesByBigTechEngineers';
-import type { InterviewsMarketingTestimonial } from '~/components/interviews/marketing/testimonials/InterviewsMarketingTestimonialCard';
 import type { QuestionJavaScript } from '~/components/interviews/questions/common/QuestionsTypes';
 import SocialDiscountToast from '~/components/promotions/social/SocialDiscountToast';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -20,7 +19,6 @@ type Props = Readonly<{
   >;
   javaScriptEmbedExample: QuestionJavaScript;
   questions: QuestionBankDataType;
-  testimonials: ReadonlyArray<InterviewsMarketingTestimonial>;
   uiCodingQuestion: EmbedUIQuestion;
 }>;
 
@@ -29,11 +27,10 @@ export default function InterviewsMarketingHomePage({
   javaScriptEmbedExample,
   questions,
   companyGuides,
-  testimonials,
 }: Props) {
   return (
     <main>
-      <InterviewsMarketingHero testimonials={testimonials} />
+      <InterviewsMarketingHero />
       <Section>
         <InterviewsMarketingEmbedSection
           javaScriptEmbedExample={javaScriptEmbedExample}
