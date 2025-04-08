@@ -28,15 +28,6 @@ export default function useSponsorsAdImpressionLogging<T extends HTMLElement>(
         ad_placement: adPlacement,
       },
     });
-    fetch(`/ads/impression`, {
-      body: JSON.stringify({
-        a: adId,
-      }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      method: 'POST',
-    });
   }, [adFormat, adId, adPlacement, isInView, pathname]);
 
   return ref;
