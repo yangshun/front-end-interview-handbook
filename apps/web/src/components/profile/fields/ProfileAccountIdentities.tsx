@@ -196,10 +196,7 @@ export default function ProfileAccountIdentities({ userIdentities }: Props) {
   }
 
   async function onLinkUserIdentity(provider: SupabaseProviderGFE) {
-    const redirectTo = new URL(
-      window.location.pathname,
-      window.location.origin,
-    );
+    const redirectTo = new URL('/auth/oauth-redirect', window.location.origin);
 
     setLoading((prev) => ({ ...prev, provider: true }));
 
@@ -208,6 +205,7 @@ export default function ProfileAccountIdentities({ userIdentities }: Props) {
         redirectTo: url.format({
           pathname: redirectTo.href,
           query: {
+            next: window.location.pathname,
             oauth: provider,
           },
         }),
