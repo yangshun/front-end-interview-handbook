@@ -73,11 +73,13 @@ export default function SupabaseAuthUpdatePassword({
   }
 
   return (
-    <div className="flex flex-col gap-y-6">
+    <div className="flex flex-col gap-y-8">
       {(showTitle || user?.app_metadata.provider !== 'email') && (
-        <div className="flex flex-col gap-y-2">
+        <div className="flex flex-col gap-y-1.5">
           {showTitle && (
-            <Heading className="flex-1" level="heading6">
+            <Heading
+              className="flex-1"
+              level={user?.email ? 'heading6' : 'heading5'}>
               {user?.email == null ? (
                 <FormattedMessage
                   defaultMessage="Change password"
@@ -171,6 +173,7 @@ export default function SupabaseAuthUpdatePassword({
                     'Label of Change Password button on Change Password page',
                   id: 'd8XKhi',
                 })}
+                size="md"
                 type="submit"
                 variant="secondary"
                 onClick={() => {
