@@ -3,12 +3,13 @@
 import jsCookie from 'js-cookie';
 import { useSearchParams } from 'next/navigation';
 import { useEffect } from 'react';
+import url from 'url';
 
 import { useIntl } from '~/components/intl';
 import Container from '~/components/ui/Container';
 import EmptyState from '~/components/ui/EmptyState';
 
-import { useI18nRouter } from '~/next-i18nostic/src';
+import { i18nHref, useI18n, useI18nRouter } from '~/next-i18nostic/src';
 import { useSupabaseClientGFE } from '~/supabase/SupabaseClientGFE';
 
 export default function AuthLogoutPage() {
@@ -16,6 +17,7 @@ export default function AuthLogoutPage() {
   const intl = useIntl();
   const router = useI18nRouter();
   const searchParams = useSearchParams();
+  const { locale } = useI18n();
 
   useEffect(() => {
     async function logout() {
@@ -39,13 +41,13 @@ export default function AuthLogoutPage() {
         // this only runs if we're on the logout page.
         if (window.location.pathname.includes('/logout')) {
           // Do a hard redirect.
-          window.location.href = redirectPath;
+          window.location.href = url.format(i18nHref(redirectPath, locale));
         }
       }, 1000);
     }
 
     logout();
-  }, [searchParams, router, supabaseClient.auth]);
+  }, [searchParams, router, supabaseClient.auth, locale]);
 
   return (
     <Container className="flex h-96 items-center justify-center">

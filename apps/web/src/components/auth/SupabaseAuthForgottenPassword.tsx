@@ -10,7 +10,7 @@ import TextInput from '~/components/ui/TextInput';
 
 import logEvent from '~/logging/logEvent';
 import logMessage from '~/logging/logMessage';
-import { useI18nRouter } from '~/next-i18nostic/src';
+import { i18nHref, useI18n, useI18nRouter } from '~/next-i18nostic/src';
 import type { SupabaseClientGFE } from '~/supabase/SupabaseServerGFE';
 
 import type { AuthViewType } from './SupabaseAuthTypes';
@@ -29,6 +29,7 @@ export default function SupabaseAuthForgottenPassword({
 }: Props) {
   const intl = useIntl();
   const router = useI18nRouter();
+  const { locale } = useI18n();
 
   const [email, setEmail] = useState('');
   const [error, setError] = useState('');
@@ -43,12 +44,17 @@ export default function SupabaseAuthForgottenPassword({
       await supabaseClient.auth.resetPasswordForEmail(email, {
         redirectTo:
           window.location.origin +
-          url.format({
-            pathname: '/auth/password-reset',
-            query: {
-              next,
-            },
-          }),
+          url.format(
+            i18nHref(
+              {
+                pathname: '/auth/password-reset',
+                query: {
+                  next,
+                },
+              },
+              locale,
+            ),
+          ),
       });
 
     setLoading(false);

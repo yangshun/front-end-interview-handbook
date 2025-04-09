@@ -9,7 +9,7 @@ import Button from '~/components/ui/Button';
 import TextInput from '~/components/ui/TextInput';
 
 import logEvent from '~/logging/logEvent';
-import { useI18nRouter } from '~/next-i18nostic/src';
+import { i18nHref, useI18n, useI18nRouter } from '~/next-i18nostic/src';
 import type { SupabaseClientGFE } from '~/supabase/SupabaseServerGFE';
 
 import AuthTermsOfServiceLine from './AuthTermsOfServiceLine';
@@ -34,6 +34,7 @@ export default function SupabaseAuthEmailSignIn({
   const [message, setMessage] = useState<string | null>(null);
   const intl = useIntl();
   const router = useI18nRouter();
+  const { locale } = useI18n();
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -43,12 +44,17 @@ export default function SupabaseAuthEmailSignIn({
 
     const emailRedirectTo =
       window.location.origin +
-      url.format({
-        pathname: '/auth/login-redirect',
-        query: {
-          next,
-        },
-      });
+      url.format(
+        i18nHref(
+          {
+            pathname: '/auth/login-redirect',
+            query: {
+              next,
+            },
+          },
+          locale,
+        ),
+      );
 
     const { error: signInError } = await supabaseClient.auth.signInWithPassword(
       {

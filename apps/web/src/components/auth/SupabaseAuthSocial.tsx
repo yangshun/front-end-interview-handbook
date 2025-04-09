@@ -7,6 +7,7 @@ import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 
 import logEvent from '~/logging/logEvent';
+import { i18nHref, useI18n } from '~/next-i18nostic/src';
 import type { SupabaseClientGFE } from '~/supabase/SupabaseServerGFE';
 
 import Alert from '../ui/Alert';
@@ -56,18 +57,24 @@ export default function SupabaseAuthSocial({
   const intl = useIntl();
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
+  const { locale } = useI18n();
 
   async function handleProviderSignIn(provider: SupabaseProviderGFE) {
     setLoading(true);
 
     const redirectTo =
       window.location.origin +
-      url.format({
-        pathname: '/auth/login-redirect',
-        query: {
-          next,
-        },
-      });
+      url.format(
+        i18nHref(
+          {
+            pathname: '/auth/login-redirect',
+            query: {
+              next,
+            },
+          },
+          locale,
+        ),
+      );
 
     const { error } = await supabaseClient.auth.signInWithOAuth({
       options: { redirectTo },

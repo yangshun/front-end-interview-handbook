@@ -1,8 +1,11 @@
 import { useEffect, useRef } from 'react';
+import url from 'url';
 
 import { trpc } from '~/hooks/trpc';
 
 import { useAuthSignedInBefore } from '~/components/auth/useAuthSignedInBefore';
+
+import { i18nHref, useI18n } from '~/next-i18nostic/src';
 
 import { useUser } from '@supabase/auth-helpers-react';
 
@@ -10,6 +13,7 @@ export default function useAuthFullPageRedirectAfterLogin(
   next: string | null | undefined,
 ) {
   const user = useUser();
+  const { locale } = useI18n();
   const [, setSignedInBefore] = useAuthSignedInBefore();
 
   const scheduleWelcomeSeriesEmailMutation =
@@ -45,6 +49,6 @@ export default function useAuthFullPageRedirectAfterLogin(
     // where we redirect to a new page that checks for signed in status
     // on the server side but the auth cookie is not yet written.
     // Do a full page redirect to prevent race conditions.
-    window.location.href = redirectPath;
-  }, [next, setSignedInBefore, user]);
+    window.location.href = url.format(i18nHref(redirectPath, locale));
+  }, [next, setSignedInBefore, user, locale]);
 }

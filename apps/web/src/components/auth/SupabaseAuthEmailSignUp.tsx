@@ -12,7 +12,7 @@ import CheckboxInput from '~/components/ui/CheckboxInput';
 import TextInput from '~/components/ui/TextInput';
 
 import logEvent from '~/logging/logEvent';
-import { useI18nRouter } from '~/next-i18nostic/src';
+import { i18nHref, useI18n, useI18nRouter } from '~/next-i18nostic/src';
 import type { SupabaseClientGFE } from '~/supabase/SupabaseServerGFE';
 
 import AuthTermsOfServiceLine from './AuthTermsOfServiceLine';
@@ -38,6 +38,7 @@ export default function SupabaseAuthEmailSignUp({
     trpc.emails.signUpForNewsletter.useMutation();
   const intl = useIntl();
   const router = useI18nRouter();
+  const { locale } = useI18n();
   const scheduleWelcomeSeriesEmailMutation =
     trpc.emails.scheduleWelcomeSeries.useMutation();
 
@@ -49,12 +50,17 @@ export default function SupabaseAuthEmailSignUp({
 
     const emailRedirectTo =
       window.location.origin +
-      url.format({
-        pathname: '/auth/login-redirect',
-        query: {
-          next,
-        },
-      });
+      url.format(
+        i18nHref(
+          {
+            pathname: '/auth/login-redirect',
+            query: {
+              next,
+            },
+          },
+          locale,
+        ),
+      );
 
     fbqGFE('track', 'CompleteRegistration');
 
