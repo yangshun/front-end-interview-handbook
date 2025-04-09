@@ -129,6 +129,11 @@ export default function UserInterfaceCodingWorkspaceWriteup({
                     id="QrHNsv"
                     values={{
                       saveName: save.name,
+                      strong: (chunk) => (
+                        <Text color="inherit" weight="medium">
+                          {chunk}
+                        </Text>
+                      ),
                     }}
                   />
                 </Text>
