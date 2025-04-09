@@ -1,4 +1,3 @@
-import { usePathname, useRouter } from 'next/navigation';
 import { useCallback, useEffect, useState } from 'react';
 
 import { trpc } from '~/hooks/trpc';
@@ -14,6 +13,7 @@ import {
   useMutationQuestionProgressDelete,
 } from '~/db/QuestionsProgressClient';
 import { hashQuestion } from '~/db/QuestionsUtils';
+import { useI18nPathname, useI18nRouter } from '~/next-i18nostic/src';
 
 import QuestionsUnifiedListWithFilters from './QuestionsUnifiedListWithFilters';
 import useQuestionsWithCompletionStatus from './useQuestionsWithCompletionStatus';
@@ -48,8 +48,8 @@ export default function QuestionsUnifiedListWithFiltersAndProgress({
   const intl = useIntl();
   const { showToast } = useToast();
   const user = useUser();
-  const router = useRouter();
-  const pathname = usePathname();
+  const router = useI18nRouter();
+  const { pathname } = useI18nPathname();
   const { signInUpHref } = useAuthSignInUp();
   const [
     automaticallyMarkCompleteQuestion,

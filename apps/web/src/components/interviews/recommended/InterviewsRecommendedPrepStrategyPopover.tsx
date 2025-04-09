@@ -1,5 +1,4 @@
 import clsx from 'clsx';
-import { usePathname } from 'next/navigation';
 import { FaCheck } from 'react-icons/fa6';
 import { RiArrowDownSLine, RiArrowRightLine } from 'react-icons/ri';
 
@@ -23,6 +22,7 @@ import Tooltip from '~/components/ui/Tooltip';
 import { getGuideCompletionCount } from '~/db/guides/GuidesUtils';
 import type { QuestionProgress } from '~/db/QuestionsProgressTypes';
 import { categorizeQuestionsProgress } from '~/db/QuestionsUtils';
+import { useI18nPathname } from '~/next-i18nostic/src';
 
 import { useUser } from '@supabase/auth-helpers-react';
 
@@ -98,7 +98,7 @@ function InterviewsRecommendedPrepStrategyPopoverContents({
     },
   ];
 
-  const pathname = usePathname();
+  const { pathname } = useI18nPathname();
 
   return (
     <>

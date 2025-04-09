@@ -1,12 +1,13 @@
 import clsx from 'clsx';
 import { last, reduce } from 'lodash-es';
-import { usePathname, useRouter } from 'next/navigation';
 
 import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
 
 import type { GuideCardMetadataWithCompletedStatus } from '~/components/guides/types';
 import Heading from '~/components/ui/Heading';
 import { themeTextColor } from '~/components/ui/theme';
+
+import { useI18nPathname, useI18nRouter } from '~/next-i18nostic/src';
 
 import GuidesCountLabel from './GuidesCountLabel';
 import GuidesList from './GuidesList';
@@ -24,8 +25,8 @@ type Props = Readonly<{
 }>;
 
 export default function GuidesListWithCategory({ guideItems }: Props) {
-  const router = useRouter();
-  const pathname = usePathname();
+  const router = useI18nRouter();
+  const { pathname } = useI18nPathname();
   const user = useUser();
   const { signInUpHref } = useAuthSignInUp();
   const { addQueryParamToPath, markGuideAsCompleted, markGuideAsNotCompleted } =

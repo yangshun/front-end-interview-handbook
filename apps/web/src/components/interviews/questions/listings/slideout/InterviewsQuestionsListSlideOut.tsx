@@ -1,5 +1,4 @@
 import clsx from 'clsx';
-import { useRouter } from 'next/navigation';
 import { parseAsBoolean, useQueryState } from 'nuqs';
 import { Suspense, useState } from 'react';
 import { RiFilterLine } from 'react-icons/ri';
@@ -19,6 +18,8 @@ import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
 import SlideOut from '~/components/ui/SlideOut';
 import { themeBackgroundGlimmerColor } from '~/components/ui/theme';
+
+import { useI18nRouter } from '~/next-i18nostic/src';
 
 import InterviewsQuestionsListSlideOutContents from './InterviewsQuestionsListSlideOutContents';
 import QuestionListingFilterButtonBadgeWrapper from '../filters/QuestionListingFilterButtonBadgeWrapper';
@@ -70,7 +71,7 @@ function InterviewsQuestionsListSlideOutImpl({
   );
   const isMobile = useMediaQuery('(max-width: 640px)');
   const isDesktop = useMediaQuery('(min-width: 1367px)');
-  const router = useRouter();
+  const router = useI18nRouter();
   const [currentListType, setCurrentListType] =
     useState<QuestionListTypeWithLabel>(initialListType);
   const filterNamespace = questionListFilterNamespace(currentListType);

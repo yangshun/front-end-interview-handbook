@@ -1,5 +1,4 @@
 import clsx from 'clsx';
-import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import {
   RiArrowDownSLine,
@@ -28,6 +27,8 @@ import TabsUnderline from '~/components/ui/Tabs/TabsUnderline';
 import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
 import { themeBackgroundCardColor } from '~/components/ui/theme';
+
+import { useI18nRouter } from '~/next-i18nostic/src';
 
 import InterviewsQuestionsListSlideOutQuestionList from './InterviewsQuestionsListSlideOutQuestionList';
 import QuestionListingFilterButtonBadgeWrapper from '../filters/QuestionListingFilterButtonBadgeWrapper';
@@ -210,7 +211,7 @@ export default function InterviewsQuestionsListSlideOutContents({
   onClickQuestion,
 }: Props) {
   const intl = useIntl();
-  const router = useRouter();
+  const router = useI18nRouter();
   const { userProfile } = useUserProfile();
 
   const [showFilters, setShowFilters] = useState(false);

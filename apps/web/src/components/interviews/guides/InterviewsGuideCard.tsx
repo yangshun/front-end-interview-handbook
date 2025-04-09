@@ -1,5 +1,4 @@
 import clsx from 'clsx';
-import { usePathname, useRouter } from 'next/navigation';
 import { useState } from 'react';
 import {
   RiArrowDownSLine,
@@ -29,6 +28,8 @@ import {
   themeTextBrandColor_GroupHover,
   themeTextSubtleColor,
 } from '~/components/ui/theme';
+
+import { useI18nPathname, useI18nRouter } from '~/next-i18nostic/src';
 
 import { useUser } from '@supabase/auth-helpers-react';
 
@@ -113,8 +114,8 @@ export default function InterviewsGuideCard({
 }: Props) {
   const intl = useIntl();
   const [isOpen, setIsOpen] = useState(false);
-  const router = useRouter();
-  const pathname = usePathname();
+  const router = useI18nRouter();
+  const { pathname } = useI18nPathname();
   const user = useUser();
   const { signInUpHref } = useAuthSignInUp();
   const { addQueryParamToPath, markGuideAsCompleted, markGuideAsNotCompleted } =
