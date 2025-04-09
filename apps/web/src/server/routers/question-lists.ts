@@ -33,8 +33,8 @@ import { getIntlClientOnly } from '~/i18n/getIntlClientOnly';
 import { publicProcedure, router } from '../trpc';
 
 export const questionListsRouter = router({
-  get: publicProcedure.query(async () => {
-    const intl = await getIntlClientOnly('en-US');
+  get: publicProcedure.query(async ({ ctx: { locale } }) => {
+    const intl = await getIntlClientOnly(locale);
 
     return await fetchQuestionLists(intl);
   }),
@@ -68,8 +68,9 @@ export const questionListsRouter = router({
           tab: tabInput,
           filters: filtersInput,
         },
+        ctx: { locale },
       }) => {
-        const intl = await getIntlClientOnly('en-US');
+        const intl = await getIntlClientOnly(locale);
         const tab =
           tabInput != null ? (tabInput as QuestionPracticeFormat) : undefined;
         const filters =
@@ -93,6 +94,7 @@ export const questionListsRouter = router({
           if (QuestionCompanies.includes(studyList as QuestionCompany)) {
             const studyListQuestions = await fetchQuestionsListForCompany(
               studyList as QuestionCompany,
+              locale,
             );
 
             return {
@@ -104,6 +106,7 @@ export const questionListsRouter = router({
 
           const studyListQuestions = await fetchQuestionsListByHash(
             studyListData?.questionHashes ?? [],
+            locale,
           );
 
           return {
@@ -123,7 +126,7 @@ export const questionListsRouter = router({
             type: 'framework',
             value: framework_,
           } as const;
-          const { questions } = await fetchQuestionsList(listType);
+          const { questions } = await fetchQuestionsList(listType, locale);
 
           return {
             listType,
@@ -140,7 +143,7 @@ export const questionListsRouter = router({
             value: format_,
           } as const;
 
-          const { questions } = await fetchQuestionsList(listType);
+          const { questions } = await fetchQuestionsList(listType, locale);
           const codingLabel = intl.formatMessage({
             defaultMessage: 'Coding',
             description: 'Question format',
@@ -165,7 +168,7 @@ export const questionListsRouter = router({
             type: 'language',
             value: language_,
           } as const;
-          const { questions } = await fetchQuestionsList(listType);
+          const { questions } = await fetchQuestionsList(listType, locale);
 
           return {
             listType,
@@ -186,7 +189,7 @@ export const questionListsRouter = router({
             type: 'practice',
             value: 'practice',
           } as const;
-          const { questions } = await fetchQuestionsList(listType);
+          const { questions } = await fetchQuestionsList(listType, locale);
 
           return {
             listType,
