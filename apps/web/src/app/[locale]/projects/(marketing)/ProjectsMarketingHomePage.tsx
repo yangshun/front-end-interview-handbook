@@ -4,6 +4,7 @@ import { useInView } from 'framer-motion';
 import dynamic from 'next/dynamic';
 import { useRef } from 'react';
 
+import AuthGoogleOneTap from '~/components/auth/AuthGoogleOneTap';
 import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
 import ProjectsMarketingFeaturedChallengesMarquee from '~/components/projects/marketing/ProjectsMarketingFeaturedChallengesMarquee';
 import ProjectsMarketingFeaturesRow from '~/components/projects/marketing/ProjectsMarketingFeaturesRow';
@@ -34,6 +35,7 @@ export default function ProjectsMarketingHomePage({
 
   return (
     <main className="bg-white pb-24 dark:bg-neutral-900">
+      <AuthGoogleOneTap next="/projects" />
       <ProjectsMarketingHero />
       <Section>
         <ProjectsMarketingFeaturedChallengesMarquee
