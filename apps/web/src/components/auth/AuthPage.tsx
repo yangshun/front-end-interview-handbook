@@ -35,80 +35,84 @@ export default function AuthPage({ view }: Props) {
   useAuthFullPageRedirectAfterLogin(nextSearchParam);
 
   return (
-    <Container
-      className={clsx('flex flex-col gap-y-6', 'py-8 md:py-12 lg:py-16')}
-      width="xl">
-      {!user ? (
-        <>
-          {error && (
-            <Text className="block" color="error" size="body1">
-              {error.message}
-            </Text>
-          )}
-          <SupabaseAuth
-            initialView={view}
-            next={nextSearchParam || '/interviews/dashboard'}
-            preBodyContents={
-              nextSearchParam === '/interviews/pricing' &&
-              sourceSearchParam === 'buy_now' ? (
-                <Alert
-                  title={intl.formatMessage({
-                    defaultMessage:
-                      'An account is required to purchase premium',
-                    description:
-                      'Title of alert requesting user to create an account to purchase premium plans',
-                    id: 'RnHcaK',
-                  })}
-                  variant="info">
-                  <FormattedMessage
-                    defaultMessage="Please create a free account in order to purchase the premium plans."
-                    description="Content of alert requesting user to create an account to purchase premium plans"
-                    id="C+WlY+"
-                  />
-                </Alert>
-              ) : sourceSearchParam === 'start_project' ? (
-                <Alert
-                  title={intl.formatMessage({
-                    defaultMessage:
-                      'An account is required to start a challenge',
-                    description:
-                      'Title for user to create an account before starting a project challenge',
-                    id: '+aMCjd',
-                  })}
-                  variant="info">
-                  <FormattedMessage
-                    defaultMessage="Please create a free account in order to start on project challenges."
-                    description="Prompting the user to create an account before starting a project challenge"
-                    id="PHuc2+"
-                  />
-                </Alert>
-              ) : undefined
-            }
-            providers={['google', 'github']}
-            socialLayout="horizontal"
-            supabaseClient={supabaseClient}
+    <Container className={clsx('flex flex-col items-center')} width="xl">
+      <div
+        className={clsx(
+          'w-full',
+          'flex max-w-sm flex-col gap-y-6',
+          'py-12 xl:py-20',
+        )}>
+        {!user ? (
+          <>
+            {error && (
+              <Text className="block" color="error" size="body1">
+                {error.message}
+              </Text>
+            )}
+            <SupabaseAuth
+              initialView={view}
+              next={nextSearchParam || '/interviews/dashboard'}
+              preBodyContents={
+                nextSearchParam === '/interviews/pricing' &&
+                sourceSearchParam === 'buy_now' ? (
+                  <Alert
+                    title={intl.formatMessage({
+                      defaultMessage:
+                        'An account is required to purchase premium',
+                      description:
+                        'Title of alert requesting user to create an account to purchase premium plans',
+                      id: 'RnHcaK',
+                    })}
+                    variant="info">
+                    <FormattedMessage
+                      defaultMessage="Please create a free account in order to purchase the premium plans."
+                      description="Content of alert requesting user to create an account to purchase premium plans"
+                      id="C+WlY+"
+                    />
+                  </Alert>
+                ) : sourceSearchParam === 'start_project' ? (
+                  <Alert
+                    title={intl.formatMessage({
+                      defaultMessage:
+                        'An account is required to start a challenge',
+                      description:
+                        'Title for user to create an account before starting a project challenge',
+                      id: '+aMCjd',
+                    })}
+                    variant="info">
+                    <FormattedMessage
+                      defaultMessage="Please create a free account in order to start on project challenges."
+                      description="Prompting the user to create an account before starting a project challenge"
+                      id="PHuc2+"
+                    />
+                  </Alert>
+                ) : undefined
+              }
+              providers={['google', 'github']}
+              supabaseClient={supabaseClient}
+            />
+          </>
+        ) : (
+          <EmptyState
+            subtitle={intl.formatMessage({
+              defaultMessage: 'Logging you in...',
+              description: 'Subtitle of AuthPage when logged in',
+              id: 'UotwsL',
+            })}
+            title={intl.formatMessage(
+              {
+                defaultMessage: 'Hello {userEmail}!',
+                description: 'Title of AuthPage when logged in',
+                id: '0IALGm',
+              },
+              {
+                userEmail: user.email,
+              },
+            )}
+            variant="login"
           />
-        </>
-      ) : (
-        <EmptyState
-          subtitle={intl.formatMessage({
-            defaultMessage: 'Logging you in...',
-            description: 'Subtitle of AuthPage when logged in',
-            id: 'UotwsL',
-          })}
-          title={intl.formatMessage(
-            {
-              defaultMessage: 'Hello {userEmail}!',
-              description: 'Title of AuthPage when logged in',
-              id: '0IALGm',
-            },
-            {
-              userEmail: user.email,
-            },
-          )}
-          variant="login"
-        />
-      )}
+        )}
+      </div>
     </Container>
   );
 }

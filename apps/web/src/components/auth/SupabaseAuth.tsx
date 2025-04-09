@@ -1,17 +1,23 @@
 import clsx from 'clsx';
 import { useSearchParams } from 'next/navigation';
 import React, { useState } from 'react';
+import { RiArrowLeftLine } from 'react-icons/ri';
 
-import { FormattedMessage } from '~/components/intl';
+import { FormattedMessage, useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
+import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
-import { themeBackgroundColor, themeBorderColor } from '~/components/ui/theme';
+import {
+  themeBackgroundColor,
+  themeBorderElementColor,
+} from '~/components/ui/theme';
 
 import logEvent from '~/logging/logEvent';
 import type { SupabaseClientGFE } from '~/supabase/SupabaseServerGFE';
 
+import SupabaseAuthContinueWithEmail from './SupabaseAuthContinueWithEmail';
 import SupabaseAuthEmailSignIn from './SupabaseAuthEmailSignIn';
 import SupabaseAuthEmailSignUp from './SupabaseAuthEmailSignUp';
 import SupabaseAuthForgottenPassword from './SupabaseAuthForgottenPassword';
@@ -44,6 +50,7 @@ export default function SupabaseAuth({
   next,
   onlyThirdPartyProviders = false,
 }: Props): JSX.Element | null {
+  const intl = useIntl();
   const [signedInBefore] = useAuthSignedInBefore();
   const [authView, setAuthView] = useState<AuthViewType>(
     initialView === 'sign_up' && signedInBefore ? 'sign_in' : initialView,
@@ -52,41 +59,81 @@ export default function SupabaseAuth({
   const searchParams = useSearchParams();
   const sourceSearchParam = searchParams?.get('source');
 
+  const isAuthScreenWithSocial =
+    authView === 'sign_in' || authView === 'sign_up';
+
+  const showThirdPartyProviders =
+    hasThirdPartyProviders && isAuthScreenWithSocial;
+
+  function getAuthHeading() {
+    switch (authView) {
+      case 'sign_in':
+        return sourceSearchParam === 'track_progress'
+          ? intl.formatMessage({
+              defaultMessage: 'Sign in to track your progress',
+              description: 'Subtitle of Sign In page',
+              id: 'ClNAgn',
+            })
+          : intl.formatMessage({
+              defaultMessage: 'Sign in to your account',
+              description: 'Subtitle of Sign In page',
+              id: 'urvIL3',
+            });
+      case 'sign_up':
+        return intl.formatMessage({
+          defaultMessage: 'Create a new account',
+          description: 'Subtitle of Sign Up page',
+          id: 'KtYnhS',
+        });
+      case 'sign_in_with_email':
+        return intl.formatMessage({
+          defaultMessage: 'Sign in with email',
+          description: 'Subtitle of Sign Up page',
+          id: '7A1yG8',
+        });
+      case 'sign_up_with_email':
+        return intl.formatMessage({
+          defaultMessage: 'Sign up with email',
+          description: 'Subtitle of Sign Up page',
+          id: 'vo/aU3',
+        });
+      default:
+        return '';
+    }
+  }
+
   function Container({ children }: Readonly<{ children: React.ReactNode }>) {
     return (
       <div className={className}>
-        <div className="flex flex-col gap-y-6">
-          <div className="flex flex-col gap-y-10">
-            <div className="flex flex-col gap-y-2">
-              <Heading className="text-center" level="heading5">
-                {authView === 'sign_in' ? (
-                  sourceSearchParam === 'track_progress' ? (
-                    <FormattedMessage
-                      defaultMessage="Sign in to track your progress"
-                      description="Subtitle of Sign In page"
-                      id="ClNAgn"
-                    />
-                  ) : (
-                    <FormattedMessage
-                      defaultMessage="Sign in to your account"
-                      description="Subtitle of Sign In page"
-                      id="urvIL3"
-                    />
-                  )
-                ) : (
-                  <FormattedMessage
-                    defaultMessage="Create a new account"
-                    description="Subtitle of Sign Up page"
-                    id="KtYnhS"
+        <div className="flex flex-col gap-y-8">
+          <div className="flex flex-col gap-y-8">
+            <div className="flex flex-col gap-y-1.5">
+              {!isAuthScreenWithSocial && !onlyThirdPartyProviders && (
+                <div>
+                  <Button
+                    addonPosition="start"
+                    icon={RiArrowLeftLine}
+                    label={intl.formatMessage({
+                      defaultMessage: 'Back',
+                      description: 'Button label for back button',
+                      id: 'Dq9yul',
+                    })}
+                    size="xs"
+                    variant="tertiary"
+                    onClick={() => setAuthView('sign_in')}
                   />
-                )}
+                </div>
+              )}
+              <Heading className="text-center" level="heading5">
+                {getAuthHeading()}
               </Heading>
               <Section>
                 <Text
                   className="block text-center"
                   color="secondary"
                   size="body2">
-                  {authView === 'sign_in' && (
+                  {(authView === 'sign_in' ||
+                    authView === 'sign_in_with_email') && (
                     <FormattedMessage
                       defaultMessage="Don't have an account? <link>Sign up for free</link>"
                       description="Prompt for account creation on Email Sign In page"
@@ -105,7 +152,7 @@ export default function SupabaseAuth({
                                   'Don\t have an account? Sign up for free',
                                 namespace: 'auth',
                               });
-                              setAuthView('sign_up');
+                              setAuthView('sign_up_with_email');
                             }}>
                             {chunks}
                           </Anchor>
@@ -113,7 +160,8 @@ export default function SupabaseAuth({
                       }}
                     />
                   )}
-                  {authView === 'sign_up' && (
+                  {(authView === 'sign_up' ||
+                    authView === 'sign_up_with_email') && (
                     <FormattedMessage
                       defaultMessage="Already have an account? <link>Sign in</link>"
                       description="Prompt for sign in on Email Sign Up page"
@@ -126,7 +174,7 @@ export default function SupabaseAuth({
                               e: React.MouseEvent<HTMLAnchorElement>,
                             ) => {
                               e.preventDefault();
-                              setAuthView('sign_in');
+                              setAuthView('sign_in_with_email');
                               logEvent('click', {
                                 element: 'Auth page sign in button',
                                 label: 'Already have an account? Sign in',
@@ -142,31 +190,37 @@ export default function SupabaseAuth({
                 </Text>
               </Section>
             </div>
-            <Section>
-              <div className="flex flex-col gap-y-12">
-                {preBodyContents}
-                <SupabaseAuthSocial
-                  layout={socialLayout}
-                  next={next}
-                  providers={providers}
-                  supabaseClient={supabaseClient}
-                />
-              </div>
-            </Section>
+            {(showThirdPartyProviders || preBodyContents) && (
+              <Section>
+                <div className="flex flex-col gap-y-12">
+                  {preBodyContents}
+                  {showThirdPartyProviders && (
+                    <SupabaseAuthSocial
+                      layout={socialLayout}
+                      next={next}
+                      providers={providers}
+                      supabaseClient={supabaseClient}
+                    />
+                  )}
+                </div>
+              </Section>
+            )}
           </div>
           <Section>
-            {hasThirdPartyProviders && (
+            {showThirdPartyProviders && !onlyThirdPartyProviders && (
               <div className="relative">
                 <div className="absolute inset-0 flex items-center">
-                  <div className={clsx('w-full border-t', themeBorderColor)} />
+                  <div
+                    className={clsx('w-full border-t', themeBorderElementColor)}
+                  />
                 </div>
                 <div className="relative flex justify-center">
                   <span className={clsx('px-2', themeBackgroundColor)}>
                     <Text color="secondary" size="body2">
                       <FormattedMessage
-                        defaultMessage="Or continue with"
+                        defaultMessage="Or"
                         description="Label of divider preceding third party providers on Sign In page"
-                        id="ugHQqC"
+                        id="fTy7F4"
                       />
                     </Text>
                   </span>
@@ -182,6 +236,16 @@ export default function SupabaseAuth({
 
   switch (authView) {
     case 'sign_in':
+    case 'sign_up':
+      return (
+        <Container>
+          <SupabaseAuthContinueWithEmail
+            authView={authView}
+            setAuthView={setAuthView}
+          />
+        </Container>
+      );
+    case 'sign_in_with_email':
       return (
         <Container>
           <SupabaseAuthEmailSignIn
@@ -191,7 +255,7 @@ export default function SupabaseAuth({
           />
         </Container>
       );
-    case 'sign_up':
+    case 'sign_up_with_email':
       return (
         <Container>
           <SupabaseAuthEmailSignUp

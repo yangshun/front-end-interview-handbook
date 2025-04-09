@@ -1943,6 +1943,10 @@
     "defaultMessage": "Let's begin!",
     "description": "Title for Start Coding content section on Before You Get Started dialog"
   },
+  "7A1yG8": {
+    "defaultMessage": "Sign in with email",
+    "description": "Subtitle of Sign Up page"
+  },
   "7AiLO9": {
     "defaultMessage": "GreatFrontEnd Projects now in BETA! {percentage}% off with {promoCode}",
     "description": "Text on Promo Banner"
@@ -5975,6 +5979,10 @@
     "defaultMessage": "Welcome to the Premium Club for GreatFrontEnd Interviews!",
     "description": "Welcome message for premium club members after payment success"
   },
+  "QIsW99": {
+    "defaultMessage": "Continue with Email",
+    "description": "Label of email sign in button on Sign In page"
+  },
   "QJTIr/": {
     "defaultMessage": "Can't find the answer you are looking for?",
     "description": "Marketing page section subtitle"
@@ -9387,6 +9395,10 @@
     "defaultMessage": "Choose your ad formats, go live schedule, and upload assets",
     "description": "Advertise request form ads section description"
   },
+  "fTy7F4": {
+    "defaultMessage": "Or",
+    "description": "Label of divider preceding third party providers on Sign In page"
+  },
   "fUhxFj": {
     "defaultMessage": "Resubscribe",
     "description": "Resubscribe button"
@@ -12419,10 +12431,6 @@
     "defaultMessage": "All challenges",
     "description": "All projects item label"
   },
-  "uCbhIG": {
-    "defaultMessage": "Go back to sign in",
-    "description": "Label of link to return to Sign In Page on Password Reset page"
-  },
   "uEiI+F": {
     "defaultMessage": "{category} Interview Questions",
     "description": "OG image title of framework and language page"
@@ -12526,10 +12534,6 @@
   "ufyNP1": {
     "defaultMessage": "Created: Newest to oldest",
     "description": "Sorting option for projects list - sort by created"
-  },
-  "ugHQqC": {
-    "defaultMessage": "Or continue with",
-    "description": "Label of divider preceding third party providers on Sign In page"
   },
   "ui3oY9": {
     "defaultMessage": "Level {currentLevel}",
@@ -12738,6 +12742,10 @@
   "vmqlMW": {
     "defaultMessage": "Gain expertise in handling commonly asked question formats in front end interviews",
     "description": "Description for question formats section"
+  },
+  "vo/aU3": {
+    "defaultMessage": "Sign up with email",
+    "description": "Subtitle of Sign Up page"
   },
   "voGLL8": {
     "defaultMessage": "Explore our Advertising Opportunities",

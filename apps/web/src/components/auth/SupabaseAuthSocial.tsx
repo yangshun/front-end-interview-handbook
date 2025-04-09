@@ -103,7 +103,7 @@ export default function SupabaseAuthSocial({
     <div className="flex flex-col gap-y-2">
       <div
         className={clsx(
-          'flex flex-col gap-y-3',
+          'flex flex-col gap-y-4',
           layout === 'horizontal' && 'gap-x-4 lg:flex-row',
         )}>
         {providers.map((provider) => {
@@ -115,7 +115,7 @@ export default function SupabaseAuthSocial({
               className={clsx(layout === 'horizontal' && 'grow')}>
               <Button
                 addonPosition="start"
-                className="rounded-lg dark:!bg-neutral-800/40 dark:hover:!bg-neutral-700/40 dark:active:!bg-neutral-600/40"
+                className="rounded-md dark:!bg-neutral-800/40 dark:hover:!bg-neutral-700/40 dark:active:!bg-neutral-600/40"
                 display="block"
                 icon={icon}
                 isDisabled={loading}
