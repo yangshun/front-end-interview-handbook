@@ -17,8 +17,30 @@ type Props = Readonly<{
   path: string;
 }>;
 
+const betterAsyncError = (error: TestError): TestError => {
+  // Check if the error is a timeout error related to async code
+  if (
+    error.message?.includes('Exceeded timeout') &&
+    error.message?.includes('jest.setTimeout(newTimeout)')
+  ) {
+    // Create a more beginner-friendly error message
+    return {
+      ...error,
+      message: `Your test is taking too long to complete. This usually happens with asynchronous code that doesn't properly resolve. Common causes include:
+
+- Missing await for async functions
+- Promises that never resolve
+- Infinite loops
+
+Original error: ${error.message}`,
+    };
+  }
+
+  return error;
+};
+
 export default function FormattedError({ error }: Props) {
-  const html = formatDiffMessage(error);
+  const html = formatDiffMessage(betterAsyncError(error));
 
   if (!html) {
     return null;
