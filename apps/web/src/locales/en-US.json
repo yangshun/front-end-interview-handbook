@@ -6151,10 +6151,6 @@
     "defaultMessage": "Company Guides:",
     "description": "Paragraph 3 for \"What does GreatFrontEnd Interviews offer exactly?\" on Homepage FAQ sections"
   },
-  "QrHNsv": {
-    "defaultMessage": "You are currently editing code from the saved version: <strong>\"{saveName}\"</strong>.",
-    "description": "Viewing saved version alert message"
-  },
   "QrikGf": {
     "defaultMessage": "Copy to clipboard",
     "description": "Button label for copy button"
@@ -6386,6 +6382,10 @@
   "RfVhtP": {
     "defaultMessage": "Use now",
     "description": "Button label for use now button"
+  },
+  "Rhsmgb": {
+    "defaultMessage": "You are viewing save from a user. The modifications will not be persisted.",
+    "description": "Coding workspace viewing solution code message"
   },
   "RjpadL": {
     "defaultMessage": "Reference practical guides, learn from other's submissions and ask any questions in the",
@@ -12510,6 +12510,10 @@
   "u6wB20": {
     "defaultMessage": "Mark post as (optional):",
     "description": "Mark post as optional label"
+  },
+  "u8wdZe": {
+    "defaultMessage": "You are currently editing code from the saved version: <strong>{saveName}</strong>.",
+    "description": "Viewing saved version alert message"
   },
   "uA9EBK": {
     "defaultMessage": "Prepare for specific companies by learning insider tips and practicing known questions.",

@@ -124,9 +124,9 @@ export default function UserInterfaceCodingWorkspaceWriteup({
               <div className="flex flex-col items-start gap-2">
                 <Text className="block" size="body2">
                   <FormattedMessage
-                    defaultMessage='You are currently editing code from the saved version: <strong>"{saveName}"</strong>.'
+                    defaultMessage="You are currently editing code from the saved version: <strong>{saveName}</strong>."
                     description="Viewing saved version alert message"
-                    id="QrHNsv"
+                    id="u8wdZe"
                     values={{
                       saveName: save.name,
                       strong: (chunk) => (

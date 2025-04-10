@@ -27,6 +27,7 @@ import type { QuestionUserInterfaceSave } from '@prisma/client';
 type Props = Readonly<{
   canViewPremiumContent: boolean;
   embed?: boolean;
+  isViewingSave: boolean;
   nextQuestions: ReadonlyArray<QuestionMetadata>;
   question: QuestionUserInterface;
   save: QuestionUserInterfaceSave;
@@ -38,6 +39,7 @@ export default function UserInterfaceCodingWorkspaceSavesPage({
   nextQuestions,
   question,
   save,
+  isViewingSave,
   similarQuestions,
   embed = false,
 }: Props) {
@@ -76,10 +78,12 @@ export default function UserInterfaceCodingWorkspaceSavesPage({
             canViewPremiumContent={canViewPremiumContent}
             defaultFiles={defaultFiles}
             embed={embed}
+            isViewingSave={isViewingSave}
             loadedFilesFromLocalStorage={false}
             mode="practice"
             nextQuestions={nextQuestions}
             question={question}
+            saveFilesToLocalStorage={false}
             similarQuestions={similarQuestions}
             onFrameworkChange={(value, contentType) => {
               const frameworkValue = value as QuestionFramework;

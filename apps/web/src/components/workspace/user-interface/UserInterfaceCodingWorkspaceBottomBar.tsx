@@ -25,6 +25,7 @@ import CodingWorkspaceTimer from '../common/CodingWorkspaceTimer';
 type Props = Readonly<{
   framework: QuestionFramework;
   frameworkSolutionPath: string;
+  isViewingSave: boolean;
   metadata: QuestionMetadata;
   mode: QuestionUserInterfaceMode;
   nextQuestions: ReadonlyArray<QuestionMetadata>;
@@ -36,6 +37,7 @@ type Props = Readonly<{
 
 export default function UserInterfaceCodingWorkspaceBottomBar({
   framework,
+  isViewingSave,
   frameworkSolutionPath,
   metadata,
   question,
@@ -132,20 +134,22 @@ export default function UserInterfaceCodingWorkspaceBottomBar({
       <div className="hidden lg:inline">
         <CodingWorkspaceTimer qnMetadata={metadata} />
       </div>
-      <QuestionProgressAction
-        metadata={metadata}
-        signInModalContents={
-          nextQuestions &&
-          nextQuestions.length > 0 && (
-            <div className="mt-4 space-y-4">
-              <Divider />
-              <QuestionNextQuestions questions={nextQuestions} />
-            </div>
-          )
-        }
-        studyListKey={studyListKey}
-      />
-      {mode === 'practice' ? (
+      {!isViewingSave ? (
+        <QuestionProgressAction
+          metadata={metadata}
+          signInModalContents={
+            nextQuestions &&
+            nextQuestions.length > 0 && (
+              <div className="mt-4 space-y-4">
+                <Divider />
+                <QuestionNextQuestions questions={nextQuestions} />
+              </div>
+            )
+          }
+          studyListKey={studyListKey}
+        />
+      ) : null}
+      {mode === 'practice' && !isViewingSave ? (
         <div className="hidden min-[450px]:block">
           <UserInterfaceCodingWorkspaceSaveButton
             question={question}

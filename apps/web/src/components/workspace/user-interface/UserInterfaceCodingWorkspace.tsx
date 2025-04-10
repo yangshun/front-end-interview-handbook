@@ -78,6 +78,8 @@ const UserInterfaceCodingWorkspaceTilesPanelRoot =
 
 function UserInterfaceCodingWorkspaceImpl({
   canViewPremiumContent,
+  isViewingSave,
+  saveFilesToLocalStorage,
   defaultFiles,
   embed,
   frameworkSolutionPath,
@@ -93,6 +95,7 @@ function UserInterfaceCodingWorkspaceImpl({
   defaultFiles: SandpackFiles;
   embed: boolean;
   frameworkSolutionPath: string;
+  isViewingSave: boolean;
   loadedFilesFromLocalStorage: boolean;
   mode: QuestionUserInterfaceMode;
   nextQuestions: ReadonlyArray<QuestionMetadata>;
@@ -101,6 +104,7 @@ function UserInterfaceCodingWorkspaceImpl({
     contentType: 'description' | 'solution',
   ) => void;
   question: QuestionUserInterface;
+  saveFilesToLocalStorage: boolean;
   similarQuestions: ReadonlyArray<QuestionMetadata>;
   studyListKey?: string;
 }>) {
@@ -123,7 +127,7 @@ function UserInterfaceCodingWorkspaceImpl({
   useSandpackModuleErrorRefreshBrowser();
 
   useEffect(() => {
-    if (mode === 'practice') {
+    if (mode === 'practice' && saveFilesToLocalStorage) {
       saveUserInterfaceQuestionCodeLocally(question, sandpack.files);
     }
   });
@@ -189,6 +193,7 @@ function UserInterfaceCodingWorkspaceImpl({
         contents: (
           <UserInterfaceCodingWorkspaceCodeEditor
             filePath={filePath}
+            isViewingSave={isViewingSave}
             showNotSavedBanner={mode === 'solution'}
           />
         ),
@@ -382,6 +387,7 @@ function UserInterfaceCodingWorkspaceImpl({
             contents: (
               <UserInterfaceCodingWorkspaceCodeEditor
                 filePath={filePath}
+                isViewingSave={isViewingSave}
                 showNotSavedBanner={mode === 'solution'}
               />
             ),
@@ -475,6 +481,7 @@ function UserInterfaceCodingWorkspaceImpl({
           <UserInterfaceCodingWorkspaceBottomBar
             framework={framework}
             frameworkSolutionPath={frameworkSolutionPath}
+            isViewingSave={isViewingSave}
             metadata={metadata}
             mode={mode}
             nextQuestions={nextQuestions}
@@ -539,6 +546,7 @@ function UserInterfaceCodingWorkspaceImpl({
                               contents: (
                                 <UserInterfaceCodingWorkspaceCodeEditor
                                   filePath={data.payload.file}
+                                  isViewingSave={isViewingSave}
                                   showNotSavedBanner={mode === 'solution'}
                                 />
                               ),
@@ -571,6 +579,7 @@ function UserInterfaceCodingWorkspaceImpl({
           <UserInterfaceCodingWorkspaceBottomBar
             framework={framework}
             frameworkSolutionPath={frameworkSolutionPath}
+            isViewingSave={isViewingSave}
             metadata={metadata}
             mode={mode}
             nextQuestions={nextQuestions}
@@ -587,10 +596,12 @@ function UserInterfaceCodingWorkspaceImpl({
 
 export default function UserInterfaceCodingWorkspace({
   activeTabScrollIntoView = true,
+  isViewingSave = false,
   canViewPremiumContent,
   embed,
   defaultFiles,
   loadedFilesFromLocalStorage,
+  saveFilesToLocalStorage = true,
   mode,
   question,
   nextQuestions,
@@ -602,6 +613,7 @@ export default function UserInterfaceCodingWorkspace({
   canViewPremiumContent: boolean;
   defaultFiles: SandpackFiles;
   embed: boolean;
+  isViewingSave?: boolean;
   loadedFilesFromLocalStorage: boolean;
   mode: QuestionUserInterfaceMode;
   nextQuestions: ReadonlyArray<QuestionMetadata>;
@@ -610,6 +622,7 @@ export default function UserInterfaceCodingWorkspace({
     contentType: 'description' | 'solution',
   ) => void;
   question: QuestionUserInterface;
+  saveFilesToLocalStorage?: boolean;
   similarQuestions: ReadonlyArray<QuestionMetadata>;
   studyListKey?: string;
 }>) {
@@ -637,10 +650,12 @@ export default function UserInterfaceCodingWorkspace({
         defaultFiles={defaultFiles}
         embed={embed}
         frameworkSolutionPath={frameworkSolutionPath}
+        isViewingSave={isViewingSave}
         loadedFilesFromLocalStorage={loadedFilesFromLocalStorage}
         mode={mode}
         nextQuestions={nextQuestions}
         question={question}
+        saveFilesToLocalStorage={saveFilesToLocalStorage}
         similarQuestions={similarQuestions}
         studyListKey={studyListKey}
         onFrameworkChange={onFrameworkChange}

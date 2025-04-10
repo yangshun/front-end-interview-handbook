@@ -96,6 +96,8 @@ export default async function Page({ params }: Props) {
     return profile?.premium ?? false;
   })();
 
+  const isSaveOwner = save.userId === viewer?.id;
+
   const question = await readQuestionUserInterface(
     slug,
     isViewerPremium,
@@ -152,6 +154,7 @@ export default async function Page({ params }: Props) {
   return (
     <UserInterfaceCodingWorkspaceSavesPage
       canViewPremiumContent={isViewerPremium}
+      isViewingSave={!isSaveOwner}
       nextQuestions={nextQuestions}
       question={question}
       save={save!}

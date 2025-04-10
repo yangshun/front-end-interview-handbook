@@ -24,8 +24,10 @@ import { useSandpack } from '@codesandbox/sandpack-react';
 export default function UserInterfaceCodingWorkspaceCodeEditor({
   filePath,
   showNotSavedBanner,
+  isViewingSave = false,
 }: Readonly<{
   filePath: string;
+  isViewingSave?: boolean;
   showNotSavedBanner: boolean;
 }>) {
   const { sandpack } = useSandpack();
@@ -170,6 +172,16 @@ export default function UserInterfaceCodingWorkspaceCodeEditor({
               'You are viewing the solution code. Changes will not be saved.',
             description: 'Coding workspace viewing solution code message',
             id: '2ttaph',
+          })}
+        </Banner>
+      )}
+      {isViewingSave && (
+        <Banner size="xs" truncate={true} variant="primary">
+          {intl.formatMessage({
+            defaultMessage:
+              'You are viewing save from a user. The modifications will not be persisted.',
+            description: 'Coding workspace viewing solution code message',
+            id: 'Rhsmgb',
           })}
         </Banner>
       )}
