@@ -24,18 +24,18 @@ jobs:
       - name: Install dependencies
         run: pnpm install
       - name: Rename original en-US.json file
-        run: mv apps/web/src/locales/en-US.json apps/web/src/locales/en-US.json.original
+        run: mv apps/web/src/locales/raw/en-US.json apps/web/src/locales/raw/en-US.json.original
         working-directory: ${{ github.workspace }}
       - name: Extract i18n messages
         run: pnpm i18n:extract
         working-directory: apps/web
       - name: 'Update i18n messages if required'
         run: |
-          if ! diff -u apps/web/src/locales/en-US.json apps/web/src/locales/en-US.json.original; then
+          if ! diff -u apps/web/src/locales/raw/en-US.json apps/web/src/locales/raw/en-US.json.original; then
             git config user.email "github-actions[bot]@users.noreply.github.com"
             git config user.name "GitHub Actions"
-            rm apps/web/src/locales/en-US.json.original
-            git add apps/web/src/locales/en-US.json
+            rm apps/web/src/locales/raw/en-US.json.original
+            git add apps/web/src/raw/locales/en-US.json
             git commit -m "i18n: update en-US.json file"
             git push
             echo "Note: en-US.json file updated and committed."
