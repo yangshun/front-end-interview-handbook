@@ -5,18 +5,20 @@ import { useSearchParams } from 'next/navigation';
 
 import useAuthFullPageRedirectAfterLogin from '~/hooks/user/useAuthFullPageRedirectAfterLogIn';
 
-import SupabaseAuth from '~/components/auth/SupabaseAuth';
-import { FormattedMessage, useIntl } from '~/components/intl';
-import Alert from '~/components/ui/Alert';
+import { useIntl } from '~/components/intl';
 import EmptyState from '~/components/ui/EmptyState';
 
-import { useSupabaseClientGFE } from '~/supabase/SupabaseClientGFE';
-
+import AuthForm from './AuthForm';
+import AuthTestimonialSlider from './AuthTestimonialSlider';
 import type { AuthViewType } from './SupabaseAuthTypes';
-import Container from '../ui/Container';
-import Text from '../ui/Text';
+import ScrollArea from '../ui/ScrollArea';
+import {
+  themeBackgroundCardWhiteOnLightColor,
+  themeBackgroundDarkColor,
+  themeBorderColor,
+} from '../ui/theme';
 
-import { useSessionContext, useUser } from '@supabase/auth-helpers-react';
+import { useUser } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
   view: AuthViewType;
@@ -24,95 +26,73 @@ type Props = Readonly<{
 
 export default function AuthPage({ view }: Props) {
   const intl = useIntl();
-  const { error } = useSessionContext();
-  const supabaseClient = useSupabaseClientGFE();
   const user = useUser();
 
   const searchParams = useSearchParams();
   const nextSearchParam = searchParams?.get('next');
-  const sourceSearchParam = searchParams?.get('source');
 
   useAuthFullPageRedirectAfterLogin(nextSearchParam);
 
   return (
-    <Container className={clsx('flex flex-col items-center')} width="xl">
+    <div
+      className={clsx(
+        'flex w-full',
+        '-mt-[var(--global-sticky-height)] min-h-[calc(100vh_-_var(--global-sticky-height))]',
+        themeBackgroundDarkColor,
+      )}>
       <div
         className={clsx(
-          'w-full',
-          'flex max-w-sm flex-col gap-y-6',
-          'py-12 xl:py-20',
+          'w-full xl:max-w-none',
+          'max-lg:px-6 xl:w-[586px]',
+          'flex justify-center',
+          ['xl:border-r', themeBorderColor],
+          themeBackgroundCardWhiteOnLightColor,
         )}>
-        {!user ? (
-          <>
-            {error && (
-              <Text className="block" color="error" size="body1">
-                {error.message}
-              </Text>
-            )}
-            <SupabaseAuth
-              initialView={view}
-              next={nextSearchParam || '/interviews/dashboard'}
-              preBodyContents={
-                nextSearchParam === '/interviews/pricing' &&
-                sourceSearchParam === 'buy_now' ? (
-                  <Alert
-                    title={intl.formatMessage({
-                      defaultMessage:
-                        'An account is required to purchase premium',
-                      description:
-                        'Title of alert requesting user to create an account to purchase premium plans',
-                      id: 'RnHcaK',
-                    })}
-                    variant="info">
-                    <FormattedMessage
-                      defaultMessage="Please create a free account in order to purchase the premium plans."
-                      description="Content of alert requesting user to create an account to purchase premium plans"
-                      id="C+WlY+"
-                    />
-                  </Alert>
-                ) : sourceSearchParam === 'start_project' ? (
-                  <Alert
-                    title={intl.formatMessage({
-                      defaultMessage:
-                        'An account is required to start a challenge',
-                      description:
-                        'Title for user to create an account before starting a project challenge',
-                      id: '+aMCjd',
-                    })}
-                    variant="info">
-                    <FormattedMessage
-                      defaultMessage="Please create a free account in order to start on project challenges."
-                      description="Prompting the user to create an account before starting a project challenge"
-                      id="PHuc2+"
-                    />
-                  </Alert>
-                ) : undefined
-              }
-              providers={['google', 'github']}
-              supabaseClient={supabaseClient}
+        <div
+          className={clsx(
+            'mx-auto w-full',
+            'flex max-w-sm flex-col gap-y-6 xl:justify-center',
+            'pb-12 pt-28 sm:pt-32 xl:py-12',
+          )}>
+          {!user ? (
+            <AuthForm view={view} />
+          ) : (
+            <EmptyState
+              subtitle={intl.formatMessage({
+                defaultMessage: 'Logging you in...',
+                description: 'Subtitle of AuthPage when logged in',
+                id: 'UotwsL',
+              })}
+              title={intl.formatMessage(
+                {
+                  defaultMessage: 'Hello {userEmail}!',
+                  description: 'Title of AuthPage when logged in',
+                  id: '0IALGm',
+                },
+                {
+                  userEmail: user.email,
+                },
+              )}
+              variant="login"
             />
-          </>
-        ) : (
-          <EmptyState
-            subtitle={intl.formatMessage({
-              defaultMessage: 'Logging you in...',
-              description: 'Subtitle of AuthPage when logged in',
-              id: 'UotwsL',
-            })}
-            title={intl.formatMessage(
-              {
-                defaultMessage: 'Hello {userEmail}!',
-                description: 'Title of AuthPage when logged in',
-                id: '0IALGm',
-              },
-              {
-                userEmail: user.email,
-              },
-            )}
-            variant="login"
-          />
-        )}
+          )}
+        </div>
       </div>
-    </Container>
+      <ScrollArea
+        className="hidden flex-1 pt-[var(--global-sticky-height)] xl:block"
+        viewportClass={clsx(
+          'h-[calc(100vh_-_var(--global-sticky-height))]',
+          'flex',
+        )}>
+        <div
+          className={clsx(
+            'min-h-[calc(100vh_-_var(--global-sticky-height))] w-full',
+            'flex items-center justify-center',
+            'pb-[var(--global-sticky-height)]',
+          )}>
+          <AuthTestimonialSlider />
+        </div>
+      </ScrollArea>
+    </div>
   );
 }

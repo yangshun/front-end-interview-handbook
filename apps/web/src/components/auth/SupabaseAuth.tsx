@@ -10,7 +10,7 @@ import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 import {
-  themeBackgroundColor,
+  themeBackgroundCardWhiteOnLightColor,
   themeBorderElementColor,
 } from '~/components/ui/theme';
 
@@ -38,6 +38,7 @@ export type Props = Readonly<{
   socialLayout?: 'horizontal' | 'vertical';
   style?: React.CSSProperties;
   supabaseClient: SupabaseClientGFE;
+  variant?: 'compact' | 'full';
 }>;
 
 export default function SupabaseAuth({
@@ -49,6 +50,7 @@ export default function SupabaseAuth({
   initialView = 'sign_in',
   next,
   onlyThirdPartyProviders = false,
+  variant = 'full',
 }: Props): JSX.Element | null {
   const intl = useIntl();
   const [signedInBefore] = useAuthSignedInBefore();
@@ -107,7 +109,13 @@ export default function SupabaseAuth({
       <div className={className}>
         <div className="flex flex-col gap-y-8">
           <div className="flex flex-col gap-y-8">
-            <div className="flex flex-col gap-y-1.5">
+            <div
+              className={clsx(
+                'flex flex-col gap-y-1.5',
+                variant === 'full'
+                  ? 'items-center xl:items-start'
+                  : 'items-start',
+              )}>
               {!isAuthScreenWithSocial && !onlyThirdPartyProviders && (
                 <div>
                   <Button
@@ -124,7 +132,9 @@ export default function SupabaseAuth({
                   />
                 </div>
               )}
-              <Heading className="text-center" level="heading5">
+              <Heading
+                className="text-center"
+                level={variant === 'full' ? 'heading5' : 'heading6'}>
                 {getAuthHeading()}
               </Heading>
               <Section>
@@ -214,7 +224,11 @@ export default function SupabaseAuth({
                   />
                 </div>
                 <div className="relative flex justify-center">
-                  <span className={clsx('px-2', themeBackgroundColor)}>
+                  <span
+                    className={clsx(
+                      'px-2',
+                      themeBackgroundCardWhiteOnLightColor,
+                    )}>
                     <Text color="secondary" size="body2">
                       <FormattedMessage
                         defaultMessage="Or"

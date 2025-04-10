@@ -47,6 +47,7 @@ import useInterviewsSidebarLinks from './useInterviewsSidebarLinks';
 import { useUser } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
+  bgClassName?: string;
   bottomBorder?: boolean;
   hideAdvertiseWithUsBadge?: boolean;
   hideOnDesktop?: boolean;
@@ -56,6 +57,7 @@ export default function InterviewsNavbar({
   bottomBorder = true,
   hideOnDesktop = false,
   hideAdvertiseWithUsBadge,
+  bgClassName = 'bg-white dark:bg-neutral-900/60',
 }: Props) {
   const user = useUser();
   const isLoggedIn = user != null;
@@ -97,7 +99,7 @@ export default function InterviewsNavbar({
       className={clsx(
         'z-fixed sticky top-[var(--banner-height)]',
         bottomBorder && ['border-b', themeBorderColor],
-        translucent ? 'backdrop-blur' : 'bg-white dark:bg-neutral-900/60',
+        translucent ? 'backdrop-blur' : bgClassName,
         'transition-[background-color]',
         hideOnDesktop && 'lg:hidden',
       )}>
