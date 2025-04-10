@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "translate": "langnostic translate",
-    "translate:init": "langnostic init"
+    "i18n": "langnostic translate",
+    "langnostic": "langnostic"
   },
   "keywords": [],
   "devDependencies": {

@@ -10,5 +10,25 @@
   "+3r4Ek": {
     "defaultMessage": "Selecione um formato de anúncio para exibir, você pode criar vários anúncios",
     "description": "Ad format selection description"
+  },
+  "FJQZpc": {
+    "defaultMessage": "{numberOfQuestions, plural, =1 {<number>#</number> pergunta} other {<number>#</number> perguntas}}",
+    "description": "Number of applied filters"
+  },
+  "GUGImr": {
+    "defaultMessage": "{offerCount, plural,=1 {1 oferta} other {# ofertas}}",
+    "description": "Testimonials overview"
+  },
+  "HTxeQV": {
+    "defaultMessage": "<bold>{credits}</bold>/{totalCredits} créditos premium restantes <tooltip>premium credits</tooltip>",
+    "description": "Number of premium credits left"
+  },
+  "O0WPJA": {
+    "defaultMessage": "Importar o progresso de <bold>{questionCount}</bold> {questionCount, plural, one {pergunta} other {perguntas}} concluídas anteriormente",
+    "description": "Tooltip for import button on import progress dialog"
+  },
+  "xbSTzm": {
+    "defaultMessage": "<authorLink>{author}</authorLink> deixou um comentário em <submissionLink>{entityTitle}</submissionLink> {timestamp}",
+    "description": "Notification for comment left on your submission"
   }
 }

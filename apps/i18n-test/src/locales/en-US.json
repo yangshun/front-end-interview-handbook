@@ -22,5 +22,13 @@
   "O0WPJA": {
     "defaultMessage": "Import the progress of <bold>{questionCount}</bold> previously completed {questionCount, plural, one {question} other {questions}}",
     "description": "Tooltip for import button on import progress dialog"
+  },
+  "HTxeQV": {
+    "defaultMessage": "<bold>{credits}</bold>/{totalCredits} <tooltip>premium credits</tooltip> left",
+    "description": "Number of premium credits left"
+  },
+  "xbSTzm": {
+    "defaultMessage": "<authorLink>{author}</authorLink> left a comment on <submissionLink>{entityTitle}</submissionLink> {timestamp}",
+    "description": "Notification for comment left on your submission"
   }
 }

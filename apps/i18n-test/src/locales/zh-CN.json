@@ -10,5 +10,25 @@
   "+3r4Ek": {
     "defaultMessage": "选择要展示的广告格式，您可以创建多个广告",
     "description": "Ad format selection description"
+  },
+  "FJQZpc": {
+    "defaultMessage": "{numberOfQuestions, plural, =1 {<number>#</number> 问题} other {<number>#</number> 问题}}",
+    "description": "Number of applied filters"
+  },
+  "GUGImr": {
+    "defaultMessage": "{offerCount, plural,=1 {1 个报价} other {# 个报价}}",
+    "description": "Testimonials overview"
+  },
+  "HTxeQV": {
+    "defaultMessage": "<bold>{credits}</bold>/{totalCredits} 剩余 <tooltip>高级积分</tooltip>",
+    "description": "Number of premium credits left"
+  },
+  "O0WPJA": {
+    "defaultMessage": "导入之前已完成的 <bold>{questionCount}</bold> {questionCount, plural, one {问题} other {问题}} 的进度",
+    "description": "Tooltip for import button on import progress dialog"
+  },
+  "xbSTzm": {
+    "defaultMessage": "<authorLink>{author}</authorLink> 在 <submissionLink>{entityTitle}</submissionLink> 上留了一条评论 {timestamp}",
+    "description": "Notification for comment left on your submission"
   }
 }
