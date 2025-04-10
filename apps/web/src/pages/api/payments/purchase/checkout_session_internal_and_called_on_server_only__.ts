@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import Stripe from 'stripe';
+import url from 'url';
 
 import absoluteUrl from '~/lib/absoluteUrl';
 import { normalizeCurrencyValue } from '~/lib/stripeUtils';
@@ -11,6 +12,8 @@ import type { InterviewsPricingPlanType } from '~/components/interviews/purchase
 import fetchProjectsPricingPlanPaymentConfigLocalizedRecord from '~/components/projects/purchase/fetchProjectsPricingPlanPaymentConfigLocalizedRecord';
 import type { PurchasePricingPlanPaymentConfigLocalized } from '~/components/purchase/PurchaseTypes';
 
+import i18nHref from '~/next-i18nostic/src/utils/i18nHref';
+
 import type { ProjectsSubscriptionPlan } from '@prisma/client';
 
 type BaseCheckoutQueryParams = Readonly<{
@@ -20,6 +23,8 @@ type BaseCheckoutQueryParams = Readonly<{
   country_code: string;
   // First promoter tracking ID.
   first_promoter_tid?: string;
+  // Locale
+  locale: string;
   // Email to send the receipt to.
   receipt_email?: string;
   // Stripe customer ID (cus_xxxxx).
@@ -65,6 +70,7 @@ export default async function handler(
     receipt_email: receiptEmail,
     product_domain: productDomain,
     plan_type: planType,
+    locale,
   } = req.query as CheckoutQueryParams;
 
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
@@ -118,6 +124,7 @@ export default async function handler(
       planPaymentConfig,
       currency,
       unitAmountInStripeFormat,
+      locale,
       firstPromoterTrackingId,
     );
   }
@@ -132,6 +139,7 @@ export default async function handler(
       planPaymentConfig,
       currency,
       unitAmountInStripeFormat,
+      locale,
       receiptEmail,
       firstPromoterTrackingId,
     );
@@ -147,6 +155,7 @@ async function processSubscriptionPlan(
   planPaymentConfig: PurchasePricingPlanPaymentConfigLocalized,
   currency: string,
   unitAmountInCurrency: number,
+  locale: string,
   firstPromoterTrackingId?: string,
 ) {
   const { recurring, urls, productId } = planPaymentConfig;
@@ -166,7 +175,8 @@ async function processSubscriptionPlan(
 
   const cancelUrl = (() => {
     const baseCancelUrl = new URL(
-      queryParams.cancel_url || origin + urls.cancel,
+      queryParams.cancel_url ||
+        origin + url.format(i18nHref(urls.cancel, locale)),
     );
 
     baseCancelUrl.searchParams.set('checkout_cancel', '1');
@@ -175,7 +185,9 @@ async function processSubscriptionPlan(
     return baseCancelUrl.toString();
   })();
   const successUrl = (() => {
-    const baseSuccessUrl = new URL(origin + urls.success);
+    const baseSuccessUrl = new URL(
+      origin + url.format(i18nHref(urls.success, locale)),
+    );
 
     baseSuccessUrl.searchParams.set('plan', planType);
 
@@ -225,6 +237,7 @@ async function processOneTimePlan(
   planPaymentConfig: PurchasePricingPlanPaymentConfigLocalized,
   currency: string,
   unitAmountInCurrency: number,
+  locale: string,
   receiptEmail?: string,
   firstPromoterTrackingId?: string,
 ) {
@@ -234,7 +247,8 @@ async function processOneTimePlan(
 
   const cancelUrl = (() => {
     const baseCancelUrl = new URL(
-      queryParams.cancel_url || origin + urls.cancel,
+      queryParams.cancel_url ||
+        origin + url.format(i18nHref(urls.cancel, locale)),
     );
 
     baseCancelUrl.searchParams.set('checkout_cancel', '1');
@@ -243,7 +257,9 @@ async function processOneTimePlan(
     return baseCancelUrl.toString();
   })();
   const successUrl = (() => {
-    const baseSuccessUrl = new URL(origin + urls.success);
+    const baseSuccessUrl = new URL(
+      origin + url.format(i18nHref(urls.success, locale)),
+    );
 
     baseSuccessUrl.searchParams.set('plan', planType);
 

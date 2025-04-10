@@ -143,12 +143,14 @@ export default async function handler(req: NextRequest) {
     const planType = searchParams.get('plan_type');
     const cancelUrl = searchParams.get('cancel_url');
     const countryCode = resolveCountryCode(req) ?? 'US';
+    const locale = searchParams.get('locale') ?? 'en-US';
 
     const commonQueryParams = {
       cancel_url: cancelUrl ?? '',
       country_code: countryCode,
       // First Promoter tracking ID.
       first_promoter_tid: req.cookies.get('_fprom_tid')?.value,
+      locale,
       receipt_email: user?.email,
       stripe_customer_id: stripeCustomerId,
       'x-vercel-protection-bypass': process.env.VERCEL_AUTOMATION_BYPASS_SECRET,

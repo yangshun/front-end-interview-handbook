@@ -53,6 +53,8 @@ import {
 } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
+import { useI18n } from '~/next-i18nostic/src';
+
 import InterviewsPaymentFailureDialog from './InterviewsPaymentFailureDialog';
 import PurchaseBlockCard from '../../purchase/PurchaseBlockCard';
 import { MAXIMUM_PPP_CONVERSION_FACTOR_TO_DISPLAY_BEFORE_PRICE } from '../../purchase/PurchasePricingConfig';
@@ -158,6 +160,7 @@ function PricingButtonNonPremium({
 }>) {
   const intl = useIntl();
   const user = useUser();
+  const { locale } = useI18n();
   const { userProfile, isUserProfileLoading } = useUserProfile();
   const checkoutInitiateEmailMutation =
     trpc.emails.checkoutInitiate.useMutation();
@@ -189,6 +192,7 @@ function PricingButtonNonPremium({
             cancel_url: useCurrentPageAsCancelUrl
               ? window.location.href
               : undefined,
+            locale,
             plan_type: planType,
             product_domain: 'interviews',
           },
