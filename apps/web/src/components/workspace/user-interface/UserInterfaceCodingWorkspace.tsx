@@ -76,6 +76,24 @@ import { useMonaco } from '@monaco-editor/react';
 const UserInterfaceCodingWorkspaceTilesPanelRoot =
   TilesPanelRoot<UserInterfaceCodingWorkspaceTabsType>;
 
+// Find files that are not in defaultFiles but exist in sandpack.files
+const getNonDefaultFiles = (
+  sandpackFiles: SandpackFiles,
+  defaultFiles: SandpackFiles,
+) => {
+  const nonDefaultFiles: Array<string> = [];
+
+  if (sandpackFiles) {
+    Object.keys(sandpackFiles).forEach((filePath) => {
+      if (!defaultFiles[filePath]) {
+        nonDefaultFiles.push(filePath);
+      }
+    });
+  }
+
+  return nonDefaultFiles;
+};
+
 function UserInterfaceCodingWorkspaceImpl({
   canViewPremiumContent,
   isViewingSave,
@@ -181,6 +199,14 @@ function UserInterfaceCodingWorkspaceImpl({
 
   function resetToDefaultCode() {
     deleteCodeFromLocalStorage();
+
+    const nonDefaultFiles = getNonDefaultFiles(sandpack.files, defaultFiles);
+
+    if (nonDefaultFiles.length > 0) {
+      nonDefaultFiles.forEach((filePath) => {
+        sandpack.deleteFile(filePath);
+      });
+    }
     sandpack.updateFile(defaultFiles);
   }
 
