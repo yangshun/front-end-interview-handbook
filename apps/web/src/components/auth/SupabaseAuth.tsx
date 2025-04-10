@@ -199,7 +199,6 @@ export default function SupabaseAuth({
                       layout={socialLayout}
                       next={next}
                       providers={providers}
-                      supabaseClient={supabaseClient}
                     />
                   )}
                 </div>

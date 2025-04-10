@@ -1,5 +1,6 @@
 'use client';
 
+import AuthOneClickSignupCard from '~/components/auth/AuthOneClickSignupCard';
 import InterviewsGuideCard from '~/components/interviews/guides/InterviewsGuideCard';
 import InterviewsQuestionsCategoryContentSlider from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryContentSlider';
 import QuestionsProgressPanel from '~/components/interviews/questions/listings/stats/QuestionsProgressPanel';
@@ -257,6 +258,14 @@ Don’t leave your success to chance—prepare smarter with the Tech Interview H
               </Text>
             </div>
           </Ticket>
+        </UIExamplesGroup>
+      </Section>
+      <Container>
+        <Heading level="heading3">Auth</Heading>
+      </Container>
+      <Section>
+        <UIExamplesGroup darkMode="horizontal">
+          <AuthOneClickSignupCard />
         </UIExamplesGroup>
       </Section>
     </CardContainer>

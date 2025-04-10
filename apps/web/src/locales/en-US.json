@@ -5099,6 +5099,10 @@
     "defaultMessage": "Robust framework",
     "description": "Features for frontend system design playbook page"
   },
+  "Lsk0wX": {
+    "defaultMessage": "Join GreatFrontEnd in 1 click",
+    "description": "Auth card title"
+  },
   "Ludb5F": {
     "defaultMessage": "Our platform was built to support community-driven development. From project discussion to code reviews and approach sharing, you will never feel alone in your learning.",
     "description": "Description of 'Learn together' feature in Projects marketing page"
@@ -7979,6 +7983,10 @@
     "defaultMessage": "Written by ex-FAANG senior devs",
     "description": "Title of 'Written by ex-FAANG senior devs' sub-feature in Projects marketing page"
   },
+  "ZEPn1r": {
+    "defaultMessage": "or",
+    "description": "Label for or"
+  },
   "ZFDU0d": {
     "defaultMessage": "Woohoo!",
     "description": "Toast title for project session started"
@@ -10095,6 +10103,10 @@
     "defaultMessage": "No community contributions",
     "description": "Title for empty state when there are no contributions"
   },
+  "iwMZfR": {
+    "defaultMessage": "Sign up with Github",
+    "description": "Auth card button label"
+  },
   "iyzDmo": {
     "defaultMessage": "Submission summary",
     "description": "Form label"
@@ -10986,6 +10998,10 @@
   "n1Wo2N": {
     "defaultMessage": "The address is used in the agreement",
     "description": "Address section description"
+  },
+  "n1m6Nx": {
+    "defaultMessage": "The place for front end engineers. Upskill, ace interviews, get inspired.",
+    "description": "Auth card description"
   },
   "n2GSsV": {
     "defaultMessage": "Tech stack used",
@@ -12154,6 +12170,10 @@
   "soQjY2": {
     "defaultMessage": "You upvoted this",
     "description": "Tooltip for upvoted submission button"
+  },
+  "sr38Pg": {
+    "defaultMessage": "Sign up with email",
+    "description": "Auth card button label"
   },
   "ssyz8C": {
     "defaultMessage": "Testimonials",
@@ -13418,6 +13438,10 @@
   "z9RrSL": {
     "defaultMessage": "JavaScript Coding Interview Questions",
     "description": "Social title for JavaScript coding question format page"
+  },
+  "z9Ymn4": {
+    "defaultMessage": "Sign up with",
+    "description": "Auth card button label"
   },
   "z9d6Ys": {
     "defaultMessage": "Specific locations this ad will be shown",
