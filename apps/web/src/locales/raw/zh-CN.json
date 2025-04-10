@@ -1339,6 +1339,10 @@
     "defaultMessage": "重置进度",
     "description": "Label to reset study plan progress"
   },
+  "4IaHW9": {
+    "defaultMessage": "您的代码将被保存到数据库中，并可以从 <bold>\"已保存版本\"</bold> 选项卡中检索。",
+    "description": "Coding workspace save code dialog description"
+  },
   "4Iumke": {
     "defaultMessage": "GreatFrontEnd 对于保持我的面试技能与时俱进至关重要。在 GFE 出现并提供了一种很好的方法来保持编码、系统设计、UI 和前端琐事的敏锐度之前，标准的前端准备工作实际上并不存在。在我的职业生涯中，我使用 GFE 来通过初创公司的面试，甚至通过 FAANG 的面试。强烈推荐给任何前端工程师。",
     "description": "User testimonial for GreatFrontEnd Interviews"
@@ -1454,10 +1458,6 @@
   "4uyrtd": {
     "defaultMessage": "高级工程师的指南和解决方案，以及来自<link>社区</link>的代码审查",
     "description": "Caption for Projects marketing hero section community feature"
-  },
-  "4zR7Wh": {
-    "defaultMessage": "您的代码将保存到数据库中，并可从<bold>\"已保存版本\"</bold>选项卡中检索。",
-    "description": "Coding workspace save code dialog description"
   },
   "50kzzq": {
     "defaultMessage": "选择题目形式",
@@ -4012,7 +4012,7 @@
     "description": "Description for \"Help others review their code and answer questions\" feature on Projects home page"
   },
   "HTxeQV": {
-    "defaultMessage": "<bold>{credits}</bold>/<totalCredits> <tooltip>高级积分</tooltip> 剩余",
+    "defaultMessage": "<bold>{credits}</bold>/{totalCredits} <tooltip>高级积分</tooltip> 剩余",
     "description": "Number of premium credits left"
   },
   "HUASHd": {
@@ -5916,7 +5916,7 @@
     "description": "Button CTA to encourage upgrading"
   },
   "Q0sZmk": {
-    "defaultMessage": "如果存在关联帐户，将发送包含密码重置说明的电子邮件。",
+    "defaultMessage": "如果存在关联帐户，则会发送一封包含密码重置说明的电子邮件",
     "description": "Message indicating a successful password reset request"
   },
   "Q0yp+r": {
@@ -6100,7 +6100,7 @@
     "description": "Paragraph 3 for \"What does GreatFrontEnd Interviews offer exactly?\" on Homepage FAQ sections"
   },
   "QrHNsv": {
-    "defaultMessage": "您目前正在编辑保存版本中的代码：<strong>\"{saveName}\"</strong>。",
+    "defaultMessage": "您当前正在编辑来自已保存版本的代码：<strong>\"{saveName}\"</strong>。",
     "description": "Viewing saved version alert message"
   },
   "QrikGf": {
@@ -9839,10 +9839,6 @@
     "defaultMessage": "取消 GreatFrontEnd Interviews 订阅后会发生什么？",
     "description": "Question on Purchase's FAQ section - on the consequences of cancelling the subscription on the interview platform"
   },
-  "hVdKww": {
-    "defaultMessage": "高级版为 <strong>认真的学习者和构建者</strong> 提供了额外的福利。 这包括访问底层的 Figma 文件、官方指南和解决方案，以及完全访问我们技能路线图上的所有节点和所有可用的组件轨道。",
-    "description": "Answer to 'Is GreatFrontEnd Projects free?' on projects FAQs"
-  },
   "hW0hdr": {
     "defaultMessage": "在使用您的联盟链接后的 {days} 天内，每笔购买均可获得高达 {percent}% 的慷慨佣金。 邀请越多，赚得越多 - 佣金无上限，无额外费用。",
     "description": "Affiliate program commission section subtitle"
@@ -12031,6 +12027,10 @@
     "defaultMessage": "账单 | 设置",
     "description": "Title of billing page"
   },
+  "sF+kBL": {
+    "defaultMessage": "高级版为<strong>认真的学习者和构建者</strong>提供了额外的福利。 这包括访问底层的 Figma 文件、官方指南和解决方案，以及完全访问我们技能路线图上的所有节点和所有可用的组件轨道。",
+    "description": "Answer to 'Is GreatFrontEnd Projects free?' on projects FAQs"
+  },
   "sGgZ9N": {
     "defaultMessage": "选择您在此项目中将使用的其他技能",
     "description": "Dialog title for skills section"
@@ -12420,7 +12420,7 @@
     "description": "All projects item label"
   },
   "uCbhIG": {
-    "defaultMessage": "返回以登录",
+    "defaultMessage": "返回登录",
     "description": "Label of link to return to Sign In Page on Password Reset page"
   },
   "uEiI+F": {
@@ -12528,7 +12528,7 @@
     "description": "Sorting option for projects list - sort by created"
   },
   "ugHQqC": {
-    "defaultMessage": "通过以下方式继续",
+    "defaultMessage": "或继续使用",
     "description": "Label of divider preceding third party providers on Sign In page"
   },
   "ui3oY9": {
@@ -13076,7 +13076,7 @@
     "description": "Placeholder for body input"
   },
   "xbSTzm": {
-    "defaultMessage": "<作者链接>{作者}</作者链接> 在 <提交链接>{实体标题}</提交链接> 上发表评论 {时间戳}",
+    "defaultMessage": "<authorLink>{作者}</authorLink> 在 <submissionLink>{实体标题}</submissionLink> 上发表评论 {timestamp}",
     "description": "Notification for comment left on your submission"
   },
   "xbmWBx": {

@@ -1339,6 +1339,10 @@
     "defaultMessage": "Reset progress",
     "description": "Label to reset study plan progress"
   },
+  "4IaHW9": {
+    "defaultMessage": "Your code will be saved into the database and can be retrieved from the <bold>\"Saved versions\"</bold> tab.",
+    "description": "Coding workspace save code dialog description"
+  },
   "4Iumke": {
     "defaultMessage": "GreatFrontEnd has been instrumental to keep my interviewing skills up-to-date. Standard frontend prep did not really exist until GFE came along and provided a good way to keep sharp on coding, system design, UI, and frontend trivia. Throughout my career, I have used GFE to nail startup interviews, and even nail FAANG. Would highly recommend to any Front End Engineer.",
     "description": "User testimonial for GreatFrontEnd Interviews"
@@ -1454,10 +1458,6 @@
   "4uyrtd": {
     "defaultMessage": "Guides & solutions from Sr. Engineers and code reviews from <link>community</link>",
     "description": "Caption for Projects marketing hero section community feature"
-  },
-  "4zR7Wh": {
-    "defaultMessage": "Your code will be saved into the database and can be retrieved from the <bold>\"{Saved versions}\"</bold> tab.",
-    "description": "Coding workspace save code dialog description"
   },
   "50kzzq": {
     "defaultMessage": "Select question format",
@@ -9839,10 +9839,6 @@
     "defaultMessage": "What happens when my GreatFrontEnd Interviews subscription is cancelled?",
     "description": "Question on Purchase's FAQ section - on the consequences of cancelling the subscription on the interview platform"
   },
-  "hVdKww": {
-    "defaultMessage": "Premium provides additional benefits for{' '} <strong>serious learners and builders</strong>. This includes access to underlying Figma files, official guides and solutions, as well as complete access to all nodes on our skill roadmap and all available component tracks.",
-    "description": "Answer to 'Is GreatFrontEnd Projects free?' on projects FAQs"
-  },
   "hW0hdr": {
     "defaultMessage": "Earn a generous {percent}% commission on every purchase within {days} days of using your affiliate link. Earn as much as you refer - no limits to payouts, no frills.",
     "description": "Affiliate program commission section subtitle"
@@ -12030,6 +12026,10 @@
   "sCpKTY": {
     "defaultMessage": "Billing | Settings",
     "description": "Title of billing page"
+  },
+  "sF+kBL": {
+    "defaultMessage": "Premium provides additional benefits for <strong>serious learners and builders</strong>. This includes access to underlying Figma files, official guides and solutions, as well as complete access to all nodes on our skill roadmap and all available component tracks.",
+    "description": "Answer to 'Is GreatFrontEnd Projects free?' on projects FAQs"
   },
   "sGgZ9N": {
     "defaultMessage": "Choose additional skills you will use in this project",

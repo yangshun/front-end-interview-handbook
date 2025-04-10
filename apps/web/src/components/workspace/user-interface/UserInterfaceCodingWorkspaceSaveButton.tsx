@@ -193,9 +193,9 @@ function NewSaveButton({
         <div className="flex flex-col gap-y-3">
           <Text className="block" color="secondary" size="inherit">
             <FormattedMessage
-              defaultMessage='Your code will be saved into the database and can be retrieved from the <bold>"{Saved versions}"</bold> tab.'
+              defaultMessage='Your code will be saved into the database and can be retrieved from the <bold>"Saved versions"</bold> tab.'
               description="Coding workspace save code dialog description"
-              id="4zR7Wh"
+              id="4IaHW9"
               values={{
                 bold: (chunks) => <Text weight="medium">{chunks}</Text>,
               }}

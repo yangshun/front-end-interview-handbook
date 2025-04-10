@@ -9,8 +9,8 @@ export default {
       name: 'app',
       paths: [
         {
-          source: './src/locales/en-US.json',
-          target: './src/locales/{locale}.json',
+          source: './src/locales/raw/en-US.json',
+          target: './src/locales/raw/{locale}.json',
         },
       ],
       plugin: 'json',
