@@ -6,6 +6,7 @@ import { RiArrowLeftLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
+import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
@@ -217,27 +218,16 @@ export default function SupabaseAuth({
           </div>
           <Section>
             {showThirdPartyProviders && !onlyThirdPartyProviders && (
-              <div className="relative">
-                <div className="absolute inset-0 flex items-center">
-                  <div
-                    className={clsx('w-full border-t', themeBorderElementColor)}
+              <div className="relative flex items-center justify-center gap-2">
+                <Divider />
+                <Text color="secondary" size="body2">
+                  <FormattedMessage
+                    defaultMessage="Or"
+                    description="Label of divider preceding third party providers on Sign In page"
+                    id="fTy7F4"
                   />
-                </div>
-                <div className="relative flex justify-center">
-                  <span
-                    className={clsx(
-                      'px-2',
-                      themeBackgroundCardWhiteOnLightColor,
-                    )}>
-                    <Text color="secondary" size="body2">
-                      <FormattedMessage
-                        defaultMessage="Or"
-                        description="Label of divider preceding third party providers on Sign In page"
-                        id="fTy7F4"
-                      />
-                    </Text>
-                  </span>
-                </div>
+                </Text>
+                <Divider />
               </div>
             )}
             {!onlyThirdPartyProviders && children}

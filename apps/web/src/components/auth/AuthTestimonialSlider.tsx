@@ -2,6 +2,8 @@ import clsx from 'clsx';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 
+import { InterviewsMarketingTestimonialsDict } from '~/components/interviews/marketing/testimonials/InterviewsMarketingTestimonials';
+import { useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Avatar from '~/components/ui/Avatar';
 import Divider from '~/components/ui/Divider';
@@ -10,7 +12,6 @@ import Text, { textVariants } from '~/components/ui/Text';
 import { themeTextSubtitleColor } from '~/components/ui/theme';
 
 import LogoComboMark from '../global/logos/LogoComboMark';
-import useInterviewsMarketingSliderTestimonials from '../interviews/marketing/testimonials/useInterviewsMarketingSliderTestimonials';
 
 type TestimonialCardProps = Readonly<{
   anonymous: boolean;
@@ -117,18 +118,24 @@ type Props = Readonly<{
 }>;
 
 export default function AuthTestimonialSlider({ variant = 'full' }: Props) {
-  const testimonials = useInterviewsMarketingSliderTestimonials();
-  // Filter out Luca and Fernando testimonials because it's too long for auth page
-  const authTestimonials = testimonials.filter(
-    (testimonial) => testimonial.id !== 'luca' && testimonial.id !== 'fernando',
-  );
+  const intl = useIntl();
+  const testimonials = InterviewsMarketingTestimonialsDict(intl);
+  const authTestimonials = [
+    testimonials.cliffordFung,
+    testimonials.kiaanCastillo,
+    testimonials.yugantJoshi,
+    testimonials.deannaTran,
+    testimonials.locChuong,
+    testimonials.edWang,
+    testimonials.lunghaoLee,
+  ];
   const [currentIndex, setCurrentIndex] = useState(0);
-  const timer = useRef<NodeJS.Timeout>();
+  const timer = useRef<ReturnType<typeof setInterval>>();
 
   useEffect(() => {
     timer.current = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % authTestimonials.length);
-    }, 750);
+    }, 5000);
 
     return () => {
       window.clearInterval(timer.current);

@@ -59,6 +59,7 @@ const domainsConfig = Object.freeze({
     'omail.edu.pl',
     'outlook.edu.pl',
     'ozel.edu.pl',
+    'ozkadem.edu.pl',
     'pbl.edu.pl',
     'privmail.edu.pl',
     'promail.edu.pl',
