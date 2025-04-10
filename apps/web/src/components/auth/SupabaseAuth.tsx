@@ -162,7 +162,7 @@ export default function SupabaseAuth({
                                   'Don\t have an account? Sign up for free',
                                 namespace: 'auth',
                               });
-                              setAuthView('sign_up_with_email');
+                              setAuthView('sign_up');
                             }}>
                             {chunks}
                           </Anchor>
@@ -184,7 +184,7 @@ export default function SupabaseAuth({
                               e: React.MouseEvent<HTMLAnchorElement>,
                             ) => {
                               e.preventDefault();
-                              setAuthView('sign_in_with_email');
+                              setAuthView('sign_in');
                               logEvent('click', {
                                 element: 'Auth page sign in button',
                                 label: 'Already have an account? Sign in',
