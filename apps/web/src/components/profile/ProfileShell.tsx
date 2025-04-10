@@ -37,6 +37,7 @@ type ProfileTabItem =
   | 'activity'
   | 'billing'
   | 'coupons'
+  | 'saved-code'
   | 'security';
 
 type ProfileTabItemData = Readonly<{
@@ -88,6 +89,15 @@ export default function ProfileShell({ user, children }: Props) {
       }),
       value: 'coupons',
     },
+    'saved-code': {
+      href: '/profile/saved-code',
+      label: intl.formatMessage({
+        defaultMessage: 'Saved Code',
+        description: 'Profile saved code tab title',
+        id: 'hBKne8',
+      }),
+      value: 'saved-code',
+    },
     security: {
       href: '/profile/security',
       label: intl.formatMessage({
@@ -105,6 +115,7 @@ export default function ProfileShell({ user, children }: Props) {
     tabsData.billing,
     tabsData.security,
     tabsData.coupons,
+    tabsData['saved-code'],
   ];
 
   return (

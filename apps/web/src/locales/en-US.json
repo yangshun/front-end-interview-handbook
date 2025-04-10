@@ -1231,6 +1231,10 @@
     "defaultMessage": "Search quiz questions",
     "description": "Search placeholder"
   },
+  "3oxN4J": {
+    "defaultMessage": "Delete",
+    "description": "Label for button to confirm selected code deletion"
+  },
   "3pEuVX": {
     "defaultMessage": "{questionCount}+ most important Svelte interview questions covering stores, bindings, reactivity, lifecycle, and building interactive components.",
     "description": "Subtitle for questions list page"
@@ -1519,6 +1523,10 @@
     "defaultMessage": "Component tracks are collections of components which make up component libraries for specific practical use cases e.g. Marketing, E-Commerce, or even design systems. Building component tracks can leave a strong impression on potential employers and recruiters, showcasing your expertise and versatility in building a variety of components for common use cases, which is much more impressive than building individual projects.",
     "description": "Answer to 'What is unique about GreatFrontEnd Projects vs other challenge platforms?' on projects FAQs"
   },
+  "5GaoPj": {
+    "defaultMessage": "All saved code has been deleted",
+    "description": "Message shown when all code deletion succeeds"
+  },
   "5Gjt4J": {
     "defaultMessage": "Something went wrong. Try again later or contact <link>support@greatfrontend.com</link>!",
     "description": "Error toast for project"
@@ -1678,6 +1686,10 @@
   "5ykFzo": {
     "defaultMessage": "You replied to <bold>yourself</bold> on the submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for you replying to yourself on a submission"
+  },
+  "6/PYvE": {
+    "defaultMessage": "All your saved code will be deleted. This is an irreversible action, are you sure you want to proceed?",
+    "description": "Warning message in delete all confirmation dialog"
   },
   "6/Qdew": {
     "defaultMessage": "Start project",
@@ -2166,6 +2178,10 @@
   "8ADLgY": {
     "defaultMessage": "For a profile URL like <bold>https://x.com/john-doe</bold>, your handle would be <bold>john-doe</bold>.",
     "description": "Rewards campaign help text"
+  },
+  "8CGpxx": {
+    "defaultMessage": "Selected saved code has been deleted",
+    "description": "Message shown when selected code deletion succeeds"
   },
   "8Eo8Y5": {
     "defaultMessage": "Behavioral Interview Playbook",
@@ -3067,6 +3083,10 @@
     "defaultMessage": "<authorProfileLink>{author}</authorProfileLink> posted on the challenge forum for <link>{challengeTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for someone making a post on the challenge forum"
   },
+  "CfMmxQ": {
+    "defaultMessage": "Select {question} for deletion",
+    "description": "Aria label for checkbox to select code for deletion"
+  },
   "CfSKv4": {
     "defaultMessage": "Other skills you are using which are not within the skills roadmap. Also helps community members understand more about the tech stack. If you don't see the tag you need, email us.",
     "description": "Description for \"Other tech stack used\" text input"
@@ -3526,6 +3546,10 @@
   "EvFlpz": {
     "defaultMessage": "Covers critical topics",
     "description": "Features for question format page"
+  },
+  "EzJjsH": {
+    "defaultMessage": "Delete selected saved code",
+    "description": "Title for delete selected confirmation dialog"
   },
   "F+4T7/": {
     "defaultMessage": "Only Marketing track",
@@ -4407,6 +4431,10 @@
     "defaultMessage": "Atlassian",
     "description": "Company name for Atlassian"
   },
+  "J6uo0d": {
+    "defaultMessage": "Manage your automatically saved code from the editor locally stored on this device.",
+    "description": "Subtext for list of saved code."
+  },
   "J7VxuG": {
     "defaultMessage": "Social Rewards Discount",
     "description": "Promotion title"
@@ -4666,6 +4694,10 @@
   "KBBRmA": {
     "defaultMessage": "While working on project",
     "description": "Hint for \"Tips, Resources and Discussions\" tab on Projects project page"
+  },
+  "KBMxvc": {
+    "defaultMessage": "No saved code",
+    "description": "Text shown when no code is saved."
   },
   "KBewzV": {
     "defaultMessage": "Before you get started",
@@ -5471,6 +5503,10 @@
     "defaultMessage": "No such page",
     "description": "No such page error"
   },
+  "Nw1F0J": {
+    "defaultMessage": "Select all",
+    "description": "Label for checkbox to select all saved code"
+  },
   "Nz7W/0": {
     "defaultMessage": "Oops something went wrong",
     "description": "Error message"
@@ -5762,6 +5798,10 @@
   "PLPXbS": {
     "defaultMessage": "Multi-page & fully-functional apps",
     "description": "Label for apps feature"
+  },
+  "PM7TAj": {
+    "defaultMessage": "Delete all saved code",
+    "description": "Title for delete all confirmation dialog"
   },
   "PMbV3v": {
     "defaultMessage": "See more available slots",
@@ -7967,6 +8007,10 @@
     "defaultMessage": "Access to all component tracks",
     "description": "Answer to 'Why is it worth it to buy Premium?' on projects FAQs"
   },
+  "Z7YvHU": {
+    "defaultMessage": "Saved Code",
+    "description": "Heading for list of saved code."
+  },
   "Z7vm1S": {
     "defaultMessage": "Structured roadmap for learning",
     "description": "Answer to 'What is unique about GreatFrontEnd Projects vs other challenge platforms?' on projects FAQs"
@@ -9259,6 +9303,10 @@
     "defaultMessage": "Less",
     "description": "Label for less contribution"
   },
+  "etONbq": {
+    "defaultMessage": "Delete {count, plural, one {# item} other {# items}}",
+    "description": "Delete selected saved codes button"
+  },
   "etjCNj": {
     "defaultMessage": "Non-technical interview questions designed to assess your past behavior in professional settings, including your communication, teamwork, leadership and problem solving skills.",
     "description": "Description for behavioral questions"
@@ -9679,6 +9727,10 @@
     "defaultMessage": "React Coding Interview Questions with Solutions | GreatFrontEnd",
     "description": "Title of React Interview Questions page"
   },
+  "gg6865": {
+    "defaultMessage": "Your saved code from the editor will appear here.",
+    "description": "Subtext when no code is saved."
+  },
   "ggLl5X": {
     "defaultMessage": "State design",
     "description": "State design in React"
@@ -9755,6 +9807,10 @@
     "defaultMessage": "All tasks completed! Enjoy your exclusive promo code",
     "description": "Title for rewards complete page"
   },
+  "h/0pr/": {
+    "defaultMessage": "Delete",
+    "description": "Label for button to confirm code deletion"
+  },
   "h0Xc3E": {
     "defaultMessage": "First impressions from experienced interviewers",
     "description": "Sub features for \"Resume review\" feature of resume review"
@@ -9782,6 +9838,10 @@
   "hAdl7d": {
     "defaultMessage": "Number of views on this submission",
     "description": "Tooltip for Number of views on this submission"
+  },
+  "hBKne8": {
+    "defaultMessage": "Saved Code",
+    "description": "Profile saved code tab title"
   },
   "hBwVFF": {
     "defaultMessage": "Theme preferences",
@@ -12291,6 +12351,10 @@
     "defaultMessage": "Security",
     "description": "Computer science topic"
   },
+  "tMLx51": {
+    "defaultMessage": "Delete all",
+    "description": "Delete all saved code button"
+  },
   "tMvSIc": {
     "defaultMessage": "Enjoy your exclusive promo code",
     "description": "Title for rewards complete page"
@@ -12298,6 +12362,10 @@
   "tO/Ph4": {
     "defaultMessage": "Activity | Profile",
     "description": "Title of Profile Activity page"
+  },
+  "tOQNw1": {
+    "defaultMessage": "Cancel",
+    "description": "Label for button to cancel selected code deletion"
   },
   "tP5+Am": {
     "defaultMessage": "Sign Up",
@@ -13222,6 +13290,10 @@
   "y9hdD1": {
     "defaultMessage": "Reading time",
     "description": "Reading time of the article"
+  },
+  "yAgEw6": {
+    "defaultMessage": "The selected saved code will be deleted. This is an irreversible action, are you sure you want to proceed?",
+    "description": "Warning message in delete selected confirmation dialog"
   },
   "yAxqQL": {
     "defaultMessage": "Our platform has many unique advantages, making it easily recommendable to users looking for front end interview preparation.",

@@ -1,3 +1,5 @@
+import { GFE_PREFIX, USER_INTERFACE_TYPE } from '~/components/workspace/common/constants';
+
 import type {
   QuestionUserInterface,
   QuestionUserInterfaceSandpackSetup,
@@ -6,7 +8,7 @@ import type {
 import type { SandpackFiles } from '@codesandbox/sandpack-react';
 
 function makeQuestionKey(question: QuestionUserInterface): string {
-  return `gfe:user-interface:${question.framework}:${question.metadata.slug}`;
+  return `${GFE_PREFIX}:${USER_INTERFACE_TYPE}:${question.framework}:${question.metadata.slug}`;
 }
 
 export type PayloadV1 = Readonly<{

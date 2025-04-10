@@ -1,3 +1,5 @@
+import { GFE_PREFIX, JAVASCRIPT_TYPE } from '~/components/workspace/common/constants';
+
 import type {
   QuestionCodingWorkingLanguage,
   QuestionMetadata,
@@ -7,15 +9,10 @@ function makeQuestionKey(
   metadata: QuestionMetadata,
   language: QuestionCodingWorkingLanguage,
 ): string {
-  switch (language) {
-    case 'js':
-      return `gfe:javascript:${metadata.slug}`;
-    case 'ts':
-      return `gfe:javascript:${metadata.slug}:ts`;
-  }
+  return `${GFE_PREFIX}:${JAVASCRIPT_TYPE}:${metadata.slug}${language === 'ts' ? ':ts' : ''}`;
 }
 
-type Payload = Readonly<{
+export type Payload = Readonly<{
   code: string;
   format: 'javascript';
   language: QuestionCodingWorkingLanguage;
