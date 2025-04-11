@@ -108,7 +108,7 @@ export default async function Page({ params }: Props) {
         locale,
         slugs: InterviewsQuestionsQuizGuideSlugs,
       }),
-      fetchInterviewListingBottomContent('javascript-quiz-interview-questions'),
+      fetchInterviewListingBottomContent('ads/javascript-quiz', locale),
     ]);
 
   const listTypeWithTitle = {

@@ -92,7 +92,7 @@ export default async function Page({ params }: Props) {
         locale,
         slugs: InterviewsQuestionsLanguageJavaScriptGuideSlugs,
       }),
-      fetchInterviewListingBottomContent('javascript-dsa-interview-questions'),
+      fetchInterviewListingBottomContent('ads/javascript-dsa', locale),
     ]);
 
   const listTypeWithTitle = {

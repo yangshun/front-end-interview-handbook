@@ -82,7 +82,7 @@ export default async function Page({ params }: Props) {
       locale,
     ),
     fetchInterviewsStudyLists('company', locale),
-    fetchInterviewListingBottomContent('company'),
+    fetchInterviewListingBottomContent('company/company', locale),
   ]);
 
   const categorizedCompanyQuestions = categorizeQuestionsByCompany({

@@ -88,7 +88,7 @@ export default async function Page({ params }: Props) {
         locale,
         slugs: InterviewsQuestionsFrameworkGuideSlugs,
       }),
-      fetchInterviewListingBottomContent('framework-angular'),
+      fetchInterviewListingBottomContent('framework/angular', locale),
     ]);
 
   return (

@@ -110,7 +110,7 @@ export default async function Page({ params }: Props) {
         locale,
         slugs: InterviewsQuestionsQuizGuideSlugs,
       }),
-      fetchInterviewListingBottomContent('react-quiz-interview-questions'),
+      fetchInterviewListingBottomContent('ads/react-quiz', locale),
     ]);
 
   const category = QuestionFrameworkLabels[framework];

@@ -1,0 +1,81 @@
+## JavaScript Coding Interview Questions and Answers
+
+Preparing for JavaScript coding interviews requires a focused approach to mastering the language's core techniques, advanced patterns, and real-world problem-solving. Our comprehensive collection of JavaScript coding interview questions is meticulously curated to help you succeed. From implementing library APIs and utility functions to designing user interfaces, components, and tackling complex data structures and algorithms, we've got you covered with numerous practice questions, complete with example answers and code.
+
+Our platform includes an **in-browser coding workspace** that enables you to code directly without any setup. You can instantly run your code against our automated test cases to verify its accuracy within seconds. This immediate feedback loop not only builds your confidence but also helps you refine your solutions by learning from **detailed, expert-crafted explanations** written by senior engineers from leading tech companies.
+
+We organize our questions into three main categories: **JavaScript utilities interview questions**, **JavaScript data structures and algorithms questions**, and **JavaScript user interface questions**, covering all critical areas essential for front-end and full-stack interviews.
+
+### JavaScript Utilities Interview Questions
+
+Utility functions are the backbone of JavaScript, enabling developers to solve common problems efficiently and consistently. In this category, you'll encounter questions that challenge your ability to implement frequently used functions and patterns, such as:
+
+**Debounce and Throttle**: Learn to implement functions that optimize event handling by controlling execution rates.
+
+```js
+function debounce(func, delay) {
+  let timer;
+  return function (...args) {
+    clearTimeout(timer);
+    timer = setTimeout(() => func.apply(this, args), delay);
+  };
+}
+```
+
+**Asynchronous Operations with `Promise.all`**: Practice handling multiple asynchronous tasks concurrently while ensuring all promises are resolved or handled correctly.
+
+```js
+async function fetchAllData(urls) {
+  const responses = await Promise.all(urls.map((url) => fetch(url)));
+  return Promise.all(responses.map((res) => res.json()));
+}
+```
+
+**Array Manipulation with Methods like `map`, `filter`, and `reduce`**: Build custom solutions using JavaScript's versatile array methods to manipulate and analyze data effectively.
+
+These utility questions not only improve your coding skills but also enhance your ability to write clean, reusable, and maintainable code.
+
+### JavaScript Data Structures and Algorithms Questions
+
+This category focuses on strengthening your understanding of key data structures and algorithmic techniques. Mastering these topics is essential for tackling performance-critical tasks and optimizing applications. Topics include:
+
+- **Data Structures**: Implement and work with foundational structures such as:
+  - **Stacks**: Solve problems like balancing parentheses.
+  - **Queues**: Create implementations for priority queues or task scheduling.
+  - **Trees**: Traverse and manipulate binary search trees and heaps.
+- **Algorithms**: Solve algorithmic challenges with popular techniques like:
+- **Sorting and Searching**: Implement quick sort, merge sort, and binary search to solve complex problems.
+- **Dynamic Programming**: Solve problems like finding the longest common subsequence or maximizing profits with the knapsack problem.
+
+These questions are designed to enhance your problem-solving skills and help you write efficient, scalable, and optimized JavaScript code.
+
+### JavaScript User Interface Questions
+
+Building dynamic and responsive user interfaces is a core responsibility for front-end developers. This category focuses on hands-on practice for creating industry-standard UI components using JavaScript. Examples include:
+
+- **Accordion Component**: Build a collapsible section that expands and collapses when clicked.
+- **Like Button**: Create a reusable like button that toggles state and updates the UI dynamically.
+- **Star Rating Component**: Implement a rating system that captures user input and visually displays the rating.
+
+These questions help you gain practical experience in designing functional, accessible, and visually appealing interfaces that align with modern web development standards.
+
+### Key features
+
+1. **Comprehensive coverage**: Our questions span all major areas of JavaScript coding, including utilities, algorithms, and user interfaces, ensuring you're well-prepared for any interview scenario.
+2. **Hands-on practice**: Use our in-browser coding workspace to write, test, and debug your code in a simulated interview environment, gaining confidence in your skills.
+3. **High quality, detailed solutions**: Learn from expert-crafted explanations and best practices that demonstrate multiple approaches to solving problems.
+4. **Immediate feedback**: Validate your code with automated test cases to identify mistakes and refine your solutions in real-time.
+
+### Why choose our resource?
+
+Our JavaScript coding interview questions are curated and answered by former senior engineers from leading tech companies. With years of experience building scalable JavaScript applications and conducting technical interviews, we ensure every piece of content is of the highest quality. By practicing with our resource, you'll not only prepare for your interview but also enhance your ability to write efficient, maintainable, and scalable JavaScript code for real-world applications.
+
+### Related lists
+
+Check out other lists of questions below if you're looking for something more specific:
+
+- [JavaScript Coding Interview Questions](/questions/javascript-coding-interview-questions)
+- [JavaScript Quiz Interview Questions](/questions/javascript-quiz-interview-questions)
+- [JavaScript Functions Interview Questions](/questions/javascript-functions-interview-questions)
+- [JavaScript User Interface Interview Questions](/questions/javascript-ui-interview-questions)
+- [JavaScript Data Structures and Algorithms Interview Questions](/questions/javascript-dsa-interview-questions)

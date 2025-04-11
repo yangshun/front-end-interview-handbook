@@ -68,7 +68,7 @@ export default async function Page({ params }: Props) {
 
   const [questions, bottomContent] = await Promise.all([
     fetchQuestionsListByHash(blind75?.questionHashes ?? [], locale),
-    fetchInterviewListingBottomContent('blind75'),
+    fetchInterviewListingBottomContent('blind75', locale),
   ]);
 
   return (

@@ -18,7 +18,7 @@ import defaultMetadata from '~/seo/defaultMetadata';
 type Props = Readonly<{
   params: {
     locale: string;
-    slug: string;
+    slug: QuestionCompany;
   };
 }>;
 
@@ -80,8 +80,8 @@ export default async function Page({ params }: Props) {
   );
 
   const [questions, bottomContent] = await Promise.all([
-    fetchQuestionsListForCompany(slug as QuestionCompany, locale),
-    fetchInterviewListingBottomContent('company-detail'),
+    fetchQuestionsListForCompany(slug, locale),
+    fetchInterviewListingBottomContent('company/company-detail', locale),
   ]);
 
   return (

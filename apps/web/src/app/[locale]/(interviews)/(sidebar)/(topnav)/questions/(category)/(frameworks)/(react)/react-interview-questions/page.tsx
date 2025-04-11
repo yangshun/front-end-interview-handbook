@@ -104,7 +104,7 @@ export default async function Page({ params }: Props) {
       locale,
       slugs: InterviewsQuestionsFrameworkReactGuideSlugs,
     }),
-    fetchInterviewListingBottomContent('react-interview-questions'),
+    fetchInterviewListingBottomContent('ads/react', locale),
   ]);
   const guidesData = getGuidesData(intl);
 

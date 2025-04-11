@@ -66,7 +66,7 @@ export default async function Page({ params }: Props) {
 
   const [studyPlans, bottomContent] = await Promise.all([
     fetchInterviewsStudyLists('study-plan', locale),
-    fetchInterviewListingBottomContent('study-plans'),
+    fetchInterviewListingBottomContent('study-plans/study-plans', locale),
   ]);
 
   return (

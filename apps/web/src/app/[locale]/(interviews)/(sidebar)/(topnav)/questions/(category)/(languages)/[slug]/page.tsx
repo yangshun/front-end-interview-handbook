@@ -143,7 +143,7 @@ export default async function Page({ params }: Props) {
           ? InterviewsQuestionsLanguageJavaScriptGuideSlugs
           : InterviewsQuestionsLanguageGuideSlugs,
     }),
-    fetchInterviewListingBottomContent(`language-${language}`),
+    fetchInterviewListingBottomContent(`language/${language}`, locale),
   ]);
 
   return (

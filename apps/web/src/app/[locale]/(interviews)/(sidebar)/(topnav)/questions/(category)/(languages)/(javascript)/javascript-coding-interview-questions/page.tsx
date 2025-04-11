@@ -109,9 +109,7 @@ export default async function Page({ params }: Props) {
         locale,
         slugs: InterviewsQuestionsLanguageJavaScriptGuideSlugs,
       }),
-      fetchInterviewListingBottomContent(
-        'javascript-coding-interview-questions',
-      ),
+      fetchInterviewListingBottomContent('ads/javascript-coding', locale),
     ]);
 
   const category = QuestionLanguageLabels[language];

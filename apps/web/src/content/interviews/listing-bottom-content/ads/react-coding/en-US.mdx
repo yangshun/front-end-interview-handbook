@@ -1,0 +1,153 @@
+## React coding interview questions and answers
+
+Preparing for a React coding interview? Our comprehensive list of React coding interview questions is designed to help you master essential React concepts, techniques, and patterns. From building interactive components and managing state to handling routing and optimizing performance, our expertly crafted questions cover everything you need to succeed.
+
+Each question comes with example solutions, detailed explanations, and best practices to ensure a thorough understanding of React development. Whether you're new to React or aiming to refine your skills, this resource provides a structured approach to acing your interview.
+
+### Practice in a realistic environment
+
+Our platform includes an **in-browser coding workspace** that allows you to code directly in your browser without any setup. This feature simulates a real interview environment by:
+
+- **Providing real-time feedback**: Instantly test your code against automated test cases to validate accuracy and identify potential issues.
+- **Enhancing iterative learning**: Refine your code as you receive feedback and incorporate best practices into your solutions.
+- **Boosting confidence**: Gain hands-on experience with real-world React challenges, preparing you for the technical aspects of interviews.
+
+All solutions are crafted by experienced former senior / staff engineers, ensuring high-quality content that mirrors industry expectations.
+
+### Categories of React coding interview questions
+
+Our questions are divided into two key categories, allowing you to focus on specific aspects of React development:
+
+#### React user interface interview questions
+
+Building dynamic, responsive, and user-friendly interfaces is at the heart of React development. This category focuses on:
+
+- **Creating components and widgets**: Practice constructing reusable UI elements such as buttons, modals, and dropdowns.
+- **Dynamic interactions**: Solve challenges like creating sortable tables, dynamic forms, and interactive to-do lists.
+- **Responsive design**: Learn to design components that adapt seamlessly across devices using React.
+
+**Example question**: How would you build a sortable table component in React?
+
+**Solution and approach:**
+
+1. Use state to store the current sort order and column.
+2. Create a function to toggle the sort order and sort data dynamically.
+3. Render sorted rows in the table based on the selected column.
+
+```js
+function SortableTable({ data, columns }) {
+  const [sortColumn, setSortColumn] = React.useState(null);
+  const [sortOrder, setSortOrder] = React.useState('asc');
+
+  const handleSort = (column) => {
+    const order = sortColumn === column && sortOrder === 'asc' ? 'desc' : 'asc';
+    setSortColumn(column);
+    setSortOrder(order);
+  };
+
+  const sortedData = React.useMemo(() => {
+    if (!sortColumn) return data;
+    return [...data].sort((a, b) => {
+      if (a[sortColumn] < b[sortColumn]) return sortOrder === 'asc' ? -1 : 1;
+      if (a[sortColumn] > b[sortColumn]) return sortOrder === 'asc' ? 1 : -1;
+      return 0;
+    });
+  }, [data, sortColumn, sortOrder]);
+
+  return (
+    <table>
+      <thead>
+        <tr>
+          {columns.map((col) => (
+            <th key={col} onClick={() => handleSort(col)}>
+              {col}
+            </th>
+          ))}
+        </tr>
+      </thead>
+      <tbody>
+        {sortedData.map((row, index) => (
+          <tr key={index}>
+            {columns.map((col) => (
+              <td key={col}>{row[col]}</td>
+            ))}
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  );
+}
+```
+
+#### React hooks and state management interview questions
+
+React Hooks and effective state management are critical for creating scalable and maintainable applications. In this category, you'll encounter:
+
+- **Custom hooks**: Learn to encapsulate reusable logic, such as fetching data or managing form inputs.
+- **State management with useReducer**: Master managing complex state transitions in larger components or applications.
+- **Performance optimization**: Solve challenges related to minimizing re-renders using hooks like `useMemo` and `React.memo`.
+
+**Example question**: How would you implement a custom hook for fetching data?
+
+**Solution and approach:**
+
+1. Use `useState` to manage data and loading states.
+2. Use `useEffect` to fetch data from the provided API endpoint.
+3. Handle error states gracefully and provide a reusable interface.
+
+```js
+function useFetch(url) {
+  const [data, setData] = React.useState(null);
+  const [loading, setLoading] = React.useState(true);
+  const [error, setError] = React.useState(null);
+
+  React.useEffect(() => {
+    let isMounted = true;
+    setLoading(true);
+    fetch(url)
+      .then((response) => response.json())
+      .then((data) => {
+        if (isMounted) setData(data);
+      })
+      .catch((err) => {
+        if (isMounted) setError(err.message);
+      })
+      .finally(() => {
+        if (isMounted) setLoading(false);
+      });
+
+    return () => {
+      isMounted = false;
+    };
+  }, [url]);
+
+  return { data, loading, error };
+}
+```
+
+### Why choose our React coding interview questions?
+
+1. **Comprehensive coverage**: We cover everything from basic React concepts to advanced patterns, ensuring you're fully prepared for any interview scenario.
+2. **Practical, hands-on learning**: Solve real-world React challenges in a coding environment designed to mimic interview conditions.
+3. **Expert-crafted solutions**: Learn from high-quality explanations and best practices written by experienced engineers with deep industry knowledge.
+4. **Immediate feedback**: Validate your code with automated test cases to identify and correct mistakes instantly, accelerating your learning process.
+
+### How these questions prepare you for success
+
+By practicing with our React coding interview questions, you'll:
+
+- **Master core concepts**: Develop a deep understanding of React fundamentals, hooks, and state management.
+- **Enhance problem-solving skills**: Tackle challenges that require critical thinking and systematic approaches to solving real-world problems.
+- **Build confidence**: Familiarize yourself with common React interview patterns, reducing anxiety and improving performance during interviews.
+- **Apply best practices**: Learn industry standards for structuring components, managing state, and optimizing application performance.
+
+### Excel in your React coding interviews
+
+Our React coding interview resource goes beyond preparation. It equips you with the skills and confidence to excel in any interview scenario, whether you're a front-end engineer, a full-stack developer, or exploring new career opportunities in React development. Dive into hands-on practice, refine your solutions with expert guidance, and build the expertise needed to stand out as a React developer.
+
+### Related lists
+
+Check out other lists of questions below if you're looking for something more specific:
+
+- [React Interview Questions](/questions/react-interview-questions)
+- [React Quiz Interview Questions](/questions/react-quiz-interview-questions)

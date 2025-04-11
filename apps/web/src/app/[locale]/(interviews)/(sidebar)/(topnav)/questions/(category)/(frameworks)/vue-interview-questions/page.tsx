@@ -86,7 +86,7 @@ export default async function Page({ params }: Props) {
         locale,
         slugs: InterviewsQuestionsFrameworkGuideSlugs,
       }),
-      fetchInterviewListingBottomContent('framework-vue'),
+      fetchInterviewListingBottomContent('framework/vue', locale),
     ]);
 
   return (

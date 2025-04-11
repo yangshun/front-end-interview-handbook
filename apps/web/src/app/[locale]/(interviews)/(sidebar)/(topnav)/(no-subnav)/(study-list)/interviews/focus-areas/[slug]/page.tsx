@@ -89,7 +89,7 @@ export default async function Page({ params }: Props) {
 
   const [questions, bottomContent] = await Promise.all([
     fetchQuestionsListByHash(focusArea?.questionHashes ?? [], locale),
-    fetchInterviewListingBottomContent(`${slug}-focus-area`),
+    fetchInterviewListingBottomContent(`focus-areas/${slug}`, locale),
   ]);
 
   return (

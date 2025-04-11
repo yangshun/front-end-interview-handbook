@@ -296,7 +296,7 @@ export default async function Page({ params }: Props) {
   ] = await Promise.all([
     processParams(params),
     fetchQuestionsCompletionCount([questionFormat]),
-    fetchInterviewListingBottomContent(`${format}-question-format`),
+    fetchInterviewListingBottomContent(`format/${questionFormat}`, locale),
     format === 'system-design'
       ? readFrontEndSystemDesignGuides(locale)
       : readFrontEndInterviewPlaybookGuides({ locale }),

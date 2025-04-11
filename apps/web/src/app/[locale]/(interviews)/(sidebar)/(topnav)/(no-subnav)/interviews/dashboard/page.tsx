@@ -76,7 +76,7 @@ export default async function Page({ params }: Props) {
       { tab: 'system-design', type: 'practice', value: 'practice' },
       locale,
     ),
-    fetchInterviewListingBottomContent('dashboard'),
+    fetchInterviewListingBottomContent('dashboard', locale),
     fetchInterviewsAllStudyLists(),
   ]);
   const { framework, language } = categorizeQuestionsByFrameworkAndLanguage({

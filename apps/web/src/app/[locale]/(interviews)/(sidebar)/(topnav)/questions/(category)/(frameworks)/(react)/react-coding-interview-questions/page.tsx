@@ -98,7 +98,7 @@ export default async function Page({ params }: Props) {
         locale,
         slugs: InterviewsQuestionsFrameworkReactGuideSlugs,
       }),
-      fetchInterviewListingBottomContent('react-coding-interview-questions'),
+      fetchInterviewListingBottomContent('ads/react-coding', locale),
     ]);
 
   const category = QuestionFrameworkLabels[framework];
