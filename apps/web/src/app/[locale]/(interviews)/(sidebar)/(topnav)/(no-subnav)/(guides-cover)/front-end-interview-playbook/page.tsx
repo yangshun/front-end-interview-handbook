@@ -56,7 +56,7 @@ export default async function Page({ params }: Props) {
   const [allGuides, { title, description, socialTitle, href }] =
     await Promise.all([
       readFrontEndInterviewPlaybookGuides({ locale }),
-      getPageSEOMetadata({ params }),
+      getPageSEOMetadata(params),
     ]);
 
   return (

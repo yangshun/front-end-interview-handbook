@@ -10,10 +10,6 @@ import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
-import {
-  themeBackgroundCardWhiteOnLightColor,
-  themeBorderElementColor,
-} from '~/components/ui/theme';
 
 import logEvent from '~/logging/logEvent';
 import type { SupabaseClientGFE } from '~/supabase/SupabaseServerGFE';

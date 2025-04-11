@@ -52,7 +52,7 @@ export default function AuthOneClickSignupCard({ onClose }: Props) {
         'px-4 pb-3 pt-4',
       )}
       role="dialog">
-      <div className="flex items-center justify-center gap-2">
+      <div className="flex items-center justify-between gap-2">
         <Text color="invert" id="auth-title" size="body1" weight="bold">
           {intl.formatMessage({
             defaultMessage: 'Join GreatFrontEnd in 1 click',

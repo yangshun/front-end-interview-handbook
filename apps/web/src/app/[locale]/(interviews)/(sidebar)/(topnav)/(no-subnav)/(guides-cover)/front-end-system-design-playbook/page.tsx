@@ -70,7 +70,7 @@ export default async function Page({ params }: Props) {
     readFrontEndSystemDesignGuides(params.locale),
     fetchQuestionsList(listType, locale),
     fetchQuestionsCompletionCount(['system-design']),
-    getPageSEOMetadata({ params }),
+    getPageSEOMetadata(params),
   ]);
 
   return (
