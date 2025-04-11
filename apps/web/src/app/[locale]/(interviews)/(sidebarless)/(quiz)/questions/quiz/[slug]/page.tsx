@@ -1,4 +1,4 @@
-import { notFound, redirect } from 'next/navigation';
+import { notFound } from 'next/navigation';
 import type { Metadata } from 'next/types';
 
 import QuestionJsonLd from '~/components/interviews/questions/common/QuestionJsonLd';
@@ -8,6 +8,7 @@ import { readQuestionQuizContents } from '~/db/QuestionsContentsReader';
 import { fetchQuestionsList } from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';
 import { generateStaticParamsWithLocale } from '~/next-i18nostic/src';
+import i18nRedirect from '~/next-i18nostic/src/utils/i18nRedirect';
 import defaultMetadata from '~/seo/defaultMetadata';
 
 type Props = Readonly<{
@@ -78,7 +79,7 @@ export default async function Page({ params }: Props) {
   const { exactMatch, question } = quizQuestion;
 
   if (!exactMatch) {
-    redirect(quizQuestion.question.metadata.slug);
+    i18nRedirect(quizQuestion.question.metadata.slug, { locale });
   }
 
   return (

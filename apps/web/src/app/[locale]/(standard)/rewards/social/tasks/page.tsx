@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import { redirect } from 'next/navigation';
 import url from 'node:url';
 
 import { PROMO_SOCIAL_DISCOUNT_PERCENTAGE } from '~/data/PromotionConfig';
@@ -7,6 +6,7 @@ import { PROMO_SOCIAL_DISCOUNT_PERCENTAGE } from '~/data/PromotionConfig';
 import RewardsTasksPage from '~/components/rewards/tasks/RewardsTasksPage';
 
 import { getIntlServerOnly } from '~/i18n';
+import i18nRedirect from '~/next-i18nostic/src/utils/i18nRedirect';
 import defaultMetadata from '~/seo/defaultMetadata';
 import { readViewerFromToken } from '~/supabase/SupabaseServerGFE';
 
@@ -52,17 +52,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   });
 }
 
-export default async function Page() {
+export default async function Page({ params }: Props) {
+  const { locale } = params;
   const viewer = await readViewerFromToken();
 
   if (viewer == null) {
-    return redirect(
+    return i18nRedirect(
       url.format({
         pathname: '/login',
         query: {
           next: '/rewards/social/tasks',
         },
       }),
+      { locale },
     );
   }
 

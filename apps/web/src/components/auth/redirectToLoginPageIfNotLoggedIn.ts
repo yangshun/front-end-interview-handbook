@@ -1,23 +1,27 @@
 import 'server-only';
 
-import { redirect } from 'next/navigation';
 import url from 'node:url';
 
+import i18nRedirect from '~/next-i18nostic/src/utils/i18nRedirect';
 import { readViewerFromToken } from '~/supabase/SupabaseServerGFE';
 
-export async function redirectToLoginPageIfNotLoggedIn(next: string) {
+export async function redirectToLoginPageIfNotLoggedIn(
+  next: string,
+  locale: string,
+) {
   const viewer = await readViewerFromToken();
 
   if (viewer != null) {
     return viewer;
   }
 
-  return redirect(
+  return i18nRedirect(
     url.format({
       pathname: '/login',
       query: {
         next,
       },
     }),
+    { locale },
   );
 }

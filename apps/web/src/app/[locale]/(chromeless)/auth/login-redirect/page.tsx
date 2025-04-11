@@ -29,9 +29,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   });
 }
 
-export default async function Page({ searchParams }: Props) {
+export default async function Page({ searchParams, params }: Props) {
+  const { locale } = params;
+
   if (searchParams.error) {
-    await redirectToLoginPageIfNotLoggedIn(searchParams.next ?? '');
+    await redirectToLoginPageIfNotLoggedIn(searchParams.next ?? '', locale);
   }
 
   return <AuthLoginRedirectPage next={searchParams.next} />;

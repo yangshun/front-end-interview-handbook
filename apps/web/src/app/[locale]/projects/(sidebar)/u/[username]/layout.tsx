@@ -1,7 +1,8 @@
-import { notFound, redirect } from 'next/navigation';
+import { notFound } from 'next/navigation';
 
 import ProjectsProfilePage from '~/components/projects/profile/ProjectsProfilePage';
 
+import i18nRedirect from '~/next-i18nostic/src/utils/i18nRedirect';
 import prisma from '~/server/prisma';
 import { readViewerFromToken } from '~/supabase/SupabaseServerGFE';
 
@@ -34,7 +35,7 @@ export default async function Layout({ children, params }: Props) {
   // If no projects profile.
   if (projectsProfile == null) {
     if (isViewingOwnProfile) {
-      return redirect('/projects/onboarding');
+      return i18nRedirect('/projects/onboarding', { locale: params.locale });
     }
 
     // User does not have projects profile.

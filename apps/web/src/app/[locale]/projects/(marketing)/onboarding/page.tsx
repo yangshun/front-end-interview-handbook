@@ -32,8 +32,10 @@ type Props = Readonly<{
   params: Readonly<{ locale: string }>;
 }>;
 
-export default async function Page() {
-  await redirectToLoginPageIfNotLoggedIn('/projects/onboarding');
+export default async function Page({ params }: Props) {
+  const { locale } = params;
+
+  await redirectToLoginPageIfNotLoggedIn('/projects/onboarding', locale);
 
   return <ProjectsOnboardingPage />;
 }

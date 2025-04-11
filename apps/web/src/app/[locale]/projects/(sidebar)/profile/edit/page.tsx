@@ -33,9 +33,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   });
 }
 
-export default async function Page() {
+export default async function Page({ params }: Props) {
+  const { locale } = params;
   const viewer = await redirectToLoginPageIfNotLoggedIn(
     '/projects/profile/edit',
+    locale,
   );
   const viewerProfile = await getOrCreateUserProfileWithProjectsProfile(viewer);
 

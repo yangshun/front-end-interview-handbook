@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import { redirect } from 'next/navigation';
 
 import InterviewsDashboardPage from '~/components/interviews/dashboard/InterviewsDashboardPage';
 
@@ -11,6 +10,7 @@ import {
   categorizeQuestionsByFrameworkAndLanguage,
 } from '~/db/QuestionsUtils';
 import { getIntlServerOnly } from '~/i18n';
+import i18nRedirect from '~/next-i18nostic/src/utils/i18nRedirect';
 import defaultMetadata from '~/seo/defaultMetadata';
 import { readViewerFromToken } from '~/supabase/SupabaseServerGFE';
 
@@ -51,12 +51,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function Page({ params }: Props) {
   const viewer = await readViewerFromToken();
+  const { locale } = params;
 
   if (viewer == null) {
-    return redirect('/interviews/get-started');
+    return i18nRedirect('/interviews/get-started', { locale });
   }
-
-  const { locale } = params;
 
   const [
     { questions: codingQuestions },
