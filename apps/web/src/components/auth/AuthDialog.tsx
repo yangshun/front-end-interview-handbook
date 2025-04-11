@@ -32,7 +32,7 @@ type Props = Readonly<{
 
 export default function AuthDialog({ isShown, onClose, next }: Props) {
   const intl = useIntl();
-  const testimonialsObjects = InterviewsMarketingTestimonialsDict();
+  const testimonialsObjects = InterviewsMarketingTestimonialsDict(intl);
   const users = [
     {
       image: testimonialsObjects.yuChienChan.authorThumbnailUrl,

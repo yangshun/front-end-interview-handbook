@@ -1,9 +1,7 @@
-import { usePathname } from 'next/navigation';
-import React, { useState } from 'react';
+import React from 'react';
 import { FaCheck } from 'react-icons/fa6';
-import url from 'url';
 
-import AuthDialog from '~/components/auth/AuthDialog';
+import { useAuthSignupDialogContext } from '~/components/auth/AuthSignupDialogContext';
 import { useToast } from '~/components/global/toasts/useToast';
 import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
@@ -33,10 +31,9 @@ export default function GuidesProgressAction({
   studyListKey,
 }: Props) {
   const intl = useIntl();
-  const pathname = usePathname();
+  const { showAuthSignupDialog } = useAuthSignupDialogContext();
   const user = useUser();
 
-  const [isLoginDialogShown, setIsLoginDialogShown] = useState(false);
   const addGuideProgressMutation = useMutationGuideProgressAdd();
   const deleteGuideProgressMutation = useMutationGuideProgressDelete();
 
@@ -44,27 +41,18 @@ export default function GuidesProgressAction({
 
   if (user == null) {
     return (
-      <>
-        <Button
-          addonPosition="start"
-          icon={FaCheck}
-          label={intl.formatMessage({
-            defaultMessage: 'Mark complete',
-            description: 'Mark guide as complete',
-            id: 'Kt8F9D',
-          })}
-          size="xs"
-          variant="secondary"
-          onClick={() => setIsLoginDialogShown(true)}
-        />
-        <AuthDialog
-          isShown={isLoginDialogShown}
-          next={url.format({
-            pathname,
-          })}
-          onClose={() => setIsLoginDialogShown(false)}
-        />
-      </>
+      <Button
+        addonPosition="start"
+        icon={FaCheck}
+        label={intl.formatMessage({
+          defaultMessage: 'Mark complete',
+          description: 'Mark guide as complete',
+          id: 'Kt8F9D',
+        })}
+        size="xs"
+        variant="secondary"
+        onClick={() => showAuthSignupDialog()}
+      />
     );
   }
 

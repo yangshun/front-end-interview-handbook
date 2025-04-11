@@ -1,4 +1,3 @@
-import { AuthPointsSignInDialog } from '~/components/auth/auth-points';
 import { GlobalBannerInterviews } from '~/components/global/banners/GlobalBannerInterviews';
 import FeedbackWidget from '~/components/global/feedback/FeedbackWidget';
 import InterviewsFooter from '~/components/interviews/common/InterviewsFooter';
@@ -13,7 +12,6 @@ export default function InterviewsSidebarlessLayout({ children }: Props) {
   return (
     <>
       <GlobalBannerInterviews />
-      <AuthPointsSignInDialog />
       <div className="flex min-h-screen flex-col">
         <InterviewsNavbar />
         {children}

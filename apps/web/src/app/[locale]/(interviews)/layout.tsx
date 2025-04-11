@@ -1,4 +1,5 @@
 import AuthOneClickSignup from '~/components/auth/AuthOneClickSignUp';
+import AuthSignupDialogProvider from '~/components/auth/AuthSignupDialogContext';
 
 type Props = Readonly<{
   children: React.ReactNode;
@@ -12,9 +13,9 @@ export const metadata = {
 
 export default function InterviewsLayout({ children }: Props) {
   return (
-    <>
+    <AuthSignupDialogProvider>
       <AuthOneClickSignup />
       {children}
-    </>
+    </AuthSignupDialogProvider>
   );
 }

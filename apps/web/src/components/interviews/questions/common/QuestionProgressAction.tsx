@@ -1,13 +1,13 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
-import React, { useState } from 'react';
+import React from 'react';
 import { FaCheck } from 'react-icons/fa6';
 import url from 'url';
 
 import { queryParamActionKey } from '~/hooks/useQueryParamAction';
 
-import AuthDialog from '~/components/auth/AuthDialog';
+import { useAuthSignupDialogContext } from '~/components/auth/AuthSignupDialogContext';
 import { useToast } from '~/components/global/toasts/useToast';
 import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
@@ -39,7 +39,7 @@ export default function QuestionProgressAction({
   const pathname = usePathname();
   const user = useUser();
 
-  const [isLoginDialogShown, setIsLoginDialogShown] = useState(false);
+  const { showAuthSignupDialog } = useAuthSignupDialogContext();
   const markCompleteMutation = useMutationQuestionProgressAdd();
   const deleteProgressMutation = useMutationQuestionProgressDelete();
 
@@ -56,30 +56,27 @@ export default function QuestionProgressAction({
     }
 
     return (
-      <>
-        <Button
-          addonPosition="start"
-          icon={FaCheck}
-          label={intl.formatMessage({
-            defaultMessage: 'Mark complete',
-            description: 'Mark question as complete',
-            id: 'C4am9n',
-          })}
-          size="xs"
-          variant="secondary"
-          onClick={() => setIsLoginDialogShown(true)}
-        />
-        <AuthDialog
-          isShown={isLoginDialogShown}
-          next={url.format({
-            pathname,
-            query: {
-              [queryParamActionKey]: MARK_AS_COMPLETE_ACTION_NAME,
-            },
-          })}
-          onClose={() => setIsLoginDialogShown(false)}
-        />
-      </>
+      <Button
+        addonPosition="start"
+        icon={FaCheck}
+        label={intl.formatMessage({
+          defaultMessage: 'Mark complete',
+          description: 'Mark question as complete',
+          id: 'C4am9n',
+        })}
+        size="xs"
+        variant="secondary"
+        onClick={() =>
+          showAuthSignupDialog(
+            url.format({
+              pathname,
+              query: {
+                [queryParamActionKey]: MARK_AS_COMPLETE_ACTION_NAME,
+              },
+            }),
+          )
+        }
+      />
     );
   }
 

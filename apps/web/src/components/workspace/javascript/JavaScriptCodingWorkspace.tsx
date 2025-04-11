@@ -4,7 +4,6 @@ import clsx from 'clsx';
 import { useCallback, useState } from 'react';
 import { RiCodeLine } from 'react-icons/ri';
 
-import { AuthPointsSignInDialog } from '~/components/auth/auth-points';
 import type {
   QuestionCodingWorkingLanguage,
   QuestionJavaScript,
@@ -480,7 +479,6 @@ function JavaScriptCodingWorkspaceImpl({
             studyListKey={studyListKey}
           />
         </div>
-        <AuthPointsSignInDialog />
       </JavaScriptCodingWorkspaceContextProvider>
     </CodingWorkspaceProvider>
   );

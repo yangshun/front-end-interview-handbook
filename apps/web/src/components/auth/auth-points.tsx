@@ -1,11 +1,10 @@
 'use client';
 
-import { usePathname } from 'next/navigation';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef,useState } from 'react';
 
 import { useGreatStorageLocal } from '~/hooks/useGreatStorageLocal';
 
-import AuthDialog from './AuthDialog';
+import { useAuthSignupDialogContext } from './AuthSignupDialogContext';
 
 import { useSessionContext } from '@supabase/auth-helpers-react';
 
@@ -14,6 +13,8 @@ const MAX_POINTS = 6;
 
 export function useAuthPointOnActions() {
   const { isLoading: isUserLoading, session } = useSessionContext();
+  const { showAuthSignupDialog } = useAuthSignupDialogContext();
+
   const [authPoints, setAuthPoints] = useGreatStorageLocal<number>(
     AUTH_POINTS_KEY,
     0,
@@ -24,8 +25,22 @@ export function useAuthPointOnActions() {
     if (session || isUserLoading) {
       return;
     }
-    setAuthPoints((prev) => prev + points);
+
+    const newPoints = authPoints + points;
+
+    setAuthPoints(newPoints);
+
+    if (newPoints > MAX_POINTS) {
+      showAuthSignupDialog();
+    }
   }
+
+  useEffect(() => {
+    if (authPoints > MAX_POINTS) {
+      showAuthSignupDialog();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return {
     authPoints,
@@ -102,31 +117,4 @@ export default function useAuthActiveEngagementPoints(
     increaseAuthPoints,
     hasIncreasedPoints,
   ]);
-}
-
-export function AuthPointsSignInDialog() {
-  const { isLoading: isUserLoading, session } = useSessionContext();
-  const pathname = usePathname();
-  const { authPoints } = useAuthPointOnActions();
-  const [showLoginDialog, setShowLoginDialog] = useState(false);
-
-  useEffect(() => {
-    if (authPoints > MAX_POINTS) {
-      setShowLoginDialog(true);
-    }
-  }, [authPoints]);
-
-  if (session || isUserLoading) {
-    return null;
-  }
-
-  return (
-    <AuthDialog
-      isShown={showLoginDialog}
-      next={pathname ?? ''}
-      onClose={() => {
-        setShowLoginDialog(false);
-      }}
-    />
-  );
 }
