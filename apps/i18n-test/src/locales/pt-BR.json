@@ -27,6 +27,14 @@
     "defaultMessage": "Importar o progresso de <bold>{questionCount}</bold> {questionCount, plural, one {pergunta} other {perguntas}} concluídas anteriormente",
     "description": "Tooltip for import button on import progress dialog"
   },
+  "Tfuq+t": {
+    "defaultMessage": "Progresso do plano de habilidades {title}",
+    "description": "Label for skill plan progress on project submission success page"
+  },
+  "xRyx1X": {
+    "defaultMessage": "<bold>{duration}</bold> minutos",
+    "description": "Label for session duration"
+  },
   "xbSTzm": {
     "defaultMessage": "<authorLink>{author}</authorLink> deixou um comentário em <submissionLink>{entityTitle}</submissionLink> {timestamp}",
     "description": "Notification for comment left on your submission"

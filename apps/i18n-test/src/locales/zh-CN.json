@@ -27,6 +27,14 @@
     "defaultMessage": "导入之前已完成的 <bold>{questionCount}</bold> {questionCount, plural, one {问题} other {问题}} 的进度",
     "description": "Tooltip for import button on import progress dialog"
   },
+  "Tfuq+t": {
+    "defaultMessage": "{title}技能计划进度",
+    "description": "Label for skill plan progress on project submission success page"
+  },
+  "xRyx1X": {
+    "defaultMessage": "<bold>{duration}</bold>分钟",
+    "description": "Label for session duration"
+  },
   "xbSTzm": {
     "defaultMessage": "<authorLink>{author}</authorLink> 在 <submissionLink>{entityTitle}</submissionLink> 上留了一条评论 {timestamp}",
     "description": "Notification for comment left on your submission"

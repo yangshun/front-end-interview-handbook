@@ -30,5 +30,13 @@
   "xbSTzm": {
     "defaultMessage": "<authorLink>{author}</authorLink> left a comment on <submissionLink>{entityTitle}</submissionLink> {timestamp}",
     "description": "Notification for comment left on your submission"
+  },
+  "Tfuq+t": {
+    "defaultMessage": "{title} skill plan progress",
+    "description": "Label for skill plan progress on project submission success page"
+  },
+  "xRyx1X": {
+    "defaultMessage": "<bold>{duration}</bold> minutes",
+    "description": "Label for session duration"
   }
 }
