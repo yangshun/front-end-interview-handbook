@@ -15,6 +15,29 @@ export default {
       ],
       plugin: 'json',
     },
+    {
+      name: 'interviews-study-list',
+      paths: [
+        {
+          source: './src/content/interviews/study-list/**/en-US.mdx',
+          target: './src/content/interviews/study-list/**/{locale}.mdx',
+        },
+      ],
+      plugin: [
+        'mdx',
+        {
+          frontmatterExcludedKeys: [
+            'access',
+            'customHref',
+            'logoUrl',
+            'questionHashes',
+            'ranking',
+            'schedule',
+            'topics',
+          ],
+        },
+      ],
+    },
   ],
   localeConfig: {
     source: 'en-US',

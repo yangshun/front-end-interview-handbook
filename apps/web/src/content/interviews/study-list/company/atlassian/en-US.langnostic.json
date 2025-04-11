@@ -1,0 +1,36 @@
+{
+  "frontmatter": {
+    "name": "9438a55c",
+    "longName": "9e76d6e6",
+    "description": "9e76d6e6",
+    "shortDescription": "911d072",
+    "seoTitle": "b80ec573",
+    "seoDescription": "56fe9aac",
+    "socialTitle": "b59a8e2e"
+  },
+  "content": {
+    "source": {
+      "locale": "en-US",
+      "hashes": [
+        "8580da9a",
+        "165ad6ed",
+        "a9a48b26",
+        "d81f0b3a",
+        "d0352709",
+        "5de3a497",
+        "79da337d"
+      ]
+    },
+    "targets": {
+      "zh-CN": [
+        "8580da9a",
+        "165ad6ed",
+        "a9a48b26",
+        "d81f0b3a",
+        "d0352709",
+        "5de3a497",
+        "79da337d"
+      ]
+    }
+  }
+}

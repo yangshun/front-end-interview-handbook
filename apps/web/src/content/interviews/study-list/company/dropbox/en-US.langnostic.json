@@ -1,0 +1,30 @@
+{
+  "frontmatter": {
+    "name": "48a9db08",
+    "longName": "d279f561",
+    "description": "d279f561",
+    "shortDescription": "6ce3404d",
+    "seoTitle": "91de22bd",
+    "seoDescription": "c725bdca",
+    "socialTitle": "9a9dd553"
+  },
+  "content": {
+    "source": {
+      "locale": "en-US",
+      "hashes": [
+        "c787294d",
+        "eaf8dbe1",
+        "c6b1eb13",
+        "a2329724"
+      ]
+    },
+    "targets": {
+      "zh-CN": [
+        "c787294d",
+        "eaf8dbe1",
+        "c6b1eb13",
+        "a2329724"
+      ]
+    }
+  }
+}
