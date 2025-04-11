@@ -16,6 +16,18 @@ export default {
       plugin: 'json',
     },
     {
+      name: 'interviews-listing-bottom-content',
+      paths: [
+        {
+          source:
+            './src/content/interviews/listing-bottom-content/**/en-US.mdx',
+          target:
+            './src/content/interviews/listing-bottom-content/**/{locale}.mdx',
+        },
+      ],
+      plugin: 'mdx',
+    },
+    {
       name: 'interviews-study-list',
       paths: [
         {

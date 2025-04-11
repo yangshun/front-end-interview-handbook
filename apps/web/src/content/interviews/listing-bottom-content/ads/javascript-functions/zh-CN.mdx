@@ -1,0 +1,165 @@
+## JavaScript 函数面试问题和答案
+
+JavaScript 函数是该语言的核心，这使得它们成为技术面试的关键主题。从基本概念到高级特性，关于 JavaScript 函数的问题旨在评估您编写简洁、高效和可重用代码的能力。对函数的深入理解不仅突出了您对 JavaScript 的掌握，还展示了您在实际应用中解决问题的能力。
+
+本指南提供了一份由雇主常问的与 JavaScript 函数相关的面试问题精选列表。每个问题都侧重于函数的一个基本方面，例如闭包、高阶函数、回调、async/await 和函数作用域。本指南与简洁的答案和详细的解释相结合，是掌握 JavaScript 函数的终极准备资源。
+
+### 为什么 JavaScript 函数问题在面试中至关重要
+
+雇主依靠与 JavaScript 函数相关的问题来评估您对 JavaScript 内部工作原理的理解。函数不仅仅是可重用的代码块；它们在构建应用程序、管理状态和启用异步编程方面起着关键作用。掌握函数可以帮助您构建更强大、更可扩展的应用程序，这就是为什么这个主题经常出现在面试中。
+
+与函数相关的问题很重要的几个关键原因：
+
+1. **理解基础知识**：函数是 JavaScript 的基础。对它们有深刻的理解表明对该语言有扎实的掌握。
+2. **解决问题的能力**：许多算法和逻辑挑战都依赖于您有效编写和操作函数的能力。
+3. **高级概念**：面试官使用函数来探索高级主题，如闭包、递归和异步编程。
+4. **实际应用**：函数是 React 和 Node.js 等框架和库不可或缺的一部分，理解函数式编程模式至关重要。
+
+通过练习涵盖这些领域的题目，您将准备好自信地应对简单和复杂的挑战。
+
+### JavaScript 函数面试问题示例
+
+以下是按主题分类的与函数相关的问题示例。每个问题都配有快速的 TL;DR 答案，用于面试，以及更详细的解释以加深您的理解。
+
+#### 1. 闭包
+
+* **问题**：JavaScript 中的闭包是什么？
+  * *TL;DR 答案：* 闭包是一个函数，即使在词法范围之外执行，它也保留对其词法范围内的变量的访问权限。
+
+*详细说明：* 每次定义函数时都会创建闭包。例如：
+
+```js
+function outerFunction(outerVariable) {
+  return function innerFunction(innerVariable) {
+    console.log(`Outer: ${outerVariable}, Inner: ${innerVariable}`);
+  };
+}
+
+const newFunction = outerFunction('outside');
+
+newFunction('inside'); // Outer: outside, Inner: inside
+```
+
+闭包通常用于回调、事件处理程序和封装私有变量。
+
+#### 2. 高阶函数
+
+* **问题**：什么是高阶函数？
+  * *TL;DR 答案：* 高阶函数是将另一个函数作为参数、返回一个函数或两者兼而有之的函数。
+
+*详细说明：* 高阶函数支持函数式编程。示例包括 `map`、`filter` 和 `reduce`：
+
+```js
+const numbers = [1, 2, 3, 4];
+
+const doubled = numbers.map(num => num \* 2);
+
+console.log(doubled); // [2, 4, 6, 8]
+```
+
+#### 3. 回调函数
+
+* **问题**：什么是回调函数，以及如何使用？
+  * *TL;DR 答案：* 回调函数是作为参数传递给另一个函数并在稍后执行的函数。
+
+*详细说明：* 回调函数常用于异步编程：
+
+```js
+function fetchData(callback) {
+  setTimeout(() => {
+    callback('Data loaded');
+  }, 1000);
+}
+
+fetchData((data) => console.log(data));
+```
+
+#### 4. Async/Await
+
+* **问题**：`async/await` 如何改进 JavaScript 中的异步编程？
+  * *TL;DR 答案：* `async/await` 通过使异步代码像同步代码一样可读和结构化来简化异步代码。
+
+*详细说明：* 使用 `async/await` 允许你避免链接 Promises：
+
+```js
+async function fetchData() {
+  try {
+    const response = await fetch('https://api.example.com');
+
+    const data = await response.json();
+
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+fetchData();
+```
+
+#### 5. 函数作用域
+
+* **问题**：函数作用域和块级作用域有什么区别？
+  * *TL;DR 答案：* 函数作用域适用于使用 `var` 声明的变量，而块级作用域适用于使用 `let` 和 `const` 声明的变量。
+
+*详细说明：* 在 JavaScript 中，`var` 的作用域是最近的函数，而 `let` 和 `const` 的作用域是最近的块：
+
+```js
+function scopeExample() {
+  if (true) {
+    var functionScoped = 'function';
+
+    let blockScoped = 'block';
+  }
+
+  console.log(functionScoped); // 'function'
+  // console.log(blockScoped); // ReferenceError
+}
+
+scopeExample();
+```
+
+#### 6. 递归
+
+* **问题**：什么是递归，你会在什么时候使用它？
+  * *TL;DR 答案：* 递归是一个函数调用自身来解决更小的问题实例的过程。
+
+*详细说明：* 递归常用于遍历树或计算阶乘等任务：
+
+```js
+function factorial(n) {
+  if (n === 0) return 1;
+
+  return n * factorial(n - 1);
+}
+
+console.log(factorial(5)); // 120
+```
+
+### 这些问题如何帮助你准备
+
+我们的 JavaScript UI 面试问题旨在让你为前端开发角色的挑战做好充分准备。以下是它们如何提供帮助：
+
+1. **精心设计**：每个问题都由经验丰富的工程师创建，他们对前端面试有深入的了解。内容反映了当前的行业趋势和期望，确保你的准备既相关又实用。
+2. **广泛的主题覆盖**：问题涵盖了广泛的主题，包括 DOM 操作、响应式设计、可访问性和性能优化。这种多样性确保你准备好在面试期间处理任何情况。
+3. **详细的解决方案**：每个问题都附带了在 React、Angular 和 Vue 等流行框架以及纯 JavaScript 和 TypeScript 中实现的全面解决方案。这些解决方案提供了对最佳实践和方法的见解，使其适用于不同的开发环境。
+4. **模拟模拟面试环境**：我们的浏览器内编码工作区模拟真实的面试条件。通过即时 UI 预览功能，你可以在编写代码时看到代码的实际效果，从而提供即时视觉反馈以完善你的方法。
+5. **通过测试用例即时反馈**：自动测试用例实时验证你的解决方案，帮助你快速识别和修复错误。这种即时反馈循环确保你在准备面试时持续改进。
+
+这种全面的准备策略使你能够充满信心地解决基本和高级 UI 开发问题，提高你的技能并为现实世界的挑战做好准备。
+
+### 为什么我们的答案脱颖而出
+
+这些答案由来自领先科技公司的前面试官精心打造，他们拥有多年评估候选人和构建用于大规模应用程序的基于 JavaScript 的解决方案的经验。我们的答案基于实际考虑，侧重于模块化、可访问性和性能。
+
+期望探索每个问题的多种方法，为您提供最佳实践的全面视图。最重要的是，我们答案的可信度是无与伦比的，确保您获得的知识不仅在技术上是可靠的，而且符合现实世界的需求和高行业标准。
+
+### 相关列表
+
+如果您正在寻找更具体的内容，请查看下面的其他问题列表：
+
+* [JavaScript 访谈问题](/questions/javascript-interview-questions)
+* [JavaScript 编码访谈问题](/questions/javascript-coding-interview-questions)
+* [JavaScript 测验访谈问题](/questions/javascript-quiz-interview-questions)
+* [JavaScript 用户界面访谈问题](/questions/javascript-ui-interview-questions)
+* [JavaScript 数据结构和算法访谈问题](/questions/javascript-dsa-interview-questions)
