@@ -12,9 +12,7 @@ import type {
   QuestionUserInterface,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import type { QuestionUserInterfaceMode } from '~/components/interviews/questions/common/QuestionUserInterfacePath';
-import QuestionNextQuestions from '~/components/interviews/questions/content/QuestionNextQuestions';
 import { useIntl } from '~/components/intl';
-import Divider from '~/components/ui/Divider';
 import DropdownMenu from '~/components/ui/DropdownMenu';
 
 import UserInterfaceCodingWorkspaceLayoutDialog from './UserInterfaceCodingWorkspaceLayoutDialog';
@@ -28,7 +26,6 @@ type Props = Readonly<{
   isViewingSave: boolean;
   metadata: QuestionMetadata;
   mode: QuestionUserInterfaceMode;
-  nextQuestions: ReadonlyArray<QuestionMetadata>;
   question: QuestionUserInterface;
   resetToDefaultCode: () => void;
   slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE: string;
@@ -42,7 +39,6 @@ export default function UserInterfaceCodingWorkspaceBottomBar({
   metadata,
   question,
   mode,
-  nextQuestions,
   resetToDefaultCode,
   studyListKey,
   slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE,
@@ -137,15 +133,6 @@ export default function UserInterfaceCodingWorkspaceBottomBar({
       {!isViewingSave ? (
         <QuestionProgressAction
           metadata={metadata}
-          signInModalContents={
-            nextQuestions &&
-            nextQuestions.length > 0 && (
-              <div className="mt-4 space-y-4">
-                <Divider />
-                <QuestionNextQuestions questions={nextQuestions} />
-              </div>
-            )
-          }
           studyListKey={studyListKey}
         />
       ) : null}

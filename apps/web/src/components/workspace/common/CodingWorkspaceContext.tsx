@@ -1,6 +1,8 @@
 import type { ReactNode } from 'react';
 import { createContext, useCallback, useContext, useState } from 'react';
 
+import { useAuthPointOnActions } from '~/components/auth/auth-points';
+
 import CodingWorkspaceBottomBarEmitter from './CodingWorkspaceBottomBarEmitter';
 
 import type { SandpackFiles } from '@codesandbox/sandpack-react/types';
@@ -66,6 +68,7 @@ export function CodingWorkspaceProvider({
   value,
   loadedFilesFromLocalStorage = false,
 }: Props) {
+  const { increaseAuthPoints } = useAuthPointOnActions();
   const [status, setStatus] = useState<Status>('idle');
   const [
     showLoadedFilesFromLocalStorageMessage,
@@ -74,7 +77,8 @@ export function CodingWorkspaceProvider({
 
   const runTests = useCallback(() => {
     setStatus('running_tests');
-  }, []);
+    increaseAuthPoints(2);
+  }, [increaseAuthPoints]);
 
   const submit = useCallback(() => {
     CodingWorkspaceBottomBarEmitter.emit('pause_timer');

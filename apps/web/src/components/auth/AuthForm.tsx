@@ -12,16 +12,17 @@ import type { AuthViewType } from './SupabaseAuthTypes';
 import { useSessionContext } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
+  next?: string;
   variant?: 'compact' | 'full';
   view: AuthViewType;
 }>;
 
-export default function AuthForm({ view, variant = 'full' }: Props) {
+export default function AuthForm({ view, variant = 'full', next }: Props) {
   const intl = useIntl();
   const { error } = useSessionContext();
   const supabaseClient = useSupabaseClientGFE();
   const searchParams = useSearchParams();
-  const nextSearchParam = searchParams?.get('next');
+  const nextSearchParam = next || searchParams?.get('next');
   const sourceSearchParam = searchParams?.get('source');
 
   return (

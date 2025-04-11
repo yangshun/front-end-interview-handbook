@@ -4,6 +4,7 @@ import clsx from 'clsx';
 import { useCallback, useState } from 'react';
 import { RiCodeLine } from 'react-icons/ri';
 
+import { AuthPointsSignInDialog } from '~/components/auth/auth-points';
 import type {
   QuestionCodingWorkingLanguage,
   QuestionJavaScript,
@@ -419,7 +420,6 @@ function JavaScriptCodingWorkspaceImpl({
             <JavaScriptCodingWorkspaceBottomBar
               layout={embed ? 'minimal' : 'full'}
               metadata={metadata}
-              nextQuestions={nextQuestions}
               slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE="qns_slideout_mobile"
               studyListKey={studyListKey}
             />
@@ -476,11 +476,11 @@ function JavaScriptCodingWorkspaceImpl({
           <JavaScriptCodingWorkspaceBottomBar
             layout={embed ? 'minimal' : 'full'}
             metadata={metadata}
-            nextQuestions={nextQuestions}
             slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE="qns_slideout"
             studyListKey={studyListKey}
           />
         </div>
+        <AuthPointsSignInDialog />
       </JavaScriptCodingWorkspaceContextProvider>
     </CodingWorkspaceProvider>
   );

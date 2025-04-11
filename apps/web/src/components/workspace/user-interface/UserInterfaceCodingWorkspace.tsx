@@ -510,7 +510,6 @@ function UserInterfaceCodingWorkspaceImpl({
             isViewingSave={isViewingSave}
             metadata={metadata}
             mode={mode}
-            nextQuestions={nextQuestions}
             question={question}
             resetToDefaultCode={resetToDefaultCode}
             slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE="qns_slideout_mobile"
@@ -608,7 +607,6 @@ function UserInterfaceCodingWorkspaceImpl({
             isViewingSave={isViewingSave}
             metadata={metadata}
             mode={mode}
-            nextQuestions={nextQuestions}
             question={question}
             resetToDefaultCode={resetToDefaultCode}
             slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE="qns_slideout"

@@ -7,10 +7,8 @@ import { VscLayout } from 'react-icons/vsc';
 import QuestionProgressAction from '~/components/interviews/questions/common/QuestionProgressAction';
 import QuestionReportIssueButton from '~/components/interviews/questions/common/QuestionReportIssueButton';
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
-import QuestionNextQuestions from '~/components/interviews/questions/content/QuestionNextQuestions';
 import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
-import Divider from '~/components/ui/Divider';
 import DropdownMenu from '~/components/ui/DropdownMenu';
 
 import logEvent from '~/logging/logEvent';
@@ -23,14 +21,12 @@ import CodingWorkspaceTimer from '../common/CodingWorkspaceTimer';
 type Props = Readonly<{
   layout: 'full' | 'minimal';
   metadata: QuestionMetadata;
-  nextQuestions: ReadonlyArray<QuestionMetadata>;
   slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE: string;
   studyListKey?: string;
 }>;
 
 export default function JavaScriptCodingWorkspaceBottomBar({
   metadata,
-  nextQuestions,
   layout,
   studyListKey,
   slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE,
@@ -118,19 +114,7 @@ export default function JavaScriptCodingWorkspaceBottomBar({
       <div className="hidden lg:inline">
         <CodingWorkspaceTimer qnMetadata={metadata} />
       </div>
-      <QuestionProgressAction
-        metadata={metadata}
-        signInModalContents={
-          nextQuestions &&
-          nextQuestions.length > 0 && (
-            <div className="mt-4 space-y-4">
-              <Divider />
-              <QuestionNextQuestions questions={nextQuestions} />
-            </div>
-          )
-        }
-        studyListKey={studyListKey}
-      />
+      <QuestionProgressAction metadata={metadata} studyListKey={studyListKey} />
       {rightPostElements}
     </>
   );

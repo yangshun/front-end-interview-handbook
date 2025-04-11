@@ -57,6 +57,7 @@ type DialogContentProps = React.ComponentPropsWithoutRef<
   Readonly<{
     children: React.ReactNode;
     className?: string;
+    contentClassName?: string;
     isShown?: boolean;
     scrollable?: boolean;
     wrapChildren?: (children: React.ReactNode) => React.ReactNode;
@@ -65,41 +66,54 @@ type DialogContentProps = React.ComponentPropsWithoutRef<
 export const DialogContent = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Content>,
   DialogContentProps
->(({ className, children, scrollable, wrapChildren, ...props }, ref) => {
-  const contents = (
-    <div
-      className={clsx(
-        'flex flex-col',
-        'max-h-full w-full p-6',
-        'overflow-hidden',
-      )}>
-      {children}
-    </div>
-  );
+>(
+  (
+    {
+      className,
+      contentClassName,
+      children,
+      scrollable,
+      wrapChildren,
+      ...props
+    },
+    ref,
+  ) => {
+    const contents = (
+      <div
+        className={clsx(
+          'flex flex-col',
+          'max-h-full w-full p-6',
+          'overflow-hidden',
+          contentClassName,
+        )}>
+        {children}
+      </div>
+    );
 
-  return (
-    <DialogPrimitive.Content
-      ref={ref}
-      className={clsx(
-        'flex flex-col',
-        'rounded-lg',
-        'w-full',
-        scrollable && 'max-h-[calc(100vh_-_32px)]',
-        themeBackgroundLayerEmphasized,
-        'shadow-xl',
-        'outline-none',
-        'transform transition-all duration-200',
-        'data-[state=open]:animate-in data-[state=closed]:animate-out',
-        'data-[state=open]:fade-in-0 data-[state=closed]:fade-out-0',
-        'data-[state=open]:zoom-in-95 data-[state=closed]:zoom-out-95',
-        'overflow-hidden',
-        className,
-      )}
-      {...props}>
-      {wrapChildren ? wrapChildren(contents) : contents}
-    </DialogPrimitive.Content>
-  );
-});
+    return (
+      <DialogPrimitive.Content
+        ref={ref}
+        className={clsx(
+          'flex flex-col',
+          'rounded-lg',
+          'w-full',
+          scrollable && 'max-h-[calc(100vh_-_32px)]',
+          themeBackgroundLayerEmphasized,
+          'shadow-xl',
+          'outline-none',
+          'transform transition-all duration-200',
+          'data-[state=open]:animate-in data-[state=closed]:animate-out',
+          'data-[state=open]:fade-in-0 data-[state=closed]:fade-out-0',
+          'data-[state=open]:zoom-in-95 data-[state=closed]:zoom-out-95',
+          'overflow-hidden',
+          className,
+        )}
+        {...props}>
+        {wrapChildren ? wrapChildren(contents) : contents}
+      </DialogPrimitive.Content>
+    );
+  },
+);
 
 DialogContent.displayName = DialogPrimitive.Content.displayName;
 
@@ -168,8 +182,8 @@ export function DialogBody({
         className={clsx(
           'mt-2.5 block',
           scrollable && 'grow overflow-y-auto',
+          className,
           textVariants({
-            className,
             size: 'body2',
           }),
         )}>

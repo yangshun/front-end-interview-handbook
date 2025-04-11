@@ -6,13 +6,11 @@ import { FaCheck } from 'react-icons/fa6';
 import url from 'url';
 
 import { queryParamActionKey } from '~/hooks/useQueryParamAction';
-import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
 
+import AuthDialog from '~/components/auth/AuthDialog';
 import { useToast } from '~/components/global/toasts/useToast';
-import { FormattedMessage, useIntl } from '~/components/intl';
+import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
-import Dialog from '~/components/ui/Dialog';
-import Text from '~/components/ui/Text';
 
 import {
   useMutationQuestionProgressAdd,
@@ -30,12 +28,10 @@ import { useUser } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
   metadata: Pick<QuestionMetadata, 'access' | 'format' | 'slug'>;
-  signInModalContents?: React.ReactNode;
   studyListKey?: string;
 }>;
 
 export default function QuestionProgressAction({
-  signInModalContents,
   metadata,
   studyListKey,
 }: Props) {
@@ -48,7 +44,6 @@ export default function QuestionProgressAction({
   const deleteProgressMutation = useMutationQuestionProgressDelete();
 
   const { showToast } = useToast();
-  const { signInUpHref, signInUpLabel } = useAuthSignInUp();
 
   const { data, isFetching } = useQueryQuestionProgress(
     metadata,
@@ -74,51 +69,16 @@ export default function QuestionProgressAction({
           variant="secondary"
           onClick={() => setIsLoginDialogShown(true)}
         />
-        <Dialog
+        <AuthDialog
           isShown={isLoginDialogShown}
-          primaryButton={
-            <Button
-              href={signInUpHref({
-                next: url.format({
-                  pathname,
-                  query: {
-                    [queryParamActionKey]: MARK_AS_COMPLETE_ACTION_NAME,
-                  },
-                }),
-                query: { source: 'track_progress' },
-              })}
-              label={signInUpLabel}
-              variant="primary"
-              onClick={() => setIsLoginDialogShown(false)}
-            />
-          }
-          secondaryButton={
-            <Button
-              label={intl.formatMessage({
-                defaultMessage: 'Cancel',
-                description: 'Cancel and close the sign in modal',
-                id: 'YXs0ZC',
-              })}
-              variant="secondary"
-              onClick={() => setIsLoginDialogShown(false)}
-            />
-          }
-          title={intl.formatMessage({
-            defaultMessage: 'Sign in to save progress',
-            description:
-              'Message shown when user completes a question without signing in',
-            id: 'RDQ253',
+          next={url.format({
+            pathname,
+            query: {
+              [queryParamActionKey]: MARK_AS_COMPLETE_ACTION_NAME,
+            },
           })}
-          onClose={() => setIsLoginDialogShown(false)}>
-          <Text className="block" color="secondary" size="body2">
-            <FormattedMessage
-              defaultMessage="Congratulations on completing the question! Sign into your account or sign up for free to save your progress!"
-              description="Message shown when user completes a question"
-              id="+JhlMu"
-            />
-          </Text>
-          {signInModalContents}
-        </Dialog>
+          onClose={() => setIsLoginDialogShown(false)}
+        />
       </>
     );
   }

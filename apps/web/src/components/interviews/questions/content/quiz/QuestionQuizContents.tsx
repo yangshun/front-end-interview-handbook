@@ -5,6 +5,7 @@ import { getMDXComponent } from 'mdx-bundler/client';
 import { useMemo } from 'react';
 import { RiEditBoxLine } from 'react-icons/ri';
 
+import useAuthActiveEngagementPoints from '~/components/auth/auth-points';
 import QuestionMetadataSection from '~/components/interviews/questions/metadata/QuestionMetadataSection';
 import { FormattedMessage, useIntl } from '~/components/intl';
 import MDXCodeBlock from '~/components/mdx/MDXCodeBlock';
@@ -78,6 +79,7 @@ export default function QuestionQuizContents({
   }, [solution]);
 
   useQuestionsAutoMarkAsComplete(question.metadata, studyListKey);
+  useAuthActiveEngagementPoints();
 
   return (
     <div
