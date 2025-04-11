@@ -38,9 +38,14 @@ export default function mdxPlugin(options: PluginOptions): Plugin {
     async getInstructions() {
       return [
         'These strings are part of an MDX file, which can contain both markdown and JSX.',
-        'For languages that do not have spaces between words, ALWAYS remove the spaces around JSX tags and JSX curly braces.',
         'Make sure to return all the translated objects for all the strings.',
         'Keep all inline code (especially anything wrapped in single backticks like `<noscript>`, `<Component /> etc.`) exactly as-is, without removing or replacing the tags inside.',
+        'For languages that do not use spaces between words (e.g., Chinese, Japanese, Thai, etc.), STRICTLY REMOVE any space directly before or after JSX tags and curly braces in the string—even if the tag appears at the beginning or end of the string.',
+        '✅ Example:',
+        '  - English: "## <CompanyName /> Front End Interview Preparation Guide"',
+        '  - Correct: "## <CompanyName />前端面试准备指南"',
+        '  - ❌ Incorrect: "## <CompanyName /> 前端面试准备指南"',
+        'Make sure to return translations for all provided strings.',
       ].join('\n');
     },
     async getTranslationStrings() {
