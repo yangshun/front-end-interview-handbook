@@ -10,8 +10,8 @@ import { groupQuestionHashesByFormat } from '~/db/QuestionsUtils';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
-async function getPageSEOMetadata() {
-  const studyPlanDocument = await fetchInterviewsStudyList('blind75');
+async function getPageSEOMetadata({ locale }: Props['params']) {
+  const studyPlanDocument = await fetchInterviewsStudyList('blind75', locale);
 
   if (studyPlanDocument == null) {
     return notFound();
@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const [intl, { title, description, href, socialTitle }] = await Promise.all([
     getIntlServerOnly(locale),
-    getPageSEOMetadata(),
+    getPageSEOMetadata(params),
   ]);
 
   return defaultMetadata({

@@ -16,8 +16,7 @@ type Props = Readonly<{
   }>;
 }>;
 
-async function getPageSEOMetadata({ params }: Props) {
-  const { locale } = params;
+async function getPageSEOMetadata({ locale }: Props['params']) {
   const intl = await getIntlServerOnly(locale);
   const guidesData = getGuidesData(intl);
   const socialTitle = guidesData.BEHAVIORAL_INTERVIEW_PLAYBOOK.name;
@@ -40,9 +39,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
 
   const { title, description, socialTitle, href, ogImageTitle } =
-    await getPageSEOMetadata({
-      params,
-    });
+    await getPageSEOMetadata(params);
 
   return defaultMetadata({
     description,

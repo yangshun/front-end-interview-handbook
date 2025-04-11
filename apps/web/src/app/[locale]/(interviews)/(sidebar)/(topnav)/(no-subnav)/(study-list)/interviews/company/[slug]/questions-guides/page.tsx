@@ -30,8 +30,8 @@ export async function generateStaticParams() {
   );
 }
 
-async function getPageSEOMetadata({ slug }: Props['params']) {
-  const companyGuide = await fetchInterviewsStudyList(slug);
+async function getPageSEOMetadata({ locale, slug }: Props['params']) {
+  const companyGuide = await fetchInterviewsStudyList(slug, locale);
 
   if (companyGuide == null) {
     return notFound();
@@ -69,7 +69,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Page({ params }: Props) {
   const { locale, slug } = params;
 
-  const companyGuide = await fetchInterviewsStudyList(slug);
+  const companyGuide = await fetchInterviewsStudyList(slug, locale);
 
   if (companyGuide == null) {
     return notFound();

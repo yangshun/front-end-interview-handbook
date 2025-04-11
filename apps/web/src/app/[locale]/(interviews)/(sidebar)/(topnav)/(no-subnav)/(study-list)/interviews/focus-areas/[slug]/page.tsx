@@ -21,8 +21,8 @@ type Props = Readonly<{
   };
 }>;
 
-async function getPageSEOMetadata({ slug }: Props['params']) {
-  const focusAreaDocument = await fetchInterviewsStudyList(slug);
+async function getPageSEOMetadata({ locale, slug }: Props['params']) {
+  const focusAreaDocument = await fetchInterviewsStudyList(slug, locale);
 
   if (focusAreaDocument == null) {
     return notFound();
@@ -77,7 +77,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Page({ params }: Props) {
   const { locale, slug } = params;
 
-  const focusArea = await fetchInterviewsStudyList(slug);
+  const focusArea = await fetchInterviewsStudyList(slug, locale);
 
   if (focusArea == null) {
     return notFound();

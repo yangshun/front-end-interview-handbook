@@ -14,8 +14,15 @@ import { getIntlServerOnly } from '~/i18n';
 import { generateStaticParamsWithLocale } from '~/next-i18nostic/src';
 import defaultMetadata from '~/seo/defaultMetadata';
 
-async function getPageSEOMetadata({ plan }: Props['params']) {
-  const studyPlanDocument = await fetchInterviewsStudyList(plan);
+type Props = Readonly<{
+  params: {
+    locale: string;
+    plan: string;
+  };
+}>;
+
+async function getPageSEOMetadata({ locale, plan }: Props['params']) {
+  const studyPlanDocument = await fetchInterviewsStudyList(plan, locale);
 
   if (studyPlanDocument == null) {
     return notFound();
@@ -37,13 +44,6 @@ export async function generateStaticParams() {
     studyPlans.map((plan) => ({ plan: plan.slug })),
   );
 }
-
-type Props = Readonly<{
-  params: {
-    locale: string;
-    plan: string;
-  };
-}>;
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
@@ -67,7 +67,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function Page({ params }: Props) {
   const { locale, plan } = params;
-  const studyPlan = await fetchInterviewsStudyList(plan);
+  const studyPlan = await fetchInterviewsStudyList(plan, locale);
 
   if (studyPlan == null) {
     return notFound();

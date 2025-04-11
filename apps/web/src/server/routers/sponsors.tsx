@@ -820,11 +820,11 @@ export const sponsorsRouter = router({
         }
       : null;
   }),
-  spotlightPlacements: publicProcedure.query(async () => {
+  spotlightPlacements: publicProcedure.query(async ({ ctx: { locale } }) => {
     const [focusAreas, companies, studyPlans] = await Promise.all([
-      fetchInterviewsStudyLists('focus-area'),
-      fetchInterviewsStudyLists('company'),
-      fetchInterviewsStudyLists('study-plan'),
+      fetchInterviewsStudyLists('focus-area', locale),
+      fetchInterviewsStudyLists('company', locale),
+      fetchInterviewsStudyLists('study-plan', locale),
     ]);
 
     return [...focusAreas, ...companies, ...studyPlans].map((item) => ({

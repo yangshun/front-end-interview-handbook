@@ -238,7 +238,7 @@ export default async function Page({ params }: Props) {
     fetchQuestionsList({ type: 'format', value: 'quiz' }, locale),
     fetchQuestionsList({ type: 'format', value: 'system-design' }, locale),
     // Company guides
-    fetchInterviewsStudyLists('company'),
+    fetchInterviewsStudyLists('company', locale),
   ]);
 
   const questionBankData = getQuestionBankSectionData({
