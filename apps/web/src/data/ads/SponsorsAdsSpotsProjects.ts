@@ -15,7 +15,7 @@ export const SponsorsAdsSpotsProjectsSpotlight: SponsorsAdFormatPayloadSpotlight
     imageUrl: 'https://www.gfecdn.net/sponsors/ads/projects/spotlight.webp',
     sponsorName: 'GreatFrontEnd Projects',
     text: `${PROMO_PROJECTS_BETA_DISCOUNT_PERCENTAGE}% off the fastest way to learn front end skills`,
-    url: '/projects',
+    url: 'https://www.greatfrontend.com/projects',
   };
 
 export const SponsorsAdsSpotsProjectsInContent: SponsorsAdFormatPayloadInContent =
@@ -67,7 +67,7 @@ export const SponsorsAdsSpotsProjectsInContent: SponsorsAdFormatPayloadInContent
                         target: null,
                         title: null,
                         type: 'custom-link',
-                        url: '/projects/challenges',
+                        url: 'https://www.greatfrontend.com/projects/challenges',
                         version: 1,
                       },
                     ],
@@ -78,7 +78,7 @@ export const SponsorsAdsSpotsProjectsInContent: SponsorsAdFormatPayloadInContent
                     target: null,
                     title: null,
                     type: 'custom-link',
-                    url: '/projects',
+                    url: 'https://www.greatfrontend.com/projects',
                     version: 1,
                   },
                 ],
@@ -157,7 +157,7 @@ export const SponsorsAdsSpotsProjectsInContent: SponsorsAdFormatPayloadInContent
                     target: null,
                     title: null,
                     type: 'custom-link',
-                    url: '/projects/skills',
+                    url: 'https://www.greatfrontend.com/projects/skills',
                     version: 1,
                   },
                   {
@@ -208,7 +208,7 @@ export const SponsorsAdsSpotsProjectsInContent: SponsorsAdFormatPayloadInContent
                 target: null,
                 title: null,
                 type: 'custom-link',
-                url: '/projects',
+                url: 'https://www.greatfrontend.com/projects',
                 version: 1,
               },
             ],
@@ -230,5 +230,5 @@ export const SponsorsAdsSpotsProjectsInContent: SponsorsAdFormatPayloadInContent
     imageUrl: 'https://www.gfecdn.net/sponsors/ads/projects/in-content.webp',
     sponsorName: 'GreatFrontEnd Projects',
     title: 'The fastest way to learn Front End – by building actual projects',
-    url: '/projects',
+    url: 'https://www.greatfrontend.com/projects',
   };
