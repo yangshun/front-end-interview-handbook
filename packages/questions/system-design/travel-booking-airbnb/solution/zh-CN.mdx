@@ -1,0 +1,473 @@
+## 需求探索
+
+### 需要支持哪些核心功能？
+
+* 搜索和浏览住宿列表。
+* 查看住宿详情，例如价格、位置、照片和便利设施。
+* 预订住宿。
+
+### 用户人群是什么样的？
+
+广泛年龄段的国际用户：美国、亚洲、欧洲等。
+
+### 有哪些非功能性需求？
+
+每个页面应在 2 秒内加载。与页面元素的交互应快速响应。
+
+### 网站将在哪些设备上使用？
+
+所有可能的设备：笔记本电脑、平板电脑、手机等。
+
+### 用户是否必须登录？
+
+任何人都可以搜索列表和浏览详细信息，但用户需要登录才能进行预订。
+
+### 总结
+
+从以上内容可以看出，该网站最重要的方面是：
+
+* **搜索引擎优化**：旅游网站应旨在在搜索引擎上排名靠前，因为自然搜索是主要的发现机制之一。
+* **性能**：已知性能会影响转化率。对于旨在让客户进行购买的网站，性能非常重要。
+* **国际化**：用户来自许多不同的国家和不同的年龄组。为了吸引更大的市场，该网站应该被翻译和本地化。
+* **设备支持**：该网站应该适用于各种设备，因为用户人群非常广泛。
+
+旅游预订网站的需求和性质与[电子商务网站系统设计](/questions/system-design/e-commerce-amazon)非常相似，因此解决方案之间存在高度重叠。在本解决方案中，我们将介绍旅游预订网站中未在电子商务网站上找到的独特方面。
+
+***
+
+## 架构/高级设计
+
+{/* TODO: 架构图 */}
+
+### 服务器端渲染 (SSR) 还是客户端渲染？
+
+与[电子商务网站系统设计](/questions/system-design/e-commerce-amazon)一样，性能和 SEO 至关重要。因此，服务器端渲染是必须的，因为它具有性能和 SEO 优势。
+
+### 单页应用程序 (SPA) 还是多页应用程序 (MPA)？
+
+许多旅游网站有意在新标签页/窗口中打开列表详细信息，以便于访问搜索结果页面。由于经常打开新页面，初始加载性能比后续导航性能更重要。该网站从单页应用程序架构中获得的收益也不如最常导航的页面无法重用应用程序 shell 和现有客户端状态。
+
+因此，最重要的是使用 SSR，网站是 SPA 还是 MPA 并不重要，两者都可以根据后续导航体验的重要性而定。在现代 Web 生态系统中，旅游网站是 MPA 架构仍然可行的少数产品之一。
+
+然而，旅游网站有很多互动（例如，更改搜索过滤器、与地图互动、展开住宿详情等）。使用 UI 框架对于编写可维护的客户端代码至关重要。React、Vue 和 Angular 是这样做的首选。
+
+对于 SSR + 交互性强的用例，我们可以利用通用/同构渲染（或带有水合的 SSR）。在通用渲染中，服务器渲染完整的初始 HTML，但此后，渲染和导航变为客户端。JavaScript 事件处理程序附加到 HTML（水合）中的交互式元素。
+
+Airbnb 是使用 [Rendr](https://github.com/rendrjs/rendr) 构建通用/同构应用程序的先驱之一，Rendr 是一个在客户端和服务器上渲染 Backbone.js 应用程序的库。如今，随着 React 和 Next.js 的兴起，Rendr 已经不再使用。Next.js 是构建通用 React 驱动的 Web 应用程序的最受欢迎的选择，这些应用程序需要带有水合的服务器端渲染。
+
+### 顶级旅游预订网站使用什么
+
+让我们看看顶级旅游预订网站及其渲染选择：
+
+|             | 应用程序类型          | 渲染 | UI 框架 |
+| ----------- | ----------------- | --------- | ------------ |
+| Airbnb      | SPA (某些路由) | SSR       | React        |
+| Booking.com | MPA               | SSR       | React        |
+| Expedia     | MPA               | SSR       | React        |
+| TripAdvisor | SPA (某些路由) | SSR       | React        |
+
+**世界上所有顶级的旅游预订网站都使用 SSR 和 React！** 这表明了 SSR 对于旅游网站的重要性以及 React 在行业中的主导地位。这些网站中有一半使用 MPA，可能是因为使用 SPA + SSR 组合会增加复杂性，可能不值得处理。
+
+为简单起见，并且由于 SPA 在其他问题中很常见，以下讨论假定我们将使用 MPA 架构，并带有服务器端渲染 + 水合，因为需要在初始加载后进行交互。
+
+**参考**
+
+* [重新构建 Airbnb 的前端 | Airbnb 工程博客](https://medium.com/airbnb-engineering/rearchitecting-airbnbs-frontend-5e213efc24d2)
+* [使用 React Router v4 进行服务器渲染、代码拆分和延迟加载 | Airbnb 工程博客](https://medium.com/airbnb-engineering/server-rendering-code-splitting-and-lazy-loading-with-react-router-v4-bfe596a6af70)
+* [Rendr：在浏览器和 Node 中运行您的 Backbone 应用程序 | Airbnb 工程博客](https://medium.com/airbnb-engineering/rendr-run-your-backbone-apps-in-the-browser-and-node-a3481af49312)
+* [同构 JavaScript：Web 应用程序的未来 | Airbnb 工程博客](https://medium.com/airbnb-engineering/isomorphic-javascript-the-future-of-web-apps-10882b7a2ebc)
+* [打破单体 — Agoda.com 的模块化重新设计 | Agoda 工程与设计](https://medium.com/agoda-engineering/breaking-the-monolith-f3538d9c3ad6)
+
+***
+
+## 数据模型
+
+| 实体 | 来源 | 属于 | 字段 |
+| --- | --- | --- | --- |
+| 搜索参数 | 用户输入（客户端） | 搜索/列表页面 | 城市/地理位置/半径 日期范围、人数、便利设施等 |
+| `ListingResults` | 服务器 | 搜索/列表页面 | `results`（`ListingItem` 列表）、`pagination`（分页元数据） |
+| `ListingItem` | 服务器 | 搜索/列表页面、详细信息页面 | `title`、`price`、`currency`、`image_urls`、`amenities`（灵活格式） |
+
+我们省略了与付款和地址相关的实体，因为它们在[电子商务网站系统设计](/questions/system-design/e-commerce-amazon)中有所介绍。如果面试官希望您也关注结账流程，请提及这些实体。
+
+***
+
+## 接口定义 (API)
+
+我们将需要以下 HTTP API：
+
+1. **搜索**：给定一些搜索/筛选参数，获取住宿列表。结果在地图和/或列表视图上呈现
+2. **列表详细信息**：获取住宿列表的详细信息
+3. **预订**：预订住宿
+
+### 搜索住宿
+
+| 属性 | 值 |
+| --- | --- |
+| HTTP 方法 | `GET` |
+| 路径 | `/search` |
+| 描述 | 返回与搜索查询匹配的住宿列表。 |
+
+#### 参数
+
+| 参数 | 类型 | 描述 |
+| --- | --- | --- |
+| Size | number | 每页的结果数 |
+| Page | number | 要获取的页码 |
+| Guests | number | 入住的客人数量 |
+| Country | string | 用户的国家，决定货币 |
+| Location | mixed (see below) | 搜索的位置 |
+| Date range | mixed (see below) | 占用住宿的日期范围 |
+| Amenities | mixed (see below) | 便利设施标准 |
+
+**位置**：`location` 字段的确切格式取决于业务需求。但总的来说，我们需要告诉服务器所需的边界，以便显示边界内的结果。有两种常见的方式来表示边界：（1）中心位置 + 半径，（2）边界坐标。
+
+1. **中心位置 + 半径**：半径可以是英里/公里，中心位置可以是以下之一：
+   * **自由文本搜索**：这是包含位置的任何字符串，例如“旧金山”、“纽约市”。将需要一个外部位置服务将字符串转换为地理坐标（通过地理编码）。最好在服务器上进行地理编码，以防止 API 滥用。
+   * **地理位置/坐标**：此格式适用于基于地图的 UI，用户可以在其中平移/缩放地图以搜索该区域内的列表，或者当用户允许应用程序访问当前位置以搜索他们周围的列表时。
+2. **边界坐标**：对于基于地图的 UI，我们可以使用呈现地图的 4 个角的坐标作为边界区域。
+
+如果网站有不同的搜索 UI，则搜索 API 可能需要支持这两种格式：
+
+* 旅行网站的着陆页通常有一个搜索栏，其中包含日期范围和客人数量等强制性参数。此类 UI 将需要自由文本搜索位置格式。
+* 带有地图的结果页面将使用地理位置/边界坐标格式。
+
+**日期范围**：有几种日期范围格式可供选择，而且没有明确的赢家：
+
+| 格式 | 示例 | 优点 | 缺点 |
+| --- | --- | --- | --- |
+| 数组/元组 | `['2022-12-24', '2022-12-27']` | 短 | 不明确。必须编码 |
+| 对象 | `{ check_in: '2022-12-24', check_out: '2022-12-27' }` | 明确 | 长。必须编码 |
+| 单独的查询参数 | `check_in` 和 `check_out` | 不需要编码 | 两个查询参数与一个 |
+
+这三种格式中，数组格式最不明确，对象需要编码才能在 `GET` 中使用，因此建议使用单独的查询参数。
+
+**便利设施**：放置便利设施的查询参数与日期范围存在相同的问题。
+
+| 格式 | 示例 | 优点 | 缺点 |
+| --- | --- | --- | --- |
+| 对象 | `{ breakfast: true, washer: true }` | 明确 | 长。必须编码 |
+| 单独的查询参数 | `breakfast` 和 `washer` | 更具可读性 | N 个查询参数与一个 |
+
+对于这种情况，由于如果每个便利设施标准都是一个单独的查询参数，查询参数的数量非常多，因此对象格式更好，因为：
+
+* 将每个标准放在查询参数中会使查询字符串变得非常长，并且层次结构会丢失。
+* 可能会与非便利设施字段发生查询参数名称冲突。这可以通过在所有便利设施字段前加上 `amenities_`（例如 `amenities_breakfast` 和 `amenities_washer`）来解决。
+* 此外，一些便利设施标准具有非原始值，无论如何都需要进行 URL 编码和解码。
+
+关于[如何将数组和对象编码到 URL 的查询字符串中](https://stackoverflow.com/questions/6243051/how-to-pass-an-array-within-a-query-string)没有[固定的标准]，并且格式往往取决于实现。需要注意的最重要的事情是服务器和客户端之间的一致格式。
+
+#### 示例响应
+
+```json
+{
+  // 分页元数据。
+  "pagination": {
+    "size": 5,
+    "page": 2,
+    "total_pages": 15,
+    "total": 74
+  },
+  "results": [
+    {
+      "id": 561602, // 住宿 ID。
+      "title": "Great view in the Mission, 15 mins by bus downtown",
+      "images": [
+        "https://www.greathotels.com/img/1.jpg",
+        "https://www.greathotels.com/img/2.jpg",
+        "https://www.greathotels.com/img/3.jpg",
+        "https://www.greathotels.com/img/4.jpg"
+      ],
+      "rating": 4.82,
+      "coordinates": {
+        "latitude": 37.74403,
+        "longitude": -122.41755
+      },
+      "price": 200,
+      "currency": "USD"
+    }
+    // ... 更多住宿结果。
+  ]
+}
+```
+
+我们在这里使用基于偏移的分页，而不是基于游标的分页，因为：
+
+1. 拥有页码对于在搜索结果之间导航和跳转到特定页面很有用。
+2. 住宿结果不会受到陈旧结果问题的困扰，因为新列表不会添加得那么快/频繁。
+3. 了解总共有多少结果很有用。
+
+有关基于偏移量的分页和基于游标的分页之间的更深入比较，请参阅[新闻提要系统设计文章](/questions/system-design/news-feed-facebook)。
+
+如果需要无限滚动，则可能需要基于游标的分页方法。 仍然可以使用基于偏移的分页，但客户端将需要费力地过滤掉重复的结果。
+
+### 获取住宿详情
+
+严格来说，如果住宿详情页面总是在新标签页中打开，那么详情数据将只需要在服务器上获取以创建初始 HTML；它不会从客户端获取，因此不需要独立的 HTTP API。
+
+| 属性 | 值 |
+| ----------- | ------------------------------------------------ |
+| HTTP 方法 | `GET` |
+| 路径 | `/accommodation/{accommodationId}` |
+| 描述 | 获取住宿列表的详细信息。 |
+
+#### 参数
+
+| 参数 | 类型 | 描述 |
+| ----------------- | ------ | --------------------------------------------- |
+| `accommodationId` | number | 要获取的住宿 ID |
+| `country` | string | 用户的国家/地区，决定货币 |
+
+#### 示例响应
+
+```json
+{
+  "id": 561602, // 住宿 ID。
+  "title": "Great view of Brannan Street, 15 mins by bus downtown. Bed and Breakfast provided!",
+  "images": [
+    "https://www.greathotels.com/img/1.jpg",
+    "https://www.greathotels.com/img/2.jpg",
+    "https://www.greathotels.com/img/3.jpg",
+    "https://www.greathotels.com/img/4.jpg"
+  ],
+  "rating": 4.82,
+  "coordinates": {
+    "latitude": 37.74403,
+    "longitude": -122.41755
+  },
+  "price": 200,
+  "currency": "USD",
+  "amenities": {
+    "breakfast_provided": true,
+    "internet": true,
+    "washer": true,
+    "dryer": false
+    // 任何其他便利设施的详细信息。
+  },
+  "house_rules": "...",
+  "contact_email": "..."
+  // 任何其他详细信息。
+}
+```
+
+### 进行预订
+
+| 属性 | 值 |
+| ----------- | ------------------------- |
+| HTTP 方法 | `POST` |
+| 路径 | `/reserve` |
+| 描述 | 预订住宿。 |
+
+#### 参数
+
+| 参数 | 类型 | 描述 |
+| --- | --- | --- |
+| `accommodation_id` | number | 要预订的住宿 ID |
+| `dates` | mixed<sup>\*</sup> | 预订住宿的日期 |
+| `payment_details` | object | 包含付款方式字段（信用卡）的对象 |
+
+<sup>\*</sup> `dates` 字段的格式应与搜索 API 中选定的日期范围格式一致。
+
+#### 示例响应
+
+成功预订后会返回一个预订对象。
+
+```json
+{
+  "id": 456, // 预订 ID。
+  "total_price": 400,
+  "currency": "USD",
+  "dates": {
+    "check_in": "2022-12-24",
+    "check_out": "2022-12-27"
+  },
+  "accommodation": {
+    "id": 561602,
+    "address": {
+      "country": "US",
+      "street_address": "888 Brannan Street",
+      "city": "San Francisco",
+      "zip": "94103",
+      "state": "CA",
+      // ... 其他地址字段。
+    },
+  }
+  "payment_details": {
+    // 仅显示后 4 位数字。
+    // 无论如何，我们不应该存储未加密的信用卡号。
+    "card_last_four_digits": "1234"
+  }
+}
+```
+
+***
+
+## 优化和深入研究
+
+总而言之，旅行预订网站最重要的方面是：**搜索引擎优化**、**国际化**、**性能**和**设备支持**。
+
+### 搜索引擎优化 (SEO)
+
+#### 可添加书签的搜索结果
+
+在这些旅行网站上搜索时，请注意搜索查询和过滤器将反映在 URL 中。 如果您在新窗口中加载 URL，则会显示相同的结果和搜索查询。 将搜索查询与 URL 同步是一项重要功能，因为：
+
+1. **添加书签**：允许为特定搜索添加书签，这是用户在进行旅行研究时常见的操作。
+2. **深度链接**：其他网站（如旅行博客）链接到特定搜索过滤器的结果页面（例如，旧金山的度假租赁）。 这有助于提高网站的 SEO 和可发现性。
+
+#### 为热门搜索预先生成页面
+
+当您在搜索引擎中搜索“旧金山度假”时，您很可能会看到来自 Expedia、Airbnb、TripAdvisor 等热门旅行网站的结果。 这些页面不是内容文章；它们是网站的搜索结果页面，其中包含一些预先填充的过滤器。 这是如何实现的？
+
+为了通过出现在与用户搜索相关的内容来改善 SEO，旅游网站会为热门搜索词生成大量页面，这些页面会显示这些词的相关列表。例如，Airbnb 为 ["旧金山度假租赁公寓"](https://www.airbnb.com/san-francisco-ca/stays) 和 ["纽约度假租赁公寓"](https://www.airbnb.com/new-york-ny/stays) 生成了专用页面。为了让搜索引擎了解这些专用页面，[Airbnb 有一个站点地图页面](https://www.airbnb.com/sitemaps/v2)，专门用于列出其专用列表页面的链接。有成千上万个或更多的列表页面。
+
+URL 通常通过以下两种方式之一实现：
+
+* **可读 URL**：https://www.airbnb.com/san-francisco-ca/stays
+* **"丑陋" URL**：https://www.airbnb.com/search?location=123（其中 123 是映射到旧金山城市的内部 ID）
+
+Airbnb 使用可读 URL，因为拥有可读 URL 有助于 SEO 排名，特别是如果 URL 包含搜索词本身。使用这种技术，搜索引擎会认为旅游网站有许多不同的内容页面，但实际上它们都呈现相同的结果页面，只是列表不同。这对于 SEO 来说非常棒。
+
+#### 动态渲染 – 为抓取工具提供不同的页面
+
+网站还可以利用 [动态渲染](https://developers.google.com/search/docs/crawling-indexing/javascript/dynamic-rendering)。动态渲染涉及使用 Web 服务器来区分抓取工具发出的请求和用户发出的请求。当抓取工具发出请求时，它会被路由到渲染器，该渲染器会生成针对抓取工具优化的内容版本，例如静态 HTML 版本。真实用户发出的请求会像往常一样处理。
+
+动态渲染也可以用不同的方式完成。对于 [Expedia Group 的 Vrbo](https://medium.com/expedia-group-tech/improving-vrbo-homepage-loading-experience-e4b2207535f4)，抓取工具会收到一个完整的页面，而真实用户只会收到一个轻量级页面和首屏内容，其余内容会在客户端异步加载。
+
+### 国际化 (i18n)
+
+以下部分内容摘自我们关于 [国际化](/questions/quiz/designing-or-developing-for-multilingual-sites) 的 [测验问题](/questions/quiz)：
+
+* 拥有以支持的语言翻译的专用页面。
+* 使语言和国家/地区选择器非常突出（例如在导航栏中）。
+* 对于用户贡献的列表详细信息，添加自动翻译功能，以便访问国家/地区 X 但不会说国家/地区 X 语言的用户可以用他们的母语理解列表。
+* 在 `html` 标签上设置 `lang` 属性（例如 `<html lang="zh-cn">`），以告知浏览器和搜索引擎页面的语言，这有助于浏览器提供页面的翻译。这对于 SEO 也很重要。
+* 启用特定于区域设置的 UI：
+  * 使用 [`:lang()` CSS 伪类](https://developer.mozilla.org/en-US/docs/Web/CSS/:lang) 来更改显示
+  * 从右到左的语言
+    * 使用 [CSS 逻辑属性](https://web.dev/learn/css/logical-properties/)
+    * HTML 的 [`dir` 属性](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/dir)
+    * CSS [`direction: rtl`](https://developer.mozilla.org/en-US/docs/Web/CSS/direction)
+* 考虑不同语言中文本长度的差异。
+* 不要连接翻译后的字符串。
+* 不要将文本放在图像中。
+* 注意不同文化中对颜色的感知。
+
+### 性能
+
+众所周知，性能会影响转化率，因此对于旨在让客户进行预订的网站，性能非常重要。性能优化已在前面的问题中进行了详细介绍，因此在本问题中，我们将列出相关的性能优化以及公司的博文，如果您想了解更多详细信息。
+
+#### 图像优化
+
+* **图片轮播**：照片广泛用于旅游网站，以展示目的地/住宿的吸引力。我们已经在 [图片轮播系统设计文章](/questions/system-design/image-carousel) 中介绍了图片轮播的实现。
+* **图片预加载/延迟加载**：一种非常有用的技术是使用 JavaScript 来精细控制图像的加载时间。
+  * [Airbnb 通过延迟加载和预加载的组合优化了其房间列表中的图片轮播体验](https://medium.com/airbnb-engineering/building-a-faster-web-experience-with-the-posttask-scheduler-276b83454e91) 行为：
+    1. 最初，仅加载第一张图片（其余图片将延迟加载）。
+    2. 当用户显示查看更多图片的可能意图时，会预加载第二张图片：
+       * 光标悬停在图片轮播上。
+       * 通过制表符聚焦于“下一步”按钮。
+       * 图片轮播进入视图（在移动设备上）。
+    3. 如果用户确实查看了第二张图片（这表明有很高的浏览更多图片的意图），则会预加载接下来的三张图片（第 3 到第 5 张）。
+    4. 当用户再次单击“下一步”以浏览更多图片时，会预加载 (n + 3)<sup>th</sup> 张图片。
+  * 其他资源：[是的，我很懒 | TripAdvisor 工程和产品博客](https://www.tripadvisor.com/engineering/yes-im-lazy/)
+
+<figure>
+  <img alt="Airbnb Image Carousel Lazy Loading" className="mx-auto w-full max-w-5xl" loading="lazy" src="/img/questions/travel-booking-airbnb/airbnb-image-loading.gif" />
+
+  <figcaption>Airbnb image carousel lazy loading example on mobile</figcaption>
+</figure>
+
+* **响应式图片**：为设备提供最合适的图片。
+  * [Web 上的图片：第 1 部分 — 响应式图片 | Expedia Group Technology](https://medium.com/expedia-group-tech/images-on-the-web-part-1-responsive-images-5dc0066461bd)
+  * [Web 上的图片：第 2 部分 — 实现响应式图片 | Expedia Group Technology](https://medium.com/expedia-group-tech/images-on-web-part-2-implementing-responsive-images-ca1d30f533f8)
+* **图片格式**：尽可能对照片使用 `webp` 格式，对图标使用 SVG 格式。
+  * [使用 SVG 优化高密度显示器的图像精灵 | TripAdvisor 工程和产品博客](https://www.tripadvisor.com/engineering/optimizing-image-sprites-for-high-density-displays-with-svg/)
+
+#### 代码拆分
+
+* [Expedia 的 Vrbo 优先考虑首屏内容并首先加载代码](https://medium.com/expedia-group-tech/improving-vrbo-homepage-loading-experience-e4b2207535f4)。
+* 页面/路由级代码拆分，以防止在使用单页应用程序架构时出现巨大的 JavaScript 捆绑包。
+* 延迟加载未在初始渲染时显示的 UI 组件：（1）首屏以下的元素（例如页脚），（2）仅在交互后出现的元素（例如弹出窗口、模态框）。
+
+#### 性能监控
+
+* 使用 Lighthouse 和 Web Vitals 等工具来分析网站并衡量性能。
+* Airbnb 提出了自己的 [页面性能分数](https://medium.com/airbnb-engineering/creating-airbnbs-page-performance-score-5f664be0936) 并 [定义了对 Web 性能至关重要的指标](https://medium.com/airbnb-engineering/measuring-web-performance-at-airbnb-122da8d3ea3f)。
+* 设置在 CI 上运行的性能预算。
+
+#### React 特定的技巧
+
+* Airbnb 完成的 React 特定的性能优化：[Airbnb 列表页面上的 React 性能修复 | Airbnb 技术博客](https://medium.com/airbnb-engineering/recent-web-performance-fixes-on-airbnb-listing-pages-6cd8d93df6f4)
+* [12 个提高客户端页面性能的技巧 | Expedia Group Technology](https://medium.com/expedia-group-tech/12-tips-to-improve-client-side-page-performance-88c7bec27933)
+
+#### 打包优化
+
+* 模块联邦：[使用 Webpack 模块联邦创建 App Shell | Expedia Group Technology](https://medium.com/expedia-group-tech/using-webpack-module-federation-to-share-an-app-shell-7d23633510e)
+* [优化页面：资源提示、关键 CSS 和 Webpack | Expedia Group Technology](https://medium.com/expedia-group-tech/optimize-a-page-resource-hint-critical-css-webpack-c8cc7319fb87)
+
+#### 虚拟列表/窗口化，用于具有无限滚动的长列表
+
+对具有无限滚动的长列表使用虚拟列表/窗口化。阅读更多关于[patterns.dev 上的列表虚拟化](https://www.patterns.dev/posts/virtual-lists/)
+
+#### 渐进式 Web 应用程序
+
+* [使用 Service Workers 的渐进式 Web 应用程序 | Booking.com 工程](https://medium.com/booking-com-development/progressive-web-apps-with-service-workers-887e80abf9ef)
+
+#### 其他性能技巧
+
+* 当使用客户端渲染时，将列表响应拆分成多个有效负载，以便更快地显示结果。为了快速显示结果，响应有效负载可以拆分成几个块，例如返回前 5 个结果（或在首屏之上的任意数量），然后在页面上加载其余结果。
+* [Web 应用程序：分析客户端性能 | Expedia Group Technology](https://medium.com/expedia-group-tech/web-applications-analyzing-client-side-performance-37e9cc4ad86b)
+* [快速或回家：优化客户端性能的过程](https://medium.com/expedia-group-tech/go-fast-or-go-home-the-process-of-optimizing-for-client-performance-57bb497402e)
+
+#### 延伸阅读
+
+* [在为多语言网站设计或开发时，您必须注意哪些事项？](/questions/quiz/designing-or-developing-for-multilingual-sites)
+* [您如何使用多种语言提供页面内容？](/questions/quiz/how-do-you-serve-a-page-with-content-in-multiple-languages)
+* [构建 Airbnb 的国际化平台](https://medium.com/airbnb-engineering/building-airbnbs-internationalization-platform-45cf0104b63c)
+* [在 Airbnb 上添加对阿拉伯语和希伯来语的支持](https://medium.com/airbnb-engineering/adding-support-for-arabic-and-hebrew-languages-on-airbnb-355f35a4e6b7)
+
+### 设备支持
+
+* **响应式图片**：为设备提供最合适的图片，如上文图片优化部分所述。
+  * [Web 上的图片：第 1 部分 — 响应式图片 | Expedia Group Technology](https://medium.com/expedia-group-tech/images-on-the-web-part-1-responsive-images-5dc0066461bd)
+  * [Web 上的图片：第 2 部分 — 实现响应式图片 | Expedia Group Technology](https://medium.com/expedia-group-tech/images-on-web-part-2-implementing-responsive-images-ca1d30f533f8)
+* **特定于设备的 UI**：为不同的设备显示不同的 UI，这可能涉及使用完全不同的信息架构。
+  * 根据设备宽度和高度，一行和每页的结果项的动态数量。
+  * 由于地图在较小的设备上由于屏幕空间较小而难以使用，请考虑根本不使用地图 UI。如果没有地图，客户端可以完全避免在移动设备上加载地图代码和纹理。
+  * Airbnb 的列表在移动设备上更像应用程序，带有浮动底部栏。列表页面也不会在新页面上打开列表，大概是因为在移动设备上管理多个打开的标签页更难。
+  * 支持在移动设备上滑动图片轮播。
+  * 在移动设备上采用不太激进的预加载策略，因为移动数据可能更贵。
+  * 交互元素在移动设备上应该更大。
+
+### 用户体验
+
+#### 保留搜索上下文
+
+对于大多数旅行网站，点击列表将在新标签页中打开列表详细信息。这样做的原因是，用户在缩小搜索结果范围后倾向于浏览多个列表，并且在新页面中打开列表详细信息允许用户轻松深入了解列表的详细信息，如果列表不符合他们的期望或他们想查看其他列表，则返回到他们离开的地方。
+
+另一种方法是在同一页面上的全屏模态框中打开列表详细信息，并浅层更新 URL（通过 [`History.pushState()`](https://developer.mozilla.org/en-US/docs/Web/API/History/pushState) 类似于 [Zillow.com](https://www.zillow.com) 和 [Instagram.com](https://www.instagram.com)。关闭模态框将显示后面的搜索结果，用户可以继续浏览结果。这种方法的缺点是它更难实现，并且需要在客户端使用更多 JavaScript，因为所有内容都在一个页面上，并且需要通过 AJAX 获取列表详细信息。
+
+### 可访问性
+
+* 图片 `alt` 标签：如果用户上传的图片没有提供描述，则可以使用空的 `alt` 标签。
+* [Expedia 可访问性指南](https://accessibility.expedia.biz/pages/exagindex) 涵盖了颜色、控件、键盘和输入模式、表单、图像、内容结构、阅读顺序和导航顺序等主题。
+
+### 表单优化
+
+表单优化已在[电子商务网站系统设计](/questions/system-design/e-commerce-amazon)中详细介绍。 总结一下：
+
+* 特定于国家/地区的地址/付款表单。
+* 优化自动填充体验。
+* 显示错误消息。
+* 清除焦点状态。
+* 在 web.dev 上阅读更多关于构建良好的[付款表单](https://web.dev/learn/forms/payment/)和[一般表单最佳实践](https://web.dev/payment-and-address-form-best-practices/)的信息。
+
+### 其他主题
+
+* 地图
+  * 接近的标记可以[聚集在一起](https://developers.google.com/maps/documentation/javascript/marker-clustering)
+* 白标
+  * [使用一个代码库构建和扩展不同的旅游网站 | Agoda Engineering & Design](https://medium.com/agoda-engineering/building-and-scaling-different-travel-websites-with-one-codebase-fc6f0202c2e1)
+  * [管理和扩展不同的白标开发和测试环境 | Agoda Engineering & Design](https://medium.com/agoda-engineering/managing-and-scaling-different-white-label-development-and-testing-environments-4e90748fcb3b)
+* 测试
+  * [降低噪音底线 | TripAdvisor 工程和产品博客](https://www.tripadvisor.com/engineering/lowering-the-noise-floor/)

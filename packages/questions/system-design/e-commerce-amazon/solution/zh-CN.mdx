@@ -1,0 +1,629 @@
+## 需求探索
+
+### 需要支持哪些核心功能？
+
+* 浏览产品。
+* 将产品添加到购物车。
+* 成功结账。
+
+### 网站有哪些页面？
+
+* 产品列表页 (PLP)
+* 产品详情页 (PDP)
+* 购物车页面
+* 结账页面
+
+### PLP 和 PDP 上将显示哪些产品详细信息？
+
+* PLP：产品名称、产品图片、价格。
+* PDP：产品名称、产品图片（多个）、产品描述、价格。
+
+### 用户人口统计数据是什么样的？
+
+广泛年龄范围的国际用户：美国、亚洲、欧洲等。
+
+### 非功能性需求是什么？
+
+每个页面应在 2 秒内加载。与页面元素的交互应快速响应。
+
+### 应用程序将在哪些设备上使用？
+
+所有可能的设备：笔记本电脑、平板电脑、手机等。
+
+### 用户是否必须登录才能购买？
+
+用户可以无需登录以访客身份购买。
+
+***
+
+## 架构/高层设计
+
+![E-commerce Website Architecture Diagram](/img/questions/e-commerce-amazon/e-commerce-amazon-architecture.png)
+
+### 组件职责
+
+* **服务器**：提供 HTTP API 以获取产品数据、购物车商品、修改购物车和创建订单。
+* **控制器**：控制应用程序内的数据流，并向服务器发出网络请求。
+* **客户端存储**：存储整个应用程序所需的数据。由于有许多页面包含数据，并且存在一定量的数据重叠，因此客户端存储对于在页面各部分之间以及页面之间共享数据非常有用。
+* **页面**：
+  * **产品列表**：显示可以添加到购物车的商品列表。
+  * **产品详情**：显示单个产品的详细信息以及其他详细信息。
+  * **购物车**：显示已添加的购物车商品，并允许更改数量和删除已添加的商品。
+  * **结账**：显示用户必须完成的地址和付款表格才能下订单。
+
+### 服务器端渲染还是客户端渲染？
+
+首先，让我们了解这两个术语的含义：
+
+* **服务器端渲染 (SSR)**：构建网站的传统方式，服务器获取所有必要的数据，使用它们创建最终标记，并在用户每次访问页面时发送 HTML。大部分渲染工作在服务器上完成。
+* **客户端渲染 (CSR)**：服务器发送包含用于引导应用程序的 JavaScript 的初始 HTML。然后，客户端获取必要的数据，将其与模板结合起来并创建最终页面，所有这些都在浏览器中完成。CSR 通常与单页应用程序模型一起使用，后续导航不需要完全刷新页面。大部分渲染工作在客户端完成。
+
+SSR 的好处：
+
+* 性能通常更好，首次内容绘制分数很高，并且 SSR 页面比 CSR 页面显示得更快。
+* 累积布局偏移分数较低，因为最终的 HTML 已经存在。
+* 与静态站点生成相比，SSR 允许个性化页面（特定于用户的内容）。个性化是电子商务平台扩展的重要因素。
+
+SSR 的缺点：
+
+* 页面切换速度较慢，因为每次请求都必须在服务器上构建整个页面。
+
+SEO 对于电子商务网站很重要，因此 SSR 应该优先考虑。
+
+### 单页应用程序 (SPA) 还是多页应用程序 (MPA)？
+
+SPA 默认使用 CSR，MPA 默认使用 SSR。虽然 CSR 和 SSR 是渲染的两个极端，但在中间某个地方存在一种称为通用渲染（或带有水合的 SSR）的混合模式，服务器渲染完整的 HTML，但之后，渲染和导航变为客户端。
+
+大多数通用渲染站点使用流行的 UI 框架（例如 React、Vue 和 Angular），并且页面需要在初始加载后进行水合（添加事件处理程序）。水合也会带来[双重数据问题](https://web.dev/rendering-on-the-web/#a-rehydration-problem-one-app-for-the-price-of-two)。
+
+应该使用哪种应用程序架构？最重要的因素是正在使用 SSR，SPA 还是 MPA 并不重要。如上所示，两者都是可行的，只要您的网站具有良好的性能。
+
+实现以下渲染和架构选择的现实世界技术：
+
+|     | SSR                                | CSR                              |
+| --- | ---------------------------------- | -------------------------------- |
+| SPA | Next.js, Remix, Nuxt               | Create React App                 |
+| MPA | Ruby on Rails, Django<sup>\*</sup> | This combination isn't practical |
+
+<sup>\*</sup> 指的是服务器端 Web 框架的默认模式，该模式渲染
+HTML 并在服务器端完成路由。
+
+### 顶级电子商务网站使用什么
+
+让我们看看实际的电子商务网站及其渲染选择：
+
+|          | 架构 | 渲染 | UI 框架                 |
+| -------- | ------------ | --------- | ---------------------------- |
+| 亚马逊   | MPA          | SSR       | 内部                     |
+| eBay     | MPA          | SSR       | [Marko](https://markojs.com) |
+| 沃尔玛   | SPA          | SSR       | React                        |
+| Flipkart | SPA          | SSR       | React                        |
+
+**所有这些电子商务网站都使用 SSR！** 这表明对电子商务网站使用 SSR 的重要性。
+
+下面的讨论假设我们将使用 SSR + SPA 的通用渲染方法。
+
+***
+
+## 数据模型
+
+由于用户流程的复杂性跨越多个页面，电子商务网站涉及相当多的实体。
+
+| 实体 | 来源 | 属于 | 字段 |
+| --- | --- | --- | --- |
+| `ProductList` | 服务器 | 产品列表页面 | `products` ( `Product` 列表), `pagination` (分页元数据) |
+| `Product` | 服务器 | 产品列表页面、产品详情页面 | `name`、`description`、`unit_price`、`currency`、`primary_image`、`image_urls` |
+| `Cart` | 服务器 | 客户端存储 | `items` ( `CartItem` 列表), `total_price`、`currency` |
+| `CartItem` | 服务器 | 客户端存储 | `quantity`、`product`、`price`、`currency` |
+| `AddressDetails` | 用户输入（客户端） | 结账页面 | `name`、`country`、`street`、`city` 等 |
+| `PaymentDetails` | 用户输入（客户端） | 结账页面 | `card_number`、`card_expiry`、`card_cvv` |
+
+讨论的几点：
+
+* `Cart` 实体属于客户端存储，因为某些网站可能希望在导航栏中显示购物车商品数量，或者弹出一个窗口，允许用户快速访问购物车商品并进行修改。 如果没有这种需要，那么购物车属于购物车页面是可以接受的。
+* `Cart` 和 `CartItem` 分别具有 `total_price` 和 `price` 字段，这些字段作为服务器响应的一部分获取，而不是让客户端计算价格（将数量乘以 `unit_price`），以便可以灵活地应用批量购买或使用促销代码的折扣。 价格计算逻辑在服务器上定义，因此最终价格应在服务器上计算，客户端应依赖服务器来计算总价，而不是进行自己的计算。
+* 由于我们的网站面向国际受众，我们应该以用户的货币显示本地化价格，因此需要 `currency` 字段。
+
+## 接口定义 (API)
+
+我们需要以下 HTTP API：
+
+1. 产品信息
+   * 获取产品列表
+   * 获取特定产品的详细信息
+2. 购物车修改
+   * 将产品添加到购物车
+   * 更改购物车中产品的数量
+   * 从购物车中删除产品
+3. 完成订单
+
+我们将省略讨论客户端组件之间的 API，因为数据格式和功能与 HTTP API 类似。
+
+我们还可以假设用户最多只有一个购物车，并且可以在服务器上检索用户的当前购物车。 因此，我们可以省略将购物车 ID 作为与购物车修改相关的任何 API 的参数。
+
+### 获取产品列表
+
+| 字段 | 值 |
+| --- | --- |
+| HTTP 方法 | `GET` |
+| 路径 | `/products` |
+| 描述 | 获取产品列表。 |
+
+#### 参数
+
+| 参数 | 类型 | 描述 |
+| --- | --- | --- |
+| `size` | number | 每页的结果数 |
+| `page` | number | 要获取的页码 |
+| `country` | string | 用户的国家/地区，确定货币 |
+
+#### 示例响应
+
+```json
+{
+  "pagination": {
+    "size": 5,
+    "page": 2,
+    "total_pages": 4,
+    "total": 20
+  },
+  "results": [
+    {
+      "id": 123, // 产品 ID。
+      "name": "棉质 T 恤",
+      "primary_image": "https://www.greatcdn.com/img/t-shirt.jpg",
+      "unit_price": 12,
+      "currency": "USD"
+    }
+    // ... 更多产品。
+  ]
+}
+```
+
+我们在这里使用基于偏移量的分页，而不是基于游标的分页，因为：
+
+1. 拥有页码对于在搜索结果之间导航和跳转到特定页面很有用。
+2. 产品结果不会受到结果过时的影响，因为新产品不会添加得那么快/频繁。
+3. 了解总共有多少结果很有用。
+
+有关基于偏移的分页和基于游标的分页的更深入比较，请参阅 [新闻提要系统设计文章](/questions/system-design/news-feed-facebook)。
+
+### 获取产品详情
+
+| 字段       | 值                             |
+| ----------- | --------------------------------- |
+| HTTP 方法 | `GET`                             |
+| 路径        | `/products/{productId}`           |
+| 描述        | 获取产品详情。 |
+
+#### 参数
+
+| 参数       | 类型   | 描述                                   |
+| ----------- | ------ | --------------------------------------------- |
+| `productId` | number | 要获取的产品的 ID                   |
+| `country`   | string | 用户的国家/地区，决定货币种类 |
+
+#### 示例响应
+
+```json
+{
+  "id": 123, // 产品 ID。
+  "name": "棉质 T 恤",
+  "primary_image": "https://www.greatcdn.com/img/t-shirt.jpg",
+  "image_urls": [
+    "https://www.greatcdn.com/img/t-shirt.jpg",
+    "https://www.greatcdn.com/img/t-shirt-black.jpg",
+    "https://www.greatcdn.com/img/t-shirt-red.jpg"
+  ],
+  "unit_price": 12,
+  "currency": "USD"
+}
+```
+
+### 将产品添加到购物车
+
+| 字段       | 值                     |
+| ----------- | ------------------------- |
+| HTTP 方法 | `POST`                    |
+| 路径        | `/cart/products`          |
+| 描述        | 将产品添加到购物车 |
+
+#### 参数
+
+| 参数       | 类型   | 描述                 |
+| ----------- | ------ | --------------------------- |
+| `productId` | number | 要添加的产品的 ID   |
+| `quantity`  | number | 要添加的商品数量 |
+
+#### 示例响应
+
+返回更新后的购物车对象。
+
+```json
+{
+  "id": 789, // 购物车 ID。
+  "total_price": 24,
+  "currency": "USD",
+  "items": [
+    {
+      "quantity": 2,
+      "price": 24,
+      "currency": "USD",
+      "product": {
+        "id": 123, // 产品 ID。
+        "name": "棉质 T 恤",
+        "primary_image": "https://www.greatcdn.com/img/t-shirt.jpg"
+      }
+    }
+  ]
+}
+```
+
+### 更改购物车中产品的数量
+
+| 字段       | 值                                    |
+| ----------- | ---------------------------------------- |
+| HTTP 方法 | `PUT`                                    |
+| 路径        | `/cart/products/{productId}/`            |
+| 描述        | 更改购物车中产品的数量 |
+
+#### 参数
+
+| 参数       | 类型   | 描述                  |
+| ----------- | ------ | ---------------------------- |
+| `productId` | number | 要修改的产品的 ID |
+| `quantity`  | number | 产品的新数量  |
+
+#### 示例响应
+
+返回更新后的购物车对象。
+
+```json
+{
+  "id": 789, // 购物车 ID。
+  "total_price": 24,
+  "currency": "USD",
+  "items": [
+    {
+      "quantity": 3,
+      "price": 36,
+      "currency": "USD",
+      "product": {
+        "id": 123, // 产品 ID。
+        "name": "棉质 T 恤",
+        "primary_image": "https://www.greatcdn.com/img/t-shirt.jpg"
+      }
+    }
+  ]
+}
+```
+
+### 从购物车中删除产品
+
+| 字段       | 值                          |
+| ----------- | ------------------------------ |
+| HTTP 方法 | `DELETE`                       |
+| 路径        | `/cart/products/{productId}`   |
+| 描述        | 从购物车中删除产品 |
+
+#### 参数
+
+| 参数       | 类型   | 描述                 |
+| ----------- | ------ | --------------------------- |
+| `productId` | number | 要删除的产品的 ID |
+
+#### 示例响应
+
+返回更新后的购物车对象。
+
+```json
+{
+  "id": 789, // 购物车 ID。
+  "total_price": 0,
+  "currency": "USD",
+  "items": []
+}
+```
+
+### 下订单
+
+| 字段       | 值                       |
+| ----------- | --------------------------- |
+| HTTP 方法 | `POST`                      |
+| 路径        | `/order`                    |
+| 描述        | 从购物车创建订单 |
+
+#### 参数
+
+| 参数 | 类型 | 描述 |
+| --- | --- | --- |
+| `cartID` | number | 包含商品的购物车的 ID |
+| `address_details` | object | 包含地址字段的对象 |
+| `payment_details` | object | 包含支付方式字段（信用卡）的对象 |
+
+#### 示例响应
+
+成功创建订单后，将返回订单对象。
+
+```json
+{
+  "id": 456, // 订单 ID。
+  "total_price": 36,
+  "currency": "USD",
+  "items": [
+    // ... 与购物车相同的商品。
+  ],
+  "address_details": {
+    "name": "John Doe",
+    "country": "US",
+    "address": "1600 Market Street",
+    "city": "San Francisco"
+    // ... 其他地址字段。
+  },
+  "payment_details": {
+    // 仅显示后 4 位数字。
+    // 无论如何，我们不应该存储未加密的信用卡号。
+    "card_last_four_digits": "1234"
+  }
+}
+```
+
+### 注意事项
+
+* 考虑到我们是否要针对回头客进行优化，我们可能需要将地址和付款详细信息保存在购物车对象中，这样在填写完结账表单但未下单就放弃购物车的用户就可以从他们离开的地方继续，而无需再次填写表单。
+
+***
+
+## 优化和深入研究
+
+### 性能
+
+性能对于电子商务网站至关重要。看似微小的性能改进可以带来可观的收入和转化率增长。 [Google 和 Deloitte 的一项研究](https://web.dev/milliseconds-make-millions/) 表明，即使加载时间缩短 0.1 秒，也可以提高整个购买渠道的转化率。 [Google 的 web.dev 网站上有很多关于如何提高网站性能以提高转化率的案例研究](https://web.dev/tags/case-study/)。
+
+#### 一般性能提示
+
+* 按路由/页面拆分 JavaScript。
+* 将内容拆分为单独的部分，并优先考虑首屏内容，同时延迟加载首屏以下的内容。
+* 延迟加载非关键 JavaScript（例如，显示模态框、对话框等所需的代码）。
+* 悬停链接/按钮时，预取下一页所需的 JavaScript 和数据。
+  * 当用户悬停在 PLP 中的项目上时，预取 PDP 所需的完整产品详细信息。
+  * 在购物车页面上预取结账页面。
+* 使用延迟加载和自适应加载优化图像。
+* 预取热门搜索结果。
+
+#### 核心 Web Vital
+
+了解各种核心 Web Vital 指标、它们是什么以及如何改进它们。
+
+* [最大内容绘制 (LCP)](https://web.dev/lcp/)：在页面首次开始加载时，视口中可见的最大图像或文本块的渲染时间。
+  * 优化性能 – 加载 JavaScript、CSS、图像、字体等。
+* [首次输入延迟 (FID)](https://web.dev/fid/)：衡量加载响应能力，因为它量化了用户在尝试与无响应页面交互时感受到的体验。 低 FID 有助于确保页面可用。
+  * 减少页面加载时需要执行的 JavaScript 量。
+* [累积布局偏移 (CLS)](https://web.dev/cls/)：衡量视觉稳定性，因为它有助于量化用户体验意外布局偏移的频率。 低 CLS 有助于确保页面令人愉悦。
+  * 在图像和视频元素上包含大小属性或使用 CSS [`aspect-ratio`](https://developer.mozilla.org/docs/Web/CSS/aspect-ratio) 为这些元素保留空间，以在加载图像时为图像保留所需的空间。 使用 CSS [`min-height`](https://developer.mozilla.org/docs/Web/CSS/min-height) 以最大限度地减少元素延迟加载时的布局偏移。
+
+### 搜索引擎优化
+
+SEO 对于电子商务网站来说非常重要，因为自然搜索是人们发现产品的主要方式。
+
+* PDP 应该为描述、关键字和 [开放图谱标签](https://ahrefs.com/blog/open-graph-meta-tags/) 拥有适当的 `<title>` 和 `<meta>` 标签。
+* 生成 `sitemap.xml` 以告知爬虫网站的可用页面。
+* 使用 [JSON 结构化数据](https://web.dev/structured-data/) 帮助搜索引擎了解您页面上的内容类型。 对于电子商务案例，[`Product` 类型](https://developers.google.com/search/docs/appearance/structured-data/product) 将是最相关的。
+* 对页面上的元素使用语义标记，这也有助于可访问性。
+* 确保快速加载时间，以帮助网站在 Google 搜索中获得更好的排名。
+* 使用 SSR 以获得更好的 SEO，因为搜索引擎可以索引内容，而无需等待页面渲染（在 CSR 的情况下）。
+* 预先生成热门搜索或列表的页面。
+
+[旅行预订 (Airbnb) 系统设计文章](/questions/system-design/travel-booking-airbnb) 详细介绍了 SEO。
+
+### 图片
+
+图片是页面大小的最大贡献者之一，在图片密集型电子商务网站上，提供优化的图片绝对至关重要，因为每个产品至少有一张图片。
+
+* 使用 [WebP 图像格式](https://web.dev/serve-images-webp/)，这是目前最有效的图像格式。 eBay 在其所有 Web、Android 和 iOS 应用程序中使用 WebP 格式。 确保您能够在高层次上阐明 WebP 格式优越的原因。
+* 图像应托管在 CDN 上。
+* 定义图像的优先级，并将它们分为关键资产和非关键资产。
+* 延迟加载首屏以下的图像。
+  * 对非关键图像使用 `<img loading="lazy">`。
+* 尽早加载关键图像。
+  * 将图像作为数据 blob 内联到 HTML 中，这样就不需要发出单独的 HTTP 请求来获取图像。
+  * 使用 `<link rel="preload">` 以便它们尽快下载。
+* 图像的 [自适应加载](https://web.dev/adaptive-loading-cds-2019/)，为在快速网络上的设备加载高质量图像，并为在慢速网络上的设备使用较低质量的图像。
+
+### 表单优化
+
+填写表格是结账流程的重要组成部分，也是一个非常麻烦的部分。 这是结账流程的最后一步，做好结账体验将极大地帮助提高转化率。
+
+对于移动设备来说，填写表格尤其痛苦，必须格外注意优化移动设备的表格。结账时需要填写两种表格，分别是送货地址表格和信用卡表格。
+
+#### 特定国家/地区的地址表格
+
+不同的国家/地区有不同的地址格式。为了优化全球运输，拥有本地化的地址表格极大地有助于提高转化率，并且用户在填写地址表格时不会因为不知道如何理解某些字段而放弃。例如：
+
+*  “邮政编码”在英国被称为“邮政编码”。
+*  日本没有州，只有县。
+*  不同的国家/地区有自己的邮政/邮政编码格式，需要不同的验证。
+
+必须找出这些特定于国家/地区的知识并自行构建这些知识是很麻烦的，这就是像 [Stripe Checkout](https://checkout.stripe.dev/preview) 这样的服务通过提供本地化的结账表格来提供帮助的地方。用户将在 Stripe 的平台上完成其余的支付流程。
+
+**不同国家/地区的 Stripe 结账表格示例**
+
+<table>
+  <thead>
+    <tr>
+      <th>美国</th>
+      <th>英国</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        <img
+          alt="Stripe checkout for US"
+          src="/img/questions/e-commerce-amazon/stripe-checkout-address-us.png"
+          style={{
+          margin: '0 !important',
+        }}
+        />
+      </td>
+
+      <td>
+        <img
+          alt="Stripe checkout for UK"
+          src="/img/questions/e-commerce-amazon/stripe-checkout-address-uk.png"
+          style={{
+          margin: '0 !important',
+        }}
+        />
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+*进一步阅读：[Frank's Compulsive Guide to Postal Addresses](http://www.columbia.edu/~fdc/postal/) 提供了有用的链接，并为 200 多个国家/地区的地址格式提供了广泛的指导*
+
+#### 优化自动填充
+
+填写表格，尤其是长表格，容易出现拼写错误。大多数现代浏览器都具有自动填充功能，它们通过使用先前填写的类似表格中的值来帮助用户更快地输入数据并避免再次填写相同的表格数据。
+
+通过为送货地址表格和信用卡表格的表单 `<input>` 指定正确的 `type` 和 `autocomplete` 值，帮助用户自动填充其地址表格。
+
+**送货地址表格**
+
+| 字段 | `type` | `autocomplete` | 其他 |
+| --- | --- | --- | --- |
+| 姓名 | `text` | `shipping name` | `autocorrect="off"` `spellcheck="false"` |
+| 国家/地区 | 使用 `<select>` | `shipping country` | N/A |
+| 地址行 1 | `text` | `shipping address-line1` | `autocorrect="off"` `spellcheck="false"` |
+| 地址行 2 | `text` | `shipping address-line1` | `autocorrect="off"` `spellcheck="false"` |
+| 城市 | `text` | `shipping address-level2` | `autocorrect="off"` `spellcheck="false"` |
+| 州/省/自治区 | 使用 `<select>` | `shipping address-level1` | N/A |
+| 邮政编码 | `text` | `shipping postal-code` | `autocorrect="off"` `spellcheck="false"` `inputmode="numeric"` |
+
+**信用卡表格**
+
+| 字段 | `type` | `autocomplete` | 其他 |
+| --- | --- | --- | --- |
+| 卡号 | `text` | `cc-number` | `autocorrect="off"` `spellcheck="false"` `inputmode="numeric"` |
+| 卡片有效期 | `text` | `cc-exp` | `autocorrect="off"` `spellcheck="false"` `inputmode="numeric"` |
+| 卡片 CVC | `text` | `cc-csc` | `autocorrect="off"` `spellcheck="false"` `inputmode="numeric"` |
+
+**笔记**
+
+*  `inputmode="numeric"` 为具有屏幕键盘的设备提供浏览器提示，以帮助它们决定显示哪个键盘。与 `<input type="number">` 不同，`inputmode="numeric"` 不会阻止用户键入非数值，它们只会影响显示的键盘。由于这些数字字段与数量无关，因此使用 `<input type="number">` 时出现的 chevron 并不太有用。`<input type="text" inputmode="numeric">` 也适用于 `maxlength`/`minlength`/`pattern` 属性，但不适用于 `<input type="number>`。
+
+阅读有关表格的更多信息：
+
+*  [自动填充 | web.dev](https://web.dev/learn/forms/autofill/)
+*  [浏览器上的自动填充：深入研究 | eBay 工程博客](https://tech.ebayinc.com/engineering/autofill-deep-dive/)。
+
+#### 替代地址输入方式
+
+与其让用户填写包含细粒度地址字段的表单，不如采用其他方法，这些方法可能更容易，但需要付出工程复杂性或依赖外部服务的代价：
+
+1. **地址搜索/自动填充**：允许用户通过输入街道号码来搜索地址，并让他们从建议列表中进行选择。这减少了拼写错误，并且通常更快。但是，如果没有任何建议是正确的，用户仍然应该被赋予覆盖某些值的选项，这可能是由于过时的地址数据库造成的。Google Maps JavaScript API 通过 [Place Autocomplete library](https://developers.google.com/maps/documentation/javascript/place-autocomplete) 提供此功能。
+
+2. **从地图中选择地址位置**：打开地图并允许用户在地图上精确定位一个位置。这对于结账地址来说不太常见，而对于叫车应用程序来说更常见。
+
+#### 错误消息
+
+利用客户端验证并清楚地传达任何表单错误。通过 `aria-describedby` 将错误消息连接到 `<input>`，并对错误消息使用 `aria-live="assertive"`。
+
+```html
+<form>
+  <div>
+    <label for="name">Name</label>
+    <input
+      required
+      minlength="6"
+      type="text"
+      id="name"
+      name="name"
+      aria-describedby="name-error-message" />
+    <span
+      id="name-error-message"
+      aria-live="assertive"
+      class="name-error-message">
+      Name must have at least 6 characters!
+    </span>
+  </div>
+  <button>Submit</button>
+</form>
+```
+
+*来源：[帮助用户查找表单控件的错误消息 | web.dev](https://web.dev/learn/forms/accessibility/#help-users-find-the-error-message-for-a-form-control)*
+
+#### 焦点状态
+
+使当前获得焦点的表单控件在视觉上与其他表单输入不同，以帮助用户识别哪个元素正在获得焦点。
+
+#### 付款和地址表单的最佳实践
+
+在 web.dev 上阅读更多关于构建良好的 [付款表单](https://web.dev/learn/forms/payment/) 和 [地址表单](https://web.dev/learn/forms/address/) 以及 [一般表单最佳实践](https://web.dev/payment-and-address-form-best-practices/) 的信息。
+
+### 国际化 (i18n)
+
+* 在支持的语言中翻译页面。
+  * 在 `html` 标签上设置 `lang` 属性（例如 `<html lang="zh-cn">`），以告知浏览器和搜索引擎页面的语言，这有助于浏览器提供页面的翻译。
+  * 通过使用 [CSS 逻辑属性](https://web.dev/learn/css/logical-properties/) 提供对 RTL 语言的支持
+* 表单
+  * 对名称使用单个表单字段。
+  * 允许使用各种地址格式。这在上面关于地址表单的部分中已介绍。
+
+阅读更多：
+
+* [国际化和本地化 | 表单 | web.dev](https://web.dev/learn/forms/internationalization/)
+* [国际化 | 设计 | web.dev](https://web.dev/learn/design/internationalization/)
+
+### 可访问性
+
+* 尽可能使用语义元素：标题、按钮、链接、输入，而不是样式化的 `<div>`。
+* `<img>` 标签应指定 `alt` 属性，如果商家未提供其描述，则留空。
+* 上面已经详细介绍了构建可访问表单。总而言之：
+  * `<input>` 应该有关联的 `<label>`。
+  * `<input>` 通过 `aria-describedby` 链接到它们的错误消息，并且错误消息通过 `aria-live="assertive"` 播报。
+  * 使用正确的 `type` 的 `<input>` 和适当的与验证相关的属性，如 `pattern`、`minlength`、`maxlength`。
+  * 视觉顺序与 DOM 顺序匹配。
+  * 使当前获得焦点的表单控件显而易见。
+
+*参考：[可访问性 | 表单 | web.dev](https://web.dev/learn/forms/accessibility/) 和 [WebAIM：创建可访问表单](https://webaim.org/techniques/forms/)*
+
+### 安全性
+
+由于付款详细信息高度敏感，我们必须确保网站安全：
+
+* 使用 HTTPS，以便与服务器的所有通信都经过加密，并且在同一 Wi-FI 网络上的其他用户无法拦截和获取任何敏感详细信息。
+* 付款详细信息提交 API 不应使用 HTTP `GET`，因为敏感详细信息将作为查询字符串包含在请求 URL 中，该 URL 将添加到浏览历史记录中，如果浏览器与其他用户共享，则可能不安全。请改用 HTTP `POST` 或 `PUT`。
+
+*来源：[安全性和隐私 | web.dev](https://web.dev/learn/forms/security-privacy/)*
+
+### 用户体验
+
+* 使结账页面简洁（例如，最小化的导航栏和页脚），并移除干扰以降低跳出率。
+* 允许保留购物车内容（在数据库或cookie中），因为有些人会花时间研究和考虑，只在后续会话中进行购买。您不希望他们再次将所有商品添加到购物车中。
+* 使促销代码字段不那么突出，这样没有促销代码的人就不会离开页面去搜索促销代码。那些事先有促销代码的人会努力找到促销代码输入字段。
+
+{/* ### 渐进式 Web 应用程序 (TODO) */}
+
+***
+
+## 参考资料
+
+* [在eBay.com上购物的速度 | web.dev](https://web.dev/shopping-for-speed-on-ebay/)
+* [案例研究 | web.dev](https://web.dev/tags/case-study/)
+* [Rakuten 24对核心Web Vitals的投资如何使每位访问者的收入增加了53.37％，转化率提高了33.13％ | web.dev](https://web.dev/rakuten/)
+* [速度的千刀万剐](https://tech.ebayinc.com/engineering/speed-by-a-thousand-cuts/)
+* [专注于Web性能如何使Tokopedia的点击率提高了35％ | web.dev](https://web.dev/tokopedia/)
+* [浏览器上的自动填充：深度解析](https://tech.ebayinc.com/engineering/autofill-deep-dive/)
+* [Web上的渲染 | web.dev](https://web.dev/rendering-on-the-web/)
+
+## 变更日志
+
+* 2024/08/21
+  * 允许添加产品API指定`quantity`字段
+* 2024/02/27
+  * 修改API路由以更符合REST规范
+* 2024/01/12
+  * 修复产品详细信息页面的错误图片
+  * 更新顶级电子商务网站的架构和渲染选择

@@ -1,0 +1,426 @@
+<div className="not-prose rounded-md bg-amber-500 p-4">
+  <h2 className="text-sm font-medium text-white">注意：正在进行中！</h2>
+
+  <p className="mt-2 text-sm text-white">
+    该解决方案仍在开发中，但我们希望分享草稿，以便感兴趣的用户可以从中受益，并提供反馈。
+  </p>
+</div>
+
+## 需求探索
+
+### 需要哪些核心功能？
+
+* 将电子邮件消息发送到SMTP服务器。
+* 从IMAP服务器检索电子邮件消息。
+* 访问设备上已有的电子邮件消息。
+
+### 该应用程序需要支持哪些操作系统？
+
+流行的操作系统：Windows、macOS和Linux/Ubuntu。
+
+### 需要支持哪些电子邮件服务/帐户？
+
+对于这个问题，我们不必关注这个方面。假设用户可以向预配置的SMTP/IMAP服务器发出经过身份验证的请求，以成功发送/检索电子邮件。
+
+许多本地桌面电子邮件客户端（如Apple Mail、Outlook和Mailspring）允许用户连接到多个电子邮件服务（如iCloud Mail、Gmail、Exchange），以在应用程序中显示来自多个服务的电子邮件。但是，这超出了本问题的范围。
+
+### 应用程序是否需要离线工作？
+
+是的，如果可能的话。传出的电子邮件消息应在应用程序上线时保存并发送出去。即使离线，也应允许用户浏览和搜索设备上的电子邮件。
+
+### 相同发件人和主题之间的电子邮件是否应该进行线程化？
+
+消息对话的线程化会很好，但不是必需的。
+
+***
+
+## 背景知识
+
+由于服务器请求是使用非HTTP协议（如SMTP和IMAP）进行的，电子邮件客户端应用程序与传统的Web应用程序有很大不同。面试官不太可能要求候选人熟悉常用电子邮件协议的工作方式，因此您可以假设您正在使用基于HTTP的API来发送和检索电子邮件。
+
+尽管如此，为了学习，我们将介绍一些基本的电子邮件系统概念。
+
+### 电子邮件系统的组成部分
+
+* **邮件用户代理 (MUA)**：用户可以在其中撰写、发送、接收和阅读电子邮件的应用程序。其他非核心功能包括搜索、标记、通讯簿等。这些可以是具有图形用户界面 (Outlook、Apple Mail) 的桌面应用程序，也可以是命令行程序。
+* **邮件传输代理 (MTA)**：使用 SMTP 协议将电子邮件消息从一个主机传输到另一个主机的软件。MTA 可以存在于用户的设备和邮件服务器上。
+* **邮件服务器**：托管 MTA 并在邮箱中存储电子邮件消息的计算机。
+* **邮箱**：邮箱是一个概念实体，不一定与存储相关，并由电子邮件地址标识。它包含电子邮件消息，通常存在于邮件服务器上。
+
+### 邮件传输协议
+
+如果您之前设置过电子邮件客户端，您可能遇到过 SMTP、POP 和 IMAP 这些术语。SMTP 是一种用于发送消息的传出电子邮件协议，而 POP 和 IMAP 是电子邮件服务器支持的用于允许客户端检索消息的传入电子邮件协议。
+
+拥有用于发送和检索消息的标准化协议的好处是，电子邮件服务可以在彼此之间发送消息，并且电子邮件客户端可以连接到任何电子邮件服务。
+
+#### 简单邮件传输协议 (SMTP)
+
+[简单邮件传输协议](https://en.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol) 是一种通过互联网发送电子邮件消息的协议，供邮件服务器、MTA 和 MUA（非网络邮件）使用。
+
+SMTP 使用一组简单的命令来传输消息，包括用于验证发件人、指定收件人以及发送消息的命令。
+
+Nylas 在他们的博客文章 ["SMTP vs. Web API: The Best Methods for Sending Email"](https://www.nylas.com/blog/smtp-vs.-web-api-the-best-methods-for-sending-email/) 中详细讨论了 SMTP 中继。以下是与 SMTP 服务器通过命令行进行的 [SMTP 对话示例](https://en.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol#SMTP_transport_example)。以 `S:` 开头的行是从服务器发送的，以 `C:` 开头的行是从用户写入的。
+
+```sh
+$ openssl s_client -connect smtp.example.com:465 -crlf
+
+S: 220 smtp.example.com ESMTP Postfix
+C: HELO relay.example.org
+S: 250 Hello relay.example.org, I am glad to meet you
+C: AUTH LOGIN
+S: 334 VXNlcm5hbWU6
+C: dXNlcm5hbWUuY29t # Username encoded in Base64
+S: 334 UGFzc3dvcmQ6
+C: bXlwYXNzd29yZA== # Password encoded in Base64
+S: 235 Authentication succeeded
+C: MAIL FROM:<bob@example.org>
+S: 250 Ok
+C: RCPT TO:<alice@example.com>
+S: 250 Ok
+C: RCPT TO:<theboss@example.com>
+S: 250 Ok
+C: DATA
+S: 354 End data with <CR><LF>.<CR><LF>
+C: From: "Bob Example" <bob@example.org>
+C: To: "Alice Example" <alice@example.com>
+C: Cc: theboss@example.com
+C: Date: Tue, 15 Jan 2008 16:02:43 -0500
+C: Subject: Test message
+C:
+C: Hello Alice.
+C: This is a test message with 5 header fields and 4 lines in the message body.
+C: Your friend,
+C: Bob
+C: .
+S: 250 Ok: queued as 12345
+C: QUIT
+S: 221 Bye
+{The server closes the connection}
+```
+
+SMTP 的规范可以在 [RFC5321](https://www.rfc-editor.org/rfc/rfc5321) 中找到。
+
+#### 邮局协议 (POP)
+
+[邮局协议](https://en.wikipedia.org/wiki/Post_Office_Protocol) 是一种用于访问邮件服务器上电子邮件消息的传统标准协议。消息仅在第一个设备访问并下载它们之前保留在服务器上。顾名思义，一旦电子邮件被下载，它通常会从服务器中删除，就像邮局在将实体邮件交付给收件人之前充当临时存储一样。
+
+POP3 是 POP 的最新广泛使用的版本，但比 IMAP 等较新的协议更旧，功能也更少。POP 通常被认为不如 IMAP 可取，因为它不够灵活，并且不允许服务器端搜索或消息标记。
+
+POP3 的规范可以在 [RFC1939](https://www.rfc-editor.org/rfc/rfc1939) 中找到。
+
+#### Internet 消息访问协议 (IMAP)
+
+[Internet 消息访问协议](https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol) 是一种用于访问邮件服务器上电子邮件消息的标准协议，最新版本为 IMAP4。IMAP 允许用户在网络邮件和电子邮件客户端中检索和管理他们的电子邮件消息，而无需将它们下载到本地计算机。IMAP 还允许用户从多个设备和位置访问他们的电子邮件，并提供服务器端搜索和消息标记等功能。
+
+IMAP 解决了 POP 的许多缺点，但代价是服务器存储。Nylas 在他们的工程博客上发布了 [对 IMAP 的深入研究](https://www.nylas.com/blog/nylas-imap-therefore-i-am/)，我们强烈建议您查看一下。
+
+IMAP4 的规范可以在 [RFC3501](https://www.rfc-editor.org/rfc/rfc3501) 中找到。
+
+#### POP vs IMAP
+
+以下是一个比较 POP (POP3) 和 IMAP (IMAP4) 协议的表格。
+
+| 功能 | POP3 | IMAP |
+| --- | --- | --- |
+| 事实来源 | 客户端 | 服务器 |
+| 同时客户端数量 | 一个 | 多个 |
+| 邮箱数量 | 一个 | 多个 |
+| 消息下载 | 整个消息 | 独立部分 |
+| 消息 [标记](https://www.rfc-editor.org/rfc/rfc3501#section-2.3.2)（已读、已回复、已删除） | 否 | 是 |
+| 下载后从服务器删除 | 默认是 | 否 |
+| 服务器端搜索 | 否 | 是 |
+| 服务器存储使用 | 低 | 高 |
+
+*参考：[IMAP vs. POP3：有什么区别？您应该使用哪一个？](https://www.makeuseof.com/tag/pop-vs-imap/)*
+
+如今，人们期望在多个设备上访问电子邮件，并在不同的客户端设备上查看一致的邮箱状态，因此 POP 的模型已经过时。 POP 的主要优点是需要更少的服务器存储空间，但这通常不是当今的问题，因为存储相对便宜。
+
+IMAP是当前时代流行的电子邮件协议，但许多电子邮件客户端仍然支持从IMAP和POP服务器检索电子邮件。
+
+### 电子邮件服务器配置
+
+流行的电子邮件服务具有以下配置。
+
+| 服务 | SMTP | IMAP | POP |
+| --- | --- | --- | --- |
+| [Gmail](https://support.google.com/mail/answer/7126229) | `smtp.gmail.com` | `imap.gmail.com` | `pop.gmail.com` |
+| [Outlook](https://support.microsoft.com/en-us/office/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040) | `smtp-mail.outlook.com` | `outlook.office365.com` (端口 993) | `outlook.office365.com` (端口 995) |
+| [iCloud](https://support.apple.com/en-us/HT202304) | `smtp.mail.me.com` | `imap.mail.me.com` | 不支持 |
+
+### 电子邮件流程
+
+让我们假设以下用户具有各自的角色、服务和客户端类型：
+
+| 用户 | 角色 | 服务 | 客户端类型 |
+| ----- | -------- | ------- | ----------- |
+| Alice | 发件人 | Gmail | 桌面应用程序 |
+| Bob | 收件人 | Outlook | 桌面应用程序 |
+| Carol | 发件人 | Gmail | Webmail |
+| David | 收件人 | Outlook | Webmail |
+
+我们将详细介绍消息在各种类型的客户端之间发送的流程。
+
+<figure>
+  ![Email flow](/img/questions/email-client-outlook/email-flow.png)
+
+  <figcaption>电子邮件消息从发件人到收件人的传递方式</figcaption>
+</figure>
+
+**重要提示**：
+
+* 邮件服务可以在同一台机器或不同的机器上运行 SMTP 服务器和 IMAP/POP 服务器。 只要邮件服务的服务器可以访问相同的电子邮件消息数据库，这个决定对我们的讨论并不重要。
+* 箭头的方向表示电子邮件消息的流向，而不是请求的来源。 IMAP/POP 请求由客户端发起，而不是从邮件服务器推送。
+* 上述情况下，Gmail 仅用于发送而非接收，因此未显示 Gmail 的 IMAP 服务器。
+* 为了简单起见，省略了 MX（邮件交换）记录的 DNS 查找阶段。 SMTP 服务器使用收件人电子邮件地址的域名来查找该域的 DNS 记录（尤其是 MX 记录），以确定邮件服务器的地址。
+* MTA 是相当通用的术语，但它们都使用 SMTP 发送消息。 SMTP 服务器是 MTA。
+
+#### 电子邮件客户端 -> 电子邮件客户端
+
+1. Alice (alice@gmail.com) 想给 Bob (bob@outlook.com) 发送电子邮件。
+2. Alice 的电子邮件客户端桌面应用程序将消息发送到 MTA，MTA 是在她计算机上运行的软件。
+3. Alice 的计算机的 MTA 通过 SMTP 将消息发送到 Gmail 的 SMTP 服务器 (`smtp.gmail.com`)。
+4. Gmail 的 SMTP 服务器通过 SMTP 将消息发送到 Outlook 的 SMTP 服务器 (`smtp-mail.outlook.com`)，并将消息保存到 Outlook 的数据库中。
+5. Bob 的电子邮件桌面客户端向 Outlook 的 IMAP 服务器 (`outlook.office365.com:993`) 发出 IMAP 请求。
+6. Outlook 的 IMAP 服务器从数据库中检索消息，并通过 IMAP 将其发送回 Bob 的桌面客户端。
+7. Bob 的电子邮件桌面客户端显示来自 Alice 的新电子邮件消息。
+
+#### 电子邮件客户端 -> Webmail
+
+1. Alice (alice@gmail.com) 想给 David (david@outlook.com) 发送电子邮件。
+2. Alice 的电子邮件客户端桌面应用程序将消息发送到 MTA，MTA 是在她计算机上运行的软件。
+3. Alice 的计算机的 MTA 通过 SMTP 将消息发送到 Gmail 的 SMTP 服务器 (`smtp.gmail.com`)。
+4. Gmail 的 SMTP 服务器通过 SMTP 将消息发送到 Outlook 的 SMTP 服务器 (`smtp-mail.outlook.com`)，并将消息保存到 Outlook 的数据库中。
+5. David 通过在其浏览器中访问 `https://outlook.live.com` 来访问 Outlook webmail。
+6. 托管 `outlook.live.com` 的服务器向 Outlook 的 IMAP 服务器 (`outlook.office365.com:993`) 发出 IMAP 请求。
+7. Outlook 的 IMAP 服务器从数据库中检索消息并将其发送回 `outlook.live.com`。
+8. 托管 `outlook.live.com` 的服务器通过 HTTP 将响应发送到 David 的浏览器。
+9. David 的浏览器显示来自 Alice 的新电子邮件消息。
+
+#### Webmail -> 电子邮件客户端
+
+1. Carol (carol@gmail.com) 想给 Bob (bob@outlook.com) 发送电子邮件。
+2. Carol 通过在其浏览器中访问 `https://www.gmail.com` 来访问 Gmail webmail。
+3. Carol 从 Gmail webmail 发送电子邮件消息，该消息向 `gmail.com` 服务器发出 HTTP 请求。
+4. `gmail.com` 服务器使用其 MTA 软件通过 SMTP 将消息发送到 Gmail 的 SMTP 服务器 (`smtp.gmail.com`)。
+5. Gmail 的 SMTP 服务器通过 SMTP 将消息发送到 Outlook 的 SMTP 服务器 (`smtp-mail.outlook.com`)，并将消息保存到 Outlook 的数据库中。
+6. Bob 的电子邮件桌面客户端向 Outlook 的 IMAP 服务器 (`outlook.office365.com:993`) 发出 IMAP 请求。
+7. Outlook 的 IMAP 服务器从数据库中检索消息，并通过 IMAP 将其发送回 Bob 的桌面客户端。
+8. Bob 的电子邮件桌面客户端显示来自 Carol 的新电子邮件消息。
+
+#### Webmail -> Webmail
+
+1. Carol (carol@gmail.com) 想给 David (david@outlook.com) 发送电子邮件。
+2. Carol 通过在浏览器中访问 `https://www.gmail.com` 来访问 Gmail 网络邮件。
+3. Carol 从 Gmail 网络邮件发送电子邮件，这向 `gmail.com` 服务器发出 HTTP 请求。
+4. `gmail.com` 服务器使用其 MTA 软件通过 SMTP 将邮件发送到 Gmail 的 SMTP 服务器 (`smtp.gmail.com`)。
+5. Gmail 的 SMTP 服务器通过 SMTP 将邮件发送到 Outlook 的 SMTP 服务器 (`smtp-mail.outlook.com`)，并将邮件保存到 Outlook 的数据库中。
+6. David 通过在浏览器中访问 `https://outlook.live.com` 来访问 Outlook 网络邮件。
+7. 托管 `outlook.live.com` 的服务器向 Outlook 的 IMAP 服务器 (`outlook.office365.com:993`) 发出 IMAP 请求。
+8. Outlook 的 IMAP 服务器从数据库中检索邮件，并通过 IMAP 将其发送回 `outlook.live.com`。
+9. 托管 `outlook.live.com` 的服务器通过 HTTP 将响应发送到 David 的浏览器。
+10. David 的浏览器显示 Carol 发来的新电子邮件。
+
+### 电子邮件系统类型
+
+电子邮件系统可以大致分为以下几类：
+
+#### 存储转发服务器
+
+存储转发电子邮件服务器通常在 POP 上运行，邮件仅在用户首次访问和下载邮件时才保存在服务器上。这是一个简单直接的设计。
+
+**优点**
+
+* 邮件不会在服务器上保留很长时间（直到客户端访问它们），并且服务器不需要对它们进行太多处理。
+* 客户端设备通常存储已下载的邮件，因此即使没有互联网连接，用户仍然可以访问旧邮件，邮件服务器也因中断而不可用。
+* 服务器不需要太多存储空间，因为邮件在下载后会被删除。
+
+**缺点**
+
+* 由于邮件存储在本地，如果从多个客户端设备访问服务器，则所有邮件的视图不一致。
+* 用户负责备份和恢复他们的邮件。如果没有备份，如果设备损坏/被盗，邮件将永远丢失。
+* 诸如邮件搜索/排序之类的功能必须在设备本地完成，这对于包含大量邮件的邮箱来说可能需要大量的计算。在邮件存储在多个设备上的情况下，搜索仅限于当前设备上的邮件，这可能很不方便。
+
+#### 仅服务器邮箱
+
+在这种系统中，服务器充当邮件的真实来源，即使客户端下载了邮件，服务器也会保留它们。客户端在下载后不会缓存或持久保存邮件。此类服务器可以在 IMAP 上运行，网络邮件是此类模型的一个常见示例。
+
+**优点**
+
+* 所有设备对邮箱都有一致的视图。
+* 备份可以由电子邮件服务提供商完成，而无需用户进行任何麻烦。
+* 客户端难以执行或难以执行的功能可以在服务器上执行。像手机这样功能较弱的设备将从中受益。
+
+**缺点**
+
+* 需要互联网连接才能查看邮件。
+* 需要足够的服务器存储空间，因为它是邮件的真实来源。
+
+#### 具有客户端缓存的服务器邮箱
+
+混合模型结合了存储转发服务器和仅服务器邮箱的最佳特性，它具有永久的服务器邮箱，客户端缓存/持久保存已下载的邮件。大多数桌面电子邮件客户端都使用此模型，并且是上述模型中最复杂的。
+
+**优点**
+
+* 存储转发模型的大部分优点：
+  * 即使离线或电子邮件服务器不可用，也可以访问邮件。
+* 仅服务器邮箱的优点：
+  * 所有设备对邮箱都有一致的视图。
+  * 备份由电子邮件服务提供商完成。
+  * 利用服务器端功能，如搜索。
+
+**缺点**
+
+* 客户端和服务器之间复杂的同步逻辑。
+* 需要足够的服务器存储空间，因为它仍然是邮件的真实来源。
+
+*参考：[NinjaMail：高性能集群、分布式电子邮件系统的设计](https://people.eecs.berkeley.edu/~kubitron/papers/ninja/pdf/ninjamail-workshop.pdf)*
+
+### 本机 HTML 应用程序
+
+{/* TODO */}
+
+* 如何构建原生应用程序
+* 讨论示例 (Electron/Nativefier/Tauri) 及其区别：
+
+## 架构/高级设计
+
+### 桌面客户端 vs Webmail
+
+* 分成客户端应用程序与同构核心。
+* 抽象出数据库层，以便根据运行时环境选择数据库。
+* 原生桌面应用程序的价值：
+  * 菜单栏
+  * 通知
+  * 不与浏览器冲突的键盘快捷键
+  * 徽章
+
+### Flux/Redux 架构
+
+使用 Flux 架构的 reducer 架构/命令查询请求分离。应用程序中许多不同的操作可以被抽象为应用程序范围的命令，并具有多个触发源（例如，UI 元素交互、文件菜单交互、键盘快捷键）。
+
+* 中央存储。UI 的许多部分依赖于相同的数据存储。
+
+* 命名空间命令，以便更好地组织和降低冲突的可能性。
+
+* 轻松实现撤消/重做。
+
+* [Mailspring 的操作列表](https://github.com/Foundry376/Mailspring/blob/master/app/src/flux/actions.ts)
+
+### 服务器端渲染 vs 客户端渲染
+
+* CSR，因为它是一个应用程序。
+
+### 任务队列
+
+* 可变操作将立即更新本地数据存储，并将更改排队以同步回您的邮件提供商。
+
+***
+
+## 数据模型
+
+{/* TODO */}
+
+正在进行中
+
+***
+
+## 接口定义 (API)
+
+{/* TODO */}
+
+正在进行中
+
+***
+
+## 优化和深入研究
+
+* 浏览不同的电子邮件协议：IMAP、SMTP、POP 等。
+* 与邮件服务器同步
+  * https://www.rfc-editor.org/rfc/rfc4549
+* 邮件列表
+  * 如何进行线程处理
+    * https://www.jwz.org/doc/threading.html
+    * https://www.rfc-editor.org/rfc/rfc5256
+    * [在电子邮件中识别引用的文本](https://patents.google.com/patent/US7222299)
+  * 搜索电子邮件
+  * 对电子邮件进行排序
+* 阅读
+  * 阅读电子邮件的 HTML
+  * 注入[浏览器默认样式表](https://github.com/Foundry376/Mailspring/tree/master/app)或使用 webview。
+* 撰写
+  * 电子邮件地址自动补全
+  * 实现撤消发送功能
+  * 富文本/所见即所得
+  * 附件格式
+* 性能
+  * 虚拟列表
+  * 延迟加载表情符号选择器等。
+* a11y
+  * 键盘快捷键
+* 网络
+  * 同步频率
+  * 使用指数退避进行重试
+  * 处理离线模式
+* UX
+  * 离线指示器
+  * 滑动姿势
+* 通知
+* i18n
+  * RTL
+* 额外功能
+  * 主题
+  * [拼写检查](https://github.com/Foundry376/Mailspring/app/src/spellchecker.ts)
+  * 保存草稿
+  * 阻止打开跟踪
+    * [打开跟踪的工作原理](https://nylas-mail-lives.gitbooks.io/nylas-mail-docs/content/tracking_and_notifications/226411088-how-does-nylas-perform-open-tracking.html)
+  * 邮件规则
+  * 播放声音
+
+### 撰写
+
+{/* TODO */}
+
+正在进行中
+
+#### 消息格式
+
+{/* TODO */}
+
+正在进行中
+
+#### 附件
+
+* 恢复附件。
+* 异步附件流程。
+
+### 键盘快捷键
+
+* 在流行的客户端中实现不同的快捷方式，如 Gmail、Apple Mail、Outlook 等。
+
+### 撤销/重做
+
+* 通过操作历史记录和集中式存储轻松实现。
+* Toasts
+
+### 性能
+
+* 对性能的需求不大。
+* 懒加载是可选的，并且不是优先事项，因为资产是作为应用程序的一部分进行捆绑的。网络请求延迟很短，仅影响 JavaScript 启动和执行时间。
+
+{/* TODO: ### Right Click Behavior */}
+
+***
+
+## 参考
+
+* http://www.slate.com/articles/technology/technology/2015/02/email\_overload\_building\_my\_own\_email\_app\_to\_reach\_inbox\_zero.html
+* https://people.eecs.berkeley.edu/~kubitron/papers/ninja/pdf/ninjamail-workshop.pdf
+* https://github.com/nylas/nylas-mail
+* https://en.wikipedia.org/wiki/Internet\_Message\_Access\_Protocol
+* https://www.rfc-editor.org/rfc/rfc3501
+* https://github.com/Foundry376/Mailspring
+* https://web.dev/mailru-cwv/
+* https://zapier.com/blog/best-email-client-for-mac/
+* [Email Architecture, Gmail two Step Verification, SMTP POP3 IMAP](https://www.electroniclinic.com/email-architecture-gmail-two-step-verification-smtp-pop3-imap)
+* [Email Program Classifications](https://web.mit.edu/rhel-doc/5/RHEL-5-manual/Deployment_Guide-en-US/s1-email-types.html)
+* [How does email work?](https://www.namecheap.com/guru-guides/how-does-email-work)

@@ -1,0 +1,130 @@
+## 需求探索
+
+待办事项
+
+***
+
+## 架构/高层设计
+
+待办事项
+
+React是有效的：将数据与渲染分离，再进行同步。可以独立构建这些部分。
+
+* UI
+  * 场景
+    * 元素
+  * 工具栏
+  * 属性面板
+* 动作管理器
+* 历史记录
+
+***
+
+## 数据模型
+
+待办事项
+
+* App 状态：https://github.com/excalidraw/excalidraw/blob/e6de1fe4a41947a7980c416e353f1e66ec5fc50b/src/types.ts
+
+* 场景
+  * 元素
+
+* 历史记录
+
+* 选定元素
+
+```js
+// 对象的Data model。
+{
+  type: 'rectangle',
+  x: 404,
+  y: 237,
+  width: 200,
+  height: 100,
+  angle: 0,
+  backgroundColor: 'red',
+  strokeColor: '#000',
+  strokeWidth: 2,
+  strokeStyle: 'solid',
+  opacity: 1,
+}
+```
+
+* 如何拥有父/子元素。
+
+***
+
+## 接口定义 (API)
+
+待办事项
+
+动作负载：
+
+* https://github.com/excalidraw/excalidraw/blob/d4afd6626850befdb000d86c203e7a604f8a871c/src/actions/types.ts
+
+* https://github.com/excalidraw/excalidraw/blob/6c1246ef77433fcd178be380b451c5b904aece00/src/actions/index.ts
+
+* 每个动作都有一个名称、负载、逻辑（reducer fn）、谓词、提交到历史记录和键盘快捷键。
+
+* 动作管理器
+
+***
+
+## 优化和深入研究
+
+待办事项
+
+* 渲染
+  * 模型：Canvas 或 SVG。
+    * Canvas：Excalidraw/Figma
+    * SVG：diagrams.net
+  * 基本属性（笔画/背景/边缘/不透明度）
+  * 转换
+  * 缩放
+  * 旋转
+  * 缩放
+  * 图层
+* 操作
+  * 选择
+    * https://github.com/excalidraw/excalidraw/blob/327ed0e2d1c8f79fba7a46bcd6e8ee0404a2d0de/src/scene/selection.ts
+  * 删除
+  * 转换
+  * 对齐
+    * https://github.com/excalidraw/excalidraw/blob/d2cc76e52eae9377f924172efebb81fae8baba5a/src/distribute.ts
+  * 前/后排序
+  * 分组
+    * https://github.com/excalidraw/excalidraw/blob/6d0716eb6bd23685fc92277ae86dd3ea5745270f/src/groups.ts
+  * 复制/粘贴/重复
+  * 历史记录：撤消/重做
+    * https://github.com/excalidraw/excalidraw/blob/master/src/history.ts
+    * 并非所有操作都应提交到历史记录（例如保存）
+* 性能
+  * 缓存画布元素
+  * 仅重新渲染可见屏幕
+* 键盘快捷键
+* 实时协作
+  * Socket.io / 房间
+  * 同步
+    * 添加
+    * 编辑
+      * 版本控制
+    * 删除
+      * `isDeleted` 标志
+  * 锁定正在编辑的元素
+  * https://blog.excalidraw.com/building-excalidraw-p2p-collaboration-feature/
+* 导出
+  * SVG/图像/保存到磁盘
+  * 读/写文件系统
+    * 将数据模型转换为 JSON
+    * https://blog.excalidraw.com/browser-fs-access/
+  * https://github.com/excalidraw/excalidraw/blob/bbe0c35f66a3fded6a2d8e61974d19f0f3b0e803/src/scene/export.ts
+* 共享
+  * 在 URL 中编码为 base64
+* 端到端加密
+  * https://blog.excalidraw.com/end-to-end-encryption/
+
+***
+
+## 参考
+
+* [弃用 Excalidraw Electron，转而使用 Web 版本](https://web.dev/deprecating-excalidraw-electron/)

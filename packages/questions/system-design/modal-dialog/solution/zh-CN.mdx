@@ -1,0 +1,377 @@
+## 需求探索
+
+### 模态框的组成部分是什么？
+
+这取决于你。在基本层面上，它应该允许自定义内容。是否添加对关闭按钮、标题、页脚操作的内置支持将取决于你。
+
+### 用户在自定义设计方面有多大的灵活性？
+
+用户应该能够自定义模态框元素的颜色、字体、填充等，以匹配他们的品牌。
+
+### 此组件将在哪些设备上使用？
+
+所有设备 — 手机、平板电脑、桌面。
+
+***
+
+{/* ## TODO: Background, discuss when modals should be used. */}
+
+## 架构/高层设计
+
+模态框，就像许多显示内容的组件一样，有一个触发元素和内容元素。模态框可以通过用户操作或后台操作打开，因此我们应该将触发源与模态框内容分离。
+
+仅包含内容的简单模态框没有复杂的架构。但是，许多来自 UI 库的模态框有三个不同的部分：标题、正文、页脚。
+
+在 React 中使用模态框组件的示例，省略了事件处理程序。
+
+```jsx
+<Modal>
+  <Modal.Header>我的模态框标题</Modal.Header>
+  <Modal.Body>
+    <p>模态框正文文本在这里。</p>
+  </Modal.Body>
+  <Modal.Footer>
+    <button>关闭</button>
+    <button>确认</button>
+  </Modal.Footer>
+</Modal>
+```
+
+| 组件 | 角色 |
+| --- | --- |
+| 模态框根 (`Modal`) | 根组件，协调内部组件之间的事件。 |
+| 模态框覆盖层 | 渲染背景覆盖层的组件，通常会使页面内容变暗。 |
+| 模态框标题 (`Modal.Header`) | 模态框的顶部部分，包含标题和关闭按钮。 |
+| 模态框正文 (`Modal.Body`) | 模态框的主要内容。 |
+| 模态框页脚 (`Modal.Footer`) | 模态框的可选底部部分，通常包含关闭/提交按钮。 |
+
+在 React 中，组件可以使用 context 或 props 与其父组件通信。我们选择在这里使用 context，因为我们在这里使用组合模型，传递 props 并不方便。`<Modal>` 应该包含一个 context 提供程序，该提供程序将配置选项（`<Modal>` 的 `props`）提供给其所有子组件，以防它们需要它。
+
+***
+
+## 数据模型
+
+请注意，对于设计组件，先设计接口/API 或同时设计数据模型和 API 可能会有意义。这取决于手头的组件。随意在两个部分之间跳转。
+
+模态框组件不需要太多状态。我们将把模态框构建为一个受控组件，这是库通常采用的方法。因此，打开/关闭状态在组件外部管理。
+
+| 状态 | 类型 | 描述 |
+| --- | --- | --- |
+| `previousFocusElement` | `HTMLElement` | 在显示模态框之前获得焦点的 DOM 元素。在 [焦点管理](#focus-management) 部分阅读更多关于为什么需要它的信息。 |
+
+有关配置选项，请参见下文，这些选项也是数据模型的一部分。
+
+***
+
+## 接口定义 (API)
+
+### 常规属性
+
+这些属性适用于大多数组件。
+
+| 属性 | 类型 | 描述 |
+| --- | --- | --- |
+| `children` | `React.Node` | 组件的子元素。如果使用 TypeScript/Flow，您可以强制使用特定的组件作为 `children`。 |
+| `as` | `string \| Component` | 如果需要自定义底层 DOM 元素/组件。 |
+| `className` | `string` | 要添加到组件的类名，以备需要进一步的视觉定制。可能需要也可能不需要，这取决于主题方法。 |
+
+### `Modal`
+
+| 属性 | 类型 | 描述 |
+| --- | --- | --- |
+| `isOpen` | `boolean` | 模态框是否打开或关闭。 |
+| `onClose` | `Function` | 当模态框关闭时触发的回调，可能来自按下关闭按钮或按下“Escape”键”。 |
+| `maxHeight` | `number \| undefined` | 模态框的最大高度。应该有一个合理的默认值，大约是视口高度的 80%。 |
+| `width` | `number \| undefined` | 模态框的宽度。应该有一个合理的默认值，为 500-600px。 |
+
+### `Modal.Header`
+
+基本版本不需要除 `children` 之外的属性。
+
+### `Modal.Body`
+
+基本版本不需要除 `children` 之外的属性。
+
+### `Modal.Footer`
+
+基本版本不需要除 `children` 之外的属性。
+
+### 自定义外观
+
+设计用于自定义 UI 组件的良好 API 可以在 [前端面试指南的 UI 组件 API 设计原则部分](/front-end-interview-guidebook/user-interface-components-api-design-principles)中找到。
+
+模态框的大部分内容（在标题/正文/页脚中）将由用户提供，因此模态框组件不需要提供太多默认样式。
+
+***
+
+## 优化和深入研究
+
+### 渲染
+
+#### 突破 DOM 层次结构
+
+由于模态框显示在页面上方，并且不遵循页面元素的正常流程，因此渲染模态框比看起来更棘手。将模态框渲染在父 DOM 层次结构之外非常重要，因为如果父元素包含剪裁其内容的样式，则模态框内容可能无法完全可见。以下是 [React 文档](https://beta.reactjs.org/reference/react-dom/createPortal#rendering-a-modal-dialog-with-a-portal) 中的一个示例，演示了这个问题。
+
+<iframe
+  src="https://codesandbox.io/embed/wnr51p?fontsize=14&hidenavigation=1&theme=dark&module=/App.js,/NoPortalExample.js,/PortalExample.js,/ModalContent.js,/styles.css&view=split"
+  style={{
+  width: '100%',
+  height: 500,
+  border: 0,
+  borderRadius: 4,
+  overflow: 'hidden',
+}}
+  title="Modal Clipping Example"
+  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+/>
+
+在 React 中，使用 [React Portals](https://beta.reactjs.org/reference/react-dom/createPortal) 可以实现在父组件的 DOM 层次结构之外进行渲染。Portals 的常见用例包括工具提示、下拉菜单、弹出框。
+
+#### 遮罩层
+
+为了帮助用户专注于模态框中的内容，通常会有一个遮罩层/背景来使页面的内容变暗。为了渲染一个覆盖整个页面的元素，我们可以使用以下 CSS：
+
+```css
+.modal-overlay {
+  /* 黑色，带有一些不透明度。 */
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+```
+
+#### 居中模态框
+
+为了在模态框遮罩层内居中模态框内容，我们可以向 `.modal-overlay` 添加以下样式：
+
+```css
+.modal-overlay {
+  /* 省略原始样式。 */
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+```
+
+这将与以下 HTML 结构一起使用。
+
+```html
+<div className="modal-overlay">
+  <div className="modal-contents">...</div>
+</div>
+```
+
+如果需要垂直居中内容，可以将 `align-items: center` 添加到 `.modal-overlay`。
+
+这是一个带有遮罩层和可选垂直居中模式的模态框的基本示例：
+
+<iframe
+  src="https://codesandbox.io/embed/t1oldf?fontsize=14&hidenavigation=1&theme=dark&module=/src/App.js,/src/styles.css&view=split"
+  style={{
+  width: '100%',
+  height: 500,
+  border: 0,
+  borderRadius: 4,
+  overflow: 'hidden',
+}}
+  title="Modal Example"
+  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+/>
+
+#### 最大高度
+
+由于模态框可以包含大量内容，我们可以为模态框设置一个默认的最大高度，以便多余的条目可以在 `Modal.Body` 中滚动。此高度也可以通过指定 `maxHeight` 属性来定制。
+
+#### 滚动锁定
+
+当模态框显示时，模态框内容处于焦点。为了防止用户滚动背景内容，页面应该锁定页面级别的滚动。一种方法是向 `<body>` 添加 `overflow: hidden`。
+
+#### 在 HTML 或 JavaScript 中渲染
+
+模态框可以是：
+
+1. 像 [Bootstrap 的模态框](https://getbootstrap.com/docs/5.3/components/modal/) 一样渲染到 HTML 中。模态框最初通过 `display: none` / `opacity: 0` / `hidden` 属性从视图中隐藏，当要显示模态框时，这些样式会被切换。
+2. 在激活模态框触发按钮后，通过 JavaScript 动态渲染。
+
+首先在 HTML 中渲染的优点是更好的运行时性能，因为显示模态框所需的 DOM 操作更少。缺点是 HTML 可能会不必要地膨胀，特别是如果模态框根本没有显示。由于模态框内容通常包含次要信息，因此它们不应影响 SEO，也不需要进行服务器端渲染。在 HTML 中预先渲染模态框的好处相对较小。
+
+{/* ### TODO `z-index` */}
+
+### 可访问性 (a11y)
+
+#### 鼠标交互
+
+通常，点击模态框外部（在覆盖层上）将关闭模态框。 我们必须确保模态框内的点击不会关闭模态框。
+
+```js
+function clickListener(event) {
+  // 如果点击的元素是模态框内容的后代，则不执行任何操作。
+  if ($modalContentsElement.contains(event.target)) {
+    return;
+  }
+
+  closeModal();
+}
+
+document.addEventListener('mousedown', clickListener);
+document.addEventListener('touchstart', clickListener);
+```
+
+请记住在模态框关闭时删除 `clickListener`。
+
+这是一个 React 示例：
+
+<iframe
+  src="https://codesandbox.io/embed/74fyqc?fontsize=14&hidenavigation=1&theme=dark&module=/src/App.js,/src/styles.css&view=split"
+  style={{
+  width: '100%',
+  height: 500,
+  border: 0,
+  borderRadius: 4,
+  overflow: 'hidden',
+}}
+  title="Modal Dismiss On Click Outside"
+  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+/>
+
+#### 焦点管理
+
+实现模态框最复杂的部分可能是焦点管理。 模态框内的内容应被视为一个单独的文档； 使用 <kbd>Tab</kbd> 键仅在对话框内循环切换可聚焦元素，并且只要显示模态框，焦点就永远不能位于组件外部的元素上。 这种行为/现象被称为“焦点捕获”。
+
+当模态框打开时，焦点会移动到模态框内的元素。 通常，焦点设置在第一个可聚焦元素上，但 [对话框（模态框）模式](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/) 中提到了一些例外情况。
+
+当模态框关闭时，焦点会返回到打开模态框的元素（除非该元素不再存在，然后焦点会转移到另一个合理的元素）。
+
+**如何实现模态框的焦点管理**：
+
+1. 首次打开模态框时，保留对在模态框状态中打开模态框的元素的引用。
+2. 聚焦模态框内的元素。
+3. 添加 <kbd>Tab</kbd> 键的 `keydown` 侦听器，其中包含以下逻辑：
+   1. 当按下 <kbd>Tab</kbd> 键时，通过检查是否也按下了 <kbd>Shift</kbd> 键（通过 `KeyboardEvent` 上的 `shiftKey` 值）来确定焦点是否应转移到下一个或上一个可切换元素。
+   2. 查找模态框内的所有可切换元素。
+   3. 从当前聚焦的元素中，找到下一个/上一个可切换元素。
+   4. 聚焦该新元素。
+4. 当模态框关闭时，隐藏模态框并将焦点移动到打开模态框的元素。
+
+在实践中，可以通过 [focus-trap](https://focus-trap.github.io/focus-trap/) 库来完成焦点捕获。 如果使用 React，则使用 [`react-focus-lock`](https://github.com/theKashey/react-focus-lock) 库，[Reach UI 的 Dialog 组件](https://reach.tech/dialog) 使用该库。
+
+#### 键盘交互
+
+以下内容摘自 [对话框（模态框）模式](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/)：
+
+| 键 | 描述 |
+| --- | --- |
+| <kbd>Tab</kbd> | 将焦点移动到模态框内的下一个可切换元素。 如果焦点位于模态框内的最后一个可切换元素上，则将焦点移动到模态框内的第一个可切换元素。 |
+| <kbd>Shift</kbd> + <kbd>Tab</kbd> | 将焦点移动到模态框内的上一个可切换元素。 如果焦点位于模态框内的第一个可切换元素上，则将焦点移动到模态框内的最后一个可切换元素。 |
+| <kbd>Esc</kbd> | 关闭模态框。 |
+
+焦点捕获对于所需的 <kbd>Tab</kbd> 行为至关重要，否则焦点将“泄漏”出模态框：
+
+#### WAI-ARIA 角色、状态和属性
+
+以下内容摘自 [对话框（模态框）模式](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/)。
+
+* 作为模态框容器的元素具有 `dialog` 的角色。
+* 所有操作模态框所需的元素都是具有 `dialog` 角色的元素的后代。
+* 模态框容器元素将 `aria-modal` 设置为 `true`。
+* 模态框具有以下任一条件：
+  * 为 `aria-labelledby` 属性设置一个值，该值引用可见的模态框标题。
+  * 由 `aria-label` 指定的标签。
+* 可选的 `aria-describedby` 属性设置在具有 `dialog` 角色的元素上，以指示对话框中哪些元素包含描述对话框主要目的或消息的内容。在 [对话框（模态框）模式](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/) 中阅读完整的指南。
+
+#### `<dialog>` 元素
+
+HTML 现在有一个原生的 `<dialog>` 元素，可以在创建模态对话框时使用，因为它提供了可用性和可访问性功能，如果使用其他元素实现类似目的，则必须复制这些功能。
+
+但是，它仍然相对较新，并且浏览器兼容性不是很好。 此外，诸如焦点捕获之类的行为仍然必须手动实现，这使得使用原生的 `<dialog>` 元素不太有吸引力。
+
+### 动画和过渡
+
+如果需要对模态框元素进行动画处理，并且需要独立地进行覆盖和内容的过渡（例如，覆盖淡入，而内容向上垂直移动），则必须更改 DOM 结构，并且内容无法在覆盖的 DOM 中呈现。 类似于这样的结构是必需的：
+
+```html
+<div>
+  <!-- 覆盖层，呈现为内容的固定同级。 -->
+  <div class="modal-overlay" aria-hidden="true"></div>
+  <!-- 全屏容器以居中面板。 -->
+  <div class="modal-contents-container">
+    <div class="modal-contents">...</div>
+  </div>
+</div>
+```
+
+这是一个 React 中进入动画的示例：
+
+<iframe
+  src="https://codesandbox.io/embed/imlco8?fontsize=14&hidenavigation=1&theme=dark&module=/src/App.js,/src/styles.css&view=split"
+  style={{
+  width: '100%',
+  height: 500,
+  border: 0,
+  borderRadius: 4,
+  overflow: 'hidden',
+}}
+  title="Modal Animations"
+  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+/>
+
+退出过渡在 React 中实现起来并非易事，因为条件渲染会导致 DOM 元素在页面上不再需要时从文档中删除。 这是一个模态框的示例，其中进入和退出都已动画化。
+
+<iframe
+  src="https://codesandbox.io/embed/t3wwxr?fontsize=14&hidenavigation=1&theme=dark&module=/src/App.js,/src/styles.css&view=split"
+  style={{
+  width: '100%',
+  height: 500,
+  border: 0,
+  borderRadius: 4,
+  overflow: 'hidden',
+}}
+  title="Modal Animations"
+  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+/>
+
+### 国际化 (i18n)
+
+由于所有面向用户的字符串都由用户提供，因此可以按原样显示字符串。 但是，请注意，某些语言的某些字符串可能很长，因此应截断或换行溢出文本。 文本不应溢出模态框元素。 您通常不希望模态框标题/页脚超过一行，因此建议在此处进行截断。
+
+对于 RTL 语言，必须水平翻转模态框元素。 为了实现这一点，根模态框组件可以接受一个 `direction` 配置选项/属性，并根据该值呈现内容。
+
+![模态对话框从右到左的示例](/img/questions/modal-dialog/modal-dialog-rtl.png)
+
+### 堆叠模态框
+
+模态框内容可以包含呈现更多模态框的触发器，因此需要考虑以下几点：
+
+* 决定是否应该为每个模态框级别提供一个覆盖层，这将使背景在堆叠级别越高时在视觉上变得更暗。
+* 通过 <kbd>Esc</kbd> 键或单击最顶层模态框内容之外来关闭模态框应该只关闭最顶层的模态框，而不是所有模态框。
+* 关闭较低层的模态框也应该关闭其上的所有模态框（或使此行为可自定义）。
+
+### 高级主题
+
+{/* TODO */}
+
+* 模态框中的工具提示和下拉菜单。
+* 警报对话框角色和 [ARIA 模式](https://www.w3.org/WAI/ARIA/apg/patterns/alertdialog/)。
+
+***
+
+## 参考资料
+
+* 主题示例
+  * [模态框 · Bootstrap v5.3](https://getbootstrap.com/docs/5.3/components/modal)
+  * [React Modal 组件 - Material UI](https://mui.com/material-ui/react-modal/)
+* 无头示例
+  * [对话框 — Radix UI](https://www.radix-ui.com/docs/primitives/components/dialog)
+  * [对话框 (模态框) — Reach UI](https://reach.tech/dialog)
+  * [对话框 (模态框) - Headless UI](https://headlessui.com/react/dialog)
+* Aria 创作实践指南 (APG)
+  * [对话框 (模态框) 模式](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/)
+  * [警报和消息对话框模式](https://www.w3.org/WAI/ARIA/apg/patterns/alertdialog/)

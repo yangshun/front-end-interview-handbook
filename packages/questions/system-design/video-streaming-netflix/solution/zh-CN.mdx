@@ -1,0 +1,771 @@
+## 需求探索
+
+### 需要支持哪些核心功能？
+
+* 在主页上浏览推荐视频（发现/推荐页面）。
+* 在发现/推荐页面的顶部自动播放宣传视频。
+* 在独立页面上播放视频内容。
+
+### 期望的视频播放质量和分辨率是什么？
+
+应支持多种分辨率和流媒体质量选项，并根据设备情况自动选择。
+
+### 视频播放器应包含哪些功能？
+
+* **视频进度**: 播放、暂停、跳过、跳转到视频的特定时间戳、调整播放速率。
+* **音频**: 更改语言、调整音量。
+* **字幕**: 字幕显示和字幕语言选择。
+
+### 应用程序将在哪些设备上使用？
+
+主要用于桌面，但也应可在平板电脑和移动设备上使用。
+
+### 非功能性需求是什么？
+
+优先考虑流畅的视频观看体验，用户不应等待太久才能开始观看视频：
+
+* 即使要提供较低质量的版本，网速较慢的用户也应该能够观看视频。
+* 减少卡顿和缓冲。
+* 快速的 [视频启动时间](https://www.mux.com/blog/the-video-startup-time-metric-explained)。
+
+## 背景
+
+由于在网络上播放媒体是一个相当专业的领域，大多数人可能没有太多经验，因此我们提供了关于系统设计面试中需要了解的关于视频播放的重要技术细节的摘要。 事实上，这里涵盖的大部分内容超出了对候选人的期望，但了解更多并没有坏处。
+
+### 术语表
+
+* **流媒体**：通过互联网以连续和实时的方式传输多媒体内容（如视频和音频）的过程。 它允许用户在传输内容的同时观看或收听内容，而无需在播放开始之前下载整个文件。
+* **缓冲**：预加载视频内容以确保流畅播放的过程，防止因网络连接速度慢而中断。
+* **比特率**：指视频流中每秒传输的数据量。 它决定了视频文件的质量和大小，比特率越高，质量越好，但文件大小也越大。
+* **帧率**：每秒显示的视频帧数，通常以每秒帧数 (fps) 为单位衡量。 常见的帧率包括电影的 24fps 以及电视和在线视频的 30fps 或 60fps。
+* **分辨率**：以宽度和高度指定视频的尺寸（例如，全高清的 1920 x 1080 像素）。 较高的分辨率提供更好的视觉质量，但需要更多的带宽。
+* **编解码器**：编码和解码视频和音频数据的软件或硬件组件。 常见的视频编解码器包括 H.264、H.265 (HEVC)、VP9 和 AV1。
+* **带宽**：在给定的时间范围内可以通过网络连接传输的数据量。 在视频流中，需要足够的带宽才能流畅地以所需质量传输视频内容。 具有较高比特率的较高质量视频需要更多带宽才能不间断地播放。
+* **海报**：视频的静态缩略图图像。
+* **隐藏式字幕 (CC)**：在视频播放期间显示的基于文本的字幕，通常用于提供可访问性和语言翻译。 它们与字幕不同，但在面试中可以被同等对待。
+* **播放控件**：用于视频控制的用户界面元素，包括播放、暂停、快进和音量。
+* **Seeking**：视频播放中的 Seeking 是指在不从头开始播放的情况下移动到视频中的特定点或时间的操作。 用户可以跳转到视频中的特定场景或时间码，通常通过与进度条或时间线交互来实现。
+* **Scrubbing**：Scrubbing 是一种用户操作，涉及拖动视频播放器的播放头或进度条以浏览视频内容。 它允许用户在视频中快速向前或向后移动以查找特定场景或时刻。
+
+我们将在下面的内容中经常使用这些术语。
+
+### 网络上的视频播放
+
+在网站上播放视频的最基本方法是在页面上使用`<video>` HTML 标签，其 `src` 属性指向 `mp4` 或 `webm` 文件，就像 `<img>` 标签一样。然而，这种在网页上播放视频的最基本方法并不能提供最佳的用户体验，因为它不支持自适应比特率。
+
+Netflix 和 YouTube 上的复杂视频播放器利用以下关键组件：
+
+1. **播放器界面**：这包括视频播放器的用户界面，它提供播放、暂停和音量调节等控件。浏览器提供基本的播放控制 UI，但通常您希望更好地控制样式和外观。
+2. **流媒体协议**：流媒体涉及逐步下载已分割成较小片段的大型视频文件。播放器按顺序下载和播放这些片段，维护一个缓冲区以处理网络波动。常见的流媒体协议是 HTTP Live Streaming (HLS) 和 Dynamic Adaptive Streaming over HTTP (DASH)。
+3. **清单文件**：清单文件引导视频播放器找到视频片段文件的位置。它们包括一个主清单，这是第一个接触点，它将播放器定向到视频的各种呈现，以及每个特定视频质量的呈现清单。清单文件的格式因所使用的流媒体协议而异。
+4. **自适应比特率流**：此技术允许播放器从不同版本的视频（各种分辨率和比特率）中选择，以确保基于用户互联网速度的流畅播放。为了避免缓冲，视频播放器动态调整播放质量，并使用清单文件来确定所需质量的片段文件的位置。
+
+### 视频格式
+
+[WebM](https://www.webmproject.org/) 和 MP4 是常见的视频格式，它们之间的区别主要与它们的视频编码、浏览器支持、许可和使用有关：
+
+| 区域 | WebM | MP4 |
+| --- | --- | --- |
+| 用途 | 在线流媒体。 | 视频存储、视频编辑、广播和流媒体。 |
+| 浏览器支持 | 在 Firefox、Chrome 和 Opera 上受支持。在移动设备和非 Web 平台上支持有限。 | 更多通用支持。 |
+| 编码和压缩 | 使用 VP8 或 VP9 视频编解码器和 Vorbis 或 Opus 进行音频。 VP8/VP9 编解码器以其高效的压缩而闻名，使其适用于带宽使用较少的在线流媒体。 | 使用 H.264 (或 AVC) 视频编解码器和 AAC 进行音频。 H.264 因其高压缩效率和出色的视频质量而广受好评，即使在较低的比特率下也是如此。 |
+
+与 WebP 类似，WebM 也是由 Google 开发的，是一种用于网络媒体的高性能文件格式。 WebM 更适合基于 Web 的应用程序，重点是开源和高效的流媒体，而 MP4 是一种通用格式，具有广泛的设备和平台支持，使其成为各种视频应用程序的热门选择。
+
+## 架构/高级设计
+
+### 渲染方法
+
+视频流应用程序具有以下特征：
+
+* 视频标题可通过搜索引擎搜索。 YouTube 视频大多是公开的，而 Netflix 有一个标题页面，其中仅包含视频详细信息和一些艺术/缩略图（[Netflix 标题页面示例](https://www.netflix.com/title/80057281)）。
+* 某些视频观看页面仅供已登录的高级用户访问（在 Netflix 的情况下）。
+* 由于浏览视频推荐和视频播放交互，页面交互量很大。
+* 需要快速的初始加载速度和视频启动速度。
+
+对于仅供已登录用户访问的页面，服务器端渲染 (SSR) 将略微提高性能，但 SSR 并不关键。对于可通过搜索引擎发现的页面（公共视频），SEO 以及 SSR 将很重要。
+
+YouTube SSRs 其浏览/发现页面的基本框架。
+
+![YouTube discovery page SSR](/img/questions/video-streaming-netflix/video-streaming-netflix-youtube-discovery-page-ssr.png)
+
+Netflix 对整个 [视频标题页面](https://www.netflix.com/title/80057281) 进行 SSR。
+
+![Netflix title page SSR](/img/questions/video-streaming-netflix/video-streaming-netflix-netflix-title-page-ssr.png)
+
+对于观看页面，尤其是在 Netflix 的情况下，视频占据了整个页面，SSR 并不那么有用。 SSR-ed HTML 不包括已加载的视频或开始播放所需的任何缓冲数据，并且无论如何都需要 JavaScript 进行视频流播放。
+
+![Netflix discovery page SSR](/img/questions/video-streaming-netflix/video-streaming-netflix-netflix-discovery-page-ssr.png)
+
+YouTube 对视频的静态预览（海报图像）进行 SSR，而 Netflix 不对任何可见内容进行 SSR。
+
+![YouTube watch page SSR](/img/questions/video-streaming-netflix/video-streaming-netflix-youtube-watch-page-ssr.png)
+
+然而，Netflix 的初始 HTML 包含 React 应用程序启动页面上视频播放器所需的数据。如果此数据未出现在初始 HTML 中，则页面需要发出请求来获取数据，这需要额外的往返，并且会更慢。
+
+![Netflix watch page SSR](/img/questions/video-streaming-netflix/video-streaming-netflix-netflix-watch-page-ssr.png)
+
+| 服务 | 页面 | 访问权限 | 渲染 |
+| --- | --- | --- | --- |
+| Netflix | 视频标题页面 | 公开 | SSR 全页面 |
+| Netflix | 浏览/发现页面 | 已登录 | SSR 首屏 |
+| Netflix | 观看页面 | 已登录 | SSR 仅应用程序数据 (JSON) |
+| YouTube | 主页（推荐） | 公开 | SSR 骨架 |
+| YouTube | 观看页面 | 公开 | SSR UI 骨架，带视频预览/海报图像 |
+
+从表中可以看出，这里没有明确的规则。YouTube 仅对其页面进行 SSR 骨架。Netflix 对公共页面和浏览页面进行 SSR，因为它提高了用户参与度。SSR 可用于受益于高用户参与度的视频列表页面。对于视频观看页面，SSR 并不那么重要，可以使用 CSR。
+
+### 单页应用程序 (SPA) 还是多页应用程序 (MPA)？
+
+由于视频流网站具有高度交互性，并且发现页面和观看页面之间的导航非常常见（尤其是在用户仍在选择视频时），因此在页面导航中保留在发现页面上获取的数据将提高性能。此外，在 SPA 上，客户端可以预取后续观看页面所需的数据，从而缩短视频启动时间。
+
+Netflix 和 YouTube 都是单页应用程序。
+
+### 组件职责
+
+![视频流客户端架构](/img/questions/video-streaming-netflix/video-streaming-netflix-architecture.png)
+
+* **服务器**：提供 HTTP API 以获取视频推荐和视频对象元数据。
+* **视频 CDN 服务器**：CDN 服务器本身用于获取视频内容。允许单独获取视频片段。
+* **客户端存储**：存储整个应用程序所需的数据。存储中的大多数数据将是视频推荐页面所需的服务器生成的数据。保留跨导航的数据，以便在用户返回“发现页面”浏览更多推荐时，无需再次获取推荐列表。
+* **发现页面**：用户用于浏览推荐视频的页面。
+  * **广告牌视频播放器**：位于顶部的特色视频，在加载页面时立即播放。
+  * **视频列表**：视频类别列表。每个类别显示一个水平的视频缩略图列表。
+* **观看页面**：用户观看完整视频的页面。
+  * **全屏视频播放器**：播放视频并包含视频播放控件。
+
+每个页面上的视频播放器组件（紫色框）将向视频 CDN 服务器发出请求，以流式传输方式获取视频片段。
+
+## 数据模型
+
+| 实体 | 来源 | 属于 | 字段 |
+| --- | --- | --- | --- |
+| `Recommendations` | 服务器 | 发现页面 | `lists`（`VideoList` 列表），`pagination`（分页元数据） |
+| `VideoList` | 服务器 | 发现页面 | `videos`（`VideoMetadata` 列表），`pagination`（分页元数据） |
+| `VideoMetadata` | 服务器 | 发现页面 | `id`、`title`、`boxart_url` 等 |
+
+视频推荐应存储在客户端存储中，该存储在页面导航中保留。这充当缓存，以便在用户返回“发现页面”浏览更多推荐时（无需网络请求）立即呈现视频推荐。
+
+视频播放器包含独立的 [数据模型和 API](#video-player-data-model-architecture-and-api)，这将在[下面的一个专门的部分](#video-player-data-model-architecture-and-api)中介绍。
+
+## 接口定义 (API)
+
+### 视频推荐 API
+
+此 API 用于浏览/发现页面，以呈现视频类别列表和每个类别中的热门视频。可以使用基于游标的分页来获取更多推荐类别和更多类别视频。
+
+```json
+{
+  "recommendations": {
+    "items": [
+      {
+        "name": "TV Shows",
+        "videos": {
+          "items": [
+            { "videoId": 123, "title": "...", "boxArtUrl": "..." },
+            { "videoId": 124, "title": "...", "boxArtUrl": "..." }
+          ],
+          "pagination": {}
+        }
+      },
+      {
+        "name": "New Releases",
+        "videos": {
+          "items": [
+            { "videoId": 125, "title": "...", "boxArtUrl": "..." },
+            { "videoId": 126, "title": "...", "boxArtUrl": "..." }
+          ],
+          "pagination": {}
+        }
+      }
+    ],
+    "pagination": {}
+  }
+}
+```
+
+可以使用基于偏移的分页和基于游标的分页。
+
+推荐和视频的第一页数据：
+
+1. 用于 SSR 初始 HTML（参考渲染方法部分中的图像）。
+2. 在`<script>`标签中呈现为 JSON 数据，并注入到客户端存储（`window.netflix.reactContext`）中。
+
+后续页面的数据从 HTTP API 获取，并添加到客户端存储中，然后添加到页面的 DOM 中。
+
+### 媒体流和字幕 API
+
+用于流式传输视频数据、音频数据和视频字幕的 API 取决于所选的流协议（DASH、HLS），[下面将详细介绍](#streaming-protocols)。
+
+### 视频播放器 API
+
+视频播放器在[下面的一个专门的章节中介绍](#video-player-data-model-architecture-and-api)。
+
+## 视频播放器数据模型、架构和 API
+
+由于视频播放器涉及多个属性（状态）、导致状态变化的许多操作以及许多依赖于中央视频播放器状态的组件，因此单向 reducer + actions 模式是合适的。这可以使用 React 中的`useReducer`或 React + Redux 实现，其中 Redux 围绕操作和 reducer 提供了更多结构，以及用于增强开发人员体验的附加开发工具。
+
+![视频播放器 UI 示例及其部件](/img/questions/video-streaming-netflix/video-streaming-netflix-video-player-parts.png)
+
+![视频播放器架构](/img/questions/video-streaming-netflix/video-streaming-netflix-video-player-architecture.png)
+
+* **视图**（UI 组件）：进度控制、控制栏、媒体
+* **状态**（命名可能与实际 DOM 属性不同）：播放器状态、缓冲帧、当前时间、持续时间、播放速率、当前时间戳、音量、静音、音频语言、字幕语言、音轨、视频轨道、字幕/文本轨道、海报、高度、宽度
+* **调度程序**：将操作调度到 reducer。或者，客户端可以直接从 UI 组件或事件处理程序中调度操作。
+* **操作**：播放、暂停、跳过、快进、调整音量、静音、切换全屏
+* **键盘事件**导致的操作：
+  * 空格键 -> 播放/暂停
+  * 音量键 -> 调整音量
+  * 静音键 -> 静音
+  * 箭头键 -> 跳过
+  * 全屏快捷方式 -> 切换全屏
+* **后台事件**：`loadstart`、`loadeddata`、`ended`、`error`、`stalled`、`waiting`等。请参阅[`<video>`元素上可用的完整事件列表](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video#events)。
+
+[类似 Flux 的单向流模型](https://facebookarchive.github.io/flux/docs/in-depth-overview)在这里运行良好。在 reducer 模式中，`newState = reducer(action, state)`。操作是改变状态的操作。定义了可以修改状态的操作列表，即已知操作。更改状态的唯一方法是调度一个操作，没有直接更新状态的方法。这有助于将状态更改逻辑集中在 reducer 中。
+
+操作也可以源自不同的来源——它们可以由各种 UI 元素、键盘事件或后台事件触发。reducer 不需要关心操作是从哪里调度的，它只需要接收一个操作 + 当前状态并返回新状态。
+
+由于其播放器视频控件过度组件化以及某些交互导致额外的样式重新计算（由于循环依赖和内存泄漏），YouTube 遇到了性能问题。为了解决这个问题，YouTube 更新了视频播放器，通过将播放器重构为将数据传递给其子级的顶级组件来同步所有更新。这确保了任何状态更改只有一次 UI 更新（绘制），从而消除了链式更新。尽管 YouTube 不使用 React 或 Redux，但这种重构本质上是 Flux 类似 reducer 模式的实现。*来源：[构建更好的 Web - 第 1 部分：Web 上更快的 YouTube](https://web.dev/case-studies/better-youtube-web-part1)。*
+
+2018 年，Netflix 将其视频播放器重写为 React 和 Redux，他们选择使用 Redux 以单源方式封装复杂的播放业务逻辑。Redux 是 Web UI 工程中一个众所周知的库/模式，它以满足其目标的方式促进了关注点的分离。通过将 Redux 与数据规范化相结合，除了提供标准化、可预测的表达复杂业务逻辑的方式外，他们还实现了跨团队的并行开发。*来源：[现代化 Web 播放 UI。自 2013 年以来，用户体验…… | Netflix 技术博客](https://netflixtechblog.com/modernizing-the-web-playback-ui-1ad2f184a5a0)。*
+
+可以缓存缓冲的视频数据，特别是对于在会话中不会改变的广告牌视频。但是，客户端应注意缓冲的视频数据量，并在达到影响页面性能的程度时释放内存。
+
+媒体播放器本质上也包含状态，因为 DOM 中的`HTMLVideoObject`包含`paused`、`muted`等属性。通过在 JavaScript 中构建您自己的视频播放器组件，将存在重复的状态值，并且随着重复，值可能会不同步。推荐的方法是让 UI 组件状态成为事实来源，并将组件状态与 DOM 媒体播放器状态同步，本质上使媒体播放器成为[“受控”组件](https://react.dev/reference/react-dom/components/input#controlling-an-input-with-a-state-variable)，类似于`<input>`元素在 React 中的控制方式。
+
+以下是一些提供自定义视频播放器或帮助您构建视频播放器的库：
+
+* [Shaka Player](https://github.com/shaka-project/shaka-player)：一个用于自适应媒体的开源 JavaScript 库，支持 DASH 和 HLS。
+* [Video.js](https://videojs.com/)：类似于 Shaka Player，具有许多不同的主题和皮肤。
+* [Media Chrome](https://www.media-chrome.org/)：用于构建媒体播放器的元素。
+
+教程：
+
+* [移动 Web 视频播放 | 文章 | web.dev](https://web.dev/articles/media-mobile-web-video-playback)
+* [构建媒体播放器系列 | Chrome for Developers](https://www.youtube.com/watch?v=--KA2VrPDao\&list=PLNYkxOF6rcIBykcJ7bvTpqU7vt-oey72J\&index=20)
+
+## 优化和深入研究
+
+### 了解原生 HTML `<video>` 元素
+
+HTML5 提供了一个 `<video>` 标签，用于在网页中播放视频。它是在 HTML5 中引入的，代表了 Web 标准的重大改进，允许直接嵌入视频，而无需像 Flash 这样的外部插件。在本节中，我们将介绍有关 `<video>` 标签的一些基础知识。
+
+#### 渐进式下载
+
+渲染视频的最简单方法类似于图像，其中 `src` 属性指向视频文件。
+
+```html
+<video src="movie.mp4" />
+```
+
+这种使用带有指向视频文件的 `src` 属性的 `<video>` 标签的方法称为“渐进式下载”。在渐进式下载中，视频文件以线性方式从服务器下载并同时播放。与仅将视频的必要部分发送给用户的流式传输不同，渐进式下载涉及下载整个文件，从头开始。只要下载了足够的数据以确保不间断播放，就可以播放视频。这种方法比真正的流式传输更简单，但需要更多的带宽和存储空间，因为会下载整个视频文件，而不管用户是否将其观看完毕。这看起来类似于流式传输，但在技术上并不是真正的流式传输。
+
+可以通过使用 [HTTP `Range` 请求](https://developer.mozilla.org/en-US/docs/Web/HTTP/Range_requests) 下载相应的片段来实现查找。HTTP `Range` 请求要求服务器仅将 HTTP 消息的一部分发送回客户端，这对于媒体播放器很有用，因为它希望支持文件的随机访问。
+
+Netflix 和 YouTube 上播放的视频使用流式传输，而不是渐进式下载。它通过 [Media Source API](https://developer.mozilla.org/en-US/docs/Web/API/Media_Source_Extensions_API) 结合自适应流式传输格式（如 HLS 和 DASH）和自适应比特率算法来实现，无论设备或网络状况如何，都能提供流畅的流式传输体验。有关更多信息，请参阅 [下方](#media-source-api)。
+
+#### `<video>` 元素属性
+
+支持的 HTML 属性包括：
+
+* `src`：指定视频文件的来源。
+* `width` 和 `height`：定义网页上视频播放器的大小。
+* `controls`：添加视频控件，如播放、暂停和音量。
+* `autoplay`：导致视频在加载后立即开始播放（由于用户体验和带宽方面的考虑，不推荐使用）。
+* `loop`：使视频在每次播放完毕后重新开始。
+* `muted`：默认情况下使音频静音。
+* `poster`：指定在视频下载期间或用户点击播放按钮之前显示的图像。
+
+当浏览器解析 HTML 时，大多数这些 HTML 属性都会成为 DOM 中 `HTMLVideoElement` 的属性。
+
+`<video>` 元素还允许通过 `source` 标签指定多个视频源，以便浏览器可以选择最有效的格式。这样做是为了确保在各种浏览器中的兼容性，因为并非所有浏览器都支持相同的视频格式。
+
+```html
+<video width="320" height="240" controls>
+  <source src="movie.webm" type="video/webm" />
+  <source src="movie.mp4" type="video/mp4" />
+  <source src="movie.ogg" type="video/ogg" />
+  您的浏览器不支持 video 标签。
+</video>
+```
+
+放置在 `<video>` 标签之间（但在 `<source>` 标签之外）的文本用作不支持 `<video>` 标签的浏览器的后备内容。
+
+#### `HTMLVideoElement` 方法
+
+可以使用 JavaScript 操纵 `HTMLVideoElement` 元素以实现进一步的交互。`HTMLVideoElement` 继承自 `HTMLMediaElement` 接口，该接口提供了一系列方法，允许控制和与 HTML 中的媒体元素（如 `<audio>` 和 `<video>`）进行交互。`HTMLMediaElement` 上提供的一些重要方法：
+
+* `play()`：此方法用于开始播放媒体。如果媒体已经在播放，则此方法无效。如果播放已暂停，它将恢复。
+* `pause()`：此方法暂停媒体播放。如果媒体已经暂停，则此方法无效。
+* `load()`：此方法用于重置媒体元素并重新加载源媒体。当媒体的来源发生变化时，它很有用。
+* `addTextTrack()`：向媒体元素添加新的文本轨道。这可以用于字幕、标题、描述、章节或元数据。
+* `fastSeek()`：此方法允许快速跳转到媒体中的特定时间点。
+
+#### `HTMLVideoElement` 事件
+
+`HTMLVideoElement` 继承自 `HTMLMediaElement` 接口，该接口提供了一系列事件，允许开发人员监视和控制媒体播放。这些事件对于在网页上创建交互式和响应式媒体体验至关重要。
+
+以下是与 `HTMLMediaElement` 关联的一些重要事件：
+
+* `loadstart`：当浏览器开始查找媒体时触发；加载过程的开始。
+* `loadeddata`：当媒体的第一帧加载完成并准备好播放时触发。
+* `progress`：浏览器加载媒体时定期触发。用于显示媒体加载进度。
+* `play`：当媒体播放开始或恢复时触发。
+* `playing`：当媒体在暂停或停止缓冲后实际开始播放时触发。
+* `pause`：当媒体播放暂停时发生。
+* `ended`：当播放停止，因为媒体已到达结尾时触发。
+* `waiting`：当由于暂时缺少数据而停止媒体播放时发生。
+* `stalled`：当媒体下载意外停止时触发，通常是由于网络问题。
+* `volumechange`：当音量发生变化时发生，包括当 `muted` 属性发生变化时。
+* `error`：在获取媒体时发生错误时触发。
+
+这些事件对于创建媒体元素的详细控制界面、处理错误、跟踪进度和响应用户交互至关重要。通过将事件侦听器添加到这些事件，开发人员可以自定义方式管理媒体播放，还可以收集用户分析。
+
+#### 使用 `<video>` 的缺点
+
+使用“原始”`<video>`元素也有一些缺点：
+
+* **有限的自适应流支持**：`<video>` 元素在所有浏览器中都不原生支持自适应流协议，如 DASH 或 HLS。这些协议根据用户的互联网速度动态调整视频质量，确保流畅的流媒体体验。如果没有这个，用户可能会遇到缓冲或低质量的视频。`<video>` 元素可能未针对低延迟至关重要的场景（例如直播活动）进行优化。
+
+* **受限的自定义和控制**：`<video>` 元素也包含播放控件，但与大多数原生元素一样，每个浏览器呈现它们的方式都不同。如果您希望在浏览器之间拥有一致且有品牌的用户界面，则必须构建自己的播放控件。但是，像其他 HTML 元素（如 `<button>` 和 `<input>`）一样，设置这些控件的样式并不简单。您将不得不构建自己的组件。
+
+  请注意，`<video>` 元素也包含它们自己的状态，如上所述的属性/属性。如果您正在使用 JavaScript 框架/库（例如 React、Vue）并构建了自己的 `Video` 组件，该组件呈现 `<video>` 元素以及自定义控件，您将需要在 React 组件状态和 `<video>`/`HTMLVideoElement` 状态之间进行双向同步，因为可能存在直接影响 `HTMLVideoElement` 的原生控件，例如某些键盘上的播放/暂停/音量按钮（也称为媒体键）。
+
+  在以下示例中，React 组件状态与 DOM 视频状态同步。尝试使用“播放”按钮播放视频，并查看播放和自定义 UI 状态是否已正确同步。
+
+  ```html
+  <iframe
+    src="https://codesandbox.io/embed/f6h325?fontsize=14&hidenavigation=1&theme=dark&module=/src/App.tsx&view=split"
+    style={{
+      width: '100%',
+      height: 500,
+      border: 0,
+      borderRadius: 4,
+      overflow: 'hidden',
+    }}
+    title="React video component state sync"
+    allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+    sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+  />
+  ```
+
+  另请确保自定义构建的视频控件符合原生视频控件提供的可访问性要求和标准。
+
+* **不支持高级功能**：视频预览、搜索时的缩略图、多比特率流和直播等功能在 `<video>` 元素中不受原生支持或受到限制。
+
+由于这些缺点，很明显，要创建世界一流的视频流体验，自定义视频播放器 UI 是必经之路。
+
+### 视频流
+
+现在我们对使用渐进式下载的视频播放及其缺点有了更好的理解，我们可以讨论如何通过视频流实现世界一流的视频观看体验。
+
+#### 媒体源 API
+
+[媒体源 API](https://developer.mozilla.org/en-US/docs/Web/API/Media_Source_Extensions_API)（正式名称为媒体源扩展 (MSE)）是一个 Web API，它增强了 Web 应用程序中流媒体的功能。媒体源 API 允许将媒体元素中标准的单个渐进式 `src` URI 替换为 `MediaSource` 对象。此对象管理媒体的就绪状态，并引用多个 `SourceBuffer` 对象，表示媒体流的不同块。
+
+```js
+// 设置视频元素和 MediaSource
+const videoEl = document.getElementById('my-video');
+const mediaSource = new MediaSource();
+
+// 将 MediaSource 对象设置为视频元素的源。
+videoEl.src = URL.createObjectURL(mediaSource);
+mediaSource.addEventListener('sourceopen', sourceOpen);
+
+async function sourceOpen() {
+  // 使用特定的 MIME 类型创建一个源缓冲区。
+  const sourceBuffer = mediaSource.addSourceBuffer(
+    'video/mp4; codecs="avc1.64001E"',
+  );
+
+  sourceBuffer.addEventListener('updateend', () => {
+    // 检查媒体源是否已结束以及是否有更多段
+    // 您可以获取并附加其他段。
+    if (!sourceBuffer.updating && mediaSource.readyState === 'open') {
+      mediaSource.endOfStream();
+    } else {
+      // 获取下一段。
+    }
+  });
+
+  // 获取视频的第一段。
+  const response = await fetch('path/to/your/video/segment1.mp4');
+  const segment = await response.arrayBuffer();
+  // 将获取的段附加到源缓冲区。
+  sourceBuffer.appendBuffer(segment);
+}
+```
+
+分段视频文件以及媒体源 API 允许客户端流式传输视频内容。此 API 还允许创建更多交互式视频体验，例如能够动态插入广告、在多个视频角度之间切换或将其他内容与视频播放同步。[Netflix 的 Bandersnatch](https://postperspective.com/netflixs-black-mirror-bandersnatch-lets-viewers-choose/) 是一部交互式电影，有 5 种独特的结局，用户可以在观看时“选择自己的冒险”。因此，组合的数量是巨大的，并且为所有可能的电影路径创建视频文件是不可行的。使用 `MediaSource` 有助于根据用户的选择动态地将电影的不同部分拼接在一起。
+
+如果您检查 Netflix 和 YouTube 上 `<video>` 元素的 `src` 属性，您会看到它们看起来像 `<video src="blob:https://www.netflix.com/b4bc251f-5b0d-47a3-b0cb-4fbf653a16f4">`。这是因为 `src` 是使用 `URL.createObjectURL()` 创建的。
+
+阅读有关媒体源 API 的更多信息，请访问：
+
+* [媒体源 API | 文章 | web.dev](https://web.dev/articles/media-mse-basics)
+* [媒体源 API | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Media_Source_Extensions_API)
+
+现在我们知道了视频流的工作原理，但这还不是全部！流媒体可以通过自适应比特率流进一步改进。
+
+#### 自适应比特率流
+
+虽然流媒体有助于改善视频播放体验，但它并没有考虑到客户端的设备和网络状况。如果用户使用的是不稳定的移动网络，他们将无法立即观看高分辨率视频，因为他们需要等待更长的时间来下载片段。当移动设备的屏幕尺寸不够宽，无法显示所有细节时，用户也无法从高分辨率视频中受益。
+
+**自适应比特率流**是一种用于在线视频和音频流的技术，它可以动态调整视频的质量，以适应用户设备的可用带宽和处理能力。
+
+客户端使用自适应比特率 (ABR) 算法自动选择具有最高比特率的片段，该片段可以在播放前及时下载，而不会导致播放过程中出现停顿或重新缓冲事件。
+
+这些因素会实时监控并由算法使用：
+
+* 可用带宽
+* 可用编解码器
+* 连接质量
+* 视频播放器尺寸
+* 播放速率
+
+此决定是在视频播放过程中动态做出的，以适应不断变化的网络速度。
+
+#### 媒体功能 API
+
+通过 [媒体功能 API](https://developer.mozilla.org/en-US/docs/Web/API/Media_Capabilities_API)，网站可以获取更多关于客户端视频解码性能的信息，并就向用户提供哪种编解码器和分辨率做出明智的决定。
+
+[YouTube 使用媒体功能 API](https://web.dev/case-studies/youtube-media-capabilities) 来防止其自适应比特率算法自动选择设备无法流畅播放的分辨率。
+
+#### 流媒体协议
+
+Web 上使用了两种流行的流媒体协议，可用于实现自适应比特率流：**通过 HTTP 的动态自适应流 (DASH)** 和 **HTTP 实时流 (HLS)**。
+
+这些流媒体协议具有以下共同点：
+
+* **分段媒体文件**：各种质量的媒体内容被分成小段，从而实现无缝流式传输以及在不同质量流之间切换的能力。
+* **基于 HTTP 的交付**：它们使用标准的 HTTP Web 服务器进行媒体交付，简化了分发并减少了对专用流媒体服务器的需求。使用 HTTP 获取文件将大部分逻辑从网络协议转移到客户端应用程序，因此媒体也可以从静态 CDN（如 Amazon S3）流式传输。
+* **清单文件**：每种协议都使用一种类型的清单文件（如 DASH 的 MPD，HLS 的 M3U8）来提供有关可用流、其分辨率、比特率和段位置（URL）的信息。
+
+#### 动态自适应流 (DASH)
+
+通过 HTTP 的动态自适应流 (DASH) 是一种流媒体协议和技术，它允许通过互联网高效地传输多媒体内容，例如视频和音频。DASH 旨在通过实时适应用户的网络状况和设备功能来优化用户的观看体验。
+
+DASH 的其他功能：
+
+1. **媒体呈现描述 (MPD)**：DASH 依赖于一种基于 XML 的清单文件，称为 [媒体呈现描述 (MPD)](https://ottverse.com/structure-of-an-mpeg-dash-mpd/)。MPD 包含有关视频内容的元数据，包括有关可用质量级别、段 URL 和其他属性的信息，这些信息指导视频播放器做出自适应流媒体决策。
+2. **延迟控制**：DASH 可以设计为根据特定用例控制延迟。低延迟 DASH (LL-DASH) 是一种扩展，它针对实时和交互式流媒体应用程序优化了协议。
+3. **互操作性**：DASH 专为跨不同设备和平台的互操作性而设计。因此，可以使用相同的 DASH 编码内容用于各种播放环境。
+
+DASH 经常被许多流媒体服务使用，包括 Netflix、YouTube 和 Amazon Prime Video 等热门平台，以向用户提供高质量的流媒体体验。它有助于确保用户获得最佳的视频质量，同时适应不断变化的网络状况、设备功能和屏幕尺寸。这项技术在提高在线视频流的可靠性和性能方面发挥了重要作用。
+
+[dash.js](https://reference.dashif.org/dash.js/) 库是通过 JavaScript 和兼容 MSE 平台的 DASH 播放的参考客户端实现。
+
+#### HTTP 实时流 (HLS)
+
+HTTP Live Streaming (HLS) 是一种流媒体协议和技术，由 Apple 开发，用于通过互联网传输多媒体内容，例如视频和音频。 HLS 广泛用于流式传输视频内容，尤其是在 iOS 设备（iPhone 和 iPad）以及 Web 浏览器和其他平台上。
+
+HLS 的附加功能：
+
+1. **M3U8 播放列表文件**：HLS 使用 M3U8 播放列表文件，这些文件是基于文本的清单文件，用于描述媒体内容并提供有关可用质量级别、分段 URL 和其他属性的信息。 播放列表文件托管在服务器上，客户端（视频播放器）使用它们来请求和播放媒体内容。
+2. **媒体加密**：HLS 可以使用各种加密方法支持媒体内容加密，以保护内容免受未经授权的访问。 这可以包括高级加密标准 (AES) 加密等方法。
+3. **兼容性**：HLS 与各种设备兼容，包括 iOS 设备、Web 浏览器、Android 设备、智能电视等。 许多媒体播放器和流媒体平台都支持 HLS。
+4. **低延迟模式**：在较新版本中，HLS 引入了低延迟模式，以减少直播事件和用户接收之间的延迟，使其适用于实时流媒体，包括体育赛事直播和在线游戏。
+5. **自适应流媒体服务器**：为了实现 HLS，通常使用专门的媒体服务器，例如 Apple 基于 macOS 的 HTTP Live Streaming 工具，或第三方服务器，如 Wowza Streaming Engine 和带有 `ngx_http_hls_module` 的 Nginx。
+
+HLS 已成为流式传输视频内容的实际标准，尤其是在在线视频服务和直播领域。 由于其与 iOS 设备的兼容性及其自适应流媒体功能，它被广泛采用，这有助于确保用户在不同的网络条件和设备类型上获得高质量的观看体验。
+
+M3U8 文件可以描述多种视频质量，允许播放器根据网络状况或用户偏好在不同的流之间切换。 这是 HTTP Live Streaming (HLS) 中自适应流媒体的一项关键功能。 这是一个具有多种视频质量的 M3U8 播放列表的示例：
+
+#### 清单文件
+
+清单文件是一个关键组件，它提供有关视频内容的基本信息，允许视频播放器正确播放视频。 清单文件指导视频播放器如何请求和显示视频片段。
+
+各种流媒体协议中使用不同类型的清单文件，例如：
+
+* **DASH**：在 DASH 中，清单文件称为 [Media Presentation Description (MPD)](https://www.brendanlong.com/the-structure-of-an-mpeg-dash-mpd.html) 文件。 该文件通常为 XML 格式，包含有关可用质量级别、分段 URL 和视频播放器请求和播放内容所需的其他属性的信息。
+* **HLS**：对于 HLS，清单文件称为媒体播放列表或 [M3U/M3U8](https://en.wikipedia.org/wiki/M3U) 文件。 它是一个纯文本文件，扩展名为 `.m3u8`，其中包含元数据和指向视频片段的 URL。
+
+了解清单文件的确切格式并不重要，但您应该知道它们包含哪些详细信息。 清单文件包含有关视频流的详细信息，例如：
+
+* **可用质量级别**：有关视频的不同比特率和分辨率的信息，允许播放器根据网络状况选择合适的质量。
+* **分段 URL**：指向各个视频片段或块的链接。 这些片段构成完整的视频，并由播放器根据需要请求以进行播放。
+* **播放时间和结构**：有关片段的顺序和持续时间的详细信息，允许播放器按正确的顺序组织和播放它们。
+* **自适应流媒体信息**：启用自适应流媒体的信息，确保播放器可以根据网络状况在不同的比特率或分辨率之间切换。
+* **音轨和字幕轨道**：有关视频的备用音轨和字幕选项的信息。
+
+清单文件对于促进自适应流媒体过程和使播放器能够根据需要获取和播放视频片段至关重要，从而实现更流畅和不间断的观看体验。 它本质上充当播放器的指南，提供请求和呈现视频内容所需的信息。
+
+Netflix 主要使用基于 DASH 的专有自适应比特率流媒体技术，类似于 HLS 等其他自适应流媒体协议，但具有一些针对 Netflix 大规模流媒体服务量身定制的独特功能和优化。 Netflix 不仅针对用户的带宽优化其流，还针对内容类型（如动作片与对话片）和所使用的设备（智能电视、智能手机、平板电脑等）进行优化。 YouTube 使用 DASH，但支持 HLS 用于某些应用程序，例如 HLS 更流行的 Apple 设备。
+
+以下是用于 DASH 的 MPD 文件的简化示例：
+
+```xml
+<MPD xmlns="urn:mpeg:dash:schema:mpd:2011" type="static" mediaPresentationDuration="PT6M16S" minBufferTime="PT1.5S">
+  <Period start="PT0S">
+    <AdaptationSet mimeType="video/mp4" segmentAlignment="true" startWithSAP="1">
+      <Representation id="video_1" width="1920" height="1080" bandwidth="8000000" codecs="avc1.640028">
+        <SegmentTemplate media="video_1_$Number$.m4s" initialization="video_1_init.m4s" duration="4" timescale="1" startNumber="1"/>
+      </Representation>
+      <Representation id="video_2" width="1280" height="720" bandwidth="4000000" codecs="avc1.64001f">
+        <SegmentTemplate media="video_2_$Number$.m4s" initialization="video_2_init.m4s" duration="4" timescale="1" startNumber="1"/>
+      </Representation>
+      <!-- More Representations for different resolutions and bitrates -->
+    </AdaptationSet>
+    <AdaptationSet mimeType="audio/mp4" lang="en">
+      <Representation id="audio_1" bandwidth="128000" codecs="mp4a.40.2">
+        <SegmentTemplate media="audio_1_$Number$.m4s" initialization="audio_1_init.m4s" duration="4" timescale="1" startNumber="1"/>
+      </Representation>
+      <!-- More Representations for different audio qualities -->
+    </AdaptationSet>
+  </Period>
+</MPD>
+```
+
+在此示例中，MPD 文件描述了一个具有两个视频质量选项（1080p 和 720p）和一个音轨的视频。 每个 `Representation` 元素提供有关内容的特定版本（包括分辨率、比特率、编解码器和分段文件的命名模式 (`SegmentTemplate`)）的详细信息。 客户端播放器使用此信息根据当前的播放条件选择最合适的流。
+
+在 HLS 中使用时，M3U8 文件可以描述多种视频质量，允许播放器根据网络状况或用户偏好在不同的流之间切换。 这是一个具有多种视频质量的 M3U8 播放列表的示例：
+
+```txt
+#EXTM3U
+#EXT-X-STREAM-INF:BANDWIDTH=800000,RESOLUTION=640x360
+http://example.com/low.m3u8
+#EXT-X-STREAM-INF:BANDWIDTH=1400000,RESOLUTION=960x540
+http://example.com/medium.m3u8
+#EXT-X-STREAM-INF:BANDWIDTH=2800000,RESOLUTION=1280x720
+http://example.com/high.m3u8
+#EXT-X-STREAM-INF:BANDWIDTH=5000000,RESOLUTION=1920x1080
+http://example.com/hd.m3u8
+```
+
+以及 `http://example.com/low.m3u8` 可能包含的示例：
+
+```txt
+#EXTM3U
+#EXT-X-VERSION:3
+#EXT-X-TARGETDURATION:10
+#EXT-X-MEDIA-SEQUENCE:0
+
+#EXTINF:10.0,
+http://example.com/low/segment0.ts
+#EXTINF:10.0,
+http://example.com/low/segment1.ts
+#EXTINF:10.0,
+http://example.com/low/segment2.ts
+
+#EXT-X-ENDLIST
+```
+
+请注意，`.ts` 扩展名是 MPEG-2 传输流文件，其中包含媒体流的一个片段。它不是 TypeScript 文件！
+
+#### 资源
+
+* [设置自适应流媒体源 - 开发者指南](https://developer.mozilla.org/en-US/docs/Web/Guide/Audio_and_video_delivery/Setting_up_adaptive_streaming_media_sources)
+* [Netflix 如何率先进行单片视频编码优化 - 流媒体学习中心](https://streaminglearningcenter.com/encoding/how-netflix-pioneered-per-title-video-encoding-optimization.html)
+
+### 字幕/隐藏式字幕
+
+字幕和隐藏式字幕都提供屏幕文本来伴随视频内容，但它们服务于不同的目的和受众：
+
+字幕主要供可以听到音频但听不懂视频中所说语言的用户使用。通常，字幕只包括对话或口语，除此之外的内容不多。它们供非聋哑或听力不好的人使用。
+
+隐藏式字幕专为聋哑或听力不好的人设计。隐藏式字幕不仅包括对话，还包括配乐的其他相关部分，例如音效、背景噪音和音乐提示。它们还指示谁在说话或注意重要的声音。它们对无法听到视频音频的人特别有帮助。
+
+差异很微妙，但了解它们很有用。从现在开始，我们将字幕作为一个通用术语，表示伴随视频内容的屏幕文本。
+
+#### 分离的字幕文件
+
+字幕通常以单独的文件提供，这些文件与视频一起下载和显示。最常见的字幕文件格式包括：
+
+1. **SubRip Subtitle (SRT)**：一种简单且广泛支持的格式，包含带时间戳的文本。
+2. **Timed Text Markup Language (TTML)**：一种基于 XML 的字幕和字幕格式。
+3. **Scenarist Closed Caption (SCC)**：一种用于隐藏式字幕和广播视频字幕的格式。
+4. **WebVTT (VTT)**：一种提供更多样式选项的格式，通常用于 HTML5 视频。您可以在 HTML5 `<video>` 元素中使用 `<track>` 元素来引用 WebVTT 文件，浏览器会处理字幕的渲染。
+
+```html
+<video controls>
+  <source src="video.mp4" type="video/mp4" />
+  <track
+    label="English"
+    kind="subtitles"
+    srclang="en"
+    src="subtitles.vtt"
+    default />
+</video>
+```
+
+#### 嵌入式字幕
+
+在某些情况下，字幕直接嵌入到视频文件本身中。此方法常用于广播和流媒体视频格式，如 DVB、ATSC 和一些流媒体协议。字幕由视频播放器解码和显示。
+
+DASH 和 HLS 支持将字幕作为流媒体包的一部分提供。字幕包含在清单文件中，用户可以通过视频播放器进行选择。
+
+#### 单独的 API
+
+一些网络视频播放器库提供 API，允许开发人员从外部来源或服务动态加载字幕。这对于字幕根据用户偏好或动态内容而变化的应用非常有用。
+
+#### 辅助功能
+
+显示字幕时，确保它们对所有用户（包括残疾用户）都可访问非常重要。这包括为屏幕阅读器和键盘导航提供适当的标记和交互支持。它还包括使用户能够自定义字幕的外观，例如字体大小和颜色，以提高可读性。
+
+除了口语对话外，字幕和文字记录还应识别传达重要信息的音乐和音效。这包括情感和语调：
+
+```txt
+14
+00:03:14 --> 00:03:18
+[Dramatic rock music]
+
+15
+00:03:19 --> 00:03:21
+[whispering] What's that off in the distance?
+```
+
+#### 多语言支持
+
+为了迎合全球观众，视频播放器通常允许用户从多种语言和字幕轨道中选择，从而可以在不同的语言或字幕样式之间切换。
+
+#### 资源
+
+* [在 Netflix 上实现日语字幕 | Netflix 技术博客](https://netflixtechblog.com/implementing-japanese-subtitles-on-netflix-c165fbe61989)
+* [Web Video Text Tracks Format (WebVTT) - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API)
+* [字幕、字幕、WebVTT、HLS 和那些神奇的标志 | Mux](https://www.mux.com/blog/subtitles-captions-webvtt-hls-and-those-magic-flags)
+* [向 HTML 视频添加字幕和字幕 - 开发者指南 | MDN](https://developer.mozilla.org/en-US/docs/Web/Guide/Audio_and_video_delivery/Adding_captions_and_subtitles_to_HTML5_video)
+* [WebAIM：字幕、文字记录和音频描述](https://webaim.org/techniques/captions/)
+
+### 性能
+
+视频流的性能对于流畅和愉快的观看体验至关重要，没有缓冲和质量问题。对于企业而言，流媒体的高性能对于客户保留、品牌声誉和高效的带宽使用至关重要，这会影响运营成本和可扩展性。
+
+#### 最小化延迟
+
+* **视频加载时间**：减少视频加载时间以最大限度地减少缓冲延迟。使用自适应流技术根据用户的网络状况提供适当的质量。
+* **缓冲优化**：优化视频缓冲以提供流畅的播放。尽可能预加载视频内容，并使用高效的缓冲算法。在当前时间戳之前缓冲。
+* **网络效率**：利用自适应比特率流来根据用户可用的带宽调整视频质量。这确保了连接速度较慢的用户仍然可以观看视频（尽管质量较低），而不会频繁缓冲。
+* **视频压缩**：使用现代视频压缩编解码器（例如，H.264、H.265、VP9）来最小化视频文件的大小，从而减少需要在 Internet 上传输的数据量。
+* **CDN 使用**：利用内容交付网络 (CDN) 从更靠近用户的位置的服务器提供视频内容，从而减少延迟并提高播放性能。
+* **延迟加载**：对视频实现延迟加载，以便它们仅在进入用户的视口时加载。在空闲周期或与之交互时，延迟加载不可见的 UI，如下拉列表和模态。这减少了初始页面加载时间。
+* **播放器响应能力**：确保视频播放期间视频播放器控件和用户界面保持响应。用户应该能够在没有延迟的情况下与播放器交互。
+* **预加载媒体文件**：通过使用 `preload` 属性（仅适用于预定义的 `src`，与 Media Source API 不兼容）或使用链接预加载来预加载媒体 ([source](https://web.dev/articles/fast-playback-with-preload))。
+
+#### 通过将视频生命周期与 UI 生命周期分离来提高视频启动时间
+
+允许 UI 组件树控制视频播放生命周期的传统方法可能会导致用户体验迟缓。这主要是由于对 UI 生命周期方法的依赖，例如 React 中的方法，其中视频初始化与特定的组件调用相关联，导致用户必须等待，直到播放充分加载后才能查看内容。
+
+一种更有效的替代方法涉及将管理视频播放的逻辑与 UI 组件树分离。这允许从应用程序内的任何点执行与视频相关的流程，包括在初始应用程序加载期间 UI 树呈现之前。通过与 UI 渲染并行启动视频创建，应用程序获得了宝贵的时间来创建、初始化和缓冲视频播放。因此，这种方法使用户能够更快地开始播放视频，从而增强整体响应能力和用户体验。
+
+*来源：[现代化 Web 播放 UI | Netflix 技术博客](https://netflixtechblog.com/modernizing-the-web-playback-ui-1ad2f184a5a0)*
+
+#### 分离音频和视频流
+
+可以分离音频和视频流，以便即使音频发生变化（例如，当音频更改为不同的语言时），也可以重用视频流。这种细粒度的分离允许进行其他优化，例如当用户在后台选项卡中播放视频（例如，歌词视频的常见情况）时，不需要流式传输视频数据。
+
+#### 图像优化
+
+* **预加载海报图像**：`<link as="image" rel="preload" href="poster.jpg" fetchpriority="high">`。
+* **视频缩略图**：优化视频缩略图的生成和显示，这有助于加快加载时间并改善用户在视频中搜索时的体验。
+* **响应式图像**：使用响应式缩略图图像来加载适合当前设备的尺寸的图像。
+
+#### 带宽效率
+
+* **选择性自动播放**：在新的标签页中打开视频时，YouTube 在标签页获得焦点之前不会开始播放视频。
+* **不可见的标签页**：当标签页在后台且不可见时，只需要流式传输音频数据。
+* **充分缓冲但不过度**：不要缓冲超过必要的内容，尤其是在视频暂停时，因为用户可能无意恢复观看。
+
+#### 内存使用
+
+观看视频需要页面长期存在，因此注意内存使用和效率非常重要。
+
+* **内存使用**: 尽量减少内存消耗，以防止随着时间的推移性能下降，尤其是在 RAM 有限的设备上。当标签页在后台时，不流式传输视频数据有助于降低缓冲区中的数据量，从而保持较低的内存使用率。
+* **资源清理**: 当不再需要视频时，正确释放资源，包括视频缓冲区和内存，以防止内存泄漏和性能问题。
+
+### 用户体验
+
+积极的视频流媒体用户体验至关重要，因为它确保了用户从用户的角度获得满意度和参与度。对于企业而言，这意味着更高的用户保留率、品牌忠诚度和潜在的收入增长，因为满意的用户更有可能推荐该服务并继续订阅。
+
+#### 易用性
+
+* **播放控制**: 播放器应提供基本的播放控制，包括播放/暂停、音量控制、静音和全屏模式。这些控件应易于访问和响应。
+* **一致的用户界面**: 在不同的设备和平台上保持一致且熟悉的用户界面。用户应该对播放器的布局和控件感到舒适，并且它们的位置应符合通用标准。
+* **响应式设计**: 视频播放器应适应各种屏幕尺寸和方向，确保其在台式机、笔记本电脑、平板电脑和移动设备上都能正常工作。
+* **搜索和擦洗**: 确保搜索（在视频中向前或向后移动）简单而精确。用户应该能够准确地浏览视频。
+
+#### 自定义
+
+* **自定义选项**: 允许用户自定义播放器的各个方面，例如字幕、字幕、视频质量和播放速度，以满足他们的偏好。
+* **视频质量设置**: 为用户提供根据其互联网连接和设备功能调整视频质量的选项。这可以帮助防止缓冲问题并提供更流畅的观看体验。
+* **播放速度控制**: 有些用户更喜欢以更快或更慢的速度观看视频。包括一个选项来调整播放速度以满足个人喜好。
+* **错误处理**: 当出现播放问题时（例如无法加载视频或在播放期间遇到错误），显示清晰且内容丰富的错误消息。
+
+#### 增强体验
+
+* **防止布局偏移**: 在`<video>`标签上设置`width`和`height`属性，以[防止布局偏移](https://web.dev/patterns/web-vitals-patterns/video/video)。
+* **视频缩略图预览**: 当用户将鼠标悬停在时间轴上时，提供视频缩略图或预览。这有助于用户快速识别视频中的特定场景。
+* **海报图片**: 对于自动播放的视频，[YouTube 发现使用纯黑色海报图片](https://web.dev/case-studies/better-youtube-web-part1#improving_core_web_vitals)对于自动播放的视频来说是一个更好的体验，因为从纯黑色到视频的第一帧的过渡不太刺眼。
+
+### 可访问性 (a11y)
+
+由于视频流媒体应用程序服务于广泛的国际受众，因此可访问性至关重要，因为它确保所有用户（包括残疾用户）都能平等地访问内容。高标准的可访问性也有助于企业维护数字内容消费中的平等和非歧视原则。
+
+#### 字幕
+
+字幕的可访问性已在上面的[“字幕”](#subtitles--closed-captions)部分中介绍。回顾一下：
+
+* **听力障碍问题**: 应为视频提供隐藏式字幕或字幕，以帮助失聪或听力障碍的用户。
+* **实施**: 实现字幕的一种方法是在`<video>`标签中使用`<track>`标签。
+* **可读性**: 确保字幕易于阅读，具有清晰的字体、适当的大小以及与背景视频形成高对比度。常见的选择是带有阴影的白色文本或以深色突出显示的白色文本。
+* **包含非语音元素**: 不仅要捕捉对话，还要捕捉字幕中的重要声音和音频提示，以提供对内容的更全面的理解。
+* **自定义选项**: 支持字幕的显示和自定义，包括字体大小、颜色和背景。
+* **多语言支持**: 字幕应以多种语言提供，以满足具有不同语言背景的多元化受众的需求。
+
+#### 视觉辅助
+
+* **对比度和颜色选择**: 确保视频播放器的用户界面（包括控件和文本）满足最低对比度比率，以使其更易于阅读和交互。避免仅依赖颜色来传达重要信息。
+* **加载进度指示器**: 显示加载进度条或微调器，以告知用户视频内容正在加载。这可以帮助管理用户期望并减少挫败感。
+* **缓冲指示器**: 清楚地表明视频何时正在缓冲，以管理用户期望并提供有关加载过程的反馈。
+* **网站功能的描述**: Netflix 向屏幕阅读器用户描述了视频的功能。
+
+![Netflix 视频功能描述，适用于屏幕阅读器](/img/questions/video-streaming-netflix/video-streaming-netflix-netflix-video-capabilities-a11y.png)
+
+#### 屏幕阅读器
+
+* **按钮有标签**: 为视频控件提供替代文本，为按钮（通常仅限图标）提供描述性标签。
+* **视频播放信息**: 屏幕阅读器用户应接收有关视频的相关信息，例如标题、持续时间和播放状态。
+* **文本到语音兼容性**: 视频播放器不应干扰或中断将屏幕文本转换为语音的辅助技术。
+
+#### 键盘支持
+
+* **键盘辅助功能**: 视频播放器应仅使用键盘导航即可操作。这包括允许用户使用键盘快捷键播放、暂停、调整音量和在视频中搜索。键盘焦点应可见且合乎逻辑。
+* **键盘快捷键**: 为常见操作提供键盘快捷键，例如音量控制、播放和在视频中搜索。
+* **焦点管理**: 保持清晰且合乎逻辑的焦点顺序，确保键盘和屏幕阅读器用户可以轻松地浏览控件而不会卡住。
+
+#### 外部控制源
+
+* **多种输入方式**：确保视频播放器可以使用多种输入方式操作，包括触摸屏和指向设备。
+* **外部外设**：外部外设也可以控制媒体对象的状态，Web 用户界面不是唯一的控制源。媒体对象的状态应与 UI 组件状态同步，以便自定义控件可以准确地反映播放状态。
+
+*来源：[无障碍多媒体 - 学习 Web 开发 | MDN](https://developer.mozilla.org/zh-CN/docs/Learn/Accessibility/Multimedia#accessible_audio_and_video_controls)*
+
+### 国际化 (i18n)
+
+Web 视频播放器的国际化问题涉及确保播放器被设计和开发，以支持来自不同地区和语言的用户。
+
+* **语言支持**：用户界面应翻译成多种语言，以支持全球受众。使用 i18next 或 `react-intl` 等国际化库或框架来管理语言翻译。
+* **按钮的翻译标签**：像 `aria-label` 这样的不可见按钮标签也应该为用户选择的语言进行翻译。
+* **字幕和字幕**：支持多种字幕和隐藏式字幕语言。来自不同地区的用户可能需要使用他们的母语字幕才能完全理解内容。
+* **音轨选择**：如果视频提供多种音频选项（例如配音），则为用户提供选择不同语言音轨的功能。
+* **基于地区的内容**：由于许可或地区法规的限制，某些内容可能会受到地域限制。播放器应根据用户的位置处理内容可用性。
+* **RTL（从右到左）支持**：如果支持具有从右到左书写系统（例如阿拉伯语或希伯来语）的语言，请确保视频播放器的界面在必要时适应 RTL 布局。
+* **内容元数据的本地化**：如果视频播放器显示有关内容的元数据（例如标题和描述），请确保此信息可以本地化，并为不同地区准确呈现。
+* **内容评级和指南**：某些地区有特定的内容评级系统和指南。确保内容评级和警告符合当地法规和标准。
+* **法律和合规性**：了解国际版权和知识产权法。确保视频播放器和内容分发符合当地法规和许可协议。
+
+### 奖励
+
+#### 如何在悬停在进度条上时显示缩略图
+
+* YouTube 为每个时间戳创建低分辨率图像，并将几个帧拼接在一起，形成一个上传到 CDN 的精灵图。当悬停在进度条上时，会发出请求以获取包含当前时间戳缩略图的精灵图。
+* Netflix 将缩略图作为其流数据的一部分。
+
+## 参考
+
+* [视频的工作原理](https://howvideo.works/)
+* [构建更好的 Web - 第 1 部分：Web 上更快的 YouTube](https://web.dev/better-youtube-web-part1/)
+* [YouTube 如何使用媒体功能 API 改进视频性能](https://web.dev/youtube-media-capabilities/)
+* [媒体源 API](https://developer.mozilla.org/en-US/docs/Web/API/Media_Source_Extensions_API)
+* [UI 框架和媒体元素](https://medium.com/axon-enterprise/ui-frameworks-and-media-elements-c0c6832528e5)
+* [现代化 Web 播放 UI | Netflix 技术博客](https://netflixtechblog.com/modernizing-the-web-playback-ui-1ad2f184a5a0)
+* [设置自适应流媒体源 - 开发者指南](https://developer.mozilla.org/en-US/docs/Web/Guide/Audio_and_video_delivery/Setting_up_adaptive_streaming_media_sources)

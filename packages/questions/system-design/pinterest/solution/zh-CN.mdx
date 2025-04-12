@@ -1,0 +1,724 @@
+## 需求探索
+
+### 应该支持哪些核心功能？
+
+* Feed 项目（图钉）的 Masonry 布局。
+* 随着用户向下滚动，应加载更多项目。
+
+### 图钉应该如何排序？
+
+应尽可能地放置图钉，以尊重它们在 feed 中的位置，即，位于返回结果前面的图钉应显示在页面上较高的位置。
+
+### 支持什么类型的图钉/项目？
+
+仅关注图像。 排除视频和 GIF。
+
+### 应用程序将在哪些设备上使用？
+
+主要用于桌面，但也应在移动设备和平板电脑上使用。
+
+***
+
+## 术语表
+
+我们将“feed 项目”称为“图钉”，并在下面互换使用。 图钉包含基本元数据，例如图像、副标题等。
+
+## 架构/高级设计
+
+### 服务器端渲染 (SSR) 还是客户端渲染 (CSR)？
+
+对于像 Pinterest 这样的以视觉内容和用户交互而闻名的网站，混合方法可能是一个不错的选择。 Pinterest 具有复杂的用户界面，具有无尽的滚动和动态内容。 最初，您可以使用 SSR 来处理着陆页和关键内容（用于 SEO 和快速初始加载），然后切换到 CSR 以实现交互性，因为用户浏览图钉和画板。
+
+实际上，Pinterest 使用一种涉及 SSR 和水合的混合渲染策略。 初始图钉标记和数据包含在初始 HTML 中，但没有任何定位数据。 这将在下面更详细地介绍。
+
+### 单页应用程序 (SPA) 还是多页应用程序 (MPA)？
+
+在 feed 应用程序中，将图钉的全部内容在一个模态框中打开，覆盖 feed 是一个常见的 UX。 当用户关闭模态框时，用户可以从他们离开的位置继续滚动 feed。 这种 UX 存在于 Facebook 和 Instagram 以及 Pinterest 上。
+
+因此，使用 SPA 至关重要，至少对于 feed 和图钉详细信息路由来说是这样，以便浏览单个图钉可以使用客户端导航到图钉详细信息路由。 在 MPA 中，全页导航将销毁当前页面的 DOM 和存储在内存中的 feed 数据，如果用户单击“后退”按钮，则会导致上一页的滚动位置丢失。
+
+### 组件职责
+
+![Pinterest 架构图](/img/questions/pinterest/pinterest-architecture.png)
+
+Pinterest feed 的架构图相对简单，因为我们只关注 feed 和布局。
+
+* **服务器**：提供 HTTP API 来获取 pin 的 feed，以及当用户滚动 feed 时 pin 的后续页面。
+* **客户端存储**：存储整个应用程序所需的数据。对于这个问题，这里有一个要存储的 pin 列表。
+* **主页**：显示 pin 列表。
+  * **Masonry 组件**：UI 组件，它接受一个 pin 列表，并以 masonry 布局显示它们。
+
+**注意**：按照惯例，我们有单独的“控制器”和“客户端存储”实体，但由于 feed 涉及的数据类型和所需的数据获取相当有限，我们可以将控制器合并到客户端存储中，并让客户端存储承担数据获取的责任。然而，在实践中，有更多要处理的状态值和交互，因此分离会更有益。
+
+***
+
+## 数据模型
+
+主页 feed 显示从服务器获取的 pin 列表，因此此应用程序中涉及的大部分数据将是服务器生成的数据。这些 pin 数据将通过 masonry 布局使用定位数据进行扩充。
+
+| 实体 | 来源 | 属于 | 字段 |
+| --- | --- | --- | --- |
+| `Feed` | 服务器 | 主页 | `pins` ( `Pin` 列表)，`pagination`（分页元数据） |
+| `Pin` | 服务器 | 主页 | `id`、`created_time`、`image_url`、`alt_text`、...等等，请参见下文 |
+
+虽然 `Feed` 和 `Pin` 实体属于主页，但所有服务器生成的数据都可以存储在客户端存储中，并由需要它们的组件查询。例如，对于 pin 详细信息页面，假设不需要其他数据，它可以从客户端存储中读取 pin 详细信息，并显示其他详细信息，例如作者、标题、描述。
+
+客户端存储的形状在这里并不特别重要，只要它采用可以从组件轻松检索的格式即可。像 [新闻 feed 系统设计](/questions/system-design/news-feed-facebook#advanced-normalized-store) 中提到的规范化存储将允许通过 pin ID 进行有效查找。从第二页获取的新 pin 应该与之前的 pin 组合成一个列表，并更新分页参数 (`cursor`)。
+
+### Pinterest 特有的数据
+
+由于 Pinterest 的 masonry 布局要求，`Pin` 包含额外的元数据，这些元数据可以实现布局和改进的用户体验，例如：
+
+* **图像尺寸（高度和宽度）**：这样我们就可以使用数据来计算布局，而无需先加载图像。
+* **排序**：放置 pin 的位置。详细信息在下面关于“实现 masonry 布局”的部分中介绍。[更多详细信息见下文。](#ordering-items-within-columns)
+* **响应式图像尺寸**：这是一系列图像 URL 及其相应的大小，以促进响应式和高性能的 masonry 布局。[更多详细信息见下文。](#responsive-images)
+* **Pin 状态**：pin 的图像是否已加载、绘制/显示或出错。[更多详细信息见下文。](#advanced-paint-scheduling)
+* **主色（十六进制值）**：在加载图像时用作占位符的背景的主色。[更多详细信息见下文。](#loading-states)
+
+***
+
+## 接口定义 (API)
+
+对于这个问题，我们只需要一个用于获取 feed 数据的 HTTP API：
+
+### Feed API
+
+| 字段 | 值 |
+| ----------- | ----------------------- |
+| HTTP 方法 | `GET` |
+| 路径 | `/feed` |
+| 描述 | 获取 pin 列表。 |
+
+#### 参数
+
+| 参数 | 类型 | 描述 |
+| --- | --- | --- |
+| `size` | number | 每页的结果数。 |
+| `cursor` | string | 最后一个获取的项目的标识符。服务器将从此项目继续。 |
+
+#### 示例响应
+
+```json
+{
+  "pagination": {
+    "size": 20,
+    "next_cursor": "=dXNlcjpVMEc5V0ZYTlo"
+  },
+  "pins": [
+    {
+      "id": 123, // Pin ID.
+      "created_at": "Sun, 01 Oct 2023 17:59:58 +0000",
+      "alt_text": "Pixel art turnip",
+      "dominant_color": "#ffd4ec",
+      "image_url": "https://www.greatcdn.com/img/941b3f3d917f598577b4399b636a5c26.jpg"
+      // In practice, the images payload is more complex, see below.
+      // More metadata is also included.
+    }
+    // ... More pins.
+  ]
+}
+```
+
+实际上，Pinterest 的 feed API 不包含 `size` 参数，并且总是返回 25 个 pin。如果您有兴趣自己查看完整的 feed 负载：
+
+1. 在您的浏览器中访问 https://pinterest.com。
+2. 打开网络选项卡。
+3. 向下滚动以获取下一页的 feed 数据。
+4. 筛选以获取以“https://www.pinterest.com/resource/UserHomefeedResource/get”开头的请求 URL。
+
+或者，登录 Pinterest 并访问“https://www.pinterest.com/resource/UserHomefeedResource/get”。
+
+#### 分页方法
+
+对于无限滚动 feed，无需跳转到特定页面，因此此处可以使用基于游标的分页，原因类似于 [新闻 feed 系统设计](/questions/system-design/news-feed-facebook#cursor-based-pagination)。
+
+***
+
+## 优化和深入研究
+
+对于传统的 feed，显示 feed 图像的合理流程如下：
+
+1. **加载数据**：从服务器获取包含 feed 项目列表的 feed 数据。
+2. **渲染**：通过将 `<img>` 标签添加到 DOM 来显示图像。
+3. **图像加载 + 绘制**：浏览器从 CDN 下载图像并将其绘制到屏幕上。
+
+但是对于 Pinterest，由于以下原因，流程略有不同：
+
+* **多列布局**：多列布局使事情比单列新闻 feed 更加复杂。使用 flex 和 grid 的传统 CSS 布局不太适合生成 masonry 布局。
+* **屏幕上存在多个图像**：屏幕上同时存在许多图像。图像以乱序绘制将是一个糟糕的体验。
+
+考虑到这些因素，要深入研究的 Pinterest 主页 feed 的最重要方面是：
+
+* 资源加载（feed 和媒体）。
+* Masonry 布局实现。
+* 性能。
+* 还将讨论一种高级技术，即绘制调度。
+
+有两种类型的资源需要加载：feed 项目（pin）数据和每个 pin 的图像。为了快速的初始加载和绘制，Pinterest 执行以下优化：
+
+1. 主页是 SSR-ed，这意味着服务器返回的初始 HTML 已经包含接近最终的标记，并包含 pin 的 `<img>` 标签。因此，客户端不需要对 feed API 发出客户端请求并通过网络获取 pin 数据。pin 数据可以被序列化为 JSON 并注入到客户端存储中。
+2. 使用 `<link rel="preload">` 预加载图像。
+
+### Feed 加载
+
+除了初始页面之外，当用户滚动到底部已加载的项目时，必须加载下一页 feed 项目，然后显示。这种体验称为无限滚动，有两种方法可以触发加载：
+
+1. 当用户到达列表底部时加载下一页。这很糟糕，因为用户必须等待下一页的项目加载，然后等待下一页的图像加载，然后图像才可见。
+2. 当用户接近列表底部时加载下一页，在用户到达列表底部之前。通过这样做，下一页及其图像可能已经被加载，并且可以立即显示。用户不必等待图像加载，也不会看到任何加载状态。
+
+#### 动态页面大小
+
+获取 feed 项目时，Pinterest 使用 24 的页面大小，与设备无关，但可以改进。对于大型显示器，feed API 会经常被请求，因为用户很快就会到达当前 feed 的末尾。为了防止这种情况，客户端可以根据设备尺寸为 `size` 指定不同的值：
+
+| 设备 | 列数 | 可能的 `size` 值 |
+| ------------------ | ----------- | --------------------- |
+| 大/高显示屏 | 6 及以上 | 40+                   |
+| 笔记本电脑 | 4 到 5 | 20 - 40               |
+| 平板电脑 | 3 | 10 - 20               |
+| 手机 | 2 | 10 - 20               |
+
+一个合理的启发式方法是每次获取大约两到三屏的图钉。
+
+#### 无限滚动
+
+实现无限滚动的常用方法已在[新闻提要系统设计](/questions/system-design/news-feed-facebook#infinite-scrolling)中介绍。
+
+### 媒体加载
+
+#### `<img>` 标签属性
+
+Pinterest 使用带有以下属性的 `<img>` 标签：
+
+* `alt`：图像的文本描述，用于图像加载失败和屏幕阅读器。
+* `fetchpriority`：提供获取图像时要使用的相对优先级的提示。它还不是一个标准。Pinterest 使用 `fetchpriority="auto"`
+* `loading`：指示浏览器应如何加载图像。Pinterest 使用 `loading="auto"`，这是默认值，不确定为什么需要它。可能的值包括 `"lazy"`，它将加载推迟到图像或 iframe 达到与视口的距离阈值。
+* `src`：图像 URL。
+* `srcset`：启用多个图像源，每个源具有不同的分辨率或大小。
+
+#### 响应式图片
+
+如上所述，`srcset` 属性允许浏览器根据用户设备的屏幕大小和分辨率选择要显示的图像源。它是响应式 Web 设计技术的一部分，有助于优化不同屏幕大小的图像加载，从而增强用户体验并节省带宽。
+
+实际上，Pinterest 的 feed API 以以下格式返回图像，而不仅仅是单个 `image_url` 字符串：
+
+```json
+{
+  "id": "809944314208458040",
+  "alt_text": "Year End Sale Font Bundle",
+  "images": {
+    "170x": {
+      "width": 170,
+      "height": 113,
+      "url": "https://i.pinimg.com/170x/b5/5c/de/b55cde4a2ec2f7827b2deac1312cbd93.jpg"
+    },
+    "236x": {
+      "width": 236,
+      "height": 157,
+      "url": "https://i.pinimg.com/236x/b5/5c/de/b55cde4a2ec2f7827b2deac1312cbd93.jpg"
+    },
+    "474x": {
+      "width": 474,
+      "height": 316,
+      "url": "https://i.pinimg.com/474x/b5/5c/de/b55cde4a2ec2f7827b2deac1312cbd93.jpg"
+    },
+    "736x": {
+      "width": 736,
+      "height": 491,
+      "url": "https://i.pinimg.com/736x/b5/5c/de/b55cde4a2ec2f7827b2deac1312cbd93.jpg"
+    },
+    "orig": {
+      "width": 1160,
+      "height": 774,
+      "url": "https://i.pinimg.com/originals/b5/5c/de/b55cde4a2ec2f7827b2deac1312cbd93.jpg"
+    }
+  }
+  // Other data fields omitted.
+}
+```
+
+结果是这样的 `<img>` 元素：
+
+```html
+<img
+  alt="This contains an image of: Year End Sale Font Bundle"
+  fetchpriority="auto"
+  loading="auto"
+  src="https://i.pinimg.com/236x/b5/5c/de/b55cde4a2ec2f7827b2deac1312cbd93.jpg"
+  srcset="
+    https://i.pinimg.com/236x/b5/5c/de/b55cde4a2ec2f7827b2deac1312cbd93.jpg      1x,
+    https://i.pinimg.com/474x/b5/5c/de/b55cde4a2ec2f7827b2deac1312cbd93.jpg      2x,
+    https://i.pinimg.com/736x/b5/5c/de/b55cde4a2ec2f7827b2deac1312cbd93.jpg      3x,
+    https://i.pinimg.com/originals/b5/5c/de/b55cde4a2ec2f7827b2deac1312cbd93.jpg 4x
+  " />
+```
+
+实现响应式图像的另一种方法是使用 `<picture>` 标签。 `<img srcset="...">` 或 `<picture>` 之间的区别很微妙，在大多数情况下，您可以使用其中任何一个。文章 ["Picture Tags vs Img Tags. Their Uses and Misuses"](https://medium.com/@truszko1/picture-tags-vs-img-tags-their-uses-and-misuses-4b4a7881a8e1) 很好地涵盖了这些区别。
+
+#### 图片预加载
+
+初始加载中存在的图像通过 `<link rel="preload">` 预加载。这告诉浏览器有关应尽快加载的关键资源，然后再在 HTML 中发现它们。这对于不易发现的资源特别有用，例如样式表中包含的字体、背景图像或从脚本加载的资源。[在 web.dev 上阅读更多相关信息](https://web.dev/articles/preload-responsive-images)。
+
+```html
+<!-- Sample extracted from Pinterest's HTML -->
+<link
+  rel="preload"
+  nonce="7deba0d15af118e95df9c836e67724dc"
+  href="https://i.pinimg.com/236x/83/84/3a/83843ab4e2cbdea8b99ead3e1f0654d1.jpg"
+  imagesrcset="https://i.pinimg.com/236x/83/84/3a/83843ab4e2cbdea8b99ead3e1f0654d1.jpg 1x, https://i.pinimg.com/474x/83/84/3a/83843ab4e2cbdea8b99ead3e1f0654d1.jpg 2x, https://i.pinimg.com/736x/83/84/3a/83843ab4e2cbdea8b99ead3e1f0654d1.jpg 3x, https://i.pinimg.com/originals/83/84/3a/83843ab4e2cbdea8b99ead3e1f0654d1.jpg 4x"
+  as="image" />
+<link
+  rel="preload"
+  nonce="7deba0d15af118e95df9c836e67724dc"
+  href="https://i.pinimg.com/236x/02/f8/ac/02f8acb5e46eaa42a909f9be862f519b.jpg"
+  imagesrcset="https://i.pinimg.com/236x/02/f8/ac/02f8acb5e46eaa42a909f9be862f519b.jpg 1x, https://i.pinimg.com/474x/02/f8/ac/02f8acb5e46eaa42a909f9be862f519b.jpg 2x, https://i.pinimg.com/736x/02/f8/ac/02f8acb5e46eaa42a909f9be862f519b.jpg 3x, https://i.pinimg.com/originals/02/f8/ac/02f8acb5e46eaa42a909f9be862f519b.png 4x"
+  as="image" />
+<!-- Preload 10 images in total -->
+```
+
+#### 渐进式 JPEG
+
+Pin 图像以 [渐进式 JPEG](https://www.hostinger.com/tutorials/website/improving-website-performance-using-progressive-jpeg-images) 的形式提供，每次扫描都会提高图像质量。传统的 JPEG 格式（称为基线 JPEG）按顺序加载图像，从上到下逐行渲染它们，每行都是像素完美的。因此，可能需要一些时间才能完全加载整个图像。
+
+另一方面，使用渐进式 JPEG，整个图像最初显示为单个实体，尽管处于模糊和像素化的状态。 随着时间的推移，它会逐渐变得清晰和精细，直到出现清晰、完全加载的图像。
+
+#### 媒体格式
+
+可以使用多种图像格式，每种格式都有其自身的优缺点。 如今的一般建议是，如果浏览器兼容性不是最高优先级，请使用[Google 的 WebP 格式](https://developers.google.com/speed/webp)。
+
+Pinterest 可能会使用 JPEG 格式的图像，这可能是因为 JPEG 具有更广泛的浏览器支持（IE11 和旧版 Safari 不支持 WebP），并且渐进式 JPEG 已经提供了出色的加载体验。 Pinterest 的受众是普通消费者，因此浏览器支持至关重要。
+
+### 布局和渲染
+
+在介绍了 feed 和媒体加载之后，我们可以讨论如何以砖石布局呈现这些数据，并以提供最佳用户体验的顺序呈现。
+
+#### 砖石布局实现
+
+砖石布局以难以实现而闻名。 实现砖石的标志性“砖墙”或交错布局需要精确地定位项目。 这可能很复杂，尤其是在我们希望项目整齐地组合在一起并优化利用可用空间时。 使用 flex 和 grid 的传统 CSS 布局不太适合生成砖石布局。
+
+有两种流行的方法可以在网络上实现砖石布局：
+
+1. 列的行
+2. 绝对定位
+
+**列的行**：此方法涉及渲染等宽列，然后将项目放置在每列中。 这种方法大量利用浏览器进行定位。
+
+这种方法的优点是它易于实现，因为它利用了 `display: flex`，并且所需的 CSS 不是很复杂。 如果任何项目的高度发生变化，该列中项目的位置将自动更新。
+
+但是，一个巨大的缺点是 DOM 顺序现在是先列。 想象一下，键盘用户想要进入最右侧列中的顶部图钉。 使用这样的 DOM：
+
+```html
+<div class="container">
+  <div class="column">
+    <!-- Focus is currently here -->
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+  </div>
+  <div class="column">
+    <div class="item">5</div>
+    <div class="item">6</div>
+    <div class="item">7</div>
+    <div class="item">8</div>
+    <div class="item">9</div>
+  </div>
+  <div class="column">
+    <!-- Desired pin requires pressing the "Tab" key 9 times -->
+    <div class="item">10</div>
+    <div class="item">11</div>
+    <div class="item">12</div>
+    <div class="item">13</div>
+  </div>
+</div>
+```
+
+键盘用户必须先通过两列图钉，然后才能最终到达该项目。 当所需的图钉就在顶部时，这既违反直觉又令人沮丧。 这种布局方法导致键盘用户的 DOM 顺序效率低下，并且是一个决定性因素。
+
+以下示例使用“列的行”布局实现，项目中的数字表示元素的制表顺序。
+
+<iframe
+  src="https://codesandbox.io/embed/f7s8vt?fontsize=14&hidenavigation=1&theme=dark&module=/src/index.html,/src/styles.css&view=split"
+  style={{
+          width: '100%',
+          height: 500,
+          border: 0,
+          borderRadius: 4,
+          overflow: 'hidden',
+        }}
+  title="Pinterest layout row of columns"
+  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+/>
+
+***
+
+**绝对定位**：更好的方法是精确计算图钉在 `position: relative` 父容器中的位置，并通过 `position: absolute; top: Y; left: X` 将它们放置在应该在的位置。
+
+下图演示了 3 列布局容器的项目的 `top` 和 `left` CSS 样式值。
+
+```html
+<div class="container">
+  <div class="item" style="height: 250px; top: 0px; left: 0px;">1</div>
+  <div class="item" style="height: 300px; top: 0px; left: 80px;">2</div>
+  <div class="item" style="height: 110px; top: 0px; left: 160px;">3</div>
+  <div class="item" style="height: 200px; top: 260px; left: 0px;">4</div>
+  <div class="item" style="height: 70px; top: 310px; left: 80px;">5</div>
+  <div class="item" style="height: 330px; top: 120px; left: 160px;">6</div>
+</div>
+```
+
+![Pinterest layout absolute position](/img/questions/pinterest/pinterest-layout-absolute-position.svg)
+
+使用绝对定位，项目的 DOM 顺序完全不影响视觉结果。因此，我们可以自由地按照制表符顺序排列 DOM。
+
+以下示例使用绝对定位方法实现，项目中的数字表示元素的制表符顺序。请注意，容器内只有一层子节点；没有嵌套，标记非常干净。
+
+<iframe
+  src="https://codesandbox.io/embed/dqtrlk?fontsize=14&hidenavigation=1&theme=dark&module=/src/index.html,/src/styles.css&view=split"
+  style={{
+          width: '100%',
+          height: 500,
+          border: 0,
+          borderRadius: 4,
+          overflow: 'hidden',
+        }}
+  title="Pinterest layout position absolute"
+  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+/>
+
+通常，`absolute` 定位的元素会从正常的文档流中移除，并且通常不会影响页面上其他元素的位置或布局。因此，对这些元素所做的更改（例如它们的大小或位置）通常不会触发浏览器重排。但是，即使将更多图钉添加到容器底部（即使它们是 `absolute` 定位的），也会增加容器的高度并导致重排。
+
+`absolute` 定位的另一个优点是列表虚拟化更容易实现，[更多详细信息见下文](#list-virtualization)。
+
+这种方法的缺点是客户端必须编写代码来计算图钉应该放置的位置，而不是“列的行”方法，浏览器会为我们完成。除了最初的计算之外，如果窗口大小调整超过断点，以至于列数不同，则需要再次为整个 feed 执行计算。
+
+此外，如果任何项目的高度发生变化，则其下方的项目将不会重新定位，除非手动对受影响的项目执行计算，并且它们的位置也会更新。
+
+默认情况下，容器不是流动的，并且具有几个预定义的断点的固定宽度。即使浏览器略微调整大小，只要列数保持不变，计算出的位置仍然可以使用。
+
+在实践中，Pinterest 使用 CSS 转换（例如 `transform: translateY(100px) translateX(100px)`）而不是使用 `top: 100px` 和 `left: 100px`，大概是因为使用 CSS 转换的性能更高。CSS 转换（例如 `translate`、`scale` 和 `rotate`）通常由现代 Web 浏览器进行硬件加速。这意味着浏览器将转换后元素的渲染卸载到 GPU（图形处理单元），GPU 可以更有效地处理这些操作。另一方面，绝对定位并不总是能从 GPU 加速中获得相同的收益。
+
+但总的思路是一样的——项目仍然相对于图钉容器的左上角定位。
+
+Pinterest 的 [开源 Masonry React 组件](https://gestalt.pinterest.systems/web/masonry) [在将项目放置在网格上之前，先将项目渲染到屏幕外以测量项目的高度](https://github.com/pinterest/gestalt/blob/master/packages/gestalt/src/Masonry/README.md#getpositions)。这是因为该组件是一个通用组件，专为首页 feed 之外的用例而构建，其中项目可以包含内容（例如照片标题），而项目的高度事先未知。对于 Pinterest 首页 feed，其中整个项目都是图像，我们已经知道图像的固有比例。使用固定的列宽，我们可以计算出图像/项目所需的高度。因此，无需渲染到屏幕外进行测量。
+
+即使这种布局方法的实现更复杂，但它更灵活，并且允许更好的可访问性，因为我们可以控制元素的制表符顺序。
+
+#### 在列中排序项目
+
+既然我们已经确定应该对项目布局使用绝对定位，那么我们需要决定的下一件事是如何对项目进行排序。请记住，较早出现在 feed 中的图钉应放置在较晚出现的图钉之上。
+
+有两种常见的方式来对图钉进行排序：
+
+2. 高度平衡
+
+**循环放置**：在循环放置中，我们将图钉按顺序放入每个列中，在最后一个列之后绕回到第一列，直到所有图钉都已放置。在三列布局中，图钉放置在这些相应的列中：
+
+| 列 | 图钉位置（在 feed 中） |
+| ------ | --------------------------- |
+| 1      | 1st, 4th, 7th, ...          |
+| 2      | 2nd, 5th, 8th, ...          |
+| 3      | 3rd, 6th, 9th, ...          |
+
+下面的示例显示了一些图钉，这些图钉以循环方式在 3 列布局中使用绝对定位进行排序，以及实现它的循环算法。
+
+<iframe
+  src="https://codesandbox.io/embed/gnszl2?fontsize=14&hidenavigation=1&theme=dark&module=/src/App.js,/src/styles.css&view=split"
+  style={{
+          width: '100%',
+          height: 500,
+          border: 0,
+          borderRadius: 4,
+          overflow: 'hidden',
+        }}
+  title="Pinterest order sequential"
+  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+/>
+
+这种方法的优点是算法以 O(N) 运行，并且易于实现（只需对列大小取模）。
+
+但是，这种方法根本没有考虑项目的身高。因此，某些列可能最终会比其他列高。以上面的例子为例，第一列包含一些高个项目，最终比第二列高得多。结果可能在视觉上不令人满意。
+
+**高度平衡**：在高度平衡放置中，图钉在排列时放置在最短的列中。
+
+对于三列布局，我们可以使用大小为 3 的数组 (`columnHeights`)，其中索引处的值表示该列中项目的总高度。对于每个图钉，通过循环遍历 `columnHeights` 数组一次，我们可以确定最短的列。接下来，我们根据当前高度最短的列计算图钉的位置，并更新该列的高度以用于新添加的图钉。
+
+```js
+const pins = [
+  { height: 160, id: 1 },
+  { height: 70, id: 2 },
+  { height: 130, id: 3 },
+  { height: 160, id: 4 },
+  // ...
+];
+
+const NUM_COLS = 3;
+const GAP = 10;
+const COL_WIDTH = 70;
+
+function arrangeHeightBalanced(pins) {
+  const columnHeights = Array(NUM_COLS).fill(0);
+
+  // For each pin, augment with position data.
+  return pins.map((pin) => {
+    // Find the shortest column.
+    let shortestCol = 0;
+    for (let i = 1; i < NUM_COLS; i++) {
+      if (columnHeights[i] < columnHeights[shortestCol]) {
+        shortestCol = i;
+      }
+    }
+
+    // Calculate the `left` value of the current pin.
+    const left = shortestCol * COL_WIDTH + Math.max(shortestCol, 0) * GAP;
+    // Calculate the `top` value of the current pin.
+    const top = GAP + columnHeights[shortestCol];
+    // Update the column height.
+    columnHeights[shortestCol] = top + pin.height;
+
+    return {
+      ...pin,
+      left,
+      top,
+      width: COL_WIDTH,
+    };
+  });
+}
+```
+
+<iframe
+  src="https://codesandbox.io/embed/tl4c5w?fontsize=14&hidenavigation=1&theme=dark&module=/src/App.js,/src/styles.css&view=split"
+  style={{
+  width: '100%',
+  height: 500,
+  border: 0,
+  borderRadius: 4,
+  overflow: 'hidden',
+}}
+  title="Pinterest order balanced"
+  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+/>
+
+结果是布局的列通常具有平衡的高度，这在视觉上更令人愉悦。即使该算法现在以 O(N \* columns) 运行，columns 也是一个常数，并且在包含数百个图钉的现实页面规模上，差异可以忽略不计。
+
+这种 `columnHeights` 计算应该作为状态保留在 Masonry 组件中，以便在加载下一页图钉并需要在页面上排列时，立即知道列的高度，无需再次计算列的高度或排列已经在屏幕上的图钉。
+
+**服务器计算**：目前，计算是在客户端完成的。对于 Pinterest，虽然正在使用 SSR，但图钉的初始 HTML 不包含定位数据，并且位置是在客户端计算的。这可能是因为服务器不知道客户端的视口尺寸。
+
+Pinterest 网格有几个断点宽度，用于不同数量的列，因此每个列数的容器总宽度已经预先知道。从技术上讲，可以在服务器上计算所有可能断点的图钉位置，并将它们发送到客户端。客户端只需要为当前的断点选择预先计算的值。
+
+假设每个图钉的宽度为 **200px**，它们之间有 **20px** 的间隙，则每个列的容器总宽度为：
+
+| 列 | 容器宽度 |
+| ------- | --------------- |
+| 2       | 420px           |
+| 3       | 640px           |
+| 4       | 860px           |
+| 5       | 1080px          |
+| 6       | 1300px          |
+
+对于显示宽度为 1200px 的笔记本电脑，只有 5 列的空间，因此它们可以直接使用预先计算的 5 列布局的图钉位置。对于移动设备（通常低于 600px），只有 2 列的空间，因此它们可以使用预先计算的 2 列布局的图钉位置。
+
+但是，这可能是一个微优化，并且服务器计算很难重复用于后续的 feed 加载，因为下一页的定位依赖于客户端当前显示的内容。从工程角度来看，将所有定位计算工作卸载到客户端也更简洁。
+
+#### 响应性和调整大小
+
+通过使用绝对定位，我们没有充分利用浏览器的布局功能，因此必须重新实现我们自己的位置计算。如上所述，完成的位置计算仅适用于当前的列数，如果可用列数发生变化（例如，由于调整大小），则必须再次完成位置计算。
+
+我们可以为页面添加一个 `'resize'` 事件的侦听器，并在调整大小事件触发时重新计算窗口宽度的图钉位置。但是，调整大小事件会经常触发，并且如此频繁地重新计算可能会很昂贵，尤其是在页面上有很多图钉的情况下。防抖或限制事件处理程序可以减少计算位置的次数。实际上，Pinterest 使用防抖，并且仅在窗口停止调整大小时才重新计算布局。
+
+一种可能的优化是在浏览器空闲时计算所有可能列数的位置。
+
+要考虑的另一个极端情况是，当滚动位置非常靠下时，用户将从 5 列调整为 2 列，假设滚动位置保持不变，用户将看到比调整大小前高得多的图钉，并且用户可能无法从他们离开的地方恢复。
+
+理想情况下，滚动位置会进行调整，以便用户仍在查看相同的图钉。我们可以记住调整大小之前显示的图钉，然后计算调整大小后图钉的平均 y 位置，并将其设置为滚动位置，这执行起来相当复杂。在 Pinterest 的案例中，当列数发生变化时，用户会一直滚动到顶部。调整大小并不常见，因此可能不值得处理。
+
+#### Pinterest 的 Masonry 组件
+
+关于 Pinterest，一件很棒的事情是他们开源了他们的 React 设计系统组件，包括令人垂涎的 [Masonry component](https://gestalt.pinterest.systems/web/masonry)！ 甚至还有一个关于它如何工作的 [简短说明](https://github.com/pinterest/gestalt/blob/master/packages/gestalt/src/Masonry/README.md)。
+
+关于 Masonry 组件的一些有趣的事情：
+
+* 它接受项目列表，并且不进行任何数据获取。 当用户滚动到给定阈值（基于容器的高度）时，它会触发一个回调以通知父级，以获取下一页的项目。
+* 支持多种布局策略：
+  * **默认**：产生具有恒定列宽的项目网格。 这是我们上面讨论的布局。 ([source](https://github.com/pinterest/gestalt/blob/master/packages/gestalt/src/Masonry/defaultLayout.js))
+  * **统一行**：产生具有统一高度的行的项目网格。 该行的高度将是该行中最高的项目。 这与普通表格行为相同。 ([source](https://github.com/pinterest/gestalt/blob/master/packages/gestalt/src/Masonry/uniformRowLayout.js))
+  * **全宽**：产生具有灵活列宽的项目网格。 网格将展开或收缩（通过展开或收缩所有列宽）以适应其容器的宽度； 没有断点。 ([source](https://github.com/pinterest/gestalt/blob/master/packages/gestalt/src/Masonry/fullWidthLayout.js))
+* 可以启用/禁用虚拟化。
+
+阅读他们的 [组件文档](https://gestalt.pinterest.systems/web/masonry) 以查看完整的 props 列表，并 [在此处试用该组件](https://codesandbox.io/s/rhtyq2?file=/index.js)。
+
+#### 图像的边界尺寸
+
+由于列是固定的，并且图像试图保持其原始纵横比，因此可能会出现一些奇怪的结果。
+
+* **非常高的图像**：非常高的图像可以占据整个列，当其中一列占据整个页面时，页面看起来会很奇怪。
+* **非常宽的图像**：非常宽的图像将具有非常小的高度，因为它们必须在列宽内保持纵横比。 因此，用户可能只能看到一条细的水平线，并且几乎不可见。 当放置在 100px 宽的列中时，一个 1000px 宽和 20px 高的图像在保持纵横比的同时，高度只有 2px。
+
+因此，图像应该有最大和最小高度。 对于此类图像，可以使用 `object-fit: cover` 进行定位，以便用户仍然可以一睹图像的某些部分。
+
+### 高级：绘制调度
+
+在上面的讨论中，我们从未真正关注过图像何时被绘制到屏幕上。 我们假设当 `<img>` 标签添加到 DOM 时，图像会立即显示出来。
+
+术语“绘制”通常用于 Web 渲染引擎和 Web 浏览器的上下文中。 它指的是渲染过程的最后一步，浏览器获取计算出的布局和样式信息，并创建构成网页可见内容的实际像素。 这包括确定页面上每个元素的位置、大小和外观，然后将它们渲染为用户屏幕上的像素。
+
+对于互联网连接速度快的用户，图像会在 `<img>` 标签添加到 DOM 后立即显示。 图像加载速度非常快，几乎立即绘制到屏幕上，在半秒钟内。 但是，对于互联网连接速度慢的用户，图像需要更长的加载时间，并且根据图像大小，持续时间差异很大。 这将导致图像以随机方式绘制，这可能会让人迷失方向。
+
+可以采用更复杂的工作流程来解决此问题：
+
+1. **加载数据**：从服务器获取包含图钉列表的 feed 数据。
+2. **计算布局**：确定放置图钉的位置。
+3. **图像加载**：浏览器从 CDN 下载图钉的图像。 可以在不将 `<img>` 标签添加到 DOM 的情况下加载图像，方法是在 JavaScript 中执行 `new Image()`，然后在新创建的 `Image` 对象上设置 `src` 字段。
+4. **绘制调度**：通过将 `<img>` 标签添加到 DOM 来将图像绘制到屏幕上。
+
+步骤 2 和 3 可以并行完成。 步骤 4 需要先完全完成步骤 2 和步骤 3。 一种简单而基本的方法是等待所有图像加载完毕（步骤 3 完全完成），然后再将它们绘制到屏幕上。
+
+#### 绘制方法
+
+总的来说，有以下绘制方法：
+
+1. **简单的默认值。** 渲染所有 `<img>` 标签，图像将在加载后立即出现。 这是我们在开始时介绍的情况，为互联网连接速度慢的用户提供了糟糕的体验。
+2. **顺序加载和绘制。** 这意味着加载一个图像，绘制它，然后对下一个图像重复，直到没有剩余的图像。 这会导致瀑布式加载和绘制，这很慢，而且没有多大意义，因为图像加载可以在所有图像上并行完成。 它比上面的方法更糟。
+3. **并行加载，一次全部绘制。** 这并不理想，因为用户必须等待最慢的图像加载完毕才能看到任何图像。
+4. **并行加载，按顺序绘制。** 这是理想的方法，只有在它之前的所有图像都已完全加载后，才会显示图像。
+
+为了实现理想的方法，需要大量的协调，并且实现起来可能很复杂，但值得庆幸的是，很棒的 React 团队为此提供了一个解决方案。[`Suspense`](https://react.dev/reference/react/Suspense#revealing-content-together-at-once) 组件能够协调渲染/绘制，并让我们轻松决定 UI 的哪些部分应该同时“弹出”。还有一个 `SuspenseList` 组件，它允许按顺序显示项目。`SuspenseList` 尚未发布，但你可以从 [React 2019 主题演讲](https://youtu.be/Tl0S7QkxFE4?t=921) 中了解它的工作原理，并[试用这些示例](https://react-suspense-img.netlify.app/)。
+
+为了减少所需的协调，尚未在屏幕上的图像也可以在后台预加载，以便在用户向下滚动时准备好将其绘制到视图中。
+
+### 性能
+
+#### 列表虚拟化
+
+在 DOM 的上下文中，虚拟化通常是指在 Web 开发中用于提高渲染大型列表或元素集合（例如在长表格、列表或网格中找到的那些）的性能和效率的技术。虚拟化用于仅渲染当前在视口中可见的元素，而不是渲染整个列表。此技术有助于优化网页性能，尤其是在处理大量动态内容时。
+
+DOM 虚拟化的基本思想是：
+
+1. 仅渲染网页的可见部分中的元素。
+2. 随着用户滚动或与内容交互，动态加载或渲染其他元素。
+3. 重用和回收 DOM 元素以最大限度地减少内存和性能开销。
+
+使用 `absolute` 定位布局：
+
+* 容器确切地知道它应该有多高（最高列的高度），并且可以设置其 `height` 样式值。
+* 旨在删除的屏幕外 DOM 节点可以这样做，而不会影响其他项目的位置。
+* 容器已设置 `height`，因此删除底部的项目不会导致容器收缩，并且不会发生滚动位置更改。
+
+在桌面上，Pinterest 允许在任何时候在 DOM 中最多 40 个图钉。在移动设备上，大约是 10-20 个。可以根据网络状况、设备尺寸、设备处理能力等使用动态值。下面的 GIF 显示了 Pinterest 主页上正在运行的列表虚拟化。
+
+<video controls src="/img/questions/pinterest/pinterest-virtualization-video.mp4" />
+
+一些观察结果：
+
+1. 容器的初始高度为 5386px，但 DOM 中只有 7 个图钉（其直接子元素），大约相当于两屏的内容。
+2. 随着用户向下滚动，更多的图钉被添加到容器元素的底部。
+3. 随着用户进一步向下滚动，顶部的图钉将从容器元素中删除。DOM 中最多大约有 12 个图钉。
+4. 当用户向下滚动足够远以加载下一页项目时，容器高度增加到 10228px。
+5. 向上滚动会导致底部的图钉从 DOM 中删除，页面上方的图钉被重新插入到顶部。
+
+#### 回流和重绘
+
+前面已经提到了回流和重绘，但为了重述这些术语：
+
+* **回流**：浏览器回流，通常称为布局或重新布局，是 Web 浏览器在对网页的文档对象模型 (DOM) 进行某些更改时所经历的一个过程，用于计算网页中元素的几何形状和位置。这些更改可以包括对页面内容、结构或样式的修改，例如添加、删除或更改元素、更改其尺寸或调整其位置。
+* **重绘**：浏览器重绘，通常称为“绘制”，是 Web 浏览器在用户屏幕上绘制或渲染网页的可见内容的过程。这涉及创建和更新构成网页视觉表示的像素，包括文本、图像、背景和其他图形元素。当网页上元素的显示发生变化时，通常会触发重绘操作，例如更新 CSS 样式、内容更改或需要重绘页面某些部分的交互。如果进行了回流，则重绘发生在回流之后。
+
+快速地重新渲染会导致回流和重绘，这可能导致浏览器滞后。由于页面上有很多图像，如果图像一次一个地绘制到屏幕上，则会导致大量的回流和重绘操作。
+
+减少回流和重绘的技术包括：
+
+* **批处理 DOM 更改**：对 DOM 进行多次更改，只需一次操作，这可以减少触发的回流次数。
+* **使用 CSS 转换**：使用 CSS 转换应用转换（如平移、旋转或缩放）通常不会触发回流，这使其成为更新元素外观的更有效方法。
+* **避免强制同步布局**：某些 DOM 和样式属性在访问时会强制浏览器执行回流。在不需要时避免这些属性可以帮助减少回流。
+* **虚拟滚动和分页**：对于长列表项，使用虚拟滚动或分页来限制一次可见的元素数量，从而减少回流的影响。
+* **去抖动和节流**：当响应触发回流的事件时，使用去抖动和节流技术来限制这些操作的频率。
+
+为了减少回流和重绘，我们可以执行以下操作：
+
+* 按顺序绘制图像，即仅在所有图像都完全加载后才显示图像。
+* 在短时间内加载的多个图像只会导致一次回流和重绘。此功能也内置于 [React `Suspense`](https://react.dev/reference/react/Suspense) 中。
+* 当窗口调整大小时，对 masonry 布局重新计算进行去抖动/节流。
+* 列表虚拟化，以便页面上的元素数量减少，并且在回流期间需要更少的计算。
+
+其中一些已经在上面提到过。
+
+#### 当上次获取时间已过一段时间后自动刷新
+
+如果您将主页选项卡打开一段时间后返回（也许半小时后），该网站将清除所有已加载的条目并重新获取整个 feed。这有助于保持较低的内存使用率，因为已加载的条目可以从客户端存储中清除。这是一个很好的优化，因为用户不太可能对他们已经滚动过的过时图钉感兴趣。
+
+如果没有进行虚拟化，定期刷新也可以清除 DOM 状态，从而改善 React 协调并降低内存开销。
+
+![Pinterest stale session refresh](/img/questions/pinterest/pinterest-stale-refresh.png)
+
+#### 渐进式 Web 应用程序
+
+Pinterest 已经做出了重大努力，为其用户提供渐进式 Web 应用程序 (PWA) 体验。渐进式 Web 应用程序是一种 Web 应用程序，可在 Web 浏览器中提供类似原生应用程序的体验。PWA 旨在结合 Web 和移动应用程序的最佳体验，提供离线访问、推送通知和快速加载时间等功能。
+
+他们的 PWA 案例研究和回顾已公开出版：
+
+* [Pinterest 渐进式 Web 应用程序性能案例研究](https://medium.com/dev-channel/a-pinterest-progressive-web-app-performance-case-study-3bd6ed2e6154)
+* [一年 PWA 回顾](https://medium.com/pinterest-engineering/a-one-year-pwa-retrospective-f4a2f4129e05)
+
+### 网络
+
+由于屏幕上要显示许多图像，因此需要下载许多图像，浏览器会发出多个并发网络请求。传统上，浏览器对每个域的并行 HTTP 连接的最大数量有限制。这导致 Web 服务使用不同的域名来托管其图像。但是，HTTP/2 允许通过单个连接进行多个请求，从而减少了对多个并行连接的需求。
+
+Pinterest 对其 CDN (`pinimg.com`) 使用单个域并支持 HTTP/3，因此页面不会遇到超出最大并行连接数的问题。
+
+### 用户体验
+
+#### 加载状态
+
+对于网络速度较慢的设备，图像可能需要一段时间才能加载，因此显示图像的占位符可以改善用户体验。Pinterest 没有显示通用灰色框作为占位符，而是确定了每个图像的主色，并渲染了一个以该主色为背景的框。
+
+![Pinterest loading state](/img/questions/pinterest/pinterest-loading.png)
+
+#### 错误处理
+
+图像有时可能无法加载，并且有几种处理方法：
+
+* **忽略失败的图像**。这可能是最简单和合理的方法。Pinterest feed 具有一定的随机性，如果某个特定的图钉未能加载，用户不会意识到。
+* **重试加载并稍后插入**。客户端可以重试加载图像，如果成功，则将其插入当前 feed 的底部或作为下一页呈现的一部分。
+* **显示错误消息**。可以在为该图钉分配的空间内显示错误消息。但是，可能没有足够的空间来显示消息，尤其是在消息很长（在某些语言中可能）并且可用的图钉空间很小的情况下。
+
+### 国际化 (i18n)
+
+关于此问题的 i18n 方面，由于重点在于布局，因此没有太多可讨论的。对于 RTL 语言，可以轻松调整 masonry 布局算法，使其从右侧开始，而不是左侧。
+
+### 可访问性 (a11y)
+
+#### 屏幕阅读器
+
+* `<img>` 的 `alt` 属性。
+* feed 容器的 `role="list"` 属性。
+* feed 项目的 `role="listitem"` 属性。
+
+#### 键盘支持
+
+* 确保标签顺序与浏览顺序匹配，这可以通过绝对定位的 pin 来完成。
+* 当用户在页面上向下很远时，按下 <kbd>Tab</kbd> 应该将焦点放在视口内的 pin 上，而不是 feed 顶部的 pin 上。
+
+### 其他交互
+
+此问题的重点在于 feed masonry 布局，我们有意省略了有关其他常见 feed 交互的详细信息：
+
+* **查看 pin 的详细信息**。这会在模态框中显示 pin 的详细信息，显示图像和其他详细信息，如标题、描述、作者。关闭模态框会将用户带回 feed，并恢复滚动位置，允许他们从上次中断的地方继续浏览。
+* **保存 pin**。利用乐观更新。
+* **Pin 创建**。上传图像并填写基本信息，如标题和描述。
+* **仅在交互时显示的额外操作**。仅在这些非必要操作被使用或页面空闲时，才延迟加载代码。
+
+这些主题在 [新闻 feed 系统设计](/questions/system-design/news-feed-facebook) 中有详细介绍。
+
+## 参考
+
+* [Pinterest 渐进式 Web 应用程序性能案例研究](https://medium.com/dev-channel/a-pinterest-progressive-web-app-performance-case-study-3bd6ed2e6154)
+* [一年的 PWA 回顾](https://medium.com/pinterest-engineering/a-one-year-pwa-retrospective-f4a2f4129e05)
+* [改善 Pinterest 上的 GIF 性能](https://medium.com/pinterest-engineering/improving-gif-performance-on-pinterest-8dad74bf92f1)
+* Gestalt（Pinterest 的设计系统）
+  * [Masonry 组件](https://gestalt.pinterest.systems/web/masonry)
+  * [Masonry 源代码](https://github.com/pinterest/gestalt/blob/master/packages/gestalt/src/Masonry.js)
+  * [Masonry 的工作原理](https://github.com/pinterest/gestalt/blob/master/packages/gestalt/src/Masonry/README.md)

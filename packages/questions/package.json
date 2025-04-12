@@ -2,14 +2,16 @@
   "name": "@gfe/questions",
   "version": "0.0.1",
   "scripts": {
-    "sync": "npm run sync:algo && npm run sync:js && npm run sync:ui",
-    "sync:rev": "npm run sync:algo:rev && npm run sync:js:rev && npm run sync:ui:rev",
+    "sync": "npm run sync:algo && npm run sync:js && npm run sync:ui && npm run sync:sd",
+    "sync:rev": "npm run sync:algo:rev && npm run sync:js:rev && npm run sync:ui:rev && npm run sync:sd:rev",
     "sync:algo": "rsync -av --delete ./../../../gfe-questions/packages/questions/algo/ ./algo/",
     "sync:algo:rev": "rsync -av --delete ./algo/ ./../../../gfe-questions/packages/questions/algo/",
     "sync:js": "rsync -av --delete ./../../../gfe-questions/packages/questions/javascript/ ./javascript/",
     "sync:js:rev": "rsync -av --delete ./javascript/ ./../../../gfe-questions/packages/questions/javascript/",
     "sync:ui": "rsync -av --delete ./../../../gfe-questions/packages/questions/user-interface/ ./user-interface/",
     "sync:ui:rev": "rsync -av --delete ./user-interface/ ./../../../gfe-questions/packages/questions/user-interface/",
+    "sync:sd": "rsync -av --delete ./../../../gfe-questions/packages/questions/system-design/ ./system-design/",
+    "sync:sd:rev": "rsync -av --delete ./system-design/ ./../../../gfe-questions/packages/questions/system-design/",
     "test": "jest"
   },
   "license": "ISC",

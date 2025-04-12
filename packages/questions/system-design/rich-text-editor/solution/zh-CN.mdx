@@ -1,0 +1,1225 @@
+## 需求探索
+
+### 应该支持哪些格式设置功能？
+
+* **块格式**：标题、段落、块引用
+* **内联格式**：粗体、下划线、斜体
+
+### 各种元素应该如何设置样式？
+
+浏览器的默认样式表是一个很好的起点。如果时间允许，我们可以讨论如何进一步自定义元素。
+
+### 编辑器是否应该支持媒体插入？
+
+重点是文本格式，但我们可以讨论插入媒体对象，如图像、视频等。
+
+### 应该支持哪些键盘快捷键？
+
+编辑器应支持常见的编辑相关键盘快捷键（例如，复制、剪切、粘贴、重做）。作为奖励，我们还可以探索自定义和对用户定义快捷键的支持。
+
+### 什么是非功能性需求？
+
+性能和用户体验很重要。编辑器应反映更新，而不会出现滞后/卡顿。
+
+## Lexical 编辑器概述
+
+周围有很多富文本编辑器，许多编辑器的设计和实现都相似。[Lexical](https://lexical.dev/) 是 Meta 最新的开源富文本编辑器库（[Draft.js](https://draftjs.org/) 的演进版），并在他们的产品中使用——facebook.com 上的 composer、workplace.com 等。它在设计时考虑了可扩展性、可靠性、可访问性和性能。
+
+Lexical 的架构允许开发人员创建定制的文本编辑体验，这些体验可以在大小和功能上进行扩展，使其适用于从简单的文本输入到复杂的文档编辑器的各种应用程序。
+
+我们对 Lexical 库相当熟悉，因为 GreatFrontEnd 使用 Lexical 进行富文本编辑。杨舜实际上参与了 [Lexical 的创建](https://lexical.dev/community)！
+
+对于本文，我们仔细研究了 Lexical 的设计和代码，我们的内容很大程度上基于 Lexical 的设计。
+
+以下是 Lexical 设计的概述：
+
+1. **编辑器实例**：Lexical 创建编辑器实例，这些实例附加到单个 `contenteditable` 元素。每个实例管理自己的状态并进行更新。
+2. **编辑器状态**：该框架使用一组编辑器状态来表示编辑器在任何给定时间的当前和待处理状态。这允许进行有效的更新和撤消/重做功能。
+3. **无依赖核心**：Lexical 是一个轻量级的、22KB 的无依赖库，可以与 vanilla JavaScript 一起使用，或者与 React 等其他库无缝集成。
+4. **插件架构**：Lexical 最强大的功能之一是其插件系统。插件是独立的，即插即用，允许开发人员扩展功能，而不会影响核心编辑器。
+5. **基于节点的结构**：Lexical 使用基于节点的结构来表示内容。不同类型的节点（例如，文本节点、段落节点）构成文档树。
+6. **状态管理**：当编辑器中发生更改时，Lexical 会更新其内部状态。插件可以注册侦听器以对这些状态更改做出反应。
+7. **序列化**：Lexical 可以将其状态序列化为 JSON，从而可以轻松保存和恢复编辑器内容。
+8. **与框架无关**：虽然 Lexical 提供了 React 绑定，但它被设计为与框架无关，允许与 Vue.js、Angular、Svelte 等其他 JavaScript 框架集成。
+9. **可扩展**：公开简单、灵活的核心 API，以允许社区驱动的外部插件
+10. **协作支持**：Lexical 可以扩展以支持通过插件进行实时协作，这些插件将编辑器状态更改转换为协作协议（如 [Yjs](https://github.com/yjs/yjs)）并从协作协议转换。
+11. **可访问性**：该框架在构建时考虑了可访问性，遵循 WCAG 最佳实践，并确保与屏幕阅读器和其他辅助技术的兼容性。
+12. **性能优化**：Lexical 专为性能而设计，使用类似虚拟 DOM 的方法有效地处理大型文档和复杂的编辑操作。
+
+***
+
+## 方法
+
+与计算机科学中的大多数问题一样，构建富文本编辑器有多种方法，每种方法都有其自身的优缺点。
+
+提醒一下，富文本编辑器需要支持：
+
+1. **渲染富文本**：标题、段落、粗体等。
+2. **渲染光标**：指示当前打字位置
+3. **所见即所得**：所见即所得。富文本的内联更新和预览
+4. **跨浏览器**：在不同浏览器上提供一致的体验
+
+要更好地了解富文本编辑器支持的各种功能以及用户体验，请试用 [Lexical 的 playground](https://playground.lexical.dev/)。
+
+### 渲染方法
+
+让我们考虑以下方法。
+
+#### 1. 像 `<input>` 和 `<textarea>` 这样的表单元素
+
+这显然是行不通的，因为尽管这些元素可以渲染文本并进行内联更新，但它们只能渲染纯文本，而无法渲染格式化文本。
+
+#### 2. 带有假光标的 DOM
+
+可以使用包含使用 HTML 元素和样式的格式化文本的常规 DOM 来满足渲染要求。
+
+但是，所有编辑器都需要显示一个光标来指示打字位置。通过使用常规 DOM，必须通过在现有文本之上渲染一个 DOM 元素来伪造光标。渲染假光标一点也不简单：
+
+* **光标位置计算**：必须手动计算光标定位。您必须知道单击了哪个字符（本机不支持），然后找到最接近字符之间或附近的定位。为了增加复杂性，不同的字符具有不同的宽度，具体取决于字体大小和系列。
+* **光标高度计算**：光标必须与当前行的高度匹配。
+
+渲染假光标涉及大量复杂的文本测量，您必须自己实现。这应该是浏览器的任务，而您正在重新实现它！
+
+#### 3. `contenteditable` 属性
+
+使用`contenteditable`属性来解决问题！带有`contenteditable="true"`属性的元素表示该元素可由用户编辑。此属性在每个元素上都可用。如果您不熟悉`contenteditable`属性，请[在此处阅读更多相关信息](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/contenteditable)。
+
+除了通常的编辑行为和键盘快捷键之外，它甚至支持富文本格式！您可以使用<kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>B</kbd>来加粗选定的文本，文本将被包裹在一对`<b>`标签中。下划线和斜体的快捷方式也受支持。
+
+<div style={{ border: '1px solid #7773', borderRadius: 8, padding: '0 16px' }} contentEditable={true} suppressContentEditableWarning={true}> <strong>可编辑和格式化</strong>的文本，这要归功于{' '} <code>contenteditable</code>。您甚至可以格式化文本（例如，使用Ctrl/Cmd + B加粗）。 </div>
+
+这似乎是一个好的起点。那么问题是什么？
+
+* **格式有限**：仅支持内联文本格式。没有内置的方法来添加其他元素，如标题、引用等。
+* **浏览器不一致**：不同的浏览器实现`contenteditable`功能的方式不同，导致跨平台行为不一致。这种不一致性会影响用户体验，并导致意外的格式问题。
+* **不安全格式**：内容本质上是HTML。通过将内容存储为HTML，您可能会引入安全漏洞，例如[XSS（跨站点脚本）攻击](https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting)。
+
+然而，`contenteditable`满足了我们许多期望的富文本编辑器需求，尤其是光标渲染。我们可以使用`contenteditable`并修补弱点和限制吗？是的！事实上，网络上大多数流行的富文本编辑器都是建立在`contenteditable`之上的。
+
+#### 4. 使用自定义…一切的Canvas
+
+一种高级方法是使用`<canvas>`元素并在`<canvas>`元素内渲染所有内容——样式文本、布局、光标等。这种方法基本上绕过了浏览器提供的许多功能，并且需要在canvas上下文中重新实现所有内容。您可以将其视为使用带有假光标的DOM的更困难的版本。
+
+这种方法被世界上使用最广泛的文档编辑器之一——Google Docs所使用。2021年，谷歌[宣布Google Docs将转向基于canvas的渲染方法](https://workspaceupdates.googleblog.com/2021/05/Google-Docs-Canvas-Based-Rendering-Update.html)，以“提高内容在不同平台上的显示性能和一致性”。
+
+Canvas渲染器为您提供了对渲染的绝对完全控制，但代价是：
+
+* **复杂性和维护负担**：如前所述，您将不得不自己实现布局、文本渲染、光标渲染、用户输入等。
+* **可访问性**：基于Canvas的编辑器默认情况下将具有较差的可访问性，因为屏幕阅读器无法读取`<canvas>`中的内容。谷歌不得不[自己实现可访问性功能](https://html.spec.whatwg.org/multipage/canvas.html#best-practices)，而这需要付出额外的努力。
+* **与某些现有扩展不兼容**：依赖于检查和操作DOM内容的浏览器扩展将停止工作，因为内容完全在`<canvas>`元素中。
+
+浏览器引擎必须解决比富文本更普遍的问题，因此会产生额外的开销。使用canvas是一种性能更好的方法，但很少有公司（如谷歌）有足够的资源来证明性能优势与实现成本相比是合理的。VS Code是另一个流行的使用canvas渲染文本的工具，但[仅用于终端](https://code.visualstudio.com/blogs/2017/10/03/terminal-renderer#_dom-rendering)。
+
+#### 选择哪种渲染方法？
+
+| 方法 | 富文本格式 | 光标 | 实现工作量 | 跨浏览器 |
+| --- | --- | --- | --- | --- |
+| `<textarea>` | 否 | 支持 | N/A | 总体相同 |
+| 带有假光标的DOM | 支持 | 自定义 | 高 | 总体相同 |
+| contenteditable | 支持 | 支持 | 中等 | 一些差异 |
+| `<canvas>` | 自定义 | 自定义 | 非常高 | 总体相同 |
+
+考虑到功能与实现工作量的权衡，大多数富文本编辑器库使用`contenteditable`属性作为根元素，添加事件监听器以拦截浏览器事件并标准化跨浏览器的结果。使用`contenteditable`方法：
+
+1. **渲染富文本**：这是免费提供的，因为`contenteditable`使用各种DOM元素进行渲染。
+2. **渲染光标**：也免费提供。光标的行高和定位与当前选定的文本相匹配。
+3. **内联文本更新**：文本可以像使用`<input>`和`<textarea>`一样进行更新。一些键盘快捷键可用于典型编辑，甚至格式化（例如粗体、下划线）。
+4. **跨不同浏览器的一致体验**：某些浏览器会响应某些用户事件，而某些浏览器则不会。但是，我们可以为所有这些可能的事件（例如按键、选择、点击）添加事件处理程序，拦截它们，并在浏览器、操作系统和设备之间规范化行为。
+5. **处理有限的格式**：默认情况下，仅支持内联格式。但是，由于结果是基于DOM的，我们可以以编程方式插入任何必要的元素并为其设置样式以获得所需的结果。
+6. **由不同的内容模型支持**：虽然渲染内容结果是DOM / HTML，但可以自定义底层模型以进行性能优化，并仅限于某些受支持的元素。
+7. **广泛使用**：世界上一些使用最广泛的富文本编辑界面，例如facebook.com的帖子撰写器、Gmail撰写器、Medium的文章编辑器，都在使用`contenteditable`。
+
+### 模型和状态设计
+
+我们已经确定了渲染方法，让我们讨论一下我们希望如何对内容状态进行建模。内容状态甚至有必要吗？我们是否可以直接让状态存在于DOM中并直接对DOM节点进行操作？当然可以，但存在一些问题：
+
+* **没有内置的状态管理功能**：DOM不提供内置的状态管理功能，例如撤消/重做或允许使用复杂的数据结构，这有时是必要的。
+* **没有好的方法来存储额外的相关字段**：如果某些元素可能需要额外的字段（例如自定义元素的类型），则必须将它们存储为DOM节点上的数据属性，这会使DOM变得混乱，并且在必须读取它们时会产生开销。
+* **DOM臃肿**：DOM元素非常庞大，并且具有大量属性和方法。这对于维护来说可能很糟糕，最好保持API表面积较小。
+* **容易被篡改**：浏览器扩展程序经常会弄乱DOM并产生不良后果。通过使用DOM作为底层内容模型，第三方扩展程序可以轻松地篡改事实来源。
+
+更好的方法是用 JavaScript 模拟内容状态，并根据内容状态呈现到 DOM。此内容状态将需要捕获类似树的关系，就像 DOM 一样。一个例子可能是：
+
+```js
+{
+  type: "document",
+  children: [
+    {
+      type: "heading",
+      children: [{ type: "text", content: "Hello" }]
+    },
+    {
+      type: "paragraph",
+      children: [
+        { type: "text", content: "This is John Doe. " },
+        { type: "text", content: "He is strong", bold: true }]
+    },
+  ]
+}
+```
+
+编辑器将遍历此对象，将其转换为相关的 DOM 节点（例如`heading` -> `<h1>`，`paragraph` -> `<p>`），并将其渲染到屏幕上。
+
+在 JavaScript 中使用状态模型而不依赖 DOM 具有以下好处：
+
+* **可移植性**：可以使用特定于平台的 UI 原语在不同的平台上渲染相同的数据。
+* **无头模式**：测试更容易编写，可以在服务器上对状态进行操作，而无需实际的浏览器。
+
+在初始化期间：
+
+1. 编辑器在 JavaScript 中初始化所有所需的状态（内容状态、选择状态）。
+2. 编辑器循环遍历内容状态并将其渲染到 DOM。
+
+### 更新方法
+
+对编辑器的更新将修改底层状态模型并导致 DOM 更新。但是，我们如何知道需要进行哪些 DOM 更新？我们是否会删除整个 DOM 并从头开始重新渲染？这可行，但听起来很浪费，而且对性能不利，特别是如果内容很长并且有很多 DOM 节点。
+
+我们是否可以只更新需要更新的 DOM 部分？方法如下：
+
+1. 编辑器拦截用户事件（例如`input`、`keypress`）。
+2. 编辑器将事件转换为受支持的命令（例如插入字符、删除字符等）。
+3. 编辑器克隆内容状态。
+4. 编辑器修改克隆的内容状态。
+5. 编辑器将原始内容状态与克隆的内容状态进行比较，以确定所需的 DOM 更改（也称为协调）。
+6. 编辑器根据确定的更改修改 DOM。
+
+这种更新流程类似于 React 如何维护虚拟 DOM，并且仅在根据新状态进行更新时进行最少的必要 DOM 更改。此过程称为协调。
+
+**注意**：Lexical 实现了自己的[DOM 协调过程](https://lexical.dev/docs/intro#dom-reconciler)，该过程独立于 React。这使得 Lexical 能够与 UI 无关，并且可以在 React、Vue、Angular、Svelte 应用程序中使用。
+
+### 总结
+
+总而言之，Web 上大多数富文本编辑器都使用`contenteditable`，并采用以下高级方法：
+
+1. 设计特定于编辑器的文档内容模型
+2. 在模型和 DOM 元素之间创建映射
+3. 定义一组对该模型支持的操作（例如在某个位置插入文本、删除文本、格式化文本）
+4. 将用户事件（按键和鼠标点击）转换为一系列这些支持的操作
+5. 根据这些操作更新 DOM，理想情况下使用最少的 DOM 操作调用
+
+我们已经简要讨论了高级方法。在 45 分钟的前端系统设计面试中，涵盖上述内容可能就足够了。
+
+但是，为了全面了解现代可扩展富文本编辑器的设计方式，我们建议您阅读本文的其余部分，其中更深入地介绍了架构、数据实体和可用 API。
+
+***
+
+## 架构/高级设计
+
+![富文本编辑器架构](/img/questions/rich-text-editor/rich-text-editor-architecture.png)
+
+### 编辑器
+
+编辑器由两部分组成：(1) 核心 (2) 开发人员添加的任何内容（侦听器和转换器）。
+
+#### 核心
+
+这种富文本编辑器设计具有很强的可扩展性。核心部分包含用户事件 -> 状态更新 -> DOM 更新操作所需的最低限度逻辑，然后通过提供可以从外部调用的命令来实现扩展。
+
+分解更新流程：
+
+* 命令可以通过多种方式分发。它们可以来自：
+  * **内容编辑器的 DOM 事件**：它们源于用户与内容 DOM 元素（键入、删除、移动光标等）的交互。`contenteditable` DOM 元素上的 DOM 事件被映射到已识别的命令（参见 [LexicalEvents.ts](https://github.com/facebook/lexical/blob/main/packages/lexical/src/LexicalEvents.ts)）。请参阅 [Lexical 支持的命令列表](https://github.com/facebook/lexical/blob/main/packages/lexical/src/LexicalCommands.ts) 以进行分发。
+  * **通过工具栏以编程方式**：以编程方式分发（来自工具栏或在侦听器/转换器中），例如更改格式或插入/删除节点。
+* 编辑器接收命令，创建当前内容状态的克隆 (`PendingEditorState`)，并根据命令更新内容状态（参见 [LexicalUpdates.ts](https://github.com/facebook/lexical/blob/main/packages/lexical/src/LexicalUpdates.ts)）。DOM 协调过程需要之前和当前的编辑器状态。
+* 协调器接收当前内容状态 (`ActiveEditorState`) 和修改后的内容状态 (`PendingEditorState`)，并比较两者以创建/更新/删除与新编辑器状态对应的相关 DOM 节点。然后将修改 `contenteditable` DOM 元素中的内容（参见 [LexicalReconciler.ts](https://github.com/facebook/lexical/blob/main/packages/lexical/src/LexicalReconciler.ts)）。协调器充当内容状态和渲染 UI（`contenteditable` 元素）之间的通信层。如果需要 `<canvas>` UI 方法（如 Google Docs 中），则大多数所需更改将位于协调器中。
+
+#### 监听器
+
+监听器是一种机制，允许编辑器在发生特定操作时通知开发人员。由于命令作为编辑器更新流程的一部分进行分发，开发人员可以为这些命令添加监听器（您可以将它们视为事件）并做出相应的反应。
+
+监听器的 API 将在[下面的深入探讨部分](#listeners-and-commands)中讨论。
+
+**注意**：在系统设计面试的背景下，监听器通常超出了富文本编辑器的范围，但对于构建强大、可扩展和可定制的富文本编辑器至关重要。
+
+#### 转换
+
+转换是一种在协调发生之前响应编辑器内更改的机制。多个转换仍然会导致单个 DOM 协调过程。
+
+转换的 API 将在[下面的深入探讨部分](#transforms-1)中讨论。
+
+**注意**：在系统设计面试的背景下，转换超出了富文本编辑器的范围，但对于构建强大、可扩展和可定制的富文本编辑器至关重要。
+
+### 输入 UI
+
+富文本编辑器 UI 的重要元素。
+
+#### 内容元素
+
+`contenteditable` DOM 元素。编辑器将事件监听器（例如 `input`、`click`、`keydown`）添加到此元素，并通过将它们映射到其内部命令（例如 `FORMAT_TEXT`、`SELECTION_CHANGE`、`INSERT_LINE_BREAK`）并分发它们来响应这些事件，以便可以更新状态。
+
+#### 工具栏元素
+
+几乎每个富文本编辑器顶部的工具栏，包含格式化按钮。它直接告诉编辑器分发命令。请注意，工具栏 UI 完全由开发人员自定义。富文本编辑器仅为工具栏提供以编程方式分发命令，这与外观无关。
+
+### 无头模式
+
+所提出的架构允许以无头方式使用富文本编辑器。可以使用一些现有内容初始化编辑器，并且可以以编程方式分发命令来修改编辑器状态。唯一的区别是，由于没有 DOM 需要更新，因此不需要协调步骤。
+
+无头模式对于编写内部测试或在服务器上操作编辑器状态很有用。
+
+***
+
+## 数据模型
+
+富文本编辑器中存在一些核心实体——编辑器实例，其中包含编辑器状态、内容状态（节点）和选择状态。所有与编辑器相关的接口/类都将以`Editor`为前缀，以区别于同名的 DOM 类型。
+
+### 编辑器和 EditorState
+
+富文本编辑器的核心数据模型是`Editor`。页面上可以有多个富文本编辑器，每个`contenteditable` DOM 元素都与一个`Editor`实例相关联，其中每个实例都包含其自己的内容状态、选择状态、转换、侦听器、自定义等。
+
+在 TypeScript 中，核心实体类似于：
+
+```ts
+// https://github.com/facebook/lexical/blob/71880d22f63a8f2631352a7032a22f639238b306/packages/lexical/src/LexicalEditor.ts#L562
+interface Editor {
+  // Reference to contenteditable DOM element.
+  rootElement: HTMLElement | null;
+  // Both current and pending EditorStates.
+  editorState: EditorState;
+  pendingEditorState: EditorState | null;
+  // Non-core fields are omitted.
+}
+
+interface EditorState {
+  // Primarily contains content (nodes) and selection state.
+  nodes: EditorNodes;
+  selection: EditorSelection | null;
+}
+
+interface EditorNodes {
+  // Exact structure to be discussed.
+}
+
+interface EditorSelection {
+  // Exact structure to be discussed.
+}
+```
+
+### 内容状态（节点结构）
+
+要讨论的最重要的实体是内容状态——如何设计状态，使其能够存储由块和内联元素、样式、自定义节点等组成的富文本格式。
+
+最灵活的格式是类似树的结构。由于 DOM 是一棵树，树结构绝对有效。但是，让我们讨论一下可能的格式及其权衡。
+
+#### 节点
+
+请注意，大多数以文本为中心的文档（例如您正在阅读的当前文档）都由标题和段落块组成，并且在每个块级元素中，某些元素包含用于格式化的自定义内联元素，例如粗体、斜体、下划线等。节点是保存内容并在彼此之间具有层次关系的离散状态片段。内容状态包含标题节点、段落节点、文本节点等。
+
+让我们首先测试您对 DOM 的理解。在以下 HTML 中，创建了多少个 DOM `Node`？
+
+```html
+<p>Hello <strong>World</strong></p>
+```
+
+如果您回答 2，那么您就错了。浏览器中的文本必须使用 [`Text` nodes](https://developer.mozilla.org/en-US/docs/Web/API/Text) 呈现，因此实际上有 4 个节点：
+
+1. 段落元素 (`<p>`)
+2. 包含 `"Hello "` 的文本节点
+3. 强元素 (`<strong>`)
+4. 包含 `"World"` 的文本节点
+
+请注意，DOM `Element` 接口扩展自 DOM `Node` 接口。`Element` 也是 `Node`。
+
+更准确地说，创建的 DOM 如下所示：
+
+```jsx
+<HTMLParagraphElement>
+  <Text>Hello </Text>
+  <HTMLStrongElement>
+    <Text>World</Text>
+  </HTMLStrongElement>
+</HTMLParagraphElement>
+```
+
+内容状态的一个合理数据结构（非常类似于 DOM）是具有从 `EditorNode` 继承的 `ElementNode` 和 `TextNode`：
+
+* `ElementNode` 可以包含子节点，这些子节点可以是其他 `ElementNode` 或 `TextNode`。
+* `TextNode` 只能包含文本。由于它们不能包含任何其他节点，因此它们是叶节点。
+
+这些节点可以被子类化，例如 `HeadingNode` 和 `ParagraphNode` 继承自 `ElementNode`。
+
+![富文本编辑器树](/img/questions/rich-text-editor/rich-text-editor-tree.png)
+
+**注意**：这些是在富文本编辑器中实现的自定义接口/类，不要与 DOM `Element` 和 `Text` 混淆。
+
+```ts
+interface EditorNode {}
+
+interface ElementNode extends EditorNode {
+  children: Array<EditorNode>;
+}
+
+interface TextNode extends EditorNode {
+  text: string;
+}
+```
+
+通过类似于 DOM 的结构，我们可以表示各种可能的富文本内容和格式。
+
+**树形表示**：这些节点在 `EditorState` 中是如何表示的？一种直观的方式是在 JavaScript 中镜像生成的 DOM – 通过使用 `ElementNode` 子类作为根节点来实现 1:1 的树形表示。
+
+```ts
+{
+  type: "root",
+  children: [
+    {
+      type: "heading",
+      children: [
+        { type: "text", text: "Hello world" },
+      ]
+    },
+    {
+      type: "paragraph",
+      children: [
+        { type: "text", text: "Lorem " },
+        { type: "text", text: "ipsum", format: "bold" }
+      ]
+    }
+  ]
+}
+```
+
+许多富文本编辑器（例如 Slate.js、Draft.js）使用这种树状结构。它有效，但树并不是频繁更新最高效的数据结构。首先，树不能有效地访问其节点；访问深层叶节点需要从根开始遍历树。
+
+**带有子指针的 Map**：使用包含指向其他节点的指针的 `EditorNode` 的 `Map` 如何？
+
+```ts
+type NodeKey = string;
+
+type NodeMap = Record<NodeKey, EditorNode>;
+
+interface ElementNode extends EditorNode {
+  children: Array<NodeKey>;
+  // Can contain other fields, depending on the node type.
+}
+
+interface TextNode extends EditorNode {
+  text: string;
+}
+```
+
+![富文本编辑器树图](/img/questions/rich-text-editor/rich-text-editor-treemap.png)
+
+这个 `NodeMap` 给出与之前相同的树：
+
+![富文本编辑器树图](/img/questions/rich-text-editor/rich-text-editor-treemap-nodes.png)
+
+使用这种结构，获取对 `EditorNode` 的引用只需执行 `nodeMap.get(nodeKey)`。
+
+**带有子节点作为链表的 Map**：Lexical 开始使用包含 `children` 指针数组的 `EditorNode` 的 `Map`。最终，它转向双向链表（而不是数组）作为其子节点指针，作为性能优化以及父指针。所有 `EditorNode` 都可以有兄弟节点和父节点。`ElementNode` 具有对其第一个和最后一个子节点的附加引用（如果存在）。
+
+```ts
+type NodeKey = string;
+
+type NodeMap = Record<NodeKey, EditorNode>;
+
+interface EditorNode {
+  parent: NodeKey | null;
+  prev: NodeKey | null;
+  next: NodeKey | null;
+  // Can contain other fields, depending on the node type.
+}
+
+interface ElementNode extends EditorNode {
+  firstChild: NodeKey | null;
+  lastChild: NodeKey | null;
+  // Can contain other fields, depending on the node type.
+}
+
+interface TextNode extends EditorNode {
+  text: string;
+}
+```
+
+![富文本编辑器链表](/img/questions/rich-text-editor/rich-text-editor-linked-list.png)
+
+这个 `NodeMap` 给出与之前相同的树，但在节点之间有更多的指针。
+
+![富文本编辑器链表节点](/img/questions/rich-text-editor/rich-text-editor-linked-list-nodes.png)
+
+让我们看看这种 map + 链表结构的优缺点：
+
+**优点**
+
+* 单层 `Map`，极易克隆，无论是浅克隆还是深克隆
+* O(1) 访问任何 `EditorNode`，如果你知道 `NodeKey`
+* 高效地移除和添加子节点，因为子节点是一个双向链表
+* 提供对父节点的访问（不特定于链表实现）
+* 节点的重新父级化只是更新指针的问题
+
+**缺点**
+
+* 对内容进行的更新将需要仔细地更新多个 `EditorNode` 上的指针，类似于链表操作
+* 知道子节点的大小需要计数。这可以通过维护一个缓存在 `ElementNode` 上的大小字段来缓解，该字段在添加/删除子节点时更新
+* 获取一个节点的所有子节点需要从第一个节点遍历到最后一个节点
+* 难以用肉眼阅读（不太重要）
+
+#### 格式化
+
+在 DOM 中格式化文本时，一个棘手的问题是当字符具有多种格式时。例如，渲染文本 **Tarzan <u>and</u>** <u>Jane</u>。请注意：
+
+* “Tarzan” 加粗
+* “and” 加粗并带下划线
+* “Jane” 带下划线
+
+**嵌套标签**：在 HTML/DOM 中，有多种方法可以实现此格式。以下是一些可能的方法：
+
+* `<strong>Tarzan </strong><u><strong>and</strong> Jane</u>`
+* `<strong>Tarzan <u>and</u></strong><u> Jane</u>`
+* `<strong>Tarzan </strong><strong><u>and</u></strong><u> Jane</u>`
+
+这种方法的主要缺点在于，存在多种渲染格式化文本的 HTML 的方法，并且当文本具有更多格式（例如斜体或删除线）时，嵌套的方式也可能不同。 
+
+前两种方法使用嵌套标签进行格式化，当编辑已格式化的文本以添加/删除格式时，这可能会成为一个问题，编辑器需要引入更多元素进行格式化，或者在删除格式时删除正确的元素（甚至可能将它们组合起来）。考虑到复合格式的可能组合数量，正确实现编辑非常复杂。
+
+`contenteditable` 能够正确处理格式，但生成的 HTML 混乱且未优化。
+
+**格式范围**：另一种方法是使用格式范围（不要与选择范围混淆），其中每个格式都标有开始/结束索引。 **Tarzan <u>and</u>** <u>Jane</u> 将是：
+
+```js
+[
+  { start: 0, end: 10, format: 'bold' },
+  { start: 7, end: null, format: 'underline' },
+];
+```
+
+这种类似列表的格式肯定很方便，也更具可读性。但最终，要渲染到 DOM，列表必须首先转换为元素和文本节点。对文本的更新将需要计算以正确更新索引。
+
+**Lexical 的格式化方法**：让我们仔细看看 HTML 方法中的最后一个选项：
+
+```jsx
+<strong>Tarzan </strong><strong><u>and</u></strong><u> Jane</u>
+```
+
+这种方法避免在标签内具有多个相同级别的标签——嵌套标签将永远不会有兄弟 HTML 标签或兄弟文本节点。这是 Lexical 和 Slate.js 的文本格式化方法。
+
+尽管这种方法会产生最冗长的 DOM，但结构是扁平的，可以使用扁平的 `TextNode` 列表来表示：
+
+```jsx
+<TextNode text="Tarzan " format={["bold"]} />
+<TextNode text="and" format={["bold", "underline"]} />
+<TextNode text=" Jane" format={["underline"]} />
+```
+
+编辑文本的格式时，可能出现以下情况：
+
+* **添加文本格式**: `TextNode` 分裂成两个或多个 `TextNode`，其中一些具有新的格式。
+* **移除文本格式**: 编辑器只需查看周围的 `TextNode`，确定格式是否完全相同，如果是，则将它们组合成一个 `TextNode`。
+
+Lexical 和 Slate.js 都使用类似的内容结构，支持块和内联样式、元素和文本节点：
+
+* 内容主要由 `ElementNode` 和 `TextNode` 表示
+* `ElementNode` 可以包含子节点，这些子节点可以是其他 `ElementNode` 或 `TextNode`
+* 富文本编辑器中的所有可见文本都包含在作为叶节点的 `TextNode` 中
+* 只有 `TextNode` 具有格式，因为格式仅与文本相关
+
+*这些仅涵盖基本功能所需的核心字段。当我们深入研究下面的特定主题时，将添加更多字段。*
+
+### 选择状态
+
+在 Web 浏览器中，“选择状态”是指用户突出显示或选择的网页部分。这通常通过单击鼠标并在文本或其他内容上拖动鼠标来完成，从而导致其被突出显示。
+
+让我们首先更好地理解作为 DOM 一部分的浏览器中的 `Selection` 对象。以下是关键组件：
+
+1. **Selection 对象**：`Selection` 对象是 DOM 的一部分，提供对选择状态的访问。可以通过 JavaScript 中的 `window.getSelection()` 访问它。`Selection` 对象具有用于操作和检索有关选择的信息的方法和属性。
+2. **Anchor 和 Focus**：`Selection` 对象有两个主要点：anchor 和 focus。anchor 是选择的起始点。focus 是选择的终点。这些点可以是文本节点或元素节点以及一个偏移值，该值表示选择在节点内的偏移量。因此，anchor 和 focus 点是引用 `anchorNode` / `anchorOffset` 和 `focusNode` / `focusOffset` 对的组合。
+
+选择对象具有以下重要属性：
+
+```ts
+interface EditorSelection {
+  anchorNode: EditorNode | null;
+  anchorOffset: number;
+  focusNode: EditorNode | null;
+  focusOffset: number;
+  type: 'caret' | 'range';
+}
+```
+
+如果选择了一个或多个字符，则 `type` 将为 `Range`，否则将为 `Caret`，并且 `anchorNode`/`anchorOffset` 值与 `focusNode`/`focusOffset` 完全相同。
+
+**注意**：严格来说，`Selection` 对象包含一个或多个 [`Range` 对象](https://developer.mozilla.org/en-US/docs/Web/API/Range)。`Range` 对象表示文档的连续部分，从特定点开始和结束（类似于 `Selection` 对象上的 anchor 和 focus 点）。如果您有兴趣，`Range` 对象有一个很长的历史，但为了理解选择，您不必为此烦恼。
+
+#### 选择可以向后
+
+同样重要的是要注意选择方向！选择可以向后，并且 `focusNode` 可以出现在 `anchorNode` 之前。当用户从右向左突出显示文本时会发生这种情况，因此我们不能假设 `focusNode` 总是出现在 `anchorNode` 之后。
+
+记住这一点很重要，因为主要使用键盘导航的用户如果未考虑选择方向，可能会遇到困难。例如，<kbd>Shift</kbd> + <kbd>右箭头</kbd> 键应该在选择顺序为正向时扩展选择，但在选择顺序为反向时缩小选择。
+
+#### Lexical 中的选择如何工作
+
+`Editor` 维护其自己的 `Selection` 状态，该状态反映 `document.getSelection()`，但指向其自己的 `EditorNode`（在节点映射中）而不是 DOM 节点。它通过侦听 DOM 事件（例如 `document` 上的 `selectionchange` 或内容 UI 中的箭头键按下）来执行此操作。但是，由于 `selectionchange` 事件是全局的，因此事件处理程序在页面上的所有编辑器实例之间共享，因此它需要一种方法来知道哪个 `contenteditable` 正在被修改，方法是跟踪选择节点的父链，或者如果没有任何 `contenteditable` 处于焦点状态。
+
+### 总结
+
+以下是 `Editor` 实例中数据的概述，紧跟 Lexical 的内部状态模型。为了将内容呈现到 DOM，编辑器通过呈现节点，然后从 `firstChild` 指针和后续子节点的 `next` 字段开始迭代子节点，从而从根节点递归呈现。
+
+```ts
+interface Editor {
+  // Reference to contenteditable DOM element.
+  rootElement: HTMLElement | null;
+  // Both current and pending EditorStates.
+  editorState: EditorState;
+  pendingEditorState: EditorState | null;
+
+  // Non-core fields are omitted.
+}
+
+type NodeKey = string;
+
+interface EditorState {
+  // Primarily contains content (nodes) and selection state.
+  nodes: EditorNodeMap;
+  rootNodeKey: NodeKey;
+  selection: EditorSelection | null;
+}
+
+interface EditorNode {
+  parent: NodeKey | null;
+  prev: NodeKey | null;
+  next: NodeKey | null;
+}
+
+interface ElementNode extends EditorNode {
+  type: 'element';
+  firstChild: NodeKey | null;
+  lastChild: NodeKey | null;
+  // Can contain other fields, depending on the node type.
+}
+
+interface TextNode extends EditorNode {
+  type: 'text';
+  text: string;
+}
+
+type EditorNodeMap = Record<NodeKey, EditorNode>;
+
+interface EditorSelection {
+  anchorNode: EditorNode | null;
+  anchorOffset: number;
+  focusNode: EditorNode | null;
+  focusOffset: number;
+  type: 'caret' | 'range';
+}
+```
+
+***
+
+## 接口定义 (API)
+
+### `Editor` APIs
+
+以下 API 适用于 `Editor` 实例，并大量参考了 Lexical 的 `Editor` API，并进行了一些调整。虽然存在一些细微的差异，但它们并不关键。
+
+#### 初始化
+
+要讨论的第一个 API 是 `Editor` 实例的初始化。`Editor` 构造函数可以期望以下参数。
+
+| Name | Type | Description |
+| --- | --- | --- |
+| rootElement | Element | HTML 元素，用于挂载富文本编辑器 |
+| namespace | string | 每个编辑器实例的唯一标识符 |
+| initialEditorState | EditorState | 初始编辑器状态 – 内容节点和选择 |
+| nodesConfig | EditorNode 类的数组和子类 | 此编辑器支持的 EditorNode 类和子类的数组 |
+| theme | ThemeObject | 将节点类型映射到 CSS 类。请参阅下面的主题部分 |
+
+由于页面上可能存在多个富文本编辑器实例，因此允许指定一个 `namespace` 将非常有用，以便开发人员创建的侦听器可以识别正在编辑哪个实例。
+
+请参阅[此处完整的编辑器构造函数参数列表](https://github.com/facebook/lexical/blob/5a7d9c71d8b877f77f7d618ff228159433f4d520/packages/lexical/src/LexicalEditor.ts#L180)。
+
+#### 更新 API
+
+虽然大多数更新将由于用户直接在编辑器中编辑内容而发生，但提供以编程方式触发更新的方法会很有用。
+
+* `editor.update(callback: Function)`：一个接收包含当前 `EditorState` 的函数的 方法。对 `EditorState` 的修改将导致 DOM 更新。Lexical 有一个略有不同的 API，但动机类似。
+* `editor.setEditorState(editorState: EditorState)`：一个将当前编辑器状态替换为新编辑器状态的方法，将根节点标记为脏节点，并调用所有节点的完全协调。
+
+#### 序列化和反序列化 API
+
+* `editor.getEditorState()`：将当前的 `EditorState` 作为 JavaScript 对象（不是字符串）获取。这对于将编辑器状态传递给其他实例很有用。
+* `editor.getEditorStateSerialized()`：将 `EditorState` 的序列化版本作为 JSON 字符串获取。对于长期持久性（例如 `localStorage` 或通过网络发送以保存在数据库中），字符串表示是必需的。
+* `editor.parseEditorState(serializedEditorState: string)`：从 `editor.getEditorStateSerialized()` 获得的序列化字符串加载编辑器状态。
+
+#### 与事件相关的 API
+
+* `editor.dispatchCommand(command: string, payload: unknown)`：用于调度命令以更新编辑器的 方法，带有可选的特定于事件的有效负载。
+* `editor.registerCommand(command: string, callback: Function)`：注册一个在编辑器中调度命令时运行的函数。回调可以访问 `editor` 实例。
+* `editor.registerUpdateListener(callback: Function)`：注册一个在编辑器更新时运行的函数。
+* `editor.registerNodeTransform(nodeType: string, callback: Function)`：注册一个在更新阶段修改特定类型的 `EditorNode` 时运行的函数（发生在协调之前）。
+
+#### 查询 API
+
+请注意，有许多 API 接受可以读取和修改编辑器状态的回调函数。这些回调函数将需要一种很好的方式来查询 `EditorNode`，类似于 DOM 的 `document` 对象具有 `document.querySelectorAll()`、`document.getElementById()`、`document.getElementsByTagName()` 等。
+
+* `editor.getNodeByKey(nodeKey: string)`：给定其键，获取 `EditorNode`。
+* `editor.getElementByKey(nodeKey: string)`：给定其键，获取特定 `EditorNode` 的底层 HTML DOM `Element`。
+
+### `EditorNode` 接口
+
+实际上，`EditorNode` 上有更多 API。上面，我们提出了一个建议的 `EditorNode` `interface`。在 Lexical 中，这些基本节点（`LexicalNode`）被实现为具有执行以下操作的属性和方法的类：
+
+* **树结构**：用于维护树结构和同级顺序的属性。例如 `parent`、`prev`、`next` 等。
+* **查询**：用于查询父节点/同级节点的 方法。这些方法抽象了底层的“链接树”实现结构。例如 `getParent()`、`getNextSibling()` 等。
+* **协调**：用于在协调期间（初始渲染和更新）基于节点的属性创建和更新 DOM 元素的方法。例如 `createDOM()`、`updateDOM()`、`clone()`。
+* **序列化**：用于序列化为 JSON 字符串和从字符串反序列化的方法，用于导入/导出到持久层。例如 `exportJSON()`、`importJSON()`。
+
+由于我们能够获得对 `EditorNode` 实例的引用，因此拥有访问周围节点的 API 会很有用，类似于 DOM `Node` 接口具有 `childNodes`、`firstChild`、`lastChild`、`parentElement` 等属性。
+
+这些关于`EditorNode`的查询API很有用，因为:
+
+1. 可供希望在`editor.update()`和与事件相关的API回调中添加自定义行为的开发人员使用。
+2. 在更新和协调期间，有必要对节点进行遍历和操作。
+
+然而，作为一种良好的软件工程实践，不应暴露`EditorNode`的底层结构；开发人员不应该知道它们是如何作为“链接树”实现的，因此API应该作为方法而不是属性来实现，以隐藏实现细节。
+
+暴露实现细节可能导致库代码和开发人员代码之间更紧密的耦合，从而导致重大更改和糟糕的迁移体验。Lexical轻松地从带有子指针的map迁移到带有链表实现的map，因为它的API没有对内部状态的实现方式做出假设。
+
+#### `EditorNode` API:
+
+* `editorNode.getParent()`
+* `editorNode.getNextSibling()`
+* `editorNode.insertAfter()`
+* `editorNode.insertBefore()`
+* `editorNode.isSelected()`
+* `editorNode.getTextContent()`
+
+这里只提到了重要的API。有关更多可能的API，请参阅[`LexicalNode` API 文档](https://lexical.dev/docs/api/classes/lexical.LexicalNode)。
+
+#### `ElementNode` API:
+
+`ElementNode`可以有子节点，因此提供了额外的API来查询子节点。
+
+* `elementNode.getChildren()`
+* `elementNode.getFirstChild()`
+* `elementNode.getLastChild()`
+
+这里只提到了重要的API。有关更多可能的API，请参阅[`ElementNode` API 文档](https://lexical.dev/docs/api/classes/lexical.ElementNode)。
+
+#### `TextNode` API:
+
+`TextNode`是叶节点，它们主要关注文本格式。
+
+* `textNode.setTextContent()`
+* `textNode.setFormat()`
+* `textNode.getFormat()`
+
+这里只提到了重要的API。有关更多可能的API，请参阅[`TextNode` API 文档](https://lexical.dev/docs/api/classes/lexical.TextNode)。
+
+***
+
+## 优化和深入研究
+
+上面的章节概述了如何使用Lexical作为示例来设计现代的、可扩展的、模块化的文本编辑器。 让我们深入研究Lexical如何处理以下主题。
+
+### 详细更新循环
+
+在本节中，我们将详细解释整个更新循环，也就是当调用`editor.update(fn)`时会发生什么，无论是通过用户DOM事件（例如`input`、`keypress`）还是以编程方式调度的命令（例如来自工具栏）。
+
+1. **克隆状态**：编辑器对内容状态（即节点映射`Map<NodeKey, EditorNode>`）进行**浅克隆**。 创建一个单独的`Map`实例，但这些值都指向原始的`EditorNode`。
+2. **处理更新**：传递给`editor.update(fn)`的回调被调用
+   1. 只要`EditorNode`被修改，它们就会在修改前被克隆。
+   2. 克隆的内容状态将被更新以指向新的节点实例。
+   3. 修改后的节点及其父节点链被标记为脏。
+   4. 由于回调可以再次调用`editor.update(fn)`，编辑器会维护一个更新回调队列，并按顺序处理该队列。
+3. **处理转换**：调用所有已注册的转换。
+4. **协调**：5. 如果有任何脏节点，则从根节点开始并在所有子节点上递归调用协调函数。 6. 对于脏节点，协调函数根据新的`EditorNode`更新DOM。 7. 作为优化，如果`NodeKey`的新的和旧的`EditorNode`实例相同并且该节点未被修改，则可以跳过协调。 这意味着该节点或其整个子树中没有任何内容被修改。
+5. **处理监听器**：调用所有已注册的监听器。
+
+#### 协调
+
+上面，我们为`EditorNode`建议了一个`interface`。实际上，`LexicalNode`是 Lexical 的`EditorNode`版本，是[基类](https://github.com/facebook/lexical/blob/main/packages/lexical/src/LexicalNode.ts)，由具有以下结构/接口的其他节点扩展。
+
+```tsx
+// https://github.com/facebook/lexical/blob/main/packages/lexical/src/LexicalNode.ts
+export class LexicalNode {
+  /**
+   * 在协调过程中调用，以确定要插入到此 Lexical 节点的 DOM 中的节点。
+   */
+  createDOM(_config: EditorConfig, _editor: LexicalEditor): HTMLElement {
+    invariant(false, 'createDOM: base method not extended');
+  }
+
+  /**
+   * 当节点更改时调用，并应以任何必要的方式更新 DOM，以使其与可能发生的任何更改保持一致。
+   *
+   * 在这里返回“true”将导致词法分析器卸载并重新创建 DOM 节点（通过调用 createDOM）。例如，如果元素标签发生变化，则需要这样做。
+   *
+   * */
+  updateDOM(
+    _prevNode: unknown,
+    _dom: HTMLElement,
+    _config: EditorConfig,
+  ): boolean {
+    invariant(false, 'updateDOM: base method not extended');
+  }
+}
+```
+
+所有`LexicalNode`类都必须实现`createDOM()`和`updateDOM()`方法，用于协调目的：
+
+* `createDOM()`：在初始渲染期间或根 DOM 节点更改时调用。
+* `updateDOM()`：如果在协调阶段修改了`EditorNode`实例，则调用。此方法应包含协调逻辑——如果节点的`HTMLElement`可以重用，则节点应更新 DOM 的内容。如果它返回`true`，则调用`createDOM()`，原始 DOM 元素将被新返回的 DOM 元素替换。
+
+它们可以用作协调过程的一部分。
+
+1. **从根节点协调**：从新节点的根节点开始协调。
+2. **节点比较**：调用`node.updateDOM()`。如前所述，如果它返回`true`，则应从头开始创建一个新元素。否则，该方法应该已经修改了与该节点对应的 DOM 元素。
+3. **子节点协调**：如果旧节点或新节点之一是`ElementNode`，则通过使用节点的键来匹配旧子节点和新子节点，从而比较节点的子节点。
+   * **插入**：添加没有对应旧子节点的新子节点。
+   * **删除**：删除没有对应新子节点的旧子节点。
+   * **相同位置**：在旧节点和新节点上调用协调函数。
+   * **不同位置**：如果子节点的顺序发生了变化，则在父 DOM 元素中重新排序它们，然后在旧节点和新节点上调用协调函数。
+
+关于协调还有其他细微差别，但上述内容捕捉了总体思路。
+
+### 键盘快捷键
+
+开箱即用，Lexical 通过`'beforeinput'` DOM 事件支持常见的键盘快捷键，如复制、粘贴、剪切、粗体格式等。Lexical 核心监听`contenteditable`元素上的该事件，并使用[`event.inputType`值](https://w3c.github.io/input-events/#interface-InputEvent-Attributes)来确定用户意图的操作，拦截该事件，并分派相关的 Lexical 命令。
+
+使用规范化的 Lexical 命令（例如`DELETE_WORD_COMMAND`、`PASTE_COMMAND`等）的另一个好处是，开发人员可以专注于用户的意图，而不必担心不同操作系统、设备或键盘布局上的不同快捷方式。
+
+代码看起来像这样：
+
+```js
+// https://github.com/facebook/lexical/blob/24b58d8129a317f3467a6e81360fef0f042f04e4/packages/lexical/src/LexicalEvents.ts#L525
+$contentEditableElement.addEventListener('beforeinput', (event) => {
+  // Prevent default behavior since Lexical will handle it by modifying the nodes. event.preventDefault();
+  switch (event.inputType) {
+    case 'deleteContentForward':
+    case 'deleteHardLineForward':
+    case 'deleteSoftLineForward': {
+      editor.dispatchCommand('DELETE_LINE_COMMAND');
+      break;
+    }
+
+    case 'formatUnderline': {
+      editor.dispatchCommand('FORMAT_TEXT_COMMAND', 'underline');
+      break;
+    }
+
+    case 'formatBold': {
+      editor.dispatchCommand('FORMAT_TEXT_COMMAND', 'bold');
+      break;
+    } // Handle other cases...
+  }
+});
+```
+
+但是，`beforeinput`事件在浏览器之间没有标准化，因此 Lexical 也会监听`keydown`事件以确定是否有任何格式设置意图。此外，还会处理选择事件，例如导航。
+
+```js
+// https://github.com/facebook/lexical/blob/24b58d8129a317f3467a6e81360fef0f042f04e4/packages/lexical/src/LexicalEvents.ts#L996
+https: $contentEditableElement.addEventListener('keydown', (event) => {
+  const { key, ctrlKey, metaKey, altKey } = event;
+  event.preventDefault();
+
+  // All the isX() functions are utility functions to determine the
+  // key combinations pressed with support for
+  // different browsers and operating systems
+  if (isMoveForward(key, ctrlKey, altKey, metaKey)) {
+    dispatchCommand('KEY_ARROW_RIGHT_COMMAND');
+  } else if (isMoveBackward(key, ctrlKey, altKey, metaKey)) {
+    dispatchCommand('KEY_ARROW_LEFT_COMMAND');
+  } else if (isBold(key, altKey, metaKey, ctrlKey)) {
+    dispatchCommand('FORMAT_TEXT_COMMAND', 'bold');
+  } else if (isUnderline(key, altKey, metaKey, ctrlKey)) {
+    dispatchCommand('FORMAT_TEXT_COMMAND', 'underline');
+  } else {
+    // Other events
+  }
+});
+```
+
+开发人员也可以自由地使用 Lexical 核心之外的任何合适的方式附加他们自己的键盘事件处理程序。这些自定义键盘事件处理程序可以通过使用`editor.dispatchCommand()`来分派命令来与编辑器状态交互。
+
+### 主题
+
+大多数富文本编辑器呈现原始 HTML 元素，并将样式留给开发人员（粗体文本、下划线文本等格式除外），Lexical 也是如此。这意味着通过修改 CSS，开发人员可以随意设置富文本内容的样式。
+
+```html
+<div contenteditable="true" data-lexical-editor="true">
+  <h1>Hello World</h1>
+  <p><span>Goodbye Earth</span></p>
+</div>
+```
+
+```css
+/* 仅限于 Lexical 输出 */
+[data-lexical-editor='true'] h1 {
+  font-size: 32px;
+}
+
+[data-lexical-editor='true'] p {
+  font-size: 16px;
+}
+```
+
+Lexical 提供了另一种主题化方式，即接受一个可定制的主题对象，该对象将 `EditorNode` 类型映射到 CSS 类名。
+
+```js
+// Editor constructor/initializer accepts this `theme` object
+const theme = {
+  heading: 'editor-heading',
+  paragraph: 'editor-paragraph',
+  text: 'editor-text',
+};
+```
+
+当渲染 `HeadingNode`（`ElementNode` 的子类）时，DOM 元素将包含 `editor-heading` 类。
+
+*进一步阅读：https://lexical.dev/docs/getting-started/theming*
+
+### 自定义节点
+
+在 Lexical 中创建自定义节点需要扩展 `ElementNode`、`TextNode` 等基本节点，重写方法。在 Lexical 的核心中，`ParagraphNode` 已经扩展了 `ElementNode`。
+
+自定义节点也应该作为 `nodesConfig` 传递给 `Editor` 构造函数，`nodesConfig` 是 `Editor` 实例中支持的 `EditorNode` 列表。
+
+#### 自定义节点示例
+
+以下是 Lexical 文档中关于如何创建一个 `ColoredTextNode` 类的示例，该类在 `TextNode` 上具有颜色属性。
+
+```ts
+export class ColoredNode extends TextNode {
+  __color: string;
+
+  constructor(text: string, color: string, key?: NodeKey): void {
+    super(text, key);
+    this.__color = color;
+  }
+
+  static getType(): string {
+    return 'colored';
+  }
+
+  static clone(node: ColoredNode): ColoredNode {
+    return new ColoredNode(node.__text, node.__color, node.__key);
+  }
+
+  createDOM(config: EditorConfig): HTMLElement {
+    const element = super.createDOM(config);
+    element.style.color = this.__color;
+    return element;
+  }
+
+  updateDOM(
+    prevNode: ColoredNode,
+    dom: HTMLElement,
+    config: EditorConfig,
+  ): boolean {
+    if (prevNode.__color !== this.__color) {
+      dom.style.color = this.__color;
+    }
+
+    return false;
+  }
+}
+```
+
+*进一步阅读：https://lexical.dev/docs/concepts/nodes#creating-custom-nodes*
+
+### 监听器和命令
+
+监听器是在内部 Lexical 事件上触发的回调。最常见的类型之一是“更新”监听器，它是在更新完成后运行的代码。如果您想在每次更改时都执行某些操作，它们非常有用。例如，如果您想立即持久保存数据或更新您的用户界面以启用和禁用相应的工具栏按钮。更新监听器中的代码应该相当轻量级，因为它们是在每次按键时运行的。
+
+```js
+editor.registerUpdateListener(({ editorState }) => {
+  // Do something with editorState
+});
+```
+
+监听器旨在通用，并且大多数情况下您希望监听特定事件。这就是命令派上用场的地方。命令是可以被分派和监听的事件，以便编辑器和外部代码都可以响应它们。如果您熟悉 Redux、Flux 或 React 中的 `useReducer` 中的操作和 reducer 的概念，那么这个想法是相似的。
+
+Lexical 中的命令实际上是可以从 Lexical 核心导入的对象，但在我们的命令相关代码示例中，为了简单起见，我们使用了字符串。
+
+两个主要的命令相关 API 是：
+
+* `editor.dispatchCommand(command: string, payload: unknown)`：用于分派命令以更新编辑器的 方法，带有一个可选的有效负载。它返回一个可以用来清理监听器的拆卸函数。
+* `editor.registerCommand(command: string, callback: Function)`：注册一个将在编辑器中分派命令时运行的函数。回调可以访问 `editor` 实例。
+
+#### 停止传播
+
+没有提到的是，`registerCommand` 的回调可以返回 `true`，以向其他监听器发出信号，表明该命令已被处理，并且传播将被停止，就像 `event.propagation()` 一样。
+
+以下示例演示了如何通过为粗体命令注册侦听器，在编辑器中以自定义方式处理粗体格式。
+
+```ts
+editor.registerCommand('FORMAT_BOLD_COMMAND', (payload) => {
+  // 自定义代码以处理粗体格式。
+  return true;
+});
+```
+
+#### 优先级
+
+`editor.registerCommand()` 的第三个参数是一个数值优先级值，它决定了命令侦听器响应命令的顺序。
+
+```js
+export const COMMAND_PRIORITY_EDITOR = 0;
+export const COMMAND_PRIORITY_LOW = 1;
+export const COMMAND_PRIORITY_NORMAL = 2;
+export const COMMAND_PRIORITY_HIGH = 3;
+export const COMMAND_PRIORITY_CRITICAL = 4;
+```
+
+Lexical 核心或其第一方插件注册的侦听器将使用 `COMMAND_PRIORITY_EDITOR`（最低优先级），以便开发人员有机会拦截事件并自定义行为，甚至可能阻止传播。
+
+*延伸阅读：https://lexical.dev/docs/concepts/commands*
+
+### 转换
+
+命令提供了一种通过 `editor.registerCommand()` 响应内容更改的机制，但侦听命令并不是一种有效的方式来响应内容更新而更新内容。
+
+在早期开发 Lexical 时，Lexical 团队注意到，根据另一个更新进行更新是很常见的。例如，如果您想以某种方式设置一个标签的样式，您可以构建一个标签节点。然后，当用户输入一个井号时，您希望将其变成一个标签节点。但是，为了做到这一点，我们必须等待 Lexical 完成更新，然后在更新侦听器中，我们必须去读取新的状态，遍历所有节点以找出哪些节点有井号，并将它们更改为标签节点。
+
+转换是使用您关心的特定节点类型注册的，您将其传递到闭包中。转换在更新期间运行，在更新运行之后但在协调器之前。此时，我们有一个所有脏节点的列表。所有与脏节点的节点类型匹配的已注册转换都会被调用。然后，每个转换都有机会在运行协调器之前操作编辑器状态。因此，在标签示例中，我们可以在转换中检查脏节点中是否存在井号，这比必须检查整个节点树要有效得多。如果我们在转换中找到了井号，我们可以将该节点换成一个标签节点。
+
+这是一个示例，如果文本包含子字符串“congratulations”，则将其设为粗体。
+
+```ts
+const congratsTransform = editor.registerNodeTransform(TextNode, (textNode) => {
+  if (textNode.getTextContent().includes('congratulations')) {
+    textNode.setFormat('bold');
+  }
+});
+```
+
+如果您想验证用户可以放入文档的内容或用户允许使用的格式，转换也很有用。例如，如果您想禁止使用粗体文本，但又不想费力地创建文本节点的子类，那么您可以构建一个转换，在其中检查脏节点是否为粗体，如果是，则将其设置回非粗体。
+
+*延伸阅读：https://lexical.dev/docs/concepts/transforms*
+
+### 插件
+
+与许多框架不同，Lexical 不规定插件必须遵守的接口。在 Lexical 中，插件是命令、转换和自定义节点的组合。
+
+令人惊讶的是，Lexical 核心默认不支持富文本格式。富文本编辑是通过一个名为 `lexical-rich-text` 的插件完成的。来自 README 文件：
+
+> 此包为 Lexical 用户提供了一个起点，方法是注册一组基本命令的侦听器，这些命令涵盖了简单的文本编辑行为，例如输入文本、删除字符、复制 + 粘贴或使用箭头键更改选择。它还为富文本功能（例如标题、格式化文本和块引用）提供了默认行为。
+
+Lexical 的 [富文本插件代码](https://github.com/facebook/lexical/blob/main/packages/lexical-rich-text/src/index.ts) 包含自定义节点（如 `QuoteNode`、`HeadingNode`）的定义，以及许多 `editor.registerCommand()` 调用，以添加上述编辑行为。[Lexical Playground](https://playground.lexical.dev/) 是使用此富文本插件构建的。
+
+*延伸阅读：https://lexical.dev/docs/react/plugins*
+
+### 序列化和反序列化
+
+在 API 部分，提到了 `Editor` 实例具有导出和导入 `EditorState` 的方法。 这种方法在实践中是如何实现的？
+
+API 回顾：
+
+* `editor.getEditorStateSerialized()`：将 `EditorState` 的序列化版本作为 JSON 字符串获取。 字符串表示对于长期持久性（例如 `localStorage` 或通过网络发送以保存在数据库中）是必需的。
+* `editor.parseEditorState(serializedEditorState: string)`：从 `editor.getEditorStateSerialized()` 获得的序列化字符串加载编辑器状态。
+
+由于存在许多类型的节点（`EditorNode` 及其子类）甚至自定义节点，因此每个节点类型都应负责实现其自己的序列化和反序列化逻辑。
+
+```ts
+class EditorNode {
+  // 其他属性和方法省略。
+  exportJSON(): Object { … }
+
+  static importJSON(serializedNode: Object): EditorNode { … }
+}
+```
+
+在 `editor.getEditorStateSerialized()` 中，调用根节点的 `exportJSON()` 方法，并递归地调用其所有子节点。 最后，将 JavaScript 对象序列化为字符串。
+
+在 `editor.parseEditorState()` 中，调用每个节点类的 `importJSON()` 静态方法，并递归地调用其所有子节点。 最后，获得根 `EditorNode`。
+
+```ts
+class Editor {
+  // 节点序列化的伪代码
+  getEditorStateSerialized(): string {
+    function serialize(node: EditorNode): Object {
+      const nodeObject = node.exportJSON();
+      node.getChildren().forEach((childNode) => {
+        const childNodeObject = serialize(childNode);
+        nodeObject.children.push(childNodeObject);
+      });
+
+      return nodeObject;
+    }
+
+    const rootNodeObject = serialize(
+      this.editorState.nodes.get(this.editorState.rootNodeKey),
+    );
+    return JSON.stringify(rootNodeObject);
+  }
+
+  parseEditorState(stringifiedEditorState: string) {
+    function deserialize(nodeObject: Object): EditorNode {
+      // 将节点类型转换为 EditorNode 类
+      const NodeClass = getNodeClass[nodeObject.type];
+      const node: EditorNode = NodeClass.importJSON(nodeObject);
+      nodeObject.children.forEach((childNodeObject) => {
+        const childNode = deserialize(childNodeObject);
+        node.appendChild(childNode);
+      });
+      return node;
+    }
+
+    const rootNodeObject = JSON.parse(stringifiedEditorState);
+    const rootNode = deserialize(rootNodeObject);
+    this.editorState.rootNodeKey = rootNode.key;
+  }
+}
+```
+
+这些 JSON 序列化方法也适用于在同一命名空间的不同编辑器之间复制和粘贴内容。
+
+Lexical 的序列化功能超越了 JSON 序列化：
+
+* `EditorNode` 也可以实现 `exportDOM()` 和 `importDOM()` 方法，用于在 Lexical 和非 Lexical 编辑器之间复制和粘贴内容。
+* 版本号可以添加到序列化状态，反序列化逻辑可以访问该版本以处理节点的向后兼容解析。
+
+### 撤销/重做状态
+
+在 Web 应用程序中实现撤销/重做功能涉及以允许用户恢复（撤销）到先前状态或重新应用（重做）已恢复状态的方式管理状态更改。
+
+#### 典型的基于堆栈的方法
+
+在应用程序中实现撤销/重做功能的典型方法是维护一个状态堆栈和一个指向当前状态的指针。 当堆栈为空时，指针最初为 `null`。
+
+* **更新操作（当堆栈为空或指针位于堆栈顶部时）**：将新状态推入堆栈，将指针设置为堆栈的新顶部。
+* **撤销操作**：将指针减一。
+* **重做操作**：将指针加一。
+* **更新操作（当指针不在堆栈顶部时）**：删除指针之上的所有状态，将新状态推入堆栈，将指针设置为堆栈的新顶部。
+
+这种单状态堆栈方法可以使用数组或双向链表来实现。
+
+另一种方法是使用两个状态堆栈——一个用于撤销，另一个用于重做。 撤销将项目从撤销堆栈移动到重做堆栈，重做将项目从重做堆栈移动到撤销堆栈。 使用非空重做堆栈进行更新将清除重做堆栈。
+
+您是否知道默认情况下，纯 `contenteditable` 具有隐式的撤销/重做功能？ 在以下示例中试用它，编辑文本并使用 <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Z</kbd> 撤销，使用 <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Shift</kbd>+ <kbd>Z</kbd> 重做：
+
+<div style={{ border: '1px solid #7773', borderRadius: 8, padding: '0 16px' }} contentEditable={true} suppressContentEditableWarning={true}>
+  <strong>可撤销</strong>和<i>可重做</i>的文本。
+</div>
+
+然而，它仅适用于用户直接触发的输入编辑，而不适用于外部 DOM 更新。由于 Lexical 正在拦截用户事件，我们无法利用撤销/重做功能。
+
+#### Lexical 历史插件
+
+Lexical 提供了 [`@lexical/history`](https://github.com/facebook/lexical/tree/main/packages/lexical-history) 插件，用于向 Lexical 编辑器添加撤销/重做功能。它使用包含 `EditorState` 的双栈方法。该插件为 `UNDO_COMMAND` 和 `REDO_COMMAND` 命令添加了监听器。在监听器中，状态在堆栈之间移动，并在相关的地方调用 `editor.setEditorState()` 并使用新的当前状态。
+
+#### 结构共享
+
+撤销/重做状态中的值的一个隐含要求是，新状态不应影响旧状态。如果状态是共享相同对象引用（直接或在其内容中）的对象，则更改当前状态会影响以前的状态，从而影响撤销/重做功能。
+
+关于撤销/重做功能中的状态，有几种通用策略：
+
+* **不可变状态**：将每个状态存储为不可变的快照。这确保了当您撤销或重做操作时，您始终拥有可靠且未更改的状态版本以恢复。
+* **将状态存储为可变对象**：这可能更容易实现，但需要仔细管理以避免意外的更改。一种常见的方法是克隆当前状态以创建新状态，然后对其进行更改。根据克隆是深层克隆还是浅层克隆，由于大量重复的对象，内存使用量可能非常高。
+* **具有结构共享的不可变状态**：当对不可变数据结构进行修改时，仅复制受更改影响的结构部分。未更改的部分在旧版本和新版本之间共享。这大大减少了所需的内存量和修改的时间复杂度。诸如 [Immutable.js](https://immutable-js.com/) 和 [Immer.js](https://immerjs.github.io/immer/) 之类的库是用于创建在后台使用结构共享的不可变数据结构的库。
+
+Meta 的 [Draft.js](https://draftjs.org/) 是 Lexical 的前身，它使用 Immutable.js 来实现其 `EditorState`。然而，近年来，由于人们认为该库庞大，存在性能和可访问性问题，Immutable.js 已经失宠，因此 Meta 创建了 Lexical 来取代 Draft.js。
+
+Lexical 的 `EditorState` 是不可变的，但它不使用 Immutable.js 或任何其他不可变库。结构共享的实现方式非常巧妙。回想一下，`EditorState.nodes` 结构被实现为 `NodeKey`（字符串）到 `EditorNode` 类的 `Map`。当编辑器正在更新时，`Map` 结构正在被浅克隆。任何更新的 `EditorNode` 都将被克隆并在新的 `Map` 中使用，而原始 `Map` 中的节点保持不变。这就是 Lexical 保证不可变 `EditorState` 并且非常适合用于撤销/重做堆栈的方式。
+
+#### 撤销/重做粒度
+
+撤销/重做粒度是指捕获用户操作并可以撤销或重做的详细程度。实现正确的粒度对于提供良好的编辑体验，同时保持性能和准确性至关重要。
+
+* **操作级别粒度**：用户通常期望某些操作（如键入一个单词或应用格式）被组合成一个可撤销的操作。对于实用性而言，复杂的操作（例如格式化大块文本或插入表格）应作为单个操作捕获。
+* **性能**：极细的粒度可能导致性能问题，特别是如果单独记录每个按键。
+
+一些常见的粒度级别包括：
+
+* **字符级别**：捕获每个单独的按键。这可能导致非常细粒度的控制，但可能会使撤销堆栈不堪重负并降低性能。
+* **单词级别**：捕获字符组（例如，单词或短语）。这对于文本编辑来说更用户友好，因为用户通常以单词而不是字符来思考。
+* **操作级别**：将相关操作（例如应用样式或插入元素）分组为单个可撤销操作。
+* **事务级别**：将复杂的多步操作捕获为单个单元，通常用于协作编辑或复杂的文档操作。
+
+一些实现各种粒度级别的方法：
+
+* **去抖动**：去抖动可用于将紧密相关的操作（例如连续的按键）分组为单个可撤销操作。
+* **按意图批处理**：在一段时间或逻辑组上批处理操作可以帮助管理粒度。例如，将一个单词格式化为粗体，然后将下一个单词格式化为粗体，可以批处理为将两个单词加粗的单个操作。
+
+Lexical 将此批处理行为称为“合并”，连续的键入操作将被合并为单个撤销操作。在 Lexical 中，连续的键入事件仅限于这三个操作：
+
+* **向前键入字符**：普通按键。
+* **向后删除**：退格手势，包括退格键按下。
+* **向前删除**：向前删除手势，包括 <kbd>Delete</kbd> 键按下。
+
+*进一步阅读：https://lexical.dev/docs/concepts/history*
+
+### 实时协作编辑
+
+由于以下复杂性，实时协作编辑变得复杂：
+
+* **冲突解决**：当多个用户同时编辑文档的同一部分时，就会出现冲突。系统必须决定保留哪些更改或如何合并它们。
+* **撤销/重做**：撤销和重做应该只恢复您自己的更改，还是也恢复其他人的更改？
+
+实时协作编辑超出了富文本编辑器系统设计的范围，但 Lexical 的核心模型 + 命令架构允许实现实时协作功能；协作层可以在现有的编辑器核心下构建，并调度命令供编辑器核心执行。
+
+要深入了解协作编辑，我们建议阅读我们完整的[协作编辑器系统设计文章](/questions/system-design/collaborative-editor-google-docs)。
+
+操作转换 (OT) 和无冲突复制数据类型 (CRDT) 是处理文档中同时发生的冲突的方法。OT 通过根据操作发生时文档的状态转换用户操作来解决冲突。CRDT 通过专门设计的数据结构完全避免冲突，以便可以按任何顺序进行更新，并且客户端最终仍将收敛到一致的状态。
+
+无论采用哪种冲突处理方法，都需要一个网络层来实时通知客户端有关对等方所做的更新。长轮询、WebSocket 和服务器发送事件 (SSE) 都是可用的选项，而 WebSocket 是迄今为止最受欢迎的实时协作编辑方法。
+
+Lexical 在 `@lexical/react` 包中提供了 `LexicalCollaborationPlugin`，以启用基于协作 React 的 Lexical 编辑器，该编辑器构建在 [Yjs](https://github.com/yjs/yjs) 之上，Yjs 是无冲突复制数据类型 (CRDT) 的实现。该插件实现的核心思想：
+
+* 自定义 `ElementNode` 和 `TextNode`，其中包含用于与 Yjs 事件同步的特殊方法
+* 与 Yjs 的绑定。这些绑定将 Yjs 事件转换为 Lexical 模型更改，反之亦然
+
+### 性能
+
+Lexical 通过几个关键的设计选择和优化来保持性能：
+
+* **轻量级核心**：核心 Lexical 包的大小仅为 22 kb（min+gzip），保持了较低的初始加载时间。
+* **模块化架构**：Lexical 使用基于插件的系统，允许开发人员仅包含他们需要的功能。这种“按需付费”的方法有助于在项目扩展时保持性能。
+* **延迟加载支持**：Lexical 插件可以延迟加载和延迟初始化，推迟加载其他功能，直到用户与编辑器交互。这有助于提高初始加载性能。
+* **高效更新**：Lexical 使用不可变的编辑器状态模型，这允许进行高效的更新和比较。更新被批处理并通过单个 `editor.update()` 调用进行处理，从而防止级联更新。
+* **高效的协调方法**：Lexical 使用一种类似于 React 中虚拟 DOM 差异化的协调方法，从而允许进行高效的更新和渲染。
+
+### 可访问性
+
+以下是富文本编辑器的一些关键可访问性考虑事项，包括编辑器核心之外的内容。
+
+#### 键盘辅助功能
+
+* **焦点管理**：确保编辑器可以接收焦点，并且用户可以使用键盘在编辑器中导航。
+* **键盘快捷键**：为常见操作（例如，粗体、斜体、撤消）提供键盘快捷键。确保这些快捷键已记录并且不与现有的浏览器或屏幕阅读器快捷键冲突。上面讨论了键盘快捷键的实现。
+* **Tab 键顺序**：维护一个逻辑 Tab 键顺序，用于浏览工具栏选项和编辑器内容。
+
+#### 屏幕阅读器支持
+
+* **ARIA 角色和属性**：使用适当的 ARIA 角色（例如，`role="textbox"`、`role="toolbar"`）和属性来描述编辑器及其控件。查看 Lexical 向 `contenteditable` 元素添加了多少[ARIA 属性](https://github.com/facebook/lexical/blob/main/packages/lexical-react/src/shared/LexicalContentEditableElement.tsx)。
+* **实时区域**：使用 ARIA 实时区域来播报动态更改，例如格式更改或错误消息。
+* **标签和说明**：为所有编辑器控件提供清晰的标签和说明，并确保屏幕阅读器播报它们。仅限图标的按钮应使用 `aria-label`。
+
+#### 可见的焦点指示器
+
+确保所有交互式元素（包括编辑器本身和工具栏按钮）都具有可见的焦点指示器。这有助于依赖键盘的用户查看焦点所在位置。
+
+#### 语义 HTML
+
+* **语义标记**: 在编辑器中使用语义 HTML 元素（例如，`<strong>`、`<em>`、`<ul>`、`<ol>`、`<li>`）来传达含义。
+* **内容结构**: 确保维护内容结构，例如标题和列表，以提供逻辑阅读顺序。
+
+#### 语音转文本软件
+
+[Dragon NaturallySpeaking](https://www.nuance.com/dragon.html) 是一款流行的语音识别软件。Lexical 提供了一个 [lexical-dragon package](https://github.com/facebook/lexical/blob/main/packages/lexical-dragon/src/index.ts)，它监听 `window` 上的 `message` 事件（由 Dragon 调度），并将文本插入到编辑器中。
+
+### 国际化 (i18n)
+
+#### 从右到左的文本方向
+
+编辑器应同时支持从左到右 (LTR) 和从右到左 (RTL) 的文本方向。这不仅包括内容区域，还包括 UI 组件。
+
+在 Lexical 中，`ElementNode` 支持 `direction` 属性。在渲染节点中的子节点列表时，会考虑 direction 属性。
+
+#### 输入法编辑器 (IMEs)
+
+确保编辑器与 IMEs 无缝协作，IMEs 用于在需要复杂字符输入的语言（例如中文、日文和韩文）中进行输入。
+
+***
+
+## 参考资料
+
+* 文章
+  * [Why ContentEditable is Terrible. Or: How the Medium Editor Works | by Nick Santos](https://medium.engineering/why-contenteditable-is-terrible-122d8a40e480)
+* 开源
+  * [https://lexical.dev/](https://lexical.dev/)
+  * [https://docs.slatejs.org/](https://docs.slatejs.org/)
+* 视频
+  * [Rethinking Rich Text: A Deep Dive Into the Design of Lexical - Acy Watson](https://www.youtube.com/watch?v=EwoS0dIx_OI)
+  * [001: Intro to Lexical iOS — Lexical iOS Tutorial Series](https://www.youtube.com/watch?v=_maPaQy9jWY)

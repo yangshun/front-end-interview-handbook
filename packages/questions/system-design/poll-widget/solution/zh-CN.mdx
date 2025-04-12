@@ -1,0 +1,476 @@
+## 需求探索
+
+这些是您应该向面试官提出的问题，以便更深入地研究问题并完善需求。
+
+### 该组件最重要的方面是什么？
+
+* 易于将轮询小部件嵌入网站。
+* 选民的用户体验。
+
+### 小部件是否显示投票选项的人员的详细信息（例如缩略图）？
+
+我们是否显示该级别的详细信息将影响数据模型和 API。我们假设一个基本版本，我们只需要显示计数。
+
+### 用户可以对多个选项进行投票吗？
+
+是的，用户可以对多个选项进行投票。
+
+### 我们如何确定要呈现的每个选项条的长度/比例？
+
+您可以自由决定。
+
+### 选项应以什么顺序显示？按受欢迎程度/用户已投票/随机？
+
+受欢迎程度。
+
+### 如何确定选项？用户可以添加更多选项吗？
+
+轮询由网站所有者在单独的管理门户中创建，选项在轮询创建期间确定，之后无法修改。
+
+### 小部件中显示的选项数量是否有限制？
+
+选项的最大数量是 6。
+
+### 用户是否必须登录页面才能投票？
+
+任何人都可以投票，无论他们是否登录。 投票应针对同一用户保留。
+
+## 架构
+
+### 渲染方法
+
+我们应该首先评估可能的渲染方法，因为它会影响架构和后续讨论。
+
+一般来说，在页面上渲染外部小部件/组件有两种方法：
+
+* 在 `<iframe>` 中渲染（不同的浏览器上下文）
+* 直接在页面内渲染（相同的浏览器上下文）
+
+请注意，我们正在讨论如何渲染小部件，这与分发方法（如何运行渲染小部件的代码）不同。
+
+#### 在 `<iframe>` 中渲染（不同的浏览器上下文）
+
+`<iframe>`（内联框架）是页面上的一个 HTML 标签，它接受一个 `src` 属性，该属性是您要嵌入到宿主网站中的网站的 URL。
+
+流行的可嵌入小部件，例如 Facebook 的“赞”按钮、Twitter 的嵌入推文、YouTube 的嵌入视频和 Disqus 的嵌入评论，都是 `iframe`。 它们本质上是仅渲染要嵌入的内容的网站。
+
+查看这些示例，亲自看看：
+
+**Facebook 赞按钮**
+
+<iframe
+  src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&layout=standard&action=like&size=small&share=true&height=35&appId=560696510762145"
+  style={{
+  height: 35,
+  width: '100%',
+  maxWidth: 450,
+}}
+/>
+
+**Twitter 嵌入推文**
+
+<iframe
+  src="https://platform.twitter.com/embed/Tweet.html?dnt=false&embedId=twitter-widget-0&features=eyJ0ZndfdGltZWxpbmVfbGlzdCI6eyJidWNrZXQiOlsibGlua3RyLmVlIiwidHIuZWUiLCJ0ZXJyYS5jb20uYnIiLCJ3d3cubGlua3RyLmVlIiwid3d3LnRyLmVlIiwid3d3LnRlcnJhLmNvbS5iciJdLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2hvcml6b25fdGltZWxpbmVfMTIwMzQiOnsiYnVja2V0IjoidHJlYXRtZW50IiwidmVyc2lvbiI6bnVsbH0sInRmd190d2VldF9lZGl0X2JhY2tlbmQiOnsiYnVja2V0Ijoib24iLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X3JlZnNyY19zZXNzaW9uIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19jaGluX3BpbGxzXzE0NzQxIjp7ImJ1Y2tldCI6ImNvbG9yX2ljb25zIiwidmVyc2lvbiI6bnVsbH0sInRmd190d2VldF9yZXN1bHRfbWlncmF0aW9uXzEzOTc5Ijp7ImJ1Y2tldCI6InR3ZWV0X3Jlc3VsdCIsInZlcnNpb24iOm51bGx9LCJ0Zndfc2Vuc2l0aXZlX21lZGlhX2ludGVyc3RpdGlhbF8xMzk2MyI6eyJidWNrZXQiOiJpbnRlcnN0aXRpYWwiLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2V4cGVyaW1lbnRzX2Nvb2tpZV9leHBpcmF0aW9uIjp7ImJ1Y2tldCI6MTIwOTYwMCwidmVyc2lvbiI6bnVsbH0sInRmd19kdXBsaWNhdGVfc2NyaWJlc190b19zZXR0aW5ncyI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfdmlkZW9faGxzX2R5bmFtaWNfbWFuaWZlc3RzXzE1MDgyIjp7ImJ1Y2tldCI6InRydWVfYml0cmF0ZSIsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9mcm9udGVuZCI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9fQ%3D%3D&frame=false&hideCard=false&hideThread=false&id=1141039841993355264&lang=en&origin=https%3A%2F%2Fhelp.twitter.com%2Fen%2Fusing-twitter%2Fhow-to-embed-a-tweet&sessionId=a508612a6d2d572621ff9073f1c52dca0cc628da&theme=light&widgetsVersion=1c23387b1f70c%3A1664388199485"
+  style={{
+  height: 396,
+  width: '100%',
+  maxWidth: 400,
+}}
+  frameBorder={0}
+  scrolling="no"
+/>
+
+使用 `iframe` 是将您的内容嵌入到第三方网站中的一种非常常见的技术。 对于轮询小部件，该小部件将是定义为 `iframe` 的 `src` 的网站上呈现的唯一 UI。
+
+**优点**
+
+* `iframe` 是一个单独的网站，因此是一个单独的 [浏览上下文](https://developer.mozilla.org/en-US/docs/Glossary/Browsing_context)。 `iframe` 的内容与托管站点隔离，反之亦然。
+  * 小部件的样式不会受到宿主网站的任何 CSS 的影响。
+  * 小部件的 JavaScript 环境不受在宿主网站上运行的脚本的影响，这些脚本可能包含 polyfill 或 monkeypatching，从而以不可预测的方式影响运行时行为。
+* 设置简单，因为在页面上添加 `<iframe>` 仅涉及更改 HTML。 用户不需要太多技术知识即可实现这一点。
+
+**缺点**
+
+* 需要一个 Web 服务器来托管呈现该小部件的网站。这不是什么大问题，因为无论如何都需要一个 Web 服务器来提供轮询结果。根据您构建的网站类型，此设置的范围可以从简单到复杂。
+* 加载一个单独的网站比直接将其呈现在页面中要慢。
+* 由于隔离，宿主网站无法使用 CSS 自定义组件内部。
+
+有两种常见的方法可以在页面上获取 `<iframe>`，以 [Facebook 的“赞”按钮开发者文档](https://developers.facebook.com/docs/plugins/like-button/) 为例：
+
+**1. 运行 JavaScript 代码，动态地将 `<iframe>` 添加到 DOM 中。**
+
+![Facebook 赞按钮插件文档 JavaScript SDK](/img/questions/poll-widget/fb-like-button-plugin-docs-js-sdk.png)
+
+**2. 将 `<iframe>` 代码直接嵌入到 HTML 中。**
+
+![Facebook 赞按钮插件文档内联框架](/img/questions/poll-widget/fb-like-button-plugin-docs-iframe.png)
+
+JavaScript 方法的好处是，脚本可以根据环境自定义 iframe 渲染（例如主题、大小）。`<iframe>` 方法更简单，但灵活性较差。
+
+#### 在页面内渲染（相同的浏览器上下文）
+
+就像脚本可以动态地将 `<iframe>` 注入到 DOM 中一样，它也可以直接添加渲染轮询和轮询结果所需的 DOM 元素。
+
+**优点**
+
+* 在同一页面中快速渲染轮询小部件。
+
+**缺点**
+
+* 轮询小部件可能会受到宿主网站的 JavaScript 环境和全局样式的 影响。无法确定存在什么样的全局样式，并且小部件的外观很可能会受到网站 CSS 的影响。
+
+问题是如何在页面上运行第三方 JavaScript 以实现上述目的。
+
+**1. 通过 CDN 下载脚本。**
+
+这种方法类似于 Facebook 的“赞”按钮 JavaScript SDK 方法，即通过在页面中添加一个 `<script>` 标签来下载和执行一些外部 JavaScript。
+
+**2. 通过 `npm` 分发代码**
+
+`npm` 是 JavaScript 项目的包管理器，小部件代码可以打包成一个 npm 项目，以便项目可以将其添加为依赖项。网站所有者需要具备如何将新的 `npm` 包添加到其 `package.json` 中的技术知识。
+
+仅通过 `npm` 分发不是一个好主意，因为并非所有网站都是使用基于 JavaScript 的构建系统构建的。像 Wordpress、Webflow 和 Blogger 这样的低代码网站不允许通过 npm 在页面上包含第三方 JavaScript 代码。
+
+#### 哪种渲染方法更好？
+
+对于嵌入小部件，由于 `iframe` 提供的样式和环境的封装，`<iframe>` 方法显然更好。
+
+#### 哪种分发方法更适合渲染 `<iframe>`？
+
+直接在 HTML 中嵌入 `<iframe>` 是最简单的方法，使用基于 `<script>` 的方法的好处并不多。也就是说，如果能让开发者选择这两种方法就好了。Facebook 和 YouTube 都提供了 JavaScript SDK 和直接 `<iframe>` 嵌入选项。
+
+下面的讨论将假设使用 `<iframe>` 嵌入方法。
+
+### 图表
+
+![Poll Widget Architecture](/img/questions/poll-widget/poll-widget-architecture.png)
+
+### 组件职责
+
+* **Host Website**: 嵌入该小部件作为 `<iframe>` 的宿主网站。
+* **App Server**: 通过提供所需的 HTML、CSS、JavaScript 将小部件 UI 呈现为网站。
+* **API Server**: 返回小部件的投票结果 JSON 数据并接受新投票的服务器。
+* **Client Store**: 与 API 服务器交互并存储 UI 数据的模块。
+* **Polls UI**: 投票选项的 UI。
+
+*注意：为了清晰起见，**App Server** 和 **API Server** 已被拆分为单独的组件，但它们可以是具有相同域的同一服务器。
+
+***
+
+## 数据模型
+
+轮询小部件的数据模型非常简单。类似这样的就足够了：
+
+```js
+const state = {
+  lastUpdated: 1628634891,
+  totalVotes: 421,
+  question: 'Which is your favorite JavaScript library/framework?',
+  options: [
+    {
+      id: 123,
+      label: 'React',
+      count: 234,
+      userVotedForOption: false,
+    },
+    {
+      id: 124,
+      label: 'Vue',
+      count: 183,
+      userVotedForOption: true,
+    },
+    {
+      id: 125,
+      label: 'Svelte',
+      count: 51,
+      userVotedForOption: true,
+    },
+    // ...
+  ],
+  // Which option(s) the user has selected.
+  selectedOptions: [124, 125],
+};
+```
+
+只有 `selectedOptions` 字段是仅客户端状态，其余字段是服务器生成的数据。
+
+***
+
+## 接口定义 (API)
+
+有三种 API 需要讨论：
+
+* **Embed API**: 网站应如何嵌入 `<iframe>`。
+* **Components API**: 如何构建轮询小部件以及组件接受的 props。
+* **Server APIs**: 用于获取结果、记录新投票和删除投票的 HTTP API。
+
+### Embed API
+
+应向网站提供一些代码，以便复制和粘贴以呈现轮询小部件。`iframe` 的 `src` 属性应为特定于轮询实例的唯一 URL。
+
+```html
+<iframe
+  src="https://greatpollwidget.com/embed/{poll_id}"
+  style="border:none;overflow:hidden"
+  title="Poll widget for your favorite JavaScript framework"
+  frameborder="0"
+  scrolling="no"
+  style={{
+    height: 200,
+    width: '100%',
+    maxWidth: 450,
+  }}
+  />
+```
+
+默认情况下，`iframe` 使用默认样式呈现，因此 `frameborder="0"`、`scrolling="no"` 等属性和内联样式有助于删除边框和滚动条，使小部件看起来像是页面的一部分，而不是明显地由 `iframe` 呈现。
+
+### Components API
+
+* `Poll`
+  * Server URL
+* `PollOptionList`
+  * 显示的最大选项数
+* `PollOptionItem`
+  * 标签
+  * 选项的投票数
+  * 事件处理程序：`onClick`
+
+```jsx
+// React 中的示例代码
+<Poll submitUrl="https://greatpollwidget.com/submit/{poll_id}">
+  <PollOptionList>
+    {options.map((option) => (
+      <PollOptionItem
+        key={option.id}
+        label={option.label}
+        count={option.count}
+        isSelected={option.userVotedForOption}
+        onVote={() => {
+          submitVote(option.id);
+        }}
+        onUnvote={() => {
+          removeVote(option.id);
+        }}
+      />
+    ))}
+  </PollOptionList>
+</Poll>
+```
+
+### 服务器 API
+
+理想情况下，服务器 API 应在同一域上提供服务，这样就不需要处理 CORS，例如 `https://greatpollwidget.com/api/{poll_id}/results` 和 `https://greatpollwidget.com/api/{poll_id}/submit`。
+
+#### 获取结果
+
+API 应该以什么格式返回结果？
+
+**1. 返回选项和每个选项的计数**：服务器返回类似如下内容：
+
+```json
+{
+  "totalVotes": 421,
+  "question": "你最喜欢的 JavaScript 库/框架是什么？",
+  "options": [
+    {
+      "id": 123,
+      "label": "React",
+      "count": 234,
+      "userVotedForOption": false
+    },
+    {
+      "id": 124,
+      "label": "Vue",
+      "count": 183,
+      "userVotedForOption": false
+    },
+    {
+      "id": 125,
+      "label": "Svelte",
+      "count": 51,
+      "userVotedForOption": false
+    }
+  ]
+}
+```
+
+* 优点
+  * 客户端不需要对结果进行制表，只需渲染结果即可。
+  * 负载很小，只包含需要显示的确切数据。
+* 缺点
+  * 服务器必须进行处理，但可能更好，因为服务器可以缓存/记忆结果，尤其是对于热门投票，并为不同的用户返回缓存的结果。
+  * 服务器将需要不时更新制表。 这是一个很好的用例，适用于 Redis/Memcached 等内存键/值存储。
+
+**2. 原始的投票回复列表**：服务器返回类似如下内容：
+
+```json
+{
+  "question": "Which is your favorite JavaScript library/framework?",
+  "options": [
+    {
+      "id": 123,
+      "label": "React"
+    },
+    {
+      "id": 124,
+      "label": "Vue"
+    },
+    {
+      "id": 125,
+      "label": "Svelte"
+    }
+  ],
+  "votes": [
+    {
+      "optionId": 123,
+      "createdAt": 1628634891
+    },
+    {
+      "optionId": 123,
+      "createdAt": 1628634892
+    },
+    {
+      "optionId": 124,
+      "createdAt": 1628634893
+    }
+    // ...
+  ]
+}
+```
+
+* 优点
+  * 可以在客户端完全进行制表，因此排序/过滤没有任何网络延迟。
+* 缺点
+  * 当有很多回复时，无法很好地扩展，网络负载将非常大。
+  * 客户端需要对投票进行制表，这在低端设备上以及有很多投票时可能会很昂贵。
+
+**选择哪个？**
+
+直接返回计数通常是更好的选择，因为通常不需要在客户端对数据进行制表或操作，对于有成千上万张选票的热门投票，这种方法无法扩展。
+
+#### 提交投票和取消投票
+
+投票提交/取消投票 API 可以接受选项 ID 列表，并以与投票结果获取 API 类似的格式返回更新后的投票结果。
+
+***
+
+## 优化和深入研究
+
+{/* TODO: 讨论渲染方法：SSR 与 CSR */}
+
+### 跨会话保留投票
+
+因为任何人都可以投票，而无需先登录，所以我们需要一种方法来跨会话识别用户，否则用户在关闭浏览器标签后将看不到他们已经投票。
+
+我们可以使用 cookie 通过生成基于字符串的唯一指纹（例如使用 `uuid`）来唯一标识每个用户，以在初始加载期间用作用户 ID cookie（如果不存在现有的用户 ID cookie）。
+
+这有助于投票小部件网站识别用户，以跟踪他们已经投票的选项，并防止用户多次投票给同一选项。
+
+请注意，用户可以通过使用不同的浏览器或在不同的设备上绕过此问题。防止这种滥用的唯一方法是进行用户身份验证。
+
+### 渲染投票选项
+
+轮询结果由多个不同宽度的条形图组成，并且有多种渲染此类结果的方法。值得讨论渲染不同宽度条形图的各种方法。
+
+#### 完整条形图代表什么
+
+一个完整的条形图可以有两种常见的表示方式：
+
+1. 全宽表示所有响应的 100%。如果一个选项占总数的 X%，它将占据容器宽度的 X%。
+   * 选项比例的准确表示
+   * 如果比例非常均匀并且有很多选项的百分比很低，则不好。难以辨别，因为许多条形图会非常短
+2. 投票最多的选项以全宽呈现，其他选项是其比例。例如，投票最多的选项占总票数的 40%，但将占据整个容器宽度。如果另一个选项是 20%，它将占据一半的宽度。
+   * 用于突出显示选项之间的相对差异。
+   * 可能会给观看者一个错误的印象，即投票最多的选项的比例高于实际比例。
+
+第一个选项是更常见的选项，Reddit 和 Twitter 都在使用。
+
+{/* TODO: 添加演示来说明 */}
+
+#### 渲染动态宽度的条形图
+
+一个选项的投票数除以总投票数将是渲染条形图的全宽的比例。例如，一个选项的 400 票除以总共 1000 票将意味着该条形图应渲染全宽的 40%。由于宽度的可能值有无数个，因此使用静态 CSS 类来渲染特定宽度的条形图是不切实际的。更好的方法是使用在渲染期间动态生成的内联样式。
+
+**1. 使用 CSS `width` 内联样式**：这是最常见的方法，唯一的小缺点是，如果需要对条形图的展开/收缩进行动画处理，则 `width` 属性的动画比 `transform` 慢。但是，该小部件大多是静态的，因此动画问题基本不存在。
+
+```html
+<div style="width: 40%">React</div>
+<div style="width: 30%">Vue</div>
+```
+
+**2. 使用 `transform: scaleX()` 样式**：此方法涉及水平缩放元素。
+
+```html
+<div style="transform: scaleX(40%)">React</div>
+<div style="transform: scaleX(30%)">Vue</div>
+```
+
+请注意，`scaleX()` 也会转换其中的内容，并使其水平压缩。
+
+我们应该使用小部件全宽的百分比，而不是在页面加载时计算一次的硬编码像素值，这样，如果小部件被调整大小，条形图的宽度将被更新。可以使用 `width` 和 `transform: scaleX()` 来实现百分比宽度。
+
+如果我们对一些精度损失没有问题，那么我们可以有 101 个类名，用于 0 到 100 的百分比。但总的来说，这不是一个好方法，内联样式是首选方法。
+
+### 用户体验
+
+* 当轮询仍在加载时，不要显示微调器，而是在条形图的形状中使用 [shimmer 加载效果](https://docs.flutter.dev/cookbook/effects/shimmer-loading) 来提示这是一个轮询，并减少轮询加载后的布局抖动。
+* 在用户投票之前应隐藏轮询结果，以减少偏差。
+* 考虑为只想查看结果而不想投票的人提供“查看回复”功能。
+
+### 性能
+
+#### 快速渲染
+
+如前所述，为了实现结果的快速渲染，服务器 API 应该返回表格化的结果，而不是原始结果，这样客户端就不需要对结果进行任何表格化处理。
+
+更倾向于使用服务器端渲染进行初始加载，而不是通过 AJAX `fetch` 轮询结果，以实现快速初始加载。
+
+#### 通过乐观更新实现快速交互
+
+乐观更新是一种技术，浏览器在服务器请求发出后会显示新的 UI 状态，甚至在收到服务器的响应之前。由于客户端在初始加载期间拥有当前结果，因此可以在客户端增加新投票的选项并计算所有条形图的新比例。
+
+但是，也有一些注意事项：
+
+* 这种优化对于投票数很少的投票更有效，因为每次新投票都会对视觉结果产生明显的影响。对于已经有很多投票（>500）的投票，额外的投票不会导致宽度有明显差异。对于此类投票，可以跳过乐观更新。
+* 如果投票很受欢迎，人们不断对其进行投票，客户端计算可能会过时，因为服务器响应将包含自首次加载该小部件以来许多新的投票。
+
+在大多数情况下，客户端可以先渲染乐观更新，然后使用来自服务器的最新结果再次渲染。
+
+#### 可扩展性问题
+
+鉴于最多只有 6 个选项，我们不会遇到渲染太多选项和导致 DOM 尺寸过大的问题。但如果遇到，我们可以在一个具有最大高度的容器中使用虚拟化列表，以防止组件过高，并且仅渲染容器内的屏幕选项。
+
+### 可访问性
+
+#### 屏幕阅读器
+
+轮询小部件本质上是非常直观的 UI 元素，我们需要特别注意，以确保依赖屏幕阅读器的用户仍然可以理解屏幕上显示的内容。
+
+* 屏幕阅读器用户将不知道条的长度，因此需要使用 `aria-label`、`title`、`aria-describedby` 来指示轮询选项的名称、投票数和百分比（如果它们不在呈现的视觉输出中）。
+* 使用 `aria-live` 来播报客户端收到服务器响应时结果值的任何更改的更新。
+* 选项的 ARIA 角色：对于只能选择一个选项的轮询，使用 `role="radiogroup"` 和 `role="radio"`。
+
+#### 键盘交互
+
+* 建议使用 `<button>` 渲染轮询选项，但如果出于某种原因要使用 `<div>`，则应通过添加 `tabindex="0"` 和 `role="button"` 属性使其可聚焦。
+
+### 网络
+
+* 如果有人快速连续投票/取消投票，请求响应可能会乱序
+  * 跟踪最新的响应并忽略过时的响应。
+* 如果 API 提交失败，在 UI 中显示错误。
+
+### 国际化 (i18n)
+
+如果需要对轮询中的字符串进行 i18n，尤其是来自轮询创建者之外的字符串（例如 `aria-label`），`iframe` 嵌入 URL 可以接受语言的查询参数，并且由网站所有者提供正确的语言。
+
+***
+
+## 参考
+
+* [Facebook Like Button](https://developers.facebook.com/docs/plugins/like-button/)
+* [Twitter's Embedded Tweets](https://developer.twitter.com/en/docs/twitter-for-websites/embedded-tweets/overview)
+* [Disqus Universal Embed Code](https://help.disqus.com/en/articles/1717112-universal-embed-code)
+
+{/* TODO: Talk about security like CORS, CSRF, CSP */}

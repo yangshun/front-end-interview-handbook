@@ -1,0 +1,351 @@
+## 需求探索
+
+### 可以同时打开多个下拉菜单吗？
+
+是的，可以。
+
+### 菜单将包含什么内容？
+
+仅文本，没有可聚焦的元素。
+
+### 菜单中允许的最大项目数是多少？
+
+没有固定的最大值，但最好不要超过 20 个项目，以获得更好的用户体验。
+
+### 用户在自定义设计方面有多大的灵活性？
+
+用户应该能够自定义颜色、字体、填充等，以匹配他们的品牌。
+
+### 此组件将在哪些设备上使用？
+
+所有设备 — 手机、平板电脑、桌面。
+
+***
+
+{/* ## TODO: Background, discuss when dropdown menus should be used. */}
+
+## 架构/高级设计
+
+在 React 中使用下拉菜单的示例，省略了事件处理程序。
+
+```jsx
+<DropdownMenu>
+  <DropdownMenu.Button>Actions</DropdownMenu.Button>
+  <DropdownMenu.List>
+    <DropdownMenu.Item>New File</DropdownMenu.Item>
+    <DropdownMenu.Item>Save</DropdownMenu.Item>
+    <DropdownMenu.Item>Delete</DropdownMenu.Item>
+  </DropdownMenu.List>
+</DropdownMenu>
+```
+
+| Component | Role |
+| --- | --- |
+| Dropdown Menu (`DropdownMenu`) | 根组件，协调内部组件之间的事件。 |
+| Menu Button (`DropdownMenu.Button`) | 切换`DropdownMenu.List`显示状态的按钮。 |
+| Menu List (`DropdownMenu.List`) | 包含项目列表。 |
+| Menu List Item (`DropdownMenu.Item`) | 单个列表项。 |
+
+在 React 中，组件可以使用 context 或 props 与其父组件通信。我们选择在这里使用 context，因为我们在这里使用组合模型，传递 props 并不方便。`<DropdownMenu>` 应该包含一个 context provider，它向其所有子组件提供状态值（参见数据模型部分）。
+
+***
+
+## 数据模型
+
+请注意，对于设计组件，先设计接口/API或同时设计数据模型和API可能是有意义的。这取决于手头的组件。随意在两个部分之间跳转。
+
+| 状态 | 类型 | 描述 |
+| --- | --- | --- |
+| `isOpen` | `boolean` | 菜单当前是打开还是关闭。 |
+| `activeItem` | `string` | 获得焦点的菜单项。我们需要这个的原因是悬停在菜单项上会更改活动项。通过在状态中跟踪此值，我们可以响应键盘交互，要么聚焦于上一个/下一个项目，要么激活它。
+
+这些状态值位于`<DropdownMenu>`中，并通过React上下文提供给所有组件。
+
+有关配置选项，请参见下文，这些选项也是数据模型的一部分。
+
+***
+
+## 接口定义 (API)
+
+### 一般属性
+
+这些属性适用于大多数组件。
+
+| 属性 | 类型 | 描述 |
+| --- | --- | --- |
+| `children` | `React.Node` | 组件的子项。如果使用TypeScript/Flow，您可以强制使用特定的组件作为`children`。 |
+| `as` | `string \| Component` | 如果需要自定义底层DOM元素/组件。 |
+| `className` | `string` | 要添加到组件的类名，以防需要进一步的视觉定制。可能需要也可能不需要，具体取决于主题方法。
+
+### `DropdownMenu`
+
+| 属性 | 类型 | 描述 |
+| --- | --- | --- |
+| `isInitiallyOpen` | `boolean` | 菜单最初是打开还是关闭。 |
+| `size` | `string` | 用于自定义大小的属性。仅在需要自定义时才需要。 |
+
+### `DropdownMenu.Button`
+
+| 属性 | 类型 | 描述 |
+| --- | --- | --- |
+| `onClick` | `function` | 尽管打开/关闭将在`DropdownMenu`中处理，但如果需要执行其他逻辑（例如分析日志记录），则公开`onClick`属性很有用 |
+| 其他`button`属性 | \* | 由于此组件通常是`<button>`，因此它也应允许`<button>`期望的其他属性，例如`disabled`
+
+### `DropdownMenu.List`
+
+| 属性 | 类型 | 描述 |
+| --- | --- | --- |
+| `maxHeight` | `number \| undefined` | 菜单列表的最大高度。应该有一个大约200-300px的合理默认值。 |
+| `position` | `string` | 列表相对于按钮的位置。
+
+### `DropdownMenu.Item`
+
+| 属性 | 类型 | 描述 |
+| --- | --- | --- |
+| `onClick` | `function` | 激活项目时触发。可能的响应包括导航到另一个页面。 |
+| `disabled` | `boolean` | 项目是否已禁用。禁用项目无法激活，并且在使用键盘与菜单交互时可以选择跳过。 |
+
+### 自定义外观
+
+用于自定义UI组件的良好API设计可以在[前端面试指南的UI组件API设计原则部分](/front-end-interview-guidebook/user-interface-components-api-design-principles)中找到。
+
+***
+
+## 优化和深入探讨
+
+### 渲染
+
+由于菜单是“浮动”的，并且没有完全遵循页面元素的正常流程，因此渲染下拉菜单可能非常棘手。
+
+#### 布局
+
+有两种常见的方法可以在按钮附近渲染下拉菜单。我们为每种布局方法提供了最少的代码示例。
+
+**相对于按钮**
+
+在这种方法中，我们用 `position: relative` 包裹一个 `<div>`，围绕 `<button>` 和菜单。菜单使用 `position: absolute`，这使其相对于其最近的定位祖先定位，即根 `<div>`。
+
+<iframe
+  src="https://codesandbox.io/embed/dropdown-menu-relative-button-emxn9u?fontsize=14&hidenavigation=1&theme=dark&module=/src/App.js,/src/styles.css&view=split"
+  style={{
+  width: '100%',
+  height: 500,
+  border: 0,
+  borderRadius: 4,
+  overflow: 'hidden',
+}}
+  title="相对于按钮触发器的下拉菜单"
+  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+/>
+
+此方法很简单，不需要太多计算元素及其在页面上的位置，但是具有 `overflow: hidden` 的父容器可能会剪切菜单及其内容，或者可能存在 `z-index` 问题。
+
+这种方法被 [Headless UI](https://headlessui.com/react/menu) 和 [Bootstrap](https://getbootstrap.com/docs/5.3/components/dropdowns/) 使用。
+
+**相对于页面**
+
+在这种方法中，菜单被渲染为 `<body>` 的直接子元素，并通过获取元素的 `offsetTop` 和 `offsetLeft` 相对于**页面**进行 `absolute` 定位，以获取 `<button>` 相对于页面的坐标，并添加其高度 (`offsetHeight`) 以获取渲染菜单的最终 Y 位置。
+
+在 React 中，这可以使用 [React Portals](https://beta.reactjs.org/reference/react-dom/createPortal) 完成，它允许您在父组件的 DOM 层次结构之外进行渲染。Portals 的一个典型用例是当父组件具有 `overflow: hidden` 或 `z-index` 样式，但您需要子组件在视觉上“跳出”其容器时。常见的例子包括下拉菜单、工具提示、模态框。
+
+<iframe
+  src="https://codesandbox.io/embed/dropdown-menu-relative-page-r4zoiu
+?fontsize=14&hidenavigation=1&theme=dark&module=/src/App.js,/src/styles.css&view=split"
+  style={{
+  width: '100%',
+  height: 500,
+  border: 0,
+  borderRadius: 4,
+  overflow: 'hidden',
+}}
+  title="使用 React Portal 实现的相对于页面的下拉菜单"
+  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+/>
+
+这种方法的缺点是，如果窗口大小调整或页面内容发生变化，导致页面高度短于菜单首次显示时，菜单的位置将不正确。作为一种解决方法，您可以监视窗口的高度变化，并使用正确的位置重新渲染菜单。
+
+这种方法被 [Radix UI](https://www.radix-ui.com/docs/primitives/components/dropdown-menu) 和 [Reach UI](https://reach.tech/menu-button) 使用。
+
+#### 位置
+
+该组件还允许自定义对齐方式，在 `<button>` 周围的所有方向上。在下面的示例中可以找到左/右对齐的菜单列表的示例。支持更多对齐方式取决于找到 `top`/`left`/`right`/`bottom`/CSS 转换的正确值。
+
+<iframe
+  src="https://codesandbox.io/embed/dropdown-menu-relative-button-emxn9u?fontsize=14&hidenavigation=1&theme=dark&module=/src/App.js,/src/styles.css&view=split"
+  style={{
+  width: '100%',
+  height: 500,
+  border: 0,
+  borderRadius: 4,
+  overflow: 'hidden',
+}}
+  title="下拉菜单位置"
+  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+/>
+
+#### 最大高度
+
+由于菜单中没有最大允许的项目数，我们可以为菜单设置一个默认的最大高度，以便可以通过在菜单内滚动来访问多余的项目。此高度也可以自定义。
+
+#### 在 HTML 或 JavaScript 中渲染
+
+下拉菜单可以是：
+
+1. 像[Bootstrap 的下拉菜单](https://getbootstrap.com/docs/5.3/components/dropdowns/)一样渲染到 HTML 中。菜单最初通过`display: none` / `opacity: 0` / `hidden`属性从视图中隐藏，当要显示菜单时，这些样式会被切换。
+2. 在激活菜单按钮后，通过 JavaScript 动态渲染。
+
+首先在 HTML 中渲染的优点是，由于显示菜单所需的 DOM 操作较少，因此运行时性能更好。缺点是 HTML 可能会不必要地膨胀，特别是如果用户根本不与下拉菜单交互。由于菜单项通常不会对 SEO 做出贡献，并且可能不会有那么多元素，因此预先在 HTML 中渲染菜单的好处相对较小。
+
+### 靠近边缘时自动翻转
+
+智能下拉菜单将知道其相对于视口的位置，并且当没有足够的空间在其当前位置显示完整菜单时，可以自行翻转。[Reach UI 的菜单](https://reach.tech/menu-button) 实现了自动翻转。
+
+可选地，当菜单打开时，可以在窗口上禁用滚动（通过向`<body>`添加`overflow: hidden`）。这限制了用户体验，但避免了对自动翻转的需求，而自动翻转的实现可能很复杂。[Material UI 的菜单](https://mui.com/material-ui/react-menu)组件采用了这种方法。
+
+![Dropdown Menu Autoflipping example](/img/questions/dropdown-menu/dropdown-menu-autoflip.png)
+
+这里的核心思想是了解菜单的高度，并在菜单底部超出视口高度时自动翻转。
+
+* **视口高度**：`window.innerHeight`。
+* **菜单底边的位置**：这是以下各项的组合：
+  1. 按钮相对于视口的位置 (`buttonEl.getBoundingClientRect().y`)
+  2. 按钮高度 (`buttonEl.getBoundingClientRect().height`)
+  3. 菜单高度 (`menuEl.getBoundingClientRect().height`)
+  4. 按钮和菜单之间的间距
+
+这是一个关于如何在 React 中实现菜单自动翻转行为的示例。确保使预览高度足够短，以便在操作中看到自动翻转。
+
+<iframe
+  src="https://codesandbox.io/embed/dropdown-menu-autoflip-ybqbeu?fontsize=14&hidenavigation=1&theme=dark&module=/src/App.js,/src/styles.css&view=split"
+  style={{
+  width: '100%',
+  height: 500,
+  border: 0,
+  borderRadius: 4,
+  overflow: 'hidden',
+}}
+  title="Dropdown Menu Autoflipping"
+  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+/>
+
+{/* ### TODO `z-index` */}
+
+### 可访问性 (a11y)
+
+#### 鼠标交互
+
+单击按钮会切换菜单的显示状态。单击打开的菜单外部将关闭该菜单。我们必须确保菜单内的单击不会关闭它。
+
+基于[React hook `useOnClickOutside`](https://usehooks.com/useOnClickOutside/)，用于实现点击外部行为的伪代码：
+
+```js
+function clickListener(event) {
+  // 如果点击的元素是按钮或
+  // 菜单的后代，则不执行任何操作。
+  if (
+    $buttonElement.contains(event.target) ||
+    $menuElement.contains(event.target)
+  ) {
+    return;
+  }
+
+  closeMenu();
+}
+
+document.addEventListener('mousedown', clickListener);
+document.addEventListener('touchstart', clickListener);
+```
+
+请记住在菜单关闭时删除`clickListener`。
+
+以下是如何在 React 中实现点击外部以关闭行为的方法：
+
+<iframe
+  src="https://codesandbox.io/embed/dropdown-menu-click-outside-lq040x?fontsize=14&hidenavigation=1&theme=dark&module=/src/App.js,/src/styles.css&view=split"
+  style={{
+  width: '100%',
+  height: 500,
+  border: 0,
+  borderRadius: 4,
+  overflow: 'hidden',
+}}
+  title="dropdown-menu-click-outside-lq040x"
+  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+/>
+
+#### 焦点管理
+
+当菜单打开时，焦点被捕获，按下<kbd>Tab</kbd>不应将焦点转移到另一个元素上。当菜单关闭时，焦点返回到按钮。
+
+#### 键盘交互
+
+需要遵循两种 WAI-ARIA 模式：[菜单按钮模式](https://www.w3.org/WAI/ARIA/apg/patterns/menubutton/)和[菜单模式](https://www.w3.org/WAI/ARIA/apg/patterns/menubar/)。后者在菜单打开后需要。
+
+**按钮**
+
+当焦点在按钮上时：
+
+| 键 | 描述 |
+| --- | --- |
+| <kbd>Enter</kbd> | 打开菜单并将焦点置于第一个菜单项。 |
+| <kbd>Space</kbd> | 打开菜单并将焦点置于第一个菜单项。 |
+| <kbd>ArrowDown</kbd> (可选) | 打开菜单并将焦点移动到第一个菜单项。 |
+| <kbd>ArrowUp</kbd> (可选) | 打开菜单并将焦点移动到最后一个菜单项。 |
+
+**菜单**
+
+当焦点在菜单项上时：
+
+| 键 | 描述 |
+| --- | --- |
+| <kbd>Enter</kbd> | 激活该项目并关闭菜单。 |
+| <kbd>Space</kbd> (可选) | 激活该项目并关闭菜单。 |
+| <kbd>ArrowDown</kbd> | 将焦点移动到下一项，可以选择从最后一项换行到第一项。 |
+| <kbd>ArrowUp</kbd> | 将焦点移动到上一项，可以选择从第一项换行到最后一项。 |
+| <kbd>Home</kbd> | 如果不支持箭头键换行，则将焦点移动到第一项。 |
+| <kbd>End</kbd> | 如果不支持箭头键换行，则将焦点移动到最后一项。 |
+| <kbd>Esc</kbd> | 关闭包含焦点的菜单，并将焦点返回到按钮。
+
+#### WAI-ARIA 角色、状态和属性
+
+* 按钮
+  * 打开菜单的元素具有角色 `button`。
+  * 具有角色 `button` 的元素将 `aria-haspopup` 设置为 `menu` 或 `true`。
+  * 当菜单显示时，具有角色 button 的元素将 `aria-expanded` 设置为 `true`。当菜单隐藏时，建议不显示 `aria-expanded`。如果菜单隐藏时指定了 `aria-expanded`，则将其设置为 `false`。
+  * 包含通过激活按钮显示的菜单项的元素具有角色 `menu`。
+  * 可选地，具有角色 button 的元素具有为 `aria-controls` 指定的值，该值引用具有角色 `menu` 的元素。
+* 菜单/菜单项
+  * 充当菜单的元素具有 `menu` 角色。
+  * 包含在 `menu` 中的项目是包含菜单的子元素，并具有 `menuitem` 角色。menuitem
+  * 当菜单项被禁用时，`aria-disabled` 设置为 `true`。
+  * 具有 `menu` 角色的元素要么具有：
+    * `aria-labelledby` 设置为引用控制其显示的 `menuitem` 或 `button` 的值。
+    * 由 `aria-label` 提供的标签。
+
+### 国际化 (i18n)
+
+由于所有面向用户的字符串都由用户提供，因此字符串可以按原样显示。但是，请注意，某些语言的某些字符串可能很长，因此应该截断或换行溢出文本。文本不应溢出菜单/按钮。
+
+对于 RTL 语言，菜单按钮和内容必须水平翻转。为了实现这一点，菜单组件可以接收一个 `direction` 配置选项/prop，并根据该值呈现内容。
+
+![Dropdown Menu Right-to-left example](/img/questions/dropdown-menu/dropdown-menu-rtl.png)
+
+***
+
+## 参考
+
+* 主题示例
+  * [Dropdowns · Bootstrap v5.3](https://getbootstrap.com/docs/5.3/components/dropdowns)
+  * [React Menu component - Material UI](https://mui.com/material-ui/react-menu/)
+* 无头示例
+  * [Dropdown Menu — Radix UI](https://www.radix-ui.com/docs/primitives/components/dropdown-menu)
+  * [Menu Button — Reach UI](https://reach.tech/menu-button)
+  * [Menu (Dropdown) - Headless UI](https://headlessui.com/react/menu)
+* Aria 编写实践指南 (APG)
+  * [Menu Button Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/menubutton/)
+  * [Menu Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/menu/)

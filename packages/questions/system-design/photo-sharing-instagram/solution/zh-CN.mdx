@@ -1,0 +1,264 @@
+**注意**：此应用程序与[新闻提要系统设计](/questions/system-design/news-feed-facebook)应用程序有很多相似之处，并且提要帖子中的图像轮播将受益于[图像轮播系统设计](/questions/system-design/image-carousel)。请在开始之前阅读该问题。对于这个问题，我们将重点关注尚未涵盖的内容，讨论将围绕照片和图像展开。
+
+## 需求探索
+
+### 应该支持哪些核心功能？
+
+* 浏览包含用户关注的人的图片和视频帖子的 feed。
+* 上传照片，添加标题，并在发布前对其应用滤镜。
+
+### feed 应该使用什么分页 UX？
+
+无限滚动，这意味着当用户到达 feed 的末尾时，将添加更多帖子。
+
+### 用户是否能够向单个照片/图像添加标题，或者只能向帖子添加一个总标题？
+
+仅向帖子添加一个总标题。
+
+### 应用程序将在哪些设备上使用？
+
+主要用于移动设备，但也应在桌面和平板电脑上使用。
+
+***
+
+## 架构/高级设计
+
+### 渲染方法
+
+照片共享应用程序具有以下特征：
+
+* 未登录用户可以查看帖子。
+* 帖子可以通过搜索引擎搜索。
+* 由于帖子撰写和对帖子的点赞/评论功能，应用程序的交互性很强。
+* 需要快速的初始加载速度。
+
+这些也是[新闻提要系统设计](/questions/system-design/news-feed-facebook)的特征，其中有大量静态内容也需要交互。因此，结合服务器端渲染和水合以及后续的客户端渲染将是理想的选择。实际上，instagram.com 是使用与 facebook.com 相同的技术堆栈构建的，该堆栈使用带有水合的 React 服务器端渲染。
+
+### 架构图
+
+![Photo Sharing Architecture Diagram](/img/questions/photo-sharing-instagram/photo-sharing-architecture.png)
+
+* **服务器**：提供 HTTP API 以获取 feed 帖子、上传图像以及创建新的图像帖子。
+* **控制器**：控制应用程序内的数据流并向服务器发出网络请求。
+* **客户端存储**：存储整个应用程序所需的数据。在照片共享应用程序的上下文中，存储中的大多数数据将是 feed UI 所需的服务器生成的数据。
+* **Feed UI**：包含图像帖子列表和用于创建新帖子的 UI。
+  * **图像帖子**：包含一个或多个图像的帖子列表。
+  * **帖子撰写器**：用于上传图像、对其应用滤镜以及在提交到服务器之前添加标题的 UI。
+
+***
+
+## 数据模型
+
+照片 Feed 显示从服务器获取的图像帖子的列表，因此应用程序中涉及的大部分数据将是服务器生成的数据。 唯一需要的客户端数据是用户上传的图像和用户在帖子撰写器中编写的标题。
+
+| 实体 | 来源 | 属于 | 字段 |
+| --- | --- | --- | --- |
+| `Feed` | 服务器 | Feed UI | `posts` ( `Post` 列表), `pagination` (分页元数据) |
+| `Post` | 服务器 | Feed Post | `id`, `created_time`, `caption`, `image`, `author` (一个 `User`), `images` |
+| `User` | 服务器 | 客户端存储 | `id`, `name`, `profile_photo_url` |
+| `NewPost` | 用户输入 (客户端) | 帖子撰写器 UI | `caption`, `images` (`Image`) |
+| `Image` | 服务器/客户端 | 多个 | `url`, `alt`, `width`, `height` |
+
+就像在 [新闻 Feed 系统设计](/questions/system-design/news-feed-facebook) 中一样，规范化的客户端存储对于照片共享应用程序也很有用。
+
+***
+
+## 接口定义 (API)
+
+### Feed 列表 API
+
+与 [新闻 Feed 的](/questions/system-design/news-feed-facebook) 列表 API 一样，照片共享应用程序的 Feed 列表 API 也应该使用**基于游标的分页方法**。
+
+### Post creation API
+
+照片共享应用程序中的所有帖子都附有图像。 因此，此类应用程序中的帖子创建过程更加复杂。
+
+让我们将帖子创建分解为几个步骤：
+
+1. 用户从他们的设备中选择照片。
+2. 用户能够对他们的照片执行轻量级编辑：调整大小/裁剪/滤镜。
+3. 用户为帖子添加标题。
+4. 用户提交帖子。
+
+有两种常见的方法来实现涉及图像的帖子创建功能：
+
+1. 为图像上传和帖子创建创建一个 API。
+2. 为图像上传和帖子创建创建单独的 API。
+
+#### 1. 为图像上传和帖子创建创建一个 API
+
+![Photo Sharing API Single Diagram](/img/questions/photo-sharing-instagram/photo-sharing-api-single.png)
+
+优点：
+
+* 易于实现，在一个请求中上传所有必需的数据。
+
+缺点：
+
+* API 逻辑更复杂，因为它必须在后端执行多项操作（尽管这实际上不是前端所关心的）。
+* 上传将需要更长的时间，因为帖子图像必须在一个请求中上传。
+* API 必须同时接收基于文本的数据和媒体数据。
+
+#### 2. 为图像上传和帖子创建创建单独的 API
+
+![Photo Sharing API Separate Diagram](/img/questions/photo-sharing-instagram/photo-sharing-api-separate.png)
+
+优点：
+
+* 图像上传阶段可以异步完成。 可以在用户起草帖子标题时，在后台的图像编辑阶段之后上传图像。
+* 图像可以跨多个 HTTP 请求并行上传，这比在单个 HTTP 请求中上传所有图像要快，后者将花费更长的时间。
+* 如果有的话，可以利用现有的通用图像上传 API。
+
+缺点：
+
+* 客户端需要更多的协调。 客户端需要等待所有图像上传完毕，并获取对上传图像的引用，并在创建帖子时使用它们。
+
+### 哪种方法更好？
+
+比较这两种方法，单独的 API 方法会更好。
+
+* **可重用**：图像上传 API 可以是一个通用的 API，可以在整个网站中使用，而不仅仅用于帖子创建流程（例如，个人资料图片上传）。
+* **减少带宽**：实际上，像 Amazon S3 和 Cloudflare R2 这样的 Blob 存储解决方案用于存储静态资产，如图像。 客户端可以请求预签名 URL 并直接上传到存储桶，而无需通过应用程序服务器，这可以减少带宽，从而降低服务器成本。
+
+## 优化和深入研究
+
+### Feed 优化
+
+在 [新闻 Feed 系统设计](/questions/system-design/news-feed-facebook) 中完成的这些优化也适用于照片共享应用程序的 Feed。
+
+* 渲染方法
+* 无限滚动实现
+* 虚拟化列表
+* 代码拆分 JavaScript
+* 加载指示器
+* 保留 Feed 滚动位置
+* 延迟加载代码
+* 乐观更新
+* 时间戳渲染
+* 图标渲染
+
+### 图像轮播优化
+
+帖子中的图像显示为轮播，因此 [图像轮播系统设计文章](/questions/system-design/image-carousel) 对这个问题也很有用，并且也适用相同的优化。
+
+### 渲染图像
+
+* 使用现代图像格式，例如 [WebP](https://developers.google.com/speed/webp)，它提供卓越的无损和有损图像压缩。
+* `<img>` 应该使用适当的 `alt` 文本。
+  * Instagram 允许用户为每张图片提供 `alt` 文本。 如果用户未指定 `alt` 文本，则可以使用机器学习和计算机视觉技术来处理图像并生成描述。
+* 基于设备屏幕属性的图像加载
+  * 在初始请求（或后续请求也可以）中发送浏览器尺寸，服务器可以决定返回什么图像大小。
+  * 如果有图像处理（调整大小）功能，请使用 `srcset` 加载最适合当前视口的图像文件。
+* 基于网络速度的自适应图像加载
+  * **具有良好互联网连接/在 WiFi 上运行的设备**：预取尚未进入视口但即将进入视口的屏幕外图像。
+  * **互联网连接较差**：渲染低分辨率占位符图像，并要求用户明确单击它们以加载高分辨率图像。
+
+### 图像编辑
+
+#### 裁剪和调整大小
+
+图像的裁剪和调整大小可以通过 HTML5 的 `<canvas>` 完成。
+
+```js
+const canvas = document.getElementById('image-editor');
+const context = canvas.getContext('2d');
+const image = new Image();
+image.src = 'https://greatimages.com/example.jpg';
+context.drawImage(image /* Other parameters */);
+```
+
+Instagram 网站允许通过模拟结果并使用内联样式来修改图像的变换样式和定位来进行编辑。
+
+#### 滤镜
+
+CSS 提供了一个 [`filter`](https://developer.mozilla.org/en-US/docs/Web/CSS/filter) 属性，该属性允许应用滤镜功能，例如 `blur`、`contrast`、`hue`、`sepia` 等。 通过结合使用这些滤镜功能，您可以在浏览器中实现类似 Instagram 的滤镜功能。
+
+以下是实现 Instagram 的 Clarendon 和 Gingham 滤镜效果的滤镜函数示例，取自很棒的 [Instagram.css](https://picturepan2.github.io/instagram.css/)。
+
+```css
+.filter-1977 {
+  filter: sepia(0.5) hue-rotate(-30deg) saturate(1.4);
+}
+
+.filter-brannan {
+  filter: sepia(0.4) contrast(1.25) brightness(1.1) saturate(0.9) hue-rotate(-2deg);
+}
+```
+
+以下图像使用这些 CSS 滤镜在您的浏览器中增强。
+
+<table>
+  <thead>
+    <tr>
+      <th>原始</th>
+      <th>1977</th>
+      <th>Brannan</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        <img
+          alt="Air Balloon"
+          src="/img/questions/photo-sharing-instagram/photo-sharing-air-balloon.jpg"
+          width={150}
+          style={{
+          margin: '0 !important',
+        }}
+        />
+      </td>
+
+      <td>
+        <img
+          alt="Air Balloon with 1977 filter effect"
+          src="/img/questions/photo-sharing-instagram/photo-sharing-air-balloon.jpg"
+          width={150}
+          style={{
+          filter: 'sepia(0.5) hue-rotate(-30deg) saturate(1.4)',
+          margin: '0 !important',
+        }}
+        />
+      </td>
+
+      <td>
+        <img
+          alt="Air Balloon with Brannan filter effect"
+          src="/img/questions/photo-sharing-instagram/photo-sharing-air-balloon.jpg"
+          width={150}
+          style={{
+          filter:
+            'sepia(0.4) contrast(1.25) brightness(1.1) saturate(0.9) hue-rotate(-2deg)',
+          margin: '0 !important',
+        }}
+        />
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+最终，最终图像仍然必须转换为图像 blob 才能发送到服务器，并且可以使用 [html2canvas](https://github.com/niklasvh/html2canvas) 等库来完成此转换。
+
+### 辅助功能 (a11y)
+
+#### 屏幕阅读器
+
+* `<img>` 标签应具有指定的有意义的 `alt` 描述或使用空字符串。
+* 在图片轮播中的上一个/下一个按钮中添加 `aria-label`。
+* 仅限图标的按钮如果没有任何附带标签（例如，心形、共享、书签），则应具有适当的 `aria-label`。
+
+#### 键盘支持
+
+* 尽可能对上一个/下一个按钮使用 `<button>` HTML 标签，以便按钮可以聚焦。
+* 添加 `<div role="region" aria-label="Image Carousel" tabindex="0">` 以使轮播可聚焦，并附加 Left/Right keydown 处理程序以允许使用键盘滚动浏览图像。
+
+***
+
+## 参考
+
+* [让 Instagram.com 速度更快：第 1 部分](https://instagram-engineering.com/making-instagram-com-faster-part-1-62cc0c327538)
+* [让 Instagram.com 速度更快：第 2 部分](https://instagram-engineering.com/making-instagram-com-faster-part-2-f350c8fba0d4)
+* [让 Instagram.com 速度更快：第 3 部分 — 缓存优先](https://instagram-engineering.com/making-instagram-com-faster-part-3-cache-first-6f3f130b9669)
+* [让 instagram.com 速度更快：代码大小和执行优化（第 4 部分）](https://instagram-engineering.com/making-instagram-com-faster-code-size-and-execution-optimizations-part-4-57668be796a8)
+* [在桌面上启动 Instagram 消息](https://about.instagram.com/blog/engineering/launching-instagram-messaging-on-desktop)
+* [制作可访问的 Instagram Feed](https://about.instagram.com/blog/engineering/crafting-an-accessible-instagram-feed)

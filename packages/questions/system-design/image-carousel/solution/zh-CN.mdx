@@ -1,0 +1,304 @@
+## 需求探索
+
+### 如何指定图片？
+
+它将是组件上的一个配置选项，并且必须在初始化组件之前指定图片列表。
+
+### 组件应该支持哪些设备？
+
+桌面、平板电脑和移动设备。
+
+### 当用户位于图片列表的开头/结尾时，分页按钮将如何表现？
+
+它应该无限循环。
+
+### 在图像之间切换时是否会有动画？
+
+是的，图像应该使用水平转换进行动画处理。
+
+***
+
+## 架构/高级设计
+
+由于此组件不需要任何服务器数据，因此我们的架构将仅由客户端组件组成。
+
+![Image Carousel Architecture](/img/questions/image-carousel/image-carousel-architecture.png)
+
+### 组件职责
+
+* **ViewModel + Model**：组件的大脑，保存组件的配置和状态，协调组件之间的事件，并通知“Image”组件要渲染哪个图像。
+* **Image**：显示当前选择的图像。
+* **Prev/Next Buttons**：告诉“ViewModel”根据单击的按钮更改为上一个/下一个图像。
+* **Progress Dots**：告诉“ViewModel”在单击/选择相应的点/页面时显示哪个图像。
+
+由于这是一个小组件，因此无需在此组件中分离“Model”和“ViewModel”。
+
+### Flux 架构
+
+建议使用类似 [Flux](https://facebook.github.io/flux/)/[Redux](https://redux.js.org/)/[Reducer](https://beta.reactjs.org/learn/scaling-up-with-reducer-and-context) 的架构，以将操作源从操作逻辑/实现中抽象出来。 一些操作可以通过与各种 UI 元素交互、由计时器定期触发或按键来触发。
+
+***
+
+## 数据模型
+
+只有“ViewModel”将保存任何状态和数据，其他组件是视图的一部分，不会保存数据。 它可以包含以下字段：
+
+* 配置
+  * 图像列表，包括图像 URL 和 `alt` 值（如果提供）。
+  * 切换时间。
+  * 尺寸：图像的高度和宽度。
+* 状态
+  * 当前图像的索引。此值可以通过交互元素（上一个/下一个按钮、进度点）进行修改。
+
+***
+
+## 接口定义 (API)
+
+由于我们在这里讨论的是设计 UI 组件，因此 API 将侧重于组件的外部 API：提供哪些配置选项，以便开发人员可以以自定义方式使用该组件。
+
+### 基本 API
+
+* **图像列表**：要在轮播中显示的一组图像 URL 以及任何关联的元数据（可选，但最好有）。
+* **切换时间 (ms)**：图像切换期间的切换动画的持续时间。
+* **高度 (px)**：图像的高度。
+* **宽度 (px)**：图像的宽度。
+
+以下是 React 中定义的 `ImageCarousel` 组件的示例：
+
+```jsx
+<ImageCarousel
+  images={[
+    { src: 'https://example.com/images/foo.jpg', alt: 'A foo' },
+    { src: 'https://example.com/images/bar.jpg', alt: 'A bar' },
+    /* 更多图像（如果需要）。 */
+  ]}
+  transitionDuration={300}
+  height={500}
+  width={800}
+/>
+```
+
+### 高级 API
+
+如果时间允许，这些是非必要的 API，但值得讨论。
+
+* **自动播放**：轮播是否会在一段时间后自动进行到下一张图像。
+  * 将需要一个计时器状态值来持续增加图像。
+  * 如果用户手动更改了当前图像（通过上一个/下一个按钮或进度点），则应取消/重置计时器。
+* **延迟**：切换之间的延迟。仅在轮播处于自动播放模式时才需要。
+* **事件监听器**：将事件监听器添加到组件的按钮会很有用，以便开发人员可以实现自己的额外功能（例如，记录用户交互）
+  * `onLoad`：当第一张图像加载完成并在轮播中显示时。
+  * `onPageSelect`：选择页面时。
+  * `onNextClick`：单击下一张图像按钮时。
+  * `onPrevClick`：单击上一张图像按钮时。
+* **主题**：请参阅 [前端面试指南的 UI 组件 API 设计原则部分](/front-end-interview-guidebook/user-interface-components-api-design-principles)。
+* **循环**：启用循环行为，在显示最后一张图像时单击“下一个”按钮将返回到第一张图像，而在显示第一张图像时单击“上一个”按钮将显示最后一张图像。
+
+### 内部 API
+
+| API | 来源 | 描述 |
+| --- | --- | --- |
+| `prevImage()` | 上一个按钮 / 键盘事件 | 显示上一张图像 |
+| `nextImage()` | 下一个按钮 / 键盘事件 / 计时器（如果自动播放） | 显示下一张图像 |
+| `showImage(index)` | 进度点 | 跳到特定图像 |
+
+* 这些行为封装在 API 中，因为它们可以从多个地方（UI 元素、计时器）调用，并且可以包含大量逻辑，具体取决于是否启用了循环行为。
+* `prevImage()` 和 `nextImage()` 可以在内部调用 `showImage(index)`。
+* 如果使用 Flux/Redux 架构，这些内部 API 可以实现为 Flux/Redux 操作。
+
+***
+
+## 优化和深入研究
+
+### 布局实现
+
+#### 图像
+
+实现该布局的一个简单方法是使用 `display: flex` 使图像在水平行中呈现，并通过编程方式更改水平滚动偏移量以显示各种图像。
+
+您可以在白板上绘制这样的图表来说明布局：
+
+![Image Carousel Layout](/img/questions/image-carousel/image-carousel-layout.png)
+
+带有黑色边框的框指示当前可见的窗口。
+
+**示例代码**
+
+```html
+<div class="carousel-images">
+  <img class="carousel-image" alt="..." src="..." />
+  <img class="carousel-image" alt="..." src="..." />
+  <img class="carousel-image" alt="..." src="..." />
+  <!-- More images -->
+</div>
+```
+
+```css
+.carousel-images {
+  display: flex;
+  height: 400px;
+  width: 600px;
+  overflow: hidden;
+}
+
+.carousel-image {
+  height: 400px;
+  width: 600px;
+}
+```
+
+为了平滑地滚动到特定图像，我们可以这样做：
+
+```js
+document.querySelector('.carousel-images').scrollTo({
+  left: selectedIndex * 600,
+  behavior: 'smooth',
+});
+```
+
+#### 调整图像大小
+
+上面的布局假设所有图像的大小都相同。但是，用户不太可能提供完全相同大小的图像。
+
+以下是一些我们可以解决此问题的方法：
+
+**CSS `background-size`**：这需要在 HTML 中进行更改，以使用 CSS `background`/`background-image` 而不是 `<img src="...">` 呈现图像。 这样做的好处是我们可以使用具有这两种模式的 `background-size` 属性：
+
+* `contain`：在不裁剪或拉伸图像的情况下，将图像缩放到其容器内的最大尺寸。 如果容器大于图像，这将导致图像平铺，除非将 `background-repeat` 属性设置为 `no-repeat`。
+* `cover`：将图像（同时保留其比例）缩放到填充容器的最小可能尺寸（即：其高度和宽度完全覆盖容器），不留任何空白。 如果背景的比例与元素不同，则图像会被垂直或水平裁剪。
+
+*来源：[background-size - CSS: Cascading Style Sheets | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/background-size)*
+
+这两种优势都有其优点，使用哪种优势取决于提供的图像。 一种方法是允许开发人员自定义是为所有图像使用 `contain` 还是 `cover`，甚至允许自定义单个图像的此设置。
+
+**CSS `object-fit`**：CSS `object-fit` 的功能类似于 `background-size` 对 `background-image` 的作用，但适用于 `<img>` 和 `<video>` HTML 标签。 它也有 `contain` 和 `cover` 属性，其工作方式与 `background-size` 的版本相同。
+
+这种方式是首选，因为它比使用带有 `background-image` 的 `<div>` 更具语义，而不是使用 `<img>` 标签。
+
+#### 垂直居中按钮
+
+要垂直居中按钮，我们可以在按钮上使用 `position: absolute` 以及一些 `transform: translateY(-50%)` 将其向上移动其高度的一半。
+
+```html
+<div class="carousel-image-container">
+  <div class="carousel-images">
+    <img class="carousel-image" alt="..." src="..." />
+    <img class="carousel-image" alt="..." src="..." />
+    <!-- More images -->
+  </div>
+  <button class="carousel-button carousel-button-prev">...</button>
+  <button class="carousel-button carousel-button-next">...</button>
+</div>
+```
+
+```css
+.carousel-image-container {
+  height: 400px;
+  width: 600px;
+  position: relative; /* 这样 position: absolute 将相对于此元素。 */
+}
+
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%); /* 将按钮向上移动其高度的一半。 */
+}
+
+.carousel-button-prev {
+  left: 30px;
+}
+
+.carousel-button-next {
+  right: 30px;
+}
+```
+
+### 用户体验
+
+* **滚动捕捉**：使用 [CSS 滚动捕捉](https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-snap-type) 并显示滚动条，以便用户仍然可以使用原生滚动条滚动浏览图像，但图像将“捕捉”得很好，并且滚动位置将很好地对齐以在滚动停止后显示完整的图像。 移动用户希望能够滑动浏览图像，CSS 滚动捕捉可帮助您在移动设备上轻松实现此目的。
+* **交互元素应该足够大**。 Prev/Next 按钮的高度和宽度应至少为 44px，以便于在移动设备上点击。 一个技巧是将按钮的点击区域增加到最左侧/最右侧的整个部分。 对于精确的交互，点在移动设备上可能太小，可以隐藏或设置为非交互式。
+* **重新定位 Prev/Next 按钮**：将 Prev/Next 按钮彼此靠近更方便。 这与示例设计相反，但可以加快导航速度，因为按钮之间的距离最小化。
+
+### 性能
+
+#### 延迟加载未在屏幕上的图像
+
+轮播图上的大多数图像从未向用户显示，尤其是在后面的图像。如果未显示所有图像，加载所有图像将浪费带宽。
+
+因此，只有当图像在屏幕上（或即将显示）时才能加载它们。这可以使用 JavaScript 或仅通过 HTML 实现。纯 HTML 方法涉及使用 [`<img loading="lazy">`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-loading) 属性，该属性会延迟加载当前未在可见视口中的图像。
+
+#### 预加载图像
+
+如果需要对图像加载进行细粒度控制，可以使用 JavaScript。为了帮助最大限度地减少需要显示但尚未完成加载的图像的情况，该组件可以预先加载下一张图像，使用以下代码：
+
+```js
+const preloadImage = new Image();
+preloadImage.src = url;
+```
+
+[Airbnb 通过结合使用延迟加载和预加载](https://medium.com/airbnb-engineering/building-a-faster-web-experience-with-the-posttask-scheduler-276b83454e91)行为优化了其房间列表中的图片轮播体验：
+
+1. 最初，仅加载第一张图像（其余图像将延迟加载）。
+2. 当用户显示出查看更多图像的可能意图时，会预加载第二张图像：
+   * 鼠标悬停在图片轮播图上。
+   * 通过制表符键将焦点放在“下一步”按钮上。
+   * 图片轮播图进入视图（在移动设备上）。
+3. 如果用户确实查看了第二张图像（这表明有很高的浏览更多图像的意图），则会预加载接下来的三张图像（第 3 到 5 张）。
+4. 当用户再次单击“下一步”以浏览更多图像时，会预加载 (n + 3)<sup>th</sup> 张图像。
+
+<figure>
+  <img alt="Airbnb Image Carousel Lazy Loading" className="mx-auto w-full max-w-5xl" loading="lazy" src="/img/questions/travel-booking-airbnb/airbnb-image-loading.gif" />
+
+  <figcaption>Airbnb image carousel lazy loading example on mobile</figcaption>
+</figure>
+
+#### 特定于设备的图像
+
+在移动设备上加载高分辨率图像将是一种浪费，因为屏幕尺寸太小，无法显示细节。要添加的一个好功能是允许用户提供不同大小的图像以在不同设备上显示。这可以使用 JavaScript、`<img>` 标签上的 `srcset` 属性或新的 `<picture>` 标签来实现。
+
+{/* TODO 比较这些方法 */}
+
+#### 虚拟化列表
+
+如果图像太多，我们可以使用[虚拟化列表](https://www.patterns.dev/posts/virtual-lists/)仅渲染 DOM 中可见的图像。
+
+{/* TODO: 图像的异步解码 */}
+
+### 国际化 (i18n)
+
+i18n 与此问题关系不大，但用户应该能够为页面当前语言的“上一个/下一个”按钮自定义 `aria-label` 字符串。这些字符串可以指定为配置选项。
+
+### 可访问性 (a11y)
+
+由于构建图片轮播图需要付出很多努力，因此它们以可访问性差而闻名。因此，在没有期望投入大量时间来实现高质量组件的情况下，您可能不应该构建自己的自定义图片轮播图。构建可访问的图片轮播图时需要注意的一些事项。
+
+#### 移动端友好性
+
+* 交互元素应足够大，适合移动设备（至少 44px x 44px）。
+* 启用滑动来滚动浏览图片（使用 `overflow-x: scroll` + [CSS scroll snap](https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-snap-type) 实现已是如此）。
+* 进度点应间隔更远或设置为非交互式。
+
+#### 屏幕阅读器
+
+* `<img>` 标签应具有指定的有意义的 `alt` 描述或使用空字符串。
+* 为 Prev/Next 按钮添加 `aria-label`，因为它们内部没有可见的标签。
+
+#### 键盘支持
+
+* 尽可能为 Prev/Next 按钮使用 `<button>` HTML 标签，以便按钮可聚焦。
+* 添加 `<div role="region" aria-label="Image Carousel" tabindex="0">` 使轮播图可聚焦，并附加 Left/Right 键盘处理程序，以允许使用键盘滚动浏览图片。
+
+***
+
+## 更新日志
+
+* 2023/01/22
+  * 提及 Flux 架构。
+  * 扩展主题部分。
+  * 添加 Airbnb 图片轮播示例。
+
+## 参考
+
+* [创建可访问的图片轮播图](https://www.aleksandrhovhannisyan.com/blog/image-carousel-tutorial/)
+* [设计完美的轮播图 UX](https://www.smashingmagazine.com/2022/04/designing-better-carousel-ux/)
+* [内容滑块](https://inclusive-components.design/a-content-slider/)

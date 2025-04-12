@@ -1,0 +1,23 @@
+---
+title: Pinterest
+excerpt: 设计 Pinterest 主页，重点关注瀑布流布局
+---
+
+瀑布流布局是一种流行且灵活的基于网格的布局设计。与传统网格不同，传统网格中同一行的元素具有相同的高度，而元素放置在列中，但可以具有不同的高度，从而产生更具视觉趣味的排列。
+
+这种布局有效地利用了空间，因为它用其内容填充了大部分可用屏幕空间，并且元素之间的空白空间很少。它通常用于呈现用户生成的内容，如图像和 GIF。拥有这种布局的最著名的网站是 [Pinterest](https://pinterest.com/)。
+
+## 问题
+
+设计 [Pinterest 主页](https://pinterest.com/)，重点关注瀑布流布局。
+
+![Pinterest example](/img/questions/pinterest/pinterest-example.png)
+
+Pinterest 前端系统设计问题通常以两种方式提出：
+
+1. 设计 Pinterest 主页，涵盖页面架构、瀑布流布局、数据获取等。
+2. 设计一个瀑布流组件，讨论其属性、布局方法等。
+
+我们将重点关注前者，但也会为后者提供足够的内容和指导。事实上，Pinterest 在其主页上使用的实际瀑布流组件是用 [React 构建并开源的](https://gestalt.pinterest.systems/web/masonry)！您可以深入研究源代码，了解该组件的来龙去脉，也可以在您自己的网站上使用它。
+
+**注意**：Pinterest 本质上是一个具有多列布局的图片 feed。因此，它与 [新闻 feed 系统设计](/questions/system-design/news-feed-facebook) 和 [Instagram 系统设计](/questions/system-design/photo-sharing-instagram) 有很多相似之处。在开始之前，请阅读这些问题。对于这个问题，讨论将围绕瀑布流布局，而不是一般的 feed 优化。
