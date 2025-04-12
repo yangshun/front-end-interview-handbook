@@ -1,0 +1,66 @@
+{
+  "frontmatter": {
+    "title": "5c249ba4",
+    "author": "c03411bc",
+    "description": "56ebceef",
+    "published": "0"
+  },
+  "content": {
+    "source": {
+      "locale": "en-US",
+      "hashes": [
+        "be36dd29",
+        "48ea897a",
+        "8832ea83",
+        "2c2c2065",
+        "7dafdf2e",
+        "ae0787b6",
+        "7d94d0b7",
+        "1df4a910",
+        "94b58b21",
+        "aae7e812",
+        "c6e8106c",
+        "78283e0",
+        "f483c213",
+        "be55ce61",
+        "e21d53e4"
+      ]
+    },
+    "targets": {
+      "zh-CN": [
+        "be36dd29",
+        "48ea897a",
+        "8832ea83",
+        "2c2c2065",
+        "7dafdf2e",
+        "ae0787b6",
+        "7d94d0b7",
+        "1df4a910",
+        "94b58b21",
+        "aae7e812",
+        "c6e8106c",
+        "78283e0",
+        "f483c213",
+        "be55ce61",
+        "e21d53e4"
+      ],
+      "pt-BR": [
+        "be36dd29",
+        "48ea897a",
+        "8832ea83",
+        "2c2c2065",
+        "7dafdf2e",
+        "ae0787b6",
+        "7d94d0b7",
+        "1df4a910",
+        "94b58b21",
+        "aae7e812",
+        "c6e8106c",
+        "78283e0",
+        "f483c213",
+        "be55ce61",
+        "e21d53e4"
+      ]
+    }
+  }
+}

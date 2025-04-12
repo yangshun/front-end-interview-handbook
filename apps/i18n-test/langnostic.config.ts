@@ -34,15 +34,15 @@ export default {
         },
       ],
     },
-    // {
-    //   "name": "blog",
-    //   "plugin": "mdx",
-    //   "paths": [
-    //     {
-    //       "source": "./src/locales/en-US.mdx",
-    //       "target": "./src/locales/{locale}.mdx"
-    //     }
-    //   ]
-    // },
+    {
+      name: 'blog',
+      plugin: 'mdx',
+      paths: [
+        {
+          source: './src/blog/**/en-US.mdx',
+          target: './src/blog/**/{locale}.mdx',
+        },
+      ],
+    },
   ],
 } satisfies ConfigType;

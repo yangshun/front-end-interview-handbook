@@ -1,0 +1,65 @@
+---
+title: Componentes Avançados
+author: Equipe de Desenvolvimento
+description: 75 perguntas mais importantes para entrevistas de front-end
+published: 'false'
+---
+
+import Button from '../components/Button';
+
+# {props.title}
+
+## Demonstração do Componente
+
+<Button primary size="large" onClick={() => console.log('Clicked!')} {...props}>
+  Interactive Element
+</Button>
+
+Aqui está algum **texto em negrito** com um [link](https://example.com).
+
+```jsx
+function Counter() {
+  const [count, setCount] = useState(0);
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={() => setCount((c) => c + 1)}>Increment</button>
+    </div>
+  );
+}
+```
+
+| Recurso    | Suporte |
+| ---------- | ------- |
+| SSR        | Sim     |
+| TypeScript | Parcial |
+
+> Nota importante: Este é um recurso beta
+
+<ul>
+  {readySystemDesignQuestions.map((question) => (
+      <li key={question.href}>
+        <a href={question.href}>{question.title} system design</a>
+      </li>
+    ))}
+</ul>
+
+<div className="legacy-wrapper">
+  <h3>Aviso de Migração</h3>
+  <p>Conteúdo antigo preservado</p>
+</div>
+
+![Como o JSX funciona](/img/blog/react-article/babel-to-react.jpg)
+
+[Leia mais sobre isso aqui](/questions/quiz/what-is-react-describe-the-benefits-of-react)
+
+O hook `useCallback` memoriza funções para evitar sua recriação a cada renderização. Isso é especialmente benéfico ao passar callbacks para componentes filhos otimizados que dependem da igualdade de referência para evitar renderizações desnecessárias. Use-o quando uma função for passada como uma prop para um componente filho.
+
+* Se estiver vazio, o efeito é executado apenas uma vez após a renderização inicial.
+* Se contiver variáveis, o efeito é executado novamente sempre que alguma dessas variáveis mudar.
+* Se omitido, o efeito é executado após cada renderização.
+
+1. Recalcular o JSX retornado pelo componente.
+2. Comparar o novo JSX com o anterior (usando o DOM Virtual).
+3. Atualizar o DOM real apenas com as diferenças (renderização eficiente).
+4. A re-renderização garante que a UI permaneça sincronizada com o estado e as props do componente.

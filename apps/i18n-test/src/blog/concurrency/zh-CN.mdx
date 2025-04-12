@@ -1,0 +1,65 @@
+---
+title: 高级组件
+author: 开发团队
+description: 前端面试最重要的 75 个问题
+published: 'false'
+---
+
+import Button from '../components/Button';
+
+# {props.title}
+
+## 组件演示
+
+<Button primary size="large" onClick={() => console.log('Clicked!')} {...props}>
+  Interactive Element
+</Button>
+
+这里有一些 **粗体文本** 和一个 [链接](https://example.com)。
+
+```jsx
+function Counter() {
+  const [count, setCount] = useState(0);
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={() => setCount((c) => c + 1)}>Increment</button>
+    </div>
+  );
+}
+```
+
+| 特性     | 支持  |
+| -------- | ----- |
+| SSR      | 是    |
+| TypeScript | 部分  |
+
+> 重要提示：这是一个 Beta 功能
+
+<ul>
+  {readySystemDesignQuestions.map((question) => (
+      <li key={question.href}>
+        <a href={question.href}>{question.title} system design</a>
+      </li>
+    ))}
+</ul>
+
+<div className="legacy-wrapper">
+  <h3>迁移通知</h3>
+  <p>保留旧内容</p>
+</div>
+
+![JSX 的工作原理](/img/blog/react-article/babel-to-react.jpg)
+
+[在此处阅读更多信息](/questions/quiz/what-is-react-describe-the-benefits-of-react)
+
+ `useCallback` 钩子函数会记忆函数，以防止它们在每次渲染时重新创建。当将回调传递给依赖于引用相等性的已优化子组件以避免不必要的渲染时，这尤其有益。当函数作为 prop 传递给子组件时使用它。
+
+* 如果它为空，则效果仅在初始渲染后运行一次。
+* 如果它包含变量，则每次这些变量中的任何一个发生更改时，效果都会重新运行。
+* 如果省略，则效果在每次渲染后运行。
+
+1. 重新计算组件返回的 JSX。
+2. 将新的 JSX 与之前的 JSX 进行比较（使用虚拟 DOM）。
+3. 仅使用差异更新真实的 DOM（高效渲染）。
+4. 重新渲染确保 UI 与组件的状态和 props 保持同步。
