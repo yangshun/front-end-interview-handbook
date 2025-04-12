@@ -13,7 +13,7 @@ type Props = PropsWithChildren<
   }>
 >;
 
-export default function SystemDesignPaywall({
+export default function InterviewsQuestionsSystemDesignPaywall({
   children,
   isPremium,
   isComingSoon = false,

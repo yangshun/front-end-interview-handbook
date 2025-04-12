@@ -31,11 +31,8 @@ import type {
   BaseGuideNavigationLink,
   GuideNavigation,
 } from '~/components/guides/types';
-import {
-  allSystemDesignQuestions,
-  readySystemDesignQuestions,
-} from '~/components/interviews/questions/content/system-design/InterviewsSystemDesignQuestions';
-import { ReadyQuestions } from '~/components/interviews/questions/content/system-design/SystemDesignConfig';
+import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
+import { InterviewsQuestionsSystemDesignReady } from '~/components/interviews/questions/content/system-design/InterviewsQuestionsSystemDesignConfig';
 import { useIntl } from '~/components/intl';
 
 export const basePath = '/front-end-system-design-playbook';
@@ -225,9 +222,15 @@ export function useSystemDesignGuides() {
   return systemDesignGuides;
 }
 
-export function useFrontEndSystemDesignPlaybookNavigation() {
+export function useFrontEndSystemDesignPlaybookNavigation(
+  questions: ReadonlyArray<QuestionMetadata>,
+) {
   const intl = useIntl();
   const systemDesignGuides = useSystemDesignGuides();
+  const questionsSorted = questions
+    .slice()
+    .sort((a, b) => a.ranking - b.ranking);
+
   const navigation: GuideNavigation<
     FrontEndSystemDesignPlaybookPathType,
     FrontEndSystemDesignPlaybookNavigationLink
@@ -250,15 +253,21 @@ export function useFrontEndSystemDesignPlaybookNavigation() {
           id: 'questions',
           // eslint-disable-next-line @typescript-eslint/ban-ts-comment
           // @ts-expect-error
-          items: readySystemDesignQuestions.map((questionMetadata) => ({
-            href: questionMetadata.href,
-            icon: SystemDesignIcons[questionMetadata.slug],
-            id: questionMetadata.slug,
-            kind: 'question',
-            label: questionMetadata.title,
-            premium: questionMetadata.access === 'premium',
-            type: 'link',
-          })),
+          items: questionsSorted
+            .filter((questionMetadata) =>
+              InterviewsQuestionsSystemDesignReady.includes(
+                questionMetadata.slug,
+              ),
+            )
+            .map((questionMetadata) => ({
+              href: questionMetadata.href,
+              icon: SystemDesignIcons[questionMetadata.slug],
+              id: questionMetadata.slug,
+              kind: 'question',
+              label: questionMetadata.title,
+              premium: questionMetadata.access === 'premium',
+              type: 'link',
+            })),
           label: intl.formatMessage({
             defaultMessage: 'Questions',
             description: 'Front end system design interviews questions',
@@ -270,12 +279,12 @@ export function useFrontEndSystemDesignPlaybookNavigation() {
           id: 'coming-soon',
           // eslint-disable-next-line @typescript-eslint/ban-ts-comment
           // @ts-expect-error
-          items: allSystemDesignQuestions
-            .slice()
-            .sort((a, b) => a.ranking - b.ranking)
+          items: questionsSorted
             .filter(
               (questionMetadata) =>
-                !ReadyQuestions.includes(questionMetadata.slug),
+                !InterviewsQuestionsSystemDesignReady.includes(
+                  questionMetadata.slug,
+                ),
             )
             .map((questionMetadata) => ({
               href: questionMetadata.href,

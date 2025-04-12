@@ -1,5 +1,7 @@
 'use client';
 
+import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
+
 import { useQueryGuideProgress } from '~/db/guides/GuidesProgressClient';
 import { useI18nPathname } from '~/next-i18nostic/src';
 
@@ -10,12 +12,13 @@ import GuidesMainLayout from '../../GuidesMainLayout';
 import type { TableOfContents } from '../../GuidesTableOfContents';
 import type { GuideMetadata } from '../../types';
 import useFlattenedNavigationItems from '../../useFlattenedNavigationItems';
-import SystemDesignPaywall from '../../../interviews/questions/content/system-design/SystemDesignPaywall';
+import InterviewsQuestionsSystemDesignPaywall from '../../../interviews/questions/content/system-design/InterviewsQuestionsSystemDesignPaywall';
 
 type Props = Readonly<{
   children?: React.ReactNode;
   description: string;
   isAccessibleForFree?: boolean;
+  questions: ReadonlyArray<QuestionMetadata>;
   tableOfContents?: TableOfContents;
   title: string;
 }>;
@@ -28,8 +31,9 @@ export default function FrontEndSystemDesignPlaybookLayout({
   tableOfContents,
   title,
   isAccessibleForFree = true,
+  questions,
 }: Props) {
-  const navigation = useFrontEndSystemDesignPlaybookNavigation();
+  const navigation = useFrontEndSystemDesignPlaybookNavigation(questions);
   const { pathname } = useI18nPathname();
 
   const flatNavigationItems = useFlattenedNavigationItems(navigation);
@@ -62,14 +66,14 @@ export default function FrontEndSystemDesignPlaybookLayout({
         isGuideProgressLoaded={isSuccess}
         navigation={navigation}
         tableOfContents={tableOfContents}>
-        <SystemDesignPaywall isPremium={currentItem.premium}>
+        <InterviewsQuestionsSystemDesignPaywall isPremium={currentItem.premium}>
           <GuidesArticle
             description={description}
             metadata={guideMetadata}
             title={title}>
             {children}
           </GuidesArticle>
-        </SystemDesignPaywall>
+        </InterviewsQuestionsSystemDesignPaywall>
       </GuidesMainLayout>
     </>
   );

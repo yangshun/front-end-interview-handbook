@@ -26,7 +26,7 @@ import type {
   QuestionListTypeData,
   QuestionMetadata,
 } from '../../common/QuestionsTypes';
-import { ReadyQuestions } from '../../content/system-design/SystemDesignConfig';
+import { InterviewsQuestionsSystemDesignReady } from '../../content/system-design/InterviewsQuestionsSystemDesignConfig';
 import QuestionDifficultyLabel from '../../metadata/QuestionDifficultyLabel';
 import QuestionFormatLabel from '../../metadata/QuestionFormatLabel';
 import QuestionFrameworks from '../../metadata/QuestionFrameworks';
@@ -168,7 +168,9 @@ export default function QuestionsList<Q extends QuestionMetadata>({
                     <InterviewsPremiumBadge />
                   )}
                   {questionMetadata.format === 'system-design' &&
-                    !ReadyQuestions.includes(questionMetadata.slug) && (
+                    !InterviewsQuestionsSystemDesignReady.includes(
+                      questionMetadata.slug,
+                    ) && (
                       <Badge
                         label={intl.formatMessage({
                           defaultMessage: 'Coming soon',

@@ -7,9 +7,12 @@ import { useFrontEndSystemDesignPlaybookNavigation } from '~/components/guides/b
 import GuidesMainLayout from '~/components/guides/GuidesMainLayout';
 import type { TableOfContents } from '~/components/guides/GuidesTableOfContents';
 import InterviewsPurchasePaywall from '~/components/interviews/purchase/InterviewsPurchasePaywall';
-import type { QuestionSystemDesign } from '~/components/interviews/questions/common/QuestionsTypes';
+import type {
+  QuestionMetadata,
+  QuestionSystemDesign,
+} from '~/components/interviews/questions/common/QuestionsTypes';
+import { InterviewsQuestionsSystemDesignReady } from '~/components/interviews/questions/content/system-design/InterviewsQuestionsSystemDesignConfig';
 import QuestionContentsSystemDesign from '~/components/interviews/questions/content/system-design/QuestionContentsSystemDesign';
-import { ReadyQuestions } from '~/components/interviews/questions/content/system-design/SystemDesignConfig';
 import { useIntl } from '~/components/intl';
 
 import { hashQuestion } from '~/db/QuestionsUtils';
@@ -19,6 +22,7 @@ type Props = Readonly<{
   canViewPremiumContent: boolean;
   isQuestionLocked: boolean;
   question: QuestionSystemDesign;
+  questions: ReadonlyArray<QuestionMetadata>;
   studyListKey?: string;
 }>;
 
@@ -29,10 +33,13 @@ export default function InterviewsQuestionsSystemDesignPage({
   canViewPremiumContent,
   isQuestionLocked,
   question,
+  questions,
   studyListKey,
 }: Props) {
   const intl = useIntl();
-  const isAvailable = ReadyQuestions.includes(question.metadata.slug);
+  const isAvailable = InterviewsQuestionsSystemDesignReady.includes(
+    question.metadata.slug,
+  );
 
   const tableOfContents =
     question.solution != null
@@ -43,7 +50,7 @@ export default function InterviewsQuestionsSystemDesignPage({
         ).tableOfContents
       : undefined;
 
-  const navigation = useFrontEndSystemDesignPlaybookNavigation();
+  const navigation = useFrontEndSystemDesignPlaybookNavigation(questions);
 
   return (
     <GuidesMainLayout

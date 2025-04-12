@@ -18,7 +18,7 @@ import type {
   QuestionMetadata,
   QuestionPracticeFormat,
 } from '~/components/interviews/questions/common/QuestionsTypes';
-import { ReadyQuestions } from '~/components/interviews/questions/content/system-design/SystemDesignConfig';
+import { InterviewsQuestionsSystemDesignReady } from '~/components/interviews/questions/content/system-design/InterviewsQuestionsSystemDesignConfig';
 import { filterQuestions } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 
 import { getQuestionsListOutFilenameAlgo } from './questions-bundlers/QuestionsBundlerAlgoConfig';
@@ -41,7 +41,7 @@ export async function fetchQuestionsListCount(): Promise<QuestionTotalAvailableC
   ]);
 
   const sdCount = sd.questions.filter((metadata) =>
-    ReadyQuestions.includes(metadata.slug),
+    InterviewsQuestionsSystemDesignReady.includes(metadata.slug),
   ).length;
 
   return {

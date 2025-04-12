@@ -9,6 +9,7 @@ import InterviewsStudyListBottomBar from '~/components/interviews/questions/list
 
 import { fetchInterviewsStudyList } from '~/db/contentlayer/InterviewsStudyListReader';
 import { readQuestionSystemDesignContents } from '~/db/QuestionsContentsReader';
+import { fetchQuestionsList } from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 import {
@@ -114,6 +115,10 @@ export default async function Page({ params }: Props) {
   const { question } = readQuestionSystemDesignContents(slug, locale);
   const isQuestionLockedForViewer =
     question.metadata.access === 'premium' && !isViewerPremium;
+  const { questions } = await fetchQuestionsList(
+    { type: 'format', value: 'system-design' },
+    locale,
+  );
 
   return (
     <>
@@ -149,6 +154,7 @@ export default async function Page({ params }: Props) {
             metadata: question.metadata,
             solution: isQuestionLockedForViewer ? null : question.solution,
           }}
+          questions={questions}
           studyListKey={studyListKey}
         />
       )}

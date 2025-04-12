@@ -1,37 +1,22 @@
-'use client';
+import FrontEndSystemDesignPlaybookSidebar from '~/components/guides/books/front-end-system-design/FrontEndSystemDesignPlaybookSidebar';
 
-import type { ReactNode } from 'react';
+import { fetchQuestionsList } from '~/db/QuestionsListReader';
 
-import SidebarPremiumChip from '~/components/global/sidebar/SidebarPremiumChip';
-import { useFrontEndSystemDesignPlaybookNavigation } from '~/components/guides/books/front-end-system-design/FrontEndSystemDesignPlaybookNavigation';
-import GuidesLayout from '~/components/guides/GuidesLayout';
+type Props = Readonly<{
+  children: React.ReactNode;
+  params: Readonly<{ locale: string }>;
+}>;
 
-export default function Layout({ children }: { children: ReactNode }) {
-  const navigation = useFrontEndSystemDesignPlaybookNavigation();
-
-  const mappedItems = navigation.navigation.items.map((navItem) => ({
-    ...navItem,
-    items:
-      navItem.type === 'list'
-        ? navItem.items?.map((navItemItem) => ({
-            ...navItemItem,
-            addOnElement: navItemItem.premium ? (
-              <div className="flex grow justify-end">
-                <SidebarPremiumChip />
-              </div>
-            ) : null,
-          }))
-        : [],
-  }));
+export default async function Layout({ params, children }: Props) {
+  const { locale } = params;
+  const { questions } = await fetchQuestionsList(
+    { type: 'format', value: 'system-design' },
+    locale,
+  );
 
   return (
-    <GuidesLayout
-      guide="FRONT_END_SYSTEM_DESIGN_PLAYBOOK"
-      navigation={{
-        ...navigation,
-        navigation: { ...navigation.navigation, items: mappedItems },
-      }}>
+    <FrontEndSystemDesignPlaybookSidebar questions={questions}>
       {children}
-    </GuidesLayout>
+    </FrontEndSystemDesignPlaybookSidebar>
   );
 }

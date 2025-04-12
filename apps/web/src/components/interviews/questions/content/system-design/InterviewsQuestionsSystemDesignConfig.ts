@@ -1,4 +1,4 @@
-export const ReadyQuestions: ReadonlyArray<string> = [
+export const InterviewsQuestionsSystemDesignReady: ReadonlyArray<string> = [
   'autocomplete',
   'news-feed-facebook',
   'poll-widget',

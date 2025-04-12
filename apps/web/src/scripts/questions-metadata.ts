@@ -72,10 +72,12 @@ const locales = [sourceLocale, 'zh-CN'];
 export async function generateAllMetadata() {
   return await Promise.all([
     generateQuizMetadata(),
-    generateQuestionsMetadata(
-      readQuestionListMetadataSystemDesign,
-      getQuestionsListOutFilenameSystemDesign(sourceLocale),
-      sourceLocale,
+    ...locales.map((locale) =>
+      generateQuestionsMetadata(
+        readQuestionListMetadataSystemDesign,
+        getQuestionsListOutFilenameSystemDesign(locale),
+        locale,
+      ),
     ),
     generateQuestionsMetadata(
       readQuestionListMetadataAlgo,

@@ -5,6 +5,7 @@ import GuidesArticleJsonLd from '~/components/guides/GuidesArticleJsonLd';
 import InterviewsQuestionsSystemDesignPage from '~/components/interviews/questions/content/system-design/InterviewsQuestionsSystemDesignPage';
 
 import { readQuestionSystemDesignContents } from '~/db/QuestionsContentsReader';
+import { fetchQuestionsList } from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 import {
@@ -97,6 +98,10 @@ export default async function Page({ params }: Props) {
 
   const isQuestionLocked =
     question.metadata.access === 'premium' && !isViewerPremium;
+  const { questions } = await fetchQuestionsList(
+    { type: 'format', value: 'system-design' },
+    locale,
+  );
 
   return (
     <>
@@ -114,6 +119,7 @@ export default async function Page({ params }: Props) {
           metadata: question.metadata,
           solution: isQuestionLocked ? null : question.solution,
         }}
+        questions={questions}
       />
     </>
   );
