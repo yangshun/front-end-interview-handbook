@@ -55,7 +55,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function Page({ params }: Props) {
   const { locale } = params;
-  const gfe75 = await fetchInterviewsStudyList('gfe75');
+  const gfe75 = await fetchInterviewsStudyList('gfe75', locale);
 
   if (gfe75 == null) {
     return notFound();

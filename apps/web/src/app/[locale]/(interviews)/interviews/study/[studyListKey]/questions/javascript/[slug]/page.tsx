@@ -76,7 +76,7 @@ export default async function Page({ params }: Props) {
     return profile?.premium ?? false;
   })();
 
-  const studyList = await fetchInterviewsStudyList(studyListKey);
+  const studyList = await fetchInterviewsStudyList(studyListKey, locale);
 
   if (studyList == null) {
     return notFound();

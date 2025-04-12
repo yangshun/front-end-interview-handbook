@@ -4,7 +4,7 @@ import { allInterviewsListingBottomContents } from '~/../.contentlayer/generated
 
 export async function fetchInterviewListingBottomContent(
   slug: string,
-  locale = 'en-US',
+  locale: string,
 ): Promise<InterviewsListingBottomContent | undefined> {
   const bottomContent = (
     allInterviewsListingBottomContents as ReadonlyArray<InterviewsListingBottomContent>

@@ -4015,6 +4015,10 @@
     "defaultMessage": "Pinned on application sidebar",
     "description": "Description of ad placement"
   },
+  "HH+Rb8": {
+    "defaultMessage": "Resume",
+    "description": "Resume the study session"
+  },
   "HI42cv": {
     "defaultMessage": "Ace your React interviews with confidence with this comprehensive guide. Created by the author of the Front End Interview Handbook, the guide emphasizes on the concepts that are important for interviews using plenty of code examples. For each concept, learn the best practices and practice a variety of questions to help you truly master it.",
     "description": "Long description of React interview playbook page"
@@ -10207,10 +10211,6 @@
     "defaultMessage": "Referencing good solutions is crucial to learning effectively. We've written our solutions with special care to include practical considerations and multiple approaches.",
     "description": "Marketing page section subtitle"
   },
-  "jIpLwU": {
-    "defaultMessage": "Resume",
-    "description": "Button label for resume"
-  },
   "jK0/93": {
     "defaultMessage": "Ad banner image",
     "description": "Alt text for ad banner image"
@@ -12362,10 +12362,6 @@
   "tPpYwO": {
     "defaultMessage": "Starter",
     "description": "Starter blog"
-  },
-  "tV+VAr": {
-    "defaultMessage": "{questionCount}+ Front End Interview Practice Questions",
-    "description": "Page title for all practice questions page"
   },
   "tWtbVf": {
     "defaultMessage": "OOP",

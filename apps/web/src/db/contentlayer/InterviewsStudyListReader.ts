@@ -4,7 +4,7 @@ import { allInterviewsStudyLists } from '~/../.contentlayer/generated/Interviews
 
 export async function fetchInterviewsStudyList(
   slug: string,
-  locale = 'en-US',
+  locale: string,
 ): Promise<InterviewsStudyList | undefined> {
   const studyLists = (
     allInterviewsStudyLists as ReadonlyArray<InterviewsStudyList>
@@ -18,7 +18,7 @@ export async function fetchInterviewsStudyList(
 
 export async function fetchInterviewsStudyLists(
   categoryParam: InterviewsStudyList['category'],
-  locale = 'en-US',
+  locale: string,
 ): Promise<ReadonlyArray<InterviewsStudyList>> {
   const studyLists =
     allInterviewsStudyLists as ReadonlyArray<InterviewsStudyList>;
@@ -50,7 +50,7 @@ export async function fetchInterviewsStudyLists(
   );
 }
 
-export async function fetchInterviewsAllStudyLists(locale = 'en-US') {
+export async function fetchInterviewsAllStudyLists(locale: string) {
   const [focusAreas, studyPlans, companies] = await Promise.all([
     fetchInterviewsStudyLists('focus-area', locale),
     fetchInterviewsStudyLists('study-plan', locale),

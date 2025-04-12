@@ -8447,6 +8447,12 @@
       "value": "Pinned on application sidebar"
     }
   ],
+  "HH+Rb8": [
+    {
+      "type": 0,
+      "value": "Resume"
+    }
+  ],
   "HI42cv": [
     {
       "type": 0,
@@ -20978,12 +20984,6 @@
       "value": "Referencing good solutions is crucial to learning effectively. We've written our solutions with special care to include practical considerations and multiple approaches."
     }
   ],
-  "jIpLwU": [
-    {
-      "type": 0,
-      "value": "Resume"
-    }
-  ],
   "jK0/93": [
     {
       "type": 0,
@@ -25747,16 +25747,6 @@
     {
       "type": 0,
       "value": "Starter"
-    }
-  ],
-  "tV+VAr": [
-    {
-      "type": 1,
-      "value": "questionCount"
-    },
-    {
-      "type": 0,
-      "value": "+ Front End Interview Practice Questions"
     }
   ],
   "tWtbVf": [

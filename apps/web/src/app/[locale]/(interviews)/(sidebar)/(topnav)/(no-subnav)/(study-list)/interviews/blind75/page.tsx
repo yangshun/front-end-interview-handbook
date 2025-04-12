@@ -56,7 +56,7 @@ type Props = Readonly<{
 
 export default async function Page({ params }: Props) {
   const { locale } = params;
-  const blind75 = await fetchInterviewsStudyList('blind75');
+  const blind75 = await fetchInterviewsStudyList('blind75', locale);
 
   if (blind75 == null) {
     return notFound();

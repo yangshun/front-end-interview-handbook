@@ -38,7 +38,7 @@ async function getPageSEOMetadata({ locale, slug }: Props['params']) {
 }
 
 export async function generateStaticParams() {
-  const focusAreas = await fetchInterviewsStudyLists('focus-area');
+  const focusAreas = await fetchInterviewsStudyLists('focus-area', 'en-US');
 
   return generateStaticParamsWithLocale(
     focusAreas.map((focusArea) => ({ focusArea: focusArea.slug })),

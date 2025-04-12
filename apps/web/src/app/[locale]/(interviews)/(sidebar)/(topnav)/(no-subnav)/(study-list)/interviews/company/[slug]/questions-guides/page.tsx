@@ -23,7 +23,10 @@ type Props = Readonly<{
 }>;
 
 export async function generateStaticParams() {
-  const companyGuides = await fetchInterviewsStudyLists('company-guide');
+  const companyGuides = await fetchInterviewsStudyLists(
+    'company-guide',
+    'en-US',
+  );
 
   return generateStaticParamsWithLocale(
     companyGuides.map((companyGuide) => ({ slug: companyGuide.slug })),

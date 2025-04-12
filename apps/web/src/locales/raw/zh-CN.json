@@ -5731,6 +5731,10 @@
     "defaultMessage": "固定在应用程序侧边栏",
     "description": "Description of ad placement"
   },
+  "HH+Rb8": {
+    "defaultMessage": "继续",
+    "description": "Resume the study session"
+  },
   "HI42cv": {
     "defaultMessage": "使用本指南自信地应对您的 React 面试。由前端面试手册的作者创建，该指南重点介绍了面试中重要的概念，并提供了大量代码示例。对于每个概念，学习最佳实践并练习各种问题，以帮助您真正掌握它。",
     "description": "Long description of React interview playbook page"
@@ -11923,10 +11927,6 @@
     "defaultMessage": "参考优秀的解决方案对于有效学习至关重要。我们编写解决方案时特别注意包含实际考虑因素和多种方法。",
     "description": "Marketing page section subtitle"
   },
-  "jIpLwU": {
-    "defaultMessage": "简历",
-    "description": "Button label for resume"
-  },
   "jK0/93": {
     "defaultMessage": "广告横幅图片",
     "description": "Alt text for ad banner image"
@@ -14078,10 +14078,6 @@
   "tPpYwO": {
     "defaultMessage": "入门",
     "description": "Starter blog"
-  },
-  "tV+VAr": {
-    "defaultMessage": "{questionCount}+ 前端面试练习题",
-    "description": "Page title for all practice questions page"
   },
   "tWtbVf": {
     "defaultMessage": "OOP",

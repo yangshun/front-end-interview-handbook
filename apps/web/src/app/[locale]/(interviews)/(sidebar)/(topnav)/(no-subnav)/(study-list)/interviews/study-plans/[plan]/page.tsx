@@ -38,7 +38,7 @@ async function getPageSEOMetadata({ locale, plan }: Props['params']) {
 }
 
 export async function generateStaticParams() {
-  const studyPlans = await fetchInterviewsStudyLists('study-plan');
+  const studyPlans = await fetchInterviewsStudyLists('study-plan', 'en-US');
 
   return generateStaticParamsWithLocale(
     studyPlans.map((plan) => ({ plan: plan.slug })),

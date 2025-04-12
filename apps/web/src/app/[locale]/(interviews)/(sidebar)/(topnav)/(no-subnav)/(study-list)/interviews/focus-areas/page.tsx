@@ -18,7 +18,7 @@ type Props = Readonly<{
 async function getPageSEOMetadata({ locale }: Props['params']) {
   const [intl, focusAreas] = await Promise.all([
     getIntlServerOnly(locale),
-    fetchInterviewsStudyLists('focus-area'),
+    fetchInterviewsStudyLists('focus-area', 'en-US'),
   ]);
 
   return {

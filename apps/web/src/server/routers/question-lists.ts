@@ -36,7 +36,7 @@ export const questionListsRouter = router({
   get: publicProcedure.query(async ({ ctx: { locale } }) => {
     const intl = await getIntlClientOnly(locale);
 
-    return await fetchQuestionLists(intl);
+    return await fetchQuestionLists(intl, locale);
   }),
   getQuestions: publicProcedure
     .input(
@@ -79,7 +79,10 @@ export const questionListsRouter = router({
             : undefined;
 
         if (studyList != null) {
-          const studyListData_ = await fetchInterviewsStudyList(studyList);
+          const studyListData_ = await fetchInterviewsStudyList(
+            studyList,
+            locale,
+          );
 
           const studyListData = nullthrows(
             studyListData_,
@@ -200,6 +203,7 @@ export const questionListsRouter = router({
 
         const { questions: questionsCoding } = await fetchQuestionsList(
           QuestionListTypeDefault,
+          locale,
         );
 
         return {
@@ -209,23 +213,25 @@ export const questionListsRouter = router({
         } as const;
       },
     ),
-  getRecommendedStudyList: publicProcedure.query(async () => {
-    const [blind75, gfe75, { questions }] = await Promise.all([
-      fetchInterviewsStudyList('blind75'),
-      fetchInterviewsStudyList('gfe75'),
-      fetchQuestionsList({ type: 'format', value: 'system-design' }, 'en-US'),
-    ]);
+  getRecommendedStudyList: publicProcedure.query(
+    async ({ ctx: { locale } }) => {
+      const [blind75, gfe75, { questions }] = await Promise.all([
+        fetchInterviewsStudyList('blind75', locale),
+        fetchInterviewsStudyList('gfe75', locale),
+        fetchQuestionsList({ type: 'format', value: 'system-design' }, locale),
+      ]);
 
-    return {
-      blind75: {
-        questionCount: (blind75?.questionHashes ?? []).length ?? 0,
-        studyListKey: blind75?.slug ?? '',
-      },
-      gfe75: {
-        questionCount: (gfe75?.questionHashes ?? []).length ?? 0,
-        studyListKey: gfe75?.slug ?? '',
-      },
-      systemDesignQuestionCount: questions.length,
-    };
-  }),
+      return {
+        blind75: {
+          questionCount: (blind75?.questionHashes ?? []).length ?? 0,
+          studyListKey: blind75?.slug ?? '',
+        },
+        gfe75: {
+          questionCount: (gfe75?.questionHashes ?? []).length ?? 0,
+          studyListKey: gfe75?.slug ?? '',
+        },
+        systemDesignQuestionCount: questions.length,
+      };
+    },
+  ),
 });

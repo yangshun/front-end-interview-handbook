@@ -77,7 +77,7 @@ export default async function Page({ params }: Props) {
       locale,
     ),
     fetchInterviewListingBottomContent('dashboard', locale),
-    fetchInterviewsAllStudyLists(),
+    fetchInterviewsAllStudyLists(locale),
   ]);
   const { framework, language } = categorizeQuestionsByFrameworkAndLanguage({
     codingQuestions,

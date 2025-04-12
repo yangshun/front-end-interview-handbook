@@ -245,7 +245,7 @@ async function fetchQuestionsListForFramework(
     framework,
     format,
   }: { format?: QuestionPracticeFormat; framework: QuestionFramework },
-  locale = 'en-US',
+  locale: string,
 ): Promise<
   Readonly<{
     loadedLocale: string;
@@ -281,7 +281,7 @@ async function fetchQuestionsListForFramework(
 
 async function fetchQuestionsListCodingForFramework(
   framework: QuestionFramework,
-  locale = 'en-US',
+  locale: string,
 ): Promise<ReadonlyArray<QuestionMetadata>> {
   const { questions } = await fetchQuestionsListCoding(locale);
 
@@ -295,7 +295,7 @@ async function fetchQuestionsListCodingForFramework(
 
 async function fetchQuestionsListQuizForFramework(
   framework: QuestionFramework,
-  locale = 'en-US',
+  locale: string,
 ): Promise<ReadonlyArray<QuestionMetadata>> {
   const { questions } = await fetchQuestionsListQuiz(locale);
 
@@ -312,7 +312,7 @@ async function fetchQuestionsListForLanguage(
     language,
     format,
   }: { format?: QuestionPracticeFormat; language: QuestionLanguage },
-  locale = 'en-US',
+  locale: string,
 ): Promise<
   Readonly<{
     loadedLocale: string;
@@ -348,7 +348,7 @@ async function fetchQuestionsListForLanguage(
 
 async function fetchQuestionsListCodingForLanguage(
   language: QuestionLanguage,
-  locale = 'en-US',
+  locale: string,
 ): Promise<ReadonlyArray<QuestionMetadata>> {
   const { questions } = await fetchQuestionsListCoding(locale);
 
@@ -359,7 +359,7 @@ async function fetchQuestionsListCodingForLanguage(
 
 async function fetchQuestionsListQuizForLanguage(
   language: QuestionLanguage,
-  locale = 'en-US',
+  locale: string,
 ): Promise<ReadonlyArray<QuestionMetadata>> {
   const { questions } = await fetchQuestionsListQuiz(locale);
 
@@ -373,7 +373,7 @@ async function fetchQuestionsListQuizForLanguage(
 
 export async function fetchQuestionsListForCompany(
   company: QuestionCompany,
-  locale = 'en-US',
+  locale: string,
 ): Promise<ReadonlyArray<QuestionMetadata>> {
   const [
     { questions: codingQuestions },
@@ -393,7 +393,7 @@ export async function fetchQuestionsListForCompany(
 
 export async function fetchQuestionsListByHash(
   questionHashes: ReadonlyArray<QuestionHash>,
-  locale = 'en-US',
+  locale: string,
 ): Promise<ReadonlyArray<QuestionMetadata>> {
   const [
     { questions: quizQuestions },
@@ -445,7 +445,7 @@ function filterQuestionByCodingFormat(
 
 export async function fetchQuestionsList(
   listType: QuestionListTypeData,
-  requestedLocale = 'en-US',
+  requestedLocale: string,
 ): Promise<
   Readonly<{
     loadedLocale: string;
@@ -468,10 +468,13 @@ export async function fetchQuestionsList(
       }
     }
     case 'language': {
-      const results = await fetchQuestionsListForLanguage({
-        format: listType.tab,
-        language: listType.value,
-      });
+      const results = await fetchQuestionsListForLanguage(
+        {
+          format: listType.tab,
+          language: listType.value,
+        },
+        requestedLocale,
+      );
 
       return {
         loadedLocale: results.loadedLocale,
@@ -482,10 +485,13 @@ export async function fetchQuestionsList(
       };
     }
     case 'framework': {
-      const results = await fetchQuestionsListForFramework({
-        format: listType.tab,
-        framework: listType.value,
-      });
+      const results = await fetchQuestionsListForFramework(
+        {
+          format: listType.tab,
+          framework: listType.value,
+        },
+        requestedLocale,
+      );
 
       return {
         loadedLocale: results.loadedLocale,
@@ -509,7 +515,7 @@ export async function fetchQuestion(
     format: QuestionFormat;
     slug: string;
   }>,
-  requestedLocale = 'en-US',
+  requestedLocale: string,
 ): Promise<{ loadedLocale: string; question: QuestionMetadata }> {
   const [
     { questions: quizQuestions, loadedLocale: quizLoadedLocale },

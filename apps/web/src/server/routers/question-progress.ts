@@ -42,7 +42,7 @@ export const questionProgressRouter = router({
           question: { format, slug },
           studyListKey,
         },
-        ctx: { viewer },
+        ctx: { viewer, locale },
       }) => {
         if (!viewer) {
           return null;
@@ -117,7 +117,7 @@ export const questionProgressRouter = router({
 
             return { newSessionCreated: true, session: session__ };
           })(),
-          fetchInterviewsStudyList(studyListKey),
+          fetchInterviewsStudyList(studyListKey, locale),
         ]);
 
         const key = hashQuestion({ format, slug });
@@ -210,7 +210,7 @@ export const questionProgressRouter = router({
     .query(
       async ({
         input: { question: questionParam, studyListKey },
-        ctx: { viewer },
+        ctx: { locale, viewer },
       }) => {
         const [userProfile, { question: questionMetadata }] = await Promise.all(
           [
@@ -222,7 +222,7 @@ export const questionProgressRouter = router({
                 id: viewer.id,
               },
             }),
-            fetchQuestion(questionParam),
+            fetchQuestion(questionParam, locale),
           ],
         );
 
@@ -342,57 +342,60 @@ export const questionProgressRouter = router({
       status: questionProgress.status as QuestionProgressStatus,
     }));
   }),
-  getAllIncludingMetadata: userProcedure.query(async ({ ctx: { viewer } }) => {
-    const questionProgressList = await prisma.questionProgress.findMany({
-      orderBy: {
-        createdAt: 'desc',
-      },
-      select: {
-        createdAt: true,
-        format: true,
-        id: true,
-        slug: true,
-        status: true,
-      },
-      where: {
-        userId: viewer.id,
-      },
-    });
+  getAllIncludingMetadata: userProcedure.query(
+    async ({ ctx: { locale, viewer } }) => {
+      const questionProgressList = await prisma.questionProgress.findMany({
+        orderBy: {
+          createdAt: 'desc',
+        },
+        select: {
+          createdAt: true,
+          format: true,
+          id: true,
+          slug: true,
+          status: true,
+        },
+        where: {
+          userId: viewer.id,
+        },
+      });
 
-    const questionProgressMetadata = await fetchQuestionsListByHash(
-      questionProgressList.map((qn) =>
-        hashQuestion({ format: qn.format as QuestionFormat, slug: qn.slug }),
-      ),
-    );
+      const questionProgressMetadata = await fetchQuestionsListByHash(
+        questionProgressList.map((qn) =>
+          hashQuestion({ format: qn.format as QuestionFormat, slug: qn.slug }),
+        ),
+        locale,
+      );
 
-    const metadataMap = new Map(
-      questionProgressMetadata.map((metadata) => [
-        hashQuestion(metadata),
-        metadata,
-      ]),
-    );
-
-    return questionProgressList
-      .map((progress) => {
-        const metadata = metadataMap.get(
-          hashQuestion({
-            format: progress.format as QuestionFormat,
-            slug: progress.slug,
-          }),
-        );
-
-        if (metadata == null) {
-          return null;
-        }
-
-        return {
-          createdAt: progress.createdAt,
-          id: progress.id,
+      const metadataMap = new Map(
+        questionProgressMetadata.map((metadata) => [
+          hashQuestion(metadata),
           metadata,
-        };
-      })
-      .flatMap((progress) => (progress == null ? [] : [progress]));
-  }),
+        ]),
+      );
+
+      return questionProgressList
+        .map((progress) => {
+          const metadata = metadataMap.get(
+            hashQuestion({
+              format: progress.format as QuestionFormat,
+              slug: progress.slug,
+            }),
+          );
+
+          if (metadata == null) {
+            return null;
+          }
+
+          return {
+            createdAt: progress.createdAt,
+            id: progress.id,
+            metadata,
+          };
+        })
+        .flatMap((progress) => (progress == null ? [] : [progress]));
+    },
+  ),
   getContributionsCount: userProcedure
     .input(
       z.object({
