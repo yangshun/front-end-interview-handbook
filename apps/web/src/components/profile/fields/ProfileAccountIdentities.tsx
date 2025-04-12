@@ -3,8 +3,8 @@ import clsx from 'clsx';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import {
   RiCheckboxCircleFill,
-  RiGithubLine,
-  RiGoogleLine,
+  RiGithubFill,
+  RiGoogleFill,
 } from 'react-icons/ri';
 import url from 'url';
 
@@ -137,13 +137,13 @@ export default function ProfileAccountIdentities({ userIdentities }: Props) {
   > = {
     github: {
       connected: !!githubIdentity,
-      icon: RiGithubLine,
+      icon: RiGithubFill,
       label: 'GitHub',
       provider: 'github',
     },
     google: {
       connected: !!googleIdentity,
-      icon: RiGoogleLine,
+      icon: RiGoogleFill,
       label: 'Google',
       provider: 'google',
     },
