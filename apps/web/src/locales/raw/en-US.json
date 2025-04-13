@@ -2767,6 +2767,10 @@
     "defaultMessage": "Upgrade to lifetime plan",
     "description": "Upgrade to lifetime plan"
   },
+  "B8s6N1": {
+    "defaultMessage": "Front End System Design: {title}",
+    "description": "Title for Front End System Design"
+  },
   "B8uTwW": {
     "defaultMessage": "No contributions in the community matching those filters",
     "description": "Subtitle for empty state when there are no contributions matching filters"
@@ -11626,10 +11630,6 @@
   "pj07uD": {
     "defaultMessage": "Mark complete",
     "description": "Mark the question as complete"
-  },
-  "pjH0jb": {
-    "defaultMessage": "{name} front end interview questions",
-    "description": "Label for company guides"
   },
   "pjndkX": {
     "defaultMessage": "Unvote",

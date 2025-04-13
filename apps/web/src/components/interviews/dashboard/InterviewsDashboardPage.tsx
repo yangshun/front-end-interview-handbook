@@ -16,7 +16,6 @@ import type {
   QuestionLanguage,
   QuestionMetadata,
 } from '~/components/interviews/questions/common/QuestionsTypes';
-import { FormattedMessage } from '~/components/intl';
 import MDXContent from '~/components/mdx/MDXContent';
 import Anchor from '~/components/ui/Anchor';
 import Divider from '~/components/ui/Divider';
@@ -237,13 +236,17 @@ export default function InterviewsDashboardPage({
                   <ul>
                     {companyGuides.map((guide) => (
                       <li key={guide.href}>
-                        <Anchor href={guide.href}>
-                          <FormattedMessage
-                            defaultMessage="{name} front end interview questions"
-                            description="Label for company guides"
-                            id="pjH0jb"
-                            values={{ name: guide.name }}
-                          />
+                        <Anchor href={guide.href}>{guide.longName}</Anchor>
+                      </li>
+                    ))}
+                  </ul>
+                ),
+                QuestionsSystemDesignList: () => (
+                  <ul>
+                    {questions.systemDesignQuestions.map((questionMetadata) => (
+                      <li key={questionMetadata.slug}>
+                        <Anchor href={questionMetadata.href}>
+                          {questionMetadata.title}
                         </Anchor>
                       </li>
                     ))}

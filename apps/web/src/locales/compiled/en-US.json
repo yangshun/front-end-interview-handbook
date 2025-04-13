@@ -5831,6 +5831,16 @@
       "value": "Upgrade to lifetime plan"
     }
   ],
+  "B8s6N1": [
+    {
+      "type": 0,
+      "value": "Front End System Design: "
+    },
+    {
+      "type": 1,
+      "value": "title"
+    }
+  ],
   "B8uTwW": [
     {
       "type": 0,
@@ -24235,16 +24245,6 @@
     {
       "type": 0,
       "value": "Mark complete"
-    }
-  ],
-  "pjH0jb": [
-    {
-      "type": 1,
-      "value": "name"
-    },
-    {
-      "type": 0,
-      "value": " front end interview questions"
     }
   ],
   "pjndkX": [

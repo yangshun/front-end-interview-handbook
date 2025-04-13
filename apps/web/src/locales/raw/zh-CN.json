@@ -4483,6 +4483,10 @@
     "defaultMessage": "升级到终身计划",
     "description": "Upgrade to lifetime plan"
   },
+  "B8s6N1": {
+    "defaultMessage": "前端系统设计：{title}",
+    "description": "Title for Front End System Design"
+  },
   "B8uTwW": {
     "defaultMessage": "社区中没有与这些筛选器匹配的贡献",
     "description": "Subtitle for empty state when there are no contributions matching filters"
@@ -13342,10 +13346,6 @@
   "pj07uD": {
     "defaultMessage": "标记为已完成",
     "description": "Mark the question as complete"
-  },
-  "pjH0jb": {
-    "defaultMessage": "{name}前端面试题",
-    "description": "Label for company guides"
   },
   "pjndkX": {
     "defaultMessage": "取消投票",

@@ -8,6 +8,7 @@ import InterviewsQuestionsCategoryPage from '~/components/interviews/questions/l
 import { QuestionCountTotal } from '~/components/interviews/questions/listings/stats/QuestionCount';
 import { useIntl } from '~/components/intl';
 import MDXContent from '~/components/mdx/MDXContent';
+import Anchor from '~/components/ui/Anchor';
 import Divider from '~/components/ui/Divider';
 
 import InterviewsQuestionsCategoryPracticeFormatTabs from './InterviewsQuestionsCategoryPracticeFormatTabs';
@@ -87,7 +88,19 @@ export default function InterviewsQuestionsCategoryPreparePage({
           <Divider />
           <MDXContent
             components={{
-              QuestionsCount: () => <span>{QuestionCountTotal}</span>,
+              // eslint-disable-next-line react/jsx-no-useless-fragment
+              QuestionsCount: () => <>{QuestionCountTotal}</>,
+              QuestionsList: () => (
+                <ul>
+                  {questions.map((questionMetadata) => (
+                    <li key={questionMetadata.slug}>
+                      <Anchor href={questionMetadata.href}>
+                        {questionMetadata.title}
+                      </Anchor>
+                    </li>
+                  ))}
+                </ul>
+              ),
             }}
             mdxCode={bottomContent.body.code}
           />

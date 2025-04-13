@@ -1,5 +1,3 @@
-import { readySystemDesignQuestions } from '~/components/interviews/questions/content/system-design/InterviewsSystemDesignQuestions';
-
 ## 前端面试准备平台 | 开始使用
 
 欢迎来到我们的一站式页面，在这里您可以系统地查找和探索我们拥有的所有资源，以帮助您准备前端面试。
@@ -54,24 +52,18 @@ import { readySystemDesignQuestions } from '~/components/interviews/questions/co
 
 ### 您可以找到的最佳前端系统设计材料
 
-前端系统设计材料非常罕见 - 深入研究和好的解决方案更难找到。我们花了很多时间创建了一个 [详细指南](/system-design) 来解决这些问题 - 包括您可能面临的 [问题类型](/system-design/types-of-questions)、您可能被评判的 [评估轴](/system-design/evaluation-axes)、您可以使用的 [有用框架](/system-design/framework) 等。
+前端系统设计材料已经够稀缺了——深入研究和好的解决方案更是难找。我们花了很多时间创建了一份[详细指南](/front-end-system-design-playbook)来解决这些问题——包括你可能面临的[问题类型](/front-end-system-design-playbook/types-of-questions)、你可以使用的[有用的交付框架](/front-end-system-design-playbook/framework)、你可能被评判的[评估维度](/front-end-system-design-playbook/evaluation-axes)等等。
 
 您还可以在该指南中找到大量前端系统设计面试问题的完整解决方案和解释，包括：
 
-<ul>
-  {readySystemDesignQuestions.map((question) => (
-      <li key={question.href}>
-        <a href={question.href}>{question.title} system design</a>
-      </li>
-    ))}
-</ul>
+<QuestionsSystemDesignList />
 
-请参考 [此链接](/questions/system-design) 获取所有前端前端系统设计问题 →
+探索所有[前端系统设计问题 →](/questions/system-design)。
 
 ### 公司特定指南和问题
 
-软件工程面试中常用的一种策略，尤其是在使用Leetcode时，是练习公司特定的问题。我们有前端面试的等效方法，允许您发现并练习特定公司的题目。
+在软件工程面试中，尤其是在使用LeetCode时，一个常用的策略是练习针对特定公司的问题。我们为前端面试提供了类似的方法，让你能够发现并练习针对特定公司的问题。
 
-我们计划在未来增加更多公司，但现在，您可以在我们的[公司特定指南](/interviews/company)中找到以下公司：
+我们计划在未来增加更多公司，但现在，你可以在我们的[公司指南](/interviews/company)中找到以下公司：
 
 <GuideLists />

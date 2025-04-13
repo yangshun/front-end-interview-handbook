@@ -1,18 +1,19 @@
 'use client';
 
+import GuidesArticle from '~/components/guides/GuidesArticle';
+import GuidesArticleJsonLd from '~/components/guides/GuidesArticleJsonLd';
+import GuidesMainLayout from '~/components/guides/GuidesMainLayout';
+import type { TableOfContents } from '~/components/guides/GuidesTableOfContents';
+import type { GuideMetadata } from '~/components/guides/types';
+import useFlattenedNavigationItems from '~/components/guides/useFlattenedNavigationItems';
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
+import InterviewsQuestionsSystemDesignPaywall from '~/components/interviews/questions/content/system-design/InterviewsQuestionsSystemDesignPaywall';
+import { useIntl } from '~/components/intl';
 
 import { useQueryGuideProgress } from '~/db/guides/GuidesProgressClient';
 import { useI18nPathname } from '~/next-i18nostic/src';
 
 import { useFrontEndSystemDesignPlaybookNavigation } from './FrontEndSystemDesignPlaybookNavigation';
-import GuidesArticle from '../../GuidesArticle';
-import GuidesArticleJsonLd from '../../GuidesArticleJsonLd';
-import GuidesMainLayout from '../../GuidesMainLayout';
-import type { TableOfContents } from '../../GuidesTableOfContents';
-import type { GuideMetadata } from '../../types';
-import useFlattenedNavigationItems from '../../useFlattenedNavigationItems';
-import InterviewsQuestionsSystemDesignPaywall from '../../../interviews/questions/content/system-design/InterviewsQuestionsSystemDesignPaywall';
 
 type Props = Readonly<{
   children?: React.ReactNode;
@@ -33,6 +34,7 @@ export default function FrontEndSystemDesignPlaybookLayout({
   isAccessibleForFree = true,
   questions,
 }: Props) {
+  const intl = useIntl();
   const navigation = useFrontEndSystemDesignPlaybookNavigation(questions);
   const { pathname } = useI18nPathname();
 
@@ -56,8 +58,16 @@ export default function FrontEndSystemDesignPlaybookLayout({
         description={description}
         isAccessibleForFree={isAccessibleForFree}
         pathname={pathname}
-        // TODO: i18n
-        title={`Front End System Design: ${title}`}
+        title={intl.formatMessage(
+          {
+            defaultMessage: 'Front End System Design: {title}',
+            description: 'Title for Front End System Design',
+            id: 'B8s6N1',
+          },
+          {
+            title,
+          },
+        )}
       />
       <GuidesMainLayout
         guide={guide}
