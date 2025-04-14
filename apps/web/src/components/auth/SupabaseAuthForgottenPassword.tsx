@@ -104,7 +104,7 @@ export default function SupabaseAuthForgottenPassword({
 
   return (
     <div className="flex flex-col gap-1.5">
-      <div>
+      <div className="w-full">
         <Button
           addonPosition="start"
           icon={RiArrowLeftLine}
@@ -119,7 +119,10 @@ export default function SupabaseAuthForgottenPassword({
         />
       </div>
       <form className="flex flex-col gap-y-8" onSubmit={handlePasswordReset}>
-        <Heading className="text-center" level="heading5">
+        <Heading
+          className="text-center lg:text-left"
+          level="heading5"
+          weight="medium">
           <FormattedMessage
             defaultMessage="Reset password"
             description="Title of Password Reset page"

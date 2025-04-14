@@ -104,7 +104,7 @@ export default function SupabaseAuth({
   function Container({ children }: Readonly<{ children: React.ReactNode }>) {
     return (
       <div className={className}>
-        <div className="flex flex-col gap-y-8">
+        <div className="flex flex-col gap-y-6">
           <div className="flex flex-col gap-y-8">
             <div
               className={clsx(
@@ -114,7 +114,7 @@ export default function SupabaseAuth({
                   : 'items-start',
               )}>
               {!isAuthScreenWithSocial && !onlyThirdPartyProviders && (
-                <div>
+                <div className="w-full">
                   <Button
                     addonPosition="start"
                     icon={RiArrowLeftLine}
@@ -131,7 +131,8 @@ export default function SupabaseAuth({
               )}
               <Heading
                 className="text-center"
-                level={variant === 'full' ? 'heading5' : 'heading6'}>
+                level={variant === 'full' ? 'heading5' : 'heading6'}
+                weight="medium">
                 {getAuthHeading()}
               </Heading>
               <Section>

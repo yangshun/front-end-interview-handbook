@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import { AnimatePresence, motion } from 'framer-motion';
+import { shuffle } from 'lodash-es';
 import { useEffect, useRef, useState } from 'react';
 
 import { InterviewsMarketingTestimonialsDict } from '~/components/interviews/marketing/testimonials/InterviewsMarketingTestimonials';
@@ -12,6 +13,8 @@ import Text, { textVariants } from '~/components/ui/Text';
 import { themeTextSubtitleColor } from '~/components/ui/theme';
 
 import LogoComboMark from '../global/logos/LogoComboMark';
+
+const TESTIMONIAL_DURATION = 30_000;
 
 type TestimonialCardProps = Readonly<{
   anonymous: boolean;
@@ -120,27 +123,40 @@ type Props = Readonly<{
 export default function AuthTestimonialSlider({ variant = 'full' }: Props) {
   const intl = useIntl();
   const testimonials = InterviewsMarketingTestimonialsDict(intl);
-  const authTestimonials = [
-    testimonials.cliffordFung,
-    testimonials.kiaanCastillo,
-    testimonials.yugantJoshi,
-    testimonials.deannaTran,
-    testimonials.locChuong,
-    testimonials.edWang,
-    testimonials.lunghaoLee,
-  ];
+  const [authTestimonials, setAuthTestimonials] = useState(() =>
+    shuffle([
+      testimonials.cliffordFung,
+      testimonials.kiaanCastillo,
+      testimonials.yugantJoshi,
+      testimonials.deannaTran,
+      testimonials.locChuong,
+      testimonials.edWang,
+      testimonials.lunghaoLee,
+    ]),
+  );
   const [currentIndex, setCurrentIndex] = useState(0);
   const timer = useRef<ReturnType<typeof setInterval>>();
 
   useEffect(() => {
     timer.current = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % authTestimonials.length);
-    }, 5000);
+      setCurrentIndex((prev) => {
+        const nextIndex = prev + 1;
+
+        if (nextIndex >= authTestimonials.length) {
+          // Reshuffle after all testimonials have been shown
+          setAuthTestimonials(shuffle(authTestimonials));
+
+          return 0;
+        }
+
+        return nextIndex;
+      });
+    }, TESTIMONIAL_DURATION);
 
     return () => {
       window.clearInterval(timer.current);
     };
-  }, [authTestimonials.length]);
+  }, [authTestimonials]);
 
   return (
     <div className="w-full max-w-[515px] overflow-hidden">

@@ -79,23 +79,13 @@ export default function SupabaseAuthUpdatePassword({
           {showTitle && (
             <Heading
               className="flex-1"
-              level={user?.email ? 'heading6' : 'heading5'}>
-              {user?.email == null ? (
-                <FormattedMessage
-                  defaultMessage="Change password"
-                  description="Title of Change Password page"
-                  id="SLpcOX"
-                />
-              ) : (
-                <FormattedMessage
-                  defaultMessage="Change password for {userEmail}"
-                  description="Title of Change Password page"
-                  id="gZL62Q"
-                  values={{
-                    userEmail: user?.email,
-                  }}
-                />
-              )}
+              level={user?.email ? 'heading6' : 'heading5'}
+              weight="medium">
+              <FormattedMessage
+                defaultMessage="Change password"
+                description="Title of Change Password page"
+                id="SLpcOX"
+              />
             </Heading>
           )}
           {user?.app_metadata.provider !== 'email' && (

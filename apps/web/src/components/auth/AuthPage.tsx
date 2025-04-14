@@ -37,7 +37,7 @@ export default function AuthPage({ view }: Props) {
     <div
       className={clsx(
         'flex w-full',
-        '-mt-[var(--global-sticky-height)] min-h-[calc(100vh_-_var(--global-sticky-height))]',
+        '-mt-[var(--global-sticky-height)] min-h-screen',
         themeBackgroundDarkColor,
       )}>
       <div
