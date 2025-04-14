@@ -7,8 +7,8 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "turbo run build",
-    "dev": "turbo run dev --filter=greatfrontend",
+    "build": "turbo run build --filter=greatfrontend...",
+    "dev": "turbo run dev --filter=greatfrontend...",
     "dev:all": "turbo run dev",
     "lint": "turbo run lint",
     "test": "turbo run test",
