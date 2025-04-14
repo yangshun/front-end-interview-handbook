@@ -13,7 +13,7 @@
     "prisma": "prisma",
     "prisma:migrate": "dotenv -e .env.development.local -- prisma migrate dev",
     "prisma:deploy": "dotenv -e .env.production.local -- prisma migrate deploy",
-    "db:seed": "ts-node --esm --experimentalSpecifierResolution node ./src/scripts/seedData.ts"
+    "db:seed": "tsx ./src/scripts/seed-data.ts"
   },
   "dependencies": {
     "@ai-sdk/openai": "^0.0.33",
@@ -71,7 +71,7 @@
     "prettier": "^3.1.1",
     "prettier-plugin-tailwindcss": "^0.5.9",
     "tailwindcss": "^3.3.2",
-    "ts-node": "^10.9.2",
+    "tsx": "^4.7.1",
     "typescript": "^5.3.3"
   }
 }
