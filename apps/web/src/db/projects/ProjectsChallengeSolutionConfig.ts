@@ -4,7 +4,7 @@ export const CHALLENGES_SOLUTIONS_SRC_DIR = path.join(
   process.cwd(),
   '..',
   '..',
-  'packages',
+  'contents',
   'projects',
   'challenges',
 );

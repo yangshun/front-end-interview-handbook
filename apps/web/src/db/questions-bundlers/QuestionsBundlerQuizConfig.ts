@@ -2,14 +2,6 @@ import path from 'path';
 
 const format = 'quiz';
 
-export const QUESTIONS_OUT_DIR_QUIZ = path.join(
-  process.cwd(),
-  'src',
-  '__generated__',
-  'questions',
-  format,
-);
-
 const QUESTIONS_SRC_DIR_QUIZ_NON_JS = path.join(
   process.cwd(),
   '..',
@@ -19,6 +11,14 @@ const QUESTIONS_SRC_DIR_QUIZ_NON_JS = path.join(
   'packages',
   format,
   'questions',
+);
+
+export const QUESTIONS_OUT_DIR_QUIZ = path.join(
+  process.cwd(),
+  'src',
+  '__generated__',
+  'questions',
+  format,
 );
 
 export type QuestionsQuizSourceConfig = Readonly<{

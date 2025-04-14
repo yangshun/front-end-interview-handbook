@@ -6,7 +6,7 @@ export const QUESTIONS_SRC_DIR_JAVASCRIPT = path.join(
   process.cwd(),
   '..',
   '..',
-  'packages',
+  'contents',
   'questions',
   format,
 );
