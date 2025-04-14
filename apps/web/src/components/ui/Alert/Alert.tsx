@@ -20,7 +20,7 @@ import Heading from '../Heading';
 import Section from '../Heading/HeadingContext';
 import Text, { textVariants } from '../Text';
 
-type AlertVariant =
+export type AlertVariant =
   | 'danger'
   | 'info'
   | 'neutral'
@@ -148,7 +148,7 @@ export default function Alert({
           </Heading>
         )}
         <Section>
-          <Text className="block" color="secondary" size={bodySize}>
+          <Text className="not-prose block" color="secondary" size={bodySize}>
             {children}
           </Text>
         </Section>

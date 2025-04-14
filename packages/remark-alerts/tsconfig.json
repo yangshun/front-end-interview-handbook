@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "target": "es2020",
+    "strict": true,
+    "skipLibCheck": true,
+    "stripInternal": true,
+    "esModuleInterop": true,
+    "noEmit": true
+  },
+  "include": ["src", "tsup.config.ts"]
+}

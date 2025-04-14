@@ -26,6 +26,8 @@ import { ProjectsSkillMetadataDocument } from '../components/projects/contentlay
 import { ProjectsTrackInfoDocument } from '../components/projects/contentlayer/ProjectsTrackInfoDocument';
 import { ProjectsTrackMetadataDocument } from '../components/projects/contentlayer/ProjectsTrackMetadataDocument';
 
+import remarkAlerts from '@gfe/remark-alerts';
+
 export default makeSource({
   contentDirPath: 'src/content',
   documentTypes: [
@@ -51,6 +53,11 @@ export default makeSource({
     JobsPostingDocument,
   ],
   mdx: {
-    remarkPlugins: [remarkGfm, remarkFrontmatter, remarkMdxFrontmatter],
+    remarkPlugins: [
+      remarkGfm,
+      remarkFrontmatter,
+      remarkMdxFrontmatter,
+      remarkAlerts,
+    ],
   },
 });

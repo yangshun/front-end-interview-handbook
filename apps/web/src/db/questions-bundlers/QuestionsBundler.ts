@@ -7,6 +7,7 @@ import remarkMdxCodeMeta from 'remark-mdx-code-meta';
 import remarkMdxFrontmatter from 'remark-mdx-frontmatter';
 import remarkSlug from 'remark-slug';
 
+import remarkAlerts from '@gfe/remark-alerts';
 import remarkExtractToc from '@stefanprobst/remark-extract-toc';
 import remarkExtractTocExport from '@stefanprobst/remark-extract-toc/mdx';
 
@@ -71,6 +72,7 @@ export async function readMDXFile(
 
       remarkPlugins.push(remarkGfm);
       remarkPlugins.push(remarkMdxCodeMeta);
+      remarkPlugins.push(remarkAlerts);
 
       if (extractFrontmatter) {
         remarkPlugins.push(remarkFrontmatter, remarkMdxFrontmatter);
@@ -79,8 +81,10 @@ export async function readMDXFile(
       if (extractHeadings) {
         remarkPlugins.push(
           remarkSlug,
-          remarkExtractToc,
-          remarkExtractTocExport,
+          // These two plugins are not typed correctly.
+          // It happens because they depend on unified 11 while we using 10.
+          remarkExtractToc as () => void,
+          remarkExtractTocExport as () => void,
         );
       }
 

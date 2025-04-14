@@ -10,6 +10,7 @@ import remarkSlug from 'remark-slug';
 import remarkExtractToc from '@stefanprobst/remark-extract-toc';
 import remarkExtractTocExport from '@stefanprobst/remark-extract-toc/mdx';
 import nextMDX from '@next/mdx';
+import remarkAlerts from '@gfe/remark-alerts';
 
 const withMDX = nextMDX({
   extension: /\.mdx?$/,
@@ -18,6 +19,7 @@ const withMDX = nextMDX({
     remarkPlugins: [
       remarkGfm,
       remarkFrontmatter,
+      remarkAlerts,
       remarkMdxFrontmatter,
       remarkSlug,
       remarkExtractToc,

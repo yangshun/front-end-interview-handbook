@@ -1,0 +1,41 @@
+{
+  "name": "@gfe/remark-alerts",
+  "version": "0.0.1",
+  "description": "",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.mts",
+  "exports": {
+    "import": "./dist/index.mjs",
+    "types": "./dist/index.d.mts"
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "clean": "rimraf dist",
+    "typecheck": "tsc",
+    "verify": "npm run typecheck && npm run build",
+    "prepublishOnly": "npm run verify"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "engines": {
+    "node": "18.18.2",
+    "pnpm": "8.15.8"
+  },
+  "packageManager": "pnpm@8.15.8",
+  "peerDependencies": {
+    "@types/mdast": "^4.0.0",
+    "unified": "^10.1.2"
+  },
+  "dependencies": {
+    "lodash-es": "^4.17.21",
+    "unist-util-visit": "^5.0.0"
+  },
+  "devDependencies": {
+    "@types/lodash-es": "^4.17.6",
+    "rimraf": "^6.0.1",
+    "tsup": "^8.3.6",
+    "typescript": "^5.8.3"
+  }
+}
