@@ -1,7 +1,11 @@
 import clsx from 'clsx';
 import type { CSSProperties, ReactNode } from 'react';
-import { Fragment } from 'react';
-import type { PanelGroupProps, PanelProps } from 'react-resizable-panels';
+import { Fragment, useCallback, useRef } from 'react';
+import type {
+  ImperativePanelGroupHandle,
+  PanelGroupProps,
+  PanelProps,
+} from 'react-resizable-panels';
 import { Panel, PanelGroup, PanelResizeHandle } from 'react-resizable-panels';
 
 import TilesPanelItem from './TilesPanelItem';
@@ -51,6 +55,40 @@ export default function TilesPanel<TabType extends string>({
   getResizeHandlerProps,
   ...props
 }: TilesPanelGroupTypeProps<TabType> | TilesPanelItemTypeProps<TabType>) {
+  const panelGroupRef = useRef<ImperativePanelGroupHandle>(null);
+
+  const handleDoubleClick = useCallback((index: number) => {
+    const groupHandle = panelGroupRef.current;
+
+    if (!groupHandle) {
+      return;
+    }
+
+    const currentLayout = groupHandle.getLayout();
+
+    if (index > 0 && index < currentLayout.length) {
+      const panelBeforeIndex = index - 1;
+      const panelAfterIndex = index;
+
+      const sizeBefore = currentLayout[panelBeforeIndex];
+      const sizeAfter = currentLayout[panelAfterIndex];
+
+      if (sizeBefore + sizeAfter <= 0) {
+        return;
+      }
+
+      const combinedSize = sizeBefore + sizeAfter;
+      const equalSize = combinedSize / 2;
+
+      const newLayout = [...currentLayout];
+
+      newLayout[panelBeforeIndex] = equalSize;
+      newLayout[panelAfterIndex] = equalSize;
+
+      groupHandle.setLayout(newLayout);
+    }
+  }, []);
+
   if (props.type === 'item') {
     const panel = (
       <TilesPanelItem
@@ -88,6 +126,7 @@ export default function TilesPanel<TabType extends string>({
 
   const group = (
     <PanelGroup
+      ref={panelGroupRef}
       className={clsx(level === 0 && 'relative')}
       direction={groupDirection}
       disablePointerEventsDuringResize={disablePointerEventsDuringResize}
@@ -95,15 +134,22 @@ export default function TilesPanel<TabType extends string>({
       {props.items.map((item, index) => {
         const itemSizeEqual = 100 / Math.max(props.items.length, 1);
 
+        const resizeHandlerProps = getResizeHandlerProps(
+          groupDirection === 'horizontal' ? 'vertical' : 'horizontal',
+        );
+
         return (
           <Fragment key={'fragment-' + item.id}>
             {index > 0 && (
-              <PanelResizeHandle
-                key={'handle-' + item.id}
-                {...getResizeHandlerProps(
-                  groupDirection === 'horizontal' ? 'vertical' : 'horizontal',
-                )}
-              />
+              <div
+                key={'handle-wrapper-' + item.id}
+                className={resizeHandlerProps.className}
+                style={resizeHandlerProps.style}
+                onDoubleClick={() => handleDoubleClick(index)}>
+                <PanelResizeHandle>
+                  {resizeHandlerProps.children}
+                </PanelResizeHandle>
+              </div>
             )}
             <TilesPanel
               key={item.id}
