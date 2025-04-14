@@ -36,10 +36,10 @@ export default function prune<TabType>(
   }
 
   // Flatten groups that only have a single child.
-  if (newPanelItems.length === 1) {
+  if (newPanelItems.length === 1 && panel.id !== 'root') {
     return {
-      ...newPanelItems[0],
-      id: panel.id,
+      ...newPanelItems[0], // Uses child's properties
+      id: panel.id, // Uses parent's id
     };
   }
 
