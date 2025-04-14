@@ -13,6 +13,7 @@ import CardContainer from '~/components/ui/Card/CardContainer';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
+import Img from '~/components/ui/Img';
 import Text from '~/components/ui/Text';
 import {
   themeGradientHeading,
@@ -81,7 +82,7 @@ export default function MarketingTeamPage({
                   className="flex flex-col gap-4 rounded-md p-4"
                   padding={false}>
                   <div className="relative">
-                    <img
+                    <Img
                       alt={user.name}
                       className="aspect-[4/3] w-full rounded-md object-cover"
                       src={user.image}
@@ -92,7 +93,7 @@ export default function MarketingTeamPage({
                           <div
                             key={logo}
                             className="size-12 -mr-4 flex items-center justify-center overflow-clip rounded-full bg-white shadow">
-                            <img
+                            <Img
                               alt=""
                               className={clsx(
                                 'size-8',

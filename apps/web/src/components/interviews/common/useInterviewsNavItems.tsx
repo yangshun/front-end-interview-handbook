@@ -31,6 +31,7 @@ import SidebarPremiumChip from '~/components/global/sidebar/SidebarPremiumChip';
 import { StudyPlanIcons } from '~/components/interviews/questions/content/study-list/StudyListUtils';
 import { useIntl } from '~/components/intl';
 import Badge from '~/components/ui/Badge';
+import Img from '~/components/ui/Img';
 import type { NavbarTopLevelItem } from '~/components/ui/Navbar/NavTypes';
 
 import InterviewsPremiumBadge from './InterviewsPremiumBadge';
@@ -267,7 +268,7 @@ export default function useInterviewsNavItems(
                 label: 'Microsoft',
               },
             ].map(({ label, imgSrc }) => (
-              <img
+              <Img
                 key={label}
                 alt={label}
                 className="size-4 inline-block shrink-0 rounded bg-white p-0.5"

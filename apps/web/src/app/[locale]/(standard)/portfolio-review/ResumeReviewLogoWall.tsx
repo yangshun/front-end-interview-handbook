@@ -4,6 +4,7 @@ import clsx from 'clsx';
 
 import { FormattedMessage } from '~/components/intl';
 import Container from '~/components/ui/Container';
+import Img from '~/components/ui/Img';
 import Marquee from '~/components/ui/Marquee';
 import Text from '~/components/ui/Text';
 
@@ -98,7 +99,7 @@ export default function ResumeReviewLogoWall() {
                 height: logo.height,
                 width: logo.width,
               }}>
-              <img
+              <Img
                 alt={logo.alt}
                 className={logo.className}
                 height={logo.height}

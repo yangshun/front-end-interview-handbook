@@ -15,6 +15,7 @@ import InterviewsMarketingFeaturesRow from '~/components/interviews/marketing/In
 import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
+import Img from '~/components/ui/Img';
 
 const summaryFeatures = [
   {
@@ -212,42 +213,36 @@ function useFeaturedReviews() {
   return [
     {
       designation: 'Now Software Engineer at Meta',
-
       pic: (
-        <img
+        <Img
           alt="Meta logo mark"
           className="size-6 flex-none rounded-full"
           src="/img/company-logos/meta-logomark.png"
         />
       ),
-
       review: intl.formatMessage({
         defaultMessage:
           'This service was super helpful and well worth the investment! Not only did it help me address glaring issues with my old resume, but they also gave me comprehensive suggestions on how to improve my overall profile and land more FAANG interviews. My application-to-interview rate has never been higher!',
         description: 'Testimonial from a user for resume review',
         id: 'VgF5JV',
       }),
-
       reviewerName: '',
     },
     {
       designation: 'Now Senior Software Engineer at Credit Karma',
-
       pic: (
-        <img
+        <Img
           alt="Credit karma logo mark"
           className="size-6 flex-none rounded-full"
           src="/img/company-logos/creditkarma-logomark.png"
         />
       ),
-
       review: intl.formatMessage({
         defaultMessage:
           'This service was instrumental in improving my resume to better highlight my significant work experience. It has come a long way from my previous version. The reviewer was very friendly and helpful from the moment we first started communicating and even gave valuable career advice on Software Engineering.',
         description: 'Testimonial from a user for resume review',
         id: '3i/5VW',
       }),
-
       reviewerName: '',
     },
   ];

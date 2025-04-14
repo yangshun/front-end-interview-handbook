@@ -3,6 +3,7 @@ import { RiArrowRightLine } from 'react-icons/ri';
 
 import type { BlogMetadata } from '~/components/blog/BlogTypes';
 import Anchor from '~/components/ui/Anchor';
+import Img from '~/components/ui/Img';
 import Text from '~/components/ui/Text';
 import { themeTextFaintColor } from '~/components/ui/theme';
 
@@ -21,7 +22,7 @@ export default function BlogSubseriesItemCard({
         'group relative flex h-full items-center justify-between gap-x-3 lg:gap-x-6 ',
       )}>
       {data?.imageUrl && (
-        <img
+        <Img
           alt={data.title}
           className="!m-0 hidden aspect-[15/8] h-[80px] shrink-0 rounded-lg bg-neutral-800 object-cover lg:block"
           decoding="async"
@@ -32,7 +33,7 @@ export default function BlogSubseriesItemCard({
       <div className="flex flex-1 flex-col gap-y-4">
         <div className="flex w-full flex-col gap-y-2 lg:gap-y-1">
           <div className="flex items-center gap-x-3">
-            <img
+            <Img
               alt={data.title}
               className="size-8 !m-0 shrink-0 rounded-lg bg-neutral-800 object-cover lg:hidden"
               decoding="async"

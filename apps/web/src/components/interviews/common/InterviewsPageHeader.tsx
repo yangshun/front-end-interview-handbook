@@ -4,6 +4,7 @@ import type { ReactNode } from 'react';
 import InterviewsPageHeaderLogo from '~/components/interviews/common/InterviewsPageHeaderLogo';
 import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
+import Img from '~/components/ui/Img';
 import Text from '~/components/ui/Text';
 
 import InterviewsPageFeatures from './InterviewsPageFeatures';
@@ -54,7 +55,7 @@ export default function InterviewsPageHeader({
           'size-12 sm:size-14 xl:size-16 rounded-lg shadow-md',
           'bg-white',
         )}>
-        <img
+        <Img
           alt={title}
           className="size-7 sm:size-9"
           decoding="async"

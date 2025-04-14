@@ -11,6 +11,7 @@ import { useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Banner from '~/components/ui/Banner';
 import Divider from '~/components/ui/Divider';
+import Img from '~/components/ui/Img';
 import Prose from '~/components/ui/Prose';
 import ScrollArea from '~/components/ui/ScrollArea';
 import TabsUnderline from '~/components/ui/Tabs/TabsUnderline';
@@ -89,7 +90,7 @@ function Requirements() {
 function Architecture() {
   return (
     <div>
-      <img
+      <Img
         alt="News Feed Architecture"
         className="mx-auto w-full max-w-md"
         decoding="async"
@@ -570,7 +571,7 @@ export default function InterviewsMarketingEmbedSystemDesignQuestion() {
                     Design a news feed application that contains a list of feed
                     posts users can interact with.
                   </p>
-                  <img
+                  <Img
                     alt="News Feed Example"
                     className="mx-auto w-full max-w-md"
                     decoding="async"
