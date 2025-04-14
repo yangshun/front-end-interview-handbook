@@ -24,22 +24,22 @@ export const EmailContactListKeyZodEnum = z.enum([
 
 export type EmailContactListKey = z.infer<typeof EmailContactListKeyZodEnum>;
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type EmailItemConfig<Component extends React.FC<any>> = Readonly<{
-  component: Component;
-  contactListKey?: EmailContactListKey;
-  defaultProps: Omit<React.ComponentProps<Component>, 'unsub'>;
-  from: {
-    email: string;
-    name: string;
-  };
-  id: EmailKey;
-  replyTo?: {
-    email: string;
-    name?: string;
-  };
-  subject: (props: Omit<React.ComponentProps<Component>, 'unsub'>) => string;
-}>;
+export type EmailItemConfig<Component extends React.FC<IntentionallyAny>> =
+  Readonly<{
+    component: Component;
+    contactListKey?: EmailContactListKey;
+    defaultProps: Omit<React.ComponentProps<Component>, 'unsub'>;
+    from: {
+      email: string;
+      name: string;
+    };
+    id: EmailKey;
+    replyTo?: {
+      email: string;
+      name?: string;
+    };
+    subject: (props: Omit<React.ComponentProps<Component>, 'unsub'>) => string;
+  }>;
 
 export type EmailsUnsubscribeFields = Readonly<{
   email: string;
@@ -47,11 +47,12 @@ export type EmailsUnsubscribeFields = Readonly<{
   list: EmailContactListKey;
 }>;
 
-export type EmailRouteInternalPayload<Component extends React.FC<any>> =
-  Readonly<{
-    cc?: ReadonlyArray<{ email: string; name?: string }>;
-    email: string;
-    emailKey: EmailKey;
-    name: string;
-    props: Omit<React.ComponentProps<Component>, 'unsub'>;
-  }>;
+export type EmailRouteInternalPayload<
+  Component extends React.FC<IntentionallyAny>,
+> = Readonly<{
+  cc?: ReadonlyArray<{ email: string; name?: string }>;
+  email: string;
+  emailKey: EmailKey;
+  name: string;
+  props: Omit<React.ComponentProps<Component>, 'unsub'>;
+}>;

@@ -3,6 +3,13 @@ import type { DOMAttributes } from 'react';
 /* eslint-disable @typescript-eslint/consistent-type-definitions */
 export {};
 
+declare global {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  export type IntentionallyAny = any;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  export type AnyWhichShouldBeFixed = any;
+}
+
 declare module 'react' {
   interface HTMLAttributes<T> extends DOMAttributes<T> {
     /**

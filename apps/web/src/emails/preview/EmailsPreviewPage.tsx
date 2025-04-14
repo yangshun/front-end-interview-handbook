@@ -45,8 +45,9 @@ export default function EmailsPreviewPage({ emailKey, html, text }: Props) {
     (itemConfig) => itemConfig.id === emailKey,
   )!;
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const [emailProps, setEmailProps] = useState<any>(emailConfig.defaultProps);
+  const [emailProps, setEmailProps] = useState<AnyWhichShouldBeFixed>(
+    emailConfig.defaultProps,
+  );
   const [emailPropsTextarea, setEmailPropsTextarea] = useState<string>(
     JSON.stringify(emailConfig.defaultProps, null, 2),
   );
@@ -65,8 +66,7 @@ export default function EmailsPreviewPage({ emailKey, html, text }: Props) {
   }, [emailProps]);
 
   async function renderPreviewEmail(
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    emailItemConfig_: EmailItemConfig<React.FC<any>>,
+    emailItemConfig_: EmailItemConfig<React.FC<AnyWhichShouldBeFixed>>,
   ) {
     const Component = emailItemConfig_?.component;
     const props = emailItemConfig_.defaultProps;
@@ -76,10 +76,8 @@ export default function EmailsPreviewPage({ emailKey, html, text }: Props) {
   }
 
   async function updatePreviewEmail(
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    emailItemConfig_: EmailItemConfig<React.FC<any>>,
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    emailProps_: any,
+    emailItemConfig_: EmailItemConfig<React.FC<AnyWhichShouldBeFixed>>,
+    emailProps_: AnyWhichShouldBeFixed,
   ) {
     const Component = emailItemConfig_.component;
 
@@ -242,8 +240,7 @@ export default function EmailsPreviewPage({ emailKey, html, text }: Props) {
           minSize={20}>
           <div className="flex flex-col gap-1">
             <Text className="block" size="body0" weight="bold">
-              {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
-              {emailConfig?.subject(emailProps as any)}
+              {emailConfig?.subject(emailProps as AnyWhichShouldBeFixed)}
             </Text>
             <div>
               <Text size="body2">From:</Text>{' '}

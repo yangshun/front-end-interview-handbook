@@ -16,8 +16,7 @@ export type TilesContextValue<TabType extends string> = Readonly<{
   tiles: TilesPanelConfig<TabType>;
 }>;
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const TilesContext = createContext<TilesContextValue<any>>({
+export const TilesContext = createContext<TilesContextValue<IntentionallyAny>>({
   activeTabScrollIntoView: true,
   dispatch: () => {},
   // @ts-expect-error: Ensure non-null during initialization.

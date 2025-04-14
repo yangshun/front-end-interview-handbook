@@ -39,14 +39,14 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const Component = emailItemConfig.component as any;
+    const Component = emailItemConfig.component as AnyWhichShouldBeFixed;
     const emailElement = <Component {...props} />;
 
     const result = await sendReactEmail({
       cc,
       emailElement,
       from: emailItemConfig.from,
-      subject: emailItemConfig.subject(props as any),
+      subject: emailItemConfig.subject(props as AnyWhichShouldBeFixed),
       to: {
         email,
         name,

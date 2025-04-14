@@ -26,8 +26,7 @@ function createQuestionHref(
 }
 
 export function normalizeQuestionFrontMatter(
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  frontmatter: Record<string, any>,
+  frontmatter: Record<string, IntentionallyAny>,
   format: QuestionFormat,
 ): QuestionMetadata {
   const { slug } = frontmatter;

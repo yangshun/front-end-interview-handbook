@@ -24,7 +24,9 @@ import type { SetCommandOptions } from '@upstash/redis';
  * Do not use this function for emails that MUST be delivered,
  * such as password reset and privacy policy changes
  */
-export async function sendEmailItemWithChecks<Component extends React.FC<any>>(
+export async function sendEmailItemWithChecks<
+  Component extends React.FC<IntentionallyAny>,
+>(
   recipient: Readonly<{
     email: string;
     name: string | null;

@@ -41,7 +41,7 @@ export async function POST(req: NextRequest) {
     if (checks) {
       const result = await sendEmailItemWithChecks(recipient, {
         emailItemConfig: {
-          config: emailItemConfig as any,
+          config: emailItemConfig as AnyWhichShouldBeFixed,
           props,
         },
         userId,

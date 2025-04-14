@@ -119,8 +119,7 @@ export default function JavaScriptCodingQuizCodeEditor(props: Props) {
           onLoad={() => {
             if (iframeRef.current) {
               Hook(
-                // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                (iframeRef.current.contentWindow as any).console,
+                (iframeRef.current.contentWindow as IntentionallyAny).console,
                 (log) => {
                   setDisplayConsole(true);
 

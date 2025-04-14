@@ -25,7 +25,7 @@ export default async function Page({
 
   const Component = emailConfig.component;
   const { html, text } = await renderEmail(
-    <Component {...(emailConfig.defaultProps as any)} />,
+    <Component {...(emailConfig.defaultProps as AnyWhichShouldBeFixed)} />,
   );
 
   return <EmailsPreviewPage emailKey={emailKey} html={html} text={text} />;
