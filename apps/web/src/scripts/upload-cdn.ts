@@ -54,7 +54,7 @@ async function walkFolder(
 
 async function shouldUploadFile(
   key: string,
-  { eTag, contentType }: Readonly<{ eTag: string; contentType: string }>,
+  { eTag, contentType }: Readonly<{ contentType: string, eTag: string; }>,
 ) {
   try {
     const headOutput = await client.send(
@@ -90,6 +90,7 @@ async function uploadFile({ fullPath, key }: FileInfo) {
 
   // Upload the file if it doesn't exist
   const shouldUpload = await shouldUploadFile(key, { contentType, eTag });
+
   if (!shouldUpload) {
     return;
   }
