@@ -20,21 +20,6 @@ export default {
       ],
     },
     {
-      name: 'quiz',
-      plugin: [
-        'mdx',
-        {
-          frontmatterExcludedKeys: ['author', 'published'],
-        },
-      ],
-      paths: [
-        {
-          source: './src/quiz/*/en-US.mdx',
-          target: './src/quiz/*/{locale}.mdx',
-        },
-      ],
-    },
-    {
       name: 'blog',
       plugin: 'mdx',
       paths: [
