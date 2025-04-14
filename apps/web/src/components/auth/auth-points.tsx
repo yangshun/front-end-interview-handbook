@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef,useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import { useGreatStorageLocal } from '~/hooks/useGreatStorageLocal';
 
@@ -8,7 +8,7 @@ import { useAuthSignupDialogContext } from './AuthSignupDialogContext';
 
 import { useSessionContext } from '@supabase/auth-helpers-react';
 
-const AUTH_POINTS_KEY = 'auth:points';
+const AUTH_SIGN_UP_POINTS_KEY = 'auth:sign-up:points';
 const MAX_POINTS = 6;
 
 export function useAuthPointOnActions() {
@@ -16,9 +16,9 @@ export function useAuthPointOnActions() {
   const { showAuthSignupDialog } = useAuthSignupDialogContext();
 
   const [authPoints, setAuthPoints] = useGreatStorageLocal<number>(
-    AUTH_POINTS_KEY,
+    AUTH_SIGN_UP_POINTS_KEY,
     0,
-    { ttl: 7 * 24 * 60 * 60 },
+    { ttl: 30 * 24 * 60 * 60 },
   );
 
   function increaseAuthPoints(points: number) {
