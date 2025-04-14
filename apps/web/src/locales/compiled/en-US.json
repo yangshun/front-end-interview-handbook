@@ -8006,35 +8006,6 @@
       "value": "Please update your browser to the latest version or try using another browser."
     }
   ],
-  "GUGImr": [
-    {
-      "offset": 0,
-      "options": {
-        "=1": {
-          "value": [
-            {
-              "type": 0,
-              "value": "1 offer"
-            }
-          ]
-        },
-        "other": {
-          "value": [
-            {
-              "type": 7
-            },
-            {
-              "type": 0,
-              "value": " offers"
-            }
-          ]
-        }
-      },
-      "pluralType": "cardinal",
-      "type": 6,
-      "value": "offerCount"
-    }
-  ],
   "GWzQrD": [
     {
       "children": [
@@ -9475,6 +9446,35 @@
     {
       "type": 0,
       "value": "Test your code automatically with a single click"
+    }
+  ],
+  "JVjRDB": [
+    {
+      "offset": 0,
+      "options": {
+        "=1": {
+          "value": [
+            {
+              "type": 0,
+              "value": "1 offer"
+            }
+          ]
+        },
+        "other": {
+          "value": [
+            {
+              "type": 7
+            },
+            {
+              "type": 0,
+              "value": " offers"
+            }
+          ]
+        }
+      },
+      "pluralType": "cardinal",
+      "type": 6,
+      "value": "offerCount"
     }
   ],
   "JWwqmr": [
@@ -19830,16 +19830,6 @@
     {
       "type": 0,
       "value": "Dashboard - Track your interview preparation progress"
-    }
-  ],
-  "gZL62Q": [
-    {
-      "type": 0,
-      "value": "Change password for "
-    },
-    {
-      "type": 1,
-      "value": "userEmail"
     }
   ],
   "gbjgjg": [

@@ -5535,10 +5535,6 @@
     "defaultMessage": "请将您的浏览器更新到最新版本，或尝试使用其他浏览器。",
     "description": "Outdated browser error message"
   },
-  "GUGImr": {
-    "defaultMessage": "{offerCount, plural, =1{1 个优惠}other{# 个优惠}}",
-    "description": "Testimonials overview"
-  },
   "GWzQrD": {
     "defaultMessage": "<authorLink>{author}</authorLink>回复了您在<submissionLink>{entityTitle}</submissionLink>{timestamp}提出的问题",
     "description": "Notification for someone replied to your question"
@@ -6266,6 +6262,10 @@
   "JV1NXV": {
     "defaultMessage": "一键自动测试您的代码",
     "description": "Title for marketing page section"
+  },
+  "JVjRDB": {
+    "defaultMessage": "{offerCount, plural, =1 {1个优惠} other {#个优惠}}",
+    "description": "Testimonials overview"
   },
   "JWwqmr": {
     "defaultMessage": "{tagName}| 博客",
@@ -11422,10 +11422,6 @@
   "gZ3W0t": {
     "defaultMessage": "仪表盘 - 跟踪您的面试准备进度",
     "description": "Title of dashboard page"
-  },
-  "gZL62Q": {
-    "defaultMessage": "更改{userEmail}的密码",
-    "description": "Title of Change Password page"
   },
   "gbjgjg": {
     "defaultMessage": "<authorProfileLink>{author}</authorProfileLink>在他们的提交<link>{submissionTitle}</link>上留下了一个问题：<comment>\"{description}\"</comment>",

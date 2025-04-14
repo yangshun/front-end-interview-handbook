@@ -197,9 +197,9 @@ export default function InterviewsTestimonialsSlider({ data }: Props) {
         intl.formatMessage(
           {
             defaultMessage:
-              '{offerCount, plural,=1 {1 offer} other {# offers}}',
+              '{offerCount, plural, =1 {1 offer} other {# offers}}',
             description: 'Testimonials overview',
-            id: 'GUGImr',
+            id: 'JVjRDB',
           },
           { offerCount: data[currentItemIndex].offers.length },
         ),
@@ -341,7 +341,6 @@ export default function InterviewsTestimonialsSlider({ data }: Props) {
                           label
                         )}
                       </Heading>
-
                       {logos && (
                         <div className="isolate flex">
                           {logos.map((logo, index) => (

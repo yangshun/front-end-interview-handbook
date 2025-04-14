@@ -3819,10 +3819,6 @@
     "defaultMessage": "Please update your browser to the latest version or try using another browser.",
     "description": "Outdated browser error message"
   },
-  "GUGImr": {
-    "defaultMessage": "{offerCount, plural,=1 {1 offer} other {# offers}}",
-    "description": "Testimonials overview"
-  },
   "GWzQrD": {
     "defaultMessage": "<authorLink>{author}</authorLink> replied to your question on <submissionLink>{entityTitle}</submissionLink> {timestamp}",
     "description": "Notification for someone replied to your question"
@@ -4550,6 +4546,10 @@
   "JV1NXV": {
     "defaultMessage": "Test your code automatically with a single click",
     "description": "Title for marketing page section"
+  },
+  "JVjRDB": {
+    "defaultMessage": "{offerCount, plural, =1 {1 offer} other {# offers}}",
+    "description": "Testimonials overview"
   },
   "JWwqmr": {
     "defaultMessage": "{tagName} | Blog",
@@ -9706,10 +9706,6 @@
   "gZ3W0t": {
     "defaultMessage": "Dashboard - Track your interview preparation progress",
     "description": "Title of dashboard page"
-  },
-  "gZL62Q": {
-    "defaultMessage": "Change password for {userEmail}",
-    "description": "Title of Change Password page"
   },
   "gbjgjg": {
     "defaultMessage": "<authorProfileLink>{author}</authorProfileLink> left a question on their submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",

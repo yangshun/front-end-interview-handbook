@@ -8000,35 +8000,6 @@
       "value": "请将您的浏览器更新到最新版本，或尝试使用其他浏览器。"
     }
   ],
-  "GUGImr": [
-    {
-      "offset": 0,
-      "options": {
-        "=1": {
-          "value": [
-            {
-              "type": 0,
-              "value": "1 个优惠"
-            }
-          ]
-        },
-        "other": {
-          "value": [
-            {
-              "type": 7
-            },
-            {
-              "type": 0,
-              "value": " 个优惠"
-            }
-          ]
-        }
-      },
-      "pluralType": "cardinal",
-      "type": 6,
-      "value": "offerCount"
-    }
-  ],
   "GWzQrD": [
     {
       "children": [
@@ -9469,6 +9440,35 @@
     {
       "type": 0,
       "value": "一键自动测试您的代码"
+    }
+  ],
+  "JVjRDB": [
+    {
+      "offset": 0,
+      "options": {
+        "=1": {
+          "value": [
+            {
+              "type": 0,
+              "value": "1个优惠"
+            }
+          ]
+        },
+        "other": {
+          "value": [
+            {
+              "type": 7
+            },
+            {
+              "type": 0,
+              "value": "个优惠"
+            }
+          ]
+        }
+      },
+      "pluralType": "cardinal",
+      "type": 6,
+      "value": "offerCount"
     }
   ],
   "JWwqmr": [
@@ -19816,20 +19816,6 @@
     {
       "type": 0,
       "value": "仪表盘 - 跟踪您的面试准备进度"
-    }
-  ],
-  "gZL62Q": [
-    {
-      "type": 0,
-      "value": "更改"
-    },
-    {
-      "type": 1,
-      "value": "userEmail"
-    },
-    {
-      "type": 0,
-      "value": "的密码"
     }
   ],
   "gbjgjg": [
