@@ -6,6 +6,7 @@ import {
   type ProjectsImageBreakpointCategory,
   ProjectsImageBreakpointDimensions,
 } from '~/components/projects/common/ProjectsImageBreakpoints';
+import Img from '~/components/ui/Img';
 import Text from '~/components/ui/Text';
 import {
   themeBorderBrandColor,
@@ -108,7 +109,7 @@ export default function ProjectsImageDisplay({
                 )}
                 type="button"
                 onClick={() => setSelectedScreenIndex(index)}>
-                <img
+                <Img
                   alt={page.label}
                   className="size-full object-cover"
                   decoding="async"

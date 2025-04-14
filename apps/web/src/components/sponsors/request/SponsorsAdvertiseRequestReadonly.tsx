@@ -26,6 +26,7 @@ import Dialog from '~/components/ui/Dialog';
 import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
+import Img from '~/components/ui/Img';
 import Label from '~/components/ui/Label';
 import Text, { textVariants } from '~/components/ui/Text';
 import {
@@ -359,7 +360,7 @@ function AdFormatCard({ ad }: Readonly<{ ad: SponsorsAdFormatFormItem }>) {
                 description: 'Label for image',
                 id: 'nw9bBh',
               })}>
-              <img
+              <Img
                 alt={intl.formatMessage({
                   defaultMessage: 'Ad banner image',
                   description: 'Alt text for ad banner image',

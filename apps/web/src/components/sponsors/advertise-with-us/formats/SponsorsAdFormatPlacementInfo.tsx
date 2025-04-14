@@ -5,6 +5,7 @@ import { RiArrowRightLine } from 'react-icons/ri';
 import { useIntl } from '~/components/intl';
 import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
+import Img from '~/components/ui/Img';
 import Text from '~/components/ui/Text';
 
 import SponsorsAdFormatPlacementListDialog from './SponsorsAdFormatPlacementListDialog';
@@ -68,7 +69,7 @@ export default function SponsorsAdFormatPlacementInfo({
         )}
       </div>
       {/* Light mode image */}
-      <img
+      <Img
         alt={img.alt}
         className={clsx('h-auto w-full object-cover', 'block dark:hidden')}
         decoding="async"
@@ -77,7 +78,7 @@ export default function SponsorsAdFormatPlacementInfo({
       />
 
       {/* Dark mode image */}
-      <img
+      <Img
         alt={img.alt}
         className={clsx('h-auto w-full object-cover', 'hidden dark:block')}
         decoding="async"

@@ -11,6 +11,7 @@ import { FormattedMessage, useIntl } from '~/components/intl';
 import Avatar from '~/components/ui/Avatar';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
+import Img from '~/components/ui/Img';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundCardColor,
@@ -187,7 +188,7 @@ export default function SponsorsAboutGFESection() {
                     ['border', 'border-neutral-200 dark:border-neutral-900'],
                     index > 0 && '-ml-1.5',
                   )}>
-                  <img
+                  <Img
                     alt={company.name}
                     className="size-3"
                     decoding="async"
@@ -259,14 +260,14 @@ function ProductCard({
         )}
       />
       {/* Light mode image */}
-      <img
+      <Img
         alt={title}
         className={clsx('h-auto w-full object-cover', 'block dark:hidden')}
         src={image.srcLight}
       />
 
       {/* Dark mode image */}
-      <img
+      <Img
         alt={title}
         className={clsx('h-auto w-full object-cover', 'hidden dark:block')}
         src={image.srcDark}

@@ -8,6 +8,7 @@ import { FormattedMessage, useIntl } from '~/components/intl';
 import { SponsorAdFormatConfigs } from '~/components/sponsors/SponsorsAdFormatConfigs';
 import Badge from '~/components/ui/Badge';
 import Heading from '~/components/ui/Heading';
+import Img from '~/components/ui/Img';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundColor,
@@ -120,7 +121,7 @@ function GlobalBannerPlacement() {
           media="(min-width: 641px)"
           srcSet="/img/sponsors/global-banner-placement-light.png"
         />
-        <img
+        <Img
           alt={intl.formatMessage({
             defaultMessage: 'Global banner placement',
             description: 'Alt text for ads global banner placement',
@@ -145,7 +146,7 @@ function GlobalBannerPlacement() {
           media="(min-width: 641px)"
           srcSet="/img/sponsors/global-banner-placement-dark.png"
         />
-        <img
+        <Img
           alt={intl.formatMessage({
             defaultMessage: 'Global banner placement',
             description: 'Alt text for ads global banner placement',
@@ -180,7 +181,7 @@ function InContentPlacementAsset() {
           media="(min-width: 641px)"
           srcSet="/img/sponsors/in-content-placement-light.png"
         />
-        <img
+        <Img
           alt={intl.formatMessage({
             defaultMessage: 'In content placement',
             description: 'Alt text ads for in content placement',
@@ -205,7 +206,7 @@ function InContentPlacementAsset() {
           media="(min-width: 640px)"
           srcSet="/img/sponsors/in-content-placement-dark.png"
         />
-        <img
+        <Img
           alt={intl.formatMessage({
             defaultMessage: 'In content placement',
             description: 'Alt text ads for in content placement',
@@ -240,7 +241,7 @@ function SpotlightPlacementAsset() {
           media="(min-width: 640px)"
           srcSet="/img/sponsors/spotlight-placement-light.png"
         />
-        <img
+        <Img
           alt={intl.formatMessage({
             defaultMessage: 'Spotlight placement',
             description: 'Alt text ads for spotlight placement',
@@ -265,7 +266,7 @@ function SpotlightPlacementAsset() {
           media="(min-width: 640px)"
           srcSet="/img/sponsors/spotlight-placement-dark.png"
         />
-        <img
+        <Img
           alt={intl.formatMessage({
             defaultMessage: 'Spotlight placement',
             description: 'Alt text ads for spotlight placement',

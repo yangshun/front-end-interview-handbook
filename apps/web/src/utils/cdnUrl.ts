@@ -4,7 +4,7 @@ export function cdnUrl(pathname: string): string {
   }
 
   if (process.env.NEXT_PUBLIC_VERCEL_ENV === 'preview') {
-    return `http://dev.gfecdn.net${pathname}`;
+    return `https://dev.gfecdn.net${pathname}`;
   }
 
   if (process.env.NEXT_PUBLIC_VERCEL_ENV === 'production') {

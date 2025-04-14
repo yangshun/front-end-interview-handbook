@@ -1,3 +1,5 @@
+import { cdnUrl } from '~/utils/cdnUrl';
+
 import { getSiteOrigin } from './siteUrl';
 
 import type { IntlShape } from '@formatjs/intl';
@@ -27,7 +29,7 @@ export default function defaultProjectsMetadata(
     metadataBase: new URL(getSiteOrigin()),
     openGraph: {
       description,
-      images: '/img/seo/og-projects.jpg',
+      images: cdnUrl('/img/seo/og-projects.jpg'),
       locale,
       siteName: intl.formatMessage({
         defaultMessage: 'GreatFrontEnd Projects',

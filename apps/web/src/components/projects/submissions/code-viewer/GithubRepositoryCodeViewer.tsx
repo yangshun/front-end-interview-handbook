@@ -6,6 +6,7 @@ import { trpc } from '~/hooks/trpc';
 import ReadonlyDirectoryExplorer from '~/components/common/directory-explorer/ReadonlyDirectoryExplorer';
 import { useIntl } from '~/components/intl';
 import EmptyState from '~/components/ui/EmptyState';
+import Img from '~/components/ui/Img';
 import Spinner from '~/components/ui/Spinner';
 import { themeBorderColor } from '~/components/ui/theme';
 import MonacoCodeEditor from '~/components/workspace/common/editor/MonacoCodeEditor';
@@ -99,7 +100,7 @@ export default function GithubRepositoryCodeViewer({
     }
 
     if (isImageFile(activeFile)) {
-      return <img alt={activeFile} className="w-full" src={fileContents} />;
+      return <Img alt={activeFile} className="w-full" src={fileContents} />;
     }
 
     return (

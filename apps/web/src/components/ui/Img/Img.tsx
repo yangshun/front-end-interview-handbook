@@ -6,7 +6,7 @@ import { cdnUrl } from '~/utils/cdnUrl';
 type Props = React.ImgHTMLAttributes<HTMLImageElement> &
   Readonly<{
     alt: string | undefined;
-    src: string | undefined;
+    src?: string | undefined;
   }>;
 
 function Img(

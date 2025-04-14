@@ -4,6 +4,7 @@ import type { Metadata } from 'next/types';
 import url from 'node:url';
 
 import { i18nMetadata } from '~/next-i18nostic/src';
+import { cdnUrl } from '~/utils/cdnUrl';
 
 import { getSiteOrigin } from './siteUrl';
 
@@ -56,7 +57,7 @@ export default function defaultMetadata({
       metadataBase: new URL(getSiteOrigin()),
       openGraph: {
         description,
-        images: ogImageUrl,
+        images: cdnUrl(ogImageUrl),
         locale,
         siteName: siteName || 'GreatFrontEnd',
         title: socialTitle || title,

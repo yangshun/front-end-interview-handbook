@@ -4,6 +4,7 @@ import { RiFileDamageLine } from 'react-icons/ri';
 
 import RelativeTimestamp from '~/components/common/datetime/RelativeTimestamp';
 import { FormattedMessage } from '~/components/intl';
+import Img from '~/components/ui/Img';
 import Text from '~/components/ui/Text';
 import { themeTextSecondaryColor } from '~/components/ui/theme';
 
@@ -32,7 +33,7 @@ export default function ProjectsNotificationSubmissionUpvote({ data }: Props) {
             className={clsx('size-5', themeTextSecondaryColor)}
           />
         ) : (
-          <img
+          <Img
             alt={submission?.title}
             className="size-full object-cover"
             src={submission?.imgSrc}

@@ -5,6 +5,7 @@ import gtag from '~/lib/gtag';
 
 import { FormattedMessage } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
+import Img from '~/components/ui/Img';
 import type { TextSize } from '~/components/ui/Text';
 import Text, { textVariants } from '~/components/ui/Text';
 import {
@@ -97,7 +98,7 @@ export default function SponsorsAdFormatInContent({
             target="_blank"
             variant="unstyled"
             onClick={linkClick}>
-            <img
+            <Img
               alt={title}
               className={clsx(
                 'aspect-[2/1] w-full object-cover',
