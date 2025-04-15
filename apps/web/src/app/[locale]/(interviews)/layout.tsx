@@ -1,3 +1,4 @@
+import AuthGoogleOneTap from '~/components/auth/AuthGoogleOneTap';
 import AuthOneClickSignup from '~/components/auth/AuthOneClickSignUp';
 import AuthSignupDialogProvider from '~/components/auth/AuthSignupDialogContext';
 
@@ -14,6 +15,7 @@ export const metadata = {
 export default function InterviewsLayout({ children }: Props) {
   return (
     <AuthSignupDialogProvider>
+      <AuthGoogleOneTap showOnMobileOnly={true} />
       <AuthOneClickSignup />
       {children}
     </AuthSignupDialogProvider>

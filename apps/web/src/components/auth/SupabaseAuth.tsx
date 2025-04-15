@@ -49,13 +49,20 @@ export default function SupabaseAuth({
   onlyThirdPartyProviders = false,
   variant = 'full',
 }: Props): JSX.Element | null {
+  const searchParams = useSearchParams();
+  const authViewParam = searchParams?.get('view');
   const intl = useIntl();
   const [signedInBefore] = useAuthSignedInBefore();
   const [authView, setAuthView] = useState<AuthViewType>(
-    initialView === 'sign_up' && signedInBefore ? 'sign_in' : initialView,
+    authViewParam === 'email'
+      ? signedInBefore
+        ? 'sign_in_with_email'
+        : 'sign_up_with_email'
+      : initialView === 'sign_up' && signedInBefore
+        ? 'sign_in'
+        : initialView,
   );
   const hasThirdPartyProviders = providers != null && providers.length > 0;
-  const searchParams = useSearchParams();
   const sourceSearchParam = searchParams?.get('source');
 
   const isAuthScreenWithSocial =

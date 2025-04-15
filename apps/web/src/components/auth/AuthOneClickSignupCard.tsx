@@ -88,6 +88,7 @@ export default function AuthOneClickSignupCard({ onClose }: Props) {
       </Text>
       <div className="flex items-center gap-2.5">
         <Button
+          display="block"
           icon={FcGoogle}
           isDisabled={loading}
           isLoading={loading}
@@ -116,10 +117,7 @@ export default function AuthOneClickSignupCard({ onClose }: Props) {
           variant="tertiary"
           onClick={() => signInWithProvider('github')}
         />
-        <Text
-          className={clsx('block px-2.5', themeTextFaintColor)}
-          color="inherit"
-          size="body2">
+        <Text className={themeTextFaintColor} color="inherit" size="body2">
           {intl.formatMessage({
             defaultMessage: 'or',
             description: 'Label for or',
@@ -128,7 +126,11 @@ export default function AuthOneClickSignupCard({ onClose }: Props) {
         </Text>
         <Button
           className="group transition-all"
-          href={signInUpHref()}
+          href={signInUpHref({
+            query: {
+              view: 'email',
+            },
+          })}
           icon={RiMailLine}
           iconClassName={clsx(
             themeTextInvertColor,

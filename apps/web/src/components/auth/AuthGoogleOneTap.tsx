@@ -3,6 +3,7 @@
 import Script from 'next/script';
 import { useCallback, useEffect } from 'react';
 import url from 'url';
+import { useMediaQuery } from 'usehooks-ts';
 
 import logEvent from '~/logging/logEvent';
 import { i18nHref, useI18n, useI18nRouter } from '~/next-i18nostic/src';
@@ -33,9 +34,11 @@ declare global {
 
 type Props = Readonly<{
   next?: string | null;
+  showOnMobileOnly?: boolean;
 }>;
 
-export default function AuthGoogleOneTap({ next }: Props) {
+export default function AuthGoogleOneTap({ next, showOnMobileOnly }: Props) {
+  const isMobile = useMediaQuery('(max-width: 640px)');
   const supabaseClient = useSupabaseClientGFE();
   const { isLoading: isUserLoading, session } = useSessionContext();
   const router = useI18nRouter();
@@ -97,7 +100,7 @@ export default function AuthGoogleOneTap({ next }: Props) {
   }, [handleSignInWithGoogle, session, isUserLoading]);
 
   useEffect(() => {
-    if (session || isUserLoading) {
+    if (session || isUserLoading || (showOnMobileOnly && !isMobile)) {
       return;
     }
 
@@ -110,7 +113,13 @@ export default function AuthGoogleOneTap({ next }: Props) {
     return () => {
       window.google?.accounts?.id?.cancel();
     };
-  }, [initializeGoogleOneTap, session, isUserLoading]);
+  }, [
+    initializeGoogleOneTap,
+    session,
+    isUserLoading,
+    showOnMobileOnly,
+    isMobile,
+  ]);
 
   return (
     <Script

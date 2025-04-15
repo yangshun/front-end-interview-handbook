@@ -1,5 +1,6 @@
 'use client';
 
+import clsx from 'clsx';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { useSessionStorage } from 'usehooks-ts';
@@ -10,6 +11,8 @@ import AuthOneClickSignupCard from './AuthOneClickSignupCard';
 
 import { useSessionContext } from '@supabase/auth-helpers-react';
 
+const POPUP_DURATION = 15_000;
+
 export default function AuthOneClickSignup() {
   const { pathname } = useI18nPathname();
 
@@ -18,21 +21,24 @@ export default function AuthOneClickSignup() {
   const [dismissedSignUpPrompt, setDismissedSignUpPrompt] =
     useSessionStorage<boolean>('gfe:auth:sign-up-prompt', false);
 
+  // Don't show it on homepage
+  const isHomepage = pathname === '/' || pathname === '/projects';
+
   useEffect(() => {
-    if (session || isUserLoading || dismissedSignUpPrompt) {
+    if (session || isUserLoading || dismissedSignUpPrompt || isHomepage) {
       return;
     }
 
-    // Show popup after 2 seconds
+    // Show popup after 15 seconds
     const timer = setTimeout(() => {
       setIsVisible(true);
-    }, 2000);
+    }, POPUP_DURATION);
 
-    return () => clearTimeout(timer);
-  }, [session, isUserLoading, dismissedSignUpPrompt]);
-
-  // Don't show it on homepage
-  const isHomepage = pathname === '/' || pathname === '/projects';
+    return () => {
+      setIsVisible(false);
+      clearTimeout(timer);
+    };
+  }, [session, isUserLoading, dismissedSignUpPrompt, isHomepage]);
 
   if (!isVisible || session || isUserLoading || isHomepage) {
     return null;
@@ -46,7 +52,11 @@ export default function AuthOneClickSignup() {
   return (
     <motion.div
       animate={{ opacity: 1, y: 0 }}
-      className="z-popover fixed bottom-6 right-6 shadow-lg"
+      className={clsx(
+        'fixed bottom-6 right-6',
+        'z-popover shadow-lg',
+        'hidden sm:block',
+      )}
       exit={{ opacity: 0, y: 100 }}
       initial={{ opacity: 0, y: 100 }}
       transition={{ duration: 0.3, ease: 'easeOut' }}>
