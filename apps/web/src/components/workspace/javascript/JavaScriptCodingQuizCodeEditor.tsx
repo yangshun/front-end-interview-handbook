@@ -119,7 +119,7 @@ export default function JavaScriptCodingQuizCodeEditor(props: Props) {
           onLoad={() => {
             if (iframeRef.current) {
               Hook(
-                (iframeRef.current.contentWindow as IntentionallyAny).console,
+                (iframeRef.current.contentWindow as AnyIntentional).console,
                 (log) => {
                   setDisplayConsole(true);
 

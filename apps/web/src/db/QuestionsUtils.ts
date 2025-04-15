@@ -26,7 +26,7 @@ function createQuestionHref(
 }
 
 export function normalizeQuestionFrontMatter(
-  frontmatter: Record<string, IntentionallyAny>,
+  frontmatter: Record<string, AnyIntentional>,
   format: QuestionFormat,
 ): QuestionMetadata {
   const { slug } = frontmatter;

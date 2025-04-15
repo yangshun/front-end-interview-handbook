@@ -25,7 +25,7 @@ import type { SetCommandOptions } from '@upstash/redis';
  * such as password reset and privacy policy changes
  */
 export async function sendEmailItemWithChecks<
-  Component extends React.FC<IntentionallyAny>,
+  Component extends React.FC<AnyIntentional>,
 >(
   recipient: Readonly<{
     email: string;

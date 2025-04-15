@@ -24,7 +24,7 @@ export const EmailContactListKeyZodEnum = z.enum([
 
 export type EmailContactListKey = z.infer<typeof EmailContactListKeyZodEnum>;
 
-export type EmailItemConfig<Component extends React.FC<IntentionallyAny>> =
+export type EmailItemConfig<Component extends React.FC<AnyIntentional>> =
   Readonly<{
     component: Component;
     contactListKey?: EmailContactListKey;
@@ -48,7 +48,7 @@ export type EmailsUnsubscribeFields = Readonly<{
 }>;
 
 export type EmailRouteInternalPayload<
-  Component extends React.FC<IntentionallyAny>,
+  Component extends React.FC<AnyIntentional>,
 > = Readonly<{
   cc?: ReadonlyArray<{ email: string; name?: string }>;
   email: string;

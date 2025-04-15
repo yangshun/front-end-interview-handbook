@@ -5,7 +5,7 @@ export {};
 
 declare global {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  export type IntentionallyAny = any;
+  export type AnyIntentional = any;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   export type AnyWhichShouldBeFixed = any;
 }

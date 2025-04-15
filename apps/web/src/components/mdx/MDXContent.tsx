@@ -5,7 +5,7 @@ import MDXComponents from '~/components/mdx/MDXComponents';
 import Prose from '~/components/ui/Prose';
 
 type Props = Readonly<{
-  components?: Record<string, ComponentType<IntentionallyAny>>;
+  components?: Record<string, ComponentType<AnyIntentional>>;
   fontSize?: 'custom' | 'md' | 'sm';
   mdxCode: string;
   proseClassName?: string;

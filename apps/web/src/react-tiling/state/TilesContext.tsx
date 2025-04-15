@@ -16,7 +16,7 @@ export type TilesContextValue<TabType extends string> = Readonly<{
   tiles: TilesPanelConfig<TabType>;
 }>;
 
-export const TilesContext = createContext<TilesContextValue<IntentionallyAny>>({
+export const TilesContext = createContext<TilesContextValue<AnyIntentional>>({
   activeTabScrollIntoView: true,
   dispatch: () => {},
   // @ts-expect-error: Ensure non-null during initialization.

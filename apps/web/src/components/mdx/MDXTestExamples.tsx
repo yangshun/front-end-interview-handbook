@@ -3,8 +3,8 @@ import ScrollArea from '~/components/ui/ScrollArea';
 type Props = Readonly<{
   testCases: ReadonlyArray<{
     explanation: string;
-    input: [string, IntentionallyAny];
-    output: IntentionallyAny;
+    input: [string, AnyIntentional];
+    output: AnyIntentional;
   }>;
 }>;
 
