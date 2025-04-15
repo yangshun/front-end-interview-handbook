@@ -20,11 +20,11 @@
     "description": "Testimonials overview"
   },
   "HTxeQV": {
-    "defaultMessage": "<bold>{credits}</bold>/{totalCredits} créditos premium restantes <tooltip>premium credits</tooltip>",
+    "defaultMessage": "<bold>{credits}</bold>/{totalCredits} <tooltip>créditos premium</tooltip> restantes",
     "description": "Number of premium credits left"
   },
   "O0WPJA": {
-    "defaultMessage": "Importar o progresso de <bold>{questionCount}</bold> {questionCount, plural, one {pergunta} other {perguntas}} concluídas anteriormente",
+    "defaultMessage": "Importe o progresso de <bold>{questionCount}</bold> {questionCount, plural, one {pergunta} other {perguntas}} concluídas anteriormente",
     "description": "Tooltip for import button on import progress dialog"
   },
   "Tfuq+t": {

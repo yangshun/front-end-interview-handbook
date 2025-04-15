@@ -30,8 +30,17 @@ export default function JsonPlugin(): Plugin {
     },
     async getInstructions() {
       return [
-        'The strings are in ICU syntax which can contain HTML/XML tags and template values (wrapped in curly braces). For languages that do not have spaces between words, remove the spaces around HTML/XML tags and template values (around the curly braces).',
+        'The strings are in ICU syntax which can contain HTML/XML tags and template values (wrapped in curly braces).',
         'Strictly DO NOT translate these HTML/XML tags and template values and just translate the UI strings around it.',
+        'For languages that do not use spaces between words (e.g., Chinese, Japanese, Thai, etc.), STRICTLY REMOVE any space directly before or after JSX tags and curly braces in the string—even if the tag appears at the beginning or end of the string.',
+        '✅ Example:',
+        '  - English: "{title} skill plan progress"',
+        '  - Correct: "{title}技能计划进度"',
+        '  - ❌ Incorrect: "{title} 技能计划进度"',
+        '✅ Example:',
+        '  - English: "<bold>{duration}</bold> minutes"',
+        '  - Correct: "<bold>{duration}</bold>分钟"',
+        '  - ❌ Incorrect: <bold>{duration}</bold> 分钟',
       ].join('\n');
     },
     async getTranslationStrings() {
