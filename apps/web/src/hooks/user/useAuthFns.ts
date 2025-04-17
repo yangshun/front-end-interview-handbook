@@ -14,7 +14,7 @@ type AuthHrefProps = Readonly<{
   query?: ParsedUrlQueryInput;
 }>;
 
-function mergeWithCurrentURL(href: string) {
+export function mergeWithCurrentURL(href: string) {
   if (typeof window === 'undefined') {
     return href;
   }

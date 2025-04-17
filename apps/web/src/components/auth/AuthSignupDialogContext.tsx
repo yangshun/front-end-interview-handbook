@@ -8,6 +8,8 @@ import {
   useState,
 } from 'react';
 
+import { mergeWithCurrentURL } from '~/hooks/user/useAuthFns';
+
 import { useI18nPathname } from '~/next-i18nostic/src';
 
 import AuthDialog from './AuthDialog';
@@ -82,7 +84,9 @@ export default function AuthSignupDialogProvider({
       {children}
       <AuthDialog
         isShown={session || isUserLoading ? false : dialog.isOpen}
-        next={('next' in dialog ? dialog.next : '') ?? pathname ?? ''}
+        next={mergeWithCurrentURL(
+          ('next' in dialog ? dialog.next : '') ?? pathname ?? '',
+        )}
         onClose={
           'hideCloseButton' in dialog && dialog.hideCloseButton
             ? undefined

@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { FcGoogle } from 'react-icons/fc';
 import { RiCloseLine, RiGithubFill, RiMailLine } from 'react-icons/ri';
 
-import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
+import { mergeWithCurrentURL, useAuthSignInUp } from '~/hooks/user/useAuthFns';
 
 import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
@@ -11,6 +11,8 @@ import {
   themeTextFaintColor,
   themeTextInvertColor,
 } from '~/components/ui/theme';
+
+import { useI18nPathname } from '~/next-i18nostic/src';
 
 import { useOAuthSignIn } from './useOAuthSignIn';
 import { useToast } from '../global/toasts/useToast';
@@ -21,10 +23,12 @@ type Props = Readonly<{
 
 export default function AuthOneClickSignupCard({ onClose }: Props) {
   const intl = useIntl();
+  const { pathname } = useI18nPathname();
   const { signInUpHref } = useAuthSignInUp();
   const { showToast } = useToast();
 
   const { loading, signInWithProvider } = useOAuthSignIn({
+    next: mergeWithCurrentURL(pathname ?? ''),
     onError: (errorMessage) => {
       showToast({
         title:

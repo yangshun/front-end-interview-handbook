@@ -1,6 +1,8 @@
 import { RiTranslate2 } from 'react-icons/ri';
 import url from 'url';
 
+import { mergeWithCurrentURL } from '~/hooks/user/useAuthFns';
+
 import { useIntl } from '~/components/intl';
 import DropdownMenu from '~/components/ui/DropdownMenu';
 
@@ -32,7 +34,7 @@ export default function SidebarI18nSubMenu({ type }: Props) {
           href={
             pathname == null
               ? undefined
-              : url.format(i18nHref(pathname, localeItem))
+              : mergeWithCurrentURL(url.format(i18nHref(pathname, localeItem)))
           }
           isSelected={locale === localeItem}
           label={label}
