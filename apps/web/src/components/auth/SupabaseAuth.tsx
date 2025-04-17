@@ -117,7 +117,7 @@ export default function SupabaseAuth({
               className={clsx(
                 'flex flex-col gap-y-1.5',
                 variant === 'full'
-                  ? 'items-center xl:items-start'
+                  ? 'items-center lg:items-start'
                   : 'items-start',
               )}>
               {!isAuthScreenWithSocial && !onlyThirdPartyProviders && (
@@ -132,7 +132,13 @@ export default function SupabaseAuth({
                     })}
                     size="xs"
                     variant="tertiary"
-                    onClick={() => setAuthView('sign_in')}
+                    onClick={() =>
+                      setAuthView(
+                        authView === 'sign_in_with_email'
+                          ? 'sign_in'
+                          : 'sign_up',
+                      )
+                    }
                   />
                 </div>
               )}
