@@ -65,6 +65,21 @@ export default function UserInterfaceCodingWorkspaceCodeEditor({
     resetToDefaultCode();
   }
 
+  if (files[filePath] == null) {
+    return (
+      <div className="size-full flex items-center justify-center">
+        <Text color="subtle" size="body2">
+          {intl.formatMessage({
+            defaultMessage: 'This file has been deleted or renamed.',
+            description:
+              'Message shown when a file in the code editor no longer exists',
+            id: 'M9GFCh',
+          })}
+        </Text>
+      </div>
+    );
+  }
+
   return (
     <div className={clsx('flex w-full flex-col')}>
       <div

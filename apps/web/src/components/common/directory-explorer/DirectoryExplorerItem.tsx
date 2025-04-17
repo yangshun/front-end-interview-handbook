@@ -87,7 +87,8 @@ function ExplorerItem({
             }}>
             <input
               autoFocus={true}
-              className="bg-neutral-800"
+              className="w-full border-0 bg-neutral-800 p-0 text-sm outline-0"
+              spellCheck={false}
               value={renameText}
               onBlur={(e) => {
                 if (!onRename?.(renameText)) {
