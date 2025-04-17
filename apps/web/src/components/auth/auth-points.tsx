@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 
 import { useGreatStorageLocal } from '~/hooks/useGreatStorageLocal';
 
@@ -8,53 +8,115 @@ import { useAuthSignupDialogContext } from './AuthSignupDialogContext';
 
 import { useSessionContext } from '@supabase/auth-helpers-react';
 
+type EntityType = 'coding' | 'quiz' | 'system-design';
+
 const AUTH_SIGN_UP_POINTS_KEY = 'auth:sign-up:points';
 const MAX_POINTS = 6;
 
-export function useAuthPointOnActions() {
-  const { isLoading: isUserLoading, session } = useSessionContext();
-  const { showAuthSignupDialog } = useAuthSignupDialogContext();
+const ENTITY_POINTS: Record<EntityType, number> = {
+  coding: 2,
+  quiz: 1,
+  'system-design': 2,
+} as const;
 
-  const [authPoints, setAuthPoints] = useGreatStorageLocal<number>(
-    AUTH_SIGN_UP_POINTS_KEY,
-    0,
-    { ttl: 30 * 24 * 60 * 60 },
+export function useAuthPoints() {
+  const { isLoading: isUserLoading, session } = useSessionContext();
+  const [authPointEntities, setAuthPointEntities] = useGreatStorageLocal<
+    Array<string>
+  >(AUTH_SIGN_UP_POINTS_KEY, [], {
+    ttl: 30 * 24 * 60 * 60,
+  });
+
+  // Calculate current points from entity map
+  const authPoints = useMemo(
+    () => calculateAuthPoints(authPointEntities),
+    [authPointEntities],
   );
 
-  function increaseAuthPoints(points: number) {
+  return {
+    authPointEntities,
+    authPoints,
+    maxAuthPointsReached: authPoints > MAX_POINTS && !session && !isUserLoading,
+    setAuthPointEntities,
+  };
+}
+
+export function useShowAuthSignupDialogOnMaxPoints(
+    showOnMount= true
+) {
+  const { isLoading: isUserLoading, session } = useSessionContext();
+  const { showAuthSignupDialog } = useAuthSignupDialogContext();
+  const { authPoints } = useAuthPoints();
+
+  useEffect(() => {
+    if (authPoints > MAX_POINTS && !session && !isUserLoading && showOnMount) {
+      showAuthSignupDialog({
+        hideCloseButton: true,
+      });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [session, isUserLoading, showOnMount]);
+}
+
+export function useAuthPointOnActions(
+  opts?: Readonly<{
+    showAuthSignupDialogOnMaxPoints?: boolean;
+  }>,
+) {
+  const { showAuthSignupDialogOnMaxPoints = true } = opts || {};
+
+  useShowAuthSignupDialogOnMaxPoints(showAuthSignupDialogOnMaxPoints);
+
+  const { isLoading: isUserLoading, session } = useSessionContext();
+  const { showAuthSignupDialog } = useAuthSignupDialogContext();
+  const {
+    maxAuthPointsReached,
+    setAuthPointEntities,
+    authPointEntities,
+    authPoints,
+  } = useAuthPoints();
+
+  function increaseAuthPoints(entityType: EntityType, entityId: string) {
     if (session || isUserLoading) {
       return;
     }
+    if (authPoints > MAX_POINTS) {
+      showAuthSignupDialog();
 
-    const newPoints = authPoints + points;
+      return;
+    }
 
-    setAuthPoints(newPoints);
+    const entityItem = `${entityType}:${entityId}`;
+
+    if (authPointEntities.includes(entityItem)) {
+      return;
+    }
+
+    const updated = [...authPointEntities, entityItem];
+
+    const newPoints = calculateAuthPoints(updated);
 
     if (newPoints > MAX_POINTS) {
       showAuthSignupDialog();
     }
+    setAuthPointEntities(updated);
   }
-
-  useEffect(() => {
-    if (authPoints > MAX_POINTS) {
-      showAuthSignupDialog();
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   return {
     authPoints,
     increaseAuthPoints,
+    maxAuthPointsReached,
   };
 }
 
-export default function useAuthActiveEngagementPoints(
-  opts?: Readonly<{
-    amount: number;
-    durationInSeconds: number;
+export function useAuthActiveEngagementPoints(
+  opts: Readonly<{
+    durationInSeconds?: number;
+    entityId: string;
+    entityType: EntityType;
   }>,
 ) {
-  const { amount = 1, durationInSeconds = 30 } = opts || {};
+  const { durationInSeconds = 30, entityType, entityId } = opts || {};
   const { isLoading: isUserLoading, session } = useSessionContext();
   const { increaseAuthPoints } = useAuthPointOnActions();
 
@@ -80,7 +142,7 @@ export default function useAuthActiveEngagementPoints(
         engagedTimeRef.current += 1;
 
         if (engagedTimeRef.current >= durationInSeconds) {
-          increaseAuthPoints(amount);
+          increaseAuthPoints(entityType, entityId);
           setHasIncreasedPoints(true);
           stopTracking();
         }
@@ -112,9 +174,22 @@ export default function useAuthActiveEngagementPoints(
   }, [
     session,
     isUserLoading,
-    amount,
     durationInSeconds,
     increaseAuthPoints,
     hasIncreasedPoints,
+    entityId,
+    entityType,
   ]);
+}
+
+function calculateAuthPoints(entities: Array<string>): number {
+  return entities.reduce((acc, entity) => {
+    const [entityType] = entity.split(':');
+
+    if (ENTITY_POINTS[entityType as EntityType]) {
+      return acc + ENTITY_POINTS[entityType as EntityType];
+    }
+
+    return acc;
+  }, 0);
 }

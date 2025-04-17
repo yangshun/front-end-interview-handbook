@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { RiArrowGoBackLine, RiSettings2Line } from 'react-icons/ri';
 import { VscLayout } from 'react-icons/vsc';
 
+import { useShowAuthSignupDialogOnMaxPoints } from '~/components/auth/auth-points';
 import QuestionProgressAction from '~/components/interviews/questions/common/QuestionProgressAction';
 import QuestionReportIssueButton from '~/components/interviews/questions/common/QuestionReportIssueButton';
 import type {
@@ -44,6 +45,10 @@ export default function UserInterfaceCodingWorkspaceBottomBar({
   slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE,
 }: Props) {
   const intl = useIntl();
+
+  // This is to show sign up dialog when max auth point is reached
+  useShowAuthSignupDialogOnMaxPoints();
+
   const [isLayoutDialogOpen, setIsLayoutDialogOpen] = useState(false);
 
   const leftElements = (

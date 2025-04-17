@@ -27,7 +27,7 @@ import { InterviewsMarketingTestimonialsDict } from '../interviews/marketing/tes
 type Props = Readonly<{
   isShown: boolean;
   next?: string;
-  onClose: () => void;
+  onClose?: () => void;
 }>;
 
 export default function AuthDialog({ isShown, onClose, next }: Props) {
@@ -74,30 +74,32 @@ export default function AuthDialog({ isShown, onClose, next }: Props) {
               'flex min-h-full items-center',
             )}>
             <DialogContent contentClassName="relative !p-0 lg:h-[670px] lg:max-h-[670px]">
-              <DialogClose asChild={true}>
-                <Button
-                  className="absolute right-6 top-6 z-[1]"
-                  icon={RiCloseLine}
-                  isLabelHidden={true}
-                  label={intl.formatMessage({
-                    defaultMessage: 'Close menu',
-                    description: 'Button to close menu',
-                    id: 'NVGZEe',
-                  })}
-                  size="xs"
-                  type="button"
-                  variant="tertiary"
-                  onClick={() => onClose?.()}
-                />
-              </DialogClose>
+              {onClose && (
+                <DialogClose asChild={true}>
+                  <Button
+                    className="absolute right-6 top-6 z-[1]"
+                    icon={RiCloseLine}
+                    isLabelHidden={true}
+                    label={intl.formatMessage({
+                      defaultMessage: 'Close menu',
+                      description: 'Button to close menu',
+                      id: 'NVGZEe',
+                    })}
+                    size="xs"
+                    type="button"
+                    variant="tertiary"
+                    onClick={() => onClose()}
+                  />
+                </DialogClose>
+              )}
               <DialogBody className="!mt-0">
                 <div className={clsx('flex w-full')}>
                   <div
                     className={clsx(
-                      'w-full xl:max-w-none',
-                      'p-6 xl:w-[420px]',
                       'flex justify-center',
-                      ['xl:border-r', themeBorderColor],
+                      'w-full lg:w-[420px] lg:max-w-none',
+                      'p-6',
+                      ['lg:border-r', themeBorderColor],
                       themeBackgroundCardWhiteOnLightColor,
                     )}>
                     <div
@@ -105,7 +107,7 @@ export default function AuthDialog({ isShown, onClose, next }: Props) {
                         'mx-auto w-full',
                         'flex max-w-[324px] flex-col gap-y-6 lg:justify-center',
                       )}>
-                      <AuthForm next={next} variant="compact" view="sign_in" />
+                      <AuthForm next={next} variant="compact" view="sign_up" />
                     </div>
                   </div>
                   <ScrollArea

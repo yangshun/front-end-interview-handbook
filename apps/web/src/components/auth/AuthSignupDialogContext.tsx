@@ -16,7 +16,12 @@ import { useSessionContext } from '@supabase/auth-helpers-react';
 
 type ContextValue = Readonly<{
   hideAuthSignupDialog: () => void;
-  showAuthSignupDialog: (nextParam?: string) => void;
+  showAuthSignupDialog: (
+    opts?: Readonly<{
+      hideCloseButton?: boolean;
+      next?: string;
+    }>,
+  ) => void;
 }>;
 
 const AuthSignupDialogContext = createContext<ContextValue>({
@@ -32,19 +37,28 @@ export default function AuthSignupDialogProvider({
   const { isLoading: isUserLoading, session } = useSessionContext();
   const { pathname } = useI18nPathname();
   const [dialog, setDialog] = useState<
-    { isOpen: false } | { isOpen: true; next: string | null }
+    | { hideCloseButton?: boolean; isOpen: true; next: string | null }
+    | { isOpen: false }
   >({
     isOpen: false,
   });
 
   const showAuthSignupDialog = useCallback(
-    (nextParam?: string) => {
+    (
+      opts?: Readonly<{
+        hideCloseButton?: boolean;
+        next?: string;
+      }>,
+    ) => {
+      const { hideCloseButton, next } = opts || {};
+
       if (dialog.isOpen) {
         return;
       }
       setDialog({
+        hideCloseButton,
         isOpen: true,
-        next: nextParam ?? null,
+        next: next ?? null,
       });
     },
     [dialog.isOpen],
@@ -69,9 +83,11 @@ export default function AuthSignupDialogProvider({
       <AuthDialog
         isShown={session || isUserLoading ? false : dialog.isOpen}
         next={('next' in dialog ? dialog.next : '') ?? pathname ?? ''}
-        onClose={() => {
-          hideAuthSignupDialog();
-        }}
+        onClose={
+          'hideCloseButton' in dialog && dialog.hideCloseButton
+            ? undefined
+            : () => hideAuthSignupDialog()
+        }
       />
     </AuthSignupDialogContext.Provider>
   );

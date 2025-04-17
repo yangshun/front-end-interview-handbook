@@ -67,14 +67,14 @@ export default function QuestionProgressAction({
         size="xs"
         variant="secondary"
         onClick={() =>
-          showAuthSignupDialog(
-            url.format({
+          showAuthSignupDialog({
+            next: url.format({
               pathname,
               query: {
                 [queryParamActionKey]: MARK_AS_COMPLETE_ACTION_NAME,
               },
             }),
-          )
+          })
         }
       />
     );

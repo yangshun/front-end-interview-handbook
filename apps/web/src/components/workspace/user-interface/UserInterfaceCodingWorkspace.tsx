@@ -428,6 +428,7 @@ function UserInterfaceCodingWorkspaceImpl({
 
   return (
     <CodingWorkspaceProvider
+      embed={embed}
       loadedFilesFromLocalStorage={loadedFilesFromLocalStorage}
       value={{
         defaultFiles,

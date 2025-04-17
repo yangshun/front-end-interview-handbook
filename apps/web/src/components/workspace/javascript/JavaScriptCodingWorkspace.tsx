@@ -368,7 +368,9 @@ function JavaScriptCodingWorkspaceImpl({
 
   return (
     <CodingWorkspaceProvider
+      embed={embed}
       loadedFilesFromLocalStorage={loadedFilesFromLocalStorage}
+      metadata={metadata}
       value={{
         defaultFiles,
         deleteCodeFromLocalStorage,
