@@ -80,8 +80,8 @@ export default function EmailsFooter({ unsub }: Props) {
                   url.format({
                     pathname: '/emails/unsubscribe',
                     query: {
-                      email: encodeURIComponent(unsub.email),
-                      hash: encodeURIComponent(unsub.hash),
+                      email: unsub.email,
+                      hash: unsub.hash,
                       list: unsub.list,
                     },
                   }),

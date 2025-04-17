@@ -8,7 +8,7 @@ export function sponsorsAdTrackingHref({
     pathname: '/ads/click',
     query: {
       a: adId,
-      u: encodeURIComponent(urlParam),
+      u: urlParam,
     },
   });
 }

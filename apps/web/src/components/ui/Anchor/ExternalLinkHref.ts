@@ -14,7 +14,7 @@ export function externalLinkHref({
       {
         pathname: '/link',
         query: {
-          u: encodeURIComponent(urlParam),
+          u: urlParam,
         },
       },
       locale,
