@@ -57,6 +57,11 @@ Look up the `box-sizing` property, which affects how the total heights and width
 
   The element will still take up 100px on the page, but the content area will be 70px wide (100px - 10px left padding - 10px right padding - 5px left border - 5px right border).
 
+### Border and Margin Behavior
+
+- **Borders do not collapse or overlap** with those of adjacent elements. Each element’s border is rendered individually.
+- **Margins can collapse**, but only vertically and only between block-level elements. Horizontal margins do not collapse. This means that if one block element has a bottom margin and the next has a top margin, only the larger of the two will be used. This behavior is independent of `box-sizing` and is the default in CSS.
+
 ## References
 
 - [The box model | MDN](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model#the_standard_css_box_model)
