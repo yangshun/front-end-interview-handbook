@@ -11,16 +11,14 @@ import Spinner from '~/components/ui/Spinner';
 import { themeBorderColor } from '~/components/ui/theme';
 import MonacoCodeEditor from '~/components/workspace/common/editor/MonacoCodeEditor';
 
+import { isImageFile } from '~/utils/isImageFile';
+
 type Props = Readonly<{
   className?: string;
   repoName: string;
   repoOwner: string;
   repoSubdirectoryPath: string | null;
 }>;
-
-export function isImageFile(filePath: string) {
-  return /\.(gif|jpe?g|tiff?|png|webp|bmp|heif|svg|pdf|psd)$/i.test(filePath);
-}
 
 const DEFAULT_FILE = 'README.md';
 
