@@ -52,7 +52,7 @@ export default function AuthPage({ view }: Props) {
           className={clsx(
             'mx-auto w-full',
             'flex max-w-sm flex-col gap-y-6 xl:justify-center',
-            'pb-12 pt-[calc(64px_+_var(--global-sticky-height))] lg:pt-[calc(40px_+_var(--global-sticky-height))] xl:py-12',
+            'pb-12 pt-[calc(64px_+_var(--global-sticky-height))] lg:pt-[calc(64px_+_var(--global-sticky-height))] xl:py-12',
           )}>
           {!user ? (
             <AuthForm view={view} />

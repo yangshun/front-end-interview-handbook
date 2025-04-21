@@ -229,7 +229,7 @@ export default function SupabaseAuth({
           <Section>
             {showThirdPartyProviders && !onlyThirdPartyProviders && (
               <div className="relative flex items-center justify-center gap-2">
-                <Divider />
+                <Divider color="emphasized" />
                 <Text color="secondary" size="body2">
                   <FormattedMessage
                     defaultMessage="Or"
@@ -237,7 +237,7 @@ export default function SupabaseAuth({
                     id="fTy7F4"
                   />
                 </Text>
-                <Divider />
+                <Divider color="emphasized" />
               </div>
             )}
             {!onlyThirdPartyProviders && children}
