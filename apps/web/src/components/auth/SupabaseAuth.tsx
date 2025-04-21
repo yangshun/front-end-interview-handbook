@@ -117,7 +117,7 @@ export default function SupabaseAuth({
               className={clsx(
                 'flex flex-col gap-y-1.5',
                 variant === 'full'
-                  ? 'items-center lg:items-start'
+                  ? 'items-center xl:items-start'
                   : 'items-start',
               )}>
               {!isAuthScreenWithSocial && !onlyThirdPartyProviders && (

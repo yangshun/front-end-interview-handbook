@@ -73,7 +73,9 @@ export default function AuthDialog({ isShown, onClose, next }: Props) {
               'pointer-events-none',
               'flex min-h-full items-center',
             )}>
-            <DialogContent contentClassName="relative !p-0 lg:h-[670px] lg:max-h-[670px]">
+            <DialogContent
+              className={themeBackgroundDarkColor}
+              contentClassName="relative !p-0 lg:h-[670px] lg:max-h-[670px]">
               {onClose && (
                 <DialogClose asChild={true}>
                   <Button
@@ -111,10 +113,7 @@ export default function AuthDialog({ isShown, onClose, next }: Props) {
                     </div>
                   </div>
                   <ScrollArea
-                    className={clsx(
-                      'hidden flex-1 lg:block',
-                      themeBackgroundDarkColor,
-                    )}
+                    className="hidden flex-1 lg:block"
                     viewportClass={clsx('h-[670px]', 'flex')}>
                     <div
                       className={clsx(
