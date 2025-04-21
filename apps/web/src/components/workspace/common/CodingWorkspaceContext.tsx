@@ -74,7 +74,7 @@ export function CodingWorkspaceProvider({
   embed,
   metadata,
 }: Props) {
-  const { increaseAuthPoints, maxAuthPointsReached } = useAuthPointOnActions({
+  const { increaseAuthPoints } = useAuthPointOnActions({
     showAuthSignupDialogOnMaxPoints: !embed,
   });
   const [status, setStatus] = useState<Status>('idle');
@@ -85,24 +85,32 @@ export function CodingWorkspaceProvider({
 
   const runTests = useCallback(() => {
     if (metadata?.slug) {
-      increaseAuthPoints('coding', metadata.slug);
+      const { maxAuthPointsReached } = increaseAuthPoints(
+        'coding',
+        metadata.slug,
+      );
+
       if (maxAuthPointsReached) {
         return;
       }
     }
     setStatus('running_tests');
-  }, [increaseAuthPoints, maxAuthPointsReached, metadata?.slug]);
+  }, [increaseAuthPoints, metadata?.slug]);
 
   const submit = useCallback(() => {
     if (metadata?.slug) {
-      increaseAuthPoints('coding', metadata.slug);
+      const { maxAuthPointsReached } = increaseAuthPoints(
+        'coding',
+        metadata.slug,
+      );
+
       if (maxAuthPointsReached) {
         return;
       }
     }
     CodingWorkspaceBottomBarEmitter.emit('pause_timer');
     setStatus('submitting');
-  }, [increaseAuthPoints, maxAuthPointsReached, metadata?.slug]);
+  }, [increaseAuthPoints, metadata?.slug]);
 
   const executionComplete = useCallback(() => {
     setStatus('idle');

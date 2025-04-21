@@ -11,7 +11,7 @@ import { useSessionContext } from '@supabase/auth-helpers-react';
 type EntityType = 'coding' | 'quiz' | 'system-design';
 
 const AUTH_SIGN_UP_POINTS_KEY = 'auth:sign-up:points';
-const MAX_POINTS = 6;
+const MAX_POINTS = 8;
 
 const ENTITY_POINTS: Record<EntityType, number> = {
   coding: 2,
@@ -41,9 +41,7 @@ export function useAuthPoints() {
   };
 }
 
-export function useShowAuthSignupDialogOnMaxPoints(
-    showOnMount= true
-) {
+export function useShowAuthSignupDialogOnMaxPoints(showOnMount = true) {
   const { isLoading: isUserLoading, session } = useSessionContext();
   const { showAuthSignupDialog } = useAuthSignupDialogContext();
   const { authPoints } = useAuthPoints();
@@ -76,20 +74,31 @@ export function useAuthPointOnActions(
     authPoints,
   } = useAuthPoints();
 
-  function increaseAuthPoints(entityType: EntityType, entityId: string) {
+  function increaseAuthPoints(
+    entityType: EntityType,
+    entityId: string,
+  ): Readonly<{
+    maxAuthPointsReached: boolean;
+  }> {
     if (session || isUserLoading) {
-      return;
+      return {
+        maxAuthPointsReached: false,
+      };
     }
     if (authPoints > MAX_POINTS) {
       showAuthSignupDialog();
 
-      return;
+      return {
+        maxAuthPointsReached: true,
+      };
     }
 
     const entityItem = `${entityType}:${entityId}`;
 
     if (authPointEntities.includes(entityItem)) {
-      return;
+      return {
+        maxAuthPointsReached: false,
+      };
     }
 
     const updated = [...authPointEntities, entityItem];
@@ -100,6 +109,10 @@ export function useAuthPointOnActions(
       showAuthSignupDialog();
     }
     setAuthPointEntities(updated);
+
+    return {
+      maxAuthPointsReached: newPoints > MAX_POINTS,
+    };
   }
 
   return {
