@@ -65,11 +65,11 @@ export default function AuthOneClickSignupCard({ onClose }: Props) {
           })}
         </Text>
         <Button
-          className="group transition-all"
+          className="group/button transition-all"
           icon={RiCloseLine}
           iconClassName={clsx(
             themeTextInvertColor,
-            'group-hover:text-neutral-900 dark:group-hover:text-white',
+            'group-hover/button:text-neutral-900 dark:group-hover/button:text-white',
           )}
           isLabelHidden={true}
           label="Close"
@@ -105,11 +105,11 @@ export default function AuthOneClickSignupCard({ onClose }: Props) {
           onClick={() => signInWithProvider('google')}
         />
         <Button
-          className="group transition-all"
+          className="group/button transition-all"
           icon={RiGithubFill}
           iconClassName={clsx(
             themeTextInvertColor,
-            'group-hover:text-neutral-900 dark:group-hover:text-white',
+            'group-hover/button:text-neutral-900 dark:group-hover/button:text-white',
           )}
           isLabelHidden={true}
           isLoading={loading}
@@ -129,7 +129,7 @@ export default function AuthOneClickSignupCard({ onClose }: Props) {
           })}
         </Text>
         <Button
-          className="group transition-all"
+          className="group/button transition-all"
           href={signInUpHref({
             query: {
               view: 'email',
@@ -138,7 +138,7 @@ export default function AuthOneClickSignupCard({ onClose }: Props) {
           icon={RiMailLine}
           iconClassName={clsx(
             themeTextInvertColor,
-            'group-hover:text-neutral-900 dark:group-hover:text-white',
+            'group-hover/button:text-neutral-900 dark:group-hover/button:text-white',
           )}
           isDisabled={loading}
           isLabelHidden={true}
