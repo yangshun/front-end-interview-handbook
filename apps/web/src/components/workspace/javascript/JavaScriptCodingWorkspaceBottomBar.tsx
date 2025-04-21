@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { RiArrowGoBackLine, RiPlayLine, RiSettings2Line } from 'react-icons/ri';
-import { VscLayout } from 'react-icons/vsc';
+import { VscLayout, VscTerminal } from 'react-icons/vsc';
 
 import QuestionProgressAction from '~/components/interviews/questions/common/QuestionProgressAction';
 import QuestionReportIssueButton from '~/components/interviews/questions/common/QuestionReportIssueButton';
@@ -10,6 +10,7 @@ import type { QuestionMetadata } from '~/components/interviews/questions/common/
 import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import DropdownMenu from '~/components/ui/DropdownMenu';
+import { useVimMode } from '~/components/workspace/common/editor/hooks/useVimMode';
 
 import logEvent from '~/logging/logEvent';
 
@@ -35,6 +36,7 @@ export default function JavaScriptCodingWorkspaceBottomBar({
   const { status, runTests, submit, resetToDefaultCode } =
     useCodingWorkspaceContext();
   const [isLayoutDialogOpen, setIsLayoutDialogOpen] = useState(false);
+  const { isVimModeEnabled, toggleVimMode } = useVimMode();
 
   const rightPostElements = (
     <>
@@ -152,6 +154,24 @@ export default function JavaScriptCodingWorkspaceBottomBar({
                     setIsLayoutDialogOpen(true);
                   },
                   value: 'layout',
+                },
+                {
+                  icon: VscTerminal,
+                  label: isVimModeEnabled
+                    ? intl.formatMessage({
+                        defaultMessage: 'Disable Vim Mode',
+                        description:
+                          'Button label to disable vim mode in editor',
+                        id: 'I7qnG/',
+                      })
+                    : intl.formatMessage({
+                        defaultMessage: 'Enable Vim Mode',
+                        description:
+                          'Button label to enable vim mode in editor',
+                        id: 'ILCBgB',
+                      }),
+                  onClick: toggleVimMode,
+                  value: 'vim-mode',
                 },
                 {
                   icon: RiArrowGoBackLine,
