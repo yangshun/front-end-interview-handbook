@@ -4191,10 +4191,6 @@
     "defaultMessage": "John Doe",
     "description": "Placeholder for name field"
   },
-  "I7qnG/": {
-    "defaultMessage": "Disable Vim Mode",
-    "description": "Button label to disable vim mode in editor"
-  },
   "I872jM": {
     "defaultMessage": "Not completed",
     "description": "Incomplete status for a question"
@@ -4262,10 +4258,6 @@
   "IKuJP0": {
     "defaultMessage": "Features",
     "description": "Resume review features"
-  },
-  "ILCBgB": {
-    "defaultMessage": "Enable Vim Mode",
-    "description": "Button label to enable vim mode in editor"
   },
   "INrnLA": {
     "defaultMessage": "Search over {questionCount} JavaScript interview questions",
@@ -7939,6 +7931,10 @@
     "defaultMessage": "Preparation plans for all kinds of preparation timelines — <owlink>1 week</owlink>, <omlink>1 month</omlink>, <tmlink>3 months</tmlink>.",
     "description": "Subtitle for proven preparation plans feature"
   },
+  "YeHWje": {
+    "defaultMessage": "Enable Vim mode",
+    "description": "Button label to enable vim mode in editor"
+  },
   "YeWPOG": {
     "defaultMessage": "Invalid URL",
     "description": "Invalid URL error"
@@ -8858,6 +8854,10 @@
   "cjgzTz": {
     "defaultMessage": "Read how to solve {questionTitle} using {questionFramework}",
     "description": "Description of Front End Interview UI Coding Questions solution page"
+  },
+  "cnL7HI": {
+    "defaultMessage": "Disable Vim mode",
+    "description": "Button label to disable vim mode in editor"
   },
   "cotxax": {
     "defaultMessage": "Component track",

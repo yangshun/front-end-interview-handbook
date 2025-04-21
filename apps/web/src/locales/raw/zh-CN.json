@@ -5519,6 +5519,10 @@
     "defaultMessage": "获得完全访问权限",
     "description": "Button CTA to encourage upgrading"
   },
+  "GPM7SF": {
+    "defaultMessage": "新建文件",
+    "description": "Button tooltip for creating a new file"
+  },
   "GPp0wf": {
     "defaultMessage": "欢迎来到 GreatFrontEnd Projects！",
     "description": "Title for Projects onboarding page"
@@ -5950,6 +5954,10 @@
   "IHwyWr": {
     "defaultMessage": "加入社区",
     "description": "Title for marketing page section"
+  },
+  "IIE89R": {
+    "defaultMessage": "您确定要删除 {displayName} 吗？ {directoryWarning}",
+    "description": "Confirmation message shown when deleting a file or directory"
   },
   "IIctLn": {
     "defaultMessage": "完成此技能推荐技能计划中的所有挑战可获得的声誉",
@@ -6922,6 +6930,10 @@
   "M87zrX": {
     "defaultMessage": "简单的{percent}%佣金，无上限",
     "description": "Affiliate program commission section title"
+  },
+  "M9GFCh": {
+    "defaultMessage": "此文件已被删除或重命名。",
+    "description": "Message shown when a file in the code editor no longer exists"
   },
   "M9z02W": {
     "defaultMessage": "爱彼迎",
@@ -9595,6 +9607,10 @@
     "defaultMessage": "查看现金返还条款和条件",
     "description": "Title of legal page"
   },
+  "YRi3wG": {
+    "defaultMessage": "新建文件夹",
+    "description": "Button tooltip for creating a new folder"
+  },
   "YS1B1R": {
     "defaultMessage": "根据您已完成的挑战、技术技能和经验，查找建议您审核的提交。",
     "description": "Page subtitle"
@@ -9630,6 +9646,10 @@
   "YdQTiq": {
     "defaultMessage": "各种准备时间线的准备计划——<owlink>1 周</owlink>，<omlink>1 个月</omlink>，<tmlink>3 个月</tmlink>。",
     "description": "Subtitle for proven preparation plans feature"
+  },
+  "YeHWje": {
+    "defaultMessage": "启用 Vim 模式",
+    "description": "Button label to enable vim mode in editor"
   },
   "YeWPOG": {
     "defaultMessage": "无效的 URL",
@@ -10263,6 +10283,10 @@
     "defaultMessage": "级别",
     "description": "Blog level label"
   },
+  "bOVGLU": {
+    "defaultMessage": "请登录或创建帐户以继续",
+    "description": "Subtitle of auth sign up dialog"
+  },
   "bQ3XUx": {
     "defaultMessage": "暂无测试",
     "description": "Label indicating that no test cases are available for this question"
@@ -10546,6 +10570,10 @@
   "cjgzTz": {
     "defaultMessage": "阅读如何使用{questionFramework}解决{questionTitle}",
     "description": "Description of Front End Interview UI Coding Questions solution page"
+  },
+  "cnL7HI": {
+    "defaultMessage": "禁用 Vim 模式",
+    "description": "Button label to disable vim mode in editor"
   },
   "cotxax": {
     "defaultMessage": "组件跟踪",
@@ -11278,10 +11306,6 @@
   "fx7H3x": {
     "defaultMessage": "您还获得了专属促销代码：",
     "description": "Marketing rewards message"
-  },
-  "fxQRHJ": {
-    "defaultMessage": "目前，无法创建或重命名文件。在面试期间，将多个组件写入单个文件中是可以接受的。",
-    "description": "File creation or removal warning message for coding workspace"
   },
   "fxZ0zk": {
     "defaultMessage": "一些常见原因包括：",
@@ -13174,6 +13198,10 @@
   "owQqZY": {
     "defaultMessage": "前端系统设计",
     "description": "Short title of front end system design playbook"
+  },
+  "oxAf2V": {
+    "defaultMessage": "这将删除其所有内容。",
+    "description": "Warning message shown when deleting a directory"
   },
   "oxD4TD": {
     "defaultMessage": "应届毕业生",
