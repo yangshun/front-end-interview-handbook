@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { RiArrowGoBackLine, RiPlayLine, RiSettings2Line } from 'react-icons/ri';
 import { VscLayout } from 'react-icons/vsc';
 
+import { useAuthActiveEngagementPoints } from '~/components/auth/auth-points';
 import QuestionProgressAction from '~/components/interviews/questions/common/QuestionProgressAction';
 import QuestionReportIssueButton from '~/components/interviews/questions/common/QuestionReportIssueButton';
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
@@ -35,6 +36,11 @@ export default function JavaScriptCodingWorkspaceBottomBar({
   const { status, runTests, submit, resetToDefaultCode } =
     useCodingWorkspaceContext();
   const [isLayoutDialogOpen, setIsLayoutDialogOpen] = useState(false);
+
+  useAuthActiveEngagementPoints({
+    entityId: metadata.slug,
+    entityType: 'coding',
+  });
 
   const rightPostElements = (
     <>
