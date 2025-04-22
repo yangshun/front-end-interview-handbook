@@ -106,7 +106,6 @@
     "mitt": "^3.0.0",
     "monaco-editor": "^0.40.0",
     "monaco-themes": "^0.4.3",
-    "monaco-vim": "^0.4.2",
     "negotiator": "^0.6.3",
     "next": "14.2.15",
     "next-contentlayer": "^0.3.4",

@@ -11,7 +11,6 @@ import { themeBorderColor } from '~/components/ui/theme';
 import CodingWorkspaceEditorShortcutsButton from '~/components/workspace/common/editor/CodingWorkspaceEditorShortcutsButton';
 import CodingWorkspaceResetButton from '~/components/workspace/common/editor/CodingWorkspaceResetButton';
 import CodingWorkspaceThemeSelect from '~/components/workspace/common/editor/CodingWorkspaceThemeSelect';
-import { useVimMode } from '~/components/workspace/common/editor/hooks/useVimMode';
 import MonacoCodeEditor from '~/components/workspace/common/editor/MonacoCodeEditor';
 
 import { useUserInterfaceCodingWorkspaceSavesContext } from './UserInterfaceCodingWorkspaceSaveContext';
@@ -42,7 +41,6 @@ export default function UserInterfaceCodingWorkspaceCodeEditor({
     setShowLoadedFilesFromLocalStorageMessage,
     resetToDefaultCode,
   } = useCodingWorkspaceContext();
-  const { isVimModeEnabled } = useVimMode();
   const isMounted = useIsMounted();
 
   const onFocus = useCallback(() => {
@@ -212,7 +210,6 @@ export default function UserInterfaceCodingWorkspaceCodeEditor({
       )}
       <MonacoCodeEditor
         filePath={filePath}
-        isVimModeEnabled={isVimModeEnabled}
         value={files[filePath].code}
         onChange={(val) => {
           updateFile(filePath, val ?? '');
