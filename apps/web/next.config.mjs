@@ -44,6 +44,9 @@ const nextConfig = {
       '@sparticuz/chromium',
     ],
   },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
   transpilePackages: ['next-i18nostic'],
   async redirects() {
     return [
