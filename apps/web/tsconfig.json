@@ -7,6 +7,7 @@
         "name": "next"
       }
     ],
+    "types": ["vitest/globals", "@types/gtag.js", "@types/mdx"],
     "baseUrl": "./src",
     "paths": {
       "~/*": ["*"],
@@ -16,9 +17,10 @@
   },
   "include": [
     "src",
-    // "vitest.config.ts",
     "contentlayer.config.ts",
     ".contentlayer/generated",
+    "langnostic.config.ts",
+    "vitest.config.ts",
     "next-env.d.ts",
     ".next/types/**/*.ts"
   ]

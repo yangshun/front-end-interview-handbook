@@ -5,20 +5,20 @@ describe('generateStaticParamsWithLocale', () => {
 
   describe('generates static params for each locale', () => {
     test('no params', () => {
-      const result = generateStaticParamsWithLocale(params);
+      const result = generateStaticParamsWithLocale(params, false);
 
       expect(result).toMatchInlineSnapshot(`
         [
           {
-            "locale": "en",
+            "locale": "en-US",
             "slug": "foo",
           },
           {
-            "locale": "en",
+            "locale": "en-US",
             "slug": "bar",
           },
           {
-            "locale": "en",
+            "locale": "en-US",
             "slug": "qux",
           },
           {
@@ -34,15 +34,15 @@ describe('generateStaticParamsWithLocale', () => {
             "slug": "qux",
           },
           {
-            "locale": "fr",
+            "locale": "pt-BR",
             "slug": "foo",
           },
           {
-            "locale": "fr",
+            "locale": "pt-BR",
             "slug": "bar",
           },
           {
-            "locale": "fr",
+            "locale": "pt-BR",
             "slug": "qux",
           },
         ]
@@ -50,20 +50,20 @@ describe('generateStaticParamsWithLocale', () => {
     });
 
     test('one slug param', () => {
-      const result = generateStaticParamsWithLocale(params);
+      const result = generateStaticParamsWithLocale(params, false);
 
       expect(result).toMatchInlineSnapshot(`
         [
           {
-            "locale": "en",
+            "locale": "en-US",
             "slug": "foo",
           },
           {
-            "locale": "en",
+            "locale": "en-US",
             "slug": "bar",
           },
           {
-            "locale": "en",
+            "locale": "en-US",
             "slug": "qux",
           },
           {
@@ -79,15 +79,15 @@ describe('generateStaticParamsWithLocale', () => {
             "slug": "qux",
           },
           {
-            "locale": "fr",
+            "locale": "pt-BR",
             "slug": "foo",
           },
           {
-            "locale": "fr",
+            "locale": "pt-BR",
             "slug": "bar",
           },
           {
-            "locale": "fr",
+            "locale": "pt-BR",
             "slug": "qux",
           },
         ]
@@ -101,39 +101,15 @@ describe('generateStaticParamsWithLocale', () => {
     expect(result).toMatchInlineSnapshot(`
       [
         {
-          "lang": "en",
+          "lang": "en-US",
           "slug": "foo",
         },
         {
-          "lang": "en",
+          "lang": "en-US",
           "slug": "bar",
         },
         {
-          "lang": "en",
-          "slug": "qux",
-        },
-        {
-          "lang": "zh-CN",
-          "slug": "foo",
-        },
-        {
-          "lang": "zh-CN",
-          "slug": "bar",
-        },
-        {
-          "lang": "zh-CN",
-          "slug": "qux",
-        },
-        {
-          "lang": "fr",
-          "slug": "foo",
-        },
-        {
-          "lang": "fr",
-          "slug": "bar",
-        },
-        {
-          "lang": "fr",
+          "lang": "en-US",
           "slug": "qux",
         },
       ]
