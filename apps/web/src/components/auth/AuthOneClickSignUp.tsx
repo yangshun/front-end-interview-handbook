@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef } from 'react';
 import { useSessionStorage } from 'usehooks-ts';
+import { useMediaQuery } from 'usehooks-ts';
 
 import { useToast } from '~/components/global/toasts/useToast';
 
@@ -15,6 +16,7 @@ const POPUP_DURATION = 15_000;
 const TOAST_DURATION = 60 * 60 * 1000; // 1 hour
 
 export default function AuthOneClickSignup() {
+  const isMobile = useMediaQuery('(max-width: 640px)');
   const { pathname } = useI18nPathname();
   const lastToastId = useRef<string | null>(null);
   const { showToast, dismissToast } = useToast();
@@ -31,7 +33,13 @@ export default function AuthOneClickSignup() {
   }, [setDismissedSignUpPrompt]);
 
   useEffect(() => {
-    if (session || isUserLoading || dismissedSignUpPrompt || isHomepage) {
+    if (
+      session ||
+      isUserLoading ||
+      dismissedSignUpPrompt ||
+      isHomepage ||
+      isMobile
+    ) {
       if (lastToastId.current) {
         dismissToast(lastToastId.current);
       }
@@ -66,6 +74,7 @@ export default function AuthOneClickSignup() {
     showToast,
     handleClose,
     dismissToast,
+    isMobile,
   ]);
 
   return null;
