@@ -3,7 +3,6 @@ import type { editor } from 'monaco-editor';
 import { useIsMounted } from 'usehooks-ts';
 
 import { useIntl } from '~/components/intl';
-import Banner from '~/components/ui/Banner';
 import Button from '~/components/ui/Button';
 import { themeBorderColor } from '~/components/ui/theme';
 import CodingWorkspaceEditorShortcutsButton from '~/components/workspace/common/editor/CodingWorkspaceEditorShortcutsButton';

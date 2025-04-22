@@ -7982,6 +7982,12 @@
       "value": "Get full access"
     }
   ],
+  "GPM7SF": [
+    {
+      "type": 0,
+      "value": "New File"
+    }
+  ],
   "GPp0wf": [
     {
       "type": 0,
@@ -8742,6 +8748,12 @@
       "value": "John Doe"
     }
   ],
+  "I7qnG/": [
+    {
+      "type": 0,
+      "value": "Disable Vim Mode"
+    }
+  ],
   "I872jM": [
     {
       "type": 0,
@@ -8822,6 +8834,24 @@
       "value": "Join the community"
     }
   ],
+  "IIE89R": [
+    {
+      "type": 0,
+      "value": "Are you sure you want to delete "
+    },
+    {
+      "type": 1,
+      "value": "displayName"
+    },
+    {
+      "type": 0,
+      "value": "? "
+    },
+    {
+      "type": 1,
+      "value": "directoryWarning"
+    }
+  ],
   "IIctLn": [
     {
       "type": 0,
@@ -8844,6 +8874,12 @@
     {
       "type": 0,
       "value": "Features"
+    }
+  ],
+  "ILCBgB": [
+    {
+      "type": 0,
+      "value": "Enable Vim Mode"
     }
   ],
   "INrnLA": [
@@ -10681,6 +10717,12 @@
     {
       "type": 0,
       "value": "% commission, no limit"
+    }
+  ],
+  "M9GFCh": [
+    {
+      "type": 0,
+      "value": "This file has been deleted or renamed."
     }
   ],
   "M9z02W": [
@@ -16164,6 +16206,12 @@
       "value": "Review Cashback Terms and Conditions"
     }
   ],
+  "YRi3wG": [
+    {
+      "type": 0,
+      "value": "New Folder"
+    }
+  ],
   "YS1B1R": [
     {
       "type": 0,
@@ -17466,6 +17514,12 @@
     {
       "type": 0,
       "value": "Level"
+    }
+  ],
+  "bOVGLU": [
+    {
+      "type": 0,
+      "value": "Please sign in or create an account to continue"
     }
   ],
   "bQ3XUx": [
@@ -19524,12 +19578,6 @@
     {
       "type": 0,
       "value": "You've also earned an exclusive promo code:"
-    }
-  ],
-  "fxQRHJ": [
-    {
-      "type": 0,
-      "value": "For now, files cannot be created or renamed. It's acceptable to write multiple components within a single file during interviews."
     }
   ],
   "fxZ0zk": [
@@ -23846,6 +23894,12 @@
     {
       "type": 0,
       "value": "Front End System Design"
+    }
+  ],
+  "oxAf2V": [
+    {
+      "type": 0,
+      "value": "This will delete all its contents."
     }
   ],
   "oxD4TD": [

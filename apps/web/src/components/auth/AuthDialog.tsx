@@ -17,6 +17,7 @@ import Text from '~/components/ui/Text';
 import {
   themeBackgroundCardWhiteOnLightColor,
   themeBackgroundDarkColor,
+  themeBackgroundInvertColor,
   themeBorderColor,
 } from '~/components/ui/theme';
 
@@ -79,7 +80,7 @@ export default function AuthDialog({ isShown, onClose, next }: Props) {
               {onClose && (
                 <DialogClose asChild={true}>
                   <Button
-                    className="absolute right-6 top-6 z-[1]"
+                    className="absolute right-6 top-[68px] z-[1]"
                     icon={RiCloseLine}
                     isLabelHidden={true}
                     label={intl.formatMessage({
@@ -94,8 +95,23 @@ export default function AuthDialog({ isShown, onClose, next }: Props) {
                   />
                 </DialogClose>
               )}
-              <DialogBody className="!mt-0">
-                <div className={clsx('flex w-full')}>
+              <DialogBody className="!mt-0 h-full">
+                <div
+                  className={clsx(
+                    'px-6 py-1.5',
+                    'text-center',
+                    themeBackgroundInvertColor,
+                  )}>
+                  <Text color="invert" size="body3" weight="medium">
+                    {intl.formatMessage({
+                      defaultMessage:
+                        'Please sign in or create an account to continue',
+                      description: 'Subtitle of auth sign up dialog',
+                      id: 'bOVGLU',
+                    })}
+                  </Text>
+                </div>
+                <div className={clsx('flex h-full w-full')}>
                   <div
                     className={clsx(
                       'flex justify-center',
@@ -114,11 +130,11 @@ export default function AuthDialog({ isShown, onClose, next }: Props) {
                   </div>
                   <ScrollArea
                     className="hidden flex-1 lg:block"
-                    viewportClass={clsx('h-[670px]', 'flex')}>
+                    viewportClass={clsx('h-[642px]', 'flex')}>
                     <div
                       className={clsx(
-                        'flex min-h-[670px] flex-col justify-between gap-10',
-                        'px-12 pb-6 pt-[120px]',
+                        'flex min-h-[642px] flex-col justify-between gap-10',
+                        'px-12 pb-6 pt-20',
                       )}>
                       <div
                         className={clsx(
