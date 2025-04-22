@@ -1,3 +1,5 @@
+import { describe, expect, test } from 'vitest';
+
 import { gatherDts } from './gatherDts';
 
 describe('gatherDts', () => {

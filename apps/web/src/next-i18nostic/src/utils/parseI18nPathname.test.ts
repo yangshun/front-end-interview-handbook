@@ -1,3 +1,5 @@
+import { describe, expect, test } from 'vitest';
+
 import parseI18nPathname from './parseI18nPathname';
 
 describe('parseI18nPathname', () => {

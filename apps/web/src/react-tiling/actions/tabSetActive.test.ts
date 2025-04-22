@@ -1,3 +1,5 @@
+import { describe, expect, test } from 'vitest';
+
 import tabSetActive from './tabSetActive';
 
 describe('tabSetActive', () => {

@@ -1,3 +1,5 @@
+import { describe, expect, test } from 'vitest';
+
 import i18nMetadata, { parseCanonical } from './i18nMetadata';
 
 describe('parseCanonical', () => {

@@ -1,3 +1,5 @@
+import { describe, expect, test } from 'vitest';
+
 import i18nHref from './i18nHref';
 
 describe('i18nHref', () => {
