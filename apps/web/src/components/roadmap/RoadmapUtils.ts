@@ -1,4 +1,4 @@
-import format from 'date-fns/format';
+import { format } from 'date-fns';
 
 import { DEC, JAN, MONTH_DELTA, MONTHS } from './constants';
 import type { RoadmapProduct } from './hooks/useRoadmap';

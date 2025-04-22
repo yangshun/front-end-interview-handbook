@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import React, { useState } from 'react';
 import { RiArrowDownSLine } from 'react-icons/ri';
-import { useDebounce } from 'usehooks-ts';
+import { useDebounceValue } from 'usehooks-ts';
 
 import {
   themeOutlineElement_FocusVisible,
@@ -26,9 +26,7 @@ export default function NavbarItem({
   label,
   ...props
 }: NavbarTopLevelItem) {
-  const [open, setOpen] = useState(false);
-  // To debounce open state when quick hovering on and out
-  const debouncedOpen = useDebounce(open, 100);
+  const [debouncedOpen, setOpen] = useDebounceValue(false, 100);
   const [isClicked, setIsClicked] = useState(false);
 
   function handleMouseEnter() {
@@ -77,7 +75,7 @@ export default function NavbarItem({
         className={clsx(
           commonStyles,
           anchorVariants({ variant: 'unstyled' }),
-          open
+          debouncedOpen
             ? clsx(themeTextBrandColor, 'underline dark:no-underline')
             : clsx(themeTextColor, themeTextBrandColor_Hover),
         )}
@@ -88,7 +86,9 @@ export default function NavbarItem({
         <RiArrowDownSLine
           aria-hidden="true"
           className={clsx(
-            open ? themeTextSecondaryColor : themeTextSecondaryInvertColor,
+            debouncedOpen
+              ? themeTextSecondaryColor
+              : themeTextSecondaryInvertColor,
             'size-5 group-hover:text-neutral-500',
           )}
         />

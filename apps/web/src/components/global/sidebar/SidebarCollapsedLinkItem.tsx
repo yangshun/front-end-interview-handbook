@@ -1,7 +1,6 @@
 import clsx from 'clsx';
-import { useState } from 'react';
 import url from 'url';
-import { useDebounce } from 'usehooks-ts';
+import { useDebounceValue } from 'usehooks-ts';
 
 import Anchor from '~/components/ui/Anchor';
 import NavbarPopoverLink from '~/components/ui/Navbar/NavbarPopoverLink';
@@ -36,8 +35,7 @@ export default function SidebarCollapsedLinkItem({
   onClick,
   ...props
 }: SidebarCollapsedLinkItemProps) {
-  const [open, setOpen] = useState(false);
-  const debouncedOpen = useDebounce(open, 100);
+  const [debouncedOpen, setOpen] = useDebounceValue(false, 100);
 
   function handleMouseEnter() {
     setOpen(true);
@@ -108,7 +106,7 @@ export default function SidebarCollapsedLinkItem({
         aria-label={label}
         className={clsx(
           commonClass,
-          isSelected || open ? activeClassName : defaultClassName,
+          isSelected || debouncedOpen ? activeClassName : defaultClassName,
         )}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}>

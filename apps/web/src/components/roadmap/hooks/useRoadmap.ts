@@ -1,4 +1,4 @@
-import format from 'date-fns/format';
+import { format } from 'date-fns';
 import { useEffect, useMemo, useState } from 'react';
 
 import { trpc } from '~/hooks/trpc';

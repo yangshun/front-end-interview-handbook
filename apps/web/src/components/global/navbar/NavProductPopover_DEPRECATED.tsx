@@ -1,9 +1,8 @@
 'use client';
 
 import clsx from 'clsx';
-import { useState } from 'react';
 import { RiArrowDownSLine } from 'react-icons/ri';
-import { useDebounce } from 'usehooks-ts';
+import { useDebounceValue } from 'usehooks-ts';
 
 import LogoMark from '~/components/global/logos/LogoMark';
 import ProjectsLogo from '~/components/global/logos/ProjectsLogo';
@@ -50,9 +49,9 @@ export default function NavProductPopover_DEPRECATED({
   }
 
   const [showUnseenIndicator] = useProductMenuUnseenIndicator();
-  const [open, setOpen] = useState(false);
+  const [debouncedOpen, setOpen] = useDebounceValue(false, 100);
+
   // To debounce open state when quick hovering on and out
-  const debouncedOpen = useDebounce(open, 100);
 
   function handleMouseEnter() {
     setOpen(true);
