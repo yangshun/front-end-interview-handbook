@@ -1,10 +1,15 @@
 'use client';
 
+import clsx from 'clsx';
 import { useIsClient, useLocalStorage } from 'usehooks-ts';
 
 import { FormattedMessage } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
 import Banner from '~/components/ui/Banner';
+import {
+  themeBackgroundDarkColor,
+  themeTextSubtitleColor,
+} from '~/components/ui/theme';
 
 import i18nLabelOptions from '~/i18n/i18nLabelOptions';
 import { useI18n } from '~/next-i18nostic/src';
@@ -27,7 +32,9 @@ export default function I18nBetaBanner() {
   return (
     <div className="z-sticky fixed bottom-0 w-full">
       <Banner
+        className={clsx(themeBackgroundDarkColor, themeTextSubtitleColor)}
         size="xs"
+        variant="custom"
         onHide={() => {
           setShowBanner(false);
         }}>
