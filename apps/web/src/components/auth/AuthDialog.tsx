@@ -76,11 +76,15 @@ export default function AuthDialog({ isShown, onClose, next }: Props) {
             )}>
             <DialogContent
               className={themeBackgroundDarkColor}
-              contentClassName="relative !p-0 lg:h-[670px] lg:max-h-[670px]">
+              contentClassName={clsx(
+                'relative overflow-hidden',
+                '!p-0',
+                'lg:h-[670px] lg:max-h-[670px]',
+              )}>
               {onClose && (
                 <DialogClose asChild={true}>
                   <Button
-                    className="absolute right-6 top-[68px] z-[1]"
+                    className="absolute right-6 top-14 z-[1] lg:top-[68px]"
                     icon={RiCloseLine}
                     isLabelHidden={true}
                     label={intl.formatMessage({
@@ -111,7 +115,11 @@ export default function AuthDialog({ isShown, onClose, next }: Props) {
                     })}
                   </Text>
                 </div>
-                <div className={clsx('flex h-full w-full')}>
+                <div
+                  className={clsx('flex w-full', [
+                    'border-t-0 lg:border',
+                    themeBorderColor,
+                  ])}>
                   <div
                     className={clsx(
                       'flex justify-center',
@@ -130,10 +138,11 @@ export default function AuthDialog({ isShown, onClose, next }: Props) {
                   </div>
                   <ScrollArea
                     className="hidden flex-1 lg:block"
-                    viewportClass={clsx('h-[642px]', 'flex')}>
+                    viewportClass={clsx('h-[636px]', 'flex')}>
                     <div
                       className={clsx(
-                        'flex min-h-[642px] flex-col justify-between gap-10',
+                        'flex flex-col justify-between gap-10',
+                        'min-h-[636px]',
                         'px-12 pb-6 pt-20',
                       )}>
                       <div
