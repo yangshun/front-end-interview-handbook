@@ -79,7 +79,7 @@ export default function AuthDialog({ isShown, onClose, next }: Props) {
               contentClassName={clsx(
                 'relative overflow-hidden',
                 '!p-0',
-                'lg:h-[670px] lg:max-h-[670px]',
+                'lg:h-[580px] lg:max-h-[580px] xl:h-[670px] xl:max-h-[670px]',
               )}>
               {onClose && (
                 <DialogClose asChild={true}>
@@ -138,11 +138,11 @@ export default function AuthDialog({ isShown, onClose, next }: Props) {
                   </div>
                   <ScrollArea
                     className="hidden flex-1 lg:block"
-                    viewportClass={clsx('h-[636px]', 'flex')}>
+                    viewportClass={clsx('h-[546px] xl:h-[636px]', 'flex')}>
                     <div
                       className={clsx(
                         'flex flex-col justify-between gap-10',
-                        'min-h-[636px]',
+                        'min-h-[546px] xl:min-h-[636px]',
                         'px-12 pb-6 pt-20',
                       )}>
                       <div
