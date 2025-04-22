@@ -22,8 +22,8 @@ const DialogBaseOverlay = forwardRef<
   <DialogPrimitive.Overlay
     className={clsx(
       'fixed inset-0',
-      'bg-neutral-950/60',
-      'backdrop-blur-sm',
+      'bg-white/80 dark:bg-neutral-950/80',
+      'backdrop-blur-[2px]',
       zIndexClass[purpose],
       'overflow-y-auto overflow-x-hidden',
       [
