@@ -8,21 +8,21 @@ describe('i18nHref', () => {
   test('should return the href unchanged for external URLs', () => {
     const httpHref = 'http://example.com';
 
-    expect(i18nHref(httpHref, 'en')).toEqual(httpHref);
+    expect(i18nHref(httpHref, 'en-US')).toEqual(httpHref);
 
     const httpsHref = 'https://example.com';
 
-    expect(i18nHref(httpsHref, 'en')).toEqual(httpsHref);
+    expect(i18nHref(httpsHref, 'en-US')).toEqual(httpsHref);
 
     const mailtoHref = 'mailto:john@gmail.com';
 
-    expect(i18nHref(mailtoHref, 'en')).toEqual(mailtoHref);
+    expect(i18nHref(mailtoHref, 'en-US')).toEqual(mailtoHref);
   });
 
   describe('non-localized paths', () => {
     test('should not add the locale prefix for default locale', () => {
-      expect(i18nHref('/', 'en')).toEqual('/');
-      expect(i18nHref('/about', 'en')).toEqual('/about');
+      expect(i18nHref('/', 'en-US')).toEqual('/');
+      expect(i18nHref('/about', 'en-US')).toEqual('/about');
     });
 
     test('should add the locale prefix for non-default locale', () => {
@@ -33,8 +33,8 @@ describe('i18nHref', () => {
 
   describe('localized paths', () => {
     test('should not add default locale', () => {
-      expect(i18nHref('/', 'en')).toEqual('/');
-      expect(i18nHref('/about', 'en')).toEqual('/about');
+      expect(i18nHref('/', 'en-US')).toEqual('/');
+      expect(i18nHref('/about', 'en-US')).toEqual('/about');
     });
 
     test('should preserve existing locale prefix', () => {
@@ -44,30 +44,30 @@ describe('i18nHref', () => {
 
     describe('should convert locale prefix to new locale', () => {
       test('default locale should not be present', () => {
-        expect(i18nHref('/zh-CN', 'en')).toEqual('/');
-        expect(i18nHref('/zh-CN/about', 'en')).toEqual('/about');
+        expect(i18nHref('/zh-CN', 'en-US')).toEqual('/');
+        expect(i18nHref('/zh-CN/about', 'en-US')).toEqual('/about');
       });
 
       test('non-default locale', () => {
-        expect(i18nHref('/zh-CN/about', 'en')).toEqual('/about');
-        expect(i18nHref('/zh-CN/about', 'fr')).toEqual('/fr/about');
+        expect(i18nHref('/zh-CN/about', 'en-US')).toEqual('/about');
+        expect(i18nHref('/zh-CN/about', 'pt-BR')).toEqual('/pt-BR/about');
       });
     });
   });
 
   describe('with query and search', () => {
-    describe('query params', () => {
-      expect(i18nHref('/about?foo=1', 'en')).toEqual('/about?foo=1');
+    test('query params', () => {
+      expect(i18nHref('/about?foo=1', 'en-US')).toEqual('/about?foo=1');
       expect(i18nHref('/about?foo=1', 'zh-CN')).toEqual('/zh-CN/about?foo=1');
     });
 
-    describe('hash', () => {
-      expect(i18nHref('/about#bar', 'en')).toEqual('/about#bar');
+    test('hash', () => {
+      expect(i18nHref('/about#bar', 'en-US')).toEqual('/about#bar');
       expect(i18nHref('/about#bar', 'zh-CN')).toEqual('/zh-CN/about#bar');
     });
 
-    describe('mixture', () => {
-      expect(i18nHref('/about#bar?foo=1', 'en')).toEqual('/about#bar?foo=1');
+    test('mixture', () => {
+      expect(i18nHref('/about#bar?foo=1', 'en-US')).toEqual('/about#bar?foo=1');
       expect(i18nHref('/about#bar?foo=1', 'zh-CN')).toEqual(
         '/zh-CN/about#bar?foo=1',
       );
@@ -81,7 +81,7 @@ describe('i18nHref', () => {
           hostname: 'example.com',
           pathname: '/about',
         },
-        'en',
+        'en-US',
       ),
     ).toEqual({
       hostname: 'example.com',

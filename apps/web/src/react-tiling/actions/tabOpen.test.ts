@@ -1,7 +1,5 @@
 import tabOpen from './tabOpen';
 
-import { describe, expect, test } from '@jest/globals';
-
 describe('tabOpen', () => {
   describe('root level', () => {
     test('new tab at the end', () => {

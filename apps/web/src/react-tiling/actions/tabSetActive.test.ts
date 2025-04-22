@@ -1,7 +1,5 @@
 import tabSetActive from './tabSetActive';
 
-import { describe, expect, test } from '@jest/globals';
-
 describe('tabSetActive', () => {
   test('first level tabs', () => {
     expect(

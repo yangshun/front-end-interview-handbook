@@ -1,7 +1,5 @@
 import panelSplit from './panelSplit';
 
-import { describe, expect, test } from '@jest/globals';
-
 describe('panelSplit', () => {
   describe('same direction as parent', () => {
     test('new panel after', () => {

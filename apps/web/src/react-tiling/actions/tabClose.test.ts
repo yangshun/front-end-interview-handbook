@@ -1,7 +1,5 @@
 import tabClose from './tabClose';
 
-import { describe, expect, test } from '@jest/globals';
-
 describe('tabClose', () => {
   describe('root level', () => {
     test('non-active tab', () => {

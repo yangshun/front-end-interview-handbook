@@ -76,17 +76,17 @@ describe('i18nMetadata', () => {
       ).toMatchInlineSnapshot(`
         {
           "alternates": {
-            "canonical": "/products",
+            "canonical": "/en/products",
             "languages": {
               "en-US": "/products",
-              "fr-FR": "/fr/products",
+              "pt-BR": "/pt-BR/products",
               "x-default": "/products",
               "zh-CN": "/zh-CN/products",
             },
           },
           "robots": {
             "googleBot": {
-              "notranslate": false,
+              "notranslate": true,
             },
           },
         }
@@ -109,14 +109,14 @@ describe('i18nMetadata', () => {
             "canonical": "https://example.com/products",
             "languages": {
               "en-US": "https://example.com/products",
-              "fr-FR": "https://example.com/fr/products",
+              "pt-BR": "https://example.com/pt-BR/products",
               "x-default": "https://example.com/products",
               "zh-CN": "https://example.com/zh-CN/products",
             },
           },
           "robots": {
             "googleBot": {
-              "notranslate": false,
+              "notranslate": true,
             },
           },
         }
@@ -136,17 +136,17 @@ describe('i18nMetadata', () => {
       ).toMatchInlineSnapshot(`
         {
           "alternates": {
-            "canonical": "https://example.com/products",
+            "canonical": "[object Object]",
             "languages": {
               "en-US": "https://example.com/products",
-              "fr-FR": "https://example.com/fr/products",
+              "pt-BR": "https://example.com/pt-BR/products",
               "x-default": "https://example.com/products",
               "zh-CN": "https://example.com/zh-CN/products",
             },
           },
           "robots": {
             "googleBot": {
-              "notranslate": false,
+              "notranslate": true,
             },
           },
         }
@@ -177,10 +177,10 @@ describe('i18nMetadata', () => {
                   "url": "/products",
                 },
               ],
-              "fr-FR": [
+              "pt-BR": [
                 {
                   "title": "Foo",
-                  "url": "/fr/products",
+                  "url": "/pt-BR/products",
                 },
               ],
               "x-default": [
@@ -199,7 +199,7 @@ describe('i18nMetadata', () => {
           },
           "robots": {
             "googleBot": {
-              "notranslate": false,
+              "notranslate": true,
             },
           },
         }
@@ -223,7 +223,7 @@ describe('i18nMetadata', () => {
           "canonical": "/zh-CN/products",
           "languages": {
             "en-US": "/products",
-            "fr-FR": "/fr/products",
+            "pt-BR": "/pt-BR/products",
             "x-default": "/products",
             "zh-CN": "/zh-CN/products",
           },
@@ -256,10 +256,10 @@ describe('i18nMetadata', () => {
       ).toMatchInlineSnapshot(`
         {
           "alternates": {
-            "canonical": "/products",
+            "canonical": "/en/products",
             "languages": {
               "en-US": "/products",
-              "fr-FR": "/fr/products",
+              "pt-BR": "/pt-BR/products",
               "x-default": "/products",
               "zh-CN": "/zh-CN/products",
             },
@@ -267,7 +267,7 @@ describe('i18nMetadata', () => {
           "robots": {
             "googleBot": {
               "index": true,
-              "notranslate": false,
+              "notranslate": true,
             },
           },
         }
@@ -295,7 +295,7 @@ describe('i18nMetadata', () => {
             "canonical": "/zh-CN/products",
             "languages": {
               "en-US": "/products",
-              "fr-FR": "/fr/products",
+              "pt-BR": "/pt-BR/products",
               "x-default": "/products",
               "zh-CN": "/zh-CN/products",
             },

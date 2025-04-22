@@ -1,7 +1,5 @@
 import prune from './prune';
 
-import { describe, expect, test } from '@jest/globals';
-
 describe('prune', () => {
   describe('item', () => {
     test('empty tabs', () => {

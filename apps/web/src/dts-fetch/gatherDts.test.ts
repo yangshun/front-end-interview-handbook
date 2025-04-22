@@ -1,7 +1,5 @@
 import { gatherDts } from './gatherDts';
 
-import { describe, expect, test } from '@jest/globals';
-
 describe('gatherDts', () => {
   test('types', () => {
     expect(

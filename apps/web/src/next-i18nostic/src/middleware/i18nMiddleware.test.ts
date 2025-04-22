@@ -1,6 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
+import nextI18nosticConfig from 'next-i18nostic/config';
 
 import i18nMiddleware from './i18nMiddleware';
+
+const { defaultLocale, locales } = nextI18nosticConfig;
+const nonDefaultLocale = locales.find((l) => l !== defaultLocale) ?? 'pt-BR'; // Use pt-BR as fallback if only default exists
 
 describe('i18nMiddleware', () => {
   describe("pathname doesn't contain locale", () => {
@@ -10,21 +14,25 @@ describe('i18nMiddleware', () => {
 
       expect(res).toBeInstanceOf(NextResponse);
       expect(res?.headers.get('x-middleware-rewrite')).toBe(
-        'https://www.example.com/en',
+        `https://www.example.com/${defaultLocale}`,
       );
     });
   });
 
   describe('pathname contains locale', () => {
     test('only contains locale', () => {
-      const req = new NextRequest('https://www.example.com/fr');
+      const req = new NextRequest(
+        `https://www.example.com/${nonDefaultLocale}`,
+      );
       const res = i18nMiddleware(req);
 
       expect(res).toBe(null);
     });
 
     test('contains locale and path', () => {
-      const req = new NextRequest('https://www.example.com/fr/products');
+      const req = new NextRequest(
+        `https://www.example.com/${nonDefaultLocale}/products`,
+      );
       const res = i18nMiddleware(req);
 
       expect(res).toBe(null);
@@ -32,7 +40,7 @@ describe('i18nMiddleware', () => {
 
     test('contains query string', () => {
       const req = new NextRequest(
-        'https://www.example.com/fr/products?foo=bar',
+        `https://www.example.com/${nonDefaultLocale}/products?foo=bar`,
       );
       const res = i18nMiddleware(req);
 
@@ -41,7 +49,7 @@ describe('i18nMiddleware', () => {
 
     describe('starts with default locale', () => {
       test('only contains locale', () => {
-        const req = new NextRequest('https://www.example.com/en');
+        const req = new NextRequest(`https://www.example.com/${defaultLocale}`);
         const res = i18nMiddleware(req);
 
         expect(res).toBeInstanceOf(NextResponse);
@@ -49,7 +57,9 @@ describe('i18nMiddleware', () => {
       });
 
       test('contains locale and path', () => {
-        const req = new NextRequest('https://www.example.com/en/products');
+        const req = new NextRequest(
+          `https://www.example.com/${defaultLocale}/products`,
+        );
         const res = i18nMiddleware(req);
 
         expect(res).toBeInstanceOf(NextResponse);
@@ -60,7 +70,7 @@ describe('i18nMiddleware', () => {
 
       test('contains query string', () => {
         const req = new NextRequest(
-          'https://www.example.com/en/products?foo=bar',
+          `https://www.example.com/${defaultLocale}/products?foo=bar`,
         );
         const res = i18nMiddleware(req);
 
@@ -83,7 +93,7 @@ describe('i18nMiddleware', () => {
 
           expect(res).toBeInstanceOf(NextResponse);
           expect(res?.headers.get('x-middleware-rewrite')).toBe(
-            'https://www.example.com/en/products/list',
+            `https://www.example.com/${defaultLocale}/products/list`,
           );
         });
 
@@ -97,7 +107,7 @@ describe('i18nMiddleware', () => {
 
           expect(res).toBeInstanceOf(NextResponse);
           expect(res?.headers.get('x-middleware-rewrite')).toBe(
-            'https://www.example.com/en/products/list?foo=bar',
+            `https://www.example.com/${defaultLocale}/products/list?foo=bar`,
           );
         });
       });
@@ -111,7 +121,7 @@ describe('i18nMiddleware', () => {
 
           expect(res).toBeInstanceOf(NextResponse);
           expect(res?.headers.get('x-middleware-rewrite')).toBe(
-            'https://www.example.com/en/products',
+            `https://www.example.com/${defaultLocale}/products`,
           );
         });
 
@@ -125,7 +135,7 @@ describe('i18nMiddleware', () => {
 
           expect(res).toBeInstanceOf(NextResponse);
           expect(res?.headers.get('x-middleware-rewrite')).toBe(
-            'https://www.example.com/en/products?foo=bar',
+            `https://www.example.com/${defaultLocale}/products?foo=bar`,
           );
         });
       });
@@ -134,20 +144,22 @@ describe('i18nMiddleware', () => {
     describe('non-default locale', () => {
       describe('matching rewrite', () => {
         test('pathname', () => {
-          const req = new NextRequest('https://www.example.com/zh-CN/products');
+          const req = new NextRequest(
+            `https://www.example.com/${nonDefaultLocale}/products`,
+          );
           const res = i18nMiddleware(req, {
             '/products': '/products/list',
           });
 
           expect(res).toBeInstanceOf(NextResponse);
           expect(res?.headers.get('x-middleware-rewrite')).toBe(
-            'https://www.example.com/zh-CN/products/list',
+            `https://www.example.com/${nonDefaultLocale}/products/list`,
           );
         });
 
         test('query string', () => {
           const req = new NextRequest(
-            'https://www.example.com/zh-CN/products?foo=bar',
+            `https://www.example.com/${nonDefaultLocale}/products?foo=bar`,
           );
           const res = i18nMiddleware(req, {
             '/products': '/products/list',
@@ -155,14 +167,16 @@ describe('i18nMiddleware', () => {
 
           expect(res).toBeInstanceOf(NextResponse);
           expect(res?.headers.get('x-middleware-rewrite')).toBe(
-            'https://www.example.com/zh-CN/products/list?foo=bar',
+            `https://www.example.com/${nonDefaultLocale}/products/list?foo=bar`,
           );
         });
       });
 
       describe('unmatched rewrite', () => {
         test('pathname', () => {
-          const req = new NextRequest('https://www.example.com/zh-CN/products');
+          const req = new NextRequest(
+            `https://www.example.com/${nonDefaultLocale}/products`,
+          );
           const res = i18nMiddleware(req, {
             '/checkout': '/cart',
           });
@@ -172,7 +186,7 @@ describe('i18nMiddleware', () => {
 
         test('query string', () => {
           const req = new NextRequest(
-            'https://www.example.com/zh-CN/products?foo=bar',
+            `https://www.example.com/${nonDefaultLocale}/products?foo=bar`,
           );
           const res = i18nMiddleware(req, {
             '/checkout': '/cart',

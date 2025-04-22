@@ -7,6 +7,7 @@
         "name": "next"
       }
     ],
+    "types": ["vitest/globals"],
     "baseUrl": "./src",
     "paths": {
       "~/*": ["*"],
@@ -19,6 +20,7 @@
     "src",
     ".next/types/**/*.ts",
     ".contentlayer/generated",
-    "langnostic.config.ts"
+    "langnostic.config.ts",
+    "vitest.config.ts"
   ]
 }
