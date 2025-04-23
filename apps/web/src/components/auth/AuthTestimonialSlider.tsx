@@ -51,7 +51,7 @@ function TestimonialCard({
         </Text>
       </div>
       <blockquote
-        className={
+        className={clsx(
           variant === 'full'
             ? headingCVA({
                 level: 'heading6',
@@ -59,10 +59,11 @@ function TestimonialCard({
               })
             : textVariants({
                 color: 'subtitle',
-                size: 'body0',
+                size: 'inherit',
                 weight: 'medium',
-              })
-        }>
+              }),
+          variant === 'compact' && 'text-body1 xl:text-body0',
+        )}>
         {testimonial}
       </blockquote>
       <figcaption
