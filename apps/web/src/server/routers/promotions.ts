@@ -1,4 +1,3 @@
-import { Octokit } from 'octokit';
 import Stripe from 'stripe';
 import type { ZodError } from 'zod';
 import { z } from 'zod';
@@ -26,6 +25,9 @@ import prisma from '~/server/prisma';
 import { createSupabaseAdminClientGFE_SERVER_ONLY } from '~/supabase/SupabaseServerGFE';
 
 import { publicProcedure, router, userProcedure } from '../trpc';
+
+import { Octokit } from '@octokit/core';
+import { restEndpointMethods } from '@octokit/plugin-rest-endpoint-methods';
 
 const GITHUB_USERNAME_REGEX = /^[a-zA-Z0-9-]+$/;
 const LINKEDIN_USERNAME_REGEX = /^[a-zA-Z0-9-_]+$/;
@@ -132,7 +134,8 @@ export const promotionsRouter = router({
       }),
     )
     .mutation(async ({ input: { action, username }, ctx: { viewer } }) => {
-      const octokit = new Octokit({
+      const MyOctokit = Octokit.plugin(restEndpointMethods);
+      const octokit = new MyOctokit({
         auth: process.env.GITHUB_TOKEN,
       });
       const repoId = GitHubStarActionToRepoId[action];
