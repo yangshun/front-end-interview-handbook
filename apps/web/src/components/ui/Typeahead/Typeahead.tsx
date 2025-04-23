@@ -10,6 +10,7 @@ import type {
   MultiValueGenericProps,
   OnChangeValue,
   OptionProps,
+  PlaceholderProps,
   ValueContainerProps,
 } from 'react-select';
 import Select, { components } from 'react-select';
@@ -217,7 +218,7 @@ export default function Typeahead<T>({
             MenuList,
             MultiValueContainer,
             Option,
-            Placeholder: ({ ...placeholderProps }) => (
+            Placeholder: (placeholderProps: PlaceholderProps) => (
               <components.Placeholder
                 {...placeholderProps}
                 className={clsx(

@@ -33,8 +33,8 @@ importers:
         specifier: '>=10'
         version: 10.22.0
       react-icons:
-        specifier: 5.3.0
-        version: 5.3.0(react@18.2.0)
+        specifier: 5.4.0
+        version: 5.4.0(react@18.2.0)
       shiki:
         specifier: ^1.6.0
         version: 1.6.0
@@ -157,8 +157,8 @@ importers:
         specifier: ^2.4.1
         version: 2.4.1(csstype@3.1.3)(react-dom@18.2.0)(react@18.2.0)
       react-icons:
-        specifier: 5.3.0
-        version: 5.3.0(react@18.2.0)
+        specifier: 5.4.0
+        version: 5.4.0(react@18.2.0)
       server-only:
         specifier: ^0.0.1
         version: 0.0.1
@@ -314,8 +314,8 @@ importers:
         specifier: 14.2.15
         version: 14.2.15(@mdx-js/loader@2.3.0)(@mdx-js/react@2.3.0)
       '@number-flow/react':
-        specifier: ^0.5.5
-        version: 0.5.5(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^0.5.9
+        version: 0.5.9(react-dom@18.2.0)(react@18.2.0)
       '@prisma/client':
         specifier: 6.6.0
         version: 6.6.0(prisma@6.6.0)(typescript@5.7.2)
@@ -515,8 +515,8 @@ importers:
         specifier: ^0.19.4
         version: 0.19.4(react@18.2.0)
       react-circular-progressbar:
-        specifier: ^2.1.0
-        version: 2.1.0(react@18.2.0)
+        specifier: ^2.2.0
+        version: 2.2.0(react@18.2.0)
       react-compare-image:
         specifier: ^3.4.0
         version: 3.4.0(react-dom@18.2.0)(react@18.2.0)
@@ -536,8 +536,8 @@ importers:
         specifier: ^7.47.0
         version: 7.48.2(react@18.2.0)
       react-icons:
-        specifier: 5.3.0
-        version: 5.3.0(react@18.2.0)
+        specifier: 5.4.0
+        version: 5.4.0(react@18.2.0)
       react-intl:
         specifier: ^6.2.8
         version: 6.5.5(react@18.2.0)(typescript@5.7.2)
@@ -548,8 +548,8 @@ importers:
         specifier: ^2.1.8
         version: 2.1.8(react-dom@18.2.0)(react@18.2.0)
       react-select:
-        specifier: ^5.8.0
-        version: 5.8.0(@types/react@18.0.28)(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^5.10.1
+        version: 5.10.1(@types/react@18.0.28)(react-dom@18.2.0)(react@18.2.0)
       react-use:
         specifier: ^17.6.0
         version: 17.6.0(react-dom@18.2.0)(react@18.2.0)
@@ -1895,13 +1895,6 @@ packages:
       - supports-color
     dev: false
 
-  /@babel/helper-module-imports@7.22.15:
-    resolution: {integrity: sha512-0pYVBnDKZO2fnSPCrgM/6WMc7eS20Fbok+0r88fp+YtWVLZrp4CkafFGIp+W0VKw4a22sgebPT99y+FDNMdP4w==}
-    engines: {node: '>=6.9.0'}
-    dependencies:
-      '@babel/types': 7.24.7
-    dev: false
-
   /@babel/helper-module-imports@7.24.7:
     resolution: {integrity: sha512-8AyH3C+74cgCVVXow/myrynrAGv+nTVg5vKu2nZph9x7RcRwzmh0VFallJuFTZ9mx6u4eSdXZfcOzSqTUm0HCA==}
     engines: {node: '>=6.9.0'}
@@ -2933,7 +2926,7 @@ packages:
   /@emotion/babel-plugin@11.11.0:
     resolution: {integrity: sha512-m4HEDZleaaCH+XgDDsPF15Ht6wTLsgDTeR3WYj9Q/k76JtWhrJjcP4+/XlG8LGT/Rol9qUfOIztXeA84ATpqPQ==}
     dependencies:
-      '@babel/helper-module-imports': 7.22.15
+      '@babel/helper-module-imports': 7.25.9
       '@babel/runtime': 7.24.7
       '@emotion/hash': 0.9.1
       '@emotion/memoize': 0.8.1
@@ -2944,6 +2937,8 @@ packages:
       find-root: 1.1.0
       source-map: 0.5.7
       stylis: 4.2.0
+    transitivePeerDependencies:
+      - supports-color
     dev: false
 
   /@emotion/cache@10.0.29:
@@ -3032,6 +3027,8 @@ packages:
       '@types/react': 18.0.28
       hoist-non-react-statics: 3.3.2
       react: 18.2.0
+    transitivePeerDependencies:
+      - supports-color
     dev: false
 
   /@emotion/serialize@0.11.16:
@@ -4223,13 +4220,6 @@ packages:
       '@floating-ui/utils': 0.2.3
     dev: false
 
-  /@floating-ui/dom@1.5.3:
-    resolution: {integrity: sha512-ClAbQnEqJAKCJOEbbLo5IUlZHkNszqhuxS4fHAVxRPXPya6Ysf2G8KypnYcOTpx6I8xcgF9bbHb6g/2KpbV8qA==}
-    dependencies:
-      '@floating-ui/core': 1.6.3
-      '@floating-ui/utils': 0.1.6
-    dev: false
-
   /@floating-ui/dom@1.6.6:
     resolution: {integrity: sha512-qiTYajAnh3P+38kECeffMSQgbvXty2VB6rS+42iWR4FPIlZjLK84E9qtLnMTLIpPz2znD/TaFqaiavMUrS+Hcw==}
     dependencies:
@@ -4259,10 +4249,6 @@ packages:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       tabbable: 6.2.0
-    dev: false
-
-  /@floating-ui/utils@0.1.6:
-    resolution: {integrity: sha512-OfX7E2oUDYxtBvsuS4e/jSn4Q9Qb6DzgeYtsAdkPZ47znpoNsMgZw0+tVijiv3uGNR6dgNlty6r9rzIzHjtd/A==}
     dev: false
 
   /@floating-ui/utils@0.2.3:
@@ -5243,14 +5229,14 @@ packages:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.15.0
 
-  /@number-flow/react@0.5.5(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-Zdju5n0osxrb+7jbcpUJ9L2VJ2+9ptwjz5+A+2wq9Q32hs3PW/noPJjHtLTrtGINM9mEw76DcDg0ac/dx6j1aA==}
+  /@number-flow/react@0.5.9(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-cletUjLUIV6NoNg36z4CR4khIff3fb4RWzuNx8TOZVw34pUpZlgWpnDpJb4UG8B2QyYAFbptVunW0RiqoHVCDA==}
     peerDependencies:
       react: ^18 || ^19
       react-dom: ^18 || ^19
     dependencies:
       esm-env: 1.2.2
-      number-flow: 0.5.3
+      number-flow: 0.5.7
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
     dev: false
@@ -6000,7 +5986,7 @@ packages:
       '@types/react':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.9
+      '@babel/runtime': 7.24.7
       '@types/react': 18.0.28
       react: 18.2.0
     dev: false
@@ -9772,7 +9758,7 @@ packages:
     dependencies:
       '@babel/runtime': 7.24.7
       cosmiconfig: 7.1.0
-      resolve: 1.22.8
+      resolve: 1.22.10
     dev: false
 
   /babel-plugin-syntax-jsx@6.18.0:
@@ -15883,8 +15869,8 @@ packages:
     resolution: {integrity: sha512-2vPPEi+Z7WqML2jZYddDIfy5Dqb0r2fze2zTxNNknZaFpVHU3mFB3R+DWeJWGVx0ecvttSGlJTI+WG+8Z4cDWw==}
     dev: false
 
-  /number-flow@0.5.3:
-    resolution: {integrity: sha512-iLKyssImNWQmJ41rza9K7P5lHRZTyishi/9FarWPLQHYY2Ydtl6eiXINEjZ1fa8dHeY0O7+YOD+Py3ZsJddYkg==}
+  /number-flow@0.5.7:
+    resolution: {integrity: sha512-P83Y9rBgN3Xpz5677YDNtuQHZpIldw6WXeWRg0+edrfFthhV7QqRdABas5gtu07QPLvbA8XhfO69rIvbKRzYIg==}
     dependencies:
       esm-env: 1.2.2
     dev: false
@@ -17307,10 +17293,10 @@ packages:
       tslib: 2.6.2
     dev: false
 
-  /react-circular-progressbar@2.1.0(react@18.2.0):
-    resolution: {integrity: sha512-xp4THTrod4aLpGy68FX/k1Q3nzrfHUjUe5v6FsdwXBl3YVMwgeXYQKDrku7n/D6qsJA9CuunarAboC2xCiKs1g==}
+  /react-circular-progressbar@2.2.0(react@18.2.0):
+    resolution: {integrity: sha512-cgyqEHOzB0nWMZjKfWN3MfSa1LV3OatcDjPz68lchXQUEiBD5O1WsAtoVK4/DSL0B4USR//cTdok4zCBkq8X5g==}
     peerDependencies:
-      react: ^0.14.0 || ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
+      react: '>=0.14.0'
     dependencies:
       react: 18.2.0
     dev: false
@@ -17422,8 +17408,8 @@ packages:
       - csstype
     dev: false
 
-  /react-icons@5.3.0(react@18.2.0):
-    resolution: {integrity: sha512-DnUk8aFbTyQPSkCfF8dbX6kQjXA9DktMeJqfjrg6cK9vwQVMxmcA3BfP4QoiztVmEHtwlTgLFsPuH2NskKT6eg==}
+  /react-icons@5.4.0(react@18.2.0):
+    resolution: {integrity: sha512-7eltJxgVt7X64oHh6wSWNwwbKTCtMfK35hcjvJS0yxEAhPM8oUKdS3+kqaW1vicIltw+kR2unHaa12S9pPALoQ==}
     peerDependencies:
       react: '*'
     dependencies:
@@ -17583,25 +17569,26 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: false
 
-  /react-select@5.8.0(@types/react@18.0.28)(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-TfjLDo58XrhP6VG5M/Mi56Us0Yt8X7xD6cDybC7yoRMUNm7BGO7qk8J0TLQOua/prb8vUOtsfnXZwfm30HGsAA==}
+  /react-select@5.10.1(@types/react@18.0.28)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-roPEZUL4aRZDx6DcsD+ZNreVl+fM8VsKn0Wtex1v4IazH60ILp5xhdlp464IsEAlJdXeD+BhDAFsBVMfvLQueA==}
     peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
     dependencies:
-      '@babel/runtime': 7.23.5
+      '@babel/runtime': 7.24.7
       '@emotion/cache': 11.11.0
       '@emotion/react': 11.11.3(@types/react@18.0.28)(react@18.2.0)
-      '@floating-ui/dom': 1.5.3
+      '@floating-ui/dom': 1.6.6
       '@types/react-transition-group': 4.4.10
       memoize-one: 6.0.0
       prop-types: 15.8.1
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       react-transition-group: 4.4.5(react-dom@18.2.0)(react@18.2.0)
-      use-isomorphic-layout-effect: 1.1.2(@types/react@18.0.28)(react@18.2.0)
+      use-isomorphic-layout-effect: 1.2.0(@types/react@18.0.28)(react@18.2.0)
     transitivePeerDependencies:
       - '@types/react'
+      - supports-color
     dev: false
 
   /react-style-singleton@2.2.1(@types/react@18.0.28)(react@18.2.0):
@@ -20049,6 +20036,19 @@ packages:
     peerDependencies:
       '@types/react': '*'
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+    dependencies:
+      '@types/react': 18.0.28
+      react: 18.2.0
+    dev: false
+
+  /use-isomorphic-layout-effect@1.2.0(@types/react@18.0.28)(react@18.2.0):
+    resolution: {integrity: sha512-q6ayo8DWoPZT0VdG4u3D3uxcgONP3Mevx2i2b0434cwWBoL+aelL1DzkXI6w3PhTZzUeR2kaVlZn70iCiseP6w==}
+    peerDependencies:
+      '@types/react': '*'
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
     peerDependenciesMeta:
       '@types/react':
         optional: true
