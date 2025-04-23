@@ -18,7 +18,6 @@ import TextArea from '~/components/ui/TextArea';
 import TextInput from '~/components/ui/TextInput';
 
 import JavaScriptCodingWorkspaceWorkingLanguageSelect from './JavaScriptCodingWorkspaceWorkingLanguageSelect';
-import { useVimMode } from '../common/editor/hooks/useVimMode';
 import MonacoCodeEditor from '../common/editor/MonacoCodeEditor';
 
 type Props = Readonly<{
@@ -37,8 +36,6 @@ function JavaScriptCodingWorkspaceCommunitySolutionCreateTabImpl({
 }: Props) {
   const intl = useIntl();
   const trpcUtils = trpc.useUtils();
-
-  const { isVimModeEnabled } = useVimMode();
 
   const { isLoading, mutateAsync: addSolution } =
     trpc.questionCommunitySolution.javaScriptAdd.useMutation({
@@ -161,11 +158,7 @@ function JavaScriptCodingWorkspaceCommunitySolutionCreateTabImpl({
         name="code"
         render={({ field: { ref: _, ...field } }) => (
           <div className="flex flex-1 flex-col">
-            <MonacoCodeEditor
-              filePath="community-solution.ts"
-              isVimModeEnabled={isVimModeEnabled}
-              {...field}
-            />
+            <MonacoCodeEditor filePath="community-solution.ts" {...field} />
             {formState.isDirty && formState.errors.code?.message && (
               <Text color="error" size="body2" weight="medium">
                 {formState.errors.code?.message}

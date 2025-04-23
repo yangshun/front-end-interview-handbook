@@ -8748,6 +8748,12 @@
       "value": "John Doe"
     }
   ],
+  "I7qnG/": [
+    {
+      "type": 0,
+      "value": "Disable Vim Mode"
+    }
+  ],
   "I872jM": [
     {
       "type": 0,
@@ -8868,6 +8874,12 @@
     {
       "type": 0,
       "value": "Features"
+    }
+  ],
+  "ILCBgB": [
+    {
+      "type": 0,
+      "value": "Enable Vim Mode"
     }
   ],
   "INrnLA": [
@@ -16296,12 +16308,6 @@
       "value": "."
     }
   ],
-  "YeHWje": [
-    {
-      "type": 0,
-      "value": "Enable Vim mode"
-    }
-  ],
   "YeWPOG": [
     {
       "type": 0,
@@ -18066,12 +18072,6 @@
     {
       "type": 1,
       "value": "questionFramework"
-    }
-  ],
-  "cnL7HI": [
-    {
-      "type": 0,
-      "value": "Disable Vim mode"
     }
   ],
   "cotxax": [
