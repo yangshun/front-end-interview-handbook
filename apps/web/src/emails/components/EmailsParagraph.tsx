@@ -87,7 +87,14 @@ export default function EmailsParagraph({
   return (
     <Text
       style={{
-        ...(defaultMargins ? defaultMarginStyles[size] : { margin: 0 }),
+        ...(defaultMargins
+          ? defaultMarginStyles[size]
+          : {
+              marginBottom: style?.marginBottom || 0,
+              marginLeft: style?.marginLeft || 0,
+              marginRight: style?.marginRight || 0,
+              marginTop: style?.marginTop || 0,
+            }),
         ...colorStyles[color],
         ...weightStyles[weight],
         ...sizeStyles[size],
