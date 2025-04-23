@@ -26,6 +26,7 @@ type TilesPanelCommonProps<TabType> = Readonly<{
     label: string;
   }>;
   level: number;
+  minSize?: PanelProps['minSize'];
   order?: number;
   parentDirection: PanelGroupProps['direction'];
   renderTab: (tabId: TabType) => JSX.Element;
@@ -47,11 +48,11 @@ export default function TilesPanel<TabType extends string>({
   level,
   order,
   id,
-  disablePointerEventsDuringResize,
   getTabLabel,
   renderTab,
   parentDirection,
   defaultSize = 100,
+  minSize = 10,
   getResizeHandlerProps,
   ...props
 }: TilesPanelGroupTypeProps<TabType> | TilesPanelItemTypeProps<TabType>) {
@@ -111,10 +112,7 @@ export default function TilesPanel<TabType extends string>({
     );
 
     return level === 0 ? (
-      <PanelGroup
-        className="relative"
-        direction="horizontal"
-        disablePointerEventsDuringResize={disablePointerEventsDuringResize}>
+      <PanelGroup className="relative" direction="horizontal">
         {panel}
       </PanelGroup>
     ) : (
@@ -129,7 +127,6 @@ export default function TilesPanel<TabType extends string>({
       ref={panelGroupRef}
       className={clsx(level === 0 && 'relative')}
       direction={groupDirection}
-      disablePointerEventsDuringResize={disablePointerEventsDuringResize}
       id={String(id)}>
       {props.items.map((item, index) => {
         const itemSizeEqual = 100 / Math.max(props.items.length, 1);
@@ -146,7 +143,7 @@ export default function TilesPanel<TabType extends string>({
                 className={resizeHandlerProps.className}
                 style={resizeHandlerProps.style}
                 onDoubleClick={() => handleDoubleClick(index)}>
-                <PanelResizeHandle>
+                <PanelResizeHandle className="h-full w-full">
                   {resizeHandlerProps.children}
                 </PanelResizeHandle>
               </div>
@@ -154,9 +151,6 @@ export default function TilesPanel<TabType extends string>({
             <TilesPanel
               key={item.id}
               defaultSize={item.defaultSize ?? itemSizeEqual}
-              disablePointerEventsDuringResize={
-                disablePointerEventsDuringResize
-              }
               getResizeHandlerProps={getResizeHandlerProps}
               getTabLabel={getTabLabel}
               level={level + 1}
@@ -176,7 +170,12 @@ export default function TilesPanel<TabType extends string>({
   return level === 0 ? (
     group
   ) : (
-    <Panel key={id} defaultSize={defaultSize} id={String(id)} order={order}>
+    <Panel
+      key={id}
+      defaultSize={defaultSize}
+      id={String(id)}
+      minSize={minSize}
+      order={order}>
       {group}
     </Panel>
   );

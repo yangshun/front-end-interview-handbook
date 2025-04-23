@@ -10,8 +10,8 @@ export function CodingWorkspaceDividerWrapperClassname(
 ) {
   return clsx(
     'relative bg-transparent group',
-    direction === 'horizontal' && 'h-3',
-    direction === 'vertical' && 'w-3',
+    direction === 'horizontal' && 'h-3 w-full',
+    direction === 'vertical' && 'w-3 h-full',
   );
 }
 

@@ -127,10 +127,7 @@ export default function EmailsPreviewPage({ emailKey, html, text }: Props) {
         </div>
         <InterviewsNavbarEnd />
       </div>
-      <PanelGroup
-        className="flex h-full w-full p-3"
-        direction="horizontal"
-        disablePointerEventsDuringResize={true}>
+      <PanelGroup className="flex h-full w-full p-3" direction="horizontal">
         <Panel
           className={clsx(
             'flex flex-col',
