@@ -126,8 +126,10 @@ export default function AuthTestimonialSlider({ variant = 'full' }: Props) {
   const testimonials = InterviewsMarketingTestimonialsDict(intl);
   const [authTestimonials, setAuthTestimonials] = useState(() =>
     shuffle([
+      testimonials.faithMorante,
+      testimonials.anubhavKhanna,
+      testimonials.muhammadUmer,
       testimonials.cliffordFung,
-      testimonials.kiaanCastillo,
       testimonials.yugantJoshi,
       testimonials.deannaTran,
       testimonials.locChuong,

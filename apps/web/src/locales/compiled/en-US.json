@@ -7982,12 +7982,6 @@
       "value": "Get full access"
     }
   ],
-  "GPM7SF": [
-    {
-      "type": 0,
-      "value": "New File"
-    }
-  ],
   "GPp0wf": [
     {
       "type": 0,
@@ -8748,12 +8742,6 @@
       "value": "John Doe"
     }
   ],
-  "I7qnG/": [
-    {
-      "type": 0,
-      "value": "Disable Vim Mode"
-    }
-  ],
   "I872jM": [
     {
       "type": 0,
@@ -8834,24 +8822,6 @@
       "value": "Join the community"
     }
   ],
-  "IIE89R": [
-    {
-      "type": 0,
-      "value": "Are you sure you want to delete "
-    },
-    {
-      "type": 1,
-      "value": "displayName"
-    },
-    {
-      "type": 0,
-      "value": "? "
-    },
-    {
-      "type": 1,
-      "value": "directoryWarning"
-    }
-  ],
   "IIctLn": [
     {
       "type": 0,
@@ -8874,12 +8844,6 @@
     {
       "type": 0,
       "value": "Features"
-    }
-  ],
-  "ILCBgB": [
-    {
-      "type": 0,
-      "value": "Enable Vim Mode"
     }
   ],
   "INrnLA": [
@@ -9545,6 +9509,12 @@
     {
       "type": 0,
       "value": "Reset"
+    }
+  ],
+  "Jc7uyc": [
+    {
+      "type": 0,
+      "value": "I was interviewing for Coinbase and it's been years since I had a technical interview. The coding practices especially the system design and behavioral interview practices really helped me alot. I was able to have a mindset of problem solving and getting ideas on how to solve with best practices. I find the content super authentic compared to other platforms out there. Thank GFE and I also got the job!"
     }
   ],
   "JiKm6K": [
@@ -10719,12 +10689,6 @@
       "value": "% commission, no limit"
     }
   ],
-  "M9GFCh": [
-    {
-      "type": 0,
-      "value": "This file has been deleted or renamed."
-    }
-  ],
   "M9z02W": [
     {
       "type": 0,
@@ -11729,6 +11693,12 @@
     {
       "type": 0,
       "value": " | Front End System Design"
+    }
+  ],
+  "OzpZnL": [
+    {
+      "type": 0,
+      "value": "GreatFrontEnd wasn't just helpful, it was a game-changer for my interview prep! The quizzes were like little lightbulb moments, illuminating crucial concepts I didn't even realize I was missing, like a11y and JS security – seriously important stuff! Plus, it really sharpened my understanding of the basics, you know, this, promises, the whole async shebang. But the code questions? Absolutely brilliant! Getting hands-on practice that was actually relevant, and the way they grouped questions by target companies? That was pure gold! I'd shout it from the rooftops – GreatFrontEnd is incredible value, and personally, subscribing felt like a no-brainer, not just because it's worth every penny but because it directly helped me land my dream job at Google!"
     }
   ],
   "P/M97j": [
@@ -16206,12 +16176,6 @@
       "value": "Review Cashback Terms and Conditions"
     }
   ],
-  "YRi3wG": [
-    {
-      "type": 0,
-      "value": "New Folder"
-    }
-  ],
   "YS1B1R": [
     {
       "type": 0,
@@ -18806,12 +18770,6 @@
       "value": "View the full solution and other System Design guides."
     }
   ],
-  "eVBhnB": [
-    {
-      "type": 0,
-      "value": "GreatFrontEnd is a literal gold mine and it's not just the incredible platform but also the Discord community for premium subscribers. Everyone on there is so helpful and informative! As for the platform itself, all of the questions on there are so relevant to what's being asked in frontend engineer interviews. I've gotten questions that were exactly what was on GreatFrontEnd. And the system design resources are so well structured and detailed. I am forever grateful I found GreatFrontEnd because I honestly would not have gotten my FAANG offer without it."
-    }
-  ],
   "eWWazl": [
     {
       "type": 0,
@@ -19578,6 +19536,12 @@
     {
       "type": 0,
       "value": "You've also earned an exclusive promo code:"
+    }
+  ],
+  "fxQRHJ": [
+    {
+      "type": 0,
+      "value": "For now, files cannot be created or renamed. It's acceptable to write multiple components within a single file during interviews."
     }
   ],
   "fxZ0zk": [
@@ -23896,12 +23860,6 @@
       "value": "Front End System Design"
     }
   ],
-  "oxAf2V": [
-    {
-      "type": 0,
-      "value": "This will delete all its contents."
-    }
-  ],
   "oxD4TD": [
     {
       "type": 0,
@@ -24605,6 +24563,12 @@
     {
       "type": 0,
       "value": "Public roadmap"
+    }
+  ],
+  "qLH4+p": [
+    {
+      "type": 0,
+      "value": "GreatFrontEnd (GFE) was an indispensable resource in my interview preparation. It provided well-structured, in-depth explanations that significantly improved my frontend system design skills and JavaScript fundamentals. The detailed solutions and curated problem sets helped me not only ace interviews but also become a better engineer overall. Thanks to GFE, I successfully landed offers from Microsoft, Lululemon, ADIA, and LaunchDarkly, and I highly recommend it to anyone preparing for frontend interviews."
     }
   ],
   "qMWBqm": [

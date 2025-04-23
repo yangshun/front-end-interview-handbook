@@ -905,25 +905,6 @@ export function InterviewsMarketingTestimonialsDict(intl: IntlShape) {
     title: 'Frontend Software Engineer',
     translated: true,
   };
-  const kiaanCastillo: InterviewsMarketingTestimonial = {
-    anonymous: false,
-    authorThumbnailUrl: '/img/testimonials/users/kiaan-castillo.jpg',
-    authorUrl: 'https://www.linkedin.com/in/kiaancastillo/',
-    companyLogoUrl: '/img/testimonials/company/amazon.svg',
-    createdAt: '2024-09-22',
-    featuredOffer: 'Amazon',
-    id: 'kiaan-castillo',
-    location: 'Seattle, WA, US',
-    name: 'Kiaan Castillo',
-    testimonial: intl.formatMessage({
-      defaultMessage:
-        "GreatFrontEnd is a literal gold mine and it's not just the incredible platform but also the Discord community for premium subscribers. Everyone on there is so helpful and informative! As for the platform itself, all of the questions on there are so relevant to what's being asked in frontend engineer interviews. I've gotten questions that were exactly what was on GreatFrontEnd. And the system design resources are so well structured and detailed. I am forever grateful I found GreatFrontEnd because I honestly would not have gotten my FAANG offer without it.",
-      description: 'User testimonial for GreatFrontEnd Interviews',
-      id: 'eVBhnB',
-    }),
-    title: 'Frontend Engineer II',
-    translated: true,
-  };
   const cliffordFung: InterviewsMarketingTestimonial = {
     anonymous: false,
     authorThumbnailUrl: '/img/testimonials/users/clifford-fung.jpg',
@@ -1037,6 +1018,26 @@ export function InterviewsMarketingTestimonialsDict(intl: IntlShape) {
     title: 'Senior Software Developer',
     translated: true,
   };
+  const muhammadUmer: InterviewsMarketingTestimonial = {
+    anonymous: false,
+    authorThumbnailUrl: '/img/testimonials/users/muhammad-umer.jpg',
+    authorUrl: 'https://www.linkedin.com/in/umer0114/',
+    companyLogoUrl: '/img/testimonials/company/microsoft.svg',
+    createdAt: '2025-03-18',
+    featuredOffer: 'Microsoft',
+    id: 'muhammad-umer',
+    location: 'Canada',
+    name: 'Muhammad Umer',
+    offers: ['Microsoft', 'Lululemon', 'LaunchDarkly'],
+    testimonial: intl.formatMessage({
+      defaultMessage:
+        'GreatFrontEnd (GFE) was an indispensable resource in my interview preparation. It provided well-structured, in-depth explanations that significantly improved my frontend system design skills and JavaScript fundamentals. The detailed solutions and curated problem sets helped me not only ace interviews but also become a better engineer overall. Thanks to GFE, I successfully landed offers from Microsoft, Lululemon, ADIA, and LaunchDarkly, and I highly recommend it to anyone preparing for frontend interviews.',
+      description: 'User testimonial for GreatFrontEnd Interviews',
+      id: 'qLH4+p',
+    }),
+    title: 'SDE 2 @ Amazon (AWS)',
+    translated: true,
+  };
   const leanneZhang: InterviewsMarketingTestimonial = {
     anonymous: false,
     authorThumbnailUrl: '/img/testimonials/users/leanne-zhang.jpg',
@@ -1056,6 +1057,45 @@ export function InterviewsMarketingTestimonialsDict(intl: IntlShape) {
     }),
     title: 'Senior Software Engineer',
     translated: true,
+  };
+  const faithMorante: InterviewsMarketingTestimonial = {
+    anonymous: false,
+    authorThumbnailUrl: '/img/testimonials/users/faith-morante.webp',
+    authorUrl: 'https://www.linkedin.com/in/faith-morante/',
+    companyLogoUrl: '/img/testimonials/company/coinbase.svg',
+    createdAt: '2025-04-23',
+    featuredOffer: 'Coinbase',
+    id: 'faith-morante',
+    location: 'Burnaby, CA',
+    name: 'Faith M',
+    offers: [],
+    testimonial: intl.formatMessage({
+      defaultMessage:
+        "I was interviewing for Coinbase and it's been years since I had a technical interview. The coding practices especially the system design and behavioral interview practices really helped me alot. I was able to have a mindset of problem solving and getting ideas on how to solve with best practices. I find the content super authentic compared to other platforms out there. Thank GFE and I also got the job!",
+      description: 'User testimonial for GreatFrontEnd Interviews',
+      id: 'Jc7uyc',
+    }),
+    title: 'Senior Frontend Engineer',
+    translated: true,
+  };
+  const anubhavKhanna: InterviewsMarketingTestimonial = {
+    anonymous: false,
+    authorThumbnailUrl: '/img/testimonials/users/anubhav-khanna.jpg',
+    authorUrl: 'https://www.linkedin.com/in/anubhavkhanna7/',
+    companyLogoUrl: '/img/testimonials/company/google.svg',
+    createdAt: '2025-04-07',
+    featuredOffer: 'Google',
+    id: 'anubhav-khanna',
+    location: 'Begaluru, India',
+    name: 'Anubhav Khanna',
+    offers: [],
+    testimonial: intl.formatMessage({
+      defaultMessage:
+        "GreatFrontEnd wasn't just helpful, it was a game-changer for my interview prep! The quizzes were like little lightbulb moments, illuminating crucial concepts I didn't even realize I was missing, like a11y and JS security – seriously important stuff! Plus, it really sharpened my understanding of the basics, you know, this, promises, the whole async shebang. But the code questions? Absolutely brilliant! Getting hands-on practice that was actually relevant, and the way they grouped questions by target companies? That was pure gold! I'd shout it from the rooftops – GreatFrontEnd is incredible value, and personally, subscribing felt like a no-brainer, not just because it's worth every penny but because it directly helped me land my dream job at Google!",
+      description: 'User testimonial for GreatFrontEnd Interviews',
+      id: 'OzpZnL',
+    }),
+    title: 'Software Engineer 3',
   };
   // Const template: InterviewsMarketingTestimonial = {
   //   anonymous: false,
@@ -1079,6 +1119,7 @@ export function InterviewsMarketingTestimonialsDict(intl: IntlShape) {
     anand,
     anonNVIDIA,
     anonymousJake,
+    anubhavKhanna,
     chenweiZhang,
     cliffordFung,
     curryspices,
@@ -1089,6 +1130,7 @@ export function InterviewsMarketingTestimonialsDict(intl: IntlShape) {
     edWang,
     edwinTorres,
     faithKomlo,
+    faithMorante,
     felipeSalazar,
     fernando,
     gouseBasha,
@@ -1097,7 +1139,6 @@ export function InterviewsMarketingTestimonialsDict(intl: IntlShape) {
     jacky,
     kana,
     kevinGonzalez,
-    kiaanCastillo,
     lamTran,
     larry,
     leanneZhang,
@@ -1105,6 +1146,7 @@ export function InterviewsMarketingTestimonialsDict(intl: IntlShape) {
     luca,
     luke: lukeFiji,
     lunghaoLee,
+    muhammadUmer,
     nafis,
     nam,
     nikki,

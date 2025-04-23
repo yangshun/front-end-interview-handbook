@@ -6287,6 +6287,10 @@
     "defaultMessage": "重置",
     "description": "Label for reset button for projects profile edit page"
   },
+  "Jc7uyc": {
+    "defaultMessage": "我当时正在为 Coinbase 面试，自从上次技术面试以来已经过去好几年了。 编码实践，特别是系统设计和行为面试实践，确实对我有很大帮助。 我能够拥有解决问题的思维方式，并获得关于如何使用最佳实践来解决问题的想法。 我发现与其他平台相比，该内容非常真实。 感谢 GFE，我也得到了这份工作！",
+    "description": "User testimonial for GreatFrontEnd Interviews"
+  },
   "JiKm6K": {
     "defaultMessage": "预览您需要构建的内容",
     "description": "Solution preview button label"
@@ -7426,6 +7430,10 @@
   "Ozg1OX": {
     "defaultMessage": "{questionTitle}| 前端系统设计",
     "description": "Social title of system design question page"
+  },
+  "OzpZnL": {
+    "defaultMessage": "GreatFrontEnd 不仅仅有帮助，它还改变了我的面试准备！ 这些测验就像是小小的顿悟时刻，照亮了我甚至没有意识到我错过的关键概念，比如 a11y 和 JS 安全性——非常重要的东西！ 此外，它确实提高了我的基础知识理解，你知道，this、promises，整个异步程序。 但是代码问题呢？ 绝对精彩！ 获得真正相关的实践，以及他们按目标公司分组问题的方式？ 那是纯金！ 我会从屋顶上大喊——GreatFrontEnd 价值难以置信，而且就我个人而言，订阅感觉是理所当然的，不仅仅是因为它物有所值，还因为它直接帮助我在 Google 找到了我的梦想工作！",
+    "description": "User testimonial for GreatFrontEnd Interviews"
   },
   "P/M97j": {
     "defaultMessage": "前往 Stripe",
@@ -10263,6 +10271,10 @@
     "defaultMessage": "级别",
     "description": "Blog level label"
   },
+  "bOVGLU": {
+    "defaultMessage": "请登录或创建帐户以继续",
+    "description": "Subtitle of auth sign up dialog"
+  },
   "bQ3XUx": {
     "defaultMessage": "暂无测试",
     "description": "Label indicating that no test cases are available for this question"
@@ -10927,10 +10939,6 @@
     "defaultMessage": "查看完整的解决方案和其他系统设计指南。",
     "description": "Button label within embed"
   },
-  "eVBhnB": {
-    "defaultMessage": "GreatFrontEnd 简直就是一座金矿，这不仅是因为令人难以置信的平台，还因为高级订阅者的 Discord 社区。那里每个人都非常乐于助人，信息量很大！至于平台本身，上面的所有问题都与前端工程师面试中提出的问题非常相关。我收到了与 GreatFrontEnd 上完全相同的问题。系统设计资源结构合理，内容详尽。我永远感谢我找到了 GreatFrontEnd，因为老实说，如果没有它，我就不会获得我的 FAANG offer。",
-    "description": "User testimonial for GreatFrontEnd Interviews"
-  },
   "eWWazl": {
     "defaultMessage": "行为面试指南",
     "description": "Title for behavioral interview guide"
@@ -11280,7 +11288,7 @@
     "description": "Marketing rewards message"
   },
   "fxQRHJ": {
-    "defaultMessage": "目前，无法创建或重命名文件。在面试期间，将多个组件写入单个文件中是可以接受的。",
+    "defaultMessage": "目前，无法创建或重命名文件。 在面试期间，在一个文件中编写多个组件是可以接受的。",
     "description": "File creation or removal warning message for coding workspace"
   },
   "fxZ0zk": {
@@ -13470,6 +13478,10 @@
   "qJhNva": {
     "defaultMessage": "公开路线图",
     "description": "Title of Public roadmap page"
+  },
+  "qLH4+p": {
+    "defaultMessage": "GreatFrontEnd (GFE) 是我面试准备中不可或缺的资源。 它提供了结构良好、深入的解释，大大提高了我的前端系统设计技能和 JavaScript 基础知识。 详细的解决方案和精心策划的问题集不仅帮助我通过了面试，而且让我成为了一名更好的工程师。 感谢 GFE，我成功获得了 Microsoft、Lululemon、ADIA 和 LaunchDarkly 的 offer，我向任何准备前端面试的人推荐它。",
+    "description": "User testimonial for GreatFrontEnd Interviews"
   },
   "qMWBqm": {
     "defaultMessage": "轻松代码审查",

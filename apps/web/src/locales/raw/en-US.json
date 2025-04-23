@@ -3803,10 +3803,6 @@
     "defaultMessage": "Get full access",
     "description": "Button CTA to encourage upgrading"
   },
-  "GPM7SF": {
-    "defaultMessage": "New File",
-    "description": "Button tooltip for creating a new file"
-  },
   "GPp0wf": {
     "defaultMessage": "Welcome to GreatFrontEnd Projects!",
     "description": "Title for Projects onboarding page"
@@ -4191,10 +4187,6 @@
     "defaultMessage": "John Doe",
     "description": "Placeholder for name field"
   },
-  "I7qnG/": {
-    "defaultMessage": "Disable Vim Mode",
-    "description": "Button label to disable vim mode in editor"
-  },
   "I872jM": {
     "defaultMessage": "Not completed",
     "description": "Incomplete status for a question"
@@ -4243,10 +4235,6 @@
     "defaultMessage": "Join the community",
     "description": "Title for marketing page section"
   },
-  "IIE89R": {
-    "defaultMessage": "Are you sure you want to delete {displayName}? {directoryWarning}",
-    "description": "Confirmation message shown when deleting a file or directory"
-  },
   "IIctLn": {
     "defaultMessage": "Reputation that can be gained from completing all challenges in the recommended skill plan of this skill",
     "description": "Tooltip for reputation label"
@@ -4262,10 +4250,6 @@
   "IKuJP0": {
     "defaultMessage": "Features",
     "description": "Resume review features"
-  },
-  "ILCBgB": {
-    "defaultMessage": "Enable Vim Mode",
-    "description": "Button label to enable vim mode in editor"
   },
   "INrnLA": {
     "defaultMessage": "Search over {questionCount} JavaScript interview questions",
@@ -4586,6 +4570,10 @@
   "Jbo+rf": {
     "defaultMessage": "Reset",
     "description": "Label for reset button for projects profile edit page"
+  },
+  "Jc7uyc": {
+    "defaultMessage": "I was interviewing for Coinbase and it's been years since I had a technical interview. The coding practices especially the system design and behavioral interview practices really helped me alot. I was able to have a mindset of problem solving and getting ideas on how to solve with best practices. I find the content super authentic compared to other platforms out there. Thank GFE and I also got the job!",
+    "description": "User testimonial for GreatFrontEnd Interviews"
   },
   "JiKm6K": {
     "defaultMessage": "Preview what you need to build",
@@ -5223,10 +5211,6 @@
     "defaultMessage": "Simple {percent}% commission, no limit",
     "description": "Affiliate program commission section title"
   },
-  "M9GFCh": {
-    "defaultMessage": "This file has been deleted or renamed.",
-    "description": "Message shown when a file in the code editor no longer exists"
-  },
   "M9z02W": {
     "defaultMessage": "Airbnb",
     "description": "Company name for Airbnb"
@@ -5730,6 +5714,10 @@
   "Ozg1OX": {
     "defaultMessage": "{questionTitle} | Front End System Design",
     "description": "Social title of system design question page"
+  },
+  "OzpZnL": {
+    "defaultMessage": "GreatFrontEnd wasn't just helpful, it was a game-changer for my interview prep! The quizzes were like little lightbulb moments, illuminating crucial concepts I didn't even realize I was missing, like a11y and JS security – seriously important stuff! Plus, it really sharpened my understanding of the basics, you know, this, promises, the whole async shebang. But the code questions? Absolutely brilliant! Getting hands-on practice that was actually relevant, and the way they grouped questions by target companies? That was pure gold! I'd shout it from the rooftops – GreatFrontEnd is incredible value, and personally, subscribing felt like a no-brainer, not just because it's worth every penny but because it directly helped me land my dream job at Google!",
+    "description": "User testimonial for GreatFrontEnd Interviews"
   },
   "P/M97j": {
     "defaultMessage": "Go to Stripe",
@@ -7899,10 +7887,6 @@
     "defaultMessage": "Review Cashback Terms and Conditions",
     "description": "Title of legal page"
   },
-  "YRi3wG": {
-    "defaultMessage": "New Folder",
-    "description": "Button tooltip for creating a new folder"
-  },
   "YS1B1R": {
     "defaultMessage": "Find submissions suggested for your review, based on your completed challenges, tech skills, and experience.",
     "description": "Page subtitle"
@@ -9239,10 +9223,6 @@
     "defaultMessage": "View the full solution and other System Design guides.",
     "description": "Button label within embed"
   },
-  "eVBhnB": {
-    "defaultMessage": "GreatFrontEnd is a literal gold mine and it's not just the incredible platform but also the Discord community for premium subscribers. Everyone on there is so helpful and informative! As for the platform itself, all of the questions on there are so relevant to what's being asked in frontend engineer interviews. I've gotten questions that were exactly what was on GreatFrontEnd. And the system design resources are so well structured and detailed. I am forever grateful I found GreatFrontEnd because I honestly would not have gotten my FAANG offer without it.",
-    "description": "User testimonial for GreatFrontEnd Interviews"
-  },
   "eWWazl": {
     "defaultMessage": "Behavioral Interview Playbook",
     "description": "Title for behavioral interview guide"
@@ -9590,6 +9570,10 @@
   "fx7H3x": {
     "defaultMessage": "You've also earned an exclusive promo code:",
     "description": "Marketing rewards message"
+  },
+  "fxQRHJ": {
+    "defaultMessage": "For now, files cannot be created or renamed. It's acceptable to write multiple components within a single file during interviews.",
+    "description": "File creation or removal warning message for coding workspace"
   },
   "fxZ0zk": {
     "defaultMessage": "Some common reasons include:",
@@ -11483,10 +11467,6 @@
     "defaultMessage": "Front End System Design",
     "description": "Short title of front end system design playbook"
   },
-  "oxAf2V": {
-    "defaultMessage": "This will delete all its contents.",
-    "description": "Warning message shown when deleting a directory"
-  },
   "oxD4TD": {
     "defaultMessage": "Fresh Grad",
     "description": "Label for \"Fresh Grad\" option in YOE replacement"
@@ -11782,6 +11762,10 @@
   "qJhNva": {
     "defaultMessage": "Public roadmap",
     "description": "Title of Public roadmap page"
+  },
+  "qLH4+p": {
+    "defaultMessage": "GreatFrontEnd (GFE) was an indispensable resource in my interview preparation. It provided well-structured, in-depth explanations that significantly improved my frontend system design skills and JavaScript fundamentals. The detailed solutions and curated problem sets helped me not only ace interviews but also become a better engineer overall. Thanks to GFE, I successfully landed offers from Microsoft, Lululemon, ADIA, and LaunchDarkly, and I highly recommend it to anyone preparing for frontend interviews.",
+    "description": "User testimonial for GreatFrontEnd Interviews"
   },
   "qMWBqm": {
     "defaultMessage": "Easy code reviews",

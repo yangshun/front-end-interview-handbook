@@ -48,8 +48,9 @@ export default function InterviewsMarketingHero() {
     marketingTestimonials.lamTran,
     marketingTestimonials.leanneZhang,
     marketingTestimonials.cliffordFung,
-    marketingTestimonials.deannaTran,
-    marketingTestimonials.kiaanCastillo,
+    marketingTestimonials.faithMorante,
+    marketingTestimonials.locChuong,
+    marketingTestimonials.anubhavKhanna,
   ];
 
   return (
