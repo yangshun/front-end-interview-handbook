@@ -131,7 +131,7 @@
     "react-dropzone": "^14.3.8",
     "react-hook-form": "^7.47.0",
     "react-icons": "5.4.0",
-    "react-intl": "^6.2.8",
+    "react-intl": "^7.1.11",
     "react-merge-refs": "^2.1.1",
     "react-resizable-panels": "^2.1.8",
     "react-select": "^5.10.1",
