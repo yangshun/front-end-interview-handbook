@@ -144,7 +144,7 @@
     "remark-slug": "^7.0.1",
     "server-only": "^0.0.1",
     "stripe": "14.19.0",
-    "superjson": "^2.2.1",
+    "superjson": "^2.2.2",
     "tailwindcss-animate": "^1.0.7",
     "ua-parser-js": "^1.0.38",
     "unified": "10.1.2",
