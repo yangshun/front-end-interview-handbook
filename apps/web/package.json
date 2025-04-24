@@ -116,7 +116,7 @@
     "next-seo": "^6.6.0",
     "node-mailjet": "^6.0.8",
     "nullthrows": "^1.1.1",
-    "nuqs": "^2.2.3",
+    "nuqs": "^2.4.3",
     "prettier": "^3.3.2",
     "prettier-plugin-svelte": "^3.3.3",
     "prism-react-renderer": "^2.4.0",
