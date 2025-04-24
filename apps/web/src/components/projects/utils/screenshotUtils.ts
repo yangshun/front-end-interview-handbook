@@ -101,7 +101,7 @@ async function takeScreenshotForViewport(
 
   const path = createStoragePath(submissionId, url, device);
 
-  return await saveScreenshot(screenshotBuffer, path);
+  return await saveScreenshot(Buffer.from(screenshotBuffer), path);
 }
 
 // Returns an object with screenshot URLs for each device type
