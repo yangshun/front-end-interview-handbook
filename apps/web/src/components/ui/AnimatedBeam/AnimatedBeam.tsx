@@ -1,7 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import type { RefObject } from 'react';
 import { useEffect, useId, useState } from 'react';
 

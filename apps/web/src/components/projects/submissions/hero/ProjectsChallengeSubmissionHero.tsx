@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { useInView } from 'framer-motion';
+import { useInView } from 'motion/react';
 import { useRef } from 'react';
 import { RiArrowLeftLine, RiMessage2Fill, RiPencilLine } from 'react-icons/ri';
 import { useMediaQuery } from 'usehooks-ts';

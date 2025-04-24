@@ -7,7 +7,7 @@ import {
   useInView,
   useScroll,
   useTransform,
-} from 'framer-motion';
+} from 'motion/react';
 import dynamic from 'next/dynamic';
 import { useRef, useState } from 'react';
 import { useMediaQuery } from 'usehooks-ts';

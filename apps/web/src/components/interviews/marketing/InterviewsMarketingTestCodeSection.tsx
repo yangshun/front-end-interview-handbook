@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { motion, useAnimation, useInView } from 'framer-motion';
+import { motion, useAnimation, useInView } from 'motion/react';
 import type { RefObject } from 'react';
 import { useEffect, useRef, useState } from 'react';
 import { RiCheckboxCircleLine, RiCursorLine, RiPlayLine } from 'react-icons/ri';

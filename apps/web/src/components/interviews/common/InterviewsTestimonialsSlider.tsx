@@ -1,7 +1,8 @@
 'use client';
 
 import clsx from 'clsx';
-import { AnimatePresence, motion, wrap } from 'framer-motion';
+import type { PanInfo } from 'motion/react';
+import { AnimatePresence, motion, wrap } from 'motion/react';
 import { useEffect, useRef, useState } from 'react';
 
 import type { InterviewsMarketingTestimonial } from '~/components/interviews/marketing/testimonials/InterviewsMarketingTestimonialCard';
@@ -280,7 +281,7 @@ export default function InterviewsTestimonialsSlider({ data }: Props) {
                 x: { damping: 30, stiffness: 300, type: 'spring' },
               }}
               variants={carouselMotionVariants}
-              onDragEnd={(_, { offset, velocity }) => {
+              onDragEnd={(_: MouseEvent, { offset, velocity }: PanInfo) => {
                 const swipe = swipePower(offset.x, velocity.x);
 
                 // Stop auto-advancing if user interacts by swiping.

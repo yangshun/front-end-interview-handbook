@@ -1,4 +1,4 @@
-import { useInView } from 'framer-motion';
+import { useInView } from 'motion/react';
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef } from 'react';
 

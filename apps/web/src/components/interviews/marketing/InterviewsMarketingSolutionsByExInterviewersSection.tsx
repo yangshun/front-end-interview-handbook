@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { useInView } from 'framer-motion';
+import { useInView } from 'motion/react';
 import type { ReactNode } from 'react';
 import { useEffect, useRef, useState } from 'react';
 import { RiAmazonFill, RiMetaFill } from 'react-icons/ri';

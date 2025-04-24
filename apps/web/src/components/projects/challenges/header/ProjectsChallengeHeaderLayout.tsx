@@ -1,6 +1,6 @@
 'use client';
 
-import { useInView } from 'framer-motion';
+import { useInView } from 'motion/react';
 import { useRef } from 'react';
 
 import ProjectsChallengeHeader from './ProjectsChallengeHeader';

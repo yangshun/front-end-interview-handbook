@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { motion, useInView, useMotionValue } from 'framer-motion';
+import { motion, useInView, useMotionValue } from 'motion/react';
 import { useId, useRef, useState } from 'react';
 
 import LogoMark from '~/components/global/logos/LogoMark';

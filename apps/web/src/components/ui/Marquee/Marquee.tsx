@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { useInView, useReducedMotion } from 'framer-motion';
+import { useInView, useReducedMotion } from 'motion/react';
 import { useEffect, useRef, useState } from 'react';
 
 type Direction = 'leftToRight' | 'rightToLeft';

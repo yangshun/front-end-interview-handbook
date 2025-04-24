@@ -1,7 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
-import { useInView } from 'framer-motion';
+import { useInView } from 'motion/react';
 import { useEffect, useMemo, useRef } from 'react';
 import { RiShareCircleLine } from 'react-icons/ri';
 

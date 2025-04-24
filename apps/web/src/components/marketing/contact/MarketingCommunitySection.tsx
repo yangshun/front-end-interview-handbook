@@ -1,7 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
-import { useInView } from 'framer-motion';
+import { useInView } from 'motion/react';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { RiArrowRightSLine } from 'react-icons/ri';
 

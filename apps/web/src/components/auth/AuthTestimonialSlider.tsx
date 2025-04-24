@@ -1,6 +1,6 @@
 import clsx from 'clsx';
-import { AnimatePresence, motion } from 'framer-motion';
 import { shuffle } from 'lodash-es';
+import { AnimatePresence, motion } from 'motion/react';
 import { useEffect, useRef, useState } from 'react';
 
 import { InterviewsMarketingTestimonialsDict } from '~/components/interviews/marketing/testimonials/InterviewsMarketingTestimonials';
