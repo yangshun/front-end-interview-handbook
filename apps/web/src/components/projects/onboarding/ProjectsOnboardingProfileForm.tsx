@@ -26,21 +26,6 @@ import logEvent from '~/logging/logEvent';
 
 import { zodResolver } from '@hookform/resolvers/zod';
 
-export type ProjectsProfileOnboardingStepFormValues = {
-  avatarUrl?: string | undefined;
-  company: string;
-  hasStartedWork: boolean;
-  jobTitle: string;
-  monthYearExperience: string | undefined;
-  name: string;
-  title: string;
-  username: string;
-  yoeReplacement: {
-    option: string | undefined;
-    otherText: string | undefined;
-  };
-};
-
 function useOnboardingProfileStepSchema() {
   const intl = useIntl();
   const usernameSchema = useProfileUsernameSchema();
@@ -66,7 +51,11 @@ function useOnboardingProfileStepSchema() {
   ]);
 }
 
-type OnboardingProfileStepTransformedValues = z.infer<
+type OnboardingProfileStepTransformedValues = z.output<
+  ReturnType<typeof useOnboardingProfileStepSchema>
+>;
+
+export type ProjectsProfileOnboardingStepFormValues = z.input<
   ReturnType<typeof useOnboardingProfileStepSchema>
 >;
 

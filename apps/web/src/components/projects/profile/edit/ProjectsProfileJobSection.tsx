@@ -21,7 +21,7 @@ type Values =
 
 export default function ProjectsProfileJobSection() {
   const intl = useIntl();
-  const { control, watch, formState } = useFormContext<Values>();
+  const { control, watch, formState, setValue } = useFormContext<Values>();
   const statusAttrs = getProjectsProfileJobStatusOthersFieldAttributes(intl);
 
   const jobStatusOptions = [
@@ -70,9 +70,12 @@ export default function ProjectsProfileJobSection() {
             })}
             {...field}
             value={field.value ? 'yes' : 'no'}
-            onChange={(value) =>
-              field.onChange(value === 'yes' ? true : false)
-            }>
+            onChange={(value) => {
+              field.onChange(value === 'yes' ? true : false);
+              if (value === 'no' && !yoeReplacementOption) {
+                setValue('yoeReplacement.option', 'others');
+              }
+            }}>
             {jobStatusOptions.map((option) => (
               <RadioGroupItem key={option.value} {...option} />
             ))}

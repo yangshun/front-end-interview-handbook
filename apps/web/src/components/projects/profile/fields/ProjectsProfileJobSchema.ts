@@ -81,7 +81,16 @@ export function useProjectsJobStartedSchema() {
       .optional()
       .transform(() => undefined),
     yoeReplacement: z
-      .any()
+      .discriminatedUnion('option', [
+        z.object({
+          option: yoeReplacementSchema.extract(['others']),
+          otherText: z.string().trim(),
+        }),
+        z.object({
+          option: yoeReplacementSchema.exclude(['others']),
+          otherText: z.string().optional(),
+        }),
+      ])
       .optional()
       .transform(() => null),
   };
@@ -164,6 +173,7 @@ export function useProjectsJobNotStartedSchema() {
         }),
         z.object({
           option: yoeReplacementSchema.exclude(['others']),
+          otherText: z.string().optional(),
         }),
       ])
       .transform((value) => {

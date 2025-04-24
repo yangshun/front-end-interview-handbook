@@ -43,7 +43,7 @@
     "@formatjs/intl": "^3.1.6",
     "@formatjs/intl-localematcher": "^0.6.1",
     "@gfe/remark-alerts": "workspace:^",
-    "@hookform/resolvers": "^3.3.2",
+    "@hookform/resolvers": "^5.0.1",
     "@lexical/code": "^0.30.0",
     "@lexical/headless": "^0.30.0",
     "@lexical/link": "^0.30.0",
@@ -130,7 +130,7 @@
     "react-dnd-html5-backend": "^16.0.1",
     "react-dom": "^18.2.0",
     "react-dropzone": "^14.3.8",
-    "react-hook-form": "^7.47.0",
+    "react-hook-form": "^7.56.1",
     "react-icons": "5.4.0",
     "react-intl": "^7.1.11",
     "react-merge-refs": "^2.1.1",
@@ -151,7 +151,7 @@
     "unified": "10.1.2",
     "usehooks-ts": "^3.1.1",
     "uuid": "^11.1.0",
-    "zod": "^3.21.4"
+    "zod": "^3.24.3"
   },
   "devDependencies": {
     "@formatjs/cli": "^6.6.4",

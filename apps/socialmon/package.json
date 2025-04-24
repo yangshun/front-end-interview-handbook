@@ -45,7 +45,7 @@
     "snoowrap": "^1.23.0",
     "superjson": "^2.2.2",
     "usehooks-ts": "^2.9.1",
-    "zod": "^3.21.4"
+    "zod": "^3.24.3"
   },
   "devDependencies": {
     "@gfe/eslint-config-gfe-apps": "workspace:0.0.0",

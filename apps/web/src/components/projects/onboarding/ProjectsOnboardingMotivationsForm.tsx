@@ -6,7 +6,6 @@ import { z } from 'zod';
 
 import { FormattedMessage, useIntl } from '~/components/intl';
 import useProjectsMotivationReasonSchema from '~/components/projects/hooks/useProjectsMotivationReasonSchema';
-import type { ProjectsMotivationReasonFormValues } from '~/components/projects/types';
 import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
@@ -19,6 +18,10 @@ import { zodResolver } from '@hookform/resolvers/zod';
 
 type OnboardingProfileFormTransformedValues = {
   motivations: z.infer<ReturnType<typeof useProjectsMotivationReasonSchema>>;
+};
+
+export type ProjectsMotivationReasonFormValues = {
+  motivations: z.input<ReturnType<typeof useProjectsMotivationReasonSchema>>;
 };
 
 type Props = Readonly<{
