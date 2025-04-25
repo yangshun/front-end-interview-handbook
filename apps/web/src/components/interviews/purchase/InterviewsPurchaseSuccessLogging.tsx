@@ -1,7 +1,14 @@
 import { useSearchParams } from 'next/navigation';
 import { Suspense, useEffect } from 'react';
 
-import { purchaseSuccessLogging } from '~/components/purchase/PurchaseLogging';
+import { trpc } from '~/hooks/trpc';
+
+import {
+  purchaseSuccessLogging,
+  purchaseSuccessLoggingGA,
+} from '~/components/purchase/PurchaseLogging';
+
+import { useI18nRouter } from '~/next-i18nostic/src';
 
 import type {
   InterviewsPricingPlanPaymentConfigLocalizedRecord,
@@ -17,16 +24,34 @@ export function useInterviewsPurchaseSuccessLogging(
   ) as InterviewsPricingPlanType | null;
 
   useEffect(() => {
+    // Intentionally keep the inaccurate logging for GA
+    // as GA might rely on this for performance :/
     if (planSearchParam != null) {
       const paymentConfig = plansPaymentConfig[planSearchParam];
 
-      purchaseSuccessLogging({
+      purchaseSuccessLoggingGA({
+        amount: paymentConfig.unitCostCurrency.withPPP.after,
+        currency: paymentConfig.currency.toLocaleLowerCase(),
         plan: planSearchParam,
         product: 'interviews',
-        purchasePrice: paymentConfig,
       });
     }
   }, [planSearchParam, plansPaymentConfig]);
+
+  trpc.purchases.lastSuccessfulPaymentThatHasntBeenLogged.useQuery(undefined, {
+    onSuccess: (data) => {
+      if (data == null) {
+        return;
+      }
+
+      purchaseSuccessLogging({
+        amount: data.amount,
+        currency: data.currency,
+        plan: planSearchParam!,
+        product: 'interviews',
+      });
+    },
+  });
 }
 
 type Props = Readonly<{
@@ -37,6 +62,18 @@ export function InterviewsPurchaseSuccessLoggingImpl({
   plansPaymentConfig,
 }: Props) {
   useInterviewsPurchaseSuccessLogging(plansPaymentConfig);
+
+  const router = useI18nRouter();
+
+  useEffect(() => {
+    // Redirect to interviews dashboard after a while,
+    // we don't want users to stay on the success page for too long
+    const timer = setTimeout(() => {
+      router.push('/interviews/dashboard');
+    }, 3600 * 1000);
+
+    return () => clearTimeout(timer);
+  }, [router]);
 
   return null;
 }

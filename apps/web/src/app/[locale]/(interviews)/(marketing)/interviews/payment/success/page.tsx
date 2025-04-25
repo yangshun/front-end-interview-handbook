@@ -41,7 +41,7 @@ export default async function Page() {
 
   if (viewer) {
     // Clear checkout email redis data on payment success
-    emailsClearCheckoutRedis({ userId: viewer.id });
+    await emailsClearCheckoutRedis({ userId: viewer.id });
   }
 
   return (

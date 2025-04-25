@@ -3,7 +3,7 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import Stripe from 'stripe';
 
 import absoluteUrl from '~/lib/absoluteUrl';
-import { normalizeCurrencyValue } from '~/lib/stripeUtils';
+import { convertCurrencyValueToStripeValue } from '~/lib/stripeUtils';
 
 import { PROMO_FAANG_TECH_LEADS_MAX_PPP_ELIGIBLE } from '~/data/PromotionConfig';
 
@@ -102,7 +102,7 @@ export default async function handler(
   }
 
   const { currency, unitCostCurrency } = planPaymentConfig;
-  const unitAmountInStripeFormat = normalizeCurrencyValue(
+  const unitAmountInStripeFormat = convertCurrencyValueToStripeValue(
     unitCostCurrency.withPPP.after,
     currency,
   );

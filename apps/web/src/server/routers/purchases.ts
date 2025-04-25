@@ -1,5 +1,8 @@
+import { Redis } from '@upstash/redis';
 import Stripe from 'stripe';
 import { z } from 'zod';
+
+import { convertStripeValueToCurrencyValue } from '~/lib/stripeUtils';
 
 import countryNames from '~/data/countryCodesToNames.json';
 
@@ -139,17 +142,76 @@ export const purchasesRouter = router({
 
     const lastPaymentIntent = paymentIntents.data[0];
 
-    if (lastPaymentIntent.last_payment_error != null) {
-      return {
-        code: lastPaymentIntent.last_payment_error.code,
-        declineCode_DO_NOT_DISPLAY_TO_USER:
-          lastPaymentIntent.last_payment_error.decline_code,
-        message: lastPaymentIntent.last_payment_error.message,
-      };
+    if (lastPaymentIntent.last_payment_error == null) {
+      return null;
     }
 
-    return null;
+    return {
+      code: lastPaymentIntent.last_payment_error.code,
+      declineCode_DO_NOT_DISPLAY_TO_USER:
+        lastPaymentIntent.last_payment_error.decline_code,
+      message: lastPaymentIntent.last_payment_error.message,
+    };
   }),
+  lastSuccessfulPaymentThatHasntBeenLogged: userProcedure.query(
+    async ({ ctx }) => {
+      const userProfile = await prisma.profile.findFirst({
+        select: {
+          stripeCustomer: true,
+        },
+        where: {
+          id: ctx.viewer.id,
+        },
+      });
+
+      // No Stripe customer or non-existent user
+      if (userProfile?.stripeCustomer == null) {
+        return null;
+      }
+
+      const { stripeCustomer: stripeCustomerId } = userProfile;
+
+      const oneDayInSeconds = 24 * 3600;
+      const oneDayAgo = Math.floor(Date.now() / 1000) - oneDayInSeconds;
+      const paymentIntents = await stripe.paymentIntents.list({
+        created: {
+          gte: oneDayAgo,
+        },
+        customer: stripeCustomerId,
+      });
+
+      const successfulPaymentIntents = paymentIntents.data.filter(
+        (paymentIntent) => paymentIntent.status === 'succeeded',
+      );
+
+      if (successfulPaymentIntents.length === 0) {
+        return null;
+      }
+
+      const lastSuccessfulPaymentIntent = successfulPaymentIntents[0];
+
+      const redis = Redis.fromEnv();
+      const paymentKey = `purchases:${lastSuccessfulPaymentIntent.id}`;
+      const paymentAlreadyLogged = await redis.get(paymentKey);
+
+      if (paymentAlreadyLogged) {
+        return null;
+      }
+
+      const { amount, currency } = lastSuccessfulPaymentIntent;
+
+      // Prematurely setting the redis key to true to prevent duplicate logging
+      // Will be inaccurate it the client doesn't log, but should be rare
+      await redis.set(paymentKey, true, {
+        ex: oneDayInSeconds,
+      });
+
+      return {
+        amount: convertStripeValueToCurrencyValue(amount, currency),
+        currency,
+      };
+    },
+  ),
   latestCheckoutSessionMetadata: userProcedure.query(async ({ ctx }) => {
     const userProfile = await prisma.profile.findFirst({
       select: {
