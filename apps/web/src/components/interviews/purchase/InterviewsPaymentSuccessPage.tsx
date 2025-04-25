@@ -5,20 +5,13 @@ import { FormattedMessage } from 'react-intl';
 
 import { SocialLinks } from '~/data/SocialLinks';
 
-import type { InterviewsPricingPlanPaymentConfigLocalizedRecord } from '~/components/interviews/purchase/InterviewsPricingPlans';
 import PromotionsInterviewsPremiumPerksProjectDiscountSection from '~/components/promotions/perks/PromotionsInterviewsPremiumPerksProjectDiscountSection';
 import PurchasePaymentSuccessSection from '~/components/purchase/PurchasePaymentSuccessSection';
 import Container from '~/components/ui/Container';
 
 import InterviewsPurchaseSuccessLogging from './InterviewsPurchaseSuccessLogging';
 
-type Props = Readonly<{
-  plansPaymentConfig: InterviewsPricingPlanPaymentConfigLocalizedRecord;
-}>;
-
-export default function InterviewsPaymentSuccessPage({
-  plansPaymentConfig,
-}: Props): JSX.Element {
+export default function InterviewsPaymentSuccessPage() {
   const actions = [
     {
       description: (
@@ -84,9 +77,7 @@ export default function InterviewsPaymentSuccessPage({
 
   return (
     <Container className="py-16" width="2xl">
-      <InterviewsPurchaseSuccessLogging
-        plansPaymentConfig={plansPaymentConfig}
-      />
+      <InterviewsPurchaseSuccessLogging />
       <PurchasePaymentSuccessSection
         actions={actions}
         crossSellSection={

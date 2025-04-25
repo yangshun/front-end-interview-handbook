@@ -131,14 +131,22 @@ export function purchaseCancelLogging({ product, plan, purchasePrice }: Props) {
 export function purchaseSuccessLogging({
   product,
   plan,
-  purchasePrice,
-}: Props) {
-  // Special conversion event expected by GA.
+  amount,
+  currency: currencyLowerCase,
+}: Readonly<{
+  amount: number;
+  currency: string;
+  plan: string;
+  product: 'interviews' | 'projects';
+}>) {
+  const currency = currencyLowerCase.toLocaleUpperCase();
+
+  // Special conversion event expected by GA
   gtag.event({
     action: 'purchase',
     category: 'ecommerce',
     extra: {
-      currency: purchasePrice.currency.toLocaleUpperCase(),
+      currency,
       ignore_referrer: 'true',
       items: [
         {
@@ -148,48 +156,49 @@ export function purchaseSuccessLogging({
       ],
     },
     label: `${product}.${plan}`,
-    value: purchasePrice.unitCostCurrency.withPPP.after,
+    value: amount,
   });
 
-  // Custom event logging.
+  // Custom event logging
   gtag.event({
     action: 'checkout.success',
     category: 'ecommerce',
     extra: {
+      currency,
       ignore_referrer: 'true',
     },
     label: `${product}.${plan}`,
+    value: amount,
   });
 
   gtag.event({
     action: 'conversion',
     extra: {
-      currency: purchasePrice.currency.toLocaleUpperCase(),
+      currency,
       ignore_referrer: 'true',
       send_to: 'AW-11039716901/SrTfCIrox5UYEKXskpAp',
       transaction_id: '',
-      value: purchasePrice.unitCostCurrency.withPPP.after,
     },
+    value: amount,
   });
 
   fbqGFE('track', 'Purchase', {
     content_name: `${product}.${plan}`,
-    currency: purchasePrice.currency.toLocaleUpperCase(),
-    value: purchasePrice.unitCostCurrency.withPPP.after,
+    currency,
+    value: amount,
   });
 
   logMessage({
     level: 'success',
-    message: `[${product}] Purchased ${plan} plan for ${purchasePrice.currency.toLocaleUpperCase()} ${
-      purchasePrice.unitCostCurrency.withPPP.after
-    }`,
+    message: `[${product}] Purchased ${plan} plan for ${currency} ${amount}`,
     namespace: product,
     title: 'Purchase',
   });
+
   logEvent('checkout.success', {
-    currency: purchasePrice.currency.toLocaleUpperCase(),
+    currency,
     namespace: product,
     plan: `${product}.${plan}`,
-    value: purchasePrice.unitCostCurrency.withPPP.after,
+    value: amount,
   });
 }

@@ -1,10 +1,10 @@
 import { describe, expect, it } from 'vitest';
 
 import {
+  convertCurrencyValueToStripeValue,
   isHugeAmountCurrency,
   isSupportedCurrency,
   isZeroDecimalCurrency,
-  normalizeCurrencyValue,
   shouldUseCountryCurrency,
   withinStripeAmountLimit,
 } from './stripeUtils';
@@ -19,13 +19,13 @@ describe('isZeroDecimalCurrency', () => {
   });
 });
 
-describe('normalizeCurrencyValue', () => {
+describe('convertCurrencyValueToStripeValue', () => {
   it('value multiplied by 100 for non-zero decimal currency', () => {
-    expect(normalizeCurrencyValue(5, 'usd')).toBe(500);
+    expect(convertCurrencyValueToStripeValue(5, 'usd')).toBe(500);
   });
 
   it('same value for zero decimal currency', () => {
-    expect(normalizeCurrencyValue(5, 'bif')).toBe(5);
+    expect(convertCurrencyValueToStripeValue(5, 'bif')).toBe(5);
   });
 });
 

@@ -33,8 +33,25 @@ export function isZeroDecimalCurrency(currency: string) {
  * @param currency
  * @param value
  */
-export function normalizeCurrencyValue(value: number, currency: string) {
+export function convertCurrencyValueToStripeValue(
+  value: number,
+  currency: string,
+) {
   return isZeroDecimalCurrency(currency) ? value : value * 100;
+}
+
+/**
+ * Converts a Stripe amount into a numerical dollar currency value.
+ * Basically divide by 100 if not a zero decimal currency.
+ *
+ * @param currency
+ * @param value
+ */
+export function convertStripeValueToCurrencyValue(
+  value: number,
+  currency: string,
+) {
+  return isZeroDecimalCurrency(currency) ? value : value / 100;
 }
 
 // List of currencies where conversion from USD will be a huge value.

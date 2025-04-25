@@ -1,7 +1,5 @@
-import { cookies } from 'next/headers';
 import type { Metadata } from 'next/types';
 
-import fetchInterviewsPricingPlanPaymentConfigLocalizedRecord from '~/components/interviews/purchase/fetchInterviewsPricingPlanPaymentConfigLocalizedRecord';
 import InterviewsPaymentSuccessPage from '~/components/interviews/purchase/InterviewsPaymentSuccessPage';
 
 import emailsClearCheckoutRedis from '~/emails/items/checkout/EmailsCheckoutUtils';
@@ -32,19 +30,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Page() {
-  const cookieStore = cookies();
-  const countryCode: string = cookieStore.get('country')?.value ?? 'US';
-  const [plansPaymentConfig, viewer] = await Promise.all([
-    fetchInterviewsPricingPlanPaymentConfigLocalizedRecord(countryCode),
-    readViewerFromToken(),
-  ]);
+  const viewer = await readViewerFromToken();
 
   if (viewer) {
     // Clear checkout email redis data on payment success
-    emailsClearCheckoutRedis({ userId: viewer.id });
+    await emailsClearCheckoutRedis({ userId: viewer.id });
   }
 
-  return (
-    <InterviewsPaymentSuccessPage plansPaymentConfig={plansPaymentConfig} />
-  );
+  return <InterviewsPaymentSuccessPage />;
 }

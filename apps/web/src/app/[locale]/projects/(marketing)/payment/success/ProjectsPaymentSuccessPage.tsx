@@ -5,18 +5,11 @@ import { FormattedMessage } from 'react-intl';
 
 import { SocialLinks } from '~/data/SocialLinks';
 
-import type { ProjectsPricingPlanPaymentConfigLocalizedRecord } from '~/components/projects/purchase/ProjectsPricingPlans';
 import ProjectsPurchaseSuccessLogging from '~/components/projects/purchase/ProjectsPurchaseSuccessLogging';
 import PurchasePaymentSuccessSection from '~/components/purchase/PurchasePaymentSuccessSection';
 import Container from '~/components/ui/Container';
 
-type Props = Readonly<{
-  plansPaymentConfig: ProjectsPricingPlanPaymentConfigLocalizedRecord;
-}>;
-
-export default function ProjectsPaymentSuccessPage({
-  plansPaymentConfig,
-}: Props): JSX.Element {
+export default function ProjectsPaymentSuccessPage() {
   const actions = [
     {
       description: (
@@ -77,7 +70,7 @@ export default function ProjectsPaymentSuccessPage({
 
   return (
     <Container className="py-16" width="2xl">
-      <ProjectsPurchaseSuccessLogging plansPaymentConfig={plansPaymentConfig} />
+      <ProjectsPurchaseSuccessLogging />
       <PurchasePaymentSuccessSection
         actions={actions}
         title={
