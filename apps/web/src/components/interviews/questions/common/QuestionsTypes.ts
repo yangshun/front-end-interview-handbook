@@ -17,7 +17,6 @@ export type QuestionCompany =
   | 'linkedin'
   | 'lyft'
   | 'microsoft'
-  | 'openai'
   | 'palantir'
   | 'salesforce'
   | 'snap'

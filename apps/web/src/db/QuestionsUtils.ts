@@ -453,7 +453,6 @@ export function categorizeQuestionsByCompany(
     linkedin: [],
     lyft: [],
     microsoft: [],
-    openai: [],
     palantir: [],
     salesforce: [],
     snap: [],

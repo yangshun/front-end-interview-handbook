@@ -15,7 +15,6 @@ const COMPANY_OPTIONS: ReadonlyArray<QuestionCompany> = [
   'apple',
   'bytedance',
   'microsoft',
-  'openai',
   'tiktok',
   'uber',
   'linkedin',
