@@ -5,6 +5,7 @@ import {
   RiLinkedinBoxFill,
   RiMediumFill,
   RiTwitterXLine,
+  RiYoutubeFill,
 } from 'react-icons/ri';
 
 import { useIntl } from '~/components/intl';
@@ -132,6 +133,10 @@ export default function InterviewsMarketingTestimonialCard({
 
                 if (authorUrl.includes('x.com')) {
                   return RiTwitterXLine;
+                }
+
+                if (authorUrl.includes('youtube.com')) {
+                  return RiYoutubeFill;
                 }
 
                 if (authorUrl.includes('medium.com')) {
