@@ -9247,6 +9247,10 @@
     "defaultMessage": "View the full solution and other System Design guides.",
     "description": "Button label within embed"
   },
+  "eVBhnB": {
+    "defaultMessage": "GreatFrontEnd is a literal gold mine and it's not just the incredible platform but also the Discord community for premium subscribers. Everyone on there is so helpful and informative! As for the platform itself, all of the questions on there are so relevant to what's being asked in frontend engineer interviews. I've gotten questions that were exactly what was on GreatFrontEnd. And the system design resources are so well structured and detailed. I am forever grateful I found GreatFrontEnd because I honestly would not have gotten my FAANG offer without it.",
+    "description": "User testimonial for GreatFrontEnd Interviews"
+  },
   "eWWazl": {
     "defaultMessage": "Behavioral Interview Playbook",
     "description": "Title for behavioral interview guide"
@@ -12270,10 +12274,6 @@
   "sx3TNQ": {
     "defaultMessage": "Accessibility",
     "description": "Front end topic"
-  },
-  "syNZit": {
-    "defaultMessage": "OpenAI",
-    "description": "Company name for OpenAI"
   },
   "syVPb5": {
     "defaultMessage": "Add GitHub",

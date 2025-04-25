@@ -10963,6 +10963,10 @@
     "defaultMessage": "查看完整的解决方案和其他系统设计指南。",
     "description": "Button label within embed"
   },
+  "eVBhnB": {
+    "defaultMessage": "GreatFrontEnd 是一个名副其实的金矿，这不仅仅是因为这个令人难以置信的平台，还因为面向高级订阅者的 Discord 社区。 里面的每个人都非常乐于助人，而且信息量很大！ 至于平台本身，上面的所有问题都与前端工程师面试中提出的问题非常相关。 我遇到的问题正与 GreatFrontEnd 上的一模一样。 而且系统设计资源结构合理，内容详尽。 我永远感激我找到了 GreatFrontEnd，因为老实说，如果没有它，我就不会拿到我的 FAANG offer。",
+    "description": "User testimonial for GreatFrontEnd Interviews"
+  },
   "eWWazl": {
     "defaultMessage": "行为面试指南",
     "description": "Title for behavioral interview guide"
@@ -13986,10 +13990,6 @@
   "sx3TNQ": {
     "defaultMessage": "可访问性",
     "description": "Front end topic"
-  },
-  "syNZit": {
-    "defaultMessage": "OpenAI",
-    "description": "Company name for OpenAI"
   },
   "syVPb5": {
     "defaultMessage": "添加 GitHub",

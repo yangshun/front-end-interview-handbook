@@ -905,6 +905,23 @@ export function InterviewsMarketingTestimonialsDict(intl: IntlShape) {
     title: 'Frontend Software Engineer',
     translated: true,
   };
+  const kiaanC: InterviewsMarketingTestimonial = {
+    anonymous: true,
+    companyLogoUrl: '/img/testimonials/company/amazon.svg',
+    createdAt: '2024-09-22',
+    featuredOffer: 'Amazon',
+    id: 'kiaan-c',
+    location: 'Seattle, WA, US',
+    name: 'Kiaan C',
+    testimonial: intl.formatMessage({
+      defaultMessage:
+        "GreatFrontEnd is a literal gold mine and it's not just the incredible platform but also the Discord community for premium subscribers. Everyone on there is so helpful and informative! As for the platform itself, all of the questions on there are so relevant to what's being asked in frontend engineer interviews. I've gotten questions that were exactly what was on GreatFrontEnd. And the system design resources are so well structured and detailed. I am forever grateful I found GreatFrontEnd because I honestly would not have gotten my FAANG offer without it.",
+      description: 'User testimonial for GreatFrontEnd Interviews',
+      id: 'eVBhnB',
+    }),
+    title: 'Frontend Engineer II',
+    translated: true,
+  };
   const cliffordFung: InterviewsMarketingTestimonial = {
     anonymous: false,
     authorThumbnailUrl: '/img/testimonials/users/clifford-fung.jpg',
@@ -1139,6 +1156,7 @@ export function InterviewsMarketingTestimonialsDict(intl: IntlShape) {
     jacky,
     kana,
     kevinGonzalez,
+    kiaanC,
     lamTran,
     larry,
     leanneZhang,
