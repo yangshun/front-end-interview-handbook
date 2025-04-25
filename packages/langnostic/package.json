@@ -49,7 +49,7 @@
   },
   "devDependencies": {
     "@types/lodash-es": "^4.17.6",
-    "@types/node": "18.19.99",
+    "@types/node": "22.15.0",
     "@types/yargs": "^17.0.33",
     "prettier": "3.5.3",
     "rimraf": "^6.0.1",
