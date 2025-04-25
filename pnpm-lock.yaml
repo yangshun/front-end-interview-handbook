@@ -472,6 +472,9 @@ importers:
       monaco-themes:
         specifier: ^0.4.3
         version: 0.4.4
+      monaco-vim:
+        specifier: ^0.4.2
+        version: 0.4.2(monaco-editor@0.40.0)
       motion:
         specifier: ^12.8.0
         version: 12.8.0(react-dom@18.2.0)(react@18.2.0)
@@ -15243,6 +15246,13 @@ packages:
     dependencies:
       fast-plist: 0.1.3
     dev: false
+
+  /monaco-vim@0.4.2(monaco-editor@0.40.0):
+    resolution: {integrity: sha512-rdbQC3O2rmpwX2Orzig/6gZjZfH7q7TIeB+uEl49sa+QyNm3jCKJOw5mwxBdFzTqbrPD+URfg6A2lEkuL5kymw==}
+    peerDependencies:
+      monaco-editor: '*'
+    dependencies:
+      monaco-editor: 0.40.0
 
   /motion-dom@12.8.0:
     resolution: {integrity: sha512-YsfUE1F8Ycv9th1V0YJ6LOx9U2EMe/8P3RXK1o6NZhRbdFiWvzBLvxqp2X6Fn3rbJbwWkSEfnpe14ZU9Oz1d1Q==}

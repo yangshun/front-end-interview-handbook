@@ -3803,6 +3803,10 @@
     "defaultMessage": "Get full access",
     "description": "Button CTA to encourage upgrading"
   },
+  "GPM7SF": {
+    "defaultMessage": "New File",
+    "description": "Button tooltip for creating a new file"
+  },
   "GPp0wf": {
     "defaultMessage": "Welcome to GreatFrontEnd Projects!",
     "description": "Title for Projects onboarding page"
@@ -4234,6 +4238,10 @@
   "IHwyWr": {
     "defaultMessage": "Join the community",
     "description": "Title for marketing page section"
+  },
+  "IIE89R": {
+    "defaultMessage": "Are you sure you want to delete {displayName}? {directoryWarning}",
+    "description": "Confirmation message shown when deleting a file or directory"
   },
   "IIctLn": {
     "defaultMessage": "Reputation that can be gained from completing all challenges in the recommended skill plan of this skill",
@@ -5210,6 +5218,10 @@
   "M87zrX": {
     "defaultMessage": "Simple {percent}% commission, no limit",
     "description": "Affiliate program commission section title"
+  },
+  "M9GFCh": {
+    "defaultMessage": "This file has been deleted or renamed.",
+    "description": "Message shown when a file in the code editor no longer exists"
   },
   "M9z02W": {
     "defaultMessage": "Airbnb",
@@ -7887,6 +7899,10 @@
     "defaultMessage": "Review Cashback Terms and Conditions",
     "description": "Title of legal page"
   },
+  "YRi3wG": {
+    "defaultMessage": "New Folder",
+    "description": "Button tooltip for creating a new folder"
+  },
   "YS1B1R": {
     "defaultMessage": "Find submissions suggested for your review, based on your completed challenges, tech skills, and experience.",
     "description": "Page subtitle"
@@ -7922,6 +7938,10 @@
   "YdQTiq": {
     "defaultMessage": "Preparation plans for all kinds of preparation timelines — <owlink>1 week</owlink>, <omlink>1 month</omlink>, <tmlink>3 months</tmlink>.",
     "description": "Subtitle for proven preparation plans feature"
+  },
+  "YeHWje": {
+    "defaultMessage": "Enable Vim mode",
+    "description": "Button label to enable vim mode in editor"
   },
   "YeWPOG": {
     "defaultMessage": "Invalid URL",
@@ -8843,6 +8863,10 @@
     "defaultMessage": "Read how to solve {questionTitle} using {questionFramework}",
     "description": "Description of Front End Interview UI Coding Questions solution page"
   },
+  "cnL7HI": {
+    "defaultMessage": "Disable Vim mode",
+    "description": "Button label to disable vim mode in editor"
+  },
   "cotxax": {
     "defaultMessage": "Component track",
     "description": "Label for Component Track filter for submissions list"
@@ -9570,10 +9594,6 @@
   "fx7H3x": {
     "defaultMessage": "You've also earned an exclusive promo code:",
     "description": "Marketing rewards message"
-  },
-  "fxQRHJ": {
-    "defaultMessage": "For now, files cannot be created or renamed. It's acceptable to write multiple components within a single file during interviews.",
-    "description": "File creation or removal warning message for coding workspace"
   },
   "fxZ0zk": {
     "defaultMessage": "Some common reasons include:",
@@ -11466,6 +11486,10 @@
   "owQqZY": {
     "defaultMessage": "Front End System Design",
     "description": "Short title of front end system design playbook"
+  },
+  "oxAf2V": {
+    "defaultMessage": "This will delete all its contents.",
+    "description": "Warning message shown when deleting a directory"
   },
   "oxD4TD": {
     "defaultMessage": "Fresh Grad",
