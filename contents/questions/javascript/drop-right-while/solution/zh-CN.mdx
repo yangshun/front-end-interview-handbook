@@ -5,8 +5,14 @@ import dropRightWhileTs from '../setup/src/drop-right-while.ts';
 
 ## 解决方案
 
+目标是创建一个函数，该函数接受一个数组和一个谓词函数。我们必须从原始数组的*末尾*删除元素，只要谓词函数在以`(value, index, array)`调用时返回`true`。当从右向左迭代时，一旦谓词对遇到的元素返回`false`，删除就会停止。我们必须返回一个包含剩余元素的新数组，原始数组不能被修改。
+
+## 算法
+
+最直接的方法是从右向左遍历数组，找到谓词返回假值的第一个元素（从右边开始）的索引。一旦找到这个索引，我们就知道应该删除这个索引*之后*的所有元素。然后，我们可以使用`Array.prototype.slice()`创建一个新数组，其中包含从开头到（包括）这个元素的元素。
+
 <MDXCodeBlock languages={{ jsx: dropRightWhileJs, tsx: dropRightWhileTs }} />
 
-## 资源
+## 注意：与`Array.prototype.filter`对比
 
-* [Lodash `_.dropRightWhile`](https://lodash.com/docs/#dropRightWhile)
+重要的是要注意 dropRightWhile 与 filter 不同。filter 检查每个元素，并且只保留其谓词返回 true 的元素。dropRightWhile 仅从右端检查元素，并且一旦找到一个不满足谓词的元素，就会完全停止删除。

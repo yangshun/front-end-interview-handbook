@@ -1,0 +1,71 @@
+---
+title: Dijkstra's Algorithm
+excerpt: Implement Dijkstra's algorithm to find the shortest paths from a source vertex in a graph represented as an adjacency list.
+---
+
+Given a weighted directed graph represented as an adjacency list (`graph`) and a starting node (`source`), implement Dijkstra's algorithm to find the shortest path distances from `source` to all other nodes in the graph. The graph contains nodes and weighted edges.
+
+### Input
+
+- `graph`: An object representing the adjacency list of the graph. Each key is a node identifier (e.g. `'A'`, `'B'`), and its value is another object that maps each neighboring node to the non-negative weight of the edge connecting them.
+- `source`: The identifier of the starting node from which to calculate shortest paths.
+
+### Output
+
+- An object where keys are node identifiers and values represent the shortest distance from `source` to that node. Nodes that are unreachable from `source` should have their distance set to `Infinity` (use the built-in `Infinity` constant).
+
+### Examples
+
+```js
+const graph1 = {
+  A: { B: 1, C: 4 },
+  B: { E: 3, F: 2 },
+  C: { G: 2 },
+  D: { C: 3, J: 5 },
+  E: { D: 2 },
+  F: {},
+  G: { H: 1 },
+  H: { F: 4, J: 3 },
+  I: {},
+  J: {},
+};
+
+dijkstra(graph1, 'A'); // Returns distances: { A: 0, B: 1, C: 4, D: 6, E: 4, F: 3, G: 6, H: 7, I: Infinity, J: 10 }
+
+const graph2 = {
+  A: { B: 2, C: 5 },
+  B: { D: 1, E: 4 },
+  C: { F: 3, G: 2 },
+  D: {},
+  E: {},
+  F: {},
+  G: {},
+};
+
+dijkstra(graph2, 'A'); // Returns distances: { A: 0, B: 2, C: 5, D: 3, E: 6, F: 8, G: 7 }
+```
+
+### Constraints
+
+- 1 &lt;= Number of nodes &lt;= 1000
+- 0 &lt;= Edge weight &lt;= 10000
+- The graph may contain cycles
+- The graph may be disconnected
+
+## Recap (Hint)
+
+Dijkstra's algorithm is a basic algorithm used to find the shortest path between nodes in a weighted graph. This algorithm can handle graphs with non-negative weights and is commonly used in routing and as a subroutine in other graph algorithms. Here are some typical use cases:
+
+1. In GPS systems to find the shortest driving route between locations.
+2. In network routing algorithms to find the shortest path for data packets.
+3. In scheduling theory to find the shortest (least time-consuming) path through a series of tasks.
+4. Generating a minimum spanning tree (MST) of a weighted graph.
+
+Here's how Dijkstra's algorithm works:
+
+1. Start with a set of all nodes in the graph, and assign them a tentative distance value: zero for the initial node, and infinity for all other nodes. Set the initial node as the current node.
+2. For the current node, consider all of its unvisited neighbors and calculate their tentative distances. Compare the newly calculated tentative distance to the current assigned value and assign the smaller one.
+3. Once we have considered all the unvisited neighbors of the current node, mark the current node as visited. A visited node will not be checked again.
+4. If the destination node has been marked visited or if the smallest tentative distance among the nodes in the unvisited set is infinity (occurs when there is no connection between the initial node and remaining unvisited nodes), then stop. The algorithm has finished.
+5. Otherwise, select the unvisited node that is marked with the smallest tentative distance, set it as the new "current node," and go back to step 2.
+6. The result is a map of the shortest distances from the initial node to all other nodes.

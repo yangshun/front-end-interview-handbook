@@ -4,6 +4,7 @@
     "strict": true,
     "esModuleInterop": true,
     "resolveJsonModule": true,
+    "moduleResolution": "node",
     "lib": ["dom", "dom.iterable", "esnext"],
     "jsx": "react-jsx",
     "target": "es2020"

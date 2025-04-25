@@ -1,0 +1,31 @@
+---
+title: Linked List
+excerpt: Implement a linked list data structure containing the common linked list methods
+---
+
+Implement a linked list data structure in JavaScript that contains the following operations:
+
+- `new LinkedList()`: Creates an instance of a `LinkedList` class that does not contain any items. The constructor does not accept any arguments.
+- `get()`: Accepts an integer parameter `i` to return the value of the `i`-th node. Return `undefined` if index is out of bounds.
+- `insertHead()`: Accepts a parameter `value` and inserts `value` at the head of the list.
+- `insertTail()`: Accepts a parameter `value` and inserts `value` at the tail of the list.
+- `remove()`: Accepts an integer parameter `i` and removes the item at the `i`-th index while returning its value. Return `undefined` if index is out of bounds.
+- `toArray()`: Returns an array containing all the items in the linked list from head (first element in the array) to tail (last element in the array).
+- `length()`: Returns the number of elements in the linked list.
+
+## Examples
+
+```js
+const linkedlist = new LinkedList();
+linkedlist.toArray(); // []
+linkedlist.insertTail(1);
+linkedlist.insertHead(2);
+linkedlist.toArray(); // [2, 1]
+linkedlist.insertTail(3);
+linkedlist.toArray(); // [2, 1, 3]
+linkedlist.length(); // 3
+linkedlist.get(1); // 1
+linkedlist.get(2); // 3
+linkedlist.remove(1); // 1
+linkedlist.toArray(); // [2, 3]
+```

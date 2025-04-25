@@ -4,7 +4,7 @@
  *
  * @param {Array} array - The array to search.
  * @param {Function} predicate - The function invoked per iteration.
- * @param {number} [fromIndex=array.length-1] - The index to start searching from.
+ * @param {number} [fromIndex=array.length-1] - The index to start searching backwards from.
  * @returns The index of the found element, else -1.
  */
 export default function findLastIndex(

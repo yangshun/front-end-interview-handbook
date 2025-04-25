@@ -34,6 +34,11 @@ The function should return `false` when `object` is empty.
 conformsTo({}, { b: (n) => n > 1 }); // => false
 ```
 
+## Constraints
+
+- `object`: Javascript object.
+- `source`: Javascript object. Its own properties must be predicate functions.
+
 ## Resources
 
 - [Lodash `_.conformsTo`](https://lodash.com/docs/#conformsTo)

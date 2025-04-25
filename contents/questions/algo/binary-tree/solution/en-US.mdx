@@ -1,0 +1,64 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import binaryTreeJs from '../setup/src/binary-tree.js';
+import binaryTreeTs from '../setup/src/binary-tree.ts';
+
+A Binary Tree is a hierarchical data structure where each node has at most two children: the `left` child and the `right` child. The structure consists of nodes that store a `value` and references to their children. The topmost node is called the `root`.
+
+This implementation separates the binary tree structure (`BinaryTree`) from its individual nodes (`BinaryTreeNode`). Each node contains a `value`, and pointers to its `left` and `right` children.
+
+The core operations can be implemented using a recursive approach, which is natural and efficient for binary trees because each subtree is itself a binary tree:
+
+- **Traversal methods** (`inOrder`, `preOrder`, `postOrder`) use simple depth-first recursion to visit nodes in the correct order and collect their values in an array.
+- `size()` and `height()` are calculated recursively by visiting every node once, combining results from left and right children.
+- `isBalanced()` uses a recursive approach to walk the tree from the bottom up, checking if each subtree is balanced. While doing this, it also calculates the height of each node. If it finds a subtree with height difference > 1, it returns -1 immediately, which bubbles up and stops further checks, keeping the time complexity at O(n).
+- `isComplete()` uses a level-order traversal (BFS) to ensure all levels are fully filled, and the last level is filled from left to right without gaps.
+
+<MDXCodeBlock languages={{ jsx: binaryTreeJs, tsx: binaryTreeTs }} />
+
+### Algorithm
+
+1. `new BinaryTree(value)`:
+   - Initializes a tree. If a `value` is passed, the root is set to a new `BinaryTreeNode` with that value. If not, the root is `null`.
+2. `size()`:
+   - Base case: if `node` is `null`, return 0.
+   - Recursive case: 1 + size of left subtree + size of right subtree.
+3. `height()`:
+   - Base case: if `node` is `null`, return -1.
+   - Recursive case: 1 + max(height of left subtree, height of right subtree).
+   - For an empty tree, `height()` returns 0.
+4. Traversal Methods (`inOrder()`, `preOrder()`, `postOrder()`):
+   - These methods return arrays of node values based on different traversal orders:
+     - In-order (left → root → right)
+     - Pre-order (root → left → right)
+     - Post-order (left → right → root)
+   - Each method uses a recursive helper that walks through the tree from the root using DFS, visiting child nodes in the specified order.
+   - A temporary array is built up during the recursive calls to collect values in the correct sequence.
+5. `isBalanced()`:
+   - Recursive helper returns height if subtree is balanced, or -1 if not.
+   - Main method checks if the result is not -1.
+6. `isComplete()`:
+   - Uses BFS (level-order traversal) with a queue.
+   - As nodes are dequeued, if a `null` is found, all subsequent nodes must also be `null` for the tree to be considered complete. If any non-null node appears after a null, the tree is incomplete.
+
+### Big-O analysis
+
+Let `n` be the number of nodes and `h` the height of the tree.
+
+- **Time complexity**:
+  - `size()`, `height()`, `inOrder()`, `preOrder()`, `postOrder()`, `isBalanced()`, `isComplete()`: O(n). Each node is visited once.
+- **Space complexity**:
+  - Recursive methods (`size()`, `height()`, traversals, `isBalanced()`): O(h) due to call stack. In the worst case (skewed tree), h = O(n). In a balanced tree, h = O(log n).
+  - `isComplete()`: O(n) in the worst case due to the BFS queue holding up to n/2 nodes at the last level of a complete tree.
+
+## Edge cases
+
+- **Empty tree**:
+  - `size()` is 0
+  - `height()` is 0
+  - Traversals return `[]`
+  - Tree is both balanced and complete
+- **Single node tree**:
+  - `size()` is 1
+  - `height()` is 0
+  - Tree is both balanced and complete

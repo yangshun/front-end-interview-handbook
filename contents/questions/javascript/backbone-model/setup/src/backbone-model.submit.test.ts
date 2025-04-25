@@ -226,7 +226,7 @@ describe('BackboneModel', () => {
       }).not.toThrow();
     });
 
-    test('not called after the attribute is set', () => {
+    test('not called after the attribute is initially set', () => {
       let times = 0;
       function callback() {
         times++;
@@ -235,9 +235,6 @@ describe('BackboneModel', () => {
       person.on('change', 'name', callback);
 
       person.set('name', 'John');
-      expect(times).toBe(0);
-
-      person.set('name', 'Johnny');
       expect(times).toBe(0);
     });
 

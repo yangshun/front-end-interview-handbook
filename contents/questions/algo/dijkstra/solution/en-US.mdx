@@ -1,0 +1,35 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import dijkstraJs from '../setup/src/dijkstra.js';
+import dijkstraTs from '../setup/src/dijkstra.ts';
+
+### Reasoning
+
+Dijkstra’s algorithm computes the shortest paths from a source node in a graph with non-negative edge weights. It uses a greedy approach: at each step, it selects the unvisited node with the smallest known distance. A min-heap efficiently performs this selection. When a shorter path to a neighbor is found, the algorithm updates its distance (relaxation) and pushes it into the heap. This strategy guarantees correctness because all edge weights are non-negative.
+
+Dijkstra's algorithm assumes non-negative weights. For graphs with negative weights, other algorithms like Bellman-Ford are needed.
+
+### Algorithm
+
+The provided solution implements Dijkstra's algorithm using a priority queue (min-heap) for efficiency.
+
+1. **Initialization**: Start with distances to all nodes set to infinity, except the source node which is set to zero.
+2. **Priority queue**: Use a priority queue to greedily select the next node with the smallest known distance.
+3. **Relaxation**: For each selected node, update the shortest distance to its neighboring nodes if a shorter path is found via the current node. Subsequently add or or update that neighbor's distance in the priority queue.
+4. **Termination**: The algorithm terminates when the priority queue is empty, indicating all reachable nodes have been processed.
+
+![Dijkstra Illustration](/img/questions/dijkstra/dijkstra.png)
+
+<MDXCodeBlock languages={{ jsx: dijkstraJs, tsx: dijkstraTs }} />
+
+## Edge cases
+
+- **Empty graphs**: Return an empty dictionary or map without crashing
+- **Graphs with one or two nodes**: Ensure that the algorithm can handle small graphs
+- **Graphs with non-connected components**: Nodes not reachable from the source should have their distance remain as infinity
+- **Graphs with zero-weight edges**: Confirm that zero-weight edges do not cause issues with the algorithm's logic
+
+### Big-O analysis
+
+- **Time complexity: O((V + E) log V)**. Using a min-heap, extracting the minimum takes O(log V) (done up to V times), and relaxing each of the E edges may also trigger a O(log V) heap update.
+- **Space complexity: O(v)**. Storing distances (`O(v)`), the visited set (`O(v)`), and the priority queue (`O(v)` in the worst case).

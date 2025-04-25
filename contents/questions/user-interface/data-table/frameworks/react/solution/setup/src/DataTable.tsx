@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import users from './data/users.json';
+import users from './data/users';
 
 type User = (typeof users)[number];
 

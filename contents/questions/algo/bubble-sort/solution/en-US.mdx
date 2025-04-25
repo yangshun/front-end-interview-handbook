@@ -5,7 +5,7 @@ import bubbleSortTs from '../setup/src/bubble-sort.ts';
 
 Bubble sort is a stable, in-place, comparison-based algorithm that works well for small to medium-sized arrays as well as arrays that are partially sorted.
 
-## Clarification Questions
+## Clarification questions
 
 If unspecified:
 
@@ -21,7 +21,7 @@ Note: This question tackles in-place sorting for an output in ascending order. R
 
 <MDXCodeBlock languages={{ jsx: bubbleSortJs, tsx: bubbleSortTs }} />
 
-## Edge Cases
+## Edge cases
 
 - Non-integer element input: If the input array comprises of elements of different data types, you may need to return an error or settle for sorting on a best-effort basis, for e.g., only sorting a subset of the input data, or even define custom comparison functions for non-integers.
 - Single element / Empty input: Either return the original data structure, raise an error, or clarify required handling.
@@ -35,10 +35,14 @@ Note: This question tackles in-place sorting for an output in ascending order. R
 if (arr[j] < arr[j + 1])
 ```
 
-## Time Complexity
+## Big-O analysis
+
+Let's analyze the algorithm's time and space complexity.
+
+### Time complexity
 
 In the case of bubble sort, the time complexity is O(n<sup>2</sup>) as it requires a nested loop structure. The outer loop does multiple iterations over the array and the inner loop iterates over the array to compare each adjacent pairs and swap elements based on their correct order.
 
-## Space Complexity
+### Space complexity
 
 The space complexity for bubble sort is O(1), as it does in-place sorting and does not require additional storage proportional to input size.

@@ -53,18 +53,26 @@ A concrete example:
 
 ```js
 Map(2) {
-  name: {
-    change: [
-      { fn: Function1, context: Object },
-      { fn: Function2, context: Object },
-    ],
-    unset: [
-      { fn: Function3, context: Object },
-    ],
+  'name': {
+    value: 'John Doe',
+    events: {
+      change: [
+        { fn: Function1, context: Object },
+        { fn: Function2, context: Object },
+      ],
+      unset: [
+        { fn: Function3, context: Object },
+      ],
+    }
   },
-  age: {
-    change: [],
-    unset: [{ fn: Function4, context: Object }]
+  'age': {
+    value: 30,
+    events: {
+      change: [],
+      unset: [
+        { fn: Function4, context: Object }
+      ]
+    }
   },
 };
 ```

@@ -23,10 +23,25 @@ _(Array)_: Returns `array`.
 ```js
 fill([1, 2, 3], 'a'); // ['a', 'a', 'a']
 fill([4, 6, 8, 10], '*', 1, 3); // [4, '*', '*', 10]
+
+// out of bounds indices
+fill([4, 6, 8, 10, 12], '*', 1, 8); // [4, '*', '*', '*', '*']
+fill([4, 6, 8, 10, 12], '*', 8, 10); // [4, 6, 8, 10, 12]
+
+// negative but within bounds indices
 fill([4, 6, 8, 10, 12], '*', -3, -1); // [4, 6, '*', '*', 12]
+
+// negative out of bounds indices
+fill([4, 6, 8, 10, 12], '*', -10, 2); // ['*', '*', 8, 10, 12]
+fill([4, 6, 8, 10, 12], '*', -10, -8); // [4, 6, 8, 10, 12]
 ```
 
-Make sure to handle negative indices and out of bound indices.
+Make sure to handle negative indices and out of bound indices as detailed in the examples above. In general, follow these principles:
+
+- Translate negative indices to their corresponding positive indices
+- If the translated end index is smaller than the translated start index, no fill will take place
+- If a tranlated index is &lt; 0, clamp it to 0.
+- If a translated index is &gt; `array.length`, clamp it to `array.length`.
 
 ## Resources
 

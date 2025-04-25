@@ -5,13 +5,15 @@ import fillTs from '../setup/src/fill.ts';
 
 ## Solution
 
+A key part of the solution approach is to translate negative indices to corresponding positive ones. Then, it is simpler to check bounds and handle edge cases.
+
 <MDXCodeBlock languages={{ jsx: fillJs, tsx: fillTs }} />
 
 ## Edge cases
 
 - Empty, one, two-element arrays.
 - Negative indices.
-- `end` is smaller than `start`.
+- `end` is 'smaller' than `start`: the fill should not occur at all.
 
 ## Resources
 

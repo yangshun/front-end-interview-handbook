@@ -5,7 +5,7 @@ import mergeSortTs from '../setup/src/merge-sort.ts';
 
 Merge sort is a stable comparison-based algorithm, with a time complexity of O(nlog(n)) in all cases. It is commonly used in practice as a general-purpose algorithm for sorting arrays of all sizes.
 
-## Clarification Questions
+## Clarification questions
 
 If unspecified:
 
@@ -22,14 +22,18 @@ Note: This question tackles a standard merge sort which is recursive and not "in
 
 <MDXCodeBlock languages={{ jsx: mergeSortJs, tsx: mergeSortTs }} />
 
-## Edge Cases
+## Edge cases
 
 - Non-integer element input: If the input array comprises of elements of different data types, you may need to return an error, settle for sorting on a best-effort basis, for e.g., only sorting a subset of the input data, or even define custom comparison functions for non-integers.
 - Single element / Empty input: Either return the original data structure, raise an error, or clarify required handling.
 - Already sorted input: You may want to detect sorting and return the input unchanged.
 - Invalid input: If the input is not an array, consider throwing an error.
 
-## Time Complexity
+## Big-O analysis
+
+Let's analyze the algorithm's time and space complexity.
+
+### Time complexity
 
 In the case of merge sort, the best, average and worst case time complexity are all O(nlog(n)). This means that the time taken for sorting is directly proportional to the product of the array size and logarithm of array size.
 
@@ -39,6 +43,6 @@ The merging step takes O(n) time for each subarray created by division, as it re
 
 Overall, the time complexity of merge sort is n(log(n) + 1) = O(nlog(n)).
 
-## Space Complexity
+### Space complexity
 
 In terms of space complexity, it is O(n) for a standard merge sort that is recursive and not in-place. The merge step requires the creation of a new array to store the merged result of the 2 halves. At the very last merge step, we expect the array to be as large as the input array. Hence, the space requirement is linear.

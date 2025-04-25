@@ -20,7 +20,7 @@ All possible devices: laptop, tablets, mobile, etc.
 
 ### Do users have to be signed in?
 
-Anyone can search for listings and browse details but users need to logged in to make a booking.
+Anyone can search for listings and browse details but users need to be logged in to make a booking.
 
 ### Summary
 
@@ -152,7 +152,7 @@ The array format is the least clear out of the three, and the object requires en
 For this case, due to the sheer number of query parameters if each amenity criterion is a separate query parameter, the object format is better because:
 
 - Putting each criterion in the query parameter makes the query string really long and the hierarchy is lost.
-- There's a possibility of query parameter name collision with the non-amenities fields. This can be solved be prefixing all the amenity fields with `amenities_` (e.g. `amenities_breakfast` and `amenities_washer`).
+- There's a possibility of query parameter name collision with the non-amenities fields. This can be solved by prefixing all the amenity fields with `amenities_` (e.g. `amenities_breakfast` and `amenities_washer`).
 - Moreover, some amenities criteria have non-primitive values which will require URL encoding and decoding anyway.
 
 There's no [fixed standard on how to encode arrays and objects into the query string of URLs](https://stackoverflow.com/questions/6243051/how-to-pass-an-array-within-a-query-string) and the format tend to be implementation dependent. The most important thing to note is for a consistent format between the server and the client.
@@ -371,7 +371,6 @@ Performance is known to affect conversions, so for websites where the aim is to 
        - Image carousel comes into view (on mobile devices).
     3. If the user does view the second image (which signals high intent to browse even more images), the next three images (3rd to 5th) are preloaded.
     4. As the user clicks "Next" again to browse more images, the (n + 3)<sup>th</sup> image is preloaded.
-  - Other resources: [Yes I'm Lazy | TripAdvisor Engineering and Product Blog](https://www.tripadvisor.com/engineering/yes-im-lazy/)
 
 <figure>
   <img
@@ -387,7 +386,7 @@ Performance is known to affect conversions, so for websites where the aim is to 
   - [Images on the Web: Part 1 — Responsive Images | Expedia Group Technology](https://medium.com/expedia-group-tech/images-on-the-web-part-1-responsive-images-5dc0066461bd)
   - [Images on the Web: Part 2 — Implementing responsive images | Expedia Group Technology](https://medium.com/expedia-group-tech/images-on-web-part-2-implementing-responsive-images-ca1d30f533f8)
 - **Image formats**: Use `webp` format for photos and SVGs for icons where possible.
-  - [Optimizing image sprites for high-density displays with SVG | TripAdvisor Engineering and Product Blog](https://www.tripadvisor.com/engineering/optimizing-image-sprites-for-high-density-displays-with-svg/)
+  - [Choose the right image format| web.dev](https://web.dev/articles/choose-the-right-image-format)
 
 #### Code splitting
 
@@ -475,5 +474,3 @@ Form optimizations have been covered in detail in [E-commerce website system des
 - Whitelabelling
   - [Building and scaling different travel websites with one codebase | Agoda Engineering & Design](https://medium.com/agoda-engineering/building-and-scaling-different-travel-websites-with-one-codebase-fc6f0202c2e1)
   - [Managing and scaling different white label development and testing environments | Agoda Engineering & Design](https://medium.com/agoda-engineering/managing-and-scaling-different-white-label-development-and-testing-environments-4e90748fcb3b)
-- Testing
-  - [Lowering the Noise Floor | TripAdvisor Engineering and Product Blog](https://www.tripadvisor.com/engineering/lowering-the-noise-floor/)

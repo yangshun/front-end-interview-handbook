@@ -1,6 +1,17 @@
 import fill from './fill';
 
 describe('fill', () => {
+  test('returns original array reference', () => {
+    const arr = [1, 2, 3];
+    expect(fill(arr, '*', 1)).toBe(arr);
+  });
+
+  test('correctly mutates original array', () => {
+    const arr = [1, 2, 3];
+    fill(arr, '*', 1);
+    expect(arr).toEqual([1, '*', '*']);
+  });
+
   test('empty array', () => {
     expect(fill([], '*')).toEqual([]);
     expect(fill([], '*', 2, 3)).toEqual([]);
@@ -70,16 +81,5 @@ describe('fill', () => {
     expect(fill([1], '*', 4, 1)).toEqual([1]);
     expect(fill([1, 2, 3, 4, 5], '*', 4, 1)).toEqual([1, 2, 3, 4, 5]);
     expect(fill([1, 2, 3, 4, 5], '*', -1, -4)).toEqual([1, 2, 3, 4, 5]);
-  });
-
-  test('returns original array', () => {
-    const arr = [1, 2, 3];
-    expect(fill(arr, '*', 1)).toBe(arr);
-  });
-
-  test('mutates original array', () => {
-    const arr = [1, 2, 3];
-    fill(arr, '*', 1);
-    expect(arr).toEqual([1, '*', '*']);
   });
 });

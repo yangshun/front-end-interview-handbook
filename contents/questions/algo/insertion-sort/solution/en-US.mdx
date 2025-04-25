@@ -7,7 +7,7 @@ Insertion sort is a stable, in-place, comparison-based algorithm that works well
 
 It only requires a constant amount of work to sort an array that is already partially sorted.
 
-## Clarification Questions
+## Clarification questions
 
 If unspecified:
 
@@ -24,7 +24,7 @@ Note: This question tackles in-place sorting for an output in ascending order. R
 
 <MDXCodeBlock languages={{ jsx: insertionSortJs, tsx: insertionSortTs }} />
 
-## Edge Cases
+## Edge cases
 
 - Non-integer element input: If the input array comprises of elements of different data types, you may need to return an error, settle for sorting on a best-effort basis, for e.g., only sorting a subset of the input data, or even define custom comparison functions for non-integers.
 - Single element / Empty input: Either return the original data structure, raise an error, or clarify required handling.
@@ -42,7 +42,11 @@ while (j >= 0 && arr[j] < currentValue)
 
 - If asked to use additional data structures or to write a pure function rather than sorting the data in-place, use the spread operator or `Array.prototype.slice()` to clone the input array and do the sorting on the cloned array instead.
 
-## Time Complexity
+## Big-O analysis
+
+Let's analyze the algorithm's time and space complexity.
+
+### Time complexity
 
 In the case of insertion sort, the best case time complexity is O(n), the worst case time complexity is O(n<sup>2</sup>), and the average case time complexity is also O(n<sup>2</sup>).
 
@@ -52,6 +56,6 @@ Due to the nested loop structure required in insertion sort where we have an out
 - **Best case time complexity**: When the input is already sorted or nearly sorted. This means that the inner loop will not need to iterate very much. In the very best case, the input array is already completely sorted and we only run the outer loop for O(n) complexity.
 - **Average case time complexity**: Considering the case where the input array is randomly arranged, the inner loop of the algorithm must still iterate over the sorted portion of the array in order to find the correct position to insert the current element.
 
-## Space Complexity
+### Space complexity
 
 The space complexity for insertion sort is O(1), as it does in-place sorting and does not require additional storage proportional to input size.

@@ -5,20 +5,20 @@ excerpt: 实现一个函数，该函数使用异步映射函数映射一个项�
 
 在 [Map Async](/questions/javascript/map-async) 中，我们编写了一个函数，该函数接受一个项目数组，并使用异步映射函数映射每个元素，并返回一个 `Promise`，该 `Promise` 解析为映射结果。
 
-实际上，这可以用于使用 API 调用的结果映射输入数组，其中输入元素是 API 的参数。但是，如果您的数组包含大量项目，您将同时进行大量 API 调用，这几乎肯定会导致您受到 API 服务的速率限制。我们希望并发执行任务，以便更有效率，同时保持在 API 的速率限制范围内。
+实际上，这可以用于将输入数组映射到调用 API 的结果，其中输入元素是 API 的参数。但是，如果您的数组包含大量项目，您将同时进行大量 API 调用，这几乎肯定会导致您受到 API 服务的速率限制。我们希望并发执行任务，以便更高效，同时保持在 API 的速率限制范围内。
 
-实现一个 `mapAsyncLimit`，它接受一个可选参数 `size`，即正在进行的异步任务的最大数量，以便输入数组可以以 `size` 的块进行处理，从而实现并行性并保持在提供的限制范围内。如果未指定 `size`，则块大小不受限制。
+实现一个 `mapAsyncLimit` 函数，该函数接受一个可选参数 `size`，即正在进行的异步任务的最大数量，以便可以按 `size` 的块处理输入数组，从而实现并行性，同时保持在提供的限制内。如果未指定 `size`，则块大小不受限制。
 
 ## 例子
 
 ```js
 async function fetchUpperCase(q: string) {
-  // 模拟将字符串转换为大写的 API 服务。
-  const res = await fetch('https://uppercase.com?q=' + q);
+  // Fake API service that converts a string to uppercase.
+  const res = await fetch('https://uppercase.com?q=' + encodeURIComponent(q));
   return await res.text();
 }
 
-// 任何时候最多只有 2 个待处理的请求。
+// Only a maximum of 2 pending requests at any one time.
 const results = await mapAsyncLimit(
   ['foo', 'bar', 'qux', 'quz'],
   fetchUpperCase,

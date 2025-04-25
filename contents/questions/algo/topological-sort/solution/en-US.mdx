@@ -5,7 +5,7 @@ import topologicalSortTs from '../setup/src/topological-sort.ts';
 
 Topological sort is an algorithm that produces a linear ordering of the vertices of a Directed Acyclic Graph (DAG) such that for every directed edge (u, v), vertex u comes before vertex v in the ordering. Topological sort implemented with Kahn's algorithm has linear time complexity, which makes it relatively efficient for large graphs.
 
-## Clarification Questions
+## Clarification questions
 
 If unspecified:
 
@@ -17,12 +17,16 @@ If unspecified:
 
 <MDXCodeBlock languages={{ jsx: topologicalSortJs, tsx: topologicalSortTs }} />
 
-## Edge Cases
+## Edge cases
 
 - Graph with no edges: Either return an empty array or an appropriate error message.
 - Graph with cycles: Return an error or an empty array.
 
-## Time Complexity
+## Big-O analysis
+
+Let's analyze the algorithm's time and space complexity.
+
+### Time complexity
 
 Topological sort implemented with Kahn's algorithm always runs with O(V + E) time complexity, where V is the number of vertices (or nodes) in the graph, and E is the number of edges in the graph.
 
@@ -33,7 +37,7 @@ Topological sort implemented with Kahn's algorithm always runs with O(V + E) tim
 
 Overall, the time complexity of the implementation of Kahn's algorithm is O(V + E).
 
-## Space Complexity
+### Space complexity
 
 The space complexity for topological sorting implemented with Kahn's algorithm is O(V), where V is the number of vertices (or nodes) in the graph.
 

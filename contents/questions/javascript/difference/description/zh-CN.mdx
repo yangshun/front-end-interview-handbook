@@ -20,7 +20,7 @@ excerpt: 实现一个函数，该函数查找数组之间值的差异。
 difference([1, 2, 3], [2, 3]); // => [1]
 difference([1, 2, 3, 4], [2, 3, 1]); // => [4]
 difference([1, 2, 3], [2, 3, 1, 4]); // => []
-difference([1, , 3], [1]); // => [3]
+difference([1, , 3], [1]); // => [3] (case of a sparse array)
 ```
 
 如果 `values` 为空，则该函数应返回原始数组值。

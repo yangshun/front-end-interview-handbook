@@ -34,6 +34,11 @@ conformsTo({ a: 1, b: 2 }, { b: (n) => n > 2 });
 conformsTo({}, { b: (n) => n > 1 }); // => false
 ```
 
+## 约束
+
+* `object`: Javascript 对象。
+* `source`: Javascript 对象。其自身的属性必须是谓词函数。
+
 ## 资源
 
 * [Lodash `_.conformsTo`](https://lodash.com/docs/#conformsTo)

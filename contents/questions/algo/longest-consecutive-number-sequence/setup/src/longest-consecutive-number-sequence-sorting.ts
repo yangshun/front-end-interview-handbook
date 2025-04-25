@@ -1,6 +1,6 @@
 export default function longestConsecutiveNumberSeq(numbers: number[]): number {
   // Return 0 if the array is empty
-  if (numbers.length == 0) {
+  if (numbers.length === 0) {
     return 0;
   }
 
@@ -14,9 +14,9 @@ export default function longestConsecutiveNumberSeq(numbers: number[]): number {
   // Iterate through the sorted array starting from the second element
   for (let i = 1; i < numbers.length; i++) {
     // Check if the current number is different from the previous number
-    if (numbers[i] != numbers[i - 1]) {
+    if (numbers[i] !== numbers[i - 1]) {
       // Check if the current number is consecutive to the previous number
-      if (numbers[i] == numbers[i - 1] + 1) {
+      if (numbers[i] === numbers[i - 1] + 1) {
         currentStreak += 1;
       } else {
         // Update the longest streak if the current streak is longer

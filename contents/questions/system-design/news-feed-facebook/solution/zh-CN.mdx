@@ -424,7 +424,7 @@ Facebook feed 加载 shimmer 的示例：
 
 新闻 feed 帖子可以有许多不同的格式（文本、图像、视频、轮询等），并且每个帖子都需要自定义渲染代码。 实际上，Facebook feed 支持 50 多种不同的帖子格式！
 
-支持客户端上所有帖子格式的一种方法是让客户端预先加载所有可能格式的组件 JavaScript 代码，以便可以渲染任何类型的 feed 帖子格式。 但是，并非所有用户的 feed 都会包含所有帖子格式，并且很可能存在大量未使用的 JavaScript。 考虑到 feed 帖子格式的多样性，预先加载所有格式的 JavaScript 代码肯定会导致性能问题。
+在客户端支持所有帖子格式的一种方法是让客户端预先加载所有可能格式的组件 JavaScript 代码，以便可以渲染任何类型的 feed 帖子格式。但是，并非所有用户的 feed 都会包含所有帖子格式，并且很可能有很多未使用的 JavaScript。由于 feed 帖子格式种类繁多，预先加载所有 JavaScript 代码肯定会导致性能问题。
 
 如果我们只能根据接收到的数据延迟加载组件就好了！ 这已经成为可能，但需要额外的网络往返来延迟加载组件，在获取数据后，我们知道渲染的帖子类型。
 
@@ -544,7 +544,7 @@ Draft.js 只是富文本格式的一个例子，有很多可供选择。编辑�
 
 对于新闻 feed，乐观更新可以通过立即显示用户的反应和更新的反应总数来应用于反应交互。
 
-乐观更新是内置于现代查询库中的一项强大功能，例如 [Relay](https://relay.dev/docs/guided-tour/updating-data/graphql-mutations/#optimistic-updates)、[SWR](https://swr.vercel.app/docs/mutation#optimistic-updates) 和 [React Query](https://tanstack.com/query/v4/docs/guides/optimistic-updates)。
+乐观更新是现代查询库（如 [Relay](https://relay.dev/docs/guided-tour/updating-data/graphql-mutations/#optimistic-updates)、[SWR](https://swr.vercel.app/docs/mutation#optimistic-updates) 和 [React Query](https://tanstack.com/query/latest/docs/framework/react/overview)）内置的一个强大功能。
 
 #### 时间戳渲染
 

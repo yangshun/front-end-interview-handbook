@@ -6,15 +6,14 @@ import binarySearchRecursive from '../setup/src/binarySearchRecursive';
 
 Binary search is an efficient search algorithm that reduces the search space by half at each step, which means it can find the target element in O(log(n)) time, where n is the size of the input array. This makes it much faster than linear search, which has a time complexity of O(n).
 
-## Clarification Questions
+## Clarification questions
 
 If unspecified:
 
-- Should the data be sorted in an ascending or descending order?
-- Should the data be sorted in-place or is it acceptable to use additional data structures?
+- Sorting order: is it in ascending or descending order?
 - What kinds of inputs do we need to handle?
   - Will it just be an array of integers or should we handle other data types?
-  - Are there a large number of duplicate elements?
+  - Are there duplicate elements?
   - How should negative numbers be handled?
 
 ## Solution
@@ -27,11 +26,15 @@ If the interviewer asks for a recursive approach:
 
 <MDXCodeBlock>{binarySearchRecursive}</MDXCodeBlock>
 
-## Edge Cases
+## Edge cases
 
 - Non-integer element input: If the input array comprises of elements of different data types, you may need to return an error, settle for sorting on a best-effort basis, for e.g., only sorting a subset of the input data, or even define custom comparison functions for non-integers.
 
-## Time Complexity
+## Big-O analysis
+
+Let's analyze the algorithm's time and space complexity.
+
+### Time complexity
 
 Binary search has a time complexity of O(log(n)) in the average and worst case, since it reduces the search space by half every step. Even in the worst scenario where the target element is not within the array, it still reduces the search space by half, hence completing the search within logarithmic time.
 
@@ -39,7 +42,7 @@ In the best case, binary search has a time complexity of O(1). This happens when
 
 However, binary search assumes the input array is sorted. If sorting is required, additional time complexity is required depending on the sorting algorithm chosen.
 
-## Space Complexity
+### Space complexity
 
 Binary search has a space complexity of O(1) in all cases for the iterative approach, since constant extra memory is used to store variables. We do not reserve additional memory besides the input.
 

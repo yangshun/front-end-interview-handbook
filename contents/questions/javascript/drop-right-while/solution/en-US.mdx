@@ -5,8 +5,14 @@ import dropRightWhileTs from '../setup/src/drop-right-while.ts';
 
 ## Solution
 
+The goal is to create a function that takes an array and a predicate function. We must remove elements from the _end_ of the original array as long as the predicate function returns `true` when called with `(value, index, array)`. The removal stops as soon as the predicate returns `false` for an element encountered while iterating from right to left. We must return a new array containing the remaining elements, the original array must not be modified.
+
+## Algorithm
+
+The most straightforward approach is to iterate through the array from right to left, finding the index of the first element (from the right) for which the predicate returns a falsey value. Once this index is found, we know that all elements _after_ this index should be dropped. We can then use `Array.prototype.slice()` to create a new array containing elements from the beginning up to (and including) this element.
+
 <MDXCodeBlock languages={{ jsx: dropRightWhileJs, tsx: dropRightWhileTs }} />
 
-## Resources
+## Note: contrast with `Array.prototype.filter`
 
-- [Lodash `_.dropRightWhile`](https://lodash.com/docs/#dropRightWhile)
+It's important to note that dropRightWhile is different from filter. filter checks every element and keeps only those for which its predicate returns true. dropRightWhile checks elements only from the right end and stops dropping entirely as soon as it finds one element that doesn't satisfy the predicate.

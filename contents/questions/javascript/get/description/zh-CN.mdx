@@ -38,22 +38,29 @@ Lodash 的 `_.get` 方法是针对此类用例而创建的解决方案。
 get(object, path, [defaultValue]);
 ```
 
-* `object`：要查询的对象。
-* `path`：要获取的属性的路径。它可以是一个字符串，字段之间用 `.` 分隔，或者是一个路径字符串数组。
-* `defaultValue`：可选参数。如果解析后的值为 `undefined`，则返回该值。
+* `object`: 要查询的对象。
+* `path`: 要获取的属性的路径。
+  * 它可以是一个字符串，使用 `.` 作为对象字段之间的分隔符（例如 `profile.name.firstName`），
+  * 或者它可以是一个数组，例如：`['profile', 'name', 'firstName']`。
+* `defaultValue`: 可选参数。如果解析后的值是 `undefined`，则返回该值。如果未提供 `defaultValue` 并且解析后的值为 `undefined`，则直接返回 `undefined`。
 
 ## 示例
 
 ```js
+// 使用上面的 `john` 和 `jane` 对象
 get(john, 'profile.name.firstName'); // 'John'
 get(john, 'profile.gender'); // 'Male'
 get(jane, 'profile.name.firstName'); // undefined
+
+// 路径作为数组提供的示例
+get({ a: { b: 2, c: { foo: 2 } } }, ['a', 'c']); // foo: 2,
 ```
 
-如果提供了数字索引，也可以访问数组。
+如果 `path` 中提供了数字索引，也可以访问 `object` 中的数组。请参阅下面的示例。
 
 ```js
 get({ a: [{ b: { c: 3 } }] }, 'a.0.b.c'); // 3
+get({ a: [{ b: { c: 3 } }] }, ['a', 0, 'b', 'c']); // 3
 ```
 
-无需支持类似于 `get(object, 'a[0].b.c')` 的语法。
+无需支持混合的 `path` 语法，例如 `get(object, 'a[0].b.c')`。

@@ -1,7 +1,7 @@
 export default function findIndex<T>(
   array: Array<T>,
   predicate: (value: T, index: number, array: Array<T>) => boolean,
-  fromIndex = 0,
+  fromIndex: number = 0,
 ): number {
   const length = array.length;
   const startIndex =

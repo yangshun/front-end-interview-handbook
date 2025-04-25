@@ -1,0 +1,57 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import linkedListJs from '../setup/src/linked-list.js';
+import linkedListTs from '../setup/src/linked-list.ts';
+
+## Solution
+
+Linked lists are chains of connected nodes, where each node contains a `value` and a reference to the `next` node. The `next` in each node forms the links required to make linked lists.
+
+In the `LinkedList` class, `head` and `tail` are used to indicate the start and end of the list. While using only `head` is possible, maintaining a `tail` pointer improves the time complexity of operations like `insertTail()` and enables efficient use cases such as implementing queues.
+
+### Insert
+
+`insertHead()` and `insertTail()` involve updating the `head` or `tail` of the list to point to a new node.
+
+![Insert Head](/img/questions/linked-list/insert-head.png)
+
+![Insert Tail](/img/questions/linked-list/insert-tail.png)
+
+### Remove
+
+`remove()` modifies the `next` reference of node `i-1` to point to node `i+1`, effectively removing node `i` from the list. If the removed node is at the head or tail, the `head` or `tail` pointers are also updated accordingly.
+
+![Remove](/img/questions/linked-list/remove.png)
+
+### Get and toArray
+
+`get()` and `toArray()` traverse the list from the `head` node. `get()` stops at the specified index, while `toArray()` continues until the `tail`, collecting all values.
+
+### Length
+
+`length()` traverses through the entire linked list to count the number of elements. Alternatively, a length variable can be maintained to track the length of the linked list every time a node is inserted/removed.
+
+<MDXCodeBlock languages={{ jsx: linkedListJs, tsx: linkedListTs }} />
+
+## Big-O analysis
+
+Let's analyze the algorithm's time and space complexity.
+
+### Time complexity
+
+- `insertHead()` and `insertTail()`: O(1) as we can access `head` and `tail` immediately.
+- `get()`, `remove()`, `toArray()`: O(n) as the worst case is to traverse through the entire linked list to search for the specific index for `get()` and `remove()`.
+- `length()`: O(n) if traversing the entire array to calculate length, O(1) if maintaining a length variable.
+
+### Space complexity
+
+- All methods require O(1) space, as no additional data structures are created that grow with input size.
+
+## Edge Cases
+
+- **Empty list**: When operating on an empty list, `insertHead()` and `insertTail()` must set both `head` and `tail`.
+- **Invalid index**: In `get()` and `remove()`, index values less than 0 or greater than or equal to the list length must be handled gracefully. One common approach is to return `undefined`, as used in this problem.
+
+## Techniques
+
+- Object-oriented programming.

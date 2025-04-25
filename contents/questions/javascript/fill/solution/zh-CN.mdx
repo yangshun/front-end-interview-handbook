@@ -5,13 +5,15 @@ import fillTs from '../setup/src/fill.ts';
 
 ## 解决方案
 
+解决方案的关键部分是将负索引转换为相应的正索引。然后，检查边界和处理边缘情况就更简单了。
+
 <MDXCodeBlock languages={{ jsx: fillJs, tsx: fillTs }} />
 
 ## 边缘情况
 
 * 空数组、单元素数组、双元素数组。
 * 负索引。
-* `end` 小于 `start`。
+* `end`“小于”`start`：不应发生填充。
 
 ## 资源
 

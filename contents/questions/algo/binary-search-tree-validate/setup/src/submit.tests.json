@@ -31576,5 +31576,77 @@
       ]
     ],
     "output": false
+  },
+  {
+    "input": [
+      [
+        "root",
+        [5, 3, 7, 2, 6]
+      ]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      [
+        "root",
+        [5, 3, 7, null, null, 4, 8]
+      ]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      [
+        "root",
+        [10, 5, 15, 3, 7, null, null, 2, null, null, null, 11]
+      ]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      [
+        "root",
+        [10, 5, 15, null, null, 12, 20, 11, 13, null, null, null, null, 9, null]
+      ]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      [
+        "root",
+        [20, 10, 30, 5, 15, 25, 35, 3, 7, 12, 18, null, null, null, null, null, 21]
+      ]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      [
+        "root",
+        [20, 10, 30, 5, 15, 25, 35, 3, 7, 13, 18]
+      ]
+    ],
+    "output": true
+  },
+   {
+    "input": [
+      [
+        "root",
+        [10, null, 20, 5, null]
+      ]
+    ],
+    "output": false
+  },
+  {
+    "input": [
+      [
+        "root",
+        [10, 5, null, null, 15]
+      ]
+    ],
+    "output": false
   }
 ]

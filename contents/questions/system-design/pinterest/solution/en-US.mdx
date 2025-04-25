@@ -190,8 +190,8 @@ The common ways to implement infinite scrolling has been covered in [News Feed s
 Pinterest uses `<img>` tags with the following attributes:
 
 - `alt`: Text description of the image, used when images fail to load and for screen readers.
-- `fetchpriority`: Provides a hint of the relative priority to use when fetching the image. It's not a standard yet. Pinterest uses `fetchpriority="auto"`
-- `loading`: Indicates how the browser should load the image. Pinterest uses `loading="auto"`, which is the default value and not sure why it's necessary. Possible values include `"lazy"`, which defers the load until the image or iframe reaches a distance threshold from the viewport.
+- `fetchpriority`: Provides a hint of the relative priority to use when fetching the image. Pinterest uses `fetchpriority="auto"`
+- `loading`: Indicates how the browser should load the image. Pinterest uses `loading="auto"`, which is the default value. Possible values include `"lazy"`, which defers the load until the image or iframe reaches a distance threshold from the viewport.
 - `src`: The image URL.
 - `srcset`: Enables multiple image sources, each with different resolutions or sizes.
 
@@ -557,7 +557,7 @@ Read their [component docs](https://gestalt.pinterest.systems/web/masonry) to se
 Since the columns are fixed and the images try to preserve their original aspect ratios, some weird results can occur.
 
 - **Very tall images**: Very tall images can take up the entire column, making the page look odd when one of the columns takes up the entire page.
-- **Very wide images**: Very wide images will have a very small height as they have to maintain the aspect ratio within the column width. As a result, users might only see a thin horizontal line and appear barely visible. An image that that is 1000px wide and 20px tall will only have a height of 2px when put within a 100px-wide column while maintaining the aspect ratio.
+- **Very wide images**: Very wide images will have a very small height as they have to maintain the aspect ratio within the column width. As a result, users might only see a thin horizontal line and appear barely visible. An image that is 1000px wide and 20px tall will only have a height of 2px when put within a 100px-wide column while maintaining the aspect ratio.
 
 Hence there should be a maximum and minimum heights for the images. For such images, they can be positioned using `object-fit: cover` so that the user can still get a glimpse some parts of the image.
 

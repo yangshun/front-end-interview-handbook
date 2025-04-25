@@ -2,8 +2,8 @@ import DataTable, {
   Columns,
   SortDirection,
 } from './DataTable';
-import users from './data/users.json';
-import houses from './data/houses.json';
+import users from './data/users';
+import houses from './data/houses';
 
 type User = (typeof users)[number];
 const userColumns: Columns<User> = [

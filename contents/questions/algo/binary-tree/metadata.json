@@ -1,0 +1,24 @@
+{
+  "slug": "binary-tree",
+  "created": "2024-05-23T00:00:00.000Z",
+  "languages": [
+    "js",
+    "ts"
+  ],
+  "companies": [],
+  "access": "standard",
+  "duration": 15,
+  "published": true,
+  "importance": "low",
+  "difficulty": "medium",
+  "featured": false,
+  "similar_questions": [
+    "binary-search-tree",
+    "binary-search"
+  ],
+  "next_questions": [],
+  "topics": [
+    "binary-tree",
+    "tree"
+  ]
+}

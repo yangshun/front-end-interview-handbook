@@ -3,22 +3,45 @@ title: Drop While
 excerpt: 实现一个函数，该函数从数组的开头排除元素，直到谓词返回 false
 ---
 
-实现一个函数 `dropWhile(array, predicate)`，该函数创建一个 `array` 的切片，排除从开头删除的元素。元素被删除，直到 `predicate` 返回 falsey。 您的函数不应修改原始数组。
+给定一个`predicate`函数和一个`array`，实现一个函数`dropWhile(array, predicate)`。此函数应创建一个`array`的切片，排除从列表开头删除的元素。删除元素，直到`predicate`返回falsey。您的函数不应修改原始数组。`array`可能已排序，也可能未排序。
 
 #### 参数
 
 1. `array` *(Array)*: 要查询的数组。
-2. `predicate` *(Function)*: 每次迭代调用的函数。该函数使用三个参数调用：*(value, index, array)*。
+2. `predicate` *(Function)*: 每次迭代调用的函数。
+
+Predicate 签名：`predicate`函数使用三个参数调用：`(value, index, array)`。您必须使用所有三个参数调用它。
+
+* `value`：当前正在迭代的元素。
+* `index`：当前元素的索引。
+* `array`：原始输入数组。
 
 #### 返回
 
-*(Array)*: 返回 `array` 的切片。
+*(Array)*: 返回包含保留元素的`array`的切片。
 
 ## 例子
 
 ```js
-dropWhile([1, 2, 3, 4, 5], (value) => value < 3); // => [3, 4, 5]
-dropWhile([1, 2, 3], (value) => value < 6); // => []
+dropWhile([1, 2, 3, 4, 5], (value, _index, _array) => value < 3);
+// => [1, 2, 3]
+// 解释：从左侧 (1) 开始。1 < 3 (true, drop)。2 < 3 (true, drop)。3 < 3 (false, stop)。返回 [3, 4, 5]。
+
+dropWhile([1, 2, 3], (value, _index, _array) => value < 6);
+// => []
+// 解释：从左侧 (1) 开始。1 < 6 (true, drop)。2 < 6 (true, drop)。3 < 6 (true, drop)。到达末尾。返回 []。
+
+dropWhile([1, 2, 3, 4, 5], (value, _index, _array) => value > 6);
+// => [1, 2, 3, 4, 5]
+// 解释：从左侧 (1) 开始。1 > 6 (false, stop immediately)。返回 [1, 2, 3, 4, 5]。
+
+dropWhile([1, 2, 3, 4, 5], (_value, index, _array) => index < 3);
+// => [4, 5]
+// 解释：从索引 0 开始。0 < 3 (true, drop)。索引 1。1 < 3 (true, drop)。索引 2。2 < 3 (true, drop)。索引 3。3 < 3 (false, stop)。返回 [4, 5]。
+
+dropWhile([4, 5, 12, 10, 11], (value, _index, array) => value < array[2]);
+// => [12, 10, 11]
+// 解释：array[2] 是 12。从左侧 (4) 开始。4 < 12 (true, drop)。索引 1 (5)。5 < 12 (true, drop)。索引 2 (12)。12 < 12 (false, stop)。返回 [12, 10, 11]。
 ```
 
 请注意，Lodash 的 `dropWhile` 实用程序还允许您传递一个可选的 `thisArg` 参数来绑定谓词函数中的 `this`，但对于此练习，您可以忽略该参数。

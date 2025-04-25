@@ -20,7 +20,7 @@
 
 ### 用户是否必须登录？
 
-任何人都可以搜索列表和浏览详细信息，但用户需要登录才能进行预订。
+任何人都可以搜索房源和浏览详细信息，但用户需要登录才能预订。
 
 ### 总结
 
@@ -151,11 +151,11 @@ Airbnb 是使用 [Rendr](https://github.com/rendrjs/rendr) 构建通用/同构�
 
 对于这种情况，由于如果每个便利设施标准都是一个单独的查询参数，查询参数的数量非常多，因此对象格式更好，因为：
 
-* 将每个标准放在查询参数中会使查询字符串变得非常长，并且层次结构会丢失。
-* 可能会与非便利设施字段发生查询参数名称冲突。这可以通过在所有便利设施字段前加上 `amenities_`（例如 `amenities_breakfast` 和 `amenities_washer`）来解决。
-* 此外，一些便利设施标准具有非原始值，无论如何都需要进行 URL 编码和解码。
+* 将每个标准放在查询参数中会使查询字符串变得非常长，并且会丢失层次结构。
+* 查询参数名称与非便利设施字段发生冲突的可能性。这可以通过使用`amenities_`作为所有便利设施字段的前缀来解决（例如`amenities_breakfast`和`amenities_washer`）。
+* 此外，某些便利设施标准具有非原始值，无论如何都需要进行 URL 编码和解码。
 
-关于[如何将数组和对象编码到 URL 的查询字符串中](https://stackoverflow.com/questions/6243051/how-to-pass-an-array-within-a-query-string)没有[固定的标准]，并且格式往往取决于实现。需要注意的最重要的事情是服务器和客户端之间的一致格式。
+关于[如何将数组和对象编码到 URL 的查询字符串中](https://stackoverflow.com/questions/6243051/how-to-pass-an-array-within-a-query-string)没有\[固定的标准]，并且格式往往取决于实现。需要注意的最重要的事情是服务器和客户端之间的一致格式。
 
 #### 示例响应
 
@@ -359,17 +359,16 @@ Airbnb 使用可读 URL，因为拥有可读 URL 有助于 SEO 排名，特别�
 
 #### 图像优化
 
-* **图片轮播**：照片广泛用于旅游网站，以展示目的地/住宿的吸引力。我们已经在 [图片轮播系统设计文章](/questions/system-design/image-carousel) 中介绍了图片轮播的实现。
-* **图片预加载/延迟加载**：一种非常有用的技术是使用 JavaScript 来精细控制图像的加载时间。
-  * [Airbnb 通过延迟加载和预加载的组合优化了其房间列表中的图片轮播体验](https://medium.com/airbnb-engineering/building-a-faster-web-experience-with-the-posttask-scheduler-276b83454e91) 行为：
-    1. 最初，仅加载第一张图片（其余图片将延迟加载）。
-    2. 当用户显示查看更多图片的可能意图时，会预加载第二张图片：
+* **图片轮播**：照片广泛用于旅游网站，以展示目的地/住宿的吸引力。我们已经在[图片轮播系统设计文章](/questions/system-design/image-carousel)中介绍了图片轮播的实现。
+* **图片预加载/懒加载**：一种非常有用的技术是使用 JavaScript 来精细控制图像的加载时间。
+  * [Airbnb 通过结合懒加载和预加载在其房间列表中优化了图片轮播体验](https://medium.com/airbnb-engineering/building-a-faster-web-experience-with-the-posttask-scheduler-276b83454e91)行为：
+    1. 最初，仅加载第一张图片（其余图片将进行懒加载）。
+    2. 当用户表现出查看更多图片的可能意图时，会预加载第二张图片：
        * 光标悬停在图片轮播上。
        * 通过制表符聚焦于“下一步”按钮。
        * 图片轮播进入视图（在移动设备上）。
-    3. 如果用户确实查看了第二张图片（这表明有很高的浏览更多图片的意图），则会预加载接下来的三张图片（第 3 到第 5 张）。
-    4. 当用户再次单击“下一步”以浏览更多图片时，会预加载 (n + 3)<sup>th</sup> 张图片。
-  * 其他资源：[是的，我很懒 | TripAdvisor 工程和产品博客](https://www.tripadvisor.com/engineering/yes-im-lazy/)
+    3. 如果用户确实查看了第二张图片（这表明有浏览更多图片的强烈意图），则会预加载接下来的三张图片（第 3 到 5 张）。
+    4. 当用户再次单击“下一步”以浏览更多图片时，会预加载第 (n + 3)<sup>th</sup> 张图片。
 
 <figure>
   <img alt="Airbnb Image Carousel Lazy Loading" className="mx-auto w-full max-w-5xl" loading="lazy" src="/img/questions/travel-booking-airbnb/airbnb-image-loading.gif" />
@@ -378,10 +377,10 @@ Airbnb 使用可读 URL，因为拥有可读 URL 有助于 SEO 排名，特别�
 </figure>
 
 * **响应式图片**：为设备提供最合适的图片。
-  * [Web 上的图片：第 1 部分 — 响应式图片 | Expedia Group Technology](https://medium.com/expedia-group-tech/images-on-the-web-part-1-responsive-images-5dc0066461bd)
-  * [Web 上的图片：第 2 部分 — 实现响应式图片 | Expedia Group Technology](https://medium.com/expedia-group-tech/images-on-web-part-2-implementing-responsive-images-ca1d30f533f8)
-* **图片格式**：尽可能对照片使用 `webp` 格式，对图标使用 SVG 格式。
-  * [使用 SVG 优化高密度显示器的图像精灵 | TripAdvisor 工程和产品博客](https://www.tripadvisor.com/engineering/optimizing-image-sprites-for-high-density-displays-with-svg/)
+  * [网络上的图片：第 1 部分 — 响应式图片 | Expedia Group Technology](https://medium.com/expedia-group-tech/images-on-the-web-part-1-responsive-images-5dc0066461bd)
+  * [网络上的图片：第 2 部分 — 实现响应式图片 | Expedia Group Technology](https://medium.com/expedia-group-tech/images-on-web-part-2-implementing-responsive-images-ca1d30f533f8)
+* **图片格式**：尽可能对照片使用`webp`格式，对图标使用 SVG 格式。
+  * [选择正确的图片格式| web.dev](https://web.dev/articles/choose-the-right-image-format)
 
 #### 代码拆分
 
@@ -465,9 +464,7 @@ Airbnb 使用可读 URL，因为拥有可读 URL 有助于 SEO 排名，特别�
 ### 其他主题
 
 * 地图
-  * 接近的标记可以[聚集在一起](https://developers.google.com/maps/documentation/javascript/marker-clustering)
+  * 彼此靠近的标记可以[聚集在一起](https://developers.google.com/maps/documentation/javascript/marker-clustering)
 * 白标
   * [使用一个代码库构建和扩展不同的旅游网站 | Agoda Engineering & Design](https://medium.com/agoda-engineering/building-and-scaling-different-travel-websites-with-one-codebase-fc6f0202c2e1)
   * [管理和扩展不同的白标开发和测试环境 | Agoda Engineering & Design](https://medium.com/agoda-engineering/managing-and-scaling-different-white-label-development-and-testing-environments-4e90748fcb3b)
-* 测试
-  * [降低噪音底线 | TripAdvisor 工程和产品博客](https://www.tripadvisor.com/engineering/lowering-the-noise-floor/)

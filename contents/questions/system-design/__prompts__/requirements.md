@@ -80,5 +80,5 @@ All possible devices: laptop, tablets, mobile, etc.
 
 ### Do users have to be signed in?
 
-Anyone can search for listings and browse details but users need to logged in to make a booking.
+Anyone can search for listings and browse details but users need to be logged in to make a booking.
 ```

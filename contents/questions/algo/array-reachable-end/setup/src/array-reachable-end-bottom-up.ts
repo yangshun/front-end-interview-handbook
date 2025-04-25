@@ -26,7 +26,7 @@ export default function arrayReachableEnd(numbers: number[]): boolean {
 
     // Check if any reachable position from the current position is "GOOD"
     for (let j = i + 1; j <= furthestPosition; j++) {
-      if (memo[j] == Index.GOOD) {
+      if (memo[j] === Index.GOOD) {
         // Mark the current position as "GOOD" if a reachable position is "GOOD"
         memo[i] = Index.GOOD;
         break;
@@ -35,5 +35,5 @@ export default function arrayReachableEnd(numbers: number[]): boolean {
   }
 
   // Return true if the first position is "GOOD", meaning you can reach the last element
-  return memo[0] == Index.GOOD;
+  return memo[0] === Index.GOOD;
 }

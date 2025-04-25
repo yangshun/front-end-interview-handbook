@@ -9,15 +9,39 @@ export default function intersection(...arrays) {
     return [];
   }
 
-  const set = new Set(arrays[0]);
-
-  for (let i = 1; i < arrays.length; i++) {
-    set.forEach((value) => {
-      if (!arrays[i].includes(value)) {
-        set.delete(value);
+  if (arrays.length === 1) {
+    const uniqueSet = new Set();
+    const result = [];
+    for (const value of arrays[0]) {
+      if (!uniqueSet.has(value)) {
+        uniqueSet.add(value);
+        result.push(value);
       }
-    });
+    }
+    return result;
   }
 
-  return Array.from(set);
+  // Intersection will be empty if any of the provided array is empty
+  if (arrays.some((arr) => arr.length === 0)) {
+    return [];
+  }
+
+  const subsequentSets = arrays.slice(1).map((arr) => new Set(arr));
+  const result = [];
+  const addedValues = new Set();
+
+  for (const value of arrays[0]) {
+    if (addedValues.has(value)) {
+      continue;
+    }
+
+    const isInAll = subsequentSets.every((set) => set.has(value));
+
+    if (isInAll) {
+      result.push(value);
+      addedValues.add(value);
+    }
+  }
+
+  return result;
 }

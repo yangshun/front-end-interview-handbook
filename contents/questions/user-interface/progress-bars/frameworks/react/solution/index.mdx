@@ -6,7 +6,7 @@ The solution can be split into three parts: (1) State, (2) Styling, and (3) Anim
 
 ### State
 
-Since the progress bars do not interaction with each other and the animation uses a "fire and forget" model, we only need a single numerical value as state, which is the number of bars onscreen. Hitting the "Add" button increases the number of bars to be rendered.
+Since the progress bars do not interact with each other and the animation uses a "fire-and-forget" model, we only need a single numerical value as state, which is the number of bars onscreen. Hitting the "Add" button increases the number of bars to be rendered.
 
 ### Styling
 
@@ -14,7 +14,7 @@ Have a look at the [Progress Bar](/questions/user-interface/progress-bar) questi
 
 ### Animation
 
-As mentioned above, each progress bar's animation uses a "fire and forget" model, meaning they are non-interruptible and do not interact with each other. CSS transitions work very well for animating the bars from 0 to 100 and there's no need to resort to JavaScript. Note that we have to use `transform-origin: left` so that the bar is "anchored" on the left and expands rightwards. Without that, the transition will appear to expand outwards from the center.
+As mentioned above, each progress bar's animation uses a "fire-and-forget" model, meaning they are not interruptible and do not interact with each other. CSS transitions work very well for animating the bars from 0 to 100 and there's no need to resort to JavaScript. Note that `transform-origin: left` is necessary so that the filled bar is "anchored" on the left and expands rightwards. Without that, the transition will appear to expand outwards from the center.
 
 ```css
 .bar-contents {

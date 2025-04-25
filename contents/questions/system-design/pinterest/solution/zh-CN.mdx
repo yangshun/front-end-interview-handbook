@@ -189,11 +189,11 @@ Pinterest feed 的架构图相对简单，因为我们只关注 feed 和布局�
 
 Pinterest 使用带有以下属性的 `<img>` 标签：
 
-* `alt`：图像的文本描述，用于图像加载失败和屏幕阅读器。
-* `fetchpriority`：提供获取图像时要使用的相对优先级的提示。它还不是一个标准。Pinterest 使用 `fetchpriority="auto"`
-* `loading`：指示浏览器应如何加载图像。Pinterest 使用 `loading="auto"`，这是默认值，不确定为什么需要它。可能的值包括 `"lazy"`，它将加载推迟到图像或 iframe 达到与视口的距离阈值。
-* `src`：图像 URL。
-* `srcset`：启用多个图像源，每个源具有不同的分辨率或大小。
+* `alt`: 图像的文本描述，用于图像加载失败时和屏幕阅读器。
+* `fetchpriority`: 提供获取图像时使用的相对优先级的提示。Pinterest 使用 `fetchpriority="auto"`
+* `loading`: 指示浏览器应如何加载图像。Pinterest 使用 `loading="auto"`，这是默认值。可能的值包括 `"lazy"`，它将加载推迟到图像或 iframe 达到与视口的距离阈值。
+* `src`: 图像 URL。
+* `srcset`: 启用多个图像源，每个源具有不同的分辨率或大小。
 
 #### 响应式图片
 
@@ -339,12 +339,12 @@ Pinterest 可能会使用 JPEG 格式的图像，这可能是因为 JPEG 具有�
 <iframe
   src="https://codesandbox.io/embed/f7s8vt?fontsize=14&hidenavigation=1&theme=dark&module=/src/index.html,/src/styles.css&view=split"
   style={{
-          width: '100%',
-          height: 500,
-          border: 0,
-          borderRadius: 4,
-          overflow: 'hidden',
-        }}
+        width: '100%',
+        height: 500,
+        border: 0,
+        borderRadius: 4,
+        overflow: 'hidden',
+      }}
   title="Pinterest layout row of columns"
   allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
@@ -376,12 +376,12 @@ Pinterest 可能会使用 JPEG 格式的图像，这可能是因为 JPEG 具有�
 <iframe
   src="https://codesandbox.io/embed/dqtrlk?fontsize=14&hidenavigation=1&theme=dark&module=/src/index.html,/src/styles.css&view=split"
   style={{
-          width: '100%',
-          height: 500,
-          border: 0,
-          borderRadius: 4,
-          overflow: 'hidden',
-        }}
+        width: '100%',
+        height: 500,
+        border: 0,
+        borderRadius: 4,
+        overflow: 'hidden',
+      }}
   title="Pinterest layout position absolute"
   allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
@@ -426,12 +426,12 @@ Pinterest 的 [开源 Masonry React 组件](https://gestalt.pinterest.systems/we
 <iframe
   src="https://codesandbox.io/embed/gnszl2?fontsize=14&hidenavigation=1&theme=dark&module=/src/App.js,/src/styles.css&view=split"
   style={{
-          width: '100%',
-          height: 500,
-          border: 0,
-          borderRadius: 4,
-          overflow: 'hidden',
-        }}
+        width: '100%',
+        height: 500,
+        border: 0,
+        borderRadius: 4,
+        overflow: 'hidden',
+      }}
   title="Pinterest order sequential"
   allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
@@ -491,11 +491,11 @@ function arrangeHeightBalanced(pins) {
 <iframe
   src="https://codesandbox.io/embed/tl4c5w?fontsize=14&hidenavigation=1&theme=dark&module=/src/App.js,/src/styles.css&view=split"
   style={{
-  width: '100%',
-  height: 500,
-  border: 0,
-  borderRadius: 4,
-  overflow: 'hidden',
+width: '100%',
+height: 500,
+border: 0,
+borderRadius: 4,
+overflow: 'hidden',
 }}
   title="Pinterest order balanced"
   allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
@@ -556,7 +556,7 @@ Pinterest 网格有几个断点宽度，用于不同数量的列，因此每个�
 由于列是固定的，并且图像试图保持其原始纵横比，因此可能会出现一些奇怪的结果。
 
 * **非常高的图像**：非常高的图像可以占据整个列，当其中一列占据整个页面时，页面看起来会很奇怪。
-* **非常宽的图像**：非常宽的图像将具有非常小的高度，因为它们必须在列宽内保持纵横比。 因此，用户可能只能看到一条细的水平线，并且几乎不可见。 当放置在 100px 宽的列中时，一个 1000px 宽和 20px 高的图像在保持纵横比的同时，高度只有 2px。
+* **非常宽的图像**：非常宽的图像将具有非常小的高度，因为它们必须在列宽内保持纵横比。因此，用户可能只能看到一条细的水平线，并且几乎不可见。当一个 1000px 宽和 20px 高的图像放入 100px 宽的列中时，在保持纵横比的同时，其高度将只有 2px。
 
 因此，图像应该有最大和最小高度。 对于此类图像，可以使用 `object-fit: cover` 进行定位，以便用户仍然可以一睹图像的某些部分。
 

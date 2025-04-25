@@ -39,21 +39,28 @@ get(object, path, [defaultValue]);
 ```
 
 - `object`: The object to query.
-- `path`: The path of the property to get. It can be a string with `.` as the separator between fields, or an array of path strings.
-- `defaultValue`: Optional parameter. The value returned if the resolved value is `undefined`.
+- `path`: The path of the property to get.
+  - It can be a single string with `.` as the separator between object fields (e.g. `profile.name.firstName`),
+  - Or it can be an array like this: `['profile', 'name', 'firstName']`.
+- `defaultValue`: Optional parameter. The value returned if the resolved value is `undefined`. If `defaultValue` is not provided and the resolved value is `undefined`, simply return `undefined`.
 
 ## Examples
 
 ```js
+// Using the `john` and `jane` objects from above
 get(john, 'profile.name.firstName'); // 'John'
 get(john, 'profile.gender'); // 'Male'
 get(jane, 'profile.name.firstName'); // undefined
+
+// An example where path is provided as an array
+get({ a: { b: 2, c: { foo: 2 } } }, ['a', 'c']); // foo: 2,
 ```
 
-Arrays can also be accessed if numerical indices are provided.
+Arrays inside the `object` can also be accessed if numerical indices are provided in the `path`. See the examples below.
 
 ```js
 get({ a: [{ b: { c: 3 } }] }, 'a.0.b.c'); // 3
+get({ a: [{ b: { c: 3 } }] }, ['a', 0, 'b', 'c']); // 3
 ```
 
-There's no need to support syntax resembling `get(object, 'a[0].b.c')`.
+There's no need to support mixed syntax of `path` such as `get(object, 'a[0].b.c')`.

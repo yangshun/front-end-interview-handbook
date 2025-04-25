@@ -1,0 +1,8 @@
+{
+  "run": "/src/dijkstra.run.test.ts",
+  "submit": "/src/dijkstra.submit.test.ts",
+  "skeleton": {
+    "js": "/src/dijkstra.skeleton.js",
+    "ts": "/src/dijkstra.skeleton.ts"
+  }
+}

@@ -7,7 +7,7 @@ import intersectionByTs from '../setup/src/intersection-by.ts';
 
 <MDXCodeBlock languages={{ jsx: intersectionByJs, tsx: intersectionByTs }} />
 
-该解决方案首先使用 iteratee 函数映射每个数组以转换值。然后，它从第一个映射数组中过滤存在于所有其他映射数组中的值。最后，它将相交的值映射回第一个数组中的原始值。
+该解决方案首先使用 iteratee 从第二个数组开始创建转换值的 Set，以便进行高效查找。然后，它通过检查每个元素的转换值是否存在于所有这些 Set 中（通过 `has()`）来过滤第一个数组。最后，它收集满足条件的第一个数组中对应的原始值。
 
 ## 资源
 

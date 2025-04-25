@@ -1,13 +1,14 @@
 {
   "slug": "heap",
-  "created": "2024-05-06T00:00:00.000Z",
+  "created": "2025-04-25T00:00:00.000Z",
   "languages": ["js", "ts"],
   "companies": [],
-  "access": "free",
+  "access": "standard",
   "duration": 15,
-  "published": false,
+  "published": true,
   "importance": "low",
   "difficulty": "hard",
-  "similar_questions": ["heap-sort"],
+  "similar_questions": ["binary-search-tree"],
+  "next_questions": ["heap-sort"],
   "topics": ["heap"]
 }

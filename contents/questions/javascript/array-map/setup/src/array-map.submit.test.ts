@@ -59,4 +59,9 @@ describe('Array.prototype.myMap', () => {
     // eslint-disable-next-line no-sparse-arrays
     expect([1, 2, , 4].myMap(square)).toEqual([1, 4, , 16]);
   });
+
+  test('arrays with undefined values', () => {
+    expect([1, 2, undefined, 4].myMap(identity)).toEqual([1, 2, undefined, 4]);
+    expect([1, 2, undefined, 4].myMap(square)).toEqual([1, 4, NaN, 16]);
+  });
 });

@@ -8,7 +8,7 @@ Heap sort is an in-place, comparison-based algorithm that works well for large s
 
 It also does not require any additional memory space to sort the data as it is an in-place sorting algorithm. However, it is not a stable sort, which means that the order of elements with equal values may not be preserved.
 
-## Clarification Questions
+## Clarification questions
 
 If unspecified:
 
@@ -25,7 +25,7 @@ Note: This question tackles in-place sorting for an output in ascending order. R
 
 <MDXCodeBlock languages={{ jsx: heapSortJs, tsx: heapSortTs }} />
 
-## Edge Cases
+## Edge cases
 
 - Non-integer element input: If the input array comprises of elements of different data types, you may need to return an error, settle for sorting on a best-effort basis, for e.g., only sorting a subset of the input data, or even define custom comparison functions for non-integers.
 - Single element / Empty input: Either return the original data structure, raise an error, or clarify required handling.
@@ -57,7 +57,11 @@ function heapSort(arr) {
 
 - If you're wondering why `Math.floor(size / 2 - 1)` was able to calculate the index of the last parent node, it's because in a complete binary tree, the number of parent nodes is equal to Math.floor(size / 2). The -1 at the end is needed because the indices in the array start at 0, not 1.
 
-## Time Complexity
+## Big-O analysis
+
+Let's analyze the algorithm's time and space complexity.
+
+### Time complexity
 
 The best, average and worst case time complexity of heap sort is O(nlog n). Regardless of whether the elements are already sorted, the algorithm will always take O(nlog(n)) time to complete. This is accurate unless you detect sorted arrays and return them immediately for a O(n) time complexity at the best case with a completely sorted array.
 
@@ -70,7 +74,7 @@ The time complexity of heap sort is O(nlog(n)) as there are 2 steps to the algor
 
 The total time complexity of heap sort is the sum of the time complexity of each step, which is O(n) + O(nlog(n)) = O(nlog(n)).
 
-## Space Complexity
+### Space complexity
 
 The space complexity for heap sort is O(1), as it does in-place sorting and does not require additional storage proportional to input size.
 

@@ -35044,5 +35044,121 @@
       ]
     ],
     "output": false
+  },
+  {
+    "input": [["numbers", [4, 1, 0, 0, 2, 3]]],
+    "output": true
+  },
+  {
+    "input": [["numbers", [1, 0, 0, 0]]],
+    "output": false
+  },
+  {
+    "input": [["numbers", [2, 3, 1, 1, 4]]],
+    "output": true
+  },
+  {
+    "input": [["numbers", [3, 2, 1, 0, 4]]],
+    "output": false
+  },
+  {
+    "input": [["numbers", [1, 1, 1, 1]]],
+    "output": true
+  },
+  {
+    "input": [["numbers", [5, 0, 0, 0, 0, 0]]],
+    "output": true
+  },
+  {
+    "input": [["numbers", [2, 1, 3, 0]]],
+    "output": true
+  },
+  {
+    "input": [["numbers", [3, 0, 0, 1, 4]]],
+    "output": true
+  },
+  {
+    "input": [["numbers", [2, 4, 1, 1, 0, 2, 1]]],
+    "output": true
+  },
+  {
+    "input": [["numbers", [1, 0, 5]]],
+    "output": false
+  },
+  {
+    "input": [["numbers", [2, 1, 0, 1]]],
+    "output": false
+  },
+  {
+    "input": [["numbers", [1, 0, 1]]],
+    "output": false
+  },
+  {
+    "input": [["numbers", [3, 0, 0, 0, 1]]],
+    "output": false
+  },
+  {
+    "input": [["numbers", [2, 0, 1, 0, 1]]],
+    "output": false
+  },
+  {
+    "input": [["numbers", [1, 1, 1, 0, 1]]],
+    "output": false
+  },
+  {
+    "input": [["numbers", [0]]],
+    "output": true
+  },
+  {
+    "input": [["numbers", [1]]],
+    "output": true
+  },
+  {
+    "input": [["numbers", [10]]],
+    "output": true
+  },
+  {
+    "input": [["numbers", [0, 0]]],
+    "output": false
+  },
+  {
+    "input": [["numbers", [1, 0]]],
+    "output": true
+  },
+  {
+    "input": [["numbers", [2, 0, 0]]],
+    "output": true
+  },
+  {
+    "input": [["numbers", [1, 1, 0]]],
+    "output": true
+  },
+  {
+    "input": [["numbers", [4, 0, 0, 0, 0, 1]]],
+    "output": false
+  },
+  {
+    "input": [["numbers", [4, 0, 0, 0, 1, 0]]],
+    "output": true
+  },
+  {
+    "input": [["numbers", [1000, 1, 1]]],
+    "output": true
+  },
+  {
+    "input": [["numbers", [1, 1, 1, 1, 1, 1, 1, 1, 1, 0]]],
+    "output": true
+  },
+  {
+    "input": [["numbers", [1, 1, 1, 1, 1, 1, 1, 1, 0, 1]]],
+    "output": false
+  },
+  {
+    "input": [["numbers", [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]]],
+    "output": true
+  },
+  {
+    "input": [["numbers", [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1]]],
+    "output": false
   }
 ]

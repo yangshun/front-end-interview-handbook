@@ -28,7 +28,7 @@ export default function matrixSpiralTraversal(matrix: number[][]): number[] {
       col + directions[currentDirection][1] < cols &&
       matrix[row + directions[currentDirection][0]][
         col + directions[currentDirection][1]
-      ] != VISITED
+      ] !== VISITED
     ) {
       changeDirection = 0; // Reset changeDirection as we are still adding elements
 

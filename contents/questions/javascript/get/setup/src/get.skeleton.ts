@@ -1,7 +1,7 @@
 export default function get<T>(
   objectParam: Record<string, any>,
-  pathParam: string | Array<string>,
+  pathParam: string | Array<string | number>,
   defaultValue?: T,
-): T {
+): T | undefined {
   throw 'Not implemented!';
 }

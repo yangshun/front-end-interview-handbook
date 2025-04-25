@@ -28,6 +28,13 @@ describe('intersectionBy', () => {
     expect(intersectionBy(iteratee, arr1, arr2, arr3)).toEqual([]);
   });
 
+  test('single array', () => {
+    const arr1 = [1, 2.5, 3, 7.8];
+    const iteratee = Math.floor;
+
+    expect(intersectionBy(iteratee, arr1)).toEqual([1, 2.5, 3, 7.8]);
+  });
+
   test('multiple intersections', () => {
     const arr1 = [1.2, 2.3, 3.4];
     const arr2 = [2.1, 1.2, 4.5];

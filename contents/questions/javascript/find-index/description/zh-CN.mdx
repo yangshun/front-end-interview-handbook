@@ -12,8 +12,14 @@ findIndex(array, predicate, [(fromIndex = 0)]);
 ## 参数
 
 1. `array` *(Array)*: 要检查的数组。
-2. `predicate` *(Function)*: 每次迭代调用的函数。该函数使用三个参数调用：*(value, index, array)*。
+2. `predicate` *(Function)*: 每次迭代时调用的函数。
 3. `[fromIndex=0]` *(number)*: 开始搜索的索引。
+
+Predicate 签名：`predicate` 函数将使用三个参数调用：`(value, index, array)`。
+
+* `value`：当前正在迭代的元素。
+* `index`：当前元素的索引。
+* `array`：原始输入数组。
 
 ## 返回值
 
@@ -36,10 +42,10 @@ findIndex(arr, (num) => num > 10, 3); // => -1
 
 ## 边缘情况
 
-您的函数应处理负索引和超出范围的索引。
+您的函数应处理负索引和超出范围的索引，如下面的示例所示。
 
-* 负数：负整数从数组的最后一个项目开始倒数。`-1` 表示数组中的最后一个元素，`-2` 表示倒数第二个元素，依此类推。
-* 超出范围：如果 `index < -array.length`，则从索引 0 开始搜索。
+* 负数：负整数从数组中的最后一个项目向后计数。`-1` 表示数组中的最后一个元素，`-2` 表示倒数第二个元素，依此类推。
+* 超出范围：如果 `index < -(array.length)`，则从索引 0 开始搜索。如果 `index` >= `array.length`，则不会进行搜索，您应该返回 -1。
 
 ```js
 const arr = [1, 2, 3, 4, 5];

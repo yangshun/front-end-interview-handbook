@@ -3,7 +3,7 @@ title: 交集
 excerpt: 实现一个计算数组交集的函数，返回一个新数组，其中包含所有给定数组中存在的唯一值。
 ---
 
-实现一个 JavaScript 函数 `intersection(arrays)`，它接受多个数组作为输入，并返回一个新数组，其中包含所有给定数组中存在的唯一值 [`SameValueZero`](http://ecma-international.org/ecma-262/7.0/#sec-samevaluezero) 用于相等性比较。 结果值的顺序和引用由第一个数组确定。
+实现一个JavaScript函数`intersection(arrays)`，它接受多个数组作为输入，并返回一个新数组，该数组包含所有给定数组中存在的唯一值[`SameValueZero`](http://ecma-international.org/ecma-262/7.0/#sec-samevaluezero)用于相等性比较。**返回数组中的值的顺序由第一个数组决定。**
 
 ```js
 intersection(...arrays);
@@ -25,6 +25,9 @@ const arr2 = [2, 3, 4];
 const arr3 = [3, 4, 5];
 
 intersection(arr1, arr2, arr3); // => [3]
+
+const arr4 = [1, 5, 7, 9, 7];
+intersection(arr4); // [1, 5, 7, 9]
 ```
 
 ## 约束
@@ -33,6 +36,7 @@ intersection(arr1, arr2, arr3); // => [3]
 * 输入数组的长度可能不同。
 * 输入数组可能为空。
 * 该函数不应修改原始数组。
+* 0 \<= 数组数量 \<= 20
 
 ## 资源
 

@@ -1,10 +1,11 @@
 {
   "include": ["./**/*"],
   "compilerOptions": {
+    "target": "es2020",
     "strict": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    "lib": ["dom", "esnext"],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "jsx": "react-jsx"
   }
 }

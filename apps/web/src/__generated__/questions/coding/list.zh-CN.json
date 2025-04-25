@@ -517,7 +517,7 @@
     ]
   },
   {
-    "access": "free",
+    "access": "standard",
     "author": null,
     "companies": [],
     "created": 1671667200,
@@ -550,6 +550,40 @@
     "topics": [
       "binary-search",
       "sorting"
+    ]
+  },
+  {
+    "access": "standard",
+    "author": null,
+    "companies": [],
+    "created": 1745539200,
+    "difficulty": "medium",
+    "duration": 15,
+    "excerpt": "Implement a binary search tree data structure including essential BST operations",
+    "featured": false,
+    "format": "algo",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/algo/binary-search-tree",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "heap",
+      "binary-search"
+    ],
+    "slug": "binary-search-tree",
+    "subtitle": null,
+    "title": "Binary Search Tree",
+    "topics": [
+      "binary-tree",
+      "binary-search-tree",
+      "tree"
     ]
   },
   {
@@ -611,6 +645,39 @@
     "topics": [
       "binary-tree",
       "binary-search-tree",
+      "tree"
+    ]
+  },
+  {
+    "access": "standard",
+    "author": null,
+    "companies": [],
+    "created": 1716422400,
+    "difficulty": "medium",
+    "duration": 15,
+    "excerpt": "Implement a binary tree data structure including essential operations",
+    "featured": false,
+    "format": "algo",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/algo/binary-tree",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "binary-search-tree",
+      "binary-search"
+    ],
+    "slug": "binary-tree",
+    "subtitle": null,
+    "title": "Binary Tree",
+    "topics": [
+      "binary-tree",
       "tree"
     ]
   },
@@ -959,6 +1026,40 @@
     "title": "Breadth-first Search",
     "topics": [
       "bfs"
+    ]
+  },
+  {
+    "access": "standard",
+    "author": null,
+    "companies": [],
+    "created": 1745539200,
+    "difficulty": "easy",
+    "duration": 15,
+    "excerpt": "Implement a function that performs a bubble sort",
+    "featured": false,
+    "format": "algo",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/algo/bubble-sort",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [
+      "quick-sort"
+    ],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "insertion-sort",
+      "selection-sort"
+    ],
+    "slug": "bubble-sort",
+    "subtitle": null,
+    "title": "Bubble Sort",
+    "topics": [
+      "sorting"
     ]
   },
   {
@@ -1793,6 +1894,38 @@
     "topics": [
       "a11y",
       "async"
+    ]
+  },
+  {
+    "access": "free",
+    "author": null,
+    "companies": [],
+    "created": 1745539200,
+    "difficulty": "medium",
+    "duration": 20,
+    "excerpt": "Implement Dijkstra's algorithm to find the shortest paths from a source vertex in a graph represented as an adjacency list.",
+    "featured": false,
+    "format": "algo",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/algo/dijkstra",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "depth-first-search"
+    ],
+    "slug": "dijkstra",
+    "subtitle": null,
+    "title": "Dijkstra's Algorithm",
+    "topics": [
+      "dfs",
+      "graph"
     ]
   },
   {
@@ -2758,6 +2891,39 @@
     ]
   },
   {
+    "access": "standard",
+    "author": null,
+    "companies": [],
+    "created": 1745539200,
+    "difficulty": "hard",
+    "duration": 15,
+    "excerpt": "Implement a heap data structure containing essential heap operations",
+    "featured": false,
+    "format": "algo",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/algo/heap",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [
+      "heap-sort"
+    ],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "binary-search-tree"
+    ],
+    "slug": "heap",
+    "subtitle": null,
+    "title": "Heap",
+    "topics": [
+      "heap"
+    ]
+  },
+  {
     "access": "free",
     "author": null,
     "companies": [],
@@ -3360,6 +3526,38 @@
     "topics": [
       "async",
       "networking"
+    ]
+  },
+  {
+    "access": "free",
+    "author": null,
+    "companies": [],
+    "created": 1745539200,
+    "difficulty": "medium",
+    "duration": 20,
+    "excerpt": "Implement a linked list data structure containing the common linked list methods",
+    "featured": false,
+    "format": "algo",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/algo/linked-list",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "stack",
+      "queue"
+    ],
+    "slug": "linked-list",
+    "subtitle": null,
+    "title": "Linked List",
+    "topics": [
+      "linked-list"
     ]
   },
   {

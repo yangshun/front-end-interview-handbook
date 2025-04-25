@@ -12,8 +12,14 @@ findIndex(array, predicate, [(fromIndex = 0)]);
 ## Arguments
 
 1. `array` _(Array)_: The array to inspect.
-1. `predicate` _(Function)_: The function invoked per iteration. The function is invoked with three arguments: _(value, index, array)_.
+1. `predicate` _(Function)_: The function invoked per iteration.
 1. `[fromIndex=0]` _(number)_: The index to search from.
+
+Predicate signature: The `predicate` function is invoked with three arguments: `(value, index, array)`.
+
+- `value`: The current element being iterated.
+- `index`: The index of the current element.
+- `array`: The original input array.
 
 ## Returns
 
@@ -36,10 +42,10 @@ findIndex(arr, (num) => num > 10, 3); // => -1
 
 ## Edge cases
 
-Your function should handle negative and out of bound indices.
+Your function should handle negative and out of bound indices, as demonstrated in the examples below.
 
 - Negative: negative integers count back from the last item in the array. `-1` means the last element in the array, `-2` means the second last element, and so on.
-- Out of bound: if `index < -array.length`, start searching from index 0.
+- Out of bound: if `index < -(array.length)`, start searching from index 0. If `index` &gt;= `array.length`, no search will take place and you should return -1.
 
 ```js
 const arr = [1, 2, 3, 4, 5];

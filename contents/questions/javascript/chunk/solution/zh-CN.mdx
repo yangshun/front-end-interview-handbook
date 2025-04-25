@@ -26,23 +26,6 @@ import chunkPushTs from '../setup/src/chunk-push.ts';
 
 <MDXCodeBlock languages={{ jsx: chunkJs, tsx: chunkTs }} />
 
-## 注意
-
-关于在迭代数组时修改数组的边缘情况，Lodash 将对数组的浅层副本进行操作，以避免在迭代时修改原始数组。
-
-如果您想在迭代数组时修改它：
-
-```js
-for (let i = 0; i < array.length; i += size) {
-  const chunk = array.slice(i, i + size);
-  result.push(chunk);
-
-  // 制作当前块的浅层副本，并将其用作循环下一次迭代的下一个起点
-  array = array.slice();
-  array.splice(i, size, ...chunk);
-}
-```
-
 ## 资源
 
 * [Lodash `_.chunk`](https://lodash.com/docs/#chunk)

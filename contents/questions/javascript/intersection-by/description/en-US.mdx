@@ -3,13 +3,15 @@ title: Intersection By
 excerpt: Implement a function that returns an array of unique values that are included in all given arrays based on a provided iteratee function
 ---
 
-The `intersectionBy` function takes an `iteratee` function and multiple arrays as arguments. It creates an array of unique values that are included in all given arrays based on the result of applying the `iteratee` function to each value. The order and references of result values are determined by the first array. Note that the values returned are the values _before_ the `iteratee` function is applied, while the comparison is based on the values _after_ the `iteratee` function is applied.
+The `intersectionBy` function takes an `iteratee` function and multiple arrays as arguments. It first applies the `iteratee` function to transform the values in all arrays. Then, it identifies the set of transformed values that are common across all arrays. Finally, it returns an array containing the original values from the first array which correspond to these common transformed values.
 
-The iteratee function is invoked with one argument: `value`, where value is the current value being iterated.
+Note: The comparison to find common elements uses the values _after_ the iteratee is applied, but the final returned array contains the original values from the first array (_before_ the iteratee was applied).
 
 ```js
 intersectionBy(iteratee, ...arrays);
 ```
+
+The iteratee function is invoked with one argument: `value`, where value is the current value being iterated.
 
 ## Arguments
 
@@ -24,7 +26,10 @@ _(Array)_: Returns the new array of intersecting values.
 
 ```js
 // Get the intersection based on the floor value of each number
-const result = intersectionBy(Math.floor, [1.2, 2.4], [2.5, 3.6]); // => [2.4]
+const result = intersectionBy(Math.floor, [1.2, 2.4], [2.5, 3.6]);
+// Compares floored values ([1, 2] vs [2, 3]). Common floor value is 2.
+// Original value from the first array that floors to 2 is 2.4.
+// => [2.4]
 
 // Get the intersection based on the lowercase value of each string
 const result2 = intersectionBy(
@@ -32,15 +37,23 @@ const result2 = intersectionBy(
   ['apple', 'banana', 'ORANGE', 'orange'],
   ['Apple', 'Banana', 'Orange'],
 );
+// Common lowercase results are 'apple', 'banana', 'orange'.
+// Returns corresponding first-occurrence originals from the first array: 'apple', 'banana', 'ORANGE'.
 // => ['apple', 'banana', 'ORANGE']
+
+// Single array case
+intersectionBy(Math.floor, [1, 2.5, 3]); // => [1, 2.5, 3]
 ```
 
-## Notes
+## Constraints
 
-- In Lodash, `iteratee` is optional and is the last parameter, but in this question it is a required parameter for simplicity.
-- If no arrays are provided, the function will return an empty array.
-- If any of the arrays are empty, the function will return an empty array.
+- The input arrays may contain any type of values.
+- The input arrays may have varying lengths.
+- The input arrays may be empty.
+- The function should not modify the original arrays.
+- 0 &lt;= number of arrays &lt;= 20
 
 ## Resources
 
 - [Lodash `_.intersectionBy`](https://lodash.com/docs/#intersectionBy)
+- In Lodash, `iteratee` is optional and is the last parameter, but in this question it is a required parameter for simplicity.

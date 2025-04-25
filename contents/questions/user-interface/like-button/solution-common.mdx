@@ -2,7 +2,7 @@
 
 The focus of this question is in the handling of the various states when there's a pending request.
 
-### Data Model
+### Data model
 
 We'll need a few state variables:
 
@@ -10,17 +10,17 @@ We'll need a few state variables:
 - `isPending`: Determines if there's a pending background request.
 - `errorMessage`: Error message obtained from the back end when the API request fails.
 
-### Making Back End API Requests
+### Making API requests
 
-Writing code to make back end requests is pretty standard, in general you should use the following flow:
+Writing code to fetch data via an API request is pretty standard. In general, you should use the following flow:
 
-1. Set the UI to show a loading state.
-1. Clear the error message.
-1. Make the back end request via `fetch`
-1. Determine if the request has succeeded.
-   1. If the response has succeeded, update the UI to indicate success.
-   1. If the response has failed, update the UI to indicate failure by showing an error message.
-1. Remove the loading state.
+1. Set the UI to show a loading state
+2. Clear the error message
+3. Initiate the API request via `fetch`
+4. Determine if the request has succeeded
+   1. If the response succeeds, update the UI to indicate success
+   2. If the response fails, update the UI to indicate failure by showing an error message
+5. Remove the loading state
 
 The above is captured in the `likeUnlikeAction` function.
 

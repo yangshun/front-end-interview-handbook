@@ -39,7 +39,7 @@ After each traversal, the boundaries are adjusted inward, and the process contin
 ### Big-O analysis
 
 - **Time complexity: O(m.n)**. Each element in the matrix is visited exactly once.
-- **Space complexity: O(m.n)**. The result array `result` stores all elements of the matrix in spiral order.
+- **Space complexity: O(1)**. Ignoring the `result` array, the additional space required is constant.
 
 ## 2. Marking The Visited Element
 
@@ -75,4 +75,4 @@ This approach eliminates the need for explicitly tracking boundaries by dynamica
 ### Big-O analysis
 
 - **Time complexity: O(m.n)**. Each element in the matrix is visited exactly once.
-- **Space complexity: O(1)**. The traversal is performed in place, and no additional space is required apart from the result array.
+- **Space complexity: O(1)**. Ignoring the `result` array, the additional space required is constant.

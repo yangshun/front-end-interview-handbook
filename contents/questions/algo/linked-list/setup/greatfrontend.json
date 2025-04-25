@@ -1,0 +1,8 @@
+{
+  "run": "/src/linked-list.run.test.ts",
+  "submit": "/src/linked-list.submit.test.ts",
+  "skeleton": {
+    "js": "/src/linked-list.skeleton.js",
+    "ts": "/src/linked-list.skeleton.ts"
+  }
+}

@@ -4,17 +4,17 @@ export default function exist(grid: string[][], target: string): boolean {
 
   function backtrack(row: number, col: number, suffix: string): boolean {
     // Step 1: Check if we've matched the entire target word
-    if (suffix.length == 0) {
+    if (suffix.length === 0) {
       return true;
     }
 
     // Step 2: Check the boundaries and if the current cell matches the first character of the suffix
     if (
       row < 0 || // Out of bounds (top)
-      row == rows || // Out of bounds (bottom)
+      row === rows || // Out of bounds (bottom)
       col < 0 || // Out of bounds (left)
-      col == cols || // Out of bounds (right)
-      grid[row][col] != suffix.charAt(0) // Current cell doesn't match the suffix character
+      col === cols || // Out of bounds (right)
+      grid[row][col] !== suffix.charAt(0) // Current cell doesn't match the suffix character
     ) {
       return false;
     }

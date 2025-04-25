@@ -22,7 +22,6 @@ The problem involves finding if there are duplicate elements in an array. The br
 ### Big-O analysis
 
 - **Time complexity: O(n<sup>2</sup>)**. The outer loop iterates `n` times, and the inner loop iterates up to `n - i - 1` times, resulting in a quadratic time complexity.
-
 - **Space complexity: O(1)**. The algorithm uses a constant amount of additional space as it does not rely on any auxiliary data structures.
 
 ## 2. Using Sorting
@@ -42,7 +41,6 @@ The previous brute force solution has unnecessary work of checking all pairs. To
 ### Big-O analysis
 
 - **Time complexity: O(n log n)**. The sorting operation dominates the runtime with O(n log n). The subsequent linear traversal of the sorted array has a complexity of O(n), which is insignificant compared to the sorting step.
-
 - **Space complexity: O(1)**. The sorting is performed in-place, and the algorithm does not use any additional data structures, resulting in constant space usage.
 
 ## 3. Using Set

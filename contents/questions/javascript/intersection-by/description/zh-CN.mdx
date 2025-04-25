@@ -3,13 +3,15 @@ title: Intersection By
 excerpt: 实现一个函数，该函数根据提供的迭代函数返回一个包含所有给定数组中包含的唯一值的数组。
 ---
 
- `intersectionBy` 函数接受一个 `iteratee` 函数和多个数组作为参数。它创建一个唯一值的数组，这些值包含在所有给定的数组中，基于将 `iteratee` 函数应用于每个值的结果。结果值的顺序和引用由第一个数组决定。请注意，返回的值是*在*应用 `iteratee` 函数*之前*的值，而比较是基于*在*应用 `iteratee` 函数*之后*的值。
+ `intersectionBy` 函数接受一个 `iteratee` 函数和多个数组作为参数。它首先应用 `iteratee` 函数来转换所有数组中的值。然后，它识别所有数组共有的转换后的值集合。最后，它返回一个数组，其中包含第一个数组中与这些公共转换值对应的原始值。
 
-iteratee 函数使用一个参数调用：`value`，其中 value 是当前正在迭代的值。
+注意：用于查找公共元素的比较使用应用 `iteratee` *之后* 的值，但最终返回的数组包含第一个数组中的原始值（*在*应用 `iteratee` 之前）。
 
 ```js
 intersectionBy(iteratee, ...arrays);
 ```
+
+iteratee 函数使用一个参数调用：`value`，其中 value 是当前正在迭代的值。
 
 ## 参数
 
@@ -24,7 +26,10 @@ intersectionBy(iteratee, ...arrays);
 
 ```js
 // 根据每个数字的向下取整值获取交集
-const result = intersectionBy(Math.floor, [1.2, 2.4], [2.5, 3.6]); // => [2.4]
+const result = intersectionBy(Math.floor, [1.2, 2.4], [2.5, 3.6]);
+// 比较向下取整后的值 ([1, 2] vs [2, 3])。公共向下取整值是 2。
+// 第一个数组中向下取整为 2 的原始值是 2.4。
+// => [2.4]
 
 // 根据每个字符串的小写值获取交集
 const result2 = intersectionBy(
@@ -32,15 +37,23 @@ const result2 = intersectionBy(
   ['apple', 'banana', 'ORANGE', 'orange'],
   ['Apple', 'Banana', 'Orange'],
 );
+// 公共小写结果是 'apple', 'banana', 'orange'。
+// 返回第一个数组中对应的首次出现的原始值：'apple', 'banana', 'ORANGE'。
 // => ['apple', 'banana', 'ORANGE']
+
+// 单个数组的情况
+intersectionBy(Math.floor, [1, 2.5, 3]); // => [1, 2.5, 3]
 ```
 
-## 注意事项
+## 约束
 
-* 在 Lodash 中，`iteratee` 是可选的，并且是最后一个参数，但在本问题中，为了简单起见，它是一个必需的参数。
-* 如果未提供任何数组，则该函数将返回一个空数组。
-* 如果任何数组为空，则该函数将返回一个空数组。
+* 输入数组可以包含任何类型的值。
+* 输入数组的长度可能不同。
+* 输入数组可能为空。
+* 该函数不应修改原始数组。
+* 0 \<= 数组数量 \<= 20
 
 ## 资源
 
 * [Lodash `_.intersectionBy`](https://lodash.com/docs/#intersectionBy)
+* 在 Lodash 中，`iteratee` 是可选的，并且是最后一个参数，但在本问题中，为了简单起见，它是一个必需的参数。

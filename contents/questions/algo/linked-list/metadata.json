@@ -1,0 +1,15 @@
+{
+  "slug": "linked-list",
+  "created": "2025-04-25T00:00:00.000Z",
+  "languages": ["js", "ts"],
+  "companies": [],
+  "access": "free",
+  "duration": 20,
+  "published": true,
+  "featured": false,
+  "importance": "low",
+  "difficulty": "medium",
+  "similar_questions": ["stack", "queue"],
+  "next_questions": [],
+  "topics": ["linked-list"]
+}

@@ -7,7 +7,7 @@ import intersectionByTs from '../setup/src/intersection-by.ts';
 
 <MDXCodeBlock languages={{ jsx: intersectionByJs, tsx: intersectionByTs }} />
 
-The solution first maps each array using the iteratee function to transform the values. Then, it filters the values from the first mapped array that are present in all the other mapped arrays. Finally, it maps the intersected values back to the original values from the first array.
+The solution first creates Sets of transformed values from arrays 2 onwards using the iteratee for efficient lookups. It then filters the first array by checking if each element's transformed value is present in all these Sets via `has()`. Finally, it collects the corresponding original values from the first array that satisfy the condition.
 
 ## Resources
 

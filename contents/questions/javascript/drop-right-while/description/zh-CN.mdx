@@ -3,25 +3,48 @@ title: Drop Right While
 excerpt: 实现一个函数，该函数从数组末尾排除元素，直到谓词返回 false
 ---
 
-实现一个函数 `dropRightWhile(array, predicate)`，该函数创建一个 `array` 的切片，排除从末尾删除的元素。 元素被删除，直到 `predicate` 返回 falsey。 您的函数不应修改原始数组。
+给定一个 `predicate` 函数和一个 `array`，实现一个函数 `dropRightWhile(array, predicate)`。此函数应该创建一个 `array` 的切片，排除从末尾删除的元素。删除元素直到 `predicate` 返回 falsey。您的函数不应修改原始数组。`array` 可能会或可能不会按排序顺序排列。
 
 #### 参数
 
 1. `array` *(Array)*: 要查询的数组。
-2. `predicate` *(Function)*: 每次迭代调用的函数。 该函数使用三个参数调用：*(value, index, array)*。 请注意，传入的 *array* 是原始的 `array`。
+2. `predicate` *(Function)*: 每次迭代调用的函数。
+
+Predicate 签名：`predicate` 函数使用三个参数调用：`(value, index, array)`。您必须使用所有三个参数调用它。
+
+* `value`：当前正在迭代的元素。
+* `index`：当前元素的索引。
+* `array`：原始输入数组。
 
 #### 返回
 
-*(Array)*: 返回 `array` 的切片。
+*(Array)*：返回包含保留元素的 `array` 的切片。
 
 ## 例子
 
 ```js
-dropRightWhile([1, 2, 3, 4, 5], (value) => value > 3); // => [1, 2, 3]
-dropRightWhile([1, 2, 3], (value) => value < 6); // => []
-dropRightWhile([1, 2, 3, 4, 5], (value) => value > 6); // => [1, 2, 3, 4, 5]
+// Example 1: Basic usage
+dropRightWhile([1, 2, 3, 4, 5], (value, _index, _array) => value > 3);
+// => [1, 2, 3]
+// Explanation: Starts from right (5). 5 > 3 (true, drop). 4 > 3 (true, drop). 3 > 3 (false, stop). Returns [1, 2, 3].
+
+// Example 2: Predicate always true
+dropRightWhile([1, 2, 3], (value, _index, _array) => value < 6);
+// => []
+// Explanation: 3 < 6 (true, drop). 2 < 6 (true, drop). 1 < 6 (true, drop). Returns empty array.
+
+// Example 3: Predicate always false
+dropRightWhile([1, 2, 3, 4, 5], (value, _index, _array) => value > 6);
+// => [1, 3, 2, 4, 5]
+// Explanation: 5 > 6 (false, stop immediately). Returns the original array slice.
+
+// Example 4: Using the `index` argument
+dropRightWhile([1, 2, 3, 4, 5], (_value, index, _array) => index > 2);
+// => [1, 2, 3]
+// Explanation: Starts at index 4. 4 > 2 (true, drop). Index 3. 3 > 2 (true, drop). Index 2. 2 > 2 (false, stop). Returns [1, 2, 3].
+
+// Example 5: Using the `array` argument
+dropRightWhile([10, 11, 12, 4, 5], (value, _index, array) => value < array[1]);
+// => [1, 2, 3]
+// Explanation: array[1] = 11. 5 < 11 (true, drop). 4 < 11 (true, drop). 12 < 11 (false, stop). Returns [10, 11, 12].
 ```
-
-## 资源
-
-* [Lodash `_.dropRightWhile`](https://lodash.com/docs/#dropRightWhile)

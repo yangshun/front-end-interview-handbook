@@ -4,7 +4,7 @@ import breadthFirstSearchJs from '../setup/src/breadth-first-search.js';
 import breadthFirstSearchTs from '../setup/src/breadth-first-search.ts';
 import breadthFirstSearchRecursive from '../setup/src/breadthFirstSearchRecursive';
 
-## Clarification Questions
+## Clarification questions
 
 If unspecified:
 
@@ -27,19 +27,23 @@ We can also perform BFS recursively, which is can be more intuitive in certain c
 
 <MDXCodeBlock>{breadthFirstSearchRecursive}</MDXCodeBlock>
 
-## Edge Cases
+## Edge cases
 
-- Empty graphs: Return an empty array without crashing.
-- Graphs with only one-two nodes: Traverse without crashing.
-- Cyclic graphs: Make sure not to traverse visited nodes again.
-- Disjoint graphs: Doesn't require special handling but good to be aware of.
+- **Empty graphs**: Return an empty array without crashing.
+- **Graphs with only one-two nodes**: Traverse without crashing.
+- **Cyclic graphs**: Make sure not to traverse visited nodes again.
+- **Disjoint graphs**: Doesn't require special handling but good to be aware of.
 
-## Time Complexity
+## Big-O analysis
+
+Let's analyze the algorithm's time and space complexity.
+
+### Time complexity
 
 In the worst case, BFS visits every vertex and every edge of the graph once. Therefore, the time complexity of BFS is O(V + E), where V is the number of vertices in the graph and E is the number of edges. This is because BFS has to explore all vertices and edges to ensure that it covers the entire graph.
 
 Take note that you should not use `Array.shift()` as it takes O(n) time to dequeue, where n is the number of elements in the array.
 
-## Space Complexity
+### Space complexity
 
 BFS uses a queue to keep track of the nodes to be visited. At any given time, the queue contains the nodes that are at the current level of the graph being explored. Therefore, the space complexity of BFS is O(maximum number of nodes in any level of the graph).

@@ -7,7 +7,7 @@ Selection sort is a sorting algorithm that works great for small arrays, or arra
 
 It has a time complexity of O(n<sup>2</sup>), which means that it is discouraged for sorting large arrays. It is not generally used in practice.
 
-## Clarification Questions
+## Clarification questions
 
 If unspecified:
 
@@ -24,7 +24,7 @@ Note: This question tackles sorting for an output in ascending order. Refer to t
 
 <MDXCodeBlock languages={{ jsx: selectionSortJs, tsx: selectionSortTs }} />
 
-## Edge Cases
+## Edge cases
 
 - Non-integer element input: If the input array comprises of elements of different data types, you may need to return an error, settle for sorting on a best-effort basis, for e.g., only sorting a subset of the input data, or even define custom comparison functions for non-integers.
 - Single element / Empty input: Either return the original data structure, raise an error, or clarify required handling.
@@ -44,11 +44,15 @@ if (arr[j] >= arr[maxIndex]) {
 
 - If asked to use additional data structures or to write a pure function rather than sorting the data in-place, use a spread operator to create a new array before applying the sort.
 
-## Time Complexity
+## Big-O analysis
+
+Let's analyze the algorithm's time and space complexity.
+
+### Time complexity
 
 The time complexity of selection sort is O(n<sup>2</sup>) - the same in all cases. This can be derived by observing the number of loops. There are 2 loops so the complexity is O(n<sup>2</sup>).
 
-## Space Complexity
+### Space complexity
 
 The space complexity of selection sort is O(1) when performed in-place, as it only requires a constant amount of extra space for storing variables.
 

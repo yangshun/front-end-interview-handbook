@@ -1,0 +1,39 @@
+---
+title: Binary Tree
+excerpt: Implement a binary tree data structure including essential operations
+---
+
+Implement a binary tree data structure with the following operations:
+
+- `new BinaryTree()`: Create an instance of a `BinaryTree`. The root is initialized to `null`, indicating the tree starts empty.
+- `size()`: Return the number of nodes in the tree. Required time complexity: O(n), where n is the number of nodes in the tree.
+- `height()`: Return the height of the tree, defined as the number of edges on the longest path from the root to a leaf. The height of an empty tree is 0. Required time complexity: O(n).
+- `inOrder()`: Return an array of values from an in-order traversal. Required time complexity: O(n).
+- `preOrder()`: Return an array of values from a pre-order traversal. Required time complexity: O(n).
+- `postOrder()`: Return an array of values from a post-order traversal. Required time complexity: O(n).
+- `isBalanced()`: Return `true` if the tree is balanced. A binary tree is balanced if, for every node in the tree, the height difference between its left and right subtrees is at most 1. Required time complexity: O(n).
+- `isComplete()`: Return `true` if the tree is complete. A binary tree is complete if all levels are fully filled, except possibly the last, which must be filled from left to right. Required time complexity: O(n).
+
+> Use the helper class `BinaryTreeNode` to represent nodes, with `value`, `left`, and `right` properties.
+
+## Examples
+
+```js
+const tree = new BinaryTree();
+tree.root = new BinaryTreeNode(10);
+tree.root.left = new BinaryTreeNode(5);
+tree.root.right = new BinaryTreeNode(15);
+
+tree.size(); // 3
+tree.height(); // 1
+tree.inOrder(); // [5, 10, 15]
+tree.preOrder(); // [10, 5, 15]
+tree.postOrder(); // [5, 15, 10]
+tree.isBalanced(); // true
+tree.isComplete(); // true
+```
+
+## Constraints
+
+- 0 &lt;= Number of nodes &lt;= 100
+- Each node in a binary tree has at most one left child and one right child

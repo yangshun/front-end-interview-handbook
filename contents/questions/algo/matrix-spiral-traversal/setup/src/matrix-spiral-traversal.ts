@@ -18,14 +18,14 @@ export default function matrixSpiralTraversal(matrix: number[][]): number[] {
       result.push(matrix[row][right]);
     }
     // Make sure we are now on a different row to avoid reprocessing
-    if (up != down) {
+    if (up !== down) {
       // Traverse from right to left along the bottom row
       for (let col = right - 1; col >= left; col--) {
         result.push(matrix[down][col]);
       }
     }
     // Make sure we are now on a different column to avoid reprocessing
-    if (left != right) {
+    if (left !== right) {
       // Traverse upwards along the left column
       for (let row = down - 1; row > up; row--) {
         result.push(matrix[row][left]);

@@ -2,21 +2,49 @@ export default function intersectionBy<T, R>(
   iteratee: (value: T) => R,
   ...arrays: Array<Array<T>>
 ): Array<T> {
-  if (arrays.length === 0) {
+  if (arrays.length == 0) {
     return [];
   }
 
-  const mappedArrays = arrays.map((array) => array.map(iteratee));
-  let intersectedValues = mappedArrays[0].filter((value) => {
-    return mappedArrays.every((mappedArray) => mappedArray.includes(value));
-  });
+  if (arrays.length === 1) {
+    const uniqueSet = new Set<R>();
+    const result = [];
+    for (const value of arrays[0]) {
+      const transformedValue = iteratee(value);
 
-  intersectedValues = intersectedValues.filter((value, index, self) => {
-    return self.indexOf(value) === index;
-  });
+      if (!uniqueSet.has(transformedValue)) {
+        uniqueSet.add(transformedValue);
+        result.push(value);
+      }
+    }
+    return result;
+  }
 
-  return intersectedValues.map((value) => {
-    const index = mappedArrays[0].indexOf(value);
-    return arrays[0][index];
-  });
+  // If any array is empty, the intersection is empty
+  if (arrays.some((arr) => arr.length === 0)) {
+    return [];
+  }
+
+  // Create Sets of transformed values for arrays 2 onwards for O(1) lookup
+  const subsequentSets = arrays
+    .slice(1)
+    .map((array) => new Set(array.map(iteratee)));
+
+  const result = [];
+  const includedTransformedValues = new Set<R>();
+
+  // Check elements from the first array against the sets.
+  for (const value of arrays[0]) {
+    const transformedValue = iteratee(value);
+
+    if (
+      !includedTransformedValues.has(transformedValue) &&
+      subsequentSets.every((set) => set.has(transformedValue))
+    ) {
+      result.push(value); // Add the original value.
+      includedTransformedValues.add(transformedValue); // Mark transformed value as included.
+    }
+  }
+
+  return result;
 }
