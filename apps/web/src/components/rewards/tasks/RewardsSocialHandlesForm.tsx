@@ -21,6 +21,7 @@ import Tooltip from '~/components/ui/Tooltip';
 
 import {
   cleanGitHubUserInput,
+  cleanInstagramUserInput,
   cleanLinkedInUserInput,
   cleanTwitterUserInput,
 } from './RewardsSocialHandlesUtils';
@@ -71,7 +72,7 @@ export default function RewardsSocialHandlesForm({
           gitHubUsername: cleanGitHubUserInput(
             (formData.get('github') ?? '').toString(),
           ),
-          instagramUsername: cleanTwitterUserInput(
+          instagramUsername: cleanInstagramUserInput(
             (formData.get('instagram') ?? '').toString(),
           ),
           linkedInUsername: cleanLinkedInUserInput(
