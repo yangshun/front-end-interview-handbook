@@ -8,7 +8,6 @@ import { useIntl } from '~/components/intl';
 import EmptyState from '~/components/ui/EmptyState';
 
 import logEvent from '~/logging/logEvent';
-import { cdnUrl } from '~/utils/cdnUrl';
 import { getErrorMessage } from '~/utils/getErrorMessage';
 
 import getLanguageFromFilePath from './getLanguageFromFilePath';
@@ -23,8 +22,8 @@ import MonacoEditor, { loader, useMonaco } from '@monaco-editor/react';
 function monacoUrl() {
   return process.env.NODE_ENV === 'development'
     ? // Keep version synced with `monaco-editor` in package.json.
-      cdnUrl('/monaco-editor/dev/vs')
-    : cdnUrl('/monaco-editor/min/vs');
+      '/monaco-editor/dev/vs'
+    : '/monaco-editor/min/vs';
 }
 
 loader.config({
