@@ -80,7 +80,7 @@ Does your UI provide a great user experience?
   - Make interactive elements like buttons large enough to be pressed (recommend at least 44 x 44 px) and spaced widely enough.
 - **Error states**: Reflect errors promptly and clearly — form validation errors, network request errors.
 - **Handle rendering images of different dimensions**: Make your UI work for rendering images of all sizes/dimensions yet preserving the original aspect ratios.
-  - Use CSS `background-image` together with `background-position: contain` so that the image fits within your defined area. If it is ok for the image to be cropped off (e.g. for gradient backgrounds), use `background-position: cover`.
+  - Use CSS `background-image` together with `background-size: contain` so that the image fits within your defined area. If it is ok for the image to be cropped off (e.g. for gradient backgrounds), use `background-size: cover`.
   - `<img>` tags have a similar `object-fit` property with `contain` and `cover` values.
 - **Optimistic updates**: Advanced technique where the success state is reflected even though the network request is still pending. If the request fails, revert the UI changes and show an error message.
 
