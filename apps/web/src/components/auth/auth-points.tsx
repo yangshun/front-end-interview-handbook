@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
 import { useGreatStorageLocal } from '~/hooks/useGreatStorageLocal';
 
@@ -74,46 +74,56 @@ export function useAuthPointOnActions(
     authPoints,
   } = useAuthPoints();
 
-  function increaseAuthPoints(
-    entityType: EntityType,
-    entityId: string,
-  ): Readonly<{
-    maxAuthPointsReached: boolean;
-  }> {
-    if (session || isUserLoading) {
-      return {
-        maxAuthPointsReached: false,
-      };
-    }
-    if (authPoints > MAX_POINTS) {
-      showAuthSignupDialog();
+  const increaseAuthPoints = useCallback(
+    (
+      entityType: EntityType,
+      entityId: string,
+    ): Readonly<{
+      maxAuthPointsReached: boolean;
+    }> => {
+      if (session || isUserLoading) {
+        return {
+          maxAuthPointsReached: false,
+        };
+      }
+      if (authPoints > MAX_POINTS) {
+        showAuthSignupDialog();
+
+        return {
+          maxAuthPointsReached: true,
+        };
+      }
+
+      const entityItem = `${entityType}:${entityId}`;
+
+      if (authPointEntities.includes(entityItem)) {
+        return {
+          maxAuthPointsReached: false,
+        };
+      }
+
+      const updated = [...authPointEntities, entityItem];
+
+      const newPoints = calculateAuthPoints(updated);
+
+      if (newPoints > MAX_POINTS) {
+        showAuthSignupDialog();
+      }
+      setAuthPointEntities(updated);
 
       return {
-        maxAuthPointsReached: true,
+        maxAuthPointsReached: newPoints > MAX_POINTS,
       };
-    }
-
-    const entityItem = `${entityType}:${entityId}`;
-
-    if (authPointEntities.includes(entityItem)) {
-      return {
-        maxAuthPointsReached: false,
-      };
-    }
-
-    const updated = [...authPointEntities, entityItem];
-
-    const newPoints = calculateAuthPoints(updated);
-
-    if (newPoints > MAX_POINTS) {
-      showAuthSignupDialog();
-    }
-    setAuthPointEntities(updated);
-
-    return {
-      maxAuthPointsReached: newPoints > MAX_POINTS,
-    };
-  }
+    },
+    [
+      authPointEntities,
+      authPoints,
+      isUserLoading,
+      session,
+      setAuthPointEntities,
+      showAuthSignupDialog,
+    ],
+  );
 
   return {
     authPoints,
@@ -142,7 +152,7 @@ export function useAuthActiveEngagementPoints(
       return;
     }
 
-    const startTracking = () => {
+    function startTracking() {
       if (intervalRef.current || hasIncreasedPoints) {
         return;
       }
@@ -160,22 +170,22 @@ export function useAuthActiveEngagementPoints(
           stopTracking();
         }
       }, 1000);
-    };
+    }
 
-    const stopTracking = () => {
+    function stopTracking() {
       if (intervalRef.current) {
         clearInterval(intervalRef.current);
         intervalRef.current = null;
       }
-    };
+    }
 
-    const handleVisibilityChange = () => {
+    function handleVisibilityChange() {
       if (document.hidden) {
         stopTracking();
       } else {
         startTracking();
       }
-    };
+    }
 
     document.addEventListener('visibilitychange', handleVisibilityChange);
     startTracking();
