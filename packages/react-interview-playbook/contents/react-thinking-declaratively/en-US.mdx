@@ -164,7 +164,7 @@ Actions are triggered in response to two kinds of events:
 
 For the todo list at hand, we only need to care about user events.
 
-However, it is advisable to write a function for each of these actions, and call the state setters within each action function. This is because the same operation can be triggered from many places on the UI, or even in the background. An example is a video player where there to pause the video, users can either press the "Pause" button or press the spacebar.
+However, it is advisable to write a function for each of these actions, and call the state setters within each action function. This is because the same operation can be triggered from many places on the UI, or even in the background. An example is a video player, where, to pause the video, users can either press the "Pause" button or press the spacebar.
 
 Centralizing state update logic within these action functions will help to keep the code maintainable.
 
