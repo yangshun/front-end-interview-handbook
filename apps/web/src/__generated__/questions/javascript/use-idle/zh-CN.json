@@ -7,6 +7,10 @@
     "/src/use-idle.submit.test.ts": "import { act, fireEvent, renderHook } from '@testing-library/react';\nimport userEvent from '@testing-library/user-event';\nimport FakeTimers from '@sinonjs/fake-timers';\n\nimport useIdle from './use-idle';\n\nlet clock: FakeTimers.InstalledClock;\n\ndescribe('useIdle', () => {\n  beforeEach(() => {\n    clock = FakeTimers.withGlobal(globalThis).install();\n  });\n\n  afterEach(() => {\n    clock.uninstall();\n  });\n\n  test('return values', () => {\n    const { result } = renderHook(() => useIdle());\n\n    expect(result.current).toBe(false);\n  });\n\n  test('idle after timeout', () => {\n    const { result } = renderHook(() => useIdle());\n\n    act(() => clock.tick(60_000));\n\n    expect(result.current).toBe(true);\n  });\n\n  test('not idle after click', () => {\n    const user = userEvent.setup();\n    const { result } = renderHook(() => useIdle());\n\n    act(() => {\n      clock.tick(30_000);\n      user.click(document.body);\n      clock.tick(30_000);\n    });\n\n    expect(result.current).toBe(false);\n  });\n\n  test('not idle after key press', () => {\n    const user = userEvent.setup();\n    const { result } = renderHook(() => useIdle());\n\n    act(() => {\n      clock.tick(30_000);\n      user.keyboard('a');\n      clock.tick(30_000);\n    });\n\n    expect(result.current).toBe(false);\n  });\n\n  test('not idle after hover', () => {\n    const user = userEvent.setup();\n    const { result } = renderHook(() => useIdle());\n\n    act(() => {\n      clock.tick(30_000);\n      user.hover(document.body);\n      clock.tick(30_000);\n    });\n\n    expect(result.current).toBe(false);\n  });\n\n  test('not idle after resize', () => {\n    const { result } = renderHook(() => useIdle());\n\n    act(() => {\n      clock.tick(30_000);\n      fireEvent.resize(window);\n      clock.tick(30_000);\n    });\n\n    expect(result.current).toBe(false);\n  });\n\n  test('document visibility change', () => {\n    const { result } = renderHook(() => useIdle());\n\n    act(() => {\n      Object.defineProperties(document, {\n        hidden: { value: true, writable: true },\n        visibilityState: { value: 'hidden', writable: true },\n      });\n\n      fireEvent(document, new Event('visibilitychange'));\n      clock.tick(60_000);\n    });\n\n    expect(result.current).toBe(true);\n\n    act(() => {\n      Object.defineProperties(document, {\n        hidden: { value: false, writable: true },\n        visibilityState: { value: 'visible', writable: true },\n      });\n\n      fireEvent(document, new Event('visibilitychange'));\n    });\n\n    expect(result.current).toBe(false);\n  });\n\n  test('remove event listeners on unmount', () => {\n    const { result, unmount } = renderHook(() => useIdle());\n\n    expect(result.current).toBe(false);\n\n    unmount();\n    act(() => clock.tick(60_000));\n\n    expect(result.current).toBe(false);\n  });\n});\n",
     "/src/use-idle.ts": "import { useEffect, useState } from 'react';\n\nconst DEFAULT_EVENTS: (keyof WindowEventMap)[] = [\n  'mousemove',\n  'mousedown',\n  'resize',\n  'keydown',\n  'touchstart',\n  'wheel',\n];\n\nexport default function useIdle(\n  ms = 60_000,\n  initialState = false,\n  events: (keyof WindowEventMap)[] = DEFAULT_EVENTS,\n): boolean {\n  const [idle, setIdle] = useState<boolean>(initialState);\n\n  useEffect(() => {\n    let timeoutId: number;\n\n    function handleTimeout() {\n      setIdle(true);\n    }\n\n    function handleEvent() {\n      setIdle(false);\n\n      clearTimeout(timeoutId);\n      timeoutId = window.setTimeout(handleTimeout, ms);\n    }\n\n    function handleVisibilityChange() {\n      if (document.hidden) {\n        return;\n      }\n\n      handleEvent();\n    }\n\n    timeoutId = setTimeout(handleTimeout, ms);\n\n    events.forEach((event) => window.addEventListener(event, handleEvent));\n    document.addEventListener('visibilitychange', handleVisibilityChange);\n\n    return () => {\n      clearTimeout(timeoutId);\n\n      events.forEach((event) => window.removeEventListener(event, handleEvent));\n      document.removeEventListener('visibilitychange', handleVisibilityChange);\n    };\n  });\n\n  return idle;\n}\n"
   },
+  "info": {
+    "excerpt": "实现一个检测用户不活动状态的 Hook",
+    "title": "useIdle"
+  },
   "metadata": {
     "access": "premium",
     "author": "phillmont",
@@ -14,7 +18,6 @@
     "created": 1742169600,
     "difficulty": "medium",
     "duration": 20,
-    "excerpt": "实现一个检测用户不活动状态的 Hook",
     "featured": false,
     "format": "javascript",
     "frameworkDefault": "react",
@@ -36,7 +39,6 @@
     "similarQuestions": [],
     "slug": "use-idle",
     "subtitle": null,
-    "title": "useIdle",
     "topics": [
       "react-hooks"
     ]

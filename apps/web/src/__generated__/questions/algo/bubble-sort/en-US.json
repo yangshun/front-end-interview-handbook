@@ -7,6 +7,10 @@
     "/src/bubble-sort.submit.test.ts": "import bubbleSort from './bubble-sort';\n\ndescribe('bubbleSort', () => {\n  test('empty', () => {\n    expect(bubbleSort([])).toEqual([]);\n  });\n\n  test('one element', () => {\n    expect(bubbleSort([1])).toEqual([1]);\n  });\n\n  test('two elements', () => {\n    expect(bubbleSort([2, 1])).toEqual([1, 2]);\n    expect(bubbleSort([1, 2])).toEqual([1, 2]);\n  });\n\n  test('more than two elements', () => {\n    expect(bubbleSort([10, 2, 4])).toEqual([2, 4, 10]);\n    expect(bubbleSort([4, 5, 6, 1, 2, 3])).toEqual([1, 2, 3, 4, 5, 6]);\n    expect(bubbleSort([1, 2, 3, 4, 5, 0])).toEqual([0, 1, 2, 3, 4, 5]);\n    expect(bubbleSort([10, 9, 8, 7, 6, 5, 4, 3, 2, 1])).toEqual([\n      1, 2, 3, 4, 5, 6, 7, 8, 9, 10,\n    ]);\n    expect(bubbleSort([5, 4, 3, 2, 1, 10, 9, 8, 7, 6])).toEqual([\n      1, 2, 3, 4, 5, 6, 7, 8, 9, 10,\n    ]);\n    expect(bubbleSort([98322, 3242, 876, -234, 34, 12331])).toEqual([\n      -234, 34, 876, 3242, 12331, 98322,\n    ]);\n  });\n\n  test('duplicate elements', () => {\n    expect(bubbleSort([1, 1])).toEqual([1, 1]);\n    expect(bubbleSort([2, 2, 2])).toEqual([2, 2, 2]);\n    expect(bubbleSort([2, 1, 2])).toEqual([1, 2, 2]);\n    expect(bubbleSort([1, 1, 1, 1, 1, 1])).toEqual([1, 1, 1, 1, 1, 1]);\n    expect(bubbleSort([7, 2, 4, 3, 1, 2])).toEqual([1, 2, 2, 3, 4, 7]);\n  });\n});\n",
     "/src/bubble-sort.ts": "export default function bubbleSort(arr: Array<number>): Array<number> {\n  // Do multiple iterations over the array.\n  for (let i: number = 0; i < arr.length; i++) {\n    // For each iteration, compare every adjacent pairs while ignoring the last i elements that are already sorted.\n    for (let j: number = 0; j < arr.length - i; j++) {\n      // If the left element in the pair is larger than the right one, swap their positions to ensure that elements are sorted ascendingly.\n      if (arr[j] > arr[j + 1]) {\n        let temp: number = arr[j];\n        arr[j] = arr[j + 1];\n        arr[j + 1] = temp;\n      }\n    }\n  }\n\n  // Return the sorted array.\n  return arr;\n}\n"
   },
+  "info": {
+    "excerpt": "Implement a function that performs a bubble sort",
+    "title": "Bubble Sort"
+  },
   "metadata": {
     "access": "standard",
     "author": null,
@@ -14,7 +18,6 @@
     "created": 1745539200,
     "difficulty": "easy",
     "duration": 15,
-    "excerpt": "Implement a function that performs a bubble sort",
     "featured": false,
     "format": "algo",
     "frameworkDefault": null,
@@ -36,7 +39,6 @@
     ],
     "slug": "bubble-sort",
     "subtitle": null,
-    "title": "Bubble Sort",
     "topics": [
       "sorting"
     ]

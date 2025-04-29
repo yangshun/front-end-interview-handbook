@@ -1,40 +1,44 @@
 {
-  "access": "standard",
-  "author": "yangshun",
-  "companies": [
-    "amazon",
-    "tiktok"
-  ],
-  "created": 1723766400,
-  "difficulty": "medium",
-  "duration": 20,
-  "excerpt": "Build a reusable modal dialog component that can be opened and closed",
-  "featured": false,
-  "format": "user-interface",
-  "frameworkDefault": "react",
-  "frameworks": [
-    {
-      "framework": "react",
-      "href": "/questions/user-interface/modal-dialog/react"
-    }
-  ],
-  "href": "/questions/user-interface/modal-dialog",
-  "importance": "low",
-  "languages": [
-    "html",
-    "js",
-    "css"
-  ],
-  "nextQuestions": [
-    "modal-dialog-ii"
-  ],
-  "published": true,
-  "ranking": 100,
-  "similarQuestions": [],
-  "slug": "modal-dialog",
-  "subtitle": null,
-  "title": "Modal Dialog",
-  "topics": [
-    "a11y"
-  ]
+  "info": {
+    "excerpt": "Build a reusable modal dialog component that can be opened and closed",
+    "title": "Modal Dialog"
+  },
+  "metadata": {
+    "access": "standard",
+    "author": "yangshun",
+    "companies": [
+      "amazon",
+      "tiktok"
+    ],
+    "created": 1723766400,
+    "difficulty": "medium",
+    "duration": 20,
+    "featured": false,
+    "format": "user-interface",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/user-interface/modal-dialog/react"
+      }
+    ],
+    "href": "/questions/user-interface/modal-dialog",
+    "importance": "low",
+    "languages": [
+      "html",
+      "js",
+      "css"
+    ],
+    "nextQuestions": [
+      "modal-dialog-ii"
+    ],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "modal-dialog",
+    "subtitle": null,
+    "topics": [
+      "a11y"
+    ]
+  }
 }

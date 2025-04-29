@@ -17,9 +17,9 @@ import TypeScriptLogo from '~/components/icons/TypeScriptLogo';
 import VueLogo from '~/components/icons/VueLogo';
 import InterviewsEntityProgress from '~/components/interviews/common/InterviewsEntityProgress';
 import type {
+  InterviewsQuestionItemMinimal,
   QuestionFramework,
   QuestionLanguage,
-  QuestionMetadata,
   QuestionSlug,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import { FormattedMessage, useIntl } from '~/components/intl';
@@ -108,11 +108,11 @@ type Props = Readonly<{
   questions: {
     frameworkQuestions: Record<
       QuestionFramework,
-      ReadonlyArray<QuestionMetadata>
+      ReadonlyArray<InterviewsQuestionItemMinimal>
     >;
     languageQuestions: Record<
       QuestionLanguage,
-      ReadonlyArray<QuestionMetadata>
+      ReadonlyArray<InterviewsQuestionItemMinimal>
     >;
   };
   questionsProgress: ReadonlyArray<

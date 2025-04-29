@@ -1,5 +1,9 @@
 {
   "description": null,
+  "info": {
+    "excerpt": null,
+    "title": "有哪些流行的 JavaScript 测试框架？"
+  },
   "metadata": {
     "access": "free",
     "author": null,
@@ -7,7 +11,6 @@
     "created": 1630800000,
     "difficulty": "easy",
     "duration": 5,
-    "excerpt": null,
     "featured": false,
     "format": "quiz",
     "frameworkDefault": null,
@@ -21,7 +24,6 @@
     "similarQuestions": [],
     "slug": "what-are-some-popular-javascript-testing-frameworks",
     "subtitle": null,
-    "title": "有哪些流行的 JavaScript 测试框架？",
     "topics": [
       "javascript",
       "testing"

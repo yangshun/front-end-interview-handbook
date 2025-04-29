@@ -7,6 +7,10 @@
     "/src/use-event-listener.submit.test.tsx": "import React, { useRef } from 'react';\nimport { act, fireEvent, render, renderHook } from '@testing-library/react';\n\nimport useEventListener from './use-event-listener';\n\ndescribe('useEventListener', () => {\n  test('return values', () => {\n    const { result } = renderHook(() => useEventListener('click', () => {}));\n\n    expect(result.current).toBe(undefined);\n  });\n\n  test('click', () => {\n    const handler = jest.fn();\n    renderHook(() => useEventListener('click', handler));\n\n    act(() => fireEvent.click(window));\n\n    expect(handler).toHaveBeenCalledTimes(1);\n  });\n\n  test('click element', async () => {\n    const handler = jest.fn();\n\n    const Component = () => {\n      const ref = useRef<HTMLDivElement>(null);\n      useEventListener('click', handler, ref);\n\n      return <div ref={ref} data-testid=\"div\" />;\n    };\n\n    const page = render(<Component />);\n    const div = page.getByTestId('div');\n\n    expect(handler).not.toHaveBeenCalled();\n\n    act(() => fireEvent.click(div));\n\n    expect(handler).toHaveBeenCalledTimes(1);\n\n    act(() => fireEvent.click(div));\n\n    expect(handler).toHaveBeenCalledTimes(2);\n  });\n\n  test('mouseover element', async () => {\n    const handler = jest.fn();\n\n    const Component = () => {\n      const ref = useRef<HTMLDivElement>(null);\n      useEventListener('mouseover', handler, ref);\n\n      return <div ref={ref} data-testid=\"div\" />;\n    };\n\n    const page = render(<Component />);\n    const div = page.getByTestId('div');\n\n    expect(handler).not.toHaveBeenCalled();\n\n    act(() => fireEvent.mouseOver(div));\n\n    expect(handler).toHaveBeenCalledTimes(1);\n  });\n\n  test('options', async () => {\n    const handler = jest.fn();\n\n    const Component = () => {\n      const ref = useRef<HTMLDivElement>(null);\n      useEventListener('click', handler, ref, { once: true });\n\n      return <div ref={ref} data-testid=\"div\" />;\n    };\n\n    const page = render(<Component />);\n    const div = page.getByTestId('div');\n\n    expect(handler).not.toHaveBeenCalled();\n\n    act(() => fireEvent.click(div));\n\n    expect(handler).toHaveBeenCalledTimes(1);\n\n    act(() => fireEvent.click(div));\n\n    expect(handler).toHaveBeenCalledTimes(1);\n  });\n\n  test('remove listener on unmount', async () => {\n    const handler = jest.fn();\n    const { unmount } = renderHook(() => useEventListener('click', handler));\n\n    act(() => fireEvent.click(window));\n\n    expect(handler).toHaveBeenCalledTimes(1);\n\n    unmount();\n    act(() => fireEvent.click(window));\n\n    expect(handler).toHaveBeenCalledTimes(1);\n  });\n});\n",
     "/src/use-event-listener.ts": "import { RefObject, useEffect, useRef } from 'react';\n\nexport default function useEventListener<\n  KW extends keyof WindowEventMap,\n  KH extends keyof HTMLElementEventMap & keyof SVGElementEventMap,\n  KM extends keyof MediaQueryListEventMap,\n  T extends HTMLElement | SVGAElement | MediaQueryList = HTMLElement,\n>(\n  eventName: KW | KH | KM,\n  handler: (\n    event:\n      | WindowEventMap[KW]\n      | HTMLElementEventMap[KH]\n      | SVGElementEventMap[KH]\n      | MediaQueryListEventMap[KM]\n      | Event,\n  ) => void,\n  element?: RefObject<T>,\n  options?: boolean | AddEventListenerOptions,\n) {\n  const latestHandler = useRef(handler);\n  latestHandler.current = handler;\n\n  useEffect(() => {\n    const targetElement: T | Window = element?.current ?? window;\n    if (!(targetElement && targetElement.addEventListener)) {\n      return;\n    }\n\n    const listener: typeof handler = (event) => {\n      latestHandler.current(event);\n    };\n\n    targetElement.addEventListener(eventName, listener, options);\n\n    return () => {\n      targetElement.removeEventListener(eventName, listener, options);\n    };\n  }, [eventName, element, options]);\n}\n"
   },
+  "info": {
+    "excerpt": "实现一个订阅浏览器事件的 Hook",
+    "title": "useEventListener"
+  },
   "metadata": {
     "access": "premium",
     "author": "phillmont",
@@ -14,7 +18,6 @@
     "created": 1742169600,
     "difficulty": "medium",
     "duration": 15,
-    "excerpt": "实现一个订阅浏览器事件的 Hook",
     "featured": false,
     "format": "javascript",
     "frameworkDefault": "react",
@@ -36,7 +39,6 @@
     "similarQuestions": [],
     "slug": "use-event-listener",
     "subtitle": null,
-    "title": "useEventListener",
     "topics": [
       "react-hooks"
     ]

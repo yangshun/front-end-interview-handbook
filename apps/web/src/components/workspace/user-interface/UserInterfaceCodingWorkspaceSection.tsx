@@ -3,9 +3,9 @@ import clsx from 'clsx';
 import CodingPreferencesProvider from '~/components/global/CodingPreferencesProvider';
 import { useColorSchemePreferences } from '~/components/global/color-scheme/ColorSchemePreferencesProvider';
 import type {
+  InterviewsQuestionItemMinimal,
+  InterviewsQuestionItemUserInterface,
   QuestionFramework,
-  QuestionMetadata,
-  QuestionUserInterface,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import type { QuestionUserInterfaceMode } from '~/components/interviews/questions/common/QuestionUserInterfacePath';
 import sandpackProviderOptions from '~/components/workspace/common/sandpack/sandpackProviderOptions';
@@ -21,13 +21,13 @@ type Props = Readonly<{
   canViewPremiumContent: boolean;
   embed?: boolean;
   mode: QuestionUserInterfaceMode;
-  nextQuestions: ReadonlyArray<QuestionMetadata>;
+  nextQuestions: ReadonlyArray<InterviewsQuestionItemMinimal>;
   onFrameworkChange: (
     framework: QuestionFramework,
     contentType: 'description' | 'solution',
   ) => void;
-  question: QuestionUserInterface;
-  similarQuestions: ReadonlyArray<QuestionMetadata>;
+  question: InterviewsQuestionItemUserInterface;
+  similarQuestions: ReadonlyArray<InterviewsQuestionItemMinimal>;
   studyListKey?: string;
   timeoutLoggerInstance: string;
 }>;

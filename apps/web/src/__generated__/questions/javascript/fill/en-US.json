@@ -7,6 +7,10 @@
     "/src/fill.submit.test.ts": "import fill from './fill';\n\ndescribe('fill', () => {\n  test('returns original array reference', () => {\n    const arr = [1, 2, 3];\n    expect(fill(arr, '*', 1)).toBe(arr);\n  });\n\n  test('correctly mutates original array', () => {\n    const arr = [1, 2, 3];\n    fill(arr, '*', 1);\n    expect(arr).toEqual([1, '*', '*']);\n  });\n\n  test('empty array', () => {\n    expect(fill([], '*')).toEqual([]);\n    expect(fill([], '*', 2, 3)).toEqual([]);\n  });\n\n  test('single element', () => {\n    expect(fill([1], '*')).toEqual(['*']);\n    expect(fill([1], '*', 0, 1)).toEqual(['*']);\n    expect(fill([1], '*', 2, 3)).toEqual([1]);\n  });\n\n  test('two elements', () => {\n    expect(fill([1, 2], '*')).toEqual(['*', '*']);\n    expect(fill([1, 2], '*', 1)).toEqual([1, '*']);\n    expect(fill([1, 2], '*', 2, 3)).toEqual([1, 2]);\n  });\n\n  describe('multiple elements', () => {\n    test('use default start to end', () => {\n      expect(fill([1, 2, 3], '*')).toEqual(['*', '*', '*']);\n    });\n\n    test('only start specified', () => {\n      expect(fill([1, 2, 3, 4, 5], '*', 2)).toEqual([1, 2, '*', '*', '*']);\n    });\n\n    test('start to end specified', () => {\n      expect(fill([1, 2, 3, 4, 5], '*', 2, 4)).toEqual([1, 2, '*', '*', 5]);\n    });\n\n    describe('negative indices', () => {\n      test('negative start', () => {\n        expect(fill([1, 2, 3], '*', -2)).toEqual([1, '*', '*']);\n      });\n\n      test('negative start and positive end', () => {\n        expect(fill([1, 2, 3, 4, 5], '*', -4, 3)).toEqual([1, '*', '*', 4, 5]);\n      });\n\n      test('negative end', () => {\n        expect(fill([1, 2, 3, 4, 5], '*', 1, -1)).toEqual([\n          1,\n          '*',\n          '*',\n          '*',\n          5,\n        ]);\n      });\n\n      test('negative start and end', () => {\n        expect(fill([1, 2, 3, 4, 5], '*', -4, -1)).toEqual([\n          1,\n          '*',\n          '*',\n          '*',\n          5,\n        ]);\n      });\n\n      test('out of bound indices are provided', () => {\n        expect(fill([1, 2, 3], '*', 1, 10)).toEqual([1, '*', '*']);\n      });\n    });\n  });\n\n  test('end smaller than start', () => {\n    expect(fill([1], '*', 4, 1)).toEqual([1]);\n    expect(fill([1, 2, 3, 4, 5], '*', 4, 1)).toEqual([1, 2, 3, 4, 5]);\n    expect(fill([1, 2, 3, 4, 5], '*', -1, -4)).toEqual([1, 2, 3, 4, 5]);\n  });\n});\n",
     "/src/fill.ts": "export default function fill<T>(\n  array: Array<T>,\n  value: any,\n  start: number = 0,\n  end: number = array.length,\n): Array<T> {\n  const length = array.length;\n\n  if (start < 0) {\n    start = -start > length ? 0 : length + start;\n  }\n\n  if (end > length) {\n    end = length + 1;\n  }\n\n  if (end < 0) {\n    end += length;\n  }\n\n  for (let i = start; i < Math.min(end, length); i++) {\n    array[i] = value;\n  }\n\n  return array;\n}\n"
   },
+  "info": {
+    "excerpt": "Implement a function that fills an array with values within specified indices",
+    "title": "Fill"
+  },
   "metadata": {
     "access": "premium",
     "author": null,
@@ -14,7 +18,6 @@
     "created": 1682553600,
     "difficulty": "easy",
     "duration": 10,
-    "excerpt": "Implement a function that fills an array with values within specified indices",
     "featured": false,
     "format": "javascript",
     "frameworkDefault": null,
@@ -31,7 +34,6 @@
     "similarQuestions": [],
     "slug": "fill",
     "subtitle": null,
-    "title": "Fill",
     "topics": []
   },
   "skeleton": {

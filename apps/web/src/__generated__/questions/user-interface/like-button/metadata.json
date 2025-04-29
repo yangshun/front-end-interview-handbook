@@ -1,51 +1,55 @@
 {
-  "access": "standard",
-  "author": "yangshun",
-  "companies": [
-    "amazon",
-    "openai"
-  ],
-  "created": 1670976000,
-  "difficulty": "medium",
-  "duration": 20,
-  "excerpt": "Build a Like button that changes appearance based on the states",
-  "featured": true,
-  "format": "user-interface",
-  "frameworkDefault": "react",
-  "frameworks": [
-    {
-      "framework": "react",
-      "href": "/questions/user-interface/like-button/react"
-    },
-    {
-      "framework": "vanilla",
-      "href": "/questions/user-interface/like-button/vanilla"
-    },
-    {
-      "framework": "angular",
-      "href": "/questions/user-interface/like-button/angular"
-    },
-    {
-      "framework": "svelte",
-      "href": "/questions/user-interface/like-button/svelte"
-    }
-  ],
-  "href": "/questions/user-interface/like-button",
-  "importance": "low",
-  "languages": [
-    "html",
-    "css",
-    "js"
-  ],
-  "nextQuestions": [],
-  "published": true,
-  "ranking": 100,
-  "similarQuestions": [],
-  "slug": "like-button",
-  "subtitle": null,
-  "title": "Like Button",
-  "topics": [
-    "async",
-    "networking"
-  ]
+  "info": {
+    "excerpt": "Build a Like button that changes appearance based on the states",
+    "title": "Like Button"
+  },
+  "metadata": {
+    "access": "standard",
+    "author": "yangshun",
+    "companies": [
+      "amazon",
+      "openai"
+    ],
+    "created": 1670976000,
+    "difficulty": "medium",
+    "duration": 20,
+    "featured": true,
+    "format": "user-interface",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/user-interface/like-button/react"
+      },
+      {
+        "framework": "vanilla",
+        "href": "/questions/user-interface/like-button/vanilla"
+      },
+      {
+        "framework": "angular",
+        "href": "/questions/user-interface/like-button/angular"
+      },
+      {
+        "framework": "svelte",
+        "href": "/questions/user-interface/like-button/svelte"
+      }
+    ],
+    "href": "/questions/user-interface/like-button",
+    "importance": "low",
+    "languages": [
+      "html",
+      "css",
+      "js"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "like-button",
+    "subtitle": null,
+    "topics": [
+      "async",
+      "networking"
+    ]
+  }
 }

@@ -7,6 +7,10 @@
     "/src/use-breakpoint.submit.test.ts": "import { act, fireEvent, renderHook } from '@testing-library/react';\n\nimport createBreakpoint from './use-breakpoint';\n\nconst breakpoints = { sm: 40, lg: 64, xl: 80 };\n\nconst getCurrentBreakpoint = (width: number) =>\n  Object.entries(breakpoints).reduce(\n    (acc, [name, size]) => (width >= size ? name : acc),\n    'sm',\n  );\n\ndescribe('useBreakpoint', () => {\n  test('return values', () => {\n    const { result } = renderHook(() => createBreakpoint(breakpoints)());\n\n    expect(typeof result.current).toBe('string');\n  });\n\n  test('initial value', () => {\n    const { result } = renderHook(() => createBreakpoint(breakpoints)());\n\n    expect(result.current).toBe(getCurrentBreakpoint(window.innerWidth));\n  });\n\n  test('resize', () => {\n    const { result } = renderHook(() => createBreakpoint(breakpoints)());\n\n    act(() => {\n      window.innerWidth = 50;\n      fireEvent.resize(window);\n    });\n\n    expect(result.current).toBe(getCurrentBreakpoint(50));\n  });\n});\n",
     "/src/use-breakpoint.ts": "import { useEffect, useMemo, useState } from 'react';\n\nexport default function createBreakpoint<T extends Record<string, number>>(\n  breakpoints: T,\n): () => keyof T {\n  return function (): keyof T {\n    const [width, setWidth] = useState(window.innerWidth);\n\n    useEffect(() => {\n      function resize() {\n        setWidth(window.innerWidth);\n      }\n\n      resize();\n      window.addEventListener('resize', resize);\n\n      return () => {\n        window.removeEventListener('resize', resize);\n      };\n    }, []);\n\n    const sortedBreakpoints = useMemo(\n      () => Object.entries(breakpoints).sort((a, b) => a[1] - b[1]),\n      [breakpoints],\n    );\n\n    return useMemo(\n      () =>\n        sortedBreakpoints.reduce(\n          (acc, [name, size]) => (width >= size ? name : acc),\n          sortedBreakpoints[0][0],\n        ),\n      [sortedBreakpoints, width],\n    );\n  };\n}\n"
   },
+  "info": {
+    "excerpt": "实现一个基于当前窗口宽度返回当前断点名称的 Hook",
+    "title": "useBreakpoint"
+  },
   "metadata": {
     "access": "premium",
     "author": "phillmont",
@@ -14,7 +18,6 @@
     "created": 1742169600,
     "difficulty": "medium",
     "duration": 15,
-    "excerpt": "实现一个基于当前窗口宽度返回当前断点名称的 Hook",
     "featured": false,
     "format": "javascript",
     "frameworkDefault": "react",
@@ -39,7 +42,6 @@
     ],
     "slug": "use-breakpoint",
     "subtitle": null,
-    "title": "useBreakpoint",
     "topics": [
       "react-hooks"
     ]

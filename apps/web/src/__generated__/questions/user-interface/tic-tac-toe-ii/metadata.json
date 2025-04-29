@@ -1,54 +1,58 @@
 {
-  "access": "premium",
-  "author": null,
-  "companies": [
-    "google",
-    "amazon",
-    "microsoft",
-    "twitter",
-    "apple",
-    "atlassian"
-  ],
-  "created": 1683763200,
-  "difficulty": "hard",
-  "duration": 40,
-  "excerpt": "Build an N x N tic-tac-toe game that requires M consecutive marks to win",
-  "featured": false,
-  "format": "user-interface",
-  "frameworkDefault": "react",
-  "frameworks": [
-    {
-      "framework": "react",
-      "href": "/questions/user-interface/tic-tac-toe-ii/react"
-    },
-    {
-      "framework": "angular",
-      "href": "/questions/user-interface/tic-tac-toe-ii/angular"
-    },
-    {
-      "framework": "vue",
-      "href": "/questions/user-interface/tic-tac-toe-ii/vue"
-    },
-    {
-      "framework": "svelte",
-      "href": "/questions/user-interface/tic-tac-toe-ii/svelte"
-    }
-  ],
-  "href": "/questions/user-interface/tic-tac-toe-ii",
-  "importance": "low",
-  "languages": [
-    "html",
-    "css",
-    "js"
-  ],
-  "nextQuestions": [],
-  "published": true,
-  "ranking": 100,
-  "similarQuestions": [],
-  "slug": "tic-tac-toe-ii",
-  "subtitle": null,
-  "title": "Tic-tac-toe II",
-  "topics": [
-    "a11y"
-  ]
+  "info": {
+    "excerpt": "Build an N x N tic-tac-toe game that requires M consecutive marks to win",
+    "title": "Tic-tac-toe II"
+  },
+  "metadata": {
+    "access": "premium",
+    "author": null,
+    "companies": [
+      "google",
+      "amazon",
+      "microsoft",
+      "twitter",
+      "apple",
+      "atlassian"
+    ],
+    "created": 1683763200,
+    "difficulty": "hard",
+    "duration": 40,
+    "featured": false,
+    "format": "user-interface",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/user-interface/tic-tac-toe-ii/react"
+      },
+      {
+        "framework": "angular",
+        "href": "/questions/user-interface/tic-tac-toe-ii/angular"
+      },
+      {
+        "framework": "vue",
+        "href": "/questions/user-interface/tic-tac-toe-ii/vue"
+      },
+      {
+        "framework": "svelte",
+        "href": "/questions/user-interface/tic-tac-toe-ii/svelte"
+      }
+    ],
+    "href": "/questions/user-interface/tic-tac-toe-ii",
+    "importance": "low",
+    "languages": [
+      "html",
+      "css",
+      "js"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "tic-tac-toe-ii",
+    "subtitle": null,
+    "topics": [
+      "a11y"
+    ]
+  }
 }

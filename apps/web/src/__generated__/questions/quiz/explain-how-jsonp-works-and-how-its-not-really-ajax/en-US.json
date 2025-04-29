@@ -1,5 +1,9 @@
 {
   "description": null,
+  "info": {
+    "excerpt": null,
+    "title": "Explain how JSONP works (and how it's not really Ajax)"
+  },
   "metadata": {
     "access": "free",
     "author": null,
@@ -7,7 +11,6 @@
     "created": 1630800000,
     "difficulty": "hard",
     "duration": 5,
-    "excerpt": null,
     "featured": false,
     "format": "quiz",
     "frameworkDefault": null,
@@ -21,7 +24,6 @@
     "similarQuestions": [],
     "slug": "explain-how-jsonp-works-and-how-its-not-really-ajax",
     "subtitle": null,
-    "title": "Explain how JSONP works (and how it's not really Ajax)",
     "topics": [
       "javascript",
       "networking",

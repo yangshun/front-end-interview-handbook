@@ -2,8 +2,8 @@ import clsx from 'clsx';
 import type { ReactNode } from 'react';
 
 import type {
+  InterviewsQuestionMetadata,
   QuestionFramework,
-  QuestionMetadata,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import InterviewsQuestionsListSlideOutButton from '~/components/interviews/questions/listings/slideout/InterviewsQuestionsListSlideOutButton';
 import {
@@ -16,7 +16,7 @@ import { hashQuestion } from '~/db/QuestionsUtils';
 type Props = Readonly<{
   framework?: QuestionFramework;
   leftElements?: ReactNode;
-  metadata: QuestionMetadata;
+  metadata: InterviewsQuestionMetadata;
   rightElements?: ReactNode;
   showQuestionsListButton?: boolean;
   slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE: string;

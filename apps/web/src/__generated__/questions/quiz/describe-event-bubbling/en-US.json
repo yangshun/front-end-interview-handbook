@@ -1,5 +1,9 @@
 {
   "description": null,
+  "info": {
+    "excerpt": null,
+    "title": "Describe event bubbling in JavaScript and browsers"
+  },
   "metadata": {
     "access": "free",
     "author": null,
@@ -7,7 +11,6 @@
     "created": 1630800000,
     "difficulty": "medium",
     "duration": 5,
-    "excerpt": null,
     "featured": true,
     "format": "quiz",
     "frameworkDefault": null,
@@ -21,7 +24,6 @@
     "similarQuestions": [],
     "slug": "describe-event-bubbling",
     "subtitle": null,
-    "title": "Describe event bubbling in JavaScript and browsers",
     "topics": [
       "web-api",
       "javascript"

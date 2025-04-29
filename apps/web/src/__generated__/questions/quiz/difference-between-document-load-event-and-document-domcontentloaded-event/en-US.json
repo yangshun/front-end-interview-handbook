@@ -1,5 +1,9 @@
 {
   "description": null,
+  "info": {
+    "excerpt": null,
+    "title": "Difference between document `load` event and document `DOMContentLoaded` event?"
+  },
   "metadata": {
     "access": "free",
     "author": null,
@@ -9,7 +13,6 @@
     "created": 1630800000,
     "difficulty": "medium",
     "duration": 5,
-    "excerpt": null,
     "featured": false,
     "format": "quiz",
     "frameworkDefault": null,
@@ -23,7 +26,6 @@
     "similarQuestions": [],
     "slug": "difference-between-document-load-event-and-document-domcontentloaded-event",
     "subtitle": null,
-    "title": "Difference between document `load` event and document `DOMContentLoaded` event?",
     "topics": [
       "html",
       "javascript"

@@ -7,6 +7,10 @@
     "/src/list-format.submit.test.ts": "import listFormat from './list-format';\n\ndescribe('listFormat', () => {\n  test('empty', () => {\n    expect(listFormat([])).toEqual('');\n  });\n\n  test('one item', () => {\n    expect(listFormat(['Bob'])).toEqual('Bob');\n    expect(listFormat(['Bob'], { length: 2 })).toEqual('Bob');\n  });\n\n  test('two items', () => {\n    expect(listFormat(['Bob', 'Alice'])).toEqual('Bob and Alice');\n  });\n\n  test('many items', () => {\n    expect(listFormat(['Bob', 'Ben', 'Tim', 'Jane', 'John'])).toEqual(\n      'Bob, Ben, Tim, Jane and John',\n    );\n  });\n\n  test('duplicate items', () => {\n    expect(listFormat(['Bob', 'Ben', 'Bob', 'Ben', 'John'])).toEqual(\n      'Bob, Ben, Bob, Ben and John',\n    );\n    expect(\n      listFormat(['Bob', 'Ben', 'Bob', 'Ben', 'John'], { sorted: true }),\n    ).toEqual('Ben, Ben, Bob, Bob and John');\n  });\n\n  test('length specified', () => {\n    expect(\n      listFormat(['Bob', 'Ben', 'Tim', 'Jane', 'John'], { length: 3 }),\n    ).toEqual('Bob, Ben, Tim and 2 others');\n    expect(\n      listFormat(['Bob', 'Ben', 'Tim', 'Jane', 'John'], { length: 4 }),\n    ).toEqual('Bob, Ben, Tim, Jane and 1 other');\n    expect(\n      listFormat(['Bob', 'Ben', 'Tim', 'Jane', 'John'], { length: 100 }),\n    ).toEqual('Bob, Ben, Tim, Jane and John');\n    expect(\n      listFormat(['Bob', 'Ben', 'Tim', 'Jane', 'John'], { length: 0 }),\n    ).toEqual('Bob, Ben, Tim, Jane and John');\n    expect(\n      listFormat(['Bob', 'Ben', 'Tim', 'Jane', 'John'], { length: -1 }),\n    ).toEqual('Bob, Ben, Tim, Jane and John');\n  });\n\n  test('sorted items', () => {\n    expect(\n      listFormat(['Bob', 'Ben', 'Tim', 'Jane', 'John'], {\n        length: 3,\n        sorted: true,\n      }),\n    ).toEqual('Ben, Bob, Jane and 2 others');\n    expect(\n      listFormat(['Bob', 'Ben', 'Bob', 'Ben', 'John'], {\n        length: 3,\n        sorted: true,\n      }),\n    ).toEqual('Ben, Ben, Bob and 2 others');\n  });\n\n  test('unique items', () => {\n    expect(\n      listFormat(['Bob', 'Ben', 'Tim', 'Jane', 'John', 'Bob'], {\n        length: 3,\n        unique: true,\n      }),\n    ).toEqual('Bob, Ben, Tim and 2 others');\n  });\n\n  test('missing items', () => {\n    expect(listFormat(['Bob', 'Ben', '', '', 'John'])).toEqual(\n      'Bob, Ben and John',\n    );\n    expect(listFormat(['Bob', ''])).toEqual('Bob');\n    expect(listFormat(['', ''])).toEqual('');\n  });\n\n  test('all the options', () => {\n    expect(\n      listFormat(['Bob', 'Ben', 'Tim', 'Jane', 'John'], {\n        length: 3,\n        unique: true,\n        sorted: true,\n      }),\n    ).toEqual('Ben, Bob, Jane and 2 others');\n  });\n});\n",
     "/src/list-format.ts": "const SEPARATOR = ', ';\nconst OTHERS_SEPARATOR = ' and ';\nconst OTHERS_LABEL = 'other';\n\nexport default function listFormat(\n  itemsParam: Array<string>,\n  options?: { sorted?: boolean; length?: number; unique?: boolean },\n): string {\n  // Filter falsey values.\n  let items = itemsParam.filter((item) => !!item);\n\n  if (!items || items.length === 0) {\n    return '';\n  }\n\n  // No processing is needed if there's only one item.\n  if (items.length === 1) {\n    return items[0];\n  }\n\n  // Sort values.\n  if (options?.sorted) {\n    items.sort();\n  }\n\n  // Remove duplicate values.\n  if (options?.unique) {\n    items = Array.from(new Set(items));\n  }\n\n  // Length is specified and valid.\n  if (\n    options?.length &&\n    options?.length > 0 &&\n    options?.length < items.length\n  ) {\n    const firstSection = items.slice(0, options?.length).join(SEPARATOR);\n    const count = items.length - options?.length;\n    const secondSection = `${count} ${OTHERS_LABEL + (count > 1 ? 's' : '')}`;\n    return [firstSection, secondSection].join(OTHERS_SEPARATOR);\n  }\n\n  // Case where length is not specified.\n  const firstSection = items.slice(0, items.length - 1).join(SEPARATOR);\n  const secondSection = items[items.length - 1];\n  return [firstSection, secondSection].join(OTHERS_SEPARATOR);\n}\n"
   },
+  "info": {
+    "excerpt": "实现一个函数，将项目列表格式化为单个可读字符串",
+    "title": "列表格式"
+  },
   "metadata": {
     "access": "standard",
     "author": "yangshun",
@@ -16,7 +20,6 @@
     "created": 1652832000,
     "difficulty": "medium",
     "duration": 20,
-    "excerpt": "实现一个函数，将项目列表格式化为单个可读字符串",
     "featured": false,
     "format": "javascript",
     "frameworkDefault": null,
@@ -33,7 +36,6 @@
     "similarQuestions": [],
     "slug": "list-format",
     "subtitle": null,
-    "title": "列表格式",
     "topics": []
   },
   "skeleton": {

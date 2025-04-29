@@ -7,6 +7,10 @@
     "/src/turtle.submit.test.ts": "import Turtle from './turtle';\n\ndescribe('turtle', () => {\n  test('constructor', () => {\n    const turtle = new Turtle();\n    expect(turtle).toBeInstanceOf(Turtle);\n  });\n\n  describe('movement', () => {\n    test('forward', () => {\n      const turtle = new Turtle();\n      turtle.forward(2);\n      expect(turtle.position()).toEqual([0, 2]);\n      turtle.forward(3);\n      expect(turtle.position()).toEqual([0, 5]);\n    });\n\n    test('backward', () => {\n      const turtle = new Turtle();\n      turtle.backward(2);\n      expect(turtle.position()).toEqual([0, -2]);\n      turtle.backward(3);\n      expect(turtle.position()).toEqual([0, -5]);\n    });\n  });\n\n  describe('turning', () => {\n    test('left', () => {\n      const turtle = new Turtle();\n      turtle.left();\n      turtle.forward(3);\n      expect(turtle.position()).toEqual([-3, 0]);\n      turtle.backward(3);\n      expect(turtle.position()).toEqual([0, 0]);\n      turtle.left();\n      turtle.forward(5);\n      expect(turtle.position()).toEqual([0, -5]);\n      turtle.left();\n      turtle.forward(3);\n      expect(turtle.position()).toEqual([3, -5]);\n    });\n\n    test('right', () => {\n      const turtle = new Turtle();\n      turtle.right();\n      turtle.forward(3);\n      expect(turtle.position()).toEqual([3, 0]);\n      turtle.backward(3);\n      expect(turtle.position()).toEqual([0, 0]);\n      turtle.right();\n      turtle.forward(5);\n      expect(turtle.position()).toEqual([0, -5]);\n      turtle.right();\n      turtle.forward(3);\n      expect(turtle.position()).toEqual([-3, -5]);\n    });\n  });\n\n  test('position', () => {\n    const turtle = new Turtle();\n    expect(turtle.position()).toEqual([0, 0]);\n    turtle.forward(1);\n    expect(turtle.position()).toEqual([0, 1]);\n  });\n\n  describe('method chaining', () => {\n    test('turning', () => {\n      const turtle = new Turtle();\n      turtle.left().left().left().right().right().right().forward(3);\n      expect(turtle.position()).toEqual([0, 3]);\n      turtle.right().right().right().left().left().left().forward(3);\n      expect(turtle.position()).toEqual([0, 6]);\n    });\n\n    test('forward and backward', () => {\n      const turtle = new Turtle();\n      turtle.right().forward(3);\n      expect(turtle.position()).toEqual([3, 0]);\n      turtle.backward(3);\n      expect(turtle.position()).toEqual([0, 0]);\n      turtle.right().forward(5);\n      expect(turtle.position()).toEqual([0, -5]);\n      turtle.left().backward(3);\n      expect(turtle.position()).toEqual([-3, -5]);\n    });\n  });\n});\n",
     "/src/turtle.ts": "enum Direction {\n  North = 0,\n  East = 1,\n  South = 2,\n  West = 3,\n}\n\nconst NUMBER_OF_CARDINAL_DIRECTIONS = 4;\n\nexport default class Turtle {\n  x: number;\n  y: number;\n  direction: Direction;\n\n  constructor() {\n    this.x = 0;\n    this.y = 0;\n    this.direction = Direction.North;\n  }\n\n  forward(distance: number): Turtle {\n    this._move(distance);\n    return this;\n  }\n\n  backward(distance: number): Turtle {\n    this._move(-distance);\n    return this;\n  }\n\n  _move(distance: number): Turtle {\n    switch (this.direction) {\n      case Direction.North:\n        this.y += distance;\n        break;\n      case Direction.East:\n        this.x += distance;\n        break;\n      case Direction.South:\n        this.y -= distance;\n        break;\n      case Direction.West:\n        this.x -= distance;\n        break;\n    }\n    return this;\n  }\n\n  left(): Turtle {\n    // Wrap around behavior.\n    this.direction =\n      (this.direction - 1 + NUMBER_OF_CARDINAL_DIRECTIONS) %\n      NUMBER_OF_CARDINAL_DIRECTIONS;\n    return this;\n  }\n\n  right(): Turtle {\n    // Wrap around behavior.\n    this.direction =\n      (this.direction + 1 + NUMBER_OF_CARDINAL_DIRECTIONS) %\n      NUMBER_OF_CARDINAL_DIRECTIONS;\n    return this;\n  }\n\n  position(): [number, number] {\n    return [this.x, this.y];\n  }\n}\n"
   },
+  "info": {
+    "excerpt": "Implement a Turtle class that moves a turtle on a 2D plane",
+    "title": "Turtle"
+  },
   "metadata": {
     "access": "premium",
     "author": null,
@@ -14,7 +18,6 @@
     "created": 1689638400,
     "difficulty": "medium",
     "duration": 15,
-    "excerpt": "Implement a Turtle class that moves a turtle on a 2D plane",
     "featured": false,
     "format": "javascript",
     "frameworkDefault": null,
@@ -31,7 +34,6 @@
     "similarQuestions": [],
     "slug": "turtle",
     "subtitle": null,
-    "title": "Turtle",
     "topics": [
       "oop"
     ]

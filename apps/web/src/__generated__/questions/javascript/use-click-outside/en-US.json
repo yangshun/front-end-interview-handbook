@@ -7,6 +7,10 @@
     "/src/use-click-outside.submit.test.tsx": "import React from 'react';\nimport { act, fireEvent, render, renderHook } from '@testing-library/react';\n\nimport useClickOutside from './use-click-outside';\nimport { useRef } from 'react';\n\ndescribe('useClickOutside', () => {\n  test('return values', () => {\n    const { result } = renderHook(() => {\n      const ref = useRef<HTMLDivElement>(null);\n      return useClickOutside(ref, () => {});\n    });\n\n    expect(result.current).toBe(undefined);\n  });\n\n  test('click outside', () => {\n    const handler = jest.fn();\n\n    const Component = () => {\n      const ref = useRef<HTMLDivElement>(null);\n      useClickOutside(ref, handler);\n\n      return (\n        <main>\n          <div ref={ref} data-testid=\"target\">\n            target\n          </div>\n          <div data-testid=\"other\">something else</div>\n        </main>\n      );\n    };\n\n    const page = render(<Component />);\n    const target = page.getByTestId('target');\n    const other = page.getByTestId('other');\n\n    expect(handler).not.toHaveBeenCalled();\n\n    act(() => fireEvent.mouseDown(other));\n\n    expect(handler).toHaveBeenCalledTimes(1);\n\n    act(() => fireEvent.mouseDown(target));\n\n    expect(handler).toHaveBeenCalledTimes(1);\n  });\n\n  test('options', () => {\n    const handler = jest.fn();\n\n    const Component = () => {\n      const ref = useRef<HTMLDivElement>(null);\n      useClickOutside(ref, handler, 'mousedown', { once: true });\n\n      return (\n        <main>\n          <div ref={ref} data-testid=\"target\">\n            target\n          </div>\n          <div data-testid=\"other\">something else</div>\n        </main>\n      );\n    };\n\n    const page = render(<Component />);\n    const target = page.getByTestId('target');\n    const other = page.getByTestId('other');\n\n    expect(handler).not.toHaveBeenCalled();\n\n    act(() => fireEvent.mouseDown(other));\n\n    expect(handler).toHaveBeenCalledTimes(1);\n\n    act(() => fireEvent.mouseDown(other));\n\n    expect(handler).toHaveBeenCalledTimes(1);\n\n    act(() => fireEvent.mouseDown(target));\n\n    expect(handler).toHaveBeenCalledTimes(1);\n  });\n\n  test('remove listener on unmount', () => {\n    const handler = jest.fn();\n\n    const Component = () => {\n      const ref = useRef<HTMLDivElement>(null);\n      useClickOutside(ref, handler);\n\n      return (\n        <main>\n          <div ref={ref} data-testid=\"target\">\n            target\n          </div>\n          <div data-testid=\"other\">something else</div>\n        </main>\n      );\n    };\n\n    const page = render(<Component />);\n    const target = page.getByTestId('target');\n    const other = page.getByTestId('other');\n\n    expect(handler).not.toHaveBeenCalled();\n\n    act(() => fireEvent.mouseDown(other));\n\n    expect(handler).toHaveBeenCalledTimes(1);\n\n    page.unmount();\n    act(() => fireEvent.mouseDown(other));\n    act(() => fireEvent.mouseDown(target));\n\n    expect(handler).toHaveBeenCalledTimes(1);\n  });\n});\n",
     "/src/use-click-outside.ts": "import { RefObject, useEffect, useRef } from 'react';\n\nexport default function useClickOutside<T extends HTMLElement>(\n  ref: RefObject<T>,\n  handler: (event: MouseEvent | TouchEvent | FocusEvent) => void,\n  eventType: 'mousedown' | 'touchstart' = 'mousedown',\n  eventListenerOptions: boolean | AddEventListenerOptions = {},\n) {\n  const latestHandler = useRef(handler);\n  latestHandler.current = handler;\n\n  useEffect(() => {\n    const listener = (event: MouseEvent | TouchEvent | FocusEvent) => {\n      const target = event.target as Node;\n      if (!target || !target.isConnected) {\n        return;\n      }\n\n      const outside = ref.current && !ref.current.contains(target);\n      if (!outside) {\n        return;\n      }\n\n      latestHandler.current(event);\n    };\n\n    window.addEventListener(eventType, listener, eventListenerOptions);\n\n    return () => {\n      window.removeEventListener(eventType, listener, eventListenerOptions);\n    };\n  }, [ref, eventType, eventListenerOptions]);\n}\n"
   },
+  "info": {
+    "excerpt": "Implement a hook that detects clicks outside of a specified element",
+    "title": "useClickOutside"
+  },
   "metadata": {
     "access": "premium",
     "author": "phillmont",
@@ -14,7 +18,6 @@
     "created": 1742169600,
     "difficulty": "medium",
     "duration": 15,
-    "excerpt": "Implement a hook that detects clicks outside of a specified element",
     "featured": false,
     "format": "javascript",
     "frameworkDefault": "react",
@@ -38,7 +41,6 @@
     ],
     "slug": "use-click-outside",
     "subtitle": null,
-    "title": "useClickOutside",
     "topics": [
       "react-hooks"
     ]

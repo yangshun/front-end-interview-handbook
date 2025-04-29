@@ -1,5 +1,9 @@
 {
   "description": null,
+  "info": {
+    "excerpt": null,
+    "title": "JavaScript 中`.call` 和 `.apply` 有什么区别？"
+  },
   "metadata": {
     "access": "free",
     "author": null,
@@ -9,7 +13,6 @@
     "created": 1630800000,
     "difficulty": "easy",
     "duration": 5,
-    "excerpt": null,
     "featured": true,
     "format": "quiz",
     "frameworkDefault": null,
@@ -23,7 +26,6 @@
     "similarQuestions": [],
     "slug": "whats-the-difference-between-call-and-apply",
     "subtitle": null,
-    "title": "JavaScript 中`.call` 和 `.apply` 有什么区别？",
     "topics": [
       "javascript"
     ],

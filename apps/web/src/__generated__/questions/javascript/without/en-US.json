@@ -7,6 +7,10 @@
     "/src/without.submit.test.ts": "import without from './without';\n\ndescribe('without', () => {\n  test('empty input array', () => {\n    expect(without([])).toEqual([]);\n    expect(without([], 1, 2, 3)).toEqual([]);\n  });\n\n  test('values array is empty', () => {\n    expect(without([1, 2, 3])).toEqual([1, 2, 3]);\n  });\n\n  test('unique values that are present in array but not in values', () => {\n    expect(without([1, 2, 3], 2, 3, 4)).toEqual([1]);\n    expect(without(['a', 'b', 'c'], 'b', 'c', 'd')).toEqual(['a']);\n    expect(without([null, undefined, 1, NaN], undefined, 2, 3)).toEqual([\n      null,\n      1,\n      NaN,\n    ]);\n  });\n\n  test('all values in array are present in values', () => {\n    expect(without([1, 2, 3], 1, 2, 3)).toEqual([]);\n    expect(without(['a', 'b', 'c'], 'a', 'b', 'c')).toEqual([]);\n    expect(without([null, undefined], null, undefined)).toEqual([]);\n  });\n\n  test('NaN values', () => {\n    expect(without([1, NaN, 2], NaN, 3, 4)).toEqual([1, 2]);\n  });\n\n  test('values array contains duplicates', () => {\n    expect(without([1, 2, 2, 3], 2)).toEqual([1, 3]);\n    expect(without(['a', 'b', 'b', 'c'], 'b')).toEqual(['a', 'c']);\n  });\n\n  test('values array contains different data types', () => {\n    expect(without([1, '2', true, null], '2', null)).toEqual([1, true]);\n    expect(without(['a', 'b', undefined, 5], undefined, 5)).toEqual(['a', 'b']);\n  });\n\n  test('values array contains objects', () => {\n    const obj1 = { id: 1, name: 'John' };\n    const obj2 = { id: 2, name: 'Jane' };\n    const obj3 = { id: 3, name: 'Doe' };\n    const obj4 = { id: 2, name: 'Jane' };\n    expect(without([obj1, obj2, obj3], obj2)).toEqual([obj1, obj3]);\n    expect(without([obj1, obj2, obj4], obj2)).toEqual([obj1, obj4]);\n  });\n});\n",
     "/src/without.ts": "export default function without<T>(\n  array: Array<T>,\n  ...values: Array<T>\n): Array<T> {\n  const result: Array<T> = [];\n\n  // Create a set of all the values in the values arrays.\n  const valuesSet: Set<T> = new Set(values);\n\n  for (let i = 0; i < array.length; i++) {\n    const value: T = array[i];\n    // Check if the value is in the values set.\n    if (!valuesSet.has(value)) {\n      result.push(value);\n    }\n  }\n\n  return result;\n}\n"
   },
+  "info": {
+    "excerpt": "Implement a function that creates an array excluding all given values.",
+    "title": "Without"
+  },
   "metadata": {
     "access": "premium",
     "author": null,
@@ -14,7 +18,6 @@
     "created": 1711929600,
     "difficulty": "easy",
     "duration": 10,
-    "excerpt": "Implement a function that creates an array excluding all given values.",
     "featured": false,
     "format": "javascript",
     "frameworkDefault": null,
@@ -34,7 +37,6 @@
     ],
     "slug": "without",
     "subtitle": null,
-    "title": "Without",
     "topics": []
   },
   "skeleton": {

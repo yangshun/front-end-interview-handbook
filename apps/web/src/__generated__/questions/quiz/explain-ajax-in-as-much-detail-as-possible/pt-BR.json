@@ -1,5 +1,9 @@
 {
   "description": null,
+  "info": {
+    "excerpt": null,
+    "title": "Explique o Ajax com o máximo de detalhes possível."
+  },
   "metadata": {
     "access": "free",
     "author": null,
@@ -7,7 +11,6 @@
     "created": 1630800000,
     "difficulty": "hard",
     "duration": 5,
-    "excerpt": null,
     "featured": true,
     "format": "quiz",
     "frameworkDefault": null,
@@ -21,7 +24,6 @@
     "similarQuestions": [],
     "slug": "explain-ajax-in-as-much-detail-as-possible",
     "subtitle": null,
-    "title": "Explique o Ajax com o máximo de detalhes possível.",
     "topics": [
       "javascript",
       "networking"

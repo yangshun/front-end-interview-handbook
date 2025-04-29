@@ -7,6 +7,10 @@
     "/src/quick-sort.submit.test.ts": "import quickSort from './quick-sort';\n\ndescribe('quickSort', () => {\n  test('empty', () => {\n    expect(quickSort([])).toEqual([]);\n  });\n\n  test('one element', () => {\n    expect(quickSort([1])).toEqual([1]);\n  });\n\n  test('two elements', () => {\n    expect(quickSort([2, 1])).toEqual([1, 2]);\n    expect(quickSort([1, 2])).toEqual([1, 2]);\n  });\n\n  test('more than two elements', () => {\n    expect(quickSort([10, 2, 4])).toEqual([2, 4, 10]);\n    expect(quickSort([4, 5, 6, 1, 2, 3])).toEqual([1, 2, 3, 4, 5, 6]);\n    expect(quickSort([1, 2, 3, 4, 5, 0])).toEqual([0, 1, 2, 3, 4, 5]);\n    expect(quickSort([10, 9, 8, 7, 6, 5, 4, 3, 2, 1])).toEqual([\n      1, 2, 3, 4, 5, 6, 7, 8, 9, 10,\n    ]);\n    expect(quickSort([5, 4, 3, 2, 1, 10, 9, 8, 7, 6])).toEqual([\n      1, 2, 3, 4, 5, 6, 7, 8, 9, 10,\n    ]);\n    expect(quickSort([98322, 3242, 876, -234, 34, 12331])).toEqual([\n      -234, 34, 876, 3242, 12331, 98322,\n    ]);\n  });\n\n  test('duplicate elements', () => {\n    expect(quickSort([1, 1])).toEqual([1, 1]);\n    expect(quickSort([2, 2, 2])).toEqual([2, 2, 2]);\n    expect(quickSort([2, 1, 2])).toEqual([1, 2, 2]);\n    expect(quickSort([1, 1, 1, 1, 1, 1])).toEqual([1, 1, 1, 1, 1, 1]);\n    expect(quickSort([7, 2, 4, 3, 1, 2])).toEqual([1, 2, 2, 3, 4, 7]);\n  });\n});\n",
     "/src/quick-sort.ts": "/**\n * Partitions an array into two parts according to a pivot.\n * @param {Array<number>} arr The array to be sorted.\n * @param {number} lo Starting index of the array to partition\n * @param {number} hi Ending index (inclusive) of the array to partition\n * @return {number} The pivot index that was chosen.\n */\nfunction partition(arr: Array<number>, lo: number, hi: number): number {\n  const pivot = arr[hi];\n  let i = lo - 1;\n\n  for (let j = lo; j < hi; j++) {\n    if (arr[j] < pivot) {\n      i++;\n      [arr[i], arr[j]] = [arr[j], arr[i]];\n    }\n  }\n\n  if (arr[hi] < arr[i + 1]) {\n    [arr[i + 1], arr[hi]] = [arr[hi], arr[i + 1]];\n  }\n\n  return i + 1;\n}\n\n/**\n * Sorts an array of elements in-place.\n * @param {Array<number>} arr The array to be sorted\n * @param {number} lo Starting index of the array to sort\n * @param {number} hi Ending index (inclusive) of the array to sort\n */\nfunction quickSortImpl(arr: Array<number>, lo: number, hi: number) {\n  if (lo >= hi) {\n    return;\n  }\n\n  const pivot = partition(arr, lo, hi);\n  quickSortImpl(arr, lo, pivot - 1);\n  quickSortImpl(arr, pivot + 1, hi);\n}\n\n/**\n * Sorts an array of elements\n * @param {Array<number>} arr The array to be sorted.\n * @return {Array<number>}\n */\nexport default function quickSort(arr: Array<number>) {\n  quickSortImpl(arr, 0, arr.length - 1);\n  return arr;\n}\n"
   },
+  "info": {
+    "excerpt": "Implement a function that performs a recursive quick sort",
+    "title": "Quick Sort"
+  },
   "metadata": {
     "access": "free",
     "author": null,
@@ -14,7 +18,6 @@
     "created": 1671667200,
     "difficulty": "medium",
     "duration": 20,
-    "excerpt": "Implement a function that performs a recursive quick sort",
     "featured": false,
     "format": "algo",
     "frameworkDefault": null,
@@ -33,7 +36,6 @@
     ],
     "slug": "quick-sort",
     "subtitle": null,
-    "title": "Quick Sort",
     "topics": [
       "sorting"
     ]

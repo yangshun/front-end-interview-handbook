@@ -1,6 +1,6 @@
 import InterviewsPageHeader from '~/components/interviews/common/InterviewsPageHeader';
 import type { InterviewsPurchasePremiumFeature } from '~/components/interviews/purchase/InterviewsPurchaseTypes';
-import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
+import type { InterviewsQuestionItemMinimal } from '~/components/interviews/questions/common/QuestionsTypes';
 
 import type { QuestionProgress } from '~/db/QuestionsProgressTypes';
 
@@ -14,7 +14,7 @@ type Props = Omit<
     overallProgress: ReadonlyArray<QuestionProgress>;
     progressTrackingAvailableToNonPremiumUsers?: boolean;
     purchaseFeature?: InterviewsPurchasePremiumFeature;
-    questions: ReadonlyArray<QuestionMetadata>;
+    questions: ReadonlyArray<InterviewsQuestionItemMinimal>;
     studyListKey: string | null;
   }>;
 

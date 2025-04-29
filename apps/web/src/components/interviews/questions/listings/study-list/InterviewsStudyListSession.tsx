@@ -18,7 +18,7 @@ import { useUserProfile } from '~/components/global/UserProfileProvider';
 import getProgressBarGradient from '~/components/interviews/common/utils';
 import InterviewsPricingTableDialog from '~/components/interviews/purchase/InterviewsPricingTableDialog';
 import type { InterviewsPurchasePremiumFeature } from '~/components/interviews/purchase/InterviewsPurchaseTypes';
-import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
+import type { InterviewsQuestionItemMinimal } from '~/components/interviews/questions/common/QuestionsTypes';
 import { FormattedMessage, useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import Card from '~/components/ui/Card';
@@ -40,7 +40,7 @@ type Props = Readonly<{
   pricingDialogSearchParam_MUST_BE_UNIQUE_ON_PAGE: string;
   progressTrackingAvailableToNonPremiumUsers?: boolean;
   questionCount: number;
-  questions: ReadonlyArray<QuestionMetadata>;
+  questions: ReadonlyArray<InterviewsQuestionItemMinimal>;
   studyListKey: string;
   studyListTitle: string;
 }>;

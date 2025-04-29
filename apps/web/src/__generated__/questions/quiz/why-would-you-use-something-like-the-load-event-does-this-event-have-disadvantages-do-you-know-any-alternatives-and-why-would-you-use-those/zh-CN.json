@@ -1,5 +1,9 @@
 {
   "description": null,
+  "info": {
+    "excerpt": null,
+    "title": "你为什么会使用类似 `load` 事件的东西？"
+  },
   "metadata": {
     "access": "free",
     "author": null,
@@ -7,7 +11,6 @@
     "created": 1630800000,
     "difficulty": "hard",
     "duration": 5,
-    "excerpt": null,
     "featured": false,
     "format": "quiz",
     "frameworkDefault": null,
@@ -21,7 +24,6 @@
     "similarQuestions": [],
     "slug": "why-would-you-use-something-like-the-load-event-does-this-event-have-disadvantages-do-you-know-any-alternatives-and-why-would-you-use-those",
     "subtitle": "此事件有缺点吗？ 你知道任何替代方案，以及你为什么会使用这些替代方案？",
-    "title": "你为什么会使用类似 `load` 事件的东西？",
     "topics": [
       "web-api",
       "javascript"

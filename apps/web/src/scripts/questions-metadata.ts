@@ -4,7 +4,7 @@ import path from 'path';
 import { readQuestionListMetadataAlgo } from '~/db/questions-bundlers/QuestionsBundlerAlgo';
 import { getQuestionsListOutFilenameAlgo } from '~/db/questions-bundlers/QuestionsBundlerAlgoConfig';
 
-import type { QuestionMetadata } from '../components/interviews/questions/common/QuestionsTypes';
+import type { InterviewsQuestionItemMinimal } from '../components/interviews/questions/common/QuestionsTypes';
 import { getQuestionsListOutFilenameCoding } from '../db/questions-bundlers/QuestionsBundlerCodingConfig';
 import { readQuestionListMetadataJavaScript } from '../db/questions-bundlers/QuestionsBundlerJavaScript';
 import { getQuestionsListOutFilenameJavaScript } from '../db/questions-bundlers/QuestionsBundlerJavaScriptConfig';
@@ -16,7 +16,9 @@ import { readQuestionListMetadataUserInterface } from '../db/questions-bundlers/
 import { getQuestionsListOutFilenameUserInterface } from '../db/questions-bundlers/QuestionsBundlerUserInterfaceConfig';
 
 async function generateQuestionsMetadata(
-  genFn: (locale_: string) => Promise<ReadonlyArray<QuestionMetadata>>,
+  genFn: (
+    locale_: string,
+  ) => Promise<ReadonlyArray<InterviewsQuestionItemMinimal>>,
   outPath: string,
   locale = 'en-US',
 ) {
@@ -39,7 +41,7 @@ async function codingQuestionsMetadata(outPath: string, locale = 'en-US') {
     ...algoQuestions,
     ...javaScriptQuestions,
     ...userInterfaceQuestions,
-  ].sort((a, b) => a.title.localeCompare(b.title));
+  ].sort((a, b) => a.info.title.localeCompare(b.info.title));
 
   const dir = path.dirname(outPath);
 
@@ -47,7 +49,7 @@ async function codingQuestionsMetadata(outPath: string, locale = 'en-US') {
   fs.writeFileSync(
     outPath,
     JSON.stringify(
-      combinedQuestions.filter((file) => file.published),
+      combinedQuestions.filter((file) => file.metadata.published),
       null,
       2,
     ),

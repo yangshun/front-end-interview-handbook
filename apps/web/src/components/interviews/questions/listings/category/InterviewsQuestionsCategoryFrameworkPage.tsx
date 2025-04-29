@@ -13,8 +13,8 @@ import Divider from '~/components/ui/Divider';
 import InterviewsQuestionsCategoryPage from './InterviewsQuestionsCategoryPage';
 import InterviewsQuestionsCategoryPracticeFormatTabs from './InterviewsQuestionsCategoryPracticeFormatTabs';
 import type {
+  InterviewsQuestionItemMinimal,
   QuestionFramework,
-  QuestionMetadata,
 } from '../../common/QuestionsTypes';
 
 type Props = Omit<
@@ -37,7 +37,7 @@ type Props = Omit<
     listType: React.ComponentProps<
       typeof InterviewsQuestionsCategoryPage
     >['listType'];
-    questions: ReadonlyArray<QuestionMetadata>;
+    questions: ReadonlyArray<InterviewsQuestionItemMinimal>;
     showCategoryTabs?: boolean;
     title?: string;
     totalQuestionsCount: number;

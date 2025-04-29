@@ -7,6 +7,10 @@
     "/src/use-counter.submit.test.ts": "import { act, renderHook } from '@testing-library/react';\n\nimport useCounter from './use-counter';\n\ndescribe('useCounter', () => {\n  test('return values', () => {\n    const { result } = renderHook(() => useCounter());\n\n    expect(result.current.count).toBe(0);\n    expect(typeof result.current.increment).toBe('function');\n    expect(typeof result.current.decrement).toBe('function');\n    expect(typeof result.current.reset).toBe('function');\n    expect(typeof result.current.setCount).toBe('function');\n  });\n\n  test('initial value', () => {\n    const { result } = renderHook(() => useCounter(3));\n\n    expect(result.current.count).toBe(3);\n  });\n\n  test('increment', () => {\n    const { result } = renderHook(() => useCounter());\n\n    act(() => {\n      result.current.increment();\n    });\n    expect(result.current.count).toBe(1);\n  });\n\n  test('decrement', () => {\n    const { result } = renderHook(() => useCounter());\n\n    act(() => {\n      result.current.decrement();\n    });\n    expect(result.current.count).toBe(-1);\n  });\n\n  test('reset', () => {\n    const { result } = renderHook(() => useCounter(3));\n\n    act(() => {\n      result.current.decrement();\n      result.current.decrement();\n      result.current.reset();\n    });\n    expect(result.current.count).toBe(3);\n  });\n\n  describe('setCount', () => {\n    test('direct', () => {\n      const { result } = renderHook(() => useCounter());\n\n      act(() => {\n        result.current.setCount(5);\n      });\n      expect(result.current.count).toBe(5);\n    });\n\n    test('can increment from current value', () => {\n      const { result } = renderHook(() => useCounter(5));\n\n      act(() => {\n        result.current.setCount((x) => x + 2);\n      });\n      expect(result.current.count).toBe(7);\n    });\n  });\n\n  test('integration', () => {\n    const { result } = renderHook(() => useCounter(5));\n\n    act(() => {\n      result.current.setCount((x) => x + 2);\n    });\n    expect(result.current.count).toBe(7);\n\n    act(() => {\n      result.current.increment();\n    });\n    expect(result.current.count).toBe(8);\n\n    act(() => {\n      result.current.decrement();\n    });\n    expect(result.current.count).toBe(7);\n\n    act(() => {\n      result.current.reset();\n    });\n    expect(result.current.count).toBe(5);\n  });\n});\n",
     "/src/use-counter.ts": "import { Dispatch, SetStateAction, useState } from 'react';\n\ninterface UseCounterReturn {\n  count: number;\n  increment: () => void;\n  decrement: () => void;\n  reset: () => void;\n  setCount: Dispatch<SetStateAction<number>>;\n}\n\nexport default function useCounter(initialValue = 0): UseCounterReturn {\n  const [count, setCount] = useState(initialValue);\n\n  return {\n    count,\n    increment: () => setCount((x) => x + 1),\n    decrement: () => setCount((x) => x - 1),\n    reset: () => setCount(initialValue),\n    setCount,\n  };\n}\n"
   },
+  "info": {
+    "excerpt": "实现一个管理计数器状态的 Hook，并提供一些额外的便捷实用方法",
+    "title": "useCounter"
+  },
   "metadata": {
     "access": "free",
     "author": "phillmont",
@@ -14,7 +18,6 @@
     "created": 1742169600,
     "difficulty": "easy",
     "duration": 10,
-    "excerpt": "实现一个管理计数器状态的 Hook，并提供一些额外的便捷实用方法",
     "featured": true,
     "format": "javascript",
     "frameworkDefault": "react",
@@ -42,7 +45,6 @@
     ],
     "slug": "use-counter",
     "subtitle": null,
-    "title": "useCounter",
     "topics": [
       "react-hooks"
     ]

@@ -7,6 +7,10 @@
     "/src/binary-search.submit.test.ts": "import binarySearch from './binary-search';\n\ndescribe('binarySearch', () => {\n  test('empty', () => {\n    expect(binarySearch([], 1)).toBe(-1);\n  });\n\n  test('one element', () => {\n    expect(binarySearch([1], 1)).toBe(0);\n    expect(binarySearch([1], 2)).toBe(-1);\n  });\n\n  test('two elements', () => {\n    expect(binarySearch([1, 4], 1)).toBe(0);\n    expect(binarySearch([1, 4], 4)).toBe(1);\n    expect(binarySearch([1, 4], 5)).toBe(-1);\n  });\n\n  test('more than two elements', () => {\n    expect(binarySearch([1, 2, 3, 10, 11, 20], 1)).toBe(0);\n    expect(binarySearch([1, 2, 3, 10, 11, 20], 2)).toBe(1);\n    expect(binarySearch([1, 2, 3, 10, 11, 20], 3)).toBe(2);\n    expect(binarySearch([1, 2, 3, 10, 11, 20], 10)).toBe(3);\n    expect(binarySearch([1, 2, 3, 10, 11, 20], 9)).toBe(-1);\n    expect(binarySearch([1, 2, 3, 10, 11, 20], 4)).toBe(-1);\n    expect(binarySearch([1, 2, 3, 10, 11, 20], 0)).toBe(-1);\n    expect(binarySearch([1, 2, 3, 10, 11, 20], 21)).toBe(-1);\n  });\n\n  test('boundary values', () => {\n    expect(binarySearch([1, 2, 3, 10, 11, 20], 1)).toBe(0);\n    expect(binarySearch([1, 2, 3, 10, 11, 20], 20)).toBe(5);\n  });\n});\n",
     "/src/binary-search.ts": "export default function binarySearch(\n  arr: Array<number>,\n  target: number,\n): number {\n  // Initialize the left and right indices of the array\n  let left = 0;\n  let right = arr.length - 1;\n\n  // Keep searching until the left and right indices meet.\n  while (left <= right) {\n    // Calculate the mid index to retrieve the mid element later.\n    const mid = Math.floor((left + right) / 2);\n\n    if (target < arr[mid]) {\n      // If the target element is less than the middle element,\n      // search the left half of the array.\n      // Adjust the right index so the next loop iteration\n      // searches the left side.\n      right = mid - 1;\n    } else if (target > arr[mid]) {\n      // If the target element is greater than the middle element,\n      // search the right half of the array.\n      // Adjust the left index so the next loop iteration\n      // searches the left side.\n      left = mid + 1;\n    } else {\n      // If the target element is equal to the middle element,\n      // return the index of the middle element.\n      return mid;\n    }\n  }\n\n  // If the element is not found, return -1.\n  return -1;\n}\n"
   },
+  "info": {
+    "excerpt": "Implement a function that performs binary search on an array of numbers",
+    "title": "Binary Search"
+  },
   "metadata": {
     "access": "standard",
     "author": null,
@@ -14,7 +18,6 @@
     "created": 1671667200,
     "difficulty": "medium",
     "duration": 15,
-    "excerpt": "Implement a function that performs binary search on an array of numbers",
     "featured": false,
     "format": "algo",
     "frameworkDefault": null,
@@ -37,7 +40,6 @@
     "similarQuestions": [],
     "slug": "binary-search",
     "subtitle": null,
-    "title": "Binary Search",
     "topics": [
       "binary-search",
       "sorting"

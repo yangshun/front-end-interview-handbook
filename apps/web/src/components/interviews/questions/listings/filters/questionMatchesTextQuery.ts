@@ -1,11 +1,11 @@
-import type { QuestionMetadata } from '../../common/QuestionsTypes';
+import type { InterviewsQuestionItemMinimal } from '../../common/QuestionsTypes';
 
 export default function questionMatchesTextQuery(
-  question: QuestionMetadata,
+  question: InterviewsQuestionItemMinimal,
   query: string,
 ): boolean {
   return (
-    question.title.toLowerCase().includes(query.toLowerCase()) ||
-    Boolean(question.excerpt?.toLowerCase().includes(query.toLowerCase()))
+    question.info.title.toLowerCase().includes(query.toLowerCase()) ||
+    Boolean(question.info.excerpt?.toLowerCase().includes(query.toLowerCase()))
   );
 }

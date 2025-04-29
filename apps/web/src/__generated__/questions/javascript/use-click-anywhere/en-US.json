@@ -7,6 +7,10 @@
     "/src/use-click-anywhere.submit.test.ts": "import { act, fireEvent, renderHook } from '@testing-library/react';\n\nimport useClickAnywhere from './use-click-anywhere';\n\ndescribe('useClickAnywhere', () => {\n  test('returns nothing', () => {\n    const { result } = renderHook(() => useClickAnywhere(() => {}));\n\n    expect(result.current).toBe(undefined);\n  });\n\n  test('calls the handler when window is clicked', () => {\n    let counter = 0;\n\n    renderHook(() =>\n      useClickAnywhere(() => {\n        counter += 1;\n      }),\n    );\n\n    expect(counter).toBe(0);\n\n    act(() => {\n      fireEvent.click(window);\n    });\n\n    expect(counter).toBe(1);\n  });\n\n  test('calls the handler on multiple clicks', () => {\n    let counter = 0;\n\n    renderHook(() =>\n      useClickAnywhere(() => {\n        counter += 1;\n      }),\n    );\n\n    expect(counter).toBe(0);\n\n    act(() => {\n      fireEvent.click(window);\n    });\n\n    expect(counter).toBe(1);\n\n    act(() => {\n      fireEvent.click(window);\n    });\n\n    expect(counter).toBe(2);\n  });\n\n  /**\n   * `dblclick` fires after two `click` events, so we need to make sure that the handler is not called\n   * for the third time when the user double-clicks.\n   *\n   * @see https://developer.mozilla.org/en-US/docs/Web/API/Element/dblclick_event\n   */\n  test('does not call the handler on dblclick event', () => {\n    let counter = 0;\n\n    renderHook(() =>\n      useClickAnywhere(() => {\n        counter += 1;\n      }),\n    );\n\n    expect(counter).toBe(0);\n\n    act(() => {\n      fireEvent.doubleClick(window);\n    });\n\n    expect(counter).toBe(0);\n  });\n\n  test('does not call the handler on mousedown event', () => {\n    let counter = 0;\n\n    renderHook(() =>\n      useClickAnywhere(() => {\n        counter += 1;\n      }),\n    );\n\n    expect(counter).toBe(0);\n\n    act(() => {\n      fireEvent.mouseDown(window);\n    });\n\n    expect(counter).toBe(0);\n  });\n\n  test('does not call the handler on mouseup event', () => {\n    let counter = 0;\n\n    renderHook(() =>\n      useClickAnywhere(() => {\n        counter += 1;\n      }),\n    );\n\n    expect(counter).toBe(0);\n\n    act(() => {\n      fireEvent.mouseUp(window);\n    });\n\n    expect(counter).toBe(0);\n  });\n\n  test('removes the event listener on unmount', () => {\n    let counter = 0;\n\n    const { unmount } = renderHook(() =>\n      useClickAnywhere(() => {\n        counter += 1;\n      }),\n    );\n\n    expect(counter).toBe(0);\n\n    act(() => {\n      fireEvent.click(window);\n    });\n\n    expect(counter).toBe(1);\n\n    unmount();\n\n    act(() => {\n      fireEvent.click(window);\n    });\n\n    expect(counter).toBe(1);\n  });\n});\n",
     "/src/use-click-anywhere.ts": "import { useEffect } from 'react';\n\nexport default function useClickAnywhere(handler: (event: MouseEvent) => void) {\n  useEffect(() => {\n    window.addEventListener('click', handler);\n\n    return () => {\n      window.removeEventListener('click', handler);\n    };\n  }, []);\n}\n"
   },
+  "info": {
+    "excerpt": "Implement a hook that handles click events anywhere on the document",
+    "title": "useClickAnywhere"
+  },
   "metadata": {
     "access": "standard",
     "author": "phillmont",
@@ -14,7 +18,6 @@
     "created": 1742169600,
     "difficulty": "easy",
     "duration": 15,
-    "excerpt": "Implement a hook that handles click events anywhere on the document",
     "featured": false,
     "format": "javascript",
     "frameworkDefault": "react",
@@ -38,7 +41,6 @@
     "similarQuestions": [],
     "slug": "use-click-anywhere",
     "subtitle": null,
-    "title": "useClickAnywhere",
     "topics": [
       "react-hooks"
     ]

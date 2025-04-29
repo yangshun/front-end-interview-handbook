@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { trpc } from '~/hooks/trpc';
 
 import { useToast } from '~/components/global/toasts/useToast';
-import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
+import type { InterviewsQuestionItemMinimal } from '~/components/interviews/questions/common/QuestionsTypes';
 import { FormattedMessage, useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import CheckboxInput from '~/components/ui/CheckboxInput';
@@ -18,7 +18,7 @@ import {
 type Props = Readonly<{
   isShown: boolean;
   onClose: () => void;
-  questions: ReadonlyArray<QuestionMetadata>;
+  questions: ReadonlyArray<InterviewsQuestionItemMinimal>;
   studyListKey: string;
 }>;
 
@@ -53,14 +53,19 @@ export default function InterviewsStudyListImportProgressDialog({
     if (selectedQuestionsSlug.length === questions.length) {
       setSelectedQuestionsSlug([]);
     } else {
-      setSelectedQuestionsSlug(questions.map((question) => question.slug));
+      setSelectedQuestionsSlug(questions.map(({ metadata }) => metadata.slug));
     }
   }
 
   function onImportProgress() {
     const data = questions
-      .filter((question) => selectedQuestionsSlug.includes(question.slug))
-      .map(({ format, slug }) => ({ format, slug }));
+      .filter((question) =>
+        selectedQuestionsSlug.includes(question.metadata.slug),
+      )
+      .map(({ metadata }) => ({
+        format: metadata.format,
+        slug: metadata.slug,
+      }));
 
     importProgressMutation.mutate(
       {
@@ -193,12 +198,12 @@ export default function InterviewsStudyListImportProgressDialog({
               onChange={onSelectAll}
             />
           </div>
-          {questions.map((question) => (
-            <div key={question.title} className={clsx('px-6 py-3')}>
+          {questions.map(({ info, metadata }) => (
+            <div key={info.title} className={clsx('px-6 py-3')}>
               <CheckboxInput
-                label={question.title}
-                value={selectedQuestionsSlug.includes(question.slug)}
-                onChange={(value) => onSelect(value, question.slug)}
+                label={info.title}
+                value={selectedQuestionsSlug.includes(metadata.slug)}
+                onChange={(value) => onSelect(value, metadata.slug)}
               />
             </div>
           ))}

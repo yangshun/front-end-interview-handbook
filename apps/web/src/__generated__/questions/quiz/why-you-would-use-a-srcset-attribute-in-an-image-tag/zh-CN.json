@@ -1,5 +1,9 @@
 {
   "description": null,
+  "info": {
+    "excerpt": null,
+    "title": "为什么要在图像标签中使用 `srcset` 属性？"
+  },
   "metadata": {
     "access": "free",
     "author": null,
@@ -7,7 +11,6 @@
     "created": 1630800000,
     "difficulty": "medium",
     "duration": 5,
-    "excerpt": null,
     "featured": false,
     "format": "quiz",
     "frameworkDefault": null,
@@ -21,7 +24,6 @@
     "similarQuestions": [],
     "slug": "why-you-would-use-a-srcset-attribute-in-an-image-tag",
     "subtitle": "解释浏览器在评估此属性内容时使用的过程。",
-    "title": "为什么要在图像标签中使用 `srcset` 属性？",
     "topics": [
       "html"
     ],

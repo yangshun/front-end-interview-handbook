@@ -3,13 +3,13 @@
 import { trpc } from '~/hooks/trpc';
 
 import { useToast } from '~/components/global/toasts/useToast';
-import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
+import type { InterviewsQuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import { useIntl } from '~/components/intl';
 
 import { useUser } from '@supabase/auth-helpers-react';
 
 export function useQueryQuestionProgress(
-  metadata: Pick<QuestionMetadata, 'format' | 'slug'>,
+  metadata: Pick<InterviewsQuestionMetadata, 'format' | 'slug'>,
   studyListKey: string | null,
 ) {
   const user = useUser();

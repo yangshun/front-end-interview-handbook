@@ -32,7 +32,7 @@ import type { GuideMetadata, GuideNavigation } from './types';
 import useFlattenedNavigationItems from './useFlattenedNavigationItems';
 import { useGuidesAutoMarkAsComplete } from './useGuidesAutoMarkAsComplete';
 import QuestionReportIssueButton from '../interviews/questions/common/QuestionReportIssueButton';
-import type { QuestionMetadata } from '../interviews/questions/common/QuestionsTypes';
+import type { InterviewsQuestionMetadata } from '../interviews/questions/common/QuestionsTypes';
 
 import type { GuidebookItem } from '@prisma/client';
 import { useUser } from '@supabase/auth-helpers-react';
@@ -46,7 +46,7 @@ type PaginationItem = Readonly<{
 type Props<GuideSlug extends string> = Readonly<{
   guide: GuidebookItem;
   navigation: GuideNavigation<GuideSlug>;
-  questionMetadata?: QuestionMetadata;
+  questionMetadata?: InterviewsQuestionMetadata;
   studyListKey?: string;
 }>;
 

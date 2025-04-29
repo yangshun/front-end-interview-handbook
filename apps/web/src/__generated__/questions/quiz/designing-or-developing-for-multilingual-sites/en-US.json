@@ -1,5 +1,9 @@
 {
   "description": null,
+  "info": {
+    "excerpt": null,
+    "title": "What kind of things must you be wary of when designing or developing for multilingual sites?"
+  },
   "metadata": {
     "access": "free",
     "author": null,
@@ -7,7 +11,6 @@
     "created": 1630800000,
     "difficulty": "hard",
     "duration": 5,
-    "excerpt": null,
     "featured": true,
     "format": "quiz",
     "frameworkDefault": null,
@@ -21,7 +24,6 @@
     "similarQuestions": [],
     "slug": "designing-or-developing-for-multilingual-sites",
     "subtitle": null,
-    "title": "What kind of things must you be wary of when designing or developing for multilingual sites?",
     "topics": [
       "html",
       "i18n"

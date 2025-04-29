@@ -1,5 +1,9 @@
 {
   "description": null,
+  "info": {
+    "excerpt": null,
+    "title": "How do you abort a web request using `AbortController` in JavaScript?"
+  },
   "metadata": {
     "access": "free",
     "author": null,
@@ -7,7 +11,6 @@
     "created": 1630800000,
     "difficulty": "hard",
     "duration": 5,
-    "excerpt": null,
     "featured": true,
     "format": "quiz",
     "frameworkDefault": null,
@@ -21,7 +24,6 @@
     "similarQuestions": [],
     "slug": "how-do-you-abort-a-web-request-using-abortcontrollers",
     "subtitle": null,
-    "title": "How do you abort a web request using `AbortController` in JavaScript?",
     "topics": [
       "javascript",
       "networking"

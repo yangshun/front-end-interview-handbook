@@ -6,7 +6,7 @@ import GuidesMainLayout from '~/components/guides/GuidesMainLayout';
 import type { TableOfContents } from '~/components/guides/GuidesTableOfContents';
 import type { GuideMetadata } from '~/components/guides/types';
 import useFlattenedNavigationItems from '~/components/guides/useFlattenedNavigationItems';
-import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
+import type { InterviewsQuestionItemMinimal } from '~/components/interviews/questions/common/QuestionsTypes';
 import InterviewsQuestionsSystemDesignPaywall from '~/components/interviews/questions/content/system-design/InterviewsQuestionsSystemDesignPaywall';
 import { useIntl } from '~/components/intl';
 
@@ -19,7 +19,7 @@ type Props = Readonly<{
   children?: React.ReactNode;
   description: string;
   isAccessibleForFree?: boolean;
-  questions: ReadonlyArray<QuestionMetadata>;
+  questions: ReadonlyArray<InterviewsQuestionItemMinimal>;
   tableOfContents?: TableOfContents;
   title: string;
 }>;

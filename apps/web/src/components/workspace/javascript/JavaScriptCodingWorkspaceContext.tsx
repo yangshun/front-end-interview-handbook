@@ -10,7 +10,7 @@ import type {
 import { saveJavaScriptQuestionCodeLocally } from '~/components/workspace/javascript/JavaScriptCodingWorkspaceCodeStorage';
 
 import { useCodingWorkspaceContext } from '../common/CodingWorkspaceContext';
-import type { QuestionMetadata } from '../../interviews/questions/common/QuestionsTypes';
+import type { InterviewsQuestionMetadata } from '../../interviews/questions/common/QuestionsTypes';
 
 import { useSandpack } from '@codesandbox/sandpack-react';
 
@@ -44,7 +44,7 @@ JavaScriptCodingWorkspaceContext.displayName =
 type Props = Readonly<{
   children: ReactNode;
   language: QuestionCodingWorkingLanguage;
-  metadata: QuestionMetadata;
+  metadata: InterviewsQuestionMetadata;
   onLanguageChange: (language: QuestionCodingWorkingLanguage) => void;
   skeleton: QuestionJavaScriptSkeleton;
   workspace: QuestionJavaScriptWorkspace;

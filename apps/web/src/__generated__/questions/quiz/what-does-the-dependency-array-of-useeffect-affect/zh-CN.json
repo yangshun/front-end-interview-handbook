@@ -1,5 +1,9 @@
 {
   "description": null,
+  "info": {
+    "excerpt": null,
+    "title": "useEffect 的依赖项数组会影响什么？"
+  },
   "metadata": {
     "access": "free",
     "author": null,
@@ -7,7 +11,6 @@
     "created": 1630800000,
     "difficulty": "medium",
     "duration": 5,
-    "excerpt": null,
     "featured": true,
     "format": "quiz",
     "frameworkDefault": "react",
@@ -26,7 +29,6 @@
     "similarQuestions": [],
     "slug": "what-does-the-dependency-array-of-useeffect-affect",
     "subtitle": null,
-    "title": "useEffect 的依赖项数组会影响什么？",
     "topics": [
       "react"
     ],

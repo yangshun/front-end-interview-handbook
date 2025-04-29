@@ -37,11 +37,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { question } = quizQuestionContents;
 
   return defaultMetadata({
-    description: question.metadata.excerpt ?? '',
+    description: question.info.excerpt ?? '',
     locale,
-    ogImageTitle: question.metadata.title,
+    ogImageTitle: question.info.title,
     pathname: question.metadata.href,
-    socialTitle: question.metadata.title,
+    socialTitle: question.info.title,
     title: intl.formatMessage(
       {
         defaultMessage:
@@ -50,7 +50,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         id: 'wTdDt/',
       },
       {
-        questionTitle: question.metadata.title,
+        questionTitle: question.info.title,
       },
     ),
   });

@@ -7,6 +7,10 @@
     "/src/html-serializer.submit.test.ts": "import serializeHTML from './html-serializer';\n\ndescribe('HTML serializer', () => {\n  describe('single tag', () => {\n    test('single children', () => {\n      expect(\n        serializeHTML({\n          tag: 'div',\n          children: ['foo'],\n        }),\n      ).toEqual('<div>\\n\\tfoo\\n</div>');\n    });\n\n    test('single tag two children', () => {\n      expect(\n        serializeHTML({ children: ['bar1', 'bar2'], tag: 'span' }),\n      ).toEqual('<span>\\n\\tbar1\\n\\tbar2\\n</span>');\n    });\n  });\n\n  test('deeply nested', () => {\n    expect(\n      serializeHTML({\n        tag: 'body',\n        children: [\n          { tag: 'div', children: [{ tag: 'span', children: ['foo', 'bar'] }] },\n          { tag: 'div', children: ['baz'] },\n        ],\n      }),\n    ).toEqual(\n      '<body>\\n\\t<div>\\n\\t\\t<span>\\n\\t\\t\\tfoo\\n\\t\\t\\tbar\\n\\t\\t</span>\\n\\t</div>\\n\\t<div>\\n\\t\\tbaz\\n\\t</div>\\n</body>',\n    );\n  });\n});\n",
     "/src/html-serializer.ts": "type Element = string | { tag: string; children: Array<string | Element> };\n\nexport default function serializeHTML(element: Element, indent = '\\t'): string {\n  function traverse(element: Element, depth = 0): string {\n    if (typeof element === 'string') {\n      return `${indent.repeat(depth)}${element}`;\n    }\n\n    return [\n      `${indent.repeat(depth)}<${element.tag.toLowerCase()}>`,\n      ...element.children.flatMap((child) => traverse(child, depth + 1)),\n      `${indent.repeat(depth)}</${element.tag.toLowerCase()}>`,\n    ].join('\\n');\n  }\n\n  return traverse(element);\n}\n"
   },
+  "info": {
+    "excerpt": "Implement a function to serialize an object into an HTML string with indentation",
+    "title": "HTML Serializer"
+  },
   "metadata": {
     "access": "standard",
     "author": "zhenghao",
@@ -16,7 +20,6 @@
     "created": 1654992000,
     "difficulty": "medium",
     "duration": 20,
-    "excerpt": "Implement a function to serialize an object into an HTML string with indentation",
     "featured": false,
     "format": "javascript",
     "frameworkDefault": null,
@@ -36,7 +39,6 @@
     ],
     "slug": "html-serializer",
     "subtitle": null,
-    "title": "HTML Serializer",
     "topics": [
       "recursion"
     ]

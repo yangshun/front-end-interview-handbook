@@ -48,7 +48,7 @@ export default function useQuestionFrameworkFilter(
     id: 'framework',
     matches: (question) =>
       frameworkFilters.size === 0 ||
-      question.frameworks.some((frameworkItem) =>
+      question.metadata.frameworks.some((frameworkItem) =>
         frameworkFilters.has(frameworkItem.framework),
       ),
     name: intl.formatMessage({

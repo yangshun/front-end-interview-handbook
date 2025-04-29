@@ -7,6 +7,10 @@
     "/src/intersection-by.submit.test.ts": "import intersectionBy from './intersection-by';\n\ndescribe('intersectionBy', () => {\n  test('empty arrays', () => {\n    const arr1: Array<number> = [];\n    const arr2: Array<number> = [1, 2, 3];\n    const arr3: Array<number> = [];\n    const iteratee = String;\n\n    expect(intersectionBy(iteratee, arr1, arr2, arr3)).toEqual([]);\n  });\n\n  test('intersection of arrays based on iteratee function', () => {\n    const arr1 = [2.1, 1.2];\n    const arr2 = [2.3, 3.4];\n    const arr3 = [4.5, 2.6];\n    const iteratee = Math.floor;\n\n    expect(intersectionBy(iteratee, arr1, arr2, arr3)).toEqual([2.1]);\n  });\n\n  test('no intersection', () => {\n    const arr1 = [1, 2, 3];\n    const arr2 = [4, 5, 6];\n    const arr3 = [7, 8, 9];\n    const iteratee = String;\n\n    expect(intersectionBy(iteratee, arr1, arr2, arr3)).toEqual([]);\n  });\n\n  test('single array', () => {\n    const arr1 = [1, 2.5, 3, 7.8];\n    const iteratee = Math.floor;\n\n    expect(intersectionBy(iteratee, arr1)).toEqual([1, 2.5, 3, 7.8]);\n  });\n\n  test('multiple intersections', () => {\n    const arr1 = [1.2, 2.3, 3.4];\n    const arr2 = [2.1, 1.2, 4.5];\n    const arr3 = [1.2, 4.5, 2.3, 3.4];\n    const iteratee = Math.floor;\n\n    expect(intersectionBy(iteratee, arr1, arr2, arr3)).toEqual([1.2, 2.3]);\n  });\n\n  test('non-primitive values', () => {\n    const arr1 = [{ id: 1 }, { id: 2 }];\n    const arr2 = [{ id: 2 }, { id: 3 }];\n    const iteratee = (obj: { id: number }) => obj.id;\n\n    expect(intersectionBy(iteratee, arr1, arr2)).toEqual([{ id: 2 }]);\n  });\n\n  test('different iteratee values', () => {\n    const arr1 = ['apple', 'banana', 'pear'];\n    const arr2 = ['orange', 'kiwi', 'banana'];\n    const arr3 = ['grape', 'pear', 'watermelon'];\n    const iteratee = (value: string) => value.length;\n\n    expect(intersectionBy(iteratee, arr1, arr2, arr3)).toEqual(['pear']);\n  });\n\n  test('same iteratee values in one array', () => {\n    expect(\n      intersectionBy(\n        (str) => str.toLowerCase(),\n        ['apple', 'banana', 'ORANGE', 'orange'],\n        ['Apple', 'Banana', 'Orange'],\n      ),\n    ).toEqual(['apple', 'banana', 'ORANGE']);\n  });\n});\n",
     "/src/intersection-by.ts": "export default function intersectionBy<T, R>(\n  iteratee: (value: T) => R,\n  ...arrays: Array<Array<T>>\n): Array<T> {\n  if (arrays.length == 0) {\n    return [];\n  }\n\n  if (arrays.length === 1) {\n    const uniqueSet = new Set<R>();\n    const result = [];\n    for (const value of arrays[0]) {\n      const transformedValue = iteratee(value);\n\n      if (!uniqueSet.has(transformedValue)) {\n        uniqueSet.add(transformedValue);\n        result.push(value);\n      }\n    }\n    return result;\n  }\n\n  // If any array is empty, the intersection is empty\n  if (arrays.some((arr) => arr.length === 0)) {\n    return [];\n  }\n\n  // Create Sets of transformed values for arrays 2 onwards for O(1) lookup\n  const subsequentSets = arrays\n    .slice(1)\n    .map((array) => new Set(array.map(iteratee)));\n\n  const result = [];\n  const includedTransformedValues = new Set<R>();\n\n  // Check elements from the first array against the sets.\n  for (const value of arrays[0]) {\n    const transformedValue = iteratee(value);\n\n    if (\n      !includedTransformedValues.has(transformedValue) &&\n      subsequentSets.every((set) => set.has(transformedValue))\n    ) {\n      result.push(value); // Add the original value.\n      includedTransformedValues.add(transformedValue); // Mark transformed value as included.\n    }\n  }\n\n  return result;\n}\n"
   },
+  "info": {
+    "excerpt": "实现一个函数，该函数根据提供的迭代函数返回一个包含所有给定数组中包含的唯一值的数组。",
+    "title": "Intersection By"
+  },
   "metadata": {
     "access": "premium",
     "author": null,
@@ -14,7 +18,6 @@
     "created": 1687651200,
     "difficulty": "medium",
     "duration": 15,
-    "excerpt": "实现一个函数，该函数根据提供的迭代函数返回一个包含所有给定数组中包含的唯一值的数组。",
     "featured": false,
     "format": "javascript",
     "frameworkDefault": null,
@@ -34,7 +37,6 @@
     ],
     "slug": "intersection-by",
     "subtitle": null,
-    "title": "Intersection By",
     "topics": []
   },
   "skeleton": {

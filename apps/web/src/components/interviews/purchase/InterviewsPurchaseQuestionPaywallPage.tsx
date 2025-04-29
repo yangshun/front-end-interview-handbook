@@ -3,7 +3,7 @@
 import clsx from 'clsx';
 
 import InterviewsPurchasePaywall from '~/components/interviews/purchase/InterviewsPurchasePaywall';
-import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
+import type { InterviewsQuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import InterviewsStudyListBottomBar from '~/components/interviews/questions/listings/study-list/InterviewsStudyListBottomBar';
 import QuestionMetadataSection from '~/components/interviews/questions/metadata/QuestionMetadataSection';
 import Container from '~/components/ui/Container';
@@ -11,15 +11,17 @@ import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 
 type Props = Readonly<{
-  metadata: QuestionMetadata;
+  metadata: InterviewsQuestionMetadata;
   mode: 'practice' | 'solution';
   studyListKey?: string;
+  title: string;
 }>;
 
 export default function InterviewsPurchaseQuestionPaywallPage({
   metadata,
   mode,
   studyListKey,
+  title,
 }: Props) {
   return (
     <div
@@ -33,7 +35,7 @@ export default function InterviewsPurchaseQuestionPaywallPage({
         className={clsx('grow flex-col gap-y-6', 'py-[10vh]')}
         width="2xl">
         <div className="flex flex-col items-center gap-y-4">
-          <Heading level="heading4">{metadata.title}</Heading>
+          <Heading level="heading4">{title}</Heading>
           <QuestionMetadataSection justify="start" metadata={metadata} />
         </div>
         <Section>

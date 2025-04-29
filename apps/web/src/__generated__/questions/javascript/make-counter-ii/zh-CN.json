@@ -7,6 +7,10 @@
     "/src/make-counter-ii.submit.test.ts": "import makeCounter from './make-counter-ii';\n\ndescribe('makeCounter', () => {\n  test('returns an object', () => {\n    const counter = makeCounter();\n\n    expect(typeof counter).toBe('object');\n  });\n\n  describe('get', () => {\n    test('default', () => {\n      const counter = makeCounter();\n      expect(counter.get()).toBe(0);\n    });\n\n    test('custom', () => {\n      const counter = makeCounter(-4);\n      expect(counter.get()).toBe(-4);\n    });\n  });\n\n  describe('increment', () => {\n    test('default', () => {\n      const counter = makeCounter();\n      expect(counter.increment()).toBe(1);\n      expect(counter.increment()).toBe(2);\n    });\n\n    test('custom', () => {\n      const counter = makeCounter(-4);\n      expect(counter.increment()).toBe(-3);\n      expect(counter.increment()).toBe(-2);\n    });\n  });\n\n  describe('decrement', () => {\n    test('default', () => {\n      const counter = makeCounter();\n      expect(counter.decrement()).toBe(-1);\n      expect(counter.decrement()).toBe(-2);\n    });\n\n    test('custom', () => {\n      const counter = makeCounter(-4);\n      expect(counter.decrement()).toBe(-5);\n      expect(counter.decrement()).toBe(-6);\n    });\n  });\n\n  describe('reset', () => {\n    test('default', () => {\n      const counter = makeCounter();\n      expect(counter.decrement()).toBe(-1);\n      expect(counter.decrement()).toBe(-2);\n      expect(counter.reset()).toBe(0);\n    });\n\n    test('custom', () => {\n      const counter = makeCounter(-4);\n      expect(counter.decrement()).toBe(-5);\n      expect(counter.decrement()).toBe(-6);\n      expect(counter.reset()).toBe(-4);\n    });\n  });\n\n  describe('integration', () => {\n    test('default', () => {\n      const counter = makeCounter();\n      expect(counter.get()).toBe(0);\n      expect(counter.increment()).toBe(1);\n      expect(counter.increment()).toBe(2);\n      expect(counter.get()).toBe(2);\n      expect(counter.reset()).toBe(0);\n      expect(counter.decrement()).toBe(-1);\n    });\n\n    test('custom', () => {\n      const counter = makeCounter(5);\n      expect(counter.get()).toBe(5);\n      expect(counter.decrement()).toBe(4);\n      expect(counter.decrement()).toBe(3);\n      expect(counter.get()).toBe(3);\n      expect(counter.reset()).toBe(5);\n      expect(counter.increment()).toBe(6);\n    });\n  });\n\n  test('isolated instances', () => {\n    const counterA = makeCounter(5);\n    const counterB = makeCounter(10);\n\n    expect(counterA.get()).toBe(5);\n    expect(counterB.get()).toBe(10);\n\n    expect(counterA.decrement()).toBe(4);\n    expect(counterA.decrement()).toBe(3);\n    expect(counterA.get()).toBe(3);\n\n    expect(counterB.get()).toBe(10);\n    expect(counterB.increment()).toBe(11);\n  });\n});\n",
     "/src/make-counter-ii.ts": "interface Counter {\n  get: () => number;\n  increment: () => number;\n  decrement: () => number;\n  reset: () => number;\n}\n\nexport default function makeCounter(initialValue: number = 0): Counter {\n  let count = initialValue;\n\n  return {\n    get: () => count,\n    increment: () => ++count,\n    decrement: () => --count,\n    reset: () => (count = initialValue),\n  };\n}\n"
   },
+  "info": {
+    "excerpt": "实现一个函数，该函数返回一个计数器对象，该对象具有用于检索和操作值的各种方法",
+    "title": "创建计数器 II"
+  },
   "metadata": {
     "access": "premium",
     "author": null,
@@ -16,7 +20,6 @@
     "created": 1683331200,
     "difficulty": "medium",
     "duration": 10,
-    "excerpt": "实现一个函数，该函数返回一个计数器对象，该对象具有用于检索和操作值的各种方法",
     "featured": false,
     "format": "javascript",
     "frameworkDefault": null,
@@ -38,7 +41,6 @@
     ],
     "slug": "make-counter-ii",
     "subtitle": null,
-    "title": "创建计数器 II",
     "topics": [
       "closure"
     ]

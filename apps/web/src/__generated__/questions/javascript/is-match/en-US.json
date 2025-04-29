@@ -7,6 +7,10 @@
     "/src/is-match.submit.test.ts": "import isMatch from './is-match';\n\ndescribe('isMatch', () => {\n  test('basic functionality', () => {\n    const source = { a: 1 };\n    expect(isMatch({ a: 1, b: 2 }, source)).toEqual(true);\n    expect(isMatch({ a: 2 }, source)).toEqual(false);\n  });\n\n  test('matching with undefined and null values', () => {\n    const source = { a: undefined, b: null };\n    expect(isMatch({ a: undefined, b: null }, source)).toEqual(true);\n    expect(isMatch({ a: null, b: undefined }, source)).toEqual(false);\n  });\n\n  test('handling primitive data types', () => {\n    const source = { a: 'hello', b: 100 };\n    expect(isMatch({ a: 'hello', b: 100, c: false }, source)).toEqual(true);\n    expect(isMatch({ a: 'world', b: 100 }, source)).toEqual(false);\n  });\n\n  test('handling boolean values', () => {\n    const source = { a: true, b: false };\n    expect(isMatch({ a: true, b: false, c: 'extra' }, source)).toEqual(true);\n    expect(isMatch({ a: false, b: true }, source)).toEqual(false);\n  });\n\n  test('strict equality checks', () => {\n    const source = { a: 0, b: '0' };\n    expect(isMatch({ a: 0, b: '0', c: null }, source)).toEqual(true);\n    expect(isMatch({ a: '0', b: 0 }, source)).toEqual(false);\n  });\n\n  test('values with different types', () => {\n    const source = { a: '5', b: 5 };\n    expect(isMatch({ a: '5', b: 5 }, source)).toEqual(true);\n    expect(isMatch({ a: 5, b: '5' }, source)).toEqual(false);\n  });\n\n  test('nested objects', () => {\n    const source = { a: { b: { c: 1 } } };\n    expect(isMatch({ a: { b: { c: 1, d: 2 } }, e: 3 }, source)).toEqual(true);\n    expect(isMatch({ a: { b: { c: 2 } } }, source)).toEqual(false);\n  });\n\n  test('nested arrays', () => {\n    const source = { a: [1, 2, [3, 4]] };\n    expect(isMatch({ a: [1, 2, [3, 4]], b: 5 }, source)).toEqual(true);\n    expect(isMatch({ a: [1, 2, [4, 3]] }, source)).toEqual(false);\n  });\n\n  test('complex nesting', () => {\n    const source = { a: [{ b: { c: [1, { d: 2 }] } }] };\n    expect(\n      isMatch({ a: [{ b: { c: [1, { d: 2, e: 3 }] } }], f: 4 }, source),\n    ).toEqual(true);\n    expect(isMatch({ a: [{ b: { c: [1, { d: 3 }] } }] }, source)).toEqual(\n      false,\n    );\n  });\n});\n",
     "/src/is-match.ts": "export default function isMatch(\n  object: Record<string, any>,\n  source: Record<string, any>,\n): boolean {\n  for (const key in source) {\n    // Check if both values are objects (including arrays, but not null).\n    if (\n      typeof object[key] === 'object' &&\n      typeof source[key] === 'object' &&\n      object[key] !== null &&\n      source[key] !== null\n    ) {\n      // Recursively call isMatch for nested objects or arrays.\n      if (!isMatch(object[key], source[key])) {\n        return false;\n      }\n    } else if (object[key] !== source[key]) {\n      return false;\n    }\n  }\n  return true;\n}\n"
   },
+  "info": {
+    "excerpt": "Implement a function that compares object and source to determine if they contain equivalent property values",
+    "title": "Is Match"
+  },
   "metadata": {
     "access": "premium",
     "author": null,
@@ -14,7 +18,6 @@
     "created": 1712102400,
     "difficulty": "medium",
     "duration": 20,
-    "excerpt": "Implement a function that compares object and source to determine if they contain equivalent property values",
     "featured": false,
     "format": "javascript",
     "frameworkDefault": null,
@@ -33,7 +36,6 @@
     ],
     "slug": "is-match",
     "subtitle": null,
-    "title": "Is Match",
     "topics": []
   },
   "skeleton": {

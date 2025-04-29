@@ -10,9 +10,9 @@ import {
 } from './QuestionsBundlerAlgoConfig';
 import { normalizeQuestionFrontMatter } from '../QuestionsUtils';
 import type {
+  InterviewsQuestionItemJavaScript,
+  InterviewsQuestionItemMinimal,
   QuestionCodingWorkingLanguage,
-  QuestionJavaScript,
-  QuestionMetadata,
 } from '../../components/interviews/questions/common/QuestionsTypes';
 
 async function readQuestionAlgoSkeleton(
@@ -33,7 +33,7 @@ async function readQuestionAlgoSkeleton(
 async function readQuestionMetadataAlgo(
   slug: string,
   locale = 'en-US',
-): Promise<QuestionMetadata> {
+): Promise<InterviewsQuestionItemMinimal> {
   const questionPath = getQuestionSrcPathAlgo(slug);
 
   // Read frontmatter from MDX file.
@@ -57,9 +57,9 @@ async function readQuestionMetadataAlgo(
 async function readQuestionMetadataWithFallbackAlgo(
   slug: string,
   requestedLocale = 'en-US',
-): Promise<{ loadedLocale: string; metadata: QuestionMetadata }> {
+): Promise<{ content: InterviewsQuestionItemMinimal; loadedLocale: string }> {
   let loadedLocale = requestedLocale;
-  const metadata = await (async () => {
+  const content = await (async () => {
     try {
       return await readQuestionMetadataAlgo(slug, requestedLocale);
     } catch {
@@ -70,8 +70,8 @@ async function readQuestionMetadataWithFallbackAlgo(
   })();
 
   return {
+    content,
     loadedLocale,
-    metadata,
   };
 }
 
@@ -172,7 +172,7 @@ async function readQuestionAlgoWorkspaceConfig(slug: string): Promise<
 export async function readQuestionAlgo(
   slug: string,
   locale = 'en-US',
-): Promise<QuestionJavaScript> {
+): Promise<InterviewsQuestionItemJavaScript> {
   const questionPath = getQuestionSrcPathAlgo(slug);
   const [
     metadata,
@@ -195,7 +195,7 @@ export async function readQuestionAlgo(
   return {
     description,
     files,
-    metadata,
+    ...metadata,
     skeleton: {
       js: skeletonJS,
       ts: skeletonTS,
@@ -207,7 +207,7 @@ export async function readQuestionAlgo(
 
 export async function readQuestionListMetadataAlgo(
   locale = 'en-US',
-): Promise<ReadonlyArray<QuestionMetadata>> {
+): Promise<ReadonlyArray<InterviewsQuestionItemMinimal>> {
   const directories = fs
     .readdirSync(QUESTIONS_SRC_DIR_ALGO, {
       withFileTypes: true,
@@ -218,14 +218,14 @@ export async function readQuestionListMetadataAlgo(
     directories.map(async (dirent) => {
       const slug = dirent.name;
 
-      const { metadata } = await readQuestionMetadataWithFallbackAlgo(
+      const { content } = await readQuestionMetadataWithFallbackAlgo(
         slug,
         locale,
       );
 
-      return metadata;
+      return content;
     }),
   );
 
-  return questions.filter(({ published }) => published);
+  return questions.filter(({ metadata }) => metadata.published);
 }

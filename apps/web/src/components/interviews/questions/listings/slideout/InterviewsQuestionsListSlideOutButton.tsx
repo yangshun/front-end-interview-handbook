@@ -6,9 +6,9 @@ import { RiArrowLeftSLine, RiArrowRightSLine } from 'react-icons/ri';
 
 import { questionHrefFrameworkSpecificAndListType } from '~/components/interviews/questions/common/QuestionHrefUtils';
 import type {
+  InterviewsQuestionItemWithCompletedStatus,
   QuestionFramework,
   QuestionHash,
-  QuestionMetadataWithCompletedStatus,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import useQuestionCodingSorting from '~/components/interviews/questions/listings/filters/hooks/useQuestionCodingSorting';
 import useQuestionUnifiedFilters from '~/components/interviews/questions/listings/filters/hooks/useQuestionUnifiedFilters';
@@ -100,7 +100,7 @@ function InterviewsQuestionsListSlideOutButtonImpl({
 }: Omit<Props, 'studyListKey'> &
   Readonly<{
     listType: QuestionListTypeWithLabel;
-    questions: ReadonlyArray<QuestionMetadataWithCompletedStatus>;
+    questions: ReadonlyArray<InterviewsQuestionItemWithCompletedStatus>;
   }>) {
   const intl = useIntl();
 
@@ -122,7 +122,7 @@ function InterviewsQuestionsListSlideOutButtonImpl({
   );
 
   const currentQuestionIndex = processedQuestions.findIndex(
-    (question) => hashQuestion(question) === currentQuestionHash,
+    (question) => hashQuestion(question.metadata) === currentQuestionHash,
   );
 
   // The current question might not appear in the filtered list,
@@ -138,7 +138,7 @@ function InterviewsQuestionsListSlideOutButtonImpl({
         href={
           prevQuestion
             ? questionHrefFrameworkSpecificAndListType(
-                prevQuestion,
+                prevQuestion.metadata,
                 listType,
                 framework,
               )
@@ -153,7 +153,7 @@ function InterviewsQuestionsListSlideOutButtonImpl({
           id: 'WPfIhl',
         })}
         size="xs"
-        tooltip={prevQuestion ? prevQuestion?.title : undefined}
+        tooltip={prevQuestion ? prevQuestion?.info.title : undefined}
         variant="tertiary"
       />
       <InterviewsQuestionsListSlideOut
@@ -174,7 +174,7 @@ function InterviewsQuestionsListSlideOutButtonImpl({
         href={
           nextQuestion
             ? questionHrefFrameworkSpecificAndListType(
-                nextQuestion,
+                nextQuestion.metadata,
                 listType,
                 framework,
               )
@@ -189,7 +189,7 @@ function InterviewsQuestionsListSlideOutButtonImpl({
           id: 'DqvEKB',
         })}
         size="xs"
-        tooltip={nextQuestion ? nextQuestion?.title : undefined}
+        tooltip={nextQuestion ? nextQuestion?.info.title : undefined}
         variant="tertiary"
       />
     </div>

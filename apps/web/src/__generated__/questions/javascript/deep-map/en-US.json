@@ -7,6 +7,10 @@
     "/src/deep-map.submit.test.ts": "import deepMap from './deep-map';\n\nconst identity = <T>(x: T) => x;\nconst dummy = () => 'dummy';\nconst square = (x: number) => x * x;\nconst negate = (x: boolean) => !x;\nconst length = (x: { length: number }) => x.length;\nconst double = (x: number) => x * 2;\n\ndescribe('deepMap', () => {\n  describe('primitives', () => {\n    test('numbers', () => {\n      expect(deepMap(3, square)).toBe(9);\n      expect(deepMap(3, double)).toBe(6);\n    });\n\n    test('boolean', () => {\n      expect(deepMap(true, negate)).toBe(false);\n      expect(deepMap(false, negate)).toBe(true);\n    });\n\n    test('strings', () => {\n      expect(deepMap('hello', length)).toBe(5);\n      expect(deepMap('byebye', length)).toBe(6);\n    });\n\n    test('null', () => {\n      expect(deepMap(null, identity)).toBe(null);\n    });\n  });\n\n  describe('non-primitives', () => {\n    test('regexp', () => {\n      expect(deepMap(/hello/, dummy)).toBe('dummy');\n    });\n\n    test('functions', () => {\n      expect(deepMap(() => {}, dummy)).toBe('dummy');\n    });\n  });\n\n  describe('arrays', () => {\n    test('empty array', () => {\n      expect(deepMap([], identity)).toEqual([]);\n      expect(deepMap([], square)).toEqual([]);\n    });\n\n    test('one value', () => {\n      expect(deepMap([10], identity)).toEqual([10]);\n      expect(deepMap([10], square)).toEqual([100]);\n    });\n\n    test('two values', () => {\n      expect(deepMap([-4, 10], identity)).toEqual([-4, 10]);\n      expect(deepMap([-4, 10], square)).toEqual([16, 100]);\n    });\n\n    test('multiple values', () => {\n      expect(deepMap([1, 2, 3, 4], identity)).toEqual([1, 2, 3, 4]);\n      expect(deepMap([1, 2, 3, 4, 5], square)).toEqual([1, 4, 9, 16, 25]);\n    });\n\n    test('nested objects', () => {\n      expect(deepMap([2, { foo: 3 }], double)).toEqual([4, { foo: 6 }]);\n      expect(deepMap([2, { foo: 3 }], square)).toEqual([4, { foo: 9 }]);\n    });\n\n    test('nested arrays', () => {\n      expect(deepMap([2, [3, [4]]], double)).toEqual([4, [6, [8]]]);\n      expect(deepMap([2, [3, [4]]], square)).toEqual([4, [9, [16]]]);\n    });\n\n    test('does not mutate the input', () => {\n      const obj = [3, 2];\n      expect(deepMap(obj, double)).toEqual([6, 4]);\n      expect(obj).toEqual([3, 2]);\n    });\n  });\n\n  describe('objects', () => {\n    test('empty', () => {\n      expect(deepMap({}, double)).toEqual({});\n    });\n\n    test('single key', () => {\n      expect(deepMap({ foo: 2 }, double)).toEqual({ foo: 4 });\n    });\n\n    test('multiple keys', () => {\n      expect(deepMap({ foo: 2, bar: 3 }, double)).toEqual({ foo: 4, bar: 6 });\n    });\n\n    test('nested objects', () => {\n      expect(deepMap({ foo: 3, bar: { baz: 5, qux: 6 } }, identity)).toEqual({\n        foo: 3,\n        bar: {\n          baz: 5,\n          qux: 6,\n        },\n      });\n      expect(deepMap({ foo: 3, bar: { baz: 5, qux: 6 } }, double)).toEqual({\n        foo: 6,\n        bar: {\n          baz: 10,\n          qux: 12,\n        },\n      });\n    });\n\n    test('nested arrays', () => {\n      expect(deepMap({ foo: 3, bar: [7, 5] }, identity)).toEqual({\n        foo: 3,\n        bar: [7, 5],\n      });\n      expect(deepMap({ foo: 3, bar: [7, 5] }, double)).toEqual({\n        foo: 6,\n        bar: [14, 10],\n      });\n    });\n\n    test('does not mutate the input', () => {\n      const obj = { bar: 3, foo: 2 };\n      expect(deepMap(obj, double)).toEqual({\n        foo: 4,\n        bar: 6,\n      });\n      expect(obj).toEqual({\n        foo: 2,\n        bar: 3,\n      });\n    });\n  });\n\n  test('can access `this`', () => {\n    expect(\n      deepMap({ bar: 3, foo: 2 }, function (this: any, x: number) {\n        return this.foo * x;\n      }),\n    ).toEqual({\n      foo: 4,\n      bar: 6,\n    });\n  });\n});\n",
     "/src/deep-map.ts": "export default function deepMap(value: unknown, fn: Function): unknown {\n  return mapHelper(value, fn, value);\n}\n\nfunction isPlainObject(value: unknown): boolean {\n  if (value == null) {\n    return false;\n  }\n\n  const prototype = Object.getPrototypeOf(value);\n  return prototype === null || prototype === Object.prototype;\n}\n\nfunction mapHelper(element: unknown, fn: Function, original: unknown): unknown {\n  // Handle arrays.\n  if (Array.isArray(element)) {\n    return element.map((item) => mapHelper(item, fn, original));\n  }\n\n  // Handle plain objects.\n  if (isPlainObject(element)) {\n    return Object.fromEntries(\n      Object.entries(element as Object).map(([key, value]) => [\n        key,\n        mapHelper(value, fn, original),\n      ]),\n    );\n  }\n\n  // Handle other types.\n  return fn.call(original, element);\n}\n"
   },
+  "info": {
+    "excerpt": "Implement a function to recursively transform values",
+    "title": "Deep Map"
+  },
   "metadata": {
     "access": "premium",
     "author": null,
@@ -14,7 +18,6 @@
     "created": 1690761600,
     "difficulty": "medium",
     "duration": 25,
-    "excerpt": "Implement a function to recursively transform values",
     "featured": false,
     "format": "javascript",
     "frameworkDefault": null,
@@ -34,7 +37,6 @@
     ],
     "slug": "deep-map",
     "subtitle": null,
-    "title": "Deep Map",
     "topics": [
       "recursion"
     ]

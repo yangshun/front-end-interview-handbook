@@ -1,5 +1,9 @@
 {
   "description": null,
+  "info": {
+    "excerpt": null,
+    "title": "Qual é a diferença entre `==` e `===`?"
+  },
   "metadata": {
     "access": "free",
     "author": null,
@@ -7,7 +11,6 @@
     "created": 1630800000,
     "difficulty": "easy",
     "duration": 5,
-    "excerpt": null,
     "featured": true,
     "format": "quiz",
     "frameworkDefault": null,
@@ -21,7 +24,6 @@
     "similarQuestions": [],
     "slug": "what-is-the-difference-between-double-equal-and-triple-equal",
     "subtitle": null,
-    "title": "Qual é a diferença entre `==` e `===`?",
     "topics": [
       "javascript"
     ],

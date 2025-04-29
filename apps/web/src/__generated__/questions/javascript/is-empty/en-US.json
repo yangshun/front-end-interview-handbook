@@ -7,6 +7,10 @@
     "/src/is-empty.submit.test.ts": "import isEmpty from './is-empty';\n\ndescribe('isEmpty', () => {\n  test('empty values', () => {\n    expect(isEmpty(true)).toBe(true);\n    expect(isEmpty(1)).toBe(true);\n    expect(isEmpty(NaN)).toBe(true);\n    expect(isEmpty(/x/)).toBe(true);\n    expect(isEmpty(Symbol('x'))).toBe(true);\n  });\n\n  describe('strings', () => {\n    test('empty string', () => {\n      expect(isEmpty('')).toBe(true);\n    });\n\n    test('non-empty string', () => {\n      expect(isEmpty('a')).toBe(false);\n    });\n  });\n\n  describe('objects', () => {\n    test('empty object', () => {\n      expect(isEmpty({})).toBe(true);\n    });\n\n    test('non-empty object', () => {\n      expect(isEmpty({ a: 0 })).toBe(false);\n    });\n\n    test('object that has a `length` property', () => {\n      expect(isEmpty({ length: 0 })).toBe(false);\n    });\n\n    test('objects with negative lengths', function () {\n      function Foo() {}\n      Foo.prototype.length = -1;\n\n      expect(isEmpty(new (Foo as any)())).toBe(true);\n    });\n\n    test('non-number lengths', function () {\n      expect(isEmpty({ length: '0' })).toBe(false);\n    });\n  });\n\n  describe('maps', function () {\n    test('empty map', () => {\n      const map = new Map();\n      expect(isEmpty(map)).toBe(true);\n    });\n\n    test('non-empty map', () => {\n      const map = new Map([['a', 1]]);\n      expect(isEmpty(map)).toBe(false);\n    });\n  });\n\n  describe('sets', function () {\n    test('empty set', () => {\n      const set = new Set();\n      expect(isEmpty(set)).toBe(true);\n    });\n\n    test('non-empty set', () => {\n      const set = new Set([1]);\n      expect(isEmpty(set)).toBe(false);\n    });\n  });\n\n  describe('arrays', () => {\n    test('empty array', () => {\n      expect(isEmpty([])).toBe(true);\n    });\n\n    test('non-empty array', () => {\n      expect(isEmpty([1])).toBe(false);\n    });\n  });\n});\n",
     "/src/is-empty.ts": "export default function isEmpty(value: unknown): boolean {\n  if (value == null) {\n    return true;\n  }\n\n  // Arrays/Strings.\n  if (Array.isArray(value) || typeof value === 'string') {\n    return value.length === 0;\n  }\n\n  // Maps/Sets.\n  if (value instanceof Map || value instanceof Set) {\n    return value.size === 0;\n  }\n\n  // Plain objects.\n  const prototype = Object.getPrototypeOf(value);\n  if (prototype === null || prototype === Object.prototype) {\n    return Object.keys(value).length === 0;\n  }\n\n  return true;\n}\n"
   },
+  "info": {
+    "excerpt": "Implement a function to check if a value is an empty object, collection, map, or set",
+    "title": "Is Empty"
+  },
   "metadata": {
     "access": "premium",
     "author": null,
@@ -14,7 +18,6 @@
     "created": 1683331200,
     "difficulty": "medium",
     "duration": 15,
-    "excerpt": "Implement a function to check if a value is an empty object, collection, map, or set",
     "featured": false,
     "format": "javascript",
     "frameworkDefault": null,
@@ -31,7 +34,6 @@
     "similarQuestions": [],
     "slug": "is-empty",
     "subtitle": null,
-    "title": "Is Empty",
     "topics": []
   },
   "skeleton": {

@@ -7,6 +7,10 @@
     "/src/use-default.submit.test.ts": "import { act, renderHook } from '@testing-library/react';\n\nimport useDefault from './use-default';\n\ndescribe('useDefault', () => {\n  test('initial values', () => {\n    const defaultValue = 1;\n    const initialValue = 2;\n\n    const { result } = renderHook(() => useDefault(defaultValue, initialValue));\n\n    expect(result.current[0]).toBe(initialValue);\n    expect(typeof result.current[1]).toBe('function');\n  });\n\n  test('default value when null', () => {\n    const defaultValue = 1;\n    const initialValue = 2;\n\n    const { result } = renderHook(() => useDefault(defaultValue, initialValue));\n\n    act(() => {\n      result.current[1](null);\n    });\n\n    expect(result.current[0]).toBe(defaultValue);\n  });\n\n  test('default value when undefined', () => {\n    const defaultValue = 1;\n    const initialValue = 2;\n\n    const { result } = renderHook(() => useDefault(defaultValue, initialValue));\n\n    act(() => {\n      result.current[1](undefined);\n    });\n\n    expect(result.current[0]).toBe(defaultValue);\n  });\n\n  test('not default value when 0', () => {\n    const defaultValue = 1;\n    const initialValue = 2;\n\n    const { result } = renderHook(() => useDefault(defaultValue, initialValue));\n\n    act(() => {\n      result.current[1](0);\n    });\n\n    expect(result.current[0]).not.toBe(defaultValue);\n  });\n\n  test('not default value when false', () => {\n    const defaultValue = true;\n    const initialValue = true;\n\n    const { result } = renderHook(() => useDefault(defaultValue, initialValue));\n\n    act(() => {\n      result.current[1](false);\n    });\n\n    expect(result.current[0]).not.toBe(defaultValue);\n  });\n\n  test('can set value', () => {\n    const defaultValue = 1;\n    const initialValue = 2;\n\n    const { result } = renderHook(() => useDefault(defaultValue, initialValue));\n\n    act(() => {\n      result.current[1](3);\n    });\n\n    expect(result.current[0]).toBe(3);\n  });\n\n  test('can set value with function', () => {\n    const defaultValue = 1;\n    const initialValue = 2;\n\n    const { result } = renderHook(() => useDefault(defaultValue, initialValue));\n\n    act(() => {\n      // @ts-ignore\n      result.current[1]((prev) => prev + 1);\n    });\n\n    expect(result.current[0]).toBe(3);\n  });\n\n  test('works with non-integers', () => {\n    const defaultValue = 'hello';\n    const initialValue = 'world';\n\n    const { result } = renderHook(() => useDefault(defaultValue, initialValue));\n\n    act(() => {\n      result.current[1]('test');\n    });\n\n    expect(result.current[0]).toBe('test');\n\n    act(() => {\n      result.current[1]((prev) => prev + '!');\n    });\n\n    expect(result.current[0]).toBe('test!');\n  });\n});\n",
     "/src/use-default.ts": "import { useState } from 'react';\n\nexport default function useDefault<TStateType>(\n  defaultValue: TStateType,\n  initialValue: TStateType | (() => TStateType),\n) {\n  const [value, setValue] = useState<TStateType | undefined | null>(\n    initialValue,\n  );\n\n  if (value === undefined || value === null) {\n    return [defaultValue, setValue] as const;\n  }\n\n  return [value, setValue] as const;\n}\n"
   },
+  "info": {
+    "excerpt": "Implement a hook that returns the default value when state is null or undefined",
+    "title": "useDefault"
+  },
   "metadata": {
     "access": "premium",
     "author": "phillmont",
@@ -14,7 +18,6 @@
     "created": 1742169600,
     "difficulty": "easy",
     "duration": 15,
-    "excerpt": "Implement a hook that returns the default value when state is null or undefined",
     "featured": false,
     "format": "javascript",
     "frameworkDefault": "react",
@@ -36,7 +39,6 @@
     "similarQuestions": [],
     "slug": "use-default",
     "subtitle": null,
-    "title": "useDefault",
     "topics": [
       "react-hooks"
     ]

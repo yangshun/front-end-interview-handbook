@@ -1,47 +1,51 @@
 {
-  "access": "premium",
-  "author": "yangshun",
-  "companies": [],
-  "created": 1723766400,
-  "difficulty": "medium",
-  "duration": 30,
-  "excerpt": "Build a pixel art drawing tool where users can paint pixels with selected colors",
-  "featured": false,
-  "format": "user-interface",
-  "frameworkDefault": "react",
-  "frameworks": [
-    {
-      "framework": "react",
-      "href": "/questions/user-interface/pixel-art/react"
-    },
-    {
-      "framework": "angular",
-      "href": "/questions/user-interface/pixel-art/angular"
-    },
-    {
-      "framework": "vue",
-      "href": "/questions/user-interface/pixel-art/vue"
-    },
-    {
-      "framework": "svelte",
-      "href": "/questions/user-interface/pixel-art/svelte"
-    }
-  ],
-  "href": "/questions/user-interface/pixel-art",
-  "importance": "low",
-  "languages": [
-    "html",
-    "css",
-    "js"
-  ],
-  "nextQuestions": [],
-  "published": true,
-  "ranking": 100,
-  "similarQuestions": [],
-  "slug": "pixel-art",
-  "subtitle": null,
-  "title": "Pixel Art",
-  "topics": [
-    "a11y"
-  ]
+  "info": {
+    "excerpt": "Build a pixel art drawing tool where users can paint pixels with selected colors",
+    "title": "Pixel Art"
+  },
+  "metadata": {
+    "access": "premium",
+    "author": "yangshun",
+    "companies": [],
+    "created": 1723766400,
+    "difficulty": "medium",
+    "duration": 30,
+    "featured": false,
+    "format": "user-interface",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/user-interface/pixel-art/react"
+      },
+      {
+        "framework": "angular",
+        "href": "/questions/user-interface/pixel-art/angular"
+      },
+      {
+        "framework": "vue",
+        "href": "/questions/user-interface/pixel-art/vue"
+      },
+      {
+        "framework": "svelte",
+        "href": "/questions/user-interface/pixel-art/svelte"
+      }
+    ],
+    "href": "/questions/user-interface/pixel-art",
+    "importance": "low",
+    "languages": [
+      "html",
+      "css",
+      "js"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "pixel-art",
+    "subtitle": null,
+    "topics": [
+      "a11y"
+    ]
+  }
 }

@@ -1,5 +1,9 @@
 {
   "description": null,
+  "info": {
+    "excerpt": null,
+    "title": "Is there any reason you'd want to use `translate()` instead of `absolute` positioning, or vice-versa? And why?"
+  },
   "metadata": {
     "access": "free",
     "author": null,
@@ -9,7 +13,6 @@
     "created": 1630800000,
     "difficulty": "hard",
     "duration": 5,
-    "excerpt": null,
     "featured": false,
     "format": "quiz",
     "frameworkDefault": null,
@@ -23,7 +26,6 @@
     "similarQuestions": [],
     "slug": "is-there-any-reason-youd-want-to-use-translate-instead-of-absolute-positioning-or-vice-versa-and-why",
     "subtitle": null,
-    "title": "Is there any reason you'd want to use `translate()` instead of `absolute` positioning, or vice-versa? And why?",
     "topics": [
       "css",
       "performance"

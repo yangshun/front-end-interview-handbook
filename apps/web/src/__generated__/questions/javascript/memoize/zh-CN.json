@@ -7,6 +7,10 @@
     "/src/memoize.submit.test.ts": "import memoize from './memoize';\n\ndescribe('memoize', () => {\n  test('returns a function', () => {\n    const memoizedFn = memoize(() => {});\n    expect(memoizedFn).toBeInstanceOf(Function);\n  });\n\n  test('numbers', () => {\n    let count = 0;\n    function double(x: number) {\n      count++;\n      return x * 2;\n    }\n    const memoizedFn = memoize(double);\n    expect(count).toBe(0);\n    expect(memoizedFn(1)).toBe(2);\n    expect(count).toBe(1);\n    expect(memoizedFn(1)).toBe(2);\n    expect(count).toBe(1);\n    expect(memoizedFn(1)).toBe(2);\n    expect(count).toBe(1);\n  });\n\n  test('strings', () => {\n    let count = 0;\n    function repeat(x: string) {\n      count++;\n      return x + x;\n    }\n    const memoizedFn = memoize(repeat);\n    expect(count).toBe(0);\n    expect(memoizedFn('foo')).toBe('foofoo');\n    expect(count).toBe(1);\n    expect(memoizedFn('foo')).toBe('foofoo');\n    expect(count).toBe(1);\n    expect(memoizedFn('foo')).toBe('foofoo');\n    expect(count).toBe(1);\n  });\n\n  test('memoize different arguments', () => {\n    let count = 0;\n    function double(x: string) {\n      count++;\n      return x + x;\n    }\n    const memoizedFn = memoize(double);\n    expect(count).toBe(0);\n    expect(memoizedFn('foo')).toBe('foofoo');\n    expect(count).toBe(1);\n    expect(memoizedFn('foo')).toBe('foofoo');\n    expect(count).toBe(1);\n    expect(memoizedFn('bar')).toBe('barbar');\n    expect(count).toBe(2);\n    expect(memoizedFn('bar')).toBe('barbar');\n    expect(count).toBe(2);\n  });\n\n  test('differentiates strings and numbers', () => {\n    let count = 0;\n    function identity<T>(x: T) {\n      count++;\n      return x;\n    }\n    const memoizedFn = memoize(identity);\n    expect(count).toBe(0);\n    expect(memoizedFn('1')).toBe('1');\n    expect(count).toBe(1);\n    expect(memoizedFn('1')).toBe('1');\n    expect(count).toBe(1);\n    expect(memoizedFn(1)).toBe(1);\n    expect(count).toBe(2);\n    expect(memoizedFn(1)).toBe(1);\n    expect(count).toBe(2);\n  });\n\n  test('can access `this`', () => {\n    let count = 0;\n    function mul(this: any, x: number) {\n      count++;\n      return this.age * x;\n    }\n    const person = {\n      age: 42,\n      mul: memoize(mul),\n    };\n    expect(count).toBe(0);\n    expect(person.mul(2)).toBe(84);\n    expect(count).toBe(1);\n    expect(person.mul(2)).toBe(84);\n    expect(count).toBe(1);\n  });\n});\n",
     "/src/memoize.ts": "type Fn<T> = (this: any, arg: T) => unknown;\n\nexport default function memoize<T>(func: Fn<T>): Fn<T> {\n  const cache = new Map();\n\n  return function (arg) {\n    if (cache.has(arg)) {\n      return cache.get(arg);\n    }\n\n    const result = func.call(this, arg);\n    cache.set(arg, result);\n\n    return result;\n  };\n}\n"
   },
+  "info": {
+    "excerpt": "实现一个函数，该函数返回一个函数的记忆化版本，该函数接受单个参数",
+    "title": "Memoize"
+  },
   "metadata": {
     "access": "standard",
     "author": null,
@@ -19,7 +23,6 @@
     "created": 1690848000,
     "difficulty": "medium",
     "duration": 20,
-    "excerpt": "实现一个函数，该函数返回一个函数的记忆化版本，该函数接受单个参数",
     "featured": false,
     "format": "javascript",
     "frameworkDefault": null,
@@ -38,7 +41,6 @@
     "similarQuestions": [],
     "slug": "memoize",
     "subtitle": null,
-    "title": "Memoize",
     "topics": []
   },
   "skeleton": {

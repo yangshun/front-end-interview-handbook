@@ -9,15 +9,15 @@ import type { TextSize } from '~/components/ui/Text';
 import Text, { textVariants } from '~/components/ui/Text';
 
 import type {
+  InterviewsQuestionItemMinimal,
   QuestionFramework,
   QuestionListTypeData,
-  QuestionMetadata,
 } from '../../common/QuestionsTypes';
 
 type Props = Readonly<{
   framework?: QuestionFramework;
   listType?: QuestionListTypeData | null;
-  question: QuestionMetadata;
+  question: InterviewsQuestionItemMinimal;
   size?: TextSize;
 }>;
 
@@ -27,6 +27,8 @@ export default function InterviewsQuestionsListSlideOutHovercardContents({
   question,
   size = 'body3',
 }: Props) {
+  const { metadata, info } = question;
+
   return (
     <div
       className={clsx(
@@ -42,31 +44,31 @@ export default function InterviewsQuestionsListSlideOutHovercardContents({
             weight: 'bold',
           })}
           href={questionHrefFrameworkSpecificAndListType(
-            question,
+            metadata,
             listType,
             framework,
           )}
           variant="flat">
-          {question.title}
+          {info.title}
         </Anchor>
         <Text className="text-pretty grow" color="secondary" size="body2">
-          {question.excerpt}
+          {info.excerpt}
         </Text>
       </div>
-      {question.author && (
-        <QuestionAuthor author={question.author} size="body3" />
+      {metadata.author && (
+        <QuestionAuthor author={metadata.author} size="body3" />
       )}
       <div className="flex-start flex gap-3">
-        {question.difficulty && (
+        {metadata.difficulty && (
           <QuestionDifficultyLabel
             showIcon={true}
             size={size}
-            value={question.difficulty}
+            value={metadata.difficulty}
           />
         )}
-        {question.duration && (
+        {metadata.duration && (
           <QuestionDurationLabel
-            mins={question.duration}
+            mins={metadata.duration}
             showIcon={true}
             size={size}
           />

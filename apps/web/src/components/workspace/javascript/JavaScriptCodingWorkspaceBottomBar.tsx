@@ -7,7 +7,7 @@ import { VscLayout, VscTerminal } from 'react-icons/vsc';
 import { useAuthActiveEngagementPoints } from '~/components/auth/auth-points';
 import QuestionProgressAction from '~/components/interviews/questions/common/QuestionProgressAction';
 import QuestionReportIssueButton from '~/components/interviews/questions/common/QuestionReportIssueButton';
-import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
+import type { InterviewsQuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import DropdownMenu from '~/components/ui/DropdownMenu';
@@ -22,7 +22,7 @@ import CodingWorkspaceTimer from '../common/CodingWorkspaceTimer';
 
 type Props = Readonly<{
   layout: 'full' | 'minimal';
-  metadata: QuestionMetadata;
+  metadata: InterviewsQuestionMetadata;
   slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE: string;
   studyListKey?: string;
 }>;

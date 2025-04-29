@@ -6,8 +6,8 @@ import { useMediaQuery } from 'usehooks-ts';
 import gtag from '~/lib/gtag';
 
 import type {
+  InterviewsQuestionItemJavaScript,
   QuestionCodingWorkingLanguage,
-  QuestionJavaScript,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import { useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
@@ -32,7 +32,7 @@ const JavaScriptCodingWorkspaceSection = dynamic(
 export default function InterviewsMarketingEmbedJavaScriptQuestion({
   javaScriptEmbedExample,
 }: Readonly<{
-  javaScriptEmbedExample: QuestionJavaScript;
+  javaScriptEmbedExample: InterviewsQuestionItemJavaScript;
 }>) {
   const [language, setLanguage] = useState<QuestionCodingWorkingLanguage>('js');
   const intl = useIntl();
@@ -60,6 +60,7 @@ export default function InterviewsMarketingEmbedJavaScriptQuestion({
           <JavaScriptCodingWorkspaceDescription
             canViewPremiumContent={false}
             description={javaScriptEmbedExample.description}
+            info={javaScriptEmbedExample.info}
             metadata={javaScriptEmbedExample.metadata}
             nextQuestions={[]}
             showAd={false}

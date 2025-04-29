@@ -26,7 +26,7 @@ import InterviewsMarketingEmbedJavaScriptQuestion from './InterviewsMarketingEmb
 import type { EmbedUIQuestion } from './InterviewsMarketingEmbedUIQuestion';
 import InterviewsMarketingEmbedUIQuestion from './InterviewsMarketingEmbedUIQuestion';
 import InterviewsMarketingHeroBrowserWindowFrame from './InterviewsMarketingHeroBrowserWindowFrame';
-import type { QuestionJavaScript } from '../../questions/common/QuestionsTypes';
+import type { InterviewsQuestionItemJavaScript } from '../../questions/common/QuestionsTypes';
 
 const MarketingEmbedSystemDesignQuestion = dynamic(
   () => import('./InterviewsMarketingEmbedSystemDesignQuestion'),
@@ -80,7 +80,7 @@ export default function InterviewsMarketingEmbedSection({
   javaScriptEmbedExample,
   uiEmbedExample,
 }: Readonly<{
-  javaScriptEmbedExample: QuestionJavaScript;
+  javaScriptEmbedExample: InterviewsQuestionItemJavaScript;
   uiEmbedExample: EmbedUIQuestion;
 }>) {
   const intl = useIntl();

@@ -3,10 +3,10 @@ import clsx from 'clsx';
 import VignetteOverlay from '~/components/common/VignetteOverlay';
 import { questionHrefFrameworkSpecificAndListType } from '~/components/interviews/questions/common/QuestionHrefUtils';
 import type {
+  InterviewsQuestionItemMinimal,
   QuestionFramework,
   QuestionHash,
   QuestionListTypeData,
-  QuestionMetadata,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import { FormattedMessage, useIntl } from '~/components/intl';
 import EmptyState from '~/components/ui/EmptyState';
@@ -18,7 +18,7 @@ import { hashQuestion } from '~/db/QuestionsUtils';
 import InterviewsQuestionsListSlideOutQuestionListItem from './InterviewsQuestionsListSlideOutQuestionListItem';
 import InterviewsPurchasePaywall from '../../../purchase/InterviewsPurchasePaywall';
 
-type Props<Q extends QuestionMetadata> = Readonly<{
+type Props<Q extends InterviewsQuestionItemMinimal> = Readonly<{
   checkIfCompletedQuestion?: (question: Q) => boolean;
   currentQuestionHash?: QuestionHash;
   framework?: QuestionFramework;
@@ -33,7 +33,7 @@ type Props<Q extends QuestionMetadata> = Readonly<{
 }>;
 
 export default function InterviewsQuestionsListSlideOutQuestionList<
-  Q extends QuestionMetadata,
+  Q extends InterviewsQuestionItemMinimal,
 >({
   checkIfCompletedQuestion,
   isDifferentListFromInitial,
@@ -70,7 +70,7 @@ export default function InterviewsQuestionsListSlideOutQuestionList<
   }
 
   const isCurrentQuestionInTheList = !!questions.find(
-    (question) => hashQuestion(question) === currentQuestionHash,
+    (question) => hashQuestion(question.metadata) === currentQuestionHash,
   );
 
   return (
@@ -113,39 +113,39 @@ export default function InterviewsQuestionsListSlideOutQuestionList<
               </Text>
             </div>
           )}
-          {questions.map((questionMetadata, index) => {
-            const hasCompletedQuestion =
-              checkIfCompletedQuestion?.(questionMetadata);
+          {questions.map((question, index) => {
+            const hasCompletedQuestion = checkIfCompletedQuestion?.(question);
+            const { metadata } = question;
 
             const isActiveQuestion = (() => {
               if (mode === 'slideout' && isDifferentListFromInitial) {
                 // If the current question is not in the list or different
                 // question list, the first question is going to be the active question
                 return isCurrentQuestionInTheList
-                  ? hashQuestion(questionMetadata) === currentQuestionHash
+                  ? hashQuestion(metadata) === currentQuestionHash
                   : index === 0;
               }
 
               // Non-slideout modes don't have the prompt
-              return hashQuestion(questionMetadata) === currentQuestionHash;
+              return hashQuestion(metadata) === currentQuestionHash;
             })();
 
             const href = questionHrefFrameworkSpecificAndListType(
-              questionMetadata,
+              metadata,
               listType,
               framework,
             );
 
             return (
               <InterviewsQuestionsListSlideOutQuestionListItem
-                key={hashQuestion(questionMetadata)}
+                key={hashQuestion(metadata)}
                 checkIfCompletedQuestion={checkIfCompletedQuestion}
                 hasCompletedQuestion={hasCompletedQuestion}
                 href={href}
                 isActiveQuestion={isActiveQuestion}
                 listType={listType}
                 mode={mode}
-                questionMetadata={questionMetadata}
+                question={question}
                 onClick={onClickQuestion}
               />
             );

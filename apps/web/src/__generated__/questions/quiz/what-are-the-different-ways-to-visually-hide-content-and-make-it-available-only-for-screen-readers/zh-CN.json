@@ -1,5 +1,9 @@
 {
   "description": null,
+  "info": {
+    "excerpt": null,
+    "title": "有哪些不同的方法可以隐藏内容（使其仅对屏幕阅读器可用）？"
+  },
   "metadata": {
     "access": "free",
     "author": null,
@@ -9,7 +13,6 @@
     "created": 1630800000,
     "difficulty": "medium",
     "duration": 5,
-    "excerpt": null,
     "featured": false,
     "format": "quiz",
     "frameworkDefault": null,
@@ -23,7 +26,6 @@
     "similarQuestions": [],
     "slug": "what-are-the-different-ways-to-visually-hide-content-and-make-it-available-only-for-screen-readers",
     "subtitle": null,
-    "title": "有哪些不同的方法可以隐藏内容（使其仅对屏幕阅读器可用）？",
     "topics": [
       "a11y",
       "css"

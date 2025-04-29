@@ -7,6 +7,7 @@ import fs from 'node:fs';
 import nullthrows from 'nullthrows';
 
 import type {
+  InterviewsQuestionItemMinimal,
   QuestionCodingFormat,
   QuestionCompany,
   QuestionFormat,
@@ -15,7 +16,6 @@ import type {
   QuestionHash,
   QuestionLanguage,
   QuestionListTypeData,
-  QuestionMetadata,
   QuestionPracticeFormat,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import { InterviewsQuestionsSystemDesignReady } from '~/components/interviews/questions/content/system-design/InterviewsQuestionsSystemDesignConfig';
@@ -41,7 +41,7 @@ export async function fetchQuestionsListCount(): Promise<QuestionTotalAvailableC
   ]);
 
   const sdCount = sd.questions.filter((metadata) =>
-    InterviewsQuestionsSystemDesignReady.includes(metadata.slug),
+    InterviewsQuestionsSystemDesignReady.includes(metadata.metadata.slug),
   ).length;
 
   return {
@@ -56,7 +56,7 @@ export async function fetchQuestionsListCount(): Promise<QuestionTotalAvailableC
 async function fetchQuestionsListQuiz(requestedLocale = 'en-US'): Promise<
   Readonly<{
     loadedLocale: string;
-    questions: ReadonlyArray<QuestionMetadata>;
+    questions: ReadonlyArray<InterviewsQuestionItemMinimal>;
   }>
 > {
   let loadedLocale = requestedLocale;
@@ -73,14 +73,16 @@ async function fetchQuestionsListQuiz(requestedLocale = 'en-US'): Promise<
 
   return {
     loadedLocale,
-    questions: JSON.parse(String(response)) as ReadonlyArray<QuestionMetadata>,
+    questions: JSON.parse(
+      String(response),
+    ) as ReadonlyArray<InterviewsQuestionItemMinimal>,
   };
 }
 
 async function fetchQuestionsListAlgo(requestedLocale = 'en-US'): Promise<
   Readonly<{
     loadedLocale: string;
-    questions: ReadonlyArray<QuestionMetadata>;
+    questions: ReadonlyArray<InterviewsQuestionItemMinimal>;
   }>
 > {
   let loadedLocale = requestedLocale;
@@ -97,14 +99,16 @@ async function fetchQuestionsListAlgo(requestedLocale = 'en-US'): Promise<
 
   return {
     loadedLocale,
-    questions: JSON.parse(String(response)) as ReadonlyArray<QuestionMetadata>,
+    questions: JSON.parse(
+      String(response),
+    ) as ReadonlyArray<InterviewsQuestionItemMinimal>,
   };
 }
 
 async function fetchQuestionsListJavaScript(requestedLocale = 'en-US'): Promise<
   Readonly<{
     loadedLocale: string;
-    questions: ReadonlyArray<QuestionMetadata>;
+    questions: ReadonlyArray<InterviewsQuestionItemMinimal>;
   }>
 > {
   let loadedLocale = requestedLocale;
@@ -125,7 +129,9 @@ async function fetchQuestionsListJavaScript(requestedLocale = 'en-US'): Promise<
 
   return {
     loadedLocale,
-    questions: JSON.parse(String(response)) as ReadonlyArray<QuestionMetadata>,
+    questions: JSON.parse(
+      String(response),
+    ) as ReadonlyArray<InterviewsQuestionItemMinimal>,
   };
 }
 
@@ -134,7 +140,7 @@ async function fetchQuestionsListUserInterface(
 ): Promise<
   Readonly<{
     loadedLocale: string;
-    questions: ReadonlyArray<QuestionMetadata>;
+    questions: ReadonlyArray<InterviewsQuestionItemMinimal>;
   }>
 > {
   let loadedLocale = requestedLocale;
@@ -155,7 +161,9 @@ async function fetchQuestionsListUserInterface(
 
   return {
     loadedLocale,
-    questions: JSON.parse(String(response)) as ReadonlyArray<QuestionMetadata>,
+    questions: JSON.parse(
+      String(response),
+    ) as ReadonlyArray<InterviewsQuestionItemMinimal>,
   };
 }
 
@@ -165,7 +173,7 @@ async function fetchQuestionsListForFormat(
 ): Promise<
   Readonly<{
     loadedLocale: string;
-    questions: ReadonlyArray<QuestionMetadata>;
+    questions: ReadonlyArray<InterviewsQuestionItemMinimal>;
   }>
 > {
   switch (format) {
@@ -187,7 +195,7 @@ async function fetchQuestionsListForFormat(
 async function fetchQuestionsListCoding(requestedLocale = 'en-US'): Promise<
   Readonly<{
     loadedLocale: string;
-    questions: ReadonlyArray<QuestionMetadata>;
+    questions: ReadonlyArray<InterviewsQuestionItemMinimal>;
   }>
 > {
   let loadedLocale = requestedLocale;
@@ -206,7 +214,9 @@ async function fetchQuestionsListCoding(requestedLocale = 'en-US'): Promise<
 
   return {
     loadedLocale,
-    questions: JSON.parse(String(response)) as ReadonlyArray<QuestionMetadata>,
+    questions: JSON.parse(
+      String(response),
+    ) as ReadonlyArray<InterviewsQuestionItemMinimal>,
   };
 }
 
@@ -215,7 +225,7 @@ async function fetchQuestionsListSystemDesign(
 ): Promise<
   Readonly<{
     loadedLocale: string;
-    questions: ReadonlyArray<QuestionMetadata>;
+    questions: ReadonlyArray<InterviewsQuestionItemMinimal>;
   }>
 > {
   let loadedLocale = requestedLocale;
@@ -236,7 +246,9 @@ async function fetchQuestionsListSystemDesign(
 
   return {
     loadedLocale,
-    questions: JSON.parse(String(response)) as ReadonlyArray<QuestionMetadata>,
+    questions: JSON.parse(
+      String(response),
+    ) as ReadonlyArray<InterviewsQuestionItemMinimal>,
   };
 }
 
@@ -249,7 +261,7 @@ async function fetchQuestionsListForFramework(
 ): Promise<
   Readonly<{
     loadedLocale: string;
-    questions: ReadonlyArray<QuestionMetadata>;
+    questions: ReadonlyArray<InterviewsQuestionItemMinimal>;
   }>
 > {
   const [questionsCoding, questionsQuiz] = await Promise.all([
@@ -282,12 +294,12 @@ async function fetchQuestionsListForFramework(
 async function fetchQuestionsListCodingForFramework(
   framework: QuestionFramework,
   locale: string,
-): Promise<ReadonlyArray<QuestionMetadata>> {
+): Promise<ReadonlyArray<InterviewsQuestionItemMinimal>> {
   const { questions } = await fetchQuestionsListCoding(locale);
 
   return filterQuestions(questions, [
     (question) =>
-      question.frameworks.some(
+      question.metadata.frameworks.some(
         (frameworkItem) => frameworkItem.framework === framework,
       ),
   ]);
@@ -296,12 +308,12 @@ async function fetchQuestionsListCodingForFramework(
 async function fetchQuestionsListQuizForFramework(
   framework: QuestionFramework,
   locale: string,
-): Promise<ReadonlyArray<QuestionMetadata>> {
+): Promise<ReadonlyArray<InterviewsQuestionItemMinimal>> {
   const { questions } = await fetchQuestionsListQuiz(locale);
 
   return filterQuestions(questions, [
     (question) =>
-      question.frameworks.some(
+      question.metadata.frameworks.some(
         (frameworkItem) => framework === frameworkItem.framework,
       ),
   ]);
@@ -316,7 +328,7 @@ async function fetchQuestionsListForLanguage(
 ): Promise<
   Readonly<{
     loadedLocale: string;
-    questions: ReadonlyArray<QuestionMetadata>;
+    questions: ReadonlyArray<InterviewsQuestionItemMinimal>;
   }>
 > {
   const [questionsCoding, questionsQuiz] = await Promise.all([
@@ -349,32 +361,32 @@ async function fetchQuestionsListForLanguage(
 async function fetchQuestionsListCodingForLanguage(
   language: QuestionLanguage,
   locale: string,
-): Promise<ReadonlyArray<QuestionMetadata>> {
+): Promise<ReadonlyArray<InterviewsQuestionItemMinimal>> {
   const { questions } = await fetchQuestionsListCoding(locale);
 
   return filterQuestions(questions, [
-    (question) => question.languages.includes(language),
+    (question) => question.metadata.languages.includes(language),
   ]);
 }
 
 async function fetchQuestionsListQuizForLanguage(
   language: QuestionLanguage,
   locale: string,
-): Promise<ReadonlyArray<QuestionMetadata>> {
+): Promise<ReadonlyArray<InterviewsQuestionItemMinimal>> {
   const { questions } = await fetchQuestionsListQuiz(locale);
 
   return filterQuestions(questions, [
     (question) =>
       language === 'js' || language === 'ts'
-        ? question.topics.includes('javascript')
-        : question.topics.includes(language),
+        ? question.metadata.topics.includes('javascript')
+        : question.metadata.topics.includes(language),
   ]);
 }
 
 export async function fetchQuestionsListForCompany(
   company: QuestionCompany,
   locale: string,
-): Promise<ReadonlyArray<QuestionMetadata>> {
+): Promise<ReadonlyArray<InterviewsQuestionItemMinimal>> {
   const [
     { questions: codingQuestions },
     { questions: quizQuestions },
@@ -387,14 +399,14 @@ export async function fetchQuestionsListForCompany(
 
   return filterQuestions(
     [...codingQuestions, ...quizQuestions, ...systemDesignQuestions],
-    [(question) => question.companies.includes(company)],
+    [(question) => question.metadata.companies.includes(company)],
   );
 }
 
 export async function fetchQuestionsListByHash(
   questionHashes: ReadonlyArray<QuestionHash>,
   locale: string,
-): Promise<ReadonlyArray<QuestionMetadata>> {
+): Promise<ReadonlyArray<InterviewsQuestionItemMinimal>> {
   const [
     { questions: quizQuestions },
     { questions: algoQuestions },
@@ -411,7 +423,7 @@ export async function fetchQuestionsListByHash(
 
   const qnHashToQnMetadataMap = new Map<
     QuestionHash,
-    Readonly<QuestionMetadata>
+    Readonly<InterviewsQuestionItemMinimal>
   >(
     [
       ...quizQuestions,
@@ -419,7 +431,10 @@ export async function fetchQuestionsListByHash(
       ...jsQuestions,
       ...uiQuestions,
       ...systemDesignQuestions,
-    ].map((qn) => [hashQuestion({ format: qn.format, slug: qn.slug }), qn]),
+    ].map((qn) => [
+      hashQuestion({ format: qn.metadata.format, slug: qn.metadata.slug }),
+      qn,
+    ]),
   );
 
   const questionMetadata = questionHashes.map((qnHash) =>
@@ -430,7 +445,7 @@ export async function fetchQuestionsListByHash(
 }
 
 function filterQuestionByCodingFormat(
-  questions: ReadonlyArray<QuestionMetadata>,
+  questions: ReadonlyArray<InterviewsQuestionItemMinimal>,
   formats: ReadonlyArray<QuestionCodingFormat>,
 ) {
   if (formats.length === 0) {
@@ -439,7 +454,7 @@ function filterQuestionByCodingFormat(
 
   return questions.filter(
     (metadata) =>
-      formats.findIndex((format) => format === metadata.format) >= 0,
+      formats.findIndex((format) => format === metadata.metadata.format) >= 0,
   );
 }
 
@@ -449,7 +464,7 @@ export async function fetchQuestionsList(
 ): Promise<
   Readonly<{
     loadedLocale: string;
-    questions: ReadonlyArray<QuestionMetadata>;
+    questions: ReadonlyArray<InterviewsQuestionItemMinimal>;
   }>
 > {
   switch (listType.type) {
@@ -516,7 +531,7 @@ export async function fetchQuestion(
     slug: string;
   }>,
   requestedLocale: string,
-): Promise<{ loadedLocale: string; question: QuestionMetadata }> {
+): Promise<{ loadedLocale: string; question: InterviewsQuestionItemMinimal }> {
   const [
     { questions: quizQuestions, loadedLocale: quizLoadedLocale },
     { questions: algoQuestions, loadedLocale: algoLoadedLocale },
@@ -541,7 +556,7 @@ export async function fetchQuestion(
       return {
         loadedLocale: algoLoadedLocale,
         question: nullthrows(
-          algoQuestions.find((question) => question.slug === slug),
+          algoQuestions.find((question) => question.metadata.slug === slug),
         ),
       };
     }
@@ -549,7 +564,7 @@ export async function fetchQuestion(
       return {
         loadedLocale: jsLoadedLocale,
         question: nullthrows(
-          jsQuestions.find((question) => question.slug === slug),
+          jsQuestions.find((question) => question.metadata.slug === slug),
         ),
       };
     }
@@ -557,7 +572,7 @@ export async function fetchQuestion(
       return {
         loadedLocale: uiLoadedLocale,
         question: nullthrows(
-          uiQuestions.find((question) => question.slug === slug),
+          uiQuestions.find((question) => question.metadata.slug === slug),
         ),
       };
     }
@@ -565,7 +580,9 @@ export async function fetchQuestion(
       return {
         loadedLocale: systemDesignLoadedLocale,
         question: nullthrows(
-          systemDesignQuestions.find((question) => question.slug === slug),
+          systemDesignQuestions.find(
+            (question) => question.metadata.slug === slug,
+          ),
         ),
       };
     }
@@ -573,7 +590,7 @@ export async function fetchQuestion(
       return {
         loadedLocale: quizLoadedLocale,
         question: nullthrows(
-          quizQuestions.find((question) => question.slug === slug),
+          quizQuestions.find((question) => question.metadata.slug === slug),
         ),
       };
     }

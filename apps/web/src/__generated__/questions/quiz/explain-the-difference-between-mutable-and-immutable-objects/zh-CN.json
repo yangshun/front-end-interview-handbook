@@ -1,5 +1,9 @@
 {
   "description": null,
+  "info": {
+    "excerpt": null,
+    "title": "解释 JavaScript 中可变对象和不可变对象的区别"
+  },
   "metadata": {
     "access": "free",
     "author": null,
@@ -7,7 +11,6 @@
     "created": 1630800000,
     "difficulty": "medium",
     "duration": 5,
-    "excerpt": null,
     "featured": true,
     "format": "quiz",
     "frameworkDefault": null,
@@ -21,7 +24,6 @@
     "similarQuestions": [],
     "slug": "explain-the-difference-between-mutable-and-immutable-objects",
     "subtitle": null,
-    "title": "解释 JavaScript 中可变对象和不可变对象的区别",
     "topics": [
       "javascript"
     ],

@@ -71,7 +71,9 @@ export default function useQuestionFormatFilter({
         return true;
       }
 
-      return codingFormatFilters.has(question.format as QuestionFormat);
+      return codingFormatFilters.has(
+        question.metadata.format as QuestionFormat,
+      );
     },
     name: intl.formatMessage({
       defaultMessage: 'Question format',

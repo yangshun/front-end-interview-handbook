@@ -7,6 +7,10 @@
     "/src/use-interval.submit.test.ts": "import { act, renderHook } from '@testing-library/react';\nimport FakeTimers from '@sinonjs/fake-timers';\n\nimport useInterval from './use-interval';\n\nlet clock: FakeTimers.InstalledClock;\n\ndescribe('useInterval', () => {\n  beforeEach(() => {\n    clock = FakeTimers.withGlobal(globalThis).install();\n  });\n\n  afterEach(() => {\n    clock.uninstall();\n  });\n\n  test('return values', () => {\n    const { result } = renderHook(() => useInterval(() => {}, 0));\n\n    expect(result.current).toBe(undefined);\n  });\n\n  test('calls callback in time', () => {\n    const callback = jest.fn();\n    renderHook(() => useInterval(callback, 1000));\n\n    expect(callback).not.toHaveBeenCalled();\n\n    act(() => clock.tick(1000));\n\n    expect(callback).toHaveBeenCalledTimes(1);\n  });\n\n  test('calls callback multiple times', () => {\n    const callback = jest.fn();\n    renderHook(() => useInterval(callback, 1000));\n\n    expect(callback).not.toHaveBeenCalled();\n    const times = 5;\n    act(() => clock.tick(1000 * times));\n\n    expect(callback).toHaveBeenCalledTimes(times);\n  });\n\n  describe('delay', () => {\n    test('delay changes', () => {\n      const callback = jest.fn();\n      const { rerender } = renderHook(\n        ({ delay }) => useInterval(callback, delay),\n        {\n          initialProps: { delay: 1000 },\n        },\n      );\n\n      clock.tick(1000);\n\n      expect(callback).toHaveBeenCalledTimes(1);\n\n      rerender({ delay: 200 });\n      clock.tick(1000);\n\n      expect(callback).toHaveBeenCalledTimes(6);\n    });\n\n    test('changed to null', () => {\n      const callback = jest.fn();\n      const { rerender } = renderHook<void, { delay: number | null }>(\n        ({ delay }) => useInterval(callback, delay),\n        {\n          initialProps: { delay: 1000 },\n        },\n      );\n\n      expect(callback).not.toHaveBeenCalled();\n\n      rerender({ delay: null });\n      clock.tick(1000);\n\n      expect(callback).not.toHaveBeenCalled();\n    });\n\n    test('starts with null', () => {\n      const callback = jest.fn();\n      const { rerender } = renderHook<void, { delay: number | null }>(\n        ({ delay }) => useInterval(callback, delay),\n        {\n          initialProps: { delay: null },\n        },\n      );\n\n      expect(callback).not.toHaveBeenCalled();\n\n      rerender({ delay: 500 });\n      clock.tick(1000);\n\n      expect(callback).toHaveBeenCalledTimes(2);\n    });\n  });\n\n  test('clears interval on unmount', () => {\n    const callback = jest.fn();\n    const { unmount } = renderHook(() => useInterval(callback, 1000));\n\n    unmount();\n    act(() => clock.tick(1000));\n\n    expect(callback).not.toHaveBeenCalled();\n  });\n});\n",
     "/src/use-interval.ts": "import { useEffect, useRef } from 'react';\n\nexport default function useInterval(\n  callback: () => void,\n  delay: number | null,\n) {\n  const savedCallback = useRef(callback);\n\n  useEffect(() => {\n    savedCallback.current = callback;\n  }, [callback]);\n\n  useEffect(() => {\n    if (delay === null) {\n      return;\n    }\n\n    const id = setInterval(() => {\n      savedCallback.current();\n    }, delay);\n\n    return () => {\n      clearInterval(id);\n    };\n  }, [delay]);\n}\n"
   },
+  "info": {
+    "excerpt": "Implement a hook that creates an interval that invokes a callback function at a specified delay",
+    "title": "useInterval"
+  },
   "metadata": {
     "access": "premium",
     "author": "phillmont",
@@ -14,7 +18,6 @@
     "created": 1742169600,
     "difficulty": "medium",
     "duration": 15,
-    "excerpt": "Implement a hook that creates an interval that invokes a callback function at a specified delay",
     "featured": false,
     "format": "javascript",
     "frameworkDefault": "react",
@@ -39,7 +42,6 @@
     ],
     "slug": "use-interval",
     "subtitle": null,
-    "title": "useInterval",
     "topics": [
       "react-hooks"
     ]

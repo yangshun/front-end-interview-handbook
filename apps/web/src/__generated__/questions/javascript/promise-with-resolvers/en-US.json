@@ -7,6 +7,10 @@
     "/src/promise-with-resolvers.submit.test.ts": "import promiseWithResolvers from './promise-with-resolvers';\n\ndescribe('promiseWithResolvers', () => {\n  test('returns require fields', () => {\n    const { promise, reject, resolve } = promiseWithResolvers();\n\n    expect(promise).toBeInstanceOf(Promise);\n    expect(resolve).toBeInstanceOf(Function);\n    expect(reject).toBeInstanceOf(Function);\n  });\n\n  describe('promise', () => {\n    test('resolves', () => {\n      const { promise, resolve } = promiseWithResolvers();\n      resolve(42);\n\n      return expect(promise).resolves.toBe(42);\n    });\n\n    test('rejects', () => {\n      const { promise, reject } = promiseWithResolvers();\n      reject(42);\n\n      return expect(promise).rejects.toBe(42);\n    });\n\n    test('then', (done) => {\n      expect.assertions(1);\n      const { promise, resolve } = promiseWithResolvers();\n      resolve(42);\n\n      promise.then((result) => {\n        expect(result).toBe(42);\n        done();\n      });\n    });\n  });\n\n  describe('usage with promise methods', () => {\n    test('Promise.all()', () => {\n      const { promise: p0, resolve } = promiseWithResolvers();\n      const p1 = new Promise((resolve) => {\n        setTimeout(() => {\n          resolve('foo');\n        }, 100);\n      });\n      resolve(3);\n\n      return expect(Promise.all([p0, p1])).resolves.toStrictEqual([3, 'foo']);\n    });\n\n    test('Promise.allSettled()', async () => {\n      const { promise: p0, resolve: resolve0 } = promiseWithResolvers();\n      const { promise: p1, resolve: resolve1 } = promiseWithResolvers();\n\n      resolve0(2);\n      resolve1(3);\n\n      const res = await Promise.allSettled([p0, p1]);\n\n      expect(res).toEqual([\n        {\n          status: 'fulfilled',\n          value: 2,\n        },\n        {\n          status: 'fulfilled',\n          value: 3,\n        },\n      ]);\n    });\n\n    test('Promise.any()', async () => {\n      const { promise: p0, resolve: resolve0 } = promiseWithResolvers();\n      const { promise: p1, reject: reject1 } = promiseWithResolvers();\n\n      resolve0(2);\n      reject1(3);\n\n      const res = await Promise.any([p0, p1]);\n      expect(res).toEqual(2);\n    });\n\n    test('Promise.race()', async () => {\n      const { promise: p0, resolve: resolve0 } = promiseWithResolvers();\n      const { promise: p1, reject: resolve1 } = promiseWithResolvers();\n\n      resolve0(2);\n      resolve1(3);\n\n      const res = await Promise.race([p0, p1]);\n      expect(res).toEqual(2);\n    });\n  });\n});\n",
     "/src/promise-with-resolvers.ts": "export default function promiseWithResolvers<T>(): Readonly<{\n  promise: Promise<T>;\n  resolve: (value: T) => void;\n  reject: (reason?: any) => void;\n}> {\n  let resolve: (value: T) => void = () => {};\n  let reject: (reason?: any) => void = () => {};\n\n  const promise = new Promise<T>((res, rej) => {\n    resolve = res;\n    reject = rej;\n  });\n\n  return { promise, resolve, reject };\n}\n"
   },
+  "info": {
+    "excerpt": "Implement a function that returns an object containing a new `Promise` object and two functions to resolve or reject it",
+    "title": "Promise.withResolvers"
+  },
   "metadata": {
     "access": "premium",
     "author": "yangshun",
@@ -14,7 +18,6 @@
     "created": 1723766400,
     "difficulty": "medium",
     "duration": 15,
-    "excerpt": "Implement a function that returns an object containing a new `Promise` object and two functions to resolve or reject it",
     "featured": false,
     "format": "javascript",
     "frameworkDefault": null,
@@ -34,7 +37,6 @@
     ],
     "slug": "promise-with-resolvers",
     "subtitle": null,
-    "title": "Promise.withResolvers",
     "topics": [
       "async"
     ]

@@ -1,5 +1,9 @@
 {
   "description": null,
+  "info": {
+    "excerpt": null,
+    "title": "JavaScript 中使用 `let`、`var` 或 `const` 创建的变量有什么区别？"
+  },
   "metadata": {
     "access": "free",
     "author": null,
@@ -12,7 +16,6 @@
     "created": 1630800000,
     "difficulty": "medium",
     "duration": 5,
-    "excerpt": null,
     "featured": true,
     "format": "quiz",
     "frameworkDefault": null,
@@ -26,7 +29,6 @@
     "similarQuestions": [],
     "slug": "what-are-the-differences-between-variables-created-using-let-var-or-const",
     "subtitle": null,
-    "title": "JavaScript 中使用 `let`、`var` 或 `const` 创建的变量有什么区别？",
     "topics": [
       "javascript"
     ],

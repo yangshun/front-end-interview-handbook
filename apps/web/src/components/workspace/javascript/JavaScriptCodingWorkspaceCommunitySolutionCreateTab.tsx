@@ -7,8 +7,8 @@ import { trpc } from '~/hooks/trpc';
 
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import type {
+  InterviewsQuestionMetadata,
   QuestionCodingWorkingLanguage,
-  QuestionMetadata,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
@@ -22,7 +22,7 @@ import { useVimMode } from '../common/editor/hooks/useVimMode';
 import MonacoCodeEditor from '../common/editor/MonacoCodeEditor';
 
 type Props = Readonly<{
-  metadata: QuestionMetadata;
+  metadata: InterviewsQuestionMetadata;
 }>;
 
 type CommunitySolutionDraft = Readonly<{

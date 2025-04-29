@@ -1,5 +1,9 @@
 {
   "description": null,
+  "info": {
+    "excerpt": null,
+    "title": "解释你对盒子模型的理解，以及你将如何在 CSS 中告诉浏览器以不同的盒子模型渲染你的布局。"
+  },
   "metadata": {
     "access": "free",
     "author": null,
@@ -12,7 +16,6 @@
     "created": 1630800000,
     "difficulty": "medium",
     "duration": 5,
-    "excerpt": null,
     "featured": true,
     "format": "quiz",
     "frameworkDefault": null,
@@ -26,7 +29,6 @@
     "similarQuestions": [],
     "slug": "explain-your-understanding-of-the-box-model-and-how-you-would-tell-the-browser-in-css-to-render-your-layout-in-different-box-models",
     "subtitle": null,
-    "title": "解释你对盒子模型的理解，以及你将如何在 CSS 中告诉浏览器以不同的盒子模型渲染你的布局。",
     "topics": [
       "css"
     ],

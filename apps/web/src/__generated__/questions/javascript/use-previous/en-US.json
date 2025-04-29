@@ -7,6 +7,10 @@
     "/src/use-previous.submit.test.ts": "import { act, renderHook } from '@testing-library/react';\n\nimport usePrevious from './use-previous';\nimport { useState } from 'react';\n\ndescribe('usePrevious', () => {\n  test('return undefined initially', () => {\n    const { result } = renderHook(() => usePrevious(10));\n\n    expect(result.current).toBe(undefined);\n  });\n\n  test('return previous value', () => {\n    const initialValue = 0;\n\n    const { result } = renderHook(() => {\n      const [value, setValue] = useState(initialValue);\n      const previous = usePrevious(value);\n\n      return { value, setValue, previous };\n    });\n\n    expect(result.current.previous).toBeUndefined();\n\n    act(() => {\n      result.current.setValue(10);\n    });\n\n    expect(result.current.previous).toBe(initialValue);\n\n    act(() => {\n      result.current.setValue(20);\n    });\n\n    expect(result.current.previous).toBe(10);\n  });\n\n  test('previous value should be stable across re-renders', () => {\n    const initialValue = 0;\n\n    const { result, rerender } = renderHook(() => {\n      const [value, setValue] = useState(initialValue);\n      const previous = usePrevious(value);\n\n      return { value, setValue, previous };\n    });\n\n    act(() => {\n      result.current.setValue(10);\n    });\n\n    expect(result.current.previous).toBe(initialValue);\n\n    rerender();\n\n    // If `usePrevious` is implemented with `useRef` like a clown, this should be the current state.\n    expect(result.current.previous).toBe(initialValue);\n\n    act(() => {\n      result.current.setValue(20);\n    });\n\n    expect(result.current.previous).toBe(10);\n  });\n\n  test('previous value should only be updated when the current value changes', () => {\n    const initialValue = 10;\n\n    const { result } = renderHook(() => {\n      const [value, setValue] = useState(initialValue);\n      const previous = usePrevious(value);\n\n      return { value, setValue, previous };\n    });\n\n    act(() => {\n      result.current.setValue(10);\n    });\n\n    expect(result.current.previous).toBeUndefined();\n\n    act(() => {\n      result.current.setValue(10);\n    });\n\n    expect(result.current.previous).toBeUndefined();\n\n    act(() => {\n      result.current.setValue(20);\n    });\n\n    expect(result.current.previous).toBe(10);\n  });\n});\n",
     "/src/use-previous.ts": "import { useState } from 'react';\n\nexport default function usePrevious<T>(state: T) {\n  const [current, setCurrent] = useState(state);\n  const [previous, setPrevious] = useState<T>();\n\n  if (current !== state) {\n    setPrevious(current);\n    setCurrent(state);\n  }\n\n  return previous;\n}\n"
   },
+  "info": {
+    "excerpt": "Implement a hook that returns the previous value of a state",
+    "title": "usePrevious"
+  },
   "metadata": {
     "access": "premium",
     "author": "phillmont",
@@ -14,7 +18,6 @@
     "created": 1742169600,
     "difficulty": "easy",
     "duration": 15,
-    "excerpt": "Implement a hook that returns the previous value of a state",
     "featured": false,
     "format": "javascript",
     "frameworkDefault": "react",
@@ -36,7 +39,6 @@
     "similarQuestions": [],
     "slug": "use-previous",
     "subtitle": null,
-    "title": "usePrevious",
     "topics": [
       "react-hooks"
     ]

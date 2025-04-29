@@ -21,7 +21,7 @@ import {
 
 import InterviewsQuestionsListSlideOutHovercardContents from './InterviewsQuestionsListSlideOutHovercardContents';
 import QuestionsListItemProgressChip from '../items/QuestionsListItemProgressChip';
-import type { QuestionMetadata } from '../../common/QuestionsTypes';
+import type { InterviewsQuestionItemMinimal } from '../../common/QuestionsTypes';
 import QuestionDifficultyLabel from '../../metadata/QuestionDifficultyLabel';
 import QuestionFormatLabel from '../../metadata/QuestionFormatLabel';
 
@@ -29,7 +29,7 @@ type QuestionClickEvent = Parameters<
   NonNullable<React.ComponentProps<typeof Anchor>['onClick']>
 >[0];
 
-type Props<Q extends QuestionMetadata> = Readonly<{
+type Props<Q extends InterviewsQuestionItemMinimal> = Readonly<{
   checkIfCompletedQuestion?: (question: Q) => boolean;
   hasCompletedQuestion?: boolean;
   href: string;
@@ -37,11 +37,11 @@ type Props<Q extends QuestionMetadata> = Readonly<{
   listType: QuestionListTypeData;
   mode: 'embedded' | 'slideout';
   onClick: (event: QuestionClickEvent, href: string) => void;
-  questionMetadata: QuestionMetadata;
+  question: InterviewsQuestionItemMinimal;
 }>;
 
 export default function InterviewsQuestionsListSlideOutQuestionListItem<
-  Q extends QuestionMetadata,
+  Q extends InterviewsQuestionItemMinimal,
 >({
   checkIfCompletedQuestion,
   hasCompletedQuestion,
@@ -50,10 +50,11 @@ export default function InterviewsQuestionsListSlideOutQuestionListItem<
   listType,
   onClick,
   isActiveQuestion,
-  questionMetadata,
+  question,
 }: Props<Q>) {
   const ref = useRef<HTMLDivElement>(null);
   const { userProfile } = useUserProfile();
+  const { metadata, info } = question;
 
   useEffect(() => {
     if (!isActiveQuestion) {
@@ -93,7 +94,7 @@ export default function InterviewsQuestionsListSlideOutQuestionListItem<
                   hasCompletedQuestion={!!hasCompletedQuestion}
                   hasCompletedQuestionBefore={false}
                   premiumUser={userProfile?.isInterviewsPremium}
-                  question={questionMetadata}
+                  question={question}
                   size="sm"
                 />
               )}
@@ -109,10 +110,10 @@ export default function InterviewsQuestionsListSlideOutQuestionListItem<
                       }}>
                       {/* Extend touch target to entire panel */}
                       <span aria-hidden="true" className="absolute inset-0" />
-                      {questionMetadata.title}
+                      {info.title}
                     </Anchor>
                   </Text>
-                  {questionMetadata.access === 'premium' && (
+                  {metadata.access === 'premium' && (
                     <InterviewsPremiumBadge size="xs" />
                   )}
                 </div>
@@ -121,13 +122,13 @@ export default function InterviewsQuestionsListSlideOutQuestionListItem<
                     <div className="sm:w-[106px]">
                       <QuestionFormatLabel
                         showIcon={true}
-                        value={questionMetadata.format}
+                        value={metadata.format}
                       />
                     </div>
                     <div className="sm:w-[68px]">
                       <QuestionDifficultyLabel
                         showIcon={true}
-                        value={questionMetadata.difficulty}
+                        value={metadata.difficulty}
                       />
                     </div>
                   </div>
@@ -146,7 +147,7 @@ export default function InterviewsQuestionsListSlideOutQuestionListItem<
           sideOffset={0}>
           <InterviewsQuestionsListSlideOutHovercardContents
             listType={listType}
-            question={questionMetadata}
+            question={question}
           />
         </HovercardContent>
       </HovercardPortal>

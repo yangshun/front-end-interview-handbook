@@ -7,6 +7,10 @@
     "/src/stack.submit.test.ts": "import Stack from './stack';\n\ndescribe('Stack', () => {\n  test('constructor', () => {\n    const s = new Stack();\n    expect(s instanceof Stack);\n  });\n\n  test('push()', () => {\n    const s = new Stack();\n    expect(s.push(100)).toBe(1);\n    expect(s.length()).toBe(1);\n    expect(s.push(200)).toBe(2);\n    expect(s.length()).toBe(2);\n  });\n\n  test('pop()', () => {\n    const s = new Stack();\n    s.push(100);\n    expect(s.length()).toBe(1);\n    expect(s.pop()).toBe(100);\n    expect(s.length()).toBe(0);\n    expect(s.pop()).toBe(undefined);\n  });\n\n  test('isEmpty()', () => {\n    const s = new Stack();\n    expect(s.isEmpty()).toBeTruthy();\n    s.push(100);\n    expect(s.isEmpty()).toBeFalsy();\n    s.pop();\n    expect(s.isEmpty()).toBeTruthy();\n  });\n\n  test('length()', () => {\n    const s = new Stack();\n    expect(s.length()).toBe(0);\n    s.push(100);\n    expect(s.length()).toBe(1);\n    s.push(200);\n    expect(s.length()).toBe(2);\n    s.pop();\n    expect(s.length()).toBe(1);\n    s.push(300);\n    expect(s.length()).toBe(2);\n  });\n\n  test('peek()', () => {\n    const s = new Stack();\n    expect(s.peek()).toBe(undefined);\n    s.push(100);\n    expect(s.peek()).toBe(100);\n    s.push(200);\n    expect(s.peek()).toBe(200);\n    s.pop();\n    expect(s.peek()).toBe(100);\n    s.push(300);\n    expect(s.peek()).toBe(300);\n    s.pop();\n    s.pop();\n    expect(s.peek()).toBe(undefined);\n  });\n});\n",
     "/src/stack.ts": "export default class Stack<T> {\n  _items: Array<T>;\n\n  constructor() {\n    this._items = [];\n  }\n\n  /**\n   * Pushes an item onto the top of the stack.\n   */\n  push(item: T): number {\n    return this._items.push(item);\n  }\n\n  /**\n   * Remove an item at the top of the stack.\n   */\n  pop(): T | undefined {\n    return this._items.pop();\n  }\n\n  /**\n   * Determines if the stack is empty.\n   */\n  isEmpty(): boolean {\n    return this.length() === 0;\n  }\n\n  /**\n   * Returns the item at the top of the stack without removing it from the stack.\n   */\n  peek(): T | undefined {\n    return this.isEmpty() ? undefined : this._items[this.length() - 1];\n  }\n\n  /**\n   * Returns the number of items in the stack.\n   */\n  length(): number {\n    return this._items.length;\n  }\n}\n"
   },
+  "info": {
+    "excerpt": "Implement a stack data structure containing the common stack methods",
+    "title": "Stack"
+  },
   "metadata": {
     "access": "free",
     "author": "yangshun",
@@ -16,7 +20,6 @@
     "created": 1670025600,
     "difficulty": "easy",
     "duration": 10,
-    "excerpt": "Implement a stack data structure containing the common stack methods",
     "featured": false,
     "format": "algo",
     "frameworkDefault": null,
@@ -37,7 +40,6 @@
     ],
     "slug": "stack",
     "subtitle": null,
-    "title": "Stack",
     "topics": [
       "stack"
     ]

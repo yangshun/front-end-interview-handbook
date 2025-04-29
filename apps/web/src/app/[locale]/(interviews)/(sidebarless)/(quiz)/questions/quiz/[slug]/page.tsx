@@ -35,11 +35,11 @@ export async function generateMetadata({
   const { question } = quizQuestionContents;
 
   return defaultMetadata({
-    description: question.metadata.excerpt ?? '',
+    description: question.info.excerpt ?? '',
     locale,
-    ogImageTitle: question.metadata.title,
+    ogImageTitle: question.info.title,
     pathname: question.metadata.href,
-    socialTitle: question.metadata.title,
+    socialTitle: question.info.title,
     title: intl.formatMessage(
       {
         defaultMessage:
@@ -48,7 +48,7 @@ export async function generateMetadata({
         id: 'wTdDt/',
       },
       {
-        questionTitle: question.metadata.title,
+        questionTitle: question.info.title,
       },
     ),
   });
@@ -63,7 +63,7 @@ export async function generateStaticParams({ params }: Props) {
 
   return generateStaticParamsWithLocale(
     quizQuestions.map((question) => ({
-      slug: question.slug,
+      slug: question.metadata.slug,
     })),
   );
 }
@@ -84,7 +84,7 @@ export default async function Page({ params }: Props) {
 
   return (
     <>
-      <QuestionJsonLd metadata={question.metadata} />
+      <QuestionJsonLd info={question.info} metadata={question.metadata} />
       <QuestionQuizContents
         listIsShownInSidebarOnDesktop={true}
         question={question}

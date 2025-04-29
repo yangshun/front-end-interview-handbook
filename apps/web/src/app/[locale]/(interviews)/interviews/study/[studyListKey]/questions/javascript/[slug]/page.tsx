@@ -31,11 +31,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { question } = readQuestionJavaScriptContents(slug, false, locale);
 
     return defaultMetadata({
-      description: question.metadata.excerpt!,
+      description: question.info.excerpt!,
       locale,
-      ogImageTitle: question.metadata.title,
+      ogImageTitle: question.info.title,
       pathname: question.metadata.href,
-      socialTitle: question.metadata.title,
+      socialTitle: question.info.title,
       title: intl.formatMessage(
         {
           defaultMessage:
@@ -43,7 +43,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
           description: 'Title of JavaScript Front End interview questions page',
           id: 'k8STTf',
         },
-        { questionTitle: question.metadata.title },
+        { questionTitle: question.info.title },
       ),
     });
   } catch {
@@ -99,7 +99,7 @@ export default async function Page({ params }: Props) {
   ]);
   const nextQuestions = sortQuestionsMultiple(
     questions.filter((questionItem) =>
-      question.metadata.nextQuestions.includes(questionItem.slug),
+      question.metadata.nextQuestions.includes(questionItem.metadata.slug),
     ),
     [
       {
@@ -114,7 +114,7 @@ export default async function Page({ params }: Props) {
   );
   const similarQuestions = sortQuestionsMultiple(
     questions.filter((questionItem) =>
-      question.metadata.similarQuestions.includes(questionItem.slug),
+      question.metadata.similarQuestions.includes(questionItem.metadata.slug),
     ),
     [
       {
@@ -137,6 +137,7 @@ export default async function Page({ params }: Props) {
       metadata={question.metadata}
       mode="practice"
       studyListKey={studyListKey}
+      title={question.info.title}
     />
   ) : (
     <JavaScriptCodingWorkspacePage

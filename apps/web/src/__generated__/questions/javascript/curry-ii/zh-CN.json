@@ -7,6 +7,10 @@
     "/src/curry-ii.submit.test.ts": "import curry from './curry-ii';\n\nconst empty = () => 0;\nconst square = (a: number) => a * a;\nconst mul = (a: number, b: number) => a * b;\nconst mulThree = (a: number, b: number, c: number) => a * b * c;\n\ndescribe('curry', () => {\n  test('returns function', () => {\n    const curried = curry(square);\n    expect(curried).toBeInstanceOf(Function);\n  });\n\n  test('empty function', () => {\n    const curried = curry(empty);\n    expect(curried()).toBe(0);\n  });\n\n  test('single argument', () => {\n    const curried = curry(square);\n    expect(curried()).toBeInstanceOf(Function);\n    expect(curried(2)).toBe(4);\n  });\n\n  describe('two arguments', () => {\n    test('one arg at a time', () => {\n      const curried = curry(mul);\n      expect(curried()).toBeInstanceOf(Function);\n      expect(curried(7)(3)).toBe(21);\n    });\n\n    test('both args at once', () => {\n      const curried = curry(mul);\n      expect(curried()).toBeInstanceOf(Function);\n      expect(curried(7, 3)).toBe(21);\n    });\n  });\n\n  describe('multiple arguments', () => {\n    test('one arg at a time', () => {\n      const curried = curry(mulThree);\n      expect(curried()).toBeInstanceOf(Function);\n      expect(curried(7)(3)(2)).toBe(42);\n    });\n\n    test('multiple args at once', () => {\n      const curried = curry(mulThree);\n      expect(curried()).toBeInstanceOf(Function);\n      expect(curried(7, 3, 2)).toBe(42);\n      expect(curried(7, 3)(2)).toBe(42);\n      expect(curried(7)(3, 2)).toBe(42);\n    });\n  });\n\n  test('can be reused', () => {\n    const curried = curry(square);\n    expect(curried()).toBeInstanceOf(Function);\n    expect(curried(2)).toBe(4);\n    expect(curried(3)).toBe(9);\n  });\n\n  test('ignores empty args', () => {\n    const curried = curry(mulThree);\n    expect(curried()(4)()(3)()(2)).toBe(24);\n    expect(curried()()()()(4)(2)(3)).toBe(24);\n  });\n\n  describe('can access this', () => {\n    test('single parameter', () => {\n      const curried = curry(function (this: any, val: number) {\n        return this.multiplier * val;\n      });\n\n      const obj = { multiplier: 5, mul: curried };\n      expect(obj.mul()).toBeInstanceOf(Function);\n      expect(obj.mul(7)).toBe(35);\n    });\n\n    test('multiple arguments', () => {\n      const curried = curry(function (this: any, foo: number, bar: number) {\n        return this.base * foo + bar;\n      });\n\n      const obj = { base: 5, mul: curried };\n      expect(obj.mul()).toBeInstanceOf(Function);\n      expect(obj.mul(3)(2)).toBe(17);\n      expect(obj.mul(3, 2)).toBe(17);\n      expect(obj.mul(3)()(2)).toBe(17);\n      expect(obj.mul()(3)()(2)).toBe(17);\n    });\n  });\n});\n",
     "/src/curry-ii.ts": "/**\n * @param {Function} func\n * @return {Function}\n */\nexport default function curry(func: Function): Function {\n  return function curried(this: any, ...args: Array<any>) {\n    if (args.length === func.length) {\n      return func.apply(this, args);\n    }\n\n    return (...args2: Array<any>) => curried.apply(this, [...args, ...args2]);\n  };\n}\n"
   },
+  "info": {
+    "excerpt": "实现一个函数，将接受多个参数的函数转换为可以重复调用任意数量参数的函数",
+    "title": "柯里化 II"
+  },
   "metadata": {
     "access": "premium",
     "author": "yangshun",
@@ -16,7 +20,6 @@
     "created": 1655510400,
     "difficulty": "medium",
     "duration": 20,
-    "excerpt": "实现一个函数，将接受多个参数的函数转换为可以重复调用任意数量参数的函数",
     "featured": false,
     "format": "javascript",
     "frameworkDefault": null,
@@ -37,7 +40,6 @@
     ],
     "slug": "curry-ii",
     "subtitle": null,
-    "title": "柯里化 II",
     "topics": []
   },
   "skeleton": {

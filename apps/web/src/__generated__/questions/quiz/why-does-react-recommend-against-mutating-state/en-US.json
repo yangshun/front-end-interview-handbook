@@ -1,5 +1,9 @@
 {
   "description": null,
+  "info": {
+    "excerpt": null,
+    "title": "Why does React recommend against mutating state?"
+  },
   "metadata": {
     "access": "free",
     "author": null,
@@ -7,7 +11,6 @@
     "created": 1630800000,
     "difficulty": "hard",
     "duration": 5,
-    "excerpt": null,
     "featured": true,
     "format": "quiz",
     "frameworkDefault": "react",
@@ -26,7 +29,6 @@
     "similarQuestions": [],
     "slug": "why-does-react-recommend-against-mutating-state",
     "subtitle": null,
-    "title": "Why does React recommend against mutating state?",
     "topics": [
       "react"
     ],

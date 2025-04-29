@@ -7,9 +7,9 @@ import { RiCodeLine } from 'react-icons/ri';
 import InterviewsPremiumBadge from '~/components/interviews/common/InterviewsPremiumBadge';
 import { questionHrefWithListType } from '~/components/interviews/questions/common/QuestionHrefUtils';
 import type {
+  InterviewsQuestionItemMinimal,
+  InterviewsQuestionItemUserInterface,
   QuestionFramework,
-  QuestionMetadata,
-  QuestionUserInterface,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import type { QuestionUserInterfaceMode } from '~/components/interviews/questions/common/QuestionUserInterfacePath';
 import useQuestionsAutoMarkAsComplete from '~/components/interviews/questions/common/useQuestionsAutoMarkAsComplete';
@@ -116,18 +116,24 @@ function UserInterfaceCodingWorkspaceImpl({
   isViewingSave: boolean;
   loadedFilesFromLocalStorage: boolean;
   mode: QuestionUserInterfaceMode;
-  nextQuestions: ReadonlyArray<QuestionMetadata>;
+  nextQuestions: ReadonlyArray<InterviewsQuestionItemMinimal>;
   onFrameworkChange: (
     framework: QuestionFramework,
     contentType: 'description' | 'solution',
   ) => void;
-  question: QuestionUserInterface;
+  question: InterviewsQuestionItemUserInterface;
   saveFilesToLocalStorage: boolean;
-  similarQuestions: ReadonlyArray<QuestionMetadata>;
+  similarQuestions: ReadonlyArray<InterviewsQuestionItemMinimal>;
   studyListKey?: string;
 }>) {
   const intl = useIntl();
-  const { framework, metadata: rawMetadata, description, solution } = question;
+  const {
+    framework,
+    metadata: rawMetadata,
+    description,
+    solution,
+    info,
+  } = question;
 
   const metadata = {
     ...rawMetadata,
@@ -286,6 +292,7 @@ function UserInterfaceCodingWorkspaceImpl({
           canViewPremiumContent={canViewPremiumContent}
           contentType="description"
           framework={framework}
+          info={info}
           metadata={metadata}
           mode={mode}
           nextQuestions={nextQuestions}
@@ -356,6 +363,7 @@ function UserInterfaceCodingWorkspaceImpl({
             canViewPremiumContent={canViewPremiumContent}
             contentType="solution"
             framework={framework}
+            info={info}
             metadata={metadata}
             mode={mode}
             nextQuestions={nextQuestions}
@@ -450,6 +458,7 @@ function UserInterfaceCodingWorkspaceImpl({
                 canViewPremiumContent={canViewPremiumContent}
                 contentType="description"
                 framework={framework}
+                info={info}
                 metadata={metadata}
                 mode={mode}
                 nextQuestions={[]}
@@ -465,6 +474,7 @@ function UserInterfaceCodingWorkspaceImpl({
                 canViewPremiumContent={canViewPremiumContent}
                 contentType="solution"
                 framework={framework}
+                info={info}
                 metadata={metadata}
                 mode={mode}
                 nextQuestions={[]}
@@ -641,14 +651,14 @@ export default function UserInterfaceCodingWorkspace({
   isViewingSave?: boolean;
   loadedFilesFromLocalStorage: boolean;
   mode: QuestionUserInterfaceMode;
-  nextQuestions: ReadonlyArray<QuestionMetadata>;
+  nextQuestions: ReadonlyArray<InterviewsQuestionItemMinimal>;
   onFrameworkChange: (
     framework: QuestionFramework,
     contentType: 'description' | 'solution',
   ) => void;
-  question: QuestionUserInterface;
+  question: InterviewsQuestionItemUserInterface;
   saveFilesToLocalStorage?: boolean;
-  similarQuestions: ReadonlyArray<QuestionMetadata>;
+  similarQuestions: ReadonlyArray<InterviewsQuestionItemMinimal>;
   studyListKey?: string;
 }>) {
   const { sandpack } = useSandpack();

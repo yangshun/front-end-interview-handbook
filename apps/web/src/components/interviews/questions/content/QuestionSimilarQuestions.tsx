@@ -5,13 +5,13 @@ import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import { textVariants } from '~/components/ui/Text';
 
-import type { QuestionMetadata } from '../common/QuestionsTypes';
+import type { InterviewsQuestionItemMinimal } from '../common/QuestionsTypes';
 import QuestionsCodingListBrief from '../listings/items/QuestionsCodingListBrief';
 
 export default function QuestionSimilarQuestions({
   questions,
 }: Readonly<{
-  questions: ReadonlyArray<QuestionMetadata>;
+  questions: ReadonlyArray<InterviewsQuestionItemMinimal>;
 }>) {
   if (questions.length === 0) {
     return null;

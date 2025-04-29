@@ -9,6 +9,10 @@
     "/src/word-finder.submit.test.ts": "import WordFinder from './word-finder';\nimport submitTestCases from './submit.tests.json';\n\nfunction processMethods(\n  methods: string[],\n  words: string[],\n): (boolean | null)[] {\n  const res: (boolean | null)[] = [];\n  const obj = new WordFinder();\n\n  for (let i = 0; i < methods.length; i++) {\n    switch (methods[i]) {\n      case 'addWord': {\n        obj.addWord(words[i]);\n        res.push(null);\n        break;\n      }\n      case 'search': {\n        res.push(obj.search(words[i]));\n        break;\n      }\n    }\n  }\n\n  return res;\n}\n\ndescribe('WordFinder', () => {\n  (submitTestCases as any[]).forEach((example: any) => {\n    test(`methods = [${example.input[0][1]}] words = [${example.input[1][1]}]`, () => {\n      const result = processMethods(example.input[0][1], example.input[1][1]);\n\n      expect(result).toStrictEqual(example.output);\n    });\n  });\n});\n",
     "/src/word-finder.ts": "class TrieNode {\n  // A map to hold child nodes\n  children: Map<string, TrieNode> = new Map();\n  // Indicates whether this node is the end of a word\n  word: boolean = false;\n}\n\nexport default class WordFinder {\n  private trie: TrieNode;\n\n  constructor() {\n    // Initialize the root of the trie\n    this.trie = new TrieNode();\n  }\n\n  addWord(word: string): void {\n    let node = this.trie;\n\n    for (const ch of word) {\n      // If the character is not already a child node, add it\n      if (!node.children.has(ch)) {\n        node.children.set(ch, new TrieNode());\n      }\n      // Move to the next node in the trie\n      node = node.children.get(ch)!;\n    }\n    // Mark the end of the word\n    node.word = true;\n  }\n\n  private searchInNode(word: string, node: TrieNode): boolean {\n    for (let i = 0; i < word.length; i++) {\n      const ch = word[i];\n      // If the character is not found, check if it's a '.'\n      if (!node.children.has(ch)) {\n        if (ch === '.') {\n          // Iterate over all children nodes using forEach\n          let found = false;\n          node.children.forEach((child) => {\n            // Recursively search for the remaining substring in each child node\n            if (this.searchInNode(word.substring(i + 1), child)) {\n              found = true;\n            }\n          });\n          return found;\n        }\n        // If the character is not a '.' and not found, return false\n        return false;\n      } else {\n        // If the character is found, move down to the next level in the trie\n        node = node.children.get(ch)!;\n      }\n    }\n    // Return true if the current node marks the end of a word\n    return node.word;\n  }\n\n  search(word: string): boolean {\n    return this.searchInNode(word, this.trie);\n  }\n}\n"
   },
+  "info": {
+    "excerpt": "Implement a data structure where words can be added and support wildcard searching",
+    "title": "Word Finder"
+  },
   "metadata": {
     "access": "standard",
     "author": "hiten",
@@ -16,7 +20,6 @@
     "created": 1724976000,
     "difficulty": "medium",
     "duration": 45,
-    "excerpt": "Implement a data structure where words can be added and support wildcard searching",
     "featured": false,
     "format": "algo",
     "frameworkDefault": null,
@@ -33,7 +36,6 @@
     "similarQuestions": [],
     "slug": "word-finder",
     "subtitle": null,
-    "title": "Word Finder",
     "topics": [
       "matrix",
       "graph",

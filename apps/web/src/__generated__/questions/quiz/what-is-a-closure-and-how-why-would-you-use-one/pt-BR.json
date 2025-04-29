@@ -1,5 +1,9 @@
 {
   "description": null,
+  "info": {
+    "excerpt": null,
+    "title": "O que é um closure e como/por que você usaria um?"
+  },
   "metadata": {
     "access": "free",
     "author": null,
@@ -13,7 +17,6 @@
     "created": 1630800000,
     "difficulty": "medium",
     "duration": 5,
-    "excerpt": null,
     "featured": true,
     "format": "quiz",
     "frameworkDefault": null,
@@ -27,7 +30,6 @@
     "similarQuestions": [],
     "slug": "what-is-a-closure-and-how-why-would-you-use-one",
     "subtitle": null,
-    "title": "O que é um closure e como/por que você usaria um?",
     "topics": [
       "closure",
       "javascript"

@@ -1,14 +1,14 @@
 import Fuse from 'fuse.js';
 
-import type { QuestionMetadata } from './QuestionsTypes';
+import type { InterviewsQuestionItemMinimal } from './QuestionsTypes';
 
 export async function questionsFindClosestToSlug(
-  questions: ReadonlyArray<QuestionMetadata>,
+  questions: ReadonlyArray<InterviewsQuestionItemMinimal>,
   querySlug: string,
 ) {
   const questionSlugs = questions.map((qn) => ({
     ...qn,
-    searchable: qn.slug.replace(/-/g, ' '),
+    searchable: qn.metadata.slug.replace(/-/g, ' '),
   }));
 
   const fuse = new Fuse(questionSlugs, {

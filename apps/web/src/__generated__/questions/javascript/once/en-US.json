@@ -7,6 +7,10 @@
     "/src/once.submit.test.ts": "import once from './once';\n\ndescribe('once', () => {\n  test('returns function', () => {\n    const onced = once(() => {});\n    expect(onced).toBeInstanceOf(Function);\n  });\n\n  test('only run once', () => {\n    let i = 0;\n    const onced = once(() => ++i);\n\n    onced();\n    onced();\n    expect(i).toBe(1);\n  });\n\n  test('returns the value of the first invocation', () => {\n    let i = 0;\n    const onced = once(() => ++i);\n    expect(onced()).toBe(1);\n    expect(onced()).toBe(1);\n    expect(i).toBe(1);\n\n    i = 99;\n    expect(onced()).toBe(1);\n    expect(i).toBe(99);\n  });\n\n  describe('accepts arguments', () => {\n    test('single arguments', () => {\n      const onced = once((a) => a * 2);\n\n      expect(onced(2)).toBe(4);\n      expect(onced(6)).toBe(4);\n      expect(onced(100)).toBe(4);\n    });\n\n    test('two arguments', () => {\n      const onced = once((a, b) => a + b);\n\n      expect(onced(2, 3)).toBe(5);\n      expect(onced(6, 7)).toBe(5);\n    });\n  });\n\n  test('can access this', () => {\n    const onced = once(function (val) {\n      return this.multiplier * val;\n    });\n\n    const obj = { multiplier: 5, mul: onced };\n    expect(obj.mul(7)).toBe(35);\n    expect(obj.mul(10)).toBe(35);\n  });\n});\n",
     "/src/once.ts": "type Fn<T> = (this: any, ...args: Array<any>) => T;\n\nexport default function once<T>(func: Fn<T>): Fn<T> {\n  let ranOnce = false;\n  let value: T;\n\n  return function (...args): T {\n    if (!ranOnce) {\n      value = func.apply(this, args);\n      ranOnce = true;\n    }\n\n    return value;\n  };\n}\n"
   },
+  "info": {
+    "excerpt": "Implement a function that accepts a callback and restricts its invocation to at most once",
+    "title": "Once"
+  },
   "metadata": {
     "access": "premium",
     "author": "yangshun",
@@ -16,7 +20,6 @@
     "created": 1670803200,
     "difficulty": "easy",
     "duration": 10,
-    "excerpt": "Implement a function that accepts a callback and restricts its invocation to at most once",
     "featured": false,
     "format": "javascript",
     "frameworkDefault": null,
@@ -35,7 +38,6 @@
     "similarQuestions": [],
     "slug": "once",
     "subtitle": null,
-    "title": "Once",
     "topics": [
       "closure"
     ]

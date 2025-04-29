@@ -1,5 +1,9 @@
 {
   "description": null,
+  "info": {
+    "excerpt": null,
+    "title": "What are some tools that can be used to measure and analyze JavaScript performance?"
+  },
   "metadata": {
     "access": "free",
     "author": null,
@@ -7,7 +11,6 @@
     "created": 1630800000,
     "difficulty": "easy",
     "duration": 5,
-    "excerpt": null,
     "featured": false,
     "format": "quiz",
     "frameworkDefault": null,
@@ -21,7 +24,6 @@
     "similarQuestions": [],
     "slug": "what-are-some-tools-that-can-be-used-to-measure-and-analyze-javascript-performance",
     "subtitle": null,
-    "title": "What are some tools that can be used to measure and analyze JavaScript performance?",
     "topics": [
       "javascript",
       "performance"

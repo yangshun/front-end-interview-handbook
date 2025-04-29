@@ -18,8 +18,8 @@ import VignetteOverlay from '~/components/common/VignetteOverlay';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import InterviewsPurchasePaywall from '~/components/interviews/purchase/InterviewsPurchasePaywall';
 import type {
+  InterviewsQuestionItemMinimal,
   QuestionFormat,
-  QuestionMetadata,
   QuestionSlug,
   QuestionTopic,
 } from '~/components/interviews/questions/common/QuestionsTypes';
@@ -44,7 +44,7 @@ import { useUser } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
   bottomContent?: InterviewsListingBottomContent;
-  questions: ReadonlyArray<QuestionMetadata>;
+  questions: ReadonlyArray<InterviewsQuestionItemMinimal>;
   questionsSlugs: Record<QuestionFormat, ReadonlyArray<QuestionSlug>>;
   studyList: InterviewsStudyList;
 }>;
@@ -79,8 +79,8 @@ export default function InterviewsCompanyGuidePage({
   const topics = useMemo(() => {
     const topicsSet = new Set<QuestionTopic>();
 
-    questions.forEach((question) => {
-      question.topics.forEach((topic) => {
+    questions.forEach(({ metadata }) => {
+      metadata.topics.forEach((topic) => {
         topicsSet.add(topic);
       });
     });

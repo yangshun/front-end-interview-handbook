@@ -9,6 +9,10 @@
     "/src/task-coordination.submit.test.ts": "import taskCoordinator from './task-coordination';\nimport submitTestCases from './submit.tests.json';\n\ndescribe('taskCoordinator', () => {\n  (submitTestCases as any[]).forEach((example: any) => {\n    test(`tasks =  [${example.input[0][1]}] k = ${example.input[1][1]}`, () => {\n      expect(\n        taskCoordinator(example.input[0][1], example.input[1][1]),\n      ).toStrictEqual(example.output);\n    });\n  });\n});\n",
     "/src/task-coordination.ts": "export default function taskCoordinator(tasks: string[], k: number): number {\n  // Array to store the frequency of each task (26 letters, A-Z)\n  const counter: number[] = new Array(26).fill(0);\n  let maximum = 0; // Maximum frequency of any task\n  let maxCount = 0; // Number of tasks with maximum frequency\n\n  // Traverse through tasks to calculate task frequencies\n  for (const task of tasks) {\n    const index = task.charCodeAt(0) - 'A'.charCodeAt(0);\n    counter[index]++;\n\n    if (maximum === counter[index]) {\n      maxCount++;\n    } else if (maximum < counter[index]) {\n      maximum = counter[index];\n      maxCount = 1;\n    }\n  }\n\n  // Calculate idle slots, available tasks, and idles needed\n  const partCount = maximum - 1;\n  const partLength = k - (maxCount - 1);\n  const emptySlots = partCount * partLength;\n  const availableTasks = tasks.length - maximum * maxCount;\n  const idles = Math.max(0, emptySlots - availableTasks);\n\n  // Return the total time required\n  return tasks.length + idles;\n}\n"
   },
+  "info": {
+    "excerpt": "Implement a function to find minimum intervals for tasks with cooldown",
+    "title": "Task Coordination"
+  },
   "metadata": {
     "access": "standard",
     "author": "hiten",
@@ -16,7 +20,6 @@
     "created": 1725408000,
     "difficulty": "medium",
     "duration": 40,
-    "excerpt": "Implement a function to find minimum intervals for tasks with cooldown",
     "featured": false,
     "format": "algo",
     "frameworkDefault": null,
@@ -33,7 +36,6 @@
     "similarQuestions": [],
     "slug": "task-coordination",
     "subtitle": null,
-    "title": "Task Coordination",
     "topics": [
       "greedy",
       "heap"

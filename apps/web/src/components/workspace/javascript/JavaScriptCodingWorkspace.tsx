@@ -5,11 +5,11 @@ import { useCallback, useState } from 'react';
 import { RiCodeLine } from 'react-icons/ri';
 
 import type {
+  InterviewsQuestionItemJavaScript,
+  InterviewsQuestionItemMinimal,
   QuestionCodingWorkingLanguage,
-  QuestionJavaScript,
   QuestionJavaScriptSkeleton,
   QuestionJavaScriptWorkspace,
-  QuestionMetadata,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import useQuestionsAutoMarkAsComplete from '~/components/interviews/questions/common/useQuestionsAutoMarkAsComplete';
 import { useIntl } from '~/components/intl';
@@ -90,16 +90,16 @@ function JavaScriptCodingWorkspaceImpl({
   embed: boolean;
   language: QuestionCodingWorkingLanguage;
   loadedFilesFromLocalStorage: boolean;
-  nextQuestions: ReadonlyArray<QuestionMetadata>;
+  nextQuestions: ReadonlyArray<InterviewsQuestionItemMinimal>;
   onLanguageChange: (newLanguage: QuestionCodingWorkingLanguage) => void;
-  question: QuestionJavaScript;
-  similarQuestions: ReadonlyArray<QuestionMetadata>;
+  question: InterviewsQuestionItemJavaScript;
+  similarQuestions: ReadonlyArray<InterviewsQuestionItemMinimal>;
   skeleton: QuestionJavaScriptSkeleton;
   studyListKey?: string;
   workspace: QuestionJavaScriptWorkspace;
 }>) {
   const intl = useIntl();
-  const { description, metadata, solution } = question;
+  const { description, metadata, solution, info } = question;
   const { dispatch } = useJavaScriptCodingWorkspaceTilesContext();
 
   const { sandpack } = useSandpack();
@@ -141,7 +141,7 @@ function JavaScriptCodingWorkspaceImpl({
       [tabIdForSubmission]: {
         contents: (
           <JavaScriptCodingWorkspaceSubmissionTab
-            metadata={metadata}
+            info={info}
             submissionId={submissionId}
           />
         ),
@@ -234,6 +234,7 @@ function JavaScriptCodingWorkspaceImpl({
         <JavaScriptCodingWorkspaceDescription
           canViewPremiumContent={canViewPremiumContent}
           description={description}
+          info={info}
           metadata={metadata}
           nextQuestions={nextQuestions}
           showAd={!embed}
@@ -395,6 +396,7 @@ function JavaScriptCodingWorkspaceImpl({
               <JavaScriptCodingWorkspaceDescription
                 canViewPremiumContent={canViewPremiumContent}
                 description={description}
+                info={info}
                 metadata={metadata}
                 nextQuestions={[]}
                 showAd={!embed}
@@ -505,10 +507,10 @@ export default function JavaScriptCodingWorkspace({
   embed: boolean;
   language: QuestionCodingWorkingLanguage;
   loadedFilesFromLocalStorage: boolean;
-  nextQuestions: ReadonlyArray<QuestionMetadata>;
+  nextQuestions: ReadonlyArray<InterviewsQuestionItemMinimal>;
   onLanguageChange: (newLanguage: QuestionCodingWorkingLanguage) => void;
-  question: QuestionJavaScript;
-  similarQuestions: ReadonlyArray<QuestionMetadata>;
+  question: InterviewsQuestionItemJavaScript;
+  similarQuestions: ReadonlyArray<InterviewsQuestionItemMinimal>;
   skeleton: QuestionJavaScriptSkeleton;
   studyListKey?: string;
   workspace: QuestionJavaScriptWorkspace;

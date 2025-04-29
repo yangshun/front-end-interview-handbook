@@ -1,50 +1,54 @@
 {
-  "access": "premium",
-  "author": "yangshun",
-  "companies": [
-    "tiktok"
-  ],
-  "created": 1683158400,
-  "difficulty": "hard",
-  "duration": 40,
-  "excerpt": "Build a component that allows transferring of items between two lists, bulk selection/unselection of items, and adding of new items",
-  "featured": false,
-  "format": "user-interface",
-  "frameworkDefault": "react",
-  "frameworks": [
-    {
-      "framework": "react",
-      "href": "/questions/user-interface/transfer-list-ii/react"
-    },
-    {
-      "framework": "angular",
-      "href": "/questions/user-interface/transfer-list-ii/angular"
-    },
-    {
-      "framework": "vue",
-      "href": "/questions/user-interface/transfer-list-ii/vue"
-    },
-    {
-      "framework": "svelte",
-      "href": "/questions/user-interface/transfer-list-ii/svelte"
-    }
-  ],
-  "href": "/questions/user-interface/transfer-list-ii",
-  "importance": "low",
-  "languages": [
-    "html",
-    "css",
-    "js"
-  ],
-  "nextQuestions": [],
-  "published": true,
-  "ranking": 100,
-  "similarQuestions": [
-    "todo-list",
-    "transfer-list"
-  ],
-  "slug": "transfer-list-ii",
-  "subtitle": null,
-  "title": "Transfer List II",
-  "topics": []
+  "info": {
+    "excerpt": "Build a component that allows transferring of items between two lists, bulk selection/unselection of items, and adding of new items",
+    "title": "Transfer List II"
+  },
+  "metadata": {
+    "access": "premium",
+    "author": "yangshun",
+    "companies": [
+      "tiktok"
+    ],
+    "created": 1683158400,
+    "difficulty": "hard",
+    "duration": 40,
+    "featured": false,
+    "format": "user-interface",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/user-interface/transfer-list-ii/react"
+      },
+      {
+        "framework": "angular",
+        "href": "/questions/user-interface/transfer-list-ii/angular"
+      },
+      {
+        "framework": "vue",
+        "href": "/questions/user-interface/transfer-list-ii/vue"
+      },
+      {
+        "framework": "svelte",
+        "href": "/questions/user-interface/transfer-list-ii/svelte"
+      }
+    ],
+    "href": "/questions/user-interface/transfer-list-ii",
+    "importance": "low",
+    "languages": [
+      "html",
+      "css",
+      "js"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "todo-list",
+      "transfer-list"
+    ],
+    "slug": "transfer-list-ii",
+    "subtitle": null,
+    "topics": []
+  }
 }

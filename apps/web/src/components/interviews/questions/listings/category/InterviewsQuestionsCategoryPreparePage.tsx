@@ -3,7 +3,7 @@
 import type { InterviewsListingBottomContent } from 'contentlayer/generated';
 
 import useInterviewsQuestionsFeatures from '~/components/interviews/common/useInterviewsQuestionsFeatures';
-import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
+import type { InterviewsQuestionItemMinimal } from '~/components/interviews/questions/common/QuestionsTypes';
 import InterviewsQuestionsCategoryPage from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryPage';
 import { QuestionCountTotal } from '~/components/interviews/questions/listings/stats/QuestionCount';
 import { useIntl } from '~/components/intl';
@@ -18,7 +18,7 @@ type Props = Readonly<{
   listType: React.ComponentProps<
     typeof InterviewsQuestionsCategoryPage
   >['listType'];
-  questions: ReadonlyArray<QuestionMetadata>;
+  questions: ReadonlyArray<InterviewsQuestionItemMinimal>;
 }>;
 
 export default function InterviewsQuestionsCategoryPreparePage({
@@ -92,11 +92,9 @@ export default function InterviewsQuestionsCategoryPreparePage({
               QuestionsCount: () => <>{QuestionCountTotal}</>,
               QuestionsList: () => (
                 <ul>
-                  {questions.map((questionMetadata) => (
-                    <li key={questionMetadata.slug}>
-                      <Anchor href={questionMetadata.href}>
-                        {questionMetadata.title}
-                      </Anchor>
+                  {questions.map(({ metadata, info }) => (
+                    <li key={metadata.slug}>
+                      <Anchor href={metadata.href}>{info.title}</Anchor>
                     </li>
                   ))}
                 </ul>

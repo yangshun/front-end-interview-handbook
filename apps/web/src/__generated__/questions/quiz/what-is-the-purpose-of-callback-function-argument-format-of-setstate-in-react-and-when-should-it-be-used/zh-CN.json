@@ -1,5 +1,9 @@
 {
   "description": null,
+  "info": {
+    "excerpt": null,
+    "title": "React 中 `setState()` 的回调函数参数格式的目的是什么？应该在什么时候使用它？"
+  },
   "metadata": {
     "access": "free",
     "author": null,
@@ -7,7 +11,6 @@
     "created": 1630800000,
     "difficulty": "medium",
     "duration": 5,
-    "excerpt": null,
     "featured": true,
     "format": "quiz",
     "frameworkDefault": "react",
@@ -26,7 +29,6 @@
     "similarQuestions": [],
     "slug": "what-is-the-purpose-of-callback-function-argument-format-of-setstate-in-react-and-when-should-it-be-used",
     "subtitle": null,
-    "title": "React 中 `setState()` 的回调函数参数格式的目的是什么？应该在什么时候使用它？",
     "topics": [
       "react"
     ],

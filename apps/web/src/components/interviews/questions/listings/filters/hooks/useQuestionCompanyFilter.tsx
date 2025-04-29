@@ -61,7 +61,9 @@ export default function useQuestionCompanyFilter({
     matches: (question) =>
       companyFilters.size === 0 ||
       !userProfile?.isInterviewsPremium ||
-      question.companies.some((company) => companyFilters.has(company)),
+      question.metadata.companies.some((company) =>
+        companyFilters.has(company),
+      ),
     name: intl.formatMessage({
       defaultMessage: 'Company',
       description: 'Header for company filters',

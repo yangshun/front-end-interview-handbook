@@ -2,9 +2,9 @@ import clsx from 'clsx';
 import type { InterviewsStudyList } from 'contentlayer/generated';
 
 import type {
+  InterviewsQuestionItemMinimal,
   QuestionFramework,
   QuestionLanguage,
-  QuestionMetadata,
   QuestionSlug,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import { FormattedMessage } from '~/components/intl';
@@ -31,17 +31,17 @@ type Props = Readonly<{
     LearningSession & { _count: { progress: number } }
   >;
   questions: {
-    codingQuestions: ReadonlyArray<QuestionMetadata>;
+    codingQuestions: ReadonlyArray<InterviewsQuestionItemMinimal>;
     frameworkQuestions: Record<
       QuestionFramework,
-      ReadonlyArray<QuestionMetadata>
+      ReadonlyArray<InterviewsQuestionItemMinimal>
     >;
     languageQuestions: Record<
       QuestionLanguage,
-      ReadonlyArray<QuestionMetadata>
+      ReadonlyArray<InterviewsQuestionItemMinimal>
     >;
-    quizQuestions: ReadonlyArray<QuestionMetadata>;
-    systemDesignQuestions: ReadonlyArray<QuestionMetadata>;
+    quizQuestions: ReadonlyArray<InterviewsQuestionItemMinimal>;
+    systemDesignQuestions: ReadonlyArray<InterviewsQuestionItemMinimal>;
   };
   questionsProgress: ReadonlyArray<
     Readonly<{ format: string; id: string; slug: QuestionSlug }>

@@ -7,6 +7,10 @@
     "/src/use-window-size.submit.test.ts": "import { act, fireEvent, renderHook } from '@testing-library/react';\n\nimport useWindowSize from './use-window-size';\n\ndescribe('useWindowSize', () => {\n  test('return values', () => {\n    const { result } = renderHook(() => useWindowSize());\n\n    expect(typeof result.current).toBe('object');\n    expect(typeof result.current.width).toBe('number');\n    expect(typeof result.current.height).toBe('number');\n  });\n\n  test('initial value', () => {\n    const { result } = renderHook(() => useWindowSize());\n\n    expect(result.current.width).toBe(window.innerWidth);\n    expect(result.current.height).toBe(window.innerHeight);\n  });\n\n  test('resize', () => {\n    const { result } = renderHook(() => useWindowSize());\n\n    act(() => {\n      window.innerWidth = 100;\n      window.innerHeight = 200;\n      fireEvent.resize(window);\n    });\n\n    expect(result.current.width).toBe(100);\n    expect(result.current.height).toBe(200);\n  });\n});\n",
     "/src/use-window-size.ts": "import { useState, useLayoutEffect } from 'react';\n\ninterface WindowSize {\n  height: number;\n  width: number;\n}\n\nexport default function useWindowSize(): WindowSize {\n  const [windowSize, setWindowSize] = useState<WindowSize>({\n    height: 0,\n    width: 0,\n  });\n\n  useLayoutEffect(() => {\n    const resize = () =>\n      setWindowSize({\n        height: window.innerHeight,\n        width: window.innerWidth,\n      });\n\n    resize();\n    window.addEventListener('resize', resize);\n\n    return () => {\n      window.removeEventListener('resize', resize);\n    };\n  }, []);\n\n  return windowSize;\n}\n"
   },
+  "info": {
+    "excerpt": "Implement a hook that returns the current height and width of the window",
+    "title": "useWindowSize"
+  },
   "metadata": {
     "access": "free",
     "author": "phillmont",
@@ -14,7 +18,6 @@
     "created": 1742169600,
     "difficulty": "medium",
     "duration": 15,
-    "excerpt": "Implement a hook that returns the current height and width of the window",
     "featured": false,
     "format": "javascript",
     "frameworkDefault": "react",
@@ -39,7 +42,6 @@
     ],
     "slug": "use-window-size",
     "subtitle": null,
-    "title": "useWindowSize",
     "topics": [
       "react-hooks"
     ]

@@ -13,7 +13,7 @@ import useGuidesWithCompletionStatus from '~/components/guides/useGuidesWithComp
 import InterviewsPageHeader from '~/components/interviews/common/InterviewsPageHeader';
 import InterviewsPageLongDescription from '~/components/interviews/common/InterviewsPageLongDescription';
 import useInterviewsSidebarCollapsed from '~/components/interviews/common/useInterviewsSidebarCollapsed';
-import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
+import type { InterviewsQuestionItemMinimal } from '~/components/interviews/questions/common/QuestionsTypes';
 import InterviewsQuestionsCategoryContentSlider from '~/components/interviews/questions/listings/category/InterviewsQuestionsCategoryContentSlider';
 import QuestionsUnifiedListWithFiltersAndProgress from '~/components/interviews/questions/listings/items/QuestionsUnifiedListWithFiltersAndProgress';
 import { useIntl } from '~/components/intl';
@@ -34,7 +34,7 @@ type Props = Readonly<{
   >['listType'];
   longDescription?: ReactNode;
   questionCompletionCount?: QuestionCompletionCount;
-  questionList: ReadonlyArray<QuestionMetadata>;
+  questionList: ReadonlyArray<InterviewsQuestionItemMinimal>;
   searchPlaceholder: string;
   title: string;
   titleAddOnText?: string;

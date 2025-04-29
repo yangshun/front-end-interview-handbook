@@ -1,51 +1,55 @@
 {
-  "access": "standard",
-  "author": "dhillon",
-  "companies": [
-    "openai",
-    "reddit"
-  ],
-  "created": 1681430400,
-  "difficulty": "easy",
-  "duration": 20,
-  "excerpt": "Build a calculator that computes the monthly mortgage for a loan",
-  "featured": false,
-  "format": "user-interface",
-  "frameworkDefault": "react",
-  "frameworks": [
-    {
-      "framework": "react",
-      "href": "/questions/user-interface/mortgage-calculator/react"
-    },
-    {
-      "framework": "vanilla",
-      "href": "/questions/user-interface/mortgage-calculator/vanilla"
-    },
-    {
-      "framework": "angular",
-      "href": "/questions/user-interface/mortgage-calculator/angular"
-    },
-    {
-      "framework": "vue",
-      "href": "/questions/user-interface/mortgage-calculator/vue"
-    },
-    {
-      "framework": "svelte",
-      "href": "/questions/user-interface/mortgage-calculator/svelte"
-    }
-  ],
-  "href": "/questions/user-interface/mortgage-calculator",
-  "importance": "low",
-  "languages": [
-    "html",
-    "js"
-  ],
-  "nextQuestions": [],
-  "published": true,
-  "ranking": 100,
-  "similarQuestions": [],
-  "slug": "mortgage-calculator",
-  "subtitle": null,
-  "title": "Mortgage Calculator",
-  "topics": []
+  "info": {
+    "excerpt": "Build a calculator that computes the monthly mortgage for a loan",
+    "title": "Mortgage Calculator"
+  },
+  "metadata": {
+    "access": "standard",
+    "author": "dhillon",
+    "companies": [
+      "openai",
+      "reddit"
+    ],
+    "created": 1681430400,
+    "difficulty": "easy",
+    "duration": 20,
+    "featured": false,
+    "format": "user-interface",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/user-interface/mortgage-calculator/react"
+      },
+      {
+        "framework": "vanilla",
+        "href": "/questions/user-interface/mortgage-calculator/vanilla"
+      },
+      {
+        "framework": "angular",
+        "href": "/questions/user-interface/mortgage-calculator/angular"
+      },
+      {
+        "framework": "vue",
+        "href": "/questions/user-interface/mortgage-calculator/vue"
+      },
+      {
+        "framework": "svelte",
+        "href": "/questions/user-interface/mortgage-calculator/svelte"
+      }
+    ],
+    "href": "/questions/user-interface/mortgage-calculator",
+    "importance": "low",
+    "languages": [
+      "html",
+      "js"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "mortgage-calculator",
+    "subtitle": null,
+    "topics": []
+  }
 }

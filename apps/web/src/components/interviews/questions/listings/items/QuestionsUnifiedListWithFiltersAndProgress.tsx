@@ -18,8 +18,8 @@ import { useI18nPathname, useI18nRouter } from '~/next-i18nostic/src';
 import QuestionsUnifiedListWithFilters from './QuestionsUnifiedListWithFilters';
 import useQuestionsWithCompletionStatus from './useQuestionsWithCompletionStatus';
 import type {
+  InterviewsQuestionItemMinimal,
   QuestionFormat,
-  QuestionMetadata,
 } from '../../common/QuestionsTypes';
 
 import { useUser } from '@supabase/auth-helpers-react';
@@ -34,7 +34,7 @@ type Props = Omit<
       items: ReadonlyArray<GuideCardMetadataWithCompletedStatus>;
       title: string;
     };
-    questions: ReadonlyArray<QuestionMetadata>;
+    questions: ReadonlyArray<InterviewsQuestionItemMinimal>;
   }>;
 
 const MARK_QN_COMPLETE_ACTION = 'mark-question-complete';
@@ -82,10 +82,12 @@ export default function QuestionsUnifiedListWithFiltersAndProgress({
 
   const markQuestionAsCompleted = useCallback(
     ({
-      slug,
-      title,
-      format,
-    }: Readonly<{ format: QuestionFormat; slug: string; title: string }>) => {
+      metadata: { slug, format },
+      info: { title },
+    }: Readonly<{
+      info: { title: string };
+      metadata: { format: QuestionFormat; slug: string };
+    }>) => {
       if (user == null || markCompleteMutation.isLoading) {
         return;
       }
@@ -141,18 +143,26 @@ export default function QuestionsUnifiedListWithFiltersAndProgress({
       return;
     }
 
-    markQuestionAsCompleted(automaticallyMarkCompleteQuestion);
+    markQuestionAsCompleted({
+      info: {
+        title: automaticallyMarkCompleteQuestion.title,
+      },
+      metadata: {
+        format: automaticallyMarkCompleteQuestion.format,
+        slug: automaticallyMarkCompleteQuestion.slug,
+      },
+    });
     setAutomaticallyMarkCompleteQuestion(null);
   }, [automaticallyMarkCompleteQuestion, markQuestionAsCompleted, user]);
 
-  function markQuestionAsNotCompleted(question: QuestionMetadata) {
+  function markQuestionAsNotCompleted(question: InterviewsQuestionItemMinimal) {
     if (user == null || markNotCompleteMutation.isLoading) {
       return;
     }
 
     markNotCompleteMutation.mutate(
       {
-        qnHashes: [hashQuestion(question)],
+        qnHashes: [hashQuestion(question.metadata)],
         studyListKey,
       },
       {
@@ -171,7 +181,7 @@ export default function QuestionsUnifiedListWithFiltersAndProgress({
                 id: 'Hav9UT',
               },
               {
-                questionTitle: question.title,
+                questionTitle: question.info.title,
               },
             ),
             variant: 'info',
@@ -187,13 +197,13 @@ export default function QuestionsUnifiedListWithFiltersAndProgress({
       questions={questionsWithCompletionStatus}
       onMarkAsCompleted={
         user == null
-          ? (questionMetadata) => {
+          ? ({ info, metadata }) => {
               router.push(
                 signInUpHref({
                   next: addQueryParamToPath(pathname || '', {
-                    format: questionMetadata.format,
-                    slug: questionMetadata.slug,
-                    title: questionMetadata.title,
+                    format: metadata.format,
+                    slug: metadata.slug,
+                    title: info.title,
                   }),
                 }),
               );

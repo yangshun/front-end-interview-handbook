@@ -1,5 +1,9 @@
 {
   "description": null,
+  "info": {
+    "excerpt": null,
+    "title": "O que faz `* { box-sizing: border-box; }`?"
+  },
   "metadata": {
     "access": "free",
     "author": null,
@@ -7,7 +11,6 @@
     "created": 1630800000,
     "difficulty": "medium",
     "duration": 5,
-    "excerpt": null,
     "featured": true,
     "format": "quiz",
     "frameworkDefault": null,
@@ -21,7 +24,6 @@
     "similarQuestions": [],
     "slug": "what-does-box-sizing-border-box-do-what-are-its-advantages",
     "subtitle": "Quais as vantagens?",
-    "title": "O que faz `* { box-sizing: border-box; }`?",
     "topics": [
       "css"
     ],

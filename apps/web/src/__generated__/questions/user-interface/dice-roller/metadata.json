@@ -1,47 +1,51 @@
 {
-  "access": "standard",
-  "author": null,
-  "companies": [],
-  "created": 1719964800,
-  "difficulty": "medium",
-  "duration": 20,
-  "excerpt": "Build a dice roller app that simulates the results of rolling 6-sided dice",
-  "featured": false,
-  "format": "user-interface",
-  "frameworkDefault": "react",
-  "frameworks": [
-    {
-      "framework": "react",
-      "href": "/questions/user-interface/dice-roller/react"
-    },
-    {
-      "framework": "angular",
-      "href": "/questions/user-interface/dice-roller/angular"
-    },
-    {
-      "framework": "vue",
-      "href": "/questions/user-interface/dice-roller/vue"
-    },
-    {
-      "framework": "svelte",
-      "href": "/questions/user-interface/dice-roller/svelte"
-    }
-  ],
-  "href": "/questions/user-interface/dice-roller",
-  "importance": "low",
-  "languages": [
-    "html",
-    "css",
-    "js"
-  ],
-  "nextQuestions": [],
-  "published": true,
-  "ranking": 100,
-  "similarQuestions": [],
-  "slug": "dice-roller",
-  "subtitle": null,
-  "title": "Dice Roller",
-  "topics": [
-    "a11y"
-  ]
+  "info": {
+    "excerpt": "Build a dice roller app that simulates the results of rolling 6-sided dice",
+    "title": "Dice Roller"
+  },
+  "metadata": {
+    "access": "standard",
+    "author": null,
+    "companies": [],
+    "created": 1719964800,
+    "difficulty": "medium",
+    "duration": 20,
+    "featured": false,
+    "format": "user-interface",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/user-interface/dice-roller/react"
+      },
+      {
+        "framework": "angular",
+        "href": "/questions/user-interface/dice-roller/angular"
+      },
+      {
+        "framework": "vue",
+        "href": "/questions/user-interface/dice-roller/vue"
+      },
+      {
+        "framework": "svelte",
+        "href": "/questions/user-interface/dice-roller/svelte"
+      }
+    ],
+    "href": "/questions/user-interface/dice-roller",
+    "importance": "low",
+    "languages": [
+      "html",
+      "css",
+      "js"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "dice-roller",
+    "subtitle": null,
+    "topics": [
+      "a11y"
+    ]
+  }
 }

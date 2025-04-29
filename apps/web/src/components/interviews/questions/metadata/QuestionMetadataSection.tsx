@@ -9,7 +9,7 @@ import QuestionImportanceLabel from './QuestionImportanceLabel';
 import QuestionLanguages from './QuestionLanguages';
 import QuestionTopics from './QuestionTopics';
 import QuestionUsersCompletedLabelWithFetching from './QuestionUsersCompletedLabelWithFetching';
-import type { QuestionMetadata } from '../common/QuestionsTypes';
+import type { InterviewsQuestionMetadata } from '../common/QuestionsTypes';
 
 type MetadataElement =
   | 'author'
@@ -23,7 +23,7 @@ type MetadataElement =
 type Props = Readonly<{
   elements?: ReadonlyArray<MetadataElement>;
   justify?: 'center' | 'start';
-  metadata: QuestionMetadata;
+  metadata: InterviewsQuestionMetadata;
   size?: TextSize;
 }>;
 

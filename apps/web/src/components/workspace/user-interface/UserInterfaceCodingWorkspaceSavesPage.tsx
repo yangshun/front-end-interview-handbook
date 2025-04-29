@@ -5,9 +5,9 @@ import clsx from 'clsx';
 import CodingPreferencesProvider from '~/components/global/CodingPreferencesProvider';
 import { useColorSchemePreferences } from '~/components/global/color-scheme/ColorSchemePreferencesProvider';
 import type {
+  InterviewsQuestionItemMinimal,
+  InterviewsQuestionItemUserInterface,
   QuestionFramework,
-  QuestionMetadata,
-  QuestionUserInterface,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import {
   questionUserInterfaceDescriptionPath,
@@ -28,10 +28,10 @@ type Props = Readonly<{
   canViewPremiumContent: boolean;
   embed?: boolean;
   isViewingSave: boolean;
-  nextQuestions: ReadonlyArray<QuestionMetadata>;
-  question: QuestionUserInterface;
+  nextQuestions: ReadonlyArray<InterviewsQuestionItemMinimal>;
+  question: InterviewsQuestionItemUserInterface;
   save: QuestionUserInterfaceSave;
-  similarQuestions: ReadonlyArray<QuestionMetadata>;
+  similarQuestions: ReadonlyArray<InterviewsQuestionItemMinimal>;
 }>;
 
 export default function UserInterfaceCodingWorkspaceSavesPage({

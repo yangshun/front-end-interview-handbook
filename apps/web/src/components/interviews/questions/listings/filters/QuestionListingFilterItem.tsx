@@ -8,11 +8,11 @@ import Tooltip from '~/components/ui/Tooltip';
 import type { QuestionFilter } from './QuestionFilterType';
 import QuestionListingFilterItemCheckboxes from './QuestionListingFilterItemCheckboxes';
 import QuestionListingFilterItemLabel from './QuestionListingFilterItemLabel';
-import type { QuestionMetadata } from '../../common/QuestionsTypes';
+import type { InterviewsQuestionItemMinimal } from '../../common/QuestionsTypes';
 
 export default function QuestionListingFilterItem<
   T extends string,
-  Q extends QuestionMetadata,
+  Q extends InterviewsQuestionItemMinimal,
 >({
   section,
   values,

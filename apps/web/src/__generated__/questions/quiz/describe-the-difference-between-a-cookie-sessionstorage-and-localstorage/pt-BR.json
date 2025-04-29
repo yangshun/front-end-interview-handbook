@@ -1,5 +1,9 @@
 {
   "description": null,
+  "info": {
+    "excerpt": null,
+    "title": "Descreva a diferença entre cookie, `sessionStorage` e `localStorage`."
+  },
   "metadata": {
     "access": "free",
     "author": null,
@@ -12,7 +16,6 @@
     "created": 1630800000,
     "difficulty": "medium",
     "duration": 5,
-    "excerpt": null,
     "featured": true,
     "format": "quiz",
     "frameworkDefault": null,
@@ -26,7 +29,6 @@
     "similarQuestions": [],
     "slug": "describe-the-difference-between-a-cookie-sessionstorage-and-localstorage",
     "subtitle": null,
-    "title": "Descreva a diferença entre cookie, `sessionStorage` e `localStorage`.",
     "topics": [
       "web-api",
       "javascript"

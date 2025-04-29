@@ -7,6 +7,10 @@
     "/src/min-by.submit.test.ts": "import minBy from './min-by';\n\ndescribe('minBy', () => {\n  test('empty input array', () => {\n    expect(minBy([], () => {})).toEqual(undefined);\n  });\n\n  test('one element', () => {\n    expect(minBy([{ n: 1 }], (o) => o.n)).toEqual({ n: 1 });\n  });\n\n  test('two elements', () => {\n    expect(minBy([{ n: 1 }, { n: 2 }], (o) => o.n)).toEqual({ n: 1 });\n    expect(\n      minBy(\n        [{ data: { score: 20 } }, { data: { score: 10 } }],\n        (o) => o.data.score,\n      ),\n    ).toEqual({ data: { score: 10 } });\n  });\n\n  test('multiple elements', () => {\n    expect(minBy([2, 3, 1, 4], (num) => num)).toEqual(1);\n    expect(minBy([{ n: 1 }, { n: 2 }, { n: 3 }], (o) => o.n)).toEqual({\n      n: 1,\n    });\n  });\n\n  test('strings comparison', () => {\n    expect(\n      minBy(['apricot', 'pear', 'apple', 'banana'], (fruit) => fruit),\n    ).toEqual('apple');\n    expect(minBy(['apple', 'pear', 'banana'], (fruit) => fruit.length)).toEqual(\n      'pear',\n    );\n  });\n\n  describe('non-existent property', () => {\n    test('no match', () => {\n      expect(minBy([{ n: 1 }, { n: 2 }], (o: any) => o.m)).toEqual(undefined);\n    });\n\n    test('partial match', () => {\n      expect(minBy([{ n: 1 }, { n: 2, m: 3 }, { m: 4 }], (o) => o.m)).toEqual({\n        n: 2,\n        m: 3,\n      });\n    });\n  });\n\n  test('first minimum occurrence', () => {\n    expect(\n      minBy(\n        [{ n: 1, m: 3 }, { n: 0, m: 2 }, { n: 2 }, { n: 0 }],\n        (o: any) => o.m,\n      ),\n    ).toEqual({ n: 0, m: 2 });\n  });\n\n  test('mixed data types', () => {\n    expect(minBy([1, '2', 3], (item) => Number(item))).toEqual(1);\n    expect(minBy([4, '2', 3, 2], (item) => Number(item))).toEqual('2');\n    expect(minBy(['1', 2, 3, '-1'], (item) => Number(item))).toEqual('-1');\n  });\n});\n",
     "/src/min-by.ts": "export default function minBy<T>(\n  array: Array<T>,\n  iteratee: (value: T) => any,\n): any {\n  let result, computed;\n\n  // Iterate through array to find the minimum `result`.\n  for (const value of array) {\n    const current = iteratee(value);\n    // Check whether `computed` is assigned any value yet then compare with `current`, else assign an initial value to `computed` where `current` is not `null`.\n    if (current != null && (computed === undefined || current < computed)) {\n      result = value;\n      computed = current; // Store the computed value of the current `result`.\n    }\n  }\n\n  return result;\n}\n"
   },
+  "info": {
+    "excerpt": "实现一个基于指定条件的查找最小元素的函数",
+    "title": "Min By"
+  },
   "metadata": {
     "access": "standard",
     "author": null,
@@ -14,7 +18,6 @@
     "created": 1710720000,
     "difficulty": "easy",
     "duration": 10,
-    "excerpt": "实现一个基于指定条件的查找最小元素的函数",
     "featured": false,
     "format": "javascript",
     "frameworkDefault": null,
@@ -34,7 +37,6 @@
     ],
     "slug": "min-by",
     "subtitle": null,
-    "title": "Min By",
     "topics": []
   },
   "skeleton": {

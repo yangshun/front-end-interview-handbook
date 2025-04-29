@@ -13,8 +13,8 @@ import GuidesListWithCategory from '~/components/guides/cover/GuidesListWithCate
 import type { GuideCardMetadata } from '~/components/guides/types';
 import useGuidesWithCompletionStatus from '~/components/guides/useGuidesWithCompletionStatus';
 import type {
+  InterviewsQuestionItemMinimal,
   QuestionListTypeData,
-  QuestionMetadata,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import { countQuestionsByAccess } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 import QuestionsUnifiedListWithFiltersAndProgress from '~/components/interviews/questions/listings/items/QuestionsUnifiedListWithFiltersAndProgress';
@@ -36,7 +36,7 @@ type Props = Readonly<{
     title: string;
   };
   questionCompletionCount?: QuestionCompletionCount;
-  questions: ReadonlyArray<QuestionMetadata>;
+  questions: ReadonlyArray<InterviewsQuestionItemMinimal>;
 }>;
 
 export default function FrontEndSystemDesignPlaybookPage({

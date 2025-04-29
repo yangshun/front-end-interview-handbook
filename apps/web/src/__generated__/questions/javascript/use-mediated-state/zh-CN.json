@@ -7,6 +7,10 @@
     "/src/use-mediated-state.submit.test.ts": "import { act, renderHook } from '@testing-library/react';\n\nimport useMediatedState from './use-mediated-state';\nimport { useState } from 'react';\n\ndescribe('useMediatedState', () => {\n  test('return values', () => {\n    const { result } = renderHook(() => useMediatedState(() => {}));\n\n    expect(Array.isArray(result.current)).toBe(true);\n    expect(result.current.length).toBe(2);\n    expect(typeof result.current[0]).toBe('undefined');\n    expect(typeof result.current[1]).toBe('function');\n  });\n\n  test('initial state', () => {\n    const initialState = 42;\n    const { result } = renderHook(() =>\n      useMediatedState(() => initialState, initialState),\n    );\n\n    expect(result.current[0]).toBe(initialState);\n  });\n\n  test('mediator', () => {\n    const { result } = renderHook(() => useMediatedState((x) => x * 2, 1));\n\n    act(() => result.current[1](2));\n\n    expect(result.current[0]).toBe(4);\n  });\n\n  test('mediator with dispatch', () => {\n    const { result } = renderHook(() =>\n      // @ts-expect-error\n      useMediatedState((x, dispatch) => dispatch(x * 2), 1),\n    );\n\n    act(() => result.current[1](2));\n\n    expect(result.current[0]).toBe(4);\n  });\n\n  test('works with updater function', () => {\n    const { result } = renderHook(() => useMediatedState((x) => x * 2, 1));\n\n    act(() => result.current[1]((x) => x + 1));\n\n    expect(result.current[0]).toBe(4);\n  });\n\n  test('works with updater function and dispatch', () => {\n    const { result } = renderHook(() =>\n      // @ts-expect-error\n      useMediatedState((x, dispatch) => dispatch(x * 2), 1),\n    );\n\n    act(() => result.current[1]((x) => x + 1));\n\n    expect(result.current[0]).toBe(4);\n  });\n});\n",
     "/src/use-mediated-state.ts": "import { Dispatch, SetStateAction, useCallback, useRef, useState } from 'react';\n\ninterface StateMediator<T = unknown> {\n  (newState: T): T;\n  (newState: T, dispatch: Dispatch<SetStateAction<T>>): void;\n}\n\nexport default function useMediatedState<T = unknown>(\n  mediator: StateMediator<T>,\n  initialState?: T,\n): [T, Dispatch<SetStateAction<T>>] {\n  const mediatorFn = useRef(mediator);\n\n  const [state, setMediatedState] = useState<T>(initialState!);\n\n  const setState: Dispatch<SetStateAction<T>> = useCallback(\n    (newStateOrUpdaterFunction) => {\n      const newState =\n        newStateOrUpdaterFunction instanceof Function\n          ? newStateOrUpdaterFunction(state)\n          : newStateOrUpdaterFunction;\n\n      const mediator = mediatorFn.current;\n\n      if (mediator.length === 2) {\n        mediator(newState, setMediatedState);\n      } else {\n        setMediatedState(mediator(newState));\n      }\n    },\n    [state],\n  );\n\n  return [state, setState];\n}\n"
   },
+  "info": {
+    "excerpt": "实现一个类似于 useState 的 hook，但支持一个中介过程",
+    "title": "useMediatedState"
+  },
   "metadata": {
     "access": "standard",
     "author": "phillmont",
@@ -14,7 +18,6 @@
     "created": 1742169600,
     "difficulty": "medium",
     "duration": 20,
-    "excerpt": "实现一个类似于 useState 的 hook，但支持一个中介过程",
     "featured": false,
     "format": "javascript",
     "frameworkDefault": "react",
@@ -38,7 +41,6 @@
     ],
     "slug": "use-mediated-state",
     "subtitle": null,
-    "title": "useMediatedState",
     "topics": [
       "react-hooks"
     ]

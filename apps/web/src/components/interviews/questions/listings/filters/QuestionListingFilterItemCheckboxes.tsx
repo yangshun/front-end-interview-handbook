@@ -6,11 +6,11 @@ import { themeIconColor, themeTextSubtleColor } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
 import type { QuestionFilter } from './QuestionFilterType';
-import type { QuestionMetadata } from '../../common/QuestionsTypes';
+import type { InterviewsQuestionItemMinimal } from '../../common/QuestionsTypes';
 
 export default function QuestionListingFilterItemCheckboxes<
   T extends string,
-  Q extends QuestionMetadata,
+  Q extends InterviewsQuestionItemMinimal,
 >({
   coveredValues,
   section,

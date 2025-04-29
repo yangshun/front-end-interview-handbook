@@ -1,5 +1,9 @@
 {
   "description": null,
+  "info": {
+    "excerpt": null,
+    "title": "有哪些清除浮动的方法？在什么情况下使用哪种方法？"
+  },
   "metadata": {
     "access": "free",
     "author": null,
@@ -7,7 +11,6 @@
     "created": 1630800000,
     "difficulty": "medium",
     "duration": 5,
-    "excerpt": null,
     "featured": false,
     "format": "quiz",
     "frameworkDefault": null,
@@ -21,7 +24,6 @@
     "similarQuestions": [],
     "slug": "what-are-the-various-clearing-techniques-and-which-is-appropriate-for-what-context",
     "subtitle": null,
-    "title": "有哪些清除浮动的方法？在什么情况下使用哪种方法？",
     "topics": [
       "css"
     ],

@@ -1,5 +1,9 @@
 {
   "description": null,
+  "info": {
+    "excerpt": null,
+    "title": "JavaScript 运行时中的事件循环是什么？"
+  },
   "metadata": {
     "access": "free",
     "author": null,
@@ -12,7 +16,6 @@
     "created": 1630800000,
     "difficulty": "hard",
     "duration": 5,
-    "excerpt": null,
     "featured": true,
     "format": "quiz",
     "frameworkDefault": null,
@@ -26,7 +29,6 @@
     "similarQuestions": [],
     "slug": "what-is-event-loop-what-is-the-difference-between-call-stack-and-task-queue",
     "subtitle": "call stack 和 task queue 之间有什么区别？",
-    "title": "JavaScript 运行时中的事件循环是什么？",
     "topics": [
       "javascript"
     ],

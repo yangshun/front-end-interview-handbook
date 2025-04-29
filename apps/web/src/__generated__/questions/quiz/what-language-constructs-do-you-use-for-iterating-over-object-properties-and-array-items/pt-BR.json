@@ -1,5 +1,9 @@
 {
   "description": null,
+  "info": {
+    "excerpt": null,
+    "title": "Que construções de idioma você usa para iterar sobre propriedades de objeto e itens de matriz?"
+  },
   "metadata": {
     "access": "free",
     "author": null,
@@ -7,7 +11,6 @@
     "created": 1630800000,
     "difficulty": "medium",
     "duration": 5,
-    "excerpt": null,
     "featured": true,
     "format": "quiz",
     "frameworkDefault": null,
@@ -21,7 +24,6 @@
     "similarQuestions": [],
     "slug": "what-language-constructs-do-you-use-for-iterating-over-object-properties-and-array-items",
     "subtitle": null,
-    "title": "Que construções de idioma você usa para iterar sobre propriedades de objeto e itens de matriz?",
     "topics": [
       "javascript"
     ],

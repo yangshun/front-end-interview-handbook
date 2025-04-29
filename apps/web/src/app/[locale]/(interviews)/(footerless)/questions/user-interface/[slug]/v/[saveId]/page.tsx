@@ -46,8 +46,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       pathname: question.metadata.href + `/v/${saveId}`,
       title:
         save == null
-          ? question.metadata.title
-          : `${save?.name} | ${question.metadata.title}`,
+          ? question.info.title
+          : `${save?.name} | ${question.info.title}`,
     });
   } catch {
     notFound();
@@ -112,6 +112,7 @@ export default async function Page({ params }: Props) {
       <InterviewsPurchaseQuestionPaywallPage
         metadata={question.metadata}
         mode="practice"
+        title={question.info.title}
       />
     );
   }
@@ -122,7 +123,7 @@ export default async function Page({ params }: Props) {
   );
   const nextQuestions = sortQuestionsMultiple(
     questions.filter((questionItem) =>
-      question.metadata.nextQuestions.includes(questionItem.slug),
+      question.metadata.nextQuestions.includes(questionItem.metadata.slug),
     ),
     [
       {
@@ -137,7 +138,7 @@ export default async function Page({ params }: Props) {
   );
   const similarQuestions = sortQuestionsMultiple(
     questions.filter((questionItem) =>
-      question.metadata.similarQuestions.includes(questionItem.slug),
+      question.metadata.similarQuestions.includes(questionItem.metadata.slug),
     ),
     [
       {

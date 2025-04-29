@@ -43,15 +43,18 @@ import { questionsListTabsConfig } from '../utils/QuestionsListTabsConfig';
 import { useQuestionsListDataForType } from '../utils/useQuestionsListDataForType';
 import { questionHrefFrameworkSpecificAndListType } from '../../common/QuestionHrefUtils';
 import type {
+  InterviewsQuestionItemMinimal,
   QuestionFramework,
   QuestionHash,
   QuestionLanguage,
   QuestionListTypeData,
-  QuestionMetadata,
   QuestionPracticeFormat,
 } from '../../common/QuestionsTypes';
 
-function FilterSection<T extends string, Q extends QuestionMetadata>({
+function FilterSection<
+  T extends string,
+  Q extends InterviewsQuestionItemMinimal,
+>({
   coveredValues,
   filters,
   filterOptions,
@@ -89,7 +92,9 @@ function FilterSection<T extends string, Q extends QuestionMetadata>({
   );
 }
 
-function FrameworkAndLanguageFilterSection<Q extends QuestionMetadata>({
+function FrameworkAndLanguageFilterSection<
+  Q extends InterviewsQuestionItemMinimal,
+>({
   languageCoveredValues,
   frameworkCoveredValues,
   frameworkFilters,
@@ -368,7 +373,7 @@ export default function InterviewsQuestionsListSlideOutContents({
     if (processedQuestions.length > 0 && !showCompanyPaywall) {
       setFirstQuestionHref?.(
         questionHrefFrameworkSpecificAndListType(
-          processedQuestions[0],
+          processedQuestions[0].metadata,
           listType,
           framework,
         ),

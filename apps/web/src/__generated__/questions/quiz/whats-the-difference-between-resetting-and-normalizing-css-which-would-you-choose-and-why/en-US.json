@@ -1,5 +1,9 @@
 {
   "description": null,
+  "info": {
+    "excerpt": null,
+    "title": "What's the difference between \"resetting\" and \"normalizing\" CSS?"
+  },
   "metadata": {
     "access": "free",
     "author": null,
@@ -7,7 +11,6 @@
     "created": 1630800000,
     "difficulty": "hard",
     "duration": 5,
-    "excerpt": null,
     "featured": false,
     "format": "quiz",
     "frameworkDefault": null,
@@ -21,7 +24,6 @@
     "similarQuestions": [],
     "slug": "whats-the-difference-between-resetting-and-normalizing-css-which-would-you-choose-and-why",
     "subtitle": "Which would you choose, and why?",
-    "title": "What's the difference between \"resetting\" and \"normalizing\" CSS?",
     "topics": [
       "css"
     ],

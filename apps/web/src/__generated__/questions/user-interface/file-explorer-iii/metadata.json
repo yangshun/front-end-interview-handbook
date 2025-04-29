@@ -1,39 +1,43 @@
 {
-  "access": "premium",
-  "author": "yangshun",
-  "companies": [
-    "amazon",
-    "atlassian",
-    "snap",
-    "tiktok"
-  ],
-  "created": 1723766400,
-  "difficulty": "medium",
-  "duration": 20,
-  "excerpt": "Build a file explorer component using a flat DOM structure",
-  "featured": false,
-  "format": "user-interface",
-  "frameworkDefault": "react",
-  "frameworks": [
-    {
-      "framework": "react",
-      "href": "/questions/user-interface/file-explorer-iii/react"
-    }
-  ],
-  "href": "/questions/user-interface/file-explorer-iii",
-  "importance": "medium",
-  "languages": [
-    "html",
-    "js"
-  ],
-  "nextQuestions": [
-    "nested-checkboxes"
-  ],
-  "published": true,
-  "ranking": 100,
-  "similarQuestions": [],
-  "slug": "file-explorer-iii",
-  "subtitle": null,
-  "title": "File Explorer III",
-  "topics": []
+  "info": {
+    "excerpt": "Build a file explorer component using a flat DOM structure",
+    "title": "File Explorer III"
+  },
+  "metadata": {
+    "access": "premium",
+    "author": "yangshun",
+    "companies": [
+      "amazon",
+      "atlassian",
+      "snap",
+      "tiktok"
+    ],
+    "created": 1723766400,
+    "difficulty": "medium",
+    "duration": 20,
+    "featured": false,
+    "format": "user-interface",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/user-interface/file-explorer-iii/react"
+      }
+    ],
+    "href": "/questions/user-interface/file-explorer-iii",
+    "importance": "medium",
+    "languages": [
+      "html",
+      "js"
+    ],
+    "nextQuestions": [
+      "nested-checkboxes"
+    ],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "file-explorer-iii",
+    "subtitle": null,
+    "topics": []
+  }
 }

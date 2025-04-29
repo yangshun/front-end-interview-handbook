@@ -18,7 +18,7 @@ import {
 } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
-import type { QuestionMetadata } from '../../common/QuestionsTypes';
+import type { InterviewsQuestionItemMinimal } from '../../common/QuestionsTypes';
 
 const progressChipClass = clsx(
   'inline-flex items-center justify-center',
@@ -234,7 +234,7 @@ export function NotCompleted({
 }
 
 export default function QuestionsListItemProgressChip<
-  Q extends QuestionMetadata,
+  Q extends InterviewsQuestionItemMinimal,
 >({
   className,
   question: questionMetadata,
@@ -265,7 +265,7 @@ export default function QuestionsListItemProgressChip<
         setCanShowHoverState(true);
       }}>
       {(() => {
-        if (questionMetadata.access === 'premium' && !premiumUser) {
+        if (questionMetadata.metadata.access === 'premium' && !premiumUser) {
           return <LockedChip size={size} />;
         }
 

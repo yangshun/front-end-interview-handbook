@@ -1,5 +1,9 @@
 {
   "description": null,
+  "info": {
+    "excerpt": null,
+    "title": "Qual é a vantagem de usar a sintaxe de seta para um método em um constructor?"
+  },
   "metadata": {
     "access": "free",
     "author": null,
@@ -7,7 +11,6 @@
     "created": 1630800000,
     "difficulty": "medium",
     "duration": 5,
-    "excerpt": null,
     "featured": true,
     "format": "quiz",
     "frameworkDefault": null,
@@ -21,7 +24,6 @@
     "similarQuestions": [],
     "slug": "what-advantage-is-there-for-using-the-arrow-syntax-for-a-method-in-a-constructor",
     "subtitle": null,
-    "title": "Qual é a vantagem de usar a sintaxe de seta para um método em um constructor?",
     "topics": [
       "javascript"
     ],

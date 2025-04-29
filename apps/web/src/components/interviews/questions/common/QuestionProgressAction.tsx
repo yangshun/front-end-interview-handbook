@@ -20,14 +20,14 @@ import {
 import { hashQuestion } from '~/db/QuestionsUtils';
 import logEvent from '~/logging/logEvent';
 
-import type { QuestionMetadata } from './QuestionsTypes';
+import type { InterviewsQuestionMetadata } from './QuestionsTypes';
 import { MARK_AS_COMPLETE_ACTION_NAME } from './useQuestionsAutoMarkAsComplete';
 import CodingWorkspaceBottomBarEmitter from '../../../workspace/common/CodingWorkspaceBottomBarEmitter';
 
 import { useUser } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
-  metadata: Pick<QuestionMetadata, 'access' | 'format' | 'slug'>;
+  metadata: Pick<InterviewsQuestionMetadata, 'access' | 'format' | 'slug'>;
   studyListKey?: string;
 }>;
 

@@ -9,7 +9,7 @@ import {
 } from '~/components/guides/books/behavioral-interview-playbook/BehavioralInterviewPlaybookNavigation';
 import InterviewsEntityProgress from '~/components/interviews/common/InterviewsEntityProgress';
 import type {
-  QuestionMetadata,
+  InterviewsQuestionItemMinimal,
   QuestionSlug,
   QuestionTopic,
 } from '~/components/interviews/questions/common/QuestionsTypes';
@@ -137,9 +137,9 @@ function InterviewsQuestionFormatCard({
 type Props = Readonly<{
   guidesProgress: ReadonlyArray<GuideProgress>;
   questions: {
-    codingQuestions: ReadonlyArray<QuestionMetadata>;
-    quizQuestions: ReadonlyArray<QuestionMetadata>;
-    systemDesignQuestions: ReadonlyArray<QuestionMetadata>;
+    codingQuestions: ReadonlyArray<InterviewsQuestionItemMinimal>;
+    quizQuestions: ReadonlyArray<InterviewsQuestionItemMinimal>;
+    systemDesignQuestions: ReadonlyArray<InterviewsQuestionItemMinimal>;
   };
   questionsProgress: ReadonlyArray<
     Readonly<{ format: string; id: string; slug: QuestionSlug }>
@@ -163,13 +163,13 @@ export default function InterviewsQuestionsFormatsSection({
   const codingQuestionsProgressAll =
     categorizeQuestionsProgressByCodingFormat(questionsProgress);
   const algoQuestions = codingQuestions.filter(
-    (question) => question.format === 'algo',
+    (question) => question.metadata.format === 'algo',
   );
   const jsQuestions = codingQuestions.filter(
-    (question) => question.format === 'javascript',
+    (question) => question.metadata.format === 'javascript',
   );
   const uiQuestions = codingQuestions.filter(
-    (question) => question.format === 'user-interface',
+    (question) => question.metadata.format === 'user-interface',
   );
 
   const behavioralGuideProgress = guidesProgress.filter(

@@ -1,5 +1,9 @@
 {
   "description": null,
+  "info": {
+    "excerpt": null,
+    "title": "JavaScript 中的 `'use strict';` 是什么？"
+  },
   "metadata": {
     "access": "free",
     "author": null,
@@ -9,7 +13,6 @@
     "created": 1630800000,
     "difficulty": "hard",
     "duration": 5,
-    "excerpt": null,
     "featured": true,
     "format": "quiz",
     "frameworkDefault": null,
@@ -23,7 +26,6 @@
     "similarQuestions": [],
     "slug": "what-is-use-strict-what-are-the-advantages-and-disadvantages-to-using-it",
     "subtitle": "使用它有什么优点和缺点？",
-    "title": "JavaScript 中的 `'use strict';` 是什么？",
     "topics": [
       "javascript"
     ],

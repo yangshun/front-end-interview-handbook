@@ -7,6 +7,10 @@
     "/src/range-right.submit.test.ts": "import rangeRight from './range-right';\n\ndescribe('rangeRight', () => {\n  test('start equals to end', () => {\n    expect(rangeRight(0)).toEqual([]);\n    expect(rangeRight(-3, -3)).toEqual([]);\n    expect(rangeRight(5, 5)).toEqual([]);\n  });\n\n  test('start specified', () => {\n    expect(rangeRight(2, 5)).toEqual([4, 3, 2]);\n    expect(rangeRight(-2, 1)).toEqual([0, -1, -2]);\n    expect(rangeRight(-8, -4)).toEqual([-5, -6, -7, -8]);\n  });\n\n  test('start and step specified', () => {\n    expect(rangeRight(1, 7, 2)).toEqual([5, 3, 1]);\n    expect(rangeRight(-3, 6, 3)).toEqual([3, 0, -3]);\n    expect(rangeRight(1, 8, 9)).toEqual([1]);\n  });\n\n  test('negative end value', () => {\n    expect(rangeRight(-4)).toEqual([-3, -2, -1, 0]);\n    expect(rangeRight(-9, -4)).toEqual([-5, -6, -7, -8, -9]);\n  });\n\n  test('negative step value', () => {\n    expect(rangeRight(8, -2, -3)).toEqual([-1, 2, 5, 8]);\n    expect(rangeRight(7, 4, -1)).toEqual([5, 6, 7]);\n  });\n\n  test('step value = 0', () => {\n    expect(rangeRight(1, 5, 0)).toEqual([1, 1, 1, 1]);\n    expect(rangeRight(-4, -2, 0)).toEqual([-4, -4]);\n    expect(rangeRight(-2, -4, 0)).toEqual([]);\n  });\n});\n",
     "/src/range-right.ts": "// Overloaded function declarations\nexport default function range(end: number): Array<number>;\nexport default function range(\n  start: number,\n  end: number,\n  step?: number,\n): Array<number>;\n\n/**\n * @param {number} start - The start of the range.\n * @param {number} end - The end of the range.\n * @param {number} step - The value to increment or decrement by.\n * @returns {Array<number>} An array of numbers in the specified range.\n */\nexport default function range(\n  start: number = 0,\n  end?: number,\n  step: number = 1,\n): Array<number> {\n  const result: Array<number> = [];\n\n  // Adjust parameters if only `end` is provided\n  if (end === undefined) {\n    end = start;\n    start = 0;\n  }\n\n  // Adjust `step` for descending sequences\n  if (end < start && step === 1) {\n    step = -1;\n  }\n\n  // Determine the number of elements in `result`\n  const length = (end - start) / (step || 1);\n\n  // Generate the range\n  for (let i = 0; i < length; i++) {\n    result.unshift(start + i * step);\n  }\n\n  return result;\n}\n"
   },
+  "info": {
+    "excerpt": "实现一个按降序返回数字序列的函数",
+    "title": "Range Right"
+  },
   "metadata": {
     "access": "premium",
     "author": null,
@@ -14,7 +18,6 @@
     "created": 1710633600,
     "difficulty": "easy",
     "duration": 10,
-    "excerpt": "实现一个按降序返回数字序列的函数",
     "featured": false,
     "format": "javascript",
     "frameworkDefault": null,
@@ -36,7 +39,6 @@
     ],
     "slug": "range-right",
     "subtitle": null,
-    "title": "Range Right",
     "topics": []
   },
   "skeleton": {

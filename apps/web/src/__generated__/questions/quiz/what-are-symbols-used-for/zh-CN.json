@@ -1,5 +1,9 @@
 {
   "description": null,
+  "info": {
+    "excerpt": null,
+    "title": "JavaScript 中 `Symbol` 的用途是什么？"
+  },
   "metadata": {
     "access": "free",
     "author": null,
@@ -9,7 +13,6 @@
     "created": 1630800000,
     "difficulty": "medium",
     "duration": 5,
-    "excerpt": null,
     "featured": true,
     "format": "quiz",
     "frameworkDefault": null,
@@ -23,7 +26,6 @@
     "similarQuestions": [],
     "slug": "what-are-symbols-used-for",
     "subtitle": null,
-    "title": "JavaScript 中 `Symbol` 的用途是什么？",
     "topics": [
       "javascript"
     ],

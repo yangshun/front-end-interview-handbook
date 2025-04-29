@@ -7,6 +7,10 @@
     "/src/use-media-query.submit.test.ts": "import { act, renderHook } from '@testing-library/react';\n\nimport useMediaQuery from './use-media-query';\n\nlet changeListeners: (() => void)[] = [];\n\nclass MockMatchMedia {\n  readonly media: string;\n\n  constructor(query: string) {\n    this.media = query;\n  }\n\n  get matches() {\n    if (this.media.includes('min-width')) {\n      return window.innerWidth >= parseInt(this.media.match(/\\d+/)![0]);\n    }\n\n    if (this.media.includes('max-width')) {\n      return window.innerWidth <= parseInt(this.media.match(/\\d+/)![0]);\n    }\n  }\n\n  addEventListener(type: string, listener: () => void) {\n    if (type !== 'change') {\n      return;\n    }\n\n    changeListeners.push(listener);\n  }\n\n  removeEventListener(type: string, listener: () => void) {\n    if (type !== 'change') {\n      return;\n    }\n\n    changeListeners.splice(changeListeners.indexOf(listener), 1);\n  }\n\n  dispatchEvent(event: Event) {\n    if (event.type !== 'change') {\n      return;\n    }\n\n    changeListeners.forEach((listener) => listener());\n  }\n}\n\ndescribe('useMediaQuery', () => {\n  beforeEach(() => {\n    changeListeners = [];\n\n    // @ts-ignore\n    Object.defineProperty(global.window, 'matchMedia', {\n      writable: true,\n      value: jest.fn().mockImplementation((query: string) => {\n        return new MockMatchMedia(query);\n      }),\n    });\n  });\n\n  test('return values', () => {\n    const { result } = renderHook(() => useMediaQuery('(min-width: 1000px)'));\n\n    expect(typeof result.current).toBe('boolean');\n  });\n\n  test('min-width', () => {\n    const { result } = renderHook(() => useMediaQuery('(min-width: 1000px)'));\n\n    expect(result.current).toBe(window.innerWidth >= 1000);\n  });\n\n  test('max-width', () => {\n    const { result } = renderHook(() => useMediaQuery('(max-width: 1000px)'));\n\n    expect(result.current).toBe(window.innerWidth <= 1000);\n  });\n\n  test('resize min-width', () => {\n    const query = `(min-width: ${window.innerWidth}px)`;\n    const { result } = renderHook(() => useMediaQuery(query));\n\n    expect(result.current).toBe(true);\n\n    act(() => {\n      window.innerWidth -= 100;\n      window.matchMedia(query).dispatchEvent(new Event('change'));\n    });\n\n    expect(result.current).toBe(false);\n\n    act(() => {\n      window.innerWidth += 200;\n      window.matchMedia(query).dispatchEvent(new Event('change'));\n    });\n\n    expect(result.current).toBe(true);\n  });\n\n  test('resize max-width', () => {\n    const query = `(max-width: ${window.innerWidth}px)`;\n    const { result } = renderHook(() => useMediaQuery(query));\n\n    expect(result.current).toBe(true);\n\n    act(() => {\n      window.innerWidth += 100;\n      window.matchMedia(query).dispatchEvent(new Event('change'));\n    });\n\n    expect(result.current).toBe(false);\n\n    act(() => {\n      window.innerWidth -= 200;\n      window.matchMedia(query).dispatchEvent(new Event('change'));\n    });\n\n    expect(result.current).toBe(true);\n  });\n\n  test('removes event listeners on unmount', () => {\n    const { unmount } = renderHook(() => useMediaQuery('(min-width: 1000px)'));\n\n    expect(changeListeners).not.toHaveLength(0);\n\n    unmount();\n\n    expect(changeListeners).toHaveLength(0);\n  });\n});\n",
     "/src/use-media-query.ts": "import { useEffect, useState } from 'react';\n\nexport default function useMediaQuery(query: string): boolean {\n  const [matches, setMatches] = useState(\n    () => window.matchMedia(query).matches,\n  );\n\n  useEffect(() => {\n    const mediaQueryList = window.matchMedia(query);\n\n    function updateMatch() {\n      setMatches(mediaQueryList.matches);\n    }\n\n    mediaQueryList.addEventListener('change', updateMatch);\n\n    return () => {\n      mediaQueryList.removeEventListener('change', updateMatch);\n    };\n  }, [query]);\n\n  return matches;\n}\n"
   },
+  "info": {
+    "excerpt": "实现一个订阅并响应媒体查询变化的 Hook（例如屏幕大小、分辨率、方向等）",
+    "title": "useMediaQuery"
+  },
   "metadata": {
     "access": "free",
     "author": "phillmont",
@@ -14,7 +18,6 @@
     "created": 1742169600,
     "difficulty": "medium",
     "duration": 20,
-    "excerpt": "实现一个订阅并响应媒体查询变化的 Hook（例如屏幕大小、分辨率、方向等）",
     "featured": false,
     "format": "javascript",
     "frameworkDefault": "react",
@@ -39,7 +42,6 @@
     ],
     "slug": "use-media-query",
     "subtitle": null,
-    "title": "useMediaQuery",
     "topics": [
       "react-hooks"
     ]

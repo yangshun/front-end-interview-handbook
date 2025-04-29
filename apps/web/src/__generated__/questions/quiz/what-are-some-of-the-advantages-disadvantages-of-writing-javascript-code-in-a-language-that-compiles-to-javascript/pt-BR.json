@@ -1,5 +1,9 @@
 {
   "description": null,
+  "info": {
+    "excerpt": null,
+    "title": "Quais são algumas das vantagens/desvantagens de escrever código JavaScript em uma linguagem que compila para JavaScript?"
+  },
   "metadata": {
     "access": "free",
     "author": null,
@@ -7,7 +11,6 @@
     "created": 1630800000,
     "difficulty": "medium",
     "duration": 5,
-    "excerpt": null,
     "featured": false,
     "format": "quiz",
     "frameworkDefault": null,
@@ -21,7 +24,6 @@
     "similarQuestions": [],
     "slug": "what-are-some-of-the-advantages-disadvantages-of-writing-javascript-code-in-a-language-that-compiles-to-javascript",
     "subtitle": null,
-    "title": "Quais são algumas das vantagens/desvantagens de escrever código JavaScript em uma linguagem que compila para JavaScript?",
     "topics": [
       "javascript"
     ],

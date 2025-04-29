@@ -7,6 +7,10 @@
     "/src/selection-sort.submit.test.ts": "import selectionSort from './selection-sort';\n\ndescribe('selectionSort', () => {\n  test('empty', () => {\n    expect(selectionSort([])).toEqual([]);\n  });\n\n  test('one element', () => {\n    expect(selectionSort([1])).toEqual([1]);\n  });\n\n  test('two elements', () => {\n    expect(selectionSort([2, 1])).toEqual([1, 2]);\n    expect(selectionSort([1, 2])).toEqual([1, 2]);\n  });\n\n  test('more than two elements', () => {\n    expect(selectionSort([10, 2, 4])).toEqual([2, 4, 10]);\n    expect(selectionSort([4, 5, 6, 1, 2, 3])).toEqual([1, 2, 3, 4, 5, 6]);\n    expect(selectionSort([1, 2, 3, 4, 5, 0])).toEqual([0, 1, 2, 3, 4, 5]);\n    expect(selectionSort([10, 9, 8, 7, 6, 5, 4, 3, 2, 1])).toEqual([\n      1, 2, 3, 4, 5, 6, 7, 8, 9, 10,\n    ]);\n    expect(selectionSort([5, 4, 3, 2, 1, 10, 9, 8, 7, 6])).toEqual([\n      1, 2, 3, 4, 5, 6, 7, 8, 9, 10,\n    ]);\n    expect(selectionSort([98322, 3242, 876, -234, 34, 12331])).toEqual([\n      -234, 34, 876, 3242, 12331, 98322,\n    ]);\n  });\n\n  test('duplicate elements', () => {\n    expect(selectionSort([1, 1])).toEqual([1, 1]);\n    expect(selectionSort([2, 2, 2])).toEqual([2, 2, 2]);\n    expect(selectionSort([2, 1, 2])).toEqual([1, 2, 2]);\n    expect(selectionSort([1, 1, 1, 1, 1, 1])).toEqual([1, 1, 1, 1, 1, 1]);\n    expect(selectionSort([7, 2, 4, 3, 1, 2])).toEqual([1, 2, 2, 3, 4, 7]);\n  });\n});\n",
     "/src/selection-sort.ts": "export default function selectionSort(arr: Array<number>): Array<number> {\n  // Iterate through the unsorted portion of the array.\n  for (let i = 0; i < arr.length; i++) {\n    // Initialize index of min element to the start\n    // of the unsorted section.\n    let minIndex = i;\n    // Find the min element.\n    for (let j = i + 1; j < arr.length; j++) {\n      if (arr[j] < arr[minIndex]) {\n        minIndex = j;\n      }\n    }\n\n    // Swap the found min element with the first element of the\n    // unsorted section.\n    [arr[i], arr[minIndex]] = [arr[minIndex], arr[i]];\n\n    // By the end of each outer loop iteration,\n    // [0, i] are sorted.\n  }\n\n  return arr;\n}\n"
   },
+  "info": {
+    "excerpt": "Implement a function that performs a selection sort",
+    "title": "Selection Sort"
+  },
   "metadata": {
     "access": "standard",
     "author": null,
@@ -14,7 +18,6 @@
     "created": 1671667200,
     "difficulty": "easy",
     "duration": 10,
-    "excerpt": "Implement a function that performs a selection sort",
     "featured": false,
     "format": "algo",
     "frameworkDefault": null,
@@ -35,7 +38,6 @@
     ],
     "slug": "selection-sort",
     "subtitle": null,
-    "title": "Selection Sort",
     "topics": [
       "sorting"
     ]

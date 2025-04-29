@@ -1,5 +1,9 @@
 {
   "description": null,
+  "info": {
+    "excerpt": null,
+    "title": "描述浏览器中 cookie、`sessionStorage` 和 `localStorage` 之间的区别"
+  },
   "metadata": {
     "access": "free",
     "author": null,
@@ -12,7 +16,6 @@
     "created": 1630800000,
     "difficulty": "medium",
     "duration": 5,
-    "excerpt": null,
     "featured": true,
     "format": "quiz",
     "frameworkDefault": null,
@@ -26,7 +29,6 @@
     "similarQuestions": [],
     "slug": "describe-the-difference-between-a-cookie-sessionstorage-and-localstorage",
     "subtitle": null,
-    "title": "描述浏览器中 cookie、`sessionStorage` 和 `localStorage` 之间的区别",
     "topics": [
       "web-api",
       "javascript"

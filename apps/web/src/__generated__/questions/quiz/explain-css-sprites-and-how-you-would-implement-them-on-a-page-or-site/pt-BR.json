@@ -1,5 +1,9 @@
 {
   "description": null,
+  "info": {
+    "excerpt": null,
+    "title": "Explique os sprites CSS e como você os implementaria em uma página ou site."
+  },
   "metadata": {
     "access": "free",
     "author": null,
@@ -7,7 +11,6 @@
     "created": 1630800000,
     "difficulty": "hard",
     "duration": 5,
-    "excerpt": null,
     "featured": false,
     "format": "quiz",
     "frameworkDefault": null,
@@ -21,7 +24,6 @@
     "similarQuestions": [],
     "slug": "explain-css-sprites-and-how-you-would-implement-them-on-a-page-or-site",
     "subtitle": null,
-    "title": "Explique os sprites CSS e como você os implementaria em uma página ou site.",
     "topics": [
       "css",
       "performance"

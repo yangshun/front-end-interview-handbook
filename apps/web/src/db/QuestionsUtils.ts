@@ -1,13 +1,14 @@
 import { forEach, mapValues } from 'lodash-es';
 
 import type {
+  InterviewsQuestionItemMinimal,
+  InterviewsQuestionMetadata,
   QuestionCodingFormat,
   QuestionCompany,
   QuestionFormat,
   QuestionFramework,
   QuestionHash,
   QuestionLanguage,
-  QuestionMetadata,
   QuestionSlug,
   QuestionTopic,
 } from '~/components/interviews/questions/common/QuestionsTypes';
@@ -28,7 +29,7 @@ function createQuestionHref(
 export function normalizeQuestionFrontMatter(
   frontmatter: Record<string, AnyIntentional>,
   format: QuestionFormat,
-): QuestionMetadata {
+): InterviewsQuestionItemMinimal {
   const { slug } = frontmatter;
 
   const frameworks: ReadonlyArray<QuestionFramework> =
@@ -37,46 +38,50 @@ export function normalizeQuestionFrontMatter(
   const href = createQuestionHref(format, slug);
 
   return {
-    access: frontmatter.access ?? 'free',
-    author: frontmatter.author ?? null,
-    companies: frontmatter.companies ?? [],
-    created: new Date(frontmatter.created ?? '2021-09-05').getTime() / 1000,
-    difficulty: frontmatter.difficulty,
-    duration: frontmatter.duration,
-    // Have to be null to be serialize-able.
-    excerpt: frontmatter.excerpt ?? null,
-    featured: Boolean(frontmatter.featured),
-    format,
-    frameworkDefault:
-      frontmatter.framework_default ??
-      (frameworks.length > 0 ? frameworks[0] : null),
-    frameworks: frameworks.map((frameworkType) => ({
-      framework: frameworkType,
-      href:
-        format === 'user-interface'
-          ? createQuestionHref(format, slug, frameworkType)
-          : href,
-    })),
-    href,
-    // Have to be null to be serialize-able.
-    importance: frontmatter.importance ?? null,
-    languages: frontmatter.languages ?? [],
-    nextQuestions: frontmatter.next_questions ?? [],
-    published: frontmatter.published,
-    ranking: frontmatter.ranking ?? 100, // 1-100 where 1 is the top.
-    similarQuestions: frontmatter.similar_questions ?? [],
-    slug,
-    // Have to be null to be serialize-able.
-    subtitle: frontmatter.subtitle ?? null,
-    title: frontmatter.title,
-    topics: frontmatter.topics ?? [],
+    info: {
+      // Have to be null to be serialize-able.
+      excerpt: frontmatter.excerpt ?? null,
+      title: frontmatter.title,
+    },
+    metadata: {
+      access: frontmatter.access ?? 'free',
+      author: frontmatter.author ?? null,
+      companies: frontmatter.companies ?? [],
+      created: new Date(frontmatter.created ?? '2021-09-05').getTime() / 1000,
+      difficulty: frontmatter.difficulty,
+      duration: frontmatter.duration,
+      featured: Boolean(frontmatter.featured),
+      format,
+      frameworkDefault:
+        frontmatter.framework_default ??
+        (frameworks.length > 0 ? frameworks[0] : null),
+      frameworks: frameworks.map((frameworkType) => ({
+        framework: frameworkType,
+        href:
+          format === 'user-interface'
+            ? createQuestionHref(format, slug, frameworkType)
+            : href,
+      })),
+      href,
+      // Have to be null to be serialize-able.
+      importance: frontmatter.importance ?? null,
+      languages: frontmatter.languages ?? [],
+      nextQuestions: frontmatter.next_questions ?? [],
+      published: frontmatter.published,
+      ranking: frontmatter.ranking ?? 100, // 1-100 where 1 is the top.
+      similarQuestions: frontmatter.similar_questions ?? [],
+      slug,
+      // Have to be null to be serialize-able.
+      subtitle: frontmatter.subtitle ?? null,
+      topics: frontmatter.topics ?? [],
+    },
   };
 }
 
 export function hashQuestion({
   format,
   slug,
-}: Pick<QuestionMetadata, 'format' | 'slug'>): QuestionHash {
+}: Pick<InterviewsQuestionMetadata, 'format' | 'slug'>): QuestionHash {
   return format + ':' + slug;
 }
 
@@ -112,9 +117,9 @@ export function groupQuestionHashesByFormat(
 
 export function hasCompletedQuestion(
   completedQuestions: Set<QuestionSlug>,
-  question: QuestionMetadata,
+  question: InterviewsQuestionItemMinimal,
 ): boolean {
-  return completedQuestions.has(hashQuestion(question));
+  return completedQuestions.has(hashQuestion(question.metadata));
 }
 
 export type QuestionsCategorizedProgress = Record<QuestionFormat, Set<string>>;
@@ -214,11 +219,11 @@ export function categorizeQuestionsProgressByFrameworkAndLanguage(
   questions: Readonly<{
     frameworkQuestions: Record<
       QuestionFramework,
-      ReadonlyArray<QuestionMetadata>
+      ReadonlyArray<InterviewsQuestionItemMinimal>
     >;
     languageQuestions: Record<
       QuestionLanguage,
-      ReadonlyArray<QuestionMetadata>
+      ReadonlyArray<InterviewsQuestionItemMinimal>
     >;
   }>,
 ): QuestionsFrameworkLanguageCategorizedProgress {
@@ -226,11 +231,11 @@ export function categorizeQuestionsProgressByFrameworkAndLanguage(
 
   const frameworkSlugsMap = mapValues(
     frameworkQuestions,
-    (questionList) => new Set(questionList.map((q) => q.slug)),
+    (questionList) => new Set(questionList.map((q) => q.metadata.slug)),
   );
   const languageSlugsMap = mapValues(
     languageQuestions,
-    (questionList) => new Set(questionList.map((q) => q.slug)),
+    (questionList) => new Set(questionList.map((q) => q.metadata.slug)),
   );
 
   // Initialize categorized progress objects
@@ -303,13 +308,16 @@ export function roundQuestionCountToNearestTen(count: number) {
  * @deprecated
  */
 export function flattenQuestionFormatMetadata(
-  questions: Record<QuestionFormat, ReadonlyArray<QuestionMetadata>>,
-): ReadonlyArray<QuestionMetadata> {
+  questions: Record<
+    QuestionFormat,
+    ReadonlyArray<InterviewsQuestionItemMinimal>
+  >,
+): ReadonlyArray<InterviewsQuestionItemMinimal> {
   return Object.values(questions).flat();
 }
 
 export function questionsForImportProgress(
-  questions: ReadonlyArray<QuestionMetadata>,
+  questions: ReadonlyArray<InterviewsQuestionItemMinimal>,
   overallProgress: ReadonlyArray<QuestionProgress>,
   currentSessionProgress?:
     | ReadonlyArray<Readonly<{ id: string; key: string }>>
@@ -332,18 +340,24 @@ export function questionsForImportProgress(
   );
 
   return questions.filter((item) =>
-    questionsProgressToImport.has(hashQuestion(item)),
+    questionsProgressToImport.has(hashQuestion(item.metadata)),
   );
 }
 
 export function categorizeQuestionsByFrameworkAndLanguage(
   questions: Readonly<{
-    codingQuestions: ReadonlyArray<QuestionMetadata>;
-    quizQuestions?: ReadonlyArray<QuestionMetadata>;
+    codingQuestions: ReadonlyArray<InterviewsQuestionItemMinimal>;
+    quizQuestions?: ReadonlyArray<InterviewsQuestionItemMinimal>;
   }>,
 ): Readonly<{
-  framework: Record<QuestionFramework, ReadonlyArray<QuestionMetadata>>;
-  language: Record<QuestionLanguage, ReadonlyArray<QuestionMetadata>>;
+  framework: Record<
+    QuestionFramework,
+    ReadonlyArray<InterviewsQuestionItemMinimal>
+  >;
+  language: Record<
+    QuestionLanguage,
+    ReadonlyArray<InterviewsQuestionItemMinimal>
+  >;
 }> {
   const { codingQuestions, quizQuestions } = questions;
   const allQuestions = [...codingQuestions, ...(quizQuestions || [])];
@@ -351,31 +365,31 @@ export function categorizeQuestionsByFrameworkAndLanguage(
   const framework = {
     angular: filterQuestions(codingQuestions, [
       (question) =>
-        question.frameworks.some(
+        question.metadata.frameworks.some(
           (frameworkItem) => 'angular' === frameworkItem.framework,
         ),
     ]),
     react: filterQuestions(codingQuestions, [
       (question) =>
-        question.frameworks.some(
+        question.metadata.frameworks.some(
           (frameworkItem) => 'react' === frameworkItem.framework,
         ),
     ]),
     svelte: filterQuestions(codingQuestions, [
       (question) =>
-        question.frameworks.some(
+        question.metadata.frameworks.some(
           (frameworkItem) => 'svelte' === frameworkItem.framework,
         ),
     ]),
     vanilla: filterQuestions(codingQuestions, [
       (question) =>
-        question.frameworks.some(
+        question.metadata.frameworks.some(
           (frameworkItem) => 'vanilla' === frameworkItem.framework,
         ),
     ]),
     vue: filterQuestions(codingQuestions, [
       (question) =>
-        question.frameworks.some(
+        question.metadata.frameworks.some(
           (frameworkItem) => 'vue' === frameworkItem.framework,
         ),
     ]),
@@ -385,19 +399,21 @@ export function categorizeQuestionsByFrameworkAndLanguage(
     // TODO(interviews): sync logic with detail pages.
     css: filterQuestions(allQuestions, [
       (question) =>
-        question.languages.includes('css') || question.topics.includes('css'),
+        question.metadata.languages.includes('css') ||
+        question.metadata.topics.includes('css'),
     ]),
     html: filterQuestions(allQuestions, [
       (question) =>
-        question.languages.includes('html') || question.topics.includes('html'),
+        question.metadata.languages.includes('html') ||
+        question.metadata.topics.includes('html'),
     ]),
     js: filterQuestions(allQuestions, [
       (question) =>
-        question.languages.includes('js') ||
-        question.topics.includes('javascript'),
+        question.metadata.languages.includes('js') ||
+        question.metadata.topics.includes('javascript'),
     ]),
     ts: filterQuestions(allQuestions, [
-      (question) => question.languages.includes('ts'),
+      (question) => question.metadata.languages.includes('ts'),
     ]),
   };
 
@@ -409,22 +425,24 @@ export function categorizeQuestionsByFrameworkAndLanguage(
 
 export function categorizeQuestionsByTopic(
   questions: Readonly<{
-    codingQuestions: ReadonlyArray<QuestionMetadata>;
-    quizQuestions: ReadonlyArray<QuestionMetadata>;
+    codingQuestions: ReadonlyArray<InterviewsQuestionItemMinimal>;
+    quizQuestions: ReadonlyArray<InterviewsQuestionItemMinimal>;
   }>,
-): Partial<Record<QuestionTopic, ReadonlyArray<QuestionMetadata>>> {
+): Partial<
+  Record<QuestionTopic, ReadonlyArray<InterviewsQuestionItemMinimal>>
+> {
   const categorizedQuestions: Partial<
-    Record<QuestionTopic, Array<QuestionMetadata>>
+    Record<QuestionTopic, Array<InterviewsQuestionItemMinimal>>
   > = {};
   const { codingQuestions, quizQuestions } = questions;
 
   codingQuestions.forEach((question) => {
-    question.topics.forEach((topic) => {
+    question.metadata.topics.forEach((topic) => {
       (categorizedQuestions[topic] ??= []).push(question);
     });
   });
   quizQuestions.forEach((question) => {
-    question.topics.forEach((topic) => {
+    question.metadata.topics.forEach((topic) => {
       (categorizedQuestions[topic] ??= []).push(question);
     });
   });
@@ -434,14 +452,14 @@ export function categorizeQuestionsByTopic(
 
 export function categorizeQuestionsByCompany(
   questions: Readonly<{
-    codingQuestions: ReadonlyArray<QuestionMetadata>;
-    quizQuestions: ReadonlyArray<QuestionMetadata>;
-    systemDesignQuestions: ReadonlyArray<QuestionMetadata>;
+    codingQuestions: ReadonlyArray<InterviewsQuestionItemMinimal>;
+    quizQuestions: ReadonlyArray<InterviewsQuestionItemMinimal>;
+    systemDesignQuestions: ReadonlyArray<InterviewsQuestionItemMinimal>;
   }>,
-): Record<QuestionCompany, ReadonlyArray<QuestionMetadata>> {
+): Record<QuestionCompany, ReadonlyArray<InterviewsQuestionItemMinimal>> {
   const categorizedQuestions: Record<
     QuestionCompany,
-    Array<QuestionMetadata>
+    Array<InterviewsQuestionItemMinimal>
   > = {
     airbnb: [],
     amazon: [],
@@ -467,17 +485,17 @@ export function categorizeQuestionsByCompany(
   const { codingQuestions, quizQuestions, systemDesignQuestions } = questions;
 
   codingQuestions.forEach((question) => {
-    question.companies.forEach((company) => {
+    question.metadata.companies.forEach((company) => {
       categorizedQuestions[company]?.push(question);
     });
   });
   quizQuestions.forEach((question) => {
-    question.companies.forEach((company) => {
+    question.metadata.companies.forEach((company) => {
       categorizedQuestions[company]?.push(question);
     });
   });
   systemDesignQuestions.forEach((question) => {
-    question.companies.forEach((company) => {
+    question.metadata.companies.forEach((company) => {
       categorizedQuestions[company]?.push(question);
     });
   });

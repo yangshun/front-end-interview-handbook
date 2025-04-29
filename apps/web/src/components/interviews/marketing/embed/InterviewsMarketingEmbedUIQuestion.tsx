@@ -8,8 +8,9 @@ import { useMediaQuery } from 'usehooks-ts';
 import gtag from '~/lib/gtag';
 
 import type {
-  QuestionMetadata,
-  QuestionUserInterface,
+  InterviewsQuestionInfo,
+  InterviewsQuestionItemUserInterface,
+  InterviewsQuestionMetadata,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import { useIntl } from '~/components/intl';
 import Anchor from '~/components/ui/Anchor';
@@ -22,13 +23,14 @@ import type { QuestionFramework } from '../../questions/common/QuestionsTypes';
 
 export type EmbedUIQuestion = Readonly<{
   frameworks: {
-    angular: QuestionUserInterface;
-    react: QuestionUserInterface;
-    svelte: QuestionUserInterface;
-    vanilla: QuestionUserInterface;
-    vue: QuestionUserInterface;
+    angular: InterviewsQuestionItemUserInterface;
+    react: InterviewsQuestionItemUserInterface;
+    svelte: InterviewsQuestionItemUserInterface;
+    vanilla: InterviewsQuestionItemUserInterface;
+    vue: InterviewsQuestionItemUserInterface;
   };
-  metadata: QuestionMetadata;
+  info: InterviewsQuestionInfo;
+  metadata: InterviewsQuestionMetadata;
 }>;
 
 type Props = Readonly<{
@@ -81,6 +83,7 @@ export default function InterviewsMarketingEmbedUIQuestion({
             contentType="description"
             environment="embed"
             framework={framework}
+            info={question.info}
             metadata={question.metadata}
             mode="practice"
             nextQuestions={[]}

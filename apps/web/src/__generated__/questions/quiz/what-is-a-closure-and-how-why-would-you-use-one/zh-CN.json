@@ -1,5 +1,9 @@
 {
   "description": null,
+  "info": {
+    "excerpt": null,
+    "title": "JavaScript 中的闭包是什么？你将如何/为什么要使用它？"
+  },
   "metadata": {
     "access": "free",
     "author": null,
@@ -13,7 +17,6 @@
     "created": 1630800000,
     "difficulty": "medium",
     "duration": 5,
-    "excerpt": null,
     "featured": true,
     "format": "quiz",
     "frameworkDefault": null,
@@ -27,7 +30,6 @@
     "similarQuestions": [],
     "slug": "what-is-a-closure-and-how-why-would-you-use-one",
     "subtitle": null,
-    "title": "JavaScript 中的闭包是什么？你将如何/为什么要使用它？",
     "topics": [
       "closure",
       "javascript"

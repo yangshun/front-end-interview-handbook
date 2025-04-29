@@ -5,11 +5,11 @@ import type { ReactNode } from 'react';
 import SidebarPremiumChip from '~/components/global/sidebar/SidebarPremiumChip';
 import { useFrontEndSystemDesignPlaybookNavigation } from '~/components/guides/books/front-end-system-design/FrontEndSystemDesignPlaybookNavigation';
 import GuidesLayout from '~/components/guides/GuidesLayout';
-import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
+import type { InterviewsQuestionItemMinimal } from '~/components/interviews/questions/common/QuestionsTypes';
 
 type Props = Readonly<{
   children: ReactNode;
-  questions: ReadonlyArray<QuestionMetadata>;
+  questions: ReadonlyArray<InterviewsQuestionItemMinimal>;
 }>;
 
 export default function FrontEndSystemDesignPlaybookSidebar({

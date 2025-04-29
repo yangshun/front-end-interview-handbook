@@ -1,5 +1,9 @@
 {
   "description": null,
+  "info": {
+    "excerpt": null,
+    "title": "O que é `\"use strict\";`?"
+  },
   "metadata": {
     "access": "free",
     "author": null,
@@ -9,7 +13,6 @@
     "created": 1630800000,
     "difficulty": "hard",
     "duration": 5,
-    "excerpt": null,
     "featured": true,
     "format": "quiz",
     "frameworkDefault": null,
@@ -23,7 +26,6 @@
     "similarQuestions": [],
     "slug": "what-is-use-strict-what-are-the-advantages-and-disadvantages-to-using-it",
     "subtitle": "Quais são as vantagens e desvantagens de usa-lo?",
-    "title": "O que é `\"use strict\";`?",
     "topics": [
       "javascript"
     ],

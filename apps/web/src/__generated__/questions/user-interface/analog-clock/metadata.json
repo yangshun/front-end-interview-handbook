@@ -1,56 +1,60 @@
 {
-  "access": "premium",
-  "author": "yangshun",
-  "companies": [
-    "lyft"
-  ],
-  "created": 1670198400,
-  "difficulty": "medium",
-  "duration": 20,
-  "excerpt": "Build an analog clock where the hands update and move like a real clock",
-  "featured": false,
-  "format": "user-interface",
-  "frameworkDefault": "react",
-  "frameworks": [
-    {
-      "framework": "react",
-      "href": "/questions/user-interface/analog-clock/react"
-    },
-    {
-      "framework": "vanilla",
-      "href": "/questions/user-interface/analog-clock/vanilla"
-    },
-    {
-      "framework": "angular",
-      "href": "/questions/user-interface/analog-clock/angular"
-    },
-    {
-      "framework": "vue",
-      "href": "/questions/user-interface/analog-clock/vue"
-    },
-    {
-      "framework": "svelte",
-      "href": "/questions/user-interface/analog-clock/svelte"
-    }
-  ],
-  "href": "/questions/user-interface/analog-clock",
-  "importance": "low",
-  "languages": [
-    "html",
-    "css",
-    "js"
-  ],
-  "nextQuestions": [],
-  "published": true,
-  "ranking": 100,
-  "similarQuestions": [
-    "digital-clock"
-  ],
-  "slug": "analog-clock",
-  "subtitle": null,
-  "title": "Analog Clock",
-  "topics": [
-    "a11y",
-    "async"
-  ]
+  "info": {
+    "excerpt": "Build an analog clock where the hands update and move like a real clock",
+    "title": "Analog Clock"
+  },
+  "metadata": {
+    "access": "premium",
+    "author": "yangshun",
+    "companies": [
+      "lyft"
+    ],
+    "created": 1670198400,
+    "difficulty": "medium",
+    "duration": 20,
+    "featured": false,
+    "format": "user-interface",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/user-interface/analog-clock/react"
+      },
+      {
+        "framework": "vanilla",
+        "href": "/questions/user-interface/analog-clock/vanilla"
+      },
+      {
+        "framework": "angular",
+        "href": "/questions/user-interface/analog-clock/angular"
+      },
+      {
+        "framework": "vue",
+        "href": "/questions/user-interface/analog-clock/vue"
+      },
+      {
+        "framework": "svelte",
+        "href": "/questions/user-interface/analog-clock/svelte"
+      }
+    ],
+    "href": "/questions/user-interface/analog-clock",
+    "importance": "low",
+    "languages": [
+      "html",
+      "css",
+      "js"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "digital-clock"
+    ],
+    "slug": "analog-clock",
+    "subtitle": null,
+    "topics": [
+      "a11y",
+      "async"
+    ]
+  }
 }

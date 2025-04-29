@@ -227,7 +227,7 @@ export default function ProfileActivity() {
             )}
             role="list">
             {filteredQuestionProgressWithMetadata.map(
-              ({ createdAt, id, metadata }) => {
+              ({ createdAt, id, metadata, info }) => {
                 const qnHash = metadata ? hashQuestion(metadata) : '';
 
                 return (
@@ -248,7 +248,7 @@ export default function ProfileActivity() {
                               'Aria label for checkbox to select question for deletion',
                             id: 'FjrpK8',
                           },
-                          { question: metadata?.title },
+                          { question: info?.title },
                         )}
                         isLabelHidden={true}
                         value={selectedQuestions.has(qnHash)}
@@ -262,7 +262,7 @@ export default function ProfileActivity() {
                           size="body2"
                           weight="medium">
                           <Anchor href={metadata?.href} variant="flat">
-                            {metadata.title}
+                            {info.title}
                           </Anchor>
                         </Text>
                         {metadata?.format && (

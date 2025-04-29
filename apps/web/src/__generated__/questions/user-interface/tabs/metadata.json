@@ -1,53 +1,57 @@
 {
-  "access": "free",
-  "author": "yangshun",
-  "companies": [
-    "airbnb",
-    "amazon",
-    "openai"
-  ],
-  "created": 1670976000,
-  "difficulty": "medium",
-  "duration": 15,
-  "excerpt": "Build a tabs component that displays a list of tab elements and one associated panel of content at a time",
-  "featured": true,
-  "format": "user-interface",
-  "frameworkDefault": "react",
-  "frameworks": [
-    {
-      "framework": "react",
-      "href": "/questions/user-interface/tabs/react"
-    },
-    {
-      "framework": "vanilla",
-      "href": "/questions/user-interface/tabs/vanilla"
-    },
-    {
-      "framework": "angular",
-      "href": "/questions/user-interface/tabs/angular"
-    },
-    {
-      "framework": "vue",
-      "href": "/questions/user-interface/tabs/vue"
-    }
-  ],
-  "href": "/questions/user-interface/tabs",
-  "importance": "low",
-  "languages": [
-    "html",
-    "css",
-    "js"
-  ],
-  "nextQuestions": [
-    "tabs-ii"
-  ],
-  "published": true,
-  "ranking": 100,
-  "similarQuestions": [],
-  "slug": "tabs",
-  "subtitle": null,
-  "title": "Tabs",
-  "topics": [
-    "a11y"
-  ]
+  "info": {
+    "excerpt": "Build a tabs component that displays a list of tab elements and one associated panel of content at a time",
+    "title": "Tabs"
+  },
+  "metadata": {
+    "access": "free",
+    "author": "yangshun",
+    "companies": [
+      "airbnb",
+      "amazon",
+      "openai"
+    ],
+    "created": 1670976000,
+    "difficulty": "medium",
+    "duration": 15,
+    "featured": true,
+    "format": "user-interface",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/user-interface/tabs/react"
+      },
+      {
+        "framework": "vanilla",
+        "href": "/questions/user-interface/tabs/vanilla"
+      },
+      {
+        "framework": "angular",
+        "href": "/questions/user-interface/tabs/angular"
+      },
+      {
+        "framework": "vue",
+        "href": "/questions/user-interface/tabs/vue"
+      }
+    ],
+    "href": "/questions/user-interface/tabs",
+    "importance": "low",
+    "languages": [
+      "html",
+      "css",
+      "js"
+    ],
+    "nextQuestions": [
+      "tabs-ii"
+    ],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "tabs",
+    "subtitle": null,
+    "topics": [
+      "a11y"
+    ]
+  }
 }

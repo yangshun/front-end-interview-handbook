@@ -1,5 +1,9 @@
 {
   "description": null,
+  "info": {
+    "excerpt": null,
+    "title": "What is React Fiber and how is it an improvement over the previous approach?"
+  },
   "metadata": {
     "access": "free",
     "author": null,
@@ -7,7 +11,6 @@
     "created": 1630800000,
     "difficulty": "hard",
     "duration": 5,
-    "excerpt": null,
     "featured": true,
     "format": "quiz",
     "frameworkDefault": "react",
@@ -26,7 +29,6 @@
     "similarQuestions": [],
     "slug": "what-is-react-fiber-and-how-is-it-an-improvement-over-the-previous-approach",
     "subtitle": null,
-    "title": "What is React Fiber and how is it an improvement over the previous approach?",
     "topics": [
       "react"
     ],

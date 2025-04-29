@@ -1,9 +1,9 @@
 import { getSiteOrigin } from '~/seo/siteUrl';
 
 import type {
+  InterviewsQuestionMetadata,
   QuestionFramework,
   QuestionListTypeData,
-  QuestionMetadata,
 } from './QuestionsTypes';
 
 const origin = getSiteOrigin();
@@ -29,7 +29,7 @@ export function questionListFilterNamespace(
 }
 
 function questionHrefFrameworkSpecific(
-  questionMetadata: QuestionMetadata,
+  questionMetadata: InterviewsQuestionMetadata,
   listType?: QuestionListTypeData | null,
   framework?: QuestionFramework,
 ): string {
@@ -86,7 +86,7 @@ export function questionHrefWithListType(
 }
 
 export function questionHrefFrameworkSpecificAndListType(
-  questionMetadata: QuestionMetadata,
+  questionMetadata: InterviewsQuestionMetadata,
   listType?: QuestionListTypeData | null,
   framework?: QuestionFramework,
 ): string {

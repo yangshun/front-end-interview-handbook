@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useGreatStorageLocal } from '~/hooks/useGreatStorageLocal';
 
 import type {
-  QuestionMetadata,
+  InterviewsQuestionItemMinimal,
   QuestionTopic,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import useQuestionTopicLabels from '~/components/interviews/questions/listings/items/useQuestionTopicLabels';
@@ -62,7 +62,10 @@ type Props = Readonly<{
 
 export default function useQuestionTopicFilter(
   props?: Props,
-): [Set<QuestionTopic>, QuestionFilter<QuestionTopic, QuestionMetadata>] {
+): [
+  Set<QuestionTopic>,
+  QuestionFilter<QuestionTopic, InterviewsQuestionItemMinimal>,
+] {
   const { initialValue, namespace } = props || {};
   const intl = useIntl();
   const topicLabels = useQuestionTopicLabels();
@@ -86,11 +89,14 @@ export default function useQuestionTopicFilter(
     ? setTopicFiltersSessionStorage
     : setTopicFiltersState;
 
-  const topicFilterOptions: QuestionFilter<QuestionTopic, QuestionMetadata> = {
+  const topicFilterOptions: QuestionFilter<
+    QuestionTopic,
+    InterviewsQuestionItemMinimal
+  > = {
     id: 'topic',
     matches: (question) =>
       topicFilters.size === 0 ||
-      question.topics.some((topic) => topicFilters.has(topic)),
+      question.metadata.topics.some((topic) => topicFilters.has(topic)),
     name: intl.formatMessage({
       defaultMessage: 'Topics',
       description: 'Question quiz topic',

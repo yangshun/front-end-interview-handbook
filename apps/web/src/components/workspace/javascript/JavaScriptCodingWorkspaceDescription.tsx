@@ -1,7 +1,11 @@
 import clsx from 'clsx';
 
 import InterviewsPremiumBadge from '~/components/interviews/common/InterviewsPremiumBadge';
-import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
+import type {
+  InterviewsQuestionInfo,
+  InterviewsQuestionItemMinimal,
+  InterviewsQuestionMetadata,
+} from '~/components/interviews/questions/common/QuestionsTypes';
 import useQuestionLogEventCopyContents from '~/components/interviews/questions/common/useQuestionLogEventCopyContents';
 import QuestionCompanies from '~/components/interviews/questions/content/QuestionCompanies';
 import QuestionContentProse from '~/components/interviews/questions/content/QuestionContentProse';
@@ -21,10 +25,11 @@ import { useQueryQuestionProgress } from '~/db/QuestionsProgressClient';
 type Props = Readonly<{
   canViewPremiumContent: boolean;
   description: string | null;
-  metadata: QuestionMetadata;
-  nextQuestions: ReadonlyArray<QuestionMetadata>;
+  info: InterviewsQuestionInfo;
+  metadata: InterviewsQuestionMetadata;
+  nextQuestions: ReadonlyArray<InterviewsQuestionItemMinimal>;
   showAd: boolean;
-  similarQuestions: ReadonlyArray<QuestionMetadata>;
+  similarQuestions: ReadonlyArray<InterviewsQuestionItemMinimal>;
   studyListKey?: string;
 }>;
 
@@ -35,6 +40,7 @@ export default function JavaScriptCodingWorkspaceDescription({
   nextQuestions,
   similarQuestions,
   showAd,
+  info,
   studyListKey,
 }: Props) {
   const copyRef = useQuestionLogEventCopyContents<HTMLDivElement>();
@@ -56,7 +62,7 @@ export default function JavaScriptCodingWorkspaceDescription({
           )}>
           <div className="flex flex-col gap-y-6">
             <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-              <Heading level="heading5">{metadata.title}</Heading>
+              <Heading level="heading5">{info.title}</Heading>
               {metadata.access === 'premium' && <InterviewsPremiumBadge />}
               {data?.questionProgress?.status === 'complete' && (
                 <Badge

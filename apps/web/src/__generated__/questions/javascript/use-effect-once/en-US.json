@@ -7,6 +7,10 @@
     "/src/use-effect-once.submit.test.ts": "import { renderHook } from '@testing-library/react';\n\nimport useEffectOnce from './use-effect-once';\nimport { StrictMode } from 'react';\n\ndescribe('useEffectOnce', () => {\n  test('returns nothing', () => {\n    const { result } = renderHook(() => useEffectOnce(() => {}));\n\n    expect(result.current).toBe(undefined);\n  });\n\n  test('calls the effect once', () => {\n    let counter = 0;\n\n    const { rerender } = renderHook(() =>\n      useEffectOnce(() => {\n        counter += 1;\n      }),\n    );\n\n    expect(counter).toBe(1);\n\n    rerender();\n\n    expect(counter).toBe(1);\n  });\n\n  test('cleanup function works', () => {\n    let counter = 0;\n\n    const { unmount } = renderHook(() =>\n      useEffectOnce(() => {\n        counter += 1;\n\n        return () => {\n          counter += 1;\n        };\n      }),\n    );\n\n    expect(counter).toBe(1);\n\n    unmount();\n\n    expect(counter).toBe(2);\n  });\n\n  test('calls the effect once across unmounts', () => {\n    let counter = 0;\n\n    const { rerender } = renderHook(\n      () =>\n        useEffectOnce(() => {\n          counter += 1;\n        }),\n      // We could have used `configure({ reactStrictMode: true })` in @testing-library/react@14.2.0+\n      { wrapper: StrictMode },\n    );\n\n    expect(counter).toBe(1);\n\n    rerender();\n\n    expect(counter).toBe(1);\n  });\n});\n",
     "/src/use-effect-once.ts": "import { EffectCallback, useEffect, useRef } from 'react';\n\nexport default function useEffectOnce(effect: EffectCallback) {\n  const ref = useRef<boolean>(false);\n\n  useEffect(() => {\n    if (ref.current) {\n      return;\n    }\n\n    ref.current = true;\n    return effect();\n  }, []);\n}\n"
   },
+  "info": {
+    "excerpt": "Implement a hook that runs an effect only once",
+    "title": "useEffectOnce"
+  },
   "metadata": {
     "access": "premium",
     "author": "phillmont",
@@ -14,7 +18,6 @@
     "created": 1742169600,
     "difficulty": "easy",
     "duration": 15,
-    "excerpt": "Implement a hook that runs an effect only once",
     "featured": false,
     "format": "javascript",
     "frameworkDefault": "react",
@@ -36,7 +39,6 @@
     "similarQuestions": [],
     "slug": "use-effect-once",
     "subtitle": null,
-    "title": "useEffectOnce",
     "topics": [
       "react-hooks"
     ]

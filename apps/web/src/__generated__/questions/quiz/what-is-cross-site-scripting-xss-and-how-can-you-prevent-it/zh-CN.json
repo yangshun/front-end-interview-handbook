@@ -1,5 +1,9 @@
 {
   "description": null,
+  "info": {
+    "excerpt": null,
+    "title": "什么是跨站脚本 (XSS) 以及如何防止它？"
+  },
   "metadata": {
     "access": "free",
     "author": null,
@@ -7,7 +11,6 @@
     "created": 1630800000,
     "difficulty": "easy",
     "duration": 5,
-    "excerpt": null,
     "featured": false,
     "format": "quiz",
     "frameworkDefault": null,
@@ -21,7 +24,6 @@
     "similarQuestions": [],
     "slug": "what-is-cross-site-scripting-xss-and-how-can-you-prevent-it",
     "subtitle": null,
-    "title": "什么是跨站脚本 (XSS) 以及如何防止它？",
     "topics": [
       "javascript",
       "security"

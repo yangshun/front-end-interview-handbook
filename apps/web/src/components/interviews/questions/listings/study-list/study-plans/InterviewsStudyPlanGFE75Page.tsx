@@ -15,8 +15,8 @@ import { useUserPreferences } from '~/components/global/UserPreferencesProvider'
 import useInterviewsQuestionsFeatures from '~/components/interviews/common/useInterviewsQuestionsFeatures';
 import useInterviewsSidebarCollapsed from '~/components/interviews/common/useInterviewsSidebarCollapsed';
 import type {
+  InterviewsQuestionItemMinimal,
   QuestionFormat,
-  QuestionMetadata,
   QuestionSlug,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import PreparationGFE75Logo from '~/components/interviews/questions/content/study-list/logo/PreparationGFE75Logo';
@@ -39,7 +39,7 @@ import { useUser } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
   bottomContent?: InterviewsListingBottomContent;
-  questions: ReadonlyArray<QuestionMetadata>;
+  questions: ReadonlyArray<InterviewsQuestionItemMinimal>;
   questionsSlugs: Record<QuestionFormat, ReadonlyArray<QuestionSlug>>;
   studyList: InterviewsStudyList;
 }>;

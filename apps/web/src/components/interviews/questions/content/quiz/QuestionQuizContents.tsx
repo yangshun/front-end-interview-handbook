@@ -111,7 +111,7 @@ export default function QuestionQuizContents({
                       className="pb-4"
                       id="question-title"
                       level="heading4">
-                      {question.metadata.title}
+                      {question.info.title}
                     </Heading>
                     {question.metadata.subtitle && (
                       <Text className="block pb-4 text-lg sm:text-xl">

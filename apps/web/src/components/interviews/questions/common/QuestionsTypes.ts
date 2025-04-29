@@ -130,14 +130,18 @@ export type QuestionUserInterfaceBundle = Readonly<{
   writeup: string | null;
 }>;
 
-export type QuestionMetadata = Readonly<{
+export type InterviewsQuestionInfo = Readonly<{
+  excerpt: string | null;
+  title: string;
+}>;
+
+export type InterviewsQuestionMetadata = Readonly<{
   access: QuestionAccess;
   author: string | null;
   companies: ReadonlyArray<QuestionCompany>;
   created: number; // Unix timestamp in seconds.
   difficulty: QuestionDifficulty;
   duration: number;
-  excerpt: string | null;
   featured: boolean;
   format: QuestionFormat;
   frameworkDefault: QuestionFramework | null;
@@ -158,17 +162,21 @@ export type QuestionMetadata = Readonly<{
   similarQuestions: ReadonlyArray<QuestionSlug>;
   slug: QuestionSlug;
   subtitle: string | null;
-  title: string;
   topics: ReadonlyArray<QuestionTopic>;
 }>;
 
-export type QuestionBase = Readonly<{
-  description: string | null;
-  metadata: QuestionMetadata;
-  solution: string | null;
+export type InterviewsQuestionItemMinimal = Readonly<{
+  info: InterviewsQuestionInfo;
+  metadata: InterviewsQuestionMetadata;
 }>;
 
-export type QuestionSystemDesign = QuestionBase;
+type InterviewsQuestionItem = InterviewsQuestionItemMinimal &
+  Readonly<{
+    description: string | null;
+    solution: string | null;
+  }>;
+
+export type QuestionSystemDesign = InterviewsQuestionItem;
 
 export type QuestionCodingWorkingLanguage = 'js' | 'ts';
 
@@ -181,7 +189,7 @@ export type QuestionJavaScriptWorkspace = Readonly<{
   run: string;
   submit: string;
 }>;
-export type QuestionJavaScript = QuestionBase &
+export type InterviewsQuestionItemJavaScript = InterviewsQuestionItem &
   Readonly<{
     files: Record<string, string>;
     skeleton: QuestionJavaScriptSkeleton;
@@ -194,17 +202,18 @@ export type QuestionUserInterfaceWorkspace = Readonly<{
   visibleFiles?: Array<string>;
 }>;
 
-export type QuestionUserInterface = QuestionBase &
+export type InterviewsQuestionItemUserInterface = InterviewsQuestionItem &
   Readonly<{
     framework: QuestionFramework;
     skeletonBundle: QuestionUserInterfaceBundle;
     solutionBundle: QuestionUserInterfaceBundle;
   }>;
 
-export type QuestionMetadataWithCompletedStatus = QuestionMetadata &
-  Readonly<{
-    isCompleted: boolean;
-  }>;
+export type InterviewsQuestionItemWithCompletedStatus =
+  InterviewsQuestionItemMinimal &
+    Readonly<{
+      isCompleted: boolean;
+    }>;
 
 export type QuestionTopic =
   | 'a11y'
@@ -248,7 +257,7 @@ export type QuestionTopic =
   | 'ui-component'
   | 'web-api';
 
-export type QuestionQuiz = QuestionBase;
+export type QuestionQuiz = InterviewsQuestionItem;
 
 export type QuestionListTypeDataFilters = Readonly<{
   formats?: Array<QuestionCodingFormat>;

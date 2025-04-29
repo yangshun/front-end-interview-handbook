@@ -46,11 +46,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
           id: 'XI5h+Z',
         },
         {
-          questionTitle: question.metadata.title,
+          questionTitle: question.info.title,
         },
       ),
       locale,
-      ogImageTitle: question.metadata.title,
+      ogImageTitle: question.info.title,
       pathname: question.metadata.href,
       socialTitle: intl.formatMessage(
         {
@@ -59,7 +59,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
           id: 'Ozg1OX',
         },
         {
-          questionTitle: question.metadata.title,
+          questionTitle: question.info.title,
         },
       ),
       title: intl.formatMessage(
@@ -69,7 +69,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
           id: '9xFHNn',
         },
         {
-          questionTitle: question.metadata.title,
+          questionTitle: question.info.title,
         },
       ),
     });
@@ -123,10 +123,10 @@ export default async function Page({ params }: Props) {
   return (
     <>
       <GuidesArticleJsonLd
-        description={question.metadata.excerpt ?? ''}
+        description={question.info.excerpt ?? ''}
         isAccessibleForFree={question.metadata.access !== 'premium'}
         pathname={question.metadata.href}
-        title={`Front End System Design: ${question.metadata.title}`}
+        title={`Front End System Design: ${question.info.title}`}
       />
       {isStudyListLockedForViewer ? (
         <InterviewsPurchaseStudyListPaywallPage
@@ -137,6 +137,7 @@ export default async function Page({ params }: Props) {
           metadata={question.metadata}
           mode="practice"
           studyListKey={studyListKey}
+          title={question.info.title}
         />
       ) : (
         <InterviewsQuestionsSystemDesignPage
@@ -151,6 +152,7 @@ export default async function Page({ params }: Props) {
           isQuestionLocked={isQuestionLockedForViewer}
           question={{
             description: question.description,
+            info: question.info,
             metadata: question.metadata,
             solution: isQuestionLockedForViewer ? null : question.solution,
           }}

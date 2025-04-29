@@ -7,7 +7,7 @@ import { RxPause, RxPlay, RxStopwatch } from 'react-icons/rx';
 
 import { useGreatStorageLocal } from '~/hooks/useGreatStorageLocal';
 
-import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
+import type { InterviewsQuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import {
@@ -24,7 +24,7 @@ import CodingWorkspaceBottomBarEmitter from './CodingWorkspaceBottomBarEmitter';
 import NumberFlow, { NumberFlowGroup } from '@number-flow/react';
 
 type Props = Readonly<{
-  qnMetadata: QuestionMetadata;
+  qnMetadata: InterviewsQuestionMetadata;
 }>;
 
 export default function CodingWorkspaceTimer({ qnMetadata }: Props) {

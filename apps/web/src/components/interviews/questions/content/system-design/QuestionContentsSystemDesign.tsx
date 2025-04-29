@@ -11,7 +11,7 @@ import { useQueryQuestionProgress } from '~/db/QuestionsProgressClient';
 
 import QuestionCompanies from '../QuestionCompanies';
 import QuestionContentProse from '../QuestionContentProse';
-import type { QuestionBase } from '../../common/QuestionsTypes';
+import type { QuestionSystemDesign } from '../../common/QuestionsTypes';
 import useQuestionLogEventCopyContents from '../../common/useQuestionLogEventCopyContents';
 import useQuestionsAutoMarkAsComplete from '../../common/useQuestionsAutoMarkAsComplete';
 import QuestionMetadataSection from '../../metadata/QuestionMetadataSection';
@@ -20,7 +20,7 @@ import InterviewsPremiumBadge from '../../../common/InterviewsPremiumBadge';
 type Props = Readonly<{
   canViewPremiumContent: boolean;
   isQuestionLocked: boolean;
-  question: QuestionBase;
+  question: QuestionSystemDesign;
   studyListKey?: string;
 }>;
 
@@ -44,7 +44,7 @@ export default function QuestionContentsSystemDesign({
 
   const copyRef = useQuestionLogEventCopyContents<HTMLElement>();
 
-  const { description, metadata, solution } = question;
+  const { description, metadata, solution, info } = question;
 
   return (
     <article ref={copyRef} className="flex flex-col gap-y-8">
@@ -59,7 +59,7 @@ export default function QuestionContentsSystemDesign({
           </Text>
           <header className="flex flex-wrap items-center gap-4">
             <Heading className="inline-flex" level="heading4">
-              {metadata.title}
+              {info.title}
             </Heading>
             <div className="flex gap-2">
               {metadata.access === 'premium' && <InterviewsPremiumBadge />}

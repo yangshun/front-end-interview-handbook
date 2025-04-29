@@ -1,5 +1,9 @@
 {
   "description": null,
+  "info": {
+    "excerpt": null,
+    "title": "Why is extending built-in JavaScript objects not a good idea?"
+  },
   "metadata": {
     "access": "free",
     "author": null,
@@ -7,7 +11,6 @@
     "created": 1630800000,
     "difficulty": "medium",
     "duration": 5,
-    "excerpt": null,
     "featured": true,
     "format": "quiz",
     "frameworkDefault": null,
@@ -21,7 +24,6 @@
     "similarQuestions": [],
     "slug": "why-is-extending-built-in-javascript-objects-not-a-good-idea",
     "subtitle": null,
-    "title": "Why is extending built-in JavaScript objects not a good idea?",
     "topics": [
       "javascript",
       "oop"

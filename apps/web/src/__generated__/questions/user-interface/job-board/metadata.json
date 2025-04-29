@@ -1,57 +1,61 @@
 {
-  "access": "standard",
-  "author": "dhillon",
-  "companies": [
-    "microsoft",
-    "tiktok",
-    "atlassian",
-    "openai",
-    "stripe"
-  ],
-  "created": 1683849600,
-  "difficulty": "medium",
-  "duration": 30,
-  "excerpt": "Build a job board that displays the latest job postings from Hacker News",
-  "featured": false,
-  "format": "user-interface",
-  "frameworkDefault": "react",
-  "frameworks": [
-    {
-      "framework": "react",
-      "href": "/questions/user-interface/job-board/react"
-    },
-    {
-      "framework": "vanilla",
-      "href": "/questions/user-interface/job-board/vanilla"
-    },
-    {
-      "framework": "angular",
-      "href": "/questions/user-interface/job-board/angular"
-    },
-    {
-      "framework": "vue",
-      "href": "/questions/user-interface/job-board/vue"
-    },
-    {
-      "framework": "svelte",
-      "href": "/questions/user-interface/job-board/svelte"
-    }
-  ],
-  "href": "/questions/user-interface/job-board",
-  "importance": "low",
-  "languages": [
-    "html",
-    "css",
-    "js"
-  ],
-  "nextQuestions": [],
-  "published": true,
-  "ranking": 100,
-  "similarQuestions": [],
-  "slug": "job-board",
-  "subtitle": null,
-  "title": "Job Board",
-  "topics": [
-    "networking"
-  ]
+  "info": {
+    "excerpt": "Build a job board that displays the latest job postings from Hacker News",
+    "title": "Job Board"
+  },
+  "metadata": {
+    "access": "standard",
+    "author": "dhillon",
+    "companies": [
+      "microsoft",
+      "tiktok",
+      "atlassian",
+      "openai",
+      "stripe"
+    ],
+    "created": 1683849600,
+    "difficulty": "medium",
+    "duration": 30,
+    "featured": false,
+    "format": "user-interface",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/user-interface/job-board/react"
+      },
+      {
+        "framework": "vanilla",
+        "href": "/questions/user-interface/job-board/vanilla"
+      },
+      {
+        "framework": "angular",
+        "href": "/questions/user-interface/job-board/angular"
+      },
+      {
+        "framework": "vue",
+        "href": "/questions/user-interface/job-board/vue"
+      },
+      {
+        "framework": "svelte",
+        "href": "/questions/user-interface/job-board/svelte"
+      }
+    ],
+    "href": "/questions/user-interface/job-board",
+    "importance": "low",
+    "languages": [
+      "html",
+      "css",
+      "js"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "job-board",
+    "subtitle": null,
+    "topics": [
+      "networking"
+    ]
+  }
 }

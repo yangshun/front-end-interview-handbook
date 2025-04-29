@@ -3,21 +3,25 @@ import { ArticleJsonLd } from 'next-seo';
 import { GFEArticleAuthor } from '~/seo/SEOArticleAuthor';
 import { getSiteOrigin } from '~/seo/siteUrl';
 
-import type { QuestionMetadata } from './QuestionsTypes';
+import type {
+  InterviewsQuestionInfo,
+  InterviewsQuestionMetadata,
+} from './QuestionsTypes';
 
 type Props = Readonly<{
-  metadata: QuestionMetadata;
+  info: InterviewsQuestionInfo;
+  metadata: InterviewsQuestionMetadata;
 }>;
 
-export default function QuestionJsonLd({ metadata }: Props) {
+export default function QuestionJsonLd({ metadata, info }: Props) {
   return (
     <ArticleJsonLd
       authorName={GFEArticleAuthor}
       datePublished={new Date(metadata.created * 1000).toISOString()}
-      description={metadata.excerpt!}
+      description={info.excerpt!}
       images={[]}
       isAccessibleForFree={metadata.access !== 'premium'}
-      title={`Front End Interview Question: ${metadata.title}`}
+      title={`Front End Interview Question: ${info.title}`}
       url={new URL(metadata.href, getSiteOrigin()).toString()}
       useAppDir={true}
     />

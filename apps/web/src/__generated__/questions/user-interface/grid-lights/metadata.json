@@ -1,50 +1,54 @@
 {
-  "access": "premium",
-  "author": "yangshun",
-  "companies": [
-    "uber"
-  ],
-  "created": 1671148800,
-  "difficulty": "medium",
-  "duration": 20,
-  "excerpt": "Build a grid of lights where the lights deactivate in the reverse order they were activated",
-  "featured": false,
-  "format": "user-interface",
-  "frameworkDefault": "react",
-  "frameworks": [
-    {
-      "framework": "react",
-      "href": "/questions/user-interface/grid-lights/react"
-    },
-    {
-      "framework": "angular",
-      "href": "/questions/user-interface/grid-lights/angular"
-    },
-    {
-      "framework": "vue",
-      "href": "/questions/user-interface/grid-lights/vue"
-    },
-    {
-      "framework": "svelte",
-      "href": "/questions/user-interface/grid-lights/svelte"
-    }
-  ],
-  "href": "/questions/user-interface/grid-lights",
-  "importance": "low",
-  "languages": [
-    "html",
-    "css",
-    "js"
-  ],
-  "nextQuestions": [],
-  "published": true,
-  "ranking": 100,
-  "similarQuestions": [],
-  "slug": "grid-lights",
-  "subtitle": null,
-  "title": "Grid Lights",
-  "topics": [
-    "a11y",
-    "async"
-  ]
+  "info": {
+    "excerpt": "Build a grid of lights where the lights deactivate in the reverse order they were activated",
+    "title": "Grid Lights"
+  },
+  "metadata": {
+    "access": "premium",
+    "author": "yangshun",
+    "companies": [
+      "uber"
+    ],
+    "created": 1671148800,
+    "difficulty": "medium",
+    "duration": 20,
+    "featured": false,
+    "format": "user-interface",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/user-interface/grid-lights/react"
+      },
+      {
+        "framework": "angular",
+        "href": "/questions/user-interface/grid-lights/angular"
+      },
+      {
+        "framework": "vue",
+        "href": "/questions/user-interface/grid-lights/vue"
+      },
+      {
+        "framework": "svelte",
+        "href": "/questions/user-interface/grid-lights/svelte"
+      }
+    ],
+    "href": "/questions/user-interface/grid-lights",
+    "importance": "low",
+    "languages": [
+      "html",
+      "css",
+      "js"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "grid-lights",
+    "subtitle": null,
+    "topics": [
+      "a11y",
+      "async"
+    ]
+  }
 }

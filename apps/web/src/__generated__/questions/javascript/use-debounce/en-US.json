@@ -7,6 +7,10 @@
     "/src/use-debounce.submit.test.ts": "import { act, renderHook } from '@testing-library/react';\nimport FakeTimers from '@sinonjs/fake-timers';\n\nimport useDebounce from './use-debounce';\nimport { useState } from 'react';\n\nlet clock: FakeTimers.InstalledClock;\n\ndescribe('useDebounce', () => {\n  beforeEach(() => {\n    clock = FakeTimers.withGlobal(globalThis).install();\n  });\n\n  afterEach(() => {\n    clock.uninstall();\n  });\n\n  test('return values', () => {\n    const { result } = renderHook(() => useDebounce(1, 1));\n\n    expect(result.current).toBe(1);\n  });\n\n  test('debounce value', () => {\n    const { result } = renderHook(() => {\n      const [value, setValue] = useState(1);\n      const debouncedValue = useDebounce(value, 1000);\n      return { value, setValue, debouncedValue };\n    });\n\n    act(() => result.current.setValue(2));\n\n    expect(result.current.value).toBe(2);\n    expect(result.current.debouncedValue).toBe(1);\n\n    act(() => clock.tick(1000));\n\n    expect(result.current.debouncedValue).toBe(2);\n  });\n\n  test('debounce value multiple times', () => {\n    const { result } = renderHook(() => {\n      const [value, setValue] = useState(1);\n      const debouncedValue = useDebounce(value, 1000);\n      return { value, setValue, debouncedValue };\n    });\n\n    act(() => result.current.setValue(2));\n\n    expect(result.current.value).toBe(2);\n    expect(result.current.debouncedValue).toBe(1);\n\n    act(() => clock.tick(500));\n\n    expect(result.current.debouncedValue).toBe(1);\n\n    act(() => result.current.setValue(3));\n\n    expect(result.current.value).toBe(3);\n    expect(result.current.debouncedValue).toBe(1);\n\n    act(() => clock.tick(500));\n\n    expect(result.current.debouncedValue).toBe(1);\n\n    act(() => clock.tick(500));\n\n    expect(result.current.debouncedValue).toBe(3);\n  });\n\n  test('clear timeout on unmount', () => {\n    const { result, unmount } = renderHook(() => {\n      const [value, setValue] = useState(1);\n      const debouncedValue = useDebounce(value, 1000);\n      return { value, setValue, debouncedValue };\n    });\n\n    act(() => result.current.setValue(2));\n\n    expect(result.current.value).toBe(2);\n    expect(result.current.debouncedValue).toBe(1);\n\n    unmount();\n    act(() => clock.tick(1000));\n\n    expect(result.current.debouncedValue).toBe(1);\n  });\n});\n",
     "/src/use-debounce.ts": "import { useState, useEffect } from 'react';\n\nexport default function useDebounce<T>(value: T, delay: number) {\n  const [debouncedValue, setDebouncedValue] = useState(value);\n\n  useEffect(() => {\n    const handler = setTimeout(() => {\n      setDebouncedValue(value);\n    }, delay);\n\n    return () => {\n      clearTimeout(handler);\n    };\n  }, [value, delay]);\n\n  return debouncedValue;\n}\n"
   },
+  "info": {
+    "excerpt": "Implement a hook that debounces a value",
+    "title": "useDebounce"
+  },
   "metadata": {
     "access": "standard",
     "author": "phillmont",
@@ -14,7 +18,6 @@
     "created": 1742169600,
     "difficulty": "medium",
     "duration": 15,
-    "excerpt": "Implement a hook that debounces a value",
     "featured": false,
     "format": "javascript",
     "frameworkDefault": "react",
@@ -40,7 +43,6 @@
     ],
     "slug": "use-debounce",
     "subtitle": null,
-    "title": "useDebounce",
     "topics": [
       "react-hooks"
     ]

@@ -2,9 +2,9 @@
 
 import { questionHrefWithListType } from '~/components/interviews/questions/common/QuestionHrefUtils';
 import type {
+  InterviewsQuestionItemMinimal,
+  InterviewsQuestionItemUserInterface,
   QuestionFramework,
-  QuestionMetadata,
-  QuestionUserInterface,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import type { QuestionUserInterfaceMode } from '~/components/interviews/questions/common/QuestionUserInterfacePath';
 import {
@@ -21,9 +21,9 @@ type Props = Readonly<{
   canViewPremiumContent: boolean;
   embed?: boolean;
   mode: QuestionUserInterfaceMode;
-  nextQuestions: ReadonlyArray<QuestionMetadata>;
-  question: QuestionUserInterface;
-  similarQuestions: ReadonlyArray<QuestionMetadata>;
+  nextQuestions: ReadonlyArray<InterviewsQuestionItemMinimal>;
+  question: InterviewsQuestionItemUserInterface;
+  similarQuestions: ReadonlyArray<InterviewsQuestionItemMinimal>;
   studyListKey?: string;
 }>;
 

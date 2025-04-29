@@ -1,5 +1,9 @@
 {
   "description": null,
+  "info": {
+    "excerpt": null,
+    "title": "How can you optimize DOM manipulation for better performance?"
+  },
   "metadata": {
     "access": "free",
     "author": null,
@@ -7,7 +11,6 @@
     "created": 1630800000,
     "difficulty": "easy",
     "duration": 5,
-    "excerpt": null,
     "featured": false,
     "format": "quiz",
     "frameworkDefault": null,
@@ -21,7 +24,6 @@
     "similarQuestions": [],
     "slug": "how-can-you-optimize-dom-manipulation-for-better-performance",
     "subtitle": null,
-    "title": "How can you optimize DOM manipulation for better performance?",
     "topics": [
       "web-api",
       "javascript",

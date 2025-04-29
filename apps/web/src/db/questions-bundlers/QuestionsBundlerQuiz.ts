@@ -2,7 +2,7 @@ import fs from 'fs';
 import grayMatter from 'gray-matter';
 
 import type {
-  QuestionMetadata,
+  InterviewsQuestionItemMinimal,
   QuestionQuiz,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 
@@ -19,7 +19,7 @@ async function readQuestionMetadataQuiz(
   quizSourceConfig: QuestionsQuizSourceConfig,
   slug: string,
   locale = 'en-US',
-): Promise<QuestionMetadata> {
+): Promise<InterviewsQuestionItemMinimal> {
   // Read frontmatter from MDX file.
   const filePath = quizSourceConfig.questionsItemFilePath(slug, locale);
 
@@ -30,14 +30,17 @@ async function readQuestionMetadataQuiz(
   const metadataPath = quizSourceConfig.questionsItemMetadataPath(slug);
   const metadataJSON = JSON.parse(String(fs.readFileSync(metadataPath)));
   // Combine them together.
-  const metadata = normalizeQuestionFrontMatter(
+  const content = normalizeQuestionFrontMatter(
     { ...frontMatter, ...metadataJSON },
     'quiz',
   );
 
   return {
-    ...metadata,
-    gitHubEditUrl: quizSourceConfig.gitHubEditUrl(slug, locale),
+    ...content,
+    metadata: {
+      ...content.metadata,
+      gitHubEditUrl: quizSourceConfig.gitHubEditUrl(slug, locale),
+    },
   };
 }
 
@@ -45,9 +48,9 @@ async function readQuestionMetadataWithFallbackQuiz(
   quizSourceConfig: QuestionsQuizSourceConfig,
   slug: string,
   requestedLocale = 'en-US',
-): Promise<{ loadedLocale: string; metadata: QuestionMetadata }> {
+): Promise<{ content: InterviewsQuestionItemMinimal; loadedLocale: string }> {
   let loadedLocale = requestedLocale;
-  const metadata = await (async () => {
+  const content = await (async () => {
     try {
       return await readQuestionMetadataQuiz(
         quizSourceConfig,
@@ -66,8 +69,8 @@ async function readQuestionMetadataWithFallbackQuiz(
   })();
 
   return {
+    content,
     loadedLocale,
-    metadata,
   };
 }
 
@@ -76,21 +79,21 @@ export async function readQuestionQuiz(
   slug: string,
   locale = 'en-US',
 ): Promise<QuestionQuiz> {
-  const [metadata, description] = await Promise.all([
+  const [content, description] = await Promise.all([
     readQuestionMetadataQuiz(quizSourceConfig, slug, locale),
     readMDXFile(quizSourceConfig.questionsItemFilePath(slug, locale), {}),
   ]);
 
   return {
     description: null,
-    metadata,
+    ...content,
     solution: description,
   };
 }
 
 export async function readQuestionListMetadataQuiz(
   locale = 'en-US',
-): Promise<ReadonlyArray<QuestionMetadata>> {
+): Promise<ReadonlyArray<InterviewsQuestionItemMinimal>> {
   // Non-JavaScript.
   const nonJavaScriptQuestionsDirectories = fs
     .readdirSync(QuestionsQuizSourceConfigNonJavaScript.questionsListPath, {
@@ -102,13 +105,13 @@ export async function readQuestionListMetadataQuiz(
     nonJavaScriptQuestionsDirectories.map(async (dirent) => {
       const slug = dirent.name;
 
-      const { metadata } = await readQuestionMetadataWithFallbackQuiz(
+      const { content } = await readQuestionMetadataWithFallbackQuiz(
         QuestionsQuizSourceConfigNonJavaScript,
         slug,
         locale,
       );
 
-      return metadata;
+      return content;
     }),
   );
 
@@ -123,13 +126,13 @@ export async function readQuestionListMetadataQuiz(
     javaScriptQuestionsDirectories.map(async (dirent) => {
       const slug = dirent.name;
 
-      const { metadata } = await readQuestionMetadataWithFallbackQuiz(
+      const { content } = await readQuestionMetadataWithFallbackQuiz(
         QuestionsQuizSourceConfigJavaScript,
         slug,
         locale,
       );
 
-      return metadata;
+      return content;
     }),
   );
 
@@ -144,13 +147,13 @@ export async function readQuestionListMetadataQuiz(
     reactQuestionsDirectories.map(async (dirent) => {
       const slug = dirent.name;
 
-      const { metadata } = await readQuestionMetadataWithFallbackQuiz(
+      const { content } = await readQuestionMetadataWithFallbackQuiz(
         QuestionsQuizSourceConfigReact,
         slug,
         locale,
       );
 
-      return metadata;
+      return content;
     }),
   );
 
@@ -160,5 +163,5 @@ export async function readQuestionListMetadataQuiz(
     ...reactQuestions,
   ];
 
-  return questions.filter(({ published }) => published);
+  return questions.filter(({ metadata }) => metadata.published);
 }

@@ -7,6 +7,10 @@
     "/src/number-of-arguments.submit.test.ts": "import numberOfArguments from './number-of-arguments';\n\ndescribe('numberOfArguments', () => {\n  test('no arguments', () => {\n    expect(numberOfArguments()).toBe(0);\n  });\n\n  test('one argument', () => {\n    expect(numberOfArguments(0)).toBe(1);\n    expect(numberOfArguments(null)).toBe(1);\n    expect(numberOfArguments(undefined)).toBe(1);\n    expect(numberOfArguments(NaN)).toBe(1);\n    expect(numberOfArguments(true)).toBe(1);\n    expect(numberOfArguments(false)).toBe(1);\n    expect(numberOfArguments([1, 2, 3])).toBe(1);\n    expect(numberOfArguments({})).toBe(1);\n  });\n\n  test('two arguments', () => {\n    expect(numberOfArguments(0, 1)).toBe(2);\n    expect(numberOfArguments(true, false)).toBe(2);\n    expect(numberOfArguments([1, 2, 3], [4, 5, 6])).toBe(2);\n    expect(numberOfArguments({}, [])).toBe(2);\n  });\n\n  test('multiple arguments', () => {\n    expect(numberOfArguments(0, 1, 2)).toBe(3);\n    expect(numberOfArguments(true, false, null)).toBe(3);\n    expect(numberOfArguments([1, 2, 3], [4, 5, 6], [7, 8, 9])).toBe(3);\n    expect(numberOfArguments(...[1, 2, 3])).toBe(3);\n    expect(numberOfArguments({}, [], new Set())).toBe(3);\n  });\n});\n",
     "/src/number-of-arguments.ts": "export default function numberOfArguments(...args: Array<any>): number {\n  return arguments.length;\n}\n"
   },
+  "info": {
+    "excerpt": "Implement a function that returns the number of arguments it was called with",
+    "title": "Number of Arguments"
+  },
   "metadata": {
     "access": "premium",
     "author": null,
@@ -14,7 +18,6 @@
     "created": 1683331200,
     "difficulty": "easy",
     "duration": 5,
-    "excerpt": "Implement a function that returns the number of arguments it was called with",
     "featured": false,
     "format": "javascript",
     "frameworkDefault": null,
@@ -36,7 +39,6 @@
     ],
     "slug": "number-of-arguments",
     "subtitle": null,
-    "title": "Number of Arguments",
     "topics": []
   },
   "skeleton": {

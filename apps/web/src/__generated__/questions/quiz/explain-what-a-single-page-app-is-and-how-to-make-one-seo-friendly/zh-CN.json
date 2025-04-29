@@ -1,5 +1,9 @@
 {
   "description": null,
+  "info": {
+    "excerpt": null,
+    "title": "解释什么是单页应用程序以及如何使其对 SEO 友好"
+  },
   "metadata": {
     "access": "free",
     "author": null,
@@ -7,7 +11,6 @@
     "created": 1630800000,
     "difficulty": "hard",
     "duration": 5,
-    "excerpt": null,
     "featured": false,
     "format": "quiz",
     "frameworkDefault": null,
@@ -21,7 +24,6 @@
     "similarQuestions": [],
     "slug": "explain-what-a-single-page-app-is-and-how-to-make-one-seo-friendly",
     "subtitle": null,
-    "title": "解释什么是单页应用程序以及如何使其对 SEO 友好",
     "topics": [
       "javascript",
       "html"

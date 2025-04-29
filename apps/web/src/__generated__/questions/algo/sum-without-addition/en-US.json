@@ -9,6 +9,10 @@
     "/src/sum-without-addition.submit.test.ts": "import sumWithoutAddition from './sum-without-addition';\nimport submitTestCases from './submit.tests.json';\n\ndescribe('sumWithoutAddition', () => {\n  submitTestCases.forEach((example: any) => {\n    test(`a = ${example.input[0][1]} b = ${example.input[1][1]}`, () => {\n      expect(\n        sumWithoutAddition(example.input[0][1], example.input[1][1]),\n      ).toStrictEqual(example.output);\n    });\n  });\n});\n",
     "/src/sum-without-addition.ts": "export default function sumWithoutAddition(a: number, b: number): number {\n  // Initialize a variable carry to hold the carry bits generated during each iteration\n  let carry: number = 0;\n\n  // Loop continues as long as there's a carry bit or bits to process in a or b\n  while (b !== 0 || carry !== 0) {\n    // Extract the carry bit from the AND operation of a and b\n    carry = a & b;\n\n    // Use the XOR operation to add a and b without the carry bit\n    a = a ^ b;\n\n    // Left shift the carry bit for the next iteration\n    b = carry << 1;\n  }\n\n  // Return the final result, which is stored in 'a' after all carry bits have been processed\n  return a;\n}\n"
   },
+  "info": {
+    "excerpt": "Implement a function to find the sum of two integers without using + and - operator",
+    "title": "Sum Without Addition"
+  },
   "metadata": {
     "access": "standard",
     "author": "hiten",
@@ -16,7 +20,6 @@
     "created": 1718928000,
     "difficulty": "medium",
     "duration": 35,
-    "excerpt": "Implement a function to find the sum of two integers without using + and - operator",
     "featured": false,
     "format": "algo",
     "frameworkDefault": null,
@@ -33,7 +36,6 @@
     "similarQuestions": [],
     "slug": "sum-without-addition",
     "subtitle": null,
-    "title": "Sum Without Addition",
     "topics": [
       "binary"
     ]

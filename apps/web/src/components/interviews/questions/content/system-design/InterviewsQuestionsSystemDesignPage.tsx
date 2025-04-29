@@ -8,7 +8,7 @@ import GuidesMainLayout from '~/components/guides/GuidesMainLayout';
 import type { TableOfContents } from '~/components/guides/GuidesTableOfContents';
 import InterviewsPurchasePaywall from '~/components/interviews/purchase/InterviewsPurchasePaywall';
 import type {
-  QuestionMetadata,
+  InterviewsQuestionItemMinimal,
   QuestionSystemDesign,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import { InterviewsQuestionsSystemDesignReady } from '~/components/interviews/questions/content/system-design/InterviewsQuestionsSystemDesignConfig';
@@ -22,7 +22,7 @@ type Props = Readonly<{
   canViewPremiumContent: boolean;
   isQuestionLocked: boolean;
   question: QuestionSystemDesign;
-  questions: ReadonlyArray<QuestionMetadata>;
+  questions: ReadonlyArray<InterviewsQuestionItemMinimal>;
   studyListKey?: string;
 }>;
 

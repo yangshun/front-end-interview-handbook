@@ -7,6 +7,10 @@
     "/src/in-range.submit.test.ts": "import inRange from './in-range';\n\ndescribe('inRange', () => {\n  test('both `start` and `end` specified', () => {\n    expect(inRange(1, 1, 5)).toBe(true);\n    expect(inRange(3, 1, 5)).toBe(true);\n    expect(inRange(0, 1, 5)).toBe(false);\n    expect(inRange(5, 1, 5)).toBe(false);\n  });\n\n  test('differently signed `start` and positive `end`', () => {\n    expect(inRange(-1, -2, 5)).toBe(true);\n    expect(inRange(5, -2, 5)).toBe(false);\n    expect(inRange(-1, 5, -2)).toBe(true);\n  });\n\n  test('only 2 arguments specified', () => {\n    expect(inRange(3, 5)).toBe(true);\n    expect(inRange(5, 5)).toBe(false);\n    expect(inRange(6, 5)).toBe(false);\n  });\n\n  test('swap `start` and `end` when `start` > `end`', () => {\n    expect(inRange(2, 5, 1)).toBe(true);\n    expect(inRange(-3, -2, -6)).toBe(true);\n  });\n\n  test('floating point value', () => {\n    expect(inRange(0.5, 5)).toBe(true);\n    expect(inRange(1.2, 1, 5)).toBe(true);\n    expect(inRange(5.2, 5)).toBe(false);\n    expect(inRange(0.5, 1, 5)).toBe(false);\n    expect(inRange(-4.5, -2, -6)).toBe(true);\n  });\n});\n",
     "/src/in-range.ts": "export default function inRange(\n  value: number,\n  startParam: number,\n  endParam?: number,\n): boolean {\n  let start = startParam;\n  let end = endParam;\n  if (end === undefined) {\n    end = start;\n    start = 0;\n  }\n\n  if (start < end) {\n    return value >= start && value < end;\n  }\n\n  return value >= end && value < start;\n}\n"
   },
+  "info": {
+    "excerpt": "实现一个函数来检查一个数字是否在两个数字之间",
+    "title": "在范围内"
+  },
   "metadata": {
     "access": "premium",
     "author": null,
@@ -14,7 +18,6 @@
     "created": 1683331200,
     "difficulty": "easy",
     "duration": 10,
-    "excerpt": "实现一个函数来检查一个数字是否在两个数字之间",
     "featured": false,
     "format": "javascript",
     "frameworkDefault": null,
@@ -33,7 +36,6 @@
     ],
     "slug": "in-range",
     "subtitle": null,
-    "title": "在范围内",
     "topics": []
   },
   "skeleton": {

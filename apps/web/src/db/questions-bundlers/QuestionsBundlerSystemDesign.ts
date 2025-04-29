@@ -3,7 +3,7 @@ import grayMatter from 'gray-matter';
 import path from 'path';
 
 import type {
-  QuestionMetadata,
+  InterviewsQuestionItemMinimal,
   QuestionSystemDesign,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 
@@ -17,7 +17,7 @@ import { normalizeQuestionFrontMatter } from '../QuestionsUtils';
 async function readQuestionMetadataSystemDesign(
   slug: string,
   locale = 'en-US',
-): Promise<QuestionMetadata> {
+): Promise<InterviewsQuestionItemMinimal> {
   const questionPath = getQuestionSrcPathSystemDesign(slug);
 
   // Read frontmatter from MDX file.
@@ -39,9 +39,9 @@ async function readQuestionMetadataSystemDesign(
 async function readQuestionMetadataWithFallbackSystemDesign(
   slug: string,
   requestedLocale = 'en-US',
-): Promise<{ loadedLocale: string; metadata: QuestionMetadata }> {
+): Promise<{ content: InterviewsQuestionItemMinimal; loadedLocale: string }> {
   let loadedLocale = requestedLocale;
-  const metadata = await (async () => {
+  const content = await (async () => {
     try {
       return await readQuestionMetadataSystemDesign(slug, requestedLocale);
     } catch {
@@ -52,8 +52,8 @@ async function readQuestionMetadataWithFallbackSystemDesign(
   })();
 
   return {
+    content,
     loadedLocale,
-    metadata,
   };
 }
 
@@ -63,7 +63,7 @@ export async function readQuestionSystemDesign(
 ): Promise<QuestionSystemDesign> {
   const questionPath = getQuestionSrcPathSystemDesign(slug);
 
-  const [metadata, description, solution] = await Promise.all([
+  const [content, description, solution] = await Promise.all([
     readQuestionMetadataSystemDesign(slug, locale),
     readMDXFile(path.join(questionPath, 'description', `${locale}.mdx`), {}),
     readMDXFile(path.join(questionPath, 'solution', `${locale}.mdx`), {
@@ -73,14 +73,14 @@ export async function readQuestionSystemDesign(
 
   return {
     description,
-    metadata,
     solution,
+    ...content,
   };
 }
 
 export async function readQuestionListMetadataSystemDesign(
   locale = 'en-US',
-): Promise<ReadonlyArray<QuestionMetadata>> {
+): Promise<ReadonlyArray<InterviewsQuestionItemMinimal>> {
   const directories = fs
     .readdirSync(QUESTIONS_SRC_DIR_SYSTEM_DESIGN, {
       withFileTypes: true,
@@ -91,14 +91,14 @@ export async function readQuestionListMetadataSystemDesign(
     directories.map(async (dirent) => {
       const slug = dirent.name;
 
-      const { metadata } = await readQuestionMetadataWithFallbackSystemDesign(
+      const { content } = await readQuestionMetadataWithFallbackSystemDesign(
         slug,
         locale,
       );
 
-      return metadata;
+      return content;
     }),
   );
 
-  return questions.filter(({ published }) => published);
+  return questions.filter(({ metadata }) => metadata.published);
 }

@@ -3,7 +3,7 @@
 import { trpc } from '~/hooks/trpc';
 
 import Timestamp from '~/components/common/datetime/Timestamp';
-import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
+import type { InterviewsQuestionInfo } from '~/components/interviews/questions/common/QuestionsTypes';
 import QuestionLanguages from '~/components/interviews/questions/metadata/QuestionLanguages';
 import { useIntl } from '~/components/intl';
 import MDXCodeBlock from '~/components/mdx/MDXCodeBlock';
@@ -18,12 +18,12 @@ import { staticLowerCase } from '~/utils/typescript/stringTransform';
 import JavaScriptCodingWorkspacePushCodeToEditorButton from './JavaScriptCodingWorkspacePushCodeToEditorButton';
 
 type Props = Readonly<{
-  metadata: QuestionMetadata;
+  info: InterviewsQuestionInfo;
   submissionId: string;
 }>;
 
 export default function JavaScriptCodingWorkspaceSubmissionTab({
-  metadata,
+  info,
   submissionId,
 }: Props) {
   const intl = useIntl();
@@ -57,7 +57,7 @@ export default function JavaScriptCodingWorkspaceSubmissionTab({
                     description: 'Coding workspace submission title',
                     id: 'K2gA7K',
                   },
-                  { title: metadata.title },
+                  { title: info.title },
                 )}
               </Heading>
               <QuestionLanguages

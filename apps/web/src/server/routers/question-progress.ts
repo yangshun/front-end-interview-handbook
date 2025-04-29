@@ -212,22 +212,20 @@ export const questionProgressRouter = router({
         input: { question: questionParam, studyListKey },
         ctx: { locale, viewer },
       }) => {
-        const [userProfile, { question: questionMetadata }] = await Promise.all(
-          [
-            prisma.profile.findFirstOrThrow({
-              select: {
-                premium: true,
-              },
-              where: {
-                id: viewer.id,
-              },
-            }),
-            fetchQuestion(questionParam, locale),
-          ],
-        );
-
+        const [userProfile, { question }] = await Promise.all([
+          prisma.profile.findFirstOrThrow({
+            select: {
+              premium: true,
+            },
+            where: {
+              id: viewer.id,
+            },
+          }),
+          fetchQuestion(questionParam, locale),
+        ]);
+        const { metadata } = question;
         const isQuestionLockedForViewer =
-          questionMetadata?.access === 'premium' && !userProfile.premium;
+          metadata?.access === 'premium' && !userProfile.premium;
 
         if (studyListKey) {
           const session = await prisma.learningSession.findFirst({
@@ -245,7 +243,7 @@ export const questionProgressRouter = router({
           const [sessionProgress, questionProgress] = await Promise.all([
             prisma.learningSessionProgress.findFirst({
               where: {
-                key: hashQuestion(questionMetadata),
+                key: hashQuestion(metadata),
                 sessionId: session.id,
               },
             }),
@@ -261,8 +259,8 @@ export const questionProgressRouter = router({
                 status: true,
               },
               where: {
-                format: questionMetadata.format,
-                slug: questionMetadata.slug,
+                format: metadata.format,
+                slug: metadata.slug,
                 userId: viewer.id,
               },
             }),
@@ -299,8 +297,8 @@ export const questionProgressRouter = router({
             status: true,
           },
           where: {
-            format: questionMetadata.format,
-            slug: questionMetadata.slug,
+            format: metadata.format,
+            slug: metadata.slug,
             userId: viewer.id,
           },
         });
@@ -368,29 +366,29 @@ export const questionProgressRouter = router({
       );
 
       const metadataMap = new Map(
-        questionProgressMetadata.map((metadata) => [
+        questionProgressMetadata.map(({ metadata, info }) => [
           hashQuestion(metadata),
-          metadata,
+          { info, metadata },
         ]),
       );
 
       return questionProgressList
         .map((progress) => {
-          const metadata = metadataMap.get(
+          const content = metadataMap.get(
             hashQuestion({
               format: progress.format as QuestionFormat,
               slug: progress.slug,
             }),
           );
 
-          if (metadata == null) {
+          if (content == null) {
             return null;
           }
 
           return {
             createdAt: progress.createdAt,
             id: progress.id,
-            metadata,
+            ...content,
           };
         })
         .flatMap((progress) => (progress == null ? [] : [progress]));

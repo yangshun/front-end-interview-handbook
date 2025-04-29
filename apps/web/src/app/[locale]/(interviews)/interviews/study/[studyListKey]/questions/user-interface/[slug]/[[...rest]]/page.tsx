@@ -3,7 +3,7 @@ import type { Metadata } from 'next/types';
 
 import InterviewsPurchaseQuestionPaywallPage from '~/components/interviews/purchase/InterviewsPurchaseQuestionPaywallPage';
 import InterviewsPurchaseStudyListPaywallPage from '~/components/interviews/purchase/InterviewsPurchaseStudyListPaywallPage';
-import type { QuestionUserInterface } from '~/components/interviews/questions/common/QuestionsTypes';
+import type { InterviewsQuestionItemUserInterface } from '~/components/interviews/questions/common/QuestionsTypes';
 import { QuestionFrameworkLabels } from '~/components/interviews/questions/common/QuestionsTypes';
 import type { QuestionUserInterfaceMode } from '~/components/interviews/questions/common/QuestionUserInterfacePath';
 import { determineFrameworkAndMode } from '~/components/interviews/questions/common/QuestionUserInterfacePath';
@@ -31,7 +31,7 @@ type Props = Readonly<{
 }>;
 
 function frameworkAgnosticLinks(
-  question: QuestionUserInterface,
+  question: InterviewsQuestionItemUserInterface,
   mode: QuestionUserInterfaceMode,
 ) {
   const frameworkAgnosticPathname = `${question.metadata.href}${
@@ -82,7 +82,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             },
             {
               questionFramework: QuestionFrameworkLabels[question.framework],
-              questionTitle: question.metadata.title,
+              questionTitle: question.info.title,
             },
           )
         : intl.formatMessage(
@@ -94,7 +94,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             },
             {
               questionFramework: QuestionFrameworkLabels[question.framework],
-              questionTitle: question.metadata.title,
+              questionTitle: question.info.title,
             },
           );
 
@@ -111,7 +111,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
               },
               {
                 questionFramework: QuestionFrameworkLabels[question.framework],
-                questionTitle: question.metadata.title,
+                questionTitle: question.info.title,
               },
             )
           : intl.formatMessage(
@@ -122,7 +122,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
                 id: 'KDDzWX',
               },
               {
-                questionExcerpt: question.metadata.excerpt,
+                questionExcerpt: question.info.excerpt,
                 questionFramework: QuestionFrameworkLabels[question.framework],
               },
             ),
@@ -142,7 +142,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
               },
               {
                 questionFramework: QuestionFrameworkLabels[question.framework],
-                questionTitle: question.metadata.title,
+                questionTitle: question.info.title,
               },
             )
           : intl.formatMessage(
@@ -155,7 +155,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
               },
               {
                 questionFramework: QuestionFrameworkLabels[question.framework],
-                questionTitle: question.metadata.title,
+                questionTitle: question.info.title,
               },
             ),
     });
@@ -231,7 +231,7 @@ export default async function Page({ params }: Props) {
   ]);
   const nextQuestions = sortQuestionsMultiple(
     questions.filter((questionItem) =>
-      question.metadata.nextQuestions.includes(questionItem.slug),
+      question.metadata.nextQuestions.includes(questionItem.metadata.slug),
     ),
     [
       {
@@ -246,7 +246,7 @@ export default async function Page({ params }: Props) {
   );
   const similarQuestions = sortQuestionsMultiple(
     questions.filter((questionItem) =>
-      question.metadata.similarQuestions.includes(questionItem.slug),
+      question.metadata.similarQuestions.includes(questionItem.metadata.slug),
     ),
     [
       {
@@ -269,6 +269,7 @@ export default async function Page({ params }: Props) {
       metadata={question.metadata}
       mode={mode}
       studyListKey={studyListKey}
+      title={question.info.title}
     />
   ) : (
     <UserInterfaceCodingWorkspacePage

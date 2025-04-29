@@ -1,5 +1,9 @@
 {
   "description": null,
+  "info": {
+    "excerpt": null,
+    "title": "如何使用多种语言提供页面内容？"
+  },
   "metadata": {
     "access": "free",
     "author": null,
@@ -7,7 +11,6 @@
     "created": 1630800000,
     "difficulty": "hard",
     "duration": 5,
-    "excerpt": null,
     "featured": false,
     "format": "quiz",
     "frameworkDefault": null,
@@ -21,7 +24,6 @@
     "similarQuestions": [],
     "slug": "how-do-you-serve-a-page-with-content-in-multiple-languages",
     "subtitle": null,
-    "title": "如何使用多种语言提供页面内容？",
     "topics": [
       "html",
       "i18n"

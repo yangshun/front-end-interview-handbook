@@ -1,12 +1,15 @@
-import { GFE_PREFIX, JAVASCRIPT_TYPE } from '~/components/workspace/common/constants';
+import {
+  GFE_PREFIX,
+  JAVASCRIPT_TYPE,
+} from '~/components/workspace/common/constants';
 
 import type {
+  InterviewsQuestionMetadata,
   QuestionCodingWorkingLanguage,
-  QuestionMetadata,
 } from '../../interviews/questions/common/QuestionsTypes';
 
 function makeQuestionKey(
-  metadata: QuestionMetadata,
+  metadata: InterviewsQuestionMetadata,
   language: QuestionCodingWorkingLanguage,
 ): string {
   return `${GFE_PREFIX}:${JAVASCRIPT_TYPE}:${metadata.slug}${language === 'ts' ? ':ts' : ''}`;
@@ -20,7 +23,7 @@ export type Payload = Readonly<{
 }>;
 
 export function loadLocalJavaScriptQuestionCode(
-  metadata: QuestionMetadata,
+  metadata: InterviewsQuestionMetadata,
   language: QuestionCodingWorkingLanguage,
 ) {
   const questionKey = makeQuestionKey(metadata, language);
@@ -48,7 +51,7 @@ export function loadLocalJavaScriptQuestionCode(
 }
 
 export function saveJavaScriptQuestionCodeLocally(
-  metadata: QuestionMetadata,
+  metadata: InterviewsQuestionMetadata,
   language: QuestionCodingWorkingLanguage,
   code: string,
 ) {
@@ -67,7 +70,7 @@ export function saveJavaScriptQuestionCodeLocally(
 }
 
 export function deleteLocalJavaScriptQuestionCode(
-  metadata: QuestionMetadata,
+  metadata: InterviewsQuestionMetadata,
   language: QuestionCodingWorkingLanguage,
 ) {
   const questionKey = makeQuestionKey(metadata, language);

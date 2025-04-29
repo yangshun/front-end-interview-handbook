@@ -8,9 +8,9 @@ import { useAuthActiveEngagementPoints } from '~/components/auth/auth-points';
 import QuestionProgressAction from '~/components/interviews/questions/common/QuestionProgressAction';
 import QuestionReportIssueButton from '~/components/interviews/questions/common/QuestionReportIssueButton';
 import type {
+  InterviewsQuestionItemUserInterface,
+  InterviewsQuestionMetadata,
   QuestionFramework,
-  QuestionMetadata,
-  QuestionUserInterface,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import type { QuestionUserInterfaceMode } from '~/components/interviews/questions/common/QuestionUserInterfacePath';
 import { useIntl } from '~/components/intl';
@@ -26,9 +26,9 @@ type Props = Readonly<{
   framework: QuestionFramework;
   frameworkSolutionPath: string;
   isViewingSave: boolean;
-  metadata: QuestionMetadata;
+  metadata: InterviewsQuestionMetadata;
   mode: QuestionUserInterfaceMode;
-  question: QuestionUserInterface;
+  question: InterviewsQuestionItemUserInterface;
   resetToDefaultCode: () => void;
   slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE: string;
   studyListKey?: string;

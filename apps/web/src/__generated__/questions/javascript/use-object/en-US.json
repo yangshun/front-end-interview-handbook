@@ -7,6 +7,10 @@
     "/src/use-object.submit.test.ts": "import { act, renderHook } from '@testing-library/react';\n\nimport useObject from './use-object';\n\ndescribe('useObject', () => {\n  test('return values', () => {\n    const { result } = renderHook(() => useObject({}));\n\n    expect(Array.isArray(result.current)).toBe(true);\n    expect(result.current).toHaveLength(2);\n    expect(typeof result.current[0]).toBe('object');\n    expect(typeof result.current[1]).toBe('function');\n  });\n\n  test('initial value', () => {\n    const initialValue = { foo: 'bar' };\n    const { result } = renderHook(() => useObject(initialValue));\n\n    expect(result.current[0]).toEqual(initialValue);\n  });\n\n  test('update object', () => {\n    const { result } = renderHook(() => useObject({}));\n\n    act(() => result.current[1]({ foo: 'bar' }));\n\n    expect(result.current[0]).toEqual({ foo: 'bar' });\n  });\n\n  test('update object with updater function', () => {\n    const { result } = renderHook(() => useObject({}));\n\n    act(() => result.current[1]((prev) => ({ ...prev, foo: 'bar' })));\n\n    expect(result.current[0]).toEqual({ foo: 'bar' });\n  });\n\n  test('merge object', () => {\n    const { result } = renderHook(() =>\n      useObject<Record<string, string>>({ bar: 'foo' }),\n    );\n\n    act(() => result.current[1]({ foo: 'bar' }));\n\n    expect(result.current[0]).toEqual({ bar: 'foo', foo: 'bar' });\n  });\n\n  test('merge object with updater function', () => {\n    const { result } = renderHook(() =>\n      useObject<Record<string, string>>({ bar: 'foo' }),\n    );\n\n    act(() => result.current[1](() => ({ foo: 'bar' })));\n\n    expect(result.current[0]).toEqual({ bar: 'foo', foo: 'bar' });\n  });\n});\n",
     "/src/use-object.ts": "import { useCallback, useState } from 'react';\n\nfunction isPlainObject(value: unknown) {\n  return Object.prototype.toString.call(value) === '[object Object]';\n}\n\ntype UseObjectUpdater<T extends Record<string | number | symbol, any>> = (\n  partialOrUpdaterFunction: Partial<T> | ((prev: T) => Partial<T>),\n) => void;\n\nexport default function useObject<\n  T extends Record<string | number | symbol, any>,\n>(initialValue: T): [T, UseObjectUpdater<T>] {\n  const [state, setState] = useState(initialValue);\n\n  const merge: UseObjectUpdater<T> = useCallback((partialOrUpdaterFunction) => {\n    if (partialOrUpdaterFunction instanceof Function)\n      return setState((previousState) => {\n        const newState = partialOrUpdaterFunction(previousState);\n        if (!isPlainObject(newState)) {\n          throw new Error('Invalid new state');\n        }\n\n        return { ...previousState, ...newState };\n      });\n\n    if (!isPlainObject(partialOrUpdaterFunction)) {\n      throw new Error('Invalid new state');\n    }\n\n    setState((previousState) => ({\n      ...previousState,\n      ...partialOrUpdaterFunction,\n    }));\n  }, []);\n\n  return [state, merge];\n}\n"
   },
+  "info": {
+    "excerpt": "Implement a hook that manages an object value",
+    "title": "useObject"
+  },
   "metadata": {
     "access": "premium",
     "author": "phillmont",
@@ -14,7 +18,6 @@
     "created": 1742169600,
     "difficulty": "medium",
     "duration": 15,
-    "excerpt": "Implement a hook that manages an object value",
     "featured": false,
     "format": "javascript",
     "frameworkDefault": "react",
@@ -40,7 +43,6 @@
     ],
     "slug": "use-object",
     "subtitle": null,
-    "title": "useObject",
     "topics": [
       "react-hooks"
     ]

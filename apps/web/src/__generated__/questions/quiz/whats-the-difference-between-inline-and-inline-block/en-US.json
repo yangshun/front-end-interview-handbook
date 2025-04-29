@@ -1,5 +1,9 @@
 {
   "description": null,
+  "info": {
+    "excerpt": null,
+    "title": "What's the difference between `block`, `inline`, and `inline-block`?"
+  },
   "metadata": {
     "access": "free",
     "author": null,
@@ -9,7 +13,6 @@
     "created": 1630800000,
     "difficulty": "easy",
     "duration": 5,
-    "excerpt": null,
     "featured": false,
     "format": "quiz",
     "frameworkDefault": null,
@@ -23,7 +26,6 @@
     "similarQuestions": [],
     "slug": "whats-the-difference-between-inline-and-inline-block",
     "subtitle": null,
-    "title": "What's the difference between `block`, `inline`, and `inline-block`?",
     "topics": [
       "css"
     ],

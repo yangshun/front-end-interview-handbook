@@ -6,7 +6,7 @@ import { trpc } from '~/hooks/trpc';
 import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
 
 import { useToast } from '~/components/global/toasts/useToast';
-import type { QuestionUserInterface } from '~/components/interviews/questions/common/QuestionsTypes';
+import type { InterviewsQuestionItemUserInterface } from '~/components/interviews/questions/common/QuestionsTypes';
 import { FormattedMessage, useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
 import Dialog from '~/components/ui/Dialog';
@@ -70,7 +70,7 @@ function UpdateSaveButton({
 function NewSaveButton({
   question,
 }: Readonly<{
-  question: QuestionUserInterface;
+  question: InterviewsQuestionItemUserInterface;
   studyListKey?: string; // TODO(interviews): make save URLs study list-specific
 }>) {
   const intl = useIntl();
@@ -235,7 +235,7 @@ export default function UserInterfaceCodingWorkspaceSaveButton({
   question,
   studyListKey,
 }: Readonly<{
-  question: QuestionUserInterface;
+  question: InterviewsQuestionItemUserInterface;
   studyListKey?: string;
 }>) {
   const { save } = useUserInterfaceCodingWorkspaceSavesContext();

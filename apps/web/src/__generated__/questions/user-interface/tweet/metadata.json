@@ -1,50 +1,54 @@
 {
-  "access": "premium",
-  "author": "yangshun",
-  "companies": [],
-  "created": 1658188800,
-  "difficulty": "easy",
-  "duration": 20,
-  "excerpt": "Build a component that resembles a Tweet from Twitter",
-  "featured": false,
-  "format": "user-interface",
-  "frameworkDefault": "react",
-  "frameworks": [
-    {
-      "framework": "react",
-      "href": "/questions/user-interface/tweet/react"
-    },
-    {
-      "framework": "vanilla",
-      "href": "/questions/user-interface/tweet/vanilla"
-    },
-    {
-      "framework": "angular",
-      "href": "/questions/user-interface/tweet/angular"
-    },
-    {
-      "framework": "vue",
-      "href": "/questions/user-interface/tweet/vue"
-    },
-    {
-      "framework": "svelte",
-      "href": "/questions/user-interface/tweet/svelte"
-    }
-  ],
-  "href": "/questions/user-interface/tweet",
-  "importance": "medium",
-  "languages": [
-    "html",
-    "css"
-  ],
-  "nextQuestions": [],
-  "published": true,
-  "ranking": 100,
-  "similarQuestions": [
-    "holy-grail"
-  ],
-  "slug": "tweet",
-  "subtitle": null,
-  "title": "Tweet",
-  "topics": []
+  "info": {
+    "excerpt": "Build a component that resembles a Tweet from Twitter",
+    "title": "Tweet"
+  },
+  "metadata": {
+    "access": "premium",
+    "author": "yangshun",
+    "companies": [],
+    "created": 1658188800,
+    "difficulty": "easy",
+    "duration": 20,
+    "featured": false,
+    "format": "user-interface",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/user-interface/tweet/react"
+      },
+      {
+        "framework": "vanilla",
+        "href": "/questions/user-interface/tweet/vanilla"
+      },
+      {
+        "framework": "angular",
+        "href": "/questions/user-interface/tweet/angular"
+      },
+      {
+        "framework": "vue",
+        "href": "/questions/user-interface/tweet/vue"
+      },
+      {
+        "framework": "svelte",
+        "href": "/questions/user-interface/tweet/svelte"
+      }
+    ],
+    "href": "/questions/user-interface/tweet",
+    "importance": "medium",
+    "languages": [
+      "html",
+      "css"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "holy-grail"
+    ],
+    "slug": "tweet",
+    "subtitle": null,
+    "topics": []
+  }
 }

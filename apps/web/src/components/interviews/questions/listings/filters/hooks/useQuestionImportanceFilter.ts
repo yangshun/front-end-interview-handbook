@@ -68,7 +68,7 @@ export default function useQuestionImportanceFilter({
     id: 'importance',
     matches: (question) =>
       importanceFilters.size === 0 ||
-      importanceFilters.has(question.importance),
+      importanceFilters.has(question.metadata.importance),
     name: intl.formatMessage({
       defaultMessage: 'Importance',
       description: 'Question importance',

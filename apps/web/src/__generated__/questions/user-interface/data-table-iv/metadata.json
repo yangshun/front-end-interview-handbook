@@ -1,36 +1,40 @@
 {
-  "access": "premium",
-  "author": "yangshun",
-  "companies": [
-    "palantir",
-    "amazon",
-    "stripe"
-  ],
-  "created": 1723766400,
-  "difficulty": "hard",
-  "duration": 40,
-  "excerpt": "Build a generalized data table with pagination, sorting and filtering features",
-  "featured": false,
-  "format": "user-interface",
-  "frameworkDefault": "react",
-  "frameworks": [
-    {
-      "framework": "react",
-      "href": "/questions/user-interface/data-table-iv/react"
-    }
-  ],
-  "href": "/questions/user-interface/data-table-iv",
-  "importance": "low",
-  "languages": [
-    "html",
-    "js"
-  ],
-  "nextQuestions": [],
-  "published": true,
-  "ranking": 100,
-  "similarQuestions": [],
-  "slug": "data-table-iv",
-  "subtitle": null,
-  "title": "Data Table IV",
-  "topics": []
+  "info": {
+    "excerpt": "Build a generalized data table with pagination, sorting and filtering features",
+    "title": "Data Table IV"
+  },
+  "metadata": {
+    "access": "premium",
+    "author": "yangshun",
+    "companies": [
+      "palantir",
+      "amazon",
+      "stripe"
+    ],
+    "created": 1723766400,
+    "difficulty": "hard",
+    "duration": 40,
+    "featured": false,
+    "format": "user-interface",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/user-interface/data-table-iv/react"
+      }
+    ],
+    "href": "/questions/user-interface/data-table-iv",
+    "importance": "low",
+    "languages": [
+      "html",
+      "js"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "data-table-iv",
+    "subtitle": null,
+    "topics": []
+  }
 }

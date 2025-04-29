@@ -31,7 +31,7 @@ import type {
   BaseGuideNavigationLink,
   GuideNavigation,
 } from '~/components/guides/types';
-import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
+import type { InterviewsQuestionItemMinimal } from '~/components/interviews/questions/common/QuestionsTypes';
 import { InterviewsQuestionsSystemDesignReady } from '~/components/interviews/questions/content/system-design/InterviewsQuestionsSystemDesignConfig';
 import { useIntl } from '~/components/intl';
 
@@ -223,13 +223,13 @@ export function useSystemDesignGuides() {
 }
 
 export function useFrontEndSystemDesignPlaybookNavigation(
-  questions: ReadonlyArray<QuestionMetadata>,
+  questions: ReadonlyArray<InterviewsQuestionItemMinimal>,
 ) {
   const intl = useIntl();
   const systemDesignGuides = useSystemDesignGuides();
   const questionsSorted = questions
     .slice()
-    .sort((a, b) => a.ranking - b.ranking);
+    .sort((a, b) => a.metadata.ranking - b.metadata.ranking);
 
   const navigation: GuideNavigation<
     FrontEndSystemDesignPlaybookPathType,
@@ -256,16 +256,16 @@ export function useFrontEndSystemDesignPlaybookNavigation(
           items: questionsSorted
             .filter((questionMetadata) =>
               InterviewsQuestionsSystemDesignReady.includes(
-                questionMetadata.slug,
+                questionMetadata.metadata.slug,
               ),
             )
             .map((questionMetadata) => ({
-              href: questionMetadata.href,
-              icon: SystemDesignIcons[questionMetadata.slug],
-              id: questionMetadata.slug,
+              href: questionMetadata.metadata.href,
+              icon: SystemDesignIcons[questionMetadata.metadata.slug],
+              id: questionMetadata.metadata.slug,
               kind: 'question',
-              label: questionMetadata.title,
-              premium: questionMetadata.access === 'premium',
+              label: questionMetadata.info.title,
+              premium: questionMetadata.metadata.access === 'premium',
               type: 'link',
             })),
           label: intl.formatMessage({
@@ -283,16 +283,16 @@ export function useFrontEndSystemDesignPlaybookNavigation(
             .filter(
               (questionMetadata) =>
                 !InterviewsQuestionsSystemDesignReady.includes(
-                  questionMetadata.slug,
+                  questionMetadata.metadata.slug,
                 ),
             )
             .map((questionMetadata) => ({
-              href: questionMetadata.href,
-              icon: SystemDesignIcons[questionMetadata.slug],
-              id: questionMetadata.slug,
+              href: questionMetadata.metadata.href,
+              icon: SystemDesignIcons[questionMetadata.metadata.slug],
+              id: questionMetadata.metadata.slug,
               kind: 'question',
-              label: questionMetadata.title,
-              premium: questionMetadata.access === 'premium',
+              label: questionMetadata.info.title,
+              premium: questionMetadata.metadata.access === 'premium',
               type: 'link',
             })),
           label: intl.formatMessage({

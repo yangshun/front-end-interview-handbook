@@ -9,6 +9,10 @@
     "/src/trie-prefix-tree.submit.test.ts": "import Trie from './trie-prefix-tree';\nimport submitTestCases from './submit.tests.json';\n\nfunction processMethods(methods: string[], words: string[]): (number | null)[] {\n  const res: (number | null)[] = [];\n  const obj = new Trie();\n\n  for (let i = 0; i < methods.length; i++) {\n    switch (methods[i]) {\n      case 'insert': {\n        obj.insert(words[i]);\n        res.push(null);\n        break;\n      }\n      case 'search': {\n        res.push(+obj.search(words[i]));\n        break;\n      }\n      case 'startsWith': {\n        res.push(+obj.startsWith(words[i]));\n        break;\n      }\n    }\n  }\n\n  return res;\n}\n\ndescribe('trie', () => {\n  (submitTestCases as any[]).forEach((example: any) => {\n    test(`methods = [${example.input[0][1]}] words = [${example.input[1][1]}]`, () => {\n      const result = processMethods(example.input[0][1], example.input[1][1]);\n\n      expect(result).toStrictEqual(example.output);\n    });\n  });\n});\n",
     "/src/trie-prefix-tree.ts": "class TrieNode {\n  // Array to hold child nodes\n  private links: TrieNode[] = [];\n  private static readonly NUM_ALPHABETS = 26; // Number of possible links (a-z)\n  private isEnd: boolean = false; // Indicates if this node is the end of a word\n\n  constructor() {\n    this.links = new Array(TrieNode.NUM_ALPHABETS); // Initialize the array with 26 slots\n  }\n\n  // Check if a child node for the given character exists\n  public containsKey(ch: string): boolean {\n    return this.links[ch.charCodeAt(0) - 'a'.charCodeAt(0)] !== undefined;\n  }\n\n  // Get the child node for the given character\n  public get(ch: string): TrieNode | undefined {\n    return this.links[ch.charCodeAt(0) - 'a'.charCodeAt(0)];\n  }\n\n  // Put a child node for the given character\n  public put(ch: string, node: TrieNode): void {\n    this.links[ch.charCodeAt(0) - 'a'.charCodeAt(0)] = node;\n  }\n\n  // Set this node as the end of a word\n  public setEnd(): void {\n    this.isEnd = true;\n  }\n\n  // Check if this node is the end of a word\n  public isEndNode(): boolean {\n    return this.isEnd;\n  }\n}\n\nexport default class Trie {\n  private root: TrieNode = new TrieNode();\n\n  constructor() {\n    this.root = new TrieNode();\n  }\n\n  // Inserts a word into the trie\n  public insert(word: string): void {\n    let node: TrieNode = this.root;\n\n    for (let i = 0; i < word.length; i++) {\n      const currentChar: string = word.charAt(i);\n      if (!node.containsKey(currentChar)) {\n        node.put(currentChar, new TrieNode());\n      }\n      node = node.get(currentChar)!; // Non-null assertion since containsKey checks existence\n    }\n\n    node.setEnd();\n  }\n\n  // Search for the prefix or whole key in the trie\n  private searchPrefix(word: string): TrieNode | null {\n    let node: TrieNode = this.root;\n    for (let i = 0; i < word.length; i++) {\n      const curLetter: string = word.charAt(i);\n      if (node.containsKey(curLetter)) {\n        node = node.get(curLetter)!; // Non-null assertion since containsKey checks existence\n      } else {\n        return null;\n      }\n    }\n    return node;\n  }\n\n  // Returns if the word is in the trie\n  public search(word: string): boolean {\n    const node: TrieNode | null = this.searchPrefix(word);\n    return node !== null && node.isEndNode();\n  }\n\n  // Returns if there is any word in the trie that starts with the given prefix\n  public startsWith(prefix: string): boolean {\n    const node: TrieNode | null = this.searchPrefix(prefix);\n    return node !== null;\n  }\n}\n"
   },
+  "info": {
+    "excerpt": "Implement a trie-prefix-tree with insert, search, and starts with functionality",
+    "title": "Trie (Prefix Tree)"
+  },
   "metadata": {
     "access": "standard",
     "author": "hiten",
@@ -16,7 +20,6 @@
     "created": 1724976000,
     "difficulty": "medium",
     "duration": 40,
-    "excerpt": "Implement a trie-prefix-tree with insert, search, and starts with functionality",
     "featured": false,
     "format": "algo",
     "frameworkDefault": null,
@@ -33,7 +36,6 @@
     "similarQuestions": [],
     "slug": "trie-prefix-tree",
     "subtitle": null,
-    "title": "Trie (Prefix Tree)",
     "topics": [
       "tree",
       "trie"

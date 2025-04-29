@@ -7,6 +7,10 @@
     "/src/use-boolean-ii.submit.test.ts": "import { act, renderHook } from '@testing-library/react';\n\nimport useBoolean from './use-boolean-ii';\n\ndescribe('useBoolean', () => {\n  test('return values', () => {\n    const { result } = renderHook(() => useBoolean());\n\n    expect(result.current.value).toBe(false);\n    expect(typeof result.current.setTrue).toBe('function');\n    expect(typeof result.current.setFalse).toBe('function');\n  });\n\n  describe('initial values', () => {\n    test('initial true', () => {\n      const { result } = renderHook(() => useBoolean(true));\n\n      expect(result.current.value).toBe(true);\n    });\n\n    test('initial false', () => {\n      const { result } = renderHook(() => useBoolean(false));\n\n      expect(result.current.value).toBe(false);\n    });\n  });\n\n  describe('setTrue', () => {\n    test('once', () => {\n      const { result } = renderHook(() => useBoolean(false));\n\n      act(() => {\n        result.current.setTrue();\n      });\n      expect(result.current.value).toBe(true);\n    });\n\n    test('twice', () => {\n      const { result } = renderHook(() => useBoolean(false));\n\n      act(() => {\n        result.current.setTrue();\n        result.current.setTrue();\n      });\n      expect(result.current.value).toBe(true);\n    });\n  });\n\n  describe('setFalse', () => {\n    test('once', () => {\n      const { result } = renderHook(() => useBoolean(true));\n\n      act(() => {\n        result.current.setFalse();\n      });\n      expect(result.current.value).toBe(false);\n    });\n\n    test('twice', () => {\n      const { result } = renderHook(() => useBoolean(true));\n\n      act(() => {\n        result.current.setFalse();\n        result.current.setFalse();\n      });\n      expect(result.current.value).toBe(false);\n    });\n  });\n\n  test('integration', () => {\n    const { result } = renderHook(() => useBoolean(true));\n\n    act(() => {\n      result.current.setFalse();\n    });\n    expect(result.current.value).toBe(false);\n\n    act(() => {\n      result.current.setTrue();\n    });\n    expect(result.current.value).toBe(true);\n  });\n\n  test('memoizes functions', () => {\n    const { result, rerender } = renderHook(() => useBoolean());\n\n    const setTrue = result.current.setTrue;\n    const setFalse = result.current.setFalse;\n\n    rerender();\n\n    expect(result.current.setTrue).toBe(setTrue);\n    expect(result.current.setFalse).toBe(setFalse);\n  });\n});\n",
     "/src/use-boolean-ii.ts": "import { useCallback, useState } from 'react';\n\ntype UseBooleanReturn = {\n  /** The current boolean state value. */\n  value: boolean;\n  /** Function to set the boolean state to `true`. */\n  setTrue: () => void;\n  /** Function to set the boolean state to `false`. */\n  setFalse: () => void;\n};\n\nexport default function useBoolean(initialValue = false): UseBooleanReturn {\n  const [value, setValue] = useState(initialValue);\n\n  const setTrue = useCallback(() => {\n    setValue(true);\n  }, []);\n\n  const setFalse = useCallback(() => {\n    setValue(false);\n  }, []);\n\n  return { value, setTrue, setFalse };\n}\n"
   },
+  "info": {
+    "excerpt": "实现 useBoolean hook 的优化版本",
+    "title": "useBoolean II"
+  },
   "metadata": {
     "access": "premium",
     "author": "phillmont",
@@ -14,7 +18,6 @@
     "created": 1742169600,
     "difficulty": "easy",
     "duration": 15,
-    "excerpt": "实现 useBoolean hook 的优化版本",
     "featured": false,
     "format": "javascript",
     "frameworkDefault": "react",
@@ -39,7 +42,6 @@
     ],
     "slug": "use-boolean-ii",
     "subtitle": null,
-    "title": "useBoolean II",
     "topics": [
       "react-hooks"
     ]

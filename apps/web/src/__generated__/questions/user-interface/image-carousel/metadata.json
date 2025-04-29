@@ -1,48 +1,52 @@
 {
-  "access": "standard",
-  "author": "yangshun",
-  "companies": [
-    "amazon",
-    "google",
-    "doordash",
-    "dropbox",
-    "microsoft",
-    "snap",
-    "squarespace",
-    "bytedance",
-    "tiktok"
-  ],
-  "created": 1723766400,
-  "difficulty": "medium",
-  "duration": 30,
-  "excerpt": "Build an image carousel that displays a sequence of images",
-  "featured": false,
-  "format": "user-interface",
-  "frameworkDefault": "react",
-  "frameworks": [
-    {
-      "framework": "react",
-      "href": "/questions/user-interface/image-carousel/react"
-    }
-  ],
-  "href": "/questions/user-interface/image-carousel",
-  "importance": "low",
-  "languages": [
-    "html",
-    "js",
-    "css"
-  ],
-  "nextQuestions": [
-    "image-carousel-ii",
-    "image-carousel-iii"
-  ],
-  "published": true,
-  "ranking": 100,
-  "similarQuestions": [],
-  "slug": "image-carousel",
-  "subtitle": null,
-  "title": "Image Carousel",
-  "topics": [
-    "a11y"
-  ]
+  "info": {
+    "excerpt": "Build an image carousel that displays a sequence of images",
+    "title": "Image Carousel"
+  },
+  "metadata": {
+    "access": "standard",
+    "author": "yangshun",
+    "companies": [
+      "amazon",
+      "google",
+      "doordash",
+      "dropbox",
+      "microsoft",
+      "snap",
+      "squarespace",
+      "bytedance",
+      "tiktok"
+    ],
+    "created": 1723766400,
+    "difficulty": "medium",
+    "duration": 30,
+    "featured": false,
+    "format": "user-interface",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/user-interface/image-carousel/react"
+      }
+    ],
+    "href": "/questions/user-interface/image-carousel",
+    "importance": "low",
+    "languages": [
+      "html",
+      "js",
+      "css"
+    ],
+    "nextQuestions": [
+      "image-carousel-ii",
+      "image-carousel-iii"
+    ],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "image-carousel",
+    "subtitle": null,
+    "topics": [
+      "a11y"
+    ]
+  }
 }

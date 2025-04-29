@@ -3,10 +3,16 @@ import clsx from 'clsx';
 import FilterButton from '~/components/ui/FilterButton/FilterButton';
 
 import type { QuestionFilter } from './QuestionFilterType';
-import type { QuestionFormat, QuestionMetadata } from '../../common/QuestionsTypes';
+import type {
+  InterviewsQuestionItemMinimal,
+  QuestionFormat,
+} from '../../common/QuestionsTypes';
 
 type Props = Readonly<{
-  formatFilterOptions: QuestionFilter<QuestionFormat, QuestionMetadata>;
+  formatFilterOptions: QuestionFilter<
+    QuestionFormat,
+    InterviewsQuestionItemMinimal
+  >;
   formatFilters: Set<QuestionFormat>;
   formatFiltersUnion: Set<QuestionFormat>;
 }>;

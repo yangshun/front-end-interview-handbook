@@ -1,5 +1,9 @@
 {
   "description": null,
+  "info": {
+    "excerpt": null,
+    "title": "解释浏览器如何确定哪些元素与 CSS 选择器匹配。"
+  },
   "metadata": {
     "access": "free",
     "author": null,
@@ -7,7 +11,6 @@
     "created": 1630800000,
     "difficulty": "hard",
     "duration": 5,
-    "excerpt": null,
     "featured": false,
     "format": "quiz",
     "frameworkDefault": null,
@@ -21,7 +24,6 @@
     "similarQuestions": [],
     "slug": "explain-how-a-browser-determines-what-elements-match-a-css-selector",
     "subtitle": null,
-    "title": "解释浏览器如何确定哪些元素与 CSS 选择器匹配。",
     "topics": [
       "browser",
       "css"

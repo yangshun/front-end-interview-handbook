@@ -1,5 +1,9 @@
 {
   "description": null,
+  "info": {
+    "excerpt": null,
+    "title": "Explain how prototypal inheritance works in JavaScript"
+  },
   "metadata": {
     "access": "free",
     "author": null,
@@ -11,7 +15,6 @@
     "created": 1630800000,
     "difficulty": "medium",
     "duration": 5,
-    "excerpt": null,
     "featured": true,
     "format": "quiz",
     "frameworkDefault": null,
@@ -25,7 +28,6 @@
     "similarQuestions": [],
     "slug": "explain-how-prototypal-inheritance-works",
     "subtitle": null,
-    "title": "Explain how prototypal inheritance works in JavaScript",
     "topics": [
       "javascript",
       "oop"

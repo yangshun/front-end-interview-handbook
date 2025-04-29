@@ -95,7 +95,7 @@ export default {
       '/interviews/company',
       '/interviews/roadmap',
       // Interviews / Questions
-      ...codingQuestionsList.map(({ href }) => href),
+      ...codingQuestionsList.map(({ metadata }) => metadata.href),
       // Projects
       '/projects',
       '/projects/pricing',

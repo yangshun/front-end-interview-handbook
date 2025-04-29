@@ -1,36 +1,40 @@
 {
-  "access": "premium",
-  "author": "yangshun",
-  "companies": [
-    "palantir",
-    "amazon",
-    "stripe"
-  ],
-  "created": 1723766400,
-  "difficulty": "hard",
-  "duration": 30,
-  "excerpt": "Build a generalized data table with pagination and sorting features",
-  "featured": false,
-  "format": "user-interface",
-  "frameworkDefault": "react",
-  "frameworks": [
-    {
-      "framework": "react",
-      "href": "/questions/user-interface/data-table-iii/react"
-    }
-  ],
-  "href": "/questions/user-interface/data-table-iii",
-  "importance": "low",
-  "languages": [
-    "html",
-    "js"
-  ],
-  "nextQuestions": [],
-  "published": true,
-  "ranking": 100,
-  "similarQuestions": [],
-  "slug": "data-table-iii",
-  "subtitle": null,
-  "title": "Data Table III",
-  "topics": []
+  "info": {
+    "excerpt": "Build a generalized data table with pagination and sorting features",
+    "title": "Data Table III"
+  },
+  "metadata": {
+    "access": "premium",
+    "author": "yangshun",
+    "companies": [
+      "palantir",
+      "amazon",
+      "stripe"
+    ],
+    "created": 1723766400,
+    "difficulty": "hard",
+    "duration": 30,
+    "featured": false,
+    "format": "user-interface",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/user-interface/data-table-iii/react"
+      }
+    ],
+    "href": "/questions/user-interface/data-table-iii",
+    "importance": "low",
+    "languages": [
+      "html",
+      "js"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "data-table-iii",
+    "subtitle": null,
+    "topics": []
+  }
 }

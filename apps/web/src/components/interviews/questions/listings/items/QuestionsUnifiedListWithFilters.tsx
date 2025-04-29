@@ -8,9 +8,9 @@ import type { GuideCardMetadataWithCompletedStatus } from '~/components/guides/t
 import InterviewsGuideCard from '~/components/interviews/guides/InterviewsGuideCard';
 import InterviewsPurchasePaywall from '~/components/interviews/purchase/InterviewsPurchasePaywall';
 import type {
+  InterviewsQuestionItemMinimal,
+  InterviewsQuestionItemWithCompletedStatus,
   QuestionFormat,
-  QuestionMetadata,
-  QuestionMetadataWithCompletedStatus,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import {
   countQuestionsTotalDurationMins,
@@ -43,7 +43,9 @@ import NumberFlow from '@number-flow/react';
 
 type Props = Readonly<{
   categoryTabs?: ReactNode;
-  checkIfCompletedQuestionBefore?: (question: QuestionMetadata) => boolean;
+  checkIfCompletedQuestionBefore?: (
+    question: InterviewsQuestionItemMinimal,
+  ) => boolean;
   formatFiltersFilterPredicate?: (format: QuestionFormat) => boolean;
   formatFiltersOrderComparator?: (
     a: QuestionFormat,
@@ -57,10 +59,10 @@ type Props = Readonly<{
   initialFormat?: QuestionFormat | null;
   listMode?: React.ComponentProps<typeof QuestionsList>['mode'];
   listType?: React.ComponentProps<typeof QuestionsList>['listType'];
-  onMarkAsCompleted?: (question: QuestionMetadata) => void;
-  onMarkAsNotCompleted?: (question: QuestionMetadata) => void;
+  onMarkAsCompleted?: (question: InterviewsQuestionItemMinimal) => void;
+  onMarkAsNotCompleted?: (question: InterviewsQuestionItemMinimal) => void;
   questionCompletionCount?: QuestionCompletionCount;
-  questions: ReadonlyArray<QuestionMetadataWithCompletedStatus>;
+  questions: ReadonlyArray<InterviewsQuestionItemWithCompletedStatus>;
   searchPlaceholder?: string;
   showCount_TEMPORARY?: boolean;
   sideColumnAddOn?: ReactNode;

@@ -1,38 +1,42 @@
 {
-  "access": "free",
-  "author": "yangshun",
-  "companies": [
-    "palantir",
-    "amazon",
-    "stripe"
-  ],
-  "created": 1723766400,
-  "difficulty": "medium",
-  "duration": 20,
-  "excerpt": "Build a users data table with pagination features",
-  "featured": false,
-  "format": "user-interface",
-  "frameworkDefault": "react",
-  "frameworks": [
-    {
-      "framework": "react",
-      "href": "/questions/user-interface/data-table/react"
-    }
-  ],
-  "href": "/questions/user-interface/data-table",
-  "importance": "low",
-  "languages": [
-    "html",
-    "js"
-  ],
-  "nextQuestions": [
-    "data-table-ii"
-  ],
-  "published": true,
-  "ranking": 100,
-  "similarQuestions": [],
-  "slug": "data-table",
-  "subtitle": null,
-  "title": "Data Table",
-  "topics": []
+  "info": {
+    "excerpt": "Build a users data table with pagination features",
+    "title": "Data Table"
+  },
+  "metadata": {
+    "access": "free",
+    "author": "yangshun",
+    "companies": [
+      "palantir",
+      "amazon",
+      "stripe"
+    ],
+    "created": 1723766400,
+    "difficulty": "medium",
+    "duration": 20,
+    "featured": false,
+    "format": "user-interface",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/user-interface/data-table/react"
+      }
+    ],
+    "href": "/questions/user-interface/data-table",
+    "importance": "low",
+    "languages": [
+      "html",
+      "js"
+    ],
+    "nextQuestions": [
+      "data-table-ii"
+    ],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "data-table",
+    "subtitle": null,
+    "topics": []
+  }
 }

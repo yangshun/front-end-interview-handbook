@@ -7,6 +7,10 @@
     "/src/make-counter.submit.test.ts": "import makeCounter from './make-counter';\n\ndescribe('makeCounter', () => {\n  test('returns a function', () => {\n    const counter = makeCounter();\n    expect(counter).toBeInstanceOf(Function);\n  });\n\n  describe('calling the function', () => {\n    describe('returns initial value', () => {\n      test('default', () => {\n        const counter = makeCounter();\n        expect(counter()).toBe(0);\n      });\n\n      test('custom', () => {\n        const counter = makeCounter(4);\n        expect(counter()).toBe(4);\n      });\n    });\n\n    describe('can be repeatedly called', () => {\n      test('default', () => {\n        const counter = makeCounter();\n        expect(counter()).toBe(0);\n        expect(counter()).toBe(1);\n        expect(counter()).toBe(2);\n      });\n\n      test('positive', () => {\n        const counter = makeCounter(4);\n        expect(counter()).toBe(4);\n        expect(counter()).toBe(5);\n        expect(counter()).toBe(6);\n      });\n\n      test('negative', () => {\n        const counter = makeCounter(-4);\n        expect(counter()).toBe(-4);\n        expect(counter()).toBe(-3);\n        expect(counter()).toBe(-2);\n      });\n    });\n\n    test('isolated instances', () => {\n      const counterA = makeCounter(5);\n      const counterB = makeCounter(10);\n\n      expect(counterA()).toBe(5);\n      expect(counterB()).toBe(10);\n\n      expect(counterA()).toBe(6);\n      expect(counterB()).toBe(11);\n    });\n  });\n});\n",
     "/src/make-counter.ts": "export default function makeCounter(initialValue: number = 0): () => number {\n  let count = initialValue - 1;\n\n  return () => {\n    count += 1;\n    return count;\n  };\n}\n"
   },
+  "info": {
+    "excerpt": "Implement a function that accepts an integer value and returns a function that can be repeatedly called to return increasing values",
+    "title": "Make Counter"
+  },
   "metadata": {
     "access": "standard",
     "author": null,
@@ -16,7 +20,6 @@
     "created": 1683331200,
     "difficulty": "easy",
     "duration": 5,
-    "excerpt": "Implement a function that accepts an integer value and returns a function that can be repeatedly called to return increasing values",
     "featured": false,
     "format": "javascript",
     "frameworkDefault": null,
@@ -37,7 +40,6 @@
     ],
     "slug": "make-counter",
     "subtitle": null,
-    "title": "Make Counter",
     "topics": [
       "closure"
     ]

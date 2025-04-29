@@ -7,6 +7,10 @@
     "/src/use-hover.submit.test.tsx": "import React from 'react';\nimport { act, render, renderHook } from '@testing-library/react';\nimport userEvent from '@testing-library/user-event';\n\nimport useHover from './use-hover';\n\nconst Component = () => {\n  const [ref, hovering] = useHover();\n\n  return (\n    <main>\n      <div ref={ref} data-testid=\"area\">\n        Hover me\n      </div>\n\n      <div data-testid=\"nonarea\">something else</div>\n\n      {hovering && <div data-testid=\"hovering\">Hovering</div>}\n    </main>\n  );\n};\n\ndescribe('useHover', () => {\n  test('return values', () => {\n    const { result } = renderHook(() => useHover());\n\n    expect(Array.isArray(result.current)).toBe(true);\n    expect(result.current.length).toBe(2);\n    expect(typeof result.current[0]).toBe('function');\n    expect(typeof result.current[1]).toBe('boolean');\n  });\n\n  test('hover', async () => {\n    const user = userEvent.setup();\n    const page = render(<Component />);\n    const area = page.getByTestId('area');\n\n    await act(() => user.hover(area));\n\n    expect(page.queryByTestId('hovering')).not.toBeNull();\n\n    await act(() => user.unhover(area));\n\n    expect(page.queryByTestId('hovering')).toBeNull();\n  });\n\n  test('does not trigger when not hovering on area', () => {\n    const user = userEvent.setup();\n    const page = render(<Component />);\n    const nonArea = page.getByTestId('nonarea');\n\n    act(() => user.hover(nonArea));\n\n    expect(page.queryByTestId('hovering')).toBeNull();\n  });\n});\n",
     "/src/use-hover.ts": "import { useState, useRef, useCallback, RefCallback } from 'react';\n\nexport default function useHover<T extends Element>(): [\n  RefCallback<T>,\n  boolean,\n] {\n  const [hovering, setHovering] = useState(false);\n  const previous = useRef<T | null>();\n\n  const handleMouseEnter = useCallback(() => {\n    setHovering(true);\n  }, []);\n\n  const handleMouseLeave = useCallback(() => {\n    setHovering(false);\n  }, []);\n\n  const customRef: RefCallback<T> = useCallback(\n    (node) => {\n      if (previous.current?.nodeType === Node.ELEMENT_NODE) {\n        previous.current.removeEventListener('mouseenter', handleMouseEnter);\n        previous.current.removeEventListener('mouseleave', handleMouseLeave);\n      }\n\n      if (node?.nodeType === Node.ELEMENT_NODE) {\n        node.addEventListener('mouseenter', handleMouseEnter);\n        node.addEventListener('mouseleave', handleMouseLeave);\n      }\n\n      previous.current = node;\n    },\n    [handleMouseEnter, handleMouseLeave],\n  );\n\n  return [customRef, hovering];\n}\n"
   },
+  "info": {
+    "excerpt": "实现一个跟踪元素是否被悬停的 Hook",
+    "title": "useHover"
+  },
   "metadata": {
     "access": "premium",
     "author": "phillmont",
@@ -14,7 +18,6 @@
     "created": 1742169600,
     "difficulty": "medium",
     "duration": 15,
-    "excerpt": "实现一个跟踪元素是否被悬停的 Hook",
     "featured": false,
     "format": "javascript",
     "frameworkDefault": "react",
@@ -36,7 +39,6 @@
     "similarQuestions": [],
     "slug": "use-hover",
     "subtitle": null,
-    "title": "useHover",
     "topics": [
       "react-hooks"
     ]

@@ -1,5 +1,9 @@
 {
   "description": null,
+  "info": {
+    "excerpt": null,
+    "title": "What are iterators and generators in JavaScript and what are they used for?"
+  },
   "metadata": {
     "access": "free",
     "author": null,
@@ -7,7 +11,6 @@
     "created": 1630800000,
     "difficulty": "hard",
     "duration": 5,
-    "excerpt": null,
     "featured": true,
     "format": "quiz",
     "frameworkDefault": null,
@@ -21,7 +24,6 @@
     "similarQuestions": [],
     "slug": "what-are-iterators-and-generators-and-what-are-they-used-for",
     "subtitle": null,
-    "title": "What are iterators and generators in JavaScript and what are they used for?",
     "topics": [
       "javascript"
     ],

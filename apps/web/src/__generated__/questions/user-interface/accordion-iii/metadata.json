@@ -1,36 +1,40 @@
 {
-  "access": "premium",
-  "author": "yangshun",
-  "companies": [
-    "amazon"
-  ],
-  "created": 1671580800,
-  "difficulty": "medium",
-  "duration": 20,
-  "excerpt": "Build a fully accessible accordion component that has keyboard support according to ARIA specifications",
-  "featured": false,
-  "format": "user-interface",
-  "frameworkDefault": "react",
-  "frameworks": [
-    {
-      "framework": "react",
-      "href": "/questions/user-interface/accordion-iii/react"
-    }
-  ],
-  "href": "/questions/user-interface/accordion-iii",
-  "importance": "low",
-  "languages": [
-    "html",
-    "js"
-  ],
-  "nextQuestions": [],
-  "published": true,
-  "ranking": 100,
-  "similarQuestions": [],
-  "slug": "accordion-iii",
-  "subtitle": null,
-  "title": "Accordion III",
-  "topics": [
-    "a11y"
-  ]
+  "info": {
+    "excerpt": "Build a fully accessible accordion component that has keyboard support according to ARIA specifications",
+    "title": "Accordion III"
+  },
+  "metadata": {
+    "access": "premium",
+    "author": "yangshun",
+    "companies": [
+      "amazon"
+    ],
+    "created": 1671580800,
+    "difficulty": "medium",
+    "duration": 20,
+    "featured": false,
+    "format": "user-interface",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/user-interface/accordion-iii/react"
+      }
+    ],
+    "href": "/questions/user-interface/accordion-iii",
+    "importance": "low",
+    "languages": [
+      "html",
+      "js"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "accordion-iii",
+    "subtitle": null,
+    "topics": [
+      "a11y"
+    ]
+  }
 }

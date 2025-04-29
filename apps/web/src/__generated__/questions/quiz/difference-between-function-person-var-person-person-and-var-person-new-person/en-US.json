@@ -1,5 +1,9 @@
 {
   "description": null,
+  "info": {
+    "excerpt": null,
+    "title": "Difference between: `function Person(){}`, `const person = Person()`, and `const person = new Person()` in JavaScript?"
+  },
   "metadata": {
     "access": "free",
     "author": null,
@@ -7,7 +11,6 @@
     "created": 1630800000,
     "difficulty": "medium",
     "duration": 5,
-    "excerpt": null,
     "featured": true,
     "format": "quiz",
     "frameworkDefault": null,
@@ -21,7 +24,6 @@
     "similarQuestions": [],
     "slug": "difference-between-function-person-var-person-person-and-var-person-new-person",
     "subtitle": null,
-    "title": "Difference between: `function Person(){}`, `const person = Person()`, and `const person = new Person()` in JavaScript?",
     "topics": [
       "javascript",
       "oop"

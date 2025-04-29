@@ -7,6 +7,10 @@
     "/src/drop-right-while.submit.test.ts": "import dropRightWhile from './drop-right-while';\n\ndescribe('dropRightWhile', () => {\n  test('empty array', () => {\n    expect(dropRightWhile([], (value, _index, _array) => value > 3)).toEqual(\n      [],\n    );\n  });\n\n  test('drop elements from the right until predicate returns false', () => {\n    expect(\n      dropRightWhile([1, 2, 3, 4, 5], (value, _index, _array) => value > 3),\n    ).toEqual([1, 2, 3]);\n  });\n\n  test('predicate always returns true', () => {\n    expect(\n      dropRightWhile([1, 2, 3, 4, 5], (value, _index, _array) => value < 6),\n    ).toEqual([]);\n  });\n\n  test('predicate always returns false', () => {\n    expect(\n      dropRightWhile([1, 2, 3, 4, 5], (value, _index, _array) => value < 0),\n    ).toEqual([1, 2, 3, 4, 5]);\n  });\n\n  test('should stop dropping once predicate is false', () => {\n    expect(\n      dropRightWhile([1, 6, 3, 7, 8], (value, _index, _array) => value > 5),\n    ).toEqual([1, 6, 3]);\n  });\n\n  describe('required arguments are passed', () => {\n    test('index is passed', () => {\n      const array = [1, 2, 3, 4, 5];\n      expect(\n        dropRightWhile(array, (_value, index, _array) => index >= 3),\n      ).toEqual([1, 2, 3]);\n    });\n\n    test('array is passed', () => {\n      const array = [20, 30, 40, 5, 4]; // length is 5\n      expect(\n        dropRightWhile(array, (value, _index, arr) => value <= arr.length),\n      ).toEqual([20, 30, 40]);\n    });\n  });\n\n  test('should not modify the original input array', () => {\n    const array = [1, 2, 3, 4, 5];\n    dropRightWhile(array, (value, _index, _array) => value > 3);\n    expect(array).toEqual([1, 2, 3, 4, 5]);\n  });\n});\n",
     "/src/drop-right-while.ts": "export default function dropRightWhile<T>(\n  array: Array<T>,\n  predicate: (value: T, index: number, array: Array<T>) => boolean,\n): Array<T> {\n  let index = array.length - 1;\n\n  while (index >= 0 && predicate(array[index], index, array)) {\n    index--;\n  }\n\n  return array.slice(0, index + 1);\n}\n"
   },
+  "info": {
+    "excerpt": "Implement a function that excludes elements from the end of an array until the predicate returns false",
+    "title": "Drop Right While"
+  },
   "metadata": {
     "access": "premium",
     "author": null,
@@ -14,7 +18,6 @@
     "created": 1682553600,
     "difficulty": "easy",
     "duration": 10,
-    "excerpt": "Implement a function that excludes elements from the end of an array until the predicate returns false",
     "featured": false,
     "format": "javascript",
     "frameworkDefault": null,
@@ -33,7 +36,6 @@
     ],
     "slug": "drop-right-while",
     "subtitle": null,
-    "title": "Drop Right While",
     "topics": []
   },
   "skeleton": {

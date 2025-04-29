@@ -1,45 +1,49 @@
 {
-  "access": "premium",
-  "author": null,
-  "companies": [],
-  "created": 1723766400,
-  "difficulty": "medium",
-  "duration": 30,
-  "excerpt": "Build a widget that fetches birth year data from an API and plot it on a histogram",
-  "featured": false,
-  "format": "user-interface",
-  "frameworkDefault": "react",
-  "frameworks": [
-    {
-      "framework": "react",
-      "href": "/questions/user-interface/birth-year-histogram/react"
-    },
-    {
-      "framework": "angular",
-      "href": "/questions/user-interface/birth-year-histogram/angular"
-    },
-    {
-      "framework": "vue",
-      "href": "/questions/user-interface/birth-year-histogram/vue"
-    },
-    {
-      "framework": "svelte",
-      "href": "/questions/user-interface/birth-year-histogram/svelte"
-    }
-  ],
-  "href": "/questions/user-interface/birth-year-histogram",
-  "importance": "low",
-  "languages": [
-    "html",
-    "css",
-    "js"
-  ],
-  "nextQuestions": [],
-  "published": true,
-  "ranking": 100,
-  "similarQuestions": [],
-  "slug": "birth-year-histogram",
-  "subtitle": null,
-  "title": "Birth Year Histogram",
-  "topics": []
+  "info": {
+    "excerpt": "Build a widget that fetches birth year data from an API and plot it on a histogram",
+    "title": "Birth Year Histogram"
+  },
+  "metadata": {
+    "access": "premium",
+    "author": null,
+    "companies": [],
+    "created": 1723766400,
+    "difficulty": "medium",
+    "duration": 30,
+    "featured": false,
+    "format": "user-interface",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/user-interface/birth-year-histogram/react"
+      },
+      {
+        "framework": "angular",
+        "href": "/questions/user-interface/birth-year-histogram/angular"
+      },
+      {
+        "framework": "vue",
+        "href": "/questions/user-interface/birth-year-histogram/vue"
+      },
+      {
+        "framework": "svelte",
+        "href": "/questions/user-interface/birth-year-histogram/svelte"
+      }
+    ],
+    "href": "/questions/user-interface/birth-year-histogram",
+    "importance": "low",
+    "languages": [
+      "html",
+      "css",
+      "js"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "birth-year-histogram",
+    "subtitle": null,
+    "topics": []
+  }
 }

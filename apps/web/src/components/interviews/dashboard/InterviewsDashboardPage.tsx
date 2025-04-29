@@ -12,9 +12,9 @@ import { trpc } from '~/hooks/trpc';
 import { useGuidesData } from '~/data/Guides';
 
 import type {
+  InterviewsQuestionItemMinimal,
   QuestionFramework,
   QuestionLanguage,
-  QuestionMetadata,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import MDXContent from '~/components/mdx/MDXContent';
 import Anchor from '~/components/ui/Anchor';
@@ -45,17 +45,17 @@ type Props = Readonly<{
   defaultLoggedIn: boolean;
   focusAreas: ReadonlyArray<InterviewsStudyList>;
   questions: {
-    codingQuestions: ReadonlyArray<QuestionMetadata>;
+    codingQuestions: ReadonlyArray<InterviewsQuestionItemMinimal>;
     frameworkQuestions: Record<
       QuestionFramework,
-      ReadonlyArray<QuestionMetadata>
+      ReadonlyArray<InterviewsQuestionItemMinimal>
     >;
     languageQuestions: Record<
       QuestionLanguage,
-      ReadonlyArray<QuestionMetadata>
+      ReadonlyArray<InterviewsQuestionItemMinimal>
     >;
-    quizQuestions: ReadonlyArray<QuestionMetadata>;
-    systemDesignQuestions: ReadonlyArray<QuestionMetadata>;
+    quizQuestions: ReadonlyArray<InterviewsQuestionItemMinimal>;
+    systemDesignQuestions: ReadonlyArray<InterviewsQuestionItemMinimal>;
   };
   studyPlans: ReadonlyArray<InterviewsStudyList>;
 }>;
@@ -243,13 +243,13 @@ export default function InterviewsDashboardPage({
                 ),
                 QuestionsSystemDesignList: () => (
                   <ul>
-                    {questions.systemDesignQuestions.map((questionMetadata) => (
-                      <li key={questionMetadata.slug}>
-                        <Anchor href={questionMetadata.href}>
-                          {questionMetadata.title}
-                        </Anchor>
-                      </li>
-                    ))}
+                    {questions.systemDesignQuestions.map(
+                      ({ metadata, info }) => (
+                        <li key={metadata.slug}>
+                          <Anchor href={metadata.href}>{info.title}</Anchor>
+                        </li>
+                      ),
+                    )}
                   </ul>
                 ),
               }}

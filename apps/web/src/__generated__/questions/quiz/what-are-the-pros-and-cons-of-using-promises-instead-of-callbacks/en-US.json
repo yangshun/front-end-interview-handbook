@@ -1,5 +1,9 @@
 {
   "description": null,
+  "info": {
+    "excerpt": null,
+    "title": "What are the pros and cons of using Promises instead of callbacks in JavaScript?"
+  },
   "metadata": {
     "access": "free",
     "author": null,
@@ -13,7 +17,6 @@
     "created": 1630800000,
     "difficulty": "medium",
     "duration": 5,
-    "excerpt": null,
     "featured": true,
     "format": "quiz",
     "frameworkDefault": null,
@@ -27,7 +30,6 @@
     "similarQuestions": [],
     "slug": "what-are-the-pros-and-cons-of-using-promises-instead-of-callbacks",
     "subtitle": null,
-    "title": "What are the pros and cons of using Promises instead of callbacks in JavaScript?",
     "topics": [
       "async",
       "javascript"

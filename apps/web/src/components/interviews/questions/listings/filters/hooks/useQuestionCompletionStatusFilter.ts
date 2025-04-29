@@ -3,8 +3,8 @@ import { useState } from 'react';
 import { useGreatStorageLocal } from '~/hooks/useGreatStorageLocal';
 
 import type {
+  InterviewsQuestionItemWithCompletedStatus,
   QuestionCompletionStatus,
-  QuestionMetadataWithCompletedStatus,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import { useIntl } from '~/components/intl';
 
@@ -20,7 +20,10 @@ export default function useQuestionCompletionStatusFilter({
   namespace,
 }: Props): [
   Set<QuestionCompletionStatus>,
-  QuestionFilter<QuestionCompletionStatus, QuestionMetadataWithCompletedStatus>,
+  QuestionFilter<
+    QuestionCompletionStatus,
+    InterviewsQuestionItemWithCompletedStatus
+  >,
 ] {
   const intl = useIntl();
   const user = useUser();
@@ -73,7 +76,7 @@ export default function useQuestionCompletionStatusFilter({
 
   const completionStatusFilterOptions: QuestionFilter<
     QuestionCompletionStatus,
-    QuestionMetadataWithCompletedStatus
+    InterviewsQuestionItemWithCompletedStatus
   > = {
     id: 'completion',
     matches: (question) =>

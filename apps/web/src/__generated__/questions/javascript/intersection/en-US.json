@@ -7,6 +7,10 @@
     "/src/intersection.submit.test.ts": "import intersection from './intersection';\n\ndescribe('intersection', () => {\n  test('empty array', () => {\n    expect(intersection()).toEqual([]);\n  });\n\n  test('multiple arrays', () => {\n    expect(intersection([1, 2, 3], [3, 4, 5], [3, 6, 7])).toEqual([3]);\n    expect(\n      intersection(['a', 'b', 'c'], ['b', 'c', 'd'], ['c', 'e', 'f']),\n    ).toEqual(['c']);\n  });\n\n  test('one of the arrays is empty', () => {\n    expect(intersection([], [1, 2, 3], [4, 5, 6])).toEqual([]);\n    expect(intersection([1, 2, 3], [], [4, 5, 6])).toEqual([]);\n    expect(intersection([1, 2, 3], [4, 5, 6], [])).toEqual([]);\n  });\n\n  test('no common elements', () => {\n    expect(intersection([1, 2, 3], [4, 5, 6])).toEqual([]);\n    expect(intersection([1, 2, 3], [4, 5, 6], [7, 8, 9])).toEqual([]);\n  });\n\n  test('common elements in the arrays', () => {\n    expect(intersection([1, 2, 3], [2, 3, 4])).toEqual([2, 3]);\n  });\n\n  test('duplicate values', () => {\n    const actual = intersection([1, 1, 3, 2, 2], [5, 2, 2, 1, 4], [2, 1, 1]);\n    expect(actual).toEqual([1, 2]);\n  });\n\n  test('single array', () => {\n    const actual = intersection([1, 1, 3, 2, 2]);\n    expect(actual).toEqual([1, 3, 2]);\n  });\n\n  test('different types of elements', () => {\n    expect(intersection([1, 2, 3], [2, '3', true])).toEqual([2]);\n    expect(\n      intersection(['a', 'b', 'c'], [1, 'b', true], [false, 'b', 'c']),\n    ).toEqual(['b']);\n    expect(\n      intersection([null, undefined], [undefined, NaN], [NaN, null]),\n    ).toEqual([]);\n  });\n});\n",
     "/src/intersection.ts": "export default function intersection<T>(...arrays: Array<Array<T>>): Array<T> {\n  if (arrays.length === 0) {\n    return [];\n  }\n\n  if (arrays.length === 1) {\n    const uniqueSet = new Set<T>();\n    const result = [];\n    for (const value of arrays[0]) {\n      if (!uniqueSet.has(value)) {\n        uniqueSet.add(value);\n        result.push(value);\n      }\n    }\n    return result;\n  }\n\n  // Intersection will be empty if any of the provided array is empty\n  if (arrays.some((arr) => arr.length === 0)) {\n    return [];\n  }\n\n  const subsequentSets = arrays.slice(1).map((arr) => new Set<T>(arr));\n  const result = [];\n  const addedValues = new Set<T>();\n\n  for (const value of arrays[0]) {\n    if (addedValues.has(value)) {\n      continue;\n    }\n\n    const isInAll = subsequentSets.every((set) => set.has(value));\n\n    if (isInAll) {\n      result.push(value);\n      addedValues.add(value);\n    }\n  }\n\n  return result;\n}\n"
   },
+  "info": {
+    "excerpt": "Implement a function that computes the intersection of arrays, returning a new array containing unique values present in all given arrays",
+    "title": "Intersection"
+  },
   "metadata": {
     "access": "premium",
     "author": null,
@@ -14,7 +18,6 @@
     "created": 1687651200,
     "difficulty": "easy",
     "duration": 10,
-    "excerpt": "Implement a function that computes the intersection of arrays, returning a new array containing unique values present in all given arrays",
     "featured": false,
     "format": "javascript",
     "frameworkDefault": null,
@@ -34,7 +37,6 @@
     "similarQuestions": [],
     "slug": "intersection",
     "subtitle": null,
-    "title": "Intersection",
     "topics": []
   },
   "skeleton": {

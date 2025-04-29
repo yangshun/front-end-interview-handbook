@@ -1,45 +1,49 @@
 {
-  "access": "premium",
-  "author": "yangshun",
-  "companies": [
-    "airbnb",
-    "amazon"
-  ],
-  "created": 1671062400,
-  "difficulty": "medium",
-  "duration": 20,
-  "excerpt": "Build a fully accessible tabs component that has keyboard support according to ARIA specifications",
-  "featured": false,
-  "format": "user-interface",
-  "frameworkDefault": "react",
-  "frameworks": [
-    {
-      "framework": "react",
-      "href": "/questions/user-interface/tabs-iii/react"
-    },
-    {
-      "framework": "angular",
-      "href": "/questions/user-interface/tabs-iii/angular"
-    },
-    {
-      "framework": "vue",
-      "href": "/questions/user-interface/tabs-iii/vue"
-    }
-  ],
-  "href": "/questions/user-interface/tabs-iii",
-  "importance": "low",
-  "languages": [
-    "html",
-    "js"
-  ],
-  "nextQuestions": [],
-  "published": true,
-  "ranking": 100,
-  "similarQuestions": [],
-  "slug": "tabs-iii",
-  "subtitle": null,
-  "title": "Tabs III",
-  "topics": [
-    "a11y"
-  ]
+  "info": {
+    "excerpt": "Build a fully accessible tabs component that has keyboard support according to ARIA specifications",
+    "title": "Tabs III"
+  },
+  "metadata": {
+    "access": "premium",
+    "author": "yangshun",
+    "companies": [
+      "airbnb",
+      "amazon"
+    ],
+    "created": 1671062400,
+    "difficulty": "medium",
+    "duration": 20,
+    "featured": false,
+    "format": "user-interface",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/user-interface/tabs-iii/react"
+      },
+      {
+        "framework": "angular",
+        "href": "/questions/user-interface/tabs-iii/angular"
+      },
+      {
+        "framework": "vue",
+        "href": "/questions/user-interface/tabs-iii/vue"
+      }
+    ],
+    "href": "/questions/user-interface/tabs-iii",
+    "importance": "low",
+    "languages": [
+      "html",
+      "js"
+    ],
+    "nextQuestions": [],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "tabs-iii",
+    "subtitle": null,
+    "topics": [
+      "a11y"
+    ]
+  }
 }

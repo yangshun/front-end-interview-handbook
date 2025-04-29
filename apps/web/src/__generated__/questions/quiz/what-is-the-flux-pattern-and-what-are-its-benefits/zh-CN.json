@@ -1,5 +1,9 @@
 {
   "description": null,
+  "info": {
+    "excerpt": null,
+    "title": "什么是 Flux 模式以及它的好处？"
+  },
   "metadata": {
     "access": "free",
     "author": null,
@@ -7,7 +11,6 @@
     "created": 1630800000,
     "difficulty": "medium",
     "duration": 5,
-    "excerpt": null,
     "featured": true,
     "format": "quiz",
     "frameworkDefault": "react",
@@ -26,7 +29,6 @@
     "similarQuestions": [],
     "slug": "what-is-the-flux-pattern-and-what-are-its-benefits",
     "subtitle": null,
-    "title": "什么是 Flux 模式以及它的好处？",
     "topics": [
       "react"
     ],

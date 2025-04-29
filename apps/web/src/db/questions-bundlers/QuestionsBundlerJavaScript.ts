@@ -10,9 +10,9 @@ import {
 } from './QuestionsBundlerJavaScriptConfig';
 import { normalizeQuestionFrontMatter } from '../QuestionsUtils';
 import type {
+  InterviewsQuestionItemJavaScript,
+  InterviewsQuestionItemMinimal,
   QuestionCodingWorkingLanguage,
-  QuestionJavaScript,
-  QuestionMetadata,
 } from '../../components/interviews/questions/common/QuestionsTypes';
 
 async function readQuestionJavaScriptSkeleton(
@@ -33,7 +33,7 @@ async function readQuestionJavaScriptSkeleton(
 async function readQuestionMetadataJavaScript(
   slug: string,
   locale = 'en-US',
-): Promise<QuestionMetadata> {
+): Promise<InterviewsQuestionItemMinimal> {
   const questionPath = getQuestionSrcPathJavaScript(slug);
 
   // Read frontmatter from MDX file.
@@ -57,9 +57,9 @@ async function readQuestionMetadataJavaScript(
 async function readQuestionMetadataWithFallbackJavaScript(
   slug: string,
   requestedLocale = 'en-US',
-): Promise<{ loadedLocale: string; metadata: QuestionMetadata }> {
+): Promise<{ content: InterviewsQuestionItemMinimal; loadedLocale: string }> {
   let loadedLocale = requestedLocale;
-  const metadata = await (async () => {
+  const content = await (async () => {
     try {
       return await readQuestionMetadataJavaScript(slug, requestedLocale);
     } catch {
@@ -70,8 +70,8 @@ async function readQuestionMetadataWithFallbackJavaScript(
   })();
 
   return {
+    content,
     loadedLocale,
-    metadata,
   };
 }
 
@@ -170,7 +170,7 @@ async function readQuestionJavaScriptWorkspaceConfig(slug: string): Promise<
 export async function readQuestionJavaScript(
   slug: string,
   locale = 'en-US',
-): Promise<QuestionJavaScript> {
+): Promise<InterviewsQuestionItemJavaScript> {
   const questionPath = getQuestionSrcPathJavaScript(slug);
   const [
     metadata,
@@ -193,7 +193,7 @@ export async function readQuestionJavaScript(
   return {
     description,
     files,
-    metadata,
+    ...metadata,
     skeleton: {
       js: skeletonJS,
       ts: skeletonTS,
@@ -205,7 +205,7 @@ export async function readQuestionJavaScript(
 
 export async function readQuestionListMetadataJavaScript(
   locale = 'en-US',
-): Promise<ReadonlyArray<QuestionMetadata>> {
+): Promise<ReadonlyArray<InterviewsQuestionItemMinimal>> {
   const directories = fs
     .readdirSync(QUESTIONS_SRC_DIR_JAVASCRIPT, {
       withFileTypes: true,
@@ -216,14 +216,14 @@ export async function readQuestionListMetadataJavaScript(
     directories.map(async (dirent) => {
       const slug = dirent.name;
 
-      const { metadata } = await readQuestionMetadataWithFallbackJavaScript(
+      const { content } = await readQuestionMetadataWithFallbackJavaScript(
         slug,
         locale,
       );
 
-      return metadata;
+      return content;
     }),
   );
 
-  return questions.filter(({ published }) => published);
+  return questions.filter(({ metadata }) => metadata.published);
 }

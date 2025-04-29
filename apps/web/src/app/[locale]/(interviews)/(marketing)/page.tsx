@@ -3,10 +3,10 @@ import type { Metadata } from 'next/types';
 import { InterviewsMarketingDisplayTopics } from '~/components/interviews/marketing/InterviewsMarketingDisplayTopics';
 import type { QuestionBankDataType } from '~/components/interviews/marketing/InterviewsMarketingPracticeQuestionBankSection';
 import type {
+  InterviewsQuestionItemMinimal,
   QuestionFormat,
   QuestionFramework,
   QuestionLanguage,
-  QuestionMetadata,
   QuestionTopic,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import {
@@ -103,7 +103,9 @@ export default function flatten(
 
 const MAX_TO_SHOW = 4;
 
-function createQuestionData(questionList: ReadonlyArray<QuestionMetadata>) {
+function createQuestionData(
+  questionList: ReadonlyArray<InterviewsQuestionItemMinimal>,
+) {
   return {
     count: questionList.length,
     duration: countQuestionsTotalDurationMins(questionList),
@@ -115,7 +117,10 @@ function createQuestionData(questionList: ReadonlyArray<QuestionMetadata>) {
 }
 
 function getQuestionBankSectionData(
-  questions: Record<QuestionFormat, ReadonlyArray<QuestionMetadata>>,
+  questions: Record<
+    QuestionFormat,
+    ReadonlyArray<InterviewsQuestionItemMinimal>
+  >,
 ): QuestionBankDataType {
   const {
     javascript: javaScriptQuestions,
@@ -143,7 +148,7 @@ function getQuestionBankSectionData(
     {
       count: number;
       duration: number;
-      questions: ReadonlyArray<QuestionMetadata>;
+      questions: ReadonlyArray<InterviewsQuestionItemMinimal>;
     }
   > = {
     angular: createQuestionData(framework.angular),
@@ -157,7 +162,7 @@ function getQuestionBankSectionData(
     {
       count: number;
       duration: number;
-      questions: ReadonlyArray<QuestionMetadata>;
+      questions: ReadonlyArray<InterviewsQuestionItemMinimal>;
     }
   > = {
     css: createQuestionData(language.css),
@@ -183,7 +188,7 @@ function getQuestionBankSectionData(
     {
       count: number;
       duration: number;
-      questions: ReadonlyArray<QuestionMetadata>;
+      questions: ReadonlyArray<InterviewsQuestionItemMinimal>;
     }
   > = {
     algo: createQuestionData(algoQuestions),
@@ -291,6 +296,7 @@ export default async function Page({ params }: Props) {
           vanilla: todoListVanillaSolutionBundle,
           vue: todoListVueSolutionBundle,
         },
+        info: todoListReactSolutionBundle.info,
         metadata: todoListReactSolutionBundle.metadata,
       }}
     />

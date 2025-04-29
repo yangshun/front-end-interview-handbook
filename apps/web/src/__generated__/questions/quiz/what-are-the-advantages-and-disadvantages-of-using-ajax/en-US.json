@@ -1,5 +1,9 @@
 {
   "description": null,
+  "info": {
+    "excerpt": null,
+    "title": "What are the advantages and disadvantages of using AJAX?"
+  },
   "metadata": {
     "access": "free",
     "author": null,
@@ -9,7 +13,6 @@
     "created": 1630800000,
     "difficulty": "hard",
     "duration": 5,
-    "excerpt": null,
     "featured": true,
     "format": "quiz",
     "frameworkDefault": null,
@@ -23,7 +26,6 @@
     "similarQuestions": [],
     "slug": "what-are-the-advantages-and-disadvantages-of-using-ajax",
     "subtitle": null,
-    "title": "What are the advantages and disadvantages of using AJAX?",
     "topics": [
       "javascript",
       "networking"

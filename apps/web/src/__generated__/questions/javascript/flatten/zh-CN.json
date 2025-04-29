@@ -7,6 +7,10 @@
     "/src/flatten.submit.test.ts": "import flatten from './flatten';\n\ndescribe('flatten array', () => {\n  test('empty array', () => {\n    expect(flatten([])).toEqual([]);\n    expect(flatten([[], [[]], [[], [[[]]]]])).toEqual([]);\n  });\n\n  test('single-element array', () => {\n    expect(flatten([1])).toEqual([1]);\n    expect(flatten(['foo'])).toEqual(['foo']);\n    expect(flatten([undefined])).toEqual([undefined]);\n  });\n\n  test('array with only one level', () => {\n    expect(flatten([1, 2, 3])).toEqual([1, 2, 3]);\n    expect(flatten(['foo', 'bar'])).toEqual(['foo', 'bar']);\n    expect(flatten([null, true, undefined])).toEqual([null, true, undefined]);\n  });\n\n  test('array with multiple levels of nesting', () => {\n    expect(flatten([0, 1, 2, [3, 4]])).toEqual([0, 1, 2, 3, 4]);\n    expect(flatten([1, [2, [3]]])).toEqual([1, 2, 3]);\n    expect(\n      flatten([\n        [1, 2],\n        [3, 4],\n      ]),\n    ).toEqual([1, 2, 3, 4]);\n    expect(flatten(['foo', ['bar']])).toEqual(['foo', 'bar']);\n    expect(flatten([[null, [true]], undefined])).toEqual([\n      null,\n      true,\n      undefined,\n    ]);\n  });\n\n  test('list-style array', () => {\n    expect(flatten([1, [2, [3, [4, [5]]]]])).toEqual([1, 2, 3, 4, 5]);\n    expect(flatten([[[[[1], 2], 3], 4], 5])).toEqual([1, 2, 3, 4, 5]);\n  });\n\n  test('deeply-nested single-element array', () => {\n    expect(flatten([[[[1]]]])).toEqual([1]);\n  });\n});\n",
     "/src/flatten.ts": "type ArrayValue = any | Array<ArrayValue>;\n\nexport default function flatten(value: Array<ArrayValue>): Array<any> {\n  return value.reduce(\n    (acc, curr) => acc.concat(Array.isArray(curr) ? flatten(curr) : curr),\n    [],\n  );\n}\n"
   },
+  "info": {
+    "excerpt": "实现一个函数，该函数将数组递归地扁平化为单层深度。",
+    "title": "扁平化"
+  },
   "metadata": {
     "access": "free",
     "author": "zhenghao",
@@ -25,7 +29,6 @@
     "created": 1649894400,
     "difficulty": "medium",
     "duration": 20,
-    "excerpt": "实现一个函数，该函数将数组递归地扁平化为单层深度。",
     "featured": true,
     "format": "javascript",
     "frameworkDefault": null,
@@ -49,7 +52,6 @@
     ],
     "slug": "flatten",
     "subtitle": null,
-    "title": "扁平化",
     "topics": [
       "recursion"
     ]

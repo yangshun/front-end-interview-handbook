@@ -5,12 +5,12 @@ import path from 'path';
 
 import { questionsFindClosestToSlug } from '~/components/interviews/questions/common/QuestionsClosestSlug';
 import type {
+  InterviewsQuestionItemJavaScript,
+  InterviewsQuestionItemMinimal,
+  InterviewsQuestionItemUserInterface,
   QuestionFramework,
-  QuestionJavaScript,
-  QuestionMetadata,
   QuestionQuiz,
   QuestionSystemDesign,
-  QuestionUserInterface,
   QuestionUserInterfaceBundle,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 
@@ -29,7 +29,7 @@ export function readQuestionAlgoContents(
   requestedLocale = 'en-US',
 ): Readonly<{
   loadedLocale: string;
-  question: QuestionJavaScript;
+  question: InterviewsQuestionItemJavaScript;
 }> {
   let loadedLocale = requestedLocale;
   const response = (() => {
@@ -47,7 +47,9 @@ export function readQuestionAlgoContents(
     }
   })();
 
-  let question = JSON.parse(String(response)) as QuestionJavaScript;
+  let question = JSON.parse(
+    String(response),
+  ) as InterviewsQuestionItemJavaScript;
 
   // Hide solution if user does not have access.
   if (
@@ -76,7 +78,7 @@ export function readQuestionJavaScriptContents(
   requestedLocale = 'en-US',
 ): Readonly<{
   loadedLocale: string;
-  question: QuestionJavaScript;
+  question: InterviewsQuestionItemJavaScript;
 }> {
   let loadedLocale = requestedLocale;
   const response = (() => {
@@ -97,7 +99,9 @@ export function readQuestionJavaScriptContents(
     }
   })();
 
-  let question = JSON.parse(String(response)) as QuestionJavaScript;
+  let question = JSON.parse(
+    String(response),
+  ) as InterviewsQuestionItemJavaScript;
 
   // Hide solution if user does not have access.
   if (
@@ -160,7 +164,7 @@ export async function readQuestionQuizContents(
       }
 
       const closestQuestion = await readQuestionQuizContents(
-        question.slug,
+        question.metadata.slug,
         loadedLocale,
       );
 
@@ -216,15 +220,16 @@ export async function readQuestionUserInterface(
   isViewerPremium: boolean,
   frameworkParam?: QuestionFramework | null,
   codeId?: string,
-): Promise<QuestionUserInterface> {
+): Promise<InterviewsQuestionItemUserInterface> {
   const questionOutDir = getQuestionOutPathUserInterface(slug);
-  const metadata = (() => {
+  const content = (() => {
     const response = fs.readFileSync(
       path.join(questionOutDir, `metadata.json`),
     );
 
-    return JSON.parse(String(response)) as QuestionMetadata;
+    return JSON.parse(String(response)) as InterviewsQuestionItemMinimal;
   })();
+  const { metadata } = content;
 
   const framework = frameworkParam ?? metadata.frameworkDefault ?? 'vanilla';
 
@@ -257,7 +262,7 @@ export async function readQuestionUserInterface(
   return {
     description: skeletonBundle?.writeup ?? null,
     framework,
-    metadata,
+    ...content,
     skeletonBundle,
     solution: solutionBundle?.writeup ?? null,
     solutionBundle,

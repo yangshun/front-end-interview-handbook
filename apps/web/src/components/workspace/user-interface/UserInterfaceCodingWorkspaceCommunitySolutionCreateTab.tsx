@@ -7,8 +7,8 @@ import { trpc } from '~/hooks/trpc';
 import { useToast } from '~/components/global/toasts/useToast';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import type {
+  InterviewsQuestionMetadata,
   QuestionFramework,
-  QuestionMetadata,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import { useIntl } from '~/components/intl';
 import Button from '~/components/ui/Button';
@@ -22,7 +22,7 @@ import { useSandpack } from '@codesandbox/sandpack-react';
 
 type Props = Readonly<{
   framework: QuestionFramework;
-  metadata: QuestionMetadata;
+  metadata: InterviewsQuestionMetadata;
 }>;
 
 type CommunitySolutionDraft = Readonly<{

@@ -2,7 +2,7 @@ import fs from 'fs';
 import grayMatter from 'gray-matter';
 import path from 'path';
 
-import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
+import type { InterviewsQuestionItemMinimal } from '~/components/interviews/questions/common/QuestionsTypes';
 
 import {
   getQuestionSrcPathUserInterface,
@@ -33,7 +33,7 @@ export async function readQuestionMetadataUserInterface(
 
 export async function readQuestionListMetadataUserInterface(
   locale = 'en-US',
-): Promise<ReadonlyArray<QuestionMetadata>> {
+): Promise<ReadonlyArray<InterviewsQuestionItemMinimal>> {
   const directories = fs
     .readdirSync(QUESTIONS_SRC_DIR_USER_INTERFACE, {
       withFileTypes: true,
@@ -48,5 +48,5 @@ export async function readQuestionListMetadataUserInterface(
     }),
   );
 
-  return questions.filter(({ published }) => published);
+  return questions.filter(({ metadata }) => metadata.published);
 }

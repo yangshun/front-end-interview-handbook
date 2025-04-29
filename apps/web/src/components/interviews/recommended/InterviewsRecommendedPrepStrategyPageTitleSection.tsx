@@ -10,7 +10,7 @@ import Tooltip from '~/components/ui/Tooltip';
 
 import InterviewsRecommendedPrepStrategyPopover from './InterviewsRecommendedPrepStrategyPopover';
 import InterviewsPageHeaderActions from '../common/InterviewsPageHeaderActions';
-import type { QuestionMetadata } from '../questions/common/QuestionsTypes';
+import type { InterviewsQuestionItemMinimal } from '../questions/common/QuestionsTypes';
 import InterviewsStudyListPageTitleSection from '../questions/listings/study-list/InterviewsStudyListPageTitleSection';
 
 import { useUser } from '@supabase/auth-helpers-react';
@@ -28,7 +28,7 @@ type CommonProps = Readonly<{
     href: string;
     title: string;
   };
-  questions?: ReadonlyArray<QuestionMetadata>;
+  questions?: ReadonlyArray<InterviewsQuestionItemMinimal>;
   studyListKey: string | null;
   title: string;
 }>;

@@ -5,9 +5,9 @@ import { RiFilterLine } from 'react-icons/ri';
 import { useMediaQuery } from 'usehooks-ts';
 
 import type {
+  InterviewsQuestionItemWithCompletedStatus,
   QuestionFramework,
   QuestionHash,
-  QuestionMetadataWithCompletedStatus,
   QuestionPracticeFormat,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import useQuestionUnifiedFilters from '~/components/interviews/questions/listings/filters/hooks/useQuestionUnifiedFilters';
@@ -34,7 +34,7 @@ type Props = Readonly<{
   isLoading: boolean;
   listIsShownInSidebarOnDesktop: boolean;
   listTabs?: ReadonlyArray<QuestionPracticeFormat>;
-  processedQuestions: ReadonlyArray<QuestionMetadataWithCompletedStatus>;
+  processedQuestions: ReadonlyArray<InterviewsQuestionItemWithCompletedStatus>;
   slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE: string;
   title?: string;
 }>;

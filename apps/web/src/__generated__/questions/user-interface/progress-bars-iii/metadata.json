@@ -1,39 +1,43 @@
 {
-  "access": "premium",
-  "author": "yangshun",
-  "companies": [
-    "uber"
-  ],
-  "created": 1671321600,
-  "difficulty": "medium",
-  "duration": 25,
-  "excerpt": "Build a list of progress bars that fill up gradually concurrently, up to a limit of 3",
-  "featured": false,
-  "format": "user-interface",
-  "frameworkDefault": "react",
-  "frameworks": [
-    {
-      "framework": "react",
-      "href": "/questions/user-interface/progress-bars-iii/react"
-    }
-  ],
-  "href": "/questions/user-interface/progress-bars-iii",
-  "importance": "low",
-  "languages": [
-    "html",
-    "css",
-    "js"
-  ],
-  "nextQuestions": [
-    "progress-bars-iv"
-  ],
-  "published": true,
-  "ranking": 100,
-  "similarQuestions": [],
-  "slug": "progress-bars-iii",
-  "subtitle": null,
-  "title": "Progress Bars III",
-  "topics": [
-    "async"
-  ]
+  "info": {
+    "excerpt": "Build a list of progress bars that fill up gradually concurrently, up to a limit of 3",
+    "title": "Progress Bars III"
+  },
+  "metadata": {
+    "access": "premium",
+    "author": "yangshun",
+    "companies": [
+      "uber"
+    ],
+    "created": 1671321600,
+    "difficulty": "medium",
+    "duration": 25,
+    "featured": false,
+    "format": "user-interface",
+    "frameworkDefault": "react",
+    "frameworks": [
+      {
+        "framework": "react",
+        "href": "/questions/user-interface/progress-bars-iii/react"
+      }
+    ],
+    "href": "/questions/user-interface/progress-bars-iii",
+    "importance": "low",
+    "languages": [
+      "html",
+      "css",
+      "js"
+    ],
+    "nextQuestions": [
+      "progress-bars-iv"
+    ],
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "progress-bars-iii",
+    "subtitle": null,
+    "topics": [
+      "async"
+    ]
+  }
 }

@@ -1,5 +1,9 @@
 {
   "description": null,
+  "info": {
+    "excerpt": null,
+    "title": "Explain `Function.prototype.bind` in JavaScript"
+  },
   "metadata": {
     "access": "free",
     "author": null,
@@ -9,7 +13,6 @@
     "created": 1630800000,
     "difficulty": "medium",
     "duration": 5,
-    "excerpt": null,
     "featured": true,
     "format": "quiz",
     "frameworkDefault": null,
@@ -23,7 +26,6 @@
     "similarQuestions": [],
     "slug": "explain-function-prototype-bind",
     "subtitle": null,
-    "title": "Explain `Function.prototype.bind` in JavaScript",
     "topics": [
       "javascript",
       "oop"

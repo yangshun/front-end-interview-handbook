@@ -1,5 +1,9 @@
 {
   "description": null,
+  "info": {
+    "excerpt": null,
+    "title": "What's the difference between a `relative`, `fixed`, `absolute`, `sticky` and `static`-ally positioned element?"
+  },
   "metadata": {
     "access": "free",
     "author": null,
@@ -11,7 +15,6 @@
     "created": 1630800000,
     "difficulty": "medium",
     "duration": 5,
-    "excerpt": null,
     "featured": false,
     "format": "quiz",
     "frameworkDefault": null,
@@ -25,7 +28,6 @@
     "similarQuestions": [],
     "slug": "whats-the-difference-between-a-relative-fixed-absolute-and-statically-positioned-element",
     "subtitle": null,
-    "title": "What's the difference between a `relative`, `fixed`, `absolute`, `sticky` and `static`-ally positioned element?",
     "topics": [
       "css"
     ],

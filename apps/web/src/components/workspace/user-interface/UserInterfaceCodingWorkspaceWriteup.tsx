@@ -5,8 +5,10 @@ import { useQuestionFrameworksData } from '~/data/QuestionCategories';
 
 import { questionHrefFrameworkSpecificAndListType } from '~/components/interviews/questions/common/QuestionHrefUtils';
 import type {
+  InterviewsQuestionInfo,
+  InterviewsQuestionItemMinimal,
+  InterviewsQuestionMetadata,
   QuestionFramework,
-  QuestionMetadata,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import type { QuestionUserInterfaceMode } from '~/components/interviews/questions/common/QuestionUserInterfacePath';
 import useQuestionLogEventCopyContents from '~/components/interviews/questions/common/useQuestionLogEventCopyContents';
@@ -39,15 +41,16 @@ type Props = Readonly<{
   contentType: 'description' | 'solution';
   environment?: 'embed' | 'workspace';
   framework: QuestionFramework;
-  metadata: QuestionMetadata;
+  info: InterviewsQuestionInfo;
+  metadata: InterviewsQuestionMetadata;
   mode: QuestionUserInterfaceMode;
-  nextQuestions: ReadonlyArray<QuestionMetadata>;
+  nextQuestions: ReadonlyArray<InterviewsQuestionItemMinimal>;
   onFrameworkChange: (
     framework: QuestionFramework,
     contentType: 'description' | 'solution',
   ) => void;
   showAd: boolean;
-  similarQuestions: ReadonlyArray<QuestionMetadata>;
+  similarQuestions: ReadonlyArray<InterviewsQuestionItemMinimal>;
   studyListKey?: string;
   writeup: string | null;
 }>;
@@ -65,6 +68,7 @@ export default function UserInterfaceCodingWorkspaceWriteup({
   mode,
   studyListKey,
   writeup,
+  info,
 }: Props) {
   const copyRef = useQuestionLogEventCopyContents<HTMLDivElement>();
   const listType = useQuestionsListTypeCurrent(studyListKey, framework);
@@ -155,7 +159,7 @@ export default function UserInterfaceCodingWorkspaceWriteup({
             <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
               <Heading level="heading5">
                 <span>
-                  {metadata.title} {contentType === 'solution' && ' Solution'}
+                  {info.title} {contentType === 'solution' && ' Solution'}
                 </span>
               </Heading>
               {metadata.access === 'premium' && (
