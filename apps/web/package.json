@@ -152,6 +152,7 @@
     "unified": "10.1.2",
     "usehooks-ts": "^3.1.1",
     "uuid": "^11.1.0",
+    "virtua": "^0.40.4",
     "zod": "^3.24.3"
   },
   "devDependencies": {

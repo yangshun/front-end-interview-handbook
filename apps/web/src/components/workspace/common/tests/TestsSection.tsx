@@ -1,5 +1,6 @@
 import clsx from 'clsx';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import React from 'react';
 import {
   RiCheckboxLine,
   RiFlaskLine,
@@ -58,7 +59,7 @@ export type Props = Readonly<{
   specPath: string;
 }>;
 
-export default function TestsSection({
+function TestsSection({
   specMode,
   specPath,
   onComplete,
@@ -400,12 +401,27 @@ export default function TestsSection({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state.currentSpecPath, sandpack.status]);
 
-  const openSpec = (file: string): void => {
-    sandpack.setActiveFile(file);
-  };
+  const openSpec = useCallback(
+    (file: string): void => {
+      sandpack.setActiveFile(file);
+    },
+    [sandpack],
+  );
 
-  const specs = Object.values(state.specs).filter((spec) => !!spec.name);
-  const testResults = getAllTestResults(specs);
+  const onShowTestCaseForInlineSpec = useCallback(
+    (index: number, displayPath: Array<string>) => {
+      onShowTestCase(specMode, index, displayPath);
+    },
+    [specMode, onShowTestCase],
+  );
+
+  const { specs, testResults } = useMemo(() => {
+    const specsCalc = Object.values(state.specs).filter((spec) => !!spec.name);
+
+    const testResultsCalc = getAllTestResults(specsCalc);
+
+    return { specs: specsCalc, testResults: testResultsCalc };
+  }, [state.specs]);
 
   return (
     <div className="size-full relative flex">
@@ -568,9 +584,7 @@ export default function TestsSection({
                       runStatus={state.status}
                       specs={specs}
                       onFocusConsole={onFocusConsole}
-                      onShowTestCase={(index, displayPath) => {
-                        onShowTestCase(specMode, index, displayPath);
-                      }}
+                      onShowTestCase={onShowTestCaseForInlineSpec}
                     />
                   );
                 })()}
@@ -632,3 +646,5 @@ export default function TestsSection({
     </div>
   );
 }
+
+export default React.memo(TestsSection);
