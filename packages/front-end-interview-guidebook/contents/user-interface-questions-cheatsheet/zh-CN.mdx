@@ -34,9 +34,9 @@ social_title: 用户界面问题备忘单 | 前端面试手册
 
 * **确定 UI 中所需的最少状态**: 状态越小，代码就越容易阅读和理解 -> 出现错误的概率越低。 确定基本状态与派生状态。 派生状态是可以从基本状态计算出来的状态。 通过即时派生状态，您可以减少状态值不同步的可能性。
 * **分离渲染代码与数据管理代码**: 使 UI 成为数据的函数，并将代码分成两部分（渲染代码与数据管理代码），以提高可读性。 如果您使用 JavaScript 框架（例如 React），您或多或少会被迫这样做。
-* **对复杂的状态交互使用状态-reducer 模式**: 如果问题需要许多状态字段，并且某些操作需要同时更改多个字段，请使用 [reducer 来合并状态更新逻辑](https://beta.reactjs.org/learn/extracting-state-logic-into-a-reducer)。 状态-reducer 模式最初由 Redux 推广，它鼓励您确定 UI 的状态、可以采取的操作以及如何将操作与状态结合起来以推导出下一个状态。 如果您使用 React，您可以通过 [`useReducer` React hook](https://reactjs.org/docs/hooks-reference.html#usereducer) 实现此模式。 Redux 通常对于面试来说是过度的，而 `useReducer` 应该足够了。
+* **对复杂的状态交互使用状态-reducer 模式**: 如果问题需要许多状态字段，并且某些操作需要同时更改多个字段，请使用 [reducer 来合并状态更新逻辑](https://react.dev/learn/extracting-state-logic-into-a-reducer)。 状态-reducer 模式最初由 Redux 推广，它鼓励您确定 UI 的状态、可以采取的操作以及如何将操作与状态结合起来以推导出下一个状态。 如果您使用 React，您可以通过 [`useReducer` React hook](https://react.dev/reference/react/useReducer) 实现此模式。 Redux 通常对于面试来说是过度的，而 `useReducer` 应该足够了。
 
-[React 的](https://beta.reactjs.org) 关于 [“管理状态”](https://beta.reactjs.org/learn/managing-state) 的文档是关于如何正确设计和使用组件状态的绝佳资源。提到的一些想法并非特定于 React，可以应用于任何 UI 框架。
+[React 的](https://react.dev/) 关于 [“管理状态”](https://react.dev/learn/managing-state) 的文档是关于如何正确设计和使用组件状态的绝佳资源。提到的一些想法并非特定于 React，可以应用于任何 UI 框架。
 
 ## JavaScript
 

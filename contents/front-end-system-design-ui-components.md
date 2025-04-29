@@ -78,8 +78,8 @@ The key idea behind components is for them to be reused and abstract complexitie
 - What are the configuration options you would allow for the component? (`props` in React). What would be reasonable defaults?
 - Follow the [Open-closed principle](https://en.wikipedia.org/wiki/Open%E2%80%93closed_principle) - the component should be open for extension but closed for modification.
 - If your component is meant to be part of a UI library that doesn't bother about the appearance and leaves the styling to the user, extra care has to go into the design of the props and to allow users to customize the look and feel of the components. There are a few ways to go about this in React:
-  - [Composition](https://reactjs.org/docs/composition-vs-inheritance.html) - Props which accept React components which also promotes code reuse.
-  - [Render props](https://reactjs.org/docs/render-props.html) are function props that a component uses to know what to render. It also helps in reusing behavior without bothering about the appearance.
+  - [Composition](https://tkdodo.eu/blog/component-composition-is-great-btw) - Props which accept React components which also promotes code reuse.
+  - [Render props](https://www.patterns.dev/react/render-props-pattern/) are function props that a component uses to know what to render. It also helps in reusing behavior without bothering about the appearance.
   - `className` or `style` props - Allows users to inject class names and/or styling attributes to inner DOM elements. This could have negative consequences but is still a common way of allowing user to customize component appearance.
 - Possible configuration options:
   - Lifecycle/event hooks - `onClick`, `onChange`, `onBlur`, `onFocus`, etc.
