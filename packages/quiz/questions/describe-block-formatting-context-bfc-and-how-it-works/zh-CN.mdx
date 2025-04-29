@@ -15,4 +15,4 @@ BFC 是满足以下至少一个条件的 HTML 盒子：
 
 在 BFC 中，每个盒子的左外边缘都与包含块的左边缘接触（对于从右到左的格式，右边缘接触）。
 
-BFC 中相邻块级盒子之间的垂直外边距会折叠。阅读更多关于[折叠外边距](https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing)。
+在同一个 BFC 内的相邻块级盒子之间的垂直外边距可以折叠，但是 BFC 阻止了它与外部元素的边距折叠。 进一步阅读 [外边距折叠](https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing)。

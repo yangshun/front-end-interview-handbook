@@ -16,7 +16,7 @@ social_title: UI 组件的 API 设计原则 | 前端面试手册
 
 ### jQuery 风格
 
-在像 [React](https://react.dev/)、[Angular](https://angular.io/) 和 [Vue](https://vuejs.org/) 这样的现代 JavaScript UI 库/框架出现之前，[jQuery](https://jquery.com/)（和 [jQuery UI](https://jqueryui.com/)）是构建 UI 最流行的方式。 jQuery UI 推广了通过“构造函数”初始化 UI 组件的想法，其中涉及两个参数：
+在像 [React](https://react.dev/)、[Angular](https://angular.io/) 和 [Vue](https://vuejs.org/) 这样的现代 JavaScript UI 库/框架出现之前，[jQuery](https://jquery.com/)（和 [jQuery UI](https://jqueryui.com/)）是构建 UI 最流行的方式。 jQuery UI 推广了通过“构造函数”初始化 UI 组件的想法，这涉及两个参数：
 
 1. **根元素**：用于渲染内容的根 DOM 元素
 2. **自定义选项**：可选的、额外的、自定义选项，通常以纯 JavaScript 对象的形式
@@ -142,7 +142,7 @@ function Slider({ label, value, className, classNameLabel, classNameTrack }) {
         {label}
       </label>
       <input
-        className={clsx('gfe-slider-range', classNameRange)}
+        className={clsx('gfe-slider-range', classNameTrack)}
         id={id}
         type="range"
         value={value}

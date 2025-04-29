@@ -32,11 +32,11 @@ social_title: 用户界面问题备忘单 | 前端面试手册
 
 面试中的大多数 UI 问题都需要状态，并且良好地设计状态至关重要。
 
-* **确定 UI 中所需的最少状态**: 状态越小，代码就越容易阅读和理解 -> 出现错误的概率越低。 确定基本状态与派生状态。 派生状态是可以从基本状态计算出来的状态。 通过即时派生状态，您可以减少状态值不同步的可能性。
-* **分离渲染代码与数据管理代码**: 使 UI 成为数据的函数，并将代码分成两部分（渲染代码与数据管理代码），以提高可读性。 如果您使用 JavaScript 框架（例如 React），您或多或少会被迫这样做。
-* **对复杂的状态交互使用状态-reducer 模式**: 如果问题需要许多状态字段，并且某些操作需要同时更改多个字段，请使用 [reducer 来合并状态更新逻辑](https://react.dev/learn/extracting-state-logic-into-a-reducer)。 状态-reducer 模式最初由 Redux 推广，它鼓励您确定 UI 的状态、可以采取的操作以及如何将操作与状态结合起来以推导出下一个状态。 如果您使用 React，您可以通过 [`useReducer` React hook](https://react.dev/reference/react/useReducer) 实现此模式。 Redux 通常对于面试来说是过度的，而 `useReducer` 应该足够了。
+* **确定 UI 中所需的最小状态**：状态越小，代码就越容易阅读和理解 -> 降低出现错误的几率。确定基本状态与派生状态。派生状态是可以从基本状态计算出来的状态。通过即时派生状态，您可以减少状态值不同步的可能性。
+* **分离渲染代码与数据管理代码**：使 UI 成为您数据的函数，并将您的代码分成两部分（渲染代码与数据管理代码），以提高可读性。如果您使用 JavaScript 框架（例如 React），您或多或少会被迫这样做。
+* **对复杂的状态交互使用状态-reducer 模式**：如果问题需要许多状态字段，并且某些操作需要同时更改多个字段，请使用 [reducer 来整合状态更新逻辑](https://react.dev/learn/extracting-state-logic-into-a-reducer)。状态-reducer 模式最初由 Redux 推广，它鼓励您确定 UI 的状态、可以执行的操作以及如何将操作与状态结合起来以推导出下一个状态。如果您使用 React，您可以通过 [`useReducer` React hook](https://react.dev/reference/react/useReducer) 实现此模式。Redux 通常对于面试来说是过度的，而 `useReducer` 应该足够了。
 
-[React 的](https://react.dev/) 关于 [“管理状态”](https://react.dev/learn/managing-state) 的文档是关于如何正确设计和使用组件状态的绝佳资源。提到的一些想法并非特定于 React，可以应用于任何 UI 框架。
+[React 的](https://react.dev/) 关于 ["管理状态"](https://react.dev/learn/managing-state) 的文档是关于如何正确设计和使用组件状态的优秀资源。其中提到的一些想法并非 React 独有，可以应用于任何 UI 框架。
 
 ## JavaScript
 
@@ -75,14 +75,14 @@ social_title: 用户界面问题备忘单 | 前端面试手册
 
 您的 UI 是否提供了出色的用户体验？
 
-* **移动友好性**：检查您是否需要使您的 UI 在移动设备上运行良好。
-  * CSS 媒体查询可用于在移动设备上呈现不同的布局。
-  * 使按钮等交互元素足够大以供按压（建议至少 44 x 44 像素）并充分间隔。
+* **移动端友好性**：检查您是否需要使您的 UI 在移动端上也能良好运行。
+  * CSS 媒体查询可用于在移动端上呈现不同的布局。
+  * 使按钮等交互元素足够大，以便按下（建议至少 44 x 44 像素）并且间隔足够宽。
 * **错误状态**：及时、清晰地反映错误 — 表单验证错误、网络请求错误。
-* **处理不同尺寸的图像渲染**：使您的 UI 适用于渲染所有尺寸/尺寸的图像，同时保留原始纵横比。
-  * 将 CSS `background-image` 与 `background-position: contain` 结合使用，使图像适合您定义的区域。 如果可以裁剪图像（例如用于渐变背景），请使用 `background-position: cover`。
+* **处理不同尺寸的图像渲染**：使您的 UI 能够处理各种尺寸/尺寸的图像渲染，同时保留原始的宽高比。
+  * 使用 CSS `background-image` 以及 `background-size: contain`，使图像适合您定义的区域。如果可以裁剪图像（例如用于渐变背景），请使用 `background-size: cover`。
   * `<img>` 标签具有类似的 `object-fit` 属性，具有 `contain` 和 `cover` 值。
-* **乐观更新**：高级技术，即使网络请求仍在等待，也会反映成功状态。 如果请求失败，请恢复 UI 更改并显示错误消息。
+* **乐观更新**：高级技术，即使网络请求仍在等待，也会反映成功状态。如果请求失败，则恢复 UI 更改并显示错误消息。
 
 ## 网络
 
@@ -132,8 +132,8 @@ Google 的 web.dev 有一个[关于可访问性的免费深入课程](https://we
 在面试中，你可能没有足够的时间来处理代码中的所有边缘情况，但最好在面试中提及它们以获得加分。
 
 * **处理长字符串**：UI 中的字符串（例如标题/按钮标签）可能导致 UI 行为异常，例如溢出并影响周围元素的位置。长字符串可能是用户输入或翻译的结果。
-* **空状态**：显示空状态消息/占位符以指示内容缺失，例如当列表为空时。什么都不显示可能会让用户认为有一个待处理的网络请求，并且数据仍在获取中。
-* **列表中项目过多**：在单个页面上显示太多项目会导致较差的 UX（用户必须滚动很多）以及响应能力和内存消耗方面的性能不佳。
+* **空状态**：显示空状态消息/占位符以指示内容缺失，例如当列表为空时。什么都不显示可能会使用户认为存在待处理的网络请求，并且数据仍在获取中。
+* **列表中项目过多**：在单个页面上显示太多项目可能导致较差的 UX（用户必须滚动很多）以及响应能力和内存消耗方面的性能不佳。
   * **分页**：将长列表项分成多个页面。
   * [**虚拟列表**](https://www.patterns.dev/posts/virtual-lists)：仅渲染动态列表中可见的行内容，而不是整个列表。
   * 截断多余的内容并显示省略号。`word-break` CSS 属性将派上用场。
@@ -149,9 +149,9 @@ Google 的 web.dev 有一个[关于可访问性的免费深入课程](https://we
 
 ## 安全
 
-* **跨站点脚本 (XSS)**：如果内容来自用户，则在将内容呈现到 DOM 时，避免分配给 [`Element.innerHTML`](https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML) 或 React 的 `dangerouslySetInnerHTML` 以防止跨站点脚本，分配给 [`Node.textContent`](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent) 或使用实验性的 [`Element.setHTML()`](https://webdocs.dev/en-us/docs/web/api/element/sethtml) 方法。请参阅 [OWASP 的 XSS 预防备忘单](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
+* **跨站点脚本 (XSS)**：如果将内容呈现到 DOM 中时，内容来自用户，请避免分配给 [`Element.innerHTML`](https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML) 或 React 的 `dangerouslySetInnerHTML` 以防止跨站点脚本，请分配给 [`Node.textContent`](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent) 或使用实验性的 [`Element.setHTML()`](https://webdocs.dev/en-us/docs/web/api/element/sethtml) 方法。请参阅 [OWASP 的 XSS 预防备忘单](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
 * **“URL 上下文”的输出编码**：如果用户提供的输入可以在 URL 查询参数中使用，请使用 `encodeURIComponent` 以防止意外值成为 URL 的一部分（例如额外的查询参数）。
-* **跨站点请求伪造**：请参阅 [OWASP 的 XSS 预防备忘单](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)。
+* **跨站点请求伪造**：请参阅 [OWASP 的 CSRF 预防备忘单](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html)。
 
 ## 国际化 (i18n)
 

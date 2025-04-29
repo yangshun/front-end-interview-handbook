@@ -27,8 +27,40 @@ CSS 盒子模型负责计算：
 
 查找 `box-sizing` 属性，该属性会影响元素的总高度和宽度的计算方式。
 
-* `box-sizing: content-box`：这是 `box-sizing` 的默认值，并遵守上述规则。
-* `box-sizing: border-box`：`width` 和 `height` 将包括内容、填充和边框，但不包括边距。这是一种更直观的思考盒子模型的方式，因此许多 CSS 框架（例如 Bootstrap、Tailwind、Bulma）全局设置 `* { box-sizing: border-box; }`，以便所有元素默认使用这种盒子模型。有关更多信息，请参阅 [关于 `box-sizing: border-box` 的问题](/questions/quiz/what-does-box-sizing-border-box-do-what-are-its-advantages)。
+* `box-sizing: content-box`: 这是 `box-sizing` 的默认值，遵循上述规则。
+
+  例如：
+
+  ```css
+  .example {
+    box-sizing: content-box;
+    width: 100px;
+    padding: 10px;
+    border: 5px solid black;
+  }
+  ```
+
+  `.example` 元素实际占用的空间将是 130px 宽（100px 宽度 + 10px 左内边距 + 10px 右内边距 + 5px 左边框 + 5px 右边框）。
+
+* `box-sizing: border-box`: `width` 和 `height` 将包括内容、内边距和边框（但不包括外边距）。这是一种更直观的思考盒子模型的方式，因此许多 CSS 框架（例如 Bootstrap、Tailwind、Bulma）全局设置 `* { box-sizing: border-box; }`，以便所有元素默认使用这种盒子模型。有关更多信息，请参阅[关于 `box-sizing: border-box` 的问题](/questions/quiz/what-does-box-sizing-border-box-do-what-are-its-advantages)。
+
+  例如：
+
+  ```css
+  .example {
+    box-sizing: border-box;
+    width: 100px;
+    padding: 10px;
+    border: 5px solid black;
+  }
+  ```
+
+  该元素在页面上仍将占用 100px，但内容区域将为 70px 宽（100px - 10px 左内边距 - 10px 右内边距 - 5px 左边框 - 5px 右边框）。
+
+### 边框和外边距行为
+
+* **边框不会与相邻元素的边框折叠或重叠**。每个元素的边框单独渲染。
+* **外边距可以折叠**，但仅垂直方向，且仅在块级元素之间。水平外边距不会折叠。这意味着如果一个块级元素具有底部外边距，而下一个块级元素具有顶部外边距，则仅使用两者中较大的一个。此行为与 `box-sizing` 无关，并且是 CSS 中的默认行为。
 
 ## 参考
 

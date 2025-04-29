@@ -6,20 +6,32 @@
     "source": {
       "locale": "en-US",
       "hashes": [
-        "5db214c4",
-        "7e17674c",
-        "d30d76b2",
-        "cb872b3c",
-        "c9096de5"
+        "fdb40b5e",
+        "c6dfccde",
+        "c177f72d",
+        "62b48aec",
+        "4e19f600",
+        "a43d51f3",
+        "24fe32a8",
+        "901c4fe4",
+        "d7898ccb",
+        "62fd75b6",
+        "97be1c65"
       ]
     },
     "targets": {
       "zh-CN": [
-        "5db214c4",
-        "7e17674c",
-        "d30d76b2",
-        "cb872b3c",
-        "c9096de5"
+        "fdb40b5e",
+        "c6dfccde",
+        "c177f72d",
+        "62b48aec",
+        "4e19f600",
+        "a43d51f3",
+        "24fe32a8",
+        "901c4fe4",
+        "d7898ccb",
+        "62fd75b6",
+        "97be1c65"
       ]
     }
   }
