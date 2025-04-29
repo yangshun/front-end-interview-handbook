@@ -648,7 +648,7 @@ TODO.
 
 ### 用转译成 JavaScript 的语言写 JavaScript 有什么优缺点？
 
-Some examples of languages that compile to JavaScript include CoffeeScript, Elm, ClojureScript, PureScript and TypeScript. 这些是转译成 JavaScript 的语言，包括 CoffeeScript、Elm、ClojureScript、PureScript 和 TypeScript。
+这些是转译成 JavaScript 的语言，包括 CoffeeScript、Elm、ClojureScript、PureScript 和 TypeScript。
 
 **优点：**
 

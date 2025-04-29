@@ -15,4 +15,4 @@ A BFC is an HTML box that satisfies at least one of the following conditions:
 
 In a BFC, each box's left outer edge touches the left edge of the containing block (for right-to-left formatting, right edges touch).
 
-Vertical margins between adjacent block-level boxes in a BFC collapse. Read more on [collapsing margins](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing).
+Vertical margins between adjacent block-level boxes within the same BFC can collapse, but a BFC prevents margin collapsing with elements outside of it. Read more on [collapsing margins](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing).

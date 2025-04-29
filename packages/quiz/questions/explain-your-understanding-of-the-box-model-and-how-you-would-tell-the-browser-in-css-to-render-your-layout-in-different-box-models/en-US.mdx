@@ -28,7 +28,39 @@ Note that `margin`s are not counted towards the actual size of the box. It affec
 Look up the `box-sizing` property, which affects how the total heights and widths of elements are calculated.
 
 - `box-sizing: content-box`: This is the default value of `box-sizing` and adheres to the rules above.
-- `box-sizing: border-box`: The `width` and `height` will include the content, padding and border, but not including the margin. This is a much more intuitive way to think about boxes and hence many CSS frameworks (e.g. Bootstrap, Tailwind, Bulma) set `* { box-sizing: border-box; }` globally, so that all elements use such a box model by default. See the [question on `box-sizing: border-box`](/questions/quiz/what-does-box-sizing-border-box-do-what-are-its-advantages) for more information.
+
+  For example:
+
+  ```css
+  .example {
+    box-sizing: content-box;
+    width: 100px;
+    padding: 10px;
+    border: 5px solid black;
+  }
+  ```
+
+  The actual space taken by the `.example` element will be 130px wide (100px width + 10px left padding + 10px right padding + 5px left border + 5px right border).
+
+- `box-sizing: border-box`: The `width` and `height` will include the content, padding and border (but not the margin). This is a much more intuitive way to think about boxes and hence many CSS frameworks (e.g. Bootstrap, Tailwind, Bulma) set `* { box-sizing: border-box; }` globally, so that all elements use such a box model by default. See the [question on `box-sizing: border-box`](/questions/quiz/what-does-box-sizing-border-box-do-what-are-its-advantages) for more information.
+
+  For example:
+
+  ```css
+  .example {
+    box-sizing: border-box;
+    width: 100px;
+    padding: 10px;
+    border: 5px solid black;
+  }
+  ```
+
+  The element will still take up 100px on the page, but the content area will be 70px wide (100px - 10px left padding - 10px right padding - 5px left border - 5px right border).
+
+### Border and Margin Behavior
+
+- **Borders do not collapse or overlap** with those of adjacent elements. Each element’s border is rendered individually.
+- **Margins can collapse**, but only vertically and only between block-level elements. Horizontal margins do not collapse. This means that if one block element has a bottom margin and the next has a top margin, only the larger of the two will be used. This behavior is independent of `box-sizing` and is the default in CSS.
 
 ## References
 

@@ -80,7 +80,7 @@ Does your UI provide a great user experience?
   - Make interactive elements like buttons large enough to be pressed (recommend at least 44 x 44 px) and spaced widely enough.
 - **Error states**: Reflect errors promptly and clearly — form validation errors, network request errors.
 - **Handle rendering images of different dimensions**: Make your UI work for rendering images of all sizes/dimensions yet preserving the original aspect ratios.
-  - Use CSS `background-image` together with `background-position: contain` so that the image fits within your defined area. If it is ok for the image to be cropped off (e.g. for gradient backgrounds), use `background-position: cover`.
+  - Use CSS `background-image` together with `background-size: contain` so that the image fits within your defined area. If it is ok for the image to be cropped off (e.g. for gradient backgrounds), use `background-size: cover`.
   - `<img>` tags have a similar `object-fit` property with `contain` and `cover` values.
 - **Optimistic updates**: Advanced technique where the success state is reflected even though the network request is still pending. If the request fails, revert the UI changes and show an error message.
 
@@ -136,7 +136,7 @@ There's probably not enough time to handle all edge cases scenarios in your code
 - **Too many items in a list**: Showing too many items on a single page can lead to poor UX (user has to scroll a lot) and poor performance in terms of responsiveness and memory consumption.
   - **Pagination**: Break up a long list of items into multiple pages.
   - [**Virtual lists**](https://www.patterns.dev/posts/virtual-lists): Rendering only visible rows of content in a dynamic list instead of the entire list.
-  - Truncate the excess content and show an ellipsis. The `word-break` CSS property will come in handy useful.
+  - Truncate the excess content and show an ellipsis. The `word-break` CSS property will come in handy.
   - Limit the content to the first X characters/words and hide the excess content behind a "Show More" button.
 
 ## Performance
@@ -151,7 +151,7 @@ There's probably not enough time to handle all edge cases scenarios in your code
 
 - **Cross-site Scripting (XSS)**: Avoid assigning to [`Element.innerHTML`](https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML) or React's `dangerouslySetInnerHTML` when rendering contents into the DOM if it comes from users to prevent cross-site scripting, assign to [`Node.textContent`](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent) or use the experimental[`Element.setHTML()`](https://webdocs.dev/en-us/docs/web/api/element/sethtml) method instead. Refer to [OWASP's XSS Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
 - **Output encoding for "URL Contexts"**: If user-supplied input can be used in URL query parameters, use `encodeURIComponent` to prevent unintended values from becoming part of the URL (e.g. extra query parameters).
-- **Cross Site Request Forgery**: Refer to [OWASP's XSS Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html).
+- **Cross Site Request Forgery**: Refer to [OWASP's CSRF Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html).
 
 ## Internationalization (i18n)
 
