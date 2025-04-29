@@ -6,7 +6,7 @@ We will need two state values: `tasks` and `newTask`.
 
 `tasks`: Since there's a list of tasks that can be modified, we will need it to be part of the component's state. When rendering a list of elements in React, we need to specify a `key` for each item. We cannot use the text of the task as the `key` because they are not guaranteed to be unique. It is typically a bad practice to use array `index` as `key`s, but for this question, it is acceptable. The most foolproof method is to generate a unique ID for each task. Libraries like [`uuid`](https://github.com/uuidjs/uuid) come to mind, but in this case, a simple incrementing counter will do. Since we want `id`s to be globally unique, it is initialized in the module scope, outside of the component.
 
-`newTask`: state to represent the new task input field, although that is not strictly necessary if we prefer [uncontrolled components](https://reactjs.org/docs/uncontrolled-components.html). However, it is generally more common to make `input` fields controlled, aka backed by component state. The initial value for this state should not be `null` as React will show a warning otherwise.
+`newTask`: state to represent the new task input field, although that is not strictly necessary if we prefer [uncontrolled components](https://react.dev/learn/sharing-state-between-components#controlled-and-uncontrolled-components). However, it is generally more common to make `input` fields controlled, aka backed by component state. The initial value for this state should not be `null` as React will show a warning otherwise.
 
 ### Adding tasks
 

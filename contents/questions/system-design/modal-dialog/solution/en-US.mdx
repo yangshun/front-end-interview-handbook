@@ -110,7 +110,7 @@ Most of the modal's contents in the header/body/footer will be provided by the u
 
 #### Breaking out of DOM hierarchy
 
-Rendering the modal is more tricky than it seems due to the fact that modals are being displayed over the page and does not follow the normal flow of page elements. It's important to render the modal outside of the DOM hierarchy of the parents, because if the parents contain styling that clips its contents, the modal contents might not be fully visible. Here's an example from the [React docs](https://beta.reactjs.org/reference/react-dom/createPortal#rendering-a-modal-dialog-with-a-portal) demonstrating the issue.
+Rendering the modal is more tricky than it seems due to the fact that modals are being displayed over the page and does not follow the normal flow of page elements. It's important to render the modal outside of the DOM hierarchy of the parents, because if the parents contain styling that clips its contents, the modal contents might not be fully visible. Here's an example from the [React docs](https://react.dev/reference/react-dom/createPortal#rendering-a-modal-dialog-with-a-portal) demonstrating the issue.
 
 <iframe
   src="https://codesandbox.io/embed/wnr51p?fontsize=14&hidenavigation=1&theme=dark&module=/App.js,/NoPortalExample.js,/PortalExample.js,/ModalContent.js,/styles.css&view=split"
@@ -126,7 +126,7 @@ Rendering the modal is more tricky than it seems due to the fact that modals are
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
 />
 
-In React, rendering outside the DOM hierarchy of the parent component can be achieved using [React Portals](https://beta.reactjs.org/reference/react-dom/createPortal). Common use cases of portals include tooltips, dropdown menus, popovers.
+In React, rendering outside the DOM hierarchy of the parent component can be achieved using [React Portals](https://react.dev/reference/react-dom/createPortal). Common use cases of portals include tooltips, dropdown menus, popovers.
 
 #### Overlay
 

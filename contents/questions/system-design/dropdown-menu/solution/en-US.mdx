@@ -147,7 +147,7 @@ This approach is used by [Headless UI](https://headlessui.com/react/menu) and [B
 
 In this approach, the menu is rendered as a direct child of the `<body>` and positioned `absolute`-ly to the **page** by getting the element's `offsetTop` and `offsetLeft` to get the coordinates of the `<button>` relative to the page and adding its height (`offsetHeight`) to get the final Y position to render the menu.
 
-In React, this can be done using [React Portals](https://beta.reactjs.org/reference/react-dom/createPortal), which lets you render outside the DOM hierarchy of the parent component. A typical use case for portals is when a parent component has an `overflow: hidden` or `z-index` style, but you need the child to visually "break out" of its container. Common examples include dropdown menus, tooltips, modals.
+In React, this can be done using [React Portals](https://react.dev/reference/react-dom/createPortal), which lets you render outside the DOM hierarchy of the parent component. A typical use case for portals is when a parent component has an `overflow: hidden` or `z-index` style, but you need the child to visually "break out" of its container. Common examples include dropdown menus, tooltips, modals.
 
 <iframe
   src="https://codesandbox.io/embed/dropdown-menu-relative-page-r4zoiu
