@@ -4,7 +4,7 @@
     "i18n": "langnostic translate"
   },
   "dependencies": {
-    "langnostic": "^0.0.5"
+    "langnostic": "^0.0.7"
   },
   "devDependencies": {
     "prettier": "^3.5.3",
