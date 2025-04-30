@@ -1,0 +1,30 @@
+{
+  "access": "premium",
+  "author": "yangshun",
+  "companies": [],
+  "created": 1723766400,
+  "difficulty": "medium",
+  "duration": 15,
+  "featured": false,
+  "format": "javascript",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/javascript/promise-with-resolvers",
+  "importance": "low",
+  "languages": [
+    "js",
+    "ts"
+  ],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [
+    "promise-resolve",
+    "promise-reject"
+  ],
+  "slug": "promise-with-resolvers",
+  "subtitle": null,
+  "topics": [
+    "async"
+  ]
+}

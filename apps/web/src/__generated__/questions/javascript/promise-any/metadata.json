@@ -1,0 +1,31 @@
+{
+  "access": "standard",
+  "author": "yangshun",
+  "companies": [],
+  "created": 1655596800,
+  "difficulty": "medium",
+  "duration": 20,
+  "featured": false,
+  "format": "javascript",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/javascript/promise-any",
+  "importance": "low",
+  "languages": [
+    "js",
+    "ts"
+  ],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [
+    "promise-all",
+    "promise-all-settled",
+    "promise-race"
+  ],
+  "slug": "promise-any",
+  "subtitle": null,
+  "topics": [
+    "async"
+  ]
+}

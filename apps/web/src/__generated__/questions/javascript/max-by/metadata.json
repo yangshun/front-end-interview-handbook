@@ -1,0 +1,28 @@
+{
+  "access": "premium",
+  "author": null,
+  "companies": [],
+  "created": 1710720000,
+  "difficulty": "easy",
+  "duration": 10,
+  "featured": false,
+  "format": "javascript",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/javascript/max-by",
+  "importance": "low",
+  "languages": [
+    "js",
+    "ts"
+  ],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [
+    "group-by",
+    "min-by"
+  ],
+  "slug": "max-by",
+  "subtitle": null,
+  "topics": []
+}

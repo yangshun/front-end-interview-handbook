@@ -1,0 +1,32 @@
+{
+  "access": "premium",
+  "author": "phillmont",
+  "companies": [],
+  "created": 1742169600,
+  "difficulty": "medium",
+  "duration": 15,
+  "featured": false,
+  "format": "javascript",
+  "frameworkDefault": "react",
+  "frameworks": [
+    {
+      "framework": "react",
+      "href": "/questions/javascript/use-hover"
+    }
+  ],
+  "href": "/questions/javascript/use-hover",
+  "importance": "low",
+  "languages": [
+    "js",
+    "ts"
+  ],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [],
+  "slug": "use-hover",
+  "subtitle": null,
+  "topics": [
+    "react-hooks"
+  ]
+}

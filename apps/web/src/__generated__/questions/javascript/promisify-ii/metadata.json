@@ -1,0 +1,29 @@
+{
+  "access": "premium",
+  "author": null,
+  "companies": [
+    "amazon"
+  ],
+  "created": 1690070400,
+  "difficulty": "medium",
+  "duration": 15,
+  "featured": false,
+  "format": "javascript",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/javascript/promisify-ii",
+  "importance": "low",
+  "languages": [
+    "js",
+    "ts"
+  ],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [],
+  "slug": "promisify-ii",
+  "subtitle": null,
+  "topics": [
+    "async"
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "access": "standard",
+  "author": "yangshun",
+  "companies": [
+    "google",
+    "tiktok",
+    "walmart",
+    "yelp",
+    "tiktok",
+    "atlassian",
+    "uber"
+  ],
+  "created": 1649894400,
+  "difficulty": "medium",
+  "duration": 15,
+  "featured": false,
+  "format": "javascript",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/javascript/throttle",
+  "importance": "high",
+  "languages": [
+    "js",
+    "ts"
+  ],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [
+    "debounce"
+  ],
+  "slug": "throttle",
+  "subtitle": null,
+  "topics": [
+    "async"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "access": "premium",
+  "author": null,
+  "companies": [],
+  "created": 1689552000,
+  "difficulty": "easy",
+  "duration": 10,
+  "featured": false,
+  "format": "javascript",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/javascript/cancellable-interval",
+  "importance": "low",
+  "languages": [
+    "js",
+    "ts"
+  ],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [
+    "cancellable-timeout"
+  ],
+  "slug": "cancellable-interval",
+  "subtitle": null,
+  "topics": [
+    "async"
+  ]
+}

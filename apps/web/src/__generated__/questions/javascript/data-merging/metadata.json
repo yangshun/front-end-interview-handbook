@@ -1,0 +1,31 @@
+{
+  "access": "standard",
+  "author": null,
+  "companies": [
+    "soundcloud",
+    "stripe"
+  ],
+  "created": 1690675200,
+  "difficulty": "medium",
+  "duration": 20,
+  "featured": false,
+  "format": "javascript",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/javascript/data-merging",
+  "importance": "high",
+  "languages": [
+    "js",
+    "ts"
+  ],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [
+    "unique-array",
+    "data-selection"
+  ],
+  "slug": "data-merging",
+  "subtitle": null,
+  "topics": []
+}

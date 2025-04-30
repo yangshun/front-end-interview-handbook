@@ -1,0 +1,32 @@
+{
+  "access": "premium",
+  "author": "yangshun",
+  "companies": [
+    "google"
+  ],
+  "created": 1649894400,
+  "difficulty": "hard",
+  "duration": 30,
+  "featured": false,
+  "format": "javascript",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/javascript/table-of-contents",
+  "importance": "medium",
+  "languages": [
+    "html",
+    "js",
+    "ts"
+  ],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [],
+  "slug": "table-of-contents",
+  "subtitle": null,
+  "topics": [
+    "recursion",
+    "tree",
+    "web-api"
+  ]
+}

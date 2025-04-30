@@ -10,8 +10,10 @@ import {
 } from './QuestionsBundlerJavaScriptConfig';
 import { normalizeQuestionFrontMatter } from '../QuestionsUtils';
 import type {
+  InterviewsQuestionInfo,
   InterviewsQuestionItemJavaScript,
   InterviewsQuestionItemMinimal,
+  InterviewsQuestionMetadata,
   QuestionCodingWorkingLanguage,
 } from '../../components/interviews/questions/common/QuestionsTypes';
 
@@ -32,8 +34,18 @@ async function readQuestionJavaScriptSkeleton(
 
 async function readQuestionMetadataJavaScript(
   slug: string,
+): Promise<InterviewsQuestionMetadata> {
+  const questionPath = getQuestionSrcPathJavaScript(slug);
+  const metadataPath = path.join(questionPath, 'metadata.json');
+  const metadataJSON = JSON.parse(String(fs.readFileSync(metadataPath)));
+
+  return normalizeQuestionFrontMatter(metadataJSON, 'javascript').metadata;
+}
+
+async function readQuestionInfoJavaScript(
+  slug: string,
   locale = 'en-US',
-): Promise<InterviewsQuestionItemMinimal> {
+): Promise<InterviewsQuestionInfo> {
   const questionPath = getQuestionSrcPathJavaScript(slug);
 
   // Read frontmatter from MDX file.
@@ -41,17 +53,22 @@ async function readQuestionMetadataJavaScript(
   const source = fs.readFileSync(filePath).toString().trim();
   const { data: frontMatter } = grayMatter(source);
 
-  // Read locale-agnostic metadata file.
-  const metadataPath = path.join(questionPath, 'metadata.json');
-  const metadataJSON = JSON.parse(String(fs.readFileSync(metadataPath)));
+  return normalizeQuestionFrontMatter(frontMatter, 'javascript').info;
+}
 
-  // Combine them together.
-  const metadata = normalizeQuestionFrontMatter(
-    { ...frontMatter, ...metadataJSON },
-    'javascript',
-  );
+async function readQuestionItemJavaScript(
+  slug: string,
+  locale = 'en-US',
+): Promise<InterviewsQuestionItemMinimal> {
+  const [metadata, info] = await Promise.all([
+    readQuestionMetadataJavaScript(slug),
+    readQuestionInfoJavaScript(slug, locale),
+  ]);
 
-  return metadata;
+  return {
+    info,
+    metadata,
+  };
 }
 
 async function readQuestionMetadataWithFallbackJavaScript(
@@ -61,11 +78,11 @@ async function readQuestionMetadataWithFallbackJavaScript(
   let loadedLocale = requestedLocale;
   const content = await (async () => {
     try {
-      return await readQuestionMetadataJavaScript(slug, requestedLocale);
+      return await readQuestionItemJavaScript(slug, requestedLocale);
     } catch {
       loadedLocale = 'en-US';
 
-      return await readQuestionMetadataJavaScript(slug, loadedLocale);
+      return await readQuestionItemJavaScript(slug, loadedLocale);
     }
   })();
 
@@ -167,39 +184,48 @@ async function readQuestionJavaScriptWorkspaceConfig(slug: string): Promise<
   };
 }
 
-export async function readQuestionJavaScript(
+export async function readQuestionJavaScriptLocaleAgnostic(
   slug: string,
-  locale = 'en-US',
-): Promise<InterviewsQuestionItemJavaScript> {
-  const questionPath = getQuestionSrcPathJavaScript(slug);
-  const [
-    metadata,
-    description,
-    solution,
-    skeletonJS,
-    skeletonTS,
-    files,
-    workspace,
-  ] = await Promise.all([
-    readQuestionMetadataJavaScript(slug, locale),
-    readMDXFile(path.join(questionPath, 'description', `${locale}.mdx`), {}),
-    readMDXFile(path.join(questionPath, 'solution', `${locale}.mdx`), {}),
-    readQuestionJavaScriptSkeleton(slug, 'js'),
-    readQuestionJavaScriptSkeleton(slug, 'ts'),
-    readQuestionJavaScriptFiles(slug),
-    readQuestionJavaScriptWorkspaceConfig(slug),
-  ]);
+): Promise<
+  Omit<InterviewsQuestionItemJavaScript, 'description' | 'info' | 'solution'>
+> {
+  const [metadata, skeletonJS, skeletonTS, files, workspace] =
+    await Promise.all([
+      readQuestionMetadataJavaScript(slug),
+      readQuestionJavaScriptSkeleton(slug, 'js'),
+      readQuestionJavaScriptSkeleton(slug, 'ts'),
+      readQuestionJavaScriptFiles(slug),
+      readQuestionJavaScriptWorkspaceConfig(slug),
+    ]);
 
   return {
-    description,
     files,
-    ...metadata,
+    metadata,
     skeleton: {
       js: skeletonJS,
       ts: skeletonTS,
     },
-    solution,
     workspace,
+  };
+}
+
+export async function readQuestionJavaScript(
+  slug: string,
+  locale = 'en-US',
+): Promise<
+  Pick<InterviewsQuestionItemJavaScript, 'description' | 'info' | 'solution'>
+> {
+  const questionPath = getQuestionSrcPathJavaScript(slug);
+  const [info, description, solution] = await Promise.all([
+    readQuestionInfoJavaScript(slug, locale),
+    readMDXFile(path.join(questionPath, 'description', `${locale}.mdx`), {}),
+    readMDXFile(path.join(questionPath, 'solution', `${locale}.mdx`), {}),
+  ]);
+
+  return {
+    description,
+    info,
+    solution,
   };
 }
 

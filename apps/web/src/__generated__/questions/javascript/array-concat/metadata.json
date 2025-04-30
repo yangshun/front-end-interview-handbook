@@ -1,0 +1,31 @@
+{
+  "access": "premium",
+  "author": null,
+  "companies": [
+    "apple"
+  ],
+  "created": 1699574400,
+  "difficulty": "medium",
+  "duration": 15,
+  "featured": true,
+  "format": "javascript",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/javascript/array-concat",
+  "importance": "medium",
+  "languages": [
+    "js",
+    "ts"
+  ],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [
+    "array-filter",
+    "array-map",
+    "array-reduce"
+  ],
+  "slug": "array-concat",
+  "subtitle": null,
+  "topics": []
+}

@@ -1,0 +1,29 @@
+{
+  "access": "premium",
+  "author": null,
+  "companies": [],
+  "created": 1710806400,
+  "difficulty": "medium",
+  "duration": 15,
+  "featured": false,
+  "format": "javascript",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/javascript/uniq-by",
+  "importance": "low",
+  "languages": [
+    "js",
+    "ts"
+  ],
+  "nextQuestions": [],
+  "published": false,
+  "ranking": 100,
+  "similarQuestions": [
+    "data-selection",
+    "unique-array",
+    "max-by"
+  ],
+  "slug": "uniq-by",
+  "subtitle": null,
+  "topics": []
+}

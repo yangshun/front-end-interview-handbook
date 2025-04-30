@@ -1,0 +1,30 @@
+{
+  "access": "premium",
+  "author": "zhenghao",
+  "companies": [],
+  "created": 1656460800,
+  "difficulty": "medium",
+  "duration": 20,
+  "featured": false,
+  "format": "javascript",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/javascript/camel-case-keys",
+  "importance": "medium",
+  "languages": [
+    "js",
+    "ts"
+  ],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [
+    "deep-equal",
+    "squash-object"
+  ],
+  "slug": "camel-case-keys",
+  "subtitle": null,
+  "topics": [
+    "recursion"
+  ]
+}

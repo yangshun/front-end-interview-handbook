@@ -1,0 +1,27 @@
+{
+  "access": "premium",
+  "author": null,
+  "companies": [],
+  "created": 1689552000,
+  "difficulty": "medium",
+  "duration": 15,
+  "featured": false,
+  "format": "javascript",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/javascript/promise-timeout",
+  "importance": "low",
+  "languages": [
+    "js",
+    "ts"
+  ],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [],
+  "slug": "promise-timeout",
+  "subtitle": null,
+  "topics": [
+    "async"
+  ]
+}

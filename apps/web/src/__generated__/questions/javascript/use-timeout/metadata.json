@@ -1,0 +1,35 @@
+{
+  "access": "free",
+  "author": "phillmont",
+  "companies": [],
+  "created": 1742169600,
+  "difficulty": "medium",
+  "duration": 15,
+  "featured": false,
+  "format": "javascript",
+  "frameworkDefault": "react",
+  "frameworks": [
+    {
+      "framework": "react",
+      "href": "/questions/javascript/use-timeout"
+    }
+  ],
+  "href": "/questions/javascript/use-timeout",
+  "importance": "low",
+  "languages": [
+    "js",
+    "ts"
+  ],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [
+    "use-countdown",
+    "use-interval"
+  ],
+  "slug": "use-timeout",
+  "subtitle": null,
+  "topics": [
+    "react-hooks"
+  ]
+}

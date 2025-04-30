@@ -1,0 +1,28 @@
+{
+  "access": "premium",
+  "author": null,
+  "companies": [],
+  "created": 1687651200,
+  "difficulty": "medium",
+  "duration": 15,
+  "featured": false,
+  "format": "javascript",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/javascript/intersection-with",
+  "importance": "low",
+  "languages": [
+    "js",
+    "ts"
+  ],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [
+    "intersection",
+    "intersection-with"
+  ],
+  "slug": "intersection-with",
+  "subtitle": null,
+  "topics": []
+}

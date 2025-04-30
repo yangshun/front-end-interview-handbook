@@ -1,0 +1,28 @@
+{
+  "access": "premium",
+  "author": null,
+  "companies": [],
+  "created": 1711929600,
+  "difficulty": "medium",
+  "duration": 15,
+  "featured": false,
+  "format": "javascript",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/javascript/union-by",
+  "importance": "low",
+  "languages": [
+    "js",
+    "ts"
+  ],
+  "nextQuestions": [
+    "unique-array",
+    "union"
+  ],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [],
+  "slug": "union-by",
+  "subtitle": null,
+  "topics": []
+}

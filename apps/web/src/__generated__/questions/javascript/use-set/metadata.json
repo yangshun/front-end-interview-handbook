@@ -1,0 +1,36 @@
+{
+  "access": "standard",
+  "author": "phillmont",
+  "companies": [],
+  "created": 1742169600,
+  "difficulty": "medium",
+  "duration": 15,
+  "featured": false,
+  "format": "javascript",
+  "frameworkDefault": "react",
+  "frameworks": [
+    {
+      "framework": "react",
+      "href": "/questions/javascript/use-set"
+    }
+  ],
+  "href": "/questions/javascript/use-set",
+  "importance": "low",
+  "languages": [
+    "js",
+    "ts"
+  ],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [
+    "use-array",
+    "use-map",
+    "use-object"
+  ],
+  "slug": "use-set",
+  "subtitle": null,
+  "topics": [
+    "react-hooks"
+  ]
+}

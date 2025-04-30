@@ -1,0 +1,27 @@
+{
+  "access": "premium",
+  "author": null,
+  "companies": [],
+  "created": 1712102400,
+  "difficulty": "medium",
+  "duration": 20,
+  "featured": false,
+  "format": "javascript",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/javascript/is-match",
+  "importance": "low",
+  "languages": [
+    "js",
+    "ts"
+  ],
+  "nextQuestions": [],
+  "published": false,
+  "ranking": 100,
+  "similarQuestions": [
+    "conforms-to"
+  ],
+  "slug": "is-match",
+  "subtitle": null,
+  "topics": []
+}

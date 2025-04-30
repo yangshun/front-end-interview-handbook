@@ -1,0 +1,32 @@
+{
+  "access": "standard",
+  "author": "zhenghao",
+  "companies": [
+    "google"
+  ],
+  "created": 1659916800,
+  "difficulty": "medium",
+  "duration": 25,
+  "featured": false,
+  "format": "javascript",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/javascript/deep-equal",
+  "importance": "medium",
+  "languages": [
+    "js",
+    "ts"
+  ],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [
+    "deep-clone",
+    "deep-clone-ii"
+  ],
+  "slug": "deep-equal",
+  "subtitle": null,
+  "topics": [
+    "recursion"
+  ]
+}

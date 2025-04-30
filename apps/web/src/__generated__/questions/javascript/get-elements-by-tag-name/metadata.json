@@ -1,0 +1,34 @@
+{
+  "access": "premium",
+  "author": "yangshun",
+  "companies": [
+    "google",
+    "dropbox"
+  ],
+  "created": 1655251200,
+  "difficulty": "medium",
+  "duration": 20,
+  "featured": true,
+  "format": "javascript",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/javascript/get-elements-by-tag-name",
+  "importance": "low",
+  "languages": [
+    "html",
+    "js",
+    "ts"
+  ],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [
+    "get-elements-by-class-name",
+    "get-elements-by-style"
+  ],
+  "slug": "get-elements-by-tag-name",
+  "subtitle": null,
+  "topics": [
+    "web-api"
+  ]
+}

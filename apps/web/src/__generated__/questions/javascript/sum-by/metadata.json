@@ -1,0 +1,29 @@
+{
+  "access": "premium",
+  "author": null,
+  "companies": [],
+  "created": 1710806400,
+  "difficulty": "easy",
+  "duration": 15,
+  "featured": false,
+  "format": "javascript",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/javascript/sum-by",
+  "importance": "low",
+  "languages": [
+    "js",
+    "ts"
+  ],
+  "nextQuestions": [],
+  "published": false,
+  "ranking": 100,
+  "similarQuestions": [
+    "group-by",
+    "min-by",
+    "mean-by"
+  ],
+  "slug": "sum-by",
+  "subtitle": null,
+  "topics": []
+}

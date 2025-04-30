@@ -1,0 +1,32 @@
+{
+  "access": "premium",
+  "author": "yangshun",
+  "companies": [
+    "amazon"
+  ],
+  "created": 1655251200,
+  "difficulty": "easy",
+  "duration": 15,
+  "featured": false,
+  "format": "javascript",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/javascript/sum",
+  "importance": "low",
+  "languages": [
+    "js",
+    "ts"
+  ],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [
+    "curry",
+    "curry-ii"
+  ],
+  "slug": "sum",
+  "subtitle": null,
+  "topics": [
+    "closure"
+  ]
+}

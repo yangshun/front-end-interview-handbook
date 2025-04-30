@@ -1,0 +1,18 @@
+{
+  "files": {
+    "/package.json": "{\n  \"name\": \"@gfe-questions/difference\",\n  \"version\": \"0.0.1\",\n  \"main\": \"/src/difference.ts\",\n  \"devDependencies\": {\n    \"@types/jest\": \"29.5.0\",\n    \"typescript\": \"5.0.2\"\n  }\n}\n",
+    "/tsconfig.json": "{\n  \"include\": [\"./**/*\"],\n  \"compilerOptions\": {\n    \"strict\": true,\n    \"esModuleInterop\": true,\n    \"lib\": [\"dom\", \"dom.iterable\", \"esnext\"],\n    \"jsx\": \"react-jsx\",\n    \"target\": \"es2020\"\n  }\n}\n",
+    "/src/difference.run.test.ts": "import difference from './difference';\n\ndescribe('difference', () => {\n  test('empty input array', () => {\n    expect(difference([], [1, 2, 3])).toEqual([]);\n  });\n\n  test('values array is empty', () => {\n    expect(difference([1, 2, 3], [])).toEqual([1, 2, 3]);\n  });\n\n  test('unique values that are present in array but not in values', () => {\n    expect(difference([1, 2, 3], [2, 3, 4])).toEqual([1]);\n  });\n\n  test('all values in array are present in values', () => {\n    expect(difference([1, 2, 3], [1, 2, 3])).toEqual([]);\n  });\n});\n",
+    "/src/difference.submit.test.ts": "import difference from './difference';\n\ndescribe('difference', () => {\n  test('empty input array', () => {\n    expect(difference([], [])).toEqual([]);\n    expect(difference([], [1, 2, 3])).toEqual([]);\n  });\n\n  test('values array is empty', () => {\n    expect(difference([1, 2, 3], [])).toEqual([1, 2, 3]);\n  });\n\n  test('unique values that are present in array but not in values', () => {\n    expect(difference([1, 2, 3], [2, 3, 4])).toEqual([1]);\n    expect(difference(['a', 'b', 'c'], ['b', 'c', 'd'])).toEqual(['a']);\n    expect(difference([null, undefined, 1, NaN], [undefined, 2, 3])).toEqual([\n      null,\n      1,\n      NaN,\n    ]);\n  });\n\n  test('all values in array are present in values', () => {\n    expect(difference([1, 2, 3], [1, 2, 3])).toEqual([]);\n    expect(difference(['a', 'b', 'c'], ['a', 'b', 'c'])).toEqual([]);\n    expect(difference([null, undefined], [null, undefined])).toEqual([]);\n  });\n\n  test('sparse arrays', () => {\n    expect(difference([1, , 3], [2])).toEqual([1, 3]);\n  });\n\n  test('NaN values', () => {\n    expect(difference([1, NaN, 2], [NaN, 3, 4])).toEqual([1, 2]);\n  });\n});\n",
+    "/src/difference.ts": "export default function difference<T>(\n  array: Array<T>,\n  values: Array<T>,\n): Array<T> {\n  const result = [];\n\n  // Create a set of all the values in the values arrays.\n  const valuesSet = new Set(values);\n\n  for (let i = 0; i < array.length; i++) {\n    const value = array[i];\n    // Check if the value is in the values set.\n    if (!valuesSet.has(value) && !(value === undefined && !(i in array))) {\n      result.push(value);\n    }\n  }\n\n  return result;\n}\n"
+  },
+  "skeleton": {
+    "js": "/**\n * @param {Array} array - Array from which different elements are to be removed.\n * @param {Array} values - Array of values that are to be removed from the original array.\n * @return {Array} Returns filtered array.\n */\nexport default function difference(array, values) {\n  throw 'Not implemented!';\n}",
+    "ts": "export default function difference<T>(\n  array: Array<T>,\n  values: Array<T>,\n): Array<T> {\n  throw 'Not implemented!';\n}"
+  },
+  "workspace": {
+    "main": "/src/difference.ts",
+    "run": "/src/difference.run.test.ts",
+    "submit": "/src/difference.submit.test.ts"
+  }
+}

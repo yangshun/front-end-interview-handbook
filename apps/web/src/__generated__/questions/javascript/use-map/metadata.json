@@ -1,0 +1,36 @@
+{
+  "access": "premium",
+  "author": "phillmont",
+  "companies": [],
+  "created": 1742169600,
+  "difficulty": "medium",
+  "duration": 15,
+  "featured": false,
+  "format": "javascript",
+  "frameworkDefault": "react",
+  "frameworks": [
+    {
+      "framework": "react",
+      "href": "/questions/javascript/use-map"
+    }
+  ],
+  "href": "/questions/javascript/use-map",
+  "importance": "low",
+  "languages": [
+    "js",
+    "ts"
+  ],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [
+    "use-array",
+    "use-set",
+    "use-object"
+  ],
+  "slug": "use-map",
+  "subtitle": null,
+  "topics": [
+    "react-hooks"
+  ]
+}

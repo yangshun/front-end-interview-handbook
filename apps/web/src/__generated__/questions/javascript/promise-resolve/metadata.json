@@ -1,0 +1,35 @@
+{
+  "access": "premium",
+  "author": null,
+  "companies": [
+    "google",
+    "bytedance"
+  ],
+  "created": 1690329600,
+  "difficulty": "medium",
+  "duration": 15,
+  "featured": false,
+  "format": "javascript",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/javascript/promise-resolve",
+  "importance": "low",
+  "languages": [
+    "js",
+    "ts"
+  ],
+  "nextQuestions": [
+    "promise-with-resolvers"
+  ],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [
+    "promise-reject",
+    "promise-timeout"
+  ],
+  "slug": "promise-resolve",
+  "subtitle": null,
+  "topics": [
+    "async"
+  ]
+}

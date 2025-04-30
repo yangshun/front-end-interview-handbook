@@ -1,0 +1,29 @@
+{
+  "access": "premium",
+  "author": null,
+  "companies": [],
+  "created": 1690761600,
+  "difficulty": "easy",
+  "duration": 10,
+  "featured": false,
+  "format": "javascript",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/javascript/object-map",
+  "importance": "low",
+  "languages": [
+    "js",
+    "ts"
+  ],
+  "nextQuestions": [
+    "deep-map"
+  ],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [
+    "array-map"
+  ],
+  "slug": "object-map",
+  "subtitle": null,
+  "topics": []
+}

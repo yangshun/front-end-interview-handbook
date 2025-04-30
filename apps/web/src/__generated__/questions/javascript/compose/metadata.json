@@ -1,0 +1,27 @@
+{
+  "access": "premium",
+  "author": null,
+  "companies": [],
+  "created": 1689552000,
+  "difficulty": "easy",
+  "duration": 15,
+  "featured": false,
+  "format": "javascript",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/javascript/compose",
+  "importance": "low",
+  "languages": [
+    "js",
+    "ts"
+  ],
+  "nextQuestions": [
+    "middlewares"
+  ],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [],
+  "slug": "compose",
+  "subtitle": null,
+  "topics": []
+}

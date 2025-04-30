@@ -1,0 +1,32 @@
+{
+  "access": "premium",
+  "author": null,
+  "companies": [
+    "airbnb"
+  ],
+  "created": 1699660800,
+  "difficulty": "hard",
+  "duration": 30,
+  "featured": false,
+  "format": "javascript",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/javascript/backbone-model",
+  "importance": "medium",
+  "languages": [
+    "js",
+    "ts"
+  ],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [
+    "event-emitter",
+    "event-emitter-ii"
+  ],
+  "slug": "backbone-model",
+  "subtitle": null,
+  "topics": [
+    "oop"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "files": {
+    "/package.json": "{\n  \"name\": \"@gfe-questions/once\",\n  \"version\": \"0.0.1\",\n  \"main\": \"/src/once.ts\",\n  \"devDependencies\": {\n    \"@types/jest\": \"29.5.0\",\n    \"typescript\": \"5.0.2\"\n  }\n}\n",
+    "/tsconfig.json": "{\n  \"include\": [\"./**/*\"],\n  \"compilerOptions\": {\n    \"strict\": true,\n    \"esModuleInterop\": true,\n    \"lib\": [\"dom\", \"dom.iterable\", \"esnext\"],\n    \"jsx\": \"react-jsx\",\n    \"target\": \"es2020\"\n  }\n}\n",
+    "/src/once.run.test.ts": "import once from './once';\n\ndescribe('once', () => {\n  test('returns function', () => {\n    const onced = once(() => {});\n    expect(onced).toBeInstanceOf(Function);\n  });\n\n  test('only run once', () => {\n    let i = 0;\n    const onced = once(() => ++i);\n\n    onced();\n    onced();\n    expect(i).toBe(1);\n  });\n\n  test('returns the value of the first invocation', () => {\n    let i = 0;\n    const onced = once(() => ++i);\n    expect(onced()).toBe(1);\n    expect(onced()).toBe(1);\n    expect(i).toBe(1);\n\n    i = 99;\n    expect(onced()).toBe(1);\n    expect(i).toBe(99);\n  });\n});\n",
+    "/src/once.submit.test.ts": "import once from './once';\n\ndescribe('once', () => {\n  test('returns function', () => {\n    const onced = once(() => {});\n    expect(onced).toBeInstanceOf(Function);\n  });\n\n  test('only run once', () => {\n    let i = 0;\n    const onced = once(() => ++i);\n\n    onced();\n    onced();\n    expect(i).toBe(1);\n  });\n\n  test('returns the value of the first invocation', () => {\n    let i = 0;\n    const onced = once(() => ++i);\n    expect(onced()).toBe(1);\n    expect(onced()).toBe(1);\n    expect(i).toBe(1);\n\n    i = 99;\n    expect(onced()).toBe(1);\n    expect(i).toBe(99);\n  });\n\n  describe('accepts arguments', () => {\n    test('single arguments', () => {\n      const onced = once((a) => a * 2);\n\n      expect(onced(2)).toBe(4);\n      expect(onced(6)).toBe(4);\n      expect(onced(100)).toBe(4);\n    });\n\n    test('two arguments', () => {\n      const onced = once((a, b) => a + b);\n\n      expect(onced(2, 3)).toBe(5);\n      expect(onced(6, 7)).toBe(5);\n    });\n  });\n\n  test('can access this', () => {\n    const onced = once(function (val) {\n      return this.multiplier * val;\n    });\n\n    const obj = { multiplier: 5, mul: onced };\n    expect(obj.mul(7)).toBe(35);\n    expect(obj.mul(10)).toBe(35);\n  });\n});\n",
+    "/src/once.ts": "type Fn<T> = (this: any, ...args: Array<any>) => T;\n\nexport default function once<T>(func: Fn<T>): Fn<T> {\n  let ranOnce = false;\n  let value: T;\n\n  return function (...args): T {\n    if (!ranOnce) {\n      value = func.apply(this, args);\n      ranOnce = true;\n    }\n\n    return value;\n  };\n}\n"
+  },
+  "skeleton": {
+    "js": "/**\n * @template {Function} T\n * @param {T} func\n * @return {T}\n */\nexport default function once(func) {\n  throw 'Not implemented!';\n}",
+    "ts": "type Fn<T> = (this: any, args: Array<any>) => T;\n\nexport default function once<T>(func: Fn<T>): Fn<T> {\n  throw 'Not implemented!';\n}"
+  },
+  "workspace": {
+    "main": "/src/once.ts",
+    "run": "/src/once.run.test.ts",
+    "submit": "/src/once.submit.test.ts"
+  }
+}

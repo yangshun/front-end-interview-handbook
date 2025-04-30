@@ -1,0 +1,33 @@
+{
+  "access": "premium",
+  "author": "yangshun",
+  "companies": [
+    "tiktok",
+    "amazon",
+    "tiktok"
+  ],
+  "created": 1649894400,
+  "difficulty": "easy",
+  "duration": 10,
+  "featured": false,
+  "format": "javascript",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/javascript/get",
+  "importance": "low",
+  "languages": [
+    "js",
+    "ts"
+  ],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [
+    "squash-object"
+  ],
+  "slug": "get",
+  "subtitle": null,
+  "topics": [
+    "recursion"
+  ]
+}

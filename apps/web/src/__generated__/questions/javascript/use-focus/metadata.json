@@ -1,0 +1,32 @@
+{
+  "access": "premium",
+  "author": "phillmont",
+  "companies": [],
+  "created": 1742169600,
+  "difficulty": "easy",
+  "duration": 15,
+  "featured": false,
+  "format": "javascript",
+  "frameworkDefault": "react",
+  "frameworks": [
+    {
+      "framework": "react",
+      "href": "/questions/javascript/use-focus"
+    }
+  ],
+  "href": "/questions/javascript/use-focus",
+  "importance": "low",
+  "languages": [
+    "js",
+    "ts"
+  ],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [],
+  "slug": "use-focus",
+  "subtitle": null,
+  "topics": [
+    "react-hooks"
+  ]
+}

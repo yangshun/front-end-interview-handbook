@@ -1,0 +1,35 @@
+{
+  "access": "premium",
+  "author": null,
+  "companies": [
+    "amazon",
+    "apple"
+  ],
+  "created": 1656201600,
+  "difficulty": "easy",
+  "duration": 15,
+  "featured": true,
+  "format": "javascript",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/javascript/array-filter",
+  "importance": "medium",
+  "languages": [
+    "js",
+    "ts"
+  ],
+  "nextQuestions": [
+    "array-map",
+    "array-reduce"
+  ],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [
+    "array-square",
+    "array-map",
+    "array-reduce"
+  ],
+  "slug": "array-filter",
+  "subtitle": null,
+  "topics": []
+}

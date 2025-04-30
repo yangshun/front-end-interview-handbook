@@ -1,0 +1,25 @@
+{
+  "access": "premium",
+  "author": null,
+  "companies": [],
+  "created": 1690502400,
+  "difficulty": "easy",
+  "duration": 15,
+  "featured": false,
+  "format": "javascript",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/javascript/size",
+  "importance": "low",
+  "languages": [
+    "js",
+    "ts"
+  ],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [],
+  "slug": "size",
+  "subtitle": null,
+  "topics": []
+}

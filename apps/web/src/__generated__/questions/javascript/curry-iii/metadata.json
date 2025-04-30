@@ -1,0 +1,30 @@
+{
+  "access": "premium",
+  "author": "yangshun",
+  "companies": [
+    "qualcomm"
+  ],
+  "created": 1670630400,
+  "difficulty": "hard",
+  "duration": 20,
+  "featured": false,
+  "format": "javascript",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/javascript/curry-iii",
+  "importance": "low",
+  "languages": [
+    "js",
+    "ts"
+  ],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [
+    "curry",
+    "curry-ii"
+  ],
+  "slug": "curry-iii",
+  "subtitle": null,
+  "topics": []
+}

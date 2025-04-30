@@ -1,0 +1,29 @@
+{
+  "access": "premium",
+  "author": null,
+  "companies": [],
+  "created": 1683331200,
+  "difficulty": "easy",
+  "duration": 5,
+  "featured": false,
+  "format": "javascript",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/javascript/function-length",
+  "importance": "low",
+  "languages": [
+    "js",
+    "ts"
+  ],
+  "nextQuestions": [
+    "curry"
+  ],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [
+    "number-of-arguments"
+  ],
+  "slug": "function-length",
+  "subtitle": null,
+  "topics": []
+}

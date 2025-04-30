@@ -1,0 +1,18 @@
+{
+  "files": {
+    "/package.json": "{\n  \"name\": \"@gfe-questions/negate\",\n  \"version\": \"0.0.1\",\n  \"main\": \"/src/negate.ts\",\n  \"devDependencies\": {\n    \"@types/jest\": \"29.5.0\",\n    \"typescript\": \"5.0.2\"\n  }\n}\n",
+    "/tsconfig.json": "{\n  \"include\": [\"./**/*\"],\n  \"compilerOptions\": {\n    \"strict\": true,\n    \"esModuleInterop\": true,\n    \"lib\": [\"dom\", \"dom.iterable\", \"esnext\"],\n    \"jsx\": \"react-jsx\",\n    \"target\": \"es2020\"\n  }\n}\n",
+    "/src/negate.run.test.ts": "import negate from './negate';\n\ndescribe('negate function', () => {\n  test('negate a function returning true', () => {\n    const alwaysTrue = () => true;\n    const negated = negate(alwaysTrue);\n    expect(negated()).toEqual(false);\n  });\n\n  test('negate a function returning false', () => {\n    const alwaysFalse = () => false;\n    const negated = negate(alwaysFalse);\n    expect(negated()).toEqual(true);\n  });\n\n  test('negate a function with a single numeric argument', () => {\n    const isEven = (n: number) => n % 2 === 0;\n    const isOdd = negate(isEven);\n    expect(isOdd(3)).toEqual(true);\n    expect(isOdd(4)).toEqual(false);\n  });\n});\n",
+    "/src/negate.submit.test.ts": "import negate from './negate';\n\ndescribe('negate function', () => {\n  test('negate a function returning true', () => {\n    const alwaysTrue = () => true;\n    const negated = negate(alwaysTrue);\n    expect(negated()).toEqual(false);\n  });\n\n  test('negate a function returning false', () => {\n    const alwaysFalse = () => false;\n    const negated = negate(alwaysFalse);\n    expect(negated()).toEqual(true);\n  });\n\n  test('negate a function with a single numeric argument', () => {\n    const isEven = (n: number) => n % 2 === 0;\n    const isOdd = negate(isEven);\n    expect(isOdd(3)).toEqual(true);\n    expect(isOdd(4)).toEqual(false);\n  });\n\n  test('negate a function with multiple arguments', () => {\n    const sumGreaterThan = (a: number, b: number, threshold: number) =>\n      a + b > threshold;\n    const sumNotGreaterThan = negate(sumGreaterThan);\n    expect(sumNotGreaterThan(1, 1, 3)).toEqual(true);\n    expect(sumNotGreaterThan(2, 2, 3)).toEqual(false);\n  });\n\n  test('negate a function with side effects', () => {\n    let counter = 0;\n    const incrementCounter = () => {\n      counter++;\n      return counter % 2 === 0;\n    };\n    const negated = negate(incrementCounter);\n    expect(negated()).toEqual(true);\n    expect(negated()).toEqual(false);\n  });\n\n  test('negate a function with `this` parameter', () => {\n    function getFoo(this: any) {\n      return this.foo;\n    }\n    const getFooNegated = negate(getFoo);\n    const obj = {\n      foo: true,\n      getFoo,\n      getFooNegated,\n    };\n\n    expect(obj.getFoo()).toBe(true);\n    expect(obj.getFooNegated()).toBe(false);\n  });\n});\n",
+    "/src/negate.ts": "export default function negate<P extends any[], R>(\n  predicate: (this: any, ...args: P) => R,\n): (...args: P) => boolean {\n  return function (this: any, ...args: P): boolean {\n    return !predicate.apply(this, args);\n  };\n}\n"
+  },
+  "skeleton": {
+    "js": "/**\n * @param {Function} predicate The predicate to negate.\n * @returns {Function} Returns the new negated function.\n */\nexport default function negate(predicate) {\n  throw 'Not implemented!';\n}",
+    "ts": "export default function negate<P extends Array<any>>(\n  predicate: (this: any, ...args: P) => boolean,\n): (...args: P) => boolean {\n  throw 'Not implemented!';\n}"
+  },
+  "workspace": {
+    "main": "/src/negate.ts",
+    "run": "/src/negate.run.test.ts",
+    "submit": "/src/negate.submit.test.ts"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "files": {
+    "/package.json": "{\n  \"name\": \"@gfe-questions/size\",\n  \"version\": \"0.0.1\",\n  \"main\": \"/src/size.ts\",\n  \"devDependencies\": {\n    \"@types/jest\": \"29.5.0\",\n    \"typescript\": \"5.0.2\"\n  }\n}\n",
+    "/tsconfig.json": "{\n  \"include\": [\"./**/*\"],\n  \"compilerOptions\": {\n    \"strict\": true,\n    \"esModuleInterop\": true,\n    \"lib\": [\"dom\", \"dom.iterable\", \"esnext\"],\n    \"jsx\": \"react-jsx\",\n    \"target\": \"es2020\"\n  }\n}\n",
+    "/src/size.run.test.ts": "import size from './size';\n\ndescribe('size', () => {\n  test('null', () => {\n    expect(size(null)).toBe(0);\n  });\n\n  test('arrays', () => {\n    expect(size([])).toBe(0);\n    expect(size([1])).toBe(1);\n  });\n\n  test('objects', () => {\n    expect(size({})).toBe(0);\n    expect(size({ a: 1 })).toBe(1);\n    expect(size({ a: 1, b: 2 })).toBe(2);\n  });\n});\n",
+    "/src/size.submit.test.ts": "import size from './size';\n\ndescribe('size', () => {\n  test('null', () => {\n    expect(size(null)).toBe(0);\n  });\n\n  test('undefined', () => {\n    expect(size(undefined)).toBe(0);\n  });\n\n  test('arrays', () => {\n    expect(size([])).toBe(0);\n    expect(size([1])).toBe(1);\n    expect(size([1, 2])).toBe(2);\n    expect(size([1, 2, 3])).toBe(3);\n  });\n\n  test('objects', () => {\n    expect(size({})).toBe(0);\n    expect(size({ a: 1 })).toBe(1);\n    expect(size({ a: 1, b: 2 })).toBe(2);\n    expect(size({ a: 1, b: 2, c: 3 })).toBe(3);\n  });\n\n  test('strings', () => {\n    expect(size('')).toBe(0);\n    expect(size('a')).toBe(1);\n    expect(size('ab')).toBe(2);\n    expect(size('hello')).toBe(5);\n  });\n\n  test('sets', () => {\n    expect(size(new Set([]))).toBe(0);\n    expect(size(new Set([1]))).toBe(1);\n    expect(size(new Set([1, 2]))).toBe(2);\n    expect(size(new Set([1, 2, 3]))).toBe(3);\n  });\n\n  test('maps', () => {\n    expect(size(new Map([]))).toBe(0);\n    expect(size(new Map([[1, 2]]))).toBe(1);\n    expect(\n      size(\n        new Map([\n          [1, 2],\n          [3, 4],\n        ]),\n      ),\n    ).toBe(2);\n    expect(\n      size(\n        new Map([\n          [1, 2],\n          [3, 4],\n          [5, 6],\n        ]),\n      ),\n    ).toBe(3);\n  });\n\n  test('unsupported', () => {\n    expect(size(new Date())).toBe(0);\n    expect(size(/hello/)).toBe(0);\n  });\n});\n",
+    "/src/size.ts": "export default function size(\n  collection:\n    | Array<any>\n    | Object\n    | Map<any, any>\n    | Set<any>\n    | string\n    | null\n    | undefined,\n): number {\n  if (collection == null) {\n    return 0;\n  }\n\n  if (Array.isArray(collection) || typeof collection === 'string') {\n    return collection.length;\n  }\n\n  if (collection instanceof Map || collection instanceof Set) {\n    return collection.size;\n  }\n\n  if (typeof collection === 'object') {\n    return Object.keys(collection).length;\n  }\n\n  return 0;\n}\n"
+  },
+  "skeleton": {
+    "js": "/**\n * Gets the size of `collection` by returning its length for array-like values or the number of own enumerable string keyed properties for objects.\n *\n * @param {Array | Object | Map | Set | string | null | undefined} collection The collection to inspect.\n * @returns {number} Returns the collection size.\n */\nexport default function size(collection) {\n  throw 'Not implemented!';\n}",
+    "ts": "export default function size(\n  collection:\n    | Array<any>\n    | Object\n    | Map<any, any>\n    | Set<any>\n    | string\n    | null\n    | undefined,\n): number {\n  throw 'Not implemented!';\n}"
+  },
+  "workspace": {
+    "main": "/src/size.ts",
+    "run": "/src/size.run.test.ts",
+    "submit": "/src/size.submit.test.ts"
+  }
+}

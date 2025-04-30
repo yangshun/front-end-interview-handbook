@@ -1,0 +1,32 @@
+{
+  "access": "free",
+  "author": "phillmont",
+  "companies": [],
+  "created": 1742169600,
+  "difficulty": "medium",
+  "duration": 20,
+  "featured": false,
+  "format": "javascript",
+  "frameworkDefault": "react",
+  "frameworks": [
+    {
+      "framework": "react",
+      "href": "/questions/javascript/use-query"
+    }
+  ],
+  "href": "/questions/javascript/use-query",
+  "importance": "high",
+  "languages": [
+    "js",
+    "ts"
+  ],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [],
+  "slug": "use-query",
+  "subtitle": null,
+  "topics": [
+    "react-hooks"
+  ]
+}

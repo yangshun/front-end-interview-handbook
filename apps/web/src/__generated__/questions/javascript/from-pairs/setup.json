@@ -1,0 +1,18 @@
+{
+  "files": {
+    "/package.json": "{\n  \"name\": \"@gfe-questions/from-pairs\",\n  \"version\": \"0.0.1\",\n  \"main\": \"/src/from-pairs.ts\",\n  \"devDependencies\": {\n    \"@types/jest\": \"29.5.0\",\n    \"typescript\": \"5.0.2\"\n  }\n}\n",
+    "/tsconfig.json": "{\n  \"include\": [\"./**/*\"],\n  \"compilerOptions\": {\n    \"strict\": true,\n    \"esModuleInterop\": true,\n    \"lib\": [\"dom\", \"dom.iterable\", \"esnext\"],\n    \"jsx\": \"react-jsx\",\n    \"target\": \"es2020\"\n  }\n}\n",
+    "/src/from-pairs.run.test.ts": "import fromPairs from './from-pairs';\n\ndescribe('fromPairs', () => {\n  test('empty array', () => {\n    expect(fromPairs([])).toEqual({});\n  });\n\n  test('single-element array', () => {\n    expect(fromPairs([['a', 1]])).toEqual({ a: 1 });\n  });\n\n  test('two-element array', () => {\n    expect(\n      fromPairs([\n        ['a', 1],\n        ['b', 2],\n      ]),\n    ).toEqual({ a: 1, b: 2 });\n  });\n});\n",
+    "/src/from-pairs.submit.test.ts": "import fromPairs from './from-pairs';\n\ndescribe('fromPairs', () => {\n  test('empty array', () => {\n    expect(fromPairs([])).toEqual({});\n  });\n\n  test('single-element array', () => {\n    expect(fromPairs([['a', 1]])).toEqual({ a: 1 });\n  });\n\n  test('two-element array', () => {\n    expect(\n      fromPairs([\n        ['a', 1],\n        ['b', 2],\n      ]),\n    ).toEqual({ a: 1, b: 2 });\n  });\n\n  test('multiple-element array', () => {\n    expect(\n      fromPairs([\n        ['a', 1],\n        ['b', 2],\n        ['c', 3],\n      ]),\n    ).toEqual({ a: 1, b: 2, c: 3 });\n  });\n});\n",
+    "/src/from-pairs.ts": "export default function fromPairs<T>(\n  pairs: Array<[string | number, T]>,\n): Record<string | number, T> {\n  const result: Record<string, T> = {};\n\n  for (const [key, value] of pairs) {\n    result[key] = value;\n  }\n\n  return result;\n}\n"
+  },
+  "skeleton": {
+    "js": "/**\n * Creates an object from an array of key-value pairs.\n *\n * @param {Array} pairs - An array of key-value pairs.\n * @returns {Object} - The object composed from the key-value pairs.\n */\nexport default function fromPairs(pairs) {\n  throw 'Not implemented!';\n}",
+    "ts": "export default function fromPairs<T>(\n  pairs: Array<[string | number, T]>,\n): Record<string | number, T> {\n  throw 'Not implemented!';\n}"
+  },
+  "workspace": {
+    "main": "/src/from-pairs.ts",
+    "run": "/src/from-pairs.run.test.ts",
+    "submit": "/src/from-pairs.submit.test.ts"
+  }
+}

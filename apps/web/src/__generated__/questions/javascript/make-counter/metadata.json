@@ -1,0 +1,33 @@
+{
+  "access": "standard",
+  "author": null,
+  "companies": [
+    "amazon"
+  ],
+  "created": 1683331200,
+  "difficulty": "easy",
+  "duration": 5,
+  "featured": false,
+  "format": "javascript",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/javascript/make-counter",
+  "importance": "low",
+  "languages": [
+    "js",
+    "ts"
+  ],
+  "nextQuestions": [
+    "make-counter-ii"
+  ],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [
+    "counter"
+  ],
+  "slug": "make-counter",
+  "subtitle": null,
+  "topics": [
+    "closure"
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "access": "standard",
+  "author": null,
+  "companies": [
+    "adobe",
+    "amazon",
+    "apple",
+    "sprinklr",
+    "bytedance"
+  ],
+  "created": 1652659200,
+  "difficulty": "easy",
+  "duration": 15,
+  "featured": false,
+  "format": "javascript",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/javascript/array-reduce",
+  "importance": "medium",
+  "languages": [
+    "js",
+    "ts"
+  ],
+  "nextQuestions": [
+    "array-filter",
+    "array-map"
+  ],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [
+    "array-square",
+    "array-map",
+    "array-filter"
+  ],
+  "slug": "array-reduce",
+  "subtitle": null,
+  "topics": []
+}

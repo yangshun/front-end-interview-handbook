@@ -1,0 +1,25 @@
+{
+  "access": "premium",
+  "author": null,
+  "companies": [],
+  "created": 1712188800,
+  "difficulty": "medium",
+  "duration": 10,
+  "featured": false,
+  "format": "javascript",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/javascript/negate",
+  "importance": "low",
+  "languages": [
+    "js",
+    "ts"
+  ],
+  "nextQuestions": [],
+  "published": false,
+  "ranking": 100,
+  "similarQuestions": [],
+  "slug": "negate",
+  "subtitle": null,
+  "topics": []
+}

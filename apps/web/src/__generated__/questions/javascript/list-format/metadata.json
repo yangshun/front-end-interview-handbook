@@ -1,0 +1,27 @@
+{
+  "access": "standard",
+  "author": "yangshun",
+  "companies": [
+    "dropbox"
+  ],
+  "created": 1652832000,
+  "difficulty": "medium",
+  "duration": 20,
+  "featured": false,
+  "format": "javascript",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/javascript/list-format",
+  "importance": "medium",
+  "languages": [
+    "js",
+    "ts"
+  ],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [],
+  "slug": "list-format",
+  "subtitle": null,
+  "topics": []
+}

@@ -1,0 +1,35 @@
+{
+  "access": "standard",
+  "author": null,
+  "companies": [
+    "snap",
+    "amazon",
+    "google"
+  ],
+  "created": 1653177600,
+  "difficulty": "medium",
+  "duration": 20,
+  "featured": true,
+  "format": "javascript",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/javascript/json-stringify",
+  "importance": "low",
+  "languages": [
+    "js",
+    "ts"
+  ],
+  "nextQuestions": [
+    "json-stringify-ii"
+  ],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [
+    "html-serializer"
+  ],
+  "slug": "json-stringify",
+  "subtitle": null,
+  "topics": [
+    "recursion"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "access": "premium",
+  "author": null,
+  "companies": [],
+  "created": 1701302400,
+  "difficulty": "hard",
+  "duration": 25,
+  "featured": false,
+  "format": "javascript",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/javascript/classnames-ii",
+  "importance": "medium",
+  "languages": [
+    "css",
+    "js",
+    "ts"
+  ],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [
+    "classnames"
+  ],
+  "slug": "classnames-ii",
+  "subtitle": null,
+  "topics": []
+}

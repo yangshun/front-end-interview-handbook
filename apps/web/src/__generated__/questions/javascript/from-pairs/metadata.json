@@ -1,0 +1,25 @@
+{
+  "access": "premium",
+  "author": null,
+  "companies": [],
+  "created": 1687651200,
+  "difficulty": "easy",
+  "duration": 10,
+  "featured": false,
+  "format": "javascript",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/javascript/from-pairs",
+  "importance": "low",
+  "languages": [
+    "js",
+    "ts"
+  ],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [],
+  "slug": "from-pairs",
+  "subtitle": null,
+  "topics": []
+}

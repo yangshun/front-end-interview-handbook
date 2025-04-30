@@ -1,0 +1,30 @@
+{
+  "access": "premium",
+  "author": null,
+  "companies": [],
+  "created": 1690761600,
+  "difficulty": "medium",
+  "duration": 25,
+  "featured": false,
+  "format": "javascript",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/javascript/deep-map",
+  "importance": "low",
+  "languages": [
+    "js",
+    "ts"
+  ],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [
+    "array-map",
+    "object-map"
+  ],
+  "slug": "deep-map",
+  "subtitle": null,
+  "topics": [
+    "recursion"
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "access": "premium",
+  "author": "yangshun",
+  "companies": [],
+  "created": 1655510400,
+  "difficulty": "medium",
+  "duration": 20,
+  "featured": false,
+  "format": "javascript",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/javascript/jquery-class-manipulation",
+  "importance": "low",
+  "languages": [
+    "html",
+    "css",
+    "js",
+    "ts"
+  ],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [
+    "jquery-css"
+  ],
+  "slug": "jquery-class-manipulation",
+  "subtitle": null,
+  "topics": [
+    "oop",
+    "web-api"
+  ]
+}

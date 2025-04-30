@@ -1,0 +1,30 @@
+{
+  "access": "standard",
+  "author": "zhenghao",
+  "companies": [],
+  "created": 1654992000,
+  "difficulty": "medium",
+  "duration": 20,
+  "featured": false,
+  "format": "javascript",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/javascript/squash-object",
+  "importance": "low",
+  "languages": [
+    "js",
+    "ts"
+  ],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [
+    "flatten",
+    "get"
+  ],
+  "slug": "squash-object",
+  "subtitle": null,
+  "topics": [
+    "recursion"
+  ]
+}

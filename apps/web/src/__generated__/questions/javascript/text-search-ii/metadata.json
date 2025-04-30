@@ -1,0 +1,28 @@
+{
+  "access": "premium",
+  "author": "zhenghao",
+  "companies": [],
+  "created": 1656288000,
+  "difficulty": "medium",
+  "duration": 25,
+  "featured": false,
+  "format": "javascript",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/javascript/text-search-ii",
+  "importance": "low",
+  "languages": [
+    "html",
+    "js",
+    "ts"
+  ],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [
+    "text-search"
+  ],
+  "slug": "text-search-ii",
+  "subtitle": null,
+  "topics": []
+}

@@ -1,0 +1,27 @@
+{
+  "access": "free",
+  "author": null,
+  "companies": [],
+  "created": 1710633600,
+  "difficulty": "easy",
+  "duration": 5,
+  "featured": false,
+  "format": "javascript",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/javascript/mean",
+  "importance": "low",
+  "languages": [
+    "js",
+    "ts"
+  ],
+  "nextQuestions": [
+    "array-reduce"
+  ],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [],
+  "slug": "mean",
+  "subtitle": null,
+  "topics": []
+}

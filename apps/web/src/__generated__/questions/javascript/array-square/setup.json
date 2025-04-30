@@ -1,0 +1,18 @@
+{
+  "files": {
+    "/package.json": "{\n  \"name\": \"@gfe-questions/array-square\",\n  \"version\": \"0.0.1\",\n  \"main\": \"/src/array-square.ts\",\n  \"devDependencies\": {\n    \"@types/jest\": \"29.5.0\",\n    \"typescript\": \"5.0.2\"\n  }\n}\n",
+    "/tsconfig.json": "{\n  \"include\": [\"./**/*\"],\n  \"compilerOptions\": {\n    \"strict\": true,\n    \"esModuleInterop\": true,\n    \"lib\": [\"dom\", \"dom.iterable\", \"esnext\"],\n    \"jsx\": \"react-jsx\",\n    \"target\": \"es2020\"\n  }\n}\n",
+    "/src/array-square.run.test.ts": "import './array-square';\n\ndescribe('Array.prototype.square', () => {\n  test('one value', () => {\n    expect([10].square()).toEqual([100]);\n  });\n\n  test('two values', () => {\n    expect([-4, 10].square()).toEqual([16, 100]);\n  });\n});\n",
+    "/src/array-square.submit.test.ts": "import './array-square';\n\ndescribe('Array.prototype.square', () => {\n  test('empty array', () => {\n    expect([].square()).toEqual([]);\n  });\n\n  test('one value', () => {\n    expect([10].square()).toEqual([100]);\n  });\n\n  test('two values', () => {\n    expect([-4, 10].square()).toEqual([16, 100]);\n  });\n\n  test('multiple values', () => {\n    expect([1, 2, 3, 4].square()).toEqual([1, 4, 9, 16]);\n    expect([1, 2, 3, 4, 5].square()).toEqual([1, 4, 9, 16, 25]);\n  });\n\n  test('original array is not modified', () => {\n    const arr = [1, 2, 3, 4];\n    expect(arr.square()).toEqual([1, 4, 9, 16]);\n    expect(arr).toEqual([1, 2, 3, 4]);\n  });\n});\n",
+    "/src/array-square.ts": "interface Array<T> {\n  square(): Array<number>;\n}\n\nArray.prototype.square = function () {\n  const length = this.length;\n  const results = new Array(length);\n\n  for (let i = 0; i < length; i++) {\n    results[i] = this[i] * this[i];\n  }\n\n  return results;\n};\n"
+  },
+  "skeleton": {
+    "js": "/**\n * @return {Array<number>}\n */\nArray.prototype.square = function () {\n  throw 'Not implemented!';\n};",
+    "ts": "interface Array<T> {\n  square(): Array<number>;\n}\n\nArray.prototype.square = function () {\n  throw 'Not implemented!';\n};"
+  },
+  "workspace": {
+    "main": "/src/array-square.ts",
+    "run": "/src/array-square.run.test.ts",
+    "submit": "/src/array-square.submit.test.ts"
+  }
+}

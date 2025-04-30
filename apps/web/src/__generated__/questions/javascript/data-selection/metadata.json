@@ -1,0 +1,32 @@
+{
+  "access": "premium",
+  "author": null,
+  "companies": [
+    "soundcloud",
+    "amazon",
+    "tiktok",
+    "stripe"
+  ],
+  "created": 1655596800,
+  "difficulty": "hard",
+  "duration": 30,
+  "featured": false,
+  "format": "javascript",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/javascript/data-selection",
+  "importance": "high",
+  "languages": [
+    "js",
+    "ts"
+  ],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [
+    "unique-array"
+  ],
+  "slug": "data-selection",
+  "subtitle": null,
+  "topics": []
+}

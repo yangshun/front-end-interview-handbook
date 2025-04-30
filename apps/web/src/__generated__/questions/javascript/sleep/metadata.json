@@ -1,0 +1,27 @@
+{
+  "access": "premium",
+  "author": null,
+  "companies": [],
+  "created": 1683331200,
+  "difficulty": "easy",
+  "duration": 5,
+  "featured": false,
+  "format": "javascript",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/javascript/sleep",
+  "importance": "low",
+  "languages": [
+    "js",
+    "ts"
+  ],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [],
+  "slug": "sleep",
+  "subtitle": null,
+  "topics": [
+    "async"
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "access": "premium",
+  "author": "yangshun",
+  "companies": [
+    "flipkart",
+    "google",
+    "lyft",
+    "walmart",
+    "yelp",
+    "microsoft",
+    "linkedin"
+  ],
+  "created": 1670630400,
+  "difficulty": "medium",
+  "duration": 20,
+  "featured": false,
+  "format": "javascript",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/javascript/debounce-ii",
+  "importance": "high",
+  "languages": [
+    "js",
+    "ts"
+  ],
+  "nextQuestions": [
+    "throttle"
+  ],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [
+    "debounce",
+    "throttle"
+  ],
+  "slug": "debounce-ii",
+  "subtitle": null,
+  "topics": [
+    "async"
+  ]
+}

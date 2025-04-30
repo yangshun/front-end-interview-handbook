@@ -1,0 +1,34 @@
+{
+  "access": "premium",
+  "author": "phillmont",
+  "companies": [],
+  "created": 1742169600,
+  "difficulty": "medium",
+  "duration": 15,
+  "featured": false,
+  "format": "javascript",
+  "frameworkDefault": "react",
+  "frameworks": [
+    {
+      "framework": "react",
+      "href": "/questions/javascript/use-throttle"
+    }
+  ],
+  "href": "/questions/javascript/use-throttle",
+  "importance": "low",
+  "languages": [
+    "js",
+    "ts"
+  ],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [
+    "use-debounce"
+  ],
+  "slug": "use-throttle",
+  "subtitle": null,
+  "topics": [
+    "react-hooks"
+  ]
+}

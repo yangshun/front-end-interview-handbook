@@ -2,7 +2,10 @@ import fs from 'fs';
 import { globby } from 'globby';
 import path, { parse } from 'path';
 
-import { readQuestionJavaScript } from '../db/questions-bundlers/QuestionsBundlerJavaScript';
+import {
+  readQuestionJavaScript,
+  readQuestionJavaScriptLocaleAgnostic,
+} from '../db/questions-bundlers/QuestionsBundlerJavaScript';
 import {
   getQuestionOutPathJavaScript,
   getQuestionSrcPathJavaScript,
@@ -28,6 +31,25 @@ async function generateSetupForQuestion(slug: string) {
   const outDir = getQuestionOutPathJavaScript(slug);
 
   fs.mkdirSync(outDir, { recursive: true });
+
+  const { metadata, files, skeleton, workspace } =
+    await readQuestionJavaScriptLocaleAgnostic(slug);
+  const metadataPath = path.join(outDir, 'metadata.json');
+  const setupPath = path.join(outDir, 'setup.json');
+
+  fs.writeFileSync(metadataPath, JSON.stringify(metadata, null, 2));
+  fs.writeFileSync(
+    setupPath,
+    JSON.stringify(
+      {
+        files,
+        skeleton,
+        workspace,
+      },
+      null,
+      2,
+    ),
+  );
 
   await Promise.all(
     locales.map(async (locale) => {

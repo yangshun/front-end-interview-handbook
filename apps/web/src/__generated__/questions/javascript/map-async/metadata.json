@@ -1,0 +1,38 @@
+{
+  "access": "premium",
+  "author": null,
+  "companies": [
+    "google",
+    "lyft",
+    "uber",
+    "apple",
+    "tiktok",
+    "bytedance"
+  ],
+  "created": 1699401600,
+  "difficulty": "medium",
+  "duration": 20,
+  "featured": false,
+  "format": "javascript",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/javascript/map-async",
+  "importance": "low",
+  "languages": [
+    "js",
+    "ts"
+  ],
+  "nextQuestions": [
+    "map-async-limit"
+  ],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [
+    "promise-all"
+  ],
+  "slug": "map-async",
+  "subtitle": null,
+  "topics": [
+    "async"
+  ]
+}
