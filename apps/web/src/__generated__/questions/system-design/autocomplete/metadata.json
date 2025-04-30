@@ -1,0 +1,35 @@
+{
+  "access": "free",
+  "author": null,
+  "companies": [
+    "apple",
+    "airbnb",
+    "google",
+    "linkedin",
+    "lyft",
+    "microsoft",
+    "openai",
+    "twitter",
+    "uber"
+  ],
+  "created": 1650326400,
+  "difficulty": "medium",
+  "duration": 30,
+  "featured": true,
+  "format": "system-design",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/system-design/autocomplete",
+  "importance": "high",
+  "languages": [],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 2,
+  "similarQuestions": [],
+  "slug": "autocomplete",
+  "subtitle": null,
+  "topics": [
+    "a11y",
+    "ui-component"
+  ]
+}

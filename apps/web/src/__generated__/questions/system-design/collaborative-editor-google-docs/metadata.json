@@ -1,0 +1,28 @@
+{
+  "access": "premium",
+  "author": "yangshun",
+  "companies": [
+    "asana",
+    "atlassian",
+    "openai"
+  ],
+  "created": 1724371200,
+  "difficulty": "hard",
+  "duration": 40,
+  "featured": false,
+  "format": "system-design",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/system-design/collaborative-editor-google-docs",
+  "importance": "medium",
+  "languages": [],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 5,
+  "similarQuestions": [],
+  "slug": "collaborative-editor-google-docs",
+  "subtitle": null,
+  "topics": [
+    "networking"
+  ]
+}

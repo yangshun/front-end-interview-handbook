@@ -1,0 +1,25 @@
+{
+  "access": "premium",
+  "author": null,
+  "companies": [],
+  "created": 1673395200,
+  "difficulty": "medium",
+  "duration": 30,
+  "featured": false,
+  "format": "system-design",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/system-design/travel-booking-airbnb",
+  "importance": "medium",
+  "languages": [],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 8,
+  "similarQuestions": [],
+  "slug": "travel-booking-airbnb",
+  "subtitle": null,
+  "topics": [
+    "performance",
+    "seo"
+  ]
+}

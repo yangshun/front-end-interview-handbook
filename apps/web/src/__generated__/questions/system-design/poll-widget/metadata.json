@@ -1,0 +1,24 @@
+{
+  "access": "premium",
+  "author": null,
+  "companies": [],
+  "created": 1662854400,
+  "difficulty": "easy",
+  "duration": 30,
+  "featured": true,
+  "format": "system-design",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/system-design/poll-widget",
+  "importance": "low",
+  "languages": [],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 12,
+  "similarQuestions": [],
+  "slug": "poll-widget",
+  "subtitle": null,
+  "topics": [
+    "ui-component"
+  ]
+}

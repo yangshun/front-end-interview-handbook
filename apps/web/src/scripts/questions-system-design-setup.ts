@@ -2,7 +2,10 @@ import fs from 'fs';
 import { globby } from 'globby';
 import path, { parse } from 'path';
 
-import { readQuestionSystemDesign } from '../db/questions-bundlers/QuestionsBundlerSystemDesign';
+import {
+  readQuestionMetadataSystemDesign,
+  readQuestionSystemDesign,
+} from '../db/questions-bundlers/QuestionsBundlerSystemDesign';
 import {
   getQuestionOutPathSystemDesign,
   getQuestionSrcPathSystemDesign,
@@ -22,6 +25,12 @@ async function generateSetupForQuestion(slug: string) {
   const outDir = getQuestionOutPathSystemDesign(slug);
 
   fs.mkdirSync(outDir, { recursive: true });
+
+  const metadata = await readQuestionMetadataSystemDesign(slug);
+  const metadataPath = path.join(outDir, 'metadata.json');
+
+  fs.writeFileSync(metadataPath, JSON.stringify(metadata, null, 2));
+
   await Promise.all(
     locales.map(async (locale) => {
       const content = await readQuestionSystemDesign(slug, locale);

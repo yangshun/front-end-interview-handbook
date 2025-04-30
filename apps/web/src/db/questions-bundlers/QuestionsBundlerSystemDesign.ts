@@ -3,7 +3,9 @@ import grayMatter from 'gray-matter';
 import path from 'path';
 
 import type {
+  InterviewsQuestionInfo,
   InterviewsQuestionItemMinimal,
+  InterviewsQuestionMetadata,
   QuestionSystemDesign,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 
@@ -14,10 +16,20 @@ import {
 } from './QuestionsBundlerSystemDesignConfig';
 import { normalizeQuestionFrontMatter } from '../QuestionsUtils';
 
-async function readQuestionMetadataSystemDesign(
+export async function readQuestionMetadataSystemDesign(
+  slug: string,
+): Promise<InterviewsQuestionMetadata> {
+  const questionPath = getQuestionSrcPathSystemDesign(slug);
+  const metadataPath = path.join(questionPath, 'metadata.json');
+  const metadataJSON = JSON.parse(String(fs.readFileSync(metadataPath)));
+
+  return normalizeQuestionFrontMatter(metadataJSON, 'system-design').metadata;
+}
+
+async function readQuestionInfoSystemDesign(
   slug: string,
   locale = 'en-US',
-): Promise<InterviewsQuestionItemMinimal> {
+): Promise<InterviewsQuestionInfo> {
   const questionPath = getQuestionSrcPathSystemDesign(slug);
 
   // Read frontmatter from MDX file.
@@ -25,15 +37,22 @@ async function readQuestionMetadataSystemDesign(
   const source = fs.readFileSync(filePath).toString().trim();
   const { data: frontMatter } = grayMatter(source);
 
-  // Read locale-agnostic metadata file.
-  const metadataPath = path.join(questionPath, 'metadata.json');
-  const metadataJSON = JSON.parse(String(fs.readFileSync(metadataPath)));
+  return normalizeQuestionFrontMatter(frontMatter, 'system-design').info;
+}
 
-  // Combine them together.
-  return normalizeQuestionFrontMatter(
-    { ...frontMatter, ...metadataJSON },
-    'system-design',
-  );
+async function readQuestionItemSystemDesign(
+  slug: string,
+  locale = 'en-US',
+): Promise<InterviewsQuestionItemMinimal> {
+  const [metadata, info] = await Promise.all([
+    readQuestionMetadataSystemDesign(slug),
+    readQuestionInfoSystemDesign(slug, locale),
+  ]);
+
+  return {
+    info,
+    metadata,
+  };
 }
 
 async function readQuestionMetadataWithFallbackSystemDesign(
@@ -43,11 +62,11 @@ async function readQuestionMetadataWithFallbackSystemDesign(
   let loadedLocale = requestedLocale;
   const content = await (async () => {
     try {
-      return await readQuestionMetadataSystemDesign(slug, requestedLocale);
+      return await readQuestionItemSystemDesign(slug, requestedLocale);
     } catch {
       loadedLocale = 'en-US';
 
-      return await readQuestionMetadataSystemDesign(slug, loadedLocale);
+      return await readQuestionItemSystemDesign(slug, loadedLocale);
     }
   })();
 
@@ -60,11 +79,11 @@ async function readQuestionMetadataWithFallbackSystemDesign(
 export async function readQuestionSystemDesign(
   slug: string,
   locale = 'en-US',
-): Promise<QuestionSystemDesign> {
+): Promise<Omit<QuestionSystemDesign, 'metadata'>> {
   const questionPath = getQuestionSrcPathSystemDesign(slug);
 
-  const [content, description, solution] = await Promise.all([
-    readQuestionMetadataSystemDesign(slug, locale),
+  const [info, description, solution] = await Promise.all([
+    readQuestionInfoSystemDesign(slug, locale),
     readMDXFile(path.join(questionPath, 'description', `${locale}.mdx`), {}),
     readMDXFile(path.join(questionPath, 'solution', `${locale}.mdx`), {
       extractHeadings: true,
@@ -73,8 +92,8 @@ export async function readQuestionSystemDesign(
 
   return {
     description,
+    info,
     solution,
-    ...content,
   };
 }
 

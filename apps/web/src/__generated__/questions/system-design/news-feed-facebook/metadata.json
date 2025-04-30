@@ -1,0 +1,33 @@
+{
+  "access": "free",
+  "author": "yangshun",
+  "companies": [
+    "facebook",
+    "twitter",
+    "google",
+    "amazon",
+    "tiktok",
+    "linkedin",
+    "openai"
+  ],
+  "created": 1664064000,
+  "difficulty": "medium",
+  "duration": 30,
+  "featured": true,
+  "format": "system-design",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/system-design/news-feed-facebook",
+  "importance": "high",
+  "languages": [],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 1,
+  "similarQuestions": [],
+  "slug": "news-feed-facebook",
+  "subtitle": null,
+  "topics": [
+    "a11y",
+    "performance"
+  ]
+}

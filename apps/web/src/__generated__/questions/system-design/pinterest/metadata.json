@@ -1,0 +1,28 @@
+{
+  "access": "premium",
+  "author": null,
+  "companies": [
+    "notion"
+  ],
+  "created": 1630800000,
+  "difficulty": "hard",
+  "duration": 30,
+  "featured": false,
+  "format": "system-design",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/system-design/pinterest",
+  "importance": "medium",
+  "languages": [],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 3,
+  "similarQuestions": [],
+  "slug": "pinterest",
+  "subtitle": null,
+  "topics": [
+    "a11y",
+    "networking",
+    "performance"
+  ]
+}

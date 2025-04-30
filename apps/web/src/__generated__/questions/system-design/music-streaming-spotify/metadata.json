@@ -1,0 +1,24 @@
+{
+  "access": "premium",
+  "author": null,
+  "companies": [],
+  "created": 1630800000,
+  "difficulty": "hard",
+  "duration": 30,
+  "featured": false,
+  "format": "system-design",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/system-design/music-streaming-spotify",
+  "importance": "medium",
+  "languages": [],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 15,
+  "similarQuestions": [],
+  "slug": "music-streaming-spotify",
+  "subtitle": null,
+  "topics": [
+    "networking"
+  ]
+}

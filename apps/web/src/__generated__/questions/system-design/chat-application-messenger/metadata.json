@@ -1,0 +1,26 @@
+{
+  "access": "premium",
+  "author": null,
+  "companies": [
+    "openai"
+  ],
+  "created": 1668211200,
+  "difficulty": "hard",
+  "duration": 30,
+  "featured": false,
+  "format": "system-design",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/system-design/chat-application-messenger",
+  "importance": "medium",
+  "languages": [],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 9,
+  "similarQuestions": [],
+  "slug": "chat-application-messenger",
+  "subtitle": null,
+  "topics": [
+    "networking"
+  ]
+}

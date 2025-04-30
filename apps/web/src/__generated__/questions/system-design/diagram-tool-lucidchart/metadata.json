@@ -1,0 +1,22 @@
+{
+  "access": "premium",
+  "author": null,
+  "companies": [],
+  "created": 1630800000,
+  "difficulty": "hard",
+  "duration": 30,
+  "featured": false,
+  "format": "system-design",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/system-design/diagram-tool-lucidchart",
+  "importance": "medium",
+  "languages": [],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 15,
+  "similarQuestions": [],
+  "slug": "diagram-tool-lucidchart",
+  "subtitle": null,
+  "topics": []
+}

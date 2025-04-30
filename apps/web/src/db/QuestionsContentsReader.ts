@@ -250,9 +250,22 @@ export function readQuestionSystemDesignContents(
     }
   })();
 
+  // Read locale agnostic data
+  const metadataResponse = fs.readFileSync(
+    path.join(getQuestionOutPathSystemDesign(slug), 'metadata.json'),
+  );
+
+  const metadata = JSON.parse(String(metadataResponse));
+  const localeData = JSON.parse(String(response));
+
+  const question = {
+    metadata,
+    ...localeData,
+  } as QuestionSystemDesign;
+
   return {
     loadedLocale,
-    question: JSON.parse(String(response)) as QuestionSystemDesign,
+    question,
   };
 }
 
