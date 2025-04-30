@@ -1,0 +1,34 @@
+{
+  "access": "free",
+  "author": null,
+  "companies": [
+    "snap"
+  ],
+  "created": 1673395200,
+  "difficulty": "medium",
+  "duration": 20,
+  "featured": false,
+  "format": "algo",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/algo/topological-sort",
+  "importance": "low",
+  "languages": [
+    "js",
+    "ts"
+  ],
+  "nextQuestions": [
+    "quick-sort"
+  ],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [
+    "selection-sort"
+  ],
+  "slug": "topological-sort",
+  "subtitle": null,
+  "topics": [
+    "topological-sort",
+    "graph"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "access": "standard",
+  "author": "hiten",
+  "companies": [],
+  "created": 1721779200,
+  "difficulty": "easy",
+  "duration": 35,
+  "featured": false,
+  "format": "algo",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/algo/intervals-meeting-calendar",
+  "importance": "low",
+  "languages": [
+    "js",
+    "ts"
+  ],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [],
+  "slug": "intervals-meeting-calendar",
+  "subtitle": null,
+  "topics": [
+    "intervals",
+    "sorting"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "access": "standard",
+  "author": "hiten",
+  "companies": [],
+  "created": 1724284800,
+  "difficulty": "medium",
+  "duration": 35,
+  "featured": false,
+  "format": "algo",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/algo/binary-search-tree-validate",
+  "importance": "low",
+  "languages": [
+    "js",
+    "ts"
+  ],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [],
+  "slug": "binary-search-tree-validate",
+  "subtitle": null,
+  "topics": [
+    "binary-tree",
+    "binary-search-tree",
+    "tree"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "access": "standard",
+  "author": "hiten",
+  "companies": [],
+  "created": 1723766400,
+  "difficulty": "easy",
+  "duration": 20,
+  "featured": false,
+  "format": "algo",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/algo/binary-tree-flip",
+  "importance": "low",
+  "languages": [
+    "js",
+    "ts"
+  ],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [],
+  "slug": "binary-tree-flip",
+  "subtitle": null,
+  "topics": [
+    "binary-tree",
+    "tree"
+  ]
+}

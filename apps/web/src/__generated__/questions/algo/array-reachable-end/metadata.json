@@ -1,0 +1,29 @@
+{
+  "access": "standard",
+  "author": "hiten",
+  "companies": [],
+  "created": 1720828800,
+  "difficulty": "medium",
+  "duration": 45,
+  "featured": false,
+  "format": "algo",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/algo/array-reachable-end",
+  "importance": "low",
+  "languages": [
+    "js",
+    "ts"
+  ],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [],
+  "slug": "array-reachable-end",
+  "subtitle": null,
+  "topics": [
+    "array",
+    "dynamic-programming",
+    "greedy"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "access": "standard",
+  "author": "hiten",
+  "companies": [],
+  "created": 1720310400,
+  "difficulty": "medium",
+  "duration": 40,
+  "featured": false,
+  "format": "algo",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/algo/string-segment-words",
+  "importance": "low",
+  "languages": [
+    "js",
+    "ts"
+  ],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [],
+  "slug": "string-segment-words",
+  "subtitle": null,
+  "topics": [
+    "string",
+    "dynamic-programming",
+    "graph"
+  ]
+}

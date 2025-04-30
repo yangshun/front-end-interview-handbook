@@ -1,0 +1,29 @@
+{
+  "access": "standard",
+  "author": "hiten",
+  "companies": [],
+  "created": 1724889600,
+  "difficulty": "hard",
+  "duration": 20,
+  "featured": false,
+  "format": "algo",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/algo/binary-tree-serialization-deserialization",
+  "importance": "low",
+  "languages": [
+    "js",
+    "ts"
+  ],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [],
+  "slug": "binary-tree-serialization-deserialization",
+  "subtitle": null,
+  "topics": [
+    "binary-tree",
+    "tree",
+    "dfs"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "access": "standard",
+  "author": "hiten",
+  "companies": [],
+  "created": 1722038400,
+  "difficulty": "medium",
+  "duration": 35,
+  "featured": false,
+  "format": "algo",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/algo/matrix-zeroing",
+  "importance": "low",
+  "languages": [
+    "js",
+    "ts"
+  ],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [],
+  "slug": "matrix-zeroing",
+  "subtitle": null,
+  "topics": [
+    "matrix"
+  ]
+}

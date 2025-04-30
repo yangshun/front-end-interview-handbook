@@ -47,9 +47,23 @@ export function readQuestionAlgoContents(
     }
   })();
 
-  let question = JSON.parse(
-    String(response),
-  ) as InterviewsQuestionItemJavaScript;
+  // Read locale agnostic data
+  const metadataResponse = fs.readFileSync(
+    path.join(getQuestionOutPathAlgo(slug), 'metadata.json'),
+  );
+  const setupResponse = fs.readFileSync(
+    path.join(getQuestionOutPathAlgo(slug), 'setup.json'),
+  );
+
+  const metadata = JSON.parse(String(metadataResponse));
+  const setup = JSON.parse(String(setupResponse));
+  const localeData = JSON.parse(String(response));
+
+  let question = {
+    metadata,
+    ...setup,
+    ...localeData,
+  } as InterviewsQuestionItemJavaScript;
 
   // Hide solution if user does not have access.
   if (

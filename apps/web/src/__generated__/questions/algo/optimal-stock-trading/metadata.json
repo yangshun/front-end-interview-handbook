@@ -1,0 +1,28 @@
+{
+  "access": "standard",
+  "author": "hiten",
+  "companies": [],
+  "created": 1718582400,
+  "difficulty": "easy",
+  "duration": 15,
+  "featured": false,
+  "format": "algo",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/algo/optimal-stock-trading",
+  "importance": "low",
+  "languages": [
+    "js",
+    "ts"
+  ],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [],
+  "slug": "optimal-stock-trading",
+  "subtitle": null,
+  "topics": [
+    "array",
+    "greedy"
+  ]
+}

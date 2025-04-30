@@ -1,0 +1,28 @@
+{
+  "access": "standard",
+  "author": "hiten",
+  "companies": [],
+  "created": 1720742400,
+  "difficulty": "medium",
+  "duration": 40,
+  "featured": false,
+  "format": "algo",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/algo/string-decode-message",
+  "importance": "low",
+  "languages": [
+    "js",
+    "ts"
+  ],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [],
+  "slug": "string-decode-message",
+  "subtitle": null,
+  "topics": [
+    "string",
+    "dynamic-programming"
+  ]
+}

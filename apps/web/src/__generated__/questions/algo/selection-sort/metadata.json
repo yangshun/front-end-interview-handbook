@@ -1,0 +1,31 @@
+{
+  "access": "standard",
+  "author": null,
+  "companies": [],
+  "created": 1671667200,
+  "difficulty": "easy",
+  "duration": 10,
+  "featured": false,
+  "format": "algo",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/algo/selection-sort",
+  "importance": "low",
+  "languages": [
+    "js",
+    "ts"
+  ],
+  "nextQuestions": [
+    "quick-sort"
+  ],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [
+    "insertion-sort"
+  ],
+  "slug": "selection-sort",
+  "subtitle": null,
+  "topics": [
+    "sorting"
+  ]
+}

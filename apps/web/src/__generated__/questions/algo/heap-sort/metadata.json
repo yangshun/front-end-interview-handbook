@@ -1,0 +1,32 @@
+{
+  "access": "free",
+  "author": null,
+  "companies": [],
+  "created": 1673395200,
+  "difficulty": "medium",
+  "duration": 15,
+  "featured": false,
+  "format": "algo",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/algo/heap-sort",
+  "importance": "low",
+  "languages": [
+    "js",
+    "ts"
+  ],
+  "nextQuestions": [
+    "quick-sort"
+  ],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [
+    "selection-sort"
+  ],
+  "slug": "heap-sort",
+  "subtitle": null,
+  "topics": [
+    "heap",
+    "sorting"
+  ]
+}

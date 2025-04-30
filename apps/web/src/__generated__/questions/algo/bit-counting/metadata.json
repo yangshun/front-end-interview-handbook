@@ -1,0 +1,27 @@
+{
+  "access": "standard",
+  "author": "hiten",
+  "companies": [],
+  "created": 1718928000,
+  "difficulty": "easy",
+  "duration": 25,
+  "featured": false,
+  "format": "algo",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/algo/bit-counting",
+  "importance": "low",
+  "languages": [
+    "js",
+    "ts"
+  ],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [],
+  "slug": "bit-counting",
+  "subtitle": null,
+  "topics": [
+    "binary"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "access": "standard",
+  "author": "hiten",
+  "companies": [],
+  "created": 1724889600,
+  "difficulty": "medium",
+  "duration": 35,
+  "featured": false,
+  "format": "algo",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/algo/array-most-common-elements",
+  "importance": "low",
+  "languages": [
+    "js",
+    "ts"
+  ],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [],
+  "slug": "array-most-common-elements",
+  "subtitle": null,
+  "topics": [
+    "array",
+    "heap"
+  ]
+}

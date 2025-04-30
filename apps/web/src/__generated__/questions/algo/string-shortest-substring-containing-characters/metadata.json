@@ -1,0 +1,27 @@
+{
+  "access": "standard",
+  "author": "hiten",
+  "companies": [],
+  "created": 1723161600,
+  "difficulty": "hard",
+  "duration": 45,
+  "featured": false,
+  "format": "algo",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/algo/string-shortest-substring-containing-characters",
+  "importance": "low",
+  "languages": [
+    "js",
+    "ts"
+  ],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [],
+  "slug": "string-shortest-substring-containing-characters",
+  "subtitle": null,
+  "topics": [
+    "string"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "access": "free",
+  "author": "yangshun",
+  "companies": [],
+  "created": 1670457600,
+  "difficulty": "medium",
+  "duration": 15,
+  "featured": false,
+  "format": "algo",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/algo/queue",
+  "importance": "low",
+  "languages": [
+    "js",
+    "ts"
+  ],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [
+    "stack"
+  ],
+  "slug": "queue",
+  "subtitle": null,
+  "topics": [
+    "queue"
+  ]
+}

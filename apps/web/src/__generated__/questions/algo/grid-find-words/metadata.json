@@ -1,0 +1,29 @@
+{
+  "access": "standard",
+  "author": "hiten",
+  "companies": [],
+  "created": 1724976000,
+  "difficulty": "hard",
+  "duration": 40,
+  "featured": false,
+  "format": "algo",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/algo/grid-find-words",
+  "importance": "low",
+  "languages": [
+    "js",
+    "ts"
+  ],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [],
+  "slug": "grid-find-words",
+  "subtitle": null,
+  "topics": [
+    "matrix",
+    "tree",
+    "trie"
+  ]
+}

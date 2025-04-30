@@ -1,0 +1,29 @@
+{
+  "access": "standard",
+  "author": "hiten",
+  "companies": [],
+  "created": 1721260800,
+  "difficulty": "medium",
+  "duration": 40,
+  "featured": false,
+  "format": "algo",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/algo/course-dependency",
+  "importance": "low",
+  "languages": [
+    "js",
+    "ts"
+  ],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [],
+  "slug": "course-dependency",
+  "subtitle": null,
+  "topics": [
+    "graph",
+    "topological-sort",
+    "dfs"
+  ]
+}

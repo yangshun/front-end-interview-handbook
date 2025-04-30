@@ -1,0 +1,29 @@
+{
+  "access": "standard",
+  "author": "hiten",
+  "companies": [],
+  "created": 1724112000,
+  "difficulty": "hard",
+  "duration": 40,
+  "featured": false,
+  "format": "algo",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/algo/binary-tree-maximum-total-path",
+  "importance": "low",
+  "languages": [
+    "js",
+    "ts"
+  ],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [],
+  "slug": "binary-tree-maximum-total-path",
+  "subtitle": null,
+  "topics": [
+    "binary-tree",
+    "tree",
+    "dfs"
+  ]
+}

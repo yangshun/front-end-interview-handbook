@@ -1,0 +1,28 @@
+{
+  "access": "standard",
+  "author": "hiten",
+  "companies": [],
+  "created": 1719705600,
+  "difficulty": "medium",
+  "duration": 45,
+  "featured": false,
+  "format": "algo",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/algo/longest-common-subsequence",
+  "importance": "low",
+  "languages": [
+    "js",
+    "ts"
+  ],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [],
+  "slug": "longest-common-subsequence",
+  "subtitle": null,
+  "topics": [
+    "array",
+    "dynamic-programming"
+  ]
+}

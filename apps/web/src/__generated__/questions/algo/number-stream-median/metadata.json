@@ -1,0 +1,27 @@
+{
+  "access": "standard",
+  "author": "hiten",
+  "companies": [],
+  "created": 1724976000,
+  "difficulty": "hard",
+  "duration": 55,
+  "featured": false,
+  "format": "algo",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/algo/number-stream-median",
+  "importance": "low",
+  "languages": [
+    "js",
+    "ts"
+  ],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [],
+  "slug": "number-stream-median",
+  "subtitle": null,
+  "topics": [
+    "heap"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "access": "standard",
+  "author": "hiten",
+  "companies": [],
+  "created": 1718928000,
+  "difficulty": "easy",
+  "duration": 25,
+  "featured": false,
+  "format": "algo",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/algo/bit-reversal",
+  "importance": "low",
+  "languages": [
+    "js",
+    "ts"
+  ],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [],
+  "slug": "bit-reversal",
+  "subtitle": null,
+  "topics": [
+    "binary"
+  ]
+}

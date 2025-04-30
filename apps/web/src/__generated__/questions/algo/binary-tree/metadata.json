@@ -1,0 +1,31 @@
+{
+  "access": "standard",
+  "author": null,
+  "companies": [],
+  "created": 1716422400,
+  "difficulty": "medium",
+  "duration": 15,
+  "featured": false,
+  "format": "algo",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/algo/binary-tree",
+  "importance": "low",
+  "languages": [
+    "js",
+    "ts"
+  ],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [
+    "binary-search-tree",
+    "binary-search"
+  ],
+  "slug": "binary-tree",
+  "subtitle": null,
+  "topics": [
+    "binary-tree",
+    "tree"
+  ]
+}

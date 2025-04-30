@@ -1,0 +1,30 @@
+{
+  "access": "free",
+  "author": null,
+  "companies": [],
+  "created": 1745539200,
+  "difficulty": "medium",
+  "duration": 20,
+  "featured": false,
+  "format": "algo",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/algo/linked-list",
+  "importance": "low",
+  "languages": [
+    "js",
+    "ts"
+  ],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [
+    "stack",
+    "queue"
+  ],
+  "slug": "linked-list",
+  "subtitle": null,
+  "topics": [
+    "linked-list"
+  ]
+}
