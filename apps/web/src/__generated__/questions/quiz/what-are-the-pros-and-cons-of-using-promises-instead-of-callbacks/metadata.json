@@ -1,0 +1,31 @@
+{
+  "access": "free",
+  "author": null,
+  "companies": [
+    "linkedin",
+    "google",
+    "amazon",
+    "bytedance",
+    "atlassian"
+  ],
+  "created": 1630800000,
+  "difficulty": "medium",
+  "duration": 5,
+  "featured": true,
+  "format": "quiz",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/quiz/what-are-the-pros-and-cons-of-using-promises-instead-of-callbacks",
+  "importance": "high",
+  "languages": [],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 260,
+  "similarQuestions": [],
+  "slug": "what-are-the-pros-and-cons-of-using-promises-instead-of-callbacks",
+  "subtitle": null,
+  "topics": [
+    "async",
+    "javascript"
+  ]
+}

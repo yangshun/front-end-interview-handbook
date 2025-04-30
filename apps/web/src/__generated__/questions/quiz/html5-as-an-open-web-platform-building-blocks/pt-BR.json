@@ -2,32 +2,7 @@
   "description": null,
   "info": {
     "excerpt": null,
-    "title": "Considere HTML5 como uma plataforma web aberta. Quais são os blocos de construção do HTML5?"
-  },
-  "metadata": {
-    "access": "free",
-    "author": null,
-    "companies": [],
-    "created": 1630800000,
-    "difficulty": "medium",
-    "duration": 5,
-    "featured": false,
-    "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
-    "href": "/questions/quiz/html5-as-an-open-web-platform-building-blocks",
-    "importance": "low",
-    "languages": [],
-    "nextQuestions": [],
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [],
-    "slug": "html5-as-an-open-web-platform-building-blocks",
-    "subtitle": null,
-    "topics": [
-      "browser",
-      "html"
-    ],
+    "title": "Considere HTML5 como uma plataforma web aberta. Quais são os blocos de construção do HTML5?",
     "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/html5-as-an-open-web-platform-building-blocks/pt-BR.mdx"
   },
   "solution": "var Component=(()=>{var m=Object.create;var r=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var h=Object.getOwnPropertyNames;var g=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var p=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),v=(n,e)=>{for(var i in e)r(n,i,{get:e[i],enumerable:!0})},t=(n,e,i,s)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let a of h(e))!f.call(n,a)&&a!==i&&r(n,a,{get:()=>e[a],enumerable:!(s=u(e,a))||s.enumerable});return n};var x=(n,e,i)=>(i=n!=null?m(g(n)):{},t(e||!n||!n.__esModule?r(i,\"default\",{value:n,enumerable:!0}):i,n)),b=n=>t(r({},\"__esModule\",{value:!0}),n);var c=p((D,d)=>{d.exports=_jsx_runtime});var z={};v(z,{default:()=>_,frontmatter:()=>M});var o=x(c()),M={title:\"Considere HTML5 como uma plataforma web aberta. Quais s\\xE3o os blocos de constru\\xE7\\xE3o do HTML5?\"};function l(n){let e=Object.assign({ul:\"ul\",li:\"li\",strong:\"strong\"},n.components);return(0,o.jsxs)(e.ul,{children:[`\n`,(0,o.jsxs)(e.li,{children:[(0,o.jsx)(e.strong,{children:\"Semantics\"}),\": As tags HTML descrevem o conte\\xFAdo.\"]}),`\n`,(0,o.jsxs)(e.li,{children:[(0,o.jsx)(e.strong,{children:\"Estiliza\\xE7\\xE3o\"}),\": Personalizando a apar\\xEAncia das tags HTML\"]}),`\n`,(0,o.jsxs)(e.li,{children:[(0,o.jsx)(e.strong,{children:\"Conectividade\"}),\": Comunique-se com o servidor de maneiras novas e inovadoras.\"]}),`\n`,(0,o.jsxs)(e.li,{children:[(0,o.jsx)(e.strong,{children:\"Offline e armazenamento\"}),\": Permite que as p\\xE1ginas da web armazenem dados localmente no lado do cliente e funcionem offline de maneira mais eficiente.\"]}),`\n`,(0,o.jsxs)(e.li,{children:[(0,o.jsx)(e.strong,{children:\"Multim\\xEDdia\"}),\": Torna o v\\xEDdeo e o \\xE1udio cidad\\xE3os de primeira classe na Web Aberta.\"]}),`\n`,(0,o.jsxs)(e.li,{children:[(0,o.jsx)(e.strong,{children:\"Gr\\xE1ficos e efeitos 2D/3D\"}),\": Permite uma gama muito mais diversa de op\\xE7\\xF5es de apresenta\\xE7\\xE3o.\"]}),`\n`,(0,o.jsxs)(e.li,{children:[(0,o.jsx)(e.strong,{children:\"Desempenho\"}),\" e integra\\xE7\\xE3o: Fornece uma otimiza\\xE7\\xE3o de velocidade maior e melhor uso do hardware do computador.\"]}),`\n`,(0,o.jsxs)(e.li,{children:[(0,o.jsx)(e.strong,{children:\"Acesso a dispositivos\"}),\": Permite o uso de v\\xE1rios dispositivos de entrada e sa\\xEDda.\"]}),`\n`]})}function j(n={}){let{wrapper:e}=n.components||{};return e?(0,o.jsx)(e,Object.assign({},n,{children:(0,o.jsx)(l,n)})):l(n)}var _=j;return b(z);})();\n;return Component;"

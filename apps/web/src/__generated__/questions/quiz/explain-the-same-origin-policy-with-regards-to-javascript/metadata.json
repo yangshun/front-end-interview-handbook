@@ -1,0 +1,26 @@
+{
+  "access": "free",
+  "author": null,
+  "companies": [],
+  "created": 1630800000,
+  "difficulty": "hard",
+  "duration": 5,
+  "featured": false,
+  "format": "quiz",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/quiz/explain-the-same-origin-policy-with-regards-to-javascript",
+  "importance": "low",
+  "languages": [],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 999,
+  "similarQuestions": [],
+  "slug": "explain-the-same-origin-policy-with-regards-to-javascript",
+  "subtitle": null,
+  "topics": [
+    "javascript",
+    "networking",
+    "security"
+  ]
+}

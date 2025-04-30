@@ -2,31 +2,7 @@
   "description": null,
   "info": {
     "excerpt": null,
-    "title": "Explain the concept of tagged templates"
-  },
-  "metadata": {
-    "access": "free",
-    "author": null,
-    "companies": [],
-    "created": 1630800000,
-    "difficulty": "easy",
-    "duration": 5,
-    "featured": false,
-    "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
-    "href": "/questions/quiz/explain-the-concept-of-tagged-templates",
-    "importance": "low",
-    "languages": [],
-    "nextQuestions": [],
-    "published": true,
-    "ranking": 999,
-    "similarQuestions": [],
-    "slug": "explain-the-concept-of-tagged-templates",
-    "subtitle": null,
-    "topics": [
-      "javascript"
-    ],
+    "title": "Explain the concept of tagged templates",
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-concept-of-tagged-templates/en-US.mdx"
   },
   "solution": "var Component=(()=>{var p=Object.create;var r=Object.defineProperty;var h=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var d=Object.getPrototypeOf,m=Object.prototype.hasOwnProperty;var f=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),v=(n,e)=>{for(var l in e)r(n,l,{get:e[l],enumerable:!0})},i=(n,e,l,s)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let a of u(e))!m.call(n,a)&&a!==l&&r(n,a,{get:()=>e[a],enumerable:!(s=h(e,a))||s.enumerable});return n};var x=(n,e,l)=>(l=n!=null?p(d(n)):{},i(e||!n||!n.__esModule?r(l,\"default\",{value:n,enumerable:!0}):l,n)),w=n=>i(r({},\"__esModule\",{value:!0}),n);var c=f((_,o)=>{o.exports=_jsx_runtime});var y={};v(y,{default:()=>j,frontmatter:()=>T});var t=x(c()),T={title:\"Explain the concept of tagged templates\"};function g(n){let e=Object.assign({h2:\"h2\",p:\"p\",pre:\"pre\",code:\"code\",hr:\"hr\",h3:\"h3\",ol:\"ol\",li:\"li\",ul:\"ul\",strong:\"strong\",a:\"a\"},n.components);return(0,t.jsxs)(t.Fragment,{children:[(0,t.jsx)(e.h2,{children:\"TL;DR\"}),`\n`,(0,t.jsx)(e.p,{children:\"Tagged templates in JavaScript allow you to parse template literals with a function. The function receives the literal strings and the values as arguments, enabling custom processing of the template. For example:\"}),`\n`,(0,t.jsx)(e.pre,{live:!0,children:(0,t.jsx)(e.code,{className:\"language-js\",children:`function tag(strings, ...values) {\n  return strings[0] + values[0] + strings[1] + values[1] + strings[2];\n}\n\nconst result = tag\\`Hello \\${'world'}! How are \\${'you'}?\\`;\nconsole.log(result); // \"Hello world! How are you?\"\n`})}),`\n`,(0,t.jsx)(e.hr,{}),`\n`,(0,t.jsx)(e.h2,{children:\"Tagged templates\"}),`\n`,(0,t.jsx)(e.h3,{children:\"What are tagged templates?\"}),`\n`,(0,t.jsx)(e.p,{children:`Tagged templates are a feature in JavaScript that allows you to call a function (the \"tag\") with a template literal. The tag function can then process the template literal's parts (both the literal strings and the interpolated values) in a custom way.`}),`\n`,(0,t.jsx)(e.h3,{children:\"Syntax\"}),`\n`,(0,t.jsx)(e.p,{children:\"The syntax for tagged templates involves placing a function name before a template literal:\"}),`\n`,(0,t.jsx)(e.pre,{children:(0,t.jsx)(e.code,{className:\"language-js\",children:`function tag(strings, ...values) {\n  // Custom processing\n}\n\ntag\\`template literal with \\${values}\\`;\n`})}),`\n`,(0,t.jsx)(e.h3,{children:\"How it works\"}),`\n`,(0,t.jsx)(e.p,{children:\"When a tagged template is invoked, the tag function receives:\"}),`\n`,(0,t.jsxs)(e.ol,{children:[`\n`,(0,t.jsx)(e.li,{children:\"An array of literal strings (the parts of the template that are not interpolated)\"}),`\n`,(0,t.jsx)(e.li,{children:\"The interpolated values as additional arguments\"}),`\n`]}),`\n`,(0,t.jsx)(e.p,{children:\"For example:\"}),`\n`,(0,t.jsx)(e.pre,{live:!0,children:(0,t.jsx)(e.code,{className:\"language-js\",children:`function tag(strings, ...values) {\n  console.log(strings); // [\"Hello \", \"! How are \", \"?\"]\n  console.log(values); // [\"world\", \"you\"]\n}\n\ntag\\`Hello \\${'world'}! How are \\${'you'}?\\`;\n`})}),`\n`,(0,t.jsx)(e.h3,{children:\"Use cases\"}),`\n`,(0,t.jsx)(e.p,{children:\"Tagged templates can be used for various purposes, such as:\"}),`\n`,(0,t.jsxs)(e.ul,{children:[`\n`,(0,t.jsxs)(e.li,{children:[(0,t.jsx)(e.strong,{children:\"String escaping\"}),\": Preventing XSS attacks by escaping user input\"]}),`\n`,(0,t.jsxs)(e.li,{children:[(0,t.jsx)(e.strong,{children:\"Localization\"}),\": Translating template literals into different languages\"]}),`\n`,(0,t.jsxs)(e.li,{children:[(0,t.jsx)(e.strong,{children:\"Custom formatting\"}),\": Applying custom formatting to the interpolated values\"]}),`\n`]}),`\n`,(0,t.jsx)(e.h3,{children:\"Example\"}),`\n`,(0,t.jsx)(e.p,{children:\"Here is a simple example of a tagged template that escapes HTML:\"}),`\n`,(0,t.jsx)(e.pre,{live:!0,children:(0,t.jsx)(e.code,{className:\"language-js\",children:`function escapeHTML(strings, ...values) {\n  return strings.reduce((result, string, i) => {\n    const value = values[i - 1];\n    return (\n      result +\n      (value\n        ? String(value)\n            .replace(/&/g, '&amp;')\n            .replace(/</g, '&lt;')\n            .replace(/>/g, '&gt;')\n        : '') +\n      string\n    );\n  });\n}\n\nconst userInput = '<script>alert(\"XSS\")<\\/script>';\nconst result = escapeHTML\\`User input: \\${userInput}\\`;\nconsole.log(result); // \"User input: &lt;script&gt;alert(&quot;XSS&quot;)&lt;/script&gt;\"\n`})}),`\n`,(0,t.jsx)(e.h2,{children:\"Further reading\"}),`\n`,(0,t.jsxs)(e.ul,{children:[`\n`,(0,t.jsx)(e.li,{children:(0,t.jsx)(e.a,{href:\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#tagged_templates\",children:\"MDN Web Docs: Template literals\"})}),`\n`,(0,t.jsx)(e.li,{children:(0,t.jsx)(e.a,{href:\"https://javascript.info/tagged-templates\",children:\"JavaScript.info: Tagged templates\"})}),`\n`,(0,t.jsx)(e.li,{children:(0,t.jsx)(e.a,{href:\"http://exploringjs.com/es6/ch_template-literals.html#tagged-templates\",children:\"Exploring JS: Template literals\"})}),`\n`]})]})}function S(n={}){let{wrapper:e}=n.components||{};return e?(0,t.jsx)(e,Object.assign({},n,{children:(0,t.jsx)(g,n)})):g(n)}var j=S;return w(y);})();\n;return Component;"

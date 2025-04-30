@@ -2,32 +2,7 @@
   "description": null,
   "info": {
     "excerpt": null,
-    "title": "Explain the different states of a Promise"
-  },
-  "metadata": {
-    "access": "free",
-    "author": null,
-    "companies": [],
-    "created": 1630800000,
-    "difficulty": "easy",
-    "duration": 5,
-    "featured": false,
-    "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
-    "href": "/questions/quiz/explain-the-different-states-of-a-promise",
-    "importance": "low",
-    "languages": [],
-    "nextQuestions": [],
-    "published": true,
-    "ranking": 999,
-    "similarQuestions": [],
-    "slug": "explain-the-different-states-of-a-promise",
-    "subtitle": null,
-    "topics": [
-      "async",
-      "javascript"
-    ],
+    "title": "Explain the different states of a Promise",
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-different-states-of-a-promise/en-US.mdx"
   },
   "solution": "var Component=(()=>{var a=Object.create;var t=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var f=Object.getPrototypeOf,u=Object.prototype.hasOwnProperty;var j=(r,e)=>()=>(e||r((e={exports:{}}).exports,e),e.exports),g=(r,e)=>{for(var i in e)t(r,i,{get:e[i],enumerable:!0})},o=(r,e,i,c)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let s of m(e))!u.call(r,s)&&s!==i&&t(r,s,{get:()=>e[s],enumerable:!(c=p(e,s))||c.enumerable});return r};var P=(r,e,i)=>(i=r!=null?a(f(r)):{},o(e||!r||!r.__esModule?t(i,\"default\",{value:r,enumerable:!0}):i,r)),v=r=>o(t({},\"__esModule\",{value:!0}),r);var d=j((S,l)=>{l.exports=_jsx_runtime});var _={};g(_,{default:()=>b,frontmatter:()=>x});var n=P(d()),x={title:\"Explain the different states of a Promise\"};function h(r){let e=Object.assign({h2:\"h2\",p:\"p\",code:\"code\",pre:\"pre\",hr:\"hr\",h3:\"h3\",ul:\"ul\",li:\"li\",a:\"a\"},r.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.h2,{children:\"TL;DR\"}),`\n`,(0,n.jsxs)(e.p,{children:[\"A \",(0,n.jsx)(e.code,{children:\"Promise\"}),\" in JavaScript can be in one of three states: \",(0,n.jsx)(e.code,{children:\"pending\"}),\", \",(0,n.jsx)(e.code,{children:\"fulfilled\"}),\", or \",(0,n.jsx)(e.code,{children:\"rejected\"}),\". When a \",(0,n.jsx)(e.code,{children:\"Promise\"}),\" is created, it starts in the \",(0,n.jsx)(e.code,{children:\"pending\"}),\" state. If the operation completes successfully, the \",(0,n.jsx)(e.code,{children:\"Promise\"}),\" transitions to the \",(0,n.jsx)(e.code,{children:\"fulfilled\"}),\" state, and if it fails, it transitions to the \",(0,n.jsx)(e.code,{children:\"rejected\"}),\" state. Here's a quick example:\"]}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-js\",children:`let promise = new Promise((resolve, reject) => {\n  // some asynchronous operation\n  if (success) {\n    resolve('Success!');\n  } else {\n    reject('Error!');\n  }\n});\n`})}),`\n`,(0,n.jsx)(e.hr,{}),`\n`,(0,n.jsx)(e.h2,{children:\"Different states of a Promise\"}),`\n`,(0,n.jsx)(e.h3,{children:\"Pending\"}),`\n`,(0,n.jsxs)(e.p,{children:[\"When a \",(0,n.jsx)(e.code,{children:\"Promise\"}),\" is first created, it is in the \",(0,n.jsx)(e.code,{children:\"pending\"}),\" state. This means that the asynchronous operation has not yet completed.\"]}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-js\",children:`let promise = new Promise((resolve, reject) => {\n  // asynchronous operation\n});\n`})}),`\n`,(0,n.jsx)(e.h3,{children:\"Fulfilled\"}),`\n`,(0,n.jsxs)(e.p,{children:[\"A \",(0,n.jsx)(e.code,{children:\"Promise\"}),\" transitions to the \",(0,n.jsx)(e.code,{children:\"fulfilled\"}),\" state when the asynchronous operation completes successfully. The \",(0,n.jsx)(e.code,{children:\"resolve\"}),\" function is called to indicate this.\"]}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-js\",children:`let promise = new Promise((resolve, reject) => {\n  resolve('Success!');\n});\n`})}),`\n`,(0,n.jsx)(e.h3,{children:\"Rejected\"}),`\n`,(0,n.jsxs)(e.p,{children:[\"A \",(0,n.jsx)(e.code,{children:\"Promise\"}),\" transitions to the \",(0,n.jsx)(e.code,{children:\"rejected\"}),\" state when the asynchronous operation fails. The \",(0,n.jsx)(e.code,{children:\"reject\"}),\" function is called to indicate this.\"]}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-js\",children:`let promise = new Promise((resolve, reject) => {\n  reject('Error!');\n});\n`})}),`\n`,(0,n.jsx)(e.h2,{children:\"Further reading\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise\",children:\"MDN Web Docs: Promise\"})}),`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://javascript.info/promise-basics\",children:\"JavaScript.info: Promises\"})}),`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://promisesaplus.com/\",children:\"Promise/A+ Specification\"})}),`\n`]})]})}function y(r={}){let{wrapper:e}=r.components||{};return e?(0,n.jsx)(e,Object.assign({},r,{children:(0,n.jsx)(h,r)})):h(r)}var b=y;return v(_);})();\n;return Component;"

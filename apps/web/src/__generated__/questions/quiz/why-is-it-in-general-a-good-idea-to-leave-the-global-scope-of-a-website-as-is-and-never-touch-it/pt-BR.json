@@ -2,31 +2,7 @@
   "description": null,
   "info": {
     "excerpt": null,
-    "title": "Por que, em geral, é uma boa ideia deixar o escopo global de um site como está e nunca modificá-lo?"
-  },
-  "metadata": {
-    "access": "free",
-    "author": null,
-    "companies": [],
-    "created": 1630800000,
-    "difficulty": "medium",
-    "duration": 5,
-    "featured": true,
-    "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
-    "href": "/questions/quiz/why-is-it-in-general-a-good-idea-to-leave-the-global-scope-of-a-website-as-is-and-never-touch-it",
-    "importance": "medium",
-    "languages": [],
-    "nextQuestions": [],
-    "published": true,
-    "ranking": 330,
-    "similarQuestions": [],
-    "slug": "why-is-it-in-general-a-good-idea-to-leave-the-global-scope-of-a-website-as-is-and-never-touch-it",
-    "subtitle": null,
-    "topics": [
-      "javascript"
-    ],
+    "title": "Por que, em geral, é uma boa ideia deixar o escopo global de um site como está e nunca modificá-lo?",
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/why-is-it-in-general-a-good-idea-to-leave-the-global-scope-of-a-website-as-is-and-never-touch-it/pt-BR.mdx"
   },
   "solution": "var Component=(()=>{var l=Object.create;var n=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var x=Object.getPrototypeOf,v=Object.prototype.hasOwnProperty;var f=(e,o)=>()=>(o||e((o={exports:{}}).exports,o),o.exports),g=(e,o)=>{for(var a in o)n(e,a,{get:o[a],enumerable:!0})},c=(e,o,a,r)=>{if(o&&typeof o==\"object\"||typeof o==\"function\")for(let t of p(o))!v.call(e,t)&&t!==a&&n(e,t,{get:()=>o[t],enumerable:!(r=d(o,t))||r.enumerable});return e};var b=(e,o,a)=>(a=e!=null?l(x(e)):{},c(o||!e||!e.__esModule?n(a,\"default\",{value:e,enumerable:!0}):a,e)),j=e=>c(n({},\"__esModule\",{value:!0}),e);var m=f((D,i)=>{i.exports=_jsx_runtime});var q={};g(q,{default:()=>h,frontmatter:()=>_});var s=b(m()),_={title:\"Por que, em geral, \\xE9 uma boa ideia deixar o escopo global de um site como est\\xE1 e nunca modific\\xE1-lo?\"};function u(e){let o=Object.assign({p:\"p\"},e.components);return(0,s.jsx)(o.p,{children:\"JavaScript que \\xE9 executado no navegador tem acesso ao escopo global, e se todos usarem o namespace global para definir suas vari\\xE1veis, as colis\\xF5es provavelmente ocorrer\\xE3o. Use o padr\\xE3o do m\\xF3dulo (IIFES) para encapsular suas vari\\xE1veis dentro de um namespace local.\"})}function M(e={}){let{wrapper:o}=e.components||{};return o?(0,s.jsx)(o,Object.assign({},e,{children:(0,s.jsx)(u,e)})):u(e)}var h=M;return j(q);})();\n;return Component;"

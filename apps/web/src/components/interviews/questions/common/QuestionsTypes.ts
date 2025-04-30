@@ -132,6 +132,7 @@ export type QuestionUserInterfaceBundle = Readonly<{
 
 export type InterviewsQuestionInfo = Readonly<{
   excerpt: string | null;
+  gitHubEditUrl?: string | null;
   title: string;
 }>;
 
@@ -151,7 +152,6 @@ export type InterviewsQuestionMetadata = Readonly<{
       href: string;
     }>
   >;
-  gitHubEditUrl?: string | null;
   href: string;
   importance: QuestionImportance;
   languages: ReadonlyArray<QuestionLanguage>;

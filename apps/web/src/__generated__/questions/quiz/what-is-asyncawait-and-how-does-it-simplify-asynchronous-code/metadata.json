@@ -1,0 +1,25 @@
+{
+  "access": "free",
+  "author": null,
+  "companies": [],
+  "created": 1630800000,
+  "difficulty": "easy",
+  "duration": 5,
+  "featured": false,
+  "format": "quiz",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/quiz/what-is-asyncawait-and-how-does-it-simplify-asynchronous-code",
+  "importance": "low",
+  "languages": [],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 999,
+  "similarQuestions": [],
+  "slug": "what-is-asyncawait-and-how-does-it-simplify-asynchronous-code",
+  "subtitle": null,
+  "topics": [
+    "async",
+    "javascript"
+  ]
+}

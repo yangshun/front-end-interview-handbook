@@ -1,0 +1,29 @@
+{
+  "access": "free",
+  "author": null,
+  "companies": [],
+  "created": 1630800000,
+  "difficulty": "hard",
+  "duration": 5,
+  "featured": true,
+  "format": "quiz",
+  "frameworkDefault": "react",
+  "frameworks": [
+    {
+      "framework": "react",
+      "href": "/questions/quiz/why-does-react-recommend-against-mutating-state"
+    }
+  ],
+  "href": "/questions/quiz/why-does-react-recommend-against-mutating-state",
+  "importance": "low",
+  "languages": [],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 230,
+  "similarQuestions": [],
+  "slug": "why-does-react-recommend-against-mutating-state",
+  "subtitle": null,
+  "topics": [
+    "react"
+  ]
+}

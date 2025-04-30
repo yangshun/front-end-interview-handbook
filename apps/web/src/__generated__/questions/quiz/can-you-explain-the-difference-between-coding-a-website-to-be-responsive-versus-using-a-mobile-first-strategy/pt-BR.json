@@ -2,31 +2,7 @@
   "description": null,
   "info": {
     "excerpt": null,
-    "title": "Você pode explicar a diferença entre codificar um site para ser responsivo e usar uma estratégia mobile-first?"
-  },
-  "metadata": {
-    "access": "free",
-    "author": null,
-    "companies": [],
-    "created": 1630800000,
-    "difficulty": "medium",
-    "duration": 5,
-    "featured": false,
-    "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
-    "href": "/questions/quiz/can-you-explain-the-difference-between-coding-a-website-to-be-responsive-versus-using-a-mobile-first-strategy",
-    "importance": "low",
-    "languages": [],
-    "nextQuestions": [],
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [],
-    "slug": "can-you-explain-the-difference-between-coding-a-website-to-be-responsive-versus-using-a-mobile-first-strategy",
-    "subtitle": null,
-    "topics": [
-      "css"
-    ],
+    "title": "Você pode explicar a diferença entre codificar um site para ser responsivo e usar uma estratégia mobile-first?",
     "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/can-you-explain-the-difference-between-coding-a-website-to-be-responsive-versus-using-a-mobile-first-strategy/pt-BR.mdx"
   },
   "solution": "var Component=(()=>{var p=Object.create;var o=Object.defineProperty;var l=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var f=Object.getPrototypeOf,g=Object.prototype.hasOwnProperty;var x=(s,e)=>()=>(e||s((e={exports:{}}).exports,e),e.exports),h=(s,e)=>{for(var n in e)o(s,n,{get:e[n],enumerable:!0})},t=(s,e,n,r)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let i of u(e))!g.call(s,i)&&i!==n&&o(s,i,{get:()=>e[i],enumerable:!(r=l(e,i))||r.enumerable});return s};var v=(s,e,n)=>(n=s!=null?p(f(s)):{},t(e||!s||!s.__esModule?o(n,\"default\",{value:s,enumerable:!0}):n,s)),b=s=>t(o({},\"__esModule\",{value:!0}),s);var d=x((q,m)=>{m.exports=_jsx_runtime});var w={};h(w,{default:()=>z,frontmatter:()=>j});var a=v(d()),j={title:\"Voc\\xEA pode explicar a diferen\\xE7a entre codificar um site para ser responsivo e usar uma estrat\\xE9gia mobile-first?\"};function c(s){let e=Object.assign({p:\"p\",pre:\"pre\",code:\"code\",ul:\"ul\",li:\"li\"},s.components);return(0,a.jsxs)(a.Fragment,{children:[(0,a.jsx)(e.p,{children:\"Estas duas abordagens n\\xE3o se excluem mutuamente. Tornar um site responsivo significa que alguns elementos ir\\xE3o responder adaptando seu tamanho ou outras funcionalidades de acordo com o tamanho da tela do dispositivo, normalmente a largura da viewport, atrav\\xE9s de media queries CSS, por exemplo, tornando o tamanho da fonte menor em dispositivos menores.\"}),`\n`,(0,a.jsx)(e.pre,{children:(0,a.jsx)(e.code,{className:\"language-css\",children:`@media (min-width: 768px) {\n  . y-class {\n    font-size: 24px;\n  }\n}\n\n@media (max-width: 767px) {\n  . y-class {\n    font-size: 12px;\n  }\n}\n`})}),`\n`,(0,a.jsx)(e.p,{children:\"Uma estrat\\xE9gia mobile-first tamb\\xE9m \\xE9 responsiva, no entanto, ela define todos os estilos para dispositivos m\\xF3veis como padr\\xE3o e adiciona regras espec\\xEDficas para dispositivos maiores posteriormente. Seguindo o exemplo anterior:\"}),`\n`,(0,a.jsx)(e.pre,{children:(0,a.jsx)(e.code,{className:\"language-css\",children:`.min-classe {\n  font-size: 12px;\n}\n\n@media (min-width: 768px) {\n  .my-class {\n    font-size: 24px;\n  }\n`})}),`\n`,(0,a.jsx)(e.p,{children:\"Uma estrat\\xE9gia mobile-first tem as seguintes principais vantagens:\"}),`\n`,(0,a.jsxs)(e.ul,{children:[`\n`,(0,a.jsx)(e.li,{children:\"\\xC9 mais perform\\xE1tico em dispositivos m\\xF3veis, j\\xE1 que todas as regras aplicadas para eles n\\xE3o precisam ser validadas em rela\\xE7\\xE3o a nenhuma media query.\"}),`\n`,(0,a.jsx)(e.li,{children:\"Designs mobile-first s\\xE3o mais propensos a ser utiliz\\xE1veis em dispositivos maiores (apenas aparecer\\xE3o mais esticados, mas ainda utiliz\\xE1veis). No entanto, o inverso n\\xE3o \\xE9 verdadeiro.\"}),`\n`]})]})}function _(s={}){let{wrapper:e}=s.components||{};return e?(0,a.jsx)(e,Object.assign({},s,{children:(0,a.jsx)(c,s)})):c(s)}var z=_;return b(w);})();\n;return Component;"

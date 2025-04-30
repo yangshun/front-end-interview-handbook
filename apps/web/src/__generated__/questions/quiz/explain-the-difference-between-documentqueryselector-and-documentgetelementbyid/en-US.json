@@ -2,33 +2,7 @@
   "description": null,
   "info": {
     "excerpt": null,
-    "title": "Explain the difference between `document.querySelector()` and `document.getElementById()`"
-  },
-  "metadata": {
-    "access": "free",
-    "author": null,
-    "companies": [],
-    "created": 1630800000,
-    "difficulty": "easy",
-    "duration": 5,
-    "featured": false,
-    "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
-    "href": "/questions/quiz/explain-the-difference-between-documentqueryselector-and-documentgetelementbyid",
-    "importance": "low",
-    "languages": [],
-    "nextQuestions": [],
-    "published": true,
-    "ranking": 999,
-    "similarQuestions": [],
-    "slug": "explain-the-difference-between-documentqueryselector-and-documentgetelementbyid",
-    "subtitle": null,
-    "topics": [
-      "web-api",
-      "javascript",
-      "html"
-    ],
+    "title": "Explain the difference between `document.querySelector()` and `document.getElementById()`",
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-the-difference-between-documentqueryselector-and-documentgetelementbyid/en-US.mdx"
   },
   "solution": "var Component=(()=>{var m=Object.create;var r=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var a=Object.getOwnPropertyNames;var y=Object.getPrototypeOf,g=Object.prototype.hasOwnProperty;var f=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),S=(n,e)=>{for(var c in e)r(n,c,{get:e[c],enumerable:!0})},i=(n,e,c,d)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let l of a(e))!g.call(n,l)&&l!==c&&r(n,l,{get:()=>e[l],enumerable:!(d=u(e,l))||d.enumerable});return n};var I=(n,e,c)=>(c=n!=null?m(y(n)):{},i(e||!n||!n.__esModule?r(c,\"default\",{value:n,enumerable:!0}):c,n)),b=n=>i(r({},\"__esModule\",{value:!0}),n);var s=f((w,o)=>{o.exports=_jsx_runtime});var q={};S(q,{default:()=>E,frontmatter:()=>p});var t=I(s()),p={title:\"Explain the difference between `document.querySelector()` and `document.getElementById()`\"};function h(n){let e=Object.assign({h2:\"h2\",p:\"p\",code:\"code\",pre:\"pre\",hr:\"hr\",h3:\"h3\",ul:\"ul\",li:\"li\",strong:\"strong\",a:\"a\"},n.components);return(0,t.jsxs)(t.Fragment,{children:[(0,t.jsx)(e.h2,{children:\"TL;DR\"}),`\n`,(0,t.jsxs)(e.p,{children:[(0,t.jsx)(e.code,{children:\"document.querySelector()\"}),\" and \",(0,t.jsx)(e.code,{children:\"document.getElementById()\"}),\" are both methods used to select elements from the DOM, but they have key differences. \",(0,t.jsx)(e.code,{children:\"document.querySelector()\"}),\" can select any element using a CSS selector and returns the first match, while \",(0,t.jsx)(e.code,{children:\"document.getElementById()\"}),\" selects an element by its ID and returns the element with that specific ID.\"]}),`\n`,(0,t.jsx)(e.pre,{children:(0,t.jsx)(e.code,{className:\"language-js\",children:`// Using document.querySelector()\nconst element = document.querySelector('.my-class');\n\n// Using document.getElementById()\nconst elementById = document.getElementById('my-id');\n`})}),`\n`,(0,t.jsx)(e.hr,{}),`\n`,(0,t.jsxs)(e.h2,{children:[\"Difference between \",(0,t.jsx)(e.code,{children:\"document.querySelector()\"}),\" and \",(0,t.jsx)(e.code,{children:\"document.getElementById()\"})]}),`\n`,(0,t.jsx)(e.h3,{children:(0,t.jsx)(e.code,{children:\"document.querySelector()\"})}),`\n`,(0,t.jsxs)(e.ul,{children:[`\n`,(0,t.jsx)(e.li,{children:\"Can select elements using any valid CSS selector, including class, ID, tag, attribute, and pseudo-classes\"}),`\n`,(0,t.jsx)(e.li,{children:\"Returns the first element that matches the specified selector\"}),`\n`,(0,t.jsx)(e.li,{children:\"More versatile but slightly slower due to the flexibility of CSS selectors\"}),`\n`]}),`\n`,(0,t.jsx)(e.pre,{children:(0,t.jsx)(e.code,{className:\"language-js\",children:`// Select the first element with the class 'my-class'\nconst element = document.querySelector('.my-class');\n\n// Select the first <div> element\nconst divElement = document.querySelector('div');\n\n// Select the first element with the attribute data-role='button'\nconst buttonElement = document.querySelector('[data-role=\"button\"]');\n`})}),`\n`,(0,t.jsx)(e.h3,{children:(0,t.jsx)(e.code,{children:\"document.getElementById()\"})}),`\n`,(0,t.jsxs)(e.ul,{children:[`\n`,(0,t.jsx)(e.li,{children:\"Selects an element by its ID attribute\"}),`\n`,(0,t.jsx)(e.li,{children:\"Returns the element with the specified ID\"}),`\n`,(0,t.jsx)(e.li,{children:\"Faster and more efficient for selecting elements by ID, but less versatile\"}),`\n`]}),`\n`,(0,t.jsx)(e.pre,{children:(0,t.jsx)(e.code,{className:\"language-js\",children:`// Select the element with the ID 'my-id'\nconst elementById = document.getElementById('my-id');\n`})}),`\n`,(0,t.jsx)(e.h3,{children:\"Key differences\"}),`\n`,(0,t.jsxs)(e.ul,{children:[`\n`,(0,t.jsxs)(e.li,{children:[(0,t.jsx)(e.strong,{children:\"Selector type\"}),\": \",(0,t.jsx)(e.code,{children:\"document.querySelector()\"}),\" uses CSS selectors, while \",(0,t.jsx)(e.code,{children:\"document.getElementById()\"}),\" uses only the ID attribute.\"]}),`\n`,(0,t.jsxs)(e.li,{children:[(0,t.jsx)(e.strong,{children:\"Return value\"}),\": \",(0,t.jsx)(e.code,{children:\"document.querySelector()\"}),\" returns the first matching element, whereas \",(0,t.jsx)(e.code,{children:\"document.getElementById()\"}),\" returns the element with the specified ID.\"]}),`\n`,(0,t.jsxs)(e.li,{children:[(0,t.jsx)(e.strong,{children:\"Performance\"}),\": \",(0,t.jsx)(e.code,{children:\"document.getElementById()\"}),\" is generally faster because it directly accesses the element by ID, while \",(0,t.jsx)(e.code,{children:\"document.querySelector()\"}),\" has to parse the CSS selector.\"]}),`\n`]}),`\n`,(0,t.jsx)(e.h2,{children:\"Further reading\"}),`\n`,(0,t.jsxs)(e.ul,{children:[`\n`,(0,t.jsx)(e.li,{children:(0,t.jsx)(e.a,{href:\"https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector\",children:\"MDN Web Docs: document.querySelector()\"})}),`\n`,(0,t.jsx)(e.li,{children:(0,t.jsx)(e.a,{href:\"https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementById\",children:\"MDN Web Docs: document.getElementById()\"})}),`\n`]})]})}function D(n={}){let{wrapper:e}=n.components||{};return e?(0,t.jsx)(e,Object.assign({},n,{children:(0,t.jsx)(h,n)})):h(n)}var E=D;return b(q);})();\n;return Component;"

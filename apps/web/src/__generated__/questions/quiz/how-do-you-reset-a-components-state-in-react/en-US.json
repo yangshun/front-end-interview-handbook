@@ -2,36 +2,7 @@
   "description": null,
   "info": {
     "excerpt": null,
-    "title": "How do you reset a component's state in React?"
-  },
-  "metadata": {
-    "access": "free",
-    "author": null,
-    "companies": [],
-    "created": 1630800000,
-    "difficulty": "medium",
-    "duration": 5,
-    "featured": true,
-    "format": "quiz",
-    "frameworkDefault": "react",
-    "frameworks": [
-      {
-        "framework": "react",
-        "href": "/questions/quiz/how-do-you-reset-a-components-state-in-react"
-      }
-    ],
-    "href": "/questions/quiz/how-do-you-reset-a-components-state-in-react",
-    "importance": "medium",
-    "languages": [],
-    "nextQuestions": [],
-    "published": true,
-    "ranking": 220,
-    "similarQuestions": [],
-    "slug": "how-do-you-reset-a-components-state-in-react",
-    "subtitle": null,
-    "topics": [
-      "react"
-    ],
+    "title": "How do you reset a component's state in React?",
     "gitHubEditUrl": "https://github.com/yangshun/top-reactjs-interview-questions/blob/main/questions/how-do-you-reset-a-components-state-in-react/en-US.mdx"
   },
   "solution": "var Component=(()=>{var p=Object.create;var s=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var m=Object.getPrototypeOf,S=Object.prototype.hasOwnProperty;var g=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),x=(n,t)=>{for(var a in t)s(n,a,{get:t[a],enumerable:!0})},c=(n,t,a,o)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let i of u(t))!S.call(n,i)&&i!==a&&s(n,i,{get:()=>t[i],enumerable:!(o=d(t,i))||o.enumerable});return n};var f=(n,t,a)=>(a=n!=null?p(m(n)):{},c(t||!n||!n.__esModule?s(a,\"default\",{value:n,enumerable:!0}):a,n)),y=n=>c(s({},\"__esModule\",{value:!0}),n);var l=g((k,r)=>{r.exports=_jsx_runtime});var b={};x(b,{default:()=>v,frontmatter:()=>C});var e=f(l()),C={title:\"How do you reset a component's state in React?\"};function h(n){let t=Object.assign({h2:\"h2\",p:\"p\",code:\"code\",pre:\"pre\",hr:\"hr\",h3:\"h3\",h4:\"h4\",ul:\"ul\",li:\"li\",a:\"a\"},n.components);return(0,e.jsxs)(e.Fragment,{children:[(0,e.jsx)(t.h2,{children:\"TL;DR\"}),`\n`,(0,e.jsxs)(t.p,{children:[\"To reset a component's state in React, you can set the state back to its initial value. This can be done by defining an initial state and then using the \",(0,e.jsx)(t.code,{children:\"setState\"}),\" function to reset it. For example, if you have a state object like this:\"]}),`\n`,(0,e.jsx)(t.pre,{children:(0,e.jsx)(t.code,{className:\"language-javascript\",children:`const [state, setState] = useState(initialState);\n`})}),`\n`,(0,e.jsx)(t.p,{children:\"You can reset it by calling:\"}),`\n`,(0,e.jsx)(t.pre,{children:(0,e.jsx)(t.code,{className:\"language-javascript\",children:`setState(initialState);\n`})}),`\n`,(0,e.jsx)(t.hr,{}),`\n`,(0,e.jsx)(t.h2,{children:\"How do you reset a component's state in React?\"}),`\n`,(0,e.jsx)(t.h3,{children:\"Using functional components with hooks\"}),`\n`,(0,e.jsxs)(t.p,{children:[\"In functional components, you can use the \",(0,e.jsx)(t.code,{children:\"useState\"}),\" hook to manage state. To reset the state, you can simply call the \",(0,e.jsx)(t.code,{children:\"setState\"}),\" function with the initial state value.\"]}),`\n`,(0,e.jsx)(t.h4,{children:\"Example\"}),`\n`,(0,e.jsx)(t.pre,{children:(0,e.jsx)(t.code,{className:\"language-javascript\",children:`import React, { useState } from 'react';\n\nconst MyComponent = () => {\n  const initialState = { count: 0, text: '' };\n  const [state, setState] = useState(initialState);\n\n  const resetState = () => {\n    setState(initialState);\n  };\n\n  return (\n    <div>\n      <p>Count: {state.count}</p>\n      <p>Text: {state.text}</p>\n      <button onClick={resetState}>Reset</button>\n    </div>\n  );\n};\n\nexport default MyComponent;\n`})}),`\n`,(0,e.jsx)(t.h3,{children:\"Using class components\"}),`\n`,(0,e.jsxs)(t.p,{children:[\"In class components, you can reset the state by calling \",(0,e.jsx)(t.code,{children:\"this.setState\"}),\" with the initial state value.\"]}),`\n`,(0,e.jsx)(t.h4,{children:\"Example\"}),`\n`,(0,e.jsx)(t.pre,{children:(0,e.jsx)(t.code,{className:\"language-javascript\",children:`import React, { Component } from 'react';\n\nclass MyComponent extends Component {\n  constructor(props) {\n    super(props);\n    this.initialState = { count: 0, text: '' };\n    this.state = this.initialState;\n  }\n\n  resetState = () => {\n    this.setState(this.initialState);\n  };\n\n  render() {\n    return (\n      <div>\n        <p>Count: {this.state.count}</p>\n        <p>Text: {this.state.text}</p>\n        <button onClick={this.resetState}>Reset</button>\n      </div>\n    );\n  }\n}\n\nexport default MyComponent;\n`})}),`\n`,(0,e.jsx)(t.h3,{children:\"Using a function to generate initial state\"}),`\n`,(0,e.jsx)(t.p,{children:\"Sometimes, the initial state might be derived from props or other dynamic sources. In such cases, you can use a function to generate the initial state.\"}),`\n`,(0,e.jsx)(t.h4,{children:\"Example\"}),`\n`,(0,e.jsx)(t.pre,{children:(0,e.jsx)(t.code,{className:\"language-javascript\",children:`import React, { useState } from 'react';\n\nconst MyComponent = (props) => {\n  const getInitialState = () => ({ count: props.initialCount, text: '' });\n  const [state, setState] = useState(getInitialState);\n\n  const resetState = () => {\n    setState(getInitialState());\n  };\n\n  return (\n    <div>\n      <p>Count: {state.count}</p>\n      <p>Text: {state.text}</p>\n      <button onClick={resetState}>Reset</button>\n    </div>\n  );\n};\n\nexport default MyComponent;\n`})}),`\n`,(0,e.jsx)(t.h2,{children:\"Further reading\"}),`\n`,(0,e.jsxs)(t.ul,{children:[`\n`,(0,e.jsx)(t.li,{children:(0,e.jsx)(t.a,{href:\"https://reactjs.org/docs/hooks-state.html\",children:\"React useState Hook\"})}),`\n`,(0,e.jsx)(t.li,{children:(0,e.jsx)(t.a,{href:\"https://reactjs.org/docs/state-and-lifecycle.html\",children:\"React Component State\"})}),`\n`,(0,e.jsx)(t.li,{children:(0,e.jsx)(t.a,{href:\"https://reactjs.org/docs/components-and-props.html#function-and-class-components\",children:\"React Functional Components\"})}),`\n`]})]})}function j(n={}){let{wrapper:t}=n.components||{};return t?(0,e.jsx)(t,Object.assign({},n,{children:(0,e.jsx)(h,n)})):h(n)}var v=j;return y(b);})();\n;return Component;"

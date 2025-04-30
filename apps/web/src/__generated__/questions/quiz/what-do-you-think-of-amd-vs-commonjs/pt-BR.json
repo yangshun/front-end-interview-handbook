@@ -2,31 +2,7 @@
   "description": null,
   "info": {
     "excerpt": null,
-    "title": "O que você acha de AMD versus CommonJS?"
-  },
-  "metadata": {
-    "access": "free",
-    "author": null,
-    "companies": [],
-    "created": 1630800000,
-    "difficulty": "medium",
-    "duration": 5,
-    "featured": false,
-    "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
-    "href": "/questions/quiz/what-do-you-think-of-amd-vs-commonjs",
-    "importance": "low",
-    "languages": [],
-    "nextQuestions": [],
-    "published": true,
-    "ranking": 999,
-    "similarQuestions": [],
-    "slug": "what-do-you-think-of-amd-vs-commonjs",
-    "subtitle": null,
-    "topics": [
-      "javascript"
-    ],
+    "title": "O que você acha de AMD versus CommonJS?",
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-do-you-think-of-amd-vs-commonjs/pt-BR.mdx"
   },
   "solution": "var Component=(()=>{var u=Object.create;var t=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var l=Object.getOwnPropertyNames;var v=Object.getPrototypeOf,g=Object.prototype.hasOwnProperty;var x=(e,o)=>()=>(o||e((o={exports:{}}).exports,o),o.exports),S=(e,o)=>{for(var n in o)t(e,n,{get:o[n],enumerable:!0})},d=(e,o,n,r)=>{if(o&&typeof o==\"object\"||typeof o==\"function\")for(let s of l(o))!g.call(e,s)&&s!==n&&t(e,s,{get:()=>o[s],enumerable:!(r=p(o,s))||r.enumerable});return e};var f=(e,o,n)=>(n=e!=null?u(v(e)):{},d(o||!e||!e.__esModule?t(n,\"default\",{value:e,enumerable:!0}):n,e)),q=e=>d(t({},\"__esModule\",{value:!0}),e);var i=x((J,m)=>{m.exports=_jsx_runtime});var A={};S(A,{default:()=>j,frontmatter:()=>M});var a=f(i()),M={title:\"O que voc\\xEA acha de AMD versus CommonJS?\"};function c(e){let o=Object.assign({p:\"p\"},e.components);return(0,a.jsxs)(a.Fragment,{children:[(0,a.jsx)(o.p,{children:\"Ambas s\\xE3o formas de implementar um sistema de m\\xF3dulos, que n\\xE3o estava nativamente presente em JavaScript at\\xE9 o surgimento da ES2015. CommonJS \\xE9 s\\xEDncrono enquanto AMD (Defini\\xE7\\xE3o de M\\xF3dulo Ass\\xEDncrona) \\xE9 obviamente ass\\xEDncrona. O CommonJS foi projetado com o desenvolvimento do lado do servidor em mente, enquanto o AMD, com seu suporte para carregamento ass\\xEDncrono de m\\xF3dulos, \\xE9 mais destinado a navegadores.\"}),`\n`,(0,a.jsx)(o.p,{children:\"A sintaxe do AMD pode ser bastante verbosa, enquanto o CommonJS \\xE9 mais pr\\xF3ximo do estilo que voc\\xEA usaria em outras linguagens para escrever declara\\xE7\\xF5es de importa\\xE7\\xE3o (import statements). Na maioria das vezes, o AMD \\xE9 desnecess\\xE1rio, porque se voc\\xEA servir todo o seu JavaScript em um \\xFAnico arquivo de pacote concatenado, n\\xE3o se beneficiar\\xE1 das propriedades de carregamento ass\\xEDncrono. Al\\xE9m disso, a sintaxe do CommonJS \\xE9 mais pr\\xF3xima do estilo de escrita/importa\\xE7\\xE3o de m\\xF3dulos do Node.js e h\\xE1 menos sobrecarga de troca de contexto ao alternar entre o desenvolvimento JavaScript do lado do cliente e do servidor.\"}),`\n`,(0,a.jsx)(o.p,{children:\"O padr\\xE3o futuro, ES modules (ESM), tem suporte tanto para carregamento s\\xEDncrono quanto ass\\xEDncrono e \\xE9 suportado tanto por navegadores quanto por runtimes do lado do servidor. Finalmente, podemos apenas aderir a uma abordagem (exceto em aplicativos legados).\"})]})}function b(e={}){let{wrapper:o}=e.components||{};return o?(0,a.jsx)(o,Object.assign({},e,{children:(0,a.jsx)(c,e)})):c(e)}var j=b;return q(A);})();\n;return Component;"

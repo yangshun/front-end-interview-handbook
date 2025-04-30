@@ -2,31 +2,7 @@
   "description": null,
   "info": {
     "excerpt": null,
-    "title": "Como você abordaria a correção de problemas de estilo específicos de navegador?"
-  },
-  "metadata": {
-    "access": "free",
-    "author": null,
-    "companies": [],
-    "created": 1630800000,
-    "difficulty": "hard",
-    "duration": 5,
-    "featured": false,
-    "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
-    "href": "/questions/quiz/how-would-you-approach-fixing-browser-specific-styling-issues",
-    "importance": "medium",
-    "languages": [],
-    "nextQuestions": [],
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [],
-    "slug": "how-would-you-approach-fixing-browser-specific-styling-issues",
-    "subtitle": null,
-    "topics": [
-      "css"
-    ],
+    "title": "Como você abordaria a correção de problemas de estilo específicos de navegador?",
     "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/how-would-you-approach-fixing-browser-specific-styling-issues/pt-BR.mdx"
   },
   "solution": "var Component=(()=>{var u=Object.create;var n=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var f=Object.getPrototypeOf,v=Object.prototype.hasOwnProperty;var x=(o,e)=>()=>(e||o((e={exports:{}}).exports,e),e.exports),b=(o,e)=>{for(var s in e)n(o,s,{get:e[s],enumerable:!0})},t=(o,e,s,i)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let r of p(e))!v.call(o,r)&&r!==s&&n(o,r,{get:()=>e[r],enumerable:!(i=m(e,r))||i.enumerable});return o};var h=(o,e,s)=>(s=o!=null?u(f(o)):{},t(e||!o||!o.__esModule?n(s,\"default\",{value:o,enumerable:!0}):s,o)),q=o=>t(n({},\"__esModule\",{value:!0}),o);var d=x((D,c)=>{c.exports=_jsx_runtime});var C={};b(C,{default:()=>j,frontmatter:()=>g});var a=h(d()),g={title:\"Como voc\\xEA abordaria a corre\\xE7\\xE3o de problemas de estilo espec\\xEDficos de navegador?\"};function l(o){let e=Object.assign({ul:\"ul\",li:\"li\",code:\"code\"},o.components);return(0,a.jsxs)(e.ul,{children:[`\n`,(0,a.jsx)(e.li,{children:\"Depois de identificar o problema e o navegador problem\\xE1tico, use uma folha de estilo separada que s\\xF3 \\xE9 carregada quando aquele navegador espec\\xEDfico est\\xE1 sendo usado. Essa t\\xE9cnica requer renderiza\\xE7\\xE3o do lado do servidor.\"}),`\n`,(0,a.jsx)(e.li,{children:\"Use bibliotecas como Bootstrap que j\\xE1 lidam com esses problemas de estilo para voc\\xEA.\"}),`\n`,(0,a.jsxs)(e.li,{children:[\"Use o \",(0,a.jsx)(e.code,{children:\"autoprefixer\"}),\" para adicionar automaticamente prefixos de vendors ao seu c\\xF3digo.\"]}),`\n`,(0,a.jsx)(e.li,{children:\"Use Reset CSS or Normalize.css.\"}),`\n`,(0,a.jsx)(e.li,{children:\"Se voc\\xEA estiver usando o PostCSS (ou uma biblioteca semelhante de transpila\\xE7\\xE3o CSS), pode haver plugins que permitam que voc\\xEA opte por usar a sintaxe CSS moderna (e at\\xE9 mesmo as propostas W3C) que transformar\\xE1 aquelas se\\xE7\\xF5es do seu c\\xF3digo em c\\xF3digo compat\\xEDvel com vers\\xF5es anteriores que funcionar\\xE3o nos destinos que voc\\xEA definiu.\"}),`\n`]})}function S(o={}){let{wrapper:e}=o.components||{};return e?(0,a.jsx)(e,Object.assign({},o,{children:(0,a.jsx)(l,o)})):l(o)}var j=S;return q(C);})();\n;return Component;"

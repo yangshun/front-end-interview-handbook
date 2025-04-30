@@ -1,0 +1,24 @@
+{
+  "access": "free",
+  "author": null,
+  "companies": [],
+  "created": 1630800000,
+  "difficulty": "medium",
+  "duration": 5,
+  "featured": false,
+  "format": "quiz",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/quiz/describe-floats-and-how-they-work",
+  "importance": "medium",
+  "languages": [],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [],
+  "slug": "describe-floats-and-how-they-work",
+  "subtitle": null,
+  "topics": [
+    "css"
+  ]
+}

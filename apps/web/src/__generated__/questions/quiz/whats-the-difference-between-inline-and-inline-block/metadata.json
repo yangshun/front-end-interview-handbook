@@ -1,0 +1,26 @@
+{
+  "access": "free",
+  "author": null,
+  "companies": [
+    "amazon"
+  ],
+  "created": 1630800000,
+  "difficulty": "easy",
+  "duration": 5,
+  "featured": false,
+  "format": "quiz",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/quiz/whats-the-difference-between-inline-and-inline-block",
+  "importance": "high",
+  "languages": [],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 2,
+  "similarQuestions": [],
+  "slug": "whats-the-difference-between-inline-and-inline-block",
+  "subtitle": null,
+  "topics": [
+    "css"
+  ]
+}

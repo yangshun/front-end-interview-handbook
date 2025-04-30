@@ -1,0 +1,25 @@
+{
+  "access": "free",
+  "author": null,
+  "companies": [],
+  "created": 1630800000,
+  "difficulty": "medium",
+  "duration": 5,
+  "featured": true,
+  "format": "quiz",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/quiz/why-you-might-want-to-create-static-class-members",
+  "importance": "medium",
+  "languages": [],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 420,
+  "similarQuestions": [],
+  "slug": "why-you-might-want-to-create-static-class-members",
+  "subtitle": null,
+  "topics": [
+    "javascript",
+    "oop"
+  ]
+}

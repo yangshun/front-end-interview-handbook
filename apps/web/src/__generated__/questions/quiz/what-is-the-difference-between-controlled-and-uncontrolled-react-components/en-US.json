@@ -2,36 +2,7 @@
   "description": null,
   "info": {
     "excerpt": null,
-    "title": "What is the difference between controlled and uncontrolled React Components?"
-  },
-  "metadata": {
-    "access": "free",
-    "author": null,
-    "companies": [],
-    "created": 1630800000,
-    "difficulty": "medium",
-    "duration": 5,
-    "featured": true,
-    "format": "quiz",
-    "frameworkDefault": "react",
-    "frameworks": [
-      {
-        "framework": "react",
-        "href": "/questions/quiz/what-is-the-difference-between-controlled-and-uncontrolled-react-components"
-      }
-    ],
-    "href": "/questions/quiz/what-is-the-difference-between-controlled-and-uncontrolled-react-components",
-    "importance": "low",
-    "languages": [],
-    "nextQuestions": [],
-    "published": true,
-    "ranking": 70,
-    "similarQuestions": [],
-    "slug": "what-is-the-difference-between-controlled-and-uncontrolled-react-components",
-    "subtitle": null,
-    "topics": [
-      "react"
-    ],
+    "title": "What is the difference between controlled and uncontrolled React Components?",
     "gitHubEditUrl": "https://github.com/yangshun/top-reactjs-interview-questions/blob/main/questions/what-is-the-difference-between-controlled-and-uncontrolled-react-components/en-US.mdx"
   },
   "solution": "var Component=(()=>{var d=Object.create;var l=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var u=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var b=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),g=(t,e)=>{for(var o in e)l(t,o,{get:e[o],enumerable:!0})},s=(t,e,o,a)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let r of p(e))!f.call(t,r)&&r!==o&&l(t,r,{get:()=>e[r],enumerable:!(a=m(e,r))||a.enumerable});return t};var v=(t,e,o)=>(o=t!=null?d(u(t)):{},s(e||!t||!t.__esModule?l(o,\"default\",{value:t,enumerable:!0}):o,t)),y=t=>s(l({},\"__esModule\",{value:!0}),t);var h=b((D,c)=>{c.exports=_jsx_runtime});var R={};g(R,{default:()=>w,frontmatter:()=>x});var n=v(h()),x={title:\"What is the difference between controlled and uncontrolled React Components?\"};function i(t){let e=Object.assign({h2:\"h2\",p:\"p\",hr:\"hr\",h3:\"h3\",h4:\"h4\",pre:\"pre\",code:\"code\",ul:\"ul\",li:\"li\",a:\"a\"},t.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.h2,{children:\"TL;DR\"}),`\n`,(0,n.jsx)(e.p,{children:\"Controlled components in React are those where the form data is handled by the component's state. The state is the single source of truth, and any changes to the form input are managed through event handlers. Uncontrolled components, on the other hand, store their own state internally and rely on refs to access the form values. Controlled components offer more control and are easier to test, while uncontrolled components can be simpler to implement for basic use cases.\"}),`\n`,(0,n.jsx)(e.hr,{}),`\n`,(0,n.jsx)(e.h2,{children:\"What is the difference between controlled and uncontrolled React components?\"}),`\n`,(0,n.jsx)(e.h3,{children:\"Controlled components\"}),`\n`,(0,n.jsx)(e.p,{children:\"Controlled components are those where the form data is handled by the component's state. The state is the single source of truth, and any changes to the form input are managed through event handlers.\"}),`\n`,(0,n.jsx)(e.h4,{children:\"Example\"}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-jsx\",children:`class ControlledComponent extends React.Component {\n  constructor(props) {\n    super(props);\n    this.state = { value: '' };\n  }\n\n  handleChange = (event) => {\n    this.setState({ value: event.target.value });\n  };\n\n  handleSubmit = (event) => {\n    alert('A name was submitted: ' + this.state.value);\n    event.preventDefault();\n  };\n\n  render() {\n    return (\n      <form onSubmit={this.handleSubmit}>\n        <label>\n          Name:\n          <input\n            type=\"text\"\n            value={this.state.value}\n            onChange={this.handleChange}\n          />\n        </label>\n        <input type=\"submit\" value=\"Submit\" />\n      </form>\n    );\n  }\n}\n`})}),`\n`,(0,n.jsx)(e.h3,{children:\"Uncontrolled components\"}),`\n`,(0,n.jsx)(e.p,{children:\"Uncontrolled components store their own state internally and rely on refs to access the form values. This approach is more similar to traditional HTML form elements.\"}),`\n`,(0,n.jsx)(e.h4,{children:\"Example\"}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-jsx\",children:`class UncontrolledComponent extends React.Component {\n  constructor(props) {\n    super(props);\n    this.inputRef = React.createRef();\n  }\n\n  handleSubmit = (event) => {\n    alert('A name was submitted: ' + this.inputRef.current.value);\n    event.preventDefault();\n  };\n\n  render() {\n    return (\n      <form onSubmit={this.handleSubmit}>\n        <label>\n          Name:\n          <input type=\"text\" ref={this.inputRef} />\n        </label>\n        <input type=\"submit\" value=\"Submit\" />\n      </form>\n    );\n  }\n}\n`})}),`\n`,(0,n.jsx)(e.h3,{children:\"Key differences\"}),`\n`,(0,n.jsx)(e.h4,{children:\"State management\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:\"Controlled components: The state is managed by the React component.\"}),`\n`,(0,n.jsx)(e.li,{children:\"Uncontrolled components: The state is managed by the DOM.\"}),`\n`]}),`\n`,(0,n.jsx)(e.h4,{children:\"Data flow\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:\"Controlled components: Data flows from the component's state to the input element.\"}),`\n`,(0,n.jsx)(e.li,{children:\"Uncontrolled components: Data flows from the input element to the component via refs.\"}),`\n`]}),`\n`,(0,n.jsx)(e.h4,{children:\"Use cases\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:\"Controlled components: Preferred when you need to enforce validation, conditionally disable/enable inputs, or perform other complex interactions.\"}),`\n`,(0,n.jsx)(e.li,{children:\"Uncontrolled components: Useful for simple forms or when you need to integrate with non-React code.\"}),`\n`]}),`\n`,(0,n.jsx)(e.h2,{children:\"Further reading\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://reactjs.org/docs/forms.html#controlled-components\",children:\"React documentation on controlled components\"})}),`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://reactjs.org/docs/uncontrolled-components.html\",children:\"React documentation on uncontrolled components\"})}),`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://reactjs.org/docs/refs-and-the-dom.html\",children:\"React refs and the DOM\"})}),`\n`]})]})}function C(t={}){let{wrapper:e}=t.components||{};return e?(0,n.jsx)(e,Object.assign({},t,{children:(0,n.jsx)(i,t)})):i(t)}var w=C;return y(R);})();\n;return Component;"

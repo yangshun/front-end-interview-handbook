@@ -2,31 +2,7 @@
   "description": null,
   "info": {
     "excerpt": null,
-    "title": "Como o design responsivo é diferente do design adaptável?"
-  },
-  "metadata": {
-    "access": "free",
-    "author": null,
-    "companies": [],
-    "created": 1630800000,
-    "difficulty": "hard",
-    "duration": 5,
-    "featured": false,
-    "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
-    "href": "/questions/quiz/how-is-responsive-design-different-from-adaptive-design",
-    "importance": "medium",
-    "languages": [],
-    "nextQuestions": [],
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [],
-    "slug": "how-is-responsive-design-different-from-adaptive-design",
-    "subtitle": null,
-    "topics": [
-      "css"
-    ],
+    "title": "Como o design responsivo é diferente do design adaptável?",
     "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/how-is-responsive-design-different-from-adaptive-design/pt-BR.mdx"
   },
   "solution": "var Component=(()=>{var p=Object.create;var n=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var l=Object.getOwnPropertyNames;var v=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var g=(o,e)=>()=>(e||o((e={exports:{}}).exports,e),e.exports),x=(o,e)=>{for(var a in e)n(o,a,{get:e[a],enumerable:!0})},r=(o,e,a,t)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let i of l(e))!f.call(o,i)&&i!==a&&n(o,i,{get:()=>e[i],enumerable:!(t=m(e,i))||t.enumerable});return o};var b=(o,e,a)=>(a=o!=null?p(v(o)):{},r(e||!o||!o.__esModule?n(a,\"default\",{value:o,enumerable:!0}):a,o)),h=o=>r(n({},\"__esModule\",{value:!0}),o);var u=g((y,d)=>{d.exports=_jsx_runtime});var z={};x(z,{default:()=>O,frontmatter:()=>q});var s=b(u()),q={title:\"Como o design responsivo \\xE9 diferente do design adapt\\xE1vel?\"};function c(o){let e=Object.assign({p:\"p\",ul:\"ul\",li:\"li\"},o.components);return(0,s.jsxs)(s.Fragment,{children:[(0,s.jsx)(e.p,{children:\"Tanto o design responsivo quanto o design adapt\\xE1vel tentam otimizar a experi\\xEAncia do usu\\xE1rio em diferentes dispositivos, ajustando-se a diferentes tamanhos de viewport, resolu\\xE7\\xF5es, contextos de uso, mecanismos de controle e assim por diante.\"}),`\n`,(0,s.jsx)(e.p,{children:\"O design responsivo funciona com base no princ\\xEDpio da flexibilidade - um \\xFAnico site fluido que pode ter uma boa apar\\xEAncia em qualquer dispositivo. Sites responsivos usam consultas de m\\xEDdia, grades flex\\xEDveis e imagens responsivas para criar uma experi\\xEAncia do usu\\xE1rio que se flexiona e muda com base em uma infinidade de fatores. Como uma bola \\xFAnica que cresce ou diminui para se ajustar a v\\xE1rios aros diferentes.\"}),`\n`,(0,s.jsx)(e.p,{children:\"O design adapt\\xE1vel \\xE9 mais parecido com a defini\\xE7\\xE3o moderna de aprimoramento progressivo. Em vez de um design flex\\xEDvel, o design adapt\\xE1vel detecta o dispositivo e outras caracter\\xEDsticas e, em seguida, fornece o recurso e layout apropriados com base em um conjunto predefinido de tamanhos de viewport e outras caracter\\xEDsticas. O site detecta o tipo de dispositivo utilizado e fornece o layout pr\\xE9-configurado para esse dispositivo. Em vez de uma \\xFAnica bola passando por aros de tamanhos diferentes, voc\\xEA teria v\\xE1rias bolas diferentes para usar dependendo do tamanho do aro.\"}),`\n`,(0,s.jsx)(e.p,{children:\"Ambos esses m\\xE9todos t\\xEAm alguns problemas que precisam ser avaliados:\"}),`\n`,(0,s.jsxs)(e.ul,{children:[`\n`,(0,s.jsx)(e.li,{children:\"O design responsivo pode ser bastante desafiador, pois voc\\xEA est\\xE1 essencialmente usando um \\xFAnico layout, embora responsivo, para se adequar a todas as situa\\xE7\\xF5es. Definir os pontos de interrup\\xE7\\xE3o de consulta de m\\xEDdia \\xE9 um desses desafios. Voc\\xEA usa valores padronizados de ponto de quebra? Ou, voc\\xEA utiliza pontos de interrup\\xE7\\xE3o que fazem sentido para o layout espec\\xEDfico do seu site? E se o layout mudar?\"}),`\n`,(0,s.jsx)(e.li,{children:\"O design adapt\\xE1vel geralmente requer a detec\\xE7\\xE3o de agente do usu\\xE1rio ou detec\\xE7\\xE3o de DPI, etc., todos os quais podem se mostrar pouco confi\\xE1veis.\"}),`\n`]})]})}function j(o={}){let{wrapper:e}=o.components||{};return e?(0,s.jsx)(e,Object.assign({},o,{children:(0,s.jsx)(c,o)})):c(o)}var O=j;return h(z);})();\n;return Component;"

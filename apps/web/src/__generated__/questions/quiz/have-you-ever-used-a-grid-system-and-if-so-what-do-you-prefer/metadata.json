@@ -1,0 +1,24 @@
+{
+  "access": "free",
+  "author": null,
+  "companies": [],
+  "created": 1630800000,
+  "difficulty": "medium",
+  "duration": 5,
+  "featured": false,
+  "format": "quiz",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/quiz/have-you-ever-used-a-grid-system-and-if-so-what-do-you-prefer",
+  "importance": "medium",
+  "languages": [],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [],
+  "slug": "have-you-ever-used-a-grid-system-and-if-so-what-do-you-prefer",
+  "subtitle": null,
+  "topics": [
+    "css"
+  ]
+}

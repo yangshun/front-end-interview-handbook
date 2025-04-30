@@ -2,31 +2,7 @@
   "description": null,
   "info": {
     "excerpt": null,
-    "title": "Have you ever worked with retina graphics?"
-  },
-  "metadata": {
-    "access": "free",
-    "author": null,
-    "companies": [],
-    "created": 1630800000,
-    "difficulty": "hard",
-    "duration": 5,
-    "featured": false,
-    "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
-    "href": "/questions/quiz/have-you-ever-worked-with-retina-graphics-if-so-when-and-what-techniques-did-you-use",
-    "importance": "low",
-    "languages": [],
-    "nextQuestions": [],
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [],
-    "slug": "have-you-ever-worked-with-retina-graphics-if-so-when-and-what-techniques-did-you-use",
-    "subtitle": "If so, when and what techniques did you use?",
-    "topics": [
-      "css"
-    ],
+    "title": "Have you ever worked with retina graphics?",
     "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/have-you-ever-worked-with-retina-graphics-if-so-when-and-what-techniques-did-you-use/en-US.mdx"
   },
   "solution": "var Component=(()=>{var d=Object.create;var r=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var g=Object.getPrototypeOf,u=Object.prototype.hasOwnProperty;var w=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),f=(t,e)=>{for(var s in e)r(t,s,{get:e[s],enumerable:!0})},a=(t,e,s,o)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let n of m(e))!u.call(t,n)&&n!==s&&r(t,n,{get:()=>e[n],enumerable:!(o=p(e,n))||o.enumerable});return t};var v=(t,e,s)=>(s=t!=null?d(g(t)):{},a(e||!t||!t.__esModule?r(s,\"default\",{value:t,enumerable:!0}):s,t)),b=t=>a(r({},\"__esModule\",{value:!0}),t);var c=w((_,l)=>{l.exports=_jsx_runtime});var k={};f(k,{default:()=>j,frontmatter:()=>y});var i=v(c()),y={title:\"Have you ever worked with retina graphics?\",subtitle:\"If so, when and what techniques did you use?\"};function h(t){let e=Object.assign({p:\"p\",em:\"em\",code:\"code\",pre:\"pre\",a:\"a\"},t.components);return(0,i.jsxs)(i.Fragment,{children:[(0,i.jsxs)(e.p,{children:[(0,i.jsx)(e.em,{children:\"Retina\"}),\" is just a marketing term to refer to high resolution screens with a pixel ratio bigger than 1. The key thing to know is that using a pixel ratio means these displays are emulating a lower resolution screen in order to show elements with the same size. Nowadays we consider all mobile devices \",(0,i.jsx)(e.em,{children:\"retina\"}),\" defacto displays.\"]}),`\n`,(0,i.jsx)(e.p,{children:\"Browsers by default render DOM elements according to the device resolution, except for images.\"}),`\n`,(0,i.jsx)(e.p,{children:\"In order to have crisp, good-looking graphics that make the best of retina displays we need to use high resolution images whenever possible. However using always the highest resolution images will have an impact on performance as more bytes will need to be sent over the wire.\"}),`\n`,(0,i.jsxs)(e.p,{children:[\"To overcome this problem, we can use responsive images, as specified in HTML5. It requires making available different resolution files of the same image to the browser and let it decide which image is best, using the html attribute \",(0,i.jsx)(e.code,{children:\"srcset\"}),\" and optionally \",(0,i.jsx)(e.code,{children:\"sizes\"}),\", for instance:\"]}),`\n`,(0,i.jsx)(e.pre,{children:(0,i.jsx)(e.code,{className:\"language-html\",children:`<div responsive-background-image>\n  <img\n    src=\"/images/test-1600.jpg\"\n    sizes=\"\n      (min-width: 768px) 50vw,\n      (min-width: 1024px) 66vw,\n      100vw\"\n    srcset=\"\n      /images/test-400.jpg   400w,\n      /images/test-800.jpg   800w,\n      /images/test-1200.jpg 1200w\n    \" />\n</div>\n`})}),`\n`,(0,i.jsxs)(e.p,{children:[\"It is important to note that browsers which don't support HTML5's \",(0,i.jsx)(e.code,{children:\"srcset\"}),\" (i.e. IE11) will ignore it and use \",(0,i.jsx)(e.code,{children:\"src\"}),\" instead. If we really need to support IE11 and we want to provide this feature for performance reasons, we can use a JavaScript polyfill, e.g. \",(0,i.jsx)(e.a,{href:\"https://scottjehl.github.io/picturefill/\",children:\"Picturefill\"}),\".\"]}),`\n`,(0,i.jsx)(e.p,{children:\"For icons, to use SVGs where possible, as they render very crisply regardless of resolution.\"})]})}function x(t={}){let{wrapper:e}=t.components||{};return e?(0,i.jsx)(e,Object.assign({},t,{children:(0,i.jsx)(h,t)})):h(t)}var j=x;return b(k);})();\n;return Component;"

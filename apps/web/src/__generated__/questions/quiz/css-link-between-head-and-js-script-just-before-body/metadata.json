@@ -1,0 +1,25 @@
+{
+  "access": "free",
+  "author": null,
+  "companies": [],
+  "created": 1630800000,
+  "difficulty": "medium",
+  "duration": 5,
+  "featured": true,
+  "format": "quiz",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/quiz/css-link-between-head-and-js-script-just-before-body",
+  "importance": "high",
+  "languages": [],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [],
+  "slug": "css-link-between-head-and-js-script-just-before-body",
+  "subtitle": null,
+  "topics": [
+    "html",
+    "performance"
+  ]
+}

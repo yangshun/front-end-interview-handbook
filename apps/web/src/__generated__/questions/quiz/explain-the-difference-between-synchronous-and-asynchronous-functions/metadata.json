@@ -1,0 +1,25 @@
+{
+  "access": "free",
+  "author": null,
+  "companies": [],
+  "created": 1630800000,
+  "difficulty": "medium",
+  "duration": 5,
+  "featured": true,
+  "format": "quiz",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/quiz/explain-the-difference-between-synchronous-and-asynchronous-functions",
+  "importance": "high",
+  "languages": [],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 250,
+  "similarQuestions": [],
+  "slug": "explain-the-difference-between-synchronous-and-asynchronous-functions",
+  "subtitle": null,
+  "topics": [
+    "async",
+    "javascript"
+  ]
+}

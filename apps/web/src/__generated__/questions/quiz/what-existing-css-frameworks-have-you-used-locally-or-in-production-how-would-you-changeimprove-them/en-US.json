@@ -2,31 +2,7 @@
   "description": null,
   "info": {
     "excerpt": null,
-    "title": "What existing CSS frameworks have you used locally, or in production?"
-  },
-  "metadata": {
-    "access": "free",
-    "author": null,
-    "companies": [],
-    "created": 1630800000,
-    "difficulty": "medium",
-    "duration": 5,
-    "featured": false,
-    "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
-    "href": "/questions/quiz/what-existing-css-frameworks-have-you-used-locally-or-in-production-how-would-you-changeimprove-them",
-    "importance": "low",
-    "languages": [],
-    "nextQuestions": [],
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [],
-    "slug": "what-existing-css-frameworks-have-you-used-locally-or-in-production-how-would-you-changeimprove-them",
-    "subtitle": "How would you change/improve them?",
-    "topics": [
-      "css"
-    ],
+    "title": "What existing CSS frameworks have you used locally, or in production?",
     "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/what-existing-css-frameworks-have-you-used-locally-or-in-production-how-would-you-changeimprove-them/en-US.mdx"
   },
   "solution": "var Component=(()=>{var d=Object.create;var s=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var h=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,g=Object.prototype.hasOwnProperty;var f=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),b=(n,e)=>{for(var o in e)s(n,o,{get:e[o],enumerable:!0})},a=(n,e,o,i)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let r of h(e))!g.call(n,r)&&r!==o&&s(n,r,{get:()=>e[r],enumerable:!(i=m(e,r))||i.enumerable});return n};var x=(n,e,o)=>(o=n!=null?d(p(n)):{},a(e||!n||!n.__esModule?s(o,\"default\",{value:n,enumerable:!0}):o,n)),y=n=>a(s({},\"__esModule\",{value:!0}),n);var c=f((B,l)=>{l.exports=_jsx_runtime});var k={};b(k,{default:()=>j,frontmatter:()=>w});var t=x(c()),w={title:\"What existing CSS frameworks have you used locally, or in production?\",subtitle:\"How would you change/improve them?\"};function u(n){let e=Object.assign({ul:\"ul\",li:\"li\",strong:\"strong\"},n.components);return(0,t.jsxs)(e.ul,{children:[`\n`,(0,t.jsxs)(e.li,{children:[(0,t.jsx)(e.strong,{children:\"Bootstrap\"}),\": Slow release cycle. Bootstrap 4 has been in alpha for almost 2 years. Future versions of Bootstrap should include a spinner button component, as it is widely used.\"]}),`\n`,(0,t.jsxs)(e.li,{children:[(0,t.jsx)(e.strong,{children:\"Semantic UI\"}),\": Source code structure makes theme customization extremely hard to understand. Its unconventional theming system is a pain to customize. Hardcoded config path within the vendor library. Not well-designed for overriding variables unlike in Bootstrap.\"]}),`\n`,(0,t.jsxs)(e.li,{children:[(0,t.jsx)(e.strong,{children:\"Bulma\"}),\": A lot of non-semantic and superfluous classes and markup required. Not backward-compatible. Upgrading versions breaks the app in subtle manners.\"]}),`\n`]})}function v(n={}){let{wrapper:e}=n.components||{};return e?(0,t.jsx)(e,Object.assign({},n,{children:(0,t.jsx)(u,n)})):u(n)}var j=v;return y(k);})();\n;return Component;"

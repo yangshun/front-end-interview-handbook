@@ -2,34 +2,7 @@
   "description": null,
   "info": {
     "excerpt": null,
-    "title": "Qual a diferença entre o evento `load` do documento e o evento `DOMContentLoaded` do documento?"
-  },
-  "metadata": {
-    "access": "free",
-    "author": null,
-    "companies": [
-      "atlassian"
-    ],
-    "created": 1630800000,
-    "difficulty": "medium",
-    "duration": 5,
-    "featured": false,
-    "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
-    "href": "/questions/quiz/difference-between-document-load-event-and-document-domcontentloaded-event",
-    "importance": "low",
-    "languages": [],
-    "nextQuestions": [],
-    "published": true,
-    "ranking": 999,
-    "similarQuestions": [],
-    "slug": "difference-between-document-load-event-and-document-domcontentloaded-event",
-    "subtitle": null,
-    "topics": [
-      "html",
-      "javascript"
-    ],
+    "title": "Qual a diferença entre o evento `load` do documento e o evento `DOMContentLoaded` do documento?",
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/difference-between-document-load-event-and-document-domcontentloaded-event/pt-BR.mdx"
   },
   "solution": "var Component=(()=>{var l=Object.create;var a=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var f=Object.getPrototypeOf,x=Object.prototype.hasOwnProperty;var g=(o,e)=>()=>(e||o((e={exports:{}}).exports,e),e.exports),h=(o,e)=>{for(var t in e)a(o,t,{get:e[t],enumerable:!0})},s=(o,e,t,r)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let d of p(e))!x.call(o,d)&&d!==t&&a(o,d,{get:()=>e[d],enumerable:!(r=u(e,d))||r.enumerable});return o};var j=(o,e,t)=>(t=o!=null?l(f(o)):{},s(e||!o||!o.__esModule?a(t,\"default\",{value:o,enumerable:!0}):t,o)),M=o=>s(a({},\"__esModule\",{value:!0}),o);var i=g((L,c)=>{c.exports=_jsx_runtime});var D={};h(D,{default:()=>v,frontmatter:()=>O});var n=j(i()),O={title:\"Qual a diferen\\xE7a entre o evento `load` do documento e o evento `DOMContentLoaded` do documento?\"};function m(o){let e=Object.assign({p:\"p\",code:\"code\"},o.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsxs)(e.p,{children:[\"O evento \",(0,n.jsx)(e.code,{children:\"DOMContentLoaded\"}),\" \\xE9 disparado quando o documento HTML inicial foi completamente carregado e analisado, sem esperar que folhas de estilo, imagens e subframes terminem de carregar.\"]}),`\n`,(0,n.jsxs)(e.p,{children:[\"O evento \",(0,n.jsx)(e.code,{children:\"load\"}),\" do \",(0,n.jsx)(e.code,{children:\"window\"}),\" s\\xF3 \\xE9 disparado ap\\xF3s o DOM e todos os recursos e ativos dependentes terem sido carregados.\"]})]})}function _(o={}){let{wrapper:e}=o.components||{};return e?(0,n.jsx)(e,Object.assign({},o,{children:(0,n.jsx)(m,o)})):m(o)}var v=_;return M(D);})();\n;return Component;"

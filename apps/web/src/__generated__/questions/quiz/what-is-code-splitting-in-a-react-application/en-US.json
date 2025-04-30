@@ -2,36 +2,7 @@
   "description": null,
   "info": {
     "excerpt": null,
-    "title": "What is code splitting in a React application?"
-  },
-  "metadata": {
-    "access": "free",
-    "author": null,
-    "companies": [],
-    "created": 1630800000,
-    "difficulty": "medium",
-    "duration": 5,
-    "featured": true,
-    "format": "quiz",
-    "frameworkDefault": "react",
-    "frameworks": [
-      {
-        "framework": "react",
-        "href": "/questions/quiz/what-is-code-splitting-in-a-react-application"
-      }
-    ],
-    "href": "/questions/quiz/what-is-code-splitting-in-a-react-application",
-    "importance": "low",
-    "languages": [],
-    "nextQuestions": [],
-    "published": true,
-    "ranking": 310,
-    "similarQuestions": [],
-    "slug": "what-is-code-splitting-in-a-react-application",
-    "subtitle": null,
-    "topics": [
-      "react"
-    ],
+    "title": "What is code splitting in a React application?",
     "gitHubEditUrl": "https://github.com/yangshun/top-reactjs-interview-questions/blob/main/questions/what-is-code-splitting-in-a-react-application/en-US.mdx"
   },
   "solution": "var Component=(()=>{var h=Object.create;var a=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var m=Object.getPrototypeOf,g=Object.prototype.hasOwnProperty;var y=(i,e)=>()=>(e||i((e={exports:{}}).exports,e),e.exports),f=(i,e)=>{for(var t in e)a(i,t,{get:e[t],enumerable:!0})},l=(i,e,t,c)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let o of u(e))!g.call(i,o)&&o!==t&&a(i,o,{get:()=>e[o],enumerable:!(c=p(e,o))||c.enumerable});return i};var b=(i,e,t)=>(t=i!=null?h(m(i)):{},l(e||!i||!i.__esModule?a(t,\"default\",{value:i,enumerable:!0}):t,i)),R=i=>l(a({},\"__esModule\",{value:!0}),i);var d=y((j,r)=>{r.exports=_jsx_runtime});var S={};f(S,{default:()=>x,frontmatter:()=>v});var n=b(d()),v={title:\"What is code splitting in a React application?\"};function s(i){let e=Object.assign({h2:\"h2\",p:\"p\",code:\"code\",pre:\"pre\",hr:\"hr\",h3:\"h3\",h4:\"h4\",ul:\"ul\",li:\"li\",strong:\"strong\",a:\"a\"},i.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.h2,{children:\"TL;DR\"}),`\n`,(0,n.jsxs)(e.p,{children:[\"Code splitting in a React application is a technique used to improve performance by splitting the code into smaller chunks that can be loaded on demand. This helps in reducing the initial load time of the application. You can achieve code splitting using dynamic \",(0,n.jsx)(e.code,{children:\"import()\"}),\" statements or React's \",(0,n.jsx)(e.code,{children:\"React.lazy\"}),\" and \",(0,n.jsx)(e.code,{children:\"Suspense\"}),\".\"]}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-javascript\",children:`// Using React.lazy and Suspense\nconst LazyComponent = React.lazy(() => import('./LazyComponent'));\n\nfunction App() {\n  return (\n    <React.Suspense fallback={<div>Loading...</div>}>\n      <LazyComponent />\n    </React.Suspense>\n  );\n}\n`})}),`\n`,(0,n.jsx)(e.hr,{}),`\n`,(0,n.jsx)(e.h2,{children:\"What is code splitting in a React application?\"}),`\n`,(0,n.jsx)(e.h3,{children:\"Introduction\"}),`\n`,(0,n.jsx)(e.p,{children:\"Code splitting is a performance optimization technique that involves breaking down your application's code into smaller, more manageable chunks. This allows the application to load only the necessary code initially and defer the loading of other parts until they are needed. This can significantly reduce the initial load time and improve the overall user experience.\"}),`\n`,(0,n.jsx)(e.h3,{children:\"How to implement code splitting\"}),`\n`,(0,n.jsxs)(e.h4,{children:[\"Using dynamic \",(0,n.jsx)(e.code,{children:\"import()\"})]}),`\n`,(0,n.jsxs)(e.p,{children:[\"Dynamic \",(0,n.jsx)(e.code,{children:\"import()\"}),\" is a JavaScript feature that allows you to load modules asynchronously. This can be used to split your code into separate chunks.\"]}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-javascript\",children:`// Dynamic import example\nimport('./module').then((module) => {\n  // Use the module\n});\n`})}),`\n`,(0,n.jsx)(e.h4,{children:\"Using React.lazy and Suspense\"}),`\n`,(0,n.jsxs)(e.p,{children:[\"React provides built-in support for code splitting through \",(0,n.jsx)(e.code,{children:\"React.lazy\"}),\" and \",(0,n.jsx)(e.code,{children:\"Suspense\"}),\". \",(0,n.jsx)(e.code,{children:\"React.lazy\"}),\" allows you to render a dynamic import as a regular component, and \",(0,n.jsx)(e.code,{children:\"Suspense\"}),\" lets you specify a loading fallback while the component is being loaded.\"]}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-javascript\",children:`// Lazy loading a component\nconst LazyComponent = React.lazy(() => import('./LazyComponent'));\n\nfunction App() {\n  return (\n    <React.Suspense fallback={<div>Loading...</div>}>\n      <LazyComponent />\n    </React.Suspense>\n  );\n}\n`})}),`\n`,(0,n.jsx)(e.h3,{children:\"Benefits of code splitting\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.strong,{children:\"Improved performance\"}),\": By loading only the necessary code initially, you can reduce the initial load time of your application.\"]}),`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.strong,{children:\"Better user experience\"}),\": Faster load times lead to a smoother and more responsive user experience.\"]}),`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.strong,{children:\"Efficient resource usage\"}),\": Code splitting ensures that resources are used more efficiently by loading code only when it is needed.\"]}),`\n`]}),`\n`,(0,n.jsx)(e.h3,{children:\"Tools and libraries\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.strong,{children:\"Webpack\"}),\": Webpack is a popular module bundler that supports code splitting out of the box. You can configure it to split your code into chunks automatically.\"]}),`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.strong,{children:\"React Loadable\"}),\": Although \",(0,n.jsx)(e.code,{children:\"React.lazy\"}),\" and \",(0,n.jsx)(e.code,{children:\"Suspense\"}),\" are the recommended ways to implement code splitting in React, \",(0,n.jsx)(e.code,{children:\"React Loadable\"}),\" is an older library that also provides similar functionality.\"]}),`\n`]}),`\n`,(0,n.jsx)(e.h2,{children:\"Further reading\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://reactjs.org/docs/code-splitting.html\",children:\"React documentation on code splitting\"})}),`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://webpack.js.org/guides/code-splitting/\",children:\"Webpack documentation on code splitting\"})}),`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import#dynamic_imports\",children:\"MDN Web Docs on dynamic import\"})}),`\n`]})]})}function z(i={}){let{wrapper:e}=i.components||{};return e?(0,n.jsx)(e,Object.assign({},i,{children:(0,n.jsx)(s,i)})):s(i)}var x=z;return R(S);})();\n;return Component;"

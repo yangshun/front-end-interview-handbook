@@ -1,0 +1,29 @@
+{
+  "access": "free",
+  "author": null,
+  "companies": [],
+  "created": 1630800000,
+  "difficulty": "medium",
+  "duration": 5,
+  "featured": true,
+  "format": "quiz",
+  "frameworkDefault": "react",
+  "frameworks": [
+    {
+      "framework": "react",
+      "href": "/questions/quiz/explain-static-generation-of-react-applications-and-its-benefits"
+    }
+  ],
+  "href": "/questions/quiz/explain-static-generation-of-react-applications-and-its-benefits",
+  "importance": "low",
+  "languages": [],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 380,
+  "similarQuestions": [],
+  "slug": "explain-static-generation-of-react-applications-and-its-benefits",
+  "subtitle": null,
+  "topics": [
+    "react"
+  ]
+}

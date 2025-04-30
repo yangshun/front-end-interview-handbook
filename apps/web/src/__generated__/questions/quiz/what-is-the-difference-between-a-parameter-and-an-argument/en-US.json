@@ -2,31 +2,7 @@
   "description": null,
   "info": {
     "excerpt": null,
-    "title": "What is the difference between a parameter and an argument?"
-  },
-  "metadata": {
-    "access": "free",
-    "author": null,
-    "companies": [],
-    "created": 1630800000,
-    "difficulty": "easy",
-    "duration": 5,
-    "featured": false,
-    "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
-    "href": "/questions/quiz/what-is-the-difference-between-a-parameter-and-an-argument",
-    "importance": "low",
-    "languages": [],
-    "nextQuestions": [],
-    "published": true,
-    "ranking": 999,
-    "similarQuestions": [],
-    "slug": "what-is-the-difference-between-a-parameter-and-an-argument",
-    "subtitle": null,
-    "topics": [
-      "javascript"
-    ],
+    "title": "What is the difference between a parameter and an argument?",
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-the-difference-between-a-parameter-and-an-argument/en-US.mdx"
   },
   "solution": "var Component=(()=>{var d=Object.create;var i=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var m=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var g=(a,e)=>()=>(e||a((e={exports:{}}).exports,e),e.exports),b=(a,e)=>{for(var r in e)i(a,r,{get:e[r],enumerable:!0})},l=(a,e,r,c)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let t of p(e))!f.call(a,t)&&t!==r&&i(a,t,{get:()=>e[t],enumerable:!(c=u(e,t))||c.enumerable});return a};var v=(a,e,r)=>(r=a!=null?d(m(a)):{},l(e||!a||!a.__esModule?i(r,\"default\",{value:a,enumerable:!0}):r,a)),x=a=>l(i({},\"__esModule\",{value:!0}),a);var o=g((D,s)=>{s.exports=_jsx_runtime});var F={};b(F,{default:()=>_,frontmatter:()=>w});var n=v(o()),w={title:\"What is the difference between a parameter and an argument?\"};function h(a){let e=Object.assign({h2:\"h2\",p:\"p\",code:\"code\",hr:\"hr\",h3:\"h3\",pre:\"pre\",ul:\"ul\",li:\"li\",a:\"a\"},a.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.h2,{children:\"TL;DR\"}),`\n`,(0,n.jsxs)(e.p,{children:[\"A parameter is a variable in the declaration of a function, while an argument is the actual value passed to the function when it is called. For example, in the function \",(0,n.jsx)(e.code,{children:\"function add(a, b) { return a + b; }\"}),\", \",(0,n.jsx)(e.code,{children:\"a\"}),\" and \",(0,n.jsx)(e.code,{children:\"b\"}),\" are parameters. When you call \",(0,n.jsx)(e.code,{children:\"add(2, 3)\"}),\", \",(0,n.jsx)(e.code,{children:\"2\"}),\" and \",(0,n.jsx)(e.code,{children:\"3\"}),\" are arguments.\"]}),`\n`,(0,n.jsx)(e.hr,{}),`\n`,(0,n.jsx)(e.h2,{children:\"Difference between a parameter and an argument\"}),`\n`,(0,n.jsx)(e.h3,{children:\"Parameters\"}),`\n`,(0,n.jsx)(e.p,{children:\"Parameters are variables listed as part of a function's definition. They act as placeholders for the values that will be passed to the function when it is called.\"}),`\n`,(0,n.jsx)(e.p,{children:\"Example:\"}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-js\",children:`function greet(name) {\n  console.log('Hello, ' + name);\n}\n`})}),`\n`,(0,n.jsxs)(e.p,{children:[\"In this example, \",(0,n.jsx)(e.code,{children:\"name\"}),\" is a parameter.\"]}),`\n`,(0,n.jsx)(e.h3,{children:\"Arguments\"}),`\n`,(0,n.jsx)(e.p,{children:\"Arguments are the actual values that are passed to the function when it is invoked. These values are assigned to the corresponding parameters in the function definition.\"}),`\n`,(0,n.jsx)(e.p,{children:\"Example:\"}),`\n`,(0,n.jsx)(e.pre,{live:!0,children:(0,n.jsx)(e.code,{className:\"language-js\",children:`function greet(name) {\n  console.log('Hello, ' + name);\n}\ngreet('Alice'); // Output: \"Hello, Alice\"\n`})}),`\n`,(0,n.jsxs)(e.p,{children:[\"In this example, \",(0,n.jsx)(e.code,{children:'\"Alice\"'}),\" is an argument.\"]}),`\n`,(0,n.jsx)(e.h3,{children:\"Key differences\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:\"Parameters are part of the function's signature, while arguments are the actual values supplied to the function.\"}),`\n`,(0,n.jsx)(e.li,{children:\"Parameters are used to define the function, whereas arguments are used to call the function.\"}),`\n`]}),`\n`,(0,n.jsx)(e.h3,{children:\"Example combining both\"}),`\n`,(0,n.jsx)(e.pre,{live:!0,children:(0,n.jsx)(e.code,{className:\"language-js\",children:`function add(a, b) {\n  // a and b are parameters\n  return a + b;\n}\n\nconst result = add(2, 3); // 2 and 3 are arguments\nconsole.log(result); // Output: 5\n`})}),`\n`,(0,n.jsx)(e.h2,{children:\"Further reading\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions\",children:\"MDN Web Docs: Functions\"})}),`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://javascript.info/function-basics\",children:\"JavaScript.info: Function basics\"})}),`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://www.w3schools.com/js/js_function_parameters.asp\",children:\"W3Schools: JavaScript Function Parameters\"})}),`\n`]})]})}function j(a={}){let{wrapper:e}=a.components||{};return e?(0,n.jsx)(e,Object.assign({},a,{children:(0,n.jsx)(h,a)})):h(a)}var _=j;return x(F);})();\n;return Component;"

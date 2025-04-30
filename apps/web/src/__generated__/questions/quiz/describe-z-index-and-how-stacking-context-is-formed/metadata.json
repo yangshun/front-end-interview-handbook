@@ -1,0 +1,24 @@
+{
+  "access": "free",
+  "author": null,
+  "companies": [],
+  "created": 1630800000,
+  "difficulty": "hard",
+  "duration": 5,
+  "featured": false,
+  "format": "quiz",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/quiz/describe-z-index-and-how-stacking-context-is-formed",
+  "importance": "medium",
+  "languages": [],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [],
+  "slug": "describe-z-index-and-how-stacking-context-is-formed",
+  "subtitle": null,
+  "topics": [
+    "css"
+  ]
+}

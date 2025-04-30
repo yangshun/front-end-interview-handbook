@@ -1,0 +1,24 @@
+{
+  "access": "free",
+  "author": null,
+  "companies": [],
+  "created": 1630800000,
+  "difficulty": "hard",
+  "duration": 5,
+  "featured": true,
+  "format": "quiz",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/quiz/what-are-iterators-and-generators-and-what-are-they-used-for",
+  "importance": "medium",
+  "languages": [],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 380,
+  "similarQuestions": [],
+  "slug": "what-are-iterators-and-generators-and-what-are-they-used-for",
+  "subtitle": null,
+  "topics": [
+    "javascript"
+  ]
+}

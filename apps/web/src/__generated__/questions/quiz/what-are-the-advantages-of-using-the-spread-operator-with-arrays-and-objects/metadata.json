@@ -1,0 +1,24 @@
+{
+  "access": "free",
+  "author": null,
+  "companies": [],
+  "created": 1630800000,
+  "difficulty": "easy",
+  "duration": 5,
+  "featured": false,
+  "format": "quiz",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/quiz/what-are-the-advantages-of-using-the-spread-operator-with-arrays-and-objects",
+  "importance": "low",
+  "languages": [],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 999,
+  "similarQuestions": [],
+  "slug": "what-are-the-advantages-of-using-the-spread-operator-with-arrays-and-objects",
+  "subtitle": null,
+  "topics": [
+    "javascript"
+  ]
+}

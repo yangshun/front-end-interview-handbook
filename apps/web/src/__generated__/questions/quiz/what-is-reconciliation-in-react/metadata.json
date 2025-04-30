@@ -1,0 +1,29 @@
+{
+  "access": "free",
+  "author": null,
+  "companies": [],
+  "created": 1630800000,
+  "difficulty": "hard",
+  "duration": 5,
+  "featured": true,
+  "format": "quiz",
+  "frameworkDefault": "react",
+  "frameworks": [
+    {
+      "framework": "react",
+      "href": "/questions/quiz/what-is-reconciliation-in-react"
+    }
+  ],
+  "href": "/questions/quiz/what-is-reconciliation-in-react",
+  "importance": "high",
+  "languages": [],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 480,
+  "similarQuestions": [],
+  "slug": "what-is-reconciliation-in-react",
+  "subtitle": null,
+  "topics": [
+    "react"
+  ]
+}

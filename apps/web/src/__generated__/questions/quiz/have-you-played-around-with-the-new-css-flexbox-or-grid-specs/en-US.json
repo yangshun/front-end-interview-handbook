@@ -2,31 +2,7 @@
   "description": null,
   "info": {
     "excerpt": null,
-    "title": "Have you played around with the new CSS Flexbox or Grid specs?"
-  },
-  "metadata": {
-    "access": "free",
-    "author": null,
-    "companies": [],
-    "created": 1630800000,
-    "difficulty": "medium",
-    "duration": 5,
-    "featured": false,
-    "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
-    "href": "/questions/quiz/have-you-played-around-with-the-new-css-flexbox-or-grid-specs",
-    "importance": "high",
-    "languages": [],
-    "nextQuestions": [],
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [],
-    "slug": "have-you-played-around-with-the-new-css-flexbox-or-grid-specs",
-    "subtitle": null,
-    "topics": [
-      "css"
-    ],
+    "title": "Have you played around with the new CSS Flexbox or Grid specs?",
     "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/have-you-played-around-with-the-new-css-flexbox-or-grid-specs/en-US.mdx"
   },
   "solution": "var Component=(()=>{var m=Object.create;var s=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var b=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),y=(e,t)=>{for(var o in t)s(e,o,{get:t[o],enumerable:!0})},i=(e,t,o,r)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let a of x(t))!p.call(e,a)&&a!==o&&s(e,a,{get:()=>t[a],enumerable:!(r=u(t,a))||r.enumerable});return e};var f=(e,t,o)=>(o=e!=null?m(h(e)):{},i(t||!e||!e.__esModule?s(o,\"default\",{value:e,enumerable:!0}):o,e)),w=e=>i(s({},\"__esModule\",{value:!0}),e);var c=b((S,l)=>{l.exports=_jsx_runtime});var _={};y(_,{default:()=>j,frontmatter:()=>g});var n=f(c()),g={title:\"Have you played around with the new CSS Flexbox or Grid specs?\"};function d(e){let t=Object.assign({p:\"p\"},e.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(t.p,{children:\"Flexbox is mainly meant for 1-dimensional layouts while Grid is meant for 2-dimensional layouts.\"}),`\n`,(0,n.jsx)(t.p,{children:\"Flexbox solves many common problems in CSS, such as vertical centering of elements within a container, sticky footer, etc. famous CSS frameworks like Bootstrap and Bulma are based on Flexbox, and Flexbox is still the tested and proven way to create layouts.\"}),`\n`,(0,n.jsx)(t.p,{children:\"Grid is by far the most intuitive approach for creating grid-based layouts but browser support is not that wide at the moment. Many layout problems can already be solved with Flexbox, so there's not a huge need for Grid.\"})]})}function F(e={}){let{wrapper:t}=e.components||{};return t?(0,n.jsx)(t,Object.assign({},e,{children:(0,n.jsx)(d,e)})):d(e)}var j=F;return w(_);})();\n;return Component;"

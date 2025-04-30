@@ -1,0 +1,29 @@
+{
+  "access": "free",
+  "author": null,
+  "companies": [],
+  "created": 1630800000,
+  "difficulty": "hard",
+  "duration": 5,
+  "featured": true,
+  "format": "quiz",
+  "frameworkDefault": "react",
+  "frameworks": [
+    {
+      "framework": "react",
+      "href": "/questions/quiz/what-is-react-fiber-and-how-is-it-an-improvement-over-the-previous-approach"
+    }
+  ],
+  "href": "/questions/quiz/what-is-react-fiber-and-how-is-it-an-improvement-over-the-previous-approach",
+  "importance": "medium",
+  "languages": [],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 470,
+  "similarQuestions": [],
+  "slug": "what-is-react-fiber-and-how-is-it-an-improvement-over-the-previous-approach",
+  "subtitle": null,
+  "topics": [
+    "react"
+  ]
+}

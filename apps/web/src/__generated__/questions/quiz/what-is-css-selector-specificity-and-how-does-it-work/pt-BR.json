@@ -2,31 +2,7 @@
   "description": null,
   "info": {
     "excerpt": null,
-    "title": "O que é a especificidade do seletor CSS e como funciona?"
-  },
-  "metadata": {
-    "access": "free",
-    "author": null,
-    "companies": [],
-    "created": 1630800000,
-    "difficulty": "hard",
-    "duration": 5,
-    "featured": false,
-    "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
-    "href": "/questions/quiz/what-is-css-selector-specificity-and-how-does-it-work",
-    "importance": "high",
-    "languages": [],
-    "nextQuestions": [],
-    "published": true,
-    "ranking": 1,
-    "similarQuestions": [],
-    "slug": "what-is-css-selector-specificity-and-how-does-it-work",
-    "subtitle": null,
-    "topics": [
-      "css"
-    ],
+    "title": "O que é a especificidade do seletor CSS e como funciona?",
     "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/what-is-css-selector-specificity-and-how-does-it-work/pt-BR.mdx"
   },
   "solution": "var Component=(()=>{var m=Object.create;var i=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var g=(o,e)=>()=>(e||o((e={exports:{}}).exports,e),e.exports),b=(o,e)=>{for(var s in e)i(o,s,{get:e[s],enumerable:!0})},n=(o,e,s,d)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let r of p(e))!f.call(o,r)&&r!==s&&i(o,r,{get:()=>e[r],enumerable:!(d=u(e,r))||d.enumerable});return o};var q=(o,e,s)=>(s=o!=null?m(h(o)):{},n(e||!o||!o.__esModule?i(s,\"default\",{value:o,enumerable:!0}):s,o)),v=o=>n(i({},\"__esModule\",{value:!0}),o);var t=g((A,c)=>{c.exports=_jsx_runtime});var j={};b(j,{default:()=>C,frontmatter:()=>x});var a=q(t()),x={title:\"O que \\xE9 a especificidade do seletor CSS e como funciona?\"};function l(o){let e=Object.assign({p:\"p\",code:\"code\",ol:\"ol\",li:\"li\"},o.components);return(0,a.jsxs)(a.Fragment,{children:[(0,a.jsxs)(e.p,{children:[\"O navegador determina quais estilos mostrar em um elemento, dependendo da especificidade das regras de CSS. Assumimos que o navegador j\\xE1 determinou as regras que correspondem a um elemento espec\\xEDfico. Entre as regras correspondentes, a especificidade, quatro valores separados, \",(0,a.jsx)(e.code,{children:\"a, b, c, d\"}),\" s\\xE3o calculados para cada regra com base nos seguintes:\"]}),`\n`,(0,a.jsxs)(e.ol,{children:[`\n`,(0,a.jsxs)(e.li,{children:[(0,a.jsx)(e.code,{children:\"a\"}),\" \\xE9 se estilos inline est\\xE3o sendo usados. Se a declara\\xE7\\xE3o de propriedade \\xE9 um estilo embutido no elemento, \",(0,a.jsx)(e.code,{children:\"a\"}),\" \\xE9 1, sen\\xE3o 0.\"]}),`\n`,(0,a.jsxs)(e.li,{children:[(0,a.jsx)(e.code,{children:\"b\"}),\" \\xE9 o n\\xFAmero de seletores de ID.\"]}),`\n`,(0,a.jsxs)(e.li,{children:[(0,a.jsx)(e.code,{children:\"c\"}),\" \\xE9 o n\\xFAmero de classes, atributos e seletores de pseudo-classes.\"]}),`\n`,(0,a.jsxs)(e.li,{children:[(0,a.jsx)(e.code,{children:\"d\"}),\" \\xE9 o n\\xFAmero de tags e seletores de pseudo-elementos.\"]}),`\n`]}),`\n`,(0,a.jsxs)(e.p,{children:[\"A especificidade resultante n\\xE3o \\xE9 uma \\xFAnica pontua\\xE7\\xE3o num\\xE9rica, mas uma matriz de valores que podem ser comparados por coluna. Ao comparar seletores para determinar qual tem a especificidade mais alta, olhar da esquerda para a direita e comparar o maior valor em cada coluna. Portanto, um valor na coluna 'b' ir\\xE1 substituir valores em colunas 'c' e 'd', n\\xE3o importa o que eles possam ser. Como tal, especificidade de \",(0,a.jsx)(e.code,{children:\"0, 1, 0, 0\"}),\" seria maior que um de \",(0,a.jsx)(e.code,{children:\"0, 0, 10, 10\"}),\".\"]}),`\n`,(0,a.jsx)(e.p,{children:\"Nos casos de igual especificidade: a \\xFAltima regra \\xE9 a que conta. Se voc\\xEA escreveu a mesma regra em sua folha de estilo (independente da sua folha interna ou externa) duas vezes, ent\\xE3o a regra inferior na sua folha de estilo est\\xE1 mais pr\\xF3xima do elemento a ser estilizado, Considera-se mais espec\\xEDfico, pelo que ser\\xE1 aplicado.\"}),`\n`,(0,a.jsxs)(e.p,{children:[\"\\xC9 uma melhor pr\\xE1tica escrever regras de CSS com baixa especificidade, para que elas possam ser facilmente substitu\\xEDdas se necess\\xE1rio. Ao escrever o c\\xF3digo da biblioteca de componentes CSS UI, \\xE9 importante que eles tenham poucas especificidades, para que os usu\\xE1rios da biblioteca possam substitu\\xED-las sem usar regras CSS muito complicadas s\\xF3 para aumentar a especificidade ou recorrer a \",(0,a.jsx)(e.code,{children:\"!important\"}),\".\"]})]})}function S(o={}){let{wrapper:e}=o.components||{};return e?(0,a.jsx)(e,Object.assign({},o,{children:(0,a.jsx)(l,o)})):l(o)}var C=S;return v(j);})();\n;return Component;"

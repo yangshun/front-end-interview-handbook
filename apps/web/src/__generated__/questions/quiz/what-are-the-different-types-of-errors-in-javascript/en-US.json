@@ -2,31 +2,7 @@
   "description": null,
   "info": {
     "excerpt": null,
-    "title": "What are the different types of errors in JavaScript?"
-  },
-  "metadata": {
-    "access": "free",
-    "author": null,
-    "companies": [],
-    "created": 1630800000,
-    "difficulty": "easy",
-    "duration": 5,
-    "featured": false,
-    "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
-    "href": "/questions/quiz/what-are-the-different-types-of-errors-in-javascript",
-    "importance": "low",
-    "languages": [],
-    "nextQuestions": [],
-    "published": true,
-    "ranking": 999,
-    "similarQuestions": [],
-    "slug": "what-are-the-different-types-of-errors-in-javascript",
-    "subtitle": null,
-    "topics": [
-      "javascript"
-    ],
+    "title": "What are the different types of errors in JavaScript?",
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-the-different-types-of-errors-in-javascript/en-US.mdx"
   },
   "solution": "var Component=(()=>{var d=Object.create;var s=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var g=Object.getPrototypeOf,m=Object.prototype.hasOwnProperty;var f=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),x=(n,e)=>{for(var t in e)s(n,t,{get:e[t],enumerable:!0})},a=(n,e,t,i)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let o of u(e))!m.call(n,o)&&o!==t&&s(n,o,{get:()=>e[o],enumerable:!(i=p(e,o))||i.enumerable});return n};var y=(n,e,t)=>(t=n!=null?d(g(n)):{},a(e||!n||!n.__esModule?s(t,\"default\",{value:n,enumerable:!0}):t,n)),j=n=>a(s({},\"__esModule\",{value:!0}),n);var l=f((E,c)=>{c.exports=_jsx_runtime});var S={};x(S,{default:()=>b,frontmatter:()=>v});var r=y(l()),v={title:\"What are the different types of errors in JavaScript?\"};function h(n){let e=Object.assign({h2:\"h2\",p:\"p\",code:\"code\",hr:\"hr\",h3:\"h3\",h4:\"h4\",pre:\"pre\",ul:\"ul\",li:\"li\",a:\"a\"},n.components);return(0,r.jsxs)(r.Fragment,{children:[(0,r.jsx)(e.h2,{children:\"TL;DR\"}),`\n`,(0,r.jsxs)(e.p,{children:[\"In JavaScript, there are three main types of errors: syntax errors, runtime errors, and logical errors. Syntax errors occur when the code violates the language's grammar rules, such as missing a parenthesis. Runtime errors happen during code execution, like trying to access a property of \",(0,r.jsx)(e.code,{children:\"undefined\"}),\". Logical errors are mistakes in the code's logic that lead to incorrect results but don't throw an error.\"]}),`\n`,(0,r.jsx)(e.hr,{}),`\n`,(0,r.jsx)(e.h2,{children:\"Different types of errors in JavaScript\"}),`\n`,(0,r.jsx)(e.h3,{children:\"Syntax errors\"}),`\n`,(0,r.jsx)(e.p,{children:\"Syntax errors occur when the code does not follow the rules of the JavaScript language. These errors are detected by the JavaScript engine during the parsing stage before the code is executed.\"}),`\n`,(0,r.jsx)(e.h4,{children:\"Example\"}),`\n`,(0,r.jsx)(e.pre,{live:!0,children:(0,r.jsx)(e.code,{className:\"language-js\",children:`console.log(\"Hello, world!; // Missing closing quote and parenthesis\n`})}),`\n`,(0,r.jsx)(e.h3,{children:\"Runtime errors\"}),`\n`,(0,r.jsx)(e.p,{children:\"Runtime errors, also known as exceptions, occur during the execution of the code. These errors happen when the code is syntactically correct but encounters an issue that prevents it from completing its task.\"}),`\n`,(0,r.jsx)(e.h4,{children:\"Example\"}),`\n`,(0,r.jsx)(e.pre,{live:!0,children:(0,r.jsx)(e.code,{className:\"language-js\",children:`let obj = null;\nconsole.log(obj.property); // TypeError: Cannot read properties of null (reading 'property')\n`})}),`\n`,(0,r.jsx)(e.h3,{children:\"Logical errors\"}),`\n`,(0,r.jsx)(e.p,{children:\"Logical errors are mistakes in the code's logic that lead to incorrect results. These errors do not throw exceptions and are often the hardest to debug because the code runs without any issues but produces the wrong output.\"}),`\n`,(0,r.jsx)(e.h4,{children:\"Example\"}),`\n`,(0,r.jsx)(e.pre,{live:!0,children:(0,r.jsx)(e.code,{className:\"language-js\",children:`let isAdmin = false;\n\nif ((isAdmin = true)) {\n  // Wrong: Assignment instead of comparison\n  console.log('Access granted'); // Access granted even though isAdmin was falsy\n} else {\n  console.log('Access denied');\n}\n`})}),`\n`,(0,r.jsx)(e.h2,{children:\"Further reading\"}),`\n`,(0,r.jsxs)(e.ul,{children:[`\n`,(0,r.jsx)(e.li,{children:(0,r.jsx)(e.a,{href:\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error\",children:\"MDN Web Docs: Errors\"})}),`\n`,(0,r.jsx)(e.li,{children:(0,r.jsx)(e.a,{href:\"https://javascript.info/error-handling\",children:\"JavaScript.info: Error handling\"})}),`\n`,(0,r.jsx)(e.li,{children:(0,r.jsx)(e.a,{href:\"https://www.w3schools.com/js/js_errors.asp\",children:\"W3Schools: JavaScript Errors\"})}),`\n`]})]})}function w(n={}){let{wrapper:e}=n.components||{};return e?(0,r.jsx)(e,Object.assign({},n,{children:(0,r.jsx)(h,n)})):h(n)}var b=w;return j(S);})();\n;return Component;"

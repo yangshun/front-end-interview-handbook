@@ -2,36 +2,7 @@
   "description": null,
   "info": {
     "excerpt": null,
-    "title": "What is the purpose of the `key` prop in React?"
-  },
-  "metadata": {
-    "access": "free",
-    "author": null,
-    "companies": [],
-    "created": 1630800000,
-    "difficulty": "medium",
-    "duration": 5,
-    "featured": true,
-    "format": "quiz",
-    "frameworkDefault": "react",
-    "frameworks": [
-      {
-        "framework": "react",
-        "href": "/questions/quiz/what-is-the-purpose-of-the-key-prop-in-react"
-      }
-    ],
-    "href": "/questions/quiz/what-is-the-purpose-of-the-key-prop-in-react",
-    "importance": "high",
-    "languages": [],
-    "nextQuestions": [],
-    "published": true,
-    "ranking": 50,
-    "similarQuestions": [],
-    "slug": "what-is-the-purpose-of-the-key-prop-in-react",
-    "subtitle": null,
-    "topics": [
-      "react"
-    ],
+    "title": "What is the purpose of the `key` prop in React?",
     "gitHubEditUrl": "https://github.com/yangshun/top-reactjs-interview-questions/blob/main/questions/what-is-the-purpose-of-the-key-prop-in-react/en-US.mdx"
   },
   "solution": "var Component=(()=>{var h=Object.create;var a=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,y=Object.prototype.hasOwnProperty;var g=(i,e)=>()=>(e||i((e={exports:{}}).exports,e),e.exports),f=(i,e)=>{for(var t in e)a(i,t,{get:e[t],enumerable:!0})},s=(i,e,t,c)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let r of m(e))!y.call(i,r)&&r!==t&&a(i,r,{get:()=>e[r],enumerable:!(c=u(e,r))||c.enumerable});return i};var k=(i,e,t)=>(t=i!=null?h(p(i)):{},s(e||!i||!i.__esModule?a(t,\"default\",{value:i,enumerable:!0}):t,i)),v=i=>s(a({},\"__esModule\",{value:!0}),i);var d=g((q,o)=>{o.exports=_jsx_runtime});var j={};f(j,{default:()=>R,frontmatter:()=>x});var n=k(d()),x={title:\"What is the purpose of the `key` prop in React?\"};function l(i){let e=Object.assign({h2:\"h2\",p:\"p\",code:\"code\",pre:\"pre\",hr:\"hr\",h3:\"h3\",ol:\"ol\",li:\"li\",strong:\"strong\",ul:\"ul\",a:\"a\"},i.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.h2,{children:\"TL;DR\"}),`\n`,(0,n.jsxs)(e.p,{children:[\"The \",(0,n.jsx)(e.code,{children:\"key\"}),\" prop in React is used to uniquely identify elements in a list. It helps React optimize rendering by efficiently updating and reordering elements. Without a unique \",(0,n.jsx)(e.code,{children:\"key\"}),\", React may re-render elements unnecessarily, leading to performance issues and bugs.\"]}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-jsx\",children:`{\n  items.map((item) => <ListItem key={item.id} value={item.value} />);\n}\n`})}),`\n`,(0,n.jsx)(e.hr,{}),`\n`,(0,n.jsxs)(e.h2,{children:[\"What is the purpose of the \",(0,n.jsx)(e.code,{children:\"key\"}),\" prop in React?\"]}),`\n`,(0,n.jsx)(e.h3,{children:\"Introduction\"}),`\n`,(0,n.jsxs)(e.p,{children:[\"The \",(0,n.jsx)(e.code,{children:\"key\"}),\" prop is a special attribute you need to include when creating lists of elements in React. It is crucial for helping React identify which items have changed, been added, or removed, thereby optimizing the rendering process.\"]}),`\n`,(0,n.jsxs)(e.h3,{children:[\"Why \",(0,n.jsx)(e.code,{children:\"key\"}),\" is important\"]}),`\n`,(0,n.jsxs)(e.ol,{children:[`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.strong,{children:\"Efficient updates\"}),\": React uses the \",(0,n.jsx)(e.code,{children:\"key\"}),\" prop to keep track of elements. When the state of a list changes, React can quickly determine which items need to be re-rendered, added, or removed.\"]}),`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.strong,{children:\"Avoiding bugs\"}),\": Without unique keys, React may re-render elements unnecessarily or incorrectly, leading to potential bugs in your application.\"]}),`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.strong,{children:\"Performance optimization\"}),\": By using unique keys, React minimizes the number of DOM operations, making your application faster and more efficient.\"]}),`\n`]}),`\n`,(0,n.jsxs)(e.h3,{children:[\"How to use the \",(0,n.jsx)(e.code,{children:\"key\"}),\" prop\"]}),`\n`,(0,n.jsxs)(e.p,{children:[\"When rendering a list of elements, you should provide a unique \",(0,n.jsx)(e.code,{children:\"key\"}),\" for each element. This key should be stable, meaning it should not change between renders. Typically, you can use a unique identifier from your data, such as an \",(0,n.jsx)(e.code,{children:\"id\"}),\".\"]}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-jsx\",children:`const items = [\n  { id: 1, value: 'Item 1' },\n  { id: 2, value: 'Item 2' },\n  { id: 3, value: 'Item 3' },\n];\n\nfunction ItemList() {\n  return (\n    <ul>\n      {items.map((item) => (\n        <ListItem key={item.id} value={item.value} />\n      ))}\n    </ul>\n  );\n}\n\nfunction ListItem({ value }) {\n  return <li>{value}</li>;\n}\n`})}),`\n`,(0,n.jsx)(e.h3,{children:\"Common mistakes\"}),`\n`,(0,n.jsxs)(e.ol,{children:[`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.strong,{children:\"Using array index as key\"}),\": While it might be tempting to use the array index as the key, this is not recommended because the index can change if the list is reordered or items are added/removed.\"]}),`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.strong,{children:\"Non-unique keys\"}),\": Ensure that the keys are unique across the list. Duplicate keys can lead to unexpected behavior and bugs.\"]}),`\n`]}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-jsx\",children:`// Bad practice: using array index as key\n{\n  items.map((item, index) => <ListItem key={index} value={item.value} />);\n}\n\n// Good practice: using a unique identifier as key\n{\n  items.map((item) => <ListItem key={item.id} value={item.value} />);\n}\n`})}),`\n`,(0,n.jsx)(e.h2,{children:\"Further reading\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://reactjs.org/docs/lists-and-keys.html#keys\",children:\"React documentation on keys\"})}),`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318\",children:\"Why keys are important in React\"})}),`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://reactjs.org/docs/reconciliation.html\",children:\"React's reconciliation algorithm\"})}),`\n`]})]})}function b(i={}){let{wrapper:e}=i.components||{};return e?(0,n.jsx)(e,Object.assign({},i,{children:(0,n.jsx)(l,i)})):l(i)}var R=b;return v(j);})();\n;return Component;"

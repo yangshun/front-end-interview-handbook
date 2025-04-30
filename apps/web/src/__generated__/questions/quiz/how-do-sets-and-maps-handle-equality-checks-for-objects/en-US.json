@@ -2,31 +2,7 @@
   "description": null,
   "info": {
     "excerpt": null,
-    "title": "How do `Set`s and `Map`s handle equality checks for objects?"
-  },
-  "metadata": {
-    "access": "free",
-    "author": null,
-    "companies": [],
-    "created": 1630800000,
-    "difficulty": "easy",
-    "duration": 5,
-    "featured": false,
-    "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
-    "href": "/questions/quiz/how-do-sets-and-maps-handle-equality-checks-for-objects",
-    "importance": "low",
-    "languages": [],
-    "nextQuestions": [],
-    "published": true,
-    "ranking": 999,
-    "similarQuestions": [],
-    "slug": "how-do-sets-and-maps-handle-equality-checks-for-objects",
-    "subtitle": null,
-    "topics": [
-      "javascript"
-    ],
+    "title": "How do `Set`s and `Map`s handle equality checks for objects?",
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-do-sets-and-maps-handle-equality-checks-for-objects/en-US.mdx"
   },
   "solution": "var Component=(()=>{var h=Object.create;var r=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var m=Object.getPrototypeOf,b=Object.prototype.hasOwnProperty;var j=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),f=(t,e)=>{for(var o in e)r(t,o,{get:e[o],enumerable:!0})},l=(t,e,o,a)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let c of u(e))!b.call(t,c)&&c!==o&&r(t,c,{get:()=>e[c],enumerable:!(a=p(e,c))||a.enumerable});return t};var y=(t,e,o)=>(o=t!=null?h(m(t)):{},l(e||!t||!t.__esModule?r(o,\"default\",{value:t,enumerable:!0}):o,t)),g=t=>l(r({},\"__esModule\",{value:!0}),t);var s=j((q,i)=>{i.exports=_jsx_runtime});var v={};f(v,{default:()=>M,frontmatter:()=>w});var n=y(s()),w={title:\"How do `Set`s and `Map`s handle equality checks for objects?\"};function d(t){let e=Object.assign({h2:\"h2\",p:\"p\",code:\"code\",pre:\"pre\",hr:\"hr\",h3:\"h3\",ul:\"ul\",li:\"li\",a:\"a\"},t.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.h2,{children:\"TL;DR\"}),`\n`,(0,n.jsxs)(e.p,{children:[(0,n.jsx)(e.code,{children:\"Set\"}),\"s and \",(0,n.jsx)(e.code,{children:\"Map\"}),\"s in JavaScript handle equality checks for objects based on reference equality, not deep equality. This means that two objects are considered equal only if they reference the same memory location. For example, if you add two different object literals with the same properties to a \",(0,n.jsx)(e.code,{children:\"Set\"}),\", they will be treated as distinct entries.\"]}),`\n`,(0,n.jsx)(e.pre,{live:!0,children:(0,n.jsx)(e.code,{className:\"language-js\",children:`const set = new Set();\nconst obj1 = { a: 1 };\nconst obj2 = { a: 1 };\n\nset.add(obj1);\nset.add(obj2);\n\nconsole.log(set.size); // Output: 2\n`})}),`\n`,(0,n.jsx)(e.hr,{}),`\n`,(0,n.jsxs)(e.h2,{children:[\"How do \",(0,n.jsx)(e.code,{children:\"Set\"}),\"s and \",(0,n.jsx)(e.code,{children:\"Map\"}),\"s handle equality checks for objects?\"]}),`\n`,(0,n.jsx)(e.h3,{children:\"Reference equality\"}),`\n`,(0,n.jsxs)(e.p,{children:[\"In JavaScript, \",(0,n.jsx)(e.code,{children:\"Set\"}),\"s and \",(0,n.jsx)(e.code,{children:\"Map\"}),\"s use reference equality to determine if two objects are the same. This means that two objects are considered equal only if they reference the same memory location.\"]}),`\n`,(0,n.jsxs)(e.h3,{children:[\"Example with \",(0,n.jsx)(e.code,{children:\"Set\"})]}),`\n`,(0,n.jsxs)(e.p,{children:[\"When you add objects to a \",(0,n.jsx)(e.code,{children:\"Set\"}),\", the \",(0,n.jsx)(e.code,{children:\"Set\"}),\" will only consider them equal if they are the same object reference.\"]}),`\n`,(0,n.jsx)(e.pre,{live:!0,children:(0,n.jsx)(e.code,{className:\"language-js\",children:`const set = new Set();\nconst obj1 = { a: 1 };\nconst obj2 = { a: 1 };\n\nset.add(obj1);\nset.add(obj2);\n\nconsole.log(set.size); // Output: 2\n`})}),`\n`,(0,n.jsxs)(e.p,{children:[\"In this example, \",(0,n.jsx)(e.code,{children:\"obj1\"}),\" and \",(0,n.jsx)(e.code,{children:\"obj2\"}),\" have the same properties, but they are different object references. Therefore, the \",(0,n.jsx)(e.code,{children:\"Set\"}),\" treats them as distinct entries.\"]}),`\n`,(0,n.jsxs)(e.h3,{children:[\"Example with \",(0,n.jsx)(e.code,{children:\"Map\"})]}),`\n`,(0,n.jsxs)(e.p,{children:[\"Similarly, when you use objects as keys in a \",(0,n.jsx)(e.code,{children:\"Map\"}),\", the \",(0,n.jsx)(e.code,{children:\"Map\"}),\" will only consider them equal if they are the same object reference.\"]}),`\n`,(0,n.jsx)(e.pre,{live:!0,children:(0,n.jsx)(e.code,{className:\"language-js\",children:`const map = new Map();\nconst obj1 = { a: 1 };\nconst obj2 = { a: 1 };\n\nmap.set(obj1, 'value1');\nmap.set(obj2, 'value2');\n\nconsole.log(map.size); // Output: 2\nconsole.log(map.get(obj1)); // Output: 'value1'\nconsole.log(map.get(obj2)); // Output: 'value2'\n`})}),`\n`,(0,n.jsxs)(e.p,{children:[\"In this example, \",(0,n.jsx)(e.code,{children:\"obj1\"}),\" and \",(0,n.jsx)(e.code,{children:\"obj2\"}),\" are different object references, so the \",(0,n.jsx)(e.code,{children:\"Map\"}),\" treats them as different keys.\"]}),`\n`,(0,n.jsx)(e.h3,{children:\"Practical implications\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:\"If you need to check for deep equality (i.e., objects with the same properties and values), you will need to implement your own comparison logic or use a library like Lodash.\"}),`\n`,(0,n.jsxs)(e.li,{children:[\"Be mindful of object references when using \",(0,n.jsx)(e.code,{children:\"Set\"}),\"s and \",(0,n.jsx)(e.code,{children:\"Map\"}),\"s, especially when dealing with complex data structures.\"]}),`\n`]}),`\n`,(0,n.jsx)(e.h2,{children:\"Further reading\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set\",children:\"MDN Web Docs: Set\"})}),`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map\",children:\"MDN Web Docs: Map\"})}),`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://lodash.com/docs/4.17.15#isEqual\",children:\"Lodash: isEqual\"})}),`\n`]})]})}function S(t={}){let{wrapper:e}=t.components||{};return e?(0,n.jsx)(e,Object.assign({},t,{children:(0,n.jsx)(d,t)})):d(t)}var M=S;return g(v);})();\n;return Component;"

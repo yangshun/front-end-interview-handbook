@@ -1,0 +1,29 @@
+{
+  "access": "free",
+  "author": null,
+  "companies": [],
+  "created": 1630800000,
+  "difficulty": "medium",
+  "duration": 5,
+  "featured": true,
+  "format": "quiz",
+  "frameworkDefault": "react",
+  "frameworks": [
+    {
+      "framework": "react",
+      "href": "/questions/quiz/what-is-forwardref-in-react-used-for"
+    }
+  ],
+  "href": "/questions/quiz/what-is-forwardref-in-react-used-for",
+  "importance": "low",
+  "languages": [],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 210,
+  "similarQuestions": [],
+  "slug": "what-is-forwardref-in-react-used-for",
+  "subtitle": null,
+  "topics": [
+    "react"
+  ]
+}

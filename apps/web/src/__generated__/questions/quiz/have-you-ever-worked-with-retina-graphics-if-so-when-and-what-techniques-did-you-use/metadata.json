@@ -1,0 +1,24 @@
+{
+  "access": "free",
+  "author": null,
+  "companies": [],
+  "created": 1630800000,
+  "difficulty": "hard",
+  "duration": 5,
+  "featured": false,
+  "format": "quiz",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/quiz/have-you-ever-worked-with-retina-graphics-if-so-when-and-what-techniques-did-you-use",
+  "importance": "low",
+  "languages": [],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [],
+  "slug": "have-you-ever-worked-with-retina-graphics-if-so-when-and-what-techniques-did-you-use",
+  "subtitle": null,
+  "topics": [
+    "css"
+  ]
+}

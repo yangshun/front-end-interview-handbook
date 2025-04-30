@@ -1,0 +1,25 @@
+{
+  "access": "free",
+  "author": null,
+  "companies": [],
+  "created": 1630800000,
+  "difficulty": "easy",
+  "duration": 5,
+  "featured": false,
+  "format": "quiz",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/quiz/explain-the-event-phases-in-a-browser",
+  "importance": "low",
+  "languages": [],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 999,
+  "similarQuestions": [],
+  "slug": "explain-the-event-phases-in-a-browser",
+  "subtitle": null,
+  "topics": [
+    "browser",
+    "javascript"
+  ]
+}

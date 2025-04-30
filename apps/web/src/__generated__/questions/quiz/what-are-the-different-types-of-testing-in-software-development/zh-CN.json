@@ -2,32 +2,7 @@
   "description": null,
   "info": {
     "excerpt": null,
-    "title": "软件开发中不同类型的测试是什么？"
-  },
-  "metadata": {
-    "access": "free",
-    "author": null,
-    "companies": [],
-    "created": 1630800000,
-    "difficulty": "easy",
-    "duration": 5,
-    "featured": false,
-    "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
-    "href": "/questions/quiz/what-are-the-different-types-of-testing-in-software-development",
-    "importance": "low",
-    "languages": [],
-    "nextQuestions": [],
-    "published": true,
-    "ranking": 999,
-    "similarQuestions": [],
-    "slug": "what-are-the-different-types-of-testing-in-software-development",
-    "subtitle": null,
-    "topics": [
-      "javascript",
-      "testing"
-    ],
+    "title": "软件开发中不同类型的测试是什么？",
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-the-different-types-of-testing-in-software-development/zh-CN.mdx"
   },
   "solution": "var Component=(()=>{var o=Object.create;var s=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var g=Object.getPrototypeOf,x=Object.prototype.hasOwnProperty;var m=(t,n)=>()=>(n||t((n={exports:{}}).exports,n),n.exports),f=(t,n)=>{for(var i in n)s(t,i,{get:n[i],enumerable:!0})},c=(t,n,i,a)=>{if(n&&typeof n==\"object\"||typeof n==\"function\")for(let r of u(n))!x.call(t,r)&&r!==i&&s(t,r,{get:()=>n[r],enumerable:!(a=p(n,r))||a.enumerable});return t};var _=(t,n,i)=>(i=t!=null?o(g(t)):{},c(n||!t||!t.__esModule?s(i,\"default\",{value:t,enumerable:!0}):i,t)),j=t=>c(s({},\"__esModule\",{value:!0}),t);var l=m((E,h)=>{h.exports=_jsx_runtime});var q={};f(q,{default:()=>b,frontmatter:()=>w});var e=_(l()),w={title:\"\\u8F6F\\u4EF6\\u5F00\\u53D1\\u4E2D\\u4E0D\\u540C\\u7C7B\\u578B\\u7684\\u6D4B\\u8BD5\\u662F\\u4EC0\\u4E48\\uFF1F\"};function d(t){let n=Object.assign({h2:\"h2\",p:\"p\",hr:\"hr\",h3:\"h3\",pre:\"pre\",code:\"code\",ul:\"ul\",li:\"li\",a:\"a\"},t.components);return(0,e.jsxs)(e.Fragment,{children:[(0,e.jsx)(n.h2,{children:\"TL;DR\"}),`\n`,(0,e.jsx)(n.p,{children:\"\\u5728\\u8F6F\\u4EF6\\u5F00\\u53D1\\u4E2D\\uFF0C\\u6709\\u51E0\\u79CD\\u7C7B\\u578B\\u7684\\u6D4B\\u8BD5\\u53EF\\u4EE5\\u786E\\u4FDD\\u5E94\\u7528\\u7A0B\\u5E8F\\u7684\\u8D28\\u91CF\\u548C\\u529F\\u80FD\\u3002\\u8FD9\\u4E9B\\u5305\\u62EC\\u5355\\u5143\\u6D4B\\u8BD5\\u3001\\u96C6\\u6210\\u6D4B\\u8BD5\\u3001\\u7CFB\\u7EDF\\u6D4B\\u8BD5\\u548C\\u9A8C\\u6536\\u6D4B\\u8BD5\\u3002\\u5355\\u5143\\u6D4B\\u8BD5\\u4FA7\\u91CD\\u4E8E\\u5355\\u4E2A\\u7EC4\\u4EF6\\uFF0C\\u96C6\\u6210\\u6D4B\\u8BD5\\u68C0\\u67E5\\u7EC4\\u4EF6\\u4E4B\\u95F4\\u7684\\u4EA4\\u4E92\\uFF0C\\u7CFB\\u7EDF\\u6D4B\\u8BD5\\u8BC4\\u4F30\\u6574\\u4E2A\\u7CFB\\u7EDF\\uFF0C\\u9A8C\\u6536\\u6D4B\\u8BD5\\u786E\\u4FDD\\u8F6F\\u4EF6\\u6EE1\\u8DB3\\u7528\\u6237\\u9700\\u6C42\\u3002\"}),`\n`,(0,e.jsx)(n.hr,{}),`\n`,(0,e.jsx)(n.h2,{children:\"\\u8F6F\\u4EF6\\u5F00\\u53D1\\u4E2D\\u4E0D\\u540C\\u7C7B\\u578B\\u7684\\u6D4B\\u8BD5\"}),`\n`,(0,e.jsx)(n.h3,{children:\"\\u5355\\u5143\\u6D4B\\u8BD5\"}),`\n`,(0,e.jsx)(n.p,{children:\"\\u5355\\u5143\\u6D4B\\u8BD5\\u6D89\\u53CA\\u6D4B\\u8BD5\\u8F6F\\u4EF6\\u7684\\u5355\\u4E2A\\u7EC4\\u4EF6\\u6216\\u529F\\u80FD\\uFF0C\\u4EE5\\u786E\\u4FDD\\u5B83\\u4EEC\\u6309\\u9884\\u671F\\u5DE5\\u4F5C\\u3002\\u8FD9\\u79CD\\u7C7B\\u578B\\u7684\\u6D4B\\u8BD5\\u901A\\u5E38\\u662F\\u81EA\\u52A8\\u5316\\u7684\\uFF0C\\u7531\\u5F00\\u53D1\\u4EBA\\u5458\\u7F16\\u5199\\u3002\"}),`\n`,(0,e.jsx)(n.pre,{children:(0,e.jsx)(n.code,{className:\"language-js\",children:`// Example of a unit test using Jest\nfunction add(a, b) {\n  return a + b;\n}\n\ntest('adds 1 + 2 to equal 3', () => {\n  expect(add(1, 2)).toBe(3);\n});\n`})}),`\n`,(0,e.jsx)(n.h3,{children:\"\\u96C6\\u6210\\u6D4B\\u8BD5\"}),`\n`,(0,e.jsx)(n.p,{children:\"\\u96C6\\u6210\\u6D4B\\u8BD5\\u4FA7\\u91CD\\u4E8E\\u8F6F\\u4EF6\\u7684\\u4E0D\\u540C\\u7EC4\\u4EF6\\u6216\\u6A21\\u5757\\u4E4B\\u95F4\\u7684\\u4EA4\\u4E92\\u3002\\u5B83\\u786E\\u4FDD\\u5E94\\u7528\\u7A0B\\u5E8F\\u7684\\u7EC4\\u5408\\u90E8\\u5206\\u6309\\u9884\\u671F\\u4E00\\u8D77\\u5DE5\\u4F5C\\u3002\"}),`\n`,(0,e.jsx)(n.pre,{children:(0,e.jsx)(n.code,{className:\"language-js\",children:`// Example of an integration test using Jest and Supertest\nconst request = require('supertest');\nconst app = require('./app'); // Your Express app\n\ntest('GET /users returns a list of users', async () => {\n  const response = await request(app).get('/users');\n  expect(response.status).toBe(200);\n  expect(response.body).toEqual(\n    expect.arrayContaining([\n      expect.objectContaining({ id: expect.any(Number) }),\n    ]),\n  );\n});\n`})}),`\n`,(0,e.jsx)(n.h3,{children:\"\\u7CFB\\u7EDF\\u6D4B\\u8BD5\"}),`\n`,(0,e.jsx)(n.p,{children:\"\\u7CFB\\u7EDF\\u6D4B\\u8BD5\\u8BC4\\u4F30\\u5B8C\\u6574\\u4E14\\u96C6\\u6210\\u7684\\u8F6F\\u4EF6\\u7CFB\\u7EDF\\uFF0C\\u4EE5\\u9A8C\\u8BC1\\u5B83\\u662F\\u5426\\u6EE1\\u8DB3\\u6307\\u5B9A\\u7684\\u9700\\u6C42\\u3002\\u8FD9\\u79CD\\u7C7B\\u578B\\u7684\\u6D4B\\u8BD5\\u901A\\u5E38\\u7531\\u8D28\\u91CF\\u4FDD\\u8BC1\\u56E2\\u961F\\u6267\\u884C\\u3002\"}),`\n`,(0,e.jsx)(n.h3,{children:\"\\u9A8C\\u6536\\u6D4B\\u8BD5\"}),`\n`,(0,e.jsx)(n.p,{children:\"\\u9A8C\\u6536\\u6D4B\\u8BD5\\uFF0C\\u4E5F\\u79F0\\u4E3A\\u7528\\u6237\\u9A8C\\u6536\\u6D4B\\u8BD5 (UAT)\\uFF0C\\u7528\\u4E8E\\u786E\\u5B9A\\u8F6F\\u4EF6\\u662F\\u5426\\u5DF2\\u51C6\\u5907\\u597D\\u53D1\\u5E03\\u3002\\u5B83\\u786E\\u4FDD\\u8F6F\\u4EF6\\u6EE1\\u8DB3\\u4E1A\\u52A1\\u9700\\u6C42\\u5E76\\u88AB\\u6700\\u7EC8\\u7528\\u6237\\u63A5\\u53D7\\u3002\"}),`\n`,(0,e.jsx)(n.h2,{children:\"\\u5EF6\\u4F38\\u9605\\u8BFB\"}),`\n`,(0,e.jsxs)(n.ul,{children:[`\n`,(0,e.jsx)(n.li,{children:(0,e.jsx)(n.a,{href:\"https://en.wikipedia.org/wiki/Unit_testing\",children:\"\\u5355\\u5143\\u6D4B\\u8BD5 - \\u7EF4\\u57FA\\u767E\\u79D1\"})}),`\n`,(0,e.jsx)(n.li,{children:(0,e.jsx)(n.a,{href:\"https://en.wikipedia.org/wiki/Integration_testing\",children:\"\\u96C6\\u6210\\u6D4B\\u8BD5 - \\u7EF4\\u57FA\\u767E\\u79D1\"})}),`\n`,(0,e.jsx)(n.li,{children:(0,e.jsx)(n.a,{href:\"https://en.wikipedia.org/wiki/System_testing\",children:\"\\u7CFB\\u7EDF\\u6D4B\\u8BD5 - \\u7EF4\\u57FA\\u767E\\u79D1\"})}),`\n`,(0,e.jsx)(n.li,{children:(0,e.jsx)(n.a,{href:\"https://en.wikipedia.org/wiki/Acceptance_testing\",children:\"\\u9A8C\\u6536\\u6D4B\\u8BD5 - \\u7EF4\\u57FA\\u767E\\u79D1\"})}),`\n`]})]})}function k(t={}){let{wrapper:n}=t.components||{};return n?(0,e.jsx)(n,Object.assign({},t,{children:(0,e.jsx)(d,t)})):d(t)}var b=k;return j(q);})();\n;return Component;"

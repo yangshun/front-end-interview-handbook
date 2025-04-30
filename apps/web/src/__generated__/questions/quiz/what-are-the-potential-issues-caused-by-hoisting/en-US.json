@@ -2,31 +2,7 @@
   "description": null,
   "info": {
     "excerpt": null,
-    "title": "What are the potential issues caused by hoisting?"
-  },
-  "metadata": {
-    "access": "free",
-    "author": null,
-    "companies": [],
-    "created": 1630800000,
-    "difficulty": "easy",
-    "duration": 5,
-    "featured": false,
-    "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
-    "href": "/questions/quiz/what-are-the-potential-issues-caused-by-hoisting",
-    "importance": "low",
-    "languages": [],
-    "nextQuestions": [],
-    "published": true,
-    "ranking": 999,
-    "similarQuestions": [],
-    "slug": "what-are-the-potential-issues-caused-by-hoisting",
-    "subtitle": null,
-    "topics": [
-      "javascript"
-    ],
+    "title": "What are the potential issues caused by hoisting?",
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-the-potential-issues-caused-by-hoisting/en-US.mdx"
   },
   "solution": "var Component=(()=>{var h=Object.create;var o=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,g=Object.prototype.hasOwnProperty;var b=(i,e)=>()=>(e||i((e={exports:{}}).exports,e),e.exports),m=(i,e)=>{for(var a in e)o(i,a,{get:e[a],enumerable:!0})},c=(i,e,a,t)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let r of f(e))!g.call(i,r)&&r!==a&&o(i,r,{get:()=>e[r],enumerable:!(t=u(e,r))||t.enumerable});return i};var v=(i,e,a)=>(a=i!=null?h(p(i)):{},c(e||!i||!i.__esModule?o(a,\"default\",{value:i,enumerable:!0}):a,i)),x=i=>c(o({},\"__esModule\",{value:!0}),i);var d=b((T,l)=>{l.exports=_jsx_runtime});var z={};m(z,{default:()=>w,frontmatter:()=>j});var n=v(d()),j={title:\"What are the potential issues caused by hoisting?\"};function s(i){let e=Object.assign({h2:\"h2\",p:\"p\",code:\"code\",pre:\"pre\",hr:\"hr\",h3:\"h3\",ul:\"ul\",li:\"li\",a:\"a\"},i.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.h2,{children:\"TL;DR\"}),`\n`,(0,n.jsxs)(e.p,{children:[\"Hoisting can lead to unexpected behavior in JavaScript because variable and function declarations are moved to the top of their containing scope during the compilation phase. This can result in \",(0,n.jsx)(e.code,{children:\"undefined\"}),\" values for variables if they are used before their declaration and can cause confusion with function declarations and expressions. For example:\"]}),`\n`,(0,n.jsx)(e.pre,{live:!0,children:(0,n.jsx)(e.code,{className:\"language-js\",children:`console.log(a); // undefined\nvar a = 5;\n\nconsole.log(b); // ReferenceError: Cannot access 'b' before initialization\nlet b = 10;\n`})}),`\n`,(0,n.jsx)(e.hr,{}),`\n`,(0,n.jsx)(e.h2,{children:\"Potential issues caused by hoisting\"}),`\n`,(0,n.jsxs)(e.h3,{children:[\"Variables being \",(0,n.jsx)(e.code,{children:\"undefined\"})]}),`\n`,(0,n.jsxs)(e.p,{children:[\"When using \",(0,n.jsx)(e.code,{children:\"var\"}),\", the variable is hoisted to the top of its scope but not initialized. This means you can reference the variable before its declaration, but it will be \",(0,n.jsx)(e.code,{children:\"undefined\"}),\" until the assignment is executed.\"]}),`\n`,(0,n.jsx)(e.pre,{live:!0,children:(0,n.jsx)(e.code,{className:\"language-js\",children:`console.log(a); // undefined\nvar a = 5;\n`})}),`\n`,(0,n.jsxs)(e.h3,{children:[\"Temporal dead zone with \",(0,n.jsx)(e.code,{children:\"let\"}),\" and \",(0,n.jsx)(e.code,{children:\"const\"})]}),`\n`,(0,n.jsxs)(e.p,{children:[\"Variables declared with \",(0,n.jsx)(e.code,{children:\"let\"}),\" and \",(0,n.jsx)(e.code,{children:\"const\"}),\" are also hoisted, but they are not initialized. Accessing them before their declaration results in a \",(0,n.jsx)(e.code,{children:\"ReferenceError\"}),\" due to the temporal dead zone.\"]}),`\n`,(0,n.jsx)(e.pre,{live:!0,children:(0,n.jsx)(e.code,{className:\"language-js\",children:`console.log(b); // ReferenceError: Cannot access 'b' before initialization\nlet b = 10;\n`})}),`\n`,(0,n.jsx)(e.h3,{children:\"Function declarations vs. function expressions\"}),`\n`,(0,n.jsxs)(e.p,{children:[\"Function declarations are hoisted entirely, meaning you can call the function before its declaration. However, function expressions are not hoisted in the same way, leading to potential \",(0,n.jsx)(e.code,{children:\"TypeError\"}),\" if called before they are defined.\"]}),`\n`,(0,n.jsx)(e.pre,{live:!0,children:(0,n.jsx)(e.code,{className:\"language-js\",children:`foo(); // Works fine\nfunction foo() {\n  console.log('Hello');\n}\n\nbar(); // TypeError: bar is not a function\nvar bar = function () {\n  console.log('Hello');\n};\n`})}),`\n`,(0,n.jsxs)(e.h3,{children:[\"Redeclaration issues with \",(0,n.jsx)(e.code,{children:\"var\"})]}),`\n`,(0,n.jsxs)(e.p,{children:[\"Using \",(0,n.jsx)(e.code,{children:\"var\"}),\" can lead to unintentional redeclarations, which can cause bugs that are hard to track down.\"]}),`\n`,(0,n.jsx)(e.pre,{live:!0,children:(0,n.jsx)(e.code,{className:\"language-js\",children:`var x = 1;\nif (true) {\n  var x = 2; // Same variable as above\n}\nconsole.log(x); // 2\n`})}),`\n`,(0,n.jsx)(e.h2,{children:\"Further reading\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://developer.mozilla.org/en-US/docs/Glossary/Hoisting\",children:\"MDN Web Docs on Hoisting\"})}),`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://javascript.info/var\",children:\"JavaScript.info on Hoisting\"})}),`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://medium.com/@rajeshnaroth/understanding-temporal-dead-zone-in-javascript-let-and-const-5c3d2f8e0e68\",children:\"Understanding the Temporal Dead Zone\"})}),`\n`]})]})}function y(i={}){let{wrapper:e}=i.components||{};return e?(0,n.jsx)(e,Object.assign({},i,{children:(0,n.jsx)(s,i)})):s(i)}var w=y;return x(z);})();\n;return Component;"

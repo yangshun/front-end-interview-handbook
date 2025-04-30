@@ -1,0 +1,25 @@
+{
+  "access": "free",
+  "author": null,
+  "companies": [],
+  "created": 1630800000,
+  "difficulty": "easy",
+  "duration": 5,
+  "featured": false,
+  "format": "quiz",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/quiz/what-is-recursion-and-how-is-it-used-in-javascript",
+  "importance": "low",
+  "languages": [],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 999,
+  "similarQuestions": [],
+  "slug": "what-is-recursion-and-how-is-it-used-in-javascript",
+  "subtitle": null,
+  "topics": [
+    "javascript",
+    "recursion"
+  ]
+}

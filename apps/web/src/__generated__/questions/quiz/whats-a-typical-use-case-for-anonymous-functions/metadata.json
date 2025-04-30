@@ -1,0 +1,24 @@
+{
+  "access": "free",
+  "author": null,
+  "companies": [],
+  "created": 1630800000,
+  "difficulty": "medium",
+  "duration": 5,
+  "featured": true,
+  "format": "quiz",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/quiz/whats-a-typical-use-case-for-anonymous-functions",
+  "importance": "high",
+  "languages": [],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 160,
+  "similarQuestions": [],
+  "slug": "whats-a-typical-use-case-for-anonymous-functions",
+  "subtitle": null,
+  "topics": [
+    "javascript"
+  ]
+}

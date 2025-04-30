@@ -2,36 +2,7 @@
   "description": null,
   "info": {
     "excerpt": null,
-    "title": "Quais são as diferenças entre as variáveis criadas usando `let`, `var` ou `const`?"
-  },
-  "metadata": {
-    "access": "free",
-    "author": null,
-    "companies": [
-      "microsoft",
-      "tiktok",
-      "atlassian",
-      "linkedin"
-    ],
-    "created": 1630800000,
-    "difficulty": "medium",
-    "duration": 5,
-    "featured": true,
-    "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
-    "href": "/questions/quiz/what-are-the-differences-between-variables-created-using-let-var-or-const",
-    "importance": "high",
-    "languages": [],
-    "nextQuestions": [],
-    "published": true,
-    "ranking": 20,
-    "similarQuestions": [],
-    "slug": "what-are-the-differences-between-variables-created-using-let-var-or-const",
-    "subtitle": null,
-    "topics": [
-      "javascript"
-    ],
+    "title": "Quais são as diferenças entre as variáveis criadas usando `let`, `var` ou `const`?",
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-the-differences-between-variables-created-using-let-var-or-const/pt-BR.mdx"
   },
   "solution": "var Component=(()=>{var u=Object.create;var s=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var b=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var v=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),g=(n,e)=>{for(var a in e)s(n,a,{get:e[a],enumerable:!0})},i=(n,e,a,c)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let r of m(e))!h.call(n,r)&&r!==a&&s(n,r,{get:()=>e[r],enumerable:!(c=f(e,r))||c.enumerable});return n};var p=(n,e,a)=>(a=n!=null?u(b(n)):{},i(e||!n||!n.__esModule?s(a,\"default\",{value:n,enumerable:!0}):a,n)),x=n=>i(s({},\"__esModule\",{value:!0}),n);var d=v((E,l)=>{l.exports=_jsx_runtime});var R={};g(R,{default:()=>j,frontmatter:()=>q});var o=p(d()),q={title:\"Quais s\\xE3o as diferen\\xE7as entre as vari\\xE1veis criadas usando `let`, `var` ou `const`?\"};function t(n){let e=Object.assign({p:\"p\",code:\"code\",em:\"em\",pre:\"pre\",h2:\"h2\",ul:\"ul\",li:\"li\"},n.components);return(0,o.jsxs)(o.Fragment,{children:[(0,o.jsxs)(e.p,{children:[\"Vari\\xE1veis declaradas usando a palavra-chave \",(0,o.jsx)(e.code,{children:\"var\"}),\" t\\xEAm escopo \\xE0 fun\\xE7\\xE3o na qual foram criadas, ou se criadas fora de qualquer fun\\xE7\\xE3o, ao objeto global. \",(0,o.jsx)(e.code,{children:\"let\"}),\" and \",(0,o.jsx)(e.code,{children:\"const\"}),\" s\\xE3o \",(0,o.jsx)(e.em,{children:\"block scoped\"}),\", o que significa que eles s\\xF3 s\\xE3o acess\\xEDveis dentro do conjunto mais pr\\xF3ximo de chaves (fun\\xE7\\xE3o, bloco if-else ou for-loop).\"]}),`\n`,(0,o.jsx)(e.pre,{children:(0,o.jsx)(e.code,{className:\"language-js\",children:`function foo() {\n  // Todas as vari\\xE1veis s\\xE3o acess\\xEDveis dentro de fun\\xE7\\xF5es.\n  var bar = 'bar';\n  let baz = 'baz';\n  const qux = 'qux';\n\n  console.log(bar); // bar\n  console.log(baz); // baz\n  console.log(qux); // qux\n}\n\nconsole.log(bar); // ReferenceError: bar n\\xE3o \\xE9 o console\nconsole.log(baz); // ReferenceError: baz n\\xE3o \\xE9 definido\nconsole.log(qux); // ReferenceError: qux n\\xE3o \\xE9 definido\n`})}),`\n`,(0,o.jsx)(e.pre,{children:(0,o.jsx)(e.code,{className:\"language-js\",children:`if (true) {\n  var bar = 'bar';\n  let baz = 'baz';\n  const qux = 'qux';\n}\n\n// var vari\\xE1veis declaradas s\\xE3o acess\\xEDveis em qualquer lugar do escopo da fun\\xE7\\xE3o.\nconsole.log(bar); // bar\n// let e const defined vari\\xE1veis n\\xE3o s\\xE3o acess\\xEDveis fora do bloco no qual eles foram definidos.\nconsole.log(baz); // Refer\\xEAncia: baz n\\xE3o est\\xE1 definido\nconsole.log(qux); // Refer\\xEAncia: qux n\\xE3o est\\xE1 definido\n`})}),`\n`,(0,o.jsx)(e.p,{children:\"'var' permite que as vari\\xE1veis sejam hoisted, o que significa que elas podem ser referenciadas no c\\xF3digo antes de serem declaradas. 'let' e 'const' n\\xE3o permitir\\xE3o isso, em vez disso, ser\\xE1 lan\\xE7ado um erro.\"}),`\n`,(0,o.jsx)(e.pre,{children:(0,o.jsx)(e.code,{className:\"language-js\",children:`console.log(foo); // undefined\n\nvar foo = 'foo';\n\nconsole.log(baz); // ReferenceError: n\\xE3o p\\xF4de acessar o console da declara\\xE7\\xE3o l\\xE9xico 'baz' antes da inicializa\\xE7\\xE3o\n\nlet baz = 'baz';\n\nconsole.log(bar); // ReferenceError: n\\xE3o \\xE9 poss\\xEDvel acessar a declara\\xE7\\xE3o l\\xE9xico 'bar' antes da inicializa\\xE7\\xE3o\n\nconst bar = 'bar';\n`})}),`\n`,(0,o.jsxs)(e.p,{children:[\"Redeclarar uma vari\\xE1vel com \",(0,o.jsx)(e.code,{children:\"var\"}),\" n\\xE3o causar\\xE1 um erro, mas \",(0,o.jsx)(e.code,{children:\"let\"}),\" e \",(0,o.jsx)(e.code,{children:\"const\"}),\" ir\\xE1.\"]}),`\n`,(0,o.jsx)(e.pre,{children:(0,o.jsx)(e.code,{className:\"language-js\",children:`var foo = 'foo';\nvar foo = 'bar';\nconsole.log(foo); // \"bar\"\n\nlet baz = 'baz';\nlet baz = 'qux'; // Uncaught SyntaxError: Identifier 'baz' j\\xE1 foi declarado\n`})}),`\n`,(0,o.jsxs)(e.p,{children:[(0,o.jsx)(e.code,{children:\"let\"}),\" e \",(0,o.jsx)(e.code,{children:\"const\"}),\" diferem que \",(0,o.jsx)(e.code,{children:\"let\"}),\" permite reatribuir o valor da vari\\xE1vel enquanto \",(0,o.jsx)(e.code,{children:\"const\"}),\" n\\xE3o.\"]}),`\n`,(0,o.jsx)(e.pre,{children:(0,o.jsx)(e.code,{className:\"language-js\",children:`// Tudo bem.\nlet foo = 'foo';\nfoo = 'bar';\n\n// Isso causa uma exce\\xE7\\xE3o.\nconst baz = 'baz';\nbaz = 'qux';\n`})}),`\n`,(0,o.jsx)(e.h2,{children:\"Notas\"}),`\n`,(0,o.jsxs)(e.ul,{children:[`\n`,(0,o.jsxs)(e.li,{children:[\"Como a maioria dos navegadores suportam \",(0,o.jsx)(e.code,{children:\"let\"}),\" e \",(0,o.jsx)(e.code,{children:\"const\"}),\" atualmente, usar \",(0,o.jsx)(e.code,{children:\"var\"}),\" n\\xE3o \\xE9 mais recomendado. Se voc\\xEA precisa dar suporte a navegadores mais antigos, escreva seu c\\xF3digo usando \",(0,o.jsx)(e.code,{children:\"let\"}),\" e use um transpiler como o Babel para compilar seu c\\xF3digo para uma sintaxe mais antiga.\"]}),`\n`]})]})}function z(n={}){let{wrapper:e}=n.components||{};return e?(0,o.jsx)(e,Object.assign({},n,{children:(0,o.jsx)(t,n)})):t(n)}var j=z;return x(R);})();\n;return Component;"

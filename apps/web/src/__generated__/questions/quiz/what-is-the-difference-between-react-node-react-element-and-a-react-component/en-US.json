@@ -2,36 +2,7 @@
   "description": null,
   "info": {
     "excerpt": null,
-    "title": "What is the difference between React Node, React Element, and a React Component?"
-  },
-  "metadata": {
-    "access": "free",
-    "author": null,
-    "companies": [],
-    "created": 1630800000,
-    "difficulty": "medium",
-    "duration": 5,
-    "featured": true,
-    "format": "quiz",
-    "frameworkDefault": "react",
-    "frameworks": [
-      {
-        "framework": "react",
-        "href": "/questions/quiz/what-is-the-difference-between-react-node-react-element-and-a-react-component"
-      }
-    ],
-    "href": "/questions/quiz/what-is-the-difference-between-react-node-react-element-and-a-react-component",
-    "importance": "medium",
-    "languages": [],
-    "nextQuestions": [],
-    "published": true,
-    "ranking": 20,
-    "similarQuestions": [],
-    "slug": "what-is-the-difference-between-react-node-react-element-and-a-react-component",
-    "subtitle": null,
-    "topics": [
-      "react"
-    ],
+    "title": "What is the difference between React Node, React Element, and a React Component?",
     "gitHubEditUrl": "https://github.com/yangshun/top-reactjs-interview-questions/blob/main/questions/what-is-the-difference-between-react-node-react-element-and-a-react-component/en-US.mdx"
   },
   "solution": "var Component=(()=>{var h=Object.create;var a=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var u=Object.getPrototypeOf,g=Object.prototype.hasOwnProperty;var R=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),b=(t,e)=>{for(var c in e)a(t,c,{get:e[c],enumerable:!0})},s=(t,e,c,o)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let r of p(e))!g.call(t,r)&&r!==c&&a(t,r,{get:()=>e[r],enumerable:!(o=m(e,r))||o.enumerable});return t};var f=(t,e,c)=>(c=t!=null?h(u(t)):{},s(e||!t||!t.__esModule?a(c,\"default\",{value:t,enumerable:!0}):c,t)),j=t=>s(a({},\"__esModule\",{value:!0}),t);var i=R((C,l)=>{l.exports=_jsx_runtime});var w={};b(w,{default:()=>y,frontmatter:()=>x});var n=f(i()),x={title:\"What is the difference between React Node, React Element, and a React Component?\"};function d(t){let e=Object.assign({h2:\"h2\",p:\"p\",code:\"code\",hr:\"hr\",strong:\"strong\",pre:\"pre\",ul:\"ul\",li:\"li\",a:\"a\"},t.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.h2,{children:\"TL;DR\"}),`\n`,(0,n.jsxs)(e.p,{children:[\"A React Node is any renderable unit in React, such as an element, string, number, or \",(0,n.jsx)(e.code,{children:\"null\"}),\". A React Element is an immutable object describing what to render, created using JSX or \",(0,n.jsx)(e.code,{children:\"React.createElement\"}),\". A React Component is a function or class that returns React Elements, enabling the creation of reusable UI pieces.\"]}),`\n`,(0,n.jsx)(e.hr,{}),`\n`,(0,n.jsx)(e.h2,{children:\"React node\"}),`\n`,(0,n.jsxs)(e.p,{children:[\"A \",(0,n.jsx)(e.strong,{children:\"React Node\"}),\" is the most basic unit in the React rendering system. It can be a React element, a string, a number, a boolean, or \",(0,n.jsx)(e.code,{children:\"null\"}),\". Essentially, anything that can be rendered in React is a React Node.\"]}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-jsx\",children:`const stringNode = 'Hello, world!';\nconst numberNode = 123;\nconst booleanNode = true;\nconst nullNode = null;\nconst elementNode = <div>Hello, world!</div>;\n`})}),`\n`,(0,n.jsx)(e.h2,{children:\"React element\"}),`\n`,(0,n.jsxs)(e.p,{children:[\"A \",(0,n.jsx)(e.strong,{children:\"React Element\"}),\" is an immutable, plain object representing what you want to see on the screen. It includes the type (such as a string for HTML tags or a React component), props, and children. React elements are created using JSX syntax or \",(0,n.jsx)(e.code,{children:\"React.createElement\"}),\".\"]}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-jsx\",children:`const element = <div className=\"greeting\">Hello, world!</div>;\n\n// Using React.createElement\nconst element = React.createElement(\n  'div',\n  { className: 'greeting' },\n  'Hello, world!',\n);\n`})}),`\n`,(0,n.jsx)(e.h2,{children:\"React component\"}),`\n`,(0,n.jsxs)(e.p,{children:[\"A \",(0,n.jsx)(e.strong,{children:\"React Component\"}),\" is a reusable piece of the UI that can accept inputs (props) and returns React elements describing the UI. There are two types of components: function components and class components.\"]}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsxs)(e.li,{children:[`\n`,(0,n.jsxs)(e.p,{children:[(0,n.jsx)(e.strong,{children:\"Function components\"}),\": These are simpler and are just functions that take props as an argument and return a React element.\"]}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-jsx\",children:`function Welcome(props) {\n  return <h1>Hello, {props.name}</h1>;\n}\n`})}),`\n`]}),`\n`,(0,n.jsxs)(e.li,{children:[`\n`,(0,n.jsxs)(e.p,{children:[(0,n.jsx)(e.strong,{children:\"Class components\"}),\": These are ES6 classes that extend \",(0,n.jsx)(e.code,{children:\"React.Component\"}),\" and must have a \",(0,n.jsx)(e.code,{children:\"render\"}),\" method returning a React element.\"]}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-jsx\",children:`class Welcome extends React.Component {\n  render() {\n    return <h1>Hello, {this.props.name}</h1>;\n  }\n}\n`})}),`\n`]}),`\n`]}),`\n`,(0,n.jsx)(e.h2,{children:\"Further reading\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://reactjs.org/docs/rendering-elements.html\",children:\"React documentation: Rendering elements\"})}),`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://reactjs.org/docs/components-and-props.html\",children:\"React documentation: Components and props\"})}),`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://reactjs.org/docs/jsx-in-depth.html\",children:\"React documentation: JSX in depth\"})}),`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://reactjs.org/docs/state-and-lifecycle.html\",children:\"React documentation: State and lifecycle\"})}),`\n`]})]})}function N(t={}){let{wrapper:e}=t.components||{};return e?(0,n.jsx)(e,Object.assign({},t,{children:(0,n.jsx)(d,t)})):d(t)}var y=N;return j(w);})();\n;return Component;"

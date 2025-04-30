@@ -2,36 +2,7 @@
   "description": null,
   "info": {
     "excerpt": null,
-    "title": "Explain one-way data flow of React and its benefits"
-  },
-  "metadata": {
-    "access": "free",
-    "author": null,
-    "companies": [],
-    "created": 1630800000,
-    "difficulty": "medium",
-    "duration": 5,
-    "featured": true,
-    "format": "quiz",
-    "frameworkDefault": "react",
-    "frameworks": [
-      {
-        "framework": "react",
-        "href": "/questions/quiz/explain-one-way-data-flow-of-react-and-its-benefits"
-      }
-    ],
-    "href": "/questions/quiz/explain-one-way-data-flow-of-react-and-its-benefits",
-    "importance": "medium",
-    "languages": [],
-    "nextQuestions": [],
-    "published": true,
-    "ranking": 350,
-    "similarQuestions": [],
-    "slug": "explain-one-way-data-flow-of-react-and-its-benefits",
-    "subtitle": null,
-    "topics": [
-      "react"
-    ],
+    "title": "Explain one-way data flow of React and its benefits",
     "gitHubEditUrl": "https://github.com/yangshun/top-reactjs-interview-questions/blob/main/questions/explain-one-way-data-flow-of-react-and-its-benefits/en-US.mdx"
   },
   "solution": "var Component=(()=>{var s=Object.create;var i=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var f=Object.getPrototypeOf,u=Object.prototype.hasOwnProperty;var g=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),w=(t,e)=>{for(var a in e)i(t,a,{get:e[a],enumerable:!0})},c=(t,e,a,r)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let o of m(e))!u.call(t,o)&&o!==a&&i(t,o,{get:()=>e[o],enumerable:!(r=p(e,o))||r.enumerable});return t};var C=(t,e,a)=>(a=t!=null?s(f(t)):{},c(e||!t||!t.__esModule?i(a,\"default\",{value:t,enumerable:!0}):a,t)),b=t=>c(i({},\"__esModule\",{value:!0}),t);var h=g((D,d)=>{d.exports=_jsx_runtime});var R={};w(R,{default:()=>j,frontmatter:()=>y});var n=C(h()),y={title:\"Explain one-way data flow of React and its benefits\"};function l(t){let e=Object.assign({h2:\"h2\",p:\"p\",hr:\"hr\",h3:\"h3\",code:\"code\",pre:\"pre\",h4:\"h4\",ul:\"ul\",li:\"li\",a:\"a\"},t.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.h2,{children:\"TL;DR\"}),`\n`,(0,n.jsx)(e.p,{children:\"In React, one-way data flow means that data in a React application flows in a single direction, from parent components to child components. This makes the data flow predictable and easier to debug. The main benefits include improved maintainability, easier debugging, and better performance.\"}),`\n`,(0,n.jsx)(e.hr,{}),`\n`,(0,n.jsx)(e.h2,{children:\"One-way data flow of React and its benefits\"}),`\n`,(0,n.jsx)(e.h3,{children:\"What is one-way data flow?\"}),`\n`,(0,n.jsxs)(e.p,{children:[\"In React, one-way data flow refers to the concept where data flows in a single direction, from parent components to child components. This is achieved through the use of \",(0,n.jsx)(e.code,{children:\"props\"}),\". Parent components pass data to child components via \",(0,n.jsx)(e.code,{children:\"props\"}),\", and child components can only read these \",(0,n.jsx)(e.code,{children:\"props\"}),\" but cannot modify them. If a child component needs to communicate back to the parent, it does so by calling a function passed down from the parent as a prop.\"]}),`\n`,(0,n.jsx)(e.h3,{children:\"Example\"}),`\n`,(0,n.jsx)(e.p,{children:\"Here is a simple example to illustrate one-way data flow:\"}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-jsx\",children:`// ParentComponent.jsx\nimport React, { useState } from 'react';\nimport ChildComponent from './ChildComponent';\n\nconst ParentComponent = () => {\n  const [data, setData] = useState('Hello from Parent');\n\n  const handleChange = (newData) => {\n    setData(newData);\n  };\n\n  return (\n    <div>\n      <h1>{data}</h1>\n      <ChildComponent data={data} onChange={handleChange} />\n    </div>\n  );\n};\n\nexport default ParentComponent;\n\n// ChildComponent.jsx\nimport React from 'react';\n\nconst ChildComponent = ({ data, onChange }) => {\n  return (\n    <div>\n      <p>{data}</p>\n      <button onClick={() => onChange('Hello from Child')}>Change Data</button>\n    </div>\n  );\n};\n\nexport default ChildComponent;\n`})}),`\n`,(0,n.jsxs)(e.p,{children:[\"In this example, \",(0,n.jsx)(e.code,{children:\"ParentComponent\"}),\" passes \",(0,n.jsx)(e.code,{children:\"data\"}),\" and \",(0,n.jsx)(e.code,{children:\"handleChange\"}),\" function to \",(0,n.jsx)(e.code,{children:\"ChildComponent\"}),\" via \",(0,n.jsx)(e.code,{children:\"props\"}),\". The \",(0,n.jsx)(e.code,{children:\"ChildComponent\"}),\" can read the \",(0,n.jsx)(e.code,{children:\"data\"}),\" and call \",(0,n.jsx)(e.code,{children:\"onChange\"}),\" to communicate back to the parent.\"]}),`\n`,(0,n.jsx)(e.h3,{children:\"Benefits of one-way data flow\"}),`\n`,(0,n.jsx)(e.h4,{children:\"Improved maintainability\"}),`\n`,(0,n.jsx)(e.p,{children:\"One-way data flow makes the application structure more predictable and easier to understand. Since data flows in a single direction, it is easier to track how data changes over time, making the codebase more maintainable.\"}),`\n`,(0,n.jsx)(e.h4,{children:\"Easier debugging\"}),`\n`,(0,n.jsx)(e.p,{children:\"With one-way data flow, it is easier to pinpoint where a bug might be occurring. Since data can only flow from parent to child, you can trace the data flow and identify the source of the issue more quickly.\"}),`\n`,(0,n.jsx)(e.h4,{children:\"Better performance\"}),`\n`,(0,n.jsx)(e.p,{children:\"One-way data flow can lead to better performance because it reduces the complexity of data management. React's reconciliation algorithm can efficiently update the DOM by comparing the current state with the previous state, minimizing the number of updates required.\"}),`\n`,(0,n.jsx)(e.h2,{children:\"Further reading\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://reactjs.org/docs/components-and-props.html\",children:\"React documentation on components and props\"})}),`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://reactjs.org/docs/state-and-lifecycle.html\",children:\"React documentation on state and lifecycle\"})}),`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://reactjs.org/docs/lifting-state-up.html\",children:\"React documentation on lifting state up\"})}),`\n`]})]})}function x(t={}){let{wrapper:e}=t.components||{};return e?(0,n.jsx)(e,Object.assign({},t,{children:(0,n.jsx)(l,t)})):l(t)}var j=x;return b(R);})();\n;return Component;"

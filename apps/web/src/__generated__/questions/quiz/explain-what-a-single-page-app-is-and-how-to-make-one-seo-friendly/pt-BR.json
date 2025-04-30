@@ -2,32 +2,7 @@
   "description": null,
   "info": {
     "excerpt": null,
-    "title": "Explique o que é um aplicativo de página única e como torná-lo amigável para SEO"
-  },
-  "metadata": {
-    "access": "free",
-    "author": null,
-    "companies": [],
-    "created": 1630800000,
-    "difficulty": "hard",
-    "duration": 5,
-    "featured": false,
-    "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
-    "href": "/questions/quiz/explain-what-a-single-page-app-is-and-how-to-make-one-seo-friendly",
-    "importance": "medium",
-    "languages": [],
-    "nextQuestions": [],
-    "published": true,
-    "ranking": 999,
-    "similarQuestions": [],
-    "slug": "explain-what-a-single-page-app-is-and-how-to-make-one-seo-friendly",
-    "subtitle": null,
-    "topics": [
-      "javascript",
-      "html"
-    ],
+    "title": "Explique o que é um aplicativo de página única e como torná-lo amigável para SEO",
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/explain-what-a-single-page-app-is-and-how-to-make-one-seo-friendly/pt-BR.mdx"
   },
   "solution": "var Component=(()=>{var m=Object.create;var s=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var v=Object.getPrototypeOf,g=Object.prototype.hasOwnProperty;var h=(a,e)=>()=>(e||a((e={exports:{}}).exports,e),e.exports),f=(a,e)=>{for(var i in e)s(a,i,{get:e[i],enumerable:!0})},t=(a,e,i,n)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let r of u(e))!g.call(a,r)&&r!==i&&s(a,r,{get:()=>e[r],enumerable:!(n=p(e,r))||n.enumerable});return a};var b=(a,e,i)=>(i=a!=null?m(v(a)):{},t(e||!a||!a.__esModule?s(i,\"default\",{value:a,enumerable:!0}):i,a)),z=a=>t(s({},\"__esModule\",{value:!0}),a);var c=h((P,d)=>{d.exports=_jsx_runtime});var j={};f(j,{default:()=>A,frontmatter:()=>x});var o=b(c()),x={title:\"Explique o que \\xE9 um aplicativo de p\\xE1gina \\xFAnica e como torn\\xE1-lo amig\\xE1vel para SEO\"};function l(a){let e=Object.assign({p:\"p\",a:\"a\",h2:\"h2\",ul:\"ul\",li:\"li\"},a.components);return(0,o.jsxs)(o.Fragment,{children:[(0,o.jsx)(e.p,{children:\"Os desenvolvedores web atualmente se referem aos produtos que constroem como aplicativos web, em vez de sites. Embora n\\xE3o haja uma diferen\\xE7a estrita entre os dois termos, os aplicativos web tendem a ser altamente interativos e din\\xE2micos, permitindo que o usu\\xE1rio execute a\\xE7\\xF5es e receba uma resposta para sua a\\xE7\\xE3o. Tradicionalmente, o navegador recebe o HTML do servidor e o renderiza. Quando o usu\\xE1rio navegar para outra URL, \\xE9 necess\\xE1ria uma atualiza\\xE7\\xE3o de p\\xE1gina inteira e o servidor envia novo HTML para a nova p\\xE1gina. Isso \\xE9 chamado de renderiza\\xE7\\xE3o no lado do servidor.\"}),`\n`,(0,o.jsxs)(e.p,{children:[\"No entanto, em SPAs modernas, \\xE9 usado o rendering no lado do cliente (client-side rendering) em vez disso. O navegador carrega a p\\xE1gina inicial do servidor, juntamente com os scripts (frameworks, bibliotecas, c\\xF3digo do aplicativo) e folhas de estilo necess\\xE1rias para todo o aplicativo. Quando o usu\\xE1rio navega para outras p\\xE1ginas, uma atualiza\\xE7\\xE3o de p\\xE1gina n\\xE3o \\xE9 acionada. A URL da p\\xE1gina \\xE9 atualizada atrav\\xE9s da \",(0,o.jsx)(e.a,{href:\"https://developer.mozilla.org/en-US/docs/Web/API/History_API\",children:\"API Hist\\xF3rico HTML5\"}),\". Novos dados necess\\xE1rios para a nova p\\xE1gina, geralmente no formato JSON, s\\xE3o recuperados pelo navegador via \",(0,o.jsx)(e.a,{href:\"https://developer.mozilla.org/en-US/docs/AJAX/Getting_Started\",children:\"AJAX\"}),\" pedidos ao servidor. O SPA, em seguida, atualiza dinamicamente a p\\xE1gina com dados via JavaScript, que j\\xE1 foi baixado na carga inicial da p\\xE1gina. Esse modelo \\xE9 semelhante a como os aplicativos nativos dos dispositivos m\\xF3veis funcionam.\"]}),`\n`,(0,o.jsx)(e.h2,{children:\"Pr\\xF3s\"}),`\n`,(0,o.jsxs)(e.ul,{children:[`\n`,(0,o.jsx)(e.li,{children:\"O aplicativo parece mais responsivo e os usu\\xE1rios n\\xE3o veem o flash entre as navega\\xE7\\xF5es de p\\xE1gina devido \\xE0s atualiza\\xE7\\xF5es completas da p\\xE1gina.\"}),`\n`,(0,o.jsx)(e.li,{children:\"S\\xE3o feitas menos solicita\\xE7\\xF5es HTTP ao servidor, pois os mesmos recursos n\\xE3o precisam ser baixados novamente a cada carga de p\\xE1gina.\"}),`\n`,(0,o.jsx)(e.li,{children:\"H\\xE1 uma clara separa\\xE7\\xE3o das responsabilidades entre o cliente e o servidor, permitindo a f\\xE1cil constru\\xE7\\xE3o de novos clientes para diferentes plataformas (por exemplo, dispositivos m\\xF3veis, chatbots, rel\\xF3gios inteligentes) sem precisar modificar o c\\xF3digo do servidor. Voc\\xEA tamb\\xE9m pode modificar a pilha de tecnologia no cliente e no servidor independentemente, desde que o contrato da API n\\xE3o seja quebrado.\"}),`\n`]}),`\n`,(0,o.jsx)(e.h2,{children:\"Contras\"}),`\n`,(0,o.jsxs)(e.ul,{children:[`\n`,(0,o.jsx)(e.li,{children:\"H\\xE1 uma carga inicial de p\\xE1gina mais pesada devido ao carregamento do framework, c\\xF3digo do aplicativo e recursos necess\\xE1rios para v\\xE1rias p\\xE1ginas.\"}),`\n`,(0,o.jsx)(e.li,{children:\"H\\xE1 uma etapa adicional a ser feita no seu servidor, que \\xE9 configur\\xE1-lo para rotear todas as solicita\\xE7\\xF5es para um \\xFAnico ponto de entrada e permitir que o roteamento do lado do cliente assuma a partir da\\xED.\"}),`\n`,(0,o.jsxs)(e.li,{children:[\"As SPAs dependem do JavaScript para renderizar conte\\xFAdo, mas nem todos os mecanismos de pesquisa executam JavaScript durante a rastreamento e podem ver conte\\xFAdo vazio em sua p\\xE1gina. Isso prejudica inadvertidamente a otimiza\\xE7\\xE3o de mecanismos de pesquisa (SEO) do seu aplicativo. No entanto, na maioria das vezes, ao construir aplicativos, o SEO n\\xE3o \\xE9 o fator mais importante, pois nem todo o conte\\xFAdo precisa ser index\\xE1vel pelos mecanismos de pesquisa. Para contornar esse problema, voc\\xEA pode renderizar seu aplicativo no servidor ou usar servi\\xE7os como \",(0,o.jsx)(e.a,{href:\"https://prerender.io/\",children:\"Prerender\"}),' para \"renderizar seu JavaScript em um navegador, salvar o HTML est\\xE1tico e retorn\\xE1-lo aos crawlers\".']}),`\n`]})]})}function S(a={}){let{wrapper:e}=a.components||{};return e?(0,o.jsx)(e,Object.assign({},a,{children:(0,o.jsx)(l,a)})):l(a)}var A=S;return z(j);})();\n;return Component;"

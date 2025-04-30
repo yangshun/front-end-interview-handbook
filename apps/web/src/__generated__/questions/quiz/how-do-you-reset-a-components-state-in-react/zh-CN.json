@@ -2,36 +2,7 @@
   "description": null,
   "info": {
     "excerpt": null,
-    "title": "如何在 React 中重置组件的状态？"
-  },
-  "metadata": {
-    "access": "free",
-    "author": null,
-    "companies": [],
-    "created": 1630800000,
-    "difficulty": "medium",
-    "duration": 5,
-    "featured": true,
-    "format": "quiz",
-    "frameworkDefault": "react",
-    "frameworks": [
-      {
-        "framework": "react",
-        "href": "/questions/quiz/how-do-you-reset-a-components-state-in-react"
-      }
-    ],
-    "href": "/questions/quiz/how-do-you-reset-a-components-state-in-react",
-    "importance": "medium",
-    "languages": [],
-    "nextQuestions": [],
-    "published": true,
-    "ranking": 220,
-    "similarQuestions": [],
-    "slug": "how-do-you-reset-a-components-state-in-react",
-    "subtitle": null,
-    "topics": [
-      "react"
-    ],
+    "title": "如何在 React 中重置组件的状态？",
     "gitHubEditUrl": "https://github.com/yangshun/top-reactjs-interview-questions/blob/main/questions/how-do-you-reset-a-components-state-in-react/zh-CN.mdx"
   },
   "solution": "var Component=(()=>{var p=Object.create;var s=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var m=Object.getPrototypeOf,S=Object.prototype.hasOwnProperty;var x=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),g=(e,t)=>{for(var a in t)s(e,a,{get:t[a],enumerable:!0})},r=(e,t,a,i)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let c of u(t))!S.call(e,c)&&c!==a&&s(e,c,{get:()=>t[c],enumerable:!(i=d(t,c))||i.enumerable});return e};var C=(e,t,a)=>(a=e!=null?p(m(e)):{},r(t||!e||!e.__esModule?s(a,\"default\",{value:e,enumerable:!0}):a,e)),f=e=>r(s({},\"__esModule\",{value:!0}),e);var l=x((y,o)=>{o.exports=_jsx_runtime});var M={};g(M,{default:()=>v,frontmatter:()=>j});var n=C(l()),j={title:\"\\u5982\\u4F55\\u5728 React \\u4E2D\\u91CD\\u7F6E\\u7EC4\\u4EF6\\u7684\\u72B6\\u6001\\uFF1F\"};function h(e){let t=Object.assign({h2:\"h2\",p:\"p\",code:\"code\",pre:\"pre\",hr:\"hr\",h3:\"h3\",h4:\"h4\",ul:\"ul\",li:\"li\",a:\"a\"},e.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(t.h2,{children:\"TL;DR\"}),`\n`,(0,n.jsxs)(t.p,{children:[\"\\u8981\\u5728 React \\u4E2D\\u91CD\\u7F6E\\u7EC4\\u4EF6\\u7684\\u72B6\\u6001\\uFF0C\\u60A8\\u53EF\\u4EE5\\u5C06\\u72B6\\u6001\\u8BBE\\u7F6E\\u56DE\\u5176\\u521D\\u59CB\\u503C\\u3002\\u8FD9\\u53EF\\u4EE5\\u901A\\u8FC7\\u5B9A\\u4E49\\u521D\\u59CB\\u72B6\\u6001\\uFF0C\\u7136\\u540E\\u4F7F\\u7528 \",(0,n.jsx)(t.code,{children:\"setState\"}),\" \\u51FD\\u6570\\u6765\\u91CD\\u7F6E\\u5B83\\u6765\\u5B9E\\u73B0\\u3002\\u4F8B\\u5982\\uFF0C\\u5982\\u679C\\u60A8\\u6709\\u4E00\\u4E2A\\u50CF\\u8FD9\\u6837\\u7684\\u72B6\\u6001\\u5BF9\\u8C61\\uFF1A\"]}),`\n`,(0,n.jsx)(t.pre,{children:(0,n.jsx)(t.code,{className:\"language-javascript\",children:`const [state, setState] = useState(initialState);\n`})}),`\n`,(0,n.jsx)(t.p,{children:\"\\u60A8\\u53EF\\u4EE5\\u901A\\u8FC7\\u8C03\\u7528\\u4EE5\\u4E0B\\u65B9\\u6CD5\\u6765\\u91CD\\u7F6E\\u5B83\\uFF1A\"}),`\n`,(0,n.jsx)(t.pre,{children:(0,n.jsx)(t.code,{className:\"language-javascript\",children:`setState(initialState);\n`})}),`\n`,(0,n.jsx)(t.hr,{}),`\n`,(0,n.jsx)(t.h2,{children:\"\\u5982\\u4F55\\u5728 React \\u4E2D\\u91CD\\u7F6E\\u7EC4\\u4EF6\\u7684\\u72B6\\u6001\\uFF1F\"}),`\n`,(0,n.jsx)(t.h3,{children:\"\\u4F7F\\u7528\\u5E26\\u6709\\u94A9\\u5B50\\u7684\\u51FD\\u6570\\u5F0F\\u7EC4\\u4EF6\"}),`\n`,(0,n.jsxs)(t.p,{children:[\"\\u5728\\u51FD\\u6570\\u5F0F\\u7EC4\\u4EF6\\u4E2D\\uFF0C\\u60A8\\u53EF\\u4EE5\\u4F7F\\u7528 \",(0,n.jsx)(t.code,{children:\"useState\"}),\" \\u94A9\\u5B50\\u6765\\u7BA1\\u7406\\u72B6\\u6001\\u3002\\u8981\\u91CD\\u7F6E\\u72B6\\u6001\\uFF0C\\u60A8\\u53EF\\u4EE5\\u7B80\\u5355\\u5730\\u4F7F\\u7528\\u521D\\u59CB\\u72B6\\u6001\\u503C\\u8C03\\u7528 \",(0,n.jsx)(t.code,{children:\"setState\"}),\" \\u51FD\\u6570\\u3002\"]}),`\n`,(0,n.jsx)(t.h4,{children:\"\\u793A\\u4F8B\"}),`\n`,(0,n.jsx)(t.pre,{children:(0,n.jsx)(t.code,{className:\"language-javascript\",children:`import React, { useState } from 'react';\n\nconst MyComponent = () => {\n  const initialState = { count: 0, text: '' };\n  const [state, setState] = useState(initialState);\n\n  const resetState = () => {\n    setState(initialState);\n  };\n\n  return (\n    <div>\n      <p>Count: {state.count}</p>\n      <p>Text: {state.text}</p>\n      <button onClick={resetState}>Reset</button>\n    </div>\n  );\n};\n\nexport default MyComponent;\n`})}),`\n`,(0,n.jsx)(t.h3,{children:\"\\u4F7F\\u7528\\u7C7B\\u7EC4\\u4EF6\"}),`\n`,(0,n.jsxs)(t.p,{children:[\"\\u5728\\u7C7B\\u7EC4\\u4EF6\\u4E2D\\uFF0C\\u60A8\\u53EF\\u4EE5\\u901A\\u8FC7\\u4F7F\\u7528\\u521D\\u59CB\\u72B6\\u6001\\u503C\\u8C03\\u7528 \",(0,n.jsx)(t.code,{children:\"this.setState\"}),\" \\u6765\\u91CD\\u7F6E\\u72B6\\u6001\\u3002\"]}),`\n`,(0,n.jsx)(t.h4,{children:\"\\u793A\\u4F8B\"}),`\n`,(0,n.jsx)(t.pre,{children:(0,n.jsx)(t.code,{className:\"language-javascript\",children:`import React, { Component } from 'react';\n\nclass MyComponent extends Component {\n  constructor(props) {\n    super(props);\n    this.initialState = { count: 0, text: '' };\n    this.state = this.initialState;\n  }\n\n  resetState = () => {\n    this.setState(this.initialState);\n  };\n\n  render() {\n    return (\n      <div>\n        <p>Count: {this.state.count}</p>\n        <p>Text: {this.state.text}</p>\n        <button onClick={this.resetState}>Reset</button>\n      </div>\n    );\n  }\n}\n\nexport default MyComponent;\n`})}),`\n`,(0,n.jsx)(t.h3,{children:\"\\u4F7F\\u7528\\u51FD\\u6570\\u751F\\u6210\\u521D\\u59CB\\u72B6\\u6001\"}),`\n`,(0,n.jsx)(t.p,{children:\"\\u6709\\u65F6\\uFF0C\\u521D\\u59CB\\u72B6\\u6001\\u53EF\\u80FD\\u6E90\\u81EA props \\u6216\\u5176\\u4ED6\\u52A8\\u6001\\u6E90\\u3002\\u5728\\u8FD9\\u79CD\\u60C5\\u51B5\\u4E0B\\uFF0C\\u60A8\\u53EF\\u4EE5\\u4F7F\\u7528\\u4E00\\u4E2A\\u51FD\\u6570\\u6765\\u751F\\u6210\\u521D\\u59CB\\u72B6\\u6001\\u3002\"}),`\n`,(0,n.jsx)(t.h4,{children:\"\\u793A\\u4F8B\"}),`\n`,(0,n.jsx)(t.pre,{children:(0,n.jsx)(t.code,{className:\"language-javascript\",children:`import React, { useState } from 'react';\n\nconst MyComponent = (props) => {\n  const getInitialState = () => ({ count: props.initialCount, text: '' });\n  const [state, setState] = useState(getInitialState);\n\n  const resetState = () => {\n    setState(getInitialState());\n  };\n\n  return (\n    <div>\n      <p>Count: {state.count}</p>\n      <p>Text: {state.text}</p>\n      <button onClick={resetState}>Reset</button>\n    </div>\n  );\n};\n\nexport default MyComponent;\n`})}),`\n`,(0,n.jsx)(t.h2,{children:\"\\u5EF6\\u4F38\\u9605\\u8BFB\"}),`\n`,(0,n.jsxs)(t.ul,{children:[`\n`,(0,n.jsx)(t.li,{children:(0,n.jsx)(t.a,{href:\"https://reactjs.org/docs/hooks-state.html\",children:\"React useState Hook\"})}),`\n`,(0,n.jsx)(t.li,{children:(0,n.jsx)(t.a,{href:\"https://reactjs.org/docs/state-and-lifecycle.html\",children:\"React Component State\"})}),`\n`,(0,n.jsx)(t.li,{children:(0,n.jsx)(t.a,{href:\"https://reactjs.org/docs/components-and-props.html#function-and-class-components\",children:\"React Functional Components\"})}),`\n`]})]})}function R(e={}){let{wrapper:t}=e.components||{};return t?(0,n.jsx)(t,Object.assign({},e,{children:(0,n.jsx)(h,e)})):h(e)}var v=R;return f(M);})();\n;return Component;"

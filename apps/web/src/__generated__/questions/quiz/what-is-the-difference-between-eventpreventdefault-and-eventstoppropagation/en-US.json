@@ -2,33 +2,7 @@
   "description": null,
   "info": {
     "excerpt": null,
-    "title": "What is the difference between `event.preventDefault()` and `event.stopPropagation()`?"
-  },
-  "metadata": {
-    "access": "free",
-    "author": null,
-    "companies": [],
-    "created": 1630800000,
-    "difficulty": "easy",
-    "duration": 5,
-    "featured": false,
-    "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
-    "href": "/questions/quiz/what-is-the-difference-between-eventpreventdefault-and-eventstoppropagation",
-    "importance": "low",
-    "languages": [],
-    "nextQuestions": [],
-    "published": true,
-    "ranking": 999,
-    "similarQuestions": [],
-    "slug": "what-is-the-difference-between-eventpreventdefault-and-eventstoppropagation",
-    "subtitle": null,
-    "topics": [
-      "web-api",
-      "html",
-      "javascript"
-    ],
+    "title": "What is the difference between `event.preventDefault()` and `event.stopPropagation()`?",
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-the-difference-between-eventpreventdefault-and-eventstoppropagation/en-US.mdx"
   },
   "solution": "var Component=(()=>{var d=Object.create;var o=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var v=Object.getOwnPropertyNames;var u=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var m=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),g=(t,e)=>{for(var r in e)o(t,r,{get:e[r],enumerable:!0})},l=(t,e,r,a)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let i of v(e))!f.call(t,i)&&i!==r&&o(t,i,{get:()=>e[i],enumerable:!(a=p(e,i))||a.enumerable});return t};var b=(t,e,r)=>(r=t!=null?d(u(t)):{},l(e||!t||!t.__esModule?o(r,\"default\",{value:t,enumerable:!0}):r,t)),D=t=>l(o({},\"__esModule\",{value:!0}),t);var h=m((_,c)=>{c.exports=_jsx_runtime});var j={};g(j,{default:()=>x,frontmatter:()=>w});var n=b(h()),w={title:\"What is the difference between `event.preventDefault()` and `event.stopPropagation()`?\"};function s(t){let e=Object.assign({h2:\"h2\",p:\"p\",code:\"code\",hr:\"hr\",h3:\"h3\",pre:\"pre\",ul:\"ul\",li:\"li\",a:\"a\"},t.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.h2,{children:\"TL;DR\"}),`\n`,(0,n.jsxs)(e.p,{children:[(0,n.jsx)(e.code,{children:\"event.preventDefault()\"}),\" is used to prevent the default action that belongs to the event, such as preventing a form from submitting. \",(0,n.jsx)(e.code,{children:\"event.stopPropagation()\"}),\" is used to stop the event from bubbling up to parent elements, preventing any parent event handlers from being executed.\"]}),`\n`,(0,n.jsx)(e.hr,{}),`\n`,(0,n.jsxs)(e.h2,{children:[\"What is the difference between \",(0,n.jsx)(e.code,{children:\"event.preventDefault()\"}),\" and \",(0,n.jsx)(e.code,{children:\"event.stopPropagation()\"}),\"?\"]}),`\n`,(0,n.jsx)(e.h3,{children:(0,n.jsx)(e.code,{children:\"event.preventDefault()\"})}),`\n`,(0,n.jsxs)(e.p,{children:[(0,n.jsx)(e.code,{children:\"event.preventDefault()\"}),\" is a method that cancels the event if it is cancelable, meaning that the default action that belongs to the event will not occur. For example, this can be used to prevent a form from being submitted:\"]}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-js\",children:`document.querySelector('form').addEventListener('submit', function (event) {\n  event.preventDefault();\n  // Form submission is prevented\n});\n`})}),`\n`,(0,n.jsx)(e.h3,{children:(0,n.jsx)(e.code,{children:\"event.stopPropagation()\"})}),`\n`,(0,n.jsxs)(e.p,{children:[(0,n.jsx)(e.code,{children:\"event.stopPropagation()\"}),\" is a method that prevents the event from bubbling up the DOM tree, stopping any parent handlers from being notified of the event. This is useful when you want to handle an event at a specific level and do not want it to trigger handlers on parent elements:\"]}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-js\",children:`document.querySelector('.child').addEventListener('click', function (event) {\n  event.stopPropagation();\n  // Click event will not propagate to parent elements\n});\n`})}),`\n`,(0,n.jsx)(e.h3,{children:\"Key differences\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.code,{children:\"event.preventDefault()\"}),\" stops the default action associated with the event.\"]}),`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.code,{children:\"event.stopPropagation()\"}),\" stops the event from propagating (bubbling) up to parent elements.\"]}),`\n`]}),`\n`,(0,n.jsx)(e.h3,{children:\"Use cases\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsxs)(e.li,{children:[\"Use \",(0,n.jsx)(e.code,{children:\"event.preventDefault()\"}),\" when you want to prevent the default behavior of an element, such as preventing a link from navigating or a form from submitting.\"]}),`\n`,(0,n.jsxs)(e.li,{children:[\"Use \",(0,n.jsx)(e.code,{children:\"event.stopPropagation()\"}),\" when you want to prevent an event from reaching parent elements, which can be useful in complex UIs where multiple elements have event listeners.\"]}),`\n`]}),`\n`,(0,n.jsx)(e.h2,{children:\"Further reading\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault\",children:\"MDN Web Docs: event.preventDefault()\"})}),`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://developer.mozilla.org/en-US/docs/Web/API/Event/stopPropagation\",children:\"MDN Web Docs: event.stopPropagation()\"})}),`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://javascript.info/bubbling-and-capturing\",children:\"JavaScript Event Propagation\"})}),`\n`]})]})}function P(t={}){let{wrapper:e}=t.components||{};return e?(0,n.jsx)(e,Object.assign({},t,{children:(0,n.jsx)(s,t)})):s(t)}var x=P;return D(j);})();\n;return Component;"

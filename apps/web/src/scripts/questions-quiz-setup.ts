@@ -2,7 +2,10 @@ import fs from 'fs';
 import { globby } from 'globby';
 import path, { parse } from 'path';
 
-import { readQuestionQuiz } from '../db/questions-bundlers/QuestionsBundlerQuiz';
+import {
+  readQuestionQuiz,
+  readQuestionQuizLocaleAgnostic,
+} from '../db/questions-bundlers/QuestionsBundlerQuiz';
 import type { QuestionsQuizSourceConfig } from '../db/questions-bundlers/QuestionsBundlerQuizConfig';
 import { getQuestionOutPathQuiz } from '../db/questions-bundlers/QuestionsBundlerQuizConfig';
 
@@ -19,6 +22,15 @@ async function generateSetupForQuestion(
   const outDir = getQuestionOutPathQuiz(slug);
 
   fs.mkdirSync(outDir, { recursive: true });
+
+  const { metadata } = await readQuestionQuizLocaleAgnostic(
+    quizSourceConfig,
+    slug,
+  );
+  const metadataPath = path.join(outDir, 'metadata.json');
+
+  fs.writeFileSync(metadataPath, JSON.stringify(metadata, null, 2));
+
   await Promise.all(
     locales.map(async (locale) => {
       const content = await readQuestionQuiz(quizSourceConfig, slug, locale);

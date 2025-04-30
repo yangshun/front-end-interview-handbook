@@ -2,31 +2,7 @@
   "description": null,
   "info": {
     "excerpt": null,
-    "title": "O que é a renderização progressiva?"
-  },
-  "metadata": {
-    "access": "free",
-    "author": null,
-    "companies": [],
-    "created": 1630800000,
-    "difficulty": "medium",
-    "duration": 5,
-    "featured": false,
-    "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
-    "href": "/questions/quiz/what-is-progressive-rendering",
-    "importance": "medium",
-    "languages": [],
-    "nextQuestions": [],
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [],
-    "slug": "what-is-progressive-rendering",
-    "subtitle": null,
-    "topics": [
-      "html"
-    ],
+    "title": "O que é a renderização progressiva?",
     "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/what-is-progressive-rendering/pt-BR.mdx"
   },
   "solution": "var Component=(()=>{var l=Object.create;var i=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var h=Object.getOwnPropertyNames;var g=Object.getPrototypeOf,u=Object.prototype.hasOwnProperty;var v=(r,e)=>()=>(e||r((e={exports:{}}).exports,e),e.exports),w=(r,e)=>{for(var n in e)i(r,n,{get:e[n],enumerable:!0})},d=(r,e,n,s)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let o of h(e))!u.call(r,o)&&o!==n&&i(r,o,{get:()=>e[o],enumerable:!(s=p(e,o))||s.enumerable});return r};var b=(r,e,n)=>(n=r!=null?l(g(r)):{},d(e||!r||!r.__esModule?i(n,\"default\",{value:r,enumerable:!0}):n,r)),x=r=>d(i({},\"__esModule\",{value:!0}),r);var c=v((M,t)=>{t.exports=_jsx_runtime});var y={};w(y,{default:()=>q,frontmatter:()=>f});var a=b(c()),f={title:\"O que \\xE9 a renderiza\\xE7\\xE3o progressiva?\"};function m(r){let e=Object.assign({p:\"p\",h2:\"h2\",ul:\"ul\",li:\"li\",code:\"code\",a:\"a\"},r.components);return(0,a.jsxs)(a.Fragment,{children:[(0,a.jsx)(e.p,{children:\"Renderiza\\xE7\\xE3o progressiva \\xE9 o nome dado \\xE0s t\\xE9cnicas utilizadas para melhorar o desempenho de uma p\\xE1gina da web (em particular, melhorar o tempo percebido de carregamento) para exibir o conte\\xFAdo o mais r\\xE1pido poss\\xEDvel.\"}),`\n`,(0,a.jsx)(e.p,{children:\"Essa pr\\xE1tica costumava ser muito mais comum nos dias anteriores \\xE0 internet banda larga, mas ainda \\xE9 utilizada no desenvolvimento moderno, pois as conex\\xF5es de dados m\\xF3veis est\\xE3o se tornando cada vez mais populares (e inconstantes)!\"}),`\n`,(0,a.jsx)(e.h2,{children:\"Carregamento pregui\\xE7oso (lazy loading) de imagens\"}),`\n`,(0,a.jsx)(e.p,{children:\"As imagens na p\\xE1gina n\\xE3o s\\xE3o carregadas todas de uma vez. A imagem s\\xF3 \\xE9 carregada quando o usu\\xE1rio rola para perto/na parte da p\\xE1gina que exibe a imagem.\"}),`\n`,(0,a.jsxs)(e.ul,{children:[`\n`,(0,a.jsxs)(e.li,{children:[(0,a.jsx)(e.code,{children:'<img loading=\"lazy\">'}),\" \\xE9 uma maneira moderna de ensinar o navegador a adiar o carregamento de imagens que est\\xE3o fora da tela at\\xE9 que o usu\\xE1rio rola perto delas.\"]}),`\n`,(0,a.jsx)(e.li,{children:\"Use JavaScript para ver a posi\\xE7\\xE3o da rolagem e carregar a imagem quando a imagem estiver prestes a vir na tela (comparando as coordenadas da imagem com a posi\\xE7\\xE3o da rolagem).\"}),`\n`]}),`\n`,(0,a.jsx)(e.h2,{children:\"Priorizar conte\\xFAdo vis\\xEDvel (ou renderiza\\xE7\\xE3o acima)\"}),`\n`,(0,a.jsxs)(e.p,{children:[\"Inclua apenas o m\\xEDnimo de CSS/conte\\xFAdo/scripts necess\\xE1rio para a quantidade de p\\xE1ginas que seriam renderizadas no navegador do usu\\xE1rio primeiro para exibir o mais r\\xE1pido poss\\xEDvel, voc\\xEA pode ent\\xE3o usar scripts adiados ou ouvir o evento \",(0,a.jsx)(e.code,{children:\"DOMContentLoaded\"}),\"/\",(0,a.jsx)(e.code,{children:\"load\"}),\" para carregar em outros recursos e conte\\xFAdo.\"]}),`\n`,(0,a.jsx)(e.h2,{children:\"Fragmentos HTML ass\\xEDncronos\"}),`\n`,(0,a.jsxs)(e.p,{children:[\"Liberando partes do HTML para o navegador, \\xE0 medida que a p\\xE1gina \\xE9 constru\\xEDda no back-end. Mais detalhes sobre a t\\xE9cnica podem ser encontrados \",(0,a.jsx)(e.a,{href:\"http://www.ebaytechblog.com/2014/12/08/async-fragments-rediscovering-progressive-html-rendering-with-marko/\",children:\"here\"}),\".\"]}),`\n`,(0,a.jsx)(e.h2,{children:\"Outras t\\xE9cnicas modernas\"}),`\n`,(0,a.jsxs)(e.ul,{children:[`\n`,(0,a.jsx)(e.li,{children:(0,a.jsx)(e.a,{href:\"https://www.patterns.dev/posts/progressive-hydration/\",children:\"Progressive hydration\"})}),`\n`,(0,a.jsx)(e.li,{children:(0,a.jsx)(e.a,{href:\"https://www.patterns.dev/posts/server-side-rendering/\",children:\"Streaming server-side rendering\"})}),`\n`,(0,a.jsx)(e.li,{children:(0,a.jsx)(e.a,{href:\"https://www.patterns.dev/posts/react-selective-hydration/\",children:\"Hydrata\\xE7\\xE3o seletiva\"})}),`\n`]})]})}function z(r={}){let{wrapper:e}=r.components||{};return e?(0,a.jsx)(e,Object.assign({},r,{children:(0,a.jsx)(m,r)})):m(r)}var q=z;return x(y);})();\n;return Component;"

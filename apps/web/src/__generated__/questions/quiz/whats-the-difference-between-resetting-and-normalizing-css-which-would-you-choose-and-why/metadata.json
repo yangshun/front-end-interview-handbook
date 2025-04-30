@@ -1,0 +1,24 @@
+{
+  "access": "free",
+  "author": null,
+  "companies": [],
+  "created": 1630800000,
+  "difficulty": "hard",
+  "duration": 5,
+  "featured": false,
+  "format": "quiz",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/quiz/whats-the-difference-between-resetting-and-normalizing-css-which-would-you-choose-and-why",
+  "importance": "medium",
+  "languages": [],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [],
+  "slug": "whats-the-difference-between-resetting-and-normalizing-css-which-would-you-choose-and-why",
+  "subtitle": null,
+  "topics": [
+    "css"
+  ]
+}

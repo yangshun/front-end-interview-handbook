@@ -1,0 +1,29 @@
+{
+  "access": "free",
+  "author": null,
+  "companies": [
+    "apple",
+    "microsoft",
+    "linkedin"
+  ],
+  "created": 1630800000,
+  "difficulty": "medium",
+  "duration": 5,
+  "featured": true,
+  "format": "quiz",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/quiz/explain-how-prototypal-inheritance-works",
+  "importance": "high",
+  "languages": [],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 130,
+  "similarQuestions": [],
+  "slug": "explain-how-prototypal-inheritance-works",
+  "subtitle": null,
+  "topics": [
+    "javascript",
+    "oop"
+  ]
+}

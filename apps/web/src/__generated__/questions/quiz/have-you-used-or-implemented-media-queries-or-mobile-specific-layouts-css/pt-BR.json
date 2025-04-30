@@ -2,31 +2,7 @@
   "description": null,
   "info": {
     "excerpt": null,
-    "title": "Você usou ou implementou consultas de mídia ou layouts/CSS específicos para dispositivos móveis?"
-  },
-  "metadata": {
-    "access": "free",
-    "author": null,
-    "companies": [],
-    "created": 1630800000,
-    "difficulty": "medium",
-    "duration": 5,
-    "featured": false,
-    "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
-    "href": "/questions/quiz/have-you-used-or-implemented-media-queries-or-mobile-specific-layouts-css",
-    "importance": "low",
-    "languages": [],
-    "nextQuestions": [],
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [],
-    "slug": "have-you-used-or-implemented-media-queries-or-mobile-specific-layouts-css",
-    "subtitle": null,
-    "topics": [
-      "css"
-    ],
+    "title": "Você usou ou implementou consultas de mídia ou layouts/CSS específicos para dispositivos móveis?",
     "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/have-you-used-or-implemented-media-queries-or-mobile-specific-layouts-css/pt-BR.mdx"
   },
   "solution": "var Component=(()=>{var p=Object.create;var a=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var l=Object.getPrototypeOf,x=Object.prototype.hasOwnProperty;var j=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),_=(e,t)=>{for(var o in t)a(e,o,{get:t[o],enumerable:!0})},i=(e,t,o,s)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let n of f(t))!x.call(e,n)&&n!==o&&a(e,n,{get:()=>t[n],enumerable:!(s=d(t,n))||s.enumerable});return e};var g=(e,t,o)=>(o=e!=null?p(l(e)):{},i(t||!e||!e.__esModule?a(o,\"default\",{value:e,enumerable:!0}):o,e)),v=e=>i(a({},\"__esModule\",{value:!0}),e);var u=j((D,m)=>{m.exports=_jsx_runtime});var M={};_(M,{default:()=>C,frontmatter:()=>b});var r=g(u()),b={title:\"Voc\\xEA usou ou implementou consultas de m\\xEDdia ou layouts/CSS espec\\xEDficos para dispositivos m\\xF3veis?\"};function c(e){let t=Object.assign({p:\"p\"},e.components);return(0,r.jsx)(t.p,{children:\"Um exemplo seria transformar uma navega\\xE7\\xE3o em forma de pilha em uma navega\\xE7\\xE3o de abas fixas na parte inferior, al\\xE9m de um determinado ponto de interrup\\xE7\\xE3o.\"})}function h(e={}){let{wrapper:t}=e.components||{};return t?(0,r.jsx)(t,Object.assign({},e,{children:(0,r.jsx)(c,e)})):c(e)}var C=h;return v(M);})();\n;return Component;"

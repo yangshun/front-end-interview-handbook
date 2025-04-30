@@ -1,0 +1,26 @@
+{
+  "access": "free",
+  "author": null,
+  "companies": [],
+  "created": 1630800000,
+  "difficulty": "easy",
+  "duration": 5,
+  "featured": false,
+  "format": "quiz",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/quiz/how-can-you-test-asynchronous-code-in-javascript",
+  "importance": "low",
+  "languages": [],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 999,
+  "similarQuestions": [],
+  "slug": "how-can-you-test-asynchronous-code-in-javascript",
+  "subtitle": null,
+  "topics": [
+    "async",
+    "javascript",
+    "testing"
+  ]
+}

@@ -2,34 +2,7 @@
   "description": null,
   "info": {
     "excerpt": null,
-    "title": "What are the different ways to visually hide content (and make it available only for screen readers)?"
-  },
-  "metadata": {
-    "access": "free",
-    "author": null,
-    "companies": [
-      "bytedance"
-    ],
-    "created": 1630800000,
-    "difficulty": "medium",
-    "duration": 5,
-    "featured": false,
-    "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
-    "href": "/questions/quiz/what-are-the-different-ways-to-visually-hide-content-and-make-it-available-only-for-screen-readers",
-    "importance": "medium",
-    "languages": [],
-    "nextQuestions": [],
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [],
-    "slug": "what-are-the-different-ways-to-visually-hide-content-and-make-it-available-only-for-screen-readers",
-    "subtitle": null,
-    "topics": [
-      "a11y",
-      "css"
-    ],
+    "title": "What are the different ways to visually hide content (and make it available only for screen readers)?",
     "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/what-are-the-different-ways-to-visually-hide-content-and-make-it-available-only-for-screen-readers/en-US.mdx"
   },
   "solution": "var Component=(()=>{var d=Object.create;var r=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var m=Object.getPrototypeOf,b=Object.prototype.hasOwnProperty;var w=(i,e)=>()=>(e||i((e={exports:{}}).exports,e),e.exports),g=(i,e)=>{for(var t in e)r(i,t,{get:e[t],enumerable:!0})},l=(i,e,t,s)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let o of u(e))!b.call(i,o)&&o!==t&&r(i,o,{get:()=>e[o],enumerable:!(s=p(e,o))||s.enumerable});return i};var f=(i,e,t)=>(t=i!=null?d(m(i)):{},l(e||!i||!i.__esModule?r(t,\"default\",{value:i,enumerable:!0}):t,i)),y=i=>l(r({},\"__esModule\",{value:!0}),i);var a=w((C,c)=>{c.exports=_jsx_runtime});var S={};g(S,{default:()=>k,frontmatter:()=>x});var n=f(a()),x={title:\"What are the different ways to visually hide content (and make it available only for screen readers)?\"};function h(i){let e=Object.assign({p:\"p\",h2:\"h2\",code:\"code\",a:\"a\",blockquote:\"blockquote\",strong:\"strong\",ul:\"ul\",li:\"li\",h3:\"h3\",pre:\"pre\"},i.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.p,{children:\"These techniques are related to accessibility (a11y).\"}),`\n`,(0,n.jsx)(e.h2,{children:\"Small/zero size\"}),`\n`,(0,n.jsxs)(e.p,{children:[(0,n.jsx)(e.code,{children:\"width: 1px; height: 1px\"}),\" and a combination of using CSS clip to make the element take up (barely any) space on the screen at all.\"]}),`\n`,(0,n.jsxs)(e.p,{children:[\"Using \",(0,n.jsx)(e.code,{children:\"width: 0; height; 0\"}),\" is not recommended because search engines might penalize this thinking it has a malicious intention, like keyword stuffing.\"]}),`\n`,(0,n.jsx)(e.h2,{children:\"Absolute positioning\"}),`\n`,(0,n.jsxs)(e.p,{children:[(0,n.jsx)(e.code,{children:\"position: absolute; left: -99999px\"}),\" will position an element way outside of the screen. However, as per \",(0,n.jsx)(e.a,{href:\"https://webaim.org/techniques/css/invisiblecontent/\",children:\"WebAIM's article\"}),\":\"]}),`\n`,(0,n.jsxs)(e.blockquote,{children:[`\n`,(0,n.jsx)(e.p,{children:\"Navigable elements, such as links and form controls, should not be hidden off-screen. They would still be navigable by sighted keyboard users, but would not be visible to them, unless they are styled to become visible when they receive keyboard focus.\"}),`\n`]}),`\n`,(0,n.jsx)(e.p,{children:\"Use this only when your contents contain only text.\"}),`\n`,(0,n.jsx)(e.h2,{children:\"Text indentation\"}),`\n`,(0,n.jsxs)(e.p,{children:[(0,n.jsx)(e.code,{children:\"text-indent: -9999px\"}),\". This only works on text within the \",(0,n.jsx)(e.code,{children:\"block\"}),\" elements. Similar to the absolute positioning technique above, focusable elements given this style will still be focusable, causing confusion for sighted users who use keyboard navigation.\"]}),`\n`,(0,n.jsx)(e.h2,{children:\"Incorrect ways\"}),`\n`,(0,n.jsxs)(e.p,{children:[\"The following ways are incorrect because they hide content from the user \",(0,n.jsx)(e.strong,{children:\"AND\"}),\" screen readers, which is incorrect if the purpose is to expose to screen readers only.\"]}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.code,{children:\"display: none\"})}),`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.code,{children:\"visibility: hidden\"})}),`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.code,{children:\"hidden\"}),\" attribute\"]}),`\n`]}),`\n`,(0,n.jsx)(e.h2,{children:\"Techniques in the wild\"}),`\n`,(0,n.jsx)(e.p,{children:\"Ideally, it is recommended to combine the above approaches to make sure it works properly in all browsers.\"}),`\n`,(0,n.jsx)(e.p,{children:\"Instead of implementing your own way to remove an element from the rendering tree and the a11y tree, you are recommended to use one of the following approaches from mature CSS frameworks, which have been battle-tested on many websites.\"}),`\n`,(0,n.jsx)(e.h3,{children:\"Tailwind CSS\"}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-css\",children:`.sr-only {\n  position: absolute;\n  width: 1px;\n  height: 1px;\n  padding: 0;\n  margin: -1px;\n  overflow: hidden;\n  clip: rect(0, 0, 0, 0);\n  white-space: nowrap;\n  border-width: 0;\n}\n`})}),`\n`,(0,n.jsx)(e.h3,{children:\"Bootstrap CSS\"}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-css\",children:`.visually-hidden,\n.visually-hidden-focusable:not(:focus):not(:focus-within) {\n  position: absolute !important;\n  width: 1px !important;\n  height: 1px !important;\n  padding: 0 !important;\n  margin: -1px !important;\n  overflow: hidden !important;\n  clip: rect(0, 0, 0, 0) !important;\n  white-space: nowrap !important;\n  border: 0 !important;\n}\n`})}),`\n`,(0,n.jsx)(e.h2,{children:\"References\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://webaim.org/techniques/css/invisiblecontent/\",children:\"CSS in Action - Invisible Content Just for Screen Reader Users\"})}),`\n`]})]})}function v(i={}){let{wrapper:e}=i.components||{};return e?(0,n.jsx)(e,Object.assign({},i,{children:(0,n.jsx)(h,i)})):h(i)}var k=v;return y(S);})();\n;return Component;"

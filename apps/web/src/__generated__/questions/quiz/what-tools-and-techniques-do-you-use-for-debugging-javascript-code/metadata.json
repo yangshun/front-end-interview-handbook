@@ -1,0 +1,24 @@
+{
+  "access": "free",
+  "author": null,
+  "companies": [],
+  "created": 1630800000,
+  "difficulty": "hard",
+  "duration": 5,
+  "featured": true,
+  "format": "quiz",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/quiz/what-tools-and-techniques-do-you-use-for-debugging-javascript-code",
+  "importance": "low",
+  "languages": [],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 480,
+  "similarQuestions": [],
+  "slug": "what-tools-and-techniques-do-you-use-for-debugging-javascript-code",
+  "subtitle": null,
+  "topics": [
+    "javascript"
+  ]
+}

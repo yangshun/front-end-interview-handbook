@@ -1,0 +1,29 @@
+{
+  "access": "free",
+  "author": null,
+  "companies": [],
+  "created": 1630800000,
+  "difficulty": "medium",
+  "duration": 5,
+  "featured": true,
+  "format": "quiz",
+  "frameworkDefault": "react",
+  "frameworks": [
+    {
+      "framework": "react",
+      "href": "/questions/quiz/how-do-you-test-react-applications"
+    }
+  ],
+  "href": "/questions/quiz/how-do-you-test-react-applications",
+  "importance": "low",
+  "languages": [],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 250,
+  "similarQuestions": [],
+  "slug": "how-do-you-test-react-applications",
+  "subtitle": null,
+  "topics": [
+    "react"
+  ]
+}

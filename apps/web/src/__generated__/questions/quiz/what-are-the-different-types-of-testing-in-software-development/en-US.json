@@ -2,32 +2,7 @@
   "description": null,
   "info": {
     "excerpt": null,
-    "title": "What are the different types of testing in software development?"
-  },
-  "metadata": {
-    "access": "free",
-    "author": null,
-    "companies": [],
-    "created": 1630800000,
-    "difficulty": "easy",
-    "duration": 5,
-    "featured": false,
-    "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
-    "href": "/questions/quiz/what-are-the-different-types-of-testing-in-software-development",
-    "importance": "low",
-    "languages": [],
-    "nextQuestions": [],
-    "published": true,
-    "ranking": 999,
-    "similarQuestions": [],
-    "slug": "what-are-the-different-types-of-testing-in-software-development",
-    "subtitle": null,
-    "topics": [
-      "javascript",
-      "testing"
-    ],
+    "title": "What are the different types of testing in software development?",
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-the-different-types-of-testing-in-software-development/en-US.mdx"
   },
   "solution": "var Component=(()=>{var p=Object.create;var r=Object.defineProperty;var l=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var g=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var m=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),y=(n,e)=>{for(var i in e)r(n,i,{get:e[i],enumerable:!0})},o=(n,e,i,a)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let s of u(e))!f.call(n,s)&&s!==i&&r(n,s,{get:()=>e[s],enumerable:!(a=l(e,s))||a.enumerable});return n};var w=(n,e,i)=>(i=n!=null?p(g(n)):{},o(e||!n||!n.__esModule?r(i,\"default\",{value:n,enumerable:!0}):i,n)),x=n=>o(r({},\"__esModule\",{value:!0}),n);var d=m((q,c)=>{c.exports=_jsx_runtime});var _={};y(_,{default:()=>v,frontmatter:()=>k});var t=w(d()),k={title:\"What are the different types of testing in software development?\"};function h(n){let e=Object.assign({h2:\"h2\",p:\"p\",hr:\"hr\",h3:\"h3\",pre:\"pre\",code:\"code\",ul:\"ul\",li:\"li\",a:\"a\"},n.components);return(0,t.jsxs)(t.Fragment,{children:[(0,t.jsx)(e.h2,{children:\"TL;DR\"}),`\n`,(0,t.jsx)(e.p,{children:\"In software development, there are several types of testing to ensure the quality and functionality of the application. These include unit testing, integration testing, system testing, and acceptance testing. Unit testing focuses on individual components, integration testing checks the interaction between components, system testing evaluates the entire system, and acceptance testing ensures the software meets user requirements.\"}),`\n`,(0,t.jsx)(e.hr,{}),`\n`,(0,t.jsx)(e.h2,{children:\"Different types of testing in software development\"}),`\n`,(0,t.jsx)(e.h3,{children:\"Unit testing\"}),`\n`,(0,t.jsx)(e.p,{children:\"Unit testing involves testing individual components or functions of the software to ensure they work as expected. This type of testing is usually automated and written by developers.\"}),`\n`,(0,t.jsx)(e.pre,{children:(0,t.jsx)(e.code,{className:\"language-js\",children:`// Example of a unit test using Jest\nfunction add(a, b) {\n  return a + b;\n}\n\ntest('adds 1 + 2 to equal 3', () => {\n  expect(add(1, 2)).toBe(3);\n});\n`})}),`\n`,(0,t.jsx)(e.h3,{children:\"Integration testing\"}),`\n`,(0,t.jsx)(e.p,{children:\"Integration testing focuses on the interaction between different components or modules of the software. It ensures that combined parts of the application work together as intended.\"}),`\n`,(0,t.jsx)(e.pre,{children:(0,t.jsx)(e.code,{className:\"language-js\",children:`// Example of an integration test using Jest and Supertest\nconst request = require('supertest');\nconst app = require('./app'); // Your Express app\n\ntest('GET /users returns a list of users', async () => {\n  const response = await request(app).get('/users');\n  expect(response.status).toBe(200);\n  expect(response.body).toEqual(\n    expect.arrayContaining([\n      expect.objectContaining({ id: expect.any(Number) }),\n    ]),\n  );\n});\n`})}),`\n`,(0,t.jsx)(e.h3,{children:\"System testing\"}),`\n`,(0,t.jsx)(e.p,{children:\"System testing evaluates the complete and integrated software system to verify that it meets the specified requirements. This type of testing is usually performed by QA teams.\"}),`\n`,(0,t.jsx)(e.h3,{children:\"Acceptance testing\"}),`\n`,(0,t.jsx)(e.p,{children:\"Acceptance testing, also known as user acceptance testing (UAT), is conducted to determine whether the software is ready for release. It ensures that the software meets the business requirements and is acceptable to the end-users.\"}),`\n`,(0,t.jsx)(e.h2,{children:\"Further reading\"}),`\n`,(0,t.jsxs)(e.ul,{children:[`\n`,(0,t.jsx)(e.li,{children:(0,t.jsx)(e.a,{href:\"https://en.wikipedia.org/wiki/Unit_testing\",children:\"Unit Testing - Wikipedia\"})}),`\n`,(0,t.jsx)(e.li,{children:(0,t.jsx)(e.a,{href:\"https://en.wikipedia.org/wiki/Integration_testing\",children:\"Integration Testing - Wikipedia\"})}),`\n`,(0,t.jsx)(e.li,{children:(0,t.jsx)(e.a,{href:\"https://en.wikipedia.org/wiki/System_testing\",children:\"System Testing - Wikipedia\"})}),`\n`,(0,t.jsx)(e.li,{children:(0,t.jsx)(e.a,{href:\"https://en.wikipedia.org/wiki/Acceptance_testing\",children:\"Acceptance Testing - Wikipedia\"})}),`\n`]})]})}function b(n={}){let{wrapper:e}=n.components||{};return e?(0,t.jsx)(e,Object.assign({},n,{children:(0,t.jsx)(h,n)})):h(n)}var v=b;return x(_);})();\n;return Component;"

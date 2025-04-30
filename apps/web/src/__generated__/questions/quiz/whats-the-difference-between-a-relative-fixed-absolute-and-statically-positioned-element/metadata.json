@@ -1,0 +1,28 @@
+{
+  "access": "free",
+  "author": null,
+  "companies": [
+    "rippling",
+    "salesforce",
+    "amazon"
+  ],
+  "created": 1630800000,
+  "difficulty": "medium",
+  "duration": 5,
+  "featured": false,
+  "format": "quiz",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/quiz/whats-the-difference-between-a-relative-fixed-absolute-and-statically-positioned-element",
+  "importance": "high",
+  "languages": [],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 2,
+  "similarQuestions": [],
+  "slug": "whats-the-difference-between-a-relative-fixed-absolute-and-statically-positioned-element",
+  "subtitle": null,
+  "topics": [
+    "css"
+  ]
+}

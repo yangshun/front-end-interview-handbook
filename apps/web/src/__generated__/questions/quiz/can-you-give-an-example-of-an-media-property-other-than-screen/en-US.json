@@ -2,31 +2,7 @@
   "description": null,
   "info": {
     "excerpt": null,
-    "title": "Can you give an example of an `@media` property other than `screen`?"
-  },
-  "metadata": {
-    "access": "free",
-    "author": null,
-    "companies": [],
-    "created": 1630800000,
-    "difficulty": "medium",
-    "duration": 5,
-    "featured": false,
-    "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
-    "href": "/questions/quiz/can-you-give-an-example-of-an-media-property-other-than-screen",
-    "importance": "low",
-    "languages": [],
-    "nextQuestions": [],
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [],
-    "slug": "can-you-give-an-example-of-an-media-property-other-than-screen",
-    "subtitle": null,
-    "topics": [
-      "css"
-    ],
+    "title": "Can you give an example of an `@media` property other than `screen`?",
     "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/can-you-give-an-example-of-an-media-property-other-than-screen/en-US.mdx"
   },
   "solution": "var Component=(()=>{var p=Object.create;var i=Object.defineProperty;var h=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var u=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var x=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),g=(n,e)=>{for(var c in e)i(n,c,{get:e[c],enumerable:!0})},l=(n,e,c,o)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let t of m(e))!f.call(n,t)&&t!==c&&i(n,t,{get:()=>e[t],enumerable:!(o=h(e,t))||o.enumerable});return n};var j=(n,e,c)=>(c=n!=null?p(u(n)):{},l(e||!n||!n.__esModule?i(c,\"default\",{value:n,enumerable:!0}):c,n)),y=n=>l(i({},\"__esModule\",{value:!0}),n);var s=x((D,d)=>{d.exports=_jsx_runtime});var M={};g(M,{default:()=>C,frontmatter:()=>_});var r=j(s()),_={title:\"Can you give an example of an `@media` property other than `screen`?\"};function a(n){let e=Object.assign({p:\"p\",code:\"code\",ul:\"ul\",li:\"li\",pre:\"pre\"},n.components);return(0,r.jsxs)(r.Fragment,{children:[(0,r.jsxs)(e.p,{children:[\"There are four types of \",(0,r.jsx)(e.code,{children:\"@media\"}),\" properties (including \",(0,r.jsx)(e.code,{children:\"screen\"}),\"):\"]}),`\n`,(0,r.jsxs)(e.ul,{children:[`\n`,(0,r.jsxs)(e.li,{children:[(0,r.jsx)(e.code,{children:\"all\"}),\": for all media type devices\"]}),`\n`,(0,r.jsxs)(e.li,{children:[(0,r.jsx)(e.code,{children:\"print\"}),\": for printers\"]}),`\n`,(0,r.jsxs)(e.li,{children:[(0,r.jsx)(e.code,{children:\"speech\"}),': for screen readers that \"reads\" the page out loud']}),`\n`,(0,r.jsxs)(e.li,{children:[(0,r.jsx)(e.code,{children:\"screen\"}),\": for computer screens, tablets, smart-phones etc.\"]}),`\n`]}),`\n`,(0,r.jsxs)(e.p,{children:[\"Here is an example of \",(0,r.jsx)(e.code,{children:\"print\"}),\" media type's usage:\"]}),`\n`,(0,r.jsx)(e.pre,{children:(0,r.jsx)(e.code,{className:\"language-css\",children:`@media print {\n  body {\n    color: black;\n  }\n}\n`})})]})}function b(n={}){let{wrapper:e}=n.components||{};return e?(0,r.jsx)(e,Object.assign({},n,{children:(0,r.jsx)(a,n)})):a(n)}var C=b;return y(M);})();\n;return Component;"

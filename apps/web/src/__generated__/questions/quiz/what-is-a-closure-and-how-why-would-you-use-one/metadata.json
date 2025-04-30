@@ -1,0 +1,31 @@
+{
+  "access": "free",
+  "author": null,
+  "companies": [
+    "amazon",
+    "linkedin",
+    "microsoft",
+    "salesforce",
+    "bytedance"
+  ],
+  "created": 1630800000,
+  "difficulty": "medium",
+  "duration": 5,
+  "featured": true,
+  "format": "quiz",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/quiz/what-is-a-closure-and-how-why-would-you-use-one",
+  "importance": "high",
+  "languages": [],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 180,
+  "similarQuestions": [],
+  "slug": "what-is-a-closure-and-how-why-would-you-use-one",
+  "subtitle": null,
+  "topics": [
+    "closure",
+    "javascript"
+  ]
+}

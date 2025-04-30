@@ -1,0 +1,24 @@
+{
+  "access": "free",
+  "author": null,
+  "companies": [],
+  "created": 1630800000,
+  "difficulty": "medium",
+  "duration": 5,
+  "featured": true,
+  "format": "quiz",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/quiz/what-are-the-various-ways-to-create-objects-in-javascript",
+  "importance": "high",
+  "languages": [],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 170,
+  "similarQuestions": [],
+  "slug": "what-are-the-various-ways-to-create-objects-in-javascript",
+  "subtitle": null,
+  "topics": [
+    "javascript"
+  ]
+}

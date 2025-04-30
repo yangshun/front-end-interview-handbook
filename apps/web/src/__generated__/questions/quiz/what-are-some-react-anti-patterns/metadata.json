@@ -1,0 +1,29 @@
+{
+  "access": "free",
+  "author": null,
+  "companies": [],
+  "created": 1630800000,
+  "difficulty": "medium",
+  "duration": 5,
+  "featured": true,
+  "format": "quiz",
+  "frameworkDefault": "react",
+  "frameworks": [
+    {
+      "framework": "react",
+      "href": "/questions/quiz/what-are-some-react-anti-patterns"
+    }
+  ],
+  "href": "/questions/quiz/what-are-some-react-anti-patterns",
+  "importance": "low",
+  "languages": [],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 420,
+  "similarQuestions": [],
+  "slug": "what-are-some-react-anti-patterns",
+  "subtitle": null,
+  "topics": [
+    "react"
+  ]
+}

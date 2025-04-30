@@ -1,0 +1,26 @@
+{
+  "access": "free",
+  "author": null,
+  "companies": [
+    "amazon"
+  ],
+  "created": 1630800000,
+  "difficulty": "hard",
+  "duration": 5,
+  "featured": true,
+  "format": "quiz",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/quiz/what-is-use-strict-what-are-the-advantages-and-disadvantages-to-using-it",
+  "importance": "medium",
+  "languages": [],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 240,
+  "similarQuestions": [],
+  "slug": "what-is-use-strict-what-are-the-advantages-and-disadvantages-to-using-it",
+  "subtitle": null,
+  "topics": [
+    "javascript"
+  ]
+}

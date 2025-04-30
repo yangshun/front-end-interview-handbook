@@ -2,31 +2,7 @@
   "description": null,
   "info": {
     "excerpt": null,
-    "title": "What is `Object.seal()` for?"
-  },
-  "metadata": {
-    "access": "free",
-    "author": null,
-    "companies": [],
-    "created": 1630800000,
-    "difficulty": "easy",
-    "duration": 5,
-    "featured": false,
-    "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
-    "href": "/questions/quiz/what-is-objectseal-for",
-    "importance": "low",
-    "languages": [],
-    "nextQuestions": [],
-    "published": true,
-    "ranking": 999,
-    "similarQuestions": [],
-    "slug": "what-is-objectseal-for",
-    "subtitle": null,
-    "topics": [
-      "javascript"
-    ],
+    "title": "What is `Object.seal()` for?",
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-objectseal-for/en-US.mdx"
   },
   "solution": "var Component=(()=>{var h=Object.create;var i=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var g=Object.getOwnPropertyNames;var b=Object.getPrototypeOf,m=Object.prototype.hasOwnProperty;var u=(o,e)=>()=>(e||o((e={exports:{}}).exports,e),e.exports),j=(o,e)=>{for(var r in e)i(o,r,{get:e[r],enumerable:!0})},a=(o,e,r,l)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let t of g(e))!m.call(o,t)&&t!==r&&i(o,t,{get:()=>e[t],enumerable:!(l=p(e,t))||l.enumerable});return o};var f=(o,e,r)=>(r=o!=null?h(b(o)):{},a(e||!o||!o.__esModule?i(r,\"default\",{value:o,enumerable:!0}):r,o)),w=o=>a(i({},\"__esModule\",{value:!0}),o);var c=u((N,s)=>{s.exports=_jsx_runtime});var O={};j(O,{default:()=>y,frontmatter:()=>x});var n=f(c()),x={title:\"What is `Object.seal()` for?\"};function d(o){let e=Object.assign({h2:\"h2\",p:\"p\",code:\"code\",pre:\"pre\",hr:\"hr\",h3:\"h3\",ul:\"ul\",li:\"li\",ol:\"ol\",strong:\"strong\",a:\"a\"},o.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.h2,{children:\"TL;DR\"}),`\n`,(0,n.jsxs)(e.p,{children:[(0,n.jsx)(e.code,{children:\"Object.seal()\"}),\" is used to prevent new properties from being added to an object and to mark all existing properties as non-configurable. This means you can still modify the values of existing properties, but you cannot delete them or add new ones. Doing so will throw errors in strict mode but fail silently in non-strict mode. In the following examples, you can uncomment the 'use strict' comment to see this.\"]}),`\n`,(0,n.jsx)(e.pre,{live:!0,children:(0,n.jsx)(e.code,{className:\"language-js\",children:`// 'use strict'\n\nconst obj = { name: 'John' };\nObject.seal(obj);\n\nobj.name = 'Jane'; // Allowed\nobj.age = 30; // Not allowed, throws an error in strict mode\ndelete obj.name; // Not allowed, throws an error in strict mode\n\nconsole.log(obj); // { name: 'Jane } (unchanged)\n`})}),`\n`,(0,n.jsx)(e.hr,{}),`\n`,(0,n.jsxs)(e.h2,{children:[\"What is \",(0,n.jsx)(e.code,{children:\"Object.seal()\"}),\" for?\"]}),`\n`,(0,n.jsxs)(e.p,{children:[(0,n.jsx)(e.code,{children:\"Object.seal()\"}),\" is a method in JavaScript that seals an object, preventing new properties from being added to it and marking all existing properties as non-configurable. This means that while you can still modify the values of existing properties, you cannot delete them or add new properties.\"]}),`\n`,(0,n.jsx)(e.h3,{children:\"Syntax\"}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-js\",children:`Object.seal(obj);\n`})}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.code,{children:\"obj\"}),\": The object to be sealed.\"]}),`\n`]}),`\n`,(0,n.jsx)(e.h3,{children:\"Behavior\"}),`\n`,(0,n.jsxs)(e.ol,{children:[`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.strong,{children:\"Preventing new properties\"}),\": Once an object is sealed, you cannot add new properties to it.\"]}),`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.strong,{children:\"Non-configurable properties\"}),\": All existing properties become non-configurable, meaning you cannot delete them or change their property descriptors (e.g., making them non-writable).\"]}),`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.strong,{children:\"Modifiable values\"}),\": You can still change the values of existing properties as long as they are writable.\"]}),`\n`]}),`\n`,(0,n.jsx)(e.h3,{children:\"Example\"}),`\n`,(0,n.jsx)(e.pre,{live:!0,children:(0,n.jsx)(e.code,{className:\"language-js\",children:`// 'use strict'\n\nconst person = {\n  name: 'Alice',\n  age: 25,\n};\n\nObject.seal(person);\n\nperson.name = 'Bob'; // Allowed\nperson.age = 30; // Allowed\n\nperson.gender = 'female'; // Not allowed, throws an error in strict mode\ndelete person.name; // Not allowed, throws an error in strict mode\n\nconsole.log(person); // { name: 'Bob', age: 30 } (unchanged)\n`})}),`\n`,(0,n.jsx)(e.h3,{children:\"Use cases\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.strong,{children:\"Data integrity\"}),\": Ensuring that an object structure remains unchanged, which can be useful in scenarios where the object represents a fixed schema.\"]}),`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.strong,{children:\"Security\"}),\": Preventing accidental or malicious modifications to an object, especially in shared or global contexts.\"]}),`\n`]}),`\n`,(0,n.jsx)(e.h3,{children:\"Checking if an object is sealed\"}),`\n`,(0,n.jsxs)(e.p,{children:[\"You can check if an object is sealed using the \",(0,n.jsx)(e.code,{children:\"Object.isSealed()\"}),\" method.\"]}),`\n`,(0,n.jsx)(e.pre,{live:!0,children:(0,n.jsx)(e.code,{className:\"language-js\",children:`const obj = { name: 'John' };\nObject.seal(obj);\n\nconsole.log(Object.isSealed(obj)); // true\n`})}),`\n`,(0,n.jsx)(e.h2,{children:\"Further reading\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/seal\",children:\"MDN Web Docs on Object.seal()\"})}),`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/isSealed\",children:\"MDN Web Docs on Object.isSealed()\"})}),`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://javascript.info/property-descriptors\",children:\"JavaScript.info on property flags and descriptors\"})}),`\n`]})]})}function v(o={}){let{wrapper:e}=o.components||{};return e?(0,n.jsx)(e,Object.assign({},o,{children:(0,n.jsx)(d,o)})):d(o)}var y=v;return w(O);})();\n;return Component;"

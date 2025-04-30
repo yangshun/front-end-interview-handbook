@@ -2,32 +2,7 @@
   "description": null,
   "info": {
     "excerpt": null,
-    "title": "Por que você usaria algo como o evento `load`?"
-  },
-  "metadata": {
-    "access": "free",
-    "author": null,
-    "companies": [],
-    "created": 1630800000,
-    "difficulty": "hard",
-    "duration": 5,
-    "featured": false,
-    "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
-    "href": "/questions/quiz/why-would-you-use-something-like-the-load-event-does-this-event-have-disadvantages-do-you-know-any-alternatives-and-why-would-you-use-those",
-    "importance": "low",
-    "languages": [],
-    "nextQuestions": [],
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [],
-    "slug": "why-would-you-use-something-like-the-load-event-does-this-event-have-disadvantages-do-you-know-any-alternatives-and-why-would-you-use-those",
-    "subtitle": "Este evento tem desvantagens? Você conhece alguma alternativa, e por que as usaria?",
-    "topics": [
-      "web-api",
-      "javascript"
-    ],
+    "title": "Por que você usaria algo como o evento `load`?",
     "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/why-would-you-use-something-like-the-load-event-does-this-event-have-disadvantages-do-you-know-any-alternatives-and-why-would-you-use-those/pt-BR.mdx"
   },
   "solution": "var Component=(()=>{var u=Object.create;var s=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var l=Object.getOwnPropertyNames;var g=Object.getPrototypeOf,j=Object.prototype.hasOwnProperty;var v=(o,e)=>()=>(e||o((e={exports:{}}).exports,e),e.exports),x=(o,e)=>{for(var n in e)s(o,n,{get:e[n],enumerable:!0})},c=(o,e,n,r)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let t of l(e))!j.call(o,t)&&t!==n&&s(o,t,{get:()=>e[t],enumerable:!(r=p(e,t))||r.enumerable});return o};var f=(o,e,n)=>(n=o!=null?u(g(o)):{},c(e||!o||!o.__esModule?s(n,\"default\",{value:o,enumerable:!0}):n,o)),O=o=>c(s({},\"__esModule\",{value:!0}),o);var d=v((q,i)=>{i.exports=_jsx_runtime});var D={};x(D,{default:()=>_,frontmatter:()=>h});var a=f(d()),h={title:\"Por que voc\\xEA usaria algo como o evento `load`?\",subtitle:\"Este evento tem desvantagens? Voc\\xEA conhece alguma alternativa, e por que as usaria?\"};function m(o){let e=Object.assign({p:\"p\",code:\"code\"},o.components);return(0,a.jsxs)(a.Fragment,{children:[(0,a.jsxs)(e.p,{children:[\"O evento \",(0,a.jsx)(e.code,{children:\"load\"}),\" dispara no final do processo de carregamento de documentos. Neste ponto, todos os objetos no documento est\\xE3o no DOM, e todas as imagens, scripts, links e sub-frames terminaram de carregar.\"]}),`\n`,(0,a.jsxs)(e.p,{children:[\"O evento DOM \",(0,a.jsx)(e.code,{children:\"DOMContentLoaded\"}),\" ser\\xE1 acionado ap\\xF3s o DOM para a p\\xE1gina ser constru\\xEDdo, mas n\\xE3o espere outros recursos terminarem de carregar. Isso \\xE9 prefer\\xEDvel em certos casos quando voc\\xEA n\\xE3o precisa que a p\\xE1gina inteira seja carregada antes de inicializar.\"]})]})}function M(o={}){let{wrapper:e}=o.components||{};return e?(0,a.jsx)(e,Object.assign({},o,{children:(0,a.jsx)(m,o)})):m(o)}var _=M;return O(D);})();\n;return Component;"

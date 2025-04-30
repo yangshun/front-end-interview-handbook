@@ -2,36 +2,7 @@
   "description": null,
   "info": {
     "excerpt": null,
-    "title": "What are the benefits of using hooks in React?"
-  },
-  "metadata": {
-    "access": "free",
-    "author": null,
-    "companies": [],
-    "created": 1630800000,
-    "difficulty": "medium",
-    "duration": 5,
-    "featured": true,
-    "format": "quiz",
-    "frameworkDefault": "react",
-    "frameworks": [
-      {
-        "framework": "react",
-        "href": "/questions/quiz/what-are-the-benefits-of-using-hooks-in-react"
-      }
-    ],
-    "href": "/questions/quiz/what-are-the-benefits-of-using-hooks-in-react",
-    "importance": "high",
-    "languages": [],
-    "nextQuestions": [],
-    "published": true,
-    "ranking": 90,
-    "similarQuestions": [],
-    "slug": "what-are-the-benefits-of-using-hooks-in-react",
-    "subtitle": null,
-    "topics": [
-      "react"
-    ],
+    "title": "What are the benefits of using hooks in React?",
     "gitHubEditUrl": "https://github.com/yangshun/top-reactjs-interview-questions/blob/main/questions/what-are-the-benefits-of-using-hooks-in-react/en-US.mdx"
   },
   "solution": "var Component=(()=>{var h=Object.create;var s=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var g=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),k=(t,e)=>{for(var o in e)s(t,o,{get:e[o],enumerable:!0})},a=(t,e,o,i)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let c of m(e))!f.call(t,c)&&c!==o&&s(t,c,{get:()=>e[c],enumerable:!(i=u(e,c))||i.enumerable});return t};var y=(t,e,o)=>(o=t!=null?h(p(t)):{},a(e||!t||!t.__esModule?s(o,\"default\",{value:t,enumerable:!0}):o,t)),b=t=>a(s({},\"__esModule\",{value:!0}),t);var l=g((R,r)=>{r.exports=_jsx_runtime});var x={};k(x,{default:()=>H,frontmatter:()=>j});var n=y(l()),j={title:\"What are the benefits of using hooks in React?\"};function d(t){let e=Object.assign({h2:\"h2\",p:\"p\",code:\"code\",hr:\"hr\",h3:\"h3\",pre:\"pre\",ul:\"ul\",li:\"li\",a:\"a\"},t.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.h2,{children:\"TL;DR\"}),`\n`,(0,n.jsxs)(e.p,{children:[\"Hooks in React allow you to use state and other React features without writing a class. They make it easier to reuse stateful logic between components, improve code readability, and simplify the codebase by reducing the need for lifecycle methods. Hooks like \",(0,n.jsx)(e.code,{children:\"useState\"}),\" and \",(0,n.jsx)(e.code,{children:\"useEffect\"}),\" are commonly used to manage state and side effects in functional components.\"]}),`\n`,(0,n.jsx)(e.hr,{}),`\n`,(0,n.jsx)(e.h2,{children:\"Benefits of using hooks in React\"}),`\n`,(0,n.jsx)(e.h3,{children:\"Simplified state management\"}),`\n`,(0,n.jsxs)(e.p,{children:[\"Hooks like \",(0,n.jsx)(e.code,{children:\"useState\"}),\" allow you to add state to functional components without converting them to class components. This makes the code more concise and easier to read.\"]}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-javascript\",children:`const [count, setCount] = useState(0);\n`})}),`\n`,(0,n.jsx)(e.h3,{children:\"Improved code readability\"}),`\n`,(0,n.jsx)(e.p,{children:\"Hooks help in breaking down complex components into smaller, reusable pieces of logic. This makes the code more modular and easier to understand.\"}),`\n`,(0,n.jsx)(e.h3,{children:\"Reusable logic\"}),`\n`,(0,n.jsx)(e.p,{children:\"Custom hooks allow you to extract and reuse stateful logic across multiple components. This promotes code reuse and reduces duplication.\"}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-javascript\",children:`function useCustomHook() {\n  const [state, setState] = useState(initialState);\n  // Custom logic here\n  return [state, setState];\n}\n`})}),`\n`,(0,n.jsx)(e.h3,{children:\"Reduced need for lifecycle methods\"}),`\n`,(0,n.jsxs)(e.p,{children:[\"Hooks like \",(0,n.jsx)(e.code,{children:\"useEffect\"}),\" can replace lifecycle methods such as \",(0,n.jsx)(e.code,{children:\"componentDidMount\"}),\", \",(0,n.jsx)(e.code,{children:\"componentDidUpdate\"}),\", and \",(0,n.jsx)(e.code,{children:\"componentWillUnmount\"}),\". This simplifies the component lifecycle management.\"]}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-javascript\",children:`useEffect(() => {\n  // Side effect logic here\n  return () => {\n    // Cleanup logic here\n  };\n}, [dependencies]);\n`})}),`\n`,(0,n.jsx)(e.h3,{children:\"Better separation of concerns\"}),`\n`,(0,n.jsx)(e.p,{children:\"Hooks allow you to separate concerns by grouping related logic together. This makes the codebase more maintainable and easier to debug.\"}),`\n`,(0,n.jsx)(e.h3,{children:\"Enhanced testing\"}),`\n`,(0,n.jsx)(e.p,{children:\"Functional components with hooks are generally easier to test compared to class components. Hooks can be tested in isolation, making unit tests more straightforward.\"}),`\n`,(0,n.jsx)(e.h2,{children:\"Further reading\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://reactjs.org/docs/hooks-intro.html\",children:\"React Hooks documentation\"})}),`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://reactjs.org/docs/hooks-state.html\",children:\"Using the State Hook\"})}),`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://reactjs.org/docs/hooks-effect.html\",children:\"Using the Effect Hook\"})}),`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://reactjs.org/docs/hooks-custom.html\",children:\"Building Your Own Hooks\"})}),`\n`]})]})}function w(t={}){let{wrapper:e}=t.components||{};return e?(0,n.jsx)(e,Object.assign({},t,{children:(0,n.jsx)(d,t)})):d(t)}var H=w;return b(x);})();\n;return Component;"

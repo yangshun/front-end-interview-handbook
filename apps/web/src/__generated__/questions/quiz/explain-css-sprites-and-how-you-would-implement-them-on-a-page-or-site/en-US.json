@@ -2,32 +2,7 @@
   "description": null,
   "info": {
     "excerpt": null,
-    "title": "Explain CSS sprites, and how you would implement them on a page or site."
-  },
-  "metadata": {
-    "access": "free",
-    "author": null,
-    "companies": [],
-    "created": 1630800000,
-    "difficulty": "hard",
-    "duration": 5,
-    "featured": false,
-    "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
-    "href": "/questions/quiz/explain-css-sprites-and-how-you-would-implement-them-on-a-page-or-site",
-    "importance": "medium",
-    "languages": [],
-    "nextQuestions": [],
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [],
-    "slug": "explain-css-sprites-and-how-you-would-implement-them-on-a-page-or-site",
-    "subtitle": null,
-    "topics": [
-      "css",
-      "performance"
-    ],
+    "title": "Explain CSS sprites, and how you would implement them on a page or site.",
     "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/explain-css-sprites-and-how-you-would-implement-them-on-a-page-or-site/en-US.mdx"
   },
   "solution": "var Component=(()=>{var h=Object.create;var s=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var g=Object.getOwnPropertyNames;var m=Object.getPrototypeOf,u=Object.prototype.hasOwnProperty;var S=(i,e)=>()=>(e||i((e={exports:{}}).exports,e),e.exports),f=(i,e)=>{for(var o in e)s(i,o,{get:e[o],enumerable:!0})},r=(i,e,o,a)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let t of g(e))!u.call(i,t)&&t!==o&&s(i,t,{get:()=>e[t],enumerable:!(a=p(e,t))||a.enumerable});return i};var b=(i,e,o)=>(o=i!=null?h(m(i)):{},r(e||!i||!i.__esModule?s(o,\"default\",{value:i,enumerable:!0}):o,i)),w=i=>r(s({},\"__esModule\",{value:!0}),i);var c=S((j,l)=>{l.exports=_jsx_runtime});var _={};f(_,{default:()=>k,frontmatter:()=>x});var n=b(c()),x={title:\"Explain CSS sprites, and how you would implement them on a page or site.\"};function d(i){let e=Object.assign({p:\"p\",code:\"code\",h2:\"h2\",ul:\"ul\",li:\"li\",ol:\"ol\",pre:\"pre\",a:\"a\"},i.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsxs)(e.p,{children:[\"CSS sprites combine multiple images into one single larger image file and uses a combination of CSS \",(0,n.jsx)(e.code,{children:\"background-image\"}),\", \",(0,n.jsx)(e.code,{children:\"background-position\"}),\" and \",(0,n.jsx)(e.code,{children:\"background-size\"}),\" to select a specific part of the larger image as the desired image.\"]}),`\n`,(0,n.jsx)(e.p,{children:\"It used to be a commonly-used technique for icons (e.g. Gmail uses sprites for all their images).\"}),`\n`,(0,n.jsx)(e.h2,{children:\"Advantages\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:\"Reduce the number of HTTP requests for multiple images (only one single request is required per spritesheet). But with HTTP2, loading multiple images is no longer much of an issue.\"}),`\n`,(0,n.jsxs)(e.li,{children:[\"Advance downloading of assets that won't be downloaded until needed, such as images that only appear upon \",(0,n.jsx)(e.code,{children:\":hover\"}),\" pseudo-states. Blinking wouldn't be seen.\"]}),`\n`]}),`\n`,(0,n.jsx)(e.h2,{children:\"How to implement\"}),`\n`,(0,n.jsxs)(e.ol,{children:[`\n`,(0,n.jsx)(e.li,{children:\"Use a sprite generator that packs multiple images into one and generate the appropriate CSS for it.\"}),`\n`,(0,n.jsxs)(e.li,{children:[\"Each image would have a corresponding CSS class with \",(0,n.jsx)(e.code,{children:\"background-image\"}),\" and \",(0,n.jsx)(e.code,{children:\"background-position\"}),\" properties defined.\"]}),`\n`,(0,n.jsx)(e.li,{children:\"To use that image, add the corresponding class to your element.\"}),`\n`]}),`\n`,(0,n.jsx)(e.p,{children:\"The generated stylesheet might look something like:\"}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-css\",children:`.icon {\n  background-image: url('https://example.com/images/spritesheet.png');\n  width: 24px;\n  height: 24px;\n}\n\n.icon-cart {\n  background-position: 0 0;\n}\n\n.icon-arrow {\n  background-position: -24px 0;\n}\n`})}),`\n`,(0,n.jsx)(e.p,{children:\"And can be used in the HTML as such:\"}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-html\",children:`<span class=\"icon icon-cart\"></span>\n\n<span class=\"icon icon-arrow\"></span>\n`})}),`\n`,(0,n.jsx)(e.h2,{children:\"References\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Images/Implementing_image_sprites_in_CSS\",children:\"Implementing image sprites in CSS - CSS: Cascading Style Sheets | MDN\"})}),`\n`]})]})}function C(i={}){let{wrapper:e}=i.components||{};return e?(0,n.jsx)(e,Object.assign({},i,{children:(0,n.jsx)(d,i)})):d(i)}var k=C;return w(_);})();\n;return Component;"

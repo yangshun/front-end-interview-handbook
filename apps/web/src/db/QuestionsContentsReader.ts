@@ -204,10 +204,23 @@ export async function readQuestionQuizContents(
     }
   }
 
+  // Read locale agnostic data
+  const metadataResponse = fs.readFileSync(
+    path.join(getQuestionOutPathQuiz(slug), 'metadata.json'),
+  );
+
+  const metadata = JSON.parse(String(metadataResponse));
+  const localeData = JSON.parse(String(response));
+
+  const question = {
+    metadata,
+    ...localeData,
+  } as QuestionQuiz;
+
   return {
     exactMatch: true,
     loadedLocale,
-    question: JSON.parse(String(response)) as QuestionQuiz,
+    question,
   };
 }
 

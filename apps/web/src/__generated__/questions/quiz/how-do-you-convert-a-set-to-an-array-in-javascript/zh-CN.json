@@ -2,31 +2,7 @@
   "description": null,
   "info": {
     "excerpt": null,
-    "title": "如何在 JavaScript 中将 `Set` 转换为数组？"
-  },
-  "metadata": {
-    "access": "free",
-    "author": null,
-    "companies": [],
-    "created": 1630800000,
-    "difficulty": "easy",
-    "duration": 5,
-    "featured": false,
-    "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
-    "href": "/questions/quiz/how-do-you-convert-a-set-to-an-array-in-javascript",
-    "importance": "low",
-    "languages": [],
-    "nextQuestions": [],
-    "published": true,
-    "ranking": 999,
-    "similarQuestions": [],
-    "slug": "how-do-you-convert-a-set-to-an-array-in-javascript",
-    "subtitle": null,
-    "topics": [
-      "javascript"
-    ],
+    "title": "如何在 JavaScript 中将 `Set` 转换为数组？",
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/how-do-you-convert-a-set-to-an-array-in-javascript/zh-CN.mdx"
   },
   "solution": "var Component=(()=>{var s=Object.create;var l=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var y=Object.getPrototypeOf,S=Object.prototype.hasOwnProperty;var u=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),f=(n,e)=>{for(var c in e)l(n,c,{get:e[c],enumerable:!0})},a=(n,e,c,o)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let t of p(e))!S.call(n,t)&&t!==c&&l(n,t,{get:()=>e[t],enumerable:!(o=m(e,t))||o.enumerable});return n};var g=(n,e,c)=>(c=n!=null?s(y(n)):{},a(e||!n||!n.__esModule?l(c,\"default\",{value:n,enumerable:!0}):c,n)),A=n=>a(l({},\"__esModule\",{value:!0}),n);var d=u((D,i)=>{i.exports=_jsx_runtime});var x={};f(x,{default:()=>v,frontmatter:()=>b});var r=g(d()),b={title:\"\\u5982\\u4F55\\u5728 JavaScript \\u4E2D\\u5C06 `Set` \\u8F6C\\u6362\\u4E3A\\u6570\\u7EC4\\uFF1F\"};function h(n){let e=Object.assign({h2:\"h2\",p:\"p\",code:\"code\",pre:\"pre\",hr:\"hr\",h3:\"h3\",ul:\"ul\",li:\"li\",a:\"a\"},n.components);return(0,r.jsxs)(r.Fragment,{children:[(0,r.jsx)(e.h2,{children:\"TL;DR\"}),`\n`,(0,r.jsxs)(e.p,{children:[\"\\u8981\\u5728 JavaScript \\u4E2D\\u5C06 \",(0,r.jsx)(e.code,{children:\"Set\"}),\" \\u8F6C\\u6362\\u4E3A\\u6570\\u7EC4\\uFF0C\\u53EF\\u4EE5\\u4F7F\\u7528 \",(0,r.jsx)(e.code,{children:\"Array.from()\"}),\" \\u65B9\\u6CD5\\u6216\\u6269\\u5C55\\u8FD0\\u7B97\\u7B26\\u3002\\u4F8B\\u5982\\uFF1A\"]}),`\n`,(0,r.jsx)(e.pre,{live:!0,children:(0,r.jsx)(e.code,{className:\"language-js\",children:`const mySet = new Set([1, 2, 3]);\nconst myArray = Array.from(mySet);\n// OR const myArray = [...mySet];\n\nconsole.log(myArray); // Output: [1, 2, 3]\n`})}),`\n`,(0,r.jsx)(e.hr,{}),`\n`,(0,r.jsxs)(e.h2,{children:[\"\\u5982\\u4F55\\u5728 JavaScript \\u4E2D\\u5C06 \",(0,r.jsx)(e.code,{children:\"Set\"}),\" \\u8F6C\\u6362\\u4E3A\\u6570\\u7EC4\\uFF1F\"]}),`\n`,(0,r.jsxs)(e.h3,{children:[\"\\u4F7F\\u7528 \",(0,r.jsx)(e.code,{children:\"Array.from()\"})]}),`\n`,(0,r.jsxs)(e.p,{children:[(0,r.jsx)(e.code,{children:\"Array.from()\"}),\" \\u65B9\\u6CD5\\u4ECE\\u7C7B\\u4F3C\\u6570\\u7EC4\\u6216\\u53EF\\u8FED\\u4EE3\\u5BF9\\u8C61\\uFF08\\u4F8B\\u5982 \",(0,r.jsx)(e.code,{children:\"Set\"}),\"\\uFF09\\u521B\\u5EFA\\u4E00\\u4E2A\\u65B0\\u7684\\u3001\\u6D45\\u62F7\\u8D1D\\u7684\\u6570\\u7EC4\\u5B9E\\u4F8B\\u3002\"]}),`\n`,(0,r.jsx)(e.pre,{live:!0,children:(0,r.jsx)(e.code,{className:\"language-js\",children:`const mySet = new Set([1, 2, 3]);\nconst myArray = Array.from(mySet);\nconsole.log(myArray); // Output: [1, 2, 3]\n`})}),`\n`,(0,r.jsx)(e.h3,{children:\"\\u4F7F\\u7528\\u6269\\u5C55\\u8FD0\\u7B97\\u7B26\"}),`\n`,(0,r.jsxs)(e.p,{children:[\"\\u6269\\u5C55\\u8FD0\\u7B97\\u7B26 (\",(0,r.jsx)(e.code,{children:\"...\"}),\") \\u53EF\\u7528\\u4E8E\\u5C06 \",(0,r.jsx)(e.code,{children:\"Set\"}),\" \\u7684\\u5143\\u7D20\\u5C55\\u5F00\\u5230\\u6570\\u7EC4\\u4E2D\\u3002\"]}),`\n`,(0,r.jsx)(e.pre,{live:!0,children:(0,r.jsx)(e.code,{className:\"language-js\",children:`const mySet = new Set([1, 2, 3]);\nconst myArray = [...mySet];\nconsole.log(myArray); // Output: [1, 2, 3]\n`})}),`\n`,(0,r.jsx)(e.h3,{children:\"\\u6027\\u80FD\\u8003\\u91CF\"}),`\n`,(0,r.jsx)(e.p,{children:\"\\u8FD9\\u4E24\\u79CD\\u65B9\\u6CD5\\u90FD\\u9AD8\\u6548\\u4E14\\u5E38\\u7528\\u3002\\u4F46\\u662F\\uFF0C\\u6269\\u5C55\\u8FD0\\u7B97\\u7B26\\u901A\\u5E38\\u88AB\\u8BA4\\u4E3A\\u66F4\\u7B80\\u6D01\\u6613\\u8BFB\\u3002\\u5BF9\\u4E8E\\u5927\\u591A\\u6570\\u7528\\u4F8B\\uFF0C\\u6027\\u80FD\\u5DEE\\u5F02\\u901A\\u5E38\\u53EF\\u4EE5\\u5FFD\\u7565\\u4E0D\\u8BA1\\uFF0C\\u4F46\\u5BF9\\u4E8E\\u975E\\u5E38\\u5927\\u7684\\u96C6\\u5408\\uFF0C\\u60A8\\u53EF\\u80FD\\u9700\\u8981\\u5BF9\\u8FD9\\u4E24\\u79CD\\u65B9\\u6CD5\\u8FDB\\u884C\\u57FA\\u51C6\\u6D4B\\u8BD5\\uFF0C\\u4EE5\\u67E5\\u770B\\u54EA\\u79CD\\u65B9\\u6CD5\\u5728\\u60A8\\u7684\\u7279\\u5B9A\\u573A\\u666F\\u4E2D\\u8868\\u73B0\\u66F4\\u597D\\u3002\"}),`\n`,(0,r.jsx)(e.h2,{children:\"\\u5EF6\\u4F38\\u9605\\u8BFB\"}),`\n`,(0,r.jsxs)(e.ul,{children:[`\n`,(0,r.jsx)(e.li,{children:(0,r.jsx)(e.a,{href:\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from\",children:\"MDN Web Docs: Array.from()\"})}),`\n`,(0,r.jsx)(e.li,{children:(0,r.jsx)(e.a,{href:\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax\",children:\"MDN Web Docs: Spread syntax\"})}),`\n`,(0,r.jsx)(e.li,{children:(0,r.jsx)(e.a,{href:\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set\",children:\"MDN Web Docs: Set\"})}),`\n`]})]})}function j(n={}){let{wrapper:e}=n.components||{};return e?(0,r.jsx)(e,Object.assign({},n,{children:(0,r.jsx)(h,n)})):h(n)}var v=j;return A(x);})();\n;return Component;"

@@ -2,31 +2,7 @@
   "description": null,
   "info": {
     "excerpt": null,
-    "title": "Describe pseudo-elements and discuss what they are used for."
-  },
-  "metadata": {
-    "access": "free",
-    "author": null,
-    "companies": [],
-    "created": 1630800000,
-    "difficulty": "medium",
-    "duration": 5,
-    "featured": false,
-    "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
-    "href": "/questions/quiz/describe-pseudo-elements-and-discuss-what-they-are-used-for",
-    "importance": "medium",
-    "languages": [],
-    "nextQuestions": [],
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [],
-    "slug": "describe-pseudo-elements-and-discuss-what-they-are-used-for",
-    "subtitle": null,
-    "topics": [
-      "css"
-    ],
+    "title": "Describe pseudo-elements and discuss what they are used for.",
     "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/describe-pseudo-elements-and-discuss-what-they-are-used-for/en-US.mdx"
   },
   "solution": "var Component=(()=>{var h=Object.create;var r=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var f=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var b=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),g=(t,e)=>{for(var s in e)r(t,s,{get:e[s],enumerable:!0})},d=(t,e,s,c)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let o of m(e))!p.call(t,o)&&o!==s&&r(t,o,{get:()=>e[o],enumerable:!(c=u(e,o))||c.enumerable});return t};var S=(t,e,s)=>(s=t!=null?h(f(t)):{},d(e||!t||!t.__esModule?r(s,\"default\",{value:t,enumerable:!0}):s,t)),x=t=>d(r({},\"__esModule\",{value:!0}),t);var i=b((v,l)=>{l.exports=_jsx_runtime});var j={};g(j,{default:()=>C,frontmatter:()=>y});var n=S(i()),y={title:\"Describe pseudo-elements and discuss what they are used for.\"};function a(t){let e=Object.assign({p:\"p\",a:\"a\",code:\"code\",ul:\"ul\",li:\"li\",h2:\"h2\",em:\"em\"},t.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsxs)(e.p,{children:[\"A CSS \",(0,n.jsx)(e.a,{href:\"https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements\",children:\"pseudo-element\"}),\" is a keyword added to a selector that lets you style a specific part of the selected element(s). They can be used for decoration (\",(0,n.jsx)(e.code,{children:\"::first-line\"}),\", \",(0,n.jsx)(e.code,{children:\"::first-letter\"}),\") or adding elements to the markup (combined with \",(0,n.jsx)(e.code,{children:\"content: ...\"}),\") without having to modify the markup (\",(0,n.jsx)(e.code,{children:\":before\"}),\", \",(0,n.jsx)(e.code,{children:\":after\"}),\").\"]}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.code,{children:\"::first-line\"}),\" and \",(0,n.jsx)(e.code,{children:\"::first-letter\"}),\" can be used to decorate text.\"]}),`\n`,(0,n.jsxs)(e.li,{children:[\"Used in the \",(0,n.jsx)(e.code,{children:\".clearfix\"}),\" hack as shown above to add a zero-space element with \",(0,n.jsx)(e.code,{children:\"clear: both\"}),\".\"]}),`\n`,(0,n.jsxs)(e.li,{children:[\"Triangular arrows in tooltips use \",(0,n.jsx)(e.code,{children:\"::before\"}),\" and \",(0,n.jsx)(e.code,{children:\"::after\"}),\". Encourages separation of concerns because the triangle is considered part of styling and not really the DOM.\"]}),`\n`]}),`\n`,(0,n.jsx)(e.h2,{children:\"Notes\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsxs)(e.li,{children:[\"Pseudo-elements are different from \",(0,n.jsx)(e.a,{href:\"https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes\",children:\"pseudo-classes\"}),\", which are used to style an element based on its \",(0,n.jsx)(e.em,{children:\"state\"}),\" (such as \",(0,n.jsx)(e.code,{children:\":hover\"}),\", \",(0,n.jsx)(e.code,{children:\":focus\"}),\", etc).\"]}),`\n`,(0,n.jsx)(e.li,{children:\"Double colons should be used instead of single colon to distinguish pseudo-classes from pseudo-elements. Most browsers support both syntaxs since this distinction was not clear in legacy W3C specs.\"}),`\n`]}),`\n`,(0,n.jsx)(e.h2,{children:\"References\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:(0,n.jsx)(e.a,{href:\"https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements\",children:\"Pseudo-elements - CSS | MDN\"})}),`\n`]})]})}function w(t={}){let{wrapper:e}=t.components||{};return e?(0,n.jsx)(e,Object.assign({},t,{children:(0,n.jsx)(a,t)})):a(t)}var C=w;return x(j);})();\n;return Component;"

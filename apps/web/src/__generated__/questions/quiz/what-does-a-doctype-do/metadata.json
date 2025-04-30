@@ -1,0 +1,26 @@
+{
+  "access": "free",
+  "author": null,
+  "companies": [
+    "apple"
+  ],
+  "created": 1630800000,
+  "difficulty": "hard",
+  "duration": 5,
+  "featured": false,
+  "format": "quiz",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/quiz/what-does-a-doctype-do",
+  "importance": "low",
+  "languages": [],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [],
+  "slug": "what-does-a-doctype-do",
+  "subtitle": null,
+  "topics": [
+    "html"
+  ]
+}

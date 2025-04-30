@@ -2,31 +2,7 @@
   "description": null,
   "info": {
     "excerpt": null,
-    "title": "Why you would use a `srcset` attribute in an image tag?"
-  },
-  "metadata": {
-    "access": "free",
-    "author": null,
-    "companies": [],
-    "created": 1630800000,
-    "difficulty": "medium",
-    "duration": 5,
-    "featured": false,
-    "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
-    "href": "/questions/quiz/why-you-would-use-a-srcset-attribute-in-an-image-tag",
-    "importance": "medium",
-    "languages": [],
-    "nextQuestions": [],
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [],
-    "slug": "why-you-would-use-a-srcset-attribute-in-an-image-tag",
-    "subtitle": "Explain the process the browser uses when evaluating the content of this attribute.",
-    "topics": [
-      "html"
-    ],
+    "title": "Why you would use a `srcset` attribute in an image tag?",
     "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/why-you-would-use-a-srcset-attribute-in-an-image-tag/en-US.mdx"
   },
   "solution": "var Component=(()=>{var d=Object.create;var o=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var g=Object.getOwnPropertyNames;var m=Object.getPrototypeOf,w=Object.prototype.hasOwnProperty;var p=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),b=(t,e)=>{for(var n in e)o(t,n,{get:e[n],enumerable:!0})},l=(t,e,n,r)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let s of g(e))!w.call(t,s)&&s!==n&&o(t,s,{get:()=>e[s],enumerable:!(r=u(e,s))||r.enumerable});return t};var f=(t,e,n)=>(n=t!=null?d(m(t)):{},l(e||!t||!t.__esModule?o(n,\"default\",{value:t,enumerable:!0}):n,t)),y=t=>l(o({},\"__esModule\",{value:!0}),t);var c=p((M,a)=>{a.exports=_jsx_runtime});var _={};b(_,{default:()=>j,frontmatter:()=>v});var i=f(c()),v={title:\"Why you would use a `srcset` attribute in an image tag?\",subtitle:\"Explain the process the browser uses when evaluating the content of this attribute.\"};function h(t){let e=Object.assign({p:\"p\",code:\"code\",ul:\"ul\",li:\"li\"},t.components);return(0,i.jsxs)(i.Fragment,{children:[(0,i.jsxs)(e.p,{children:[\"You would use the \",(0,i.jsx)(e.code,{children:\"srcset\"}),\" attribute when you want to serve different images to users depending on their device display width - serve higher quality images to devices with retina display enhances the user experience while serving lower resolution images to low-end devices increase performance and decrease data wastage (because serving a larger image will not have any visible difference). For example: \",(0,i.jsx)(e.code,{children:'<img srcset=\"small.jpg 500w, medium.jpg 1000w, large.jpg 2000w\" src=\"...\" alt=\"\">'}),\" tells the browser to display the small, medium or large \",(0,i.jsx)(e.code,{children:\".jpg\"}),\" graphic depending on the client's resolution. The first value is the image name and the second is the width of the image in pixels. For a device width of 320px, the following calculations are made:\"]}),`\n`,(0,i.jsxs)(e.ul,{children:[`\n`,(0,i.jsx)(e.li,{children:\"500 / 320 = 1.5625\"}),`\n`,(0,i.jsx)(e.li,{children:\"1000 / 320 = 3.125\"}),`\n`,(0,i.jsx)(e.li,{children:\"2000 / 320 = 6.25\"}),`\n`]}),`\n`,(0,i.jsxs)(e.p,{children:[\"If the client's resolution is 1x, 1.5625 is the closest, and \",(0,i.jsx)(e.code,{children:\"500w\"}),\" corresponding to \",(0,i.jsx)(e.code,{children:\"small.jpg\"}),\" will be selected by the browser.\"]}),`\n`,(0,i.jsx)(e.p,{children:\"If the resolution is retina (2x), the browser will use the closest resolution above the minimum. Meaning it will not choose the 500w (1.5625) because it is greater than 1 and the image might look bad. The browser would then choose the image with a resulting ratio closer to 2 which is 1000w (3.125).\"}),`\n`,(0,i.jsxs)(e.p,{children:[(0,i.jsx)(e.code,{children:\"srcset\"}),\"s solve the problem whereby you want to serve smaller image files to narrow screen devices, as they don't need huge images like desktop displays do \\u2014 and also optionally that you want to serve different resolution images to high density/low-density screens.\"]})]})}function x(t={}){let{wrapper:e}=t.components||{};return e?(0,i.jsx)(e,Object.assign({},t,{children:(0,i.jsx)(h,t)})):h(t)}var j=x;return y(_);})();\n;return Component;"

@@ -2,34 +2,7 @@
   "description": null,
   "info": {
     "excerpt": null,
-    "title": "Existe alguma razão para você querer usar `translate()` ao invés de posicionamento `absolute`, ou vice-versa? E por quê?"
-  },
-  "metadata": {
-    "access": "free",
-    "author": null,
-    "companies": [
-      "bytedance"
-    ],
-    "created": 1630800000,
-    "difficulty": "hard",
-    "duration": 5,
-    "featured": false,
-    "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
-    "href": "/questions/quiz/is-there-any-reason-youd-want-to-use-translate-instead-of-absolute-positioning-or-vice-versa-and-why",
-    "importance": "high",
-    "languages": [],
-    "nextQuestions": [],
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [],
-    "slug": "is-there-any-reason-youd-want-to-use-translate-instead-of-absolute-positioning-or-vice-versa-and-why",
-    "subtitle": null,
-    "topics": [
-      "css",
-      "performance"
-    ],
+    "title": "Existe alguma razão para você querer usar `translate()` ao invés de posicionamento `absolute`, ou vice-versa? E por quê?",
     "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/is-there-any-reason-youd-want-to-use-translate-instead-of-absolute-positioning-or-vice-versa-and-why/pt-BR.mdx"
   },
   "solution": "var Component=(()=>{var u=Object.create;var s=Object.defineProperty;var l=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var f=Object.getPrototypeOf,h=Object.prototype.hasOwnProperty;var v=(e,o)=>()=>(o||e((o={exports:{}}).exports,o),o.exports),x=(e,o)=>{for(var n in o)s(e,n,{get:o[n],enumerable:!0})},i=(e,o,n,t)=>{if(o&&typeof o==\"object\"||typeof o==\"function\")for(let r of p(o))!h.call(e,r)&&r!==n&&s(e,r,{get:()=>o[r],enumerable:!(t=l(o,r))||t.enumerable});return e};var g=(e,o,n)=>(n=e!=null?u(f(e)):{},i(o||!e||!e.__esModule?s(n,\"default\",{value:e,enumerable:!0}):n,e)),j=e=>i(s({},\"__esModule\",{value:!0}),e);var d=v((C,c)=>{c.exports=_jsx_runtime});var P={};x(P,{default:()=>M,frontmatter:()=>_});var a=g(d()),_={title:\"Existe alguma raz\\xE3o para voc\\xEA querer usar `translate()` ao inv\\xE9s de posicionamento `absolute`, ou vice-versa? E por qu\\xEA?\"};function m(e){let o=Object.assign({p:\"p\",code:\"code\"},e.components);return(0,a.jsxs)(a.Fragment,{children:[(0,a.jsxs)(o.p,{children:[(0,a.jsx)(o.code,{children:\"translate()\"}),\" \\xE9 um valor poss\\xEDvel da propriedade CSS \",(0,a.jsx)(o.code,{children:\"transform\"}),\". Ao usar \",(0,a.jsx)(o.code,{children:\"traduzir()\"}),\", o elemento ainda ocupa seu espa\\xE7o original (mais ou menos como o \",(0,a.jsx)(o.code,{children:\"position: relative\"}),\"). Mas ao mudar o posicionamento absoluto dos elementos, os elementos s\\xE3o removidos do fluxo da p\\xE1gina e o posicionamento dos elementos ao redor ser\\xE1 afetado. Portanto, o layout da p\\xE1gina ter\\xE1 que ser recalculado.\"]}),`\n`,(0,a.jsxs)(o.p,{children:[\"Mudar \",(0,a.jsx)(o.code,{children:\"transform\"}),\" ou \",(0,a.jsx)(o.code,{children:\"opacity\"}),\" n\\xE3o aciona reflows ou repaints no navegador, mas aciona composi\\xE7\\xF5es; Por outro lado, mudar o posicionamento absoluto aciona um \",(0,a.jsx)(o.code,{children:\"reflow\"}),\". \",(0,a.jsx)(o.code,{children:\"transform\"}),\" faz com que o navegador crie uma camada GPU para o elemento, mas mudar as propriedades de posicionamento absoluto usa a CPU. Portanto, \",(0,a.jsx)(o.code,{children:\"translate()\"}),\" \\xE9 mais eficiente e resultar\\xE1 em tempos de pintura mais curtos para anima\\xE7\\xF5es mais suaves.\"]})]})}function b(e={}){let{wrapper:o}=e.components||{};return o?(0,a.jsx)(o,Object.assign({},e,{children:(0,a.jsx)(m,e)})):m(e)}var M=b;return j(P);})();\n;return Component;"

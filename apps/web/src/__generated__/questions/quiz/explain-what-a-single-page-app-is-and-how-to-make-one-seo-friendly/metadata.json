@@ -1,0 +1,25 @@
+{
+  "access": "free",
+  "author": null,
+  "companies": [],
+  "created": 1630800000,
+  "difficulty": "hard",
+  "duration": 5,
+  "featured": false,
+  "format": "quiz",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/quiz/explain-what-a-single-page-app-is-and-how-to-make-one-seo-friendly",
+  "importance": "medium",
+  "languages": [],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 999,
+  "similarQuestions": [],
+  "slug": "explain-what-a-single-page-app-is-and-how-to-make-one-seo-friendly",
+  "subtitle": null,
+  "topics": [
+    "javascript",
+    "html"
+  ]
+}

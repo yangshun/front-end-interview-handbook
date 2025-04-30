@@ -1,0 +1,24 @@
+{
+  "access": "free",
+  "author": null,
+  "companies": [],
+  "created": 1630800000,
+  "difficulty": "medium",
+  "duration": 5,
+  "featured": false,
+  "format": "quiz",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/quiz/what-are-the-various-clearing-techniques-and-which-is-appropriate-for-what-context",
+  "importance": "low",
+  "languages": [],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [],
+  "slug": "what-are-the-various-clearing-techniques-and-which-is-appropriate-for-what-context",
+  "subtitle": null,
+  "topics": [
+    "css"
+  ]
+}

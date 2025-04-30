@@ -40,13 +40,13 @@ function GitHubEditButton({
 }>) {
   const intl = useIntl();
 
-  if (!question.metadata.gitHubEditUrl) {
+  if (!question.info.gitHubEditUrl) {
     return null;
   }
 
   return (
     <Button
-      href={question.metadata.gitHubEditUrl}
+      href={question.info.gitHubEditUrl}
       icon={RiEditBoxLine}
       label={intl.formatMessage({
         defaultMessage: 'Edit on GitHub',

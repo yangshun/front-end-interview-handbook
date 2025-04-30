@@ -1,0 +1,29 @@
+{
+  "access": "free",
+  "author": null,
+  "companies": [],
+  "created": 1630800000,
+  "difficulty": "medium",
+  "duration": 5,
+  "featured": true,
+  "format": "quiz",
+  "frameworkDefault": "react",
+  "frameworks": [
+    {
+      "framework": "react",
+      "href": "/questions/quiz/what-is-the-flux-pattern-and-what-are-its-benefits"
+    }
+  ],
+  "href": "/questions/quiz/what-is-the-flux-pattern-and-what-are-its-benefits",
+  "importance": "medium",
+  "languages": [],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 340,
+  "similarQuestions": [],
+  "slug": "what-is-the-flux-pattern-and-what-are-its-benefits",
+  "subtitle": null,
+  "topics": [
+    "react"
+  ]
+}

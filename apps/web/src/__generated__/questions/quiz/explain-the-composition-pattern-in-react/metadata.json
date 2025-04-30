@@ -1,0 +1,29 @@
+{
+  "access": "free",
+  "author": null,
+  "companies": [],
+  "created": 1630800000,
+  "difficulty": "medium",
+  "duration": 5,
+  "featured": true,
+  "format": "quiz",
+  "frameworkDefault": "react",
+  "frameworks": [
+    {
+      "framework": "react",
+      "href": "/questions/quiz/explain-the-composition-pattern-in-react"
+    }
+  ],
+  "href": "/questions/quiz/explain-the-composition-pattern-in-react",
+  "importance": "medium",
+  "languages": [],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 440,
+  "similarQuestions": [],
+  "slug": "explain-the-composition-pattern-in-react",
+  "subtitle": null,
+  "topics": [
+    "react"
+  ]
+}

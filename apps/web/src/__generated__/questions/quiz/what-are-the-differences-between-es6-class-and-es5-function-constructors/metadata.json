@@ -1,0 +1,25 @@
+{
+  "access": "free",
+  "author": null,
+  "companies": [],
+  "created": 1630800000,
+  "difficulty": "hard",
+  "duration": 5,
+  "featured": true,
+  "format": "quiz",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/quiz/what-are-the-differences-between-es6-class-and-es5-function-constructors",
+  "importance": "high",
+  "languages": [],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 200,
+  "similarQuestions": [],
+  "slug": "what-are-the-differences-between-es6-class-and-es5-function-constructors",
+  "subtitle": null,
+  "topics": [
+    "javascript",
+    "oop"
+  ]
+}

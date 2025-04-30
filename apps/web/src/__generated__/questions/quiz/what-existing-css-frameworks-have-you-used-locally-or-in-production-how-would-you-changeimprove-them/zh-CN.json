@@ -2,31 +2,7 @@
   "description": null,
   "info": {
     "excerpt": null,
-    "title": "您在本地或生产中使用了哪些现有的 CSS 框架？"
-  },
-  "metadata": {
-    "access": "free",
-    "author": null,
-    "companies": [],
-    "created": 1630800000,
-    "difficulty": "medium",
-    "duration": 5,
-    "featured": false,
-    "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
-    "href": "/questions/quiz/what-existing-css-frameworks-have-you-used-locally-or-in-production-how-would-you-changeimprove-them",
-    "importance": "low",
-    "languages": [],
-    "nextQuestions": [],
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [],
-    "slug": "what-existing-css-frameworks-have-you-used-locally-or-in-production-how-would-you-changeimprove-them",
-    "subtitle": "您将如何更改/改进它们？",
-    "topics": [
-      "css"
-    ],
+    "title": "您在本地或生产中使用了哪些现有的 CSS 框架？",
     "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/what-existing-css-frameworks-have-you-used-locally-or-in-production-how-would-you-changeimprove-them/zh-CN.mdx"
   },
   "solution": "var Component=(()=>{var d=Object.create;var s=Object.defineProperty;var h=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var x=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var g=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),j=(n,t)=>{for(var e in t)s(n,e,{get:t[e],enumerable:!0})},l=(n,t,e,i)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let r of m(t))!p.call(n,r)&&r!==e&&s(n,r,{get:()=>t[r],enumerable:!(i=h(t,r))||i.enumerable});return n};var _=(n,t,e)=>(e=n!=null?d(x(n)):{},l(t||!n||!n.__esModule?s(e,\"default\",{value:n,enumerable:!0}):e,n)),f=n=>l(s({},\"__esModule\",{value:!0}),n);var a=g((D,c)=>{c.exports=_jsx_runtime});var M={};j(M,{default:()=>C,frontmatter:()=>B});var o=_(a()),B={title:\"\\u60A8\\u5728\\u672C\\u5730\\u6216\\u751F\\u4EA7\\u4E2D\\u4F7F\\u7528\\u4E86\\u54EA\\u4E9B\\u73B0\\u6709\\u7684 CSS \\u6846\\u67B6\\uFF1F\",subtitle:\"\\u60A8\\u5C06\\u5982\\u4F55\\u66F4\\u6539/\\u6539\\u8FDB\\u5B83\\u4EEC\\uFF1F\"};function u(n){let t=Object.assign({ul:\"ul\",li:\"li\",strong:\"strong\"},n.components);return(0,o.jsxs)(t.ul,{children:[`\n`,(0,o.jsxs)(t.li,{children:[(0,o.jsx)(t.strong,{children:\"Bootstrap\"}),\": \\u53D1\\u5E03\\u5468\\u671F\\u6162\\u3002Bootstrap 4 \\u5DF2\\u7ECF\\u5904\\u4E8E alpha \\u72B6\\u6001\\u5C06\\u8FD1 2 \\u5E74\\u3002Bootstrap \\u7684\\u672A\\u6765\\u7248\\u672C\\u5E94\\u8BE5\\u5305\\u542B\\u4E00\\u4E2A\\u5FAE\\u8C03\\u5668\\u6309\\u94AE\\u7EC4\\u4EF6\\uFF0C\\u56E0\\u4E3A\\u5B83\\u88AB\\u5E7F\\u6CDB\\u4F7F\\u7528\\u3002\"]}),`\n`,(0,o.jsxs)(t.li,{children:[(0,o.jsx)(t.strong,{children:\"Semantic UI\"}),\": \\u6E90\\u4EE3\\u7801\\u7ED3\\u6784\\u4F7F\\u5F97\\u4E3B\\u9898\\u5B9A\\u5236\\u6781\\u96BE\\u7406\\u89E3\\u3002\\u5B83\\u975E\\u4F20\\u7EDF\\u7684\\u4E3B\\u9898\\u7CFB\\u7EDF\\u96BE\\u4EE5\\u5B9A\\u5236\\u3002\\u4F9B\\u5E94\\u5546\\u5E93\\u4E2D\\u786C\\u7F16\\u7801\\u7684\\u914D\\u7F6E\\u8DEF\\u5F84\\u3002\\u4E0D\\u50CF Bootstrap \\u90A3\\u6837\\uFF0C\\u4E0D\\u64C5\\u957F\\u8986\\u76D6\\u53D8\\u91CF\\u3002\"]}),`\n`,(0,o.jsxs)(t.li,{children:[(0,o.jsx)(t.strong,{children:\"Bulma\"}),\": \\u9700\\u8981\\u5927\\u91CF\\u975E\\u8BED\\u4E49\\u548C\\u591A\\u4F59\\u7684\\u7C7B\\u548C\\u6807\\u8BB0\\u3002\\u4E0D\\u5411\\u540E\\u517C\\u5BB9\\u3002\\u5347\\u7EA7\\u7248\\u672C\\u4F1A\\u4EE5\\u5FAE\\u5999\\u7684\\u65B9\\u5F0F\\u7834\\u574F\\u5E94\\u7528\\u7A0B\\u5E8F\\u3002\"]}),`\n`]})}function b(n={}){let{wrapper:t}=n.components||{};return t?(0,o.jsx)(t,Object.assign({},n,{children:(0,o.jsx)(u,n)})):u(n)}var C=b;return f(M);})();\n;return Component;"

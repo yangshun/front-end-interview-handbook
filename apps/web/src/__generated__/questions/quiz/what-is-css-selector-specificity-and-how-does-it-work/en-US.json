@@ -2,31 +2,7 @@
   "description": null,
   "info": {
     "excerpt": null,
-    "title": "What is CSS selector specificity and how does it work?"
-  },
-  "metadata": {
-    "access": "free",
-    "author": null,
-    "companies": [],
-    "created": 1630800000,
-    "difficulty": "hard",
-    "duration": 5,
-    "featured": false,
-    "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
-    "href": "/questions/quiz/what-is-css-selector-specificity-and-how-does-it-work",
-    "importance": "high",
-    "languages": [],
-    "nextQuestions": [],
-    "published": true,
-    "ranking": 1,
-    "similarQuestions": [],
-    "slug": "what-is-css-selector-specificity-and-how-does-it-work",
-    "subtitle": null,
-    "topics": [
-      "css"
-    ],
+    "title": "What is CSS selector specificity and how does it work?",
     "gitHubEditUrl": "https://github.com/yangshun/front-end-interview-handbook/blob/main/packages/quiz/questions/what-is-css-selector-specificity-and-how-does-it-work/en-US.mdx"
   },
   "solution": "var Component=(()=>{var d=Object.create;var r=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var f=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var y=(i,e)=>()=>(e||i((e={exports:{}}).exports,e),e.exports),b=(i,e)=>{for(var n in e)r(i,n,{get:e[n],enumerable:!0})},c=(i,e,n,s)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let o of m(e))!p.call(i,o)&&o!==n&&r(i,o,{get:()=>e[o],enumerable:!(s=u(e,o))||s.enumerable});return i};var g=(i,e,n)=>(n=i!=null?d(f(i)):{},c(e||!i||!i.__esModule?r(n,\"default\",{value:i,enumerable:!0}):n,i)),w=i=>c(r({},\"__esModule\",{value:!0}),i);var a=y((_,l)=>{l.exports=_jsx_runtime});var j={};b(j,{default:()=>x,frontmatter:()=>S});var t=g(a()),S={title:\"What is CSS selector specificity and how does it work?\"};function h(i){let e=Object.assign({p:\"p\",code:\"code\",ol:\"ol\",li:\"li\"},i.components);return(0,t.jsxs)(t.Fragment,{children:[(0,t.jsxs)(e.p,{children:[\"The browser determines what styles to show on an element depending on the specificity of CSS rules. We assume that the browser has already determined the rules that match a particular element. Among the matching rules, the specificity, four comma-separate values, \",(0,t.jsx)(e.code,{children:\"a, b, c, d\"}),\" are calculated for each rule based on the following:\"]}),`\n`,(0,t.jsxs)(e.ol,{children:[`\n`,(0,t.jsxs)(e.li,{children:[(0,t.jsx)(e.code,{children:\"a\"}),\" is whether inline styles are being used. If the property declaration is an inline style on the element, \",(0,t.jsx)(e.code,{children:\"a\"}),\" is 1, else 0.\"]}),`\n`,(0,t.jsxs)(e.li,{children:[(0,t.jsx)(e.code,{children:\"b\"}),\" is the number of ID selectors.\"]}),`\n`,(0,t.jsxs)(e.li,{children:[(0,t.jsx)(e.code,{children:\"c\"}),\" is the number of classes, attributes and pseudo-classes selectors.\"]}),`\n`,(0,t.jsxs)(e.li,{children:[(0,t.jsx)(e.code,{children:\"d\"}),\" is the number of tags and pseudo-elements selectors.\"]}),`\n`]}),`\n`,(0,t.jsxs)(e.p,{children:[\"The resulting specificity is not a single numerical score, but an array of values that can be compared column by column. When comparing selectors to determine which has the highest specificity, look from left to right, and compare the highest value in each column. So a value in column \",(0,t.jsx)(e.code,{children:\"b\"}),\" will override values in columns \",(0,t.jsx)(e.code,{children:\"c\"}),\" and \",(0,t.jsx)(e.code,{children:\"d\"}),\", no matter what they might be. As such, specificity of \",(0,t.jsx)(e.code,{children:\"0, 1, 0, 0\"}),\" would be greater than one of \",(0,t.jsx)(e.code,{children:\"0, 0, 10, 10\"}),\".\"]}),`\n`,(0,t.jsx)(e.p,{children:\"In the cases of equal specificity: the latest rule is the one that counts. If you have written the same rule into your stylesheet (regardless of internal or external) twice, then the lower rule in your stylesheet is closer to the element to be styled, it is deemed to be more specific and therefore will be applied.\"}),`\n`,(0,t.jsxs)(e.p,{children:[\"It's a better practice to write CSS rules with low specificity so that they can be easily overridden if necessary. When writing CSS UI component library code, it is important that they have low specificities so that users of the library can override them without using too complicated CSS rules just for the sake of increasing specificity or resorting to \",(0,t.jsx)(e.code,{children:\"!important\"}),\".\"]})]})}function v(i={}){let{wrapper:e}=i.components||{};return e?(0,t.jsx)(e,Object.assign({},i,{children:(0,t.jsx)(h,i)})):h(i)}var x=v;return w(j);})();\n;return Component;"

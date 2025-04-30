@@ -2,31 +2,7 @@
   "description": null,
   "info": {
     "excerpt": null,
-    "title": "Qual é a diferença entre `==` e `===`?"
-  },
-  "metadata": {
-    "access": "free",
-    "author": null,
-    "companies": [],
-    "created": 1630800000,
-    "difficulty": "easy",
-    "duration": 5,
-    "featured": true,
-    "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
-    "href": "/questions/quiz/what-is-the-difference-between-double-equal-and-triple-equal",
-    "importance": "high",
-    "languages": [],
-    "nextQuestions": [],
-    "published": true,
-    "ranking": 30,
-    "similarQuestions": [],
-    "slug": "what-is-the-difference-between-double-equal-and-triple-equal",
-    "subtitle": null,
-    "topics": [
-      "javascript"
-    ],
+    "title": "Qual é a diferença entre `==` e `===`?",
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-is-the-difference-between-double-equal-and-triple-equal/pt-BR.mdx"
   },
   "solution": "var Component=(()=>{var u=Object.create;var d=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,g=Object.prototype.hasOwnProperty;var f=(o,e)=>()=>(e||o((e={exports:{}}).exports,e),e.exports),x=(o,e)=>{for(var r in e)d(o,r,{get:e[r],enumerable:!0})},t=(o,e,r,c)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let a of m(e))!g.call(o,a)&&a!==r&&d(o,a,{get:()=>e[a],enumerable:!(c=p(e,a))||c.enumerable});return o};var j=(o,e,r)=>(r=o!=null?u(h(o)):{},t(e||!o||!o.__esModule?d(r,\"default\",{value:o,enumerable:!0}):r,o)),_=o=>t(d({},\"__esModule\",{value:!0}),o);var l=f((M,s)=>{s.exports=_jsx_runtime});var q={};x(q,{default:()=>b,frontmatter:()=>v});var n=j(l()),v={title:\"Qual \\xE9 a diferen\\xE7a entre `==` e `===`?\"};function i(o){let e=Object.assign({p:\"p\",code:\"code\",pre:\"pre\"},o.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsxs)(e.p,{children:[(0,n.jsx)(e.code,{children:\"==\"}),\" \\xE9 o operador de igualdade abstrato enquanto \",(0,n.jsx)(e.code,{children:\"===\"}),\" \\xE9 o operador de igualdade rigoroso. O operador \",(0,n.jsx)(e.code,{children:\"==\"}),\" ser\\xE1 comparado para a igualdade ap\\xF3s fazer quaisquer convers\\xF5es de tipo necess\\xE1rias. O operador \",(0,n.jsx)(e.code,{children:\"===\"}),\" n\\xE3o far\\xE1 convers\\xE3o de tipo, ent\\xE3o se dois valores n\\xE3o forem do mesmo tipo \",(0,n.jsx)(e.code,{children:\"===\"}),\" simplesmente retornar\\xE1 \",(0,n.jsx)(e.code,{children:\"false\"}),\". Ao usar \",(0,n.jsx)(e.code,{children:\"==\"}),\", coisas engra\\xE7adas podem acontecer, tais como:\"]}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-js\",children:`1 == '1'; // true\n1 == [1]; // true\n1 == true; // true\n0 == ''; // true\n0 == '0'; // true\n0 == false; // true\n`})}),`\n`,(0,n.jsxs)(e.p,{children:[\"Como regra geral, nunca use o operador \",(0,n.jsx)(e.code,{children:\"==\"}),\", exceto por conveni\\xEAncia ao comparar com \",(0,n.jsx)(e.code,{children:\"null\"}),\" ou \",(0,n.jsx)(e.code,{children:\"undefined\"}),\", onde \",(0,n.jsx)(e.code,{children:\"a == null\"}),\" retornar\\xE1 \",(0,n.jsx)(e.code,{children:\"true\"}),\" se a for \",(0,n.jsx)(e.code,{children:\"null\"}),\" ou undefined.\"]}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-js\",children:`var a = null;\nconsole.log(a == null); // true\nconsole.log(a == undefined); // true\n`})})]})}function O(o={}){let{wrapper:e}=o.components||{};return e?(0,n.jsx)(e,Object.assign({},o,{children:(0,n.jsx)(i,o)})):i(o)}var b=O;return _(q);})();\n;return Component;"

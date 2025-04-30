@@ -2,31 +2,7 @@
   "description": null,
   "info": {
     "excerpt": null,
-    "title": "JavaScript 中有哪些不同类型的错误？"
-  },
-  "metadata": {
-    "access": "free",
-    "author": null,
-    "companies": [],
-    "created": 1630800000,
-    "difficulty": "easy",
-    "duration": 5,
-    "featured": false,
-    "format": "quiz",
-    "frameworkDefault": null,
-    "frameworks": [],
-    "href": "/questions/quiz/what-are-the-different-types-of-errors-in-javascript",
-    "importance": "low",
-    "languages": [],
-    "nextQuestions": [],
-    "published": true,
-    "ranking": 999,
-    "similarQuestions": [],
-    "slug": "what-are-the-different-types-of-errors-in-javascript",
-    "subtitle": null,
-    "topics": [
-      "javascript"
-    ],
+    "title": "JavaScript 中有哪些不同类型的错误？",
     "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-are-the-different-types-of-errors-in-javascript/zh-CN.mdx"
   },
   "solution": "var Component=(()=>{var d=Object.create;var i=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var g=Object.getOwnPropertyNames;var u=Object.getPrototypeOf,m=Object.prototype.hasOwnProperty;var f=(r,n)=>()=>(n||r((n={exports:{}}).exports,n),n.exports),j=(r,n)=>{for(var l in n)i(r,l,{get:n[l],enumerable:!0})},s=(r,n,l,o)=>{if(n&&typeof n==\"object\"||typeof n==\"function\")for(let c of g(n))!m.call(r,c)&&c!==l&&i(r,c,{get:()=>n[c],enumerable:!(o=p(n,c))||o.enumerable});return r};var v=(r,n,l)=>(l=r!=null?d(u(r)):{},s(n||!r||!r.__esModule?i(l,\"default\",{value:r,enumerable:!0}):l,r)),S=r=>s(i({},\"__esModule\",{value:!0}),r);var t=f((A,a)=>{a.exports=_jsx_runtime});var J={};j(J,{default:()=>b,frontmatter:()=>x});var e=v(t()),x={title:\"JavaScript \\u4E2D\\u6709\\u54EA\\u4E9B\\u4E0D\\u540C\\u7C7B\\u578B\\u7684\\u9519\\u8BEF\\uFF1F\"};function h(r){let n=Object.assign({h2:\"h2\",p:\"p\",code:\"code\",hr:\"hr\",h3:\"h3\",h4:\"h4\",pre:\"pre\",ul:\"ul\",li:\"li\",a:\"a\"},r.components);return(0,e.jsxs)(e.Fragment,{children:[(0,e.jsx)(n.h2,{children:\"TL;DR\"}),`\n`,(0,e.jsxs)(n.p,{children:[\"\\u5728 JavaScript \\u4E2D\\uFF0C\\u4E3B\\u8981\\u6709\\u4E09\\u79CD\\u7C7B\\u578B\\u7684\\u9519\\u8BEF\\uFF1A\\u8BED\\u6CD5\\u9519\\u8BEF\\u3001\\u8FD0\\u884C\\u65F6\\u9519\\u8BEF\\u548C\\u903B\\u8F91\\u9519\\u8BEF\\u3002\\u5F53\\u4EE3\\u7801\\u8FDD\\u53CD\\u8BED\\u8A00\\u7684\\u8BED\\u6CD5\\u89C4\\u5219\\u65F6\\uFF0C\\u4F8B\\u5982\\u7F3A\\u5C11\\u62EC\\u53F7\\uFF0C\\u5C31\\u4F1A\\u53D1\\u751F\\u8BED\\u6CD5\\u9519\\u8BEF\\u3002\\u8FD0\\u884C\\u65F6\\u9519\\u8BEF\\u53D1\\u751F\\u5728\\u4EE3\\u7801\\u6267\\u884C\\u671F\\u95F4\\uFF0C\\u4F8B\\u5982\\u5C1D\\u8BD5\\u8BBF\\u95EE \",(0,e.jsx)(n.code,{children:\"undefined\"}),\" \\u7684\\u5C5E\\u6027\\u3002\\u903B\\u8F91\\u9519\\u8BEF\\u662F\\u4EE3\\u7801\\u903B\\u8F91\\u4E2D\\u7684\\u9519\\u8BEF\\uFF0C\\u5BFC\\u81F4\\u7ED3\\u679C\\u4E0D\\u6B63\\u786E\\uFF0C\\u4F46\\u4E0D\\u4F1A\\u629B\\u51FA\\u9519\\u8BEF\\u3002\"]}),`\n`,(0,e.jsx)(n.hr,{}),`\n`,(0,e.jsx)(n.h2,{children:\"JavaScript \\u4E2D\\u4E0D\\u540C\\u7C7B\\u578B\\u7684\\u9519\\u8BEF\"}),`\n`,(0,e.jsx)(n.h3,{children:\"\\u8BED\\u6CD5\\u9519\\u8BEF\"}),`\n`,(0,e.jsx)(n.p,{children:\"\\u5F53\\u4EE3\\u7801\\u4E0D\\u9075\\u5FAA JavaScript \\u8BED\\u8A00\\u7684\\u89C4\\u5219\\u65F6\\uFF0C\\u5C31\\u4F1A\\u53D1\\u751F\\u8BED\\u6CD5\\u9519\\u8BEF\\u3002\\u8FD9\\u4E9B\\u9519\\u8BEF\\u7531 JavaScript \\u5F15\\u64CE\\u5728\\u4EE3\\u7801\\u6267\\u884C\\u4E4B\\u524D\\u7684\\u89E3\\u6790\\u9636\\u6BB5\\u68C0\\u6D4B\\u5230\\u3002\"}),`\n`,(0,e.jsx)(n.h4,{children:\"\\u793A\\u4F8B\"}),`\n`,(0,e.jsx)(n.pre,{live:!0,children:(0,e.jsx)(n.code,{className:\"language-js\",children:`console.log(\"Hello, world!; // Missing closing quote and parenthesis\n`})}),`\n`,(0,e.jsx)(n.h3,{children:\"\\u8FD0\\u884C\\u65F6\\u9519\\u8BEF\"}),`\n`,(0,e.jsx)(n.p,{children:\"\\u8FD0\\u884C\\u65F6\\u9519\\u8BEF\\uFF0C\\u4E5F\\u79F0\\u4E3A\\u5F02\\u5E38\\uFF0C\\u53D1\\u751F\\u5728\\u4EE3\\u7801\\u6267\\u884C\\u671F\\u95F4\\u3002\\u5F53\\u4EE3\\u7801\\u5728\\u8BED\\u6CD5\\u4E0A\\u6B63\\u786E\\u4F46\\u9047\\u5230\\u963B\\u6B62\\u5176\\u5B8C\\u6210\\u4EFB\\u52A1\\u7684\\u95EE\\u9898\\u65F6\\uFF0C\\u5C31\\u4F1A\\u53D1\\u751F\\u8FD9\\u4E9B\\u9519\\u8BEF\\u3002\"}),`\n`,(0,e.jsx)(n.h4,{children:\"\\u793A\\u4F8B\"}),`\n`,(0,e.jsx)(n.pre,{live:!0,children:(0,e.jsx)(n.code,{className:\"language-js\",children:`let obj = null;\nconsole.log(obj.property); // TypeError: Cannot read properties of null (reading 'property')\n`})}),`\n`,(0,e.jsx)(n.h3,{children:\"\\u903B\\u8F91\\u9519\\u8BEF\"}),`\n`,(0,e.jsx)(n.p,{children:\"\\u903B\\u8F91\\u9519\\u8BEF\\u662F\\u4EE3\\u7801\\u903B\\u8F91\\u4E2D\\u7684\\u9519\\u8BEF\\uFF0C\\u5BFC\\u81F4\\u7ED3\\u679C\\u4E0D\\u6B63\\u786E\\u3002\\u8FD9\\u4E9B\\u9519\\u8BEF\\u4E0D\\u4F1A\\u629B\\u51FA\\u5F02\\u5E38\\uFF0C\\u800C\\u4E14\\u901A\\u5E38\\u662F\\u6700\\u96BE\\u8C03\\u8BD5\\u7684\\uFF0C\\u56E0\\u4E3A\\u4EE3\\u7801\\u5728\\u6CA1\\u6709\\u4EFB\\u4F55\\u95EE\\u9898\\u7684\\u60C5\\u51B5\\u4E0B\\u8FD0\\u884C\\uFF0C\\u4F46\\u4F1A\\u4EA7\\u751F\\u9519\\u8BEF\\u7684\\u8F93\\u51FA\\u3002\"}),`\n`,(0,e.jsx)(n.h4,{children:\"\\u793A\\u4F8B\"}),`\n`,(0,e.jsx)(n.pre,{live:!0,children:(0,e.jsx)(n.code,{className:\"language-js\",children:`let isAdmin = false;\n\nif ((isAdmin = true)) {\n  // Wrong: Assignment instead of comparison\n  console.log('Access granted'); // Access granted even though isAdmin was falsy\n} else {\n  console.log('Access denied');\n}\n`})}),`\n`,(0,e.jsx)(n.h2,{children:\"\\u5EF6\\u4F38\\u9605\\u8BFB\"}),`\n`,(0,e.jsxs)(n.ul,{children:[`\n`,(0,e.jsx)(n.li,{children:(0,e.jsx)(n.a,{href:\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error\",children:\"MDN Web Docs: Errors\"})}),`\n`,(0,e.jsx)(n.li,{children:(0,e.jsx)(n.a,{href:\"https://javascript.info/error-handling\",children:\"JavaScript.info: Error handling\"})}),`\n`,(0,e.jsx)(n.li,{children:(0,e.jsx)(n.a,{href:\"https://www.w3schools.com/js/js_errors.asp\",children:\"W3Schools: JavaScript Errors\"})}),`\n`]})]})}function _(r={}){let{wrapper:n}=r.components||{};return n?(0,e.jsx)(n,Object.assign({},r,{children:(0,e.jsx)(h,r)})):h(r)}var b=_;return S(J);})();\n;return Component;"
