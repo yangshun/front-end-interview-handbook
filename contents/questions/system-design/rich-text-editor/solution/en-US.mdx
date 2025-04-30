@@ -729,7 +729,10 @@ In this section we will explain the entire update loop in detail, aka what happe
    3. The modified node and its chain of parent nodes are marked as dirty.
    4. Since the callbacks can call `editor.update(fn)` again, the editor maintains a queue of update callbacks to go through and the queue is processed in sequence.
 3. **Process transforms**: All registered transforms are called.
-4. **Reconciliation**: 5. If there are any dirty nodes, the reconcile function is called starting from the root node and recursively on all the child nodes. 6. For dirty nodes, the reconcile function updates the DOM based on the new `EditorNode`s. 7. As an optimization, reconciliation can be skipped if both new and old `EditorNode` instances for a `NodeKey` are the same and the node is not dirty. It means that nothing in the node or its entire subtree was modified.
+4. **Reconciliation**:
+   1. If there are any dirty nodes, the reconcile function is called starting from the root node and recursively on all the child nodes.
+   2. For dirty nodes, the reconcile function updates the DOM based on the new `EditorNode`s.
+   3. As an optimization, reconciliation can be skipped if both new and old `EditorNode` instances for a `NodeKey` are the same and the node is not dirty. It means that nothing in the node or its entire subtree was modified.
 5. **Process listeners**: All registered listeners are called.
 
 #### Reconciliation

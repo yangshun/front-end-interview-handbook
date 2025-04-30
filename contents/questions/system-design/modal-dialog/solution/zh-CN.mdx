@@ -110,23 +110,23 @@
 
 #### 突破 DOM 层次结构
 
-由于模态框显示在页面上方，并且不遵循页面元素的正常流程，因此渲染模态框比看起来更棘手。将模态框渲染在父 DOM 层次结构之外非常重要，因为如果父元素包含剪裁其内容的样式，则模态框内容可能无法完全可见。以下是 [React 文档](https://beta.reactjs.org/reference/react-dom/createPortal#rendering-a-modal-dialog-with-a-portal) 中的一个示例，演示了这个问题。
+由于模态框是在页面上显示的，并且不遵循页面元素的正常流程，因此渲染模态框比看起来更棘手。重要的是在父元素的 DOM 层次结构之外渲染模态框，因为如果父元素包含剪裁其内容的样式，则模态框内容可能无法完全可见。这是一个来自 [React 文档](https://react.dev/reference/react-dom/createPortal#rendering-a-modal-dialog-with-a-portal) 的示例，演示了这个问题。
 
 <iframe
   src="https://codesandbox.io/embed/wnr51p?fontsize=14&hidenavigation=1&theme=dark&module=/App.js,/NoPortalExample.js,/PortalExample.js,/ModalContent.js,/styles.css&view=split"
   style={{
-  width: '100%',
-  height: 500,
-  border: 0,
-  borderRadius: 4,
-  overflow: 'hidden',
+width: '100%',
+height: 500,
+border: 0,
+borderRadius: 4,
+overflow: 'hidden',
 }}
   title="Modal Clipping Example"
   allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
 />
 
-在 React 中，使用 [React Portals](https://beta.reactjs.org/reference/react-dom/createPortal) 可以实现在父组件的 DOM 层次结构之外进行渲染。Portals 的常见用例包括工具提示、下拉菜单、弹出框。
+在 React 中，可以使用 [React Portals](https://react.dev/reference/react-dom/createPortal) 在父组件的 DOM 层次结构之外进行渲染。Portals 的常见用例包括工具提示、下拉菜单、弹出框。
 
 #### 遮罩层
 
@@ -172,11 +172,11 @@
 <iframe
   src="https://codesandbox.io/embed/t1oldf?fontsize=14&hidenavigation=1&theme=dark&module=/src/App.js,/src/styles.css&view=split"
   style={{
-  width: '100%',
-  height: 500,
-  border: 0,
-  borderRadius: 4,
-  overflow: 'hidden',
+width: '100%',
+height: 500,
+border: 0,
+borderRadius: 4,
+overflow: 'hidden',
 }}
   title="Modal Example"
   allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
@@ -229,11 +229,11 @@ document.addEventListener('touchstart', clickListener);
 <iframe
   src="https://codesandbox.io/embed/74fyqc?fontsize=14&hidenavigation=1&theme=dark&module=/src/App.js,/src/styles.css&view=split"
   style={{
-  width: '100%',
-  height: 500,
-  border: 0,
-  borderRadius: 4,
-  overflow: 'hidden',
+width: '100%',
+height: 500,
+border: 0,
+borderRadius: 4,
+overflow: 'hidden',
 }}
   title="Modal Dismiss On Click Outside"
   allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
@@ -311,11 +311,11 @@ HTML 现在有一个原生的 `<dialog>` 元素，可以在创建模态对话框
 <iframe
   src="https://codesandbox.io/embed/imlco8?fontsize=14&hidenavigation=1&theme=dark&module=/src/App.js,/src/styles.css&view=split"
   style={{
-  width: '100%',
-  height: 500,
-  border: 0,
-  borderRadius: 4,
-  overflow: 'hidden',
+width: '100%',
+height: 500,
+border: 0,
+borderRadius: 4,
+overflow: 'hidden',
 }}
   title="Modal Animations"
   allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
@@ -327,11 +327,11 @@ HTML 现在有一个原生的 `<dialog>` 元素，可以在创建模态对话框
 <iframe
   src="https://codesandbox.io/embed/t3wwxr?fontsize=14&hidenavigation=1&theme=dark&module=/src/App.js,/src/styles.css&view=split"
   style={{
-  width: '100%',
-  height: 500,
-  border: 0,
-  borderRadius: 4,
-  overflow: 'hidden',
+width: '100%',
+height: 500,
+border: 0,
+borderRadius: 4,
+overflow: 'hidden',
 }}
   title="Modal Animations"
   allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"

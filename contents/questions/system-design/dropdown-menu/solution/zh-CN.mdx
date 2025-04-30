@@ -128,11 +128,11 @@
 <iframe
   src="https://codesandbox.io/embed/dropdown-menu-relative-button-emxn9u?fontsize=14&hidenavigation=1&theme=dark&module=/src/App.js,/src/styles.css&view=split"
   style={{
-  width: '100%',
-  height: 500,
-  border: 0,
-  borderRadius: 4,
-  overflow: 'hidden',
+width: '100%',
+height: 500,
+border: 0,
+borderRadius: 4,
+overflow: 'hidden',
 }}
   title="相对于按钮触发器的下拉菜单"
   allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
@@ -147,17 +147,17 @@
 
 在这种方法中，菜单被渲染为 `<body>` 的直接子元素，并通过获取元素的 `offsetTop` 和 `offsetLeft` 相对于**页面**进行 `absolute` 定位，以获取 `<button>` 相对于页面的坐标，并添加其高度 (`offsetHeight`) 以获取渲染菜单的最终 Y 位置。
 
-在 React 中，这可以使用 [React Portals](https://beta.reactjs.org/reference/react-dom/createPortal) 完成，它允许您在父组件的 DOM 层次结构之外进行渲染。Portals 的一个典型用例是当父组件具有 `overflow: hidden` 或 `z-index` 样式，但您需要子组件在视觉上“跳出”其容器时。常见的例子包括下拉菜单、工具提示、模态框。
+在 React 中，这可以使用 [React Portals](https://react.dev/reference/react-dom/createPortal) 来完成，它允许你在父组件的 DOM 层次结构之外进行渲染。Portals 的一个典型用例是当父组件具有 `overflow: hidden` 或 `z-index` 样式，但你需要子组件在视觉上“跳出”其容器。常见的例子包括下拉菜单、工具提示、模态框。
 
 <iframe
   src="https://codesandbox.io/embed/dropdown-menu-relative-page-r4zoiu
 ?fontsize=14&hidenavigation=1&theme=dark&module=/src/App.js,/src/styles.css&view=split"
   style={{
-  width: '100%',
-  height: 500,
-  border: 0,
-  borderRadius: 4,
-  overflow: 'hidden',
+width: '100%',
+height: 500,
+border: 0,
+borderRadius: 4,
+overflow: 'hidden',
 }}
   title="使用 React Portal 实现的相对于页面的下拉菜单"
   allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
@@ -175,11 +175,11 @@
 <iframe
   src="https://codesandbox.io/embed/dropdown-menu-relative-button-emxn9u?fontsize=14&hidenavigation=1&theme=dark&module=/src/App.js,/src/styles.css&view=split"
   style={{
-  width: '100%',
-  height: 500,
-  border: 0,
-  borderRadius: 4,
-  overflow: 'hidden',
+width: '100%',
+height: 500,
+border: 0,
+borderRadius: 4,
+overflow: 'hidden',
 }}
   title="下拉菜单位置"
   allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
@@ -221,11 +221,11 @@
 <iframe
   src="https://codesandbox.io/embed/dropdown-menu-autoflip-ybqbeu?fontsize=14&hidenavigation=1&theme=dark&module=/src/App.js,/src/styles.css&view=split"
   style={{
-  width: '100%',
-  height: 500,
-  border: 0,
-  borderRadius: 4,
-  overflow: 'hidden',
+width: '100%',
+height: 500,
+border: 0,
+borderRadius: 4,
+overflow: 'hidden',
 }}
   title="Dropdown Menu Autoflipping"
   allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
@@ -267,11 +267,11 @@ document.addEventListener('touchstart', clickListener);
 <iframe
   src="https://codesandbox.io/embed/dropdown-menu-click-outside-lq040x?fontsize=14&hidenavigation=1&theme=dark&module=/src/App.js,/src/styles.css&view=split"
   style={{
-  width: '100%',
-  height: 500,
-  border: 0,
-  borderRadius: 4,
-  overflow: 'hidden',
+width: '100%',
+height: 500,
+border: 0,
+borderRadius: 4,
+overflow: 'hidden',
 }}
   title="dropdown-menu-click-outside-lq040x"
   allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
