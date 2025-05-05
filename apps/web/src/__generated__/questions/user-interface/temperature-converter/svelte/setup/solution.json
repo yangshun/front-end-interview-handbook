@@ -1,0 +1,31 @@
+{
+  "author": "tanhauhau",
+  "files": {
+    "/greatfrontend.json": {
+      "code": "{\n  \"visibleFiles\": [\"/src/App.svelte\", \"/src/styles.css\"],\n  \"activeFile\": \"/src/App.svelte\",\n  \"environment\": \"svelte\"\n}\n"
+    },
+    "/package.json": {
+      "code": "{\n  \"name\": \"@gfe-questions/temperature-converter-svelte-solution\",\n  \"author\": \"tanhauhau\",\n  \"version\": \"0.0.1\",\n  \"main\": \"src/index.js\",\n  \"dependencies\": {\n    \"svelte\": \"^3.58.0\"\n  }\n}\n"
+    },
+    "/public/index.html": {
+      "code": "<!doctype html>\n<html>\n  <head>\n    <meta charset=\"utf8\" />\n    <meta name=\"viewport\" content=\"width=device-width\" />\n    <title>Svelte</title>\n    <link rel=\"stylesheet\" href=\"public/bundle.css\" />\n  </head>\n\n  <body>\n    <script src=\"bundle.js\"></script>\n  </body>\n</html>\n"
+    },
+    "/src/App.svelte": {
+      "code": "<script>\n  let celsius;\n  let fahrenheit;\n\n  function round(number) {\n    return Number(number.toFixed(4));\n  }\n</script>\n\n<div class=\"temperature-converter\">\n  <label>\n    <input\n      class=\"temperature-converter-column-top-row\"\n      type=\"number\"\n      value={celsius}\n      on:input={(event) => {\n        celsius = event.target.value;\n        fahrenheit = round((celsius * 9) / 5 + 32);\n      }} />\n    <div class=\"temperature-converter-column-bottom-row\">\n      Celsius\n    </div>\n  </label>\n  <div>\n    <div class=\"temperature-converter-column-top-row\">\n      =\n    </div>\n  </div>\n  <label>\n    <input\n      class=\"temperature-converter-column-top-row\"\n      type=\"number\"\n      value={fahrenheit}\n      on:input={(event) => {\n        fahrenheit = event.target.value;\n        celsius = round(((fahrenheit - 32) * 5) / 9);\n      }} />\n    <div class=\"temperature-converter-column-bottom-row\">\n      Fahrenheit\n    </div>\n  </label>\n</div>\n\n<style>\n  .temperature-converter {\n    display: flex;\n  }\n\n  .temperature-converter-column-top-row {\n    align-items: center;\n    display: flex;\n    font-size: 18px;\n    height: 24px;\n    padding: 4px;\n    text-align: center;\n  }\n\n  .temperature-converter-column-bottom-row {\n    padding: 4px;\n    text-align: center;\n  }\n</style>\n"
+    },
+    "/src/index.js": {
+      "code": "import App from './App.svelte';\nimport './styles.css';\n\nconst app = new App({\n  target: document.body,\n});\n\nexport default app;\n"
+    },
+    "/src/styles.css": {
+      "code": "body {\n  font-family: sans-serif;\n}\n"
+    }
+  },
+  "workspace": {
+    "visibleFiles": [
+      "/src/App.svelte",
+      "/src/styles.css"
+    ],
+    "activeFile": "/src/App.svelte",
+    "environment": "svelte"
+  }
+}

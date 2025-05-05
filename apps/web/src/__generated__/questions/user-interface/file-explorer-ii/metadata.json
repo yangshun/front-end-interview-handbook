@@ -1,43 +1,37 @@
 {
-  "info": {
-    "excerpt": "Build a semi-accessible file explorer component that has the right ARIA roles, states, and properties",
-    "title": "File Explorer II"
-  },
-  "metadata": {
-    "access": "premium",
-    "author": "yangshun",
-    "companies": [
-      "amazon",
-      "atlassian",
-      "snap",
-      "tiktok"
-    ],
-    "created": 1723766400,
-    "difficulty": "medium",
-    "duration": 20,
-    "featured": false,
-    "format": "user-interface",
-    "frameworkDefault": "react",
-    "frameworks": [
-      {
-        "framework": "react",
-        "href": "/questions/user-interface/file-explorer-ii/react"
-      }
-    ],
-    "href": "/questions/user-interface/file-explorer-ii",
-    "importance": "medium",
-    "languages": [
-      "html",
-      "js"
-    ],
-    "nextQuestions": [
-      "file-explorer-iii"
-    ],
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [],
-    "slug": "file-explorer-ii",
-    "subtitle": null,
-    "topics": []
-  }
+  "access": "premium",
+  "author": "yangshun",
+  "companies": [
+    "amazon",
+    "atlassian",
+    "snap",
+    "tiktok"
+  ],
+  "created": 1723766400,
+  "difficulty": "medium",
+  "duration": 20,
+  "featured": false,
+  "format": "user-interface",
+  "frameworkDefault": "react",
+  "frameworks": [
+    {
+      "framework": "react",
+      "href": "/questions/user-interface/file-explorer-ii/react"
+    }
+  ],
+  "href": "/questions/user-interface/file-explorer-ii",
+  "importance": "medium",
+  "languages": [
+    "html",
+    "js"
+  ],
+  "nextQuestions": [
+    "file-explorer-iii"
+  ],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [],
+  "slug": "file-explorer-ii",
+  "subtitle": null,
+  "topics": []
 }

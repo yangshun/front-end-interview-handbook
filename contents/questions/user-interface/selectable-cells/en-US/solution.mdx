@@ -1,0 +1,59 @@
+## Solution
+
+The solution can be broken down into a few parts:
+
+1. Rendering the grid.
+1. Drawing a selection box.
+1. Detect overlapping grid cells.
+
+### State
+
+There are two state values we need for this question:
+
+- `selectedCells`: The collection of selected cells' indexes. We can use a `Set` to store the indices.
+- `dragOrigin`: The x/y coordinates of the start of the drag event as an object. This value is initially `null`. When the selection box is drawn, this value is the x/y coordinates.
+
+### Rendering the grid
+
+CSS grid can be used to render a linear list of DOM elements in a 2-dimensional format with `grid-template-columns` and `grid-template-rows`. The dimensions of the grid and cells aren't specified, so feel free to use a reasonable number that can accommodate 10 x 10 cells within the preview area.
+
+Each cell is uniquely identified by a number, which is its index in an array. The first cell in the top row is 0, first cell in second row is 10, and so on. Each cell is rendered with a 1px border, so strictly speaking, visually there's a 2px-thick line between each cell. It's non-trivial to make it such that each cell only has a line 1px-thick between them, and that is less an an exercise for the reader. Hint: check out [Tailwind CSS's `divide` class](https://tailwindcss.com/docs/divide-width).
+
+With the set of selected cells indices, we can render the cells with a purple background if the cell's index is within that set.
+
+### Drawing the selection box
+
+Drawing the selection box can be split into three stages:
+
+#### 1. Mousedown
+
+The cursor position that this point first happens is called the drag origin. The `'mousedown'` event can be used to detect when this happens and the coordinates can be obtained and stored as the `dragOrigin`. When the drag starts, we can also add event listeners for the `mousemove` and `mouseup` event.
+
+#### 2. Mousemove
+
+This even is repeatedly fired when the mouse moves and is only relevant when the mouse button is already pressed down. When this event is fired, we need to draw the selection box and update the selected cells set so that the UI displays selected cells differently.
+
+The top left corner of a browser window is (0, 0) and `absolute`-positioned elements use the top left corner as a reference point. To draw a selection box anywhere we want on the page, the box has to be using `position: absolute` and is positioned relative to its closest positioned ancestor. Since the whole page to be draggable, so we can create a wrapper element (`.draggable-area`) that is `position: relative` and fills up the whole page with `width: 100vw; height: 100vh`.
+
+The upper corner (CSS `left` and `top` values) of the selection box is determined by the smaller values of the drag origin and the current mouse position. The CSS `width` and `height` values can be determined by taking the absolute difference between their x-values and y-values. This is done in the `drawSelectionBox` function.
+
+#### 3. Mouseup
+
+On the `mouseup` event, reset the drag origin value and any styling on the selection box.
+
+Do remember to cleanup any event listeners added when the component/page unmounts.
+
+### Detect overlapping grid cells
+
+While drawing the selection box, there's another thing to do, which is to detect which grid cells are overlapping/intersecting with the selection box, so that their indices can be added to the selected cells set.
+
+We can use the `getBoundingClientRect()` method on DOM elements to get the positions of the selection box and the grid cells and then determine if the selection box overlaps with a grid cell by checking the following conditions:
+
+1. The left edge of the selection box is smaller than the right edge of the grid cell.
+1. The right edge of the selection box is larger the right edge of the grid cell.
+1. The top edge of the selection box is smaller than the bottom edge of the grid cell.
+1. The bottom edge of the selection box is larger than the top edge of the grid cell.
+
+If all of these conditions are true, then the selection box overlaps with the grid cell. This is a [great visualization](https://silentmatt.com/rectangle-intersection/) to demonstrate rectangle intersection.
+
+When a cell and a selection box overlap, add that cell's index to the set of selected cells.

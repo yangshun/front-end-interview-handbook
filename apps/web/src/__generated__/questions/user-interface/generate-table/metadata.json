@@ -1,54 +1,48 @@
 {
-  "info": {
-    "excerpt": "Generate a table of numbers given the rows and columns",
-    "title": "Generate Table"
-  },
-  "metadata": {
-    "access": "premium",
-    "author": "yangshun",
-    "companies": [
-      "google"
-    ],
-    "created": 1675123200,
-    "difficulty": "easy",
-    "duration": 15,
-    "featured": false,
-    "format": "user-interface",
-    "frameworkDefault": "react",
-    "frameworks": [
-      {
-        "framework": "react",
-        "href": "/questions/user-interface/generate-table/react"
-      },
-      {
-        "framework": "vanilla",
-        "href": "/questions/user-interface/generate-table/vanilla"
-      },
-      {
-        "framework": "angular",
-        "href": "/questions/user-interface/generate-table/angular"
-      },
-      {
-        "framework": "vue",
-        "href": "/questions/user-interface/generate-table/vue"
-      },
-      {
-        "framework": "svelte",
-        "href": "/questions/user-interface/generate-table/svelte"
-      }
-    ],
-    "href": "/questions/user-interface/generate-table",
-    "importance": "low",
-    "languages": [
-      "html",
-      "js"
-    ],
-    "nextQuestions": [],
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [],
-    "slug": "generate-table",
-    "subtitle": null,
-    "topics": []
-  }
+  "access": "premium",
+  "author": "yangshun",
+  "companies": [
+    "google"
+  ],
+  "created": 1675123200,
+  "difficulty": "easy",
+  "duration": 15,
+  "featured": false,
+  "format": "user-interface",
+  "frameworkDefault": "react",
+  "frameworks": [
+    {
+      "framework": "react",
+      "href": "/questions/user-interface/generate-table/react"
+    },
+    {
+      "framework": "vanilla",
+      "href": "/questions/user-interface/generate-table/vanilla"
+    },
+    {
+      "framework": "angular",
+      "href": "/questions/user-interface/generate-table/angular"
+    },
+    {
+      "framework": "vue",
+      "href": "/questions/user-interface/generate-table/vue"
+    },
+    {
+      "framework": "svelte",
+      "href": "/questions/user-interface/generate-table/svelte"
+    }
+  ],
+  "href": "/questions/user-interface/generate-table",
+  "importance": "low",
+  "languages": [
+    "html",
+    "js"
+  ],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [],
+  "slug": "generate-table",
+  "subtitle": null,
+  "topics": []
 }

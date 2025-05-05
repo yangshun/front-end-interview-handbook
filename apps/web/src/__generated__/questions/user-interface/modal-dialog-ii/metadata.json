@@ -1,44 +1,38 @@
 {
-  "info": {
-    "excerpt": "Build a semi-accessible modal dialog component that has the right ARIA roles, states, and properties",
-    "title": "Modal Dialog II"
-  },
-  "metadata": {
-    "access": "premium",
-    "author": "yangshun",
-    "companies": [
-      "amazon",
-      "tiktok"
-    ],
-    "created": 1723766400,
-    "difficulty": "medium",
-    "duration": 20,
-    "featured": false,
-    "format": "user-interface",
-    "frameworkDefault": "react",
-    "frameworks": [
-      {
-        "framework": "react",
-        "href": "/questions/user-interface/modal-dialog-ii/react"
-      }
-    ],
-    "href": "/questions/user-interface/modal-dialog-ii",
-    "importance": "low",
-    "languages": [
-      "html",
-      "js",
-      "css"
-    ],
-    "nextQuestions": [
-      "modal-dialog-iii"
-    ],
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [],
-    "slug": "modal-dialog-ii",
-    "subtitle": null,
-    "topics": [
-      "a11y"
-    ]
-  }
+  "access": "premium",
+  "author": "yangshun",
+  "companies": [
+    "amazon",
+    "tiktok"
+  ],
+  "created": 1723766400,
+  "difficulty": "medium",
+  "duration": 20,
+  "featured": false,
+  "format": "user-interface",
+  "frameworkDefault": "react",
+  "frameworks": [
+    {
+      "framework": "react",
+      "href": "/questions/user-interface/modal-dialog-ii/react"
+    }
+  ],
+  "href": "/questions/user-interface/modal-dialog-ii",
+  "importance": "low",
+  "languages": [
+    "html",
+    "js",
+    "css"
+  ],
+  "nextQuestions": [
+    "modal-dialog-iii"
+  ],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [],
+  "slug": "modal-dialog-ii",
+  "subtitle": null,
+  "topics": [
+    "a11y"
+  ]
 }

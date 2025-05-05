@@ -1,0 +1,21 @@
+{
+  "slug": "digital-clock",
+  "author": "yangshun",
+  "created": "2022-07-04",
+  "languages": ["html", "css", "js"],
+  "companies": ["lyft"],
+  "access": "standard",
+  "duration": 25,
+  "published": true,
+  "importance": "medium",
+  "difficulty": "medium",
+  "featured": true,
+  "frameworks": [
+    "react",
+    "vanilla",
+    "angular",
+    "vue",
+    "svelte"
+  ],
+  "topics": ["a11y", "async"]
+}

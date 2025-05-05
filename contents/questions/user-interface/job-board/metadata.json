@@ -1,0 +1,26 @@
+{
+  "slug": "job-board",
+  "author": "dhillon",
+  "created": "2023-05-12",
+  "languages": ["html", "css", "js"],
+  "companies": [
+    "microsoft",
+    "tiktok",
+    "atlassian",
+    "openai",
+    "stripe"
+  ],
+  "access": "standard",
+  "duration": 30,
+  "published": true,
+  "importance": "low",
+  "difficulty": "medium",
+  "frameworks": [
+    "react",
+    "vanilla",
+    "angular",
+    "vue",
+    "svelte"
+  ],
+  "topics": ["networking"]
+}

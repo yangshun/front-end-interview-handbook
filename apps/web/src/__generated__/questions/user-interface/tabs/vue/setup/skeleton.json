@@ -1,0 +1,34 @@
+{
+  "author": "willnguyen1312",
+  "files": {
+    "/greatfrontend.json": {
+      "code": "{\n  \"visibleFiles\": [\"/src/App.vue\", \"/src/Tabs.vue\"],\n  \"activeFile\": \"/src/App.vue\",\n  \"environment\": \"vue-cli\"\n}\n"
+    },
+    "/package.json": {
+      "code": "{\n  \"name\": \"@gfe-questions/tabs-vue-skeleton\",\n  \"author\": \"willnguyen1312\",\n  \"version\": \"0.0.1\",\n  \"main\": \"/src/main.js\",\n  \"scripts\": {\n    \"serve\": \"vue-cli-service serve\",\n    \"build\": \"vue-cli-service build\"\n  },\n  \"dependencies\": {\n    \"core-js\": \"3.32.2\",\n    \"vue\": \"3.3.4\"\n  },\n  \"devDependencies\": {\n    \"@vue/cli-plugin-babel\": \"5.0.8\",\n    \"@vue/cli-service\": \"5.0.8\"\n  }\n}\n"
+    },
+    "/public/index.html": {
+      "code": "<!doctype html>\n<html>\n  <head>\n    <meta charset=\"utf-8\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" />\n    <meta\n      name=\"viewport\"\n      content=\"width=device-width,initial-scale=1.0\" />\n    <title>Vue</title>\n  </head>\n  <body>\n    <div id=\"app\"></div>\n    <!-- Built files will be auto injected -->\n  </body>\n</html>\n"
+    },
+    "/src/App.vue": {
+      "code": "<script setup>\nimport Tabs from './Tabs.vue';\n</script>\n\n<template>\n  <Tabs />\n</template>\n"
+    },
+    "/src/main.js": {
+      "code": "import { createApp } from 'vue';\nimport App from './App.vue';\n\nimport './styles.css';\n\ncreateApp(App).mount('#app');\n"
+    },
+    "/src/styles.css": {
+      "code": "body {\n  font-family: sans-serif;\n}\n"
+    },
+    "/src/Tabs.vue": {
+      "code": "<template>\n  <div>\n    <div>\n      <button>HTML</button>\n      <button>CSS</button>\n      <button>JavaScript</button>\n    </div>\n    <div>\n      <p>\n        The HyperText Markup Language or HTML is the\n        standard markup language for documents designed to\n        be displayed in a web browser.\n      </p>\n      <p>\n        Cascading Style Sheets is a style sheet language\n        used for describing the presentation of a document\n        written in a markup language such as HTML or XML.\n      </p>\n      <p>\n        JavaScript, often abbreviated as JS, is a\n        programming language that is one of the core\n        technologies of the World Wide Web, alongside HTML\n        and CSS.\n      </p>\n    </div>\n  </div>\n</template>\n"
+    }
+  },
+  "workspace": {
+    "visibleFiles": [
+      "/src/App.vue",
+      "/src/Tabs.vue"
+    ],
+    "activeFile": "/src/App.vue",
+    "environment": "vue-cli"
+  }
+}

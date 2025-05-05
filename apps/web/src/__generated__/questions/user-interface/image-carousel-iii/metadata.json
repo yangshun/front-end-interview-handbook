@@ -1,47 +1,41 @@
 {
-  "info": {
-    "excerpt": "Build an image carousel that smoothly transitions between images that has a minimal DOM footprint",
-    "title": "Image Carousel III"
-  },
-  "metadata": {
-    "access": "premium",
-    "author": "yangshun",
-    "companies": [
-      "amazon",
-      "bytedance",
-      "google",
-      "doordash",
-      "dropbox",
-      "microsoft",
-      "snap",
-      "squarespace",
-      "tiktok"
-    ],
-    "created": 1723766400,
-    "difficulty": "hard",
-    "duration": 40,
-    "featured": false,
-    "format": "user-interface",
-    "frameworkDefault": "react",
-    "frameworks": [
-      {
-        "framework": "react",
-        "href": "/questions/user-interface/image-carousel-iii/react"
-      }
-    ],
-    "href": "/questions/user-interface/image-carousel-iii",
-    "importance": "low",
-    "languages": [
-      "html",
-      "js",
-      "css"
-    ],
-    "nextQuestions": [],
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [],
-    "slug": "image-carousel-iii",
-    "subtitle": null,
-    "topics": []
-  }
+  "access": "premium",
+  "author": "yangshun",
+  "companies": [
+    "amazon",
+    "bytedance",
+    "google",
+    "doordash",
+    "dropbox",
+    "microsoft",
+    "snap",
+    "squarespace",
+    "tiktok"
+  ],
+  "created": 1723766400,
+  "difficulty": "hard",
+  "duration": 40,
+  "featured": false,
+  "format": "user-interface",
+  "frameworkDefault": "react",
+  "frameworks": [
+    {
+      "framework": "react",
+      "href": "/questions/user-interface/image-carousel-iii/react"
+    }
+  ],
+  "href": "/questions/user-interface/image-carousel-iii",
+  "importance": "low",
+  "languages": [
+    "html",
+    "js",
+    "css"
+  ],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [],
+  "slug": "image-carousel-iii",
+  "subtitle": null,
+  "topics": []
 }

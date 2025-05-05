@@ -1,0 +1,22 @@
+import TestCases from '../../../test-cases.mdx';
+
+We'll build on top of [File Explorer's solution](/questions/user-interface/file-explorer/react/solution).
+
+## `FileExplorer` component
+
+- Add an `aria-label` to the `<div>`. It can be any descriptive text. VS Code uses `aria-label="Files Explorer"`.
+- Add `role="tree"` to the `<div>`.
+
+## `FileObject` component
+
+- `role`: Add `role="treeitem"` to the `<li>`.
+- `aria-expanded`: The `aria-expanded` value can be determined by the value of the `expanded` state. Note that `aria-expanded` should only be added for directories.
+- `aria-level`: Since the component already accept a `level` prop, it can be directly used as the `aria-level` value.
+- `aria-setsize`: This value has to be passed in from the `FileList` component. It is the total number of items in the current directory level.
+- `aria-posinset`: This value has to be passed in from the `FileList` component. It is a one-based index for the position in the current directory level.
+
+Lastly, the `<li>` has to be labelled. You can either use `aria-label` with the item name as the value or use `aria-labelledby` associated with the `id` of the element containing the file name. Since there can be multiple `FileObject` component instances on the page and we cannot guarantee that the file/directory names will be globally unique, each `FileObject` instance needs to have a unique identifier.
+
+The `useId` React hook can be used to generate unique ID for each `FileObject` instance. The `id` is added to the `<span>` around the object name.
+
+<TestCases />

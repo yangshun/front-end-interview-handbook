@@ -1,0 +1,16 @@
+{
+  "slug": "tabs-ii",
+  "created": "2022-12-14",
+  "languages": ["html", "css", "js"],
+  "companies": ["airbnb", "amazon"],
+  "author": "yangshun",
+  "access": "premium",
+  "duration": 20,
+  "published": true,
+  "importance": "low",
+  "difficulty": "medium",
+  "frameworks": ["react", "vanilla", "angular", "vue"],
+  "framework_default": "react",
+  "next_questions": ["tabs-iii"],
+  "topics": ["a11y"]
+}

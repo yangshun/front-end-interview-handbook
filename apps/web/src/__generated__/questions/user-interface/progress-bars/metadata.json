@@ -1,43 +1,37 @@
 {
-  "info": {
-    "excerpt": "Build a list of progress bars that fill up gradually when they are added to the page",
-    "title": "Progress Bars"
-  },
-  "metadata": {
-    "access": "standard",
-    "author": "yangshun",
-    "companies": [
-      "uber"
-    ],
-    "created": 1671321600,
-    "difficulty": "easy",
-    "duration": 15,
-    "featured": false,
-    "format": "user-interface",
-    "frameworkDefault": "react",
-    "frameworks": [
-      {
-        "framework": "react",
-        "href": "/questions/user-interface/progress-bars/react"
-      }
-    ],
-    "href": "/questions/user-interface/progress-bars",
-    "importance": "low",
-    "languages": [
-      "html",
-      "css",
-      "js"
-    ],
-    "nextQuestions": [
-      "progress-bars-ii"
-    ],
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [],
-    "slug": "progress-bars",
-    "subtitle": null,
-    "topics": [
-      "async"
-    ]
-  }
+  "access": "standard",
+  "author": "yangshun",
+  "companies": [
+    "uber"
+  ],
+  "created": 1671321600,
+  "difficulty": "easy",
+  "duration": 15,
+  "featured": false,
+  "format": "user-interface",
+  "frameworkDefault": "react",
+  "frameworks": [
+    {
+      "framework": "react",
+      "href": "/questions/user-interface/progress-bars/react"
+    }
+  ],
+  "href": "/questions/user-interface/progress-bars",
+  "importance": "low",
+  "languages": [
+    "html",
+    "css",
+    "js"
+  ],
+  "nextQuestions": [
+    "progress-bars-ii"
+  ],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [],
+  "slug": "progress-bars",
+  "subtitle": null,
+  "topics": [
+    "async"
+  ]
 }

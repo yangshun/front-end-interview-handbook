@@ -1,0 +1,34 @@
+{
+  "author": "willnguyen1312",
+  "files": {
+    "/greatfrontend.json": {
+      "code": "{\n  \"visibleFiles\": [\"/src/App.vue\", \"/src/TrafficLight.vue\"],\n  \"activeFile\": \"/src/App.vue\",\n  \"environment\": \"vue-cli\"\n}\n"
+    },
+    "/package.json": {
+      "code": "{\n  \"name\": \"@gfe-questions/traffic-light-vue-solution\",\n  \"author\": \"willnguyen1312\",\n  \"version\": \"0.0.1\",\n  \"main\": \"/src/main.js\",\n  \"scripts\": {\n    \"serve\": \"vue-cli-service serve\",\n    \"build\": \"vue-cli-service build\"\n  },\n  \"dependencies\": {\n    \"core-js\": \"3.32.2\",\n    \"vue\": \"3.3.4\"\n  },\n  \"devDependencies\": {\n    \"@vue/cli-plugin-babel\": \"5.0.8\",\n    \"@vue/cli-service\": \"5.0.8\"\n  }\n}\n"
+    },
+    "/public/index.html": {
+      "code": "<!doctype html>\n<html>\n  <head>\n    <meta charset=\"utf-8\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" />\n    <meta\n      name=\"viewport\"\n      content=\"width=device-width,initial-scale=1.0\" />\n    <title>Vue</title>\n  </head>\n  <body>\n    <div id=\"app\"></div>\n    <!-- Built files will be auto injected -->\n  </body>\n</html>\n"
+    },
+    "/src/App.vue": {
+      "code": "<script setup>\nimport TrafficLight from './TrafficLight.vue';\n\nconst config = {\n  red: {\n    backgroundColor: 'red',\n    duration: 4000,\n    next: 'green',\n  },\n  yellow: {\n    backgroundColor: 'yellow',\n    duration: 500,\n    next: 'red',\n  },\n  green: {\n    backgroundColor: 'green',\n    duration: 3000,\n    next: 'yellow',\n  },\n};\n</script>\n\n<template>\n  <div class=\"wrapper\">\n    <TrafficLight\n      :config=\"config\"\n      initialColor=\"green\"\n      layout=\"vertical\" />\n    <TrafficLight\n      :config=\"config\"\n      layout=\"horizontal\"\n      initialColor=\"green\" />\n  </div>\n</template>\n\n<style>\n.wrapper {\n  align-items: center;\n  display: flex;\n  flex-direction: column;\n  gap: 16px;\n  justify-content: center;\n}\n</style>\n"
+    },
+    "/src/main.js": {
+      "code": "import { createApp } from 'vue';\nimport App from './App.vue';\n\nimport './styles.css';\n\ncreateApp(App).mount('#app');\n"
+    },
+    "/src/styles.css": {
+      "code": "body {\n  font-family: sans-serif;\n}\n"
+    },
+    "/src/TrafficLight.vue": {
+      "code": "<script setup>\nimport { onUnmounted, ref, watchEffect } from 'vue';\nconst props = defineProps({\n  initialColor: String,\n  config: Object,\n  layout: String,\n});\n\nlet timerId;\nconst currentColor = ref(props.initialColor);\n\nfunction setTimer(color) {\n  const { duration, next } = props.config[color];\n  timerId = setTimeout(() => {\n    currentColor.value = next;\n  }, duration);\n}\n\nwatchEffect(() => {\n  setTimer(currentColor.value);\n});\n\nonUnmounted(() => {\n  clearTimeout(timerId);\n});\n</script>\n\n<template>\n  <div\n    aria-live=\"polite\"\n    :aria-label=\"`Current light: ${currentColor}`\"\n    :class=\"[\n      'traffic-light-container',\n      props.layout === 'vertical' &&\n        'traffic-light-container--vertical',\n    ]\">\n    <div\n      v-for=\"color in Object.keys(config)\"\n      :key=\"color\"\n      aria-hidden\n      class=\"traffic-light\"\n      :style=\"{\n        'background-color':\n          color === currentColor\n            ? props.config[color].backgroundColor\n            : undefined,\n      }\" />\n  </div>\n</template>\n\n<style>\n.traffic-light-container {\n  background-color: #000;\n  border-radius: 8px;\n  display: flex;\n  padding: 8px;\n  gap: 8px;\n  width: fit-content;\n}\n\n.traffic-light-container--vertical {\n  flex-direction: column;\n}\n\n.traffic-light {\n  --size: 50px;\n  background-color: #555;\n  border-radius: var(--size);\n  height: var(--size);\n  width: var(--size);\n}\n</style>\n"
+    }
+  },
+  "workspace": {
+    "visibleFiles": [
+      "/src/App.vue",
+      "/src/TrafficLight.vue"
+    ],
+    "activeFile": "/src/App.vue",
+    "environment": "vue-cli"
+  }
+}

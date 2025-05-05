@@ -1,40 +1,34 @@
 {
-  "info": {
-    "excerpt": "Build a nested checkboxes component with parent-child selection logic",
-    "title": "Nested Checkboxes"
-  },
-  "metadata": {
-    "access": "standard",
-    "author": "yangshun",
-    "companies": [
-      "google"
-    ],
-    "created": 1723766400,
-    "difficulty": "hard",
-    "duration": 40,
-    "featured": false,
-    "format": "user-interface",
-    "frameworkDefault": "react",
-    "frameworks": [
-      {
-        "framework": "react",
-        "href": "/questions/user-interface/nested-checkboxes/react"
-      }
-    ],
-    "href": "/questions/user-interface/nested-checkboxes",
-    "importance": "low",
-    "languages": [
-      "html",
-      "js"
-    ],
-    "nextQuestions": [],
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [
-      "file-explorer"
-    ],
-    "slug": "nested-checkboxes",
-    "subtitle": null,
-    "topics": []
-  }
+  "access": "standard",
+  "author": "yangshun",
+  "companies": [
+    "google"
+  ],
+  "created": 1723766400,
+  "difficulty": "hard",
+  "duration": 40,
+  "featured": false,
+  "format": "user-interface",
+  "frameworkDefault": "react",
+  "frameworks": [
+    {
+      "framework": "react",
+      "href": "/questions/user-interface/nested-checkboxes/react"
+    }
+  ],
+  "href": "/questions/user-interface/nested-checkboxes",
+  "importance": "low",
+  "languages": [
+    "html",
+    "js"
+  ],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [
+    "file-explorer"
+  ],
+  "slug": "nested-checkboxes",
+  "subtitle": null,
+  "topics": []
 }

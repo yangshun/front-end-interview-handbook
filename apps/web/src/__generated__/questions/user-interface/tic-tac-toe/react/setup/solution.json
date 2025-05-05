@@ -1,0 +1,31 @@
+{
+  "author": null,
+  "files": {
+    "/greatfrontend.json": {
+      "code": "{\n  \"visibleFiles\": [\"/src/App.js\", \"/src/styles.css\"],\n  \"activeFile\": \"/src/App.js\",\n  \"environment\": \"create-react-app\"\n}\n"
+    },
+    "/package.json": {
+      "code": "{\n  \"name\": \"@gfe-questions/tic-tac-toe-react-solution\",\n  \"version\": \"0.0.1\",\n  \"private\": true,\n  \"dependencies\": {\n    \"react\": \"18.2.0\",\n    \"react-dom\": \"18.2.0\",\n    \"react-scripts\": \"5.0.1\"\n  },\n  \"scripts\": {\n    \"start\": \"react-scripts start\",\n    \"build\": \"react-scripts build\",\n    \"test\": \"react-scripts test\",\n    \"eject\": \"react-scripts eject\"\n  }\n}\n"
+    },
+    "/public/index.html": {
+      "code": "<!doctype html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta\n      name=\"viewport\"\n      content=\"width=device-width, initial-scale=1.0\" />\n  </head>\n  <body>\n    <div id=\"root\"></div>\n  </body>\n</html>\n"
+    },
+    "/src/App.js": {
+      "code": "import { useState } from 'react';\n\n// List of cell indices that are 3-in-a-row.\nconst CELLS_IN_A_LINE = [\n  [0, 1, 2],\n  [3, 4, 5],\n  [6, 7, 8],\n  [0, 3, 6],\n  [1, 4, 7],\n  [2, 5, 8],\n  [0, 4, 8],\n  [2, 4, 6],\n];\n\n// Determine if there's a winner for the board.\nfunction determineWinner(board) {\n  for (let i = 0; i < CELLS_IN_A_LINE.length; i++) {\n    const [x, y, z] = CELLS_IN_A_LINE[i];\n    // Determine if the cells in a line have the same mark.\n    if (\n      board[x] != null &&\n      board[x] === board[y] &&\n      board[y] === board[z]\n    ) {\n      return board[x];\n    }\n  }\n\n  // No winner yet.\n  return null;\n}\n\nfunction Cell({ index, disabled, mark, turn, onClick }) {\n  return (\n    <button\n      aria-label={\n        mark == null\n          ? `Mark cell ${index} as ${turn}`\n          : undefined\n      }\n      className=\"cell\"\n      disabled={disabled}\n      onClick={onClick}>\n      <span aria-hidden={true}>{mark}</span>\n    </button>\n  );\n}\n\nexport default function App() {\n  const [board, setBoard] = useState(Array(9).fill(null));\n  const [xIsPlaying, setIsXPlaying] = useState(true);\n\n  const winner = determineWinner(board);\n\n  function onReset() {\n    setBoard(Array(9).fill(null));\n    setIsXPlaying(true);\n  }\n\n  function getStatusMessage() {\n    if (winner != null) {\n      return `Player ${winner} wins!`;\n    }\n\n    // All cells have been filled up.\n    if (!board.includes(null)) {\n      return `It's a draw!`;\n    }\n\n    return `Player ${xIsPlaying ? 'X' : 'O'} turn`;\n  }\n\n  return (\n    <div className=\"app\">\n      <div aria-live=\"polite\">{getStatusMessage()}</div>\n      <div className=\"board\">\n        {Array(9)\n          .fill(null)\n          .map((_, index) => index)\n          .map((cellIndex) => {\n            const turn = xIsPlaying ? 'X' : 'O';\n            return (\n              <Cell\n                key={cellIndex}\n                disabled={\n                  board[cellIndex] != null || winner != null\n                }\n                index={cellIndex}\n                mark={board[cellIndex]}\n                turn={turn}\n                onClick={() => {\n                  const newBoard = board.slice();\n                  newBoard[cellIndex] = turn;\n                  setBoard(newBoard);\n                  setIsXPlaying(!xIsPlaying);\n                }}\n              />\n            );\n          })}\n      </div>\n      <button\n        onClick={() => {\n          if (winner == null) {\n            // Confirm whether to reset the game.\n            const confirm = window.confirm(\n              'Are you sure you want to reset the game?',\n            );\n            if (!confirm) {\n              return;\n            }\n          }\n\n          onReset();\n        }}>\n        Reset\n      </button>\n    </div>\n  );\n}\n"
+    },
+    "/src/index.js": {
+      "code": "import React, { StrictMode } from 'react';\nimport { createRoot } from 'react-dom/client';\n\nimport App from './App';\n\nimport './styles.css';\n\nconst root = createRoot(document.getElementById('root'));\nroot.render(\n  <StrictMode>\n    <App />\n  </StrictMode>,\n);\n"
+    },
+    "/src/styles.css": {
+      "code": "body {\n  font-family: sans-serif;\n}\n\n.app {\n  align-items: center;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  max-width: 320px;\n  margin: 0 auto;\n  row-gap: 16px;\n}\n\n.board {\n  display: grid;\n  width: 100%;\n  grid-template-columns: repeat(3, 1fr);\n}\n\n.cell {\n  background-color: #fff;\n  border: 1px solid #ccc;\n  color: #000;\n  font-size: min(48px, 10vw);\n  font-weight: bold;\n  vertical-align: middle;\n  aspect-ratio: 1 / 1;\n}\n\n.cell:not(:disabled) {\n  cursor: pointer;\n}\n\n.cell:not(:disabled):hover {\n  background-color: #fafafa;\n}\n"
+    }
+  },
+  "workspace": {
+    "visibleFiles": [
+      "/src/App.js",
+      "/src/styles.css"
+    ],
+    "activeFile": "/src/App.js",
+    "environment": "create-react-app"
+  }
+}

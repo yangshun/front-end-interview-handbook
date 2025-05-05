@@ -1,0 +1,30 @@
+{
+  "author": "willnguyen1312",
+  "files": {
+    "/greatfrontend.json": {
+      "code": "{\n  \"visibleFiles\": [\"/src/App.vue\"],\n  \"activeFile\": \"/src/App.vue\",\n  \"environment\": \"vue-cli\"\n}\n"
+    },
+    "/package.json": {
+      "code": "{\n  \"name\": \"@gfe-questions/mortgage-calculator-vue-solution\",\n  \"author\": \"willnguyen1312\",\n  \"version\": \"0.0.1\",\n  \"main\": \"/src/main.js\",\n  \"scripts\": {\n    \"serve\": \"vue-cli-service serve\",\n    \"build\": \"vue-cli-service build\"\n  },\n  \"dependencies\": {\n    \"core-js\": \"3.32.2\",\n    \"vue\": \"3.3.4\"\n  },\n  \"devDependencies\": {\n    \"@vue/cli-plugin-babel\": \"5.0.8\",\n    \"@vue/cli-service\": \"5.0.8\"\n  }\n}\n"
+    },
+    "/public/index.html": {
+      "code": "<!doctype html>\n<html>\n  <head>\n    <meta charset=\"utf-8\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" />\n    <meta\n      name=\"viewport\"\n      content=\"width=device-width,initial-scale=1.0\" />\n    <title>Vue</title>\n  </head>\n  <body>\n    <div id=\"app\"></div>\n    <!-- Built files will be auto injected -->\n  </body>\n</html>\n"
+    },
+    "/src/App.vue": {
+      "code": "<script setup>\nimport { ref } from 'vue';\n\nconst monthlyPayment = ref('');\nconst totalPayment = ref('');\nconst totalInterest = ref('');\n\nfunction onSubmit(event) {\n  const data = new FormData(event.target);\n\n  // Get and convert input values.\n  const loanAmount = parseFloat(data.get('loan-amount'));\n  const monthlyInterestRate =\n    parseFloat(data.get('interest-rate')) / 100 / 12;\n  const loanTermInMonths =\n    parseFloat(data.get('loan-term')) * 12;\n\n  // Calculate monthly mortgage payment.\n  const monthlyPaymentAmount =\n    (loanAmount * monthlyInterestRate) /\n    (1 -\n      1 /\n        Math.pow(\n          1 + monthlyInterestRate,\n          loanTermInMonths,\n        ));\n  const totalPaymentAmount =\n    monthlyPaymentAmount * loanTermInMonths;\n\n  const currencyFormatter = new Intl.NumberFormat('en-US', {\n    style: 'currency',\n    currency: 'USD',\n  });\n\n  // Display monthly payment amount.\n  monthlyPayment.value = currencyFormatter.format(\n    monthlyPaymentAmount,\n  );\n  // Display total payment amount.\n  totalPayment.value = currencyFormatter.format(\n    totalPaymentAmount,\n  );\n  // Display total interest amount.\n  totalInterest.value = currencyFormatter.format(\n    totalPaymentAmount - loanAmount,\n  );\n}\n</script>\n\n<template>\n  <div class=\"mortgage-calculator\">\n    <!-- Prevent page reload on form submission. -->\n    <form\n      @submit.prevent=\"onSubmit\"\n      class=\"mortgage-calculator-form\">\n      <div>\n        <label>\n          {{ 'Loan Amount: ' }}\n          <input\n            type=\"number\"\n            name=\"loan-amount\"\n            :defaultValue=\"100000\"\n            :min=\"1\"\n            required />\n        </label>\n      </div>\n      <div>\n        <label>\n          {{ 'Loan Term (years): ' }}\n          <input\n            type=\"number\"\n            name=\"loan-term\"\n            :defaultValue=\"30\"\n            :min=\"1\"\n            required />\n        </label>\n      </div>\n      <div>\n        <label>\n          {{ 'Interest Rate (%): ' }}\n          <input\n            type=\"number\"\n            name=\"interest-rate\"\n            :defaultValue=\"3\"\n            :step=\"0.01\"\n            :min=\"0.01\"\n            required />\n        </label>\n      </div>\n      <div>\n        <button type=\"submit\">Calculate</button>\n      </div>\n    </form>\n    <hr />\n    <div\n      aria-live=\"polite\"\n      class=\"mortgage-calculator-results\">\n      <div>\n        {{ 'Monthly Payment Amount: ' }}\n        <strong>{{ monthlyPayment }}</strong>\n      </div>\n      <div>\n        {{ 'Total Payment Amount: ' }}\n        <strong>{{ totalPayment }}</strong>\n      </div>\n      <div>\n        {{ 'Total Interest Paid: ' }}\n        <strong>{{ totalInterest }}</strong>\n      </div>\n    </div>\n  </div>\n</template>\n\n<style>\n.mortgage-calculator {\n  display: flex;\n  flex-direction: column;\n  font-size: 14px;\n  gap: 12px;\n}\n\n.mortgage-calculator-form {\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n}\n\n.mortgage-calculator-results {\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n}\n</style>\n"
+    },
+    "/src/main.js": {
+      "code": "import { createApp } from 'vue';\nimport App from './App.vue';\n\nimport './styles.css';\n\ncreateApp(App).mount('#app');\n"
+    },
+    "/src/styles.css": {
+      "code": "body {\n  font-family: sans-serif;\n}\n"
+    }
+  },
+  "workspace": {
+    "visibleFiles": [
+      "/src/App.vue"
+    ],
+    "activeFile": "/src/App.vue",
+    "environment": "vue-cli"
+  }
+}

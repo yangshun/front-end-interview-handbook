@@ -1,39 +1,33 @@
 {
-  "info": {
-    "excerpt": "Build a UI to filter, create, update, and delete users",
-    "title": "Users Database"
-  },
-  "metadata": {
-    "access": "premium",
-    "author": "yangshun",
-    "companies": [
-      "tiktok"
-    ],
-    "created": 1723766400,
-    "difficulty": "medium",
-    "duration": 30,
-    "featured": false,
-    "format": "user-interface",
-    "frameworkDefault": "react",
-    "frameworks": [
-      {
-        "framework": "react",
-        "href": "/questions/user-interface/users-database/react"
-      }
-    ],
-    "href": "/questions/user-interface/users-database",
-    "importance": "low",
-    "languages": [
-      "html",
-      "js",
-      "css"
-    ],
-    "nextQuestions": [],
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [],
-    "slug": "users-database",
-    "subtitle": null,
-    "topics": []
-  }
+  "access": "premium",
+  "author": "yangshun",
+  "companies": [
+    "tiktok"
+  ],
+  "created": 1723766400,
+  "difficulty": "medium",
+  "duration": 30,
+  "featured": false,
+  "format": "user-interface",
+  "frameworkDefault": "react",
+  "frameworks": [
+    {
+      "framework": "react",
+      "href": "/questions/user-interface/users-database/react"
+    }
+  ],
+  "href": "/questions/user-interface/users-database",
+  "importance": "low",
+  "languages": [
+    "html",
+    "js",
+    "css"
+  ],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [],
+  "slug": "users-database",
+  "subtitle": null,
+  "topics": []
 }

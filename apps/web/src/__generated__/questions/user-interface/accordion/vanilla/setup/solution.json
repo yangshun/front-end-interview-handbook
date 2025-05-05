@@ -1,0 +1,29 @@
+{
+  "author": "yangshun",
+  "files": {
+    "/greatfrontend.json": {
+      "code": "{\n  \"visibleFiles\": [\n    \"/index.html\",\n    \"/src/index.js\",\n    \"/src/styles.css\"\n  ],\n  \"activeFile\": \"/src/index.html\",\n  \"environment\": \"parcel\"\n}\n"
+    },
+    "/index.html": {
+      "code": "<!doctype html>\n<html>\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta\n      name=\"viewport\"\n      content=\"width=device-width, initial-scale=1.0\" />\n  </head>\n  <body>\n    <div id=\"accordion\"></div>\n    <script src=\"src/index.js\"></script>\n  </body>\n</html>\n"
+    },
+    "/package.json": {
+      "code": "{\n  \"name\": \"@gfe-questions/accordion-vanilla-solution\",\n  \"author\": \"yangshun\",\n  \"version\": \"0.0.1\",\n  \"private\": true,\n  \"devDependencies\": {\n    \"parcel\": \"2.9.3\"\n  },\n  \"source\": \"index.html\",\n  \"scripts\": {\n    \"start\": \"parcel\",\n    \"build\": \"parcel build\"\n  }\n}\n"
+    },
+    "/src/index.js": {
+      "code": "import './styles.css';\n\n(() => {\n  function accordion($rootEl, { sections }) {\n    function attachEvents() {\n      // Use Event Delegation.\n      $rootEl.addEventListener('click', (event) => {\n        const target = event.target;\n        if (\n          target.tagName !== 'BUTTON' ||\n          !target.classList.contains('accordion-item-title')\n        ) {\n          return;\n        }\n\n        // Find the icon and toggle the direction.\n        const $icon = target.querySelector(\n          '.accordion-icon',\n        );\n        $icon.classList.toggle('accordion-icon--rotated');\n\n        // Find the accordion contents and toggle the\n        // contents' visibility.\n        const $accordionContents = target.nextSibling;\n        $accordionContents.hidden =\n          !$accordionContents.hidden;\n      });\n    }\n\n    function init() {\n      $rootEl.classList.add('accordion');\n\n      const $accordionSections =\n        document.createDocumentFragment();\n\n      sections.forEach(({ value, title, contents }) => {\n        const $accordionSection =\n          document.createElement('div');\n        $accordionSection.classList.add('accordion-item');\n\n        const $accordionTitleBtn =\n          document.createElement('button');\n        $accordionTitleBtn.classList.add(\n          'accordion-item-title',\n        );\n        $accordionTitleBtn.type = 'button';\n        $accordionTitleBtn.setAttribute(\n          'data-value',\n          value,\n        );\n\n        const $accordionIcon =\n          document.createElement('span');\n        $accordionIcon.classList.add('accordion-icon');\n        $accordionIcon.setAttribute('aria-hidden', 'true');\n\n        $accordionTitleBtn.append(title, $accordionIcon);\n\n        const $accordionSectionContents =\n          document.createElement('div');\n        $accordionSectionContents.classList.add(\n          'accordion-item-contents',\n        );\n        $accordionSectionContents.hidden = true;\n        $accordionSectionContents.textContent = contents;\n\n        $accordionSection.append(\n          $accordionTitleBtn,\n          $accordionSectionContents,\n        );\n        $accordionSections.append($accordionSection);\n      });\n\n      $rootEl.appendChild($accordionSections);\n    }\n\n    init();\n    attachEvents();\n  }\n\n  accordion(document.getElementById('accordion'), {\n    sections: [\n      {\n        value: 'html',\n        title: 'HTML',\n        contents:\n          'The HyperText Markup Language or HTML is the standard markup language for documents designed to be displayed in a web browser.',\n      },\n      {\n        value: 'css',\n        title: 'CSS',\n        contents:\n          'Cascading Style Sheets is a style sheet language used for describing the presentation of a document written in a markup language such as HTML or XML.',\n      },\n      {\n        value: 'javascript',\n        title: 'JavaScript',\n        contents:\n          'JavaScript, often abbreviated as JS, is a programming language that is one of the core technologies of the World Wide Web, alongside HTML and CSS.',\n      },\n    ],\n  });\n})();\n"
+    },
+    "/src/styles.css": {
+      "code": "body {\n  font-family: sans-serif;\n}\n\n.wrapper {\n  align-items: center;\n  display: flex;\n}\n\n.accordion {\n  display: flex;\n  flex-direction: column;\n  width: 100%;\n}\n\n.accordion-item {\n  display: flex;\n  flex-direction: column;\n  row-gap: 4px;\n  padding: 4px 0;\n}\n\n.accordion-item:not(:first-child) {\n  border-top: 1px solid #eee;\n}\n\n.accordion-item-title {\n  align-items: center;\n  border: none;\n  background: none;\n  cursor: pointer;\n  font-weight: 500;\n  padding: 4px;\n  justify-content: space-between;\n  text-align: start;\n  display: flex;\n}\n\n.accordion-item-title:hover {\n  background-color: #eee;\n}\n\n.accordion-icon {\n  border: solid currentcolor;\n  border-width: 0 2px 2px 0;\n  display: inline-block;\n  height: 8px;\n  pointer-events: none;\n  transform: translateY(-2px) rotate(45deg);\n  width: 8px;\n}\n\n.accordion-icon--rotated {\n  transform: translateY(2px) rotate(-135deg);\n}\n\n.accordion-item-contents {\n  font-size: 14px;\n  line-height: 1.2em;\n  padding: 4px;\n}\n"
+    }
+  },
+  "workspace": {
+    "visibleFiles": [
+      "/index.html",
+      "/src/index.js",
+      "/src/styles.css"
+    ],
+    "activeFile": "/src/index.html",
+    "environment": "parcel"
+  }
+}

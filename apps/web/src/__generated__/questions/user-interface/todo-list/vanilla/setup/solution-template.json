@@ -1,0 +1,29 @@
+{
+  "author": "yangshun",
+  "files": {
+    "/greatfrontend.json": {
+      "code": "{\n  \"visibleFiles\": [\n    \"/index.html\",\n    \"/src/index.js\",\n    \"/src/styles.css\"\n  ],\n  \"activeFile\": \"/src/index.html\",\n  \"environment\": \"parcel\"\n}\n"
+    },
+    "/index.html": {
+      "code": "<!doctype html>\n<html>\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta\n      name=\"viewport\"\n      content=\"width=device-width, initial-scale=1.0\" />\n  </head>\n  <body>\n    <div>\n      <h1>Todo List</h1>\n      <form>\n        <input\n          aria-label=\"Add new task\"\n          type=\"text\"\n          placeholder=\"Add your task\" />\n        <div>\n          <button id=\"submit\">Submit</button>\n        </div>\n      </form>\n      <ul></ul>\n    </div>\n    <template id=\"task-template\">\n      <li>\n        <span></span>\n        <button>Delete</button>\n      </li>\n    </template>\n    <script src=\"src/index.js\"></script>\n  </body>\n</html>\n"
+    },
+    "/package.json": {
+      "code": "{\n  \"name\": \"@gfe-questions/todo-list-vanilla-solution-template\",\n  \"author\": \"yangshun\",\n  \"version\": \"0.0.1\",\n  \"private\": true,\n  \"devDependencies\": {\n    \"parcel\": \"2.9.3\"\n  },\n  \"source\": \"index.html\",\n  \"scripts\": {\n    \"start\": \"parcel\",\n    \"build\": \"parcel build\"\n  }\n}\n"
+    },
+    "/src/index.js": {
+      "code": "import './styles.css';\n\n(() => {\n  // Decouple the tasks from the rendering\n  // and client-side render the tasks during initial load.\n  const TASKS = [\n    'Walk the dog',\n    'Water the plants',\n    'Wash the dishes',\n  ];\n\n  // Retain a reference to the elements which persist\n  // throughout usage of the app.\n  const $inputEl = document.querySelector('input');\n  const $form = document.querySelector('form');\n  const $todoListEl = document.querySelector('ul');\n  const $taskTemplate = document.querySelector(\n    '#task-template',\n  );\n\n  function addTask(label) {\n    // Use the template to make it easy to add new tasks.\n    const $newTaskElement =\n      $taskTemplate.content.cloneNode(true);\n    $newTaskElement.querySelector('span').textContent =\n      label;\n    $todoListEl.appendChild($newTaskElement);\n  }\n\n  function deleteTask($itemEl) {\n    // Remove the task from the list.\n    $itemEl.parentNode.removeChild($itemEl);\n  }\n\n  $form.addEventListener('submit', (event) => {\n    event.preventDefault();\n    const value = $inputEl.value;\n    // Don't do anything for empty value. Good for UX.\n    if (value.trim() === '') {\n      return;\n    }\n\n    // Trim before adding to the list.\n    addTask(value.trim());\n\n    // Reset the input so that new tasks can be added.\n    $inputEl.value = '';\n  });\n\n  // Add a listener to the list instead of individual tasks.\n  // This is called event delegation and the benefit is that\n  // the Delete button of new tasks can also respond to clicks.\n  $todoListEl.addEventListener('click', (event) => {\n    // Check that the button is being clicked and not something\n    // else (e.g. the task label).\n    if (event.target.tagName !== 'BUTTON') {\n      return;\n    }\n\n    // Add confirmation before destructive actions.\n    if (\n      window.confirm(\n        'Are you sure you want to delete the task?',\n      )\n    ) {\n      deleteTask(event.target.parentNode);\n      $inputEl.focus();\n    }\n  });\n\n  function initialRender() {\n    // Render the initial tasks using the template.\n    TASKS.forEach(function (label) {\n      addTask(label);\n    });\n  }\n\n  initialRender();\n})();\n"
+    },
+    "/src/styles.css": {
+      "code": "body {\n  font-family: sans-serif;\n}\n"
+    }
+  },
+  "workspace": {
+    "visibleFiles": [
+      "/index.html",
+      "/src/index.js",
+      "/src/styles.css"
+    ],
+    "activeFile": "/src/index.html",
+    "environment": "parcel"
+  }
+}

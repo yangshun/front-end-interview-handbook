@@ -1,0 +1,31 @@
+{
+  "author": "yangshun",
+  "files": {
+    "/greatfrontend.json": {
+      "code": "{\n  \"visibleFiles\": [\"/src/App.vue\", \"/src/styles.css\"],\n  \"activeFile\": \"/src/App.vue\",\n  \"environment\": \"vue-cli\"\n}\n"
+    },
+    "/package.json": {
+      "code": "{\n  \"name\": \"@gfe-questions/temperature-converter-vue-solution\",\n  \"author\": \"yangshun\",\n  \"version\": \"0.0.1\",\n  \"main\": \"/src/main.js\",\n  \"scripts\": {\n    \"serve\": \"vue-cli-service serve\",\n    \"build\": \"vue-cli-service build\"\n  },\n  \"dependencies\": {\n    \"core-js\": \"3.32.2\",\n    \"vue\": \"3.3.4\"\n  },\n  \"devDependencies\": {\n    \"@vue/cli-plugin-babel\": \"5.0.8\",\n    \"@vue/cli-service\": \"5.0.8\"\n  }\n}\n"
+    },
+    "/public/index.html": {
+      "code": "<!doctype html>\n<html>\n  <head>\n    <meta charset=\"utf-8\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" />\n    <meta\n      name=\"viewport\"\n      content=\"width=device-width,initial-scale=1.0\" />\n    <title>Vue</title>\n  </head>\n  <body>\n    <div id=\"app\"></div>\n    <!-- Built files will be auto injected -->\n  </body>\n</html>\n"
+    },
+    "/src/App.vue": {
+      "code": "<script setup>\nimport { ref } from 'vue';\n\nconst celsius = ref('');\nconst fahrenheit = ref('');\n\nfunction format(number) {\n  // Show 4 d.p. if number has more than 4 decimal places.\n  return /\\.\\d{5}/.test(number)\n    ? Number(number).toFixed(4)\n    : number;\n}\n\nfunction convert(value, destination, calculateValue) {\n  const numericValue = Number(value);\n  const isValid =\n    !Number.isNaN(numericValue) && Boolean(value);\n  destination.value = isValid\n    ? format(calculateValue(numericValue))\n    : '';\n}\n\nfunction setCelsius(event) {\n  const newValue = event.target.value;\n  celsius.value = newValue;\n  convert(\n    newValue,\n    fahrenheit,\n    (value) => (value * 9) / 5 + 32,\n  );\n}\n\nfunction setFahrenheit(event) {\n  const newValue = event.target.value;\n  fahrenheit.value = newValue;\n  convert(\n    newValue,\n    celsius,\n    (value) => ((value - 32) * 5) / 9,\n  );\n}\n</script>\n\n<template>\n  <div>\n    <div className=\"temperature-converter\">\n      <!-- Use a label for better a11y. -->\n      <label className=\"temperature-converter-column\">\n        <input\n          className=\"temperature-converter-column-top-row\"\n          type=\"number\"\n          :value=\"celsius\"\n          @input=\"setCelsius\" />\n        <div\n          className=\"temperature-converter-column-bottom-row\">\n          Celsius\n        </div>\n      </label>\n      <div className=\"temperature-converter-column\">\n        <div\n          className=\"temperature-converter-column-top-row\">\n          =\n        </div>\n      </div>\n      <!-- Use a label for better a11y. -->\n      <label className=\"temperature-converter-column\">\n        <input\n          className=\"temperature-converter-column-top-row\"\n          type=\"number\"\n          :value=\"fahrenheit\"\n          @input=\"setFahrenheit\" />\n        <div\n          className=\"temperature-converter-column-bottom-row\">\n          Fahrenheit\n        </div>\n      </label>\n    </div>\n  </div>\n</template>\n\n<style>\n.temperature-converter {\n  display: flex;\n}\n\n.temperature-converter\n  .temperature-converter-column-top-row {\n  align-items: center;\n  display: flex;\n  font-size: 18px;\n  height: 24px;\n  padding: 4px;\n  text-align: center;\n}\n\n.temperature-converter\n  .temperature-converter-column-bottom-row {\n  padding: 4px;\n  text-align: center;\n}\n</style>\n"
+    },
+    "/src/main.js": {
+      "code": "import { createApp } from 'vue';\nimport App from './App.vue';\n\nimport './styles.css';\n\ncreateApp(App).mount('#app');\n"
+    },
+    "/src/styles.css": {
+      "code": "body {\n  font-family: sans-serif;\n}\n"
+    }
+  },
+  "workspace": {
+    "visibleFiles": [
+      "/src/App.vue",
+      "/src/styles.css"
+    ],
+    "activeFile": "/src/App.vue",
+    "environment": "vue-cli"
+  }
+}

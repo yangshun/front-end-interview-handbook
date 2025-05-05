@@ -1,0 +1,31 @@
+{
+  "author": "tanhauhau",
+  "files": {
+    "/greatfrontend.json": {
+      "code": "{\n  \"visibleFiles\": [\"/src/App.svelte\", \"/src/styles.css\"],\n  \"activeFile\": \"/src/App.svelte\",\n  \"environment\": \"svelte\"\n}\n"
+    },
+    "/package.json": {
+      "code": "{\n  \"name\": \"@gfe-questions/stopwatch-svelte-solution\",\n  \"author\": \"tanhauhau\",\n  \"version\": \"0.0.1\",\n  \"main\": \"src/index.js\",\n  \"dependencies\": {\n    \"svelte\": \"^3.58.0\"\n  }\n}\n"
+    },
+    "/public/index.html": {
+      "code": "<!doctype html>\n<html>\n  <head>\n    <meta charset=\"utf8\" />\n    <meta name=\"viewport\" content=\"width=device-width\" />\n    <title>Svelte</title>\n    <link rel=\"stylesheet\" href=\"public/bundle.css\" />\n  </head>\n\n  <body>\n    <script src=\"bundle.js\"></script>\n  </body>\n</html>\n"
+    },
+    "/src/App.svelte": {
+      "code": "<script>\n  const MS_IN_SECOND = 1000;\n  const SECONDS_IN_MINUTE = 60;\n  const MINUTES_IN_HOUR = 60;\n  const MS_IN_HOUR =\n    MINUTES_IN_HOUR * SECONDS_IN_MINUTE * MS_IN_SECOND;\n  const MS_IN_MINUTE = SECONDS_IN_MINUTE * MS_IN_SECOND;\n\n  function formatTime(timeParam) {\n    let time = timeParam;\n    let toPadTime = false;\n    const padTime = (number) =>\n      toPadTime\n        ? padTwoDigit(number)\n        : number === 0\n        ? ''\n        : number;\n    const parts = {\n      hours: '',\n      minutes: '',\n      seconds: '0',\n      ms: '00',\n    };\n    if (time > MS_IN_HOUR) {\n      parts.hours = Math.floor(time / MS_IN_HOUR);\n      time %= MS_IN_HOUR;\n      toPadTime = true;\n    }\n\n    if (time > MS_IN_MINUTE) {\n      parts.minutes = padTime(\n        Math.floor(time / MS_IN_MINUTE),\n      );\n      time %= MS_IN_MINUTE;\n      toPadTime = true;\n    } else {\n      parts.minutes = padTime(0);\n    }\n\n    if (time > MS_IN_SECOND) {\n      parts.seconds = padTime(\n        Math.floor(time / MS_IN_SECOND),\n      );\n      time %= MS_IN_SECOND;\n      toPadTime = true;\n    } else if (toPadTime) {\n      parts.seconds = padTime(0);\n    }\n\n    parts.ms = padTwoDigit(Math.floor(time / 10));\n\n    return parts;\n  }\n\n  function padTwoDigit(number) {\n    return number >= 10 ? String(number) : `0${number}`;\n  }\n\n  let lastTickTiming = null;\n  let totalDuration = 0;\n  // Timer ID of the active interval, if one is running.\n  let timerId = null;\n  // Derived state to determine if there's a timer running.\n  $: isRunning = timerId != null;\n  $: formattedTime = formatTime(totalDuration);\n\n  function startTimer() {\n    lastTickTiming = Date.now();\n    timerId = window.setInterval(() => {\n      const now = Date.now();\n      const timePassed = now - lastTickTiming;\n      totalDuration += timePassed;\n      lastTickTiming = now;\n    }, 1);\n  }\n\n  function stopInterval() {\n    window.clearInterval(timerId);\n    timerId = null;\n  }\n\n  function resetTimer() {\n    stopInterval();\n    totalDuration = 0;\n  }\n\n  function toggleTimer() {\n    if (isRunning) {\n      stopInterval();\n    } else {\n      startTimer();\n    }\n  }\n</script>\n\n<div>\n  <button\n    class=\"time\"\n    on:click={() => {\n      toggleTimer();\n    }}>\n    {#if formattedTime.hours}\n      <span>\n        <span class=\"time-number\">\n          {formattedTime.hours}\n        </span>\n        <span class=\"time-unit\">h</span>\n      </span>\n    {/if}\n    {#if formattedTime.minutes}\n      <span>\n        <span class=\"time-number\">\n          {formattedTime.minutes}\n        </span>\n        <span class=\"time-unit\">m</span>\n      </span>\n    {/if}\n    <span>\n      <span class=\"time-number\">\n        {formattedTime.seconds}\n      </span>\n      <span class=\"time-unit\">s</span>\n    </span>\n    <span class=\"time-number time-number--small\">\n      {formattedTime.ms}\n    </span>\n  </button>\n  <div>\n    <button\n      on:click={() => {\n        toggleTimer();\n      }}>\n      {isRunning ? 'Stop' : 'Start'}\n    </button>\n    <button\n      on:click={() => {\n        resetTimer();\n      }}>\n      Reset\n    </button>\n  </div>\n</div>\n\n<style>\n  .time {\n    align-items: baseline;\n    background-color: transparent;\n    border: none;\n    cursor: pointer;\n    display: flex;\n    gap: 16px;\n    user-select: none;\n  }\n\n  .time-unit {\n    font-size: 24px;\n  }\n\n  .time-number {\n    font-size: 62px;\n  }\n\n  .time-number--small {\n    font-size: 36px;\n  }\n</style>\n"
+    },
+    "/src/index.js": {
+      "code": "import App from './App.svelte';\nimport './styles.css';\n\nconst app = new App({\n  target: document.body,\n});\n\nexport default app;\n"
+    },
+    "/src/styles.css": {
+      "code": "body {\n  font-family: sans-serif;\n}\n"
+    }
+  },
+  "workspace": {
+    "visibleFiles": [
+      "/src/App.svelte",
+      "/src/styles.css"
+    ],
+    "activeFile": "/src/App.svelte",
+    "environment": "svelte"
+  }
+}

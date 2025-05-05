@@ -1,50 +1,44 @@
 {
-  "info": {
-    "excerpt": "Build a counter with a history of the values and ability to undo/redo actions",
-    "title": "Undoable Counter"
-  },
-  "metadata": {
-    "access": "premium",
-    "author": null,
-    "companies": [],
-    "created": 1681257600,
-    "difficulty": "medium",
-    "duration": 30,
-    "featured": false,
-    "format": "user-interface",
-    "frameworkDefault": "react",
-    "frameworks": [
-      {
-        "framework": "react",
-        "href": "/questions/user-interface/undoable-counter/react"
-      },
-      {
-        "framework": "angular",
-        "href": "/questions/user-interface/undoable-counter/angular"
-      },
-      {
-        "framework": "vue",
-        "href": "/questions/user-interface/undoable-counter/vue"
-      },
-      {
-        "framework": "svelte",
-        "href": "/questions/user-interface/undoable-counter/svelte"
-      }
-    ],
-    "href": "/questions/user-interface/undoable-counter",
-    "importance": "low",
-    "languages": [
-      "html",
-      "js"
-    ],
-    "nextQuestions": [],
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [
-      "counter"
-    ],
-    "slug": "undoable-counter",
-    "subtitle": null,
-    "topics": []
-  }
+  "access": "premium",
+  "author": null,
+  "companies": [],
+  "created": 1681257600,
+  "difficulty": "medium",
+  "duration": 30,
+  "featured": false,
+  "format": "user-interface",
+  "frameworkDefault": "react",
+  "frameworks": [
+    {
+      "framework": "react",
+      "href": "/questions/user-interface/undoable-counter/react"
+    },
+    {
+      "framework": "angular",
+      "href": "/questions/user-interface/undoable-counter/angular"
+    },
+    {
+      "framework": "vue",
+      "href": "/questions/user-interface/undoable-counter/vue"
+    },
+    {
+      "framework": "svelte",
+      "href": "/questions/user-interface/undoable-counter/svelte"
+    }
+  ],
+  "href": "/questions/user-interface/undoable-counter",
+  "importance": "low",
+  "languages": [
+    "html",
+    "js"
+  ],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [
+    "counter"
+  ],
+  "slug": "undoable-counter",
+  "subtitle": null,
+  "topics": []
 }

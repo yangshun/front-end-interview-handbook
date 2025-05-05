@@ -1,0 +1,14 @@
+{
+  "slug": "transfer-list-ii",
+  "author": "yangshun",
+  "created": "2023-05-04",
+  "languages": ["html", "css", "js"],
+  "companies": ["tiktok"],
+  "access": "premium",
+  "duration": 40,
+  "published": true,
+  "importance": "low",
+  "difficulty": "hard",
+  "frameworks": ["react", "angular", "vue", "svelte"],
+  "similar_questions": ["todo-list", "transfer-list"]
+}

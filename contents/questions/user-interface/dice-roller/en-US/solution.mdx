@@ -1,0 +1,31 @@
+## Solution
+
+The solution can be broken down into a few parts:
+
+1. Collecting form data.
+1. Generating dice values.
+1. Displaying the dice values.
+
+### State
+
+The only state value we need for this dice roller is the values of the rolled dice, which can be represented as an array of values that range from 1 to 6.
+
+### Collecting form data
+
+Since the transfer of data from the form is one-directional, a basic HTML form will suffice.
+
+By using `<input type="number" required="true" min="1" max="12" />`, we ensure only integer values can be entered and leverage HTML validation so that the minimum value of the fields is 1 and maximum is 12. Empty fields are also prevented via the `required` attribute.
+
+### Generating dice values
+
+With the number of dice obtained from the form, we can write a function to generate the required values.
+
+To generate a value from 1 to 6, we can use `Math.floor(Math.random() * 6) + 1,`. This randomization will be repeated for each dice.
+
+### Displaying the dice values
+
+Observe that there are 7 different positions the dots can take on a 6-sided dice. By using `position: absolute` and the appropriate `top`/`left`/`right`/`bottom` set to 0, the corner dots can be displayed correctly. The dots on the center row will require an additional negative translation transform to make them perfectly center.
+
+Each dot is independent of the others and multiple dots can be combined to display the desired visual result for a dice value.
+
+Lastly, we create an object that maps the dice value to the dot configuration classes. Value of 1 will require the center dot only, a value of 2 will require the top right and bottom left dots, etc.

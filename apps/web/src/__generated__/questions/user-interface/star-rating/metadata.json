@@ -1,55 +1,49 @@
 {
-  "info": {
-    "excerpt": "Build a star rating component that shows a row of star icons for users to select the number of filled stars corresponding to the rating",
-    "title": "Star Rating"
-  },
-  "metadata": {
-    "access": "standard",
-    "author": "yangshun",
-    "companies": [
-      "airbnb",
-      "amazon",
-      "uber"
-    ],
-    "created": 1658016000,
-    "difficulty": "medium",
-    "duration": 20,
-    "featured": false,
-    "format": "user-interface",
-    "frameworkDefault": "react",
-    "frameworks": [
-      {
-        "framework": "react",
-        "href": "/questions/user-interface/star-rating/react"
-      },
-      {
-        "framework": "vanilla",
-        "href": "/questions/user-interface/star-rating/vanilla"
-      },
-      {
-        "framework": "angular",
-        "href": "/questions/user-interface/star-rating/angular"
-      },
-      {
-        "framework": "vue",
-        "href": "/questions/user-interface/star-rating/vue"
-      }
-    ],
-    "href": "/questions/user-interface/star-rating",
-    "importance": "high",
-    "languages": [
-      "html",
-      "css",
-      "js"
-    ],
-    "nextQuestions": [],
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [
-      "progress-bar"
-    ],
-    "slug": "star-rating",
-    "subtitle": null,
-    "topics": []
-  }
+  "access": "standard",
+  "author": "yangshun",
+  "companies": [
+    "airbnb",
+    "amazon",
+    "uber"
+  ],
+  "created": 1658016000,
+  "difficulty": "medium",
+  "duration": 20,
+  "featured": false,
+  "format": "user-interface",
+  "frameworkDefault": "react",
+  "frameworks": [
+    {
+      "framework": "react",
+      "href": "/questions/user-interface/star-rating/react"
+    },
+    {
+      "framework": "vanilla",
+      "href": "/questions/user-interface/star-rating/vanilla"
+    },
+    {
+      "framework": "angular",
+      "href": "/questions/user-interface/star-rating/angular"
+    },
+    {
+      "framework": "vue",
+      "href": "/questions/user-interface/star-rating/vue"
+    }
+  ],
+  "href": "/questions/user-interface/star-rating",
+  "importance": "high",
+  "languages": [
+    "html",
+    "css",
+    "js"
+  ],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [
+    "progress-bar"
+  ],
+  "slug": "star-rating",
+  "subtitle": null,
+  "topics": []
 }

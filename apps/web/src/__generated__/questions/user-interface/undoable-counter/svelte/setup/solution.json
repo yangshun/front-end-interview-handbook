@@ -1,0 +1,31 @@
+{
+  "author": "tanhauhau",
+  "files": {
+    "/greatfrontend.json": {
+      "code": "{\n  \"visibleFiles\": [\"/src/App.svelte\", \"/src/styles.css\"],\n  \"activeFile\": \"/src/App.svelte\",\n  \"environment\": \"svelte\"\n}\n"
+    },
+    "/package.json": {
+      "code": "{\n  \"name\": \"@gfe-questions/undoable-counter-svelte-solution\",\n  \"author\": \"tanhauhau\",\n  \"version\": \"0.0.1\",\n  \"main\": \"src/index.js\",\n  \"dependencies\": {\n    \"svelte\": \"^3.58.0\"\n  }\n}\n"
+    },
+    "/public/index.html": {
+      "code": "<!doctype html>\n<html>\n  <head>\n    <meta charset=\"utf8\" />\n    <meta name=\"viewport\" content=\"width=device-width\" />\n    <title>Svelte</title>\n    <link rel=\"stylesheet\" href=\"public/bundle.css\" />\n  </head>\n\n  <body>\n    <script src=\"bundle.js\"></script>\n  </body>\n</html>\n"
+    },
+    "/src/App.svelte": {
+      "code": "<script>\n  const OPERATIONS = {\n    '/2': (value) => value / 2,\n    '-1': (value) => value - 1,\n    '+1': (value) => value + 1,\n    x2: (value) => value * 2,\n  };\n\n  let counter = 0;\n  let history = [];\n  let undoHistory = [];\n  function onReset() {\n    counter = 0;\n    history = [];\n    undoHistory = [];\n  }\n\n  function undo() {\n    const [latest, ...earlierHistory] = history;\n    counter = latest.oldCounter;\n    undoHistory = [latest, ...undoHistory];\n    history = earlierHistory;\n  }\n\n  function redo() {\n    const [latest, ...earlierUndoHistory] = undoHistory;\n    counter = latest.newCounter;\n    undoHistory = earlierUndoHistory;\n    history = [latest, ...history];\n  }\n\n  function performOperation(operation) {\n    const oldCounter = counter;\n    const operationFunction = OPERATIONS[operation];\n    counter = operationFunction\n      ? operationFunction(counter)\n      : counter;\n    history = [\n      { operation, oldCounter, newCounter: counter },\n      ...history,\n    ];\n    undoHistory = [];\n  }\n</script>\n\n<div class=\"row\">\n  <button disabled={history.length === 0} on:click={undo}>\n    Undo\n  </button>\n  <button\n    disabled={undoHistory.length === 0}\n    on:click={redo}>\n    Redo\n  </button>\n  <button on:click={onReset}>Reset</button>\n</div>\n<hr />\n<div class=\"row\">\n  <button on:click={() => performOperation('/2')}\n    >/2</button>\n  <button on:click={() => performOperation('-1')}\n    >-1</button>\n  <div class=\"counter\">{counter}</div>\n  <button on:click={() => performOperation('+1')}\n    >+1</button>\n  <button on:click={() => performOperation('x2')}\n    >x2</button>\n</div>\n<hr />\n<div class=\"row\">\n  {#if history.length > 0}\n    <table>\n      <thead>\n        <tr>\n          <th>Operation</th>\n          <th>Old</th>\n          <th>New</th>\n        </tr>\n      </thead>\n      <tbody>\n        {#each history as item}\n          <tr>\n            <td>{item.operation}</td>\n            <td>{item.oldCounter}</td>\n            <td>{item.newCounter}</td>\n          </tr>\n        {/each}\n      </tbody>\n    </table>\n  {/if}\n</div>\n\n<style>\n  .row {\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    justify-content: center;\n  }\n\n  .counter {\n    font-size: 24px;\n    margin-left: 24px;\n    margin-right: 24px;\n  }\n</style>\n"
+    },
+    "/src/index.js": {
+      "code": "import App from './App.svelte';\nimport './styles.css';\n\nconst app = new App({\n  target: document.body,\n});\n\nexport default app;\n"
+    },
+    "/src/styles.css": {
+      "code": "body {\n  font-family: sans-serif;\n}\n"
+    }
+  },
+  "workspace": {
+    "visibleFiles": [
+      "/src/App.svelte",
+      "/src/styles.css"
+    ],
+    "activeFile": "/src/App.svelte",
+    "environment": "svelte"
+  }
+}

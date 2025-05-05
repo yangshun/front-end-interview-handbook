@@ -1,0 +1,34 @@
+{
+  "author": "tanhauhau",
+  "files": {
+    "/greatfrontend.json": {
+      "code": "{\n  \"visibleFiles\": [\"/src/App.svelte\", \"/src/styles.css\"],\n  \"activeFile\": \"/src/App.svelte\",\n  \"environment\": \"svelte\"\n}\n"
+    },
+    "/package.json": {
+      "code": "{\n  \"name\": \"@gfe-questions/tic-tac-toe-svelte-solution\",\n  \"author\": \"tanhauhau\",\n  \"version\": \"0.0.1\",\n  \"main\": \"src/index.js\",\n  \"dependencies\": {\n    \"svelte\": \"^3.58.0\"\n  }\n}\n"
+    },
+    "/public/index.html": {
+      "code": "<!doctype html>\n<html>\n  <head>\n    <meta charset=\"utf8\" />\n    <meta name=\"viewport\" content=\"width=device-width\" />\n    <title>Svelte</title>\n    <link rel=\"stylesheet\" href=\"public/bundle.css\" />\n  </head>\n\n  <body>\n    <script src=\"bundle.js\"></script>\n  </body>\n</html>\n"
+    },
+    "/src/App.svelte": {
+      "code": "<script>\n  import Cell from './Cell.svelte';\n  import './styles.css';\n\n  // List of cell indices that are 3-in-a-row.\n  const CELLS_IN_A_LINE = [\n    [0, 1, 2],\n    [3, 4, 5],\n    [6, 7, 8],\n    [0, 3, 6],\n    [1, 4, 7],\n    [2, 5, 8],\n    [0, 4, 8],\n    [2, 4, 6],\n  ];\n\n  // Determine if there's a winner for the board.\n  function determineWinner(board) {\n    for (let i = 0; i < CELLS_IN_A_LINE.length; i++) {\n      const [x, y, z] = CELLS_IN_A_LINE[i];\n      // Determine if the cells in a line have the same mark.\n      if (\n        board[x] != null &&\n        board[x] === board[y] &&\n        board[y] === board[z]\n      ) {\n        return board[x];\n      }\n    }\n\n    // No winner yet.\n    return null;\n  }\n\n  let board = Array(9).fill(null);\n  let xIsPlaying = true;\n  $: winner = determineWinner(board);\n\n  function onReset() {\n    board = Array(9).fill(null);\n    xIsPlaying = true;\n  }\n\n  function getStatusMessage(winner, board, xIsPlaying) {\n    if (winner != null) {\n      return `Player ${winner} wins!`;\n    }\n\n    // All cells have been filled up.\n    if (!board.includes(null)) {\n      return `It's a draw!`;\n    }\n\n    return `Player ${xIsPlaying ? 'X' : 'O'} turn`;\n  }\n</script>\n\n<div class=\"app\">\n  <div aria-live=\"polite\">\n    {getStatusMessage(winner, board, xIsPlaying)}\n  </div>\n  <div class=\"board\">\n    {#each { length: 9 } as _, cellIndex (cellIndex)}\n      {@const turn = xIsPlaying ? 'X' : 'O'}\n      <Cell\n        disabled={board[cellIndex] != null ||\n          winner != null}\n        index={cellIndex}\n        mark={board[cellIndex]}\n        {turn}\n        on:click={() => {\n          const newBoard = board.slice();\n          newBoard[cellIndex] = turn;\n          board = newBoard;\n          xIsPlaying = !xIsPlaying;\n        }} />\n    {/each}\n  </div>\n  <button\n    on:click={() => {\n      if (winner == null) {\n        // Confirm whether to reset the game.\n        const confirm = window.confirm(\n          'Are you sure you want to reset the game?',\n        );\n        if (!confirm) {\n          return;\n        }\n      }\n\n      onReset();\n    }}>\n    Reset\n  </button>\n</div>\n\n<style>\n  .app {\n    align-items: center;\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    max-width: 320px;\n    margin: 0 auto;\n    row-gap: 16px;\n  }\n\n  .board {\n    display: grid;\n    width: 100%;\n    grid-template-columns: repeat(3, 1fr);\n  }\n</style>\n"
+    },
+    "/src/Cell.svelte": {
+      "code": "<script>\n  export let index;\n  export let disabled;\n  export let mark;\n  export let turn;\n\n  import { createEventDispatcher } from 'svelte';\n  const dispatch = createEventDispatcher();\n</script>\n\n<button\n  aria-label={mark == null\n    ? `Mark cell ${index} as ${turn}`\n    : undefined}\n  class=\"cell\"\n  {disabled}\n  on:click={() => {\n    dispatch('click');\n  }}>\n  <span aria-hidden={true}>{mark ?? ''}</span>\n</button>\n\n<style>\n  .cell {\n    background-color: #fff;\n    border: 1px solid #ccc;\n    color: #000;\n    font-size: min(48px, 10vw);\n    font-weight: bold;\n    vertical-align: middle;\n    aspect-ratio: 1 / 1;\n  }\n\n  .cell:not(:disabled) {\n    cursor: pointer;\n  }\n\n  .cell:not(:disabled):hover {\n    background-color: #fafafa;\n  }\n</style>\n"
+    },
+    "/src/index.js": {
+      "code": "import App from './App.svelte';\nimport './styles.css';\n\nconst app = new App({\n  target: document.body,\n});\n\nexport default app;\n"
+    },
+    "/src/styles.css": {
+      "code": "body {\n  font-family: sans-serif;\n}\n"
+    }
+  },
+  "workspace": {
+    "visibleFiles": [
+      "/src/App.svelte",
+      "/src/styles.css"
+    ],
+    "activeFile": "/src/App.svelte",
+    "environment": "svelte"
+  }
+}

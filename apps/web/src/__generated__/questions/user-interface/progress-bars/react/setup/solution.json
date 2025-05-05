@@ -1,0 +1,31 @@
+{
+  "author": "yangshun",
+  "files": {
+    "/greatfrontend.json": {
+      "code": "{\n  \"visibleFiles\": [\"/src/App.js\", \"/src/styles.css\"],\n  \"activeFile\": \"/src/App.js\",\n  \"environment\": \"create-react-app\"\n}\n"
+    },
+    "/package.json": {
+      "code": "{\n  \"name\": \"@gfe-questions/progress-bars-react-solution\",\n  \"author\": \"yangshun\",\n  \"version\": \"0.0.1\",\n  \"private\": true,\n  \"dependencies\": {\n    \"react\": \"18.2.0\",\n    \"react-dom\": \"18.2.0\",\n    \"react-scripts\": \"5.0.1\"\n  },\n  \"scripts\": {\n    \"start\": \"react-scripts start\",\n    \"build\": \"react-scripts build\",\n    \"test\": \"react-scripts test\",\n    \"eject\": \"react-scripts eject\"\n  }\n}\n"
+    },
+    "/public/index.html": {
+      "code": "<!doctype html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta\n      name=\"viewport\"\n      content=\"width=device-width, initial-scale=1.0\" />\n  </head>\n  <body>\n    <div id=\"root\"></div>\n  </body>\n</html>\n"
+    },
+    "/src/App.js": {
+      "code": "import { useEffect, useState } from 'react';\n\nfunction ProgressBar() {\n  const [startTransition, setStartTransition] =\n    useState(false);\n\n  // Start transition after first render and never\n  // apply this effect ever again.\n  useEffect(() => {\n    if (startTransition) {\n      return;\n    }\n\n    setStartTransition(true);\n  });\n\n  return (\n    <div className=\"bar\">\n      <div\n        className={[\n          'bar-contents',\n          startTransition && 'bar-contents--filled',\n        ]\n          .filter(Boolean)\n          .join(' ')}\n      />\n    </div>\n  );\n}\n\nexport default function App() {\n  const [bars, setBars] = useState(0);\n\n  return (\n    <div className=\"wrapper\">\n      <div>\n        <button\n          onClick={() => {\n            setBars(bars + 1);\n          }}>\n          Add\n        </button>\n      </div>\n      <div className=\"bars\">\n        {Array(bars)\n          .fill(null)\n          .map((_, index) => (\n            <ProgressBar key={index} />\n          ))}\n      </div>\n    </div>\n  );\n}\n"
+    },
+    "/src/index.js": {
+      "code": "import React, { StrictMode } from 'react';\nimport { createRoot } from 'react-dom/client';\n\nimport App from './App';\n\nimport './styles.css';\n\nconst root = createRoot(document.getElementById('root'));\nroot.render(\n  <StrictMode>\n    <App />\n  </StrictMode>,\n);\n"
+    },
+    "/src/styles.css": {
+      "code": "body {\n  font-family: sans-serif;\n}\n\n.wrapper {\n  display: flex;\n  flex-direction: column;\n  gap: 16px;\n  justify-content: center;\n}\n\n.bars {\n  display: flex;\n  flex-direction: column;\n  row-gap: 8px;\n}\n\n.bar {\n  background-color: #ccc;\n  height: 8px;\n}\n\n.bar-contents {\n  background-color: green;\n  height: 100%;\n  transform: scaleX(0);\n  transform-origin: left;\n  transition-duration: 2000ms;\n  transition-property: transform;\n  transition-timing-function: linear;\n}\n\n.bar-contents--filled {\n  transform: scaleX(1);\n}\n"
+    }
+  },
+  "workspace": {
+    "visibleFiles": [
+      "/src/App.js",
+      "/src/styles.css"
+    ],
+    "activeFile": "/src/App.js",
+    "environment": "create-react-app"
+  }
+}

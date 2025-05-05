@@ -1,61 +1,55 @@
 {
-  "info": {
-    "excerpt": "Build a simple counter that increments whenever a button is clicked",
-    "title": "Counter"
-  },
-  "metadata": {
-    "access": "free",
-    "author": "yangshun",
-    "companies": [
-      "amazon"
-    ],
-    "created": 1656028800,
-    "difficulty": "easy",
-    "duration": 5,
-    "featured": false,
-    "format": "user-interface",
-    "frameworkDefault": "react",
-    "frameworks": [
-      {
-        "framework": "react",
-        "href": "/questions/user-interface/counter/react"
-      },
-      {
-        "framework": "vanilla",
-        "href": "/questions/user-interface/counter/vanilla"
-      },
-      {
-        "framework": "angular",
-        "href": "/questions/user-interface/counter/angular"
-      },
-      {
-        "framework": "vue",
-        "href": "/questions/user-interface/counter/vue"
-      },
-      {
-        "framework": "svelte",
-        "href": "/questions/user-interface/counter/svelte"
-      }
-    ],
-    "href": "/questions/user-interface/counter",
-    "importance": "low",
-    "languages": [
-      "html",
-      "js"
-    ],
-    "nextQuestions": [
-      "flatten",
-      "todo-list",
-      "contact-form"
-    ],
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [
-      "todo-list",
-      "temperature-converter"
-    ],
-    "slug": "counter",
-    "subtitle": null,
-    "topics": []
-  }
+  "access": "free",
+  "author": "yangshun",
+  "companies": [
+    "amazon"
+  ],
+  "created": 1656028800,
+  "difficulty": "easy",
+  "duration": 5,
+  "featured": false,
+  "format": "user-interface",
+  "frameworkDefault": "react",
+  "frameworks": [
+    {
+      "framework": "react",
+      "href": "/questions/user-interface/counter/react"
+    },
+    {
+      "framework": "vanilla",
+      "href": "/questions/user-interface/counter/vanilla"
+    },
+    {
+      "framework": "angular",
+      "href": "/questions/user-interface/counter/angular"
+    },
+    {
+      "framework": "vue",
+      "href": "/questions/user-interface/counter/vue"
+    },
+    {
+      "framework": "svelte",
+      "href": "/questions/user-interface/counter/svelte"
+    }
+  ],
+  "href": "/questions/user-interface/counter",
+  "importance": "low",
+  "languages": [
+    "html",
+    "js"
+  ],
+  "nextQuestions": [
+    "flatten",
+    "todo-list",
+    "contact-form"
+  ],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [
+    "todo-list",
+    "temperature-converter"
+  ],
+  "slug": "counter",
+  "subtitle": null,
+  "topics": []
 }

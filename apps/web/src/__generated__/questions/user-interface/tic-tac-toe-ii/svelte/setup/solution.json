@@ -1,0 +1,34 @@
+{
+  "author": "tanhauhau",
+  "files": {
+    "/greatfrontend.json": {
+      "code": "{\n  \"visibleFiles\": [\"/src/App.svelte\", \"/src/styles.css\"],\n  \"activeFile\": \"/src/App.svelte\",\n  \"environment\": \"svelte\"\n}\n"
+    },
+    "/package.json": {
+      "code": "{\n  \"name\": \"@gfe-questions/tic-tac-toe-ii-svelte-solution\",\n  \"author\": \"tanhauhau\",\n  \"version\": \"0.0.1\",\n  \"main\": \"src/index.js\",\n  \"dependencies\": {\n    \"svelte\": \"^3.58.0\"\n  }\n}\n"
+    },
+    "/public/index.html": {
+      "code": "<!doctype html>\n<html>\n  <head>\n    <meta charset=\"utf8\" />\n    <meta name=\"viewport\" content=\"width=device-width\" />\n    <title>Svelte</title>\n    <link rel=\"stylesheet\" href=\"public/bundle.css\" />\n  </head>\n\n  <body>\n    <script src=\"bundle.js\"></script>\n  </body>\n</html>\n"
+    },
+    "/src/App.svelte": {
+      "code": "<script>\n  import Cell from './Cell.svelte';\n  import './styles.css';\n\n  export let n = 5;\n  export let m = 4;\n\n  let board = Array(n * n).fill(null);\n  let xIsPlaying = true;\n  let winner = null;\n\n  $: if (m > n) {\n    throw Error('Invalid props. `m` must be <= `n`.');\n  }\n  $: n, m, onReset();\n\n  // Determine if there's a winner for the board.\n\n  function determineWinner(board, i, n, m) {\n    const row = Math.floor(i / n);\n    const col = i % n;\n\n    // Get row\n    const rowLine = [];\n    for (let i = 0; i < n; i++) {\n      rowLine.push(row * n + i);\n    }\n\n    // Get column\n    const colLine = [];\n    for (let i = 0; i < n; i++) {\n      colLine.push(i * n + col);\n    }\n\n    const leftToRightDiagonalLine = getLeftToRightDiagonal(\n      i,\n      n,\n    );\n    const rightToLeftDiagonalLine = getRightToLeftDiagonal(\n      i,\n      n,\n    );\n\n    const lines = [\n      rowLine,\n      colLine,\n      leftToRightDiagonalLine,\n      rightToLeftDiagonalLine,\n    ];\n\n    for (const line of lines) {\n      let currentWinner = null;\n      let currentCountInARow = 0;\n      for (const i of line) {\n        if (board[i] == null) {\n          currentWinner = null;\n          currentCountInARow = 0;\n          continue;\n        }\n        if (board[i] === currentWinner) {\n          currentCountInARow++;\n        } else {\n          currentWinner = board[i];\n          currentCountInARow = 1;\n        }\n        if (currentCountInARow >= m) {\n          return currentWinner;\n        }\n      }\n    }\n\n    return null;\n  }\n\n  function getLeftToRightDiagonal(i, n) {\n    const row = Math.floor(i / n);\n    const col = i % n;\n\n    const stepsToStart = Math.min(col, row);\n    const startRow = row - stepsToStart;\n    const startCol = col - stepsToStart;\n    const line = [];\n\n    for (let i = 0; i < n; i++) {\n      const currentRow = startRow + i;\n      const currentCol = startCol + i;\n      if (currentRow >= n || currentCol >= n) {\n        break;\n      }\n      line.push(currentRow * n + currentCol);\n    }\n\n    return line;\n  }\n\n  function getRightToLeftDiagonal(i, n) {\n    const row = Math.floor(i / n);\n    const col = i % n;\n\n    const stepsToStart = Math.min(n - col - 1, row);\n    const startRow = row - stepsToStart;\n    const startCol = col + stepsToStart;\n    const line = [];\n\n    for (let i = 0; i < n; i++) {\n      const currentRow = startRow + i;\n      const currentCol = startCol - i;\n      if (currentRow >= n || currentCol < 0) {\n        break;\n      }\n      line.push(currentRow * n + currentCol);\n    }\n\n    return line;\n  }\n\n  function onReset() {\n    board = Array(n * n).fill(null);\n    xIsPlaying = true;\n    winner = null;\n  }\n\n  function getStatusMessage(winner, board, xIsPlaying) {\n    if (winner != null) {\n      return `Player ${winner} wins!`;\n    }\n\n    // All cells have been filled up.\n    if (!board.includes(null)) {\n      return `It's a draw!`;\n    }\n\n    return `Player ${xIsPlaying ? 'X' : 'O'} turn`;\n  }\n</script>\n\n<div class=\"app\">\n  <div aria-live=\"polite\">\n    {getStatusMessage(winner, board, xIsPlaying)}\n  </div>\n  <div\n    class=\"board\"\n    style=\"grid-template-columns: repeat({n}, 1fr);\">\n    {#each { length: n * n } as _, cellIndex (cellIndex)}\n      {@const turn = xIsPlaying ? 'X' : 'O'}\n      <Cell\n        disabled={board[cellIndex] != null ||\n          winner != null}\n        index={cellIndex}\n        mark={board[cellIndex]}\n        {turn}\n        on:click={() => {\n          const newBoard = board.slice();\n          newBoard[cellIndex] = turn;\n          board = newBoard;\n          xIsPlaying = !xIsPlaying;\n          winner = determineWinner(\n            newBoard,\n            cellIndex,\n            n,\n            m,\n          );\n        }} />\n    {/each}\n  </div>\n  <button\n    on:click={() => {\n      if (winner == null) {\n        // Confirm whether to reset the game.\n        const confirm = window.confirm(\n          'Are you sure you want to reset the game?',\n        );\n        if (!confirm) {\n          return;\n        }\n      }\n\n      onReset();\n    }}>\n    Reset\n  </button>\n</div>\n\n<style>\n  .app {\n    align-items: center;\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    max-width: 320px;\n    margin: 0 auto;\n    row-gap: 16px;\n  }\n\n  .board {\n    display: grid;\n    width: 100%;\n  }\n</style>\n"
+    },
+    "/src/Cell.svelte": {
+      "code": "<script>\n  export let index;\n  export let disabled;\n  export let mark;\n  export let turn;\n\n  import { createEventDispatcher } from 'svelte';\n  const dispatch = createEventDispatcher();\n</script>\n\n<button\n  aria-label={mark == null\n    ? `Mark cell ${index} as ${turn}`\n    : undefined}\n  class=\"cell\"\n  {disabled}\n  on:click={() => {\n    dispatch('click');\n  }}>\n  <span aria-hidden={true}>{mark ?? ''}</span>\n</button>\n\n<style>\n  .cell {\n    background-color: #fff;\n    border: 1px solid #ccc;\n    color: #000;\n    font-size: min(48px, 10vw);\n    font-weight: bold;\n    vertical-align: middle;\n    aspect-ratio: 1 / 1;\n  }\n\n  .cell:not(:disabled) {\n    cursor: pointer;\n  }\n\n  .cell:not(:disabled):hover {\n    background-color: #fafafa;\n  }\n</style>\n"
+    },
+    "/src/index.js": {
+      "code": "import App from './App.svelte';\nimport './styles.css';\n\nconst app = new App({\n  target: document.body,\n});\n\nexport default app;\n"
+    },
+    "/src/styles.css": {
+      "code": "body {\n  font-family: sans-serif;\n}\n"
+    }
+  },
+  "workspace": {
+    "visibleFiles": [
+      "/src/App.svelte",
+      "/src/styles.css"
+    ],
+    "activeFile": "/src/App.svelte",
+    "environment": "svelte"
+  }
+}

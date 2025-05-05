@@ -1,0 +1,35 @@
+{
+  "author": "coalinga8",
+  "files": {
+    "/greatfrontend.json": {
+      "code": "{\n  \"visibleFiles\": [\n    \"/src/App.vue\",\n    \"/src/JobPosting.vue\",\n    \"/src/styles.css\"\n  ],\n  \"activeFile\": \"/src/App.vue\",\n  \"environment\": \"vue-cli\"\n}\n"
+    },
+    "/package.json": {
+      "code": "{\n  \"name\": \"@gfe-questions/job-board-vue-solution\",\n  \"author\": \"coalinga8\",\n  \"version\": \"0.0.1\",\n  \"main\": \"/src/main.js\",\n  \"scripts\": {\n    \"serve\": \"vue-cli-service serve\",\n    \"build\": \"vue-cli-service build\"\n  },\n  \"dependencies\": {\n    \"core-js\": \"3.32.2\",\n    \"vue\": \"3.3.4\"\n  },\n  \"devDependencies\": {\n    \"@vue/cli-plugin-babel\": \"5.0.8\",\n    \"@vue/cli-service\": \"5.0.8\"\n  }\n}\n"
+    },
+    "/public/index.html": {
+      "code": "<!doctype html>\n<html>\n  <head>\n    <meta charset=\"utf-8\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" />\n    <meta\n      name=\"viewport\"\n      content=\"width=device-width,initial-scale=1.0\" />\n    <title>Vue</title>\n  </head>\n  <body>\n    <div id=\"app\"></div>\n    <!-- Built files will be auto injected -->\n  </body>\n</html>\n"
+    },
+    "/src/App.vue": {
+      "code": "<script setup>\nimport { ref, watch } from 'vue';\nimport JobPosting from './JobPosting.vue';\n\nconst PAGE_SIZE = 6;\n\nconst fetchingJobDetails = ref(false);\nconst jobIds = ref(null);\nconst jobs = ref([]);\nconst page = ref(0);\n\nwatch(\n  page,\n  (currPage) => {\n    fetchJobs(currPage);\n  },\n  {\n    immediate: true,\n  },\n);\n\nasync function fetchJobIds(currPage) {\n  if (!jobIds.value) {\n    const res = await fetch(\n      'https://hacker-news.firebaseio.com/v0/jobstories.json',\n    );\n    jobIds.value = await res.json();\n  }\n\n  const start = currPage * PAGE_SIZE;\n  const end = start + PAGE_SIZE;\n  return jobIds.value.slice(start, end);\n}\n\nasync function fetchJobs(currPage) {\n  const jobIdsForPage = await fetchJobIds(currPage);\n\n  fetchingJobDetails.value = true;\n  const jobsForPage = await Promise.all(\n    jobIdsForPage.map((jobId) =>\n      fetch(\n        `https://hacker-news.firebaseio.com/v0/item/${jobId}.json`,\n      ).then((res) => res.json()),\n    ),\n  );\n  jobs.value.push(...jobsForPage);\n\n  fetchingJobDetails.value = false;\n}\n</script>\n\n<template>\n  <div class=\"app\">\n    <h1 class=\"title\">Hacker News Jobs Board</h1>\n    <p class=\"loading\" v-if=\"jobIds == null\">Loading...</p>\n    <div v-else>\n      <div class=\"jobs\" role=\"list\">\n        <JobPosting\n          v-for=\"job in jobs\"\n          :key=\"job.id\"\n          v-bind=\"job\" />\n      </div>\n\n      <button\n        class=\"load-more-button\"\n        :disabled=\"fetchingJobDetails\"\n        @click=\"page++\"\n        v-if=\"\n          jobs.length > 0 &&\n          page * PAGE_SIZE + PAGE_SIZE < jobIds.length\n        \">\n        {{\n          fetchingJobDetails\n            ? 'Loading...'\n            : 'Load more jobs'\n        }}\n      </button>\n    </div>\n  </div>\n</template>\n\n<style>\n.app {\n  max-width: 600px;\n  margin: 0 auto;\n}\n\n.title {\n  font-size: 24px;\n  font-weight: bold;\n  color: #ff6600;\n  margin-bottom: 24px;\n}\n\n.jobs {\n  display: grid;\n  row-gap: 16px;\n}\n\n.loading {\n  color: #4d4d4d;\n  font-weight: bold;\n  font-size: 18px;\n}\n\n.load-more-button {\n  background-color: #ff6600;\n  border: none;\n  border-radius: 4px;\n  color: #fff;\n  margin-top: 20px;\n  padding: 8px 12px;\n}\n\n.load-more-button:not(:disabled) {\n  cursor: pointer;\n}\n\n.load-more-button:hover {\n  background-color: #e65c00;\n}\n</style>\n"
+    },
+    "/src/JobPosting.vue": {
+      "code": "<script setup>\nconst props = defineProps({\n  url: String,\n  title: String,\n  by: String,\n  time: Number,\n});\n</script>\n\n<template>\n  <div class=\"post\" role=\"listitem\">\n    <h2 class=\"post__title\">\n      <a\n        v-if=\"props.url\"\n        :href=\"props.url\"\n        target=\"_blank\"\n        rel=\"noopener\">\n        {{ props.title }}\n      </a>\n      <span v-if=\"!props.url\">{{ props.title }}</span>\n    </h2>\n    <p class=\"post__metadata\">\n      By {{ props.by }} &middot;{{ ' ' }}\n      {{ new Date(time * 1000).toLocaleString() }}\n    </p>\n  </div>\n</template>\n\n<style>\n.post {\n  background-color: #fff;\n  border: 1px solid #dcdcdc;\n  border-radius: 4px;\n  padding: 16px;\n  display: grid;\n  row-gap: 8px;\n}\n\n.post__title {\n  font-size: 16px;\n  font-weight: bold;\n  margin-top: 0;\n}\n\n.post__metadata {\n  font-size: 14px;\n  color: #444;\n}\n</style>\n"
+    },
+    "/src/main.js": {
+      "code": "import { createApp } from 'vue';\nimport App from './App.vue';\n\nimport './styles.css';\n\ncreateApp(App).mount('#app');\n"
+    },
+    "/src/styles.css": {
+      "code": "* {\n  margin: 0;\n  padding: 0;\n}\n\nbody {\n  background-color: #f6f6ef;\n  color: #000;\n  font-family: sans-serif;\n  font-size: 16px;\n  padding: 16px;\n}\n\na {\n  color: inherit;\n  text-decoration: none;\n}\n\na:hover {\n  text-decoration: underline;\n}\n"
+    }
+  },
+  "workspace": {
+    "visibleFiles": [
+      "/src/App.vue",
+      "/src/JobPosting.vue",
+      "/src/styles.css"
+    ],
+    "activeFile": "/src/App.vue",
+    "environment": "vue-cli"
+  }
+}

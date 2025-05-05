@@ -1,52 +1,46 @@
 {
-  "info": {
-    "excerpt": "Build a progress bar component that shows the percentage completion of an operation",
-    "title": "Progress Bar"
-  },
-  "metadata": {
-    "access": "premium",
-    "author": "yangshun",
-    "companies": [
-      "uber",
-      "google",
-      "amazon",
-      "microsoft"
-    ],
-    "created": 1656720000,
-    "difficulty": "easy",
-    "duration": 15,
-    "featured": false,
-    "format": "user-interface",
-    "frameworkDefault": "react",
-    "frameworks": [
-      {
-        "framework": "react",
-        "href": "/questions/user-interface/progress-bar/react"
-      },
-      {
-        "framework": "vanilla",
-        "href": "/questions/user-interface/progress-bar/vanilla"
-      }
-    ],
-    "href": "/questions/user-interface/progress-bar",
-    "importance": "medium",
-    "languages": [
-      "html",
-      "css",
-      "js"
-    ],
-    "nextQuestions": [
-      "progress-bars",
-      "flatten",
-      "star-rating"
-    ],
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [
-      "star-rating"
-    ],
-    "slug": "progress-bar",
-    "subtitle": null,
-    "topics": []
-  }
+  "access": "premium",
+  "author": "yangshun",
+  "companies": [
+    "uber",
+    "google",
+    "amazon",
+    "microsoft"
+  ],
+  "created": 1656720000,
+  "difficulty": "easy",
+  "duration": 15,
+  "featured": false,
+  "format": "user-interface",
+  "frameworkDefault": "react",
+  "frameworks": [
+    {
+      "framework": "react",
+      "href": "/questions/user-interface/progress-bar/react"
+    },
+    {
+      "framework": "vanilla",
+      "href": "/questions/user-interface/progress-bar/vanilla"
+    }
+  ],
+  "href": "/questions/user-interface/progress-bar",
+  "importance": "medium",
+  "languages": [
+    "html",
+    "css",
+    "js"
+  ],
+  "nextQuestions": [
+    "progress-bars",
+    "flatten",
+    "star-rating"
+  ],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [
+    "star-rating"
+  ],
+  "slug": "progress-bar",
+  "subtitle": null,
+  "topics": []
 }

@@ -1,0 +1,29 @@
+{
+  "author": "yangshun",
+  "files": {
+    "/greatfrontend.json": {
+      "code": "{\n  \"visibleFiles\": [\n    \"/index.html\",\n    \"/src/index.js\",\n    \"/src/styles.css\"\n  ],\n  \"activeFile\": \"/src/index.html\",\n  \"environment\": \"parcel\"\n}\n"
+    },
+    "/index.html": {
+      "code": "<!doctype html>\n<html>\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta\n      name=\"viewport\"\n      content=\"width=device-width, initial-scale=1.0\" />\n  </head>\n  <body>\n    <form>\n      <div>\n        <label for=\"username-input\">Username</label>\n        <input\n          id=\"username-input\"\n          name=\"username\"\n          required\n          type=\"text\"\n          pattern=\"^[a-zA-Z0-9]+$\"\n          minlength=\"4\" />\n      </div>\n      <div>\n        <label for=\"email-input\">Email</label>\n        <input\n          id=\"email-input\"\n          name=\"email\"\n          required\n          type=\"email\" />\n      </div>\n      <div>\n        <label for=\"password-input\">Password</label>\n        <input\n          id=\"password-input\"\n          name=\"password\"\n          required\n          type=\"password\"\n          minlength=\"6\" />\n      </div>\n      <div>\n        <label for=\"password-confirm-input\">\n          Confirm Password\n        </label>\n        <input\n          id=\"password-confirm-input\"\n          name=\"password_confirm\"\n          required\n          type=\"password\"\n          minlength=\"6\"\n          aria-describedby=\"password-mismatch-error\" />\n        <div\n          class=\"error hidden\"\n          id=\"password-mismatch-error\">\n          The passwords do not match\n        </div>\n      </div>\n      <div>\n        <button type=\"submit\">Sign Up</button>\n      </div>\n    </form>\n    <script src=\"src/index.js\"></script>\n  </body>\n</html>\n"
+    },
+    "/package.json": {
+      "code": "{\n  \"name\": \"@gfe-questions/signup-form-vanilla-solution\",\n  \"author\": \"yangshun\",\n  \"version\": \"0.0.1\",\n  \"private\": true,\n  \"devDependencies\": {\n    \"parcel\": \"2.9.3\"\n  },\n  \"source\": \"index.html\",\n  \"scripts\": {\n    \"start\": \"parcel\",\n    \"build\": \"parcel build\"\n  }\n}\n"
+    },
+    "/src/index.js": {
+      "code": "import './styles.css';\n\n/**\n * @param {string} username\n * @param {string} email\n * @param {string} password\n * @param {string} passwordConfirm\n */\nasync function submitForm(\n  username,\n  email,\n  password,\n  passwordConfirm,\n) {\n  try {\n    const response = await fetch(\n      'https://questions.greatfrontend.com/api/questions/sign-up',\n      {\n        method: 'POST',\n        headers: {\n          'Content-Type': 'application/json',\n        },\n        body: JSON.stringify({\n          username,\n          email,\n          password,\n          password_confirm: passwordConfirm,\n        }),\n      },\n    );\n\n    const { message } = await response.json();\n    alert(message);\n  } catch (_) {\n    alert('Error submitting form!');\n  }\n}\n\n(() => {\n  const $form = document.querySelector('form');\n  const $passwordConfirmInput = document.getElementById(\n    'password-confirm-input',\n  );\n  const $passwordMismatchError = document.getElementById(\n    'password-mismatch-error',\n  );\n\n  $form.addEventListener('submit', async (event) => {\n    event.preventDefault();\n    // Reset the password confirm field.\n    $passwordConfirmInput.removeAttribute('aria-invalid');\n    $passwordMismatchError.classList.add('hidden');\n\n    // Construct a FormData object based on form values.\n    const formData = new FormData($form);\n    const password = formData.get('password');\n    const passwordConfirm = formData.get(\n      'password_confirm',\n    );\n\n    // The only fields we cannot leverage the browser to validate\n    // is the password confirmation, so we use JavaScript to achieve that.\n    if (password !== passwordConfirm) {\n      $passwordConfirmInput.setAttribute(\n        'aria-invalid',\n        'true',\n      );\n      $passwordMismatchError.classList.remove('hidden');\n      return;\n    }\n\n    await submitForm(\n      formData.get('username'),\n      formData.get('email'),\n      formData.get('password'),\n      formData.get('password_confirm'),\n    );\n  });\n})();\n"
+    },
+    "/src/styles.css": {
+      "code": "body {\n  font-family: sans-serif;\n}\n\nform {\n  display: flex;\n  flex-direction: column;\n  row-gap: 12px;\n}\n\nlabel {\n  font-size: 12px;\n}\n\ninput {\n  display: block;\n}\n\ninput:focus {\n  outline: 2px solid royalblue;\n}\n\n.error {\n  color: red;\n  font-size: 11px;\n  margin-top: 4px;\n}\n\n.hidden {\n  display: none;\n}\n"
+    }
+  },
+  "workspace": {
+    "visibleFiles": [
+      "/index.html",
+      "/src/index.js",
+      "/src/styles.css"
+    ],
+    "activeFile": "/src/index.html",
+    "environment": "parcel"
+  }
+}

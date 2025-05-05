@@ -1,0 +1,35 @@
+{
+  "author": "tanhauhau",
+  "files": {
+    "/greatfrontend.json": {
+      "code": "{\n  \"visibleFiles\": [\n    \"/src/App.svelte\",\n    \"/src/JobPosting.svelte\",\n    \"/src/styles.css\"\n  ],\n  \"activeFile\": \"/src/App.svelte\",\n  \"environment\": \"svelte\"\n}\n"
+    },
+    "/package.json": {
+      "code": "{\n  \"name\": \"@gfe-questions/job-board-svelte-solution\",\n  \"author\": \"tanhauhau\",\n  \"version\": \"0.0.1\",\n  \"main\": \"src/index.js\",\n  \"dependencies\": {\n    \"svelte\": \"^3.58.0\"\n  }\n}\n"
+    },
+    "/public/index.html": {
+      "code": "<!doctype html>\n<html>\n  <head>\n    <meta charset=\"utf8\" />\n    <meta name=\"viewport\" content=\"width=device-width\" />\n    <title>Svelte</title>\n    <link rel=\"stylesheet\" href=\"public/bundle.css\" />\n  </head>\n\n  <body>\n    <script src=\"bundle.js\"></script>\n  </body>\n</html>\n"
+    },
+    "/src/App.svelte": {
+      "code": "<script>\n  import JobPosting from './JobPosting.svelte';\n  const PAGE_SIZE = 6;\n  let pageCount = 1;\n  let jobIdsCache = null;\n\n  async function fetchJobIds(currPage) {\n    let jobs = jobIdsCache;\n    if (!jobs) {\n      const res = await fetch(\n        'https://hacker-news.firebaseio.com/v0/jobstories.json',\n      );\n      jobIdsCache = jobs = await res.json();\n    }\n    const start = currPage * PAGE_SIZE;\n    const end = start + PAGE_SIZE;\n    return jobs.slice(start, end);\n  }\n\n  async function fetchJobs(currPage) {\n    const jobIdsForPage = await fetchJobIds(currPage);\n    const jobsForPage = await Promise.all(\n      jobIdsForPage.map((jobId) =>\n        fetch(\n          `https://hacker-news.firebaseio.com/v0/item/${jobId}.json`,\n        ).then((res) => res.json()),\n      ),\n    );\n    return jobsForPage;\n  }\n</script>\n\n<div class=\"app\">\n  <h1 class=\"title\">Hacker News Jobs Board</h1>\n\n  <div>\n    <div class=\"jobs\" role=\"list\">\n      {#each { length: pageCount } as _, page}\n        {#await fetchJobs(page)}\n          <p class=\"loading\">Loading...</p>\n        {:then jobs}\n          {#each jobs as job}\n            <JobPosting {...job} />\n          {/each}\n          {#if page === pageCount - 1 && jobs.length === PAGE_SIZE}\n            <button\n              class=\"load-more-button\"\n              on:click={() => pageCount++}>\n              Load more jobs\n            </button>\n          {/if}\n        {/await}\n      {/each}\n    </div>\n  </div>\n</div>\n\n<style>\n  .app {\n    max-width: 600px;\n    margin: 0 auto;\n  }\n\n  .title {\n    font-size: 24px;\n    font-weight: bold;\n    color: #ff6600;\n    margin-bottom: 24px;\n  }\n\n  .jobs {\n    display: grid;\n    row-gap: 16px;\n  }\n  .loading {\n    color: #4d4d4d;\n    font-weight: bold;\n    font-size: 18px;\n  }\n\n  .load-more-button {\n    background-color: #ff6600;\n    border: none;\n    border-radius: 4px;\n    color: #fff;\n    margin-top: 20px;\n    padding: 8px 12px;\n  }\n\n  .load-more-button:not(:disabled) {\n    cursor: pointer;\n  }\n\n  .load-more-button:hover {\n    background-color: #e65c00;\n  }\n</style>\n"
+    },
+    "/src/index.js": {
+      "code": "import App from './App.svelte';\nimport './styles.css';\n\nconst app = new App({\n  target: document.body,\n});\n\nexport default app;\n"
+    },
+    "/src/JobPosting.svelte": {
+      "code": "<script>\n  export let url;\n  export let title;\n  export let time;\n  export let by;\n</script>\n\n<div class=\"post\" role=\"listitem\">\n  <h2 class=\"post__title\">\n    {#if url}\n      <a\n        href={url}\n        target=\"_blank\"\n        rel=\"noopener\">\n        {title}\n      </a>\n    {:else}\n      {title}\n    {/if}\n  </h2>\n  <p class=\"post__metadata\">\n    By {by} &middot; {new Date(\n      time * 1000,\n    ).toLocaleString()}\n  </p>\n</div>\n\n<style>\n  .post {\n    background-color: #fff;\n    border: 1px solid #dcdcdc;\n    border-radius: 4px;\n    padding: 16px;\n    display: grid;\n    row-gap: 8px;\n  }\n\n  .post__title {\n    font-size: 16px;\n    font-weight: bold;\n    margin-top: 0;\n  }\n\n  .post__metadata {\n    font-size: 14px;\n    color: #444;\n  }\n</style>\n"
+    },
+    "/src/styles.css": {
+      "code": "body {\n  font-family: sans-serif;\n}\n\n* {\n  margin: 0;\n  padding: 0;\n}\n\nbody {\n  background-color: #f6f6ef;\n  color: #000;\n  font-family: sans-serif;\n  font-size: 16px;\n  padding: 16px;\n}\n"
+    }
+  },
+  "workspace": {
+    "visibleFiles": [
+      "/src/App.svelte",
+      "/src/JobPosting.svelte",
+      "/src/styles.css"
+    ],
+    "activeFile": "/src/App.svelte",
+    "environment": "svelte"
+  }
+}

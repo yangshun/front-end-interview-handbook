@@ -1,0 +1,20 @@
+{
+  "slug": "temperature-converter",
+  "author": "yangshun",
+  "created": "2022-07-06",
+  "languages": ["html", "js"],
+  "companies": [],
+  "access": "premium",
+  "duration": 15,
+  "published": true,
+  "importance": "medium",
+  "difficulty": "easy",
+  "frameworks": [
+    "react",
+    "vanilla",
+    "angular",
+    "vue",
+    "svelte"
+  ],
+  "similar_questions": ["todo-list"]
+}

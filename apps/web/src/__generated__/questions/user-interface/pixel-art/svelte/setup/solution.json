@@ -1,0 +1,39 @@
+{
+  "author": "willnguyen1312",
+  "files": {
+    "/greatfrontend.json": {
+      "code": "{\n  \"visibleFiles\": [\"/src/App.svelte\"],\n  \"activeFile\": \"/src/App.svelte\",\n  \"environment\": \"svelte\"\n}\n"
+    },
+    "/package.json": {
+      "code": "{\n  \"name\": \"@gfe-questions/pixel-art-svelte-solution\",\n  \"author\": \"willnguyen1312\",\n  \"version\": \"0.0.1\",\n  \"main\": \"src/index.js\",\n  \"dependencies\": {\n    \"svelte\": \"^3.58.0\"\n  }\n}\n"
+    },
+    "/public/index.html": {
+      "code": "<!doctype html>\n<html>\n  <head>\n    <meta charset=\"utf8\" />\n    <meta name=\"viewport\" content=\"width=device-width\" />\n    <title>Svelte</title>\n    <link rel=\"stylesheet\" href=\"public/bundle.css\" />\n  </head>\n\n  <body>\n    <script src=\"bundle.js\"></script>\n  </body>\n</html>\n"
+    },
+    "/src/App.svelte": {
+      "code": "<script>\n  import Canvas from './Canvas.svelte';\n  import Toolbar from './Toolbar.svelte';\n\n  let mode = 'draw';\n  let selectedColor = 'black';\n</script>\n\n<div class=\"app\">\n  <Canvas {selectedColor} {mode} />\n  <Toolbar\n    {selectedColor}\n    on:set-selected-color={(event) => {\n      selectedColor = event.detail.selectedColor;\n    }}\n    {mode}\n    on:set-mode={(event) => {\n      mode = event.detail.mode;\n    }} />\n</div>\n\n<style>\n  .app {\n    display: flex;\n    flex-direction: column;\n    gap: 16px;\n  }\n</style>\n"
+    },
+    "/src/Canvas.svelte": {
+      "code": "<script>\n  import { COLORS } from './colors';\n  export let selectedColor;\n  export let mode;\n  export let initialRows = 15;\n  export let initialColumns = 15;\n\n  let grid = Array.from({ length: initialRows }, () =>\n    Array(initialColumns).fill(null),\n  );\n\n  let isDragging = false;\n\n  function mark(rowIndex, cellIndex) {\n    grid[rowIndex][cellIndex] =\n      mode === 'erase' ? null : selectedColor;\n  }\n</script>\n\n<div\n  class=\"grid\"\n  on:mousedown={() => (isDragging = true)}\n  on:mouseup={() => (isDragging = false)}>\n  {#each grid as row, rowIndex (rowIndex)}\n    <div\n      class={`grid__row ${\n        rowIndex % 2 === 0\n          ? 'grid__row--even'\n          : 'grid__row--odd'\n      }`}>\n      {#each row as cellColor, cellIndex (cellIndex)}\n        <button\n          on:click={mark(rowIndex, cellIndex)}\n          on:mousedown={mark(rowIndex, cellIndex)}\n          on:mouseenter={() => {\n            if (isDragging) {\n              mark(rowIndex, cellIndex);\n            }\n          }}\n          style:background-color={cellColor != null\n            ? COLORS[cellColor]\n            : undefined}\n          class=\"grid__cell\" />\n      {/each}\n    </div>\n  {/each}\n</div>\n\n<style>\n  .grid {\n    display: flex;\n    flex-direction: column;\n  }\n\n  .grid__row {\n    display: flex;\n    flex-shrink: 0;\n  }\n\n  .grid__cell {\n    --cell-size: 20px;\n\n    height: var(--cell-size);\n    width: var(--cell-size);\n    border: 0;\n    flex-shrink: 0;\n    background-color: transparent;\n  }\n\n  .grid__row--even .grid__cell:nth-child(odd),\n  .grid__row--odd .grid__cell:nth-child(even) {\n    background-color: #e9ecef;\n  }\n</style>\n"
+    },
+    "/src/colors.js": {
+      "code": "export const COLORS = {\n  white: '#fff',\n  gray: '#e9ecef',\n  black: '#000',\n  red: '#cc0001',\n  orange: '#fb940b',\n  yellow: '#ffff01',\n  green: '#01cc00',\n  teal: '#38d9a9',\n  blue: '#228be6',\n  purple: '#7950f2',\n  beige: '#ff8787',\n};\n"
+    },
+    "/src/index.js": {
+      "code": "import App from './App.svelte';\nimport './styles.css';\n\nconst app = new App({\n  target: document.body,\n});\n\nexport default app;\n"
+    },
+    "/src/styles.css": {
+      "code": "body {\n  font-family: sans-serif;\n}\n"
+    },
+    "/src/Toolbar.svelte": {
+      "code": "<script>\n  import { createEventDispatcher } from 'svelte';\n  import { COLORS } from './colors';\n\n  const dispatch = createEventDispatcher();\n\n  export let mode;\n  export let selectedColor;\n</script>\n\n<div class=\"toolbar\">\n  <div>\n    <button\n      on:click={() =>\n        dispatch('set-mode', { mode: 'draw' })}\n      class=\"toolbar__mode\"\n      class:toolbar__mode--selected={mode === 'draw'}>\n      Draw\n    </button>\n    <button\n      on:click={() =>\n        dispatch('set-mode', { mode: 'erase' })}\n      class=\"toolbar__mode\"\n      class:toolbar__mode--selected={mode === 'erase'}>\n      Erase\n    </button>\n  </div>\n  <div class=\"toolbar__color-picker\">\n    {#each Object.entries(COLORS) as [color, hex] (color)}\n      <button\n        aria-label={color}\n        class=\"toolbar__color\"\n        class:toolbar__color--selected={color ===\n          selectedColor}\n        style:border-color={(() => {\n          if (\n            color !== selectedColor &&\n            color === 'white'\n          ) {\n            return '#ccc';\n          }\n\n          if (\n            color === selectedColor &&\n            color === 'black'\n          ) {\n            return '#fff';\n          }\n        })()}\n        style:background-color={hex}\n        on:click={() => {\n          dispatch('set-selected-color', {\n            selectedColor: color,\n          });\n          dispatch('set-mode', { mode: 'draw' });\n        }} />\n    {/each}\n  </div>\n</div>\n\n<style>\n  .toolbar {\n    display: flex;\n    gap: 20px;\n  }\n\n  .toolbar .toolbar__mode {\n    height: 36px;\n    background-color: transparent;\n    border: 2px solid black;\n    font-size: 14px;\n  }\n\n  .toolbar .toolbar__mode--selected {\n    background-color: black;\n    color: white;\n  }\n\n  .toolbar .toolbar__color-picker {\n    display: flex;\n  }\n\n  .toolbar .toolbar__color {\n    --size: 20px;\n\n    width: var(--size);\n    height: var(--size);\n    border: 2px solid transparent;\n  }\n\n  .toolbar .toolbar__color--selected {\n    border: 2px solid black;\n  }\n</style>\n"
+    }
+  },
+  "workspace": {
+    "visibleFiles": [
+      "/src/App.svelte"
+    ],
+    "activeFile": "/src/App.svelte",
+    "environment": "svelte"
+  }
+}

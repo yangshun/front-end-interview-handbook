@@ -1,0 +1,14 @@
+{
+  "slug": "modal-dialog-iv",
+  "author": "yangshun",
+  "created": "2024-08-16",
+  "languages": ["html", "js"],
+  "companies": ["amazon", "tiktok"],
+  "access": "premium",
+  "duration": 30,
+  "published": true,
+  "importance": "low",
+  "difficulty": "hard",
+  "frameworks": ["react"],
+  "topics": ["a11y"]
+}

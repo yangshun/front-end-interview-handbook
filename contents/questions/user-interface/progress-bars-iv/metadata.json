@@ -1,0 +1,14 @@
+{
+  "slug": "progress-bars-iv",
+  "author": "yangshun",
+  "created": "2022-12-18",
+  "languages": ["html", "css", "js"],
+  "companies": ["uber"],
+  "access": "premium",
+  "duration": 25,
+  "published": true,
+  "importance": "low",
+  "difficulty": "hard",
+  "frameworks": ["react"],
+  "topics": ["async"]
+}

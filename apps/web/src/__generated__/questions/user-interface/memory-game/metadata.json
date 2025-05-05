@@ -1,49 +1,45 @@
 {
-  "info": {
-    "excerpt": "Build a memory game where the player needs to match pairs of cards",
-    "title": "Memory Game"
-  },
-  "metadata": {
-    "access": "premium",
-    "author": null,
-    "companies": [],
-    "created": 1684108800,
-    "difficulty": "medium",
-    "duration": 40,
-    "featured": false,
-    "format": "user-interface",
-    "frameworkDefault": "react",
-    "frameworks": [
-      {
-        "framework": "react",
-        "href": "/questions/user-interface/memory-game/react"
-      },
-      {
-        "framework": "angular",
-        "href": "/questions/user-interface/memory-game/angular"
-      },
-      {
-        "framework": "vue",
-        "href": "/questions/user-interface/memory-game/vue"
-      },
-      {
-        "framework": "svelte",
-        "href": "/questions/user-interface/memory-game/svelte"
-      }
-    ],
-    "href": "/questions/user-interface/memory-game",
-    "importance": "low",
-    "languages": [
-      "html",
-      "css",
-      "js"
-    ],
-    "nextQuestions": [],
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [],
-    "slug": "memory-game",
-    "subtitle": null,
-    "topics": []
-  }
+  "access": "premium",
+  "author": null,
+  "companies": [
+    "airbnb"
+  ],
+  "created": 1684108800,
+  "difficulty": "medium",
+  "duration": 40,
+  "featured": false,
+  "format": "user-interface",
+  "frameworkDefault": "react",
+  "frameworks": [
+    {
+      "framework": "react",
+      "href": "/questions/user-interface/memory-game/react"
+    },
+    {
+      "framework": "angular",
+      "href": "/questions/user-interface/memory-game/angular"
+    },
+    {
+      "framework": "vue",
+      "href": "/questions/user-interface/memory-game/vue"
+    },
+    {
+      "framework": "svelte",
+      "href": "/questions/user-interface/memory-game/svelte"
+    }
+  ],
+  "href": "/questions/user-interface/memory-game",
+  "importance": "low",
+  "languages": [
+    "html",
+    "css",
+    "js"
+  ],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [],
+  "slug": "memory-game",
+  "subtitle": null,
+  "topics": []
 }

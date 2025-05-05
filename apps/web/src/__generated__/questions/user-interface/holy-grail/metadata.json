@@ -1,60 +1,54 @@
 {
-  "info": {
-    "excerpt": "Build the famous holy grail layout consisting of a header, 3 columns, and a footer",
-    "title": "Holy Grail"
-  },
-  "metadata": {
-    "access": "free",
-    "author": "yangshun",
-    "companies": [
-      "atlassian"
-    ],
-    "created": 1658275200,
-    "difficulty": "easy",
-    "duration": 15,
-    "featured": true,
-    "format": "user-interface",
-    "frameworkDefault": "react",
-    "frameworks": [
-      {
-        "framework": "react",
-        "href": "/questions/user-interface/holy-grail/react"
-      },
-      {
-        "framework": "vanilla",
-        "href": "/questions/user-interface/holy-grail/vanilla"
-      },
-      {
-        "framework": "angular",
-        "href": "/questions/user-interface/holy-grail/angular"
-      },
-      {
-        "framework": "vue",
-        "href": "/questions/user-interface/holy-grail/vue"
-      },
-      {
-        "framework": "svelte",
-        "href": "/questions/user-interface/holy-grail/svelte"
-      }
-    ],
-    "href": "/questions/user-interface/holy-grail",
-    "importance": "high",
-    "languages": [
-      "html",
-      "css"
-    ],
-    "nextQuestions": [
-      "flatten",
-      "todo-list",
-      "contact-form"
-    ],
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [
-      "tweet"
-    ],
-    "slug": "holy-grail",
-    "subtitle": null,
-    "topics": []
-  }
+  "access": "free",
+  "author": "yangshun",
+  "companies": [
+    "atlassian"
+  ],
+  "created": 1658275200,
+  "difficulty": "easy",
+  "duration": 15,
+  "featured": true,
+  "format": "user-interface",
+  "frameworkDefault": "react",
+  "frameworks": [
+    {
+      "framework": "react",
+      "href": "/questions/user-interface/holy-grail/react"
+    },
+    {
+      "framework": "vanilla",
+      "href": "/questions/user-interface/holy-grail/vanilla"
+    },
+    {
+      "framework": "angular",
+      "href": "/questions/user-interface/holy-grail/angular"
+    },
+    {
+      "framework": "vue",
+      "href": "/questions/user-interface/holy-grail/vue"
+    },
+    {
+      "framework": "svelte",
+      "href": "/questions/user-interface/holy-grail/svelte"
+    }
+  ],
+  "href": "/questions/user-interface/holy-grail",
+  "importance": "high",
+  "languages": [
+    "html",
+    "css"
+  ],
+  "nextQuestions": [
+    "flatten",
+    "todo-list",
+    "contact-form"
+  ],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [
+    "tweet"
+  ],
+  "slug": "holy-grail",
+  "subtitle": null,
+  "topics": []
 }

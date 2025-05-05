@@ -1,0 +1,13 @@
+{
+  "slug": "data-table-iii",
+  "author": "yangshun",
+  "created": "2024-08-16",
+  "languages": ["html", "js"],
+  "companies": ["palantir", "amazon", "stripe"],
+  "access": "premium",
+  "duration": 30,
+  "published": true,
+  "importance": "low",
+  "difficulty": "hard",
+  "frameworks": ["react"]
+}

@@ -1,0 +1,15 @@
+{
+  "slug": "modal-dialog",
+  "author": "yangshun",
+  "created": "2024-08-16",
+  "languages": ["html", "js", "css"],
+  "companies": ["amazon", "tiktok"],
+  "access": "standard",
+  "duration": 20,
+  "published": true,
+  "importance": "low",
+  "difficulty": "medium",
+  "frameworks": ["react"],
+  "next_questions": ["modal-dialog-ii"],
+  "topics": ["a11y"]
+}

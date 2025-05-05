@@ -1,41 +1,35 @@
 {
-  "info": {
-    "excerpt": "Build a list of progress bars that fill up gradually concurrently, up to a limit of 3 and allows for pausing and resuming",
-    "title": "Progress Bars IV"
-  },
-  "metadata": {
-    "access": "premium",
-    "author": "yangshun",
-    "companies": [
-      "uber"
-    ],
-    "created": 1671321600,
-    "difficulty": "hard",
-    "duration": 25,
-    "featured": false,
-    "format": "user-interface",
-    "frameworkDefault": "react",
-    "frameworks": [
-      {
-        "framework": "react",
-        "href": "/questions/user-interface/progress-bars-iv/react"
-      }
-    ],
-    "href": "/questions/user-interface/progress-bars-iv",
-    "importance": "low",
-    "languages": [
-      "html",
-      "css",
-      "js"
-    ],
-    "nextQuestions": [],
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [],
-    "slug": "progress-bars-iv",
-    "subtitle": null,
-    "topics": [
-      "async"
-    ]
-  }
+  "access": "premium",
+  "author": "yangshun",
+  "companies": [
+    "uber"
+  ],
+  "created": 1671321600,
+  "difficulty": "hard",
+  "duration": 25,
+  "featured": false,
+  "format": "user-interface",
+  "frameworkDefault": "react",
+  "frameworks": [
+    {
+      "framework": "react",
+      "href": "/questions/user-interface/progress-bars-iv/react"
+    }
+  ],
+  "href": "/questions/user-interface/progress-bars-iv",
+  "importance": "low",
+  "languages": [
+    "html",
+    "css",
+    "js"
+  ],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [],
+  "slug": "progress-bars-iv",
+  "subtitle": null,
+  "topics": [
+    "async"
+  ]
 }

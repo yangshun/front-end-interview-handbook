@@ -1,0 +1,13 @@
+{
+  "slug": "whack-a-mole",
+  "created": "2023-05-16",
+  "languages": ["html", "css", "js"],
+  "companies": ["lyft"],
+  "access": "premium",
+  "duration": 30,
+  "published": true,
+  "importance": "low",
+  "difficulty": "medium",
+  "frameworks": ["react", "angular", "vue", "svelte"],
+  "similar_questions": ["memory-game"]
+}

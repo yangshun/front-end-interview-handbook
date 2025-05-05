@@ -1,0 +1,22 @@
+{
+  "slug": "todo-list",
+  "created": "2022-06-29",
+  "languages": ["html", "js"],
+  "author": "yangshun",
+  "companies": ["grab", "toptal", "amazon", "atlassian"],
+  "access": "free",
+  "duration": 20,
+  "published": true,
+  "importance": "high",
+  "difficulty": "medium",
+  "featured": true,
+  "frameworks": [
+    "react",
+    "vanilla",
+    "angular",
+    "vue",
+    "svelte"
+  ],
+  "similar_questions": ["temperature-converter"],
+  "next_questions": ["flatten", "promise-any", "holy-grail"]
+}

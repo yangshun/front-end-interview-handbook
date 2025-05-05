@@ -1,0 +1,13 @@
+{
+  "slug": "selectable-cells",
+  "author": "yangshun",
+  "created": "2024-08-16",
+  "languages": ["html", "js", "css"],
+  "companies": [],
+  "access": "premium",
+  "duration": 40,
+  "published": true,
+  "importance": "low",
+  "difficulty": "hard",
+  "frameworks": ["react"]
+}

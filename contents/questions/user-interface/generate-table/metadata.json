@@ -1,0 +1,20 @@
+{
+  "slug": "generate-table",
+  "author": "yangshun",
+  "created": "2023-01-31",
+  "languages": ["html", "js"],
+  "companies": ["google"],
+  "access": "premium",
+  "duration": 15,
+  "published": true,
+  "importance": "low",
+  "difficulty": "easy",
+  "frameworks": [
+    "react",
+    "vanilla",
+    "angular",
+    "vue",
+    "svelte"
+  ],
+  "framework_default": "react"
+}

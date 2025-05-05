@@ -6156,7 +6156,9 @@
     "metadata": {
       "access": "premium",
       "author": null,
-      "companies": [],
+      "companies": [
+        "airbnb"
+      ],
       "created": 1684108800,
       "difficulty": "medium",
       "duration": 40,

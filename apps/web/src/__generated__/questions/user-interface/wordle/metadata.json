@@ -1,49 +1,43 @@
 {
-  "info": {
-    "excerpt": "Build Wordle, the word-guessing game that took the world by storm",
-    "title": "Wordle"
-  },
-  "metadata": {
-    "access": "premium",
-    "author": null,
-    "companies": [],
-    "created": 1684022400,
-    "difficulty": "hard",
-    "duration": 60,
-    "featured": false,
-    "format": "user-interface",
-    "frameworkDefault": "react",
-    "frameworks": [
-      {
-        "framework": "react",
-        "href": "/questions/user-interface/wordle/react"
-      },
-      {
-        "framework": "angular",
-        "href": "/questions/user-interface/wordle/angular"
-      },
-      {
-        "framework": "vue",
-        "href": "/questions/user-interface/wordle/vue"
-      },
-      {
-        "framework": "svelte",
-        "href": "/questions/user-interface/wordle/svelte"
-      }
-    ],
-    "href": "/questions/user-interface/wordle",
-    "importance": "low",
-    "languages": [
-      "html",
-      "css",
-      "js"
-    ],
-    "nextQuestions": [],
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [],
-    "slug": "wordle",
-    "subtitle": null,
-    "topics": []
-  }
+  "access": "premium",
+  "author": null,
+  "companies": [],
+  "created": 1684022400,
+  "difficulty": "hard",
+  "duration": 60,
+  "featured": false,
+  "format": "user-interface",
+  "frameworkDefault": "react",
+  "frameworks": [
+    {
+      "framework": "react",
+      "href": "/questions/user-interface/wordle/react"
+    },
+    {
+      "framework": "angular",
+      "href": "/questions/user-interface/wordle/angular"
+    },
+    {
+      "framework": "vue",
+      "href": "/questions/user-interface/wordle/vue"
+    },
+    {
+      "framework": "svelte",
+      "href": "/questions/user-interface/wordle/svelte"
+    }
+  ],
+  "href": "/questions/user-interface/wordle",
+  "importance": "low",
+  "languages": [
+    "html",
+    "css",
+    "js"
+  ],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [],
+  "slug": "wordle",
+  "subtitle": null,
+  "topics": []
 }

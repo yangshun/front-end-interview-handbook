@@ -1,0 +1,23 @@
+{
+  "slug": "contact-form",
+  "author": "yangshun",
+  "created": "2022-07-27",
+  "languages": ["html"],
+  "companies": ["lyft", "amazon", "openai", "reddit"],
+  "access": "free",
+  "duration": 15,
+  "published": true,
+  "importance": "high",
+  "difficulty": "easy",
+  "featured": true,
+  "frameworks": [
+    "react",
+    "vanilla",
+    "angular",
+    "vue",
+    "svelte"
+  ],
+  "similar_questions": ["signup-form"],
+  "next_questions": ["flatten", "signup-form"],
+  "topics": ["a11y"]
+}

@@ -1,0 +1,18 @@
+{
+  "slug": "accordion-ii",
+  "title": "Accordion II",
+  "author": "yangshun",
+  "excerpt": "Build an accessible accordion component that has the right ARIA roles, states, and properties",
+  "created": "2022-12-21",
+  "languages": ["html", "js"],
+  "companies": ["amazon"],
+  "access": "premium",
+  "duration": 20,
+  "published": true,
+  "importance": "low",
+  "difficulty": "medium",
+  "frameworks": ["react", "vanilla"],
+  "framework_default": "react",
+  "next_questions": ["accordion-iii"],
+  "topics": ["a11y"]
+}

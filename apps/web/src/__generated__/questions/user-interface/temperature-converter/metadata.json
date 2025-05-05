@@ -1,54 +1,48 @@
 {
-  "info": {
-    "excerpt": "Build a temperature converter widget that converts temperature values between Celsius and Fahrenheit",
-    "title": "Temperature Converter"
-  },
-  "metadata": {
-    "access": "premium",
-    "author": "yangshun",
-    "companies": [],
-    "created": 1657065600,
-    "difficulty": "easy",
-    "duration": 15,
-    "featured": false,
-    "format": "user-interface",
-    "frameworkDefault": "react",
-    "frameworks": [
-      {
-        "framework": "react",
-        "href": "/questions/user-interface/temperature-converter/react"
-      },
-      {
-        "framework": "vanilla",
-        "href": "/questions/user-interface/temperature-converter/vanilla"
-      },
-      {
-        "framework": "angular",
-        "href": "/questions/user-interface/temperature-converter/angular"
-      },
-      {
-        "framework": "vue",
-        "href": "/questions/user-interface/temperature-converter/vue"
-      },
-      {
-        "framework": "svelte",
-        "href": "/questions/user-interface/temperature-converter/svelte"
-      }
-    ],
-    "href": "/questions/user-interface/temperature-converter",
-    "importance": "medium",
-    "languages": [
-      "html",
-      "js"
-    ],
-    "nextQuestions": [],
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [
-      "todo-list"
-    ],
-    "slug": "temperature-converter",
-    "subtitle": null,
-    "topics": []
-  }
+  "access": "premium",
+  "author": "yangshun",
+  "companies": [],
+  "created": 1657065600,
+  "difficulty": "easy",
+  "duration": 15,
+  "featured": false,
+  "format": "user-interface",
+  "frameworkDefault": "react",
+  "frameworks": [
+    {
+      "framework": "react",
+      "href": "/questions/user-interface/temperature-converter/react"
+    },
+    {
+      "framework": "vanilla",
+      "href": "/questions/user-interface/temperature-converter/vanilla"
+    },
+    {
+      "framework": "angular",
+      "href": "/questions/user-interface/temperature-converter/angular"
+    },
+    {
+      "framework": "vue",
+      "href": "/questions/user-interface/temperature-converter/vue"
+    },
+    {
+      "framework": "svelte",
+      "href": "/questions/user-interface/temperature-converter/svelte"
+    }
+  ],
+  "href": "/questions/user-interface/temperature-converter",
+  "importance": "medium",
+  "languages": [
+    "html",
+    "js"
+  ],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [
+    "todo-list"
+  ],
+  "slug": "temperature-converter",
+  "subtitle": null,
+  "topics": []
 }

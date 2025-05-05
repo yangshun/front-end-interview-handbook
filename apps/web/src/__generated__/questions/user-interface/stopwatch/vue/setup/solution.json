@@ -1,0 +1,30 @@
+{
+  "author": "willnguyen1312",
+  "files": {
+    "/greatfrontend.json": {
+      "code": "{\n  \"visibleFiles\": [\"/src/App.vue\"],\n  \"activeFile\": \"/src/App.vue\",\n  \"environment\": \"vue-cli\"\n}\n"
+    },
+    "/package.json": {
+      "code": "{\n  \"name\": \"@gfe-questions/stopwatch-vue-solution\",\n  \"author\": \"willnguyen1312\",\n  \"version\": \"0.0.1\",\n  \"main\": \"/src/main.js\",\n  \"scripts\": {\n    \"serve\": \"vue-cli-service serve\",\n    \"build\": \"vue-cli-service build\"\n  },\n  \"dependencies\": {\n    \"core-js\": \"3.32.2\",\n    \"vue\": \"3.3.4\"\n  },\n  \"devDependencies\": {\n    \"@vue/cli-plugin-babel\": \"5.0.8\",\n    \"@vue/cli-service\": \"5.0.8\"\n  }\n}\n"
+    },
+    "/public/index.html": {
+      "code": "<!doctype html>\n<html>\n  <head>\n    <meta charset=\"utf-8\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" />\n    <meta\n      name=\"viewport\"\n      content=\"width=device-width,initial-scale=1.0\" />\n    <title>Vue</title>\n  </head>\n  <body>\n    <div id=\"app\"></div>\n    <!-- Built files will be auto injected -->\n  </body>\n</html>\n"
+    },
+    "/src/App.vue": {
+      "code": "<script setup>\nimport { computed, ref } from 'vue';\n\nconst MS_IN_SECOND = 1000;\nconst SECONDS_IN_MINUTE = 60;\nconst MINUTES_IN_HOUR = 60;\nconst MS_IN_HOUR =\n  MINUTES_IN_HOUR * SECONDS_IN_MINUTE * MS_IN_SECOND;\nconst MS_IN_MINUTE = SECONDS_IN_MINUTE * MS_IN_SECOND;\n\nfunction formatTime(timeParam) {\n  let time = timeParam;\n  const parts = {\n    hours: 0,\n    minutes: 0,\n    seconds: 0,\n    ms: 0,\n  };\n  if (time > MS_IN_HOUR) {\n    parts.hours = Math.floor(time / MS_IN_HOUR);\n    time %= MS_IN_HOUR;\n  }\n\n  if (time > MS_IN_MINUTE) {\n    parts.minutes = Math.floor(time / MS_IN_MINUTE);\n    time %= MS_IN_MINUTE;\n  }\n\n  if (time > MS_IN_SECOND) {\n    parts.seconds = Math.floor(time / MS_IN_SECOND);\n    time %= MS_IN_SECOND;\n  }\n\n  parts.ms = time;\n\n  return parts;\n}\n\nfunction padTwoDigit(number) {\n  return number >= 10 ? String(number) : `0${number}`;\n}\n\nlet lastTickTiming = null;\nconst totalDuration = ref(0);\nconst timerId = ref(null);\n\nfunction startTimer() {\n  lastTickTiming = Date.now();\n  timerId.value = window.setInterval(() => {\n    const now = Date.now();\n    const timePassed = now - lastTickTiming;\n    totalDuration.value += timePassed;\n    lastTickTiming = now;\n  }, 1);\n}\n\nfunction stopInterval() {\n  window.clearInterval(timerId.value);\n  timerId.value = null;\n}\n\nfunction resetTimer() {\n  stopInterval();\n  totalDuration.value = 0;\n}\n\nfunction toggleTimer() {\n  if (isRunning.value) {\n    stopInterval();\n  } else {\n    startTimer();\n  }\n}\n\nconst isRunning = computed(() => {\n  return timerId.value != null;\n});\n\nconst formattedTime = computed(() => {\n  return formatTime(totalDuration.value);\n});\n\nconst formattedMsPartOfTime = computed(() => {\n  return padTwoDigit(\n    Math.floor(formattedTime.value.ms / 10),\n  );\n});\n</script>\n\n<template>\n  <div class=\"wrapper\">\n    <div>\n      <button class=\"time\" @click=\"toggleTimer\">\n        <span v-if=\"formattedTime.hours > 0\">\n          <span class=\"time-number\">\n            {{ formattedTime.hours }}\n          </span>\n          <span class=\"time-unit\">h</span>\n        </span>\n        <span v-if=\"formattedTime.minutes > 0\">\n          <span class=\"time-number\">\n            {{ formattedTime.minutes }}\n          </span>\n          <span class=\"time-unit\">m</span>\n        </span>\n        <span>\n          <span class=\"time-number\">\n            {{ formattedTime.seconds }}\n          </span>\n          <span class=\"time-unit\">s</span>\n        </span>\n        <span class=\"time-number time-number--small\">\n          {{ formattedMsPartOfTime }}\n        </span>\n      </button>\n      <div>\n        <button @click=\"toggleTimer\">\n          {{ isRunning ? 'Stop' : 'Start' }}\n        </button>\n        <button @click=\"resetTimer\">Reset</button>\n      </div>\n    </div>\n  </div>\n</template>\n\n<style>\n.wrapper {\n  align-items: center;\n  display: flex;\n}\n\n.time {\n  align-items: baseline;\n  background-color: transparent;\n  border: none;\n  cursor: pointer;\n  display: flex;\n  gap: 16px;\n  user-select: none;\n}\n\n.time-unit {\n  font-size: 24px;\n}\n\n.time-number {\n  font-size: 62px;\n}\n\n.time-number--small {\n  font-size: 36px;\n}\n</style>\n"
+    },
+    "/src/main.js": {
+      "code": "import { createApp } from 'vue';\nimport App from './App.vue';\n\nimport './styles.css';\n\ncreateApp(App).mount('#app');\n"
+    },
+    "/src/styles.css": {
+      "code": "body {\n  font-family: sans-serif;\n}\n"
+    }
+  },
+  "workspace": {
+    "visibleFiles": [
+      "/src/App.vue"
+    ],
+    "activeFile": "/src/App.vue",
+    "environment": "vue-cli"
+  }
+}

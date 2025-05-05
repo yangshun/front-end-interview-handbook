@@ -1,0 +1,13 @@
+{
+  "slug": "users-database",
+  "author": "yangshun",
+  "created": "2024-08-16",
+  "languages": ["html", "js", "css"],
+  "companies": ["tiktok"],
+  "access": "premium",
+  "duration": 30,
+  "published": true,
+  "importance": "low",
+  "difficulty": "medium",
+  "frameworks": ["react"]
+}

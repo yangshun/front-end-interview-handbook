@@ -1,0 +1,29 @@
+{
+  "author": "yangshun",
+  "files": {
+    "/greatfrontend.json": {
+      "code": "{\n  \"visibleFiles\": [\n    \"/index.html\",\n    \"/src/index.js\",\n    \"/src/styles.css\"\n  ],\n  \"activeFile\": \"/src/index.html\",\n  \"environment\": \"parcel\"\n}\n"
+    },
+    "/index.html": {
+      "code": "<!doctype html>\n<html>\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta\n      name=\"viewport\"\n      content=\"width=device-width, initial-scale=1.0\" />\n  </head>\n  <body>\n    <!-- This is a warm up question to help\n    you get familiar with the editor. Most of the\n    code has been filled in for you.\n\n    Fix the bug in index.js to\n    complete this question -->\n    <button>Clicks: <span id=\"count\">0</span></button>\n    <script src=\"src/index.js\"></script>\n  </body>\n</html>\n"
+    },
+    "/package.json": {
+      "code": "{\n  \"name\": \"@gfe-questions/counter-vanilla-skeleton\",\n  \"author\": \"yangshun\",\n  \"version\": \"0.0.1\",\n  \"private\": true,\n  \"devDependencies\": {\n    \"parcel\": \"2.9.3\"\n  },\n  \"source\": \"index.html\",\n  \"scripts\": {\n    \"start\": \"parcel\",\n    \"build\": \"parcel build\"\n  }\n}\n"
+    },
+    "/src/index.js": {
+      "code": "import './styles.css';\n\nlet count = 0;\nconst $countEl = document.querySelector('#count');\n\ndocument\n  .querySelector('button')\n  .addEventListener('click', () => {\n    // Fix the bug in the next line.\n    count = count - 1;\n    $countEl.textContent = count;\n  });\n"
+    },
+    "/src/styles.css": {
+      "code": "body {\n  font-family: sans-serif;\n}\n"
+    }
+  },
+  "workspace": {
+    "visibleFiles": [
+      "/index.html",
+      "/src/index.js",
+      "/src/styles.css"
+    ],
+    "activeFile": "/src/index.html",
+    "environment": "parcel"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "author": "willnguyen1312",
+  "files": {
+    "/greatfrontend.json": {
+      "code": "{\n  \"visibleFiles\": [\"/src/App.svelte\"],\n  \"activeFile\": \"/src/App.svelte\",\n  \"environment\": \"svelte\"\n}\n"
+    },
+    "/package.json": {
+      "code": "{\n  \"name\": \"@gfe-questions/birth-year-histogram-svelte-solution\",\n  \"author\": \"willnguyen1312\",\n  \"version\": \"0.0.1\",\n  \"main\": \"src/index.js\",\n  \"dependencies\": {\n    \"svelte\": \"^3.58.0\"\n  }\n}\n"
+    },
+    "/public/index.html": {
+      "code": "<!doctype html>\n<html>\n  <head>\n    <meta charset=\"utf8\" />\n    <meta name=\"viewport\" content=\"width=device-width\" />\n    <title>Svelte</title>\n    <link rel=\"stylesheet\" href=\"public/bundle.css\" />\n  </head>\n\n  <body>\n    <script src=\"bundle.js\"></script>\n  </body>\n</html>\n"
+    },
+    "/src/App.svelte": {
+      "code": "<script>\n  import { onMount } from 'svelte';\n  const COUNT = 200;\n  const MIN = 1950;\n  const MAX = 2019;\n  const BUCKET_SIZE = 10;\n  const Y_AXIS_SCALE = 10;\n\n  // Extract out the fetching of numbers.\n  async function fetchYearsData() {\n    const response = await fetch(\n      `https://www.random.org/integers/?num=${COUNT}&min=${MIN}&max=${MAX}&col=1&base=10&format=plain&rnd=new`,\n    );\n\n    const numbersString = await response.text();\n    return (\n      numbersString\n        .split('\\n')\n        .filter(Boolean)\n        // Converts strings into numbers.\n        .map((number) => +number)\n    );\n  }\n\n  // Group array of years into decade buckets.\n  function groupIntoBuckets(years) {\n    const frequency = {};\n\n    years.forEach((year) => {\n      const bucket =\n        Math.floor(year / BUCKET_SIZE) * BUCKET_SIZE;\n      frequency[bucket] ||= 0; // Initialize to 0 if undefined or falsy\n      frequency[bucket]++;\n    });\n\n    return frequency;\n  }\n\n  let bucketFrequency = {};\n\n  async function fetchData() {\n    const yearsData = await fetchYearsData();\n    bucketFrequency = groupIntoBuckets(yearsData);\n  }\n\n  onMount(() => {\n    fetchData();\n  });\n\n  $: maxBucketFrequency = Math.max(\n    0,\n    ...Object.values(bucketFrequency),\n  );\n\n  $: maxYAxisValue = Math.min(\n    Math.ceil(maxBucketFrequency / Y_AXIS_SCALE) *\n      Y_AXIS_SCALE,\n    COUNT,\n  );\n\n  const bucketLabels = Array.from({\n    length: Math.ceil((MAX - MIN) / BUCKET_SIZE),\n  }).map((_, index) => MIN + index * BUCKET_SIZE);\n</script>\n\n<div class=\"wrapper\">\n  <div class=\"chart\">\n    <div class=\"chart__y-axis\">\n      <div class=\"chart__y-axis__items\">\n        {#each { length: maxYAxisValue / Y_AXIS_SCALE } as _, index (index)}\n          <div key={index} class=\"chart__y-axis__item\">\n            {(index + 1) * Y_AXIS_SCALE}\n          </div>\n        {/each}\n      </div>\n      <div class=\"chart__y-axis__zero\">0</div>\n    </div>\n\n    <div class=\"chart__main\">\n      <div class=\"chart__main__bars\">\n        {#each bucketLabels as bucket (bucket)}\n          <div\n            class=\"chart__main__bars__item\"\n            style:height={`${\n              ((bucketFrequency[bucket] ?? 0) /\n                maxYAxisValue) *\n              100\n            }%`} />\n        {/each}\n      </div>\n\n      <div class=\"chart__x-axis\">\n        {#each bucketLabels as bucket (bucket)}\n          <div class=\"chart__x-axis__item\">\n            {bucket}\n          </div>\n        {/each}\n      </div>\n    </div>\n  </div>\n\n  <button on:click={fetchData}>Refresh</button>\n</div>\n\n<style>\n  .wrapper {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    gap: 16px;\n    padding: 16px 0;\n  }\n\n  .chart {\n    --chart-width: 100%;\n    --chart-height: 300px;\n    --axis-color: #000;\n    --bar-color: rebeccapurple;\n    --bars-gap: 16px;\n\n    display: flex;\n    max-width: 600px;\n    width: var(--chart-width);\n    height: var(--chart-height);\n  }\n\n  .chart__y-axis {\n    width: 40px;\n    display: flex;\n    flex-direction: column;\n  }\n\n  .chart__y-axis__items {\n    display: flex;\n    flex-direction: column-reverse;\n    height: 100%;\n    border-right: 1px solid var(--axis-color);\n    margin-bottom: 8px;\n    align-items: center;\n  }\n\n  .chart__y-axis__item {\n    flex-grow: 1;\n    transform: translateY(-8px);\n  }\n\n  .chart__y-axis__zero {\n    text-align: center;\n    transform: translateY(-16px);\n  }\n\n  .chart__main {\n    flex-grow: 1;\n    display: flex;\n    flex-direction: column;\n    gap: 8px;\n  }\n\n  .chart__main__bars {\n    display: flex;\n    flex-grow: 1;\n    align-items: flex-end;\n    border-bottom: 1px solid var(--axis-color);\n    gap: var(--bars-gap);\n    padding: 0 var(--bars-gap);\n  }\n\n  .chart__main__bars__item {\n    background-color: var(--bar-color);\n    flex-grow: 1;\n  }\n\n  .chart__x-axis {\n    display: flex;\n    gap: var(--bars-gap);\n    justify-content: space-around;\n    padding: 0 var(--bars-gap);\n  }\n\n  .chart__x-axis__item {\n    flex-grow: 1;\n    flex-basis: 0%;\n    text-align: center;\n  }\n</style>\n"
+    },
+    "/src/index.js": {
+      "code": "import App from './App.svelte';\nimport './styles.css';\n\nconst app = new App({\n  target: document.body,\n});\n\nexport default app;\n"
+    },
+    "/src/styles.css": {
+      "code": "body {\n  font-family: sans-serif;\n  margin: 0;\n}\n"
+    }
+  },
+  "workspace": {
+    "visibleFiles": [
+      "/src/App.svelte"
+    ],
+    "activeFile": "/src/App.svelte",
+    "environment": "svelte"
+  }
+}

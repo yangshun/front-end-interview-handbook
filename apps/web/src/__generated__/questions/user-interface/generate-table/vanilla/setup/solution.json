@@ -1,0 +1,29 @@
+{
+  "author": "yangshun",
+  "files": {
+    "/greatfrontend.json": {
+      "code": "{\n  \"visibleFiles\": [\n    \"/index.html\",\n    \"/src/index.js\",\n    \"/src/styles.css\"\n  ],\n  \"activeFile\": \"/src/index.html\",\n  \"environment\": \"parcel\"\n}\n"
+    },
+    "/index.html": {
+      "code": "<!doctype html>\n<html>\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta\n      name=\"viewport\"\n      content=\"width=device-width, initial-scale=1.0\" />\n  </head>\n  <body>\n    <div class=\"app\">\n      <form id=\"form\">\n        <div>\n          <label htmlFor=\"rows\">Rows</label>\n          <input\n            id=\"rows\"\n            name=\"rows\"\n            type=\"number\"\n            min=\"1\" />\n        </div>\n        <div>\n          <label htmlFor=\"columns\">Columns</label>\n          <input\n            id=\"columns\"\n            name=\"columns\"\n            type=\"number\"\n            min=\"1\" />\n        </div>\n        <button type=\"submit\">Submit</button>\n      </form>\n      <div id=\"table-container\"></div>\n    </div>\n    <script src=\"src/index.js\"></script>\n  </body>\n</html>\n"
+    },
+    "/package.json": {
+      "code": "{\n  \"name\": \"@gfe-questions/generate-table-vanilla-solution\",\n  \"author\": \"yangshun\",\n  \"version\": \"0.0.1\",\n  \"private\": true,\n  \"devDependencies\": {\n    \"parcel\": \"2.9.3\"\n  },\n  \"source\": \"index.html\",\n  \"scripts\": {\n    \"start\": \"parcel\",\n    \"build\": \"parcel build\"\n  }\n}\n"
+    },
+    "/src/index.js": {
+      "code": "import './styles.css';\n\n(() => {\n  const $formEl = document.querySelector('#form');\n  const $tableContainerEl = document.querySelector(\n    '#table-container',\n  );\n\n  function renderTable(rows, columns) {\n    // It's safe to use innerHTML here since we control\n    // the rendered contents (not user input).\n    $tableContainerEl.innerHTML = `<table>\n      <tbody>\n        ${Array.from({ length: rows }, () => 0)\n          .map(\n            (_, row) =>\n              `<tr>\n              ${Array.from({ length: columns }, () => 0)\n                .map(\n                  (_, col) =>\n                    `<td>\n                    ${\n                      col % 2 === 0\n                        ? rows * col + (row + 1)\n                        : rows * (col + 1) - row\n                    }\n                  </td>`,\n                )\n                .join('')}\n            </tr>`,\n          )\n          .join('')}\n      </tbody>\n    </table>`;\n  }\n\n  $formEl.addEventListener('submit', (event) => {\n    // To prevent a page reload.\n    event.preventDefault();\n\n    // Obtain data from the form.\n    const data = new FormData(event.target);\n    const rows = data.get('rows');\n    const columns = data.get('columns');\n    renderTable(rows, columns);\n  });\n})();\n"
+    },
+    "/src/styles.css": {
+      "code": "body {\n  font-family: sans-serif;\n}\n\n.app {\n  align-items: center;\n  display: flex;\n  font-size: 12px;\n  flex-direction: column;\n  gap: 16px;\n  justify-content: center;\n}\n\nform {\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n}\n\nlabel + input {\n  margin-left: 8px;\n}\n\ntable {\n  border-collapse: collapse;\n}\n\ntable td {\n  border: 1px solid #000;\n  padding: 8px;\n  text-align: center;\n}\n"
+    }
+  },
+  "workspace": {
+    "visibleFiles": [
+      "/index.html",
+      "/src/index.js",
+      "/src/styles.css"
+    ],
+    "activeFile": "/src/index.html",
+    "environment": "parcel"
+  }
+}

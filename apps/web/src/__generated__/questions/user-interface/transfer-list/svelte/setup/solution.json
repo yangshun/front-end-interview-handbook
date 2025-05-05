@@ -1,0 +1,34 @@
+{
+  "author": "tanhauhau",
+  "files": {
+    "/greatfrontend.json": {
+      "code": "{\n  \"visibleFiles\": [\"/src/App.svelte\", \"/src/styles.css\"],\n  \"activeFile\": \"/src/App.svelte\",\n  \"environment\": \"svelte\"\n}\n"
+    },
+    "/package.json": {
+      "code": "{\n  \"name\": \"@gfe-questions/transfer-list-svelte-solution\",\n  \"author\": \"tanhauhau\",\n  \"version\": \"0.0.1\",\n  \"main\": \"src/index.js\",\n  \"dependencies\": {\n    \"svelte\": \"^3.58.0\"\n  }\n}\n"
+    },
+    "/public/index.html": {
+      "code": "<!doctype html>\n<html>\n  <head>\n    <meta charset=\"utf8\" />\n    <meta name=\"viewport\" content=\"width=device-width\" />\n    <title>Svelte</title>\n    <link rel=\"stylesheet\" href=\"public/bundle.css\" />\n  </head>\n\n  <body>\n    <script src=\"bundle.js\"></script>\n  </body>\n</html>\n"
+    },
+    "/src/App.svelte": {
+      "code": "<script>\n  import './styles.css';\n  import ItemList from './ItemList.svelte';\n\n  const DEFAULT_ITEMS_LEFT = [\n    'HTML',\n    'JavaScript',\n    'CSS',\n    'TypeScript',\n  ];\n  const DEFAULT_ITEMS_RIGHT = [\n    'React',\n    'Angular',\n    'Vue',\n    'Svelte',\n  ];\n\n  let itemsLeft = generateItemsMap(DEFAULT_ITEMS_LEFT);\n  let itemsRight = generateItemsMap(DEFAULT_ITEMS_RIGHT);\n\n  // Transfer selected items from a source list to a destination list.\n  function transferSelectedItems(itemsSrc, itemsDst) {\n    const newItemsSrc = new Map(itemsSrc);\n    const newItemsDst = new Map(itemsDst);\n\n    // Remove selected items from source list and add to the destination list.\n    itemsSrc.forEach((value, key) => {\n      if (!value) {\n        return;\n      }\n\n      newItemsDst.set(key, value);\n      newItemsSrc.delete(key);\n    });\n    return [newItemsSrc, newItemsDst];\n  }\n\n  // Convert the default array of items into a map with the item\n  // name as a key and the value as a boolean.\n  function generateItemsMap(items) {\n    return new Map(items.map((label) => [label, false]));\n  }\n\n  // Determine if the list has no selected items.\n  function hasNoSelectedItems(items) {\n    return (\n      Array.from(items.values()).filter((val) =>\n        Boolean(val),\n      ).length === 0\n    );\n  }\n\n  // Transfer all items from a source list to a destination list.\n  function transferAllItems(itemsSrc, itemsDst) {\n    return [new Map(), new Map([...itemsDst, ...itemsSrc])];\n  }\n</script>\n\n<div class=\"transfer-list\">\n  <ItemList bind:items={itemsLeft} />\n  <div class=\"transfer-list__actions\">\n    <button\n      aria-label=\"Transfer all items to left list\"\n      disabled={itemsRight.size === 0}\n      on:click={() => {\n        [itemsRight, itemsLeft] = transferAllItems(\n          itemsRight,\n          itemsLeft,\n        );\n      }}>\n      <span aria-hidden={true}>&lt;&lt;</span>\n    </button>\n    <button\n      aria-label=\"Transfer selected items to left list\"\n      disabled={hasNoSelectedItems(itemsRight)}\n      on:click={() => {\n        [itemsRight, itemsLeft] = transferSelectedItems(\n          itemsRight,\n          itemsLeft,\n        );\n      }}>\n      <span aria-hidden={true}>&lt;</span>\n    </button>\n    <button\n      aria-label=\"Transfer selected items to right list\"\n      disabled={hasNoSelectedItems(itemsLeft)}\n      on:click={() => {\n        [itemsLeft, itemsRight] = transferSelectedItems(\n          itemsLeft,\n          itemsRight,\n        );\n      }}>\n      <span aria-hidden={true}>&gt;</span>\n    </button>\n    <button\n      aria-label=\"Transfer all items to right list\"\n      disabled={itemsLeft.size === 0}\n      on:click={() => {\n        [itemsLeft, itemsRight] = transferAllItems(\n          itemsLeft,\n          itemsRight,\n        );\n      }}>\n      <span aria-hidden={true}>&gt;&gt;</span>\n    </button>\n  </div>\n  <ItemList bind:items={itemsRight} />\n</div>\n\n<style>\n  .transfer-list {\n    border: 1px solid #ccc;\n    display: flex;\n    max-width: 768px;\n    margin: 0 auto;\n  }\n\n  .transfer-list__actions {\n    border-color: #ccc;\n    border-width: 0 1px 0 1px;\n    border-style: solid;\n    align-items: center;\n    display: flex;\n    flex-direction: column;\n    padding: 20px;\n    row-gap: 12px;\n  }\n</style>\n"
+    },
+    "/src/index.js": {
+      "code": "import App from './App.svelte';\nimport './styles.css';\n\nconst app = new App({\n  target: document.body,\n});\n\nexport default app;\n"
+    },
+    "/src/ItemList.svelte": {
+      "code": "<script>\n  export let items;\n</script>\n\n<div class=\"transfer-list__section\">\n  <ul class=\"transfer-list__section__items\">\n    {#each Array.from(items.entries()) as [label, checked]}\n      <li>\n        <div class=\"transfer-list__section__items__item\">\n          <label>\n            <input\n              type=\"checkbox\"\n              {checked}\n              on:change={() => {\n                const newItems = new Map(items);\n                newItems.set(label, !items.get(label));\n                items = newItems;\n              }} />\n            {label}</label>\n        </div>\n      </li>\n    {/each}\n  </ul>\n</div>\n\n<style>\n  ul {\n    list-style-type: none;\n    padding-left: 0;\n  }\n\n  .transfer-list__section {\n    padding: 20px;\n    flex-grow: 1;\n  }\n\n  .transfer-list__section__items {\n    display: flex;\n    flex-direction: column;\n    row-gap: 12px;\n  }\n\n  .transfer-list__section__items__item {\n    display: flex;\n    gap: 8px;\n  }\n</style>\n"
+    },
+    "/src/styles.css": {
+      "code": "body {\n  font-family: sans-serif;\n}\n"
+    }
+  },
+  "workspace": {
+    "visibleFiles": [
+      "/src/App.svelte",
+      "/src/styles.css"
+    ],
+    "activeFile": "/src/App.svelte",
+    "environment": "svelte"
+  }
+}

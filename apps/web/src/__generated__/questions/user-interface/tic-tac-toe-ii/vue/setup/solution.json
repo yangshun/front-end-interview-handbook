@@ -1,0 +1,38 @@
+{
+  "author": "willnguyen1312",
+  "files": {
+    "/greatfrontend.json": {
+      "code": "{\n  \"visibleFiles\": [\n    \"/src/App.vue\",\n    \"/src/Board.vue\",\n    \"/src/Cell.vue\"\n  ],\n  \"activeFile\": \"/src/Board.vue\",\n  \"environment\": \"vue-cli\"\n}\n"
+    },
+    "/package.json": {
+      "code": "{\n  \"name\": \"@gfe-questions/tic-tac-toe-ii-vue-solution\",\n  \"author\": \"willnguyen1312\",\n  \"version\": \"0.0.1\",\n  \"main\": \"/src/main.js\",\n  \"scripts\": {\n    \"serve\": \"vue-cli-service serve\",\n    \"build\": \"vue-cli-service build\"\n  },\n  \"dependencies\": {\n    \"core-js\": \"3.32.2\",\n    \"vue\": \"3.3.4\"\n  },\n  \"devDependencies\": {\n    \"@vue/cli-plugin-babel\": \"5.0.8\",\n    \"@vue/cli-service\": \"5.0.8\"\n  }\n}\n"
+    },
+    "/public/index.html": {
+      "code": "<!doctype html>\n<html>\n  <head>\n    <meta charset=\"utf-8\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" />\n    <meta\n      name=\"viewport\"\n      content=\"width=device-width,initial-scale=1.0\" />\n    <title>Vue</title>\n  </head>\n  <body>\n    <div id=\"app\"></div>\n    <!-- Built files will be auto injected -->\n  </body>\n</html>\n"
+    },
+    "/src/App.vue": {
+      "code": "<script setup>\nimport Board from './Board.vue';\n</script>\n\n<template>\n  <Board :n=\"5\" :m=\"4\" />\n</template>\n"
+    },
+    "/src/Board.vue": {
+      "code": "<script setup>\nimport { computed, ref, watch } from 'vue';\nimport Cell from './Cell.vue';\n\n// Determine if there's a winner for the board.\n\nfunction determineWinner(board, i, n, m) {\n  const row = Math.floor(i / n);\n  const col = i % n;\n\n  // Get row\n  const rowLine = [];\n  for (let i = 0; i < n; i++) {\n    rowLine.push(row * n + i);\n  }\n\n  // Get column\n  const colLine = [];\n  for (let i = 0; i < n; i++) {\n    colLine.push(i * n + col);\n  }\n\n  const leftToRightDiagonalLine = getLeftToRightDiagonal(\n    i,\n    n,\n  );\n  const rightToLeftDiagonalLine = getRightToLeftDiagonal(\n    i,\n    n,\n  );\n\n  const lines = [\n    rowLine,\n    colLine,\n    leftToRightDiagonalLine,\n    rightToLeftDiagonalLine,\n  ];\n\n  for (const line of lines) {\n    let currentWinner = null;\n    let currentCountInARow = 0;\n    for (const i of line) {\n      if (board[i] == null) {\n        currentWinner = null;\n        currentCountInARow = 0;\n        continue;\n      }\n      if (board[i] === currentWinner) {\n        currentCountInARow++;\n      } else {\n        currentWinner = board[i];\n        currentCountInARow = 1;\n      }\n      if (currentCountInARow >= m) {\n        return currentWinner;\n      }\n    }\n  }\n\n  return null;\n}\n\nfunction getLeftToRightDiagonal(i, n) {\n  const row = Math.floor(i / n);\n  const col = i % n;\n\n  const stepsToStart = Math.min(col, row);\n  const startRow = row - stepsToStart;\n  const startCol = col - stepsToStart;\n  const line = [];\n\n  for (let i = 0; i < n; i++) {\n    const currentRow = startRow + i;\n    const currentCol = startCol + i;\n    if (currentRow >= n || currentCol >= n) {\n      break;\n    }\n    line.push(currentRow * n + currentCol);\n  }\n\n  return line;\n}\n\nfunction getRightToLeftDiagonal(i, n) {\n  const row = Math.floor(i / n);\n  const col = i % n;\n\n  const stepsToStart = Math.min(n - col - 1, row);\n  const startRow = row - stepsToStart;\n  const startCol = col + stepsToStart;\n  const line = [];\n\n  for (let i = 0; i < n; i++) {\n    const currentRow = startRow + i;\n    const currentCol = startCol - i;\n    if (currentRow >= n || currentCol < 0) {\n      break;\n    }\n    line.push(currentRow * n + currentCol);\n  }\n\n  return line;\n}\n\nconst props = defineProps({\n  n: Number,\n  m: Number,\n});\n\nconst board = ref(Array(props.n * props.n).fill(null));\nconst xIsPlaying = ref(true);\nconst winner = ref(null);\n\nconst statusMessage = computed(() => {\n  if (winner.value != null) {\n    return `Player ${winner.value} wins!`;\n  }\n\n  // All cells have been filled up.\n  if (!board.value.includes(null)) {\n    return `It's a draw!`;\n  }\n\n  return `Player ${xIsPlaying.value ? 'X' : 'O'} turn`;\n});\n\nfunction reset() {\n  if (winner.value == null) {\n    // Confirm whether to reset the game.\n    const confirm = window.confirm(\n      'Are you sure you want to reset the game?',\n    );\n    if (!confirm) {\n      return;\n    }\n  }\n\n  board.value = Array(props.n * props.n).fill(null);\n  xIsPlaying.value = true;\n  winner.value = null;\n}\n\nwatch([() => props.m, () => props.n], ([m, n]) => {\n  if (m > n) {\n    throw Error('Invalid props. `m` must be <= `n`.');\n  }\n\n  reset();\n});\n</script>\n\n<template>\n  <div class=\"app\">\n    <div aria-live=\"polite\">{{ statusMessage }}</div>\n    <div\n      class=\"board\"\n      :style=\"{\n        'grid-template-columns': `repeat(${n}, 1fr)`,\n      }\">\n      <Cell\n        v-for=\"(_, index) in n * n\"\n        :key=\"index\"\n        :index=\"index\"\n        :mark=\"board[index]\"\n        :turn=\"xIsPlaying ? 'X' : 'O'\"\n        @on-click=\"\n          board[index] = xIsPlaying ? 'X' : 'O';\n          xIsPlaying = !xIsPlaying;\n\n          winner = determineWinner(board, index, n, m);\n        \"\n        :disabled=\"\n          board[index] != null || winner != null\n        \" />\n    </div>\n    <button @click=\"reset\">Reset</button>\n  </div>\n</template>\n\n<style>\n.app {\n  align-items: center;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  max-width: 320px;\n  margin: 0 auto;\n  row-gap: 16px;\n}\n\n.board {\n  display: grid;\n  width: 100%;\n}\n</style>\n"
+    },
+    "/src/Cell.vue": {
+      "code": "<script setup>\nconst props = defineProps({\n  index: Number,\n  mark: String,\n  disabled: Boolean,\n  turn: String,\n});\n</script>\n\n<template>\n  <button\n    :aria-label=\"\n      props.mark == null\n        ? `Mark cell ${props.index} as ${props.turn}`\n        : undefined\n    \"\n    class=\"cell\"\n    :disabled=\"props.disabled\"\n    @click=\"$emit('on-click')\">\n    <span aria-hidden>{{ mark }}</span>\n  </button>\n</template>\n\n<style>\n.cell {\n  background-color: #fff;\n  border: 1px solid #ccc;\n  color: #000;\n  font-size: min(48px, 10vw);\n  font-weight: bold;\n  vertical-align: middle;\n  aspect-ratio: 1 / 1;\n}\n\n.cell:not(:disabled) {\n  cursor: pointer;\n}\n\n.cell:not(:disabled):hover {\n  background-color: #fafafa;\n}\n</style>\n"
+    },
+    "/src/main.js": {
+      "code": "import { createApp } from 'vue';\nimport App from './App.vue';\n\nimport './styles.css';\n\ncreateApp(App).mount('#app');\n"
+    },
+    "/src/styles.css": {
+      "code": "body {\n  font-family: sans-serif;\n}\n"
+    }
+  },
+  "workspace": {
+    "visibleFiles": [
+      "/src/App.vue",
+      "/src/Board.vue",
+      "/src/Cell.vue"
+    ],
+    "activeFile": "/src/Board.vue",
+    "environment": "vue-cli"
+  }
+}

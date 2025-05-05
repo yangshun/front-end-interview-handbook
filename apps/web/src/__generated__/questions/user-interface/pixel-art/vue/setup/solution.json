@@ -1,0 +1,39 @@
+{
+  "author": "willnguyen1312",
+  "files": {
+    "/greatfrontend.json": {
+      "code": "{\n  \"visibleFiles\": [\"/src/App.vue\"],\n  \"activeFile\": \"/src/App.vue\",\n  \"environment\": \"vue-cli\"\n}\n"
+    },
+    "/package.json": {
+      "code": "{\n  \"name\": \"@gfe-questions/pixel-art-vue-solution\",\n  \"author\": \"willnguyen1312\",\n  \"version\": \"0.0.1\",\n  \"main\": \"/src/main.js\",\n  \"scripts\": {\n    \"serve\": \"vue-cli-service serve\",\n    \"build\": \"vue-cli-service build\"\n  },\n  \"dependencies\": {\n    \"core-js\": \"3.32.2\",\n    \"vue\": \"3.3.4\"\n  },\n  \"devDependencies\": {\n    \"@vue/cli-plugin-babel\": \"5.0.8\",\n    \"@vue/cli-service\": \"5.0.8\"\n  }\n}\n"
+    },
+    "/public/index.html": {
+      "code": "<!doctype html>\n<html>\n  <head>\n    <meta charset=\"utf-8\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" />\n    <meta\n      name=\"viewport\"\n      content=\"width=device-width,initial-scale=1.0\" />\n    <title>Vue</title>\n  </head>\n  <body>\n    <div id=\"app\"></div>\n    <!-- Built files will be auto injected -->\n  </body>\n</html>\n"
+    },
+    "/src/App.vue": {
+      "code": "<script setup lang=\"ts\">\nimport { ref } from 'vue';\nimport Canvas from './Canvas.vue';\nimport Toolbar from './Toolbar.vue';\nimport { Color, Mode } from './colors';\n\nconst mode = ref<Mode>('draw');\nconst selectedColor = ref<Color>('black');\n</script>\n\n<template>\n  <div class=\"app\">\n    <Canvas\n      :selectedColor=\"selectedColor\"\n      :mode=\"mode\"\n      :initialRows=\"15\"\n      :initialColumns=\"15\" />\n    <Toolbar\n      v-model:selectedColor=\"selectedColor\"\n      v-model:mode=\"mode\" />\n  </div>\n</template>\n\n<style>\n.app {\n  display: flex;\n  flex-direction: column;\n  gap: 16px;\n}\n</style>\n"
+    },
+    "/src/Canvas.vue": {
+      "code": "<script setup lang=\"ts\">\nimport { ref } from 'vue';\nimport { COLORS, Color, Mode } from './colors';\nconst props = defineProps<{\n  mode: Mode;\n  selectedColor: Color;\n  initialRows: number;\n  initialColumns: number;\n}>();\n\nconst grid = ref<(Color | null)[][]>(\n  Array.from({ length: props.initialRows }, () =>\n    Array(props.initialColumns).fill(null),\n  ),\n);\n\nconst isDragging = ref(false);\n\nfunction mark(rowIndex: number, cellIndex: number) {\n  grid.value[rowIndex][cellIndex] =\n    props.mode === 'erase' ? null : props.selectedColor;\n}\n</script>\n\n<template>\n  <div\n    class=\"grid\"\n    @mousedown=\"isDragging = true\"\n    @mouseup=\"isDragging = false\">\n    <div\n      v-for=\"(row, rowIndex) in grid\"\n      :class=\"[\n        'grid__row',\n        rowIndex % 2 === 0\n          ? 'grid__row--even'\n          : 'grid__row--odd',\n      ]\"\n      :key=\"rowIndex\">\n      <button\n        v-for=\"(cellColor, cellIndex) in row\"\n        :key=\"cellIndex\"\n        @click=\"mark(rowIndex, cellIndex)\"\n        @mousedown=\"mark(rowIndex, cellIndex)\"\n        @mouseenter=\"\n          () => {\n            if (isDragging) {\n              mark(rowIndex, cellIndex);\n            }\n          }\n        \"\n        :style=\"{\n          'background-color':\n            cellColor != null\n              ? COLORS[cellColor]\n              : undefined,\n        }\"\n        class=\"grid__cell\" />\n    </div>\n  </div>\n</template>\n\n<style>\n.grid {\n  display: flex;\n  flex-direction: column;\n}\n\n.grid__row {\n  display: flex;\n  flex-shrink: 0;\n}\n\n.grid__cell {\n  --cell-size: 20px;\n\n  height: var(--cell-size);\n  width: var(--cell-size);\n  border: 0;\n  flex-shrink: 0;\n  background-color: transparent;\n}\n\n.grid__row--even .grid__cell:nth-child(odd),\n.grid__row--odd .grid__cell:nth-child(even) {\n  background-color: #e9ecef;\n}\n</style>\n"
+    },
+    "/src/colors.ts": {
+      "code": "export const COLORS = {\n  white: '#fff',\n  gray: '#e9ecef',\n  black: '#000',\n  red: '#cc0001',\n  orange: '#fb940b',\n  yellow: '#ffff01',\n  green: '#01cc00',\n  teal: '#38d9a9',\n  blue: '#228be6',\n  purple: '#7950f2',\n  beige: '#ff8787',\n} as const;\nexport type Color = keyof typeof COLORS;\n\nexport type Mode = 'draw' | 'erase';\n"
+    },
+    "/src/main.js": {
+      "code": "import { createApp } from 'vue';\nimport App from './App.vue';\n\nimport './styles.css';\n\ncreateApp(App).mount('#app');\n"
+    },
+    "/src/styles.css": {
+      "code": "body {\n  font-family: sans-serif;\n}\n"
+    },
+    "/src/Toolbar.vue": {
+      "code": "<script setup lang=\"ts\">\nimport { COLORS, Color, Mode } from './colors';\n\nconst props = defineProps<{\n  mode: Mode;\n  selectedColor: Color;\n}>();\n\nconst emit = defineEmits<{\n  'update:mode': [value: Mode];\n  'update:selectedColor': [value: Color];\n}>();\n</script>\n\n<template>\n  <div class=\"toolbar\">\n    <div>\n      <button\n        @click=\"() => $emit('update:mode', 'draw')\"\n        :class=\"[\n          'toolbar__mode',\n          mode === 'draw' && 'toolbar__mode--selected',\n        ]\">\n        Draw\n      </button>\n      <button\n        @click=\"() => $emit('update:mode', 'erase')\"\n        :class=\"[\n          'toolbar__mode',\n          mode === 'erase' && 'toolbar__mode--selected',\n        ]\">\n        Erase\n      </button>\n    </div>\n    <div class=\"toolbar__color-picker\">\n      <button\n        v-for=\"[color, hex] in Object.entries(COLORS)\"\n        :key=\"color\"\n        :aria-label=\"color\"\n        :class=\"[\n          'toolbar__color',\n          color === selectedColor &&\n            'toolbar__color--selected',\n        ]\"\n        :style=\"{\n          'border-color': (() => {\n            if (\n              color !== selectedColor &&\n              color === 'white'\n            ) {\n              return '#ccc';\n            }\n\n            if (\n              color === selectedColor &&\n              color === 'black'\n            ) {\n              return '#fff';\n            }\n          })(),\n          'background-color': hex,\n        }\"\n        @click=\"\n          () => {\n            $emit('update:selectedColor', color);\n            $emit('update:mode', 'draw');\n          }\n        \" />\n    </div>\n  </div>\n</template>\n\n<style>\n.toolbar {\n  display: flex;\n  gap: 20px;\n}\n\n.toolbar .toolbar__mode {\n  height: 36px;\n  background-color: transparent;\n  border: 2px solid black;\n  font-size: 14px;\n}\n\n.toolbar .toolbar__mode--selected {\n  background-color: black;\n  color: white;\n}\n\n.toolbar .toolbar__color-picker {\n  display: flex;\n}\n\n.toolbar .toolbar__color {\n  --size: 20px;\n\n  width: var(--size);\n  height: var(--size);\n  border: 2px solid transparent;\n}\n\n.toolbar .toolbar__color--selected {\n  border: 2px solid black;\n}\n</style>\n"
+    }
+  },
+  "workspace": {
+    "visibleFiles": [
+      "/src/App.vue"
+    ],
+    "activeFile": "/src/App.vue",
+    "environment": "vue-cli"
+  }
+}

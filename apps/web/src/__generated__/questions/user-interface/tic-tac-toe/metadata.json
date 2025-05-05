@@ -1,61 +1,55 @@
 {
-  "info": {
-    "excerpt": "Build a tic-tac-toe game that is playable by two players",
-    "title": "Tic-tac-toe"
-  },
-  "metadata": {
-    "access": "standard",
-    "author": null,
-    "companies": [
-      "google",
-      "amazon",
-      "microsoft",
-      "twitter",
-      "apple",
-      "atlassian",
-      "openai"
-    ],
-    "created": 1683763200,
-    "difficulty": "medium",
-    "duration": 25,
-    "featured": false,
-    "format": "user-interface",
-    "frameworkDefault": "react",
-    "frameworks": [
-      {
-        "framework": "react",
-        "href": "/questions/user-interface/tic-tac-toe/react"
-      },
-      {
-        "framework": "angular",
-        "href": "/questions/user-interface/tic-tac-toe/angular"
-      },
-      {
-        "framework": "vue",
-        "href": "/questions/user-interface/tic-tac-toe/vue"
-      },
-      {
-        "framework": "svelte",
-        "href": "/questions/user-interface/tic-tac-toe/svelte"
-      }
-    ],
-    "href": "/questions/user-interface/tic-tac-toe",
-    "importance": "low",
-    "languages": [
-      "html",
-      "css",
-      "js"
-    ],
-    "nextQuestions": [
-      "tic-tac-toe-ii"
-    ],
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [],
-    "slug": "tic-tac-toe",
-    "subtitle": null,
-    "topics": [
-      "a11y"
-    ]
-  }
+  "access": "standard",
+  "author": null,
+  "companies": [
+    "google",
+    "amazon",
+    "microsoft",
+    "twitter",
+    "apple",
+    "atlassian",
+    "openai"
+  ],
+  "created": 1683763200,
+  "difficulty": "medium",
+  "duration": 25,
+  "featured": false,
+  "format": "user-interface",
+  "frameworkDefault": "react",
+  "frameworks": [
+    {
+      "framework": "react",
+      "href": "/questions/user-interface/tic-tac-toe/react"
+    },
+    {
+      "framework": "angular",
+      "href": "/questions/user-interface/tic-tac-toe/angular"
+    },
+    {
+      "framework": "vue",
+      "href": "/questions/user-interface/tic-tac-toe/vue"
+    },
+    {
+      "framework": "svelte",
+      "href": "/questions/user-interface/tic-tac-toe/svelte"
+    }
+  ],
+  "href": "/questions/user-interface/tic-tac-toe",
+  "importance": "low",
+  "languages": [
+    "html",
+    "css",
+    "js"
+  ],
+  "nextQuestions": [
+    "tic-tac-toe-ii"
+  ],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [],
+  "slug": "tic-tac-toe",
+  "subtitle": null,
+  "topics": [
+    "a11y"
+  ]
 }

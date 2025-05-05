@@ -1,0 +1,35 @@
+{
+  "author": "yangshun",
+  "files": {
+    "/greatfrontend.json": {
+      "code": "{\n  \"visibleFiles\": [\n    \"/src/App.js\",\n    \"/src/Accordion.js\",\n    \"/src/styles.css\"\n  ],\n  \"activeFile\": \"/src/Accordion.js\",\n  \"environment\": \"create-react-app\"\n}\n"
+    },
+    "/package.json": {
+      "code": "{\n  \"name\": \"@gfe-questions/accordion-react-skeleton\",\n  \"author\": \"yangshun\",\n  \"version\": \"0.0.1\",\n  \"private\": true,\n  \"dependencies\": {\n    \"react\": \"18.2.0\",\n    \"react-dom\": \"18.2.0\",\n    \"react-scripts\": \"5.0.1\"\n  },\n  \"scripts\": {\n    \"start\": \"react-scripts start\",\n    \"build\": \"react-scripts build\",\n    \"test\": \"react-scripts test\",\n    \"eject\": \"react-scripts eject\"\n  }\n}\n"
+    },
+    "/public/index.html": {
+      "code": "<!doctype html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta\n      name=\"viewport\"\n      content=\"width=device-width, initial-scale=1.0\" />\n  </head>\n  <body>\n    <div id=\"root\"></div>\n  </body>\n</html>\n"
+    },
+    "/src/Accordion.js": {
+      "code": "export default function Accordion() {\n  return (\n    <div>\n      <div>\n        <div>\n          HTML{' '}\n          <span\n            aria-hidden={true}\n            className=\"accordion-icon\"\n          />\n        </div>\n        <div>\n          The HyperText Markup Language or HTML is the\n          standard markup language for documents designed to\n          be displayed in a web browser.\n        </div>\n      </div>\n      <div>\n        <div>\n          CSS{' '}\n          <span\n            aria-hidden={true}\n            className=\"accordion-icon\"\n          />\n        </div>\n        <div>\n          Cascading Style Sheets is a style sheet language\n          used for describing the presentation of a document\n          written in a markup language such as HTML or XML.\n        </div>\n      </div>\n      <div>\n        <div>\n          JavaScript{' '}\n          <span\n            aria-hidden={true}\n            className=\"accordion-icon\"\n          />\n        </div>\n        <div>\n          JavaScript, often abbreviated as JS, is a\n          programming language that is one of the core\n          technologies of the World Wide Web, alongside HTML\n          and CSS.\n        </div>\n      </div>\n    </div>\n  );\n}\n"
+    },
+    "/src/App.js": {
+      "code": "import Accordion from './Accordion';\n\nexport default function App() {\n  return <Accordion />;\n}\n"
+    },
+    "/src/index.js": {
+      "code": "import React, { StrictMode } from 'react';\nimport { createRoot } from 'react-dom/client';\n\nimport App from './App';\n\nimport './styles.css';\n\nconst root = createRoot(document.getElementById('root'));\nroot.render(\n  <StrictMode>\n    <App />\n  </StrictMode>,\n);\n"
+    },
+    "/src/styles.css": {
+      "code": "body {\n  font-family: sans-serif;\n}\n\n.accordion-icon {\n  border: solid currentcolor;\n  border-width: 0 2px 2px 0;\n  display: inline-block;\n  height: 8px;\n  pointer-events: none;\n  transform: translateY(-2px) rotate(45deg);\n  width: 8px;\n}\n\n.accordion-icon--rotated {\n  transform: translateY(2px) rotate(-135deg);\n}\n"
+    }
+  },
+  "workspace": {
+    "visibleFiles": [
+      "/src/App.js",
+      "/src/Accordion.js",
+      "/src/styles.css"
+    ],
+    "activeFile": "/src/Accordion.js",
+    "environment": "create-react-app"
+  }
+}

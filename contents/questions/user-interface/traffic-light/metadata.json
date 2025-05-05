@@ -1,0 +1,21 @@
+{
+  "slug": "traffic-light",
+  "created": "2022-12-11",
+  "languages": ["html", "css", "js"],
+  "author": "yangshun",
+  "companies": ["roblox"],
+  "access": "free",
+  "duration": 20,
+  "published": true,
+  "importance": "low",
+  "difficulty": "medium",
+  "frameworks": [
+    "react",
+    "vanilla",
+    "angular",
+    "vue",
+    "svelte"
+  ],
+  "similar_questions": ["digital-clock"],
+  "topics": ["async"]
+}

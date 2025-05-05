@@ -1,0 +1,16 @@
+{
+  "slug": "accordion",
+  "author": "yangshun",
+  "created": "2022-12-21",
+  "languages": ["html", "css", "js"],
+  "companies": ["amazon"],
+  "access": "standard",
+  "duration": 15,
+  "published": true,
+  "importance": "low",
+  "difficulty": "easy",
+  "frameworks": ["react", "vanilla"],
+  "framework_default": "react",
+  "next_questions": ["accordion-ii"],
+  "topics": ["a11y"]
+}

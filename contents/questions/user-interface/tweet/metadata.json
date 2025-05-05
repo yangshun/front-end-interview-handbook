@@ -1,0 +1,20 @@
+{
+  "slug": "tweet",
+  "author": "yangshun",
+  "created": "2022-07-19",
+  "languages": ["html", "css"],
+  "companies": [],
+  "access": "premium",
+  "duration": 20,
+  "published": true,
+  "importance": "medium",
+  "difficulty": "easy",
+  "frameworks": [
+    "react",
+    "vanilla",
+    "angular",
+    "vue",
+    "svelte"
+  ],
+  "similar_questions": ["holy-grail"]
+}

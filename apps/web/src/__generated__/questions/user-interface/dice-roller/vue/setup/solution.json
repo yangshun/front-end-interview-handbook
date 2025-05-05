@@ -1,0 +1,33 @@
+{
+  "author": "willnguyen1312",
+  "files": {
+    "/greatfrontend.json": {
+      "code": "{\n  \"visibleFiles\": [\"/src/App.vue\"],\n  \"activeFile\": \"/src/App.vue\",\n  \"environment\": \"vue-cli\"\n}\n"
+    },
+    "/package.json": {
+      "code": "{\n  \"name\": \"@gfe-questions/dice-roller-vue-solution\",\n  \"author\": \"willnguyen1312\",\n  \"version\": \"0.0.1\",\n  \"main\": \"/src/main.js\",\n  \"scripts\": {\n    \"serve\": \"vue-cli-service serve\",\n    \"build\": \"vue-cli-service build\"\n  },\n  \"dependencies\": {\n    \"core-js\": \"3.32.2\",\n    \"vue\": \"3.3.4\"\n  },\n  \"devDependencies\": {\n    \"@vue/cli-plugin-babel\": \"5.0.8\",\n    \"@vue/cli-service\": \"5.0.8\"\n  }\n}\n"
+    },
+    "/public/index.html": {
+      "code": "<!doctype html>\n<html>\n  <head>\n    <meta charset=\"utf-8\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" />\n    <meta\n      name=\"viewport\"\n      content=\"width=device-width,initial-scale=1.0\" />\n    <title>Vue</title>\n  </head>\n  <body>\n    <div id=\"app\"></div>\n    <!-- Built files will be auto injected -->\n  </body>\n</html>\n"
+    },
+    "/src/App.vue": {
+      "code": "<script setup>\nimport { ref } from 'vue';\nimport Dice from './Dice_.vue';\n\nconst NUMBER_OF_FACES = 6;\nconst MIN_NUMBER_OF_DICE = 1;\nconst MAX_NUMBER_OF_DICE = 12;\n\nfunction getRandomRollDice(numberOfDice) {\n  return Array.from(\n    { length: numberOfDice },\n    () => Math.floor(Math.random() * NUMBER_OF_FACES) + 1,\n  );\n}\n\nconst rolledDice = ref([]);\n\nfunction submit(event) {\n  const data = new FormData(event.target);\n  // Convert the input value to a number.\n  const numberOfDice = +data.get('dice-count');\n  rolledDice.value = getRandomRollDice(numberOfDice);\n}\n</script>\n\n<template>\n  <div class=\"wrapper\">\n    <!-- To prevent a page reload. -->\n    <form @submit.prevent=\"submit\" class=\"dice-form\">\n      <div>\n        <label for=\"dice-input\">Number of dice</label>\n        <input\n          id=\"dice-input\"\n          name=\"dice-count\"\n          required\n          type=\"number\"\n          :min=\"MIN_NUMBER_OF_DICE\"\n          :max=\"MAX_NUMBER_OF_DICE\" />\n      </div>\n      <button type=\"submit\">Roll</button>\n    </form>\n\n    <div\n      v-if=\"rolledDice.length > 0\"\n      class=\"dice-list\"\n      role=\"status\"\n      aria-live=\"polite\">\n      <Dice\n        v-for=\"value in rolledDice\"\n        :key=\"index\"\n        :value=\"value\" />\n\n      <!-- Announced by screen readers.-->\n      <div class=\"sr-only\">\n        Roll results: {rolledDice.join(', ')}\n      </div>\n    </div>\n  </div>\n</template>\n\n<style>\n.wrapper {\n  align-items: center;\n  display: flex;\n  flex-direction: column;\n  gap: 48px;\n  padding-top: 16px;\n}\n\n.dice-form {\n  display: flex;\n  align-items: end;\n  gap: 16px;\n}\n\n.dice-form label {\n  display: block;\n  font-size: 12px;\n  margin-bottom: 8px;\n}\n\n.dice-form input {\n  width: 100%;\n}\n\n.dice-list {\n  background-color: #eaeaea;\n  border-radius: 24px;\n  display: grid;\n  grid-template-columns: repeat(3, 1fr);\n  gap: 16px;\n  flex-wrap: wrap;\n  padding: 16px;\n}\n\n.sr-only {\n  position: absolute;\n  width: 1px;\n  height: 1px;\n  padding: 0;\n  margin: -1px;\n  overflow: hidden;\n  clip: rect(0, 0, 0, 0);\n  border: 0;\n}\n</style>\n"
+    },
+    "/src/Dice_.vue": {
+      "code": "<script setup>\nconst DICE_FACE_DOT_POSITIONS = {\n  1: ['dot--center'],\n  2: ['dot--top-right', 'dot--bottom-left'],\n  3: ['dot--top-right', 'dot--center', 'dot--bottom-left'],\n  4: [\n    'dot--top-left',\n    'dot--top-right',\n    'dot--bottom-left',\n    'dot--bottom-right',\n  ],\n  5: [\n    'dot--top-left',\n    'dot--top-right',\n    'dot--center',\n    'dot--bottom-left',\n    'dot--bottom-right',\n  ],\n  6: [\n    'dot--top-left',\n    'dot--top-right',\n    'dot--center-left',\n    'dot--center-right',\n    'dot--bottom-left',\n    'dot--bottom-right',\n  ],\n};\n\nconst props = defineProps({\n  value: Number,\n});\n</script>\n\n<template>\n  <div class=\"dice\">\n    <div class=\"dots\">\n      <div\n        v-for=\"dotPosition in DICE_FACE_DOT_POSITIONS[\n          props.value\n        ]\"\n        :class=\"['dot', dotPosition]\" />\n    </div>\n  </div>\n</template>\n\n<style>\n.dice {\n  --dice-size: 64px;\n\n  width: var(--dice-size);\n  height: var(--dice-size);\n\n  background-color: #fff;\n  box-sizing: border-box;\n  border: 1px solid #000;\n  border-radius: 8px;\n  padding: 8px;\n}\n\n.dots {\n  position: relative;\n  height: 100%;\n}\n\n.dot {\n  --dot-size: 12px;\n\n  position: absolute;\n  width: var(--dot-size);\n  height: var(--dot-size);\n  background-color: #000;\n  border-radius: 100%;\n}\n\n.dot--center {\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n}\n\n.dot--top-left {\n  top: 0;\n  left: 0;\n}\n\n.dot--top-right {\n  top: 0;\n  right: 0;\n}\n\n.dot--bottom-left {\n  bottom: 0;\n  left: 0;\n}\n\n.dot--bottom-right {\n  bottom: 0;\n  right: 0;\n}\n\n.dot--center-left {\n  top: 50%;\n  transform: translateY(-50%);\n  left: 0;\n}\n\n.dot--center-right {\n  top: 50%;\n  transform: translateY(-50%);\n  right: 0;\n}\n</style>\n"
+    },
+    "/src/main.js": {
+      "code": "import { createApp } from 'vue';\nimport App from './App.vue';\n\nimport './styles.css';\n\ncreateApp(App).mount('#app');\n"
+    },
+    "/src/styles.css": {
+      "code": "body {\n  font-family: sans-serif;\n}\n"
+    }
+  },
+  "workspace": {
+    "visibleFiles": [
+      "/src/App.vue"
+    ],
+    "activeFile": "/src/App.vue",
+    "environment": "vue-cli"
+  }
+}

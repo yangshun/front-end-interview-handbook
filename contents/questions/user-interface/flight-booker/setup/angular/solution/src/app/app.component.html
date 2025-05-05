@@ -1,0 +1,25 @@
+<div>
+  <form
+    class="flight-booker"
+    (ngSubmit)="onSubmit()"
+    ngNativeValidate>
+    <select [(ngModel)]="flightOption" name="flightOption">
+      <option value="one-way">One-way flight</option>
+      <option value="round-trip">Round-trip flight</option>
+    </select>
+    <input
+      aria-label="Departure date"
+      type="date"
+      [(ngModel)]="departureDate"
+      name="departureDate"
+      [min]="TODAY" />
+    <input
+      *ngIf="flightOption !== 'one-way'"
+      aria-label="Return date"
+      type="date"
+      [(ngModel)]="returnDate"
+      name="returnDate"
+      [min]="departureDate" />
+    <button type="submit">Book</button>
+  </form>
+</div>

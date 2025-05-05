@@ -1,44 +1,38 @@
 {
-  "info": {
-    "excerpt": "Build a signup form that does validation on user details and submits to a back end API",
-    "title": "Signup Form"
-  },
-  "metadata": {
-    "access": "premium",
-    "author": "yangshun",
-    "companies": [
-      "lyft",
-      "toptal",
-      "amazon",
-      "openai",
-      "reddit"
-    ],
-    "created": 1658707200,
-    "difficulty": "medium",
-    "duration": 30,
-    "featured": false,
-    "format": "user-interface",
-    "frameworkDefault": "vanilla",
-    "frameworks": [
-      {
-        "framework": "vanilla",
-        "href": "/questions/user-interface/signup-form/vanilla"
-      }
-    ],
-    "href": "/questions/user-interface/signup-form",
-    "importance": "high",
-    "languages": [
-      "html",
-      "js"
-    ],
-    "nextQuestions": [],
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [
-      "contact-form"
-    ],
-    "slug": "signup-form",
-    "subtitle": null,
-    "topics": []
-  }
+  "access": "premium",
+  "author": "yangshun",
+  "companies": [
+    "lyft",
+    "toptal",
+    "amazon",
+    "openai",
+    "reddit"
+  ],
+  "created": 1658707200,
+  "difficulty": "medium",
+  "duration": 30,
+  "featured": false,
+  "format": "user-interface",
+  "frameworkDefault": "vanilla",
+  "frameworks": [
+    {
+      "framework": "vanilla",
+      "href": "/questions/user-interface/signup-form/vanilla"
+    }
+  ],
+  "href": "/questions/user-interface/signup-form",
+  "importance": "high",
+  "languages": [
+    "html",
+    "js"
+  ],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [
+    "contact-form"
+  ],
+  "slug": "signup-form",
+  "subtitle": null,
+  "topics": []
 }

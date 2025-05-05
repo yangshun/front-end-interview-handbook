@@ -1,0 +1,33 @@
+---
+title: File Explorer III
+excerpt: Build a file explorer component using a flat DOM structure
+---
+
+**Note:** This is a follow up to the [File Explorer](/questions/user-interface/file-explorer) question, you should complete that question first before attempting this question.
+
+In [File Explorer](/questions/user-interface/file-explorer), we built a functional file explorer component that displays an array of file objects in a hierarchical tree format using a nested DOM structure.
+
+The other possible structure is having a single flat list of items and add the right amount of padding for descendant items. While recursing, the current level will need to be passed as an argument so that the descendant items know what how much padding to render.
+
+```html
+<!-- The bullets will have to be hidden as 
+ they will still be flushed to the left. -->
+<ul>
+  <li>docs</li>
+  <li style="padding-left: 16px">foo.md</li>
+  <li style="padding-left: 16px">bar.md</li>
+  <li>README.md</li>
+</ul>
+```
+
+A single flat list of DOM elements is easier to traverse. Also, this flat approach provides the most control over the rendering and allows for virtualized items in large directories that contain many files. Virtualization is not easy to achieve using a nested structure because in order for items to be indented by the right amount, their parents have to be rendered as well – a nested structure makes it hard or even impossible to render only the minimal items that need to be displayed.
+
+This flat approach is used by [VS Code](https://github.dev/yangshun/top-javascript-interview-questions/) because of the need to handle large amount of files. In fact, VS Code uses `position: absolute; left: Xpx; top: Ypx;` for positioning and it only renders the visible file items.
+
+## Requirements
+
+Modify the nested structure of the file explorer to a flat structure while retaining the same visual appearance.
+
+## Notes
+
+The skeleton code uses the solution of [File Explorer](/questions/user-interface/file-explorer), but you are free to use your own solution as a starting point.

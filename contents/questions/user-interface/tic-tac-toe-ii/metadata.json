@@ -1,0 +1,20 @@
+{
+  "slug": "tic-tac-toe-ii",
+  "created": "2023-05-11",
+  "languages": ["html", "css", "js"],
+  "companies": [
+    "google",
+    "amazon",
+    "microsoft",
+    "twitter",
+    "apple",
+    "atlassian"
+  ],
+  "access": "premium",
+  "duration": 40,
+  "published": true,
+  "importance": "low",
+  "difficulty": "hard",
+  "frameworks": ["react", "angular", "vue", "svelte"],
+  "topics": ["a11y"]
+}

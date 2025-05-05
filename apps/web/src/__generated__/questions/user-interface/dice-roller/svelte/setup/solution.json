@@ -1,0 +1,33 @@
+{
+  "author": "willnguyen1312",
+  "files": {
+    "/greatfrontend.json": {
+      "code": "{\n  \"visibleFiles\": [\"/src/App.svelte\"],\n  \"activeFile\": \"/src/App.svelte\",\n  \"environment\": \"svelte\"\n}\n"
+    },
+    "/package.json": {
+      "code": "{\n  \"name\": \"@gfe-questions/dice-roller-svelte-solution\",\n  \"author\": \"willnguyen1312\",\n  \"version\": \"0.0.1\",\n  \"main\": \"src/index.js\",\n  \"dependencies\": {\n    \"svelte\": \"^3.58.0\"\n  }\n}\n"
+    },
+    "/public/index.html": {
+      "code": "<!doctype html>\n<html>\n  <head>\n    <meta charset=\"utf8\" />\n    <meta name=\"viewport\" content=\"width=device-width\" />\n    <title>Svelte</title>\n    <link rel=\"stylesheet\" href=\"public/bundle.css\" />\n  </head>\n\n  <body>\n    <script src=\"bundle.js\"></script>\n  </body>\n</html>\n"
+    },
+    "/src/App.svelte": {
+      "code": "<script>\n  import Dice from './Dice.svelte';\n\n  const NUMBER_OF_FACES = 6;\n  const MIN_NUMBER_OF_DICE = 1;\n  const MAX_NUMBER_OF_DICE = 12;\n\n  function getRandomRollDice(numberOfDice) {\n    return Array.from({ length: numberOfDice }, () =>\n      Math.floor(Math.random() * NUMBER_OF_FACES) + 1\n    );\n  }\n\n  let rolledDice = [];\n</script>\n\n<div class=\"wrapper\">\n  <!-- To prevent a page reload. -->\n  <form\n    on:submit|preventDefault={(event) => {\n      const data = new FormData(event.target);\n      // Convert the input value to a number.\n      const numberOfDice = +data.get('dice-count');\n      rolledDice = getRandomRollDice(numberOfDice);\n    }}\n    class=\"dice-form\">\n    <div>\n      <label for=\"dice-input\">Number of dice</label>\n      <input\n        id=\"dice-input\"\n        name=\"dice-count\"\n        required\n        type=\"number\"\n        min={MIN_NUMBER_OF_DICE}\n        max={MAX_NUMBER_OF_DICE} />\n    </div>\n    <button type=\"submit\">Roll</button>\n  </form>\n\n  {#if rolledDice.length > 0}\n    <div class=\"dice-list\" role=\"status\" aria-live=\"polite\">\n      {#each rolledDice as value, index (index)}\n        <Dice {value} />\n      {/each}\n\n      <!-- Announced by screen readers.-->\n      <div class=\"sr-only\">\n        Roll results: {rolledDice.join(', ')}\n      </div>\n    </div>\n  {/if}\n</div>\n\n<style>\n  .wrapper {\n    align-items: center;\n    display: flex;\n    flex-direction: column;\n    gap: 48px;\n    padding-top: 16px;\n  }\n\n  .dice-form {\n    display: flex;\n    align-items: end;\n    gap: 16px;\n  }\n\n  .dice-form label {\n    display: block;\n    font-size: 12px;\n    margin-bottom: 8px;\n  }\n\n  .dice-form input {\n    width: 100%;\n  }\n\n  .dice-list {\n    background-color: #eaeaea;\n    border-radius: 24px;\n    display: grid;\n    grid-template-columns: repeat(3, 1fr);\n    gap: 16px;\n    flex-wrap: wrap;\n    padding: 16px;\n  }\n\n  .sr-only {\n    position: absolute;\n    width: 1px;\n    height: 1px;\n    padding: 0;\n    margin: -1px;\n    overflow: hidden;\n    clip: rect(0, 0, 0, 0);\n    border: 0;\n  }\n</style>\n"
+    },
+    "/src/Dice.svelte": {
+      "code": "<script>\n  const DICE_FACE_DOT_POSITIONS = {\n    1: ['dot--center'],\n    2: ['dot--top-right', 'dot--bottom-left'],\n    3: [\n      'dot--top-right',\n      'dot--center',\n      'dot--bottom-left',\n    ],\n    4: [\n      'dot--top-left',\n      'dot--top-right',\n      'dot--bottom-left',\n      'dot--bottom-right',\n    ],\n    5: [\n      'dot--top-left',\n      'dot--top-right',\n      'dot--center',\n      'dot--bottom-left',\n      'dot--bottom-right',\n    ],\n    6: [\n      'dot--top-left',\n      'dot--top-right',\n      'dot--center-left',\n      'dot--center-right',\n      'dot--bottom-left',\n      'dot--bottom-right',\n    ],\n  };\n\n  export let value;\n</script>\n\n<div class=\"dice\">\n  <div class=\"dots\">\n    {#each DICE_FACE_DOT_POSITIONS[value] as dotPosition (dotPosition)}\n      <div class={`dot ${dotPosition}`} />\n    {/each}\n  </div>\n</div>\n\n<style>\n  .dice {\n    --dice-size: 64px;\n\n    width: var(--dice-size);\n    height: var(--dice-size);\n\n    background-color: #fff;\n    box-sizing: border-box;\n    border: 1px solid #000;\n    border-radius: 8px;\n    padding: 8px;\n  }\n\n  .dots {\n    position: relative;\n    height: 100%;\n  }\n\n  .dot {\n    --dot-size: 12px;\n\n    position: absolute;\n    width: var(--dot-size);\n    height: var(--dot-size);\n    background-color: #000;\n    border-radius: 100%;\n  }\n\n  .dot--center {\n    top: 50%;\n    left: 50%;\n    transform: translate(-50%, -50%);\n  }\n\n  .dot--top-left {\n    top: 0;\n    left: 0;\n  }\n\n  .dot--top-right {\n    top: 0;\n    right: 0;\n  }\n\n  .dot--bottom-left {\n    bottom: 0;\n    left: 0;\n  }\n\n  .dot--bottom-right {\n    bottom: 0;\n    right: 0;\n  }\n\n  .dot--center-left {\n    top: 50%;\n    transform: translateY(-50%);\n    left: 0;\n  }\n\n  .dot--center-right {\n    top: 50%;\n    transform: translateY(-50%);\n    right: 0;\n  }\n</style>\n"
+    },
+    "/src/index.js": {
+      "code": "import App from './App.svelte';\nimport './styles.css';\n\nconst app = new App({\n  target: document.body,\n});\n\nexport default app;\n"
+    },
+    "/src/styles.css": {
+      "code": "body {\n  font-family: sans-serif;\n}\n"
+    }
+  },
+  "workspace": {
+    "visibleFiles": [
+      "/src/App.svelte"
+    ],
+    "activeFile": "/src/App.svelte",
+    "environment": "svelte"
+  }
+}

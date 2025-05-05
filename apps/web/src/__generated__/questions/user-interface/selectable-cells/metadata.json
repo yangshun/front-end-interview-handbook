@@ -1,37 +1,31 @@
 {
-  "info": {
-    "excerpt": "Build an interface where users can drag to select multiple cells within a grid",
-    "title": "Selectable Cells"
-  },
-  "metadata": {
-    "access": "premium",
-    "author": "yangshun",
-    "companies": [],
-    "created": 1723766400,
-    "difficulty": "hard",
-    "duration": 40,
-    "featured": false,
-    "format": "user-interface",
-    "frameworkDefault": "react",
-    "frameworks": [
-      {
-        "framework": "react",
-        "href": "/questions/user-interface/selectable-cells/react"
-      }
-    ],
-    "href": "/questions/user-interface/selectable-cells",
-    "importance": "low",
-    "languages": [
-      "html",
-      "js",
-      "css"
-    ],
-    "nextQuestions": [],
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [],
-    "slug": "selectable-cells",
-    "subtitle": null,
-    "topics": []
-  }
+  "access": "premium",
+  "author": "yangshun",
+  "companies": [],
+  "created": 1723766400,
+  "difficulty": "hard",
+  "duration": 40,
+  "featured": false,
+  "format": "user-interface",
+  "frameworkDefault": "react",
+  "frameworks": [
+    {
+      "framework": "react",
+      "href": "/questions/user-interface/selectable-cells/react"
+    }
+  ],
+  "href": "/questions/user-interface/selectable-cells",
+  "importance": "low",
+  "languages": [
+    "html",
+    "js",
+    "css"
+  ],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [],
+  "slug": "selectable-cells",
+  "subtitle": null,
+  "topics": []
 }

@@ -1,0 +1,34 @@
+{
+  "author": "willnguyen1312",
+  "files": {
+    "/greatfrontend.json": {
+      "code": "{\n  \"visibleFiles\": [\"/src/App.vue\", \"/src/Cell.vue\"],\n  \"activeFile\": \"/src/App.vue\",\n  \"environment\": \"vue-cli\"\n}\n"
+    },
+    "/package.json": {
+      "code": "{\n  \"name\": \"@gfe-questions/grid-lights-vue-solution\",\n  \"author\": \"willnguyen1312\",\n  \"version\": \"0.0.1\",\n  \"main\": \"/src/main.js\",\n  \"scripts\": {\n    \"serve\": \"vue-cli-service serve\",\n    \"build\": \"vue-cli-service build\"\n  },\n  \"dependencies\": {\n    \"core-js\": \"3.32.2\",\n    \"vue\": \"3.3.4\"\n  },\n  \"devDependencies\": {\n    \"@vue/cli-plugin-babel\": \"5.0.8\",\n    \"@vue/cli-service\": \"5.0.8\"\n  }\n}\n"
+    },
+    "/public/index.html": {
+      "code": "<!doctype html>\n<html>\n  <head>\n    <meta charset=\"utf-8\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" />\n    <meta\n      name=\"viewport\"\n      content=\"width=device-width,initial-scale=1.0\" />\n    <title>Vue</title>\n  </head>\n  <body>\n    <div id=\"app\"></div>\n    <!-- Built files will be auto injected -->\n  </body>\n</html>\n"
+    },
+    "/src/App.vue": {
+      "code": "<script setup>\nimport { ref } from 'vue';\nimport Cell from './Cell.vue';\n\n// Make it easy to visualize the board.\n// Customize the board rendering just by changing\n// this 2D array. Note that all rows have to\n// contain the same number of elements in order\n// for the grid to render properly.\nconst config = [\n  [1, 1, 1],\n  [1, 0, 1],\n  [1, 1, 1],\n];\n\nconst order = ref([]);\nconst isDeactivating = ref(false);\n\n// If necessary, disable clicking during deactivation is playing.\nfunction deactivateCells() {\n  isDeactivating.value = true;\n  const timer = setInterval(() => {\n    order.value.pop();\n\n    if (order.value.length === 0) {\n      clearInterval(timer);\n      isDeactivating.value = false;\n    }\n  }, 300);\n}\n\nfunction onCellClick(index) {\n  order.value.push(index);\n\n  // All the cells have been activated, we can proceed\n  // to deactivate them one by one.\n  if (\n    order.value.length ===\n    config.flat(1).filter(Boolean).length\n  ) {\n    deactivateCells();\n  }\n}\n</script>\n\n<template>\n  <div class=\"wrapper\">\n    <div\n      class=\"grid\"\n      :style=\"{\n        gridTemplateColumns: `repeat(${config[0].length}, 1fr)`,\n      }\">\n      <template\n        v-for=\"(value, index) in config.flat(1)\"\n        :key=\"index\">\n        <Cell\n          v-if=\"value\"\n          :key=\"index\"\n          :label=\"`Cell ${index}`\"\n          :filled=\"order.includes(index)\"\n          :isDisabled=\"\n            order.includes(index) || isDeactivating\n          \"\n          @cell-click=\"onCellClick(index)\" />\n        <span v-else />\n      </template>\n    </div>\n\n    <!-- Helper to show the state -->\n    <pre>order array: {{ order.join(', ') }}</pre>\n  </div>\n</template>\n\n<style>\n.wrapper {\n  align-items: center;\n  display: flex;\n  flex-direction: column;\n  gap: 16px;\n  justify-content: center;\n}\n\n.grid {\n  --spacing: 20px;\n  display: grid;\n  max-width: 300px;\n  width: 100%;\n  padding: var(--spacing);\n  gap: var(--spacing);\n  border: 1px solid #000;\n}\n</style>\n"
+    },
+    "/src/Cell.vue": {
+      "code": "<script setup>\nconst props = defineProps({\n  filled: Boolean,\n  label: String,\n  isDisabled: Boolean,\n});\n</script>\n\n<template>\n  <button\n    :aria-label=\"props.label\"\n    type=\"button\"\n    :class=\"['cell', filled && 'cell--activated']\"\n    @click=\"$emit('cell-click')\"\n    :disabled=\"props.isDisabled\" />\n</template>\n\n<style>\n.cell {\n  background-color: transparent;\n  border: 1px solid #000;\n  height: 0;\n  /* Make height and width equal */\n  padding-bottom: 100%;\n}\n\n.cell--activated {\n  background-color: green;\n}\n</style>\n"
+    },
+    "/src/main.js": {
+      "code": "import { createApp } from 'vue';\nimport App from './App.vue';\n\nimport './styles.css';\n\ncreateApp(App).mount('#app');\n"
+    },
+    "/src/styles.css": {
+      "code": "body {\n  font-family: sans-serif;\n}\n"
+    }
+  },
+  "workspace": {
+    "visibleFiles": [
+      "/src/App.vue",
+      "/src/Cell.vue"
+    ],
+    "activeFile": "/src/App.vue",
+    "environment": "vue-cli"
+  }
+}

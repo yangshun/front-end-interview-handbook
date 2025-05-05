@@ -1,0 +1,35 @@
+{
+  "author": "tanhauhau",
+  "files": {
+    "/greatfrontend.json": {
+      "code": "{\n  \"visibleFiles\": [\n    \"/src/App.svelte\",\n    \"/src/Table.svelte\",\n    \"/src/styles.css\"\n  ],\n  \"activeFile\": \"/src/App.svelte\",\n  \"environment\": \"svelte\"\n}\n"
+    },
+    "/package.json": {
+      "code": "{\n  \"name\": \"@gfe-questions/generate-table-svelte-solution\",\n  \"author\": \"tanhauhau\",\n  \"version\": \"0.0.1\",\n  \"main\": \"src/index.js\",\n  \"dependencies\": {\n    \"svelte\": \"^3.58.0\"\n  }\n}\n"
+    },
+    "/public/index.html": {
+      "code": "<!doctype html>\n<html>\n  <head>\n    <meta charset=\"utf8\" />\n    <meta name=\"viewport\" content=\"width=device-width\" />\n    <title>Svelte</title>\n    <link rel=\"stylesheet\" href=\"public/bundle.css\" />\n  </head>\n\n  <body>\n    <script src=\"bundle.js\"></script>\n  </body>\n</html>\n"
+    },
+    "/src/App.svelte": {
+      "code": "<script>\n  import './styles.css';\n  import Table from './Table.svelte';\n\n  let rows = 0;\n  let columns = 0;\n</script>\n\n<div class=\"app\">\n  <form\n    on:submit={(event) => {\n      // To prevent a page reload.\n      event.preventDefault();\n\n      // Obtain data from the form.\n      const data = new FormData(event.target);\n      rows = Number(data.get('rows'));\n      columns = Number(data.get('columns'));\n    }}>\n    <div>\n      <label for=\"rows\">Rows</label>\n      <input\n        id=\"rows\"\n        name=\"rows\"\n        type=\"number\"\n        min={1}\n        defaultValue={rows} />\n    </div>\n    <div>\n      <label for=\"columns\">Columns</label>\n      <input\n        id=\"columns\"\n        name=\"columns\"\n        type=\"number\"\n        min={1}\n        defaultValue={columns} />\n    </div>\n    <button type=\"submit\">Submit</button>\n  </form>\n  {#if rows > 0 && columns > 0}\n    <Table {rows} {columns} />\n  {/if}\n</div>\n\n<style>\n  .app {\n    align-items: center;\n    display: flex;\n    font-size: 12px;\n    flex-direction: column;\n    gap: 16px;\n    justify-content: center;\n  }\n\n  form {\n    display: flex;\n    flex-direction: column;\n    gap: 8px;\n  }\n\n  label + input {\n    margin-left: 8px;\n  }\n</style>\n"
+    },
+    "/src/index.js": {
+      "code": "import App from './App.svelte';\nimport './styles.css';\n\nconst app = new App({\n  target: document.body,\n});\n\nexport default app;\n"
+    },
+    "/src/styles.css": {
+      "code": "body {\n  font-family: sans-serif;\n}\n"
+    },
+    "/src/Table.svelte": {
+      "code": "<script>\n  export let rows;\n  export let columns;\n</script>\n\n<table>\n  <tbody>\n    {#each { length: rows } as _, row (row)}\n      <tr>\n        {#each { length: columns } as _, col (col)}\n          <td>\n            {col % 2 === 0\n              ? rows * col + (row + 1)\n              : rows * (col + 1) - row}\n          </td>\n        {/each}\n      </tr>\n    {/each}\n  </tbody>\n</table>\n\n<style>\n  table {\n    border-collapse: collapse;\n  }\n\n  table td {\n    border: 1px solid #000;\n    padding: 8px;\n    text-align: center;\n  }\n</style>\n"
+    }
+  },
+  "workspace": {
+    "visibleFiles": [
+      "/src/App.svelte",
+      "/src/Table.svelte",
+      "/src/styles.css"
+    ],
+    "activeFile": "/src/App.svelte",
+    "environment": "svelte"
+  }
+}

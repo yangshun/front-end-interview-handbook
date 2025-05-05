@@ -1,59 +1,53 @@
 {
-  "info": {
-    "excerpt": "Build a traffic light where the lights switch from green to yellow to red after predetermined intervals and loop indefinitely",
-    "title": "Traffic Light"
-  },
-  "metadata": {
-    "access": "free",
-    "author": "yangshun",
-    "companies": [
-      "roblox"
-    ],
-    "created": 1670716800,
-    "difficulty": "medium",
-    "duration": 20,
-    "featured": false,
-    "format": "user-interface",
-    "frameworkDefault": "react",
-    "frameworks": [
-      {
-        "framework": "react",
-        "href": "/questions/user-interface/traffic-light/react"
-      },
-      {
-        "framework": "vanilla",
-        "href": "/questions/user-interface/traffic-light/vanilla"
-      },
-      {
-        "framework": "angular",
-        "href": "/questions/user-interface/traffic-light/angular"
-      },
-      {
-        "framework": "vue",
-        "href": "/questions/user-interface/traffic-light/vue"
-      },
-      {
-        "framework": "svelte",
-        "href": "/questions/user-interface/traffic-light/svelte"
-      }
-    ],
-    "href": "/questions/user-interface/traffic-light",
-    "importance": "low",
-    "languages": [
-      "html",
-      "css",
-      "js"
-    ],
-    "nextQuestions": [],
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [
-      "digital-clock"
-    ],
-    "slug": "traffic-light",
-    "subtitle": null,
-    "topics": [
-      "async"
-    ]
-  }
+  "access": "free",
+  "author": "yangshun",
+  "companies": [
+    "roblox"
+  ],
+  "created": 1670716800,
+  "difficulty": "medium",
+  "duration": 20,
+  "featured": false,
+  "format": "user-interface",
+  "frameworkDefault": "react",
+  "frameworks": [
+    {
+      "framework": "react",
+      "href": "/questions/user-interface/traffic-light/react"
+    },
+    {
+      "framework": "vanilla",
+      "href": "/questions/user-interface/traffic-light/vanilla"
+    },
+    {
+      "framework": "angular",
+      "href": "/questions/user-interface/traffic-light/angular"
+    },
+    {
+      "framework": "vue",
+      "href": "/questions/user-interface/traffic-light/vue"
+    },
+    {
+      "framework": "svelte",
+      "href": "/questions/user-interface/traffic-light/svelte"
+    }
+  ],
+  "href": "/questions/user-interface/traffic-light",
+  "importance": "low",
+  "languages": [
+    "html",
+    "css",
+    "js"
+  ],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [
+    "digital-clock"
+  ],
+  "slug": "traffic-light",
+  "subtitle": null,
+  "topics": [
+    "async"
+  ]
 }

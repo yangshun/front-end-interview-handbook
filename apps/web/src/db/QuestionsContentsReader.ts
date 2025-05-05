@@ -6,8 +6,8 @@ import path from 'path';
 import { questionsFindClosestToSlug } from '~/components/interviews/questions/common/QuestionsClosestSlug';
 import type {
   InterviewsQuestionItemJavaScript,
-  InterviewsQuestionItemMinimal,
   InterviewsQuestionItemUserInterface,
+  InterviewsQuestionMetadata,
   QuestionFramework,
   QuestionQuiz,
   QuestionSystemDesign,
@@ -274,49 +274,95 @@ export async function readQuestionUserInterface(
   isViewerPremium: boolean,
   frameworkParam?: QuestionFramework | null,
   codeId?: string,
+  requestedLocale = 'en-US',
 ): Promise<InterviewsQuestionItemUserInterface> {
   const questionOutDir = getQuestionOutPathUserInterface(slug);
-  const content = (() => {
-    const response = fs.readFileSync(
-      path.join(questionOutDir, `metadata.json`),
-    );
 
-    return JSON.parse(String(response)) as InterviewsQuestionItemMinimal;
-  })();
-  const { metadata } = content;
+  let loadedLocale = requestedLocale;
+  const [infoResponse, metadataResponse] = await Promise.all([
+    (() => {
+      try {
+        return fs.readFileSync(
+          path.join(
+            getQuestionOutPathUserInterface(slug),
+            `${requestedLocale}.json`,
+          ),
+        );
+      } catch {
+        loadedLocale = 'en-US';
+
+        // Fallback to English.
+        return fs.readFileSync(
+          path.join(
+            getQuestionOutPathUserInterface(slug),
+            `${loadedLocale}.json`,
+          ),
+        );
+      }
+    })(),
+    (() => {
+      return fs.readFileSync(path.join(questionOutDir, `metadata.json`));
+    })(),
+  ]);
+
+  const metadata = JSON.parse(
+    String(metadataResponse),
+  ) as InterviewsQuestionMetadata;
+  const info = JSON.parse(String(infoResponse));
 
   const framework = frameworkParam ?? metadata.frameworkDefault ?? 'vanilla';
 
+  const wirteupResponse = fs.readFileSync(
+    path.join(questionOutDir, framework, `writeup.${loadedLocale}.json`),
+  );
+
+  const writeup = JSON.parse(String(wirteupResponse));
+
   const skeletonBundle = (() => {
     const response = fs.readFileSync(
-      path.join(questionOutDir, framework, `skeleton.json`),
+      path.join(questionOutDir, framework, 'setup', `skeleton.json`),
     );
 
-    return JSON.parse(String(response)) as QuestionUserInterfaceBundle;
+    const skeletonBundleValue = JSON.parse(String(response));
+
+    return {
+      ...skeletonBundleValue,
+      writeup: writeup.skeleton,
+    } as QuestionUserInterfaceBundle;
   })();
 
   const solutionBundle = (() => {
     const response = fs.readFileSync(
-      path.join(questionOutDir, framework, `${codeId ?? 'solution'}.json`),
+      path.join(
+        questionOutDir,
+        framework,
+        'setup',
+        `${codeId ?? 'solution'}.json`,
+      ),
     );
 
-    const solutionBundleValue: QuestionUserInterfaceBundle = JSON.parse(
-      String(response),
-    );
+    const solutionBundleValue = JSON.parse(String(response));
 
     const canAccessSolutionWriteup =
       isViewerPremium || metadata.access === 'free';
 
+    const solutionWriteup = canAccessSolutionWriteup
+      ? writeup[codeId ?? 'solution']
+      : null;
+    const solutionWriteupValue =
+      solutionWriteup != null ? String(solutionWriteup) : null;
+
     return {
       ...solutionBundleValue,
-      writeup: canAccessSolutionWriteup ? solutionBundleValue.writeup : null,
-    };
+      writeup: canAccessSolutionWriteup ? solutionWriteupValue : null,
+    } as QuestionUserInterfaceBundle;
   })();
 
   return {
-    description: skeletonBundle?.writeup ?? null,
+    description: skeletonBundle.writeup ?? null,
     framework,
-    ...content,
+    info,
+    metadata,
     skeletonBundle,
     solution: solutionBundle?.writeup ?? null,
     solutionBundle,

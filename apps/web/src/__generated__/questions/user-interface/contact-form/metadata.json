@@ -1,63 +1,57 @@
 {
-  "info": {
-    "excerpt": "Build a contact form which submits user feedback and contact details to a back end API",
-    "title": "Contact Form"
-  },
-  "metadata": {
-    "access": "free",
-    "author": "yangshun",
-    "companies": [
-      "lyft",
-      "amazon",
-      "openai",
-      "reddit"
-    ],
-    "created": 1658880000,
-    "difficulty": "easy",
-    "duration": 15,
-    "featured": true,
-    "format": "user-interface",
-    "frameworkDefault": "react",
-    "frameworks": [
-      {
-        "framework": "react",
-        "href": "/questions/user-interface/contact-form/react"
-      },
-      {
-        "framework": "vanilla",
-        "href": "/questions/user-interface/contact-form/vanilla"
-      },
-      {
-        "framework": "angular",
-        "href": "/questions/user-interface/contact-form/angular"
-      },
-      {
-        "framework": "vue",
-        "href": "/questions/user-interface/contact-form/vue"
-      },
-      {
-        "framework": "svelte",
-        "href": "/questions/user-interface/contact-form/svelte"
-      }
-    ],
-    "href": "/questions/user-interface/contact-form",
-    "importance": "high",
-    "languages": [
-      "html"
-    ],
-    "nextQuestions": [
-      "flatten",
-      "signup-form"
-    ],
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [
-      "signup-form"
-    ],
-    "slug": "contact-form",
-    "subtitle": null,
-    "topics": [
-      "a11y"
-    ]
-  }
+  "access": "free",
+  "author": "yangshun",
+  "companies": [
+    "lyft",
+    "amazon",
+    "openai",
+    "reddit"
+  ],
+  "created": 1658880000,
+  "difficulty": "easy",
+  "duration": 15,
+  "featured": true,
+  "format": "user-interface",
+  "frameworkDefault": "react",
+  "frameworks": [
+    {
+      "framework": "react",
+      "href": "/questions/user-interface/contact-form/react"
+    },
+    {
+      "framework": "vanilla",
+      "href": "/questions/user-interface/contact-form/vanilla"
+    },
+    {
+      "framework": "angular",
+      "href": "/questions/user-interface/contact-form/angular"
+    },
+    {
+      "framework": "vue",
+      "href": "/questions/user-interface/contact-form/vue"
+    },
+    {
+      "framework": "svelte",
+      "href": "/questions/user-interface/contact-form/svelte"
+    }
+  ],
+  "href": "/questions/user-interface/contact-form",
+  "importance": "high",
+  "languages": [
+    "html"
+  ],
+  "nextQuestions": [
+    "flatten",
+    "signup-form"
+  ],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [
+    "signup-form"
+  ],
+  "slug": "contact-form",
+  "subtitle": null,
+  "topics": [
+    "a11y"
+  ]
 }

@@ -1,0 +1,14 @@
+{
+  "slug": "accordion-iii",
+  "author": "yangshun",
+  "created": "2022-12-21",
+  "languages": ["html", "js"],
+  "companies": ["amazon"],
+  "access": "premium",
+  "duration": 20,
+  "published": true,
+  "importance": "low",
+  "difficulty": "medium",
+  "frameworks": ["react"],
+  "topics": ["a11y"]
+}

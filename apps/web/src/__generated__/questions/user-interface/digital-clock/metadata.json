@@ -1,58 +1,52 @@
 {
-  "info": {
-    "excerpt": "Build a 7-segment digital clock that shows the current time",
-    "title": "Digital Clock"
-  },
-  "metadata": {
-    "access": "standard",
-    "author": "yangshun",
-    "companies": [
-      "lyft"
-    ],
-    "created": 1656892800,
-    "difficulty": "medium",
-    "duration": 25,
-    "featured": true,
-    "format": "user-interface",
-    "frameworkDefault": "react",
-    "frameworks": [
-      {
-        "framework": "react",
-        "href": "/questions/user-interface/digital-clock/react"
-      },
-      {
-        "framework": "vanilla",
-        "href": "/questions/user-interface/digital-clock/vanilla"
-      },
-      {
-        "framework": "angular",
-        "href": "/questions/user-interface/digital-clock/angular"
-      },
-      {
-        "framework": "vue",
-        "href": "/questions/user-interface/digital-clock/vue"
-      },
-      {
-        "framework": "svelte",
-        "href": "/questions/user-interface/digital-clock/svelte"
-      }
-    ],
-    "href": "/questions/user-interface/digital-clock",
-    "importance": "medium",
-    "languages": [
-      "html",
-      "css",
-      "js"
-    ],
-    "nextQuestions": [],
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [],
-    "slug": "digital-clock",
-    "subtitle": null,
-    "topics": [
-      "a11y",
-      "async"
-    ]
-  }
+  "access": "standard",
+  "author": "yangshun",
+  "companies": [
+    "lyft"
+  ],
+  "created": 1656892800,
+  "difficulty": "medium",
+  "duration": 25,
+  "featured": true,
+  "format": "user-interface",
+  "frameworkDefault": "react",
+  "frameworks": [
+    {
+      "framework": "react",
+      "href": "/questions/user-interface/digital-clock/react"
+    },
+    {
+      "framework": "vanilla",
+      "href": "/questions/user-interface/digital-clock/vanilla"
+    },
+    {
+      "framework": "angular",
+      "href": "/questions/user-interface/digital-clock/angular"
+    },
+    {
+      "framework": "vue",
+      "href": "/questions/user-interface/digital-clock/vue"
+    },
+    {
+      "framework": "svelte",
+      "href": "/questions/user-interface/digital-clock/svelte"
+    }
+  ],
+  "href": "/questions/user-interface/digital-clock",
+  "importance": "medium",
+  "languages": [
+    "html",
+    "css",
+    "js"
+  ],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [],
+  "slug": "digital-clock",
+  "subtitle": null,
+  "topics": [
+    "a11y",
+    "async"
+  ]
 }

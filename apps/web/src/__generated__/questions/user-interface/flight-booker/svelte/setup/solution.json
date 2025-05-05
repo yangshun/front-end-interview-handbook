@@ -1,0 +1,31 @@
+{
+  "author": "tanhauhau",
+  "files": {
+    "/greatfrontend.json": {
+      "code": "{\n  \"visibleFiles\": [\"/src/App.svelte\", \"/src/styles.css\"],\n  \"activeFile\": \"/src/App.svelte\",\n  \"environment\": \"svelte\"\n}\n"
+    },
+    "/package.json": {
+      "code": "{\n  \"name\": \"@gfe-questions/flight-booker-svelte-solution\",\n  \"author\": \"tanhauhau\",\n  \"version\": \"0.0.1\",\n  \"main\": \"src/index.js\",\n  \"dependencies\": {\n    \"svelte\": \"^3.58.0\"\n  }\n}\n"
+    },
+    "/public/index.html": {
+      "code": "<!doctype html>\n<html>\n  <head>\n    <meta charset=\"utf8\" />\n    <meta name=\"viewport\" content=\"width=device-width\" />\n    <title>Svelte</title>\n    <link rel=\"stylesheet\" href=\"public/bundle.css\" />\n  </head>\n\n  <body>\n    <script src=\"bundle.js\"></script>\n  </body>\n</html>\n"
+    },
+    "/src/App.svelte": {
+      "code": "<script>\n  import './styles.css';\n\n  const TODAY = formatDate(new Date());\n  const DAY_IN_MILLISECONDS = 24 * 60 * 60 * 1000;\n\n  let flightOption = 'one-way';\n  let departureDate = formatDate(\n    new Date(Date.now() + DAY_IN_MILLISECONDS),\n  );\n  let returnDate = departureDate;\n\n  function formatDate(date) {\n    const year = date.getFullYear();\n    const month = (date.getMonth() + 1)\n      .toString()\n      .padStart(2, '0');\n    const day = date.getDate().toString().padStart(2, '0');\n\n    return [year, month, day].join('-');\n  }\n</script>\n\n<div>\n  <form\n    on:submit={(event) => {\n      event.preventDefault();\n      if (flightOption === 'one-way') {\n        alert(\n          `You have booked a one-way flight on ${departureDate}`,\n        );\n        return;\n      }\n\n      alert(\n        `You have booked a round-trip flight, departing on ${departureDate} and returning on ${returnDate}`,\n      );\n    }}>\n    <select bind:value={flightOption}>\n      <option value=\"one-way\">One-way flight</option>\n      <option value=\"round-trip\">Round-trip flight</option>\n    </select>\n    <input\n      aria-label=\"Departure date\"\n      type=\"date\"\n      bind:value={departureDate}\n      min={TODAY} />\n\n    {#if flightOption === 'round-trip'}\n      <input\n        aria-label=\"Return date\"\n        type=\"date\"\n        bind:value={returnDate}\n        min={departureDate} />\n    {/if}\n    <button>Book</button>\n  </form>\n</div>\n\n<style>\n  form {\n    display: flex;\n    flex-direction: column;\n    gap: 12px;\n    margin: 0 auto;\n    max-width: 320px;\n  }\n</style>\n"
+    },
+    "/src/index.js": {
+      "code": "import App from './App.svelte';\nimport './styles.css';\n\nconst app = new App({\n  target: document.body,\n});\n\nexport default app;\n"
+    },
+    "/src/styles.css": {
+      "code": "body {\n  font-family: sans-serif;\n}\n"
+    }
+  },
+  "workspace": {
+    "visibleFiles": [
+      "/src/App.svelte",
+      "/src/styles.css"
+    ],
+    "activeFile": "/src/App.svelte",
+    "environment": "svelte"
+  }
+}

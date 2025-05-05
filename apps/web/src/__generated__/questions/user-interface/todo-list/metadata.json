@@ -1,63 +1,57 @@
 {
-  "info": {
-    "excerpt": "Build a Todo list that lets users add new tasks and delete existing tasks",
-    "title": "Todo List"
-  },
-  "metadata": {
-    "access": "free",
-    "author": "yangshun",
-    "companies": [
-      "grab",
-      "toptal",
-      "amazon",
-      "atlassian"
-    ],
-    "created": 1656460800,
-    "difficulty": "medium",
-    "duration": 20,
-    "featured": true,
-    "format": "user-interface",
-    "frameworkDefault": "react",
-    "frameworks": [
-      {
-        "framework": "react",
-        "href": "/questions/user-interface/todo-list/react"
-      },
-      {
-        "framework": "vanilla",
-        "href": "/questions/user-interface/todo-list/vanilla"
-      },
-      {
-        "framework": "angular",
-        "href": "/questions/user-interface/todo-list/angular"
-      },
-      {
-        "framework": "vue",
-        "href": "/questions/user-interface/todo-list/vue"
-      },
-      {
-        "framework": "svelte",
-        "href": "/questions/user-interface/todo-list/svelte"
-      }
-    ],
-    "href": "/questions/user-interface/todo-list",
-    "importance": "high",
-    "languages": [
-      "html",
-      "js"
-    ],
-    "nextQuestions": [
-      "flatten",
-      "promise-any",
-      "holy-grail"
-    ],
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [
-      "temperature-converter"
-    ],
-    "slug": "todo-list",
-    "subtitle": null,
-    "topics": []
-  }
+  "access": "free",
+  "author": "yangshun",
+  "companies": [
+    "grab",
+    "toptal",
+    "amazon",
+    "atlassian"
+  ],
+  "created": 1656460800,
+  "difficulty": "medium",
+  "duration": 20,
+  "featured": true,
+  "format": "user-interface",
+  "frameworkDefault": "react",
+  "frameworks": [
+    {
+      "framework": "react",
+      "href": "/questions/user-interface/todo-list/react"
+    },
+    {
+      "framework": "vanilla",
+      "href": "/questions/user-interface/todo-list/vanilla"
+    },
+    {
+      "framework": "angular",
+      "href": "/questions/user-interface/todo-list/angular"
+    },
+    {
+      "framework": "vue",
+      "href": "/questions/user-interface/todo-list/vue"
+    },
+    {
+      "framework": "svelte",
+      "href": "/questions/user-interface/todo-list/svelte"
+    }
+  ],
+  "href": "/questions/user-interface/todo-list",
+  "importance": "high",
+  "languages": [
+    "html",
+    "js"
+  ],
+  "nextQuestions": [
+    "flatten",
+    "promise-any",
+    "holy-grail"
+  ],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [
+    "temperature-converter"
+  ],
+  "slug": "todo-list",
+  "subtitle": null,
+  "topics": []
 }

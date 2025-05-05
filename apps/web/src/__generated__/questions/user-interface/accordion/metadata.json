@@ -1,47 +1,41 @@
 {
-  "info": {
-    "excerpt": "Build an accordion component that a displays a list of vertically stacked sections with each containing a title and content snippet",
-    "title": "Accordion"
-  },
-  "metadata": {
-    "access": "standard",
-    "author": "yangshun",
-    "companies": [
-      "amazon"
-    ],
-    "created": 1671580800,
-    "difficulty": "easy",
-    "duration": 15,
-    "featured": false,
-    "format": "user-interface",
-    "frameworkDefault": "react",
-    "frameworks": [
-      {
-        "framework": "react",
-        "href": "/questions/user-interface/accordion/react"
-      },
-      {
-        "framework": "vanilla",
-        "href": "/questions/user-interface/accordion/vanilla"
-      }
-    ],
-    "href": "/questions/user-interface/accordion",
-    "importance": "low",
-    "languages": [
-      "html",
-      "css",
-      "js"
-    ],
-    "nextQuestions": [
-      "accordion-ii"
-    ],
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [],
-    "slug": "accordion",
-    "subtitle": null,
-    "topics": [
-      "a11y"
-    ]
-  }
+  "access": "standard",
+  "author": "yangshun",
+  "companies": [
+    "amazon"
+  ],
+  "created": 1671580800,
+  "difficulty": "easy",
+  "duration": 15,
+  "featured": false,
+  "format": "user-interface",
+  "frameworkDefault": "react",
+  "frameworks": [
+    {
+      "framework": "react",
+      "href": "/questions/user-interface/accordion/react"
+    },
+    {
+      "framework": "vanilla",
+      "href": "/questions/user-interface/accordion/vanilla"
+    }
+  ],
+  "href": "/questions/user-interface/accordion",
+  "importance": "low",
+  "languages": [
+    "html",
+    "css",
+    "js"
+  ],
+  "nextQuestions": [
+    "accordion-ii"
+  ],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [],
+  "slug": "accordion",
+  "subtitle": null,
+  "topics": [
+    "a11y"
+  ]
 }

@@ -1,48 +1,42 @@
 {
-  "info": {
-    "excerpt": "Build a file explorer component to navigate files and directories in a tree-like hierarchical viewer",
-    "title": "File Explorer"
-  },
-  "metadata": {
-    "access": "standard",
-    "author": "yangshun",
-    "companies": [
-      "amazon",
-      "atlassian",
-      "snap",
-      "tiktok"
-    ],
-    "created": 1723766400,
-    "difficulty": "medium",
-    "duration": 20,
-    "featured": false,
-    "format": "user-interface",
-    "frameworkDefault": "react",
-    "frameworks": [
-      {
-        "framework": "react",
-        "href": "/questions/user-interface/file-explorer/react"
-      }
-    ],
-    "href": "/questions/user-interface/file-explorer",
-    "importance": "medium",
-    "languages": [
-      "html",
-      "js"
-    ],
-    "nextQuestions": [
-      "file-explorer-ii",
-      "file-explorer-iii"
-    ],
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [
-      "nested-checkboxes"
-    ],
-    "slug": "file-explorer",
-    "subtitle": null,
-    "topics": [
-      "a11y"
-    ]
-  }
+  "access": "standard",
+  "author": "yangshun",
+  "companies": [
+    "amazon",
+    "atlassian",
+    "snap",
+    "tiktok"
+  ],
+  "created": 1723766400,
+  "difficulty": "medium",
+  "duration": 20,
+  "featured": false,
+  "format": "user-interface",
+  "frameworkDefault": "react",
+  "frameworks": [
+    {
+      "framework": "react",
+      "href": "/questions/user-interface/file-explorer/react"
+    }
+  ],
+  "href": "/questions/user-interface/file-explorer",
+  "importance": "medium",
+  "languages": [
+    "html",
+    "js"
+  ],
+  "nextQuestions": [
+    "file-explorer-ii",
+    "file-explorer-iii"
+  ],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [
+    "nested-checkboxes"
+  ],
+  "slug": "file-explorer",
+  "subtitle": null,
+  "topics": [
+    "a11y"
+  ]
 }

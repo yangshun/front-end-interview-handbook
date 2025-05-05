@@ -1,0 +1,34 @@
+{
+  "author": "willnguyen1312",
+  "files": {
+    "/greatfrontend.json": {
+      "code": "{\n  \"visibleFiles\": [\"/src/App.vue\", \"/src/Table.vue\"],\n  \"activeFile\": \"/src/Table.vue\",\n  \"environment\": \"vue-cli\"\n}\n"
+    },
+    "/package.json": {
+      "code": "{\n  \"name\": \"@gfe-questions/generate-table-vue-solution\",\n  \"author\": \"willnguyen1312\",\n  \"version\": \"0.0.1\",\n  \"main\": \"/src/main.js\",\n  \"scripts\": {\n    \"serve\": \"vue-cli-service serve\",\n    \"build\": \"vue-cli-service build\"\n  },\n  \"dependencies\": {\n    \"core-js\": \"3.32.2\",\n    \"vue\": \"3.3.4\"\n  },\n  \"devDependencies\": {\n    \"@vue/cli-plugin-babel\": \"5.0.8\",\n    \"@vue/cli-service\": \"5.0.8\"\n  }\n}\n"
+    },
+    "/public/index.html": {
+      "code": "<!doctype html>\n<html>\n  <head>\n    <meta charset=\"utf-8\" />\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" />\n    <meta\n      name=\"viewport\"\n      content=\"width=device-width,initial-scale=1.0\" />\n    <title>Vue</title>\n  </head>\n  <body>\n    <div id=\"app\"></div>\n    <!-- Built files will be auto injected -->\n  </body>\n</html>\n"
+    },
+    "/src/App.vue": {
+      "code": "<script setup>\nimport { ref } from 'vue';\nimport Table from './Table.vue';\n\nconst rows = ref();\nconst columns = ref();\n\nfunction submitForm(event) {\n  // Obtain data from the form.\n  const data = new FormData(event.target);\n  const rowsValue = data.get('rows');\n  rows.value = Number(rowsValue);\n  const columnsValue = data.get('columns');\n  columns.value = Number(columnsValue);\n}\n</script>\n\n<template>\n  <div class=\"app\">\n    <!-- To prevent a page reload. -->\n    <form @submit.prevent=\"submitForm\">\n      <div>\n        <label for=\"rows\">Rows</label>\n        <input\n          id=\"rows\"\n          name=\"rows\"\n          type=\"number\"\n          min=\"1\"\n          :defaultValue=\"rows\" />\n      </div>\n      <div>\n        <label for=\"columns\">Columns</label>\n        <input\n          id=\"columns\"\n          name=\"columns\"\n          type=\"number\"\n          min=\"1\"\n          :defaultValue=\"columns\" />\n      </div>\n      <button type=\"submit\">Submit</button>\n    </form>\n\n    <Table\n      v-if=\"rows && columns\"\n      :rows=\"rows\"\n      :columns=\"columns\" />\n  </div>\n</template>\n\n<style>\n.app {\n  align-items: center;\n  display: flex;\n  font-size: 12px;\n  flex-direction: column;\n  gap: 16px;\n  justify-content: center;\n}\n\nform {\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n}\n\nlabel + input {\n  margin-left: 8px;\n}\n</style>\n"
+    },
+    "/src/main.js": {
+      "code": "import { createApp } from 'vue';\nimport App from './App.vue';\n\nimport './styles.css';\n\ncreateApp(App).mount('#app');\n"
+    },
+    "/src/styles.css": {
+      "code": "body {\n  font-family: sans-serif;\n}\n"
+    },
+    "/src/Table.vue": {
+      "code": "<script setup>\nconst props = defineProps({\n  rows: Number,\n  columns: Number,\n});\n</script>\n\n<template>\n  <table>\n    <tbody>\n      <tr v-for=\"(_, row) in rows\" :key=\"row\">\n        <td v-for=\"(_, col) in columns\" :key=\"col\">\n          {{\n            col % 2 === 0\n              ? rows * col + (row + 1)\n              : rows * (col + 1) - row\n          }}\n        </td>\n      </tr>\n    </tbody>\n  </table>\n</template>\n\n<style>\ntable {\n  border-collapse: collapse;\n}\n\ntable td {\n  border: 1px solid #000;\n  padding: 8px;\n  text-align: center;\n}\n</style>\n"
+    }
+  },
+  "workspace": {
+    "visibleFiles": [
+      "/src/App.vue",
+      "/src/Table.vue"
+    ],
+    "activeFile": "/src/Table.vue",
+    "environment": "vue-cli"
+  }
+}

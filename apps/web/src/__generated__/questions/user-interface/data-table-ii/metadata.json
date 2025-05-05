@@ -1,40 +1,34 @@
 {
-  "info": {
-    "excerpt": "Build a users data table with sorting features",
-    "title": "Data Table II"
-  },
-  "metadata": {
-    "access": "premium",
-    "author": "yangshun",
-    "companies": [
-      "palantir",
-      "amazon",
-      "stripe"
-    ],
-    "created": 1723766400,
-    "difficulty": "medium",
-    "duration": 20,
-    "featured": false,
-    "format": "user-interface",
-    "frameworkDefault": "react",
-    "frameworks": [
-      {
-        "framework": "react",
-        "href": "/questions/user-interface/data-table-ii/react"
-      }
-    ],
-    "href": "/questions/user-interface/data-table-ii",
-    "importance": "low",
-    "languages": [
-      "html",
-      "js"
-    ],
-    "nextQuestions": [],
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [],
-    "slug": "data-table-ii",
-    "subtitle": null,
-    "topics": []
-  }
+  "access": "premium",
+  "author": "yangshun",
+  "companies": [
+    "palantir",
+    "amazon",
+    "stripe"
+  ],
+  "created": 1723766400,
+  "difficulty": "medium",
+  "duration": 20,
+  "featured": false,
+  "format": "user-interface",
+  "frameworkDefault": "react",
+  "frameworks": [
+    {
+      "framework": "react",
+      "href": "/questions/user-interface/data-table-ii/react"
+    }
+  ],
+  "href": "/questions/user-interface/data-table-ii",
+  "importance": "low",
+  "languages": [
+    "html",
+    "js"
+  ],
+  "nextQuestions": [],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [],
+  "slug": "data-table-ii",
+  "subtitle": null,
+  "topics": []
 }

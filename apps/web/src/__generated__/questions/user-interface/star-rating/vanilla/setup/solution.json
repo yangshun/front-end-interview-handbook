@@ -1,0 +1,29 @@
+{
+  "author": "yangshun",
+  "files": {
+    "/greatfrontend.json": {
+      "code": "{\n  \"visibleFiles\": [\n    \"/index.html\",\n    \"/src/index.js\",\n    \"/src/styles.css\"\n  ],\n  \"activeFile\": \"/src/index.html\",\n  \"environment\": \"parcel\"\n}\n"
+    },
+    "/index.html": {
+      "code": "<!doctype html>\n<html>\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta\n      name=\"viewport\"\n      content=\"width=device-width, initial-scale=1.0\" />\n  </head>\n  <body>\n    <div id=\"star-rating\"></div>\n    <div id=\"star-rating-2\"></div>\n    <script src=\"src/index.js\"></script>\n  </body>\n</html>\n"
+    },
+    "/package.json": {
+      "code": "{\n  \"name\": \"@gfe-questions/star-rating-vanilla-solution\",\n  \"author\": \"yangshun\",\n  \"version\": \"0.0.1\",\n  \"private\": true,\n  \"devDependencies\": {\n    \"parcel\": \"2.9.3\"\n  },\n  \"source\": \"index.html\",\n  \"scripts\": {\n    \"start\": \"parcel\",\n    \"build\": \"parcel build\"\n  }\n}\n"
+    },
+    "/src/index.js": {
+      "code": "import './styles.css';\n\n(() => {\n  function starRating(\n    $rootElement,\n    { max = 5, value = 0 },\n  ) {\n    const STAR_ICON_CLASS = 'star-icon';\n    const STAR_ICON_FILLED_CLASS = 'star-icon-filled';\n    const STAR_TEMPLATE = `<svg\n    xmlns=\"http://www.w3.org/2000/svg\"\n    class=\"${STAR_ICON_CLASS}\"\n    fill=\"none\"\n    viewBox=\"0 0 24 24\"\n    stroke=\"currentColor\"\n    stroke-width=\"2\">\n    <path\n    stroke-linecap=\"round\"\n    stroke-linejoin=\"round\"\n    d=\"M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z\" />\n    </svg>`;\n\n    let currentValue = value;\n\n    function initialize() {\n      const html = Array.from(\n        { length: max },\n        () => STAR_TEMPLATE,\n      ).join('');\n      // Using .innerHTML is safe here since it's non-user content.\n      $rootElement.innerHTML = html;\n\n      $rootElement.addEventListener('click', (event) => {\n        const $starEl = event.target.closest(\n          `.${STAR_ICON_CLASS}`,\n        );\n        if ($starEl == null) {\n          return;\n        }\n\n        const value =\n          [...$rootElement.children].indexOf($starEl) + 1;\n        setValue(value);\n      });\n\n      $rootElement.addEventListener(\n        'mouseover',\n        (event) => {\n          const $starEl = event.target.closest(\n            `.${STAR_ICON_CLASS}`,\n          );\n          if ($starEl == null) {\n            return;\n          }\n\n          const value =\n            [...$rootElement.children].indexOf($starEl) + 1;\n          highlightStars(value);\n        },\n      );\n\n      $rootElement.addEventListener('mouseout', () => {\n        setValue(currentValue);\n      });\n    }\n\n    function setValue(value) {\n      currentValue = value;\n      highlightStars(currentValue);\n    }\n\n    function highlightStars(index) {\n      for (\n        let i = 0;\n        i < $rootElement.children.length;\n        i++\n      ) {\n        if (i < index) {\n          $rootElement.children[i].classList.add(\n            STAR_ICON_FILLED_CLASS,\n          );\n        } else {\n          $rootElement.children[i].classList.remove(\n            STAR_ICON_FILLED_CLASS,\n          );\n        }\n      }\n    }\n\n    initialize(max);\n    setValue(currentValue);\n\n    return {\n      // Expose a setValue function so that users can imperatively\n      // change the value of the widget in the case of external\n      // events. Not strictly necessary but helpful if the need arises.\n      setValue,\n    };\n  }\n\n  starRating(document.getElementById('star-rating'), {\n    max: 5,\n    value: 3,\n  });\n  starRating(document.getElementById('star-rating-2'), {\n    max: 10,\n    value: 5,\n  });\n})();\n"
+    },
+    "/src/styles.css": {
+      "code": "body {\n  font-family: sans-serif;\n}\n\n.star-icon {\n  --icon-size: 32px;\n\n  cursor: pointer;\n  height: var(--icon-size);\n  width: var(--icon-size);\n}\n\n.star-icon-filled {\n  fill: yellow;\n}\n"
+    }
+  },
+  "workspace": {
+    "visibleFiles": [
+      "/index.html",
+      "/src/index.js",
+      "/src/styles.css"
+    ],
+    "activeFile": "/src/index.html",
+    "environment": "parcel"
+  }
+}

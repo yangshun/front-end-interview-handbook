@@ -1,0 +1,15 @@
+{
+  "slug": "like-button",
+  "author": "yangshun",
+  "created": "2022-12-14",
+  "languages": ["html", "css", "js"],
+  "companies": ["amazon", "openai"],
+  "access": "standard",
+  "duration": 20,
+  "published": true,
+  "importance": "low",
+  "difficulty": "medium",
+  "featured": true,
+  "frameworks": ["react", "vanilla", "angular", "svelte"],
+  "topics": ["async", "networking"]
+}

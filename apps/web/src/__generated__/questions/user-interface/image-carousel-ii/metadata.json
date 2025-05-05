@@ -1,51 +1,45 @@
 {
-  "info": {
-    "excerpt": "Build an image carousel that smoothly transitions between images",
-    "title": "Image Carousel II"
-  },
-  "metadata": {
-    "access": "premium",
-    "author": "yangshun",
-    "companies": [
-      "amazon",
-      "google",
-      "doordash",
-      "dropbox",
-      "microsoft",
-      "snap",
-      "squarespace",
-      "bytedance",
-      "tiktok"
-    ],
-    "created": 1723766400,
-    "difficulty": "medium",
-    "duration": 30,
-    "featured": false,
-    "format": "user-interface",
-    "frameworkDefault": "react",
-    "frameworks": [
-      {
-        "framework": "react",
-        "href": "/questions/user-interface/image-carousel-ii/react"
-      }
-    ],
-    "href": "/questions/user-interface/image-carousel-ii",
-    "importance": "low",
-    "languages": [
-      "html",
-      "js",
-      "css"
-    ],
-    "nextQuestions": [
-      "image-carousel-iii"
-    ],
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [],
-    "slug": "image-carousel-ii",
-    "subtitle": null,
-    "topics": [
-      "a11y"
-    ]
-  }
+  "access": "premium",
+  "author": "yangshun",
+  "companies": [
+    "amazon",
+    "google",
+    "doordash",
+    "dropbox",
+    "microsoft",
+    "snap",
+    "squarespace",
+    "bytedance",
+    "tiktok"
+  ],
+  "created": 1723766400,
+  "difficulty": "medium",
+  "duration": 30,
+  "featured": false,
+  "format": "user-interface",
+  "frameworkDefault": "react",
+  "frameworks": [
+    {
+      "framework": "react",
+      "href": "/questions/user-interface/image-carousel-ii/react"
+    }
+  ],
+  "href": "/questions/user-interface/image-carousel-ii",
+  "importance": "low",
+  "languages": [
+    "html",
+    "js",
+    "css"
+  ],
+  "nextQuestions": [
+    "image-carousel-iii"
+  ],
+  "published": true,
+  "ranking": 100,
+  "similarQuestions": [],
+  "slug": "image-carousel-ii",
+  "subtitle": null,
+  "topics": [
+    "a11y"
+  ]
 }

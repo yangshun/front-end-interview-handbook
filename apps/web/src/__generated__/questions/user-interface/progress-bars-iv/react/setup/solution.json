@@ -1,0 +1,31 @@
+{
+  "author": "yangshun",
+  "files": {
+    "/greatfrontend.json": {
+      "code": "{\n  \"visibleFiles\": [\"/src/App.js\", \"/src/styles.css\"],\n  \"activeFile\": \"/src/App.js\",\n  \"environment\": \"create-react-app\"\n}\n"
+    },
+    "/package.json": {
+      "code": "{\n  \"name\": \"@gfe-questions/progress-bars-iv-react-solution\",\n  \"author\": \"yangshun\",\n  \"version\": \"0.0.1\",\n  \"private\": true,\n  \"dependencies\": {\n    \"react\": \"18.2.0\",\n    \"react-dom\": \"18.2.0\",\n    \"react-scripts\": \"5.0.1\"\n  },\n  \"scripts\": {\n    \"start\": \"react-scripts start\",\n    \"build\": \"react-scripts build\",\n    \"test\": \"react-scripts test\",\n    \"eject\": \"react-scripts eject\"\n  }\n}\n"
+    },
+    "/public/index.html": {
+      "code": "<!doctype html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta\n      name=\"viewport\"\n      content=\"width=device-width, initial-scale=1.0\" />\n  </head>\n  <body>\n    <div id=\"root\"></div>\n  </body>\n</html>\n"
+    },
+    "/src/App.js": {
+      "code": "import { useState } from 'react';\n\nfunction ProgressBar({ progress }) {\n  return (\n    <div className=\"bar\">\n      <div\n        className=\"bar-contents\"\n        style={{ transform: `scaleX(${progress / 100})` }}\n      />\n    </div>\n  );\n}\n\nconst INITIAL_PROGRESSION = [0];\nconst CONCURRENCY_LIMIT = 3;\n\nexport default function App() {\n  const [progression, setProgression] = useState(\n    INITIAL_PROGRESSION,\n  );\n  const [timerId, setTimerId] = useState(null);\n\n  function start() {\n    const timer = window.setInterval(() => {\n      setProgression((currProgression) => {\n        // Find the bars which aren't full.\n        const nonFullBars = currProgression\n          .map((value, index) => ({ value, index }))\n          .filter(({ value }) => value < 100);\n        // All bars are full, none to increment.\n        if (nonFullBars.length === 0) {\n          return currProgression;\n        }\n\n        // Get the first LIMIT non-full bars and increment them.\n        const barsToIncrement = nonFullBars.slice(\n          0,\n          CONCURRENCY_LIMIT,\n        );\n        const newProgression = currProgression.slice();\n        for (const { index } of barsToIncrement) {\n          newProgression[index] += 0.5;\n        }\n        return newProgression;\n      });\n    }, 10);\n\n    setTimerId(timer);\n  }\n\n  function stop() {\n    window.clearInterval(timerId);\n    setTimerId(null);\n  }\n\n  function appendBar() {\n    setProgression(progression.concat(0));\n  }\n\n  function reset() {\n    stop();\n    setProgression(INITIAL_PROGRESSION);\n  }\n\n  // Derived state to determine if the bars are progressing.\n  const isProgressing = timerId != null;\n\n  return (\n    <div className=\"wrapper\">\n      <div className=\"buttons\">\n        <button\n          onClick={() => {\n            appendBar();\n          }}>\n          Add\n        </button>\n        <button\n          onClick={() => {\n            isProgressing ? stop() : start();\n          }}>\n          {isProgressing ? 'Pause' : 'Start'}\n        </button>\n        <button\n          onClick={() => {\n            reset();\n          }}>\n          Reset\n        </button>\n      </div>\n      <div className=\"bars\">\n        {progression.map((progress, index) => (\n          <ProgressBar key={index} progress={progress} />\n        ))}\n      </div>\n      <pre>\n        {JSON.stringify(\n          { isProgressing, progression },\n          null,\n          2,\n        )}\n      </pre>\n    </div>\n  );\n}\n"
+    },
+    "/src/index.js": {
+      "code": "import React, { StrictMode } from 'react';\nimport { createRoot } from 'react-dom/client';\n\nimport App from './App';\n\nimport './styles.css';\n\nconst root = createRoot(document.getElementById('root'));\nroot.render(\n  <StrictMode>\n    <App />\n  </StrictMode>,\n);\n"
+    },
+    "/src/styles.css": {
+      "code": "body {\n  font-family: sans-serif;\n}\n\n.wrapper {\n  display: flex;\n  flex-direction: column;\n  gap: 16px;\n  justify-content: center;\n}\n\n.buttons {\n  display: flex;\n  column-gap: 8px;\n}\n\n.bars {\n  display: flex;\n  flex-direction: column;\n  row-gap: 8px;\n}\n\n.bar {\n  background-color: #ccc;\n  height: 8px;\n}\n\n.bar-contents {\n  background-color: green;\n  height: 100%;\n  transform-origin: left;\n}\n"
+    }
+  },
+  "workspace": {
+    "visibleFiles": [
+      "/src/App.js",
+      "/src/styles.css"
+    ],
+    "activeFile": "/src/App.js",
+    "environment": "create-react-app"
+  }
+}
