@@ -18,6 +18,9 @@ import {
 } from '../db/questions-bundlers/QuestionsBundlerUserInterface';
 import {
   getQuestionOutPathUserInterface,
+  getQuestionOutPathUserInterfaceFrameworkLocaleWriteup,
+  getQuestionOutPathUserInterfaceFrameworkSetup,
+  getQuestionOutPathUserInterfaceLocaleInfo,
   getQuestionSrcPathUserInterface,
   QUESTIONS_SRC_DIR_USER_INTERFACE,
 } from '../db/questions-bundlers/QuestionsBundlerUserInterfaceConfig';
@@ -184,14 +187,14 @@ async function generateSetupForQuestion(slug: string) {
               return { ...acc, ...curr };
             }, {});
 
-            const outPath = path.join(
-              getQuestionOutPathUserInterface(slug),
-              framework,
-              `writeup.${locale}.json`,
-            );
+            const outPath =
+              getQuestionOutPathUserInterfaceFrameworkLocaleWriteup(
+                slug,
+                framework,
+                locale,
+              );
 
             fs.mkdirSync(path.dirname(outPath), { recursive: true });
-
             fs.writeFileSync(outPath, JSON.stringify(writeupFilesObj, null, 2));
           }),
         );
@@ -213,11 +216,7 @@ async function generateSetupForQuestion(slug: string) {
     })(),
     ...locales.map(async (locale) => {
       const info = await readQuestionInfoUserInterface(slug, locale);
-
-      const outPath = path.join(
-        getQuestionOutPathUserInterface(slug),
-        `${locale}.json`,
-      );
+      const outPath = getQuestionOutPathUserInterfaceLocaleInfo(slug, locale);
 
       fs.mkdirSync(path.dirname(outPath), { recursive: true });
       fs.writeFileSync(outPath, JSON.stringify(info, null, 2));
@@ -230,15 +229,6 @@ async function generateSetupForQuestion(slug: string) {
           );
         }
       });
-
-      const outPath = path.join(
-        getQuestionOutPathUserInterface(slug),
-        framework,
-        'setup',
-        `${setupType}.json`,
-      );
-
-      fs.mkdirSync(path.dirname(outPath), { recursive: true });
 
       const author: string | null = (() => {
         try {
@@ -256,6 +246,13 @@ async function generateSetupForQuestion(slug: string) {
         workspace,
       };
 
+      const outPath = getQuestionOutPathUserInterfaceFrameworkSetup(
+        slug,
+        framework,
+        setupType,
+      );
+
+      fs.mkdirSync(path.dirname(outPath), { recursive: true });
       fs.writeFileSync(outPath, JSON.stringify(bundle, null, 2));
     }),
     writeupFile(),

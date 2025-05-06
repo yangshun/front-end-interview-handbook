@@ -14,11 +14,28 @@ import type {
   QuestionUserInterfaceBundle,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 
-import { getQuestionOutPathAlgo } from './questions-bundlers/QuestionsBundlerAlgoConfig';
-import { getQuestionOutPathJavaScript } from './questions-bundlers/QuestionsBundlerJavaScriptConfig';
-import { getQuestionOutPathQuiz } from './questions-bundlers/QuestionsBundlerQuizConfig';
-import { getQuestionOutPathSystemDesign } from './questions-bundlers/QuestionsBundlerSystemDesignConfig';
-import { getQuestionOutPathUserInterface } from './questions-bundlers/QuestionsBundlerUserInterfaceConfig';
+import {
+  getQuestionOutPathAlgo,
+  getQuestionOutPathAlgoLocaleContents,
+} from './questions-bundlers/QuestionsBundlerAlgoConfig';
+import {
+  getQuestionOutPathJavaScript,
+  getQuestionOutPathJavaScriptLocaleContents,
+} from './questions-bundlers/QuestionsBundlerJavaScriptConfig';
+import {
+  getQuestionOutPathQuiz,
+  getQuestionOutPathQuizLocaleContents,
+} from './questions-bundlers/QuestionsBundlerQuizConfig';
+import {
+  getQuestionOutPathSystemDesign,
+  getQuestionOutPathSystemDesignLocaleContents,
+} from './questions-bundlers/QuestionsBundlerSystemDesignConfig';
+import {
+  getQuestionOutPathUserInterface,
+  getQuestionOutPathUserInterfaceFrameworkLocaleWriteup,
+  getQuestionOutPathUserInterfaceFrameworkSetup,
+  getQuestionOutPathUserInterfaceLocaleInfo,
+} from './questions-bundlers/QuestionsBundlerUserInterfaceConfig';
 import { fetchQuestionsList } from './QuestionsListReader';
 
 // Add functions which read from the generated content files.
@@ -35,14 +52,14 @@ export function readQuestionAlgoContents(
   const response = (() => {
     try {
       return fs.readFileSync(
-        path.join(getQuestionOutPathAlgo(slug), `${requestedLocale}.json`),
+        getQuestionOutPathAlgoLocaleContents(slug, requestedLocale),
       );
     } catch {
       loadedLocale = 'en-US';
 
-      // Fallback to English.
+      // Fallback to English
       return fs.readFileSync(
-        path.join(getQuestionOutPathAlgo(slug), `${loadedLocale}.json`),
+        getQuestionOutPathAlgoLocaleContents(slug, loadedLocale),
       );
     }
   })();
@@ -98,17 +115,14 @@ export function readQuestionJavaScriptContents(
   const response = (() => {
     try {
       return fs.readFileSync(
-        path.join(
-          getQuestionOutPathJavaScript(slug),
-          `${requestedLocale}.json`,
-        ),
+        getQuestionOutPathJavaScriptLocaleContents(slug, requestedLocale),
       );
     } catch {
       loadedLocale = 'en-US';
 
-      // Fallback to English.
+      // Fallback to English
       return fs.readFileSync(
-        path.join(getQuestionOutPathJavaScript(slug), `${loadedLocale}.json`),
+        getQuestionOutPathJavaScriptLocaleContents(slug, loadedLocale),
       );
     }
   })();
@@ -165,7 +179,7 @@ export async function readQuestionQuizContents(
 
   try {
     response = fs.readFileSync(
-      path.join(getQuestionOutPathQuiz(slug), `${requestedLocale}.json`),
+      getQuestionOutPathQuizLocaleContents(slug, requestedLocale),
     );
   } catch {
     loadedLocale = 'en-US';
@@ -173,7 +187,7 @@ export async function readQuestionQuizContents(
     try {
       // Fall back to English
       response = fs.readFileSync(
-        path.join(getQuestionOutPathQuiz(slug), `${loadedLocale}.json`),
+        getQuestionOutPathQuizLocaleContents(slug, loadedLocale),
       );
     } catch {
       // Fall back to finding the closest question
@@ -235,17 +249,14 @@ export function readQuestionSystemDesignContents(
   const response = (() => {
     try {
       return fs.readFileSync(
-        path.join(
-          getQuestionOutPathSystemDesign(slug),
-          `${requestedLocale}.json`,
-        ),
+        getQuestionOutPathSystemDesignLocaleContents(slug, requestedLocale),
       );
     } catch {
       loadedLocale = 'en-US';
 
-      // Fallback to English.
+      // Fallback to English
       return fs.readFileSync(
-        path.join(getQuestionOutPathSystemDesign(slug), `${loadedLocale}.json`),
+        getQuestionOutPathSystemDesignLocaleContents(slug, loadedLocale),
       );
     }
   })();
@@ -283,20 +294,14 @@ export async function readQuestionUserInterface(
     (() => {
       try {
         return fs.readFileSync(
-          path.join(
-            getQuestionOutPathUserInterface(slug),
-            `${requestedLocale}.json`,
-          ),
+          getQuestionOutPathUserInterfaceLocaleInfo(slug, requestedLocale),
         );
       } catch {
         loadedLocale = 'en-US';
 
-        // Fallback to English.
+        // Fallback to English
         return fs.readFileSync(
-          path.join(
-            getQuestionOutPathUserInterface(slug),
-            `${loadedLocale}.json`,
-          ),
+          getQuestionOutPathUserInterfaceLocaleInfo(slug, loadedLocale),
         );
       }
     })(),
@@ -312,18 +317,25 @@ export async function readQuestionUserInterface(
 
   const framework = frameworkParam ?? metadata.frameworkDefault ?? 'vanilla';
 
-  const wirteupResponse = fs.readFileSync(
-    path.join(questionOutDir, framework, `writeup.${loadedLocale}.json`),
+  const writeupFile = fs.readFileSync(
+    getQuestionOutPathUserInterfaceFrameworkLocaleWriteup(
+      slug,
+      framework,
+      loadedLocale,
+    ),
   );
 
-  const writeup = JSON.parse(String(wirteupResponse));
+  const writeup = JSON.parse(String(writeupFile));
 
   const skeletonBundle = (() => {
-    const response = fs.readFileSync(
-      path.join(questionOutDir, framework, 'setup', `skeleton.json`),
+    const skeleton = fs.readFileSync(
+      getQuestionOutPathUserInterfaceFrameworkSetup(
+        slug,
+        framework,
+        'skeleton',
+      ),
     );
-
-    const skeletonBundleValue = JSON.parse(String(response));
+    const skeletonBundleValue = JSON.parse(String(skeleton));
 
     return {
       ...skeletonBundleValue,
@@ -332,16 +344,14 @@ export async function readQuestionUserInterface(
   })();
 
   const solutionBundle = (() => {
-    const response = fs.readFileSync(
-      path.join(
-        questionOutDir,
+    const solution = fs.readFileSync(
+      getQuestionOutPathUserInterfaceFrameworkSetup(
+        slug,
         framework,
-        'setup',
-        `${codeId ?? 'solution'}.json`,
+        `${codeId ?? 'solution'}`,
       ),
     );
-
-    const solutionBundleValue = JSON.parse(String(response));
+    const solutionBundleValue = JSON.parse(String(solution));
 
     const canAccessSolutionWriteup =
       isViewerPremium || metadata.access === 'free';

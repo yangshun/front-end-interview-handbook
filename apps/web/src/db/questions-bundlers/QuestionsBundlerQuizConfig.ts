@@ -87,6 +87,14 @@ export const QuestionsQuizSourceConfigReact: QuestionsQuizSourceConfig = {
 export function getQuestionOutPathQuiz(slug: string) {
   return path.join(QUESTIONS_OUT_DIR_QUIZ, slug);
 }
+
+export function getQuestionOutPathQuizLocaleContents(
+  slug: string,
+  locale: string,
+) {
+  return path.join(getQuestionOutPathQuiz(slug), 'locales', `${locale}.json`);
+}
+
 export function getQuestionsListOutFilenameQuiz(locale: string) {
   return path.join(QUESTIONS_OUT_DIR_QUIZ, `list.${locale}.json`);
 }

@@ -8,6 +8,7 @@ import {
 } from '../db/questions-bundlers/QuestionsBundlerAlgo';
 import {
   getQuestionOutPathAlgo,
+  getQuestionOutPathAlgoLocaleContents,
   getQuestionSrcPathAlgo,
   QUESTIONS_SRC_DIR_ALGO,
 } from '../db/questions-bundlers/QuestionsBundlerAlgoConfig';
@@ -54,9 +55,10 @@ async function generateSetupForQuestion(slug: string) {
   await Promise.all(
     locales.map(async (locale) => {
       const content = await readQuestionAlgo(slug);
-      const outPath = path.join(outDir, `${locale}.json`);
+      const contentOutPath = getQuestionOutPathAlgoLocaleContents(slug, locale);
 
-      fs.writeFileSync(outPath, JSON.stringify(content, null, 2));
+      fs.mkdirSync(path.dirname(contentOutPath), { recursive: true });
+      fs.writeFileSync(contentOutPath, JSON.stringify(content, null, 2));
     }),
   );
 }

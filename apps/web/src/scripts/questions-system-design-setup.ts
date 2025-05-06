@@ -8,6 +8,7 @@ import {
 } from '../db/questions-bundlers/QuestionsBundlerSystemDesign';
 import {
   getQuestionOutPathSystemDesign,
+  getQuestionOutPathSystemDesignLocaleContents,
   getQuestionSrcPathSystemDesign,
   QUESTIONS_SRC_DIR_SYSTEM_DESIGN,
 } from '../db/questions-bundlers/QuestionsBundlerSystemDesignConfig';
@@ -34,9 +35,13 @@ async function generateSetupForQuestion(slug: string) {
   await Promise.all(
     locales.map(async (locale) => {
       const content = await readQuestionSystemDesign(slug, locale);
-      const outPath = path.join(outDir, `${locale}.json`);
+      const contentOutPath = getQuestionOutPathSystemDesignLocaleContents(
+        slug,
+        locale,
+      );
 
-      fs.writeFileSync(outPath, JSON.stringify(content, null, 2));
+      fs.mkdirSync(path.dirname(contentOutPath), { recursive: true });
+      fs.writeFileSync(contentOutPath, JSON.stringify(content, null, 2));
     }),
   );
 }

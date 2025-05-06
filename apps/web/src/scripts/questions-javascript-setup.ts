@@ -8,6 +8,7 @@ import {
 } from '../db/questions-bundlers/QuestionsBundlerJavaScript';
 import {
   getQuestionOutPathJavaScript,
+  getQuestionOutPathJavaScriptLocaleContents,
   getQuestionSrcPathJavaScript,
   QUESTIONS_SRC_DIR_JAVASCRIPT,
 } from '../db/questions-bundlers/QuestionsBundlerJavaScriptConfig';
@@ -54,9 +55,13 @@ async function generateSetupForQuestion(slug: string) {
   await Promise.all(
     locales.map(async (locale) => {
       const content = await readQuestionJavaScript(slug, locale);
-      const outPath = path.join(outDir, `${locale}.json`);
+      const contentOutPath = getQuestionOutPathJavaScriptLocaleContents(
+        slug,
+        locale,
+      );
 
-      fs.writeFileSync(outPath, JSON.stringify(content, null, 2));
+      fs.mkdirSync(path.dirname(contentOutPath), { recursive: true });
+      fs.writeFileSync(contentOutPath, JSON.stringify(content, null, 2));
     }),
   );
 }

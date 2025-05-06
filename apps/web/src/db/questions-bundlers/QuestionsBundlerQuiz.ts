@@ -120,7 +120,7 @@ export async function readQuestionQuiz(
 export async function readQuestionListMetadataQuiz(
   locale = 'en-US',
 ): Promise<ReadonlyArray<InterviewsQuestionItemMinimal>> {
-  // Non-JavaScript.
+  // Non-JavaScript
   const nonJavaScriptQuestionsDirectories = fs
     .readdirSync(QuestionsQuizSourceConfigNonJavaScript.questionsListPath, {
       withFileTypes: true,
@@ -141,7 +141,7 @@ export async function readQuestionListMetadataQuiz(
     }),
   );
 
-  // JavaScript.
+  // JavaScript
   const javaScriptQuestionsDirectories = fs
     .readdirSync(QuestionsQuizSourceConfigJavaScript.questionsListPath, {
       withFileTypes: true,
@@ -162,7 +162,7 @@ export async function readQuestionListMetadataQuiz(
     }),
   );
 
-  // React.
+  // React
   const reactQuestionsDirectories = fs
     .readdirSync(QuestionsQuizSourceConfigReact.questionsListPath, {
       withFileTypes: true,

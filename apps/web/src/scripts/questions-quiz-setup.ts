@@ -7,7 +7,10 @@ import {
   readQuestionQuizLocaleAgnostic,
 } from '../db/questions-bundlers/QuestionsBundlerQuiz';
 import type { QuestionsQuizSourceConfig } from '../db/questions-bundlers/QuestionsBundlerQuizConfig';
-import { getQuestionOutPathQuiz } from '../db/questions-bundlers/QuestionsBundlerQuizConfig';
+import {
+  getQuestionOutPathQuiz,
+  getQuestionOutPathQuizLocaleContents,
+} from '../db/questions-bundlers/QuestionsBundlerQuizConfig';
 
 async function generateSetupForQuestion(
   quizSourceConfig: QuestionsQuizSourceConfig,
@@ -34,9 +37,10 @@ async function generateSetupForQuestion(
   await Promise.all(
     locales.map(async (locale) => {
       const content = await readQuestionQuiz(quizSourceConfig, slug, locale);
-      const outPath = path.join(outDir, `${locale}.json`);
+      const contentOutPath = getQuestionOutPathQuizLocaleContents(slug, locale);
 
-      fs.writeFileSync(outPath, JSON.stringify(content, null, 2));
+      fs.mkdirSync(path.dirname(contentOutPath), { recursive: true });
+      fs.writeFileSync(contentOutPath, JSON.stringify(content, null, 2));
     }),
   );
 }

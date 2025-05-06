@@ -10,6 +10,7 @@ export const QUESTIONS_SRC_DIR_JAVASCRIPT = path.join(
   'questions',
   format,
 );
+
 export const QUESTIONS_OUT_DIR_JAVASCRIPT = path.join(
   process.cwd(),
   'src',
@@ -21,9 +22,22 @@ export const QUESTIONS_OUT_DIR_JAVASCRIPT = path.join(
 export function getQuestionSrcPathJavaScript(slug: string) {
   return path.join(QUESTIONS_SRC_DIR_JAVASCRIPT, slug);
 }
+
 export function getQuestionOutPathJavaScript(slug: string) {
   return path.join(QUESTIONS_OUT_DIR_JAVASCRIPT, slug);
 }
+
+export function getQuestionOutPathJavaScriptLocaleContents(
+  slug: string,
+  locale: string,
+) {
+  return path.join(
+    getQuestionOutPathJavaScript(slug),
+    'locales',
+    `${locale}.json`,
+  );
+}
+
 export function getQuestionsListOutFilenameJavaScript(locale: string) {
   return path.join(QUESTIONS_OUT_DIR_JAVASCRIPT, `list.${locale}.json`);
 }
