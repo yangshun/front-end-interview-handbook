@@ -10,6 +10,7 @@ import type {
 
 import {
   getQuestionSrcPathUserInterface,
+  getQuestionSrcPathUserInterfaceWriteups,
   QUESTIONS_SRC_DIR_USER_INTERFACE,
 } from './QuestionsBundlerUserInterfaceConfig';
 import { normalizeQuestionFrontMatter } from '../QuestionsUtils';
@@ -26,12 +27,13 @@ export async function readQuestionMetadataUserInterface(
 
 export async function readQuestionInfoUserInterface(
   slug: string,
-  _locale = 'en-US',
+  locale = 'en-US',
 ): Promise<InterviewsQuestionInfo> {
-  const questionPath = getQuestionSrcPathUserInterface(slug);
+  const questionWriteupsPath = getQuestionSrcPathUserInterfaceWriteups(slug);
 
-  // Read frontmatter from MDX file.
-  const filePath = path.join(questionPath, _locale, `index.mdx`);
+  // Read frontmatter from MDX file
+  const filePath = path.join(questionWriteupsPath, locale, `index.mdx`);
+
   const source = fs.readFileSync(filePath).toString().trim();
   const { data: frontMatter } = grayMatter(source);
 

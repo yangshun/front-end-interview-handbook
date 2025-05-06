@@ -22,6 +22,7 @@ import {
   getQuestionOutPathUserInterfaceFrameworkSetup,
   getQuestionOutPathUserInterfaceLocaleInfo,
   getQuestionSrcPathUserInterface,
+  getQuestionSrcPathUserInterfaceWriteups,
   QUESTIONS_SRC_DIR_USER_INTERFACE,
 } from '../db/questions-bundlers/QuestionsBundlerUserInterfaceConfig';
 
@@ -40,7 +41,7 @@ async function generateSetupForQuestion(slug: string) {
   // const { default: remarkGfm } = await import('remark-gfm');
 
   const localeDirs = await globby('*/', {
-    cwd: path.join(getQuestionSrcPathUserInterface(slug)),
+    cwd: getQuestionSrcPathUserInterfaceWriteups(slug),
     deep: 0,
     ignore: ['setup'],
     onlyDirectories: true, // Ignore known non-locale folders
@@ -149,7 +150,7 @@ async function generateSetupForQuestion(slug: string) {
             );
 
             const frameworkPath = path.join(
-              getQuestionSrcPathUserInterface(slug),
+              getQuestionSrcPathUserInterfaceWriteups(slug),
               locale,
               'frameworks',
               framework,
@@ -159,26 +160,18 @@ async function generateSetupForQuestion(slug: string) {
               deep: 0,
               onlyDirectories: true,
             });
-            const writeupFiles = Array.from(
+            const writeupTypes = Array.from(
               new Set(writeupDirs.map((dir) => dir.split('/')[0])),
             );
-
             const filesArray = await Promise.all(
-              writeupFiles.map(async (writeup) => {
-                const writeupPath = path.join(
-                  getQuestionSrcPathUserInterface(slug),
-                  locale,
-                  'frameworks',
-                  framework,
-                  writeup,
-                );
+              writeupTypes.map(async (writeupType) => {
                 const writeupMDX = await readMDXFile(
-                  path.join(writeupPath, 'index.mdx'),
+                  path.join(frameworkPath, writeupType, 'index.mdx'),
                   {},
                 );
 
                 return {
-                  [writeup]: writeupMDX,
+                  [writeupType]: writeupMDX,
                 };
               }),
             );
@@ -208,7 +201,7 @@ async function generateSetupForQuestion(slug: string) {
 
       const outPath = path.join(
         getQuestionOutPathUserInterface(slug),
-        `metadata.json`,
+        'metadata.json',
       );
 
       fs.mkdirSync(path.dirname(outPath), { recursive: true });

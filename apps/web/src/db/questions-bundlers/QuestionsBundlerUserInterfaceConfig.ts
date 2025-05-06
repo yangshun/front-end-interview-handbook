@@ -23,6 +23,10 @@ export function getQuestionSrcPathUserInterface(slug: string) {
   return path.join(QUESTIONS_SRC_DIR_USER_INTERFACE, slug);
 }
 
+export function getQuestionSrcPathUserInterfaceWriteups(slug: string) {
+  return path.join(QUESTIONS_SRC_DIR_USER_INTERFACE, slug, 'writeups');
+}
+
 export function getQuestionOutPathUserInterface(slug: string) {
   return path.join(QUESTIONS_OUT_DIR_USER_INTERFACE, slug);
 }
