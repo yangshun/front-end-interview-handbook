@@ -29,5 +29,15 @@ export default {
         },
       ],
     },
+    {
+      name: 'questions',
+      plugin: 'mdx',
+      paths: [
+        {
+          source: './src/questions/*/writeups/en-US/**/*.mdx',
+          target: './src/questions/*/writeups/{locale}/**/*.mdx',
+        },
+      ],
+    },
   ],
 } satisfies ConfigType;

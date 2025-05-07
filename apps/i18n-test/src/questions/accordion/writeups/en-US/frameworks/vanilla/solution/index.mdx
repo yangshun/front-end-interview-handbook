@@ -1,0 +1,30 @@
+import TestCases from '../../../test-cases.mdx';
+import Notes from '../../../notes.mdx';
+
+## Solution
+
+### Config / API Design
+
+Part of the complexity of building a component is designing the API for it. The `accordion` function accepts a root element, `$rootEl`, where the accordion sections will be inserted. The second parameter of the `accordion` function is an object used to store the configuration options. At the bare minimum, we will need the following options:
+
+- `items`: A list of item objects. Each item is an object with the fields:
+  - `value`: A unique identifier for the accordion item.
+  - `title`: The text label to show in the accordion title.
+  - `contents`: The contents to show when the section is expanded.
+
+Unlike our typical Vanilla JS approach, we opt not to keep any state in JavaScript this time round and instead rely on the DOM to track each accordion section's state and expand/collapse the appropriate elements based on that accordion's state.
+
+The `accordion` function calls the `init` and `attachEvents` functions to set up the accordion component by rendering the DOM elements and attaching the necessary event listeners.
+
+### `init`
+
+This function sets up the DOM elements that remain throughout the lifecycle of the component, aka they will never be destroyed. The accordion's sections (titles and contents) are rendered.
+
+### `attachEvents`
+
+Only a single event listener is necessary in this component, which is the `click` event, to be added to the root element. We make use of Event Delegation so that only a single event listener has to be added and will work for all of its child contents. However, we have to be careful about checking which element is being clicked on and make sure we're only responding when the title is clicked and not the contents.
+
+When a click is triggered on the accordion title, we'll need to rotate the icon and toggle the `hidden` attribute on the accordion contents.
+
+<TestCases />
+<Notes />
