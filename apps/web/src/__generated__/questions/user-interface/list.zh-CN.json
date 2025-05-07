@@ -1,7 +1,7 @@
 [
   {
     "info": {
-      "excerpt": "Build an accordion component that a displays a list of vertically stacked sections with each containing a title and content snippet",
+      "excerpt": "构建一个手风琴组件，该组件显示一个垂直堆叠的部分列表，每个部分包含一个标题和内容片段",
       "title": "Accordion"
     },
     "metadata": {
@@ -48,7 +48,7 @@
   },
   {
     "info": {
-      "excerpt": "Build an accessible accordion component that has the right ARIA roles, states, and properties",
+      "excerpt": "构建一个具有正确 ARIA 角色、状态和属性的可访问手风琴组件",
       "title": "Accordion II"
     },
     "metadata": {
@@ -94,7 +94,7 @@
   },
   {
     "info": {
-      "excerpt": "Build a fully accessible accordion component that has keyboard support according to ARIA specifications",
+      "excerpt": "构建一个完全可访问的手风琴组件，该组件根据 ARIA 规范具有键盘支持",
       "title": "Accordion III"
     },
     "metadata": {
@@ -134,8 +134,8 @@
   },
   {
     "info": {
-      "excerpt": "Build an analog clock where the hands update and move like a real clock",
-      "title": "Analog Clock"
+      "excerpt": "构建一个模拟时钟，其指针像真实时钟一样更新和移动",
+      "title": "模拟时钟"
     },
     "metadata": {
       "access": "premium",
@@ -194,7 +194,7 @@
   },
   {
     "info": {
-      "excerpt": "Build an auth code input component that allows users to enter a 6-digit authorization code",
+      "excerpt": "构建一个身份验证码输入组件，允许用户输入 6 位授权码",
       "title": "Auth Code Input"
     },
     "metadata": {
@@ -233,8 +233,8 @@
   },
   {
     "info": {
-      "excerpt": "Build a widget that fetches birth year data from an API and plot it on a histogram",
-      "title": "Birth Year Histogram"
+      "excerpt": "构建一个小部件，从 API 获取出生年份数据，并在直方图上绘制它",
+      "title": "出生年份直方图"
     },
     "metadata": {
       "access": "premium",
@@ -282,8 +282,8 @@
   },
   {
     "info": {
-      "excerpt": "Build a game for two players who take turns to drop colored discs from the top into a vertically suspended board/grid",
-      "title": "Connect Four"
+      "excerpt": "为两名玩家构建一个游戏，他们轮流从顶部将彩色圆盘放入垂直悬挂的棋盘/网格中。",
+      "title": "四子棋"
     },
     "metadata": {
       "access": "premium",
@@ -331,8 +331,8 @@
   },
   {
     "info": {
-      "excerpt": "Build a contact form which submits user feedback and contact details to a back end API",
-      "title": "Contact Form"
+      "excerpt": "构建一个联系表单，将用户的反馈和联系方式提交到后端 API",
+      "title": "联系表单"
     },
     "metadata": {
       "access": "free",
@@ -394,8 +394,8 @@
   },
   {
     "info": {
-      "excerpt": "Build a simple counter that increments whenever a button is clicked",
-      "title": "Counter"
+      "excerpt": "构建一个简单的计数器，每当点击按钮时递增",
+      "title": "计数器"
     },
     "metadata": {
       "access": "free",
@@ -455,8 +455,8 @@
   },
   {
     "info": {
-      "excerpt": "Build a users data table with pagination features",
-      "title": "Data Table"
+      "excerpt": "构建一个具有分页功能的users数据表",
+      "title": "数据表"
     },
     "metadata": {
       "access": "free",
@@ -497,8 +497,8 @@
   },
   {
     "info": {
-      "excerpt": "Build a users data table with sorting features",
-      "title": "Data Table II"
+      "excerpt": "构建一个具有排序功能的用户数据表",
+      "title": "数据表 II"
     },
     "metadata": {
       "access": "premium",
@@ -537,8 +537,8 @@
   },
   {
     "info": {
-      "excerpt": "Build a generalized data table with pagination and sorting features",
-      "title": "Data Table III"
+      "excerpt": "构建一个具有分页和排序功能的通用数据表",
+      "title": "数据表 III"
     },
     "metadata": {
       "access": "premium",
@@ -577,8 +577,8 @@
   },
   {
     "info": {
-      "excerpt": "Build a generalized data table with pagination, sorting and filtering features",
-      "title": "Data Table IV"
+      "excerpt": "构建一个具有分页、排序和过滤功能的通用数据表",
+      "title": "数据表 IV"
     },
     "metadata": {
       "access": "premium",
@@ -617,8 +617,8 @@
   },
   {
     "info": {
-      "excerpt": "Build a dice roller app that simulates the results of rolling 6-sided dice",
-      "title": "Dice Roller"
+      "excerpt": "构建一个骰子滚动器应用程序，模拟掷 6 面骰子的结果",
+      "title": "骰子滚动器"
     },
     "metadata": {
       "access": "standard",
@@ -668,8 +668,8 @@
   },
   {
     "info": {
-      "excerpt": "Build a 7-segment digital clock that shows the current time",
-      "title": "Digital Clock"
+      "excerpt": "构建一个显示当前时间的 7 段数码时钟。",
+      "title": "数字时钟"
     },
     "metadata": {
       "access": "standard",
@@ -726,8 +726,8 @@
   },
   {
     "info": {
-      "excerpt": "Build a file explorer component to navigate files and directories in a tree-like hierarchical viewer",
-      "title": "File Explorer"
+      "excerpt": "构建一个文件管理器组件，以树状层级视图的形式浏览文件和目录",
+      "title": "文件管理器"
     },
     "metadata": {
       "access": "standard",
@@ -774,8 +774,8 @@
   },
   {
     "info": {
-      "excerpt": "Build a semi-accessible file explorer component that has the right ARIA roles, states, and properties",
-      "title": "File Explorer II"
+      "excerpt": "构建一个半可访问的文件管理器组件，该组件具有正确的 ARIA 角色、状态和属性",
+      "title": "文件管理器 II"
     },
     "metadata": {
       "access": "premium",
@@ -817,8 +817,8 @@
   },
   {
     "info": {
-      "excerpt": "Build a file explorer component using a flat DOM structure",
-      "title": "File Explorer III"
+      "excerpt": "使用扁平 DOM 结构构建文件浏览器组件",
+      "title": "文件浏览器 III"
     },
     "metadata": {
       "access": "premium",
@@ -860,8 +860,8 @@
   },
   {
     "info": {
-      "excerpt": "Build a component that books a flight for specified dates",
-      "title": "Flight Booker"
+      "excerpt": "构建一个为指定日期预订航班的组件",
+      "title": "机票预订"
     },
     "metadata": {
       "access": "premium",
@@ -913,8 +913,8 @@
   },
   {
     "info": {
-      "excerpt": "Generate a table of numbers given the rows and columns",
-      "title": "Generate Table"
+      "excerpt": "根据行数和列数生成一个数字表格",
+      "title": "生成表格"
     },
     "metadata": {
       "access": "premium",
@@ -967,8 +967,8 @@
   },
   {
     "info": {
-      "excerpt": "Build a grid of lights where the lights deactivate in the reverse order they were activated",
-      "title": "Grid Lights"
+      "excerpt": "构建一个灯光网格，灯光以与激活相反的顺序停用",
+      "title": "网格灯"
     },
     "metadata": {
       "access": "premium",
@@ -1021,8 +1021,8 @@
   },
   {
     "info": {
-      "excerpt": "Build the famous holy grail layout consisting of a header, 3 columns, and a footer",
-      "title": "Holy Grail"
+      "excerpt": "构建著名的圣杯布局，它由页眉、3 列和页脚组成",
+      "title": "圣杯布局"
     },
     "metadata": {
       "access": "free",
@@ -1081,8 +1081,8 @@
   },
   {
     "info": {
-      "excerpt": "Build an image carousel that displays a sequence of images",
-      "title": "Image Carousel"
+      "excerpt": "构建一个显示一系列图片的图片轮播。",
+      "title": "图片轮播"
     },
     "metadata": {
       "access": "standard",
@@ -1133,8 +1133,8 @@
   },
   {
     "info": {
-      "excerpt": "Build an image carousel that smoothly transitions between images",
-      "title": "Image Carousel II"
+      "excerpt": "构建一个在图像之间平滑过渡的图像轮播",
+      "title": "图片轮播 II"
     },
     "metadata": {
       "access": "premium",
@@ -1184,8 +1184,8 @@
   },
   {
     "info": {
-      "excerpt": "Build an image carousel that smoothly transitions between images that has a minimal DOM footprint",
-      "title": "Image Carousel III"
+      "excerpt": "构建一个图片轮播，在图片之间平滑过渡，并且 DOM 占用空间最小化",
+      "title": "图片轮播 III"
     },
     "metadata": {
       "access": "premium",
@@ -1231,8 +1231,8 @@
   },
   {
     "info": {
-      "excerpt": "Build a job board that displays the latest job postings from Hacker News",
-      "title": "Job Board"
+      "excerpt": "构建一个招聘版，显示来自 Hacker News 的最新招聘信息",
+      "title": "招聘版"
     },
     "metadata": {
       "access": "standard",
@@ -1292,8 +1292,8 @@
   },
   {
     "info": {
-      "excerpt": "Build a Like button that changes appearance based on the states",
-      "title": "Like Button"
+      "excerpt": "构建一个点赞按钮，其外观根据状态而变化",
+      "title": "点赞按钮"
     },
     "metadata": {
       "access": "standard",
@@ -1347,8 +1347,8 @@
   },
   {
     "info": {
-      "excerpt": "Build a memory game where the player needs to match pairs of cards",
-      "title": "Memory Game"
+      "excerpt": "构建一个记忆游戏，玩家需要匹配成对的卡片",
+      "title": "记忆游戏"
     },
     "metadata": {
       "access": "premium",
@@ -1398,8 +1398,8 @@
   },
   {
     "info": {
-      "excerpt": "Build a reusable modal dialog component that can be opened and closed",
-      "title": "Modal Dialog"
+      "excerpt": "构建一个可重复使用的模态对话框组件，可以打开和关闭",
+      "title": "模态对话框"
     },
     "metadata": {
       "access": "standard",
@@ -1442,8 +1442,8 @@
   },
   {
     "info": {
-      "excerpt": "Build a semi-accessible modal dialog component that has the right ARIA roles, states, and properties",
-      "title": "Modal Dialog II"
+      "excerpt": "构建一个半可访问的模态对话框组件，该组件具有正确的 ARIA 角色、状态和属性",
+      "title": "模态对话框 II"
     },
     "metadata": {
       "access": "premium",
@@ -1486,8 +1486,8 @@
   },
   {
     "info": {
-      "excerpt": "Build a moderately-accessible modal dialog component that supports common ways to close the dialog",
-      "title": "Modal Dialog III"
+      "excerpt": "构建一个适度可访问的模态对话框组件，该组件支持关闭对话框的常用方法",
+      "title": "模态对话框 III"
     },
     "metadata": {
       "access": "premium",
@@ -1529,8 +1529,8 @@
   },
   {
     "info": {
-      "excerpt": "Build a fully-accessible modal dialog component that supports all required keyboard interactions",
-      "title": "Modal Dialog IV"
+      "excerpt": "构建一个完全可访问的模态对话框组件，该组件支持所有必需的键盘交互",
+      "title": "模态对话框 IV"
     },
     "metadata": {
       "access": "premium",
@@ -1570,8 +1570,8 @@
   },
   {
     "info": {
-      "excerpt": "Build a calculator that computes the monthly mortgage for a loan",
-      "title": "Mortgage Calculator"
+      "excerpt": "构建一个计算贷款月供的计算器",
+      "title": "抵押贷款计算器"
     },
     "metadata": {
       "access": "standard",
@@ -1625,8 +1625,8 @@
   },
   {
     "info": {
-      "excerpt": "Build a nested checkboxes component with parent-child selection logic",
-      "title": "Nested Checkboxes"
+      "excerpt": "构建一个带有父子选择逻辑的嵌套复选框组件",
+      "title": "嵌套复选框"
     },
     "metadata": {
       "access": "standard",
@@ -1665,8 +1665,8 @@
   },
   {
     "info": {
-      "excerpt": "Build a pixel art drawing tool where users can paint pixels with selected colors",
-      "title": "Pixel Art"
+      "excerpt": "构建一个像素画绘图工具，用户可以用选定的颜色绘制像素",
+      "title": "像素画"
     },
     "metadata": {
       "access": "premium",
@@ -1716,8 +1716,8 @@
   },
   {
     "info": {
-      "excerpt": "Build a progress bar component that shows the percentage completion of an operation",
-      "title": "Progress Bar"
+      "excerpt": "构建一个进度条组件，该组件显示操作的百分比完成情况",
+      "title": "进度条"
     },
     "metadata": {
       "access": "premium",
@@ -1768,8 +1768,8 @@
   },
   {
     "info": {
-      "excerpt": "Build a list of progress bars that fill up gradually when they are added to the page",
-      "title": "Progress Bars"
+      "excerpt": "构建一个进度条列表，当它们被添加到页面时逐渐填充。",
+      "title": "进度条"
     },
     "metadata": {
       "access": "standard",
@@ -1811,8 +1811,8 @@
   },
   {
     "info": {
-      "excerpt": "Build a list of progress bars that fill up gradually in sequence, one at a time",
-      "title": "Progress Bars II"
+      "excerpt": "构建一个进度条列表，这些进度条按顺序逐渐填充，一次一个",
+      "title": "进度条 II"
     },
     "metadata": {
       "access": "premium",
@@ -1854,8 +1854,8 @@
   },
   {
     "info": {
-      "excerpt": "Build a list of progress bars that fill up gradually concurrently, up to a limit of 3",
-      "title": "Progress Bars III"
+      "excerpt": "构建一个进度条列表，这些进度条最多可以同时填充 3 个。",
+      "title": "进度条 III"
     },
     "metadata": {
       "access": "premium",
@@ -1897,8 +1897,8 @@
   },
   {
     "info": {
-      "excerpt": "Build a list of progress bars that fill up gradually concurrently, up to a limit of 3 and allows for pausing and resuming",
-      "title": "Progress Bars IV"
+      "excerpt": "构建一个进度条列表，这些进度条同时逐渐填充，最多 3 个，并允许暂停和恢复",
+      "title": "进度条 IV"
     },
     "metadata": {
       "access": "premium",
@@ -1938,8 +1938,8 @@
   },
   {
     "info": {
-      "excerpt": "Build an interface where users can drag to select multiple cells within a grid",
-      "title": "Selectable Cells"
+      "excerpt": "构建一个界面，用户可以在网格内拖动以选择多个单元格",
+      "title": "可选择的单元格"
     },
     "metadata": {
       "access": "premium",
@@ -1975,8 +1975,8 @@
   },
   {
     "info": {
-      "excerpt": "Build a signup form that does validation on user details and submits to a back end API",
-      "title": "Signup Form"
+      "excerpt": "构建一个注册表单，该表单对用户详细信息进行验证并提交到后端 API",
+      "title": "注册表单"
     },
     "metadata": {
       "access": "premium",
@@ -2019,8 +2019,8 @@
   },
   {
     "info": {
-      "excerpt": "Build a star rating component that shows a row of star icons for users to select the number of filled stars corresponding to the rating",
-      "title": "Star Rating"
+      "excerpt": "构建一个星级评分组件，该组件显示一排星形图标，供用户选择与评分相对应的已填充星形数量。",
+      "title": "星级评分"
     },
     "metadata": {
       "access": "standard",
@@ -2074,8 +2074,8 @@
   },
   {
     "info": {
-      "excerpt": "Build a stopwatch widget that can measure how much time has passed",
-      "title": "Stopwatch"
+      "excerpt": "构建一个可以测量经过时间的秒表小部件",
+      "title": "秒表"
     },
     "metadata": {
       "access": "standard",
@@ -2134,7 +2134,7 @@
   },
   {
     "info": {
-      "excerpt": "Build a tabs component that displays a list of tab elements and one associated panel of content at a time",
+      "excerpt": "构建一个选项卡组件，该组件一次显示一个选项卡元素列表和一个关联的内容面板",
       "title": "Tabs"
     },
     "metadata": {
@@ -2191,7 +2191,7 @@
   },
   {
     "info": {
-      "excerpt": "Build a semi-accessible tabs component that has the right ARIA roles, states, and properties",
+      "excerpt": "构建一个半可访问的标签组件，该组件具有正确的 ARIA 角色、状态和属性",
       "title": "Tabs II"
     },
     "metadata": {
@@ -2247,7 +2247,7 @@
   },
   {
     "info": {
-      "excerpt": "Build a fully accessible tabs component that has keyboard support according to ARIA specifications",
+      "excerpt": "构建一个完全可访问的选项卡组件，该组件根据 ARIA 规范具有键盘支持",
       "title": "Tabs III"
     },
     "metadata": {
@@ -2296,8 +2296,8 @@
   },
   {
     "info": {
-      "excerpt": "Build a temperature converter widget that converts temperature values between Celsius and Fahrenheit",
-      "title": "Temperature Converter"
+      "excerpt": "构建一个温度转换器小部件，该小部件可在摄氏度和华氏度之间转换温度值",
+      "title": "温度转换器"
     },
     "metadata": {
       "access": "premium",
@@ -2350,8 +2350,8 @@
   },
   {
     "info": {
-      "excerpt": "Build a tic-tac-toe game that is playable by two players",
-      "title": "Tic-tac-toe"
+      "excerpt": "构建一个可供两名玩家玩井字棋游戏",
+      "title": "井字棋"
     },
     "metadata": {
       "access": "standard",
@@ -2411,8 +2411,8 @@
   },
   {
     "info": {
-      "excerpt": "Build an N x N tic-tac-toe game that requires M consecutive marks to win",
-      "title": "Tic-tac-toe II"
+      "excerpt": "构建一个 N x N 的井字棋游戏，需要 M 个连续的标记才能获胜",
+      "title": "井字棋 II"
     },
     "metadata": {
       "access": "premium",
@@ -2469,8 +2469,8 @@
   },
   {
     "info": {
-      "excerpt": "Build a Todo list that lets users add new tasks and delete existing tasks",
-      "title": "Todo List"
+      "excerpt": "构建一个待办事项列表，让用户可以添加新任务和删除现有任务",
+      "title": "待办事项列表"
     },
     "metadata": {
       "access": "free",
@@ -2532,8 +2532,8 @@
   },
   {
     "info": {
-      "excerpt": "Build a traffic light where the lights switch from green to yellow to red after predetermined intervals and loop indefinitely",
-      "title": "Traffic Light"
+      "excerpt": "构建一个红绿灯，在预定的时间间隔后，灯从绿色切换到黄色再到红色，并无限循环。",
+      "title": "红绿灯"
     },
     "metadata": {
       "access": "free",
@@ -2591,8 +2591,8 @@
   },
   {
     "info": {
-      "excerpt": "Build a component that allows transferring of items between two lists",
-      "title": "Transfer List"
+      "excerpt": "构建一个允许在两个列表之间转移项目的组件",
+      "title": "穿梭列表"
     },
     "metadata": {
       "access": "standard",
@@ -2647,7 +2647,7 @@
   },
   {
     "info": {
-      "excerpt": "Build a component that allows transferring of items between two lists, bulk selection/unselection of items, and adding of new items",
+      "excerpt": "构建一个组件，允许在两个列表之间转移项目，批量选择/取消选择项目，以及添加新项目",
       "title": "Transfer List II"
     },
     "metadata": {
@@ -2701,7 +2701,7 @@
   },
   {
     "info": {
-      "excerpt": "Build a component that resembles a Tweet from Twitter",
+      "excerpt": "构建一个类似于Twitter的Tweet组件",
       "title": "Tweet"
     },
     "metadata": {
@@ -2755,8 +2755,8 @@
   },
   {
     "info": {
-      "excerpt": "Build a counter with a history of the values and ability to undo/redo actions",
-      "title": "Undoable Counter"
+      "excerpt": "构建一个具有值历史记录的计数器，并能够撤消/重做操作",
+      "title": "可撤销计数器"
     },
     "metadata": {
       "access": "premium",
@@ -2805,8 +2805,8 @@
   },
   {
     "info": {
-      "excerpt": "Build a UI to filter, create, update, and delete users",
-      "title": "Users Database"
+      "excerpt": "构建一个UI来过滤、创建、更新和删除用户",
+      "title": "用户数据库"
     },
     "metadata": {
       "access": "premium",
@@ -2844,8 +2844,8 @@
   },
   {
     "info": {
-      "excerpt": "Build a popular arcade game where players attempt to hit moles as they pop up from holes in a board",
-      "title": "Whack-A-Mole"
+      "excerpt": "构建一个流行的街机游戏，玩家试图击中从板上的洞中弹出的地鼠",
+      "title": "打地鼠"
     },
     "metadata": {
       "access": "premium",
@@ -2897,7 +2897,7 @@
   },
   {
     "info": {
-      "excerpt": "Build Wordle, the word-guessing game that took the world by storm",
+      "excerpt": "构建Wordle，这款风靡全球的猜词游戏",
       "title": "Wordle"
     },
     "metadata": {

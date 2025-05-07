@@ -1,7 +1,7 @@
 [
   {
     "info": {
-      "excerpt": "Build an accordion component that a displays a list of vertically stacked sections with each containing a title and content snippet",
+      "excerpt": "构建一个手风琴组件，该组件显示一个垂直堆叠的部分列表，每个部分包含一个标题和内容片段",
       "title": "Accordion"
     },
     "metadata": {
@@ -48,7 +48,7 @@
   },
   {
     "info": {
-      "excerpt": "Build an accessible accordion component that has the right ARIA roles, states, and properties",
+      "excerpt": "构建一个具有正确 ARIA 角色、状态和属性的可访问手风琴组件",
       "title": "Accordion II"
     },
     "metadata": {
@@ -94,7 +94,7 @@
   },
   {
     "info": {
-      "excerpt": "Build a fully accessible accordion component that has keyboard support according to ARIA specifications",
+      "excerpt": "构建一个完全可访问的手风琴组件，该组件根据 ARIA 规范具有键盘支持",
       "title": "Accordion III"
     },
     "metadata": {
@@ -129,66 +129,6 @@
       "subtitle": null,
       "topics": [
         "a11y"
-      ]
-    }
-  },
-  {
-    "info": {
-      "excerpt": "Build an analog clock where the hands update and move like a real clock",
-      "title": "Analog Clock"
-    },
-    "metadata": {
-      "access": "premium",
-      "author": "yangshun",
-      "companies": [
-        "lyft"
-      ],
-      "created": 1670198400,
-      "difficulty": "medium",
-      "duration": 20,
-      "featured": false,
-      "format": "user-interface",
-      "frameworkDefault": "react",
-      "frameworks": [
-        {
-          "framework": "react",
-          "href": "/questions/user-interface/analog-clock/react"
-        },
-        {
-          "framework": "vanilla",
-          "href": "/questions/user-interface/analog-clock/vanilla"
-        },
-        {
-          "framework": "angular",
-          "href": "/questions/user-interface/analog-clock/angular"
-        },
-        {
-          "framework": "vue",
-          "href": "/questions/user-interface/analog-clock/vue"
-        },
-        {
-          "framework": "svelte",
-          "href": "/questions/user-interface/analog-clock/svelte"
-        }
-      ],
-      "href": "/questions/user-interface/analog-clock",
-      "importance": "low",
-      "languages": [
-        "html",
-        "css",
-        "js"
-      ],
-      "nextQuestions": [],
-      "published": true,
-      "ranking": 100,
-      "similarQuestions": [
-        "digital-clock"
-      ],
-      "slug": "analog-clock",
-      "subtitle": null,
-      "topics": [
-        "a11y",
-        "async"
       ]
     }
   },
@@ -430,7 +370,7 @@
   },
   {
     "info": {
-      "excerpt": "Build an auth code input component that allows users to enter a 6-digit authorization code",
+      "excerpt": "构建一个身份验证码输入组件，允许用户输入 6 位授权码",
       "title": "Auth Code Input"
     },
     "metadata": {
@@ -503,55 +443,6 @@
       "topics": [
         "oop"
       ]
-    }
-  },
-  {
-    "info": {
-      "excerpt": "Build a widget that fetches birth year data from an API and plot it on a histogram",
-      "title": "Birth Year Histogram"
-    },
-    "metadata": {
-      "access": "premium",
-      "author": null,
-      "companies": [],
-      "created": 1723766400,
-      "difficulty": "medium",
-      "duration": 30,
-      "featured": false,
-      "format": "user-interface",
-      "frameworkDefault": "react",
-      "frameworks": [
-        {
-          "framework": "react",
-          "href": "/questions/user-interface/birth-year-histogram/react"
-        },
-        {
-          "framework": "angular",
-          "href": "/questions/user-interface/birth-year-histogram/angular"
-        },
-        {
-          "framework": "vue",
-          "href": "/questions/user-interface/birth-year-histogram/vue"
-        },
-        {
-          "framework": "svelte",
-          "href": "/questions/user-interface/birth-year-histogram/svelte"
-        }
-      ],
-      "href": "/questions/user-interface/birth-year-histogram",
-      "importance": "low",
-      "languages": [
-        "html",
-        "css",
-        "js"
-      ],
-      "nextQuestions": [],
-      "published": true,
-      "ranking": 100,
-      "similarQuestions": [],
-      "slug": "birth-year-histogram",
-      "subtitle": null,
-      "topics": []
     }
   },
   {
@@ -755,341 +646,6 @@
   },
   {
     "info": {
-      "excerpt": "Build a game for two players who take turns to drop colored discs from the top into a vertically suspended board/grid",
-      "title": "Connect Four"
-    },
-    "metadata": {
-      "access": "premium",
-      "author": null,
-      "companies": [],
-      "created": 1719964800,
-      "difficulty": "medium",
-      "duration": 30,
-      "featured": false,
-      "format": "user-interface",
-      "frameworkDefault": "react",
-      "frameworks": [
-        {
-          "framework": "react",
-          "href": "/questions/user-interface/connect-four/react"
-        },
-        {
-          "framework": "angular",
-          "href": "/questions/user-interface/connect-four/angular"
-        },
-        {
-          "framework": "vue",
-          "href": "/questions/user-interface/connect-four/vue"
-        },
-        {
-          "framework": "svelte",
-          "href": "/questions/user-interface/connect-four/svelte"
-        }
-      ],
-      "href": "/questions/user-interface/connect-four",
-      "importance": "low",
-      "languages": [
-        "html",
-        "js",
-        "css"
-      ],
-      "nextQuestions": [],
-      "published": true,
-      "ranking": 100,
-      "similarQuestions": [],
-      "slug": "connect-four",
-      "subtitle": null,
-      "topics": []
-    }
-  },
-  {
-    "info": {
-      "excerpt": "Build a contact form which submits user feedback and contact details to a back end API",
-      "title": "Contact Form"
-    },
-    "metadata": {
-      "access": "free",
-      "author": "yangshun",
-      "companies": [
-        "lyft",
-        "amazon",
-        "openai",
-        "reddit"
-      ],
-      "created": 1658880000,
-      "difficulty": "easy",
-      "duration": 15,
-      "featured": true,
-      "format": "user-interface",
-      "frameworkDefault": "react",
-      "frameworks": [
-        {
-          "framework": "react",
-          "href": "/questions/user-interface/contact-form/react"
-        },
-        {
-          "framework": "vanilla",
-          "href": "/questions/user-interface/contact-form/vanilla"
-        },
-        {
-          "framework": "angular",
-          "href": "/questions/user-interface/contact-form/angular"
-        },
-        {
-          "framework": "vue",
-          "href": "/questions/user-interface/contact-form/vue"
-        },
-        {
-          "framework": "svelte",
-          "href": "/questions/user-interface/contact-form/svelte"
-        }
-      ],
-      "href": "/questions/user-interface/contact-form",
-      "importance": "high",
-      "languages": [
-        "html"
-      ],
-      "nextQuestions": [
-        "flatten",
-        "signup-form"
-      ],
-      "published": true,
-      "ranking": 100,
-      "similarQuestions": [
-        "signup-form"
-      ],
-      "slug": "contact-form",
-      "subtitle": null,
-      "topics": [
-        "a11y"
-      ]
-    }
-  },
-  {
-    "info": {
-      "excerpt": "Build a simple counter that increments whenever a button is clicked",
-      "title": "Counter"
-    },
-    "metadata": {
-      "access": "free",
-      "author": "yangshun",
-      "companies": [
-        "amazon"
-      ],
-      "created": 1656028800,
-      "difficulty": "easy",
-      "duration": 5,
-      "featured": false,
-      "format": "user-interface",
-      "frameworkDefault": "react",
-      "frameworks": [
-        {
-          "framework": "react",
-          "href": "/questions/user-interface/counter/react"
-        },
-        {
-          "framework": "vanilla",
-          "href": "/questions/user-interface/counter/vanilla"
-        },
-        {
-          "framework": "angular",
-          "href": "/questions/user-interface/counter/angular"
-        },
-        {
-          "framework": "vue",
-          "href": "/questions/user-interface/counter/vue"
-        },
-        {
-          "framework": "svelte",
-          "href": "/questions/user-interface/counter/svelte"
-        }
-      ],
-      "href": "/questions/user-interface/counter",
-      "importance": "low",
-      "languages": [
-        "html",
-        "js"
-      ],
-      "nextQuestions": [
-        "flatten",
-        "todo-list",
-        "contact-form"
-      ],
-      "published": true,
-      "ranking": 100,
-      "similarQuestions": [
-        "todo-list",
-        "temperature-converter"
-      ],
-      "slug": "counter",
-      "subtitle": null,
-      "topics": []
-    }
-  },
-  {
-    "info": {
-      "excerpt": "Build a users data table with pagination features",
-      "title": "Data Table"
-    },
-    "metadata": {
-      "access": "free",
-      "author": "yangshun",
-      "companies": [
-        "palantir",
-        "amazon",
-        "stripe"
-      ],
-      "created": 1723766400,
-      "difficulty": "medium",
-      "duration": 20,
-      "featured": false,
-      "format": "user-interface",
-      "frameworkDefault": "react",
-      "frameworks": [
-        {
-          "framework": "react",
-          "href": "/questions/user-interface/data-table/react"
-        }
-      ],
-      "href": "/questions/user-interface/data-table",
-      "importance": "low",
-      "languages": [
-        "html",
-        "js"
-      ],
-      "nextQuestions": [
-        "data-table-ii"
-      ],
-      "published": true,
-      "ranking": 100,
-      "similarQuestions": [],
-      "slug": "data-table",
-      "subtitle": null,
-      "topics": []
-    }
-  },
-  {
-    "info": {
-      "excerpt": "Build a users data table with sorting features",
-      "title": "Data Table II"
-    },
-    "metadata": {
-      "access": "premium",
-      "author": "yangshun",
-      "companies": [
-        "palantir",
-        "amazon",
-        "stripe"
-      ],
-      "created": 1723766400,
-      "difficulty": "medium",
-      "duration": 20,
-      "featured": false,
-      "format": "user-interface",
-      "frameworkDefault": "react",
-      "frameworks": [
-        {
-          "framework": "react",
-          "href": "/questions/user-interface/data-table-ii/react"
-        }
-      ],
-      "href": "/questions/user-interface/data-table-ii",
-      "importance": "low",
-      "languages": [
-        "html",
-        "js"
-      ],
-      "nextQuestions": [],
-      "published": true,
-      "ranking": 100,
-      "similarQuestions": [],
-      "slug": "data-table-ii",
-      "subtitle": null,
-      "topics": []
-    }
-  },
-  {
-    "info": {
-      "excerpt": "Build a generalized data table with pagination and sorting features",
-      "title": "Data Table III"
-    },
-    "metadata": {
-      "access": "premium",
-      "author": "yangshun",
-      "companies": [
-        "palantir",
-        "amazon",
-        "stripe"
-      ],
-      "created": 1723766400,
-      "difficulty": "hard",
-      "duration": 30,
-      "featured": false,
-      "format": "user-interface",
-      "frameworkDefault": "react",
-      "frameworks": [
-        {
-          "framework": "react",
-          "href": "/questions/user-interface/data-table-iii/react"
-        }
-      ],
-      "href": "/questions/user-interface/data-table-iii",
-      "importance": "low",
-      "languages": [
-        "html",
-        "js"
-      ],
-      "nextQuestions": [],
-      "published": true,
-      "ranking": 100,
-      "similarQuestions": [],
-      "slug": "data-table-iii",
-      "subtitle": null,
-      "topics": []
-    }
-  },
-  {
-    "info": {
-      "excerpt": "Build a generalized data table with pagination, sorting and filtering features",
-      "title": "Data Table IV"
-    },
-    "metadata": {
-      "access": "premium",
-      "author": "yangshun",
-      "companies": [
-        "palantir",
-        "amazon",
-        "stripe"
-      ],
-      "created": 1723766400,
-      "difficulty": "hard",
-      "duration": 40,
-      "featured": false,
-      "format": "user-interface",
-      "frameworkDefault": "react",
-      "frameworks": [
-        {
-          "framework": "react",
-          "href": "/questions/user-interface/data-table-iv/react"
-        }
-      ],
-      "href": "/questions/user-interface/data-table-iv",
-      "importance": "low",
-      "languages": [
-        "html",
-        "js"
-      ],
-      "nextQuestions": [],
-      "published": true,
-      "ranking": 100,
-      "similarQuestions": [],
-      "slug": "data-table-iv",
-      "subtitle": null,
-      "topics": []
-    }
-  },
-  {
-    "info": {
       "excerpt": "实现一个带有取消方法以取消延迟调用和立即调用它们的 flush 方法的 debounce 函数",
       "title": "Debounce II"
     },
@@ -1130,115 +686,6 @@
       "slug": "debounce-ii",
       "subtitle": null,
       "topics": [
-        "async"
-      ]
-    }
-  },
-  {
-    "info": {
-      "excerpt": "Build a dice roller app that simulates the results of rolling 6-sided dice",
-      "title": "Dice Roller"
-    },
-    "metadata": {
-      "access": "standard",
-      "author": null,
-      "companies": [],
-      "created": 1719964800,
-      "difficulty": "medium",
-      "duration": 20,
-      "featured": false,
-      "format": "user-interface",
-      "frameworkDefault": "react",
-      "frameworks": [
-        {
-          "framework": "react",
-          "href": "/questions/user-interface/dice-roller/react"
-        },
-        {
-          "framework": "angular",
-          "href": "/questions/user-interface/dice-roller/angular"
-        },
-        {
-          "framework": "vue",
-          "href": "/questions/user-interface/dice-roller/vue"
-        },
-        {
-          "framework": "svelte",
-          "href": "/questions/user-interface/dice-roller/svelte"
-        }
-      ],
-      "href": "/questions/user-interface/dice-roller",
-      "importance": "low",
-      "languages": [
-        "html",
-        "css",
-        "js"
-      ],
-      "nextQuestions": [],
-      "published": true,
-      "ranking": 100,
-      "similarQuestions": [],
-      "slug": "dice-roller",
-      "subtitle": null,
-      "topics": [
-        "a11y"
-      ]
-    }
-  },
-  {
-    "info": {
-      "excerpt": "Build a 7-segment digital clock that shows the current time",
-      "title": "Digital Clock"
-    },
-    "metadata": {
-      "access": "standard",
-      "author": "yangshun",
-      "companies": [
-        "lyft"
-      ],
-      "created": 1656892800,
-      "difficulty": "medium",
-      "duration": 25,
-      "featured": true,
-      "format": "user-interface",
-      "frameworkDefault": "react",
-      "frameworks": [
-        {
-          "framework": "react",
-          "href": "/questions/user-interface/digital-clock/react"
-        },
-        {
-          "framework": "vanilla",
-          "href": "/questions/user-interface/digital-clock/vanilla"
-        },
-        {
-          "framework": "angular",
-          "href": "/questions/user-interface/digital-clock/angular"
-        },
-        {
-          "framework": "vue",
-          "href": "/questions/user-interface/digital-clock/vue"
-        },
-        {
-          "framework": "svelte",
-          "href": "/questions/user-interface/digital-clock/svelte"
-        }
-      ],
-      "href": "/questions/user-interface/digital-clock",
-      "importance": "medium",
-      "languages": [
-        "html",
-        "css",
-        "js"
-      ],
-      "nextQuestions": [],
-      "published": true,
-      "ranking": 100,
-      "similarQuestions": [],
-      "slug": "digital-clock",
-      "subtitle": null,
-      "topics": [
-        "a11y",
         "async"
       ]
     }
@@ -1347,193 +794,6 @@
   },
   {
     "info": {
-      "excerpt": "Build a file explorer component to navigate files and directories in a tree-like hierarchical viewer",
-      "title": "File Explorer"
-    },
-    "metadata": {
-      "access": "standard",
-      "author": "yangshun",
-      "companies": [
-        "amazon",
-        "atlassian",
-        "snap",
-        "tiktok"
-      ],
-      "created": 1723766400,
-      "difficulty": "medium",
-      "duration": 20,
-      "featured": false,
-      "format": "user-interface",
-      "frameworkDefault": "react",
-      "frameworks": [
-        {
-          "framework": "react",
-          "href": "/questions/user-interface/file-explorer/react"
-        }
-      ],
-      "href": "/questions/user-interface/file-explorer",
-      "importance": "medium",
-      "languages": [
-        "html",
-        "js"
-      ],
-      "nextQuestions": [
-        "file-explorer-ii",
-        "file-explorer-iii"
-      ],
-      "published": true,
-      "ranking": 100,
-      "similarQuestions": [
-        "nested-checkboxes"
-      ],
-      "slug": "file-explorer",
-      "subtitle": null,
-      "topics": [
-        "a11y"
-      ]
-    }
-  },
-  {
-    "info": {
-      "excerpt": "Build a semi-accessible file explorer component that has the right ARIA roles, states, and properties",
-      "title": "File Explorer II"
-    },
-    "metadata": {
-      "access": "premium",
-      "author": "yangshun",
-      "companies": [
-        "amazon",
-        "atlassian",
-        "snap",
-        "tiktok"
-      ],
-      "created": 1723766400,
-      "difficulty": "medium",
-      "duration": 20,
-      "featured": false,
-      "format": "user-interface",
-      "frameworkDefault": "react",
-      "frameworks": [
-        {
-          "framework": "react",
-          "href": "/questions/user-interface/file-explorer-ii/react"
-        }
-      ],
-      "href": "/questions/user-interface/file-explorer-ii",
-      "importance": "medium",
-      "languages": [
-        "html",
-        "js"
-      ],
-      "nextQuestions": [
-        "file-explorer-iii"
-      ],
-      "published": true,
-      "ranking": 100,
-      "similarQuestions": [],
-      "slug": "file-explorer-ii",
-      "subtitle": null,
-      "topics": []
-    }
-  },
-  {
-    "info": {
-      "excerpt": "Build a file explorer component using a flat DOM structure",
-      "title": "File Explorer III"
-    },
-    "metadata": {
-      "access": "premium",
-      "author": "yangshun",
-      "companies": [
-        "amazon",
-        "atlassian",
-        "snap",
-        "tiktok"
-      ],
-      "created": 1723766400,
-      "difficulty": "medium",
-      "duration": 20,
-      "featured": false,
-      "format": "user-interface",
-      "frameworkDefault": "react",
-      "frameworks": [
-        {
-          "framework": "react",
-          "href": "/questions/user-interface/file-explorer-iii/react"
-        }
-      ],
-      "href": "/questions/user-interface/file-explorer-iii",
-      "importance": "medium",
-      "languages": [
-        "html",
-        "js"
-      ],
-      "nextQuestions": [
-        "nested-checkboxes"
-      ],
-      "published": true,
-      "ranking": 100,
-      "similarQuestions": [],
-      "slug": "file-explorer-iii",
-      "subtitle": null,
-      "topics": []
-    }
-  },
-  {
-    "info": {
-      "excerpt": "Build a component that books a flight for specified dates",
-      "title": "Flight Booker"
-    },
-    "metadata": {
-      "access": "premium",
-      "author": "yangshun",
-      "companies": [
-        "openai",
-        "reddit"
-      ],
-      "created": 1682121600,
-      "difficulty": "easy",
-      "duration": 15,
-      "featured": false,
-      "format": "user-interface",
-      "frameworkDefault": "react",
-      "frameworks": [
-        {
-          "framework": "react",
-          "href": "/questions/user-interface/flight-booker/react"
-        },
-        {
-          "framework": "angular",
-          "href": "/questions/user-interface/flight-booker/angular"
-        },
-        {
-          "framework": "vue",
-          "href": "/questions/user-interface/flight-booker/vue"
-        },
-        {
-          "framework": "svelte",
-          "href": "/questions/user-interface/flight-booker/svelte"
-        }
-      ],
-      "href": "/questions/user-interface/flight-booker",
-      "importance": "low",
-      "languages": [
-        "html",
-        "js"
-      ],
-      "nextQuestions": [],
-      "published": true,
-      "ranking": 100,
-      "similarQuestions": [],
-      "slug": "flight-booker",
-      "subtitle": null,
-      "topics": [
-        "a11y"
-      ]
-    }
-  },
-  {
-    "info": {
       "excerpt": "实现 Function.prototype.apply() 函数，该函数使用给定的 `this` 值和作为数组的参数调用该函数",
       "title": "Function.prototype.apply"
     },
@@ -1638,60 +898,6 @@
         "function-apply"
       ],
       "slug": "function-call",
-      "subtitle": null,
-      "topics": []
-    }
-  },
-  {
-    "info": {
-      "excerpt": "Generate a table of numbers given the rows and columns",
-      "title": "Generate Table"
-    },
-    "metadata": {
-      "access": "premium",
-      "author": "yangshun",
-      "companies": [
-        "google"
-      ],
-      "created": 1675123200,
-      "difficulty": "easy",
-      "duration": 15,
-      "featured": false,
-      "format": "user-interface",
-      "frameworkDefault": "react",
-      "frameworks": [
-        {
-          "framework": "react",
-          "href": "/questions/user-interface/generate-table/react"
-        },
-        {
-          "framework": "vanilla",
-          "href": "/questions/user-interface/generate-table/vanilla"
-        },
-        {
-          "framework": "angular",
-          "href": "/questions/user-interface/generate-table/angular"
-        },
-        {
-          "framework": "vue",
-          "href": "/questions/user-interface/generate-table/vue"
-        },
-        {
-          "framework": "svelte",
-          "href": "/questions/user-interface/generate-table/svelte"
-        }
-      ],
-      "href": "/questions/user-interface/generate-table",
-      "importance": "low",
-      "languages": [
-        "html",
-        "js"
-      ],
-      "nextQuestions": [],
-      "published": true,
-      "ranking": 100,
-      "similarQuestions": [],
-      "slug": "generate-table",
       "subtitle": null,
       "topics": []
     }
@@ -1861,120 +1067,6 @@
   },
   {
     "info": {
-      "excerpt": "Build a grid of lights where the lights deactivate in the reverse order they were activated",
-      "title": "Grid Lights"
-    },
-    "metadata": {
-      "access": "premium",
-      "author": "yangshun",
-      "companies": [
-        "uber"
-      ],
-      "created": 1671148800,
-      "difficulty": "medium",
-      "duration": 20,
-      "featured": false,
-      "format": "user-interface",
-      "frameworkDefault": "react",
-      "frameworks": [
-        {
-          "framework": "react",
-          "href": "/questions/user-interface/grid-lights/react"
-        },
-        {
-          "framework": "angular",
-          "href": "/questions/user-interface/grid-lights/angular"
-        },
-        {
-          "framework": "vue",
-          "href": "/questions/user-interface/grid-lights/vue"
-        },
-        {
-          "framework": "svelte",
-          "href": "/questions/user-interface/grid-lights/svelte"
-        }
-      ],
-      "href": "/questions/user-interface/grid-lights",
-      "importance": "low",
-      "languages": [
-        "html",
-        "css",
-        "js"
-      ],
-      "nextQuestions": [],
-      "published": true,
-      "ranking": 100,
-      "similarQuestions": [],
-      "slug": "grid-lights",
-      "subtitle": null,
-      "topics": [
-        "a11y",
-        "async"
-      ]
-    }
-  },
-  {
-    "info": {
-      "excerpt": "Build the famous holy grail layout consisting of a header, 3 columns, and a footer",
-      "title": "Holy Grail"
-    },
-    "metadata": {
-      "access": "free",
-      "author": "yangshun",
-      "companies": [
-        "atlassian"
-      ],
-      "created": 1658275200,
-      "difficulty": "easy",
-      "duration": 15,
-      "featured": true,
-      "format": "user-interface",
-      "frameworkDefault": "react",
-      "frameworks": [
-        {
-          "framework": "react",
-          "href": "/questions/user-interface/holy-grail/react"
-        },
-        {
-          "framework": "vanilla",
-          "href": "/questions/user-interface/holy-grail/vanilla"
-        },
-        {
-          "framework": "angular",
-          "href": "/questions/user-interface/holy-grail/angular"
-        },
-        {
-          "framework": "vue",
-          "href": "/questions/user-interface/holy-grail/vue"
-        },
-        {
-          "framework": "svelte",
-          "href": "/questions/user-interface/holy-grail/svelte"
-        }
-      ],
-      "href": "/questions/user-interface/holy-grail",
-      "importance": "high",
-      "languages": [
-        "html",
-        "css"
-      ],
-      "nextQuestions": [
-        "flatten",
-        "todo-list",
-        "contact-form"
-      ],
-      "published": true,
-      "ranking": 100,
-      "similarQuestions": [
-        "tweet"
-      ],
-      "slug": "holy-grail",
-      "subtitle": null,
-      "topics": []
-    }
-  },
-  {
-    "info": {
       "excerpt": "实现一个将对象序列化为带有缩进的 HTML 字符串的函数",
       "title": "HTML 序列化器"
     },
@@ -2013,156 +1105,6 @@
   },
   {
     "info": {
-      "excerpt": "Build an image carousel that displays a sequence of images",
-      "title": "Image Carousel"
-    },
-    "metadata": {
-      "access": "standard",
-      "author": "yangshun",
-      "companies": [
-        "amazon",
-        "google",
-        "doordash",
-        "dropbox",
-        "microsoft",
-        "snap",
-        "squarespace",
-        "bytedance",
-        "tiktok"
-      ],
-      "created": 1723766400,
-      "difficulty": "medium",
-      "duration": 30,
-      "featured": false,
-      "format": "user-interface",
-      "frameworkDefault": "react",
-      "frameworks": [
-        {
-          "framework": "react",
-          "href": "/questions/user-interface/image-carousel/react"
-        }
-      ],
-      "href": "/questions/user-interface/image-carousel",
-      "importance": "low",
-      "languages": [
-        "html",
-        "js",
-        "css"
-      ],
-      "nextQuestions": [
-        "image-carousel-ii",
-        "image-carousel-iii"
-      ],
-      "published": true,
-      "ranking": 100,
-      "similarQuestions": [],
-      "slug": "image-carousel",
-      "subtitle": null,
-      "topics": [
-        "a11y"
-      ]
-    }
-  },
-  {
-    "info": {
-      "excerpt": "Build an image carousel that smoothly transitions between images",
-      "title": "Image Carousel II"
-    },
-    "metadata": {
-      "access": "premium",
-      "author": "yangshun",
-      "companies": [
-        "amazon",
-        "google",
-        "doordash",
-        "dropbox",
-        "microsoft",
-        "snap",
-        "squarespace",
-        "bytedance",
-        "tiktok"
-      ],
-      "created": 1723766400,
-      "difficulty": "medium",
-      "duration": 30,
-      "featured": false,
-      "format": "user-interface",
-      "frameworkDefault": "react",
-      "frameworks": [
-        {
-          "framework": "react",
-          "href": "/questions/user-interface/image-carousel-ii/react"
-        }
-      ],
-      "href": "/questions/user-interface/image-carousel-ii",
-      "importance": "low",
-      "languages": [
-        "html",
-        "js",
-        "css"
-      ],
-      "nextQuestions": [
-        "image-carousel-iii"
-      ],
-      "published": true,
-      "ranking": 100,
-      "similarQuestions": [],
-      "slug": "image-carousel-ii",
-      "subtitle": null,
-      "topics": [
-        "a11y"
-      ]
-    }
-  },
-  {
-    "info": {
-      "excerpt": "Build an image carousel that smoothly transitions between images that has a minimal DOM footprint",
-      "title": "Image Carousel III"
-    },
-    "metadata": {
-      "access": "premium",
-      "author": "yangshun",
-      "companies": [
-        "amazon",
-        "bytedance",
-        "google",
-        "doordash",
-        "dropbox",
-        "microsoft",
-        "snap",
-        "squarespace",
-        "tiktok"
-      ],
-      "created": 1723766400,
-      "difficulty": "hard",
-      "duration": 40,
-      "featured": false,
-      "format": "user-interface",
-      "frameworkDefault": "react",
-      "frameworks": [
-        {
-          "framework": "react",
-          "href": "/questions/user-interface/image-carousel-iii/react"
-        }
-      ],
-      "href": "/questions/user-interface/image-carousel-iii",
-      "importance": "low",
-      "languages": [
-        "html",
-        "js",
-        "css"
-      ],
-      "nextQuestions": [],
-      "published": true,
-      "ranking": 100,
-      "similarQuestions": [],
-      "slug": "image-carousel-iii",
-      "subtitle": null,
-      "topics": []
-    }
-  },
-  {
-    "info": {
       "excerpt": "实现一个函数，该函数根据提供的迭代函数返回一个包含所有给定数组中包含的唯一值的数组。",
       "title": "Intersection By"
     },
@@ -2193,67 +1135,6 @@
       "slug": "intersection-by",
       "subtitle": null,
       "topics": []
-    }
-  },
-  {
-    "info": {
-      "excerpt": "Build a job board that displays the latest job postings from Hacker News",
-      "title": "Job Board"
-    },
-    "metadata": {
-      "access": "standard",
-      "author": "dhillon",
-      "companies": [
-        "microsoft",
-        "tiktok",
-        "atlassian",
-        "openai",
-        "stripe"
-      ],
-      "created": 1683849600,
-      "difficulty": "medium",
-      "duration": 30,
-      "featured": false,
-      "format": "user-interface",
-      "frameworkDefault": "react",
-      "frameworks": [
-        {
-          "framework": "react",
-          "href": "/questions/user-interface/job-board/react"
-        },
-        {
-          "framework": "vanilla",
-          "href": "/questions/user-interface/job-board/vanilla"
-        },
-        {
-          "framework": "angular",
-          "href": "/questions/user-interface/job-board/angular"
-        },
-        {
-          "framework": "vue",
-          "href": "/questions/user-interface/job-board/vue"
-        },
-        {
-          "framework": "svelte",
-          "href": "/questions/user-interface/job-board/svelte"
-        }
-      ],
-      "href": "/questions/user-interface/job-board",
-      "importance": "low",
-      "languages": [
-        "html",
-        "css",
-        "js"
-      ],
-      "nextQuestions": [],
-      "published": true,
-      "ranking": 100,
-      "similarQuestions": [],
-      "slug": "job-board",
-      "subtitle": null,
-      "topics": [
-        "networking"
-      ]
     }
   },
   {
@@ -2411,61 +1292,6 @@
       "subtitle": null,
       "topics": [
         "recursion"
-      ]
-    }
-  },
-  {
-    "info": {
-      "excerpt": "Build a Like button that changes appearance based on the states",
-      "title": "Like Button"
-    },
-    "metadata": {
-      "access": "standard",
-      "author": "yangshun",
-      "companies": [
-        "amazon",
-        "openai"
-      ],
-      "created": 1670976000,
-      "difficulty": "medium",
-      "duration": 20,
-      "featured": true,
-      "format": "user-interface",
-      "frameworkDefault": "react",
-      "frameworks": [
-        {
-          "framework": "react",
-          "href": "/questions/user-interface/like-button/react"
-        },
-        {
-          "framework": "vanilla",
-          "href": "/questions/user-interface/like-button/vanilla"
-        },
-        {
-          "framework": "angular",
-          "href": "/questions/user-interface/like-button/angular"
-        },
-        {
-          "framework": "svelte",
-          "href": "/questions/user-interface/like-button/svelte"
-        }
-      ],
-      "href": "/questions/user-interface/like-button",
-      "importance": "low",
-      "languages": [
-        "html",
-        "css",
-        "js"
-      ],
-      "nextQuestions": [],
-      "published": true,
-      "ranking": 100,
-      "similarQuestions": [],
-      "slug": "like-button",
-      "subtitle": null,
-      "topics": [
-        "async",
-        "networking"
       ]
     }
   },
@@ -2630,57 +1456,6 @@
   },
   {
     "info": {
-      "excerpt": "Build a memory game where the player needs to match pairs of cards",
-      "title": "Memory Game"
-    },
-    "metadata": {
-      "access": "premium",
-      "author": null,
-      "companies": [
-        "airbnb"
-      ],
-      "created": 1684108800,
-      "difficulty": "medium",
-      "duration": 40,
-      "featured": false,
-      "format": "user-interface",
-      "frameworkDefault": "react",
-      "frameworks": [
-        {
-          "framework": "react",
-          "href": "/questions/user-interface/memory-game/react"
-        },
-        {
-          "framework": "angular",
-          "href": "/questions/user-interface/memory-game/angular"
-        },
-        {
-          "framework": "vue",
-          "href": "/questions/user-interface/memory-game/vue"
-        },
-        {
-          "framework": "svelte",
-          "href": "/questions/user-interface/memory-game/svelte"
-        }
-      ],
-      "href": "/questions/user-interface/memory-game",
-      "importance": "low",
-      "languages": [
-        "html",
-        "css",
-        "js"
-      ],
-      "nextQuestions": [],
-      "published": true,
-      "ranking": 100,
-      "similarQuestions": [],
-      "slug": "memory-game",
-      "subtitle": null,
-      "topics": []
-    }
-  },
-  {
-    "info": {
       "excerpt": "实现一个基于指定条件的查找最小元素的函数",
       "title": "Min By"
     },
@@ -2709,273 +1484,6 @@
         "max-by"
       ],
       "slug": "min-by",
-      "subtitle": null,
-      "topics": []
-    }
-  },
-  {
-    "info": {
-      "excerpt": "Build a reusable modal dialog component that can be opened and closed",
-      "title": "Modal Dialog"
-    },
-    "metadata": {
-      "access": "standard",
-      "author": "yangshun",
-      "companies": [
-        "amazon",
-        "tiktok"
-      ],
-      "created": 1723766400,
-      "difficulty": "medium",
-      "duration": 20,
-      "featured": false,
-      "format": "user-interface",
-      "frameworkDefault": "react",
-      "frameworks": [
-        {
-          "framework": "react",
-          "href": "/questions/user-interface/modal-dialog/react"
-        }
-      ],
-      "href": "/questions/user-interface/modal-dialog",
-      "importance": "low",
-      "languages": [
-        "html",
-        "js",
-        "css"
-      ],
-      "nextQuestions": [
-        "modal-dialog-ii"
-      ],
-      "published": true,
-      "ranking": 100,
-      "similarQuestions": [],
-      "slug": "modal-dialog",
-      "subtitle": null,
-      "topics": [
-        "a11y"
-      ]
-    }
-  },
-  {
-    "info": {
-      "excerpt": "Build a semi-accessible modal dialog component that has the right ARIA roles, states, and properties",
-      "title": "Modal Dialog II"
-    },
-    "metadata": {
-      "access": "premium",
-      "author": "yangshun",
-      "companies": [
-        "amazon",
-        "tiktok"
-      ],
-      "created": 1723766400,
-      "difficulty": "medium",
-      "duration": 20,
-      "featured": false,
-      "format": "user-interface",
-      "frameworkDefault": "react",
-      "frameworks": [
-        {
-          "framework": "react",
-          "href": "/questions/user-interface/modal-dialog-ii/react"
-        }
-      ],
-      "href": "/questions/user-interface/modal-dialog-ii",
-      "importance": "low",
-      "languages": [
-        "html",
-        "js",
-        "css"
-      ],
-      "nextQuestions": [
-        "modal-dialog-iii"
-      ],
-      "published": true,
-      "ranking": 100,
-      "similarQuestions": [],
-      "slug": "modal-dialog-ii",
-      "subtitle": null,
-      "topics": [
-        "a11y"
-      ]
-    }
-  },
-  {
-    "info": {
-      "excerpt": "Build a moderately-accessible modal dialog component that supports common ways to close the dialog",
-      "title": "Modal Dialog III"
-    },
-    "metadata": {
-      "access": "premium",
-      "author": "yangshun",
-      "companies": [
-        "amazon",
-        "tiktok"
-      ],
-      "created": 1723766400,
-      "difficulty": "medium",
-      "duration": 20,
-      "featured": false,
-      "format": "user-interface",
-      "frameworkDefault": "react",
-      "frameworks": [
-        {
-          "framework": "react",
-          "href": "/questions/user-interface/modal-dialog-iii/react"
-        }
-      ],
-      "href": "/questions/user-interface/modal-dialog-iii",
-      "importance": "low",
-      "languages": [
-        "html",
-        "js"
-      ],
-      "nextQuestions": [
-        "modal-dialog-iv"
-      ],
-      "published": true,
-      "ranking": 100,
-      "similarQuestions": [],
-      "slug": "modal-dialog-iii",
-      "subtitle": null,
-      "topics": [
-        "a11y"
-      ]
-    }
-  },
-  {
-    "info": {
-      "excerpt": "Build a fully-accessible modal dialog component that supports all required keyboard interactions",
-      "title": "Modal Dialog IV"
-    },
-    "metadata": {
-      "access": "premium",
-      "author": "yangshun",
-      "companies": [
-        "amazon",
-        "tiktok"
-      ],
-      "created": 1723766400,
-      "difficulty": "hard",
-      "duration": 30,
-      "featured": false,
-      "format": "user-interface",
-      "frameworkDefault": "react",
-      "frameworks": [
-        {
-          "framework": "react",
-          "href": "/questions/user-interface/modal-dialog-iv/react"
-        }
-      ],
-      "href": "/questions/user-interface/modal-dialog-iv",
-      "importance": "low",
-      "languages": [
-        "html",
-        "js"
-      ],
-      "nextQuestions": [],
-      "published": true,
-      "ranking": 100,
-      "similarQuestions": [],
-      "slug": "modal-dialog-iv",
-      "subtitle": null,
-      "topics": [
-        "a11y"
-      ]
-    }
-  },
-  {
-    "info": {
-      "excerpt": "Build a calculator that computes the monthly mortgage for a loan",
-      "title": "Mortgage Calculator"
-    },
-    "metadata": {
-      "access": "standard",
-      "author": "dhillon",
-      "companies": [
-        "openai",
-        "reddit"
-      ],
-      "created": 1681430400,
-      "difficulty": "easy",
-      "duration": 20,
-      "featured": false,
-      "format": "user-interface",
-      "frameworkDefault": "react",
-      "frameworks": [
-        {
-          "framework": "react",
-          "href": "/questions/user-interface/mortgage-calculator/react"
-        },
-        {
-          "framework": "vanilla",
-          "href": "/questions/user-interface/mortgage-calculator/vanilla"
-        },
-        {
-          "framework": "angular",
-          "href": "/questions/user-interface/mortgage-calculator/angular"
-        },
-        {
-          "framework": "vue",
-          "href": "/questions/user-interface/mortgage-calculator/vue"
-        },
-        {
-          "framework": "svelte",
-          "href": "/questions/user-interface/mortgage-calculator/svelte"
-        }
-      ],
-      "href": "/questions/user-interface/mortgage-calculator",
-      "importance": "low",
-      "languages": [
-        "html",
-        "js"
-      ],
-      "nextQuestions": [],
-      "published": true,
-      "ranking": 100,
-      "similarQuestions": [],
-      "slug": "mortgage-calculator",
-      "subtitle": null,
-      "topics": []
-    }
-  },
-  {
-    "info": {
-      "excerpt": "Build a nested checkboxes component with parent-child selection logic",
-      "title": "Nested Checkboxes"
-    },
-    "metadata": {
-      "access": "standard",
-      "author": "yangshun",
-      "companies": [
-        "google"
-      ],
-      "created": 1723766400,
-      "difficulty": "hard",
-      "duration": 40,
-      "featured": false,
-      "format": "user-interface",
-      "frameworkDefault": "react",
-      "frameworks": [
-        {
-          "framework": "react",
-          "href": "/questions/user-interface/nested-checkboxes/react"
-        }
-      ],
-      "href": "/questions/user-interface/nested-checkboxes",
-      "importance": "low",
-      "languages": [
-        "html",
-        "js"
-      ],
-      "nextQuestions": [],
-      "published": true,
-      "ranking": 100,
-      "similarQuestions": [
-        "file-explorer"
-      ],
-      "slug": "nested-checkboxes",
       "subtitle": null,
       "topics": []
     }
@@ -3047,279 +1555,6 @@
       "subtitle": null,
       "topics": [
         "array"
-      ]
-    }
-  },
-  {
-    "info": {
-      "excerpt": "Build a pixel art drawing tool where users can paint pixels with selected colors",
-      "title": "Pixel Art"
-    },
-    "metadata": {
-      "access": "premium",
-      "author": "yangshun",
-      "companies": [],
-      "created": 1723766400,
-      "difficulty": "medium",
-      "duration": 30,
-      "featured": false,
-      "format": "user-interface",
-      "frameworkDefault": "react",
-      "frameworks": [
-        {
-          "framework": "react",
-          "href": "/questions/user-interface/pixel-art/react"
-        },
-        {
-          "framework": "angular",
-          "href": "/questions/user-interface/pixel-art/angular"
-        },
-        {
-          "framework": "vue",
-          "href": "/questions/user-interface/pixel-art/vue"
-        },
-        {
-          "framework": "svelte",
-          "href": "/questions/user-interface/pixel-art/svelte"
-        }
-      ],
-      "href": "/questions/user-interface/pixel-art",
-      "importance": "low",
-      "languages": [
-        "html",
-        "css",
-        "js"
-      ],
-      "nextQuestions": [],
-      "published": true,
-      "ranking": 100,
-      "similarQuestions": [],
-      "slug": "pixel-art",
-      "subtitle": null,
-      "topics": [
-        "a11y"
-      ]
-    }
-  },
-  {
-    "info": {
-      "excerpt": "Build a progress bar component that shows the percentage completion of an operation",
-      "title": "Progress Bar"
-    },
-    "metadata": {
-      "access": "premium",
-      "author": "yangshun",
-      "companies": [
-        "uber",
-        "google",
-        "amazon",
-        "microsoft"
-      ],
-      "created": 1656720000,
-      "difficulty": "easy",
-      "duration": 15,
-      "featured": false,
-      "format": "user-interface",
-      "frameworkDefault": "react",
-      "frameworks": [
-        {
-          "framework": "react",
-          "href": "/questions/user-interface/progress-bar/react"
-        },
-        {
-          "framework": "vanilla",
-          "href": "/questions/user-interface/progress-bar/vanilla"
-        }
-      ],
-      "href": "/questions/user-interface/progress-bar",
-      "importance": "medium",
-      "languages": [
-        "html",
-        "css",
-        "js"
-      ],
-      "nextQuestions": [
-        "progress-bars",
-        "flatten",
-        "star-rating"
-      ],
-      "published": true,
-      "ranking": 100,
-      "similarQuestions": [
-        "star-rating"
-      ],
-      "slug": "progress-bar",
-      "subtitle": null,
-      "topics": []
-    }
-  },
-  {
-    "info": {
-      "excerpt": "Build a list of progress bars that fill up gradually when they are added to the page",
-      "title": "Progress Bars"
-    },
-    "metadata": {
-      "access": "standard",
-      "author": "yangshun",
-      "companies": [
-        "uber"
-      ],
-      "created": 1671321600,
-      "difficulty": "easy",
-      "duration": 15,
-      "featured": false,
-      "format": "user-interface",
-      "frameworkDefault": "react",
-      "frameworks": [
-        {
-          "framework": "react",
-          "href": "/questions/user-interface/progress-bars/react"
-        }
-      ],
-      "href": "/questions/user-interface/progress-bars",
-      "importance": "low",
-      "languages": [
-        "html",
-        "css",
-        "js"
-      ],
-      "nextQuestions": [
-        "progress-bars-ii"
-      ],
-      "published": true,
-      "ranking": 100,
-      "similarQuestions": [],
-      "slug": "progress-bars",
-      "subtitle": null,
-      "topics": [
-        "async"
-      ]
-    }
-  },
-  {
-    "info": {
-      "excerpt": "Build a list of progress bars that fill up gradually in sequence, one at a time",
-      "title": "Progress Bars II"
-    },
-    "metadata": {
-      "access": "premium",
-      "author": "yangshun",
-      "companies": [
-        "uber"
-      ],
-      "created": 1671321600,
-      "difficulty": "medium",
-      "duration": 20,
-      "featured": false,
-      "format": "user-interface",
-      "frameworkDefault": "react",
-      "frameworks": [
-        {
-          "framework": "react",
-          "href": "/questions/user-interface/progress-bars-ii/react"
-        }
-      ],
-      "href": "/questions/user-interface/progress-bars-ii",
-      "importance": "low",
-      "languages": [
-        "html",
-        "css",
-        "js"
-      ],
-      "nextQuestions": [
-        "progress-bars-iii"
-      ],
-      "published": true,
-      "ranking": 100,
-      "similarQuestions": [],
-      "slug": "progress-bars-ii",
-      "subtitle": null,
-      "topics": [
-        "async"
-      ]
-    }
-  },
-  {
-    "info": {
-      "excerpt": "Build a list of progress bars that fill up gradually concurrently, up to a limit of 3",
-      "title": "Progress Bars III"
-    },
-    "metadata": {
-      "access": "premium",
-      "author": "yangshun",
-      "companies": [
-        "uber"
-      ],
-      "created": 1671321600,
-      "difficulty": "medium",
-      "duration": 25,
-      "featured": false,
-      "format": "user-interface",
-      "frameworkDefault": "react",
-      "frameworks": [
-        {
-          "framework": "react",
-          "href": "/questions/user-interface/progress-bars-iii/react"
-        }
-      ],
-      "href": "/questions/user-interface/progress-bars-iii",
-      "importance": "low",
-      "languages": [
-        "html",
-        "css",
-        "js"
-      ],
-      "nextQuestions": [
-        "progress-bars-iv"
-      ],
-      "published": true,
-      "ranking": 100,
-      "similarQuestions": [],
-      "slug": "progress-bars-iii",
-      "subtitle": null,
-      "topics": [
-        "async"
-      ]
-    }
-  },
-  {
-    "info": {
-      "excerpt": "Build a list of progress bars that fill up gradually concurrently, up to a limit of 3 and allows for pausing and resuming",
-      "title": "Progress Bars IV"
-    },
-    "metadata": {
-      "access": "premium",
-      "author": "yangshun",
-      "companies": [
-        "uber"
-      ],
-      "created": 1671321600,
-      "difficulty": "hard",
-      "duration": 25,
-      "featured": false,
-      "format": "user-interface",
-      "frameworkDefault": "react",
-      "frameworks": [
-        {
-          "framework": "react",
-          "href": "/questions/user-interface/progress-bars-iv/react"
-        }
-      ],
-      "href": "/questions/user-interface/progress-bars-iv",
-      "importance": "low",
-      "languages": [
-        "html",
-        "css",
-        "js"
-      ],
-      "nextQuestions": [],
-      "published": true,
-      "ranking": 100,
-      "similarQuestions": [],
-      "slug": "progress-bars-iv",
-      "subtitle": null,
-      "topics": [
-        "async"
       ]
     }
   },
@@ -3785,87 +2020,6 @@
   },
   {
     "info": {
-      "excerpt": "Build an interface where users can drag to select multiple cells within a grid",
-      "title": "Selectable Cells"
-    },
-    "metadata": {
-      "access": "premium",
-      "author": "yangshun",
-      "companies": [],
-      "created": 1723766400,
-      "difficulty": "hard",
-      "duration": 40,
-      "featured": false,
-      "format": "user-interface",
-      "frameworkDefault": "react",
-      "frameworks": [
-        {
-          "framework": "react",
-          "href": "/questions/user-interface/selectable-cells/react"
-        }
-      ],
-      "href": "/questions/user-interface/selectable-cells",
-      "importance": "low",
-      "languages": [
-        "html",
-        "js",
-        "css"
-      ],
-      "nextQuestions": [],
-      "published": true,
-      "ranking": 100,
-      "similarQuestions": [],
-      "slug": "selectable-cells",
-      "subtitle": null,
-      "topics": []
-    }
-  },
-  {
-    "info": {
-      "excerpt": "Build a signup form that does validation on user details and submits to a back end API",
-      "title": "Signup Form"
-    },
-    "metadata": {
-      "access": "premium",
-      "author": "yangshun",
-      "companies": [
-        "lyft",
-        "toptal",
-        "amazon",
-        "openai",
-        "reddit"
-      ],
-      "created": 1658707200,
-      "difficulty": "medium",
-      "duration": 30,
-      "featured": false,
-      "format": "user-interface",
-      "frameworkDefault": "vanilla",
-      "frameworks": [
-        {
-          "framework": "vanilla",
-          "href": "/questions/user-interface/signup-form/vanilla"
-        }
-      ],
-      "href": "/questions/user-interface/signup-form",
-      "importance": "high",
-      "languages": [
-        "html",
-        "js"
-      ],
-      "nextQuestions": [],
-      "published": true,
-      "ranking": 100,
-      "similarQuestions": [
-        "contact-form"
-      ],
-      "slug": "signup-form",
-      "subtitle": null,
-      "topics": []
-    }
-  },
-  {
-    "info": {
       "excerpt": "实现一个在恢复执行之前暂停指定时长的函数",
       "title": "Sleep"
     },
@@ -3935,122 +2089,7 @@
   },
   {
     "info": {
-      "excerpt": "Build a star rating component that shows a row of star icons for users to select the number of filled stars corresponding to the rating",
-      "title": "Star Rating"
-    },
-    "metadata": {
-      "access": "standard",
-      "author": "yangshun",
-      "companies": [
-        "airbnb",
-        "amazon",
-        "uber"
-      ],
-      "created": 1658016000,
-      "difficulty": "medium",
-      "duration": 20,
-      "featured": false,
-      "format": "user-interface",
-      "frameworkDefault": "react",
-      "frameworks": [
-        {
-          "framework": "react",
-          "href": "/questions/user-interface/star-rating/react"
-        },
-        {
-          "framework": "vanilla",
-          "href": "/questions/user-interface/star-rating/vanilla"
-        },
-        {
-          "framework": "angular",
-          "href": "/questions/user-interface/star-rating/angular"
-        },
-        {
-          "framework": "vue",
-          "href": "/questions/user-interface/star-rating/vue"
-        }
-      ],
-      "href": "/questions/user-interface/star-rating",
-      "importance": "high",
-      "languages": [
-        "html",
-        "css",
-        "js"
-      ],
-      "nextQuestions": [],
-      "published": true,
-      "ranking": 100,
-      "similarQuestions": [
-        "progress-bar"
-      ],
-      "slug": "star-rating",
-      "subtitle": null,
-      "topics": []
-    }
-  },
-  {
-    "info": {
-      "excerpt": "Build a stopwatch widget that can measure how much time has passed",
-      "title": "Stopwatch"
-    },
-    "metadata": {
-      "access": "standard",
-      "author": "yangshun",
-      "companies": [
-        "cisco",
-        "uber"
-      ],
-      "created": 1670889600,
-      "difficulty": "medium",
-      "duration": 30,
-      "featured": false,
-      "format": "user-interface",
-      "frameworkDefault": "react",
-      "frameworks": [
-        {
-          "framework": "react",
-          "href": "/questions/user-interface/stopwatch/react"
-        },
-        {
-          "framework": "vanilla",
-          "href": "/questions/user-interface/stopwatch/vanilla"
-        },
-        {
-          "framework": "angular",
-          "href": "/questions/user-interface/stopwatch/angular"
-        },
-        {
-          "framework": "vue",
-          "href": "/questions/user-interface/stopwatch/vue"
-        },
-        {
-          "framework": "svelte",
-          "href": "/questions/user-interface/stopwatch/svelte"
-        }
-      ],
-      "href": "/questions/user-interface/stopwatch",
-      "importance": "low",
-      "languages": [
-        "html",
-        "css",
-        "js"
-      ],
-      "nextQuestions": [],
-      "published": true,
-      "ranking": 100,
-      "similarQuestions": [
-        "digital-clock"
-      ],
-      "slug": "stopwatch",
-      "subtitle": null,
-      "topics": [
-        "async"
-      ]
-    }
-  },
-  {
-    "info": {
-      "excerpt": "Build a tabs component that displays a list of tab elements and one associated panel of content at a time",
+      "excerpt": "构建一个选项卡组件，该组件一次显示一个选项卡元素列表和一个关联的内容面板",
       "title": "Tabs"
     },
     "metadata": {
@@ -4107,7 +2146,7 @@
   },
   {
     "info": {
-      "excerpt": "Build a semi-accessible tabs component that has the right ARIA roles, states, and properties",
+      "excerpt": "构建一个半可访问的标签组件，该组件具有正确的 ARIA 角色、状态和属性",
       "title": "Tabs II"
     },
     "metadata": {
@@ -4163,7 +2202,7 @@
   },
   {
     "info": {
-      "excerpt": "Build a fully accessible tabs component that has keyboard support according to ARIA specifications",
+      "excerpt": "构建一个完全可访问的选项卡组件，该组件根据 ARIA 规范具有键盘支持",
       "title": "Tabs III"
     },
     "metadata": {
@@ -4212,358 +2251,7 @@
   },
   {
     "info": {
-      "excerpt": "Build a temperature converter widget that converts temperature values between Celsius and Fahrenheit",
-      "title": "Temperature Converter"
-    },
-    "metadata": {
-      "access": "premium",
-      "author": "yangshun",
-      "companies": [],
-      "created": 1657065600,
-      "difficulty": "easy",
-      "duration": 15,
-      "featured": false,
-      "format": "user-interface",
-      "frameworkDefault": "react",
-      "frameworks": [
-        {
-          "framework": "react",
-          "href": "/questions/user-interface/temperature-converter/react"
-        },
-        {
-          "framework": "vanilla",
-          "href": "/questions/user-interface/temperature-converter/vanilla"
-        },
-        {
-          "framework": "angular",
-          "href": "/questions/user-interface/temperature-converter/angular"
-        },
-        {
-          "framework": "vue",
-          "href": "/questions/user-interface/temperature-converter/vue"
-        },
-        {
-          "framework": "svelte",
-          "href": "/questions/user-interface/temperature-converter/svelte"
-        }
-      ],
-      "href": "/questions/user-interface/temperature-converter",
-      "importance": "medium",
-      "languages": [
-        "html",
-        "js"
-      ],
-      "nextQuestions": [],
-      "published": true,
-      "ranking": 100,
-      "similarQuestions": [
-        "todo-list"
-      ],
-      "slug": "temperature-converter",
-      "subtitle": null,
-      "topics": []
-    }
-  },
-  {
-    "info": {
-      "excerpt": "Build a tic-tac-toe game that is playable by two players",
-      "title": "Tic-tac-toe"
-    },
-    "metadata": {
-      "access": "standard",
-      "author": null,
-      "companies": [
-        "google",
-        "amazon",
-        "microsoft",
-        "twitter",
-        "apple",
-        "atlassian",
-        "openai"
-      ],
-      "created": 1683763200,
-      "difficulty": "medium",
-      "duration": 25,
-      "featured": false,
-      "format": "user-interface",
-      "frameworkDefault": "react",
-      "frameworks": [
-        {
-          "framework": "react",
-          "href": "/questions/user-interface/tic-tac-toe/react"
-        },
-        {
-          "framework": "angular",
-          "href": "/questions/user-interface/tic-tac-toe/angular"
-        },
-        {
-          "framework": "vue",
-          "href": "/questions/user-interface/tic-tac-toe/vue"
-        },
-        {
-          "framework": "svelte",
-          "href": "/questions/user-interface/tic-tac-toe/svelte"
-        }
-      ],
-      "href": "/questions/user-interface/tic-tac-toe",
-      "importance": "low",
-      "languages": [
-        "html",
-        "css",
-        "js"
-      ],
-      "nextQuestions": [
-        "tic-tac-toe-ii"
-      ],
-      "published": true,
-      "ranking": 100,
-      "similarQuestions": [],
-      "slug": "tic-tac-toe",
-      "subtitle": null,
-      "topics": [
-        "a11y"
-      ]
-    }
-  },
-  {
-    "info": {
-      "excerpt": "Build an N x N tic-tac-toe game that requires M consecutive marks to win",
-      "title": "Tic-tac-toe II"
-    },
-    "metadata": {
-      "access": "premium",
-      "author": null,
-      "companies": [
-        "google",
-        "amazon",
-        "microsoft",
-        "twitter",
-        "apple",
-        "atlassian"
-      ],
-      "created": 1683763200,
-      "difficulty": "hard",
-      "duration": 40,
-      "featured": false,
-      "format": "user-interface",
-      "frameworkDefault": "react",
-      "frameworks": [
-        {
-          "framework": "react",
-          "href": "/questions/user-interface/tic-tac-toe-ii/react"
-        },
-        {
-          "framework": "angular",
-          "href": "/questions/user-interface/tic-tac-toe-ii/angular"
-        },
-        {
-          "framework": "vue",
-          "href": "/questions/user-interface/tic-tac-toe-ii/vue"
-        },
-        {
-          "framework": "svelte",
-          "href": "/questions/user-interface/tic-tac-toe-ii/svelte"
-        }
-      ],
-      "href": "/questions/user-interface/tic-tac-toe-ii",
-      "importance": "low",
-      "languages": [
-        "html",
-        "css",
-        "js"
-      ],
-      "nextQuestions": [],
-      "published": true,
-      "ranking": 100,
-      "similarQuestions": [],
-      "slug": "tic-tac-toe-ii",
-      "subtitle": null,
-      "topics": [
-        "a11y"
-      ]
-    }
-  },
-  {
-    "info": {
-      "excerpt": "Build a Todo list that lets users add new tasks and delete existing tasks",
-      "title": "Todo List"
-    },
-    "metadata": {
-      "access": "free",
-      "author": "yangshun",
-      "companies": [
-        "grab",
-        "toptal",
-        "amazon",
-        "atlassian"
-      ],
-      "created": 1656460800,
-      "difficulty": "medium",
-      "duration": 20,
-      "featured": true,
-      "format": "user-interface",
-      "frameworkDefault": "react",
-      "frameworks": [
-        {
-          "framework": "react",
-          "href": "/questions/user-interface/todo-list/react"
-        },
-        {
-          "framework": "vanilla",
-          "href": "/questions/user-interface/todo-list/vanilla"
-        },
-        {
-          "framework": "angular",
-          "href": "/questions/user-interface/todo-list/angular"
-        },
-        {
-          "framework": "vue",
-          "href": "/questions/user-interface/todo-list/vue"
-        },
-        {
-          "framework": "svelte",
-          "href": "/questions/user-interface/todo-list/svelte"
-        }
-      ],
-      "href": "/questions/user-interface/todo-list",
-      "importance": "high",
-      "languages": [
-        "html",
-        "js"
-      ],
-      "nextQuestions": [
-        "flatten",
-        "promise-any",
-        "holy-grail"
-      ],
-      "published": true,
-      "ranking": 100,
-      "similarQuestions": [
-        "temperature-converter"
-      ],
-      "slug": "todo-list",
-      "subtitle": null,
-      "topics": []
-    }
-  },
-  {
-    "info": {
-      "excerpt": "Build a traffic light where the lights switch from green to yellow to red after predetermined intervals and loop indefinitely",
-      "title": "Traffic Light"
-    },
-    "metadata": {
-      "access": "free",
-      "author": "yangshun",
-      "companies": [
-        "roblox"
-      ],
-      "created": 1670716800,
-      "difficulty": "medium",
-      "duration": 20,
-      "featured": false,
-      "format": "user-interface",
-      "frameworkDefault": "react",
-      "frameworks": [
-        {
-          "framework": "react",
-          "href": "/questions/user-interface/traffic-light/react"
-        },
-        {
-          "framework": "vanilla",
-          "href": "/questions/user-interface/traffic-light/vanilla"
-        },
-        {
-          "framework": "angular",
-          "href": "/questions/user-interface/traffic-light/angular"
-        },
-        {
-          "framework": "vue",
-          "href": "/questions/user-interface/traffic-light/vue"
-        },
-        {
-          "framework": "svelte",
-          "href": "/questions/user-interface/traffic-light/svelte"
-        }
-      ],
-      "href": "/questions/user-interface/traffic-light",
-      "importance": "low",
-      "languages": [
-        "html",
-        "css",
-        "js"
-      ],
-      "nextQuestions": [],
-      "published": true,
-      "ranking": 100,
-      "similarQuestions": [
-        "digital-clock"
-      ],
-      "slug": "traffic-light",
-      "subtitle": null,
-      "topics": [
-        "async"
-      ]
-    }
-  },
-  {
-    "info": {
-      "excerpt": "Build a component that allows transferring of items between two lists",
-      "title": "Transfer List"
-    },
-    "metadata": {
-      "access": "standard",
-      "author": "yangshun",
-      "companies": [
-        "tiktok",
-        "openai"
-      ],
-      "created": 1682208000,
-      "difficulty": "medium",
-      "duration": 30,
-      "featured": false,
-      "format": "user-interface",
-      "frameworkDefault": "react",
-      "frameworks": [
-        {
-          "framework": "react",
-          "href": "/questions/user-interface/transfer-list/react"
-        },
-        {
-          "framework": "angular",
-          "href": "/questions/user-interface/transfer-list/angular"
-        },
-        {
-          "framework": "vue",
-          "href": "/questions/user-interface/transfer-list/vue"
-        },
-        {
-          "framework": "svelte",
-          "href": "/questions/user-interface/transfer-list/svelte"
-        }
-      ],
-      "href": "/questions/user-interface/transfer-list",
-      "importance": "low",
-      "languages": [
-        "html",
-        "css",
-        "js"
-      ],
-      "nextQuestions": [
-        "transfer-list-ii"
-      ],
-      "published": true,
-      "ranking": 100,
-      "similarQuestions": [
-        "todo-list"
-      ],
-      "slug": "transfer-list",
-      "subtitle": null,
-      "topics": []
-    }
-  },
-  {
-    "info": {
-      "excerpt": "Build a component that allows transferring of items between two lists, bulk selection/unselection of items, and adding of new items",
+      "excerpt": "构建一个组件，允许在两个列表之间转移项目，批量选择/取消选择项目，以及添加新项目",
       "title": "Transfer List II"
     },
     "metadata": {
@@ -4651,7 +2339,7 @@
   },
   {
     "info": {
-      "excerpt": "Build a component that resembles a Tweet from Twitter",
+      "excerpt": "构建一个类似于Twitter的Tweet组件",
       "title": "Tweet"
     },
     "metadata": {
@@ -4699,56 +2387,6 @@
         "holy-grail"
       ],
       "slug": "tweet",
-      "subtitle": null,
-      "topics": []
-    }
-  },
-  {
-    "info": {
-      "excerpt": "Build a counter with a history of the values and ability to undo/redo actions",
-      "title": "Undoable Counter"
-    },
-    "metadata": {
-      "access": "premium",
-      "author": null,
-      "companies": [],
-      "created": 1681257600,
-      "difficulty": "medium",
-      "duration": 30,
-      "featured": false,
-      "format": "user-interface",
-      "frameworkDefault": "react",
-      "frameworks": [
-        {
-          "framework": "react",
-          "href": "/questions/user-interface/undoable-counter/react"
-        },
-        {
-          "framework": "angular",
-          "href": "/questions/user-interface/undoable-counter/angular"
-        },
-        {
-          "framework": "vue",
-          "href": "/questions/user-interface/undoable-counter/vue"
-        },
-        {
-          "framework": "svelte",
-          "href": "/questions/user-interface/undoable-counter/svelte"
-        }
-      ],
-      "href": "/questions/user-interface/undoable-counter",
-      "importance": "low",
-      "languages": [
-        "html",
-        "js"
-      ],
-      "nextQuestions": [],
-      "published": true,
-      "ranking": 100,
-      "similarQuestions": [
-        "counter"
-      ],
-      "slug": "undoable-counter",
       "subtitle": null,
       "topics": []
     }
@@ -5828,45 +3466,6 @@
   },
   {
     "info": {
-      "excerpt": "Build a UI to filter, create, update, and delete users",
-      "title": "Users Database"
-    },
-    "metadata": {
-      "access": "premium",
-      "author": "yangshun",
-      "companies": [
-        "tiktok"
-      ],
-      "created": 1723766400,
-      "difficulty": "medium",
-      "duration": 30,
-      "featured": false,
-      "format": "user-interface",
-      "frameworkDefault": "react",
-      "frameworks": [
-        {
-          "framework": "react",
-          "href": "/questions/user-interface/users-database/react"
-        }
-      ],
-      "href": "/questions/user-interface/users-database",
-      "importance": "low",
-      "languages": [
-        "html",
-        "js",
-        "css"
-      ],
-      "nextQuestions": [],
-      "published": true,
-      "ranking": 100,
-      "similarQuestions": [],
-      "slug": "users-database",
-      "subtitle": null,
-      "topics": []
-    }
-  },
-  {
-    "info": {
       "excerpt": "实现一个管理 JavaScript Set 的 Hook",
       "title": "useSet"
     },
@@ -6151,60 +3750,7 @@
   },
   {
     "info": {
-      "excerpt": "Build a popular arcade game where players attempt to hit moles as they pop up from holes in a board",
-      "title": "Whack-A-Mole"
-    },
-    "metadata": {
-      "access": "premium",
-      "author": null,
-      "companies": [
-        "lyft"
-      ],
-      "created": 1684195200,
-      "difficulty": "medium",
-      "duration": 30,
-      "featured": false,
-      "format": "user-interface",
-      "frameworkDefault": "react",
-      "frameworks": [
-        {
-          "framework": "react",
-          "href": "/questions/user-interface/whack-a-mole/react"
-        },
-        {
-          "framework": "angular",
-          "href": "/questions/user-interface/whack-a-mole/angular"
-        },
-        {
-          "framework": "vue",
-          "href": "/questions/user-interface/whack-a-mole/vue"
-        },
-        {
-          "framework": "svelte",
-          "href": "/questions/user-interface/whack-a-mole/svelte"
-        }
-      ],
-      "href": "/questions/user-interface/whack-a-mole",
-      "importance": "low",
-      "languages": [
-        "html",
-        "css",
-        "js"
-      ],
-      "nextQuestions": [],
-      "published": true,
-      "ranking": 100,
-      "similarQuestions": [
-        "memory-game"
-      ],
-      "slug": "whack-a-mole",
-      "subtitle": null,
-      "topics": []
-    }
-  },
-  {
-    "info": {
-      "excerpt": "Build Wordle, the word-guessing game that took the world by storm",
+      "excerpt": "构建Wordle，这款风靡全球的猜词游戏",
       "title": "Wordle"
     },
     "metadata": {
@@ -6839,6 +4385,125 @@
   },
   {
     "info": {
+      "excerpt": "构建一个可供两名玩家玩井字棋游戏",
+      "title": "井字棋"
+    },
+    "metadata": {
+      "access": "standard",
+      "author": null,
+      "companies": [
+        "google",
+        "amazon",
+        "microsoft",
+        "twitter",
+        "apple",
+        "atlassian",
+        "openai"
+      ],
+      "created": 1683763200,
+      "difficulty": "medium",
+      "duration": 25,
+      "featured": false,
+      "format": "user-interface",
+      "frameworkDefault": "react",
+      "frameworks": [
+        {
+          "framework": "react",
+          "href": "/questions/user-interface/tic-tac-toe/react"
+        },
+        {
+          "framework": "angular",
+          "href": "/questions/user-interface/tic-tac-toe/angular"
+        },
+        {
+          "framework": "vue",
+          "href": "/questions/user-interface/tic-tac-toe/vue"
+        },
+        {
+          "framework": "svelte",
+          "href": "/questions/user-interface/tic-tac-toe/svelte"
+        }
+      ],
+      "href": "/questions/user-interface/tic-tac-toe",
+      "importance": "low",
+      "languages": [
+        "html",
+        "css",
+        "js"
+      ],
+      "nextQuestions": [
+        "tic-tac-toe-ii"
+      ],
+      "published": true,
+      "ranking": 100,
+      "similarQuestions": [],
+      "slug": "tic-tac-toe",
+      "subtitle": null,
+      "topics": [
+        "a11y"
+      ]
+    }
+  },
+  {
+    "info": {
+      "excerpt": "构建一个 N x N 的井字棋游戏，需要 M 个连续的标记才能获胜",
+      "title": "井字棋 II"
+    },
+    "metadata": {
+      "access": "premium",
+      "author": null,
+      "companies": [
+        "google",
+        "amazon",
+        "microsoft",
+        "twitter",
+        "apple",
+        "atlassian"
+      ],
+      "created": 1683763200,
+      "difficulty": "hard",
+      "duration": 40,
+      "featured": false,
+      "format": "user-interface",
+      "frameworkDefault": "react",
+      "frameworks": [
+        {
+          "framework": "react",
+          "href": "/questions/user-interface/tic-tac-toe-ii/react"
+        },
+        {
+          "framework": "angular",
+          "href": "/questions/user-interface/tic-tac-toe-ii/angular"
+        },
+        {
+          "framework": "vue",
+          "href": "/questions/user-interface/tic-tac-toe-ii/vue"
+        },
+        {
+          "framework": "svelte",
+          "href": "/questions/user-interface/tic-tac-toe-ii/svelte"
+        }
+      ],
+      "href": "/questions/user-interface/tic-tac-toe-ii",
+      "importance": "low",
+      "languages": [
+        "html",
+        "css",
+        "js"
+      ],
+      "nextQuestions": [],
+      "published": true,
+      "ranking": 100,
+      "similarQuestions": [],
+      "slug": "tic-tac-toe-ii",
+      "subtitle": null,
+      "topics": [
+        "a11y"
+      ]
+    }
+  },
+  {
+    "info": {
       "excerpt": "实现一个计算数组交集的函数，返回一个新数组，其中包含所有给定数组中存在的唯一值。",
       "title": "交集"
     },
@@ -7067,6 +4732,57 @@
       "subtitle": null,
       "topics": [
         "binary"
+      ]
+    }
+  },
+  {
+    "info": {
+      "excerpt": "构建一个像素画绘图工具，用户可以用选定的颜色绘制像素",
+      "title": "像素画"
+    },
+    "metadata": {
+      "access": "premium",
+      "author": "yangshun",
+      "companies": [],
+      "created": 1723766400,
+      "difficulty": "medium",
+      "duration": 30,
+      "featured": false,
+      "format": "user-interface",
+      "frameworkDefault": "react",
+      "frameworks": [
+        {
+          "framework": "react",
+          "href": "/questions/user-interface/pixel-art/react"
+        },
+        {
+          "framework": "angular",
+          "href": "/questions/user-interface/pixel-art/angular"
+        },
+        {
+          "framework": "vue",
+          "href": "/questions/user-interface/pixel-art/vue"
+        },
+        {
+          "framework": "svelte",
+          "href": "/questions/user-interface/pixel-art/svelte"
+        }
+      ],
+      "href": "/questions/user-interface/pixel-art",
+      "importance": "low",
+      "languages": [
+        "html",
+        "css",
+        "js"
+      ],
+      "nextQuestions": [],
+      "published": true,
+      "ranking": 100,
+      "similarQuestions": [],
+      "slug": "pixel-art",
+      "subtitle": null,
+      "topics": [
+        "a11y"
       ]
     }
   },
@@ -7343,6 +5059,55 @@
         "binary-search",
         "greedy"
       ]
+    }
+  },
+  {
+    "info": {
+      "excerpt": "构建一个小部件，从 API 获取出生年份数据，并在直方图上绘制它",
+      "title": "出生年份直方图"
+    },
+    "metadata": {
+      "access": "premium",
+      "author": null,
+      "companies": [],
+      "created": 1723766400,
+      "difficulty": "medium",
+      "duration": 30,
+      "featured": false,
+      "format": "user-interface",
+      "frameworkDefault": "react",
+      "frameworks": [
+        {
+          "framework": "react",
+          "href": "/questions/user-interface/birth-year-histogram/react"
+        },
+        {
+          "framework": "angular",
+          "href": "/questions/user-interface/birth-year-histogram/angular"
+        },
+        {
+          "framework": "vue",
+          "href": "/questions/user-interface/birth-year-histogram/vue"
+        },
+        {
+          "framework": "svelte",
+          "href": "/questions/user-interface/birth-year-histogram/svelte"
+        }
+      ],
+      "href": "/questions/user-interface/birth-year-histogram",
+      "importance": "low",
+      "languages": [
+        "html",
+        "css",
+        "js"
+      ],
+      "nextQuestions": [],
+      "published": true,
+      "ranking": 100,
+      "similarQuestions": [],
+      "slug": "birth-year-histogram",
+      "subtitle": null,
+      "topics": []
     }
   },
   {
@@ -7871,6 +5636,93 @@
   },
   {
     "info": {
+      "excerpt": "构建一个具有值历史记录的计数器，并能够撤消/重做操作",
+      "title": "可撤销计数器"
+    },
+    "metadata": {
+      "access": "premium",
+      "author": null,
+      "companies": [],
+      "created": 1681257600,
+      "difficulty": "medium",
+      "duration": 30,
+      "featured": false,
+      "format": "user-interface",
+      "frameworkDefault": "react",
+      "frameworks": [
+        {
+          "framework": "react",
+          "href": "/questions/user-interface/undoable-counter/react"
+        },
+        {
+          "framework": "angular",
+          "href": "/questions/user-interface/undoable-counter/angular"
+        },
+        {
+          "framework": "vue",
+          "href": "/questions/user-interface/undoable-counter/vue"
+        },
+        {
+          "framework": "svelte",
+          "href": "/questions/user-interface/undoable-counter/svelte"
+        }
+      ],
+      "href": "/questions/user-interface/undoable-counter",
+      "importance": "low",
+      "languages": [
+        "html",
+        "js"
+      ],
+      "nextQuestions": [],
+      "published": true,
+      "ranking": 100,
+      "similarQuestions": [
+        "counter"
+      ],
+      "slug": "undoable-counter",
+      "subtitle": null,
+      "topics": []
+    }
+  },
+  {
+    "info": {
+      "excerpt": "构建一个界面，用户可以在网格内拖动以选择多个单元格",
+      "title": "可选择的单元格"
+    },
+    "metadata": {
+      "access": "premium",
+      "author": "yangshun",
+      "companies": [],
+      "created": 1723766400,
+      "difficulty": "hard",
+      "duration": 40,
+      "featured": false,
+      "format": "user-interface",
+      "frameworkDefault": "react",
+      "frameworks": [
+        {
+          "framework": "react",
+          "href": "/questions/user-interface/selectable-cells/react"
+        }
+      ],
+      "href": "/questions/user-interface/selectable-cells",
+      "importance": "low",
+      "languages": [
+        "html",
+        "js",
+        "css"
+      ],
+      "nextQuestions": [],
+      "published": true,
+      "ranking": 100,
+      "similarQuestions": [],
+      "slug": "selectable-cells",
+      "subtitle": null,
+      "topics": []
+    }
+  },
+  {
+    "info": {
       "excerpt": "实现一个函数，将一个新区间插入给定的区间中",
       "title": "合并新区间"
     },
@@ -7974,6 +5826,55 @@
   },
   {
     "info": {
+      "excerpt": "为两名玩家构建一个游戏，他们轮流从顶部将彩色圆盘放入垂直悬挂的棋盘/网格中。",
+      "title": "四子棋"
+    },
+    "metadata": {
+      "access": "premium",
+      "author": null,
+      "companies": [],
+      "created": 1719964800,
+      "difficulty": "medium",
+      "duration": 30,
+      "featured": false,
+      "format": "user-interface",
+      "frameworkDefault": "react",
+      "frameworks": [
+        {
+          "framework": "react",
+          "href": "/questions/user-interface/connect-four/react"
+        },
+        {
+          "framework": "angular",
+          "href": "/questions/user-interface/connect-four/angular"
+        },
+        {
+          "framework": "vue",
+          "href": "/questions/user-interface/connect-four/vue"
+        },
+        {
+          "framework": "svelte",
+          "href": "/questions/user-interface/connect-four/svelte"
+        }
+      ],
+      "href": "/questions/user-interface/connect-four",
+      "importance": "low",
+      "languages": [
+        "html",
+        "js",
+        "css"
+      ],
+      "nextQuestions": [],
+      "published": true,
+      "ranking": 100,
+      "similarQuestions": [],
+      "slug": "connect-four",
+      "subtitle": null,
+      "topics": []
+    }
+  },
+  {
+    "info": {
       "excerpt": "实现一个函数来计算字符串中所有回文子串的数量",
       "title": "回文子串"
     },
@@ -8037,6 +5938,156 @@
         "graph",
         "dfs"
       ]
+    }
+  },
+  {
+    "info": {
+      "excerpt": "构建一个显示一系列图片的图片轮播。",
+      "title": "图片轮播"
+    },
+    "metadata": {
+      "access": "standard",
+      "author": "yangshun",
+      "companies": [
+        "amazon",
+        "google",
+        "doordash",
+        "dropbox",
+        "microsoft",
+        "snap",
+        "squarespace",
+        "bytedance",
+        "tiktok"
+      ],
+      "created": 1723766400,
+      "difficulty": "medium",
+      "duration": 30,
+      "featured": false,
+      "format": "user-interface",
+      "frameworkDefault": "react",
+      "frameworks": [
+        {
+          "framework": "react",
+          "href": "/questions/user-interface/image-carousel/react"
+        }
+      ],
+      "href": "/questions/user-interface/image-carousel",
+      "importance": "low",
+      "languages": [
+        "html",
+        "js",
+        "css"
+      ],
+      "nextQuestions": [
+        "image-carousel-ii",
+        "image-carousel-iii"
+      ],
+      "published": true,
+      "ranking": 100,
+      "similarQuestions": [],
+      "slug": "image-carousel",
+      "subtitle": null,
+      "topics": [
+        "a11y"
+      ]
+    }
+  },
+  {
+    "info": {
+      "excerpt": "构建一个在图像之间平滑过渡的图像轮播",
+      "title": "图片轮播 II"
+    },
+    "metadata": {
+      "access": "premium",
+      "author": "yangshun",
+      "companies": [
+        "amazon",
+        "google",
+        "doordash",
+        "dropbox",
+        "microsoft",
+        "snap",
+        "squarespace",
+        "bytedance",
+        "tiktok"
+      ],
+      "created": 1723766400,
+      "difficulty": "medium",
+      "duration": 30,
+      "featured": false,
+      "format": "user-interface",
+      "frameworkDefault": "react",
+      "frameworks": [
+        {
+          "framework": "react",
+          "href": "/questions/user-interface/image-carousel-ii/react"
+        }
+      ],
+      "href": "/questions/user-interface/image-carousel-ii",
+      "importance": "low",
+      "languages": [
+        "html",
+        "js",
+        "css"
+      ],
+      "nextQuestions": [
+        "image-carousel-iii"
+      ],
+      "published": true,
+      "ranking": 100,
+      "similarQuestions": [],
+      "slug": "image-carousel-ii",
+      "subtitle": null,
+      "topics": [
+        "a11y"
+      ]
+    }
+  },
+  {
+    "info": {
+      "excerpt": "构建一个图片轮播，在图片之间平滑过渡，并且 DOM 占用空间最小化",
+      "title": "图片轮播 III"
+    },
+    "metadata": {
+      "access": "premium",
+      "author": "yangshun",
+      "companies": [
+        "amazon",
+        "bytedance",
+        "google",
+        "doordash",
+        "dropbox",
+        "microsoft",
+        "snap",
+        "squarespace",
+        "tiktok"
+      ],
+      "created": 1723766400,
+      "difficulty": "hard",
+      "duration": 40,
+      "featured": false,
+      "format": "user-interface",
+      "frameworkDefault": "react",
+      "frameworks": [
+        {
+          "framework": "react",
+          "href": "/questions/user-interface/image-carousel-iii/react"
+        }
+      ],
+      "href": "/questions/user-interface/image-carousel-iii",
+      "importance": "low",
+      "languages": [
+        "html",
+        "js",
+        "css"
+      ],
+      "nextQuestions": [],
+      "published": true,
+      "ranking": 100,
+      "similarQuestions": [],
+      "slug": "image-carousel-iii",
+      "subtitle": null,
+      "topics": []
     }
   },
   {
@@ -8105,6 +6156,66 @@
         "graph",
         "dfs"
       ]
+    }
+  },
+  {
+    "info": {
+      "excerpt": "构建著名的圣杯布局，它由页眉、3 列和页脚组成",
+      "title": "圣杯布局"
+    },
+    "metadata": {
+      "access": "free",
+      "author": "yangshun",
+      "companies": [
+        "atlassian"
+      ],
+      "created": 1658275200,
+      "difficulty": "easy",
+      "duration": 15,
+      "featured": true,
+      "format": "user-interface",
+      "frameworkDefault": "react",
+      "frameworks": [
+        {
+          "framework": "react",
+          "href": "/questions/user-interface/holy-grail/react"
+        },
+        {
+          "framework": "vanilla",
+          "href": "/questions/user-interface/holy-grail/vanilla"
+        },
+        {
+          "framework": "angular",
+          "href": "/questions/user-interface/holy-grail/angular"
+        },
+        {
+          "framework": "vue",
+          "href": "/questions/user-interface/holy-grail/vue"
+        },
+        {
+          "framework": "svelte",
+          "href": "/questions/user-interface/holy-grail/svelte"
+        }
+      ],
+      "href": "/questions/user-interface/holy-grail",
+      "importance": "high",
+      "languages": [
+        "html",
+        "css"
+      ],
+      "nextQuestions": [
+        "flatten",
+        "todo-list",
+        "contact-form"
+      ],
+      "published": true,
+      "ranking": 100,
+      "similarQuestions": [
+        "tweet"
+      ],
+      "slug": "holy-grail",
+      "subtitle": null,
+      "topics": []
     }
   },
   {
@@ -8618,6 +6729,46 @@
   },
   {
     "info": {
+      "excerpt": "构建一个带有父子选择逻辑的嵌套复选框组件",
+      "title": "嵌套复选框"
+    },
+    "metadata": {
+      "access": "standard",
+      "author": "yangshun",
+      "companies": [
+        "google"
+      ],
+      "created": 1723766400,
+      "difficulty": "hard",
+      "duration": 40,
+      "featured": false,
+      "format": "user-interface",
+      "frameworkDefault": "react",
+      "frameworks": [
+        {
+          "framework": "react",
+          "href": "/questions/user-interface/nested-checkboxes/react"
+        }
+      ],
+      "href": "/questions/user-interface/nested-checkboxes",
+      "importance": "low",
+      "languages": [
+        "html",
+        "js"
+      ],
+      "nextQuestions": [],
+      "published": true,
+      "ranking": 100,
+      "similarQuestions": [
+        "file-explorer"
+      ],
+      "slug": "nested-checkboxes",
+      "subtitle": null,
+      "topics": []
+    }
+  },
+  {
+    "info": {
       "excerpt": "实现一个函数，该函数查找数组之间值的差异。",
       "title": "差异"
     },
@@ -8753,6 +6904,69 @@
       "topics": [
         "sorting"
       ]
+    }
+  },
+  {
+    "info": {
+      "excerpt": "构建一个待办事项列表，让用户可以添加新任务和删除现有任务",
+      "title": "待办事项列表"
+    },
+    "metadata": {
+      "access": "free",
+      "author": "yangshun",
+      "companies": [
+        "grab",
+        "toptal",
+        "amazon",
+        "atlassian"
+      ],
+      "created": 1656460800,
+      "difficulty": "medium",
+      "duration": 20,
+      "featured": true,
+      "format": "user-interface",
+      "frameworkDefault": "react",
+      "frameworks": [
+        {
+          "framework": "react",
+          "href": "/questions/user-interface/todo-list/react"
+        },
+        {
+          "framework": "vanilla",
+          "href": "/questions/user-interface/todo-list/vanilla"
+        },
+        {
+          "framework": "angular",
+          "href": "/questions/user-interface/todo-list/angular"
+        },
+        {
+          "framework": "vue",
+          "href": "/questions/user-interface/todo-list/vue"
+        },
+        {
+          "framework": "svelte",
+          "href": "/questions/user-interface/todo-list/svelte"
+        }
+      ],
+      "href": "/questions/user-interface/todo-list",
+      "importance": "high",
+      "languages": [
+        "html",
+        "js"
+      ],
+      "nextQuestions": [
+        "flatten",
+        "promise-any",
+        "holy-grail"
+      ],
+      "published": true,
+      "ranking": 100,
+      "similarQuestions": [
+        "temperature-converter"
+      ],
+      "slug": "todo-list",
+      "subtitle": null,
+      "topics": []
     }
   },
   {
@@ -8910,6 +7124,59 @@
   },
   {
     "info": {
+      "excerpt": "构建一个流行的街机游戏，玩家试图击中从板上的洞中弹出的地鼠",
+      "title": "打地鼠"
+    },
+    "metadata": {
+      "access": "premium",
+      "author": null,
+      "companies": [
+        "lyft"
+      ],
+      "created": 1684195200,
+      "difficulty": "medium",
+      "duration": 30,
+      "featured": false,
+      "format": "user-interface",
+      "frameworkDefault": "react",
+      "frameworks": [
+        {
+          "framework": "react",
+          "href": "/questions/user-interface/whack-a-mole/react"
+        },
+        {
+          "framework": "angular",
+          "href": "/questions/user-interface/whack-a-mole/angular"
+        },
+        {
+          "framework": "vue",
+          "href": "/questions/user-interface/whack-a-mole/vue"
+        },
+        {
+          "framework": "svelte",
+          "href": "/questions/user-interface/whack-a-mole/svelte"
+        }
+      ],
+      "href": "/questions/user-interface/whack-a-mole",
+      "importance": "low",
+      "languages": [
+        "html",
+        "css",
+        "js"
+      ],
+      "nextQuestions": [],
+      "published": true,
+      "ranking": 100,
+      "similarQuestions": [
+        "memory-game"
+      ],
+      "slug": "whack-a-mole",
+      "subtitle": null,
+      "topics": []
+    }
+  },
+  {
+    "info": {
       "excerpt": "实现一个函数，返回组成给定金额所需的最少硬币数",
       "title": "找零所需的最少硬币数"
     },
@@ -8939,6 +7206,61 @@
       "topics": [
         "dynamic-programming"
       ]
+    }
+  },
+  {
+    "info": {
+      "excerpt": "构建一个计算贷款月供的计算器",
+      "title": "抵押贷款计算器"
+    },
+    "metadata": {
+      "access": "standard",
+      "author": "dhillon",
+      "companies": [
+        "openai",
+        "reddit"
+      ],
+      "created": 1681430400,
+      "difficulty": "easy",
+      "duration": 20,
+      "featured": false,
+      "format": "user-interface",
+      "frameworkDefault": "react",
+      "frameworks": [
+        {
+          "framework": "react",
+          "href": "/questions/user-interface/mortgage-calculator/react"
+        },
+        {
+          "framework": "vanilla",
+          "href": "/questions/user-interface/mortgage-calculator/vanilla"
+        },
+        {
+          "framework": "angular",
+          "href": "/questions/user-interface/mortgage-calculator/angular"
+        },
+        {
+          "framework": "vue",
+          "href": "/questions/user-interface/mortgage-calculator/vue"
+        },
+        {
+          "framework": "svelte",
+          "href": "/questions/user-interface/mortgage-calculator/svelte"
+        }
+      ],
+      "href": "/questions/user-interface/mortgage-calculator",
+      "importance": "low",
+      "languages": [
+        "html",
+        "js"
+      ],
+      "nextQuestions": [],
+      "published": true,
+      "ranking": 100,
+      "similarQuestions": [],
+      "slug": "mortgage-calculator",
+      "subtitle": null,
+      "topics": []
     }
   },
   {
@@ -8978,6 +7300,67 @@
       "topics": [
         "topological-sort",
         "graph"
+      ]
+    }
+  },
+  {
+    "info": {
+      "excerpt": "构建一个招聘版，显示来自 Hacker News 的最新招聘信息",
+      "title": "招聘版"
+    },
+    "metadata": {
+      "access": "standard",
+      "author": "dhillon",
+      "companies": [
+        "microsoft",
+        "tiktok",
+        "atlassian",
+        "openai",
+        "stripe"
+      ],
+      "created": 1683849600,
+      "difficulty": "medium",
+      "duration": 30,
+      "featured": false,
+      "format": "user-interface",
+      "frameworkDefault": "react",
+      "frameworks": [
+        {
+          "framework": "react",
+          "href": "/questions/user-interface/job-board/react"
+        },
+        {
+          "framework": "vanilla",
+          "href": "/questions/user-interface/job-board/vanilla"
+        },
+        {
+          "framework": "angular",
+          "href": "/questions/user-interface/job-board/angular"
+        },
+        {
+          "framework": "vue",
+          "href": "/questions/user-interface/job-board/vue"
+        },
+        {
+          "framework": "svelte",
+          "href": "/questions/user-interface/job-board/svelte"
+        }
+      ],
+      "href": "/questions/user-interface/job-board",
+      "importance": "low",
+      "languages": [
+        "html",
+        "css",
+        "js"
+      ],
+      "nextQuestions": [],
+      "published": true,
+      "ranking": 100,
+      "similarQuestions": [],
+      "slug": "job-board",
+      "subtitle": null,
+      "topics": [
+        "networking"
       ]
     }
   },
@@ -9053,6 +7436,64 @@
   },
   {
     "info": {
+      "excerpt": "构建一个显示当前时间的 7 段数码时钟。",
+      "title": "数字时钟"
+    },
+    "metadata": {
+      "access": "standard",
+      "author": "yangshun",
+      "companies": [
+        "lyft"
+      ],
+      "created": 1656892800,
+      "difficulty": "medium",
+      "duration": 25,
+      "featured": true,
+      "format": "user-interface",
+      "frameworkDefault": "react",
+      "frameworks": [
+        {
+          "framework": "react",
+          "href": "/questions/user-interface/digital-clock/react"
+        },
+        {
+          "framework": "vanilla",
+          "href": "/questions/user-interface/digital-clock/vanilla"
+        },
+        {
+          "framework": "angular",
+          "href": "/questions/user-interface/digital-clock/angular"
+        },
+        {
+          "framework": "vue",
+          "href": "/questions/user-interface/digital-clock/vue"
+        },
+        {
+          "framework": "svelte",
+          "href": "/questions/user-interface/digital-clock/svelte"
+        }
+      ],
+      "href": "/questions/user-interface/digital-clock",
+      "importance": "medium",
+      "languages": [
+        "html",
+        "css",
+        "js"
+      ],
+      "nextQuestions": [],
+      "published": true,
+      "ranking": 100,
+      "similarQuestions": [],
+      "slug": "digital-clock",
+      "subtitle": null,
+      "topics": [
+        "a11y",
+        "async"
+      ]
+    }
+  },
+  {
+    "info": {
       "excerpt": "实现一个函数来查找动态整数流的中位数",
       "title": "数字流的中位数"
     },
@@ -9117,6 +7558,168 @@
         "data-selection"
       ],
       "slug": "data-merging",
+      "subtitle": null,
+      "topics": []
+    }
+  },
+  {
+    "info": {
+      "excerpt": "构建一个具有分页功能的users数据表",
+      "title": "数据表"
+    },
+    "metadata": {
+      "access": "free",
+      "author": "yangshun",
+      "companies": [
+        "palantir",
+        "amazon",
+        "stripe"
+      ],
+      "created": 1723766400,
+      "difficulty": "medium",
+      "duration": 20,
+      "featured": false,
+      "format": "user-interface",
+      "frameworkDefault": "react",
+      "frameworks": [
+        {
+          "framework": "react",
+          "href": "/questions/user-interface/data-table/react"
+        }
+      ],
+      "href": "/questions/user-interface/data-table",
+      "importance": "low",
+      "languages": [
+        "html",
+        "js"
+      ],
+      "nextQuestions": [
+        "data-table-ii"
+      ],
+      "published": true,
+      "ranking": 100,
+      "similarQuestions": [],
+      "slug": "data-table",
+      "subtitle": null,
+      "topics": []
+    }
+  },
+  {
+    "info": {
+      "excerpt": "构建一个具有排序功能的用户数据表",
+      "title": "数据表 II"
+    },
+    "metadata": {
+      "access": "premium",
+      "author": "yangshun",
+      "companies": [
+        "palantir",
+        "amazon",
+        "stripe"
+      ],
+      "created": 1723766400,
+      "difficulty": "medium",
+      "duration": 20,
+      "featured": false,
+      "format": "user-interface",
+      "frameworkDefault": "react",
+      "frameworks": [
+        {
+          "framework": "react",
+          "href": "/questions/user-interface/data-table-ii/react"
+        }
+      ],
+      "href": "/questions/user-interface/data-table-ii",
+      "importance": "low",
+      "languages": [
+        "html",
+        "js"
+      ],
+      "nextQuestions": [],
+      "published": true,
+      "ranking": 100,
+      "similarQuestions": [],
+      "slug": "data-table-ii",
+      "subtitle": null,
+      "topics": []
+    }
+  },
+  {
+    "info": {
+      "excerpt": "构建一个具有分页和排序功能的通用数据表",
+      "title": "数据表 III"
+    },
+    "metadata": {
+      "access": "premium",
+      "author": "yangshun",
+      "companies": [
+        "palantir",
+        "amazon",
+        "stripe"
+      ],
+      "created": 1723766400,
+      "difficulty": "hard",
+      "duration": 30,
+      "featured": false,
+      "format": "user-interface",
+      "frameworkDefault": "react",
+      "frameworks": [
+        {
+          "framework": "react",
+          "href": "/questions/user-interface/data-table-iii/react"
+        }
+      ],
+      "href": "/questions/user-interface/data-table-iii",
+      "importance": "low",
+      "languages": [
+        "html",
+        "js"
+      ],
+      "nextQuestions": [],
+      "published": true,
+      "ranking": 100,
+      "similarQuestions": [],
+      "slug": "data-table-iii",
+      "subtitle": null,
+      "topics": []
+    }
+  },
+  {
+    "info": {
+      "excerpt": "构建一个具有分页、排序和过滤功能的通用数据表",
+      "title": "数据表 IV"
+    },
+    "metadata": {
+      "access": "premium",
+      "author": "yangshun",
+      "companies": [
+        "palantir",
+        "amazon",
+        "stripe"
+      ],
+      "created": 1723766400,
+      "difficulty": "hard",
+      "duration": 40,
+      "featured": false,
+      "format": "user-interface",
+      "frameworkDefault": "react",
+      "frameworks": [
+        {
+          "framework": "react",
+          "href": "/questions/user-interface/data-table-iv/react"
+        }
+      ],
+      "href": "/questions/user-interface/data-table-iv",
+      "importance": "low",
+      "languages": [
+        "html",
+        "js"
+      ],
+      "nextQuestions": [],
+      "published": true,
+      "ranking": 100,
+      "similarQuestions": [],
+      "slug": "data-table-iv",
       "subtitle": null,
       "topics": []
     }
@@ -9225,6 +7828,140 @@
       "topics": [
         "array"
       ]
+    }
+  },
+  {
+    "info": {
+      "excerpt": "使用扁平 DOM 结构构建文件浏览器组件",
+      "title": "文件浏览器 III"
+    },
+    "metadata": {
+      "access": "premium",
+      "author": "yangshun",
+      "companies": [
+        "amazon",
+        "atlassian",
+        "snap",
+        "tiktok"
+      ],
+      "created": 1723766400,
+      "difficulty": "medium",
+      "duration": 20,
+      "featured": false,
+      "format": "user-interface",
+      "frameworkDefault": "react",
+      "frameworks": [
+        {
+          "framework": "react",
+          "href": "/questions/user-interface/file-explorer-iii/react"
+        }
+      ],
+      "href": "/questions/user-interface/file-explorer-iii",
+      "importance": "medium",
+      "languages": [
+        "html",
+        "js"
+      ],
+      "nextQuestions": [
+        "nested-checkboxes"
+      ],
+      "published": true,
+      "ranking": 100,
+      "similarQuestions": [],
+      "slug": "file-explorer-iii",
+      "subtitle": null,
+      "topics": []
+    }
+  },
+  {
+    "info": {
+      "excerpt": "构建一个文件管理器组件，以树状层级视图的形式浏览文件和目录",
+      "title": "文件管理器"
+    },
+    "metadata": {
+      "access": "standard",
+      "author": "yangshun",
+      "companies": [
+        "amazon",
+        "atlassian",
+        "snap",
+        "tiktok"
+      ],
+      "created": 1723766400,
+      "difficulty": "medium",
+      "duration": 20,
+      "featured": false,
+      "format": "user-interface",
+      "frameworkDefault": "react",
+      "frameworks": [
+        {
+          "framework": "react",
+          "href": "/questions/user-interface/file-explorer/react"
+        }
+      ],
+      "href": "/questions/user-interface/file-explorer",
+      "importance": "medium",
+      "languages": [
+        "html",
+        "js"
+      ],
+      "nextQuestions": [
+        "file-explorer-ii",
+        "file-explorer-iii"
+      ],
+      "published": true,
+      "ranking": 100,
+      "similarQuestions": [
+        "nested-checkboxes"
+      ],
+      "slug": "file-explorer",
+      "subtitle": null,
+      "topics": [
+        "a11y"
+      ]
+    }
+  },
+  {
+    "info": {
+      "excerpt": "构建一个半可访问的文件管理器组件，该组件具有正确的 ARIA 角色、状态和属性",
+      "title": "文件管理器 II"
+    },
+    "metadata": {
+      "access": "premium",
+      "author": "yangshun",
+      "companies": [
+        "amazon",
+        "atlassian",
+        "snap",
+        "tiktok"
+      ],
+      "created": 1723766400,
+      "difficulty": "medium",
+      "duration": 20,
+      "featured": false,
+      "format": "user-interface",
+      "frameworkDefault": "react",
+      "frameworks": [
+        {
+          "framework": "react",
+          "href": "/questions/user-interface/file-explorer-ii/react"
+        }
+      ],
+      "href": "/questions/user-interface/file-explorer-ii",
+      "importance": "medium",
+      "languages": [
+        "html",
+        "js"
+      ],
+      "nextQuestions": [
+        "file-explorer-iii"
+      ],
+      "published": true,
+      "ranking": 100,
+      "similarQuestions": [],
+      "slug": "file-explorer-ii",
+      "subtitle": null,
+      "topics": []
     }
   },
   {
@@ -9368,6 +8105,61 @@
   },
   {
     "info": {
+      "excerpt": "构建一个星级评分组件，该组件显示一排星形图标，供用户选择与评分相对应的已填充星形数量。",
+      "title": "星级评分"
+    },
+    "metadata": {
+      "access": "standard",
+      "author": "yangshun",
+      "companies": [
+        "airbnb",
+        "amazon",
+        "uber"
+      ],
+      "created": 1658016000,
+      "difficulty": "medium",
+      "duration": 20,
+      "featured": false,
+      "format": "user-interface",
+      "frameworkDefault": "react",
+      "frameworks": [
+        {
+          "framework": "react",
+          "href": "/questions/user-interface/star-rating/react"
+        },
+        {
+          "framework": "vanilla",
+          "href": "/questions/user-interface/star-rating/vanilla"
+        },
+        {
+          "framework": "angular",
+          "href": "/questions/user-interface/star-rating/angular"
+        },
+        {
+          "framework": "vue",
+          "href": "/questions/user-interface/star-rating/vue"
+        }
+      ],
+      "href": "/questions/user-interface/star-rating",
+      "importance": "high",
+      "languages": [
+        "html",
+        "css",
+        "js"
+      ],
+      "nextQuestions": [],
+      "published": true,
+      "ranking": 100,
+      "similarQuestions": [
+        "progress-bar"
+      ],
+      "slug": "star-rating",
+      "subtitle": null,
+      "topics": []
+    }
+  },
+  {
+    "info": {
       "excerpt": "实现一个函数来检查一个值是否为空对象、集合、映射或集合",
       "title": "是否为空"
     },
@@ -9428,6 +8220,59 @@
       "topics": [
         "string",
         "binary-search"
+      ]
+    }
+  },
+  {
+    "info": {
+      "excerpt": "构建一个为指定日期预订航班的组件",
+      "title": "机票预订"
+    },
+    "metadata": {
+      "access": "premium",
+      "author": "yangshun",
+      "companies": [
+        "openai",
+        "reddit"
+      ],
+      "created": 1682121600,
+      "difficulty": "easy",
+      "duration": 15,
+      "featured": false,
+      "format": "user-interface",
+      "frameworkDefault": "react",
+      "frameworks": [
+        {
+          "framework": "react",
+          "href": "/questions/user-interface/flight-booker/react"
+        },
+        {
+          "framework": "angular",
+          "href": "/questions/user-interface/flight-booker/angular"
+        },
+        {
+          "framework": "vue",
+          "href": "/questions/user-interface/flight-booker/vue"
+        },
+        {
+          "framework": "svelte",
+          "href": "/questions/user-interface/flight-booker/svelte"
+        }
+      ],
+      "href": "/questions/user-interface/flight-booker",
+      "importance": "low",
+      "languages": [
+        "html",
+        "js"
+      ],
+      "nextQuestions": [],
+      "published": true,
+      "ranking": 100,
+      "similarQuestions": [],
+      "slug": "flight-booker",
+      "subtitle": null,
+      "topics": [
+        "a11y"
       ]
     }
   },
@@ -9751,6 +8596,238 @@
   },
   {
     "info": {
+      "excerpt": "构建一个可重复使用的模态对话框组件，可以打开和关闭",
+      "title": "模态对话框"
+    },
+    "metadata": {
+      "access": "standard",
+      "author": "yangshun",
+      "companies": [
+        "amazon",
+        "tiktok"
+      ],
+      "created": 1723766400,
+      "difficulty": "medium",
+      "duration": 20,
+      "featured": false,
+      "format": "user-interface",
+      "frameworkDefault": "react",
+      "frameworks": [
+        {
+          "framework": "react",
+          "href": "/questions/user-interface/modal-dialog/react"
+        }
+      ],
+      "href": "/questions/user-interface/modal-dialog",
+      "importance": "low",
+      "languages": [
+        "html",
+        "js",
+        "css"
+      ],
+      "nextQuestions": [
+        "modal-dialog-ii"
+      ],
+      "published": true,
+      "ranking": 100,
+      "similarQuestions": [],
+      "slug": "modal-dialog",
+      "subtitle": null,
+      "topics": [
+        "a11y"
+      ]
+    }
+  },
+  {
+    "info": {
+      "excerpt": "构建一个半可访问的模态对话框组件，该组件具有正确的 ARIA 角色、状态和属性",
+      "title": "模态对话框 II"
+    },
+    "metadata": {
+      "access": "premium",
+      "author": "yangshun",
+      "companies": [
+        "amazon",
+        "tiktok"
+      ],
+      "created": 1723766400,
+      "difficulty": "medium",
+      "duration": 20,
+      "featured": false,
+      "format": "user-interface",
+      "frameworkDefault": "react",
+      "frameworks": [
+        {
+          "framework": "react",
+          "href": "/questions/user-interface/modal-dialog-ii/react"
+        }
+      ],
+      "href": "/questions/user-interface/modal-dialog-ii",
+      "importance": "low",
+      "languages": [
+        "html",
+        "js",
+        "css"
+      ],
+      "nextQuestions": [
+        "modal-dialog-iii"
+      ],
+      "published": true,
+      "ranking": 100,
+      "similarQuestions": [],
+      "slug": "modal-dialog-ii",
+      "subtitle": null,
+      "topics": [
+        "a11y"
+      ]
+    }
+  },
+  {
+    "info": {
+      "excerpt": "构建一个适度可访问的模态对话框组件，该组件支持关闭对话框的常用方法",
+      "title": "模态对话框 III"
+    },
+    "metadata": {
+      "access": "premium",
+      "author": "yangshun",
+      "companies": [
+        "amazon",
+        "tiktok"
+      ],
+      "created": 1723766400,
+      "difficulty": "medium",
+      "duration": 20,
+      "featured": false,
+      "format": "user-interface",
+      "frameworkDefault": "react",
+      "frameworks": [
+        {
+          "framework": "react",
+          "href": "/questions/user-interface/modal-dialog-iii/react"
+        }
+      ],
+      "href": "/questions/user-interface/modal-dialog-iii",
+      "importance": "low",
+      "languages": [
+        "html",
+        "js"
+      ],
+      "nextQuestions": [
+        "modal-dialog-iv"
+      ],
+      "published": true,
+      "ranking": 100,
+      "similarQuestions": [],
+      "slug": "modal-dialog-iii",
+      "subtitle": null,
+      "topics": [
+        "a11y"
+      ]
+    }
+  },
+  {
+    "info": {
+      "excerpt": "构建一个完全可访问的模态对话框组件，该组件支持所有必需的键盘交互",
+      "title": "模态对话框 IV"
+    },
+    "metadata": {
+      "access": "premium",
+      "author": "yangshun",
+      "companies": [
+        "amazon",
+        "tiktok"
+      ],
+      "created": 1723766400,
+      "difficulty": "hard",
+      "duration": 30,
+      "featured": false,
+      "format": "user-interface",
+      "frameworkDefault": "react",
+      "frameworks": [
+        {
+          "framework": "react",
+          "href": "/questions/user-interface/modal-dialog-iv/react"
+        }
+      ],
+      "href": "/questions/user-interface/modal-dialog-iv",
+      "importance": "low",
+      "languages": [
+        "html",
+        "js"
+      ],
+      "nextQuestions": [],
+      "published": true,
+      "ranking": 100,
+      "similarQuestions": [],
+      "slug": "modal-dialog-iv",
+      "subtitle": null,
+      "topics": [
+        "a11y"
+      ]
+    }
+  },
+  {
+    "info": {
+      "excerpt": "构建一个模拟时钟，其指针像真实时钟一样更新和移动",
+      "title": "模拟时钟"
+    },
+    "metadata": {
+      "access": "premium",
+      "author": "yangshun",
+      "companies": [
+        "lyft"
+      ],
+      "created": 1670198400,
+      "difficulty": "medium",
+      "duration": 20,
+      "featured": false,
+      "format": "user-interface",
+      "frameworkDefault": "react",
+      "frameworks": [
+        {
+          "framework": "react",
+          "href": "/questions/user-interface/analog-clock/react"
+        },
+        {
+          "framework": "vanilla",
+          "href": "/questions/user-interface/analog-clock/vanilla"
+        },
+        {
+          "framework": "angular",
+          "href": "/questions/user-interface/analog-clock/angular"
+        },
+        {
+          "framework": "vue",
+          "href": "/questions/user-interface/analog-clock/vue"
+        },
+        {
+          "framework": "svelte",
+          "href": "/questions/user-interface/analog-clock/svelte"
+        }
+      ],
+      "href": "/questions/user-interface/analog-clock",
+      "importance": "low",
+      "languages": [
+        "html",
+        "css",
+        "js"
+      ],
+      "nextQuestions": [],
+      "published": true,
+      "ranking": 100,
+      "similarQuestions": [
+        "digital-clock"
+      ],
+      "slug": "analog-clock",
+      "subtitle": null,
+      "topics": [
+        "a11y",
+        "async"
+      ]
+    }
+  },
+  {
+    "info": {
       "excerpt": "实现一个函数，该函数通过接受一个数字进行求和，并允许重复调用，传入更多数字，直到不传入任何数字为止。",
       "title": "求和"
     },
@@ -9785,6 +8862,50 @@
       "topics": [
         "closure"
       ]
+    }
+  },
+  {
+    "info": {
+      "excerpt": "构建一个注册表单，该表单对用户详细信息进行验证并提交到后端 API",
+      "title": "注册表单"
+    },
+    "metadata": {
+      "access": "premium",
+      "author": "yangshun",
+      "companies": [
+        "lyft",
+        "toptal",
+        "amazon",
+        "openai",
+        "reddit"
+      ],
+      "created": 1658707200,
+      "difficulty": "medium",
+      "duration": 30,
+      "featured": false,
+      "format": "user-interface",
+      "frameworkDefault": "vanilla",
+      "frameworks": [
+        {
+          "framework": "vanilla",
+          "href": "/questions/user-interface/signup-form/vanilla"
+        }
+      ],
+      "href": "/questions/user-interface/signup-form",
+      "importance": "high",
+      "languages": [
+        "html",
+        "js"
+      ],
+      "nextQuestions": [],
+      "published": true,
+      "ranking": 100,
+      "similarQuestions": [
+        "contact-form"
+      ],
+      "slug": "signup-form",
+      "subtitle": null,
+      "topics": []
     }
   },
   {
@@ -10117,6 +9238,115 @@
   },
   {
     "info": {
+      "excerpt": "构建一个温度转换器小部件，该小部件可在摄氏度和华氏度之间转换温度值",
+      "title": "温度转换器"
+    },
+    "metadata": {
+      "access": "premium",
+      "author": "yangshun",
+      "companies": [],
+      "created": 1657065600,
+      "difficulty": "easy",
+      "duration": 15,
+      "featured": false,
+      "format": "user-interface",
+      "frameworkDefault": "react",
+      "frameworks": [
+        {
+          "framework": "react",
+          "href": "/questions/user-interface/temperature-converter/react"
+        },
+        {
+          "framework": "vanilla",
+          "href": "/questions/user-interface/temperature-converter/vanilla"
+        },
+        {
+          "framework": "angular",
+          "href": "/questions/user-interface/temperature-converter/angular"
+        },
+        {
+          "framework": "vue",
+          "href": "/questions/user-interface/temperature-converter/vue"
+        },
+        {
+          "framework": "svelte",
+          "href": "/questions/user-interface/temperature-converter/svelte"
+        }
+      ],
+      "href": "/questions/user-interface/temperature-converter",
+      "importance": "medium",
+      "languages": [
+        "html",
+        "js"
+      ],
+      "nextQuestions": [],
+      "published": true,
+      "ranking": 100,
+      "similarQuestions": [
+        "todo-list"
+      ],
+      "slug": "temperature-converter",
+      "subtitle": null,
+      "topics": []
+    }
+  },
+  {
+    "info": {
+      "excerpt": "构建一个点赞按钮，其外观根据状态而变化",
+      "title": "点赞按钮"
+    },
+    "metadata": {
+      "access": "standard",
+      "author": "yangshun",
+      "companies": [
+        "amazon",
+        "openai"
+      ],
+      "created": 1670976000,
+      "difficulty": "medium",
+      "duration": 20,
+      "featured": true,
+      "format": "user-interface",
+      "frameworkDefault": "react",
+      "frameworks": [
+        {
+          "framework": "react",
+          "href": "/questions/user-interface/like-button/react"
+        },
+        {
+          "framework": "vanilla",
+          "href": "/questions/user-interface/like-button/vanilla"
+        },
+        {
+          "framework": "angular",
+          "href": "/questions/user-interface/like-button/angular"
+        },
+        {
+          "framework": "svelte",
+          "href": "/questions/user-interface/like-button/svelte"
+        }
+      ],
+      "href": "/questions/user-interface/like-button",
+      "importance": "low",
+      "languages": [
+        "html",
+        "css",
+        "js"
+      ],
+      "nextQuestions": [],
+      "published": true,
+      "ranking": 100,
+      "similarQuestions": [],
+      "slug": "like-button",
+      "subtitle": null,
+      "topics": [
+        "async",
+        "networking"
+      ]
+    }
+  },
+  {
+    "info": {
       "excerpt": "实现一个函数，找到到达楼梯顶部的不同方式的数量",
       "title": "爬楼梯组合"
     },
@@ -10146,6 +9376,99 @@
       "topics": [
         "dynamic-programming"
       ]
+    }
+  },
+  {
+    "info": {
+      "excerpt": "根据行数和列数生成一个数字表格",
+      "title": "生成表格"
+    },
+    "metadata": {
+      "access": "premium",
+      "author": "yangshun",
+      "companies": [
+        "google"
+      ],
+      "created": 1675123200,
+      "difficulty": "easy",
+      "duration": 15,
+      "featured": false,
+      "format": "user-interface",
+      "frameworkDefault": "react",
+      "frameworks": [
+        {
+          "framework": "react",
+          "href": "/questions/user-interface/generate-table/react"
+        },
+        {
+          "framework": "vanilla",
+          "href": "/questions/user-interface/generate-table/vanilla"
+        },
+        {
+          "framework": "angular",
+          "href": "/questions/user-interface/generate-table/angular"
+        },
+        {
+          "framework": "vue",
+          "href": "/questions/user-interface/generate-table/vue"
+        },
+        {
+          "framework": "svelte",
+          "href": "/questions/user-interface/generate-table/svelte"
+        }
+      ],
+      "href": "/questions/user-interface/generate-table",
+      "importance": "low",
+      "languages": [
+        "html",
+        "js"
+      ],
+      "nextQuestions": [],
+      "published": true,
+      "ranking": 100,
+      "similarQuestions": [],
+      "slug": "generate-table",
+      "subtitle": null,
+      "topics": []
+    }
+  },
+  {
+    "info": {
+      "excerpt": "构建一个UI来过滤、创建、更新和删除用户",
+      "title": "用户数据库"
+    },
+    "metadata": {
+      "access": "premium",
+      "author": "yangshun",
+      "companies": [
+        "tiktok"
+      ],
+      "created": 1723766400,
+      "difficulty": "medium",
+      "duration": 30,
+      "featured": false,
+      "format": "user-interface",
+      "frameworkDefault": "react",
+      "frameworks": [
+        {
+          "framework": "react",
+          "href": "/questions/user-interface/users-database/react"
+        }
+      ],
+      "href": "/questions/user-interface/users-database",
+      "importance": "low",
+      "languages": [
+        "html",
+        "js",
+        "css"
+      ],
+      "nextQuestions": [],
+      "published": true,
+      "ranking": 100,
+      "similarQuestions": [],
+      "slug": "users-database",
+      "subtitle": null,
+      "topics": []
     }
   },
   {
@@ -10358,6 +9681,122 @@
   },
   {
     "info": {
+      "excerpt": "构建一个可以测量经过时间的秒表小部件",
+      "title": "秒表"
+    },
+    "metadata": {
+      "access": "standard",
+      "author": "yangshun",
+      "companies": [
+        "cisco",
+        "uber"
+      ],
+      "created": 1670889600,
+      "difficulty": "medium",
+      "duration": 30,
+      "featured": false,
+      "format": "user-interface",
+      "frameworkDefault": "react",
+      "frameworks": [
+        {
+          "framework": "react",
+          "href": "/questions/user-interface/stopwatch/react"
+        },
+        {
+          "framework": "vanilla",
+          "href": "/questions/user-interface/stopwatch/vanilla"
+        },
+        {
+          "framework": "angular",
+          "href": "/questions/user-interface/stopwatch/angular"
+        },
+        {
+          "framework": "vue",
+          "href": "/questions/user-interface/stopwatch/vue"
+        },
+        {
+          "framework": "svelte",
+          "href": "/questions/user-interface/stopwatch/svelte"
+        }
+      ],
+      "href": "/questions/user-interface/stopwatch",
+      "importance": "low",
+      "languages": [
+        "html",
+        "css",
+        "js"
+      ],
+      "nextQuestions": [],
+      "published": true,
+      "ranking": 100,
+      "similarQuestions": [
+        "digital-clock"
+      ],
+      "slug": "stopwatch",
+      "subtitle": null,
+      "topics": [
+        "async"
+      ]
+    }
+  },
+  {
+    "info": {
+      "excerpt": "构建一个允许在两个列表之间转移项目的组件",
+      "title": "穿梭列表"
+    },
+    "metadata": {
+      "access": "standard",
+      "author": "yangshun",
+      "companies": [
+        "tiktok",
+        "openai"
+      ],
+      "created": 1682208000,
+      "difficulty": "medium",
+      "duration": 30,
+      "featured": false,
+      "format": "user-interface",
+      "frameworkDefault": "react",
+      "frameworks": [
+        {
+          "framework": "react",
+          "href": "/questions/user-interface/transfer-list/react"
+        },
+        {
+          "framework": "angular",
+          "href": "/questions/user-interface/transfer-list/angular"
+        },
+        {
+          "framework": "vue",
+          "href": "/questions/user-interface/transfer-list/vue"
+        },
+        {
+          "framework": "svelte",
+          "href": "/questions/user-interface/transfer-list/svelte"
+        }
+      ],
+      "href": "/questions/user-interface/transfer-list",
+      "importance": "low",
+      "languages": [
+        "html",
+        "css",
+        "js"
+      ],
+      "nextQuestions": [
+        "transfer-list-ii"
+      ],
+      "published": true,
+      "ranking": 100,
+      "similarQuestions": [
+        "todo-list"
+      ],
+      "slug": "transfer-list",
+      "subtitle": null,
+      "topics": []
+    }
+  },
+  {
+    "info": {
       "excerpt": "实现一个函数，用于检查对象是否符合源对象",
       "title": "符合条件"
     },
@@ -10461,6 +9900,65 @@
   },
   {
     "info": {
+      "excerpt": "构建一个红绿灯，在预定的时间间隔后，灯从绿色切换到黄色再到红色，并无限循环。",
+      "title": "红绿灯"
+    },
+    "metadata": {
+      "access": "free",
+      "author": "yangshun",
+      "companies": [
+        "roblox"
+      ],
+      "created": 1670716800,
+      "difficulty": "medium",
+      "duration": 20,
+      "featured": false,
+      "format": "user-interface",
+      "frameworkDefault": "react",
+      "frameworks": [
+        {
+          "framework": "react",
+          "href": "/questions/user-interface/traffic-light/react"
+        },
+        {
+          "framework": "vanilla",
+          "href": "/questions/user-interface/traffic-light/vanilla"
+        },
+        {
+          "framework": "angular",
+          "href": "/questions/user-interface/traffic-light/angular"
+        },
+        {
+          "framework": "vue",
+          "href": "/questions/user-interface/traffic-light/vue"
+        },
+        {
+          "framework": "svelte",
+          "href": "/questions/user-interface/traffic-light/svelte"
+        }
+      ],
+      "href": "/questions/user-interface/traffic-light",
+      "importance": "low",
+      "languages": [
+        "html",
+        "css",
+        "js"
+      ],
+      "nextQuestions": [],
+      "published": true,
+      "ranking": 100,
+      "similarQuestions": [
+        "digital-clock"
+      ],
+      "slug": "traffic-light",
+      "subtitle": null,
+      "topics": [
+        "async"
+      ]
+    }
+  },
+  {
+    "info": {
       "excerpt": "实现一个函数来计算机器人移动在 m x n 网格中的不同路径",
       "title": "网格中的不同路径"
     },
@@ -10489,6 +9987,60 @@
       "subtitle": null,
       "topics": [
         "dynamic-programming"
+      ]
+    }
+  },
+  {
+    "info": {
+      "excerpt": "构建一个灯光网格，灯光以与激活相反的顺序停用",
+      "title": "网格灯"
+    },
+    "metadata": {
+      "access": "premium",
+      "author": "yangshun",
+      "companies": [
+        "uber"
+      ],
+      "created": 1671148800,
+      "difficulty": "medium",
+      "duration": 20,
+      "featured": false,
+      "format": "user-interface",
+      "frameworkDefault": "react",
+      "frameworks": [
+        {
+          "framework": "react",
+          "href": "/questions/user-interface/grid-lights/react"
+        },
+        {
+          "framework": "angular",
+          "href": "/questions/user-interface/grid-lights/angular"
+        },
+        {
+          "framework": "vue",
+          "href": "/questions/user-interface/grid-lights/vue"
+        },
+        {
+          "framework": "svelte",
+          "href": "/questions/user-interface/grid-lights/svelte"
+        }
+      ],
+      "href": "/questions/user-interface/grid-lights",
+      "importance": "low",
+      "languages": [
+        "html",
+        "css",
+        "js"
+      ],
+      "nextQuestions": [],
+      "published": true,
+      "ranking": 100,
+      "similarQuestions": [],
+      "slug": "grid-lights",
+      "subtitle": null,
+      "topics": [
+        "a11y",
+        "async"
       ]
     }
   },
@@ -10523,6 +10075,69 @@
       "topics": [
         "binary-tree",
         "tree"
+      ]
+    }
+  },
+  {
+    "info": {
+      "excerpt": "构建一个联系表单，将用户的反馈和联系方式提交到后端 API",
+      "title": "联系表单"
+    },
+    "metadata": {
+      "access": "free",
+      "author": "yangshun",
+      "companies": [
+        "lyft",
+        "amazon",
+        "openai",
+        "reddit"
+      ],
+      "created": 1658880000,
+      "difficulty": "easy",
+      "duration": 15,
+      "featured": true,
+      "format": "user-interface",
+      "frameworkDefault": "react",
+      "frameworks": [
+        {
+          "framework": "react",
+          "href": "/questions/user-interface/contact-form/react"
+        },
+        {
+          "framework": "vanilla",
+          "href": "/questions/user-interface/contact-form/vanilla"
+        },
+        {
+          "framework": "angular",
+          "href": "/questions/user-interface/contact-form/angular"
+        },
+        {
+          "framework": "vue",
+          "href": "/questions/user-interface/contact-form/vue"
+        },
+        {
+          "framework": "svelte",
+          "href": "/questions/user-interface/contact-form/svelte"
+        }
+      ],
+      "href": "/questions/user-interface/contact-form",
+      "importance": "high",
+      "languages": [
+        "html"
+      ],
+      "nextQuestions": [
+        "flatten",
+        "signup-form"
+      ],
+      "published": true,
+      "ranking": 100,
+      "similarQuestions": [
+        "signup-form"
+      ],
+      "slug": "contact-form",
+      "subtitle": null,
+      "topics": [
+        "a11y"
       ]
     }
   },
@@ -10680,6 +10295,67 @@
   },
   {
     "info": {
+      "excerpt": "构建一个简单的计数器，每当点击按钮时递增",
+      "title": "计数器"
+    },
+    "metadata": {
+      "access": "free",
+      "author": "yangshun",
+      "companies": [
+        "amazon"
+      ],
+      "created": 1656028800,
+      "difficulty": "easy",
+      "duration": 5,
+      "featured": false,
+      "format": "user-interface",
+      "frameworkDefault": "react",
+      "frameworks": [
+        {
+          "framework": "react",
+          "href": "/questions/user-interface/counter/react"
+        },
+        {
+          "framework": "vanilla",
+          "href": "/questions/user-interface/counter/vanilla"
+        },
+        {
+          "framework": "angular",
+          "href": "/questions/user-interface/counter/angular"
+        },
+        {
+          "framework": "vue",
+          "href": "/questions/user-interface/counter/vue"
+        },
+        {
+          "framework": "svelte",
+          "href": "/questions/user-interface/counter/svelte"
+        }
+      ],
+      "href": "/questions/user-interface/counter",
+      "importance": "low",
+      "languages": [
+        "html",
+        "js"
+      ],
+      "nextQuestions": [
+        "flatten",
+        "todo-list",
+        "contact-form"
+      ],
+      "published": true,
+      "ranking": 100,
+      "similarQuestions": [
+        "todo-list",
+        "temperature-converter"
+      ],
+      "slug": "counter",
+      "subtitle": null,
+      "topics": []
+    }
+  },
+  {
+    "info": {
       "excerpt": "实现一个函数来查找给定整数的二进制表示中的设置位",
       "title": "计算二进制数中的设置位"
     },
@@ -10747,6 +10423,57 @@
   },
   {
     "info": {
+      "excerpt": "构建一个记忆游戏，玩家需要匹配成对的卡片",
+      "title": "记忆游戏"
+    },
+    "metadata": {
+      "access": "premium",
+      "author": null,
+      "companies": [
+        "airbnb"
+      ],
+      "created": 1684108800,
+      "difficulty": "medium",
+      "duration": 40,
+      "featured": false,
+      "format": "user-interface",
+      "frameworkDefault": "react",
+      "frameworks": [
+        {
+          "framework": "react",
+          "href": "/questions/user-interface/memory-game/react"
+        },
+        {
+          "framework": "angular",
+          "href": "/questions/user-interface/memory-game/angular"
+        },
+        {
+          "framework": "vue",
+          "href": "/questions/user-interface/memory-game/vue"
+        },
+        {
+          "framework": "svelte",
+          "href": "/questions/user-interface/memory-game/svelte"
+        }
+      ],
+      "href": "/questions/user-interface/memory-game",
+      "importance": "low",
+      "languages": [
+        "html",
+        "css",
+        "js"
+      ],
+      "nextQuestions": [],
+      "published": true,
+      "ranking": 100,
+      "similarQuestions": [],
+      "slug": "memory-game",
+      "subtitle": null,
+      "topics": []
+    }
+  },
+  {
+    "info": {
       "excerpt": "实现一个函数，用于检查在给定先决条件的情况下是否可以完成所有课程",
       "title": "课程依赖"
     },
@@ -10777,6 +10504,228 @@
         "graph",
         "topological-sort",
         "dfs"
+      ]
+    }
+  },
+  {
+    "info": {
+      "excerpt": "构建一个进度条组件，该组件显示操作的百分比完成情况",
+      "title": "进度条"
+    },
+    "metadata": {
+      "access": "premium",
+      "author": "yangshun",
+      "companies": [
+        "uber",
+        "google",
+        "amazon",
+        "microsoft"
+      ],
+      "created": 1656720000,
+      "difficulty": "easy",
+      "duration": 15,
+      "featured": false,
+      "format": "user-interface",
+      "frameworkDefault": "react",
+      "frameworks": [
+        {
+          "framework": "react",
+          "href": "/questions/user-interface/progress-bar/react"
+        },
+        {
+          "framework": "vanilla",
+          "href": "/questions/user-interface/progress-bar/vanilla"
+        }
+      ],
+      "href": "/questions/user-interface/progress-bar",
+      "importance": "medium",
+      "languages": [
+        "html",
+        "css",
+        "js"
+      ],
+      "nextQuestions": [
+        "progress-bars",
+        "flatten",
+        "star-rating"
+      ],
+      "published": true,
+      "ranking": 100,
+      "similarQuestions": [
+        "star-rating"
+      ],
+      "slug": "progress-bar",
+      "subtitle": null,
+      "topics": []
+    }
+  },
+  {
+    "info": {
+      "excerpt": "构建一个进度条列表，当它们被添加到页面时逐渐填充。",
+      "title": "进度条"
+    },
+    "metadata": {
+      "access": "standard",
+      "author": "yangshun",
+      "companies": [
+        "uber"
+      ],
+      "created": 1671321600,
+      "difficulty": "easy",
+      "duration": 15,
+      "featured": false,
+      "format": "user-interface",
+      "frameworkDefault": "react",
+      "frameworks": [
+        {
+          "framework": "react",
+          "href": "/questions/user-interface/progress-bars/react"
+        }
+      ],
+      "href": "/questions/user-interface/progress-bars",
+      "importance": "low",
+      "languages": [
+        "html",
+        "css",
+        "js"
+      ],
+      "nextQuestions": [
+        "progress-bars-ii"
+      ],
+      "published": true,
+      "ranking": 100,
+      "similarQuestions": [],
+      "slug": "progress-bars",
+      "subtitle": null,
+      "topics": [
+        "async"
+      ]
+    }
+  },
+  {
+    "info": {
+      "excerpt": "构建一个进度条列表，这些进度条按顺序逐渐填充，一次一个",
+      "title": "进度条 II"
+    },
+    "metadata": {
+      "access": "premium",
+      "author": "yangshun",
+      "companies": [
+        "uber"
+      ],
+      "created": 1671321600,
+      "difficulty": "medium",
+      "duration": 20,
+      "featured": false,
+      "format": "user-interface",
+      "frameworkDefault": "react",
+      "frameworks": [
+        {
+          "framework": "react",
+          "href": "/questions/user-interface/progress-bars-ii/react"
+        }
+      ],
+      "href": "/questions/user-interface/progress-bars-ii",
+      "importance": "low",
+      "languages": [
+        "html",
+        "css",
+        "js"
+      ],
+      "nextQuestions": [
+        "progress-bars-iii"
+      ],
+      "published": true,
+      "ranking": 100,
+      "similarQuestions": [],
+      "slug": "progress-bars-ii",
+      "subtitle": null,
+      "topics": [
+        "async"
+      ]
+    }
+  },
+  {
+    "info": {
+      "excerpt": "构建一个进度条列表，这些进度条最多可以同时填充 3 个。",
+      "title": "进度条 III"
+    },
+    "metadata": {
+      "access": "premium",
+      "author": "yangshun",
+      "companies": [
+        "uber"
+      ],
+      "created": 1671321600,
+      "difficulty": "medium",
+      "duration": 25,
+      "featured": false,
+      "format": "user-interface",
+      "frameworkDefault": "react",
+      "frameworks": [
+        {
+          "framework": "react",
+          "href": "/questions/user-interface/progress-bars-iii/react"
+        }
+      ],
+      "href": "/questions/user-interface/progress-bars-iii",
+      "importance": "low",
+      "languages": [
+        "html",
+        "css",
+        "js"
+      ],
+      "nextQuestions": [
+        "progress-bars-iv"
+      ],
+      "published": true,
+      "ranking": 100,
+      "similarQuestions": [],
+      "slug": "progress-bars-iii",
+      "subtitle": null,
+      "topics": [
+        "async"
+      ]
+    }
+  },
+  {
+    "info": {
+      "excerpt": "构建一个进度条列表，这些进度条同时逐渐填充，最多 3 个，并允许暂停和恢复",
+      "title": "进度条 IV"
+    },
+    "metadata": {
+      "access": "premium",
+      "author": "yangshun",
+      "companies": [
+        "uber"
+      ],
+      "created": 1671321600,
+      "difficulty": "hard",
+      "duration": 25,
+      "featured": false,
+      "format": "user-interface",
+      "frameworkDefault": "react",
+      "frameworks": [
+        {
+          "framework": "react",
+          "href": "/questions/user-interface/progress-bars-iv/react"
+        }
+      ],
+      "href": "/questions/user-interface/progress-bars-iv",
+      "importance": "low",
+      "languages": [
+        "html",
+        "css",
+        "js"
+      ],
+      "nextQuestions": [],
+      "published": true,
+      "ranking": 100,
+      "similarQuestions": [],
+      "slug": "progress-bars-iv",
+      "subtitle": null,
+      "topics": [
+        "async"
       ]
     }
   },
@@ -11373,6 +11322,57 @@
         "binary-tree",
         "binary-search-tree",
         "tree"
+      ]
+    }
+  },
+  {
+    "info": {
+      "excerpt": "构建一个骰子滚动器应用程序，模拟掷 6 面骰子的结果",
+      "title": "骰子滚动器"
+    },
+    "metadata": {
+      "access": "standard",
+      "author": null,
+      "companies": [],
+      "created": 1719964800,
+      "difficulty": "medium",
+      "duration": 20,
+      "featured": false,
+      "format": "user-interface",
+      "frameworkDefault": "react",
+      "frameworks": [
+        {
+          "framework": "react",
+          "href": "/questions/user-interface/dice-roller/react"
+        },
+        {
+          "framework": "angular",
+          "href": "/questions/user-interface/dice-roller/angular"
+        },
+        {
+          "framework": "vue",
+          "href": "/questions/user-interface/dice-roller/vue"
+        },
+        {
+          "framework": "svelte",
+          "href": "/questions/user-interface/dice-roller/svelte"
+        }
+      ],
+      "href": "/questions/user-interface/dice-roller",
+      "importance": "low",
+      "languages": [
+        "html",
+        "css",
+        "js"
+      ],
+      "nextQuestions": [],
+      "published": true,
+      "ranking": 100,
+      "similarQuestions": [],
+      "slug": "dice-roller",
+      "subtitle": null,
+      "topics": [
+        "a11y"
       ]
     }
   }
