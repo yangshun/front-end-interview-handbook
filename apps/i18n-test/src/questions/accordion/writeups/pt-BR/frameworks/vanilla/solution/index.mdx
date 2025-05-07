@@ -1,0 +1,31 @@
+import TestCases from '../../../test-cases.mdx';
+import Notes from '../../../notes.mdx';
+
+## Solução
+
+### Design de Configuração/API
+
+Parte da complexidade da construção de um componente é projetar sua API. A função `accordion` aceita um elemento raiz, `$rootEl`, onde as seções do acordeão serão inseridas. O segundo parâmetro da função `accordion` é um objeto usado para armazenar as opções de configuração. No mínimo, precisaremos das seguintes opções:
+
+* `items`: Uma lista de objetos de itens. Cada item é um objeto com os campos:
+  * `value`: Um identificador único para o item do acordeão.
+  * `title`: O rótulo de texto a ser exibido no título do acordeão.
+  * `contents`: O conteúdo a ser exibido quando a seção é expandida.
+
+Ao contrário da nossa abordagem típica de Vanilla JS, optamos por não manter nenhum estado em JavaScript desta vez e, em vez disso, confiamos no DOM para rastrear o estado de cada seção do acordeão e expandir/recolher os elementos apropriados com base no estado desse acordeão.
+
+A função `accordion` chama as funções `init` e `attachEvents` para configurar o componente do acordeão, renderizando os elementos DOM e anexando os ouvintes de eventos necessários.
+
+### `init`
+
+Esta função configura os elementos DOM que permanecem durante todo o ciclo de vida do componente, ou seja, eles nunca serão destruídos. As seções do acordeão (títulos e conteúdos) são renderizadas.
+
+### `attachEvents`
+
+Apenas um único ouvinte de evento é necessário neste componente, que é o evento `click`, a ser adicionado ao elemento raiz. Fazemos uso da Delegação de Eventos para que apenas um único ouvinte de evento precise ser adicionado e funcione para todo o seu conteúdo filho. No entanto, devemos ter cuidado ao verificar em qual elemento está sendo clicado e garantir que estamos respondendo apenas quando o título é clicado e não o conteúdo.
+
+Quando um clique é acionado no título do acordeão, precisaremos girar o ícone e alternar o atributo `hidden` no conteúdo do acordeão.
+
+<TestCases />
+
+<Notes />

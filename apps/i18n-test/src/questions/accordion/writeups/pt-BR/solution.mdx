@@ -1,0 +1,16 @@
+## Solução
+
+Implementar um componente Accordion básico (não totalmente acessível) usando frameworks de UI é bastante simples devido ao fato de que apenas um valor de estado é necessário, os estados expandido/colapsado de cada seção. Os frameworks de UI também ajudam a manter o estado e a UI sincronizados, o que teríamos que implementar por conta própria se fôssemos usar Vanilla JavaScript.
+
+### Props (Design da API)
+
+Parte da complexidade da construção de um componente é projetar a API para ele. No caso de um framework baseado em componentes, estes seriam as propriedades do componente. No mínimo, precisaremos das seguintes props/atributos:
+
+* `sections`: Uma lista de objetos de itens. Cada item é um objeto com os campos:
+  * `value`: Um identificador único para o item do acordeão.
+  * `title`: O rótulo de texto a ser exibido no título do acordeão.
+  * `contents`: O conteúdo a ser exibido quando a seção é expandida.
+
+### Estado
+
+Podemos usar ES6 `Set` para acompanhar as seções que estão expandidas. Quando o título da seção é clicado, verifique se o valor da seção está dentro do conjunto. O valor será removido do conjunto se estiver dentro e adicionado ao conjunto caso contrário.
