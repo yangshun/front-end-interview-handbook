@@ -1,0 +1,30 @@
+import TestCases from '../../../test-cases.mdx';
+
+## 解决方案
+
+以下解释假设您对[Accordion II 的 Svelte 解决方案](/questions/user-interface/accordion-ii/svelte/solution)有很好的理解。
+
+### 监听键盘事件
+
+首先，了解`keypress`与`keydown`事件的区别至关重要。`keypress`事件仅在按下产生字符值的键时触发。这将排除<kbd>Up</kbd>、<kbd>Down</kbd>、<kbd>Home</kbd>和<kbd>End</kbd>键，而这些是此问题的要求。`keypress`事件也已弃用，不应使用。由于这些原因，我们应该使用`keydown`事件。我们将把`onKeyDown` prop 添加到根`<div>`元素。
+
+要知道按下了哪个键，我们可以在传递给`onKeyDown`回调的事件上使用`event.key`或`event.code`。关于[`event.key`与`event.code`之间的区别](https://javascript.info/keyboard-events)有一些[区别](https://javascript.info/keyboard-events)，但就此问题而言，这无关紧要，可以忽略。我们只使用`event.code`。
+
+### 响应键盘事件
+
+请注意，只有当焦点当前位于其中一个手风琴标题上时，才应响应这些键盘事件。我们可以使用`document.activeElement`获取页面上当前聚焦的 DOM 元素，并检查它是否在`sectionHeaders`内，`sectionHeaders`是一个数组，通过`bind:this={sectionHeaders[index]}`保存对所有手风琴标题按钮的引用
+
+接下来，我们读取`event.code`属性，并根据其值使用自定义代码进行响应。`switch` case 适用于这种情况：
+
+* `ArrowUp`：聚焦到上一个标题，如果焦点位于第一个标题上，则“环绕”到最后一个标题。我们首先找到当前聚焦标题的索引，将其减一，并使用模运算来优雅地处理“环绕”。
+* `ArrowDown`：聚焦到下一个标题，如果焦点位于最后一个标题上，则“环绕”到第一个标题。我们首先找到当前聚焦标题的索引，将其加一，并使用模运算来优雅地处理“环绕”。
+* `Home`：聚焦到第一个标题。
+* `End`：聚焦到最后一个标题。
+
+一个有效的键盘事件应该聚焦于一个新的标题按钮。我们可以通过在`sectionHeaders`数组中找到它的索引，对其进行命令式调用`.focus()`。
+
+<TestCases />
+
+## 资源
+
+* [Accordion | ARIA Authoring Practices Guide](https://www.w3.org/WAI/ARIA/apg/patterns/accordion/)

@@ -1,0 +1,31 @@
+---
+title: Tabs III
+excerpt: 构建一个完全可访问的选项卡组件，该组件根据 ARIA 规范具有键盘支持
+---
+
+**注意：**这是 [Tabs II](/questions/user-interface/tabs-ii) 的高级版本，在尝试此问题之前，您应该先完成该问题。由于它需要大量代码才能在没有 JavaScript 框架的情况下添加键盘交互，因此此问题不适用于 Vanilla JavaScript。
+
+在 [Tabs II](/questions/user-interface/tabs-ii) 中，我们构建了一个具有必要 [WAI-ARIA 角色、状态和属性](https://www.w3.org/WAI/ARIA/apg/patterns/tabs/#wai-ariaroles,states,andproperties) 的功能性选项卡组件。对于完全可访问的选项卡组件，我们还应该添加 [必要的键盘交互](https://www.w3.org/WAI/ARIA/apg/patterns/tabs/#keyboardinteraction)。
+
+## 要求
+
+我们将遵循 [选项卡所需的键盘交互](https://www.w3.org/WAI/ARIA/apg/patterns/tabs/#keyboardinteraction) 的修改子集。请注意，我们正在构建的选项卡组件会在获得焦点时自动激活，因此，一旦焦点更改为其他选项卡，就会显示相应的 tabpanel 内容。
+
+*  按下 <kbd>Tab</kbd> 键：
+  *  当焦点进入选项卡列表时，将焦点置于活动选项卡元素上。
+  *  当选项卡列表包含焦点时，将焦点移至页面选项卡序列中选项卡列表之外的下一个元素，即 tabpanel。
+*  当焦点位于选项卡列表中的选项卡元素上时：
+  *  <kbd>左箭头</kbd>：将焦点移至上一个选项卡。
+    如果焦点位于第一个选项卡上，则将焦点移至最后一个
+    选项卡。
+  *  <kbd>右箭头</kbd>：将焦点移至下一个选项卡。如果
+    焦点位于最后一个选项卡元素上，则将焦点移至
+    第一个选项卡。
+  *  <kbd>Home</kbd>：将焦点移至第一个选项卡。显示
+    新获得焦点的选项卡的 tabpanel 内容。
+  *  <kbd>End</kbd>：将焦点移至最后一个选项卡。显示
+    新获得焦点的选项卡的 tabpanel 内容。
+
+## 注意事项
+
+此问题的重点是添加键盘功能，而不是样式。我们在此处提供了 [Tabs II](/questions/user-interface/tabs-ii) 的解决方案，供您在此基础上构建。您可以重用现有的样式。

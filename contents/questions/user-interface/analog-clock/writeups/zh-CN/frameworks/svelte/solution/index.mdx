@@ -1,0 +1,31 @@
+import TestCases from '../../../test-cases.mdx';
+import Notes from '../../../notes.mdx';
+
+## 解决方案
+
+我们可以将解决方案分成两部分：更新循环和渲染。
+
+### 更新循环
+
+我们需要一个计时器来刷新页面，并每秒显示当前时间。要创建计时器，我们可以使用 `setInterval` 并在 `onMount` 中启动更新循环。
+
+请记住在卸载组件时清除计时器，以防止内存泄漏。
+
+将 JavaScript `Date` 对象存储为状态，因为它包含我们需要的所有数据。
+
+这部分与 [Digital Clock](/questions/user-interface/digital-clock) 问题完全相同。
+
+### 渲染
+
+为了使时钟更具可重用性和可定制性，我们可以将时钟大小作为属性。然后，时钟指针可以是时钟大小的比例。
+
+为了在正确的位置渲染时钟指针，我们结合使用 `position: absolute` 和 CSS 转换：
+
+1. `position: absolute`，`top` 和 `left` 为时钟大小的一半，使指针从时钟的中心开始。但是，指针将朝下。
+2. 在时钟上使用 `transform: rotate(180deg)` 使指针朝上。如果我们向指针的旋转角度添加 180 度偏移量，则此步骤是可选的。
+3. 使用 `transform-origin: center top` 使指针绕时钟中心旋转。
+4. 在指针上使用 `transform: rotate(Xdeg)` 将它们旋转到最终角度。
+
+<TestCases />
+
+<Notes />

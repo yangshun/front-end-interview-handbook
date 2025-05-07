@@ -1,0 +1,35 @@
+import TestCases from '../../../test-cases.mdx';
+
+## 解决方案
+
+该解决方案可以分为三个部分：(1) 状态，(2) 样式，和 (3) 动画。
+
+### 状态
+
+由于进度条彼此不交互，并且动画使用“即发即弃”模型，因此我们只需要一个数值作为状态，即屏幕上进度条的数量。点击“添加”按钮会增加要渲染的进度条的数量。
+
+### 样式
+
+查看[进度条](/questions/user-interface/progress-bar)问题，了解如何根据 100 中的值设置进度条的样式。但是，我们将使用 CSS `transform` 而不是更改 `width`，因为 CSS 转换在 GPU 上运行，这可以带来更好的动画性能。
+
+### 动画
+
+如上所述，每个进度条的动画都使用“即发即弃”模型，这意味着它们不可中断并且彼此不交互。CSS 过渡非常适合将进度条从 0 动画到 100，并且无需使用 JavaScript。请注意，`transform-origin: left` 是必需的，以便填充的进度条“锚定”在左侧并向右扩展。如果没有它，过渡将显示为从中心向外扩展。
+
+```css
+.bar-contents {
+  background-color: green;
+  height: 100%;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition-duration: 2000ms;
+  transition-property: transform;
+  transition-timing-function: linear;
+}
+
+.bar-contents--filled {
+  transform: scaleX(1);
+}
+```
+
+<TestCases />

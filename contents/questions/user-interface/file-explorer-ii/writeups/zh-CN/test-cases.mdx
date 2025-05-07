@@ -1,0 +1,106 @@
+## 测试用例
+
+* 检查渲染的 HTML，查看是否将正确的属性添加到 DOM 中。
+* 您可以通过使用 [axe](https://www.deque.com/axe/) 等可访问性测试工具来验证元素的 a11y。
+
+生成的 DOM 应该类似于：
+
+```html
+<div aria-label="Files Explorer" role="tree">
+  <ul role="group">
+    <li
+      aria-expanded="true"
+      aria-labelledby=":r1:"
+      aria-level="1"
+      aria-posinset="1"
+      aria-setsize="3"
+      role="treeitem">
+      <button><span id=":r1:">Documents</span> [-]</button>
+      <ul role="group">
+        <li
+          aria-labelledby=":rb:"
+          aria-level="2"
+          aria-posinset="1"
+          aria-setsize="2"
+          role="treeitem">
+          <button>
+            <span id=":rb:">Powerpoint.ppt</span>
+          </button>
+        </li>
+        <li
+          aria-labelledby=":rd:"
+          aria-level="2"
+          aria-posinset="2"
+          aria-setsize="2"
+          role="treeitem">
+          <button>
+            <span id=":rd:">Word.doc</span>
+          </button>
+        </li>
+      </ul>
+    </li>
+    <li
+      aria-expanded="true"
+      aria-labelledby=":r3:"
+      aria-level="1"
+      aria-posinset="2"
+      aria-setsize="3"
+      role="treeitem">
+      <button><span id=":r3:">Downloads</span> [-]</button>
+      <ul class="file-list" role="group">
+        <li
+          aria-expanded="true"
+          aria-labelledby=":r7:"
+          aria-level="2"
+          aria-posinset="1"
+          aria-setsize="2"
+          role="treeitem">
+          <button><span id=":r7:">Misc</span> [-]</button>
+          <ul class="file-list" role="group">
+            <li
+              aria-labelledby=":rf:"
+              aria-level="3"
+              aria-posinset="1"
+              aria-setsize="2"
+              role="treeitem">
+              <button>
+                <span id=":rf:">bar.txt</span>
+              </button>
+            </li>
+            <li
+              aria-labelledby=":rh:"
+              aria-level="3"
+              aria-posinset="2"
+              aria-setsize="2"
+              role="treeitem">
+              <button>
+                <span id=":rh:">foo.txt</span>
+              </button>
+            </li>
+          </ul>
+        </li>
+        <li
+          aria-labelledby=":r9:"
+          aria-level="2"
+          aria-posinset="2"
+          aria-setsize="2"
+          role="treeitem">
+          <button>
+            <span id=":r9:">unnamed.txt</span>
+          </button>
+        </li>
+      </ul>
+    </li>
+    <li
+      aria-labelledby=":r5:"
+      aria-level="1"
+      aria-posinset="3"
+      aria-setsize="3"
+      role="treeitem">
+      <button>
+        <span id=":r5:">README.md</span>
+      </button>
+    </li>
+  </ul>
+</div>
+```

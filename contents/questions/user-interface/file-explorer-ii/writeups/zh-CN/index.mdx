@@ -1,0 +1,30 @@
+---
+title: 文件管理器 II
+excerpt: 构建一个半可访问的文件管理器组件，该组件具有正确的 ARIA 角色、状态和属性
+---
+
+**注意：**这是对[文件管理器](/questions/user-interface/file-explorer)问题的后续，在尝试此问题之前，您应该先完成该问题。
+
+> 树形视图小部件显示分层列表。层次结构中的任何项目都可能有子项目，并且具有子项目的项目可以展开或折叠以显示或隐藏子项。例如，在使用树形视图显示文件夹和文件的文件系统导航器中，表示文件夹的项目可以展开以显示文件夹的内容，这些内容可以是文件、文件夹或两者。
+
+*来源：[树形视图模式](https://www.w3.org/WAI/ARIA/apg/patterns/treeview/)*
+
+在[文件管理器](/questions/user-interface/file-explorer)中，我们构建了一个功能性文件管理器组件，该组件以分层树格式显示文件对象数组。但是，构建好的 UI 组件不仅仅是功能，我们还必须通过向 DOM 元素添加正确的 ARIA 角色、状态和属性来确保我们的组件具有出色的可访问性。
+
+## 要求
+
+ARIA 创作实践指南有一个[关于要添加到树形视图模式的各种元素的 ARIA 角色、状态和属性的长期指导方针列表](https://www.w3.org/WAI/ARIA/apg/patterns/treeview/)
+
+为此问题实现以下 ARIA 指导方针：
+
+* 所有树节点都包含在或由具有 `tree` 角色的元素拥有。
+* 具有 `tree` 角色的元素具有由 `aria-labelledby` 引用的可见标签或为 `aria-label` 指定的值。
+* 每个用作树节点的元素都具有 `treeitem` 角色。
+* 每个父节点都包含或拥有具有 `group` 角色的元素。
+* 每个子节点都包含在或由具有 `group` 角色的元素拥有，该元素包含在或由用作该子节点的父节点的节点拥有。
+* 每个具有 `treeitem` 角色且用作父节点的元素都将 `aria-expanded` 设置为 `false`（当节点处于关闭状态时）并设置为 `true`（当节点处于打开状态时）。结束节点没有 `aria-expanded` 属性，因为如果它们具有该属性，它们将被辅助技术错误地描述为父节点。
+* 每个 `treeitem` 元素都指定了 `aria-level`、`aria-setsize` 和 `aria-posinset`。
+
+## 笔记
+
+框架代码使用[文件管理器](/questions/user-interface/file-explorer)的解决方案，但您可以自由使用自己的解决方案作为起点。

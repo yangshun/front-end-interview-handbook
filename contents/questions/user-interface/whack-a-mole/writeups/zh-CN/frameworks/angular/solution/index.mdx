@@ -1,0 +1,61 @@
+import TestCases from '../../../test-cases.mdx';
+import Notes from '../../../notes.mdx';
+
+## 解决方案
+
+在 `AppComponent` 中，我们将使用给定的参数创建游戏并管理整个逻辑。`WhackAMoleComponent` 将是一个哑组件，仅用于显示 UI 和响应事件。
+
+为了使游戏可定制，我们可以引入以下属性：
+
+* `rows`：行数。
+* `cols`：列数。
+* `roundDuration`：一轮持续的时间。
+* `molesAtOnce`：一次出现多少个地鼠。在街机游戏中，为了增加难度级别，可能会同时出现多个地鼠。
+* `molesAppearingInterval`：地鼠出现的时间间隔。
+
+### `WhackAMoleComponent`
+
+每隔 `molesAppearingInterval`，无论页面上可见的地鼠数量有多少，我们都应该为下一组 `molesAtOnce` 地鼠生成位置。我们可以随机生成 `molesAtOnce` 次索引，但是当 `molesAtOnce` > 1 时，生成的索引重复的几率很小，你需要再次随机生成。
+
+生成唯一索引的一种优雅方式是创建一个索引数组，对数组进行洗牌，并取前 `molesAtOnce` 个值。它需要 O(N) 空间，但这种方法更容易理解和正确实现。
+
+#### `startGame`
+
+此函数在新的回合开始时被调用，并启动一个倒计时计时器。它启动一个每秒运行的间隔计时器，每秒将 `currTimeLeft` 递减 1，直到 `currTimeLeft` 达到 0。
+
+请注意，计时器也应该在卸载时清除，因此我们可以将 timerId 分配给 `countdownTimerId` ref，并在组件卸载时清除它。否则，即使组件不再在屏幕上，计时器可能仍在运行并尝试更新组件状态。
+
+#### `whackMole`
+
+当点击正确的单元格时，此函数从 `visible` 集合中删除索引（如果它们存在于集合中），并将分数增加 1。
+
+### 渲染
+
+CSS 网格用于以二维格式渲染单元格。这是一个很好的选择，因为你可以将单元格渲染为单个 DOM 元素列表，但使用正确的 CSS 网格设置，它们可以显示在 `rows` x `cols` 布局中。
+
+### 模型
+
+```typescript
+export interface GameConfig {
+  rows: number;
+  cols: number;
+  roundDuration: number;
+  molesAtOnce: number;
+  molesAppearingInterval: number;
+  totalCount: number;
+}
+```
+
+### Angular 见解
+
+* 你可以使用 RxJS 采用更高级的、类似反应式的方法（无需使用订阅）。但是，如果你选择订阅，请记住销毁它们以防止内存泄漏。
+
+* 你可以创建用于维护状态的服务。在智能组件中注入服务，并创建仅显示和与 UI 交互的哑组件，并且哑组件的所有事件都传递给智能组件。
+
+* 如果你对最新的 Angular 版本有信心，请考虑使用信号独立 API。
+
+* 你可以尝试更多地关注诸如 `readonly`、`private`、`public` 和 `void` 等关键字。
+
+* 如果你正在创建一个更大的应用程序，最好为每个组件使用样式，而不是将所有样式放在一个文件中。
+
+<TestCases />

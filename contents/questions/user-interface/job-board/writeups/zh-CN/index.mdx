@@ -1,0 +1,60 @@
+---
+title: 招聘版
+excerpt: 构建一个招聘版，显示来自 Hacker News 的最新招聘信息
+---
+
+构建一个招聘版，显示从 Hacker News API 获取的最新招聘信息，每个帖子显示职位名称、发布者和发布日期。
+
+![招聘版示例](/img/questions/job-board/job-board-example.png)
+
+## 要求
+
+* 页面应在初始加载时显示 6 个职位，并带有一个按钮以加载更多帖子。
+* 单击“加载更多”按钮将加载下一页的 6 个帖子。如果没有更多帖子要加载，则该按钮不会出现。
+* 如果职位详细信息返回了 `url` 字段，请将职位名称设为链接，单击时在新窗口中打开职位详细信息页面。
+* 时间戳可以按您喜欢的任何方式格式化。
+
+## API
+
+Hacker News 有一个公共 API，用于获取 Y Combinator 公司的职位。没有单个 API 可以获取职位列表及其数据，因此您将不得不发出单独的请求来获取必要的数据并将它们组合起来显示。
+
+### 职位故事
+
+获取职位发布 ID 列表。
+
+* URL：https://hacker-news.firebaseio.com/v0/jobstories.json
+* HTTP 方法：`GET`
+* 内容类型：`json`
+
+示例响应：
+
+```js
+[35908337, 35904973, 35900922, 35893439, 35890114, 35880345, ...]
+```
+
+### 职位详情
+
+获取给定其 ID 的职位发布详细信息。
+
+* URL：`https://hacker-news.firebaseio.com/v0/item/{id}.json`
+* HTTP 方法：`GET`
+* 内容类型：`json`
+
+https://hacker-news.firebaseio.com/v0/item/35908337.json 的示例响应：
+
+```json
+{
+  "by": "jamilbk",
+  "id": 35908337,
+  "score": 1,
+  "time": 1683838872,
+  "title": "Firezone (YC W22) is hiring Elixir and Rust engineers",
+  "type": "job",
+  "url": "https://www.ycombinator.com/companies/firezone/jobs"
+}
+```
+
+## 笔记
+
+* 此问题的重点在于功能，而不是样式，但可以随意美化页面。
+* 为了改善用户体验并避免过度获取，您可能需要将获取的职位详细信息的数量限制为页面上可见的职位数量。

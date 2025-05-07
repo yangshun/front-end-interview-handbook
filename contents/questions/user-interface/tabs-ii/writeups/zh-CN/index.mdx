@@ -1,0 +1,31 @@
+---
+title: Tabs II
+excerpt: 构建一个半可访问的标签组件，该组件具有正确的 ARIA 角色、状态和属性
+---
+
+**注意：**这是[Tabs](/questions/user-interface/tabs)的高级版本，在尝试此问题之前，您应该先完成该问题。
+
+> 标签是一组分层的content部分，称为标签面板，一次显示一个content面板。每个标签面板都有一个关联的标签元素，当激活时，会显示该面板。标签元素的列表沿当前显示的面板的一条边排列，最常见的是上边缘。
+
+*来源：[Tabs Pattern | ARIA Authoring Practices Guide](https://www.w3.org/WAI/ARIA/apg/patterns/tabs/)*
+
+在[Tabs](/questions/user-interface/tabs)中，我们构建了一个功能性标签组件，该组件根据活动的标签元素一次显示一个content面板。但是，构建好的 UI 组件不仅仅是功能，我们还必须通过向 DOM 元素添加正确的 ARIA 角色、状态和属性来确保我们的组件也具有出色的可访问性。
+
+## 要求
+
+ARIA 创作实践指南有一个[关于要添加到标签组件的各种元素的 ARIA 角色、状态和属性的长的指南列表](https://www.w3.org/WAI/ARIA/apg/patterns/tabs/#wai-ariaroles,states,andproperties)。
+
+为此问题实现以下准则：
+
+*  充当标签集容器的元素具有 role `tablist`。
+*  每个充当标签的元素都具有 role `tab`，并包含在具有 role `tablist` 的元素中。
+*  每个包含 `tab` 的content面板的元素都具有 role `tabpanel`。
+*  每个具有 role `tab` 的元素都具有属性 `aria-controls`，该属性引用其关联的 `tabpanel` 元素。
+*  活动的标签元素的状态 `aria-selected` 设置为 `true`，所有其他标签元素都将其设置为 `false`。
+*  每个具有 role `tabpanel` 的元素都具有属性 `aria-labelledby`，该属性引用其关联的标签元素。
+
+同样重要的是，我们使用一个 `<button>` 元素来构建标签，因为它们需要可聚焦和交互。
+
+## 笔记
+
+骨架代码使用[Tabs](/questions/user-interface/tabs)的解决方案，但您可以自由使用自己的解决方案作为起点。

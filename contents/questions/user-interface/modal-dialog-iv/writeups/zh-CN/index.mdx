@@ -1,0 +1,32 @@
+---
+title: 模态对话框 IV
+excerpt: 构建一个完全可访问的模态对话框组件，该组件支持所有必需的键盘交互
+---
+
+**注意：**这是[模态对话框 III](/questions/user-interface/modal-dialog-iii)的高级版本，在尝试此问题之前，您应该先完成该问题。
+
+在[模态对话框 II](/questions/user-interface/modal-dialog-ii)和[模态对话框 III](/questions/user-interface/modal-dialog-iii)中，我们构建了一个功能性模态对话框组件，该组件具有必要的[WAI-ARIA 角色、状态和属性](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/#wai-ariaroles,states,andproperties)以及关闭对话框所需的交互。
+
+对于一个完全可访问的模态对话框组件，我们还应该添加与焦点管理相关的[剩余键盘交互](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/#keyboardinteraction)。
+
+## 要求
+
+实现以下[对话框的键盘交互](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/#keyboardinteraction)：
+
+**注意**：术语“可 Tab 元素”是指任何 `tabindex` 值为零或更大的元素。
+
+* 对话框打开/关闭时的焦点放置：
+  * 当对话框打开时，焦点移动到对话框内的第一个元素
+  * 当对话框关闭时，焦点返回到调用对话框的元素
+  * **注意**：关于要关注哪些元素有一些细微差别，您可以在[ARIA 创作实践指南](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/#keyboardinteraction)中阅读，但对于此问题可以忽略
+* 焦点捕获：
+  * <kbd>Tab</kbd> 键将焦点移动到对话框内的下一个可 Tab 元素。如果焦点在对话框内的最后一个可 Tab 元素上，则将焦点移动到对话框内的第一个可 Tab 元素
+  * <kbd>Shift</kbd> + <kbd>Tab</kbd> 键将焦点移动到对话框内的上一个可 Tab 元素。如果焦点在对话框内的第一个可 Tab 元素上，则将焦点移动到对话框内的最后一个可 Tab 元素
+
+另一个必需的键盘交互是 <kbd>Escape</kbd> 关闭对话框，但这已经在[模态对话框 III](/questions/user-interface/modal-dialog-iii)中实现。
+
+## 笔记
+
+此问题的重点是添加焦点管理功能，而不是样式和结构。[模态对话框 III](/questions/user-interface/modal-dialog-iii)的解决方案已在此处提供，供您在此基础上构建。您可以重用现有的样式和结构。
+
+对话框的内容已修改为包含更多可聚焦/可 Tab 元素，以方便测试焦点捕获行为。已向聚焦元素添加了 2px 的红色环，以更明显地显示哪个元素处于焦点状态。

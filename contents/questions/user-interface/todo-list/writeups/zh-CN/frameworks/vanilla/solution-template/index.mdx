@@ -1,0 +1,25 @@
+import Solution from '../solution.mdx';
+import Notes from '../notes.mdx';
+import A11y from '../../../a11y.mdx';
+import TestCases from '../../../test-cases.mdx';
+
+<Solution />
+
+在这种方法中，`<template>` 用于渲染初始任务和新任务。您可能已经意识到，您在两个地方重复了任务标记：最初渲染的任务和新任务。
+
+使初始任务和新任务的标记保持一致是一项繁琐的工作。使用 `<template>` 元素将使渲染初始任务和新添加的任务变得容易。
+
+此解决方案还包含一些 UX 改进：
+
+* 使用 `<form>` 捕获新任务的提交。这将处理 <kbd>Enter</kbd> 键和“提交”按钮的点击。
+* 阻止将空的输入值添加到列表中。
+  * 有助于防止意外添加。
+* 在添加到列表之前修剪输入值。
+* 在删除任务之前请求确认。
+  * 破坏性操作应始终需要双重确认，以防用户意外按下删除按钮。
+
+<Notes />
+
+<A11y />
+
+<TestCases />

@@ -1,0 +1,33 @@
+---
+title: Auth Code Input
+excerpt: 构建一个身份验证码输入组件，允许用户输入 6 位授权码
+---
+
+构建一个身份验证码输入组件，允许用户输入 6 位授权码并提交。
+
+![Auth code input example](/img/questions/auth-code-input/auth-code-input-example.png)
+
+## 要求
+
+* 输入
+  * 每个输入字段应只允许输入 0 到 9 之间的一个数字。
+  * 输入有效输入将使焦点移动到下一个输入，除非它是最后一个输入。
+  * 按 <kbd>Backspace</kbd> 将：
+    * 如果当前字段不为空，则清除当前字段。
+    * 如果当前字段为空，则将焦点移动到上一个字段。
+  * 粘贴应清除所有字段，并用粘贴的内容替换这些字段。
+* 按钮
+  * “提交”按钮提交 OTP。 在填写所有输入字段之前，它将被禁用。
+  * “重置”按钮清除所有字段。 如果所有输入字段都为空，则将其禁用。
+* 提交表单应向 `https://questions.greatfrontend.com/api/questions/auth-code-input` 发送 `POST` 请求，其正文为 `{ otp: '6_DIGIT_OTP' }`。
+  * 如果 OTP 为 `'123456'`，则返回 HTTP 204（API 被硬编码为仅接受此值）。
+  * 否则返回 HTTP 403。
+  * 根据响应显示成功/失败消息（您可以使用 `alert()`）。
+
+这些只是常见的 2FA 基本行为，还有更多需要考虑的边缘情况，我们不会一一列出，因为让您自己思考它们是一个好习惯。
+
+这是一个[不错的身份验证码输入示例](https://github.com/drac94/react-auth-code-input)。
+
+## 源码
+
+此问题改编自[FrontendEval 的双因素代码输入问题](https://frontendeval.com/questions/code-input)。

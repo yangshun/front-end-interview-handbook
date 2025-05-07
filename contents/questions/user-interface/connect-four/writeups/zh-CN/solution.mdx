@@ -1,0 +1,111 @@
+## 解决方案
+
+本着良好的软件工程精神，让我们设计一个尽可能可定制的解决方案。我们将构建一个Connect Four游戏，该游戏适用于任意数量的行、列和玩家。让它们分别成为常量`ROWS`、`COLUMNS`和`PLAYERS`。
+
+![Connect Four example](/img/questions/connect-four/connect-four-example.png)
+
+### 设置游戏区
+
+从示例图像中，我们看到至少需要三个主要部分：
+
+#### 1. 落盘区
+
+这是玩家放置圆盘的地方。它是由`COLUMNS`个单元格组成的一行，每个单元格代表游戏网格中的一列。显示的圆盘颜色将是当前玩家的颜色。
+
+#### 2. 游戏网格
+
+这是放置所有圆盘的地方。它是一个`ROWS`乘`COLUMNS`的网格。更具体地说，它是一个由`ROWS`个`div`组成的`div`。这些`div`中的每一个都包含`COLUMNS`个`div`。
+
+每个单元格都有两种状态：
+
+* **empty**：显示一个透明的（或应用程序的背景色）圆圈，并且
+* **occupied**：显示一个用玩家圆盘颜色着色的圆圈。
+
+> 提示：使用`border-radius: 100%;`将`div`变成一个圆圈。这将在每个角应用`div`的宽度/高度的一半的边框半径。
+
+#### 3. 控制区
+
+这是放置重置按钮和游戏状态（获胜玩家、平局、错误等）元素的地方。
+
+### 状态
+
+与任何游戏一样，我们需要在一个游戏会话中跟踪一些状态。
+
+* `grid`，它是一个`ROWS`乘`COLUMNS`的数组，表示当前的圆盘网格。
+* `currentPlayer`，即当前玩家的标识符，因此我们知道将谁的圆盘放入网格中。
+* `winner`，即获胜玩家的标识符，因此我们知道要祝贺谁！它最初是`null`。此状态也用作指示游戏是否已结束的标志。
+
+名称可能有所不同，您可能需要其他状态来支持您的实现。这些是最低限度的。
+
+### 绑定交互
+
+此时，你可能会想到[实际的 Connect Four 游戏](https://en.wikipedia.org/wiki/Connect_Four)。为了简单起见，我们先不考虑圆盘落入网格的动画。
+
+#### 选择一列放置圆盘
+
+在圆盘放置区域，将每个单元格视为一个按钮。当索引为 `i` 的按钮被点击时，它会触发一个事件，将圆盘放入第 `i` 列。
+
+我们需要将当前玩家的颜色传递给这些按钮以进行着色。
+
+值得注意的是，我们只想在玩家悬停时显示一个圆盘；他们正在计划他们的行动！有很多方法可以检测索引为 `i` 的按钮是否被悬停。
+
+1. 我们可以使用 [`:hover` CSS 伪类](https://developer.mozilla.org/en-US/docs/Web/CSS/:hover) 来检测按钮当前是否被悬停。
+
+2. 我们可以使用按钮上的 [`mouseenter`](https://developer.mozilla.org/en-US/docs/Web/API/Element/mouseenter_event) 或 [`mousemove`](https://developer.mozilla.org/en-US/docs/Web/API/Element/mousemove_event) 事件监听器来设置一个状态（可能是 `currentColumn`）为 `i`。
+
+一旦我们知道按钮 `i` 是否被悬停，我们就可以修改 [`background-color`](https://developer.mozilla.org/en-US/docs/Web/CSS/background-color)、[`opacity`](https://developer.mozilla.org/en-US/docs/Web/CSS/opacity) 或 [`visibility`](https://developer.mozilla.org/en-US/docs/Web/CSS/visibility) 来显示或隐藏按钮。
+
+#### 放置圆盘
+
+我们通过将 [`click`](https://developer.mozilla.org/en-US/docs/Web/API/Element/click_event) 事件监听器绑定到圆盘放置区域中的每个按钮来触发此交互。此函数将接收列索引 `i` 作为参数。
+
+将玩家 `player` 的圆盘放入第 `i` 列的一般算法如下。
+
+1. 找到单元格 `cell`，使其成为第 `i` 列中的第一个空行。\
+   我们通过迭代 `grid` 的元素（行）并找到索引为 `i` 的第一个元素（每行中的单元格）为 `null`。
+
+2. 将 `cell` 设置为 `player`。
+
+放置圆盘后，我们检查游戏是否结束。
+
+* 如果是，我们将 `winner` 更新为获胜玩家的标识符。
+* 如果不是，我们将 `currentPlayer` 更新为 `PLAYERS` 中的下一个玩家。
+
+请记住，如果我们在第 `i` 列中找不到空单元格，我们不应该允许任何圆盘落入其中。我们可以：
+
+* 使用 `alert` 或其他 UI 元素显示错误消息，或者
+* 完全禁用索引为 `i` 的按钮，并且不允许与不可用的列进行交互。
+
+#### 检查获胜条件
+
+朴素的方法是遍历 `grid` 中的每个单元格，并检查对于每个单元格 `cell`，它是否是任何一个有效获胜片段的一部分。
+
+一种更优化的方法是仅检查玩家放置圆盘的单元格 `cell`。我们可以这样做，因为我们能够放置圆盘这一事实意味着还没有获胜者，所以游戏继续。这意味着如果玩家现在获胜，则具体是由这次突变引起的：放置在 `cell` 处。因此，仅检查 `cell` 周围就足够了。
+
+在 `cell` 处，我们检查它是否是任何一个有效获胜片段的一部分。我们检查四个方向：─、│、╲ 和 ╱，它们穿过 `cell`。每个方向都是一个包含 7 个元素的数组，这些元素是相对于 `cell` 的坐标。
+
+> 它的长度为 7，因为每个获胜片段的长度为 4 个元素。因此，例如，将南北方向组合起来，我们得到 7 个元素。
+
+本着良好的软件工程精神，我们将通过提取`4`作为常量`COUNT_TO_WIN`来泛化此算法。这样，我们就可以在未来轻松更改获胜条件！
+
+对于每个方向，计算当前玩家颜色的连续圆盘的最大数量。如果其中至少有`COUNT_TO_WIN`个，则该玩家获胜。
+
+朴素算法将花费`O(ROWS * COLUMNS)`时间，而最优算法将花费`O(COUNT_TO_WIN)`时间，这实际上是`O(1)`常数时间。
+
+> 提示：您可以使用[可选链运算符](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining)安全地获取坐标处的单元格，即使它可能超出范围。例如，如果`r`或`c`超出`grid`的范围，`grid?.[r]?.[c]`将返回`undefined`。
+
+#### 检查是否平局
+
+有很多方法可以实现这一点。一种方法是检查在掉落圆盘后，如果没有`winner`，并且`grid`中的每个单元格都被占用。
+
+一种更优化的方法是*在掉落圆盘时*跟踪掉落的圆盘数量。如果它达到`ROWS * COLUMNS`，那么我们知道游戏已经以平局结束。然后我们不必产生额外的`O(ROWS * COLUMNS)`时间来检查每个单元格是否被占用。整洁！
+
+但是，跟踪圆盘数量被认为是重复状态，因为它可以从`grid`状态派生。由于单元格的数量被认为是小的，因此进行这种优化是可选的。
+
+#### 重置游戏
+
+这就像将状态设置回其初始值一样简单，即
+
+* 将`grid`设置为`ROWS`-by-`COLUMNS`的`null`数组，
+* 将`currentPlayer`设置为`PLAYERS`中的第一个玩家，并且
+* 将`winner`设置为`null`。

@@ -1,0 +1,18 @@
+import Solution from '../solution.mdx';
+import TestCases from '../../../test-cases.mdx';
+import A11y from '../../../a11y.mdx';
+
+这是[基本解决方案](/questions/user-interface/todo-list/react/solution)的改进版本。
+
+一些改进：
+
+* 封装 ID 生成器，使其只能从外部读取，而不能从外部修改。
+* 使用 `<form>` 捕获新任务的提交。这将处理 `<kbd>Enter</kbd>` 键和“提交”按钮点击。
+* 阻止将空的输入值添加到列表中。
+* 在添加到列表之前修剪输入值。
+* 当列表中没有任务时，显示空状态。
+* 在删除任务之前请求确认。
+
+<A11y />
+
+<TestCases />

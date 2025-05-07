@@ -1,0 +1,36 @@
+import TestCases from '../../../test-cases.mdx';
+import Notes from '../../../notes.mdx';
+
+## 解决方案
+
+### 状态
+
+* `counter`：计数器的当前值。
+* `history`：一个包含操作历史记录的数组。操作列表按逆时间顺序排列。
+* `undoHistory`：一个包含已撤销操作历史记录的数组。操作列表按逆时间顺序排列。
+
+### `performOperation`
+
+`performOperation` 函数用于对计数器值应用操作。它有两个参数：`counter` 和 `operationLabel`。`counter` 是计数器的当前值，`operationLabel` 是一个字符串，用于指定要执行的操作。
+
+`OPERATIONS` 对象是一个字典，它将操作标签映射到描述该操作的对象。每个操作对象都有一个 `type` 属性，用于指定操作的类型（增加、减少、乘法或除法），以及一个 `number` 属性，用于指定操作数。
+
+`performOperation` 函数从 `OPERATIONS` 对象中查找指定操作标签的操作对象。例如，如果 operationLabel 是 `'+1'`，performOperation 将从 `OPERATIONS` 对象中查找对象 `{ type: 'increment', number: 1 }`，并将 1 加到计数器。
+
+### `onUndo`
+
+当单击“撤消”按钮时，将调用此函数。它负责撤消上次执行的操作，并相应地更新计数器和历史记录。
+
+更具体地说，`onUndo` 从历史记录数组中删除第一项，并将计数器值设置为已删除项的旧计数器值。然后将已删除的项添加到 undoHistory 数组中，该数组存储已撤销操作的列表。
+
+### `onRedo`
+
+此函数用于重做由 onUndo 函数撤消的最后一个操作。
+
+当调用 `onRedo` 时，它从 undoHistory 状态检索最近撤销的操作，并将计数器设置为该操作的 `newCounter` 值。然后，它从 undoHistory 状态中删除已撤销的操作，并将其添加回历史记录状态，从而有效地重新应用该操作。
+
+### `onReset`
+
+此函数将所有内容重置为初始状态。
+
+<TestCases />

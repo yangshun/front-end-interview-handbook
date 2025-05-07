@@ -1,0 +1,26 @@
+---
+title: 数据表 III
+excerpt: 构建一个具有分页和排序功能的通用数据表
+---
+
+**注意：**这是对[数据表 II](/questions/user-interface/data-table-ii)问题的后续，在尝试此问题之前，您应该先完成该问题。
+
+在[数据表 II](/questions/user-interface/data-table-ii)中，我们构建了一个用户数据表，该表以分页格式显示用户，并允许按升序和降序对特定列进行排序。
+
+但是，`DataTable`组件与它要呈现的用户数据紧密耦合，不能用于其他类型的数据。
+
+泛化该组件以获取数据和任何必要的配置，以便`DataTable`组件可以呈现任何类型的数据。
+
+## 要求
+
+* `DataTable`组件不应包含任何特定于用户的逻辑。
+* 修改`DataTable`组件以获取泛化所需的任何props/属性。
+* 最终结果的外观和功能应保持不变——它应该看起来一样，并且仍然允许分页和排序。
+
+为了帮助您进行测试，将为您提供另一个数据集（`src/data/houses.json`），以便您使用您的通用组件进行测试。
+
+**提示**：查看[TanStack Table](https://tanstack.com/table/)，以了解配置方法以及生产就绪型数据表库的可用选项。
+
+## 笔记
+
+框架代码使用[数据表 II](/questions/user-interface/data-table-ii)的解决方案，但您可以自由使用自己的解决方案作为起点。

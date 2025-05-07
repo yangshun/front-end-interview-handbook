@@ -1,0 +1,17 @@
+import TestCases from '../../../test-cases.mdx';
+import Notes from '../../../notes.mdx';
+
+我们将在[Accordion 的解决方案](/questions/user-interface/accordion/svelte/solution)的基础上进行构建。
+
+## 解决方案
+
+除了添加正确的 ARIA 角色和状态（这很简单）之外，我们还需要将手风琴标题与相应的手风琴内容/面板链接起来。 因此，我们定义了两个变量 `headerId` 和 `panelId` 来执行此操作。
+
+* `headerId` 是一个唯一的 ID 字符串，用作标题元素的 `id` 属性的值。 此 ID 将用作相应手风琴面板的 `aria-labelledby` 属性的值。
+* `panelId` 是一个唯一的 ID 字符串，用作手风琴面板的 `id` 属性的值。 此 ID 将用作相应手风琴标题的 `aria-controls` 属性的值。
+
+由于页面上可能存在多个 `Accordion` 组件实例，并且我们无法保证手风琴部分的 values 将是全局唯一的，因此每个 `Accordion` 实例都需要一个唯一的标识符。 我们在 `<script context="module">` 中定义了一个 `globalAccordionId`，此代码仅在模块首次评估时运行，而不是在实例化组件时运行。 对于每个新的 `Accordion` 实例，我们将 `globalAccordionId` 分配给当前 `Accordion` 实例的 `accordionId` 并递增它，从而允许每个 `Accordion` 实例具有唯一的 ID。 最终的 ID 字符串将是 `Accordion` 实例的 `accordionId`、item value 以及它是一个标题还是一个面板的串联。
+
+<TestCases />
+
+<Notes />

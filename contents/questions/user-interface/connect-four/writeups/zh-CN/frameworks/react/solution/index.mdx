@@ -1,0 +1,16 @@
+import Solution from '../../../solution.mdx';
+import TestCases from '../../../test-cases.mdx';
+
+<Solution />
+
+### React 特有的注意事项
+
+#### `useState` 和 `grid` 的变动
+
+由于我们使用 `useState` 作为 `grid` 状态，因此在放置棋子时，我们不应该改变 `grid`。我们需要对 `grid` 状态进行深拷贝，改变拷贝，然后使用 `setGrid` 将状态设置为拷贝。如果允许使用第三方库，我们也可以使用 [Immer 的 `produce`](https://immerjs.github.io/immer/produce/)。
+
+#### 使用索引作为 `key`
+
+当我们 `map` `grid` 中的行和单元格时，我们使用它们的索引作为 `key`。如果你是 React 的学生，你可能会意识到 [React 警告不要这样做](https://react.dev/learn/rendering-lists#why-does-react-need-keys)。但在这种情况下，使用索引作为 `key` 是完全可以的，因为*它们是 `grid` 中行和单元格的正确标识符*，不包含状态，并且在游戏进行过程中网格的维度不会改变。因此，它不会像 React 警告的那样导致任何“微妙且令人困惑的错误”。
+
+<TestCases />

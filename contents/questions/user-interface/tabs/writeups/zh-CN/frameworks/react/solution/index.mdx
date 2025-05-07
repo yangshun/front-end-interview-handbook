@@ -1,0 +1,24 @@
+import TestCases from '../../../test-cases.mdx';
+import Notes from '../../../notes.mdx';
+
+## 解决方案
+
+由于只需要一个状态值（当前活动的选项卡项），因此在 React 中实现一个基本的（并非完全可访问的）Tabs 组件非常简单。React 也有助于保持状态和 UI 的同步，这在 Vanilla JavaScript 中做起来比较麻烦。
+
+为简单起见，我们将创建一个[不受控制的](https://react.dev/learn/sharing-state-between-components#controlled-and-uncontrolled-components) Tabs 组件，其状态在 Tabs 组件中进行管理。在面试期间，请向面试官澄清他们是否希望您实现受控或非受控组件。
+
+### Props（API 设计）
+
+构建组件的复杂性部分在于为其设计 API。对于 React，它将是组件的 props。至少，我们需要以下 props：
+
+* `items`：项目对象列表。每个项目都是一个具有以下字段的对象：
+  * `value`：选项卡项目的唯一标识符。
+  * `label`：在选项卡项目中显示的文本标签。
+  * `panel`：当项目处于活动状态时，在选项卡面板中显示的内容。
+* `defaultValue`：要显示的默认选项卡项目/面板。如果未提供 `defaultValue`，我们将使用第一个项目作为值。这是假设 `items` 为非空。
+
+对于受控组件，将有一个 `value` 和 `onChange` props，而不是 `defaultValue` prop。
+
+<TestCases />
+
+<Notes />

@@ -1,0 +1,21 @@
+{
+  "frontmatter": {
+    "title": "1a023bee",
+    "excerpt": "32dcbb1a"
+  },
+  "content": {
+    "source": {
+      "locale": "en-US",
+      "hashes": [
+        "fc16991f",
+        "ac3fd130"
+      ]
+    },
+    "targets": {
+      "zh-CN": [
+        "fc16991f",
+        "ac3fd130"
+      ]
+    }
+  }
+}

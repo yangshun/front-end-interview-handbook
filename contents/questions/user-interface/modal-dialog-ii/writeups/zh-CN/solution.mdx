@@ -1,0 +1,24 @@
+## 解决方案
+
+我们将在[Modal Dialog 的解决方案](/questions/user-interface/modal-dialog/solution)的基础上进行构建。除了添加正确的 ARIA 角色和状态（这很简单）之外，我们还需要链接标题和内容元素。
+
+标题和内容到模态对话框元素的链接分别通过 `aria-labelledby` 属性和 `aria-describedby` 属性完成，方法是使用标题和内容的 `id` 值作为 `aria-` 值。
+
+由于页面上可能有多个模态对话框组件实例，并且 `id` 旨在在页面内唯一，因此我们无法对这些属性进行硬编码。
+
+我们可以为这些 `id` 值公开 props，并让用户负责确保这些值的唯一性。但是，这些 `id` 值很少用于满足 a11y 要求之外的目的，并且对用户来说没有意义。如果可能，我们应该为用户生成 ID。
+
+我们可以生成两个 ID – 一个用于标题，另一个用于内容，并在标记中使用它们，如下所示：
+
+```jsx
+<div aria-labelledby={titleId} aria-describedby={contentId}>
+  <h1 id={titleId}>...</h1>
+  <div id={contentId}>...</div>
+</div>
+```
+
+在 React 等框架中，`useId` hook 可用于生成每个模态对话框实例唯一的 ID。
+
+### 分割组件
+
+由于 hook 无法有条件地调用，并且当模态对话框未打开时不需要调用 `useId` hook，因此可以将组件分成两部分，组件的大部分位于 `ModalDialogImpl` 中，这样 `useId` hook 就不会被不必要地调用。

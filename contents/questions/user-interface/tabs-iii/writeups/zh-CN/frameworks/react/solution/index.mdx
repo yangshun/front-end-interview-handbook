@@ -1,0 +1,37 @@
+import TestCases from '../../../test-cases.mdx';
+
+## 解决方案
+
+以下解释假设您对[Tabs II 的 React 解决方案](/questions/user-interface/tabs-ii/react/solution)有很好的理解。
+
+### 监听键盘事件
+
+首先，了解`keypress`与`keydown`事件的区别至关重要。`keypress`事件仅在按下产生字符值的键时触发。这将排除<kbd>Left</kbd>、<kbd>Right</kbd>、<kbd>Home</kbd>和<kbd>End</kbd>键，而这些是此问题的要求。`keypress`事件也已弃用，不应使用。由于这些原因，我们应该使用`keydown`事件。我们将把`onKeyDown`属性添加到`<div role="tablist">`。
+
+要知道按下了哪个键，我们可以在传递给`onKeyDown`回调的事件上使用`event.key`或`event.code`。关于[`event.key`与`event.code`的区别](https://javascript.info/keyboard-events)有一些区别，但就此问题而言，这无关紧要，可以忽略。我们只使用`event.code`。
+
+### 响应键盘事件
+
+接下来，我们读取`event.code`属性，并根据其值使用自定义代码进行响应。`switch` case 适用于这种情况：
+
+* `ArrowLeft`：激活上一个标签或“环绕”到最后一个标签（如果焦点位于第一个标签上）。我们首先找到活动标签项的索引，将其减一，并使用模运算来优雅地处理“环绕”。
+* `ArrowRight`：激活下一个标签或“环绕”到第一个标签（如果焦点位于最后一个标签上）。我们首先找到活动标签项的索引，将其加一，并使用模运算来优雅地处理“环绕”。
+* `Home`：激活第一个标签。
+* `End`：激活最后一个标签。
+
+当激活一个新标签时，它应该获得焦点。由于我们知道每个标签元素的`id`，我们可以通过使用`document.getElementById()`和所需的标签元素 id 在其上进行命令式调用`.focus()`。这种方法不符合通常的 React 标准，但在面试期间是可以接受的。
+
+#### <kbd>Tab</kbd>键行为
+
+在[Tabs II](/questions/user-interface/tabs-ii/react/solution)中，我们所有的标签都是可聚焦的，您可以通过<kbd>Tab</kbd>键跳转到每个标签。但是，根据 WAI-ARIA 标签规范，这种行为是不标准的，该规范规定只有活动标签才应可聚焦。我们可以通过向非活动标签添加`tabIndex={-1}`属性来实现这一点，使其不可聚焦。在相关说明中，我们还应该通过添加`tabIndex={0}`使`<div role="tabpanel">`可聚焦。
+
+<TestCases />
+
+## 资源
+
+* [Tabs Patterns | ARIA Authoring Practices Guide](https://www.w3.org/WAI/ARIA/apg/patterns/tabs/)
+* [Tabs – Radix Primitives](https://www.radix-ui.com/primitives/docs/components/tabs)
+* [Tabs – React Aria](https://react-spectrum.adobe.com/react-aria/Tabs.html)
+* [Tabs - Headless UI](https://headlessui.com/react/tabs)
+* [Tab – Ariakit](https://ariakit.org/components/tab)
+* [Tabs | Reach UI](https://reach.tech/tabs)

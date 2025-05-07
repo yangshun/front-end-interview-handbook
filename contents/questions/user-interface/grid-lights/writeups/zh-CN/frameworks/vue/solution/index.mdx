@@ -1,0 +1,50 @@
+import TestCases from '../../../test-cases.mdx';
+import A11y from '../../../a11y.mdx';
+
+## 解决方案
+
+这个问题可以分为两部分：(1) 渲染，(2) 状态，和 (3) 停用。
+
+### 渲染
+
+由于我们需要渲染一个 3x3 的单元格网格，CSS Grid 绝对是完成这项工作的最佳工具。我们当然可以使用其他方法，但 CSS Grid 是一项具有前瞻性的技术，我们应该掌握。如果您不熟悉 CSS Grids，[Grid Garden](https://cssgridgarden.com/) 是一个供您学习的互动游戏。
+
+以下 CSS 将渲染一个 3x3 的网格，单元格之间有 20px 的填充和间距。
+
+```css
+.grid {
+  --spacing: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: var(--spacing);
+  gap: var(--spacing);
+}
+```
+
+为了创建完美的正方形单元格，我们可以将单元格的高度设置为 0，并将其中一个垂直填充设置为 100% (`padding-bottom: 100%`)，这将设置单元格的总高度与宽度相同。
+
+请记住，我们有一个中间单元格被省略的奇怪要求？我们可以创建一个声明性和灵活的渲染方法，我们在其中定义一个 1 和 0 的二维数组 (`config`)，并且网格将根据配置进行渲染。因此，我们必须将 `grid-template-columns` 定义为内联样式，该样式在渲染 CSS 网格时使用 `config` 的列数。
+
+可以通过为激活状态添加一个新类来完成激活/停用单元格，该类添加 `background-color: green` 并切换该类。
+
+### 状态
+
+只需要一个状态，`order`，即单元格被点击的顺序。假设我们将二维 `config` 数组展平为一维，每个单元格将对应一个索引。我们可以将此索引列表存储在 `order` 数组中，并在单击单元格时将其添加到其中。
+
+单元格是否亮起可以通过单元格的索引是否存在于 `order` 数组中来确定。
+
+### 停用
+
+当所有单元格都被激活时，停用就会发生。我们通过比较 `order` 数组中的项目数与 `config` 中 1 的数量来知道这一点；当它们相同时，我们可以开始停用单元格。
+
+我们可以使用持续时间为 300 毫秒的 `setInterval`，并在每次调用间隔回调时使用 `order.pop()` 删除 `order` 数组的最后一个值。
+
+当 `order` 数组为空时，我们可以清除间隔计时器。
+
+<TestCases />
+
+<A11y />
+
+## 资源
+
+* [Grid Garden - A game for learning CSS grid](https://cssgridgarden.com/)

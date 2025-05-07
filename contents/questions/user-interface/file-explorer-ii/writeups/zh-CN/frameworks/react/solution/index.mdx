@@ -1,0 +1,22 @@
+import TestCases from '../../../test-cases.mdx';
+
+我们将在[文件资源管理器的解决方案](/questions/user-interface/file-explorer/react/solution)的基础上进行构建。
+
+## `FileExplorer` 组件
+
+*  向 `<div>` 添加 `aria-label`。它可以是任何描述性文本。VS Code 使用 `aria-label="Files Explorer"`。
+*  向 `<div>` 添加 `role="tree"`。
+
+## `FileObject` 组件
+
+*  `role`：向 `<li>` 添加 `role="treeitem"`。
+*  `aria-expanded`：`aria-expanded` 的值可以通过 `expanded` 状态的值来确定。请注意，`aria-expanded` 应该只为目录添加。
+*  `aria-level`：由于组件已经接受了 `level` 属性，因此可以直接将其用作 `aria-level` 值。
+*  `aria-setsize`：此值必须从 `FileList` 组件传入。它是当前目录级别中项目的总数。
+*  `aria-posinset`：此值必须从 `FileList` 组件传入。它是当前目录级别中基于 1 的位置索引。
+
+最后，`<li>` 必须被标记。您可以使用 `aria-label` 并将项目名称作为值，或者使用与包含文件名的元素的 `id` 关联的 `aria-labelledby`。由于页面上可能有多个 `FileObject` 组件实例，并且我们无法保证文件/目录名称是全局唯一的，因此每个 `FileObject` 实例都需要一个唯一的标识符。
+
+可以使用 `useId` React hook 为每个 `FileObject` 实例生成唯一的 ID。`id` 被添加到对象名称周围的 `<span>` 中。
+
+<TestCases />

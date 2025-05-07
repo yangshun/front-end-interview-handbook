@@ -1,0 +1,85 @@
+---
+title: 嵌套复选框
+excerpt: 构建一个带有父子选择逻辑的嵌套复选框组件
+---
+
+构建一个显示复选框分层结构的组件。该组件应处理复选框之间的父子关系，并有效地管理它们的状态。
+
+## 要求
+
+* 复选框的值由其直接子项的值确定：
+  * 当父项的所有子项都被选中时，父项应被选中。
+  * 当父项的某些（但不是全部或没有）子项被选中时，父项应处于不确定状态，并在框内显示一个短划线。
+  * 当父项的任何子项未被选中时，父项未被选中。
+* 如果选中或取消选中父复选框，所有后代复选框（不仅仅是直接子项）都将使用该新值进行更新。
+* 练习的重点是功能，而不是样式。 您可以随意设置复选框的样式，只要状态清晰即可。
+
+## 数据格式
+
+```ts
+interface CheckboxItem {
+  id: number;
+  name: string;
+  checked: boolean | 'indeterminate';
+  children?: CheckboxItem[];
+}
+```
+
+示例数据：
+
+```js
+const fileData = [
+  {
+    id: 1,
+    name: 'Electronics',
+    children: [
+      {
+        id: 2,
+        name: 'Mobile phones',
+        children: [
+          {
+            id: 3,
+            name: 'iPhone',
+          },
+          {
+            id: 4,
+            name: 'Android',
+          },
+        ],
+      },
+      {
+        id: 5,
+        name: 'Laptops',
+        children: [
+          {
+            id: 6,
+            name: 'MacBook',
+          },
+          {
+            id: 7,
+            name: 'Surface Pro',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: 8,
+    name: 'Books',
+    children: [
+      {
+        id: 9,
+        name: 'Fiction',
+      },
+      {
+        id: 10,
+        name: 'Non-fiction',
+      },
+    ],
+  },
+  {
+    id: 11,
+    name: 'Toys',
+  },
+];
+```

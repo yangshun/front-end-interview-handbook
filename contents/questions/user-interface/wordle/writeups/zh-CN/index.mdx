@@ -1,0 +1,29 @@
+---
+title: Wordle
+excerpt: 构建Wordle，这款风靡全球的猜词游戏
+---
+
+> Wordle 是一款基于网络的文字游戏，由威尔士软件工程师 Josh Wardle 创作和开发。 玩家有六次机会猜测一个五字母的单词，每次猜测都会根据彩色方块的形式给出反馈，指示字母何时匹配或占据正确的位置。
+
+*来源：[维基百科](https://en.wikipedia.org/wiki/Wordle)*
+
+构建 Wordle 的克隆版。
+
+![Wordle Example](/img/questions/wordle/wordle-example.png)
+
+## 要求
+
+熟悉 Wordle 的规则。 您可以在 [维基百科上阅读规则](https://en.wikipedia.org/wiki/Wordle) 并在纽约时报上[亲自试玩游戏](https://www.nytimes.com/games/wordle/index.html)。
+
+为了练习，我们将实现 Wordle，但有以下区别：
+
+* Wordle 每天都有一个全球每日单词，并且每天只能玩一次，这使开发变得复杂。 对于我们的 Wordle，每次应用程序启动时都会选择一个随机单词。 骨架中为您提供了一些五字母的单词。
+* 无需验证猜测是否为有效的 5 个字母单词。
+* 添加一个“重置”按钮，该按钮在游戏结束后显示，以便用户可以使用另一个随机选择的单词再次玩。
+
+Wordle 的颜色，如果您选择使用它们：
+
+* 默认（浅灰色）：#d3d6da
+* 正确（绿色）：#6aaa64
+* 存在（黄色）：#c9b458
+* 缺席（深灰色）：#787c7e
