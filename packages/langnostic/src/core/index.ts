@@ -15,13 +15,13 @@ export function generateTargetPaths(
   locales: ReadonlyArray<string>,
 ): ReadonlyArray<TranslationFileItem> {
   // Convert the source glob pattern into a regex.
-  // We'll split the pattern by the wildcard tokens ** and *
-  const srcTokens = srcPattern.split(/(\*\*|\*)/);
+  // We'll split the pattern by the wildcard tokens **/ and *
+  const srcTokens = srcPattern.split(/(\*\*\/|\*)/);
   let regexStr = '^';
   for (const token of srcTokens) {
-    if (token === '**') {
+    if (token === '**/') {
       // ** can match multiple directories (including slashes)
-      regexStr += '(.*)';
+      regexStr += '(.*/)?';
     } else if (token === '*') {
       // * matches anything except a slash
       regexStr += '([^/]+)';
@@ -37,20 +37,20 @@ export function generateTargetPaths(
     throw new Error('Source file does not match source pattern');
   }
   // The capture groups (starting at index 1) correspond to wildcards in order.
-  const captures = match.slice(1);
+  const captures = match.slice(1).map((capture) => capture || '');
 
-  // Split the destination pattern on tokens: **, *, or the locale placeholder.
-  const destTokens = destPattern.split(/(\*\*|\*|{locale})/);
+  // Split the destination pattern on tokens: **/, *, or the locale placeholder.
+  const destTokens = destPattern.split(/(\*\*\/|\*|{locale})/);
 
   // For each locale, rebuild the destination path by substituting:
-  // - For each wildcard token (** or *), use the corresponding captured value (in order).
+  // - For each wildcard token (**/ or *), use the corresponding captured value (in order).
   // - For a token '{locale}', use the current locale.
   function buildPathForLocale(locale: string) {
     let result = '';
     let captureIndex = 0;
 
     for (const token of destTokens) {
-      if (token === '**' || token === '*') {
+      if (token === '**/' || token === '*') {
         result += captures[captureIndex];
         captureIndex++;
       } else if (token === '{locale}') {

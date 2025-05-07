@@ -87,5 +87,43 @@ describe('generateTargetPaths', () => {
         },
       ]
     `);
+    expect(
+      generateTargetPaths(
+        'questions/*/writeups/en-US/**/*.mdx',
+        'questions/*/writeups/{locale}/**/*.mdx',
+        'questions/accordion/writeups/en-US/index.mdx',
+        ['zh-CN', 'ja-JP'],
+      ),
+    ).toMatchInlineSnapshot(`
+      [
+        {
+          "locale": "zh-CN",
+          "path": "questions/accordion/writeups/zh-CN/index.mdx",
+        },
+        {
+          "locale": "ja-JP",
+          "path": "questions/accordion/writeups/ja-JP/index.mdx",
+        },
+      ]
+    `);
+    expect(
+      generateTargetPaths(
+        'questions/*/writeups/en-US/**/*.mdx',
+        'questions/*/writeups/{locale}/**/*.mdx',
+        'questions/accordion/writeups/en-US/skeleton/index.mdx',
+        ['zh-CN', 'ja-JP'],
+      ),
+    ).toMatchInlineSnapshot(`
+      [
+        {
+          "locale": "zh-CN",
+          "path": "questions/accordion/writeups/zh-CN/skeleton/index.mdx",
+        },
+        {
+          "locale": "ja-JP",
+          "path": "questions/accordion/writeups/ja-JP/skeleton/index.mdx",
+        },
+      ]
+    `);
   });
 });
