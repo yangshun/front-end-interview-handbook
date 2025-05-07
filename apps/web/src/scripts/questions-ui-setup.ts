@@ -23,6 +23,8 @@ import {
   getQuestionOutPathUserInterfaceLocaleInfo,
   getQuestionSrcPathUserInterface,
   getQuestionSrcPathUserInterfaceWriteups,
+  getQuestionSrcPathUserInterfaceWriteupsForFramework,
+  getQuestionSrcPathUserInterfaceWriteupsFrameworkDirectory,
   QUESTIONS_SRC_DIR_USER_INTERFACE,
 } from '../db/questions-bundlers/QuestionsBundlerUserInterfaceConfig';
 
@@ -127,14 +129,11 @@ async function generateSetupForQuestion(slug: string) {
   async function writeupFile() {
     await Promise.all(
       locales.map(async (locale) => {
-        const localePath = path.join(
-          getQuestionSrcPathUserInterface(slug),
-          locale,
-          'frameworks',
-        );
-
         const frameworkDirs = await globby('*/', {
-          cwd: localePath,
+          cwd: getQuestionSrcPathUserInterfaceWriteupsFrameworkDirectory(
+            slug,
+            locale,
+          ),
           deep: 0,
           onlyDirectories: true,
         });
@@ -149,12 +148,12 @@ async function generateSetupForQuestion(slug: string) {
               `Unsupported framework: ${framework}`,
             );
 
-            const frameworkPath = path.join(
-              getQuestionSrcPathUserInterfaceWriteups(slug),
-              locale,
-              'frameworks',
-              framework,
-            );
+            const frameworkPath =
+              getQuestionSrcPathUserInterfaceWriteupsForFramework(
+                slug,
+                framework,
+                locale,
+              );
             const writeupDirs = await globby('*/', {
               cwd: frameworkPath,
               deep: 0,

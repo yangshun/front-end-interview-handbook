@@ -27,6 +27,27 @@ export function getQuestionSrcPathUserInterfaceWriteups(slug: string) {
   return path.join(QUESTIONS_SRC_DIR_USER_INTERFACE, slug, 'writeups');
 }
 
+export function getQuestionSrcPathUserInterfaceWriteupsFrameworkDirectory(
+  slug: string,
+  locale: string,
+) {
+  return path.join(
+    getQuestionSrcPathUserInterfaceWriteups(slug),
+    locale,
+    'frameworks',
+  );
+}
+export function getQuestionSrcPathUserInterfaceWriteupsForFramework(
+  slug: string,
+  framework: string,
+  locale: string,
+) {
+  return path.join(
+    getQuestionSrcPathUserInterfaceWriteupsFrameworkDirectory(slug, locale),
+    framework,
+  );
+}
+
 export function getQuestionOutPathUserInterface(slug: string) {
   return path.join(QUESTIONS_OUT_DIR_USER_INTERFACE, slug);
 }
