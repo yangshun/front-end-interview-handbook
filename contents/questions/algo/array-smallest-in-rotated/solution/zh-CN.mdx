@@ -1,0 +1,35 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import smallestInRotatedArray from '../setup/src/array-smallest-in-rotated.ts';
+
+## 1. 使用修改后的二分查找
+
+问题是在旋转排序数组中使用修改后的二分查找方法找到最小的元素。暴力解法将遍历数组以在 O(n) 时间内找到最小元素。但是，可以利用数组的排序性质，使用二分查找将时间复杂度降低到 O(log n)。
+
+关键的见解是，在旋转排序数组中，数组的一部分始终是有序的。通过检查哪一部分是有序的，可以有效地缩小搜索空间。该算法迭代地减少搜索空间，同时跟踪到目前为止遇到的最小元素。
+
+这种方法通过仅关注可能包含最小元素的部分数组来消除不必要的迭代。
+
+### 算法
+
+1. 将 `low` 初始化为 0，将 `high` 初始化为 `numbers.length - 1`，以表示搜索空间。
+2. 将 `ans` 初始化为 `Number.MAX_SAFE_INTEGER`，以存储到目前为止找到的最小元素。
+3. 使用循环 `while low <= high`:
+   * 将 `mid` 计算为 `(low + high) / 2` 的向下取整。
+   * 通过比较 `numbers[low]` 和 `numbers[mid]` 来检查数组的左半部分是否已排序。
+     * 如果左半部分已排序:
+       * 使用 `ans` 和 `numbers[low]` 中较小的值更新 `ans`。
+       * 通过将 `low` 设置为 `mid + 1` 来消除左半部分。
+     * 否则，右半部分必须已排序:
+       * 使用 `ans` 和 `numbers[mid]` 中较小的值更新 `ans`。
+       * 通过将 `high` 设置为 `mid - 1` 来消除右半部分。
+4. 循环结束后，将 `ans` 作为数组中的最小元素返回。
+
+<MDXCodeBlock>
+  {smallestInRotatedArray}
+</MDXCodeBlock>
+
+### Big-O 分析
+
+* **时间复杂度：O(log n)**。二分查找在每一步都将搜索空间减半，从而产生对数时间复杂度。
+* **空间复杂度：O(1)**。该算法使用常量空间用于变量，因为它直接对输入数组进行操作。

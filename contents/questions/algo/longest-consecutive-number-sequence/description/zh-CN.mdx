@@ -1,0 +1,24 @@
+---
+title: 最长连续数字序列
+excerpt: 实现一个函数来查找最长连续数字序列的长度
+---
+
+import MDXTestExamples from 'MDXTestExamples';
+import runTestCases from '../setup/src/run.tests.json';
+
+给定一个未排序的整数数组 `numbers`，确定最长序列的长度，其中整数连续出现，这意味着数字一个接一个出现，没有任何间隙。
+
+### 输入
+
+- `numbers: number[]`: 整数数组
+
+### 注意事项
+
+- 解决方案应具有 O(n) 的时间复杂度
+
+<MDXTestExamples testCases={runTestCases} />
+
+### 约束
+
+- 0 &lt;= `numbers.length` &lt;= 100,000
+- -1,000,000,000 &lt;= `numbers[i]` &lt;= 1,000,000,000

@@ -1,0 +1,29 @@
+---
+title: 堆
+excerpt: 实现一个包含基本堆操作的堆数据结构
+---
+
+用 JavaScript 实现一个堆数据结构，它支持以下操作：
+
+* `new Heap(array)`: 创建一个 Heap 类的实例，用 `array` 初始化并堆化它以形成初始的堆结构。它还初始化维护堆属性所需的任何内部结构。
+* `heapify(array)`: 从无序数组构造堆，在所有元素中建立最大堆属性。这是作为构造函数的一部分执行的，或者可以是一个单独的方法，用于重置和重建堆。所需的时间复杂度：O(n)，其中 n 是数组中的元素数。
+* `insert(value)`: 将一个新值添加到堆中，保持最大堆属性。所需的时间复杂度：O(log n)，其中 n 是插入后堆中的元素数。
+* `delete()`: 从堆中删除并返回最大值，在删除后保持最大堆属性。所需的时间复杂度：O(log n)。
+* `findMax()`: 返回堆中的最大值，而不删除它。所需的时间复杂度：O(1)。
+
+## 例子
+
+```js
+const heap = new Heap();
+heap.insert(20);
+heap.insert(15);
+heap.insert(30);
+heap.findMax(); // 30
+heap.insert(10);
+heap.delete(); // 30
+heap.findMax(); // 20
+
+const array = [5, 3, 17, 10, 84, 19, 6, 22, 9];
+const newHeap = new Heap(array);
+newHeap.findMax(); // 84
+```

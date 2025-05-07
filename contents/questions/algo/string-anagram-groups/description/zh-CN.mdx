@@ -1,0 +1,23 @@
+---
+title: 字符串异位词分组
+excerpt: 实现一个函数，将字符串数组分组为异位词
+---
+
+import MDXTestExamples from 'MDXTestExamples';
+import runTestCases from '../setup/src/run.tests.json';
+
+给定一个字符串数组`strs`，将彼此互为异位词的字符串分组。结果可以按任何顺序返回。
+
+异位词是由另一个单词或短语的字母重新排列而成的单词或短语，使用所有原始字母且仅使用一次。
+
+### 输入
+
+- `strs: string[]`: 字符串数组
+
+<MDXTestExamples testCases={runTestCases} />
+
+### 约束
+
+- 1 &lt;= `strs.length` &lt;= 1000
+- 1 &lt;= `strs[i].length` &lt;= 100
+- 每个字符串`strs[i]`仅包含小写英文字母

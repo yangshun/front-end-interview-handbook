@@ -1,0 +1,55 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import longestSubstringWithoutRepeatingCharacters from '../setup/src/longest-non-repeating-substring.ts';
+import longestSubstringWithoutRepeatingCharactersBruteForce from '../setup/src/longest-non-repeating-substring-bruteforce.ts';
+
+## 1. 暴力解法
+
+任务是找到给定字符串中最长无重复字符子串的长度。暴力解法遍历所有可能的子串，确保每个子串包含唯一的字符。通过使用 `visited` 数组来跟踪遇到的字符，该算法确保在当前子串中检测到重复项。每当找到一个更大的无重复字符子串时，结果就会更新。
+
+### 算法
+
+1. 初始化一个变量 `res` 来存储最长无重复字符子串的长度，并将其设置为 `0`。
+2. 遍历子串的每个可能的起始索引 `i`：
+   * 初始化一个大小为 `256` 的 `visited` 数组（表示所有 ASCII 字符），并将所有条目设置为 `false`。
+3. 对于每个起始索引 `i`，遍历所有可能的结束索引 `j`：
+   * 如果索引 `j` 处的字符已被标记为已访问，则中断内循环。
+   * 否则，将当前子串长度计算为 `j - i + 1`，并使用 `res` 和当前子串长度之间的最大值来更新 `res`。
+   * 将索引 `j` 处的字符标记为在 `visited` 数组中已访问。
+4. 在完成所有迭代后，返回 `res` 的值。
+
+<MDXCodeBlock>
+  {longestSubstringWithoutRepeatingCharactersBruteForce}
+</MDXCodeBlock>
+
+### Big-O 分析
+
+* **时间复杂度：O(n<sup>2</sup>)**。外循环迭代 `n` 次，对于每个起始索引，内循环在最坏情况下可能迭代多达 `n` 次。
+* **空间复杂度：O(1)**。`visited` 数组的大小固定为 256，这不取决于输入大小。
+
+## 2. 使用滑动窗口
+
+滑动窗口不是遍历所有子串，而是根据重复字符的位置动态调整其大小。这降低了时间复杂度，从 O(n<sup>2</sup>) 降至 O(n)。
+
+暴力解法需要嵌套循环来生成所有子串并检查重复项，导致效率低下。这会导致冗余检查和重复计算重叠的子串。
+
+滑动窗口方法通过维护一个唯一字符的窗口来消除不必要的重新计算。`map` 用于存储每个字符的最后一次出现位置，从而可以有效地更新窗口边界。当遇到重复字符时，窗口的起始索引 (`left`) 会进行调整以排除重复项。这确保了所有子串都在线性时间内被检查。
+
+### 算法
+
+1. 初始化一个 `map` 来存储字符串中字符的最后一次出现位置。
+2. 初始化变量 `maxLen` 以跟踪最长子串的长度，并初始化 `left` 以表示当前窗口的起始索引。
+3. 使用 `right` 作为窗口的结束索引，遍历字符串：
+   * 如果当前字符存在于 `map` 中，并且其最后一次出现位置在当前窗口内，则将 `left` 更新为 `Math.max(map.get(str[right]), left)` 以排除重复项。
+   * 将 `maxLen` 更新为 `Math.max(maxLen, right - left + 1)` 以存储到目前为止找到的最长子串的长度。
+   * 使用当前字符的位置 `right + 1` 更新 `map`，以处理基于 0 的索引。
+4. 迭代完成后，返回 `maxLen`。
+
+<MDXCodeBlock>
+  {longestSubstringWithoutRepeatingCharacters}
+</MDXCodeBlock>
+
+### Big-O 分析
+
+* **时间复杂度：O(n)**。当移动 `right` 指针时，每个字符都会被处理一次，当调整 `left` 指针时，每个重复字符都会被处理一次。
+* **空间复杂度：O(n)**。`map` 存储字符的最后一次出现位置，这可能需要与输入字符串大小成比例的空间。

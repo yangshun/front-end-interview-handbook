@@ -1,0 +1,24 @@
+---
+title: 旋转排序数组中的最小元素
+excerpt: 实现一个函数，找到旋转排序数组中的最小元素
+---
+
+import MDXTestExamples from 'MDXTestExamples';
+import runTestCases from '../setup/src/run.tests.json';
+
+给定一个包含唯一元素的已排序和旋转的数组 `numbers`，找到并返回该数组中的最小元素。
+
+旋转数组 `[a[0], a[1], a[2], ..., a[n-1]]` 一次会得到 `[a[n-1], a[0], a[1], a[2], ..., a[n-2]]`。再次旋转会得到 `[a[n-2], a[n-1], a[0], a[1], ..., a[n-3]]`。
+
+开发一个时间复杂度为 O(log n) 的算法。
+
+### 输入
+
+- `numbers: number[]`: 整数数组
+
+<MDXTestExamples testCases={runTestCases} />
+
+### 约束
+
+- 1 &lt;= `numbers.length` &lt;= 1000
+- -10,000 &lt;= `numbers[i]` &lt;= 10,000

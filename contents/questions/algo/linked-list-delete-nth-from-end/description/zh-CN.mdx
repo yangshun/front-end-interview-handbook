@@ -1,0 +1,32 @@
+---
+title: 删除链表倒数第 N 个节点
+excerpt: 实现一个函数，用于删除链表倒数第 n 个节点
+---
+
+import MDXTestExamples from 'MDXTestExamples';
+import runTestCases from '../setup/src/run.tests.json';
+
+给定一个 [链表](https://en.wikipedia.org/wiki/Linked_list) 的头节点，删除链表中倒数第 `n` 个节点，并返回更新后的头节点。
+
+链表由一系列 `ListNode` 表示，其中每个节点指向序列中的下一个节点，如果它是最后一个节点，则指向 `null`。
+
+一个 `ListNode` 具有以下接口：
+
+```ts
+interface ListNode {
+  val: number;
+  next: ListNode | null;
+}
+```
+
+### 输入
+
+- `head: ListNode`: 链表的头节点。示例将每个链表显示为列表中的值数组
+- `n: number`: 一个整数，表示要删除的节点的位置（从末尾开始）
+
+<MDXTestExamples testCases={runTestCases} />
+
+### 约束
+
+- 1 &lt;= 节点数 &lt;= 1000
+- 1 &lt;= `ListNode.val` &lt;= 1000

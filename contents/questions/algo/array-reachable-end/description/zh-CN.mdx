@@ -1,0 +1,22 @@
+---
+title: 数组末端可达
+excerpt: 实现一个函数来确定数组的末端是否可达
+---
+
+import MDXTestExamples from 'MDXTestExamples';
+import runTestCases from '../setup/src/run.tests.json';
+
+给定一个整数数组`numbers`，其中数组中的每个元素表示可以从该索引向前移动的**最大**位置数；可以移动较少的位置。
+
+确定是否可以通过从第一个索引开始到达数组的最后一个索引。如果可以到达，则返回`true`，否则返回`false`。
+
+### 输入
+
+- `numbers: number[]`: 一个整数数组，每个索引的值是从该索引可到达的最大位置数
+
+<MDXTestExamples testCases={runTestCases} />
+
+### 约束
+
+- 1 &lt;= `numbers.length` &lt;= 10,000
+- 0 &lt;= `numbers[i]` &lt;= 100,000

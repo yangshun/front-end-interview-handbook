@@ -1,0 +1,49 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import breadthFirstSearchJs from '../setup/src/breadth-first-search.js';
+import breadthFirstSearchTs from '../setup/src/breadth-first-search.ts';
+import breadthFirstSearchRecursive from '../setup/src/breadthFirstSearchRecursive';
+
+## 澄清问题
+
+如果未指定：
+
+* 遍历顺序：我们应该使用标准的先序遍历还是其他遍历顺序？
+* 输入格式：输入数据的格式是什么？我们可以假设输入将是一个 JavaScript 对象的邻接表，其中键是节点，值是子节点吗？
+* 输出格式：输出应该如何格式化？是否有具体要求，或者我们可以返回一个包含遍历顺序元素的数组？
+* 不连通图：我们是否必须考虑或处理不连通图的情况，即存在多个彼此不连接的子图？
+
+## 迭代解法
+
+该解决方案实现了描述中概述的算法。
+
+<MDXCodeBlock languages={{ jsx: breadthFirstSearchJs, tsx: breadthFirstSearchTs }} />
+
+## 递归解法
+
+我们也可以递归地执行 BFS，这在某些情况下可能更直观。递归调用堆栈是一个隐式堆栈，用于跟踪接下来要访问的节点。
+
+<MDXCodeBlock>
+  {breadthFirstSearchRecursive}
+</MDXCodeBlock>
+
+## 边缘情况
+
+* **空图**：返回一个空数组，不会崩溃。
+* **只有一两个节点的图**：遍历，不会崩溃。
+* **循环图**：确保不再遍历已访问的节点。
+* **不相交图**：不需要特殊处理，但最好知道。
+
+## Big-O 分析
+
+让我们分析一下算法的时间和空间复杂度。
+
+### 时间复杂度
+
+在最坏的情况下，BFS 访问图的每个顶点和每条边一次。因此，BFS 的时间复杂度为 O(V + E)，其中 V 是图中顶点的数量，E 是边的数量。这是因为 BFS 必须探索所有顶点和边，以确保它覆盖整个图。
+
+请注意，您不应该使用 `Array.shift()`，因为它需要 O(n) 时间来出列，其中 n 是数组中的元素数。
+
+### 空间复杂度
+
+BFS 使用队列来跟踪要访问的节点。在任何给定时间，队列都包含正在探索的图的当前级别的节点。因此，BFS 的空间复杂度为 O(图中任何级别的最大节点数)。

@@ -1,0 +1,24 @@
+---
+title: 查找最长回文子串
+excerpt: 实现一个函数来查找最长回文子串
+---
+
+import MDXTestExamples from 'MDXTestExamples';
+import runTestCases from '../setup/src/run.tests.json';
+
+给定一个字符串`str`，返回最长的连续回文子串。如果有多个这样的子串，则返回其中任何一个。
+
+一个**回文**是指从前往后和从后往前读都一样的字符序列（例如，`racecar`）。
+
+一个**子串**是字符串中任意连续的字符序列。例如，字符串`abc`的子串是`a`、`b`、`c`、`ab`、`bc`和`abc`。子串是通过选择一个起始点和一个结束点，并且不跳过中间的字符而形成的。
+
+### 输入
+
+- `str: string`: 字符串
+
+<MDXTestExamples testCases={runTestCases} />
+
+### 约束
+
+- 1 &lt;= `str.length` &lt;= 1000
+- `str` 仅包含小写英文字母

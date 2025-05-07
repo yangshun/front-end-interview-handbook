@@ -1,0 +1,60 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import longestIncreasingSubsequence from '../setup/src/longest-increasing-subsequence.ts';
+import longestIncreasingSubsequenceDP from '../setup/src/longest-increasing-subsequence-dp.ts';
+
+## 1. 使用动态规划
+
+此解决方案使用动态规划来查找数组中最长递增子序列 (LIS) 的长度。子序列可以通过删除一些或不删除任何元素而派生出来，而不会改变剩余元素的顺序。动态规划方法通过存储中间结果来消除冗余计算。
+
+该算法维护一个 `dp` 数组，其中 `dp[i]` 表示以索引 `i` 结尾的 LIS 的长度。对于数组中的每个元素，该算法检查所有先前的元素，以确定当前元素是否可以扩展递增子序列。这确保了解决方案是逐步构建的，同时避免了重复计算。
+
+### 算法
+
+1. 初始化一个大小为 `numbers.length` 的 `dp` 数组，所有值都设置为 `1`。每个元素最初都是它自己的子序列。
+2. 从第二个元素开始遍历 `numbers` 数组：
+   1. 对于索引 `i` 处的每个元素，遍历所有先前的元素（索引 `j`，其中 `j < i`）。
+   2. 如果 `numbers[i]` 大于 `numbers[j]`，则将 `dp[i]` 更新为 `dp[i]` 和 `dp[j] + 1` 的最大值，以将当前元素包含在以 `j` 结尾的子序列中。
+3. 将变量 `longest` 初始化为 `0`，并遍历 `dp` 数组以找到最大值，该值表示 LIS。
+4. 返回 `longest` 的值。
+
+<MDXCodeBlock>
+  {longestIncreasingSubsequenceDP}
+</MDXCodeBlock>
+
+### Big-O 分析
+
+* **时间复杂度：O(n<sup>2</sup>)**。对于数组中的每个元素，算法都会遍历所有先前的元素，从而导致嵌套循环。
+* **空间复杂度：O(n)**。`dp` 数组所需的空间与输入数组中的元素数量成正比。
+
+## 2. 使用贪心和二分查找
+
+此解决方案结合了贪心和二分查找技术，以有效地计算最长递增子序列 (LIS) 的长度。核心思想是维护一个名为 `sub` 的辅助数组。此数组表示不同长度的递增子序列的最小结束值。例如，如果 `sub` 有三个元素，则表明已确定长度为 3 的递增子序列，并且其结束值存储为 `sub` 的最后一个元素。
+
+`sub` 数组并不直接表示 LIS 本身，但有助于跟踪序列长度。在任何时候，`sub` 的大小都对应于到目前为止找到的 LIS 的长度。处理一个数字时：
+
+* 如果该数字大于 `sub` 中的最大值，则它会扩展 LIS 并附加到 `sub`。
+* 如果该数字小于或等于 `sub` 中的一个元素，则它会替换 `sub` 中大于或等于它的最小数字。此替换可确保 `sub` 保持最佳状态，以便稍后扩展 LIS。
+
+为了有效地确定在 `sub` 中插入或替换的位置，使用了二分查找。这确保了算法以 O(n log n) 时间运行，因为二分查找允许快速确定位置。
+
+### 算法
+
+1. 定义一个辅助函数 `binarySearch`：
+   1. 初始化两个指针 `left` 和 `right` 以表示 `sub` 数组中的搜索空间。
+   2. 使用循环执行二分查找，根据比较更新 `left` 或 `right` 指针。
+   3. 返回应插入或替换该数字的索引。
+2. 使用 `numbers` 的第一个元素初始化数组 `sub` 以存储当前的 LIS。
+3. 从第二个元素开始遍历 `numbers` 数组：
+   1. 如果当前数字大于 `sub` 的最后一个元素，则将其附加到 `sub`。
+   2. 否则，使用 `binarySearch` 在 `sub` 中找到该数字应替换现有值的索引以维护 LIS。
+4. 将 `sub` 数组的长度作为 LIS 的长度返回。
+
+<MDXCodeBlock>
+  {longestIncreasingSubsequence}
+</MDXCodeBlock>
+
+### Big-O 分析
+
+* **时间复杂度：O(n log n)**。每个数字只处理一次，并且在 `sub` 数组上进行二分查找需要 O(log n) 的时间。
+* **空间复杂度：O(n)**。在最坏的情况下，`sub` 数组所需的空间与输入数组中的元素数量成正比。

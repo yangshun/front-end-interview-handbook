@@ -1,0 +1,68 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import longestRepeatingSubstringAfterReplacement from '../setup/src/longest-repeating-substring-after-replacements.ts';
+import longestRepeatingSubstringAfterReplacementBS from '../setup/src/longest-repeating-substring-after-replacements-binary-search.ts';
+
+## 1. 使用滑动窗口
+
+该任务是找到在给定字符串中替换最多 `k` 个字符后具有相同字符的最长子字符串的长度。 使用滑动窗口方法动态管理有效子字符串的窗口。 解决方案侧重于保持当前窗口中任何字符的最大频率与允许的替换次数 (`k`) 之间的平衡。
+
+滑动窗口不是检查所有可能的子字符串，而是动态调整窗口大小以确保有效性。 频率映射跟踪当前窗口内每个字符的出现次数，`maxFrequency` 变量有助于确定使窗口中所有字符相同的所需最少替换次数。 如果替换次数超过 `k`，则通过移动 `start` 指针来调整窗口大小。
+
+### 算法
+
+1. 将 `start` 指针初始化为 `0`，将大小为 `26` 的频率映射 `frequencyMap`（用于所有大写英文字母）填充为 `0`，将 `maxFrequency` 初始化为跟踪当前窗口中任何字符的最高频率，并将 `longestSubstringLength` 初始化为存储找到的最长有效子字符串的长度。
+2. 使用 `end` 指针遍历字符串：
+   * 计算当前字符在频率映射中的相对索引。
+   * 增加频率映射中当前字符的频率。
+   * 将 `maxFrequency` 更新为当前窗口中观察到的最大频率。
+3. 通过检查所需替换次数 (`end + 1 - start - maxFrequency`) 是否小于或等于 `k` 来确定当前窗口是否有效。
+   * 如果窗口无效，则移动 `start` 指针：
+     * 减少移出窗口的字符的频率。
+     * 增加 `start` 指针。
+4. 使用当前有效窗口的大小 (`end + 1 - start`) 更新 `longestSubstringLength`。
+5. 返回 `longestSubstringLength` 的值。
+
+<MDXCodeBlock>
+  {longestRepeatingSubstringAfterReplacement}
+</MDXCodeBlock>
+
+### Big-O 分析
+
+* **时间复杂度：O(n)**。 `end` 指针遍历字符串一次，`start` 指针根据需要进行调整，从而产生线性时间。
+* **空间复杂度：O(1)**。 `frequencyMap` 的大小是恒定的 (`26`)，与输入字符串的长度无关。
+
+## 2. 使用二分查找和滑动窗口
+
+该解决方案将二分查找与滑动窗口优化相结合，以有效地确定结果。 二分查找用于探索有效子字符串的可能长度。 通过检查给定长度的子字符串是否可以使用最多 `k` 次替换使其有效，可以对可能的长度范围进行对数减少。 滑动窗口技术通过维护当前窗口中字符的频率并确定所需的替换是否在允许的 `k` 范围内来验证每个长度的有效性。
+
+核心思想是在确保窗口大小不超过允许的替换次数的同时，最大化窗口中任何字符的频率。 如果可以使所需长度的窗口有效，则会探索更大的长度。 否则，将检查较小的长度。 这种二分查找和滑动窗口的组合确保了解决方案的高效性和可扩展性。
+
+### 算法
+
+1. 初始化二分查找边界：
+   * 将 `low` 设置为 `1`，表示最小可能的子字符串长度。
+   * 将 `high` 设置为 `str.length + 1`，表示超出输入字符串长度的无效子字符串长度。
+2. 执行二分查找：
+   * 计算当前范围的中点 `mid`。
+   * 检查是否可以使用辅助函数 `canMakeValidSubstring` 创建长度为 `mid` 的有效子字符串。
+   * 如果有效，将 `low` 移动到 `mid` 以探索更大的子字符串。
+   * 否则，将 `high` 移动到 `mid` 以探索更小的子字符串。
+3. 返回 `low`，它表示最大的有效子字符串长度。
+4. 使用 `canMakeValidSubstring` 函数验证给定长度：
+   * 维护一个频率映射 `freqMap` 以跟踪当前窗口中的字符出现次数。
+   * 使用滑动窗口遍历字符串：
+     * 将当前字符添加到频率映射中。
+     * 如果窗口大小超过候选子字符串长度，则删除窗口开头的字符。
+     * 使用当前窗口中观察到的最高频率更新 `maxFrequency`。
+     * 检查当前窗口是否可以使用最多 `k` 次替换使其有效。如果有效，则返回 `true`。
+   * 如果未找到给定长度的有效子字符串，则返回 `false`。
+
+<MDXCodeBlock>
+  {longestRepeatingSubstringAfterReplacementBS}
+</MDXCodeBlock>
+
+### Big-O 分析
+
+* **时间复杂度：O(n log n)**。 二分查找执行 `O(log n)` 次迭代，并且每次迭代都会调用 `canMakeValidSubstring`，该函数以 O(n) 运行。
+* **空间复杂度：O(1)**。 频率映射的大小是固定的 (`26`)，与输入大小无关。

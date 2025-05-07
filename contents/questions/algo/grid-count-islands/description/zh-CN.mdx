@@ -1,0 +1,22 @@
+---
+title: 计算网格中的岛屿数量
+excerpt: 实现一个函数来计算二维二进制网格中不同的岛屿数量
+---
+
+import MDXTestExamples from 'MDXTestExamples';
+import runTestCases from '../setup/src/run.tests.json';
+
+给定一个二维二进制网格`grid`，显示地图，其中`1`表示陆地，`0`表示水，确定不同岛屿的数量。
+
+岛屿定义为水平或垂直连接的一组`1`，并被`0`或网格的边缘包围。假设网格完全被水包围。
+
+### 输入
+
+- `grid: number[][]`: 一个二维数组，其中每个元素是`1`或`0`
+
+<MDXTestExamples testCases={runTestCases} />
+
+### 约束
+
+- 1 &lt;= `grid.length`, `grid[i].length` &lt;= 100
+- `grid[i][j]` is `0` or `1`

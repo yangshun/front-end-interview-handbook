@@ -1,0 +1,23 @@
+---
+title: 合并重叠区间
+excerpt: 实现一个合并重叠区间的函数
+---
+
+import MDXTestExamples from 'MDXTestExamples';
+import runTestCases from '../setup/src/run.tests.json';
+
+给定一个`intervals`数组，其中每个区间表示为`[start, end]`。每对表示数轴上区间的开始和结束。例如，`[1, 3]`表示从1开始到3结束的区间。
+
+**合并数组中所有重叠的区间**，并返回一个**非重叠区间**数组，该数组完全覆盖输入区间指定的范围。
+
+### 输入
+
+- `intervals: Array<[number, number]>`: 整数对数组
+
+<MDXTestExamples testCases={runTestCases} />
+
+### 约束
+
+- 1 &lt;= `intervals.length` &lt;= 100
+- `intervals[i].length` == 2
+- 0 &lt;= `start` &lt;= `end` &lt;= 10,000

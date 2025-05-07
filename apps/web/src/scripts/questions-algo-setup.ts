@@ -15,12 +15,11 @@ import {
 
 async function generateSetupForQuestion(slug: string) {
   const questionPath = getQuestionSrcPathAlgo(slug);
-  // This assumes that if the locale file is present for the description
-  // it's also present for the solution.
-
   const globPattern = path.posix.join(
     // Globby only supports forward slashes.
     questionPath.replaceAll(path.sep, path.posix.sep),
+    // Assume that if the locale file is present for the description
+    // it's also present for the solution
     'description',
     '*.mdx',
   );
@@ -29,15 +28,14 @@ async function generateSetupForQuestion(slug: string) {
     // Files are named after their locales.
     .map((filePath) => parse(filePath).name);
 
-  const outDir = getQuestionOutPathAlgo(slug);
-
-  fs.mkdirSync(outDir, { recursive: true });
-
   const { metadata, files, skeleton, workspace } =
     await readQuestionAlgoLocaleAgnostic(slug);
+
+  const outDir = getQuestionOutPathAlgo(slug);
   const metadataPath = path.join(outDir, 'metadata.json');
   const setupPath = path.join(outDir, 'setup.json');
 
+  fs.mkdirSync(outDir, { recursive: true });
   fs.writeFileSync(metadataPath, JSON.stringify(metadata, null, 2));
   fs.writeFileSync(
     setupPath,
@@ -54,7 +52,7 @@ async function generateSetupForQuestion(slug: string) {
 
   await Promise.all(
     locales.map(async (locale) => {
-      const content = await readQuestionAlgo(slug);
+      const content = await readQuestionAlgo(slug, locale);
       const contentOutPath = getQuestionOutPathAlgoLocaleContents(slug, locale);
 
       fs.mkdirSync(path.dirname(contentOutPath), { recursive: true });

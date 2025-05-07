@@ -3,7 +3,7 @@ title: Breadth-first Search
 excerpt: Implement a breadth-first search algorithm that traverses a directed graph in a breadth-first manner
 ---
 
-Write a function that implements the breadth-first search (BFS) algorithm on a directed graph (in adjacency list format), given a starting node.
+Write a function `breadthFirstSearch(graph, source)` that implements the breadth-first search (BFS) algorithm on a directed graph (in adjacency list format), given a starting node (`source`).
 
 BFS is an algorithm used for traversing a graph or a tree, starting from the root node and exploring all the neighbors at the current depth before moving on to nodes at the next depth level. The output from BFS is an array of the graph's nodes in the order they were traversed. Visiting neighboring nodes in any order is a valid BFS, but for this question, please visit each node's neighbors from left to right.
 
@@ -70,7 +70,13 @@ breadthFirstSearch(graph2, 'A'); // ['A', 'B', 'C', 'D', 'E', 'F', 'G']
 
 ```js
 breadthFirstSearch(graph2, 'E'); // ['E']
+breadthFirstSearch({}, ''); // []
 ```
+
+**Note:**
+
+- Return an empty array if the graph is empty.
+- The `source` node, if provided, is guaranteed to be present in `graph`.
 
 A `Queue` data structure is also provided for you at the bottom of the skeleton code.
 

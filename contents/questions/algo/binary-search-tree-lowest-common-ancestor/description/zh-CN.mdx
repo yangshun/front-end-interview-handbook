@@ -1,0 +1,42 @@
+---
+title: 二叉搜索树的最低公共祖先
+excerpt: 实现一个函数，以找到二叉搜索树中的 LCA
+---
+
+import MDXTestExamples from 'MDXTestExamples';
+import runTestCases from '../setup/src/run.tests.json';
+
+给定二叉搜索树 (BST) 的 `root`，确定树中两个指定节点的最低公共祖先 (LCA)。
+
+LCA 是树中同时拥有给定两个节点作为后代的最低节点。根据 LCA 的标准定义，一个节点可以被认为是其自身的后代。
+
+二叉树由 `TreeNode` 的集合表示，其中每个节点都有可选的 `left` 和 `right` 子节点，它们也是 `TreeNode`。
+
+一个 `TreeNode` 具有以下接口：
+
+```ts
+interface TreeNode {
+  val: number;
+  left: TreeNode | null;
+  right: TreeNode | null;
+}
+```
+
+### 输入
+
+- `root: TreeNode`: 树的根节点。示例显示树的 [层序遍历](https://en.wikipedia.org/wiki/Breadth-first_search)
+- `a: TreeNode`: 第一个树节点。示例显示节点的值
+- `b: TreeNode`: 第二个树节点。示例显示节点的值
+
+### 输出
+
+- 一个 `TreeNode` 对象，它是 `a` 和 `b` 的 LCA
+
+<MDXTestExamples testCases={runTestCases} />
+
+### 约束
+
+- 1 &lt;= 节点数 &lt;= 1000
+- 1 &lt;= `TreeNode.val` &lt;= 1,000,000
+- 保证 `a` 和 `b` 存在于 BST 中
+- 所有 `TreeNode.val` 在树中都是唯一的

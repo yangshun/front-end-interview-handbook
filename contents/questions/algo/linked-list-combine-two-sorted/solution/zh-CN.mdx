@@ -1,0 +1,59 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import linkedListCombineTwoSorted from '../setup/src/linked-list-combine-two-sorted.ts';
+import linkedListCombineTwoSortedUsingRecursion from '../setup/src/linked-list-combine-two-sorted-using-recursion.ts';
+
+## 1. 使用迭代方法
+
+合并两个已排序链表的迭代方法侧重于通过使用输入列表的已排序特性来保持效率。该策略包括同时遍历两个列表，比较它们的当前节点，并逐个构建组合列表。这确保了合并后的列表保持排序，而无需额外的排序步骤。
+
+### 算法
+
+1. 创建一个带有占位符值的 `dummy` 节点，并将 `prev` 设置为指向 `dummy`。
+2. 当 `listA` 和 `listB` 都不为 `null` 时：
+   1. 比较 `listA` 和 `listB` 的当前节点。
+   2. 通过更新 `prev.next` 将较小的节点附加到合并列表中。
+   3. 移动较小节点所在列表的指针到其下一个节点。
+   4. 更新 `prev` 以指向合并列表中的最后一个节点。
+3. 退出循环后，将 `listA` 或 `listB`（无论哪个不为 `null`）的剩余节点附加到合并列表中。
+4. 返回 `dummy.next`，它指向合并列表的头部。
+
+<MDXCodeBlock>
+  {linkedListCombineTwoSorted}
+</MDXCodeBlock>
+
+### Big-O 分析
+
+* **时间复杂度：O(m + n)**。两个列表中的每个节点都只处理一次。
+* **空间复杂度：O(1)**。该算法仅使用恒定的额外空间。
+
+## 2. 使用递归方法
+
+合并两个已排序链表的递归方法依赖于使用递归来简化组合列表的过程。该策略包括比较两个列表的当前节点，并进行递归调用以合并列表的其余部分。这确保了合并列表在调用递归时以排序顺序构建。
+
+在每一步中，算法都会比较 `listA` 和 `listB` 的当前节点。选择两个节点中较小的节点作为合并列表的头部。此过程将对列表中剩余的节点递归重复。
+
+当 `listA` 或 `listB` 变为 `null` 时，递归终止。此时，非 `null` 列表将附加到合并列表中，因为它已经排序。
+
+递归方法通过一次处理一个节点，有效地减小了每一步的问题规模。每个节点只处理一次，确保算法相对于节点总数是线性的。
+
+### 算法
+
+1. 检查 `listA` 是否为 `null`。如果是，则返回 `listB` 作为合并列表。
+2. 检查 `listB` 是否为 `null`。如果是，则返回 `listA` 作为合并列表。
+3. 比较 `listA` 和 `listB` 中当前节点的值。
+   1. 如果 `listA.val` 小于 `listB.val`：
+      * 将 `listA.next` 设置为递归合并 `listA.next` 和 `listB` 的结果。
+      * 返回 `listA` 作为合并列表的头部。
+   2. 如果 `listB.val` 小于或等于 `listA.val`：
+      * 将 `listB.next` 设置为递归合并 `listA` 和 `listB.next` 的结果。
+      * 返回 `listB` 作为合并列表的头部。
+
+<MDXCodeBlock>
+  {linkedListCombineTwoSortedUsingRecursion}
+</MDXCodeBlock>
+
+### Big-O 分析
+
+* **时间复杂度：O(m + n)**。两个列表中的每个节点都只访问一次。
+* **空间复杂度：O(m + n)**。递归深度取决于节点的总数，这会导致额外的堆栈空间，与 `m + n` 成正比。

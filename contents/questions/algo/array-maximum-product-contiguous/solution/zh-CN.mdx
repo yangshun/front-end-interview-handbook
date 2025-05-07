@@ -1,0 +1,77 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import maxProductSubArray from '../setup/src/array-maximum-product-contiguous.ts';
+import maxProductSubArrayDP from '../setup/src/array-maximum-product-contiguous-dp.ts';
+import maxProductSubArrayBruteForce from '../setup/src/array-maximum-product-contiguous-bruteforce.ts';
+
+## 1. 暴力方法
+
+朴素的方法是考虑所有可能的连续子数组以确定最大乘积。该过程涉及选择起始索引 `i`，然后遍历该子数组的所有可能的结束索引 `j`。对于每个子数组，计算累积乘积并将其与存储在 `result` 中的当前最大值进行比较。由于检查了每个子数组，因此该方法保证找到最大乘积。
+
+### 算法
+
+1. 检查输入数组 `numbers` 是否为空，如果为空则返回 `0`。
+2. 将 `result` 初始化为 `numbers` 的第一个元素。
+3. 使用索引 `i` 遍历 `numbers` 中的每个元素。
+4. 为当前子数组乘积将累加器 `accu` 初始化为 `1`。
+5. 对于每个 `i`，使用索引 `j` 遍历从 `i` 到 `numbers` 结尾的元素。
+6. 通过将 `accu` 乘以 `numbers[j]` 来更新 `accu`。
+7. 将 `accu` 与 `result` 进行比较，如果 `accu` 大于 `result`，则更新 `result`。
+8. 考虑所有子数组后，返回 `result`。
+
+<MDXCodeBlock>
+  {maxProductSubArrayBruteForce}
+</MDXCodeBlock>
+
+### Big-O 分析
+
+* **时间复杂度：O(n<sup>2</sup>)**。考虑每个子数组，导致对数组进行嵌套迭代。
+* **空间复杂度：O(1)**。仅使用几个变量 `result` 和 `accu`，需要恒定的额外空间。
+
+## 2. 使用动态规划
+
+一种暴力方法考虑了所有可能的子数组并计算乘积，这会导致重复乘法和冗余检查。该方法的时间复杂度为 O(n<sup>2</sup>)，其中每个元素都用作起始点，所有后续元素构成要考虑的子数组。瓶颈在于多次重新计算大量子数组。
+
+此解决方案使用动态规划方法在 O(n) 时间内解决问题。该方法跟踪每个位置以该位置结尾的最大和最小子数组乘积。负数会影响乘积符号，并可以将最小乘积翻转为最大乘积。通过维护到目前为止最大和最小乘积的运行值，计算避免了重新计算所有子数组的乘积。
+
+### 算法
+
+1. 检查 `numbers` 是否为空，如果为真则返回 `0`。
+2. 将 `maxSoFar`、`minSoFar` 和 `result` 初始化为 `numbers` 的第一个元素。
+3. 从 `numbers` 的第二个元素迭代到结尾。
+4. 对于每个元素 `curr`，计算临时最大乘积，即 `curr`、`maxSoFar * curr` 和 `minSoFar * curr` 的最大值。
+5. 将 `minSoFar` 更新为 `curr`、`maxSoFar * curr` 和 `minSoFar * curr` 的最小值。
+6. 使用临时最大值更新 `maxSoFar`。
+7. 如果 `maxSoFar` 大于 `result`，则更新 `result`。
+8. 返回 `result`。
+
+<MDXCodeBlock>
+  {maxProductSubArrayDP}
+</MDXCodeBlock>
+
+### Big-O 分析
+
+* **时间复杂度：O(n)**。每个元素只处理一次。
+* **空间复杂度：O(1)**。没有使用额外的数据结构，因此使用了恒定空间。
+
+## 3. 使用前缀和后缀乘积
+
+另一种优化方法使用前缀和后缀乘积来跟踪两端的运行乘积。通过这样做，可以更容易地处理零和负值。当遇到零时，可以重置运行乘积，而不是再次重新计算所有子数组。这种方法避免了冗余工作并实现了线性运行时。
+
+### 算法
+
+1. 初始化三个变量：`pre` 用于前缀乘积，`suff` 用于后缀乘积，`maxProduct` 用于跟踪找到的最大乘积。
+2. 使用索引 `i` 从 0 到 `n-1` 遍历数组。
+3. 通过检查 `pre` 是否为零来更新 `pre`，然后将 `pre` 设置为当前元素，否则将 `pre` 乘以当前元素。
+4. 类似地，通过检查 `suff` 是否为零来更新 `suff`，然后将 `suff` 设置为索引 `n - i - 1` 处的结尾元素，否则将 `suff` 乘以该元素。
+5. 通过将 `maxProduct` 与 `pre` 和 `suff` 进行比较并存储找到的最大值来更新 `maxProduct`。
+6. 在完成迭代后返回 `maxProduct`。
+
+<MDXCodeBlock>
+  {maxProductSubArray}
+</MDXCodeBlock>
+
+### Big-O 分析
+
+* **时间复杂度：O(n)**。每个元素只处理一次。
+* **空间复杂度：O(1)**。只需要恒定的额外空间。

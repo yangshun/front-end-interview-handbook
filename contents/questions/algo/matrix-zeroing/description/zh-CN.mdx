@@ -1,0 +1,21 @@
+---
+title: 矩阵置零
+excerpt: 实现一个将矩阵的行和列设置为零的函数
+---
+
+import MDXTestExamples from 'MDXTestExamples';
+import runTestCases from '../setup/src/run.tests.json';
+
+给定一个大小为 `m` x `n` 的 `matrix`，修改矩阵，使得如果一个元素是 `0`，则其整行和整列都设置为 `0`。更改应就地进行，即直接对原始矩阵进行更改。
+
+### 输入
+
+- `matrix: number[][]`: 大小为 `m` x `n` 的二维数组 `matrix`
+
+<MDXTestExamples testCases={runTestCases} />
+
+### 约束
+
+- 1 &lt;= `m`, `n` &lt;= 100
+- -1000 &lt;= `matrix[row][col]` &lt;= 1000
+- 挑战：仅使用 O(1) 额外空间

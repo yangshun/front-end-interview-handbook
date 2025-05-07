@@ -1,0 +1,86 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import longestPalindromicSubstring from '../setup/src/longest-palindromic-substring.ts';
+import longestPalindromicSubstringBruteForce from '../setup/src/longest-palindromic-substring-bruteforce.ts';
+import longestPalindromicSubstringExpandCenters from '../setup/src/longest-palindromic-substring-centers.ts';
+
+## 1. BruteForce
+
+该问题需要找到给定字符串中最长的回文子串。暴力方法系统地检查所有可能的子串，并检查每个子串是否为回文。这确保了算法正确地识别回文并返回最长的回文。
+
+### Algorithm
+
+1. 定义一个辅助函数 `check(i, j)` 来确定从索引 `i` 到 `j-1` 的子串是否为回文：
+   * 初始化两个指针，`left` 在 `i`，`right` 在 `j-1`。
+   * 比较 `left` 和 `right` 处的字符，同时将指针向中心移动。
+   * 如果任何一对字符不匹配，则返回 `false`；否则，如果指针相遇或交叉，则返回 `true`。
+2. 按照降序遍历子串的可能长度：
+   * 从字符串的最大可能长度开始，将长度减少到 `1`。
+   * 对于每个长度，遍历子串的所有可能的起始索引。
+3. 对于每个子串，调用辅助函数 `check` 来确定它是否为回文：
+   * 如果子串是回文，则立即返回它作为最长的回文。
+4. 如果未找到回文，则返回一个空字符串（这种情况不会在有效输入中发生）。
+
+<MDXCodeBlock>
+  {longestPalindromicSubstringBruteForce}
+</MDXCodeBlock>
+
+### Big-O analysis
+
+* **时间复杂度：O(n<sup>3</sup>)**。该算法使用两个嵌套循环检查所有子串，并且回文检查需要 O(n) 时间用于每个子串。
+* **空间复杂度：O(1)**。无论输入大小如何，该算法都使用恒定量的额外空间。
+
+## 2. Using Dynamic Programming
+
+动态规划 (DP) 方法通过减少冗余检查来优化暴力方法。DP 方法不是重新评估重叠的子串，而是将中间结果存储在表 `dp` 中，其中 `dp[i][j]` 在子串 `s[i..j]` 是回文时为 `true`。
+
+动态规划方法通过考虑递增长度的子串来迭代地构建解决方案。它首先将单个字符标记为回文，然后检查连续的字符对，最后评估长度为 3 或更长的子串。DP 表通过确保在评估更大的子串时重用较小子串的结果，从而消除了重复计算的需要。
+
+### Algorithm
+
+1. 初始化一个大小为 `n x n` 的二维数组 `dp`，其中 `n` 是字符串的长度。将所有值设置为 `false`。
+2. 通过设置 `dp[i][i] = true`（对于所有 `i`）将所有单字符子串标记为回文。
+3. 检查双字符子串：
+   * 对于索引 `i` 和 `i + 1`，如果 `str[i] === str[i + 1]`，则设置 `dp[i][i + 1] = true` 并更新最长回文的索引。
+4. 迭代从 3 开始的子串的可能长度：
+   * 对于每个长度，迭代可能的起始索引 `i`。
+   * 计算结束索引 `j = i + length - 1`。
+   * 如果 `str[i] === str[j]` 且 `dp[i + 1][j - 1]` 为 `true`，则设置 `dp[i][j] = true` 并更新最长回文的索引。
+5. 使用存储在变量 `ans` 中的最长回文的索引提取子串。
+6. 返回提取的子串。
+
+<MDXCodeBlock>
+  {longestPalindromicSubstring}
+</MDXCodeBlock>
+
+### Big-O analysis
+
+* **时间复杂度：O(n<sup>2</sup>)**。该算法遍历字符串的所有子串，并且由于使用了 DP 表，每个子串评估都需要恒定的时间。
+* **空间复杂度：O(n<sup>2</sup>)**。DP 表需要的存储空间与字符串长度的平方成正比。
+
+## 3. Expanding from Centers
+
+中心扩展方法是一种有效的解决方案，它避免了构造动态规划表或检查所有子串。关键思想是将每个字符（或字符对）视为潜在回文的中心，并向外扩展以找到该中心周围最大的回文。
+
+此方法通过使用回文的属性来避免不必要的工作，回文围绕中心对称扩展。对于每个字符（或偶数长度回文的字符对），算法向外扩展，直到出现不匹配。这种方法减少了冗余检查，并消除了存储中间结果的需要。
+
+### Algorithm
+
+1. 定义一个辅助函数 `expand(i, j)`：
+   * 初始化两个指针，`left` 在 `i`，`right` 在 `j`。
+   * 当 `left` 为非负数、`right` 在范围内且 `left` 和 `right` 处的字符相等时，向外扩展指针。
+   * 返回由 `left + 1` 和 `right` 组成的子串作为回文。
+2. 初始化一个变量 `ans` 以存储找到的最长回文子串。
+3. 遍历字符串中的每个字符：
+   * 将索引 `i` 处的字符视为奇数长度回文的中心。调用 `expand(i, i)` 并在返回的回文比 `ans` 的当前值长时更新 `ans`。
+   * 将索引 `i` 和 `i + 1` 处的字符视为偶数长度回文的中心。调用 `expand(i, i + 1)` 并在返回的回文比 `ans` 的当前值长时更新 `ans`。
+4. 处理完所有字符后，返回 `ans` 的值。
+
+<MDXCodeBlock>
+  {longestPalindromicSubstringExpandCenters}
+</MDXCodeBlock>
+
+### Big-O analysis
+
+* **时间复杂度：O(n<sup>2</sup>)**。对于每个字符，扩展在最坏情况下可能以 O(n) 运行，从而导致总共 O(n<sup>2</sup>)。
+* **空间复杂度：O(1)**。该算法使用恒定的额外空间，不包括输出所需的空间。

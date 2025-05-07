@@ -1,0 +1,35 @@
+---
+title: 二叉树相等
+excerpt: 实现一个函数来确定两个二叉树是否相等
+---
+
+import MDXTestExamples from 'MDXTestExamples';
+import runTestCases from '../setup/src/run.tests.json';
+
+给定两棵二叉树的根节点`a`和`b`，确定这两棵树是否相等。
+
+如果两棵二叉树具有相同的结构，并且两棵树中对应的节点具有相同的值，则认为它们相等。
+
+二叉树由`TreeNode`的集合表示，其中每个节点都有可选的`left`和`right`子节点，它们也是`TreeNode`。
+
+一个`TreeNode`具有以下接口：
+
+```ts
+interface TreeNode {
+  val: number;
+  left: TreeNode | null;
+  right: TreeNode | null;
+}
+```
+
+### 输入
+
+- `a: TreeNode`: 第一棵树的根节点。示例显示树的[层序遍历](https://en.wikipedia.org/wiki/Breadth-first_search)
+- `b: TreeNode`: 第二棵树的根节点。示例显示树的[层序遍历](https://en.wikipedia.org/wiki/Breadth-first_search)
+
+<MDXTestExamples testCases={runTestCases} />
+
+### 约束
+
+- 0 &lt;= 节点数 &lt;= 100
+- -10,000 &lt;= `TreeNode.val` &lt;= 10,000

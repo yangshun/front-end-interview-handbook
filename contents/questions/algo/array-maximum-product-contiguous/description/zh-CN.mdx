@@ -1,0 +1,27 @@
+---
+title: 连续数组中的最大乘积
+excerpt: 实现一个函数来查找具有最大乘积的子数组
+---
+
+import MDXTestExamples from 'MDXTestExamples';
+import runTestCases from '../setup/src/run.tests.json';
+
+给定一个整数数组 `numbers`，确定具有最高乘积的子数组并返回该乘积。
+
+一个**子数组**是数组的连续段，其中所有元素都取自连续的索引，并保留其顺序，例如 `[2, 3]` 在 `[1, 2, 3, 4]` 中，而非连续的选择（如 `[1, 3]`）不是有效的子数组。
+
+### 输入
+
+- `numbers: number[]`: 整数数组
+
+### 注意事项
+
+- 测试用例的设计使得结果将适合 32 位整数
+- 保证 `numbers` 的任何前缀或后缀的乘积都适合 32 位整数
+
+<MDXTestExamples testCases={runTestCases} />
+
+### 约束
+
+- 1 &lt;= `numbers.length` &lt;= 1000
+- -10 &lt;= `numbers[i]` &lt;= 10

@@ -1,0 +1,38 @@
+---
+title: 验证二叉搜索树
+excerpt: 实现一个函数来验证二叉树是否为有效的二叉搜索树
+---
+
+import MDXTestExamples from 'MDXTestExamples';
+import runTestCases from '../setup/src/run.tests.json';
+
+给定一个二叉树的`root`，确定它是否是一个有效的二叉搜索树(BST)。
+
+为了使树符合有效的BST的条件，它必须满足以下条件：
+
+- 节点的左子树只包含值小于该节点值的节点
+- 节点的右子树只包含值大于该节点值的节点
+- 左子树和右子树也都是有效的BST
+
+二叉树由`TreeNode`的集合表示，其中每个节点都有可选的`left`和`right`子节点，它们也是`TreeNode`。
+
+一个`TreeNode`有以下接口：
+
+```ts
+interface TreeNode {
+  val: number;
+  left: TreeNode | null;
+  right: TreeNode | null;
+}
+```
+
+### 输入
+
+- `root: TreeNode`: 树的根节点。示例显示树的[层序遍历](https://en.wikipedia.org/wiki/Breadth-first_search)
+
+<MDXTestExamples testCases={runTestCases} />
+
+### 约束
+
+- 1 &lt;= 节点数 &lt;= 1000
+- -1,000,000 &lt;= `TreeNode.val` &lt;= 1,000,000

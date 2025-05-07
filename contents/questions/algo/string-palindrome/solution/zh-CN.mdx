@@ -1,0 +1,52 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import isStringPalindrome from '../setup/src/string-palindrome.ts';
+import isStringPalindromeUsingTwoPointers from '../setup/src/string-palindrome-using-two-pointers.ts';
+
+## 1. 比较逆序
+
+该解决方案通过仅关注字符串的字母数字字符并忽略大小写敏感度来确定字符串是否为回文。关键的直觉是，回文的字符序列在反转时必须相同。因此，此方法将反转输入字符串，并将反转后的字符串与原始字符串进行比较，以检查它们是否相似。为了简化比较，该解决方案通过过滤掉非字母数字字符并将剩余字符转换为小写来预处理字符串。这创建了字符串的规范化版本，使得反向比较变得简单。
+
+### 算法
+
+1. 初始化一个空字符串 `filteredChars`，用于存储小写的字母数字字符。
+2. 遍历输入字符串的每个字符：
+   * 如果该字符是字母数字，则将其转换为小写并追加到 `filteredChars`。
+3. 使用 `split`、`reverse` 和 `join` 反转 `filteredChars` 字符串。
+4. 将原始的 `filteredChars` 与反转后的版本进行比较。
+   * 如果它们相同，则返回 `true`，因为该字符串是回文。
+   * 否则，返回 `false`。
+
+<MDXCodeBlock>
+  {isStringPalindrome}
+</MDXCodeBlock>
+
+### Big-O 分析
+
+* **时间复杂度：O(n)**。过滤字符和反转字符串都需要线性时间。
+* **空间复杂度：O(n)**。`filteredChars` 和 `reversedChars` 字符串都需要 O(n) 空间。
+
+## 2. 使用双指针
+
+此解决方案通过避免创建反转字符串来改进前一个解决方案，这需要额外的时间和空间。双指针方法通过使用两个索引（一个从字符串的开头开始，另一个从结尾开始，并向中心移动）来确定字符串是否为回文。这消除了反转字符串的需要，因为可以直接在对应的字符之间进行比较。
+
+### 算法
+
+1. 初始化两个指针：
+   * 一个 (`left`) 在字符串的开头。
+   * 另一个 (`right`) 在字符串的结尾。
+2. 当 `left` 小于 `right` 时：
+   * 通过将 `left` 向前移动并将 `right` 向后移动，跳过非字母数字字符，直到找到有效的字符。
+   * 将两个字符转换为小写，以进行不区分大小写的比较。
+   * 如果 `left` 和 `right` 的字符不相等，则返回 `false`。
+   * 否则，将 `left` 向前移动并将 `right` 向后移动以继续比较。
+3. 如果所有字符都匹配，则返回 `true`。
+
+<MDXCodeBlock>
+  {isStringPalindromeUsingTwoPointers}
+</MDXCodeBlock>
+
+### Big-O 分析
+
+* **时间复杂度：O(n)**。字符串中的每个字符都会被处理一次。
+* **空间复杂度：O(1)**。双指针方法使用常量额外空间用于变量。

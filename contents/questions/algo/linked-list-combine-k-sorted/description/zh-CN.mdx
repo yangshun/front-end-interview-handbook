@@ -1,0 +1,32 @@
+---
+title: 链表合并 K 个已排序列表
+excerpt: 实现一个合并 k 个已排序链表的函数
+---
+
+import MDXTestExamples from 'MDXTestExamples';
+import runTestCases from '../setup/src/run.tests.json';
+
+给定一个 [链表](https://en.wikipedia.org/wiki/Linked_list) 数组 `lists`，其中每个链表的节点值都按**升序**排列，将所有这些链表合并成一个已排序的链表，并返回合并后链表的头节点。
+
+链表由一系列 `ListNode` 表示，其中每个节点指向序列中的下一个节点，如果它是最后一个节点，则指向 `null`。
+
+一个 `ListNode` 具有以下接口：
+
+```ts
+interface ListNode {
+  val: number;
+  next: ListNode | null;
+}
+```
+
+### 输入
+
+- `lists: ListNode[]`: 链表头节点数组。示例将每个链表显示为列表中的值数组
+
+<MDXTestExamples testCases={runTestCases} />
+
+### 约束
+
+- 1 &lt;= `lists.length` &lt;= 100
+- 0 &lt;= 每列表的节点数 &lt;= 100
+- -10,000 &lt;= `ListNode.val` &lt;= 10,000

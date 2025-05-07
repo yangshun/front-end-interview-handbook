@@ -1,0 +1,57 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import linkedListJs from '../setup/src/linked-list.js';
+import linkedListTs from '../setup/src/linked-list.ts';
+
+## 解决方案
+
+链表是连接节点的链，其中每个节点包含一个 `value` 和一个对 `next` 节点的引用。每个节点中的 `next` 形成了制作链表所需的链接。
+
+在 `LinkedList` 类中，`head` 和 `tail` 用于指示列表的开始和结束。虽然仅使用 `head` 是可能的，但维护一个 `tail` 指针可以提高 `insertTail()` 等操作的时间复杂度，并实现高效的用例，例如实现队列。
+
+### 插入
+
+`insertHead()` 和 `insertTail()` 涉及更新列表的 `head` 或 `tail` 以指向一个新节点。
+
+![Insert Head](/img/questions/linked-list/insert-head.png)
+
+![Insert Tail](/img/questions/linked-list/insert-tail.png)
+
+### 删除
+
+`remove()` 修改节点 `i-1` 的 `next` 引用以指向节点 `i+1`，从而有效地从列表中删除节点 `i`。如果删除的节点位于头部或尾部，则 `head` 或 `tail` 指针也会相应地更新。
+
+![Remove](/img/questions/linked-list/remove.png)
+
+### 获取和 toArray
+
+`get()` 和 `toArray()` 从 `head` 节点遍历列表。`get()` 在指定的索引处停止，而 `toArray()` 继续到 `tail`，收集所有值。
+
+### 长度
+
+`length()` 遍历整个链表以计算元素的数量。或者，可以维护一个长度变量来跟踪每次插入/删除节点时链表的长度。
+
+<MDXCodeBlock languages={{ jsx: linkedListJs, tsx: linkedListTs }} />
+
+## Big-O 分析
+
+让我们分析一下算法的时间和空间复杂度。
+
+### 时间复杂度
+
+* `insertHead()` 和 `insertTail()`：O(1)，因为我们可以立即访问 `head` 和 `tail`。
+* `get()`、`remove()`、`toArray()`：O(n)，因为最坏的情况是遍历整个链表以搜索 `get()` 和 `remove()` 的特定索引。
+* `length()`：O(n)，如果遍历整个数组来计算长度，O(1) 如果维护一个长度变量。
+
+### 空间复杂度
+
+* 所有方法都需要 O(1) 空间，因为没有创建随输入大小增长的额外数据结构。
+
+## 边缘情况
+
+* **空列表**：在空列表上操作时，`insertHead()` 和 `insertTail()` 必须同时设置 `head` 和 `tail`。
+* **无效索引**：在 `get()` 和 `remove()` 中，必须妥善处理小于 0 或大于或等于列表长度的索引值。 一种常见的方法是返回 `undefined`，如本问题中所使用。
+
+## 技术
+
+* 面向对象编程。

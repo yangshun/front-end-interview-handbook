@@ -1,0 +1,25 @@
+{
+  "frontmatter": {
+    "title": "ca7be533",
+    "excerpt": "b524a5d8"
+  },
+  "content": {
+    "source": {
+      "locale": "en-US",
+      "hashes": [
+        "da5e6087",
+        "202fc0e0",
+        "493e8bd0",
+        "e0e33c5c"
+      ]
+    },
+    "targets": {
+      "zh-CN": [
+        "da5e6087",
+        "202fc0e0",
+        "493e8bd0",
+        "e0e33c5c"
+      ]
+    }
+  }
+}

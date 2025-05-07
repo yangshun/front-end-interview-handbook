@@ -1,0 +1,38 @@
+---
+title: 二叉树子树
+excerpt: 实现一个函数来检查一个二叉树是否是另一个二叉树的子树
+---
+
+import MDXTestExamples from 'MDXTestExamples';
+import runTestCases from '../setup/src/run.tests.json';
+
+给定两棵二叉树的根节点 `root` 和 `subRoot`，确定 `subRoot` 是否是 `root` 的子树。如果 `root` 中存在一个子树，其结构和节点值与 `subRoot` 相同，则该函数应返回 `true`。如果不存在这样的子树，则返回 `false`。
+
+二叉树由 `TreeNode` 的集合表示，其中每个节点都有可选的 `left` 和 `right` 子节点，它们也是 `TreeNode`。
+
+一个 `TreeNode` 具有以下接口：
+
+```ts
+interface TreeNode {
+  val: number;
+  left: TreeNode | null;
+  right: TreeNode | null;
+}
+```
+
+二叉树的子树定义为树的一部分，它由一个节点及其所有后代组成。子树具有以下属性：
+
+1. **结构匹配**：为了使 `subRoot` 成为 `root` 的子树，`subRoot` 中的节点必须与 `root` 的相应部分中的节点在值和结构上匹配。
+2. **自包含**：一棵树始终被认为是其自身的子树。
+
+### 输入
+
+- `root: TreeNode`：树的根节点。示例显示树的[层序遍历](https://en.wikipedia.org/wiki/Breadth-first_search)
+- `subRoot: TreeNode`：子树的根节点。示例显示树的[层序遍历](https://en.wikipedia.org/wiki/Breadth-first_search)
+
+<MDXTestExamples testCases={runTestCases} />
+
+### 约束
+
+- 1 &lt;= 节点数 &lt;= 100
+- -10,000 &lt;= `TreeNode.val` &lt;= 10,000

@@ -1,0 +1,78 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import longestCommonSubsequence from '../setup/src/longest-common-subsequence.ts';
+import longestCommonSubsequenceDP from '../setup/src/longest-common-subsequence-dp.ts';
+import longestCommonSubsequenceDPOptimizedSpace from '../setup/src/longest-common-subsequence-dp-space-optimized.ts';
+
+## 1. 使用动态规划
+
+解决最长公共子序列问题的动态规划方法构建了一个二维网格(`dpGrid`)，其中每个单元格表示两个输入字符串的相应子字符串的最长公共子序列的长度。该解决方案从右下角到左上角迭代地填充网格，利用较小子问题的结果来计算较大子问题的结果。这种方法避免了冗余计算，并通过系统地考虑所有可能性来确保最佳解决方案。
+
+### 算法
+
+1. 使用零初始化一个二维数组`dpGrid`，其维度为`(str1.length + 1) x (str2.length + 1)`。
+2. 从右下角开始遍历网格：
+   1. 对于`str2`中的每个字符（列，从右到左）：
+      * 对于`str1`中的每个字符（行，从下到上）：
+        1. 如果两个字符串中当前位置的字符相等，则将`dpGrid`中的当前单元格设置为`1 + dpGrid[row + 1][col + 1]`。
+        2. 否则，将当前单元格设置为`dpGrid[row + 1][col]`（下方）和`dpGrid[row][col + 1]`（右侧）之间的最大值。
+3. `dpGrid`的左上角单元格包含`str1`和`str2`的最长公共子序列的长度。
+4. 返回`dpGrid[0][0]`中的值。
+
+<MDXCodeBlock>
+  {longestCommonSubsequenceDP}
+</MDXCodeBlock>
+
+### Big-O 分析
+
+* **时间复杂度：O(m.n)**。该解决方案涉及填充一个大小为`m x n`的网格，其中`m`是`str1`的长度，`n`是`str2`的长度。
+* **空间复杂度：O(m.n)**。`dpGrid`所需的空间与两个字符串的长度的乘积成正比。
+
+## 2. 使用动态规划优化空间
+
+使用完整的DP表，不如一次只维护两行来存储中间结果。传统的DP解决方案使用大小为`(m+1) x (n+1)`的二维表来存储`str1`和`str2`的所有子字符串的结果，导致空间复杂度为O(m.n)。然而，在任何时候，只需要当前行和前一行来计算下一行的值。这导致了一个优化的解决方案，通过重复使用行，空间复杂度为O(n)。
+
+优化的方法通过维护两行来消除不必要的存储：`currentRow`用于存储当前状态的结果，`nextRow`用于存储前一个状态的结果。该算法以相反的顺序遍历字符串，有效地更新行。通过利用`currentRow`和`nextRow`之间的关系，该解决方案在不构建整个DP表的情况下计算LCS。
+
+### 算法
+
+1. 初始化两个数组`currentRow`和`nextRow`，用零填充，每个数组的大小为`str2.length + 1`。
+2. 从下到上遍历`str1`（索引`row`从`str1.length - 1`开始并递减到`0`）。
+3. 交换`currentRow`和`nextRow`的角色。这确保了`currentRow`保存当前迭代的结果，而`nextRow`保存前一次迭代的结果。
+4. 对于`str2`的每个字符，从右到左迭代（索引`col`从`str2.length - 1`开始并递减到`0`）：
+   * 如果`str1[row] === str2[col]`，则将`currentRow[col]`设置为`1 + nextRow[col + 1]`，表示对角线值加一。
+   * 否则，将`currentRow[col]`设置为`nextRow[col]`和`currentRow[col + 1]`的最大值，表示跳过`str1`或`str2`的当前字符之间的最大值。
+5. 完成迭代后，结果存储在`currentRow[0]`中。
+
+<MDXCodeBlock>
+  {longestCommonSubsequenceDPOptimizedSpace}
+</MDXCodeBlock>
+
+### Big-O 分析
+
+* **时间复杂度：O(m.n)**。使用两个嵌套循环：一个循环遍历`str1`的长度(m)，另一个循环遍历`str2`的长度(n)。
+* **空间复杂度：O(n)**。仅使用两行，每行大小为`n+1`，用于计算，将空间使用从O(m.n)减少到O(n)。
+
+## 3. 使用记忆化
+
+解决最长公共子序列问题的记忆化方法背后的关键直觉是通过存储先前已解决的子问题的结果来避免冗余计算。这确保了仅处理两个字符串的每个唯一索引对一次。通过将问题分解为较小的重叠子问题并存储其结果，该解决方案有效地组合了这些结果以找到整体最长公共子序列。
+
+### 算法
+
+1. 创建一个用`-1`初始化的二维`dp`数组，用于存储子问题的结果。
+2. 定义一个递归函数`lcs`，该函数接受两个字符串`str1`和`str2`以及索引`index1`和`index2`作为参数：
+   1. 检查当前索引的结果是否已在`dp`数组中计算。如果是，则返回存储的值。
+   2. 如果任一索引到达其各自字符串的末尾，则返回`0`，因为在该点之后没有公共子序列。
+   3. 如果当前索引处的字符匹配，则将结果计算为`1 + lcs(str1, str2, index1 + 1, index2 + 1)`并将其存储在`dp`数组中。
+   4. 如果字符不匹配，则计算跳过任一字符串中的一个字符的最大值，并将其存储在`dp`数组中。
+3. 从`str1`和`str2`的索引`0`和`0`开始调用`lcs`函数。
+4. 返回`lcs`为完整字符串计算的值。
+
+<MDXCodeBlock>
+  {longestCommonSubsequence}
+</MDXCodeBlock>
+
+### Big-O 分析
+
+* **时间复杂度：O(m.n)**。每个子问题最多只解决一次，其中`m`是`str1`的长度，`n`是`str2`的长度。
+* **空间复杂度：O(m.n)**。`dp`数组所需的空间与两个字符串的长度的乘积成正比。

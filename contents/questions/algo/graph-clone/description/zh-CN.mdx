@@ -1,0 +1,40 @@
+---
+title: 图的克隆
+excerpt: 实现一个函数，深度克隆一个连通的无向图
+---
+
+import MDXTestExamples from 'MDXTestExamples';
+import runTestCases from '../setup/src/run.tests.json';
+
+给定对[连通无向图](<https://en.wikipedia.org/wiki/Connectivity_(graph_theory)>)中节点的引用，创建并返回该克隆图节点的深拷贝。
+
+深拷贝必须复制原始图的整个结构，确保所有节点及其连接都被准确复制，而无需引用原始图。
+
+该图由`GraphNode`的集合表示，其中每个节点都有一个`neighbors`列表，它们也是`GraphNode`。
+
+一个`GraphNode`具有以下接口：
+
+```ts
+interface GraphNode {
+  val: number;
+  neighbors: GraphNode[];
+}
+```
+
+### 输入
+
+- `node: GraphNode`: 连通无向图中的节点。示例显示了该图的[邻接表](https://en.wikipedia.org/wiki/Adjacency_list)表示
+
+<MDXTestExamples testCases={runTestCases} />
+
+### 注意事项
+
+- 不要返回原始图的任何节点
+
+### 约束
+
+- 0 &lt;= 节点数 &lt;= 100
+- 0 &lt;= `GraphNode.val` &lt;= 100
+- `GraphNode.val` 对于每个节点都是唯一的
+- 该图没有重复的边或自循环
+- 该图是连通的，这意味着从给定节点开始可以访问所有节点

@@ -1,0 +1,31 @@
+{
+  "frontmatter": {
+    "title": "3097c26d",
+    "excerpt": "4714eb14"
+  },
+  "content": {
+    "source": {
+      "locale": "en-US",
+      "hashes": [
+        "904d3910",
+        "493e8bd0",
+        "a70bd1d9",
+        "a8f76cea",
+        "d59db749",
+        "6c43a243",
+        "653fdfc8"
+      ]
+    },
+    "targets": {
+      "zh-CN": [
+        "904d3910",
+        "493e8bd0",
+        "a70bd1d9",
+        "a8f76cea",
+        "d59db749",
+        "6c43a243",
+        "653fdfc8"
+      ]
+    }
+  }
+}

@@ -1,0 +1,36 @@
+---
+title: 数字流的中位数
+excerpt: 实现一个函数来查找动态整数流的中位数
+---
+
+import MDXTestExamples from 'MDXTestExamples';
+import runTestCases from '../setup/src/run.tests.json';
+
+一组数字的中位数定义为排序列表中间的那个值。当列表有偶数个元素时，中位数是中间两个值的平均值。
+
+例如：
+
+- 对于列表 `[1, 2, 3]`，中位数是 2
+- 对于列表 `[1, 2]`，中位数是 (1 + 2) / 2 = 1.5
+
+实现一个具有以下方法的 `NumberStream` 类：
+
+- `add(num: number): void`: 将一个整数 num 添加到数据结构中
+- `getMedian(): number`: 返回到目前为止添加的所有数字的中位数
+
+### 输入
+
+`NumberStream` 实例将根据以下内容调用其方法，并使用各种参数：
+
+- `methods: string[]`: `NumberStream` 方法名称的数组
+- `params: (number | null)[]`: 整数数组
+
+`methods[i]` 将使用 `params[i]` 调用。
+
+<MDXTestExamples testCases={runTestCases} />
+
+### 约束
+
+- 1 &lt;= `num` &lt;= 100,000
+- 1 &lt;= `methods.length` &lt;= 1000
+- 在调用 `getMedian()` 之前，数据结构中将至少有一个元素

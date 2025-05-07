@@ -1,0 +1,65 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import arrayProductExcludingCurrent from '../setup/src/array-product-excluding-current.ts';
+import arrayProductExcludingCurrentEfficientSpace from '../setup/src/array-product-excluding-current-efficient-space.ts';
+
+## 1. 使用前缀和后缀
+
+该任务是计算一个数组，其中索引 `i` 处的每个元素是输入数组中除 `i` 处元素之外的所有元素的乘积。此解决方案使用单独的前缀和后缀数组来存储中间计算结果，从而可以高效地计算结果。
+
+一种蛮力方法将涉及遍历数组并计算每个索引的所有元素的乘积，除了当前索引。由于每个索引的重复乘法，这导致时间复杂度为 O(n<sup>2</sup>)。优化的前缀-后缀方法通过预先计算每个元素左侧和右侧的乘积来消除这种冗余。
+
+前缀数组存储从开始到索引 `i - 1` 的元素的累积乘积，后缀数组存储从末尾到索引 `i + 1` 的元素的累积乘积。这些数组被组合起来计算最终结果数组，每个元素是相应的前缀和后缀值的乘积。负零的处理确保了一致的输出格式。
+
+### 算法
+
+1. 创建三个数组：`prefix`、`suffix` 和 `result`，每个数组的大小为 `n`，并初始化为 `1`。
+2. 计算前缀数组：
+   * 设置 `prefix[0] = 1`，因为第一个元素的左边没有元素。
+   * 从索引 `1` 迭代到 `n - 1`，将 `prefix[i]` 设置为 `prefix[i - 1] * numbers[i - 1]`。
+3. 计算后缀数组：
+   * 设置 `suffix[n - 1] = 1`，因为最后一个元素的右边没有元素。
+   * 从索引 `n - 2` 迭代到 `0`，将 `suffix[i]` 设置为 `suffix[i + 1] * numbers[i + 1]`。
+4. 计算结果数组：
+   * 遍历数组并将 `result[i]` 设置为 `prefix[i] * suffix[i]`。
+5. 处理特殊情况：
+   * 遍历 `result` 数组，并将 `-0` 的任何出现替换为 `0`，以获得一致的输出。
+6. 返回 `result` 数组。
+
+<MDXCodeBlock>
+  {arrayProductExcludingCurrent}
+</MDXCodeBlock>
+
+### Big-O 分析
+
+* **时间复杂度：O(n)**。该算法涉及三个线性遍历：一个用于计算前缀数组，一个用于计算后缀数组，一个用于计算结果数组。
+* **空间复杂度：O(n)**。除了 `result` 数组外，还使用了两个大小为 `n` 的辅助数组 (`prefix` 和 `suffix`)。
+
+## 2. 上述方法的空间优化版本
+
+此解决方案通过在第一遍中计算每个索引左侧的所有元素的乘积并将这些值存储在 `result` 数组中，从而进一步提高了空间使用率。在第二遍中，它计算每个索引右侧的所有元素的乘积，并将这些值与已存储在 `result` 数组中的相应值相乘。
+
+### 算法
+
+1. 初始化一个与输入数组长度相同的 `result` 数组，并将所有元素设置为 `1`。
+2. 计算左侧乘积：
+   * 从左到右遍历数组，从索引 `1` 开始。
+   * 对于每个索引 `i`，通过将 `numbers[i - 1]` 与 `result[i - 1]` 相乘来计算左侧所有元素的乘积。
+   * 将结果存储在 `result[i]` 中。
+3. 计算右侧乘积并与左侧乘积合并：
+   * 将变量 `rightProduct` 初始化为 `1`。
+   * 从右到左遍历数组。
+   * 对于每个索引 `i`，将 `result[i]` 中的值与 `rightProduct` 相乘，以包含右侧所有元素的乘积。
+   * 通过将 `rightProduct` 与 `numbers[i]` 相乘来更新它。
+4. 处理特殊情况：
+   * 将 `result` 中 `-0` 的任何出现替换为 `0`，以获得一致的输出。
+5. 返回 `result` 数组。
+
+<MDXCodeBlock>
+  {arrayProductExcludingCurrentEfficientSpace}
+</MDXCodeBlock>
+
+### Big-O 分析
+
+* **时间复杂度：O(n)**。该算法涉及对数组进行两次线性遍历，用于计算左右乘积，以及一次额外的遍历用于归一化。
+* **空间复杂度：O(1)**。该解决方案使用恒定的额外空间，因为计算直接在 `result` 数组中执行。

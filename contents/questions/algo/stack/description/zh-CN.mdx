@@ -1,0 +1,27 @@
+---
+title: 栈
+excerpt: 实现一个包含常见栈方法的栈数据结构
+---
+
+用 JavaScript 实现一个栈数据结构，它包含以下操作：
+
+* `new Stack()`：创建一个不包含任何项目的 `Stack` 类的实例。构造函数不接受任何参数。
+* `push()`：将一个项目推到栈的顶部，并返回栈的新长度。所需的时间复杂度：O(1)。
+* `pop()`：移除栈顶的一个项目并返回该项目。所需的时间复杂度：O(1)。
+* `isEmpty()`：确定栈是否为空。所需的时间复杂度：O(1)。
+* `peek()`：返回栈顶的项目，而不将其从栈中移除。所需的时间复杂度：O(1)。
+* `length()`：返回栈中项目的数量。所需的时间复杂度：O(1)。
+
+## 例子
+
+```js
+const stack = new Stack();
+stack.isEmpty(); // true
+stack.push(1);
+stack.push(2);
+stack.length(); // 2
+stack.push(3);
+stack.peek(); // 3
+stack.pop(); // 3
+stack.isEmpty(); // false
+```

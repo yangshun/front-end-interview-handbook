@@ -1,0 +1,24 @@
+---
+title: 任务协调
+excerpt: 实现一个函数，用于查找具有冷却时间的任务的最小间隔
+---
+
+import MDXTestExamples from 'MDXTestExamples';
+import runTestCases from '../setup/src/run.tests.json';
+
+给定一个任务列表，每个任务由一个字母（从 A 到 Z）表示，以及一个冷却时间 `k`。冷却时间指定同一任务的两次执行之间必须至少间隔 `k` 个时间单位。
+
+确定完成所有任务所需的最小间隔数，同时确保在冷却期过去之前不会再次执行同一任务。
+
+### 输入
+
+- `tasks: string[]`: 字符数组，其中每个任务由一个字母 (A-Z) 表示
+- `k: number`: 一个整数，表示冷却时间，即同一任务两次执行之间的最小间隔数
+
+<MDXTestExamples testCases={runTestCases} />
+
+### 约束
+
+- 1 &lt;= `tasks.length` &lt;= 1000
+- `tasks[i]` 是一个大写英文字母
+- 0 &lt;= `k` &lt;= 100

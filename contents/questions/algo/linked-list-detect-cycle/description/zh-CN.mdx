@@ -1,0 +1,33 @@
+---
+title: 链表检测环
+excerpt: 实现一个函数来检测链表中是否有环
+---
+
+import MDXTestExamples from 'MDXTestExamples';
+import runTestCases from '../setup/src/run.tests.json';
+
+给定一个[链表](https://en.wikipedia.org/wiki/Linked_list)的头节点，确定该链表是否包含环。如果链表包含环，则返回`true`；否则，返回`false`。
+
+如果存在一个节点可以通过连续跟随下一个指针被重新访问，则链表具有环。
+
+链表由一系列`ListNode`表示，其中每个节点指向序列中的下一个节点，如果它是最后一个节点，则指向`null`。
+
+一个`ListNode`具有以下接口：
+
+```ts
+interface ListNode {
+  val: number;
+  next: ListNode | null;
+}
+```
+
+### 输入
+
+- `head: ListNode`: 链表的头节点。示例将每个链表显示为列表中的值数组
+
+<MDXTestExamples testCases={runTestCases} />
+
+### 约束
+
+- 0 &lt;= 节点数 &lt;= 1000
+- -1000 &lt;= `ListNode.val` &lt;= 1000

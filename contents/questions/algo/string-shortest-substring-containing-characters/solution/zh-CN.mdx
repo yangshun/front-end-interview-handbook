@@ -1,0 +1,69 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import shortestSubstringContainingCharacters from '../setup/src/string-shortest-substring-containing-characters.ts';
+
+import shortestSubstringContainingCharactersOptimized from '../setup/src/string-shortest-substring-containing-characters-optimized.ts';
+
+## 1. 使用滑动窗口
+
+该解决方案使用滑动窗口技术来查找 `str1` 中包含 `str2` 所有字符的最短子字符串。 关键的直觉是维护一个动态窗口，该窗口根据其是否满足包含 `str2` 中所有字符及其正确频率的要求来调整其大小和位置。 该算法动态地扩展或缩小窗口以找到最小的有效子字符串。
+
+### 算法
+
+1. 处理边缘情况：
+   * 如果任一字符串为空，则返回一个空字符串。
+2. 创建一个 `Map` `dictT` 来存储 `str2` 中每个字符的频率。
+3. 初始化变量：
+   * `required` 用于存储 `str2` 中唯一字符的数量。
+   * 两个指针 `left` 和 `right` 用于滑动窗口。
+   * `formed` 用于跟踪当前窗口中满足所需频率的唯一字符的数量。
+   * `windowCounts` 用于跟踪当前窗口中的字符计数。
+   * `ans` 用于存储找到的最小有效窗口，初始化为 `[-1, 0, 0]`（长度、左侧索引、右侧索引）。
+4. 通过递增 `right` 指针来扩展窗口：
+   * 将 `right` 处的字符添加到 `windowCounts`。
+   * 如果当前字符的计数与其在 `dictT` 中的计数匹配，则递增 `formed`。
+5. 当 `formed` 等于 `required` 时，通过递增 `left` 指针来收缩窗口：
+   * 检查当前窗口是否小于先前找到的最小窗口。 如果是，则更新 `ans`。
+   * 从 `windowCounts` 中删除 `left` 处的字符。
+   * 如果字符的计数低于其在 `dictT` 中的计数，则递减 `formed`。
+6. 继续扩展和收缩，直到 `right` 到达 `str1` 的末尾。
+7. 返回与 `ans` 中最小窗口对应的子字符串，如果不存在有效窗口，则返回一个空字符串。
+
+<MDXCodeBlock>
+  {shortestSubstringContainingCharacters}
+</MDXCodeBlock>
+
+### Big-O 分析
+
+* **时间复杂度：O(n + m)**。 `right` 指针遍历 `str1` (O(n))，`left` 指针根据需要收缩窗口。 `Map` 操作用于检查和更新计数，平均为 O(1)。 构造 `str2` 的频率映射需要 O(m)，其中 `m` 是 `str2` 的长度。
+* **空间复杂度：O(n + m)**。 `windowCounts` 和 `dictT` 映射需要 O(n + m) 空间来存储字符频率。
+
+## 2. 使用优化的滑动窗口
+
+优化的滑动窗口方法通过过滤 `str1` 以仅包含 `str2` 中存在的字符来提高效率。 这减少了滑动窗口过程中所需的迭代和比较次数。 关键的直觉是，可以忽略 `str1` 中不相关的字符，因为它们不会有助于形成所需的子字符串。 通过使用过滤后的 `str1` 版本，该算法仅处理相关字符，这使其比之前的实现更快。
+
+这种优化对于 `str1` 包含许多 `str2` 中不存在的字符的大型输入尤其有影响。 扩展和收缩窗口的逻辑保持不变，但由于过滤，操作次数减少了。
+
+### 算法
+
+1. 处理基本情况：
+   * 如果 `str1` 或 `str2` 为空，则返回一个空字符串。
+2. 为 `str2` 构建频率映射 `dictT`，以跟踪每个字符的所需计数。
+3. 过滤 `str1` 以仅包含 `str2` 中存在的字符，将它们存储为它们的索引和 `filteredStr1` 中的字符的元组。
+4. 初始化滑动窗口指针 `left` 和 `right`，一个变量 `formed` 用于跟踪满足其所需频率的字符，以及一个 `windowCounts` 映射以计算当前窗口中的字符。
+5. 使用滑动窗口：
+   * 通过递增 `right` 指针来扩展窗口。
+   * 更新 `windowCounts` 并在 `right` 处的字符满足 `dictT` 中所需的计数时递增 `formed`。
+   * 只要存在所有必需的字符，就通过递增 `left` 指针来收缩窗口：
+     * 如果当前窗口小于先前找到的窗口，则更新结果。
+     * 减少从 `windowCounts` 中删除的字符的计数，如果它低于所需计数，则递减 `formed`。
+6. 返回与最小窗口对应的子字符串，如果未找到有效窗口，则返回一个空字符串。
+
+<MDXCodeBlock>
+  {shortestSubstringContainingCharactersOptimized}
+</MDXCodeBlock>
+
+### Big-O 分析
+
+* **时间复杂度：O(n + m)**。 过滤 `str1` 所需的时间与 `str1` 的长度成正比，滑动窗口在过滤后的字符串上运行，其长度与 `str2` 中的字符数成正比。
+* **空间复杂度：O(n + m)**。 用于频率映射和窗口计数的空间与 `str2` 中的字符数成正比，而过滤后的 `str1` 版本使用的空间与 `str1` 的长度成正比。

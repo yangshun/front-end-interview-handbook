@@ -1,0 +1,22 @@
+---
+title: 矩阵旋转
+excerpt: 实现一个函数，将给定的矩阵旋转 90 度
+---
+
+import MDXTestExamples from 'MDXTestExamples';
+import runTestCases from '../setup/src/run.tests.json';
+
+给定一个 `n` x `n` 的二维数组 `matrix`，将矩阵顺时针旋转 90 度。这意味着应该直接修改输入的二维矩阵，而无需使用任何额外的二维矩阵。
+
+### 输入
+
+- `matrix: number[][]`: 大小为 `n` x `n` 的二维数组 `matrix`
+
+<MDXTestExamples testCases={runTestCases} />
+
+### 约束
+
+- `n = matrix.length = matrix[i].length`
+- 1 &lt;= `n` &lt;= 20
+- -1000 &lt;= `matrix[row][col]` &lt;= 1000
+- 使用 O(1) 额外空间

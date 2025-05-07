@@ -1,0 +1,23 @@
+---
+title: 替换后最长重复子串
+excerpt: 实现一个函数，在最多进行 k 次替换后，找到最长的统一子串
+---
+
+import MDXTestExamples from 'MDXTestExamples';
+import runTestCases from '../setup/src/run.tests.json';
+
+给定一个由大写英文字母组成的字符串 `str` 和一个整数 `k`，确定可以形成的最长子串的长度，其中所有字符都相同。为了实现这一点，最多可以进行 `k` 次字符替换。
+
+一个**子串**是字符串中任何连续的字符序列。例如，字符串 `abc` 的子串是 `a`、`b`、`c`、`ab`、`bc` 和 `abc`。子串是通过选择一个起始点和结束点形成的，中间没有跳过字符。
+
+### 输入
+
+- `str: string`: 字符串
+- `k`: 一个整数
+
+<MDXTestExamples testCases={runTestCases} />
+
+### 约束
+
+- 1 &lt;= `str.length` &lt;= 10,000
+- `str` 仅包含大写英文字母

@@ -1,0 +1,72 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import mostCommonElements from '../setup/src/array-most-common-elements.ts';
+import mostCommonElementsUsingMap from '../setup/src/array-most-common-elements-using-map.ts';
+import mostCommonElementsBruteForce from '../setup/src/array-most-common-elements-brute-force.ts';
+
+## 1. 暴力解法
+
+一种朴素的方法是使用嵌套循环计算每个元素的频率。频率存储在一个单独的数组中，然后对该数组进行排序以找到最常见的元素。
+
+### 算法
+
+1. 初始化一个空数组 `frequency`，用于存储具有 `value` 和 `count` 属性的对象。
+2. 遍历输入数组：
+   * 对于每个数字，检查它是否已存在于 `frequency` 数组中。
+   * 如果存在，则递增其 `count`。
+   * 如果不存在，则将其添加到 `frequency` 数组中，初始 `count` 为 1。
+3. 按 `count` 降序对 `frequency` 数组进行排序。
+4. 从排序后的 `frequency` 数组中提取前 `k` 个元素。
+5. 返回一个包含前 `k` 个元素的 `value` 的数组。
+
+<MDXCodeBlock>
+  {mostCommonElementsBruteForce}
+</MDXCodeBlock>
+
+### Big-O 分析
+
+* **时间复杂度：O(n<sup>2</sup>)**。这是由于用于频率计算的嵌套循环。
+* **空间复杂度：O(n)**。如果数字中的所有 `n` 个元素都是唯一的，则频率数组的大小将为 O(n)。
+
+## 2. 使用堆
+
+暴力解法的主要瓶颈在于其用于计算频率和对整个频率数组进行排序的嵌套循环。这导致了冗余的比较和高时间复杂度。优化的方法使用哈希映射进行频率计数，这避免了重复计算，并使用最小堆来有效地维护前 `k` 个频繁元素。这大大减少了不必要的排序和比较，仅关注所需的元素。
+
+### 算法
+
+1. 检查 `k` 是否等于输入数组的大小。如果为真，则返回数组，因为需要所有元素。
+2. 创建一个哈希映射来计算数组中每个元素的频率：
+   * 遍历数组，更新哈希映射中每个元素的频率计数。
+3. 使用自定义比较器初始化最小堆以按频率对元素进行排序。
+4. 遍历哈希映射中的元素：
+   * 将每个元素插入堆中，同时将堆的大小保持为 `k`。
+   * 每次插入后，使用比较器对堆进行排序，如果堆大小超过 `k`，则删除频率最低的元素。
+5. 返回堆中的元素，这些元素是 `k` 个最频繁的元素。
+
+<MDXCodeBlock>
+  {mostCommonElements}
+</MDXCodeBlock>
+
+### Big-O 分析
+
+* **时间复杂度：O(n log k)**。维护堆需要对每个 n 个唯一元素最多 k 个元素进行排序，总共需要 O(n log k)。
+* **空间复杂度：O(n + k)**。哈希映射需要 O(n) 空间来存储不超过 `n` 个唯一元素，堆需要 O(k) 空间来存储前 `k` 个元素。
+
+## 3. 使用 Map
+
+另一种方法使用频率映射来计算每个数字的出现次数。然后构建一个 `buckets` 数组，用于按频率对元素进行分组，其中索引对应于频率。从最高频率到最低频率遍历 `buckets` 数组可以有效地收集前 `k` 个频繁元素，而无需执行 O(n log n) 排序步骤。这种方法将总复杂度降低到 O(n)。
+
+### 算法
+
+1. 构建一个频率映射 `frequencyMap`，将每个数字映射到其频率计数。
+2. 构建一个 `buckets` 数组，其中每个索引对应一个频率，并存储具有该频率的数字数组。
+3. 从最高频率桶到最低频率桶遍历 `buckets`，并选择数字，直到达到 `k`。
+
+<MDXCodeBlock>
+  {mostCommonElementsUsingMap}
+</MDXCodeBlock>
+
+### Big-O 分析
+
+* **时间复杂度：O(n)**。计算频率，然后填充桶，两者都以 O(n) 运行，然后进行最后一次传递，选择最多 `k` 个元素，仍然是 O(n)。
+* **空间复杂度：O(n)**。`frequencyMap` 和 `buckets` 数组都占用最多 O(n) 空间。

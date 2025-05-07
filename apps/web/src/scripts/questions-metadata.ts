@@ -81,10 +81,12 @@ export async function generateAllMetadata() {
         locale,
       ),
     ),
-    generateQuestionsMetadata(
-      readQuestionListMetadataAlgo,
-      getQuestionsListOutFilenameAlgo(sourceLocale),
-      sourceLocale,
+    ...locales.map((locale) =>
+      generateQuestionsMetadata(
+        readQuestionListMetadataAlgo,
+        getQuestionsListOutFilenameAlgo(locale),
+        locale,
+      ),
     ),
     ...locales.map((locale) =>
       generateQuestionsMetadata(

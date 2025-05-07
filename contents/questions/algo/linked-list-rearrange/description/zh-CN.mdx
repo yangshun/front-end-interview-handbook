@@ -1,0 +1,39 @@
+---
+title: 重排链表
+excerpt: 实现一个函数来重新排列链表中的节点
+---
+
+import MDXTestExamples from 'MDXTestExamples';
+import runTestCases from '../setup/src/run.tests.json';
+
+给定一个[链表](https://en.wikipedia.org/wiki/Linked_list)的头节点`head`，重新排列列表，使列表从头节点和尾节点交替出现。重新排序应该通过重新排列节点本身来执行，而无需修改存储在节点中的值。
+
+原始结构如下：
+
+`L0 → L1 → ... → Ln-1 → Ln`
+
+将列表重新组织成以下结构：
+
+`L0 → Ln → L1 → Ln-1 → L2 → Ln-2 → …`
+
+链表由一系列`ListNode`表示，其中每个节点指向序列中的下一个节点，如果它是最后一个节点，则指向`null`。
+
+一个`ListNode`具有以下接口：
+
+```ts
+interface ListNode {
+  val: number;
+  next: ListNode | null;
+}
+```
+
+### 输入
+
+- `head: ListNode`: 链表的头节点。示例将每个链表显示为列表中的值数组
+
+<MDXTestExamples testCases={runTestCases} />
+
+### 约束
+
+- 1 &lt;= 节点数 &lt;= 1000
+- 1 &lt;= `ListNode.val` &lt;= 1000

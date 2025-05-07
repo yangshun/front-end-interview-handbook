@@ -1,0 +1,70 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import linkedListDetectCycle from '../setup/src/linked-list-detect-cycle.ts';
+import linkedListDetectCycleFloydCycle from '../setup/src/linked-list-detect-cycle-floyd-cycle.ts';
+
+## 1. 使用 Set
+
+使用 `Set` 检测链表中循环的方法利用了循环会导致对某些节点的重复遍历的特性。通过将访问过的节点存储在 `Set` 中，该算法可以有效地检查一个节点是否已经被访问过。如果一个节点被再次访问，则存在循环。否则，如果遍历到达列表的末尾，则不存在循环。
+
+`Set` 提供了一种有效的方式来存储和检查节点是否存在。在 `Set` 中插入和查找的时间复杂度为 O(1)，这使得它非常适合这项任务。
+
+在遍历过程中，每个节点都会被添加到 `Set` 中。如果遇到一个已经存在于 `Set` 中的节点，这意味着列表已经循环回到了之前访问过的节点。
+
+一旦检测到循环（找到重复的节点），遍历就会停止，确保算法的效率。
+
+如果到达列表的末尾 (`null`) 且没有遇到重复的节点，则确认列表中没有循环。
+
+这种方法很简单，并且使用额外的空间来跟踪访问过的节点。
+
+### 算法
+
+1. 创建一个名为 `nodesSeen` 的 `Set`，用于存储已访问的节点。
+2. 初始化一个变量 `current`，使其指向链表的头部。
+3. 使用 `while` 循环遍历列表，直到 `current` 变为 `null`：
+   1. 检查 `current` 是否已经在 `nodesSeen` 中。
+      * 如果为 `true`，则返回 `true`，因为检测到循环。
+   2. 将 `current` 添加到 `nodesSeen`。
+   3. 将 `current` 移动到列表中的下一个节点。
+4. 如果循环结束而未检测到循环，则返回 `false`。
+
+<MDXCodeBlock>
+  {linkedListDetectCycle}
+</MDXCodeBlock>
+
+### Big-O 分析
+
+* **时间复杂度：O(n)**。列表中的每个节点都会被访问一次。
+* **空间复杂度：O(n)**。`Set` 最多存储 `n` 个节点（在没有循环的最坏情况下）。
+
+## 2. 使用 Floyd 循环算法
+
+Floyd 循环检测算法，也称为“龟兔赛跑”算法，是一种用于检测链表中循环的有效方法。该算法使用两个指针，一个 `slow` 指针和一个 `fast` 指针，它们以不同的速度遍历列表。如果存在循环，这两个指针最终会相遇。否则，`fast` 指针将到达列表的末尾。
+
+`slow` 指针一次移动一步，而 `fast` 指针一次移动两步。这种速度差异确保如果存在循环，`fast` 指针最终会追上 `slow` 指针。
+
+如果两个指针在遍历过程中相遇，则确认存在循环。这是因为 `fast` 指针绕着循环转了一圈并追上了 `slow` 指针。
+
+如果 `fast` 指针到达列表的末尾 (`null`)，则表示列表中没有循环。这确保了该算法对非循环列表的有效终止。
+
+该算法在线性时间内运行并使用恒定空间，使其成为检测链表中循环的最佳选择。
+
+### 算法
+
+1. 检查链表的头是否为 `null`。如果为真，则返回 `false`，因为空链表不能有环。
+2. 初始化两个指针：
+   * `slow` 指针设置为链表的头。
+   * `fast` 指针设置为 `head.next`。
+3. 使用 `while` 循环遍历链表：
+   1. 检查 `fast` 或 `fast.next` 是否为 `null`。如果为真，则返回 `false`，因为没有环。
+   2. 将 `slow` 指针向前移动一步 (`slow = slow.next`)。
+   3. 将 `fast` 指针向前移动两步 (`fast = fast.next.next`)。
+   4. 检查 `slow` 指针是否等于 `fast` 指针。如果为真，则返回 `true`，因为检测到环。
+4. 如果循环在指针未相遇的情况下结束，则返回 `false`，因为不存在环。
+
+<MDXCodeBlock> {linkedListDetectCycleFloydCycle} </MDXCodeBlock>
+
+### Big-O 分析
+
+* **时间复杂度：O(n)**。每个指针最多遍历列表一次。
+* **空间复杂度：O(1)**。该算法仅使用两个指针，与列表的大小无关。

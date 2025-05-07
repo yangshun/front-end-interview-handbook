@@ -1,0 +1,33 @@
+---
+title: 图是否为树
+excerpt: 实现一个函数来确定一个图是否为有效的树
+---
+
+import MDXTestExamples from 'MDXTestExamples';
+import runTestCases from '../setup/src/run.tests.json';
+
+考虑一个有`num`个节点的图，从`0`到`num - 1`进行标记。给定`num`和一个边列表，其中每个`edges[i] = [a, b]`表示节点`a`和`b`之间的无向连接，确定提供的边是否构成一个有效的树。
+
+一个**[有效的树](<https://en.wikipedia.org/wiki/Tree_(abstract_data_type)>)**是一个连通的、无环的图，它跨越所有`num`个节点。这意味着：
+
+1. 所有节点都必须可以从任何其他节点访问
+2. 图中不得包含任何循环
+3. 图中必须恰好有`num - 1`条边，其中`num`是节点的数量
+
+如果边构成有效的树，则返回`true`；否则，返回`false`。
+
+### 输入
+
+- `num: number`: 图中节点的数量
+- `edges: Array<[number, number]>`: 一个二维数组，其中`edges[i] = [a, b]`表示节点`a`和`b`之间的无向边
+
+<MDXTestExamples testCases={runTestCases} />
+
+### 约束
+
+- 1 &lt;= `num` &lt;= 1000
+- 1 &lt;= `edges.length` &lt;= 1000
+- `edges[i].length` == 2
+- 0 &lt;= `a`, `b` \< `num`
+- `a != b`
+- 没有自循环或重复的边

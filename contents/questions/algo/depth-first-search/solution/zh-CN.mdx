@@ -1,0 +1,33 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import depthFirstSearchJs from '../setup/src/depth-first-search.js';
+import depthFirstSearchTs from '../setup/src/depth-first-search.ts';
+import depthFirstSearchRecursive from '../setup/src/depthFirstSearchRecursive';
+
+## 澄清问题
+
+如果未指定：
+
+* 遍历顺序：我们应该使用标准的先序遍历还是其他遍历顺序？
+* 输入格式：输入数据的格式是什么？我们可以假设输入将是一个 JavaScript 对象的邻接表，其中键是节点，值是子节点吗？
+* 输出格式：输出应该如何格式化？是否有特定的要求，或者我们可以返回一个数组，其中包含按遍历顺序排列的元素？
+* 非连通图：我们是否必须考虑或处理非连通图的情况，其中有多个子图彼此不连接？
+
+## 解决方案
+
+该解决方案实现了描述中概述的算法。
+
+<MDXCodeBlock languages={{ jsx: depthFirstSearchJs, tsx: depthFirstSearchTs }} />
+
+我们也可以递归地执行 DFS，这在某些情况下可能更直观。递归调用堆栈是一个隐式堆栈，用于跟踪接下来要访问的节点。
+
+<MDXCodeBlock>
+  {depthFirstSearchRecursive}
+</MDXCodeBlock>
+
+## 边缘情况
+
+* 空图：返回一个空数组，不会崩溃。
+* 只有一两个节点的图：遍历而不会崩溃。
+* 循环图：确保不再遍历已访问的节点。
+* 不相交的图：不需要特殊处理，但最好知道。

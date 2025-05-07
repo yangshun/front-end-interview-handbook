@@ -1,0 +1,19 @@
+---
+title: 位计数
+excerpt: 实现一个函数，用于查找从 0 到 n 的设置位数量
+---
+
+import MDXTestExamples from 'MDXTestExamples';
+import runTestCases from '../setup/src/run.tests.json';
+
+给定一个非负整数 `n`，编写一个函数，该函数接受非负整数 `n` 并返回一个大小为 `n + 1` 的数组 `result`，其中 `result[i]` 表示整数 `i` 的二进制表示中活动位（设置为 1 的位）的数量（其中 0 &lt;= `i` &lt;= `n`）。
+
+### 输入
+
+- `n: number`: 一个整数
+
+<MDXTestExamples testCases={runTestCases} />
+
+### 约束
+
+- 0 &lt;= `n` &lt;= 10,000

@@ -15,7 +15,6 @@ import {
 
 async function generateSetupForQuestion(slug: string) {
   const questionPath = getQuestionSrcPathJavaScript(slug);
-
   const globPattern = path.posix.join(
     // Globby only supports forward slashes
     questionPath.replaceAll(path.sep, path.posix.sep),
@@ -29,15 +28,14 @@ async function generateSetupForQuestion(slug: string) {
     // Files are named after their locales.
     .map((filePath) => parse(filePath).name);
 
-  const outDir = getQuestionOutPathJavaScript(slug);
-
-  fs.mkdirSync(outDir, { recursive: true });
-
   const { metadata, files, skeleton, workspace } =
     await readQuestionJavaScriptLocaleAgnostic(slug);
+
+  const outDir = getQuestionOutPathJavaScript(slug);
   const metadataPath = path.join(outDir, 'metadata.json');
   const setupPath = path.join(outDir, 'setup.json');
 
+  fs.mkdirSync(outDir, { recursive: true });
   fs.writeFileSync(metadataPath, JSON.stringify(metadata, null, 2));
   fs.writeFileSync(
     setupPath,

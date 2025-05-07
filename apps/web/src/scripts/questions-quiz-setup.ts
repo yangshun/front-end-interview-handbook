@@ -22,16 +22,15 @@ async function generateSetupForQuestion(
     // Files are named after their locales.
     .map((filePath) => parse(filePath).name);
 
-  const outDir = getQuestionOutPathQuiz(slug);
-
-  fs.mkdirSync(outDir, { recursive: true });
-
   const { metadata } = await readQuestionQuizLocaleAgnostic(
     quizSourceConfig,
     slug,
   );
+
+  const outDir = getQuestionOutPathQuiz(slug);
   const metadataPath = path.join(outDir, 'metadata.json');
 
+  fs.mkdirSync(outDir, { recursive: true });
   fs.writeFileSync(metadataPath, JSON.stringify(metadata, null, 2));
 
   await Promise.all(

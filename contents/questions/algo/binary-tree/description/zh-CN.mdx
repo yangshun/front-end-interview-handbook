@@ -1,0 +1,39 @@
+---
+title: 二叉树
+excerpt: 实现一个二叉树数据结构，包括基本操作
+---
+
+使用以下操作实现二叉树数据结构：
+
+- `new BinaryTree()`：创建一个 `BinaryTree` 实例。根节点初始化为 `null`，表示树开始为空。
+- `size()`：返回树中节点的数量。所需的时间复杂度：O(n)，其中 n 是树中节点的数量。
+- `height()`：返回树的高度，定义为从根到叶子的最长路径上的边数。空树的高度为 0。所需的时间复杂度：O(n)。
+- `inOrder()`：返回一个按中序遍历的值的数组。所需的时间复杂度：O(n)。
+- `preOrder()`：返回一个按前序遍历的值的数组。所需的时间复杂度：O(n)。
+- `postOrder()`：返回一个按后序遍历的值的数组。所需的时间复杂度：O(n)。
+- `isBalanced()`：如果树是平衡的，则返回 `true`。如果对于树中的每个节点，其左子树和右子树的高度差最多为 1，则二叉树是平衡的。所需的时间复杂度：O(n)。
+- `isComplete()`：如果树是完全的，则返回 `true`。如果所有层都已完全填充，除了最后一层，最后一层必须从左到右填充，则二叉树是完全的。所需的时间复杂度：O(n)。
+
+> 使用辅助类 `BinaryTreeNode` 来表示节点，具有 `value`、`left` 和 `right` 属性。
+
+## 例子
+
+```js
+const tree = new BinaryTree();
+tree.root = new BinaryTreeNode(10);
+tree.root.left = new BinaryTreeNode(5);
+tree.root.right = new BinaryTreeNode(15);
+
+tree.size(); // 3
+tree.height(); // 1
+tree.inOrder(); // [5, 10, 15]
+tree.preOrder(); // [10, 5, 15]
+tree.postOrder(); // [5, 15, 10]
+tree.isBalanced(); // true
+tree.isComplete(); // true
+```
+
+## 约束
+
+- 0 &lt;= 节点数 &lt;= 100
+- 二叉树中的每个节点最多有一个左子节点和一个右子节点

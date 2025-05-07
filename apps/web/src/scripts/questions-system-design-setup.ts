@@ -23,13 +23,12 @@ async function generateSetupForQuestion(slug: string) {
     // Files are named after their locales.
     .map((filePath) => parse(filePath).name);
 
-  const outDir = getQuestionOutPathSystemDesign(slug);
-
-  fs.mkdirSync(outDir, { recursive: true });
-
   const metadata = await readQuestionMetadataSystemDesign(slug);
+
+  const outDir = getQuestionOutPathSystemDesign(slug);
   const metadataPath = path.join(outDir, 'metadata.json');
 
+  fs.mkdirSync(outDir, { recursive: true });
   fs.writeFileSync(metadataPath, JSON.stringify(metadata, null, 2));
 
   await Promise.all(

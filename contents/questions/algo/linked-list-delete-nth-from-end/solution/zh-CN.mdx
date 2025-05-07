@@ -1,0 +1,77 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import deleteNthNodeFromEndOfList from '../setup/src/linked-list-delete-nth-from-end.ts';
+import deleteNthNodeFromEndOfListOnePass from '../setup/src/linked-list-delete-nth-from-end-one-pass.ts';
+
+## 1. 使用两遍扫描
+
+删除链表中倒数第 `n` 个节点的两遍扫描方法将问题分解为两个清晰的步骤。第一遍确定链表的总长度，第二遍确定并删除目标节点。使用虚拟节点简化了边缘情况，例如当需要删除列表的头节点时。
+
+通过在第一遍扫描中遍历列表，可以计算出链表的总长度。此步骤确保可以从列表的开头计算出倒数第 `n` 个节点的位置为 `(length - n)`。
+
+使用计算出的位置，第二遍扫描在目标节点的前一个节点处停止。这至关重要，因为删除链表中的节点需要访问前一个节点。
+
+在列表的开头添加一个虚拟节点，以处理需要删除头节点的情况。这确保了逻辑在列表中的节点位置无关紧要。
+
+一旦找到目标节点的前一个节点，通过更新其前驱节点的 `next` 指针来绕过目标节点。此操作确保在删除后列表保持完整并正确链接。
+
+这种方法简单明了，确保在最大限度地减少复杂性的同时有效地解决问题。
+
+### 算法
+
+1. 创建一个 `dummy` 节点，其 `next` 指针设置为列表的头节点。
+2. 将变量 `length` 初始化为 0，并将 `first` 设置为列表的头节点。
+3. 遍历列表以计算总长度：
+   1. 遇到每个节点时，递增 `length`。
+   2. 将 `first` 移动到下一个节点，直到到达列表的末尾。
+4. 从 `length` 中减去 `n` 以计算目标节点前一个节点的位置。
+5. 将 `first` 重置为 `dummy` 节点。
+6. 再次遍历列表，直到到达目标节点的前一个节点的位置：
+   1. 在每一步中递减 `length`。
+   2. 将 `first` 移动到下一个节点。
+7. 更新 `first` 的 `next` 指针，使其指向 `first.next.next`，从而绕过目标节点。
+8. 返回 `dummy.next` 作为修改后列表的头节点。
+
+<MDXCodeBlock>
+  {deleteNthNodeFromEndOfList}
+</MDXCodeBlock>
+
+### Big-O 分析
+
+* **时间复杂度：O(n)**。列表被遍历两次，一次用于计算其长度，一次用于定位目标节点的前驱节点。
+* **空间复杂度：O(1)**。该算法使用恒定量的额外空间。
+
+## 2. 使用一遍扫描
+
+从链表中删除倒数第 `n` 个节点的一遍扫描方法通过使用两个指针来优化遍历。此方法不是计算列表的总长度，而是确保两个指针在单个迭代中遍历列表，从而保持它们之间的固定间隙。
+
+该算法使用两个指针 `first` 和 `second`，都从 `dummy` 节点开始。通过将 `first` 指针推进 `n + 1` 步，在 `first` 和 `second` 之间创建了 `n` 个节点的间隙。
+
+一旦建立了间隙，两个指针同时移动，直到 `first` 到达列表的末尾。此时，`second` 指针位于要删除的节点的前面。
+
+使用 `second` 指针，通过将 `second.next` 更新为 `second.next.next` 来跳过目标节点。这确保了在删除后列表保持完整并正确链接。
+
+在列表的开头添加一个 `dummy` 节点，以处理需要删除头节点的情况。这消除了对特殊处理边缘情况的需求，并简化了逻辑。
+
+这种单程方法是有效的，因为它最大限度地减少了迭代次数并保持线性时间复杂度。
+
+### 算法
+
+1. 创建一个 `dummy` 节点，其 `next` 指针设置为列表的头部。
+2. 初始化两个指针 `first` 和 `second`，都指向 `dummy` 节点。
+3. 将 `first` 指针推进 `n + 1` 步，在 `first` 和 `second` 之间创建 `n` 个节点的间隙：
+   1. 如果 `first` 不为 `null`，则在每一步将其移动到下一个节点。
+4. 每次移动 `first` 和 `second` 指针一步，直到 `first` 到达列表的末尾：
+   1. 将 `first` 移动到 `first.next`。
+   2. 将 `second` 移动到 `second.next`。
+5. 通过将 `second.next` 更新为 `second.next.next`，从末尾删除第 `n` 个节点。
+6. 返回 `dummy.next`，它指向修改后的列表的头部。
+
+<MDXCodeBlock>
+  {deleteNthNodeFromEndOfListOnePass}
+</MDXCodeBlock>
+
+### Big-O 分析
+
+* **时间复杂度：O(n)**。列表遍历一次。
+* **空间复杂度：O(1)**。该算法使用恒定的额外空间。

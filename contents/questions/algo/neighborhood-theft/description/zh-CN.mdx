@@ -1,0 +1,26 @@
+---
+title: 邻里盗窃
+excerpt: 实现一个函数，找到在不惊动警察的情况下抢劫的最大金额
+---
+
+import MDXTestExamples from 'MDXTestExamples';
+import runTestCases from '../setup/src/run.tests.json';
+
+一位经验丰富的窃贼的目标是偷取街道上房屋里的钱。每所房子都藏有一定数量的钱，但有一个问题：相邻房屋中的安全系统是相互连接的。如果窃贼闯入两栋相邻的房屋，警察就会被惊动。
+
+给定一个整数数组 `numbers`，其中每个元素代表一所房子里的钱的数量，确定窃贼在不触发警报的情况下可以偷取的最大金额。
+
+### 输入
+
+- `numbers: number[]`: 一个整数数组
+
+### 注意事项
+
+- 窃贼不能从两栋相邻的房屋中偷窃
+
+<MDXTestExamples testCases={runTestCases} />
+
+### 约束
+
+- 1 &lt;= `numbers.length` &lt;= 100
+- 0 &lt;= `numbers[i]` &lt;= 400
