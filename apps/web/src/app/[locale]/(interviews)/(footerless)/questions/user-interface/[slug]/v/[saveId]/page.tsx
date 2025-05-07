@@ -29,7 +29,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   try {
     const [question, save] = await Promise.all([
-      readQuestionUserInterface(slug, false),
+      readQuestionUserInterface({
+        isViewerPremium: false,
+        requestedLocale: locale,
+        slug,
+      }),
       prisma.questionUserInterfaceSave.findFirst({
         where: {
           id: saveId,
@@ -98,11 +102,12 @@ export default async function Page({ params }: Props) {
 
   const isSaveOwner = save.userId === viewer?.id;
 
-  const question = await readQuestionUserInterface(
-    slug,
+  const question = await readQuestionUserInterface({
+    frameworkParam: staticLowerCase(save!.framework),
     isViewerPremium,
-    staticLowerCase(save!.framework),
-  );
+    requestedLocale: locale,
+    slug,
+  });
 
   const isQuestionLockedForViewer =
     question.metadata.access === 'premium' && !isViewerPremium;

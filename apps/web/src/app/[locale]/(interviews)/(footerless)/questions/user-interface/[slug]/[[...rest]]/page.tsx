@@ -61,12 +61,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   } = determineFrameworkAndMode(rest);
 
   try {
-    const question = await readQuestionUserInterface(
-      slug,
-      false,
-      parsedFramework,
+    const question = await readQuestionUserInterface({
       codeId,
-    );
+      frameworkParam: parsedFramework,
+      isViewerPremium: false,
+      requestedLocale: locale,
+      slug,
+    });
 
     const { pathname } = frameworkAgnosticLinks(question, mode);
     const socialTitle =
@@ -192,12 +193,13 @@ export default async function Page({ params }: Props) {
     return profile?.premium ?? false;
   })();
 
-  const question = await readQuestionUserInterface(
-    slug,
-    isViewerPremium,
-    parsedFramework,
+  const question = await readQuestionUserInterface({
     codeId,
-  );
+    frameworkParam: parsedFramework,
+    isViewerPremium,
+    requestedLocale: locale,
+    slug,
+  });
 
   const isQuestionLockedForViewer = (() => {
     if (mode === 'practice') {

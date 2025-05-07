@@ -226,16 +226,29 @@ export default async function Page({ params }: Props) {
     // JS question embed
     readQuestionJavaScriptContents('flatten', false, locale),
     // UI question embed
-    readQuestionUserInterface('todo-list', false, 'react', 'solution-improved'),
-    readQuestionUserInterface(
-      'todo-list',
-      false,
-      'vanilla',
-      'solution-template',
-    ),
-    readQuestionUserInterface('todo-list', false, 'angular', 'solution'),
-    readQuestionUserInterface('todo-list', false, 'vue', 'solution'),
-    readQuestionUserInterface('todo-list', false, 'svelte', 'solution'),
+    readQuestionUserInterface({
+      codeId: 'solution-improved',
+      frameworkParam: 'react',
+      isViewerPremium: false,
+      requestedLocale: locale,
+      slug: 'todo-list',
+    }),
+    readQuestionUserInterface({
+      codeId: 'solution-template',
+      frameworkParam: 'vanilla',
+      isViewerPremium: false,
+      requestedLocale: locale,
+      slug:'todo-list',
+}),
+    readQuestionUserInterface({
+      codeId: 'solution',
+      frameworkParam: 'angular',
+      isViewerPremium: false,
+      requestedLocale: locale,
+      slug:'todo-list',
+}),
+    readQuestionUserInterface({codeId: 'solution', frameworkParam: 'vue', isViewerPremium: false, requestedLocale: locale, slug:'todo-list'}),
+    readQuestionUserInterface({codeId: 'solution', frameworkParam: 'svelte', isViewerPremium: false, requestedLocale: locale, slug:'todo-list'}),
     // Question list
     fetchQuestionsList({ type: 'format', value: 'javascript' }, locale),
     fetchQuestionsList({ type: 'format', value: 'algo' }, locale),

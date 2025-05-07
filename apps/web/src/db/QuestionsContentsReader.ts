@@ -280,13 +280,19 @@ export function readQuestionSystemDesignContents(
   };
 }
 
-export async function readQuestionUserInterface(
-  slug: string,
-  isViewerPremium: boolean,
-  frameworkParam?: QuestionFramework | null,
-  codeId?: string,
+export async function readQuestionUserInterface({
+  slug,
+  isViewerPremium,
   requestedLocale = 'en-US',
-): Promise<InterviewsQuestionItemUserInterface> {
+  frameworkParam,
+  codeId,
+}: Readonly<{
+  codeId?: string;
+  frameworkParam?: QuestionFramework | null;
+  isViewerPremium: boolean;
+  requestedLocale: string;
+  slug: string;
+}>): Promise<InterviewsQuestionItemUserInterface> {
   const questionOutDir = getQuestionOutPathUserInterface(slug);
 
   let loadedLocale = requestedLocale;
