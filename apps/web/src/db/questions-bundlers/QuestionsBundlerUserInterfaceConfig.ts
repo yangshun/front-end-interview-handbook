@@ -77,9 +77,6 @@ export function getQuestionOutPathUserInterfaceFrameworkSetup(
   );
 }
 
-export function getQuestionsListOutFilenameUserInterface(_locale: string) {
-  return path.join(
-    QUESTIONS_OUT_DIR_USER_INTERFACE,
-    'UserInterfaceQuestionsList.json',
-  );
+export function getQuestionsListOutFilenameUserInterface(locale: string) {
+  return path.join(QUESTIONS_OUT_DIR_USER_INTERFACE, `list.${locale}.json`);
 }

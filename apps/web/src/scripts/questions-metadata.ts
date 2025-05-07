@@ -95,10 +95,12 @@ export async function generateAllMetadata() {
         locale,
       ),
     ),
-    generateQuestionsMetadata(
-      readQuestionListMetadataUserInterface,
-      getQuestionsListOutFilenameUserInterface(sourceLocale),
-      sourceLocale,
+    ...locales.map((locale) =>
+      generateQuestionsMetadata(
+        readQuestionListMetadataUserInterface,
+        getQuestionsListOutFilenameUserInterface(locale),
+        locale,
+      ),
     ),
     ...locales.map((locale) =>
       codingQuestionsMetadata(
