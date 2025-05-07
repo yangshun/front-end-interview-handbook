@@ -4751,7 +4751,7 @@
   {
     "info": {
       "excerpt": null,
-      "title": "What do you think of AMD vs CommonJS?",
+      "title": "What do you think of CommonJS vs ESM?",
       "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-do-you-think-of-amd-vs-commonjs/en-US.mdx"
     },
     "metadata": {
@@ -7605,7 +7605,7 @@
   {
     "info": {
       "excerpt": null,
-      "title": "Explain what happens when `setState` is called in React",
+      "title": "Explain what happens when the `useState` setter function is called in React",
       "gitHubEditUrl": "https://github.com/yangshun/top-reactjs-interview-questions/blob/main/questions/explain-what-happens-when-setstate-is-called-in-react/en-US.mdx"
     },
     "metadata": {

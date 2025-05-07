@@ -4751,7 +4751,7 @@
   {
     "info": {
       "excerpt": null,
-      "title": "你如何看待 AMD 与 CommonJS？",
+      "title": "你如何看待 CommonJS 与 ESM？",
       "gitHubEditUrl": "https://github.com/yangshun/top-javascript-interview-questions/blob/main/questions/what-do-you-think-of-amd-vs-commonjs/zh-CN.mdx"
     },
     "metadata": {
@@ -7605,7 +7605,7 @@
   {
     "info": {
       "excerpt": null,
-      "title": "解释在 React 中调用 `setState` 时会发生什么",
+      "title": "解释在 React 中调用 `useState` 设置器函数时会发生什么",
       "gitHubEditUrl": "https://github.com/yangshun/top-reactjs-interview-questions/blob/main/questions/explain-what-happens-when-setstate-is-called-in-react/zh-CN.mdx"
     },
     "metadata": {
