@@ -15,13 +15,13 @@ import { ActivityAction, PostRelevancy } from '~/prisma/client';
 
 import prisma from '../prisma';
 import { router, userProcedure } from '../trpc';
-import OpenAIProvider from '../../providers/OpenAIProvider';
+import AIProvider from '../../providers/AIProvider';
 import type { Comments } from '../../types';
 
 import { TRPCError } from '@trpc/server';
 
 function getAIProvider() {
-  return new OpenAIProvider();
+  return new AIProvider();
 }
 
 export const socialPostsRouter = router({

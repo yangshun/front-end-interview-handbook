@@ -5,7 +5,7 @@ import type { Submission } from 'snoowrap';
 import Snoowrap from 'snoowrap';
 
 import type { RedditPost } from '~/prisma/client';
-import OpenAIProvider from '~/providers/OpenAIProvider';
+import AIProvider from '~/providers/AIProvider';
 
 export function initializeRedditClient(username?: string, password?: string) {
   return new Snoowrap({
@@ -56,7 +56,7 @@ export async function getPostsFromReddit({
   }> = [];
 
   const snoowrap = initializeRedditClient();
-  const aiProvider = new OpenAIProvider();
+  const aiProvider = new AIProvider();
 
   // Loop through each subreddit
   for (const subreddit of subreddits) {

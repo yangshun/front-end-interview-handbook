@@ -16,7 +16,7 @@
     "db:seed": "tsx ./src/scripts/seed-data.ts"
   },
   "dependencies": {
-    "@ai-sdk/openai": "^0.0.33",
+    "@ai-sdk/google": "^1.2.3",
     "@mantine/core": "^7.11.0",
     "@mantine/form": "^7.11.2",
     "@mantine/hooks": "^7.11.0",
@@ -27,7 +27,7 @@
     "@trpc/client": "^10.18.0",
     "@trpc/react-query": "^10.18.0",
     "@trpc/server": "^10.18.0",
-    "ai": "^3.2.8",
+    "ai": "^4.3.14",
     "clsx": "^2.1.1",
     "dompurify": "^3.1.5",
     "dotenv": "^16.3.1",

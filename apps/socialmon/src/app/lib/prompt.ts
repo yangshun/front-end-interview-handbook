@@ -1,19 +1,7 @@
-import { generateObject } from 'ai';
-
-import { aiFilterPostSchema, aiResponseSchema } from '~/schema';
-
-import type { AIFilterPost, AIResponse } from '~/types';
-
-import { openai } from '@ai-sdk/openai';
-
-class OpenAIProvider {
-  constructor() {}
-
-  // Possibly give it assistant?
-  private getSystemPrompt(
-    resources: ReadonlyArray<{ description: string; url: string }>,
-  ): string {
-    return `
+export function getSystemPrompt(
+  resources: ReadonlyArray<{ description: string; url: string }>,
+): string {
+  return `
       Act as a Reddit commenter.
       Task:
       A. Write a relevant comment to a Reddit post. The title and content of the post will be given to you.
@@ -36,57 +24,13 @@ class OpenAIProvider {
       Note:
       1. You must only respond with the relevant comment, as if you were responding to the post directly.
     `;
-  }
+}
 
-  private getUserPrompt(
-    post: Readonly<{ content: string; title: string }>,
-  ): string {
-    return `
+export function getUserPrompt(
+  post: Readonly<{ content: string; title: string }>,
+): string {
+  return `
       The title of the post is: ${post.title}
       The content of the post is: ${post.content}
     `;
-  }
-
-  async generateResponseTo({
-    post,
-    resources,
-  }: {
-    post: Readonly<{ content: string; title: string }>;
-    resources: ReadonlyArray<{ description: string; url: string }>;
-  }): Promise<AIResponse> {
-    console.info('Generating response to post:', post.title);
-
-    const systemPrompt = this.getSystemPrompt(resources);
-    const userPrompt = this.getUserPrompt(post);
-
-    const result = await generateObject({
-      model: openai('gpt-4-turbo'),
-      prompt: userPrompt,
-      schema: aiResponseSchema,
-      system: systemPrompt,
-    });
-
-    return result.object;
-  }
-
-  async filterPost({
-    post,
-    systemPrompt,
-  }: Readonly<{
-    post: Readonly<{ content: string; title: string }>;
-    systemPrompt: string;
-  }>): Promise<AIFilterPost> {
-    const userPrompt = this.getUserPrompt(post);
-
-    const result = await generateObject({
-      model: openai('gpt-3.5-turbo'),
-      prompt: userPrompt,
-      schema: aiFilterPostSchema,
-      system: systemPrompt,
-    });
-
-    return result.object;
-  }
 }
-
-export default OpenAIProvider;
