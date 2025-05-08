@@ -1,7 +1,8 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "globalDependencies": ["**/.env.*local"],
-  "pipeline": {
+  "envMode": "loose",
+  "tasks": {
     "build": {
       "dependsOn": ["^build"],
       "outputs": ["dist/**", ".next/**"]
@@ -10,7 +11,8 @@
       "outputs": []
     },
     "dev": {
-      "dependsOn": []
+      "dependsOn": ["^build"],
+      "cache": false
     },
     "test": {
       "cache": true
