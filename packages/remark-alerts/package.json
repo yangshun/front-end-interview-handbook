@@ -19,11 +19,6 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "engines": {
-    "node": "18.18.2",
-    "pnpm": "8.15.8"
-  },
-  "packageManager": "pnpm@8.15.8",
   "peerDependencies": {
     "@types/mdast": "^4.0.0",
     "unified": "^10.1.2"
