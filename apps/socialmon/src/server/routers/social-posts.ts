@@ -12,6 +12,7 @@ import {
 } from '~/db/RedditUtils';
 import { decryptPassword } from '~/db/utils';
 import { ActivityAction, PostRelevancy } from '~/prisma/client';
+import { sendGoogleChatMessage } from '~/server/utils/googleChat';
 
 import prisma from '../prisma';
 import { router, userProcedure } from '../trpc';
@@ -226,6 +227,7 @@ export const socialPostsRouter = router({
         select: {
           id: true,
           keywords: true,
+          name: true,
           postFilteringPrompt: true,
           subreddits: true,
         },
@@ -252,7 +254,7 @@ export const socialPostsRouter = router({
         projectId: project.id,
       }));
 
-      return await prisma.$transaction([
+      const result = await prisma.$transaction([
         // Add it to the db
         prisma.redditPost.createMany({
           data: postsFromRedditWithProjectId,
@@ -268,6 +270,20 @@ export const socialPostsRouter = router({
           },
         }),
       ]);
+
+      const insertResult = result[0];
+      const insertedNewPosts = insertResult.count;
+      const newPostsFetched = insertedNewPosts > 0;
+
+      if (newPostsFetched) {
+        await sendGoogleChatMessage({
+          numPostsFetched: postsFromReddit.length,
+          projectName: project.name,
+          subreddits: project.subreddits,
+        });
+      }
+
+      return result;
     }),
   markPostRelevancy: userProcedure
     .input(
