@@ -419,6 +419,10 @@
     "defaultMessage": "您的更改已保存",
     "description": "Title for advertise request page"
   },
+  "/slker": {
+    "defaultMessage": "您使用的是<bold>年度</bold>计划。",
+    "description": "User's subscription plan"
+  },
   "/tR4KB": {
     "defaultMessage": "{discountPercentage}% 折扣即将过期",
     "description": "Button label"
@@ -4383,10 +4387,6 @@
     "defaultMessage": "所有练习题",
     "description": "Question list"
   },
-  "AcrAV0": {
-    "defaultMessage": "您尚未订阅。<link>查看 GreatFrontEnd 项目的订阅计划</link>。",
-    "description": "Text describing user's subscription plan."
-  },
   "Ad94JV": {
     "defaultMessage": "在结帐时使用代码",
     "description": "Instruction to apply discount"
@@ -4478,10 +4478,6 @@
   "B8kokj": {
     "defaultMessage": "每周平均指标",
     "description": "Subtitle for GreatFrontEnd"
-  },
-  "B8l5F0": {
-    "defaultMessage": "升级到终身计划",
-    "description": "Upgrade to lifetime plan"
   },
   "B8s6N1": {
     "defaultMessage": "前端系统设计：{title}",
@@ -4870,10 +4866,6 @@
   "D2WaF7": {
     "defaultMessage": "街道是必填项",
     "description": "Error message for street"
-  },
-  "D5644P": {
-    "defaultMessage": "现有订阅者可以以折扣价升级到终身计划，发送电子邮件至<link>contact@greatfrontend</link>了解更多信息。",
-    "description": "Call to action text to upgrade plan."
   },
   "D5HhwJ": {
     "defaultMessage": "加入我们，构建深受前端工程师喜爱的创新产品。",
@@ -5399,10 +5391,6 @@
     "defaultMessage": "选择{question}进行删除",
     "description": "Aria label for checkbox to select question for deletion"
   },
-  "FlysR+": {
-    "defaultMessage": "您尚未订阅。<link>查看 GreatFrontEnd Interviews 的订阅计划</link>。",
-    "description": "Text describing user's subscription plan."
-  },
   "FonVOb": {
     "defaultMessage": "所有问题进度已重置。",
     "description": "Message shown when question reset progress action succeeds."
@@ -5414,10 +5402,6 @@
   "FsGLoP": {
     "defaultMessage": "前端测验问题",
     "description": "Page title for quiz question format page"
-  },
-  "Ftjz7y": {
-    "defaultMessage": "在 Stripe 账单门户中管理您的订阅状态和付款方式。",
-    "description": "Call to action text to uppgrade plan."
   },
   "FtnCTh": {
     "defaultMessage": "浏览我们的入门指南，在开始实践之前，先扎实掌握{category}面试准备。",
@@ -6131,6 +6115,10 @@
     "defaultMessage": "涵盖每种必要的语言和框架：{JavaScript}、{React}、{TypeScript}、{Angular}、{Vue}、{Svelte}、{HTML}和{CSS}。",
     "description": "Paragraph 1 for \"What does GreatFrontEnd Interviews offer exactly?\" on Homepage FAQ sections"
   },
+  "J114XD": {
+    "defaultMessage": "您使用的是<bold>季度</bold>计划。",
+    "description": "User's subscription plan"
+  },
   "J1pqvo": {
     "defaultMessage": "从初学者到高级",
     "description": "Label for skill roadmap feature for annual plan"
@@ -6334,6 +6322,10 @@
   "Jo4hU0": {
     "defaultMessage": "重命名",
     "description": "Rename saved code"
+  },
+  "JrD5Rd": {
+    "defaultMessage": "您使用的是<bold>月度</bold>计划。",
+    "description": "User's subscription plan"
   },
   "JrYZqa": {
     "defaultMessage": "所有资源可帮助您构建{challengeName}，包括操作指南、官方解决方案、参考资料和用户讨论",
@@ -6738,10 +6730,6 @@
   "LKWnEZ": {
     "defaultMessage": "免费必备",
     "description": "Answer to 'What is unique about GreatFrontEnd Projects vs other challenge platforms?' on projects FAQs"
-  },
-  "LL5UA7": {
-    "defaultMessage": "购买高级版，即可访问所有{questionCount}+ 面试问题、官方解决方案、学习计划和公司标签。 ",
-    "description": "Text describing user's subscription plan."
   },
   "LMI4bA": {
     "defaultMessage": "每个问题都由前面试官解答",
@@ -7562,10 +7550,6 @@
   "PQPdnk": {
     "defaultMessage": "UI/UX 设计师设计",
     "description": "Title of \"Designs by UI/UX designers\" sub-feature in Projects marketing page"
-  },
-  "PQRmTe": {
-    "defaultMessage": "您使用的是<bold>终身</bold>计划。",
-    "description": "Text describing user's subscription plan."
   },
   "PR+tvh": {
     "defaultMessage": "产品",
@@ -8983,6 +8967,10 @@
     "defaultMessage": "搜索超过{questionCount}个React面试问题",
     "description": "Search placeholder for React questions list page"
   },
+  "Vf5vZK": {
+    "defaultMessage": "行为面试介绍",
+    "description": "Introduction to behavioral interviews"
+  },
   "VfNkH+": {
     "defaultMessage": "返现",
     "description": "Amount cashback/discount"
@@ -9687,6 +9675,10 @@
     "defaultMessage": "系统设计面试",
     "description": "Front End system design interview questions"
   },
+  "YsLLTo": {
+    "defaultMessage": "您尚未订阅。<link>查看订阅计划</link>，了解<projects>GreatFrontEnd Projects</projects>。",
+    "description": "User's subscription plan"
+  },
   "YwBuE7": {
     "defaultMessage": "您在此项目中使用的技能，这些技能包含于我们的技能路线图中。这有助于我们跟踪您在技能发展方面的进度",
     "description": "Description for skills roadmap input on project submit page"
@@ -10174,10 +10166,6 @@
   "b/3jGp": {
     "defaultMessage": "提交于",
     "description": "Coding workspace submission submitted at label"
-  },
-  "b/4l5Z": {
-    "defaultMessage": "订阅会自动续订，届时您将再次被收费。您可以随时通过 Stripe 账单门户取消订阅。",
-    "description": "Call to action text to uppgrade plan."
   },
   "b/dKUR": {
     "defaultMessage": "此测试用例子集用于运行您的代码。",
@@ -10719,10 +10707,6 @@
     "defaultMessage": "React 面试简介",
     "description": "Introduction to react interviews"
   },
-  "dKaQQ+": {
-    "defaultMessage": "行为面试简介",
-    "description": "Introduction to behavioral interviews"
-  },
   "dKoCFD": {
     "defaultMessage": "组件跟踪",
     "description": "Projects component tracks item label"
@@ -10854,6 +10838,10 @@
   "e/4TCP": {
     "defaultMessage": "联系电子邮件",
     "description": "Contact email addresses"
+  },
+  "e/lC4t": {
+    "defaultMessage": "获取所有{questionCount}+个面试问题、官方解答、学习计划和公司指南。",
+    "description": "GreatFrontEnd Interviews premium description"
   },
   "e/t5dH": {
     "defaultMessage": "下载入门文件",
@@ -11351,6 +11339,10 @@
     "defaultMessage": "我们提供一系列专为初学者设计的入门级挑战。 您可以从这些开始，并在获得信心和经验后逐渐过渡到更高级的挑战。",
     "description": "Answer to 'I'm a complete beginner. Will this platform be useful for me?' on projects FAQs"
   },
+  "g5zyFF": {
+    "defaultMessage": "订阅默认自动续订。您可以随时通过Stripe账单门户取消订阅。",
+    "description": "Information about subscription renewal"
+  },
   "g6ZUKV": {
     "defaultMessage": "公司详细信息",
     "description": "Company details section heading"
@@ -11803,10 +11795,6 @@
     "defaultMessage": "1 周计划",
     "description": "Link to one week study plan"
   },
-  "i7VsUe": {
-    "defaultMessage": "您使用的是<bold>月度</bold>计划。",
-    "description": "Text describing user's subscription plan."
-  },
   "i7u7fD": {
     "defaultMessage": "标记为未完成",
     "description": "Mark the question as incomplete"
@@ -11959,6 +11947,10 @@
     "defaultMessage": "参考优秀的解决方案对于有效学习至关重要。我们编写解决方案时特别注意包含实际考虑因素和多种方法。",
     "description": "Marketing page section subtitle"
   },
+  "jIgy3E": {
+    "defaultMessage": "您尚未订阅。<link>查看订阅计划</link>，了解<interviews>GreatFrontEnd Interviews</interviews>。",
+    "description": "User's subscription plan"
+  },
   "jK0/93": {
     "defaultMessage": "广告横幅图片",
     "description": "Alt text for ad banner image"
@@ -11978,10 +11970,6 @@
   "jMHsyQ": {
     "defaultMessage": "技能",
     "description": "Title of skills section of projects profile edit page"
-  },
-  "jMTHcm": {
-    "defaultMessage": "管理订阅",
-    "description": "Manage billing subscription"
   },
   "jN1v5Q": {
     "defaultMessage": "{category}测验面试问题及解答 | GreatFrontEnd",
@@ -12362,10 +12350,6 @@
   "ks4qo1": {
     "defaultMessage": "重新订阅以访问",
     "description": "Title for a paywall of a submission for a premium project"
-  },
-  "kvhZfI": {
-    "defaultMessage": "您使用的是<bold>年度</bold>计划。",
-    "description": "Text describing user's subscription plan."
   },
   "kwHN0l": {
     "defaultMessage": "选择您的组件并选择任何主题",
@@ -14903,6 +14887,10 @@
     "defaultMessage": "简洁的逐步实用指南",
     "description": "Short description for \"Official guides\" feature on Projects home page"
   },
+  "xZPifi": {
+    "defaultMessage": "您使用的是<bold>终身</bold>计划。",
+    "description": "User's subscription plan"
+  },
   "xaoljh": {
     "defaultMessage": "在此处输入一些内容...",
     "description": "Placeholder for body input"
@@ -15146,10 +15134,6 @@
   "yjtkxM": {
     "defaultMessage": "问题",
     "description": "Contribution type label"
-  },
-  "ykwubP": {
-    "defaultMessage": "您使用的是<bold>季度</bold>计划。",
-    "description": "Text describing user's subscription plan."
   },
   "ymIkds": {
     "defaultMessage": "州/省/地区",

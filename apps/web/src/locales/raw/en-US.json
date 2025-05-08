@@ -419,6 +419,10 @@
     "defaultMessage": "Your changes have been saved",
     "description": "Title for advertise request page"
   },
+  "/slker": {
+    "defaultMessage": "You are on the <bold>Annual</bold> plan.",
+    "description": "User's subscription plan"
+  },
   "/tR4KB": {
     "defaultMessage": "{discountPercentage}% off expiring soon",
     "description": "Button label"
@@ -2667,10 +2671,6 @@
     "defaultMessage": "All practice questions",
     "description": "Question list"
   },
-  "AcrAV0": {
-    "defaultMessage": "You are not subscribed. <link>View subscription plans</link> for GreatFrontEnd Projects.",
-    "description": "Text describing user's subscription plan."
-  },
   "Ad94JV": {
     "defaultMessage": "Use code at checkout",
     "description": "Instruction to apply discount"
@@ -2762,10 +2762,6 @@
   "B8kokj": {
     "defaultMessage": "Average metrics per week",
     "description": "Subtitle for GreatFrontEnd"
-  },
-  "B8l5F0": {
-    "defaultMessage": "Upgrade to lifetime plan",
-    "description": "Upgrade to lifetime plan"
   },
   "B8s6N1": {
     "defaultMessage": "Front End System Design: {title}",
@@ -3154,10 +3150,6 @@
   "D2WaF7": {
     "defaultMessage": "Street is required",
     "description": "Error message for street"
-  },
-  "D5644P": {
-    "defaultMessage": "Existing subscribers can upgrade to the lifetime plan at a discount, send an email to <link>contact@greatfrontend</link> to find out more.",
-    "description": "Call to action text to upgrade plan."
   },
   "D5HhwJ": {
     "defaultMessage": "Join us in building innovative products that are well-loved by Front End Engineers.",
@@ -3683,10 +3675,6 @@
     "defaultMessage": "Select {question} for deletion",
     "description": "Aria label for checkbox to select question for deletion"
   },
-  "FlysR+": {
-    "defaultMessage": "You are not subscribed. <link>View subscription plans</link> for GreatFrontEnd Interviews.",
-    "description": "Text describing user's subscription plan."
-  },
   "FonVOb": {
     "defaultMessage": "All question progress has been reset.",
     "description": "Message shown when question reset progress action succeeds."
@@ -3698,10 +3686,6 @@
   "FsGLoP": {
     "defaultMessage": "Front End Quiz Questions",
     "description": "Page title for quiz question format page"
-  },
-  "Ftjz7y": {
-    "defaultMessage": "Manage your subscription status and payment methods on the Stripe billing portal.",
-    "description": "Call to action text to uppgrade plan."
   },
   "FtnCTh": {
     "defaultMessage": "Explore our starter guides to get a solid grasp of {category} interview prep before jumping into practice.",
@@ -4415,6 +4399,10 @@
     "defaultMessage": "Covers every essential language and framework: {JavaScript}, {React}, {TypeScript}, {Angular}, {Vue}, {Svelte}, {HTML}, and {CSS}.",
     "description": "Paragraph 1 for \"What does GreatFrontEnd Interviews offer exactly?\" on Homepage FAQ sections"
   },
+  "J114XD": {
+    "defaultMessage": "You are on the <bold>Quarterly</bold> plan.",
+    "description": "User's subscription plan"
+  },
   "J1pqvo": {
     "defaultMessage": "From beginner to advanced",
     "description": "Label for skill roadmap feature for annual plan"
@@ -4618,6 +4606,10 @@
   "Jo4hU0": {
     "defaultMessage": "Rename",
     "description": "Rename saved code"
+  },
+  "JrD5Rd": {
+    "defaultMessage": "You are on the <bold>Monthly</bold> plan.",
+    "description": "User's subscription plan"
   },
   "JrYZqa": {
     "defaultMessage": "All the resources to help you build a {challengeName}, including how-to-guides, official solutions, references and user discussions",
@@ -5022,10 +5014,6 @@
   "LKWnEZ": {
     "defaultMessage": "Free essentials",
     "description": "Answer to 'What is unique about GreatFrontEnd Projects vs other challenge platforms?' on projects FAQs"
-  },
-  "LL5UA7": {
-    "defaultMessage": "Purchase premium to get access to all {questionCount}+ interview questions, official solutions, study plans, and company tags.",
-    "description": "Text describing user's subscription plan."
   },
   "LMI4bA": {
     "defaultMessage": "Every question answered by ex-interviewers",
@@ -5846,10 +5834,6 @@
   "PQPdnk": {
     "defaultMessage": "Designs by UI/UX designers",
     "description": "Title of \"Designs by UI/UX designers\" sub-feature in Projects marketing page"
-  },
-  "PQRmTe": {
-    "defaultMessage": "You are on the <bold>Lifetime</bold> plan.",
-    "description": "Text describing user's subscription plan."
   },
   "PR+tvh": {
     "defaultMessage": "Product",
@@ -7267,6 +7251,10 @@
     "defaultMessage": "Search over {questionCount} React interview questions",
     "description": "Search placeholder for React questions list page"
   },
+  "Vf5vZK": {
+    "defaultMessage": "Introduction to behavioral interviews",
+    "description": "Introduction to behavioral interviews"
+  },
   "VfNkH+": {
     "defaultMessage": "CASHBACK",
     "description": "Amount cashback/discount"
@@ -7971,6 +7959,10 @@
     "defaultMessage": "System design interviews",
     "description": "Front End system design interview questions"
   },
+  "YsLLTo": {
+    "defaultMessage": "You are not subscribed. <link>View subscription plans</link> for <projects>GreatFrontEnd Projects</projects>.",
+    "description": "User's subscription plan"
+  },
   "YwBuE7": {
     "defaultMessage": "The skills you are using in this project, which are in our skills roadmap. Helps us track your progress on skills development",
     "description": "Description for skills roadmap input on project submit page"
@@ -8458,10 +8450,6 @@
   "b/3jGp": {
     "defaultMessage": "Submitted at",
     "description": "Coding workspace submission submitted at label"
-  },
-  "b/4l5Z": {
-    "defaultMessage": "Subscriptions are automatically renewed and you will be charged again then. You may cancel your subscription anytime via the Stripe billing portal.",
-    "description": "Call to action text to uppgrade plan."
   },
   "b/dKUR": {
     "defaultMessage": "This subset of test cases are used when \"Run\"-ning your code.",
@@ -9003,10 +8991,6 @@
     "defaultMessage": "Intro to React interviews",
     "description": "Introduction to react interviews"
   },
-  "dKaQQ+": {
-    "defaultMessage": "Intro to behavioral interviews",
-    "description": "Introduction to behavioral interviews"
-  },
   "dKoCFD": {
     "defaultMessage": "Component tracks",
     "description": "Projects component tracks item label"
@@ -9138,6 +9122,10 @@
   "e/4TCP": {
     "defaultMessage": "Contact emails",
     "description": "Contact email addresses"
+  },
+  "e/lC4t": {
+    "defaultMessage": "Get access to all {questionCount}+ interview questions, official solutions, study plans, and company guides.",
+    "description": "GreatFrontEnd Interviews premium description"
   },
   "e/t5dH": {
     "defaultMessage": "Download starter files",
@@ -9635,6 +9623,10 @@
     "defaultMessage": "We offer a range of starter level challenges that are specifically designed for beginners. You can begin with these and gradually progress to more advanced challenges as you gain confidence and experience.",
     "description": "Answer to 'I'm a complete beginner. Will this platform be useful for me?' on projects FAQs"
   },
+  "g5zyFF": {
+    "defaultMessage": "Subscriptions are automatically renewed by default. You may cancel your subscription anytime via the Stripe billing portal.",
+    "description": "Information about subscription renewal"
+  },
   "g6ZUKV": {
     "defaultMessage": "Company details",
     "description": "Company details section heading"
@@ -10087,10 +10079,6 @@
     "defaultMessage": "1 Week Plan",
     "description": "Link to one week study plan"
   },
-  "i7VsUe": {
-    "defaultMessage": "You are on the <bold>Monthly</bold> plan.",
-    "description": "Text describing user's subscription plan."
-  },
   "i7u7fD": {
     "defaultMessage": "Mark as incomplete",
     "description": "Mark the question as incomplete"
@@ -10243,6 +10231,10 @@
     "defaultMessage": "Referencing good solutions is crucial to learning effectively. We've written our solutions with special care to include practical considerations and multiple approaches.",
     "description": "Marketing page section subtitle"
   },
+  "jIgy3E": {
+    "defaultMessage": "You are not subscribed. <link>View subscription plans</link> for <interviews>GreatFrontEnd Interviews</interviews>.",
+    "description": "User's subscription plan"
+  },
   "jK0/93": {
     "defaultMessage": "Ad banner image",
     "description": "Alt text for ad banner image"
@@ -10262,10 +10254,6 @@
   "jMHsyQ": {
     "defaultMessage": "Skills",
     "description": "Title of skills section of projects profile edit page"
-  },
-  "jMTHcm": {
-    "defaultMessage": "Manage subscription",
-    "description": "Manage billing subscription"
   },
   "jN1v5Q": {
     "defaultMessage": "{category} Quiz Interview Questions with Solutions | GreatFrontEnd",
@@ -10646,10 +10634,6 @@
   "ks4qo1": {
     "defaultMessage": "Resubscribe to access",
     "description": "Title for a paywall of a submission for a premium project"
-  },
-  "kvhZfI": {
-    "defaultMessage": "You are on the <bold>Annual</bold> plan.",
-    "description": "Text describing user's subscription plan."
   },
   "kwHN0l": {
     "defaultMessage": "Choose your component and pick any theme",
@@ -13187,6 +13171,10 @@
     "defaultMessage": "Сoncise step by step practical guides",
     "description": "Short description for \"Official guides\" feature on Projects home page"
   },
+  "xZPifi": {
+    "defaultMessage": "You are on the <bold>Lifetime</bold> plan.",
+    "description": "User's subscription plan"
+  },
   "xaoljh": {
     "defaultMessage": "Enter something here...",
     "description": "Placeholder for body input"
@@ -13430,10 +13418,6 @@
   "yjtkxM": {
     "defaultMessage": "Questions",
     "description": "Contribution type label"
-  },
-  "ykwubP": {
-    "defaultMessage": "You are on the <bold>Quarterly</bold> plan.",
-    "description": "Text describing user's subscription plan."
   },
   "ymIkds": {
     "defaultMessage": "State / Province / Region",

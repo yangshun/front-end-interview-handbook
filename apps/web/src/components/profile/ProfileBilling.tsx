@@ -29,23 +29,30 @@ function InterviewsPlanLabel({
 }>): JSX.Element | null {
   const intl = useIntl();
   const autoRenewal = (
-    <FormattedMessage
-      defaultMessage="Subscriptions are automatically renewed and you will be charged again then. You may cancel your subscription anytime via the Stripe billing portal."
-      description="Call to action text to uppgrade plan."
-      id="b/4l5Z"
-      values={{
-        link: (chunks) => (
-          <Anchor href="mailto:contact@greatfrontend.com">{chunks}</Anchor>
-        ),
-      }}
-    />
+    <>
+      <FormattedMessage
+        defaultMessage="Subscriptions are automatically renewed by default. You may cancel your subscription anytime via the Stripe billing portal."
+        description="Information about subscription renewal"
+        id="g5zyFF"
+        values={{
+          link: (chunks) => (
+            <Anchor href="mailto:contact@greatfrontend.com">{chunks}</Anchor>
+          ),
+        }}
+      />
+      <div className="mt-4">
+        <ManageSubscriptionButton />
+      </div>
+    </>
   );
 
-  const renderBold = (chunks: Array<ReactNode>) => (
-    <Text size="inherit" weight="bold">
-      {chunks}
-    </Text>
-  );
+  function renderBold(chunks: Array<ReactNode>) {
+    return (
+      <Text size="inherit" weight="bold">
+        {chunks}
+      </Text>
+    );
+  }
 
   switch (plan) {
     case null: {
@@ -53,10 +60,11 @@ function InterviewsPlanLabel({
         <div className="flex flex-col gap-4">
           <div>
             <FormattedMessage
-              defaultMessage="You are not subscribed. <link>View subscription plans</link> for GreatFrontEnd Interviews."
-              description="Text describing user's subscription plan."
-              id="FlysR+"
+              defaultMessage="You are not subscribed. <link>View subscription plans</link> for <interviews>GreatFrontEnd Interviews</interviews>."
+              description="User's subscription plan"
+              id="jIgy3E"
               values={{
+                interviews: (chunks) => <Anchor href="/">{chunks}</Anchor>,
                 link: (chunks) => (
                   <Anchor href="/interviews/pricing">{chunks}</Anchor>
                 ),
@@ -73,13 +81,10 @@ function InterviewsPlanLabel({
             })}
             variant="primary">
             <FormattedMessage
-              defaultMessage="Purchase premium to get access to all {questionCount}+ interview questions, official solutions, study plans, and company tags."
-              description="Text describing user's subscription plan."
-              id="LL5UA7"
+              defaultMessage="Get access to all {questionCount}+ interview questions, official solutions, study plans, and company guides."
+              description="GreatFrontEnd Interviews premium description"
+              id="e/lC4t"
               values={{
-                link: (chunks) => (
-                  <Anchor href="/interviews/pricing">{chunks}</Anchor>
-                ),
                 questionCount: QuestionCountTotal,
               }}
             />
@@ -89,14 +94,17 @@ function InterviewsPlanLabel({
     }
     case 'year': {
       return (
-        <FormattedMessage
-          defaultMessage="You are on the <bold>Annual</bold> plan."
-          description="Text describing user's subscription plan."
-          id="kvhZfI"
-          values={{
-            bold: renderBold,
-          }}
-        />
+        <>
+          <FormattedMessage
+            defaultMessage="You are on the <bold>Annual</bold> plan."
+            description="User's subscription plan"
+            id="/slker"
+            values={{
+              bold: renderBold,
+            }}
+          />{' '}
+          {autoRenewal}
+        </>
       );
     }
     case 'month': {
@@ -104,8 +112,8 @@ function InterviewsPlanLabel({
         <>
           <FormattedMessage
             defaultMessage="You are on the <bold>Monthly</bold> plan."
-            description="Text describing user's subscription plan."
-            id="i7VsUe"
+            description="User's subscription plan"
+            id="JrD5Rd"
             values={{
               bold: renderBold,
             }}
@@ -119,8 +127,8 @@ function InterviewsPlanLabel({
         <>
           <FormattedMessage
             defaultMessage="You are on the <bold>Quarterly</bold> plan."
-            description="Text describing user's subscription plan."
-            id="ykwubP"
+            description="User's subscription plan"
+            id="J114XD"
             values={{
               bold: renderBold,
             }}
@@ -133,8 +141,8 @@ function InterviewsPlanLabel({
       return (
         <FormattedMessage
           defaultMessage="You are on the <bold>Lifetime</bold> plan."
-          description="Text describing user's subscription plan."
-          id="PQRmTe"
+          description="User's subscription plan"
+          id="xZPifi"
           values={{
             bold: (chunks) => (
               <Text size="inherit" weight="bold">
@@ -164,16 +172,21 @@ function ProjectsPlanLabel({
   const plan = viewerProjectsProfile?.plan;
 
   const autoRenewal = (
-    <FormattedMessage
-      defaultMessage="Subscriptions are automatically renewed and you will be charged again then. You may cancel your subscription anytime via the Stripe billing portal."
-      description="Call to action text to uppgrade plan."
-      id="b/4l5Z"
-      values={{
-        link: (chunks) => (
-          <Anchor href="mailto:contact@greatfrontend.com">{chunks}</Anchor>
-        ),
-      }}
-    />
+    <>
+      <FormattedMessage
+        defaultMessage="Subscriptions are automatically renewed by default. You may cancel your subscription anytime via the Stripe billing portal."
+        description="Information about subscription renewal"
+        id="g5zyFF"
+        values={{
+          link: (chunks) => (
+            <Anchor href="mailto:contact@greatfrontend.com">{chunks}</Anchor>
+          ),
+        }}
+      />
+      <div className="mt-4">
+        <ManageSubscriptionButton />
+      </div>
+    </>
   );
 
   const renderBold = (chunks: Array<ReactNode>) => (
@@ -188,12 +201,15 @@ function ProjectsPlanLabel({
         <div className="flex flex-col gap-4" data-theme="projects">
           <div>
             <FormattedMessage
-              defaultMessage="You are not subscribed. <link>View subscription plans</link> for GreatFrontEnd Projects."
-              description="Text describing user's subscription plan."
-              id="AcrAV0"
+              defaultMessage="You are not subscribed. <link>View subscription plans</link> for <projects>GreatFrontEnd Projects</projects>."
+              description="User's subscription plan"
+              id="YsLLTo"
               values={{
                 link: (chunks) => (
                   <Anchor href="/projects/pricing">{chunks}</Anchor>
+                ),
+                projects: (chunks) => (
+                  <Anchor href="/projects">{chunks}</Anchor>
                 ),
               }}
             />
@@ -219,14 +235,17 @@ function ProjectsPlanLabel({
     }
     case 'ANNUAL': {
       return (
-        <FormattedMessage
-          defaultMessage="You are on the <bold>Annual</bold> plan."
-          description="Text describing user's subscription plan."
-          id="kvhZfI"
-          values={{
-            bold: renderBold,
-          }}
-        />
+        <>
+          <FormattedMessage
+            defaultMessage="You are on the <bold>Annual</bold> plan."
+            description="User's subscription plan"
+            id="/slker"
+            values={{
+              bold: renderBold,
+            }}
+          />{' '}
+          {autoRenewal}
+        </>
       );
     }
     case 'MONTH': {
@@ -234,8 +253,8 @@ function ProjectsPlanLabel({
         <>
           <FormattedMessage
             defaultMessage="You are on the <bold>Monthly</bold> plan."
-            description="Text describing user's subscription plan."
-            id="i7VsUe"
+            description="User's subscription plan"
+            id="JrD5Rd"
             values={{
               bold: renderBold,
             }}
@@ -249,17 +268,10 @@ function ProjectsPlanLabel({
   return null;
 }
 
-function ManageSubscriptionSection(): JSX.Element | null {
-  const { userProfile } = useUserProfileWithProjectsProfile();
+function ManageSubscriptionButton(): JSX.Element | null {
   const intl = useIntl();
   const billingPortalMutation =
     trpc.purchases.billingPortalSessionUrl.useMutation();
-
-  const plan = userProfile?.plan;
-
-  if (plan == null && userProfile?.projectsProfile?.plan == null) {
-    return null;
-  }
 
   async function navigateToStripePortal() {
     const billingPortalUrl = await billingPortalMutation.mutateAsync({
@@ -270,55 +282,23 @@ function ManageSubscriptionSection(): JSX.Element | null {
   }
 
   return (
-    <div
-      className={clsx(
-        'flex flex-col gap-4',
-        'p-4',
-        ['border', themeBorderColor],
-        'rounded-lg',
-      )}>
-      <div className={clsx('flex flex-col gap-1')}>
-        <Text className="block" size="body1" weight="bold">
-          <FormattedMessage
-            defaultMessage="Manage subscription"
-            description="Manage billing subscription"
-            id="jMTHcm"
-          />
-        </Text>
-        <Text className="block" color="secondary" size="body3">
-          <FormattedMessage
-            defaultMessage="Manage your subscription status and payment methods on the Stripe billing portal."
-            description="Call to action text to uppgrade plan."
-            id="Ftjz7y"
-            values={{
-              link: (chunks) => (
-                <Anchor href="mailto:contact@greatfrontend.com">
-                  {chunks}
-                </Anchor>
-              ),
-            }}
-          />
-        </Text>
-      </div>
-      <div>
-        <Button
-          isDisabled={billingPortalMutation.isLoading}
-          isLoading={billingPortalMutation.isLoading}
-          label={intl.formatMessage({
-            defaultMessage: 'Manage subscription on Stripe',
-            description: 'Label for button to manage subscription',
-            id: 'Fg3V0y',
-          })}
-          variant="secondary"
-          onClick={navigateToStripePortal}
-        />
-      </div>
+    <div>
+      <Button
+        isDisabled={billingPortalMutation.isLoading}
+        isLoading={billingPortalMutation.isLoading}
+        label={intl.formatMessage({
+          defaultMessage: 'Manage subscription on Stripe',
+          description: 'Label for button to manage subscription',
+          id: 'Fg3V0y',
+        })}
+        variant="secondary"
+        onClick={navigateToStripePortal}
+      />
     </div>
   );
 }
 
 function InterviewsSubscriptionSection() {
-  const intl = useIntl();
   const { userProfile } = useUserProfileWithProjectsProfile();
 
   return (
@@ -343,30 +323,6 @@ function InterviewsSubscriptionSection() {
               }
             />
           </Text>
-          {(userProfile?.plan === 'month' ||
-            userProfile?.plan === 'quarter') && (
-            <Alert
-              bodySize="body3"
-              title={intl.formatMessage({
-                defaultMessage: 'Upgrade to lifetime plan',
-                description: 'Upgrade to lifetime plan',
-                id: 'B8l5F0',
-              })}
-              variant="success">
-              <FormattedMessage
-                defaultMessage="Existing subscribers can upgrade to the lifetime plan at a discount, send an email to <link>contact@greatfrontend</link> to find out more."
-                description="Call to action text to upgrade plan."
-                id="D5644P"
-                values={{
-                  link: (chunks) => (
-                    <Anchor href="mailto:contact@greatfrontend.com">
-                      {chunks}
-                    </Anchor>
-                  ),
-                }}
-              />
-            </Alert>
-          )}
         </div>
       </div>
     </div>
@@ -425,7 +381,6 @@ export default function ProfileBilling() {
           <>
             <InterviewsSubscriptionSection />
             <ProjectsSubscriptionSection />
-            <ManageSubscriptionSection />
           </>
         )}
       </Section>

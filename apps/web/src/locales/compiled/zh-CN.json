@@ -795,6 +795,26 @@
       "value": "您的更改已保存"
     }
   ],
+  "/slker": [
+    {
+      "type": 0,
+      "value": "您使用的是"
+    },
+    {
+      "children": [
+        {
+          "type": 0,
+          "value": "年度"
+        }
+      ],
+      "type": 8,
+      "value": "bold"
+    },
+    {
+      "type": 0,
+      "value": "计划。"
+    }
+  ],
   "/tR4KB": [
     {
       "type": 1,
@@ -5649,26 +5669,6 @@
       "value": "所有练习题"
     }
   ],
-  "AcrAV0": [
-    {
-      "type": 0,
-      "value": "您尚未订阅。"
-    },
-    {
-      "children": [
-        {
-          "type": 0,
-          "value": "查看 GreatFrontEnd 项目的订阅计划"
-        }
-      ],
-      "type": 8,
-      "value": "link"
-    },
-    {
-      "type": 0,
-      "value": "。"
-    }
-  ],
   "Ad94JV": [
     {
       "type": 0,
@@ -5813,12 +5813,6 @@
     {
       "type": 0,
       "value": "每周平均指标"
-    }
-  ],
-  "B8l5F0": [
-    {
-      "type": 0,
-      "value": "升级到终身计划"
     }
   ],
   "B8s6N1": [
@@ -6707,26 +6701,6 @@
     {
       "type": 0,
       "value": "街道是必填项"
-    }
-  ],
-  "D5644P": [
-    {
-      "type": 0,
-      "value": "现有订阅者可以以折扣价升级到终身计划，发送电子邮件至"
-    },
-    {
-      "children": [
-        {
-          "type": 0,
-          "value": "contact@greatfrontend"
-        }
-      ],
-      "type": 8,
-      "value": "link"
-    },
-    {
-      "type": 0,
-      "value": "了解更多信息。"
     }
   ],
   "D5HhwJ": [
@@ -7752,26 +7726,6 @@
       "value": "进行删除"
     }
   ],
-  "FlysR+": [
-    {
-      "type": 0,
-      "value": "您尚未订阅。"
-    },
-    {
-      "children": [
-        {
-          "type": 0,
-          "value": "查看 GreatFrontEnd Interviews 的订阅计划"
-        }
-      ],
-      "type": 8,
-      "value": "link"
-    },
-    {
-      "type": 0,
-      "value": "。"
-    }
-  ],
   "FonVOb": [
     {
       "type": 0,
@@ -7788,12 +7742,6 @@
     {
       "type": 0,
       "value": "前端测验问题"
-    }
-  ],
-  "Ftjz7y": [
-    {
-      "type": 0,
-      "value": "在 Stripe 账单门户中管理您的订阅状态和付款方式。"
     }
   ],
   "FtnCTh": [
@@ -9196,6 +9144,26 @@
       "value": "。"
     }
   ],
+  "J114XD": [
+    {
+      "type": 0,
+      "value": "您使用的是"
+    },
+    {
+      "children": [
+        {
+          "type": 0,
+          "value": "季度"
+        }
+      ],
+      "type": 8,
+      "value": "bold"
+    },
+    {
+      "type": 0,
+      "value": "计划。"
+    }
+  ],
   "J1pqvo": [
     {
       "type": 0,
@@ -9587,6 +9555,26 @@
     {
       "type": 0,
       "value": "重命名"
+    }
+  ],
+  "JrD5Rd": [
+    {
+      "type": 0,
+      "value": "您使用的是"
+    },
+    {
+      "children": [
+        {
+          "type": 0,
+          "value": "月度"
+        }
+      ],
+      "type": 8,
+      "value": "bold"
+    },
+    {
+      "type": 0,
+      "value": "计划。"
     }
   ],
   "JrYZqa": [
@@ -10291,20 +10279,6 @@
     {
       "type": 0,
       "value": "免费必备"
-    }
-  ],
-  "LL5UA7": [
-    {
-      "type": 0,
-      "value": "购买高级版，即可访问所有"
-    },
-    {
-      "type": 1,
-      "value": "questionCount"
-    },
-    {
-      "type": 0,
-      "value": "+ 面试问题、官方解决方案、学习计划和公司标签。 "
     }
   ],
   "LMI4bA": [
@@ -11933,26 +11907,6 @@
     {
       "type": 0,
       "value": "UI/UX 设计师设计"
-    }
-  ],
-  "PQRmTe": [
-    {
-      "type": 0,
-      "value": "您使用的是"
-    },
-    {
-      "children": [
-        {
-          "type": 0,
-          "value": "终身"
-        }
-      ],
-      "type": 8,
-      "value": "bold"
-    },
-    {
-      "type": 0,
-      "value": "计划。"
     }
   ],
   "PR+tvh": [
@@ -14910,6 +14864,12 @@
       "value": "个React面试问题"
     }
   ],
+  "Vf5vZK": [
+    {
+      "type": 0,
+      "value": "行为面试介绍"
+    }
+  ],
   "VfNkH+": [
     {
       "type": 0,
@@ -16362,6 +16322,40 @@
       "value": "系统设计面试"
     }
   ],
+  "YsLLTo": [
+    {
+      "type": 0,
+      "value": "您尚未订阅。"
+    },
+    {
+      "children": [
+        {
+          "type": 0,
+          "value": "查看订阅计划"
+        }
+      ],
+      "type": 8,
+      "value": "link"
+    },
+    {
+      "type": 0,
+      "value": "，了解"
+    },
+    {
+      "children": [
+        {
+          "type": 0,
+          "value": "GreatFrontEnd Projects"
+        }
+      ],
+      "type": 8,
+      "value": "projects"
+    },
+    {
+      "type": 0,
+      "value": "。"
+    }
+  ],
   "YwBuE7": [
     {
       "type": 0,
@@ -17312,12 +17306,6 @@
     {
       "type": 0,
       "value": "提交于"
-    }
-  ],
-  "b/4l5Z": [
-    {
-      "type": 0,
-      "value": "订阅会自动续订，届时您将再次被收费。您可以随时通过 Stripe 账单门户取消订阅。"
     }
   ],
   "b/dKUR": [
@@ -18308,12 +18296,6 @@
       "value": "React 面试简介"
     }
   ],
-  "dKaQQ+": [
-    {
-      "type": 0,
-      "value": "行为面试简介"
-    }
-  ],
   "dKoCFD": [
     {
       "type": 0,
@@ -18600,6 +18582,20 @@
     {
       "type": 0,
       "value": "联系电子邮件"
+    }
+  ],
+  "e/lC4t": [
+    {
+      "type": 0,
+      "value": "获取所有"
+    },
+    {
+      "type": 1,
+      "value": "questionCount"
+    },
+    {
+      "type": 0,
+      "value": "+个面试问题、官方解答、学习计划和公司指南。"
     }
   ],
   "e/t5dH": [
@@ -19658,6 +19654,12 @@
     {
       "type": 0,
       "value": "我们提供一系列专为初学者设计的入门级挑战。 您可以从这些开始，并在获得信心和经验后逐渐过渡到更高级的挑战。"
+    }
+  ],
+  "g5zyFF": [
+    {
+      "type": 0,
+      "value": "订阅默认自动续订。您可以随时通过Stripe账单门户取消订阅。"
     }
   ],
   "g6ZUKV": [
@@ -20742,26 +20744,6 @@
       "value": "1 周计划"
     }
   ],
-  "i7VsUe": [
-    {
-      "type": 0,
-      "value": "您使用的是"
-    },
-    {
-      "children": [
-        {
-          "type": 0,
-          "value": "月度"
-        }
-      ],
-      "type": 8,
-      "value": "bold"
-    },
-    {
-      "type": 0,
-      "value": "计划。"
-    }
-  ],
   "i7u7fD": [
     {
       "type": 0,
@@ -21034,6 +21016,40 @@
       "value": "参考优秀的解决方案对于有效学习至关重要。我们编写解决方案时特别注意包含实际考虑因素和多种方法。"
     }
   ],
+  "jIgy3E": [
+    {
+      "type": 0,
+      "value": "您尚未订阅。"
+    },
+    {
+      "children": [
+        {
+          "type": 0,
+          "value": "查看订阅计划"
+        }
+      ],
+      "type": 8,
+      "value": "link"
+    },
+    {
+      "type": 0,
+      "value": "，了解"
+    },
+    {
+      "children": [
+        {
+          "type": 0,
+          "value": "GreatFrontEnd Interviews"
+        }
+      ],
+      "type": 8,
+      "value": "interviews"
+    },
+    {
+      "type": 0,
+      "value": "。"
+    }
+  ],
   "jK0/93": [
     {
       "type": 0,
@@ -21118,12 +21134,6 @@
     {
       "type": 0,
       "value": "技能"
-    }
-  ],
-  "jMTHcm": [
-    {
-      "type": 0,
-      "value": "管理订阅"
     }
   ],
   "jN1v5Q": [
@@ -21854,26 +21864,6 @@
     {
       "type": 0,
       "value": "重新订阅以访问"
-    }
-  ],
-  "kvhZfI": [
-    {
-      "type": 0,
-      "value": "您使用的是"
-    },
-    {
-      "children": [
-        {
-          "type": 0,
-          "value": "年度"
-        }
-      ],
-      "type": 8,
-      "value": "bold"
-    },
-    {
-      "type": 0,
-      "value": "计划。"
     }
   ],
   "kwHN0l": [
@@ -27190,6 +27180,26 @@
       "value": "简洁的逐步实用指南"
     }
   ],
+  "xZPifi": [
+    {
+      "type": 0,
+      "value": "您使用的是"
+    },
+    {
+      "children": [
+        {
+          "type": 0,
+          "value": "终身"
+        }
+      ],
+      "type": 8,
+      "value": "bold"
+    },
+    {
+      "type": 0,
+      "value": "计划。"
+    }
+  ],
   "xaoljh": [
     {
       "type": 0,
@@ -27741,26 +27751,6 @@
     {
       "type": 0,
       "value": "问题"
-    }
-  ],
-  "ykwubP": [
-    {
-      "type": 0,
-      "value": "您使用的是"
-    },
-    {
-      "children": [
-        {
-          "type": 0,
-          "value": "季度"
-        }
-      ],
-      "type": 8,
-      "value": "bold"
-    },
-    {
-      "type": 0,
-      "value": "计划。"
     }
   ],
   "ymIkds": [

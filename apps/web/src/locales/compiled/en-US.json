@@ -799,6 +799,26 @@
       "value": "Your changes have been saved"
     }
   ],
+  "/slker": [
+    {
+      "type": 0,
+      "value": "You are on the "
+    },
+    {
+      "children": [
+        {
+          "type": 0,
+          "value": "Annual"
+        }
+      ],
+      "type": 8,
+      "value": "bold"
+    },
+    {
+      "type": 0,
+      "value": " plan."
+    }
+  ],
   "/tR4KB": [
     {
       "type": 1,
@@ -5659,26 +5679,6 @@
       "value": "All practice questions"
     }
   ],
-  "AcrAV0": [
-    {
-      "type": 0,
-      "value": "You are not subscribed. "
-    },
-    {
-      "children": [
-        {
-          "type": 0,
-          "value": "View subscription plans"
-        }
-      ],
-      "type": 8,
-      "value": "link"
-    },
-    {
-      "type": 0,
-      "value": " for GreatFrontEnd Projects."
-    }
-  ],
   "Ad94JV": [
     {
       "type": 0,
@@ -5823,12 +5823,6 @@
     {
       "type": 0,
       "value": "Average metrics per week"
-    }
-  ],
-  "B8l5F0": [
-    {
-      "type": 0,
-      "value": "Upgrade to lifetime plan"
     }
   ],
   "B8s6N1": [
@@ -6713,26 +6707,6 @@
     {
       "type": 0,
       "value": "Street is required"
-    }
-  ],
-  "D5644P": [
-    {
-      "type": 0,
-      "value": "Existing subscribers can upgrade to the lifetime plan at a discount, send an email to "
-    },
-    {
-      "children": [
-        {
-          "type": 0,
-          "value": "contact@greatfrontend"
-        }
-      ],
-      "type": 8,
-      "value": "link"
-    },
-    {
-      "type": 0,
-      "value": " to find out more."
     }
   ],
   "D5HhwJ": [
@@ -7758,26 +7732,6 @@
       "value": " for deletion"
     }
   ],
-  "FlysR+": [
-    {
-      "type": 0,
-      "value": "You are not subscribed. "
-    },
-    {
-      "children": [
-        {
-          "type": 0,
-          "value": "View subscription plans"
-        }
-      ],
-      "type": 8,
-      "value": "link"
-    },
-    {
-      "type": 0,
-      "value": " for GreatFrontEnd Interviews."
-    }
-  ],
   "FonVOb": [
     {
       "type": 0,
@@ -7794,12 +7748,6 @@
     {
       "type": 0,
       "value": "Front End Quiz Questions"
-    }
-  ],
-  "Ftjz7y": [
-    {
-      "type": 0,
-      "value": "Manage your subscription status and payment methods on the Stripe billing portal."
     }
   ],
   "FtnCTh": [
@@ -9202,6 +9150,26 @@
       "value": "."
     }
   ],
+  "J114XD": [
+    {
+      "type": 0,
+      "value": "You are on the "
+    },
+    {
+      "children": [
+        {
+          "type": 0,
+          "value": "Quarterly"
+        }
+      ],
+      "type": 8,
+      "value": "bold"
+    },
+    {
+      "type": 0,
+      "value": " plan."
+    }
+  ],
   "J1pqvo": [
     {
       "type": 0,
@@ -9593,6 +9561,26 @@
     {
       "type": 0,
       "value": "Rename"
+    }
+  ],
+  "JrD5Rd": [
+    {
+      "type": 0,
+      "value": "You are on the "
+    },
+    {
+      "children": [
+        {
+          "type": 0,
+          "value": "Monthly"
+        }
+      ],
+      "type": 8,
+      "value": "bold"
+    },
+    {
+      "type": 0,
+      "value": " plan."
     }
   ],
   "JrYZqa": [
@@ -10305,20 +10293,6 @@
     {
       "type": 0,
       "value": "Free essentials"
-    }
-  ],
-  "LL5UA7": [
-    {
-      "type": 0,
-      "value": "Purchase premium to get access to all "
-    },
-    {
-      "type": 1,
-      "value": "questionCount"
-    },
-    {
-      "type": 0,
-      "value": "+ interview questions, official solutions, study plans, and company tags."
     }
   ],
   "LMI4bA": [
@@ -11965,26 +11939,6 @@
     {
       "type": 0,
       "value": "Designs by UI/UX designers"
-    }
-  ],
-  "PQRmTe": [
-    {
-      "type": 0,
-      "value": "You are on the "
-    },
-    {
-      "children": [
-        {
-          "type": 0,
-          "value": "Lifetime"
-        }
-      ],
-      "type": 8,
-      "value": "bold"
-    },
-    {
-      "type": 0,
-      "value": " plan."
     }
   ],
   "PR+tvh": [
@@ -14940,6 +14894,12 @@
       "value": " React interview questions"
     }
   ],
+  "Vf5vZK": [
+    {
+      "type": 0,
+      "value": "Introduction to behavioral interviews"
+    }
+  ],
   "VfNkH+": [
     {
       "type": 0,
@@ -16388,6 +16348,40 @@
       "value": "System design interviews"
     }
   ],
+  "YsLLTo": [
+    {
+      "type": 0,
+      "value": "You are not subscribed. "
+    },
+    {
+      "children": [
+        {
+          "type": 0,
+          "value": "View subscription plans"
+        }
+      ],
+      "type": 8,
+      "value": "link"
+    },
+    {
+      "type": 0,
+      "value": " for "
+    },
+    {
+      "children": [
+        {
+          "type": 0,
+          "value": "GreatFrontEnd Projects"
+        }
+      ],
+      "type": 8,
+      "value": "projects"
+    },
+    {
+      "type": 0,
+      "value": "."
+    }
+  ],
   "YwBuE7": [
     {
       "type": 0,
@@ -17330,12 +17324,6 @@
     {
       "type": 0,
       "value": "Submitted at"
-    }
-  ],
-  "b/4l5Z": [
-    {
-      "type": 0,
-      "value": "Subscriptions are automatically renewed and you will be charged again then. You may cancel your subscription anytime via the Stripe billing portal."
     }
   ],
   "b/dKUR": [
@@ -18322,12 +18310,6 @@
       "value": "Intro to React interviews"
     }
   ],
-  "dKaQQ+": [
-    {
-      "type": 0,
-      "value": "Intro to behavioral interviews"
-    }
-  ],
   "dKoCFD": [
     {
       "type": 0,
@@ -18614,6 +18596,20 @@
     {
       "type": 0,
       "value": "Contact emails"
+    }
+  ],
+  "e/lC4t": [
+    {
+      "type": 0,
+      "value": "Get access to all "
+    },
+    {
+      "type": 1,
+      "value": "questionCount"
+    },
+    {
+      "type": 0,
+      "value": "+ interview questions, official solutions, study plans, and company guides."
     }
   ],
   "e/t5dH": [
@@ -19672,6 +19668,12 @@
     {
       "type": 0,
       "value": "We offer a range of starter level challenges that are specifically designed for beginners. You can begin with these and gradually progress to more advanced challenges as you gain confidence and experience."
+    }
+  ],
+  "g5zyFF": [
+    {
+      "type": 0,
+      "value": "Subscriptions are automatically renewed by default. You may cancel your subscription anytime via the Stripe billing portal."
     }
   ],
   "g6ZUKV": [
@@ -20752,26 +20754,6 @@
       "value": "1 Week Plan"
     }
   ],
-  "i7VsUe": [
-    {
-      "type": 0,
-      "value": "You are on the "
-    },
-    {
-      "children": [
-        {
-          "type": 0,
-          "value": "Monthly"
-        }
-      ],
-      "type": 8,
-      "value": "bold"
-    },
-    {
-      "type": 0,
-      "value": " plan."
-    }
-  ],
   "i7u7fD": [
     {
       "type": 0,
@@ -21044,6 +21026,40 @@
       "value": "Referencing good solutions is crucial to learning effectively. We've written our solutions with special care to include practical considerations and multiple approaches."
     }
   ],
+  "jIgy3E": [
+    {
+      "type": 0,
+      "value": "You are not subscribed. "
+    },
+    {
+      "children": [
+        {
+          "type": 0,
+          "value": "View subscription plans"
+        }
+      ],
+      "type": 8,
+      "value": "link"
+    },
+    {
+      "type": 0,
+      "value": " for "
+    },
+    {
+      "children": [
+        {
+          "type": 0,
+          "value": "GreatFrontEnd Interviews"
+        }
+      ],
+      "type": 8,
+      "value": "interviews"
+    },
+    {
+      "type": 0,
+      "value": "."
+    }
+  ],
   "jK0/93": [
     {
       "type": 0,
@@ -21128,12 +21144,6 @@
     {
       "type": 0,
       "value": "Skills"
-    }
-  ],
-  "jMTHcm": [
-    {
-      "type": 0,
-      "value": "Manage subscription"
     }
   ],
   "jN1v5Q": [
@@ -21905,26 +21915,6 @@
     {
       "type": 0,
       "value": "Resubscribe to access"
-    }
-  ],
-  "kvhZfI": [
-    {
-      "type": 0,
-      "value": "You are on the "
-    },
-    {
-      "children": [
-        {
-          "type": 0,
-          "value": "Annual"
-        }
-      ],
-      "type": 8,
-      "value": "bold"
-    },
-    {
-      "type": 0,
-      "value": " plan."
     }
   ],
   "kwHN0l": [
@@ -27261,6 +27251,26 @@
       "value": "Сoncise step by step practical guides"
     }
   ],
+  "xZPifi": [
+    {
+      "type": 0,
+      "value": "You are on the "
+    },
+    {
+      "children": [
+        {
+          "type": 0,
+          "value": "Lifetime"
+        }
+      ],
+      "type": 8,
+      "value": "bold"
+    },
+    {
+      "type": 0,
+      "value": " plan."
+    }
+  ],
   "xaoljh": [
     {
       "type": 0,
@@ -27807,26 +27817,6 @@
     {
       "type": 0,
       "value": "Questions"
-    }
-  ],
-  "ykwubP": [
-    {
-      "type": 0,
-      "value": "You are on the "
-    },
-    {
-      "children": [
-        {
-          "type": 0,
-          "value": "Quarterly"
-        }
-      ],
-      "type": 8,
-      "value": "bold"
-    },
-    {
-      "type": 0,
-      "value": " plan."
     }
   ],
   "ymIkds": [
