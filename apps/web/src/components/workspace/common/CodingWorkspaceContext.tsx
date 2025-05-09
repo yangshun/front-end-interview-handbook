@@ -5,7 +5,7 @@ import { useAuthPointOnActions } from '~/components/auth/auth-points';
 
 import CodingWorkspaceBottomBarEmitter from './CodingWorkspaceBottomBarEmitter';
 
-import type { SandpackFiles } from '@codesandbox/sandpack-react/types';
+import type { SandpackFiles } from '@codesandbox/sandpack-react';
 
 export type CodingWorkspaceTabContents<TabType extends string> = Readonly<
   Partial<{

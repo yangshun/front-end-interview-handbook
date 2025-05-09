@@ -17,8 +17,8 @@
     "clean": "rimraf dist",
     "test": "vitest run",
     "test:watch": "vitest",
-    "typecheck": "tsc",
-    "verify": "npm run typecheck && npm run test && npm run build",
+    "tsc": "tsc",
+    "verify": "npm run tsc && npm run test && npm run build",
     "prepublishOnly": "npm run verify"
   },
   "dependencies": {

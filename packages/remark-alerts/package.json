@@ -12,8 +12,8 @@
     "build": "tsup",
     "dev": "tsup --watch",
     "clean": "rimraf dist",
-    "typecheck": "tsc",
-    "verify": "npm run typecheck && npm run build",
+    "tsc": "tsc",
+    "verify": "npm run tsc && npm run build",
     "prepublishOnly": "npm run verify"
   },
   "keywords": [],

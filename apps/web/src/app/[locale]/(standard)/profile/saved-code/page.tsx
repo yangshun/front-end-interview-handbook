@@ -30,7 +30,7 @@ import {
 import type { Payload as StoredJavaScriptCode } from '~/components/workspace/javascript/JavaScriptCodingWorkspaceCodeStorage';
 import type { PayloadV2 as StoredUICode } from '~/components/workspace/user-interface/UserInterfaceCodingWorkspaceCodeStorage';
 
-import type { SandpackFile } from '@codesandbox/sandpack-react/types';
+import type { SandpackFile } from '@codesandbox/sandpack-react';
 
 function getFilenameFromPath(path: string): string {
   const parts = path.split('/');

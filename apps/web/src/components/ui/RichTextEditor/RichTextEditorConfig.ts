@@ -1,9 +1,5 @@
 import type { EditorThemeClasses, LexicalNode } from 'lexical';
-import type {
-  ErrorHandler,
-  Klass,
-  LexicalNodeReplacement,
-} from 'lexical/LexicalEditor';
+import type { CreateEditorArgs, Klass, LexicalNodeReplacement } from 'lexical';
 
 import { CustomAutoLinkNode, CustomLinkNode } from './nodes/CustomLinkNode';
 import RichTextEditorTheme from './theme/RichTextEditorTheme';
@@ -19,7 +15,7 @@ import { HeadingNode, QuoteNode } from '@lexical/rich-text';
 export type RichTextEditorConfigType = Readonly<{
   namespace: string;
   nodes: ReadonlyArray<Klass<LexicalNode> | LexicalNodeReplacement>;
-  onError: ErrorHandler;
+  onError: NonNullable<CreateEditorArgs['onError']>;
   theme: EditorThemeClasses;
 }>;
 

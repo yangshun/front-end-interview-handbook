@@ -158,7 +158,7 @@
   "devDependencies": {
     "@formatjs/cli": "^6.6.4",
     "@gfe/eslint-config-gfe-apps": "workspace:0.0.0",
-    "@gfe/tsconfig": "workspace:0.0.0",
+    "@gfe/typescript-config": "workspace:*",
     "@mdx-js/loader": "^2.3.0",
     "@tailwindcss/container-queries": "^0.1.1",
     "@tailwindcss/forms": "^0.5.10",

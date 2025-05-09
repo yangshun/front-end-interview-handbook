@@ -49,7 +49,7 @@
   },
   "devDependencies": {
     "@gfe/eslint-config-gfe-apps": "workspace:0.0.0",
-    "@gfe/tsconfig": "workspace:0.0.0",
+    "@gfe/typescript-config": "workspace:*",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/container-queries": "^0.1.1",
     "@tailwindcss/forms": "^0.5.10",
