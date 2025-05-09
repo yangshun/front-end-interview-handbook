@@ -1,9 +1,0 @@
-{
-  "name": "@gfe/jest-presets",
-  "version": "0.0.0",
-  "private": true,
-  "license": "MIT",
-  "dependencies": {
-    "ts-jest": "^29.0.5"
-  }
-}
