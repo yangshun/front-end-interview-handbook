@@ -174,6 +174,12 @@ module.exports = ({ theme }) => ({
         padding: `${8 / 13}em ${16 / 13}em`,
         whiteSpace: 'nowrap',
       },
+      'thead th[align="right"], tbody td[align="right"]': {
+        textAlign: 'right',
+      },
+      'thead th[align="center"], tbody td[align="center"]': {
+        textAlign: 'center',
+      },
       'thead th:first-child': {
         borderLeft: 'var(--border)',
         borderRadius: 'var(--radius) 0 0 var(--radius)',
