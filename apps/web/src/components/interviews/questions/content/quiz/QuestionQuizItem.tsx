@@ -1,0 +1,113 @@
+'use client';
+
+import clsx from 'clsx';
+import { getMDXComponent } from 'mdx-bundler/client';
+import type { ForwardedRef } from 'react';
+import { forwardRef, useId, useMemo } from 'react';
+import { RiEditBoxLine } from 'react-icons/ri';
+
+import QuestionMetadataSection from '~/components/interviews/questions/metadata/QuestionMetadataSection';
+import { FormattedMessage, useIntl } from '~/components/intl';
+import MDXCodeBlock from '~/components/mdx/MDXCodeBlock';
+import MDXComponentsForQuiz from '~/components/mdx/MDXComponentsForQuiz';
+import Button from '~/components/ui/Button';
+import Divider from '~/components/ui/Divider';
+import Heading from '~/components/ui/Heading';
+import Section from '~/components/ui/Heading/HeadingContext';
+import Prose from '~/components/ui/Prose';
+import Text from '~/components/ui/Text';
+
+import type { QuestionQuiz } from '../../common/QuestionsTypes';
+import useQuestionLogEventCopyContents from '../../common/useQuestionLogEventCopyContents';
+
+type Props = Readonly<{
+  question: QuestionQuiz;
+}>;
+
+function GitHubEditButton({
+  question,
+}: Readonly<{
+  question: QuestionQuiz;
+}>) {
+  const intl = useIntl();
+
+  if (!question.info.gitHubEditUrl) {
+    return null;
+  }
+
+  return (
+    <Button
+      href={question.info.gitHubEditUrl}
+      icon={RiEditBoxLine}
+      label={intl.formatMessage({
+        defaultMessage: 'Edit on GitHub',
+        description: 'Edit on GitHub button',
+        id: '1wrVTx',
+      })}
+      size="xs"
+      variant="secondary"
+    />
+  );
+}
+
+function QuestionQuizItem({ question }: Props, ref: ForwardedRef<HTMLElement>) {
+  const titleId = useId();
+  const copyRef = useQuestionLogEventCopyContents<HTMLDivElement>();
+  const { solution } = question;
+  // It's generally a good idea to memoize this function call to
+  // avoid re-creating the component every render.
+  const Solution = useMemo(() => {
+    if (!solution) {
+      return null;
+    }
+
+    return getMDXComponent(solution, {
+      MDXCodeBlock,
+    });
+  }, [solution]);
+
+  return (
+    <article ref={ref} aria-labelledby={titleId} className="grow">
+      <div className="min-h-0 flex-1">
+        <header className={clsx('flex flex-col gap-y-4')}>
+          <Heading className="pb-4" id={titleId} level="heading4">
+            {question.info.title}
+          </Heading>
+          {question.metadata.subtitle && (
+            <Text className="block pb-4 text-lg sm:text-xl">
+              {question.metadata.subtitle}
+            </Text>
+          )}
+          <div className="flex items-start justify-between">
+            <QuestionMetadataSection
+              elements={['importance', 'difficulty', 'topics']}
+              metadata={question.metadata}
+            />
+            <GitHubEditButton question={question} />
+          </div>
+        </header>
+        <Divider className="my-8" />
+        <Section>
+          {/* Contents section */}
+          <div ref={copyRef}>
+            {Solution == null ? (
+              <div>
+                <FormattedMessage
+                  defaultMessage="Something went wrong"
+                  description="Text that appears when the solution fails to load"
+                  id="6UytmZ"
+                />
+              </div>
+            ) : (
+              <Prose>
+                <Solution components={MDXComponentsForQuiz} />
+              </Prose>
+            )}
+          </div>
+        </Section>
+      </div>
+    </article>
+  );
+}
+
+export default forwardRef(QuestionQuizItem);

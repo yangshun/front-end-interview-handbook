@@ -9,6 +9,7 @@ import type {
   InterviewsQuestionItemUserInterface,
   InterviewsQuestionMetadata,
   QuestionFramework,
+  QuestionListTypeData,
   QuestionQuiz,
   QuestionSystemDesign,
   QuestionUserInterfaceBundle,
@@ -236,6 +237,25 @@ export async function readQuestionQuizContents(
     loadedLocale,
     question,
   };
+}
+
+export async function readQuestionQuizContentsAll(
+  listType: QuestionListTypeData,
+  requestedLocale = 'en-US',
+): Promise<ReadonlyArray<{
+  exactMatch: boolean;
+  loadedLocale: string;
+  question: QuestionQuiz;
+}> | null> {
+  const { questions } = await fetchQuestionsList(listType, requestedLocale);
+
+  const questionsContents = await Promise.all(
+    questions.map((question) =>
+      readQuestionQuizContents(question.metadata.slug, requestedLocale),
+    ),
+  );
+
+  return questionsContents.flatMap((qn) => (qn != null ? [qn] : []));
 }
 
 export function readQuestionSystemDesignContents(

@@ -2,6 +2,8 @@ import clsx from 'clsx';
 import { useSelectedLayoutSegment } from 'next/navigation';
 import { Suspense, useState } from 'react';
 
+import useHashChange from '~/hooks/useHashChange';
+
 import { questionListFilterNamespace } from '~/components/interviews/questions/common/QuestionHrefUtils';
 import InterviewsQuestionsListSlideOutSwitcher from '~/components/interviews/questions/listings/slideout/InterviewsQuestionsListSlideOutSwitcher';
 import {
@@ -51,6 +53,7 @@ function QuestionsQuizSidebarQuestionListImpl({
   initialListType: QuestionListTypeWithLabel;
 }>) {
   const segment = useSelectedLayoutSegment();
+  const hash = useHashChange();
 
   const [currentListType, setCurrentListType] =
     useState<QuestionListTypeWithLabel>(initialListType);
@@ -74,7 +77,7 @@ function QuestionsQuizSidebarQuestionListImpl({
     }));
   }
 
-  const questionSlug = segment;
+  const questionSlug = (hash || segment || '').replace(/#/g, '');
 
   const currentQuestionHash = questionSlug
     ? hashQuestion({
@@ -88,14 +91,14 @@ function QuestionsQuizSidebarQuestionListImpl({
     initialListType.value !== currentListType.value;
 
   return (
-    <div className={clsx('flex flex-col', 'w-full')}>
+    <div className={clsx('flex flex-col gap-4', 'w-full')}>
       <div className={clsx('px-6 py-2', ['border-b', themeBorderColor])}>
         <InterviewsQuestionsListSlideOutSwitcher
           listType={currentListType}
           onChangeListType={setCurrentListType}
         />
       </div>
-      <div className="h-0 grow pt-4">
+      <div className="h-0 grow">
         <InterviewsQuestionsListSlideOutContents
           key={filterNamespace}
           currentQuestionHash={currentQuestionHash}

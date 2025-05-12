@@ -170,7 +170,7 @@ export type InterviewsQuestionItemMinimal = Readonly<{
   metadata: InterviewsQuestionMetadata;
 }>;
 
-type InterviewsQuestionItem = InterviewsQuestionItemMinimal &
+export type InterviewsQuestionItem = InterviewsQuestionItemMinimal &
   Readonly<{
     description: string | null;
     solution: string | null;
