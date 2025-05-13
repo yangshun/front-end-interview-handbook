@@ -85,14 +85,37 @@ export function questionHrefWithListType(
     urlObject.searchParams.set('title', listType.title);
   }
 
+  // Special URLs for quiz questions that support scrolling mode
   if (questionMetadata?.format === 'quiz') {
     switch (listType.type) {
-      case 'framework':
+      case 'framework': {
+        switch (listType.value) {
+          case 'react':
+            return (
+              `/questions/quiz/react-interview-questions` +
+              urlObject.search +
+              `#${questionMetadata.slug}`
+            );
+        }
+        break;
+      }
       case 'language': {
         switch (listType.value) {
           case 'js':
             return (
               `/questions/quiz/javascript-interview-questions` +
+              urlObject.search +
+              `#${questionMetadata.slug}`
+            );
+          case 'html':
+            return (
+              `/questions/quiz/html-interview-questions` +
+              urlObject.search +
+              `#${questionMetadata.slug}`
+            );
+          case 'css':
+            return (
+              `/questions/quiz/css-interview-questions` +
               urlObject.search +
               `#${questionMetadata.slug}`
             );

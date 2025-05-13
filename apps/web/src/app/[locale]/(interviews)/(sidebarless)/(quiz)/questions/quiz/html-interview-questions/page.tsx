@@ -14,7 +14,7 @@ type Props = Readonly<{
 const listType: QuestionListTypeData = {
   tab: 'quiz',
   type: 'language',
-  value: 'js',
+  value: 'html',
 };
 
 export default async function Page({ params }: Props) {

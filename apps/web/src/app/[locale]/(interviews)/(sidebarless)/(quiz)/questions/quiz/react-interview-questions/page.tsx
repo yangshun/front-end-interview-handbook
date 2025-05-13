@@ -13,8 +13,8 @@ type Props = Readonly<{
 
 const listType: QuestionListTypeData = {
   tab: 'quiz',
-  type: 'language',
-  value: 'js',
+  type: 'framework',
+  value: 'react',
 };
 
 export default async function Page({ params }: Props) {
