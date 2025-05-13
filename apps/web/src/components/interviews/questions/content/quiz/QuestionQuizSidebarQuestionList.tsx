@@ -4,7 +4,10 @@ import { Suspense, useState } from 'react';
 
 import useHashChange from '~/hooks/useHashChange';
 
-import { questionListFilterNamespace } from '~/components/interviews/questions/common/QuestionHrefUtils';
+import {
+  questionListFilterNamespace,
+  QuestionListTypeDefault,
+} from '~/components/interviews/questions/common/QuestionHrefUtils';
 import InterviewsQuestionsListSlideOutSwitcher from '~/components/interviews/questions/listings/slideout/InterviewsQuestionsListSlideOutSwitcher';
 import {
   useQuestionsListDataForType,
@@ -14,24 +17,34 @@ import { themeBorderColor } from '~/components/ui/theme';
 
 import { hashQuestion } from '~/db/QuestionsUtils';
 
+import type { QuestionListTypeData } from '../../common/QuestionsTypes';
 import InterviewsQuestionsListSlideOutContents from '../../listings/slideout/InterviewsQuestionsListSlideOutContents';
 import type { QuestionListTypeWithLabel } from '../../listings/slideout/InterviewsQuestionsListSlideOutSwitcher';
 
-export default function QuestionQuizSidebarQuestionList() {
+type Props = Readonly<{
+  initialListType?: QuestionListTypeData;
+}>;
+
+export default function QuestionQuizSidebarQuestionList(props: Props) {
   // Because useQuestionsListTypeCurrent() uses useSearchParams()
   // Because of nuqs
   return (
     <Suspense>
-      <QuestionQuizSidebarQuestionListLoader />
+      <QuestionQuizSidebarQuestionListLoader {...props} />
     </Suspense>
   );
 }
 
-function QuestionQuizSidebarQuestionListLoader() {
+function QuestionQuizSidebarQuestionListLoader({
+  initialListType: initialListTypeParam,
+}: Props) {
   const studyListKey = undefined;
   const framework = undefined;
 
-  const listType = useQuestionsListTypeCurrent(studyListKey, framework);
+  const listType =
+    useQuestionsListTypeCurrent(studyListKey, framework) ??
+    initialListTypeParam ??
+    QuestionListTypeDefault;
   const { isLoading, data } = useQuestionsListDataForType(listType);
 
   const hidden = isLoading || data == null;

@@ -11,12 +11,17 @@ import { themeBorderColor } from '~/components/ui/theme';
 
 import QuestionsQuizSidebarQuestionList from './QuestionQuizSidebarQuestionList';
 import useQuestionsQuizSidebarExpanded from './useQuestionsQuizSidebarExpanded';
+import type { QuestionListTypeData } from '../../common/QuestionsTypes';
 
 type Props = Readonly<{
   children: React.ReactNode;
+  initialListType?: QuestionListTypeData;
 }>;
 
-export default function QuestionsQuizContentLayout({ children }: Props) {
+export default function QuestionsQuizContentLayout({
+  children,
+  initialListType,
+}: Props) {
   const [questionsQuizSidebarExpanded] = useQuestionsQuizSidebarExpanded();
   const pathname = usePathname();
 
@@ -36,7 +41,9 @@ export default function QuestionsQuizContentLayout({ children }: Props) {
                 'border-r',
                 themeBorderColor,
               ])}>
-              <QuestionsQuizSidebarQuestionList />
+              <QuestionsQuizSidebarQuestionList
+                initialListType={initialListType}
+              />
             </div>
           </Section>
         )}

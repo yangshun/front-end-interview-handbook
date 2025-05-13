@@ -4,11 +4,15 @@ import clsx from 'clsx';
 import { Suspense } from 'react';
 import { RiArrowLeftSLine, RiArrowRightSLine } from 'react-icons/ri';
 
-import { questionHrefFrameworkSpecificAndListType } from '~/components/interviews/questions/common/QuestionHrefUtils';
+import {
+  questionHrefFrameworkSpecificAndListType,
+  QuestionListTypeDefault,
+} from '~/components/interviews/questions/common/QuestionHrefUtils';
 import type {
   InterviewsQuestionItemWithCompletedStatus,
   QuestionFramework,
   QuestionHash,
+  QuestionListTypeData,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import useQuestionCodingSorting from '~/components/interviews/questions/listings/filters/hooks/useQuestionCodingSorting';
 import useQuestionUnifiedFilters from '~/components/interviews/questions/listings/filters/hooks/useQuestionUnifiedFilters';
@@ -32,6 +36,7 @@ import type { QuestionListTypeWithLabel } from './InterviewsQuestionsListSlideOu
 type Props = Readonly<{
   currentQuestionHash: QuestionHash;
   framework?: QuestionFramework;
+  initialListType?: QuestionListTypeData;
   listIsShownInSidebarOnDesktop: boolean;
   slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE: string;
   studyListKey?: string;
@@ -48,11 +53,15 @@ export default function InterviewsQuestionsListSlideOutButton(props: Props) {
 function InterviewsQuestionsListSlideOutButtonWithLoader({
   framework,
   currentQuestionHash,
+  initialListType,
   listIsShownInSidebarOnDesktop,
   slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE,
   studyListKey,
 }: Props) {
-  const listType = useQuestionsListTypeCurrent(studyListKey, framework);
+  const listType =
+    useQuestionsListTypeCurrent(studyListKey, framework) ??
+    initialListType ??
+    QuestionListTypeDefault;
   const { isLoading, data } = useQuestionsListDataForType(listType);
 
   const questionsWithCompletionStatus = useQuestionsWithCompletionStatus(

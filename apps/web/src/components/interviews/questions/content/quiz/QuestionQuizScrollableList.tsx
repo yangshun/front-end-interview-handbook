@@ -13,6 +13,7 @@ import type {
   QuestionListTypeData,
   QuestionQuiz,
 } from '~/components/interviews/questions/common/QuestionsTypes';
+import QuestionsQuizContentLayout from '~/components/interviews/questions/content/quiz/QuestionsQuizContentLayout';
 import useQuestionCodingSorting from '~/components/interviews/questions/listings/filters/hooks/useQuestionCodingSorting';
 import useQuestionUnifiedFilters from '~/components/interviews/questions/listings/filters/hooks/useQuestionUnifiedFilters';
 import {
@@ -105,38 +106,43 @@ export default function QuestionQuizScrollableList({
   }, 250);
 
   return (
-    <div
-      className={clsx(
-        'flex flex-col',
-        'min-h-[calc(100vh_-_var(--global-sticky-height))]',
-      )}>
-      <Container
+    <QuestionsQuizContentLayout initialListType={listType}>
+      <div
         className={clsx(
-          'h-full grow overflow-y-hidden',
-          'py-6 lg:py-8 xl:py-12',
-        )}
-        width="4xl">
-        <WindowVirtualizer
-          ref={virtuaContainerRef}
-          ssrCount={questions.length}
-          onScroll={() => {}}>
-          {questions.map((question, index) => (
-            <div key={question.metadata.slug}>
-              <QuestionQuizScrollableListItem
-                question={question}
-                onEnterViewport={() => {
-                  debouncedHashChange(question.metadata.slug);
-                }}
-              />
-              {index !== questions.length - 1 && <Divider className="my-16" />}
-            </div>
-          ))}
-        </WindowVirtualizer>
-      </Container>
-      <InterviewsStudyListBottomBar
-        listIsShownInSidebarOnDesktop={true}
-        metadata={currentQuestion.metadata}
-      />
-    </div>
+          'flex flex-col',
+          'min-h-[calc(100vh_-_var(--global-sticky-height))]',
+        )}>
+        <Container
+          className={clsx(
+            'h-full grow overflow-y-hidden',
+            'py-6 lg:py-8 xl:py-12',
+          )}
+          width="4xl">
+          <WindowVirtualizer
+            ref={virtuaContainerRef}
+            ssrCount={questions.length}
+            onScroll={() => {}}>
+            {questions.map((question, index) => (
+              <div key={question.metadata.slug}>
+                <QuestionQuizScrollableListItem
+                  question={question}
+                  onEnterViewport={() => {
+                    debouncedHashChange(question.metadata.slug);
+                  }}
+                />
+                {index !== questions.length - 1 && (
+                  <Divider className="my-16" />
+                )}
+              </div>
+            ))}
+          </WindowVirtualizer>
+        </Container>
+        <InterviewsStudyListBottomBar
+          initialListType={listType}
+          listIsShownInSidebarOnDesktop={true}
+          metadata={currentQuestion.metadata}
+        />
+      </div>
+    </QuestionsQuizContentLayout>
   );
 }

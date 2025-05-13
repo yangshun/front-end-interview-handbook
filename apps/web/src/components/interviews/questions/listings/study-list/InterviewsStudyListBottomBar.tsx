@@ -10,8 +10,11 @@ import { themeBackgroundColor, themeBorderColor } from '~/components/ui/theme';
 
 import { hashQuestion } from '~/db/QuestionsUtils';
 
+import type { QuestionListTypeData } from '../../common/QuestionsTypes';
+
 type Props = Readonly<{
   allowMarkComplete?: boolean;
+  initialListType?: QuestionListTypeData;
   listIsShownInSidebarOnDesktop: boolean;
   metadata: React.ComponentProps<typeof QuestionProgressAction>['metadata'];
   studyListKey?: string;
@@ -19,6 +22,7 @@ type Props = Readonly<{
 
 export default function InterviewsStudyListBottomBar({
   allowMarkComplete = true,
+  initialListType,
   metadata,
   listIsShownInSidebarOnDesktop,
   studyListKey,
@@ -35,6 +39,7 @@ export default function InterviewsStudyListBottomBar({
         <Suspense>
           <InterviewsQuestionsListSlideOutButton
             currentQuestionHash={hashQuestion(metadata)}
+            initialListType={initialListType}
             listIsShownInSidebarOnDesktop={listIsShownInSidebarOnDesktop}
             slideOutSearchParam_MUST_BE_UNIQUE_ON_PAGE="qns_slideout"
             studyListKey={studyListKey}

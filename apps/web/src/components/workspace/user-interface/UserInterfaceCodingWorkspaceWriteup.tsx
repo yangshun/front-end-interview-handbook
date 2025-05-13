@@ -3,7 +3,10 @@ import { RiArrowRightUpLine } from 'react-icons/ri';
 
 import { useQuestionFrameworksData } from '~/data/QuestionCategories';
 
-import { questionHrefFrameworkSpecificAndListType } from '~/components/interviews/questions/common/QuestionHrefUtils';
+import {
+  questionHrefFrameworkSpecificAndListType,
+  QuestionListTypeDefault,
+} from '~/components/interviews/questions/common/QuestionHrefUtils';
 import type {
   InterviewsQuestionInfo,
   InterviewsQuestionItemMinimal,
@@ -71,7 +74,9 @@ export default function UserInterfaceCodingWorkspaceWriteup({
   info,
 }: Props) {
   const copyRef = useQuestionLogEventCopyContents<HTMLDivElement>();
-  const listType = useQuestionsListTypeCurrent(studyListKey, framework);
+  const listType =
+    useQuestionsListTypeCurrent(studyListKey, framework) ??
+    QuestionListTypeDefault;
   const { data } = useQueryQuestionProgress(metadata, studyListKey ?? null);
   const { save } = useUserInterfaceCodingWorkspaceSavesContext();
   const intl = useIntl();

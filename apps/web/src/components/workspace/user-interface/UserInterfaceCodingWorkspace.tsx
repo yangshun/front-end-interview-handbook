@@ -5,7 +5,10 @@ import { useCallback, useEffect, useState } from 'react';
 import { RiCodeLine } from 'react-icons/ri';
 
 import InterviewsPremiumBadge from '~/components/interviews/common/InterviewsPremiumBadge';
-import { questionHrefWithListType } from '~/components/interviews/questions/common/QuestionHrefUtils';
+import {
+  questionHrefWithListType,
+  QuestionListTypeDefault,
+} from '~/components/interviews/questions/common/QuestionHrefUtils';
 import type {
   InterviewsQuestionItemMinimal,
   InterviewsQuestionItemUserInterface,
@@ -665,7 +668,9 @@ export default function UserInterfaceCodingWorkspace({
   const { activeFile, visibleFiles } = sandpack;
   const { metadata, framework } = question;
 
-  const listType = useQuestionsListTypeCurrent(studyListKey, framework);
+  const listType =
+    useQuestionsListTypeCurrent(studyListKey, framework) ??
+    QuestionListTypeDefault;
   const frameworkSolutionPath = questionHrefWithListType(
     questionUserInterfaceSolutionPath(metadata, framework),
     listType,

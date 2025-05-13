@@ -1,6 +1,9 @@
 'use client';
 
-import { questionHrefWithListType } from '~/components/interviews/questions/common/QuestionHrefUtils';
+import {
+  questionHrefWithListType,
+  QuestionListTypeDefault,
+} from '~/components/interviews/questions/common/QuestionHrefUtils';
 import type {
   InterviewsQuestionItemMinimal,
   InterviewsQuestionItemUserInterface,
@@ -36,7 +39,8 @@ export default function UserInterfaceCodingWorkspacePage({
     question: { metadata },
   } = props;
 
-  const listType = useQuestionsListTypeCurrent(studyListKey);
+  const listType =
+    useQuestionsListTypeCurrent(studyListKey) ?? QuestionListTypeDefault;
 
   return (
     <UserInterfaceCodingWorkspaceSection
