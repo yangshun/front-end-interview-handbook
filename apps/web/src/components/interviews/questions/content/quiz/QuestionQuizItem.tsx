@@ -6,6 +6,7 @@ import type { ForwardedRef } from 'react';
 import { forwardRef, useId, useMemo } from 'react';
 import { RiEditBoxLine } from 'react-icons/ri';
 
+import QuestionReportIssueButton from '~/components/interviews/questions/common/QuestionReportIssueButton';
 import QuestionMetadataSection from '~/components/interviews/questions/metadata/QuestionMetadataSection';
 import { FormattedMessage, useIntl } from '~/components/intl';
 import MDXCodeBlock from '~/components/mdx/MDXCodeBlock';
@@ -83,7 +84,14 @@ function QuestionQuizItem({ question }: Props, ref: ForwardedRef<HTMLElement>) {
               elements={['importance', 'difficulty', 'topics']}
               metadata={question.metadata}
             />
-            <GitHubEditButton question={question} />
+            <div className="flex gap-2">
+              <QuestionReportIssueButton
+                entity="question"
+                format={question.metadata.format}
+                slug={question.metadata.slug}
+              />
+              <GitHubEditButton question={question} />
+            </div>
           </div>
         </header>
         <Divider className="my-8" />
