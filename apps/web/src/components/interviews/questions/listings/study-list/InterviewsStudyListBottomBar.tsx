@@ -6,15 +6,9 @@ import { Suspense } from 'react';
 import QuestionProgressAction from '~/components/interviews/questions/common/QuestionProgressAction';
 import QuestionReportIssueButton from '~/components/interviews/questions/common/QuestionReportIssueButton';
 import InterviewsQuestionsListSlideOutButton from '~/components/interviews/questions/listings/slideout/InterviewsQuestionsListSlideOutButton';
-import {
-  themeBackgroundDarkColor,
-  themeBorderColor,
-} from '~/components/ui/theme';
+import { themeBackgroundColor, themeBorderColor } from '~/components/ui/theme';
 
-import { useQueryQuestionProgress } from '~/db/QuestionsProgressClient';
 import { hashQuestion } from '~/db/QuestionsUtils';
-
-import { useUser } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
   allowMarkComplete?: boolean;
@@ -29,19 +23,13 @@ export default function InterviewsStudyListBottomBar({
   listIsShownInSidebarOnDesktop,
   studyListKey,
 }: Props) {
-  const user = useUser();
-  const { isLoading } = useQueryQuestionProgress(
-    metadata,
-    studyListKey ?? null,
-  );
-
   return (
     <div
       className={clsx(
         'sticky inset-x-0 bottom-0',
         'flex items-center justify-between gap-2 px-3 py-3',
         ['border-t', themeBorderColor],
-        themeBackgroundDarkColor,
+        themeBackgroundColor,
       )}>
       <div className="flex shrink-0 justify-center sm:order-2 sm:flex-1">
         <Suspense>
@@ -60,12 +48,7 @@ export default function InterviewsStudyListBottomBar({
           slug={metadata.slug}
         />
       </div>
-      <div
-        className={clsx(
-          'flex justify-end sm:order-3 sm:flex-1',
-          'transition-colors',
-          isLoading && user != null ? 'opacity-0' : 'opacity-100',
-        )}>
+      <div className={clsx('flex justify-end sm:order-3 sm:flex-1')}>
         <QuestionReportIssueButton
           className="mr-2 sm:hidden"
           entity="question"
