@@ -7,14 +7,13 @@ import { redditPermalinkToAPIUrl } from '~/components/posts/utils';
 import {
   createRedditPost,
   getAccessToken,
-  getPostsFromReddit,
   replyToRedditPost,
 } from '~/db/RedditUtils';
 import { decryptPassword } from '~/db/utils';
 import { ActivityAction, PostRelevancy } from '~/prisma/client';
-import { sendGoogleChatMessage } from '~/server/utils/googleChat';
 
 import prisma from '../prisma';
+import { fetchPostsFromPlatform } from '../services/getPostsFromPlatform';
 import { router, userProcedure } from '../trpc';
 import AIProvider from '../../providers/AIProvider';
 import type { Comments } from '../../types';
@@ -119,7 +118,7 @@ export const socialPostsRouter = router({
       // Because the 2nd item in the response is always the comments
       return {
         comments: comments as Comments,
-        post: createRedditPost({
+        post: await createRedditPost({
           matchedKeywords: [],
           post: post.data.children[0].data,
         }),
@@ -223,67 +222,7 @@ export const socialPostsRouter = router({
       }),
     )
     .query(async ({ input: { projectSlug } }) => {
-      const project = await prisma.project.findUnique({
-        select: {
-          id: true,
-          keywords: true,
-          name: true,
-          postFilteringPrompt: true,
-          subreddits: true,
-        },
-        where: {
-          slug: projectSlug,
-        },
-      });
-
-      if (!project) {
-        throw new TRPCError({
-          code: 'BAD_REQUEST',
-          message: 'Project not found!',
-        });
-      }
-
-      const postsFromReddit = await getPostsFromReddit({
-        keywords: project.keywords,
-        postFilteringPrompt: project.postFilteringPrompt,
-        subreddits: project.subreddits,
-      });
-
-      const postsFromRedditWithProjectId = postsFromReddit.map((post) => ({
-        ...post,
-        projectId: project.id,
-      }));
-
-      const result = await prisma.$transaction([
-        // Add it to the db
-        prisma.redditPost.createMany({
-          data: postsFromRedditWithProjectId,
-          skipDuplicates: true,
-        }),
-        // Update last posts fetch time
-        prisma.project.update({
-          data: {
-            postsLastFetchedAt: new Date(),
-          },
-          where: {
-            id: project.id,
-          },
-        }),
-      ]);
-
-      const insertResult = result[0];
-      const insertedNewPosts = insertResult.count;
-      const newPostsFetched = insertedNewPosts > 0;
-
-      if (newPostsFetched) {
-        await sendGoogleChatMessage({
-          numPostsFetched: postsFromReddit.length,
-          projectName: project.name,
-          subreddits: project.subreddits,
-        });
-      }
-
-      return result;
+      return await fetchPostsFromPlatform(projectSlug);
     }),
   markPostRelevancy: userProcedure
     .input(

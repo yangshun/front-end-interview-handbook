@@ -7,7 +7,10 @@ import Snoowrap from 'snoowrap';
 import type { RedditPost } from '~/prisma/client';
 import AIProvider from '~/providers/AIProvider';
 
-export function initializeRedditClient(username?: string, password?: string) {
+export async function initializeRedditClient(
+  username?: string,
+  password?: string,
+) {
   return new Snoowrap({
     clientId: process.env.REDDIT_CLIENT_ID as string,
     clientSecret: process.env.REDDIT_CLIENT_SECRET as string,
@@ -17,15 +20,17 @@ export function initializeRedditClient(username?: string, password?: string) {
   });
 }
 
-export function createRedditPost({
+export async function createRedditPost({
   matchedKeywords,
   post,
 }: {
   matchedKeywords: Array<string>;
   post: Submission;
-}): Omit<
-  RedditPost,
-  'createdAt' | 'id' | 'projectId' | 'relevancy' | 'response' | 'updatedAt'
+}): Promise<
+  Omit<
+    RedditPost,
+    'createdAt' | 'id' | 'projectId' | 'relevancy' | 'response' | 'updatedAt'
+  >
 > {
   return {
     commentsCount: post.num_comments,
@@ -55,7 +60,7 @@ export async function getPostsFromReddit({
     post: Submission;
   }> = [];
 
-  const snoowrap = initializeRedditClient();
+  const snoowrap = await initializeRedditClient();
   const aiProvider = new AIProvider();
 
   // Loop through each subreddit
@@ -118,7 +123,9 @@ export async function getPostsFromReddit({
     });
   }
 
-  return relevantSubmissions.map((submission) => createRedditPost(submission));
+  return relevantSubmissions.map(
+    async (submission) => await createRedditPost(submission),
+  );
 }
 
 export async function replyToRedditPost({
@@ -131,7 +138,7 @@ export async function replyToRedditPost({
   user: Readonly<{ password: string; username: string }>;
 }) {
   const { username, password } = user;
-  const snoowrap = initializeRedditClient(username, password);
+  const snoowrap = await initializeRedditClient(username, password);
 
   // TODO(socialmon): Figure out how to add type here.
   let finalResponse: any = null;

@@ -1,5 +1,12 @@
 {
   "github": {
     "silent": true
-  }
+  },
+  "cron": [
+    {
+      "path": "/api/reddit/crawl",
+      "schedule": "0 9-18 * * *",
+      "timezone": "Asia/Singapore"
+    }
+  ]
 }
