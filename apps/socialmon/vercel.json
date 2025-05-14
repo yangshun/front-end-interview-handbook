@@ -2,7 +2,7 @@
   "github": {
     "silent": true
   },
-  "cron": [
+  "crons": [
     {
       "path": "/api/reddit/crawl",
       "schedule": "0 9-18 * * *",
