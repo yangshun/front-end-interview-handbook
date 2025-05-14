@@ -4,6 +4,8 @@ import prisma from '../prisma';
 import { sendGoogleChatMessage } from '../utils/googleChat';
 
 export async function fetchPostsFromPlatform(projectSlug: string) {
+  const fetchStartTime = new Date(); // Record the fetch start time before fetching posts
+
   const project = await prisma.project.findUnique({
     select: {
       id: true,
@@ -56,8 +58,35 @@ export async function fetchPostsFromPlatform(projectSlug: string) {
   const newPostsFetched = insertedNewPosts > 0;
 
   if (newPostsFetched) {
+    // Fetch only the successfully inserted posts
+    const newPosts = await prisma.redditPost.findMany({
+      where: {
+        createdAt: {
+          gte: fetchStartTime, // Use the recorded fetch start time
+        },
+        projectId: project.id,
+      },
+    });
+
+    // Accumulate links and subreddits for all posts
+    const postLinks = newPosts.map((post) => {
+      const triggeringKeyword = project.keywords.find(
+        (keyword) =>
+          post.title.includes(keyword) || post.content.includes(keyword),
+      );
+
+      const postLink = `https://socialmon.vercel.app/projects/${projectSlug}/posts/${post.id}`;
+
+      return `Link: ${postLink} | Subreddit: ${
+        post.subreddit
+      } | Triggered by keyword: ${triggeringKeyword || 'N/A'}`;
+    });
+
+    // Send a single message with all links
     await sendGoogleChatMessage({
-      numPostsFetched: insertedNewPosts,
+      additionalInfo: `Fetched ${newPosts.length} new posts:\n${postLinks.join(
+        '\n',
+      )}`,
       projectName: project.name,
       subreddits: project.subreddits,
     });

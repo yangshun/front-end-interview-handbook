@@ -1,9 +1,9 @@
 export async function sendGoogleChatMessage({
   projectName,
-  numPostsFetched,
+  additionalInfo,
   subreddits,
 }: {
-  numPostsFetched: number;
+  additionalInfo: string;
   projectName: string;
   subreddits: Array<string>;
 }) {
@@ -16,12 +16,12 @@ export async function sendGoogleChatMessage({
   }
 
   const message = {
-    text: `📢 *Reddit Fetch Completed*
+    text: `📢 *Reddit fetch completed*
 
-    *Project:* ${projectName}
-    *New Posts Fetched:* ${numPostsFetched}
-    *Subreddits Searched:* ${subreddits.join(', ')}
-    *Time:* ${new Date().toLocaleString()}`,
+*Project:* ${projectName}
+*Additional info:* ${additionalInfo}
+*Subreddits searched:* ${subreddits.join(', ')}
+*Time:* ${new Date().toLocaleString()}`,
   };
 
   try {
